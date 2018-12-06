@@ -1,6 +1,6 @@
 {
   "name": "primevue",
-  "version": "0.0.1",
+  "version": "1.0.0-beta.1-SNAPSHOT",
   "scripts": {
     "serve": "vue-cli-service serve",
     "build": "vue-cli-service build",
@@ -22,6 +22,8 @@
     "eslint-plugin-vue": "^5.0.0-0",
     "node-sass": "^4.9.0",
     "sass-loader": "^7.0.1",
-    "vue-template-compiler": "^2.5.17"
+    "vue-template-compiler": "^2.5.17",
+    "primeicons": "1.0.0",
+    "primeflex": "1.0.0-rc.1"
   }
 }
