@@ -15,6 +15,11 @@ export default new Router({
       path: '/about',
       name: 'about',
       component: () => import('./views/About.vue')
-    }
+    },
+    {
+        path: '/inputtext',
+        name: 'inputtext',
+        component: () => import('./views/inputtext/InputTextDemo.vue')
+      }
   ]
 });
