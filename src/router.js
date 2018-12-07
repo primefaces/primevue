@@ -20,6 +20,11 @@ export default new Router({
         path: '/inputtext',
         name: 'inputtext',
         component: () => import('./views/inputtext/InputTextDemo.vue')
-      }
+    },
+    {
+        path: '/button',
+        name: 'button',
+        component: () => import('./views/button/ButtonDemo.vue')
+    }
   ]
 });

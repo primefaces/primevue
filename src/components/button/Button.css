@@ -1,0 +1,111 @@
+/* Button */
+.p-button {
+    display: inline-block;
+    position: relative;
+    padding: 0;
+    text-decoration: none !important;
+    cursor: pointer;
+    text-align: center;
+    zoom: 1;
+    overflow: visible; /* the overflow property removes extra width in IE */
+    margin-right: 0.25em;
+    user-select: none;
+    -moz-user-select: none;
+    -webkit-user-select: none;
+}
+
+/*button text element */
+.p-button .p-button-text {
+    display: block;
+    line-height: normal;
+}
+
+.p-button-text-only .p-button-text {
+    padding: .25em 1em;
+}
+
+.p-button-icon-only .p-button-text,
+.p-button-text-empty .p-button-text {
+    padding: .25em;
+    text-indent: -9999999px;
+}
+
+.p-button-text-icon-left .p-button-text {
+    padding: .25em 1em .25em 2.1em;
+}
+
+.p-button-text-icon-right .p-button-text {
+    padding: .25em 2.1em .25em 1em;
+}
+
+/*button icon element(s) */
+.p-button-icon-only .p-button-icon-left,
+.p-button-text-icon-left .p-button-icon-left,
+.p-button-text-icon-right .p-button-icon-right {
+    position: absolute;
+    top: 50%;
+    margin-top: -.5em;
+    height: 1em;
+}
+
+.p-button-icon-only .p-button-icon-left {
+    top: 50%;
+    left: 50%;
+    margin-top: -.5em;
+    margin-left: -.5em;
+    width: 1em;
+    height: 1em;
+}
+
+.p-button-icon-left {
+    left: .5em;
+}
+
+.p-button-icon-right {
+    right: .5em;
+}
+
+/*button sets*/
+.p-buttonset .p-button {
+    margin-left: 0;
+    margin-right: 0;
+}
+
+/* workarounds */
+button.p-button::-moz-focus-inner {
+    border: 0; padding: 0; /* reset extra padding in Firefox */
+}
+
+/** Fluid **/
+.p-fluid .p-button {
+    width: 100%;
+}
+
+.p-fluid .p-button-text-icon-left .p-button-text,
+.p-fluid .p-button-text-icon-right .p-button-text {
+    padding-left: 1em;
+    padding-right: 1em;
+}
+
+/** ButtonSet **/
+.p-fluid .p-buttonset {
+    width: 100%;
+}
+
+.p-fluid .p-buttonset.p-buttonset-1 .p-button {width: 100%;}
+.p-fluid .p-buttonset.p-buttonset-2 .p-button {width: 50%;}
+.p-fluid .p-buttonset.p-buttonset-3 .p-button {width: 33.3%;}
+.p-fluid .p-buttonset.p-buttonset-4 .p-button {width: 25%;}
+.p-fluid .p-buttonset.p-buttonset-5 .p-button {width: 20%;}
+.p-fluid .p-buttonset.p-buttonset-6 .p-button {width: 16.6%;}
+
+@media (max-width: 640px) {
+    .p-fluid .p-buttonset.p-buttonset-1 .p-button,
+    .p-fluid .p-buttonset.p-buttonset-2 .p-button,
+    .p-fluid .p-buttonset.p-buttonset-3 .p-button,
+    .p-fluid .p-buttonset.p-buttonset-4 .p-button,
+    .p-fluid .p-buttonset.p-buttonset-5 .p-button,
+    .p-fluid .p-buttonset.p-buttonset-6 .p-button {
+        width: 100%;
+    }
+}
