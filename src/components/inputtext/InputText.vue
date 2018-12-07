@@ -1,5 +1,6 @@
 <template>
-    <input class="p-inputtext p-component" v-on="listeners" :value="value" />
+    <input :class="{'p-inputtext p-component':true, 'p-filled': filled}" 
+    v-on="listeners" :value="value" />
 </template>
 
 <script>
@@ -13,6 +14,9 @@ export default {
                 ...this.$listeners,
                 input: event => this.$emit('input', event.target.value)
             };
+        },
+        filled() {
+            return (this.value != null && this.value.toString().length > 0)
         }
     }
 }
