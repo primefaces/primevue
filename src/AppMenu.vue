@@ -9,6 +9,7 @@
             <div :class="{'submenuhide': activeMenuIndex !== 0, 'submenushow': activeMenuIndex === 0}">
                 <div>
                     <router-link to="/inputtext">&#9679; InputText</router-link>
+                    <router-link to="/listbox">&#9679; ListBox</router-link>
                 </div>
             </div>
 

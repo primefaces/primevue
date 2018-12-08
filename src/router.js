@@ -22,6 +22,11 @@ export default new Router({
         component: () => import('./views/inputtext/InputTextDemo.vue')
     },
     {
+        path: '/listbox',
+        name: 'listbox',
+        component: () => import('./views/listbox/ListBoxDemo.vue')
+    },
+    {
         path: '/button',
         name: 'button',
         component: () => import('./views/button/ButtonDemo.vue')
