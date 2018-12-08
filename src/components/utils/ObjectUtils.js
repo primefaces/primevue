@@ -55,7 +55,7 @@ export default class ObjectUtils {
         }
 
         return a !== a && b !== b;
-    };
+    }
     
     static resolveFieldData(data, field) {
         if(data && field) {
