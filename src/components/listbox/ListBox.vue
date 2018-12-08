@@ -166,7 +166,7 @@ export default {
             switch (event.which) {
                 //up arrow
                 case 40:
-                    let nextItem = this.findNextItem(item);
+                    var nextItem = this.findNextItem(item);
                     if(nextItem) {
                         nextItem.focus();
                     }
@@ -176,7 +176,7 @@ export default {
 
                 //down arrow
                 case 38:
-                    let prevItem = this.findPrevItem(item);
+                    var prevItem = this.findPrevItem(item);
                     if(prevItem) {
                         prevItem.focus();
                     }
