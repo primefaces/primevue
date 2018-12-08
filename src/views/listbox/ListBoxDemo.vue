@@ -9,14 +9,14 @@
 
         <div class="content-section implementation">
             <h3 class="first">Single</h3>
-            <p-listBox v-model="selectedCity" :options="cities" optionLabel="name" />{{selectedCity}}
+            <p-listBox v-model="selectedCity" :options="cities" optionLabel="name" />
 
             <h3>Multiple</h3>
             <p-listBox :multiple="true" v-model="selectedCities" :options="cities" optionLabel="name" />
 
             <h3>Advanced with Templating and Filtering</h3>
-            <p-listBox v-model="selectedCar" :options="cars" listStyle="max-height:250px" style="width:15em">
-                <template slot-scope="{option, index}">
+            <p-listBox v-model="selectedCar" :options="cars" :filter="true" optionLabel="brand" listStyle="max-height:250px" style="width:15em">
+                <template slot-scope="{option}">
                     <div className="p-clearfix">
                         <img :alt="option.brand" :src="'/demo/images/car/' + option.brand + '.png'" style="display:inline-block;margin:5px 0 0 5px;width:48px" />
                         <span style="float:right;margin:1.25em .5em 0 0">{{option.brand}}</span>
