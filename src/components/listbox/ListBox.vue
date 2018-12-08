@@ -8,8 +8,8 @@
         </div>
         <div class="p-listbox-list-wrapper" :style="listStyle">
             <ul class="p-listbox-list">
-                <li v-for="(option, i) of visibleOptions" tabindex="0" :class="['p-listbox-item', {'p-highlight': isSelected(option)}]" 
-                    :key="getOptionLabel(option)" @click="onOptionClick($event, option)" @touchend="onOptionTouchEnd()">
+                <li v-for="(option, i) of visibleOptions" tabindex="0" :class="['p-listbox-item', {'p-highlight': isSelected(option)}]" :aria-label="getOptionLabel(option)"
+                    :key="getOptionLabel(option)" @click="onOptionSelect($event, option)" @touchend="onOptionTouchEnd()" @keydown="onOptionKeyDown($event, option)">
                     <slot :option="option" :index="i">  
                         {{getOptionLabel(option)}}
                     </slot>
@@ -21,6 +21,7 @@
 
 <script>
 import ObjectUtils from '../utils/ObjectUtils';
+import DomHandler from '../utils/DomHandler';
 
 export default {
     props: {
@@ -48,15 +49,15 @@ export default {
         getOptionValue(option) {
             return this.optionValue ? ObjectUtils.resolveFieldData(option, this.optionValue) : option;
         },
-        onOptionClick(event, option) {
+        onOptionSelect(event, option) {
             if (this.disabled) {
                 return;
             }
             
             if(this.multiple)
-                this.onOptionClickMultiple(event, option);
+                this.onOptionSelectMultiple(event, option);
             else
-                this.onOptionClickSingle(event, option);
+                this.onOptionSelectSingle(event, option);
                 
             this.optionTouched = false;
         },
@@ -67,7 +68,7 @@ export default {
         
             this.optionTouched = true;
         },
-        onOptionClickSingle(event, option) {
+        onOptionSelectSingle(event, option) {
             let selected = this.isSelected(option);
             let valueChanged = false;
             let value = null;
@@ -96,7 +97,7 @@ export default {
                 this.updateModel(event, value);
             }
         },
-        onOptionClickMultiple(event, option) {        
+        onOptionSelectMultiple(event, option) {        
             let selected = this.isSelected(option);
             let valueChanged = false;
             let value = null;
@@ -158,7 +159,54 @@ export default {
         updateModel(event, value) {
             this.$emit('input', value);
             this.$emit('change', {originalEvent: event, value: value});
-        }
+        },
+        onOptionKeyDown(event, option) {
+            let item = event.currentTarget;
+
+            switch (event.which) {
+                //up arrow
+                case 40:
+                    let nextItem = this.findNextItem(item);
+                    if(nextItem) {
+                        nextItem.focus();
+                    }
+                    
+                    event.preventDefault();
+                break;
+
+                //down arrow
+                case 38:
+                    let prevItem = this.findPrevItem(item);
+                    if(prevItem) {
+                        prevItem.focus();
+                    }
+                    
+                    event.preventDefault();
+                break;
+
+                //enter
+                case 13:
+                    this.onOptionSelect(event, option);
+                    event.preventDefault();
+                break;
+            }
+        },
+        findNextItem(item) {
+            let nextItem = item.nextElementSibling;
+
+            if (nextItem)
+                return DomHandler.hasClass(nextItem, 'p-disabled') ? this.findNextOption(nextItem) : nextItem;
+            else
+                return null;
+        },
+        findPrevItem(item) {
+            let prevItem = item.previousElementSibling;
+            
+            if (prevItem)
+                return DomHandler.hasClass(prevItem, 'p-disabled') ? this.findPrevItem(prevItem) : prevItem;
+            else
+                return null;
+        } 
     },
     computed: {
         visibleOptions() {
