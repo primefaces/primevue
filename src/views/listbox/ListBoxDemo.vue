@@ -11,11 +11,8 @@
             <h3 class="first">Single</h3>
             <p-listBox v-model="selectedCity" :options="cities" optionLabel="name" />
 
-            <h3>Multiple</h3>
-            <p-listBox :multiple="true" v-model="selectedCities" :options="cities" optionLabel="name" />
-
-            <h3>Advanced with Templating and Filtering</h3>
-            <p-listBox v-model="selectedCar" :options="cars" :filter="true" optionLabel="brand" listStyle="max-height:250px" style="width:15em">
+            <h3>Advanced with Templating, Filtering and Multiple Selection</h3>
+            <p-listBox v-model="selectedCars" :options="cars" :multiple="true" :filter="true" optionLabel="brand" listStyle="max-height:250px" style="width:15em">
                 <template slot-scope="{option}">
                     <div className="p-clearfix">
                         <img :alt="option.brand" :src="'/demo/images/car/' + option.brand + '.png'" style="display:inline-block;margin:5px 0 0 5px;width:48px" />
@@ -32,8 +29,7 @@ export default {
     data() {
         return {
             selectedCity: null,
-            selectedCities: null,
-            selectedCar: null,
+            selectedCars: null,
             cities: [
                 {name: 'New York', code: 'NY'},
                 {name: 'Rome', code: 'RM'},
