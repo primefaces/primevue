@@ -13,6 +13,16 @@
 
             <h3>Multiple</h3>
             <p-listBox :multiple="true" v-model="selectedCities" :options="cities" optionLabel="name" />
+
+            <h3>Advanced with Templating and Filtering</h3>
+            <p-listBox v-model="selectedCar" :options="cars" listStyle="max-height:250px" style="width:15em">
+                <template slot-scope="{option, index}">
+                    <div className="p-clearfix">
+                        <img :alt="option.brand" :src="'/demo/images/car/' + option.brand + '.png'" style="display:inline-block;margin:5px 0 0 5px;width:48px" />
+                        <span style="float:right;margin:1.25em .5em 0 0">{{option.brand}}</span>
+                    </div>
+                </template>
+            </p-listBox>
         </div>
     </div>
 </template>
@@ -23,12 +33,24 @@ export default {
         return {
             selectedCity: null,
             selectedCities: null,
+            selectedCar: null,
             cities: [
                 {name: 'New York', code: 'NY'},
                 {name: 'Rome', code: 'RM'},
                 {name: 'London', code: 'LDN'},
                 {name: 'Istanbul', code: 'IST'},
                 {name: 'Paris', code: 'PRS'}
+            ],
+            cars: [
+                {brand: 'Audi', value: 'Audi'},
+                {brand: 'Bmw', value: 'Bmw'},
+                {brand: 'Fiat', value: 'Fiat'},
+                {brand: 'Honda', value: 'Honda'},
+                {brand: 'Jaguar', value: 'Jaguar'},
+                {brand: 'Mercedes', value: 'Mercedes'},
+                {brand: 'Renault', value: 'Renault'},
+                {brand: 'Volkswagen', value: 'Volkswagen'},
+                {brand: 'Volvo', value: 'Volvo'}
             ]
         }
     }

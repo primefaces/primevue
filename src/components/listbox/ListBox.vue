@@ -1,10 +1,12 @@
 <template>
     <div class="p-listbox p-inputtext p-component">
-        <div class="p-listbox-list-wrapper">
+        <div class="p-listbox-list-wrapper" :style="listStyle">
             <ul class="p-listbox-list">
-                <li v-for="option of options" tabindex="0" :class="['p-listbox-item', {'p-highlight': isSelected(option)}]" 
+                <li v-for="(option, i) of options" tabindex="0" :class="['p-listbox-item', {'p-highlight': isSelected(option)}]" 
                     :key="getOptionLabel(option)" @click="onOptionClick($event, option)" @touchend="onOptionTouchEnd()">
-                    {{getOptionLabel(option)}}
+                    <slot :option="option" :index="i">  
+                        {{getOptionLabel(option)}}
+                    </slot>
                 </li>
             </ul>
         </div>
@@ -20,6 +22,7 @@ export default {
         options: Array,
         disabled: Boolean,
         dataKey: null,
+        listStyle: name,
         multiple: Boolean,
         metaKeySelection: Boolean,
         filter: Boolean,
