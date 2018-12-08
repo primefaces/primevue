@@ -4,55 +4,58 @@ export default class ObjectUtils {
         if(field)
             return (this.resolveFieldData(obj1, field) === this.resolveFieldData(obj2, field));
         else
-            return this.equalsByValue(obj1, obj2);
+            return this.deepEquals(obj1, obj2);
     }
-    
-    static equalsByValue(obj1, obj2) {
-        if (obj1 === null && obj2 === null) {
-            return true;
-        }
-        if (obj1 === null || obj2 === null) {
-            return false;
-        }
 
-        if (obj1 === obj2) {
-            delete obj1._$visited;
-            return true;
-        }
+    static deepEquals(a, b) {
+        if (a === b) return true;
 
-        if (typeof obj1 === 'object' && typeof obj2 === 'object') {
-            obj1._$visited = true;
-            for (var p in obj1) {
-                if (p === "_$visited") continue;
-                if (obj1.hasOwnProperty(p) !== obj2.hasOwnProperty(p)) {
-                    return false;
-                }
+        if (a && b && typeof a == 'object' && typeof b == 'object') {
+            var arrA = Array.isArray(a)
+                , arrB = Array.isArray(b)
+                , i
+                , length
+                , key;
 
-                switch (typeof (obj1[p])) {
-                    case 'object':
-                        if ((obj1[p] && obj1[p]._$visited) || !this.equals(obj1[p], obj2[p])) return false;
-                        break;
-
-                    case 'function':
-                        if (typeof (obj2[p]) === 'undefined' || (p !== 'compare' && obj1[p].toString() !== obj2[p].toString())) return false;
-                        break;
-
-                    default:
-                        if (obj1[p] !== obj2[p]) return false;
-                        break;
-                }
+            if (arrA && arrB) {
+                length = a.length;
+                if (length != b.length) return false;
+                for (i = length; i-- !== 0;)
+                    if (!this.deepEquals(a[i], b[i])) return false;
+                return true;
             }
 
-            for (var pp in obj2) {
-                if (typeof (obj1[pp]) === 'undefined') return false;
+            if (arrA != arrB) return false;
+
+            var dateA = a instanceof Date
+                , dateB = b instanceof Date;
+            if (dateA != dateB) return false;
+            if (dateA && dateB) return a.getTime() == b.getTime();
+
+            var regexpA = a instanceof RegExp
+                , regexpB = b instanceof RegExp;
+            if (regexpA != regexpB) return false;
+            if (regexpA && regexpB) return a.toString() == b.toString();
+
+            var keys = Object.keys(a);
+            length = keys.length;
+
+            if (length !== Object.keys(b).length)
+                return false;
+
+            for (i = length; i-- !== 0;)
+                if (!Object.prototype.hasOwnProperty.call(b, keys[i])) return false;
+
+            for (i = length; i-- !== 0;) {
+                key = keys[i];
+                if (!this.deepEquals(a[key], b[key])) return false;
             }
 
-            delete obj1._$visited;
             return true;
         }
 
-        return false;
-    }
+        return a !== a && b !== b;
+    };
     
     static resolveFieldData(data, field) {
         if(data && field) {
