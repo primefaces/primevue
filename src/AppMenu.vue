@@ -42,7 +42,7 @@
             </a>
             <div :class="{'submenuhide': activeMenuIndex !== 3, 'submenushow': activeMenuIndex === 3}">
                 <div>
-                    <router-link to="/">&#9679; Link</router-link>
+                    <router-link to="/panel">&#9679; Panel</router-link>
                 </div>
             </div>
 

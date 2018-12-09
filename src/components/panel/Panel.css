@@ -1,0 +1,48 @@
+.p-panel {
+	padding: 0.2em;
+}
+
+.p-panel .p-panel-titlebar {
+	padding: .5em .75em;
+}
+
+.p-panel .p-panel-titlebar-icon {
+	float: right;
+    cursor: pointer;
+    height: 1.25em;
+    width: 1.25em;
+    line-height: 1.25em;
+    text-align: center;
+}
+
+.p-panel .p-panel-titlebar-icon span {
+    line-height: inherit;
+    margin-top: -1px;
+}
+
+.p-panel .p-panel-content {
+	border: 0;
+    background: none;
+    padding: .5em .75em;
+}
+
+.p-panel .p-panel-footer {
+	border-width: 1px 0 0;
+	padding: .25em .5em;
+	text-align:left;
+}
+
+.p-panel-content-wrapper-collapsed {
+    overflow: hidden;
+    max-height: 0;
+    transition: max-height 0.5s cubic-bezier(0, 1, 0, 1);
+}
+
+.p-panel-content-wrapper-expanded {
+    max-height: 1000px;
+    transition: max-height 1s ease-in-out;
+}
+
+.p-panel-content-wrapper-expanding {
+    overflow: hidden;
+}

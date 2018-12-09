@@ -12,11 +12,6 @@ export default new Router({
       component: Home
     },
     {
-      path: '/about',
-      name: 'about',
-      component: () => import('./views/About.vue')
-    },
-    {
         path: '/inputtext',
         name: 'inputtext',
         component: () => import('./views/inputtext/InputTextDemo.vue')
@@ -30,6 +25,11 @@ export default new Router({
         path: '/button',
         name: 'button',
         component: () => import('./views/button/ButtonDemo.vue')
+    },
+    {
+        path: '/panel',
+        name: 'panel',
+        component: () => import('./views/panel/PanelDemo.vue')
     }
   ]
 });
