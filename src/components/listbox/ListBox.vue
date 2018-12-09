@@ -8,8 +8,8 @@
         </div>
         <div class="p-listbox-list-wrapper" :style="listStyle">
             <ul class="p-listbox-list">
-                <li v-for="(option, i) of visibleOptions" tabindex="0" :class="['p-listbox-item', {'p-highlight': isSelected(option)}]" :aria-label="getOptionLabel(option)"
-                    :key="getOptionLabel(option)" @click="onOptionSelect($event, option)" @touchend="onOptionTouchEnd()" @keydown="onOptionKeyDown($event, option)">
+                <li v-for="(option, i) of visibleOptions" :tabindex="isOptionDisabled(option) ? null : '0'" :class="['p-listbox-item', {'p-highlight': isSelected(option), 'p-disabled': isOptionDisabled(option)}]" 
+                    :aria-label="getOptionLabel(option)" :key="getOptionLabel(option)" @click="onOptionSelect($event, option)" @touchend="onOptionTouchEnd()" @keydown="onOptionKeyDown($event, option)">
                     <slot :option="option" :index="i">  
                         {{getOptionLabel(option)}}
                     </slot>
@@ -34,7 +34,8 @@ export default {
         metaKeySelection: Boolean,
         filter: Boolean,
         optionLabel: null,
-        optionValue: null
+        optionValue: null,
+        optionDisabled: null
     },
     optionTouched: false,
     data() {
@@ -49,8 +50,11 @@ export default {
         getOptionValue(option) {
             return this.optionValue ? ObjectUtils.resolveFieldData(option, this.optionValue) : option;
         },
+        isOptionDisabled(option) {
+            return this.optionDisabled ? ObjectUtils.resolveFieldData(option, this.optionDisabled) : false;
+        },
         onOptionSelect(event, option) {
-            if (this.disabled) {
+            if (this.disabled || this.isOptionDisabled(option)) {
                 return;
             }
             
