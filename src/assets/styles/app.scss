@@ -48,7 +48,7 @@ body {
     background-color: #f6f6f6;
     font-family: "Open Sans", "Helvetica Neue", sans-serif;
     font-weight: normal;
-    color: #333333;
+    color: #484848;
     -webkit-font-smoothing: antialiased;
     font-size: 14px;
 }
@@ -237,7 +237,7 @@ body {
             display: block;
             padding: 15px 0px 0px 25px;
             border-top: solid 1px #e3e9ea;
-            color: #333333;
+            color: #484848;
             cursor: pointer;
             user-select: none;
 
@@ -396,8 +396,9 @@ body {
         }
         
         &.introduction {
-            @include background-gradient-left2right(#41b883, #50aeae);
-            color: #ffffff;
+            background: url('./assets/images/component-intro-bg.jpg');
+            border-bottom: 1px solid #dadada;
+            color: #484848;
             
             .feature-intro {
                 h1 {
@@ -405,7 +406,7 @@ body {
                     margin: 0 0 20px 0;
                     display: block;
                     text-align: left;
-                    color: #ffffff;
+                    color: #222222;
                     font-weight: normal;
                 }
 
@@ -413,6 +414,7 @@ body {
                     margin: 0;
                     line-height: 2em;
                     font-size: 16px;
+                    color: #222222;
                 }
 
                 a {
@@ -494,7 +496,7 @@ body {
         
         &.documentation {
             h3 {
-                color:  #333333;
+                color:  #484848;
                 margin-top: 25px;
                 margin-bottom: 0px;
                 font-size: 22px;
@@ -508,7 +510,7 @@ body {
             }
 
             p {
-                color:  #333333;
+                color:  #484848;
                 font-size: 16px;
                 line-height: 24px;
                 margin: 10px 0;
@@ -585,7 +587,7 @@ body {
 
                         &.p-highlight a {
                             background: #f5f7f8;
-                            color: #333333;
+                            color: #484848;
                         }
                         
                         &:not(.p-highlight) a:hover {
@@ -774,7 +776,7 @@ body {
 
         h3 {
              font-size:24px;
-             color: #333333;
+             color: #484848;
              margin-bottom: 25px;
         }
 
@@ -805,16 +807,14 @@ body {
             margin-bottom: 30px;
 
             &.features-tagline {
-                color: #333333;
+                color: #484848;
                 margin-bottom: 0;
                 margin-top: -5px;
             }
 
             &.features-description {
-                color: #333333;
+                color: #484848;
                 text-align: left;
-
-
             }
 
             > a{
@@ -862,7 +862,7 @@ body {
         
         h3 {
              font-size:24px;
-             color: #333333;
+             color: #484848;
              margin-bottom: 25px;
         }
 

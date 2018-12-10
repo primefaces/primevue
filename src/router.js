@@ -12,6 +12,21 @@ export default new Router({
       component: Home
     },
     {
+        path: '/button',
+        name: 'button',
+        component: () => import('./views/button/ButtonDemo.vue')
+    },
+    {
+        path: '/fieldset',
+        name: 'fieldset',
+        component: () => import('./views/fieldset/FieldsetDemo.vue')
+    },
+    {
+        path: '/flexgrid',
+        name: 'flexgrid',
+        component: () => import('./views/flexgrid/FlexGridDemo.vue')
+    },
+    {
         path: '/inputtext',
         name: 'inputtext',
         component: () => import('./views/inputtext/InputTextDemo.vue')
@@ -22,19 +37,9 @@ export default new Router({
         component: () => import('./views/listbox/ListBoxDemo.vue')
     },
     {
-        path: '/button',
-        name: 'button',
-        component: () => import('./views/button/ButtonDemo.vue')
-    },
-    {
         path: '/panel',
         name: 'panel',
         component: () => import('./views/panel/PanelDemo.vue')
-    },
-    {
-        path: '/fieldset',
-        name: 'fieldset',
-        component: () => import('./views/fieldset/FieldsetDemo.vue')
     },
     {
         path: '/textarea',
