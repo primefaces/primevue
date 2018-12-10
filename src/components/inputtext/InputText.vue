@@ -1,6 +1,5 @@
 <template>
-    <input :class="{'p-inputtext p-component':true, 'p-filled': filled}" 
-    v-on="listeners" :value="value" />
+    <input :class="['p-inputtext p-component', {'p-filled': filled}]" v-on="listeners" :value="value" />
 </template>
 
 <script>
