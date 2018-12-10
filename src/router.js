@@ -35,6 +35,11 @@ export default new Router({
         path: '/fieldset',
         name: 'fieldset',
         component: () => import('./views/fieldset/FieldsetDemo.vue')
+    },
+    {
+        path: '/toolbar',
+        name: 'toolbar',
+        component: () => import('./views/toolbar/ToolbarDemo.vue')
     }
   ]
 });

@@ -6,6 +6,7 @@ import ListBox from './components/listbox/ListBox';
 import Button from './components/button/Button';
 import Panel from './components/panel/Panel';
 import Fieldset from './components/fieldset/Fieldset';
+import Toolbar from './components/toolbar/Toolbar';
 
 import './assets/styles/primevue.css';
 import 'primeflex/primeflex.css';
@@ -18,6 +19,7 @@ Vue.component('p-button', Button);
 Vue.component('p-listBox', ListBox);
 Vue.component('p-panel', Panel);
 Vue.component('p-fieldset', Fieldset);
+Vue.component('p-toolbar', Toolbar);
 
 new Vue({
   router,

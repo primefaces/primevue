@@ -44,6 +44,7 @@
                 <div>
                     <router-link to="/panel">&#9679; Panel</router-link>
                     <router-link to="/fieldset">&#9679; Fieldset</router-link>
+                    <router-link to="/toolbar">&#9679; Toolbar</router-link>
                 </div>
             </div>
 
