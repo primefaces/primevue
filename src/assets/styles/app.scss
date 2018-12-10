@@ -933,22 +933,19 @@ body {
         }
         
         .topbar-menu {
-            background-color: #327187;
+            background-color: #ffffff;
             float: none;
             width: 100%;
             height: 40px;
             margin: 0;
             text-align: center;
+            border-bottom: 1px solid #dadada;
 
             > li {
                 > a {
                     padding-bottom: 0;
                     line-height: 40px;
                     min-width: 100px;
-
-                    &:hover {
-                        background-color: #285a6c;
-                    }
                 }
 
                 &.topbar-menu-themes > ul {
