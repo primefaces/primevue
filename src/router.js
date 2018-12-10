@@ -37,6 +37,11 @@ export default new Router({
         component: () => import('./views/fieldset/FieldsetDemo.vue')
     },
     {
+        path: '/textarea',
+        name: 'textarea',
+        component: () => import('./views/textarea/TextareaDemo.vue')
+    },
+    {
         path: '/toolbar',
         name: 'toolbar',
         component: () => import('./views/toolbar/ToolbarDemo.vue')

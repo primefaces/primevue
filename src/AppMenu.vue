@@ -10,6 +10,7 @@
                 <div>
                     <router-link to="/inputtext">&#9679; InputText</router-link>
                     <router-link to="/listbox">&#9679; ListBox</router-link>
+                    <router-link to="/textarea">&#9679; Textarea</router-link>
                 </div>
             </div>
 
