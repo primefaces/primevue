@@ -2,9 +2,9 @@
     <div>
         <div class="content-section introduction">
             <div class="feature-intro">
-                <h1>InputText</h1>
+                <h1>FlexGrid</h1>
                 <p>Flex Grid CSS is a lightweight flex based responsive layout utility optimized for mobile phones, tablets and desktops. 
-                    Flex Grid CSS is not included in PrimeReact as it is provided by <a href="https://github.com/primefaces/primeflex">PrimeFlex</a>, a shared grid library between PrimeFaces, PrimeNG, PrimeReact and PrimeVue projects.</p>
+                    Flex Grid CSS is not included in PrimeReact as it is provided by <a href="https://github.com/primefaces/primeflex">PrimeFlex</a> , a shared grid library between PrimeFaces, PrimeNG, PrimeReact and PrimeVue projects.</p>
             </div>
         </div>
 
@@ -444,7 +444,7 @@ export default {
 .flexgrid-demo {
     .box,
     .sample-layout > div {
-        background-color: #cce4f7;
+        background-color: #f1f1f1;
         text-align: center;
         padding-top: 1em;
         padding-bottom: 1em;
@@ -466,7 +466,7 @@ export default {
     .vertical-container {
         margin: 0;
         height: 200px;
-        background: #efefef;
+        background: #f1f1f1;
         border-radius: 4px;
     }
 

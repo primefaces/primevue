@@ -419,13 +419,13 @@ body {
 
                 a {
                     border-radius: 3px;
-                    background-color: #b2ddea;
-                    color: #00475d;
+                    background-color: #2f4860;
+                    color: #ffffff;
                     padding: 2px 4px;
                     @include transition(background-color .2s);
 
                     &:hover {
-                        background-color: #d8eef4;
+                        background-color: #536e8b;
                     }
                 }
             }
