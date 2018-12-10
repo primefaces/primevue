@@ -48,7 +48,7 @@
 
 .p-panel-content-wrapper-leave-active {
     overflow: hidden;
-    transition: max-height 0.5s cubic-bezier(0, 1, 0, 1);
+    transition: max-height 0.45s cubic-bezier(0, 1, 0, 1);
 }
 
 .p-panel-content-wrapper-enter-active {

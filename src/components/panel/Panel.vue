@@ -4,7 +4,7 @@
             <slot name="header">
                 <span class="p-panel-title" v-if="header">{{header}}</span>
             </slot>
-            <a v-if="toggleable" tabindex="0" class="p-panel-titlebar-icon p-panel-titlebar-toggler" @click="toggle">
+            <a v-if="toggleable" tabindex="0" class="p-panel-titlebar-icon p-panel-titlebar-toggler" @click="toggle" @keydown.enter="toggle">
                 <span :class="{'pi pi-minus': !d_collapsed, 'pi pi-plus': d_collapsed}"></span>
             </a>
         </div>

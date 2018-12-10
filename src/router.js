@@ -30,6 +30,11 @@ export default new Router({
         path: '/panel',
         name: 'panel',
         component: () => import('./views/panel/PanelDemo.vue')
+    },
+    {
+        path: '/fieldset',
+        name: 'fieldset',
+        component: () => import('./views/fieldset/FieldsetDemo.vue')
     }
   ]
 });

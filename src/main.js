@@ -5,6 +5,7 @@ import InputText from './components/inputtext/InputText';
 import ListBox from './components/listbox/ListBox';
 import Button from './components/button/Button';
 import Panel from './components/panel/Panel';
+import Fieldset from './components/fieldset/Fieldset';
 
 import './assets/styles/primevue.css';
 import 'primeflex/primeflex.css';
@@ -16,6 +17,7 @@ Vue.component('p-inputtext', InputText);
 Vue.component('p-button', Button);
 Vue.component('p-listBox', ListBox);
 Vue.component('p-panel', Panel);
+Vue.component('p-fieldset', Fieldset);
 
 new Vue({
   router,

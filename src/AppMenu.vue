@@ -43,6 +43,7 @@
             <div :class="{'submenuhide': activeMenuIndex !== 3, 'submenushow': activeMenuIndex === 3}">
                 <div>
                     <router-link to="/panel">&#9679; Panel</router-link>
+                    <router-link to="/fieldset">&#9679; Fieldset</router-link>
                 </div>
             </div>
 
