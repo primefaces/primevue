@@ -1,19 +1,3 @@
-<template>
-    <div class="p-tabview p-component p-tabview-top">
-        <ul class="p-tabview-nav p-resest" role="tablist">
-            <li role="presentation" v-for="(tab,i) of tabs" :key="tab.header" 
-                :class="{'p-highlight': (d_activeTabIndex === i), 'p-disabled': tab.disabled}">
-                <a role="tab" @click="onTabClick($event, tab, i)" @keydown.enter="onTabClick($event, tab, i)"> 
-                    <span class="p-tabview-title">{{tab.header}}</span>
-                </a>
-            </li>
-        </ul>
-        <div class="p-tabview-panels">
-            <slot></slot>
-        </div>
-    </div>
-</template>
-
 <script>
 export default {
     props: {
@@ -43,7 +27,7 @@ export default {
     },
     methods: {
         onTabClick(event, tab, index) {
-            if (!tab.disabled) {
+            if (!tab.disabled && index !== this.d_activeTabIndex) {
                 this.activateTab(index);
 
                 this.$emit('tabchange', {
@@ -57,7 +41,34 @@ export default {
             for (let i = 0; i < this.tabs.length; i++) {
                 this.tabs[i].active = (i === index);
             } 
+        },
+        onTabKeydown(event, index) {
+            if (event.which === 13) {
+                this.onTabClick(index);
+            }
         }
+    },
+    render() {
+        return (
+            <div class="p-tabview p-component p-tabview-top">
+                <ul class="p-tabview-nav p-resest" role="tablist">
+                    {
+                        this.tabs.map((tab, i) => {
+                            return (
+                                <li role="presentation" key={tab.header} class={{'p-highlight': (this.d_activeTabIndex === i), 'p-disabled': tab.disabled}}>
+                                     <a role="tab" on-click={event => this.onTabClick(event, tab, i)} on-keydown={event => this.onTabKeydown(event, i)} tabindex={tab.disabled ? null : '0'}>
+                                        {tab.$slots.header || tab.header}
+                                    </a>
+                                </li>
+                            );
+                        })
+                    }
+                </ul>
+                <div class="p-tabview-panels">
+                    {this.$slots.default}
+                </div>
+            </div>
+        );
     }
 }
 </script>
