@@ -8,6 +8,8 @@ import ListBox from './components/listbox/ListBox';
 import Panel from './components/panel/Panel';
 import Textarea from './components/textarea/Textarea';
 import Toolbar from './components/toolbar/Toolbar';
+import TabView from './components/tabview/TabView';
+import TabPanel from './components/tabview/TabPanel';
 
 import './assets/styles/primevue.css';
 import 'primeflex/primeflex.css';
@@ -20,8 +22,10 @@ Vue.component('p-button', Button);
 Vue.component('p-listBox', ListBox);
 Vue.component('p-panel', Panel);
 Vue.component('p-fieldset', Fieldset);
-Vue.component('p-toolbar', Toolbar);
+Vue.component('p-tabView', TabView);
+Vue.component('p-tabPanel', TabPanel);
 Vue.component('p-textarea', Textarea);
+Vue.component('p-toolbar', Toolbar);
 
 new Vue({
   router,

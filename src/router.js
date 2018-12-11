@@ -47,6 +47,11 @@ export default new Router({
         component: () => import('./views/textarea/TextareaDemo.vue')
     },
     {
+        path: '/tabview',
+        name: 'tabview',
+        component: () => import('./views/tabview/TabViewDemo.vue')
+    },
+    {
         path: '/toolbar',
         name: 'toolbar',
         component: () => import('./views/toolbar/ToolbarDemo.vue')
