@@ -3,7 +3,7 @@
         <ul class="p-tabview-nav p-resest" role="tablist">
             <li role="presentation" v-for="(tab,i) of tabs" :key="tab.header" 
                 :class="{'p-highlight': (d_activeTabIndex === i), 'p-disabled': tab.disabled}">
-                <a role="tab" @click="onTabClick($event, tab, i)">
+                <a role="tab" @click="onTabClick($event, tab, i)" @keydown.enter="onTabClick($event, tab, i)"> 
                     <span class="p-tabview-title">{{tab.header}}</span>
                 </a>
             </li>
