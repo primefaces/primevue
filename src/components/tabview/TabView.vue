@@ -1,7 +1,8 @@
 <template>
     <div class="p-tabview p-component p-tabview-top">
         <ul class="p-tabview-nav p-resest" role="tablist">
-            <li role="presentation" v-for="(tab,i) of tabs" :key="tab.header" :class="{'p-highlight': (d_activeTabIndex === i)}">
+            <li role="presentation" v-for="(tab,i) of tabs" :key="tab.header" 
+                :class="{'p-highlight': (d_activeTabIndex === i), 'p-disabled': tab.disabled}">
                 <a role="tab" @click="onTabClick($event, tab, i)">
                     <span class="p-tabview-title">{{tab.header}}</span>
                 </a>
@@ -42,12 +43,14 @@ export default {
     },
     methods: {
         onTabClick(event, tab, index) {
-            this.activateTab(index);
+            if (!tab.disabled) {
+                this.activateTab(index);
 
-            this.$emit('tabchange', {
-                tab: tab,
-                index: index
-            });
+                this.$emit('tabchange', {
+                    tab: tab,
+                    index: index
+                });
+            }           
         },
         activateTab(index) {
             this.d_activeTabIndex = index;
