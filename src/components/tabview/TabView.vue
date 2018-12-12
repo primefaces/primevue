@@ -57,7 +57,8 @@ export default {
                             return (
                                 <li role="presentation" key={tab.header} class={{'p-highlight': (this.d_activeTabIndex === i), 'p-disabled': tab.disabled}}>
                                      <a role="tab" on-click={event => this.onTabClick(event, tab, i)} on-keydown={event => this.onTabKeydown(event, i)} tabindex={tab.disabled ? null : '0'}>
-                                        {tab.$slots.header || tab.header}
+                                        {tab.header && <span class="p-tabview-title">{tab.header}</span>}
+                                        {tab.$slots.header}
                                     </a>
                                 </li>
                             );
