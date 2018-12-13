@@ -1,6 +1,8 @@
 import Vue from 'vue';
 import App from './App.vue';
 import router from './router';
+import Accordion from './components/accordion/Accordion';
+import AccordionTab from './components/accordion/AccordionTab';
 import Button from './components/button/Button';
 import InputText from './components/inputtext/InputText';
 import Fieldset from './components/fieldset/Fieldset';
@@ -17,11 +19,13 @@ import 'primeicons/primeicons.css';
 
 Vue.config.productionTip = false;
 
-Vue.component('p-inputtext', InputText);
+Vue.component('p-accordion', Accordion);
+Vue.component('p-accordionTab', AccordionTab);
 Vue.component('p-button', Button);
+Vue.component('p-inputtext', InputText);
 Vue.component('p-listBox', ListBox);
-Vue.component('p-panel', Panel);
 Vue.component('p-fieldset', Fieldset);
+Vue.component('p-panel', Panel);
 Vue.component('p-tabView', TabView);
 Vue.component('p-tabPanel', TabPanel);
 Vue.component('p-textarea', Textarea);

@@ -12,6 +12,11 @@ export default new Router({
       component: Home
     },
     {
+        path: '/accordion',
+        name: 'accordion',
+        component: () => import('./views/accordion/AccordionDemo.vue')
+    },
+    {
         path: '/button',
         name: 'button',
         component: () => import('./views/button/ButtonDemo.vue')

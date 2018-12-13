@@ -1,4 +1,5 @@
 @import '../../components/common/Common.css';
+@import '../../components/accordion/Accordion.css';
 @import '../../components/inputtext/InputText.css';
 @import '../../components/listbox/ListBox.css';
 @import '../../components/button/Button.css';
