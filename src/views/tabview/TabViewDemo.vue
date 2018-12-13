@@ -28,8 +28,10 @@
             </p-tabView>
 
             <h3>Programmatic</h3>
-            <p-button icon="pi pi-chevron-left" @click="prev" class="p-button-secondary" style="margin-left: .25em" />
-            <p-button icon="pi pi-chevron-right" @click="next" style="margin-left: .5em" class="p-button-secondary"/>
+            <div style="padding: .25em">
+                <p-button icon="pi pi-chevron-left" @click="prev" class="p-button-secondary" />
+                <p-button icon="pi pi-chevron-right" @click="next" style="margin-left: .5em" class="p-button-secondary"/>
+            </div>
 
             <p-tabView :activeIndex="activeIndex">
                 <p-tabPanel header="Godfather I">
@@ -69,7 +71,7 @@
                  <p-tabPanel header="Godfather IV" :disabled="true"></p-tabPanel>
             </p-tabView>
 
-            <h3>Custom Content</h3>
+            <h3>Custom Headers</h3>
             <p-tabView class="tabview-custom">
                 <p-tabPanel>
                     <template slot="header">
@@ -92,8 +94,8 @@
                 <p-tabPanel>
                     <template slot="header">
                         <i class="pi pi-search"></i>
-                        <span>Godfather II</span>
-                        <i class="pi pi-times"></i>
+                        <span>Godfather III</span>
+                        <i class="pi pi-cog"></i>
                     </template> 
                     The Godfather Part III is set in 1979 and 1980. Michael has moved back to New York and taken great strides to remove the family from crime. He turns over his New York criminal 
                     interests to longtime enforcer Joey Zasa. He uses his wealth in an attempt to rehabilitate his reputation through numerous philanthropic acts, administered by a foundation named after his father. 
