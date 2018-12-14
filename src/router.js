@@ -39,7 +39,7 @@ export default new Router({
     {
         path: '/listbox',
         name: 'listbox',
-        component: () => import('./views/listbox/ListboxDemo.vue')
+        component: () => import('./views/listbox/ListBoxDemo.vue')
     },
     {
         path: '/panel',
