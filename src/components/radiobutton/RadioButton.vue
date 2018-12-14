@@ -12,7 +12,6 @@
 
 <script>
 import ObjectUtils from '../utils/ObjectUtils';
-import DomHandler from '../utils/DomHandler';
 
 export default {
     props: {
