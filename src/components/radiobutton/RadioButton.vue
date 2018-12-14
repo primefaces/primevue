@@ -38,7 +38,6 @@ export default {
                 this.$emit('click', event);
                 this.$emit('input', this.value);
                 this.$refs.input.focus();
-                this.focused = true;
 
                 if (!this.checked) {
                     this.$emit('change', event);
