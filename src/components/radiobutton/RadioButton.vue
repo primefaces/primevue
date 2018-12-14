@@ -61,13 +61,3 @@ export default {
     }
 }
 </script>
-
-<style>
-.p-radiobutton-box {
-    transition: background-color 0.2s, border-color 0.2s, box-shadow .2s !important;
-}
-    
-.p-radiobutton-box.p-focus {
-    box-shadow: 0 0 0 0.2em #8dcdff;
-}
-</style>
