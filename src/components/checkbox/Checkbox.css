@@ -1,0 +1,31 @@
+.p-checkbox {
+    display: inline-block;
+    cursor: pointer;
+    vertical-align: middle;
+    margin-right: .25em;
+    user-select: none;
+    -moz-user-select: none;
+    -webkit-user-select: none;
+}
+
+.p-checkbox .p-checkbox-box {
+    width: 1.125em;
+    height: 1.125em;
+    line-height: 1.125em;
+    -moz-border-radius: 2px;
+    -webkit-border-radius: 2px;
+    border-radius: 2px;
+    text-align: center;
+}
+
+.p-checkbox .p-checkbox-icon {
+    display: block;
+}
+
+.p-checkbox-label {
+    vertical-align: middle;  
+}
+
+.p-checkbox + label {
+    vertical-align: middle;
+}

@@ -120,6 +120,17 @@ export default class ObjectUtils {
         return index;
     }
 
+    static contains(value, list) {
+        if (value != null && list && list.length) {
+            for (let val of list) {
+                if (this.equals(value, val))
+                    return true;
+            }
+        }
+
+        return false;
+    }
+
     static filterConstraints = {
 
         startsWith(value, filter) {
