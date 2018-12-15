@@ -67,6 +67,11 @@ export default new Router({
         component: () => import('./views/tabview/TabViewDemo.vue')
     },
     {
+        path: '/togglebutton',
+        name: 'togglebutton',
+        component: () => import('./views/togglebutton/ToggleButtonDemo.vue')
+    },
+    {
         path: '/toolbar',
         name: 'toolbar',
         component: () => import('./views/toolbar/ToolbarDemo.vue')
