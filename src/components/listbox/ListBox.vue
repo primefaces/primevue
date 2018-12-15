@@ -29,7 +29,7 @@ export default {
         options: Array,
         disabled: Boolean,
         dataKey: null,
-        listStyle: name,
+        listStyle: null,
         multiple: Boolean,
         metaKeySelection: Boolean,
         filter: Boolean,

@@ -57,6 +57,11 @@ export default new Router({
         component: () => import('./views/radiobutton/RadioButtonDemo.vue')
     },
     {
+        path: '/selectbutton',
+        name: 'selectbutton',
+        component: () => import('./views/selectbutton/SelectButtonDemo.vue')
+    },
+    {
         path: '/textarea',
         name: 'textarea',
         component: () => import('./views/textarea/TextareaDemo.vue')
