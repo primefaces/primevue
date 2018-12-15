@@ -2,8 +2,8 @@
     <div class="p-selectbutton p-buttonset p-component p-buttonset">
     <div v-for="(option, i) of options" :key="getOptionLabel(option)" :aria-label="getOptionLabel(option)"  
             @click="onOptionSelect($event, option, i)" @keydown.enter.prevent="onOptionSelect($event, option, i)" @keydown.space.prevent="onOptionSelect($event, option, i)"
-            :tabindex="isOptionDisabled(option) ? null : '0'"
-            :class="['p-button p-component p-button-text-only', {'p-highlight': isSelected(option), 'p-disabled': isOptionDisabled(option)}]">
+            :tabindex="isOptionDisabled(option) ? null : '0'" @focus="onFocus($event, i)" @blur="onBlur($event)"
+            :class="['p-button p-component p-button-text-only', {'p-highlight': isSelected(option), 'p-disabled': isOptionDisabled(option), 'p-focus': (i === focusedIndex)}]">
             <slot :option="option" :index="i">
                 <span class="p-button-text p-c">{{getOptionLabel(option)}}</span>
             </slot>
@@ -25,6 +25,11 @@ export default {
         optionLabel: null,
         optionValue: null,
         optionDisabled: null
+    },
+    data() {
+        return {
+            focusedIndex: null
+        };
     },
     methods: {
         getOptionLabel(option) {
@@ -76,6 +81,14 @@ export default {
             }
 
             return selected;
+        },
+        onFocus(event, index) {
+            this.focusedIndex = index;
+            this.$emit('focus', event);
+        },
+        onBlur() {
+            this.focusedIndex = null
+            this.$emit('blur', event);
         }
     }
 }
