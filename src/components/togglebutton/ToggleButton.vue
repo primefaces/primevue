@@ -16,7 +16,6 @@ export default {
         offLabel: String,
         onIcon: String,
         offIcon: String,
-        offIcon: String,
         inputId: String,
         name: String,
         iconPos: {
