@@ -1,7 +1,8 @@
 <template>
     <div :class="buttonClass" @click="onClick($event)">
         <div class="p-hidden-accessible">
-            <input ref="input" type="checkbox" :id="inputId" :name="name" :checked="value" @focus="onFocus($event)" @blur="onBlur($event)">
+            <input ref="input" type="checkbox" :id="inputId" :name="name" :checked="value" :disabled="disabled"
+                @focus="onFocus($event)" @blur="onBlur($event)" @keydown.enter.prevent="onClick($event)">
         </div>
         <span v-if="hasIcon" :class="iconClass"></span>
         <span class="p-button-text p-unselectable-text p-c">{{label}}</span>
