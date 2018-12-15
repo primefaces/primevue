@@ -29,26 +29,14 @@
             </div>
             Selected City : {{this.city}}
 
-            <h3>Advanced with Preselection, Value Binding and Disabled Option</h3>
+            <h3>Dynamic Values, Preselection, Value Binding and Disabled Option</h3>
             <div class="p-grid">
-                <div class="p-col-12">
-                    <p-radioButton inputId="theme1" name="template" :value="{brand: 'Ultima', key: 'U'}" v-model="theme" />
-                    <label for="theme1" class="p-radiobutton-label">Ultima</label>
-                </div>
-                <div class="p-col-12">
-                    <p-radioButton inputId="theme2" name="template" :value="{brand: 'Serenity', key: 'S'}" v-model="theme" />
-                    <label for="theme2" class="p-radiobutton-label">Serenity</label>
-                </div>
-                <div class="p-col-12">
-                    <p-radioButton inputId="theme3" name="template" :value="{brand: 'Apollo', key: 'A'}" v-model="theme" />
-                    <label for="theme3" class="p-radiobutton-label">Apollo</label>
-                </div>
-                <div class="p-col-12">
-                    <p-radioButton inputId="theme4" name="template" :value="{brand: 'Babylon', key: 'B'}" v-model="theme" :disabled="true"/>
-                    <label for="theme4" class="p-radiobutton-label">Babylon</label>
+                <div v-for="theme of themes" :key="theme.key" class="p-col-12">
+                    <p-radioButton :inputId="theme.key" name="theme" :value="theme" v-model="selectedTheme" :disabled="theme.key === 'U'"/>
+                    <label :for="theme.key" class="p-radiobutton-label">{{theme.name}}</label>
                 </div>
             </div>
-            Selected Template : {{this.theme}}
+            Selected Theme : {{this.selectedTheme}}
         </div>
     </div>
 </template>
@@ -57,14 +45,13 @@
 export default {
     data() {
         return {
-            city: 'null',
-            theme: {brand: 'Serenity', key: 'S'}
+            city: null,
+            themes: [{name: 'Apollo', key: 'A'}, {name: 'Babylon', key: 'B'}, {name: 'Serenity', key: 'S'}, {name: 'Ultima', key: 'U'}],
+            selectedTheme: null
         }
     },
-    methods: {
-        onChange() {
-            console.log('change');
-        }
+    created() {
+        this.selectedTheme = this.themes[1];
     }
 }
 </script>
