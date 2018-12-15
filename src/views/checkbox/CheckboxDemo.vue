@@ -35,24 +35,12 @@
 
             <h3>Dynamic Values, Preselection, Value Binding and Disabled Option</h3>
             <div class="p-grid">
-                <div class="p-col-12">
-                    <p-checkbox inputId="theme1" name="template" :value="{brand: 'Ultima', key: 'U'}" v-model="themes" />
-                    <label for="theme1" class="p-checkbox-label">Ultima</label>
-                </div>
-                <div class="p-col-12">
-                    <p-checkbox inputId="theme2" name="template" :value="{brand: 'Serenity', key: 'S'}" v-model="themes" />
-                    <label for="theme2" class="p-checkbox-label">Serenity</label>
-                </div>
-                <div class="p-col-12">
-                    <p-checkbox inputId="theme3" name="template" :value="{brand: 'Apollo', key: 'A'}" v-model="themes" />
-                    <label for="theme3" class="p-checkbox-label">Apollo</label>
-                </div>
-                <div class="p-col-12">
-                    <p-checkbox inputId="theme4" name="template" :value="{brand: 'Babylon', key: 'B'}" v-model="themes" :disabled="true"/>
-                    <label for="theme4" class="p-checkbox-label">Babylon</label>
+                <div v-for="theme of themes" :key="theme.key" class="p-col-12">
+                    <p-checkbox :inputId="theme.key" name="theme" :value="theme" v-model="selectedThemes" :disabled="theme.key === 'U'"/>
+                    <label :for="theme.key" class="p-checkbox-label">{{theme.name}}</label>
                 </div>
             </div>
-            Selected Themes : {{this.themes}}
+            Selected Themes : {{this.selectedThemes}}
         </div>
     </div>
 </template>
@@ -63,8 +51,12 @@ export default {
         return {
             checked: false,
             cities: [],
-            themes: [{brand: 'Serenity', key: 'S'}, {brand: 'Apollo', key: 'A'}]
+            themes: [{name: 'Apollo', key: 'A'}, {name: 'Babylon', key: 'B'}, {name: 'Serenity', key: 'S'}, {name: 'Ultima', key: 'U'}],
+            selectedThemes: []
         }
+    },
+    created() {
+        this.selectedThemes = this.themes.slice(1,3);
     }
 }
 </script>
