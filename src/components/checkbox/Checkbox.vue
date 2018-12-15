@@ -37,11 +37,16 @@ export default {
             if (!this.disabled) {
                 let newModelValue;
                 
-                if (this.checked)
-                    newModelValue = this.modelValue.filter(val => !ObjectUtils.equals(val, this.value));
-                else
-                    newModelValue = this.modelValue ? [...this.modelValue, this.value] : [this.value]; 
-                    
+                if (Array.isArray(this.modelValue)) {
+                    if (this.checked)
+                        newModelValue = this.modelValue.filter(val => !ObjectUtils.equals(val, this.value));
+                    else
+                        newModelValue = this.modelValue ? [...this.modelValue, this.value] : [this.value]; 
+                }
+                else {
+                    newModelValue = !this.modelValue;
+                }
+
                 this.$emit('click', event);
                 this.$emit('input', newModelValue);
                 this.$emit('change', event);
@@ -59,7 +64,7 @@ export default {
     },
     computed: {
         checked() {
-            return this.modelValue != null && ObjectUtils.contains(this.value, this.modelValue);
+            return Array.isArray(this.modelValue) ? ObjectUtils.contains(this.value, this.modelValue) : this.modelValue;
         }
     }
 }

@@ -9,6 +9,10 @@
 
         <div class="content-section implementation">
             <h3 class="first">Basic</h3>
+            <p-checkbox inputId="binary" v-model="checked" />
+            <label for="binary" class="p-checkbox-label">{{checked}}</label>
+
+            <h3>Multiple</h3>
             <div class="p-grid">
                 <div class="p-col-12">
                     <p-checkbox inputId="city1" name="city" value="Chicago" v-model="cities" />
@@ -29,7 +33,7 @@
             </div>
             Selected Cities : {{cities}}
 
-            <h3>Advanced with Preselection, Value Binding and Disabled Option</h3>
+            <h3>Dynamic Values, Preselection, Value Binding and Disabled Option</h3>
             <div class="p-grid">
                 <div class="p-col-12">
                     <p-checkbox inputId="theme1" name="template" :value="{brand: 'Ultima', key: 'U'}" v-model="themes" />
@@ -57,13 +61,9 @@
 export default {
     data() {
         return {
+            checked: false,
             cities: [],
             themes: [{brand: 'Serenity', key: 'S'}, {brand: 'Apollo', key: 'A'}]
-        }
-    },
-    methods: {
-        onChange() {
-            console.log('change');
         }
     }
 }
