@@ -1241,6 +1241,7 @@ body .p-selectbutton .p-button {
   background-color: #dadada;
   border: 1px solid #dadada;
   color: #333333;
+  outline: 0 none;
   -moz-transition: background-color 0.2s, box-shadow 0.2s;
   -o-transition: background-color 0.2s, box-shadow 0.2s;
   -webkit-transition: background-color 0.2s, box-shadow 0.2s;
