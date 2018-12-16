@@ -10,11 +10,11 @@
         <div class="content-section implementation">
             <h3 class="first">Basic</h3>
             <p-toggleButton v-model="checked1" onIcon="pi pi-check" offIcon="pi pi-times"/>
-            <p>{{checked1}}</p>
+            <p style="font-weight: bold">{{checked1}}</p>
 
             <h3>Customized</h3>
             <p-toggleButton v-model="checked2" onLabel="I confirm" offLabel="I reject" onIcon="pi pi-check" offIcon="pi pi-times" style="width: 10em"/>
-            <p>{{checked2}}</p>
+            <p style="font-weight: bold">{{checked2}}</p>
         </div>
     </div>
 </template>

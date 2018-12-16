@@ -10,11 +10,11 @@
         <div class="content-section implementation">
             <h3 class="first">Single</h3>
             <p-selectButton v-model="selectedCity" :options="cities" optionLabel="name" />
-            <p>Selected City: {{selectedCity}}</p>
+            <p>Selected City: <span style="font-weight: bold">{{selectedCity}}</span></p>
 
             <h3>Multiple</h3>
             <p-selectButton v-model="selectedCars" :options="cars" optionLabel="brand" :multiple="true" />
-            <p>Selected Cars: {{selectedCars}}</p>
+            <p>Selected Cars: <span style="font-weight: bold">{{selectedCars}}</span></p>
 
             <h3>Custom Content</h3>
             <p-selectButton v-model="selectedCar" :options="cars" optionLabel="brand">
@@ -25,7 +25,7 @@
                     </div>
                 </template>
             </p-selectButton>
-            <p>Selected Car: {{selectedCar}}</p>
+            <p>Selected Car: <span style="font-weight: bold">{{selectedCar}}</span></p>
         </div>
     </div>
 </template>

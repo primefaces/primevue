@@ -10,7 +10,7 @@
         <div class="content-section implementation">
             <h3 class="first">Basic</h3>
             <p-checkbox inputId="binary" v-model="checked" />
-            <label for="binary" class="p-checkbox-label">{{checked}}</label>
+            <label for="binary" class="p-checkbox-label" style="font-weight: bold">{{checked}}</label>
 
             <h3>Multiple</h3>
             <div class="p-grid">
@@ -31,7 +31,7 @@
                     <label for="city4" class="p-checkbox-label">San Francisco</label>
                 </div>
             </div>
-            Selected Cities : {{cities}}
+            <p>Selected Cities : <span style="font-weight: bold">{{cities}}</span></p>
 
             <h3>Dynamic Values, Preselection, Value Binding and Disabled Option</h3>
             <div class="p-grid">
@@ -40,7 +40,7 @@
                     <label :for="theme.key" class="p-checkbox-label">{{theme.name}}</label>
                 </div>
             </div>
-            Selected Themes : {{this.selectedThemes}}
+            <p>Selected Themes: <span style="font-weight: bold">{{this.selectedThemes}}</span></p>
         </div>
     </div>
 </template>

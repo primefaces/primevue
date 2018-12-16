@@ -27,7 +27,7 @@
                     <label for="city4" class="p-radiobutton-label">San Francisco</label>
                 </div>
             </div>
-            Selected City : {{this.city}}
+            <p>Selected City: <span style="font-weight: bold">{{this.city}}</span></p>
 
             <h3>Dynamic Values, Preselection, Value Binding and Disabled Option</h3>
             <div class="p-grid">
@@ -36,7 +36,7 @@
                     <label :for="theme.key" class="p-radiobutton-label">{{theme.name}}</label>
                 </div>
             </div>
-            Selected Theme : {{this.selectedTheme}}
+           <p>Selected Theme: <span style="font-weight: bold">{{this.selectedTheme}}</span></p>
         </div>
     </div>
 </template>
