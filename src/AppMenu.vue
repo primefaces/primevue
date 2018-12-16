@@ -9,6 +9,7 @@
             <div :class="{'submenuhide': activeMenuIndex !== 0, 'submenushow': activeMenuIndex === 0}">
                 <div>
                     <router-link to="/checkbox">&#9679; Checkbox</router-link>
+                    <router-link to="/inputswitch">&#9679; InputSwitch</router-link>
                     <router-link to="/inputtext">&#9679; InputText</router-link>
                     <router-link to="/listbox">&#9679; Listbox</router-link>
                     <router-link to="/radiobutton">&#9679; RadioButton</router-link>

@@ -42,6 +42,11 @@ export default new Router({
         component: () => import('./views/flexgrid/FlexGridDemo.vue')
     },
     {
+        path: '/inputswitch',
+        name: 'inputswitch',
+        component: () => import('./views/inputswitch/InputSwitchDemo.vue')
+    },
+    {
         path: '/inputtext',
         name: 'inputtext',
         component: () => import('./views/inputtext/InputTextDemo.vue')
