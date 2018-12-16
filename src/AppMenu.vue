@@ -15,6 +15,7 @@
                     <router-link to="/selectbutton">&#9679; SelectButton</router-link>
                     <router-link to="/textarea">&#9679; Textarea</router-link>
                     <router-link to="/togglebutton">&#9679; ToggleButton</router-link>
+                    <router-link to="/tristatecheckbox">&#9679; TriCheckbox</router-link>
                 </div>
             </div>
 

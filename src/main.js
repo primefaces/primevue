@@ -17,6 +17,7 @@ import Toolbar from './components/toolbar/Toolbar';
 import TabView from './components/tabview/TabView';
 import TabPanel from './components/tabview/TabPanel';
 import ToggleButton from './components/togglebutton/ToggleButton';
+import TriStateCheckbox from './components/tristatecheckbox/TriStateCheckbox';
 
 import './assets/styles/primevue.css';
 import 'primeflex/primeflex.css';
@@ -40,6 +41,7 @@ Vue.component('p-tabPanel', TabPanel);
 Vue.component('p-textarea', Textarea);
 Vue.component('p-toolbar', Toolbar);
 Vue.component('p-toggleButton', ToggleButton);
+Vue.component('p-triStateCheckbox', TriStateCheckbox);
 
 new Vue({
   router,

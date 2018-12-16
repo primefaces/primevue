@@ -85,6 +85,11 @@ export default new Router({
         path: '/toolbar',
         name: 'toolbar',
         component: () => import('./views/toolbar/ToolbarDemo.vue')
+    },
+    {
+        path: '/tristatecheckbox',
+        name: 'tristatecheckbox',
+        component: () => import('./views/tristatecheckbox/TriStateCheckboxDemo.vue')
     }
   ]
 });
