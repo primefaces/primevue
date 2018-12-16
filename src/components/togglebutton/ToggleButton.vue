@@ -32,10 +32,12 @@ export default {
     },
     methods: {
         onClick(event) {
-            this.$emit('click', event);
-            this.$emit('input', !this.value);
-            this.$emit('change', event);
-            this.$refs.input.focus();
+            if (!this.disabled) {
+                this.$emit('click', event);
+                this.$emit('input', !this.value);
+                this.$emit('change', event);
+                this.$refs.input.focus();
+            }
         },
         onFocus(event) {
             this.focused = true;
