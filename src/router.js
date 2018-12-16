@@ -22,6 +22,11 @@ export default new Router({
         component: () => import('./views/button/ButtonDemo.vue')
     },
     {
+        path: '/card',
+        name: 'card',
+        component: () => import('./views/card/CardDemo.vue')
+    },
+    {
         path: '/checkbox',
         name: 'checkbox',
         component: () => import('./views/checkbox/CheckboxDemo.vue')

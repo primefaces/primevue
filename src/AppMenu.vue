@@ -48,6 +48,7 @@
             <div :class="{'submenuhide': activeMenuIndex !== 3, 'submenushow': activeMenuIndex === 3}">
                 <div>
                     <router-link to="/accordion">&#9679; Accordion</router-link>
+                    <router-link to="/card">&#9679; Card</router-link>
                     <router-link to="/panel">&#9679; Panel</router-link>
                     <router-link to="/fieldset">&#9679; Fieldset</router-link>
                     <router-link to="/flexgrid">&#9679; FlexGrid</router-link>
