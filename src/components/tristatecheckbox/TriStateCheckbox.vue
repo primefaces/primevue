@@ -11,8 +11,6 @@
 </template>
 
 <script>
-import ObjectUtils from '../utils/ObjectUtils';
-
 export default {
     props: {
          value: null,
