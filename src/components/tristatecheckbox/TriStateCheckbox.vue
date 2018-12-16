@@ -1,10 +1,10 @@
 <template>
    <div class="p-checkbox p-component" @click="onClick($event)">
        <div class="p-hidden-accessible">
-           <input ref="input" :id="inputId" type="checkbox" :name="name" :checked="checked" :disabled="disabled" @focus="onFocus()" @blur="onBlur()"
+           <input ref="input" :id="inputId" type="checkbox" :name="name" :checked="value === true" :disabled="disabled" @focus="onFocus()" @blur="onBlur()"
                     :autocomplete="autocomplete" :autofocus="autofocus">
         </div>
-        <div ref="box" :class="['p-checkbox-box p-component', {'p-highlight': checked, 'p-disabled': disabled, 'p-focus': focused}]">
+        <div ref="box" :class="['p-checkbox-box p-component', {'p-highlight': (value != null), 'p-disabled': disabled, 'p-focus': focused}]">
             <span :class="['p-checkbox-icon p-c', icon]"></span>
         </div>
     </div>
@@ -62,9 +62,6 @@ export default {
         }
     },
     computed: {
-        checked() {
-            return this.value === true;
-        },
         icon() {
             let icon;
             switch (this.value) {
