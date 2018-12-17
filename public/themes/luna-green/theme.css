@@ -223,10 +223,10 @@ body .p-inputswitch {
   height: 1.75em;
 }
 body .p-inputswitch .p-inputswitch-slider {
-  -moz-transition: box-shadow 0.2s;
-  -o-transition: box-shadow 0.2s;
-  -webkit-transition: box-shadow 0.2s;
-  transition: box-shadow 0.2s;
+  -moz-transition: background-color 0.2s, box-shadow 0.2s;
+  -o-transition: background-color 0.2s, box-shadow 0.2s;
+  -webkit-transition: background-color 0.2s, box-shadow 0.2s;
+  transition: background-color 0.2s, box-shadow 0.2s;
   border-radius: 30px;
   background: #585858;
 }
