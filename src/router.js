@@ -67,6 +67,11 @@ export default new Router({
         component: () => import('./views/radiobutton/RadioButtonDemo.vue')
     },
     {
+        path: '/rating',
+        name: 'rating',
+        component: () => import('./views/rating/RatingDemo.vue')
+    },
+    {
         path: '/selectbutton',
         name: 'selectbutton',
         component: () => import('./views/selectbutton/SelectButtonDemo.vue')

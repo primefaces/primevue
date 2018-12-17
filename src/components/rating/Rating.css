@@ -1,0 +1,12 @@
+.p-rating a {
+    cursor: pointer;
+}
+
+.p-rating {
+    font-size: 1.25em;
+}
+
+.p-rating.p-disabled a,
+.p-rating.p-rating-readonly a {
+    cursor: default;
+}

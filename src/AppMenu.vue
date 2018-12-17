@@ -13,6 +13,7 @@
                     <router-link to="/inputtext">&#9679; InputText</router-link>
                     <router-link to="/listbox">&#9679; Listbox</router-link>
                     <router-link to="/radiobutton">&#9679; RadioButton</router-link>
+                    <router-link to="/rating">&#9679; Rating</router-link>
                     <router-link to="/selectbutton">&#9679; SelectButton</router-link>
                     <router-link to="/textarea">&#9679; Textarea</router-link>
                     <router-link to="/togglebutton">&#9679; ToggleButton</router-link>
