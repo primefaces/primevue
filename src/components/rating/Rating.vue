@@ -1,7 +1,7 @@
 <template>
     <div :class="containerClass">
-        <span class="p-rating-icon p-rating-cancel pi pi-ban" tabindex="0" v-if="cancel" @click="onCancelClick"></span>
-        <span :key="i" v-for="i in stars" @click="onStarClick($event,i)" tabindex="0" @keydown.enter.prevent="onStarClick($event,i)"
+        <span class="p-rating-icon p-rating-cancel pi pi-ban" :tabindex="focusIndex" v-if="cancel" @click="onCancelClick"></span>
+        <span :key="i" v-for="i in stars" @click="onStarClick($event,i)" :tabindex="focusIndex" @keydown.enter.prevent="onStarClick($event,i)"
             :class="['p-rating-icon', {'pi pi-star-o': (i > value), 'pi pi-star': (i <= value)}]"></span>
     </div>
 </template>
@@ -45,6 +45,9 @@ export default {
                     'p-disabled': this.disabled
                 }
             ];
+        },
+        focusIndex() {
+            return (this.disabled || this.readonly) ? null : '0';
         }
     }
 }
