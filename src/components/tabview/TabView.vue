@@ -1,63 +1,61 @@
 <script>
 export default {
-    props: {
-        activeIndex: {
-            type: Number,
-            default: 0,
-        },
-        orientation: {
-            type: String,
-            default: 'top'
-        }
-    },
     data() {
         return {
-            d_activeTabIndex: this.activeIndex,
             tabs: []
         };
     },
-    watch: {
-        activeIndex(newValue) {
-            this.activateTab(newValue);
-        }
-    },
     mounted() {
         this.tabs = this.$children;
-        this.tabs[this.activeIndex].active = true;
+        
+        let activeTab = this.findActiveTab();
+        if (!activeTab && this.tabs.length) {
+            this.tabs[0].d_active = true;
+        }
     },
     methods: {
-        onTabClick(event, tab, index) {
-            if (!tab.disabled && index !== this.d_activeTabIndex) {
-                this.activateTab(index);
+        onTabClick(event, tab) {
+            if (!tab.disabled && !tab.d_active) {
+                this.activateTab(tab);
 
                 this.$emit('tabchange', {
                     originalEvent: event,
-                    tab: tab,
-                    index: index
+                    tab: tab
                 });
             }           
         },
-        activateTab(index) {
-            this.d_activeTabIndex = index;
+        activateTab(tab) {
             for (let i = 0; i < this.tabs.length; i++) {
-                this.tabs[i].active = (i === index);
+                this.tabs[i].d_active = this.tabs[i] === tab;
             } 
         },
-        onTabKeydown(event, tab, index) {
+        onTabKeydown(event, tab) {
             if (event.which === 13) {
-                this.onTabClick(event, tab, index);
+                this.onTabClick(event, tab);
             }
+        },
+        findActiveTab() {
+            let activeTab;
+            for (let i = 0; i < this.tabs.length; i++) {
+                let tab = this.tabs[i];
+                if (tab.d_active) {
+                    activeTab = tab;
+                    break;
+                }
+            }
+
+            return activeTab;
         }
     },
     render() {
         return (
             <div class="p-tabview p-component p-tabview-top">
-                <ul class="p-tabview-nav p-resest" role="tablist">
+                <ul class="p-tabview-nav p-reset" role="tablist">
                     {
-                        this.tabs.map((tab, i) => {
+                        this.tabs.map(tab => {
                             return (
-                                <li role="presentation" key={tab.header||i} class={{'p-highlight': (this.d_activeTabIndex === i), 'p-disabled': tab.disabled}}>
-                                     <a role="tab" on-click={event => this.onTabClick(event, tab, i)} on-keydown={event => this.onTabKeydown(event, tab, i)} tabindex={tab.disabled ? null : '0'}>
+                                <li role="presentation" key={tab.header} class={['p-unselectable-text', {'p-highlight': (tab.d_active), 'p-disabled': tab.disabled}]}>
+                                     <a role="tab" on-click={event => this.onTabClick(event, tab)} on-keydown={event => this.onTabKeydown(event, tab)} tabindex={tab.disabled ? null : '0'}>
                                         {tab.header && <span class="p-tabview-title">{tab.header}</span>}
                                         {tab.$slots.header}
                                     </a>

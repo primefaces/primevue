@@ -5,14 +5,14 @@ export default {
         active: Boolean,
         disabled: Boolean
     },
-    watch: {
-        active(newValue) {
-            this.d_active = newValue;
-        }
-    },
     data() {
         return {
             d_active: this.active
+        }
+    },
+    watch: {
+        active(newValue) {
+            this.d_active = newValue;
         }
     },
     render() {
