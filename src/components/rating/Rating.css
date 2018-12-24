@@ -1,4 +1,4 @@
-.p-rating a {
+.p-rating .p-rating-icon {
     cursor: pointer;
 }
 
@@ -6,7 +6,7 @@
     font-size: 1.25em;
 }
 
-.p-rating.p-disabled a,
-.p-rating.p-rating-readonly a {
+.p-rating.p-disabled .p-rating-icon,
+.p-rating.p-rating-readonly .p-rating-icon {
     cursor: default;
 }

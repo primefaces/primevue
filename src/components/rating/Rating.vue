@@ -1,11 +1,8 @@
 <template>
     <div :class="containerClass">
-        <a class="p-rating-cancel" v-if="cancel" @click="onCancelClick" tabindex="0">
-            <span class="p-rating-icon pi pi-ban"></span>
-        </a>
-        <a :key="i" v-for="i in stars" @click="onStarClick($event,i)" tabindex="0" @keydown.enter.prevent="onStarClick($event,i)">
-            <span :class="['p-rating-icon', {'pi pi-star-o': (i > value), 'pi pi-star': (i <= value)}]"></span>
-        </a>
+        <span class="p-rating-icon p-rating-cancel pi pi-ban" tabindex="0" v-if="cancel" @click="onCancelClick"></span>
+        <span :key="i" v-for="i in stars" @click="onStarClick($event,i)" tabindex="0" @keydown.enter.prevent="onStarClick($event,i)"
+            :class="['p-rating-icon', {'pi pi-star-o': (i > value), 'pi pi-star': (i <= value)}]"></span>
     </div>
 </template>
 
