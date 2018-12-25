@@ -82,6 +82,11 @@ export default new Router({
         component: () => import('./views/selectbutton/SelectButtonDemo.vue')
     },
     {
+        path: '/slider',
+        name: 'slider',
+        component: () => import('./views/slider/SliderDemo.vue')
+    },
+    {
         path: '/spinner',
         name: 'spinner',
         component: () => import('./views/spinner/SpinnerDemo.vue')

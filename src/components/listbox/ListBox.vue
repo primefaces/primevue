@@ -168,7 +168,7 @@ export default {
             let item = event.currentTarget;
 
             switch (event.which) {
-                //up arrow
+                //down
                 case 40:
                     var nextItem = this.findNextItem(item);
                     if(nextItem) {
@@ -178,7 +178,7 @@ export default {
                     event.preventDefault();
                 break;
 
-                //down arrow
+                //up
                 case 38:
                     var prevItem = this.findPrevItem(item);
                     if(prevItem) {
