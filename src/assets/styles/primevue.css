@@ -11,6 +11,7 @@
 @import '../../components/panel/Panel.css';
 @import '../../components/radiobutton/RadioButton.css';
 @import '../../components/rating/Rating.css';
+@import '../../components/spinner/Spinner.css';
 @import '../../components/tabview/TabView.css';
 @import '../../components/textarea/Textarea.css';
 @import '../../components/toolbar/Toolbar.css';

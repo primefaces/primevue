@@ -82,6 +82,11 @@ export default new Router({
         component: () => import('./views/selectbutton/SelectButtonDemo.vue')
     },
     {
+        path: '/spinner',
+        name: 'spinner',
+        component: () => import('./views/spinner/SpinnerDemo.vue')
+    },
+    {
         path: '/textarea',
         name: 'textarea',
         component: () => import('./views/textarea/TextareaDemo.vue')

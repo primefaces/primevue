@@ -1,0 +1,53 @@
+.p-spinner {
+    display: inline-block;
+    overflow: visible;
+    padding: 0;
+    position: relative;
+    vertical-align: middle;
+}
+.p-spinner-input {
+    vertical-align: middle;
+    padding-right: 1.5em;
+}
+.p-spinner-button {
+    cursor: default;
+    display: block;
+    height: 50%;
+    margin: 0;
+    overflow: hidden;
+    padding: 0;
+    position: absolute;
+    right: 0;
+    text-align: center;
+    vertical-align: middle;
+    width: 1.5em;
+}
+.p-spinner .p-spinner-button-icon {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    margin-top: -.5em;
+    margin-left: -.5em;
+    width: 1em;
+}
+.p-spinner-button-up {
+    top: 0;
+}
+.p-spinner-button-down {
+    bottom: 0;
+}
+
+/* Fluid */
+.p-fluid .p-spinner {
+    width: 100%;
+}
+.p-fluid .p-spinner .p-spinner-input {
+    padding-right: 2em;
+    width: 100%;
+}
+.p-fluid .p-spinner .p-spinner-button {
+    width: 1.5em;
+}
+.p-fluid .p-spinner .p-spinner-button .p-spinner-button-icon {
+    left: .375em;
+}

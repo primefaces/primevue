@@ -1,6 +1,6 @@
 <template>
     <div class="p-chips p-component">
-        <ul :class="['p-inputtext', {'p-disabled': disabled, 'p-focus': focused}]" @click="onWrapperClick($event)">
+        <ul :class="['p-inputtext', {'p-disabled': disabled, 'p-focus': focused}]" @click="onWrapperClick()">
             <li v-for="(val,i) of value" :key="val" class="p-chips-token p-highlight">
                 <slot :value="val">  
                     <span class="p-chips-token-icon pi pi-fw pi-times" @click="removeItem($event, i)"></span>
@@ -16,6 +16,7 @@
 
 <script>
 export default {
+    inheritAttrs: false,
     props: {
         value: Array,
         disabled: Boolean,
@@ -27,7 +28,7 @@ export default {
         };
     },
     methods: {
-        onWrapperClick(event) {
+        onWrapperClick() {
             this.$refs.input.focus();
         },
         onFocus(event) {
