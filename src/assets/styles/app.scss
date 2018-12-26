@@ -62,7 +62,7 @@ body {
     top: 0;
     left: 0;
     width: 100%;
-    z-index: 999;
+    z-index: 997;
     @include shadow(0 0 4px rgba(0,0,0,0.25));
 
     .menu-button {
@@ -72,15 +72,15 @@ body {
         position: absolute;
         left: 0;
         top: 0;
-        width: 60px;
-        height: 60px;
-        line-height: 60px;
+        width: 70px;
+        height: 70px;
+        line-height: 70px;
         text-align: center;
         cursor: pointer;
         @include transition(background-color .2s);
 
         &:hover {
-            background-color: #363c3f;
+            background-color: #eeeeee;
         }
 
         i {
@@ -117,7 +117,7 @@ body {
                 text-align: center;
                 padding-bottom: 8px;
                 border-bottom: 4px solid transparent;
-                @include transition(border-bottom-color .2s);
+                @include transition(background-color .2s);
 
                 &:hover {
                     border-bottom-color: #41b883;
@@ -240,6 +240,7 @@ body {
             color: #484848;
             cursor: pointer;
             user-select: none;
+            transition: background-color .2s;
 
             &:hover {
                 background-color: #eeeeee;
@@ -368,14 +369,19 @@ body {
 }
 
 .layout-mask {
+    opacity: .1;
+}
+
+.layout-mask-active {
     z-index: 998;
     width: 100%;
     height: 100%;
     position: fixed;
-    top: 98px;
+    top: 70px;
     left: 0;
     background-color: #4c5254;
     opacity: .7;
+    @include transition(opacity .5s);
 }
 
 .layout-content {
@@ -958,10 +964,10 @@ body {
 
 
     .layout-sidebar {
-        top: 98px;
+        top: 70px;
         left: -300px;
-        @include transition(left .2s);
         z-index: 999;
+        @include transition(left .2s);
 
         &.active {
             left: 0;
@@ -980,7 +986,7 @@ body {
         
     }
 
-    .home{
+    .home {
         .introduction > div {
             width: 100%;
         }

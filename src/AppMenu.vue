@@ -1,5 +1,5 @@
 <template>
-    <div class="layout-sidebar">
+    <div :class="['layout-sidebar', {'active': active}]" @click="onClick">
         <div class="layout-menu">
             <a @click="toggleMenu($event, 0)" :class="{'active-menuitem': activeMenuIndex === 0}">
                 <img alt="input" class="layout-menu-icon-inactive" src="./assets/images/menu/input.svg" />
@@ -146,6 +146,9 @@
 
 <script>
 export default {
+    props: {
+        active: false
+    },
     data() {
         return {
             activeMenuIndex: null
@@ -154,6 +157,11 @@ export default {
     methods: {
         toggleMenu(event, index) {
             this.activeMenuIndex = (this.activeMenuIndex === index) ? null : index;
+        },
+        onClick(event) {
+            if (event.target.nodeName === 'A') {
+                this.$emit('menuitem-click');
+            }
         }
     }
 }

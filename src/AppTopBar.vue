@@ -1,6 +1,8 @@
 <template>
     <div class="layout-topbar">
-        <a class="menu-button"><i class="pi pi-bars"></i></a>
+        <a class="menu-button" @click="$emit('menubutton-click')">
+            <i class="pi pi-bars"></i>
+        </a>
         <router-link to="/" class="logo">
             <img alt="logo" src="./assets/images/primevue-logo.png">
         </router-link>

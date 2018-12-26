@@ -1,7 +1,8 @@
 <template>
     <div class="layout-wrapper">
-        <app-topbar />
-        <app-menu />
+        <app-topbar @menubutton-click="onMenuButtonClick"/>
+        <app-menu :active="sidebarActive" @menuitem-click="onMenuItemClick" />
+        <div :class="['layout-mask', {'layout-mask-active': sidebarActive}]" @click="onMaskClick"></div>
         <div class="layout-content">
             <router-view/>
             <app-footer />
@@ -15,11 +16,27 @@ import AppMenu from '@/AppMenu.vue';
 import AppFooter from '@/AppFooter.vue';
 
 export default {
+    data() {
+        return {
+            sidebarActive: false
+        }
+    },
+    methods: {
+        onMenuButtonClick() {
+            this.sidebarActive = !this.sidebarActive;
+        },
+        onMenuItemClick(event) {
+            this.sidebarActive = false;
+        },
+        onMaskClick(event) {
+            this.sidebarActive = false;
+        }
+    },
     components: {
         'app-topbar': AppTopBar,
         'app-menu': AppMenu,
         'app-footer': AppFooter
-    }
+    },
 }
 </script>
 
