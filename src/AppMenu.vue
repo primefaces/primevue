@@ -147,7 +147,7 @@
 <script>
 export default {
     props: {
-        active: false
+        active: Boolean
     },
     data() {
         return {
