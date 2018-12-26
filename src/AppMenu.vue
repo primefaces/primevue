@@ -137,7 +137,7 @@
             </a>
             <div :class="{'submenuhide': activeMenuIndex !== 10, 'submenushow': activeMenuIndex === 10}">
                 <div>
-                    <router-link to="/">&#9679; Link</router-link>
+                    <router-link to="/progressbar">&#9679; ProgressBar</router-link>
                 </div>
             </div>
         </div>
