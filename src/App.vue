@@ -1,7 +1,7 @@
 <template>
     <div class="layout-wrapper">
         <app-topbar @menubutton-click="onMenuButtonClick"/>
-        <app-menu :active="sidebarActive" @menuitem-click="onMenuItemClick" />
+        <app-menu :active="sidebarActive" />
         <div :class="['layout-mask', {'layout-mask-active': sidebarActive}]" @click="onMaskClick"></div>
         <div class="layout-content">
             <router-view/>
@@ -21,12 +21,14 @@ export default {
             sidebarActive: false
         }
     },
+    watch: {
+        $route() {
+            this.sidebarActive = false;
+        }
+    },
     methods: {
         onMenuButtonClick() {
             this.sidebarActive = !this.sidebarActive;
-        },
-        onMenuItemClick(event) {
-            this.sidebarActive = false;
         },
         onMaskClick(event) {
             this.sidebarActive = false;
