@@ -72,6 +72,11 @@ export default new Router({
         component: () => import('./views/panel/PanelDemo.vue')
     },
     {
+        path: '/password',
+        name: 'password',
+        component: () => import('./views/password/PasswordDemo.vue')
+    },
+    {
         path: '/progressbar',
         name: 'progressbar',
         component: () => import('./views/progressbar/ProgressBarDemo.vue')
