@@ -37,6 +37,11 @@ export default new Router({
         component: () => import('./views/chips/ChipsDemo.vue')
     },
     {
+        path: '/editor',
+        name: 'editor',
+        component: () => import('./views/editor/EditorDemo.vue')
+    },
+    {
         path: '/fieldset',
         name: 'fieldset',
         component: () => import('./views/fieldset/FieldsetDemo.vue')
