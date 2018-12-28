@@ -207,6 +207,7 @@ export default class DomHandler {
         element.style.top = top + 'px';
         element.style.left = left + 'px';
     }
+    
     static getHiddenElementOuterHeight(element) {
         element.style.visibility = 'hidden';
         element.style.display = 'block';

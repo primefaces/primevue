@@ -134,3 +134,18 @@ button {
     -webkit-transition: transform .3s, opacity .15s;
     transition: transform .3s, opacity .15s;
 }
+
+/* Overlay Animations */
+.p-input-overlay-enter,
+.p-input-overlay-leave-to {
+    opacity: 0;
+    -webkit-transform: translateY(5%);
+    -ms-transform: translateY(5%);
+    transform: translateY(5%);
+}
+
+.p-input-overlay-enter-active,
+.p-input-overlay-leave-active {
+    -webkit-transition: transform .3s, opacity .15s;
+    transition: transform .3s, opacity .15s;
+}
