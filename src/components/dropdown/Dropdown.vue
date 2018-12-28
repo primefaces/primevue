@@ -316,7 +316,7 @@ export default {
             else
                 this.searchValue = this.searchValue ? this.searchValue + char : char;
 
-            let searchIndex =this.getSelectedOptionIndex();
+            let searchIndex = this.getSelectedOptionIndex();
             let newOption = this.searchOption(++searchIndex);
 
             if (newOption) {
