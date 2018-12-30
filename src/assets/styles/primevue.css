@@ -9,6 +9,7 @@
 @import '../../components/inputtext/InputText.css';
 @import '../../components/inputswitch/InputSwitch.css';
 @import '../../components/listbox/Listbox.css';
+@import '../../components/multiselect/MultiSelect.css';
 @import '../../components/panel/Panel.css';
 @import '../../components/password/Password.css';
 @import '../../components/progressbar/ProgressBar.css';

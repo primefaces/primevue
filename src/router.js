@@ -72,6 +72,11 @@ export default new Router({
         component: () => import('./views/listbox/ListboxDemo.vue')
     },
     {
+        path: '/multiselect',
+        name: 'multiselect',
+        component: () => import('./views/multiselect/MultiSelectDemo.vue')
+    },
+    {
         path: '/panel',
         name: 'panel',
         component: () => import('./views/panel/PanelDemo.vue')
