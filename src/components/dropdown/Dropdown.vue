@@ -1,5 +1,5 @@
 <template>
-    <div ref="container" :class="containerClass">
+    <div ref="container" :class="containerClass" @click="onClick">
         <div class="p-hidden-accessible">
             <select aria-hidden="true" tabindex="-1">
                 <option v-for="option of visibleOptions" :key="getOptionLabel(option)" :value="getOptionValue(option)">{{getOptionLabel(option)}}</option>
@@ -9,12 +9,12 @@
             <input ref="focusInput" type="text" role="listbox" readonly :disabled="disabled" @focus="onFocus" @blur="onBlur" @keydown="onKeyDown" :tabindex="tabindex"/>
         </div>
         <input v-if="editable" type="text" class="p-dropdown-label p-inputtext" :disabled="disabled" @focus="onFocus" @blur="onBlur" :placeholder="placeholder" :value="editableInputValue" @input="onEditableInput">
-        <label v-if="!editable" :class="labelClass" @click="onLabelClick">{{label}}</label>
-        <i v-if="showClear && value != null" class="p-dropdown-clear-icon pi pi-times" @click="clear"></i>
-        <div class="p-dropdown-trigger" @click="onDropdownClick">
+        <label v-if="!editable" :class="labelClass">{{label}}</label>
+        <i v-if="showClear && value != null" class="p-dropdown-clear-icon pi pi-times" @click="onClearClick"></i>
+        <div class="p-dropdown-trigger">
             <span class="p-dropdown-trigger-icon pi pi-chevron-down p-clickable"></span>
         </div>
-        <transition name="p-input-overlay" @enter="onOverlayEnter">
+        <transition name="p-input-overlay" @enter="onOverlayEnter" @leave="onOverlayLeave">
             <div ref="overlay" class="p-dropdown-panel" v-if="overlayVisible">
                 <div v-if="filter" class="p-dropdown-filter-container">
                     <input type="text" v-model="filterValue" autoComplete="off" class="p-dropdown-filter p-inputtext p-component" :placeholder="filterPlaceholder"  @keydown="onFilterKeyDown" />
@@ -150,14 +150,14 @@ export default {
                 case 13:
                 case 27:
                     if (this.overlayVisible) {
-                        this.hideOverlay();
+                        this.overlayVisible = false;
                         event.preventDefault();
                     }
                 break;
 
                 //tab
                 case 9:
-                    this.hideOverlay();
+                    this.overlayVisible = false;
                 break;
 
                 default:
@@ -180,7 +180,7 @@ export default {
                 //enter and escape
                 case 13:
                 case 27:
-                    this.hideOverlay();
+                    this.overlayVisible = false;
                     event.preventDefault();
                 break;
 
@@ -240,24 +240,25 @@ export default {
             else
                 return option;
         },
-        onLabelClick() {
-            if (!this.overlayVisible) {
-                this.overlayVisible = true;
-            }
-            this.$refs.focusInput.focus();
+        onClearClick() {
+            this.updateModel(event, null);
         },
-        onDropdownClick() {
-            if (!this.overlayVisible) {
-                this.overlayVisible = true;
+        onClick(event) {
+            if (DomHandler.hasClass(event.target, 'p-dropdown-clear-icon')) {
+                return;
             }
-            this.$refs.focusInput.focus();
+            else if (!this.$refs.overlay || !this.$refs.overlay.contains(event.target)) {
+                this.overlayVisible = !this.overlayVisible;
+                this.$refs.focusInput.focus();
+            }
         },
         onOptionSelect(event, option) {
             let value = this.getOptionValue(option);
             this.updateModel(event, value);
+            this.$refs.focusInput.focus();
 
             setTimeout(() => {
-                this.hideOverlay();
+                this.overlayVisible = false;
             }, 100);
         },
         onEditableInput(event) {
@@ -267,11 +268,11 @@ export default {
             this.alignOverlay();
             this.bindOutsideClickListener();
         },
+        onOverlayLeave() {
+            this.unbindOutsideClickListener();
+        },
         alignOverlay() {
             DomHandler.relativePosition(this.$refs.overlay, this.$refs.container);
-        },
-        clear(event) {
-            this.updateModel(event, null);
         },
         updateModel(event, value) {
             this.$emit('input', value);
@@ -280,8 +281,8 @@ export default {
         bindOutsideClickListener() {
             if (!this.outsideClickListener) {
                 this.outsideClickListener = (event) => {
-                    if (this.$refs.overlay && !this.$refs.overlay.contains(event.target)) {
-                        this.hideOverlay();
+                    if (this.overlayVisible && this.$refs.overlay && !this.$refs.container.contains(event.target)) {
+                        this.overlayVisible = false;
                     }
                 };
                 document.addEventListener('click', this.outsideClickListener);
@@ -292,10 +293,6 @@ export default {
                 document.removeEventListener('click', this.outsideClickListener);
                 this.outsideClickListener = null;
             }
-        },
-        hideOverlay() {
-            this.overlayVisible = false;
-            this.unbindOutsideClickListener();
         },
         search(event) {
             if (!this.visibleOptions) {
