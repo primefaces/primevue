@@ -179,7 +179,6 @@ export default {
             }
 
             let selected = this.isSelected(option);
-            let valueChanged = false;
             let value = null;
 
             if (selected)
