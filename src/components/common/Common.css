@@ -84,6 +84,15 @@ button {
     border-radius: 0;
 }
 
+.p-link {
+	text-align: left;
+	background: transparent;
+	margin: 0;
+	padding: 0;
+	border: none;
+	cursor: pointer;
+}
+
 /* Overlay Animations */
 .p-input-overlay {
     -webkit-transform: translateY(5%);

@@ -55,6 +55,7 @@
     padding: 0.2em;
     position: absolute;
     min-width: 10em;
+    z-index: 2;
 }
 
 .p-multiselect .p-multiselect-panel {

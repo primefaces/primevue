@@ -57,7 +57,7 @@ export default {
 
 <style lang="scss" scoped>
 .p-multiselect {
-    min-width: 12em;
+    min-width: 15em;
 }
 
 .p-multiselect-car-option {

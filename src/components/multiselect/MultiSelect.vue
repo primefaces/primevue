@@ -15,6 +15,23 @@
         </div>
         <transition name="p-input-overlay" @enter="onOverlayEnter" @leave="onOverlayLeave">
             <div ref="overlay" class="p-multiselect-panel" v-if="overlayVisible">
+                <div class="p-multiselect-header">
+                    <div class="p-checkbox p-component" @click="onToggleAll">
+                        <div class="p-hidden-accessible">
+                            <input type="checkbox" readonly>
+                        </div>
+                        <div :class="['p-checkbox-box p-component', {'p-highlight': allSelected}]">
+                            <span :class="['p-checkbox-icon p-c', {'pi pi-check': allSelected}]"></span>
+                        </div>
+                    </div>
+                    <div class="p-multiselect-filter-container">
+                        <input type="text" v-model="filterValue" class="p-multiselect-filter p-component p-inputtext p-component" :placeholder="filterPlaceholder">
+                        <span class="p-multiselect-filter-icon pi pi-search"></span>
+                    </div>
+                    <button class="p-multiselect-close p-link" @click="onCloseClick">
+                        <span class="p-multiselect-close-icon pi pi-times" />
+                    </button>
+                </div>
                 <div ref="itemsWrapper" class="p-multiselect-items-wrapper" :style="{'max-height': scrollHeight}">
                     <ul class="p-multiselect-items p-multiselect-list p-component">
                         <li v-for="(option, i) of visibleOptions" :class="['p-multiselect-item', {'p-highlight': isSelected(option), 'p-disabled': isOptionDisabled(option)}]"
@@ -111,12 +128,15 @@ export default {
                 this.$refs.focusInput.focus();
             }
         },
+        onCloseClick() {
+            this.overlayVisible = false;
+        },
         onKeyDown(event) {
             switch(event.which) {
                 //down
                 case 40:
-                    if (this.visibleOptions && this.overlayVisible && event.altKey) {
-                        this.overlayVisible = false;
+                    if (this.visibleOptions && !this.overlayVisible && event.altKey) {
+                        this.overlayVisible = true;
                     } 
                 break;
 
@@ -254,11 +274,17 @@ export default {
             }
 
             return label;
+        },
+        onToggleAll(event) {
+            const value = this.allSelected ? [] : this.visibleOptions;
+
+            this.$emit('input', value);
+            this.$emit('change', {originalEvent: event, value: value});
         }
     },
     computed: {
         visibleOptions() {
-            if (this.filterValue)
+            if (this.filterValue && this.filterValue.trim().length > 0)
                 return this.options.filter(option => this.getOptionLabel(option).toLowerCase().indexOf(this.filterValue.toLowerCase()) > -1);
             else
                 return this.options;
@@ -299,6 +325,12 @@ export default {
             }
 
             return label;
+        },
+        allSelected() {
+            if (this.filterValue && this.filterValue.trim().length > 0)
+                return this.value && this.visibleOptions && (this.value.length > 0 && this.value.length === this.visibleOptions.length);
+            else
+                return this.value && this.options && (this.value.length > 0 && this.value.length === this.options.length);
         }
     }
 }
