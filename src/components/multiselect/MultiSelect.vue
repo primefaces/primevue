@@ -4,7 +4,11 @@
             <input ref="focusInput" type="text" role="listbox" readonly :disabled="disabled" @focus="onFocus" @blur="onBlur" @keydown="onKeyDown" :tabindex="tabindex"/>
         </div>
         <div class="p-multiselect-label-container">
-            <label :class="labelClass">{{label}}</label>
+            <label :class="labelClass">
+                <slot name="value" :value="value">
+                    {{label}}
+                </slot>
+            </label>
         </div>
         <div class="p-multiselect-trigger">
             <span class="p-multiselect-trigger-icon pi pi-chevron-down p-c"></span>
