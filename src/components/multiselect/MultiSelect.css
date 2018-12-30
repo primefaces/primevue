@@ -27,7 +27,7 @@
     position: absolute;
 }
 
-.p-multiselect .p-multiselect-label-container  {
+.p-multiselect .p-multiselect-label-container {
     overflow: hidden;
 }
 
@@ -48,7 +48,7 @@
 
 .p-multiselect.p-disabled .p-multiselect-trigger,
 .p-multiselect.p-disabled .p-multiselect-label {
-    cursor: auto
+    cursor: auto;
 }
 
 .p-multiselect-panel {
@@ -69,6 +69,8 @@
 
 .p-multiselect-panel .p-multiselect-list {
     border: 0 none;
+    margin: 0;
+    list-style-type: none;
 }
 
 .p-multiselect-panel .p-multiselect-item {
@@ -88,7 +90,7 @@
     vertical-align: middle;
 }
 
-.p-multiselect-panel .p-multiselect-item label {
+.p-multiselect-panel .p-multiselect-item > span {
     display: inline-block;
     vertical-align: middle;
 }
