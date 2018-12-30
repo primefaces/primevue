@@ -18,9 +18,9 @@
                 <div class="p-multiselect-header">
                     <div class="p-checkbox p-component" @click="onToggleAll">
                         <div class="p-hidden-accessible">
-                            <input type="checkbox" readonly>
+                            <input type="checkbox" readonly @focus="onHeaderCheckboxFocus" @blur="onHeaderCheckboxBlur">
                         </div>
-                        <div :class="['p-checkbox-box p-component', {'p-highlight': allSelected}]">
+                        <div :class="['p-checkbox-box p-component', {'p-highlight': allSelected, 'p-focus': headerCheckboxFocused}]">
                             <span :class="['p-checkbox-icon p-c', {'pi pi-check': allSelected}]"></span>
                         </div>
                     </div>
@@ -78,6 +78,7 @@ export default {
     data() {
         return {
             focused: false,
+            headerCheckboxFocused: false,
             filterValue: null,
             overlayVisible: false
         };
@@ -121,6 +122,12 @@ export default {
         },
         onBlur() {
             this.focused = false;
+        },
+        onHeaderCheckboxFocus() {
+            this.headerCheckboxFocused = true;
+        },
+        onHeaderCheckboxBlur() {
+            this.headerCheckboxFocused = false;
         },
         onClick() {
             if (!this.$refs.overlay || !this.$refs.overlay.contains(event.target)) {
@@ -327,10 +334,19 @@ export default {
             return label;
         },
         allSelected() {
-            if (this.filterValue && this.filterValue.trim().length > 0)
-                return this.value && this.visibleOptions && (this.value.length > 0 && this.value.length === this.visibleOptions.length);
-            else
+            if (this.filterValue && this.filterValue.trim().length > 0) {
+                let allSelected = true;
+                for (let option of this.visibleOptions) {
+                    if (!this.isSelected(option)) {
+                        allSelected = false;
+                        break;
+                    }
+                }
+                return allSelected;
+            }
+            else {
                 return this.value && this.options && (this.value.length > 0 && this.value.length === this.options.length);
+            }                
         }
     }
 }
