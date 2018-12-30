@@ -1,7 +1,7 @@
 <template>
     <div ref="container" :class="containerClass">
         <div class="p-hidden-accessible">
-            <select :required="this.required" aria-hidden="true" tabindex="-1">
+            <select aria-hidden="true" tabindex="-1">
                 <option v-for="option of visibleOptions" :key="getOptionLabel(option)" :value="getOptionValue(option)">{{getOptionLabel(option)}}</option>
             </select>
         </div>
@@ -49,7 +49,6 @@ export default {
         optionValue: null,
         optionDisabled: null,
         disabled: Boolean,
-        required: Boolean,
         tabindex: String,
         editable: Boolean,
         placeholder: String,
@@ -156,7 +155,7 @@ export default {
                     }
                 break;
 
-                //escape and tab
+                //tab
                 case 9:
                     this.hideOverlay();
                 break;
