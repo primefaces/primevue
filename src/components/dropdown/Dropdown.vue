@@ -67,6 +67,11 @@ export default {
             overlayVisible: false
         };
     },
+    outsideClickListener: null,
+    searchTimeout: null,
+    currentSearchChar: null,
+    previousSearchChar: null,
+    searchValue: null,
     beforeDestroy() {
         this.unbindOutsideClickListener();
     },
@@ -75,11 +80,6 @@ export default {
             this.alignOverlay();
         }
     },
-    outsideClickListener: null,
-    searchTimeout: null,
-    currentSearchChar: null,
-    previousSearchChar: null,
-    searchValue: null,
     methods: {
         getOptionLabel(option) {
             return ObjectUtils.resolveFieldData(option, this.optionLabel);
