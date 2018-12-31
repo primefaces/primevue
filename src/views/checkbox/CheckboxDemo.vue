@@ -9,25 +9,25 @@
 
         <div class="content-section implementation">
             <h3 class="first">Basic</h3>
-            <p-checkbox inputId="binary" v-model="checked" />
+            <Checkbox inputId="binary" v-model="checked" />
             <label for="binary" class="p-checkbox-label" style="font-weight: bold">{{checked}}</label>
 
             <h3>Multiple</h3>
             <div class="p-grid">
                 <div class="p-col-12">
-                    <p-checkbox inputId="city1" name="city" value="Chicago" v-model="cities" />
+                    <Checkbox inputId="city1" name="city" value="Chicago" v-model="cities" />
                     <label for="city1" class="p-checkbox-label">Chicago</label>
                 </div>
                 <div class="p-col-12">
-                    <p-checkbox inputId="city2" name="city" value="Los Angeles" v-model="cities" />
+                    <Checkbox inputId="city2" name="city" value="Los Angeles" v-model="cities" />
                     <label for="city2" class="p-checkbox-label">Los Angeles</label>
                 </div>
                 <div class="p-col-12">
-                    <p-checkbox inputId="city3" name="city" value="New York" v-model="cities" />
+                    <Checkbox inputId="city3" name="city" value="New York" v-model="cities" />
                     <label for="city3" class="p-checkbox-label">New York</label>
                 </div>
                 <div class="p-col-12">
-                    <p-checkbox inputId="city4" name="city" value="San Francisco" v-model="cities" />
+                    <Checkbox inputId="city4" name="city" value="San Francisco" v-model="cities" />
                     <label for="city4" class="p-checkbox-label">San Francisco</label>
                 </div>
             </div>
@@ -36,7 +36,7 @@
             <h3>Dynamic Values, Preselection, Value Binding and Disabled Option</h3>
             <div class="p-grid">
                 <div v-for="theme of themes" :key="theme.key" class="p-col-12">
-                    <p-checkbox :inputId="theme.key" name="theme" :value="theme" v-model="selectedThemes" :disabled="theme.key === 'U'"/>
+                    <Checkbox :inputId="theme.key" name="theme" :value="theme" v-model="selectedThemes" :disabled="theme.key === 'U'"/>
                     <label :for="theme.key" class="p-checkbox-label">{{theme.name}}</label>
                 </div>
             </div>

@@ -9,10 +9,10 @@
 
         <div class="content-section implementation">
             <h3 class="first">Default</h3>
-            <p-editor v-model="value1" editorStyle="height: 320px"/>
+            <Editor v-model="value1" editorStyle="height: 320px"/>
 
             <h3>Customized</h3>
-            <p-editor v-model="value2" editorStyle="height: 320px">
+            <Editor v-model="value2" editorStyle="height: 320px">
                 <template slot="toolbar">
                     <span class="ql-formats">
                         <button class="ql-bold"></button>
@@ -20,7 +20,7 @@
                         <button class="ql-underline"></button>
                     </span>
                 </template>
-            </p-editor>
+            </Editor>
         </div>
     </div>
 </template>

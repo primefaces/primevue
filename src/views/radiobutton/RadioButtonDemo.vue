@@ -11,19 +11,19 @@
             <h3 class="first">Basic</h3>
             <div class="p-grid">
                 <div class="p-col-12">
-                    <p-radioButton inputId="city1" name="city" value="Chicago" v-model="city" />
+                    <RadioButton inputId="city1" name="city" value="Chicago" v-model="city" />
                     <label for="city1" class="p-radiobutton-label">Chicago</label>
                 </div>
                 <div class="p-col-12">
-                    <p-radioButton inputId="city2" name="city" value="Los Angeles" v-model="city" />
+                    <RadioButton inputId="city2" name="city" value="Los Angeles" v-model="city" />
                     <label for="city2" class="p-radiobutton-label">Los Angeles</label>
                 </div>
                 <div class="p-col-12">
-                    <p-radioButton inputId="city3" name="city" value="New York" v-model="city" />
+                    <RadioButton inputId="city3" name="city" value="New York" v-model="city" />
                     <label for="city3" class="p-radiobutton-label">New York</label>
                 </div>
                 <div class="p-col-12">
-                    <p-radioButton inputId="city4" name="city" value="San Francisco" v-model="city" />
+                    <RadioButton inputId="city4" name="city" value="San Francisco" v-model="city" />
                     <label for="city4" class="p-radiobutton-label">San Francisco</label>
                 </div>
             </div>
@@ -32,7 +32,7 @@
             <h3>Dynamic Values, Preselection, Value Binding and Disabled Option</h3>
             <div class="p-grid">
                 <div v-for="theme of themes" :key="theme.key" class="p-col-12">
-                    <p-radioButton :inputId="theme.key" name="theme" :value="theme" v-model="selectedTheme" :disabled="theme.key === 'U'"/>
+                    <RadioButton :inputId="theme.key" name="theme" :value="theme" v-model="selectedTheme" :disabled="theme.key === 'U'" />
                     <label :for="theme.key" class="p-radiobutton-label">{{theme.name}}</label>
                 </div>
             </div>

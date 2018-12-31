@@ -9,17 +9,17 @@
 
         <div class="content-section implementation">
             <h3 class="first">Basic</h3>
-            <p-inputtext type="text" v-model="value1" />
+            <InputText type="text" v-model="value1" />
             <span :style="{marginLeft: '.5em'}">{{value1}}</span>
 
             <h3>Floating Label</h3>
             <span class="p-float-label">
-                <p-inputtext type="text" v-model="value2" />
+                <InputText type="text" v-model="value2" />
                 <label htmlFor="float-input">Username</label>
             </span>
 
             <h3>Disabled</h3>
-            <p-inputtext type="text" v-model="value3" disabled />
+            <InputText type="text" v-model="value3" disabled />
         </div>
     </div>
 </template>

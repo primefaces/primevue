@@ -9,10 +9,10 @@
 
         <div class="content-section implementation">
             <h3 class="first">Basic</h3>
-            <p-multiSelect v-model="selectedCars1" :options="cars" optionLabel="brand" placeholder="Select Brands" />
+            <MultiSelect v-model="selectedCars1" :options="cars" optionLabel="brand" placeholder="Select Brands" />
 
             <h3>Advanced with Templating and Filtering</h3>
-            <p-multiSelect v-model="selectedCars2" :options="cars" optionLabel="brand" placeholder="Select a Car" :filter="true">
+            <MultiSelect v-model="selectedCars2" :options="cars" optionLabel="brand" placeholder="Select a Car" :filter="true">
                 <template slot="value" slot-scope="{value}">
                     <div class="p-multiselect-car-token" v-for="option of value" :key="option.brand">
                         <img :alt="option.brand" :src="'/demo/images/car/' + option.brand + '.png'" />
@@ -28,7 +28,7 @@
                         <span>{{option.brand}}</span>
                     </div>
                 </template>
-            </p-multiSelect>
+            </MultiSelect>
         </div>
     </div>
 </template>

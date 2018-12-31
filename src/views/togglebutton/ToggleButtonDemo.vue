@@ -9,11 +9,11 @@
 
         <div class="content-section implementation">
             <h3 class="first">Basic</h3>
-            <p-toggleButton v-model="checked1" onIcon="pi pi-check" offIcon="pi pi-times"/>
+            <ToggleButton v-model="checked1" onIcon="pi pi-check" offIcon="pi pi-times" />
             <p style="font-weight: bold">{{checked1}}</p>
 
             <h3>Customized</h3>
-            <p-toggleButton v-model="checked2" onLabel="I confirm" offLabel="I reject" onIcon="pi pi-check" offIcon="pi pi-times" style="width: 10em"/>
+            <ToggleButton v-model="checked2" onLabel="I confirm" offLabel="I reject" onIcon="pi pi-check" offIcon="pi pi-times" style="width: 10em" />
             <p style="font-weight: bold">{{checked2}}</p>
         </div>
     </div>

@@ -8,7 +8,7 @@
         </div>
 
         <div class="content-section implementation">
-            <p-fullCalendar :events="events" :options="options" />
+            <FullCalendar :events="events" :options="options" />
         </div>
     </div>
 </template>

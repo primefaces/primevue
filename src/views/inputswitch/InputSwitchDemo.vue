@@ -9,11 +9,11 @@
 
         <div class="content-section implementation">
             <h3 class="first">Basic</h3>
-            <p-inputSwitch v-model="checked1" />
+            <InputSwitch v-model="checked1" />
             <p style="font-weight: bold">{{checked1}}</p>
 
             <h3>Preselection</h3>
-            <p-inputSwitch v-model="checked2" />
+            <InputSwitch v-model="checked2" />
             <p style="font-weight: bold">{{checked2}}</p>
         </div>
     </div>

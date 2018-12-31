@@ -8,20 +8,20 @@
         </div>
 
         <div class="content-section implementation">
-            <p-toolbar>
+            <Toolbar>
                 <template slot="left">
-                    <p-button label="New" icon="pi pi-plus" style="margin-right: .25em" />
-                    <p-button label="Upload" icon="pi pi-upload" class="p-button-success" />
+                    <Button label="New" icon="pi pi-plus" style="margin-right: .25em" />
+                    <Button label="Upload" icon="pi pi-upload" class="p-button-success" />
                     <i class="pi pi-bars p-toolbar-separator" style="margin-right: .25em" />
-                    <p-button label="Save" icon="pi pi-check" class="p-button-warning" />
+                    <Button label="Save" icon="pi pi-check" class="p-button-warning" />
                 </template>
                 
                 <template slot="right">
-                    <p-button icon="pi pi-search" style="margin-right: .25em" />
-                    <p-button icon="pi pi-calendar" class="p-button-success" style="margin-right: .25em" />
-                    <p-button icon="pi pi-times" class="p-button-danger" />
+                    <Button icon="pi pi-search" style="margin-right: .25em" />
+                    <Button icon="pi pi-calendar" class="p-button-success" style="margin-right: .25em" />
+                    <Button icon="pi pi-times" class="p-button-danger" />
                 </template>
-            </p-toolbar>
+            </Toolbar>
         </div>
     </div>
 </template>

@@ -9,17 +9,17 @@
 
         <div class="content-section implementation">
             <h3 class="first">Basic</h3>
-            <p-chips v-model="value1" />
+            <Chips v-model="value1" />
 
             <h3>Template</h3>
-            <p-chips v-model="value2">
+            <Chips v-model="value2">
                 <template slot-scope="{value}">
                     <div>
                         <span>{{value}} - (active) </span>
                         <i class="pi pi-user-plus" style="font-size: 14px"></i>
                     </div>
                 </template>
-            </p-chips>
+            </Chips>
         </div>
     </div>
 </template>

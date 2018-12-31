@@ -8,7 +8,7 @@
         </div>
 
         <div class="content-section implementation">
-            <p-triStateCheckbox v-model="value" />
+            <TriStateCheckbox v-model="value" />
             <p>Value: <span style="font-weight: bold">{{value == null ? 'null' : value}}</span></p>
         </div>
     </div>

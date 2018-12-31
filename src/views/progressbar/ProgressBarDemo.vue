@@ -9,13 +9,13 @@
 
         <div class="content-section implementation">
             <h3 class="first">Dynamic</h3>
-            <p-progressBar :value="value1" />
+            <ProgressBar :value="value1" />
 
             <h3>Static</h3>
-            <p-progressBar :value="value2" :showValue="false" />
+            <ProgressBar :value="value2" :showValue="false" />
 
             <h3>Indeterminate</h3>
-            <p-progressBar mode="indeterminate" style="height: .5em" />
+            <ProgressBar mode="indeterminate" style="height: .5em" />
         </div>
     </div>
 </template>

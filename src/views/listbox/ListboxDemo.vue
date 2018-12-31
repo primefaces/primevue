@@ -9,17 +9,17 @@
 
         <div class="content-section implementation">
             <h3 class="first">Single</h3>
-            <p-listbox v-model="selectedCity" :options="cities" optionLabel="name" />
+            <Listbox v-model="selectedCity" :options="cities" optionLabel="name" />
 
             <h3>Advanced with Templating, Filtering and Multiple Selection</h3>
-            <p-listbox v-model="selectedCars" :options="cars" :multiple="true" :filter="true" optionLabel="brand" listStyle="max-height:250px" style="width:15em">
+            <Listbox v-model="selectedCars" :options="cars" :multiple="true" :filter="true" optionLabel="brand" listStyle="max-height:250px" style="width:15em">
                 <template slot-scope="{option}">
                     <div className="p-clearfix">
                         <img :alt="option.brand" :src="'/demo/images/car/' + option.brand + '.png'" style="display:inline-block;margin:5px 0 0 5px;width:48px" />
                         <span style="float:right;margin:1.25em .5em 0 0">{{option.brand}}</span>
                     </div>
                 </template>
-            </p-listbox>
+            </Listbox>
         </div>
     </div>
 </template>

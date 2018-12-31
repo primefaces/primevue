@@ -8,7 +8,7 @@
         </div>
 
         <div class="content-section implementation">
-            <p-password v-model="value" />
+            <Password v-model="value" />
         </div>
     </div>
 </template>

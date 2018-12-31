@@ -9,20 +9,20 @@
 
         <div class="content-section implementation">
             <h3 class="first">Basic: {{value1}}</h3>
-            <p-slider v-model="value1" />
+            <Slider v-model="value1" />
 
             <h3>Input: {{value2}}</h3>
             <p-inputtext v-model.number="value2" />
-            <p-slider v-model="value2" />
+            <Slider v-model="value2" />
             
             <h3>Step: {{value3}}</h3>
-            <p-slider v-model="value3" :step="20" />
+            <Slider v-model="value3" :step="20" />
 
             <h3>Range: {{value4}}</h3>
-            <p-slider v-model="value4" :range="true" />
+            <Slider v-model="value4" :range="true" />
 
             <h3>Vertical: {{value5}}</h3>
-            <p-slider v-model="value5" orientation="vertical" />
+            <Slider v-model="value5" orientation="vertical" />
         </div>
     </div>
 </template>

@@ -9,22 +9,22 @@
 
         <div class="content-section implementation">
             <h3 class="first">Single</h3>
-            <p-selectButton v-model="selectedCity" :options="cities" optionLabel="name" />
+            <SelectButton v-model="selectedCity" :options="cities" optionLabel="name" />
             <p>Selected City: <span style="font-weight: bold">{{selectedCity}}</span></p>
 
             <h3>Multiple</h3>
-            <p-selectButton v-model="selectedCars" :options="cars" optionLabel="brand" :multiple="true" />
+            <SelectButton v-model="selectedCars" :options="cars" optionLabel="brand" :multiple="true" />
             <p>Selected Cars: <span style="font-weight: bold">{{selectedCars}}</span></p>
 
             <h3>Custom Content</h3>
-            <p-selectButton v-model="selectedCar" :options="cars" optionLabel="brand">
+            <SelectButton v-model="selectedCar" :options="cars" optionLabel="brand">
                 <template slot-scope="{option}">
                     <div style="text-align: center; padding: 1em; width: 125px">
                         <img :alt="option.brand" :src="'/demo/images/car/' + option.brand + '.png'" style="width:48px" />
                         <div style="margin-top: 1em">{{option.brand}}</div>
                     </div>
                 </template>
-            </p-selectButton>
+            </SelectButton>
             <p>Selected Car: <span style="font-weight: bold">{{selectedCar}}</span></p>
         </div>
     </div>

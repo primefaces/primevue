@@ -9,16 +9,16 @@
 
         <div class="content-section implementation">
             <h3 class="first">Basic</h3>
-            <p-spinner v-model="value1" />
+            <Spinner v-model="value1" />
 
             <h3>Min/Max</h3>
-            <p-spinner v-model="value2" :min="0" :max="100" />
+            <Spinner v-model="value2" :min="0" :max="100" />
 
             <h3>Step</h3>
-            <p-spinner v-model="value3" :step="0.25" />
+            <Spinner v-model="value3" :step="0.25" />
 
             <h3>Disabled</h3>
-            <p-spinner v-model="value4" :disabled="true" />
+            <Spinner v-model="value4" :disabled="true" />
         </div>
     </div>
 </template>

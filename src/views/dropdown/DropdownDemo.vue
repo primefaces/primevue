@@ -9,20 +9,20 @@
 
         <div class="content-section implementation">
             <h3 class="first">Basic</h3>
-            <p-dropdown v-model="selectedCity1" :options="cities" optionLabel="name" placeholder="Select a City" />
+            <Dropdown v-model="selectedCity1" :options="cities" optionLabel="name" placeholder="Select a City" />
 
             <h3>Editable</h3>
-            <p-dropdown v-model="selectedCity2" :options="cities" optionLabel="name" :editable="true"/>
+            <Dropdown v-model="selectedCity2" :options="cities" optionLabel="name" :editable="true"/>
 
             <h3>Advanced with Templating, Filtering and Clear Icon</h3>
-            <p-dropdown v-model="selectedCar" :options="cars" optionLabel="brand" placeholder="Select a Car" :filter="true" :showClear="true">
+            <Dropdown v-model="selectedCar" :options="cars" optionLabel="brand" placeholder="Select a Car" :filter="true" :showClear="true">
                 <template slot="option" slot-scope="{option}">
                     <div class="p-clearfix p-dropdown-car-option">
                         <img :alt="option.brand" :src="'/demo/images/car/' + option.brand + '.png'" />
                         <span>{{option.brand}}</span>
                     </div>
                 </template>
-            </p-dropdown>
+            </Dropdown>
         </div>
     </div>
 </template>
