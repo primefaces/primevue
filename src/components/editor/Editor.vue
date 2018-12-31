@@ -59,8 +59,10 @@ export default {
         editorStyle: null
     },
     quill: null,
-    watch(value) {
-        this.renderValue(value);
+    watch: {
+        value(newValue) {
+            this.renderValue(newValue);
+        }
     },
     mounted() {
         this.quill = new Quill(this.$refs.editorElement, {
