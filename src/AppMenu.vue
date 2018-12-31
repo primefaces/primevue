@@ -46,7 +46,7 @@
             </a>
             <div :class="{'submenuhide': activeMenuIndex !== 2, 'submenushow': activeMenuIndex === 2}">
                 <div>
-                    <router-link to="/">&#9679; Link</router-link>
+                    <router-link to="/fullcalendar">&#9679; FullCalendar</router-link>
                 </div>
             </div>
 

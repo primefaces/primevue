@@ -57,6 +57,11 @@ export default new Router({
         component: () => import('./views/flexgrid/FlexGridDemo.vue')
     },
     {
+        path: '/fullcalendar',
+        name: 'fullcalendar',
+        component: () => import('./views/fullcalendar/FullCalendarDemo.vue')
+    },
+    {
         path: '/inputswitch',
         name: 'inputswitch',
         component: () => import('./views/inputswitch/InputSwitchDemo.vue')
