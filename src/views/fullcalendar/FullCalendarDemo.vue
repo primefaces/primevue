@@ -8,7 +8,7 @@
         </div>
 
         <div class="content-section implementation">
-            <p-fullCalendar :events="events" />
+            <p-fullCalendar :events="events" :options="options" />
         </div>
     </div>
 </template>
@@ -19,6 +19,15 @@ import EventService from '../../service/EventService';
 export default {
     data() {
         return {
+            options: {
+                defaultDate: '2019-01-01',
+                header: {
+                    left: 'prev,next',
+                    center: 'title',
+                    right: 'month,agendaWeek,agendaDay'
+                },
+                editable: true
+            },
             events: null
         };
     },
