@@ -30,8 +30,9 @@
     "vue-template-compiler": "^2.5.17",
     "primeicons": "1.0.0",
     "primeflex": "1.0.0-rc.1",
-    "quill": "1.3.3",
     "axios": "^0.15.3",
-    "fullcalendar": "4.0.0-alpha.2"
+    "quill": "1.3.3",
+    "fullcalendar": "4.0.0-alpha.2",
+    "chart.js": "2.7.3"
   }
 }

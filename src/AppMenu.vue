@@ -107,7 +107,8 @@
             </a>
             <div :class="{'submenuhide': activeMenuIndex !== 7, 'submenushow': activeMenuIndex === 7}">
                 <div>
-                    <router-link to="/">&#9679; Link</router-link>
+                    <router-link to="/chart">&#9679; ChartModel</router-link>
+                    <router-link to="/chart/pie">&#9679; Pie</router-link>
                 </div>
             </div>
 

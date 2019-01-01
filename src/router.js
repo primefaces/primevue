@@ -27,6 +27,16 @@ export default new Router({
         component: () => import('./views/card/CardDemo.vue')
     },
     {
+        path: '/chart',
+        name: 'chart',
+        component: () => import('./views/chart/ChartDemo.vue')
+    },
+    {
+        path: '/chart/pie',
+        name: 'piechart',
+        component: () => import('./views/chart/PieChartDemo.vue')
+    },
+    {
         path: '/checkbox',
         name: 'checkbox',
         component: () => import('./views/checkbox/CheckboxDemo.vue')
