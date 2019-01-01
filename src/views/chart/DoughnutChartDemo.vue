@@ -2,13 +2,13 @@
     <div>
         <div class="content-section introduction">
             <div class="feature-intro">
-                <h1>Pie Chart</h1>
-                <p>A pie chart is a circular statistical graphic, which is divided into slices to illustrate numerical proportion.</p>
+                <h1>DoughnutChart</h1>
+                <p>A doughnut chart is a variant of the pie chart, with a blank center allowing for additional information about the data as a whole to be included.</p>
             </div>
         </div>
 
         <div class="content-section implementation">
-            <Chart type="pie" :data="chartData" />
+            <Chart type="doughnut" :data="chartData" />
         </div>
     </div>
 </template>

@@ -32,14 +32,39 @@ export default new Router({
         component: () => import('./views/chart/ChartDemo.vue')
     },
     {
+        path: '/chart/bar',
+        name: 'barchart',
+        component: () => import('./views/chart/BarChartDemo.vue')
+    },
+    {
         path: '/chart/combo',
         name: 'combochart',
         component: () => import('./views/chart/ComboChartDemo.vue')
     },
     {
+        path: '/chart/doughnut',
+        name: 'doughnutchart',
+        component: () => import('./views/chart/DoughnutChartDemo.vue')
+    },
+    {
+        path: '/chart/line',
+        name: 'linechart',
+        component: () => import('./views/chart/LineChartDemo.vue')
+    },
+    {
         path: '/chart/pie',
         name: 'piechart',
         component: () => import('./views/chart/PieChartDemo.vue')
+    },
+    {
+        path: '/chart/polararea',
+        name: 'polarareachart',
+        component: () => import('./views/chart/PolarAreaChartDemo.vue')
+    },
+    {
+        path: '/chart/radar',
+        name: 'radarchart',
+        component: () => import('./views/chart/RadarChartDemo.vue')
     },
     {
         path: '/checkbox',

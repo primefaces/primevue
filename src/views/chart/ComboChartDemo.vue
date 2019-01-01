@@ -2,13 +2,13 @@
     <div>
         <div class="content-section introduction">
             <div class="feature-intro">
-                <h1>ComboChart</h1>
+                <h1>Combo Chart</h1>
                 <p>Different chart types can be combined in the same graph.</p>
             </div>
         </div>
 
         <div class="content-section implementation">
-            <Chart type="bar" :data="chartModel" :options="chartOptions"/>
+            <Chart type="bar" :data="chartData" :options="chartOptions"/>
         </div>
     </div>
 </template>
@@ -17,7 +17,7 @@
 export default {
     data() {
         return {
-            chartModel: {
+            chartData: {
                 labels: ['January', 'February', 'March', 'April', 'May', 'June', 'July'],
                 datasets: [{
                     type: 'line',

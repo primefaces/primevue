@@ -109,6 +109,11 @@
                 <div>
                     <router-link to="/chart">&#9679; ChartModel</router-link>
                     <router-link to="/chart/pie">&#9679; Pie</router-link>
+                    <router-link to="/chart/doughnut">&#9679; Doughnut</router-link>
+                    <router-link to="/chart/bar">&#9679; Bar</router-link>
+                    <router-link to="/chart/line">&#9679; Line</router-link>
+                    <router-link to="/chart/polararea">&#9679; PolarArea</router-link>
+                    <router-link to="/chart/radar">&#9679; Radar</router-link>
                     <router-link to="/chart/combo">&#9679; Combo</router-link>
                 </div>
             </div>
