@@ -32,6 +32,11 @@ export default new Router({
         component: () => import('./views/chart/ChartDemo.vue')
     },
     {
+        path: '/chart/combo',
+        name: 'combochart',
+        component: () => import('./views/chart/ComboChartDemo.vue')
+    },
+    {
         path: '/chart/pie',
         name: 'piechart',
         component: () => import('./views/chart/PieChartDemo.vue')
