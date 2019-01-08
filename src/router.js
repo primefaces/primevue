@@ -102,6 +102,11 @@ export default new Router({
         component: () => import('./views/fullcalendar/FullCalendarDemo.vue')
     },
     {
+        path: '/inputgroup',
+        name: 'inputgroup',
+        component: () => import('./views/inputgroup/InputGroupDemo.vue')
+    },
+    {
         path: '/inputswitch',
         name: 'inputswitch',
         component: () => import('./views/inputswitch/InputSwitchDemo.vue')

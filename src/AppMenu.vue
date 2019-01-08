@@ -12,6 +12,7 @@
                     <router-link to="/chips">&#9679; Chips</router-link>
                     <router-link to="/dropdown">&#9679; Dropdown</router-link>
                     <router-link to="/editor">&#9679; Editor</router-link>
+                    <router-link to="/inputgroup">&#9679; InputGroup</router-link>
                     <router-link to="/inputswitch">&#9679; InputSwitch</router-link>
                     <router-link to="/inputtext">&#9679; InputText</router-link>
                     <router-link to="/listbox">&#9679; Listbox</router-link>
