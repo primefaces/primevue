@@ -17,6 +17,11 @@ export default new Router({
         component: () => import('./views/accordion/AccordionDemo.vue')
     },
     {
+        path: '/autocomplete',
+        name: 'autocomplete',
+        component: () => import('./views/autocomplete/AutoCompleteDemo.vue')
+    },
+    {
         path: '/button',
         name: 'button',
         component: () => import('./views/button/ButtonDemo.vue')

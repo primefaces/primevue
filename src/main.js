@@ -1,6 +1,7 @@
 import Vue from 'vue';
 import App from './App.vue';
 import router from './router';
+import AutoComplete from './components/autocomplete/AutoComplete';
 import Accordion from './components/accordion/Accordion';
 import AccordionTab from './components/accordion/AccordionTab';
 import Button from './components/button/Button';
@@ -39,6 +40,7 @@ Vue.config.productionTip = false;
 
 Vue.component('Accordion', Accordion);
 Vue.component('AccordionTab', AccordionTab);
+Vue.component('AutoComplete', AutoComplete);
 Vue.component('Button', Button);
 Vue.component('Card', Card);
 Vue.component('Chart', Chart);
