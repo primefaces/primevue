@@ -2,6 +2,7 @@
     <span :class="containerClass">
         <input ref="input" :class="inputClass" v-bind="$attrs" v-on="listeners" :value="inputValue" type="text" autoComplete="off">
         <i className="p-autocomplete-loader pi pi-spinner pi-spin" v-show="searching"></i>
+        <Button ref="dropdownButton" type="button" icon="pi pi-fw pi-chevron-down" class="p-autocomplete-dropdown" :disabled="disabled" @click="onDropdownClick" v-if="dropdown"/>
         <transition name="p-input-overlay" @enter="onOverlayEnter" @leave="onOverlayLeave">
             <div ref="overlay" class="p-autocomplete-panel" :style="{'max-height': scrollHeight}" v-if="overlayVisible">
                 <ul class="p-autocomplete-items p-autocomplete-list p-component">
@@ -19,6 +20,7 @@
 <script>
 import ObjectUtils from '../utils/ObjectUtils';
 import DomHandler from '../utils/DomHandler';
+import Button from '../button/Button';
 
 export default {
     inheritAttrs: false,
@@ -26,6 +28,10 @@ export default {
         value: null,
         suggestions: Array,
         dropdown: Boolean,
+        dropdownMode: {
+            type: String,
+            default: 'blank'
+        },
         multiple: Boolean,
         disabled: Boolean,
         field: String,
@@ -67,6 +73,7 @@ export default {
     },
     methods: {
         onOverlayEnter() {
+            this.$refs.overlay.style.zIndex = String(DomHandler.generateZIndex());
             this.alignOverlay();
             this.bindOutsideClickListener();
         },
@@ -79,20 +86,18 @@ export default {
         bindOutsideClickListener() {
             if (!this.outsideClickListener) {
                 this.outsideClickListener = (event) => {
-                    if (this.overlayVisible && this.$refs.overlay && this.isOutsideClicked()) {
+                    if (this.overlayVisible && this.$refs.overlay && this.isOutsideClicked(event)) {
                         this.hideOverlay();
                     }
                 };
                 document.addEventListener('click', this.outsideClickListener);
             }
         },
-        isOutsideClicked() {
-            if (this.multiple) {
-                return !this.$refs.overlay.contains(event.target) && event.target !== this.$refs.input;
-            }
-            else {
-                return !this.$refs.overlay.contains(event.target) && event.target !== this.$refs.input;
-            }
+        isOutsideClicked(event) {
+            return !this.$refs.overlay.contains(event.target) && event.target !== this.getInputElement() && !this.isDropdownClicked(event);
+        },
+        isDropdownClicked(event) {
+            return this.$refs.dropdownButton ? (event.target === this.$refs.dropdownButton || this.$refs.dropdownButton.$el.contains(event.target)) : false;
         },
         unbindOutsideClickListener() {
             if (this.outsideClickListener) {
@@ -120,6 +125,20 @@ export default {
             this.focus();
             this.hideOverlay();
         },
+        onDropdownClick(event) {
+            this.focus();
+            const query = this.getInputElement().value;
+
+            if (this.dropdownMode === 'blank')
+                this.search(event, '', 'dropdown');
+            else if (this.dropdownMode === 'current')
+                this.search(event, query, 'dropdown');
+
+            this.$emit('click-dropdown', {
+                originalEvent: event,
+                query: query
+            });
+        },
         getItemContent(item) {
             return this.field ? ObjectUtils.resolveFieldData(item, this.field) : item;
         },
@@ -130,10 +149,7 @@ export default {
             this.overlayVisible = false;
         },
         focus() {
-            if (this.multiple) 
-                this.$refs.multiInput.focus();
-            else
-                this.$refs.input.focus();
+            this.getInputElement().focus();
         },
         search(event, query, source) {
             //allow empty string but not undefined or null
@@ -151,6 +167,9 @@ export default {
                 originalEvent: event,
                 query: query
             });
+        },
+        getInputElement() {
+            return this.multiple ? this.$refs.inputMultiple : this.$refs.input;
         }
     },
     computed: {
@@ -213,12 +232,15 @@ export default {
                     return resolvedFieldData != null ? resolvedFieldData : this.value;
                 }
                 else
-                    return value;
+                    return this.value;
             }
             else {
                 return '';
             }
         }
+    },
+    components: {
+        'Button': Button
     }
 }
 </script>
