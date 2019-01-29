@@ -157,7 +157,7 @@ export default {
         },
         onDropdownClick(event) {
             this.focus();
-            const query = this.getInputElement().value;
+            const query = this.$refs.input.value;
 
             if (this.dropdownMode === 'blank')
                 this.search(event, '', 'dropdown');
