@@ -9,8 +9,8 @@
 
         <div class="content-section implementation">
             <h3 class="first">Basic</h3>
-            <AutoComplete v-model="country" :suggestions="filteredCountriesBasic" @complete="searchCountryBasic($event)" field="name" />
-            <span style="marginLeft: .5em">Country: {{country || 'none'}}</span>
+            <AutoComplete v-model="selectedCountry" :suggestions="filteredCountriesBasic" @complete="searchCountryBasic($event)" field="name" />
+            <span style="marginLeft: .5em">Country: {{selectedCountry || 'none'}}</span>
 
             <h3>Dropdown and Templating</h3>
             <AutoComplete v-model="brand" :suggestions="filteredBrands" @complete="searchBrand($event)" placeholder="Hint: type 'v' or 'f'" :dropdown="true">
@@ -22,6 +22,14 @@
                 </template>
             </AutoComplete>
             <span style="marginLeft: .5em">Brand: {{brand || 'none'}}</span>
+
+            <h3>Multiple</h3>
+            <span class="p-fluid">
+                <AutoComplete :multiple="true" v-model="selectedCountries" :suggestions="filteredCountriesMultiple" @complete="searchCountryMultiple($event)" field="name" />
+            </span>
+            <ul>
+                <li v-for="(c,i) of selectedCountries" :key="i">{{c}}</li>
+            </ul>
         </div>
     </div>
 </template>
@@ -33,8 +41,10 @@ export default {
     data() {
         return {
             countries: null,
-            country: null,
+            selectedCountry: null,
             filteredCountriesBasic: null,
+            selectedCountries: [],
+            filteredCountriesMultiple: null,
             brands: null,
             brand: null,
             filteredBrands: null
@@ -49,12 +59,19 @@ export default {
         this.brands = ['Audi', 'BMW', 'Fiat', 'Ford', 'Honda', 'Jaguar', 'Mercedes', 'Renault', 'Volvo'];
     },
     methods: {
+        searchCountry(query) {
+            return this.countries.filter((country) => {
+                return country.name.toLowerCase().startsWith(query.toLowerCase());
+            });
+        },
         searchCountryBasic(event) {
             setTimeout(() => {
-                let results = this.countries.filter((country) => {
-                    return country.name.toLowerCase().startsWith(event.query.toLowerCase());
-                });
-                this.filteredCountriesBasic = results;
+                this.filteredCountriesBasic = this.searchCountry(event.query);
+            }, 250);
+        },
+        searchCountryMultiple(event) {
+            setTimeout(() => {
+               this.filteredCountriesMultiple = this.searchCountry(event.query);
             }, 250);
         },
         searchBrand(event) {

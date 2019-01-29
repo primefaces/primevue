@@ -41,9 +41,9 @@
 }
 
 .p-autocomplete-panel .p-autocomplete-list {
+    border: 0 none;
     padding: 0;
     margin: 0;
-    border: 0 none;
 }
 
 .p-autocomplete-panel .p-autocomplete-list-item {

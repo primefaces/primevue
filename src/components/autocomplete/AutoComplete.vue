@@ -1,12 +1,21 @@
 <template>
     <span :class="containerClass">
-        <input ref="input" :class="inputClass" v-bind="$attrs" v-on="listeners" :value="inputValue" type="text" autoComplete="off">
-        <i className="p-autocomplete-loader pi pi-spinner pi-spin" v-show="searching"></i>
+        <input ref="input" :class="inputClass" v-bind="$attrs" v-on="listeners" :value="inputValue" type="text" autoComplete="off" v-if="!multiple">
+        <ul ref="multiContainer" :class="multiContainerClass" v-if="multiple" @click="onMultiContainerClick">
+            <li v-for="(item, i) of value" :key="i" class="p-autocomplete-token p-highlight">
+                <span class="p-autocomplete-token-icon pi pi-fw pi-times" @click="removeItem($event, i)"></span>
+                <span class="p-autocomplete-token-label">{{getItemContent(item)}}</span>
+            </li>
+            <li class="p-autocomplete-input-token">
+                <input ref="input" type="text" autoComplete="off" :disabled="disabled" v-bind="$attrs" v-on="listeners">
+            </li>
+        </ul>
+        <i class="p-autocomplete-loader pi pi-spinner pi-spin" v-show="searching"></i>
         <Button ref="dropdownButton" type="button" icon="pi pi-fw pi-chevron-down" class="p-autocomplete-dropdown" :disabled="disabled" @click="onDropdownClick" v-if="dropdown"/>
         <transition name="p-input-overlay" @enter="onOverlayEnter" @leave="onOverlayLeave">
             <div ref="overlay" class="p-autocomplete-panel" :style="{'max-height': scrollHeight}" v-if="overlayVisible">
                 <ul class="p-autocomplete-items p-autocomplete-list p-component">
-                    <li v-for="(item, i) of suggestions" class="p-autocomplete-list-item" :key="i" @click="onItemClick($event, item)">
+                    <li v-for="(item, i) of suggestions" class="p-autocomplete-list-item" :key="i" @click="selectItem($event, item)">
                         <slot name="item" :item="item" :index="i">  
                             {{getItemContent(item)}}
                         </slot>
@@ -59,7 +68,7 @@ export default {
         };
     },
     watch: {
-        suggestions() {
+        suggestions() {
             if (this.searching) {
 
                 if (this.suggestions && this.suggestions.length)
@@ -81,7 +90,10 @@ export default {
             this.unbindOutsideClickListener();
         },
         alignOverlay() {
-            DomHandler.relativePosition(this.$refs.overlay, this.$refs.input);
+            if (this.multiple)
+                DomHandler.relativePosition(this.$refs.overlay, this.$refs.multiContainer);
+            else
+                DomHandler.relativePosition(this.$refs.overlay, this.$refs.input);
         },
         bindOutsideClickListener() {
             if (!this.outsideClickListener) {
@@ -94,7 +106,13 @@ export default {
             }
         },
         isOutsideClicked(event) {
-            return !this.$refs.overlay.contains(event.target) && event.target !== this.getInputElement() && !this.isDropdownClicked(event);
+            return !this.$refs.overlay.contains(event.target) && !this.isInputClicked(event) && !this.isDropdownClicked(event);
+        },
+        isInputClicked(event) {
+            if (this.multiple)
+                return event.target === this.$refs.multiContainer || this.$refs.multiContainer.contains(event.target);
+            else
+                return event.target === this.$refs.input;
         },
         isDropdownClicked(event) {
             return this.$refs.dropdownButton ? (event.target === this.$refs.dropdownButton || this.$refs.dropdownButton.$el.contains(event.target)) : false;
@@ -105,13 +123,13 @@ export default {
                 this.outsideClickListener = null;
             }
         },
-        onItemClick(event, item) {
+        selectItem(event, item) {
             if (this.multiple) {
-                /*this.inputEl.value = '';
-                if (!this.isSelected(option)) {
-                    let newValue = this.props.value ? [...this.props.value, option] : [option];
-                    this.updateModel(event, newValue);
-                }*/
+                this.$refs.input.value = '';
+                if (!this.isSelected(item)) {
+                    let newValue = this.value ? [...this.value, item] : [item];
+                    this.$emit('input', newValue);
+                }
             }
             else {
                 this.$emit('input', item);
@@ -124,6 +142,18 @@ export default {
 
             this.focus();
             this.hideOverlay();
+        },
+        onMultiContainerClick(event) {
+            this.focus();
+        },
+        removeItem(event, index) {
+            let removedValue = this.value[index];
+            let newValue = this.value.filter((val, i) => (index !== i));
+            this.$emit('input', newValue);
+            this.$emit('unselect', {
+                originalEvent: event,
+                value: removedValue
+            });
         },
         onDropdownClick(event) {
             this.focus();
@@ -149,7 +179,7 @@ export default {
             this.overlayVisible = false;
         },
         focus() {
-            this.getInputElement().focus();
+            this.$refs.input.focus();
         },
         search(event, query, source) {
             //allow empty string but not undefined or null
@@ -168,47 +198,148 @@ export default {
                 query: query
             });
         },
-        getInputElement() {
-            return this.multiple ? this.$refs.inputMultiple : this.$refs.input;
+        onInput(event) {
+            if (this.timeout) {
+                clearTimeout(this.timeout);
+            }
+            
+            let query = event.target.value;
+            if (!this.multiple) {
+                this.$emit('input', query);
+            }
+            
+            if (query.length === 0) {
+                this.hideOverlay();
+                this.$emit('clear');
+            }
+            else {
+                if (query.length >= this.minLength) {
+                    this.timeout = setTimeout(() => {
+                        this.search(event, query, 'input');
+                    }, this.delay);
+                }
+                else {
+                    this.hideOverlay();
+                }
+            }
+        },
+        onFocus() {
+            this.focused = true;
+            this.$emit('focus', event);
+        },
+        onBlur() {
+            this.focused = false;
+            this.$emit('blur', event);
+        },
+        onKeyDown(event) {
+            if (this.overlayVisible) {
+                let highlightItem = DomHandler.findSingle(this.$refs.overlay, 'li.p-highlight');
+
+                switch(event.which) {
+                    //down
+                    case 40:
+                        if (highlightItem) {
+                            let nextElement = highlightItem.nextElementSibling;
+                            if (nextElement) {
+                                DomHandler.addClass(nextElement, 'p-highlight');
+                                DomHandler.removeClass(highlightItem, 'p-highlight');
+                                DomHandler.scrollInView(this.$refs.overlay, nextElement);
+                            }
+                        }    
+                        else {
+                            DomHandler.addClass(this.$refs.overlay.firstChild.firstChild, 'p-highlight');
+                        }
+                        
+                        event.preventDefault();
+                    break;
+
+                    //up
+                    case 38:
+                        if (highlightItem) {
+                            let previousElement = highlightItem.previousElementSibling;
+                            if (previousElement) {
+                                DomHandler.addClass(previousElement, 'p-highlight');
+                                DomHandler.removeClass(highlightItem, 'p-highlight');
+                                DomHandler.scrollInView(this.$refs.overlay, previousElement);
+                            }
+                        }
+                        
+                        event.preventDefault();
+                    break;
+
+                    //enter,tab
+                    case 13:
+                        if (highlightItem) {
+                            this.selectItem(event, this.suggestions[DomHandler.index(highlightItem)]);
+                            this.hideOverlay();
+                        }
+                        
+                        event.preventDefault();
+                    break;
+
+                    //escape
+                    case 27:
+                        this.hideOverlay();
+                        event.preventDefault();
+                    break;
+
+                    //tab
+                    case 9:
+                        if (highlightItem) {
+                            this.selectItem(event, this.suggestions[DomHandler.index(highlightItem)]);
+                        }
+                        
+                        this.hideOverlay();
+                    break;
+
+                    default:
+                    break;
+                }
+            } 
+
+            if (this.multiple) {
+                switch(event.which) {
+                    //backspace
+                    case 8:
+                        if (this.value && this.value.length && !this.$refs.input.value) {
+                            let removedValue = this.value[this.value.length - 1];
+                            let newValue = this.value.slice(0, -1);
+                            
+                            this.$emit('input', newValue);
+                            this.$emit('unselect', {
+                                originalEvent: event,
+                                value: removedValue
+                            });
+                        }
+                    break;
+
+                    default:
+                    break;
+                }
+            }
+        },
+        isSelected(val) {
+            let selected = false;
+            if (this.value && this.value.length) {
+                for (let i = 0; i < this.value.length; i++) {
+                    if (ObjectUtils.equals(this.value[i], val)) {
+                        selected = true;
+                        break;
+                    }
+                }
+            }
+            
+            return selected;
         }
     },
     computed: {
         listeners() {
             return {
                 ...this.$listeners,
-                input: event => {
-                    if (this.timeout) {
-                        clearTimeout(this.timeout);
-                    }
-                    
-                    let query = event.target.value;
-                    if (!this.multiple) {
-                        this.$emit('input', query);
-                    }
-                    
-                    if (query.length === 0) {
-                        this.hideOverlay();
-                        this.$emit('clear');
-                    }
-                    else {
-                        if (query.length >= this.minLength) {
-                            this.timeout = setTimeout(() => {
-                                this.search(event, query, 'input');
-                            }, this.delay);
-                        }
-                        else {
-                            this.hidePanel();
-                        }
-                    }
-                },
-                focus: event => {
-                    this.focused = true;
-                    this.$emit('focus', event);
-                },
-                blur: event => {
-                    this.focused = false;
-                    this.$emit('blur', event);
-                }
+                input: this.onInput,
+                focus: this.onFocus,
+                blur: this.onBlur,
+                keydown: this.onKeyDown
             };
         },
         containerClass() {
@@ -223,6 +354,12 @@ export default {
             return ['p-autocomplete-input p-inputtext p-component', {
                 'p-autocomplete-dd-input': this.dropdown, 
                 'p-disabled': this.disabled
+            }];
+        },
+        multiContainerClass() {
+            return ['p-autocomplete-multiple-container p-component p-inputtext', {
+                'p-disabled': this.disabled,
+                'p-focus': this.focused
             }];
         },
         inputValue() {
