@@ -47,11 +47,11 @@ export default {
         autoZIndex: {
             type: Boolean,
             default: true
-        },
+        }
     },
     mask: null,
     methods: {
-        close(event) {
+        close() {
             this.$emit('update:visible', false);
         },
         onEnter() {
