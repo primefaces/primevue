@@ -82,6 +82,11 @@ export default new Router({
         component: () => import('./views/chips/ChipsDemo.vue')
     },
     {
+        path: '/dialog',
+        name: 'dialog',
+        component: () => import('./views/dialog/DialogDemo.vue')
+    },
+    {
         path: '/dropdown',
         name: 'dropdown',
         component: () => import('./views/dropdown/DropdownDemo.vue')

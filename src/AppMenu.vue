@@ -76,7 +76,7 @@
             </a>
             <div :class="{'submenuhide': activeMenuIndex !== 4, 'submenushow': activeMenuIndex === 4}">
                 <div>
-                    <router-link to="/">&#9679; Link</router-link>
+                    <router-link to="/dialog">&#9679; Dialog</router-link>
                 </div>
             </div>
 
