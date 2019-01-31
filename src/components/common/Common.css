@@ -42,8 +42,6 @@
 }
 .p-overflow-hidden {
     overflow: hidden;
-    position: fixed;
-    height: 100%;
 }
 .p-unselectable-text {
     -webkit-user-select: none;
