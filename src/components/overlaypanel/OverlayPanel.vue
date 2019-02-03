@@ -81,6 +81,10 @@ export default {
         },
         alignOverlay() {
             DomHandler.absolutePosition(this.$refs.container, this.target);
+
+            if (DomHandler.getOffset(this.$refs.container).top < DomHandler.getOffset(this.target).top) {
+                DomHandler.addClass(this.$refs.container, 'p-overlaypanel-flipped');
+            }
         },
         bindOutsideClickListener() {
             if (!this.outsideClickListener) {

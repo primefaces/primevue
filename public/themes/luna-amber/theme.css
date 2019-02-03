@@ -3014,6 +3014,20 @@ body .p-overlaypanel .p-overlaypanel-close:hover {
 body .p-overlaypanel .p-overlaypanel-close > span {
   line-height: inherit;
 }
+body .p-overlaypanel:after {
+  border-color: rgba(50, 50, 50, 0);
+  border-bottom-color: #323232;
+}
+body .p-overlaypanel:before {
+  border-color: rgba(25, 25, 25, 0);
+  border-bottom-color: #191919;
+}
+body .p-overlaypanel.p-overlaypanel-flipped:after {
+  border-top-color: #323232;
+}
+body .p-overlaypanel.p-overlaypanel-flipped:before {
+  border-top-color: #191919;
+}
 body .p-dialog {
   padding: 0;
   -moz-border-radius: 3px;

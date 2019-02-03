@@ -2,6 +2,12 @@
     padding: 0;
     margin: 0;
     position: absolute;
+    margin-top: 10px;
+}
+
+.p-overlaypanel-flipped {
+    margin-top: 0;
+    margin-bottom: 10px;
 }
 
 .p-overlaypanel-content {
@@ -49,4 +55,38 @@
 .p-overlaypanel-leave-active {
     -webkit-transition: transform .3s, opacity .15s;
     transition: transform .3s, opacity .15s;
+}
+
+.p-overlaypanel:after, .p-overlaypanel:before {
+	bottom: 100%;
+	left: 1.25em;
+	border: solid transparent;
+	content: " ";
+	height: 0;
+	width: 0;
+	position: absolute;
+	pointer-events: none;
+}
+
+.p-overlaypanel:after {
+	border-width: 8px;
+	margin-left: -8px;
+}
+
+.p-overlaypanel:before {
+	border-width: 10px;
+	margin-left: -10px;
+}
+
+.p-overlaypanel-flipped:after, .p-overlaypanel-flipped:before {
+    bottom: auto;
+    top: 100%;
+}
+
+.p-overlaypanel.p-overlaypanel-flipped:after {
+    border-bottom-color: transparent;
+}
+
+.p-overlaypanel.p-overlaypanel-flipped:before {
+    border-bottom-color: transparent
 }
