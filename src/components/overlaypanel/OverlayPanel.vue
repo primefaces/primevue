@@ -13,6 +13,7 @@ import DomHandler from '../utils/DomHandler';
 
 export default {
     props: {
+        appendTo: String,
         baseZIndex: {
             type: Number,
             default: 0
@@ -30,6 +31,7 @@ export default {
     target: null,
     outsideClickListener: null,
     beforeDestroy() {
+        this.restoreAppend();
         this.unbindOutsideClickListener();
         this.target = null;
     },
@@ -48,6 +50,7 @@ export default {
             this.visible = false;
         },
         onEnter() {
+            this.appendContainer();
             this.alignOverlay();
             this.bindOutsideClickListener();
 
@@ -79,6 +82,22 @@ export default {
         },
         isTargetClicked() {
             return this.target && (this.target === event.target || this.target.contains(event.target));
+        },
+        appendContainer() {
+            if (this.appendTo) {
+                if (this.appendTo === 'body')
+                    document.body.appendChild(this.$refs.container);
+                else
+                    document.getElementById(this.appendTo).appendChild(this.$refs.container);
+            }
+        },
+        restoreAppend() {
+            if (this.$refs.container && this.appendTo) {
+                if (this.appendTo === 'body')
+                    document.body.removeChild(this.$refs.container);
+                else
+                    document.getElementById(this.appendTo).removeChild(this.$refs.container);
+            }
         }
     } 
 }
