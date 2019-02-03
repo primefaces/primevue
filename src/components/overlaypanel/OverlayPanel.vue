@@ -4,6 +4,9 @@
             <div class="p-overlaypanel-content">
                 <slot></slot>
             </div>
+            <button class="p-overlaypanel-close p-link" @click="hide" v-if="showCloseIcon">
+                <span class="p-overlaypanel-close-icon pi pi-times"></span>
+            </button>
         </div>
     </transition>
 </template>
@@ -14,6 +17,14 @@ import DomHandler from '../utils/DomHandler';
 export default {
     props: {
         appendTo: String,
+        showCloseIcon: {
+            type: Boolean,
+            default: false
+        },
+        dismissable: {
+            type: Boolean,
+            default: true
+        },
         baseZIndex: {
             type: Number,
             default: 0
@@ -32,7 +43,9 @@ export default {
     outsideClickListener: null,
     beforeDestroy() {
         this.restoreAppend();
-        this.unbindOutsideClickListener();
+        if (this.dismissable) {
+            this.unbindOutsideClickListener();
+        }
         this.target = null;
     },
     methods: {
@@ -52,14 +65,19 @@ export default {
         onEnter() {
             this.appendContainer();
             this.alignOverlay();
-            this.bindOutsideClickListener();
+
+            if (this.dismissable) {
+                this.bindOutsideClickListener();
+            }
 
             if (this.autoZIndex) {
                 this.$refs.container.style.zIndex = String(this.baseZIndex + DomHandler.generateZIndex());
             }
         },
         onLeave() {
-            this.unbindOutsideClickListener();
+            if (this.dismissable) {
+                this.unbindOutsideClickListener();
+            }
         },
         alignOverlay() {
             DomHandler.absolutePosition(this.$refs.container, this.target);

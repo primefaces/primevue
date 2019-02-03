@@ -10,7 +10,7 @@
         <div class="content-section implementation">
             <Button type="button" label="Toggle" @click="toggle" />
 
-            <OverlayPanel ref="op" appendTo="body">
+            <OverlayPanel ref="op" appendTo="body" :showCloseIcon="true">
                 <img src="/demo/images/nature/nature1.jpg" alt="Nature Image">
             </OverlayPanel>
         </div>
