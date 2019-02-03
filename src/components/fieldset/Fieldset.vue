@@ -34,8 +34,12 @@ export default {
         }
     },
     methods: {
-        toggle() {
+        toggle(event) {
             this.d_collapsed = !this.d_collapsed;
+            this.$emit('toggle', {
+                originalEvent: event,
+                value: this.d_collapsed
+            });
         }
     } 
 }
