@@ -103,8 +103,7 @@ export default {
         },
         bindResizeListener() {
             if (!this.resizeListener) {
-                this.resizeListener = (event) => {
-                    console.log('x');
+                this.resizeListener = () => {
                     if (this.visible) {
                         this.visible = false;
                     }
