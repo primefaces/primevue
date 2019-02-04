@@ -41,8 +41,10 @@ export default {
     },
     target: null,
     outsideClickListener: null,
+    resizeListener: null,
     beforeDestroy() {
         this.restoreAppend();
+        this.unbindResizeListener();
         if (this.dismissable) {
             this.unbindOutsideClickListener();
         }
@@ -65,19 +67,16 @@ export default {
         onEnter() {
             this.appendContainer();
             this.alignOverlay();
-
-            if (this.dismissable) {
-                this.bindOutsideClickListener();
-            }
-
+            this.bindOutsideClickListener();
+            this.bindResizeListener();
+            
             if (this.autoZIndex) {
                 this.$refs.container.style.zIndex = String(this.baseZIndex + DomHandler.generateZIndex());
             }
         },
         onLeave() {
-            if (this.dismissable) {
-                this.unbindOutsideClickListener();
-            }
+            this.unbindOutsideClickListener();
+            this.unbindResizeListener();
         },
         alignOverlay() {
             DomHandler.absolutePosition(this.$refs.container, this.target);
@@ -100,6 +99,23 @@ export default {
             if (this.outsideClickListener) {
                 document.removeEventListener('click', this.outsideClickListener);
                 this.outsideClickListener = null;
+            }
+        },
+        bindResizeListener() {
+            if (!this.resizeListener) {
+                this.resizeListener = (event) => {
+                    console.log('x');
+                    if (this.visible) {
+                        this.visible = false;
+                    }
+                };
+                window.addEventListener('resize', this.resizeListener);
+            }
+        },
+        unbindResizeListener() {
+            if (this.resizeListener) {
+                window.removeEventListener('resize', this.resizeListener);
+                this.resizeListener = null;
             }
         },
         isTargetClicked() {
