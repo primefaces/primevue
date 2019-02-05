@@ -2774,6 +2774,7 @@ body .p-messages.p-messages-info .p-messages-icon {
   color: #212121;
 }
 body .p-messages.p-messages-info .p-messages-close {
+  background-color: #A3DEF8;
   color: #212121;
 }
 body .p-messages.p-messages-success {
@@ -2785,6 +2786,7 @@ body .p-messages.p-messages-success .p-messages-icon {
   color: #212121;
 }
 body .p-messages.p-messages-success .p-messages-close {
+  background-color: #A3E2C6;
   color: #212121;
 }
 body .p-messages.p-messages-warn {
@@ -2796,6 +2798,7 @@ body .p-messages.p-messages-warn .p-messages-icon {
   color: #212121;
 }
 body .p-messages.p-messages-warn .p-messages-close {
+  background-color: #ffe277;
   color: #212121;
 }
 body .p-messages.p-messages-error {
@@ -2807,19 +2810,27 @@ body .p-messages.p-messages-error .p-messages-icon {
   color: #212121;
 }
 body .p-messages.p-messages-error .p-messages-close {
+  background-color: #ff8b8b;
   color: #212121;
 }
 body .p-messages .p-messages-close {
-  top: 0.25em;
-  right: 0.5em;
-  font-size: 1.5em;
-  -moz-border-radius: 2px;
-  -webkit-border-radius: 2px;
-  border-radius: 2px;
+  top: -0.769em;
+  right: -0.769em;
+  width: 1.538em;
+  height: 1.538em;
+  line-height: 1.538em;
+  text-align: center;
+  -moz-border-radius: 50%;
+  -webkit-border-radius: 50%;
+  border-radius: 50%;
   -moz-transition: box-shadow 0.2s;
   -o-transition: box-shadow 0.2s;
   -webkit-transition: box-shadow 0.2s;
   transition: box-shadow 0.2s;
+}
+body .p-messages .p-messages-close .p-messages-close-icon {
+  line-height: inherit;
+  font-size: 1.5em;
 }
 body .p-messages .p-messages-close:focus {
   outline: 0 none;

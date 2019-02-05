@@ -35,6 +35,7 @@ import TabView from './components/tabview/TabView';
 import TabPanel from './components/tabview/TabPanel';
 import ToggleButton from './components/togglebutton/ToggleButton';
 import TriStateCheckbox from './components/tristatecheckbox/TriStateCheckbox';
+import ValidationMessage from './components/validationmessage/ValidationMessage';
 
 import './assets/styles/primevue.css';
 import 'primeflex/primeflex.css';
@@ -76,6 +77,7 @@ Vue.component('Textarea', Textarea);
 Vue.component('Toolbar', Toolbar);
 Vue.component('ToggleButton', ToggleButton);
 Vue.component('TriStateCheckbox', TriStateCheckbox);
+Vue.component('ValidationMessage', ValidationMessage);
 
 new Vue({
   router,

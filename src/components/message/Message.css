@@ -25,3 +25,33 @@
     font-weight: bold;
     margin-right: .25em;
 }
+
+.p-messages-close {
+    position: absolute;
+}
+
+.p-messages-enter {
+    opacity: 0;
+}
+
+.p-messages.p-messages-leave-to {
+    max-height: 0;
+    opacity: 0;
+}
+
+.p-messages.p-messages-leave {
+    max-height: 1000px;
+}
+
+.p-messages-enter-active {
+    transition: opacity 1s;
+}
+
+.p-messages-leave-active {
+    overflow: hidden;
+    transition: max-height .45s cubic-bezier(0, 1, 0, 1), opacity .3s, margin .45s;
+}
+
+.p-messages-leave-active .p-messages-close {
+    display: none;
+}
