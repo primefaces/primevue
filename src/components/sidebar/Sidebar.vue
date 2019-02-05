@@ -77,7 +77,7 @@ export default {
             if (!this.mask) {
                 this.mask = document.createElement('div');
                 this.mask.style.zIndex = String(parseInt(this.$refs.container.style.zIndex, 10) - 1);
-                DomHandler.addMultipleClasses(this.mask, 'p-component-overlay p-fadein');
+                DomHandler.addMultipleClasses(this.mask, 'p-component-overlay');
                 if (this.dismissable) {
                     this.bindMaskClickListener();
                 }
@@ -95,7 +95,7 @@ export default {
         },
         bindMaskClickListener() {
             if (!this.maskClickListener) {
-                this.maskClickListener = (event) => {
+                this.maskClickListener = () => {
                     this.hide();
                 };
                 this.mask.addEventListener('click', this.maskClickListener);
