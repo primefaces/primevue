@@ -45,6 +45,9 @@ export default {
     },
     mask: null,
     maskClickListener: null,
+    beforeDestroy() {
+        this.unbindMaskClickListener();
+    },
     methods: {
         hide() {
             this.$emit('update:visible', false);
