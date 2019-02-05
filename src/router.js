@@ -172,6 +172,11 @@ export default new Router({
         component: () => import('./views/selectbutton/SelectButtonDemo.vue')
     },
     {
+        path: '/sidebar',
+        name: 'sidebar',
+        component: () => import('./views/sidebar/SidebarDemo.vue')
+    },
+    {
         path: '/slider',
         name: 'slider',
         component: () => import('./views/slider/SliderDemo.vue')

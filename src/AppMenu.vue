@@ -78,6 +78,7 @@
                 <div>
                     <router-link to="/dialog">&#9679; Dialog</router-link>
                     <router-link to="/overlaypanel">&#9679; OverlayPanel</router-link>
+                    <router-link to="/sidebar">&#9679; Sidebar</router-link>
                 </div>
             </div>
 
