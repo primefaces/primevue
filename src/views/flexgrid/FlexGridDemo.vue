@@ -23,8 +23,8 @@
             </div>
     
             <h3>Dynamic</h3>
-            <p-button type="button" icon="pi pi-plus" title="Add Column" @click="addColumn" :disabled="columns.length === 20" style="margin-right: .5em" />
-            <p-button type="button" icon="pi pi-minus" title="Remove Column" @click="removeColumn" :disabled="columns.length === 1" />
+            <Button type="button" icon="pi pi-plus" title="Add Column" @click="addColumn" :disabled="columns.length === 20" style="margin-right: .5em" />
+            <Button type="button" icon="pi pi-minus" title="Remove Column" @click="removeColumn" :disabled="columns.length === 1" />
 
             <div style="margin-top: .5em">
                 <transition-group name="dynamic-box" tag="div" class="p-grid">
@@ -352,28 +352,28 @@
             <h3>Panels</h3>
             <div class="p-grid">
                 <div class="p-col">
-                    <p-panel header="Godfather">
+                    <Panel header="Godfather">
                         The story begins as Don Vito Corleone, the head of a New York Mafia family, oversees his daughter's wedding.
                         His beloved son Michael has just come home from the war, but does not intend to become part of his father's business.
                         Through Michael's life the nature of the family business becomes clear. The business of the family is just like the head of the family,
                         kind and benevolent to those who give respect, but given to ruthless violence whenever anything stands against the good of the family.
-                    </p-panel>
+                    </Panel>
                 </div>
                 <div class="p-col">
-                    <p-panel header="Godfather">
+                    <Panel header="Godfather">
                         The story begins as Don Vito Corleone, the head of a New York Mafia family, oversees his daughter's wedding.
                         His beloved son Michael has just come home from the war, but does not intend to become part of his father's business.
                         Through Michael's life the nature of the family business becomes clear. The business of the family is just like the head of the family,
                         kind and benevolent to those who give respect, but given to ruthless violence whenever anything stands against the good of the family.
-                    </p-panel>
+                    </Panel>
                 </div>
                 <div class="p-col">
-                    <p-panel header="Godfather">
+                    <Panel header="Godfather">
                         The story begins as Don Vito Corleone, the head of a New York Mafia family, oversees his daughter's wedding.
                         His beloved son Michael has just come home from the war, but does not intend to become part of his father's business.
                         Through Michael's life the nature of the family business becomes clear. The business of the family is just like the head of the family,
                         kind and benevolent to those who give respect, but given to ruthless violence whenever anything stands against the good of the family.
-                    </p-panel>
+                    </Panel>
                 </div>
             </div>
 
@@ -466,7 +466,7 @@ export default {
     .vertical-container {
         margin: 0;
         height: 200px;
-        background: #f1f1f1;
+        background: #c0c0c0;
         border-radius: 4px;
     }
 

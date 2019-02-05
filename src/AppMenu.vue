@@ -129,7 +129,8 @@
             </a>
             <div :class="{'submenuhide': activeMenuIndex !== 8, 'submenushow': activeMenuIndex === 8}">
                 <div>
-                    <router-link to="/">&#9679; Link</router-link>
+                    <router-link to="/message">&#9679; Message</router-link>
+                    <router-link to="/toast">&#9679; Toast</router-link>
                 </div>
             </div>
 

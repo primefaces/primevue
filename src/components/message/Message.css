@@ -1,0 +1,27 @@
+.p-messages-wrapper {
+    padding: 1em;
+    position: relative;
+}
+
+.p-messages-icon-container,
+.p-messages-close-container {
+    flex-basis: auto;
+    flex-grow: 0;
+    flex-shrink: 0;
+}
+
+.p-messages-text {
+    display: inline-block;
+    vertical-align: middle;
+}
+
+.p-messages-icon {
+    padding: 0;
+    margin-right: .25em;
+    vertical-align: middle;
+}
+
+.p-messages .p-messages-summary {
+    font-weight: bold;
+    margin-right: .25em;
+}
