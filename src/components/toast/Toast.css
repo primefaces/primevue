@@ -25,7 +25,6 @@
 
 .p-toast-item-container {
     position: relative;
-    margin-bottom: 1em;
 }
 
 .p-toast-item {
@@ -83,7 +82,7 @@
     max-height: 1000px;
 }
 
-.p-toast-message-leave-to {
+.p-toast .p-toast-item-container.p-toast-message-leave-to {
     max-height: 0;
     opacity: 0;
     margin-bottom: 0;
