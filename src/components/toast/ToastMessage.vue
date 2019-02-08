@@ -21,7 +21,11 @@ export default {
         message: null
     },
     mounted() {
-        
+        if (this.message.life) {
+            setTimeout(() => {
+                this.close();
+            }, this.message.life)
+        }
     },
     methods: {
         close() {

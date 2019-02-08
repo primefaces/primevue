@@ -12,6 +12,7 @@ var messageIdx = 0;
 
 export default {
     props: {
+        group: String,
         position: {
             type: String,
             default: 'topright'
@@ -23,7 +24,19 @@ export default {
         }
     },
     mounted() {
-        ToastEventBus.$on('add', (message) => this.add(message));
+        ToastEventBus.$on('add', (message) => {
+            if (this.group == message.group) {
+                this.add(message);
+            }
+        });
+        ToastEventBus.$on('remove-group', (group) => {
+            if (this.group === group) {
+                this.messages = [];
+            }
+        });
+        ToastEventBus.$on('remove-all-groups', () => {
+            this.messages = [];
+        });
     },
     methods: {
         add(message) {

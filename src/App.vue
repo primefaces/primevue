@@ -8,6 +8,9 @@
             <app-footer />
         </div>
         <Toast />
+        <Toast position="topleft" group="tl" />
+        <Toast position="bottomleft" group="bl" />
+        <Toast position="bottomright" group="br" />
     </div>
 </template>
 
