@@ -24,8 +24,8 @@
 }
 
 .p-toast-item-container {
-	position:relative;
-	margin:0 0 10px 0;
+    position: relative;
+    margin-bottom: 1em;
 }
 
 .p-toast-item {
@@ -86,11 +86,16 @@
 .p-toast-message-leave-to {
     max-height: 0;
     opacity: 0;
+    margin-bottom: 0;
     overflow: hidden;
 }
 
-.p-toast-message-enter-active,
+.p-toast-message-enter-active {
+    -webkit-transition: transform .3s, opacity .3s;
+    transition: transform .3s, opacity .3s;
+}
+
 .p-toast-message-leave-active {
-    -webkit-transition: all .3s;
-    transition: all .3s;
+    -webkit-transition: max-height .45s cubic-bezier(0, 1, 0, 1), opacity .3s, margin-bottom .3s;
+    transition: max-height .45s cubic-bezier(0, 1, 0, 1), opacity .3s, margin-bottom .3s;
 }

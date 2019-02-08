@@ -103,7 +103,7 @@ button.p-button {
 }
 
 .p-toast.p-toast-topright,
-.p-toast.p-toast-left {
+.p-toast.p-toast-topleft {
     top: 100px;
 }
 </style>

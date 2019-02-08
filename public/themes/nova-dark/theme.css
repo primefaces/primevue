@@ -2944,7 +2944,6 @@ body .p-growl .p-growl-item-container.p-growl-message-error .p-growl-icon-close 
   color: #212121;
 }
 body .p-toast {
-  top: 70px;
   opacity: 0.9;
   filter: alpha(opacity=90);
 }
