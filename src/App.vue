@@ -35,7 +35,7 @@ export default {
         onMenuButtonClick() {
             this.sidebarActive = !this.sidebarActive;
         },
-        onMaskClick(event) {
+        onMaskClick() {
             this.sidebarActive = false;
         }
     },
