@@ -30,6 +30,8 @@ import Slider from './components/slider/Slider';
 import Sidebar from './components/sidebar/Sidebar';
 import Spinner from './components/spinner/Spinner';
 import Textarea from './components/textarea/Textarea';
+import Toast from './components/toast/Toast';
+import ToastService from './components/toast/ToastService';
 import Toolbar from './components/toolbar/Toolbar';
 import TabView from './components/tabview/TabView';
 import TabPanel from './components/tabview/TabPanel';
@@ -40,6 +42,8 @@ import ValidationMessage from './components/validationmessage/ValidationMessage'
 import './assets/styles/primevue.css';
 import 'primeflex/primeflex.css';
 import 'primeicons/primeicons.css';
+
+Vue.use(ToastService);
 
 Vue.config.productionTip = false;
 
@@ -74,6 +78,7 @@ Vue.component('Spinner', Spinner);
 Vue.component('TabView', TabView);
 Vue.component('TabPanel', TabPanel);
 Vue.component('Textarea', Textarea);
+Vue.component('Toast', Toast);
 Vue.component('Toolbar', Toolbar);
 Vue.component('ToggleButton', ToggleButton);
 Vue.component('TriStateCheckbox', TriStateCheckbox);

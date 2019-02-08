@@ -7,6 +7,7 @@
             <router-view/>
             <app-footer />
         </div>
+        <Toast />
     </div>
 </template>
 

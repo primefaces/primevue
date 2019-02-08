@@ -24,5 +24,6 @@
 @import '../../components/spinner/Spinner.css';
 @import '../../components/tabview/TabView.css';
 @import '../../components/textarea/Textarea.css';
+@import '../../components/toast/Toast.css';
 @import '../../components/toolbar/Toolbar.css';
 @import '../../components/validationmessage/ValidationMessage.css';

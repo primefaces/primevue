@@ -202,6 +202,11 @@ export default new Router({
         component: () => import('./views/tabview/TabViewDemo.vue')
     },
     {
+        path: '/toast',
+        name: 'toast',
+        component: () => import('./views/toast/ToastDemo.vue')
+    },
+    {
         path: '/togglebutton',
         name: 'togglebutton',
         component: () => import('./views/togglebutton/ToggleButtonDemo.vue')

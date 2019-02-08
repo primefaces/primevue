@@ -135,22 +135,11 @@
             </div>
 
             <a @click="toggleMenu($event, 9)" :class="{'active-menuitem': activeMenuIndex === 9}">
-                <img alt="dragdrop" class="layout-menu-icon-inactive" src="./assets/images/menu/dragdrop.svg" />
-                <img alt="dragdrop" class="layout-menu-icon-active" src="./assets/images/menu/dragdrop-active.svg" />
-                <span>DragDrop</span>
-            </a>
-            <div :class="{'submenuhide': activeMenuIndex !== 9, 'submenushow': activeMenuIndex === 9}">
-                <div>
-                    <router-link to="/">&#9679; Link</router-link>
-                </div>
-            </div>
-
-            <a @click="toggleMenu($event, 10)" :class="{'active-menuitem': activeMenuIndex === 10}">
                 <img alt="misc" class="layout-menu-icon-inactive" src="./assets/images/menu/misc.svg" />
                 <img alt="misc" class="layout-menu-icon-active" src="./assets/images/menu/misc-active.svg" />
                 <span>Misc</span>
             </a>
-            <div :class="{'submenuhide': activeMenuIndex !== 10, 'submenushow': activeMenuIndex === 10}">
+            <div :class="{'submenuhide': activeMenuIndex !== 9, 'submenushow': activeMenuIndex === 9}">
                 <div>
                     <router-link to="/progressbar">&#9679; ProgressBar</router-link>
                 </div>
