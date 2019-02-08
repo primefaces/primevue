@@ -28,6 +28,7 @@ export default {
     watch: {
         $route() {
             this.sidebarActive = false;
+            this.$toast.removeAllGroups();
         }
     },
     methods: {

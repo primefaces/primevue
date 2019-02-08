@@ -29,8 +29,8 @@
 
             <h3>Programmatic</h3>
             <div style="padding: .5em 0">
-                <p-button icon="pi pi-chevron-left" @click="prev" class="p-button-secondary" />
-                <p-button icon="pi pi-chevron-right" @click="next" style="margin-left: .5em" class="p-button-secondary"/>
+                <Button icon="pi pi-chevron-left" @click="prev" class="p-button-secondary" />
+                <Button icon="pi pi-chevron-right" @click="next" style="margin-left: .5em" class="p-button-secondary"/>
             </div>
 
             <TabView>
