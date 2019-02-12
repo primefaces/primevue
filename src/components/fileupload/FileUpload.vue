@@ -12,7 +12,7 @@
         </div>
         <div ref="content" class="p-fileupload-content" @dragenter="onDragEnter" @dragover="onDragOver" @dragleave="onDragLeave" @drop="onDrop">
             <FileUploadProgressBar :value="progress" v-if="hasFiles" />
-            <FileUploadMessage v-for="msg of messages" :severity="error" :key="msg">{{msg}}</FileUploadMessage>
+            <FileUploadMessage v-for="msg of messages" severity="error" :key="msg">{{msg}}</FileUploadMessage>
             <div class="p-fileupload-files" v-if="hasFiles">
                 <div class="p-fileupload-row" v-for="(file, index) of files" :key="file.name + file.type + file.size">
                     <div v-if="isImage(file)">
@@ -70,7 +70,7 @@ export default {
         },
         invalidFileSizeMessage: {
             type: String,
-            default: '{0}: Invalid file size, maximum upload size is {1}.'
+            default: '{0}: Invalid file size, file size should be smaller than {1}.'
         },
         withCredentials: {
             type: Boolean,
@@ -117,19 +117,15 @@ export default {
                 }
             }
 
-            if (this.auto) {
+            this.$emit('select', {originalEvent: event, files: files});   
+
+            if (this.auto && this.hasFiles()) {
                 this.upload();
             }
 
-            this.$emit('select', {originalEvent: event, files: files});            
             this.clearInputElement();
-            
-            if (this.mode === 'basic') {
-                this.$refs.fileInput.style.display = 'none';
-            }
         },
         upload() {
-            this.messages = [];
             let xhr = new XMLHttpRequest();
             let formData = new FormData();
 
@@ -187,6 +183,7 @@ export default {
         },
         clear() {
             this.files = null;
+            this.messages = null;
             this.$emit('clear');
             this.clearInputElement();
         },
@@ -208,7 +205,7 @@ export default {
         },
         validate(file) {
             if (this.maxFileSize && file.size > this.maxFileSize) {
-                this.messages.push[this.invalidFileSizeMessage.replace('{0}', file.name).replace('{0}', this.formatSize(this.maxFileSize))];
+                this.messages.push(this.invalidFileSizeMessage.replace('{0}', file.name).replace('{1}', this.formatSize(this.maxFileSize)));
                 return false;
             }
             
