@@ -89,7 +89,7 @@
             </a>
             <div :class="{'submenuhide': activeMenuIndex !== 5, 'submenushow': activeMenuIndex === 5}">
                 <div>
-                    <router-link to="/">&#9679; Link</router-link>
+                    <router-link to="/fileupload">&#9679; Upload</router-link>
                 </div>
             </div>
 

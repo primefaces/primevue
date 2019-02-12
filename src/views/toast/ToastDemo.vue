@@ -101,9 +101,4 @@ export default {
 button.p-button {
     margin-right: .5em;
 }
-
-.p-toast.p-toast-topright,
-.p-toast.p-toast-topleft {
-    top: 100px;
-}
 </style>

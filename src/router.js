@@ -102,6 +102,11 @@ export default new Router({
         component: () => import('./views/fieldset/FieldsetDemo.vue')
     },
     {
+        path: '/fileupload',
+        name: 'fileupload',
+        component: () => import('./views/fileupload/FileUploadDemo.vue')
+    },
+    {
         path: '/flexgrid',
         name: 'flexgrid',
         component: () => import('./views/flexgrid/FlexGridDemo.vue')
