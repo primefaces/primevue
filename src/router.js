@@ -197,6 +197,11 @@ export default new Router({
         component: () => import('./views/spinner/SpinnerDemo.vue')
     },
     {
+        path: '/splitbutton',
+        name: 'splitbutton',
+        component: () => import('./views/splitbutton/SplitButtonDemo.vue')
+    },
+    {
         path: '/textarea',
         name: 'textarea',
         component: () => import('./views/textarea/TextareaDemo.vue')

@@ -12,6 +12,7 @@
 @import '../../components/inputtext/InputText.css';
 @import '../../components/inputswitch/InputSwitch.css';
 @import '../../components/listbox/Listbox.css';
+@import '../../components/menu/Menu.css';
 @import '../../components/message/Message.css';
 @import '../../components/multiselect/MultiSelect.css';
 @import '../../components/overlaypanel/OverlayPanel.css';
@@ -23,6 +24,7 @@
 @import '../../components/sidebar/Sidebar.css';
 @import '../../components/slider/Slider.css';
 @import '../../components/spinner/Spinner.css';
+@import '../../components/splitbutton/SplitButton.css';
 @import '../../components/tabview/TabView.css';
 @import '../../components/textarea/Textarea.css';
 @import '../../components/toast/Toast.css';

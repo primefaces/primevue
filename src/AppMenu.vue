@@ -38,6 +38,7 @@
             <div :class="{'submenuhide': activeMenuIndex !== 1, 'submenushow': activeMenuIndex === 1}">
                 <div>
                     <router-link to="/button">&#9679; Button</router-link>
+                    <router-link to="/splitbutton">&#9679; SplitButton</router-link>
                 </div>
             </div>
 
