@@ -27,6 +27,11 @@
             </div>  
         </div>
     </div>
+    <span :class="basicChooseButtonClass" @mouseup="onBasicUploaderClick" v-else-if="isBasic">
+        <span :class="basicChooseButtonIconClass"></span>
+        <span class="p-button-text p-clickable">{{basicChooseButtonLabel}}</span>
+        <input ref="fileInput" type="file" :accept="accept" :disabled="disabled" @change="onFileSelect" @focus="onFocus" @blur="onBlur" v-if="!hasFiles" />
+    </span>
 </template>
 
 <script>
@@ -119,11 +124,13 @@ export default {
 
             this.$emit('select', {originalEvent: event, files: files});   
 
-            if (this.auto && this.hasFiles()) {
+            if (this.auto && this.hasFiles) {
                 this.upload();
             }
 
-            this.clearInputElement();
+            if (this.isAdvanced) {
+                this.clearInputElement();
+            }
         },
         upload() {
             let xhr = new XMLHttpRequest();
@@ -185,7 +192,10 @@ export default {
             this.files = null;
             this.messages = null;
             this.$emit('clear');
-            this.clearInputElement();
+
+            if (this.isAdvanced) {
+                this.clearInputElement();
+            } 
         },
         onFocus() {
             this.focused = true;
@@ -223,6 +233,11 @@ export default {
         onDrop() {
 
         },
+        onBasicUploaderClick() {
+            if (this.hasFiles) {
+                this.upload();
+            }
+        },
         remove(index) {
             this.clearInputElement();
             this.state.files.slice(index, 1);
@@ -232,9 +247,6 @@ export default {
         },
         clearInputElement() {
             this.$refs.fileInput.value = '';
-            if (this.mode === 'basic') {
-                this.$refs.fileInput.style.display = 'inline';
-            }
         },
         formatSize(bytes) {
             if (bytes === 0) {
@@ -261,6 +273,22 @@ export default {
                     'p-focus': this.focused
                 }
             ];
+        },
+        basicChooseButtonClass() {
+            return ['p-button p-fileupload-choose p-component p-button-text-icon-left', {
+                'p-fileupload-choose-selected': this.hasFiles,
+                'p-disabled': this.disabled,
+                'p-focus': this.focused
+            }];
+        },
+        basicChooseButtonIconClass() {
+            return ['p-button-icon-left pi', {
+                'pi-plus': !this.hasFiles || this.auto, 
+                'pi-upload': this.hasFiles && !this.auto
+            }];
+        },
+        basicChooseButtonLabel() {
+            return this.auto ? this.chooseLabel : (this.hasFiles ? this.files[0].name : this.chooseLabel);
         },
         hasFiles() {
             return this.files && this.files.length > 0;
