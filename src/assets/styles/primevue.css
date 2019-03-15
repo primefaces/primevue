@@ -16,6 +16,7 @@
 @import '../../components/message/Message.css';
 @import '../../components/multiselect/MultiSelect.css';
 @import '../../components/overlaypanel/OverlayPanel.css';
+@import '../../components/paginator/Paginator.css';
 @import '../../components/panel/Panel.css';
 @import '../../components/password/Password.css';
 @import '../../components/progressbar/ProgressBar.css';

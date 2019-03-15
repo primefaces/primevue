@@ -50,6 +50,7 @@
             <div :class="{'submenuhide': activeMenuIndex !== 2, 'submenushow': activeMenuIndex === 2}">
                 <div>
                     <router-link to="/fullcalendar">&#9679; FullCalendar</router-link>
+                    <router-link to="/paginator">&#9679; Paginator</router-link>
                 </div>
             </div>
 

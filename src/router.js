@@ -152,6 +152,11 @@ export default new Router({
         component: () => import('./views/overlaypanel/OverlayPanelDemo.vue')
     },
     {
+		path: '/paginator',
+		name: 'paginator',
+		component: () => import('./views/paginator/PaginatorDemo.vue')
+    },
+    {
         path: '/panel',
         name: 'panel',
         component: () => import('./views/panel/PanelDemo.vue')
