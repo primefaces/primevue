@@ -1,5 +1,5 @@
 <template>
-	<Dropdown :value="value" v-model="selectedRow" :options="rowOptions" optionLabel="label" @change="$emit('change',$event)"></Dropdown>
+	<Dropdown v-model="selectedRow" :options="rowOptions" optionLabel="name" @change="$emit('rowsChange',$event)" :placeholder="String(value)"></Dropdown>
 </template>
 <script>
 	export default {
@@ -16,11 +16,14 @@
 		computed: {
 			rowOptions() {
 				var newOption = []
-				for(var i= 0; i<this.options.length; i++) {
-					newOption.push({label: String(this.options[i]), code: this.options[i]})
+				if(this.options) {
+					for(var i= 0; i<this.options.length; i++) {
+						newOption.push({name: String(this.options[i]), code: this.options[i]})
+					}
 				}
 				return newOption;
 			}
 		}
+
 	}
 </script>

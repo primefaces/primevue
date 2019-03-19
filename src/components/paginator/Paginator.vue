@@ -7,7 +7,7 @@
 			<LastPageLink v-if="item === 'LastPageLink'" :key="i"  @click="changePageToLast($event)" :disabled="isLastPage"/>
 			<PageLinks v-if="item === 'PageLinks'" :key="i" :value="updatePageLinks" :page="page" @click="pageLinkClick($event)"/>
 			<CurrentPageReport v-if="item === 'CurrentPageReport'" :key="i" :template="currentPageReportTemplate" :page="page" :pageCount="pageCount"/>
-			<!--<RowsPerPageDropdown v-if="item === 'RowsPerPageDropdown'" :key="i" :value="rows" :options="rowsPerPageOptions" @change="rowsChange($event)"/>-->
+			<RowsPerPageDropdown v-if="item === 'RowsPerPageDropdown'" :key="i" :value="rows" :options="rowsPerPageOptions" @rowsChange="rowsChange($event)"/>
 		</template>
 	</div>
 </template>
@@ -151,7 +151,7 @@
 			},
 
 			rowsChange(event) {
-				this.changePage(0, event.value);
+				this.changePage(0, event.value.code);
 			}
 		}
 	}

@@ -9,7 +9,7 @@
 
 		<div class="content-section implementation">
 			<h3 class="first">Default</h3>
-			<Paginator :first="first" :rows="rows" :totalRecords="120" @change="onPageChange($event)"></Paginator>
+			<Paginator :first="first" :rows="rows" :totalRecords="120" @change="onPageChange($event)" :rowsPerPageOptions="[10,20,30]"></Paginator>
 
 			<h3 class="first">Custom Template</h3>
 			<Paginator :first="first2" :rows="rows2" :totalRecords="120" @change="onPageChange2($event)" template="FirstPageLink PrevPageLink CurrentPageReport NextPageLink LastPageLink"></Paginator>
