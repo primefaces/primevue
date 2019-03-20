@@ -4,13 +4,13 @@
                 <TabPanel header="Documentation">
                     <h3>Import</h3>
 <CodeHighlight lang="javascript">
-    import {Paginator} from 'primereact/paginator';
+import {Paginator} from 'primereact/paginator';
 </CodeHighlight>
 
                     <h3>Getting Started</h3>
-                    <p>Rows and TotalRecords define how many pages the paginator should display. Paginator below will have 10 pages.</p>
+                    <p><i>rows</i> and <i>totalRecords</i> define how many pages the paginator should display. Paginator below has 10 pages.</p>
 <CodeHighlight>
-    &lt;Paginator :rows="10" :totalRecords="120" &gt;&lt;/Paginator&gt;
+&lt;Paginator :rows="10" :totalRecords="100"&gt;&lt;/Paginator&gt;
 </CodeHighlight>
 
                     <h3>Rows Per Page</h3>
@@ -141,7 +141,7 @@
                     </div>
 
                     <h3>Styling</h3>
-                    <p>Following is the list of structural style classes, for theming classes visit <router-link to="/theming">&#9679; theming</router-link> page.</p>
+                    <p>Following is the list of structural style classes, for theming classes visit <router-link to="/theming">theming</router-link> page.</p>
                     <div class="doc-tablewrapper">
                         <table class="doc-table">
                             <thead>
