@@ -3,7 +3,7 @@
 		<div class="content-section introduction">
 			<div class="feature-intro">
 				<h1>Paginator</h1>
-				<p>Paginator is a generic widget to display content in paged format.</p>
+				<p>Paginator is a generic component to display content in paged format.</p>
 			</div>
 		</div>
 
@@ -20,34 +20,31 @@
 </template>
 
 <script>
-    import PaginatorDoc from './PaginatorDoc';
+import PaginatorDoc from './PaginatorDoc';
 
-	export default {
-		data() {
-			return {
-				first: 0,
-                rows: 10,
-                totalRecords: 50,
-				first2: 0,
-                rows2: 1,
-                totalRecords2: 12
-			}
-		},
-		methods: {
-			onPageChange(event) {
-				this.first = event.first;
-				this.rows = event.rows;
-			},
-			onPageChangeCustom(event) {
-				this.first2 = event.first;
-				this.rows2 = event.rows;
-			}
-        },
-        components: {
-            'PaginatorDoc': PaginatorDoc
+export default {
+    data() {
+        return {
+            first: 0,
+            rows: 10,
+            totalRecords: 50,
+            first2: 0,
+            rows2: 1,
+            totalRecords2: 12
         }
-	}
+    },
+    methods: {
+        onPageChange(event) {
+            this.first = event.first;
+            this.rows = event.rows;
+        },
+        onPageChangeCustom(event) {
+            this.first2 = event.first;
+            this.rows2 = event.rows;
+        }
+    },
+    components: {
+        'PaginatorDoc': PaginatorDoc
+    }
+}
 </script>
-
-<style lang="scss">
-</style>
