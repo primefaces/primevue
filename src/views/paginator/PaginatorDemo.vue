@@ -12,7 +12,14 @@
 			<Paginator :first="first" :rows="rows" :totalRecords="totalRecords" @change="onPageChange($event)" :rowsPerPageOptions="[10,20,30]"></Paginator>
 
 			<h3>Custom Template</h3>
-			<Paginator :first="first2" :rows="rows2" :totalRecords="totalRecords2" @change="onPageChangeCustom($event)" template="FirstPageLink PrevPageLink CurrentPageReport NextPageLink LastPageLink"></Paginator>
+			<Paginator :first="first2" :rows="rows2" :totalRecords="totalRecords2" @change="onPageChangeCustom($event)" template="FirstPageLink PrevPageLink CurrentPageReport NextPageLink LastPageLink">
+                <template #left>
+                    <Button type="button" icon="pi pi-refresh" />
+                </template>
+                <template #right>
+                    <Button type="button" icon="pi pi-search" />
+                </template>
+            </Paginator>
 		</div>
 
         <PaginatorDoc />
@@ -48,3 +55,9 @@ export default {
     }
 }
 </script>
+
+<style lang="scss">
+    .p-button.p-button-icon-only {
+        border-radius: 0;
+    }
+</style>

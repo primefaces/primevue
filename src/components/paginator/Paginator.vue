@@ -1,5 +1,8 @@
 <template>
 	<div class="p-paginator p-component p-unselectable-text">
+        <div class="p-paginator-left-content" v-if="$scopedSlots.left">
+            <slot name="left" :state="currentState"></slot>
+        </div>
 		<template v-for="(item,i) of templateItems">
 			<FirstPageLink v-if="item === 'FirstPageLink'" :key="i" @click="changePageToFirst($event)" :disabled="isFirstPage" />
 			<PrevPageLink v-else-if="item === 'PrevPageLink'" :key="i" @click="changePageToPrev($event)" :disabled="isFirstPage" />
@@ -8,7 +11,10 @@
 			<PageLinks v-else-if="item === 'PageLinks'" :key="i" :value="updatePageLinks" :page="page" @click="pageLinkClick($event)" />
 			<CurrentPageReport v-else-if="item === 'CurrentPageReport'" :key="i" :template="currentPageReportTemplate" :page="page" :pageCount="pageCount" />
 			<RowsPerPageDropdown v-else-if="item === 'RowsPerPageDropdown'" :key="i" :value="rows" :options="rowsPerPageOptions" @rowsChange="rowsChange($event)" />
-		</template>
+        </template>
+        <div class="p-paginator-right-content" v-if="$scopedSlots.right">
+            <slot name="right" :state="currentState"></slot>
+        </div>
 	</div>
 </template>
 
@@ -69,14 +75,12 @@ export default {
         page() {
             return Math.floor(this.first / this.rows);
         },
-
         pageCount() {
             return Math.ceil(this.totalRecords / this.rows) || 1;
         },
         isFirstPage() {
             return this.page === 0;
         },
-
         isLastPage() {
             return this.page === this.pageCount - 1;
         },
@@ -94,7 +98,6 @@ export default {
 
             return [start, end];
         },
-
         updatePageLinks() {
             var pageLinks = [];
             var boundaries = this.calculatePageLinkBoundaries;
@@ -106,6 +109,13 @@ export default {
             }
 
             return pageLinks;
+        },
+        currentState() {
+            return {
+                page: this.page,
+                first: this.first,
+                rows: this.rows
+            }
         }
     },
     methods: {
@@ -123,31 +133,25 @@ export default {
                 this.$emit('change', newPageState);
             }
         },
-
         changePageToFirst(event) {
             this.changePage(0, this.rows);
             event.preventDefault();
         },
-
         changePageToPrev(event) {
             this.changePage(this.first - this.rows, this.rows);
             event.preventDefault();
         },
-
         pageLinkClick(event) {
             this.changePage((event.value - 1) * this.rows, this.rows);
         },
-
         changePageToNext(event) {
             this.changePage(this.first + this.rows, this.rows);
             event.preventDefault();
         },
-
         changePageToLast(event) {
             this.changePage((this.pageCount - 1) * this.rows, this.rows);
             event.preventDefault();
         },
-
         rowsChange(event) {
             this.changePage(0, event.value.code);
         }
