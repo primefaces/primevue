@@ -42,9 +42,12 @@ import ToggleButton from './components/togglebutton/ToggleButton';
 import TriStateCheckbox from './components/tristatecheckbox/TriStateCheckbox';
 import ValidationMessage from './components/validationmessage/ValidationMessage';
 
+import CodeHighlight from './views/codehighlight/CodeHighlight';
+
 import './assets/styles/primevue.css';
 import 'primeflex/primeflex.css';
 import 'primeicons/primeicons.css';
+import 'prismjs/themes/prism-coy.css';
 
 Vue.use(ToastService);
 
@@ -89,6 +92,8 @@ Vue.component('Toolbar', Toolbar);
 Vue.component('ToggleButton', ToggleButton);
 Vue.component('TriStateCheckbox', TriStateCheckbox);
 Vue.component('ValidationMessage', ValidationMessage);
+
+Vue.component('CodeHighlight', CodeHighlight);
 
 new Vue({
   router,

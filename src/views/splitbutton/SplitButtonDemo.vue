@@ -8,7 +8,7 @@
         </div>
 
         <div class="content-section implementation">
-            <h3 className="first">Basic</h3>
+            <h3 class="first">Basic</h3>
             <SplitButton label="Save" icon="pi pi-plus" @click="save" :model="items"></SplitButton>
         </div>
     </div>

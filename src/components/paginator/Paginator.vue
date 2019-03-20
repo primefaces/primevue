@@ -1,13 +1,13 @@
 <template>
 	<div class="p-paginator p-component p-unselectable-text">
 		<template v-for="(item,i) of templateItems">
-			<FirstPageLink v-if="item === 'FirstPageLink'" :key="i"  @click="changePageToFirst($event)" :disabled="isFirstPage"/>
-			<PrevPageLink v-if="item === 'PrevPageLink'" :key="i"  @click="changePageToPrev($event)" :disabled="isFirstPage"/>
-			<NextPageLink v-if="item === 'NextPageLink'" :key="i"  @click="changePageToNext($event)" :disabled="isLastPage"/>
-			<LastPageLink v-if="item === 'LastPageLink'" :key="i"  @click="changePageToLast($event)" :disabled="isLastPage"/>
-			<PageLinks v-if="item === 'PageLinks'" :key="i" :value="updatePageLinks" :page="page" @click="pageLinkClick($event)"/>
-			<CurrentPageReport v-if="item === 'CurrentPageReport'" :key="i" :template="currentPageReportTemplate" :page="page" :pageCount="pageCount"/>
-			<RowsPerPageDropdown v-if="item === 'RowsPerPageDropdown'" :key="i" :value="rows" :options="rowsPerPageOptions" @rowsChange="rowsChange($event)"/>
+			<FirstPageLink v-if="item === 'FirstPageLink'" :key="i" @click="changePageToFirst($event)" :disabled="isFirstPage" />
+			<PrevPageLink v-else-if="item === 'PrevPageLink'" :key="i" @click="changePageToPrev($event)" :disabled="isFirstPage" />
+			<NextPageLink v-else-if="item === 'NextPageLink'" :key="i" @click="changePageToNext($event)" :disabled="isLastPage" />
+			<LastPageLink v-else-if="item === 'LastPageLink'" :key="i" @click="changePageToLast($event)" :disabled="isLastPage" />
+			<PageLinks v-else-if="item === 'PageLinks'" :key="i" :value="updatePageLinks" :page="page" @click="pageLinkClick($event)" />
+			<CurrentPageReport v-else-if="item === 'CurrentPageReport'" :key="i" :template="currentPageReportTemplate" :page="page" :pageCount="pageCount" />
+			<RowsPerPageDropdown v-else-if="item === 'RowsPerPageDropdown'" :key="i" :value="rows" :options="rowsPerPageOptions" @rowsChange="rowsChange($event)" />
 		</template>
 	</div>
 </template>
@@ -19,9 +19,9 @@
 	import NextPageLink from './NextPageLink';
 	import PageLinks from './PageLinks';
 	import PrevPageLink from './PrevPageLink';
-	import RowsPerPageDropdown from './RowsPerPageDropdown';
+    import RowsPerPageDropdown from './RowsPerPageDropdown';
+    
 	export default {
-		inheritAttrs: false,
 		props: {
 			totalRecords: {
 				type: Number,
