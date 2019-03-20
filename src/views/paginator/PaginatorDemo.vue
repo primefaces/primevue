@@ -9,7 +9,7 @@
 
 		<div class="content-section implementation">
 			<h3 class="first">Default</h3>
-			<Paginator :first="first" :rows="rows" :totalRecords="totalRecords" @change="onPageChange($event)" :rowsPerPageOptions="[10,20,30]"></Paginator>
+			<Paginator :first.sync="first" :rows.sync="rows" :totalRecords="totalRecords" :rowsPerPageOptions="[10,20,30]"></Paginator>
 
 			<h3>Custom Template</h3>
 			<Paginator :first="first2" :rows="rows2" :totalRecords="totalRecords2" @change="onPageChangeCustom($event)" template="FirstPageLink PrevPageLink CurrentPageReport NextPageLink LastPageLink">
@@ -32,7 +32,7 @@ import PaginatorDoc from './PaginatorDoc';
 export default {
     data() {
         return {
-            first: 0,
+			first: 0,
             rows: 10,
             totalRecords: 50,
             first2: 0,
@@ -41,10 +41,6 @@ export default {
         }
     },
     methods: {
-        onPageChange(event) {
-            this.first = event.first;
-            this.rows = event.rows;
-        },
         onPageChangeCustom(event) {
             this.first2 = event.first;
             this.rows2 = event.rows;

@@ -131,6 +131,8 @@ export default {
                     pageCount: pc
                 };
                 this.$emit('change', newPageState);
+				this.$emit('update:first', first);
+				this.$emit('update:rows', rows);
             }
         },
         changePageToFirst(event) {
