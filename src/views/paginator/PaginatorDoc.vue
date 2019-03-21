@@ -8,21 +8,23 @@ import Paginator from 'primevue/paginator';
 </CodeHighlight>
 
                 <h3>Getting Started</h3>
-                <p><i>rows</i> and <i>totalRecords</i> define how many pages the paginator should display. Paginator below has 10 pages.</p>
+                <p><i>first</i>, <i>rows</i> and <i>totalRecords</i> are the required properties of the Paginator.</p>
 <CodeHighlight>
-&lt;Paginator :rows="10" :totalRecords="totalItems"&gt;&lt;/Paginator&gt;
+&lt;Paginator :first.sync="first" :rows="10" :totalRecords="totalItemsCount"&gt;&lt;/Paginator&gt;
 </CodeHighlight>
 
                 <h3>Start Offset</h3>
-                <p><i>first</i> property defines the index of the first item displayed by the paginator. This is useful in cases where the paginator needs to be controlled programmatically such as resetting or navigating to a certain page.</p>
+                <p><i>first</i> property defines the index of the first item displayed by the paginator and should be used with the sync operator. 
+                This is useful in cases where the paginator needs to be controlled programmatically such as resetting or navigating to a certain page.</p>
 <CodeHighlight>
-&lt;Paginator :first="offset" :rows="10" :totalRecords="totalItems"&gt;&lt;/Paginator&gt;
+&lt;Paginator :first.sync="offset" :rows="10" :totalRecords="totalItemsCount"&gt;&lt;/Paginator&gt;
 </CodeHighlight>
 
                 <h3>Rows Per Page</h3>
-                <p>Number of items per page can be changed by the user using a dropdown with the <i>rowsPerPageOptions</i> property which accepts an array of possible values.</p>
+                <p>Number of items per page can be changed by the user using a dropdown with the <i>rowsPerPageOptions</i> property which accepts an array of possible values.
+                As <i>rows</i> also change when the dropdown changes, use the sync operator for two-way binding.</p>
 <CodeHighlight>
-&lt;Paginator :first="offset" :rows="10" :totalRecords="totalItems" :rowsPerPageOptions="[10,20,30]"&gt;&lt;/Paginator&gt;
+&lt;Paginator :first.sync="offset" :rows.sync="rows" :totalRecords="totalItemsCount" :rowsPerPageOptions="[10,20,30]"&gt;&lt;/Paginator&gt;
 </CodeHighlight>
 
                 <h3>Template</h3>
@@ -41,13 +43,33 @@ import Paginator from 'primevue/paginator';
                 </ul>
 
 <CodeHighlight>
-&lt;Paginator :first="offset" :rows="10" :totalRecords="totalItems" template="FirstPageLink PrevPageLink CurrentPageReport NextPageLink LastPageLink"&gt;&lt;/Paginator&gt;
+&lt;Paginator :first.sync="offset" :rows="10" :totalRecords="totalItemsCount" 
+            template="FirstPageLink PrevPageLink CurrentPageReport NextPageLink LastPageLink"&gt;&lt;/Paginator&gt;
+</CodeHighlight>
+
+                <h3>Custom Content</h3>
+                <p>There are two slots available named "left" and "right" to add custom content to these locations. Both slots get
+                    a state object as a slot property to provide the current page, first index and the rows.
+                </p>
+<CodeHighlight>
+<template v-pre>
+&lt;Paginator :first.sync="offset" :rows="10" :totalRecords="totalItemsCount"&gt;
+    &lt;template #left=&quot;slotProps&quot;&gt;
+        Page: {{slotProps.state.page}}
+        First: {{slotProps.state.first}}
+        Rows: {{slotProps.state.rows}}
+    &lt;/template&gt;
+    &lt;template #right&gt;
+        &lt;Button type=&quot;button&quot; icon=&quot;pi pi-search&quot; /&gt;
+    &lt;/template&gt;
+&lt;/Paginator&gt;
+</template>
 </CodeHighlight>
 
                 <h3>Page Change Event</h3>
-                <p>Paginator provides only one event called <i>page-change</i> along with all the information about the change event</p>
+                <p>Paginator provides only one event called <i>page-change</i> that passes all the information about the change event.</p>
 <CodeHighlight>
-&lt;Paginator :first="offset" :rows="10" :totalRecords="totalItems" @page-change="onPage($event)"&gt;&lt;/Paginator&gt;
+&lt;Paginator :first.sync="offset" :rows="10" :totalRecords="totalItemsCount"  @page-change="onPage($event)"&gt;&lt;/Paginator&gt;
 </CodeHighlight>
 
 <CodeHighlight lang="javascript">
@@ -198,6 +220,54 @@ onPage(event) {
                 <a href="https://github.com/primefaces/primereact/tree/master/src/showcase/paginator" class="btn-viewsource" target="_blank" rel="noopener noreferrer">
                     <span>View on GitHub</span>
                 </a>
+<CodeHighlight>
+&lt;template&gt;
+    &lt;div&gt;
+        &lt;div class=&quot;content-section introduction&quot;&gt;
+            &lt;div class=&quot;feature-intro&quot;&gt;
+                &lt;h1&gt;Paginator&lt;/h1&gt;
+                &lt;p&gt;Paginator is a generic component to display content in paged format.&lt;/p&gt;
+            &lt;/div&gt;
+        &lt;/div&gt;
+
+        &lt;div class=&quot;content-section implementation&quot;&gt;
+            &lt;h3 class=&quot;first&quot;&gt;Default&lt;/h3&gt;
+            &lt;Paginator :first.sync=&quot;first&quot; :rows.sync=&quot;rows&quot; :totalRecords=&quot;totalRecords&quot; :rowsPerPageOptions=&quot;[10,20,30]&quot;&gt;&lt;/Paginator&gt;
+
+            &lt;h3&gt;Custom Template&lt;/h3&gt;
+            &lt;Paginator :first=&quot;first2&quot; :rows=&quot;rows2&quot; :totalRecords=&quot;totalRecords2&quot; @page-change=&quot;onPageChangeCustom($event)&quot; template=&quot;FirstPageLink PrevPageLink CurrentPageReport NextPageLink LastPageLink&quot;&gt;
+                &lt;template #left&gt;
+                    &lt;Button type=&quot;button&quot; icon=&quot;pi pi-refresh&quot; /&gt;
+                &lt;/template&gt;
+                &lt;template #right&gt;
+                    &lt;Button type=&quot;button&quot; icon=&quot;pi pi-search&quot; /&gt;
+                &lt;/template&gt;
+            &lt;/Paginator&gt;
+        &lt;/div&gt;
+    &lt;/div&gt;
+&lt;/template&gt;
+</CodeHighlight>
+
+<CodeHighlight lang="javascript">
+export default {
+    data() {
+        return {
+            first: 0,
+            rows: 10,
+            totalRecords: 50,
+            first2: 0,
+            rows2: 1,
+            totalRecords2: 12
+        }
+    },
+    methods: {
+        onPageChangeCustom(event) {
+            this.first2 = event.first;
+            this.rows2 = event.rows;
+        }
+    }
+}
+</CodeHighlight>
             </TabPanel>
         </TabView>
     </div>
