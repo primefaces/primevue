@@ -45,7 +45,10 @@ export default {
             type: Number,
             default: 5
         },
-        rowsPerPageOptions: Array,
+        rowsPerPageOptions: {
+            type: Array,
+            default: null
+        },
         template: {
             type: String,
             default: 'FirstPageLink PrevPageLink PageLinks NextPageLink LastPageLink RowsPerPageDropdown'
@@ -66,7 +69,7 @@ export default {
     },
     computed: {
         templateItems() {
-            var keys = [];
+            let keys = [];
             this.template.split(' ').map((value) => {
                 keys.push(value.trim());
             })
@@ -120,17 +123,18 @@ export default {
     },
     methods: {
         changePage(first, rows) {
-            var pc = this.pageCount;
-            var p = Math.floor(first / rows);
+            const pc = this.pageCount;
+            const p = Math.floor(first / rows);
 
-            if(p >= 0 && p < pc) {
-                var newPageState = {
+            if (p >= 0 && p < pc) {
+                let newPageState = {
                     first: first,
                     rows: rows,
                     page: p,
                     pageCount: pc
                 };
-                this.$emit('change', newPageState);
+
+                this.$emit('page-change', newPageState);
 				this.$emit('update:first', first);
 				this.$emit('update:rows', rows);
             }

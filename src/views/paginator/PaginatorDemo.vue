@@ -12,7 +12,7 @@
 			<Paginator :first.sync="first" :rows.sync="rows" :totalRecords="totalRecords" :rowsPerPageOptions="[10,20,30]"></Paginator>
 
 			<h3>Custom Template</h3>
-			<Paginator :first="first2" :rows="rows2" :totalRecords="totalRecords2" @change="onPageChangeCustom($event)" template="FirstPageLink PrevPageLink CurrentPageReport NextPageLink LastPageLink">
+			<Paginator :first="first2" :rows="rows2" :totalRecords="totalRecords2" @page-change="onPageChangeCustom($event)" template="FirstPageLink PrevPageLink CurrentPageReport NextPageLink LastPageLink">
                 <template #left>
                     <Button type="button" icon="pi pi-refresh" />
                 </template>
