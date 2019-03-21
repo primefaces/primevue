@@ -21,10 +21,14 @@
             <h3>Disabled</h3>
             <InputText type="text" v-model="value3" disabled />
         </div>
+
+        <InputTextDoc />
     </div>
 </template>
 
 <script>
+import InputTextDoc from './InputTextDoc';
+
 export default {
     data() {
         return {
@@ -32,7 +36,10 @@ export default {
             value2: '',
             value3: 'PrimeVue'
         }
-    }
+    },
+	components: {
+		'InputTextDoc': InputTextDoc
+	}
 }
 </script>
 
