@@ -31,11 +31,14 @@
                 <li v-for="(c,i) of selectedCountries" :key="i">{{c}}</li>
             </ul>
         </div>
+
+        <AutoCompleteDoc />
     </div>
 </template>
 
 <script>
 import CountryService from '../../service/CountryService';
+import AutoCompleteDoc from './AutoCompleteDoc';
 
 export default {
     data() {
@@ -90,6 +93,9 @@ export default {
                 this.filteredBrands = results;
             }, 250);
         }
+    },
+    components: {
+		'AutoCompleteDoc': AutoCompleteDoc
     }
 }
 </script>
