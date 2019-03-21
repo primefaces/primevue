@@ -10,7 +10,7 @@
             <ul class="p-listbox-list">
                 <li v-for="(option, i) of visibleOptions" :tabindex="isOptionDisabled(option) ? null : '0'" :class="['p-listbox-item', {'p-highlight': isSelected(option), 'p-disabled': isOptionDisabled(option)}]" 
                     :aria-label="getOptionLabel(option)" :key="getOptionLabel(option)" @click="onOptionSelect($event, option)" @touchend="onOptionTouchEnd()" @keydown="onOptionKeyDown($event, option)">
-                    <slot :option="option" :index="i">  
+                    <slot name="option" :option="option" :index="i">  
                         {{getOptionLabel(option)}}
                     </slot>
                 </li>

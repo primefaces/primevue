@@ -13,9 +13,9 @@
 
             <h3>Template</h3>
             <Chips v-model="value2">
-                <template slot-scope="{value}">
+                <template #chip="slotProps">
                     <div>
-                        <span>{{value}} - (active) </span>
+                        <span>{{slotProps.value}} - (active) </span>
                         <i class="pi pi-user-plus" style="font-size: 14px"></i>
                     </div>
                 </template>

@@ -13,19 +13,19 @@
 
             <h3>Advanced with Templating and Filtering</h3>
             <MultiSelect v-model="selectedCars2" :options="cars" optionLabel="brand" placeholder="Select a Car" :filter="true">
-                <template slot="value" slot-scope="{value}">
-                    <div class="p-multiselect-car-token" v-for="option of value" :key="option.brand">
+                <template #value="slotProps">
+                    <div class="p-multiselect-car-token" v-for="option of slotProps.value" :key="option.brand">
                         <img :alt="option.brand" :src="'/demo/images/car/' + option.brand + '.png'" />
                         <span>{{option.brand}}</span>
                     </div>
-                    <div class="p-multiselect-empty-car-token" v-if="!value || value.length === 0">
+                    <div class="p-multiselect-empty-car-token" v-if="!slotProps.value || slotProps.value.length === 0">
                         Select Brands
                     </div>
                 </template>
-                <template slot="option" slot-scope="{option}">
+                <template #option="slotProps">
                     <div class="p-multiselect-car-option">
-                        <img :alt="option.brand" :src="'/demo/images/car/' + option.brand + '.png'" />
-                        <span>{{option.brand}}</span>
+                        <img :alt="slotProps.option.brand" :src="'/demo/images/car/' + slotProps.option.brand + '.png'" />
+                        <span>{{slotProps.option.brand}}</span>
                     </div>
                 </template>
             </MultiSelect>

@@ -4,7 +4,7 @@
             @click="onOptionSelect($event, option, i)" @keydown.enter.prevent="onOptionSelect($event, option, i)" @keydown.space.prevent="onOptionSelect($event, option, i)"
             :tabindex="isOptionDisabled(option) ? null : '0'" @focus="onFocus($event, i)" @blur="onBlur($event)"
             :class="['p-button p-component p-button-text-only', {'p-highlight': isSelected(option), 'p-disabled': isOptionDisabled(option), 'p-focus': (i === focusedIndex)}]">
-            <slot :option="option" :index="i">
+            <slot name="option" :option="option" :index="i">
                 <span class="p-button-text p-c">{{getOptionLabel(option)}}</span>
             </slot>
         </div>
