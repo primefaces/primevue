@@ -18,10 +18,10 @@
 
             <h3>Custom Content</h3>
             <SelectButton v-model="selectedCar" :options="cars" optionLabel="brand">
-                <template slot-scope="{option}">
+                <template #option="slotProps">
                     <div style="text-align: center; padding: 1em; width: 125px">
-                        <img :alt="option.brand" :src="'/demo/images/car/' + option.brand + '.png'" style="width:48px" />
-                        <div style="margin-top: 1em">{{option.brand}}</div>
+                        <img :alt="slotProps.option.brand" :src="'/demo/images/car/' + slotProps.option.brand + '.png'" style="width:48px" />
+                        <div style="margin-top: 1em">{{slotProps.option.brand}}</div>
                     </div>
                 </template>
             </SelectButton>

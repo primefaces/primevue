@@ -22,10 +22,10 @@
                         <span>{{props.option.brand}}</span>
                     </div>
                 </template>
-                <template slot="option" slot-scope="{option}">
+                <template #option="slotProps">
                     <div class="p-clearfix p-dropdown-car-option">
-                        <img :alt="option.brand" :src="'/demo/images/car/' + option.brand + '.png'" />
-                        <span>{{option.brand}}</span>
+                        <img :alt="slotProps.option.brand" :src="'/demo/images/car/' + slotProps.option.brand + '.png'" />
+                        <span>{{slotProps.option.brand}}</span>
                     </div>
                 </template>
             </Dropdown>

@@ -14,10 +14,10 @@
 
             <h3>Dropdown and Templating</h3>
             <AutoComplete v-model="brand" :suggestions="filteredBrands" @complete="searchBrand($event)" placeholder="Hint: type 'v' or 'f'" :dropdown="true">
-                <template slot="item" slot-scope="{item}">
+                <template #item="slotProps">
                     <div class="p-clearfix p-autocomplete-brand-item">
-                        <img :alt="item" :src="'/demo/images/car/' + item + '.png'" />
-                        <div>{{item}}</div>
+                        <img :alt="slotProps.item" :src="'/demo/images/car/' + slotProps.item + '.png'" />
+                        <div>{{slotProps.item}}</div>
                     </div>
                 </template>
             </AutoComplete>
