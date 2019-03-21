@@ -12,14 +12,18 @@
 			<Paginator :first.sync="first" :rows.sync="rows" :totalRecords="totalRecords" :rowsPerPageOptions="[10,20,30]"></Paginator>
 
 			<h3>Custom Template</h3>
-			<Paginator :first="first2" :rows="rows2" :totalRecords="totalRecords2" @page-change="onPageChangeCustom($event)" template="FirstPageLink PrevPageLink CurrentPageReport NextPageLink LastPageLink">
+			<Paginator :first.sync="first2" :rows="1" :totalRecords="totalRecords2" @page-change="onPageChangeCustom($event)" template="FirstPageLink PrevPageLink CurrentPageReport NextPageLink LastPageLink">
                 <template #left>
-                    <Button type="button" icon="pi pi-refresh" />
+                    <Button type="button" icon="pi pi-refresh" @click="reset()"/>
                 </template>
                 <template #right>
                     <Button type="button" icon="pi pi-search" />
                 </template>
             </Paginator>
+
+            <div class="image-gallery">
+                <img :src="'/demo/images/nature/' + image + '.jpg'" />
+            </div>
 		</div>
 
         <PaginatorDoc />
@@ -36,14 +40,17 @@ export default {
             rows: 10,
             totalRecords: 50,
             first2: 0,
-            rows2: 1,
-            totalRecords2: 12
+            totalRecords2: 12,
+            image: 'nature1'
         }
     },
     methods: {
         onPageChangeCustom(event) {
-            this.first2 = event.first;
-            this.rows2 = event.rows;
+            this.image = 'nature' + (event.page + 1);
+        },
+        reset() {
+            this.first2 = 0;
+            this.image = 'nature1';
         }
     },
     components: {
@@ -52,8 +59,13 @@ export default {
 }
 </script>
 
-<style lang="scss">
+<style scoped>
     .p-button.p-button-icon-only {
         border-radius: 0;
+    }
+
+    .image-gallery {
+        text-align: center;
+        padding: 1em;
     }
 </style>

@@ -77,7 +77,6 @@ onPage(event) {
     //event.page: New page number
     //event.first: Index of first record
     //event.rows: Number of rows to display in new page
-    //event.page: Index of the new page
     //event.pageCount: Total number of pages 
 }
 </CodeHighlight>
@@ -156,7 +155,6 @@ onPage(event) {
                                 <td>event.page: New page number <br/>
                                     event.first: Index of first record <br/>
                                     event.rows: Number of rows to display in new page <br/>
-                                    event.page: Index of the new page <br/>
                                     event.pageCount: Total number of pages 
                                 </td>
                                 <td>Callback to invoke when page changes, the event object contains information about the new state.</td>
@@ -222,50 +220,75 @@ onPage(event) {
                 </a>
 <CodeHighlight>
 &lt;template&gt;
-    &lt;div&gt;
-        &lt;div class=&quot;content-section introduction&quot;&gt;
-            &lt;div class=&quot;feature-intro&quot;&gt;
-                &lt;h1&gt;Paginator&lt;/h1&gt;
-                &lt;p&gt;Paginator is a generic component to display content in paged format.&lt;/p&gt;
-            &lt;/div&gt;
-        &lt;/div&gt;
+	&lt;div&gt;
+		&lt;div class=&quot;content-section introduction&quot;&gt;
+			&lt;div class=&quot;feature-intro&quot;&gt;
+				&lt;h1&gt;Paginator&lt;/h1&gt;
+				&lt;p&gt;Paginator is a generic component to display content in paged format.&lt;/p&gt;
+			&lt;/div&gt;
+		&lt;/div&gt;
 
-        &lt;div class=&quot;content-section implementation&quot;&gt;
-            &lt;h3 class=&quot;first&quot;&gt;Default&lt;/h3&gt;
-            &lt;Paginator :first.sync=&quot;first&quot; :rows.sync=&quot;rows&quot; :totalRecords=&quot;totalRecords&quot; :rowsPerPageOptions=&quot;[10,20,30]&quot;&gt;&lt;/Paginator&gt;
+		&lt;div class=&quot;content-section implementation&quot;&gt;
+			&lt;h3 class=&quot;first&quot;&gt;Default&lt;/h3&gt;
+			&lt;Paginator :first.sync=&quot;first&quot; :rows.sync=&quot;rows&quot; :totalRecords=&quot;totalRecords&quot; :rowsPerPageOptions=&quot;[10,20,30]&quot;&gt;&lt;/Paginator&gt;
 
-            &lt;h3&gt;Custom Template&lt;/h3&gt;
-            &lt;Paginator :first=&quot;first2&quot; :rows=&quot;rows2&quot; :totalRecords=&quot;totalRecords2&quot; @page-change=&quot;onPageChangeCustom($event)&quot; template=&quot;FirstPageLink PrevPageLink CurrentPageReport NextPageLink LastPageLink&quot;&gt;
+			&lt;h3&gt;Custom Template&lt;/h3&gt;
+			&lt;Paginator :first.sync=&quot;first2&quot; :rows=&quot;1&quot; :totalRecords=&quot;totalRecords2&quot; @page-change=&quot;onPageChangeCustom($event)&quot; template=&quot;FirstPageLink PrevPageLink CurrentPageReport NextPageLink LastPageLink&quot;&gt;
                 &lt;template #left&gt;
-                    &lt;Button type=&quot;button&quot; icon=&quot;pi pi-refresh&quot; /&gt;
+                    &lt;Button type=&quot;button&quot; icon=&quot;pi pi-refresh&quot; @click=&quot;reset()&quot;/&gt;
                 &lt;/template&gt;
                 &lt;template #right&gt;
                     &lt;Button type=&quot;button&quot; icon=&quot;pi pi-search&quot; /&gt;
                 &lt;/template&gt;
             &lt;/Paginator&gt;
-        &lt;/div&gt;
-    &lt;/div&gt;
+
+            &lt;div class=&quot;image-gallery&quot;&gt;
+                &lt;img :src=&quot;&#39;/demo/images/nature/&#39; + image + &#39;.jpg&#39;&quot; /&gt;
+            &lt;/div&gt;
+		&lt;/div&gt;
+
+        &lt;PaginatorDoc /&gt;
+	&lt;/div&gt;
 &lt;/template&gt;
 </CodeHighlight>
 
 <CodeHighlight lang="javascript">
+import PaginatorDoc from './PaginatorDoc';
+
 export default {
     data() {
         return {
-            first: 0,
+			first: 0,
             rows: 10,
             totalRecords: 50,
             first2: 0,
-            rows2: 1,
-            totalRecords2: 12
+            totalRecords2: 12,
+            image: 'nature1'
         }
     },
     methods: {
         onPageChangeCustom(event) {
-            this.first2 = event.first;
-            this.rows2 = event.rows;
+            this.image = 'nature' + (event.page + 1);
+        },
+        reset() {
+            this.first2 = 0;
+            this.image = 'nature1';
         }
+    },
+    components: {
+        'PaginatorDoc': PaginatorDoc
     }
+}
+</CodeHighlight>
+
+<CodeHighlight lang="css">
+.p-button.p-button-icon-only {
+    border-radius: 0;
+}
+
+.image-gallery {
+    text-align: center;
+    padding: 1em;
 }
 </CodeHighlight>
             </TabPanel>
