@@ -1,7 +1,7 @@
 <template>
    <div class="p-checkbox p-component" @click="onClick($event)">
        <div class="p-hidden-accessible">
-           <input ref="input" :id="inputId" type="checkbox" :name="name" :checked="checked" :disabled="disabled" @focus="onFocus()" @blur="onBlur()"
+           <input ref="input" :id="inputId" type="checkbox" :name="name" :checked="checked" :disabled="disabled" @focus="onFocus($event)" @blur="onBlur($event)"
                     :autocomplete="autocomplete" :autofocus="autofocus">
         </div>
         <div ref="box" :class="['p-checkbox-box p-component', {'p-highlight': checked, 'p-disabled': disabled, 'p-focus': focused}]">
@@ -57,7 +57,7 @@ export default {
             this.focused = true;
             this.$emit('focus', event);
         },
-        onBlur() {
+        onBlur(event) {
             this.focused = false;
             this.$emit('blur', event);
         }
