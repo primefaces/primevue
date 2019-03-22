@@ -35,7 +35,7 @@ export default {
             this.focused = true;
             this.$emit('focus', event);
         },
-        onBlur() {
+        onBlur(event) {
             this.focused = false;
             this.$emit('blur', event);
         },

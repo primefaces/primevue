@@ -21,16 +21,23 @@
                 </template>
             </Chips>
         </div>
+
+        <ChipsDoc />
     </div>
 </template>
 
 <script>
+import ChipsDoc from './ChipsDoc';
+
 export default {
     data() {
         return {
             value1: null,
             value2: null
         }
+    },
+    components: {
+        'ChipsDoc': ChipsDoc
     }
 }
 </script>
