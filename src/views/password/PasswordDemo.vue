@@ -10,15 +10,22 @@
         <div class="content-section implementation">
             <Password v-model="value" />
         </div>
+
+        <PasswordDoc/>
     </div>
 </template>
 
 <script>
+import PasswordDoc from './PasswordDoc';
+
 export default {
     data() {
         return {
             value: ''
         }
+    },
+    components: {
+        'PasswordDoc': PasswordDoc
     }
 }
 </script>
