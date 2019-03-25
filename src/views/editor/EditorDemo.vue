@@ -22,16 +22,23 @@
                 </template>
             </Editor>
         </div>
+
+        <EditorDoc />
     </div>
 </template>
 
 <script>
+import EditorDoc from './EditorDoc';
+
 export default {
     data() {
         return {
             value1: '<div>Welcome to PrimeVue <b>Editor</b></div><div><br></div>',
             value2: ''
         }
+    },
+    components: {
+        'EditorDoc': EditorDoc
     }
 }
 </script>
