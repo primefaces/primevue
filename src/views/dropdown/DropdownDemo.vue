@@ -16,12 +16,6 @@
 
             <h3>Advanced with Templating, Filtering and Clear Icon</h3>
             <Dropdown v-model="selectedCar" :options="cars" optionLabel="brand" placeholder="Select a Car" :filter="true" :showClear="true">
-                <template v-slot:option={props}>
-                    <div class="p-clearfix p-dropdown-car-option">
-                        <img :alt="props.option.brand" :src="'/demo/images/car/' + props.option.brand + '.png'" />
-                        <span>{{props.option.brand}}</span>
-                    </div>
-                </template>
                 <template #option="slotProps">
                     <div class="p-clearfix p-dropdown-car-option">
                         <img :alt="slotProps.option.brand" :src="'/demo/images/car/' + slotProps.option.brand + '.png'" />
@@ -30,10 +24,14 @@
                 </template>
             </Dropdown>
         </div>
+
+        <DropdownDoc/>
     </div>
 </template>
 
 <script>
+import DropdownDoc from './DropdownDoc';
+
 export default {
     data() {
         return {
@@ -59,6 +57,9 @@ export default {
                 {brand: 'Volvo', value: 'Volvo'}
             ]
         }
+    },
+    components: {
+        'DropdownDoc': DropdownDoc
     }
 }
 </script>

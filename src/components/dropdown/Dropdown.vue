@@ -43,21 +43,21 @@ export default {
     props: {
         value: null,
         options: Array,
+		optionLabel: null,
+		scrollHeight: {
+			type: String,
+			default: '200px'
+		},
+		filter: Boolean,
+		filterPlaceholder: String,
+		editable: Boolean,
+		placeholder: String,
+		disabled: Boolean,
         dataKey: null,
-        filter: Boolean,
-        optionLabel: null,
+		showClear: Boolean,
+		tabindex: String,
         optionValue: null,
-        optionDisabled: null,
-        disabled: Boolean,
-        tabindex: String,
-        editable: Boolean,
-        placeholder: String,
-        showClear: Boolean,
-        scrollHeight: {
-            type: String,
-            default: '200px'
-        },
-        filterPlaceholder: String
+        optionDisabled: null
     },
     data() {
         return {
