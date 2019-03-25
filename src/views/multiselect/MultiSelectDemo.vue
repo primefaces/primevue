@@ -30,10 +30,14 @@
                 </template>
             </MultiSelect>
         </div>
+
+        <MultiSelectDoc/>
     </div>
 </template>
 
 <script>
+import MultiSelectDoc from './MultiSelectDoc';
+
 export default {
     data() {
         return {
@@ -51,6 +55,9 @@ export default {
                 {brand: 'Volvo', value: 'Volvo'}
             ]
         }
+    },
+    components: {
+        'MultiSelectDoc': MultiSelectDoc
     }
 }
 </script>
