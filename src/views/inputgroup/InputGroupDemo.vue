@@ -110,10 +110,14 @@
                 </div>
             </div>
         </div>
+
+        <InputGroupDoc/>
     </div>
 </template>
 
 <script>
+import InputGroupDoc from './InputGroupDoc';
+
 export default {
     data() {
         return {
@@ -122,6 +126,9 @@ export default {
             radioValue1: '',
             radioValue2: ''
         }
+    },
+    components: {
+        'InputGroupDoc': InputGroupDoc
     }
 }
 </script>
