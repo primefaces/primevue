@@ -21,10 +21,14 @@
                 </template>
             </Listbox>
         </div>
+
+        <ListboxDoc/>
     </div>
 </template>
 
 <script>
+import ListboxDoc from './ListboxDoc';
+
 export default {
     data() {
         return {
@@ -49,6 +53,9 @@ export default {
                 {brand: 'Volvo', value: 'Volvo'}
             ]
         }
+    },
+    components: {
+        'ListboxDoc': ListboxDoc
     }
 }
 </script>

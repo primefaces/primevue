@@ -27,13 +27,13 @@ export default {
     props: {
         value: null,
         options: Array,
+		optionLabel: null,
+		listStyle: null,
         disabled: Boolean,
         dataKey: null,
-        listStyle: null,
         multiple: Boolean,
         metaKeySelection: Boolean,
         filter: Boolean,
-        optionLabel: null,
         optionValue: null,
         optionDisabled: null
     },
