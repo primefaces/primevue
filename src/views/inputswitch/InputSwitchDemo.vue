@@ -16,16 +16,23 @@
             <InputSwitch v-model="checked2" />
             <p style="font-weight: bold">{{checked2}}</p>
         </div>
+
+        <InputSwitchDoc/>
     </div>
 </template>
 
 <script>
+import InputSwitchDoc from './InputSwitchDoc';
+
 export default {
     data() {
         return {
             checked1: false,
             checked2: true
         }
+    },
+    components: {
+        'InputSwitchDoc': InputSwitchDoc
     }
 }
 </script>
