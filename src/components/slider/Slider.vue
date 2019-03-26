@@ -13,21 +13,21 @@ import DomHandler from '../utils/DomHandler';
 export default {
     props: {
         value: [Number,Array],
-        disabled: Boolean,
-        step: Number,
-        range: Boolean,
-        min: {
-            type: Number,
-            default: 0
-        },
-        max: {
-            type: Number,
-            default: 100
-        },
-        orientation: {
-            type: String,
-            default: 'horizontal'
-        }
+		min: {
+			type: Number,
+			default: 0
+		},
+		max: {
+			type: Number,
+			default: 100
+		},
+		orientation: {
+			type: String,
+			default: 'horizontal'
+		},
+		step: Number,
+		range: Boolean,
+        disabled: Boolean
     },
     dragging: false,
     handleIndex: null,
