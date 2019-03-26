@@ -10,12 +10,12 @@
 export default {
     props: {
         value: Number,
+		disabled: Boolean,
+		readonly: Boolean,
         stars: {
             type: Number,
             default: 5
         },
-        readonly: Boolean,
-        disabled: Boolean,
         cancel: {
             type: Boolean,
             default: true
