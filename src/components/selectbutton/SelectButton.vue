@@ -18,11 +18,11 @@ export default {
     props: {
         value: null,
         options: Array,
+		optionLabel: null,
+		multiple: Boolean,
         disabled: Boolean,
         dataKey: null,
         name: String,
-        multiple: Boolean,
-        optionLabel: null,
         optionValue: null,
         optionDisabled: null
     },
@@ -86,7 +86,7 @@ export default {
             this.focusedIndex = index;
             this.$emit('focus', event);
         },
-        onBlur() {
+        onBlur(event) {
             this.focusedIndex = null
             this.$emit('blur', event);
         }

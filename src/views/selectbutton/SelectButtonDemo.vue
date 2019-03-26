@@ -27,10 +27,14 @@
             </SelectButton>
             <p>Selected Car: <span style="font-weight: bold">{{selectedCar}}</span></p>
         </div>
+
+        <SelectButtonDoc/>
     </div>
 </template>
 
 <script>
+import SelectButtonDoc from './SelectButtonDoc';
+
 export default {
     data() {
         return {
@@ -51,6 +55,9 @@ export default {
     },
     created() {
         this.selectedCar = this.cars[1];
+    },
+    components: {
+        'SelectButtonDoc': SelectButtonDoc
     }
 }
 </script>
