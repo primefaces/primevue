@@ -1,7 +1,7 @@
 <template>
    <div class="p-radiobutton p-component" @click="onClick($event)">
        <div class="p-hidden-accessible">
-           <input ref="input" :id="inputId" type="radio" :name="name" :checked="checked" :disabled="disabled" @focus="onFocus()" @blur="onBlur()"
+           <input ref="input" :id="inputId" type="radio" :name="name" :checked="checked" :disabled="disabled" @focus="onFocus($event)" @blur="onBlur($event)"
                     :autocomplete="autocomplete" :autofocus="autofocus">
         </div>
         <div ref="box" :class="['p-radiobutton-box p-component', {'p-highlight': checked, 'p-disabled': disabled, 'p-focus': focused}]">
@@ -11,17 +11,17 @@
 </template>
 
 <script>
-import ObjectUtils from '../utils/ObjectUtils';
+	import ObjectUtils from '../utils/ObjectUtils';
 
-export default {
+	export default {
     props: {
-         value: null,
-         modelValue: null,
-         name: String,
-         inputId: String,
-         autofocus: Boolean,
-         autocomplete: String,
-         disabled: Boolean
+		inputId: String,
+		name: String,
+		value: null,
+		disabled: Boolean,
+		modelValue: null,
+		autofocus: Boolean,
+		autocomplete: String
     },
     model: {
         prop: 'modelValue',
@@ -48,7 +48,7 @@ export default {
             this.focused = true;
             this.$emit('focus', event);
         },
-        onBlur() {
+        onBlur(event) {
             this.focused = false;
             this.$emit('blur', event);
         }

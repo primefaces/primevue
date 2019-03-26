@@ -38,10 +38,14 @@
             </div>
            <p>Selected Theme: <span style="font-weight: bold">{{this.selectedTheme}}</span></p>
         </div>
+
+        <RadioButtonDoc/>
     </div>
 </template>
 
 <script>
+import RadioButtonDoc from './RadioButtonDoc';
+
 export default {
     data() {
         return {
@@ -52,6 +56,9 @@ export default {
     },
     created() {
         this.selectedTheme = this.themes[1];
+    },
+    components: {
+        'RadioButtonDoc': RadioButtonDoc
     }
 }
 </script>
