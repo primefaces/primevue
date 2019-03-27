@@ -13,10 +13,10 @@
 export default {
     props: {
         value: Boolean,
+		onIcon: String,
+		offIcon: String,
         onLabel: String,
         offLabel: String,
-        onIcon: String,
-        offIcon: String,
         inputId: String,
         name: String,
         iconPos: {

@@ -16,16 +16,23 @@
             <ToggleButton v-model="checked2" onLabel="I confirm" offLabel="I reject" onIcon="pi pi-check" offIcon="pi pi-times" style="width: 10em" />
             <p style="font-weight: bold">{{checked2}}</p>
         </div>
+
+        <ToggleButtonDoc/>
     </div>
 </template>
 
 <script>
+import ToggleButtonDoc from './ToggleButtonDoc';
+
 export default {
     data() {
         return {
             checked1: false,
             checked2: true
         }
+    },
+    components: {
+        'ToggleButtonDoc': ToggleButtonDoc
     }
 }
 </script>
