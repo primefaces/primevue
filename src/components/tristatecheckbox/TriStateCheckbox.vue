@@ -13,12 +13,12 @@
 <script>
 export default {
     props: {
-         value: null,
-         name: String,
-         inputId: String,
-         autofocus: Boolean,
-         autocomplete: String,
-         disabled: Boolean
+		inputId: String,
+		value: null,
+		name: String,
+		disabled: Boolean,
+		autofocus: Boolean,
+		autocomplete: String
     },
     data() {
         return {
@@ -54,7 +54,7 @@ export default {
             this.focused = true;
             this.$emit('focus', event);
         },
-        onBlur() {
+        onBlur(event) {
             this.focused = false;
             this.$emit('blur', event);
         }

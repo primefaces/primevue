@@ -11,15 +11,22 @@
             <TriStateCheckbox v-model="value" />
             <p>Value: <span style="font-weight: bold">{{value == null ? 'null' : value}}</span></p>
         </div>
+
+        <TriStateCheckboxDoc/>
     </div>
 </template>
 
 <script>
+import TriStateCheckboxDoc from './TriStateCheckboxDoc';
+
 export default {
     data() {
         return {
             value: null
         }
+    },
+    components: {
+        'TriStateCheckboxDoc': TriStateCheckboxDoc
     }
 }
 </script>
