@@ -20,10 +20,14 @@
             <h3>Disabled</h3>
             <Spinner v-model="value4" :disabled="true" />
         </div>
+
+        <SpinnerDoc/>
     </div>
 </template>
 
 <script>
+import SpinnerDoc from './SpinnerDoc';
+
 export default {
     data() {
         return {
@@ -32,6 +36,9 @@ export default {
             value3: null,
             value4: null
         }
+    },
+    components: {
+        'SpinnerDoc': SpinnerDoc
     }
 }
 </script>
