@@ -17,10 +17,14 @@
             <h3>Disabled</h3>
             <Textarea v-model="value3" disabled rows="5" cols="30" />
         </div>
+
+        <TextareaDoc/>
     </div>
 </template>
 
 <script>
+import TextareaDoc from './TextareaDoc'
+
 export default {
     data() {
         return {
@@ -28,6 +32,9 @@ export default {
             value2: '',
             value3: ''
         }
+    },
+    components: {
+        'TextareaDoc': TextareaDoc
     }
 }
 </script>
