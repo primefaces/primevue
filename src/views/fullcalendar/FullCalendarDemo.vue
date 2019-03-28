@@ -10,11 +10,14 @@
         <div class="content-section implementation">
             <FullCalendar :events="events" :options="options" />
         </div>
+
+        <FullCalendarDoc/>
     </div>
 </template>
 
 <script>
 import EventService from '../../service/EventService';
+import FullCalendarDoc from './FullCalendarDoc';
 
 export default {
     data() {
@@ -37,6 +40,9 @@ export default {
     },
     mounted() {
         this.eventService.getEvents().then(data => this.events = data);
+    },
+    components: {
+        'FullCalendarDoc': FullCalendarDoc
     }
 }
 </script>
