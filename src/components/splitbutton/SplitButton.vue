@@ -25,9 +25,9 @@ export default {
     props: {
         label: String,
         icon: String,
+		model: Array,
         disabled: Boolean,
-        tabindex: String,
-        model: Array
+        tabindex: String
     },
     data() {
         return {

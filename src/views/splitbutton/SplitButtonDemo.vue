@@ -10,11 +10,23 @@
         <div class="content-section implementation">
             <h3 class="first">Basic</h3>
             <SplitButton label="Save" icon="pi pi-plus" @click="save" :model="items"></SplitButton>
+
+            <h3>Severities</h3>
+            <SplitButton label="Save" icon="pi pi-plus" :model="items"></SplitButton>
+            <SplitButton label="Save" icon="pi pi-plus" :model="items" class="p-button-secondary"></SplitButton>
+            <SplitButton label="Save" icon="pi pi-plus" :model="items" class="p-button-success"></SplitButton>
+            <SplitButton label="Save" icon="pi pi-plus" :model="items" class="p-button-info"></SplitButton>
+            <SplitButton label="Save" icon="pi pi-plus" :model="items" class="p-button-warning"></SplitButton>
+            <SplitButton label="Save" icon="pi pi-plus" :model="items" class="p-button-danger"></SplitButton>
         </div>
+
+        <SplitButtonDoc/>
     </div>
 </template>
 
 <script>
+import SplitButtonDoc from './SplitButtonDoc';
+
 export default {
     data() {
         return {
@@ -53,7 +65,11 @@ export default {
         save() {
             this.$toast.add({severity: 'success', summary: 'Success', detail: 'Data Saved', life: 3000});
         }
-    }
+    },
+    components: {
+        'SplitButtonDoc': SplitButtonDoc
+
+	}
 }
 </script>
 
