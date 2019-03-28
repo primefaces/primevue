@@ -35,5 +35,17 @@
                 </template>
             </Card>
         </div>
+
+        <CardDoc/>
     </div>
 </template>
+
+<script>
+import CardDoc from './CardDoc';
+
+export default {
+    components: {
+        'CardDoc': CardDoc
+    }
+}
+</script>
