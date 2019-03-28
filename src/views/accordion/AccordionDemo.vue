@@ -104,12 +104,15 @@
                     A decade earlier, he gave custody of his two children to Kay, who has since remarried.
                 </AccordionTab>
             </Accordion>
-
         </div>
+
+        <AccordionDoc/>
     </div>
 </template>
 
 <script>
+import AccordionDoc from './AccordionDoc';
+
 export default {
     data() {
         return {
@@ -117,6 +120,9 @@ export default {
             active2: false,
             active3: false
         }
+    },
+    components: {
+        'AccordionDoc': AccordionDoc
     }
 }
 </script>
