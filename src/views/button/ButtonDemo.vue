@@ -39,8 +39,20 @@
             <Button label="Warning" class="p-button-rounded p-button-warning" />
             <Button label="Danger" class="p-button-rounded p-button-danger" />
         </div>
+
+        <ButtonDoc/>
     </div>
 </template>
+
+<script>
+import ButtonDoc from './ButtonDoc'
+
+export default {
+	components: {
+		'ButtonDoc': ButtonDoc
+    }
+}
+</script>
 
 <style lang="scss" scoped>
     button {
