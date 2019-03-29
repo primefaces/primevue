@@ -419,10 +419,14 @@
                 </div>
             </div>
         </div>
+
+        <FlexGridDoc/>
     </div>
 </template>
 
 <script>
+import FlexGridDoc from './FlexGridDoc';
+
 export default {
     data() {
         return {
@@ -436,6 +440,9 @@ export default {
         removeColumn() {
             this.columns.pop();
         }
+    },
+    components: {
+        'FlexGridDoc': FlexGridDoc
     }
 }
 </script>
