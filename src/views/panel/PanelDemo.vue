@@ -24,5 +24,16 @@
                 kind and benevolent to those who give respect, but given to ruthless violence whenever anything stands against the good of the family.
             </Panel>
         </div>
+
+        <PanelDoc/>
     </div>
 </template>
+<script>
+import PanelDoc from './PanelDoc';
+
+export default {
+		components: {
+				'PanelDoc': PanelDoc
+		}
+}
+</script>
