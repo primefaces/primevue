@@ -23,5 +23,16 @@
                 </template>
             </Toolbar>
         </div>
+
+        <ToolbarDoc/>
     </div>
 </template>
+<script>
+import ToolbarDoc from './ToolbarDoc';
+
+export default {
+	components: {
+		'ToolbarDoc': ToolbarDoc
+    }
+}
+</script>
