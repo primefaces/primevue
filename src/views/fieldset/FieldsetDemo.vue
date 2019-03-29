@@ -24,10 +24,14 @@
                 kind and benevolent to those who give respect, but given to ruthless violence whenever anything stands against the good of the family.
             </Fieldset>
         </div>
+
+        <FieldsetDoc/>
     </div>
 </template>
 
 <script>
+import FieldsetDoc from './FieldsetDoc';
+
 export default {
     data() {
         return {
@@ -35,6 +39,9 @@ export default {
             value2: '',
             value3: 'PrimeVue'
         }
+    },
+    components: {
+        'FieldsetDoc': FieldsetDoc
     }
 }
 </script>
