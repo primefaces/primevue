@@ -103,10 +103,14 @@
                 </TabPanel>
             </TabView>
         </div>
+
+        <TabViewDoc/>
     </div>
 </template>
 
 <script>
+import TabViewDoc from './TabViewDoc';
+
 export default {
     data() {
         return {
@@ -120,6 +124,9 @@ export default {
         prev() {
             this.activeIndex = this.activeIndex === 0 ? 2 : this.activeIndex - 1;
         }
+    },
+    components: {
+        'TabViewDoc': TabViewDoc
     }
 }
 </script>
