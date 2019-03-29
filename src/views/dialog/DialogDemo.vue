@@ -20,10 +20,14 @@
                 </template>
             </Dialog>
         </div>
+
+        <DialogDoc/>
     </div>
 </template>
 
 <script>
+import DialogDoc from './DialogDoc';
+
 export default {
     data() {
         return {
@@ -37,6 +41,9 @@ export default {
         close() {
             this.display = false;
         }
+    },
+    components: {
+        'DialogDoc': DialogDoc
     }
 }
 </script>

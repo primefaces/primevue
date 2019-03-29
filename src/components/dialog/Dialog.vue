@@ -26,12 +26,12 @@ import DomHandler from '../utils/DomHandler';
 
 export default {
     props: {
+		header: null,
+		footer: null,
         visible: Boolean,
-        header: null,
-        footer: null,
         modal: Boolean,
+		contentStyle: null,
         rtl: Boolean,
-        contentStyle: null,
         closable: {
             type: Boolean,
             default: true
