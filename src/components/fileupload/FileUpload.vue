@@ -53,6 +53,10 @@ export default {
             type: String,
             default: 'advanced'
         },
+		multiple: {
+			type: Boolean,
+			default: false
+		},
         accept: {
             type: String,
             default: null
@@ -68,10 +72,6 @@ export default {
         maxFileSize: {
             type: Number,
             default: null
-        },
-        multiple: {
-            type: Boolean,
-            default: false
         },
         invalidFileSizeMessage: {
             type: String,

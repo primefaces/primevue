@@ -17,15 +17,22 @@
             <h3>Basic with Auto</h3>
             <FileUpload mode="basic" name="demo[]" url="http://192.168.1.110:4000/upload" accept="image/*" :maxFileSize="1000000" @upload="onUpload" :auto="true" chooseLabel="Browse" />
         </div>
+
+        <FileUploadDoc/>
     </div>
 </template>
 
 <script>
+import FileUploadDoc from './FileUploadDoc';
+
 export default {
     methods: {
         onUpload() {
             this.$toast.add({severity: 'info', summary: 'Success', detail: 'File Uploaded', life: 3000});
         }
+    },
+    components: {
+        'FileUploadDoc': FileUploadDoc
     }
 }
 </script>
