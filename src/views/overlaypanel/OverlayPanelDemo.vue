@@ -14,15 +14,22 @@
                 <img src="/demo/images/nature/nature1.jpg" alt="Nature Image">
             </OverlayPanel>
         </div>
+
+        <OverlayPanelDoc/>
     </div>
 </template>
 
 <script>
+import OverlayPanelDoc from './OverlayPanelDoc';
+
 export default {
     methods: {
         toggle(event) {
             this.$refs.op.toggle(event);
         }
+    },
+    components: {
+        'OverlayPanelDoc': OverlayPanelDoc
     }
 }
 </script>

@@ -16,15 +16,15 @@ import DomHandler from '../utils/DomHandler';
 
 export default {
     props: {
+		dismissable: {
+			type: Boolean,
+			default: true
+		},
+		showCloseIcon: {
+			type: Boolean,
+			default: false
+		},
         appendTo: String,
-        showCloseIcon: {
-            type: Boolean,
-            default: false
-        },
-        dismissable: {
-            type: Boolean,
-            default: true
-        },
         baseZIndex: {
             type: Number,
             default: 0
