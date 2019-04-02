@@ -17,10 +17,14 @@
             <h3>Line Styles</h3>
             <Chart type="line" :data="lineStylesData" />
         </div>
+
+        <LineChartDoc/>
     </div>
 </template>
 
 <script>
+import LineChartDoc from './LineChartDoc';
+
 export default {
     data() {
         return {
@@ -108,6 +112,9 @@ export default {
                 ]   
             }
         }
+    },
+    components: {
+        'LineChartDoc': LineChartDoc
     }
 }
 </script>

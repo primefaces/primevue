@@ -10,10 +10,14 @@
         <div class="content-section implementation">
             <Chart type="pie" :data="chartData" />
         </div>
+
+        <PieChartDoc/>
     </div>
 </template>
 
 <script>
+import PieChartDoc from './PieChartDoc';
+
 export default {
     data() {
         return {
@@ -36,6 +40,9 @@ export default {
                 ]    
             }
         }
+    },
+    components: {
+        'PieChartDoc': PieChartDoc
     }
 }
 </script>

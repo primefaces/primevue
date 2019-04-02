@@ -10,10 +10,14 @@
         <div class="content-section implementation">
             <Chart type="polarArea" :data="chartData" />
         </div>
+
+        <PolarAreaChartDoc/>
     </div>
 </template>
 
 <script>
+import PolarAreaChartDoc from './PolarAreaChartDoc';
+
 export default {
     data() {
         return {
@@ -44,6 +48,9 @@ export default {
                 ]
             }
         }
+    },
+    components: {
+        'PolarAreaChartDoc': PolarAreaChartDoc
     }
 }
 </script>

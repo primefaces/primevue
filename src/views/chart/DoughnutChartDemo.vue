@@ -10,10 +10,14 @@
         <div class="content-section implementation">
             <Chart type="doughnut" :data="chartData" />
         </div>
+
+        <DoughnutChartDoc/>
     </div>
 </template>
 
 <script>
+import DoughnutChartDoc from './DoughnutChartDoc';
+
 export default {
     data() {
         return {
@@ -36,6 +40,9 @@ export default {
                 ]    
             }
         }
+    },
+    components: {
+        'DoughnutChartDoc': DoughnutChartDoc
     }
 }
 </script>

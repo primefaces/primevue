@@ -10,10 +10,14 @@
         <div class="content-section implementation">
             <Chart type="radar" :data="chartData" />
         </div>
+
+        <RadarChartDoc/>
     </div>
 </template>
 
 <script>
+import RadarChartDoc from './RadarChartDoc';
+
 export default {
     data() {
         return {
@@ -43,6 +47,9 @@ export default {
                 ]
             }
         }
+    },
+    components: {
+        'RadarChartDoc': RadarChartDoc
     }
 }
 </script>

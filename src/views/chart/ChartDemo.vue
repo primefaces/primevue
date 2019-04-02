@@ -7,13 +7,13 @@
             </div>
         </div>
 
-        <div class="content-section implementation">
-            
-        </div>
+        <ChartDoc/>
     </div>
 </template>
 
 <script>
+import ChartDoc from './ChartDoc';
+
 export default {
     data() {
         return {
@@ -36,6 +36,9 @@ export default {
                 ]    
             }
         }
+    },
+    components: {
+        'ChartDoc': ChartDoc
     }
 }
 </script>

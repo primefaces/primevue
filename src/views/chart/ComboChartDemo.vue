@@ -10,10 +10,14 @@
         <div class="content-section implementation">
             <Chart type="bar" :data="chartData" :options="chartOptions"/>
         </div>
+
+        <ComboChartDoc/>
     </div>
 </template>
 
 <script>
+import ComboChartDoc from './ComboChartDoc';
+
 export default {
     data() {
         return {
@@ -76,6 +80,9 @@ export default {
                 }
             }
         }
+    },
+    components: {
+        'ComboChartDoc': ComboChartDoc
     }
 }
 </script>

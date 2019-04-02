@@ -20,10 +20,14 @@
             <h3>Stacked</h3>
             <Chart type="bar" :data="stackedData" :options="stackedOptions"/>
         </div>
+
+        <BarChartDoc/>
     </div>
 </template>
 
 <script>
+import BarChartDoc from './BarChartDoc';
+
 export default {
     data() {
         return {
@@ -155,6 +159,9 @@ export default {
                 }
             }
         }
+    },
+    components: {
+        'BarChartDoc': BarChartDoc
     }
 }
 </script>
