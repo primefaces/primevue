@@ -44,10 +44,14 @@
             <Button icon="pi pi-arrow-up" @click="visibleBottom = true" style="margin-right:.25em" />
             <Button icon="pi pi-th-large" @click="visibleFull = true"  />
         </div>
+
+        <SidebarDoc/>
     </div>
 </template>
 
 <script>
+import SidebarDoc from './SidebarDoc';
+
 export default {
     data() {
         return {
@@ -57,6 +61,9 @@ export default {
             visibleBottom: false,
             visibleFull: false
         }
+    },
+    components: {
+        'SidebarDoc': SidebarDoc
     }
 }
 </script>
