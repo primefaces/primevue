@@ -17,10 +17,14 @@
             <h3>Indeterminate</h3>
             <ProgressBar mode="indeterminate" style="height: .5em" />
         </div>
+
+        <ProgressBarDoc/>
     </div>
 </template>
 
 <script>
+import ProgressBarDoc from './ProgressBarDoc';
+
 export default {
     data() {
         return {
@@ -49,6 +53,9 @@ export default {
     },
     beforeDestroy() {
         this.endProgress();  
+    },
+    components: {
+        'ProgressBarDoc': ProgressBarDoc
     }
 }
 </script>
