@@ -50,10 +50,14 @@
             <h3>Remove All</h3>
             <Button @click="clear" label="Clear" />
         </div>
+
+        <ToastDoc/>
     </div>
 </template>
 
 <script>
+import ToastDoc from './ToastDoc';
+
 export default {
     data() {
         return {
@@ -93,6 +97,9 @@ export default {
         clear() {
             this.$toast.removeAllGroups();
         }
+    },
+    components: {
+        'ToastDoc': ToastDoc
     }
 }
 </script>
