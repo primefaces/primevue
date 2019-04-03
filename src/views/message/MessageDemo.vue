@@ -34,10 +34,14 @@
                 </div>
             </div>
         </div>
+
+        <MessageDoc/>
     </div>
 </template>
 
 <script>
+import MessageDoc from './MessageDoc';
+
 export default {
     data() {
         return {
@@ -56,6 +60,9 @@ export default {
         removeMessages() {
             this.messages = null;
         }
+    },
+    components: {
+        'MessageDoc': MessageDoc
     }
 }
 </script>
