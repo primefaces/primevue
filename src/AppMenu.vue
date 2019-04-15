@@ -9,6 +9,7 @@
             <div :class="{'submenuhide': activeMenuIndex !== 0, 'submenushow': activeMenuIndex === 0}">
                 <div>
                     <router-link to="/autocomplete">&#9679; AutoComplete</router-link>
+                    <router-link to="/calendar">&#9679; Calendar</router-link>
                     <router-link to="/checkbox">&#9679; Checkbox</router-link>
                     <router-link to="/chips">&#9679; Chips</router-link>
                     <router-link to="/dropdown">&#9679; Dropdown</router-link>

@@ -27,6 +27,11 @@ export default new Router({
         component: () => import('./views/button/ButtonDemo.vue')
     },
     {
+        path: '/calendar',
+        name: 'calendar',
+        component: () => import('./views/calendar/CalendarDemo.vue')
+    },
+    {
         path: '/card',
         name: 'card',
         component: () => import('./views/card/CardDemo.vue')
