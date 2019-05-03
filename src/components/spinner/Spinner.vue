@@ -129,7 +129,7 @@ export default {
                 input: event => {
                     this.$emit('input', event.target.value)
                 },
-                focus: event => {
+                focus: () => {
                     this.focused = true;
                 },
                 blur: event => {
