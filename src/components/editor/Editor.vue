@@ -64,7 +64,7 @@ export default {
             this.renderValue(newValue);
         }
     },
-    mounted() {
+    mounted() {
         this.quill = new Quill(this.$refs.editorElement, {
             modules: {
                 toolbar: this.$refs.toolbarElement
