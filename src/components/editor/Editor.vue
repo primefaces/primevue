@@ -60,8 +60,10 @@ export default {
     },
     quill: null,
     watch: {
-        value(newValue) {
+        value(newValue, oldValue) {
+          if (newValue !== oldValue && this.quill && !this.quill.hasFocus()) {
             this.renderValue(newValue);
+          }
         }
     },
     mounted() {
