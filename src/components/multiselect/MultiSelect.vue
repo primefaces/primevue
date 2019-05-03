@@ -251,7 +251,7 @@ export default {
         bindOutsideClickListener() {
             if (!this.outsideClickListener) {
                 this.outsideClickListener = (event) => {
-                    if (this.overlayVisible && this.$refs.overlay && !this.$refs.overlay.contains(event.target)) {
+                    if (this.overlayVisible && this.isOutsideClicked(event)) {
                         this.overlayVisible = false;
                     }
                 };
@@ -263,6 +263,9 @@ export default {
                 document.removeEventListener('click', this.outsideClickListener);
                 this.outsideClickListener = null;
             }
+        },
+        isOutsideClicked(event) {
+            return !(this.$refs.container.isSameNode(event.target) || this.$refs.container.contains(event.target) || (this.$refs.overlay && this.$refs.overlay.contains(event.target)));
         },
         getLabelByValue(val) {
             let label = null;
