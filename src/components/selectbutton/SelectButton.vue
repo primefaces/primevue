@@ -1,7 +1,7 @@
 <template>
     <div class="p-selectbutton p-buttonset p-component p-buttonset">
     <div v-for="(option, i) of options" :key="getOptionLabel(option)" :aria-label="getOptionLabel(option)"  
-            @click="onOptionSelect($event, option, i)" @keydown.enter.prevent="onOptionSelect($event, option, i)" @keydown.space.prevent="onOptionSelect($event, option, i)"
+            @click="onOptionSelect($event, option, i)" @keydown.enter.prevent="onOptionSelect($event, option, i)" @keydown.space.prevent="onOptionSelect($event, option)"
             :tabindex="isOptionDisabled(option) ? null : '0'" @focus="onFocus($event, i)" @blur="onBlur($event)"
             :class="['p-button p-component p-button-text-only', {'p-highlight': isSelected(option), 'p-disabled': isOptionDisabled(option), 'p-focus': (i === focusedIndex)}]">
             <slot name="option" :option="option" :index="i">
@@ -41,7 +41,7 @@ export default {
         isOptionDisabled(option) {
             return this.optionDisabled ? ObjectUtils.resolveFieldData(option, this.optionDisabled) : false;
         },
-        onOptionSelect(event, option, index) {
+        onOptionSelect(event, option) {
             if (this.disabled || this.isOptionDisabled(option)) {
                 return;
             }
