@@ -87,7 +87,7 @@ export default {
         panelStyle: null,
         locale: {
             type: Object,
-            default: {
+            default: () => ({
                 firstDayOfWeek: 0,
                 dayNames: ["Sunday", "Monday", "Tuesday", "Wednesday", "Thursday", "Friday", "Saturday"],
                 dayNamesShort: ["Sun", "Mon", "Tue", "Wed", "Thu", "Fri", "Sat"],
@@ -97,7 +97,7 @@ export default {
                 today: 'Today',
                 clear: 'Clear',
                 dateFormat: 'mm/dd/yy'
-            }
+            })
         }
     },
     computed: {
