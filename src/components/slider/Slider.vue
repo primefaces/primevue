@@ -278,8 +278,9 @@ export default {
         handleStyle() {
             if (this.horizontal)
                 return {'left': this.handlePosition + '%'};
-            else if (this.vertical)
+            else
                 return {'bottom': this.handlePosition + '%'};
+            
         },
         handlePosition() {
             if (this.value === 0)
