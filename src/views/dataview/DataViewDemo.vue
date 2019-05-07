@@ -88,16 +88,17 @@
 			},
 			onSortChange(event){
 				const value = event.value.value;
+				const sortValue = event.value;
 
 				if (value.indexOf('!') === 0) {
 					this.sortOrder = -1;
 					this.sortField = value.substring(1, value.length);
-					this.sortKey = value;
+					this.sortKey = sortValue;
 				}
 				else {
 					this.sortOrder = 1;
 					this.sortField = value;
-					this.sortKey = value;
+					this.sortKey = sortValue;
 				}
 			}
 		},
@@ -107,6 +108,8 @@
 	}
 </script>
 
-<style scoped>
-
+<style lang="scss">
+.p-dropdown {
+	width: 12em;
+}
 </style>

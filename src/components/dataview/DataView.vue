@@ -3,7 +3,7 @@
 		<div class="p-dataview-header" v-if="$scopedSlots.header">
 			<slot name="header"></slot>
 		</div>
-		<Paginator v-if="paginatorTop" :rows.sync="rows" :first.sync="firstPage" :totalRecords="getTotalRecords" :pageLinkSize="pageLinkSize" :template="paginatorTemplate" :rowsPerPageOptions="rowsPerPageOptions"
+		<Paginator v-if="paginatorTop" :rows.sync="rows" :first.sync="firstRecord" :totalRecords="getTotalRecords" :pageLinkSize="pageLinkSize" :template="paginatorTemplate" :rowsPerPageOptions="rowsPerPageOptions"
 					:currentPageReportTemplate="currentPageReportTemplate" :class="{'p-paginator-top': paginatorTop}"></Paginator>
 		<div class="p-dataview-content">
 			<div class="p-grid">
@@ -14,7 +14,7 @@
 				<div v-if="isEmpty" class="p-col-12">{{emptyMessage}}</div>
 			</div>
 		</div>
-		<Paginator v-if="paginatorBottom" :rows.sync="rows" :first.sync="firstPage" :totalRecords="getTotalRecords" :pageLinkSize="pageLinkSize" :template="paginatorTemplate" :rowsPerPageOptions="rowsPerPageOptions"
+		<Paginator v-if="paginatorBottom" :rows.sync="rows" :first.sync="firstRecord" :totalRecords="getTotalRecords" :pageLinkSize="pageLinkSize" :template="paginatorTemplate" :rowsPerPageOptions="rowsPerPageOptions"
 					:currentPageReportTemplate="currentPageReportTemplate" :class="{'p-paginator-bottom': paginatorBottom}"></Paginator>
 		<div class="p-dataview-footer" v-if="$scopedSlots.footer">
 			<slot name="footer"></slot>
@@ -92,7 +92,7 @@
 		},
 		data() {
 			return {
-				firstPage: this.first ? this.first : 0
+				firstRecord: this.first ? this.first : 0
 			}
 		},
 		methods: {
@@ -174,7 +174,7 @@
 				if (value && value.length) {
 					if (this.paginator) {
 						const rows = this.rows;
-						const first = this.lazy ? 0 : this.firstPage;
+						const first = this.lazy ? 0 : this.firstRecord;
 						const last = rows + first;
 						let items = [];
 
