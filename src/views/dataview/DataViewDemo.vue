@@ -9,10 +9,12 @@
 
 		<div class="content-section implementation">
 			<h3 class="first">Default</h3>
-			<DataView :value="cars" :layout="layout" paginatorPosition='both' :paginator="true" :rows="20">
+			<DataView :value="cars" :layout="layout" paginatorPosition='both' :paginator="true" :rows="5" :sortOrder="sortOrder" :sortField="sortField">
 				<template #header>
 					<div class="p-grid">
-						<div class="p-col-6" style="text-align: right"></div>
+						<div class="p-col-6" style="text-align: left">
+							<Dropdown v-model="sortKey" :options="sortOptions" optionLabel="label" placeholder="Sort By" @change="onSortChange($event)"/>
+						</div>
 						<div class="p-col-6" style="text-align: right">
 							<DataViewLayoutOptions :layout="layout" @change="changeMode"></DataViewLayoutOptions>
 						</div>
@@ -61,6 +63,14 @@
 			return {
 				cars: null,
 				layout: 'list',
+				sortKey: null,
+				sortOrder: null,
+				sortField: null,
+				sortOptions: [
+					{label: 'Newest First', value: '!year'},
+					{label: 'Oldest First', value: 'year'},
+					{label: 'Brand', value: 'brand'}
+				]
 			}
 		},
 		carService: null,
@@ -73,6 +83,20 @@
 		methods: {
 			changeMode(event) {
 				this.layout = event.value;
+			},
+			onSortChange(event){
+				const value = event.value.value;
+
+				if (value.indexOf('!') === 0) {
+					this.sortOrder = -1;
+					this.sortField = value.substring(1, value.length);
+					this.sortKey = value;
+				}
+				else {
+					this.sortOrder = 1;
+					this.sortField = value;
+					this.sortKey = value;
+				}
 			}
 		},
 		components: {

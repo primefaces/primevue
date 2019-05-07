@@ -3,18 +3,18 @@
 		<div class="p-dataview-header" v-if="$scopedSlots.header">
 			<slot name="header"></slot>
 		</div>
-		<Paginator v-if="paginatorTop" :rows="rows" :first="first" :totalRecords="getTotalRecords" :pageLinkSize="pageLinkSize" :template="paginatorTemplate" :rowsPerPageOptions="rowsPerPageOptions"
+		<Paginator v-if="paginatorTop" :rows.sync="rows" :first.sync="firstPage" :totalRecords="getTotalRecords" :pageLinkSize="pageLinkSize" :template="paginatorTemplate" :rowsPerPageOptions="rowsPerPageOptions"
 					:currentPageReportTemplate="currentPageReportTemplate" :class="{'p-paginator-top': paginatorTop}"></Paginator>
 		<div class="p-dataview-content">
 			<div class="p-grid">
-				<template v-for="(data,index) of (value)">
+				<template v-for="(data,index) of (templateItems)">
 					<slot v-if="$scopedSlots.listItem && layout === 'list'" name="listItem" :data="data" :index="index"></slot>
 					<slot v-if="$scopedSlots.gridItem && layout === 'grid'" name="gridItem" :data="data" :index="index"></slot>
 				</template>
 				<div v-if="isEmpty" class="p-col-12">{{emptyMessage}}</div>
 			</div>
 		</div>
-		<Paginator v-if="paginatorBottom" :rows="rows" :first="first" :totalRecords="getTotalRecords" :pageLinkSize="pageLinkSize" :template="paginatorTemplate" :rowsPerPageOptions="rowsPerPageOptions"
+		<Paginator v-if="paginatorBottom" :rows.sync="rows" :first.sync="firstPage" :totalRecords="getTotalRecords" :pageLinkSize="pageLinkSize" :template="paginatorTemplate" :rowsPerPageOptions="rowsPerPageOptions"
 					:currentPageReportTemplate="currentPageReportTemplate" :class="{'p-paginator-bottom': paginatorBottom}"></Paginator>
 		<div class="p-dataview-footer" v-if="$scopedSlots.footer">
 			<slot name="footer"></slot>
@@ -90,7 +90,23 @@
 				default: false
 			}
 		},
+		data() {
+			return {
+				firstPage: this.first ? this.first : 0
+			}
+		},
 		methods: {
+			processData() {
+				let data = this.value;
+
+				if (data && data.length) {
+					if (this.sortField) {
+						data = this.sort();
+					}
+				}
+
+				return data;
+			},
 			sort() {
 				if (this.value) {
 					const value = [...this.value];
@@ -119,17 +135,6 @@
 				else {
 					return null;
 				}
-			},
-			processData() {
-				let data = this.value;
-
-				if (data && data.length) {
-					if (this.sortField) {
-						data = this.sort();
-					}
-				}
-
-				return data;
 			}
 		},
 		computed: {
@@ -162,6 +167,27 @@
 				}
 				else
 					return null;
+			},
+			templateItems (){
+				let value = this.processData();
+
+				if (value && value.length) {
+					if (this.paginator) {
+						const rows = this.rows;
+						const first = this.lazy ? 0 : this.firstPage;
+						const last = rows + first;
+						let items = [];
+
+						for (let i = first; i < last; i++) {
+							items.push(value[i]);
+						}
+						return items;
+					}
+					else {
+						return value;
+					}
+				}
+				else return null;
 			}
 		}
 	}
