@@ -9,7 +9,7 @@
 
 		<div class="content-section implementation">
 			<h3 class="first">Default</h3>
-			<DataView :value="cars" :layout="layout" paginatorPosition='both' :paginator="true" :rows="5" :sortOrder="sortOrder" :sortField="sortField">
+			<DataView :value="cars" :layout="layout" paginatorPosition='both' :paginator="true" :rows="20" :sortOrder="sortOrder" :sortField="sortField">
 				<template #header>
 					<div class="p-grid">
 						<div class="p-col-6" style="text-align: left">
@@ -41,10 +41,12 @@
 				</template>
 				<template #gridItem="slotProps">
 					<div style="padding: .5em" class="p-col-12 p-md-3">
-						<img :src="'/demo/images/car/' + slotProps.data.brand + '.png'" :alt="slotProps.data.brand"/>
-						<div class="car-detail">{{slotProps.data.year}} - {{slotProps.data.color}}</div>
-						<hr class="ui-widget-content" style="border-top: 0" />
-						<Button icon="pi pi-search"></Button>
+						<Panel :header="slotProps.data.vin" style="text-align: center">
+							<img :src="'/demo/images/car/' + slotProps.data.brand + '.png'" :alt="slotProps.data.brand"/>
+							<div class="car-detail">{{slotProps.data.year}} - {{slotProps.data.color}}</div>
+							<hr class="ui-widget-content" style="border-top: 0" />
+							<Button icon="pi pi-search"></Button>
+						</Panel>
 					</div>
 				</template>
 			</DataView>

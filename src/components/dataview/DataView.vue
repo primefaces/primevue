@@ -59,7 +59,7 @@
 			},
 			paginatorTemplate: {
 				type: String,
-				default: 'FirstPageLink PrevPageLink PageLinks NextPageLink LastPageLinks'
+				default: 'FirstPageLink PrevPageLink PageLinks NextPageLink LastPageLink'
 			},
 			pageLinkSize: {
 				type: Number,
