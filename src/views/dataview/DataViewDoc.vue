@@ -7,79 +7,177 @@
 import DataView from 'primevue/dataview';
 				</CodeHighlight>
 
-				<!--<h3>Getting Started</h3>
-				<p><i>first</i>, <i>rows</i> and <i>totalRecords</i> are the required properties of the Paginator.</p>
-				<CodeHighlight>
-					&lt;Paginator :first.sync="first" :rows="10" :totalRecords="totalItemsCount"&gt;&lt;/Paginator&gt;
-				</CodeHighlight>
+				<h3>Getting Started</h3>
+				<p>DataView requires a collection of items as its value and one or more templates depending on the layout mode e.g. list and grid. Throughout the samples, a car interface having vin, brand, year and color properties are used to define an object to be displayed by the dataview. Cars are loaded by a CarService that connects to a server to fetch the cars.</p>
+<CodeHighlight lang="js">
+<template v-pre>
+data() {
+	return {
+		cars: null,
+	}
+},
+carService: null,
+created() {
+	this.carService = new CarService();
+},
+mounted() {
+	this.carService.getCarsLarge().then(data => this.cars = data);
+}
+</template>
+</CodeHighlight>
 
-				<h3>Start Offset</h3>
-				<p><i>first</i> property defines the index of the first item displayed by the paginator and should be used with the sync operator.
-					This is useful in cases where the paginator needs to be controlled programmatically such as resetting or navigating to a certain page.</p>
-				<CodeHighlight>
-					&lt;Paginator :first.sync="offset" :rows="10" :totalRecords="totalItemsCount"&gt;&lt;/Paginator&gt;
-				</CodeHighlight>
+				<h3>Layouts</h3>
+				<p>DataView has two layout modes; "list" and "grid" where a separate template is used to render an item in each mode. In list mode name of the template is "listItem" whereas
+					in grid mode it is "gridItem".</p>
+				<p>Note that there is no restriction to use both layouts at the same time, you may configure only one layout using the layout property with the corresponding template.</p>
+<CodeHighlight>
+<template v-pre>
+&lt;template #listItem=&quot;slotProps&quot; &gt;
+	&lt;div class=&quot;p-col-12 car-details&quot; style=&quot;padding: 2em; border-bottom: 1px solid #d9d9d9&quot;&gt;
+		&lt;div class=&quot;p-grid&quot;&gt;
+			&lt;div class=&quot;p-col-12 p-md-3&quot;&gt;
+				&lt;img :src=&quot;'/demo/images/car/' + slotProps.data.brand + '.png'&quot; :alt=&quot;slotProps.data.brand&quot;/&gt;
+			&lt;/div&gt;
+			&lt;div class=&quot;p-col-12 p-md-8 car-data&quot;&gt;
+				&lt;div&gt;Vin: &lt;b&gt;{{slotProps.data.vin}}&lt;/b&gt;&lt;/div&gt;
+				&lt;div&gt;Year: &lt;b&gt;{{slotProps.data.year}}&lt;/b&gt;&lt;/div&gt;
+				&lt;div&gt;Brand: &lt;b&gt;{{slotProps.data.brand}}&lt;/b&gt;&lt;/div&gt;
+				&lt;div&gt;Color: &lt;b&gt;{{slotProps.data.color}}&lt;/b&gt;&lt;/div&gt;
+			&lt;/div&gt;
 
-				<h3>Rows Per Page</h3>
-				<p>Number of items per page can be changed by the user using a dropdown with the <i>rowsPerPageOptions</i> property which accepts an array of possible values.
-					As <i>rows</i> also change when the dropdown changes, use the sync operator for two-way binding.</p>
-				<CodeHighlight>
-					&lt;Paginator :first.sync="offset" :rows.sync="rows" :totalRecords="totalItemsCount" :rowsPerPageOptions="[10,20,30]"&gt;&lt;/Paginator&gt;
-				</CodeHighlight>
+			&lt;div class=&quot;p-col-12 p-md-1 search-icon&quot; style=&quot;margin-top: 40px&quot;&gt;
+				&lt;Button icon=&quot;pi pi-search&quot;&gt;&lt;/Button&gt;
+			&lt;/div&gt;
+		&lt;/div&gt;
+	&lt;/div&gt;
+&lt;/template&gt;
+&lt;template #gridItem=&quot;slotProps&quot;&gt;
+	&lt;div style=&quot;padding: .5em&quot; class=&quot;p-col-12 p-md-3&quot;&gt;
+		&lt;Panel :header=&quot;slotProps.data.vin&quot; style=&quot;text-align: center&quot;&gt;
+			&lt;img :src=&quot;'/demo/images/car/' + slotProps.data.brand + '.png'&quot; :alt=&quot;slotProps.data.brand&quot;/&gt;
+			&lt;div class=&quot;car-detail&quot;&gt;{{slotProps.data.year}} - {{slotProps.data.color}}&lt;/div&gt;
+			&lt;hr class=&quot;ui-widget-content&quot; style=&quot;border-top: 0&quot; /&gt;
+			&lt;Button icon=&quot;pi pi-search&quot;&gt;&lt;/Button&gt;
+		&lt;/Panel&gt;
+	&lt;/div&gt;
+&lt;/template&gt;
+</template>
+</CodeHighlight>
 
-				<h3>Template</h3>
-				<p>Paginator elements can be customized using the template property using the predefined keys, default value is
-					"FirstPageLink PrevPageLink PageLinks NextPageLink LastPageLink RowsPerPageDropdown". Here are the available elements that
-					can be placed inside a paginator in any order.</p>
+				<h3>Sections</h3>
+				<p>Header and Footer are the two sections that are capable of displaying custom content.</p>
+<CodeHighlight>
+&lt;template #header&gt;List of Cars&lt;/template&gt;
+</CodeHighlight>
 
-				<ul>
-					<li>FirstPageLink</li>
-					<li>PrevPageLink</li>
-					<li>PageLinks</li>
-					<li>NextPageLink</li>
-					<li>LastPageLink</li>
-					<li>RowsPerPageDropdown</li>
-					<li>CurrentPageReport</li>
-				</ul>
-
-				<CodeHighlight>
-					&lt;Paginator :first.sync="offset" :rows="10" :totalRecords="totalItemsCount"
-					template="FirstPageLink PrevPageLink CurrentPageReport NextPageLink LastPageLink"&gt;&lt;/Paginator&gt;
-				</CodeHighlight>
-
-				<h3>Custom Content</h3>
-				<p>There are two slots available named "left" and "right" to add custom content to these locations. Both slots get
-					a state object as a slot property to provide the current page, first index and the rows.
+				<h3>DataViewLayoutOptions</h3>
+				<p>When both layout modes are enabled in DataView, a UI element would be necessary to let the user toggle between the view. DataViewLayoutOptions is a helper component
+					to display a buttonset to choose the layout mode in DataView. Location of the DataViewLayoutOptions should be inside the DataView component. If you prefer a different UI element
+					you can create your own that updates the layout property of the DataView.
 				</p>
-				<CodeHighlight>
-					<template v-pre>
-						&lt;Paginator :first.sync="offset" :rows="10" :totalRecords="totalItemsCount"&gt;
-						&lt;template #left=&quot;slotProps&quot;&gt;
-						Page: {{slotProps.state.page}}
-						First: {{slotProps.state.first}}
-						Rows: {{slotProps.state.rows}}
-						&lt;/template&gt;
-						&lt;template #right&gt;
-						&lt;Button type=&quot;button&quot; icon=&quot;pi pi-search&quot; /&gt;
-						&lt;/template&gt;
-						&lt;/Paginator&gt;
-					</template>
-				</CodeHighlight>
+<CodeHighlight>
+&lt;template #header&gt;
+	&lt;DataViewLayoutOptions :layout=&quot;layout&quot; @change=&quot;changeMode&quot;&gt;&lt;/DataViewLayoutOptions&gt;
+&lt;/template&gt;
 
-				<h3>Page Change Event</h3>
-				<p>Paginator provides only one event called <i>page-change</i> that passes all the information about the change event.</p>
-				<CodeHighlight>
-					&lt;Paginator :first.sync="offset" :rows="10" :totalRecords="totalItemsCount"  @page-change="onPage($event)"&gt;&lt;/Paginator&gt;
-				</CodeHighlight>
+&lt;template #footer&gt;
+	&lt;DataViewLayoutOptions :layout=&quot;layout&quot; @change=&quot;changeMode&quot;&gt;&lt;/DataViewLayoutOptions&gt;
+&lt;/template&gt;
+</CodeHighlight>
 
-				<CodeHighlight lang="javascript">
-					onPage(event) {
-					//event.page: New page number
-					//event.first: Index of first record
-					//event.rows: Number of rows to display in new page
-					//event.pageCount: Total number of pages
-					}
-				</CodeHighlight>
+				<h3>Paginator</h3>
+				<p>Pagination is enabled by setting paginator property to true, rows attribute defines the number of rows per page and pageLinks specify the the number
+					of page links to display. To customize the left and right side of the paginators, use "paginatorLeft" and "paginatorRight" templates.</p>
+<CodeHighlight>
+<template v-pre>
+&lt;DataView :value=&quot;cars&quot; :layout=&quot;layout&quot; paginatorPosition='both' :paginator=&quot;true&quot; :rows=&quot;20&quot;&gt;
+	&lt;template #paginatorLeft&gt;
+		&lt;Button type=&quot;button&quot; icon=&quot;pi pi-refresh&quot;/&gt;
+	&lt;/template&gt;
+	&lt;template #paginatorRight&gt;
+		&lt;Button type=&quot;button&quot; icon=&quot;pi pi-search&quot; /&gt;
+	&lt;/template&gt;
+	&lt;template #header&gt;
+		List of Cars
+	&lt;/template&gt;
+	&lt;template #listItem=&quot;slotProps&quot; &gt;
+		&lt;div&gt;Vin: &lt;b&gt;{{slotProps.data.vin}}&lt;/b&gt;&lt;/div&gt;
+	&lt;/template&gt;
+	&lt;template #gridItem=&quot;slotProps&quot;&gt;
+		&lt;div&gt;Vin: &lt;b&gt;{{slotProps.data.vin}}&lt;/b&gt;&lt;/div&gt;
+	&lt;/template&gt;
+&lt;/DataView&gt;
+</template>
+</CodeHighlight>
+
+				<h3>Sorting</h3>
+				<p>sortField and sortOrder properties are available for sorting functionality, for flexibility there is no built-in UI available so that a custom UI can be used for the sorting element.
+					Here is an example that uses a dropdown where simply updating the sortField-sortOrder bindings of the DataView initiates sorting.</p>
+<CodeHighlight>
+<template v-pre>
+&lt;DataView :value=&quot;cars&quot; :layout=&quot;layout&quot; :sortOrder=&quot;sortOrder&quot; :sortField=&quot;sortField&quot;&gt;
+	&lt;template #paginatorLeft&gt;
+		&lt;Button type=&quot;button&quot; icon=&quot;pi pi-refresh&quot;/&gt;
+	&lt;/template&gt;
+	&lt;template #paginatorRight&gt;
+		&lt;Button type=&quot;button&quot; icon=&quot;pi pi-search&quot; /&gt;
+	&lt;/template&gt;
+	&lt;template #header&gt;
+		List of Cars
+	&lt;/template&gt;
+	&lt;template #listItem=&quot;slotProps&quot; &gt;
+		&lt;div&gt;Vin: &lt;b&gt;{{slotProps.data.vin}}&lt;/b&gt;&lt;/div&gt;
+	&lt;/template&gt;
+	&lt;template #gridItem=&quot;slotProps&quot;&gt;
+		&lt;div&gt;Vin: &lt;b&gt;{{slotProps.data.vin}}&lt;/b&gt;&lt;/div&gt;
+	&lt;/template&gt;
+&lt;/DataView&gt;
+</template>
+</CodeHighlight>
+
+				<h3>Properties of DataViewLayoutOptions</h3>
+				<div class="doc-tablewrapper">
+					<table class="doc-table">
+						<thead>
+						<tr>
+							<th>Name</th>
+							<th>Type</th>
+							<th>Default</th>
+							<th>Description</th>
+						</tr>
+						</thead>
+						<tbody>
+						<tr>
+							<td>layout</td>
+							<td>string</td>
+							<td>list</td>
+							<td>Layout of the items, valid values are "list" and "grid".</td>
+						</tr>
+						</tbody>
+					</table>
+				</div>
+
+				<h3>Events of DataViewLayoutOptions</h3>
+				<div class="doc-tablewrapper">
+					<table class="doc-table">
+						<thead>
+						<tr>
+							<th>Name</th>
+							<th>Parameters</th>
+							<th>Description</th>
+						</tr>
+						</thead>
+						<tbody>
+						<tr>
+							<td>change</td>
+							<td>event.originalEvent:  browser event  <br/>
+								event.value = layout mode e.g. "list" or "grid"
+							</td>
+							<td>Callback to invoke when layout mode is changed.</td>
+						</tr>
+						</tbody>
+					</table>
+				</div>
 
 				<h3>Properties</h3>
 				<div class="doc-tablewrapper">
@@ -94,22 +192,58 @@ import DataView from 'primevue/dataview';
 						</thead>
 						<tbody>
 						<tr>
-							<td>totalRecords</td>
-							<td>number</td>
-							<td>0</td>
-							<td>Number of total records.</td>
+							<td>value</td>
+							<td>array</td>
+							<td>null</td>
+							<td>An array of objects to display.</td>
+						</tr>
+						<tr>
+							<td>layout</td>
+							<td>string</td>
+							<td>list</td>
+							<td>Layout of the items, valid values are "list" and "grid".</td>
 						</tr>
 						<tr>
 							<td>rows</td>
 							<td>number</td>
-							<td>0</td>
-							<td>Data count to display per page.</td>
+							<td>null</td>
+							<td>Number of rows to display per page.</td>
 						</tr>
 						<tr>
 							<td>first</td>
 							<td>number</td>
 							<td>0</td>
-							<td>Zero-relative number of the first row to be displayed.</td>
+							<td>Index of the first record to render.</td>
+						</tr>
+						<tr>
+							<td>totalRecords</td>
+							<td>number</td>
+							<td>null</td>
+							<td>Number of total records, defaults to length of value when not defined.</td>
+						</tr>
+						<tr>
+							<td>paginator</td>
+							<td>boolean</td>
+							<td>false</td>
+							<td>When specified as true, enables the pagination.</td>
+						</tr>
+						<tr>
+							<td>paginatorPosition</td>
+							<td>string</td>
+							<td>bottom</td>
+							<td>Position of the paginator, options are "top","bottom" or "both".</td>
+						</tr>
+						<tr>
+							<td>alwaysShowPaginator</td>
+							<td>boolean</td>
+							<td>true</td>
+							<td>Whether to show it even there is only one page.</td>
+						</tr>
+						<tr>
+							<td>paginatorTemplate</td>
+							<td>string</td>
+							<td>FirstPageLink PrevPageLink PageLinks NextPageLink LastPageLink RowsPerPageDropdown</td>
+							<td>Template of the paginator.</td>
 						</tr>
 						<tr>
 							<td>pageLinkSize</td>
@@ -124,40 +258,34 @@ import DataView from 'primevue/dataview';
 							<td>Array of integer values to display inside rows per page dropdown.</td>
 						</tr>
 						<tr>
-							<td>template</td>
-							<td>string</td>
-							<td>FirstPageLink PrevPageLink PageLinks NextPageLink LastPageLink RowsPerPageDropdown</td>
-							<td>Template of the paginator.</td>
-						</tr>
-						<tr>
 							<td>currentPageReportTemplate</td>
 							<td>string</td>
 							<td>({currentPage} of {totalPages})</td>
 							<td>Template of the current page report element.</td>
 						</tr>
-						</tbody>
-					</table>
-				</div>
-
-				<h3>Events</h3>
-				<div class="doc-tablewrapper">
-					<table class="doc-table">
-						<thead>
 						<tr>
-							<th>Name</th>
-							<th>Parameters</th>
-							<th>Description</th>
+							<td>emptyMessage</td>
+							<td>string</td>
+							<td>No records found.</td>
+							<td>Text to display when there is no data.</td>
 						</tr>
-						</thead>
-						<tbody>
 						<tr>
-							<td>page-change</td>
-							<td>event.page: New page number <br/>
-								event.first: Index of first record <br/>
-								event.rows: Number of rows to display in new page <br/>
-								event.pageCount: Total number of pages
-							</td>
-							<td>Callback to invoke when page changes, the event object contains information about the new state.</td>
+							<td>sortField</td>
+							<td>string</td>
+							<td>null</td>
+							<td>Name of the field to sort data by default.</td>
+						</tr>
+						<tr>
+							<td>sortOrder</td>
+							<td>number</td>
+							<td>null</td>
+							<td>Order to sort the data by default.</td>
+						</tr>
+						<tr>
+							<td>lazy</td>
+							<td>boolean</td>
+							<td>false</td>
+							<td>Defines if data is loaded and interacted with in lazy manner.</td>
 						</tr>
 						</tbody>
 					</table>
@@ -175,36 +303,28 @@ import DataView from 'primevue/dataview';
 						</thead>
 						<tbody>
 						<tr>
-							<td>p-paginator</td>
+							<td>p-dataview</td>
 							<td>Container element.</td>
 						</tr>
 						<tr>
-							<td>p-paginator-first</td>
-							<td>First page element.</td>
+							<td>p-dataview-list</td>
+							<td>Container element in list layout.</td>
 						</tr>
 						<tr>
-							<td>p-paginator-prev</td>
-							<td>Previous page element.</td>
+							<td>p-dataview-grid</td>
+							<td>Container element in grid layout.</td>
 						</tr>
 						<tr>
-							<td>p-paginator-pages</td>
-							<td>Container of page links.</td>
+							<td>p-dataview-header</td>
+							<td>Header section.</td>
 						</tr>
 						<tr>
-							<td>p-paginator-page</td>
-							<td>A page link.</td>
+							<td>p-dataview-footer</td>
+							<td>Footer section.</td>
 						</tr>
 						<tr>
-							<td>p-paginator-next</td>
-							<td>Next pge element.</td>
-						</tr>
-						<tr>
-							<td>p-paginator-last</td>
-							<td>Last page element.</td>
-						</tr>
-						<tr>
-							<td>p-paginator-rpp-options</td>
-							<td>Rows per page dropdown.</td>
+							<td>p-dataview-content</td>
+							<td>Container of items.</td>
 						</tr>
 						</tbody>
 					</table>
@@ -215,82 +335,122 @@ import DataView from 'primevue/dataview';
 			</TabPanel>
 
 			<TabPanel header="Source">
-				<a href="https://github.com/primefaces/primereact/tree/master/src/showcase/paginator" class="btn-viewsource" target="_blank" rel="noopener noreferrer">
+				<a href="https://github.com/primefaces/primereact/tree/master/src/showcase/dataview" class="btn-viewsource" target="_blank" rel="noopener noreferrer">
 					<span>View on GitHub</span>
 				</a>
-				<CodeHighlight>
-					&lt;template&gt;
-					&lt;div&gt;
-					&lt;div class=&quot;content-section introduction&quot;&gt;
-					&lt;div class=&quot;feature-intro&quot;&gt;
-					&lt;h1&gt;Paginator&lt;/h1&gt;
-					&lt;p&gt;Paginator is a generic component to display content in paged format.&lt;/p&gt;
+<CodeHighlight>
+<template v-pre>
+&lt;template&gt;
+	&lt;div&gt;
+		&lt;div class=&quot;content-section introduction&quot;&gt;
+			&lt;div class=&quot;feature-intro&quot;&gt;
+				&lt;h1&gt;DataView&lt;/h1&gt;
+				&lt;p&gt;DataView displays data in grid or list layout with pagination and sorting features.&lt;/p&gt;
+			&lt;/div&gt;
+		&lt;/div&gt;
+
+		&lt;div class=&quot;content-section implementation&quot;&gt;
+			&lt;h3 class=&quot;first&quot;&gt;Default&lt;/h3&gt;
+			&lt;DataView :value=&quot;cars&quot; :layout=&quot;layout&quot; paginatorPosition='both' :paginator=&quot;true&quot; :rows=&quot;20&quot; :sortOrder=&quot;sortOrder&quot; :sortField=&quot;sortField&quot;&gt;
+				&lt;template #header&gt;
+					&lt;div class=&quot;p-grid&quot;&gt;
+						&lt;div class=&quot;p-col-6&quot; style=&quot;text-align: left&quot;&gt;
+							&lt;Dropdown v-model=&quot;sortKey&quot; :options=&quot;sortOptions&quot; optionLabel=&quot;label&quot; placeholder=&quot;Sort By&quot; @change=&quot;onSortChange($event)&quot;/&gt;
+						&lt;/div&gt;
+						&lt;div class=&quot;p-col-6&quot; style=&quot;text-align: right&quot;&gt;
+							&lt;DataViewLayoutOptions :layout=&quot;layout&quot; @change=&quot;changeMode&quot;&gt;&lt;/DataViewLayoutOptions&gt;
+						&lt;/div&gt;
 					&lt;/div&gt;
+				&lt;/template&gt;
+				&lt;template #listItem=&quot;slotProps&quot; &gt;
+					&lt;div class=&quot;p-col-12 car-details&quot; style=&quot;padding: 2em; border-bottom: 1px solid #d9d9d9&quot;&gt;
+						&lt;div class=&quot;p-grid&quot;&gt;
+							&lt;div class=&quot;p-col-12 p-md-3&quot;&gt;
+								&lt;img :src=&quot;'/demo/images/car/' + slotProps.data.brand + '.png'&quot; :alt=&quot;slotProps.data.brand&quot;/&gt;
+							&lt;/div&gt;
+							&lt;div class=&quot;p-col-12 p-md-8 car-data&quot;&gt;
+								&lt;div&gt;Vin: &lt;b&gt;{{slotProps.data.vin}}&lt;/b&gt;&lt;/div&gt;
+								&lt;div&gt;Year: &lt;b&gt;{{slotProps.data.year}}&lt;/b&gt;&lt;/div&gt;
+								&lt;div&gt;Brand: &lt;b&gt;{{slotProps.data.brand}}&lt;/b&gt;&lt;/div&gt;
+								&lt;div&gt;Color: &lt;b&gt;{{slotProps.data.color}}&lt;/b&gt;&lt;/div&gt;
+							&lt;/div&gt;
+
+							&lt;div class=&quot;p-col-12 p-md-1 search-icon&quot; style=&quot;margin-top: 40px&quot;&gt;
+								&lt;Button icon=&quot;pi pi-search&quot;&gt;&lt;/Button&gt;
+							&lt;/div&gt;
+						&lt;/div&gt;
 					&lt;/div&gt;
-
-					&lt;div class=&quot;content-section implementation&quot;&gt;
-					&lt;h3 class=&quot;first&quot;&gt;Default&lt;/h3&gt;
-					&lt;Paginator :first.sync=&quot;first&quot; :rows.sync=&quot;rows&quot; :totalRecords=&quot;totalRecords&quot; :rowsPerPageOptions=&quot;[10,20,30]&quot;&gt;&lt;/Paginator&gt;
-
-					&lt;h3&gt;Custom Template&lt;/h3&gt;
-					&lt;Paginator :first.sync=&quot;first2&quot; :rows=&quot;1&quot; :totalRecords=&quot;totalRecords2&quot; @page-change=&quot;onPageChangeCustom($event)&quot; template=&quot;FirstPageLink PrevPageLink CurrentPageReport NextPageLink LastPageLink&quot;&gt;
-					&lt;template #left&gt;
-					&lt;Button type=&quot;button&quot; icon=&quot;pi pi-refresh&quot; @click=&quot;reset()&quot;/&gt;
-					&lt;/template&gt;
-					&lt;template #right&gt;
-					&lt;Button type=&quot;button&quot; icon=&quot;pi pi-search&quot; /&gt;
-					&lt;/template&gt;
-					&lt;/Paginator&gt;
-
-					&lt;div class=&quot;image-gallery&quot;&gt;
-					&lt;img :src=&quot;&#39;/demo/images/nature/&#39; + image + &#39;.jpg&#39;&quot; /&gt;
+				&lt;/template&gt;
+				&lt;template #gridItem=&quot;slotProps&quot;&gt;
+					&lt;div style=&quot;padding: .5em&quot; class=&quot;p-col-12 p-md-3&quot;&gt;
+						&lt;Panel :header=&quot;slotProps.data.vin&quot; style=&quot;text-align: center&quot;&gt;
+							&lt;img :src=&quot;'/demo/images/car/' + slotProps.data.brand + '.png'&quot; :alt=&quot;slotProps.data.brand&quot;/&gt;
+							&lt;div class=&quot;car-detail&quot;&gt;{{slotProps.data.year}} - {{slotProps.data.color}}&lt;/div&gt;
+							&lt;hr class=&quot;ui-widget-content&quot; style=&quot;border-top: 0&quot; /&gt;
+							&lt;Button icon=&quot;pi pi-search&quot;&gt;&lt;/Button&gt;
+						&lt;/Panel&gt;
 					&lt;/div&gt;
-					&lt;/div&gt;
+				&lt;/template&gt;
+			&lt;/DataView&gt;
+		&lt;/div&gt;
+	&lt;/div&gt;
+&lt;/template&gt;
+</template>
+</CodeHighlight>
 
-					&lt;PaginatorDoc /&gt;
-					&lt;/div&gt;
-					&lt;/template&gt;
-				</CodeHighlight>
+<CodeHighlight lang="javascript">
+import CarService from '../../service/CarService';
 
-				<CodeHighlight lang="javascript">
-					import PaginatorDoc from './PaginatorDoc';
+export default {
+	data() {
+		return {
+			cars: null,
+			layout: 'list',
+			sortKey: null,
+			sortOrder: null,
+			sortField: null,
+			sortOptions: [
+				{label: 'Newest First', value: '!year'},
+				{label: 'Oldest First', value: 'year'},
+				{label: 'Brand', value: 'brand'}
+			]
+		}
+	},
+	carService: null,
+	created() {
+		this.carService = new CarService();
+	},
+	mounted() {
+		this.carService.getCarsLarge().then(data => this.cars = data);
+	},
+	methods: {
+		changeMode(event) {
+			this.layout = event.value;
+		},
+		onSortChange(event){
+			const value = event.value.value;
+			const sortValue = event.value;
 
-					export default {
-					data() {
-					return {
-					first: 0,
-					rows: 10,
-					totalRecords: 50,
-					first2: 0,
-					totalRecords2: 12,
-					image: 'nature1'
-					}
-					},
-					methods: {
-					onPageChangeCustom(event) {
-					this.image = 'nature' + (event.page + 1);
-					},
-					reset() {
-					this.first2 = 0;
-					this.image = 'nature1';
-					}
-					},
-					components: {
-					'PaginatorDoc': PaginatorDoc
-					}
-					}
-				</CodeHighlight>
+			if (value.indexOf('!') === 0) {
+				this.sortOrder = -1;
+				this.sortField = value.substring(1, value.length);
+				this.sortKey = sortValue;
+			}
+			else {
+				this.sortOrder = 1;
+				this.sortField = value;
+				this.sortKey = sortValue;
+			}
+		}
+	}
+}
+</CodeHighlight>
 
-				<CodeHighlight lang="css">
-					.p-button.p-button-icon-only {
-					border-radius: 0;
-					}
-
-					.image-gallery {
-					text-align: center;
-					padding: 1em;
-					}
-				</CodeHighlight>-->
+<CodeHighlight lang="css">
+.p-dropdown {
+	width: 12em;
+}
+</CodeHighlight>
 			</TabPanel>
 		</TabView>
 	</div>
