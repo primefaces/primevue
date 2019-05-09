@@ -4,7 +4,14 @@
 			<slot name="header"></slot>
 		</div>
 		<Paginator v-if="paginatorTop" :rows.sync="rows" :first.sync="firstRecord" :totalRecords="getTotalRecords" :pageLinkSize="pageLinkSize" :template="paginatorTemplate" :rowsPerPageOptions="rowsPerPageOptions"
-					:currentPageReportTemplate="currentPageReportTemplate" :class="{'p-paginator-top': paginatorTop}"></Paginator>
+					:currentPageReportTemplate="currentPageReportTemplate" :class="{'p-paginator-top': paginatorTop}">
+			<template #left v-if="$scopedSlots.paginatorLeft">
+				<slot name="paginatorLeft"></slot>
+			</template>
+			<template #right v-if="$scopedSlots.paginatorRight">
+				<slot name="paginatorRight"></slot>
+			</template>
+		</Paginator>
 		<div class="p-dataview-content">
 			<div class="p-grid">
 				<template v-for="(data,index) of (templateItems)">
@@ -15,7 +22,14 @@
 			</div>
 		</div>
 		<Paginator v-if="paginatorBottom" :rows.sync="rows" :first.sync="firstRecord" :totalRecords="getTotalRecords" :pageLinkSize="pageLinkSize" :template="paginatorTemplate" :rowsPerPageOptions="rowsPerPageOptions"
-					:currentPageReportTemplate="currentPageReportTemplate" :class="{'p-paginator-bottom': paginatorBottom}"></Paginator>
+					:currentPageReportTemplate="currentPageReportTemplate" :class="{'p-paginator-bottom': paginatorBottom}">
+			<template #left v-if="$scopedSlots.paginatorLeft">
+				<slot name="paginatorLeft"></slot>
+			</template>
+			<template #right v-if="$scopedSlots.paginatorRight">
+				<slot name="paginatorRight"></slot>
+			</template>
+		</Paginator>
 		<div class="p-dataview-footer" v-if="$scopedSlots.footer">
 			<slot name="footer"></slot>
 		</div>
