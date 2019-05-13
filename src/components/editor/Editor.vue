@@ -60,11 +60,13 @@ export default {
     },
     quill: null,
     watch: {
-        value(newValue) {
+        value(newValue, oldValue) {
+          if (newValue !== oldValue && this.quill && !this.quill.hasFocus()) {
             this.renderValue(newValue);
+          }
         }
     },
-    mounted() {
+    mounted() {
         this.quill = new Quill(this.$refs.editorElement, {
             modules: {
                 toolbar: this.$refs.toolbarElement

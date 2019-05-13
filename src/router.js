@@ -86,6 +86,11 @@ export default new Router({
         name: 'chips',
         component: () => import('./views/chips/ChipsDemo.vue')
     },
+	{
+		path: '/dataview',
+        name: 'dataview',
+        component: () => import('./views/dataview/DataViewDemo.vue')
+    },
     {
         path: '/dialog',
         name: 'dialog',

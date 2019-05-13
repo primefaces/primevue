@@ -78,6 +78,8 @@ export default {
     },
     computed: {
         listeners() {
+            let vm = this;
+
             return {
                 ...this.$listeners,
                 input: event => this.$emit('input', event.target.value),
@@ -87,8 +89,8 @@ export default {
                             this.createPanel();
                         }
                         
-                        this.panel.style.zIndex = String(DomHandler.generateZIndex());
-                        this.panel.style.display = 'block';
+                        vm.panel.style.zIndex = String(DomHandler.generateZIndex());
+                        vm.panel.style.display = 'block';
                         setTimeout(() => {
                             DomHandler.addClass(this.panel, 'p-input-overlay-visible');
                             DomHandler.removeClass(this.panel, 'p-input-overlay-hidden');
@@ -104,7 +106,7 @@ export default {
                         DomHandler.removeClass(this.panel, 'p-input-overlay-visible');
 
                         setTimeout(() => {
-                            this.panel.style.display = 'none';
+                            vm.panel.style.display = 'none';
                             DomHandler.removeClass(this.panel, 'p-input-overlay-hidden');
                         }, 150);
                     }
@@ -138,8 +140,8 @@ export default {
                             }
                         }
 
-                        this.meter.style.backgroundPosition = meterPos;
-                        this.info.textContent = label;
+                        vm.meter.style.backgroundPosition = meterPos;
+                        vm.info.textContent = label;
                     }
 
                     this.$emit('keyup', event);

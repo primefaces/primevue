@@ -124,16 +124,18 @@ export default {
     },
     computed: {
         listeners() {
+            let vm = this;
+
             return {
                 ...this.$listeners,
                 input: event => {
                     this.$emit('input', event.target.value)
                 },
-                focus: event => {
-                    this.focused = true;
+                focus: () => {
+                    vm.focused = true;
                 },
                 blur: event => {
-                    this.focused = false;
+                    vm.focused = false;
 
                     const parsedValue =  this.parseValue(event.target.value);
                     this.$emit('input', parsedValue);

@@ -143,7 +143,7 @@ export default {
             this.focus();
             this.hideOverlay();
         },
-        onMultiContainerClick(event) {
+        onMultiContainerClick() {
             this.focus();
         },
         removeItem(event, index) {

@@ -2,6 +2,15 @@
 node_modules
 /dist
 
+# misc
+/.sass-cache
+/connect.lock
+/coverage
+/libpeerconnection.log
+npm-debug.log
+testem.log
+/typings
+
 # local env files
 .env.local
 .env.*.local
