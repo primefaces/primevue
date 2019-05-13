@@ -8,9 +8,17 @@ import FullCalendar from 'primevue/fullcalendar';
 </CodeHighlight>
 
 				<h3>Getting Started</h3>
-				<p>FullCalendar is a wrapper around on <a href="https://fullcalendar.io/docs/v4">FullCalendar 4.0.0.alpha.2+</a> so fullcalendar needs to be included in your project. For a complete documentation and samples please refer to the fullcalendar website.</p>
+				<p>FullCalendar is a wrapper around on <a href="https://fullcalendar.io/docs/v4">FullCalendar 4.0.0+</a> so fullcalendar needs to be included in your project. 
+                For a complete documentation and samples please refer to the <a href="https://fullcalendar.io/">fullcalendar website</a>.</p>
 <CodeHighlight>
-npm install fullcalendar@4.0.0-alpha.2 --save
+npm install @fullcalendar/core --save
+</CodeHighlight>
+
+                <p>FullCalendar is plugin based so install the plugins you require and define them with the options property.</p>
+<CodeHighlight>
+npm install @fullcalendar/daygrid --save
+npm install @fullcalendar/timegrid --save
+npm install @fullcalendar/interaction --save
 </CodeHighlight>
 
 				<p>Events should be an array and defined using the events property.</p>
@@ -62,7 +70,7 @@ export default {
 }
 </CodeHighlight>
 
-				<p>In a real application, it is likely to populate the events by making a service call, when the events are updated, the component will detect the change and render them.</p>
+				<p>In a real application, it is likely to populate the events by making a remote call, when the events are updated, the component will detect the change and render them.</p>
 <CodeHighlight lang="js">
 import axios from 'axios';
 
@@ -94,22 +102,40 @@ export default {
 </CodeHighlight>
 
 				<h3>Options</h3>
-				<p>FullCalendar has a long list of customization parameters that are defined with the options property. Example below customizes the header property.</p>
+				<p>FullCalendar has a long list of customization parameters that can be defined with the options property. Example below customizes the plugins, header and editable properties.</p>
+<CodeHighlight>
+&lt;FullCalendar :events="events" :options="options" /&gt;
+</CodeHighlight>
+
 <CodeHighlight lang="js">
+import EventService from '../../service/EventService';
+import dayGridPlugin from '@fullcalendar/daygrid';
+import timeGridPlugin from '@fullcalendar/timegrid';
+import interactionPlugin from '@fullcalendar/interaction';
+
 export default {
-	data() {
-		return {
-			options: {
-				defaultDate: '2019-01-01',
-				header: {
-					left: 'prev,next',
-					center: 'title',
-					right: 'month,agendaWeek,agendaDay'
-				},
-				editable: true
-			}
-		};
-	},
+    data() {
+        return {
+            options: {
+                plugins:[dayGridPlugin, timeGridPlugin, interactionPlugin],
+                defaultDate: '2019-01-01',
+                header: {
+                    left: 'prev,next',
+                    center: 'title',
+                    right: 'dayGridMonth,timeGridWeek,timeGridDay'
+                },
+                editable: true
+            },
+            events: null
+        };
+    },
+    eventService: null,
+    created() {
+        this.eventService = new EventService();
+    },
+    mounted() {
+        this.eventService.getEvents().then(data => this.events = data);
+    }
 }
 </CodeHighlight>
 
@@ -117,22 +143,23 @@ export default {
 				<p>Callbacks of the FullCalendar such as dateClick are also defined with the options property.</p>
 <CodeHighlight lang="js">
 export default {
-	data() {
-		return {
-			options: {
-				defaultDate: '2019-01-01',
-				header: {
-					left: 'prev,next',
-					center: 'title',
-					right: 'month,agendaWeek,agendaDay'
-				},
-				editable: true,
-				dateClick: (e) =>  {
+     data() {
+        return {
+            options: {
+                plugins:[dayGridPlugin, timeGridPlugin, interactionPlugin],
+                defaultDate: '2019-01-01',
+                header: {
+                    left: 'prev,next',
+                    center: 'title',
+                    right: 'dayGridMonth,timeGridWeek,timeGridDay'
+                },
+                editable: true,
+                dateClick: (e) =>  {
 					//handle date click
 				}
-			}
-		};
-	},
+            }
+        };
+    }
 }
 </CodeHighlight>
 
@@ -162,7 +189,8 @@ export default {
 				</div>
 
 				<h3>Dependencies</h3>
-				<a href="https://fullcalendar.io/docs/v4">FullCalendar 4.0.0.alpha.2+</a>
+                <p><a href="https://fullcalendar.io/docs/v4">FullCalendar 4.0.0+</a></p>
+				
 			</TabPanel>
 
 			<TabPanel header="Source">
@@ -190,29 +218,33 @@ export default {
 
 <CodeHighlight lang="javascript">
 import EventService from '../../service/EventService';
+import dayGridPlugin from '@fullcalendar/daygrid';
+import timeGridPlugin from '@fullcalendar/timegrid';
+import interactionPlugin from '@fullcalendar/interaction';
 
 export default {
-	data() {
-		return {
-			options: {
-				defaultDate: '2019-01-01',
-				header: {
-					left: 'prev,next',
-					center: 'title',
-					right: 'month,agendaWeek,agendaDay'
-					},
-				editable: true
-			},
-			events: null
-		};
-	},
-	eventService: null,
-	created() {
-		this.eventService = new EventService();
-	},
-	mounted() {
-		this.eventService.getEvents().then(data => this.events = data);
-	}
+    data() {
+        return {
+            options: {
+                plugins:[dayGridPlugin, timeGridPlugin, interactionPlugin],
+                defaultDate: '2019-01-01',
+                header: {
+                    left: 'prev,next',
+                    center: 'title',
+                    right: 'dayGridMonth,timeGridWeek,timeGridDay'
+                },
+                editable: true
+            },
+            events: null
+        };
+    },
+    eventService: null,
+    created() {
+        this.eventService = new EventService();
+    },
+    mounted() {
+        this.eventService.getEvents().then(data => this.events = data);
+    }
 }
 </CodeHighlight>
 			</TabPanel>
