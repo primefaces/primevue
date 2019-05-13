@@ -1,9 +1,9 @@
 <template>
-    <div ref="container"></div>
+    <div></div>
 </template>
 
 <script>
-import {Calendar} from 'fullcalendar';
+import {Calendar} from '@fullcalendar/core';
 
 export default {
     props: {
@@ -12,18 +12,25 @@ export default {
     },
     calendar: null,
     watch: {
-        events(newValue) {
+        events(value) {
             this.calendar.removeAllEventSources();
-            this.calendar.addEventSource(newValue);
+            this.calendar.addEventSource(value);
+        },
+        options(value) {
+            if (value && this.calendar) {
+                for (let prop in value) {
+                    this.calendar.setOption(prop, value[prop]);
+                }
+            }
         }
     },
     mounted() {
-        if (this.$refs.container.offsetParent) {
+        if (this.$el.offsetParent) {
             this.initialize();
         }
     },
     updated() {
-        if (!this.calendar && this.$refs.container.offsetParent) {
+        if (!this.calendar && this.$el.offsetParent) {
             this.initialize();
         }
     },
@@ -35,9 +42,9 @@ export default {
     },
     methods: {
         initialize() {
-            let defaultConfig = {theme: true};
+            let defaultConfig = {theme: false};
             let config = this.options ? {...this.options, ...defaultConfig} : defaultConfig;
-            this.calendar = new Calendar(this.$refs.container, config);
+            this.calendar = new Calendar(this.$el, config);
             this.calendar.render();
 
             if (this.events) {
