@@ -14,7 +14,13 @@
                         </button>
                         <div class="p-datepicker-title">
                             <span class="p-datepicker-month" v-if="!monthNavigator && (view !== 'month')">{{locale.monthNames[month.month]}}</span>
+                            <select class="p-datepicker-month" v-if="monthNavigator && (view !== 'month') && numberOfMonths === 1" @change="onMonthDropdownChange($event.target.value)">
+                                <option :value="index" v-for="(monthName, index) of locale.monthNames" :key="monthName" :selected="index === month.month">{{monthName}}</option>
+                            </select>
                             <span class="p-datepicker-year" v-if="!yearNavigator">{{view === 'month' ? currentYear : month.year}}</span>
+                            <select class="p-datepicker-year" v-if="yearNavigator && numberOfMonths === 1" @change="onYearDropdownChange($event.target.value)">
+                                <option :value="year" v-for="year of yearOptions" :key="year" :selected="year === currentYear">{{year}}</option>
+                            </select>
                         </div>
                     </div>
                     <div class="p-datepicker-calendar-container" v-if="view ==='date'">
@@ -90,8 +96,16 @@ export default {
             type: Boolean,
             default: false
         },
-        panelClass: String,
-        panelStyle: null,
+        yearRange: {
+            type: String,
+            default: null
+        },
+        panelClass: {
+            type: String
+        },
+        panelStyle: {
+            type: null
+        },
         minDate: {
             type: Date,
             value: null
@@ -125,7 +139,9 @@ export default {
                 }
             }
         },
-        appendTo: null,
+        appendTo: {
+            type: null
+        },
         showOnFocus: {
             type: Boolean,
             default: true
@@ -412,6 +428,33 @@ export default {
             else {
                 this.overlayVisible = false;
             }
+        },
+        isDateDisabled(day, month, year) {
+            if (this.disabledDates) {
+                for (let disabledDate of this.disabledDates) {
+                    if (disabledDate.getFullYear() === year && disabledDate.getMonth() === month && disabledDate.getDate() === day) {
+                        return true;
+                    }
+                }
+            }
+            
+            return false;
+        },
+        isDayDisabled(day, month, year) {
+            if (this.disabledDays) {
+                let weekday = new Date(year, month, day);
+                let weekdayNumber = weekday.getDay();
+                return this.disabledDays.indexOf(weekdayNumber) !== -1;
+            }
+            return false;
+        },
+        onMonthDropdownChange(value) {
+            this.currentMonth = parseInt(value);
+            this.$emit('month-change', {month: this.currentMonth + 1, year: this.currentYear});
+        },
+        onYearDropdownChange(value) {
+            this.currentYear = parseInt(value);
+            this.$emit('year-change', {month: this.currentMonth + 1, year: this.currentYear});
         }
     },
     computed: {
@@ -541,6 +584,18 @@ export default {
         },
         datePattern() {
             return this.dateFormat || this.locale.dateFormat;
+        },
+        yearOptions() {
+            const years = this.yearRange.split(':');
+            const yearStart = parseInt(years[0]);
+            const yearEnd = parseInt(years[1]);
+            let yearOptions = [];
+
+            for (let i = yearStart; i <= yearEnd; i++) {
+                yearOptions.push(i);
+            }
+
+            return yearOptions;
         }
     },
     components: {
