@@ -1,19 +1,19 @@
 <template>
     <span :class="containerClass">
-        <CalendarInputText v-if="!inline" type="text" v-bind="$attrs" v-on="listeners" :value="inputFieldValue"  />
-        <CalendarButton v-if="showIcon" :icon="icon" tabindex="-1" class="p-datepicker-trigger p-calendar-button" :disabled="$attrs.disabled" />
+        <CalendarInputText ref="input" v-if="!inline" type="text" v-bind="$attrs" v-on="listeners" :value="inputFieldValue"  />
+        <CalendarButton v-if="showIcon" :icon="icon" tabindex="-1" class="p-datepicker-trigger p-calendar-button" :disabled="$attrs.disabled" @click="onButtonClick" />
         <transition name="p-input-overlay" @enter="onOverlayEnter" @leave="onOverlayLeave">
             <div ref="overlay" :class="panelStyleClass" v-if="inline ? true : overlayVisible">
                 <div class="p-datepicker-group" v-for="(month,i) of months" :key="month.month + month.year">
                     <div class="p-datepicker-header">
-                        <button class="p-datepicker-prev p-link" v-if="i === 0">
+                        <button class="p-datepicker-prev p-link" v-if="i === 0" @click="navBackward($event)">
                             <span class="p-datepicker-prev-icon pi pi-chevron-left"></span>
                         </button>
-                        <button class="p-datepicker-next p-link" v-if="numberOfMonths === 1 ? true : (i === numberOfMonths -1)">
+                        <button class="p-datepicker-next p-link" v-if="numberOfMonths === 1 ? true : (i === numberOfMonths - 1)"  @click="navForward($event)">
                             <span class="p-datepicker-next-icon pi pi-chevron-right"></span>
                         </button>
                         <div class="p-datepicker-title">
-                            <span class="p-datepicker-month" v-if="monthNavigator && (view !== 'month')">{{locale.monthNames[month.month]}}</span>
+                            <span class="p-datepicker-month" v-if="!monthNavigator && (view !== 'month')">{{locale.monthNames[month.month]}}</span>
                             <span class="p-datepicker-year" v-if="!yearNavigator">{{view === 'month' ? currentYear : month.year}}</span>
                         </div>
                     </div>
@@ -120,7 +120,8 @@ export default {
                     monthNamesShort: [ "Jan", "Feb", "Mar", "Apr", "May", "Jun","Jul", "Aug", "Sep", "Oct", "Nov", "Dec" ],
                     today: 'Today',
                     clear: 'Clear',
-                    dateFormat: 'mm/dd/yy'
+                    dateFormat: 'mm/dd/yy',
+                    weekHeader: 'Sm'
                 }
             }
         },
@@ -145,7 +146,7 @@ export default {
         }
         else {
             let propValue = this.value;
-            if (Array.isArray(propValue)) {
+            if (propValue && Array.isArray(propValue)) {
                 propValue = propValue[0];
             }
 
@@ -311,10 +312,70 @@ export default {
         onOverlayLeave() {
             this.unbindOutsideClickListener();
         },
+        navBackward(event) {
+            event.preventDefault();
+
+            if (this.$attrs.disabled) {
+                return;
+            }
+
+            if (this.view === 'month') {
+                this.decrementYear();
+            }
+            else {
+                if (this.currentMonth === 0) {
+                    this.currentMonth = 11;
+                    this.decrementYear();
+                }
+                else {
+                    this.currentMonth--;
+                }
+            
+                this.$emit('month-change', {month: this.currentMonth + 1, year: this.currentYear});
+            }
+        },
+        navForward(event) {
+            event.preventDefault();
+
+            if (this.$attrs.disabled) {
+                return;
+            }
+
+            if (this.view === 'month') {
+                this.incrementYear();
+            }
+            else {
+                if (this.currentMonth === 11) {
+                    this.currentMonth = 0;
+                    this.incrementYear();
+                }
+                else {
+                    this.currentMonth++;
+                }
+                
+                this.$emit('month-change', {month: this.currentMonth + 1, year: this.currentYear});
+            }
+        },
+        decrementYear() {
+            this.currentYear--;
+            
+            /*if (this.yearNavigator && this.currentYear < this.yearOptions[0]) {
+                let difference = this.yearOptions[this.yearOptions.length - 1] - this.yearOptions[0];
+                this.populateYearOptions(this.yearOptions[0] - difference, this.yearOptions[this.yearOptions.length - 1] - difference);
+            }*/
+        },
+        incrementYear() {
+            this.currentYear++;
+            
+            /*if (this.yearNavigator && this.currentYear > this.yearOptions[this.yearOptions.length - 1]) {
+                let difference = this.yearOptions[this.yearOptions.length - 1] - this.yearOptions[0];
+                this.populateYearOptions(this.yearOptions[0] + difference, this.yearOptions[this.yearOptions.length - 1] + difference);
+            }*/
+        },
         bindOutsideClickListener() {
             if (!this.outsideClickListener) {
                 this.outsideClickListener = (event) => {
-                    if (this.overlayVisible && this.$refs.overlay && !this.$el.contains(event.target)) {
+                    if (this.overlayVisible && this.isOutsideClicked(event)) {
                         this.overlayVisible = false;
                     }
                 };
@@ -327,6 +388,14 @@ export default {
                 this.outsideClickListener = null;
             }
         },
+        isOutsideClicked(event) {
+            return !(this.$el.isSameNode(event.target) || this.isNavIconClicked(event) || 
+                    this.$el.contains(event.target) || (this.$refs.overlay && this.$refs.overlay.contains(event.target)));
+        },
+        isNavIconClicked(event) {
+            return (DomHandler.hasClass(event.target, 'p-datepicker-prev') || DomHandler.hasClass(event.target, 'p-datepicker-prev-icon')
+                    || DomHandler.hasClass(event.target, 'p-datepicker-next') || DomHandler.hasClass(event.target, 'p-datepicker-next-icon'));
+        },
         alignOverlay() {
             if (this.$refs.overlay) {
                 if (this.appendTo)
@@ -334,6 +403,15 @@ export default {
                 else
                     DomHandler.relativePosition(this.$refs.overlay, this.$el);
             }        
+        },
+        onButtonClick() {
+            if (!this.overlayVisible) {
+                this.$refs.input.$el.focus();
+                this.overlayVisible = true;
+            }
+            else {
+                this.overlayVisible = false;
+            }
         }
     },
     computed: {
@@ -460,6 +538,9 @@ export default {
         },
         sundayIndex() {
             return this.locale.firstDayOfWeek > 0 ? 7 - this.locale.firstDayOfWeek : 0;
+        },
+        datePattern() {
+            return this.dateFormat || this.locale.dateFormat;
         }
     },
     components: {
