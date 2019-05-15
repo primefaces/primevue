@@ -11,11 +11,11 @@
             <div class="p-grid p-fluid">
                 <div class="p-col-12 p-md-4">
                     <h3>Basic</h3>
-                    <Calendar v-model="date1" />
+                    <Calendar v-model="date1" />{{date1}}
                 </div>
                 <div class="p-col-12 p-md-4">
                     <h3>Spanish</h3>
-                    <Calendar v-model="date2" :locale="es" />
+                    <Calendar v-model="date2" :locale="es" dateFormat="dd/mm/yy" />
                 </div>
                 <div class="p-col-12 p-md-4">
                     <h3>Icon</h3>
@@ -33,6 +33,18 @@
                     <h3>Navigators</h3>
                     <Calendar v-model="date6" :monthNavigator="true" :yearNavigator="true" yearRange="2000:2030" />
                 </div>
+                <div class="p-col-12 p-md-4">
+                    <h3>Multiple</h3>
+                    <Calendar v-model="dates1" selectionMode="multiple" :readonly="true" />
+                </div>
+                <div class="p-col-12 p-md-4">
+                    <h3>Range</h3>
+                    <Calendar v-model="dates2" selectionMode="range" :readonly="true" />
+                </div>
+                <div class="p-col-12 p-md-4">
+                    <h3>Button Bar</h3>
+                    <Calendar v-model="date7" :showButtonBar="true" />
+                </div>
             </div>
         </div>
 
@@ -45,7 +57,6 @@ import CalendarDoc from './CalendarDoc'
 
 export default {
     created() {
-        console.log(this.es.firstDayOfWeek);
         let today = new Date();
         let month = today.getMonth();
         let year = today.getFullYear();
@@ -72,6 +83,9 @@ export default {
             date4: null,
             date5: null,
             date6: null,
+            date7: null,
+            dates1: null,
+            dates2: null,
             es: {
                 firstDayOfWeek: 1,
                 dayNames: [ "Domingo","Lunes","Martes","Miércoles","Jueves","Viernes","Sábado" ],

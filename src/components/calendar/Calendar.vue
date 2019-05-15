@@ -33,9 +33,10 @@
                                 </tr>
                             </thead>
                             <tbody>
-                                <tr v-for="week of month.dates" :key="week[0].day + week[0].month">
-                                    <td v-for="date of week" :key="date.day" :class="{'p-datepicker-other-month': date.otherMonth, 'p-datepicker-today': date.today}">
-                                        <span :class="{'p-highlight': isSelected(date), 'p-disabled': !date.selectable}">{{date.day}}</span>
+                                <tr v-for="week of month.dates" :key="week[0].day + '' + week[0].month">
+                                    <td v-for="date of week" :key="date.day + '' + date.month" :class="{'p-datepicker-other-month': date.otherMonth, 'p-datepicker-today': date.today}">
+                                        <span :class="{'p-highlight': isSelected(date), 'p-disabled': !date.selectable}"
+                                        @click="onDateSelect(date)" draggable="false">{{date.day}}</span>
                                     </td>
                                 </tr>
                             </tbody>
@@ -60,15 +61,27 @@ export default {
             type: Date,
             default: null
         },
-        timeOnly: {
+        selectionMode: {
+            type: String,
+            default: 'single'
+        },
+        dateFormat: {
+            type: String,
+            default: 'mm/dd/yy'
+        },
+        inline: {
+            type: Boolean,
+            default: false
+        },
+        showOtherMonths: {
+            type: Boolean,
+            default: true
+        },
+        selectOtherMonths: {
             type: Boolean,
             default: false
         },
         showIcon: {
-            type: Boolean,
-            default: false
-        },
-        inline: {
             type: Boolean,
             default: false
         },
@@ -122,6 +135,73 @@ export default {
             type: Array,
             value: null
         },
+        maxDateCount: {
+            type: Number,
+            value: null
+        },
+        appendTo: {
+            type: null
+        },
+        showOnFocus: {
+            type: Boolean,
+            default: true
+        },
+        autoZIndex: {
+            type: Boolean,
+            default: true
+        },
+        baseZIndex: {
+            type: Number,
+            default: 0
+        },
+        showButtonBar: {
+            type: Boolean,
+            default: false
+        },
+        shortYearCutoff: {
+            type: String,
+            default: '+10'
+        },
+        showTime: {
+            type: Boolean,
+            default: false
+        },
+        timeOnly: {
+            type: Boolean,
+            default: false
+        },
+        hourFormat: {
+            type: String,
+            default: '24'
+        },
+        stepHour: {
+            type: Number,
+            default: 1
+        },
+        stepMinute: {
+            type: Number,
+            default: 1
+        },
+        stepSecond: {
+            type: Number,
+            default: 1
+        },
+        showSeconds: {
+            type: Boolean,
+            default: false
+        },
+        keepInvalid: {
+            type: Boolean,
+            default: false
+        },
+        hideOnDateTimeSelect: {
+            type: Boolean,
+            default: false
+        },
+        timeSeparator: {
+            type: String,
+            default: ':'
+        },
         locale: {
             type: Object,
             default: () => {
@@ -138,21 +218,6 @@ export default {
                     weekHeader: 'Sm'
                 }
             }
-        },
-        appendTo: {
-            type: null
-        },
-        showOnFocus: {
-            type: Boolean,
-            default: true
-        },
-        autoZIndex: {
-            type: Boolean,
-            default: true
-        },
-        baseZIndex: {
-            type: Number,
-            default: 0
         }
     },
     created() {
@@ -176,32 +241,35 @@ export default {
         return {
             currentMonth: null,
             currentYear: null,
+            currentHour: null,
+            currentMinute: null,
+            currentSecond: null,
             overlayVisible: false
         }
     },
     outsideClickListener: null,
     methods: {
         isSelected(dateMeta) {
-            if(this.value) {
-                if(this.isSingleSelection()) {
-                    return this.isDateEquals(this.props.value, dateMeta);
+            if (this.value) {
+                if (this.isSingleSelection()) {
+                    return this.isDateEquals(this.value, dateMeta);
                 }
-                else if(this.isMultipleSelection()) {
+                else if (this.isMultipleSelection()) {
                     let selected = false;
-                    for(let date of this.props.value) {
+                    for (let date of this.value) {
                         selected = this.isDateEquals(date, dateMeta);
-                        if(selected) {
+                        if (selected) {
                             break;
                         }
                     }
                     
                     return selected;
                 }
-                else if(this.isRangeSelection()) {
-                    if(this.props.value[1])
-                        return this.isDateEquals(this.props.value[0], dateMeta) || this.isDateEquals(this.props.value[1], dateMeta) || this.isDateBetween(this.props.value[0], this.props.value[1], dateMeta);
+                else if( this.isRangeSelection()) {
+                    if (this.value[1])
+                        return this.isDateEquals(this.value[0], dateMeta) || this.isDateEquals(this.value[1], dateMeta) || this.isDateBetween(this.value[0], this.value[1], dateMeta);
                     else {
-                        return this.isDateEquals(this.props.value[0], dateMeta);
+                        return this.isDateEquals(this.value[0], dateMeta);
                     }
                         
                 }
@@ -209,6 +277,21 @@ export default {
             else {
                 return false;
             }         
+        },
+        isDateEquals(value, dateMeta) {
+            if (value)
+                return value.getDate() === dateMeta.day && value.getMonth() === dateMeta.month && value.getFullYear() === dateMeta.year;
+            else
+                return false;
+        },
+        isDateBetween(start, end, dateMeta) {
+            let between = false;
+            if (start && end) {
+                let date = new Date(dateMeta.year, dateMeta.month, dateMeta.day);
+                return start.getTime() <= date.getTime() && end.getTime() >= date.getTime();
+            }
+            
+            return between;
         },
         getFirstDayOfMonthIndex(month, year) {
             let day = new Date();
@@ -374,19 +457,9 @@ export default {
         },
         decrementYear() {
             this.currentYear--;
-            
-            /*if (this.yearNavigator && this.currentYear < this.yearOptions[0]) {
-                let difference = this.yearOptions[this.yearOptions.length - 1] - this.yearOptions[0];
-                this.populateYearOptions(this.yearOptions[0] - difference, this.yearOptions[this.yearOptions.length - 1] - difference);
-            }*/
         },
         incrementYear() {
             this.currentYear++;
-            
-            /*if (this.yearNavigator && this.currentYear > this.yearOptions[this.yearOptions.length - 1]) {
-                let difference = this.yearOptions[this.yearOptions.length - 1] - this.yearOptions[0];
-                this.populateYearOptions(this.yearOptions[0] + difference, this.yearOptions[this.yearOptions.length - 1] + difference);
-            }*/
         },
         bindOutsideClickListener() {
             if (!this.outsideClickListener) {
@@ -455,6 +528,242 @@ export default {
         onYearDropdownChange(value) {
             this.currentYear = parseInt(value);
             this.$emit('year-change', {month: this.currentMonth + 1, year: this.currentYear});
+        },
+        onDateSelect(dateMeta) {
+            if (this.$attrs.disabled || !dateMeta.selectable) {
+                return;
+            }
+            
+            if (this.isMultipleSelection() && this.isSelected(dateMeta)) {
+                let newValue = this.value.filter((date, i) => !this.isDateEquals(date, dateMeta));
+                this.updateModel(newValue);
+            }
+            else {
+                if (this.shouldSelectDate(dateMeta)) {
+                    if (dateMeta.otherMonth) {
+                        this.currentMonth = dateMeta.month;
+                        this.currentYear = dateMeta.year;
+                        this.selectDate(dateMeta);
+                    }
+                    else {
+                        this.selectDate(dateMeta);
+                    }
+                }
+            }
+            
+            if (this.isSingleSelection() && (!this.showTime || this.hideOnDateTimeSelect)) {
+                setTimeout(() => {
+                    this.overlayVisible = false;
+
+                    if (this.mask) {
+                        this.disableModality();
+                    }
+                }, 150);
+            }
+        },
+        selectDate(dateMeta) {
+            let date = new Date(dateMeta.year, dateMeta.month, dateMeta.day);
+            
+            if (this.showTime) {
+                if (this.hourFormat === '12' && this.pm && this.currentHour != 12)
+                    date.setHours(this.currentHour + 12);
+                else
+                    date.setHours(this.currentHour);
+
+                date.setMinutes(this.currentMinute);
+                date.setSeconds(this.currentSecond);
+            }
+            
+            if (this.minDate && this.minDate > date) {
+                date = this.minDate;
+                this.currentHour = date.getHours();
+                this.currentMinute = date.getMinutes();
+                this.currentSecond = date.getSeconds();
+            }
+            
+            if (this.maxDate && this.maxDate < date) {
+                date = this.maxDate;
+                this.currentHour = date.getHours();
+                this.currentMinute = date.getMinutes();
+                this.currentSecond = date.getSeconds();
+            }
+            
+            if (this.isSingleSelection()) {
+                this.updateModel(date);
+            }
+            else if (this.isMultipleSelection()) {
+                this.updateModel(this.value ? [...this.value, date] : [date]);
+            }
+            else if (this.isRangeSelection()) {
+                if (this.value && this.value.length) {
+                    let startDate = this.value[0];
+                    let endDate = this.value[1];
+                    
+                    if (!endDate && date.getTime() >= startDate.getTime()) {
+                        endDate = date;
+                    }
+                    else {
+                        startDate = date;
+                        endDate = null;
+                    }
+                    
+                    this.updateModel([startDate, endDate]);
+                }
+                else {
+                    this.updateModel([date, null]);
+                }
+            }
+            
+            this.$emit('select', date);
+        },
+        updateModel(value) {
+            this.$emit('input', value);
+        },
+        shouldSelectDate(dateMeta) {
+            if (this.isMultipleSelection())
+                return this.maxDateCount != null ? this.maxDateCount > (this.value ? this.value.length : 0) : true;
+            else
+                return true;
+        },
+        isSingleSelection() {
+            return this.selectionMode === 'single';
+        },
+        isRangeSelection() {
+            return this.selectionMode === 'range';
+        },
+        isMultipleSelection() {
+            return this.selectionMode === 'multiple';
+        },
+        formatDateTime(date) {
+            let formattedValue = null;
+            if (date) {
+                if(this.timeOnly) {
+                    formattedValue = this.formatTime(date);
+                }
+                else {
+                    formattedValue = this.formatDate(date, this.datePattern);
+                    if(this.showTime) {
+                        formattedValue += ' ' + this.formatTime(date);
+                    }
+                }
+            }
+            
+            return formattedValue;
+        },
+        formatDate(date, format) {
+            if (!date) {
+                return '';
+            }
+
+            let iFormat;
+            const lookAhead = (match) => {
+                const matches = (iFormat + 1 < format.length && format.charAt(iFormat + 1) === match);
+                if (matches) {
+                    iFormat++;
+                }
+                return matches;
+            },
+                formatNumber = (match, value, len) => {
+                    let num = '' + value;
+                    if (lookAhead(match)) {
+                        while (num.length < len) {
+                            num = '0' + num;
+                        }
+                    }
+                    return num;
+                },
+                formatName = (match, value, shortNames, longNames) => {
+                    return (lookAhead(match) ? longNames[value] : shortNames[value]);
+                };
+            let output = '';
+            let literal = false;
+
+            if (date) {
+                for (iFormat = 0; iFormat < format.length; iFormat++) {
+                    if (literal) {
+                        if (format.charAt(iFormat) === '\'' && !lookAhead('\'')) {
+                            literal = false;
+                        } else {
+                            output += format.charAt(iFormat);
+                        }
+                    } else {
+                        switch (format.charAt(iFormat)) {
+                            case 'd':
+                                output += formatNumber('d', date.getDate(), 2);
+                                break;
+                            case 'D':
+                                output += formatName('D', date.getDay(), this.locale.dayNamesShort, this.locale.dayNames);
+                                break;
+                            case 'o':
+                                output += formatNumber('o',
+                                Math.round((
+                                    new Date(date.getFullYear(), date.getMonth(), date.getDate()).getTime() -
+                                    new Date(date.getFullYear(), 0, 0).getTime()) / 86400000), 3);
+                                break;
+                            case 'm':
+                                output += formatNumber('m', date.getMonth() + 1, 2);
+                                break;
+                            case 'M':
+                                output += formatName('M',date.getMonth(), this.locale.monthNamesShort, this.locale.monthNames);
+                                break;
+                            case 'y':
+                                output += lookAhead('y') ? date.getFullYear() : (date.getFullYear() % 100 < 10 ? '0' : '') + (date.getFullYear() % 100);
+                                break;
+                            case '@':
+                                output += date.getTime();
+                                break;
+                            case '!':
+                                output += date.getTime() * 10000 + this.ticksTo1970;
+                                break;
+                            case '\'':
+                                if (lookAhead('\'')) {
+                                    output += '\'';
+                                } else {
+                                    literal = true;
+                                }
+                                break;
+                            default:
+                                output += format.charAt(iFormat);
+                        }
+                    }
+                }
+            }
+            return output;
+        },
+    
+        formatTime(date) {
+            if (!date) {
+                return '';
+            }
+            
+            let output = '';
+            let hours = date.getHours();
+            let minutes = date.getMinutes();
+            let seconds = date.getSeconds();
+            
+            if (this.hourFormat === '12' && hours > 11 && hours !== 12) {
+                hours -= 12;
+            }
+            
+            if (this.hourFormat === '12') {
+                output += hours === 0 ? 12 : (hours < 10) ? '0' + hours : hours;
+            } 
+            else {
+                output += (hours < 10) ? '0' + hours : hours;
+            }
+            output += ':';
+            output += (minutes < 10) ? '0' + minutes : minutes;
+            
+            if (this.showSeconds) {
+                output += ':';
+                output += (seconds < 10) ? '0' + seconds : seconds;
+            }
+            
+            if (this.hourFormat === '12') {
+                output += date.getHours() > 11 ? ' PM' : ' AM';
+            }
+            
+            return output;
         }
     },
     computed: {
@@ -501,7 +810,40 @@ export default {
             ];
         },
         inputFieldValue() {
-            return '';
+            let formattedValue = '';
+
+            if (this.value) {
+                try {
+                    if (this.isSingleSelection()) {
+                        formattedValue = this.formatDateTime(this.value);
+                    }
+                    else if (this.isMultipleSelection()) {
+                        for(let i = 0; i < this.value.length; i++) {
+                            let dateAsString = this.formatDateTime(this.value[i]);
+                            formattedValue += dateAsString;
+                            if(i !== (this.value.length - 1)) {
+                                formattedValue += ', ';
+                            }
+                        }
+                    }
+                    else if (this.isRangeSelection()) {
+                        if (this.value && this.value.length) {
+                            let startDate = this.value[0];
+                            let endDate = this.value[1];
+                            
+                            formattedValue = this.formatDateTime(startDate);
+                            if (endDate) {
+                                formattedValue += ' - ' + this.formatDateTime(endDate);
+                            }
+                        }
+                    }
+                } 
+                catch(err) {
+                    formattedValue = this.value;
+                }
+            }
+            
+            return formattedValue;
         },
         months() {
             let months = [];
@@ -587,9 +929,17 @@ export default {
         },
         yearOptions() {
             const years = this.yearRange.split(':');
-            const yearStart = parseInt(years[0]);
-            const yearEnd = parseInt(years[1]);
+            let yearStart = parseInt(years[0]);
+            let yearEnd = parseInt(years[1]);
+            let diff = yearEnd - yearStart;
             let yearOptions = [];
+
+            if (this.currentYear < yearStart) {
+                this.currentYear = yearEnd;
+            }
+            else if (this.currentYear > yearEnd) {
+                this.currentYear = yearStart;
+            }
 
             for (let i = yearStart; i <= yearEnd; i++) {
                 yearOptions.push(i);
