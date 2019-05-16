@@ -36,8 +36,9 @@
                                 <tbody>
                                     <tr v-for="week of month.dates" :key="week[0].day + '' + week[0].month">
                                         <td v-for="date of week" :key="date.day + '' + date.month" :class="{'p-datepicker-other-month': date.otherMonth, 'p-datepicker-today': date.today}">
-                                            <span :class="{'p-highlight': isSelected(date), 'p-disabled': !date.selectable}"
-                                            @click="onDateSelect(date)" draggable="false">{{date.day}}</span>
+                                            <span :class="{'p-highlight': isSelected(date), 'p-disabled': !date.selectable}" @click="onDateSelect(date)" draggable="false">
+                                                <slot name="date" :date="date">{{date.day}}</slot>
+                                            </span>
                                         </td>
                                     </tr>
                                 </tbody>

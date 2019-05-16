@@ -11,7 +11,7 @@
             <div class="p-grid p-fluid">
                 <div class="p-col-12 p-md-4">
                     <h3>Basic</h3>
-                    <Calendar v-model="date1" />{{date1}}
+                    <Calendar v-model="date1" />
                 </div>
                 <div class="p-col-12 p-md-4">
                     <h3>Spanish</h3>
@@ -57,7 +57,27 @@
                     <h3>Month/Year Picker</h3>
                     <Calendar v-model="date10" view="month" dateFormat="mm/yy" :yearNavigator="true" yearRange="2000:2030" />
                 </div>
+                <div class="p-col-12 p-md-4">
+                    <h3>Multiple Months</h3>
+                    <Calendar v-model="date11" :numberOfMonths="3" />
+                </div>
+                <div class="p-col-12 p-md-4">
+                    <h3>Date Template</h3>
+                    <Calendar v-model="date12">
+                        <template #date="slotProps">
+                            <div v-if="slotProps.date.day > 10 && slotProps.date.day < 15" class="special-day">{{slotProps.date.day}}</div>
+                            <span v-else>{{slotProps.date.day}}</span>
+                        </template>
+                    </Calendar>
+                </div>
+                <div class="p-col-12 p-md-4">
+                    <h3>Touch UI</h3>
+                    <Calendar v-model="date13" :touchUI="true" />
+                </div>
             </div>
+
+            <h3>Inline</h3>
+            <Calendar v-model="date14" :inline="true" :showWeek="true" />
         </div>
 
         <CalendarDoc />
@@ -99,6 +119,10 @@ export default {
             date8: null,
             date9: null,
             date10: null,
+            date11: null,
+            date12: null,
+            date13: null,
+            date14: null,
             dates1: null,
             dates2: null,
             es: {
@@ -122,3 +146,17 @@ export default {
     }
 }
 </script>
+
+<style lang="scss" scoped>
+.special-day {
+    background-color: #1dcbb3;
+    color: #ffffff;
+    font-weight: bold;
+    border-radius: 50%;
+    width: 2em;
+    height: 2em;
+    line-height: 2em; 
+    padding: 0;
+    display: inline-block;
+}
+</style>
