@@ -7,7 +7,7 @@
 			</div>
 		</div>
 
-		<div class="content-section implementation">
+		<div class="content-section implementation dataview-demo">
 			<h3 class="first">Default</h3>
 			<DataView :value="cars" :layout="layout" paginatorPosition='both' :paginator="true" :rows="20" :sortOrder="sortOrder" :sortField="sortField">
 				<template #header>
@@ -26,13 +26,17 @@
 							<div class="p-col-12 p-md-3">
 								<img :src="'/demo/images/car/' + slotProps.data.brand + '.png'" :alt="slotProps.data.brand"/>
 							</div>
-							<div class="p-col-12 p-md-8 car-data">
-								<div>Vin: <b>{{slotProps.data.vin}}</b></div>
-								<div>Year: <b>{{slotProps.data.year}}</b></div>
-								<div>Brand: <b>{{slotProps.data.brand}}</b></div>
-								<div>Color: <b>{{slotProps.data.color}}</b></div>
-							</div>
+							<div class="p-col-12 p-md-8 car-details">
+								<div class="p-grid">
+									<div class="p-col-12">Vin: <b>{{slotProps.data.vin}}</b></div>
 
+									<div class="p-col-12">Year: <b>{{slotProps.data.year}}</b></div>
+
+									<div class="p-col-12">Brand: <b>{{slotProps.data.brand}}</b></div>
+
+									<div class="p-col-12">Color: <b>{{slotProps.data.color}}</b></div>
+								</div>
+							</div>
 							<div class="p-col-12 p-md-1 search-icon" style="margin-top: 40px">
 								<Button icon="pi pi-search"></Button>
 							</div>
@@ -109,6 +113,31 @@
 </script>
 
 <style lang="scss">
+.dataview-demo {
+	.ui-button {
+		margin-top: 3em;
+	}
+
+	.filter-container {
+		text-align: center;
+	}
+
+	.car-data > div {
+		padding: .429em;
+	}
+}
+@media (max-width: 767px) {
+	.dataview-demo {
+		.car-details, .search-icon {
+			text-align: center;
+			margin-top: 0;
+		}
+
+		.filter-container {
+			text-align: left;
+		}
+	}
+}
 .p-dropdown {
 	width: 12em;
 }
