@@ -43,6 +43,10 @@
                         </table>
                     </div>
                 </div>
+                <div class="p-datepicker-buttonbar" v-if="showButtonBar">
+                    <CalendarButton type="button" :label="locale['today']" @click="onTodayButtonClick($event)" class="p-button-secondary" />
+                    <CalendarButton type="button" :label="locale['clear']" @click="onClearButtonClick($event)" class="p-button-secondary" />
+                </div>
             </div>
         </transition>
     </span>
@@ -730,7 +734,6 @@ export default {
             }
             return output;
         },
-    
         formatTime(date) {
             if (!date) {
                 return '';
@@ -764,6 +767,27 @@ export default {
             }
             
             return output;
+        },
+        onTodayButtonClick(event) {
+            let date = new Date();
+            let dateMeta = {
+                day: date.getDate(), 
+                month: date.getMonth(), 
+                year: date.getFullYear(), 
+                otherMonth: date.getMonth() !== this.currentMonth || date.getFullYear() !== this.currentYear, 
+                today: true, 
+                selectable: true
+            };
+            
+            this.onDateSelect(dateMeta);
+            this.$emit('click-today', date);
+            this.onTodayClick.emit(event);
+            event.preventDefault();
+        },
+        onClearButtonClick(event) {
+            this.updateModel(null);
+            this.overlayVisible = false;
+            this.$emit('click-clear');
         }
     },
     computed: {
