@@ -45,6 +45,18 @@
                     <h3>Button Bar</h3>
                     <Calendar v-model="date7" :showButtonBar="true" />
                 </div>
+                <div class="p-col-12 p-md-4">
+                    <h3>Time / 24h</h3>
+                    <Calendar v-model="date8" :showTime="true" :showSeconds="true" />
+                </div>
+                <div class="p-col-12 p-md-4">
+                    <h3>Time Only / 12h</h3>
+                    <Calendar v-model="date9" :timeOnly="true" hourFormat="12" />
+                </div>
+                <div class="p-col-12 p-md-4">
+                    <h3>Month/Year Picker</h3>
+                    <Calendar v-model="date10" view="month" dateFormat="mm/yy" :yearNavigator="true" yearRange="2000:2030" />
+                </div>
             </div>
         </div>
 
@@ -84,6 +96,9 @@ export default {
             date5: null,
             date6: null,
             date7: null,
+            date8: null,
+            date9: null,
+            date10: null,
             dates1: null,
             dates2: null,
             es: {

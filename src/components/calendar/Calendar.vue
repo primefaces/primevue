@@ -4,43 +4,110 @@
         <CalendarButton v-if="showIcon" :icon="icon" tabindex="-1" class="p-datepicker-trigger p-calendar-button" :disabled="$attrs.disabled" @click="onButtonClick" />
         <transition name="p-input-overlay" @enter="onOverlayEnter" @leave="onOverlayLeave">
             <div ref="overlay" :class="panelStyleClass" v-if="inline ? true : overlayVisible">
-                <div class="p-datepicker-group" v-for="(month,i) of months" :key="month.month + month.year">
-                    <div class="p-datepicker-header">
-                        <button class="p-datepicker-prev p-link" v-if="i === 0" @click="navBackward($event)">
-                            <span class="p-datepicker-prev-icon pi pi-chevron-left"></span>
-                        </button>
-                        <button class="p-datepicker-next p-link" v-if="numberOfMonths === 1 ? true : (i === numberOfMonths - 1)"  @click="navForward($event)">
-                            <span class="p-datepicker-next-icon pi pi-chevron-right"></span>
-                        </button>
-                        <div class="p-datepicker-title">
-                            <span class="p-datepicker-month" v-if="!monthNavigator && (view !== 'month')">{{locale.monthNames[month.month]}}</span>
-                            <select class="p-datepicker-month" v-if="monthNavigator && (view !== 'month') && numberOfMonths === 1" @change="onMonthDropdownChange($event.target.value)">
-                                <option :value="index" v-for="(monthName, index) of locale.monthNames" :key="monthName" :selected="index === month.month">{{monthName}}</option>
-                            </select>
-                            <span class="p-datepicker-year" v-if="!yearNavigator">{{view === 'month' ? currentYear : month.year}}</span>
-                            <select class="p-datepicker-year" v-if="yearNavigator && numberOfMonths === 1" @change="onYearDropdownChange($event.target.value)">
-                                <option :value="year" v-for="year of yearOptions" :key="year" :selected="year === currentYear">{{year}}</option>
-                            </select>
+                <template v-if="!timeOnly">
+                    <div class="p-datepicker-group" v-for="(month,i) of months" :key="month.month + month.year">
+                        <div class="p-datepicker-header">
+                            <button class="p-datepicker-prev p-link" v-if="i === 0" @click="navBackward($event)">
+                                <span class="p-datepicker-prev-icon pi pi-chevron-left"></span>
+                            </button>
+                            <button class="p-datepicker-next p-link" v-if="numberOfMonths === 1 ? true : (i === numberOfMonths - 1)"  @click="navForward($event)">
+                                <span class="p-datepicker-next-icon pi pi-chevron-right"></span>
+                            </button>
+                            <div class="p-datepicker-title">
+                                <span class="p-datepicker-month" v-if="!monthNavigator && (view !== 'month')">{{locale.monthNames[month.month]}}</span>
+                                <select class="p-datepicker-month" v-if="monthNavigator && (view !== 'month') && numberOfMonths === 1" @change="onMonthDropdownChange($event.target.value)">
+                                    <option :value="index" v-for="(monthName, index) of locale.monthNames" :key="monthName" :selected="index === month.month">{{monthName}}</option>
+                                </select>
+                                <span class="p-datepicker-year" v-if="!yearNavigator">{{view === 'month' ? currentYear : month.year}}</span>
+                                <select class="p-datepicker-year" v-if="yearNavigator && numberOfMonths === 1" @change="onYearDropdownChange($event.target.value)">
+                                    <option :value="year" v-for="year of yearOptions" :key="year" :selected="year === currentYear">{{year}}</option>
+                                </select>
+                            </div>
+                        </div>
+                        <div class="p-datepicker-calendar-container" v-if="view ==='date'">
+                            <table class="p-datepicker-calendar">
+                                <thead>
+                                    <tr>
+                                        <th scope="col" v-for="weekDay of weekDays" :key="weekDay">
+                                            <span>{{weekDay}}</span>
+                                        </th>
+                                    </tr>
+                                </thead>
+                                <tbody>
+                                    <tr v-for="week of month.dates" :key="week[0].day + '' + week[0].month">
+                                        <td v-for="date of week" :key="date.day + '' + date.month" :class="{'p-datepicker-other-month': date.otherMonth, 'p-datepicker-today': date.today}">
+                                            <span :class="{'p-highlight': isSelected(date), 'p-disabled': !date.selectable}"
+                                            @click="onDateSelect(date)" draggable="false">{{date.day}}</span>
+                                        </td>
+                                    </tr>
+                                </tbody>
+                            </table>
                         </div>
                     </div>
-                    <div class="p-datepicker-calendar-container" v-if="view ==='date'">
-                        <table class="p-datepicker-calendar">
-                            <thead>
-                                <tr>
-                                    <th scope="col" v-for="weekDay of weekDays" :key="weekDay">
-                                        <span>{{weekDay}}</span>
-                                    </th>
-                                </tr>
-                            </thead>
-                            <tbody>
-                                <tr v-for="week of month.dates" :key="week[0].day + '' + week[0].month">
-                                    <td v-for="date of week" :key="date.day + '' + date.month" :class="{'p-datepicker-other-month': date.otherMonth, 'p-datepicker-today': date.today}">
-                                        <span :class="{'p-highlight': isSelected(date), 'p-disabled': !date.selectable}"
-                                        @click="onDateSelect(date)" draggable="false">{{date.day}}</span>
-                                    </td>
-                                </tr>
-                            </tbody>
-                        </table>
+                </template>
+                <div class="p-timepicker" v-if="showTime||timeOnly">
+                    <div class="p-hour-picker">
+                        <button class="p-link" @mousedown="onTimePickerElementMouseDown($event, 0, 1)" @mouseup="onTimePickerElementMouseUp($event)">
+                            <span class="pi pi-chevron-up"></span>
+                        </button>
+                        <span :style="{'display': currentHour < 10 ? 'inline': 'none'}">0</span><span>{{currentHour}}</span>
+                        <button class="p-link" @mousedown="onTimePickerElementMouseDown($event, 0, -1)" @mouseup="onTimePickerElementMouseUp($event)">
+                            <span class="pi pi-chevron-down"></span>
+                        </button>
+                    </div>
+                    <div class="p-separator">
+                        <span class="p-separator-spacer">
+                            <span class="pi pi-chevron-up"></span>
+                        </span>
+                        <span>{{timeSeparator}}</span>
+                        <span class="p-separator-spacer">
+                            <span class="pi pi-chevron-up"></span>
+                        </span>
+                    </div>
+                    <div class="p-minute-picker">
+                        <button class="p-link" @mousedown="onTimePickerElementMouseDown($event, 1, 1)" @mouseup="onTimePickerElementMouseUp($event)">
+                            <span class="pi pi-chevron-up"></span>
+                        </button>
+                        <span :style="{'display': currentMinute < 10 ? 'inline': 'none'}">0</span><span>{{currentMinute}}</span>
+                        <button class="p-link" @mousedown="onTimePickerElementMouseDown($event, 1, -1)" @mouseup="onTimePickerElementMouseUp($event)">
+                            <span class="pi pi-chevron-down"></span>
+                        </button>
+                    </div>
+                    <div class="p-separator" v-if="showSeconds">
+                        <span class="p-separator-spacer">
+                            <span class="pi pi-chevron-up"></span>
+                        </span>
+                        <span>{{timeSeparator}}</span>
+                        <span class="p-separator-spacer">
+                            <span class="pi pi-chevron-up"></span>
+                        </span>
+                    </div>
+                    <div class="p-second-picker" v-if="showSeconds">
+                        <button class="p-link" @mousedown="onTimePickerElementMouseDown($event, 2, 1)" @mouseup="onTimePickerElementMouseUp($event)">
+                            <span class="pi pi-chevron-up"></span>
+                        </button>
+                        <span :style="{'display': currentSecond < 10 ? 'inline': 'none'}">0</span><span>{{currentSecond}}</span>
+                        <button class="p-link" @mousedown="onTimePickerElementMouseDown($event, 2, -1)" @mouseup="onTimePickerElementMouseUp($event)">
+                            <span class="pi pi-chevron-down"></span>
+                        </button>
+                    </div>
+                    <div class="p-separator" v-if="hourFormat=='12'">
+                        <span class="p-separator-spacer">
+                            <span class="pi pi-chevron-up"></span>
+                        </span>
+                        <span>{{timeSeparator}}</span>
+                        <span class="p-separator-spacer">
+                            <span class="pi pi-chevron-up"></span>
+                        </span>
+                    </div>
+                    <div class="p-ampm-picker" v-if="hourFormat=='12'">
+                        <button class="p-link" @click="toggleAMPM($event)">
+                            <span class="pi pi-chevron-up"></span>
+                        </button>
+                        <span>{{pm ? 'PM' : 'AM'}}</span>
+                        <button class="p-link" @click="toggleAMPM($event)">
+                            <span class="pi pi-chevron-down"></span>
+                        </button>
                     </div>
                 </div>
                 <div class="p-datepicker-buttonbar" v-if="showButtonBar">
@@ -61,10 +128,6 @@ export default {
     inheritAttrs: false,
     props: {
         value: null,
-        defaultDate: {
-            type: Date,
-            default: null
-        },
         selectionMode: {
             type: String,
             default: 'single'
@@ -225,21 +288,10 @@ export default {
         }
     },
     created() {
-        let viewDate = null;
-        if (this.defaultDate) {
-            viewDate = this.defaultDate;
-        }
-        else {
-            let propValue = this.value;
-            if (propValue && Array.isArray(propValue)) {
-                propValue = propValue[0];
-            }
-
-            viewDate = propValue || new Date();
-        }
-  
+        const viewDate = this.viewDate;
         this.currentMonth = viewDate.getMonth();
         this.currentYear = viewDate.getFullYear();
+        this.initTime(viewDate);
     },
     data() {
         return {
@@ -248,10 +300,12 @@ export default {
             currentHour: null,
             currentMinute: null,
             currentSecond: null,
+            pm: null,
             overlayVisible: false
         }
     },
     outsideClickListener: null,
+    timePickerTimer: null,
     methods: {
         isSelected(dateMeta) {
             if (this.value) {
@@ -434,7 +488,7 @@ export default {
                     this.currentMonth--;
                 }
             
-                this.$emit('month-change', {month: this.currentMonth + 1, year: this.currentYear});
+                this.$emit('month-change', {month: this.currentMonth, year: this.currentYear});
             }
         },
         navForward(event) {
@@ -456,7 +510,7 @@ export default {
                     this.currentMonth++;
                 }
                 
-                this.$emit('month-change', {month: this.currentMonth + 1, year: this.currentYear});
+                this.$emit('month-change', {month: this.currentMonth , year: this.currentYear});
             }
         },
         decrementYear() {
@@ -464,6 +518,24 @@ export default {
         },
         incrementYear() {
             this.currentYear++;
+        },
+        initTime(date) {
+            this.pm = date.getHours() > 11;
+
+            if (this.showTime) {
+                this.currentMinute = date.getMinutes();
+                this.currentSecond = date.getSeconds();
+                
+                if (this.hourFormat == '12')
+                    this.currentHour = date.getHours() == 0 ? 12 : date.getHours() % 12;
+                else
+                    this.currentHour = date.getHours();
+            }
+            else if (this.timeOnly) {
+                this.currentMinute = 0;
+                this.currentHour = 0;
+                this.currentSecond = 0;
+            }
         },
         bindOutsideClickListener() {
             if (!this.outsideClickListener) {
@@ -788,6 +860,243 @@ export default {
             this.updateModel(null);
             this.overlayVisible = false;
             this.$emit('click-clear');
+        },
+        onTimePickerElementMouseDown(event, type, direction) {
+            if (!this.$attrs.disabled) {
+                this.repeat(event, null, type, direction);
+                event.preventDefault();
+            }
+        },
+        onTimePickerElementMouseUp(event) {
+            if (!this.$attrs.disabled) {
+                this.clearTimePickerTimer();
+                this.updateModelTime();
+            }
+        },
+        repeat(event, interval, type, direction) {
+            let i = interval||500;
+
+            this.clearTimePickerTimer();
+            this.timePickerTimer = setTimeout(() => {
+                this.repeat(event, 100, type, direction);
+            }, i);
+
+            switch(type) {
+                case 0:
+                    if (direction === 1)
+                        this.incrementHour(event);
+                    else
+                        this.decrementHour(event);
+                break;
+
+                case 1:
+                    if (direction === 1)
+                        this.incrementMinute(event);
+                    else
+                        this.decrementMinute(event);
+                break;
+
+                case 2:
+                    if (direction === 1)
+                        this.incrementSecond(event);
+                    else
+                        this.decrementSecond(event);
+                break;
+            }
+        },
+        incrementHour(event) {
+            const prevHour = this.currentHour;
+            const newHour = this.currentHour + this.stepHour;
+
+            if (this.validateHour(newHour)) {
+                if (this.hourFormat == '24')
+                    this.currentHour = (newHour >= 24) ? (newHour - 24) : newHour;
+                else if (this.hourFormat == '12') {
+                    // Before the AM/PM break, now after
+                    if (prevHour < 12 && newHour > 11) {
+                        this.pm = !this.pm;
+                    }
+
+                    this.currentHour = (newHour >= 13) ? (newHour - 12) : newHour;
+                }
+            }
+            event.preventDefault();
+        },
+        decrementHour(event) {
+            const newHour = this.currentHour - this.stepHour;
+            
+            if (this.validateHour(newHour)) {
+                if (this.hourFormat == '24')
+                    this.currentHour = (newHour < 0) ? (24 + newHour) : newHour;
+                else if (this.hourFormat == '12') {
+                    // If we were at noon/midnight, then switch
+                    if (this.currentHour === 12) {
+                        this.pm = !this.pm;
+                    }
+                    this.currentHour = (newHour <= 0) ? (12 + newHour) : newHour;
+                }
+            }
+
+            event.preventDefault();
+        },
+        validateHour(hour) {
+            let valid = true;
+            let value = this.value;
+            if (this.isRangeSelection()) {
+                value = this.value[1] || this.value[0];
+            }
+            if (this.isMultipleSelection()) {
+                value = this.value[this.value.length - 1];
+            }
+            let valueDateString = value ? value.toDateString() : null;
+            
+            if (this.minDate && valueDateString && this.minDate.toDateString() === valueDateString) {
+                if (this.minDate.getHours() > hour) {
+                    valid = false;
+                }
+            }
+            
+            if (this.maxDate && valueDateString && this.maxDate.toDateString() === valueDateString) {
+                if (this.maxDate.getHours() < hour) {
+                    valid = false;
+                }
+            }
+            
+            return valid;
+        },
+        incrementMinute(event) {
+            let newMinute = this.currentMinute + this.stepMinute;
+            if (this.validateMinute(newMinute)) {
+                this.currentMinute = (newMinute > 59) ? newMinute - 60 : newMinute;
+            }
+            
+            event.preventDefault();
+        },
+        decrementMinute(event) {
+            let newMinute = this.currentMinute - this.stepMinute;
+            newMinute = (newMinute < 0) ? 60 + newMinute : newMinute;
+            if (this.validateMinute(newMinute)) {
+                this.currentMinute = newMinute;
+            }
+            
+            event.preventDefault();
+        },
+        validateMinute(minute) {
+            let valid = true;
+            let value = this.value;
+            if (this.isRangeSelection()) {
+                value = this.value[1] || this.value[0];
+            }
+            if (this.isMultipleSelection()) {
+                value = this.value[this.value.length - 1];
+            }
+            let valueDateString = value ? value.toDateString() : null;
+            if (this.minDate && valueDateString && this.minDate.toDateString() === valueDateString) {
+                if (value.getHours() == this.minDate.getHours()){
+                    if (this.minDate.getMinutes() > minute) {
+                        valid = false;
+                    }
+                }
+            }
+            
+            if (this.maxDate && valueDateString && this.maxDate.toDateString() === valueDateString) {
+                if (value.getHours() == this.maxDate.getHours()){
+                    if (this.maxDate.getMinutes() < minute) {
+                        valid = false;
+                    }
+                }
+            }
+            
+            return valid;
+        },
+        incrementSecond(event) {
+            let newSecond = this.currentSecond + this.stepSecond;
+            if (this.validateSecond(newSecond)) {
+                this.currentSecond = (newSecond > 59) ? newSecond - 60 : newSecond;
+            }
+        
+            event.preventDefault();
+        },
+        decrementSecond(event) {
+            let newSecond = this.currentSecond - this.stepSecond;
+            newSecond = (newSecond < 0) ? 60 + newSecond : newSecond;
+            if (this.validateSecond(newSecond)) {
+                this.currentSecond = newSecond;
+            }
+            
+            event.preventDefault();
+        },
+        validateSecond(second) {
+            let valid = true;
+            let value = this.value;
+            if (this.isRangeSelection()) {
+                value = this.value[1] || this.value[0];
+            }
+            if (this.isMultipleSelection()) {
+                value = this.value[this.value.length - 1];
+            }
+            let valueDateString = value ? value.toDateString() : null;
+            
+            if (this.minDate && valueDateString && this.minDate.toDateString() === valueDateString) {
+                if (this.minDate.getSeconds() > second) {
+                    valid = false;
+                }
+            }
+            
+            if (this.maxDate && valueDateString && this.maxDate.toDateString() === valueDateString) {
+                if (this.maxDate.getSeconds() < second) {
+                    valid = false;
+                }
+            }
+            
+            return valid;
+        },
+        updateModelTime() {
+            let value = this.value;
+            if (this.isRangeSelection()) {
+                value = this.value[1] || this.value[0];
+            }
+            if (this.isMultipleSelection()) {
+                value = this.value[this.value.length - 1];
+            }
+            value = value ? new Date(value.getTime()) : new Date();
+
+            if (this.hourFormat == '12') {
+                if (this.currentHour === 12)
+                    value.setHours(this.pm ? 12 : 0);
+                else
+                    value.setHours(this.pm ? this.currentHour + 12 : this.currentHour);
+            }
+            else {
+                value.setHours(this.currentHour);
+            }
+            
+            value.setMinutes(this.currentMinute);
+            value.setSeconds(this.currentSecond);
+
+            if (this.isRangeSelection()) {
+                if (this.value[1])
+                    value = [this.value[0], value];
+                else
+                    value = [value, null];
+            }
+
+            if (this.isMultipleSelection()){
+                value = [...this.value.slice(0, -1), value];
+            }
+
+            this.updateModel(value);
+            this.$emit('select', value);
+        },        
+        toggleAMPM(event) {
+            this.pm = !this.pm;
+            this.updateModelTime();
+            event.preventDefault();
+        },
+        clearTimePickerTimer() {
+            if (this.timePickerTimer) {
+                clearInterval(this.timePickerTimer);
+            }
         }
     },
     computed: {
@@ -808,6 +1117,14 @@ export default {
                     this.$emit('blur', event);
                 }
             };
+        },
+        viewDate() {
+            let propValue = this.value;
+            if (propValue && Array.isArray(propValue)) {
+                propValue = propValue[0];
+            }
+
+            return propValue || new Date();
         },
         containerClass() {
             return [
