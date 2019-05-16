@@ -294,10 +294,7 @@ export default {
         }
     },
     created() {
-        const viewDate = this.viewDate;
-        this.currentMonth = viewDate.getMonth();
-        this.currentYear = viewDate.getFullYear();
-        this.initTime(viewDate);
+        this.updateCurrentMetaData();
     },
     data() {
         return {
@@ -314,6 +311,11 @@ export default {
     maskClickListener: null,
     mask: null,
     timePickerTimer: null,
+    watch: {
+        value() {
+            this.updateCurrentMetaData();
+        }
+    },
     methods: {
         isSelected(dateMeta) {
             if (this.value) {
@@ -537,10 +539,15 @@ export default {
                 this.currentMinute = date.getMinutes();
                 this.currentSecond = date.getSeconds();
                 
-                if (this.hourFormat == '12')
-                    this.currentHour = date.getHours() == 0 ? 12 : date.getHours() % 12;
-                else
+                if (this.hourFormat == '12') {
+                    if (hours >= 12)
+                        this.currentHour = (hours == 12) ? 12 : hours - 12;
+                    else
+                        this.currentHour = (hours == 0) ? 12 : hours;
+                }
+                else {
                     this.currentHour = date.getHours();
+                }
             }
             else if (this.timeOnly) {
                 this.currentMinute = 0;
@@ -1153,6 +1160,12 @@ export default {
 
                 this.overlayVisible = false;
             }
+        },
+        updateCurrentMetaData() {
+            const viewDate = this.viewDate;
+            this.currentMonth = viewDate.getMonth();
+            this.currentYear = viewDate.getFullYear();
+            this.initTime(viewDate);
         }
     },
     computed: {
