@@ -44,6 +44,11 @@
                             </table>
                         </div>
                     </div>
+                    <div class="p-monthpicker" v-if="view === 'month'">
+                        <span v-for="(m,i) of monthPickerValues" :key="m" @click="onMonthSelect(i)" class="p-monthpicker-month" :class="{'p-highlight': isMonthSelected(i)}">
+                            {{m}}
+                        </span>
+                    </div>
                 </template>
                 <div class="p-timepicker" v-if="showTime||timeOnly">
                     <div class="p-hour-picker">
@@ -335,6 +340,9 @@ export default {
             else {
                 return false;
             }         
+        },
+        isMonthSelected(month) {
+            return this.value ? (this.value.getMonth() === month && this.value.getFullYear() === this.currentYear) : false;
         },
         isDateEquals(value, dateMeta) {
             if (value)
@@ -1097,6 +1105,9 @@ export default {
             if (this.timePickerTimer) {
                 clearInterval(this.timePickerTimer);
             }
+        },
+        onMonthSelect(index) {
+            this.onDateSelect({year: this.currentYear, month: index, day: 1, selectable: true});
         }
     },
     computed: {
@@ -1287,6 +1298,14 @@ export default {
             }
 
             return yearOptions;
+        },
+        monthPickerValues() {
+            let monthPickerValues = [];
+            for (let i = 0; i <= 11; i++) {
+                monthPickerValues.push(this.locale.monthNamesShort[i]);
+            }
+
+            return monthPickerValues;
         }
     },
     components: {
