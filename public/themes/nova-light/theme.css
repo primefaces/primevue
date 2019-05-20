@@ -940,6 +940,9 @@ body .p-datepicker table {
 body .p-datepicker table th {
   padding: 0.5em;
 }
+body .p-datepicker table th.p-datepicker-weekheader {
+  border-right: 1px solid #a6a6a6;
+}
 body .p-datepicker table td {
   padding: 0.5em;
 }
@@ -964,6 +967,9 @@ body .p-datepicker table td.p-datepicker-today > span {
 body .p-datepicker table td.p-datepicker-today > span.p-highlight {
   color: #ffffff;
   background-color: #007ad9;
+}
+body .p-datepicker table td.p-datepicker-weeknumber {
+  border-right: 1px solid #a6a6a6;
 }
 body .p-datepicker .p-datepicker-buttonbar {
   border-top: 1px solid #d8dae2;
@@ -2583,6 +2589,17 @@ body .p-tree.p-tree-horizontal .p-treenode .p-treenode-content .p-treenode-label
 body .p-tree.p-tree-horizontal .p-treenode .p-treenode-content.p-treenode-selectable:not(.p-highlight):hover {
   background-color: #eaeaea;
   color: #333333;
+}
+body .p-tree .p-tree-filter-container .p-tree-filter {
+  width: 100%;
+  padding-right: 2em;
+}
+body .p-tree .p-tree-filter-container .p-tree-filter-icon {
+  top: 50%;
+  left: auto;
+  margin-top: -0.5em;
+  right: 0.8em;
+  color: #007ad9;
 }
 body .p-organizationchart .p-organizationchart-node-content.p-organizationchart-selectable-node:not(.p-highlight):hover {
   background-color: #eaeaea;

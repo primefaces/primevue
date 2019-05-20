@@ -28,13 +28,21 @@
                             <table class="p-datepicker-calendar">
                                 <thead>
                                     <tr>
+                                        <th scope="col" v-if="showWeek" class="p-datepicker-weekheader p-disabled">
+                                            <span>{{locale['weekHeader']}}</span>
+                                        </th>
                                         <th scope="col" v-for="weekDay of weekDays" :key="weekDay">
                                             <span>{{weekDay}}</span>
                                         </th>
                                     </tr>
                                 </thead>
                                 <tbody>
-                                    <tr v-for="week of month.dates" :key="week[0].day + '' + week[0].month">
+                                    <tr v-for="(week,i) of month.dates" :key="week[0].day + '' + week[0].month">
+                                        <td v-if="showWeek" class="p-datepicker-weeknumber">
+                                            <span class="p-disabled">
+                                                {{month.weekNumbers[i]}}
+                                            </span>
+                                        </td>
                                         <td v-for="date of week" :key="date.day + '' + date.month" :class="{'p-datepicker-other-month': date.otherMonth, 'p-datepicker-today': date.today}">
                                             <span :class="{'p-highlight': isSelected(date), 'p-disabled': !date.selectable}" @click="onDateSelect(date)" draggable="false">
                                                 <slot name="date" :date="date">{{date.day}}</slot>
@@ -275,6 +283,10 @@ export default {
             type: String,
             default: ':'
         },
+        showWeek: {
+            type: Boolean,
+            default: false
+        },
         locale: {
             type: Object,
             default: () => {
@@ -295,6 +307,18 @@ export default {
     },
     created() {
         this.updateCurrentMetaData();
+    },
+    beforeDestroy() {
+        if (this.timePickerTimer) {
+            clearTimeout(this.timePickerTimer);
+        }
+
+        if (this.mask) {
+            this.disableModality();
+            this.mask = null;
+        }
+
+        this.unbindOutsideClickListener();
     },
     data() {
         return {
@@ -533,28 +557,23 @@ export default {
         incrementYear() {
             this.currentYear++;
         },
-        initTime(date) {
-            this.pm = date.getHours() > 11;
+        updateCurrentTimeMeta(date) {
+            const hours = date.getHours();
 
-            if (this.showTime) {
-                this.currentMinute = date.getMinutes();
-                this.currentSecond = date.getSeconds();
+            if (this.hourFormat === '12') {
+                this.pm = hours > 11;
                 
-                if (this.hourFormat == '12') {
-                    if (hours >= 12)
-                        this.currentHour = (hours == 12) ? 12 : hours - 12;
-                    else
-                        this.currentHour = (hours == 0) ? 12 : hours;
-                }
-                else {
-                    this.currentHour = date.getHours();
-                }
+                if (hours >= 12)
+                    this.currentHour = (hours == 12) ? 12 : hours - 12;
+                else
+                    this.currentHour = (hours == 0) ? 12 : hours;
             }
-            else if (this.timeOnly) {
-                this.currentMinute = 0;
-                this.currentHour = 0;
-                this.currentSecond = 0;
+            else {
+                this.currentHour = date.getHours();
             }
+            
+            this.currentMinute = date.getMinutes();
+            this.currentSecond = date.getSeconds();
         },
         bindOutsideClickListener() {
             if (!this.outsideClickListener) {
@@ -573,7 +592,7 @@ export default {
             }
         },
         isOutsideClicked(event) {
-            return !(this.$el.isSameNode(event.target) || this.isNavIconClicked(event) || 
+            return !(this.$el.isSameNode(event.target) || this.isNavIconClicked(event) ||
                     this.$el.contains(event.target) || (this.$refs.overlay && this.$refs.overlay.contains(event.target)));
         },
         isNavIconClicked(event) {
@@ -633,7 +652,7 @@ export default {
             }
             
             if (this.isMultipleSelection() && this.isSelected(dateMeta)) {
-                let newValue = this.value.filter((date, i) => !this.isDateEquals(date, dateMeta));
+                let newValue = this.value.filter(date => !this.isDateEquals(date, dateMeta));
                 this.updateModel(newValue);
             }
             else {
@@ -717,9 +736,9 @@ export default {
         updateModel(value) {
             this.$emit('input', value);
         },
-        shouldSelectDate(dateMeta) {
+        shouldSelectDate() {
             if (this.isMultipleSelection())
-                return this.maxDateCount != null ? this.maxDateCount > (this.value ? this.value.length : 0) : true;
+                return this.maxDateCount != null ? this.maxDateCount > (this.value ? this.value.length : 0) : true;
             else
                 return true;
         },
@@ -882,6 +901,7 @@ export default {
             this.updateModel(null);
             this.overlayVisible = false;
             this.$emit('click-clear');
+            event.preventDefault();
         },
         onTimePickerElementMouseDown(event, type, direction) {
             if (!this.$attrs.disabled) {
@@ -893,6 +913,7 @@ export default {
             if (!this.$attrs.disabled) {
                 this.clearTimePickerTimer();
                 this.updateModelTime();
+                event.preventDefault();
             }
         },
         repeat(event, interval, type, direction) {
@@ -1166,7 +1187,10 @@ export default {
             const viewDate = this.viewDate;
             this.currentMonth = viewDate.getMonth();
             this.currentYear = viewDate.getFullYear();
-            this.initTime(viewDate);
+
+            if (this.showTime || this.timeOnly) {
+                this.updateCurrentTimeMeta(viewDate);
+            }
         },
         isValidSelection(value) {
             let isValid = true;
@@ -1393,6 +1417,7 @@ export default {
                     }
                     month++;
                     day -= dim;
+                // eslint-disable-next-line
                 } while (true);
             }
 
@@ -1403,31 +1428,32 @@ export default {
 
             return date;
         },
-        daylightSavingAdjust(date) {
-            if (!date) {
-                return null;
-            }
-
-            date.setHours(date.getHours() > 12 ? date.getHours() + 2 : 0);
-            
-            return date;
+        getWeekNumber(date) {
+            let checkDate = new Date(date.getTime());
+            checkDate.setDate(checkDate.getDate() + 4 - ( checkDate.getDay() || 7 ));
+            let time = checkDate.getTime();
+            checkDate.setMonth( 0 );
+            checkDate.setDate( 1 );
+            return Math.floor( Math.round((time - checkDate.getTime()) / 86400000 ) / 7 ) + 1;
         }
     },
     computed: {
         listeners() {
+            let $vm = this;
+
             return {
-                ...this.$listeners,
+                ...$vm.$listeners,
                 input: val => {
                      // IE 11 Workaround for input placeholder : https://github.com/primefaces/primeng/issues/2026
-                    if (!this.isKeydown) {
+                    if (!$vm.isKeydown) {
                         return;
                     }
-                    this.isKeydown = false;
+                    $vm.isKeydown = false;
                     
                     try {
-                        let value = this.parseValueFromString(val);
-                        if (this.isValidSelection(value)) {
-                            this.updateModel(value);
+                        let value = $vm.parseValueFromString(val);
+                        if ($vm.isValidSelection(value)) {
+                            $vm.updateModel(value);
                         }
                     }
                     catch(err) {
@@ -1435,25 +1461,25 @@ export default {
                     }
                 },
                 focus: event => {
-                    this.focus = true;
-                    if (this.showOnFocus) {
-                        this.overlayVisible = true;
+                    $vm.focus = true;
+                    if ($vm.showOnFocus) {
+                        $vm.overlayVisible = true;
                     }
-                    this.$emit('focus', event)
+                    $vm.$emit('focus', event)
                 },
                 blur: event => {
-                    this.$emit('blur', event);
+                    $vm.$emit('blur', event);
                 },
                 keydown: event => {
-                    this.isKeydown = true;
+                    $vm.isKeydown = true;
                     if (event.keyCode === 9) {
-                        if (this.touchUI)
-                            this.disableModality();
+                        if ($vm.touchUI)
+                            $vm.disableModality();
                         else
-                            this.overlayVisible = false;
+                            $vm.overlayVisible = false;
                     }
 
-                    this.$emit('keydown', event);
+                    $vm.$emit('keydown', event);
                 }
             };
         },
@@ -1541,6 +1567,7 @@ export default {
                 let prevMonthDaysLength = this.getDaysCountInPrevMonth(month, year);
                 let dayNo = 1;
                 let today = new Date();
+                let weekNumbers = [];
                 
                 for (let i = 0; i < 6; i++) {
                     let week = [];
@@ -1575,6 +1602,10 @@ export default {
                             dayNo++;
                         }
                     }
+
+                    if (this.showWeek) {
+                        weekNumbers.push(this.getWeekNumber(new Date(week[0].year, week[0].month, week[0].day))); 
+                    }
                     
                     dates.push(week);
                 }
@@ -1582,7 +1613,8 @@ export default {
                 months.push({
                     month: month,
                     year: year,
-                    dates: dates
+                    dates: dates,
+                    weekNumbers: weekNumbers
                 });
             }
 
@@ -1608,17 +1640,17 @@ export default {
             return this.dateFormat || this.locale.dateFormat;
         },
         yearOptions() {
+            let $vm = this;
             const years = this.yearRange.split(':');
             let yearStart = parseInt(years[0]);
             let yearEnd = parseInt(years[1]);
-            let diff = yearEnd - yearStart;
             let yearOptions = [];
 
             if (this.currentYear < yearStart) {
-                this.currentYear = yearEnd;
+                $vm.currentYear = yearEnd;
             }
             else if (this.currentYear > yearEnd) {
-                this.currentYear = yearStart;
+                $vm.currentYear = yearStart;
             }
 
             for (let i = yearStart; i <= yearEnd; i++) {

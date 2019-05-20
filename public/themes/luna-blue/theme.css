@@ -940,6 +940,9 @@ body .p-datepicker table {
 body .p-datepicker table th {
   padding: 0.5em;
 }
+body .p-datepicker table th.p-datepicker-weekheader {
+  border-right: 1px solid #191919;
+}
 body .p-datepicker table td {
   padding: 0.5em;
 }
@@ -964,6 +967,9 @@ body .p-datepicker table td.p-datepicker-today > span {
 body .p-datepicker table td.p-datepicker-today > span.p-highlight {
   color: #ffffff;
   background-color: #1f7ed0;
+}
+body .p-datepicker table td.p-datepicker-weeknumber {
+  border-right: 1px solid #191919;
 }
 body .p-datepicker .p-datepicker-buttonbar {
   border-top: 1px solid #3f3f3f;
@@ -1510,10 +1516,10 @@ body .p-panel .p-panel-titlebar {
 }
 body .p-panel .p-panel-titlebar .p-panel-title {
   vertical-align: middle;
-  font-weight: 400;
+  font-weight: 700;
 }
 body .p-panel .p-panel-titlebar .p-panel-titlebar-icon {
-  margin: 0;
+  margin: 0.143em 0 0 0;
   position: relative;
   font-size: 14px;
   color: #888888;
@@ -1541,7 +1547,6 @@ body .p-panel .p-panel-content {
   border: 1px solid #191919;
   background-color: #323232;
   color: #dedede;
-  padding: 0.571em 1em;
   border-top: 0 none;
   -moz-border-radius-bottomleft: 3px;
   -webkit-border-bottom-left-radius: 3px;
@@ -1571,6 +1576,7 @@ body .p-fieldset .p-fieldset-legend a {
   border: 1px solid #191919;
   color: #dedede;
   background-color: #191919;
+  font-weight: 700;
   -moz-border-radius: 3px;
   -webkit-border-radius: 3px;
   border-radius: 3px;
@@ -1616,7 +1622,7 @@ body .p-accordion .p-accordion-header a {
   color: #dedede;
   background-color: #191919;
   color: #dedede;
-  font-weight: 400;
+  font-weight: 700;
   -moz-border-radius: 3px;
   -webkit-border-radius: 3px;
   border-radius: 3px;
@@ -1634,7 +1640,7 @@ body .p-accordion .p-accordion-header a .p-accordion-toggle-icon.pi-caret-right:
 body .p-accordion .p-accordion-header a .p-accordion-toggle-icon.pi-caret-down:before {
   content: "";
 }
-body .p-accordion .p-accordion-header a:not(.p-disabled):focus {
+body .p-accordion .p-accordion-header:not(.p-disabled) a:focus {
   outline: 0 none;
   outline-offset: 0;
   -webkit-box-shadow: 0 0 0 0.2em #aed3f3;
@@ -1709,7 +1715,7 @@ body .p-tabview.p-tabview-top .p-tabview-nav li a, body .p-tabview.p-tabview-bot
   display: inline-block;
   color: #dedede;
   padding: 0.571em 1em;
-  font-weight: 400;
+  font-weight: 700;
   -moz-transition: background-color 0.2s, box-shadow 0.2s;
   -o-transition: background-color 0.2s, box-shadow 0.2s;
   -webkit-transition: background-color 0.2s, box-shadow 0.2s;
@@ -2115,7 +2121,7 @@ body .p-datagrid .p-datagrid-header {
   color: #dedede;
   border: 1px solid #191919;
   padding: 0.571em 1em;
-  font-weight: 400;
+  font-weight: 700;
   border-bottom: 0 none;
 }
 body .p-datagrid .p-datagrid-content {
@@ -2137,7 +2143,7 @@ body .p-datalist .p-datalist-header {
   color: #dedede;
   border: 1px solid #191919;
   padding: 0.571em 1em;
-  font-weight: 400;
+  font-weight: 700;
   border-bottom: 0 none;
 }
 body .p-datalist .p-datalist-content {
@@ -2159,7 +2165,7 @@ body .p-datascroller .p-datascroller-header {
   color: #dedede;
   border: 1px solid #191919;
   padding: 0.571em 1em;
-  font-weight: 400;
+  font-weight: 700;
   border-bottom: 0 none;
 }
 body .p-datascroller .p-datascroller-content {
@@ -2181,7 +2187,7 @@ body .p-dataview .p-dataview-header {
   color: #dedede;
   border: 1px solid #191919;
   padding: 0.571em 1em;
-  font-weight: 400;
+  font-weight: 700;
   border-bottom: 0 none;
   -moz-border-radius-topleft: 3px;
   -webkit-border-top-left-radius: 3px;
@@ -2232,7 +2238,7 @@ body .fc .fc-event {
   border: 1px solid #1b71bb;
   color: #ffffff;
 }
-body .fc .fc-toolbar .ui-button {
+body .fc .fc-toolbar .fc-button {
   color: #ffffff;
   background-color: #1f7ed0;
   border: 1px solid #1f7ed0;
@@ -2245,38 +2251,38 @@ body .fc .fc-toolbar .ui-button {
   -webkit-border-radius: 3px;
   border-radius: 3px;
 }
-body .fc .fc-toolbar .ui-button:enabled:hover {
+body .fc .fc-toolbar .fc-button:enabled:hover {
   background-color: #1b71bb;
   color: #ffffff;
   border-color: #1b71bb;
 }
-body .fc .fc-toolbar .ui-button .ui-icon-circle-triangle-w {
-  font-family: "PrimeIcons";
+body .fc .fc-toolbar .fc-button .fc-icon-chevron-left {
+  font-family: "PrimeIcons" !important;
   text-indent: 0;
 }
-body .fc .fc-toolbar .ui-button .ui-icon-circle-triangle-w:before {
+body .fc .fc-toolbar .fc-button .fc-icon-chevron-left:before {
   content: "";
 }
-body .fc .fc-toolbar .ui-button .ui-icon-circle-triangle-e {
-  font-family: "PrimeIcons";
+body .fc .fc-toolbar .fc-button .fc-icon-chevron-right {
+  font-family: "PrimeIcons" !important;
   text-indent: 0;
 }
-body .fc .fc-toolbar .ui-button .ui-icon-circle-triangle-e:before {
+body .fc .fc-toolbar .fc-button .fc-icon-chevron-right:before {
   content: "";
 }
-body .fc .fc-toolbar .ui-button:focus {
+body .fc .fc-toolbar .fc-button:focus {
   outline: 0 none;
   outline-offset: 0;
   -webkit-box-shadow: 0 0 0 0.2em #aed3f3;
   -moz-box-shadow: 0 0 0 0.2em #aed3f3;
   box-shadow: 0 0 0 0.2em #aed3f3;
 }
-body .fc .fc-toolbar .fc-button-group .ui-button {
+body .fc .fc-toolbar .fc-button-group .fc-button {
   -moz-border-radius: 0;
   -webkit-border-radius: 0;
   border-radius: 0;
 }
-body .fc .fc-toolbar .fc-button-group .ui-button:first-child {
+body .fc .fc-toolbar .fc-button-group .fc-button:first-child {
   -moz-border-radius-topleft: 3px;
   -webkit-border-top-left-radius: 3px;
   border-top-left-radius: 3px;
@@ -2284,7 +2290,7 @@ body .fc .fc-toolbar .fc-button-group .ui-button:first-child {
   -webkit-border-bottom-left-radius: 3px;
   border-bottom-left-radius: 3px;
 }
-body .fc .fc-toolbar .fc-button-group .ui-button:last-child {
+body .fc .fc-toolbar .fc-button-group .fc-button:last-child {
   -moz-border-radius-topright: 3px;
   -webkit-border-top-right-radius: 3px;
   border-top-right-radius: 3px;
@@ -2307,7 +2313,7 @@ body .p-picklist .p-picklist-caption {
   color: #dedede;
   border: 1px solid #191919;
   padding: 0.571em 1em;
-  font-weight: 400;
+  font-weight: 700;
   border-bottom: 0 none;
   -moz-border-radius-topleft: 3px;
   -webkit-border-top-left-radius: 3px;
@@ -2396,7 +2402,7 @@ body .p-orderlist .p-orderlist-caption {
   color: #dedede;
   border: 1px solid #191919;
   padding: 0.571em 1em;
-  font-weight: 400;
+  font-weight: 700;
   border-bottom: 0 none;
   -moz-border-radius-topleft: 3px;
   -webkit-border-top-left-radius: 3px;
@@ -2583,6 +2589,17 @@ body .p-tree.p-tree-horizontal .p-treenode .p-treenode-content .p-treenode-label
 body .p-tree.p-tree-horizontal .p-treenode .p-treenode-content.p-treenode-selectable:not(.p-highlight):hover {
   background-color: #4c4c4c;
   color: #dedede;
+}
+body .p-tree .p-tree-filter-container .p-tree-filter {
+  width: 100%;
+  padding-right: 2em;
+}
+body .p-tree .p-tree-filter-container .p-tree-filter-icon {
+  top: 50%;
+  left: auto;
+  margin-top: -0.5em;
+  right: 0.8em;
+  color: #252525;
 }
 body .p-organizationchart .p-organizationchart-node-content.p-organizationchart-selectable-node:not(.p-highlight):hover {
   background-color: #4c4c4c;
@@ -3015,7 +3032,7 @@ body .p-overlaypanel {
   box-shadow: 0 0 6px 0 rgba(0, 0, 0, 0.16);
 }
 body .p-overlaypanel .p-overlaypanel-content {
-  padding: 0.571em 1em;
+  padding: 1em;
 }
 body .p-overlaypanel .p-overlaypanel-close {
   background-color: #1f7ed0;
@@ -3070,7 +3087,7 @@ body .p-dialog .p-dialog-titlebar {
   background-color: #191919;
   color: #dedede;
   padding: 1em;
-  font-weight: 400;
+  font-weight: 700;
   border-bottom: 0 none;
   -moz-border-radius-topleft: 3px;
   -webkit-border-top-left-radius: 3px;
@@ -3082,6 +3099,7 @@ body .p-dialog .p-dialog-titlebar {
 body .p-dialog .p-dialog-titlebar .p-dialog-title {
   margin: 0;
   float: none;
+  font-weight: 700;
 }
 body .p-dialog .p-dialog-titlebar .p-dialog-titlebar-icon {
   color: #888888;
@@ -3100,7 +3118,7 @@ body .p-dialog .p-dialog-content {
   background-color: #323232;
   color: #dedede;
   border: 1px solid #191919;
-  padding: 0.571em 1em;
+  padding: 1em;
 }
 body .p-dialog .p-dialog-footer {
   border: 1px solid #191919;
@@ -3177,7 +3195,7 @@ body .p-lightbox .p-lightbox-caption {
   background-color: #191919;
   color: #dedede;
   padding: 0.571em 1em;
-  font-weight: 400;
+  font-weight: 700;
 }
 body .p-lightbox .p-lightbox-caption .p-lightbox-caption-text {
   color: #dedede;
@@ -3422,7 +3440,7 @@ body .p-menu .p-submenu-header {
   padding: 0.714em 0.857em;
   color: #dedede;
   background-color: #191919;
-  font-weight: 400;
+  font-weight: 700;
   border: 0 none;
   -moz-border-radius-topleft: 3px;
   -webkit-border-top-left-radius: 3px;
@@ -3585,7 +3603,7 @@ body .p-slidemenu .p-slidemenu-backward {
   padding: 0.571em 1em;
   color: #dedede;
   background-color: #191919;
-  font-weight: 400;
+  font-weight: 700;
   border: 0 none;
 }
 body .p-slidemenu .p-slidemenu-backward:hover {
@@ -3680,7 +3698,7 @@ body .p-megamenu .p-megamenu-submenu-header {
   padding: 0.571em 1em;
   color: #dedede;
   background-color: #191919;
-  font-weight: 400;
+  font-weight: 700;
   border: 0 none;
 }
 body .p-megamenu .p-megamenu-panel {
@@ -3726,7 +3744,7 @@ body .p-panelmenu .p-panelmenu-header > a {
   background-color: #191919;
   color: #dedede;
   padding: 0.714em 0.857em;
-  font-weight: 400;
+  font-weight: 700;
   position: static;
   font-size: 14px;
   -moz-border-radius: 3px;
