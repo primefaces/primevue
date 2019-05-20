@@ -106,15 +106,21 @@
 }
 
 /* Animation */
+.p-dialog-enter-active {
+    opacity: 1;
+    transform: translateX(-50%) translateY(-50%) scale(1);
+    transition: all 150ms cubic-bezier(0, 0, 0.2, 1);
+}
+
+.p-dialog-leave-active {
+    opacity: 0;
+    transition: all 75ms cubic-bezier(0.4, 0.0, 0.2, 1);
+}
+
 .p-dialog-enter,
 .p-dialog-leave-to {
     opacity: 0;
-    transform: translate3d(-50%, -25%, 0) scale(0.9);
-}
-
-.p-dialog-enter-active,
-.p-dialog-leave-active {
-    transition: all 400ms cubic-bezier(0.25, 0.8, 0.25, 1);
+    transform: translateX(-50%) translateY(-50%) scale(0.7);
 }
 
 /* Maximize */
