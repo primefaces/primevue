@@ -95,7 +95,7 @@ export default {
             }
         },
         isOutsideOfThemesMenuClicked(event) {
-            return !(DomHandler.hasClass(event.target, 'themes-menu-link') || this.themesMenuElement.isSameNode(event.target) || this.themesMenuElement.contains(event.target));
+            return !(DomHandler.hasClass(event.target, 'themes-menu-link') || this.themesMenuElement.isSameNode(event.target) || this.themesMenuElement.contains(event.target));
         },
         hideThemesMenu() {
             this.themesMenuVisible = false;
