@@ -23,11 +23,11 @@
                 </div>
                 <div class="p-col-12 p-md-4">
                     <h3>Min-Max</h3>
-                    <Calendar v-model="date4" :minDate="minDate" :maxDate="maxDate" :manualEntry="false" />
+                    <Calendar v-model="date4" :minDate="minDate" :maxDate="maxDate" :manualInput="false" />
                 </div>
                 <div class="p-col-12 p-md-4">
                     <h3>Disable Days</h3>
-                    <Calendar v-model="date5" :disabledDates="invalidDates" :disabledDays="[0,6]" :manualEntry="false" />
+                    <Calendar v-model="date5" :disabledDates="invalidDates" :disabledDays="[0,6]" :manualInput="false" />
                 </div>
                 <div class="p-col-12 p-md-4">
                     <h3>Navigators</h3>
@@ -35,11 +35,11 @@
                 </div>
                 <div class="p-col-12 p-md-4">
                     <h3>Multiple</h3>
-                    <Calendar v-model="dates1" selectionMode="multiple" :manualEntry="false" />
+                    <Calendar v-model="dates1" selectionMode="multiple" :manualInput="false" />
                 </div>
                 <div class="p-col-12 p-md-4">
                     <h3>Range</h3>
-                    <Calendar v-model="dates2" selectionMode="range" :manualEntry="false" />
+                    <Calendar v-model="dates2" selectionMode="range" :manualInput="false" />
                 </div>
                 <div class="p-col-12 p-md-4">
                     <h3>Button Bar</h3>

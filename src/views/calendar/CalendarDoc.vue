@@ -401,7 +401,7 @@ export default {
                                 <td>When enabled, calendar will show week numbers.</td>
                             </tr>
                             <tr>
-                                <td>manualEntry</td>
+                                <td>manualInput</td>
                                 <td>boolean</td>
                                 <td>true</td>
                                 <td>Wheter to allow prevents entering the date manually via typing.</td>
@@ -563,11 +563,11 @@ export default {
                 &lt;/div&gt;
                 &lt;div class=&quot;p-col-12 p-md-4&quot;&gt;
                     &lt;h3&gt;Min-Max&lt;/h3&gt;
-                    &lt;Calendar v-model=&quot;date4&quot; :minDate=&quot;minDate&quot; :maxDate=&quot;maxDate&quot; :readonly=&quot;true&quot; /&gt;
+                    &lt;Calendar v-model=&quot;date4&quot; :minDate=&quot;minDate&quot; :maxDate=&quot;maxDate&quot; :manualInput=&quot;false&quot; /&gt;
                 &lt;/div&gt;
                 &lt;div class=&quot;p-col-12 p-md-4&quot;&gt;
                     &lt;h3&gt;Disable Days&lt;/h3&gt;
-                    &lt;Calendar v-model=&quot;date5&quot; :disabledDates=&quot;invalidDates&quot; :disabledDays=&quot;[0,6]&quot; :readonly=&quot;true&quot; /&gt;
+                    &lt;Calendar v-model=&quot;date5&quot; :disabledDates=&quot;invalidDates&quot; :disabledDays=&quot;[0,6]&quot; :manualInput=&quot;false&quot; /&gt;
                 &lt;/div&gt;
                 &lt;div class=&quot;p-col-12 p-md-4&quot;&gt;
                     &lt;h3&gt;Navigators&lt;/h3&gt;
@@ -575,11 +575,11 @@ export default {
                 &lt;/div&gt;
                 &lt;div class=&quot;p-col-12 p-md-4&quot;&gt;
                     &lt;h3&gt;Multiple&lt;/h3&gt;
-                    &lt;Calendar v-model=&quot;dates1&quot; selectionMode=&quot;multiple&quot; :readonly=&quot;true&quot; /&gt;
+                    &lt;Calendar v-model=&quot;dates1&quot; selectionMode=&quot;multiple&quot; :manualInput=&quot;false&quot; /&gt;
                 &lt;/div&gt;
                 &lt;div class=&quot;p-col-12 p-md-4&quot;&gt;
                     &lt;h3&gt;Range&lt;/h3&gt;
-                    &lt;Calendar v-model=&quot;dates2&quot; selectionMode=&quot;range&quot; :readonly=&quot;true&quot; /&gt;
+                    &lt;Calendar v-model=&quot;dates2&quot; selectionMode=&quot;range&quot; :manualInput=&quot;false&quot; /&gt;
                 &lt;/div&gt;
                 &lt;div class=&quot;p-col-12 p-md-4&quot;&gt;
                     &lt;h3&gt;Button Bar&lt;/h3&gt;

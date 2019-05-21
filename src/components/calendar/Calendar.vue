@@ -1,6 +1,6 @@
 <template>
     <span :class="containerClass">
-        <CalendarInputText ref="input" v-if="!inline" type="text" v-bind="$attrs" v-on="listeners" :value="inputFieldValue" :readonly="!manualEntry" />
+        <CalendarInputText ref="input" v-if="!inline" type="text" v-bind="$attrs" v-on="listeners" :value="inputFieldValue" :readonly="!manualInput" />
         <CalendarButton v-if="showIcon" :icon="icon" tabindex="-1" class="p-datepicker-trigger p-calendar-button" :disabled="$attrs.disabled" @click="onButtonClick" />
         <transition name="p-input-overlay" @enter="onOverlayEnter" @leave="onOverlayLeave">
             <div ref="overlay" :class="panelStyleClass" v-if="inline ? true : overlayVisible">
@@ -285,7 +285,7 @@ export default {
             type: Boolean,
             default: false
         },
-        manualEntry: {
+        manualInput: {
             type: Boolean,
             default: true
         },
@@ -514,7 +514,7 @@ export default {
         navBackward(event) {
             event.preventDefault();
 
-            if (this.$attrs.disabled) {
+            if (!this.isEnabled()) {
                 return;
             }
 
@@ -536,7 +536,7 @@ export default {
         navForward(event) {
             event.preventDefault();
 
-            if (this.$attrs.disabled) {
+            if (!this.isEnabled()) {
                 return;
             }
 
@@ -560,6 +560,9 @@ export default {
         },
         incrementYear() {
             this.currentYear++;
+        },
+        isEnabled() {
+            return !this.$attrs.disabled && !this.$attrs.readonly;  
         },
         updateCurrentTimeMeta(date) {
             const hours = date.getHours();
@@ -908,13 +911,13 @@ export default {
             event.preventDefault();
         },
         onTimePickerElementMouseDown(event, type, direction) {
-            if (!this.$attrs.disabled) {
+            if (this.isEnabled()) {
                 this.repeat(event, null, type, direction);
                 event.preventDefault();
             }
         },
         onTimePickerElementMouseUp(event) {
-            if (!this.$attrs.disabled) {
+            if (this.isEnabled()) {
                 this.clearTimePickerTimer();
                 this.updateModelTime();
                 event.preventDefault();
@@ -1466,7 +1469,7 @@ export default {
                 },
                 focus: event => {
                     $vm.focus = true;
-                    if ($vm.showOnFocus) {
+                    if ($vm.showOnFocus && $vm.isEnabled()) {
                         $vm.overlayVisible = true;
                     }
                     $vm.$emit('focus', event)
