@@ -305,12 +305,6 @@ export default {
                                 <td>Maximum number of selectable dates in multiple mode.</td>
                             </tr>
                             <tr>
-                                <td>appendTo</td>
-                                <td>DOM element</td>
-                                <td>null</td>
-                                <td>DOM element instance where the dialog should be mounted.</td>
-                            </tr>
-                            <tr>
                                 <td>showOnFocus</td>
                                 <td>boolean</td>
                                 <td>true</td>

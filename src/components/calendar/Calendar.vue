@@ -222,9 +222,6 @@ export default {
             type: Number,
             value: null
         },
-        appendTo: {
-            type: null
-        },
         showOnFocus: {
             type: Boolean,
             default: true
@@ -611,10 +608,7 @@ export default {
                 this.enableModality();
             }
             else if (this.$refs.overlay) {
-                if (this.appendTo)
-                    DomHandler.absolutePosition(this.$refs.overlay, this.$el);
-                else
-                    DomHandler.relativePosition(this.$refs.overlay, this.$el);
+                DomHandler.relativePosition(this.$refs.overlay, this.$el);  
             }        
         },
         onButtonClick() {
