@@ -7,6 +7,7 @@
                 <template v-if="!timeOnly">
                     <div class="p-datepicker-group" v-for="(month,i) of months" :key="month.month + month.year">
                         <div class="p-datepicker-header">
+                            <slot name="header"></slot>
                             <button class="p-datepicker-prev p-link" v-if="i === 0" @click="navBackward($event)">
                                 <span class="p-datepicker-prev-icon pi pi-chevron-left"></span>
                             </button>
@@ -128,6 +129,7 @@
                     <CalendarButton type="button" :label="locale['today']" @click="onTodayButtonClick($event)" class="p-button-secondary" />
                     <CalendarButton type="button" :label="locale['clear']" @click="onClearButtonClick($event)" class="p-button-secondary" />
                 </div>
+                <slot name="footer"></slot>
             </div>
         </transition>
     </span>
@@ -300,7 +302,7 @@ export default {
                     today: 'Today',
                     clear: 'Clear',
                     dateFormat: 'mm/dd/yy',
-                    weekHeader: 'Sm'
+                    weekHeader: 'Wk'
                 }
             }
         }
@@ -497,15 +499,17 @@ export default {
             
             return validMin && validMax && validDate && validDay;
         },
-        onOverlayEnter() {
+        onOverlayEnter(event) {
             if (this.autoZIndex) {
                 this.$refs.overlay.style.zIndex = String(this.baseZIndex + DomHandler.generateZIndex());
             }
             this.alignOverlay();
             this.bindOutsideClickListener();
+            this.$emit('show');
         },
-        onOverlayLeave() {
+        onOverlayLeave(event) {
             this.unbindOutsideClickListener();
+            this.$emit('hide');
         },
         navBackward(event) {
             event.preventDefault();
@@ -893,14 +897,14 @@ export default {
             };
             
             this.onDateSelect(dateMeta);
-            this.$emit('click-today', date);
+            this.$emit('today-click', date);
             this.onTodayClick.emit(event);
             event.preventDefault();
         },
         onClearButtonClick(event) {
             this.updateModel(null);
             this.overlayVisible = false;
-            this.$emit('click-clear');
+            this.$emit('clear-click', event);
             event.preventDefault();
         },
         onTimePickerElementMouseDown(event, type, direction) {
