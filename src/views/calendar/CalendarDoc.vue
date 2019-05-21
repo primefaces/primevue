@@ -461,7 +461,7 @@ export default {
                 </div>
 
                 <h3>Styling</h3>
-                <p>Following is the list of structural style classes, for theming classes visit <Link to="/theming"> theming</Link> page.</p>
+                <p>Following is the list of structural style classes, for theming classes visit <router-link to="/theming">theming</router-link> page.</p>
                 <div class="doc-tablewrapper">
                     <table class="doc-table">
                         <thead>

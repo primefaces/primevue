@@ -496,7 +496,7 @@ export default {
             
             return validMin && validMax && validDate && validDay;
         },
-        onOverlayEnter(event) {
+        onOverlayEnter() {
             if (this.autoZIndex) {
                 this.$refs.overlay.style.zIndex = String(this.baseZIndex + DomHandler.generateZIndex());
             }
@@ -504,7 +504,7 @@ export default {
             this.bindOutsideClickListener();
             this.$emit('show');
         },
-        onOverlayLeave(event) {
+        onOverlayLeave() {
             this.unbindOutsideClickListener();
             this.$emit('hide');
         },
