@@ -383,12 +383,6 @@ export default {
                                 <td>Whether to show the seconds in time picker.</td>
                             </tr>
                             <tr>
-                                <td>keepInvalid</td>
-                                <td>boolean</td>
-                                <td>false</td>
-                                <td>Keep invalid value when input blur.</td>
-                            </tr>
-                            <tr>
                                 <td>hideOnDateTimeSelect</td>
                                 <td>boolean</td>
                                 <td>false</td>
@@ -405,6 +399,12 @@ export default {
                                 <td>boolean</td>
                                 <td>false</td>
                                 <td>When enabled, calendar will show week numbers.</td>
+                            </tr>
+                            <tr>
+                                <td>manualEntry</td>
+                                <td>boolean</td>
+                                <td>true</td>
+                                <td>Wheter to allow prevents entering the date manually via typing.</td>
                             </tr>
                         </tbody>
                     </table>

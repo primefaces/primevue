@@ -1,6 +1,6 @@
 <template>
     <span :class="containerClass">
-        <CalendarInputText ref="input" v-if="!inline" type="text" v-bind="$attrs" v-on="listeners" :value="inputFieldValue"  />
+        <CalendarInputText ref="input" v-if="!inline" type="text" v-bind="$attrs" v-on="listeners" :value="inputFieldValue" :readonly="!manualEntry" />
         <CalendarButton v-if="showIcon" :icon="icon" tabindex="-1" class="p-datepicker-trigger p-calendar-button" :disabled="$attrs.disabled" @click="onButtonClick" />
         <transition name="p-input-overlay" @enter="onOverlayEnter" @leave="onOverlayLeave">
             <div ref="overlay" :class="panelStyleClass" v-if="inline ? true : overlayVisible">
@@ -273,10 +273,6 @@ export default {
             type: Boolean,
             default: false
         },
-        keepInvalid: {
-            type: Boolean,
-            default: false
-        },
         hideOnDateTimeSelect: {
             type: Boolean,
             default: false
@@ -288,6 +284,10 @@ export default {
         showWeek: {
             type: Boolean,
             default: false
+        },
+        manualEntry: {
+            type: Boolean,
+            default: true
         },
         locale: {
             type: Object,
