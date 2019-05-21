@@ -22,6 +22,11 @@ export default new Router({
         component: () => import('./views/support/Support.vue')
     },
     {
+        path: '/icons',
+        name: 'icons',
+        component: () => import('./views/icons/Icons.vue')
+    },
+    {
         path: '/accordion',
         name: 'accordion',
         component: () => import('./views/accordion/AccordionDemo.vue')

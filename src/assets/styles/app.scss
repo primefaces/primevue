@@ -118,6 +118,7 @@ body {
                 padding-bottom: 8px;
                 border-bottom: 4px solid transparent;
                 user-select: none;
+                cursor: pointer;
                 @include transition(border-color .2s);
 
                 &:hover {
