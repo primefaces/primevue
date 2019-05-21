@@ -23,11 +23,34 @@ import DomHandler from '../utils/DomHandler';
 
 export default {
     props: {
-        label: String,
-        icon: String,
-		model: Array,
-        disabled: Boolean,
-        tabindex: String
+        label: {
+            type: String,
+            default: null
+        },
+        icon: {
+            type: String,
+            default: null
+        },
+		model: {
+            type: Array,
+            default: null
+        },
+        disabled: {
+            type: Boolean,
+            default: false
+        },
+        tabindex: {
+            type: String,
+            default: null
+        },
+        autoZIndex: {
+            type: Boolean,
+            default: true
+        },
+        baseZIndex: {
+            type: Number,
+            default: 0
+        },
     },
     data() {
         return {
@@ -53,6 +76,9 @@ export default {
             event.preventDefault();
         },
         onOverlayEnter() {
+            if (this.autoZIndex) {
+                this.$refs.overlay.style.zIndex = String(this.baseZIndex + DomHandler.generateZIndex());
+            }
             this.alignOverlay();
             this.bindOutsideClickListener();
         },

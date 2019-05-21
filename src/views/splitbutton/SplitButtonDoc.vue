@@ -76,44 +76,56 @@ export default {
 				<div class="doc-tablewrapper">
 					<table class="doc-table">
 						<thead>
-						<tr>
-							<th>Name</th>
-							<th>Type</th>
-							<th>Default</th>
-							<th>Description</th>
-						</tr>
+                            <tr>
+                                <th>Name</th>
+                                <th>Type</th>
+                                <th>Default</th>
+                                <th>Description</th>
+                            </tr>
 						</thead>
 						<tbody>
-						<tr>
-							<td>label</td>
-							<td>string</td>
-							<td>null</td>
-							<td>Text of the button.</td>
-						</tr>
-						<tr>
-							<td>icon</td>
-							<td>string</td>
-							<td>null</td>
-							<td>Name of the icon.</td>
-						</tr>
-						<tr>
-							<td>model</td>
-							<td>object</td>
-							<td>null</td>
-							<td>MenuModel instance to define the overlay items.</td>
-						</tr>
-						<tr>
-							<td>disabled</td>
-							<td>boolean</td>
-							<td>false</td>
-							<td>When present, it specifies that the component should be disabled.</td>
-						</tr>
-						<tr>
-							<td>tabIndex</td>
-							<td>string</td>
-							<td>null</td>
-							<td>Index of the element in tabbing order.</td>
-						</tr>
+                            <tr>
+                                <td>label</td>
+                                <td>string</td>
+                                <td>null</td>
+                                <td>Text of the button.</td>
+                            </tr>
+                            <tr>
+                                <td>icon</td>
+                                <td>string</td>
+                                <td>null</td>
+                                <td>Name of the icon.</td>
+                            </tr>
+                            <tr>
+                                <td>model</td>
+                                <td>object</td>
+                                <td>null</td>
+                                <td>MenuModel instance to define the overlay items.</td>
+                            </tr>
+                            <tr>
+                                <td>disabled</td>
+                                <td>boolean</td>
+                                <td>false</td>
+                                <td>When present, it specifies that the component should be disabled.</td>
+                            </tr>
+                            <tr>
+                                <td>tabindex</td>
+                                <td>string</td>
+                                <td>null</td>
+                                <td>Index of the element in tabbing order.</td>
+                            </tr>
+                            <tr>
+                                <td>autoZIndex</td>
+                                <td>boolean</td>
+                                <td>true</td>
+                                <td>Whether to automatically manage layering.</td>
+                            </tr>
+                            <tr>
+                                <td>baseZIndex</td>
+                                <td>number</td>
+                                <td>0</td>
+                                <td>Base zIndex value to use in layering.</td>
+                            </tr>
 						</tbody>
 					</table>
 				</div>
