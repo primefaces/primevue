@@ -276,7 +276,6 @@ body {
         
         > div {
             width: auto;
-            overflow: hidden;
             background-color: #ffffff;
             
             > div {
@@ -284,33 +283,24 @@ body {
                 padding: 20px 15px;
             }
 
-            &.submenuhide {
-                overflow: hidden;
+            &.layout-submenu-wrapper-enter,
+            &.layout-submenu-wrapper-leave-to {
                 max-height: 0;
-                padding-top: 0;
-                padding-bottom: 0;
-                margin-top: 0;
-                margin-bottom: 0;
-                -moz-transition-duration: 0.4s;
-                -webkit-transition-duration: 0.4s;
-                -o-transition-duration: 0.4s;
-                transition-duration: 0.4s;
-                -moz-transition-timing-function: cubic-bezier(0.86, 0, 0.07, 1);
-                -webkit-transition-timing-function: cubic-bezier(0.86, 0, 0.07, 1);
-                -o-transition-timing-function: cubic-bezier(0.86, 0, 0.07, 1);
-                transition-timing-function: cubic-bezier(0.86, 0, 0.07, 1);
             }
 
-            &.submenushow {
-                -moz-transition-duration: 0.4s;
-                -webkit-transition-duration: 0.4s;
-                -o-transition-duration: 0.4s;
-                transition-duration: 0.4s;
-                -moz-transition-timing-function: cubic-bezier(0.86, 0, 0.07, 1);
-                -webkit-transition-timing-function: cubic-bezier(0.86, 0, 0.07, 1);
-                -o-transition-timing-function: cubic-bezier(0.86, 0, 0.07, 1);
-                transition-timing-function: cubic-bezier(0.86, 0, 0.07, 1);
-                max-height: 500px;
+            &.layout-submenu-wrapper-enter-to,
+            &.layout-submenu-wrapper-leave {
+                max-height: 1000px;
+            }
+
+            &.layout-submenu-wrapper-leave-active {
+                overflow: hidden;
+                transition: max-height 0.45s cubic-bezier(0, 1, 0, 1);
+            }
+
+            &.layout-submenu-wrapper-enter-active {
+                overflow: hidden;
+                transition: max-height 1s ease-in-out;
             }
 
             a {
