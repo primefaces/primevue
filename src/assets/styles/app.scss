@@ -96,6 +96,12 @@ body {
         img {
             width: 180px;
         }
+
+        &:focus {
+            outline: 0 none;
+            transition: box-shadow .3s;
+            box-shadow: 0 0 0 0.2em #42b983;
+        }
     }
     
     .topbar-menu {
@@ -123,6 +129,13 @@ body {
 
                 &:hover {
                     border-bottom-color: #41b883;
+                }
+
+                &:focus {
+                    z-index: 1;
+                    outline: 0 none;
+                    transition: box-shadow .3s;
+                    box-shadow: inset 0 0 0 0.2em #42b983;
                 }
             }
 
@@ -239,6 +252,13 @@ body {
                 background-color: #eeeeee;
             }
 
+            &:focus {
+                z-index: 1;
+                outline: 0 none;
+                transition: box-shadow .3s;
+                box-shadow: inset 0 0 0 0.2em #42b983;
+            }
+
             span {
                 font-size: 16px;
                 margin: -2px 0px 0px 30px;
@@ -316,6 +336,13 @@ body {
 
                 &:hover {
                     background-color: #eeeeee;
+                }
+
+                &:focus {
+                    z-index: 1;
+                    outline: 0 none;
+                    transition: box-shadow .3s;
+                    box-shadow: inset 0 0 0 0.2em #42b983;
                 }
 
                 .menuitem-badge {
@@ -480,6 +507,12 @@ body {
                             border: 1px solid #ffffff;
                             color: #ffffff;
                         }
+
+                        &:focus {
+                            outline: 0 none;
+                            transition: box-shadow .3s;
+                            box-shadow: 0 0 0 0.2em #42b983;
+                        }
                     }
                 }
             }
@@ -576,6 +609,12 @@ body {
                             border-bottom: 1px solid transparent;
                             @include border-radius-top(3px);
                             @include transition(background-color .2s);
+
+                            &:focus {
+                                outline: 0 none;
+                                transition: background-color .3s, box-shadow .3s;
+                                box-shadow: 0 0 0 0.2em #42b983;
+                            }
                         }
 
                         &.tab-doc {
