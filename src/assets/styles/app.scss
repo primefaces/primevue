@@ -149,7 +149,7 @@ body {
                         font-weight: bold;
                         text-align: left;
                         color: #ffffff;
-                        @include background-gradient-left2right(#008fba, #03c4e8);
+                        background-color: #484848;
                     }
 
                     a {
@@ -617,7 +617,7 @@ body {
 
         &.support {
             .support-image {
-                background-color: #906C90;
+                background-color: #484848;
                 padding: 30px;
                 color: #ffffff;
                 text-align: left;
