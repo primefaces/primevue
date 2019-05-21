@@ -618,12 +618,14 @@ export default {
             }        
         },
         onButtonClick() {
-            if (!this.overlayVisible) {
-                this.$refs.input.$el.focus();
-                this.overlayVisible = true;
-            }
-            else {
-                this.overlayVisible = false;
+            if (this.isEnabled()) {
+                if (!this.overlayVisible) {
+                    this.$refs.input.$el.focus();
+                    this.overlayVisible = true;
+                }
+                else {
+                    this.overlayVisible = false;
+                }
             }
         },
         isDateDisabled(day, month, year) {
