@@ -17,6 +17,11 @@ export default new Router({
         component: () => import('./views/setup/Setup.vue')
     },
     {
+        path: '/support',
+        name: 'support',
+        component: () => import('./views/support/Support.vue')
+    },
+    {
         path: '/accordion',
         name: 'accordion',
         component: () => import('./views/accordion/AccordionDemo.vue')
