@@ -19,8 +19,7 @@ import OverlayPanel from 'primevue/overlaypanel';
 
 <CodeHighlight lang="js">
 toggle(event) {
-		this.$refs.op.toggle(event);
-	}
+    this.$refs.op.toggle(event);
 }
 </CodeHighlight>
 
