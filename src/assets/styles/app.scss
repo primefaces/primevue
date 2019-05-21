@@ -117,24 +117,20 @@ body {
                 text-align: center;
                 padding-bottom: 8px;
                 border-bottom: 4px solid transparent;
-                @include transition(background-color .2s);
+                user-select: none;
+                @include transition(border-color .2s);
 
                 &:hover {
                     border-bottom-color: #41b883;
                 }
             }
 
-            > ul{
-                display: none;
-            }
-
             &.topbar-menu-themes {
                 position: relative;
-                cursor: pointer;
 
                 > ul {
                     position: absolute;
-                    top: 65px;
+                    top: 45px;
                     left: -75px;
                     width: 250px;
                     max-height: 300px;
@@ -147,9 +143,6 @@ body {
                     padding: 15px 0;
                     margin: 0;
                     border-radius: 3px;
-                    -webkit-animation-name: fadeInDown;
-                    animation-name: fadeInDown;
-                    animation-duration: .5s;
 
                     > li.topbar-submenu-header {
                         padding: 6px 12px;
@@ -164,7 +157,9 @@ body {
                         color: #404C51;
                         padding: 6px 12px;
                         display: block;
-                        @include transition(all .5s ease);
+                        user-select: none;
+                        cursor: pointer;
+                        @include transition(background-color .2s);
 
                         &:hover {
                             background-color: #eeeeee;
@@ -186,9 +181,6 @@ body {
                             font-size: 24px;
                             margin-right: 4px;
                         }
-                    }
-                    &.active-top-menu {
-                        display: block;
                     }
                 }
             }
@@ -329,6 +321,7 @@ body {
                 -webkit-border-radius: 4px;
                 font-size: 14px;
                 color: #494c52;
+                transition: background-color .2s;
 
                 &:hover {
                     background-color: #eeeeee;
@@ -1068,7 +1061,6 @@ a{
 pre[class*="language-"] code {
     border-left: 10px solid #b3e3cd !important;
     box-shadow: -1px 0px 0px 0px #b3e3cd, 0px 0px 0px 1px #f8f8f8 !important;
-    webkit-box-shadow: -1px 0px 0px 0px #b3e3cd, 0px 0px 0px 1px #f8f8f8 !important;
     background: #ffffff !important;
     margin: 1em 0;
 
