@@ -25,13 +25,13 @@ export default {
 </CodeHighlight>
 
                 <h3>Popup and Inline</h3>
-                <p>Calendar is displayed in a popup by default and inline property needs to be enabled for inline mode.</p>
+                <p>Calendar is displayed in a popup by default and <i>inline</i> property needs to be enabled for inline mode.</p>
 <CodeHighlight>
 &lt;Calendar v-model="value" :inline="true" /&gt;
 </CodeHighlight>
 
                 <h3>Selection Mode</h3>
-                <p>By default calendar allows selecting one date only whereas multiple dates can be selected by setting selectionMode to multiple. In this
+                <p>By default calendar allows selecting one date only whereas multiple dates can be selected by setting <i>selectionMode</i> to multiple. In this
                 case calendar updates the value with an array of dates where optionally number of selectable dates can be restricted with maxDateCount property.
                 Third alternative is the range mode that allows selecting a range based on an array of two values where first value is the start date and second value
                 is the end date.</p>
@@ -41,7 +41,7 @@ export default {
 </CodeHighlight>
 
                 <h3>DateFormat</h3>
-                <p>Default date format is mm/dd/yy, to customize this use dateFormat property or define it at locale settings. Note that standalone property overrides the value in locale settings.</p>
+                <p>Default date format is mm/dd/yy, to customize this use <i>dateFormat</i> property or define it at locale settings. Note that standalone property overrides the value in locale settings.</p>
 
 <CodeHighlight>
 &lt;Calendar v-model="value" dateFormat="dd.mm.yy" /&gt;
@@ -69,8 +69,8 @@ export default {
                 </ul>
 
                 <h3>Time</h3>
-                <p>TimePicker is enabled with showTime property and 24 (default) or 12 hour mode is configured using hourFormat option. If you
-                    need to use the time picker as standalone, use the timeOnly property.
+                <p>TimePicker is enabled with <i>showTime</i> property and 24 (default) or 12 hour mode is configured using <i>hourFormat</i> option. If you
+                    need to use the time picker as standalone, use the <i>timeOnly</i> property.
                 </p>
 <CodeHighlight>
 &lt;Calendar v-model="value" :showTime="true" /&gt;
@@ -79,25 +79,25 @@ export default {
 </CodeHighlight>
 
                 <h3>Date Restriction</h3>
-                <p>To disable entering dates manually, set readonlyInput to true and to restrict selectable dates use minDate
-                    and maxDate options.</p>
+                <p>To disable entering dates manually, set <i>manualInput</i> to true and to restrict selectable dates with the <i>minDate</i>
+                    and <i>maxDate</i> options.</p>
 <CodeHighlight>
 &lt;Calendar v-model="value" :minDate="minDateValue" maxDate="maxDateValue" /&gt;
 </CodeHighlight>
 
-            <p>To disable specific dates or days, restrict selectable dates use disabledDates and/or disabledDays options.</p>
+            <p>To disable specific dates or days, restrict selectable dates use <i>disabledDates</i> and/or <i>disabledDays</i> options.</p>
 <CodeHighlight>
 &lt;Calendar v-model="value" :disabledDates="invalidDates" :disabledDays="[0,6]" /&gt;
 </CodeHighlight>
 
                 <h3>Button Bar</h3>
-                <p>Button bar displays today and clear buttons and enabled using showButtonBar property.</p>
+                <p>Button bar displays today and clear buttons and enabled using <i>showButtonBar</i> property.</p>
 <CodeHighlight>
 &lt;Calendar v-model="value" :showButtonBar="true" /&gt;
 </CodeHighlight>
 
                 <h3>Multiple Months</h3>
-                <p>Displaying multiple months is enabled by setting numberOfMonths property to a value greater than 1.</p>
+                <p>Displaying multiple months is enabled by setting <i>numberOfMonths</i> property to a value greater than 1.</p>
 <CodeHighlight>
 &lt;Calendar v-model="value" :numberOfMonths="3" /&gt;
 </CodeHighlight>
@@ -131,6 +131,7 @@ export default {
 
             <h3>Custom Content</h3>
             <p>Calendar UI accepts custom content using header and footer templates.</p>
+            
 <CodeHighlight>
 &lt;Calendar v-model="value"&gt;
     &lt;template #header&gt;Header Content&lt;/template&gt;
