@@ -13,7 +13,7 @@ import ValidationMessage from 'primevue/validationmessage';
 					Messages to display can either be defined using the value property which should an array of Message instances.</p>
 <CodeHighlight>
 <template v-pre>
-&lt;Message v-for=&quot;msg of messages&quot; :severity=&quot;msg.severity&quot; :key=&quot;msg.content&quot;&gt;{{msg.content}}&lt;/Message&gt;
+&lt;Message v-for="msg of messages" :severity="msg.severity" :key="msg.content"&gt;{{msg.content}}&lt;/Message&gt;
 </template>
 </CodeHighlight>
 
@@ -42,20 +42,20 @@ data() {
 				<h3>Closable</h3>
 				<p>Messages are closable by default resulting in a close icon being displayed on top right corner. In order to disable closable messages, set <i>closable</i> to false.</p>
 <CodeHighlight>
-&lt;Message severity=&quot;success&quot; :closable=&quot;false&quot;&gt;Order Submitted&lt;/Message&gt;
+&lt;Message severity="success" :closable="false"&gt;Order Submitted&lt;/Message&gt;
 </CodeHighlight>
 
 				<h3>Sticky</h3>
 				<p>Messages are cleared automatically after the timeout defined by <i>life</i> property which is 3 seconds by default. Use <i>sticky</i> mode to make them stay until
 					they are manually removed.</p>
 <CodeHighlight>
-&lt;Message severity=&quot;warn&quot; :life=&quot;5000&quot; :sticky=&quot;false&quot;&gt;This message will hide in 5 seconds.&lt;/Message&gt;
+&lt;Message severity="warn" :life="5000" :sticky="false"&gt;This message will hide in 5 seconds.&lt;/Message&gt;
 </CodeHighlight>
 
 				<h3>ValidationMessage Component</h3>
 				<p>ValidationMessage component is useful in cases where a single message needs to be displayed related to an element such as forms. It has one property, <i>severity</i> of the message.</p>
 <CodeHighlight>
-&lt;InputText placeholder=&quot;Username&quot; class=&quot;p-error&quot; /&gt;
+&lt;InputText placeholder="Username" class="p-error" /&gt;
 &lt;ValidationMessage&gt;Field is required&lt;/ValidationMessage&gt;
 </CodeHighlight>
 
@@ -163,36 +163,36 @@ data() {
 <template v-pre>
 &lt;template&gt;
 	&lt;div&gt;
-		&lt;div class=&quot;content-section introduction&quot;&gt;
-			&lt;div class=&quot;feature-intro&quot;&gt;
+		&lt;div class="content-section introduction"&gt;
+			&lt;div class="feature-intro"&gt;
 				&lt;h1&gt;Message&lt;/h1&gt;
 				&lt;p&gt;Messages is used to display inline messages with various severities.&lt;/p&gt;
 			&lt;/div&gt;
 		&lt;/div&gt;
 
-		&lt;div class=&quot;content-section implementation&quot;&gt;
-			&lt;h3 class=&quot;first&quot;&gt;Severities&lt;/h3&gt;
-			&lt;Message severity=&quot;success&quot;&gt;Order Submitted&lt;/Message&gt;
-			&lt;Message severity=&quot;info&quot;&gt;PrimeVue Rocks&lt;/Message&gt;
-			&lt;Message severity=&quot;warn&quot;&gt;There are unsaved changes&lt;/Message&gt;
-			&lt;Message severity=&quot;error&quot;&gt;Validation Failed&lt;/Message&gt;
+		&lt;div class="content-section implementation"&gt;
+			&lt;h3 class="first"&gt;Severities&lt;/h3&gt;
+			&lt;Message severity="success"&gt;Order Submitted&lt;/Message&gt;
+			&lt;Message severity="info"&gt;PrimeVue Rocks&lt;/Message&gt;
+			&lt;Message severity="warn"&gt;There are unsaved changes&lt;/Message&gt;
+			&lt;Message severity="error"&gt;Validation Failed&lt;/Message&gt;
 
 			&lt;h3&gt;Dynamic&lt;/h3&gt;
-			&lt;Button label=&quot;Show&quot; @click=&quot;addMessages()&quot; /&gt;
-			&lt;Button label=&quot;Clear&quot; @click=&quot;removeMessages()&quot; class=&quot;p-button-secondary&quot;/&gt;
-			&lt;Message v-for=&quot;msg of messages&quot; :severity=&quot;msg.severity&quot; :key=&quot;msg.content&quot;&gt;{{msg.content}}&lt;/Message&gt;
+			&lt;Button label="Show" @click="addMessages()" /&gt;
+			&lt;Button label="Clear" @click="removeMessages()" class="p-button-secondary"/&gt;
+			&lt;Message v-for="msg of messages" :severity="msg.severity" :key="msg.content"&gt;{{msg.content}}&lt;/Message&gt;
 
 			&lt;h3&gt;Auto Dismiss&lt;/h3&gt;
-			&lt;Message severity=&quot;warn&quot; :life=&quot;5000&quot; :sticky=&quot;false&quot;&gt;This message will hide in 5 seconds.&lt;/Message&gt;
+			&lt;Message severity="warn" :life="5000" :sticky="false"&gt;This message will hide in 5 seconds.&lt;/Message&gt;
 
 			&lt;h3&gt;Validation Message&lt;/h3&gt;
-			&lt;div class=&quot;p-grid&quot;&gt;
-				&lt;div class=&quot;p-col-12&quot;&gt;
-					&lt;InputText placeholder=&quot;Username&quot; class=&quot;p-error&quot; /&gt;
+			&lt;div class="p-grid"&gt;
+				&lt;div class="p-col-12"&gt;
+					&lt;InputText placeholder="Username" class="p-error" /&gt;
 					&lt;ValidationMessage&gt;Field is required&lt;/ValidationMessage&gt;
 				&lt;/div&gt;
-				&lt;div class=&quot;p-col-12&quot;&gt;
-					&lt;InputText placeholder=&quot;Email&quot; class=&quot;p-error&quot; :closable=&quot;false&quot; /&gt;
+				&lt;div class="p-col-12"&gt;
+					&lt;InputText placeholder="Email" class="p-error" :closable="false" /&gt;
 					&lt;ValidationMessage /&gt;
 				&lt;/div&gt;
 			&lt;/div&gt;

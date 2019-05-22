@@ -79,8 +79,8 @@ this.$toast.add({severity:'success', summary: 'Success Message', detail:'Order s
 				<h3>Showing Messages</h3>
 				<p>Show method accepts either a single message or an array of messages.</p>
 <CodeHighlight>
-&lt;Button label=&quot;Success&quot; class=&quot;p-button-success&quot; @click=&quot;showSuccess&quot; /&gt;
-&lt;Button @click=&quot;showMultiple&quot; label=&quot;Multiple&quot; class=&quot;p-button-warning&quot; /&gt;
+&lt;Button label="Success" class="p-button-success" @click="showSuccess" /&gt;
+&lt;Button @click="showMultiple" label="Multiple" class="p-button-warning" /&gt;
 </CodeHighlight>
 
 <CodeHighlight lang="js">
@@ -191,55 +191,55 @@ this.$toast.removeAllGroups();
 <template v-pre>
 &lt;template&gt;
 	&lt;div&gt;
-		&lt;div class=&quot;content-section introduction&quot;&gt;
-			&lt;div class=&quot;feature-intro&quot;&gt;
+		&lt;div class="content-section introduction"&gt;
+			&lt;div class="feature-intro"&gt;
 				&lt;h1&gt;Toast&lt;/h1&gt;
 				&lt;p&gt;Toast is used to display messages in an overlay.&lt;/p&gt;
 			&lt;/div&gt;
 		&lt;/div&gt;
 
-		&lt;div class=&quot;content-section implementation p-fluid&quot;&gt;
+		&lt;div class="content-section implementation p-fluid"&gt;
 			&lt;h3&gt;Severities&lt;/h3&gt;
-			&lt;div class=&quot;p-grid&quot;&gt;
-				&lt;div class=&quot;p-col-12 p-md-3&quot;&gt;
-					&lt;Button label=&quot;Success&quot; class=&quot;p-button-success&quot; @click=&quot;showSuccess&quot; /&gt;
+			&lt;div class="p-grid"&gt;
+				&lt;div class="p-col-12 p-md-3"&gt;
+					&lt;Button label="Success" class="p-button-success" @click="showSuccess" /&gt;
 				&lt;/div&gt;
-				&lt;div class=&quot;p-col-12 p-md-3&quot;&gt;
-					&lt;Button label=&quot;Info&quot; class=&quot;p-button-info&quot; @click=&quot;showInfo&quot; /&gt;
+				&lt;div class="p-col-12 p-md-3"&gt;
+					&lt;Button label="Info" class="p-button-info" @click="showInfo" /&gt;
 				&lt;/div&gt;
-				&lt;div class=&quot;p-col-12 p-md-3&quot;&gt;
-					&lt;Button label=&quot;Warn&quot; class=&quot;p-button-warning&quot; @click=&quot;showWarn&quot; /&gt;
+				&lt;div class="p-col-12 p-md-3"&gt;
+					&lt;Button label="Warn" class="p-button-warning" @click="showWarn" /&gt;
 				&lt;/div&gt;
-				&lt;div class=&quot;p-col-12 p-md-3&quot;&gt;
-					&lt;Button label=&quot;Error&quot; class=&quot;p-button-danger&quot; @click=&quot;showError&quot; /&gt;
+				&lt;div class="p-col-12 p-md-3"&gt;
+					&lt;Button label="Error" class="p-button-danger" @click="showError" /&gt;
 				&lt;/div&gt;
 			&lt;/div&gt;
 
 			&lt;h3&gt;Positions&lt;/h3&gt;
-			&lt;div class=&quot;p-grid&quot;&gt;
-				&lt;div class=&quot;p-col-12 p-md-4&quot;&gt;
-					&lt;Button label=&quot;Top Left&quot; @click=&quot;showTopLeft&quot; /&gt;
+			&lt;div class="p-grid"&gt;
+				&lt;div class="p-col-12 p-md-4"&gt;
+					&lt;Button label="Top Left" @click="showTopLeft" /&gt;
 				&lt;/div&gt;
-				&lt;div class=&quot;p-col-12 p-md-4&quot;&gt;
-					&lt;Button label=&quot;Bottom Left&quot; class=&quot;p-button-warning&quot; @click=&quot;showBottomLeft&quot; /&gt;
+				&lt;div class="p-col-12 p-md-4"&gt;
+					&lt;Button label="Bottom Left" class="p-button-warning" @click="showBottomLeft" /&gt;
 				&lt;/div&gt;
-				&lt;div class=&quot;p-col-12 p-md-4&quot;&gt;
-					&lt;Button label=&quot;Bottom Right&quot; class=&quot;p-button-success&quot; @click=&quot;showBottomRight&quot; /&gt;
+				&lt;div class="p-col-12 p-md-4"&gt;
+					&lt;Button label="Bottom Right" class="p-button-success" @click="showBottomRight" /&gt;
 				&lt;/div&gt;
 			&lt;/div&gt;
 
 			&lt;h3&gt;Options&lt;/h3&gt;
-			&lt;div class=&quot;p-grid&quot;&gt;
-				&lt;div class=&quot;p-col-12 p-md-6&quot;&gt;
-					&lt;Button @click=&quot;showMultiple&quot; label=&quot;Multiple&quot; class=&quot;p-button-warning&quot; /&gt;
+			&lt;div class="p-grid"&gt;
+				&lt;div class="p-col-12 p-md-6"&gt;
+					&lt;Button @click="showMultiple" label="Multiple" class="p-button-warning" /&gt;
 				&lt;/div&gt;
-				&lt;div class=&quot;p-col-12 p-md-6&quot;&gt;
-					&lt;Button @click=&quot;showSticky&quot; label=&quot;Sticky&quot; /&gt;
+				&lt;div class="p-col-12 p-md-6"&gt;
+					&lt;Button @click="showSticky" label="Sticky" /&gt;
 				&lt;/div&gt;
 			&lt;/div&gt;
 
 			&lt;h3&gt;Remove All&lt;/h3&gt;
-			&lt;Button @click=&quot;clear&quot; label=&quot;Clear&quot; /&gt;
+			&lt;Button @click="clear" label="Clear" /&gt;
 		&lt;/div&gt;
 	&lt;/div&gt;
 &lt;/template&gt;

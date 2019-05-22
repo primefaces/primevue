@@ -49,7 +49,7 @@ export default {
 </CodeHighlight>
 
 <CodeHighlight>
-&lt;SplitButton label=&quot;Save&quot; icon=&quot;pi pi-plus&quot; :model=&quot;items&quot;&gt;&lt;/SplitButton&gt;
+&lt;SplitButton label="Save" icon="pi pi-plus" :model="items"&gt;&lt;/SplitButton&gt;
 </CodeHighlight>
 
 				<h3>Severity</h3>
@@ -64,12 +64,12 @@ export default {
 				</ul>
 
 <CodeHighlight>
-&lt;SplitButton label=&quot;Save&quot; icon=&quot;pi pi-plus&quot; :model=&quot;items&quot;&gt;&lt;/SplitButton&gt;
-&lt;SplitButton label=&quot;Save&quot; icon=&quot;pi pi-plus&quot; :model=&quot;items&quot; class=&quot;p-button-secondary&quot;&gt;&lt;/SplitButton&gt;
-&lt;SplitButton label=&quot;Save&quot; icon=&quot;pi pi-plus&quot; :model=&quot;items&quot; class=&quot;p-button-success&quot;&gt;&lt;/SplitButton&gt;
-&lt;SplitButton label=&quot;Save&quot; icon=&quot;pi pi-plus&quot; :model=&quot;items&quot; class=&quot;p-button-info&quot;&gt;&lt;/SplitButton&gt;
-&lt;SplitButton label=&quot;Save&quot; icon=&quot;pi pi-plus&quot; :model=&quot;items&quot; class=&quot;p-button-warning&quot;&gt;&lt;/SplitButton&gt;
-&lt;SplitButton label=&quot;Save&quot; icon=&quot;pi pi-plus&quot; :model=&quot;items&quot; class=&quot;p-button-danger&quot;&gt;&lt;/SplitButton&gt;
+&lt;SplitButton label="Save" icon="pi pi-plus" :model="items"&gt;&lt;/SplitButton&gt;
+&lt;SplitButton label="Save" icon="pi pi-plus" :model="items" class="p-button-secondary"&gt;&lt;/SplitButton&gt;
+&lt;SplitButton label="Save" icon="pi pi-plus" :model="items" class="p-button-success"&gt;&lt;/SplitButton&gt;
+&lt;SplitButton label="Save" icon="pi pi-plus" :model="items" class="p-button-info"&gt;&lt;/SplitButton&gt;
+&lt;SplitButton label="Save" icon="pi pi-plus" :model="items" class="p-button-warning"&gt;&lt;/SplitButton&gt;
+&lt;SplitButton label="Save" icon="pi pi-plus" :model="items" class="p-button-danger"&gt;&lt;/SplitButton&gt;
 </CodeHighlight>
 
 				<h3>Properties</h3>
@@ -189,16 +189,16 @@ export default {
 <template v-pre>
 &lt;template&gt;
 	&lt;div&gt;
-		&lt;div class=&quot;content-section introduction&quot;&gt;
-			&lt;div class=&quot;feature-intro&quot;&gt;
+		&lt;div class="content-section introduction"&gt;
+			&lt;div class="feature-intro"&gt;
 				&lt;h1&gt;SplitButton&lt;/h1&gt;
 				&lt;p&gt;SplitButton groups a set of commands in an overlay with a default command.&lt;/p&gt;
 			&lt;/div&gt;
 		&lt;/div&gt;
 
-		&lt;div class=&quot;content-section implementation&quot;&gt;
-			&lt;h3 class=&quot;first&quot;&gt;Basic&lt;/h3&gt;
-			&lt;SplitButton label=&quot;Save&quot; icon=&quot;pi pi-plus&quot; @click=&quot;save&quot; :model=&quot;items&quot;&gt;&lt;/SplitButton&gt;
+		&lt;div class="content-section implementation"&gt;
+			&lt;h3 class="first"&gt;Basic&lt;/h3&gt;
+			&lt;SplitButton label="Save" icon="pi pi-plus" @click="save" :model="items"&gt;&lt;/SplitButton&gt;
 		&lt;/div&gt;
 	&lt;/div&gt;
 &lt;/template&gt;

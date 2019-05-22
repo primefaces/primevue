@@ -54,13 +54,13 @@ import Paginator from 'primevue/paginator';
 <CodeHighlight>
 <template v-pre>
 &lt;Paginator :first.sync="offset" :rows="10" :totalRecords="totalItemsCount"&gt;
-    &lt;template #left=&quot;slotProps&quot;&gt;
+    &lt;template #left="slotProps"&gt;
         Page: {{slotProps.state.page}}
         First: {{slotProps.state.first}}
         Rows: {{slotProps.state.rows}}
     &lt;/template&gt;
     &lt;template #right&gt;
-        &lt;Button type=&quot;button&quot; icon=&quot;pi pi-search&quot; /&gt;
+        &lt;Button type="button" icon="pi pi-search" /&gt;
     &lt;/template&gt;
 &lt;/Paginator&gt;
 </template>
@@ -221,29 +221,29 @@ onPage(event) {
 <CodeHighlight>
 &lt;template&gt;
 	&lt;div&gt;
-		&lt;div class=&quot;content-section introduction&quot;&gt;
-			&lt;div class=&quot;feature-intro&quot;&gt;
+		&lt;div class="content-section introduction"&gt;
+			&lt;div class="feature-intro"&gt;
 				&lt;h1&gt;Paginator&lt;/h1&gt;
 				&lt;p&gt;Paginator is a generic component to display content in paged format.&lt;/p&gt;
 			&lt;/div&gt;
 		&lt;/div&gt;
 
-		&lt;div class=&quot;content-section implementation&quot;&gt;
-			&lt;h3 class=&quot;first&quot;&gt;Default&lt;/h3&gt;
-			&lt;Paginator :first.sync=&quot;first&quot; :rows.sync=&quot;rows&quot; :totalRecords=&quot;totalRecords&quot; :rowsPerPageOptions=&quot;[10,20,30]&quot;&gt;&lt;/Paginator&gt;
+		&lt;div class="content-section implementation"&gt;
+			&lt;h3 class="first"&gt;Default&lt;/h3&gt;
+			&lt;Paginator :first.sync="first" :rows.sync="rows" :totalRecords="totalRecords" :rowsPerPageOptions="[10,20,30]"&gt;&lt;/Paginator&gt;
 
 			&lt;h3&gt;Custom Template&lt;/h3&gt;
-			&lt;Paginator :first.sync=&quot;first2&quot; :rows=&quot;1&quot; :totalRecords=&quot;totalRecords2&quot; @page-change=&quot;onPageChangeCustom($event)&quot; template=&quot;FirstPageLink PrevPageLink CurrentPageReport NextPageLink LastPageLink&quot;&gt;
+			&lt;Paginator :first.sync="first2" :rows="1" :totalRecords="totalRecords2" @page-change="onPageChangeCustom($event)" template="FirstPageLink PrevPageLink CurrentPageReport NextPageLink LastPageLink"&gt;
                 &lt;template #left&gt;
-                    &lt;Button type=&quot;button&quot; icon=&quot;pi pi-refresh&quot; @click=&quot;reset()&quot;/&gt;
+                    &lt;Button type="button" icon="pi pi-refresh" @click="reset()"/&gt;
                 &lt;/template&gt;
                 &lt;template #right&gt;
-                    &lt;Button type=&quot;button&quot; icon=&quot;pi pi-search&quot; /&gt;
+                    &lt;Button type="button" icon="pi pi-search" /&gt;
                 &lt;/template&gt;
             &lt;/Paginator&gt;
 
-            &lt;div class=&quot;image-gallery&quot;&gt;
-                &lt;img :src=&quot;&#39;/demo/images/nature/&#39; + image + &#39;.jpg&#39;&quot; /&gt;
+            &lt;div class="image-gallery"&gt;
+                &lt;img :src="&#39;/demo/images/nature/&#39; + image + &#39;.jpg&#39;" /&gt;
             &lt;/div&gt;
 		&lt;/div&gt;
 

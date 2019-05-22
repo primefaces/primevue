@@ -11,17 +11,17 @@ import Toolbar from 'primevue/toolbar';
 				<p>Toolbar is a container component defined using Toolbar element. Left aligned content is placed inside a template with "left" name and similarly "right" for right alignment..</p>
 <CodeHighlight>
 &lt;Toolbar&gt;
-	&lt;template slot=&quot;left&quot;&gt;
-		&lt;Button label=&quot;New&quot; icon=&quot;pi pi-plus&quot; style=&quot;margin-right: .25em&quot; /&gt;
-		&lt;Button label=&quot;Upload&quot; icon=&quot;pi pi-upload&quot; class=&quot;p-button-success&quot; /&gt;
-		&lt;i class=&quot;pi pi-bars p-toolbar-separator&quot; style=&quot;margin-right: .25em&quot; /&gt;
-		&lt;Button label=&quot;Save&quot; icon=&quot;pi pi-check&quot; class=&quot;p-button-warning&quot; /&gt;
+	&lt;template slot="left"&gt;
+		&lt;Button label="New" icon="pi pi-plus" style="margin-right: .25em" /&gt;
+		&lt;Button label="Upload" icon="pi pi-upload" class="p-button-success" /&gt;
+		&lt;i class="pi pi-bars p-toolbar-separator" style="margin-right: .25em" /&gt;
+		&lt;Button label="Save" icon="pi pi-check" class="p-button-warning" /&gt;
 	&lt;/template&gt;
 
-	&lt;template slot=&quot;right&quot;&gt;
-		&lt;Button icon=&quot;pi pi-search&quot; style=&quot;margin-right: .25em&quot; /&gt;
-		&lt;Button icon=&quot;pi pi-calendar&quot; class=&quot;p-button-success&quot; style=&quot;margin-right: .25em&quot; /&gt;
-		&lt;Button icon=&quot;pi pi-times&quot; class=&quot;p-button-danger&quot; /&gt;
+	&lt;template slot="right"&gt;
+		&lt;Button icon="pi pi-search" style="margin-right: .25em" /&gt;
+		&lt;Button icon="pi pi-calendar" class="p-button-success" style="margin-right: .25em" /&gt;
+		&lt;Button icon="pi pi-times" class="p-button-danger" /&gt;
 	&lt;/template&gt;
 &lt;/Toolbar&gt;
 </CodeHighlight>
@@ -65,26 +65,26 @@ import Toolbar from 'primevue/toolbar';
 <template v-pre>
 &lt;template&gt;
 	&lt;div&gt;
-		&lt;div class=&quot;content-section introduction&quot;&gt;
-			&lt;div class=&quot;feature-intro&quot;&gt;
+		&lt;div class="content-section introduction"&gt;
+			&lt;div class="feature-intro"&gt;
 				&lt;h1&gt;Toolbar&lt;/h1&gt;
 				&lt;p&gt;Toolbar is a grouping component for buttons and other content.&lt;/p&gt;
 			&lt;/div&gt;
 		&lt;/div&gt;
 
-		&lt;div class=&quot;content-section implementation&quot;&gt;
+		&lt;div class="content-section implementation"&gt;
 			&lt;Toolbar&gt;
-				&lt;template slot=&quot;left&quot;&gt;
-					&lt;Button label=&quot;New&quot; icon=&quot;pi pi-plus&quot; style=&quot;margin-right: .25em&quot; /&gt;
-					&lt;Button label=&quot;Upload&quot; icon=&quot;pi pi-upload&quot; class=&quot;p-button-success&quot; /&gt;
-					&lt;i class=&quot;pi pi-bars p-toolbar-separator&quot; style=&quot;margin-right: .25em&quot; /&gt;
-					&lt;Button label=&quot;Save&quot; icon=&quot;pi pi-check&quot; class=&quot;p-button-warning&quot; /&gt;
+				&lt;template slot="left"&gt;
+					&lt;Button label="New" icon="pi pi-plus" style="margin-right: .25em" /&gt;
+					&lt;Button label="Upload" icon="pi pi-upload" class="p-button-success" /&gt;
+					&lt;i class="pi pi-bars p-toolbar-separator" style="margin-right: .25em" /&gt;
+					&lt;Button label="Save" icon="pi pi-check" class="p-button-warning" /&gt;
 				&lt;/template&gt;
 
-				&lt;template slot=&quot;right&quot;&gt;
-					&lt;Button icon=&quot;pi pi-search&quot; style=&quot;margin-right: .25em&quot; /&gt;
-					&lt;Button icon=&quot;pi pi-calendar&quot; class=&quot;p-button-success&quot; style=&quot;margin-right: .25em&quot; /&gt;
-					&lt;Button icon=&quot;pi pi-times&quot; class=&quot;p-button-danger&quot; /&gt;
+				&lt;template slot="right"&gt;
+					&lt;Button icon="pi pi-search" style="margin-right: .25em" /&gt;
+					&lt;Button icon="pi pi-calendar" class="p-button-success" style="margin-right: .25em" /&gt;
+					&lt;Button icon="pi pi-times" class="p-button-danger" /&gt;
 				&lt;/template&gt;
 			&lt;/Toolbar&gt;
 		&lt;/div&gt;

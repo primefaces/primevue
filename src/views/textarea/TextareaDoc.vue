@@ -10,13 +10,13 @@ import Textarea from 'primevue/textarea';
 				<h3>Getting Started</h3>
 				<p>A model can be bound using the standard v-model directive.</p>
 <CodeHighlight>
-&lt;Textarea v-model=&quot;value&quot; rows=&quot;5&quot; cols=&quot;30&quot; /&gt;
+&lt;Textarea v-model="value" rows="5" cols="30" /&gt;
 </CodeHighlight>
 
 				<h3>AutoResize</h3>
 				<p>In auto resize mode, textarea grows instead of displaying a scrollbar.</p>
 <CodeHighlight>
-&lt;Textarea v-model=&quot;value&quot; :autoResize=&quot;true&quot; rows=&quot;5&quot; cols=&quot;30&quot; /&gt;
+&lt;Textarea v-model="value" :autoResize="true" rows="5" cols="30" /&gt;
 </CodeHighlight>
 
 				<h3>Properties</h3>
@@ -99,22 +99,22 @@ import Textarea from 'primevue/textarea';
 <template v-pre>
 &lt;template&gt;
 	&lt;div&gt;
-		&lt;div class=&quot;content-section introduction&quot;&gt;
-			&lt;div class=&quot;feature-intro&quot;&gt;
+		&lt;div class="content-section introduction"&gt;
+			&lt;div class="feature-intro"&gt;
 				&lt;h1&gt;Textarea&lt;/h1&gt;
 				&lt;p&gt;Textarea is a multi-line text input element.&lt;/p&gt;
 			&lt;/div&gt;
 		&lt;/div&gt;
 
-		&lt;div class=&quot;content-section implementation&quot;&gt;
-			&lt;h3 class=&quot;first&quot;&gt;Basic&lt;/h3&gt;
-			&lt;Textarea v-model=&quot;value1&quot; rows=&quot;5&quot; cols=&quot;30&quot; /&gt;
+		&lt;div class="content-section implementation"&gt;
+			&lt;h3 class="first"&gt;Basic&lt;/h3&gt;
+			&lt;Textarea v-model="value1" rows="5" cols="30" /&gt;
 
 			&lt;h3&gt;Auto Resize&lt;/h3&gt;
-			&lt;Textarea v-model=&quot;value2&quot; :autoResize=&quot;true&quot; rows=&quot;5&quot; cols=&quot;30&quot; /&gt;
+			&lt;Textarea v-model="value2" :autoResize="true" rows="5" cols="30" /&gt;
 
 			&lt;h3&gt;Disabled&lt;/h3&gt;
-			&lt;Textarea v-model=&quot;value3&quot; disabled rows=&quot;5&quot; cols=&quot;30&quot; /&gt;
+			&lt;Textarea v-model="value3" disabled rows="5" cols="30" /&gt;
 		&lt;/div&gt;
 	&lt;/div&gt;
 &lt;/template&gt;

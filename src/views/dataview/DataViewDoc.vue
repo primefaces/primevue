@@ -32,32 +32,32 @@ mounted() {
 				<p>Note that there is no restriction to use both layouts at the same time, you may configure only one layout using the layout property with the corresponding template.</p>
 <CodeHighlight>
 <template v-pre>
-&lt;template #listItem=&quot;slotProps&quot; &gt;
-	&lt;div class=&quot;p-col-12 car-details&quot; style=&quot;padding: 2em; border-bottom: 1px solid #d9d9d9&quot;&gt;
-		&lt;div class=&quot;p-grid&quot;&gt;
-			&lt;div class=&quot;p-col-12 p-md-3&quot;&gt;
-				&lt;img :src=&quot;'/demo/images/car/' + slotProps.data.brand + '.png'&quot; :alt=&quot;slotProps.data.brand&quot;/&gt;
+&lt;template #listItem="slotProps" &gt;
+	&lt;div class="p-col-12 car-details" style="padding: 2em; border-bottom: 1px solid #d9d9d9"&gt;
+		&lt;div class="p-grid"&gt;
+			&lt;div class="p-col-12 p-md-3"&gt;
+				&lt;img :src="'/demo/images/car/' + slotProps.data.brand + '.png'" :alt="slotProps.data.brand"/&gt;
 			&lt;/div&gt;
-			&lt;div class=&quot;p-col-12 p-md-8 car-data&quot;&gt;
+			&lt;div class="p-col-12 p-md-8 car-data"&gt;
 				&lt;div&gt;Vin: &lt;b&gt;{{slotProps.data.vin}}&lt;/b&gt;&lt;/div&gt;
 				&lt;div&gt;Year: &lt;b&gt;{{slotProps.data.year}}&lt;/b&gt;&lt;/div&gt;
 				&lt;div&gt;Brand: &lt;b&gt;{{slotProps.data.brand}}&lt;/b&gt;&lt;/div&gt;
 				&lt;div&gt;Color: &lt;b&gt;{{slotProps.data.color}}&lt;/b&gt;&lt;/div&gt;
 			&lt;/div&gt;
 
-			&lt;div class=&quot;p-col-12 p-md-1 search-icon&quot; style=&quot;margin-top: 40px&quot;&gt;
-				&lt;Button icon=&quot;pi pi-search&quot;&gt;&lt;/Button&gt;
+			&lt;div class="p-col-12 p-md-1 search-icon" style="margin-top: 40px"&gt;
+				&lt;Button icon="pi pi-search"&gt;&lt;/Button&gt;
 			&lt;/div&gt;
 		&lt;/div&gt;
 	&lt;/div&gt;
 &lt;/template&gt;
-&lt;template #gridItem=&quot;slotProps&quot;&gt;
-	&lt;div style=&quot;padding: .5em&quot; class=&quot;p-col-12 p-md-3&quot;&gt;
-		&lt;Panel :header=&quot;slotProps.data.vin&quot; style=&quot;text-align: center&quot;&gt;
-			&lt;img :src=&quot;'/demo/images/car/' + slotProps.data.brand + '.png'&quot; :alt=&quot;slotProps.data.brand&quot;/&gt;
-			&lt;div class=&quot;car-detail&quot;&gt;{{slotProps.data.year}} - {{slotProps.data.color}}&lt;/div&gt;
-			&lt;hr class=&quot;ui-widget-content&quot; style=&quot;border-top: 0&quot; /&gt;
-			&lt;Button icon=&quot;pi pi-search&quot;&gt;&lt;/Button&gt;
+&lt;template #gridItem="slotProps"&gt;
+	&lt;div style="padding: .5em" class="p-col-12 p-md-3"&gt;
+		&lt;Panel :header="slotProps.data.vin" style="text-align: center"&gt;
+			&lt;img :src="'/demo/images/car/' + slotProps.data.brand + '.png'" :alt="slotProps.data.brand"/&gt;
+			&lt;div class="car-detail"&gt;{{slotProps.data.year}} - {{slotProps.data.color}}&lt;/div&gt;
+			&lt;hr class="ui-widget-content" style="border-top: 0" /&gt;
+			&lt;Button icon="pi pi-search"&gt;&lt;/Button&gt;
 		&lt;/Panel&gt;
 	&lt;/div&gt;
 &lt;/template&gt;
@@ -77,11 +77,11 @@ mounted() {
 				</p>
 <CodeHighlight>
 &lt;template #header&gt;
-	&lt;DataViewLayoutOptions :layout=&quot;layout&quot; @change=&quot;changeMode&quot;&gt;&lt;/DataViewLayoutOptions&gt;
+	&lt;DataViewLayoutOptions :layout="layout" @change="changeMode"&gt;&lt;/DataViewLayoutOptions&gt;
 &lt;/template&gt;
 
 &lt;template #footer&gt;
-	&lt;DataViewLayoutOptions :layout=&quot;layout&quot; @change=&quot;changeMode&quot;&gt;&lt;/DataViewLayoutOptions&gt;
+	&lt;DataViewLayoutOptions :layout="layout" @change="changeMode"&gt;&lt;/DataViewLayoutOptions&gt;
 &lt;/template&gt;
 </CodeHighlight>
 
@@ -90,20 +90,20 @@ mounted() {
 					of page links to display. To customize the left and right side of the paginators, use "paginatorLeft" and "paginatorRight" templates.</p>
 <CodeHighlight>
 <template v-pre>
-&lt;DataView :value=&quot;cars&quot; :layout=&quot;layout&quot; paginatorPosition='both' :paginator=&quot;true&quot; :rows=&quot;20&quot;&gt;
+&lt;DataView :value="cars" :layout="layout" paginatorPosition='both' :paginator="true" :rows="20"&gt;
 	&lt;template #paginatorLeft&gt;
-		&lt;Button type=&quot;button&quot; icon=&quot;pi pi-refresh&quot;/&gt;
+		&lt;Button type="button" icon="pi pi-refresh"/&gt;
 	&lt;/template&gt;
 	&lt;template #paginatorRight&gt;
-		&lt;Button type=&quot;button&quot; icon=&quot;pi pi-search&quot; /&gt;
+		&lt;Button type="button" icon="pi pi-search" /&gt;
 	&lt;/template&gt;
 	&lt;template #header&gt;
 		List of Cars
 	&lt;/template&gt;
-	&lt;template #listItem=&quot;slotProps&quot; &gt;
+	&lt;template #listItem="slotProps" &gt;
 		&lt;div&gt;Vin: &lt;b&gt;{{slotProps.data.vin}}&lt;/b&gt;&lt;/div&gt;
 	&lt;/template&gt;
-	&lt;template #gridItem=&quot;slotProps&quot;&gt;
+	&lt;template #gridItem="slotProps"&gt;
 		&lt;div&gt;Vin: &lt;b&gt;{{slotProps.data.vin}}&lt;/b&gt;&lt;/div&gt;
 	&lt;/template&gt;
 &lt;/DataView&gt;
@@ -115,20 +115,20 @@ mounted() {
 					Here is an example that uses a dropdown where simply updating the sortField-sortOrder bindings of the DataView initiates sorting.</p>
 <CodeHighlight>
 <template v-pre>
-&lt;DataView :value=&quot;cars&quot; :layout=&quot;layout&quot; :sortOrder=&quot;sortOrder&quot; :sortField=&quot;sortField&quot;&gt;
+&lt;DataView :value="cars" :layout="layout" :sortOrder="sortOrder" :sortField="sortField"&gt;
 	&lt;template #paginatorLeft&gt;
-		&lt;Button type=&quot;button&quot; icon=&quot;pi pi-refresh&quot;/&gt;
+		&lt;Button type="button" icon="pi pi-refresh"/&gt;
 	&lt;/template&gt;
 	&lt;template #paginatorRight&gt;
-		&lt;Button type=&quot;button&quot; icon=&quot;pi pi-search&quot; /&gt;
+		&lt;Button type="button" icon="pi pi-search" /&gt;
 	&lt;/template&gt;
 	&lt;template #header&gt;
 		List of Cars
 	&lt;/template&gt;
-	&lt;template #listItem=&quot;slotProps&quot; &gt;
+	&lt;template #listItem="slotProps" &gt;
 		&lt;div&gt;Vin: &lt;b&gt;{{slotProps.data.vin}}&lt;/b&gt;&lt;/div&gt;
 	&lt;/template&gt;
-	&lt;template #gridItem=&quot;slotProps&quot;&gt;
+	&lt;template #gridItem="slotProps"&gt;
 		&lt;div&gt;Vin: &lt;b&gt;{{slotProps.data.vin}}&lt;/b&gt;&lt;/div&gt;
 	&lt;/template&gt;
 &lt;/DataView&gt;
@@ -342,52 +342,52 @@ mounted() {
 <template v-pre>
 &lt;template&gt;
 	&lt;div&gt;
-		&lt;div class=&quot;content-section introduction&quot;&gt;
-			&lt;div class=&quot;feature-intro&quot;&gt;
+		&lt;div class="content-section introduction"&gt;
+			&lt;div class="feature-intro"&gt;
 				&lt;h1&gt;DataView&lt;/h1&gt;
 				&lt;p&gt;DataView displays data in grid or list layout with pagination and sorting features.&lt;/p&gt;
 			&lt;/div&gt;
 		&lt;/div&gt;
 
-		&lt;div class=&quot;content-section implementation&quot;&gt;
-			&lt;h3 class=&quot;first&quot;&gt;Default&lt;/h3&gt;
-			&lt;DataView :value=&quot;cars&quot; :layout=&quot;layout&quot; paginatorPosition='both' :paginator=&quot;true&quot; :rows=&quot;20&quot; :sortOrder=&quot;sortOrder&quot; :sortField=&quot;sortField&quot;&gt;
+		&lt;div class="content-section implementation"&gt;
+			&lt;h3 class="first"&gt;Default&lt;/h3&gt;
+			&lt;DataView :value="cars" :layout="layout" paginatorPosition='both' :paginator="true" :rows="20" :sortOrder="sortOrder" :sortField="sortField"&gt;
 				&lt;template #header&gt;
-					&lt;div class=&quot;p-grid&quot;&gt;
-						&lt;div class=&quot;p-col-6&quot; style=&quot;text-align: left&quot;&gt;
-							&lt;Dropdown v-model=&quot;sortKey&quot; :options=&quot;sortOptions&quot; optionLabel=&quot;label&quot; placeholder=&quot;Sort By&quot; @change=&quot;onSortChange($event)&quot;/&gt;
+					&lt;div class="p-grid"&gt;
+						&lt;div class="p-col-6" style="text-align: left"&gt;
+							&lt;Dropdown v-model="sortKey" :options="sortOptions" optionLabel="label" placeholder="Sort By" @change="onSortChange($event)"/&gt;
 						&lt;/div&gt;
-						&lt;div class=&quot;p-col-6&quot; style=&quot;text-align: right&quot;&gt;
-							&lt;DataViewLayoutOptions :layout=&quot;layout&quot; @change=&quot;changeMode&quot;&gt;&lt;/DataViewLayoutOptions&gt;
+						&lt;div class="p-col-6" style="text-align: right"&gt;
+							&lt;DataViewLayoutOptions :layout="layout" @change="changeMode"&gt;&lt;/DataViewLayoutOptions&gt;
 						&lt;/div&gt;
 					&lt;/div&gt;
 				&lt;/template&gt;
-				&lt;template #listItem=&quot;slotProps&quot; &gt;
-					&lt;div class=&quot;p-col-12 car-details&quot; style=&quot;padding: 2em; border-bottom: 1px solid #d9d9d9&quot;&gt;
-						&lt;div class=&quot;p-grid&quot;&gt;
-							&lt;div class=&quot;p-col-12 p-md-3&quot;&gt;
-								&lt;img :src=&quot;'/demo/images/car/' + slotProps.data.brand + '.png'&quot; :alt=&quot;slotProps.data.brand&quot;/&gt;
+				&lt;template #listItem="slotProps" &gt;
+					&lt;div class="p-col-12 car-details" style="padding: 2em; border-bottom: 1px solid #d9d9d9"&gt;
+						&lt;div class="p-grid"&gt;
+							&lt;div class="p-col-12 p-md-3"&gt;
+								&lt;img :src="'/demo/images/car/' + slotProps.data.brand + '.png'" :alt="slotProps.data.brand"/&gt;
 							&lt;/div&gt;
-							&lt;div class=&quot;p-col-12 p-md-8 car-data&quot;&gt;
+							&lt;div class="p-col-12 p-md-8 car-data"&gt;
 								&lt;div&gt;Vin: &lt;b&gt;{{slotProps.data.vin}}&lt;/b&gt;&lt;/div&gt;
 								&lt;div&gt;Year: &lt;b&gt;{{slotProps.data.year}}&lt;/b&gt;&lt;/div&gt;
 								&lt;div&gt;Brand: &lt;b&gt;{{slotProps.data.brand}}&lt;/b&gt;&lt;/div&gt;
 								&lt;div&gt;Color: &lt;b&gt;{{slotProps.data.color}}&lt;/b&gt;&lt;/div&gt;
 							&lt;/div&gt;
 
-							&lt;div class=&quot;p-col-12 p-md-1 search-icon&quot; style=&quot;margin-top: 40px&quot;&gt;
-								&lt;Button icon=&quot;pi pi-search&quot;&gt;&lt;/Button&gt;
+							&lt;div class="p-col-12 p-md-1 search-icon" style="margin-top: 40px"&gt;
+								&lt;Button icon="pi pi-search"&gt;&lt;/Button&gt;
 							&lt;/div&gt;
 						&lt;/div&gt;
 					&lt;/div&gt;
 				&lt;/template&gt;
-				&lt;template #gridItem=&quot;slotProps&quot;&gt;
-					&lt;div style=&quot;padding: .5em&quot; class=&quot;p-col-12 p-md-3&quot;&gt;
-						&lt;Panel :header=&quot;slotProps.data.vin&quot; style=&quot;text-align: center&quot;&gt;
-							&lt;img :src=&quot;'/demo/images/car/' + slotProps.data.brand + '.png'&quot; :alt=&quot;slotProps.data.brand&quot;/&gt;
-							&lt;div class=&quot;car-detail&quot;&gt;{{slotProps.data.year}} - {{slotProps.data.color}}&lt;/div&gt;
-							&lt;hr class=&quot;ui-widget-content&quot; style=&quot;border-top: 0&quot; /&gt;
-							&lt;Button icon=&quot;pi pi-search&quot;&gt;&lt;/Button&gt;
+				&lt;template #gridItem="slotProps"&gt;
+					&lt;div style="padding: .5em" class="p-col-12 p-md-3"&gt;
+						&lt;Panel :header="slotProps.data.vin" style="text-align: center"&gt;
+							&lt;img :src="'/demo/images/car/' + slotProps.data.brand + '.png'" :alt="slotProps.data.brand"/&gt;
+							&lt;div class="car-detail"&gt;{{slotProps.data.year}} - {{slotProps.data.color}}&lt;/div&gt;
+							&lt;hr class="ui-widget-content" style="border-top: 0" /&gt;
+							&lt;Button icon="pi pi-search"&gt;&lt;/Button&gt;
 						&lt;/Panel&gt;
 					&lt;/div&gt;
 				&lt;/template&gt;

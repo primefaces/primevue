@@ -10,15 +10,15 @@ import InputText from 'primevue/inputtext';
 				<h3>Getting Started</h3>
 				<p>A model can be bound using the standard v-model directive.</p>
 <CodeHighlight>
-&lt;InputText type=&quot;text&quot; v-model=&quot;value&quot; /&gt;
+&lt;InputText type="text" v-model="value" /&gt;
 </CodeHighlight>
 
 				<h3>Float Label</h3>
 				<p>A floating label is implemented by wrapping the input and the label inside a container having <i>.p-float-label</i> style class.</p>
 <CodeHighlight>
-&lt;span class=&quot;p-float-label&quot;&gt;
-	&lt;InputText id="username" type=&quot;text&quot; v-model=&quot;value&quot; /&gt;
-	&lt;label for=&quot;username&quot;&gt;Username&lt;/label&gt;
+&lt;span class="p-float-label"&gt;
+	&lt;InputText id="username" type="text" v-model="value" /&gt;
+	&lt;label for="username"&gt;Username&lt;/label&gt;
 &lt;/span&gt;
 </CodeHighlight>
 
@@ -56,26 +56,26 @@ import InputText from 'primevue/inputtext';
 <template v-pre>
 &lt;template&gt;
 	&lt;div&gt;
-		&lt;div class=&quot;content-section introduction&quot;&gt;
-			&lt;div class=&quot;feature-intro&quot;&gt;
+		&lt;div class="content-section introduction"&gt;
+			&lt;div class="feature-intro"&gt;
 				&lt;h1&gt;InputText&lt;/h1&gt;
 				&lt;p&gt;InputText renders and input field where the user can enter data.&lt;/p&gt;
 			&lt;/div&gt;
 		&lt;/div&gt;
 
-		&lt;div class=&quot;content-section implementation&quot;&gt;
-			&lt;h3 class=&quot;first&quot;&gt;Basic&lt;/h3&gt;
-			&lt;InputText type=&quot;text&quot; v-model=&quot;value1&quot; /&gt;
-			&lt;span :style=&quot;{marginLeft: '.5em'}&quot;&gt;{{value1}}&lt;/span&gt;
+		&lt;div class="content-section implementation"&gt;
+			&lt;h3 class="first"&gt;Basic&lt;/h3&gt;
+			&lt;InputText type="text" v-model="value1" /&gt;
+			&lt;span :style="{marginLeft: '.5em'}"&gt;{{value1}}&lt;/span&gt;
 
 			&lt;h3&gt;Floating Label&lt;/h3&gt;
-			&lt;span class=&quot;p-float-label&quot;&gt;
-				&lt;InputText id="username" type=&quot;text&quot; v-model=&quot;value2&quot; /&gt;
-				&lt;label for=&quot;username&quot;&gt;Username&lt;/label&gt;
+			&lt;span class="p-float-label"&gt;
+				&lt;InputText id="username" type="text" v-model="value2" /&gt;
+				&lt;label for="username"&gt;Username&lt;/label&gt;
 			&lt;/span&gt;
 
 			&lt;h3&gt;Disabled&lt;/h3&gt;
-			&lt;InputText type=&quot;text&quot; v-model=&quot;value3&quot; disabled /&gt;
+			&lt;InputText type="text" v-model="value3" disabled /&gt;
 		&lt;/div&gt;
 	&lt;/div&gt;
 &lt;/template&gt;

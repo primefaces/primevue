@@ -6,22 +6,22 @@
 <template v-pre>
 &lt;template&gt;
 	&lt;div&gt;
-		&lt;div class=&quot;content-section introduction&quot;&gt;
-			&lt;div class=&quot;feature-intro&quot;&gt;
+		&lt;div class="content-section introduction"&gt;
+			&lt;div class="feature-intro"&gt;
 				&lt;h1&gt;Line Chart&lt;/h1&gt;
 				&lt;p&gt;A line chart or line graph is a type of chart which displays information as a series of data points called 'markers' connected by straight line segments.&lt;/p&gt;
 			&lt;/div&gt;
 		&lt;/div&gt;
 
-		&lt;div class=&quot;content-section implementation&quot;&gt;
-			&lt;h3 class=&quot;first&quot;&gt;Basic&lt;/h3&gt;
-			&lt;Chart type=&quot;line&quot; :data=&quot;basicData&quot; /&gt;
+		&lt;div class="content-section implementation"&gt;
+			&lt;h3 class="first"&gt;Basic&lt;/h3&gt;
+			&lt;Chart type="line" :data="basicData" /&gt;
 
 			&lt;h3&gt;Multi Axis&lt;/h3&gt;
-			&lt;Chart type=&quot;line&quot; :data=&quot;multiAxisData&quot; :options=&quot;multiAxisOptions&quot; /&gt;
+			&lt;Chart type="line" :data="multiAxisData" :options="multiAxisOptions" /&gt;
 
 			&lt;h3&gt;Line Styles&lt;/h3&gt;
-			&lt;Chart type=&quot;line&quot; :data=&quot;lineStylesData&quot; /&gt;
+			&lt;Chart type="line" :data="lineStylesData" /&gt;
 		&lt;/div&gt;
 	&lt;/div&gt;
 &lt;/template&gt;

@@ -10,19 +10,19 @@ import Rating from 'primevue/rating';
 				<h3>Getting Started</h3>
 				<p>Two-way value binding is defined using v-model.</p>
 <CodeHighlight>
-&lt;Rating v-model=&quot;val&quot; /&gt;
+&lt;Rating v-model="val" /&gt;
 </CodeHighlight>
 
 				<h3>Number of Stars</h3>
 				<p>Number of stars to display is defined with <i>stars</i> property, default is 5.</p>
 <CodeHighlight>
-&lt;Rating v-model=&quot;val&quot; :stars=&quot;7&quot;/&gt;
+&lt;Rating v-model="val" :stars="7"/&gt;
 </CodeHighlight>
 
 				<h3>Cancel</h3>
 				<p>A cancel icon is displayed to reset the value by default, set <i>cancel</i> as false to remove this option.</p>
 <CodeHighlight>
-&lt;Rating v-model=&quot;val&quot; :cancel=&quot;false&quot; /&gt;
+&lt;Rating v-model="val" :cancel="false" /&gt;
 </CodeHighlight>
 
 				<h3>Properties</h3>
@@ -141,25 +141,25 @@ import Rating from 'primevue/rating';
 <template v-pre>
 &lt;template&gt;
 	&lt;div&gt;
-		&lt;div class=&quot;content-section introduction&quot;&gt;
-			&lt;div class=&quot;feature-intro&quot;&gt;
+		&lt;div class="content-section introduction"&gt;
+			&lt;div class="feature-intro"&gt;
 				&lt;h1&gt;Rating&lt;/h1&gt;
 				&lt;p&gt;Rating component is a star based selection input.&lt;/p&gt;
 			&lt;/div&gt;
 		&lt;/div&gt;
 
-		&lt;div class=&quot;content-section implementation&quot;&gt;
-			&lt;h3 class=&quot;first&quot;&gt;Basic {{val1}}&lt;/h3&gt;
-			&lt;Rating v-model=&quot;val1&quot; /&gt;
+		&lt;div class="content-section implementation"&gt;
+			&lt;h3 class="first"&gt;Basic {{val1}}&lt;/h3&gt;
+			&lt;Rating v-model="val1" /&gt;
 
 			&lt;h3&gt;No Cancel {{val2}}&lt;/h3&gt;
-			&lt;Rating v-model=&quot;val2&quot; :cancel=&quot;false&quot; /&gt;
+			&lt;Rating v-model="val2" :cancel="false" /&gt;
 
 			&lt;h3&gt;ReadOnly&lt;/h3&gt;
-			&lt;Rating :value=&quot;5&quot; :readonly=&quot;true&quot; :stars=&quot;10&quot; :cancel=&quot;false&quot; /&gt;
+			&lt;Rating :value="5" :readonly="true" :stars="10" :cancel="false" /&gt;
 
 			&lt;h3&gt;Disabled&lt;/h3&gt;
-			&lt;Rating :value=&quot;8&quot; :disabled=&quot;true&quot; :stars=&quot;10&quot; /&gt;
+			&lt;Rating :value="8" :disabled="true" :stars="10" /&gt;
 		&lt;/div&gt;
 	&lt;/div&gt;
 &lt;/template&gt;

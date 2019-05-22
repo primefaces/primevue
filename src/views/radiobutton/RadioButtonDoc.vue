@@ -10,8 +10,8 @@ import RadioButton from 'primevue/radiobutton';
 				<h3>Getting Started</h3>
 				<p>Two-way value binding is defined using the standard v-model directive.</p>
 <CodeHighlight>
-&lt;RadioButton inputId=&quot;city1&quot; name=&quot;city&quot; value=&quot;Chicago&quot; v-model=&quot;city&quot; /&gt;
-&lt;RadioButton inputId=&quot;city2&quot; name=&quot;city&quot; value=&quot;Los Angeles&quot; v-model=&quot;city&quot; /&gt;
+&lt;RadioButton inputId="city1" name="city" value="Chicago" v-model="city" /&gt;
+&lt;RadioButton inputId="city2" name="city" value="Los Angeles" v-model="city" /&gt;
 </CodeHighlight>
 <CodeHighlight lang="js">
 export default {
@@ -139,43 +139,43 @@ export default {
 <template v-pre>
 &lt;template&gt;
 	&lt;div&gt;
-		&lt;div class=&quot;content-section introduction&quot;&gt;
-			&lt;div class=&quot;feature-intro&quot;&gt;
+		&lt;div class="content-section introduction"&gt;
+			&lt;div class="feature-intro"&gt;
 				&lt;h1&gt;RadioButton&lt;/h1&gt;
 				&lt;p&gt;RadioButton is an extension to standard radio button element with theming.&lt;/p&gt;
 			&lt;/div&gt;
 		&lt;/div&gt;
 
-		&lt;div class=&quot;content-section implementation&quot;&gt;
-			&lt;h3 class=&quot;first&quot;&gt;Basic&lt;/h3&gt;
-			&lt;div class=&quot;p-grid&quot;&gt;
-				&lt;div class=&quot;p-col-12&quot;&gt;
-					&lt;RadioButton id=&quot;city1&quot; name=&quot;city&quot; value=&quot;Chicago&quot; v-model=&quot;city&quot; /&gt;
-					&lt;label for=&quot;city1&quot; class=&quot;p-radiobutton-label&quot;&gt;Chicago&lt;/label&gt;
+		&lt;div class="content-section implementation"&gt;
+			&lt;h3 class="first"&gt;Basic&lt;/h3&gt;
+			&lt;div class="p-grid"&gt;
+				&lt;div class="p-col-12"&gt;
+					&lt;RadioButton id="city1" name="city" value="Chicago" v-model="city" /&gt;
+					&lt;label for="city1" class="p-radiobutton-label"&gt;Chicago&lt;/label&gt;
 				&lt;/div&gt;
-				&lt;div class=&quot;p-col-12&quot;&gt;
-					&lt;RadioButton id=&quot;city2&quot; name=&quot;city&quot; value=&quot;Los Angeles&quot; v-model=&quot;city&quot; /&gt;
-					&lt;label for=&quot;city2&quot; class=&quot;p-radiobutton-label&quot;&gt;Los Angeles&lt;/label&gt;
+				&lt;div class="p-col-12"&gt;
+					&lt;RadioButton id="city2" name="city" value="Los Angeles" v-model="city" /&gt;
+					&lt;label for="city2" class="p-radiobutton-label"&gt;Los Angeles&lt;/label&gt;
 				&lt;/div&gt;
-				&lt;div class=&quot;p-col-12&quot;&gt;
-					&lt;RadioButton id=&quot;city3&quot; name=&quot;city&quot; value=&quot;New York&quot; v-model=&quot;city&quot; /&gt;
-					&lt;label for=&quot;city3&quot; class=&quot;p-radiobutton-label&quot;&gt;New York&lt;/label&gt;
+				&lt;div class="p-col-12"&gt;
+					&lt;RadioButton id="city3" name="city" value="New York" v-model="city" /&gt;
+					&lt;label for="city3" class="p-radiobutton-label"&gt;New York&lt;/label&gt;
 				&lt;/div&gt;
-				&lt;div class=&quot;p-col-12&quot;&gt;
-					&lt;RadioButton id=&quot;city4&quot; name=&quot;city&quot; value=&quot;San Francisco&quot; v-model=&quot;city&quot; /&gt;
-					&lt;label for=&quot;city4&quot; class=&quot;p-radiobutton-label&quot;&gt;San Francisco&lt;/label&gt;
+				&lt;div class="p-col-12"&gt;
+					&lt;RadioButton id="city4" name="city" value="San Francisco" v-model="city" /&gt;
+					&lt;label for="city4" class="p-radiobutton-label"&gt;San Francisco&lt;/label&gt;
 				&lt;/div&gt;
 			&lt;/div&gt;
-			&lt;p&gt;Selected City: &lt;span style=&quot;font-weight: bold&quot;&gt;{{this.city}}&lt;/span&gt;&lt;/p&gt;
+			&lt;p&gt;Selected City: &lt;span style="font-weight: bold"&gt;{{this.city}}&lt;/span&gt;&lt;/p&gt;
 
 			&lt;h3&gt;Dynamic Values, Preselection, Value Binding and Disabled Option&lt;/h3&gt;
-			&lt;div class=&quot;p-grid&quot;&gt;
-				&lt;div v-for=&quot;theme of themes&quot; :key=&quot;theme.key&quot; class=&quot;p-col-12&quot;&gt;
-					&lt;RadioButton :id=&quot;theme.key&quot; name=&quot;theme&quot; :value=&quot;theme&quot; v-model=&quot;selectedTheme&quot; :disabled=&quot;theme.key === 'U'&quot; /&gt;
-					&lt;label :for=&quot;theme.key&quot; class=&quot;p-radiobutton-label&quot;&gt;{{theme.name}}&lt;/label&gt;
+			&lt;div class="p-grid"&gt;
+				&lt;div v-for="theme of themes" :key="theme.key" class="p-col-12"&gt;
+					&lt;RadioButton :id="theme.key" name="theme" :value="theme" v-model="selectedTheme" :disabled="theme.key === 'U'" /&gt;
+					&lt;label :for="theme.key" class="p-radiobutton-label"&gt;{{theme.name}}&lt;/label&gt;
 				&lt;/div&gt;
 			&lt;/div&gt;
-			&lt;p&gt;Selected Theme: &lt;span style=&quot;font-weight: bold&quot;&gt;{{this.selectedTheme}}&lt;/span&gt;&lt;/p&gt;
+			&lt;p&gt;Selected Theme: &lt;span style="font-weight: bold"&gt;{{this.selectedTheme}}&lt;/span&gt;&lt;/p&gt;
 		&lt;/div&gt;
 	&lt;/div&gt;
 &lt;/template&gt;

@@ -10,7 +10,7 @@ import InputSwitch from 'primevue/inputswitch';
 				<h3>Getting Started</h3>
 				<p>Two-way binding to a boolean property is defined using the standard v-model directive.</p>
 <CodeHighlight>
-&lt;InputSwitch v-model=&quot;checked&quot; /&gt;
+&lt;InputSwitch v-model="checked" /&gt;
 </CodeHighlight>
 
 <CodeHighlight lang="js">
@@ -155,21 +155,21 @@ export default {
 <template v-pre>
 &lt;template&gt;
 	&lt;div&gt;
-		&lt;div class=&quot;content-section introduction&quot;&gt;
-			&lt;div class=&quot;feature-intro&quot;&gt;
+		&lt;div class="content-section introduction"&gt;
+			&lt;div class="feature-intro"&gt;
 				&lt;h1&gt;InputSwitch&lt;/h1&gt;
 				&lt;p&gt;InputSwitch is used to select a boolean value.&lt;/p&gt;
 			&lt;/div&gt;
 		&lt;/div&gt;
 
-		&lt;div class=&quot;content-section implementation&quot;&gt;
-			&lt;h3 class=&quot;first&quot;&gt;Basic&lt;/h3&gt;
-			&lt;InputSwitch v-model=&quot;checked1&quot; /&gt;
-			&lt;p style=&quot;font-weight: bold&quot;&gt;{{checked1}}&lt;/p&gt;
+		&lt;div class="content-section implementation"&gt;
+			&lt;h3 class="first"&gt;Basic&lt;/h3&gt;
+			&lt;InputSwitch v-model="checked1" /&gt;
+			&lt;p style="font-weight: bold"&gt;{{checked1}}&lt;/p&gt;
 
 			&lt;h3&gt;Preselection&lt;/h3&gt;
-			&lt;InputSwitch v-model=&quot;checked2&quot; /&gt;
-			&lt;p style=&quot;font-weight: bold&quot;&gt;{{checked2}}&lt;/p&gt;
+			&lt;InputSwitch v-model="checked2" /&gt;
+			&lt;p style="font-weight: bold"&gt;{{checked2}}&lt;/p&gt;
 		&lt;/div&gt;
 	&lt;/div&gt;
 &lt;/template&gt;

@@ -10,7 +10,7 @@ import Listbox from 'primevue/listbox';
 				<h3>Getting Started</h3>
 				<p>Listbox requires a value to bind and a collection of arbitrary objects along with the <i>optionLabel</i> property to specify the label property of the option.</p>
 <CodeHighlight>
-&lt;Listbox v-model=&quot;selectedCity&quot; :options=&quot;cities&quot; optionLabel=&quot;name&quot; /&gt;
+&lt;Listbox v-model="selectedCity" :options="cities" optionLabel="name" /&gt;
 </CodeHighlight>
 
 <CodeHighlight lang="js">
@@ -33,18 +33,18 @@ data() {
 					using metaKey or toggled individually depending on the value of <i>metaKeySelection</i> property value which is true by default. On touch enabled
 					devices metaKeySelection is turned off automatically.</p>
 <CodeHighlight>
-&lt;Listbox v-model=&quot;selectedCity&quot; :options=&quot;cities&quot; optionLabel=&quot;name&quot; :multiple=&quot;true&quot;/&gt;
+&lt;Listbox v-model="selectedCity" :options="cities" optionLabel="name" :multiple="true"/&gt;
 </CodeHighlight>
 
 				<h3>Custom Content</h3>
 				<p>Label of an option is used as the display text of an item by default, for custom content support define an <i>option</i> template that gets the option instance as a parameter.</p>
 <CodeHighlight>
 <template v-pre>
-&lt;Listbox v-model=&quot;selectedCars&quot; :options=&quot;cars&quot; :multiple=&quot;true&quot; :filter=&quot;true&quot; optionLabel=&quot;brand&quot; listStyle=&quot;max-height:250px&quot; style=&quot;width:15em&quot;&gt;
-	&lt;template #option=&quot;slotProps&quot;&gt;
-		&lt;div class=&quot;p-clearfix&quot;&gt;
-			&lt;img :alt=&quot;slotProps.option.brand&quot; :src=&quot;'/demo/images/car/' + slotProps.option.brand + '.png'&quot; style=&quot;display:inline-block;margin:5px 0 0 5px;width:48px&quot; /&gt;
-			&lt;span style=&quot;float:right;margin:1.25em .5em 0 0&quot;&gt;{{slotProps.option.brand}}&lt;/span&gt;
+&lt;Listbox v-model="selectedCars" :options="cars" :multiple="true" :filter="true" optionLabel="brand" listStyle="max-height:250px" style="width:15em"&gt;
+	&lt;template #option="slotProps"&gt;
+		&lt;div class="p-clearfix"&gt;
+			&lt;img :alt="slotProps.option.brand" :src="'/demo/images/car/' + slotProps.option.brand + '.png'" style="display:inline-block;margin:5px 0 0 5px;width:48px" /&gt;
+			&lt;span style="float:right;margin:1.25em .5em 0 0"&gt;{{slotProps.option.brand}}&lt;/span&gt;
 		&lt;/div&gt;
 	&lt;/template&gt;
 &lt;/Listbox&gt;
@@ -54,7 +54,7 @@ data() {
 				<h3>Filter</h3>
 				<p>Filtering allows searching items in the list using an input field at the header. In order to use filtering, enable <i>filter</i> property.</p>
 <CodeHighlight>
-&lt;Listbox v-model=&quot;selectedCity&quot; :options=&quot;cities&quot; optionLabel=&quot;name&quot; :filter=&quot;true&quot;/&gt;
+&lt;Listbox v-model="selectedCity" :options="cities" optionLabel="name" :filter="true"/&gt;
 </CodeHighlight>
 
 				<h3>Properties</h3>
@@ -214,23 +214,23 @@ data() {
 <template v-pre>
 &lt;template&gt;
 	&lt;div&gt;
-		&lt;div class=&quot;content-section introduction&quot;&gt;
-			&lt;div class=&quot;feature-intro&quot;&gt;
+		&lt;div class="content-section introduction"&gt;
+			&lt;div class="feature-intro"&gt;
 				&lt;h1&gt;Listbox&lt;/h1&gt;
 				&lt;p&gt;Listbox is used to select one or more values from a list of items.&lt;/p&gt;
 			&lt;/div&gt;
 		&lt;/div&gt;
 
-		&lt;div class=&quot;content-section implementation&quot;&gt;
-			&lt;h3 class=&quot;first&quot;&gt;Single&lt;/h3&gt;
-			&lt;Listbox v-model=&quot;selectedCity&quot; :options=&quot;cities&quot; optionLabel=&quot;name&quot; /&gt;
+		&lt;div class="content-section implementation"&gt;
+			&lt;h3 class="first"&gt;Single&lt;/h3&gt;
+			&lt;Listbox v-model="selectedCity" :options="cities" optionLabel="name" /&gt;
 
 			&lt;h3&gt;Advanced with Templating, Filtering and Multiple Selection&lt;/h3&gt;
-			&lt;Listbox v-model=&quot;selectedCars&quot; :options=&quot;cars&quot; :multiple=&quot;true&quot; :filter=&quot;true&quot; optionLabel=&quot;brand&quot; listStyle=&quot;max-height:250px&quot; style=&quot;width:15em&quot;&gt;
-				&lt;template #option=&quot;slotProps&quot;&gt;
-					&lt;div class=&quot;p-clearfix&quot;&gt;
-						&lt;img :alt=&quot;slotProps.option.brand&quot; :src=&quot;'/demo/images/car/' + slotProps.option.brand + '.png'&quot; style=&quot;display:inline-block;margin:5px 0 0 5px;width:48px&quot; /&gt;
-						&lt;span style=&quot;float:right;margin:1.25em .5em 0 0&quot;&gt;{{slotProps.option.brand}}&lt;/span&gt;
+			&lt;Listbox v-model="selectedCars" :options="cars" :multiple="true" :filter="true" optionLabel="brand" listStyle="max-height:250px" style="width:15em"&gt;
+				&lt;template #option="slotProps"&gt;
+					&lt;div class="p-clearfix"&gt;
+						&lt;img :alt="slotProps.option.brand" :src="'/demo/images/car/' + slotProps.option.brand + '.png'" style="display:inline-block;margin:5px 0 0 5px;width:48px" /&gt;
+						&lt;span style="float:right;margin:1.25em .5em 0 0"&gt;{{slotProps.option.brand}}&lt;/span&gt;
 					&lt;/div&gt;
 				&lt;/template&gt;
 			&lt;/Listbox&gt;

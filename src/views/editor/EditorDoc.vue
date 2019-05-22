@@ -10,18 +10,18 @@ import Editor from 'primevue/editor';
 				<h3>Getting Started</h3>
 				<p>A model can be bound using the standard v-model directive.</p>
 <CodeHighlight>
-&lt;Editor v-model=&quot;value&quot; editorStyle=&quot;height: 320px&quot;/&gt;
+&lt;Editor v-model="value" editorStyle="height: 320px"/&gt;
 </CodeHighlight>
 
 				<h3>Toolbar</h3>
 				<p>Editor provides a default toolbar with common options, to customize it define your elements inside the header element. Refer to <a href="http://quilljs.com/docs/modules/toolbar/">Quill documentation</a> for available controls.</p>
 <CodeHighlight>
-&lt;Editor v-model=&quot;value&quot; editorStyle=&quot;height: 320px&quot;&gt;
-	&lt;template slot=&quot;toolbar&quot;&gt;
-		&lt;span class=&quot;ql-formats&quot;&gt;
-			&lt;button class=&quot;ql-bold&quot;&gt;&lt;/button&gt;
-			&lt;button class=&quot;ql-italic&quot;&gt;&lt;/button&gt;
-			&lt;button class=&quot;ql-underline&quot;&gt;&lt;/button&gt;
+&lt;Editor v-model="value" editorStyle="height: 320px"&gt;
+	&lt;template slot="toolbar"&gt;
+		&lt;span class="ql-formats"&gt;
+			&lt;button class="ql-bold"&gt;&lt;/button&gt;
+			&lt;button class="ql-italic"&gt;&lt;/button&gt;
+			&lt;button class="ql-underline"&gt;&lt;/button&gt;
 		&lt;/span&gt;
 	&lt;/template&gt;
 &lt;/Editor&gt;
@@ -146,24 +146,24 @@ npm install quill --save
 <template v-pre>
 &lt;template&gt;
 	&lt;div&gt;
-		&lt;div class=&quot;content-section introduction&quot;&gt;
-			&lt;div class=&quot;feature-intro&quot;&gt;
+		&lt;div class="content-section introduction"&gt;
+			&lt;div class="feature-intro"&gt;
 				&lt;h1&gt;Editor&lt;/h1&gt;
 				&lt;p&gt;Editor is rich text editor component based on Quill.&lt;/p&gt;
 			&lt;/div&gt;
 		&lt;/div&gt;
 
-		&lt;div class=&quot;content-section implementation&quot;&gt;
-			&lt;h3 class=&quot;first&quot;&gt;Default&lt;/h3&gt;
-			&lt;Editor v-model=&quot;value1&quot; editorStyle=&quot;height: 320px&quot;/&gt;
+		&lt;div class="content-section implementation"&gt;
+			&lt;h3 class="first"&gt;Default&lt;/h3&gt;
+			&lt;Editor v-model="value1" editorStyle="height: 320px"/&gt;
 
 			&lt;h3&gt;Customized&lt;/h3&gt;
-			&lt;Editor v-model=&quot;value2&quot; editorStyle=&quot;height: 320px&quot;&gt;
-				&lt;template slot=&quot;toolbar&quot;&gt;
-				&lt;span class=&quot;ql-formats&quot;&gt;
-					&lt;button class=&quot;ql-bold&quot;&gt;&lt;/button&gt;
-					&lt;button class=&quot;ql-italic&quot;&gt;&lt;/button&gt;
-					&lt;button class=&quot;ql-underline&quot;&gt;&lt;/button&gt;
+			&lt;Editor v-model="value2" editorStyle="height: 320px"&gt;
+				&lt;template slot="toolbar"&gt;
+				&lt;span class="ql-formats"&gt;
+					&lt;button class="ql-bold"&gt;&lt;/button&gt;
+					&lt;button class="ql-italic"&gt;&lt;/button&gt;
+					&lt;button class="ql-underline"&gt;&lt;/button&gt;
 				&lt;/span&gt;
 				&lt;/template&gt;
 			&lt;/Editor&gt;

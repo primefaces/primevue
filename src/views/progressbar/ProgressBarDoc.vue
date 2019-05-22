@@ -10,7 +10,7 @@ import ProgressBar from 'primevue/progressbar';
 				<h3>Getting Started</h3>
 				<p>ProgressBar has two modes; "determinate" (default) and "indeterminate". In determinate mode, a value between 0 and 100 is required to display the progress.</p>
 <CodeHighlight>
-&lt;ProgressBar :value=&quot;value&quot; /&gt;
+&lt;ProgressBar :value="value" /&gt;
 </CodeHighlight>
 <CodeHighlight lang="js">
 data() {
@@ -22,7 +22,7 @@ data() {
 
 				<p>Indeterminate is simplly enabled using <i>mode</i> property.</p>
 <CodeHighlight>
-&lt;ProgressBar mode=&quot;indeterminate&quot;/&gt;
+&lt;ProgressBar mode="indeterminate"/&gt;
 </CodeHighlight>
 
 				<h3>Properties</h3>
@@ -106,22 +106,22 @@ data() {
 <template v-pre>
 &lt;template&gt;
 	&lt;div&gt;
-		&lt;div class=&quot;content-section introduction&quot;&gt;
-			&lt;div class=&quot;feature-intro&quot;&gt;
+		&lt;div class="content-section introduction"&gt;
+			&lt;div class="feature-intro"&gt;
 				&lt;h1&gt;ProgressBar&lt;/h1&gt;
 				&lt;p&gt;ProgressBar is a process status indicator.&lt;/p&gt;
 			&lt;/div&gt;
 		&lt;/div&gt;
 
-		&lt;div class=&quot;content-section implementation&quot;&gt;
-			&lt;h3 class=&quot;first&quot;&gt;Dynamic&lt;/h3&gt;
-			&lt;ProgressBar :value=&quot;value1&quot; /&gt;
+		&lt;div class="content-section implementation"&gt;
+			&lt;h3 class="first"&gt;Dynamic&lt;/h3&gt;
+			&lt;ProgressBar :value="value1" /&gt;
 
 			&lt;h3&gt;Static&lt;/h3&gt;
-			&lt;ProgressBar :value=&quot;value2&quot; :showValue=&quot;false&quot; /&gt;
+			&lt;ProgressBar :value="value2" :showValue="false" /&gt;
 
 			&lt;h3&gt;Indeterminate&lt;/h3&gt;
-			&lt;ProgressBar mode=&quot;indeterminate&quot; style=&quot;height: .5em&quot; /&gt;
+			&lt;ProgressBar mode="indeterminate" style="height: .5em" /&gt;
 		&lt;/div&gt;
 	&lt;/div&gt;
 &lt;/template&gt;

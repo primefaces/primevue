@@ -10,19 +10,19 @@ import FileUpload from 'primevue/fileupload';
 				<h3>Getting Started</h3>
 				<p>FileUpload requires a <i>url</i> property as the upload target and a <i>name</i> to identify the files at backend.</p>
 <CodeHighlight>
-&lt;FileUpload name=&quot;demo[]&quot; url=&quot;./upload&quot; /&gt;
+&lt;FileUpload name="demo[]" url="./upload" /&gt;
 </CodeHighlight>
 
 				<h3>Multiple Uploads</h3>
 				<p>Only one file can be selected at a time by default, to allow selecting multiple files at once enable <i>multiple</i> option.</p>
 <CodeHighlight>
-&lt;FileUpload name=&quot;demo[]&quot; url=&quot;./upload&quot; :multiple=&quot;true&quot; /&gt;
+&lt;FileUpload name="demo[]" url="./upload" :multiple="true" /&gt;
 </CodeHighlight>
 
 				<h3>Basic UI</h3>
 				<p>FileUpload basic mode provides a simpler UI as an alternative to advanced mode.</p>
 <CodeHighlight>
-&lt;FileUpload mode=&quot;basic&quot; name=&quot;demo[]&quot; url=&quot;./upload&quot; /&gt;
+&lt;FileUpload mode="basic" name="demo[]" url="./upload" /&gt;
 </CodeHighlight>
 
 				<h3>DragDrop</h3>
@@ -31,19 +31,19 @@ import FileUpload from 'primevue/fileupload';
 				<h3>Auto Uploads</h3>
 				<p>When <i>auto</i> property is enabled, upload begins as soon as file selection is completed or a file is dropped on the drop area.</p>
 <CodeHighlight>
-&lt;FileUpload mode=&quot;basic&quot; name=&quot;demo[]&quot; url=&quot;./upload&quot; :auto=&quot;true&quot; /&gt;
+&lt;FileUpload mode="basic" name="demo[]" url="./upload" :auto="true" /&gt;
 </CodeHighlight>
 
 				<h3>File Types</h3>
 				<p>Selectable file types can be restricted with <i>accept</i> property, example below only allows images to be uploaded. Read more about other possible values <a href="https://www.w3schools.com/tags/att_input_accept.asp"> here</a>.</p>
 <CodeHighlight>
-&lt;FileUpload mode=&quot;basic&quot; name=&quot;demo[]&quot; url=&quot;./upload&quot; accept=&quot;image/*&quot; /&gt;
+&lt;FileUpload mode="basic" name="demo[]" url="./upload" accept="image/*" /&gt;
 </CodeHighlight>
 
 				<h3>File Size</h3>
 				<p>Maximium file size can be restricted using <i>maxFileSize</i> property defined in bytes.</p>
 <CodeHighlight>
-&lt;FileUpload name=&quot;demo[]&quot; url=&quot;./upload&quot; :maxFileSize=&quot;1000000&quot; /&gt;
+&lt;FileUpload name="demo[]" url="./upload" :maxFileSize="1000000" /&gt;
 </CodeHighlight>
 
 				<p>In order to customize the default messages use <i>invalidFileSizeMessage</i> option. In messages, {0} placeholder refers to the filename and in detail message, the file size.</p>
@@ -253,22 +253,22 @@ import FileUpload from 'primevue/fileupload';
 <template v-pre>
 &lt;template&gt;
 	&lt;div&gt;
-		&lt;div class=&quot;content-section introduction&quot;&gt;
-			&lt;div class=&quot;feature-intro&quot;&gt;
+		&lt;div class="content-section introduction"&gt;
+			&lt;div class="feature-intro"&gt;
 				&lt;h1&gt;FileUpload&lt;/h1&gt;
 				&lt;p&gt;FileUpload is an advanced uploader with dragdrop support, multi file uploads, auto uploading, progress tracking and validations.&lt;/p&gt;
 			&lt;/div&gt;
 		&lt;/div&gt;
 
-		&lt;div class=&quot;content-section implementation&quot;&gt;
+		&lt;div class="content-section implementation"&gt;
 			&lt;h3&gt;Advanced&lt;/h3&gt;
-			&lt;FileUpload name=&quot;demo[]&quot; url=&quot;http://192.168.1.110:4000/upload&quot; @upload=&quot;onUpload&quot; :multiple=&quot;true&quot; accept=&quot;image/*&quot; :maxFileSize=&quot;1000000&quot; /&gt;
+			&lt;FileUpload name="demo[]" url="http://192.168.1.110:4000/upload" @upload="onUpload" :multiple="true" accept="image/*" :maxFileSize="1000000" /&gt;
 
 			&lt;h3&gt;Basic&lt;/h3&gt;
-			&lt;FileUpload mode=&quot;basic&quot; name=&quot;demo[]&quot; url=&quot;http://192.168.1.110:4000/upload&quot; accept=&quot;image/*&quot; :maxFileSize=&quot;1000000&quot; @upload=&quot;onUpload&quot; /&gt;
+			&lt;FileUpload mode="basic" name="demo[]" url="http://192.168.1.110:4000/upload" accept="image/*" :maxFileSize="1000000" @upload="onUpload" /&gt;
 
 			&lt;h3&gt;Basic with Auto&lt;/h3&gt;
-			&lt;FileUpload mode=&quot;basic&quot; name=&quot;demo[]&quot; url=&quot;http://192.168.1.110:4000/upload&quot; accept=&quot;image/*&quot; :maxFileSize=&quot;1000000&quot; @upload=&quot;onUpload&quot; :auto=&quot;true&quot; chooseLabel=&quot;Browse&quot; /&gt;
+			&lt;FileUpload mode="basic" name="demo[]" url="http://192.168.1.110:4000/upload" accept="image/*" :maxFileSize="1000000" @upload="onUpload" :auto="true" chooseLabel="Browse" /&gt;
 		&lt;/div&gt;
 	&lt;/div&gt;
 &lt;/template&gt;

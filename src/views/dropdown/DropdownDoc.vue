@@ -10,7 +10,7 @@ import Dropdown from 'primevue/dropdown';
 				<h3>Getting Started</h3>
 				<p>Dropdown requires a value to bind and a collection of arbitrary objects along with the <i>optionLabel</i> property to specify the label property of the option.</p>
 <CodeHighlight>
-&lt;Dropdown v-model=&quot;selectedCity&quot; :options=&quot;cities&quot; optionLabel=&quot;name&quot; placeholder=&quot;Select a City&quot; /&gt;
+&lt;Dropdown v-model="selectedCity" :options="cities" optionLabel="name" placeholder="Select a City" /&gt;
 </CodeHighlight>
 
 <CodeHighlight lang="js">
@@ -35,17 +35,17 @@ data() {
 				<p>Options can be filtered using an input field in the overlay by enabling the <i>filter</i> property.</p>
 
 <CodeHighlight>
-&lt;Dropdown v-model=&quot;selectedCar&quot; :options=&quot;cars&quot; optionLabel=&quot;brand&quot; placeholder=&quot;Select a Car&quot; :filter=&quot;true&quot; filterPlaceholder=&quot;Find Car&quot;/&gt;
+&lt;Dropdown v-model="selectedCar" :options="cars" optionLabel="brand" placeholder="Select a Car" :filter="true" filterPlaceholder="Find Car"/&gt;
 </CodeHighlight>
 
 				<h3>Custom Content</h3>
 				<p>Label of an option is used as the display text of an item by default, for custom content support define an <i>option</i> template that gets the option instance as a parameter.</p>
 <CodeHighlight>
 <template v-pre>
-&lt;Dropdown v-model=&quot;selectedCar&quot; :options=&quot;cars&quot; optionLabel=&quot;brand&quot; placeholder=&quot;Select a Car&quot; :filter=&quot;true&quot; :showClear=&quot;true&quot;&gt;
-	&lt;template #option=&quot;slotProps&quot;&gt;
-		&lt;div class=&quot;p-clearfix p-dropdown-car-option&quot;&gt;
-			&lt;img :alt=&quot;slotProps.option.brand&quot; :src=&quot;'/demo/images/car/' + slotProps.option.brand + '.png'&quot; /&gt;
+&lt;Dropdown v-model="selectedCar" :options="cars" optionLabel="brand" placeholder="Select a Car" :filter="true" :showClear="true"&gt;
+	&lt;template #option="slotProps"&gt;
+		&lt;div class="p-clearfix p-dropdown-car-option"&gt;
+			&lt;img :alt="slotProps.option.brand" :src="'/demo/images/car/' + slotProps.option.brand + '.png'" /&gt;
 			&lt;span&gt;{{slotProps.option.brand}}&lt;/span&gt;
 		&lt;/div&gt;
 	&lt;/template&gt;
@@ -247,25 +247,25 @@ data() {
 <template v-pre>
 &lt;template&gt;
 	&lt;div&gt;
-		&lt;div class=&quot;content-section introduction&quot;&gt;
-			&lt;div class=&quot;feature-intro&quot;&gt;
+		&lt;div class="content-section introduction"&gt;
+			&lt;div class="feature-intro"&gt;
 				&lt;h1&gt;Dropdown&lt;/h1&gt;
 				&lt;p&gt;Dropdown is used to select an item from a list of options.&lt;/p&gt;
 			&lt;/div&gt;
 		&lt;/div&gt;
 
-		&lt;div class=&quot;content-section implementation&quot;&gt;
-			&lt;h3 class=&quot;first&quot;&gt;Basic&lt;/h3&gt;
-			&lt;Dropdown v-model=&quot;selectedCity1&quot; :options=&quot;cities&quot; optionLabel=&quot;name&quot; placeholder=&quot;Select a City&quot; /&gt;
+		&lt;div class="content-section implementation"&gt;
+			&lt;h3 class="first"&gt;Basic&lt;/h3&gt;
+			&lt;Dropdown v-model="selectedCity1" :options="cities" optionLabel="name" placeholder="Select a City" /&gt;
 
 			&lt;h3&gt;Editable&lt;/h3&gt;
-			&lt;Dropdown v-model=&quot;selectedCity2&quot; :options=&quot;cities&quot; optionLabel=&quot;name&quot; :editable=&quot;true&quot;/&gt;
+			&lt;Dropdown v-model="selectedCity2" :options="cities" optionLabel="name" :editable="true"/&gt;
 
 			&lt;h3&gt;Advanced with Templating, Filtering and Clear Icon&lt;/h3&gt;
-			&lt;Dropdown v-model=&quot;selectedCar&quot; :options=&quot;cars&quot; optionLabel=&quot;brand&quot; placeholder=&quot;Select a Car&quot; :filter=&quot;true&quot; :showClear=&quot;true&quot;&gt;
-				&lt;template #option=&quot;slotProps&quot;&gt;
-					&lt;div class=&quot;p-clearfix p-dropdown-car-option&quot;&gt;
-						&lt;img :alt=&quot;slotProps.option.brand&quot; :src=&quot;'/demo/images/car/' + slotProps.option.brand + '.png'&quot; /&gt;
+			&lt;Dropdown v-model="selectedCar" :options="cars" optionLabel="brand" placeholder="Select a Car" :filter="true" :showClear="true"&gt;
+				&lt;template #option="slotProps"&gt;
+					&lt;div class="p-clearfix p-dropdown-car-option"&gt;
+						&lt;img :alt="slotProps.option.brand" :src="'/demo/images/car/' + slotProps.option.brand + '.png'" /&gt;
 						&lt;span&gt;{{slotProps.option.brand}}&lt;/span&gt;
 					&lt;/div&gt;
 				&lt;/template&gt;

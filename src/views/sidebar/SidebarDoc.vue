@@ -10,17 +10,17 @@ import Sidebar from 'primevue/sidebar';
 				<h3>Getting Started</h3>
 				<p>Sidebar is used as a container and visibility is controlled with <i>visible</i> property.</p>
 <CodeHighlight>
-&lt;Sidebar :visible.sync=&quot;visibleLeft&quot; :baseZIndex=&quot;1000&quot;&gt;
+&lt;Sidebar :visible.sync="visibleLeft" :baseZIndex="1000"&gt;
 	Content
 &lt;/Sidebar&gt;
 
-&lt;Button icon=&quot;pi pi-arrow-right&quot; @click=&quot;visibleLeft = true&quot; /&gt;
+&lt;Button icon="pi pi-arrow-right" @click="visibleLeft = true" /&gt;
 </CodeHighlight>
 
 				<h3>Position</h3>
 				<p>Sidebar can either be located on the left (default), right, top or bottom of the screen depending on the <i>position</i> property.</p>
 <CodeHighlight>
-&lt;Sidebar :visible.sync=&quot;visibleRight&quot; :baseZIndex=&quot;1000&quot; position=&quot;right&quot;&gt;
+&lt;Sidebar :visible.sync="visibleRight" :baseZIndex="1000" position="right"&gt;
 	Content
 &lt;/Sidebar&gt;
 </CodeHighlight>
@@ -28,15 +28,15 @@ import Sidebar from 'primevue/sidebar';
 				<h3>Size</h3>
 				<p>Sidebar size can be changed using a fixed value or using one of the three predefined ones.</p>
 <CodeHighlight>
-&lt;Sidebar :visible.sync=&quot;visibleLeft&quot; class=&quot;p-sidebar-sm&quot;&gt;&lt;/Sidebar&gt;
-&lt;Sidebar :visible.sync=&quot;visibleLeft&quot; class=&quot;p-sidebar-md&quot;&gt;&lt;/Sidebar&gt;
-&lt;Sidebar :visible.sync=&quot;visibleLeft&quot; class=&quot;p-sidebar-lg&quot;&gt;&lt;/Sidebar&gt;
+&lt;Sidebar :visible.sync="visibleLeft" class="p-sidebar-sm"&gt;&lt;/Sidebar&gt;
+&lt;Sidebar :visible.sync="visibleLeft" class="p-sidebar-md"&gt;&lt;/Sidebar&gt;
+&lt;Sidebar :visible.sync="visibleLeft" class="p-sidebar-lg"&gt;&lt;/Sidebar&gt;
 </CodeHighlight>
 
 				<h3>Full Screen</h3>
 				<p>Full screen mode allows the sidebar to cover whole screen.</p>
 <CodeHighlight>
-&lt;Sidebar :visible.sync=&quot;visibleFull&quot; position=&quot;full&quot;&gt;
+&lt;Sidebar :visible.sync="visibleFull" position="full"&gt;
 	Content
 &lt;/Sidebar&gt;
 </CodeHighlight>
@@ -200,49 +200,49 @@ import Sidebar from 'primevue/sidebar';
 <template v-pre>
 &lt;template&gt;
 	&lt;div&gt;
-		&lt;div class=&quot;content-section introduction&quot;&gt;
-			&lt;div class=&quot;feature-intro&quot;&gt;
+		&lt;div class="content-section introduction"&gt;
+			&lt;div class="feature-intro"&gt;
 				&lt;h1&gt;Sidebar&lt;/h1&gt;
 				&lt;p&gt;Sidebar is a panel component displayed as an overlay at the edges of the screen.&lt;/p&gt;
 			&lt;/div&gt;
 		&lt;/div&gt;
 
-		&lt;div class=&quot;content-section implementation&quot;&gt;
-			&lt;Sidebar :visible.sync=&quot;visibleLeft&quot; :baseZIndex=&quot;1000&quot;&gt;
-				&lt;h1 style=&quot;fontWeight:normal&quot;&gt;Left Sidebar&lt;/h1&gt;
-				&lt;Button type=&quot;button&quot; @click=&quot;visibleLeft = false&quot; label=&quot;Save&quot; class=&quot;p-button-success&quot; style=&quot;margin-right:.25em&quot; /&gt;
-				&lt;Button type=&quot;button&quot; @click=&quot;visibleLeft = false&quot; label=&quot;Cancel&quot; class=&quot;p-button-secondary&quot;/&gt;
+		&lt;div class="content-section implementation"&gt;
+			&lt;Sidebar :visible.sync="visibleLeft" :baseZIndex="1000"&gt;
+				&lt;h1 style="fontWeight:normal"&gt;Left Sidebar&lt;/h1&gt;
+				&lt;Button type="button" @click="visibleLeft = false" label="Save" class="p-button-success" style="margin-right:.25em" /&gt;
+				&lt;Button type="button" @click="visibleLeft = false" label="Cancel" class="p-button-secondary"/&gt;
 			&lt;/Sidebar&gt;
 
-			&lt;Sidebar :visible.sync=&quot;visibleRight&quot; :baseZIndex=&quot;1000&quot; position=&quot;right&quot;&gt;
-				&lt;h1 style=&quot;fontWeight:normal&quot;&gt;Right Sidebar&lt;/h1&gt;
-				&lt;Button type=&quot;button&quot; @click=&quot;visibleRight = false&quot; label=&quot;Save&quot; class=&quot;p-button-success&quot; style=&quot;margin-right:.25em&quot; /&gt;
-				&lt;Button type=&quot;button&quot; @click=&quot;visibleRight = false&quot; label=&quot;Cancel&quot; class=&quot;p-button-secondary&quot;/&gt;
+			&lt;Sidebar :visible.sync="visibleRight" :baseZIndex="1000" position="right"&gt;
+				&lt;h1 style="fontWeight:normal"&gt;Right Sidebar&lt;/h1&gt;
+				&lt;Button type="button" @click="visibleRight = false" label="Save" class="p-button-success" style="margin-right:.25em" /&gt;
+				&lt;Button type="button" @click="visibleRight = false" label="Cancel" class="p-button-secondary"/&gt;
 			&lt;/Sidebar&gt;
 
-			&lt;Sidebar :visible.sync=&quot;visibleTop&quot; :baseZIndex=&quot;1000&quot; position=&quot;top&quot;&gt;
-				&lt;h1 style=&quot;fontWeight:normal&quot;&gt;Top Sidebar&lt;/h1&gt;
-				&lt;Button type=&quot;button&quot; @click=&quot;visibleTop = false&quot; label=&quot;Save&quot; class=&quot;p-button-success&quot; style=&quot;margin-right:.25em&quot; /&gt;
-				&lt;Button type=&quot;button&quot; @click=&quot;visibleTop = false&quot; label=&quot;Cancel&quot; class=&quot;p-button-secondary&quot;/&gt;
+			&lt;Sidebar :visible.sync="visibleTop" :baseZIndex="1000" position="top"&gt;
+				&lt;h1 style="fontWeight:normal"&gt;Top Sidebar&lt;/h1&gt;
+				&lt;Button type="button" @click="visibleTop = false" label="Save" class="p-button-success" style="margin-right:.25em" /&gt;
+				&lt;Button type="button" @click="visibleTop = false" label="Cancel" class="p-button-secondary"/&gt;
 			&lt;/Sidebar&gt;
 
-			&lt;Sidebar :visible.sync=&quot;visibleBottom&quot; :baseZIndex=&quot;1000&quot; position=&quot;bottom&quot;&gt;
-				&lt;h1 style=&quot;fontWeight:normal&quot;&gt;Bottom Sidebar&lt;/h1&gt;
-				&lt;Button type=&quot;button&quot; @click=&quot;visibleBottom = false&quot; label=&quot;Save&quot; class=&quot;p-button-success&quot; style=&quot;margin-right:.25em&quot; /&gt;
-				&lt;Button type=&quot;button&quot; @click=&quot;visibleBottom = false&quot; label=&quot;Cancel&quot; class=&quot;p-button-secondary&quot;/&gt;
+			&lt;Sidebar :visible.sync="visibleBottom" :baseZIndex="1000" position="bottom"&gt;
+				&lt;h1 style="fontWeight:normal"&gt;Bottom Sidebar&lt;/h1&gt;
+				&lt;Button type="button" @click="visibleBottom = false" label="Save" class="p-button-success" style="margin-right:.25em" /&gt;
+				&lt;Button type="button" @click="visibleBottom = false" label="Cancel" class="p-button-secondary"/&gt;
 			&lt;/Sidebar&gt;
 
-			&lt;Sidebar :visible.sync=&quot;visibleFull&quot; :baseZIndex=&quot;1000&quot; position=&quot;full&quot;&gt;
-				&lt;h1 style=&quot;fontWeight:normal&quot;&gt;Full Screen&lt;/h1&gt;
-				&lt;Button type=&quot;button&quot; @click=&quot;visibleFull = false&quot; label=&quot;Save&quot; class=&quot;p-button-success&quot; style=&quot;margin-right:.25em&quot; /&gt;
-				&lt;Button type=&quot;button&quot; @click=&quot;visibleFull = false&quot; label=&quot;Cancel&quot; class=&quot;p-button-secondary&quot;/&gt;
+			&lt;Sidebar :visible.sync="visibleFull" :baseZIndex="1000" position="full"&gt;
+				&lt;h1 style="fontWeight:normal"&gt;Full Screen&lt;/h1&gt;
+				&lt;Button type="button" @click="visibleFull = false" label="Save" class="p-button-success" style="margin-right:.25em" /&gt;
+				&lt;Button type="button" @click="visibleFull = false" label="Cancel" class="p-button-secondary"/&gt;
 			&lt;/Sidebar&gt;
 
-			&lt;Button icon=&quot;pi pi-arrow-right&quot; @click=&quot;visibleLeft = true&quot; style=&quot;margin-right:.25em&quot; /&gt;
-			&lt;Button icon=&quot;pi pi-arrow-left&quot; @click=&quot;visibleRight = true&quot; style=&quot;margin-right:.25em&quot; /&gt;
-			&lt;Button icon=&quot;pi pi-arrow-down&quot; @click=&quot;visibleTop = true&quot; style=&quot;margin-right:.25em&quot; /&gt;
-			&lt;Button icon=&quot;pi pi-arrow-up&quot; @click=&quot;visibleBottom = true&quot; style=&quot;margin-right:.25em&quot; /&gt;
-			&lt;Button icon=&quot;pi pi-th-large&quot; @click=&quot;visibleFull = true&quot;  /&gt;
+			&lt;Button icon="pi pi-arrow-right" @click="visibleLeft = true" style="margin-right:.25em" /&gt;
+			&lt;Button icon="pi pi-arrow-left" @click="visibleRight = true" style="margin-right:.25em" /&gt;
+			&lt;Button icon="pi pi-arrow-down" @click="visibleTop = true" style="margin-right:.25em" /&gt;
+			&lt;Button icon="pi pi-arrow-up" @click="visibleBottom = true" style="margin-right:.25em" /&gt;
+			&lt;Button icon="pi pi-th-large" @click="visibleFull = true"  /&gt;
 		&lt;/div&gt;
 	&lt;/div&gt;
 &lt;/template&gt;

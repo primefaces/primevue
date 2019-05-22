@@ -10,7 +10,7 @@ import SelectButton from 'primevue/selectbutton';
 				<h3>Getting Started</h3>
 				<p>SelectButton requires a value to bind and a collection of arbitrary objects along with the <i>optionLabel</i> property to specify the label property of the option.</p>
 <CodeHighlight>
-&lt;SelectButton v-model=&quot;selectedCity&quot; :options=&quot;cities&quot; optionLabel=&quot;name&quot; /&gt;
+&lt;SelectButton v-model="selectedCity" :options="cities" optionLabel="name" /&gt;
 </CodeHighlight>
 
 <CodeHighlight lang="js">
@@ -31,18 +31,18 @@ export default {
 				<h3>Multiple</h3>
 				<p>SelectButton allows selecting only one item by default and setting <i>multiple</i> option enables choosing more than one item. In multiple case, model property should be an array.</p>
 <CodeHighlight>
-&lt;SelectButton v-model=&quot;selectedCity&quot; :options=&quot;cities&quot; optionLabel=&quot;brand&quot; :multiple=&quot;true&quot; /&gt;
+&lt;SelectButton v-model="selectedCity" :options="cities" optionLabel="brand" :multiple="true" /&gt;
 </CodeHighlight>
 
 				<h3>Templating</h3>
 				<p>Label of an option is used as the display text of an item by default, for custom content support define an <i>option</i> template that gets the option instance as a parameter.</p>
 <CodeHighlight>
 <template v-pre>
-&lt;SelectButton v-model=&quot;selectedCar&quot; :options=&quot;cars&quot; optionLabel=&quot;brand&quot;&gt;
-	&lt;template #option=&quot;slotProps&quot;&gt;
-		&lt;div style=&quot;text-align: center; padding: 1em; width: 125px&quot;&gt;
-			&lt;img :alt=&quot;slotProps.option.brand&quot; :src=&quot;'/demo/images/car/' + slotProps.option.brand + '.png'&quot; style=&quot;width:48px&quot; /&gt;
-			&lt;div style=&quot;margin-top: 1em&quot;&gt;{{slotProps.option.brand}}&lt;/div&gt;
+&lt;SelectButton v-model="selectedCar" :options="cars" optionLabel="brand"&gt;
+	&lt;template #option="slotProps"&gt;
+		&lt;div style="text-align: center; padding: 1em; width: 125px"&gt;
+			&lt;img :alt="slotProps.option.brand" :src="'/demo/images/car/' + slotProps.option.brand + '.png'" style="width:48px" /&gt;
+			&lt;div style="margin-top: 1em"&gt;{{slotProps.option.brand}}&lt;/div&gt;
 		&lt;/div&gt;
 	&lt;/template&gt;
 &lt;/SelectButton&gt;
@@ -156,32 +156,32 @@ export default {
 <template v-pre>
 &lt;template&gt;
 	&lt;div&gt;
-		&lt;div class=&quot;content-section introduction&quot;&gt;
-			&lt;div class=&quot;feature-intro&quot;&gt;
+		&lt;div class="content-section introduction"&gt;
+			&lt;div class="feature-intro"&gt;
 				&lt;h1&gt;SelectButton&lt;/h1&gt;
 				&lt;p&gt;SelectButton is a form component to choose a value from a list of options using button elements.&lt;/p&gt;
 			&lt;/div&gt;
 		&lt;/div&gt;
 
-		&lt;div class=&quot;content-section implementation&quot;&gt;
-			&lt;h3 class=&quot;first&quot;&gt;Single&lt;/h3&gt;
-			&lt;SelectButton v-model=&quot;selectedCity&quot; :options=&quot;cities&quot; optionLabel=&quot;name&quot; /&gt;
-			&lt;p&gt;Selected City: &lt;span style=&quot;font-weight: bold&quot;&gt;{{selectedCity}}&lt;/span&gt;&lt;/p&gt;
+		&lt;div class="content-section implementation"&gt;
+			&lt;h3 class="first"&gt;Single&lt;/h3&gt;
+			&lt;SelectButton v-model="selectedCity" :options="cities" optionLabel="name" /&gt;
+			&lt;p&gt;Selected City: &lt;span style="font-weight: bold"&gt;{{selectedCity}}&lt;/span&gt;&lt;/p&gt;
 
 			&lt;h3&gt;Multiple&lt;/h3&gt;
-			&lt;SelectButton v-model=&quot;selectedCars&quot; :options=&quot;cars&quot; optionLabel=&quot;brand&quot; :multiple=&quot;true&quot; /&gt;
-			&lt;p&gt;Selected Cars: &lt;span style=&quot;font-weight: bold&quot;&gt;{{selectedCars}}&lt;/span&gt;&lt;/p&gt;
+			&lt;SelectButton v-model="selectedCars" :options="cars" optionLabel="brand" :multiple="true" /&gt;
+			&lt;p&gt;Selected Cars: &lt;span style="font-weight: bold"&gt;{{selectedCars}}&lt;/span&gt;&lt;/p&gt;
 
 			&lt;h3&gt;Custom Content&lt;/h3&gt;
-			&lt;SelectButton v-model=&quot;selectedCar&quot; :options=&quot;cars&quot; optionLabel=&quot;brand&quot;&gt;
-				&lt;template #option=&quot;slotProps&quot;&gt;
-					&lt;div style=&quot;text-align: center; padding: 1em; width: 125px&quot;&gt;
-						&lt;img :alt=&quot;slotProps.option.brand&quot; :src=&quot;'/demo/images/car/' + slotProps.option.brand + '.png'&quot; style=&quot;width:48px&quot; /&gt;
-						&lt;div style=&quot;margin-top: 1em&quot;&gt;{{slotProps.option.brand}}&lt;/div&gt;
+			&lt;SelectButton v-model="selectedCar" :options="cars" optionLabel="brand"&gt;
+				&lt;template #option="slotProps"&gt;
+					&lt;div style="text-align: center; padding: 1em; width: 125px"&gt;
+						&lt;img :alt="slotProps.option.brand" :src="'/demo/images/car/' + slotProps.option.brand + '.png'" style="width:48px" /&gt;
+						&lt;div style="margin-top: 1em"&gt;{{slotProps.option.brand}}&lt;/div&gt;
 					&lt;/div&gt;
 				&lt;/template&gt;
 			&lt;/SelectButton&gt;
-			&lt;p&gt;Selected Car: &lt;span style=&quot;font-weight: bold&quot;&gt;{{selectedCar}}&lt;/span&gt;&lt;/p&gt;
+			&lt;p&gt;Selected Car: &lt;span style="font-weight: bold"&gt;{{selectedCar}}&lt;/span&gt;&lt;/p&gt;
 		&lt;/div&gt;
 	&lt;/div&gt;
 &lt;/template&gt;

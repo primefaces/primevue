@@ -10,7 +10,7 @@ import TriStateCheckbox from 'primevue/tristatecheckbox';
 				<h3>Getting Started</h3>
 				<p>A model can be bound using the standard v-model directive.</p>
 <CodeHighlight>
-&lt;TriStateCheckbox v-model=&quot;value&quot; /&gt;
+&lt;TriStateCheckbox v-model="value" /&gt;
 </CodeHighlight>
 
 				<h3>Properties</h3>
@@ -119,16 +119,16 @@ import TriStateCheckbox from 'primevue/tristatecheckbox';
 <template v-pre>
 &lt;template&gt;
 	&lt;div&gt;
-		&lt;div class=&quot;content-section introduction&quot;&gt;
-			&lt;div class=&quot;feature-intro&quot;&gt;
+		&lt;div class="content-section introduction"&gt;
+			&lt;div class="feature-intro"&gt;
 				&lt;h1&gt;TriStateCheckbox&lt;/h1&gt;
-				&lt;p&gt;TriStateCheckbox is used to select either &quot;true&quot;, &quot;false&quot; or &quot;null&quot; as the value.&lt;/p&gt;
+				&lt;p&gt;TriStateCheckbox is used to select either "true", "false" or "null" as the value.&lt;/p&gt;
 			&lt;/div&gt;
 		&lt;/div&gt;
 
-		&lt;div class=&quot;content-section implementation&quot;&gt;
-			&lt;TriStateCheckbox v-model=&quot;value&quot; /&gt;
-			&lt;p&gt;Value: &lt;span style=&quot;font-weight: bold&quot;&gt;{{value == null ? 'null' : value}}&lt;/span&gt;&lt;/p&gt;
+		&lt;div class="content-section implementation"&gt;
+			&lt;TriStateCheckbox v-model="value" /&gt;
+			&lt;p&gt;Value: &lt;span style="font-weight: bold"&gt;{{value == null ? 'null' : value}}&lt;/span&gt;&lt;/p&gt;
 		&lt;/div&gt;
 	&lt;/div&gt;
 &lt;/template&gt;

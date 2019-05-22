@@ -10,14 +10,14 @@ import Slider from 'primevue/slider';
 				<h3>Getting Started</h3>
 				<p>Two-way binding is defined using the standard v-model directive.</p>
 <CodeHighlight>
-&lt;Slider v-model=&quot;value&quot; /&gt;
+&lt;Slider v-model="value" /&gt;
 </CodeHighlight>
 
 				<h3>Range</h3>
 				<p>Range slider provides two handles to define two values. Enable <i>range</i> property and bind an array to implement a range slider.</p>
 
 <CodeHighlight>
-&lt;Slider v-model=&quot;value&quot; :range=&quot;true&quot; /&gt;
+&lt;Slider v-model="value" :range="true" /&gt;
 </CodeHighlight>
 
 <CodeHighlight lang="js">
@@ -33,19 +33,19 @@ export default {
 				<h3>Orientation</h3>
 				<p>Default layout of slider is horizontal, use <i>orientation</i> property for the alternative vertical mode.</p>
 <CodeHighlight>
-&lt;Slider v-model=&quot;value&quot; orientation=&quot;vertical&quot; /&gt;
+&lt;Slider v-model="value" orientation="vertical" /&gt;
 </CodeHighlight>
 
 				<h3>Step</h3>
 				<p>Step factor is 1 by default and can be customized with <i>step</i> option.</p>
 <CodeHighlight>
-&lt;Slider v-model=&quot;value&quot; :step=&quot;20&quot; /&gt;
+&lt;Slider v-model="value" :step="20" /&gt;
 </CodeHighlight>
 
 				<h3>Min-Max</h3>
 				<p>Boundaries are specified with min and max attributes.</p>
 <CodeHighlight>
-&lt;Slider v-model=&quot;value&quot; :step=&quot;20&quot; :min=&quot;50&quot; :max=&quot;200&quot; /&gt;
+&lt;Slider v-model="value" :step="20" :min="50" :max="200" /&gt;
 </CodeHighlight>
 
 				<h3>Properties</h3>
@@ -175,29 +175,29 @@ export default {
 <template v-pre>
 &lt;template&gt;
 	&lt;div&gt;
-		&lt;div class=&quot;content-section introduction&quot;&gt;
-			&lt;div class=&quot;feature-intro&quot;&gt;
+		&lt;div class="content-section introduction"&gt;
+			&lt;div class="feature-intro"&gt;
 				&lt;h1&gt;Slider&lt;/h1&gt;
 				&lt;p&gt;Slider is an input component to provide a numerical input.&lt;/p&gt;
 			&lt;/div&gt;
 		&lt;/div&gt;
 
-		&lt;div class=&quot;content-section implementation&quot;&gt;
-			&lt;h3 class=&quot;first&quot;&gt;Basic: {{value1}}&lt;/h3&gt;
-			&lt;Slider v-model=&quot;value1&quot; /&gt;
+		&lt;div class="content-section implementation"&gt;
+			&lt;h3 class="first"&gt;Basic: {{value1}}&lt;/h3&gt;
+			&lt;Slider v-model="value1" /&gt;
 
 			&lt;h3&gt;Input: {{value2}}&lt;/h3&gt;
-			&lt;InputText v-model.number=&quot;value2&quot; /&gt;
-			&lt;Slider v-model=&quot;value2&quot; /&gt;
+			&lt;InputText v-model.number="value2" /&gt;
+			&lt;Slider v-model="value2" /&gt;
 
 			&lt;h3&gt;Step: {{value3}}&lt;/h3&gt;
-			&lt;Slider v-model=&quot;value3&quot; :step=&quot;20&quot; /&gt;
+			&lt;Slider v-model="value3" :step="20" /&gt;
 
 			&lt;h3&gt;Range: {{value4}}&lt;/h3&gt;
-			&lt;Slider v-model=&quot;value4&quot; :range=&quot;true&quot; /&gt;
+			&lt;Slider v-model="value4" :range="true" /&gt;
 
 			&lt;h3&gt;Vertical: {{value5}}&lt;/h3&gt;
-			&lt;Slider v-model=&quot;value5&quot; orientation=&quot;vertical&quot; /&gt;
+			&lt;Slider v-model="value5" orientation="vertical" /&gt;
 		&lt;/div&gt;
 	&lt;/div&gt;
 &lt;/template&gt;

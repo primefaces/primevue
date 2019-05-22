@@ -10,7 +10,7 @@ import Password from 'primevue/password';
 				<h3>Getting Started</h3>
 				<p>A model can be bound using the standard v-model directive.</p>
 <CodeHighlight>
-&lt;Password v-model=&quot;value&quot; /&gt;
+&lt;Password v-model="value" /&gt;
 </CodeHighlight>
 
 				<h3>Properties</h3>
@@ -98,15 +98,15 @@ import Password from 'primevue/password';
 <CodeHighlight>
 &lt;template&gt;
 	&lt;div&gt;
-		&lt;div class=&quot;content-section introduction&quot;&gt;
-			&lt;div class=&quot;feature-intro&quot;&gt;
+		&lt;div class="content-section introduction"&gt;
+			&lt;div class="feature-intro"&gt;
 				&lt;h1&gt;Password&lt;/h1&gt;
 				&lt;p&gt;Password displays strength indicator for password fields.&lt;/p&gt;
 			&lt;/div&gt;
 		&lt;/div&gt;
 
-		&lt;div class=&quot;content-section implementation&quot;&gt;
-			&lt;Password v-model=&quot;value&quot; /&gt;
+		&lt;div class="content-section implementation"&gt;
+			&lt;Password v-model="value" /&gt;
 		&lt;/div&gt;
 	&lt;/div&gt;
 &lt;/template&gt;

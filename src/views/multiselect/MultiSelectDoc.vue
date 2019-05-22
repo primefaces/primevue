@@ -10,7 +10,7 @@ import MultiSelect from 'primevue/multiselect';
 				<h3>Getting Started</h3>
 				<p>MultiSelect requires a value to bind and a collection of arbitrary objects along with the <i>optionLabel</i> property to specify the label property of the option.</p>
 <CodeHighlight>
-&lt;MultiSelect v-model=&quot;selectedCars&quot; :options=&quot;cars&quot; optionLabel=&quot;brand&quot; placeholder=&quot;Select Brands&quot; /&gt;
+&lt;MultiSelect v-model="selectedCars" :options="cars" optionLabel="brand" placeholder="Select Brands" /&gt;
 </CodeHighlight>
 
 <CodeHighlight lang="js">
@@ -37,19 +37,19 @@ data() {
 				<p>In addition the <i>value</i> template can be used to customize the selected values display instead of the default comma separated list.</p>
 <CodeHighlight>
 <template v-pre>
-&lt;MultiSelect v-model=&quot;selectedCars2&quot; :options=&quot;cars&quot; optionLabel=&quot;brand&quot; placeholder=&quot;Select a Car&quot;&gt;
-	&lt;template #value=&quot;slotProps&quot;&gt;
-		&lt;div class=&quot;p-multiselect-car-token&quot; v-for=&quot;option of slotProps.value&quot; :key=&quot;option.brand&quot;&gt;
-			&lt;img :alt=&quot;option.brand&quot; :src=&quot;'/demo/images/car/' + option.brand + '.png'&quot; /&gt;
+&lt;MultiSelect v-model="selectedCars2" :options="cars" optionLabel="brand" placeholder="Select a Car"&gt;
+	&lt;template #value="slotProps"&gt;
+		&lt;div class="p-multiselect-car-token" v-for="option of slotProps.value" :key="option.brand"&gt;
+			&lt;img :alt="option.brand" :src="'/demo/images/car/' + option.brand + '.png'" /&gt;
 			&lt;span&gt;{{option.brand}}&lt;/span&gt;
 		&lt;/div&gt;
-		&lt;div class=&quot;p-multiselect-empty-car-token&quot; v-if=&quot;!slotProps.value || slotProps.value.length === 0&quot;&gt;
+		&lt;div class="p-multiselect-empty-car-token" v-if="!slotProps.value || slotProps.value.length === 0"&gt;
 			Select Brands
 		&lt;/div&gt;
 	&lt;/template&gt;
-	&lt;template #option=&quot;slotProps&quot;&gt;
-		&lt;div class=&quot;p-multiselect-car-option&quot;&gt;
-			&lt;img :alt=&quot;slotProps.option.brand&quot; :src=&quot;'/demo/images/car/' + slotProps.option.brand + '.png'&quot; /&gt;
+	&lt;template #option="slotProps"&gt;
+		&lt;div class="p-multiselect-car-option"&gt;
+			&lt;img :alt="slotProps.option.brand" :src="'/demo/images/car/' + slotProps.option.brand + '.png'" /&gt;
 			&lt;span&gt;{{slotProps.option.brand}}&lt;/span&gt;
 		&lt;/div&gt;
 	&lt;/template&gt;
@@ -60,7 +60,7 @@ data() {
 				<h3>Filter</h3>
 				<p>Filtering allows searching items in the list using an input field at the header. In order to use filtering, enable the <i>filter</i> property.</p>
 <CodeHighlight>
-&lt;MultiSelect v-model=&quot;selectedCars&quot; :options=&quot;cars&quot; :filter=&quot;true&quot; optionLabel=&quot;brand&quot; placeholder=&quot;Select Brands&quot;/&gt;
+&lt;MultiSelect v-model="selectedCars" :options="cars" :filter="true" optionLabel="brand" placeholder="Select Brands"/&gt;
 </CodeHighlight>
 
 				<h3>Properties</h3>
@@ -237,31 +237,31 @@ data() {
 <template v-pre>
 &lt;template&gt;
 	&lt;div&gt;
-		&lt;div class=&quot;content-section introduction&quot;&gt;
-			&lt;div class=&quot;feature-intro&quot;&gt;
+		&lt;div class="content-section introduction"&gt;
+			&lt;div class="feature-intro"&gt;
 				&lt;h1&gt;MultiSelect&lt;/h1&gt;
 				&lt;p&gt;MultiSelect is used to multiple values from a list of options.&lt;/p&gt;
 			&lt;/div&gt;
 		&lt;/div&gt;
 
-		&lt;div class=&quot;content-section implementation&quot;&gt;
-			&lt;h3 class=&quot;first&quot;&gt;Basic&lt;/h3&gt;
-			&lt;MultiSelect v-model=&quot;selectedCars1&quot; :options=&quot;cars&quot; optionLabel=&quot;brand&quot; placeholder=&quot;Select Brands&quot; /&gt;
+		&lt;div class="content-section implementation"&gt;
+			&lt;h3 class="first"&gt;Basic&lt;/h3&gt;
+			&lt;MultiSelect v-model="selectedCars1" :options="cars" optionLabel="brand" placeholder="Select Brands" /&gt;
 
 			&lt;h3&gt;Advanced with Templating and Filtering&lt;/h3&gt;
-			&lt;MultiSelect v-model=&quot;selectedCars2&quot; :options=&quot;cars&quot; optionLabel=&quot;brand&quot; placeholder=&quot;Select a Car&quot; :filter=&quot;true&quot;&gt;
-				&lt;template #value=&quot;slotProps&quot;&gt;
-					&lt;div class=&quot;p-multiselect-car-token&quot; v-for=&quot;option of slotProps.value&quot; :key=&quot;option.brand&quot;&gt;
-						&lt;img :alt=&quot;option.brand&quot; :src=&quot;'/demo/images/car/' + option.brand + '.png'&quot; /&gt;
+			&lt;MultiSelect v-model="selectedCars2" :options="cars" optionLabel="brand" placeholder="Select a Car" :filter="true"&gt;
+				&lt;template #value="slotProps"&gt;
+					&lt;div class="p-multiselect-car-token" v-for="option of slotProps.value" :key="option.brand"&gt;
+						&lt;img :alt="option.brand" :src="'/demo/images/car/' + option.brand + '.png'" /&gt;
 						&lt;span&gt;{{option.brand}}&lt;/span&gt;
 					&lt;/div&gt;
-					&lt;div class=&quot;p-multiselect-empty-car-token&quot; v-if=&quot;!slotProps.value || slotProps.value.length === 0&quot;&gt;
+					&lt;div class="p-multiselect-empty-car-token" v-if="!slotProps.value || slotProps.value.length === 0"&gt;
 						Select Brands
 					&lt;/div&gt;
 				&lt;/template&gt;
-				&lt;template #option=&quot;slotProps&quot;&gt;
-					&lt;div class=&quot;p-multiselect-car-option&quot;&gt;
-						&lt;img :alt=&quot;slotProps.option.brand&quot; :src=&quot;'/demo/images/car/' + slotProps.option.brand + '.png'&quot; /&gt;
+				&lt;template #option="slotProps"&gt;
+					&lt;div class="p-multiselect-car-option"&gt;
+						&lt;img :alt="slotProps.option.brand" :src="'/demo/images/car/' + slotProps.option.brand + '.png'" /&gt;
 						&lt;span&gt;{{slotProps.option.brand}}&lt;/span&gt;
 					&lt;/div&gt;
 				&lt;/template&gt;

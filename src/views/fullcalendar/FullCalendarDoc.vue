@@ -23,7 +23,7 @@ npm install @fullcalendar/interaction --save
 
 				<p>Events should be an array and defined using the events property.</p>
 <CodeHighlight>
-&lt;FullCalendar :events=&quot;events&quot; /&gt;
+&lt;FullCalendar :events="events" /&gt;
 </CodeHighlight>
 
 <CodeHighlight lang="js">
@@ -201,15 +201,15 @@ export default {
 <template v-pre>
 &lt;template&gt;
 	&lt;div&gt;
-		&lt;div class=&quot;content-section introduction&quot;&gt;
-			&lt;div class=&quot;feature-intro&quot;&gt;
+		&lt;div class="content-section introduction"&gt;
+			&lt;div class="feature-intro"&gt;
 				&lt;h1&gt;FullCalendar&lt;/h1&gt;
-				&lt;p&gt;An event calendar based on the &lt;a href=&quot;https://fullcalendar.io/&quot;&gt;FullCalendar&lt;/a&gt; library.&lt;/p&gt;
+				&lt;p&gt;An event calendar based on the &lt;a href="https://fullcalendar.io/"&gt;FullCalendar&lt;/a&gt; library.&lt;/p&gt;
 			&lt;/div&gt;
 		&lt;/div&gt;
 
-		&lt;div class=&quot;content-section implementation&quot;&gt;
-			&lt;FullCalendar :events=&quot;events&quot; :options=&quot;options&quot; /&gt;
+		&lt;div class="content-section implementation"&gt;
+			&lt;FullCalendar :events="events" :options="options" /&gt;
 		&lt;/div&gt;
 	&lt;/div&gt;
 &lt;/template&gt;

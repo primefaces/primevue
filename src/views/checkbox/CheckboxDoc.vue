@@ -10,16 +10,16 @@ import Checkbox from 'primevue/checkbox';
 				<h3>Getting Started</h3>
 				<p>Checkbox can either be used in multiple selection with other checkboxes or as a single checkbox to provide a boolean value.</p>
 <CodeHighlight>
-&lt;Checkbox v-model=&quot;checked&quot; :binary="true" /&gt;
+&lt;Checkbox v-model="checked" :binary="true" /&gt;
 </CodeHighlight>
 
 				<h3>Multiple Values</h3>
 				<p>Multiple mode is enabled by default, v-model property refers to an array to bind the selected values.</p>
 <CodeHighlight>
-&lt;Checkbox id=&quot;city1&quot; inputId=&quot;city1&quot; name=&quot;city&quot; value=&quot;Chicago&quot; v-model=&quot;cities&quot; /&gt;
-&lt;Checkbox id=&quot;city2&quot; inputId=&quot;city2&quot; name=&quot;city&quot; value=&quot;Los Angeles&quot; v-model=&quot;cities&quot; /&gt;
-&lt;Checkbox id=&quot;city3&quot; inputId=&quot;city3&quot; name=&quot;city&quot; value=&quot;New York&quot; v-model=&quot;cities&quot; /&gt;
-&lt;Checkbox id=&quot;city4&quot; inputId=&quot;city4&quot; name=&quot;city&quot; value=&quot;San Francisco&quot; v-model=&quot;cities&quot; /&gt;
+&lt;Checkbox id="city1" inputId="city1" name="city" value="Chicago" v-model="cities" /&gt;
+&lt;Checkbox id="city2" inputId="city2" name="city" value="Los Angeles" v-model="cities" /&gt;
+&lt;Checkbox id="city3" inputId="city3" name="city" value="New York" v-model="cities" /&gt;
+&lt;Checkbox id="city4" inputId="city4" name="city" value="San Francisco" v-model="cities" /&gt;
 </CodeHighlight>
 
 <CodeHighlight lang="js">
@@ -147,47 +147,47 @@ export default {
 <template v-pre>
 &lt;template&gt;
 	&lt;div&gt;
-		&lt;div class=&quot;content-section introduction&quot;&gt;
-			&lt;div class=&quot;feature-intro&quot;&gt;
+		&lt;div class="content-section introduction"&gt;
+			&lt;div class="feature-intro"&gt;
 				&lt;h1&gt;Checkbox&lt;/h1&gt;
 				&lt;p&gt;Checkbox is an extension to standard checkbox element with theming.&lt;/p&gt;
 			&lt;/div&gt;
 		&lt;/div&gt;
 
-		&lt;div class=&quot;content-section implementation&quot;&gt;
-			&lt;h3 class=&quot;first&quot;&gt;Basic&lt;/h3&gt;
-			&lt;Checkbox id=&quot;binary&quot; v-model=&quot;checked&quot; :binary="true"/&gt;
-			&lt;label for=&quot;binary&quot; class=&quot;p-checkbox-label&quot; style=&quot;font-weight: bold&quot;&gt;{{checked}}&lt;/label&gt;
+		&lt;div class="content-section implementation"&gt;
+			&lt;h3 class="first"&gt;Basic&lt;/h3&gt;
+			&lt;Checkbox id="binary" v-model="checked" :binary="true"/&gt;
+			&lt;label for="binary" class="p-checkbox-label" style="font-weight: bold"&gt;{{checked}}&lt;/label&gt;
 
 			&lt;h3&gt;Multiple&lt;/h3&gt;
-			&lt;div class=&quot;p-grid&quot;&gt;
-				&lt;div class=&quot;p-col-12&quot;&gt;
-					&lt;Checkbox id=&quot;city1&quot; name=&quot;city&quot; value=&quot;Chicago&quot; v-model=&quot;cities&quot; /&gt;
-					&lt;label for=&quot;city1&quot; class=&quot;p-checkbox-label&quot;&gt;Chicago&lt;/label&gt;
+			&lt;div class="p-grid"&gt;
+				&lt;div class="p-col-12"&gt;
+					&lt;Checkbox id="city1" name="city" value="Chicago" v-model="cities" /&gt;
+					&lt;label for="city1" class="p-checkbox-label"&gt;Chicago&lt;/label&gt;
 				&lt;/div&gt;
-				&lt;div class=&quot;p-col-12&quot;&gt;
-					&lt;Checkbox id=&quot;city2&quot; name=&quot;city&quot; value=&quot;Los Angeles&quot; v-model=&quot;cities&quot; /&gt;
-					&lt;label for=&quot;city2&quot; class=&quot;p-checkbox-label&quot;&gt;Los Angeles&lt;/label&gt;
+				&lt;div class="p-col-12"&gt;
+					&lt;Checkbox id="city2" name="city" value="Los Angeles" v-model="cities" /&gt;
+					&lt;label for="city2" class="p-checkbox-label"&gt;Los Angeles&lt;/label&gt;
 				&lt;/div&gt;
-				&lt;div class=&quot;p-col-12&quot;&gt;
-					&lt;Checkbox id=&quot;city3&quot; name=&quot;city&quot; value=&quot;New York&quot; v-model=&quot;cities&quot; /&gt;
-					&lt;label for=&quot;city3&quot; class=&quot;p-checkbox-label&quot;&gt;New York&lt;/label&gt;
+				&lt;div class="p-col-12"&gt;
+					&lt;Checkbox id="city3" name="city" value="New York" v-model="cities" /&gt;
+					&lt;label for="city3" class="p-checkbox-label"&gt;New York&lt;/label&gt;
 				&lt;/div&gt;
-				&lt;div class=&quot;p-col-12&quot;&gt;
-					&lt;Checkbox id=&quot;city4&quot; name=&quot;city&quot; value=&quot;San Francisco&quot; v-model=&quot;cities&quot; /&gt;
-					&lt;label for=&quot;city4&quot; class=&quot;p-checkbox-label&quot;&gt;San Francisco&lt;/label&gt;
+				&lt;div class="p-col-12"&gt;
+					&lt;Checkbox id="city4" name="city" value="San Francisco" v-model="cities" /&gt;
+					&lt;label for="city4" class="p-checkbox-label"&gt;San Francisco&lt;/label&gt;
 				&lt;/div&gt;
 			&lt;/div&gt;
-			&lt;p&gt;Selected Cities : &lt;span style=&quot;font-weight: bold&quot;&gt;{{cities}}&lt;/span&gt;&lt;/p&gt;
+			&lt;p&gt;Selected Cities : &lt;span style="font-weight: bold"&gt;{{cities}}&lt;/span&gt;&lt;/p&gt;
 
 			&lt;h3&gt;Dynamic Values, Preselection, Value Binding and Disabled Option&lt;/h3&gt;
-			&lt;div class=&quot;p-grid&quot;&gt;
-				&lt;div v-for=&quot;theme of themes&quot; :key=&quot;theme.key&quot; class=&quot;p-col-12&quot;&gt;
-					&lt;Checkbox :id=&quot;theme.key&quot; name=&quot;theme&quot; :value=&quot;theme&quot; v-model=&quot;selectedThemes&quot; :disabled=&quot;theme.key === 'U'&quot;/&gt;
-					&lt;label :for=&quot;theme.key&quot; class=&quot;p-checkbox-label&quot;&gt;{{theme.name}}&lt;/label&gt;
+			&lt;div class="p-grid"&gt;
+				&lt;div v-for="theme of themes" :key="theme.key" class="p-col-12"&gt;
+					&lt;Checkbox :id="theme.key" name="theme" :value="theme" v-model="selectedThemes" :disabled="theme.key === 'U'"/&gt;
+					&lt;label :for="theme.key" class="p-checkbox-label"&gt;{{theme.name}}&lt;/label&gt;
 				&lt;/div&gt;
 			&lt;/div&gt;
-			&lt;p&gt;Selected Themes: &lt;span style=&quot;font-weight: bold&quot;&gt;{{this.selectedThemes}}&lt;/span&gt;&lt;/p&gt;
+			&lt;p&gt;Selected Themes: &lt;span style="font-weight: bold"&gt;{{this.selectedThemes}}&lt;/span&gt;&lt;/p&gt;
 		&lt;/div&gt;
 	&lt;/div&gt;
 &lt;/template&gt;

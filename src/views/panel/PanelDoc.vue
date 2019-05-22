@@ -10,7 +10,7 @@ import Panel from 'primevue/panel';
 				<h3>Getting Started</h3>
 				<p>Panel is a container component that accepts content as its children.</p>
 <CodeHighlight>
-&lt;Panel header=&quot;Godfather I&quot;&gt;
+&lt;Panel header="Godfather I"&gt;
 	The story begins as Don Vito Corleone, the head of a New York Mafia family, oversees his daughter's wedding.
 	His beloved son Michael has just come home from the war, but does not intend to become part of his father's business.
 	Through Michael's life the nature of the family business becomes clear. The business of the family is just like the head of the family,
@@ -21,7 +21,7 @@ import Panel from 'primevue/panel';
 				<h3>Toggleable</h3>
 				<p>Content of the panel can be expanded and collapsed using <i>toggleable</i> option.</p>
 <CodeHighlight>
-&lt;Panel header=&quot;Godfather I&quot; :toggleable=&quot;true&quot;&gt;
+&lt;Panel header="Godfather I" :toggleable="true"&gt;
 	The story begins as Don Vito Corleone, the head of a New York Mafia family, oversees his daughter's wedding.
 	His beloved son Michael has just come home from the war, but does not intend to become part of his father's business.
 	Through Michael's life the nature of the family business becomes clear. The business of the family is just like the head of the family,
@@ -132,16 +132,16 @@ import Panel from 'primevue/panel';
 <template v-pre>
 &lt;template&gt;
 	&lt;div&gt;
-		&lt;div class=&quot;content-section introduction&quot;&gt;
-			&lt;div class=&quot;feature-intro&quot;&gt;
+		&lt;div class="content-section introduction"&gt;
+			&lt;div class="feature-intro"&gt;
 				&lt;h1&gt;Panel&lt;/h1&gt;
 				&lt;p&gt;Panel is a grouping component with the optional content toggle feature.&lt;/p&gt;
 			&lt;/div&gt;
 		&lt;/div&gt;
 
-		&lt;div class=&quot;content-section implementation&quot;&gt;
-			&lt;h3 class=&quot;first&quot;&gt;Regular&lt;/h3&gt;
-			&lt;Panel header=&quot;Godfather I&quot;&gt;
+		&lt;div class="content-section implementation"&gt;
+			&lt;h3 class="first"&gt;Regular&lt;/h3&gt;
+			&lt;Panel header="Godfather I"&gt;
 				The story begins as Don Vito Corleone, the head of a New York Mafia family, oversees his daughter's wedding.
 				His beloved son Michael has just come home from the war, but does not intend to become part of his father's business.
 				Through Michael's life the nature of the family business becomes clear. The business of the family is just like the head of the family,
@@ -149,7 +149,7 @@ import Panel from 'primevue/panel';
 			&lt;/Panel&gt;
 
 			&lt;h3&gt;Toggleable&lt;/h3&gt;
-			&lt;Panel header=&quot;Godfather I&quot; :toggleable=&quot;true&quot;&gt;
+			&lt;Panel header="Godfather I" :toggleable="true"&gt;
 				The story begins as Don Vito Corleone, the head of a New York Mafia family, oversees his daughter's wedding.
 				His beloved son Michael has just come home from the war, but does not intend to become part of his father's business.
 				Through Michael's life the nature of the family business becomes clear. The business of the family is just like the head of the family,

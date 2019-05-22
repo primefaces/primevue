@@ -10,7 +10,7 @@ import Dialog from 'primevue/dialog';
 				<h3>Getting Started</h3>
 				<p>Dialog is used as a container and visibility is managed with <i>visible</i> property, use the sync operator for two-way binding.</p>
 <CodeHighlight>
-&lt;Dialog header=&quot;Godfather I&quot; :visible.sync=&quot;display&quot; &gt;
+&lt;Dialog header="Godfather I" :visible.sync="display" &gt;
 	The story begins as Don Vito Corleone, the head of a New York Mafia family, oversees his daughter's wedding.
 	His beloved son Michael has just come home from the war, but does not intend to become part of his father's business.
 	Through Michael's life the nature of the family business becomes clear. The business of the family is just like the head of the family,
@@ -30,11 +30,11 @@ export default {
 				<h3>Header and Footer</h3>
 				<p>Header and Footer sections are defined using properties with the same name that accept simple strings or slots for custom content.</p>
 <CodeHighlight>
-&lt;Dialog header=&quot;Godfather I&quot; :visible.sync=&quot;display&quot;&gt;
+&lt;Dialog header="Godfather I" :visible.sync="display"&gt;
 	Content
-	&lt;template slot=&quot;footer&quot;&gt;
-		&lt;Button label=&quot;Yes&quot; icon=&quot;pi pi-check&quot; /&gt;
-		&lt;Button label=&quot;No&quot; icon=&quot;pi pi-times&quot; class=&quot;p-button-secondary&quot;/&gt;
+	&lt;template slot="footer"&gt;
+		&lt;Button label="Yes" icon="pi pi-check" /&gt;
+		&lt;Button label="No" icon="pi pi-times" class="p-button-secondary"/&gt;
 	&lt;/template&gt;
 &lt;/Dialog&gt;
 </CodeHighlight>
@@ -194,23 +194,23 @@ export default {
 <template v-pre>
 &lt;template&gt;
 	&lt;div&gt;
-		&lt;div class=&quot;content-section introduction&quot;&gt;
-			&lt;div class=&quot;feature-intro&quot;&gt;
+		&lt;div class="content-section introduction"&gt;
+			&lt;div class="feature-intro"&gt;
 				&lt;h1&gt;Dialog&lt;/h1&gt;
 				&lt;p&gt;Dialog is a container to display content in an overlay window.&lt;/p&gt;
 			&lt;/div&gt;
 		&lt;/div&gt;
 
-		&lt;div class=&quot;content-section implementation&quot;&gt;
-			&lt;Button label=&quot;Show&quot; icon=&quot;pi pi-external-link&quot; @click=&quot;open&quot; /&gt;
-			&lt;Dialog header=&quot;Godfather I&quot; :visible.sync=&quot;display&quot; :style=&quot;{width: '50vw'}&quot; :modal=&quot;true&quot;&gt;
+		&lt;div class="content-section implementation"&gt;
+			&lt;Button label="Show" icon="pi pi-external-link" @click="open" /&gt;
+			&lt;Dialog header="Godfather I" :visible.sync="display" :style="{width: '50vw'}" :modal="true"&gt;
 				The story begins as Don Vito Corleone, the head of a New York Mafia family, oversees his daughter's wedding.
 				His beloved son Michael has just come home from the war, but does not intend to become part of his father's business.
 				Through Michael's life the nature of the family business becomes clear. The business of the family is just like the head of the family,
 				kind and benevolent to those who give respect, but given to ruthless violence whenever anything stands against the good of the family.
-				&lt;template slot=&quot;footer&quot;&gt;
-					&lt;Button label=&quot;Yes&quot; icon=&quot;pi pi-check&quot; @click=&quot;close&quot; /&gt;
-					&lt;Button label=&quot;No&quot; icon=&quot;pi pi-times&quot; @click=&quot;close&quot; class=&quot;p-button-secondary&quot;/&gt;
+				&lt;template slot="footer"&gt;
+					&lt;Button label="Yes" icon="pi pi-check" @click="close" /&gt;
+					&lt;Button label="No" icon="pi pi-times" @click="close" class="p-button-secondary"/&gt;
 				&lt;/template&gt;
 			&lt;/Dialog&gt;
 		&lt;/div&gt;

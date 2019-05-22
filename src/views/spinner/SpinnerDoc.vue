@@ -10,19 +10,19 @@ import Spinner from 'primevue/spinner';
 				<h3>Getting Started</h3>
 				<p>Two-way value binding is defined using standard v-model directive.</p>
 <CodeHighlight>
-&lt;Spinner v-model=&quot;value&quot; /&gt;
+&lt;Spinner v-model="value" /&gt;
 </CodeHighlight>
 
 				<h3>Min-Max</h3>
 				<p>Boundaries are specified with <i>min</i> and <i>max</i> attributes.</p>
 <CodeHighlight>
-&lt;Spinner v-model=&quot;value&quot; :min=&quot;0&quot; :max=&quot;100&quot; /&gt;
+&lt;Spinner v-model="value" :min="0" :max="100" /&gt;
 </CodeHighlight>
 
 				<h3>Step</h3>
 				<p>Step factor is 1 by default and can be customized with <i>step</i> option.</p>
 <CodeHighlight>
-&lt;Spinner v-model=&quot;value&quot; :step=&quot;0.25&quot; /&gt;
+&lt;Spinner v-model="value" :step="0.25" /&gt;
 </CodeHighlight>
 
 				<h3>Properties</h3>
@@ -112,25 +112,25 @@ import Spinner from 'primevue/spinner';
 <template v-pre>
 &lt;template&gt;
 	&lt;div&gt;
-		&lt;div class=&quot;content-section introduction&quot;&gt;
-			&lt;div class=&quot;feature-intro&quot;&gt;
+		&lt;div class="content-section introduction"&gt;
+			&lt;div class="feature-intro"&gt;
 				&lt;h1&gt;Spinner&lt;/h1&gt;
 				&lt;p&gt;Spinner is an input component to provide a numerical input.&lt;/p&gt;
 			&lt;/div&gt;
 		&lt;/div&gt;
 
-		&lt;div class=&quot;content-section implementation&quot;&gt;
-			&lt;h3 class=&quot;first&quot;&gt;Basic&lt;/h3&gt;
-			&lt;Spinner v-model=&quot;value1&quot; /&gt;
+		&lt;div class="content-section implementation"&gt;
+			&lt;h3 class="first"&gt;Basic&lt;/h3&gt;
+			&lt;Spinner v-model="value1" /&gt;
 
 			&lt;h3&gt;Min/Max&lt;/h3&gt;
-			&lt;Spinner v-model=&quot;value2&quot; :min=&quot;0&quot; :max=&quot;100&quot; /&gt;
+			&lt;Spinner v-model="value2" :min="0" :max="100" /&gt;
 
 			&lt;h3&gt;Step&lt;/h3&gt;
-			&lt;Spinner v-model=&quot;value3&quot; :step=&quot;0.25&quot; /&gt;
+			&lt;Spinner v-model="value3" :step="0.25" /&gt;
 
 			&lt;h3&gt;Disabled&lt;/h3&gt;
-			&lt;Spinner v-model=&quot;value4&quot; :disabled=&quot;true&quot; /&gt;
+			&lt;Spinner v-model="value4" :disabled="true" /&gt;
 		&lt;/div&gt;
 	&lt;/div&gt;
 &lt;/template&gt;

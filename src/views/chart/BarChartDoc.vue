@@ -6,25 +6,25 @@
 <template v-pre>
 &lt;template&gt;
 	&lt;div&gt;
-		&lt;div class=&quot;content-section introduction&quot;&gt;
-			&lt;div class=&quot;feature-intro&quot;&gt;
+		&lt;div class="content-section introduction"&gt;
+			&lt;div class="feature-intro"&gt;
 				&lt;h1&gt;BarChart&lt;/h1&gt;
 				&lt;p&gt;A bar chart or bar graph is a chart that presents grouped data with rectangular bars with lengths proportional to the values that they represent.&lt;/p&gt;
 			&lt;/div&gt;
 		&lt;/div&gt;
 
-		&lt;div class=&quot;content-section implementation&quot;&gt;
-			&lt;h3 class=&quot;vertical&quot;&gt;Vertical&lt;/h3&gt;
-			&lt;Chart type=&quot;bar&quot; :data=&quot;basicData&quot; /&gt;
+		&lt;div class="content-section implementation"&gt;
+			&lt;h3 class="vertical"&gt;Vertical&lt;/h3&gt;
+			&lt;Chart type="bar" :data="basicData" /&gt;
 
 			&lt;h3&gt;Horizontal&lt;/h3&gt;
-			&lt;Chart type=&quot;horizontalBar&quot; :data=&quot;basicData&quot; /&gt;
+			&lt;Chart type="horizontalBar" :data="basicData" /&gt;
 
 			&lt;h3&gt;Multi Axis&lt;/h3&gt;
-			&lt;Chart type=&quot;bar&quot; :data=&quot;multiAxisData&quot; :options=&quot;multiAxisOptions&quot;/&gt;
+			&lt;Chart type="bar" :data="multiAxisData" :options="multiAxisOptions"/&gt;
 
 			&lt;h3&gt;Stacked&lt;/h3&gt;
-			&lt;Chart type=&quot;bar&quot; :data=&quot;stackedData&quot; :options=&quot;stackedOptions&quot;/&gt;
+			&lt;Chart type="bar" :data="stackedData" :options="stackedOptions"/&gt;
 		&lt;/div&gt;
 	&lt;/div&gt;
 &lt;/template&gt;

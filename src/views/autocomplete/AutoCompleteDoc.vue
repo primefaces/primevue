@@ -11,7 +11,7 @@ import AutoComplete from 'primevue/autocomplete';
 				<p>AutoComplete uses v-model for two-way binding, requires a list of suggestions and a complete method to query for the results. The complete method
 					gets the query text as event.query property and should update the suggestions with the search results. Example below connects to a remote datasource to fetch the results;</p>
 <CodeHighlight>
-&lt;AutoComplete v-model=&quot;selectedCountry&quot; :suggestions=&quot;filteredCountriesBasic&quot; @complete=&quot;searchCountry($event)&quot; field=&quot;name&quot; /&gt;
+&lt;AutoComplete v-model="selectedCountry" :suggestions="filteredCountriesBasic" @complete="searchCountry($event)" field="name" /&gt;
 </CodeHighlight>
 <CodeHighlight lang="js">
 export default {
@@ -39,13 +39,13 @@ export default {
 					"blank" is the default mode to send a query with an empty string whereas
 					"current" setting sends a query with the current value of the input.</p>
 <CodeHighlight>
-&lt;AutoComplete v-model=&quot;brand&quot; :dropdown=&quot;true&quot; :suggestions=&quot;filteredBrands&quot; @complete=&quot;searchBrand($event)&quot; placeholder=&quot;Hint: type 'v' or 'f'&quot; /&gt;
+&lt;AutoComplete v-model="brand" :dropdown="true" :suggestions="filteredBrands" @complete="searchBrand($event)" placeholder="Hint: type 'v' or 'f'" /&gt;
 </CodeHighlight>
 
 				<h3>Multiple Mode</h3>
 				<p>Multiple mode is enabled using <i>multiple</i> property to select more than one value from the autocomplete. In this case, value reference should be an array.</p>
 <CodeHighlight>
-&lt;AutoComplete :multiple=&quot;true&quot; v-model=&quot;selectedCountries&quot; :suggestions=&quot;filteredCountriesMultiple&quot; @complete=&quot;searchCountryMultiple($event)&quot; field=&quot;name&quot; /&gt;
+&lt;AutoComplete :multiple="true" v-model="selectedCountries" :suggestions="filteredCountriesMultiple" @complete="searchCountryMultiple($event)" field="name" /&gt;
 </CodeHighlight>
 
 				<h3>Objects</h3>
@@ -53,16 +53,16 @@ export default {
 					as a suggestion. The value passed to the model would still be the object instance of a suggestion.
 					Here is an example with a Country object that has name and code fields such as &#123;name:"United States",code:"USA"&#125;.</p>
 <CodeHighlight>
-&lt;AutoComplete field=&quot;label&quot; v-model=&quot;selectedCountry&quot; :suggestions=&quot;filteredCountriesBasic&quot; @complete=&quot;searchCountryBasic($event)&quot; /&gt;
+&lt;AutoComplete field="label" v-model="selectedCountry" :suggestions="filteredCountriesBasic" @complete="searchCountryBasic($event)" /&gt;
 </CodeHighlight>
 
 				<h3>Templating</h3>
 				<p>Item template allows displaying custom content inside the suggestions panel. The slotProps variable passed to the template provides an item property to represent an item in the suggestions collection.</p>
 <CodeHighlight>
 <template v-pre>
-&lt;AutoComplete v-model=&quot;brand&quot; :suggestions=&quot;filteredBrands&quot; @complete=&quot;searchBrand($event)&quot; placeholder=&quot;Hint: type 'v' or 'f'&quot; :dropdown=&quot;true&quot;&gt;
-	&lt;template #item=&quot;slotProps&quot;&gt;
-		&lt;img :alt=&quot;slotProps.item&quot; :src=&quot;'/demo/images/car/' + slotProps.item + '.png'&quot; /&gt;
+&lt;AutoComplete v-model="brand" :suggestions="filteredBrands" @complete="searchBrand($event)" placeholder="Hint: type 'v' or 'f'" :dropdown="true"&gt;
+	&lt;template #item="slotProps"&gt;
+		&lt;img :alt="slotProps.item" :src="'/demo/images/car/' + slotProps.item + '.png'" /&gt;
         &lt;div&gt;{{slotProps.item}}&lt;/div&gt;
 	&lt;/template&gt;
 &lt;/AutoComplete&gt;
@@ -259,35 +259,35 @@ export default {
 <template v-pre>
 &lt;template&gt;
 	&lt;div&gt;
-		&lt;div class=&quot;content-section introduction&quot;&gt;
-			&lt;div class=&quot;feature-intro&quot;&gt;
+		&lt;div class="content-section introduction"&gt;
+			&lt;div class="feature-intro"&gt;
 				&lt;h1&gt;AutoComplete&lt;/h1&gt;
 				&lt;p&gt;AutoComplete is an input component that provides real-time suggestions when being typed.&lt;/p&gt;
 			&lt;/div&gt;
 		&lt;/div&gt;
 
-		&lt;div class=&quot;content-section implementation&quot;&gt;
-			&lt;h3 class=&quot;first&quot;&gt;Basic&lt;/h3&gt;
-			&lt;AutoComplete v-model=&quot;selectedCountry&quot; :suggestions=&quot;filteredCountriesBasic&quot; @complete=&quot;searchCountryBasic($event)&quot; field=&quot;name&quot; /&gt;
-			&lt;span style=&quot;marginLeft: .5em&quot;&gt;Country: {{selectedCountry || 'none'}}&lt;/span&gt;
+		&lt;div class="content-section implementation"&gt;
+			&lt;h3 class="first"&gt;Basic&lt;/h3&gt;
+			&lt;AutoComplete v-model="selectedCountry" :suggestions="filteredCountriesBasic" @complete="searchCountryBasic($event)" field="name" /&gt;
+			&lt;span style="marginLeft: .5em"&gt;Country: {{selectedCountry || 'none'}}&lt;/span&gt;
 
 			&lt;h3&gt;Dropdown and Templating&lt;/h3&gt;
-			&lt;AutoComplete v-model=&quot;brand&quot; :suggestions=&quot;filteredBrands&quot; @complete=&quot;searchBrand($event)&quot; placeholder=&quot;Hint: type 'v' or 'f'&quot; :dropdown=&quot;true&quot;&gt;
-				&lt;template #item=&quot;slotProps&quot;&gt;
-					&lt;div class=&quot;p-clearfix p-autocomplete-brand-item&quot;&gt;
-						&lt;img :alt=&quot;slotProps.item&quot; :src=&quot;'/demo/images/car/' + slotProps.item + '.png'&quot; /&gt;
+			&lt;AutoComplete v-model="brand" :suggestions="filteredBrands" @complete="searchBrand($event)" placeholder="Hint: type 'v' or 'f'" :dropdown="true"&gt;
+				&lt;template #item="slotProps"&gt;
+					&lt;div class="p-clearfix p-autocomplete-brand-item"&gt;
+						&lt;img :alt="slotProps.item" :src="'/demo/images/car/' + slotProps.item + '.png'" /&gt;
 						&lt;div&gt;{{slotProps.item}}&lt;/div&gt;
 					&lt;/div&gt;
 				&lt;/template&gt;
 			&lt;/AutoComplete&gt;
-			&lt;span style=&quot;marginLeft: .5em&quot;&gt;Brand: {{brand || 'none'}}&lt;/span&gt;
+			&lt;span style="marginLeft: .5em"&gt;Brand: {{brand || 'none'}}&lt;/span&gt;
 
 			&lt;h3&gt;Multiple&lt;/h3&gt;
-			&lt;span class=&quot;p-fluid&quot;&gt;
-			&lt;AutoComplete :multiple=&quot;true&quot; v-model=&quot;selectedCountries&quot; :suggestions=&quot;filteredCountriesMultiple&quot; @complete=&quot;searchCountryMultiple($event)&quot; field=&quot;name&quot; /&gt;
+			&lt;span class="p-fluid"&gt;
+			&lt;AutoComplete :multiple="true" v-model="selectedCountries" :suggestions="filteredCountriesMultiple" @complete="searchCountryMultiple($event)" field="name" /&gt;
 		&lt;/span&gt;
 			&lt;ul&gt;
-				&lt;li v-for=&quot;(c,i) of selectedCountries&quot; :key=&quot;i&quot;&gt;{{c}}&lt;/li&gt;
+				&lt;li v-for="(c,i) of selectedCountries" :key="i"&gt;{{c}}&lt;/li&gt;
 			&lt;/ul&gt;
 		&lt;/div&gt;
 	&lt;/div&gt;

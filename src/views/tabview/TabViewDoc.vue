@@ -11,13 +11,13 @@ import {TabView, TabPanel} from 'primevue/tabview';
 				<p>Tabview element consists of one or more TabPanel elements. Header of the tab is defined using header attribute.</p>
 <CodeHighlight>
 &lt;TabView&gt;
-	&lt;TabPanel header=&quot;Header I&quot;&gt;
+	&lt;TabPanel header="Header I"&gt;
 		Content I
 	&lt;/TabPanel&gt;
-	&lt;TabPanel header=&quot;Header II&quot;&gt;
+	&lt;TabPanel header="Header II"&gt;
 		Content II
 	&lt;/TabPanel&gt;
-	&lt;TabPanel header=&quot;Header III&quot;&gt;
+	&lt;TabPanel header="Header III"&gt;
 		Content III
 	&lt;/TabPanel&gt;
 &lt;/TabView&gt;
@@ -27,18 +27,18 @@ import {TabView, TabPanel} from 'primevue/tabview';
 				<p>Tabs can be controlled programmatically using active property that defines the active tab.</p>
 <CodeHighlight>
 &lt;div&gt;
-	&lt;Button icon=&quot;pi pi-chevron-left&quot; @click=&quot;prev&quot;/&gt;
-	&lt;Button icon=&quot;pi pi-chevron-right&quot; @click=&quot;next&quot;/&gt;
+	&lt;Button icon="pi pi-chevron-left" @click="prev"/&gt;
+	&lt;Button icon="pi pi-chevron-right" @click="next"/&gt;
 &lt;/div&gt;
 
 &lt;TabView&gt;
-	&lt;TabPanel header=&quot;Header I&quot; :active=&quot;activeIndex === 0&quot;&gt;
+	&lt;TabPanel header="Header I" :active="activeIndex === 0"&gt;
 		Content I
 	&lt;/TabPanel&gt;
-	&lt;TabPanel header=&quot;Header II&quot; :active=&quot;activeIndex === 1&quot;&gt;
+	&lt;TabPanel header="Header II" :active="activeIndex === 1"&gt;
 		Content II
 	&lt;/TabPanel&gt;
-	&lt;TabPanel header=&quot;Header III&quot; :active=&quot;activeIndex === 2&quot;&gt;
+	&lt;TabPanel header="Header III" :active="activeIndex === 2"&gt;
 		Content III
 	&lt;/TabPanel&gt;
 &lt;/TabView&gt;
@@ -66,13 +66,13 @@ export default {
 				<p>A tab can be disabled to prevent the content to be displayed by setting the disabled property on a panel.</p>
 <CodeHighlight>
 &lt;TabView&gt;
-	&lt;TabPanel header=&quot;Header I&quot;&gt;
+	&lt;TabPanel header="Header I"&gt;
 		Content I
 	&lt;/TabPanel&gt;
-	&lt;TabPanel header=&quot;Header II&quot;&gt;
+	&lt;TabPanel header="Header II"&gt;
 		Content II
 	&lt;/TabPanel&gt;
-	&lt;TabPanel header=&quot;Header III&quot; :disabled=&quot;true&quot;&gt;
+	&lt;TabPanel header="Header III" :disabled="true"&gt;
 		Content III
 	&lt;/TabPanel&gt;
 &lt;/TabView&gt;
@@ -81,18 +81,18 @@ export default {
 				<h3>Header Template</h3>
 				<p>Header of a tab supports templating to place custom html content instead of strings as well.</p>
 <CodeHighlight>
-&lt;TabView class=&quot;tabview-custom&quot;&gt;
+&lt;TabView class="tabview-custom"&gt;
 	&lt;TabPanel&gt;
-		&lt;template slot=&quot;header&quot;&gt;
-			&lt;i class=&quot;pi pi-calendar&quot;&gt;&lt;/i&gt;
+		&lt;template slot="header"&gt;
+			&lt;i class="pi pi-calendar"&gt;&lt;/i&gt;
 			&lt;span&gt;Header I&lt;/span&gt;
 		&lt;/template&gt;
 		Content I
 	&lt;/TabPanel&gt;
 	&lt;TabPanel&gt;
-		&lt;template slot=&quot;header&quot;&gt;
+		&lt;template slot="header"&gt;
 			&lt;span&gt;Header II&lt;/span&gt;
-			&lt;i class=&quot;pi pi-user&quot;&gt;&lt;/i&gt;
+			&lt;i class="pi pi-user"&gt;&lt;/i&gt;
 		&lt;/template&gt;
 		Content II
 	&lt;/TabPanel&gt;
@@ -202,27 +202,27 @@ export default {
 <template v-pre>
 &lt;template&gt;
 	&lt;div&gt;
-		&lt;div class=&quot;content-section introduction&quot;&gt;
-			&lt;div class=&quot;feature-intro&quot;&gt;
+		&lt;div class="content-section introduction"&gt;
+			&lt;div class="feature-intro"&gt;
 				&lt;h1&gt;TabView&lt;/h1&gt;
 				&lt;p&gt;TabView is a container component to group content with tabs.&lt;/p&gt;
 			&lt;/div&gt;
 		&lt;/div&gt;
 
-		&lt;div class=&quot;content-section implementation&quot;&gt;
-			&lt;h3 class=&quot;first&quot;&gt;Default&lt;/h3&gt;
+		&lt;div class="content-section implementation"&gt;
+			&lt;h3 class="first"&gt;Default&lt;/h3&gt;
 			&lt;TabView&gt;
-				&lt;TabPanel header=&quot;Godfather I&quot;&gt;
+				&lt;TabPanel header="Godfather I"&gt;
 					The story begins as Don Vito Corleone, the head of a New York Mafia family, overseeshis daughter's wedding. His beloved son ichael has just come home from the war,
 					but does not intend to become part of his father's business. Through Michael's life the nature of the family business becomes clear. The business of the family is
 					just like the head of the family, kind and benevolent to those who give respect, but given to ruthless violence whenever anything stands against the good of the family.
 				&lt;/TabPanel&gt;
-				&lt;TabPanel header=&quot;Godfather II&quot;&gt;
+				&lt;TabPanel header="Godfather II"&gt;
 					Francis Ford Coppola's legendary continuation and sequel to his landmark 1972 film, TheGodfather parallels the young Vito Corleone's rise with his son Michael's spiritual fall,
 					deepening The Godfather's depiction of the dark side of the American dream. In the early 1900s, the child Vito flees his Sicilian village for America after the local Mafia kills
 					his family. Vito struggles to make a living, legally or illegally, for his wife and growing brood in Little Italy.
 				&lt;/TabPanel&gt;
-				&lt;TabPanel header=&quot;Godfather III&quot;&gt;
+				&lt;TabPanel header="Godfather III"&gt;
 					The Godfather Part III is set in 1979 and 1980. Michael has moved back to New York and taken great strides to remove the family from crime. He turns over his New York criminal
 					interests to longtime enforcer Joey Zasa. He uses his wealth in an attempt to rehabilitate his reputation through numerous philanthropic acts, administered by a foundation named after his father.
 					A decade earlier, he gave custody of his two children to Kay, who has since remarried.
@@ -230,23 +230,23 @@ export default {
 			&lt;/TabView&gt;
 
 			&lt;h3&gt;Programmatic&lt;/h3&gt;
-			&lt;div style=&quot;padding: .5em 0&quot;&gt;
-				&lt;Button icon=&quot;pi pi-chevron-left&quot; @click=&quot;prev&quot; class=&quot;p-button-secondary&quot; /&gt;
-				&lt;Button icon=&quot;pi pi-chevron-right&quot; @click=&quot;next&quot; style=&quot;margin-left: .5em&quot; class=&quot;p-button-secondary&quot;/&gt;
+			&lt;div style="padding: .5em 0"&gt;
+				&lt;Button icon="pi pi-chevron-left" @click="prev" class="p-button-secondary" /&gt;
+				&lt;Button icon="pi pi-chevron-right" @click="next" style="margin-left: .5em" class="p-button-secondary"/&gt;
 			&lt;/div&gt;
 
 			&lt;TabView&gt;
-				&lt;TabPanel header=&quot;Godfather I&quot; :active=&quot;activeIndex === 0&quot;&gt;
+				&lt;TabPanel header="Godfather I" :active="activeIndex === 0"&gt;
 					The story begins as Don Vito Corleone, the head of a New York Mafia family, overseeshis daughter's wedding. His beloved son ichael has just come home from the war,
 					but does not intend to become part of his father's business. Through Michael's life the nature of the family business becomes clear. The business of the family is
 					just like the head of the family, kind and benevolent to those who give respect, but given to ruthless violence whenever anything stands against the good of the family.
 				&lt;/TabPanel&gt;
-				&lt;TabPanel header=&quot;Godfather II&quot; :active=&quot;activeIndex === 1&quot;&gt;
+				&lt;TabPanel header="Godfather II" :active="activeIndex === 1"&gt;
 					Francis Ford Coppola's legendary continuation and sequel to his landmark 1972 film, TheGodfather parallels the young Vito Corleone's rise with his son Michael's spiritual fall,
 					deepening The Godfather's depiction of the dark side of the American dream. In the early 1900s, the child Vito flees his Sicilian village for America after the local Mafia kills
 					his family. Vito struggles to make a living, legally or illegally, for his wife and growing brood in Little Italy.
 				&lt;/TabPanel&gt;
-				&lt;TabPanel header=&quot;Godfather III&quot; :active=&quot;activeIndex === 2&quot;&gt;
+				&lt;TabPanel header="Godfather III" :active="activeIndex === 2"&gt;
 					The Godfather Part III is set in 1979 and 1980. Michael has moved back to New York and taken great strides to remove the family from crime. He turns over his New York criminal
 					interests to longtime enforcer Joey Zasa. He uses his wealth in an attempt to rehabilitate his reputation through numerous philanthropic acts, administered by a foundation named after his father.
 					A decade earlier, he gave custody of his two children to Kay, who has since remarried.
@@ -255,29 +255,29 @@ export default {
 
 			&lt;h3&gt;Disabled&lt;/h3&gt;
 			&lt;TabView&gt;
-				&lt;TabPanel header=&quot;Godfather I&quot;&gt;
+				&lt;TabPanel header="Godfather I"&gt;
 					The story begins as Don Vito Corleone, the head of a New York Mafia family, overseeshis daughter's wedding. His beloved son ichael has just come home from the war,
 					but does not intend to become part of his father's business. Through Michael's life the nature of the family business becomes clear. The business of the family is
 					just like the head of the family, kind and benevolent to those who give respect, but given to ruthless violence whenever anything stands against the good of the family.
 				&lt;/TabPanel&gt;
-				&lt;TabPanel header=&quot;Godfather II&quot;&gt;
+				&lt;TabPanel header="Godfather II"&gt;
 					Francis Ford Coppola's legendary continuation and sequel to his landmark 1972 film, TheGodfather parallels the young Vito Corleone's rise with his son Michael's spiritual fall,
 					deepening The Godfather's depiction of the dark side of the American dream. In the early 1900s, the child Vito flees his Sicilian village for America after the local Mafia kills
 					his family. Vito struggles to make a living, legally or illegally, for his wife and growing brood in Little Italy.
 				&lt;/TabPanel&gt;
-				&lt;TabPanel header=&quot;Godfather III&quot;&gt;
+				&lt;TabPanel header="Godfather III"&gt;
 					The Godfather Part III is set in 1979 and 1980. Michael has moved back to New York and taken great strides to remove the family from crime. He turns over his New York criminal
 					interests to longtime enforcer Joey Zasa. He uses his wealth in an attempt to rehabilitate his reputation through numerous philanthropic acts, administered by a foundation named after his father.
 					A decade earlier, he gave custody of his two children to Kay, who has since remarried.
 				&lt;/TabPanel&gt;
-				&lt;TabPanel header=&quot;Godfather IV&quot; :disabled=&quot;true&quot;&gt;&lt;/TabPanel&gt;
+				&lt;TabPanel header="Godfather IV" :disabled="true"&gt;&lt;/TabPanel&gt;
 			&lt;/TabView&gt;
 
 			&lt;h3&gt;Custom Headers&lt;/h3&gt;
-			&lt;TabView class=&quot;tabview-custom&quot;&gt;
+			&lt;TabView class="tabview-custom"&gt;
 				&lt;TabPanel&gt;
-					&lt;template slot=&quot;header&quot;&gt;
-						&lt;i class=&quot;pi pi-calendar&quot;&gt;&lt;/i&gt;
+					&lt;template slot="header"&gt;
+						&lt;i class="pi pi-calendar"&gt;&lt;/i&gt;
 						&lt;span&gt;Godfather I&lt;/span&gt;
 					&lt;/template&gt;
 					The story begins as Don Vito Corleone, the head of a New York Mafia family, overseeshis daughter's wedding. His beloved son ichael has just come home from the war,
@@ -285,19 +285,19 @@ export default {
 					just like the head of the family, kind and benevolent to those who give respect, but given to ruthless violence whenever anything stands against the good of the family.
 				&lt;/TabPanel&gt;
 				&lt;TabPanel&gt;
-					&lt;template slot=&quot;header&quot;&gt;
+					&lt;template slot="header"&gt;
 						&lt;span&gt;Godfather II&lt;/span&gt;
-						&lt;i class=&quot;pi pi-user&quot;&gt;&lt;/i&gt;
+						&lt;i class="pi pi-user"&gt;&lt;/i&gt;
 					&lt;/template&gt;
 					Francis Ford Coppola's legendary continuation and sequel to his landmark 1972 film, TheGodfather parallels the young Vito Corleone's rise with his son Michael's spiritual fall,
 					deepening The Godfather's depiction of the dark side of the American dream. In the early 1900s, the child Vito flees his Sicilian village for America after the local Mafia kills
 					his family. Vito struggles to make a living, legally or illegally, for his wife and growing brood in Little Italy.
 				&lt;/TabPanel&gt;
 				&lt;TabPanel&gt;
-					&lt;template slot=&quot;header&quot;&gt;
-						&lt;i class=&quot;pi pi-search&quot;&gt;&lt;/i&gt;
+					&lt;template slot="header"&gt;
+						&lt;i class="pi pi-search"&gt;&lt;/i&gt;
 						&lt;span&gt;Godfather III&lt;/span&gt;
-						&lt;i class=&quot;pi pi-cog&quot;&gt;&lt;/i&gt;
+						&lt;i class="pi pi-cog"&gt;&lt;/i&gt;
 					&lt;/template&gt;
 					The Godfather Part III is set in 1979 and 1980. Michael has moved back to New York and taken great strides to remove the family from crime. He turns over his New York criminal
 					interests to longtime enforcer Joey Zasa. He uses his wealth in an attempt to rehabilitate his reputation through numerous philanthropic acts, administered by a foundation named after his father.

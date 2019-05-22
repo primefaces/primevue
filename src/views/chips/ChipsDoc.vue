@@ -10,18 +10,18 @@ import Chips from 'primevue/chips';
 				<h3>Getting Started</h3>
 				<p>An array as the value can be bound using the standard v-model directive.</p>
 <CodeHighlight>
-&lt;Chips v-model=&quot;value&quot; /&gt;
+&lt;Chips v-model="value" /&gt;
 </CodeHighlight>
 
 				<h3>Custom Content</h3>
 				<p>A chip is customized using the <i>chip</i> template where the chip value is passed to the slotProps with the value property.</p>
 <CodeHighlight>
 <template v-pre>
-&lt;Chips v-model=&quot;value&quot;&gt;
-	&lt;template #chip=&quot;slotProps&quot;&gt;
+&lt;Chips v-model="value"&gt;
+	&lt;template #chip="slotProps"&gt;
 		&lt;div&gt;
 			&lt;span&gt;{{slotProps.value}} - (active) &lt;/span&gt;
-			&lt;i class=&quot;pi pi-user-plus&quot; style=&quot;font-size: 14px&quot;&gt;&lt;/i&gt;
+			&lt;i class="pi pi-user-plus" style="font-size: 14px"&gt;&lt;/i&gt;
 		&lt;/div&gt;
 	&lt;/template&gt;
 &lt;/Chips&gt;
@@ -146,23 +146,23 @@ import Chips from 'primevue/chips';
 <template v-pre>
 &lt;template&gt;
 	&lt;div&gt;
-		&lt;div class=&quot;content-section introduction&quot;&gt;
-			&lt;div class=&quot;feature-intro&quot;&gt;
+		&lt;div class="content-section introduction"&gt;
+			&lt;div class="feature-intro"&gt;
 				&lt;h1&gt;Chips&lt;/h1&gt;
 				&lt;p&gt;Chips is used to enter multiple values on an input field.&lt;/p&gt;
 			&lt;/div&gt;
 		&lt;/div&gt;
 
-		&lt;div class=&quot;content-section implementation&quot;&gt;
-			&lt;h3 class=&quot;first&quot;&gt;Basic&lt;/h3&gt;
-			&lt;Chips v-model=&quot;value1&quot; /&gt;
+		&lt;div class="content-section implementation"&gt;
+			&lt;h3 class="first"&gt;Basic&lt;/h3&gt;
+			&lt;Chips v-model="value1" /&gt;
 
 			&lt;h3&gt;Template&lt;/h3&gt;
-			&lt;Chips v-model=&quot;value2&quot;&gt;
-				&lt;template #chip=&quot;slotProps&quot;&gt;
+			&lt;Chips v-model="value2"&gt;
+				&lt;template #chip="slotProps"&gt;
 					&lt;div&gt;
 						&lt;span&gt;{{slotProps.value}} - (active) &lt;/span&gt;
-						&lt;i class=&quot;pi pi-user-plus&quot; style=&quot;font-size: 14px&quot;&gt;&lt;/i&gt;
+						&lt;i class="pi pi-user-plus" style="font-size: 14px"&gt;&lt;/i&gt;
 					&lt;/div&gt;
 				&lt;/template&gt;
 			&lt;/Chips&gt;

@@ -10,10 +10,10 @@ import OverlayPanel from 'primevue/overlaypanel';
 				<h3>Getting Started</h3>
 				<p>OverlayPanel is accessed via its reference where visibility is controlled using toggle, show and hide methods.</p>
 <CodeHighlight>
-&lt;Button type=&quot;button&quot; label=&quot;Toggle&quot; @click=&quot;toggle&quot; /&gt;
+&lt;Button type="button" label="Toggle" @click="toggle" /&gt;
 
-&lt;OverlayPanel ref=&quot;op&quot;&gt;
-	&lt;img src=&quot;/demo/images/nature/nature1.jpg&quot; alt=&quot;Nature Image&quot;&gt;
+&lt;OverlayPanel ref="op"&gt;
+	&lt;img src="/demo/images/nature/nature1.jpg" alt="Nature Image"&gt;
 &lt;/OverlayPanel&gt;
 </CodeHighlight>
 
@@ -27,8 +27,8 @@ toggle(event) {
 				<p>Clicking outside the overlay hides the panel, setting dismissable to false disables this behavior.
 					Additionally enablign showCloseIcon property displays a close icon at the top right corner to close the panel.</p>
 <CodeHighlight>
-&lt;OverlayPanel ref=&quot;op&quot; :showCloseIcon=&quot;true&quot; :dismissable=&quot;true&quot;&gt;
-	&lt;img src=&quot;/demo/images/nature/nature1.jpg&quot; alt=&quot;Nature Image&quot;&gt;
+&lt;OverlayPanel ref="op" :showCloseIcon="true" :dismissable="true"&gt;
+	&lt;img src="/demo/images/nature/nature1.jpg" alt="Nature Image"&gt;
 &lt;/OverlayPanel&gt;
 </CodeHighlight>
 
@@ -148,18 +148,18 @@ toggle(event) {
 <template v-pre>
 &lt;template&gt;
 	&lt;div&gt;
-		&lt;div class=&quot;content-section introduction&quot;&gt;
-			&lt;div class=&quot;feature-intro&quot;&gt;
+		&lt;div class="content-section introduction"&gt;
+			&lt;div class="feature-intro"&gt;
 				&lt;h1&gt;OverlayPanel&lt;/h1&gt;
 				&lt;p&gt;OverlayPanel is a container component that can overlay other components on page.&lt;/p&gt;
 			&lt;/div&gt;
 		&lt;/div&gt;
 
-		&lt;div class=&quot;content-section implementation&quot;&gt;
-			&lt;Button type=&quot;button&quot; label=&quot;Toggle&quot; @click=&quot;toggle&quot; /&gt;
+		&lt;div class="content-section implementation"&gt;
+			&lt;Button type="button" label="Toggle" @click="toggle" /&gt;
 
-			&lt;OverlayPanel ref=&quot;op&quot; appendTo=&quot;body&quot; :showCloseIcon=&quot;true&quot;&gt;
-				&lt;img src=&quot;/demo/images/nature/nature1.jpg&quot; alt=&quot;Nature Image&quot;&gt;
+			&lt;OverlayPanel ref="op" appendTo="body" :showCloseIcon="true"&gt;
+				&lt;img src="/demo/images/nature/nature1.jpg" alt="Nature Image"&gt;
 			&lt;/OverlayPanel&gt;
 		&lt;/div&gt;
 	&lt;/div&gt;

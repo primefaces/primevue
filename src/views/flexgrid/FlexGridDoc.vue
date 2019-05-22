@@ -6,10 +6,10 @@
 				<p>FlexGrid is a CSS utility based on flexbox. For more information about Flex, visit <a href="https://css-tricks.com/snippets/css/a-guide-to-flexbox/">A Complete Guide to Flexbox</a>. A basic grid is defined by giving
 					a container <i>p-grid</i> class and children the <i>p-col</i> class. Children of the grid will have the same width and scale according to the width of the parent.</p>
 <CodeHighlight>
-&lt;div class=&quot;p-grid&quot;&gt;
-	&lt;div class=&quot;p-col&quot;&gt;1&lt;/div&gt;
-	&lt;div class=&quot;p-col&quot;&gt;2&lt;/div&gt;
-	&lt;div class=&quot;p-col&quot;&gt;3&lt;/div&gt;
+&lt;div class="p-grid"&gt;
+	&lt;div class="p-col"&gt;1&lt;/div&gt;
+	&lt;div class="p-col"&gt;2&lt;/div&gt;
+	&lt;div class="p-col"&gt;3&lt;/div&gt;
 &lt;/div&gt;
 </CodeHighlight>
 
@@ -29,24 +29,24 @@
 				<p>Default direction is <b>row</b> and <i>p-dir-*</i> class at the container defines the other possible directions which can be <b>row reverse</b>, <b>column</b> and <b>column reverse</b></p>
 <CodeHighlight>
 <!-- Row Reverse -->
-&lt;div class=&quot;p-grid p-dir-rev&quot;&gt;
-	&lt;div class=&quot;p-col&quot;&gt;1&lt;/div&gt;
-	&lt;div class=&quot;p-col&quot;&gt;2&lt;/div&gt;
-	&lt;div class=&quot;p-col&quot;&gt;3&lt;/div&gt;
+&lt;div class="p-grid p-dir-rev"&gt;
+	&lt;div class="p-col"&gt;1&lt;/div&gt;
+	&lt;div class="p-col"&gt;2&lt;/div&gt;
+	&lt;div class="p-col"&gt;3&lt;/div&gt;
 &lt;/div&gt;
 
 <!-- Column -->
-&lt;div class=&quot;p-grid p-dir-col&quot;&gt;
-	&lt;div class=&quot;p-col&quot;&gt;1&lt;/div&gt;
-	&lt;div class=&quot;p-col&quot;&gt;2&lt;/div&gt;
-	&lt;div class=&quot;p-col&quot;&gt;3&lt;/div&gt;
+&lt;div class="p-grid p-dir-col"&gt;
+	&lt;div class="p-col"&gt;1&lt;/div&gt;
+	&lt;div class="p-col"&gt;2&lt;/div&gt;
+	&lt;div class="p-col"&gt;3&lt;/div&gt;
 &lt;/div&gt;
 
 <!-- Column Reverse -->
-&lt;div class=&quot;p-grid p-dir-col-rev&quot;&gt;
-	&lt;div class=&quot;p-col&quot;&gt;1&lt;/div&gt;
-	&lt;div class=&quot;p-col&quot;&gt;2&lt;/div&gt;
-	&lt;div class=&quot;p-col&quot;&gt;3&lt;/div&gt;
+&lt;div class="p-grid p-dir-col-rev"&gt;
+	&lt;div class="p-col"&gt;1&lt;/div&gt;
+	&lt;div class="p-col"&gt;2&lt;/div&gt;
+	&lt;div class="p-col"&gt;3&lt;/div&gt;
 &lt;/div&gt;
 </CodeHighlight>
 
@@ -90,22 +90,22 @@
 
 				<p>In the first example below, first column covers the 4 units out of 12 and the rest of the columns share the remaining space whereas in the second example, all three columns have explicit units.</p>
 <CodeHighlight>
-&lt;div class=&quot;p-grid&quot;&gt;
-	&lt;div class=&quot;p-col-4&quot;&gt;4&lt;/div&gt;
-	&lt;div class=&quot;p-col&quot;&gt;1&lt;/div&gt;
-	&lt;div class=&quot;p-col&quot;&gt;1&lt;/div&gt;
-	&lt;div class=&quot;p-col&quot;&gt;1&lt;/div&gt;
-	&lt;div class=&quot;p-col&quot;&gt;1&lt;/div&gt;
-	&lt;div class=&quot;p-col&quot;&gt;1&lt;/div&gt;
-	&lt;div class=&quot;p-col&quot;&gt;1&lt;/div&gt;
-	&lt;div class=&quot;p-col&quot;&gt;1&lt;/div&gt;
-	&lt;div class=&quot;p-col&quot;&gt;1&lt;/div&gt;
+&lt;div class="p-grid"&gt;
+	&lt;div class="p-col-4"&gt;4&lt;/div&gt;
+	&lt;div class="p-col"&gt;1&lt;/div&gt;
+	&lt;div class="p-col"&gt;1&lt;/div&gt;
+	&lt;div class="p-col"&gt;1&lt;/div&gt;
+	&lt;div class="p-col"&gt;1&lt;/div&gt;
+	&lt;div class="p-col"&gt;1&lt;/div&gt;
+	&lt;div class="p-col"&gt;1&lt;/div&gt;
+	&lt;div class="p-col"&gt;1&lt;/div&gt;
+	&lt;div class="p-col"&gt;1&lt;/div&gt;
 &lt;/div&gt;
 
-&lt;div class=&quot;p-grid&quot;&gt;
-	&lt;div class=&quot;p-col-2&quot;&gt;2&lt;/div&gt;
-	&lt;div class=&quot;p-col-6&quot;&gt;6&lt;/div&gt;
-	&lt;div class=&quot;p-col-4&quot;&gt;4&lt;/div&gt;
+&lt;div class="p-grid"&gt;
+	&lt;div class="p-col-2"&gt;2&lt;/div&gt;
+	&lt;div class="p-col-6"&gt;6&lt;/div&gt;
+	&lt;div class="p-col-4"&gt;4&lt;/div&gt;
 &lt;/div&gt;
 </CodeHighlight>
 
@@ -154,11 +154,11 @@
 				<h3>MultiLine</h3>
 				<p>When the number of columns exceed 12, columns wrap to a new line.</p>
 <CodeHighlight>
-&lt;div class=&quot;p-grid&quot;&gt;
-	&lt;div class=&quot;p-col-6&quot;&gt;6&lt;/div&gt;
-	&lt;div class=&quot;p-col-6&quot;&gt;6&lt;/div&gt;
-	&lt;div class=&quot;p-col-6&quot;&gt;6&lt;/div&gt;
-	&lt;div class=&quot;p-col-6&quot;&gt;6&lt;/div&gt;
+&lt;div class="p-grid"&gt;
+	&lt;div class="p-col-6"&gt;6&lt;/div&gt;
+	&lt;div class="p-col-6"&gt;6&lt;/div&gt;
+	&lt;div class="p-col-6"&gt;6&lt;/div&gt;
+	&lt;div class="p-col-6"&gt;6&lt;/div&gt;
 &lt;/div&gt;
 </CodeHighlight>
 
@@ -180,9 +180,9 @@
 				<h3>Fixed Width Column</h3>
 				<p>A column can have a fixed width while siblings having auto width. Apply <i>p-col-fixed</i> class to fix a column width.</p>
 <CodeHighlight>
-&lt;div class=&quot;p-grid&quot;&gt;
-	&lt;div class=&quot;p-col-fixed&quot; style=&quot;width:100px&quot;&gt;Fixed&lt;/div&gt;
-	&lt;div class=&quot;p-col&quot;&gt;Auto&lt;/div&gt;
+&lt;div class="p-grid"&gt;
+	&lt;div class="p-col-fixed" style="width:100px"&gt;Fixed&lt;/div&gt;
+	&lt;div class="p-col"&gt;Auto&lt;/div&gt;
 &lt;/div&gt;
 </CodeHighlight>
 
@@ -237,11 +237,11 @@
 
 				<p>In example below, large screens display 4 columns, medium screens display 2 columns in 2 rows and finally on small devices, columns are stacked.</p>
 <CodeHighlight>
-&lt;div class=&quot;p-grid&quot;&gt;
-	&lt;div class=&quot;p-col-12 p-md-6 p-lg-3&quot;&gt;A&lt;/div&gt;
-	&lt;div class=&quot;p-col-12 p-md-6 p-lg-3&quot;&gt;B&lt;/div&gt;
-	&lt;div class=&quot;p-col-12 p-md-6 p-lg-3&quot;&gt;C&lt;/div&gt;
-	&lt;div class=&quot;p-col-12 p-md-6 p-lg-3&quot;&gt;D&lt;/div&gt;
+&lt;div class="p-grid"&gt;
+	&lt;div class="p-col-12 p-md-6 p-lg-3"&gt;A&lt;/div&gt;
+	&lt;div class="p-col-12 p-md-6 p-lg-3"&gt;B&lt;/div&gt;
+	&lt;div class="p-col-12 p-md-6 p-lg-3"&gt;C&lt;/div&gt;
+	&lt;div class="p-col-12 p-md-6 p-lg-3"&gt;D&lt;/div&gt;
 &lt;/div&gt;
 </CodeHighlight>
 
@@ -299,10 +299,10 @@
 					</table>
 				</div>
 <CodeHighlight>
-&lt;div class=&quot;p-grid p-justify-between&quot;&gt;
-	&lt;div class=&quot;p-col-2&quot;&gt;2&lt;/div&gt;
-	&lt;div class=&quot;p-col-1&quot;&gt;1&lt;/div&gt;
-	&lt;div class=&quot;p-col-4&quot;&gt;4&lt;/div&gt;
+&lt;div class="p-grid p-justify-between"&gt;
+	&lt;div class="p-col-2"&gt;2&lt;/div&gt;
+	&lt;div class="p-col-1"&gt;1&lt;/div&gt;
+	&lt;div class="p-col-4"&gt;4&lt;/div&gt;
 &lt;/div&gt;
 </CodeHighlight>
 
@@ -353,10 +353,10 @@
 					</table>
 				</div>
 <CodeHighlight>
-&lt;div class=&quot;p-grid p-align-center&quot;&gt;
-	&lt;div class=&quot;p-col&quot;&gt;4&lt;/div&gt;
-	&lt;div class=&quot;p-col&quot;&gt;4&lt;/div&gt;
-	&lt;div class=&quot;p-col&quot;&gt;4&lt;/div&gt;
+&lt;div class="p-grid p-align-center"&gt;
+	&lt;div class="p-col"&gt;4&lt;/div&gt;
+	&lt;div class="p-col"&gt;4&lt;/div&gt;
+	&lt;div class="p-col"&gt;4&lt;/div&gt;
 &lt;/div&gt;
 </CodeHighlight>
 
@@ -405,10 +405,10 @@
 					</table>
 				</div>
 <CodeHighlight>
-&lt;div class=&quot;p-grid&quot;&gt;
-	&lt;div class=&quot;p-col p-col-align-start&quot;&gt;4&lt;/div&gt;
-	&lt;div class=&quot;p-col p-col-align-center&quot;&gt;4&lt;/div&gt;
-	&lt;div class=&quot;p-col p-col-align-end&quot;&gt;4&lt;/div&gt;
+&lt;div class="p-grid"&gt;
+	&lt;div class="p-col p-col-align-start"&gt;4&lt;/div&gt;
+	&lt;div class="p-col p-col-align-center"&gt;4&lt;/div&gt;
+	&lt;div class="p-col p-col-align-end"&gt;4&lt;/div&gt;
 &lt;/div&gt;
 </CodeHighlight>
 
@@ -427,13 +427,13 @@
 				<h3>Offset</h3>
 				<p>Offset classes allow defining a left margin on a column to avoid adding empty columns for spacing.</p>
 <CodeHighlight>
-&lt;div class=&quot;p-grid&quot;&gt;
-	&lt;div class=&quot;p-col-6 p-offset-3&quot;&gt;6&lt;/div&gt;
+&lt;div class="p-grid"&gt;
+	&lt;div class="p-col-6 p-offset-3"&gt;6&lt;/div&gt;
 &lt;/div&gt;
 
-&lt;div class=&quot;p-grid&quot;&gt;
-	&lt;div class=&quot;p-col-4&quot;&gt;4&lt;/div&gt;
-	&lt;div class=&quot;p-col-4 p-offset-4&quot;&gt;4&lt;/div&gt;
+&lt;div class="p-grid"&gt;
+	&lt;div class="p-col-4"&gt;4&lt;/div&gt;
+	&lt;div class="p-col-4 p-offset-4"&gt;4&lt;/div&gt;
 &lt;/div&gt;
 </CodeHighlight>
 
@@ -500,21 +500,21 @@
 				<h3>Nested</h3>
 				<p>Columns can be nested to create more complex layouts.</p>
 <CodeHighlight>
-&lt;div class=&quot;p-grid nested-grid&quot;&gt;
-	&lt;div class=&quot;p-col-8&quot;&gt;
-		&lt;div class=&quot;p-grid&quot;&gt;
-			&lt;div class=&quot;p-col-6&quot;&gt;
+&lt;div class="p-grid nested-grid"&gt;
+	&lt;div class="p-col-8"&gt;
+		&lt;div class="p-grid"&gt;
+			&lt;div class="p-col-6"&gt;
 				6
 			&lt;/div&gt;
-			&lt;div class=&quot;p-col-6&quot;&gt;
+			&lt;div class="p-col-6"&gt;
 				6
 			&lt;/div&gt;
-			&lt;div class=&quot;p-col-12&quot;&gt;
+			&lt;div class="p-col-12"&gt;
 				12
 			&lt;/div&gt;
 		&lt;/div&gt;
 	&lt;/div&gt;
-	&lt;div class=&quot;p-col-4&quot;&gt;
+	&lt;div class="p-col-4"&gt;
 		4
 	&lt;/div&gt;
 &lt;/div&gt;
@@ -544,10 +544,10 @@
 					<i>p-nogutter</i> class to the container. Gutters can also be removed on an ndividual columns with the same class name.
 				</p>
 <CodeHighlight>
-&lt;div class=&quot;p-grid p-nogutter&quot;&gt;
-	&lt;div class=&quot;p-col&quot;&gt;1&lt;/div&gt;
-	&lt;div class=&quot;p-col p-nogutter&quot;&gt;2&lt;/div&gt;
-	&lt;div class=&quot;p-col&quot;&gt;3&lt;/div&gt;
+&lt;div class="p-grid p-nogutter"&gt;
+	&lt;div class="p-col"&gt;1&lt;/div&gt;
+	&lt;div class="p-col p-nogutter"&gt;2&lt;/div&gt;
+	&lt;div class="p-col"&gt;3&lt;/div&gt;
 &lt;/div&gt;
 </CodeHighlight>
 
@@ -564,375 +564,375 @@
 <template v-pre>
 &lt;template&gt;
 	&lt;div&gt;
-		&lt;div class=&quot;content-section introduction&quot;&gt;
-			&lt;div class=&quot;feature-intro&quot;&gt;
+		&lt;div class="content-section introduction"&gt;
+			&lt;div class="feature-intro"&gt;
 				&lt;h1&gt;FlexGrid&lt;/h1&gt;
 				&lt;p&gt;Flex Grid CSS is a lightweight flex based responsive layout utility optimized for mobile phones, tablets and desktops.
-					Flex Grid CSS is not included in PrimeReact as it is provided by &lt;a href=&quot;https://github.com/primefaces/primeflex&quot;&gt;PrimeFlex&lt;/a&gt; , a shared grid library between PrimeFaces, PrimeNG, PrimeReact and PrimeVue projects.&lt;/p&gt;
+					Flex Grid CSS is not included in PrimeReact as it is provided by &lt;a href="https://github.com/primefaces/primeflex"&gt;PrimeFlex&lt;/a&gt; , a shared grid library between PrimeFaces, PrimeNG, PrimeReact and PrimeVue projects.&lt;/p&gt;
 			&lt;/div&gt;
 		&lt;/div&gt;
 
-		&lt;div class=&quot;content-section implementation flexgrid-demo&quot;&gt;
-			&lt;h3 class=&quot;first&quot;&gt;Basic&lt;/h3&gt;
-			&lt;div class=&quot;p-grid&quot;&gt;
-				&lt;div class=&quot;p-col&quot;&gt;
-					&lt;div class=&quot;box&quot;&gt;1&lt;/div&gt;
+		&lt;div class="content-section implementation flexgrid-demo"&gt;
+			&lt;h3 class="first"&gt;Basic&lt;/h3&gt;
+			&lt;div class="p-grid"&gt;
+				&lt;div class="p-col"&gt;
+					&lt;div class="box"&gt;1&lt;/div&gt;
 				&lt;/div&gt;
-				&lt;div class=&quot;p-col&quot;&gt;
-					&lt;div class=&quot;box&quot;&gt;2&lt;/div&gt;
+				&lt;div class="p-col"&gt;
+					&lt;div class="box"&gt;2&lt;/div&gt;
 				&lt;/div&gt;
-				&lt;div class=&quot;p-col&quot;&gt;
-					&lt;div class=&quot;box&quot;&gt;3&lt;/div&gt;
+				&lt;div class="p-col"&gt;
+					&lt;div class="box"&gt;3&lt;/div&gt;
 				&lt;/div&gt;
 			&lt;/div&gt;
 
 			&lt;h3&gt;Dynamic&lt;/h3&gt;
-			&lt;Button type=&quot;button&quot; icon=&quot;pi pi-plus&quot; title=&quot;Add Column&quot; @click=&quot;addColumn&quot; :disabled=&quot;columns.length === 20&quot; style=&quot;margin-right: .5em&quot; /&gt;
-			&lt;Button type=&quot;button&quot; icon=&quot;pi pi-minus&quot; title=&quot;Remove Column&quot; @click=&quot;removeColumn&quot; :disabled=&quot;columns.length === 1&quot; /&gt;
+			&lt;Button type="button" icon="pi pi-plus" title="Add Column" @click="addColumn" :disabled="columns.length === 20" style="margin-right: .5em" /&gt;
+			&lt;Button type="button" icon="pi pi-minus" title="Remove Column" @click="removeColumn" :disabled="columns.length === 1" /&gt;
 
-			&lt;div style=&quot;margin-top: .5em&quot;&gt;
-				&lt;transition-group name=&quot;dynamic-box&quot; tag=&quot;div&quot; class=&quot;p-grid&quot;&gt;
-					&lt;div v-for=&quot;col of columns&quot; :key=&quot;col&quot; class=&quot;p-col&quot;&gt;
-						&lt;div class=&quot;box&quot;&gt;{{col}}&lt;/div&gt;
+			&lt;div style="margin-top: .5em"&gt;
+				&lt;transition-group name="dynamic-box" tag="div" class="p-grid"&gt;
+					&lt;div v-for="col of columns" :key="col" class="p-col"&gt;
+						&lt;div class="box"&gt;{{col}}&lt;/div&gt;
 					&lt;/div&gt;
 				&lt;/transition-group&gt;
 			&lt;/div&gt;
 
 			&lt;h3&gt;Reverse Direction&lt;/h3&gt;
-			&lt;div class=&quot;p-grid p-dir-rev&quot;&gt;
-				&lt;div class=&quot;p-col&quot;&gt;
-					&lt;div class=&quot;box&quot;&gt;1&lt;/div&gt;
+			&lt;div class="p-grid p-dir-rev"&gt;
+				&lt;div class="p-col"&gt;
+					&lt;div class="box"&gt;1&lt;/div&gt;
 				&lt;/div&gt;
-				&lt;div class=&quot;p-col&quot;&gt;
-					&lt;div class=&quot;box&quot;&gt;2&lt;/div&gt;
+				&lt;div class="p-col"&gt;
+					&lt;div class="box"&gt;2&lt;/div&gt;
 				&lt;/div&gt;
-				&lt;div class=&quot;p-col&quot;&gt;
-					&lt;div class=&quot;box&quot;&gt;3&lt;/div&gt;
+				&lt;div class="p-col"&gt;
+					&lt;div class="box"&gt;3&lt;/div&gt;
 				&lt;/div&gt;
 			&lt;/div&gt;
 
 			&lt;h3&gt;Column Direction&lt;/h3&gt;
-			&lt;div class=&quot;p-grid p-dir-col&quot;&gt;
-				&lt;div class=&quot;p-col&quot;&gt;
-					&lt;div class=&quot;box&quot;&gt;1&lt;/div&gt;
+			&lt;div class="p-grid p-dir-col"&gt;
+				&lt;div class="p-col"&gt;
+					&lt;div class="box"&gt;1&lt;/div&gt;
 				&lt;/div&gt;
-				&lt;div class=&quot;p-col&quot;&gt;
-					&lt;div class=&quot;box&quot;&gt;2&lt;/div&gt;
+				&lt;div class="p-col"&gt;
+					&lt;div class="box"&gt;2&lt;/div&gt;
 				&lt;/div&gt;
-				&lt;div class=&quot;p-col&quot;&gt;
-					&lt;div class=&quot;box&quot;&gt;3&lt;/div&gt;
+				&lt;div class="p-col"&gt;
+					&lt;div class="box"&gt;3&lt;/div&gt;
 				&lt;/div&gt;
 			&lt;/div&gt;
 
 			&lt;h3&gt;Reverse Column Direction&lt;/h3&gt;
-			&lt;div class=&quot;p-grid p-dir-col-rev&quot;&gt;
-				&lt;div class=&quot;p-col&quot;&gt;
-					&lt;div class=&quot;box&quot;&gt;1&lt;/div&gt;
+			&lt;div class="p-grid p-dir-col-rev"&gt;
+				&lt;div class="p-col"&gt;
+					&lt;div class="box"&gt;1&lt;/div&gt;
 				&lt;/div&gt;
-				&lt;div class=&quot;p-col&quot;&gt;
-					&lt;div class=&quot;box&quot;&gt;2&lt;/div&gt;
+				&lt;div class="p-col"&gt;
+					&lt;div class="box"&gt;2&lt;/div&gt;
 				&lt;/div&gt;
-				&lt;div class=&quot;p-col&quot;&gt;
-					&lt;div class=&quot;box&quot;&gt;3&lt;/div&gt;
+				&lt;div class="p-col"&gt;
+					&lt;div class="box"&gt;3&lt;/div&gt;
 				&lt;/div&gt;
 			&lt;/div&gt;
 
 			&lt;h3&gt;12 Column Grid&lt;/h3&gt;
-			&lt;div class=&quot;p-grid&quot;&gt;
-				&lt;div class=&quot;p-col-4&quot;&gt;
-					&lt;div class=&quot;box&quot;&gt;4&lt;/div&gt;
+			&lt;div class="p-grid"&gt;
+				&lt;div class="p-col-4"&gt;
+					&lt;div class="box"&gt;4&lt;/div&gt;
 				&lt;/div&gt;
-				&lt;div class=&quot;p-col&quot;&gt;
-					&lt;div class=&quot;box&quot;&gt;1&lt;/div&gt;
+				&lt;div class="p-col"&gt;
+					&lt;div class="box"&gt;1&lt;/div&gt;
 				&lt;/div&gt;
-				&lt;div class=&quot;p-col&quot;&gt;
-					&lt;div class=&quot;box&quot;&gt;1&lt;/div&gt;
+				&lt;div class="p-col"&gt;
+					&lt;div class="box"&gt;1&lt;/div&gt;
 				&lt;/div&gt;
-				&lt;div class=&quot;p-col&quot;&gt;
-					&lt;div class=&quot;box&quot;&gt;1&lt;/div&gt;
+				&lt;div class="p-col"&gt;
+					&lt;div class="box"&gt;1&lt;/div&gt;
 				&lt;/div&gt;
-				&lt;div class=&quot;p-col&quot;&gt;
-					&lt;div class=&quot;box&quot;&gt;1&lt;/div&gt;
+				&lt;div class="p-col"&gt;
+					&lt;div class="box"&gt;1&lt;/div&gt;
 				&lt;/div&gt;
-				&lt;div class=&quot;p-col&quot;&gt;
-					&lt;div class=&quot;box&quot;&gt;1&lt;/div&gt;
+				&lt;div class="p-col"&gt;
+					&lt;div class="box"&gt;1&lt;/div&gt;
 				&lt;/div&gt;
-				&lt;div class=&quot;p-col&quot;&gt;
-					&lt;div class=&quot;box&quot;&gt;1&lt;/div&gt;
+				&lt;div class="p-col"&gt;
+					&lt;div class="box"&gt;1&lt;/div&gt;
 				&lt;/div&gt;
-				&lt;div class=&quot;p-col&quot;&gt;
-					&lt;div class=&quot;box&quot;&gt;1&lt;/div&gt;
+				&lt;div class="p-col"&gt;
+					&lt;div class="box"&gt;1&lt;/div&gt;
 				&lt;/div&gt;
-				&lt;div class=&quot;p-col&quot;&gt;
-					&lt;div class=&quot;box&quot;&gt;1&lt;/div&gt;
-				&lt;/div&gt;
-			&lt;/div&gt;
-
-			&lt;div class=&quot;p-grid&quot;&gt;
-				&lt;div class=&quot;p-col-2&quot;&gt;
-					&lt;div class=&quot;box&quot;&gt;2&lt;/div&gt;
-				&lt;/div&gt;
-				&lt;div class=&quot;p-col-6&quot;&gt;
-					&lt;div class=&quot;box&quot;&gt;6&lt;/div&gt;
-				&lt;/div&gt;
-				&lt;div class=&quot;p-col-4&quot;&gt;
-					&lt;div class=&quot;box&quot;&gt;4&lt;/div&gt;
+				&lt;div class="p-col"&gt;
+					&lt;div class="box"&gt;1&lt;/div&gt;
 				&lt;/div&gt;
 			&lt;/div&gt;
 
-			&lt;div class=&quot;p-grid&quot;&gt;
-				&lt;div class=&quot;p-col-8&quot;&gt;
-					&lt;div class=&quot;box&quot;&gt;8&lt;/div&gt;
+			&lt;div class="p-grid"&gt;
+				&lt;div class="p-col-2"&gt;
+					&lt;div class="box"&gt;2&lt;/div&gt;
 				&lt;/div&gt;
-				&lt;div class=&quot;p-col-2&quot;&gt;
-					&lt;div class=&quot;box&quot;&gt;2&lt;/div&gt;
+				&lt;div class="p-col-6"&gt;
+					&lt;div class="box"&gt;6&lt;/div&gt;
 				&lt;/div&gt;
-				&lt;div class=&quot;p-col-2&quot;&gt;
-					&lt;div class=&quot;box&quot;&gt;2&lt;/div&gt;
+				&lt;div class="p-col-4"&gt;
+					&lt;div class="box"&gt;4&lt;/div&gt;
+				&lt;/div&gt;
+			&lt;/div&gt;
+
+			&lt;div class="p-grid"&gt;
+				&lt;div class="p-col-8"&gt;
+					&lt;div class="box"&gt;8&lt;/div&gt;
+				&lt;/div&gt;
+				&lt;div class="p-col-2"&gt;
+					&lt;div class="box"&gt;2&lt;/div&gt;
+				&lt;/div&gt;
+				&lt;div class="p-col-2"&gt;
+					&lt;div class="box"&gt;2&lt;/div&gt;
 				&lt;/div&gt;
 			&lt;/div&gt;
 
 			&lt;h3&gt;MultiLine&lt;/h3&gt;
-			&lt;div class=&quot;p-grid&quot;&gt;
-				&lt;div class=&quot;p-col-6&quot;&gt;
-					&lt;div class=&quot;box&quot;&gt;6&lt;/div&gt;
+			&lt;div class="p-grid"&gt;
+				&lt;div class="p-col-6"&gt;
+					&lt;div class="box"&gt;6&lt;/div&gt;
 				&lt;/div&gt;
-				&lt;div class=&quot;p-col-6&quot;&gt;
-					&lt;div class=&quot;box&quot;&gt;6&lt;/div&gt;
+				&lt;div class="p-col-6"&gt;
+					&lt;div class="box"&gt;6&lt;/div&gt;
 				&lt;/div&gt;
-				&lt;div class=&quot;p-col-6&quot;&gt;
-					&lt;div class=&quot;box&quot;&gt;6&lt;/div&gt;
+				&lt;div class="p-col-6"&gt;
+					&lt;div class="box"&gt;6&lt;/div&gt;
 				&lt;/div&gt;
-				&lt;div class=&quot;p-col-6&quot;&gt;
-					&lt;div class=&quot;box&quot;&gt;6&lt;/div&gt;
+				&lt;div class="p-col-6"&gt;
+					&lt;div class="box"&gt;6&lt;/div&gt;
 				&lt;/div&gt;
 			&lt;/div&gt;
 
 			&lt;h3&gt;Fixed Width Column&lt;/h3&gt;
-			&lt;div class=&quot;p-grid&quot;&gt;
-				&lt;div class=&quot;p-col-fixed&quot; style=&quot;width:100px&quot;&gt;
-					&lt;div class=&quot;box&quot;&gt;100px&lt;/div&gt;
+			&lt;div class="p-grid"&gt;
+				&lt;div class="p-col-fixed" style="width:100px"&gt;
+					&lt;div class="box"&gt;100px&lt;/div&gt;
 				&lt;/div&gt;
-				&lt;div class=&quot;p-col&quot;&gt;
-					&lt;div class=&quot;box&quot;&gt;auto&lt;/div&gt;
+				&lt;div class="p-col"&gt;
+					&lt;div class="box"&gt;auto&lt;/div&gt;
 				&lt;/div&gt;
 			&lt;/div&gt;
 
 			&lt;h3&gt;Responsive&lt;/h3&gt;
-			&lt;div class=&quot;p-grid&quot;&gt;
-				&lt;div class=&quot;p-col-12 p-md-6 p-lg-3&quot;&gt;
-					&lt;div class=&quot;box&quot;&gt;p-col-12 p-md-6 p-lg-3&lt;/div&gt;
+			&lt;div class="p-grid"&gt;
+				&lt;div class="p-col-12 p-md-6 p-lg-3"&gt;
+					&lt;div class="box"&gt;p-col-12 p-md-6 p-lg-3&lt;/div&gt;
 				&lt;/div&gt;
-				&lt;div class=&quot;p-col-12 p-md-6 p-lg-3&quot;&gt;
-					&lt;div class=&quot;box&quot;&gt;p-col-12 p-md-6 p-lg-3&lt;/div&gt;
+				&lt;div class="p-col-12 p-md-6 p-lg-3"&gt;
+					&lt;div class="box"&gt;p-col-12 p-md-6 p-lg-3&lt;/div&gt;
 				&lt;/div&gt;
-				&lt;div class=&quot;p-col-12 p-md-6 p-lg-3&quot;&gt;
-					&lt;div class=&quot;box&quot;&gt;p-col-12 p-md-6 p-lg-3&lt;/div&gt;
+				&lt;div class="p-col-12 p-md-6 p-lg-3"&gt;
+					&lt;div class="box"&gt;p-col-12 p-md-6 p-lg-3&lt;/div&gt;
 				&lt;/div&gt;
-				&lt;div class=&quot;p-col-12 p-md-6 p-lg-3&quot;&gt;
-					&lt;div class=&quot;box&quot;&gt;p-col-12 p-md-6 p-lg-3&lt;/div&gt;
+				&lt;div class="p-col-12 p-md-6 p-lg-3"&gt;
+					&lt;div class="box"&gt;p-col-12 p-md-6 p-lg-3&lt;/div&gt;
 				&lt;/div&gt;
 			&lt;/div&gt;
 
 			&lt;h3&gt;Horizontal Alignment - Start&lt;/h3&gt;
-			&lt;div class=&quot;p-grid p-justify-start&quot;&gt;
-				&lt;div class=&quot;p-col-2&quot;&gt;
-					&lt;div class=&quot;box&quot;&gt;2&lt;/div&gt;
+			&lt;div class="p-grid p-justify-start"&gt;
+				&lt;div class="p-col-2"&gt;
+					&lt;div class="box"&gt;2&lt;/div&gt;
 				&lt;/div&gt;
-				&lt;div class=&quot;p-col-1&quot;&gt;
-					&lt;div class=&quot;box&quot;&gt;1&lt;/div&gt;
+				&lt;div class="p-col-1"&gt;
+					&lt;div class="box"&gt;1&lt;/div&gt;
 				&lt;/div&gt;
-				&lt;div class=&quot;p-col-4&quot;&gt;
-					&lt;div class=&quot;box&quot;&gt;4&lt;/div&gt;
+				&lt;div class="p-col-4"&gt;
+					&lt;div class="box"&gt;4&lt;/div&gt;
 				&lt;/div&gt;
 			&lt;/div&gt;
 
 			&lt;h3&gt;Horizontal Alignment - End&lt;/h3&gt;
-			&lt;div class=&quot;p-grid p-justify-end&quot;&gt;
-				&lt;div class=&quot;p-col-2&quot;&gt;
-					&lt;div class=&quot;box&quot;&gt;2&lt;/div&gt;
+			&lt;div class="p-grid p-justify-end"&gt;
+				&lt;div class="p-col-2"&gt;
+					&lt;div class="box"&gt;2&lt;/div&gt;
 				&lt;/div&gt;
-				&lt;div class=&quot;p-col-1&quot;&gt;
-					&lt;div class=&quot;box&quot;&gt;1&lt;/div&gt;
+				&lt;div class="p-col-1"&gt;
+					&lt;div class="box"&gt;1&lt;/div&gt;
 				&lt;/div&gt;
-				&lt;div class=&quot;p-col-4&quot;&gt;
-					&lt;div class=&quot;box&quot;&gt;4&lt;/div&gt;
+				&lt;div class="p-col-4"&gt;
+					&lt;div class="box"&gt;4&lt;/div&gt;
 				&lt;/div&gt;
 			&lt;/div&gt;
 
 			&lt;h3&gt;Horizontal Alignment - Center&lt;/h3&gt;
-			&lt;div class=&quot;p-grid p-justify-center&quot;&gt;
-				&lt;div class=&quot;p-col-2&quot;&gt;
-					&lt;div class=&quot;box&quot;&gt;2&lt;/div&gt;
+			&lt;div class="p-grid p-justify-center"&gt;
+				&lt;div class="p-col-2"&gt;
+					&lt;div class="box"&gt;2&lt;/div&gt;
 				&lt;/div&gt;
-				&lt;div class=&quot;p-col-1&quot;&gt;
-					&lt;div class=&quot;box&quot;&gt;1&lt;/div&gt;
+				&lt;div class="p-col-1"&gt;
+					&lt;div class="box"&gt;1&lt;/div&gt;
 				&lt;/div&gt;
-				&lt;div class=&quot;p-col-4&quot;&gt;
-					&lt;div class=&quot;box&quot;&gt;4&lt;/div&gt;
+				&lt;div class="p-col-4"&gt;
+					&lt;div class="box"&gt;4&lt;/div&gt;
 				&lt;/div&gt;
 			&lt;/div&gt;
 
 			&lt;h3&gt;Horizontal Alignment - Between&lt;/h3&gt;
-			&lt;div class=&quot;p-grid p-justify-between&quot;&gt;
-				&lt;div class=&quot;p-col-2&quot;&gt;
-					&lt;div class=&quot;box&quot;&gt;2&lt;/div&gt;
+			&lt;div class="p-grid p-justify-between"&gt;
+				&lt;div class="p-col-2"&gt;
+					&lt;div class="box"&gt;2&lt;/div&gt;
 				&lt;/div&gt;
-				&lt;div class=&quot;p-col-1&quot;&gt;
-					&lt;div class=&quot;box&quot;&gt;1&lt;/div&gt;
+				&lt;div class="p-col-1"&gt;
+					&lt;div class="box"&gt;1&lt;/div&gt;
 				&lt;/div&gt;
-				&lt;div class=&quot;p-col-4&quot;&gt;
-					&lt;div class=&quot;box&quot;&gt;4&lt;/div&gt;
+				&lt;div class="p-col-4"&gt;
+					&lt;div class="box"&gt;4&lt;/div&gt;
 				&lt;/div&gt;
 			&lt;/div&gt;
 
 			&lt;h3&gt;Horizontal Alignment - Around&lt;/h3&gt;
-			&lt;div class=&quot;p-grid p-justify-around&quot;&gt;
-				&lt;div class=&quot;p-col-2&quot;&gt;
-					&lt;div class=&quot;box&quot;&gt;2&lt;/div&gt;
+			&lt;div class="p-grid p-justify-around"&gt;
+				&lt;div class="p-col-2"&gt;
+					&lt;div class="box"&gt;2&lt;/div&gt;
 				&lt;/div&gt;
-				&lt;div class=&quot;p-col-1&quot;&gt;
-					&lt;div class=&quot;box&quot;&gt;1&lt;/div&gt;
+				&lt;div class="p-col-1"&gt;
+					&lt;div class="box"&gt;1&lt;/div&gt;
 				&lt;/div&gt;
-				&lt;div class=&quot;p-col-4&quot;&gt;
-					&lt;div class=&quot;box&quot;&gt;4&lt;/div&gt;
+				&lt;div class="p-col-4"&gt;
+					&lt;div class="box"&gt;4&lt;/div&gt;
 				&lt;/div&gt;
 			&lt;/div&gt;
 
 			&lt;h3&gt;Horizontal Alignment - Even&lt;/h3&gt;
-			&lt;div class=&quot;p-grid p-justify-even&quot;&gt;
-				&lt;div class=&quot;p-col-2&quot;&gt;
-					&lt;div class=&quot;box&quot;&gt;2&lt;/div&gt;
+			&lt;div class="p-grid p-justify-even"&gt;
+				&lt;div class="p-col-2"&gt;
+					&lt;div class="box"&gt;2&lt;/div&gt;
 				&lt;/div&gt;
-				&lt;div class=&quot;p-col-1&quot;&gt;
-					&lt;div class=&quot;box&quot;&gt;1&lt;/div&gt;
+				&lt;div class="p-col-1"&gt;
+					&lt;div class="box"&gt;1&lt;/div&gt;
 				&lt;/div&gt;
-				&lt;div class=&quot;p-col-4&quot;&gt;
-					&lt;div class=&quot;box&quot;&gt;4&lt;/div&gt;
+				&lt;div class="p-col-4"&gt;
+					&lt;div class="box"&gt;4&lt;/div&gt;
 				&lt;/div&gt;
 			&lt;/div&gt;
 
 			&lt;h3&gt;Vertical Alignment - Start&lt;/h3&gt;
-			&lt;div class=&quot;p-grid p-align-start vertical-container&quot;&gt;
-				&lt;div class=&quot;p-col&quot;&gt;
-					&lt;div class=&quot;box&quot;&gt;4&lt;/div&gt;
+			&lt;div class="p-grid p-align-start vertical-container"&gt;
+				&lt;div class="p-col"&gt;
+					&lt;div class="box"&gt;4&lt;/div&gt;
 				&lt;/div&gt;
-				&lt;div class=&quot;p-col&quot;&gt;
-					&lt;div class=&quot;box&quot;&gt;4&lt;/div&gt;
+				&lt;div class="p-col"&gt;
+					&lt;div class="box"&gt;4&lt;/div&gt;
 				&lt;/div&gt;
-				&lt;div class=&quot;p-col&quot;&gt;
-					&lt;div class=&quot;box&quot;&gt;4&lt;/div&gt;
+				&lt;div class="p-col"&gt;
+					&lt;div class="box"&gt;4&lt;/div&gt;
 				&lt;/div&gt;
 			&lt;/div&gt;
 
 			&lt;h3&gt;Vertical Alignment - End&lt;/h3&gt;
-			&lt;div class=&quot;p-grid p-align-end vertical-container&quot;&gt;
-				&lt;div class=&quot;p-col&quot;&gt;
-					&lt;div class=&quot;box&quot;&gt;4&lt;/div&gt;
+			&lt;div class="p-grid p-align-end vertical-container"&gt;
+				&lt;div class="p-col"&gt;
+					&lt;div class="box"&gt;4&lt;/div&gt;
 				&lt;/div&gt;
-				&lt;div class=&quot;p-col&quot;&gt;
-					&lt;div class=&quot;box&quot;&gt;4&lt;/div&gt;
+				&lt;div class="p-col"&gt;
+					&lt;div class="box"&gt;4&lt;/div&gt;
 				&lt;/div&gt;
-				&lt;div class=&quot;p-col&quot;&gt;
-					&lt;div class=&quot;box&quot;&gt;4&lt;/div&gt;
+				&lt;div class="p-col"&gt;
+					&lt;div class="box"&gt;4&lt;/div&gt;
 				&lt;/div&gt;
 			&lt;/div&gt;
 
 			&lt;h3&gt;Vertical Alignment - Center&lt;/h3&gt;
-			&lt;div class=&quot;p-grid p-align-center vertical-container&quot;&gt;
-				&lt;div class=&quot;p-col&quot;&gt;
-					&lt;div class=&quot;box&quot;&gt;4&lt;/div&gt;
+			&lt;div class="p-grid p-align-center vertical-container"&gt;
+				&lt;div class="p-col"&gt;
+					&lt;div class="box"&gt;4&lt;/div&gt;
 				&lt;/div&gt;
-				&lt;div class=&quot;p-col&quot;&gt;
-					&lt;div class=&quot;box&quot;&gt;4&lt;/div&gt;
+				&lt;div class="p-col"&gt;
+					&lt;div class="box"&gt;4&lt;/div&gt;
 				&lt;/div&gt;
-				&lt;div class=&quot;p-col&quot;&gt;
-					&lt;div class=&quot;box&quot;&gt;4&lt;/div&gt;
+				&lt;div class="p-col"&gt;
+					&lt;div class="box"&gt;4&lt;/div&gt;
 				&lt;/div&gt;
 			&lt;/div&gt;
 
 			&lt;h3&gt;Vertical Alignment - Stretch&lt;/h3&gt;
-			&lt;div class=&quot;p-grid p-align-stretch vertical-container&quot;&gt;
-				&lt;div class=&quot;p-col&quot;&gt;
-					&lt;div class=&quot;box box-stretched&quot;&gt;4&lt;/div&gt;
+			&lt;div class="p-grid p-align-stretch vertical-container"&gt;
+				&lt;div class="p-col"&gt;
+					&lt;div class="box box-stretched"&gt;4&lt;/div&gt;
 				&lt;/div&gt;
-				&lt;div class=&quot;p-col&quot;&gt;
-					&lt;div class=&quot;box box-stretched&quot;&gt;4&lt;/div&gt;
+				&lt;div class="p-col"&gt;
+					&lt;div class="box box-stretched"&gt;4&lt;/div&gt;
 				&lt;/div&gt;
-				&lt;div class=&quot;p-col&quot;&gt;
-					&lt;div class=&quot;box box-stretched&quot;&gt;4&lt;/div&gt;
+				&lt;div class="p-col"&gt;
+					&lt;div class="box box-stretched"&gt;4&lt;/div&gt;
 				&lt;/div&gt;
 			&lt;/div&gt;
 
 			&lt;h3&gt;Vertical Alignment - Per Column&lt;/h3&gt;
-			&lt;div class=&quot;p-grid vertical-container&quot;&gt;
-				&lt;div class=&quot;p-col p-col-align-start&quot;&gt;
-					&lt;div class=&quot;box&quot;&gt;4&lt;/div&gt;
+			&lt;div class="p-grid vertical-container"&gt;
+				&lt;div class="p-col p-col-align-start"&gt;
+					&lt;div class="box"&gt;4&lt;/div&gt;
 				&lt;/div&gt;
-				&lt;div class=&quot;p-col p-col-align-center&quot;&gt;
-					&lt;div class=&quot;box&quot;&gt;4&lt;/div&gt;
+				&lt;div class="p-col p-col-align-center"&gt;
+					&lt;div class="box"&gt;4&lt;/div&gt;
 				&lt;/div&gt;
-				&lt;div class=&quot;p-col p-col-align-end&quot;&gt;
-					&lt;div class=&quot;box&quot;&gt;4&lt;/div&gt;
+				&lt;div class="p-col p-col-align-end"&gt;
+					&lt;div class="box"&gt;4&lt;/div&gt;
 				&lt;/div&gt;
 			&lt;/div&gt;
 
 			&lt;h3&gt;Offset&lt;/h3&gt;
-			&lt;div class=&quot;p-grid&quot;&gt;
-				&lt;div class=&quot;p-col-6 p-offset-3&quot;&gt;
-					&lt;div class=&quot;box&quot;&gt;6&lt;/div&gt;
+			&lt;div class="p-grid"&gt;
+				&lt;div class="p-col-6 p-offset-3"&gt;
+					&lt;div class="box"&gt;6&lt;/div&gt;
 				&lt;/div&gt;
 			&lt;/div&gt;
 
-			&lt;div class=&quot;p-grid&quot;&gt;
-				&lt;div class=&quot;p-col-4&quot;&gt;
-					&lt;div class=&quot;box&quot;&gt;4&lt;/div&gt;
+			&lt;div class="p-grid"&gt;
+				&lt;div class="p-col-4"&gt;
+					&lt;div class="box"&gt;4&lt;/div&gt;
 				&lt;/div&gt;
-				&lt;div class=&quot;p-col-4 p-offset-4&quot;&gt;
-					&lt;div class=&quot;box&quot;&gt;4&lt;/div&gt;
+				&lt;div class="p-col-4 p-offset-4"&gt;
+					&lt;div class="box"&gt;4&lt;/div&gt;
 				&lt;/div&gt;
 			&lt;/div&gt;
 
 			&lt;h3&gt;Nested&lt;/h3&gt;
-			&lt;div class=&quot;p-grid nested-grid&quot;&gt;
-				&lt;div class=&quot;p-col-8&quot;&gt;
-					&lt;div class=&quot;p-grid&quot;&gt;
-						&lt;div class=&quot;p-col-6&quot;&gt;
-							&lt;div class=&quot;box&quot;&gt;6&lt;/div&gt;
+			&lt;div class="p-grid nested-grid"&gt;
+				&lt;div class="p-col-8"&gt;
+					&lt;div class="p-grid"&gt;
+						&lt;div class="p-col-6"&gt;
+							&lt;div class="box"&gt;6&lt;/div&gt;
 						&lt;/div&gt;
-						&lt;div class=&quot;p-col-6&quot;&gt;
-							&lt;div class=&quot;box&quot;&gt;6&lt;/div&gt;
+						&lt;div class="p-col-6"&gt;
+							&lt;div class="box"&gt;6&lt;/div&gt;
 						&lt;/div&gt;
-						&lt;div class=&quot;p-col-12&quot;&gt;
-							&lt;div class=&quot;box&quot;&gt;12&lt;/div&gt;
+						&lt;div class="p-col-12"&gt;
+							&lt;div class="box"&gt;12&lt;/div&gt;
 						&lt;/div&gt;
 					&lt;/div&gt;
 				&lt;/div&gt;
-				&lt;div class=&quot;p-col-4&quot;&gt;
-					&lt;div class=&quot;box box-stretched&quot;&gt;4&lt;/div&gt;
+				&lt;div class="p-col-4"&gt;
+					&lt;div class="box box-stretched"&gt;4&lt;/div&gt;
 				&lt;/div&gt;
 			&lt;/div&gt;
 
 			&lt;h3&gt;Panels&lt;/h3&gt;
-			&lt;div class=&quot;p-grid&quot;&gt;
-				&lt;div class=&quot;p-col&quot;&gt;
-					&lt;Panel header=&quot;Godfather&quot;&gt;
+			&lt;div class="p-grid"&gt;
+				&lt;div class="p-col"&gt;
+					&lt;Panel header="Godfather"&gt;
 						The story begins as Don Vito Corleone, the head of a New York Mafia family, oversees his daughter's wedding.
 						His beloved son Michael has just come home from the war, but does not intend to become part of his father's business.
 						Through Michael's life the nature of the family business becomes clear. The business of the family is just like the head of the family,
 						kind and benevolent to those who give respect, but given to ruthless violence whenever anything stands against the good of the family.
 					&lt;/Panel&gt;
 				&lt;/div&gt;
-				&lt;div class=&quot;p-col&quot;&gt;
-					&lt;Panel header=&quot;Godfather&quot;&gt;
+				&lt;div class="p-col"&gt;
+					&lt;Panel header="Godfather"&gt;
 						The story begins as Don Vito Corleone, the head of a New York Mafia family, oversees his daughter's wedding.
 						His beloved son Michael has just come home from the war, but does not intend to become part of his father's business.
 						Through Michael's life the nature of the family business becomes clear. The business of the family is just like the head of the family,
 						kind and benevolent to those who give respect, but given to ruthless violence whenever anything stands against the good of the family.
 					&lt;/Panel&gt;
 				&lt;/div&gt;
-				&lt;div class=&quot;p-col&quot;&gt;
-					&lt;Panel header=&quot;Godfather&quot;&gt;
+				&lt;div class="p-col"&gt;
+					&lt;Panel header="Godfather"&gt;
 						The story begins as Don Vito Corleone, the head of a New York Mafia family, oversees his daughter's wedding.
 						His beloved son Michael has just come home from the war, but does not intend to become part of his father's business.
 						Through Michael's life the nature of the family business becomes clear. The business of the family is just like the head of the family,
@@ -942,43 +942,43 @@
 			&lt;/div&gt;
 
 			&lt;h3&gt;Sample Layout&lt;/h3&gt;
-			&lt;div class=&quot;p-grid sample-layout&quot;&gt;
-				&lt;div class=&quot;p-col-12 p-md-2&quot;&gt;
+			&lt;div class="p-grid sample-layout"&gt;
+				&lt;div class="p-col-12 p-md-2"&gt;
 					Menu
 				&lt;/div&gt;
-				&lt;div class=&quot;p-col-12 p-md-10 p-col-nogutter&quot;&gt;
-					&lt;div class=&quot;p-col-12 p-col-nogutter&quot;&gt;
+				&lt;div class="p-col-12 p-md-10 p-col-nogutter"&gt;
+					&lt;div class="p-col-12 p-col-nogutter"&gt;
 						Top Bar
 					&lt;/div&gt;
-					&lt;div class=&quot;p-col-12&quot;&gt;
-						&lt;div class=&quot;p-grid&quot;&gt;
-							&lt;div class=&quot;p-col-12 p-md-4&quot;&gt;Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed imperdiet, orci nec
+					&lt;div class="p-col-12"&gt;
+						&lt;div class="p-grid"&gt;
+							&lt;div class="p-col-12 p-md-4"&gt;Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed imperdiet, orci nec
 								dictum convallis, ligula mauris vestibulum turpis, nec varius tortor quam at diam. Nullam a viverra nibh.
 								In tincidunt tempor lectus quis vulputate. Pellentesque nec dui aliquam, lobortis est in, lobortis ante&lt;/div&gt;
-							&lt;div class=&quot;p-col-12 p-md-4&quot;&gt;Maecenas vel nisi aliquet, vulputate tortor id, laoreet massa. Maecenas mattis
+							&lt;div class="p-col-12 p-md-4"&gt;Maecenas vel nisi aliquet, vulputate tortor id, laoreet massa. Maecenas mattis
 								tristique bibendum. Suspendisse vel mi dictum, vestibulum lacus quis, pulvinar quam. Proin vulputate, nibh
 								at finibus varius, leo eros lacinia elit, nec blandit odio tellus a justo. Donec nec ex auctor, tristique
 								nulla nec, rutrum sapien.&lt;/div&gt;
-							&lt;div class=&quot;p-col-12 p-md-4&quot;&gt;Proin efficitur in leo eget ornare. Nam vestibulum neque sed velit sagittis
+							&lt;div class="p-col-12 p-md-4"&gt;Proin efficitur in leo eget ornare. Nam vestibulum neque sed velit sagittis
 								sodales. Sed scelerisque hendrerit magna a hendrerit. Cras tempor sem at justo pharetra convallis.
 								Curabitur vel sodales purus. Vestibulum interdum facilisis nulla imperdiet suscipit. Quisque lectus felis,
 								condimentum eget hendrerit sit amet.&lt;/div&gt;
 
-							&lt;div class=&quot;p-col-6 p-md-3&quot;&gt;&lt;img alt=&quot;Galleria 1&quot; src=&quot;/demo/images/nature/nature1.jpg&quot; style=&quot;width: 100%&quot; /&gt;&lt;/div&gt;
-							&lt;div class=&quot;p-col-6 p-md-3&quot;&gt;&lt;img alt=&quot;Galleria 2&quot; src=&quot;/demo/images/nature/nature2.jpg&quot; style=&quot;width: 100%&quot; /&gt;&lt;/div&gt;
-							&lt;div class=&quot;p-col-6 p-md-3&quot;&gt;&lt;img alt=&quot;Galleria 3&quot; src=&quot;/demo/images/nature/nature3.jpg&quot; style=&quot;width: 100%&quot; /&gt;&lt;/div&gt;
-							&lt;div class=&quot;p-col-6 p-md-3&quot;&gt;&lt;img alt=&quot;Galleria 4&quot; src=&quot;/demo/images/nature/nature4.jpg&quot; style=&quot;width: 100%&quot; /&gt;&lt;/div&gt;
+							&lt;div class="p-col-6 p-md-3"&gt;&lt;img alt="Galleria 1" src="/demo/images/nature/nature1.jpg" style="width: 100%" /&gt;&lt;/div&gt;
+							&lt;div class="p-col-6 p-md-3"&gt;&lt;img alt="Galleria 2" src="/demo/images/nature/nature2.jpg" style="width: 100%" /&gt;&lt;/div&gt;
+							&lt;div class="p-col-6 p-md-3"&gt;&lt;img alt="Galleria 3" src="/demo/images/nature/nature3.jpg" style="width: 100%" /&gt;&lt;/div&gt;
+							&lt;div class="p-col-6 p-md-3"&gt;&lt;img alt="Galleria 4" src="/demo/images/nature/nature4.jpg" style="width: 100%" /&gt;&lt;/div&gt;
 
-							&lt;div class=&quot;p-col-12 p-md-6&quot;&gt;Phasellus faucibus purus volutpat mauris lacinia sodales. Ut sit amet sapien
+							&lt;div class="p-col-12 p-md-6"&gt;Phasellus faucibus purus volutpat mauris lacinia sodales. Ut sit amet sapien
 								facilisis, commodo dui non, fringilla tellus. Quisque tempus facilisis nisi sodales finibus. Pellentesque
 								neque orci, ullamcorper vitae ligula quis, dignissim euismod augue.&lt;/div&gt;
-							&lt;div class=&quot;p-col-12 p-md-6&quot;&gt;Fusce ullamcorper congue massa, eget ullamcorper nunc lobortis egestas. Lorem
+							&lt;div class="p-col-12 p-md-6"&gt;Fusce ullamcorper congue massa, eget ullamcorper nunc lobortis egestas. Lorem
 								ipsum dolor sit amet, consectetur adipiscing elit. Quisque ultrices dui eget dolor feugiat dapibus. Aliquam
 								pretium leo et egestas luctus. Nunc facilisis gravida tellus.&lt;/div&gt;
 						&lt;/div&gt;
 					&lt;/div&gt;
 				&lt;/div&gt;
-				&lt;div class=&quot;p-col-12&quot;&gt;
+				&lt;div class="p-col-12"&gt;
 					Footer
 				&lt;/div&gt;
 			&lt;/div&gt;

@@ -62,38 +62,38 @@ import Card from 'primevue/card';
 <template v-pre>
 &lt;template&gt;
 	&lt;div&gt;
-		&lt;div class=&quot;content-section introduction&quot;&gt;
-			&lt;div class=&quot;feature-intro&quot;&gt;
+		&lt;div class="content-section introduction"&gt;
+			&lt;div class="feature-intro"&gt;
 				&lt;h1&gt;Card&lt;/h1&gt;
 				&lt;p&gt;Card is a flexible container component.&lt;/p&gt;
 			&lt;/div&gt;
 		&lt;/div&gt;
 
-		&lt;div class=&quot;content-section implementation&quot;&gt;
-			&lt;Card style=&quot;width: 25em; margin-bottom: 2em&quot;&gt;
-				&lt;template slot=&quot;title&quot;&gt;
+		&lt;div class="content-section implementation"&gt;
+			&lt;Card style="width: 25em; margin-bottom: 2em"&gt;
+				&lt;template slot="title"&gt;
 					Simple Card
 				&lt;/template&gt;
-				&lt;template slot=&quot;content&quot;&gt;
+				&lt;template slot="content"&gt;
 					Lorem ipsum dolor sit amet, consectetur adipisicing elit. Inventore sed consequuntur error repudiandae numquam deserunt
 					quisquam repellat libero asperiores earum nam nobis, culpa ratione quam perferendis esse, cupiditate neque quas!
 				&lt;/template&gt;
 			&lt;/Card&gt;
 
-			&lt;Card style=&quot;width: 25em&quot;&gt;
-				&lt;template slot=&quot;header&quot;&gt;
-					&lt;img alt=&quot;user header&quot; src=&quot;demo/images/usercard.png&quot;&gt;
+			&lt;Card style="width: 25em"&gt;
+				&lt;template slot="header"&gt;
+					&lt;img alt="user header" src="demo/images/usercard.png"&gt;
 				&lt;/template&gt;
-				&lt;template slot=&quot;title&quot;&gt;
+				&lt;template slot="title"&gt;
 					Advanced Card
 				&lt;/template&gt;
-				&lt;template slot=&quot;content&quot;&gt;
+				&lt;template slot="content"&gt;
 					Lorem ipsum dolor sit amet, consectetur adipisicing elit. Inventore sed consequuntur error repudiandae numquam deserunt
 					quisquam repellat libero asperiores earum nam nobis, culpa ratione quam perferendis esse, cupiditate neque quas!
 				&lt;/template&gt;
-				&lt;template slot=&quot;footer&quot;&gt;
-					&lt;Button icon=&quot;pi pi-check&quot; label=&quot;Save&quot; class=&quot;p-button-raised&quot; /&gt;
-					&lt;Button icon=&quot;pi pi-times&quot; label=&quot;Cancel&quot; class=&quot;p-button-raised p-button-secondary&quot; style=&quot;margin-left: .5em&quot; /&gt;
+				&lt;template slot="footer"&gt;
+					&lt;Button icon="pi pi-check" label="Save" class="p-button-raised" /&gt;
+					&lt;Button icon="pi pi-times" label="Cancel" class="p-button-raised p-button-secondary" style="margin-left: .5em" /&gt;
 				&lt;/template&gt;
 			&lt;/Card&gt;
 		&lt;/div&gt;

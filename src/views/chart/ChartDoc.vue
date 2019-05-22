@@ -11,7 +11,7 @@ import Chart from 'primevue/chart';
 		<h3>Data</h3>
 		<p>Data of a chart is provided using a binding to the <i>data</i> property, each type has its own format of data. Here is an example of a line chart.</p>
 <CodeHighlight>
-&lt;Chart type=&quot;bar&quot; :data=&quot;basicData&quot; /&gt;
+&lt;Chart type="bar" :data="basicData" /&gt;
 </CodeHighlight>
 
 <CodeHighlight lang="js">
@@ -42,7 +42,7 @@ export default {
 		<p>While a series can be customized per dataset, general chart options are defined with options property.
 			Example below adds a title and customizes the legend position of the chart. For all available options refer to the charts.js documentation.</p>
 <CodeHighlight>
-&lt;Chart type=&quot;line&quot; :data=&quot;data&quot; :options=&quot;options&quot; /&gt;
+&lt;Chart type="line" :data="data" :options="options" /&gt;
 </CodeHighlight>
 
 <CodeHighlight lang="js">
