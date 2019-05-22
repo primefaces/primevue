@@ -8,7 +8,7 @@ import Editor from 'primevue/editor';
 </CodeHighlight>
 
 				<h3>Getting Started</h3>
-				<p>Two-way value binding is defined with v-model.</p>
+				<p>A model can be bound using the standard v-model directive.</p>
 <CodeHighlight>
 &lt;Editor v-model=&quot;value&quot; editorStyle=&quot;height: 320px&quot;/&gt;
 </CodeHighlight>
@@ -31,44 +31,44 @@ import Editor from 'primevue/editor';
 				<div class="doc-tablewrapper">
 					<table class="doc-table">
 						<thead>
-						<tr>
-							<th>Name</th>
-							<th>Type</th>
-							<th>Default</th>
-							<th>Description</th>
-						</tr>
+                            <tr>
+                                <th>Name</th>
+                                <th>Type</th>
+                                <th>Default</th>
+                                <th>Description</th>
+                            </tr>
 						</thead>
 						<tbody>
-						<tr>
-							<td>value</td>
-							<td>string</td>
-							<td>null</td>
-							<td>Value of the content.</td>
-						</tr>
-						<tr>
-							<td>placeholder</td>
-							<td>string</td>
-							<td>null</td>
-							<td>Placeholder text to show when editor is empty.</td>
-						</tr>
-						<tr>
-							<td>readonly</td>
-							<td>boolean</td>
-							<td>false</td>
-							<td>Whether to instantiate the editor to read-only mode.</td>
-						</tr>
-						<tr>
-							<td>formats</td>
-							<td>string[]</td>
-							<td>null</td>
-							<td>Whitelist of formats to display, see <a href="http://quilljs.com/docs/formats/">here</a> for available options.</td>
-						</tr>
-						<tr>
-							<td>editorStyle</td>
-							<td>any</td>
-							<td>null</td>
-							<td>Inline style of the container.</td>
-						</tr>
+                            <tr>
+                                <td>value</td>
+                                <td>string</td>
+                                <td>null</td>
+                                <td>Value of the content.</td>
+                            </tr>
+                            <tr>
+                                <td>placeholder</td>
+                                <td>string</td>
+                                <td>null</td>
+                                <td>Placeholder text to show when editor is empty.</td>
+                            </tr>
+                            <tr>
+                                <td>readonly</td>
+                                <td>boolean</td>
+                                <td>false</td>
+                                <td>Whether to instantiate the editor to readonly mode.</td>
+                            </tr>
+                            <tr>
+                                <td>formats</td>
+                                <td>string[]</td>
+                                <td>null</td>
+                                <td>Whitelist of formats to display, see <a href="http://quilljs.com/docs/formats/">here</a> for available options.</td>
+                            </tr>
+                            <tr>
+                                <td>editorStyle</td>
+                                <td>any</td>
+                                <td>null</td>
+                                <td>Inline style of the container.</td>
+                            </tr>
 						</tbody>
 					</table>
 				</div>
@@ -77,26 +77,26 @@ import Editor from 'primevue/editor';
 				<div class="doc-tablewrapper">
 					<table class="doc-table">
 						<thead>
-						<tr>
-							<th>Name</th>
-							<th>Parameters</th>
-							<th>Description</th>
-						</tr>
+                            <tr>
+                                <th>Name</th>
+                                <th>Parameters</th>
+                                <th>Description</th>
+                            </tr>
 						</thead>
 						<tbody>
-						<tr>
-							<td>text-change</td>
-							<td>event.delta: Representation of the change.<br/>
-								event.source: Source of change. Will be either "user" or "api".<br/>
-								event.htmlValue: Current value as html.<br/>
-								event.textValue: Current value as text.<br/></td>
-							<td>Callback to invoke when text of editor changes.</td>
-						</tr>
-						<tr>
-							<td>input</td>
-							<td>event: Current value as html.</td>
-							<td>Callback to invoke on input event of input field.</td>
-						</tr>
+                            <tr>
+                                <td>text-change</td>
+                                <td>event.delta: Representation of the change.<br/>
+                                    event.source: Source of change. Will be either "user" or "api".<br/>
+                                    event.htmlValue: Current value as html.<br/>
+                                    event.textValue: Current value as text.<br/></td>
+                                <td>Callback to invoke when text of editor changes.</td>
+                            </tr>
+                            <tr>
+                                <td>input</td>
+                                <td>event: Current value as html.</td>
+                                <td>Callback to invoke when text of editor changes.</td>
+                            </tr>
 						</tbody>
 					</table>
 				</div>
@@ -108,24 +108,24 @@ import Editor from 'primevue/editor';
 				<div class="doc-tablewrapper">
 					<table class="doc-table">
 						<thead>
-						<tr>
-							<th>Name</th>
-							<th>Element</th>
-						</tr>
+                            <tr>
+                                <th>Name</th>
+                                <th>Element</th>
+                            </tr>
 						</thead>
 						<tbody>
-						<tr>
-							<td>p-editor-container</td>
-							<td>Container element</td>
-						</tr>
-						<tr>
-							<td>p-editor-toolbar</td>
-							<td>Toolbar of the editor</td>
-						</tr>
-						<tr>
-							<td>p-editor-content</td>
-							<td>Editable area</td>
-						</tr>
+                            <tr>
+                                <td>p-editor-container</td>
+                                <td>Container element</td>
+                            </tr>
+                            <tr>
+                                <td>p-editor-toolbar</td>
+                                <td>Toolbar of the editor</td>
+                            </tr>
+                            <tr>
+                                <td>p-editor-content</td>
+                                <td>Editable area</td>
+                            </tr>
 						</tbody>
 					</table>
 				</div>
