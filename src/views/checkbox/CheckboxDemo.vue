@@ -9,7 +9,7 @@
 
         <div class="content-section implementation">
             <h3 class="first">Basic</h3>
-            <Checkbox id="binary" inputId="binary" v-model="checked"/>
+            <Checkbox id="binary" inputId="binary" v-model="checked" :binary="true" />
             <label for="binary" class="p-checkbox-label" style="font-weight: bold">{{checked}}</label>
 
             <h3>Multiple</h3>

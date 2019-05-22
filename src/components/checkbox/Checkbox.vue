@@ -1,10 +1,9 @@
 <template>
    <div class="p-checkbox p-component" @click="onClick($event)">
        <div class="p-hidden-accessible">
-           <input ref="input" :id="inputId" type="checkbox" :name="name" :checked="checked" :disabled="disabled" @focus="onFocus($event)" @blur="onBlur($event)"
-                    :autocomplete="autocomplete" :autofocus="autofocus">
+           <input ref="input" type="checkbox" :checked="checked" :value="value" v-bind="$attrs" @focus="onFocus($event)" @blur="onBlur($event)">
         </div>
-        <div ref="box" :class="['p-checkbox-box p-component', {'p-highlight': checked, 'p-disabled': disabled, 'p-focus': focused}]">
+        <div ref="box" :class="['p-checkbox-box p-component', {'p-highlight': checked, 'p-disabled': $attrs.disabled, 'p-focus': focused}]">
             <span :class="['p-checkbox-icon p-c', {'pi pi-check': checked}]"></span>
         </div>
     </div>
@@ -14,14 +13,10 @@
 import ObjectUtils from '../utils/ObjectUtils';
 
 export default {
+    inheritAttrs: false,
     props: {
          value: null,
          modelValue: null,
-         name: String,
-         inputId: String,
-         autofocus: Boolean,
-         autocomplete: String,
-         disabled: Boolean,
          binary: Boolean
     },
     model: {
@@ -35,7 +30,7 @@ export default {
     },
     methods: {
         onClick(event) {
-            if (!this.disabled) {
+            if (!this.$attrs.disabled) {
                 let newModelValue;
                 
                 if (this.binary) {

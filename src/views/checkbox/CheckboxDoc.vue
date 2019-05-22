@@ -36,6 +36,7 @@ export default {
 					checkboxes as checked by default.</p>
 
 				<h3>Properties</h3>
+                <p>Any valid attribute such as name and autofocus are passed to the underlying input element. Following are the additional properties to configure the component.</p>
 				<div class="doc-tablewrapper">
 					<table class="doc-table">
 						<thead>
@@ -48,46 +49,10 @@ export default {
 						</thead>
 						<tbody>
                             <tr>
-                                <td>inputId</td>
-                                <td>string</td>
-                                <td>null</td>
-                                <td>Unique identifier of the inner native checkbox.</td>
-                            </tr>
-                            <tr>
                                 <td>value</td>
                                 <td>any</td>
                                 <td>null</td>
                                 <td>Value of the checkbox.</td>
-                            </tr>
-                            <tr>
-                                <td>name</td>
-                                <td>string</td>
-                                <td>null</td>
-                                <td>Name of the checkbox element .</td>
-                            </tr>
-                            <tr>
-                                <td>disabled</td>
-                                <td>boolean</td>
-                                <td>false</td>
-                                <td>When present, it specifies that the element value cannot be altered.</td>
-                            </tr>
-                            <tr>
-                                <td>modelValue</td>
-                                <td>any</td>
-                                <td>null</td>
-                                <td>Value of the checkbox.</td>
-                            </tr>
-                            <tr>
-                                <td>autocomplete</td>
-                                <td>string</td>
-                                <td>null</td>
-                                <td>Whether an the element should have autocomplete enabled.</td>
-                            </tr>
-                            <tr>
-                                <td>autofocus</td>
-                                <td>boolean</td>
-                                <td>false</td>
-                                <td>When present, it specifies that the element should automatically get focus when the page loads.</td>
                             </tr>
                             <tr>
                                 <td>binary</td>
@@ -191,7 +156,7 @@ export default {
 
 		&lt;div class=&quot;content-section implementation&quot;&gt;
 			&lt;h3 class=&quot;first&quot;&gt;Basic&lt;/h3&gt;
-			&lt;Checkbox id=&quot;binary&quot; inputId=&quot;binary&quot; v-model=&quot;checked&quot;/&gt;
+			&lt;Checkbox id=&quot;binary&quot; inputId=&quot;binary&quot; v-model=&quot;checked&quot; :binary="true"/&gt;
 			&lt;label for=&quot;binary&quot; class=&quot;p-checkbox-label&quot; style=&quot;font-weight: bold&quot;&gt;{{checked}}&lt;/label&gt;
 
 			&lt;h3&gt;Multiple&lt;/h3&gt;
