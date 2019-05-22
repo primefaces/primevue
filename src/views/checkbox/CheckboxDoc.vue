@@ -10,7 +10,7 @@ import Checkbox from 'primevue/checkbox';
 				<h3>Getting Started</h3>
 				<p>Checkbox can either be used in multiple selection with other checkboxes or as a single checkbox to provide a boolean value.</p>
 <CodeHighlight>
-&lt;Checkbox id=&quot;binary&quot; inputId=&quot;binary&quot; v-model=&quot;checked&quot; /&gt;
+&lt;Checkbox v-model=&quot;checked&quot; :binary="true" /&gt;
 </CodeHighlight>
 
 				<h3>Multiple Values</h3>
@@ -32,77 +32,69 @@ export default {
 }
 </CodeHighlight>
 
-
 				<p>As v-model is two-way binding enabled, prepopulating the model array with values is enough to display the related
 					checkboxes as checked by default.</p>
-<CodeHighlight lang="js">
-export default {
-	data() {
-		return {
-			themes: [{name: 'Apollo', key: 'A'}, {name: 'Babylon', key: 'B'}, {name: 'Serenity', key: 'S'}, {name: 'Ultima', key: 'U'}],
-			selectedThemes: []
-		}
-	},
-	created() {
-		this.selectedThemes = this.themes.slice(1,3);
-	}
-}
-</CodeHighlight>
 
 				<h3>Properties</h3>
 				<div class="doc-tablewrapper">
 					<table class="doc-table">
 						<thead>
-						<tr>
-							<th>Name</th>
-							<th>Type</th>
-							<th>Default</th>
-							<th>Description</th>
-						</tr>
+                            <tr>
+                                <th>Name</th>
+                                <th>Type</th>
+                                <th>Default</th>
+                                <th>Description</th>
+                            </tr>
 						</thead>
 						<tbody>
-						<tr>
-							<td>inputId</td>
-							<td>string</td>
-							<td>null</td>
-							<td>Unique identifier of the inner native checkbox.</td>
-						</tr>
-						<tr>
-							<td>value</td>
-							<td>any</td>
-							<td>null</td>
-							<td>Value of the checkbox.</td>
-						</tr>
-						<tr>
-							<td>name</td>
-							<td>string</td>
-							<td>null</td>
-							<td>Name of the checkbox element .</td>
-						</tr>
-						<tr>
-							<td>disabled</td>
-							<td>boolean</td>
-							<td>false</td>
-							<td>When present, it specifies that the element value cannot be altered.</td>
-						</tr>
-						<tr>
-							<td>modelValue</td>
-							<td>any</td>
-							<td>null</td>
-							<td>Value of the checkbox.</td>
-						</tr>
-						<tr>
-							<td>autocomplete</td>
-							<td>string</td>
-							<td>null</td>
-							<td>When specifies, whether or not an the element should have autocomplete enabled.</td>
-						</tr>
-						<tr>
-							<td>autofocus</td>
-							<td>boolean</td>
-							<td>false</td>
-							<td>When present, it specifies that the element should automatically get focus when the page loads.</td>
-						</tr>
+                            <tr>
+                                <td>inputId</td>
+                                <td>string</td>
+                                <td>null</td>
+                                <td>Unique identifier of the inner native checkbox.</td>
+                            </tr>
+                            <tr>
+                                <td>value</td>
+                                <td>any</td>
+                                <td>null</td>
+                                <td>Value of the checkbox.</td>
+                            </tr>
+                            <tr>
+                                <td>name</td>
+                                <td>string</td>
+                                <td>null</td>
+                                <td>Name of the checkbox element .</td>
+                            </tr>
+                            <tr>
+                                <td>disabled</td>
+                                <td>boolean</td>
+                                <td>false</td>
+                                <td>When present, it specifies that the element value cannot be altered.</td>
+                            </tr>
+                            <tr>
+                                <td>modelValue</td>
+                                <td>any</td>
+                                <td>null</td>
+                                <td>Value of the checkbox.</td>
+                            </tr>
+                            <tr>
+                                <td>autocomplete</td>
+                                <td>string</td>
+                                <td>null</td>
+                                <td>Whether an the element should have autocomplete enabled.</td>
+                            </tr>
+                            <tr>
+                                <td>autofocus</td>
+                                <td>boolean</td>
+                                <td>false</td>
+                                <td>When present, it specifies that the element should automatically get focus when the page loads.</td>
+                            </tr>
+                            <tr>
+                                <td>binary</td>
+                                <td>boolean</td>
+                                <td>false</td>
+                                <td>Allows to select a boolean value instead of multiple values.</td>
+                            </tr>
 						</tbody>
 					</table>
 				</div>
@@ -111,38 +103,38 @@ export default {
 				<div class="doc-tablewrapper">
 					<table class="doc-table">
 						<thead>
-						<tr>
-							<th>Name</th>
-							<th>Parameters</th>
-							<th>Description</th>
-						</tr>
+                            <tr>
+                                <th>Name</th>
+                                <th>Parameters</th>
+                                <th>Description</th>
+                            </tr>
 						</thead>
 						<tbody>
-						<tr>
-							<td>change</td>
-							<td>event: Browser event</td>
-							<td>Callback to invoke on value change.</td>
-						</tr>
-						<tr>
-							<td>input</td>
-							<td>event: Value of checkbox</td>
-							<td>Callback to invoke on click.</td>
-						</tr>
-						<tr>
-							<td>click</td>
-							<td>event: Browser event</td>
-							<td>Callback to invoke click.</td>
-						</tr>
-						<tr>
-							<td>focus</td>
-							<td>event: Browser event</td>
-							<td>Callback to invoke on focus.</td>
-						</tr>
-						<tr>
-							<td>blur</td>
-							<td>event: Browser event</td>
-							<td>Callback to invoke on blur.</td>
-						</tr>
+                            <tr>
+                                <td>change</td>
+                                <td>event: Browser event</td>
+                                <td>Callback to invoke on value change.</td>
+                            </tr>
+                            <tr>
+                                <td>input</td>
+                                <td>event: Value of checkbox</td>
+                                <td>Callback to invoke on click.</td>
+                            </tr>
+                            <tr>
+                                <td>click</td>
+                                <td>event: Browser event</td>
+                                <td>Callback to invoke click.</td>
+                            </tr>
+                            <tr>
+                                <td>focus</td>
+                                <td>event: Browser event</td>
+                                <td>Callback to invoke on focus.</td>
+                            </tr>
+                            <tr>
+                                <td>blur</td>
+                                <td>event: Browser event</td>
+                                <td>Callback to invoke on blur.</td>
+                            </tr>
 						</tbody>
 					</table>
 				</div>
@@ -152,28 +144,28 @@ export default {
 				<div class="doc-tablewrapper">
 					<table class="doc-table">
 						<thead>
-						<tr>
-							<th>Name</th>
-							<th>Element</th>
-						</tr>
+                            <tr>
+                                <th>Name</th>
+                                <th>Element</th>
+                            </tr>
 						</thead>
 						<tbody>
-						<tr>
-							<td>p-chkbox</td>
-							<td>Container element</td>
-						</tr>
-						<tr>
-							<td>p-chkbox-box</td>
-							<td>Container of icon.</td>
-						</tr>
-						<tr>
-							<td>p-chkbox-icon</td>
-							<td>Icon element.</td>
-						</tr>
-						<tr>
-							<td>p-chkbox-label</td>
-							<td>Label element.</td>
-						</tr>
+                            <tr>
+                                <td>p-chkbox</td>
+                                <td>Container element</td>
+                            </tr>
+                            <tr>
+                                <td>p-chkbox-box</td>
+                                <td>Container of icon.</td>
+                            </tr>
+                            <tr>
+                                <td>p-chkbox-icon</td>
+                                <td>Icon element.</td>
+                            </tr>
+                            <tr>
+                                <td>p-chkbox-label</td>
+                                <td>Label element.</td>
+                            </tr>
 						</tbody>
 					</table>
 				</div>

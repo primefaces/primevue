@@ -21,7 +21,8 @@ export default {
          inputId: String,
          autofocus: Boolean,
          autocomplete: String,
-         disabled: Boolean
+         disabled: Boolean,
+         binary: Boolean
     },
     model: {
         prop: 'modelValue',
@@ -37,14 +38,14 @@ export default {
             if (!this.disabled) {
                 let newModelValue;
                 
-                if (Array.isArray(this.modelValue)) {
+                if (this.binary) {
+                    newModelValue = !this.modelValue;
+                }
+                else {
                     if (this.checked)
                         newModelValue = this.modelValue.filter(val => !ObjectUtils.equals(val, this.value));
                     else
                         newModelValue = this.modelValue ? [...this.modelValue, this.value] : [this.value]; 
-                }
-                else {
-                    newModelValue = !this.modelValue;
                 }
 
                 this.$emit('click', event);
@@ -64,7 +65,7 @@ export default {
     },
     computed: {
         checked() {
-            return Array.isArray(this.modelValue) ? ObjectUtils.contains(this.value, this.modelValue) : this.modelValue;
+            return this.binary ? this.modelValue : ObjectUtils.contains(this.value, this.modelValue);
         }
     }
 }

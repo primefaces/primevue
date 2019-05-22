@@ -17,50 +17,50 @@ import TriStateCheckbox from 'primevue/tristatecheckbox';
 				<div class="doc-tablewrapper">
 					<table class="doc-table">
 						<thead>
-						<tr>
-							<th>Name</th>
-							<th>Type</th>
-							<th>Default</th>
-							<th>Description</th>
-						</tr>
+                            <tr>
+                                <th>Name</th>
+                                <th>Type</th>
+                                <th>Default</th>
+                                <th>Description</th>
+                            </tr>
 						</thead>
 						<tbody>
-						<tr>
-							<td>inputId</td>
-							<td>string</td>
-							<td>null</td>
-							<td>Unique identifier of the native checkbox element.</td>
-						</tr>
-						<tr>
-							<td>value</td>
-							<td>any</td>
-							<td>null</td>
-							<td>Value of the TriStateCheckbox.</td>
-						</tr>
-						<tr>
-							<td>name</td>
-							<td>string</td>
-							<td>null</td>
-							<td>Name of the checkbox element .</td>
-						</tr>
-						<tr>
-							<td>disabled</td>
-							<td>boolean</td>
-							<td>false</td>
-							<td>When present, it specifies that the element value cannot be altered.</td>
-						</tr>
-						<tr>
-							<td>autocomplete</td>
-							<td>string</td>
-							<td>null</td>
-							<td>When specifies, whether or not an the element should have autocomplete enabled.</td>
-						</tr>
-						<tr>
-							<td>autofocus</td>
-							<td>boolean</td>
-							<td>false</td>
-							<td>When present, it specifies that the element should automatically get focus when the page loads.</td>
-						</tr>
+                            <tr>
+                                <td>inputId</td>
+                                <td>string</td>
+                                <td>null</td>
+                                <td>Unique identifier of the native checkbox element.</td>
+                            </tr>
+                            <tr>
+                                <td>value</td>
+                                <td>any</td>
+                                <td>null</td>
+                                <td>Value of the TriStateCheckbox.</td>
+                            </tr>
+                            <tr>
+                                <td>name</td>
+                                <td>string</td>
+                                <td>null</td>
+                                <td>Name of the checkbox element .</td>
+                            </tr>
+                            <tr>
+                                <td>disabled</td>
+                                <td>boolean</td>
+                                <td>false</td>
+                                <td>When present, it specifies that the element value cannot be altered.</td>
+                            </tr>
+                            <tr>
+                                <td>autofocus</td>
+                                <td>boolean</td>
+                                <td>false</td>
+                                <td>When present, it specifies that the element should automatically get focus when the page loads.</td>
+                            </tr>
+                            <tr>
+                                <td>autocomplete</td>
+                                <td>string</td>
+                                <td>null</td>
+                                <td>Whether an the element should have autocomplete enabled.</td>
+                            </tr>
 						</tbody>
 					</table>
 				</div>
@@ -69,38 +69,38 @@ import TriStateCheckbox from 'primevue/tristatecheckbox';
 				<div class="doc-tablewrapper">
 					<table class="doc-table">
 						<thead>
-						<tr>
-							<th>Name</th>
-							<th>Parameters</th>
-							<th>Description</th>
-						</tr>
+                            <tr>
+                                <th>Name</th>
+                                <th>Parameters</th>
+                                <th>Description</th>
+                            </tr>
 						</thead>
 						<tbody>
-						<tr>
-							<td>change</td>
-							<td>event: Browser event</td>
-							<td>Callback to invoke on value change.</td>
-						</tr>
-						<tr>
-							<td>input</td>
-							<td>event: Value of checkbox</td>
-							<td>Callback to invoke on click.</td>
-						</tr>
-						<tr>
-							<td>click</td>
-							<td>event: Browser event</td>
-							<td>Callback to invoke click.</td>
-						</tr>
-						<tr>
-							<td>focus</td>
-							<td>event: Browser event</td>
-							<td>Callback to invoke on focus.</td>
-						</tr>
-						<tr>
-							<td>blur</td>
-							<td>event: Browser event</td>
-							<td>Callback to invoke on blur.</td>
-						</tr>
+                            <tr>
+                                <td>change</td>
+                                <td>event: Browser event</td>
+                                <td>Callback to invoke on value change.</td>
+                            </tr>
+                            <tr>
+                                <td>input</td>
+                                <td>event: Value of checkbox</td>
+                                <td>Callback to invoke on click.</td>
+                            </tr>
+                            <tr>
+                                <td>click</td>
+                                <td>event: Browser event</td>
+                                <td>Callback to invoke click.</td>
+                            </tr>
+                            <tr>
+                                <td>focus</td>
+                                <td>event: Browser event</td>
+                                <td>Callback to invoke on focus.</td>
+                            </tr>
+                            <tr>
+                                <td>blur</td>
+                                <td>event: Browser event</td>
+                                <td>Callback to invoke on blur.</td>
+                            </tr>
 						</tbody>
 					</table>
 				</div>
@@ -110,28 +110,28 @@ import TriStateCheckbox from 'primevue/tristatecheckbox';
 				<div class="doc-tablewrapper">
 					<table class="doc-table">
 						<thead>
-						<tr>
-							<th>Name</th>
-							<th>Element</th>
-						</tr>
+                            <tr>
+                                <th>Name</th>
+                                <th>Element</th>
+                            </tr>
 						</thead>
 						<tbody>
-						<tr>
-							<td>p-chkbox</td>
-							<td>Container element</td>
-						</tr>
-						<tr>
-							<td>p-tristatechkbox</td>
-							<td>Container element</td>
-						</tr>
-						<tr>
-							<td>p-chkbox-box</td>
-							<td>Container of icon.</td>
-						</tr>
-						<tr>
-							<td>p-chkbox-icon</td>
-							<td>Icon element.</td>
-						</tr>
+                            <tr>
+                                <td>p-chkbox</td>
+                                <td>Container element</td>
+                            </tr>
+                            <tr>
+                                <td>p-tristatechkbox</td>
+                                <td>Container element</td>
+                            </tr>
+                            <tr>
+                                <td>p-chkbox-box</td>
+                                <td>Container of icon.</td>
+                            </tr>
+                            <tr>
+                                <td>p-chkbox-icon</td>
+                                <td>Icon element.</td>
+                            </tr>
 						</tbody>
 					</table>
 				</div>
