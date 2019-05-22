@@ -1,11 +1,6 @@
 <template>
     <div ref="container" :class="containerClass" @click="onClick">
         <div class="p-hidden-accessible">
-            <select aria-hidden="true" tabindex="-1">
-                <option v-for="option of visibleOptions" :key="getOptionLabel(option)" :value="getOptionValue(option)">{{getOptionLabel(option)}}</option>
-            </select>
-        </div>
-        <div class="p-hidden-accessible">
             <input ref="focusInput" type="text" role="listbox" readonly :disabled="disabled" @focus="onFocus" @blur="onBlur" @keydown="onKeyDown" :tabindex="tabindex"/>
         </div>
         <input v-if="editable" type="text" class="p-dropdown-label p-inputtext" :disabled="disabled" @focus="onFocus" @blur="onBlur" :placeholder="placeholder" :value="editableInputValue" @input="onEditableInput">
@@ -43,7 +38,9 @@ export default {
     props: {
         value: null,
         options: Array,
-		optionLabel: null,
+        optionLabel: null,
+        optionValue: null,
+        optionDisabled: null,
 		scrollHeight: {
 			type: String,
 			default: '200px'
@@ -55,9 +52,7 @@ export default {
 		disabled: Boolean,
         dataKey: null,
 		showClear: Boolean,
-		tabindex: String,
-        optionValue: null,
-        optionDisabled: null
+		tabindex: String
     },
     data() {
         return {
