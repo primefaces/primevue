@@ -39,38 +39,38 @@ export default {
 				<div class="doc-tablewrapper">
 					<table class="doc-table">
 						<thead>
-						<tr>
-							<th>Name</th>
-							<th>Type</th>
-							<th>Default</th>
-							<th>Description</th>
-						</tr>
+                            <tr>
+                                <th>Name</th>
+                                <th>Type</th>
+                                <th>Default</th>
+                                <th>Description</th>
+                            </tr>
 						</thead>
 						<tbody>
-						<tr>
-							<td>value</td>
-							<td>boolean</td>
-							<td>null</td>
-							<td>Specifies whether a inputswitch should be checked or not.</td>
-						</tr>
-						<tr>
-							<td>inputId</td>
-							<td>string</td>
-							<td>null</td>
-							<td>Identifier of the input element.</td>
-						</tr>
-						<tr>
-							<td>name</td>
-							<td>string</td>
-							<td>null</td>
-							<td>Name of the input element.</td>
-						</tr>
-						<tr>
-							<td>disabled</td>
-							<td>boolean</td>
-							<td>false</td>
-							<td>When present, it specifies that the component should be disabled.</td>
-						</tr>
+                            <tr>
+                                <td>value</td>
+                                <td>boolean</td>
+                                <td>null</td>
+                                <td>Specifies whether a inputswitch should be checked or not.</td>
+                            </tr>
+                            <tr>
+                                <td>inputId</td>
+                                <td>string</td>
+                                <td>null</td>
+                                <td>Identifier of the input element.</td>
+                            </tr>
+                            <tr>
+                                <td>name</td>
+                                <td>string</td>
+                                <td>null</td>
+                                <td>Name of the input element.</td>
+                            </tr>
+                            <tr>
+                                <td>disabled</td>
+                                <td>boolean</td>
+                                <td>false</td>
+                                <td>When present, it specifies that the component should be disabled.</td>
+                            </tr>
 						</tbody>
 					</table>
 				</div>
@@ -99,7 +99,7 @@ export default {
 						<tr>
 							<td>input</td>
 							<td>event: Checked state as a boolean.</td>
-							<td>Callback to invoke on click.</td>
+							<td>Callback to invoke on value change.</td>
 						</tr>
 						<tr>
 							<td>focus</td>
@@ -120,24 +120,24 @@ export default {
 				<div class="doc-tablewrapper">
 					<table class="doc-table">
 						<thead>
-						<tr>
-							<th>Name</th>
-							<th>Element</th>
-						</tr>
+                            <tr>
+                                <th>Name</th>
+                                <th>Element</th>
+                            </tr>
 						</thead>
 						<tbody>
-						<tr>
-							<td>p-inputswitch</td>
-							<td>Container element.</td>
-						</tr>
-						<tr>
-							<td>p-inputswitch-checked</td>
-							<td>Container element in active state.</td>
-						</tr>
-						<tr>
-							<td>p-inputswitch-slider</td>
-							<td>Slider element behind the handle.</td>
-						</tr>
+                            <tr>
+                                <td>p-inputswitch</td>
+                                <td>Container element.</td>
+                            </tr>
+                            <tr>
+                                <td>p-inputswitch-checked</td>
+                                <td>Container element in active state.</td>
+                            </tr>
+                            <tr>
+                                <td>p-inputswitch-slider</td>
+                                <td>Slider element behind the handle.</td>
+                            </tr>
 						</tbody>
 					</table>
 				</div>
