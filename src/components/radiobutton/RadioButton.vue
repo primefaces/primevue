@@ -10,9 +10,10 @@
 </template>
 
 <script>
-	import ObjectUtils from '../utils/ObjectUtils';
+import ObjectUtils from '../utils/ObjectUtils';
 
-	export default {
+export default {
+    nheritAttrs: false,
     props: {
 		value: null,
 		modelValue: null
