@@ -18,13 +18,12 @@ export default {
     props: {
         value: null,
         options: Array,
-		optionLabel: null,
+        optionLabel: null,
+        optionValue: null,
+        optionDisabled: null,
 		multiple: Boolean,
         disabled: Boolean,
-        dataKey: null,
-        name: String,
-        optionValue: null,
-        optionDisabled: null
+        dataKey: null
     },
     data() {
         return {

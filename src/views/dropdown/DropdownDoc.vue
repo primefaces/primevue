@@ -8,7 +8,7 @@ import Dropdown from 'primevue/dropdown';
 </CodeHighlight>
 
 				<h3>Getting Started</h3>
-				<p>Dropdown requires a value to bind and a collection of arbitrary objects along with the <i>optionLabel</i> property to specify the field name of the option.</p>
+				<p>Dropdown requires a value to bind and a collection of arbitrary objects along with the <i>optionLabel</i> property to specify the label property of the option.</p>
 <CodeHighlight>
 &lt;Dropdown v-model=&quot;selectedCity&quot; :options=&quot;cities&quot; optionLabel=&quot;name&quot; placeholder=&quot;Select a City&quot; /&gt;
 </CodeHighlight>

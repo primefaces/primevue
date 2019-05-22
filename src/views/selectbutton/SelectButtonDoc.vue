@@ -8,7 +8,7 @@ import SelectButton from 'primevue/selectbutton';
 </CodeHighlight>
 
 				<h3>Getting Started</h3>
-				<p>SelectButton requires a value to bind, optionLabel and a collection of options. How to define the options property; Providing an array of arbitrary objects along with the <i>optionLabel</i> property to specify the field name of the option.</p>
+				<p>SelectButton requires a value to bind and a collection of arbitrary objects along with the <i>optionLabel</i> property to specify the label property of the option.</p>
 <CodeHighlight>
 &lt;SelectButton v-model=&quot;selectedCity&quot; :options=&quot;cities&quot; optionLabel=&quot;name&quot; /&gt;
 </CodeHighlight>
@@ -34,11 +34,8 @@ export default {
 &lt;SelectButton v-model=&quot;selectedCity&quot; :options=&quot;cities&quot; optionLabel=&quot;brand&quot; :multiple=&quot;true&quot; /&gt;
 </CodeHighlight>
 
-				<h3>Disabled Options</h3>
-				<p>Particular options can be prevented from selection using the optionDisabled property.</p>
-
 				<h3>Templating</h3>
-				<p>Items support templating to display custom content inside the buttons using an template that receives the option as the implicit variable. </p>
+				<p>Label of an option is used as the display text of an item by default, for custom content support define an <i>option</i> template that gets the option instance as a parameter.</p>
 <CodeHighlight>
 <template v-pre>
 &lt;SelectButton v-model=&quot;selectedCar&quot; :options=&quot;cars&quot; optionLabel=&quot;brand&quot;&gt;
@@ -56,68 +53,62 @@ export default {
 				<div class="doc-tablewrapper">
 					<table class="doc-table">
 						<thead>
-						<tr>
-							<th>Name</th>
-							<th>Type</th>
-							<th>Default</th>
-							<th>Description</th>
-						</tr>
+                            <tr>
+                                <th>Name</th>
+                                <th>Type</th>
+                                <th>Default</th>
+                                <th>Description</th>
+                            </tr>
 						</thead>
 						<tbody>
-						<tr>
-							<td>value</td>
-							<td>any</td>
-							<td>null</td>
-							<td>Value of the component.</td>
-						</tr>
-						<tr>
-							<td>options</td>
-							<td>array</td>
-							<td>null</td>
-							<td>An array of objects to display as the available options.</td>
-						</tr>
-						<tr>
-							<td>optionLabel</td>
-							<td>string</td>
-							<td>null</td>
-							<td>Name of the label field of an option when an arbitrary objects instead of SelectItems are used as options.</td>
-						</tr>
-						<tr>
-							<td>multiple</td>
-							<td>boolean</td>
-							<td>false</td>
-							<td>When specified, allows selecting multiple values.</td>
-						</tr>
-						<tr>
-							<td>disabled</td>
-							<td>boolean</td>
-							<td>false</td>
-							<td>When present, it specifies that the element should be disabled.</td>
-						</tr>
-						<tr>
-							<td>dataKey</td>
-							<td>string</td>
-							<td>null</td>
-							<td>A property to uniquely match the value in options for better performance.</td>
-						</tr>
-						<tr>
-							<td>name</td>
-							<td>string</td>
-							<td>null</td>
-							<td>???</td>
-						</tr>
-						<tr>
-							<td>optionValue</td>
-							<td>any</td>
-							<td>null</td>
-							<td>???</td>
-						</tr>
-						<tr>
-							<td>optionDisabled</td>
-							<td>boolean</td>
-							<td>null</td>
-							<td>???</td>
-						</tr>
+                            <tr>
+                                <td>value</td>
+                                <td>any</td>
+                                <td>null</td>
+                                <td>Value of the component.</td>
+                            </tr>
+                            <tr>
+                                <td>options</td>
+                                <td>array</td>
+                                <td>null</td>
+                                <td>An array of selectitems to display as the available options.</td>
+                            </tr>
+                            <tr>
+                                <td>optionLabel</td>
+                                <td>string</td>
+                                <td>null</td>
+                                <td>Property name to use as the label of an option.</td>
+                            </tr>
+                            <tr>
+                                <td>optionValue</td>
+                                <td>string</td>
+                                <td>null</td>
+                                <td>Property name to use as the value of an option, defaults to the option itself when not defined.</td>
+                            </tr>
+                            <tr>
+                                <td>optionDisabled</td>
+                                <td>boolean</td>
+                                <td>null</td>
+                                <td>Property name to use as the disabled flag of an option, defaults to false when not defined.</td>
+                            </tr>
+                            <tr>
+                                <td>multiple</td>
+                                <td>boolean</td>
+                                <td>false</td>
+                                <td>When specified, allows selecting multiple values.</td>
+                            </tr>
+                            <tr>
+                                <td>disabled</td>
+                                <td>boolean</td>
+                                <td>false</td>
+                                <td>When present, it specifies that the element should be disabled.</td>
+                            </tr>
+                            <tr>
+                                <td>dataKey</td>
+                                <td>string</td>
+                                <td>null</td>
+                                <td>A property to uniquely match the value in options for better performance.</td>
+                            </tr>
 						</tbody>
 					</table>
 				</div>
@@ -126,28 +117,28 @@ export default {
 				<div class="doc-tablewrapper">
 					<table class="doc-table">
 						<thead>
-						<tr>
-							<th>Name</th>
-							<th>Parameters</th>
-							<th>Description</th>
-						</tr>
+                            <tr>
+                                <th>Name</th>
+                                <th>Parameters</th>
+                                <th>Description</th>
+                            </tr>
 						</thead>
 						<tbody>
-						<tr>
-							<td>input</td>
-							<td>event: Single value or an array of values that are selected.</td>
-							<td>Callback to invoke on value change.</td>
-						</tr>
-						<tr>
-							<td>focus</td>
-							<td>event: Browser event</td>
-							<td>Callback to invoke on focus.</td>
-						</tr>
-						<tr>
-							<td>blur</td>
-							<td>event: Browser event</td>
-							<td>Callback to invoke on blur.</td>
-						</tr>
+                            <tr>
+                                <td>input</td>
+                                <td>event: Single value or an array of values that are selected.</td>
+                                <td>Callback to invoke on value change.</td>
+                            </tr>
+                            <tr>
+                                <td>focus</td>
+                                <td>event: Browser event</td>
+                                <td>Callback to invoke on focus.</td>
+                            </tr>
+                            <tr>
+                                <td>blur</td>
+                                <td>event: Browser event</td>
+                                <td>Callback to invoke on blur.</td>
+                            </tr>
 						</tbody>
 					</table>
 				</div>

@@ -8,7 +8,7 @@ import MultiSelect from 'primevue/multiselect';
 </CodeHighlight>
 
 				<h3>Getting Started</h3>
-				<p>MultiSelect requires a value to bind and a collection of arbitrary objects along with the <i>optionLabel</i> property to specify the field name of the option.</p>
+				<p>MultiSelect requires a value to bind and a collection of arbitrary objects along with the <i>optionLabel</i> property to specify the label property of the option.</p>
 <CodeHighlight>
 &lt;MultiSelect v-model=&quot;selectedCars&quot; :options=&quot;cars&quot; optionLabel=&quot;brand&quot; placeholder=&quot;Select Brands&quot; /&gt;
 </CodeHighlight>
