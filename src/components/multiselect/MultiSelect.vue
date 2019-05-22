@@ -60,7 +60,9 @@ export default {
     props: {
         value: null,
         options: Array,
-		optionLabel: null,
+        optionLabel: null,
+        optionValue: null,
+        optionDisabled: null,
 		scrollHeight: {
 			type: String,
 			default: '200px'
@@ -70,8 +72,6 @@ export default {
 		filter: Boolean,
 		tabindex: String,
         dataKey: null,
-        optionValue: null,
-        optionDisabled: null,
         filterPlaceholder: String
     },
     data() {

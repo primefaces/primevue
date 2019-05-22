@@ -39,7 +39,7 @@ data() {
 </CodeHighlight>
 
 				<h3>Custom Content</h3>
-				<p>Label of an option is used as the display text of an item by default, for custom content support define an <i>item</i> template that gets the option instance as a parameter and returns the content.</p>
+				<p>Label of an option is used as the display text of an item by default, for custom content support define an <i>option</i> template that gets the option instance as a parameter.</p>
 <CodeHighlight>
 <template v-pre>
 &lt;Dropdown v-model=&quot;selectedCar&quot; :options=&quot;cars&quot; optionLabel=&quot;brand&quot; placeholder=&quot;Select a Car&quot; :filter=&quot;true&quot; :showClear=&quot;true&quot;&gt;
