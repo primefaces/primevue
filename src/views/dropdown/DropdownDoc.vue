@@ -8,7 +8,7 @@ import Dropdown from 'primevue/dropdown';
 </CodeHighlight>
 
 				<h3>Getting Started</h3>
-				<p>Dropdown requires a value to bind, optionLabel and a collection of options. How to define the options property; Providing an array of arbitrary objects along with the <i>optionLabel</i> property to specify the field name of the option.</p>
+				<p>Dropdown requires a value to bind and a collection of arbitrary objects along with the <i>optionLabel</i> property to specify the field name of the option.</p>
 <CodeHighlight>
 &lt;Dropdown v-model=&quot;selectedCity&quot; :options=&quot;cities&quot; optionLabel=&quot;name&quot; placeholder=&quot;Select a City&quot; /&gt;
 </CodeHighlight>
@@ -57,98 +57,98 @@ data() {
 				<div class="doc-tablewrapper">
 					<table class="doc-table">
 						<thead>
-						<tr>
-							<th>Name</th>
-							<th>Type</th>
-							<th>Default</th>
-							<th>Description</th>
-						</tr>
+                            <tr>
+                                <th>Name</th>
+                                <th>Type</th>
+                                <th>Default</th>
+                                <th>Description</th>
+                            </tr>
 						</thead>
 						<tbody>
-						<tr>
-							<td>value</td>
-							<td>any</td>
-							<td>null</td>
-							<td>Value of the component.</td>
-						</tr>
-						<tr>
-							<td>options</td>
-							<td>array</td>
-							<td>null</td>
-							<td>An array of selectitems to display as the available options.</td>
-						</tr>
-						<tr>
-							<td>optionLabel</td>
-							<td>string</td>
-							<td>null</td>
-							<td>Name of the label field of an option when an arbitrary objects instead of SelectItems are used as options.</td>
-						</tr>
-						<tr>
-							<td>scrollHeight</td>
-							<td>string</td>
-							<td>200px</td>
-							<td>Height of the viewport in pixels, a scrollbar is defined if height of list exceeds this value.</td>
-						</tr>
-						<tr>
-							<td>filter</td>
-							<td>boolean</td>
-							<td>false</td>
-							<td>When specified, displays an input field to filter the items on keyup.</td>
-						</tr>
-						<tr>
-							<td>filterPlaceholder</td>
-							<td>string</td>
-							<td>null</td>
-							<td>Placeholder text to show when filter input is empty.</td>
-						</tr>
-						<tr>
-							<td>editable</td>
-							<td>boolean</td>
-							<td>false</td>
-							<td>When present, custom value instead of predefined options can be entered using the editable input field.</td>
-						</tr>
-						<tr>
-							<td>placeholder</td>
-							<td>string</td>
-							<td>null</td>
-							<td>Default text to display when no option is selected.</td>
-						</tr>
-						<tr>
-							<td>disabled</td>
-							<td>boolean</td>
-							<td>false</td>
-							<td>When present, it specifies that the component should be disabled.</td>
-						</tr>
-						<tr>
-							<td>dataKey</td>
-							<td>string</td>
-							<td>null</td>
-							<td>A property to uniquely match the value in options for better performance.</td>
-						</tr>
-						<tr>
-							<td>showClear</td>
-							<td>boolean</td>
-							<td>false</td>
-							<td>When enabled, a clear icon is displayed to clear the value.</td>
-						</tr>
-						<tr>
-							<td>tabindex</td>
-							<td>number</td>
-							<td>null</td>
-							<td>Index of the element in tabbing order.</td>
-						</tr>
-						<tr>
-							<td>optionValue</td>
-							<td>string</td>
-							<td>null</td>
-							<td>???</td>
-						</tr>
-						<tr>
-							<td>optionDisabled</td>
-							<td>boolean</td>
-							<td>null</td>
-							<td>???</td>
-						</tr>
+                            <tr>
+                                <td>value</td>
+                                <td>any</td>
+                                <td>null</td>
+                                <td>Value of the component.</td>
+                            </tr>
+                            <tr>
+                                <td>options</td>
+                                <td>array</td>
+                                <td>null</td>
+                                <td>An array of selectitems to display as the available options.</td>
+                            </tr>
+                            <tr>
+                                <td>optionLabel</td>
+                                <td>string</td>
+                                <td>null</td>
+                                <td>Property name to use as the label of an option.</td>
+                            </tr>
+                            <tr>
+                                <td>optionValue</td>
+                                <td>string</td>
+                                <td>null</td>
+                                <td>Property name to use as the value of an option, defaults to the option itself when not defined.</td>
+                            </tr>
+                            <tr>
+                                <td>optionDisabled</td>
+                                <td>boolean</td>
+                                <td>null</td>
+                                <td>Property name to use as the disabled flag of an option, defaults to false when not defined.</td>
+                            </tr>
+                            <tr>
+                                <td>scrollHeight</td>
+                                <td>string</td>
+                                <td>200px</td>
+                                <td>Height of the viewport in pixels, a scrollbar is defined if height of list exceeds this value.</td>
+                            </tr>
+                            <tr>
+                                <td>filter</td>
+                                <td>boolean</td>
+                                <td>false</td>
+                                <td>When specified, displays an input field to filter the items on keyup.</td>
+                            </tr>
+                            <tr>
+                                <td>filterPlaceholder</td>
+                                <td>string</td>
+                                <td>null</td>
+                                <td>Placeholder text to show when filter input is empty.</td>
+                            </tr>
+                            <tr>
+                                <td>editable</td>
+                                <td>boolean</td>
+                                <td>false</td>
+                                <td>When present, custom value instead of predefined options can be entered using the editable input field.</td>
+                            </tr>
+                            <tr>
+                                <td>placeholder</td>
+                                <td>string</td>
+                                <td>null</td>
+                                <td>Default text to display when no option is selected.</td>
+                            </tr>
+                            <tr>
+                                <td>disabled</td>
+                                <td>boolean</td>
+                                <td>false</td>
+                                <td>When present, it specifies that the component should be disabled.</td>
+                            </tr>
+                            <tr>
+                                <td>dataKey</td>
+                                <td>string</td>
+                                <td>null</td>
+                                <td>A property to uniquely match the value in options for better performance.</td>
+                            </tr>
+                            <tr>
+                                <td>showClear</td>
+                                <td>boolean</td>
+                                <td>false</td>
+                                <td>When enabled, a clear icon is displayed to clear the value.</td>
+                            </tr>
+                            <tr>
+                                <td>tabindex</td>
+                                <td>number</td>
+                                <td>null</td>
+                                <td>Index of the element in tabbing order.</td>
+                            </tr>
 						</tbody>
 					</table>
 				</div>
@@ -157,24 +157,24 @@ data() {
 				<div class="doc-tablewrapper">
 					<table class="doc-table">
 						<thead>
-						<tr>
-							<th>Name</th>
-							<th>Parameters</th>
-							<th>Description</th>
-						</tr>
+                            <tr>
+                                <th>Name</th>
+                                <th>Parameters</th>
+                                <th>Description</th>
+                            </tr>
 						</thead>
 						<tbody>
-						<tr>
-							<td>change</td>
-							<td>event.originalEvent: Original event <br />
-								event.value: Selected option value </td>
-							<td>Callback to invoke on value change</td>
-						</tr>
-						<tr>
-							<td>input</td>
-							<td>event: Input field value</td>
-							<td>Callback to invoke on input event of input field (editable mode).</td>
-						</tr>
+                            <tr>
+                                <td>change</td>
+                                <td>event.originalEvent: Original event <br />
+                                    event.value: Selected option value </td>
+                                <td>Callback to invoke on value change.</td>
+                            </tr>
+                            <tr>
+                                <td>input</td>
+                                <td>value: New value</td>
+                                <td>Callback to invoke on value change.</td>
+                            </tr>
 						</tbody>
 					</table>
 				</div>
@@ -184,52 +184,52 @@ data() {
 				<div class="doc-tablewrapper">
 					<table class="doc-table">
 						<thead>
-						<tr>
-							<th>Name</th>
-							<th>Element</th>
-						</tr>
+                            <tr>
+                                <th>Name</th>
+                                <th>Element</th>
+                            </tr>
 						</thead>
 						<tbody>
-						<tr>
-							<td>p-dropdown</td>
-							<td>Container element.</td>
-						</tr>
-						<tr>
-							<td>p-dropdown-label</td>
-							<td>Element to display label of selected option.</td>
-						</tr>
-						<tr>
-							<td>p-dropdown-trigger</td>
-							<td>Icon element.</td>
-						</tr>
-						<tr>
-							<td>p-dropdown-panel</td>
-							<td>Icon element.</td>
-						</tr>
-						<tr>
-							<td>p-dropdown-items-wrapper</td>
-							<td>Wrapper element of items list.</td>
-						</tr>
-						<tr>
-							<td>p-dropdown-items</td>
-							<td>List element of items.</td>
-						</tr>
-						<tr>
-							<td>p-dropdown-item</td>
-							<td>An item in the list.</td>
-						</tr>
-						<tr>
-							<td>p-dropdown-filter-container</td>
-							<td>Container of filter input.</td>
-						</tr>
-						<tr>
-							<td>p-dropdown-filter</td>
-							<td>Filter element.</td>
-						</tr>
-						<tr>
-							<td>p-dropdown-open</td>
-							<td>Container element when overlay is visible.</td>
-						</tr>
+                            <tr>
+                                <td>p-dropdown</td>
+                                <td>Container element.</td>
+                            </tr>
+                            <tr>
+                                <td>p-dropdown-label</td>
+                                <td>Element to display label of selected option.</td>
+                            </tr>
+                            <tr>
+                                <td>p-dropdown-trigger</td>
+                                <td>Icon element.</td>
+                            </tr>
+                            <tr>
+                                <td>p-dropdown-panel</td>
+                                <td>Icon element.</td>
+                            </tr>
+                            <tr>
+                                <td>p-dropdown-items-wrapper</td>
+                                <td>Wrapper element of items list.</td>
+                            </tr>
+                            <tr>
+                                <td>p-dropdown-items</td>
+                                <td>List element of items.</td>
+                            </tr>
+                            <tr>
+                                <td>p-dropdown-item</td>
+                                <td>An item in the list.</td>
+                            </tr>
+                            <tr>
+                                <td>p-dropdown-filter-container</td>
+                                <td>Container of filter input.</td>
+                            </tr>
+                            <tr>
+                                <td>p-dropdown-filter</td>
+                                <td>Filter element.</td>
+                            </tr>
+                            <tr>
+                                <td>p-dropdown-open</td>
+                                <td>Container element when overlay is visible.</td>
+                            </tr>
 						</tbody>
 					</table>
 				</div>
