@@ -11,7 +11,7 @@
 
 <script>
 export default {
-    nheritAttrs: false,
+    inheritAttrs: false,
     props: {
 		value: null
     },

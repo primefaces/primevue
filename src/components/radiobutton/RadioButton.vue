@@ -13,7 +13,7 @@
 import ObjectUtils from '../utils/ObjectUtils';
 
 export default {
-    nheritAttrs: false,
+    inheritAttrs: false,
     props: {
 		value: null,
 		modelValue: null
