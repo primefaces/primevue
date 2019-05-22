@@ -7,11 +7,11 @@
                 <span class="p-autocomplete-token-label">{{getItemContent(item)}}</span>
             </li>
             <li class="p-autocomplete-input-token">
-                <input ref="input" type="text" autoComplete="off" :disabled="disabled" v-bind="$attrs" v-on="listeners">
+                <input ref="input" type="text" autoComplete="off" v-bind="$attrs" v-on="listeners">
             </li>
         </ul>
         <i class="p-autocomplete-loader pi pi-spinner pi-spin" v-show="searching"></i>
-        <Button ref="dropdownButton" type="button" icon="pi pi-fw pi-chevron-down" class="p-autocomplete-dropdown" :disabled="disabled" @click="onDropdownClick" v-if="dropdown"/>
+        <Button ref="dropdownButton" type="button" icon="pi pi-fw pi-chevron-down" class="p-autocomplete-dropdown" :disabled="$attrs.disabled" @click="onDropdownClick" v-if="dropdown"/>
         <transition name="p-input-overlay" @enter="onOverlayEnter" @leave="onOverlayLeave">
             <div ref="overlay" class="p-autocomplete-panel" :style="{'max-height': scrollHeight}" v-if="overlayVisible">
                 <ul class="p-autocomplete-items p-autocomplete-list p-component">
@@ -35,18 +35,29 @@ export default {
     inheritAttrs: false,
     props: {
         value: null,
-        suggestions: Array,
-        dropdown: Boolean,
+        suggestions: {
+            type: Array,
+            default: null
+        },
+        field: {
+            type: String,
+            default: null
+        },
+        scrollHeight: {
+            type: String,
+            default: '200px'
+        },
+        dropdown: {
+            type: Boolean,
+            default: false
+        },
         dropdownMode: {
             type: String,
             default: 'blank'
         },
-        multiple: Boolean,
-        disabled: Boolean,
-        field: String,
-        scrollHeight: {
-            type: String,
-            default: '200px'
+        multiple: {
+            type: Boolean,
+            default: false
         },
         minLength: {
             type: Number,
@@ -55,7 +66,7 @@ export default {
         delay: {
             type: Number,
             default: 300
-        },
+        }
     },
     timeout: null,
     outsideClickListener: null,
@@ -353,12 +364,12 @@ export default {
         inputClass() {
             return ['p-autocomplete-input p-inputtext p-component', {
                 'p-autocomplete-dd-input': this.dropdown, 
-                'p-disabled': this.disabled
+                'p-disabled': this.$attrs.disabled
             }];
         },
         multiContainerClass() {
             return ['p-autocomplete-multiple-container p-component p-inputtext', {
-                'p-disabled': this.disabled,
+                'p-disabled': this.$attrs.disabled,
                 'p-focus': this.focused
             }];
         },

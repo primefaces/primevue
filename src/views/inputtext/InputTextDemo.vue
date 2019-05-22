@@ -14,8 +14,8 @@
 
             <h3>Floating Label</h3>
             <span class="p-float-label">
-                <InputText type="text" v-model="value2" />
-                <label htmlFor="float-input">Username</label>
+                <InputText id="username" type="text" v-model="value2" />
+                <label for="username">Username</label>
             </span>
 
             <h3>Disabled</h3>

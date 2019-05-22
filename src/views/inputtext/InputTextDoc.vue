@@ -17,8 +17,8 @@ import InputText from 'primevue/inputtext';
 				<p>A floating label is implemented by wrapping the input and the label inside a container having <i>.p-float-label</i> style class.</p>
 <CodeHighlight>
 &lt;span class=&quot;p-float-label&quot;&gt;
-	&lt;InputText type=&quot;text&quot; v-model=&quot;value&quot; /&gt;
-	&lt;label htmlFor=&quot;float-input&quot;&gt;Username&lt;/label&gt;
+	&lt;InputText id="username" type=&quot;text&quot; v-model=&quot;value&quot; /&gt;
+	&lt;label for=&quot;username&quot;&gt;Username&lt;/label&gt;
 &lt;/span&gt;
 </CodeHighlight>
 
@@ -70,8 +70,8 @@ import InputText from 'primevue/inputtext';
 
 			&lt;h3&gt;Floating Label&lt;/h3&gt;
 			&lt;span class=&quot;p-float-label&quot;&gt;
-				&lt;InputText type=&quot;text&quot; v-model=&quot;value2&quot; /&gt;
-				&lt;label htmlFor=&quot;float-input&quot;&gt;Username&lt;/label&gt;
+				&lt;InputText id="username" type=&quot;text&quot; v-model=&quot;value2&quot; /&gt;
+				&lt;label for=&quot;username&quot;&gt;Username&lt;/label&gt;
 			&lt;/span&gt;
 
 			&lt;h3&gt;Disabled&lt;/h3&gt;

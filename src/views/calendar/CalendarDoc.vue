@@ -167,7 +167,7 @@ export default {
 </CodeHighlight>
 
                 <h3>Properties</h3>
-                <p>Calendar passes any valid attribute such as name and placeholder to the underlying input text element. Following are the additional properties to configure the calendar.</p>
+                <p>Any valid attribute such as name and placeholder are passed to the underlying input element. Following are the additional properties to configure the component.</p>
                 <div class="doc-tablewrapper">
                     <table class="doc-table">
                         <thead>
@@ -406,7 +406,7 @@ export default {
                 </div>
 
                 <h3>Events</h3>
-                <p>Calendar passes any valid event such as focus, blur and input to the underlying input text element. Following are the additional event to configure the calendar.</p>
+                <p>Any valid event such as focus, blur and input are passed to the underlying input element. Following are the additional events to configure the component.</p>
                 <div class="doc-tablewrapper">
                     <table class="doc-table">
                         <thead>

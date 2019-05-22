@@ -9,35 +9,25 @@ import AutoComplete from 'primevue/autocomplete';
 
 				<h3>Getting Started</h3>
 				<p>AutoComplete uses v-model for two-way binding, requires a list of suggestions and a complete method to query for the results. The complete method
-					gets the query text as event.query property and should update the suggestions with the search results.</p>
+					gets the query text as event.query property and should update the suggestions with the search results. Example below connects to a remote datasource to fetch the results;</p>
 <CodeHighlight>
-&lt;AutoComplete v-model=&quot;selectedCountry&quot; :suggestions=&quot;filteredCountriesBasic&quot; @complete=&quot;searchCountryBasic($event)&quot; field=&quot;name&quot; /&gt;
+&lt;AutoComplete v-model=&quot;selectedCountry&quot; :suggestions=&quot;filteredCountriesBasic&quot; @complete=&quot;searchCountry($event)&quot; field=&quot;name&quot; /&gt;
 </CodeHighlight>
 <CodeHighlight lang="js">
 export default {
 	data() {
 		return {
 			selectedCountry: null,
-			filteredCountriesBasic: null
+			filteredCountries: null
 		}
 	},
 	countryService: null,
 	created() {
 		this.countryService = new CountryService();
 	},
-	mounted() {
-		this.countryService.getCountries().then(data => this.countries = data);
-	},
 	methods: {
-		searchCountry(query) {
-			return this.countries.filter((country) => {
-				return country.name.toLowerCase().startsWith(query.toLowerCase());
-			});
-		},
-		searchCountryBasic(event) {
-			setTimeout(() => {
-				this.filteredCountriesBasic = this.searchCountry(event.query);
-			}, 250);
+		searchCountry(event) {
+            this.filteredCountriesBasic = this.countryService.search(event.query);
 		}
 	}
 }
@@ -53,7 +43,7 @@ export default {
 </CodeHighlight>
 
 				<h3>Multiple Mode</h3>
-				<p>Multiple mode is enabled using <i>multiple</i> property used to select more than one value from the autocomplete. In this case, value reference should be an array.</p>
+				<p>Multiple mode is enabled using <i>multiple</i> property to select more than one value from the autocomplete. In this case, value reference should be an array.</p>
 <CodeHighlight>
 &lt;AutoComplete :multiple=&quot;true&quot; v-model=&quot;selectedCountries&quot; :suggestions=&quot;filteredCountriesMultiple&quot; @complete=&quot;searchCountryMultiple($event)&quot; field=&quot;name&quot; /&gt;
 </CodeHighlight>
@@ -67,155 +57,149 @@ export default {
 </CodeHighlight>
 
 				<h3>Templating</h3>
-				<p>Item template allows displaying custom content inside the suggestions panel. The local template variable passed to the template is an object in the suggestions array.</p>
+				<p>Item template allows displaying custom content inside the suggestions panel. The slotProps variable passed to the template provides an item property to represent an item in the suggestions collection.</p>
 <CodeHighlight>
 <template v-pre>
 &lt;AutoComplete v-model=&quot;brand&quot; :suggestions=&quot;filteredBrands&quot; @complete=&quot;searchBrand($event)&quot; placeholder=&quot;Hint: type 'v' or 'f'&quot; :dropdown=&quot;true&quot;&gt;
 	&lt;template #item=&quot;slotProps&quot;&gt;
-		&lt;div class=&quot;p-clearfix p-autocomplete-brand-item&quot;&gt;
-			&lt;img :alt=&quot;slotProps.item&quot; :src=&quot;'/demo/images/car/' + slotProps.item + '.png'&quot; /&gt;
-			&lt;div&gt;{{slotProps.item}}&lt;/div&gt;
-		&lt;/div&gt;
+		&lt;img :alt=&quot;slotProps.item&quot; :src=&quot;'/demo/images/car/' + slotProps.item + '.png'&quot; /&gt;
+        &lt;div&gt;{{slotProps.item}}&lt;/div&gt;
 	&lt;/template&gt;
 &lt;/AutoComplete&gt;
 </template>
 </CodeHighlight>
 
 				<h3>Properties</h3>
+                <p>Any valid attribute such as name and placeholder are passed to the underlying input element. Following are the additional properties to configure the component.</p>
 				<div class="doc-tablewrapper">
 					<table class="doc-table">
 						<thead>
-						<tr>
-							<th>Name</th>
-							<th>Type</th>
-							<th>Default</th>
-							<th>Description</th>
-						</tr>
+                            <tr>
+                                <th>Name</th>
+                                <th>Type</th>
+                                <th>Default</th>
+                                <th>Description</th>
+                            </tr>
 						</thead>
 						<tbody>
-						<tr>
-							<td>value</td>
-							<td>any</td>
-							<td>null</td>
-							<td>Value of the component.</td>
-						</tr>
-						<tr>
-							<td>suggestions</td>
-							<td>array</td>
-							<td>null</td>
-							<td>An array of suggestions to display.</td>
-						</tr>
-						<tr>
-							<td>field</td>
-							<td>any</td>
-							<td>null</td>
-							<td>Field of a suggested object to resolve and display.</td>
-						</tr>
-						<tr>
-							<td>scrollHeight</td>
-							<td>string</td>
-							<td>200px</td>
-							<td>Maximum height of the suggestions panel.</td>
-						</tr>
-						<tr>
-							<td>dropdown</td>
-							<td>boolean</td>
-							<td>false</td>
-							<td>Displays a button next to the input field when enabled.</td>
-						</tr>
-						<tr>
-							<td>dropdownMode</td>
-							<td>string</td>
-							<td>blank</td>
-							<td>Specifies the behavior dropdown button. Default "blank" mode sends an empty string and "current" mode sends the input value.</td>
-						</tr>
-						<tr>
-							<td>multiple</td>
-							<td>boolean</td>
-							<td>false</td>
-							<td>Specifies if multiple values can be selected.</td>
-						</tr>
-						<tr>
-							<td>minLength</td>
-							<td>number</td>
-							<td>1</td>
-							<td>Minimum number of characters to initiate a search.</td>
-						</tr>
-						<tr>
-							<td>delay</td>
-							<td>number</td>
-							<td>300</td>
-							<td>Delay between keystrokes to wait before sending a query.</td>
-						</tr>
-						<tr>
-							<td>disabled</td>
-							<td>boolean</td>
-							<td>false</td>
-							<td>When present, it specifies that the component should be disabled.</td>
-						</tr>
+                            <tr>
+                                <td>value</td>
+                                <td>any</td>
+                                <td>null</td>
+                                <td>Value of the component.</td>
+                            </tr>
+                            <tr>
+                                <td>suggestions</td>
+                                <td>array</td>
+                                <td>null</td>
+                                <td>An array of suggestions to display.</td>
+                            </tr>
+                            <tr>
+                                <td>field</td>
+                                <td>any</td>
+                                <td>null</td>
+                                <td>Field of a suggested object to resolve and display.</td>
+                            </tr>
+                            <tr>
+                                <td>scrollHeight</td>
+                                <td>string</td>
+                                <td>200px</td>
+                                <td>Maximum height of the suggestions panel.</td>
+                            </tr>
+                            <tr>
+                                <td>dropdown</td>
+                                <td>boolean</td>
+                                <td>false</td>
+                                <td>Displays a button next to the input field when enabled.</td>
+                            </tr>
+                            <tr>
+                                <td>dropdownMode</td>
+                                <td>string</td>
+                                <td>blank</td>
+                                <td>Specifies the behavior dropdown button. Default "blank" mode sends an empty string and "current" mode sends the input value.</td>
+                            </tr>
+                            <tr>
+                                <td>multiple</td>
+                                <td>boolean</td>
+                                <td>false</td>
+                                <td>Specifies if multiple values can be selected.</td>
+                            </tr>
+                            <tr>
+                                <td>minLength</td>
+                                <td>number</td>
+                                <td>1</td>
+                                <td>Minimum number of characters to initiate a search.</td>
+                            </tr>
+                            <tr>
+                                <td>delay</td>
+                                <td>number</td>
+                                <td>300</td>
+                                <td>Delay between keystrokes to wait before sending a query.</td>
+                            </tr>
 						</tbody>
 					</table>
 				</div>
 
 				<h3>Events</h3>
+                <p>Any valid event such as focus, blur and input are passed to the underlying input element. Following are the additional events to configure the component.</p>
 				<div class="doc-tablewrapper">
 					<table class="doc-table">
 						<thead>
-						<tr>
-							<th>Name</th>
-							<th>Parameters</th>
-							<th>Description</th>
-						</tr>
+                            <tr>
+                                <th>Name</th>
+                                <th>Parameters</th>
+                                <th>Description</th>
+                            </tr>
 						</thead>
 						<tbody>
-						<tr>
-							<td>complete</td>
-							<td>
-								event.originalEvent: browser event <br />
-								event.query: Value to search with
-							</td>
-							<td>Callback to invoke to search for suggestions.</td>
-						</tr>
-						<tr>
-							<td>input</td>
-							<td>value: Value of the component</td>
-							<td>Callback to invoke on input event of input field.</td>
-						</tr>
-						<tr>
-							<td>focus</td>
-							<td>event: Browser event</td>
-							<td>Callback to invoke when autocomplete gets focus.</td>
-						</tr>
-						<tr>
-							<td>blur</td>
-							<td>event: Browser event</td>
-							<td>Callback to invoke when autocomplete loses focus.</td>
-						</tr>
-						<tr>
-							<td>select</td>
-							<td>event.originalEvent: Browser event <br />
-								event.value: Value of the component</td>
-							<td>Callback to invoke when a suggestion is selected.</td>
-						</tr>
-						<tr>
-							<td>unselect</td>
-							<td>event.originalEvent: Browser event <br />
-								event.value: Value of the component</td>
-							<td>Callback to invoke when a selected value is removed.</td>
-						</tr>
-						<tr>
-							<td>click-dropdown</td>
-							<td>
-								event.originalEvent: browser event <br />
-								event.query: Current value of the input field
-							</td>
-							<td>Callback to invoke to when dropdown button is clicked.</td>
-						</tr>
-						<tr>
-							<td>clear</td>
-							<td>event: Browser event</td>
-							<td>Callback to invoke when input is cleared by the user.</td>
-						</tr>
+                            <tr>
+                                <td>complete</td>
+                                <td>
+                                    event.originalEvent: browser event <br />
+                                    event.query: Value to search with
+                                </td>
+                                <td>Callback to invoke to search for suggestions.</td>
+                            </tr>
+                            <tr>
+                                <td>input</td>
+                                <td>value: Value of the component</td>
+                                <td>Callback to invoke on input event of input field.</td>
+                            </tr>
+                            <tr>
+                                <td>focus</td>
+                                <td>event: Browser event</td>
+                                <td>Callback to invoke when autocomplete gets focus.</td>
+                            </tr>
+                            <tr>
+                                <td>blur</td>
+                                <td>event: Browser event</td>
+                                <td>Callback to invoke when autocomplete loses focus.</td>
+                            </tr>
+                            <tr>
+                                <td>select</td>
+                                <td>event.originalEvent: Browser event <br />
+                                    event.value: Value of the component</td>
+                                <td>Callback to invoke when a suggestion is selected.</td>
+                            </tr>
+                            <tr>
+                                <td>unselect</td>
+                                <td>event.originalEvent: Browser event <br />
+                                    event.value: Value of the component</td>
+                                <td>Callback to invoke when a selected value is removed.</td>
+                            </tr>
+                            <tr>
+                                <td>click-dropdown</td>
+                                <td>
+                                    event.originalEvent: browser event <br />
+                                    event.query: Current value of the input field
+                                </td>
+                                <td>Callback to invoke to when dropdown button is clicked.</td>
+                            </tr>
+                            <tr>
+                                <td>clear</td>
+                                <td>event: Browser event</td>
+                                <td>Callback to invoke when input is cleared by the user.</td>
+                            </tr>
 						</tbody>
 					</table>
 				</div>
