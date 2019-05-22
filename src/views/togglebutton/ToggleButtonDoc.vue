@@ -34,68 +34,68 @@ export default {
 				<div class="doc-tablewrapper">
 					<table class="doc-table">
 						<thead>
-						<tr>
-							<th>Name</th>
-							<th>Type</th>
-							<th>Default</th>
-							<th>Description</th>
-						</tr>
+                            <tr>
+                                <th>Name</th>
+                                <th>Type</th>
+                                <th>Default</th>
+                                <th>Description</th>
+                            </tr>
 						</thead>
 						<tbody>
-						<tr>
-							<td>value</td>
-							<td>any</td>
-							<td>null</td>
-							<td>Value of the component.</td>
-						</tr>
-						<tr>
-							<td>onIcon</td>
-							<td>string</td>
-							<td>null</td>
-							<td>Icon for the on state.</td>
-						</tr>
-						<tr>
-							<td>offIcon</td>
-							<td>string</td>
-							<td>null</td>
-							<td>Icon for the off state.</td>
-						</tr>
-						<tr>
-							<td>onLabel</td>
-							<td>string</td>
-							<td>yes</td>
-							<td>Label for the on state.</td>
-						</tr>
-						<tr>
-							<td>offLabel</td>
-							<td>string</td>
-							<td>no</td>
-							<td>Label for the off state.</td>
-						</tr>
-						<tr>
-							<td>inputId</td>
-							<td>string</td>
-							<td>null</td>
-							<td>Identifier of the input element.</td>
-						</tr>
-						<tr>
-							<td>name</td>
-							<td>string</td>
-							<td>null</td>
-							<td>Name of the input element.</td>
-						</tr>
-						<tr>
-							<td>iconPos</td>
-							<td>string</td>
-							<td>left</td>
-							<td>Position of the icon, valid values are "left" and "right".</td>
-						</tr>
-						<tr>
-							<td>disabled</td>
-							<td>boolean</td>
-							<td>null</td>
-							<td>When present, it specifies that the element should be disabled.</td>
-						</tr>
+                            <tr>
+                                <td>value</td>
+                                <td>any</td>
+                                <td>null</td>
+                                <td>Value of the component.</td>
+                            </tr>
+                            <tr>
+                                <td>onIcon</td>
+                                <td>string</td>
+                                <td>null</td>
+                                <td>Icon for the on state.</td>
+                            </tr>
+                            <tr>
+                                <td>offIcon</td>
+                                <td>string</td>
+                                <td>null</td>
+                                <td>Icon for the off state.</td>
+                            </tr>
+                            <tr>
+                                <td>onLabel</td>
+                                <td>string</td>
+                                <td>yes</td>
+                                <td>Label for the on state.</td>
+                            </tr>
+                            <tr>
+                                <td>offLabel</td>
+                                <td>string</td>
+                                <td>no</td>
+                                <td>Label for the off state.</td>
+                            </tr>
+                            <tr>
+                                <td>inputId</td>
+                                <td>string</td>
+                                <td>null</td>
+                                <td>Identifier of the input element.</td>
+                            </tr>
+                            <tr>
+                                <td>name</td>
+                                <td>string</td>
+                                <td>null</td>
+                                <td>Name of the input element.</td>
+                            </tr>
+                            <tr>
+                                <td>iconPos</td>
+                                <td>string</td>
+                                <td>left</td>
+                                <td>Position of the icon, valid values are "left" and "right".</td>
+                            </tr>
+                            <tr>
+                                <td>disabled</td>
+                                <td>boolean</td>
+                                <td>null</td>
+                                <td>When present, it specifies that the element should be disabled.</td>
+                            </tr>
 						</tbody>
 					</table>
 				</div>
@@ -104,38 +104,38 @@ export default {
 				<div class="doc-tablewrapper">
 					<table class="doc-table">
 						<thead>
-						<tr>
-							<th>Name</th>
-							<th>Parameters</th>
-							<th>Description</th>
-						</tr>
+                            <tr>
+                                <th>Name</th>
+                                <th>Parameters</th>
+                                <th>Description</th>
+                            </tr>
 						</thead>
 						<tbody>
-						<tr>
-							<td>change</td>
-							<td>event: Browser event</td>
-							<td>Callback to invoke on value change.</td>
-						</tr>
-						<tr>
-							<td>input</td>
-							<td>event: Value as the checked state.</td>
-							<td>Callback to invoke on click.</td>
-						</tr>
-						<tr>
-							<td>click</td>
-							<td>event: Browser event</td>
-							<td>Callback to invoke click.</td>
-						</tr>
-						<tr>
-							<td>focus</td>
-							<td>event: Browser event</td>
-							<td>Callback to invoke on focus.</td>
-						</tr>
-						<tr>
-							<td>blur</td>
-							<td>event: Browser event</td>
-							<td>Callback to invoke on blur.</td>
-						</tr>
+                            <tr>
+                                <td>change</td>
+                                <td>event: Browser event</td>
+                                <td>Callback to invoke on value change.</td>
+                            </tr>
+                            <tr>
+                                <td>input</td>
+                                <td>event: Value as the checked state.</td>
+                                <td>Callback to invoke on value change.</td>
+                            </tr>
+                            <tr>
+                                <td>click</td>
+                                <td>event: Browser event</td>
+                                <td>Callback to invoke on click.</td>
+                            </tr>
+                            <tr>
+                                <td>focus</td>
+                                <td>event: Browser event</td>
+                                <td>Callback to invoke on focus.</td>
+                            </tr>
+                            <tr>
+                                <td>blur</td>
+                                <td>event: Browser event</td>
+                                <td>Callback to invoke on blur.</td>
+                            </tr>
 						</tbody>
 					</table>
 				</div>
@@ -145,24 +145,24 @@ export default {
 				<div class="doc-tablewrapper">
 					<table class="doc-table">
 						<thead>
-						<tr>
-							<th>Name</th>
-							<th>Element</th>
-						</tr>
+                            <tr>
+                                <th>Name</th>
+                                <th>Element</th>
+                            </tr>
 						</thead>
 						<tbody>
-						<tr>
-							<td>p-togglebutton</td>
-							<td>Container element</td>
-						</tr>
-						<tr>
-							<td>p-button-icon-left</td>
-							<td>Icon element.</td>
-						</tr>
-						<tr>
-							<td>p-button-text</td>
-							<td>Label element.</td>
-						</tr>
+                            <tr>
+                                <td>p-togglebutton</td>
+                                <td>Container element</td>
+                            </tr>
+                            <tr>
+                                <td>p-button-icon-left</td>
+                                <td>Icon element.</td>
+                            </tr>
+                            <tr>
+                                <td>p-button-text</td>
+                                <td>Label element.</td>
+                            </tr>
 						</tbody>
 					</table>
 				</div>
