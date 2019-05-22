@@ -156,25 +156,25 @@ export default {
 
 		&lt;div class=&quot;content-section implementation&quot;&gt;
 			&lt;h3 class=&quot;first&quot;&gt;Basic&lt;/h3&gt;
-			&lt;Checkbox id=&quot;binary&quot; inputId=&quot;binary&quot; v-model=&quot;checked&quot; :binary="true"/&gt;
+			&lt;Checkbox id=&quot;binary&quot; v-model=&quot;checked&quot; :binary="true"/&gt;
 			&lt;label for=&quot;binary&quot; class=&quot;p-checkbox-label&quot; style=&quot;font-weight: bold&quot;&gt;{{checked}}&lt;/label&gt;
 
 			&lt;h3&gt;Multiple&lt;/h3&gt;
 			&lt;div class=&quot;p-grid&quot;&gt;
 				&lt;div class=&quot;p-col-12&quot;&gt;
-					&lt;Checkbox id=&quot;city1&quot; inputId=&quot;city1&quot; name=&quot;city&quot; value=&quot;Chicago&quot; v-model=&quot;cities&quot; /&gt;
+					&lt;Checkbox id=&quot;city1&quot; name=&quot;city&quot; value=&quot;Chicago&quot; v-model=&quot;cities&quot; /&gt;
 					&lt;label for=&quot;city1&quot; class=&quot;p-checkbox-label&quot;&gt;Chicago&lt;/label&gt;
 				&lt;/div&gt;
 				&lt;div class=&quot;p-col-12&quot;&gt;
-					&lt;Checkbox id=&quot;city2&quot; inputId=&quot;city2&quot; name=&quot;city&quot; value=&quot;Los Angeles&quot; v-model=&quot;cities&quot; /&gt;
+					&lt;Checkbox id=&quot;city2&quot; name=&quot;city&quot; value=&quot;Los Angeles&quot; v-model=&quot;cities&quot; /&gt;
 					&lt;label for=&quot;city2&quot; class=&quot;p-checkbox-label&quot;&gt;Los Angeles&lt;/label&gt;
 				&lt;/div&gt;
 				&lt;div class=&quot;p-col-12&quot;&gt;
-					&lt;Checkbox id=&quot;city3&quot; inputId=&quot;city3&quot; name=&quot;city&quot; value=&quot;New York&quot; v-model=&quot;cities&quot; /&gt;
+					&lt;Checkbox id=&quot;city3&quot; name=&quot;city&quot; value=&quot;New York&quot; v-model=&quot;cities&quot; /&gt;
 					&lt;label for=&quot;city3&quot; class=&quot;p-checkbox-label&quot;&gt;New York&lt;/label&gt;
 				&lt;/div&gt;
 				&lt;div class=&quot;p-col-12&quot;&gt;
-					&lt;Checkbox id=&quot;city4&quot; inputId=&quot;city4&quot; name=&quot;city&quot; value=&quot;San Francisco&quot; v-model=&quot;cities&quot; /&gt;
+					&lt;Checkbox id=&quot;city4&quot; name=&quot;city&quot; value=&quot;San Francisco&quot; v-model=&quot;cities&quot; /&gt;
 					&lt;label for=&quot;city4&quot; class=&quot;p-checkbox-label&quot;&gt;San Francisco&lt;/label&gt;
 				&lt;/div&gt;
 			&lt;/div&gt;
@@ -183,7 +183,7 @@ export default {
 			&lt;h3&gt;Dynamic Values, Preselection, Value Binding and Disabled Option&lt;/h3&gt;
 			&lt;div class=&quot;p-grid&quot;&gt;
 				&lt;div v-for=&quot;theme of themes&quot; :key=&quot;theme.key&quot; class=&quot;p-col-12&quot;&gt;
-					&lt;Checkbox :inputId=&quot;theme.key&quot; name=&quot;theme&quot; :value=&quot;theme&quot; v-model=&quot;selectedThemes&quot; :disabled=&quot;theme.key === 'U'&quot;/&gt;
+					&lt;Checkbox :id=&quot;theme.key&quot; name=&quot;theme&quot; :value=&quot;theme&quot; v-model=&quot;selectedThemes&quot; :disabled=&quot;theme.key === 'U'&quot;/&gt;
 					&lt;label :for=&quot;theme.key&quot; class=&quot;p-checkbox-label&quot;&gt;{{theme.name}}&lt;/label&gt;
 				&lt;/div&gt;
 			&lt;/div&gt;
