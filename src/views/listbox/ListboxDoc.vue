@@ -8,10 +8,11 @@ import Listbox from 'primevue/listbox';
 </CodeHighlight>
 
 				<h3>Getting Started</h3>
-				<p>Listbox requires a value to bind, optionLabel and a collection of options. How to define the options property; Providing an array of arbitrary objects along with the <i>optionLabel</i> property to specify the field name of the option.</p>
+				<p>Listbox requires a value to bind and a collection of arbitrary objects along with the <i>optionLabel</i> property to specify the label property of the option.</p>
 <CodeHighlight>
 &lt;Listbox v-model=&quot;selectedCity&quot; :options=&quot;cities&quot; optionLabel=&quot;name&quot; /&gt;
 </CodeHighlight>
+
 <CodeHighlight lang="js">
 data() {
 	return {
@@ -36,8 +37,7 @@ data() {
 </CodeHighlight>
 
 				<h3>Custom Content</h3>
-				<p>Label of an option is used as the display text of an item by default, for custom content support define a template where
-					the local template variable refers to an option in the options collection. </p>
+				<p>Label of an option is used as the display text of an item by default, for custom content support define an <i>option</i> template that gets the option instance as a parameter.</p>
 <CodeHighlight>
 <template v-pre>
 &lt;Listbox v-model=&quot;selectedCars&quot; :options=&quot;cars&quot; :multiple=&quot;true&quot; :filter=&quot;true&quot; optionLabel=&quot;brand&quot; listStyle=&quot;max-height:250px&quot; style=&quot;width:15em&quot;&gt;
@@ -58,84 +58,85 @@ data() {
 </CodeHighlight>
 
 				<h3>Properties</h3>
+                <p>Any attribute such as style and class are passed to the main container element. Following are the additional properties to configure the component.</p>
 				<div class="doc-tablewrapper">
 					<table class="doc-table">
 						<thead>
-						<tr>
-							<th>Name</th>
-							<th>Type</th>
-							<th>Default</th>
-							<th>Description</th>
-						</tr>
+                            <tr>
+                                <th>Name</th>
+                                <th>Type</th>
+                                <th>Default</th>
+                                <th>Description</th>
+                            </tr>
 						</thead>
 						<tbody>
-						<tr>
-							<td>value</td>
-							<td>object</td>
-							<td>null</td>
-							<td>Selected value to display.</td>
-						</tr>
-						<tr>
-							<td>options</td>
-							<td>array</td>
-							<td>null</td>
-							<td>An array of objects to display as the available options.</td>
-						</tr>
-						<tr>
-							<td>optionLabel</td>
-							<td>string</td>
-							<td>null</td>
-							<td>Name of the label field of an option when an arbitrary objects instead of SelectItems are used as options.</td>
-						</tr>
-						<tr>
-							<td>listStyle</td>
-							<td>string</td>
-							<td>null</td>
-							<td>Inline style of inner list element.</td>
-						</tr>
-						<tr>
-							<td>disabled</td>
-							<td>boolean</td>
-							<td>false</td>
-							<td>When specified, disables the component.</td>
-						</tr>
-						<tr>
-							<td>dataKey</td>
-							<td>string</td>
-							<td>false</td>
-							<td>A property to uniquely match the value in options for better performance.</td>
-						</tr>
-						<tr>
-							<td>multiple</td>
-							<td>boolean</td>
-							<td>false</td>
-							<td>When specified, allows selecting multiple values.</td>
-						</tr>
-						<tr>
-							<td>metaKeySelection</td>
-							<td>boolean</td>
-							<td>true</td>
-							<td>Defines how multiple items can be selected, when true metaKey needs to be pressed to select or unselect an item and when set to false selection of each item
-								can be toggled individually. On touch enabled devices, metaKeySelection is turned off automatically.</td>
-						</tr>
-						<tr>
-							<td>filter</td>
-							<td>boolean</td>
-							<td>false</td>
-							<td>When specified, displays a filter input at header.</td>
-						</tr>
-						<tr>
-							<td>optionValue</td>
-							<td>???</td>
-							<td>null</td>
-							<td>???</td>
-						</tr>
-						<tr>
-							<td>optionDisabled</td>
-							<td>boolean</td>
-							<td>null</td>
-							<td>???</td>
-						</tr>
+                            <tr>
+                                <td>value</td>
+                                <td>any</td>
+                                <td>null</td>
+                                <td>Value of the component.</td>
+                            </tr>
+                            <tr>
+                                <td>options</td>
+                                <td>array</td>
+                                <td>null</td>
+                                <td>An array of selectitems to display as the available options.</td>
+                            </tr>
+                            <tr>
+                                <td>optionLabel</td>
+                                <td>string</td>
+                                <td>null</td>
+                                <td>Property name to use as the label of an option.</td>
+                            </tr>
+                            <tr>
+                                <td>optionValue</td>
+                                <td>string</td>
+                                <td>null</td>
+                                <td>Property name to use as the value of an option, defaults to the option itself when not defined.</td>
+                            </tr>
+                            <tr>
+                                <td>optionDisabled</td>
+                                <td>boolean</td>
+                                <td>null</td>
+                                <td>Property name to use as the disabled flag of an option, defaults to false when not defined.</td>
+                            </tr>
+                            <tr>
+                                <td>listStyle</td>
+                                <td>string</td>
+                                <td>null</td>
+                                <td>Inline style of inner list element.</td>
+                            </tr>
+                            <tr>
+                                <td>disabled</td>
+                                <td>boolean</td>
+                                <td>false</td>
+                                <td>When specified, disables the component.</td>
+                            </tr>
+                            <tr>
+                                <td>dataKey</td>
+                                <td>string</td>
+                                <td>false</td>
+                                <td>A property to uniquely match the value in options for better performance.</td>
+                            </tr>
+                            <tr>
+                                <td>multiple</td>
+                                <td>boolean</td>
+                                <td>false</td>
+                                <td>When specified, allows selecting multiple values.</td>
+                            </tr>
+                            <tr>
+                                <td>metaKeySelection</td>
+                                <td>boolean</td>
+                                <td>true</td>
+                                <td>Defines how multiple items can be selected, when true metaKey needs to be pressed to select or unselect an item and when set to false selection of each item
+                                    can be toggled individually. On touch enabled devices, metaKeySelection is turned off automatically.</td>
+                            </tr>
+                            <tr>
+                                <td>filter</td>
+                                <td>boolean</td>
+                                <td>false</td>
+                                <td>When specified, displays a filter input at header.</td>
+                            </tr>
 						</tbody>
 					</table>
 				</div>
@@ -144,26 +145,24 @@ data() {
 				<div class="doc-tablewrapper">
 					<table class="doc-table">
 						<thead>
-						<tr>
-							<th>Name</th>
-							<th>Parameters</th>
-							<th>Description</th>
-						</tr>
+                            <tr>
+                                <th>Name</th>
+                                <th>Parameters</th>
+                                <th>Description</th>
+                            </tr>
 						</thead>
 						<tbody>
-						<tr>
-							<td>change</td>
-							<td>event.originalEvent: Browser event <br/>
-								event.value: Single value or an array of values depending on the selection mode <br/>
-							</td>
-							<td>Callback to invoke when value of listbox changes.</td>
-						</tr>
-						<tr>
-							<td>input</td>
-							<td>event: Single value or an array of values depending on the selection mode <br/>
-							</td>
-							<td>Callback to invoke when value of listbox changes.</td>
-						</tr>
+                            <tr>
+                                <td>change</td>
+                                <td>event.originalEvent: Original event <br />
+                                    event.value: Selected option value </td>
+                                <td>Callback to invoke on value change.</td>
+                            </tr>
+                            <tr>
+                                <td>input</td>
+                                <td>value: New value</td>
+                                <td>Callback to invoke on value change.</td>
+                            </tr>
 						</tbody>
 					</table>
 				</div>
@@ -173,32 +172,32 @@ data() {
 				<div class="doc-tablewrapper">
 					<table class="doc-table">
 						<thead>
-						<tr>
-							<th>Name</th>
-							<th>Element</th>
-						</tr>
+                            <tr>
+                                <th>Name</th>
+                                <th>Element</th>
+                            </tr>
 						</thead>
 						<tbody>
-						<tr>
-							<td>p-listbox</td>
-							<td>Main container element.</td>
-						</tr>
-						<tr>
-							<td>p-listbox-header</td>
-							<td>Header element.</td>
-						</tr>
-						<tr>
-							<td>p-listbox-list-wrapper</td>
-							<td>Container of list element.</td>
-						</tr>
-						<tr>
-							<td>p-listbox-list</td>
-							<td>List element.</td>
-						</tr>
-						<tr>
-							<td>p-listbox-item</td>
-							<td>An item in the list element.</td>
-						</tr>
+                            <tr>
+                                <td>p-listbox</td>
+                                <td>Main container element.</td>
+                            </tr>
+                            <tr>
+                                <td>p-listbox-header</td>
+                                <td>Header element.</td>
+                            </tr>
+                            <tr>
+                                <td>p-listbox-list-wrapper</td>
+                                <td>Container of list element.</td>
+                            </tr>
+                            <tr>
+                                <td>p-listbox-list</td>
+                                <td>List element.</td>
+                            </tr>
+                            <tr>
+                                <td>p-listbox-item</td>
+                                <td>An item in the list element.</td>
+                            </tr>
 						</tbody>
 					</table>
 				</div>
