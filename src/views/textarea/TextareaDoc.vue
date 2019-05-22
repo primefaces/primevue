@@ -20,30 +20,30 @@ import Textarea from 'primevue/textarea';
 </CodeHighlight>
 
 				<h3>Properties</h3>
-				<p>InputTextarea passes any attribute to the underlying textarea element, additional attributes are as follows;</p>
+				<p>InputTextarea passes any attribute to the underlying textarea element, additional attributes are the following.</p>
 				<div class="doc-tablewrapper">
 					<table class="doc-table">
 						<thead>
-						<tr>
-							<th>Name</th>
-							<th>Type</th>
-							<th>Default</th>
-							<th>Description</th>
-						</tr>
+                            <tr>
+                                <th>Name</th>
+                                <th>Type</th>
+                                <th>Default</th>
+                                <th>Description</th>
+                            </tr>
 						</thead>
 						<tbody>
-						<tr>
-							<td>value</td>
-							<td>any</td>
-							<td>null</td>
-							<td>Value of the component.</td>
-						</tr>
-						<tr>
-							<td>autoResize</td>
-							<td>boolean</td>
-							<td>false</td>
-							<td>When present, height of textarea changes as being typed.</td>
-						</tr>
+                            <tr>
+                                <td>value</td>
+                                <td>any</td>
+                                <td>null</td>
+                                <td>Value of the component.</td>
+                            </tr>
+                            <tr>
+                                <td>autoResize</td>
+                                <td>boolean</td>
+                                <td>false</td>
+                                <td>When present, height of textarea changes as being typed.</td>
+                            </tr>
 						</tbody>
 					</table>
 				</div>
@@ -52,18 +52,18 @@ import Textarea from 'primevue/textarea';
 				<div class="doc-tablewrapper">
 					<table class="doc-table">
 						<thead>
-						<tr>
-							<th>Name</th>
-							<th>Parameters</th>
-							<th>Description</th>
-						</tr>
+                            <tr>
+                                <th>Name</th>
+                                <th>Parameters</th>
+                                <th>Description</th>
+                            </tr>
 						</thead>
 						<tbody>
-						<tr>
-							<td>input</td>
-							<td>event: New value</td>
-							<td>Callback to invoke on value change.</td>
-						</tr>
+                            <tr>
+                                <td>input</td>
+                                <td>event: New value</td>
+                                <td>Callback to invoke on value change.</td>
+                            </tr>
 						</tbody>
 					</table>
 				</div>
@@ -73,16 +73,16 @@ import Textarea from 'primevue/textarea';
 				<div class="doc-tablewrapper">
 					<table class="doc-table">
 						<thead>
-						<tr>
-							<th>Name</th>
-							<th>Element</th>
-						</tr>
+                            <tr>
+                                <th>Name</th>
+                                <th>Element</th>
+                            </tr>
 						</thead>
 						<tbody>
-						<tr>
-							<td>p-inputtextarea</td>
-							<td>Textarea element</td>
-						</tr>
+                            <tr>
+                                <td>p-inputtextarea</td>
+                                <td>Textarea element</td>
+                            </tr>
 						</tbody>
 					</table>
 				</div>

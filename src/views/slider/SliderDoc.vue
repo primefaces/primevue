@@ -37,7 +37,7 @@ export default {
 </CodeHighlight>
 
 				<h3>Step</h3>
-				<p>Step factor is 1 by default and can be customized with step option.</p>
+				<p>Step factor is 1 by default and can be customized with <i>step</i> option.</p>
 <CodeHighlight>
 &lt;Slider v-model=&quot;value&quot; :step=&quot;20&quot; /&gt;
 </CodeHighlight>
@@ -49,59 +49,60 @@ export default {
 </CodeHighlight>
 
 				<h3>Properties</h3>
+                <p>Any attribute such as style and class are passed to the main container element. Following are the additional properties to configure the component.</p>
 				<div class="doc-tablewrapper">
 					<table class="doc-table">
 						<thead>
-						<tr>
-							<th>Name</th>
-							<th>Type</th>
-							<th>Default</th>
-							<th>Description</th>
-						</tr>
+                            <tr>
+                                <th>Name</th>
+                                <th>Type</th>
+                                <th>Default</th>
+                                <th>Description</th>
+                            </tr>
 						</thead>
 						<tbody>
-						<tr>
-							<td>value</td>
-							<td>number</td>
-							<td>0</td>
-							<td>Value of the component.</td>
-						</tr>
-						<tr>
-							<td>min</td>
-							<td>number</td>
-							<td>0</td>
-							<td>Mininum boundary value.</td>
-						</tr>
-						<tr>
-							<td>max</td>
-							<td>number</td>
-							<td>100</td>
-							<td>Maximum boundary value.</td>
-						</tr>
-						<tr>
-							<td>orientation</td>
-							<td>string</td>
-							<td>horizontal</td>
-							<td>Orientation of the slider, valid values are horizontal and vertical.</td>
-						</tr>
-						<tr>
-							<td>step</td>
-							<td>number</td>
-							<td>1</td>
-							<td>Step factor to increment/decrement the value.</td>
-						</tr>
-						<tr>
-							<td>range</td>
-							<td>boolean</td>
-							<td>false</td>
-							<td>When speficed, allows two boundary values to be picked.</td>
-						</tr>
-						<tr>
-							<td>disabled</td>
-							<td>boolean</td>
-							<td>false</td>
-							<td>When present, it specifies that the component should be disabled.</td>
-						</tr>
+                            <tr>
+                                <td>value</td>
+                                <td>number</td>
+                                <td>0</td>
+                                <td>Value of the component.</td>
+                            </tr>
+                            <tr>
+                                <td>min</td>
+                                <td>number</td>
+                                <td>0</td>
+                                <td>Mininum boundary value.</td>
+                            </tr>
+                            <tr>
+                                <td>max</td>
+                                <td>number</td>
+                                <td>100</td>
+                                <td>Maximum boundary value.</td>
+                            </tr>
+                            <tr>
+                                <td>orientation</td>
+                                <td>string</td>
+                                <td>horizontal</td>
+                                <td>Orientation of the slider, valid values are horizontal and vertical.</td>
+                            </tr>
+                            <tr>
+                                <td>step</td>
+                                <td>number</td>
+                                <td>1</td>
+                                <td>Step factor to increment/decrement the value.</td>
+                            </tr>
+                            <tr>
+                                <td>range</td>
+                                <td>boolean</td>
+                                <td>false</td>
+                                <td>When speficed, allows two boundary values to be picked.</td>
+                            </tr>
+                            <tr>
+                                <td>disabled</td>
+                                <td>boolean</td>
+                                <td>false</td>
+                                <td>When present, it specifies that the component should be disabled.</td>
+                            </tr>
 						</tbody>
 					</table>
 				</div>
@@ -110,30 +111,31 @@ export default {
 				<div class="doc-tablewrapper">
 					<table class="doc-table">
 						<thead>
-						<tr>
-							<th>Name</th>
-							<th>Parameters</th>
-							<th>Description</th>
-						</tr>
+                            <tr>
+                                <th>Name</th>
+                                <th>Parameters</th>
+                                <th>Description</th>
+                            </tr>
 						</thead>
 						<tbody>
-						<tr>
-							<td>change</td>
-							<td>event: New value.</td>
-							<td>Callback to invoke on value change via slide.</td>
-						</tr>
-						<tr>
-							<td>input</td>
-							<td>event: New value.</td>
-							<td>Callback to invoke on value change via slide.</td>
-						</tr>
-						<tr>
-							<td>slideEnd</td>
-							<td>event.originalEvent: Slide event <br />
-								event.value: New value.
-							</td>
-							<td>Callback to invoke when slide ends.</td>
-						</tr>
+                            <tr>
+                                <td>change</td>
+                                <td>event.originalEvent: Original event <br />
+                                    event.value: Selected option value </td>
+                                <td>Callback to invoke on value change.</td>
+                            </tr>
+                            <tr>
+                                <td>input</td>
+                                <td>value: New value</td>
+                                <td>Callback to invoke on value change.</td>
+                            </tr>
+                            <tr>
+                                <td>slideEnd</td>
+                                <td>event.originalEvent: Slide event <br />
+                                    event.value: New value.
+                                </td>
+                                <td>Callback to invoke when slide ends.</td>
+                            </tr>
 						</tbody>
 					</table>
 				</div>
@@ -143,20 +145,20 @@ export default {
 				<div class="doc-tablewrapper">
 					<table class="doc-table">
 						<thead>
-						<tr>
-							<th>Name</th>
-							<th>Element</th>
-						</tr>
+                            <tr>
+                                <th>Name</th>
+                                <th>Element</th>
+                            </tr>
 						</thead>
 						<tbody>
-						<tr>
-							<td>p-slider</td>
-							<td>Container element</td>
-						</tr>
-						<tr>
-							<td>p-slider-handle</td>
-							<td>Handle element.</td>
-						</tr>
+                            <tr>
+                                <td>p-slider</td>
+                                <td>Container element</td>
+                            </tr>
+                            <tr>
+                                <td>p-slider-handle</td>
+                                <td>Handle element.</td>
+                            </tr>
 						</tbody>
 					</table>
 				</div>

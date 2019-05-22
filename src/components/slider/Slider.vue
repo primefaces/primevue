@@ -25,9 +25,18 @@ export default {
 			type: String,
 			default: 'horizontal'
 		},
-		step: Number,
-		range: Boolean,
-        disabled: Boolean
+		step: {
+			type: Number,
+			default: null
+		},
+		range: {
+			type: Boolean,
+			default: false
+		},
+        disabled: {
+			type: Boolean,
+			default: false
+		}
     },
     dragging: false,
     handleIndex: null,

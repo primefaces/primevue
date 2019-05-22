@@ -9,9 +9,18 @@
 <script>
 export default {
     props: {
-        value: Number,
-		disabled: Boolean,
-		readonly: Boolean,
+        value: {
+            type: Number,
+            default: null
+        },
+		disabled: {
+            type: Boolean,
+            default: false
+        },
+		readonly: {
+            type: Boolean,
+            default: false
+        },
         stars: {
             type: Number,
             default: 5
@@ -23,10 +32,14 @@ export default {
     },
     methods: {
         onStarClick(event, value) {
-            this.updateModel(event, value);
+            if (!this.readonly && !this.disabled) {
+                this.updateModel(event, value);
+            }
         },
         onCancelClick() {
-            this.updateModel(event, null);
+            if (!this.readonly && !this.disabled) {
+                this.updateModel(event, null);
+            }
         },
         updateModel(event, value) {
             this.$emit('input', value);

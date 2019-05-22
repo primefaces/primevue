@@ -14,49 +14,48 @@ import Password from 'primevue/password';
 </CodeHighlight>
 
 				<h3>Properties</h3>
-				<p>Password accepts all valid properties of an input element in addition the the custom properties below.</p>
-
+				<p>Any valid attribute such as name and placeholder are passed to the underlying input element. Following are the additional properties to configure the component.</p>
 				<div class="doc-tablewrapper">
 					<table class="doc-table">
 						<thead>
-						<tr>
-							<th>Name</th>
-							<th>Type</th>
-							<th>Default</th>
-							<th>Description</th>
-						</tr>
+                            <tr>
+                                <th>Name</th>
+                                <th>Type</th>
+                                <th>Default</th>
+                                <th>Description</th>
+                            </tr>
 						</thead>
 						<tbody>
-						<tr>
-							<td>promptLabel</td>
-							<td>string</td>
-							<td>Enter a password</td>
-							<td>Text to prompt password entry.</td>
-						</tr>
-						<tr>
-							<td>weakLabel</td>
-							<td>string</td>
-							<td>Weak</td>
-							<td>Text for a weak password.</td>
-						</tr>
-						<tr>
-							<td>mediumLabel</td>
-							<td>string</td>
-							<td>Medium</td>
-							<td>Text for a medium password.</td>
-						</tr>
-						<tr>
-							<td>strongLabel</td>
-							<td>string</td>
-							<td>Strong</td>
-							<td>Text for a strong password.</td>
-						</tr>
-						<tr>
-							<td>feedback</td>
-							<td>boolean</td>
-							<td>true</td>
-							<td>Whether to show the strength indicator or not.</td>
-						</tr>
+                            <tr>
+                                <td>promptLabel</td>
+                                <td>string</td>
+                                <td>Enter a password</td>
+                                <td>Text to prompt password entry.</td>
+                            </tr>
+                            <tr>
+                                <td>weakLabel</td>
+                                <td>string</td>
+                                <td>Weak</td>
+                                <td>Text for a weak password.</td>
+                            </tr>
+                            <tr>
+                                <td>mediumLabel</td>
+                                <td>string</td>
+                                <td>Medium</td>
+                                <td>Text for a medium password.</td>
+                            </tr>
+                            <tr>
+                                <td>strongLabel</td>
+                                <td>string</td>
+                                <td>Strong</td>
+                                <td>Text for a strong password.</td>
+                            </tr>
+                            <tr>
+                                <td>feedback</td>
+                                <td>boolean</td>
+                                <td>true</td>
+                                <td>Whether to show the strength indicator or not.</td>
+                            </tr>
 						</tbody>
 					</table>
 				</div>
@@ -66,10 +65,10 @@ import Password from 'primevue/password';
 				<div class="doc-tablewrapper">
 					<table class="doc-table">
 						<thead>
-						<tr>
-							<th>Name</th>
-							<th>Element</th>
-						</tr>
+                            <tr>
+                                <th>Name</th>
+                                <th>Element</th>
+                            </tr>
 						</thead>
 						<tbody>
 							<tr>
