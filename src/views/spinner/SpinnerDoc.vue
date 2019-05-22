@@ -26,98 +26,76 @@ import Spinner from 'primevue/spinner';
 </CodeHighlight>
 
 				<h3>Properties</h3>
+                <p>Any valid attribute such as name and placeholder are passed to the underlying input element. Following are the additional properties to configure the component.</p>
 				<div class="doc-tablewrapper">
 					<table class="doc-table">
 						<thead>
-						<tr>
-							<th>Name</th>
-							<th>Type</th>
-							<th>Default</th>
-							<th>Description</th>
-						</tr>
+                            <tr>
+                                <th>Name</th>
+                                <th>Type</th>
+                                <th>Default</th>
+                                <th>Description</th>
+                            </tr>
 						</thead>
 						<tbody>
-						<tr>
-							<td>value</td>
-							<td>string</td>
-							<td>null</td>
-							<td>Value of the component.</td>
-						</tr>
-						<tr>
-							<td>step</td>
-							<td>number</td>
-							<td>1</td>
-							<td>Step factor to increment/decrement the value.</td>
-						</tr>
-						<tr>
-							<td>min</td>
-							<td>number</td>
-							<td>null</td>
-							<td>Mininum boundary value.</td>
-						</tr>
-						<tr>
-							<td>max</td>
-							<td>number</td>
-							<td>null</td>
-							<td>Maximum boundary value.</td>
-						</tr>
-						<tr>
-							<td>disabled</td>
-							<td>boolean</td>
-							<td>false</td>
-							<td>When present, it specifies that the element should be disabled.</td>
-						</tr>
+                            <tr>
+                                <td>value</td>
+                                <td>number</td>
+                                <td>null</td>
+                                <td>Value of the component.</td>
+                            </tr>
+                            <tr>
+                                <td>step</td>
+                                <td>number</td>
+                                <td>1</td>
+                                <td>Step factor to increment/decrement the value.</td>
+                            </tr>
+                            <tr>
+                                <td>min</td>
+                                <td>number</td>
+                                <td>null</td>
+                                <td>Mininum boundary value.</td>
+                            </tr>
+                            <tr>
+                                <td>max</td>
+                                <td>number</td>
+                                <td>null</td>
+                                <td>Maximum boundary value.</td>
+                            </tr>
 						</tbody>
 					</table>
 				</div>
 
 				<h3>Events</h3>
-				<div class="doc-tablewrapper">
-					<table class="doc-table">
-						<thead>
-						<tr>
-							<th>Name</th>
-							<th>Parameters</th>
-							<th>Description</th>
-						</tr>
-						</thead>
-						<tbody>
-						<tr>
-							<td>input</td>
-							<td>event: New value</td>
-							<td>Callback to invoke on value change.</td>
-						</tr>
-						</tbody>
-					</table>
-				</div>
+                <p>Any valid event such as focus, blur and input are passed to the underlying input element. Following are the additional events to configure the component.</p>
 
 				<h3>Styling</h3>
 				<p>Following is the list of structural style classes, for theming classes visit <router-link to="/theming">theming</router-link> page.</p>
 				<div class="doc-tablewrapper">
 					<table class="doc-table">
 						<thead>
-						<tr>
-							<th>Name</th>
-							<th>Element</th>
-						</tr>
+                            <tr>
+                                <th>Name</th>
+                                <th>Element</th>
+                            </tr>
 						</thead>
 						<tbody>
-						<tr>
-							<td>p-spinner</td>
-							<td>Container element</td>
-						</tr>
-						<tr>
-							<td>p-spinner-up</td>
-							<td>Up icon.</td>
-						</tr>
-						<tr>
-							<td>p-spinner-down</td>
-							<td>Down icon.</td>
-						</tr>
-						<tr>
-							<td>p-spinner-input</td>
-							<td>Input element</td>
-						</tr>
+                            <tr>
+                                <td>p-spinner</td>
+                                <td>Container element</td>
+                            </tr>
+                            <tr>
+                                <td>p-spinner-up</td>
+                                <td>Up icon.</td>
+                            </tr>
+                            <tr>
+                                <td>p-spinner-down</td>
+                                <td>Down icon.</td>
+                            </tr>
+                            <tr>
+                                <td>p-spinner-input</td>
+                                <td>Input element</td>
+                            </tr>
 						</tbody>
 					</table>
 				</div>
