@@ -155,15 +155,15 @@ export default {
                             <tr>
                                 <td>complete</td>
                                 <td>
-                                    event.originalEvent: browser event <br />
+                                    event.originalEvent: Browser event <br />
                                     event.query: Value to search with
                                 </td>
                                 <td>Callback to invoke to search for suggestions.</td>
                             </tr>
                             <tr>
                                 <td>input</td>
-                                <td>value: Value of the component</td>
-                                <td>Callback to invoke on input event of input field.</td>
+                                <td>value: New value</td>
+                                <td>Callback to invoke on value change.</td>
                             </tr>
                             <tr>
                                 <td>focus</td>
@@ -178,17 +178,17 @@ export default {
                             <tr>
                                 <td>select</td>
                                 <td>event.originalEvent: Browser event <br />
-                                    event.value: Value of the component</td>
+                                    event.value: Selected item</td>
                                 <td>Callback to invoke when a suggestion is selected.</td>
                             </tr>
                             <tr>
                                 <td>unselect</td>
                                 <td>event.originalEvent: Browser event <br />
-                                    event.value: Value of the component</td>
+                                    event.value: Unselected item</td>
                                 <td>Callback to invoke when a selected value is removed.</td>
                             </tr>
                             <tr>
-                                <td>click-dropdown</td>
+                                <td>dropdown-click</td>
                                 <td>
                                     event.originalEvent: browser event <br />
                                     event.query: Current value of the input field

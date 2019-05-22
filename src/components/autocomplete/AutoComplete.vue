@@ -175,7 +175,7 @@ export default {
             else if (this.dropdownMode === 'current')
                 this.search(event, query, 'dropdown');
 
-            this.$emit('click-dropdown', {
+            this.$emit('dropdown-click', {
                 originalEvent: event,
                 query: query
             });
