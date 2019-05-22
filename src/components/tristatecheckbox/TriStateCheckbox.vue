@@ -1,10 +1,9 @@
 <template>
    <div class="p-checkbox p-component" @click="onClick($event)">
        <div class="p-hidden-accessible">
-           <input ref="input" :id="inputId" type="checkbox" :name="name" :checked="value === true" :disabled="disabled" @focus="onFocus()" @blur="onBlur()"
-                    :autocomplete="autocomplete" :autofocus="autofocus">
+           <input ref="input" type="checkbox" :checked="value === true" v-bind="$attrs" @focus="onFocus()" @blur="onBlur()">
         </div>
-        <div ref="box" :class="['p-checkbox-box p-component', {'p-highlight': (value != null), 'p-disabled': disabled, 'p-focus': focused}]">
+        <div ref="box" :class="['p-checkbox-box p-component', {'p-highlight': (value != null), 'p-disabled': $attrs.disabled, 'p-focus': focused}]">
             <span :class="['p-checkbox-icon p-c', icon]"></span>
         </div>
     </div>
@@ -13,12 +12,7 @@
 <script>
 export default {
     props: {
-		inputId: String,
-		value: null,
-		name: String,
-		disabled: Boolean,
-		autofocus: Boolean,
-		autocomplete: String
+		value: null
     },
     data() {
         return {
@@ -27,7 +21,7 @@ export default {
     },
     methods: {
         onClick(event) {
-            if (!this.disabled) {
+            if (!this.$attrs.disabled) {
                 let newValue;
 
                 switch (this.value) {
