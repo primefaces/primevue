@@ -8,7 +8,7 @@
                 </slot>
             </li>
             <li class="p-chips-input-token">
-                <input ref="input" type="text" class="p-inputtext p-component" @focus="onFocus($event)" @blur="onBlur($event)" @keydown="onKeyDown($event)" :disabled="disabled || maxedOut">
+                <input ref="input" type="text" class="p-inputtext p-component" @focus="onFocus($event)" @blur="onBlur($event)" @keydown="onKeyDown($event)" :disabled="$attrs.disabled || maxedOut">
             </li>
         </ul>
     </div>
@@ -16,10 +16,8 @@
 
 <script>
 export default {
-    inheritAttrs: false,
     props: {
         value: Array,
-        disabled: Boolean,
         max: Number
     },
     data() {
@@ -68,7 +66,7 @@ export default {
             }
         },
         removeItem(event, index) {
-            if (this.disabled) {
+            if (this.$attrs.disabled) {
                 return;
             }
             
