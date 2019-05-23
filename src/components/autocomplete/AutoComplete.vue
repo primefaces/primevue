@@ -357,7 +357,7 @@ export default {
             return ['p-autocomplete p-component', {
                 'p-autocomplete-dd': this.dropdown,
                 'p-autocomplete-multiple': this.multiple,
-                'p-inputwrapper-filled': this.filled, 
+                'p-inputwrapper-filled': this.value,
                 'p-inputwrapper-focus': this.focused
             }];
         },
