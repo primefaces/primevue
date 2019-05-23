@@ -73,7 +73,7 @@ import {Accordion, AccordionTab} from 'primevue/accordion';
 </CodeHighlight>
 
 				<h3>Custom Content at Headers</h3>
-				<p>Custom content can be placed at an accordion header with header element.</p>
+				<p>Custom content for the title section of a panel is defined using the header template.</p>
 <CodeHighlight>
 &lt;Accordion&gt;
 	&lt;AccordionTab&gt;
@@ -134,7 +134,7 @@ export default {
 }
 </CodeHighlight>
 
-				<h3>Properties For AccordionTab</h3>
+				<h3>Properties of AccordionTab</h3>
 				<div class="doc-tablewrapper">
 					<table class="doc-table">
 						<thead>
@@ -168,24 +168,25 @@ export default {
 					</table>
 				</div>
 
-				<h3>Properties</h3>
+				<h3>Properties of Accordion</h3>
+                <p>Any attribute such as style and class are passed to the main container element. Following is the additional property to configure the component.</p>
 				<div class="doc-tablewrapper">
 					<table class="doc-table">
 						<thead>
-						<tr>
-							<th>Name</th>
-							<th>Type</th>
-							<th>Default</th>
-							<th>Description</th>
-						</tr>
+                            <tr>
+                                <th>Name</th>
+                                <th>Type</th>
+                                <th>Default</th>
+                                <th>Description</th>
+                            </tr>
 						</thead>
 						<tbody>
-						<tr>
-							<td>multiple</td>
-							<td>boolean</td>
-							<td>false</td>
-							<td>When enabled, multiple tabs can be activated at the same time.</td>
-						</tr>
+                            <tr>
+                                <td>multiple</td>
+                                <td>boolean</td>
+                                <td>false</td>
+                                <td>When enabled, multiple tabs can be activated at the same time.</td>
+                            </tr>
 						</tbody>
 					</table>
 				</div>
@@ -194,27 +195,27 @@ export default {
 				<div class="doc-tablewrapper">
 					<table class="doc-table">
 						<thead>
-						<tr>
-							<th>Name</th>
-							<th>Parameters</th>
-							<th>Description</th>
-						</tr>
+                            <tr>
+                                <th>Name</th>
+                                <th>Parameters</th>
+                                <th>Description</th>
+                            </tr>
 						</thead>
 						<tbody>
-						<tr>
-							<td>tabOpen</td>
-							<td>event.originalEvent: browser event  <br/>
-								event.tab: Opened tab
-							</td>
-							<td>Callback to invoke when a tab gets expanded.</td>
-						</tr>
-						<tr>
-							<td>tabClose</td>
-							<td>event.originalEvent: browser event  <br/>
-								event.tab: Closed tab
-							</td>
-							<td>Callback to invoke when an active tab is collapsed by clicking on the header.</td>
-						</tr>
+                            <tr>
+                                <td>tab-open</td>
+                                <td>event.originalEvent: Browser event  <br/>
+                                    event.tab: Opened tab
+                                </td>
+                                <td>Callback to invoke when a tab gets expanded.</td>
+                            </tr>
+                            <tr>
+                                <td>tab-close</td>
+                                <td>event.originalEvent: Browser event  <br/>
+                                    event.tab: closed tab
+                                </td>
+                                <td>Callback to invoke when an active tab is collapsed by clicking on the header.</td>
+                            </tr>
 						</tbody>
 					</table>
 				</div>

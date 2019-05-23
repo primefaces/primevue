@@ -19,7 +19,7 @@ export default {
                 }
 
                 tab.d_active = !tab.d_active;
-                let eventName = !tab.active ? 'tabclose' : 'tabopen';
+                let eventName = !tab.active ? 'tab-close' : 'tab-open';
                 this.$emit(eventName, {
                     originalEvent: event,
                     tab: tab
