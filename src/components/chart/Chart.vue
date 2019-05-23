@@ -1,6 +1,6 @@
 <template>
     <div class="p-chart">
-        <canvas ref="canvas" :width="width" :height="height"></canvas>
+        <canvas ref="canvas" :width="width" :height="height" @click="onCanvasClick($event)"></canvas>
     </div>
 </template>
 
@@ -59,6 +59,21 @@ export default {
             if (this.chart) {
                 this.chart.destroy();
                 this.initChart();
+            }
+        },
+        onCanvasClick(event) {
+            if (this.chart) {
+                const element = this.chart.getElementAtEvent(event);
+                const dataset = this.chart.getDatasetAtEvent(event);
+
+                if (element && element[0] && dataset) {
+                    this.emit('select', {originalEvent: event, element: element[0], dataset: dataset});
+                }
+            }
+        },
+        generateLegend() {
+            if (this.chart) {
+                return this.chart.generateLegend();
             }
         }
     }

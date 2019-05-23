@@ -12,10 +12,10 @@ import Chart from 'primevue/chart';
 </CodeHighlight>
 
 		<h3>Chart Types</h3>
-		<p>Chart type is defined using the <i>type</i> property. Currently there are 6 options available; "pie", "doughtnut", "line", "bar", "radar" and "polarArea".</p>
+		<p>Chart type is defined using the <i>type</i> property. Currently there are 6 options available; <b>pie</b>, <b>doughtnut</b>, <b>line</b>, <b>bar</b>, <b>radar</b> and <b>polarArea</b>.</p>
 
 		<h3>Data</h3>
-		<p>Data of a chart is provided using a binding to the <i>data</i> property, each type has its own format of data. Here is an example of a line chart.</p>
+		<p>Data of a chart is provided using a binding to the <i>data</i> property, each type has its own format of data. Here is an example of a line chart.  For more information refer to the <a href="https://www.chartjs.org/">charts.js</a> documentation.</p>
 <CodeHighlight>
 &lt;Chart type="bar" :data="basicData" /&gt;
 </CodeHighlight>
@@ -46,7 +46,7 @@ export default {
 
 		<h3>Options</h3>
 		<p>While a series can be customized per dataset, general chart options are defined with options property.
-			Example below adds a title and customizes the legend position of the chart. For all available options refer to the charts.js documentation.</p>
+			Example below adds a title and customizes the legend position of the chart. For all available options refer to the <a href="https://www.chartjs.org/">charts.js</a> documentation.</p>
 <CodeHighlight>
 &lt;Chart type="line" :data="data" :options="options" /&gt;
 </CodeHighlight>
@@ -78,6 +78,7 @@ options: {
 </CodeHighlight>
 
 		<h3>Properties</h3>
+        <p>Any attribute such as style and class are passed to the main container element. Following is the additional property to configure the component.</p>
 		<div class="doc-tablewrapper">
 			<table class="doc-table">
 				<thead>
@@ -139,8 +140,62 @@ options: {
                         <td>-</td>
                         <td>Redraws the graph.</td>
                     </tr>
+                    <tr>
+                        <td>reinit</td>
+                        <td>-</td>
+                        <td>Destroys the graph first and then creates it again.</td>
+                    </tr>
+                    <tr>
+                        <td>generateLegend</td>
+                        <td>-</td>
+                        <td>Returns an HTML string of a legend for that chart. The legend is generated from the legendCallback in the options.</td>
+                    </tr>
 				</tbody>
 			</table>
 		</div>
+
+        <h3>Events</h3>
+        <div class="doc-tablewrapper">
+            <table class="doc-table">
+                <thead>
+                    <tr>
+                        <th>Name</th>
+                        <th>Parameters</th>
+                        <th>Description</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td>select</td>
+                        <td>
+                            event: original event<br>
+                            event.dataset: Selected dataset<br>
+                            event.element: Selected element<br>
+                            event.element._datasetIndex = Index of the dataset in data<br>
+                            event.element._index = Index of the data in dataset
+                        </td>
+                        <td>Callback to invoke when a tab gets expanded.</td>
+                    </tr>
+                </tbody>
+            </table>
+        </div>
+
+        <h3>Styling</h3>
+        <div class="doc-tablewrapper">
+            <table class="doc-table">
+                <thead>
+                    <tr>
+                        <th>Name</th>
+                        <th>Element</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td>p-chart</td>
+                        <td>Container element.</td>
+                    </tr>
+                </tbody>
+            </table>
+        </div>
 	</div>
 </template>
