@@ -29,32 +29,32 @@ data() {
 				<div class="doc-tablewrapper">
 					<table class="doc-table">
 						<thead>
-						<tr>
-							<th>Name</th>
-							<th>Type</th>
-							<th>Default</th>
-							<th>Description</th>
-						</tr>
+                            <tr>
+                                <th>Name</th>
+                                <th>Type</th>
+                                <th>Default</th>
+                                <th>Description</th>
+                            </tr>
 						</thead>
 						<tbody>
-						<tr>
-							<td>value</td>
-							<td>number</td>
-							<td>null</td>
-							<td>Current value of the progress.</td>
-						</tr>
-						<tr>
-							<td>showValue</td>
-							<td>boolean</td>
-							<td>true</td>
-							<td>Show or hide progress bar value.</td>
-						</tr>
-						<tr>
-							<td>mode</td>
-							<td>string</td>
-							<td>determinate</td>
-							<td>Defines the mode of the progress, valid values are "determinate" and "indeterminate".</td>
-						</tr>
+                            <tr>
+                                <td>value</td>
+                                <td>number</td>
+                                <td>null</td>
+                                <td>Current value of the progress.</td>
+                            </tr>
+                            <tr>
+                                <td>mode</td>
+                                <td>string</td>
+                                <td>determinate</td>
+                                <td>Defines the mode of the progress, valid values are "determinate" and "indeterminate".</td>
+                            </tr>
+                            <tr>
+                                <td>showValue</td>
+                                <td>boolean</td>
+                                <td>true</td>
+                                <td>Whether to displau the progress bar value.</td>
+                            </tr>
 						</tbody>
 					</table>
 				</div>
@@ -64,32 +64,32 @@ data() {
 				<div class="doc-tablewrapper">
 					<table class="doc-table">
 						<thead>
-						<tr>
-							<th>Name</th>
-							<th>Element</th>
-						</tr>
+                            <tr>
+                                <th>Name</th>
+                                <th>Element</th>
+                            </tr>
 						</thead>
 						<tbody>
-						<tr>
-							<td>p-progressbar</td>
-							<td>Container element.</td>
-						</tr>
-						<tr>
-							<td>p-progressbar-determinate</td>
-							<td>Container element of a determinate progressbar.</td>
-						</tr>
-						<tr>
-							<td>p-progressbar-indeterminate</td>
-							<td>Container element of an indeterminate progressbar.</td>
-						</tr>
-						<tr>
-							<td>p-progressbar-value</td>
-							<td>Element whose width changes according to value.</td>
-						</tr>
-						<tr>
-							<td>p-progressbar-label</td>
-							<td>Label element that displays the current value.</td>
-						</tr>
+                            <tr>
+                                <td>p-progressbar</td>
+                                <td>Container element.</td>
+                            </tr>
+                            <tr>
+                                <td>p-progressbar-determinate</td>
+                                <td>Container element of a determinate progressbar.</td>
+                            </tr>
+                            <tr>
+                                <td>p-progressbar-indeterminate</td>
+                                <td>Container element of an indeterminate progressbar.</td>
+                            </tr>
+                            <tr>
+                                <td>p-progressbar-value</td>
+                                <td>Element whose width changes according to value.</td>
+                            </tr>
+                            <tr>
+                                <td>p-progressbar-label</td>
+                                <td>Label element that displays the current value.</td>
+                            </tr>
 						</tbody>
 					</table>
 				</div>
