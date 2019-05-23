@@ -229,11 +229,12 @@ onPage(event) {
 		&lt;/div&gt;
 
 		&lt;div class="content-section implementation"&gt;
-			&lt;h3 class="first"&gt;Default&lt;/h3&gt;
-			&lt;Paginator :first.sync="first" :rows.sync="rows" :totalRecords="totalRecords" :rowsPerPageOptions="[10,20,30]"&gt;&lt;/Paginator&gt;
+			&lt;h3&gt;Basic&lt;/h3&gt;
+			&lt;Paginator :rows="10" :totalRecords="totalRecords" :rowsPerPageOptions="[10,20,30]"&gt;&lt;/Paginator&gt;
 
-			&lt;h3&gt;Custom Template&lt;/h3&gt;
-			&lt;Paginator :first.sync="first2" :rows="1" :totalRecords="totalRecords2" @page-change="onPageChangeCustom($event)" template="FirstPageLink PrevPageLink CurrentPageReport NextPageLink LastPageLink"&gt;
+			&lt;h3&gt;Custom&lt;/h3&gt;
+			&lt;Paginator :first.sync="first" :rows="1" :totalRecords="totalRecords2" 
+                template="FirstPageLink PrevPageLink CurrentPageReport NextPageLink LastPageLink"&gt;
                 &lt;template #left&gt;
                     &lt;Button type="button" icon="pi pi-refresh" @click="reset()"/&gt;
                 &lt;/template&gt;
@@ -243,7 +244,7 @@ onPage(event) {
             &lt;/Paginator&gt;
 
             &lt;div class="image-gallery"&gt;
-                &lt;img :src="&#39;demo/images/nature/&#39; + image + &#39;.jpg&#39;" /&gt;
+                &lt;img :src="'demo/images/nature/' + image + '.jpg'" /&gt;
             &lt;/div&gt;
 		&lt;/div&gt;
 
@@ -253,30 +254,23 @@ onPage(event) {
 </CodeHighlight>
 
 <CodeHighlight lang="javascript">
-import PaginatorDoc from './PaginatorDoc';
-
 export default {
     data() {
         return {
 			first: 0,
-            rows: 10,
-            totalRecords: 50,
-            first2: 0,
-            totalRecords2: 12,
-            image: 'nature1'
+            totalRecords: 120,
+            totalRecords2: 12
         }
     },
     methods: {
-        onPageChangeCustom(event) {
-            this.image = 'nature' + (event.page + 1);
-        },
         reset() {
-            this.first2 = 0;
-            this.image = 'nature1';
+            this.first = 0;
         }
     },
-    components: {
-        'PaginatorDoc': PaginatorDoc
+    computed: {
+        image() {
+            return 'nature' + (this.first + 1);
+        }
     }
 }
 </CodeHighlight>

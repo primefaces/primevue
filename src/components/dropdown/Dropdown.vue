@@ -365,7 +365,7 @@ export default {
                 'p-dropdown-label p-inputtext', 
                 {
                     'p-placeholder': this.label === null && this.placeholder, 
-                    'p-dropdown-label-empty': !this.placeholder
+                    'p-dropdown-label-empty': (this.label == null || this.label.length === 0)
                 }
             ];
         },

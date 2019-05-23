@@ -37,7 +37,8 @@
 	text-decoration: none;
 	vertical-align: middle;
 	text-align: center;
-	position: relative;
+    position: relative;
+    cursor: pointer;
 }
 
 .p-paginator .p-paginator-pages {
@@ -80,7 +81,7 @@
 	-webkit-box-shadow: none;
 }
 
-.p-paginator a.p-disabled {
+.p-paginator .p-disabled {
 	outline: 0 none;
 }
 

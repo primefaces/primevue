@@ -8,11 +8,12 @@
 		</div>
 
 		<div class="content-section implementation">
-			<h3 class="first">Default</h3>
-			<Paginator :first.sync="first" :rows.sync="rows" :totalRecords="totalRecords" :rowsPerPageOptions="[10,20,30]"></Paginator>
+			<h3>Basic</h3>
+			<Paginator :rows="10" :totalRecords="totalRecords" :rowsPerPageOptions="[10,20,30]"></Paginator>
 
-			<h3>Custom Template</h3>
-			<Paginator :first.sync="first2" :rows="1" :totalRecords="totalRecords2" @page-change="onPageChangeCustom($event)" template="FirstPageLink PrevPageLink CurrentPageReport NextPageLink LastPageLink">
+			<h3>Custom</h3>
+			<Paginator :first.sync="first" :rows="1" :totalRecords="totalRecords2" 
+                template="FirstPageLink PrevPageLink CurrentPageReport NextPageLink LastPageLink">
                 <template #left>
                     <Button type="button" icon="pi pi-refresh" @click="reset()"/>
                 </template>
@@ -37,20 +38,18 @@ export default {
     data() {
         return {
 			first: 0,
-            rows: 10,
-            totalRecords: 50,
-            first2: 0,
-            totalRecords2: 12,
-            image: 'nature1'
+            totalRecords: 120,
+            totalRecords2: 12
         }
     },
     methods: {
-        onPageChangeCustom(event) {
-            this.image = 'nature' + (event.page + 1);
-        },
         reset() {
-            this.first2 = 0;
-            this.image = 'nature1';
+            this.first = 0;
+        }
+    },
+    computed: {
+        image() {
+            return 'nature' + (this.first + 1);
         }
     },
     components: {
@@ -60,12 +59,12 @@ export default {
 </script>
 
 <style scoped>
-    .p-button.p-button-icon-only {
-        border-radius: 0;
-    }
+.p-button.p-button-icon-only {
+    border-radius: 0;
+}
 
-    .image-gallery {
-        text-align: center;
-        padding: 1em;
-    }
+.image-gallery {
+    text-align: center;
+    padding: 1em;
+}
 </style>

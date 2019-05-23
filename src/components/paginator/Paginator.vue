@@ -3,14 +3,14 @@
         <div class="p-paginator-left-content" v-if="$scopedSlots.left">
             <slot name="left" :state="currentState"></slot>
         </div>
-		<template v-for="(item,i) of templateItems">
-			<FirstPageLink v-if="item === 'FirstPageLink'" :key="i" @click="changePageToFirst($event)" :disabled="isFirstPage" />
-			<PrevPageLink v-else-if="item === 'PrevPageLink'" :key="i" @click="changePageToPrev($event)" :disabled="isFirstPage" />
-			<NextPageLink v-else-if="item === 'NextPageLink'" :key="i" @click="changePageToNext($event)" :disabled="isLastPage" />
-			<LastPageLink v-else-if="item === 'LastPageLink'" :key="i" @click="changePageToLast($event)" :disabled="isLastPage" />
-			<PageLinks v-else-if="item === 'PageLinks'" :key="i" :value="updatePageLinks" :page="page" @click="pageLinkClick($event)" />
-			<CurrentPageReport v-else-if="item === 'CurrentPageReport'" :key="i" :template="currentPageReportTemplate" :page="page" :pageCount="pageCount" />
-			<RowsPerPageDropdown v-else-if="item === 'RowsPerPageDropdown'" :key="i" :value="rows" :options="rowsPerPageOptions" @rowsChange="rowsChange($event)" />
+		<template v-for="item of templateItems">
+			<FirstPageLink v-if="item === 'FirstPageLink'" :key="item" @click="changePageToFirst($event)" :disabled="isFirstPage" />
+			<PrevPageLink v-else-if="item === 'PrevPageLink'" :key="item" @click="changePageToPrev($event)" :disabled="isFirstPage" />
+			<NextPageLink v-else-if="item === 'NextPageLink'" :key="item" @click="changePageToNext($event)" :disabled="isLastPage" />
+			<LastPageLink v-else-if="item === 'LastPageLink'" :key="item" @click="changePageToLast($event)" :disabled="isLastPage" />
+			<PageLinks v-else-if="item === 'PageLinks'" :key="item" :value="pageLinks" :page="page" @click="changePageLink($event)" />
+			<CurrentPageReport v-else-if="item === 'CurrentPageReport'" :key="item" :template="currentPageReportTemplate" :page="page" :pageCount="pageCount" />
+			<RowsPerPageDropdown v-else-if="item === 'RowsPerPageDropdown' && rowsPerPageOptions" :key="item" :rows="d_rows" :options="rowsPerPageOptions" @rows-change="onRowChange($event)" />
         </template>
         <div class="p-paginator-right-content" v-if="$scopedSlots.right">
             <slot name="right" :state="currentState"></slot>
@@ -58,14 +58,68 @@ export default {
             default: '({currentPage} of {totalPages})'
         }
     },
-    components: {
-        'CurrentPageReport': CurrrentPageReport,
-        'FirstPageLink': FirstPageLink,
-        'LastPageLink': LastPageLink,
-        'NextPageLink': NextPageLink,
-        'PageLinks': PageLinks,
-        'PrevPageLink': PrevPageLink,
-        'RowsPerPageDropdown': RowsPerPageDropdown,
+    data() {
+        return {
+            d_first: this.first,
+            d_rows: this.rows
+        }
+    },
+    watch: {
+        first(newValue) {
+            this.d_first = newValue;
+        },
+        rows(newValue) {
+            this.d_rows = newValue;
+        }
+    },
+    methods: {
+        changePage(p) {
+            const pc = this.pageCount;
+
+            if (p >= 0 && p < pc) {
+                this.d_first = this.d_rows * p;
+                const state = {
+                    page: p,
+                    first: this.d_first,
+                    rows: this.d_rows,
+                    pageCount: pc
+                };
+
+				this.$emit('update:first', this.d_first);
+                this.$emit('update:rows', this.d_rows);
+                this.$emit('page-change', state);
+            }
+        },
+        changePageToFirst(event) {
+            if(!this.isFirstPage) {
+                this.changePage(0);
+            }
+
+            event.preventDefault();
+        },
+        changePageToPrev(event) {
+            this.changePage(this.page - 1);
+            event.preventDefault();
+        },
+        changePageLink(event) {
+            this.changePage(event.value - 1);
+            event.originalEvent.preventDefault();
+        },
+        changePageToNext(event) {
+            this.changePage(this.page  + 1);
+            event.preventDefault();
+        },
+        changePageToLast(event) {
+            if(!this.isLastPage) {
+                this.changePage(this.pageCount - 1);
+            }
+
+            event.preventDefault();
+        },
+        onRowChange(value) {
+            this.d_rows = value;
+            this.changePage(this.page);
+        }
     },
     computed: {
         templateItems() {
@@ -76,10 +130,10 @@ export default {
             return keys;
         },
         page() {
-            return Math.floor(this.first / this.rows);
+            return Math.floor(this.d_first / this.d_rows);
         },
         pageCount() {
-            return Math.ceil(this.totalRecords / this.rows) || 1;
+            return Math.ceil(this.totalRecords / this.d_rows) || 1;
         },
         isFirstPage() {
             return this.page === 0;
@@ -88,24 +142,24 @@ export default {
             return this.page === this.pageCount - 1;
         },
         calculatePageLinkBoundaries() {
-            var numberOfPages = this.pageCount;
-            var visiblePages = Math.min(this.pageLinkSize, numberOfPages);
+            const numberOfPages = this.pageCount;
+            const visiblePages = Math.min(this.pageLinkSize, numberOfPages);
 
             //calculate range, keep current in middle if necessary
-            var start = Math.max(0, Math.ceil(this.page - ((visiblePages) / 2)));
-            var end = Math.min(numberOfPages - 1, start + visiblePages - 1);
+            let start = Math.max(0, Math.ceil(this.page - ((visiblePages) / 2)));
+            let end = Math.min(numberOfPages - 1, start + visiblePages - 1);
 
             //check when approaching to last page
-            var delta = this.pageLinkSize - (end - start + 1);
+            const delta = this.pageLinkSize - (end - start + 1);
             start = Math.max(0, start - delta);
 
             return [start, end];
         },
-        updatePageLinks() {
-            var pageLinks = [];
-            var boundaries = this.calculatePageLinkBoundaries;
-            var start = boundaries[0];
-            var end = boundaries[1];
+        pageLinks() {
+            let pageLinks = [];
+            let boundaries = this.calculatePageLinkBoundaries;
+            let start = boundaries[0];
+            let end = boundaries[1];
 
             for(var i = start; i <= end; i++) {
                 pageLinks.push(i + 1);
@@ -116,51 +170,19 @@ export default {
         currentState() {
             return {
                 page: this.page,
-                first: this.first,
-                rows: this.rows
+                first: this.d_first,
+                rows: this.d_rows
             }
         }
     },
-    methods: {
-        changePage(first, rows) {
-            const pc = this.pageCount;
-            const p = Math.floor(first / rows);
-
-            if (p >= 0 && p < pc) {
-                let newPageState = {
-                    first: first,
-                    rows: rows,
-                    page: p,
-                    pageCount: pc
-                };
-
-                this.$emit('page-change', newPageState);
-				this.$emit('update:first', first);
-				this.$emit('update:rows', rows);
-            }
-        },
-        changePageToFirst(event) {
-            this.changePage(0, this.rows);
-            event.preventDefault();
-        },
-        changePageToPrev(event) {
-            this.changePage(this.first - this.rows, this.rows);
-            event.preventDefault();
-        },
-        pageLinkClick(event) {
-            this.changePage((event.value - 1) * this.rows, this.rows);
-        },
-        changePageToNext(event) {
-            this.changePage(this.first + this.rows, this.rows);
-            event.preventDefault();
-        },
-        changePageToLast(event) {
-            this.changePage((this.pageCount - 1) * this.rows, this.rows);
-            event.preventDefault();
-        },
-        rowsChange(event) {
-            this.changePage(0, event.value.code);
-        }
-    }
+    components: {
+        'CurrentPageReport': CurrrentPageReport,
+        'FirstPageLink': FirstPageLink,
+        'LastPageLink': LastPageLink,
+        'NextPageLink': NextPageLink,
+        'PageLinks': PageLinks,
+        'PrevPageLink': PrevPageLink,
+        'RowsPerPageDropdown': RowsPerPageDropdown,
+    },
 }
 </script>
