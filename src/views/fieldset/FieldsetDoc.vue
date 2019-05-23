@@ -41,6 +41,21 @@ import Fieldset from 'primevue/fieldset';
 &lt;/Fieldset&gt;
 </CodeHighlight>
 
+<p>To control the initial state of the toggleable panel, use the <i>collapsed</i> property.</p>
+<CodeHighlight>
+&lt;Fieldset legend="Header Text" :toggleable="true" :collapsed="true"&gt;
+	Content
+&lt;/Fieldset&gt;
+</CodeHighlight>
+
+                <p>Use the sync operator to enable two-way binding.</p>
+<CodeHighlight>
+&lt;button type="button" @click="isCollapsed = !isCollapsed">Toggle Programmatically&lt;/button&gt;
+&lt;Fieldset legend="Header Text" :toggleable="true" :collapsed.sync="isCollapsed"&gt;
+	Content
+&lt;/Fieldset&gt;
+</CodeHighlight>
+
 				<h3>Properties</h3>
 				<div class="doc-tablewrapper">
 					<table class="doc-table">

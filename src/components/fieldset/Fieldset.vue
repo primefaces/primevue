@@ -36,6 +36,7 @@ export default {
     methods: {
         toggle(event) {
             this.d_collapsed = !this.d_collapsed;
+            this.$emit('update:collapsed', this.d_collapsed);
             this.$emit('toggle', {
                 originalEvent: event,
                 value: this.d_collapsed
