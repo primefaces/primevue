@@ -91,7 +91,7 @@
 				&lt;div class="p-col-12 p-md-4"&gt;
 					&lt;div class="p-inputgroup"&gt;
 					&lt;span class="p-inputgroup-addon"&gt;
-						&lt;Checkbox v-model="checked1" /&gt;
+						&lt;Checkbox v-model="checked1" :binary="true" /&gt;
 					&lt;/span&gt;
 						&lt;InputText placeholder="Username"/&gt;
 					&lt;/div&gt;
@@ -109,7 +109,7 @@
 				&lt;div class="p-col-12 p-md-4"&gt;
 					&lt;div class="p-inputgroup"&gt;
 					&lt;span class="p-inputgroup-addon"&gt;
-						&lt;Checkbox v-model="checked2" /&gt;
+						&lt;Checkbox v-model="checked2" :binary="true" /&gt;
 					&lt;/span&gt;
 						&lt;InputText placeholder="Website"/&gt;
 						&lt;span class="p-inputgroup-addon"&gt;

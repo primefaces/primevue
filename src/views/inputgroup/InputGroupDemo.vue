@@ -82,7 +82,7 @@
                 <div class="p-col-12 p-md-4">
                     <div class="p-inputgroup">
                         <span class="p-inputgroup-addon">
-                            <Checkbox v-model="checked1" />
+                            <Checkbox v-model="checked1" :binary="true" />
                         </span>
                         <InputText placeholder="Username"/>
                     </div>
@@ -100,7 +100,7 @@
                 <div class="p-col-12 p-md-4">
                     <div class="p-inputgroup">
                         <span class="p-inputgroup-addon">
-                            <Checkbox v-model="checked2" />
+                            <Checkbox v-model="checked2" :binary="true" />
                         </span>
                         <InputText placeholder="Website"/>
                         <span class="p-inputgroup-addon">
