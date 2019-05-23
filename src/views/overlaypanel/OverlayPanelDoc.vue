@@ -13,7 +13,7 @@ import OverlayPanel from 'primevue/overlaypanel';
 &lt;Button type="button" label="Toggle" @click="toggle" /&gt;
 
 &lt;OverlayPanel ref="op"&gt;
-	&lt;img src="/demo/images/nature/nature1.jpg" alt="Nature Image"&gt;
+	&lt;img src="demo/images/nature/nature1.jpg" alt="Nature Image"&gt;
 &lt;/OverlayPanel&gt;
 </CodeHighlight>
 
@@ -28,7 +28,7 @@ toggle(event) {
 					Additionally enabling <i>showCloseIcon</i> property displays a close icon at the top right corner to close the panel.</p>
 <CodeHighlight>
 &lt;OverlayPanel ref="op" :showCloseIcon="true" :dismissable="true"&gt;
-	&lt;img src="/demo/images/nature/nature1.jpg" alt="Nature Image"&gt;
+	&lt;img src="demo/images/nature/nature1.jpg" alt="Nature Image"&gt;
 &lt;/OverlayPanel&gt;
 </CodeHighlight>
 
@@ -159,7 +159,7 @@ toggle(event) {
 			&lt;Button type="button" label="Toggle" @click="toggle" /&gt;
 
 			&lt;OverlayPanel ref="op" appendTo="body" :showCloseIcon="true"&gt;
-				&lt;img src="/demo/images/nature/nature1.jpg" alt="Nature Image"&gt;
+				&lt;img src="demo/images/nature/nature1.jpg" alt="Nature Image"&gt;
 			&lt;/OverlayPanel&gt;
 		&lt;/div&gt;
 	&lt;/div&gt;

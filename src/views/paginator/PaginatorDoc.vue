@@ -243,7 +243,7 @@ onPage(event) {
             &lt;/Paginator&gt;
 
             &lt;div class="image-gallery"&gt;
-                &lt;img :src="&#39;/demo/images/nature/&#39; + image + &#39;.jpg&#39;" /&gt;
+                &lt;img :src="&#39;demo/images/nature/&#39; + image + &#39;.jpg&#39;" /&gt;
             &lt;/div&gt;
 		&lt;/div&gt;
 

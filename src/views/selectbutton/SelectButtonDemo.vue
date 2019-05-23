@@ -20,7 +20,7 @@
             <SelectButton v-model="selectedCar" :options="cars" optionLabel="brand">
                 <template #option="slotProps">
                     <div style="text-align: center; padding: 1em; width: 125px">
-                        <img :alt="slotProps.option.brand" :src="'/demo/images/car/' + slotProps.option.brand + '.png'" style="width:48px" />
+                        <img :alt="slotProps.option.brand" :src="'demo/images/car/' + slotProps.option.brand + '.png'" style="width:48px" />
                         <div style="margin-top: 1em">{{slotProps.option.brand}}</div>
                     </div>
                 </template>

@@ -41,7 +41,7 @@ export default {
 &lt;SelectButton v-model="selectedCar" :options="cars" optionLabel="brand"&gt;
 	&lt;template #option="slotProps"&gt;
 		&lt;div style="text-align: center; padding: 1em; width: 125px"&gt;
-			&lt;img :alt="slotProps.option.brand" :src="'/demo/images/car/' + slotProps.option.brand + '.png'" style="width:48px" /&gt;
+			&lt;img :alt="slotProps.option.brand" :src="'demo/images/car/' + slotProps.option.brand + '.png'" style="width:48px" /&gt;
 			&lt;div style="margin-top: 1em"&gt;{{slotProps.option.brand}}&lt;/div&gt;
 		&lt;/div&gt;
 	&lt;/template&gt;
@@ -176,7 +176,7 @@ export default {
 			&lt;SelectButton v-model="selectedCar" :options="cars" optionLabel="brand"&gt;
 				&lt;template #option="slotProps"&gt;
 					&lt;div style="text-align: center; padding: 1em; width: 125px"&gt;
-						&lt;img :alt="slotProps.option.brand" :src="'/demo/images/car/' + slotProps.option.brand + '.png'" style="width:48px" /&gt;
+						&lt;img :alt="slotProps.option.brand" :src="'demo/images/car/' + slotProps.option.brand + '.png'" style="width:48px" /&gt;
 						&lt;div style="margin-top: 1em"&gt;{{slotProps.option.brand}}&lt;/div&gt;
 					&lt;/div&gt;
 				&lt;/template&gt;

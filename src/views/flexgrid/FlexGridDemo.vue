@@ -400,10 +400,10 @@
                                 Curabitur vel sodales purus. Vestibulum interdum facilisis nulla imperdiet suscipit. Quisque lectus felis,
                                 condimentum eget hendrerit sit amet.</div>
 
-                            <div class="p-col-6 p-md-3"><img alt="Galleria 1" src="/demo/images/nature/nature1.jpg" style="width: 100%" /></div>
-                            <div class="p-col-6 p-md-3"><img alt="Galleria 2" src="/demo/images/nature/nature2.jpg" style="width: 100%" /></div>
-                            <div class="p-col-6 p-md-3"><img alt="Galleria 3" src="/demo/images/nature/nature3.jpg" style="width: 100%" /></div>
-                            <div class="p-col-6 p-md-3"><img alt="Galleria 4" src="/demo/images/nature/nature4.jpg" style="width: 100%" /></div>
+                            <div class="p-col-6 p-md-3"><img alt="Galleria 1" src="demo/images/nature/nature1.jpg" style="width: 100%" /></div>
+                            <div class="p-col-6 p-md-3"><img alt="Galleria 2" src="demo/images/nature/nature2.jpg" style="width: 100%" /></div>
+                            <div class="p-col-6 p-md-3"><img alt="Galleria 3" src="demo/images/nature/nature3.jpg" style="width: 100%" /></div>
+                            <div class="p-col-6 p-md-3"><img alt="Galleria 4" src="demo/images/nature/nature4.jpg" style="width: 100%" /></div>
         
                             <div class="p-col-12 p-md-6">Phasellus faucibus purus volutpat mauris lacinia sodales. Ut sit amet sapien
                                 facilisis, commodo dui non, fringilla tellus. Quisque tempus facilisis nisi sodales finibus. Pellentesque

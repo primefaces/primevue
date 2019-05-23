@@ -18,7 +18,7 @@
             <Dropdown v-model="selectedCar" :options="cars" optionLabel="brand" placeholder="Select a Car" :filter="true" :showClear="true">
                 <template #option="slotProps">
                     <div class="p-clearfix p-dropdown-car-option">
-                        <img :alt="slotProps.option.brand" :src="'/demo/images/car/' + slotProps.option.brand + '.png'" />
+                        <img :alt="slotProps.option.brand" :src="'demo/images/car/' + slotProps.option.brand + '.png'" />
                         <span>{{slotProps.option.brand}}</span>
                     </div>
                 </template>

@@ -62,7 +62,7 @@ export default {
 <template v-pre>
 &lt;AutoComplete v-model="brand" :suggestions="filteredBrands" @complete="searchBrand($event)" placeholder="Hint: type 'v' or 'f'" :dropdown="true"&gt;
 	&lt;template #item="slotProps"&gt;
-		&lt;img :alt="slotProps.item" :src="'/demo/images/car/' + slotProps.item + '.png'" /&gt;
+		&lt;img :alt="slotProps.item" :src="'demo/images/car/' + slotProps.item + '.png'" /&gt;
         &lt;div&gt;{{slotProps.item}}&lt;/div&gt;
 	&lt;/template&gt;
 &lt;/AutoComplete&gt;
@@ -275,7 +275,7 @@ export default {
 			&lt;AutoComplete v-model="brand" :suggestions="filteredBrands" @complete="searchBrand($event)" placeholder="Hint: type 'v' or 'f'" :dropdown="true"&gt;
 				&lt;template #item="slotProps"&gt;
 					&lt;div class="p-clearfix p-autocomplete-brand-item"&gt;
-						&lt;img :alt="slotProps.item" :src="'/demo/images/car/' + slotProps.item + '.png'" /&gt;
+						&lt;img :alt="slotProps.item" :src="'demo/images/car/' + slotProps.item + '.png'" /&gt;
 						&lt;div&gt;{{slotProps.item}}&lt;/div&gt;
 					&lt;/div&gt;
 				&lt;/template&gt;

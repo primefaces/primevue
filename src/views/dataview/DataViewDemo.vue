@@ -24,7 +24,7 @@
 					<div class="p-col-12 car-details" style="padding: 2em; border-bottom: 1px solid #d9d9d9">
 						<div class="p-grid">
 							<div class="p-col-12 p-md-3">
-								<img :src="'/demo/images/car/' + slotProps.data.brand + '.png'" :alt="slotProps.data.brand"/>
+								<img :src="'demo/images/car/' + slotProps.data.brand + '.png'" :alt="slotProps.data.brand"/>
 							</div>
 							<div class="p-col-12 p-md-8 car-details">
 								<div class="p-grid">
@@ -46,7 +46,7 @@
 				<template #gridItem="slotProps">
 					<div style="padding: .5em" class="p-col-12 p-md-3">
 						<Panel :header="slotProps.data.vin" style="text-align: center">
-							<img :src="'/demo/images/car/' + slotProps.data.brand + '.png'" :alt="slotProps.data.brand"/>
+							<img :src="'demo/images/car/' + slotProps.data.brand + '.png'" :alt="slotProps.data.brand"/>
 							<div class="car-detail">{{slotProps.data.year}} - {{slotProps.data.color}}</div>
 							<hr class="ui-widget-content" style="border-top: 0" />
 							<Button icon="pi pi-search"></Button>

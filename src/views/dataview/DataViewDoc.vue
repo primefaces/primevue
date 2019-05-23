@@ -36,7 +36,7 @@ mounted() {
 	&lt;div class="p-col-12 car-details" style="padding: 2em; border-bottom: 1px solid #d9d9d9"&gt;
 		&lt;div class="p-grid"&gt;
 			&lt;div class="p-col-12 p-md-3"&gt;
-				&lt;img :src="'/demo/images/car/' + slotProps.data.brand + '.png'" :alt="slotProps.data.brand"/&gt;
+				&lt;img :src="'demo/images/car/' + slotProps.data.brand + '.png'" :alt="slotProps.data.brand"/&gt;
 			&lt;/div&gt;
 			&lt;div class="p-col-12 p-md-8 car-data"&gt;
 				&lt;div&gt;Vin: &lt;b&gt;{{slotProps.data.vin}}&lt;/b&gt;&lt;/div&gt;
@@ -54,7 +54,7 @@ mounted() {
 &lt;template #gridItem="slotProps"&gt;
 	&lt;div style="padding: .5em" class="p-col-12 p-md-3"&gt;
 		&lt;Panel :header="slotProps.data.vin" style="text-align: center"&gt;
-			&lt;img :src="'/demo/images/car/' + slotProps.data.brand + '.png'" :alt="slotProps.data.brand"/&gt;
+			&lt;img :src="'demo/images/car/' + slotProps.data.brand + '.png'" :alt="slotProps.data.brand"/&gt;
 			&lt;div class="car-detail"&gt;{{slotProps.data.year}} - {{slotProps.data.color}}&lt;/div&gt;
 			&lt;hr class="ui-widget-content" style="border-top: 0" /&gt;
 			&lt;Button icon="pi pi-search"&gt;&lt;/Button&gt;
@@ -366,7 +366,7 @@ mounted() {
 					&lt;div class="p-col-12 car-details" style="padding: 2em; border-bottom: 1px solid #d9d9d9"&gt;
 						&lt;div class="p-grid"&gt;
 							&lt;div class="p-col-12 p-md-3"&gt;
-								&lt;img :src="'/demo/images/car/' + slotProps.data.brand + '.png'" :alt="slotProps.data.brand"/&gt;
+								&lt;img :src="'demo/images/car/' + slotProps.data.brand + '.png'" :alt="slotProps.data.brand"/&gt;
 							&lt;/div&gt;
 							&lt;div class="p-col-12 p-md-8 car-data"&gt;
 								&lt;div&gt;Vin: &lt;b&gt;{{slotProps.data.vin}}&lt;/b&gt;&lt;/div&gt;
@@ -384,7 +384,7 @@ mounted() {
 				&lt;template #gridItem="slotProps"&gt;
 					&lt;div style="padding: .5em" class="p-col-12 p-md-3"&gt;
 						&lt;Panel :header="slotProps.data.vin" style="text-align: center"&gt;
-							&lt;img :src="'/demo/images/car/' + slotProps.data.brand + '.png'" :alt="slotProps.data.brand"/&gt;
+							&lt;img :src="'demo/images/car/' + slotProps.data.brand + '.png'" :alt="slotProps.data.brand"/&gt;
 							&lt;div class="car-detail"&gt;{{slotProps.data.year}} - {{slotProps.data.color}}&lt;/div&gt;
 							&lt;hr class="ui-widget-content" style="border-top: 0" /&gt;
 							&lt;Button icon="pi pi-search"&gt;&lt;/Button&gt;

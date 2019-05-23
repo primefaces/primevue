@@ -15,7 +15,7 @@
             <MultiSelect v-model="selectedCars2" :options="cars" optionLabel="brand" placeholder="Select a Car" :filter="true">
                 <template #value="slotProps">
                     <div class="p-multiselect-car-token" v-for="option of slotProps.value" :key="option.brand">
-                        <img :alt="option.brand" :src="'/demo/images/car/' + option.brand + '.png'" />
+                        <img :alt="option.brand" :src="'demo/images/car/' + option.brand + '.png'" />
                         <span>{{option.brand}}</span>
                     </div>
                     <div class="p-multiselect-empty-car-token" v-if="!slotProps.value || slotProps.value.length === 0">
@@ -24,7 +24,7 @@
                 </template>
                 <template #option="slotProps">
                     <div class="p-multiselect-car-option">
-                        <img :alt="slotProps.option.brand" :src="'/demo/images/car/' + slotProps.option.brand + '.png'" />
+                        <img :alt="slotProps.option.brand" :src="'demo/images/car/' + slotProps.option.brand + '.png'" />
                         <span>{{slotProps.option.brand}}</span>
                     </div>
                 </template>

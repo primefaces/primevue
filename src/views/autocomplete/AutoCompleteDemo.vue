@@ -16,7 +16,7 @@
             <AutoComplete v-model="brand" :suggestions="filteredBrands" @complete="searchBrand($event)" placeholder="Hint: type 'v' or 'f'" :dropdown="true">
                 <template #item="slotProps">
                     <div class="p-clearfix p-autocomplete-brand-item">
-                        <img :alt="slotProps.item" :src="'/demo/images/car/' + slotProps.item + '.png'" />
+                        <img :alt="slotProps.item" :src="'demo/images/car/' + slotProps.item + '.png'" />
                         <div>{{slotProps.item}}</div>
                     </div>
                 </template>
