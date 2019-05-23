@@ -22,7 +22,7 @@ import Fieldset from 'primevue/fieldset';
                 <p>Header of the panel is either defined with the <i>legend</i> property or the legend template.</p>
 <CodeHighlight>
 &lt;Fieldset&gt;
-    &lt;template name="legend"&gt;
+    &lt;template #legend&gt;
         Header Content
     &lt;/template&gt;
 	Content

@@ -22,7 +22,7 @@ import Panel from 'primevue/panel';
                 <p>Header of the panel is either defined with the <i>header</i> property or the header template.</p>
 <CodeHighlight>
 &lt;Panel&gt;
-    &lt;template name="header"&gt;
+    &lt;template #header&gt;
         Header Content
     &lt;/template&gt;
 	Content
