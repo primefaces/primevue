@@ -2,14 +2,30 @@
 	<div class="content-section documentation">
 		<TabView>
 			<TabPanel header="Documentation">
+                <h3>ToastService</h3>
+                <p>Toast messages are dynamically created using a <i>ToastService</i> that needs to be installed globally before the application
+                    instance is created.</p>
+<CodeHighlight lang="javascript">
+import ToastService from 'primevue/toastservice';
+Vue.use(ToastService);
+
+//example application instance
+new Vue({
+  router,
+  render: h => h(App)
+}).$mount('#app');
+</CodeHighlight>
+
 				<h3>Import</h3>
 <CodeHighlight lang="javascript">
 import Toast from 'primevue/toast';
 </CodeHighlight>
 
 				<h3>Getting Started</h3>
+                <p>Ideal location of a Toast is the main application template so that it can be used by any component within the application.</p>
+
 				<p>A single message is represented by the Message interface in PrimeVue that defines various properties such as severity,
-					summary and detail. Messages are displayed by using the <i>add</i> method on the ref of the Toast instance.</p>
+					summary and detail. Messages are displayed by using the <i>add</i> method of the <b>$toast</b> property of the application.</p>
 <CodeHighlight lang="js">
 this.$toast.add({severity:'success', summary: 'Success Message', detail:'Order submitted', life: 3000});
 </CodeHighlight>
@@ -18,56 +34,93 @@ this.$toast.add({severity:'success', summary: 'Success Message', detail:'Order s
 				<div class="doc-tablewrapper">
 					<table class="doc-table">
 						<thead>
-						<tr>
-							<th>Name</th>
-							<th>Type</th>
-							<th>Default</th>
-							<th>Description</th>
-						</tr>
+                            <tr>
+                                <th>Name</th>
+                                <th>Type</th>
+                                <th>Default</th>
+                                <th>Description</th>
+                            </tr>
 						</thead>
 						<tbody>
-						<tr>
-							<td>severity</td>
-							<td>string</td>
-							<td>null</td>
-							<td>Severity of the message.</td>
-						</tr>
-						<tr>
-							<td>summary</td>
-							<td>element</td>
-							<td>null</td>
-							<td>Summary content of the message.</td>
-						</tr>
-						<tr>
-							<td>detail</td>
-							<td>element</td>
-							<td>null</td>
-							<td>Detail content of the message.</td>
-						</tr>
-						<tr>
-							<td>closable</td>
-							<td>boolean</td>
-							<td>true</td>
-							<td>Whether the message can be closed manually using the close icon.</td>
-						</tr>
-						<tr>
-							<td>sticky</td>
-							<td>element</td>
-							<td>null</td>
-							<td>When enabled, message is not removed automatically.</td>
-						</tr>
-						<tr>
-							<td>life</td>
-							<td>number</td>
-							<td>3000</td>
-							<td>Delay in milliseconds to close the message automatically.</td>
-						</tr>
+                            <tr>
+                                <td>severity</td>
+                                <td>string</td>
+                                <td>null</td>
+                                <td>Severity of the message.</td>
+                            </tr>
+                            <tr>
+                                <td>summary</td>
+                                <td>element</td>
+                                <td>null</td>
+                                <td>Summary content of the message.</td>
+                            </tr>
+                            <tr>
+                                <td>detail</td>
+                                <td>element</td>
+                                <td>null</td>
+                                <td>Detail content of the message.</td>
+                            </tr>
+                            <tr>
+                                <td>closable</td>
+                                <td>boolean</td>
+                                <td>true</td>
+                                <td>Whether the message can be closed manually using the close icon.</td>
+                            </tr>
+                            <tr>
+                                <td>sticky</td>
+                                <td>element</td>
+                                <td>null</td>
+                                <td>When enabled, message is not removed automatically.</td>
+                            </tr>
+                            <tr>
+                                <td>life</td>
+                                <td>number</td>
+                                <td>3000</td>
+                                <td>Delay in milliseconds to close the message automatically.</td>
+                            </tr>
+                            <tr>
+                                <td>group</td>
+                                <td>string</td>
+                                <td>null</td>
+                                <td>Key of the Toast to display the message.</td>
+                            </tr>
+						</tbody>
+					</table>
+				</div>
+
+                <h3>MessageService API</h3>
+				<div class="doc-tablewrapper">
+					<table class="doc-table">
+						<thead>
+                            <tr>
+                                <th>Name</th>
+                                <th>Type</th>
+                                <th>Default</th>
+                                <th>Description</th>
+                            </tr>
+						</thead>
+						<tbody>
+                            <tr>
+                                <td>add</td>
+                                <td>message: Message instance</td>
+                                <td>Displays the message in a suitable Toast component.</td>
+                            </tr>
+                            <tr>
+                                <td>removeGroup</td>
+                                <td>group: Name of the message group</td>
+                                <td>Clears the messages that belongs to the group.</td>
+                            </tr>
+                            <tr>
+                                <td>removeAllGroup</td>
+                                <td>-</td>
+                                <td>Clears all the messages.</td>
+                            </tr>
 						</tbody>
 					</table>
 				</div>
 
 				<h3>Severities</h3>
-				<p>There are four possible values for the severity of a message.</p>
+				<p>There are four possible values for the severity of a message. Info is the default.</p>
 
 				<ul>
 					<li>success</li>
@@ -76,34 +129,34 @@ this.$toast.add({severity:'success', summary: 'Success Message', detail:'Order s
 					<li>error</li>
 				</ul>
 
-				<h3>Showing Messages</h3>
-				<p>Show method accepts either a single message or an array of messages.</p>
-<CodeHighlight>
-&lt;Button label="Success" class="p-button-success" @click="showSuccess" /&gt;
-&lt;Button @click="showMultiple" label="Multiple" class="p-button-warning" /&gt;
-</CodeHighlight>
-
-<CodeHighlight lang="js">
-showSuccess() {
-	this.$toast.add({severity:'success', summary: 'Success Message', detail:'Order submitted', life: 3000});
-},
-showMultiple() {
-	this.$toast.add({severity:'info', summary:'Message 1', detail:'PrimeVue rocks', life: 3000});
-	this.$toast.add({severity:'info', summary:'Message 1', detail:'PrimeVue rocks', life: 3000});
-	this.$toast.add({severity:'info', summary:'Message 1', detail:'PrimeVue rocks', life: 3000});
-}
-</CodeHighlight>
-
 				<h3>Position</h3>
 				<p>There are four positions available for the toast container defined by the <i>position</i> property that defaults to "topright". Other
 					valid values are "topleft", "bottomleft" and "bottomright"
 				</p>
-				<CodeHighlight>
-					???
-				</CodeHighlight>
+<CodeHighlight>
+&lt;Toast /&gt;
+&lt;Toast position="topleft" /&gt;
+&lt;Toast position="bottomleft" /&gt;
+&lt;Toast position="bottomright" /&gt;
+</CodeHighlight>
+
+                <h3>Groups</h3>
+                <p>A message can be targeted to a specific Toast component if their group properties match. Messages without a group
+                    are forwarded to the default Toast component that does not have a group defined.
+                </p>
+				
+<CodeHighlight>
+&lt;Toast /&gt;
+&lt;Toast position="mykey" /&gt;
+</CodeHighlight>
+
+<CodeHighlight lang="js">
+this.$toast.add({severity:'success', summary: 'Default Message'});
+this.$toast.add({severity:'success', summary: 'Specific Message', group: 'mykey'});
+</CodeHighlight>
 
 				<h3>Clearing Messages</h3>
-				<p><i>removeAllGroups()</i> method removes all messages from Toast.</p>
+				<p><i>removeGroup(group)</i> clears the messages for a specific Toast whereas <i>removeAllGroups()</i> method clears all messages.</p>
 <CodeHighlight lang="js">
 this.$toast.removeAllGroups();
 </CodeHighlight>
@@ -112,26 +165,26 @@ this.$toast.removeAllGroups();
 				<div class="doc-tablewrapper">
 					<table class="doc-table">
 						<thead>
-						<tr>
-							<th>Name</th>
-							<th>Type</th>
-							<th>Default</th>
-							<th>Description</th>
-						</tr>
+                            <tr>
+                                <th>Name</th>
+                                <th>Type</th>
+                                <th>Default</th>
+                                <th>Description</th>
+                            </tr>
 						</thead>
 						<tbody>
-						<tr>
-							<td>group</td>
-							<td>string</td>
-							<td>null</td>
-							<td>???</td>
-						</tr>
-						<tr>
-							<td>position</td>
-							<td>string</td>
-							<td>topright</td>
-							<td>Position of the toast in viewport, valid values are "topright", "topleft", "bottomleft" and "bottomright".</td>
-						</tr>
+                            <tr>
+                                <td>group</td>
+                                <td>string</td>
+                                <td>null</td>
+                                <td>Unique identifier of a message group.</td>
+                            </tr>
+                            <tr>
+                                <td>position</td>
+                                <td>string</td>
+                                <td>topright</td>
+                                <td>Position of the toast in viewport, valid values are "topright", "topleft", "bottomleft" and "bottomright".</td>
+                            </tr>
 						</tbody>
 					</table>
 				</div>
@@ -141,40 +194,40 @@ this.$toast.removeAllGroups();
 				<div class="doc-tablewrapper">
 					<table class="doc-table">
 						<thead>
-						<tr>
-							<th>Name</th>
-							<th>Element</th>
-						</tr>
+                            <tr>
+                                <th>Name</th>
+                                <th>Element</th>
+                            </tr>
 						</thead>
 						<tbody>
-						<tr>
-							<td>p-toast</td>
-							<td>Main container element.</td>
-						</tr>
-						<tr>
-							<td>p-toast-container</td>
-							<td>Container of a message item.</td>
-						</tr>
-						<tr>
-							<td>p-toast-item</td>
-							<td>Message element.</td>
-						</tr>
-						<tr>
-							<td>p-toast-icon-close</td>
-							<td>Close icon of a message.</td>
-						</tr>
-						<tr>
-							<td>p-toast-image</td>
-							<td>Severity icon.</td>
-						</tr>
-						<tr>
-							<td>p-toast-message</td>
-							<td>Container of message texts.</td>
-						</tr>
-						<tr>
-							<td>p-toast-title</td>
-							<td>Summary of the message.</td>
-						</tr>
+                            <tr>
+                                <td>p-toast</td>
+                                <td>Main container element.</td>
+                            </tr>
+                            <tr>
+                                <td>p-toast-container</td>
+                                <td>Container of a message item.</td>
+                            </tr>
+                            <tr>
+                                <td>p-toast-item</td>
+                                <td>Message element.</td>
+                            </tr>
+                            <tr>
+                                <td>p-toast-icon-close</td>
+                                <td>Close icon of a message.</td>
+                            </tr>
+                            <tr>
+                                <td>p-toast-image</td>
+                                <td>Severity icon.</td>
+                            </tr>
+                            <tr>
+                                <td>p-toast-message</td>
+                                <td>Container of message texts.</td>
+                            </tr>
+                            <tr>
+                                <td>p-toast-title</td>
+                                <td>Summary of the message.</td>
+                            </tr>
 						</tbody>
 					</table>
 				</div>
