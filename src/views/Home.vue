@@ -17,7 +17,7 @@
             <div class="p-grid">
                 <div class="p-col-12 p-md-3">
                     <img alt="component" src="../assets/images/home/icon-component.svg" />
-                    <span class="feature-name">50+ COMPONENTS</span>
+                    <span class="feature-name">40+ COMPONENTS</span>
                     <p>The most complete set of native widgets featuring 50+ easy to use components for all your UI requirements.</p>
                 </div>
                 <div class="p-col-12 p-md-3">
@@ -48,12 +48,12 @@
                 <div class="p-col-12 p-md-3">
                     <img alt="templates" src="../assets/images/home/icon-templates.svg" />
                     <span class="feature-name">TEMPLATES</span>
-                    <p>Professionally designed highly customizable Vue application templates to get started in no time. </p>
+                    <p>Professionally designed highly customizable Vue application templates to get started in no time.  (Coming soon...)</p>
                 </div>
                 <div class="p-col-12 p-md-3">
                     <img alt="templates" src="../assets/images/home/icon-sigma.svg" />
                     <span class="feature-name">FREE ADMIN TEMPLATE</span>
-                    <p>An elegant admin template powered by vue-cli.</p>
+                    <p>An elegant admin template powered by vue-cli. (Coming soon...)</p>
                 </div>
             </div>
         </div>
