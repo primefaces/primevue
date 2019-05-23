@@ -20,7 +20,7 @@ import Button from 'primevue/button';
 </CodeHighlight>
 				<h3>Icons</h3>
 				<p>Icon on a button is specified with <i>icon</i> property and position is configured using <i>iconPos</i> attribute. Default
-					icon position is "left" and alternative is "right". To display only an icon, leave label as undefined.</p>
+					icon position is "left" and alternative is "right". To display only an icon, leave the label as undefined.</p>
 <CodeHighlight>
 &lt;Button label="Click" icon="pi pi-check" iconPos="right" /&gt;
 </CodeHighlight>
@@ -58,35 +58,36 @@ import Button from 'primevue/button';
 </CodeHighlight>
 
 				<h3>Properties</h3>
+                <p>Any valid attribute such as style and class are passed to the underlying input element. Following are the additional properties to configure the component.</p>
 				<div class="doc-tablewrapper">
 					<table class="doc-table">
 						<thead>
-						<tr>
-							<th>Name</th>
-							<th>Type</th>
-							<th>Default</th>
-							<th>Description</th>
-						</tr>
+                            <tr>
+                                <th>Name</th>
+                                <th>Type</th>
+                                <th>Default</th>
+                                <th>Description</th>
+                            </tr>
 						</thead>
 						<tbody>
-						<tr>
-							<td>label</td>
-							<td>string</td>
-							<td>null</td>
-							<td>Text of the button.</td>
-						</tr>
-						<tr>
-							<td>icon</td>
-							<td>string</td>
-							<td>null</td>
-							<td>Name of the icon.</td>
-						</tr>
-						<tr>
-							<td>iconPos</td>
-							<td>string</td>
-							<td>left</td>
-							<td>Position of the icon, valid values are "left" and "right".</td>
-						</tr>
+                            <tr>
+                                <td>label</td>
+                                <td>string</td>
+                                <td>null</td>
+                                <td>Text of the button.</td>
+                            </tr>
+                            <tr>
+                                <td>icon</td>
+                                <td>string</td>
+                                <td>null</td>
+                                <td>Name of the icon.</td>
+                            </tr>
+                            <tr>
+                                <td>iconPos</td>
+                                <td>string</td>
+                                <td>left</td>
+                                <td>Position of the icon, valid values are "left" and "right".</td>
+                            </tr>
 						</tbody>
 					</table>
 				</div>
