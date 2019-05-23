@@ -1,3 +1,3 @@
 module.exports = {
-    publicPath: '/primevue'
+    publicPath: process.env.NODE_ENV === 'production' ? '/primevue' : '/'
 }
