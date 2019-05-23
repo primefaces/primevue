@@ -39,6 +39,21 @@ import {Accordion, AccordionTab} from 'primevue/accordion';
 &lt;/Accordion&gt;
 </CodeHighlight>
 
+                <p>Two-way binding requires the sync operator.</p>
+<CodeHighlight>
+&lt;Accordion&gt;
+	&lt;AccordionTab header="Header I" :active.sync="active1"&gt;
+		Content
+	&lt;/AccordionTab&gt;
+	&lt;AccordionTab header="Header II" :active.sync="active2"&gt;
+		Content
+	&lt;/AccordionTab&gt;
+	&lt;AccordionTab header="Header III" :active.sync="active3"&gt;
+		Content
+	&lt;/AccordionTab&gt;
+&lt;/Accordion&gt;
+</CodeHighlight>
+
 				<h3>Multiple</h3>
 				<p>By default only one tab at a time can be active, enabling multiple property changes this behavior to allow multiple
 					tabs be active at the same time.</p>
