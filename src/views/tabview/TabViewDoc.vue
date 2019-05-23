@@ -79,7 +79,7 @@ export default {
 </CodeHighlight>
 
 				<h3>Header Template</h3>
-				<p>Header of a tab supports templating to place custom html content instead of strings as well.</p>
+				<p>Custom content for the title section of a panel is defined using the header template.</p>
 <CodeHighlight>
 &lt;TabView class="tabview-custom"&gt;
 	&lt;TabPanel&gt;
@@ -99,7 +99,7 @@ export default {
 &lt;/TabView&gt;
 </CodeHighlight>
 
-				<h3>Properties For TabPanel</h3>
+				<h3>Properties of TabPanel</h3>
 				<div class="doc-tablewrapper">
 					<table class="doc-table">
 						<thead>
@@ -133,24 +133,27 @@ export default {
 					</table>
 				</div>
 
+                <h3>Properties of Accordion</h3>
+                <p>Any attribute such as style and class are passed to the main container element.</p>
+			
 				<h3>Events</h3>
 				<div class="doc-tablewrapper">
 					<table class="doc-table">
 						<thead>
-						<tr>
-							<th>Name</th>
-							<th>Parameters</th>
-							<th>Description</th>
-						</tr>
+                            <tr>
+                                <th>Name</th>
+                                <th>Parameters</th>
+                                <th>Description</th>
+                            </tr>
 						</thead>
 						<tbody>
-						<tr>
-							<td>tabchange</td>
-							<td>event.originalEvent: Browser event  <br/>
-								event.tab: Selected tab
-							</td>
-							<td>Callback to invoke when an active tab is changed.</td>
-						</tr>
+                            <tr>
+                                <td>tab-change</td>
+                                <td>event.originalEvent: Browser event  <br/>
+                                    event.tab: Selected tab
+                                </td>
+                                <td>Callback to invoke when an active tab is changed.</td>
+                            </tr>
 						</tbody>
 					</table>
 				</div>
@@ -160,32 +163,32 @@ export default {
 				<div class="doc-tablewrapper">
 					<table class="doc-table">
 						<thead>
-						<tr>
-							<th>Name</th>
-							<th>Element</th>
-						</tr>
+                            <tr>
+                                <th>Name</th>
+                                <th>Element</th>
+                            </tr>
 						</thead>
 						<tbody>
-						<tr>
-							<td>p-tabview</td>
-							<td>Container element.</td>
-						</tr>
-						<tr>
-							<td>p-tabview-nav</td>
-							<td>Container of headers.</td>
-						</tr>
-						<tr>
-							<td>p-tabview-selected</td>
-							<td>Selected tab header.</td>
-						</tr>
-						<tr>
-							<td>p-tabview-panels</td>
-							<td>Container panels.</td>
-						</tr>
-						<tr>
-							<td>p-tabview-panel</td>
-							<td>Content of a tab.</td>
-						</tr>
+                            <tr>
+                                <td>p-tabview</td>
+                                <td>Container element.</td>
+                            </tr>
+                            <tr>
+                                <td>p-tabview-nav</td>
+                                <td>Container of headers.</td>
+                            </tr>
+                            <tr>
+                                <td>p-tabview-selected</td>
+                                <td>Selected tab header.</td>
+                            </tr>
+                            <tr>
+                                <td>p-tabview-panels</td>
+                                <td>Container panels.</td>
+                            </tr>
+                            <tr>
+                                <td>p-tabview-panel</td>
+                                <td>Content of a tab.</td>
+                            </tr>
 						</tbody>
 					</table>
 				</div>

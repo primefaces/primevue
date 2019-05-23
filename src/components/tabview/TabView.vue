@@ -18,7 +18,7 @@ export default {
             if (!tab.disabled && !tab.d_active) {
                 this.activateTab(tab);
 
-                this.$emit('tabchange', {
+                this.$emit('tab-change', {
                     originalEvent: event,
                     tab: tab
                 });
