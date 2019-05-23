@@ -250,7 +250,10 @@ import Message from 'primevue/message';
 			&lt;h3&gt;Dynamic&lt;/h3&gt;
 			&lt;Button label="Show" @click="addMessages()" /&gt;
 			&lt;Button label="Clear" @click="removeMessages()" class="p-button-secondary"/&gt;
-			&lt;Message v-for="msg of messages" :severity="msg.severity" :key="msg.content"&gt;{{msg.content}}&lt;/Message&gt;
+
+            &lt;transition-group name="p-messages" tag="div"&gt;
+                &lt;Message v-for="msg of messages" :severity="msg.severity" :key="msg.content"&gt;{{msg.content}}&lt;/Message&gt;
+            &lt;/transition-group&gt;
 
 			&lt;h3&gt;Auto Dismiss&lt;/h3&gt;
 			&lt;Message severity="warn" :life="10000" :sticky="false"&gt;This message will hide in 10 seconds.&lt;/Message&gt;

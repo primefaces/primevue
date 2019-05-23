@@ -1,18 +1,16 @@
 <template>
-    <transition name="p-toast-message">
-        <div :class="containerClass">
-            <div class="p-toast-item">
-                <button class="p-toast-icon-close p-link" @click="close">
-                    <span class="p-toast-icon-close-icon pi pi-times"></span>
-                </button>
-                <span :class="iconClass"></span>
-                <div class="p-toast-message">
-                    <span class="p-toast-title">{{message.summary}}</span>
-                    <div class="p-toast-detail">{{message.detail}}</div>
-                </div>
+    <div :class="containerClass">
+        <div class="p-toast-item">
+            <button class="p-toast-icon-close p-link" @click="close">
+                <span class="p-toast-icon-close-icon pi pi-times"></span>
+            </button>
+            <span :class="iconClass"></span>
+            <div class="p-toast-message">
+                <span class="p-toast-title">{{message.summary}}</span>
+                <div class="p-toast-detail">{{message.detail}}</div>
             </div>
         </div>
-    </transition>
+    </div>
 </template>
 
 <script>

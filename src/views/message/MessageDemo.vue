@@ -17,7 +17,9 @@
             <h3>Dynamic</h3>
             <Button label="Show" @click="addMessages()" />
             <Button label="Clear" @click="removeMessages()" class="p-button-secondary"/>
-            <Message v-for="msg of messages" :severity="msg.severity" :key="msg.content">{{msg.content}}</Message>
+            <transition-group name="p-messages" tag="div">
+                <Message v-for="msg of messages" :severity="msg.severity" :key="msg.content">{{msg.content}}</Message>
+            </transition-group>
 
             <h3>Auto Dismiss</h3>
             <Message severity="warn" :life="10000" :sticky="false">This message will hide in 10 seconds.</Message>

@@ -1,6 +1,8 @@
 <template>
     <div :class="containerClass">
-        <ToastMessage v-for="msg of messages" :key="msg.id" :message="msg" @close="remove($event)"/>
+        <transition-group name="p-toast-message" tag="div">
+            <ToastMessage v-for="msg of messages" :key="msg.id" :message="msg" @close="remove($event)"/>
+        </transition-group>
     </div>
 </template>
 
