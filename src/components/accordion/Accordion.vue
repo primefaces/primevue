@@ -18,8 +18,10 @@ export default {
                     this.tabs.forEach(tab => tab.d_active = false);
                 }
 
-                tab.d_active = !tab.d_active;
-                let eventName = !tab.active ? 'tab-close' : 'tab-open';
+                const newActiveState = !tab.d_active;
+                tab.d_active = newActiveState;
+                tab.$emit('update:active', newActiveState);
+                let eventName = newActiveState ? 'tab-open' : 'tab-close';
                 this.$emit(eventName, {
                     originalEvent: event,
                     tab: tab
