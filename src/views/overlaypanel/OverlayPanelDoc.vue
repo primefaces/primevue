@@ -24,8 +24,8 @@ toggle(event) {
 </CodeHighlight>
 
 				<h3>Dismissable and CloseIcon</h3>
-				<p>Clicking outside the overlay hides the panel, setting dismissable to false disables this behavior.
-					Additionally enablign showCloseIcon property displays a close icon at the top right corner to close the panel.</p>
+				<p>Clicking outside the overlay hides the panel, setting <i>dismissable</i> to false disables this behavior.
+					Additionally enabling <i>showCloseIcon</i> property displays a close icon at the top right corner to close the panel.</p>
 <CodeHighlight>
 &lt;OverlayPanel ref="op" :showCloseIcon="true" :dismissable="true"&gt;
 	&lt;img src="/demo/images/nature/nature1.jpg" alt="Nature Image"&gt;
@@ -36,44 +36,44 @@ toggle(event) {
 				<div class="doc-tablewrapper">
 					<table class="doc-table">
 						<thead>
-						<tr>
-							<th>Name</th>
-							<th>Type</th>
-							<th>Default</th>
-							<th>Description</th>
-						</tr>
+                            <tr>
+                                <th>Name</th>
+                                <th>Type</th>
+                                <th>Default</th>
+                                <th>Description</th>
+                            </tr>
 						</thead>
 						<tbody>
-						<tr>
-							<td>dismissable</td>
-							<td>boolean</td>
-							<td>true</td>
-							<td>Enables to hide the overlay when outside is clicked.</td>
-						</tr>
-						<tr>
-							<td>showCloseIcon</td>
-							<td>boolean</td>
-							<td>false</td>
-							<td>When enabled, displays a close icon at top right corner.</td>
-						</tr>
-						<tr>
-							<td>appendTo</td>
-							<td>string</td>
-							<td>null</td>
-							<td>DOM element instance where the dialog should be mounted.</td>
-						</tr>
-						<tr>
-							<td>baseZIndex</td>
-							<td>number</td>
-							<td>0</td>
-							<td>Base zIndex value to use in layering.</td>
-						</tr>
-						<tr>
-							<td>autoZIndex</td>
-							<td>boolean</td>
-							<td>true</td>
-							<td>Whether to automatically manage layering.</td>
-						</tr>
+                            <tr>
+                                <td>dismissable</td>
+                                <td>boolean</td>
+                                <td>true</td>
+                                <td>Enables to hide the overlay when outside is clicked.</td>
+                            </tr>
+                            <tr>
+                                <td>showCloseIcon</td>
+                                <td>boolean</td>
+                                <td>false</td>
+                                <td>When enabled, displays a close icon at top right corner.</td>
+                            </tr>
+                            <tr>
+                                <td>appendTo</td>
+                                <td>string</td>
+                                <td>null</td>
+                                <td>DOM element instance where the dialog should be mounted.</td>
+                            </tr>
+                            <tr>
+                                <td>baseZIndex</td>
+                                <td>number</td>
+                                <td>0</td>
+                                <td>Base zIndex value to use in layering.</td>
+                            </tr>
+                            <tr>
+                                <td>autoZIndex</td>
+                                <td>boolean</td>
+                                <td>true</td>
+                                <td>Whether to automatically manage layering.</td>
+                            </tr>
 						</tbody>
 					</table>
 				</div>
