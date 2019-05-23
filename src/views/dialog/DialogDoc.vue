@@ -8,7 +8,7 @@ import Dialog from 'primevue/dialog';
 </CodeHighlight>
 
 				<h3>Getting Started</h3>
-				<p>Dialog is used as a container and visibility is managed with <i>visible</i> property, use the sync operator for two-way binding.</p>
+				<p>Dialog is used as a container and visibility is managed with <i>visible</i> property that requires the sync operator for two-way binding.</p>
 <CodeHighlight>
 &lt;Dialog header="Godfather I" :visible.sync="display" &gt;
 	The story begins as Don Vito Corleone, the head of a New York Mafia family, oversees his daughter's wedding.
@@ -17,6 +17,7 @@ import Dialog from 'primevue/dialog';
 	kind and benevolent to those who give respect, but given to ruthless violence whenever anything stands against the good of the family.
 &lt;/Dialog&gt;
 </CodeHighlight>
+
 <CodeHighlight lang="js">
 export default {
 	data() {
@@ -28,11 +29,21 @@ export default {
 </CodeHighlight>
 
 				<h3>Header and Footer</h3>
-				<p>Header and Footer sections are defined using properties with the same name that accept simple strings or slots for custom content.</p>
+				<p>Header and Footer sections are defined using properties with the same name that accept simple strings or with the <i>header</i> and <i>footer</i> templates for custom content.</p>
 <CodeHighlight>
-&lt;Dialog header="Godfather I" :visible.sync="display"&gt;
+&lt;Dialog header="Header Text" footer="Footer Text" :visible.sync="display"&gt;
 	Content
-	&lt;template slot="footer"&gt;
+&lt;/Dialog&gt;
+</CodeHighlight>
+
+<CodeHighlight>
+&lt;Dialog :visible.sync="display"&gt;
+    &lt;template #header&gt;
+		&lt;h3&gt;Header&lt;/h3&gt;
+	&lt;/template&gt;
+
+	Content
+	&lt;template #footer&gt;
 		&lt;Button label="Yes" icon="pi pi-check" /&gt;
 		&lt;Button label="No" icon="pi pi-times" class="p-button-secondary"/&gt;
 	&lt;/template&gt;
@@ -46,74 +57,74 @@ export default {
 				<div class="doc-tablewrapper">
 					<table class="doc-table">
 						<thead>
-						<tr>
-							<th>Name</th>
-							<th>Type</th>
-							<th>Default</th>
-							<th>Description</th>
-						</tr>
+                            <tr>
+                                <th>Name</th>
+                                <th>Type</th>
+                                <th>Default</th>
+                                <th>Description</th>
+                            </tr>
 						</thead>
 						<tbody>
-						<tr>
-							<td>header</td>
-							<td>any</td>
-							<td>null</td>
-							<td>Title content of the dialog.</td>
-						</tr>
-						<tr>
-							<td>footer</td>
-							<td>any</td>
-							<td>null</td>
-							<td>Footer content of the dialog.</td>
-						</tr>
-						<tr>
-							<td>visible</td>
-							<td>boolean</td>
-							<td>false</td>
-							<td>Specifies the visibility of the dialog.</td>
-						</tr>
-						<tr>
-							<td>modal</td>
-							<td>boolean</td>
-							<td>null</td>
-							<td>Defines if background should be blocked when dialog is displayed.</td>
-						</tr>
-						<tr>
-							<td>contentStyle</td>
-							<td>object</td>
-							<td>null</td>
-							<td>Style of the content section.</td>
-						</tr>
-						<tr>
-							<td>rtl</td>
-							<td>boolean</td>
-							<td>null</td>
-							<td>When enabled dialog is displayed in RTL direction.</td>
-						</tr>
-						<tr>
-							<td>closable</td>
-							<td>boolean</td>
-							<td>true</td>
-							<td>Adds a close icon to the header to hide the dialog.</td>
-						</tr>
-						<tr>
-							<td>showHeader</td>
-							<td>boolean</td>
-							<td>true</td>
-							<td>Whether to show the header or not.</td>
-						</tr>
-						<tr>
-							<td>baseZIndex</td>
-							<td>number</td>
-							<td>0</td>
-							<td>Base zIndex value to use in layering.</td>
-						</tr>
-						<tr>
-							<td>autoZIndex</td>
-							<td>boolean</td>
-							<td>true</td>
-							<td>Whether to automatically manage layering.</td>
-						</tr>
+                            <tr>
+                                <td>header</td>
+                                <td>any</td>
+                                <td>null</td>
+                                <td>Title content of the dialog.</td>
+                            </tr>
+                            <tr>
+                                <td>footer</td>
+                                <td>any</td>
+                                <td>null</td>
+                                <td>Footer content of the dialog.</td>
+                            </tr>
+                            <tr>
+                                <td>visible</td>
+                                <td>boolean</td>
+                                <td>false</td>
+                                <td>Specifies the visibility of the dialog.</td>
+                            </tr>
+                            <tr>
+                                <td>modal</td>
+                                <td>boolean</td>
+                                <td>null</td>
+                                <td>Defines if background should be blocked when dialog is displayed.</td>
+                            </tr>
+                            <tr>
+                                <td>contentStyle</td>
+                                <td>object</td>
+                                <td>null</td>
+                                <td>Style of the content section.</td>
+                            </tr>
+                            <tr>
+                                <td>rtl</td>
+                                <td>boolean</td>
+                                <td>null</td>
+                                <td>When enabled dialog is displayed in RTL direction.</td>
+                            </tr>
+                            <tr>
+                                <td>closable</td>
+                                <td>boolean</td>
+                                <td>true</td>
+                                <td>Adds a close icon to the header to hide the dialog.</td>
+                            </tr>
+                            <tr>
+                                <td>showHeader</td>
+                                <td>boolean</td>
+                                <td>true</td>
+                                <td>Whether to show the header or not.</td>
+                            </tr>
+                            <tr>
+                                <td>baseZIndex</td>
+                                <td>number</td>
+                                <td>0</td>
+                                <td>Base zIndex value to use in layering.</td>
+                            </tr>
+                            <tr>
+                                <td>autoZIndex</td>
+                                <td>boolean</td>
+                                <td>true</td>
+                                <td>Whether to automatically manage layering.</td>
+                            </tr>
 						</tbody>
 					</table>
 				</div>
@@ -208,7 +219,7 @@ export default {
 				His beloved son Michael has just come home from the war, but does not intend to become part of his father's business.
 				Through Michael's life the nature of the family business becomes clear. The business of the family is just like the head of the family,
 				kind and benevolent to those who give respect, but given to ruthless violence whenever anything stands against the good of the family.
-				&lt;template slot="footer"&gt;
+				&lt;template #footer&gt;
 					&lt;Button label="Yes" icon="pi pi-check" @click="close" /&gt;
 					&lt;Button label="No" icon="pi pi-times" @click="close" class="p-button-secondary"/&gt;
 				&lt;/template&gt;
