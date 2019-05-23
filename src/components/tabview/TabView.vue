@@ -26,7 +26,9 @@ export default {
         },
         activateTab(tab) {
             for (let i = 0; i < this.tabs.length; i++) {
-                this.tabs[i].d_active = this.tabs[i] === tab;
+                let active = this.tabs[i] === tab;
+                this.tabs[i].d_active = active;
+                this.tabs[i].$emit('update:active', active);
             } 
         },
         onTabKeydown(event, tab) {

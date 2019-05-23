@@ -23,43 +23,35 @@ import {TabView, TabPanel} from 'primevue/tabview';
 &lt;/TabView&gt;
 </CodeHighlight>
 
-				<h3>Programmatic Control</h3>
-				<p>Tabs can be controlled programmatically using active property that defines the active tab.</p>
+                <h3>Active</h3>
+				<p>Visibility of the content is specified with the active property that supports one or two-way binding.</p>
 <CodeHighlight>
-&lt;div&gt;
-	&lt;Button icon="pi pi-chevron-left" @click="prev"/&gt;
-	&lt;Button icon="pi pi-chevron-right" @click="next"/&gt;
-&lt;/div&gt;
-
 &lt;TabView&gt;
-	&lt;TabPanel header="Header I" :active="activeIndex === 0"&gt;
+	&lt;TabPanel header="Header I"&gt;
 		Content I
 	&lt;/TabPanel&gt;
-	&lt;TabPanel header="Header II" :active="activeIndex === 1"&gt;
+	&lt;TabPanel header="Header II" :active="true"&gt;
 		Content II
 	&lt;/TabPanel&gt;
-	&lt;TabPanel header="Header III" :active="activeIndex === 2"&gt;
+	&lt;TabPanel header="Header III"&gt;
 		Content III
 	&lt;/TabPanel&gt;
 &lt;/TabView&gt;
 </CodeHighlight>
 
-<CodeHighlight lang="js">
-export default {
-	data() {
-		return {
-			activeIndex: 0
-		}
-	},
-	methods: {
-		next() {
-			this.activeIndex = this.activeIndex === 2 ? 0 : this.activeIndex + 1;
-		},
-		prev() {
-			this.activeIndex = this.activeIndex === 0 ? 2 : this.activeIndex - 1;
-		}
-	}
-}
+                <p>Two-way binding requires the sync operator.</p>
+<CodeHighlight>
+&lt;TabView&gt;
+	&lt;TabPanel header="Header I" :active.sync="active1"&gt;
+		Content I
+	&lt;/TabPanel&gt;
+	&lt;TabPanel header="Header II" :active.sync="active2"&gt;
+		Content II
+	&lt;/TabPanel&gt;
+	&lt;TabPanel header="Header III" :active.sync="active3"&gt;
+		Content III
+	&lt;/TabPanel&gt;
+&lt;/TabView&gt;
 </CodeHighlight>
 
 				<h3>Disabled</h3>
@@ -97,6 +89,46 @@ export default {
 		Content II
 	&lt;/TabPanel&gt;
 &lt;/TabView&gt;
+</CodeHighlight>
+
+                <h3>Programmatic Control</h3>
+				<p>Tabs can be controlled programmatically using active property that defines the active tab.</p>
+<CodeHighlight>
+&lt;Button @click="activate(0)" class="p-button-secondary" label="Activate 1st" /&gt;
+&lt;Button @click="activate(1)" class="p-button-secondary" label="Activate 2st" /&gt;
+&lt;Button @click="activate(2)" class="p-button-secondary" label="Activate 3st" /&gt;
+
+&lt;TabView&gt;
+    &lt;TabPanel header="Header I" :active.sync="active[0]"&gt;
+        Content I
+    &lt;/TabPanel&gt;
+    &lt;TabPanel header="Header II" :active.sync="active[1]"&gt;
+        Content II
+    &lt;/TabPanel&gt;
+    &lt;TabPanel header="Header III" :active.sync="active[2]"&gt;
+       Content III
+    &lt;/TabPanel&gt;
+&lt;/TabView&gt;
+
+</CodeHighlight>
+
+<CodeHighlight lang="js">
+export default {
+	data() {
+        return {
+            active: [true, false, false]
+        }
+    },
+    methods: {
+        activate(index) {
+            let activeArray = [...this.active];
+            for (let i = 0 ; i &lt; activeArray.length; i++) {
+                activeArray[i] = (i === index);
+            }
+            this.active = activeArray;
+        }
+    },
+}
 </CodeHighlight>
 
 				<h3>Properties of TabPanel</h3>
@@ -234,22 +266,23 @@ export default {
 
 			&lt;h3&gt;Programmatic&lt;/h3&gt;
 			&lt;div style="padding: .5em 0"&gt;
-				&lt;Button icon="pi pi-chevron-left" @click="prev" class="p-button-secondary" /&gt;
-				&lt;Button icon="pi pi-chevron-right" @click="next" style="margin-left: .5em" class="p-button-secondary"/&gt;
+				&lt;Button @click="activate(0)" class="p-button-secondary" label="Activate 1st" /&gt;
+                &lt;Button @click="activate(1)" class="p-button-secondary" label="Activate 2st" /&gt;
+                &lt;Button @click="activate(2)" class="p-button-secondary" label="Activate 3st" /&gt;
 			&lt;/div&gt;
 
 			&lt;TabView&gt;
-				&lt;TabPanel header="Godfather I" :active="activeIndex === 0"&gt;
+				&lt;TabPanel header="Godfather I" :active.sync="active[0]"&gt;
 					The story begins as Don Vito Corleone, the head of a New York Mafia family, overseeshis daughter's wedding. His beloved son ichael has just come home from the war,
 					but does not intend to become part of his father's business. Through Michael's life the nature of the family business becomes clear. The business of the family is
 					just like the head of the family, kind and benevolent to those who give respect, but given to ruthless violence whenever anything stands against the good of the family.
 				&lt;/TabPanel&gt;
-				&lt;TabPanel header="Godfather II" :active="activeIndex === 1"&gt;
+				&lt;TabPanel header="Godfather II" :active.sync="active[1]"&gt;
 					Francis Ford Coppola's legendary continuation and sequel to his landmark 1972 film, TheGodfather parallels the young Vito Corleone's rise with his son Michael's spiritual fall,
 					deepening The Godfather's depiction of the dark side of the American dream. In the early 1900s, the child Vito flees his Sicilian village for America after the local Mafia kills
 					his family. Vito struggles to make a living, legally or illegally, for his wife and growing brood in Little Italy.
 				&lt;/TabPanel&gt;
-				&lt;TabPanel header="Godfather III" :active="activeIndex === 2"&gt;
+				&lt;TabPanel header="Godfather III" :active.sync="active[2]"&gt;
 					The Godfather Part III is set in 1979 and 1980. Michael has moved back to New York and taken great strides to remove the family from crime. He turns over his New York criminal
 					interests to longtime enforcer Joey Zasa. He uses his wealth in an attempt to rehabilitate his reputation through numerous philanthropic acts, administered by a foundation named after his father.
 					A decade earlier, he gave custody of his two children to Kay, who has since remarried.
@@ -315,20 +348,20 @@ export default {
 
 <CodeHighlight lang="javascript">
 export default {
-	data() {
-		return {
-			activeIndex: 0
-		}
-	},
-	methods: {
-		next() {
-			this.activeIndex = this.activeIndex === 2 ? 0 : this.activeIndex + 1;
-		},
-		prev() {
-			this.activeIndex = this.activeIndex === 0 ? 2 : this.activeIndex - 1;
-		}
-	}
-}
+	 data() {
+        return {
+            active: [true, false, false]
+        }
+    },
+    methods: {
+        activate(index) {
+            let activeArray = [...this.active];
+            for (let i = 0 ; i &lt; activeArray.length; i++) {
+                activeArray[i] = (i === index);
+            }
+            this.active = activeArray;
+        }
+    }
 </CodeHighlight>
 
 <CodeHighlight lang="css">
