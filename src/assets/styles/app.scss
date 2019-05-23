@@ -40,6 +40,8 @@
     border-top-right-radius: $val;
 }
 
+$focusBorderColor:#aeb6be;
+
 body {
     margin: 0px;
     height: 100%;
@@ -100,7 +102,7 @@ body {
         &:focus {
             outline: 0 none;
             transition: box-shadow .3s;
-            box-shadow: 0 0 0 0.2em #42b983;
+            box-shadow: 0 0 0 0.2em $focusBorderColor;
         }
     }
     
@@ -135,7 +137,7 @@ body {
                     z-index: 1;
                     outline: 0 none;
                     transition: box-shadow .3s;
-                    box-shadow: inset 0 0 0 0.2em #42b983;
+                    box-shadow: inset 0 0 0 0.2em $focusBorderColor;
                 }
             }
 
@@ -256,7 +258,7 @@ body {
                 z-index: 1;
                 outline: 0 none;
                 transition: box-shadow .3s;
-                box-shadow: inset 0 0 0 0.2em #42b983;
+                box-shadow: inset 0 0 0 0.2em $focusBorderColor;
             }
 
             span {
@@ -342,7 +344,7 @@ body {
                     z-index: 1;
                     outline: 0 none;
                     transition: box-shadow .3s;
-                    box-shadow: inset 0 0 0 0.2em #42b983;
+                    box-shadow: inset 0 0 0 0.2em $focusBorderColor;
                 }
 
                 .menuitem-badge {
@@ -511,7 +513,7 @@ body {
                         &:focus {
                             outline: 0 none;
                             transition: box-shadow .3s;
-                            box-shadow: 0 0 0 0.2em #42b983;
+                            box-shadow: 0 0 0 0.2em $focusBorderColor;
                         }
                     }
                 }
@@ -613,7 +615,7 @@ body {
                             &:focus {
                                 outline: 0 none;
                                 transition: background-color .3s, box-shadow .3s;
-                                box-shadow: 0 0 0 0.2em #42b983;
+                                box-shadow: 0 0 0 0.2em $focusBorderColor;
                             }
                         }
 
@@ -671,21 +673,21 @@ body {
             width: 100%;
 
             th {
-                background-color: #b3e3cd;
+                background-color: #d6dade;
                 padding: 8px 14px;
                 text-align: left;
-                border: solid 1px #b3e3cd;
+                border: solid 1px #d6dade;
             }
 
             tbody{
                 td {
                     padding: 8px 14px;
-                    border: 1px solid #ecf7f2;
+                    border: 1px solid #eaecee;
                 }
 
                 tr{
                     &:nth-child(even) {
-                        background-color: #ecf7f2;
+                        background-color: #eaecee;
                     }
                     &:nth-child(odd) {
                         background-color: #ffffff;
@@ -1089,7 +1091,7 @@ a{
 }
 
 pre[class*="language-"] code {
-    border-left: 10px solid #b3e3cd !important;
+    border-left: 10px solid #d6dade !important;
     box-shadow: -1px 0px 0px 0px #b3e3cd, 0px 0px 0px 1px #f8f8f8 !important;
     background: #ffffff !important;
     margin: 1em 0;
