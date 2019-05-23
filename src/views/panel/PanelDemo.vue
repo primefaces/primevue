@@ -32,8 +32,8 @@
 import PanelDoc from './PanelDoc';
 
 export default {
-		components: {
-				'PanelDoc': PanelDoc
-		}
+    components: {
+        'PanelDoc': PanelDoc
+    }
 }
 </script>
