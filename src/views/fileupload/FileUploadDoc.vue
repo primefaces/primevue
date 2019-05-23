@@ -60,98 +60,98 @@ import FileUpload from 'primevue/fileupload';
 				<div class="doc-tablewrapper">
 					<table class="doc-table">
 						<thead>
-						<tr>
-							<th>Name</th>
-							<th>Type</th>
-							<th>Default</th>
-							<th>Description</th>
-						</tr>
+                            <tr>
+                                <th>Name</th>
+                                <th>Type</th>
+                                <th>Default</th>
+                                <th>Description</th>
+                            </tr>
 						</thead>
 						<tbody>
-						<tr>
-							<td>name</td>
-							<td>string</td>
-							<td>null</td>
-							<td>Name of the request parameter to identify the files at backend.</td>
-						</tr>
-						<tr>
-							<td>url</td>
-							<td>string</td>
-							<td>null</td>
-							<td>Remote url to upload the files.</td>
-						</tr>
-						<tr>
-							<td>mode</td>
-							<td>string</td>
-							<td>advanced</td>
-							<td>Defines the UI of the component, possible values are "advanced" and "basic".</td>
-						</tr>
-						<tr>
-							<td>multiple</td>
-							<td>boolean</td>
-							<td>false</td>
-							<td>Used to select multiple files at once from file dialog.</td>
-						</tr>
-						<tr>
-							<td>accept</td>
-							<td>string</td>
-							<td>false</td>
-							<td>Pattern to restrict the allowed file types such as "image/*".</td>
-						</tr>
-						<tr>
-							<td>disabled</td>
-							<td>boolean</td>
-							<td>false</td>
-							<td>Disables the upload functionality.</td>
-						</tr>
-						<tr>
-							<td>auto</td>
-							<td>boolean</td>
-							<td>false</td>
-							<td>When enabled, upload begins automatically after selection is completed.</td>
-						</tr>
-						<tr>
-							<td>maxFileSize</td>
-							<td>number</td>
-							<td>null</td>
-							<td>Maximum file size allowed in bytes.</td>
-						</tr>
-						<tr>
-							<td>invalidFileSizeMessage</td>
-							<td>string</td>
-							<td>"&#123;0&#125;: Invalid file size, file size should be smaller than &#123;1&#125;."</td>
-							<td>Summary message of the invalid fize size.</td>
-						</tr>
-						<tr>
-							<td>withCredentials</td>
-							<td>boolean</td>
-							<td>false</td>
-							<td>Cross-site Access-Control requests should be made using credentials such as cookies, authorization headers or TLS client certificates.</td>
-						</tr>
-						<tr>
-							<td>previewWidth</td>
-							<td>number</td>
-							<td>50</td>
-							<td>Width of the image thumbnail in pixels.</td>
-						</tr>
-						<tr>
-							<td>chooseLabel</td>
-							<td>string</td>
-							<td>Choose</td>
-							<td>Label of the choose button.</td>
-						</tr>
-						<tr>
-							<td>uploadLabel</td>
-							<td>string</td>
-							<td>Upload</td>
-							<td>Label of the upload button.</td>
-						</tr>
-						<tr>
-							<td>cancelLabel</td>
-							<td>string</td>
-							<td>Cancel</td>
-							<td>Label of the cancel button.</td>
-						</tr>
+                            <tr>
+                                <td>name</td>
+                                <td>string</td>
+                                <td>null</td>
+                                <td>Name of the request parameter to identify the files at backend.</td>
+                            </tr>
+                            <tr>
+                                <td>url</td>
+                                <td>string</td>
+                                <td>null</td>
+                                <td>Remote url to upload the files.</td>
+                            </tr>
+                            <tr>
+                                <td>mode</td>
+                                <td>string</td>
+                                <td>advanced</td>
+                                <td>Defines the UI of the component, possible values are "advanced" and "basic".</td>
+                            </tr>
+                            <tr>
+                                <td>multiple</td>
+                                <td>boolean</td>
+                                <td>false</td>
+                                <td>Used to select multiple files at once from file dialog.</td>
+                            </tr>
+                            <tr>
+                                <td>accept</td>
+                                <td>string</td>
+                                <td>false</td>
+                                <td>Pattern to restrict the allowed file types such as "image/*".</td>
+                            </tr>
+                            <tr>
+                                <td>disabled</td>
+                                <td>boolean</td>
+                                <td>false</td>
+                                <td>Disables the upload functionality.</td>
+                            </tr>
+                            <tr>
+                                <td>auto</td>
+                                <td>boolean</td>
+                                <td>false</td>
+                                <td>When enabled, upload begins automatically after selection is completed.</td>
+                            </tr>
+                            <tr>
+                                <td>maxFileSize</td>
+                                <td>number</td>
+                                <td>null</td>
+                                <td>Maximum file size allowed in bytes.</td>
+                            </tr>
+                            <tr>
+                                <td>invalidFileSizeMessage</td>
+                                <td>string</td>
+                                <td>"&#123;0&#125;: Invalid file size, file size should be smaller than &#123;1&#125;."</td>
+                                <td>Summary message of the invalid fize size.</td>
+                            </tr>
+                            <tr>
+                                <td>withCredentials</td>
+                                <td>boolean</td>
+                                <td>false</td>
+                                <td>Cross-site Access-Control requests should be made using credentials such as cookies, authorization headers or TLS client certificates.</td>
+                            </tr>
+                            <tr>
+                                <td>previewWidth</td>
+                                <td>number</td>
+                                <td>50</td>
+                                <td>Width of the image thumbnail in pixels.</td>
+                            </tr>
+                            <tr>
+                                <td>chooseLabel</td>
+                                <td>string</td>
+                                <td>Choose</td>
+                                <td>Label of the choose button.</td>
+                            </tr>
+                            <tr>
+                                <td>uploadLabel</td>
+                                <td>string</td>
+                                <td>Upload</td>
+                                <td>Label of the upload button.</td>
+                            </tr>
+                            <tr>
+                                <td>cancelLabel</td>
+                                <td>string</td>
+                                <td>Cancel</td>
+                                <td>Label of the cancel button.</td>
+                            </tr>
 						</tbody>
 					</table>
 				</div>
