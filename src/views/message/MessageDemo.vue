@@ -20,7 +20,7 @@
             <Message v-for="msg of messages" :severity="msg.severity" :key="msg.content">{{msg.content}}</Message>
 
             <h3>Auto Dismiss</h3>
-            <Message severity="warn" :life="5000" :sticky="false">This message will hide in 5 seconds.</Message>
+            <Message severity="warn" :life="10000" :sticky="false">This message will hide in 10 seconds.</Message>
 
             <h3>Validation Message</h3>
             <div class="p-grid">

@@ -5,12 +5,16 @@
 				<h3>Import</h3>
 <CodeHighlight lang="javascript">
 import Message from 'primevue/message';
-import ValidationMessage from 'primevue/validationmessage';
 </CodeHighlight>
 
 				<h3>Getting Started</h3>
-				<p>A single message is specified by Message interface in PrimeVue that defines the severity and content as the properties.
-					Messages to display can either be defined using the value property which should an array of Message instances.</p>
+				<p>Message component requires a content to display.</p>
+<CodeHighlight>
+&lt;Message&gt;Welcome to PrimeVue&lt;/Message&gt;
+</CodeHighlight>
+
+                <p>Multiple messages can be displayed using the standard v-for directive.</p>
+
 <CodeHighlight>
 <template v-pre>
 &lt;Message v-for="msg of messages" :severity="msg.severity" :key="msg.content"&gt;{{msg.content}}&lt;/Message&gt;
@@ -30,7 +34,7 @@ data() {
 </CodeHighlight>
 
 				<h3>Severities</h3>
-				<p>There are four possible values for the severity of a message.</p>
+				<p>There are four possible values for the severity of a message. Default one is "info".</p>
 
 				<ul>
 					<li>success</li>
@@ -46,13 +50,17 @@ data() {
 </CodeHighlight>
 
 				<h3>Sticky</h3>
-				<p>Messages are cleared automatically after the timeout defined by <i>life</i> property which is 3 seconds by default. Use <i>sticky</i> mode to make them stay until
-					they are manually removed.</p>
+				<p>Messages are sticky by default, if you require them to be cleared automatically, disable <i>sticky</i> property and optionally configure the <i>life</i> property to specify how long the message 
+                should be displayed which is 3000 ms by default.</p>
 <CodeHighlight>
 &lt;Message severity="warn" :life="5000" :sticky="false"&gt;This message will hide in 5 seconds.&lt;/Message&gt;
 </CodeHighlight>
 
 				<h3>ValidationMessage Component</h3>
+<CodeHighlight lang="javascript">
+import Message from 'primevue/message';
+</CodeHighlight>
+
 				<p>ValidationMessage component is useful in cases where a single message needs to be displayed related to an element such as forms. It has one property, <i>severity</i> of the message.</p>
 <CodeHighlight>
 &lt;InputText placeholder="Username" class="p-error" /&gt;
@@ -64,89 +72,151 @@ data() {
 				<div class="doc-tablewrapper">
 					<table class="doc-table">
 						<thead>
-						<tr>
-							<th>Name</th>
-							<th>Type</th>
-							<th>Default</th>
-							<th>Description</th>
-						</tr>
+                            <tr>
+                                <th>Name</th>
+                                <th>Type</th>
+                                <th>Default</th>
+                                <th>Description</th>
+                            </tr>
 						</thead>
 						<tbody>
-						<tr>
-							<td>severity</td>
-							<td>string</td>
-							<td>info</td>
-							<td>Severity level of the message.</td>
-						</tr>
-						<tr>
-							<td>closable</td>
-							<td>boolean</td>
-							<td>true</td>
-							<td>Whether the message can be closed manually using the close icon.</td>
-						</tr>
-						<tr>
-							<td>sticky</td>
-							<td>element</td>
-							<td>null</td>
-							<td>When enabled, message is not removed automatically.</td>
-						</tr>
-						<tr>
-							<td>life</td>
-							<td>number</td>
-							<td>3000</td>
-							<td>Delay in milliseconds to close the message automatically.</td>
-						</tr>
+                            <tr>
+                                <td>severity</td>
+                                <td>string</td>
+                                <td>info</td>
+                                <td>Severity level of the message.</td>
+                            </tr>
+                            <tr>
+                                <td>closable</td>
+                                <td>boolean</td>
+                                <td>true</td>
+                                <td>Whether the message can be closed manually using the close icon.</td>
+                            </tr>
+                            <tr>
+                                <td>sticky</td>
+                                <td>element</td>
+                                <td>null</td>
+                                <td>When enabled, message is not removed automatically.</td>
+                            </tr>
+                            <tr>
+                                <td>life</td>
+                                <td>number</td>
+                                <td>3000</td>
+                                <td>Delay in milliseconds to close the message automatically.</td>
+                            </tr>
+						</tbody>
+					</table>
+				</div>
+
+                <h3>Properties of ValidationMessage</h3>
+				<div class="doc-tablewrapper">
+					<table class="doc-table">
+						<thead>
+                            <tr>
+                                <th>Name</th>
+                                <th>Type</th>
+                                <th>Default</th>
+                                <th>Description</th>
+                            </tr>
+						</thead>
+						<tbody>
+                            <tr>
+                                <td>severity</td>
+                                <td>string</td>
+                                <td>info</td>
+                                <td>Severity level of the message.</td>
+                            </tr>
 						</tbody>
 					</table>
 				</div>
 
 				<h3>Styling</h3>
 				<p>Following is the list of structural style classes, for theming classes visit <router-link to="/theming">theming</router-link> page.</p>
-				<div class="doc-tablewrapper">
+				
+                <strong>Message</strong>
+                <div class="doc-tablewrapper">
 					<table class="doc-table">
 						<thead>
-						<tr>
-							<th>Name</th>
-							<th>Element</th>
-						</tr>
+                            <tr>
+                                <th>Name</th>
+                                <th>Element</th>
+                            </tr>
 						</thead>
 						<tbody>
-						<tr>
-							<td>p-messages</td>
-							<td>Container element.</td>
-						</tr>
-						<tr>
-							<td>p-messages-info</td>
-							<td>Container element when displaying info messages.</td>
-						</tr>
-						<tr>
-							<td>p-messages-warn</td>
-							<td>Container element when displaying warning messages.</td>
-						</tr>
-						<tr>
-							<td>p-messages-error</td>
-							<td>Container element when displaying error messages.</td>
-						</tr>
-						<tr>
-							<td>p-messages-success</td>
-							<td>Container element when displaying success messages.</td>
-						</tr>
-						<tr>
-							<td>p-messages-close</td>
-							<td>Close icon.</td>
-						</tr>
-						<tr>
-							<td>p-messages-icon</td>
-							<td>Severity icon.</td>
-						</tr>
-						<tr>
-							<td>p-messages-summary</td>
-							<td>Summary of a message.</td>
-						</tr>
-						<tr>
-							<td>p-messages-detail</td>
-							<td>Detail of a message.</td>
-						</tr>
+                            <tr>
+                                <td>p-messages</td>
+                                <td>Container element.</td>
+                            </tr>
+                            <tr>
+                                <td>p-messages-info</td>
+                                <td>Container element when displaying info messages.</td>
+                            </tr>
+                            <tr>
+                                <td>p-messages-warn</td>
+                                <td>Container element when displaying warning messages.</td>
+                            </tr>
+                            <tr>
+                                <td>p-messages-error</td>
+                                <td>Container element when displaying error messages.</td>
+                            </tr>
+                            <tr>
+                                <td>p-messages-success</td>
+                                <td>Container element when displaying success messages.</td>
+                            </tr>
+                            <tr>
+                                <td>p-messages-close</td>
+                                <td>Close icon.</td>
+                            </tr>
+                            <tr>
+                                <td>p-messages-icon</td>
+                                <td>Severity icon.</td>
+                            </tr>
+                            <tr>
+                                <td>p-messages-text</td>
+                                <td>Content of a message.</td>
+                            </tr>
+						</tbody>
+					</table>
+				</div>
+
+                <strong>ValidationMessage</strong>
+                <div class="doc-tablewrapper">
+					<table class="doc-table">
+						<thead>
+                            <tr>
+                                <th>Name</th>
+                                <th>Element</th>
+                            </tr>
+						</thead>
+						<tbody>
+                            <tr>
+                                <td>p-message</td>
+                                <td>Container element.</td>
+                            </tr>
+                            <tr>
+                                <td>p-message-info</td>
+                                <td>Container element when displaying info messages.</td>
+                            </tr>
+                            <tr>
+                                <td>p-message-warn</td>
+                                <td>Container element when displaying warning messages.</td>
+                            </tr>
+                            <tr>
+                                <td>p-message-error</td>
+                                <td>Container element when displaying error messages.</td>
+                            </tr>
+                            <tr>
+                                <td>p-message-success</td>
+                                <td>Container element when displaying success messages.</td>
+                            </tr>
+                            <tr>
+                                <td>p-message-icon</td>
+                                <td>Severity icon.</td>
+                            </tr>
+                           <tr>
+                                <td>p-message-text</td>
+                                <td>Content of a message.</td>
+                            </tr>
 						</tbody>
 					</table>
 				</div>
@@ -183,7 +253,7 @@ data() {
 			&lt;Message v-for="msg of messages" :severity="msg.severity" :key="msg.content"&gt;{{msg.content}}&lt;/Message&gt;
 
 			&lt;h3&gt;Auto Dismiss&lt;/h3&gt;
-			&lt;Message severity="warn" :life="5000" :sticky="false"&gt;This message will hide in 5 seconds.&lt;/Message&gt;
+			&lt;Message severity="warn" :life="10000" :sticky="false"&gt;This message will hide in 10 seconds.&lt;/Message&gt;
 
 			&lt;h3&gt;Validation Message&lt;/h3&gt;
 			&lt;div class="p-grid"&gt;
