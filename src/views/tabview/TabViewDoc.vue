@@ -114,7 +114,7 @@ import {TabView, TabPanel} from 'primevue/tabview';
 
 <CodeHighlight lang="js">
 export default {
-	data() {
+    data() {
         return {
             active: [true, false, false]
         }
@@ -348,7 +348,7 @@ export default {
 
 <CodeHighlight lang="javascript">
 export default {
-	 data() {
+    data() {
         return {
             active: [true, false, false]
         }
