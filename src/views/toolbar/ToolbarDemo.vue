@@ -13,7 +13,7 @@
                     <Button label="New" icon="pi pi-plus" style="margin-right: .25em" />
                     <Button label="Upload" icon="pi pi-upload" class="p-button-success" />
                     <i class="pi pi-bars p-toolbar-separator" style="margin-right: .25em" />
-                    <Button label="Save" icon="pi pi-check" class="p-button-warning" />
+                    <SplitButton label="Save" icon="pi pi-check" :model="items" class="p-button-warning"></SplitButton>
                 </template>
                 
                 <template slot="right">
@@ -31,6 +31,33 @@
 import ToolbarDoc from './ToolbarDoc';
 
 export default {
+    data() {
+        return {
+            items: [
+                {
+                    label: 'Update', 
+                    icon: 'pi pi-refresh'
+                },
+                {
+                    label: 'Delete', 
+                    icon: 'pi pi-times'
+                },
+                {
+                    label: 'Vue Website', 
+                    icon: 'pi pi-external-link',
+                    command: () => {
+                        window.location.href = 'https://vuejs.org/'
+                    }
+                },
+                {   label: 'Upload', 
+                    icon: 'pi pi-upload', 
+                    command: () => {
+                        window.location.hash = "/fileupload"
+                    }
+                }
+            ]
+        } 
+    },
 	components: {
 		'ToolbarDoc': ToolbarDoc
     }

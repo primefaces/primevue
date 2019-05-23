@@ -18,6 +18,18 @@ import Fieldset from 'primevue/fieldset';
 &lt;/Fieldset&gt;
 </CodeHighlight>
 
+                <h3>Custom Header</h3>
+                <p>Header of the panel is either defined with the <i>legend</i> property or the legend template.</p>
+<CodeHighlight>
+&lt;Fieldset&gt;
+    &lt;template name="legend"&gt;
+        Header Content
+    &lt;/template&gt;
+	Content
+&lt;/Fieldset&gt;
+</CodeHighlight>
+
+
 				<h3>Toggleable</h3>
 				<p>Content of the fieldset can be expanded and collapsed using <i>toggleable</i> option..</p>
 <CodeHighlight>
@@ -33,32 +45,32 @@ import Fieldset from 'primevue/fieldset';
 				<div class="doc-tablewrapper">
 					<table class="doc-table">
 						<thead>
-						<tr>
-							<th>Name</th>
-							<th>Type</th>
-							<th>Default</th>
-							<th>Description</th>
-						</tr>
+                            <tr>
+                                <th>Name</th>
+                                <th>Type</th>
+                                <th>Default</th>
+                                <th>Description</th>
+                            </tr>
 						</thead>
 						<tbody>
-						<tr>
-							<td>legend</td>
-							<td>string</td>
-							<td>null</td>
-							<td>Header text of the fieldset.</td>
-						</tr>
-						<tr>
-							<td>toggleable</td>
-							<td>boolean</td>
-							<td>null</td>
-							<td>When specified, content can toggled by clicking the legend.</td>
-						</tr>
-						<tr>
-							<td>collapsed</td>
-							<td>boolean</td>
-							<td>null</td>
-							<td>Defines the default visibility state of the content.</td>
-						</tr>
+                            <tr>
+                                <td>legend</td>
+                                <td>string</td>
+                                <td>null</td>
+                                <td>Header text of the fieldset.</td>
+                            </tr>
+                            <tr>
+                                <td>toggleable</td>
+                                <td>boolean</td>
+                                <td>null</td>
+                                <td>When specified, content can toggled by clicking the legend.</td>
+                            </tr>
+                            <tr>
+                                <td>collapsed</td>
+                                <td>boolean</td>
+                                <td>null</td>
+                                <td>Defines the default visibility state of the content.</td>
+                            </tr>
 						</tbody>
 					</table>
 				</div>
@@ -67,20 +79,20 @@ import Fieldset from 'primevue/fieldset';
 				<div class="doc-tablewrapper">
 					<table class="doc-table">
 						<thead>
-						<tr>
-							<th>Name</th>
-							<th>Parameters</th>
-							<th>Description</th>
-						</tr>
+                            <tr>
+                                <th>Name</th>
+                                <th>Parameters</th>
+                                <th>Description</th>
+                            </tr>
 						</thead>
 						<tbody>
-						<tr>
-							<td>toggle</td>
-							<td>event.originalEvent: browser event <br />
-								event.value: Collapsed state as a boolean
-							</td>
-							<td>Callback to invoke when a tab gets expanded or collapsed.</td>
-						</tr>
+                            <tr>
+                                <td>toggle</td>
+                                <td>event.originalEvent: browser event <br />
+                                    event.value: collapsed state as a boolean
+                                </td>
+                                <td>Callback to invoke when a tab gets expanded or collapsed.</td>
+                            </tr>
 						</tbody>
 					</table>
 				</div>
@@ -90,28 +102,28 @@ import Fieldset from 'primevue/fieldset';
 				<div class="doc-tablewrapper">
 					<table class="doc-table">
 						<thead>
-						<tr>
-							<th>Name</th>
-							<th>Element</th>
-						</tr>
+                            <tr>
+                                <th>Name</th>
+                                <th>Element</th>
+                            </tr>
 						</thead>
 						<tbody>
-						<tr>
-							<td>p-fieldset</td>
-							<td>Fieldset element.</td>
-						</tr>
-						<tr>
-							<td>p-fieldset-toggleable</td>
-							<td>Toggleable fieldset element.</td>
-						</tr>
-						<tr>
-							<td>p-fieldset-legend</td>
-							<td>Legend element.</td>
-						</tr>
-						<tr>
-							<td>p-fieldset-content</td>
-							<td>Content element.</td>
-						</tr>
+                            <tr>
+                                <td>p-fieldset</td>
+                                <td>Fieldset element.</td>
+                            </tr>
+                            <tr>
+                                <td>p-fieldset-toggleable</td>
+                                <td>Toggleable fieldset element.</td>
+                            </tr>
+                            <tr>
+                                <td>p-fieldset-legend</td>
+                                <td>Legend element.</td>
+                            </tr>
+                            <tr>
+                                <td>p-fieldset-content</td>
+                                <td>Content element.</td>
+                            </tr>
 						</tbody>
 					</table>
 				</div>

@@ -18,6 +18,17 @@ import Panel from 'primevue/panel';
 &lt;/Panel&gt;
 </CodeHighlight>
 
+                <h3>Custom Header</h3>
+                <p>Header of the panel is either defined with the <i>header</i> property or the header template.</p>
+<CodeHighlight>
+&lt;Panel&gt;
+    &lt;template name="header"&gt;
+        Header Content
+    &lt;/template&gt;
+	Content
+&lt;/Panel&gt;
+</CodeHighlight>
+
 				<h3>Toggleable</h3>
 				<p>Content of the panel can be expanded and collapsed using <i>toggleable</i> option.</p>
 <CodeHighlight>
@@ -33,32 +44,32 @@ import Panel from 'primevue/panel';
 				<div class="doc-tablewrapper">
 					<table class="doc-table">
 						<thead>
-						<tr>
-							<th>Name</th>
-							<th>Type</th>
-							<th>Default</th>
-							<th>Description</th>
-						</tr>
+                            <tr>
+                                <th>Name</th>
+                                <th>Type</th>
+                                <th>Default</th>
+                                <th>Description</th>
+                            </tr>
 						</thead>
 						<tbody>
-						<tr>
-							<td>header</td>
-							<td>string</td>
-							<td>null</td>
-							<td>Header text of the panel.</td>
-						</tr>
-						<tr>
-							<td>toggleable</td>
-							<td>boolean</td>
-							<td>null</td>
-							<td>Defines if content of panel can be expanded and collapsed.</td>
-						</tr>
-						<tr>
-							<td>collapsed</td>
-							<td>boolean</td>
-							<td>null</td>
-							<td>Defines the initial state of panel content, supports one or two-way binding as well.</td>
-						</tr>
+                            <tr>
+                                <td>header</td>
+                                <td>string</td>
+                                <td>null</td>
+                                <td>Header text of the panel.</td>
+                            </tr>
+                            <tr>
+                                <td>toggleable</td>
+                                <td>boolean</td>
+                                <td>null</td>
+                                <td>Defines if content of panel can be expanded and collapsed.</td>
+                            </tr>
+                            <tr>
+                                <td>collapsed</td>
+                                <td>boolean</td>
+                                <td>null</td>
+                                <td>Defines the initial state of panel content.</td>
+                            </tr>
 						</tbody>
 					</table>
 				</div>
@@ -67,20 +78,20 @@ import Panel from 'primevue/panel';
 				<div class="doc-tablewrapper">
 					<table class="doc-table">
 						<thead>
-						<tr>
-							<th>Name</th>
-							<th>Parameters</th>
-							<th>Description</th>
-						</tr>
+                            <tr>
+                                <th>Name</th>
+                                <th>Parameters</th>
+                                <th>Description</th>
+                            </tr>
 						</thead>
 						<tbody>
-						<tr>
-							<td>toggle</td>
-							<td>event.originalEvent: browser event <br />
-								event.value: collapsed state as a boolean
-							</td>
-							<td>Callback to invoke when a tab toggle.</td>
-						</tr>
+                            <tr>
+                                <td>toggle</td>
+                                <td>event.originalEvent: browser event <br />
+                                    event.value: collapsed state as a boolean
+                                </td>
+                                <td>Callback to invoke when a tab toggle.</td>
+                            </tr>
 						</tbody>
 					</table>
 				</div>
@@ -90,32 +101,32 @@ import Panel from 'primevue/panel';
 				<div class="doc-tablewrapper">
 					<table class="doc-table">
 						<thead>
-						<tr>
-							<th>Name</th>
-							<th>Element</th>
-						</tr>
+                            <tr>
+                                <th>Name</th>
+                                <th>Element</th>
+                            </tr>
 						</thead>
 						<tbody>
-						<tr>
-							<td>p-panel</td>
-							<td>Container element.</td>
-						</tr>
-						<tr>
-							<td>p-panel-titlebar</td>
-							<td>Header section.</td>
-						</tr>
-						<tr>
-							<td>p-panel-title</td>
-							<td>Title text of panel.</td>
-						</tr>
-						<tr>
-							<td>p-panel-titlebar-toggler</td>
-							<td>Toggle icon.</td>
-						</tr>
-						<tr>
-							<td>p-panel-content</td>
-							<td>Content of panel.</td>
-						</tr>
+                            <tr>
+                                <td>p-panel</td>
+                                <td>Container element.</td>
+                            </tr>
+                            <tr>
+                                <td>p-panel-titlebar</td>
+                                <td>Header section.</td>
+                            </tr>
+                            <tr>
+                                <td>p-panel-title</td>
+                                <td>Title text of panel.</td>
+                            </tr>
+                            <tr>
+                                <td>p-panel-titlebar-toggler</td>
+                                <td>Toggle icon.</td>
+                            </tr>
+                            <tr>
+                                <td>p-panel-content</td>
+                                <td>Content of panel.</td>
+                            </tr>
 						</tbody>
 					</table>
 				</div>

@@ -15,6 +15,27 @@ import Card from 'primevue/card';
 &lt;/Card&gt;
 </CodeHighlight>
 
+                <h3>Templates</h3>
+                <p>Card provides <i>header</i>, <i>title</i>, <i>content</i> and <i>footer</i> as the named templates to place content.</p>
+<CodeHighlight>
+&lt;Card&gt;
+    &lt;template slot="header"&gt;
+        &lt;img alt="user header" src="demo/images/usercard.png"&gt;
+    &lt;/template&gt;
+    &lt;template slot="title"&gt;
+        Advanced Card
+    &lt;/template&gt;
+    &lt;template slot="content"&gt;
+        Lorem ipsum dolor sit amet, consectetur adipisicing elit. Inventore sed consequuntur error repudiandae numquam deserunt
+        quisquam repellat libero asperiores earum nam nobis, culpa ratione quam perferendis esse, cupiditate neque quas!
+    &lt;/template&gt;
+    &lt;template slot="footer"&gt;
+        &lt;Button icon="pi pi-check" label="Save" class="p-button-raised" /&gt;
+        &lt;Button icon="pi pi-times" label="Cancel" class="p-button-raised p-button-secondary" style="margin-left: .5em" /&gt;
+    &lt;/template&gt;
+&lt;/Card&gt;
+</CodeHighlight>
+
 				<h3>Styling</h3>
 				<p>Following is the list of structural style classes, for theming classes visit <router-link to="/theming">theming</router-link> page.</p>
 				<div class="doc-tablewrapper">

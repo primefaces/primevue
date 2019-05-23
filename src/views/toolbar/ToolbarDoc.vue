@@ -8,14 +8,14 @@ import Toolbar from 'primevue/toolbar';
 </CodeHighlight>
 
 				<h3>Getting Started</h3>
-				<p>Toolbar is a container component defined using Toolbar element. Left aligned content is placed inside a template with "left" name and similarly "right" for right alignment..</p>
+				<p>Toolbar provides <i>left</i> and <i>right</i> templates to place content at these sections.</p>
 <CodeHighlight>
 &lt;Toolbar&gt;
 	&lt;template slot="left"&gt;
 		&lt;Button label="New" icon="pi pi-plus" style="margin-right: .25em" /&gt;
 		&lt;Button label="Upload" icon="pi pi-upload" class="p-button-success" /&gt;
 		&lt;i class="pi pi-bars p-toolbar-separator" style="margin-right: .25em" /&gt;
-		&lt;Button label="Save" icon="pi pi-check" class="p-button-warning" /&gt;
+		&lt;SplitButton label="Save" icon="pi pi-check" :model="items" class="p-button-warning"&gt;&lt;/SplitButton&gt;
 	&lt;/template&gt;
 
 	&lt;template slot="right"&gt;
@@ -31,10 +31,10 @@ import Toolbar from 'primevue/toolbar';
 				<div class="doc-tablewrapper">
 					<table class="doc-table">
 						<thead>
-						<tr>
-							<th>Name</th>
-							<th>Element</th>
-						</tr>
+                            <tr>
+                                <th>Name</th>
+                                <th>Element</th>
+                            </tr>
 						</thead>
 						<tbody>
 							<tr>
@@ -91,6 +91,38 @@ import Toolbar from 'primevue/toolbar';
 	&lt;/div&gt;
 &lt;/template&gt;
 </template>
+</CodeHighlight>
+
+<CodeHighlight lang="javascript">
+export default {
+    data() {
+        return {
+            items: [
+                {
+                    label: 'Update', 
+                    icon: 'pi pi-refresh'
+                },
+                {
+                    label: 'Delete', 
+                    icon: 'pi pi-times'
+                },
+                {
+                    label: 'Vue Website', 
+                    icon: 'pi pi-external-link',
+                    command: () => {
+                        window.location.href = 'https://vuejs.org/'
+                    }
+                },
+                {   label: 'Upload', 
+                    icon: 'pi pi-upload', 
+                    command: () => {
+                        window.location.hash = "/fileupload"
+                    }
+                }
+            ]
+        } 
+    }
+}
 </CodeHighlight>
 			</TabPanel>
 		</TabView>

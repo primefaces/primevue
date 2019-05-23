@@ -4,7 +4,7 @@
             <div class="feature-intro">
                 <h1>FlexGrid</h1>
                 <p>Flex Grid CSS is a lightweight flex based responsive layout utility optimized for mobile phones, tablets and desktops. 
-                    Flex Grid CSS is not included in PrimeReact as it is provided by <a href="https://github.com/primefaces/primeflex">PrimeFlex</a> , a shared grid library between PrimeFaces, PrimeNG, PrimeReact and PrimeVue projects.</p>
+                    Flex Grid CSS is not included in PrimeVue as it is provided by <a href="https://github.com/primefaces/primeflex">PrimeFlex</a> , a shared grid library between PrimeFaces, PrimeNG, PrimeReact and PrimeVue projects.</p>
             </div>
         </div>
 
