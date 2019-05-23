@@ -1,6 +1,12 @@
 <template>
 	<div class="content-section documentation">
-		<h3>Import</h3>
+        <h3>Getting Started</h3>
+        <p>To begin with, charts.js package needs to be installed in your project.</p>
+ <CodeHighlight lang="javascript">
+npm install chart.js --save
+</CodeHighlight>
+
+		<h3 style="margin-top: 0">Import</h3>
 <CodeHighlight lang="javascript">
 import Chart from 'primevue/chart';
 </CodeHighlight>
@@ -52,19 +58,21 @@ options: {
 	stacked: false,
 	scales: {
 		yAxes: [{
-			type: 'linear',
-			display: true,
-			position: 'left',
-			id: 'y-axis-1',
-			}, {
-			type: 'linear',
-			display: true,
-			position: 'right',
-			id: 'y-axis-2',
-			gridLines: {
-				drawOnChartArea: false
-			}
-		}]
+                type: 'linear',
+                display: true,
+                position: 'left',
+                id: 'y-axis-1',
+			}, 
+            {
+                type: 'linear',
+                display: true,
+                position: 'right',
+                id: 'y-axis-2',
+                gridLines: {
+                    drawOnChartArea: false
+                }
+		    }
+        ]
 	}
 }
 </CodeHighlight>
@@ -73,44 +81,44 @@ options: {
 		<div class="doc-tablewrapper">
 			<table class="doc-table">
 				<thead>
-				<tr>
-					<th>Name</th>
-					<th>Type</th>
-					<th>Default</th>
-					<th>Description</th>
-				</tr>
+                    <tr>
+                        <th>Name</th>
+                        <th>Type</th>
+                        <th>Default</th>
+                        <th>Description</th>
+                    </tr>
 				</thead>
 				<tbody>
-				<tr>
-					<td>type</td>
-					<td>string</td>
-					<td>null</td>
-					<td>Type of the chart.</td>
-				</tr>
-				<tr>
-					<td>data</td>
-					<td>any</td>
-					<td>null</td>
-					<td>Data to display.</td>
-				</tr>
-				<tr>
-					<td>options</td>
-					<td>any</td>
-					<td>null</td>
-					<td>Options to customize the chart.</td>
-				</tr>
-				<tr>
-					<td>width</td>
-					<td>string</td>
-					<td>null</td>
-					<td>Width of the chart in non-responsive mode.</td>
-				</tr>
-				<tr>
-					<td>height</td>
-					<td>string</td>
-					<td>null</td>
-					<td>Height of the chart in non-responsive mode.</td>
-				</tr>
+                    <tr>
+                        <td>type</td>
+                        <td>string</td>
+                        <td>null</td>
+                        <td>Type of the chart.</td>
+                    </tr>
+                    <tr>
+                        <td>data</td>
+                        <td>any</td>
+                        <td>null</td>
+                        <td>Data to display.</td>
+                    </tr>
+                    <tr>
+                        <td>options</td>
+                        <td>any</td>
+                        <td>null</td>
+                        <td>Options to customize the chart.</td>
+                    </tr>
+                    <tr>
+                        <td>width</td>
+                        <td>string</td>
+                        <td>null</td>
+                        <td>Width of the chart in non-responsive mode.</td>
+                    </tr>
+                    <tr>
+                        <td>height</td>
+                        <td>string</td>
+                        <td>null</td>
+                        <td>Height of the chart in non-responsive mode.</td>
+                    </tr>
 				</tbody>
 			</table>
 		</div>
@@ -119,18 +127,18 @@ options: {
 		<div class="doc-tablewrapper">
 			<table class="doc-table">
 				<thead>
-				<tr>
-					<th>Name</th>
-					<th>Parameters</th>
-					<th>Description</th>
-				</tr>
+                    <tr>
+                        <th>Name</th>
+                        <th>Parameters</th>
+                        <th>Description</th>
+                    </tr>
 				</thead>
 				<tbody>
-				<tr>
-					<td>refresh</td>
-					<td>-</td>
-					<td>Redraws the graph.</td>
-				</tr>
+                    <tr>
+                        <td>refresh</td>
+                        <td>-</td>
+                        <td>Redraws the graph.</td>
+                    </tr>
 				</tbody>
 			</table>
 		</div>
