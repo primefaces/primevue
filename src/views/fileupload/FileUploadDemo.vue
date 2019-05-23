@@ -9,13 +9,13 @@
 
         <div class="content-section implementation">
             <h3>Advanced</h3>
-            <FileUpload name="demo[]" url="http://192.168.1.110:4000/upload" @upload="onUpload" :multiple="true" accept="image/*" :maxFileSize="1000000" />
+            <FileUpload name="demo[]" url="./upload.php" @upload="onUpload" :multiple="true" accept="image/*" :maxFileSize="1000000" />
 
             <h3>Basic</h3>
-            <FileUpload mode="basic" name="demo[]" url="http://192.168.1.110:4000/upload" accept="image/*" :maxFileSize="1000000" @upload="onUpload" />
+            <FileUpload mode="basic" name="demo[]" url="./upload.php" accept="image/*" :maxFileSize="1000000" @upload="onUpload" />
             
             <h3>Basic with Auto</h3>
-            <FileUpload mode="basic" name="demo[]" url="http://192.168.1.110:4000/upload" accept="image/*" :maxFileSize="1000000" @upload="onUpload" :auto="true" chooseLabel="Browse" />
+            <FileUpload mode="basic" name="demo[]" url="./upload.php" accept="image/*" :maxFileSize="1000000" @upload="onUpload" :auto="true" chooseLabel="Browse" />
         </div>
 
         <FileUploadDoc/>

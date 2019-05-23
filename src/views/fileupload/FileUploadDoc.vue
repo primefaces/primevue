@@ -262,13 +262,13 @@ import FileUpload from 'primevue/fileupload';
 
 		&lt;div class="content-section implementation"&gt;
 			&lt;h3&gt;Advanced&lt;/h3&gt;
-			&lt;FileUpload name="demo[]" url="http://192.168.1.110:4000/upload" @upload="onUpload" :multiple="true" accept="image/*" :maxFileSize="1000000" /&gt;
+			&lt;FileUpload name="demo[]" url="./upload.php" @upload="onUpload" :multiple="true" accept="image/*" :maxFileSize="1000000" /&gt;
 
 			&lt;h3&gt;Basic&lt;/h3&gt;
-			&lt;FileUpload mode="basic" name="demo[]" url="http://192.168.1.110:4000/upload" accept="image/*" :maxFileSize="1000000" @upload="onUpload" /&gt;
+			&lt;FileUpload mode="basic" name="demo[]" url="./upload.php" accept="image/*" :maxFileSize="1000000" @upload="onUpload" /&gt;
 
 			&lt;h3&gt;Basic with Auto&lt;/h3&gt;
-			&lt;FileUpload mode="basic" name="demo[]" url="http://192.168.1.110:4000/upload" accept="image/*" :maxFileSize="1000000" @upload="onUpload" :auto="true" chooseLabel="Browse" /&gt;
+			&lt;FileUpload mode="basic" name="demo[]" url="./upload.php" accept="image/*" :maxFileSize="1000000" @upload="onUpload" :auto="true" chooseLabel="Browse" /&gt;
 		&lt;/div&gt;
 	&lt;/div&gt;
 &lt;/template&gt;
