@@ -1,6 +1,6 @@
 <template>
-    <div class="p-chips p-component">
-        <ul :class="['p-inputtext', {'p-disabled': disabled, 'p-focus': focused}]" @click="onWrapperClick()">
+    <div :class="['p-chips p-component', {'p-inputwrapper-filled': value, 'p-inputwrapper-focus': focused}]">
+        <ul :class="['p-inputtext', {'p-disabled': $attrs.disabled, 'p-focus': focused}]" @click="onWrapperClick()">
             <li v-for="(val,i) of value" :key="val" class="p-chips-token p-highlight">
                 <slot name="chip" :value="val">  
                     <span class="p-chips-token-icon pi pi-fw pi-times" @click="removeItem($event, i)"></span>

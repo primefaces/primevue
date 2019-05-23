@@ -327,6 +327,7 @@ export default {
             currentMinute: null,
             currentSecond: null,
             pm: null,
+			focused: false,
             overlayVisible: false
         }
     },
@@ -1468,9 +1469,11 @@ export default {
                     if ($vm.showOnFocus && $vm.isEnabled()) {
                         $vm.overlayVisible = true;
                     }
+                    $vm.focused = true;
                     $vm.$emit('focus', event)
                 },
                 blur: event => {
+					$vm.focused = false;
                     $vm.$emit('blur', event);
                 },
                 keydown: event => {
@@ -1500,7 +1503,8 @@ export default {
                 {
                     'p-calendar-w-btn': this.showIcon, 
                     'p-calendar-timeonly': this.timeOnly,
-                    'p-inputwrapper-filled': this.value
+                    'p-inputwrapper-filled': this.value,
+                    'p-inputwrapper-focus': this.focused
                 }
             ];
         },
