@@ -8,21 +8,31 @@ import Paginator from 'primevue/paginator';
 </CodeHighlight>
 
                 <h3>Getting Started</h3>
-                <p><i>first</i>, <i>rows</i> and <i>totalRecords</i> are the required properties of the Paginator.</p>
+                <p><i>rows</i> and <i>totalRecords</i> are the required properties of the Paginator.</p>
 <CodeHighlight>
-&lt;Paginator :first.sync="first" :rows="10" :totalRecords="totalItemsCount"&gt;&lt;/Paginator&gt;
+&lt;Paginator :rows="10" :totalRecords="totalItemsCount"&gt;&lt;/Paginator&gt;
 </CodeHighlight>
 
-                <h3>Start Offset</h3>
-                <p><i>first</i> property defines the index of the first item displayed by the paginator and should be used with the sync operator. 
-                This is useful in cases where the paginator needs to be controlled programmatically such as resetting or navigating to a certain page.</p>
+                <h3>Start Index</h3>
+                <p><i>first</i> property defines the index of the first item displayed by the paginator.</p>
+
+<CodeHighlight>
+&lt;Paginator :first="offset" :rows="10" :totalRecords="totalItemsCount"&gt;&lt;/Paginator&gt;
+</CodeHighlight>
+
+                <p>Use the sync operator to enable two-way binding, this is useful in cases where you need to programmatically control the paginator.</p>
 <CodeHighlight>
 &lt;Paginator :first.sync="offset" :rows="10" :totalRecords="totalItemsCount"&gt;&lt;/Paginator&gt;
 </CodeHighlight>
 
                 <h3>Rows Per Page</h3>
-                <p>Number of items per page can be changed by the user using a dropdown with the <i>rowsPerPageOptions</i> property which accepts an array of possible values.
-                As <i>rows</i> also change when the dropdown changes, use the sync operator for two-way binding.</p>
+                <p>Number of items per page can be changed by the user using a dropdown with the <i>rowsPerPageOptions</i> property which accepts an array of possible values.</p>
+<CodeHighlight>
+&lt;Paginator :first.sync="offset" :rows="rows" :totalRecords="totalItemsCount" :rowsPerPageOptions="[10,20,30]"&gt;&lt;/Paginator&gt;
+</CodeHighlight>
+
+                <p>As <i>rows</i> also change when the dropdown changes, use the optional sync operator if you need two-way binding.</p>
+
 <CodeHighlight>
 &lt;Paginator :first.sync="offset" :rows.sync="rows" :totalRecords="totalItemsCount" :rowsPerPageOptions="[10,20,30]"&gt;&lt;/Paginator&gt;
 </CodeHighlight>
@@ -48,7 +58,7 @@ import Paginator from 'primevue/paginator';
 </CodeHighlight>
 
                 <h3>Custom Content</h3>
-                <p>There are two slots available named "left" and "right" to add custom content to these locations. Both slots get
+                <p>There are two templates available named "left" and "right" to add custom content to these locations. Both templates get
                     a state object as a slot property to provide the current page, first index and the rows.
                 </p>
 <CodeHighlight>
@@ -69,7 +79,7 @@ import Paginator from 'primevue/paginator';
                 <h3>Page Change Event</h3>
                 <p>Paginator provides only one event called <i>page-change</i> that passes all the information about the change event.</p>
 <CodeHighlight>
-&lt;Paginator :first.sync="offset" :rows="10" :totalRecords="totalItemsCount"  @page-change="onPage($event)"&gt;&lt;/Paginator&gt;
+&lt;Paginator :rows="10" :totalRecords="totalItemsCount" @page-change="onPage($event)"&gt;&lt;/Paginator&gt;
 </CodeHighlight>
 
 <CodeHighlight lang="javascript">
