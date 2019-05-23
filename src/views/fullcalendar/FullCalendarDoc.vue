@@ -167,23 +167,23 @@ export default {
 				<div class="doc-tablewrapper">
 					<table class="doc-table">
 						<thead>
-						<tr>
-							<th>Name</th>
-							<th>Type</th>
-							<th>Description</th>
-						</tr>
+                            <tr>
+                                <th>Name</th>
+                                <th>Type</th>
+                                <th>Description</th>
+                            </tr>
 						</thead>
 						<tbody>
-						<tr>
-							<td>events</td>
-							<td>array</td>
-							<td>An array of events to display.</td>
-						</tr>
-						<tr>
-							<td>options</td>
-							<td>Object</td>
-							<td>A configuration object to define properties of FullCalendar.</td>
-						</tr>
+                            <tr>
+                                <td>events</td>
+                                <td>array</td>
+                                <td>An array of events to display.</td>
+                            </tr>
+                            <tr>
+                                <td>options</td>
+                                <td>Object</td>
+                                <td>A configuration object to define properties of FullCalendar.</td>
+                            </tr>
 						</tbody>
 					</table>
 				</div>

@@ -124,8 +124,13 @@
 
 	.car-data > div {
 		padding: .429em;
-	}
+    }
+    
+    .p-dropdown {
+        width: 12em;
+    }
 }
+
 @media (max-width: 767px) {
 	.dataview-demo {
 		.car-details, .search-icon {
@@ -138,7 +143,5 @@
 		}
 	}
 }
-.p-dropdown {
-	width: 12em;
-}
+
 </style>
