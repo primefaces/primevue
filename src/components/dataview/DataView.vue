@@ -15,8 +15,8 @@
 		<div class="p-dataview-content">
 			<div class="p-grid">
 				<template v-for="(item,index) of items">
-					<slot v-if="$scopedSlots.listItem && layout === 'list'" name="listItem" :data="item" :index="index"></slot>
-					<slot v-if="$scopedSlots.gridItem && layout === 'grid'" name="gridItem" :data="item" :index="index"></slot>
+					<slot v-if="$scopedSlots.list && layout === 'list'" name="list" :data="item" :index="index"></slot>
+					<slot v-if="$scopedSlots.grid && layout === 'grid'" name="grid" :data="item" :index="index"></slot>
 				</template>
 				<div v-if="isEmpty" class="p-col-12">{{emptyMessage}}</div>
 			</div>
@@ -98,6 +98,10 @@
 			sortOrder: {
 				type: Number,
 				default: null
+            },
+            lazy: {
+				type: Boolean,
+				default: false
 			}
         },
         data() {

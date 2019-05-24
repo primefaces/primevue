@@ -20,7 +20,7 @@
 						</div>
 					</div>
 				</template>
-				<template #listItem="slotProps" >
+				<template #list="slotProps" >
 					<div class="p-col-12 car-details" style="padding: 2em; border-bottom: 1px solid #d9d9d9">
 						<div class="p-grid">
 							<div class="p-col-12 p-md-3">
@@ -43,7 +43,7 @@
 						</div>
 					</div>
 				</template>
-				<template #gridItem="slotProps">
+				<template #grid="slotProps">
 					<div style="padding: .5em" class="p-col-12 p-md-3">
 						<Panel :header="slotProps.data.vin" style="text-align: center">
 							<img :src="'demo/images/car/' + slotProps.data.brand + '.png'" :alt="slotProps.data.brand"/>
