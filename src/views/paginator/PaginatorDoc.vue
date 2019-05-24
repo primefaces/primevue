@@ -77,9 +77,9 @@ import Paginator from 'primevue/paginator';
 </CodeHighlight>
 
                 <h3>Page Change Event</h3>
-                <p>Paginator provides only one event called <i>page-change</i> that passes all the information about the change event.</p>
+                <p>Paginator provides only one event called <i>page</i> that passes all the information about the change event.</p>
 <CodeHighlight>
-&lt;Paginator :rows="10" :totalRecords="totalItemsCount" @page-change="onPage($event)"&gt;&lt;/Paginator&gt;
+&lt;Paginator :rows="10" :totalRecords="totalItemsCount" @page="onPage($event)"&gt;&lt;/Paginator&gt;
 </CodeHighlight>
 
 <CodeHighlight lang="javascript">
@@ -161,7 +161,7 @@ onPage(event) {
                         </thead>
                         <tbody>
                             <tr>
-                                <td>page-change</td>
+                                <td>page</td>
                                 <td>event.page: New page number <br/>
                                     event.first: Index of first record <br/>
                                     event.rows: Number of rows to display in new page <br/>

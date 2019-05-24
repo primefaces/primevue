@@ -11,12 +11,12 @@
 			<h3 class="first">Default</h3>
 			<DataView :value="cars" :layout="layout" paginatorPosition='both' :paginator="true" :rows="20" :sortOrder="sortOrder" :sortField="sortField">
 				<template #header>
-					<div class="p-grid">
+					<div class="p-grid p-nogutter">
 						<div class="p-col-6" style="text-align: left">
 							<Dropdown v-model="sortKey" :options="sortOptions" optionLabel="label" placeholder="Sort By" @change="onSortChange($event)"/>
 						</div>
 						<div class="p-col-6" style="text-align: right">
-							<DataViewLayoutOptions :layout="layout" @change="changeMode"></DataViewLayoutOptions>
+							<DataViewLayoutOptions v-model="layout" />
 						</div>
 					</div>
 				</template>
@@ -61,55 +61,52 @@
 </template>
 
 <script>
-	import CarService from '../../service/CarService';
-	import DataViewDoc from './DataViewDoc';
+import CarService from '../../service/CarService';
+import DataViewDoc from './DataViewDoc';
 
-	export default {
-		data() {
-			return {
-				cars: null,
-				layout: 'list',
-				sortKey: null,
-				sortOrder: null,
-				sortField: null,
-				sortOptions: [
-					{label: 'Newest First', value: '!year'},
-					{label: 'Oldest First', value: 'year'},
-					{label: 'Brand', value: 'brand'}
-				]
-			}
-		},
-		carService: null,
-		created() {
-			this.carService = new CarService();
-		},
-		mounted() {
-			this.carService.getCarsLarge().then(data => this.cars = data);
-		},
-		methods: {
-			changeMode(event) {
-				this.layout = event.value;
-			},
-			onSortChange(event){
-				const value = event.value.value;
-				const sortValue = event.value;
+export default {
+    data() {
+        return {
+            cars: null,
+            layout: 'list',
+            sortKey: null,
+            sortOrder: null,
+            sortField: null,
+            sortOptions: [
+                {label: 'Newest First', value: '!year'},
+                {label: 'Oldest First', value: 'year'},
+                {label: 'Brand', value: 'brand'}
+            ]
+        }
+    },
+    carService: null,
+    created() {
+        this.carService = new CarService();
+    },
+    mounted() {
+        this.carService.getCarsLarge().then(data => this.cars = data);
+    },
+    methods: {
+        onSortChange(event){
+            const value = event.value.value;
+            const sortValue = event.value;
 
-				if (value.indexOf('!') === 0) {
-					this.sortOrder = -1;
-					this.sortField = value.substring(1, value.length);
-					this.sortKey = sortValue;
-				}
-				else {
-					this.sortOrder = 1;
-					this.sortField = value;
-					this.sortKey = sortValue;
-				}
-			}
-		},
-		components: {
-			'DataViewDoc': DataViewDoc
-		}
-	}
+            if (value.indexOf('!') === 0) {
+                this.sortOrder = -1;
+                this.sortField = value.substring(1, value.length);
+                this.sortKey = sortValue;
+            }
+            else {
+                this.sortOrder = 1;
+                this.sortField = value;
+                this.sortKey = sortValue;
+            }
+        }
+    },
+    components: {
+        'DataViewDoc': DataViewDoc
+    }
+}
 </script>
 
 <style lang="scss">

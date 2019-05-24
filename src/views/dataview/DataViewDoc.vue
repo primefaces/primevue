@@ -349,16 +349,16 @@ mounted() {
 			&lt;/div&gt;
 		&lt;/div&gt;
 
-		&lt;div class="content-section implementation"&gt;
+        &lt;div class="content-section implementation dataview-demo"&gt;
 			&lt;h3 class="first"&gt;Default&lt;/h3&gt;
 			&lt;DataView :value="cars" :layout="layout" paginatorPosition='both' :paginator="true" :rows="20" :sortOrder="sortOrder" :sortField="sortField"&gt;
 				&lt;template #header&gt;
-					&lt;div class="p-grid"&gt;
+					&lt;div class="p-grid p-nogutter"&gt;
 						&lt;div class="p-col-6" style="text-align: left"&gt;
 							&lt;Dropdown v-model="sortKey" :options="sortOptions" optionLabel="label" placeholder="Sort By" @change="onSortChange($event)"/&gt;
 						&lt;/div&gt;
 						&lt;div class="p-col-6" style="text-align: right"&gt;
-							&lt;DataViewLayoutOptions :layout="layout" @change="changeMode"&gt;&lt;/DataViewLayoutOptions&gt;
+							&lt;DataViewLayoutOptions v-model="layout" /&gt;
 						&lt;/div&gt;
 					&lt;/div&gt;
 				&lt;/template&gt;
@@ -368,13 +368,17 @@ mounted() {
 							&lt;div class="p-col-12 p-md-3"&gt;
 								&lt;img :src="'demo/images/car/' + slotProps.data.brand + '.png'" :alt="slotProps.data.brand"/&gt;
 							&lt;/div&gt;
-							&lt;div class="p-col-12 p-md-8 car-data"&gt;
-								&lt;div&gt;Vin: &lt;b&gt;{{slotProps.data.vin}}&lt;/b&gt;&lt;/div&gt;
-								&lt;div&gt;Year: &lt;b&gt;{{slotProps.data.year}}&lt;/b&gt;&lt;/div&gt;
-								&lt;div&gt;Brand: &lt;b&gt;{{slotProps.data.brand}}&lt;/b&gt;&lt;/div&gt;
-								&lt;div&gt;Color: &lt;b&gt;{{slotProps.data.color}}&lt;/b&gt;&lt;/div&gt;
-							&lt;/div&gt;
+							&lt;div class="p-col-12 p-md-8 car-details"&gt;
+								&lt;div class="p-grid"&gt;
+									&lt;div class="p-col-12"&gt;Vin: &lt;b&gt;{{slotProps.data.vin}}&lt;/b&gt;&lt;/div&gt;
 
+									&lt;div class="p-col-12"&gt;Year: &lt;b&gt;{{slotProps.data.year}}&lt;/b&gt;&lt;/div&gt;
+
+									&lt;div class="p-col-12"&gt;Brand: &lt;b&gt;{{slotProps.data.brand}}&lt;/b&gt;&lt;/div&gt;
+
+									&lt;div class="p-col-12"&gt;Color: &lt;b&gt;{{slotProps.data.color}}&lt;/b&gt;&lt;/div&gt;
+								&lt;/div&gt;
+							&lt;/div&gt;
 							&lt;div class="p-col-12 p-md-1 search-icon" style="margin-top: 40px"&gt;
 								&lt;Button icon="pi pi-search"&gt;&lt;/Button&gt;
 							&lt;/div&gt;
@@ -399,51 +403,50 @@ mounted() {
 </CodeHighlight>
 
 <CodeHighlight lang="javascript">
+<script>
 import CarService from '../../service/CarService';
 
 export default {
-	data() {
-		return {
-			cars: null,
-			layout: 'list',
-			sortKey: null,
-			sortOrder: null,
-			sortField: null,
-			sortOptions: [
-				{label: 'Newest First', value: '!year'},
-				{label: 'Oldest First', value: 'year'},
-				{label: 'Brand', value: 'brand'}
-			]
-		}
-	},
-	carService: null,
-	created() {
-		this.carService = new CarService();
-	},
-	mounted() {
-		this.carService.getCarsLarge().then(data => this.cars = data);
-	},
-	methods: {
-		changeMode(event) {
-			this.layout = event.value;
-		},
-		onSortChange(event){
-			const value = event.value.value;
-			const sortValue = event.value;
+    data() {
+        return {
+            cars: null,
+            layout: 'list',
+            sortKey: null,
+            sortOrder: null,
+            sortField: null,
+            sortOptions: [
+                {label: 'Newest First', value: '!year'},
+                {label: 'Oldest First', value: 'year'},
+                {label: 'Brand', value: 'brand'}
+            ]
+        }
+    },
+    carService: null,
+    created() {
+        this.carService = new CarService();
+    },
+    mounted() {
+        this.carService.getCarsLarge().then(data => this.cars = data);
+    },
+    methods: {
+        onSortChange(event){
+            const value = event.value.value;
+            const sortValue = event.value;
 
-			if (value.indexOf('!') === 0) {
-				this.sortOrder = -1;
-				this.sortField = value.substring(1, value.length);
-				this.sortKey = sortValue;
-			}
-			else {
-				this.sortOrder = 1;
-				this.sortField = value;
-				this.sortKey = sortValue;
-			}
-		}
-	}
+            if (value.indexOf('!') === 0) {
+                this.sortOrder = -1;
+                this.sortField = value.substring(1, value.length);
+                this.sortKey = sortValue;
+            }
+            else {
+                this.sortOrder = 1;
+                this.sortField = value;
+                this.sortKey = sortValue;
+            }
+        }
+    }
 }
+</script>
 </CodeHighlight>
 
 <CodeHighlight lang="css">

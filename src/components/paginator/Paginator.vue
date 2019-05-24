@@ -87,7 +87,7 @@ export default {
 
 				this.$emit('update:first', this.d_first);
                 this.$emit('update:rows', this.d_rows);
-                this.$emit('page-change', state);
+                this.$emit('page', state);
             }
         },
         changePageToFirst(event) {
