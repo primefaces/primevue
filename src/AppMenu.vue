@@ -1,7 +1,7 @@
 <template>
     <div :class="['layout-sidebar', {'active': active}]">
         <div class="layout-menu">
-            <a tabindex="0" @click="toggleMenu($event, 0)" :class="{'active-menuitem': activeMenuIndex === 0}">
+            <a tabindex="0" @click="toggleMenu($event, 0)" @keydown.enter="toggleMenu($event, 0)" :class="{'active-menuitem': activeMenuIndex === 0}">
                 <img alt="input" class="layout-menu-icon-inactive" src="./assets/images/menu/input.svg" />
                 <img alt="input" class="layout-menu-icon-active" src="./assets/images/menu/input-active.svg" />
                 <span>Input</span>
@@ -33,7 +33,7 @@
                 </div>
             </transition>
 
-            <a tabindex="0" @click="toggleMenu($event, 1)" :class="{'active-menuitem': activeMenuIndex === 1}">
+            <a tabindex="0" @click="toggleMenu($event, 1)" @keydown.enter="toggleMenu($event, 1)" :class="{'active-menuitem': activeMenuIndex === 1}">
                 <img alt="button" class="layout-menu-icon-inactive" src="./assets/images/menu/button.svg" />
                 <img alt="button" class="layout-menu-icon-active" src="./assets/images/menu/button-active.svg" />
                 <span>Button</span>
@@ -47,7 +47,7 @@
                 </div>
             </transition>
 
-            <a tabindex="0" @click="toggleMenu($event, 2)" :class="{'active-menuitem': activeMenuIndex === 2}">
+            <a tabindex="0" @click="toggleMenu($event, 2)" @keydown.enter="toggleMenu($event, 2)" :class="{'active-menuitem': activeMenuIndex === 2}">
                 <img alt="data" class="layout-menu-icon-inactive" src="./assets/images/menu/data.svg" />
                 <img alt="data" class="layout-menu-icon-active" src="./assets/images/menu/data-active.svg" />
                 <span>Data</span>
@@ -62,7 +62,7 @@
                 </div>
             </transition>
 
-            <a tabindex="0" @click="toggleMenu($event, 3)" :class="{'active-menuitem': activeMenuIndex === 3}">
+            <a tabindex="0" @click="toggleMenu($event, 3)" @keydown.enter="toggleMenu($event, 3)" :class="{'active-menuitem': activeMenuIndex === 3}">
                 <img alt="panel" class="layout-menu-icon-inactive" src="./assets/images/menu/panel.svg" />
                 <img alt="panel" class="layout-menu-icon-active" src="./assets/images/menu/panel-active.svg" />
                 <span>Panel</span>
@@ -81,7 +81,7 @@
                 </div>
             </transition>
 
-            <a tabindex="0" @click="toggleMenu($event, 4)" :class="{'active-menuitem': activeMenuIndex === 4}">
+            <a tabindex="0" @click="toggleMenu($event, 4)" @keydown.enter="toggleMenu($event, 4)" :class="{'active-menuitem': activeMenuIndex === 4}">
                 <img alt="overlay" class="layout-menu-icon-inactive" src="./assets/images/menu/overlay.svg" />
                 <img alt="overlay" class="layout-menu-icon-active" src="./assets/images/menu/overlay-active.svg" />
                 <span>Overlay</span>
@@ -96,7 +96,7 @@
                 </div>
             </transition>
 
-            <a tabindex="0" @click="toggleMenu($event, 5)" :class="{'active-menuitem': activeMenuIndex === 5}">
+            <a tabindex="0" @click="toggleMenu($event, 5)" @keydown.enter="toggleMenu($event, 5)" :class="{'active-menuitem': activeMenuIndex === 5}">
                 <img alt="file" class="layout-menu-icon-inactive" src="./assets/images/menu/file.svg" />
                 <img alt="file" class="layout-menu-icon-active" src="./assets/images/menu/file-active.svg" />
                 <span>File</span>
@@ -109,7 +109,7 @@
                 </div>
             </transition>
 
-            <a tabindex="0" @click="toggleMenu($event, 6)" :class="{'active-menuitem': activeMenuIndex === 6}">
+            <a tabindex="0" @click="toggleMenu($event, 6)" @keydown.enter="toggleMenu($event, 6)" :class="{'active-menuitem': activeMenuIndex === 6}">
                 <img alt="menu" class="layout-menu-icon-inactive" src="./assets/images/menu/menu.svg" />
                 <img alt="menu" class="layout-menu-icon-active" src="./assets/images/menu/menu-active.svg" />
                 <span>Menu</span>
@@ -122,7 +122,7 @@
                 </div>
             </transition>
 
-            <a tabindex="0" @click="toggleMenu($event, 7)" :class="{'active-menuitem': activeMenuIndex === 7}">
+            <a tabindex="0" @click="toggleMenu($event, 7)" @keydown.enter="toggleMenu($event, 7)" :class="{'active-menuitem': activeMenuIndex === 7}">
                 <img alt="charts" class="layout-menu-icon-inactive" src="./assets/images/menu/charts.svg" />
                 <img alt="charts" class="layout-menu-icon-active" src="./assets/images/menu/charts-active.svg" />
                 <span>Chart</span>
@@ -142,7 +142,7 @@
                 </div>
             </transition>
 
-            <a tabindex="0" @click="toggleMenu($event, 8)" :class="{'active-menuitem': activeMenuIndex === 8}">
+            <a tabindex="0" @click="toggleMenu($event, 8)" @keydown.enter="toggleMenu($event, 8)" :class="{'active-menuitem': activeMenuIndex === 8}">
                 <img alt="message" class="layout-menu-icon-inactive" src="./assets/images/menu/message.svg" />
                 <img alt="message" class="layout-menu-icon-active" src="./assets/images/menu/message-active.svg" />
                 <span>Messages</span>
@@ -156,7 +156,7 @@
                 </div>
             </transition>
 
-            <a tabindex="0" @click="toggleMenu($event, 9)" :class="{'active-menuitem': activeMenuIndex === 9}">
+            <a tabindex="0" @click="toggleMenu($event, 9)" @keydown.enter="toggleMenu($event, 9)" :class="{'active-menuitem': activeMenuIndex === 9}">
                 <img alt="misc" class="layout-menu-icon-inactive" src="./assets/images/menu/misc.svg" />
                 <img alt="misc" class="layout-menu-icon-active" src="./assets/images/menu/misc-active.svg" />
                 <span>Misc</span>
