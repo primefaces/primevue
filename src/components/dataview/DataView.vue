@@ -196,10 +196,14 @@
                         data = this.sort();
                     }
                 
-                    if (this.paginator)
-                        return data.slice(this.d_first, this.d_first + this.d_rows);
-                    else
+                    if (this.paginator) {
+                        const first = this.lazy ? 0 : this.d_first;
+                        return data.slice(first, first + this.d_rows);
+                    }
+                    else {
                         return data;
+                    }
+                        
                 }
                 else {
                     return null;

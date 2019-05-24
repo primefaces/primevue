@@ -100,7 +100,7 @@ export default {
 					of page links to display. To customize the left and right side of the paginators, use <i>paginatorLeft</i> and <i>paginatorRight</i> templates.</p>
 <CodeHighlight>
 <template v-pre>
-&lt;DataView :value="cars" :layout="layout" paginatorPosition='both' :paginator="true" :rows="20"&gt;
+&lt;DataView :value="cars" :layout="layout" paginatorPosition="both" :paginator="true" :rows="20"&gt;
 	&lt;template #paginatorLeft&gt;
 		&lt;Button type="button" icon="pi pi-refresh"/&gt;
 	&lt;/template&gt;
@@ -182,6 +182,45 @@ export default {
                 this.sortField = value;
                 this.sortKey = sortValue;
             }
+        }
+    }
+}
+</template>
+</CodeHighlight>
+
+                <h3>Lazy Loading</h3>
+                <p>Lazy loading is useful to deal with huge datasets, in order to implement lazy loading use the pagination and utilize the <i>page</i> callback to load your data from the backend.
+                Pagination in this case needs to display the logical number of records bound to the <i>totalRecords</i> property so that paginator can display itself according to the total records although you'd only
+                need to load the data of the current page.</p>
+<CodeHighlight>
+<template v-pre>
+&lt;DataView :value="cars" :layout="layout" :paginator="true" :rows="20" :lazy="true" @page="onPage($event)"&gt;
+	&lt;template #list="slotProps" &gt;
+		&lt;div&gt;Vin: &lt;b&gt;{{slotProps.data.vin}}&lt;/b&gt;&lt;/div&gt;
+	&lt;/template&gt;
+	&lt;template #grid="slotProps"&gt;
+		&lt;div&gt;Vin: &lt;b&gt;{{slotProps.data.vin}}&lt;/b&gt;&lt;/div&gt;
+	&lt;/template&gt;
+&lt;/DataView&gt;
+</template>
+</CodeHighlight>
+
+<CodeHighlight lang="js">
+<template v-pre>
+export default {
+    data() {
+        return {
+            cars: null,
+            layout: 'list'
+        }
+    },
+    carService: null,
+    mounted() {
+        this.cars = //initialize the first chunk of data between 0 and 20
+    },
+    methods: {
+        onPage(event){
+            this.cars = //load the data between (event.first) and (event.first + event.rows) from a remote datasource
         }
     }
 }
@@ -383,7 +422,7 @@ export default {
 
     &lt;div class="content-section implementation dataview-demo"&gt;
         &lt;h3 class="first"&gt;Default&lt;/h3&gt;
-        &lt;DataView :value="cars" :layout="layout" paginatorPosition='both' :paginator="true" :rows="20" :sortOrder="sortOrder" :sortField="sortField"&gt;
+        &lt;DataView :value="cars" :layout="layout" paginatorPosition="both" :paginator="true" :rows="20" :sortOrder="sortOrder" :sortField="sortField"&gt;
             &lt;template #header&gt;
                 &lt;div class="p-grid p-nogutter"&gt;
                     &lt;div class="p-col-6" style="text-align: left"&gt;
