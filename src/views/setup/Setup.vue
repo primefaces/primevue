@@ -20,13 +20,17 @@ npm install primeicons --save
             <p>Path of each component is available at the "import" section of a component documentation.</p>
 
 <CodeHighlight lang="js">
-{`
 //import {ComponentName} from 'primevue/{componentname}';
-import {Dialog} from 'primevue/dialog';
-import {Accordion,AccordionTab} from 'primevue/accordion';
 
-`}
+import {Dialog} from 'primevue/dialog';
 </CodeHighlight>
+
+            <h3>Register</h3>
+            <p>In the next step, register the component with the tag name you'd like to use.</p>
+<CodeHighlight lang="js">
+Vue.component('Dialog', Dialog);
+</CodeHighlight>
+
         
             <h3>Dependencies</h3>
             <p>Majority of PrimeVue components (95%) are native and there are some exceptions having 3rd party dependencies such as Google Maps for GMap.</p>
