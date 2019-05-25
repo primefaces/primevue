@@ -361,12 +361,12 @@ export default {
     border: 0 none;
 }
 
-.p-fileupload-choose {
+.p-button.p-fileupload-choose {
     position: relative;
     overflow: hidden;
 }
 
-.p-fileupload-choose input[type=file] {
+.p-button.p-fileupload-choose input[type=file] {
     position: absolute;
     top: 0;
     right: 0;

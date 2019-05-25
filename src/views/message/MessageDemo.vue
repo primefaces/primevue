@@ -69,7 +69,7 @@ export default {
 }
 </script>
 
-<style lang="scss">
+<style scoped>
 button.p-button {
     margin-right: .5em;
 }

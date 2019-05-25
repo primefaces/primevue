@@ -354,7 +354,6 @@ export default {
 </script>
 
 <style>
-/** MultiSelect **/
 .p-multiselect {
     display: inline-block;
     position: relative;
