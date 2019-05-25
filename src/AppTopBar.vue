@@ -13,7 +13,7 @@
                 <transition name="p-input-overlay" @enter="onThemesMenuEnter" @leave="onThemesMenuLeave">
                     <ul v-if="themesMenuVisible">
                         <li class="topbar-submenu-header">THEMING</li>
-                        <li><router-link to="/icons" @click.native="hideThemesMenu()"><i className="pi pi-fw pi-search"/><span>Icons</span></router-link></li>
+                        <li><router-link to="/icons" @click.native="hideThemesMenu()"><i class="pi pi-fw pi-search"/><span>Icons</span></router-link></li>
                         <li class="topbar-submenu-header">FREE THEMES</li>
                         <li><a href="#" @click="changeTheme($event, 'nova-light', false)"><img src="./assets/images/layouts/themeswitcher-nova-light.png" alt="Nova Light" /><span>Nova Light</span></a></li>
                         <li><a @click="changeTheme($event, 'nova-dark', false)"><img src="./assets/images/layouts/themeswitcher-nova-dark.png" alt="Nova Dark" /><span>Nova Dark</span></a></li>

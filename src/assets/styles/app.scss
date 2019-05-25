@@ -40,7 +40,7 @@
     border-top-right-radius: $val;
 }
 
-$focusBorderColor:#aeb6be;
+$focusBorderColor:#8dcdff;
 
 body {
     margin: 0px;
@@ -109,28 +109,29 @@ body {
     .topbar-menu {
         list-style-type: none;
         float: right;
-        margin: 25px 60px 0 0;
+        margin: 0 60px 0 0;
         padding: 0;
         height: 100%;
 
         > li {
             display: inline-block;
+            height: 70px;
+            line-height: 70px;
 
             > a {
                 text-decoration: none;
-                color: #34495e;
+                color: #484848;
                 min-width: 120px;
                 font-size: 16px;
                 display: inline-block;
                 text-align: center;
-                padding-bottom: 8px;
-                border-bottom: 4px solid transparent;
                 user-select: none;
+                line-height: inherit;
                 cursor: pointer;
-                @include transition(border-color .2s);
+                @include transition(background-color .2s);
 
                 &:hover {
-                    border-bottom-color: #41b883;
+                    background-color: #eeeeee;
                 }
 
                 &:focus {
@@ -146,7 +147,7 @@ body {
 
                 > ul {
                     position: absolute;
-                    top: 45px;
+                    top: 70px;
                     left: -75px;
                     width: 250px;
                     max-height: 300px;
@@ -156,21 +157,26 @@ body {
                     box-shadow: 0 0 10px 0 rgba(0, 0, 0, 0.3);
                     overflow: auto;
                     list-style-type: none;
-                    padding: 15px 0;
+                    padding: 4px 0;
                     margin: 0;
                     border-radius: 3px;
 
-                    > li.topbar-submenu-header {
-                        padding: 6px 12px;
-                        font-weight: bold;
-                        text-align: left;
-                        color: #ffffff;
-                        background-color: #484848;
+                    > li {
+                        margin: 2px 0;
+                        line-height: 1;
+                        
+                        &.topbar-submenu-header {
+                            padding: 6px 12px;
+                            font-weight: bold;
+                            text-align: left;
+                            color: #ffffff;
+                            background-color: #484848;
+                        }
                     }
 
                     a {
                         text-decoration: none;
-                        color: #404C51;
+                        color: #484848;
                         padding: 6px 12px;
                         display: block;
                         user-select: none;
@@ -333,7 +339,7 @@ body {
                 border-radius: 4px;
                 -webkit-border-radius: 4px;
                 font-size: 14px;
-                color: #494c52;
+                color: #484848;
                 transition: background-color .2s;
 
                 &:hover {
