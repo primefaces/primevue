@@ -11,6 +11,7 @@
     "build-app": "vue-cli-service build",
     "build-lib": "node build-lib",
     "build-resources": "gulp build-resources",
+    "build-exports": "gulp build-exports",
     "lint": "vue-cli-service lint",
     "test:unit": "vue-cli-service test:unit"
   },
