@@ -123,3 +123,123 @@ export default {
     }
 }
 </script>
+
+<style>
+.p-sidebar {
+    position: fixed;
+    padding: .5em 1em;
+    -webkit-transition: transform .3s;
+    transition: transform .3s;
+}
+
+.p-sidebar-left {
+    top: 0;
+    left: 0;
+    width: 20em;
+    height: 100%;
+}
+
+.p-sidebar-right {
+    top: 0;
+    right: 0;
+    width: 20em;
+    height: 100%;
+}
+
+.p-sidebar-top {
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 10em;
+}
+
+.p-sidebar-bottom {
+    bottom: 0;
+    left: 0;
+    width: 100%;
+    height: 10em;
+}
+
+.p-sidebar-full {
+    width: 100%;
+    height: 100%;
+    top: 0;
+    left: 0;
+    -webkit-transition: none;
+    transition: none;
+}
+
+.p-sidebar-left.p-sidebar-enter,
+.p-sidebar-left.p-sidebar-leave-to {
+    transform: translateX(-100%);
+}
+
+.p-sidebar-right.p-sidebar-enter,
+.p-sidebar-right.p-sidebar-leave-to {
+    transform: translateX(100%);
+}
+
+.p-sidebar-top.p-sidebar-enter,
+.p-sidebar-top.p-sidebar-leave-to {
+    transform: translateY(-100%);
+}
+
+.p-sidebar-bottom.p-sidebar-enter,
+.p-sidebar-bottom.p-sidebar-leave-to {
+    transform: translateY(100%);
+}
+
+.p-sidebar-full.p-sidebar-enter,
+.p-sidebar-full.p-sidebar-leave-to {
+    opacity: 0;
+}
+
+.p-sidebar-full.p-sidebar-enter-active,
+.p-sidebar-full.p-sidebar-leave-active {
+    transition: opacity 400ms cubic-bezier(0.25, 0.8, 0.25, 1);
+}
+
+.p-sidebar-left.p-sidebar-sm,
+.p-sidebar-right.p-sidebar-sm {
+    width: 20em;
+}
+
+.p-sidebar-left.p-sidebar-md,
+.p-sidebar-right.p-sidebar-md {
+    width: 40em;
+}
+
+.p-sidebar-left.p-sidebar-lg,
+.p-sidebar-right.p-sidebar-lg {
+    width: 60em;
+}
+
+.p-sidebar-top.p-sidebar-sm,
+.p-sidebar-bottom.p-sidebar-sm {
+    height: 10em;
+}
+
+.p-sidebar-top.p-sidebar-md,
+.p-sidebar-bottom.p-sidebar-md {
+    height: 20em;
+}
+
+.p-sidebar-top.p-sidebar-lg,
+.p-sidebar-bottom.p-sidebar-lg {
+    height: 30em;
+}
+
+.p-sidebar-close {
+    float: right;
+    cursor: pointer;
+}
+
+@media screen and (max-width: 64em) {
+    .p-sidebar-left.p-sidebar-lg,
+    .p-sidebar-left.p-sidebar-md,
+    .p-sidebar-right.p-sidebar-lg,
+    .p-sidebar-right.p-sidebar-md {
+        width: 20em;
+    }
+}
+</style>

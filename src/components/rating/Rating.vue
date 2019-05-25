@@ -65,3 +65,18 @@ export default {
     }
 }
 </script>
+
+<style>
+.p-rating .p-rating-icon {
+    cursor: pointer;
+}
+
+.p-rating {
+    font-size: 1.25em;
+}
+
+.p-rating.p-disabled .p-rating-icon,
+.p-rating.p-rating-readonly .p-rating-icon {
+    cursor: default;
+}
+</style>

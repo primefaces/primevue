@@ -52,3 +52,14 @@ export default {
     }
 }
 </script>
+
+<style>
+.p-inputtextarea-resizable {
+    overflow: hidden;
+    resize: none;
+}
+
+.p-fluid .p-inputtextarea {
+    width: 100%;
+}
+</style>

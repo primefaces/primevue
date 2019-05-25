@@ -212,3 +212,47 @@
 		}
 	}
 </script>
+
+<style>
+.p-dataview .p-paginator {
+	text-align: center;
+}
+
+.p-dataview-column {
+	padding: .25em;
+}
+
+.p-dataview-content-empty {
+	padding: .25em .625em;
+}
+
+.p-dataview .p-dataview-header,
+.p-dataview .p-dataview-footer {
+	text-align: center;
+	padding: .5em .75em;
+}
+
+.p-dataview .p-dataview-header {
+	border-bottom: 0 none;
+}
+
+.p-dataview .p-dataview-footer {
+	border-top: 0 none;
+}
+
+.p-dataview .p-paginator-top {
+	border-bottom: 0 none;
+}
+
+.p-dataview .p-paginator-bottom {
+	border-top: 0 none;
+}
+
+.p-dataview.p-dataview-list > .p-dataview-content > div.p-grid > div {
+	width: 100%;
+}
+
+.p-dataview-loading-icon {
+	font-size: 2em;
+}
+</style>

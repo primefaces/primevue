@@ -49,5 +49,61 @@ export default {
 </script>
 
 <style>
+.p-panel {
+	padding: 0.2em;
+}
 
+.p-panel .p-panel-titlebar {
+	padding: .5em .75em;
+}
+
+.p-panel .p-panel-titlebar-icon {
+	float: right;
+    cursor: pointer;
+    height: 1.25em;
+    width: 1.25em;
+    line-height: 1.25em;
+    text-align: center;
+    -webkit-user-select: none;
+    -khtml-user-select: none;
+    -moz-user-select: none;
+    -o-user-select: none;
+    user-select: none;
+}
+
+.p-panel .p-panel-titlebar-icon span {
+    line-height: inherit;
+}
+
+.p-panel .p-panel-content {
+	border: 0;
+    background: none;
+    padding: .5em .75em;
+}
+
+.p-panel .p-panel-footer {
+	border-width: 1px 0 0;
+	padding: .25em .5em;
+	text-align:left;
+}
+
+.p-panel-content-wrapper-enter,
+.p-panel-content-wrapper-leave-to {
+    max-height: 0;
+}
+
+.p-panel-content-wrapper-enter-to,
+.p-panel-content-wrapper-leave {
+    max-height: 1000px;
+}
+
+.p-panel-content-wrapper-leave-active {
+    overflow: hidden;
+    transition: max-height 0.45s cubic-bezier(0, 1, 0, 1);
+}
+
+.p-panel-content-wrapper-enter-active {
+    overflow: hidden;
+    transition: max-height 1s ease-in-out;
+}
 </style>
