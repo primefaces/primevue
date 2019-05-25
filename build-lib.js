@@ -5,15 +5,10 @@ const vueCliServicePath = path.resolve(__dirname, 'node_modules/@vue/cli-service
 
 fs.readdirSync(path.resolve(__dirname, './src/components/')).forEach(folder => {
     fs.readdirSync(path.resolve(__dirname, './src/components/' + folder)).forEach(file => {
-        if (/\.vue$/.test(file)) {
+        if (/\.vue$/.test(file) || /\.js$/.test(file)) {
             let filename = file.split('.vue')[0].toLowerCase();
             execSync(
                 `node ${vueCliServicePath} build src/components/${folder}/${file} --target lib --name ${filename} --dest components/${folder} --no-clean `
-            )
-        }
-        else if (/\.js$/.test(file)) {
-            execSync(
-                `node ${vueCliServicePath} build src/components/${folder}/${file} --target lib --name ${folder} --dest components/${folder} --no-clean `
             )
         }
     });

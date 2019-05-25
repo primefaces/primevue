@@ -23,7 +23,6 @@ gulp.task('build-themes', function() {
     return gulp.src([
         'public/themes/**/*'
     ])
-    .pipe(uglifycss({"uglyComments": true}))
     .pipe(gulp.dest('resources/themes'));
 })
 
