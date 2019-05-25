@@ -11,7 +11,7 @@ import Chart from './components/chart/Chart';
 import Checkbox from './components/checkbox/Checkbox';
 import Chips from './components/chips/Chips';
 import DataView from './components/dataview/DataView';
-import DataViewLayoutOptions from './components/dataview/DataViewLayoutOptions';
+import DataViewLayoutOptions from './components/dataviewlayoutoptions/DataViewLayoutOptions';
 import Dialog from './components/dialog/Dialog';
 import Dropdown from './components/dropdown/Dropdown';
 import Editor from './components/editor/Editor';
