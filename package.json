@@ -8,8 +8,9 @@
   "license": "MIT",
   "scripts": {
     "serve": "vue-cli-service serve",
-    "build": "vue-cli-service build",
+    "build-app": "vue-cli-service build",
     "build-lib": "node build-lib",
+    "build-resources": "gulp build-resources",
     "lint": "vue-cli-service lint",
     "test:unit": "vue-cli-service test:unit"
   },
@@ -37,9 +38,13 @@
     "@fullcalendar/daygrid": "4.0.1",
     "@fullcalendar/interaction": "4.0.2",
     "@fullcalendar/timegrid": "4.0.1",
-    "chart.js": "2.7.3"
-  },
-  "dependencies": {
+    "chart.js": "2.7.3",
+    "gulp": "^3.9.1",
+    "gulp-concat": "^2.6.0",
+    "gulp-flatten": "^0.2.0",
+    "gulp-rename": "^1.2.2",
+    "gulp-uglify": "^1.5.3",
+    "gulp-uglifycss": "^1.0.6",
     "prism-es6": "^1.1.2",
     "prismjs": "^1.15.0"
   }

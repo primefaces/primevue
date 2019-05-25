@@ -1,6 +1,8 @@
 .DS_Store
 node_modules
 /dist
+/resources
+/components
 
 # misc
 /.sass-cache
@@ -28,3 +30,4 @@ yarn-error.log*
 *.njsproj
 *.sln
 *.sw*
+
