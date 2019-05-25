@@ -75,18 +75,18 @@ import Rating from 'primevue/rating';
 				<h3>Events</h3>
 				<div class="doc-tablewrapper">
 					<table class="doc-table">
-						<thead>
+                        <thead>
                             <tr>
                                 <th>Name</th>
                                 <th>Parameters</th>
                                 <th>Description</th>
                             </tr>
-						</thead>
+                        </thead>
 						<tbody>
-						    <tr>
+                            <tr>
                                 <td>change</td>
                                 <td>event.originalEvent: Original event <br />
-                                    event.value: Selected option value </td>
+                                event.value: Selected option value </td>
                                 <td>Callback to invoke on value change.</td>
                             </tr>
                             <tr>
