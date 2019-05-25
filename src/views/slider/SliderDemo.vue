@@ -48,7 +48,7 @@ export default {
 }
 </script>
 
-<style>
+<style scoped>
 .p-slider-horizontal, .p-inputtext {
     width: 14em;
 }

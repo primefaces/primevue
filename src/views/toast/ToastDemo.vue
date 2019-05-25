@@ -103,9 +103,3 @@ export default {
     }
 }
 </script>
-
-<style lang="scss">
-button.p-button {
-    margin-right: .5em;
-}
-</style>

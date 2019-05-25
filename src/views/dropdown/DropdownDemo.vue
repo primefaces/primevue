@@ -64,7 +64,7 @@ export default {
 }
 </script>
 
-<style lang="scss">
+<style lang="scss" scoped>
 .p-dropdown {
     width: 12em;
 }

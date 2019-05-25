@@ -146,7 +146,7 @@ import Chips from 'primevue/chips';
 <template v-pre>
 &lt;template&gt;
 	&lt;div&gt;
-		&lt;div class="content-section introduction"&gt;
+		&lt;div class="content-section introduction p-fluid"&gt;
 			&lt;div class="feature-intro"&gt;
 				&lt;h1&gt;Chips&lt;/h1&gt;
 				&lt;p&gt;Chips is used to enter multiple values on an input field.&lt;/p&gt;
@@ -180,12 +180,6 @@ export default {
 			value2: null
 		}
 	}
-}
-</CodeHighlight>
-
-<CodeHighlight lang="css">
-.p-chips .p-inputtext {
-	width: 100%;
 }
 </CodeHighlight>
 			</TabPanel>

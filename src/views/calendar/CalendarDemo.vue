@@ -147,7 +147,7 @@ export default {
 }
 </script>
 
-<style lang="scss" scoped>
+<style scoped>
 .special-day {
     background-color: #1dcbb3;
     color: #ffffff;

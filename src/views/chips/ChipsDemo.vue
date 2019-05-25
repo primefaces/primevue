@@ -7,7 +7,7 @@
             </div>
         </div>
 
-        <div class="content-section implementation">
+        <div class="content-section implementation p-fluid">
             <h3 class="first">Basic</h3>
             <Chips v-model="value1" />
 
@@ -41,9 +41,3 @@ export default {
     }
 }
 </script>
-
-<style>
-.p-chips .p-inputtext {
-    width: 100%;
-}
-</style>
