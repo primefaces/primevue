@@ -4,7 +4,8 @@
 			<TabPanel header="Documentation">
 				<h3>Import</h3>
 <CodeHighlight lang="javascript">
-import {Accordion, AccordionTab} from 'primevue/accordion';
+import Accordion from 'primevue/accordion';
+import AccordionTab from 'primevue/accordiontab';
 </CodeHighlight>
 
 				<h3>Getting Started</h3>

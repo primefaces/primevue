@@ -4,7 +4,8 @@
 			<TabPanel header="Documentation">
 				<h3>Import</h3>
 <CodeHighlight lang="javascript">
-import {TabView, TabPanel} from 'primevue/tabview';
+import TabView from 'primevue/tabview';
+import TabPanel from 'primevue/tabpanel';
 </CodeHighlight>
 
 				<h3>Getting Started</h3>
