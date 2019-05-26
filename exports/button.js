@@ -1,3 +1,3 @@
 'use strict';
-module.exports = require('./components/button/button.common');
+module.exports = require('./components/button/Button.vue');
             

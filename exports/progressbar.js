@@ -1,3 +1,3 @@
 'use strict';
-module.exports = require('./components/progressbar/progressbar.common');
+module.exports = require('./components/progressbar/ProgressBar.vue');
             

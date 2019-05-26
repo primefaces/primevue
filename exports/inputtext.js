@@ -1,3 +1,3 @@
 'use strict';
-module.exports = require('./components/inputtext/inputtext.common');
+module.exports = require('./components/inputtext/InputText.vue');
             

@@ -1,3 +1,3 @@
 'use strict';
-module.exports = require('./components/calendar/calendar.common');
+module.exports = require('./components/calendar/Calendar.vue');
             

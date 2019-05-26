@@ -1,3 +1,3 @@
 'use strict';
-module.exports = require('./components/textarea/textarea.common');
+module.exports = require('./components/textarea/Textarea.vue');
             

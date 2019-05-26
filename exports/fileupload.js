@@ -1,3 +1,3 @@
 'use strict';
-module.exports = require('./components/fileupload/fileupload.common');
+module.exports = require('./components/fileupload/FileUpload.vue');
             

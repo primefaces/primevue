@@ -1,3 +1,3 @@
 'use strict';
-module.exports = require('./components/chart/chart.common');
+module.exports = require('./components/chart/Chart.vue');
             

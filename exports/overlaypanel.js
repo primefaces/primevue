@@ -1,3 +1,3 @@
 'use strict';
-module.exports = require('./components/overlaypanel/overlaypanel.common');
+module.exports = require('./components/overlaypanel/OverlayPanel.vue');
             

@@ -1,3 +1,3 @@
 'use strict';
-module.exports = require('./components/dialog/dialog.common');
+module.exports = require('./components/dialog/Dialog.vue');
             

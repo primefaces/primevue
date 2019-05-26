@@ -1,3 +1,3 @@
 'use strict';
-module.exports = require('./components/sidebar/sidebar.common');
+module.exports = require('./components/sidebar/Sidebar.vue');
             

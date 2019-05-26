@@ -1,3 +1,3 @@
 'use strict';
-module.exports = require('./components/chips/chips.common');
+module.exports = require('./components/chips/Chips.vue');
             

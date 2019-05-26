@@ -1,3 +1,3 @@
 'use strict';
-module.exports = require('./components/toolbar/toolbar.common');
+module.exports = require('./components/toolbar/Toolbar.vue');
             

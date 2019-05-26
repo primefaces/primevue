@@ -1,3 +1,3 @@
 'use strict';
-module.exports = require('./components/password/password.common');
+module.exports = require('./components/password/Password.vue');
             

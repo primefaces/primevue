@@ -1,3 +1,3 @@
 'use strict';
-module.exports = require('./components/multiselect/multiselect.common');
+module.exports = require('./components/multiselect/MultiSelect.vue');
             

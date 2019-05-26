@@ -1,3 +1,3 @@
 'use strict';
-module.exports = require('./components/fieldset/fieldset.common');
+module.exports = require('./components/fieldset/Fieldset.vue');
             

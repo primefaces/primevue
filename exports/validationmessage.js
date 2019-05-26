@@ -1,3 +1,3 @@
 'use strict';
-module.exports = require('./components/validationmessage/validationmessage.common');
+module.exports = require('./components/validationmessage/ValidationMessage.vue');
             

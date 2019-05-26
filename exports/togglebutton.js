@@ -1,3 +1,3 @@
 'use strict';
-module.exports = require('./components/togglebutton/togglebutton.common');
+module.exports = require('./components/togglebutton/ToggleButton.vue');
             

@@ -1,3 +1,3 @@
 'use strict';
-module.exports = require('./components/tabview/tabview.common');
+module.exports = require('./components/tabview/TabView.vue');
             

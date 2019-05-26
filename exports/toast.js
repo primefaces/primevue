@@ -1,3 +1,3 @@
 'use strict';
-module.exports = require('./components/toast/toast.common');
+module.exports = require('./components/toast/Toast.vue');
             

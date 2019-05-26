@@ -6,7 +6,7 @@ const vueCliServicePath = path.resolve(__dirname, 'node_modules/@vue/cli-service
 fs.readdirSync(path.resolve(__dirname, './src/components/')).forEach(folder => {
     fs.readdirSync(path.resolve(__dirname, './src/components/' + folder)).forEach(file => {
         if (/\.vue$/.test(file) || /\.js$/.test(file)) {
-            let filename = file.split('.vue')[0].toLowerCase();
+            let filename = file.split(/(.vue)$|(.js)$/)[0].toLowerCase();
             console.log('Building ' + filename);
 
             execSync(

@@ -1,3 +1,3 @@
 'use strict';
-module.exports = require('./components/message/message.common');
+module.exports = require('./components/message/Message.vue');
             

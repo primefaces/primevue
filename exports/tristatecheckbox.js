@@ -1,3 +1,3 @@
 'use strict';
-module.exports = require('./components/tristatecheckbox/tristatecheckbox.common');
+module.exports = require('./components/tristatecheckbox/TriStateCheckbox.vue');
             

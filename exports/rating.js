@@ -1,3 +1,3 @@
 'use strict';
-module.exports = require('./components/rating/rating.common');
+module.exports = require('./components/rating/Rating.vue');
             

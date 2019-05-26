@@ -1,3 +1,3 @@
 'use strict';
-module.exports = require('./components/fullcalendar/fullcalendar.common');
+module.exports = require('./components/fullcalendar/FullCalendar.vue');
             

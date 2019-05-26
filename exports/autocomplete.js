@@ -1,3 +1,3 @@
 'use strict';
-module.exports = require('./components/autocomplete/autocomplete.common');
+module.exports = require('./components/autocomplete/AutoComplete.vue');
             

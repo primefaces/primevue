@@ -1,3 +1,3 @@
 'use strict';
-module.exports = require('./components/radiobutton/radiobutton.common');
+module.exports = require('./components/radiobutton/RadioButton.vue');
             

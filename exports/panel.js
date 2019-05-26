@@ -1,3 +1,3 @@
 'use strict';
-module.exports = require('./components/panel/panel.common');
+module.exports = require('./components/panel/Panel.vue');
             

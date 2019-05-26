@@ -1,3 +1,3 @@
 'use strict';
-module.exports = require('./components/card/card.common');
+module.exports = require('./components/card/Card.vue');
             

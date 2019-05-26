@@ -1,3 +1,3 @@
 'use strict';
-module.exports = require('./components/paginator/paginator.common');
+module.exports = require('./components/paginator/Paginator.vue');
             

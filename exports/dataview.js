@@ -1,3 +1,3 @@
 'use strict';
-module.exports = require('./components/dataview/dataview.common');
+module.exports = require('./components/dataview/DataView.vue');
             

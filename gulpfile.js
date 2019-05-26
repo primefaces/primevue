@@ -6,6 +6,11 @@ var gulp = require('gulp'),
     rename = require('gulp-rename'),
     del = require('del'),
     flatten = require('gulp-flatten');
+
+gulp.task('copy-components', function() {
+    return gulp.src(['src/components/**/*'])
+        .pipe(gulp.dest('./components'));
+});
     
 gulp.task('build-css', function() {
     return gulp.src([

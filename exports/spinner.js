@@ -1,3 +1,3 @@
 'use strict';
-module.exports = require('./components/spinner/spinner.common');
+module.exports = require('./components/spinner/Spinner.vue');
             
