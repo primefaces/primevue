@@ -1,7 +1,7 @@
 <template>
     <div :class="containerClass">
         <div class="p-toast-item">
-            <button class="p-toast-icon-close p-link" @click="close">
+            <button class="p-toast-icon-close p-link" @click="onCloseClick" v-if="closable !== false">
                 <span class="p-toast-icon-close-icon pi pi-times"></span>
             </button>
             <span :class="iconClass"></span>
@@ -18,9 +18,10 @@ export default {
     props: {
         message: null
     },
+    closeTimeout: null,
     mounted() {
         if (this.message.life) {
-            setTimeout(() => {
+            this.closeTimeout = setTimeout(() => {
                 this.close();
             }, this.message.life)
         }
@@ -28,6 +29,13 @@ export default {
     methods: {
         close() {
             this.$emit('close', this.message);
+        },
+        onCloseClick() {
+            if (this.closeTimeout) {
+                clearTimeout(this.closeTimeout);
+            }
+
+            this.close();
         }
     },
     computed: {

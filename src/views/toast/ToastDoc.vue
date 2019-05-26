@@ -67,15 +67,9 @@ this.$toast.add({severity:'success', summary: 'Success Message', detail:'Order s
                                 <td>Whether the message can be closed manually using the close icon.</td>
                             </tr>
                             <tr>
-                                <td>sticky</td>
-                                <td>element</td>
-                                <td>null</td>
-                                <td>When enabled, message is not removed automatically.</td>
-                            </tr>
-                            <tr>
                                 <td>life</td>
                                 <td>number</td>
-                                <td>3000</td>
+                                <td>null</td>
                                 <td>Delay in milliseconds to close the message automatically.</td>
                             </tr>
                             <tr>
