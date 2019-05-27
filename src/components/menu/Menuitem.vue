@@ -1,6 +1,6 @@
 <template>
-<li class="p-menuitem" role="menuitem">
-    <a :href="item.url||'#'" class="p-menuitem-link" @click="onClick">
+<li :class="containerClass" role="menuitem" :style="item.style">
+    <a :href="item.url||'#'" class="p-menuitem-link" @click="onClick" :target="item.target">
         <span :class="['p-menuitem-icon', item.icon]"></span>
         <span class="p-menuitem-text">{{item.label}}</span>
     </a>
@@ -19,6 +19,14 @@ export default {
                 item: this.item
             });
             event.preventDefault();
+        }
+    },
+    computed: {
+        containerClass() {
+            return [
+                'p-menitem',
+                this.item.class
+            ]
         }
     }
 }

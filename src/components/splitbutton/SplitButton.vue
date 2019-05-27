@@ -5,7 +5,7 @@
         <transition name="p-input-overlay" @enter="onOverlayEnter" @leave="onOverlayLeave">
             <div ref="overlay" class="p-menu p-menu-dynamic p-component" v-if="overlayVisible">
                 <ul class="p-menu-list p-reset">
-                    <li class="p-menuitem" role="menuitem" v-for="item of model" :key="item.label">
+                    <li role="menuitem" v-for="item of model" :key="item.label" :target="item.target" :style="item.style" :class="['p-menuitem', item.class]">
                         <a :href="item.url||'#'" class="p-menuitem-link" @click="itemClick($event, item)">
                             <span :class="['p-menuitem-icon', item.icon]"></span>
                             <span class="p-menuitem-text">{{item.label}}</span>
