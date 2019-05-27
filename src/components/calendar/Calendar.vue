@@ -2,7 +2,7 @@
     <span :class="containerClass">
         <CalendarInputText ref="input" v-if="!inline" type="text" v-bind="$attrs" v-on="listeners" :value="inputFieldValue" :readonly="!manualInput" />
         <CalendarButton v-if="showIcon" :icon="icon" tabindex="-1" class="p-datepicker-trigger p-calendar-button" :disabled="$attrs.disabled" @click="onButtonClick" />
-        <transition name="p-input-overlay" @enter="onOverlayEnter" @after-enter="bindOutsideClickListener" @leave="onOverlayLeave">
+        <transition name="p-input-overlay" @enter="onOverlayEnter" @after-enter="onOverlayEnterComplete" @leave="onOverlayLeave">
             <div ref="overlay" :class="panelStyleClass" v-if="inline ? true : overlayVisible">
                 <template v-if="!timeOnly">
                     <div class="p-datepicker-group" v-for="(month,i) of months" :key="month.month + month.year">
@@ -503,6 +503,9 @@ export default {
             }
             this.alignOverlay();
             this.$emit('show');
+        },
+        onOverlayEnterComplete() {
+            this.bindOutsideClickListener();
         },
         onOverlayLeave() {
             this.unbindOutsideClickListener();
@@ -1153,12 +1156,10 @@ export default {
                 this.mask.style.zIndex = String(parseInt(this.$refs.overlay.style.zIndex, 10) - 1);
                 DomHandler.addMultipleClasses(this.mask, 'p-component-overlay p-datepicker-mask p-datepicker-mask-scrollblocker');
                 
-                setTimeout(() => {
-                    this.maskClickListener = () => {
-                        this.disableModality();
-                    };
-                    this.mask.addEventListener('click', this.maskClickListener);
-                }, 150);
+                this.maskClickListener = () => {
+                    this.disableModality();
+                };
+                this.mask.addEventListener('click', this.maskClickListener);
 
                 document.body.appendChild(this.mask);
                 DomHandler.addClass(document.body, 'p-overflow-hidden');
