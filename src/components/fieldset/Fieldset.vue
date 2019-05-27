@@ -5,7 +5,7 @@
                 <span class="p-fieldset-legend-text" >{{legend}}</span>
             </slot>
             <a tabindex="0" v-if="toggleable" @click="toggle" @keydown.enter="toggle">
-                <span class="p-fieldset-toggler pi pi-minus"></span>
+                <span :class="iconClass"></span>
                 <slot name="legend">
                     <span class="p-fieldset-legend-text">{{legend}}</span>
                 </slot>
@@ -42,7 +42,15 @@ export default {
                 value: this.d_collapsed
             });
         }
-    } 
+    },
+	computed: {
+		iconClass() {
+			return ['p-fieldset-toggler  pi ', {
+				'pi-minus': !this.d_collapsed,
+				'pi-plus': this.d_collapsed
+			}]
+		}
+	}
 }
 </script>
 
