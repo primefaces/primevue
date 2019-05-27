@@ -978,7 +978,7 @@ body {
         }
 
         .logo {
-            margin: 8px 0;
+            margin: 7px 0 6px;
 
             img{
                 width: 180px;
@@ -993,6 +993,7 @@ body {
             margin: 0;
             text-align: center;
             border-bottom: 1px solid #dadada;
+            border-top: 1px solid #dadada;
 
             > li {
                 height: 40px;
