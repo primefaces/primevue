@@ -16,8 +16,9 @@ npm install primevue --save
 npm install primeicons --save
 </CodeHighlight>
 
-            <h3>Import</h3>
-            <p>Path of each component is available at the "import" section of a component documentation.</p>
+            <h3>Module Loader</h3>
+            <p>This is the recommended way if your application uses <a href="https://cli.vuejs.org/">vue-cli</a> or has a webpack based build with <a href="https://github.com/vuejs/vue-loader">vue-loader</a> configured.
+            Import the components as .vue files for seamless integration within your project where path of each component is available at the "import" section of a component documentation.</p>
 
 <CodeHighlight lang="js">
 //import {ComponentName} from 'primevue/{componentname}';
@@ -25,15 +26,41 @@ npm install primeicons --save
 import {Dialog} from 'primevue/dialog';
 </CodeHighlight>
 
-            <h3>Register</h3>
             <p>In the next step, register the component with the tag name you'd like to use.</p>
 <CodeHighlight lang="js">
 Vue.component('Dialog', Dialog);
 </CodeHighlight>
 
+            <p>Then you'll be able to utilize the component in your application.</p>
+<CodeHighlight>
+&lt;Dialog&gt;&lt;/Dialog&gt;
+</CodeHighlight>
+
+            <h3>Script Tag</h3>
+            <p>Other alternative is utilizing the components directly within the browser with UMD packages.</p>
+<CodeHighlight>
+&lt;meta charset="utf-8"&gt;
+&lt;title&gt;calendar demo&lt;/title&gt;
+&lt;script src="https://unpkg.com/vue"&gt;&lt;/script&gt;
+&lt;script src="https://unpkg.com/primevue/components/calendar/calendar.umd.js"&gt;&lt;/script&gt;
+
+&lt;div id="app"&gt;
+  &lt;p-calendar&gt;&lt;/p-calendar&gt;
+&lt;/div&gt;
+
+&lt;script&gt;
+new Vue({
+  components: {
+    'p-calendar': calendar
+  }
+}).$mount('#app')
+&lt;/script&gt;
+</CodeHighlight>
+
+
         
             <h3>Dependencies</h3>
-            <p>Majority of PrimeVue components (95%) are native and there are some exceptions having 3rd party dependencies such as Google Maps for GMap.</p>
+            <p>Majority of PrimeVue components (95%) are native and there are some exceptions having 3rd party dependencies such as Quill for Editor.</p>
             <p>In addition, components require PrimeIcons library for icons.</p>
 
 <CodeHighlight lang="js">
@@ -67,7 +94,7 @@ dependencies: {
                         </tr>
                         <tr>
                             <td>PrimeFlex</td>
-                            <td>DataView and MegaMenu components.</td>
+                            <td>DataView</td>
                         </tr>
                     </tbody>
                 </table>
@@ -78,9 +105,9 @@ dependencies: {
                 may import them to your main application component.</p>
             
 <CodeHighlight class="language-javascript">
-primevue/resources/themes/nova-light/theme.css
-primevue/resources/primevue.min.css
-primeicons/primeicons.css
+primevue/resources/themes/nova-light/theme.css      //theme
+primevue/resources/primevue.min.css                 //shared css
+primeicons/primeicons.css                           //icons
 </CodeHighlight>
 
             <h3>Quickstart</h3>
