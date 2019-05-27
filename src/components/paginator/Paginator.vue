@@ -3,7 +3,7 @@
         <div class="p-paginator-left-content" v-if="$scopedSlots.left">
             <slot name="left" :state="currentState"></slot>
         </div>
-		<template v-for="item of templateItems"">
+		<template v-for="item of templateItems">
 			<FirstPageLink v-if="item === 'FirstPageLink'" :key="item" @click="changePageToFirst($event)" :disabled="isFirstPage" />
 			<PrevPageLink v-else-if="item === 'PrevPageLink'" :key="item" @click="changePageToPrev($event)" :disabled="isFirstPage" />
 			<NextPageLink v-else-if="item === 'NextPageLink'" :key="item" @click="changePageToNext($event)" :disabled="isLastPage" />
