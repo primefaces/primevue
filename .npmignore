@@ -1,6 +1,7 @@
 node_modules
 public
 /dist
+exports
 src
 tests
 .browserslistrc
@@ -9,3 +10,4 @@ tests
 babel.config.js
 package-lock.json
 postcss.config.js
+vue.config.js
