@@ -1469,7 +1469,9 @@ export default {
                 focus: event => {
                     $vm.focus = true;
                     if ($vm.showOnFocus && $vm.isEnabled()) {
-                        $vm.overlayVisible = true;
+                        setTimeout(() => {
+                            $vm.overlayVisible = true;
+                        }, 150);
                     }
                     $vm.focused = true;
                     $vm.$emit('focus', event)
