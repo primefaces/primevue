@@ -189,7 +189,7 @@ export default {
     vertical-align: middle;
     padding-right: 1.5em;
 }
-.p-spinner-button {
+.p-spinner-button.p-button {
     cursor: default;
     display: block;
     height: 50%;
@@ -217,7 +217,6 @@ export default {
     bottom: 0;
 }
 
-/* Fluid */
 .p-fluid .p-spinner {
     width: 100%;
 }
