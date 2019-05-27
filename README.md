@@ -6,7 +6,7 @@
 
 # PrimeVue
 
-![alt text](https://www.primefaces.org/wp-content/uploads/2019/05/primevue-logo.png "PrimeVue")
+![alt text](https://www.primefaces.org/wp-content/uploads/2019/05/primevue-logo-200.png "PrimeVue")
 
 
 PrimeVue is available at npm, if you have an existing application run the following commands to download PrimeVue and PrimeIcons to your project.
@@ -29,13 +29,13 @@ In the next step, register the component with the tag name you'd like to use.
 Vue.component('Dialog', Dialog);
 ```
 Then you'll be able to utilize the component in your application.
-```markup
+```html
 <Dialog></Dialog>
 ```
 
 ### Script Tag
 Other alternative is utilizing the components directly within the browser with UMD packages.
-```markup
+```html
 <meta charset="utf-8">
 <title>calendar demo</title>
 <script src="https://unpkg.com/vue"></script>
@@ -85,4 +85,4 @@ primeicons/primeicons.css                           //icons
 ```
 
 ### Quickstart
-An example application based on vue-cli is available at [github](https://github.com/primefaces/primevue-quickstart).
+An example application based on vue-cli is available at [GitHub](https://github.com/primefaces/primevue-quickstart).
