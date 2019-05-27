@@ -53,46 +53,7 @@ export default {
 </CodeHighlight>
 
                 <h3>MenuModel</h3>
-                <p>SplitButton items are based on the PrimeVue MenuModel API.</p>
-                
-                <div class="doc-tablewrapper">
-					<table class="doc-table">
-						<thead>
-                            <tr>
-                                <th>Name</th>
-                                <th>Type</th>
-                                <th>Default</th>
-                                <th>Description</th>
-                            </tr>
-						</thead>
-						<tbody>
-                            <tr>
-                                <td>label</td>
-                                <td>string</td>
-                                <td>null</td>
-                                <td>Text of the menuitem.</td>
-                            </tr>
-                            <tr>
-                                <td>icon</td>
-                                <td>string</td>
-                                <td>null</td>
-                                <td>Icon of the menuitem.</td>
-                            </tr>
-                            <tr>
-                                <td>url</td>
-                                <td>object</td>
-                                <td>null</td>
-                                <td>External link to navigate when item is clicked.</td>
-                            </tr>
-                            <tr>
-                                <td>command</td>
-                                <td>boolean</td>
-                                <td>false</td>
-                                <td>Callback to execute when item is selected.</td>
-                            </tr>
-						</tbody>
-					</table>
-				</div>
+                <p>SplitButton uses the common MenuModel API to define the items, visit <router-link to="/theming">MenuModel API</router-link> for details.
 
 				<h3>Severity</h3>
 				<p>Different color options are available as severity levels.</p>

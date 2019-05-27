@@ -117,7 +117,8 @@
             <transition name="layout-submenu-wrapper">
                 <div v-show="activeMenuIndex === 6">
                     <div>
-                        <router-link to="/">&#9679; Link</router-link>
+                        <router-link to="/menumodel">&#9679; MenuModel</router-link>
+                        <router-link to="/menu">&#9679; Menu</router-link>
                     </div>
                 </div>
             </transition>

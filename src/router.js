@@ -160,6 +160,16 @@ export default new Router({
 			path: '/listbox',
 			name: 'listbox',
 			component: () => import('./views/listbox/ListboxDemo.vue')
+        },
+        {
+			path: '/menu',
+			name: 'menu',
+			component: () => import('./views/menu/MenuDemo.vue')
+        },
+        {
+			path: '/menumodel',
+			name: 'menumodel',
+			component: () => import('./views/menumodel/MenuModel.vue')
 		},
 		{
 			path: '/message',
