@@ -6,7 +6,7 @@
 
 # PrimeVue
 
-![alt text](https://www.primefaces.org/wp-content/uploads/2019/05/primevue-logo.png "PrimeVue")
+![alt text](https://www.primefaces.org/wp-content/uploads/2019/05/primevue-logo-200.png "PrimeVue")
 
 
 PrimeVue is available at npm, if you have an existing application run the following commands to download PrimeVue and PrimeIcons to your project.
