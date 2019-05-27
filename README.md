@@ -29,13 +29,13 @@ In the next step, register the component with the tag name you'd like to use.
 Vue.component('Dialog', Dialog);
 ```
 Then you'll be able to utilize the component in your application.
-```markup
+```html
 <Dialog></Dialog>
 ```
 
 ### Script Tag
 Other alternative is utilizing the components directly within the browser with UMD packages.
-```markup
+```html
 <meta charset="utf-8">
 <title>calendar demo</title>
 <script src="https://unpkg.com/vue"></script>
