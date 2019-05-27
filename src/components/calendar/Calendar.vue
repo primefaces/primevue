@@ -1154,10 +1154,12 @@ export default {
                 this.mask.style.zIndex = String(parseInt(this.$refs.overlay.style.zIndex, 10) - 1);
                 DomHandler.addMultipleClasses(this.mask, 'p-component-overlay p-datepicker-mask p-datepicker-mask-scrollblocker');
                 
-                this.maskClickListener = () => {
-                    this.disableModality();
-                };
-                this.mask.addEventListener('click', this.maskClickListener);
+                setTimeout(() => {
+                    this.maskClickListener = () => {
+                        this.disableModality();
+                    };
+                    this.mask.addEventListener('click', this.maskClickListener);
+                }, 150);
 
                 document.body.appendChild(this.mask);
                 DomHandler.addClass(document.body, 'p-overflow-hidden');
