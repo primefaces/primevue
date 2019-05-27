@@ -85,4 +85,4 @@ primeicons/primeicons.css                           //icons
 ```
 
 ### Quickstart
-An example application based on vue-cli is available at [github](https://github.com/primefaces/primevue-quickstart).
+An example application based on vue-cli is available at [GitHub](https://github.com/primefaces/primevue-quickstart).
