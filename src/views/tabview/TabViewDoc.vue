@@ -166,7 +166,7 @@ export default {
 					</table>
 				</div>
 
-                <h3>Properties of Accordion</h3>
+                <h3>Properties of TabView</h3>
                 <p>Any attribute such as style and class are passed to the main container element.</p>
 			
 				<h3>Events</h3>
