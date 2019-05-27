@@ -239,7 +239,7 @@ body {
     top: 70px;
     height: 100%;
     background-color: #ffffff;
-    overflow: hidden;
+    overflow: auto;
     width: 300px;
     @include shadow(0 0 2px rgba(0,0,0,0.25));
 
