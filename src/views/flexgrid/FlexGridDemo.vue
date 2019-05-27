@@ -451,7 +451,7 @@ export default {
 .flexgrid-demo {
     .box,
     .sample-layout > div {
-        background-color: #f1f1f1;
+        background-color: #c2c8ce;
         text-align: center;
         padding-top: 1em;
         padding-bottom: 1em;
@@ -473,7 +473,7 @@ export default {
     .vertical-container {
         margin: 0;
         height: 200px;
-        background: #c0c0c0;
+        background: #eaecee;
         border-radius: 4px;
     }
 
