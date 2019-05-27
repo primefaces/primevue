@@ -995,9 +995,12 @@ body {
             border-bottom: 1px solid #dadada;
 
             > li {
+                height: 40px;
+                line-height: 40px;
+
                 > a {
                     padding-bottom: 0;
-                    line-height: 40px;
+                    height: 40px;
                     min-width: 100px;
                 }
 
