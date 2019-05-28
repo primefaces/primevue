@@ -6,6 +6,6 @@ export declare class AccordionTab extends Vue {
     disabled?: boolean;
     $slot: {
         '': VNode[];
-        'header': VNode[];
+        header: VNode[];
     }
 }
