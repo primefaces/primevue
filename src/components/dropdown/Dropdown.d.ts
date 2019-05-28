@@ -1,0 +1,23 @@
+import Vue, { VNode } from 'vue';
+
+export declare class Dropdown extends Vue {
+    value?: any;
+    options?: any[];
+    optionLabel?: string;
+    optionValue?: any;
+    optionDisabled?: boolean;
+    scrollHeight?: string;
+    filter?: boolean;
+    filterPlaceholder?: string;
+    editable?: boolean;
+    placeholder?: string;
+    disabled?: boolean;
+    dataKey?: string;
+    showClear?: boolean;
+    tabindex?: string;
+    $emit(eventName: 'input', value: string): this;
+    $emit(eventName: 'change', e: { originalEvent: Event, value: string }): this;
+    $slot: {
+        option: VNode[];
+    }
+}
