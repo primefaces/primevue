@@ -10,14 +10,14 @@ export declare class AutoComplete extends Vue {
     multiple?: boolean;
     minLength?: number;
     delay?: number;
-    $emit(eventName: "input", value: any): this;
-    $emit(eventName: "select", e: {originalEvent: Event, value: any}): this;
-    $emit(eventName: "unselect", e: {originalEvent: Event, value: any}): this;
-    $emit(eventName: "dropdown-click", e: {originalEvent: Event, query: string}): this;
-    $emit(eventName: "complete", e: {originalEvent: Event, query: string}): this;
-    $emit(eventName: "clear"): this;
-    $emit(eventName: "focus", event: Event): this;
-    $emit(eventName: "blur", event: Event): this;
+    $emit(eventName: 'input', value: any): this;
+    $emit(eventName: 'select', e: {originalEvent: Event, value: any}): this;
+    $emit(eventName: 'unselect', e: {originalEvent: Event, value: any}): this;
+    $emit(eventName: 'dropdown-click', e: {originalEvent: Event, query: string}): this;
+    $emit(eventName: 'complete', e: {originalEvent: Event, query: string}): this;
+    $emit(eventName: 'clear'): this;
+    $emit(eventName: 'focus', event: Event): this;
+    $emit(eventName: 'blur', event: Event): this;
     $slots: {
         list: VNode[];
     };
