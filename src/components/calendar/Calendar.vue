@@ -197,10 +197,12 @@ export default {
             default: null
         },
         panelClass: {
-            type: String
+            type: String,
+            default: null
         },
         panelStyle: {
-            type: null
+            type: String,
+            default: null
         },
         minDate: {
             type: Date,
