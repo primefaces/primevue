@@ -11,3 +11,4 @@ babel.config.js
 package-lock.json
 postcss.config.js
 vue.config.js
+build-lib.js
