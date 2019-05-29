@@ -1,17 +1,32 @@
 const fs = require('fs-extra');
 const path = require('path');
-const {execSync} = require('child_process');
+const { execSync } = require('child_process');
 const vueCliServicePath = path.resolve(__dirname, 'node_modules/@vue/cli-service/bin/vue-cli-service');
 
 fs.readdirSync(path.resolve(__dirname, './src/components/')).forEach(folder => {
     fs.readdirSync(path.resolve(__dirname, './src/components/' + folder)).forEach(file => {
-        if (/\.vue$/.test(file) || /\.js$/.test(file)) {
-            let filename = file.split(/(.vue)$|(.js)$/)[0].toLowerCase();
-            console.log('Building ' + filename);
+        let filename = file.split(/(.vue)$|(.js)$/)[0].toLowerCase();
+        if (/\.vue$/.test(file)) {
+            console.log('Building ' + blue(filename));
 
             execSync(
                 `node ${vueCliServicePath} build src/components/${folder}/${file} --target lib --name ${filename} --dest components/${folder} --no-clean `
             )
         }
+        else if (/\.js$/.test(file)) {
+            console.log('Building ' + blue(filename));
+
+            execSync(
+                `node ${vueCliServicePath} build src/components/${folder}/${file} --target lib --name ${filename} --dest components/${folder} --no-clean `
+            )
+            
+            execSync(
+                `babel --no-babelrc src/components/${folder}/${file} --out-file components/${folder}/${file} --presets=es2015,stage-2 `
+            )
+        }
     });
 });
+
+function blue (str) {
+    return '\x1b[1m\x1b[34m' + str + '\x1b[39m\x1b[22m'
+}

@@ -8,7 +8,7 @@ var gulp = require('gulp'),
     flatten = require('gulp-flatten');
 
 gulp.task('copy-components', function() {
-    return gulp.src(['src/components/**/*'])
+    return gulp.src(['src/components/**/*.vue'])
         .pipe(gulp.dest('./components'));
 });
     
