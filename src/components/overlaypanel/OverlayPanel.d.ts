@@ -6,6 +6,9 @@ export declare class OverlayPanel extends Vue {
     appendTo?: string;
     baseZIndex?: number;
     autoZIndex?: boolean;
+    toggle(event: Event): void;
+    show(event: Event, target?: any): void;
+    hide(): void;
     $slots: {
         '': VNode[];
     }
