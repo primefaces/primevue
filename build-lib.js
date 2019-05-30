@@ -7,7 +7,7 @@ fs.readdirSync(path.resolve(__dirname, './src/components/')).forEach(folder => {
     fs.readdirSync(path.resolve(__dirname, './src/components/' + folder)).forEach(file => {
         let filename = file.split(/(.vue)$|(.js)$/)[0].toLowerCase();
         if (/\.vue$/.test(file)) {
-            console.log('Building ' + blue(filename));
+            console.log('Building ' + green(filename));
 
             execSync(
                 `node ${vueCliServicePath} build src/components/${folder}/${file} --target lib --name ${filename} --dest components/${folder} --no-clean `
@@ -28,5 +28,9 @@ fs.readdirSync(path.resolve(__dirname, './src/components/')).forEach(folder => {
 });
 
 function blue (str) {
-    return '\x1b[1m\x1b[34m' + str + '\x1b[39m\x1b[22m'
+    return '\x1b[1m\x1b[34m' + str + '\x1b[39m\x1b[22m';
+}
+
+function green (str) {
+    return '\x1b[1m\x1b[32m' + str + '\x1b[39m\x1b[22m';
 }
