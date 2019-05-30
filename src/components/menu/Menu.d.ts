@@ -6,4 +6,5 @@ export declare class Menu extends Vue {
     appendTo?: string;
     autoZIndex?: boolean;
     baseZIndex?: number;
+    toggle(event: Event): void;
 }
