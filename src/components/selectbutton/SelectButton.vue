@@ -1,6 +1,6 @@
 <template>
-    <div class="p-selectbutton p-buttonset p-component p-buttonset">
-    <div v-for="(option, i) of options" :key="getOptionLabel(option)" :aria-label="getOptionLabel(option)"  
+    <div :class="containerClass">
+        <div v-for="(option, i) of options" :key="getOptionLabel(option)" :aria-label="getOptionLabel(option)"
             @click="onOptionSelect($event, option, i)" @keydown.enter.prevent="onOptionSelect($event, option, i)" @keydown.space.prevent="onOptionSelect($event, option)"
             :tabindex="isOptionDisabled(option) ? null : '0'" @focus="onFocus($event, i)" @blur="onBlur($event)"
             :class="['p-button p-component p-button-text-only', {'p-highlight': isSelected(option), 'p-disabled': isOptionDisabled(option), 'p-focus': (i === focusedIndex)}]">
@@ -89,6 +89,11 @@ export default {
             this.focusedIndex = null
             this.$emit('blur', event);
         }
-    }
+    },
+	computed: {
+		containerClass() {
+			return 'p-selectbutton p-buttonset p-component p-buttonset-' + String(this.options ? this.options.length : 0);
+		}
+	},
 }
 </script>
