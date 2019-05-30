@@ -2,6 +2,7 @@ const fs = require('fs-extra');
 const path = require('path');
 const { execSync } = require('child_process');
 const vueCliServicePath = path.resolve(__dirname, 'node_modules/@vue/cli-service/bin/vue-cli-service');
+const babelPath = path.resolve(__dirname, 'node_modules/@babel/cli/bin/babel');
 
 fs.readdirSync(path.resolve(__dirname, './src/components/')).forEach(folder => {
     fs.readdirSync(path.resolve(__dirname, './src/components/' + folder)).forEach(file => {
@@ -21,7 +22,7 @@ fs.readdirSync(path.resolve(__dirname, './src/components/')).forEach(folder => {
             )
             
             execSync(
-                `babel --no-babelrc src/components/${folder}/${file} --out-file components/${folder}/${file} --presets=es2015,stage-2 `
+                `${babelPath} --no-babelrc src/components/${folder}/${file} --out-file components/${folder}/${file} --presets=es2015,stage-2 `
             )
         }
     });
