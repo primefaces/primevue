@@ -41,8 +41,11 @@ Vue.component('Dialog', Dialog);
 <CodeHighlight>
 &lt;meta charset="utf-8"&gt;
 &lt;title&gt;calendar demo&lt;/title&gt;
+&lt;link href="https://unpkg.com/primevue/resources/themes/nova-light/theme.css " rel="stylesheet"&gt;
+&lt;link href="https://unpkg.com/primevue/resources/primevue.min.css " rel="stylesheet"&gt;
+&lt;link href="https://unpkg.com/primeicons/primeicons.css " rel="stylesheet"&gt;
 &lt;script src="https://unpkg.com/vue"&gt;&lt;/script&gt;
-&lt;script src="https://unpkg.com/primevue/components/calendar/calendar.umd.js"&gt;&lt;/script&gt;
+&lt;script src="https://unpkg.com/primevue/components/calendar/calendar.umd.min.js"&gt;&lt;/script&gt;
 
 &lt;div id="app"&gt;
   &lt;p-calendar&gt;&lt;/p-calendar&gt;
@@ -111,8 +114,11 @@ primeicons/primeicons.css                           //icons
 </CodeHighlight>
 
             <h3>Quickstart</h3>
-            <p>An example application based on vue-cli is available at <a href="https://github.com/primefaces/primevue-quickstart">github</a>.</p>
+            <p>An <a href="https://github.com/primefaces/primevue-quickstart">example application</a> based on vue-cli is available at github.</p>
             
+            <h3>Typescript</h3>
+            <p>Typescript is fully supported as type definition files are provided in the npm package of PrimeVue. A sample <a href="https://github.com/primefaces/primevue-typescript-quickstart">typescript-primevue</a> application is available as well at github.</p>
+
         </div>        
     </div>
 </template>
