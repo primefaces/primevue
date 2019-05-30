@@ -22,7 +22,7 @@ fs.readdirSync(path.resolve(__dirname, './src/components/')).forEach(folder => {
             )
             
             execSync(
-                `${babelPath} --no-babelrc src/components/${folder}/${file} --out-file components/${folder}/${file} --presets=es2015,stage-2 `
+                `node ${babelPath} src/components/${folder}/${file} --out-file components/${folder}/${file}`
             )
         }
     });
