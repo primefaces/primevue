@@ -6,5 +6,8 @@ export declare class Chart extends Vue {
     options?: object;
     width?: number;
     height?: number;
-    $emit(eventName: 'select', e: {originalEvent: Event, element: any, dataset: any}): this;
+    $emit(eventName: 'select', e: { originalEvent: Event, element: any, dataset: any }): this;
+    refresh(): void;
+    reinit(): void;
+    generateLegend(): void | any;
 }
