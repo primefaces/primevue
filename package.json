@@ -24,7 +24,7 @@
     "@vue/cli-plugin-babel": "^3.2.0",
     "@vue/cli-plugin-eslint": "^3.2.0",
     "@vue/cli-service": "^3.2.0",
-    "axios": "^0.15.3",
+    "axios": "^0.19.0",
     "babel-eslint": "^10.0.1",
     "chart.js": "2.7.3",
     "eslint": "^5.8.0",
