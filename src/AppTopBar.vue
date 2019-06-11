@@ -13,6 +13,8 @@
                 <transition name="p-input-overlay" @enter="onThemesMenuEnter" @leave="onThemesMenuLeave">
                     <ul v-if="themesMenuVisible">
                         <li class="topbar-submenu-header">THEMING</li>
+                        <li><router-link to="/theming" @click.native="hideThemesMenu()"><i class="pi pi-fw pi-file"/><span>Guide</span></router-link></li>
+                        <li><a href="https://www.primefaces.org/designer/primevue"><i class="pi pi-fw pi-cog" /><span>Designer</span></a></li>
                         <li><router-link to="/icons" @click.native="hideThemesMenu()"><i class="pi pi-fw pi-search"/><span>Icons</span></router-link></li>
                         <li class="topbar-submenu-header">FREE THEMES</li>
                         <li><a href="#" @click="changeTheme($event, 'nova-light', false)"><img src="./assets/images/layouts/themeswitcher-nova-light.png" alt="Nova Light" /><span>Nova Light</span></a></li>

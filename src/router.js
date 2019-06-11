@@ -20,6 +20,11 @@ export default new Router({
 			path: '/support',
 			name: 'support',
 			component: () => import('./views/support/Support.vue')
+        },
+        {
+			path: '/theming',
+			name: 'theming',
+			component: () => import('./views/theming/Theming.vue')
 		},
 		{
 			path: '/icons',
