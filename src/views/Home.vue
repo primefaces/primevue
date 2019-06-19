@@ -53,7 +53,7 @@
                 <div class="p-col-12 p-md-3">
                     <img alt="templates" src="../assets/images/home/icon-sigma.svg" />
                     <span class="feature-name">FREE ADMIN TEMPLATE</span>
-                    <p>An elegant admin template powered by vue-cli. (Coming soon...)</p>
+                    <p>An elegant admin template powered by vue-cli.</p>
                 </div>
             </div>
         </div>
@@ -75,6 +75,18 @@
                 <div class="p-col-6 p-md-2"><img alt="unicredit" src="../assets/images/home/unicredit.svg"/></div>
                 <div class="p-col-6 p-md-2"><img alt="verizon" src="../assets/images/home/verizon.svg"/></div>
                 <div class="p-col-6 p-md-2"><img alt="viacom" src="../assets/images/home/viacom.svg"/></div>
+            </div>
+        </div>
+        <div class="templates">
+            <h3>Free Application Template for PrimeVue</h3>
+            <p>Sigma is a free and open source admin template based on <a href="https://cli.vuejs.org">Vue-CLI</a>.</p>
+
+            <div class="p-grid">
+                <div class="p-col-12">
+                    <a href="https://www.primefaces.org/sigma-vue">
+                        <img alt="Sigma" src="../assets/images/layouts/sigma.jpg" />
+                    </a>
+                </div>
             </div>
         </div>
         <div class="prosupport">
