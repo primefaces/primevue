@@ -5,7 +5,7 @@
 </template>
 
 <script>
-import ChartJS from 'chart.js/src/chart.js';
+import * as Chart from 'chart.js';
 
 export default {
     props: {
@@ -38,7 +38,7 @@ export default {
     },
     methods: {
         initChart() {
-            this.chart = new ChartJS(this.$refs.canvas, {
+            this.chart = new Chart(this.$refs.canvas, {
                 type: this.type,
                 data: this.data,
                 options: this.options
