@@ -105,6 +105,11 @@ export default new Router({
 			path: '/chips',
 			name: 'chips',
 			component: () => import('./views/chips/ChipsDemo.vue')
+        },
+        {
+			path: '/datatable',
+			name: 'datatable',
+			component: () => import('./views/datatable/DataTableDemo.vue')
 		},
 		{
 			path: '/dataview',
