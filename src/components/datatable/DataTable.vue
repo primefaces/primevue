@@ -1,7 +1,6 @@
 <template>
     <div class="p-datatable p-component">
         <slot></slot>
-        {{columns.length}}
         <div class="p-datatable-wrapper">
             <div class="p-datatable-header" v-if="$scopedSlots.header">
                 <slot name="header"></slot>
