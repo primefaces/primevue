@@ -1,19 +1,24 @@
 <template>
     <div class="p-datatable p-component">
         <slot></slot>
+        {{columns.length}}
         <div class="p-datatable-wrapper">
+            <div class="p-datatable-header" v-if="$scopedSlots.header">
+                <slot name="header"></slot>
+            </div>
             <table>
                 <thead class="p-datatable-thead">
                     <tr>
-                        <th v-for="col of columns" :key="col.columnKey||col.field">
+                        <th v-for="(col,i) of columns" :key="col.columnKey||col.field||i" :style="col.headerStyle" :class="col.headerClass">
                             <span class="p-column-title" v-if="col.header">{{col.header}}</span>
                         </th>
                     </tr>
                 </thead>
                 <tbody class="p-datatable-tbody">
                     <tr class="p-datatable-row" v-for="(rowData, index) of value" :key="getRowKey(rowData, index)">
-                        <td v-for="col of columns" :key="col.columnKey||col.field">
-                            {{resolveFieldData(rowData, col.field)}}
+                        <td v-for="(col,i) of columns" :key="col.columnKey||col.field||i" :style="col.bodyStyle" :class="col.bodyClass">
+                            <ColumnSlot :data="rowData" :column="col" type="body" v-if="col.$scopedSlots.body" />
+                            <template v-else>{{resolveFieldData(rowData, col.field)}}</template>
                         </td>
                     </tr>
                 </tbody>
@@ -24,6 +29,31 @@
 
 <script>
 import ObjectUtils from '../utils/ObjectUtils';
+
+const ColumnSlot = {
+    functional: true,
+    props: {
+        column: {
+            type: null,
+            default: null
+        },
+        data: {
+            type: null,
+            default: null
+        },
+        type: {
+            type: String,
+            default: null
+        }
+    },
+    render(createElement, context) {
+        const content = context.props.column.$scopedSlots[context.props.type]({
+            'data': context.props.data,
+            'column': context.props.column
+        });
+        return [content];
+    }
+};
 
 export default {
     props: {
@@ -51,6 +81,9 @@ export default {
         resolveFieldData(rowData, field) {
             return ObjectUtils.resolveFieldData(rowData, field);
         }
+    },
+    components: {
+        'ColumnSlot': ColumnSlot
     }
 }
 </script>

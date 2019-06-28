@@ -24,6 +24,30 @@ export default {
         footer: {
             type: null,
             default: null
+        },
+        headerStyle: {
+            type: null,
+            default: null
+        },
+        headerClass: {
+            type: String,
+            default: null
+        },
+        bodyStyle: {
+            type: null,
+            default: null
+        },
+        bodyClass: {
+            type: String,
+            default: null
+        },
+        footerStyle: {
+            type: null,
+            default: null
+        },
+        footerClass: {
+            type: String,
+            default: null
         }
     },
     render() {

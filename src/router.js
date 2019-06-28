@@ -110,6 +110,11 @@ export default new Router({
 			path: '/datatable',
 			name: 'datatable',
 			component: () => import('./views/datatable/DataTableDemo.vue')
+        },
+        {
+			path: '/datatable/templating',
+			name: 'datatabletemplating',
+			component: () => import('./views/datatable/DataTableTemplatingDemo.vue')
 		},
 		{
 			path: '/dataview',

@@ -1,37 +1,38 @@
 <template>
 	<div>
         <DataTableSubMenu />
-        
+
 		<div class="content-section introduction">
 			<div class="feature-intro">
-				<h1>DataTable</h1>
-				<p>DataTable displays data in tabular format.</p>
+				<h1>DataTable - Templating</h1>
+				<p>Custom content at header, body and footer sections are supported via templating.</p>
 			</div>
 		</div>
 
 		<div class="content-section implementation">
-			<h3 class="first">Basic</h3>
 			<DataTable :value="cars">
                 <Column field="vin" header="Vin"></Column>
                 <Column field="year" header="Year"></Column>
-                <Column field="brand" header="Brand"></Column>
+                <Column field="brand" header="Brand">
+                    <template #body="slotProps">
+                        <img :src="'demo/images/car/' + slotProps.data.brand + '.png'" :alt="slotProps.data.brand"  width="48px"/>
+                    </template>
+                </Column>
                 <Column field="color" header="Color"></Column>
-            </DataTable>
-
-            <h3>Dynamic Columns</h3>
-			<DataTable :value="cars">
-                <Column v-for="col of columns" :field="col.field" :header="col.header" :key="col.field"></Column>
+                <Column headerStyle="text-align: center; width: 8em">
+                    <template #body="slotProps">
+                        <Button type="button" icon="pi pi-search" class="p-button-success" style="margin-right: .5em"></Button>
+                        <Button type="button" icon="pi pi-pencil" class="p-button-warning"></Button>
+                    </template>
+                </Column>
             </DataTable>
 		</div>
-
-        <DataTableDoc />
 	</div>
 </template>
 
 <script>
 import CarService from '../../service/CarService';
 import DataTableSubMenu from './DataTableSubMenu';
-import DataTableDoc from './DataTableDoc';
 
 export default {
     data() {
@@ -43,19 +44,11 @@ export default {
     carService: null,
     created() {
         this.carService = new CarService();
-
-        this.columns = [
-            {field: 'vin', header: 'Vin'},
-            {field: 'year', header: 'Year'},
-            {field: 'brand', header: 'Brand'},
-            {field: 'color', header: 'Color'}
-        ]
     },
     mounted() {
         this.carService.getCarsSmall().then(data => this.cars = data);
     },
     components: {
-        'DataTableDoc': DataTableDoc,
         'DataTableSubMenu': DataTableSubMenu
     }
 }
