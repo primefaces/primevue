@@ -71,7 +71,7 @@ export default {
         };
     },
     mounted() {
-        this.columns = this.$children;
+        this.columns = [...this.$children];
     },
     methods: {
         getRowKey(rowData, index) {
