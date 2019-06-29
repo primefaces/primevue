@@ -76,6 +76,12 @@ export default {
 &lt;template #footer&gt;Footer Content&lt;/template&gt;
 </CodeHighlight>
 
+                <h3>Empty Message</h3>
+                <p>Where there is no data to display, the optional <i>empty<i/> template can be used to display information.</p>
+<CodeHighlight>
+&lt;template #empty&gt;No records found.&lt;/template&gt;
+</CodeHighlight>
+
 				<h3>DataViewLayoutOptions</h3>
 				<p>When both layout modes are enabled in DataView, a UI element would be necessary to let the user toggle between the view. DataViewLayoutOptions is a helper component
 					to display a buttonset to choose the layout mode in DataView. Location of the DataViewLayoutOptions should be inside the DataView component. If you prefer a different UI element
@@ -313,12 +319,6 @@ export default {
                                 <td>string</td>
                                 <td>({currentPage} of {totalPages})</td>
                                 <td>Template of the current page report element.</td>
-                            </tr>
-                            <tr>
-                                <td>emptyMessage</td>
-                                <td>string</td>
-                                <td>No records found.</td>
-                                <td>Text to display when there is no data.</td>
                             </tr>
                             <tr>
                                 <td>sortField</td>

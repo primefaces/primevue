@@ -18,7 +18,7 @@
 					<slot v-if="$scopedSlots.list && layout === 'list'" name="list" :data="item" :index="index"></slot>
 					<slot v-if="$scopedSlots.grid && layout === 'grid'" name="grid" :data="item" :index="index"></slot>
 				</template>
-				<div v-if="isEmpty" class="p-col-12">{{emptyMessage}}</div>
+				<div v-if="empty" class="p-col-12"><slot name="empty"></slot></div>
 			</div>
 		</div>
 		<DVPaginator v-if="paginatorBottom" :rows="rows" :first="first" :totalRecords="getTotalRecords" :pageLinkSize="pageLinkSize" :template="paginatorTemplate" :rowsPerPageOptions="rowsPerPageOptions"
@@ -88,10 +88,6 @@ export default {
         currentPageReportTemplate: {
             type: String,
             default: '({currentPage} of {totalPages})'
-        },
-        emptyMessage: {
-            type: String,
-            default: 'No records found'
         },
         sortField: {
             type: String,
@@ -173,7 +169,7 @@ export default {
             else
                 return this.value ? this.value.length : 0;
         },
-        isEmpty() {
+        empty() {
             return (!this.value || this.value.length === 0);
         },
         paginatorTop() {
