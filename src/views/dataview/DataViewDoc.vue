@@ -77,7 +77,7 @@ export default {
 </CodeHighlight>
 
                 <h3>Empty Message</h3>
-                <p>Where there is no data to display, the optional <i>empty<i/> template can be used to display information.</p>
+                <p>Where there is no data to display, the optional <i>empty</i> template can be used to display information.</p>
 <CodeHighlight>
 &lt;template #empty&gt;No records found.&lt;/template&gt;
 </CodeHighlight>
