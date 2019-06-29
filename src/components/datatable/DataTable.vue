@@ -23,10 +23,17 @@
                     </tr>
                 </thead>
                 <tbody class="p-datatable-tbody">
-                    <tr class="p-datatable-row" v-for="(rowData, index) of data" :key="getRowKey(rowData, index)">
-                        <td v-for="(col,i) of columns" :key="col.columnKey||col.field||i" :style="col.bodyStyle" :class="col.bodyClass">
-                            <ColumnSlot :data="rowData" :column="col" type="body" v-if="col.$scopedSlots.body" />
-                            <template v-else>{{resolveFieldData(rowData, col.field)}}</template>
+                    <template v-if="!empty">
+                        <tr class="p-datatable-row" v-for="(rowData, index) of data" :key="getRowKey(rowData, index)">
+                            <td v-for="(col,i) of columns" :key="col.columnKey||col.field||i" :style="col.bodyStyle" :class="col.bodyClass">
+                                <ColumnSlot :data="rowData" :column="col" type="body" v-if="col.$scopedSlots.body" />
+                                <template v-else>{{resolveFieldData(rowData, col.field)}}</template>
+                            </td>
+                        </tr>
+                    </template>
+                    <tr v-else class="p-datatable-emptymessage">
+                        <td :colspan="columns.length">
+                            <slot name="empty"></slot>
                         </td>
                     </tr>
                 </tbody>
@@ -217,7 +224,7 @@ export default {
             }
             else
                 return null;
-        },
+        }
     },
     components: {
         'ColumnSlot': ColumnSlot,

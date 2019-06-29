@@ -32,7 +32,7 @@
                     </template>
                 </Column>
                 <template #footer>
-                    In total there are {{cars.length}} cars.
+                    In total there are {{cars ? cars.length : 0 }} cars.
                 </template>
             </DataTable>
 		</div>
