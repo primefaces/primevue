@@ -129,6 +129,14 @@ export default {
         lazy: {
             type: Boolean,
             default: false
+        },
+        loading: {
+            type: Boolean,
+            default: false
+        },
+        loadingIcon: {
+            type: String,
+            default: 'pi pi-spinner'
         }
     },
     data() {
