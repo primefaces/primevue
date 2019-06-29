@@ -2,9 +2,18 @@
     <div class="p-datatable p-component">
         <slot></slot>
         <div class="p-datatable-wrapper">
-            <div class="p-datatable-header" v-if="$scopedSlots.header">
+            <div class="p-datatable-header" v-if="$slots.header">
                 <slot name="header"></slot>
             </div>
+            <DTPaginator v-if="paginatorTop" :rows="rows" :first="first" :totalRecords="totalRecordsLength" :pageLinkSize="pageLinkSize" :template="paginatorTemplate" :rowsPerPageOptions="rowsPerPageOptions"
+					:currentPageReportTemplate="currentPageReportTemplate" :class="{'p-paginator-top': paginatorTop}" @page="onPage($event)">
+                <template #left v-if="$scopedSlots.paginatorLeft">
+                    <slot name="paginatorLeft"></slot>
+                </template>
+                <template #right v-if="$scopedSlots.paginatorRight">
+                    <slot name="paginatorRight"></slot>
+                </template>
+            </DTPaginator>
             <table>
                 <thead class="p-datatable-thead">
                     <tr>
@@ -14,7 +23,7 @@
                     </tr>
                 </thead>
                 <tbody class="p-datatable-tbody">
-                    <tr class="p-datatable-row" v-for="(rowData, index) of value" :key="getRowKey(rowData, index)">
+                    <tr class="p-datatable-row" v-for="(rowData, index) of data" :key="getRowKey(rowData, index)">
                         <td v-for="(col,i) of columns" :key="col.columnKey||col.field||i" :style="col.bodyStyle" :class="col.bodyClass">
                             <ColumnSlot :data="rowData" :column="col" type="body" v-if="col.$scopedSlots.body" />
                             <template v-else>{{resolveFieldData(rowData, col.field)}}</template>
@@ -22,12 +31,25 @@
                     </tr>
                 </tbody>
             </table>
+            <DTPaginator v-if="paginatorBottom" :rows="rows" :first="first" :totalRecords="totalRecordsLength" :pageLinkSize="pageLinkSize" :template="paginatorTemplate" :rowsPerPageOptions="rowsPerPageOptions"
+					:currentPageReportTemplate="currentPageReportTemplate" :class="{'p-paginator-bottom': paginatorBottom}" @page="onPage($event)">
+                <template #left v-if="$scopedSlots.paginatorLeft">
+                    <slot name="paginatorLeft"></slot>
+                </template>
+                <template #right v-if="$scopedSlots.paginatorRight">
+                    <slot name="paginatorRight"></slot>
+                </template>
+            </DTPaginator>
+            <div class="p-datatable-footer" v-if="$slots.footer">
+                <slot name="footer"></slot>
+            </div>
         </div>
     </div>
 </template>
 
 <script>
 import ObjectUtils from '../utils/ObjectUtils';
+import Paginator from '../paginator/Paginator';
 
 const ColumnSlot = {
     functional: true,
@@ -63,12 +85,66 @@ export default {
         dataKey: {
             type: String,
             default: null
+        },
+        rows: {
+            type: Number,
+            default: 0
+        },
+        first: {
+            type: Number,
+            default: 0
+        },
+        totalRecords: {
+            type: Number,
+            default: 0
+        },
+        paginator: {
+            type: Boolean,
+            default: false
+        },
+        paginatorPosition: {
+            type: String,
+            default: 'bottom'
+        },
+        alwaysShowPaginator: {
+            type: Boolean,
+            default: true
+        },
+        paginatorTemplate: {
+            type: String,
+            default: 'FirstPageLink PrevPageLink PageLinks NextPageLink LastPageLink RowsPerPageDropdown'
+        },
+        pageLinkSize: {
+            type: Number,
+            default: 5
+        },
+        rowsPerPageOptions: {
+            type: Array,
+            default: null
+        },
+        currentPageReportTemplate: {
+            type: String,
+            default: '({currentPage} of {totalPages})'
+        },
+        lazy: {
+            type: Boolean,
+            default: false
         }
     },
     data() {
         return {
-            columns: []
+            columns: [],
+            d_first: this.first,
+            d_rows: this.rows
         };
+    },
+    watch: {
+        first(newValue) {
+            this.d_first = newValue;
+        },
+        rows(newValue) {
+            this.d_rows = newValue;
+        }
     },
     mounted() {
         this.columns = [...this.$children];
@@ -79,10 +155,65 @@ export default {
         },
         resolveFieldData(rowData, field) {
             return ObjectUtils.resolveFieldData(rowData, field);
+        },
+        onPage(event) {
+            this.d_first = event.first;
+            this.d_rows = event.rows;
+
+            this.$emit('update:first', this.d_first);
+            this.$emit('update:rows', this.d_rows);
+            this.$emit('page', event);
         }
     },
+    computed: {
+        data() {
+            if (this.value && this.value.length) {
+                let data = this.value;
+
+                /*if (data && data.length && this.sortField) {
+                    data = this.sort();
+                }*/
+            
+                if (this.paginator) {
+                    const first = this.lazy ? 0 : this.d_first;
+                    return data.slice(first, first + this.d_rows);
+                }
+                else {
+                    return data;
+                }
+                    
+            }
+            else {
+                return null;
+            }
+        },
+        totalRecordsLength() {
+            if (this.totalRecords)
+                return this.totalRecords;
+            else
+                return this.value ? this.value.length : 0;
+        },
+        empty() {
+            return (!this.value || this.value.length === 0);
+        },
+        paginatorTop() {
+            if (this.paginatorPosition && (this.paginatorPosition !== 'bottom' || this.paginatorPosition === 'both')) {
+                return true
+            }
+            else
+                return null;
+        },
+        paginatorBottom() {
+            if (this.paginatorPosition && (this.paginatorPosition !== 'top' || this.paginatorPosition === 'both')) {
+                return true
+            }
+            else
+                return null;
+        },
+    },
     components: {
-        'ColumnSlot': ColumnSlot
+        'ColumnSlot': ColumnSlot,
+        'DTPaginator': Paginator
     }
 }
 </script>

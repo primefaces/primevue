@@ -115,6 +115,11 @@ export default new Router({
 			path: '/datatable/templating',
 			name: 'datatabletemplating',
 			component: () => import('./views/datatable/DataTableTemplatingDemo.vue')
+        },
+        {
+			path: '/datatable/paginator',
+			name: 'datatablepaginator',
+			component: () => import('./views/datatable/DataTablePaginatorDemo.vue')
 		},
 		{
 			path: '/dataview',

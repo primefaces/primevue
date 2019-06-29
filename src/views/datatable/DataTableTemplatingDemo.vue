@@ -11,6 +11,12 @@
 
 		<div class="content-section implementation">
 			<DataTable :value="cars">
+                <template #header>
+                    <div style="line-height:1.87em" class="clearfix">
+                        <Button icon="pi pi-refresh" style="float: right"/>
+                        List of Cars 
+                    </div>
+                </template>
                 <Column field="vin" header="Vin"></Column>
                 <Column field="year" header="Year"></Column>
                 <Column field="brand" header="Brand">
@@ -25,6 +31,9 @@
                         <Button type="button" icon="pi pi-pencil" class="p-button-warning"></Button>
                     </template>
                 </Column>
+                <template #footer>
+                    In total there are {{cars.length}} cars.
+                </template>
             </DataTable>
 		</div>
 	</div>
@@ -37,7 +46,6 @@ import DataTableSubMenu from './DataTableSubMenu';
 export default {
     data() {
         return {
-            columns: null,
             cars: null
         }
     },
