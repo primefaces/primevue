@@ -1,5 +1,5 @@
 <template>
-	<div class="p-paginator p-component p-unselectable-text">
+	<div class="p-paginator p-component p-unselectable-text" v-if="alwaysShow ? true : (pageLinks && pageLinks.length > 1)">
         <div class="p-paginator-left-content" v-if="$scopedSlots.left">
             <slot name="left" :state="currentState"></slot>
         </div>
@@ -56,6 +56,10 @@ export default {
         currentPageReportTemplate: {
             type: null,
             default: '({currentPage} of {totalPages})'
+        },
+        alwaysShow: {
+            type: Boolean,
+            default: true
         }
     },
     data() {

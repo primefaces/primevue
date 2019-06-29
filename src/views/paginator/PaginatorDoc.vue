@@ -95,12 +95,12 @@ onPage(event) {
                 <div class="doc-tablewrapper">
                     <table class="doc-table">
                         <thead>
-                        <tr>
-                            <th>Name</th>
-                            <th>Type</th>
-                            <th>Default</th>
-                            <th>Description</th>
-                        </tr>
+                            <tr>
+                                <th>Name</th>
+                                <th>Type</th>
+                                <th>Default</th>
+                                <th>Description</th>
+                            </tr>
                         </thead>
                         <tbody>
                             <tr>
@@ -144,6 +144,12 @@ onPage(event) {
                                 <td>string</td>
                                 <td>({currentPage} of {totalPages})</td>
                                 <td>Template of the current page report element.</td>
+                            </tr>
+                            <tr>
+                                <td>alwaysShow</td>
+                                <td>boolean</td>
+                                <td>true</td>
+                                <td>Whether to show the paginator even there is only one page.</td>
                             </tr>
                         </tbody>
                     </table>

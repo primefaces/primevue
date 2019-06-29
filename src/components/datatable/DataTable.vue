@@ -2,11 +2,11 @@
     <div class="p-datatable p-component">
         <slot></slot>
         <div class="p-datatable-wrapper">
-            <div class="p-datatable-header" v-if="$slots.header">
+            <div class="p-datatable-header" v-if="$scopedSlots.header">
                 <slot name="header"></slot>
             </div>
             <DTPaginator v-if="paginatorTop" :rows="rows" :first="first" :totalRecords="totalRecordsLength" :pageLinkSize="pageLinkSize" :template="paginatorTemplate" :rowsPerPageOptions="rowsPerPageOptions"
-					:currentPageReportTemplate="currentPageReportTemplate" :class="{'p-paginator-top': paginatorTop}" @page="onPage($event)">
+					:currentPageReportTemplate="currentPageReportTemplate" class="p-paginator-top" @page="onPage($event)" :alwaysShow="alwaysShowPaginator">
                 <template #left v-if="$scopedSlots.paginatorLeft">
                     <slot name="paginatorLeft"></slot>
                 </template>
@@ -39,7 +39,7 @@
                 </tbody>
             </table>
             <DTPaginator v-if="paginatorBottom" :rows="rows" :first="first" :totalRecords="totalRecordsLength" :pageLinkSize="pageLinkSize" :template="paginatorTemplate" :rowsPerPageOptions="rowsPerPageOptions"
-					:currentPageReportTemplate="currentPageReportTemplate" :class="{'p-paginator-bottom': paginatorBottom}" @page="onPage($event)">
+					:currentPageReportTemplate="currentPageReportTemplate" class="p-paginator-bottom" @page="onPage($event)" :alwaysShow="alwaysShowPaginator">
                 <template #left v-if="$scopedSlots.paginatorLeft">
                     <slot name="paginatorLeft"></slot>
                 </template>
@@ -47,7 +47,7 @@
                     <slot name="paginatorRight"></slot>
                 </template>
             </DTPaginator>
-            <div class="p-datatable-footer" v-if="$slots.footer">
+            <div class="p-datatable-footer" v-if="$scopedSlots.footer">
                 <slot name="footer"></slot>
             </div>
         </div>
@@ -162,7 +162,8 @@ export default {
         }
     },
     mounted() {
-        this.columns = [...this.$children];
+        this.columns = this.$children.filter(child =>  child.$options._propKeys.indexOf('columnKey') !== -1);
+       
     },
     methods: {
         getRowKey(rowData, index) {
@@ -212,18 +213,10 @@ export default {
             return (!this.value || this.value.length === 0);
         },
         paginatorTop() {
-            if (this.paginatorPosition && (this.paginatorPosition !== 'bottom' || this.paginatorPosition === 'both')) {
-                return true
-            }
-            else
-                return null;
+            return this.paginator && (this.paginatorPosition !== 'bottom' || this.paginatorPosition === 'both');
         },
         paginatorBottom() {
-            if (this.paginatorPosition && (this.paginatorPosition !== 'top' || this.paginatorPosition === 'both')) {
-                return true
-            }
-            else
-                return null;
+            return this.paginator && (this.paginatorPosition !== 'top' || this.paginatorPosition === 'both');
         }
     },
     components: {

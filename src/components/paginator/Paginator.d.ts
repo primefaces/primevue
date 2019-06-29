@@ -15,6 +15,7 @@ export declare class Paginator extends Vue {
     rowsPerPageOptions?: any[];
     template?: string;
     currentPageReportTemplate?: any;
+    alwaysShow?: boolean;
     $emit(eventName: 'page', event: PageState): this;
     $slots: {
         left: VNode[];
