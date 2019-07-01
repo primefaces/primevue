@@ -19,9 +19,11 @@
             </DataTable>
 
             <h3>Dynamic Columns</h3>
-			<DataTable :value="cars">
+			<DataTable :value="cars" :columns="columns">
                 <Column v-for="col of columns" :field="col.field" :header="col.header" :key="col.field"></Column>
             </DataTable>
+
+            <button type="button" @click="add">Add</button>
 		</div>
 
         <DataTableDoc />
@@ -37,7 +39,8 @@ export default {
     data() {
         return {
             columns: null,
-            cars: null
+            cars: null,
+            i: 0
         }
     },
     carService: null,
@@ -53,6 +56,13 @@ export default {
     },
     mounted() {
         this.carService.getCarsSmall().then(data => this.cars = data);
+    },
+    methods: {
+        add() {
+            this.i++;
+            this.columns.push({field: 'color' + this.i, header: 'Color' + this.i});
+            this.columns = [...this.columns];
+        }
     },
     components: {
         'DataTableDoc': DataTableDoc,

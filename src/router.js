@@ -120,6 +120,11 @@ export default new Router({
 			path: '/datatable/paginator',
 			name: 'datatablepaginator',
 			component: () => import('./views/datatable/DataTablePaginatorDemo.vue')
+        },
+        {
+			path: '/datatable/sort',
+			name: 'datatablesort',
+			component: () => import('./views/datatable/DataTableSortDemo.vue')
 		},
 		{
 			path: '/dataview',

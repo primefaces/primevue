@@ -17,8 +17,9 @@
             <table>
                 <thead class="p-datatable-thead">
                     <tr>
-                        <th v-for="(col,i) of columns" :key="col.columnKey||col.field||i" :style="col.headerStyle" :class="col.headerClass">
+                        <th v-for="(col,i) of columns" :key="col.columnKey||col.field||i" :style="col.headerStyle" :class="getColumnHeaderClass(col)" @click="onColumnHeaderClick($event, col)">
                             <span class="p-column-title" v-if="col.header">{{col.header}}</span>
+                            <span v-if="col.sortable" :class="getSortableColumnIcon(col)"></span>
                         </th>
                     </tr>
                 </thead>
@@ -56,6 +57,7 @@
 
 <script>
 import ObjectUtils from '../utils/ObjectUtils';
+import DomHandler from '../utils/DomHandler';
 import Paginator from '../paginator/Paginator';
 
 const ColumnSlot = {
@@ -144,13 +146,27 @@ export default {
         loadingIcon: {
             type: String,
             default: 'pi pi-spinner'
+        },
+        sortField: {
+            type: String,
+            default: null
+        },
+        sortOrder: {
+            type: Number,
+            default: null
+        },
+        defaultSortOrder: {
+            type: Number,
+            default: 1
         }
     },
     data() {
         return {
             columns: [],
             d_first: this.first,
-            d_rows: this.rows
+            d_rows: this.rows,
+            d_sortField: this.sortField,
+            d_sortOrder: this.sortOrder
         };
     },
     watch: {
@@ -159,11 +175,16 @@ export default {
         },
         rows(newValue) {
             this.d_rows = newValue;
+        },
+        sortField(newValue) {
+            this.d_sortField = newValue;
+        },
+        sortOrder(newValue) {
+            this.d_sortOrder = newValue;
         }
     },
     mounted() {
         this.columns = this.$children.filter(child =>  child.$options._propKeys.indexOf('columnKey') !== -1);
-       
     },
     methods: {
         getRowKey(rowData, index) {
@@ -179,6 +200,67 @@ export default {
             this.$emit('update:first', this.d_first);
             this.$emit('update:rows', this.d_rows);
             this.$emit('page', event);
+        },
+        onColumnHeaderClick($event, column) {
+            if (column.sortable) {
+                let targetNode = event.target;
+                let columnField = column.field || column.sortField;
+
+                if(DomHandler.hasClass(targetNode, 'p-sortable-column') || DomHandler.hasClass(targetNode, 'p-column-title') 
+                    || DomHandler.hasClass(targetNode, 'p-sortable-column-icon') || DomHandler.hasClass(targetNode.parentElement, 'p-sortable-column-icon')) {
+                    
+                    this.d_sortOrder = (this.d_sortField === columnField) ? this.d_sortOrder * -1 : this.defaultSortOrder;
+                    this.d_sortField = columnField;
+                    DomHandler.clearSelection();
+                }
+            }
+        },
+        sort(value) {
+            if (value) {
+                let data = [...this.value];
+
+                data.sort((data1, data2) => {
+                    let value1 = ObjectUtils.resolveFieldData(data1, this.d_sortField);
+                    let value2 = ObjectUtils.resolveFieldData(data2, this.d_sortField);
+                    let result = null;
+
+                    if (value1 == null && value2 != null)
+                        result = -1;
+                    else if (value1 != null && value2 == null)
+                        result = 1;
+                    else if (value1 == null && value2 == null)
+                        result = 0;
+                    else if (typeof value1 === 'string' && typeof value2 === 'string')
+                        result = value1.localeCompare(value2, undefined, { numeric: true });
+                    else
+                        result = (value1 < value2) ? -1 : (value1 > value2) ? 1 : 0;
+
+                    return (this.d_sortOrder * result);
+                });
+
+                return data;
+            }
+            else {
+                return null;
+            }
+        },
+        getColumnHeaderClass(column) {
+            const sorted = this.d_sortField === (column.field || column.sortField);
+
+            return [column.headerClass, 
+                    {'p-sortable-column': column.sortable}, 
+                    {'p-highlight': sorted}
+            ];
+        },
+        getSortableColumnIcon(column) {
+            const sorted = this.d_sortField === (column.field || column.sortField);
+   
+            return [
+                'p-sortable-column-icon pi pi-fw',
+                {'pi-sort': !sorted},
+                {'pi-sort-up': sorted && this.d_sortOrder > 0},
+                {'pi-sort-down': sorted && this.d_sortOrder < 0},
+            ];
         }
     },
     computed: {
@@ -186,10 +268,10 @@ export default {
             if (this.value && this.value.length) {
                 let data = this.value;
 
-                /*if (data && data.length && this.sortField) {
-                    data = this.sort();
-                }*/
-            
+                if (data && data.length && this.d_sortField) {
+                    data = this.sort(data);
+                }
+
                 if (this.paginator) {
                     const first = this.lazy ? 0 : this.d_first;
                     return data.slice(first, first + this.d_rows);
