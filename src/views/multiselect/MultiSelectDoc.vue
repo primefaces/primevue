@@ -19,7 +19,7 @@ data() {
 		selectedCars: null,
 		cars: [
 			{brand: 'Audi', value: 'Audi'},
-			{brand: 'Bmw', value: 'Bmw'},
+			{brand: 'BMW', value: 'BMW'},
 			{brand: 'Fiat', value: 'Fiat'},
 			{brand: 'Honda', value: 'Honda'},
 			{brand: 'Jaguar', value: 'Jaguar'},
@@ -280,7 +280,7 @@ export default {
 			selectedCars2: null,
 			cars: [
 				{brand: 'Audi', value: 'Audi'},
-				{brand: 'Bmw', value: 'Bmw'},
+				{brand: 'BMW', value: 'BMW'},
 				{brand: 'Fiat', value: 'Fiat'},
 				{brand: 'Honda', value: 'Honda'},
 				{brand: 'Jaguar', value: 'Jaguar'},

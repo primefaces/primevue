@@ -202,7 +202,7 @@ export default {
 			],
 			cars: [
 				{brand: 'Audi', key: 'A'},
-				{brand: 'Bmw', key: 'B'},
+				{brand: 'BMW', key: 'B'},
 				{brand: 'Mercedes', key: 'M'}
 			]
 		}
