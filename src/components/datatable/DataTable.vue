@@ -18,11 +18,20 @@
                 <thead class="p-datatable-thead">
                     <tr>
                         <th v-for="(col,i) of columns" :key="col.columnKey||col.field||i" :style="col.headerStyle" :class="getColumnHeaderClass(col)" @click="onColumnHeaderClick($event, col)">
+                            <ColumnSlot :column="col" type="header" v-if="col.$scopedSlots.header" />
                             <span class="p-column-title" v-if="col.header">{{col.header}}</span>
                             <span v-if="col.sortable" :class="getSortableColumnIcon(col)"></span>
                         </th>
                     </tr>
                 </thead>
+                <tfoot class="p-datatable-tfoot" v-if="hasFooter">
+                    <tr>
+                        <td v-for="(col,i) of columns" :key="col.columnKey||col.field||i" :style="col.footerStyle" :class="col.footerClass">
+                            <ColumnSlot :column="col" type="footer" v-if="col.$scopedSlots.footer" />
+                            {{col.footer}}
+                        </td>
+                    </tr>
+                </tfoot>
                 <tbody class="p-datatable-tbody">
                     <template v-if="!empty">
                         <tr class="p-datatable-row" v-for="(rowData, index) of data" :key="getRowKey(rowData, index)">
@@ -249,7 +258,7 @@ export default {
             }
         },
         sortSingle(value) {
-            let data = [...this.value];
+            let data = [...value];
 
             data.sort((data1, data2) => {
                 let value1 = ObjectUtils.resolveFieldData(data1, this.d_sortField);
@@ -273,7 +282,7 @@ export default {
             return data;
         },
         sortMultiple(value) {
-            let data = [...this.value];
+            let data = [...value];
 
             data.sort((data1, data2) => {
                 return this.multisortField(data1, data2, 0);
@@ -410,6 +419,18 @@ export default {
         },
         sorted() {
             return this.d_sortField || (this.d_multiSortMeta && this.d_multiSortMeta.length > 0);
+        },
+        hasFooter() {
+            let hasFooter = false;
+
+            for (let col of this.columns) {
+                if (col.footer || col.$scopedSlots.footer) {
+                    hasFooter = true;
+                    break;
+                }
+            }
+
+            return hasFooter;
         }
     },
     components: {
