@@ -162,7 +162,7 @@ export default {
     },
     data() {
         return {
-            columns: [],
+            allChildren: null,
             d_first: this.first,
             d_rows: this.rows,
             d_sortField: this.sortField,
@@ -184,7 +184,7 @@ export default {
         }
     },
     mounted() {
-        this.columns = this.$children.filter(child =>  child.$options._propKeys.indexOf('columnKey') !== -1);
+        this.allChildren = this.$children;
     },
     methods: {
         getRowKey(rowData, index) {
@@ -264,6 +264,12 @@ export default {
         }
     },
     computed: {
+        columns() {
+            if (this.allChildren) {
+                return this.allChildren.filter(child =>  child.$options._propKeys.indexOf('columnKey') !== -1);
+            }
+            return [];
+        },
         data() {
             if (this.value && this.value.length) {
                 let data = this.value;
