@@ -1,6 +1,12 @@
 <template>
     <div class="p-datatable p-component">
         <slot></slot>
+        <div class="p-datatable-loading" v-if="loading">
+            <div class="p-datatable-loading-overlay p-component-overlay"></div>
+            <div class="p-datatable-loading-content">
+                <i :class="loadingIconClass"></i>
+            </div>
+        </div>
         <div class="p-datatable-wrapper">
             <div class="p-datatable-header" v-if="$scopedSlots.header">
                 <slot name="header"></slot>
@@ -501,6 +507,9 @@ export default {
         },
         hasGlobalFilter() {
             return this.filters && this.filters.hasOwnProperty('global');
+        },
+        loadingIconClass() {
+            return ['p-datatable-loading-icon pi-spin', this.loadingIcon];
         }
     },
     components: {
@@ -692,7 +701,7 @@ export default {
 }
 
 /* Loader */
-.p-datatable-loading-overlay {
+.p-datatable .p-datatable-loading-overlay {
     position: absolute;
     width: 100%;
     height: 100%;
@@ -701,7 +710,7 @@ export default {
     z-index: 1;
 }
 
-.p-datatable-loading-content {
+.p-datatable .p-datatable-loading-content {
     position: absolute;
     left: 50%;
     top: 50%;

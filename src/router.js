@@ -130,6 +130,11 @@ export default new Router({
 			path: '/datatable/filter',
 			name: 'datatablefilter',
 			component: () => import('./views/datatable/DataTableFilterDemo.vue')
+        },
+        {
+			path: '/datatable/lazy',
+			name: 'datatablelazy',
+			component: () => import('./views/datatable/DataTableLazyDemo.vue')
 		},
 		{
 			path: '/dataview',
