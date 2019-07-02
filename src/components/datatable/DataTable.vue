@@ -158,6 +158,14 @@ export default {
         defaultSortOrder: {
             type: Number,
             default: 1
+        },
+        multiSortMeta: {
+            type: Array,
+            default: null
+        },
+        sortMode: {
+            type: String,
+            default: 'single'
         }
     },
     data() {
@@ -166,7 +174,8 @@ export default {
             d_first: this.first,
             d_rows: this.rows,
             d_sortField: this.sortField,
-            d_sortOrder: this.sortOrder
+            d_sortOrder: this.sortOrder,
+            d_multiSortMeta: this.multiSortMeta ? [...this.multiSortMeta] : []
         };
     },
     watch: {
@@ -181,6 +190,9 @@ export default {
         },
         sortOrder(newValue) {
             this.d_sortOrder = newValue;
+        },
+        multiSortMeta(newValue) {
+            this.d_multiSortMeta = newValue;
         }
     },
     mounted() {
@@ -201,51 +213,109 @@ export default {
             this.$emit('update:rows', this.d_rows);
             this.$emit('page', event);
         },
-        onColumnHeaderClick($event, column) {
+        onColumnHeaderClick(event, column) {
             if (column.sortable) {
-                let targetNode = event.target;
-                let columnField = column.field || column.sortField;
+                const targetNode = event.target;
+                const columnField = column.field || column.sortField;
 
-                if(DomHandler.hasClass(targetNode, 'p-sortable-column') || DomHandler.hasClass(targetNode, 'p-column-title') 
-                    || DomHandler.hasClass(targetNode, 'p-sortable-column-icon') || DomHandler.hasClass(targetNode.parentElement, 'p-sortable-column-icon')) {
+                if (DomHandler.hasClass(targetNode, 'p-sortable-column') || DomHandler.hasClass(targetNode, 'p-column-title') 
+                    || DomHandler.hasClass(targetNode, 'p-sortable-column-icon') || DomHandler.hasClass(targetNode.parentElement, 'p-sortable-column-icon')) {
+                    
+                    DomHandler.clearSelection();
                     
                     this.d_sortOrder = (this.d_sortField === columnField) ? this.d_sortOrder * -1 : this.defaultSortOrder;
                     this.d_sortField = columnField;
-                    DomHandler.clearSelection();
+
+                    if(this.sortMode === 'multiple') {
+                        let metaKey = event.metaKey || event.ctrlKey;
+                        if (!metaKey) {
+                            this.d_multiSortMeta = [];
+                        }
+
+                        this.addSortMeta({field: this.d_sortField, order: this.d_sortOrder});   
+                    }    
+
+                    this.$emit('update:sortField', this.d_sortFied);
+                    this.$emit('update:sortOrder', this.d_sortOrder);
+                    this.$emit('update:multiSortMeta', this.d_multiSortMeta);
+
+                    this.$emit('sort', {
+                        originalEvent: event,
+                        sortField: this.d_sortField,
+                        sortOrder: this.d_sortOrder,
+                        multiSortMeta: this.d_multiSortMeta
+                    });
                 }
             }
         },
-        sort(value) {
-            if (value) {
-                let data = [...this.value];
+        sortSingle(value) {
+            let data = [...this.value];
 
-                data.sort((data1, data2) => {
-                    let value1 = ObjectUtils.resolveFieldData(data1, this.d_sortField);
-                    let value2 = ObjectUtils.resolveFieldData(data2, this.d_sortField);
-                    let result = null;
+            data.sort((data1, data2) => {
+                let value1 = ObjectUtils.resolveFieldData(data1, this.d_sortField);
+                let value2 = ObjectUtils.resolveFieldData(data2, this.d_sortField);
+                let result = null;
 
-                    if (value1 == null && value2 != null)
-                        result = -1;
-                    else if (value1 != null && value2 == null)
-                        result = 1;
-                    else if (value1 == null && value2 == null)
-                        result = 0;
-                    else if (typeof value1 === 'string' && typeof value2 === 'string')
-                        result = value1.localeCompare(value2, undefined, { numeric: true });
-                    else
-                        result = (value1 < value2) ? -1 : (value1 > value2) ? 1 : 0;
+                if (value1 == null && value2 != null)
+                    result = -1;
+                else if (value1 != null && value2 == null)
+                    result = 1;
+                else if (value1 == null && value2 == null)
+                    result = 0;
+                else if (typeof value1 === 'string' && typeof value2 === 'string')
+                    result = value1.localeCompare(value2, undefined, { numeric: true });
+                else
+                    result = (value1 < value2) ? -1 : (value1 > value2) ? 1 : 0;
 
-                    return (this.d_sortOrder * result);
-                });
+                return (this.d_sortOrder * result);
+            });
 
-                return data;
+            return data;
+        },
+        sortMultiple(value) {
+            let data = [...this.value];
+
+            data.sort((data1, data2) => {
+                return this.multisortField(data1, data2, 0);
+            });
+
+            return data;            
+        },
+        multisortField(data1, data2, index) {
+            const value1 = ObjectUtils.resolveFieldData(data1, this.d_multiSortMeta[index].field);
+            const value2 = ObjectUtils.resolveFieldData(data2, this.d_multiSortMeta[index].field);
+            let result = null;
+
+            if (typeof value1 === 'string' || value1 instanceof String) {
+                if (value1.localeCompare && (value1 !== value2)) {
+                    return (this.d_multiSortMeta[index].order * value1.localeCompare(value2, undefined, { numeric: true }));
+                }
             }
             else {
-                return null;
+                result = (value1 < value2) ? -1 : 1;
             }
+
+            if (value1 === value2)  {
+                return (this.d_multiSortMeta.length - 1) > (index) ? (this.multisortField(data1, data2, index + 1)) : 0;
+            }
+
+            return (this.d_multiSortMeta[index].order * result);
+        },
+        getMultiSortMetaIndex(column) {
+            let index = -1;
+
+            for (let i = 0; i < this.d_multiSortMeta.length; i++) {
+                let meta = this.d_multiSortMeta[i];
+                if (meta.field === (column.field || column.sortField)) {
+                    index = i;
+                    break;
+                }
+            }
+
+            return index;
         },
         getColumnHeaderClass(column) {
-            const sorted = this.d_sortField === (column.field || column.sortField);
+            const sorted = this.sortMode === 'single' ? (this.d_sortField === (column.field || column.sortField)) : this.getMultiSortMetaIndex(column) > -1;
 
             return [column.headerClass, 
                     {'p-sortable-column': column.sortable}, 
@@ -253,14 +323,43 @@ export default {
             ];
         },
         getSortableColumnIcon(column) {
-            const sorted = this.d_sortField === (column.field || column.sortField);
+            let sorted = false;
+            let sortOrder = null;
+
+            if (this.sortMode === 'single') {
+                sorted =  this.d_sortField === (column.field || column.sortField);
+                sortOrder = sorted ? this.d_sortOrder: 0;
+            }
+            else if (this.sortMode === 'multiple') {
+                let metaIndex = this.getMultiSortMetaIndex(column);
+                if (metaIndex > -1) {
+                    sorted = true;
+                    sortOrder = this.d_multiSortMeta[metaIndex].order;
+                }
+            }
    
             return [
                 'p-sortable-column-icon pi pi-fw',
                 {'pi-sort': !sorted},
-                {'pi-sort-up': sorted && this.d_sortOrder > 0},
-                {'pi-sort-down': sorted && this.d_sortOrder < 0},
+                {'pi-sort-up': sorted && sortOrder > 0},
+                {'pi-sort-down': sorted && sortOrder < 0},
             ];
+        },
+        addSortMeta(meta) {
+            let index = -1;
+            for (let i = 0; i < this.d_multiSortMeta.length; i++) {
+                if (this.d_multiSortMeta[i].field === meta.field) {
+                    index = i;
+                    break;
+                }
+            }
+
+            if(index >= 0)
+                this.d_multiSortMeta[index] = meta;
+            else
+                this.d_multiSortMeta.push(meta);
+
+            this.d_multiSortMeta = [...this.d_multiSortMeta];
         }
     },
     computed: {
@@ -274,8 +373,11 @@ export default {
             if (this.value && this.value.length) {
                 let data = this.value;
 
-                if (data && data.length && this.d_sortField) {
-                    data = this.sort(data);
+                if (this.sorted) {
+                    if(this.sortMode === 'single')
+                        data = this.sortSingle(data);
+                    else if(this.sortMode === 'multiple')
+                        data = this.sortMultiple(data);
                 }
 
                 if (this.paginator) {
@@ -305,6 +407,9 @@ export default {
         },
         paginatorBottom() {
             return this.paginator && (this.paginatorPosition !== 'top' || this.paginatorPosition === 'both');
+        },
+        sorted() {
+            return this.d_sortField || (this.d_multiSortMeta && this.d_multiSortMeta.length > 0);
         }
     },
     components: {

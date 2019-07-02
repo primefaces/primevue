@@ -10,7 +10,16 @@
 		</div>
 
 		<div class="content-section implementation">
+            <h3 class="first">Single Column</h3>
 			<DataTable :value="cars">
+                <Column field="vin" header="Vin" :sortable="true"></Column>
+                <Column field="year" header="Year" :sortable="true"></Column>
+                <Column field="brand" header="Brand" :sortable="true"></Column>
+                <Column field="color" header="Color" :sortable="true"></Column>
+            </DataTable>
+
+            <h3>Multiple Columns</h3>
+			<DataTable :value="cars" sortMode="multiple">
                 <Column field="vin" header="Vin" :sortable="true"></Column>
                 <Column field="year" header="Year" :sortable="true"></Column>
                 <Column field="brand" header="Brand" :sortable="true"></Column>
