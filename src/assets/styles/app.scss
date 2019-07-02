@@ -487,8 +487,8 @@ body {
 
         &.content-submenu {
             background-color: #20272a;
-            padding: 15px 30px;
             border-bottom: 1px solid #1b81d7;
+            padding: 15px 30px;
             @include clearfix();
 
             ul {
@@ -500,7 +500,7 @@ body {
                     list-style: none;
                     width: 20%;
                     display: inline-block;
-                    margin-top: 5px;
+                    padding: .25em;
 
                     a {
                         color: #cac6c6;
@@ -1028,7 +1028,7 @@ body {
 
     .layout-content {
         margin-left: 0;
-        padding-top: 96px;
+        padding-top: 111px;
         
         .content-section {
             &.submenu ul li {
