@@ -27,7 +27,7 @@
                 <Column field="color" header="Color"></Column>
                 <Column headerStyle="width: 8em" bodyStyle="text-align: center">
                     <template #header>
-                        <Button type="button" icon="pi pi-cogs"></Button>
+                        <Button type="button" icon="pi pi-cog"></Button>
                     </template>
                     <template #body="slotProps">
                         <Button type="button" icon="pi pi-search" class="p-button-success" style="margin-right: .5em"></Button>
