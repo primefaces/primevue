@@ -39,6 +39,68 @@
                 </template>
             </DataTable>
 		</div>
+
+        <div class="content-section documentation">
+            <TabView>
+                <TabPanel header="Source">
+                    <a href="https://github.com/primefaces/primevue/tree/master/src/views/datatable/datatabletemplatingdemo" class="btn-viewsource" target="_blank" rel="noopener noreferrer">
+                        <span>View on GitHub</span>
+                    </a>
+<CodeHighlight>
+<template v-pre>
+&lt;DataTable :value="cars"&gt;
+    &lt;template #header&gt;
+        &lt;div style="line-height:1.87em" class="clearfix"&gt;
+            &lt;Button icon="pi pi-refresh" style="float: right"/&gt;
+            List of Cars 
+        &lt;/div&gt;
+    &lt;/template&gt;
+    &lt;Column field="vin" header="Vin"&gt;&lt;/Column&gt;
+    &lt;Column field="year" header="Year"&gt;&lt;/Column&gt;
+    &lt;Column field="brand" header="Brand"&gt;
+        &lt;template #body="slotProps"&gt;
+            &lt;img :src="'demo/images/car/' + slotProps.data.brand + '.png'" :alt="slotProps.data.brand"  width="48px"/&gt;
+        &lt;/template&gt;
+    &lt;/Column&gt;
+    &lt;Column field="color" header="Color"&gt;&lt;/Column&gt;
+    &lt;Column headerStyle="width: 8em" bodyStyle="text-align: center"&gt;
+        &lt;template #header&gt;
+            &lt;Button type="button" icon="pi pi-cog"&gt;&lt;/Button&gt;
+        &lt;/template&gt;
+        &lt;template #body="slotProps"&gt;
+            &lt;Button type="button" icon="pi pi-search" class="p-button-success" style="margin-right: .5em"&gt;&lt;/Button&gt;
+            &lt;Button type="button" icon="pi pi-pencil" class="p-button-warning"&gt;&lt;/Button&gt;
+        &lt;/template&gt;
+    &lt;/Column&gt;
+    &lt;template #footer&gt;
+        In total there are &#123;&#123;cars ? cars.length : 0 &#125;&#125; cars.
+    &lt;/template&gt;
+&lt;/DataTable&gt;
+</template>
+</CodeHighlight>
+
+<CodeHighlight lang="javascript">
+import CarService from '../../service/CarService';
+
+export default {
+    data() {
+        return {
+            cars: null
+        }
+    },
+    carService: null,
+    created() {
+        this.carService = new CarService();
+    },
+    mounted() {
+        this.carService.getCarsSmall().then(data => this.cars = data);
+    }
+}
+</CodeHighlight>
+
+                </TabPanel>
+            </TabView>
+        </div>
 	</div>
 </template>
 
