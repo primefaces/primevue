@@ -35,7 +35,7 @@
                 </tfoot>
                 <tbody class="p-datatable-tbody">
                     <template v-if="!empty">
-                        <tr class="p-datatable-row" v-for="(rowData, index) of data" :key="getRowKey(rowData, index)">
+                        <tr class="p-datatable-row" v-for="(rowData, index) of dataToRender" :key="getRowKey(rowData, index)">
                             <td v-for="(col,i) of columns" :key="col.columnKey||col.field||i" :style="col.bodyStyle" :class="col.bodyClass">
                                 <ColumnSlot :data="rowData" :column="col" type="body" v-if="col.$scopedSlots.body" />
                                 <template v-else>{{resolveFieldData(rowData, col.field)}}</template>
@@ -431,7 +431,7 @@ export default {
             }
             return [];
         },
-        data() {
+        processedData() {
             if (this.value && this.value.length) {
                 let data = this.value;
 
@@ -446,24 +446,31 @@ export default {
                     data = this.filter(data);
                 }
 
-                if (this.paginator) {
-                    const first = this.lazy ? 0 : this.d_first;
-                    return data.slice(first, first + this.d_rows);
-                }
-                else {
-                    return data;
-                }
-                    
+                return data;
             }
             else {
                 return null;
             }
         },
+        dataToRender() {
+            const data = this.processedData;
+
+            if (this.paginator) {
+                const first = this.lazy ? 0 : this.d_first;
+                return data.slice(first, first + this.d_rows);
+            }
+            else {
+                return data;
+            }
+        },
         totalRecordsLength() {
-            if (this.totalRecords)
+            if (this.lazy) {
                 return this.totalRecords;
-            else
-                return this.value ? this.value.length : 0;
+            }
+            else {
+                const data = this.hasFilters ? this.processedData : this.value;
+                return data ? data.length : 0;
+            }
         },
         empty() {
             return (!this.value || this.value.length === 0);
