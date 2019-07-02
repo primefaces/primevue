@@ -125,6 +125,11 @@ export default new Router({
 			path: '/datatable/sort',
 			name: 'datatablesort',
 			component: () => import('./views/datatable/DataTableSortDemo.vue')
+        },
+        {
+			path: '/datatable/filter',
+			name: 'datatablefilter',
+			component: () => import('./views/datatable/DataTableFilterDemo.vue')
 		},
 		{
 			path: '/dataview',

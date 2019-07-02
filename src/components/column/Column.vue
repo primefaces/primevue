@@ -49,6 +49,14 @@ export default {
         footerClass: {
             type: String,
             default: null
+        },
+        filterMatchMode: {
+            type: String,
+            default: 'startsWith'
+        },
+        excludeGlobalFilter: {
+            type: Boolean,
+            default: false
         }
     },
     render() {

@@ -21,6 +21,7 @@
                             <ColumnSlot :column="col" type="header" v-if="col.$scopedSlots.header" />
                             <span class="p-column-title" v-if="col.header">{{col.header}}</span>
                             <span v-if="col.sortable" :class="getSortableColumnIcon(col)"></span>
+                            <ColumnSlot :column="col" type="filter" v-if="col.$scopedSlots.filter" />
                         </th>
                     </tr>
                 </thead>
@@ -66,6 +67,7 @@
 
 <script>
 import ObjectUtils from '../utils/ObjectUtils';
+import FilterUtils from '../utils/FilterUtils';
 import DomHandler from '../utils/DomHandler';
 import Paginator from '../paginator/Paginator';
 
@@ -175,6 +177,10 @@ export default {
         sortMode: {
             type: String,
             default: 'single'
+        },
+        filters: {
+            type: Object,
+            default: null
         }
     },
     data() {
@@ -369,6 +375,53 @@ export default {
                 this.d_multiSortMeta.push(meta);
 
             this.d_multiSortMeta = [...this.d_multiSortMeta];
+        },
+        filter(data) {
+            let filteredValue = [];
+
+            for(let i = 0; i < data.length; i++) {
+                let localMatch = true;
+                let globalMatch = false;
+
+                for(let j = 0; j < this.columns.length; j++) {
+                    let col = this.columns[j];
+                    let columnField = col.field;
+                    
+                    //local
+                    if (this.filters.hasOwnProperty(columnField)) {
+                        let filterValue = this.filters[columnField];
+                        let dataFieldValue = ObjectUtils.resolveFieldData(data[i], columnField);
+                        let filterConstraint = FilterUtils[col.filterMatchMode];
+
+                        if (!filterConstraint(dataFieldValue, filterValue)) {
+                            localMatch = false;
+                        }
+
+                        if (!localMatch) {
+                            break;
+                        }
+                    }
+
+                    if (!col.excludeGlobalFilter && this.hasGlobalFilter && !globalMatch) {
+                        globalMatch = FilterUtils.contains(ObjectUtils.resolveFieldData(data[i], columnField), this.filters['global']);
+                    }
+                }
+
+                let matches = localMatch;
+                if(this.hasGlobalFilter) {
+                    matches = localMatch && globalMatch;
+                }
+
+                if(matches) {
+                    filteredValue.push(data[i]);
+                }
+            }
+
+            if (filteredValue.length === data.length) {
+                filteredValue = data;
+            }
+
+            return filteredValue;
         }
     },
     computed: {
@@ -387,6 +440,10 @@ export default {
                         data = this.sortSingle(data);
                     else if(this.sortMode === 'multiple')
                         data = this.sortMultiple(data);
+                }
+
+                if (this.hasFilters) {
+                    data = this.filter(data);
                 }
 
                 if (this.paginator) {
@@ -431,6 +488,12 @@ export default {
             }
 
             return hasFooter;
+        },
+        hasFilters() {
+            return this.filters && Object.keys(this.filters).length > 0 && this.filters.constructor === Object;
+        },
+        hasGlobalFilter() {
+            return this.filters && this.filters.hasOwnProperty('global');
         }
     },
     components: {

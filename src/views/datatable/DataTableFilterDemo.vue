@@ -1,0 +1,119 @@
+<template>
+	<div>
+        <DataTableSubMenu />
+
+		<div class="content-section introduction">
+			<div class="feature-intro">
+				<h1>DataTable - Filter</h1>
+				<p>Filtering is enabled by defining a filter template per column to populate the filters property of the DataTable.</p>
+			</div>
+		</div>
+
+		<div class="content-section implementation">
+			<DataTable :value="cars" :filters="filters" :paginator="true" :rows="10">
+                <template #header>
+                    <div style="text-align: right">
+                        <i class="pi pi-search" style="margin: 4px 4px 0px 0px;"></i>
+                        <InputText v-model="filters['global']" placeholder="Global Search" size="50" />
+                    </div>
+                </template>
+                <Column field="vin" header="Vin" filterMatchMode="startsWith">
+                    <template #filter>
+                        <InputText type="text" v-model="filters['vin']" class="p-column-filter" />
+                    </template>
+                </Column>
+                <Column field="year" header="Year" filterMatchMode="contains">
+                    <template #filter>
+                        <InputText type="text" v-model="filters['year']" class="p-column-filter" />
+                    </template>
+                </Column>
+                <Column field="brand" header="Brand" filterMatchMode="equals">
+                    <template #filter>
+                        <Dropdown v-model="filters['brand']" :options="brands" optionLabel="brand" optionValue="value" placeholder="Select a Brand" class="p-column-filter">
+                            <template #option="slotProps">
+                                <div class="p-clearfix p-dropdown-car-option">
+                                    <img :alt="slotProps.option.brand" :src="'demo/images/car/' + slotProps.option.brand + '.png'" />
+                                    <span>{{slotProps.option.brand}}</span>
+                                </div>
+                            </template>
+                        </Dropdown>
+                    </template>
+                </Column>
+                <Column field="color" header="Color" filterMatchMode="in">
+                    <template #filter>
+                        <MultiSelect v-model="filters['color']" :options="colors" optionLabel="name" optionValue="value" placeholder="Select a Color" />
+                    </template>
+                </Column>
+            </DataTable>
+		</div>
+	</div>
+</template>
+
+<script>
+import CarService from '../../service/CarService';
+import DataTableSubMenu from './DataTableSubMenu';
+
+export default {
+    data() {
+        return {
+            filters: {},
+            brands: [
+                {brand: 'Audi', value: 'Audi'},
+                {brand: 'BMW', value: 'BMW'},
+                {brand: 'Fiat', value: 'Fiat'},
+                {brand: 'Honda', value: 'Honda'},
+                {brand: 'Jaguar', value: 'Jaguar'},
+                {brand: 'Mercedes', value: 'Mercedes'},
+                {brand: 'Renault', value: 'Renault'},
+                {brand: 'Volkswagen', value: 'Volkswagen'},
+                {brand: 'Volvo', value: 'Volvo'}
+            ],
+            colors: [
+                {name: 'White', value: 'White'},
+                {name: 'Green', value: 'Green'},
+                {name: 'Silver', value: 'Silver'},
+                {name: 'Black', value: 'Black'},
+                {name: 'Red', value: 'Red'},
+                {name: 'Maroon', value: 'Maroon'},
+                {name: 'Brown', value: 'Brown'},
+                {name: 'Orange', value: 'Orange'},
+                {name: 'Blue', value: 'Blue'}
+            ],
+            cars: null
+        }
+    },
+    carService: null,
+    created() {
+        this.carService = new CarService();
+    },
+    mounted() {
+        this.carService.getCarsLarge().then(data => this.cars = data);
+    },
+    components: {
+        'DataTableSubMenu': DataTableSubMenu
+    }
+}
+</script>
+
+<style lang="scss" scoped>
+/deep/ .p-dropdown-label {
+    text-align: left;
+}
+
+.p-multiselect {
+    width: 100%;
+}
+
+.p-dropdown-car-option {
+    img {
+        vertical-align: middle;
+        margin-right: .5em;
+        width: 24px;
+    }
+
+    span {
+        float: right;
+        margin-top: .125em;
+    }
+}
+</style>
