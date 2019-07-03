@@ -135,6 +135,11 @@ export default new Router({
 			path: '/datatable/lazy',
 			name: 'datatablelazy',
 			component: () => import('./views/datatable/DataTableLazyDemo.vue')
+        },
+        {
+			path: '/datatable/selection',
+			name: 'datatableselection',
+			component: () => import('./views/datatable/DataTableSelectionDemo.vue')
 		},
 		{
 			path: '/dataview',

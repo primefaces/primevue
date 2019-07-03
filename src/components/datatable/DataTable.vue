@@ -1,5 +1,5 @@
 <template>
-    <div class="p-datatable p-component">
+    <div :class="containerClass">
         <slot></slot>
         <div class="p-datatable-loading" v-if="loading">
             <div class="p-datatable-loading-overlay p-component-overlay"></div>
@@ -41,7 +41,8 @@
                 </tfoot>
                 <tbody class="p-datatable-tbody">
                     <template v-if="!empty">
-                        <tr class="p-datatable-row" v-for="(rowData, index) of dataToRender" :key="getRowKey(rowData, index)">
+                        <tr :class="getRowClass(rowData)" v-for="(rowData, index) of dataToRender" :key="getRowKey(rowData, index)" 
+                            @click="onRowClick($event, rowData)" @touchend="onRowTouchEnd($event)">
                             <td v-for="(col,i) of columns" :key="col.columnKey||col.field||i" :style="col.bodyStyle" :class="col.bodyClass">
                                 <ColumnSlot :data="rowData" :column="col" type="body" v-if="col.$scopedSlots.body" />
                                 <template v-else>{{resolveFieldData(rowData, col.field)}}</template>
@@ -187,6 +188,26 @@ export default {
         filters: {
             type: Object,
             default: null
+        },
+        selection: {
+            type: [Array,Object],
+            default: null
+        },
+        selectionMode: {
+            type: String,
+            default: null
+        },
+        compareSelectionBy: {
+            type: String,
+            default: 'deepEquals'
+        },
+        metaKeySelection: {
+            type: Boolean,
+            default: true
+        },
+        rowHover: {
+            type: Boolean,
+            default: false
         }
     },
     data() {
@@ -196,9 +217,13 @@ export default {
             d_rows: this.rows,
             d_sortField: this.sortField,
             d_sortOrder: this.sortOrder,
-            d_multiSortMeta: this.multiSortMeta ? [...this.multiSortMeta] : []
+            d_multiSortMeta: this.multiSortMeta ? [...this.multiSortMeta] : [],
+            d_selectionKeys: null
         };
     },
+    rowTouched: false,
+    anchorRowIndex: null,
+    rangeRowIndex: null,
     watch: {
         first(newValue) {
             this.d_first = newValue;
@@ -214,15 +239,17 @@ export default {
         },
         multiSortMeta(newValue) {
             this.d_multiSortMeta = newValue;
+        },
+        selection(newValue) {
+            if (this.dataKey) {
+                this.updateSelectionKeys(newValue);
+            }
         }
     },
     mounted() {
         this.allChildren = this.$children;
     },
     methods: {
-        getRowKey(rowData, index) {
-            return this.dataKey ? ObjectUtils.resolveFieldData(rowData, this.dataKey): index;
-        },
         resolveFieldData(rowData, field) {
             return ObjectUtils.resolveFieldData(rowData, field);
         },
@@ -428,9 +455,166 @@ export default {
             }
 
             return filteredValue;
+        },
+        onRowClick(event, rowData) {
+            if (this.selectionMode) {
+                let target = event.target;
+                let targetNode = target.nodeName;
+                let parentNode = target.parentElement && target.parentElement.nodeName;
+
+                if (targetNode == 'INPUT' || targetNode == 'BUTTON' || targetNode == 'A' || 
+                    parentNode == 'INPUT' || parentNode == 'BUTTON' || parentNode == 'A' ||
+                    (DomHandler.hasClass(target, 'p-clickable'))) {
+                    return;
+                }
+
+                if (this.isMultipleSelectionMode() && event.shiftKey && this.anchorRowIndex != null) {
+                    DomHandler.clearSelection();
+                    
+                    /*if (this.rangeRowIndex != null) {
+                        this.clearSelectionRange(event.originalEvent);
+                    }*/
+                    
+                    this.rangeRowIndex = event.rowIndex;
+                    //this.selectRange(event.originalEvent, event.rowIndex);
+                }
+                else {
+                    const selected = this.isSelected(rowData);
+                    const metaSelection = this.rowTouched ? false : this.metaKeySelection;
+                    this.anchorRowIndex = event.rowIndex;
+                    this.rangeRowIndex = event.rowIndex;
+
+                    if (metaSelection) {
+                        let metaKey = event.metaKey || event.ctrlKey;
+                        
+                        if (selected && metaKey) {
+                            if(this.isSingleSelectionMode()) {
+                                this.$emit('update:selection', null);
+                            }
+                            else {
+                                const selectionIndex = this.findIndexInSelection(rowData);
+                                const _selection = this.selection.filter((val,i) => i != selectionIndex);
+                                this.$emit('update:selection', _selection);
+                            }
+                            
+                            this.$emit('row-unselect', {originalEvent: event, data: rowData, type: 'row'});
+                        }
+                        else {
+                            if(this.isSingleSelectionMode()) {
+                                this.$emit('update:selection', rowData);
+                            }
+                            else if (this.isMultipleSelectionMode()) {
+                                let _selection = metaKey ? (this.selection || []) : [];
+                                _selection = [..._selection, rowData];
+                                this.$emit('update:selection', _selection);
+                            }
+
+                            this.$emit('row-select', {originalEvent: event, data: rowData, type: 'row'});
+                        }
+                    }
+                    else {
+                        if (this.selectionMode === 'single') {
+                            if (selected) {
+                                this.$emit('update:selection', null);
+                                this.$emit('row-unselect', {originalEvent: event, data: rowData, type: 'row'});
+                            }
+                            else {
+                                this.$emit('update:selection', rowData);
+                                this.$emit('row-select', {originalEvent: event, data: rowData, type: 'row'});
+                            }
+                        }
+                        else if (this.selectionMode === 'multiple') {
+                            if (selected) {
+                                const selectionIndex = this.findIndexInSelection(rowData);
+                                const _selection = this.selection.filter((val, i) => i != selectionIndex);
+                                this.$emit('update:selection', _selection);
+                                this.$emit('row-unselect', {originalEvent: event, data: rowData, type: 'row'});
+                            }
+                            else {
+                                const _selection = this.selection ? [...this.selection, rowData] : [rowData];
+                                this.$emit('update:selection', _selection);
+                                this.$emit('row-select', {originalEvent: event, data: rowData, type: 'row'});
+                            }
+                        }
+                    }
+                }
+            }
+            
+            this.rowTouched = false;
+        },
+        onRowTouchEnd() {
+            this.rowTouched = true;
+        },
+        isSingleSelectionMode() {
+            return this.selectionMode === 'single';
+        },
+        isMultipleSelectionMode() {
+            return this.selectionMode === 'multiple';
+        },
+        isSelected(rowData) {
+            if (rowData && this.selection) {
+                if (this.dataKey) {
+                    return this.d_selectionKeys[ObjectUtils.resolveFieldData(rowData, this.dataKey)] !== undefined;
+                }
+                else {
+                    if (this.selection instanceof Array)
+                        return this.findIndexInSelection(rowData) > -1;
+                    else
+                        return this.equals(rowData, this.selection);
+                }
+            }
+
+            return false;
+        },
+        findIndexInSelection(rowData) {
+            let index = -1;
+            if (this.selection && this.selection.length) {
+                for (let i = 0; i < this.selection.length; i++) {
+                    if (this.equals(rowData, this.selection[i])) {
+                        index = i;
+                        break;
+                    }
+                }
+            }
+
+            return index;
+        },
+        updateSelectionKeys(selection) {
+            this.d_selectionKeys = {};
+            if (Array.isArray(selection)) {
+                for (let data of selection) {
+                    this.d_selectionKeys[String(ObjectUtils.resolveFieldData(data, this.dataKey))] = 1;
+                }
+            }
+            else {
+                this.d_selectionKeys[String(ObjectUtils.resolveFieldData(selection, this.dataKey))] = 1;
+            }
+        },
+        equals(data1, data2) {
+            return this.compareSelectionBy === 'equals' ? (data1 === data2) : ObjectUtils.equals(data1, data2, this.dataKey);
+        },
+        getRowKey(rowData, index) {
+            return this.dataKey ? ObjectUtils.resolveFieldData(rowData, this.dataKey): index;
+        },
+        getRowClass(rowData) {
+            if (this.selection) {
+                return ['p-datable-row', {
+                    'p-highlight': this.isSelected(rowData)
+                }];
+            }
+            else {
+                return 'p-datatable-row';
+            }
         }
     },
     computed: {
+        containerClass() {
+            return [
+                'p-datatable p-component', {
+                    'p-datatable-hoverable-rows': (this.rowHover || this.selectionMode)
+                }
+            ];
+        },
         columns() {
             if (this.allChildren) {
                 return this.allChildren.filter(child =>  child.$options._propKeys.indexOf('columnKey') !== -1);
