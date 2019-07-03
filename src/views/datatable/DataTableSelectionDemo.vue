@@ -41,6 +41,16 @@
                 <Column field="brand" header="Brand"></Column>
                 <Column field="color" header="Color"></Column>
             </DataTable>
+
+            <h3>Events</h3>
+            <p>row-select and row-unselects are available as selection events.</p>
+			<DataTable :value="cars" :selection.sync="selectedCar2" selectionMode="single" dataKey="vin"
+                @row-select="onRowSelect" @row-unselect="onRowUnselect">
+                <Column field="vin" header="Vin"></Column>
+                <Column field="year" header="Year"></Column>
+                <Column field="brand" header="Brand"></Column>
+                <Column field="color" header="Color"></Column>
+            </DataTable>
 		</div>
 
         <DataTableDoc />
@@ -57,6 +67,7 @@ export default {
         return {
             cars: null,
             selectedCar1: null,
+            selectedCar2: null,
             selectedCars1: null,
             selectedCars2: null
         }
@@ -67,6 +78,14 @@ export default {
     },
     mounted() {
         this.carService.getCarsSmall().then(data => this.cars = data);
+    },
+    methods: {
+        onRowSelect(event) {
+            this.$toast.add({severity: 'info', summary: 'Car Selected', detail: 'Vin: ' + event.data.vin, life: 3000});
+        },
+        onRowUnselect(event) {
+            this.$toast.add({severity: 'warn', summary: 'Car Unselected', detail: 'Vin: ' + event.data.vin, life: 3000});
+        }
     },
     components: {
         'DataTableDoc': DataTableDoc,
