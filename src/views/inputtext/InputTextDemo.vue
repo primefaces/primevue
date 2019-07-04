@@ -22,7 +22,7 @@
             <InputText type="text" v-model="value3" disabled />
         </div>
 
-        <InputTextDoc />
+        <InplaceTextDoc />
     </div>
 </template>
 

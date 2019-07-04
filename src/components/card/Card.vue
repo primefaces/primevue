@@ -37,7 +37,7 @@ export default {
     margin-bottom: .5em;
 }
 
-.p-card-subtitle {
+.p-card-subtitle {  
     opacity: .7;
     margin-bottom: .5em;
     margin-top: -.25em;
