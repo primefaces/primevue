@@ -48,6 +48,7 @@ import TabPanel from './components/tabpanel/TabPanel';
 import ToggleButton from './components/togglebutton/ToggleButton';
 import TriStateCheckbox from './components/tristatecheckbox/TriStateCheckbox';
 import ValidationMessage from './components/validationmessage/ValidationMessage';
+import OrderList from './components/orderlist/OrderList';
 
 import CodeHighlight from './views/codehighlight/CodeHighlight';
 
@@ -90,6 +91,7 @@ Vue.component('Menu', Menu);
 Vue.component('Message', Message);
 Vue.component('MultiSelect', MultiSelect);
 Vue.component('OverlayPanel', OverlayPanel);
+Vue.component('OrderList', OrderList);
 Vue.component('Paginator', Paginator);
 Vue.component('Panel', Panel);
 Vue.component('Password', Password);

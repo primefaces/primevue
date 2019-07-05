@@ -212,6 +212,11 @@ export default new Router({
 			component: () => import('./views/multiselect/MultiSelectDemo.vue')
 		},
 		{
+			path: '/orderlist',
+			name: 'orderlist',
+			component: () => import('./views/orderlist/OrderListDemo.vue')
+		},
+		{
 			path: '/overlaypanel',
 			name: 'overlaypanel',
 			component: () => import('./views/overlaypanel/OverlayPanelDemo.vue')
