@@ -21,7 +21,7 @@
                             <span class="p-button-text p-c">p-btn</span>
                         </button>
                     </div>
-                    <div  v-drag-and-drop:options="options" class="p-orderlist-list-container">
+                    <div class="p-orderlist-list-container">
                         <div class="p-orderlist-caption">{{header}}</div>
                         <ul id="container" class="p-orderlist-list" :style="[listStyleMethod(), listStyle]">
                             <div v-for="(val, index) in dataArray" :key="index">
@@ -44,7 +44,6 @@
 
 <script> 
 import DomHandler from '../utils/DomHandler';
-import draggable from 'vue-draggable'
 
 export default {
 
@@ -53,9 +52,6 @@ export default {
             selectedRow: null,
             dataArray: this.value,
         }        
-    },
-    components: {
-        draggable
     },
     props: {
         id: {
