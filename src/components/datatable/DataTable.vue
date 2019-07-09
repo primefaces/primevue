@@ -541,7 +541,6 @@ export default {
             this.rowTouched = true;
         },
         onRowKeyDown(event, rowData, rowIndex) {
-            debugger;
             if (this.selectionMode) {
                 const row = event.target;
 
