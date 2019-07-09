@@ -42,7 +42,7 @@
                 <tbody class="p-datatable-tbody">
                     <template v-if="!empty">
                         <tr :class="getRowClass(rowData)" v-for="(rowData, index) of dataToRender" :key="getRowKey(rowData, index)" 
-                            @click="onRowClick($event, rowData, index)" @touchend="onRowTouchEnd($event)">
+                            @click="onRowClick($event, rowData, index)" @touchend="onRowTouchEnd($event)" @keydown="onRowKeyDown($event, rowData, index)" :tabindex="selectionMode ? '0' : null">
                             <td v-for="(col,i) of columns" :key="col.columnKey||col.field||i" :style="col.bodyStyle" :class="col.bodyClass">
                                 <ColumnSlot :data="rowData" :column="col" type="body" v-if="col.$scopedSlots.body" />
                                 <template v-else>{{resolveFieldData(rowData, col.field)}}</template>
@@ -540,6 +540,67 @@ export default {
         onRowTouchEnd() {
             this.rowTouched = true;
         },
+        onRowKeyDown(event, rowData, rowIndex) {
+            debugger;
+            if (this.selectionMode) {
+                const row = event.target;
+
+                switch (event.which) {
+                    //down arrow
+                    case 40:
+                        let nextRow = this.findNextSelectableRow(row);
+                        if (nextRow) {
+                            nextRow.focus();
+                        }
+        
+                        event.preventDefault();
+                    break;
+        
+                    //up arrow
+                    case 38:
+                        let prevRow = this.findPrevSelectableRow(row);
+                        if (prevRow) {
+                            prevRow.focus();
+                        }
+        
+                        event.preventDefault();
+                    break;
+        
+                    //enter
+                    case 13:
+                        this.onRowClick(event, rowData, rowIndex);
+                    break;
+        
+                    default:
+                        //no op
+                    break;
+                }
+            }
+        },
+        findNextSelectableRow(row) {
+            let nextRow = row.nextElementSibling;
+            if (nextRow) {
+                if (DomHandler.hasClass(nextRow, 'p-datatable-row'))
+                    return nextRow;
+                else
+                    return this.findNextSelectableRow(nextRow);
+            }
+            else {
+                return null;
+            }
+        },
+        findPrevSelectableRow(row) {
+            let prevRow = row.previousElementSibling;
+            if (prevRow) {
+                if (DomHandler.hasClass(prevRow, 'p-datatable-row'))
+                    return prevRow;
+                else
+                    return this.findPrevSelectableRow(prevRow);
+            }
+            else {
+                return null;
+            }
+        },
         isSingleSelectionMode() {
             return this.selectionMode === 'single';
         },
@@ -549,7 +610,7 @@ export default {
         isSelected(rowData) {
             if (rowData && this.selection) {
                 if (this.dataKey) {
-                    return this.d_selectionKeys[ObjectUtils.resolveFieldData(rowData, this.dataKey)] !== undefined;
+                    return this.d_selectionKeys ? this.d_selectionKeys[ObjectUtils.resolveFieldData(rowData, this.dataKey)] !== undefined : false;
                 }
                 else {
                     if (this.selection instanceof Array)
@@ -593,7 +654,7 @@ export default {
         },
         getRowClass(rowData) {
             if (this.selection) {
-                return ['p-datable-row', {
+                return ['p-datatable-row', {
                     'p-highlight': this.isSelected(rowData)
                 }];
             }
