@@ -471,7 +471,7 @@ export default {
                 if (this.isMultipleSelectionMode() && event.shiftKey && this.anchorRowIndex != null) {
                     DomHandler.clearSelection();
                     this.rangeRowIndex = rowIndex;
-                    this.selectRange(event, rowIndex);
+                    this.selectRange(event);
                 }
                 else {
                     const selected = this.isSelected(rowData);
@@ -547,7 +547,7 @@ export default {
                 switch (event.which) {
                     //down arrow
                     case 40:
-                        let nextRow = this.findNextSelectableRow(row);
+                        var nextRow = this.findNextSelectableRow(row);
                         if (nextRow) {
                             nextRow.focus();
                         }
@@ -557,7 +557,7 @@ export default {
         
                     //up arrow
                     case 38:
-                        let prevRow = this.findPrevSelectableRow(row);
+                        var prevRow = this.findPrevSelectableRow(row);
                         if (prevRow) {
                             prevRow.focus();
                         }
@@ -661,7 +661,7 @@ export default {
                 return 'p-datatable-row';
             }
         },
-        selectRange(event, rowIndex) {
+        selectRange(event) {
             let rangeStart, rangeEnd;
             
             if (this.rangeRowIndex > this.anchorRowIndex) {
