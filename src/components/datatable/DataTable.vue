@@ -830,7 +830,7 @@ export default {
         },
         allRowsSelected() {
             const val = this.processedData;
-            return (this.value && this.value.length > 0 && this.selection && this.selection.length > 0 && this.selection.length === this.value.length);
+            return (val && val.length > 0 && this.selection && this.selection.length > 0 && this.selection.length === val.length);
         }
     },
     components: {
@@ -993,35 +993,6 @@ export default {
 .p-datatable-reorder-indicator-down {
     position: absolute;
     display: none;
-}
-
-/* Responsive */
-.p-datatable-responsive .p-datatable-tbody > tr > td .p-column-title {
-    display: none;
-}
-
-@media screen and (max-width: 40em) {
-    .p-datatable-responsive .p-datatable-thead > tr > th,
-    .p-datatable-responsive .p-datatable-tfoot > tr > td {
-        display: none !important;
-    }
-
-    .p-datatable-responsive .p-datatable-tbody > tr > td {
-        text-align: left;
-        display: block;
-        border: 0 none;
-        width: 100% !important;
-		float: left;
-		clear: left;
-    }
-
-    .p-datatable-responsive .p-datatable-tbody > tr > td .p-column-title {
-        padding: .4em;
-        min-width: 30%;
-        display: inline-block;
-        margin: -.4em 1em -.4em -.4em;
-        font-weight: bold;
-    }
 }
 
 /* Loader */

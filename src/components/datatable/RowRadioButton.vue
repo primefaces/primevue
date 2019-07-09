@@ -10,8 +10,6 @@
 </template>
 
 <script>
-import ObjectUtils from '../utils/ObjectUtils';
-
 export default {
     inheritAttrs: false,
     props: {
@@ -37,10 +35,10 @@ export default {
                 this.$refs.input.focus();
             }
         },
-        onFocus(event) {
+        onFocus() {
             this.focused = true;
         },
-        onBlur(event) {
+        onBlur() {
             this.focused = false;
         }
     }
