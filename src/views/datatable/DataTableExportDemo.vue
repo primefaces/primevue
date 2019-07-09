@@ -5,13 +5,17 @@
 		<div class="content-section introduction">
 			<div class="feature-intro">
 				<h1>DataTable - Export</h1>
-				<p>DataTable can export its data to CSV format..</p>
+				<p>DataTable can export its data to CSV format.</p>
 			</div>
 		</div>
 
 		<div class="content-section implementation">
-			<h3 class="first">Basic</h3>
-			<DataTable :value="cars">
+			<DataTable :value="cars" ref="dt">
+                <template #header>
+                    <div style="text-align: left">
+                        <Button icon="pi pi-external-link" label="Export" @click="exportCSV($event)" />
+                    </div>
+                </template>
                 <Column field="vin" header="Vin"></Column>
                 <Column field="year" header="Year"></Column>
                 <Column field="brand" header="Brand"></Column>
@@ -37,6 +41,11 @@ export default {
     },
     mounted() {
         this.carService.getCarsSmall().then(data => this.cars = data);
+    },
+    methods: {
+        exportCSV() {
+            this.$refs.dt.exportCSV();
+        }
     },
     components: {
         'DataTableSubMenu': DataTableSubMenu

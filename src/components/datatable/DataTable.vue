@@ -216,6 +216,14 @@ export default {
         rowHover: {
             type: Boolean,
             default: false
+        },
+        csvSeparator: {
+            type: String,
+            default: ','
+        },
+        exportFilename: {
+            type: String,
+            default: 'download'
         }
     },
     data() {
@@ -738,6 +746,80 @@ export default {
             }
 
             this.$emit('update:selection', _selection);
+        },
+        exportCSV(options) {
+            let data = this.processedData;
+            let csv = '\ufeff';
+
+            if (options && options.selectionOnly) {
+                data = this.selection || [];
+            }
+            
+            //headers
+            for (let i = 0; i < this.columns.length; i++) {
+                let column = this.columns[i];
+                if (column.exportable !== false && column.field) {
+                    csv += '"' + (column.header || column.field) + '"';
+
+                    if (i < (this.columns.length - 1)) {
+                        csv += this.csvSeparator;
+                    }
+                }
+            }
+
+            //body
+            data.forEach((record, i) => {
+                csv += '\n';
+                for (let i = 0; i < this.columns.length; i++) {
+                    let column = this.columns[i];
+                    if (column.exportable !== false && column.field) {
+                        let cellData = ObjectUtils.resolveFieldData(record, column.field);
+                        
+                        if (cellData != null) {
+                            if (this.exportFunction) {
+                                cellData = this.exportFunction({
+                                    data: cellData,
+                                    field: column.field
+                                });
+                            }
+                            else
+                                cellData = String(cellData).replace(/"/g, '""');
+                        }
+                        else
+                            cellData = '';
+            
+            
+                        csv += '"' + cellData + '"';
+            
+                        if (i < (this.columns.length - 1)) {
+                            csv += this.csvSeparator;
+                        }
+                    }
+                }
+            });
+
+            let blob = new Blob([csv], {
+                type: 'text/csv;charset=utf-8;'
+            });
+
+            if (window.navigator.msSaveOrOpenBlob) {
+                navigator.msSaveOrOpenBlob(blob, this.exportFilename + '.csv');
+            }
+            else {
+                let link = document.createElement("a");
+                link.style.display = 'none';
+                document.body.appendChild(link);
+                if (link.download !== undefined) {
+                    link.setAttribute('href', URL.createObjectURL(blob));
+                    link.setAttribute('download', this.exportFilename + '.csv');
+                    link.click();
+                }
+                else {
+                    csv = 'data:text/csv;charset=utf-8,' + csv;
+                    window.open(encodeURI(csv));
+                }
+                document.body.removeChild(link);
+            }
         }
     },
     computed: {
