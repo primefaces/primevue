@@ -169,7 +169,6 @@
                 <div v-show="activeMenuIndex === 9">
                     <div>
                         <router-link to="/progressbar">&#9679; ProgressBar</router-link>
-                        <router-link to="/inplace">&#9679; Inplace</router-link>
                     </div>
                 </div>
             </transition>
