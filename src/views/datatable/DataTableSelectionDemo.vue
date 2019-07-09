@@ -51,6 +51,17 @@
                 <Column field="brand" header="Brand"></Column>
                 <Column field="color" header="Color"></Column>
             </DataTable>
+
+            <h3>RadioButton</h3>
+            <p>Single selection can also be handled using radio buttons by enabling the selectionMode property of column as "single".</p>
+			<DataTable :value="cars" :selection.sync="selectedCar3" dataKey="vin">
+                <Column selectionMode="single" headerStyle="width: 3em"></Column>
+                <Column field="vin" header="Vin"></Column>
+                <Column field="year" header="Year"></Column>
+                <Column field="brand" header="Brand"></Column>
+                <Column field="color" header="Color"></Column>
+            </DataTable>
+            {{selectedCar3 ? selectedCar3.vin : 'none'}}
 		</div>
 
         <DataTableDoc />
@@ -68,8 +79,10 @@ export default {
             cars: null,
             selectedCar1: null,
             selectedCar2: null,
+            selectedCar3: null,
             selectedCars1: null,
-            selectedCars2: null
+            selectedCars2: null,
+            selectedCars3: null
         }
     },
     carService: null,

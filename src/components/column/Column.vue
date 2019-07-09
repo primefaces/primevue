@@ -57,6 +57,10 @@ export default {
         excludeGlobalFilter: {
             type: Boolean,
             default: false
+        },
+        selectionMode: {
+            type: String,
+            default: null
         }
     },
     render() {

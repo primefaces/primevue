@@ -45,6 +45,9 @@
                             @click="onRowClick($event, rowData, index)" @touchend="onRowTouchEnd($event)" @keydown="onRowKeyDown($event, rowData, index)" :tabindex="selectionMode ? '0' : null">
                             <td v-for="(col,i) of columns" :key="col.columnKey||col.field||i" :style="col.bodyStyle" :class="col.bodyClass">
                                 <ColumnSlot :data="rowData" :column="col" type="body" v-if="col.$scopedSlots.body" />
+                                <template v-else-if="col.selectionMode">
+                                    <DTRadioButton :value="rowData" :checked="isSelected(rowData)" @change="toggleRowWithRadio" />
+                                </template>
                                 <template v-else>{{resolveFieldData(rowData, col.field)}}</template>
                             </td>
                         </tr>
@@ -77,6 +80,7 @@ import ObjectUtils from '../utils/ObjectUtils';
 import FilterUtils from '../utils/FilterUtils';
 import DomHandler from '../utils/DomHandler';
 import Paginator from '../paginator/Paginator';
+import RowRadioButton from './RowRadioButton';
 
 const ColumnSlot = {
     functional: true,
@@ -600,6 +604,18 @@ export default {
                 return null;
             }
         },
+        toggleRowWithRadio(event) {
+            const rowData = event.data;
+
+            if (this.isSelected(rowData)) {
+                this.$emit('update:selection', null);
+                this.$emit('row-unselect', {originalEvent: event, data: rowData, type: 'radiobutton'});
+            }
+            else {
+                this.$emit('update:selection', rowData);
+                this.$emit('row-select', {originalEvent: event, data: rowData, type: 'radiobutton'});
+            }
+        },
         isSingleSelectionMode() {
             return this.selectionMode === 'single';
         },
@@ -784,7 +800,8 @@ export default {
     },
     components: {
         'ColumnSlot': ColumnSlot,
-        'DTPaginator': Paginator
+        'DTPaginator': Paginator,
+        'DTRadioButton': RowRadioButton
     }
 }
 </script>
