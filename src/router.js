@@ -140,6 +140,26 @@ export default new Router({
 			path: '/datatable/selection',
 			name: 'datatableselection',
 			component: () => import('./views/datatable/DataTableSelectionDemo.vue')
+        },
+        {
+			path: '/datatable/coltoggle',
+			name: 'datatablecoltoggle',
+			component: () => import('./views/datatable/DataTableColToggleDemo.vue')
+        },
+        {
+			path: '/datatable/responsive',
+			name: 'datatableresponsive',
+			component: () => import('./views/datatable/DataTableResponsiveDemo.vue')
+        },
+        {
+			path: '/datatable/export',
+			name: 'datatableexport',
+			component: () => import('./views/datatable/DataTableExportDemo.vue')
+        },
+        {
+			path: '/datatable/crud',
+			name: 'datatablecrud',
+			component: () => import('./views/datatable/DataTableCrudDemo.vue')
 		},
 		{
 			path: '/dataview',

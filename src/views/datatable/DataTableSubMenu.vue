@@ -8,6 +8,10 @@
             <li><router-link to="/datatable/filter">&#9679; Filter</router-link></li>
             <li><router-link to="/datatable/selection">&#9679; Selection</router-link></li>
             <li><router-link to="/datatable/lazy">&#9679; Lazy</router-link></li>
+            <li><router-link to="/datatable/coltoggle">&#9679; ColToggle</router-link></li>
+            <li><router-link to="/datatable/responsive">&#9679; Responsive</router-link></li>
+            <li><router-link to="/datatable/export">&#9679; Export</router-link></li>
+            <li><router-link to="/datatable/crud">&#9679; Crud</router-link></li>
         </ul>
     </div>    
 </template>
