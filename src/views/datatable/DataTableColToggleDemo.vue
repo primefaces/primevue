@@ -10,12 +10,14 @@
 		</div>
 
 		<div class="content-section implementation">
-			<h3 class="first">Basic</h3>
 			<DataTable :value="cars">
-                <Column field="vin" header="Vin"></Column>
-                <Column field="year" header="Year"></Column>
-                <Column field="brand" header="Brand"></Column>
-                <Column field="color" header="Color"></Column>
+                <template #header>
+                    <div style="text-align:left">
+                        <MultiSelect v-model="columns" :options="columnOptions" optionLabel="header" placeholder="Select Columns" style="width: 20em"/>
+                    </div>
+                </template>
+                <Column field="vin" header="Vin" />
+                <Column v-for="col of columns" :field="col.field" :header="col.header" :key="col.field"></Column>
             </DataTable>
 		</div>
 	</div>
@@ -28,12 +30,22 @@ import DataTableSubMenu from './DataTableSubMenu';
 export default {
     data() {
         return {
+            columns: null,
+            columnOptions: null,
             cars: null
         }
     },
     carService: null,
     created() {
         this.carService = new CarService();
+
+        this.columns = [
+            {field: 'year', header: 'Year'},
+            {field: 'brand', header: 'Brand'},
+            {field: 'color', header: 'Color'}
+        ];
+
+        this.columnOptions = [...this.columns];
     },
     mounted() {
         this.carService.getCarsSmall().then(data => this.cars = data);

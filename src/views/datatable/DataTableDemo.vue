@@ -19,7 +19,7 @@
             </DataTable>
 
             <h3>Dynamic Columns</h3>
-			<DataTable :value="cars" :columns="columns">
+			<DataTable :value="cars">
                 <Column v-for="col of columns" :field="col.field" :header="col.header" :key="col.field"></Column>
             </DataTable>
 
@@ -52,7 +52,7 @@ export default {
             {field: 'year', header: 'Year'},
             {field: 'brand', header: 'Brand'},
             {field: 'color', header: 'Color'}
-        ]
+        ];
     },
     mounted() {
         this.carService.getCarsSmall().then(data => this.cars = data);
