@@ -47,6 +47,7 @@ import TabPanel from './components/tabpanel/TabPanel';
 import ToggleButton from './components/togglebutton/ToggleButton';
 import TriStateCheckbox from './components/tristatecheckbox/TriStateCheckbox';
 import ValidationMessage from './components/validationmessage/ValidationMessage';
+import Inplace from './components/inplace/Inplace'
 
 import CodeHighlight from './views/codehighlight/CodeHighlight';
 
@@ -83,6 +84,7 @@ Vue.component('FileUpload', FileUpload);
 Vue.component('FullCalendar', FullCalendar);
 Vue.component('InputSwitch', InputSwitch);
 Vue.component('InputText', InputText);
+Vue.component('Inplace', Inplace);
 Vue.component('Listbox', Listbox);
 Vue.component('Menu', Menu);
 Vue.component('Message', Message);

@@ -197,6 +197,11 @@ export default new Router({
 			component: () => import('./views/inputtext/InputTextDemo.vue')
 		},
 		{
+			path: '/inplace',
+			name: 'inplace',
+			component: () => import('./views/inplace/InplaceDemo.vue')
+		},
+		{
 			path: '/listbox',
 			name: 'listbox',
 			component: () => import('./views/listbox/ListboxDemo.vue')
