@@ -42,7 +42,7 @@
                 <tbody class="p-datatable-tbody">
                     <template v-if="!empty">
                         <tr :class="getRowClass(rowData)" v-for="(rowData, index) of dataToRender" :key="getRowKey(rowData, index)" 
-                            @click="onRowClick($event, rowData)" @touchend="onRowTouchEnd($event)">
+                            @click="onRowClick($event, rowData, index)" @touchend="onRowTouchEnd($event)">
                             <td v-for="(col,i) of columns" :key="col.columnKey||col.field||i" :style="col.bodyStyle" :class="col.bodyClass">
                                 <ColumnSlot :data="rowData" :column="col" type="body" v-if="col.$scopedSlots.body" />
                                 <template v-else>{{resolveFieldData(rowData, col.field)}}</template>
@@ -456,7 +456,7 @@ export default {
 
             return filteredValue;
         },
-        onRowClick(event, rowData) {
+        onRowClick(event, rowData, rowIndex) {
             if (this.selectionMode) {
                 let target = event.target;
                 let targetNode = target.nodeName;
@@ -470,19 +470,14 @@ export default {
 
                 if (this.isMultipleSelectionMode() && event.shiftKey && this.anchorRowIndex != null) {
                     DomHandler.clearSelection();
-                    
-                    /*if (this.rangeRowIndex != null) {
-                        this.clearSelectionRange(event.originalEvent);
-                    }*/
-                    
-                    this.rangeRowIndex = event.rowIndex;
-                    //this.selectRange(event.originalEvent, event.rowIndex);
+                    this.rangeRowIndex = rowIndex;
+                    this.selectRange(event, rowIndex);
                 }
                 else {
                     const selected = this.isSelected(rowData);
                     const metaSelection = this.rowTouched ? false : this.metaKeySelection;
-                    this.anchorRowIndex = event.rowIndex;
-                    this.rangeRowIndex = event.rowIndex;
+                    this.anchorRowIndex = rowIndex;
+                    this.rangeRowIndex = rowIndex;
 
                     if (metaSelection) {
                         let metaKey = event.metaKey || event.ctrlKey;
@@ -605,6 +600,37 @@ export default {
             else {
                 return 'p-datatable-row';
             }
+        },
+        selectRange(event, rowIndex) {
+            let rangeStart, rangeEnd;
+            
+            if (this.rangeRowIndex > this.anchorRowIndex) {
+                rangeStart = this.anchorRowIndex;
+                rangeEnd = this.rangeRowIndex;
+            }
+            else if(this.rangeRowIndex < this.anchorRowIndex) {
+                rangeStart = this.rangeRowIndex;
+                rangeEnd = this.anchorRowIndex;
+            }
+            else {
+                rangeStart = this.rangeRowIndex;
+                rangeEnd = this.rangeRowIndex;
+            }
+            
+            if (this.lazy && this.paginator) {
+                rangeStart -= this.first;
+                rangeEnd -= this.first;
+            }
+
+            const filteredValue = this.processedData;
+            let _selection = [];
+            for(let i = rangeStart; i <= rangeEnd; i++) {
+                let rangeRowData = filteredValue ? filteredValue[i] : this.value[i];
+                _selection.push(rangeRowData);
+                this.$emit('row-select', {originalEvent: event, data: rangeRowData, type: 'row'});
+            }
+
+            this.$emit('update:selection', _selection);
         }
     },
     computed: {
