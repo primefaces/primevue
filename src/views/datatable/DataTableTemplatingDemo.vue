@@ -13,7 +13,7 @@
 			<DataTable :value="cars">
                 <template #header>
                     <div style="line-height:1.87em" class="clearfix">
-                        <Button icon="pi pi-refresh" style="float: right"/>
+                        <Button icon="pi pi-refresh" style="float: left"/>
                         List of Cars 
                     </div>
                 </template>
@@ -50,8 +50,8 @@
 <template v-pre>
 &lt;DataTable :value="cars"&gt;
     &lt;template #header&gt;
-        &lt;div style="line-height:1.87em" class="clearfix"&gt;
-            &lt;Button icon="pi pi-refresh" style="float: right"/&gt;
+        &lt;div style="line-height:1.87em" class="p-clearfix"&gt;
+            &lt;Button icon="pi pi-refresh" style="float: left"/&gt;
             List of Cars 
         &lt;/div&gt;
     &lt;/template&gt;
