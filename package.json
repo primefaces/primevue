@@ -47,5 +47,8 @@
     "vue": "^2.6.10",
     "vue-router": "^3.0.1",
     "vue-template-compiler": "^2.5.21"
+  },
+  "dependencies": {
+    "vue-draggable": "^2.0.2"
   }
 }

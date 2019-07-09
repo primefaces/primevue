@@ -49,6 +49,7 @@ import ToggleButton from './components/togglebutton/ToggleButton';
 import TriStateCheckbox from './components/tristatecheckbox/TriStateCheckbox';
 import ValidationMessage from './components/validationmessage/ValidationMessage';
 import OrderList from './components/orderlist/OrderList';
+import VueDraggable from 'vue-draggable'
 
 import CodeHighlight from './views/codehighlight/CodeHighlight';
 
@@ -61,6 +62,7 @@ import '@fullcalendar/daygrid/main.min.css';
 import '@fullcalendar/timegrid/main.min.css';
 
 Vue.use(ToastService);
+Vue.use(VueDraggable)
 
 Vue.config.productionTip = false;
 

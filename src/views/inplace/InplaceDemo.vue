@@ -9,7 +9,7 @@
 
         <div class="content-section implementation">
             <h3 class="first">Basic</h3>
-            <Inplace disabled="false" active= false closable="true" style="margin-left: 5px">
+            <Inplace closable= "true">
                 <template slot="inplaceDisplay">
                 <span>Click to Edit</span>
                 </template>
@@ -24,7 +24,7 @@
 
         <div class="content-section implementation">
             <h3 class="first">Image</h3>
-            <Inplace style="margin-left: 5px">
+            <Inplace class= "test" style="margin-left: 5px">
                 <template slot="inplaceDisplay">
                 <span class="pi pi-search" style="vertical-align: middle;"></span>
                 <span style="margin-left: 0.5em; vertical-align: middle;">View Picture</span>
@@ -38,20 +38,20 @@
             </Inplace>
         </div>
 
-        <div class="content-section implementation">
-            <h3 class="first">Lazy Data</h3>
-            <Inplace closable="true" style="margin-left: 5px">
-                <template slot="inplaceDisplay">
-                <span >View Data</span>
-                </template>
+            <div class="content-section implementation">
+                <h3 class="first">Lazy Data</h3>
+                <Inplace closable=true style="margin-left: 5px">
+                    <template slot="inplaceDisplay">
+                    <span >View Data</span>
+                    </template>
 
-               <template slot="inplaceContent">
-                    <span>
-                        <Datatable/>
-                    </span>
-                </template>
-            </Inplace>
-        </div>
+                <template slot="inplaceContent">
+                        <span>
+                            <Datatable/>
+                        </span>
+                    </template>
+                </Inplace>
+            </div>
 
         <InplaceDoc/>
 
@@ -62,14 +62,7 @@
 import InplaceDoc from './InplaceDoc'
 
 export default {
-
-    data() {
-        return {
-            value1: '',
-            value2: '',
-            value3: 'PrimeVue'
-        }
-    },
+    
 	components: {
         'InplaceDoc': InplaceDoc
 	}

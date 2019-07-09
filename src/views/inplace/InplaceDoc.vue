@@ -19,7 +19,7 @@ import Inplace from 'primevue/inplace';
         &lt;/template&gt;
         &lt;template slot="inplaceContent"&gt;
             &lt;span&gt;
-                &lt;InputText type="text"/&gt;
+                &lt;InputText type="text" placeholder = "PrimeVUE"/&gt;
             &lt;/span&gt;
         &lt;/template&gt;
     &lt;/Inplace&gt;
@@ -62,12 +62,6 @@ import Inplace from 'primevue/inplace';
                                     <td>null</td>
                                     <td>Inline style of the component.</td>
                                 </tr>
-                                <tr>
-                                    <td>styleClass</td>
-                                    <td>string</td>
-                                    <td>null</td>
-                                    <td>Style class of the component.</td>
-                                </tr>
                                 </tbody>
                             </table>
 				</div>
@@ -101,7 +95,7 @@ import Inplace from 'primevue/inplace';
 				<a href="https://github.com/primefaces/primevue/tree/master/src/views/inputtext" class="btn-viewsource" target="_blank" rel="noopener noreferrer">
 					<span>View on GitHub</span>
 				</a>
-<CodeHighlight>
+<!-- <CodeHighlight>
 <template v-pre>
 &lt;template&gt;
 	&lt;div&gt;
@@ -129,19 +123,68 @@ import Inplace from 'primevue/inplace';
 	&lt;/div&gt;
 &lt;/template&gt;
 </template>
+</CodeHighlight> -->
+
+<CodeHighlight>
+&lt;template&gt;
+    &lt;div&gt;
+        &lt;div class="content-section introduction"&gt;
+            &lt;div class="feature-intro"&gt;
+                &lt;h1&gt;Inplace&lt;/h1&gt;
+                &lt;p&gt;Inplace provides an easy to do editing and display at the same time where clicking the output displays the actual content.&lt;/p&gt;
+            &lt;/div&gt;
+        &lt;/div&gt;
+
+        &lt;div class="content-section implementation"&gt;
+            &lt;h3 class="first"&gt;Basic&lt;/h3&gt;
+            &lt;Inplace closable= "true" disabled="true"&gt;
+                &lt;template slot="inplaceDisplay"&gt;
+                &lt;span&gt;Click to Edit&lt;/span&gt;
+                &lt;/template&gt;
+
+               &lt;template slot="inplaceContent"&gt;
+                    &lt;span&gt;  
+                        &lt;InputText type="text" placeholder="PrimeVUE"/&gt;
+                    &lt;/span&gt;
+                &lt;/template&gt;
+            &lt;/Inplace&gt;
+        &lt;/div&gt;
+
+        &lt;div class="content-section implementation"&gt;
+            &lt;h3 class="first"&gt;Image&lt;/h3&gt;
+            &lt;Inplace class= "test" style="margin-left: 5px"&gt;
+                &lt;template slot="inplaceDisplay"&gt;
+                &lt;span class="pi pi-search" style="vertical-align: middle;"&gt;&lt;/span&gt;
+                &lt;span style="margin-left: 0.5em; vertical-align: middle;"&gt;View Picture&lt;/span&gt;
+                &lt;/template&gt;
+
+               &lt;template slot="inplaceContent"&gt;
+                    &lt;span&gt;
+                        &lt;img src="https://www.primetek.com.tr/img/primefaces.png" alt="Nature"&gt;
+                    &lt;/span&gt;
+                &lt;/template&gt;
+            &lt;/Inplace&gt;
+        &lt;/div&gt;
+
+            &lt;div class="content-section implementation"&gt;
+                &lt;h3 class="first"&gt;Lazy Data&lt;/h3&gt;
+                &lt;Inplace closable=true style="margin-left: 5px"&gt;
+                    &lt;template slot="inplaceDisplay"&gt;
+                    &lt;span &gt;View Data&lt;/span&gt;
+                    &lt;/template&gt;
+
+                &lt;template slot="inplaceContent"&gt;
+                        &lt;span&gt;
+                            &lt;Datatable/&gt;
+                        &lt;/span&gt;
+                    &lt;/template&gt;
+                &lt;/Inplace&gt;
+            &lt;/div&gt;
+        &lt;InplaceDoc/&gt;
+    &lt;/div&gt;
+&lt;/template&gt;
 </CodeHighlight>
 
-<CodeHighlight lang="javascript">
-export default {
-	data() {
-		return {
-			value1: '',
-			value2: '',
-			value3: 'PrimeVue'
-		}
-	}
-}
-</CodeHighlight>
 			</TabPanel>
 		</TabView>
 	</div>
