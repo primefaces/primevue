@@ -1,0 +1,41 @@
+<template>
+    <div class="p-checkbox p-component" @click="onClick">
+        <div class="p-hidden-accessible">
+           <input ref="input" type="checkbox" :checked="checked" @focus="onFocus($event)" @blur="onBlur($event)" :disabled="disabled">
+        </div>
+        <div ref="box" :class="['p-checkbox-box p-component', {'p-highlight': checked, 'p-disabled': $attrs.disabled, 'p-focus': focused}]">
+            <span :class="['p-checkbox-icon p-c', {'pi pi-check': checked}]"></span>
+        </div>
+    </div>
+</template>
+
+<script>
+import ObjectUtils from '../utils/ObjectUtils';
+
+export default {
+    inheritAttrs: false,
+    props: {
+        disabled: null,
+        checked: null
+    },
+    data() {
+        return {
+            focused: false
+        };
+    },
+    methods: {
+        onClick(event) {
+            if (!this.disabled) {
+                this.$emit('change', event);
+                this.$refs.input.focus();
+            }
+        },
+        onFocus(event) {
+            this.focused = true;
+        },
+        onBlur(event) {
+            this.focused = false;
+        }
+    }
+}
+</script>

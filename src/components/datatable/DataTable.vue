@@ -28,6 +28,7 @@
                             <span class="p-column-title" v-if="col.header">{{col.header}}</span>
                             <span v-if="col.sortable" :class="getSortableColumnIcon(col)"></span>
                             <ColumnSlot :column="col" type="filter" v-if="col.$scopedSlots.filter" />
+                            <DTHeaderCheckbox :checked="allRowsSelected" @change="toggleRowsWithCheckbox" :disabled="empty" v-if="col.selectionMode ==='multiple'" />
                         </th>
                     </tr>
                 </thead>
@@ -46,7 +47,8 @@
                             <td v-for="(col,i) of columns" :key="col.columnKey||col.field||i" :style="col.bodyStyle" :class="col.bodyClass">
                                 <ColumnSlot :data="rowData" :column="col" type="body" v-if="col.$scopedSlots.body" />
                                 <template v-else-if="col.selectionMode">
-                                    <DTRadioButton :value="rowData" :checked="isSelected(rowData)" @change="toggleRowWithRadio" />
+                                    <DTRadioButton :value="rowData" :checked="isSelected(rowData)" @change="toggleRowWithRadio" v-if="col.selectionMode === 'single'" />
+                                    <DTCheckbox :value="rowData" :checked="isSelected(rowData)" @change="toggleRowWithCheckbox" v-else-if="col.selectionMode ==='multiple'" />
                                 </template>
                                 <template v-else>{{resolveFieldData(rowData, col.field)}}</template>
                             </td>
@@ -81,6 +83,8 @@ import FilterUtils from '../utils/FilterUtils';
 import DomHandler from '../utils/DomHandler';
 import Paginator from '../paginator/Paginator';
 import RowRadioButton from './RowRadioButton';
+import RowCheckbox from './RowCheckbox.vue';
+import HeaderCheckbox from './HeaderCheckbox.vue';
 
 const ColumnSlot = {
     functional: true,
@@ -616,6 +620,33 @@ export default {
                 this.$emit('row-select', {originalEvent: event, data: rowData, type: 'radiobutton'});
             }
         },
+        toggleRowWithCheckbox(event) {
+            const rowData = event.data;
+
+            if (this.isSelected(rowData)) {
+                const selectionIndex = this.findIndexInSelection(rowData);
+                const _selection = this.selection.filter((val, i) => i != selectionIndex);
+                this.$emit('update:selection', _selection);
+                this.$emit('row-unselect', {originalEvent: event, data: rowData, type: 'checkbox'});
+            }
+            else {
+                let _selection = this.selection ? [...this.selection] : [];
+                _selection = [..._selection, rowData];
+                this.$emit('update:selection', _selection);
+                this.$emit('row-select', {originalEvent: event, data: rowData, type: 'checkbox'});
+            }
+        },
+        toggleRowsWithCheckbox(event) {
+            const processedData = this.processedData;
+            const checked = this.allRowsSelected;
+            const _selection = checked ? [] : (processedData ? [...processedData] : [...this.value]);
+            this.$emit('update:selection', _selection);
+            
+            if (checked)
+                this.$emit('row-unselect-all', {originalEvent: event});
+            else
+                this.$emit('row-select-all', {originalEvent: event, data: _selection});
+        },
         isSingleSelectionMode() {
             return this.selectionMode === 'single';
         },
@@ -698,10 +729,10 @@ export default {
                 rangeEnd -= this.first;
             }
 
-            const filteredValue = this.processedData;
+            const value = this.processedData;
             let _selection = [];
             for(let i = rangeStart; i <= rangeEnd; i++) {
-                let rangeRowData = filteredValue ? filteredValue[i] : this.value[i];
+                let rangeRowData = value[i];
                 _selection.push(rangeRowData);
                 this.$emit('row-select', {originalEvent: event, data: rangeRowData, type: 'row'});
             }
@@ -760,7 +791,7 @@ export default {
                 return this.totalRecords;
             }
             else {
-                const data = this.hasFilters ? this.processedData : this.value;
+                const data = this.processedData;
                 return data ? data.length : 0;
             }
         },
@@ -796,12 +827,18 @@ export default {
         },
         loadingIconClass() {
             return ['p-datatable-loading-icon pi-spin', this.loadingIcon];
+        },
+        allRowsSelected() {
+            const val = this.processedData;
+            return (this.value && this.value.length > 0 && this.selection && this.selection.length > 0 && this.selection.length === this.value.length);
         }
     },
     components: {
         'ColumnSlot': ColumnSlot,
         'DTPaginator': Paginator,
-        'DTRadioButton': RowRadioButton
+        'DTRadioButton': RowRadioButton,
+        'DTCheckbox': RowCheckbox,
+        'DTHeaderCheckbox': HeaderCheckbox
     }
 }
 </script>

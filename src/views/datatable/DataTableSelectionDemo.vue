@@ -61,7 +61,16 @@
                 <Column field="brand" header="Brand"></Column>
                 <Column field="color" header="Color"></Column>
             </DataTable>
-            {{selectedCar3 ? selectedCar3.vin : 'none'}}
+
+            <h3>Checkbox</h3>
+            <p>Multiple selection can also be handled using checkboxes by enabling the selectionMode property of column as "multiple".</p>
+			<DataTable :value="cars" :selection.sync="selectedCars3" dataKey="vin">
+                <Column selectionMode="multiple" headerStyle="width: 3em"></Column>
+                <Column field="vin" header="Vin"></Column>
+                <Column field="year" header="Year"></Column>
+                <Column field="brand" header="Brand"></Column>
+                <Column field="color" header="Color"></Column>
+            </DataTable>
 		</div>
 
         <DataTableDoc />
