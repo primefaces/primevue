@@ -224,6 +224,10 @@ export default {
         exportFilename: {
             type: String,
             default: 'download'
+        },
+        autoLayout: {
+            type: Boolean,
+            default: false
         }
     },
     data() {
@@ -826,7 +830,8 @@ export default {
         containerClass() {
             return [
                 'p-datatable p-component', {
-                    'p-datatable-hoverable-rows': (this.rowHover || this.selectionMode)
+                    'p-datatable-hoverable-rows': (this.rowHover || this.selectionMode),
+                    'p-datatable-auto-layout': this.autoLayout
                 }
             ];
         },

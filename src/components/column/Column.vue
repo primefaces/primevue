@@ -3,7 +3,7 @@ export default {
     name: 'column',
     props: {
         columnKey: {
-            type: Object,
+            type: null,
             default: null
         },
         field: {
