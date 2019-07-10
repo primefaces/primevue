@@ -929,14 +929,6 @@ export default {
                         </thead>
                         <tbody>
                             <tr>
-                                <td>sort</td>
-                                <td>event.originalEvent: Browser event. <br />
-                                    event.sortField: Field to sort against. <br />
-                                    event.sortOrder: Sort order as integer. <br />
-                                    event.multiSortMeta: MultiSort metadata.</td>
-                                <td>Callback to invoke on sort.</td>
-                            </tr>
-                            <tr>
                                 <td>page</td>
                                 <td>event.page: New page number <br/>
                                     event.first: Index of first record <br/>
@@ -946,8 +938,17 @@ export default {
                                 <td>Callback to invoke on pagination.</td>
                             </tr>
                             <tr>
+                                <td>sort</td>
+                                <td>event.originalEvent: Browser event. <br />
+                                    event.sortField: Field to sort against. <br />
+                                    event.sortOrder: Sort order as integer. <br />
+                                    event.multiSortMeta: MultiSort metadata.</td>
+                                <td>Callback to invoke on sort.</td>
+                            </tr>
+                            <tr>
                                 <td>filter</td>
-                                <td>event.filters: Collection of active filters.</td>
+                                <td>event.filters: Collection of active filters. <br />
+                                    event.filteredValue: Filtered collection.</td>
                                 <td>Callback to invoke on filtering.</td>
                             </tr>
                             <tr>

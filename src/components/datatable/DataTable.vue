@@ -474,6 +474,11 @@ export default {
                 filteredValue = data;
             }
 
+            this.$emit('filter', {
+                filters: this.filters,
+                filteredValue: filteredValue
+            });
+
             return filteredValue;
         },
         onRowClick(event, rowData, rowIndex) {
