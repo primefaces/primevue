@@ -439,7 +439,7 @@ data() {
 }
 </CodeHighlight>
                 <h3>Filtering</h3>
-                <p>Filtering is enabled by defining a filter template per column to populate the <p>filters</p> property of the DataTable. The <i>filters</i>
+                <p>Filtering is enabled by defining a filter template per column to populate the <i>filters</i> property of the DataTable. The <i>filters</i>
                 property should be an key-value object where keys are the field name and the value is the filter value. The filter template receives the column properties
                 via the slotProps and accepts any form element as the filter element. Default match mode is "startsWith" and this can be configured per column using the <i>filterMatchMode</i> property that also accepts 
                 "contains", "endsWith", "equals", "notEquals" and "in" as available modes.</p>

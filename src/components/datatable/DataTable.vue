@@ -772,7 +772,7 @@ export default {
             }
 
             //body
-            data.forEach((record, i) => {
+            data.forEach(record => {
                 csv += '\n';
                 for (let i = 0; i < this.columns.length; i++) {
                     let column = this.columns[i];
