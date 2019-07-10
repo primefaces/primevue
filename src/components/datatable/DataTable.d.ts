@@ -1,0 +1,47 @@
+import Vue, { VNode } from 'vue';
+
+export declare class DataTable extends Vue {
+    value?: any[];
+    dataKey?: string;
+    rows?: number;
+    first?: number;
+    totalRecords?: number;
+    paginator?: boolean;
+    paginatorPosition?: string;
+    alwaysShowPaginator?: boolean;
+    paginatorTemplate?: string;
+    pageLinkSize?: number;
+    rowsPerPageOptions?: number[];
+    currentPageReportTemplate?: string;
+    lazy?: boolean;
+    loading?: boolean;
+    loadingIcon?: string;
+    sortField?: string;
+    sortOrder?: number;
+    defaultSortOrder?: number;
+    multiSortMeta?: any[];
+    sortMode?: string;
+    filters: {
+        [s: string]: any;
+    };
+    selection?: any[]|any;
+    selectionMode?: string;
+    compareSelectionBy?: string;
+    metaKeySelection?: boolean;
+    rowHover?: boolean;
+    csvSeparator?: string;
+    exportFilename?: string;
+    autoLayout?: boolean;
+    $emit(eventName: 'page', event: Event): this;
+    $emit(eventName: 'sort', event: Event): this;
+    $emit(eventName: 'filter', event: Event): this;
+    $emit(eventName: 'row-select', event: Event): this;
+    $emit(eventName: 'row-unselect', event: Event): this;
+    $slots: {
+        header: VNode[];
+        paginatorLeft: VNode[];
+        paginatorRight: VNode[];
+        empty: VNode[];
+        footer: VNode[];
+    }
+}
