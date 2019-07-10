@@ -318,7 +318,7 @@ export default {
                 <p>Lazy loading is implemented by handling pagination, sorting and filtering using their own page, sort and filter events in addition to enabling lazy property. Here is a sample paging implementation with in memory data.</p>
 <CodeHighlight>
 <template v-pre>
-&lt;DataTable :value="cars" :lazy="true" paginator="true" :rows="10" 
+&lt;DataTable :value="cars" :lazy="true" :paginator="true" :rows="10" 
     :totalRecords="totalRecords" :loading="loading" @page="onPage($event)"&gt;
     &lt;Column field="vin" header="Vin"&gt;&lt;/Column&gt;
     &lt;Column field="year" header="Year"&gt;&lt;/Column&gt;

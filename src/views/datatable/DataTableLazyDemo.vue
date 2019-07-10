@@ -13,7 +13,7 @@
 		</div>
 
 		<div class="content-section implementation">
-			<DataTable :value="cars" :lazy="true" paginator="true" :rows="10" 
+			<DataTable :value="cars" :lazy="true" :paginator="true" :rows="10" 
                 :totalRecords="totalRecords" :loading="loading" @page="onPage($event)">
                 <Column field="vin" header="Vin"></Column>
                 <Column field="year" header="Year"></Column>
@@ -27,7 +27,7 @@
                 <TabPanel header="Source">
 <CodeHighlight>
 <template v-pre>
-&lt;DataTable :value="cars" :lazy="true" paginator="true" :rows="10" 
+&lt;DataTable :value="cars" :lazy="true" :paginator="true" :rows="10" 
     :totalRecords="totalRecords" :loading="loading" @page="onPage($event)"&gt;
     &lt;Column field="vin" header="Vin"&gt;&lt;/Column&gt;
     &lt;Column field="year" header="Year"&gt;&lt;/Column&gt;

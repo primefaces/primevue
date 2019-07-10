@@ -44,6 +44,9 @@
                         <MultiSelect v-model="filters['color']" :options="colors" optionLabel="name" optionValue="value" placeholder="Select a Color" />
                     </template>
                 </Column>
+                <template #empty>
+                    No records found.
+                </template>
             </DataTable>
 		</div>
 
@@ -86,6 +89,9 @@
             &lt;MultiSelect v-model="filters['color']" :options="colors" optionLabel="name" optionValue="value" placeholder="Select a Color" /&gt;
         &lt;/template&gt;
     &lt;/Column&gt;
+    &lt;template #empty&gt;
+        No records found.
+    &lt;/template&gt;
 &lt;/DataTable&gt;
 </template>
 </CodeHighlight>

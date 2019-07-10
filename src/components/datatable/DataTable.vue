@@ -847,24 +847,29 @@ export default {
             return [];
         },
         processedData() {
-            if (this.value && this.value.length) {
-                let data = this.value;
-
-                if (this.sorted) {
-                    if(this.sortMode === 'single')
-                        data = this.sortSingle(data);
-                    else if(this.sortMode === 'multiple')
-                        data = this.sortMultiple(data);
-                }
-
-                if (this.hasFilters) {
-                    data = this.filter(data);
-                }
-
-                return data;
+            if (this.lazy) {
+                return this.value;
             }
             else {
-                return null;
+                if (this.value && this.value.length) {
+                    let data = this.value;
+
+                    if (this.sorted) {
+                        if(this.sortMode === 'single')
+                            data = this.sortSingle(data);
+                        else if(this.sortMode === 'multiple')
+                            data = this.sortMultiple(data);
+                    }
+
+                    if (this.hasFilters) {
+                        data = this.filter(data);
+                    }
+
+                    return data;
+                }
+                else {
+                    return null;
+                }
             }
         },
         dataToRender() {
@@ -888,7 +893,8 @@ export default {
             }
         },
         empty() {
-            return (!this.value || this.value.length === 0);
+            const data = this.processedData;
+            return (!data || data.length === 0);
         },
         paginatorTop() {
             return this.paginator && (this.paginatorPosition !== 'bottom' || this.paginatorPosition === 'both');
