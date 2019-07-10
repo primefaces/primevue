@@ -570,6 +570,148 @@ export default {
     }
 }
 </CodeHighlight>
+
+                <h3>Empty Message</h3>
+                <p>When there is no data, you may use the <i>empty</i> template to display a message.</p>
+<CodeHighlight>
+<template v-pre>
+&lt;DataTable :value="cars"&gt;
+    &lt;template #empty&gt;
+        No records found
+    &lt;/template&gt;
+    &lt;Column field="vin" header="Vin"&gt;&lt;/Column&gt;
+    &lt;Column field="year" header="Year"&gt;&lt;/Column&gt;
+    &lt;Column field="brand" header="Brand"&gt;&lt;/Column&gt;
+    &lt;Column field="color" header="Color"&gt;&lt;/Column&gt;
+&lt;/DataTable&gt;
+</template>
+</CodeHighlight>
+
+                <h3>Loading</h3>
+                <p>A loading status indicator can be displayed when the <i>loading</i> property is enabled. The icon is customized through <i>loadingIcon</i> property.</p>
+<CodeHighlight>
+<template v-pre>
+&lt;DataTable :value="cars" :loading="loading"&gt;
+    &lt;Column field="vin" header="Vin"&gt;&lt;/Column&gt;
+    &lt;Column field="year" header="Year"&gt;&lt;/Column&gt;
+    &lt;Column field="brand" header="Brand"&gt;&lt;/Column&gt;
+    &lt;Column field="color" header="Color"&gt;&lt;/Column&gt;
+&lt;/DataTable&gt;
+</template>
+</CodeHighlight>
+
+<CodeHighlight lang="javascript">
+import CarService from '../../service/CarService';
+
+export default {
+    data() {
+        return {
+            loading: false,
+            cars: null
+        }
+    },
+    datasource: null,
+    carService: null,
+    created() {
+        this.carService = new CarService();
+    },
+    mounted() {
+        this.loading = true;
+
+        this.carService.getCarsLarge().then(data => {
+            this.cars = data
+            this.loading = false;
+        });
+    }
+}
+</CodeHighlight>
+
+                <h3>Responsive</h3>
+                <p>DataTable display can be optimized according to screen sizes, this example demonstrates a demo where columns are stacked on small screens.</p>
+<CodeHighlight>
+<template v-pre>
+&lt;DataTable :value="cars" class="p-datatable-responsive"&gt;
+    &lt;template #header&gt;
+        Responsive
+    &lt;/template&gt;
+    &lt;Column field="vin" header="Vin"&gt;
+        &lt;template #body="slotProps"&gt;
+            &lt;span class="p-column-title"&gt;Vin&lt;/span&gt;
+            {{slotProps.data.vin}}
+        &lt;/template&gt;
+    &lt;/Column&gt;
+    &lt;Column field="year" header="Year"&gt;
+        &lt;template #body="slotProps"&gt;
+            &lt;span class="p-column-title"&gt;Year&lt;/span&gt;
+            {{slotProps.data.year}}
+        &lt;/template&gt;
+    &lt;/Column&gt;
+    &lt;Column field="brand" header="Brand"&gt;
+        &lt;template #body="slotProps"&gt;
+            &lt;span class="p-column-title"&gt;Brand&lt;/span&gt;
+            {{slotProps.data.brand}}
+        &lt;/template&gt;
+    &lt;/Column&gt;
+    &lt;Column field="color" header="Color"&gt;
+        &lt;template #body="slotProps"&gt;
+            &lt;span class="p-column-title"&gt;Color&lt;/span&gt;
+            {{slotProps.data.color}}
+        &lt;/template&gt;
+    &lt;/Column&gt;
+&lt;/DataTable&gt;
+</template>
+</CodeHighlight>
+
+<CodeHighlight lang="javascript">
+import CarService from '../../service/CarService';
+
+export default {
+    data() {
+        return {
+            cars: null
+        }
+    },
+    carService: null,
+    created() {
+        this.carService = new CarService();
+    },
+    mounted() {
+        this.carService.getCarsSmall().then(data => this.cars = data);
+    }
+}
+</CodeHighlight>
+
+<CodeHighlight lang="css">
+.p-datatable-responsive .p-datatable-tbody > tr > td .p-column-title {
+    display: none;
+}
+
+@media screen and (max-width: 40em) {
+    .p-datatable-responsive .p-datatable-thead > tr > th,
+    .p-datatable-responsive .p-datatable-tfoot > tr > td {
+        display: none !important;
+    }
+
+    .p-datatable-responsive .p-datatable-tbody > tr > td {
+        text-align: left;
+        display: block;
+        border: 0 none;
+        width: 100% !important;
+		float: left;
+		clear: left;
+    }
+
+    .p-datatable-responsive .p-datatable-tbody > tr > td .p-column-title {
+        padding: .4em;
+        min-width: 30%;
+        display: inline-block;
+        margin: -.4em 1em -.4em -.4em;
+        font-weight: bold;
+    }
+}
+</CodeHighlight>
+
+
                 <h3>Properties</h3>
                 <div class="doc-tablewrapper">
                     <table class="doc-table">
