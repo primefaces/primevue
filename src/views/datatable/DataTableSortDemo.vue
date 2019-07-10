@@ -26,6 +26,51 @@
                 <Column field="color" header="Color" :sortable="true"></Column>
             </DataTable>
 		</div>
+
+        <div class="content-section documentation">
+            <TabView>
+                <TabPanel header="Source">
+<CodeHighlight>
+<template v-pre>
+&lt;h3 class="first"&gt;Single Column&lt;/h3&gt;
+&lt;DataTable :value="cars"&gt;
+    &lt;Column field="vin" header="Vin" :sortable="true"&gt;&lt;/Column&gt;
+    &lt;Column field="year" header="Year" :sortable="true"&gt;&lt;/Column&gt;
+    &lt;Column field="brand" header="Brand" :sortable="true"&gt;&lt;/Column&gt;
+    &lt;Column field="color" header="Color" :sortable="true"&gt;&lt;/Column&gt;
+&lt;/DataTable&gt;
+
+&lt;h3&gt;Multiple Columns&lt;/h3&gt;
+&lt;DataTable :value="cars" sortMode="multiple"&gt;
+    &lt;Column field="vin" header="Vin" :sortable="true"&gt;&lt;/Column&gt;
+    &lt;Column field="year" header="Year" :sortable="true"&gt;&lt;/Column&gt;
+    &lt;Column field="brand" header="Brand" :sortable="true"&gt;&lt;/Column&gt;
+    &lt;Column field="color" header="Color" :sortable="true"&gt;&lt;/Column&gt;
+&lt;/DataTable&gt;
+</template>
+</CodeHighlight>
+
+<CodeHighlight lang="javascript">
+import CarService from '../../service/CarService';
+
+export default {
+    data() {
+        return {
+            cars: null
+        }
+    },
+    carService: null,
+    created() {
+        this.carService = new CarService();
+    },
+    mounted() {
+        this.carService.getCarsSmall().then(data => this.cars = data);
+    }
+}
+</CodeHighlight>
+                </TabPanel>
+            </TabView>
+        </div>
 	</div>
 </template>
 
