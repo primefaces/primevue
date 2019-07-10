@@ -315,7 +315,12 @@ export default {
                     It is also important to assign the logical number of rows to totalRecords by doing a projection query for paginator configuration so that paginator displays the UI 
                     assuming there are actually records of totalRecords size although in reality they aren't as in lazy mode, only the records that are displayed on the current page exist.</p>
 
-                <p>Lazy loading is implemented by handling pagination, sorting and filtering using their own page, sort and filter events in addition to enabling lazy property. Here is a sample paging implementation with in memory data.</p>
+                <p>Lazy loading is implemented by handling pagination and sorting using <i>page</i> and <i>sort</i> events by making a remote query using the information
+                passed to the events such as first offset, number of rows and sort field for ordering. Filtering is handled differently as filter elements are defined using templates, use
+                the event you prefer on your form elements such as input, change, blur to make a remote call by passing the filters property to update the displayed data. Note that,
+                in lazy filtering, totalRecords should also be updated to align the data with the paginator.</p>
+
+                <p>Here is a sample paging implementation with in memory data, a more enhanced example with a backend is being worked on and will be available at a github repository.</p>
 <CodeHighlight>
 <template v-pre>
 &lt;DataTable :value="cars" :lazy="true" :paginator="true" :rows="10" 
