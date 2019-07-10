@@ -70,10 +70,8 @@ export default {
             this.loading = true;
 
             setTimeout(() => {
-                this.carService.getCarsLarge().then(data => {
-                    this.cars = this.datasource.slice(event.first, event.first + event.rows);
-                    this.loading = false;
-                });
+                this.cars = this.datasource.slice(event.first, event.first + event.rows);
+                this.loading = false;
             }, 1000);
         }
     }
@@ -119,10 +117,8 @@ export default {
             this.loading = true;
 
             setTimeout(() => {
-                this.carService.getCarsLarge().then(data => {
-                    this.cars = this.datasource.slice(event.first, event.first + event.rows);
-                    this.loading = false;
-                });
+                this.cars = this.datasource.slice(event.first, event.first + event.rows);
+                this.loading = false;
             }, 1000);
         }
     },
