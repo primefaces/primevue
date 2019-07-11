@@ -1,5 +1,5 @@
 <template>
-    <div :class="containerClass">
+    <div ref="container" :class="containerClass">
         <transition-group name="p-toast-message" tag="div">
             <ToastMessage v-for="msg of messages" :key="msg.id" :message="msg" @close="remove($event)"/>
         </transition-group>
@@ -9,15 +9,27 @@
 <script>
 import ToastEventBus from './ToastEventBus';
 import ToastMessage from './ToastMessage';
+import DomHandler from '../utils/DomHandler';
 
 var messageIdx = 0;
 
 export default {
     props: {
-        group: String,
+        group: {
+            type: String,
+            default: null
+        },
         position: {
             type: String,
             default: 'topright'
+        },
+        autoZIndex: {
+            type: Boolean,
+            default: true
+        },
+        baseZIndex: {
+            type: Number,
+            default: 0
         }
     },
     data() {
@@ -39,6 +51,11 @@ export default {
         ToastEventBus.$on('remove-all-groups', () => {
             this.messages = [];
         });
+
+        this.updateZIndex();
+    },
+    beforeUpdate() {
+        this.updateZIndex();
     },
     methods: {
         add(message) {
@@ -58,6 +75,11 @@ export default {
             }
 
             this.messages.splice(index, 1);
+        },
+        updateZIndex() {
+            if (this.autoZIndex) {
+                this.$refs.container.style.zIndex = String(this.baseZIndex + DomHandler.generateZIndex());
+            }
         }
     },
     components: {

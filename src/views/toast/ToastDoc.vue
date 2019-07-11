@@ -179,6 +179,18 @@ this.$toast.removeAllGroups();
                                 <td>topright</td>
                                 <td>Position of the toast in viewport, valid values are "topright", "topleft", "bottomleft" and "bottomright".</td>
                             </tr>
+                            <tr>
+                                <td>autoZIndex</td>
+                                <td>boolean</td>
+                                <td>true</td>
+                                <td>Whether to automatically manage layering.</td>
+                            </tr>
+                            <tr>
+                                <td>baseZIndex</td>
+                                <td>number</td>
+                                <td>0</td>
+                                <td>Base zIndex value to use in layering.</td>
+                            </tr>
 						</tbody>
 					</table>
 				</div>
