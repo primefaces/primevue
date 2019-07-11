@@ -902,7 +902,6 @@ export default {
             
             this.onDateSelect(dateMeta);
             this.$emit('today-click', date);
-            this.onTodayClick.emit(event);
             event.preventDefault();
         },
         onClearButtonClick(event) {
