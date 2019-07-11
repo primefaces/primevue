@@ -87,7 +87,7 @@ export default {
         getSelectedOption() {
             let selectedOption;
 
-            if (this.value !== null && this.options) {
+            if (this.value != null && this.options) {
                 for (let option of this.options) {
                     if ((ObjectUtils.equals(this.value, this.getOptionValue(option), this.dataKey))) {
                         selectedOption = option;
@@ -104,7 +104,7 @@ export default {
         getSelectedOptionIndex() {
             let selectedOptionIndex = -1;
 
-            if (this.value !== null && this.visibleOptions) {
+            if (this.value != null && this.visibleOptions) {
                 for (let i = 0; i < this.visibleOptions.length; i++) {
                     if ((ObjectUtils.equals(this.value, this.getOptionValue(this.visibleOptions[i]), this.dataKey))) {
                         selectedOptionIndex = i;
