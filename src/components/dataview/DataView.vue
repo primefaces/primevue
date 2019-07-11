@@ -4,7 +4,7 @@
 			<slot name="header"></slot>
 		</div>
 		<DVPaginator v-if="paginatorTop" :rows="rows" :first="first" :totalRecords="getTotalRecords" :pageLinkSize="pageLinkSize" :template="paginatorTemplate" :rowsPerPageOptions="rowsPerPageOptions"
-					:currentPageReportTemplate="currentPageReportTemplate" :class="{'p-paginator-top': paginatorTop}" @page="onPage($event)">
+					:currentPageReportTemplate="currentPageReportTemplate" :class="{'p-paginator-top': paginatorTop}" :alwaysShow="alwaysShowPaginator" @page="onPage($event)">
 			<template #left v-if="$scopedSlots.paginatorLeft">
 				<slot name="paginatorLeft"></slot>
 			</template>
@@ -22,7 +22,7 @@
 			</div>
 		</div>
 		<DVPaginator v-if="paginatorBottom" :rows="rows" :first="first" :totalRecords="getTotalRecords" :pageLinkSize="pageLinkSize" :template="paginatorTemplate" :rowsPerPageOptions="rowsPerPageOptions"
-					:currentPageReportTemplate="currentPageReportTemplate" :class="{'p-paginator-bottom': paginatorBottom}" @page="onPage($event)">
+					:currentPageReportTemplate="currentPageReportTemplate" :class="{'p-paginator-bottom': paginatorBottom}" :alwaysShow="alwaysShowPaginator" @page="onPage($event)">
 			<template #left v-if="$scopedSlots.paginatorLeft">
 				<slot name="paginatorLeft"></slot>
 			</template>
@@ -173,18 +173,10 @@ export default {
             return (!this.value || this.value.length === 0);
         },
         paginatorTop() {
-            if (this.paginatorPosition && (this.paginatorPosition !== 'bottom' || this.paginatorPosition === 'both')) {
-                return true
-            }
-            else
-                return null;
+            return this.paginator && (this.paginatorPosition !== 'bottom' || this.paginatorPosition === 'both');
         },
         paginatorBottom() {
-            if (this.paginatorPosition && (this.paginatorPosition !== 'top' || this.paginatorPosition === 'both')) {
-                return true
-            }
-            else
-                return null;
+            return this.paginator && (this.paginatorPosition !== 'top' || this.paginatorPosition === 'both');
         },
         items() {
             if (this.value && this.value.length) {
