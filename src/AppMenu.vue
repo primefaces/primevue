@@ -58,6 +58,7 @@
                         <router-link to="/datatable">&#9679; DataTable</router-link>
                         <router-link to="/dataview">&#9679; DataView</router-link>
                         <router-link to="/fullcalendar">&#9679; FullCalendar</router-link>
+                        <router-link to="/orderlist">&#9679; OrderList</router-link>
                         <router-link to="/paginator">&#9679; Paginator</router-link>
                     </div>
                 </div>
