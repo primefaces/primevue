@@ -8,7 +8,7 @@
         </div>
 
         <div class="content-section implementation">
-            <OrderList v-model="cars" header="List of Cars" listStyle="height:20em" dataKey="vin">
+            <OrderList v-model="cars" header="List of Cars" listStyle="height:auto" dataKey="vin">
                 <template #header>
                     List of Cars
                 </template>
@@ -39,7 +39,7 @@ export default {
         this.carService = new CarService();
     },
     mounted() {
-        this.carService.getCarsSmall().then(data => this.cars = data);
+        this.carService.getCarsSmall().then(data => this.cars = data.slice(0,5));
     },
     components: {
         'OrderListDoc': OrderListDoc

@@ -12,7 +12,7 @@
             </div>
             <transition-group ref="list" name="p-orderlist-flip" tag="ul" class="p-orderlist-list" :style="listStyle">
                 <li  tabindex="0" v-for="(item, i) of value" :key="getItemKey(item, i)" :class="['p-orderlist-item', {'p-highlight': isSelected(item)}]" 
-                    @click="onItemClick($event, item, i)" @keydown="onItemKeyDown($event, item, i)" @touchend="onItemTouchEnd($event)">
+                    @click="onItemClick($event, item, i)" @keydown="onItemKeyDown($event, item, i)" @touchend="onItemTouchEnd">
                     <slot name="item" :item="item" :index="i"> </slot>
                 </li>
             </transition-group>
@@ -57,7 +57,7 @@ export default {
     },
     updated() {
         if (this.reorderDirection) {
-            //this.updateListScroll();
+            this.updateListScroll();
             this.reorderDirection = null;
         }
     },
@@ -209,7 +209,7 @@ export default {
                 value: this.d_selection
             });   
         },
-        onItemTouchEnd(event) {
+        onItemTouchEnd() {
             this.itemTouched = true;
         },
         onItemKeyDown(event, item, index) {
@@ -263,24 +263,24 @@ export default {
                 return null;
         },
         updateListScroll() {
-            const listItems = DomHandler.find(this.$refs.list, '.p-orderlist-item.p-highlight');
+            const listItems = DomHandler.find(this.$refs.list.$el, '.p-orderlist-item.p-highlight');
 
             if (listItems && listItems.length) {
                 switch(this.reorderDirection) {
                     case 'up':
-                        DomHandler.scrollInView(this.$refs.list, listItems[0]);
+                        DomHandler.scrollInView(this.$refs.list.$el, listItems[0]);
                     break;
                     
                     case 'top':
-                        this.$refs.list.scrollTop = 0;
+                        this.$refs.list.$el.scrollTop = 0;
                     break;
                     
                     case 'down':
-                        DomHandler.scrollInView(this.$refs.list, listItems[listItems.length - 1]);
+                        DomHandler.scrollInView(this.$refs.list.$el, listItems[listItems.length - 1]);
                     break;
                     
                     case 'bottom':
-                        this.$refs.list.scrollTop = this.$refs.list.scrollHeight;
+                        this.$refs.list.$el.scrollTop = this.$refs.list.$el.scrollHeight;
                     break;
                     
                     default:
@@ -390,11 +390,6 @@ export default {
 .p-orderlist .p-orderlist-droppoint {
     height: 6px;
     list-style-type: none;
-}
-
-.p-orderlist-flip-move {
-    transition: transform .2s;
-    z-index: 1;
 }
 
 @media (max-width: 767px) {

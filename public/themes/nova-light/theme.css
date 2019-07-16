@@ -940,9 +940,6 @@ body .p-datepicker table {
 body .p-datepicker table th {
   padding: 0.5em;
 }
-body .p-datepicker table th.p-datepicker-weekheader {
-  border-right: 1px solid #a6a6a6;
-}
 body .p-datepicker table td {
   padding: 0.5em;
 }
@@ -967,9 +964,6 @@ body .p-datepicker table td.p-datepicker-today > span {
 body .p-datepicker table td.p-datepicker-today > span.p-highlight {
   color: #ffffff;
   background-color: #007ad9;
-}
-body .p-datepicker table td.p-datepicker-weeknumber {
-  border-right: 1px solid #a6a6a6;
 }
 body .p-datepicker .p-datepicker-buttonbar {
   border-top: 1px solid #d8dae2;
@@ -2363,10 +2357,10 @@ body .p-picklist .p-picklist-list .p-picklist-item {
   border: 0 none;
   color: #333333;
   background-color: transparent;
-  -moz-transition: background-color 0.2s, box-shadow 0.2s;
-  -o-transition: background-color 0.2s, box-shadow 0.2s;
-  -webkit-transition: background-color 0.2s, box-shadow 0.2s;
-  transition: background-color 0.2s, box-shadow 0.2s;
+  -moz-transition: transform 0.2s, background-color 0.2s, box-shadow 0.2s;
+  -o-transition: transform 0.2s, background-color 0.2s, box-shadow 0.2s;
+  -webkit-transition: transform 0.2s, background-color 0.2s, box-shadow 0.2s;
+  transition: transform 0.2s, background-color 0.2s, box-shadow 0.2s;
 }
 body .p-picklist .p-picklist-list .p-picklist-item:not(.p-highlight):hover {
   background-color: #eaeaea;
@@ -2449,10 +2443,10 @@ body .p-orderlist .p-orderlist-list .p-orderlist-item {
   border: 0 none;
   color: #333333;
   background-color: transparent;
-  -moz-transition: background-color 0.2s, box-shadow 0.2s;
-  -o-transition: background-color 0.2s, box-shadow 0.2s;
-  -webkit-transition: background-color 0.2s, box-shadow 0.2s;
-  transition: background-color 0.2s, box-shadow 0.2s;
+  -moz-transition: transform 0.2s, background-color 0.2s, box-shadow 0.2s;
+  -o-transition: transform 0.2s, background-color 0.2s, box-shadow 0.2s;
+  -webkit-transition: transform 0.2s, background-color 0.2s, box-shadow 0.2s;
+  transition: transform 0.2s, background-color 0.2s, box-shadow 0.2s;
 }
 body .p-orderlist .p-orderlist-list .p-orderlist-item:not(.p-highlight):hover {
   background-color: #eaeaea;
