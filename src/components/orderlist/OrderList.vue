@@ -10,12 +10,12 @@
             <div class="p-orderlist-caption" v-if="$slots.header">
                 <slot name="header"></slot>
             </div>
-            <ul ref="list" class="p-orderlist-list" :style="listStyle">
+            <transition-group ref="list" name="p-orderlist-flip" tag="ul" class="p-orderlist-list" :style="listStyle">
                 <li  tabindex="0" v-for="(item, i) of value" :key="getItemKey(item, i)" :class="['p-orderlist-item', {'p-highlight': isSelected(item)}]" 
                     @click="onItemClick($event, item, i)" @keydown="onItemKeyDown($event, item, i)" @touchend="onItemTouchEnd($event)">
                     <slot name="item" :item="item" :index="i"> </slot>
                 </li>
-            </ul>
+            </transition-group>
         </div>
     </div>
 </template>
@@ -57,13 +57,13 @@ export default {
     },
     updated() {
         if (this.reorderDirection) {
-            this.updateListScroll();
+            //this.updateListScroll();
             this.reorderDirection = null;
         }
     },
     methods: {
         getItemKey(item, index) {
-            return this.dataKey ? ObjectUtils.resolveFieldData(rowData, this.dataKey): index;
+            return this.dataKey ? ObjectUtils.resolveFieldData(item, this.dataKey): index;
         },
         isSelected(item) {
             return ObjectUtils.findIndexInList(item, this.d_selection) != -1;
@@ -384,12 +384,17 @@ export default {
 }
 
 .p-orderlist.p-state-disabled .p-orderlist-list {
-    overflow:hidden;
+    overflow: hidden;
 }
 
 .p-orderlist .p-orderlist-droppoint {
     height: 6px;
     list-style-type: none;
+}
+
+.p-orderlist-flip-move {
+    transition: transform .2s;
+    z-index: 1;
 }
 
 @media (max-width: 767px) {

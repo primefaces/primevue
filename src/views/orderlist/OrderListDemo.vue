@@ -8,14 +8,14 @@
         </div>
 
         <div class="content-section implementation">
-            <OrderList v-model="cars" header="List of Cars" listStyle="height:20em">
+            <OrderList v-model="cars" header="List of Cars" listStyle="height:20em" dataKey="vin">
                 <template #header>
                     List of Cars
                 </template>
                 <template #item="slotProps">
-                    <div class="p-clearfix">
-                        <img :src="'demo/images/car/' + slotProps.item.brand + '.png'" style="display:inline-block;margin:2px 0 2px 2px" width="48">
-                        <div style="font-size:14px;float:right;margin:15px 5px 0 0">{{slotProps.item.brand}} - {{slotProps.item.year}} - {{slotProps.item.color}}</div>
+                    <div class="p-caritem">
+                        <img :src="'demo/images/car/' + slotProps.item.brand + '.png'">
+                        <div>{{slotProps.item.brand}} - {{slotProps.item.year}} - {{slotProps.item.color}}</div>
                     </div>
                 </template>
             </OrderList>
@@ -46,3 +46,26 @@ export default {
     }
 }
 </script>
+
+<style lang="scss" scoped>
+.p-caritem {
+    &:after {
+        content: "";
+        display: table;
+        clear: both;
+    }
+
+    img {
+        display:inline-block;
+        margin:2px 0 2px 2px;
+        width: 48px;
+        height: 48px;
+    }
+
+    div {
+        font-size:14px;
+        float:right;
+        margin: 16px 6px 0 0;
+    }
+}
+</style>
