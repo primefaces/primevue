@@ -14,7 +14,7 @@ import OrderList from 'primevue/orderlist';
                 </p>
 <CodeHighlight>
 <template v-pre>
-&lt;OrderList v-model="cars" listStyle="height:auto" dataKey="vin"&gt;
+&lt;OrderList v-model="cars" header="List of Cars" listStyle="height:auto" dataKey="vin"&gt;
     &lt;template #header&gt;
         List of Cars
     &lt;/template&gt;
@@ -37,7 +37,7 @@ import OrderList from 'primevue/orderlist';
 
 <CodeHighlight>
 <template v-pre>
-&lt;OrderList v-model="cars" listStyle="height:auto" dataKey="vin" :dragdrop="true"&gt;
+&lt;OrderList v-model="cars" header="List of Cars" listStyle="height:auto" dataKey="vin" :dragdrop="true"&gt;
     &lt;template #header&gt;
         List of Cars
     &lt;/template&gt;
@@ -164,7 +164,7 @@ import OrderList from 'primevue/orderlist';
 				</a>
 <CodeHighlight>
 <template v-pre>
-&lt;OrderList v-model="cars" listStyle="height:auto" dataKey="vin"&gt;
+&lt;OrderList v-model="cars" header="List of Cars" listStyle="height:auto" dataKey="vin"&gt;
     &lt;template #header&gt;
         List of Cars
     &lt;/template&gt;

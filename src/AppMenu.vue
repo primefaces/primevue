@@ -60,6 +60,7 @@
                         <router-link to="/fullcalendar">&#9679; FullCalendar</router-link>
                         <router-link to="/orderlist">&#9679; OrderList</router-link>
                         <router-link to="/paginator">&#9679; Paginator</router-link>
+                        <router-link to="/picklist">&#9679; PickList</router-link>
                     </div>
                 </div>
             </transition>

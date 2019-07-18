@@ -2,15 +2,18 @@
     <div>
         <div class="content-section introduction">
             <div class="feature-intro">
-                <h1>OrderList</h1>
-                <p>OrderList is used to managed the order of a collection.</p>
+                <h1>PickList</h1>
+                <p>PickList is used to reorder items between different lists.</p>
             </div>
         </div>
 
         <div class="content-section implementation">
-            <OrderList v-model="cars" listStyle="height:auto" dataKey="vin">
-                <template #header>
-                    List of Cars
+            <PickList v-model="cars" listStyle="height:342px" dataKey="vin">
+                <template #sourceHeader>
+                    Available
+                </template>
+                <template #targetHeader>
+                    Selected
                 </template>
                 <template #item="slotProps">
                     <div class="p-caritem">
@@ -18,14 +21,14 @@
                         <div>{{slotProps.item.brand}} - {{slotProps.item.year}} - {{slotProps.item.color}}</div>
                     </div>
                 </template>
-            </OrderList>
+            </PickList>
         </div>
 
-        <OrderListDoc />
+        <PickListDoc />
     </div>
 </template>
 <script>
-import OrderListDoc from './OrderListDoc';
+import PickListDoc from './PickListDoc';
 import CarService from '../../service/CarService';
 
 export default {
@@ -39,10 +42,10 @@ export default {
         this.carService = new CarService();
     },
     mounted() {
-        this.carService.getCarsSmall().then(data => this.cars = data.slice(0,5));
+        this.carService.getCarsSmall().then(data => this.cars = [data.slice(0,5),[]]);
     },
     components: {
-        'OrderListDoc': OrderListDoc
+        'PickListDoc': PickListDoc
     }
 }
 </script>

@@ -260,6 +260,11 @@ export default new Router({
 			path: '/panel',
 			name: 'panel',
 			component: () => import('./views/panel/PanelDemo.vue')
+        },
+        {
+			path: '/picklist',
+			name: 'picklist',
+			component: () => import('./views/picklist/PickListDemo.vue')
 		},
 		{
 			path: '/password',
