@@ -97,7 +97,7 @@ export default {
     },
     watch: {
         selection(newValue) {
-            this.d_selection = this.selection;
+            this.d_selection = newValue;
         }
     },
     methods: {
