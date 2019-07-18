@@ -531,7 +531,7 @@ export default {
 
 .p-picklist-item.p-picklist-flip-enter-active.p-picklist-flip-enter-to,
 .p-picklist-item.p-picklist-flip-leave-active.p-picklist-flip-leave-to {
-    transition: none;
+    transition: none !important;
 }
 
 @media (max-width: 767px) {
