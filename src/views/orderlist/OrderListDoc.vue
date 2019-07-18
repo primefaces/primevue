@@ -4,57 +4,55 @@
 			<TabPanel header="Documentation">
 				<h3>Import</h3>
 <CodeHighlight lang="javascript">
-import Panel from 'primevue/panel';
+import OrderList from 'primevue/orderlist';
 </CodeHighlight>
 
 				<h3>Getting Started</h3>
-				<p>Panel is a container component that accepts content as its children.</p>
+                <p>OrderList requires an array as its value bound with the v-model directive and a template for its content.</p>
+                <p>Header of the component is defined with the "header" template and to define the content of an item in the list a named templated called "item" needs to be defined which gets the 
+                    <i>item</i> and the <i>index</i> via slotProps.
+                </p>
 <CodeHighlight>
-&lt;Panel header="Godfather I"&gt;
-	The story begins as Don Vito Corleone, the head of a New York Mafia family, oversees his daughter's wedding.
-	His beloved son Michael has just come home from the war, but does not intend to become part of his father's business.
-	Through Michael's life the nature of the family business becomes clear. The business of the family is just like the head of the family,
-	kind and benevolent to those who give respect, but given to ruthless violence whenever anything stands against the good of the family.
-&lt;/Panel&gt;
-</CodeHighlight>
-
-                <h3>Custom Header</h3>
-                <p>Header of the panel is either defined with the <i>header</i> property or the header template.</p>
-<CodeHighlight>
-&lt;Panel&gt;
+<template v-pre>
+&lt;OrderList v-model="cars" header="List of Cars" listStyle="height:auto" dataKey="vin"&gt;
     &lt;template #header&gt;
-        Header Content
+        List of Cars
     &lt;/template&gt;
-	Content
-&lt;/Panel&gt;
+    &lt;template #item="slotProps"&gt;
+        &lt;div class="p-caritem"&gt;
+            &lt;img :src="'demo/images/car/' + slotProps.item.brand + '.png'"&gt;
+            &lt;div&gt;&#123;&#123;slotProps.item.brand&#125;&#125; - &#123;&#123;slotProps.item.year&#125;&#125; - &#123;&#123;slotProps.item.color&#125;&#125;&lt;/div&gt;
+        &lt;/div&gt;
+    &lt;/template&gt;
+&lt;/OrderList&gt;
+</template>
 </CodeHighlight>
 
-				<h3>Toggleable</h3>
-				<p>Content of the panel can be expanded and collapsed using <i>toggleable</i> option.</p>
-<CodeHighlight>
-&lt;Panel header="Godfather I" :toggleable="true"&gt;
-	The story begins as Don Vito Corleone, the head of a New York Mafia family, oversees his daughter's wedding.
-	His beloved son Michael has just come home from the war, but does not intend to become part of his father's business.
-	Through Michael's life the nature of the family business becomes clear. The business of the family is just like the head of the family,
-	kind and benevolent to those who give respect, but given to ruthless violence whenever anything stands against the good of the family.
-&lt;/Panel&gt;
-</CodeHighlight>
-
-                <p>To control the initial state of the toggleable panel, use the <i>collapsed</i> property.</p>
-<CodeHighlight>
-&lt;Panel header="Header Text" :toggleable="true" :collapsed="true"&gt;
-	Content
-&lt;/Panel&gt;
-</CodeHighlight>
+                <h3>Selection</h3>
+                <p>In case you'd need to access the selected items in the list, define a binding to the <i>selection</i> property with the sync operator so that
+                it gets updated when the user makes a selection. Since it is two-way binding enabled, your changes to the selection will be reflected as well.  Note that
+                this is optional and only necessary when you need to access the selection.</p>
 
                 <p>Use the sync operator to enable two-way binding.</p>
 
 <CodeHighlight>
-&lt;button type="button" @click="isCollapsed = !isCollapsed">Toggle Programmatically&lt;/button&gt;
-&lt;Panel header="Header Text" :toggleable="true" :collapsed.sync="isCollapsed"&gt;
-	Content
-&lt;/Panel&gt;
+<template v-pre>
+&lt;OrderList v-model="cars" header="List of Cars" listStyle="height:auto" dataKey="vin" :dragdrop="true"&gt;
+    &lt;template #header&gt;
+        List of Cars
+    &lt;/template&gt;
+    &lt;template #item="slotProps"&gt;
+        &lt;div class="p-caritem"&gt;
+            &lt;img :src="'demo/images/car/' + slotProps.item.brand + '.png'"&gt;
+            &lt;div&gt;&#123;&#123;slotProps.item.brand&#125;&#125; - &#123;&#123;slotProps.item.year&#125;&#125; - &#123;&#123;slotProps.item.color&#125;&#125;&lt;/div&gt;
+        &lt;/div&gt;
+    &lt;/template&gt;
+&lt;/OrderList&gt;
+</template>
 </CodeHighlight>
+
+                <h3>DataKey</h3>
+                <p>It is recommended to provide the name of the field that uniquely identifies the a record in the data via the <i>dataKey</i> property for better performance.</p>
 
 				<h3>Properties</h3>
                 <p>Any attribute such as style and class are passed to the main container element. Following are the additional properties to configure the component.</p>
@@ -70,22 +68,37 @@ import Panel from 'primevue/panel';
 						</thead>
 						<tbody>
                             <tr>
-                                <td>header</td>
+                                <td>value</td>
+                                <td>array</td>
+                                <td>null</td>
+                                <td>Value of the component.</td>
+                            </tr>
+                            <tr>
+                                <td>selection</td>
+                                <td>any</td>
+                                <td>null</td>
+                                <td>Selected items in the list.</td>
+                            </tr>
+                            <tr>
+                                <td>metaKeySelection</td>
+                                <td>boolean</td>
+                                <td>true</td>
+                                <td>Defines whether metaKey is requred or not for the selection. <br/>
+                                    When true metaKey needs to be pressed to select or unselect an item and <br/>
+                                    when set to false selection of each item
+                                    can be toggled individually. On touch enabled devices, metaKeySelection is turned off automatically.</td>
+                            </tr>
+                            <tr>
+                                <td>dataKey</td>
                                 <td>string</td>
                                 <td>null</td>
-                                <td>Header text of the panel.</td>
+                                <td>Name of the field that uniquely identifies the a record in the data.</td>
                             </tr>
                             <tr>
-                                <td>toggleable</td>
-                                <td>boolean</td>
+                                <td>listStyle</td>
+                                <td>object</td>
                                 <td>null</td>
-                                <td>Defines if content of panel can be expanded and collapsed.</td>
-                            </tr>
-                            <tr>
-                                <td>collapsed</td>
-                                <td>boolean</td>
-                                <td>null</td>
-                                <td>Defines the initial state of panel content.</td>
+                                <td>Inline style of the the list element.</td>
                             </tr>
 						</tbody>
 					</table>
@@ -103,11 +116,12 @@ import Panel from 'primevue/panel';
 						</thead>
 						<tbody>
                             <tr>
-                                <td>toggle</td>
+                                <td>reorder</td>
                                 <td>event.originalEvent: browser event <br />
-                                    event.value: collapsed state as a boolean
+                                    event.value: Ordered list <br />
+                                    event.direction: Direction of the change; "up", "down", "bottom", "top"
                                 </td>
-                                <td>Callback to invoke when a tab toggle.</td>
+                                <td>Callback to invoke when the list is reordered.</td>
                             </tr>
 						</tbody>
 					</table>
@@ -125,24 +139,16 @@ import Panel from 'primevue/panel';
 						</thead>
 						<tbody>
                             <tr>
-                                <td>p-panel</td>
+                                <td>p-orderlist</td>
                                 <td>Container element.</td>
                             </tr>
                             <tr>
-                                <td>p-panel-titlebar</td>
-                                <td>Header section.</td>
+                                <td>p-orderlist-list</td>
+                                <td>List container.</td>
                             </tr>
                             <tr>
-                                <td>p-panel-title</td>
-                                <td>Title text of panel.</td>
-                            </tr>
-                            <tr>
-                                <td>p-panel-titlebar-toggler</td>
-                                <td>Toggle icon.</td>
-                            </tr>
-                            <tr>
-                                <td>p-panel-content</td>
-                                <td>Content of panel.</td>
+                                <td>p-orderlist-item</td>
+                                <td>An item in the list</td>
                             </tr>
 						</tbody>
 					</table>
@@ -158,35 +164,60 @@ import Panel from 'primevue/panel';
 				</a>
 <CodeHighlight>
 <template v-pre>
-&lt;template&gt;
-	&lt;div&gt;
-		&lt;div class="content-section introduction"&gt;
-			&lt;div class="feature-intro"&gt;
-				&lt;h1&gt;Panel&lt;/h1&gt;
-				&lt;p&gt;Panel is a grouping component with the optional content toggle feature.&lt;/p&gt;
-			&lt;/div&gt;
-		&lt;/div&gt;
-
-		&lt;div class="content-section implementation"&gt;
-			&lt;h3 class="first"&gt;Regular&lt;/h3&gt;
-			&lt;Panel header="Godfather I"&gt;
-				The story begins as Don Vito Corleone, the head of a New York Mafia family, oversees his daughter's wedding.
-				His beloved son Michael has just come home from the war, but does not intend to become part of his father's business.
-				Through Michael's life the nature of the family business becomes clear. The business of the family is just like the head of the family,
-				kind and benevolent to those who give respect, but given to ruthless violence whenever anything stands against the good of the family.
-			&lt;/Panel&gt;
-
-			&lt;h3&gt;Toggleable&lt;/h3&gt;
-			&lt;Panel header="Godfather I" :toggleable="true"&gt;
-				The story begins as Don Vito Corleone, the head of a New York Mafia family, oversees his daughter's wedding.
-				His beloved son Michael has just come home from the war, but does not intend to become part of his father's business.
-				Through Michael's life the nature of the family business becomes clear. The business of the family is just like the head of the family,
-				kind and benevolent to those who give respect, but given to ruthless violence whenever anything stands against the good of the family.
-			&lt;/Panel&gt;
-		&lt;/div&gt;
-	&lt;/div&gt;
-&lt;/template&gt;
+&lt;OrderList v-model="cars" header="List of Cars" listStyle="height:auto" dataKey="vin"&gt;
+    &lt;template #header&gt;
+        List of Cars
+    &lt;/template&gt;
+    &lt;template #item="slotProps"&gt;
+        &lt;div class="p-caritem"&gt;
+            &lt;img :src="'demo/images/car/' + slotProps.item.brand + '.png'"&gt;
+            &lt;div&gt;&#123;&#123;slotProps.item.brand&#125;&#125; - &#123;&#123;slotProps.item.year&#125;&#125; - &#123;&#123;slotProps.item.color&#125;&#125;&lt;/div&gt;
+        &lt;/div&gt;
+    &lt;/template&gt;
+&lt;/OrderList&gt;
 </template>
+</CodeHighlight>
+
+<CodeHighlight lang="js">
+import CarService from '../../service/CarService';
+
+export default {
+    data() {
+        return {
+            cars: null
+        }
+    },
+    carService: null,
+    created() {
+        this.carService = new CarService();
+    },
+    mounted() {
+        this.carService.getCarsSmall().then(data => this.cars = data.slice(0,5));
+    }
+}
+</CodeHighlight>
+
+<CodeHighlight lang="css">
+.p-caritem {
+    &amp;:after {
+        content: "";
+        display: table;
+        clear: both;
+    }
+
+    img {
+        display:inline-block;
+        margin:2px 0 2px 2px;
+        width: 48px;
+        height: 48px;
+    }
+
+    div {
+        font-size:14px;
+        float:right;
+        margin: 16px 6px 0 0;
+    }
+}
 </CodeHighlight>
 			</TabPanel>
 		</TabView>

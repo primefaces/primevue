@@ -11,10 +11,12 @@
                 <slot name="header"></slot>
             </div>
             <transition-group ref="list" name="p-orderlist-flip" tag="ul" class="p-orderlist-list" :style="listStyle">
-                <li  tabindex="0" v-for="(item, i) of value" :key="getItemKey(item, i)" :class="['p-orderlist-item', {'p-highlight': isSelected(item)}]" 
-                    @click="onItemClick($event, item, i)" @keydown="onItemKeyDown($event, item, i)" @touchend="onItemTouchEnd">
-                    <slot name="item" :item="item" :index="i"> </slot>
-                </li>
+                <template v-for="(item, i) of value">
+                    <li tabindex="0" :key="getItemKey(item, i)" :class="['p-orderlist-item', {'p-highlight': isSelected(item)}]" 
+                        @click="onItemClick($event, item, i)" @keydown="onItemKeyDown($event, item, i)" @touchend="onItemTouchEnd">
+                        <slot name="item" :item="item" :index="i"> </slot>
+                    </li>
+                </template>
             </transition-group>
         </div>
     </div>
@@ -46,7 +48,7 @@ export default {
         metaKeySelection: {
             type: Boolean,
             default: true
-        },
+        }
     },
     itemTouched: false,
     reorderDirection: null,
