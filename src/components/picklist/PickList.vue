@@ -2,10 +2,10 @@
     <div class="p-picklist p-component p-picklist-responsive">
         <div class="p-picklist-buttons p-picklist-source-controls">
             <div class="p-picklist-buttons-cell">
-                <OLButton type="button" icon="pi pi-angle-up" @click="moveUp($event, 0)"></OLButton>
-                <OLButton type="button" icon="pi pi-angle-double-up" @click="moveTop($event, 0)"></OLButton>
-                <OLButton type="button" icon="pi pi-angle-down" @click="moveDown($event, 0)"></OLButton>
-                <OLButton type="button" icon="pi pi-angle-double-down" @click="moveBottom($event, 0)"></OLButton>
+                <PLButton type="button" icon="pi pi-angle-up" @click="moveUp($event, 0)"></PLButton>
+                <PLButton type="button" icon="pi pi-angle-double-up" @click="moveTop($event, 0)"></PLButton>
+                <PLButton type="button" icon="pi pi-angle-down" @click="moveDown($event, 0)"></PLButton>
+                <PLButton type="button" icon="pi pi-angle-double-down" @click="moveBottom($event, 0)"></PLButton>
             </div>
         </div>
         <div class="p-picklist-list-wrapper p-picklist-source-wrapper">
@@ -23,10 +23,10 @@
         </div>
         <div class="p-picklist-buttons">
             <div class="p-picklist-buttons-cell">
-                <OLButton type="button" icon="pi pi-angle-right" @click="moveToTarget"></OLButton>
-                <OLButton type="button" icon="pi pi-angle-double-right" @click="moveAllToTarget"></OLButton>
-                <OLButton type="button" icon="pi pi-angle-left" @click="moveToSource"></OLButton>
-                <OLButton type="button" icon="pi pi-angle-double-left" @click="moveAllToSource"></OLButton>
+                <PLButton type="button" icon="pi pi-angle-right" @click="moveToTarget"></PLButton>
+                <PLButton type="button" icon="pi pi-angle-double-right" @click="moveAllToTarget"></PLButton>
+                <PLButton type="button" icon="pi pi-angle-left" @click="moveToSource"></PLButton>
+                <PLButton type="button" icon="pi pi-angle-double-left" @click="moveAllToSource"></PLButton>
             </div>
         </div>
         <div class="p-picklist-list-wrapper p-picklist-target-wrapper">
@@ -44,10 +44,10 @@
         </div>
         <div class="p-picklist-buttons p-picklist-target-controls">
             <div class="p-picklist-buttons-cell">
-                <OLButton type="button" icon="pi pi-angle-up" @click="moveUp($event, 1)"></OLButton>
-                <OLButton type="button" icon="pi pi-angle-double-up" @click="moveTop($event, 1)"></OLButton>
-                <OLButton type="button" icon="pi pi-angle-down" @click="moveDown($event, 1)"></OLButton>
-                <OLButton type="button" icon="pi pi-angle-double-down" @click="moveBottom($event, 1)"></OLButton>
+                <PLButton type="button" icon="pi pi-angle-up" @click="moveUp($event, 1)"></PLButton>
+                <PLButton type="button" icon="pi pi-angle-double-up" @click="moveTop($event, 1)"></PLButton>
+                <PLButton type="button" icon="pi pi-angle-down" @click="moveDown($event, 1)"></PLButton>
+                <PLButton type="button" icon="pi pi-angle-double-down" @click="moveBottom($event, 1)"></PLButton>
             </div>
         </div>
     </div>
@@ -475,7 +475,7 @@ export default {
         }
     },
     components: {
-        'OLButton': Button
+        'PLButton': Button
     }
 }
 </script>
