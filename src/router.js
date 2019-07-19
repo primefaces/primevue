@@ -200,6 +200,11 @@ export default new Router({
 			path: '/fullcalendar',
 			name: 'fullcalendar',
 			component: () => import('./views/fullcalendar/FullCalendarDemo.vue')
+        },
+        {
+			path: '/inplace',
+			name: 'inplace',
+			component: () => import('./views/inplace/InplaceDemo.vue')
 		},
 		{
 			path: '/inputgroup',

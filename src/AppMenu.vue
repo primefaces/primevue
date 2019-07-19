@@ -168,6 +168,7 @@
             <transition name="layout-submenu-wrapper">
                 <div v-show="activeMenuIndex === 9">
                     <div>
+                        <router-link to="/inplace">&#9679; Inplace</router-link>
                         <router-link to="/progressbar">&#9679; ProgressBar</router-link>
                     </div>
                 </div>
