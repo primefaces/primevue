@@ -11,10 +11,10 @@
             <h3>Input</h3>
             <Inplace :closable="true">
                 <template #display>
-                    Click to Edit
+                    {{text || 'Click to Edit'}}
                 </template>
                 <template #content>
-                    <InputText autoFocus />
+                    <InputText v-model="text" autoFocus />
                 </template>
             </Inplace>
 
@@ -25,12 +25,12 @@
                     <span style="margin-left:.5em; vertical-align: middle">View Picture</span>
                 </template>
                 <template #content>
-                    <img src="'demo/images/nature/nature1.jpg'" />
+                    <img src="demo/images/nature/nature1.jpg" />
                 </template>
             </Inplace>
 
             <h3>Lazy Data</h3>
-            <Inplace onOpen={this.onOpen}>
+            <Inplace @open="loadData">
                 <template #display>
                     View Data
                 </template>
@@ -56,6 +56,7 @@ import InplaceDoc from './InplaceDoc';
 export default {
      data() {
         return {
+            text: null,
             cars: null
         }
     },
@@ -64,7 +65,7 @@ export default {
         this.carService = new CarService();
     },
     methods: {
-        onOpen() {
+        loadData() {
              this.carService.getCarsSmall().then(data => this.cars = data);
         }
     },

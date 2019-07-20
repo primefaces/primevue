@@ -291,9 +291,6 @@ export default {
             }
         }
     },
-    computed: {
-        
-    },
     components: {
         'OLButton': Button
     }

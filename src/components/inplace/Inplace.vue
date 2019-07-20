@@ -1,10 +1,18 @@
 <template>
     <div :class="containerClass">
-        Yoo man
+        <div class="p-inplace-display" :tabindex="$attrs.tabindex||'0'" v-if="!d_active" @click="open" @keydown.enter="open"> 
+            <slot name="display"></slot>
+        </div>
+        <div class="p-inplace-content" v-else>
+            <slot name="content"></slot>
+            <IPButton v-if="closable" icon="pi pi-times" @click="close"></IPButton>
+        </div>
     </div>
 </template>
 
 <script>
+import Button from '../button/Button';
+
 export default {
     props: {
         closable: {
@@ -14,10 +22,6 @@ export default {
         active: {
             type: Boolean,
             defaault: false
-        },
-        tabindex: {
-            type: String,
-            defaault: '0'
         }
     },
     watch: {
@@ -30,10 +34,25 @@ export default {
             d_active: this.active
         }
     },
+    methods: {
+        open(event) {
+            this.$emit('open', event);
+            this.d_active = true;
+            this.$emit('update:active', true);
+        },
+        close(event) {
+            this.$emit('close', event);
+            this.d_active = false;
+            this.$emit('update:active', false);
+        }
+    },
     computed: {
         containerClass() {
             return ['p-inplace p-component', {'p-inplace-closable': this.closable}];
         }
+    },
+    components: {
+        'IPButton': Button
     }
 }
 </script>
