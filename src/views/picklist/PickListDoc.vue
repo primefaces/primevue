@@ -220,9 +220,12 @@ import PickList from 'primevue/picklist';
 				</a>
 <CodeHighlight>
 <template v-pre>
-&lt;OrderList v-model="cars" header="List of Cars" listStyle="height:auto" dataKey="vin"&gt;
-    &lt;template #header&gt;
-        List of Cars
+&lt;PickList v-model="cars" dataKey="vin"&gt;
+    &lt;template #sourceHeader&gt;
+        Available
+    &lt;/template&gt;
+    &lt;template #targetHeader&gt;
+        Selected
     &lt;/template&gt;
     &lt;template #item="slotProps"&gt;
         &lt;div class="p-caritem"&gt;
@@ -230,7 +233,7 @@ import PickList from 'primevue/picklist';
             &lt;div&gt;&#123;&#123;slotProps.item.brand&#125;&#125; - &#123;&#123;slotProps.item.year&#125;&#125; - &#123;&#123;slotProps.item.color&#125;&#125;&lt;/div&gt;
         &lt;/div&gt;
     &lt;/template&gt;
-&lt;/OrderList&gt;
+&lt;/PickList&gt;
 </template>
 </CodeHighlight>
 
@@ -248,7 +251,7 @@ export default {
         this.carService = new CarService();
     },
     mounted() {
-        this.carService.getCarsSmall().then(data => this.cars = data.slice(0,5));
+        this.carService.getCarsSmall().then(data => this.cars = [data.slice(0,5),[]]);
     }
 }
 </CodeHighlight>
