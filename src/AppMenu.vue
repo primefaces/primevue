@@ -171,6 +171,7 @@
                     <div>
                         <router-link to="/inplace">&#9679; Inplace</router-link>
                         <router-link to="/progressbar">&#9679; ProgressBar</router-link>
+                        <router-link to="/progressspinner">&#9679; ProgressSpinner</router-link>
                     </div>
                 </div>
             </transition>

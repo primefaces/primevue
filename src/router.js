@@ -285,6 +285,11 @@ export default new Router({
 			path: '/progressbar',
 			name: 'progressbar',
 			component: () => import('./views/progressbar/ProgressBarDemo.vue')
+        },
+        {
+			path: '/progressspinner',
+			name: 'progressspinner',
+			component: () => import('./views/progressspinner/ProgressSpinnerDemo.vue')
 		},
 		{
 			path: '/radiobutton',
