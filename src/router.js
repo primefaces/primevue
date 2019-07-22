@@ -255,6 +255,11 @@ export default new Router({
 			path: '/orderlist',
 			name: 'orderlist',
 			component: () => import('./views/orderlist/OrderListDemo.vue')
+        },
+        {
+			path: '/organizationchart',
+			name: 'organizationchart',
+			component: () => import('./views/organizationchart/OrganizationChartDemo.vue')
 		},
 		{
 			path: '/overlaypanel',
