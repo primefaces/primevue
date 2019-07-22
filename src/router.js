@@ -165,7 +165,12 @@ export default new Router({
 			path: '/dataview',
 			name: 'dataview',
 			component: () => import('./views/dataview/DataViewDemo.vue')
-		},
+        },
+        {
+			path: '/deferredcontent',
+			name: 'deferredcontent',
+			component: () => import('./views/deferredcontent/DeferredContentDemo.vue')
+        },
 		{
 			path: '/dialog',
 			name: 'dialog',

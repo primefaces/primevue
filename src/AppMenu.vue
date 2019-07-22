@@ -75,9 +75,10 @@
                     <div>
                         <router-link to="/accordion">&#9679; Accordion</router-link>
                         <router-link to="/card">&#9679; Card</router-link>
-                        <router-link to="/panel">&#9679; Panel</router-link>
+                        <router-link to="/deferredcontent">&#9679; Deferred</router-link>
                         <router-link to="/fieldset">&#9679; Fieldset</router-link>
                         <router-link to="/flexgrid">&#9679; FlexGrid</router-link>
+                        <router-link to="/panel">&#9679; Panel</router-link>
                         <router-link to="/tabview">&#9679; TabView</router-link>
                         <router-link to="/toolbar">&#9679; Toolbar</router-link>
                     </div>
