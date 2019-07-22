@@ -4,19 +4,35 @@
 			<TabPanel header="Documentation">
 				<h3>Import</h3>
 <CodeHighlight lang="javascript">
-import OrderList from 'primevue/orderlist';
+import PickList from 'primevue/picklist';
 </CodeHighlight>
 
 				<h3>Getting Started</h3>
-                <p>OrderList requires an array as its value bound with the v-model directive and a template for its content.</p>
-                <p>Header of the component is defined with the "header" template and to define the content of an item in the list a named templated called "item" needs to be defined which gets the 
-                    <i>item</i> and the <i>index</i> via slotProps.
-                </p>
+                <p>PickList requires a multidimensional array as its value bound with the v-model directive and a template for its content 
+                    that gets the <i>item</i> instance and the <i>index</i> via slotProps.</p>
 <CodeHighlight>
 <template v-pre>
-&lt;OrderList v-model="cars" header="List of Cars" listStyle="height:auto" dataKey="vin"&gt;
-    &lt;template #header&gt;
-        List of Cars
+&lt;PickList v-model="cars" dataKey="vin"&gt;
+    &lt;template #item="slotProps"&gt;
+        &lt;div class="p-caritem"&gt;
+            &lt;img :src="'demo/images/car/' + slotProps.item.brand + '.png'"&gt;
+            &lt;div&gt;&#123;&#123;slotProps.item.brand&#125;&#125; - &#123;&#123;slotProps.item.year&#125;&#125; - &#123;&#123;slotProps.item.color&#125;&#125;&lt;/div&gt;
+        &lt;/div&gt;
+    &lt;/template&gt;
+&lt;/PickList&gt;
+</template>
+</CodeHighlight>
+
+                <h3>Templates</h3>
+                <p>In addition to the mandatory "item" template, picklist provides "sourceHeader" and "targetHeader" slots as optional templates.</p>
+<CodeHighlight>
+<template v-pre>
+&lt;PickList v-model="cars" dataKey="vin"&gt;
+    &lt;template #sourceHeader&gt;
+        Available
+    &lt;/template&gt;
+    &lt;template #targetHeader&gt;
+        Selected
     &lt;/template&gt;
     &lt;template #item="slotProps"&gt;
         &lt;div class="p-caritem"&gt;
@@ -24,30 +40,25 @@ import OrderList from 'primevue/orderlist';
             &lt;div&gt;&#123;&#123;slotProps.item.brand&#125;&#125; - &#123;&#123;slotProps.item.year&#125;&#125; - &#123;&#123;slotProps.item.color&#125;&#125;&lt;/div&gt;
         &lt;/div&gt;
     &lt;/template&gt;
-&lt;/OrderList&gt;
+&lt;/PickList&gt;
 </template>
 </CodeHighlight>
 
                 <h3>Selection</h3>
-                <p>In case you'd need to access the selected items in the list, define a binding to the <i>selection</i> property with the sync operator so that
+                <p>In case you need to access the selected items in the list, define a binding to the <i>selection</i> property with the sync operator so that
                 it gets updated when the user makes a selection. Since it is two-way binding enabled, your changes to the selection will be reflected as well.  Note that
                 this is optional and only necessary when you need to access the selection.</p>
-
-                <p>Use the sync operator to enable two-way binding.</p>
-
+                
 <CodeHighlight>
 <template v-pre>
-&lt;OrderList v-model="cars" header="List of Cars" listStyle="height:auto" dataKey="vin" :dragdrop="true"&gt;
-    &lt;template #header&gt;
-        List of Cars
-    &lt;/template&gt;
+&lt;PickList v-model="cars" dataKey="vin" :selection.sync="selection"&gt;
     &lt;template #item="slotProps"&gt;
         &lt;div class="p-caritem"&gt;
             &lt;img :src="'demo/images/car/' + slotProps.item.brand + '.png'"&gt;
             &lt;div&gt;&#123;&#123;slotProps.item.brand&#125;&#125; - &#123;&#123;slotProps.item.year&#125;&#125; - &#123;&#123;slotProps.item.color&#125;&#125;&lt;/div&gt;
         &lt;/div&gt;
     &lt;/template&gt;
-&lt;/OrderList&gt;
+&lt;/PickList&gt;
 </template>
 </CodeHighlight>
 
@@ -71,13 +82,13 @@ import OrderList from 'primevue/orderlist';
                                 <td>value</td>
                                 <td>array</td>
                                 <td>null</td>
-                                <td>Value of the component.</td>
+                                <td>Value of the component as a multidimensional array.</td>
                             </tr>
                             <tr>
                                 <td>selection</td>
-                                <td>any</td>
+                                <td>array</td>
                                 <td>null</td>
-                                <td>Selected items in the list.</td>
+                                <td>Selected items in the list as a multidimensional array.</td>
                             </tr>
                             <tr>
                                 <td>metaKeySelection</td>
@@ -119,9 +130,38 @@ import OrderList from 'primevue/orderlist';
                                 <td>reorder</td>
                                 <td>event.originalEvent: browser event <br />
                                     event.value: Ordered list <br />
-                                    event.direction: Direction of the change; "up", "down", "bottom", "top"
+                                    event.direction: Direction of the change; "up", "down", "bottom", "top" <br />
+                                    event.listIndex: Index of the list that is ordered, 0 represents the source and 1 represents the target list.
                                 </td>
                                 <td>Callback to invoke when the list is reordered.</td>
+                            </tr>
+                            <tr>
+                                <td>move-to-target</td>
+                                <td>event.originalEvent: browser event <br />
+                                    event.items: Moved items
+                                </td>
+                                <td>Callback to invoke when one or more items are moved to the target list.</td>
+                            </tr>
+                            <tr>
+                                <td>move-all-to-target</td>
+                                <td>event.originalEvent: browser event <br />
+                                    event.items: Moved items
+                                </td>
+                                <td>Callback to invoke when all items are moved to the target list.</td>
+                            </tr>
+                            <tr>
+                                <td>move-to-source</td>
+                                <td>event.originalEvent: browser event <br />
+                                    event.items: Moved items
+                                </td>
+                                <td>Callback to invoke when one or more items are moved to the source list.</td>
+                            </tr>
+                            <tr>
+                                <td>move-all-to-source</td>
+                                <td>event.originalEvent: browser event <br />
+                                    event.items: Moved items
+                                </td>
+                                <td>Callback to invoke when all items are moved to the source list.</td>
                             </tr>
 						</tbody>
 					</table>
@@ -139,18 +179,34 @@ import OrderList from 'primevue/orderlist';
 						</thead>
 						<tbody>
                             <tr>
-                                <td>p-orderlist</td>
+                                <td>p-picklist</td>
                                 <td>Container element.</td>
                             </tr>
                             <tr>
-                                <td>p-orderlist-list</td>
-                                <td>List container.</td>
+                                <td>p-picklist-source-controls</td>
+                                <td>Container of source list buttons.</td>
                             </tr>
                             <tr>
-                                <td>p-orderlist-item</td>
-                                <td>An item in the list</td>
+                                <td>p-picklist-target-controls</td>
+                                <td>Container of target list buttons.</td>
                             </tr>
-						</tbody>
+                            <tr>
+                                <td>p-picklist-buttons</td>
+                                <td>Container of buttons.</td>
+                            </tr>
+                            <tr>
+                                <td>p-picklist-listwrapper</td>
+                                <td>Parent of a list element.</td>
+                            </tr>
+                            <tr>
+                                <td>p-picklist-list</td>
+                                <td>List element.</td>
+                            </tr>
+                            <tr>
+                                <td>p-picklist-item</td>
+                                <td>An item in the list.</td>
+                            </tr>
+                        </tbody>
 					</table>
 				</div>
 
