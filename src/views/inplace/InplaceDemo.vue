@@ -21,7 +21,7 @@
             <h3>Image</h3>
             <Inplace>
                 <template #display>
-                    <span className="pi pi-search" style="vertical-align: middle"></span>
+                    <span class="pi pi-search" style="vertical-align: middle"></span>
                     <span style="margin-left:.5em; vertical-align: middle">View Picture</span>
                 </template>
                 <template #content>
