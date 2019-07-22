@@ -220,20 +220,33 @@ import PickList from 'primevue/picklist';
 				</a>
 <CodeHighlight>
 <template v-pre>
-&lt;PickList v-model="cars" dataKey="vin"&gt;
-    &lt;template #sourceHeader&gt;
-        Available
-    &lt;/template&gt;
-    &lt;template #targetHeader&gt;
-        Selected
-    &lt;/template&gt;
-    &lt;template #item="slotProps"&gt;
-        &lt;div class="p-caritem"&gt;
-            &lt;img :src="'demo/images/car/' + slotProps.item.brand + '.png'"&gt;
-            &lt;div&gt;&#123;&#123;slotProps.item.brand&#125;&#125; - &#123;&#123;slotProps.item.year&#125;&#125; - &#123;&#123;slotProps.item.color&#125;&#125;&lt;/div&gt;
+&lt;div&gt;
+    &lt;div class="content-section introduction"&gt;
+        &lt;div class="feature-intro"&gt;
+            &lt;h1&gt;PickList&lt;/h1&gt;
+            &lt;p&gt;PickList is used to reorder items between different lists.&lt;/p&gt;
         &lt;/div&gt;
-    &lt;/template&gt;
-&lt;/PickList&gt;
+    &lt;/div&gt;
+
+    &lt;div class="content-section implementation"&gt;
+        &lt;PickList v-model="cars" listStyle="height:342px" dataKey="vin"&gt;
+            &lt;template #sourceHeader&gt;
+                Available
+            &lt;/template&gt;
+            &lt;template #targetHeader&gt;
+                Selected
+            &lt;/template&gt;
+            &lt;template #item="slotProps"&gt;
+                &lt;div class="p-caritem"&gt;
+                    &lt;img :src="'demo/images/car/' + slotProps.item.brand + '.png'"&gt;
+                    &lt;div&gt;&#123;&#123;slotProps.item.brand&#125;&#125; - &#123;&#123;slotProps.item.year&#125;&#125; - &#123;&#123;slotProps.item.color&#125;&#125;&lt;/div&gt;
+                &lt;/div&gt;
+            &lt;/template&gt;
+        &lt;/PickList&gt;
+    &lt;/div&gt;
+
+    &lt;PickListDoc /&gt;
+&lt;/div&gt;
 </template>
 </CodeHighlight>
 

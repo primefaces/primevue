@@ -164,17 +164,28 @@ import OrderList from 'primevue/orderlist';
 				</a>
 <CodeHighlight>
 <template v-pre>
-&lt;OrderList v-model="cars" listStyle="height:auto" dataKey="vin"&gt;
-    &lt;template #header&gt;
-        List of Cars
-    &lt;/template&gt;
-    &lt;template #item="slotProps"&gt;
-        &lt;div class="p-caritem"&gt;
-            &lt;img :src="'demo/images/car/' + slotProps.item.brand + '.png'"&gt;
-            &lt;div&gt;&#123;&#123;slotProps.item.brand&#125;&#125; - &#123;&#123;slotProps.item.year&#125;&#125; - &#123;&#123;slotProps.item.color&#125;&#125;&lt;/div&gt;
+&lt;div&gt;
+    &lt;div class="content-section introduction"&gt;
+        &lt;div class="feature-intro"&gt;
+            &lt;h1&gt;OrderList&lt;/h1&gt;
+            &lt;p&gt;OrderList is used to managed the order of a collection.&lt;/p&gt;
         &lt;/div&gt;
-    &lt;/template&gt;
-&lt;/OrderList&gt;
+    &lt;/div&gt;
+
+    &lt;div class="content-section implementation"&gt;
+        &lt;OrderList v-model="cars" listStyle="height:auto" dataKey="vin"&gt;
+            &lt;template #header&gt;
+                List of Cars
+            &lt;/template&gt;
+            &lt;template #item="slotProps"&gt;
+                &lt;div class="p-caritem"&gt;
+                    &lt;img :src="'demo/images/car/' + slotProps.item.brand + '.png'"&gt;
+                    &lt;div&gt;&#123;&#123;slotProps.item.brand&#125; - &#123;&#123;slotProps.item.year&#125;&#125; - &#123;&#123;slotProps.item.color&#125;&#125;&lt;/div&gt;
+                &lt;/div&gt;
+            &lt;/template&gt;
+        &lt;/OrderList&gt;
+    &lt;/div&gt;
+&lt;/div&gt;
 </template>
 </CodeHighlight>
 
