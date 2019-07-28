@@ -31,7 +31,8 @@
             </tr>
             <tr :style="childStyle" class="p-organizationchart-nodes">
                 <td v-for="child of node.children" :key="child.key" colspan="2">
-                    <sub-node :node="child" :templates="templates" :collapsedKeys="collapsedKeys" @node-toggle="onChildNodeToggle" :collapsible="collapsible" />
+                    <sub-node :node="child" :templates="templates" :collapsedKeys="collapsedKeys" @node-toggle="onChildNodeToggle" :collapsible="collapsible" 
+                                :selectionMode="selectionMode" :selectionKeys="selectionKeys" @node-click="onChildNodeClick" />
                 </td>
             </tr>
         </tbody>
@@ -39,6 +40,8 @@
 </template>
 
 <script>
+import DomHandler from '../utils/DomHandler';
+
 const OrganizationChartNodeTemplate = {
     functional: true,
     props: {
@@ -66,14 +69,6 @@ export default {
             type: null,
             default: null
         },
-        selected: {
-            type: Boolean,
-            default: false
-        },
-        selectable: {
-            type: Boolean,
-            default: false
-        },
         templates: {
             type: null,
             default: null
@@ -85,17 +80,34 @@ export default {
         collapsedKeys: {
             type: null,
             default: null
+        },
+        selectionKeys: {
+            type: null,
+            default: null
+        },
+        selectionMode: {
+            type: String,
+            default: null
         }
     },
     methods: {
-        onNodeClick() {
+        onNodeClick(event) {
+            if (DomHandler.hasClass(event.target, 'p-node-toggler') || DomHandler.hasClass(event.target, 'p-node-toggler-icon')) {
+                return;
+            }
 
+            if (this.selectionMode) {
+                this.$emit('node-click', this.node);
+            }
+        },
+        onChildNodeClick(node) {
+            this.$emit('node-click', node);
         },
         toggleNode() {
-            this.$emit('node-toggle', this.node.key);
+            this.$emit('node-toggle', this.node);
         },
-        onChildNodeToggle(key) {
-            this.$emit('node-toggle', key);
+        onChildNodeToggle(node) {
+            this.$emit('node-toggle', node);
         }
     },
     computed: {
@@ -115,6 +127,12 @@ export default {
         },
         expanded() {
             return this.collapsedKeys[this.node.key] === undefined;
+        },
+        selectable() {
+            return this.selectionMode && this.node.selectable !== false;
+        },
+        selected() {
+            return this.selectable && this.selectionKeys && this.selectionKeys[this.node.key] === true;
         }
     },
     components: {

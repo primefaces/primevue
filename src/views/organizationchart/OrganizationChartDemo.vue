@@ -10,7 +10,8 @@
         <div class="content-section implementation">
             <h3 class="first">Advanced</h3>
             <p>Hierarchical data with zero configuration.</p>
-            <OrganizationChart :value="data1" :collapsible="true" class="company">
+            <OrganizationChart :value="data1" :collapsible="true" class="company" selectionMode="single" :selectionKeys.sync="selection"
+                @node-select="onNodeSelect" @node-unselect="onNodeUnselect" @node-collapse="onNodeCollapse" @node-expand="onNodeExpand">
                 <template #person="slotProps">
                     <div class="node-header ui-corner-top">{{slotProps.node.data.label}}</div>
                     <div class="node-content">
@@ -55,11 +56,13 @@ export default {
                         children:[{
                             key: '0_0_0',
                             data: {label: 'Tax'},
+                            selectable: false,
                             styleClass: 'department-cfo'
                         },
                         {
                             key: '0_0_1',
                             data: {label: 'Legal'},
+                            selectable: false,
                             styleClass: 'department-cfo'
                         }],
                     },
@@ -71,6 +74,7 @@ export default {
                         children:[{
                             key: '0_1_0',
                             data: {label: 'Operations'},
+                            selectable: false,
                             styleClass: 'department-coo'
                         }]
                     },
@@ -82,31 +86,37 @@ export default {
                         children:[{
                             key: '0_2_0',
                             data: {label: 'Development'},
+                            selectable: false,
                             styleClass: 'department-cto',
                             children:[{
                                 key: '0_2_0_0',
                                 data: {label: 'Analysis'},
+                                selectable: false,
                                 styleClass: 'department-cto'
                             },
                             {
                                 key: '0_2_0_1',
                                 data: {label: 'Front End'},
+                                selectable: false,
                                 styleClass: 'department-cto'
                             },
                             {
                                 key: '0_2_0_2',
                                 data: {label: 'Back End'},
+                                selectable: false,
                                 styleClass: 'department-cto'
                             }]
                         },
                         {
                             key: '0_2_1',
                             data: {label: 'QA'},
+                            selectable: false,
                             styleClass: 'department-cto'
                         },
                         {
                             key: '0_2_2',
                             data: {label: 'R&D'},
+                            selectable: false,
                             styleClass: 'department-cto'
                         }]
                     }
@@ -146,7 +156,21 @@ export default {
                     }
                 ]
             },
-            selection: []
+            selection: {}
+        }
+    },
+    methods: {
+        onNodeSelect(node) {
+            this.$toast.add({severity:'success', summary: 'Node Selected', detail: node.data.label, life: 3000});
+        },
+        onNodeUnselect(node) {
+            this.$toast.add({severity:'success', summary: 'Node Unselected', detail: node.data.label, life: 3000});
+        },
+        onNodeExpand(node) {
+            this.$toast.add({severity:'success', summary: 'Node Expanded', detail: node.data.label, life: 3000});
+        },
+        onNodeCollapse(node) {
+            this.$toast.add({severity:'success', summary: 'Node Collapsed', detail: node.data.label, life: 3000});
         }
     },
     components: {
@@ -193,10 +217,6 @@ export default {
     .department-cto {
         background-color: #e9286f;
         color: #ffffff;
-    }
-
-    .p-organizationchart .p-highlight {
-        background-color: orange;
     }
 
     .p-person .p-node-toggler {

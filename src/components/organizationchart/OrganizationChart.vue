@@ -1,6 +1,8 @@
 <template>
     <div class="p-organizationchart p-component">
-        <OrganizationChartNode :node="value" :templates="$scopedSlots" @node-toggle="onNodeToggle" :collapsedKeys="d_collapsedKeys" :collapsible="collapsible" />
+        <OrganizationChartNode :node="value" :templates="$scopedSlots" 
+            @node-toggle="onNodeToggle" :collapsedKeys="d_collapsedKeys" :collapsible="collapsible"
+            @node-click="onNodeClick" :selectionMode="selectionMode" :selectionKeys="selectionKeys" />
     </div>
 </template>
 
@@ -11,6 +13,14 @@ export default {
     props: {
         value: {
             type: null,
+            default: null
+        },
+        selectionKeys: {
+            type: null,
+            default: null
+        },
+        selectionMode: {
+            type: String,
             default: null
         },
         collapsible: {
@@ -33,11 +43,39 @@ export default {
         }
     },
     methods: {
-        onNodeToggle(key) {
-            if (this.d_collapsedKeys[key])
+        onNodeClick(node) {
+            const key = node.key;
+
+            if (this.selectionMode) {
+                let _selectionKeys = this.selectionKeys ? {...this.selectionKeys} : {};
+
+                if (_selectionKeys[key]) {
+                    delete _selectionKeys[key];
+                    this.$emit('node-unselect', node);
+                }
+                else {
+                    if (this.selectionMode === 'single') {
+                        _selectionKeys = {};
+                    }
+
+                    _selectionKeys[key] = true;
+                    this.$emit('node-select', node);
+                }
+
+                this.$emit('update:selectionKeys', _selectionKeys);
+            }
+        },
+        onNodeToggle(node) {
+            const key = node.key;
+
+            if (this.d_collapsedKeys[key]) {
                 delete this.d_collapsedKeys[key];
-            else
+                this.$emit('node-expand', node);
+            }
+            else {
                 this.d_collapsedKeys[key] = true;
+                this.$emit('node-collapse', node);
+            }                
 
             this.d_collapsedKeys = {...this.d_collapsedKeys};
             this.$emit('update:collapsedKeys', this.d_collapsedKeys);
