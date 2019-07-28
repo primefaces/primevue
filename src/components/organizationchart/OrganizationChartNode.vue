@@ -5,7 +5,7 @@
                 <td :colspan="colspan">
                     <div :class="nodeContentClass" @click="onNodeClick">
                         <OrganizationChartNodeTemplate :node="node" :template="templates[node.type]||templates['default']" />
-                        <a v-if="collapsible && !leaf" tabindex="0" class="p-node-toggler" @click="toggleNode" @keydown.enter="toggleNode">
+                        <a v-if="toggleable" tabindex="0" class="p-node-toggler" @click="toggleNode" @keydown.enter="toggleNode">
                             <i class="p-node-toggler-icon pi" :class="{'pi-chevron-down': expanded, 'pi-chevron-up': !expanded}"></i>
                         </a>
                     </div>
@@ -133,6 +133,9 @@ export default {
         },
         selected() {
             return this.selectable && this.selectionKeys && this.selectionKeys[this.node.key] === true;
+        },
+        toggleable() {
+            return this.collapsible && this.node.collapsible !== false && !this.leaf;
         }
     },
     components: {

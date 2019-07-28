@@ -106,6 +106,12 @@ export default {
                                 <td>Whether node is selectable when selection is enabled.</td>
                             </tr>
                             <tr>
+                                <td>collapsible</td>
+                                <td>boolean</td>
+                                <td>true</td>
+                                <td>Whether node is collapsible when node expansion is enabled.</td>
+                            </tr>
+                            <tr>
                                 <td>children</td>
                                 <td>array</td>
                                 <td>null</td>
