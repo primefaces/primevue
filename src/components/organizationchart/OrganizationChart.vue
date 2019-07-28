@@ -27,7 +27,7 @@ export default {
             d_collapsedKeys: this.collapsedKeys || {}
         }
     },
-    watch() {
+    watch: {
         collapsedKeys(newValue) {
             this.d_collapsedKeys = newValue;
         }
