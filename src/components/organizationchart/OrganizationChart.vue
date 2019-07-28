@@ -27,6 +27,11 @@ export default {
             d_collapsedKeys: this.collapsedKeys || {}
         }
     },
+    watch() {
+        collapsedKeys(newValue) {
+            this.d_collapsedKeys = newValue;
+        }
+    },
     methods: {
         onNodeToggle(key) {
             if (this.d_collapsedKeys[key])
@@ -35,6 +40,7 @@ export default {
                 this.d_collapsedKeys[key] = true;
 
             this.d_collapsedKeys = {...this.d_collapsedKeys};
+            this.$emit('update:collapsedKeys', this.d_collapsedKeys);
         }
     },
     components: {
