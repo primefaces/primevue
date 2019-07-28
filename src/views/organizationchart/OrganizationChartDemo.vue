@@ -9,7 +9,27 @@
 
         <div class="content-section implementation">
             <h3 class="first">Advanced</h3>
-            <OrganizationChart :value="data1" />
+            <p>Hierarchical data with zero configuration.</p>
+            <OrganizationChart :value="data1" :collapsible="true" class="company">
+                <template #person="slotProps">
+                    <div class="node-header ui-corner-top">{{slotProps.node.data.label}}</div>
+                    <div class="node-content">
+                        <img :src="'demo/images/organization/' + slotProps.node.data.avatar" width="32">
+                        <div>{{slotProps.node.data.name}}</div>
+                    </div>
+                </template>
+                <template #default="slotProps">
+                    <span>{{slotProps.node.data.label}}</span>
+                </template>
+            </OrganizationChart>
+
+            <h3>Basic</h3>
+            <p>Hierarchical data with zero configuration.</p>
+            <OrganizationChart :value="data2">
+                <template #default="slotProps">
+                    <span>{{slotProps.node.data.label}}</span>
+                </template>
+            </OrganizationChart>
         </div>
 
         <OrganizationChartDoc />
@@ -22,102 +42,110 @@ export default {
     data() {
         return {
             data1: {
-                label: 'CEO',
+                key: '0',
                 type: 'person',
-                className: 'p-person',
-                expanded: true,
-                data: {name:'Walter White', 'avatar': 'walter.jpg'},
+                styleClass: 'p-person',
+                data: {label: 'CEO', name: 'Walter White', avatar: 'walter.jpg'},
                 children: [
                     {
-                        label: 'CFO',
+                        key: '0_0',
                         type: 'person',
-                        className: 'p-person',
-                        expanded: true,
-                        data: {name:'Saul Goodman', 'avatar': 'saul.jpg'},
+                        styleClass: 'p-person',
+                        data: {label: 'CFO', name:'Saul Goodman', avatar: 'saul.jpg'},
                         children:[{
-                            label: 'Tax',
-                            className: 'department-cfo'
+                            key: '0_0_0',
+                            data: {label: 'Tax'},
+                            styleClass: 'department-cfo'
                         },
                         {
-                            label: 'Legal',
-                            className: 'department-cfo'
+                            key: '0_0_1',
+                            data: {label: 'Legal'},
+                            styleClass: 'department-cfo'
                         }],
                     },
                     {
-                        label: 'COO',
+                        key: '0_1',
                         type: 'person',
-                        className: 'p-person',
-                        expanded: true,
-                        data: {name:'Mike E.', 'avatar': 'mike.jpg'},
+                        styleClass: 'p-person',
+                        data: {label: 'COO', name:'Mike E.', avatar: 'mike.jpg'},
                         children:[{
-                            label: 'Operations',
-                            className: 'department-coo'
+                            key: '0_1_0',
+                            data: {label: 'Operations'},
+                            styleClass: 'department-coo'
                         }]
                     },
                     {
-                        label: 'CTO',
+                        key: '0_2',
                         type: 'person',
-                        className: 'p-person',
-                        expanded: true,
-                        data: {name:'Jesse Pinkman', 'avatar': 'jesse.jpg'},
+                        styleClass: 'p-person',
+                        data: {label: 'CTO', name:'Jesse Pinkman', avatar: 'jesse.jpg'},
                         children:[{
-                            label: 'Development',
-                            className: 'department-cto',
-                            expanded: true,
+                            key: '0_2_0',
+                            data: {label: 'Development'},
+                            styleClass: 'department-cto',
                             children:[{
-                                label: 'Analysis',
-                                className: 'department-cto'
+                                key: '0_2_0_0',
+                                data: {label: 'Analysis'},
+                                styleClass: 'department-cto'
                             },
                             {
-                                label: 'Front End',
-                                className: 'department-cto'
+                                key: '0_2_0_1',
+                                data: {label: 'Front End'},
+                                styleClass: 'department-cto'
                             },
                             {
-                                label: 'Back End',
-                                className: 'department-cto'
+                                key: '0_2_0_2',
+                                data: {label: 'Back End'},
+                                styleClass: 'department-cto'
                             }]
                         },
                         {
-                            label: 'QA',
-                            className: 'department-cto'
+                            key: '0_2_1',
+                            data: {label: 'QA'},
+                            styleClass: 'department-cto'
                         },
                         {
-                            label: 'R&D',
-                            className: 'department-cto'
+                            key: '0_2_2',
+                            data: {label: 'R&D'},
+                            styleClass: 'department-cto'
                         }]
                     }
                 ]
             },
-            data2 : [{
-                label: 'F.C Barcelona',
-                expanded: true,
+            data2 : {
+                key: '0',
+                data: {label: 'F.C. Barcelona'},
                 children: [
                     {
-                        label: 'F.C Barcelona',
-                        expanded: true,
+                        key: '0_0',
+                        data: {label: 'F.C. Barcelona'},
                         children: [
                             {
-                                label: 'Chelsea FC'
+                                key: '0_0_0',
+                                data: {label: 'Chelsea F.C.'}
                             },
                             {
-                                label: 'F.C. Barcelona'
+                                key: '0_0_1',
+                                data: {label: 'F.C. Barcelona'}
                             }
                         ]
                     },
                     {
-                        label: 'Real Madrid',
-                        expanded: true,
+                        key: '0_1',
+                        data: {label: 'Real Madrid'},
                         children: [
                             {
-                                label: 'Bayern Munich'
+                                key: '0_1_0',
+                                data: {label: 'Bayern Munich'}
                             },
                             {
-                                label: 'Real Madrid'
+                                key: '0_1_1',
+                                data: {label: 'Real Madrid'}
                             }
                         ]
                     }
                 ]
-            }],
+            },
             selection: []
         }
     },
@@ -126,3 +154,59 @@ export default {
     }
 }
 </script>
+
+<style scoped lang="scss">
+/deep/ .p-organizationchart {
+    .p-person {
+        padding: 0;
+        border: 0 none;
+    }
+
+    .node-header, .node-content {
+        padding: .5em .7em;
+    }
+
+    .node-header {
+        background-color: #495ebb;
+        color: #ffffff;
+    }
+
+    .node-content {
+        text-align: center;
+        border: 1px solid #495ebb;
+    }
+
+    .node-content img {
+        border-radius: 50%;
+    }
+
+    .department-cfo {
+        background-color: #7247bc;
+        color: #ffffff;
+    }
+
+    .department-coo {
+        background-color: #a534b6;
+        color: #ffffff;
+    }
+
+    .department-cto {
+        background-color: #e9286f;
+        color: #ffffff;
+    }
+
+    .p-organizationchart .p-highlight {
+        background-color: orange;
+    }
+
+    .p-person .p-node-toggler {
+        color: #495ebb !important;
+    }
+
+    .department-cto .p-node-toggler {
+        color: #8a0a39 !important;
+    }
+}
+
+
+</style>

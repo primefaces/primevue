@@ -1,6 +1,6 @@
 <template>
     <div class="p-organizationchart p-component">
-        <OrganizationChartNode :node="value" />
+        <OrganizationChartNode :node="value" :templates="$scopedSlots" @node-toggle="onNodeToggle" :collapsedKeys="d_collapsedKeys" :collapsible="collapsible" />
     </div>
 </template>
 
@@ -12,6 +12,29 @@ export default {
         value: {
             type: null,
             default: null
+        },
+        collapsible: {
+            type: Boolean,
+            default: false
+        },
+        collapsedKeys: {
+            type: null,
+            default: null
+        }
+    },
+    data() {
+        return {
+            d_collapsedKeys: this.collapsedKeys || {}
+        }
+    },
+    methods: {
+        onNodeToggle(key) {
+            if (this.d_collapsedKeys[key])
+                delete this.d_collapsedKeys[key];
+            else
+                this.d_collapsedKeys[key] = true;
+
+            this.d_collapsedKeys = {...this.d_collapsedKeys};
         }
     },
     components: {
@@ -49,6 +72,7 @@ export default {
     user-select: none;
     -moz-user-select: none;
     -webkit-user-select: none;
+    cursor: pointer;
 }
 
 .p-organizationchart .p-organizationchart-line-down {
