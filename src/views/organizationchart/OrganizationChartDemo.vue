@@ -8,8 +8,7 @@
         </div>
 
         <div class="content-section implementation">
-            <h3 class="first">Advanced</h3>
-            <p>Hierarchical data with zero configuration.</p>
+            <h3>Advanced</h3>
             <OrganizationChart :value="data1" :collapsible="true" class="company" selectionMode="single" :selectionKeys.sync="selection"
                 @node-select="onNodeSelect" @node-unselect="onNodeUnselect" @node-collapse="onNodeCollapse" @node-expand="onNodeExpand">
                 <template #person="slotProps">
@@ -25,7 +24,6 @@
             </OrganizationChart>
 
             <h3>Basic</h3>
-            <p>Hierarchical data with zero configuration.</p>
             <OrganizationChart :value="data2">
                 <template #default="slotProps">
                     <span>{{slotProps.node.data.label}}</span>
@@ -227,6 +225,4 @@ export default {
         color: #8a0a39 !important;
     }
 }
-
-
 </style>
