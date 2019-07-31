@@ -355,6 +355,11 @@ export default new Router({
 			path: '/toolbar',
 			name: 'toolbar',
 			component: () => import('./views/toolbar/ToolbarDemo.vue')
+        },
+        {
+			path: '/tree',
+			name: 'tree',
+			component: () => import('./views/tree/TreeDemo.vue')
 		},
 		{
 			path: '/tristatecheckbox',

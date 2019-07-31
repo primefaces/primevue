@@ -62,6 +62,7 @@
                         <router-link to="/organizationchart">&#9679; Org Chart</router-link>
                         <router-link to="/paginator">&#9679; Paginator</router-link>
                         <router-link to="/picklist">&#9679; PickList</router-link>
+                        <router-link to="/tree">&#9679; Tree</router-link>
                     </div>
                 </div>
             </transition>
