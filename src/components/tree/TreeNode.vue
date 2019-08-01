@@ -5,13 +5,19 @@
             <span class="p-tree-toggler p-unselectable-text p-link" @click="toggle">
                 <span :class="toggleIcon"></span>
             </span>
+            <div class="p-checkbox p-component" v-if="checkboxMode">
+                <div :class="checkboxClass">
+                    <span :class="checkboxIcon"></span>
+                </div>
+            </div>
             <span :class="icon"></span>
             <span class="p-treenode-label">{{node.label}}</span>
         </div>
         <ul class="p-treenode-children" role="group" v-if="hasChildren && expanded">
             <sub-treenode v-for="childNode of node.children" :key="childNode.key" :node="childNode"
                 :expandedKeys="expandedKeys" @node-toggle="onChildNodeToggle" @node-click="onChildNodeClick"
-                :selectionMode="selectionMode" :selectionKeys="selectionKeys"></sub-treenode>
+                :selectionMode="selectionMode" :selectionKeys="selectionKeys" 
+                @checkbox-change="propagateUp"></sub-treenode>
         </ul>
     </li>
 </template>
@@ -52,11 +58,17 @@ export default {
                 return;
             }
 
-            this.$emit('node-click', {
-                originalEvent: event,
-                nodeTouched: this.nodeTouched,
-                node: this.node
-            });
+            if (this.isCheckboxSelectionMode()) {
+                this.toggleCheckbox();
+            }
+            else {
+                this.$emit('node-click', {
+                    originalEvent: event,
+                    nodeTouched: this.nodeTouched,
+                    node: this.node
+                });
+            }
+
             this.nodeTouched = false;
         },
         onChildNodeClick(event) {
@@ -125,6 +137,66 @@ export default {
                 break;
             }
         },
+        toggleCheckbox() {
+            let _selectionKeys = this.selectionKeys ? {...this.selectionKeys} : {};   
+            const _check = !this.checked;
+
+            this.propagateDown(this.node, _check, _selectionKeys);
+
+            this.$emit('checkbox-change', {
+                node: this.node,
+                check: _check,
+                selectionKeys: _selectionKeys
+            });
+        },
+        propagateDown(node, check, selectionKeys) {
+            if (check)
+                selectionKeys[node.key] = {checked: true, partialChecked: false};
+            else
+                delete selectionKeys[node.key];
+
+            if (node.children && node.children.length) {
+                for (let child of node.children) {
+                    this.propagateDown(child, check, selectionKeys);
+                }
+            }
+        },
+        propagateUp(event) {
+            let check = event.check;
+            let _selectionKeys = {...event.selectionKeys};
+            let checkedChildCount = 0;
+            let childPartialSelected = false;
+            
+            for(let child of this.node.children) {
+                if(_selectionKeys[child.key] && _selectionKeys[child.key].checked)
+                    checkedChildCount++;
+                else if(_selectionKeys[child.key] && _selectionKeys[child.key].partialChecked)
+                    childPartialSelected = true;
+            }
+
+            if(check && checkedChildCount === this.node.children.length) {
+                _selectionKeys[this.node.key] = {checked: true, partialChecked: false};
+            }
+            else {
+                if (!check) {
+                    delete _selectionKeys[this.node.key];
+                }
+
+                if(childPartialSelected || (checkedChildCount > 0 && checkedChildCount !== this.node.children.length))
+                    _selectionKeys[this.node.key] = {checked: false, partialChecked: true};
+                else
+                    _selectionKeys[this.node.key] = {checked: false, partialChecked: false};
+            }
+
+            this.$emit('checkbox-change', {
+                node: event.node,
+                check: event.check,
+                selectionKeys: _selectionKeys
+            }); 
+        },
+        onChildCheckboxChange(event) {
+            this.$emit('checkbox-change', event);
+        },
         findNextSiblingOfAncestor(nodeElement) {
             let parentNodeElement = this.getParentNodeElement(nodeElement);
             if (parentNodeElement) {
@@ -155,6 +227,9 @@ export default {
         },
         focusNode(element) {
             element.children[0].focus();
+        },
+        isCheckboxSelectionMode() {
+            return this.selectionMode === 'checkbox';
         }
     },
     computed: {
@@ -179,7 +254,7 @@ export default {
         contentClass() {
             return ['p-treenode-content', {
                 'p-treenode-selectable': this.selectable,
-                'p-highlight': this.selected
+                'p-highlight': this.checkboxMode ? this.checked : this.selected
             }];
         },
         icon() {
@@ -190,6 +265,21 @@ export default {
                 'pi-caret-down': this.expanded,
                 'pi-caret-right': !this.expanded
             }];
+        },
+        checkboxClass() {
+            return ['p-checkbox-box', {'p-highlight': this.checked}];
+        },
+        checkboxIcon() {
+            return ['p-checkbox-icon p-c', {'pi pi-check': this.checked, 'pi pi-minus': this.partialChecked}];
+        },
+        checkboxMode() {
+            return this.selectionMode === 'checkbox' && this.node.selectable !== false;
+        },
+        checked() {
+            return this.selectionKeys ? this.selectionKeys[this.node.key] && this.selectionKeys[this.node.key].checked: false;
+        },
+        partialChecked() {
+            return this.selectionKeys ? this.selectionKeys[this.node.key] && this.selectionKeys[this.node.key].partialChecked: false;
         }
     }
 }

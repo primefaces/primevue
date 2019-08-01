@@ -3,7 +3,7 @@
         <ul class="p-tree-container" role="tree">
             <TreeNode v-for="node of value" :key="node.key" :node="node"
                 :expandedKeys="d_expandedKeys" @node-toggle="onNodeToggle" @node-click="onNodeClick"
-                :selectionMode="selectionMode" :selectionKeys="selectionKeys"></TreeNode>
+                :selectionMode="selectionMode" :selectionKeys="selectionKeys" @checkbox-change="onCheckboxChange"></TreeNode>
         </ul>
     </div>
 </template>
@@ -30,14 +30,6 @@ export default {
             default: null
         },
         metaKeySelection: {
-            type: Boolean,
-            default: true
-        },
-        propagateSelectionDown: {
-            type: Boolean,
-            default: true
-        },
-        propagateSelectionUp: {
             type: Boolean,
             default: true
         },
@@ -78,18 +70,19 @@ export default {
         },
         onNodeClick(event) {
             if (this.selectionMode != null && event.node.selectable !== false) {
-                let _selectionKeys;
-
-                if (this.isCheckboxSelectionMode()) {
-
-                }
-                else {
-                    const metaSelection = event.nodeTouched ? false : this.metaKeySelection;
-                    _selectionKeys = metaSelection ? this.handleSelectionWithMetaKey(event) : this.handleSelectionWithoutMetaKey(event);
-                }
+                const metaSelection = event.nodeTouched ? false : this.metaKeySelection;
+                const _selectionKeys = metaSelection ? this.handleSelectionWithMetaKey(event) : this.handleSelectionWithoutMetaKey(event);
 
                 this.$emit('update:selectionKeys', _selectionKeys);
             }
+        },
+        onCheckboxChange(event) {
+            this.$emit('update:selectionKeys', event.selectionKeys);
+
+            if (event.check)
+                this.$emit('node-select', event.node);
+            else
+                this.$emit('node-unselect', event.node);
         },
         handleSelectionWithMetaKey(event) {
             const originalEvent = event.originalEvent;
@@ -156,6 +149,46 @@ export default {
 
             return _selectionKeys;
         },
+        /*handleCheckboxSelection(event) {
+            const node = event.node;
+            const checked = this.isChecked(node);
+            let _selectionKeys = this.selectionKeys ? {...this.selectionKeys} : {};    
+
+            if (checked) {
+                if (this.propagateSelectionDown)
+                    this.propagateDown(node, false, _selectionKeys);
+                else
+                    delete _selectionKeys[node.key];
+
+                if (this.propagateSelectionUp && this.props.onPropagateUp) {
+                    this.props.onPropagateUp({
+                        originalEvent: event,
+                        check: false,
+                        selectionKeys: selectionKeys
+                    });
+                }
+
+                this.$emit('node-unselect', node);
+            }
+            else {
+                if (this.props.propagateSelectionDown)
+                    this.propagateDown(this.props.node, true, selectionKeys);
+                else 
+                    selectionKeys[this.props.node.key] = {checked: true};
+
+                    if (this.props.propagateSelectionUp && this.props.onPropagateUp) {
+                        this.props.onPropagateUp({
+                            originalEvent: event,
+                            check: true,
+                            selectionKeys: selectionKeys
+                        });
+                    }
+
+                this.$emit('node-select', node);
+            }
+
+            return _selectionKeys;
+        },*/
         isCheckboxSelectionMode() {
             return this.selectionMode === 'checkbox';
         },
@@ -167,7 +200,10 @@ export default {
         },
         isSelected(node) {
             return (this.selectionMode && this.selectionKeys) ? this.selectionKeys[node.key] === true : false;
-        }
+        },
+        isChecked(node) {
+            return this.selectionKeys ? this.selectionKeys[node.key] && this.selectionKeys[node.key].checked: false;
+        },
     },
     computed: {
         containerClass() {

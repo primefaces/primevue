@@ -12,15 +12,15 @@
         <div class="content-section implementation">
             <h3>Single Selection</h3>
             <Tree :value="nodes" selectionMode="single" :selectionKeys.sync="selectedKey"></Tree>
-            {{selectedKey}}
 
             <h3>Multiple Selection with MetaKey</h3>
             <Tree :value="nodes" selectionMode="multiple" :selectionKeys.sync="selectedKeys1"></Tree>
-            {{selectedKeys1}}
 
             <h3>Multiple Selection without MetaKey</h3>
             <Tree :value="nodes" selectionMode="multiple" :selectionKeys.sync="selectedKeys2" :metaKeySelection="false"></Tree>
-            {{selectedKeys2}}
+
+            <h3>Checkbox Selection</h3>
+            <Tree :value="nodes" selectionMode="checkbox" :selectionKeys.sync="selectedKeys3"></Tree>
         </div>
 
         <TreeDoc />
