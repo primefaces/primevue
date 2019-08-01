@@ -2,7 +2,8 @@
     <div :class="containerClass">
         <ul class="p-tree-container" role="tree">
             <TreeNode v-for="node of value" :key="node.key" :node="node"
-                :expandedKeys="d_expandedKeys" @toggle="onNodeToggle"></TreeNode>
+                :expandedKeys="d_expandedKeys" @node-toggle="onNodeToggle" @node-click="onNodeClick"
+                :selectionMode="selectionMode" :selectionKeys="selectionKeys"></TreeNode>
         </ul>
     </div>
 </template>
@@ -19,6 +20,34 @@ export default {
         expandedKeys: {
             type: null,
             default: null
+        },
+        selectionKeys: {
+            type: null,
+            default: null
+        },
+        selectionMode: {
+            type: String,
+            default: null
+        },
+        metaKeySelection: {
+            type: Boolean,
+            default: true
+        },
+        propagateSelectionDown: {
+            type: Boolean,
+            default: true
+        },
+        propagateSelectionUp: {
+            type: Boolean,
+            default: true
+        },
+        loading: {
+            type: Boolean,
+            default: false
+        },
+        loadingIcon: {
+            type: String,
+            default: 'pi pi-spinner'
         }
     },
     data() {
@@ -46,11 +75,106 @@ export default {
 
             this.d_expandedKeys = {...this.d_expandedKeys};
             this.$emit('update:expandedKeys', this.d_expandedKeys);
+        },
+        onNodeClick(event) {
+            if (this.selectionMode != null && event.node.selectable !== false) {
+                let _selectionKeys;
+
+                if (this.isCheckboxSelectionMode()) {
+
+                }
+                else {
+                    const metaSelection = event.nodeTouched ? false : this.metaKeySelection;
+                    _selectionKeys = metaSelection ? this.handleSelectionWithMetaKey(event) : this.handleSelectionWithoutMetaKey(event);
+                }
+
+                this.$emit('update:selectionKeys', _selectionKeys);
+            }
+        },
+        handleSelectionWithMetaKey(event) {
+            const originalEvent = event.originalEvent;
+            const node = event.node;
+            const metaKey = (originalEvent.metaKey||originalEvent.ctrlKey);
+            const selected = this.selected;
+            let _selectionKeys;
+        
+            if (selected && metaKey) {
+                if (this.isSingleSelectionMode()) {
+                    _selectionKeys = {};
+                }
+                else {
+                    _selectionKeys = {...this.selectionKeys};
+                    delete _selectionKeys[node.key];
+                }
+
+                this.$emit('node-unselect', node);
+            }
+            else {
+                if (this.isSingleSelectionMode()) {
+                    _selectionKeys = {};
+                }
+                else if (this.isMultipleSelectionMode()) {
+                    _selectionKeys = !metaKey ? {} : (this.selectionKeys ? {...this.selectionKeys} : {});
+                }
+
+                _selectionKeys[node.key] = true;
+                this.$emit('node-select', node);
+            }
+
+            return _selectionKeys;
+        },
+        handleSelectionWithoutMetaKey(event) {
+            const node = event.node;
+            const selected = this.isSelected(node);
+            let _selectionKeys;
+            
+            if (this.isSingleSelectionMode()) {
+                if (selected) {
+                    _selectionKeys = {};
+                    this.$emit('node-unselect', node);
+                }
+                else {
+                    _selectionKeys = {};
+                    _selectionKeys[node.key] = true;
+                    this.$emit('node-select', node);
+                }
+            }
+            else {
+                if (selected) {
+                    _selectionKeys = {...this.selectionKeys};
+                    delete _selectionKeys[node.key];
+
+                    this.$emit('node-unselect', node);
+                }
+                else {
+                    _selectionKeys = this.selectionKeys ? {...this.selectionKeys} : {};
+                    _selectionKeys[node.key] = true;
+                    
+                    this.$emit('node-select', node);
+                }
+            }
+
+            return _selectionKeys;
+        },
+        isCheckboxSelectionMode() {
+            return this.selectionMode === 'checkbox';
+        },
+        isSingleSelectionMode() {
+            return this.selectionMode === 'single';
+        },
+        isMultipleSelectionMode() {
+            return this.selectionMode === 'multiple';
+        },
+        isSelected(node) {
+            return (this.selectionMode && this.selectionKeys) ? this.selectionKeys[node.key] === true : false;
         }
     },
     computed: {
         containerClass() {
-            return 'p-tree p-component';
+            return ['p-tree p-component', {
+                'p-tree-selectable': this.selectionMode != null,
+                'p-tree-loading': this.loading
+            }];
         }
     },
     components: {

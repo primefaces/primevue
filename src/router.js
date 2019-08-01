@@ -360,6 +360,11 @@ export default new Router({
 			path: '/tree',
 			name: 'tree',
 			component: () => import('./views/tree/TreeDemo.vue')
+        },
+        {
+			path: '/tree/selection',
+			name: 'treeselectiın',
+			component: () => import('./views/tree/TreeSelectionDemo.vue')
 		},
 		{
 			path: '/tristatecheckbox',

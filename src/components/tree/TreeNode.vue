@@ -1,6 +1,7 @@
 <template>
     <li :class="containerClass">
-        <div class="p-treenode-content" tabindex="0" role="treeitem" @click="onClick" @keydown="onKeyDown" :aria-expanded="expanded">
+        <div :class="contentClass" tabindex="0" role="treeitem" :aria-expanded="expanded" 
+            @click="onClick" @keydown="onKeyDown" @touchend="onTouchEnd">
             <span class="p-tree-toggler p-unselectable-text p-link" @click="toggle">
                 <span :class="toggleIcon"></span>
             </span>
@@ -9,7 +10,8 @@
         </div>
         <ul class="p-treenode-children" role="group" v-if="hasChildren && expanded">
             <sub-treenode v-for="childNode of node.children" :key="childNode.key" :node="childNode"
-                :expandedKeys="expandedKeys" @toggle="onChildNodeToggle"></sub-treenode>
+                :expandedKeys="expandedKeys" @node-toggle="onChildNodeToggle" @node-click="onChildNodeClick"
+                :selectionMode="selectionMode" :selectionKeys="selectionKeys"></sub-treenode>
         </ul>
     </li>
 </template>
@@ -27,17 +29,41 @@ export default {
         expandedKeys: {
             type: null,
             default: null
+        },
+        selectionKeys: {
+            type: null,
+            default: null
+        },
+        selectionMode: {
+            type: String,
+            default: null
         }
     },
+    nodeTouched: false,
     methods: {
         toggle() {
-            this.$emit('toggle', this.node);
+            this.$emit('node-toggle', this.node);
         },
         onChildNodeToggle(node) {
-            this.$emit('toggle', node);
+            this.$emit('node-toggle', node);
         },
-        onClick() {
+        onClick(event) {
+            if (DomHandler.hasClass(event.target, 'p-tree-toggler') || DomHandler.hasClass(event.target, 'p-tree-toggler-icon')) {
+                return;
+            }
 
+            this.$emit('node-click', {
+                originalEvent: event,
+                nodeTouched: this.nodeTouched,
+                node: this.node
+            });
+            this.nodeTouched = false;
+        },
+        onChildNodeClick(event) {
+            this.$emit('node-click', event);
+        },
+        onTouchEnd() {
+            this.nodeTouched = true;
         },
         onKeyDown(event) {
             const nodeElement = event.target.parentElement;
@@ -141,8 +167,20 @@ export default {
         leaf() {
             return this.node.leaf === false ? false : !(this.node.children && this.node.children.length);
         },
+        selectable() {
+            return this.node.selectable === false ? false : this.selectionMode != null; 
+        },
+        selected() {
+            return (this.selectionMode && this.selectionKeys) ? this.selectionKeys[this.node.key] === true : false;
+        },
         containerClass() {
             return ['p-treenode', {'p-treenode-leaf': this.leaf}];
+        },
+        contentClass() {
+            return ['p-treenode-content', {
+                'p-treenode-selectable': this.selectable,
+                'p-highlight': this.selected
+            }];
         },
         icon() {
             return ['p-treenode-icon', this.node.icon];
