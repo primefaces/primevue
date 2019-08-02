@@ -112,36 +112,73 @@ import Tree from 'primevue/tree';
 			</TabPanel>
 
 			<TabPanel header="Source">
-				<a href="https://github.com/primefaces/primevue/tree/master/src/views/tristatecheckbox" class="btn-viewsource" target="_blank" rel="noopener noreferrer">
+				<a href="https://github.com/primefaces/primevue/tree/master/src/views/treedemo" class="btn-viewsource" target="_blank" rel="noopener noreferrer">
 					<span>View on GitHub</span>
 				</a>
 <CodeHighlight>
 <template v-pre>
 &lt;template&gt;
 	&lt;div&gt;
-		&lt;div class="content-section introduction"&gt;
-			&lt;div class="feature-intro"&gt;
-				&lt;h1&gt;TriStateCheckbox&lt;/h1&gt;
-				&lt;p&gt;TriStateCheckbox is used to select either "true", "false" or "null" as the value.&lt;/p&gt;
-			&lt;/div&gt;
-		&lt;/div&gt;
+        &lt;div class="content-section introduction"&gt;
+            &lt;div class="feature-intro"&gt;
+                &lt;h1&gt;Tree&lt;/h1&gt;
+                &lt;p&gt;Tree is used to display hierarchical data.&lt;/p&gt;
+            &lt;/div&gt;
+        &lt;/div&gt;
 
-		&lt;div class="content-section implementation"&gt;
-			&lt;TriStateCheckbox v-model="value" /&gt;
-			&lt;p&gt;Value: &lt;span style="font-weight: bold"&gt;{{value == null ? 'null' : value}}&lt;/span&gt;&lt;/p&gt;
-		&lt;/div&gt;
-	&lt;/div&gt;
+        &lt;div class="content-section implementation"&gt;
+            &lt;h3&gt;Basic&lt;/h3&gt;
+            &lt;Tree :value="nodes"&gt;&lt;/Tree&gt;
+
+            &lt;h3&gt;Programmatic Control&lt;/h3&gt;
+            &lt;div style="margin-bottom: 1em"&gt;
+                &lt;Button type="button" icon="pi pi-plus" label="Expand All" @click="expandAll" /&gt;
+                &lt;Button type="button" icon="pi pi-minus" label="Collapse All" @click="collapseAll" /&gt;
+            &lt;/div&gt;
+            &lt;Tree :value="nodes" :expandedKeys="expandedKeys"&gt;&lt;/Tree&gt;            
+        &lt;/div&gt;
+    &lt;/div&gt;
 &lt;/template&gt;
 </template>
 </CodeHighlight>
 
 <CodeHighlight lang="javascript">
+import NodeService from '../../service/NodeService';
+
 export default {
-	data() {
-		return {
-			value: null
-		}
-	}
+    data() {
+        return {
+            nodes: null,
+            expandedKeys: {}
+        }
+    },
+    nodeService: null,
+    created() {
+        this.nodeService = new NodeService();
+    },
+    mounted() {
+        this.nodeService.getTreeNodes().then(data => this.nodes = data);
+    },
+    methods: {
+        expandAll() {
+            for (let node of this.nodes) {
+                this.expandNode(node);
+            }
+
+            this.expandedKeys = {...this.expandedKeys};
+        },
+        collapseAll() {
+            this.expandedKeys = {};
+        },
+        expandNode(node) {
+            this.expandedKeys[node.key] = true;
+            if (node.children &amp;&amp; node.children.length) {
+                for (let child of node.children) {
+                    this.expandNode(child);
+                }
+            }
+        }
+    }
 }
 </CodeHighlight>
 			</TabPanel>
