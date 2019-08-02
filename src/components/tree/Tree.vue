@@ -6,8 +6,13 @@
                 <i :class="loadingIconClass" />
             </div>
         </template>
+        <div class="p-tree-filter-container" v-if="filter">
+            <input type="text" autocomplete="off" class="p-tree-filter p-inputtext p-component" :placeholder="filterPlaceholder"
+                @keydown="onFilterKeydown" v-model="filterValue" />
+                <span class="p-tree-filter-icon pi pi-search"></span>
+        </div>
         <ul class="p-tree-container" role="tree">
-            <TreeNode v-for="node of value" :key="node.key" :node="node" :templates="$scopedSlots" 
+            <TreeNode v-for="node of valueToRender" :key="node.key" :node="node" :templates="$scopedSlots" 
                 :expandedKeys="d_expandedKeys" @node-toggle="onNodeToggle" @node-click="onNodeClick"
                 :selectionMode="selectionMode" :selectionKeys="selectionKeys" @checkbox-change="onCheckboxChange"></TreeNode>
         </ul>
@@ -16,6 +21,7 @@
 
 <script>
 import TreeNode from './TreeNode';
+import ObjectUtils from '../utils/ObjectUtils';
 
 export default {
     props: {
@@ -46,11 +52,28 @@ export default {
         loadingIcon: {
             type: String,
             default: 'pi pi-spinner'
+        },
+        filter: {
+            type: Boolean,
+            default: false
+        },
+        filterBy: {
+            type: String,
+            default: 'label'
+        },
+        filterMode: {
+            type: String,
+            default: 'lenient'
+        },
+        filterPlaceholder: {
+            type: String,
+            default: null
         }
     },
     data() {
         return {
-            d_expandedKeys: this.expandedKeys || {}
+            d_expandedKeys: this.expandedKeys || {},
+            filterValue: null
         }
     },
     watch: {
@@ -167,6 +190,49 @@ export default {
         isChecked(node) {
             return this.selectionKeys ? this.selectionKeys[node.key] && this.selectionKeys[node.key].checked: false;
         },
+        isNodeLeaf(node) {
+            return node.leaf === false ? false : !(node.children && node.children.length);
+        },
+        onFilterKeydown(event) {
+            if (event.which === 13) {
+                event.preventDefault();
+            }
+        },
+        findFilteredNodes(node, paramsWithoutNode) {
+            if (node) {
+                let matched = false;
+                if (node.children) {
+                    let childNodes = [...node.children];
+                    node.children = [];
+                    for (let childNode of childNodes) {
+                        let copyChildNode = {...childNode};
+                        if (this.isFilterMatched(copyChildNode, paramsWithoutNode)) {
+                            matched = true;
+                            node.children.push(copyChildNode);
+                        }
+                    }
+                }
+                
+                if (matched) {
+                    return true;
+                }
+            }
+        },
+        isFilterMatched(node, {searchFields, filterText, strict}) {
+            let matched = false;
+            for(let field of searchFields) {
+                let fieldValue = String(ObjectUtils.resolveFieldData(node, field)).toLowerCase();
+                if(fieldValue.indexOf(filterText) > -1) {
+                    matched = true;
+                }
+            }
+
+            if (!matched || (strict && !this.isNodeLeaf(node))) {
+                matched = this.findFilteredNodes(node, {searchFields, filterText, strict}) || matched;
+            }
+
+            return matched;
+        }
     },
     computed: {
         containerClass() {
@@ -177,6 +243,30 @@ export default {
         },
         loadingIconClass() {
             return ['p-tree-loading-icon pi-spin', this.loadingIcon];
+        },
+        filteredValue() {
+            let filteredNodes = [];
+            const searchFields = this.filterBy.split(',');
+            const filterText = this.filterValue.trim().toLowerCase();
+            const strict = this.filterMode === 'strict';
+
+            for (let node of this.value) {
+                let _node = {...node};
+                let paramsWithoutNode = {searchFields, filterText, strict};
+                
+                if ((strict && (this.findFilteredNodes(_node, paramsWithoutNode) || this.isFilterMatched(_node, paramsWithoutNode))) ||
+                    (!strict && (this.isFilterMatched(_node, paramsWithoutNode) || this.findFilteredNodes(_node, paramsWithoutNode)))) {
+                    filteredNodes.push(_node);
+                }
+            }
+            
+            return filteredNodes;
+        },
+        valueToRender() {
+            if (this.filterValue && this.filterValue.trim().length > 0)
+                return this.filteredValue;
+            else
+                return this.value;
         }
     },
     components: {

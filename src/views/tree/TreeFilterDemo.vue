@@ -5,20 +5,16 @@
         <div class="content-section introduction">
             <div class="feature-intro">
                 <h1>Tree - Filter</h1>
-                <p>Tree is used to display hierarchical data.</p>
+                <p>Filtering updates the node based on the constraints.</p>
             </div>
         </div>
 
         <div class="content-section implementation">
-            <h3>Basic</h3>
-            <Tree :value="nodes"></Tree>
+            <h3>Lenient Filter</h3>
+            <Tree :value="nodes" :filter="true" filterMode="lenient"></Tree>
 
-            <h3>Programmatic Control</h3>
-            <div style="margin-bottom: 1em">
-                <Button type="button" icon="pi pi-plus" label="Expand All" @click="expandAll" />
-                <Button type="button" icon="pi pi-minus" label="Collapse All" @click="collapseAll" />
-            </div>
-            <Tree :value="nodes" :expandedKeys="expandedKeys"></Tree>            
+            <h3>Strict Filter</h3>
+            <Tree :value="nodes" :filter="true" filterMode="strict"></Tree>          
         </div>
 
         <TreeDoc />
