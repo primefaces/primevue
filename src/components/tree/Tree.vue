@@ -1,5 +1,11 @@
 <template>
     <div :class="containerClass">
+        <template v-if="loading">
+            <div class="p-tree-loading-mask p-component-overlay"></div>
+            <div class="p-tree-loading-content">
+                <i :class="loadingIconClass" />
+            </div>
+        </template>
         <ul class="p-tree-container" role="tree">
             <TreeNode v-for="node of value" :key="node.key" :node="node" :templates="$scopedSlots" 
                 :expandedKeys="d_expandedKeys" @node-toggle="onNodeToggle" @node-click="onNodeClick"
@@ -149,49 +155,6 @@ export default {
 
             return _selectionKeys;
         },
-        /*handleCheckboxSelection(event) {
-            const node = event.node;
-            const checked = this.isChecked(node);
-            let _selectionKeys = this.selectionKeys ? {...this.selectionKeys} : {};    
-
-            if (checked) {
-                if (this.propagateSelectionDown)
-                    this.propagateDown(node, false, _selectionKeys);
-                else
-                    delete _selectionKeys[node.key];
-
-                if (this.propagateSelectionUp && this.props.onPropagateUp) {
-                    this.props.onPropagateUp({
-                        originalEvent: event,
-                        check: false,
-                        selectionKeys: selectionKeys
-                    });
-                }
-
-                this.$emit('node-unselect', node);
-            }
-            else {
-                if (this.props.propagateSelectionDown)
-                    this.propagateDown(this.props.node, true, selectionKeys);
-                else 
-                    selectionKeys[this.props.node.key] = {checked: true};
-
-                    if (this.props.propagateSelectionUp && this.props.onPropagateUp) {
-                        this.props.onPropagateUp({
-                            originalEvent: event,
-                            check: true,
-                            selectionKeys: selectionKeys
-                        });
-                    }
-
-                this.$emit('node-select', node);
-            }
-
-            return _selectionKeys;
-        },*/
-        isCheckboxSelectionMode() {
-            return this.selectionMode === 'checkbox';
-        },
         isSingleSelectionMode() {
             return this.selectionMode === 'single';
         },
@@ -211,6 +174,9 @@ export default {
                 'p-tree-selectable': this.selectionMode != null,
                 'p-tree-loading': this.loading
             }];
+        },
+        loadingIconClass() {
+            return ['p-tree-loading-icon pi-spin', this.loadingIcon];
         }
     },
     components: {

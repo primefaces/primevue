@@ -5,20 +5,12 @@
         <div class="content-section introduction">
             <div class="feature-intro">
                 <h1>Tree - Lazy</h1>
-                <p>Tree is used to display hierarchical data.</p>
+                <p>Lazy loading is handy when dealing with huge datasets. This example imitates a lazy loading case with timeouts.</p>
             </div>
         </div>
 
         <div class="content-section implementation">
-            <h3>Basic</h3>
-            <Tree :value="nodes"></Tree>
-
-            <h3>Programmatic Control</h3>
-            <div style="margin-bottom: 1em">
-                <Button type="button" icon="pi pi-plus" label="Expand All" @click="expandAll" />
-                <Button type="button" icon="pi pi-minus" label="Collapse All" @click="collapseAll" />
-            </div>
-            <Tree :value="nodes" :expandedKeys="expandedKeys"></Tree>            
+            <Tree :value="nodes" @node-expand="onNodeExpand" :loading="loading"></Tree>       
         </div>
 
         <TreeDoc />
@@ -32,8 +24,8 @@ import TreeSubMenu from './TreeSubMenu';
 export default {
     data() {
         return {
-            nodes: null,
-            expandedKeys: {}
+            loading: false,
+            nodes: null
         }
     },
     nodeService: null,
@@ -41,26 +33,53 @@ export default {
         this.nodeService = new NodeService();
     },
     mounted() {
-        this.nodeService.getTreeNodes().then(data => this.nodes = data);
+        this.loading = true;
+
+        setTimeout(() => {
+            this.nodes = this.initateNodes();
+            this.loading = false;
+        }, 2000);
     },
     methods: {
-        expandAll() {
-            for (let node of this.nodes) {
-                this.expandNode(node);
+        onNodeExpand(node) {
+            if (!node.children) {
+                this.loading = true;
+        
+                setTimeout(() => {
+                    let _node = {...node};
+                    _node.children = [];
+        
+                    for (let i = 0; i < 3; i++) {
+                        _node.children.push({
+                            key: node.key + '-' + i,
+                            label: 'Lazy ' + node.label + '-' + i
+                        });
+                    }
+                    
+                    let _nodes = {...this.nodes}
+                    _nodes[parseInt(node.key, 10)] = _node; 
+                    
+                    this.nodes = _nodes;
+                    this.loading = false;
+                }, 500);  
             }
-
-            this.expandedKeys = {...this.expandedKeys};
         },
-        collapseAll() {
-            this.expandedKeys = {};
-        },
-        expandNode(node) {
-            this.expandedKeys[node.key] = true;
-            if (node.children && node.children.length) {
-                for (let child of node.children) {
-                    this.expandNode(child);
-                }
-            }
+        initateNodes() {
+            return [{
+                key: '0',
+                label: 'Node 0',
+                leaf: false
+            },
+            {
+                key: '1',
+                label: 'Node 1',
+                leaf: false
+            },
+            {
+                key: '2',
+                label: 'Node 2',
+                leaf: false
+            }];
         }
     },
     components: {
