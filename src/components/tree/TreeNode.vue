@@ -83,7 +83,7 @@ export default {
             switch (event.which) {
                 //down arrow
                 case 40:
-                    const listElement = nodeElement.children[1];
+                    var listElement = nodeElement.children[1];
                     if (listElement) {
                         this.focusNode(listElement.children[0]);
                     }

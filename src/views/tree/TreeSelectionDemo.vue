@@ -11,7 +11,7 @@
 
         <div class="content-section implementation">
             <h3>Single Selection</h3>
-            <Tree :value="nodes" selectionMode="single" :selectionKeys.sync="selectedKey"></Tree>
+            <Tree :value="nodes" selectionMode="single" :selectionKeys.sync="selectedKey1"></Tree>
 
             <h3>Multiple Selection with MetaKey</h3>
             <Tree :value="nodes" selectionMode="multiple" :selectionKeys.sync="selectedKeys1"></Tree>
@@ -21,6 +21,10 @@
 
             <h3>Checkbox Selection</h3>
             <Tree :value="nodes" selectionMode="checkbox" :selectionKeys.sync="selectedKeys3"></Tree>
+
+            <h3>Events</h3>
+            <Tree :value="nodes" selectionMode="single" :selectionKeys.sync="selectedKey2" :metaKeySelection="false"
+                @node-select="onNodeSelect" @node-unselect="onNodeUnselect"></Tree>
         </div>
 
         <TreeDoc />
@@ -34,7 +38,8 @@ import TreeSubMenu from './TreeSubMenu';
 export default {
     data() {
         return {
-            selectedKey: null,
+            selectedKey1: null,
+            selectedKey2: null,
             selectedKeys1: null,
             selectedKeys2: null,
             selectedKeys3: null,
@@ -47,6 +52,14 @@ export default {
     },
     mounted() {
         this.nodeService.getTreeNodes().then(data => this.nodes = data);
+    },
+    methods: {
+        onNodeSelect(node) {
+            this.$toast.add({severity:'success', summary: 'Node Selected', detail: node.label, life: 3000});
+        },
+        onNodeUnselect(node) {
+            this.$toast.add({severity:'success', summary: 'Node Unselected', detail: node.label, life: 3000});
+        }
     },
     components: {
         'TreeDoc': TreeDoc,
