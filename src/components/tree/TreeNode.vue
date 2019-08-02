@@ -1,7 +1,7 @@
 <template>
     <li :class="containerClass">
         <div :class="contentClass" tabindex="0" role="treeitem" :aria-expanded="expanded" 
-            @click="onClick" @keydown="onKeyDown" @touchend="onTouchEnd">
+            @click="onClick" @keydown="onKeyDown" @touchend="onTouchEnd" :style="node.style">
             <span class="p-tree-toggler p-unselectable-text p-link" @click="toggle">
                 <span :class="toggleIcon"></span>
             </span>
@@ -279,7 +279,7 @@ export default {
             return ['p-treenode', {'p-treenode-leaf': this.leaf}];
         },
         contentClass() {
-            return ['p-treenode-content', {
+            return ['p-treenode-content', this.node.styleClass, {
                 'p-treenode-selectable': this.selectable,
                 'p-highlight': this.checkboxMode ? this.checked : this.selected
             }];

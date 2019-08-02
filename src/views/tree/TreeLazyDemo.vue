@@ -96,7 +96,6 @@ export default {
 
 <script>
 import NodeService from '../../service/NodeService';
-import TreeDoc from './TreeDoc';
 import TreeSubMenu from './TreeSubMenu';
 
 export default {
@@ -135,7 +134,7 @@ export default {
                     }
                     
                     let _nodes = {...this.nodes}
-                    _nodes[parseInt(node.key, 10)] = _node; 
+                    nodes[parseInt(node.key, 10)] = _node; 
                     
                     this.nodes = _nodes;
                     this.loading = false;
@@ -161,7 +160,6 @@ export default {
         }
     },
     components: {
-        'TreeDoc': TreeDoc,
         'TreeSubMenu': TreeSubMenu
     }
 }

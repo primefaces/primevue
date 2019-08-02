@@ -73,7 +73,6 @@ export default {
 </template>
 
 <script>
-import TreeDoc from './TreeDoc';
 import TreeSubMenu from './TreeSubMenu';
 
 export default {
@@ -104,7 +103,6 @@ export default {
         }
     },
     components: {
-        'TreeDoc': TreeDoc,
         'TreeSubMenu': TreeSubMenu
     }
 }

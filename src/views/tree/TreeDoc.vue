@@ -41,6 +41,12 @@ import Tree from 'primevue/tree';
                                 <td>Data represented by the node.</td>
                             </tr>
                             <tr>
+                                <td>type</td>
+                                <td>string</td>
+                                <td>null</td>
+                                <td>Type of the node to match a template.</td>
+                            </tr>
+                            <tr>
                                 <td>icon</td>
                                 <td>string</td>
                                 <td>null</td>
@@ -59,22 +65,10 @@ import Tree from 'primevue/tree';
                                 <td>Inline style of the node.</td>
                             </tr>
                             <tr>
-                                <td>className</td>
+                                <td>styleClass</td>
                                 <td>string</td>
                                 <td>null</td>
                                 <td>Style class of the node.</td>
-                            </tr>
-                            <tr>
-                                <td>draggable</td>
-                                <td>boolean</td>
-                                <td>true</td>
-                                <td>Whether the node is draggable when dragdrop is enabled.</td>
-                            </tr>
-                            <tr>
-                                <td>droppable</td>
-                                <td>boolean</td>
-                                <td>true</td>
-                                <td>Whether the node is droppable when dragdrop is enabled.</td>
                             </tr>
                             <tr>
                                 <td>selectable</td>
@@ -270,10 +264,283 @@ export default {
 </CodeHighlight>
 
                 <h3>Selection</h3>
+                <p>Tree supports <b>single</b>, <b>multiple</b> and <b>checkbox</b> selection modes. Define the <i>selectionKeys</i> with the sync operator and the <i>selectionMode</i> properties to enable the selection. 
+                By default in multiple selection mode, metaKey is necessary to add to existing selections however this can be configured with <i>metaKeySelection</i> property. Note that
+                in touch enabled devices, Tree does not require metaKey. In addition selection on a particular node can be disabled if the <i>selectable</i> is false on the node instance.</p>
+
+                <p>Similarly to the <i>expandedKeys</i>, <i>selectionKeys</i> is a Map instance whose key is the key of a node and value is a boolean in "single" and "multiple" cases. On the other hand
+                in "checkbox" mode, instead of a boolean, value should be an object that has "checked" and "partialChecked" properties to represent the checked state of a node.</p>
+<CodeHighlight>
+<template v-pre>
+&lt;h3&gt;Single Selection&lt;/h3&gt;
+&lt;Tree :value="nodes" selectionMode="single" :selectionKeys.sync="selectedKey1"&gt;&lt;/Tree&gt;
+
+&lt;h3&gt;Multiple Selection with MetaKey&lt;/h3&gt;
+&lt;Tree :value="nodes" selectionMode="multiple" :selectionKeys.sync="selectedKeys1"&gt;&lt;/Tree&gt;
+
+&lt;h3&gt;Multiple Selection without MetaKey&lt;/h3&gt;
+&lt;Tree :value="nodes" selectionMode="multiple" :selectionKeys.sync="selectedKeys2" :metaKeySelection="false"&gt;&lt;/Tree&gt;
+
+&lt;h3&gt;Checkbox Selection&lt;/h3&gt;
+&lt;Tree :value="nodes" selectionMode="checkbox" :selectionKeys.sync="selectedKeys3"&gt;&lt;/Tree&gt;
+
+&lt;h3&gt;Events&lt;/h3&gt;
+&lt;Tree :value="nodes" selectionMode="single" :selectionKeys.sync="selectedKey2" :metaKeySelection="false"
+    @node-select="onNodeSelect" @node-unselect="onNodeUnselect"&gt;&lt;/Tree&gt;
+</template>
+</CodeHighlight>
+
+<CodeHighlight lang="javascript">
+import NodeService from '../../service/NodeService';
+
+export default {
+    data() {
+        return {
+            selectedKey1: null,
+            selectedKey2: null,
+            selectedKeys1: null,
+            selectedKeys2: null,
+            selectedKeys3: null,
+            nodes: null
+        }
+    },
+    nodeService: null,
+    created() {
+        this.nodeService = new NodeService();
+    },
+    mounted() {
+        this.nodeService.getTreeNodes().then(data => this.nodes = data);
+    },
+    methods: {
+        onNodeSelect(node) {
+            this.$toast.add({severity:'success', summary: 'Node Selected', detail: node.label, life: 3000});
+        },
+        onNodeUnselect(node) {
+            this.$toast.add({severity:'success', summary: 'Node Unselected', detail: node.label, life: 3000});
+        }
+    }
+}
+</CodeHighlight>
+
+                <p>To display some nodes as selected by default, simply add their keys to the map.</p>
+<CodeHighlight lang="javascript">
+import NodeService from '../../service/NodeService';
+
+export default {
+    data() {
+        return {
+            selectedKey1: null,
+            selectedKey2: null,
+            selectedKeys1: null,
+            selectedKeys2: null,
+            selectedKeys3: null,
+            nodes: null
+        }
+    },
+    nodeService: null,
+    created() {
+        this.nodeService = new NodeService();
+    },
+    mounted() {
+        this.nodeService.getTreeNodes().then(data => {
+            this.nodes = data;
+        
+            //single preselection
+            this.selectedKey1[this.nodes[0].key] = true;
+
+            //multiple preselection
+            this.selectedKeys2[this.nodes[0].key] = true;
+            this.selectedKeys2[this.nodes[1].key] = true;
+
+            //checkbox preselection
+            this.selectedKeys2[this.nodes[1].key] = {checked: true};
+        });
+    }
+}
+</CodeHighlight>
+
+                <h3>Lazy</h3>
+                <p>Lazy Loading is handy to deal with huge datasets. Idea is instead of loading the whole tree, load child nodes on demand
+                    using expand expand. The important part is setting <i>leaf</i> to true on a node instance so that even without children, 
+                    tree would render an expand icon. Example below uses an in memory collection to mimic a lazy loading scenario with timeouts.
+                </p>
+
+<CodeHighlight>
+<template v-pre>
+&lt;Tree :value="nodes" @node-expand="onNodeExpand" :loading="loading"&gt;&lt;/Tree&gt;
+</template>
+</CodeHighlight>
+
+<CodeHighlight lang="javascript">
+import NodeService from '../../service/NodeService';
+
+export default {
+    data() {
+        return {
+            loading: false,
+            nodes: null
+        }
+    },
+    nodeService: null,
+    created() {
+        this.nodeService = new NodeService();
+    },
+    mounted() {
+        this.loading = true;
+
+        setTimeout(() => {
+            this.nodes = this.initateNodes();
+            this.loading = false;
+        }, 2000);
+    },
+    methods: {
+        onNodeExpand(node) {
+            if (!node.children) {
+                this.loading = true;
+        
+                setTimeout(() => {
+                    let _node = {...node};
+                    _node.children = [];
+        
+                    for (let i = 0; i &lt; 3; i++) {
+                        _node.children.push({
+                            key: node.key + '-' + i,
+                            label: 'Lazy ' + node.label + '-' + i
+                        });
+                    }
+                    
+                    let _nodes = {...this.nodes}
+                    _nodes[parseInt(node.key, 10)] = _node; 
+                    
+                    this.nodes = _nodes;
+                    this.loading = false;
+                }, 500);  
+            }
+        },
+        initateNodes() {
+            return [{
+                key: '0',
+                label: 'Node 0',
+                leaf: false
+            },
+            {
+                key: '1',
+                label: 'Node 1',
+                leaf: false
+            },
+            {
+                key: '2',
+                label: 'Node 2',
+                leaf: false
+            }];
+        }
+    }
+}
+</CodeHighlight>
 
                 <h3>Templating</h3>
+                <p>The <i>type</i> property of a TreeNode is used to map a template to a node to create the node label. If it is undefined and no default template is available, 
+                label of the node is used.</p>
+<CodeHighlight>
+<template v-pre>
+&lt;Tree :value="nodes"&gt;
+    &lt;template #default="slotProps"&gt;
+        &lt;b&gt;&#123;&#123;slotProps.node.label&#125;&#125;&lt;/b&gt;
+    &lt;/template&gt;
+    &lt;template #url="slotProps"&gt;
+        &lt;a :href="slotProps.node.data"&gt;&#123;&#123;slotProps.node.label&#125;&#125;&lt;/a&gt;
+    &lt;/template&gt;
+&lt;/Tree&gt;
+</template>
+</CodeHighlight>
+
+<CodeHighlight lang="javascript">
+export default {
+    data() {
+        return {
+            nodes: [
+                {
+                    key: '0',
+                    label: 'Introduction',
+                    children: [
+                        {key: '0-0', label: 'What is Vue.js?', data:'https://vuejs.org/v2/guide/#What-is-Vue-js', type: 'url'},
+                        {key: '0-1', label: 'Getting Started', data: 'https://vuejs.org/v2/guide/#Getting-Started', type: 'url'},
+                        {key: '0-2', label: 'Declarative Rendering', data:'https://vuejs.org/v2/guide/#Declarative-Rendering', type: 'url'},
+                        {key: '0-3', label: 'Conditionals and Loops', data: 'https://vuejs.org/v2/guide/#Conditionals-and-Loops', type: 'url'}
+                    ]
+                },
+                {
+                    key: '1',
+                    label: 'Components In-Depth',
+                    children: [
+                        {key: '1-0', label: 'Component Registration', data: 'https://vuejs.org/v2/guide/components-registration.html', type: 'url'},
+                        {key: '1-1', llabel: 'Props', data: 'https://vuejs.org/v2/guide/components-props.html', type: 'url'},
+                        {key: '1-2', llabel: 'Custom Events', data: 'https://vuejs.org/v2/guide/components-custom-events.html', type: 'url'},
+                        {key: '1-3', llabel: 'Slots', data: 'https://vuejs.org/v2/guide/components-slots.html', type: 'url'}
+                    ]
+                }
+            ]
+        }
+    }
+}
+</CodeHighlight>
 
                 <h3>Filtering</h3>
+                <p>Filtering is enabled by setting the <i>filter</i> property to true, by default label property of a node 
+                is used to compare against the value in the text field, in order to customize which field(s) should be used during search, define the <i>filterBy</i> property as a comma separated list.</p>
+
+                <p>In addition <i>filterMode</i> specifies the filtering strategy. In <b>lenient</b> mode when the query matches a node, children of the node are not searched further as all descendants of the node are included. On the other hand, 
+                 in <b>strict</b> mode when the query matches a node, filtering continues on all descendants.</p>
+
+<CodeHighlight>
+<template v-pre>
+&lt;h3&gt;Lenient Filter&lt;/h3&gt;
+&lt;Tree :value="nodes" :filter="true" filterMode="lenient"&gt;&lt;/Tree&gt;
+
+&lt;h3&gt;Strict Filter&lt;/h3&gt;
+&lt;Tree :value="nodes" :filter="true" filterMode="strict"&gt;&lt;/Tree&gt;    
+</template>
+</CodeHighlight>
+
+<CodeHighlight lang="javascript">
+import NodeService from '../../service/NodeService';
+
+export default {
+    data() {
+        return {
+            nodes: null,
+            expandedKeys: {}
+        }
+    },
+    nodeService: null,
+    created() {
+        this.nodeService = new NodeService();
+    },
+    mounted() {
+        this.nodeService.getTreeNodes().then(data => this.nodes = data);
+    },
+    methods: {
+        expandAll() {
+            for (let node of this.nodes) {
+                this.expandNode(node);
+            }
+
+            this.expandedKeys = {...this.expandedKeys};
+        },
+        collapseAll() {
+            this.expandedKeys = {};
+        },
+        expandNode(node) {
+            this.expandedKeys[node.key] = true;
+            if (node.children &lt;&lt; node.children.length) {
+                for (let child of node.children) {
+                    this.expandNode(child);
+                }
+            }
+        }
+    }
+}
+</CodeHighlight>
 
 				<h3>Properties</h3>
                 <p>Any valid attribute such as name and autofocus are passed to the underlying input element. Following is the additional property to configure the component.</p>
