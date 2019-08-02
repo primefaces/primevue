@@ -1,7 +1,7 @@
 <template>
     <div :class="containerClass">
         <ul class="p-tree-container" role="tree">
-            <TreeNode v-for="node of value" :key="node.key" :node="node"
+            <TreeNode v-for="node of value" :key="node.key" :node="node" :templates="$scopedSlots" 
                 :expandedKeys="d_expandedKeys" @node-toggle="onNodeToggle" @node-click="onNodeClick"
                 :selectionMode="selectionMode" :selectionKeys="selectionKeys" @checkbox-change="onCheckboxChange"></TreeNode>
         </ul>

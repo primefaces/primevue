@@ -11,10 +11,12 @@
                 </div>
             </div>
             <span :class="icon"></span>
-            <span class="p-treenode-label">{{node.label}}</span>
+            <span class="p-treenode-label">
+                <TreeNodeTemplate :node="node" :template="templates[node.type]||templates['default']" />
+            </span>
         </div>
         <ul class="p-treenode-children" role="group" v-if="hasChildren && expanded">
-            <sub-treenode v-for="childNode of node.children" :key="childNode.key" :node="childNode"
+            <sub-treenode v-for="childNode of node.children" :key="childNode.key" :node="childNode" :templates="templates"
                 :expandedKeys="expandedKeys" @node-toggle="onChildNodeToggle" @node-click="onChildNodeClick"
                 :selectionMode="selectionMode" :selectionKeys="selectionKeys" 
                 @checkbox-change="propagateUp"></sub-treenode>
@@ -24,6 +26,27 @@
 
 <script>
 import DomHandler from '../utils/DomHandler';
+
+const TreeNodeTemplate = {
+    functional: true,
+    props: {
+        node: {
+            type: null,
+            default: null
+        },
+        template: {
+            type: null,
+            default: null
+        }
+    },
+    render(createElement, context) {
+        const content = context.props.template ? context.props.template({
+            'node': context.props.node
+        }): context.props.node.label;
+
+        return [content];
+    }
+};
 
 export default {
     name: 'sub-treenode',
@@ -42,6 +65,10 @@ export default {
         },
         selectionMode: {
             type: String,
+            default: null
+        },
+        templates: {
+            type: null,
             default: null
         }
     },
@@ -281,6 +308,9 @@ export default {
         partialChecked() {
             return this.selectionKeys ? this.selectionKeys[this.node.key] && this.selectionKeys[this.node.key].partialChecked: false;
         }
+    },
+    components: {
+        'TreeNodeTemplate': TreeNodeTemplate
     }
 }
 </script>

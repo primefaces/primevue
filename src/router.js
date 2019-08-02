@@ -363,8 +363,23 @@ export default new Router({
         },
         {
 			path: '/tree/selection',
-			name: 'treeselectiın',
+			name: 'treeselection',
 			component: () => import('./views/tree/TreeSelectionDemo.vue')
+        },
+        {
+			path: '/tree/lazy',
+			name: 'treelazy',
+			component: () => import('./views/tree/TreeLazyDemo.vue')
+        },
+        {
+			path: '/tree/templating',
+			name: 'treetemplating',
+			component: () => import('./views/tree/TreeTemplatingDemo.vue')
+        },
+        {
+			path: '/tree/filter',
+			name: 'treefilter',
+			component: () => import('./views/tree/TreeFilterDemo.vue')
 		},
 		{
 			path: '/tristatecheckbox',
