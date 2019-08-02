@@ -17,7 +17,7 @@
             <div class="p-grid">
                 <div class="p-col-12 p-md-3">
                     <img alt="component" src="../assets/images/home/icon-component.svg" />
-                    <span class="feature-name">40+ COMPONENTS</span>
+                    <span class="feature-name">50+ COMPONENTS</span>
                     <p>The most complete set of native widgets featuring 50+ easy to use components for all your UI requirements.</p>
                 </div>
                 <div class="p-col-12 p-md-3">
