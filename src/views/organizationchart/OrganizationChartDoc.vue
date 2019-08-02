@@ -409,22 +409,22 @@ export default {
 						</thead>
 						<tbody>
                             <tr>
-                                <td>noode-select</td>
+                                <td>node-select</td>
                                 <td>node: Node instance</td>
                                 <td>Callback to invoke when a node is selected.</td>
                             </tr>
                             <tr>
-                                <td>noode-unselect</td>
+                                <td>node-unselect</td>
                                 <td>node: Node instance</td>
                                 <td>Callback to invoke when a node is unselected.</td>
                             </tr>
                             <tr>
-                                <td>noode-expand</td>
+                                <td>node-expand</td>
                                 <td>node: Node instance</td>
                                 <td>Callback to invoke when a node is expanded.</td>
                             </tr>
                             <tr>
-                                <td>noode-collapse</td>
+                                <td>node-collapse</td>
                                 <td>node: Node instance</td>
                                 <td>Callback to invoke when a node is collapsed.</td>
                             </tr>
