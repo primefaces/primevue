@@ -134,7 +134,7 @@ export default {
                     }
                     
                     let _nodes = {...this.nodes}
-                    nodes[parseInt(node.key, 10)] = _node; 
+                    _nodes[parseInt(node.key, 10)] = _node; 
                     
                     this.nodes = _nodes;
                     this.loading = false;
