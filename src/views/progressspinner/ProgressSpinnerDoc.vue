@@ -108,24 +108,11 @@ import ProgressSpinner from 'primevue/progressspinner';
 				</a>
 <CodeHighlight>
 <template v-pre>
-&lt;div&gt;
-    &lt;div class="content-section introduction"&gt;
-        &lt;div class="feature-intro"&gt;
-            &lt;h1&gt;ProgressSpinner&lt;/h1&gt;
-            &lt;p&gt;ProgressSpinner is a process status indicator.&lt;/p&gt;
-        &lt;/div&gt;
-    &lt;/div&gt;
+&lt;h3&gt;Basic&lt;/h3&gt;
+&lt;ProgressSpinner /&gt;
 
-    &lt;div class="content-section implementation"&gt;
-        &lt;h3 class="first"&gt;Basic&lt;/h3&gt;
-        &lt;ProgressSpinner /&gt;
-
-        &lt;h3&gt;Custom&lt;/h3&gt;
-        &lt;ProgressSpinner style="width:50px;height:50px" strokeWidth="8" fill="#EEEEEE" animationDuration=".5s"/&gt;
-    &lt;/div&gt;
-
-    &lt;ProgressSpinnerDoc/&gt;
-&lt;/div&gt;
+&lt;h3&gt;Custom&lt;/h3&gt;
+&lt;ProgressSpinner style="width:50px;height:50px" strokeWidth="8" fill="#EEEEEE" animationDuration=".5s"/&gt;
 </template>
 </CodeHighlight>
 			</TabPanel>

@@ -117,21 +117,8 @@ import TriStateCheckbox from 'primevue/tristatecheckbox';
 				</a>
 <CodeHighlight>
 <template v-pre>
-&lt;template&gt;
-	&lt;div&gt;
-		&lt;div class="content-section introduction"&gt;
-			&lt;div class="feature-intro"&gt;
-				&lt;h1&gt;TriStateCheckbox&lt;/h1&gt;
-				&lt;p&gt;TriStateCheckbox is used to select either "true", "false" or "null" as the value.&lt;/p&gt;
-			&lt;/div&gt;
-		&lt;/div&gt;
-
-		&lt;div class="content-section implementation"&gt;
-			&lt;TriStateCheckbox v-model="value" /&gt;
-			&lt;p&gt;Value: &lt;span style="font-weight: bold"&gt;{{value == null ? 'null' : value}}&lt;/span&gt;&lt;/p&gt;
-		&lt;/div&gt;
-	&lt;/div&gt;
-&lt;/template&gt;
+&lt;TriStateCheckbox v-model="value" /&gt;
+&lt;p&gt;Value: &lt;span style="font-weight: bold"&gt;{{value == null ? 'null' : value}}&lt;/span&gt;&lt;/p&gt;
 </template>
 </CodeHighlight>
 

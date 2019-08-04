@@ -4,20 +4,7 @@
 			<TabPanel header="Source">
 <CodeHighlight>
 <template v-pre>
-&lt;template&gt;
-	&lt;div&gt;
-		&lt;div class="content-section introduction"&gt;
-			&lt;div class="feature-intro"&gt;
-				&lt;h1&gt;Combo Chart&lt;/h1&gt;
-				&lt;p&gt;Different chart types can be combined in the same graph.&lt;/p&gt;
-			&lt;/div&gt;
-		&lt;/div&gt;
-
-		&lt;div class="content-section implementation"&gt;
-			&lt;Chart type="bar" :data="chartData" :options="chartOptions"/&gt;
-		&lt;/div&gt;
-	&lt;/div&gt;
-&lt;/template&gt;
+&lt;Chart type="bar" :data="chartData" :options="chartOptions"/&gt;
 </template>
 </CodeHighlight>
 

@@ -129,49 +129,36 @@ import Button from 'primevue/button';
 				</a>
 <CodeHighlight>
 <template v-pre>
-&lt;template&gt;
-	&lt;div&gt;
-		&lt;div class="content-section introduction"&gt;
-			&lt;div class="feature-intro"&gt;
-				&lt;h1&gt;Button&lt;/h1&gt;
-				&lt;p&gt;Button is an extension to standard button element with icons and theming.&lt;/p&gt;
-			&lt;/div&gt;
-		&lt;/div&gt;
+&lt;h3&gt;Basic&lt;/h3&gt;
+&lt;Button label="Click" /&gt;
+&lt;Button label="Click" icon="pi pi-check" /&gt;
+&lt;Button label="Click" icon="pi pi-check" iconPos="right" /&gt;
+&lt;Button icon="pi pi-check" /&gt;
+&lt;Button label="Click" disabled="disabled" /&gt;
 
-		&lt;div class="content-section implementation"&gt;
-			&lt;h3 class="first"&gt;Basic&lt;/h3&gt;
-			&lt;Button label="Click" /&gt;
-			&lt;Button label="Click" icon="pi pi-check" /&gt;
-			&lt;Button label="Click" icon="pi pi-check" iconPos="right" /&gt;
-			&lt;Button icon="pi pi-check" /&gt;
-			&lt;Button label="Click" disabled="disabled" /&gt;
+&lt;h3&gt;Severities&lt;/h3&gt;
+&lt;Button label="Primary" /&gt;
+&lt;Button label="Secondary" class="p-button-secondary" /&gt;
+&lt;Button label="Success" class="p-button-success" /&gt;
+&lt;Button label="Info" class="p-button-info" /&gt;
+&lt;Button label="Warning" class="p-button-warning" /&gt;
+&lt;Button label="Danger" class="p-button-danger" /&gt;
 
-			&lt;h3&gt;Severities&lt;/h3&gt;
-			&lt;Button label="Primary" /&gt;
-			&lt;Button label="Secondary" class="p-button-secondary" /&gt;
-			&lt;Button label="Success" class="p-button-success" /&gt;
-			&lt;Button label="Info" class="p-button-info" /&gt;
-			&lt;Button label="Warning" class="p-button-warning" /&gt;
-			&lt;Button label="Danger" class="p-button-danger" /&gt;
+&lt;h3&gt;Raised Buttons&lt;/h3&gt;
+&lt;Button label="Primary" class="p-button-raised" /&gt;
+&lt;Button label="Secondary" class="p-button-raised p-button-secondary" /&gt;
+&lt;Button label="Success" class="p-button-raised p-button-success" /&gt;
+&lt;Button label="Info" class="p-button-raised p-button-info" /&gt;
+&lt;Button label="Warning" class="p-button-raised p-button-warning" /&gt;
+&lt;Button label="Danger" class="p-button-raised p-button-danger" /&gt;
 
-			&lt;h3&gt;Raised Buttons&lt;/h3&gt;
-			&lt;Button label="Primary" class="p-button-raised" /&gt;
-			&lt;Button label="Secondary" class="p-button-raised p-button-secondary" /&gt;
-			&lt;Button label="Success" class="p-button-raised p-button-success" /&gt;
-			&lt;Button label="Info" class="p-button-raised p-button-info" /&gt;
-			&lt;Button label="Warning" class="p-button-raised p-button-warning" /&gt;
-			&lt;Button label="Danger" class="p-button-raised p-button-danger" /&gt;
-
-			&lt;h3&gt;Rounded Buttons&lt;/h3&gt;
-			&lt;Button label="Primary" class="p-button-rounded" /&gt;
-			&lt;Button label="Secondary" class="p-button-rounded p-button-secondary" /&gt;
-			&lt;Button label="Success" class="p-button-rounded p-button-success" /&gt;
-			&lt;Button label="Info" class="p-button-rounded p-button-info" /&gt;
-			&lt;Button label="Warning" class="p-button-rounded p-button-warning" /&gt;
-			&lt;Button label="Danger" class="p-button-rounded p-button-danger" /&gt;
-		&lt;/div&gt;
-	&lt;/div&gt;
-&lt;/template&gt;
+&lt;h3&gt;Rounded Buttons&lt;/h3&gt;
+&lt;Button label="Primary" class="p-button-rounded" /&gt;
+&lt;Button label="Secondary" class="p-button-rounded p-button-secondary" /&gt;
+&lt;Button label="Success" class="p-button-rounded p-button-success" /&gt;
+&lt;Button label="Info" class="p-button-rounded p-button-info" /&gt;
+&lt;Button label="Warning" class="p-button-rounded p-button-warning" /&gt;
+&lt;Button label="Danger" class="p-button-rounded p-button-danger" /&gt;
 </template>
 </CodeHighlight>
 

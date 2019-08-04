@@ -485,38 +485,27 @@ export default {
 				</a>
 <CodeHighlight>
 <template v-pre>
-&lt;div&gt;
-    &lt;div class="content-section introduction"&gt;
-        &lt;div class="feature-intro"&gt;
-            &lt;h1&gt;OrganizationChart&lt;/h1&gt;
-            &lt;p&gt;OrganizationChart visualizes hierarchical organization data.&lt;/p&gt;
+&lt;h3&gt;Advanced&lt;/h3&gt;
+&lt;OrganizationChart :value="data1" :collapsible="true" class="company" selectionMode="single" :selectionKeys.sync="selection"
+    @node-select="onNodeSelect" @node-unselect="onNodeUnselect" @node-collapse="onNodeCollapse" @node-expand="onNodeExpand"&gt;
+    &lt;template #person="slotProps"&gt;
+        &lt;div class="node-header ui-corner-top"&gt;&#123;&#123;slotProps.node.data.label&#125;&#125;&lt;/div&gt;
+        &lt;div class="node-content"&gt;
+            &lt;img :src="'demo/images/organization/' + slotProps.node.data.avatar" width="32"&gt;
+            &lt;div&gt;&#123;&#123;slotProps.node.data.name&#125;&#125;&lt;/div&gt;
         &lt;/div&gt;
-    &lt;/div&gt;
+    &lt;/template&gt;
+    &lt;template #default="slotProps"&gt;
+        &lt;span&gt;&#123;&#123;slotProps.node.data.label&#125;&#125;&lt;/span&gt;
+    &lt;/template&gt;
+&lt;/OrganizationChart&gt;
 
-    &lt;div class="content-section implementation"&gt;
-        &lt;h3&gt;Advanced&lt;/h3&gt;
-        &lt;OrganizationChart :value="data1" :collapsible="true" class="company" selectionMode="single" :selectionKeys.sync="selection"
-            @node-select="onNodeSelect" @node-unselect="onNodeUnselect" @node-collapse="onNodeCollapse" @node-expand="onNodeExpand"&gt;
-            &lt;template #person="slotProps"&gt;
-                &lt;div class="node-header ui-corner-top"&gt;&#123;&#123;slotProps.node.data.label&#125;&#125;&lt;/div&gt;
-                &lt;div class="node-content"&gt;
-                    &lt;img :src="'demo/images/organization/' + slotProps.node.data.avatar" width="32"&gt;
-                    &lt;div&gt;&#123;&#123;slotProps.node.data.name&#125;&#125;&lt;/div&gt;
-                &lt;/div&gt;
-            &lt;/template&gt;
-            &lt;template #default="slotProps"&gt;
-                &lt;span&gt;&#123;&#123;slotProps.node.data.label&#125;&#125;&lt;/span&gt;
-            &lt;/template&gt;
-        &lt;/OrganizationChart&gt;
-
-        &lt;h3&gt;Basic&lt;/h3&gt;
-        &lt;OrganizationChart :value="data2"&gt;
-            &lt;template #default="slotProps"&gt;
-                &lt;span&gt;&#123;&#123;slotProps.node.data.label&#125;&#125;&lt;/span&gt;
-            &lt;/template&gt;
-        &lt;/OrganizationChart&gt;
-    &lt;/div&gt;
-&lt;/div&gt;
+&lt;h3&gt;Basic&lt;/h3&gt;
+&lt;OrganizationChart :value="data2"&gt;
+    &lt;template #default="slotProps"&gt;
+        &lt;span&gt;&#123;&#123;slotProps.node.data.label&#125;&#125;&lt;/span&gt;
+    &lt;/template&gt;
+&lt;/OrganizationChart&gt;
 </template>
 </CodeHighlight>
 

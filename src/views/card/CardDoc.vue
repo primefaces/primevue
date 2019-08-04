@@ -81,45 +81,32 @@ import Card from 'primevue/card';
 				</a>
 <CodeHighlight>
 <template v-pre>
-&lt;template&gt;
-	&lt;div&gt;
-		&lt;div class="content-section introduction"&gt;
-			&lt;div class="feature-intro"&gt;
-				&lt;h1&gt;Card&lt;/h1&gt;
-				&lt;p&gt;Card is a flexible container component.&lt;/p&gt;
-			&lt;/div&gt;
-		&lt;/div&gt;
+&lt;Card style="width: 25em; margin-bottom: 2em"&gt;
+    &lt;template slot="title"&gt;
+        Simple Card
+    &lt;/template&gt;
+    &lt;template slot="content"&gt;
+        Lorem ipsum dolor sit amet, consectetur adipisicing elit. Inventore sed consequuntur error repudiandae numquam deserunt
+        quisquam repellat libero asperiores earum nam nobis, culpa ratione quam perferendis esse, cupiditate neque quas!
+    &lt;/template&gt;
+&lt;/Card&gt;
 
-		&lt;div class="content-section implementation"&gt;
-			&lt;Card style="width: 25em; margin-bottom: 2em"&gt;
-				&lt;template slot="title"&gt;
-					Simple Card
-				&lt;/template&gt;
-				&lt;template slot="content"&gt;
-					Lorem ipsum dolor sit amet, consectetur adipisicing elit. Inventore sed consequuntur error repudiandae numquam deserunt
-					quisquam repellat libero asperiores earum nam nobis, culpa ratione quam perferendis esse, cupiditate neque quas!
-				&lt;/template&gt;
-			&lt;/Card&gt;
-
-			&lt;Card style="width: 25em"&gt;
-				&lt;template slot="header"&gt;
-					&lt;img alt="user header" src="demo/images/usercard.png"&gt;
-				&lt;/template&gt;
-				&lt;template slot="title"&gt;
-					Advanced Card
-				&lt;/template&gt;
-				&lt;template slot="content"&gt;
-					Lorem ipsum dolor sit amet, consectetur adipisicing elit. Inventore sed consequuntur error repudiandae numquam deserunt
-					quisquam repellat libero asperiores earum nam nobis, culpa ratione quam perferendis esse, cupiditate neque quas!
-				&lt;/template&gt;
-				&lt;template slot="footer"&gt;
-					&lt;Button icon="pi pi-check" label="Save" class="p-button-raised" /&gt;
-					&lt;Button icon="pi pi-times" label="Cancel" class="p-button-raised p-button-secondary" style="margin-left: .5em" /&gt;
-				&lt;/template&gt;
-			&lt;/Card&gt;
-		&lt;/div&gt;
-	&lt;/div&gt;
-&lt;/template&gt;
+&lt;Card style="width: 25em"&gt;
+    &lt;template slot="header"&gt;
+        &lt;img alt="user header" src="demo/images/usercard.png"&gt;
+    &lt;/template&gt;
+    &lt;template slot="title"&gt;
+        Advanced Card
+    &lt;/template&gt;
+    &lt;template slot="content"&gt;
+        Lorem ipsum dolor sit amet, consectetur adipisicing elit. Inventore sed consequuntur error repudiandae numquam deserunt
+        quisquam repellat libero asperiores earum nam nobis, culpa ratione quam perferendis esse, cupiditate neque quas!
+    &lt;/template&gt;
+    &lt;template slot="footer"&gt;
+        &lt;Button icon="pi pi-check" label="Save" class="p-button-raised" /&gt;
+        &lt;Button icon="pi pi-times" label="Cancel" class="p-button-raised p-button-secondary" style="margin-left: .5em" /&gt;
+    &lt;/template&gt;
+&lt;/Card&gt;
 </template>
 </CodeHighlight>
 			</TabPanel>

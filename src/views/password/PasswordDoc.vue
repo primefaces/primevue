@@ -96,20 +96,7 @@ import Password from 'primevue/password';
 					<span>View on GitHub</span>
 				</a>
 <CodeHighlight>
-&lt;template&gt;
-	&lt;div&gt;
-		&lt;div class="content-section introduction"&gt;
-			&lt;div class="feature-intro"&gt;
-				&lt;h1&gt;Password&lt;/h1&gt;
-				&lt;p&gt;Password displays strength indicator for password fields.&lt;/p&gt;
-			&lt;/div&gt;
-		&lt;/div&gt;
-
-		&lt;div class="content-section implementation"&gt;
-			&lt;Password v-model="value" /&gt;
-		&lt;/div&gt;
-	&lt;/div&gt;
-&lt;/template&gt;
+&lt;Password v-model="value" /&gt;
 </CodeHighlight>
 
 <CodeHighlight lang="javascript">

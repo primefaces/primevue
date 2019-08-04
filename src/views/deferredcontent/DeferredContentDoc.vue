@@ -73,36 +73,25 @@ import DeferredContent from 'primevue/deferredcontent';
 				</a>
 <CodeHighlight>
 <template v-pre>
-&lt;div&gt;
-    &lt;div class="content-section introduction"&gt;
-        &lt;div class="feature-intro"&gt;
-            &lt;h1&gt;DeferredContent&lt;/h1&gt;
-            &lt;p&gt;DeferredContent postpones the loading the content that is initially not in the viewport until it becomes visible on scroll..&lt;/p&gt;
-        &lt;/div&gt;
-    &lt;/div&gt;
-
-    &lt;div class="content-section implementation"&gt;
-        &lt;div style="height: 800px"&gt;
-            Scroll down to lazy load an image and the DataTable which initiates a query that is not executed on initial page load to speed up load performance.
-        &lt;/div&gt;
-
-        &lt;DeferredContent @load="onImageLoad"&gt;
-            &lt;img src="demo/images/nature/nature4.jpg" alt="Nature"/&gt;
-        &lt;/DeferredContent&gt;
-
-        &lt;div style="height: 500px"&gt;
-        &lt;/div&gt;
-
-        &lt;DeferredContent @load="onDataLoad"&gt;
-            &lt;DataTable :value="cars"&gt;
-                &lt;Column field="vin" header="Vin"&gt;&lt;/Column&gt;
-                &lt;Column field="year" header="Year"&gt;&lt;/Column&gt;
-                &lt;Column field="brand" header="Brand"&gt;&lt;/Column&gt;
-                &lt;Column field="color" header="Color"&gt;&lt;/Column&gt;
-            &lt;/DataTable&gt;
-        &lt;/DeferredContent&gt;
-    &lt;/div&gt;
+&lt;div style="height: 800px"&gt;
+    Scroll down to lazy load an image and the DataTable which initiates a query that is not executed on initial page load to speed up load performance.
 &lt;/div&gt;
+
+&lt;DeferredContent @load="onImageLoad"&gt;
+    &lt;img src="demo/images/nature/nature4.jpg" alt="Nature"/&gt;
+&lt;/DeferredContent&gt;
+
+&lt;div style="height: 500px"&gt;
+&lt;/div&gt;
+
+&lt;DeferredContent @load="onDataLoad"&gt;
+    &lt;DataTable :value="cars"&gt;
+        &lt;Column field="vin" header="Vin"&gt;&lt;/Column&gt;
+        &lt;Column field="year" header="Year"&gt;&lt;/Column&gt;
+        &lt;Column field="brand" header="Brand"&gt;&lt;/Column&gt;
+        &lt;Column field="color" header="Color"&gt;&lt;/Column&gt;
+    &lt;/DataTable&gt;
+&lt;/DeferredContent&gt;
 </template>
 </CodeHighlight>
 

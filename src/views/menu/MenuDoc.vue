@@ -203,23 +203,12 @@ let items: [
 				</a>
 <CodeHighlight>
 <template v-pre>
-&lt;div&gt;
-    &lt;div class="content-section introduction"&gt;
-        &lt;div class="feature-intro"&gt;
-            &lt;h1&gt;Menu&lt;/h1&gt;
-            &lt;p&gt;Menu is a navigation / command component that supports dynamic and static positioning..&lt;/p&gt;
-        &lt;/div&gt;
-    &lt;/div&gt;
+&lt;h3&gt;Inline&lt;/h3&gt;
+&lt;Menu :model="items" /&gt;
 
-    &lt;div class="content-section implementation"&gt;
-        &lt;h3 class="first"&gt;Inline&lt;/h3&gt;
-        &lt;Menu :model="items" /&gt;
-
-        &lt;h3&gt;Overlay&lt;/h3&gt;
-        &lt;Button type="button" label="Toggle" @click="toggle" /&gt;
-        &lt;Menu ref="menu" :model="items" :popup="true" /&gt;
-    &lt;/div&gt;
-&lt;/div&gt;
+&lt;h3&gt;Overlay&lt;/h3&gt;
+&lt;Button type="button" label="Toggle" @click="toggle" /&gt;
+&lt;Menu ref="menu" :model="items" :popup="true" /&gt;
 </template>
 </CodeHighlight>
 

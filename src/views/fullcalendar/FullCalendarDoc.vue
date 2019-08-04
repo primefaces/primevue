@@ -199,20 +199,7 @@ export default {
 				</a>
 <CodeHighlight>
 <template v-pre>
-&lt;template&gt;
-	&lt;div&gt;
-		&lt;div class="content-section introduction"&gt;
-			&lt;div class="feature-intro"&gt;
-				&lt;h1&gt;FullCalendar&lt;/h1&gt;
-				&lt;p&gt;An event calendar based on the &lt;a href="https://fullcalendar.io/"&gt;FullCalendar&lt;/a&gt; library.&lt;/p&gt;
-			&lt;/div&gt;
-		&lt;/div&gt;
-
-		&lt;div class="content-section implementation"&gt;
-			&lt;FullCalendar :events="events" :options="options" /&gt;
-		&lt;/div&gt;
-	&lt;/div&gt;
-&lt;/template&gt;
+&lt;FullCalendar :events="events" :options="options" /&gt;
 </template>
 </CodeHighlight>
 

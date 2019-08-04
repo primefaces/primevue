@@ -173,34 +173,21 @@ export default {
 				</a>
 <CodeHighlight>
 <template v-pre>
-&lt;template&gt;
-	&lt;div&gt;
-		&lt;div class="content-section introduction"&gt;
-			&lt;div class="feature-intro"&gt;
-				&lt;h1&gt;Slider&lt;/h1&gt;
-				&lt;p&gt;Slider is an input component to provide a numerical input.&lt;/p&gt;
-			&lt;/div&gt;
-		&lt;/div&gt;
+&lt;h3&gt;Basic: {{value1}}&lt;/h3&gt;
+&lt;Slider v-model="value1" /&gt;
 
-		&lt;div class="content-section implementation"&gt;
-			&lt;h3 class="first"&gt;Basic: {{value1}}&lt;/h3&gt;
-			&lt;Slider v-model="value1" /&gt;
+&lt;h3&gt;Input: {{value2}}&lt;/h3&gt;
+&lt;InputText v-model.number="value2" /&gt;
+&lt;Slider v-model="value2" /&gt;
 
-			&lt;h3&gt;Input: {{value2}}&lt;/h3&gt;
-			&lt;InputText v-model.number="value2" /&gt;
-			&lt;Slider v-model="value2" /&gt;
+&lt;h3&gt;Step: {{value3}}&lt;/h3&gt;
+&lt;Slider v-model="value3" :step="20" /&gt;
 
-			&lt;h3&gt;Step: {{value3}}&lt;/h3&gt;
-			&lt;Slider v-model="value3" :step="20" /&gt;
+&lt;h3&gt;Range: {{value4}}&lt;/h3&gt;
+&lt;Slider v-model="value4" :range="true" /&gt;
 
-			&lt;h3&gt;Range: {{value4}}&lt;/h3&gt;
-			&lt;Slider v-model="value4" :range="true" /&gt;
-
-			&lt;h3&gt;Vertical: {{value5}}&lt;/h3&gt;
-			&lt;Slider v-model="value5" orientation="vertical" /&gt;
-		&lt;/div&gt;
-	&lt;/div&gt;
-&lt;/template&gt;
+&lt;h3&gt;Vertical: {{value5}}&lt;/h3&gt;
+&lt;Slider v-model="value5" orientation="vertical" /&gt;
 </template>
 </CodeHighlight>
 

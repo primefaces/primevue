@@ -104,27 +104,14 @@ data() {
 				</a>
 <CodeHighlight>
 <template v-pre>
-&lt;template&gt;
-	&lt;div&gt;
-		&lt;div class="content-section introduction"&gt;
-			&lt;div class="feature-intro"&gt;
-				&lt;h1&gt;ProgressBar&lt;/h1&gt;
-				&lt;p&gt;ProgressBar is a process status indicator.&lt;/p&gt;
-			&lt;/div&gt;
-		&lt;/div&gt;
+&lt;h3&gt;Dynamic&lt;/h3&gt;
+&lt;ProgressBar :value="value1" /&gt;
 
-		&lt;div class="content-section implementation"&gt;
-			&lt;h3 class="first"&gt;Dynamic&lt;/h3&gt;
-			&lt;ProgressBar :value="value1" /&gt;
+&lt;h3&gt;Static&lt;/h3&gt;
+&lt;ProgressBar :value="value2" :showValue="false" /&gt;
 
-			&lt;h3&gt;Static&lt;/h3&gt;
-			&lt;ProgressBar :value="value2" :showValue="false" /&gt;
-
-			&lt;h3&gt;Indeterminate&lt;/h3&gt;
-			&lt;ProgressBar mode="indeterminate" style="height: .5em" /&gt;
-		&lt;/div&gt;
-	&lt;/div&gt;
-&lt;/template&gt;
+&lt;h3&gt;Indeterminate&lt;/h3&gt;
+&lt;ProgressBar mode="indeterminate" style="height: .5em" /&gt;
 </template>
 </CodeHighlight>
 

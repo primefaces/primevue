@@ -415,63 +415,51 @@ export default {
 				</a>
 <CodeHighlight>
 <template v-pre>
-&lt;div&gt;
-    &lt;div class="content-section introduction"&gt;
-        &lt;div class="feature-intro"&gt;
-            &lt;h1&gt;DataView&lt;/h1&gt;
-            &lt;p&gt;DataView displays data in grid or list layout with pagination and sorting features.&lt;/p&gt;
+&lt;DataView :value="cars" :layout="layout" paginatorPosition="both" :paginator="true" :rows="20" :sortOrder="sortOrder" :sortField="sortField"&gt;
+    &lt;template #header&gt;
+        &lt;div class="p-grid p-nogutter"&gt;
+            &lt;div class="p-col-6" style="text-align: left"&gt;
+                &lt;Dropdown v-model="sortKey" :options="sortOptions" optionLabel="label" placeholder="Sort By" @change="onSortChange($event)"/&gt;
+            &lt;/div&gt;
+            &lt;div class="p-col-6" style="text-align: right"&gt;
+                &lt;DataViewLayoutOptions v-model="layout" /&gt;
+            &lt;/div&gt;
         &lt;/div&gt;
-    &lt;/div&gt;
-
-    &lt;div class="content-section implementation dataview-demo"&gt;
-        &lt;h3 class="first"&gt;Default&lt;/h3&gt;
-        &lt;DataView :value="cars" :layout="layout" paginatorPosition="both" :paginator="true" :rows="20" :sortOrder="sortOrder" :sortField="sortField"&gt;
-            &lt;template #header&gt;
-                &lt;div class="p-grid p-nogutter"&gt;
-                    &lt;div class="p-col-6" style="text-align: left"&gt;
-                        &lt;Dropdown v-model="sortKey" :options="sortOptions" optionLabel="label" placeholder="Sort By" @change="onSortChange($event)"/&gt;
-                    &lt;/div&gt;
-                    &lt;div class="p-col-6" style="text-align: right"&gt;
-                        &lt;DataViewLayoutOptions v-model="layout" /&gt;
-                    &lt;/div&gt;
+    &lt;/template&gt;
+    &lt;template #list="slotProps" &gt;
+        &lt;div class="p-col-12 car-details" style="padding: 2em; border-bottom: 1px solid #d9d9d9"&gt;
+            &lt;div class="p-grid"&gt;
+                &lt;div class="p-col-12 p-md-3"&gt;
+                    &lt;img :src="'demo/images/car/' + slotProps.data.brand + '.png'" :alt="slotProps.data.brand"/&gt;
                 &lt;/div&gt;
-            &lt;/template&gt;
-            &lt;template #list="slotProps" &gt;
-                &lt;div class="p-col-12 car-details" style="padding: 2em; border-bottom: 1px solid #d9d9d9"&gt;
+                &lt;div class="p-col-12 p-md-8 car-details"&gt;
                     &lt;div class="p-grid"&gt;
-                        &lt;div class="p-col-12 p-md-3"&gt;
-                            &lt;img :src="'demo/images/car/' + slotProps.data.brand + '.png'" :alt="slotProps.data.brand"/&gt;
-                        &lt;/div&gt;
-                        &lt;div class="p-col-12 p-md-8 car-details"&gt;
-                            &lt;div class="p-grid"&gt;
-                                &lt;div class="p-col-12"&gt;Vin: &lt;b&gt;{{slotProps.data.vin}}&lt;/b&gt;&lt;/div&gt;
+                        &lt;div class="p-col-12"&gt;Vin: &lt;b&gt;{{slotProps.data.vin}}&lt;/b&gt;&lt;/div&gt;
 
-                                &lt;div class="p-col-12"&gt;Year: &lt;b&gt;{{slotProps.data.year}}&lt;/b&gt;&lt;/div&gt;
+                        &lt;div class="p-col-12"&gt;Year: &lt;b&gt;{{slotProps.data.year}}&lt;/b&gt;&lt;/div&gt;
 
-                                &lt;div class="p-col-12"&gt;Brand: &lt;b&gt;{{slotProps.data.brand}}&lt;/b&gt;&lt;/div&gt;
+                        &lt;div class="p-col-12"&gt;Brand: &lt;b&gt;{{slotProps.data.brand}}&lt;/b&gt;&lt;/div&gt;
 
-                                &lt;div class="p-col-12"&gt;Color: &lt;b&gt;{{slotProps.data.color}}&lt;/b&gt;&lt;/div&gt;
-                            &lt;/div&gt;
-                        &lt;/div&gt;
-                        &lt;div class="p-col-12 p-md-1 search-icon" style="margin-top: 40px"&gt;
-                            &lt;Button icon="pi pi-search"&gt;&lt;/Button&gt;
-                        &lt;/div&gt;
+                        &lt;div class="p-col-12"&gt;Color: &lt;b&gt;{{slotProps.data.color}}&lt;/b&gt;&lt;/div&gt;
                     &lt;/div&gt;
                 &lt;/div&gt;
-            &lt;/template&gt;
-            &lt;template #grid="slotProps"&gt;
-                &lt;div style="padding: .5em" class="p-col-12 p-md-3"&gt;
-                    &lt;Panel :header="slotProps.data.vin" style="text-align: center"&gt;
-                        &lt;img :src="'demo/images/car/' + slotProps.data.brand + '.png'" :alt="slotProps.data.brand"/&gt;
-                        &lt;div class="car-detail"&gt;{{slotProps.data.year}} - {{slotProps.data.color}}&lt;/div&gt;
-                        &lt;hr class="ui-widget-content" style="border-top: 0" /&gt;
-                        &lt;Button icon="pi pi-search"&gt;&lt;/Button&gt;
-                    &lt;/Panel&gt;
+                &lt;div class="p-col-12 p-md-1 search-icon" style="margin-top: 40px"&gt;
+                    &lt;Button icon="pi pi-search"&gt;&lt;/Button&gt;
                 &lt;/div&gt;
-            &lt;/template&gt;
-        &lt;/DataView&gt;
-    &lt;/div&gt;
-&lt;/div&gt;
+            &lt;/div&gt;
+        &lt;/div&gt;
+    &lt;/template&gt;
+    &lt;template #grid="slotProps"&gt;
+        &lt;div style="padding: .5em" class="p-col-12 p-md-3"&gt;
+            &lt;Panel :header="slotProps.data.vin" style="text-align: center"&gt;
+                &lt;img :src="'demo/images/car/' + slotProps.data.brand + '.png'" :alt="slotProps.data.brand"/&gt;
+                &lt;div class="car-detail"&gt;{{slotProps.data.year}} - {{slotProps.data.color}}&lt;/div&gt;
+                &lt;hr class="ui-widget-content" style="border-top: 0" /&gt;
+                &lt;Button icon="pi pi-search"&gt;&lt;/Button&gt;
+            &lt;/Panel&gt;
+        &lt;/div&gt;
+    &lt;/template&gt;
+&lt;/DataView&gt;
 </template>
 </CodeHighlight>
 

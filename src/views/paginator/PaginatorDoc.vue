@@ -235,38 +235,23 @@ onPage(event) {
                     <span>View on GitHub</span>
                 </a>
 <CodeHighlight>
-&lt;template&gt;
-	&lt;div&gt;
-		&lt;div class="content-section introduction"&gt;
-			&lt;div class="feature-intro"&gt;
-				&lt;h1&gt;Paginator&lt;/h1&gt;
-				&lt;p&gt;Paginator is a generic component to display content in paged format.&lt;/p&gt;
-			&lt;/div&gt;
-		&lt;/div&gt;
+&lt;h3&gt;Basic&lt;/h3&gt;
+&lt;Paginator :rows="10" :totalRecords="totalRecords" :rowsPerPageOptions="[10,20,30]"&gt;&lt;/Paginator&gt;
 
-		&lt;div class="content-section implementation"&gt;
-			&lt;h3&gt;Basic&lt;/h3&gt;
-			&lt;Paginator :rows="10" :totalRecords="totalRecords" :rowsPerPageOptions="[10,20,30]"&gt;&lt;/Paginator&gt;
+&lt;h3&gt;Custom&lt;/h3&gt;
+&lt;Paginator :first.sync="first" :rows="1" :totalRecords="totalRecords2" 
+    template="FirstPageLink PrevPageLink CurrentPageReport NextPageLink LastPageLink"&gt;
+    &lt;template #left&gt;
+        &lt;Button type="button" icon="pi pi-refresh" @click="reset()"/&gt;
+    &lt;/template&gt;
+    &lt;template #right&gt;
+        &lt;Button type="button" icon="pi pi-search" /&gt;
+    &lt;/template&gt;
+&lt;/Paginator&gt;
 
-			&lt;h3&gt;Custom&lt;/h3&gt;
-			&lt;Paginator :first.sync="first" :rows="1" :totalRecords="totalRecords2" 
-                template="FirstPageLink PrevPageLink CurrentPageReport NextPageLink LastPageLink"&gt;
-                &lt;template #left&gt;
-                    &lt;Button type="button" icon="pi pi-refresh" @click="reset()"/&gt;
-                &lt;/template&gt;
-                &lt;template #right&gt;
-                    &lt;Button type="button" icon="pi pi-search" /&gt;
-                &lt;/template&gt;
-            &lt;/Paginator&gt;
-
-            &lt;div class="image-gallery"&gt;
-                &lt;img :src="'demo/images/nature/' + image + '.jpg'" /&gt;
-            &lt;/div&gt;
-		&lt;/div&gt;
-
-        &lt;PaginatorDoc /&gt;
-	&lt;/div&gt;
-&lt;/template&gt;
+&lt;div class="image-gallery"&gt;
+    &lt;img :src="'demo/images/nature/' + image + '.jpg'" /&gt;
+&lt;/div&gt;
 </CodeHighlight>
 
 <CodeHighlight lang="javascript">

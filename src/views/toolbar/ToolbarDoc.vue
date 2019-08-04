@@ -63,33 +63,20 @@ import Toolbar from 'primevue/toolbar';
 				</a>
 <CodeHighlight>
 <template v-pre>
-&lt;template&gt;
-	&lt;div&gt;
-		&lt;div class="content-section introduction"&gt;
-			&lt;div class="feature-intro"&gt;
-				&lt;h1&gt;Toolbar&lt;/h1&gt;
-				&lt;p&gt;Toolbar is a grouping component for buttons and other content.&lt;/p&gt;
-			&lt;/div&gt;
-		&lt;/div&gt;
+&lt;Toolbar&gt;
+    &lt;template slot="left"&gt;
+        &lt;Button label="New" icon="pi pi-plus" style="margin-right: .25em" /&gt;
+        &lt;Button label="Upload" icon="pi pi-upload" class="p-button-success" /&gt;
+        &lt;i class="pi pi-bars p-toolbar-separator" style="margin-right: .25em" /&gt;
+        &lt;Button label="Save" icon="pi pi-check" class="p-button-warning" /&gt;
+    &lt;/template&gt;
 
-		&lt;div class="content-section implementation"&gt;
-			&lt;Toolbar&gt;
-				&lt;template slot="left"&gt;
-					&lt;Button label="New" icon="pi pi-plus" style="margin-right: .25em" /&gt;
-					&lt;Button label="Upload" icon="pi pi-upload" class="p-button-success" /&gt;
-					&lt;i class="pi pi-bars p-toolbar-separator" style="margin-right: .25em" /&gt;
-					&lt;Button label="Save" icon="pi pi-check" class="p-button-warning" /&gt;
-				&lt;/template&gt;
-
-				&lt;template slot="right"&gt;
-					&lt;Button icon="pi pi-search" style="margin-right: .25em" /&gt;
-					&lt;Button icon="pi pi-calendar" class="p-button-success" style="margin-right: .25em" /&gt;
-					&lt;Button icon="pi pi-times" class="p-button-danger" /&gt;
-				&lt;/template&gt;
-			&lt;/Toolbar&gt;
-		&lt;/div&gt;
-	&lt;/div&gt;
-&lt;/template&gt;
+    &lt;template slot="right"&gt;
+        &lt;Button icon="pi pi-search" style="margin-right: .25em" /&gt;
+        &lt;Button icon="pi pi-calendar" class="p-button-success" style="margin-right: .25em" /&gt;
+        &lt;Button icon="pi pi-times" class="p-button-danger" /&gt;
+    &lt;/template&gt;
+&lt;/Toolbar&gt;
 </template>
 </CodeHighlight>
 

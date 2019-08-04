@@ -235,40 +235,27 @@ data() {
 				</a>
 <CodeHighlight>
 <template v-pre>
-&lt;template&gt;
-	&lt;div&gt;
-		&lt;div class="content-section introduction"&gt;
-			&lt;div class="feature-intro"&gt;
-				&lt;h1&gt;MultiSelect&lt;/h1&gt;
-				&lt;p&gt;MultiSelect is used to multiple values from a list of options.&lt;/p&gt;
-			&lt;/div&gt;
-		&lt;/div&gt;
+&lt;h3&gt;Basic&lt;/h3&gt;
+&lt;MultiSelect v-model="selectedCars1" :options="cars" optionLabel="brand" placeholder="Select Brands" /&gt;
 
-		&lt;div class="content-section implementation"&gt;
-			&lt;h3 class="first"&gt;Basic&lt;/h3&gt;
-			&lt;MultiSelect v-model="selectedCars1" :options="cars" optionLabel="brand" placeholder="Select Brands" /&gt;
-
-			&lt;h3&gt;Advanced with Templating and Filtering&lt;/h3&gt;
-			&lt;MultiSelect v-model="selectedCars2" :options="cars" optionLabel="brand" placeholder="Select a Car" :filter="true"&gt;
-				&lt;template #value="slotProps"&gt;
-					&lt;div class="p-multiselect-car-token" v-for="option of slotProps.value" :key="option.brand"&gt;
-						&lt;img :alt="option.brand" :src="'demo/images/car/' + option.brand + '.png'" /&gt;
-						&lt;span&gt;{{option.brand}}&lt;/span&gt;
-					&lt;/div&gt;
-					&lt;div class="p-multiselect-empty-car-token" v-if="!slotProps.value || slotProps.value.length === 0"&gt;
-						Select Brands
-					&lt;/div&gt;
-				&lt;/template&gt;
-				&lt;template #option="slotProps"&gt;
-					&lt;div class="p-multiselect-car-option"&gt;
-						&lt;img :alt="slotProps.option.brand" :src="'demo/images/car/' + slotProps.option.brand + '.png'" /&gt;
-						&lt;span&gt;{{slotProps.option.brand}}&lt;/span&gt;
-					&lt;/div&gt;
-				&lt;/template&gt;
-			&lt;/MultiSelect&gt;
-		&lt;/div&gt;
-	&lt;/div&gt;
-&lt;/template&gt;
+&lt;h3&gt;Advanced with Templating and Filtering&lt;/h3&gt;
+&lt;MultiSelect v-model="selectedCars2" :options="cars" optionLabel="brand" placeholder="Select a Car" :filter="true"&gt;
+    &lt;template #value="slotProps"&gt;
+        &lt;div class="p-multiselect-car-token" v-for="option of slotProps.value" :key="option.brand"&gt;
+            &lt;img :alt="option.brand" :src="'demo/images/car/' + option.brand + '.png'" /&gt;
+            &lt;span&gt;{{option.brand}}&lt;/span&gt;
+        &lt;/div&gt;
+        &lt;div class="p-multiselect-empty-car-token" v-if="!slotProps.value || slotProps.value.length === 0"&gt;
+            Select Brands
+        &lt;/div&gt;
+    &lt;/template&gt;
+    &lt;template #option="slotProps"&gt;
+        &lt;div class="p-multiselect-car-option"&gt;
+            &lt;img :alt="slotProps.option.brand" :src="'demo/images/car/' + slotProps.option.brand + '.png'" /&gt;
+            &lt;span&gt;{{slotProps.option.brand}}&lt;/span&gt;
+        &lt;/div&gt;
+    &lt;/template&gt;
+&lt;/MultiSelect&gt;
 </template>
 </CodeHighlight>
 

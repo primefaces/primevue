@@ -146,24 +146,11 @@ toggle(event) {
 				</a>
 <CodeHighlight>
 <template v-pre>
-&lt;template&gt;
-	&lt;div&gt;
-		&lt;div class="content-section introduction"&gt;
-			&lt;div class="feature-intro"&gt;
-				&lt;h1&gt;OverlayPanel&lt;/h1&gt;
-				&lt;p&gt;OverlayPanel is a container component that can overlay other components on page.&lt;/p&gt;
-			&lt;/div&gt;
-		&lt;/div&gt;
+&lt;Button type="button" label="Toggle" @click="toggle" /&gt;
 
-		&lt;div class="content-section implementation"&gt;
-			&lt;Button type="button" label="Toggle" @click="toggle" /&gt;
-
-			&lt;OverlayPanel ref="op" appendTo="body" :showCloseIcon="true"&gt;
-				&lt;img src="demo/images/nature/nature1.jpg" alt="Nature Image"&gt;
-			&lt;/OverlayPanel&gt;
-		&lt;/div&gt;
-	&lt;/div&gt;
-&lt;/template&gt;
+&lt;OverlayPanel ref="op" appendTo="body" :showCloseIcon="true"&gt;
+    &lt;img src="demo/images/nature/nature1.jpg" alt="Nature Image"&gt;
+&lt;/OverlayPanel&gt;
 </template>
 </CodeHighlight>
 

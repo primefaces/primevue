@@ -144,32 +144,19 @@ npm install quill --save
 				</a>
 <CodeHighlight>
 <template v-pre>
-&lt;template&gt;
-	&lt;div&gt;
-		&lt;div class="content-section introduction"&gt;
-			&lt;div class="feature-intro"&gt;
-				&lt;h1&gt;Editor&lt;/h1&gt;
-				&lt;p&gt;Editor is rich text editor component based on Quill.&lt;/p&gt;
-			&lt;/div&gt;
-		&lt;/div&gt;
+&lt;h3&gt;Default&lt;/h3&gt;
+&lt;Editor v-model="value1" editorStyle="height: 320px"/&gt;
 
-		&lt;div class="content-section implementation"&gt;
-			&lt;h3 class="first"&gt;Default&lt;/h3&gt;
-			&lt;Editor v-model="value1" editorStyle="height: 320px"/&gt;
-
-			&lt;h3&gt;Customized&lt;/h3&gt;
-			&lt;Editor v-model="value2" editorStyle="height: 320px"&gt;
-				&lt;template slot="toolbar"&gt;
-				&lt;span class="ql-formats"&gt;
-					&lt;button class="ql-bold"&gt;&lt;/button&gt;
-					&lt;button class="ql-italic"&gt;&lt;/button&gt;
-					&lt;button class="ql-underline"&gt;&lt;/button&gt;
-				&lt;/span&gt;
-				&lt;/template&gt;
-			&lt;/Editor&gt;
-		&lt;/div&gt;
-	&lt;/div&gt;
-&lt;/template&gt;
+&lt;h3&gt;Customized&lt;/h3&gt;
+&lt;Editor v-model="value2" editorStyle="height: 320px"&gt;
+    &lt;template slot="toolbar"&gt;
+    &lt;span class="ql-formats"&gt;
+        &lt;button class="ql-bold"&gt;&lt;/button&gt;
+        &lt;button class="ql-italic"&gt;&lt;/button&gt;
+        &lt;button class="ql-underline"&gt;&lt;/button&gt;
+    &lt;/span&gt;
+    &lt;/template&gt;
+&lt;/Editor&gt;
 </template>
 </CodeHighlight>
 

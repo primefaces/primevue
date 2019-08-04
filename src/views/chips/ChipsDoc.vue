@@ -144,31 +144,18 @@ import Chips from 'primevue/chips';
 				</a>
 <CodeHighlight>
 <template v-pre>
-&lt;template&gt;
-	&lt;div&gt;
-		&lt;div class="content-section introduction p-fluid"&gt;
-			&lt;div class="feature-intro"&gt;
-				&lt;h1&gt;Chips&lt;/h1&gt;
-				&lt;p&gt;Chips is used to enter multiple values on an input field.&lt;/p&gt;
-			&lt;/div&gt;
-		&lt;/div&gt;
+&lt;h3&gt;Basic&lt;/h3&gt;
+&lt;Chips v-model="value1" /&gt;
 
-		&lt;div class="content-section implementation"&gt;
-			&lt;h3 class="first"&gt;Basic&lt;/h3&gt;
-			&lt;Chips v-model="value1" /&gt;
-
-			&lt;h3&gt;Template&lt;/h3&gt;
-			&lt;Chips v-model="value2"&gt;
-				&lt;template #chip="slotProps"&gt;
-					&lt;div&gt;
-						&lt;span&gt;{{slotProps.value}} - (active) &lt;/span&gt;
-						&lt;i class="pi pi-user-plus" style="font-size: 14px"&gt;&lt;/i&gt;
-					&lt;/div&gt;
-				&lt;/template&gt;
-			&lt;/Chips&gt;
-		&lt;/div&gt;
-	&lt;/div&gt;
-&lt;/template&gt;
+&lt;h3&gt;Template&lt;/h3&gt;
+&lt;Chips v-model="value2"&gt;
+    &lt;template #chip="slotProps"&gt;
+        &lt;div&gt;
+            &lt;span&gt;{{slotProps.value}} - (active) &lt;/span&gt;
+            &lt;i class="pi pi-user-plus" style="font-size: 14px"&gt;&lt;/i&gt;
+        &lt;/div&gt;
+    &lt;/template&gt;
+&lt;/Chips&gt;
 </template>
 </CodeHighlight>
 

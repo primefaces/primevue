@@ -178,26 +178,13 @@ export default {
 				</a>
 <CodeHighlight>
 <template v-pre>
-&lt;template&gt;
-	&lt;div&gt;
-		&lt;div class="content-section introduction"&gt;
-			&lt;div class="feature-intro"&gt;
-				&lt;h1&gt;ToggleButton&lt;/h1&gt;
-				&lt;p&gt;ToggleButton is used to select a boolean value using a button.&lt;/p&gt;
-			&lt;/div&gt;
-		&lt;/div&gt;
+&lt;h3&gt;Basic&lt;/h3&gt;
+&lt;ToggleButton v-model="checked1" onIcon="pi pi-check" offIcon="pi pi-times" /&gt;
+&lt;p style="font-weight: bold"&gt;{{checked1}}&lt;/p&gt;
 
-		&lt;div class="content-section implementation"&gt;
-			&lt;h3 class="first"&gt;Basic&lt;/h3&gt;
-			&lt;ToggleButton v-model="checked1" onIcon="pi pi-check" offIcon="pi pi-times" /&gt;
-			&lt;p style="font-weight: bold"&gt;{{checked1}}&lt;/p&gt;
-
-			&lt;h3&gt;Customized&lt;/h3&gt;
-			&lt;ToggleButton v-model="checked2" onLabel="I confirm" offLabel="I reject" onIcon="pi pi-check" offIcon="pi pi-times" style="width: 10em" /&gt;
-			&lt;p style="font-weight: bold"&gt;{{checked2}}&lt;/p&gt;
-		&lt;/div&gt;
-	&lt;/div&gt;
-&lt;/template&gt;
+&lt;h3&gt;Customized&lt;/h3&gt;
+&lt;ToggleButton v-model="checked2" onLabel="I confirm" offLabel="I reject" onIcon="pi pi-check" offIcon="pi pi-times" style="width: 10em" /&gt;
+&lt;p style="font-weight: bold"&gt;{{checked2}}&lt;/p&gt;
 </template>
 </CodeHighlight>
 

@@ -236,114 +236,101 @@ export default {
 				</a>
 <CodeHighlight>
 <template v-pre>
-&lt;template&gt;
-	&lt;div&gt;
-		&lt;div class="content-section introduction"&gt;
-			&lt;div class="feature-intro"&gt;
-				&lt;h1&gt;TabView&lt;/h1&gt;
-				&lt;p&gt;TabView is a container component to group content with tabs.&lt;/p&gt;
-			&lt;/div&gt;
-		&lt;/div&gt;
+&lt;h3&gt;Default&lt;/h3&gt;
+&lt;TabView&gt;
+    &lt;TabPanel header="Godfather I"&gt;
+        The story begins as Don Vito Corleone, the head of a New York Mafia family, overseeshis daughter's wedding. His beloved son ichael has just come home from the war,
+        but does not intend to become part of his father's business. Through Michael's life the nature of the family business becomes clear. The business of the family is
+        just like the head of the family, kind and benevolent to those who give respect, but given to ruthless violence whenever anything stands against the good of the family.
+    &lt;/TabPanel&gt;
+    &lt;TabPanel header="Godfather II"&gt;
+        Francis Ford Coppola's legendary continuation and sequel to his landmark 1972 film, TheGodfather parallels the young Vito Corleone's rise with his son Michael's spiritual fall,
+        deepening The Godfather's depiction of the dark side of the American dream. In the early 1900s, the child Vito flees his Sicilian village for America after the local Mafia kills
+        his family. Vito struggles to make a living, legally or illegally, for his wife and growing brood in Little Italy.
+    &lt;/TabPanel&gt;
+    &lt;TabPanel header="Godfather III"&gt;
+        The Godfather Part III is set in 1979 and 1980. Michael has moved back to New York and taken great strides to remove the family from crime. He turns over his New York criminal
+        interests to longtime enforcer Joey Zasa. He uses his wealth in an attempt to rehabilitate his reputation through numerous philanthropic acts, administered by a foundation named after his father.
+        A decade earlier, he gave custody of his two children to Kay, who has since remarried.
+    &lt;/TabPanel&gt;
+&lt;/TabView&gt;
 
-		&lt;div class="content-section implementation"&gt;
-			&lt;h3 class="first"&gt;Default&lt;/h3&gt;
-			&lt;TabView&gt;
-				&lt;TabPanel header="Godfather I"&gt;
-					The story begins as Don Vito Corleone, the head of a New York Mafia family, overseeshis daughter's wedding. His beloved son ichael has just come home from the war,
-					but does not intend to become part of his father's business. Through Michael's life the nature of the family business becomes clear. The business of the family is
-					just like the head of the family, kind and benevolent to those who give respect, but given to ruthless violence whenever anything stands against the good of the family.
-				&lt;/TabPanel&gt;
-				&lt;TabPanel header="Godfather II"&gt;
-					Francis Ford Coppola's legendary continuation and sequel to his landmark 1972 film, TheGodfather parallels the young Vito Corleone's rise with his son Michael's spiritual fall,
-					deepening The Godfather's depiction of the dark side of the American dream. In the early 1900s, the child Vito flees his Sicilian village for America after the local Mafia kills
-					his family. Vito struggles to make a living, legally or illegally, for his wife and growing brood in Little Italy.
-				&lt;/TabPanel&gt;
-				&lt;TabPanel header="Godfather III"&gt;
-					The Godfather Part III is set in 1979 and 1980. Michael has moved back to New York and taken great strides to remove the family from crime. He turns over his New York criminal
-					interests to longtime enforcer Joey Zasa. He uses his wealth in an attempt to rehabilitate his reputation through numerous philanthropic acts, administered by a foundation named after his father.
-					A decade earlier, he gave custody of his two children to Kay, who has since remarried.
-				&lt;/TabPanel&gt;
-			&lt;/TabView&gt;
+&lt;h3&gt;Programmatic&lt;/h3&gt;
+&lt;div style="padding: .5em 0"&gt;
+    &lt;Button @click="activate(0)" class="p-button-secondary" label="Activate 1st" /&gt;
+    &lt;Button @click="activate(1)" class="p-button-secondary" label="Activate 2st" /&gt;
+    &lt;Button @click="activate(2)" class="p-button-secondary" label="Activate 3st" /&gt;
+&lt;/div&gt;
 
-			&lt;h3&gt;Programmatic&lt;/h3&gt;
-			&lt;div style="padding: .5em 0"&gt;
-				&lt;Button @click="activate(0)" class="p-button-secondary" label="Activate 1st" /&gt;
-                &lt;Button @click="activate(1)" class="p-button-secondary" label="Activate 2st" /&gt;
-                &lt;Button @click="activate(2)" class="p-button-secondary" label="Activate 3st" /&gt;
-			&lt;/div&gt;
+&lt;TabView&gt;
+    &lt;TabPanel header="Godfather I" :active.sync="active[0]"&gt;
+        The story begins as Don Vito Corleone, the head of a New York Mafia family, overseeshis daughter's wedding. His beloved son ichael has just come home from the war,
+        but does not intend to become part of his father's business. Through Michael's life the nature of the family business becomes clear. The business of the family is
+        just like the head of the family, kind and benevolent to those who give respect, but given to ruthless violence whenever anything stands against the good of the family.
+    &lt;/TabPanel&gt;
+    &lt;TabPanel header="Godfather II" :active.sync="active[1]"&gt;
+        Francis Ford Coppola's legendary continuation and sequel to his landmark 1972 film, TheGodfather parallels the young Vito Corleone's rise with his son Michael's spiritual fall,
+        deepening The Godfather's depiction of the dark side of the American dream. In the early 1900s, the child Vito flees his Sicilian village for America after the local Mafia kills
+        his family. Vito struggles to make a living, legally or illegally, for his wife and growing brood in Little Italy.
+    &lt;/TabPanel&gt;
+    &lt;TabPanel header="Godfather III" :active.sync="active[2]"&gt;
+        The Godfather Part III is set in 1979 and 1980. Michael has moved back to New York and taken great strides to remove the family from crime. He turns over his New York criminal
+        interests to longtime enforcer Joey Zasa. He uses his wealth in an attempt to rehabilitate his reputation through numerous philanthropic acts, administered by a foundation named after his father.
+        A decade earlier, he gave custody of his two children to Kay, who has since remarried.
+    &lt;/TabPanel&gt;
+&lt;/TabView&gt;
 
-			&lt;TabView&gt;
-				&lt;TabPanel header="Godfather I" :active.sync="active[0]"&gt;
-					The story begins as Don Vito Corleone, the head of a New York Mafia family, overseeshis daughter's wedding. His beloved son ichael has just come home from the war,
-					but does not intend to become part of his father's business. Through Michael's life the nature of the family business becomes clear. The business of the family is
-					just like the head of the family, kind and benevolent to those who give respect, but given to ruthless violence whenever anything stands against the good of the family.
-				&lt;/TabPanel&gt;
-				&lt;TabPanel header="Godfather II" :active.sync="active[1]"&gt;
-					Francis Ford Coppola's legendary continuation and sequel to his landmark 1972 film, TheGodfather parallels the young Vito Corleone's rise with his son Michael's spiritual fall,
-					deepening The Godfather's depiction of the dark side of the American dream. In the early 1900s, the child Vito flees his Sicilian village for America after the local Mafia kills
-					his family. Vito struggles to make a living, legally or illegally, for his wife and growing brood in Little Italy.
-				&lt;/TabPanel&gt;
-				&lt;TabPanel header="Godfather III" :active.sync="active[2]"&gt;
-					The Godfather Part III is set in 1979 and 1980. Michael has moved back to New York and taken great strides to remove the family from crime. He turns over his New York criminal
-					interests to longtime enforcer Joey Zasa. He uses his wealth in an attempt to rehabilitate his reputation through numerous philanthropic acts, administered by a foundation named after his father.
-					A decade earlier, he gave custody of his two children to Kay, who has since remarried.
-				&lt;/TabPanel&gt;
-			&lt;/TabView&gt;
+&lt;h3&gt;Disabled&lt;/h3&gt;
+&lt;TabView&gt;
+    &lt;TabPanel header="Godfather I"&gt;
+        The story begins as Don Vito Corleone, the head of a New York Mafia family, overseeshis daughter's wedding. His beloved son ichael has just come home from the war,
+        but does not intend to become part of his father's business. Through Michael's life the nature of the family business becomes clear. The business of the family is
+        just like the head of the family, kind and benevolent to those who give respect, but given to ruthless violence whenever anything stands against the good of the family.
+    &lt;/TabPanel&gt;
+    &lt;TabPanel header="Godfather II"&gt;
+        Francis Ford Coppola's legendary continuation and sequel to his landmark 1972 film, TheGodfather parallels the young Vito Corleone's rise with his son Michael's spiritual fall,
+        deepening The Godfather's depiction of the dark side of the American dream. In the early 1900s, the child Vito flees his Sicilian village for America after the local Mafia kills
+        his family. Vito struggles to make a living, legally or illegally, for his wife and growing brood in Little Italy.
+    &lt;/TabPanel&gt;
+    &lt;TabPanel header="Godfather III"&gt;
+        The Godfather Part III is set in 1979 and 1980. Michael has moved back to New York and taken great strides to remove the family from crime. He turns over his New York criminal
+        interests to longtime enforcer Joey Zasa. He uses his wealth in an attempt to rehabilitate his reputation through numerous philanthropic acts, administered by a foundation named after his father.
+        A decade earlier, he gave custody of his two children to Kay, who has since remarried.
+    &lt;/TabPanel&gt;
+    &lt;TabPanel header="Godfather IV" :disabled="true"&gt;&lt;/TabPanel&gt;
+&lt;/TabView&gt;
 
-			&lt;h3&gt;Disabled&lt;/h3&gt;
-			&lt;TabView&gt;
-				&lt;TabPanel header="Godfather I"&gt;
-					The story begins as Don Vito Corleone, the head of a New York Mafia family, overseeshis daughter's wedding. His beloved son ichael has just come home from the war,
-					but does not intend to become part of his father's business. Through Michael's life the nature of the family business becomes clear. The business of the family is
-					just like the head of the family, kind and benevolent to those who give respect, but given to ruthless violence whenever anything stands against the good of the family.
-				&lt;/TabPanel&gt;
-				&lt;TabPanel header="Godfather II"&gt;
-					Francis Ford Coppola's legendary continuation and sequel to his landmark 1972 film, TheGodfather parallels the young Vito Corleone's rise with his son Michael's spiritual fall,
-					deepening The Godfather's depiction of the dark side of the American dream. In the early 1900s, the child Vito flees his Sicilian village for America after the local Mafia kills
-					his family. Vito struggles to make a living, legally or illegally, for his wife and growing brood in Little Italy.
-				&lt;/TabPanel&gt;
-				&lt;TabPanel header="Godfather III"&gt;
-					The Godfather Part III is set in 1979 and 1980. Michael has moved back to New York and taken great strides to remove the family from crime. He turns over his New York criminal
-					interests to longtime enforcer Joey Zasa. He uses his wealth in an attempt to rehabilitate his reputation through numerous philanthropic acts, administered by a foundation named after his father.
-					A decade earlier, he gave custody of his two children to Kay, who has since remarried.
-				&lt;/TabPanel&gt;
-				&lt;TabPanel header="Godfather IV" :disabled="true"&gt;&lt;/TabPanel&gt;
-			&lt;/TabView&gt;
-
-			&lt;h3&gt;Custom Headers&lt;/h3&gt;
-			&lt;TabView class="tabview-custom"&gt;
-				&lt;TabPanel&gt;
-					&lt;template slot="header"&gt;
-						&lt;i class="pi pi-calendar"&gt;&lt;/i&gt;
-						&lt;span&gt;Godfather I&lt;/span&gt;
-					&lt;/template&gt;
-					The story begins as Don Vito Corleone, the head of a New York Mafia family, overseeshis daughter's wedding. His beloved son ichael has just come home from the war,
-					but does not intend to become part of his father's business. Through Michael's life the nature of the family business becomes clear. The business of the family is
-					just like the head of the family, kind and benevolent to those who give respect, but given to ruthless violence whenever anything stands against the good of the family.
-				&lt;/TabPanel&gt;
-				&lt;TabPanel&gt;
-					&lt;template slot="header"&gt;
-						&lt;span&gt;Godfather II&lt;/span&gt;
-						&lt;i class="pi pi-user"&gt;&lt;/i&gt;
-					&lt;/template&gt;
-					Francis Ford Coppola's legendary continuation and sequel to his landmark 1972 film, TheGodfather parallels the young Vito Corleone's rise with his son Michael's spiritual fall,
-					deepening The Godfather's depiction of the dark side of the American dream. In the early 1900s, the child Vito flees his Sicilian village for America after the local Mafia kills
-					his family. Vito struggles to make a living, legally or illegally, for his wife and growing brood in Little Italy.
-				&lt;/TabPanel&gt;
-				&lt;TabPanel&gt;
-					&lt;template slot="header"&gt;
-						&lt;i class="pi pi-search"&gt;&lt;/i&gt;
-						&lt;span&gt;Godfather III&lt;/span&gt;
-						&lt;i class="pi pi-cog"&gt;&lt;/i&gt;
-					&lt;/template&gt;
-					The Godfather Part III is set in 1979 and 1980. Michael has moved back to New York and taken great strides to remove the family from crime. He turns over his New York criminal
-					interests to longtime enforcer Joey Zasa. He uses his wealth in an attempt to rehabilitate his reputation through numerous philanthropic acts, administered by a foundation named after his father.
-					A decade earlier, he gave custody of his two children to Kay, who has since remarried.
-				&lt;/TabPanel&gt;
-			&lt;/TabView&gt;
-		&lt;/div&gt;
-	&lt;/div&gt;
-&lt;/template&gt;
+&lt;h3&gt;Custom Headers&lt;/h3&gt;
+&lt;TabView class="tabview-custom"&gt;
+    &lt;TabPanel&gt;
+        &lt;template slot="header"&gt;
+            &lt;i class="pi pi-calendar"&gt;&lt;/i&gt;
+            &lt;span&gt;Godfather I&lt;/span&gt;
+        &lt;/template&gt;
+        The story begins as Don Vito Corleone, the head of a New York Mafia family, overseeshis daughter's wedding. His beloved son ichael has just come home from the war,
+        but does not intend to become part of his father's business. Through Michael's life the nature of the family business becomes clear. The business of the family is
+        just like the head of the family, kind and benevolent to those who give respect, but given to ruthless violence whenever anything stands against the good of the family.
+    &lt;/TabPanel&gt;
+    &lt;TabPanel&gt;
+        &lt;template slot="header"&gt;
+            &lt;span&gt;Godfather II&lt;/span&gt;
+            &lt;i class="pi pi-user"&gt;&lt;/i&gt;
+        &lt;/template&gt;
+        Francis Ford Coppola's legendary continuation and sequel to his landmark 1972 film, TheGodfather parallels the young Vito Corleone's rise with his son Michael's spiritual fall,
+        deepening The Godfather's depiction of the dark side of the American dream. In the early 1900s, the child Vito flees his Sicilian village for America after the local Mafia kills
+        his family. Vito struggles to make a living, legally or illegally, for his wife and growing brood in Little Italy.
+    &lt;/TabPanel&gt;
+    &lt;TabPanel&gt;
+        &lt;template slot="header"&gt;
+            &lt;i class="pi pi-search"&gt;&lt;/i&gt;
+            &lt;span&gt;Godfather III&lt;/span&gt;
+            &lt;i class="pi pi-cog"&gt;&lt;/i&gt;
+        &lt;/template&gt;
+        The Godfather Part III is set in 1979 and 1980. Michael has moved back to New York and taken great strides to remove the family from crime. He turns over his New York criminal
+        interests to longtime enforcer Joey Zasa. He uses his wealth in an attempt to rehabilitate his reputation through numerous philanthropic acts, administered by a foundation named after his father.
+        A decade earlier, he gave custody of his two children to Kay, who has since remarried.
+    &lt;/TabPanel&gt;
+&lt;/TabView&gt;
 </template>
 </CodeHighlight>
 

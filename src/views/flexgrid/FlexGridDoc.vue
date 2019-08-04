@@ -574,429 +574,415 @@ import 'primeflex/primeflex.css';
 				</a>
 <CodeHighlight>
 <template v-pre>
-&lt;template&gt;
-	&lt;div&gt;
-		&lt;div class="content-section introduction"&gt;
-			&lt;div class="feature-intro"&gt;
-				&lt;h1&gt;FlexGrid&lt;/h1&gt;
-				&lt;p&gt;Flex Grid CSS is a lightweight flex based responsive layout utility optimized for mobile phones, tablets and desktops.
-					Flex Grid CSS is not included in PrimeReact as it is provided by &lt;a href="https://github.com/primefaces/primeflex"&gt;PrimeFlex&lt;/a&gt; , a shared grid library between PrimeFaces, PrimeNG, PrimeReact and PrimeVue projects.&lt;/p&gt;
-			&lt;/div&gt;
-		&lt;/div&gt;
+&lt;h3&gt;Basic&lt;/h3&gt;
+&lt;div class="p-grid"&gt;
+    &lt;div class="p-col"&gt;
+        &lt;div class="box"&gt;1&lt;/div&gt;
+    &lt;/div&gt;
+    &lt;div class="p-col"&gt;
+        &lt;div class="box"&gt;2&lt;/div&gt;
+    &lt;/div&gt;
+    &lt;div class="p-col"&gt;
+        &lt;div class="box"&gt;3&lt;/div&gt;
+    &lt;/div&gt;
+&lt;/div&gt;
 
-		&lt;div class="content-section implementation flexgrid-demo"&gt;
-			&lt;h3 class="first"&gt;Basic&lt;/h3&gt;
-			&lt;div class="p-grid"&gt;
-				&lt;div class="p-col"&gt;
-					&lt;div class="box"&gt;1&lt;/div&gt;
-				&lt;/div&gt;
-				&lt;div class="p-col"&gt;
-					&lt;div class="box"&gt;2&lt;/div&gt;
-				&lt;/div&gt;
-				&lt;div class="p-col"&gt;
-					&lt;div class="box"&gt;3&lt;/div&gt;
-				&lt;/div&gt;
-			&lt;/div&gt;
+&lt;h3&gt;Dynamic&lt;/h3&gt;
+&lt;Button type="button" icon="pi pi-plus" title="Add Column" @click="addColumn" :disabled="columns.length === 20" style="margin-right: .5em" /&gt;
+&lt;Button type="button" icon="pi pi-minus" title="Remove Column" @click="removeColumn" :disabled="columns.length === 1" /&gt;
 
-			&lt;h3&gt;Dynamic&lt;/h3&gt;
-			&lt;Button type="button" icon="pi pi-plus" title="Add Column" @click="addColumn" :disabled="columns.length === 20" style="margin-right: .5em" /&gt;
-			&lt;Button type="button" icon="pi pi-minus" title="Remove Column" @click="removeColumn" :disabled="columns.length === 1" /&gt;
+&lt;div style="margin-top: .5em"&gt;
+    &lt;transition-group name="dynamic-box" tag="div" class="p-grid"&gt;
+        &lt;div v-for="col of columns" :key="col" class="p-col"&gt;
+            &lt;div class="box"&gt;{{col}}&lt;/div&gt;
+        &lt;/div&gt;
+    &lt;/transition-group&gt;
+&lt;/div&gt;
 
-			&lt;div style="margin-top: .5em"&gt;
-				&lt;transition-group name="dynamic-box" tag="div" class="p-grid"&gt;
-					&lt;div v-for="col of columns" :key="col" class="p-col"&gt;
-						&lt;div class="box"&gt;{{col}}&lt;/div&gt;
-					&lt;/div&gt;
-				&lt;/transition-group&gt;
-			&lt;/div&gt;
+&lt;h3&gt;Reverse Direction&lt;/h3&gt;
+&lt;div class="p-grid p-dir-rev"&gt;
+    &lt;div class="p-col"&gt;
+        &lt;div class="box"&gt;1&lt;/div&gt;
+    &lt;/div&gt;
+    &lt;div class="p-col"&gt;
+        &lt;div class="box"&gt;2&lt;/div&gt;
+    &lt;/div&gt;
+    &lt;div class="p-col"&gt;
+        &lt;div class="box"&gt;3&lt;/div&gt;
+    &lt;/div&gt;
+&lt;/div&gt;
 
-			&lt;h3&gt;Reverse Direction&lt;/h3&gt;
-			&lt;div class="p-grid p-dir-rev"&gt;
-				&lt;div class="p-col"&gt;
-					&lt;div class="box"&gt;1&lt;/div&gt;
-				&lt;/div&gt;
-				&lt;div class="p-col"&gt;
-					&lt;div class="box"&gt;2&lt;/div&gt;
-				&lt;/div&gt;
-				&lt;div class="p-col"&gt;
-					&lt;div class="box"&gt;3&lt;/div&gt;
-				&lt;/div&gt;
-			&lt;/div&gt;
+&lt;h3&gt;Column Direction&lt;/h3&gt;
+&lt;div class="p-grid p-dir-col"&gt;
+    &lt;div class="p-col"&gt;
+        &lt;div class="box"&gt;1&lt;/div&gt;
+    &lt;/div&gt;
+    &lt;div class="p-col"&gt;
+        &lt;div class="box"&gt;2&lt;/div&gt;
+    &lt;/div&gt;
+    &lt;div class="p-col"&gt;
+        &lt;div class="box"&gt;3&lt;/div&gt;
+    &lt;/div&gt;
+&lt;/div&gt;
 
-			&lt;h3&gt;Column Direction&lt;/h3&gt;
-			&lt;div class="p-grid p-dir-col"&gt;
-				&lt;div class="p-col"&gt;
-					&lt;div class="box"&gt;1&lt;/div&gt;
-				&lt;/div&gt;
-				&lt;div class="p-col"&gt;
-					&lt;div class="box"&gt;2&lt;/div&gt;
-				&lt;/div&gt;
-				&lt;div class="p-col"&gt;
-					&lt;div class="box"&gt;3&lt;/div&gt;
-				&lt;/div&gt;
-			&lt;/div&gt;
+&lt;h3&gt;Reverse Column Direction&lt;/h3&gt;
+&lt;div class="p-grid p-dir-col-rev"&gt;
+    &lt;div class="p-col"&gt;
+        &lt;div class="box"&gt;1&lt;/div&gt;
+    &lt;/div&gt;
+    &lt;div class="p-col"&gt;
+        &lt;div class="box"&gt;2&lt;/div&gt;
+    &lt;/div&gt;
+    &lt;div class="p-col"&gt;
+        &lt;div class="box"&gt;3&lt;/div&gt;
+    &lt;/div&gt;
+&lt;/div&gt;
 
-			&lt;h3&gt;Reverse Column Direction&lt;/h3&gt;
-			&lt;div class="p-grid p-dir-col-rev"&gt;
-				&lt;div class="p-col"&gt;
-					&lt;div class="box"&gt;1&lt;/div&gt;
-				&lt;/div&gt;
-				&lt;div class="p-col"&gt;
-					&lt;div class="box"&gt;2&lt;/div&gt;
-				&lt;/div&gt;
-				&lt;div class="p-col"&gt;
-					&lt;div class="box"&gt;3&lt;/div&gt;
-				&lt;/div&gt;
-			&lt;/div&gt;
+&lt;h3&gt;12 Column Grid&lt;/h3&gt;
+&lt;div class="p-grid"&gt;
+    &lt;div class="p-col-4"&gt;
+        &lt;div class="box"&gt;4&lt;/div&gt;
+    &lt;/div&gt;
+    &lt;div class="p-col"&gt;
+        &lt;div class="box"&gt;1&lt;/div&gt;
+    &lt;/div&gt;
+    &lt;div class="p-col"&gt;
+        &lt;div class="box"&gt;1&lt;/div&gt;
+    &lt;/div&gt;
+    &lt;div class="p-col"&gt;
+        &lt;div class="box"&gt;1&lt;/div&gt;
+    &lt;/div&gt;
+    &lt;div class="p-col"&gt;
+        &lt;div class="box"&gt;1&lt;/div&gt;
+    &lt;/div&gt;
+    &lt;div class="p-col"&gt;
+        &lt;div class="box"&gt;1&lt;/div&gt;
+    &lt;/div&gt;
+    &lt;div class="p-col"&gt;
+        &lt;div class="box"&gt;1&lt;/div&gt;
+    &lt;/div&gt;
+    &lt;div class="p-col"&gt;
+        &lt;div class="box"&gt;1&lt;/div&gt;
+    &lt;/div&gt;
+    &lt;div class="p-col"&gt;
+        &lt;div class="box"&gt;1&lt;/div&gt;
+    &lt;/div&gt;
+&lt;/div&gt;
 
-			&lt;h3&gt;12 Column Grid&lt;/h3&gt;
-			&lt;div class="p-grid"&gt;
-				&lt;div class="p-col-4"&gt;
-					&lt;div class="box"&gt;4&lt;/div&gt;
-				&lt;/div&gt;
-				&lt;div class="p-col"&gt;
-					&lt;div class="box"&gt;1&lt;/div&gt;
-				&lt;/div&gt;
-				&lt;div class="p-col"&gt;
-					&lt;div class="box"&gt;1&lt;/div&gt;
-				&lt;/div&gt;
-				&lt;div class="p-col"&gt;
-					&lt;div class="box"&gt;1&lt;/div&gt;
-				&lt;/div&gt;
-				&lt;div class="p-col"&gt;
-					&lt;div class="box"&gt;1&lt;/div&gt;
-				&lt;/div&gt;
-				&lt;div class="p-col"&gt;
-					&lt;div class="box"&gt;1&lt;/div&gt;
-				&lt;/div&gt;
-				&lt;div class="p-col"&gt;
-					&lt;div class="box"&gt;1&lt;/div&gt;
-				&lt;/div&gt;
-				&lt;div class="p-col"&gt;
-					&lt;div class="box"&gt;1&lt;/div&gt;
-				&lt;/div&gt;
-				&lt;div class="p-col"&gt;
-					&lt;div class="box"&gt;1&lt;/div&gt;
-				&lt;/div&gt;
-			&lt;/div&gt;
+&lt;div class="p-grid"&gt;
+    &lt;div class="p-col-2"&gt;
+        &lt;div class="box"&gt;2&lt;/div&gt;
+    &lt;/div&gt;
+    &lt;div class="p-col-6"&gt;
+        &lt;div class="box"&gt;6&lt;/div&gt;
+    &lt;/div&gt;
+    &lt;div class="p-col-4"&gt;
+        &lt;div class="box"&gt;4&lt;/div&gt;
+    &lt;/div&gt;
+&lt;/div&gt;
 
-			&lt;div class="p-grid"&gt;
-				&lt;div class="p-col-2"&gt;
-					&lt;div class="box"&gt;2&lt;/div&gt;
-				&lt;/div&gt;
-				&lt;div class="p-col-6"&gt;
-					&lt;div class="box"&gt;6&lt;/div&gt;
-				&lt;/div&gt;
-				&lt;div class="p-col-4"&gt;
-					&lt;div class="box"&gt;4&lt;/div&gt;
-				&lt;/div&gt;
-			&lt;/div&gt;
+&lt;div class="p-grid"&gt;
+    &lt;div class="p-col-8"&gt;
+        &lt;div class="box"&gt;8&lt;/div&gt;
+    &lt;/div&gt;
+    &lt;div class="p-col-2"&gt;
+        &lt;div class="box"&gt;2&lt;/div&gt;
+    &lt;/div&gt;
+    &lt;div class="p-col-2"&gt;
+        &lt;div class="box"&gt;2&lt;/div&gt;
+    &lt;/div&gt;
+&lt;/div&gt;
 
-			&lt;div class="p-grid"&gt;
-				&lt;div class="p-col-8"&gt;
-					&lt;div class="box"&gt;8&lt;/div&gt;
-				&lt;/div&gt;
-				&lt;div class="p-col-2"&gt;
-					&lt;div class="box"&gt;2&lt;/div&gt;
-				&lt;/div&gt;
-				&lt;div class="p-col-2"&gt;
-					&lt;div class="box"&gt;2&lt;/div&gt;
-				&lt;/div&gt;
-			&lt;/div&gt;
+&lt;h3&gt;MultiLine&lt;/h3&gt;
+&lt;div class="p-grid"&gt;
+    &lt;div class="p-col-6"&gt;
+        &lt;div class="box"&gt;6&lt;/div&gt;
+    &lt;/div&gt;
+    &lt;div class="p-col-6"&gt;
+        &lt;div class="box"&gt;6&lt;/div&gt;
+    &lt;/div&gt;
+    &lt;div class="p-col-6"&gt;
+        &lt;div class="box"&gt;6&lt;/div&gt;
+    &lt;/div&gt;
+    &lt;div class="p-col-6"&gt;
+        &lt;div class="box"&gt;6&lt;/div&gt;
+    &lt;/div&gt;
+&lt;/div&gt;
 
-			&lt;h3&gt;MultiLine&lt;/h3&gt;
-			&lt;div class="p-grid"&gt;
-				&lt;div class="p-col-6"&gt;
-					&lt;div class="box"&gt;6&lt;/div&gt;
-				&lt;/div&gt;
-				&lt;div class="p-col-6"&gt;
-					&lt;div class="box"&gt;6&lt;/div&gt;
-				&lt;/div&gt;
-				&lt;div class="p-col-6"&gt;
-					&lt;div class="box"&gt;6&lt;/div&gt;
-				&lt;/div&gt;
-				&lt;div class="p-col-6"&gt;
-					&lt;div class="box"&gt;6&lt;/div&gt;
-				&lt;/div&gt;
-			&lt;/div&gt;
+&lt;h3&gt;Fixed Width Column&lt;/h3&gt;
+&lt;div class="p-grid"&gt;
+    &lt;div class="p-col-fixed" style="width:100px"&gt;
+        &lt;div class="box"&gt;100px&lt;/div&gt;
+    &lt;/div&gt;
+    &lt;div class="p-col"&gt;
+        &lt;div class="box"&gt;auto&lt;/div&gt;
+    &lt;/div&gt;
+&lt;/div&gt;
 
-			&lt;h3&gt;Fixed Width Column&lt;/h3&gt;
-			&lt;div class="p-grid"&gt;
-				&lt;div class="p-col-fixed" style="width:100px"&gt;
-					&lt;div class="box"&gt;100px&lt;/div&gt;
-				&lt;/div&gt;
-				&lt;div class="p-col"&gt;
-					&lt;div class="box"&gt;auto&lt;/div&gt;
-				&lt;/div&gt;
-			&lt;/div&gt;
+&lt;h3&gt;Responsive&lt;/h3&gt;
+&lt;div class="p-grid"&gt;
+    &lt;div class="p-col-12 p-md-6 p-lg-3"&gt;
+        &lt;div class="box"&gt;p-col-12 p-md-6 p-lg-3&lt;/div&gt;
+    &lt;/div&gt;
+    &lt;div class="p-col-12 p-md-6 p-lg-3"&gt;
+        &lt;div class="box"&gt;p-col-12 p-md-6 p-lg-3&lt;/div&gt;
+    &lt;/div&gt;
+    &lt;div class="p-col-12 p-md-6 p-lg-3"&gt;
+        &lt;div class="box"&gt;p-col-12 p-md-6 p-lg-3&lt;/div&gt;
+    &lt;/div&gt;
+    &lt;div class="p-col-12 p-md-6 p-lg-3"&gt;
+        &lt;div class="box"&gt;p-col-12 p-md-6 p-lg-3&lt;/div&gt;
+    &lt;/div&gt;
+&lt;/div&gt;
 
-			&lt;h3&gt;Responsive&lt;/h3&gt;
-			&lt;div class="p-grid"&gt;
-				&lt;div class="p-col-12 p-md-6 p-lg-3"&gt;
-					&lt;div class="box"&gt;p-col-12 p-md-6 p-lg-3&lt;/div&gt;
-				&lt;/div&gt;
-				&lt;div class="p-col-12 p-md-6 p-lg-3"&gt;
-					&lt;div class="box"&gt;p-col-12 p-md-6 p-lg-3&lt;/div&gt;
-				&lt;/div&gt;
-				&lt;div class="p-col-12 p-md-6 p-lg-3"&gt;
-					&lt;div class="box"&gt;p-col-12 p-md-6 p-lg-3&lt;/div&gt;
-				&lt;/div&gt;
-				&lt;div class="p-col-12 p-md-6 p-lg-3"&gt;
-					&lt;div class="box"&gt;p-col-12 p-md-6 p-lg-3&lt;/div&gt;
-				&lt;/div&gt;
-			&lt;/div&gt;
+&lt;h3&gt;Horizontal Alignment - Start&lt;/h3&gt;
+&lt;div class="p-grid p-justify-start"&gt;
+    &lt;div class="p-col-2"&gt;
+        &lt;div class="box"&gt;2&lt;/div&gt;
+    &lt;/div&gt;
+    &lt;div class="p-col-1"&gt;
+        &lt;div class="box"&gt;1&lt;/div&gt;
+    &lt;/div&gt;
+    &lt;div class="p-col-4"&gt;
+        &lt;div class="box"&gt;4&lt;/div&gt;
+    &lt;/div&gt;
+&lt;/div&gt;
 
-			&lt;h3&gt;Horizontal Alignment - Start&lt;/h3&gt;
-			&lt;div class="p-grid p-justify-start"&gt;
-				&lt;div class="p-col-2"&gt;
-					&lt;div class="box"&gt;2&lt;/div&gt;
-				&lt;/div&gt;
-				&lt;div class="p-col-1"&gt;
-					&lt;div class="box"&gt;1&lt;/div&gt;
-				&lt;/div&gt;
-				&lt;div class="p-col-4"&gt;
-					&lt;div class="box"&gt;4&lt;/div&gt;
-				&lt;/div&gt;
-			&lt;/div&gt;
+&lt;h3&gt;Horizontal Alignment - End&lt;/h3&gt;
+&lt;div class="p-grid p-justify-end"&gt;
+    &lt;div class="p-col-2"&gt;
+        &lt;div class="box"&gt;2&lt;/div&gt;
+    &lt;/div&gt;
+    &lt;div class="p-col-1"&gt;
+        &lt;div class="box"&gt;1&lt;/div&gt;
+    &lt;/div&gt;
+    &lt;div class="p-col-4"&gt;
+        &lt;div class="box"&gt;4&lt;/div&gt;
+    &lt;/div&gt;
+&lt;/div&gt;
 
-			&lt;h3&gt;Horizontal Alignment - End&lt;/h3&gt;
-			&lt;div class="p-grid p-justify-end"&gt;
-				&lt;div class="p-col-2"&gt;
-					&lt;div class="box"&gt;2&lt;/div&gt;
-				&lt;/div&gt;
-				&lt;div class="p-col-1"&gt;
-					&lt;div class="box"&gt;1&lt;/div&gt;
-				&lt;/div&gt;
-				&lt;div class="p-col-4"&gt;
-					&lt;div class="box"&gt;4&lt;/div&gt;
-				&lt;/div&gt;
-			&lt;/div&gt;
+&lt;h3&gt;Horizontal Alignment - Center&lt;/h3&gt;
+&lt;div class="p-grid p-justify-center"&gt;
+    &lt;div class="p-col-2"&gt;
+        &lt;div class="box"&gt;2&lt;/div&gt;
+    &lt;/div&gt;
+    &lt;div class="p-col-1"&gt;
+        &lt;div class="box"&gt;1&lt;/div&gt;
+    &lt;/div&gt;
+    &lt;div class="p-col-4"&gt;
+        &lt;div class="box"&gt;4&lt;/div&gt;
+    &lt;/div&gt;
+&lt;/div&gt;
 
-			&lt;h3&gt;Horizontal Alignment - Center&lt;/h3&gt;
-			&lt;div class="p-grid p-justify-center"&gt;
-				&lt;div class="p-col-2"&gt;
-					&lt;div class="box"&gt;2&lt;/div&gt;
-				&lt;/div&gt;
-				&lt;div class="p-col-1"&gt;
-					&lt;div class="box"&gt;1&lt;/div&gt;
-				&lt;/div&gt;
-				&lt;div class="p-col-4"&gt;
-					&lt;div class="box"&gt;4&lt;/div&gt;
-				&lt;/div&gt;
-			&lt;/div&gt;
+&lt;h3&gt;Horizontal Alignment - Between&lt;/h3&gt;
+&lt;div class="p-grid p-justify-between"&gt;
+    &lt;div class="p-col-2"&gt;
+        &lt;div class="box"&gt;2&lt;/div&gt;
+    &lt;/div&gt;
+    &lt;div class="p-col-1"&gt;
+        &lt;div class="box"&gt;1&lt;/div&gt;
+    &lt;/div&gt;
+    &lt;div class="p-col-4"&gt;
+        &lt;div class="box"&gt;4&lt;/div&gt;
+    &lt;/div&gt;
+&lt;/div&gt;
 
-			&lt;h3&gt;Horizontal Alignment - Between&lt;/h3&gt;
-			&lt;div class="p-grid p-justify-between"&gt;
-				&lt;div class="p-col-2"&gt;
-					&lt;div class="box"&gt;2&lt;/div&gt;
-				&lt;/div&gt;
-				&lt;div class="p-col-1"&gt;
-					&lt;div class="box"&gt;1&lt;/div&gt;
-				&lt;/div&gt;
-				&lt;div class="p-col-4"&gt;
-					&lt;div class="box"&gt;4&lt;/div&gt;
-				&lt;/div&gt;
-			&lt;/div&gt;
+&lt;h3&gt;Horizontal Alignment - Around&lt;/h3&gt;
+&lt;div class="p-grid p-justify-around"&gt;
+    &lt;div class="p-col-2"&gt;
+        &lt;div class="box"&gt;2&lt;/div&gt;
+    &lt;/div&gt;
+    &lt;div class="p-col-1"&gt;
+        &lt;div class="box"&gt;1&lt;/div&gt;
+    &lt;/div&gt;
+    &lt;div class="p-col-4"&gt;
+        &lt;div class="box"&gt;4&lt;/div&gt;
+    &lt;/div&gt;
+&lt;/div&gt;
 
-			&lt;h3&gt;Horizontal Alignment - Around&lt;/h3&gt;
-			&lt;div class="p-grid p-justify-around"&gt;
-				&lt;div class="p-col-2"&gt;
-					&lt;div class="box"&gt;2&lt;/div&gt;
-				&lt;/div&gt;
-				&lt;div class="p-col-1"&gt;
-					&lt;div class="box"&gt;1&lt;/div&gt;
-				&lt;/div&gt;
-				&lt;div class="p-col-4"&gt;
-					&lt;div class="box"&gt;4&lt;/div&gt;
-				&lt;/div&gt;
-			&lt;/div&gt;
+&lt;h3&gt;Horizontal Alignment - Even&lt;/h3&gt;
+&lt;div class="p-grid p-justify-even"&gt;
+    &lt;div class="p-col-2"&gt;
+        &lt;div class="box"&gt;2&lt;/div&gt;
+    &lt;/div&gt;
+    &lt;div class="p-col-1"&gt;
+        &lt;div class="box"&gt;1&lt;/div&gt;
+    &lt;/div&gt;
+    &lt;div class="p-col-4"&gt;
+        &lt;div class="box"&gt;4&lt;/div&gt;
+    &lt;/div&gt;
+&lt;/div&gt;
 
-			&lt;h3&gt;Horizontal Alignment - Even&lt;/h3&gt;
-			&lt;div class="p-grid p-justify-even"&gt;
-				&lt;div class="p-col-2"&gt;
-					&lt;div class="box"&gt;2&lt;/div&gt;
-				&lt;/div&gt;
-				&lt;div class="p-col-1"&gt;
-					&lt;div class="box"&gt;1&lt;/div&gt;
-				&lt;/div&gt;
-				&lt;div class="p-col-4"&gt;
-					&lt;div class="box"&gt;4&lt;/div&gt;
-				&lt;/div&gt;
-			&lt;/div&gt;
+&lt;h3&gt;Vertical Alignment - Start&lt;/h3&gt;
+&lt;div class="p-grid p-align-start vertical-container"&gt;
+    &lt;div class="p-col"&gt;
+        &lt;div class="box"&gt;4&lt;/div&gt;
+    &lt;/div&gt;
+    &lt;div class="p-col"&gt;
+        &lt;div class="box"&gt;4&lt;/div&gt;
+    &lt;/div&gt;
+    &lt;div class="p-col"&gt;
+        &lt;div class="box"&gt;4&lt;/div&gt;
+    &lt;/div&gt;
+&lt;/div&gt;
 
-			&lt;h3&gt;Vertical Alignment - Start&lt;/h3&gt;
-			&lt;div class="p-grid p-align-start vertical-container"&gt;
-				&lt;div class="p-col"&gt;
-					&lt;div class="box"&gt;4&lt;/div&gt;
-				&lt;/div&gt;
-				&lt;div class="p-col"&gt;
-					&lt;div class="box"&gt;4&lt;/div&gt;
-				&lt;/div&gt;
-				&lt;div class="p-col"&gt;
-					&lt;div class="box"&gt;4&lt;/div&gt;
-				&lt;/div&gt;
-			&lt;/div&gt;
+&lt;h3&gt;Vertical Alignment - End&lt;/h3&gt;
+&lt;div class="p-grid p-align-end vertical-container"&gt;
+    &lt;div class="p-col"&gt;
+        &lt;div class="box"&gt;4&lt;/div&gt;
+    &lt;/div&gt;
+    &lt;div class="p-col"&gt;
+        &lt;div class="box"&gt;4&lt;/div&gt;
+    &lt;/div&gt;
+    &lt;div class="p-col"&gt;
+        &lt;div class="box"&gt;4&lt;/div&gt;
+    &lt;/div&gt;
+&lt;/div&gt;
 
-			&lt;h3&gt;Vertical Alignment - End&lt;/h3&gt;
-			&lt;div class="p-grid p-align-end vertical-container"&gt;
-				&lt;div class="p-col"&gt;
-					&lt;div class="box"&gt;4&lt;/div&gt;
-				&lt;/div&gt;
-				&lt;div class="p-col"&gt;
-					&lt;div class="box"&gt;4&lt;/div&gt;
-				&lt;/div&gt;
-				&lt;div class="p-col"&gt;
-					&lt;div class="box"&gt;4&lt;/div&gt;
-				&lt;/div&gt;
-			&lt;/div&gt;
+&lt;h3&gt;Vertical Alignment - Center&lt;/h3&gt;
+&lt;div class="p-grid p-align-center vertical-container"&gt;
+    &lt;div class="p-col"&gt;
+        &lt;div class="box"&gt;4&lt;/div&gt;
+    &lt;/div&gt;
+    &lt;div class="p-col"&gt;
+        &lt;div class="box"&gt;4&lt;/div&gt;
+    &lt;/div&gt;
+    &lt;div class="p-col"&gt;
+        &lt;div class="box"&gt;4&lt;/div&gt;
+    &lt;/div&gt;
+&lt;/div&gt;
 
-			&lt;h3&gt;Vertical Alignment - Center&lt;/h3&gt;
-			&lt;div class="p-grid p-align-center vertical-container"&gt;
-				&lt;div class="p-col"&gt;
-					&lt;div class="box"&gt;4&lt;/div&gt;
-				&lt;/div&gt;
-				&lt;div class="p-col"&gt;
-					&lt;div class="box"&gt;4&lt;/div&gt;
-				&lt;/div&gt;
-				&lt;div class="p-col"&gt;
-					&lt;div class="box"&gt;4&lt;/div&gt;
-				&lt;/div&gt;
-			&lt;/div&gt;
+&lt;h3&gt;Vertical Alignment - Stretch&lt;/h3&gt;
+&lt;div class="p-grid p-align-stretch vertical-container"&gt;
+    &lt;div class="p-col"&gt;
+        &lt;div class="box box-stretched"&gt;4&lt;/div&gt;
+    &lt;/div&gt;
+    &lt;div class="p-col"&gt;
+        &lt;div class="box box-stretched"&gt;4&lt;/div&gt;
+    &lt;/div&gt;
+    &lt;div class="p-col"&gt;
+        &lt;div class="box box-stretched"&gt;4&lt;/div&gt;
+    &lt;/div&gt;
+&lt;/div&gt;
 
-			&lt;h3&gt;Vertical Alignment - Stretch&lt;/h3&gt;
-			&lt;div class="p-grid p-align-stretch vertical-container"&gt;
-				&lt;div class="p-col"&gt;
-					&lt;div class="box box-stretched"&gt;4&lt;/div&gt;
-				&lt;/div&gt;
-				&lt;div class="p-col"&gt;
-					&lt;div class="box box-stretched"&gt;4&lt;/div&gt;
-				&lt;/div&gt;
-				&lt;div class="p-col"&gt;
-					&lt;div class="box box-stretched"&gt;4&lt;/div&gt;
-				&lt;/div&gt;
-			&lt;/div&gt;
+&lt;h3&gt;Vertical Alignment - Per Column&lt;/h3&gt;
+&lt;div class="p-grid vertical-container"&gt;
+    &lt;div class="p-col p-col-align-start"&gt;
+        &lt;div class="box"&gt;4&lt;/div&gt;
+    &lt;/div&gt;
+    &lt;div class="p-col p-col-align-center"&gt;
+        &lt;div class="box"&gt;4&lt;/div&gt;
+    &lt;/div&gt;
+    &lt;div class="p-col p-col-align-end"&gt;
+        &lt;div class="box"&gt;4&lt;/div&gt;
+    &lt;/div&gt;
+&lt;/div&gt;
 
-			&lt;h3&gt;Vertical Alignment - Per Column&lt;/h3&gt;
-			&lt;div class="p-grid vertical-container"&gt;
-				&lt;div class="p-col p-col-align-start"&gt;
-					&lt;div class="box"&gt;4&lt;/div&gt;
-				&lt;/div&gt;
-				&lt;div class="p-col p-col-align-center"&gt;
-					&lt;div class="box"&gt;4&lt;/div&gt;
-				&lt;/div&gt;
-				&lt;div class="p-col p-col-align-end"&gt;
-					&lt;div class="box"&gt;4&lt;/div&gt;
-				&lt;/div&gt;
-			&lt;/div&gt;
+&lt;h3&gt;Offset&lt;/h3&gt;
+&lt;div class="p-grid"&gt;
+    &lt;div class="p-col-6 p-offset-3"&gt;
+        &lt;div class="box"&gt;6&lt;/div&gt;
+    &lt;/div&gt;
+&lt;/div&gt;
 
-			&lt;h3&gt;Offset&lt;/h3&gt;
-			&lt;div class="p-grid"&gt;
-				&lt;div class="p-col-6 p-offset-3"&gt;
-					&lt;div class="box"&gt;6&lt;/div&gt;
-				&lt;/div&gt;
-			&lt;/div&gt;
+&lt;div class="p-grid"&gt;
+    &lt;div class="p-col-4"&gt;
+        &lt;div class="box"&gt;4&lt;/div&gt;
+    &lt;/div&gt;
+    &lt;div class="p-col-4 p-offset-4"&gt;
+        &lt;div class="box"&gt;4&lt;/div&gt;
+    &lt;/div&gt;
+&lt;/div&gt;
 
-			&lt;div class="p-grid"&gt;
-				&lt;div class="p-col-4"&gt;
-					&lt;div class="box"&gt;4&lt;/div&gt;
-				&lt;/div&gt;
-				&lt;div class="p-col-4 p-offset-4"&gt;
-					&lt;div class="box"&gt;4&lt;/div&gt;
-				&lt;/div&gt;
-			&lt;/div&gt;
+&lt;h3&gt;Nested&lt;/h3&gt;
+&lt;div class="p-grid nested-grid"&gt;
+    &lt;div class="p-col-8"&gt;
+        &lt;div class="p-grid"&gt;
+            &lt;div class="p-col-6"&gt;
+                &lt;div class="box"&gt;6&lt;/div&gt;
+            &lt;/div&gt;
+            &lt;div class="p-col-6"&gt;
+                &lt;div class="box"&gt;6&lt;/div&gt;
+            &lt;/div&gt;
+            &lt;div class="p-col-12"&gt;
+                &lt;div class="box"&gt;12&lt;/div&gt;
+            &lt;/div&gt;
+        &lt;/div&gt;
+    &lt;/div&gt;
+    &lt;div class="p-col-4"&gt;
+        &lt;div class="box box-stretched"&gt;4&lt;/div&gt;
+    &lt;/div&gt;
+&lt;/div&gt;
 
-			&lt;h3&gt;Nested&lt;/h3&gt;
-			&lt;div class="p-grid nested-grid"&gt;
-				&lt;div class="p-col-8"&gt;
-					&lt;div class="p-grid"&gt;
-						&lt;div class="p-col-6"&gt;
-							&lt;div class="box"&gt;6&lt;/div&gt;
-						&lt;/div&gt;
-						&lt;div class="p-col-6"&gt;
-							&lt;div class="box"&gt;6&lt;/div&gt;
-						&lt;/div&gt;
-						&lt;div class="p-col-12"&gt;
-							&lt;div class="box"&gt;12&lt;/div&gt;
-						&lt;/div&gt;
-					&lt;/div&gt;
-				&lt;/div&gt;
-				&lt;div class="p-col-4"&gt;
-					&lt;div class="box box-stretched"&gt;4&lt;/div&gt;
-				&lt;/div&gt;
-			&lt;/div&gt;
+&lt;h3&gt;Panels&lt;/h3&gt;
+&lt;div class="p-grid"&gt;
+    &lt;div class="p-col"&gt;
+        &lt;Panel header="Godfather"&gt;
+            The story begins as Don Vito Corleone, the head of a New York Mafia family, oversees his daughter's wedding.
+            His beloved son Michael has just come home from the war, but does not intend to become part of his father's business.
+            Through Michael's life the nature of the family business becomes clear. The business of the family is just like the head of the family,
+            kind and benevolent to those who give respect, but given to ruthless violence whenever anything stands against the good of the family.
+        &lt;/Panel&gt;
+    &lt;/div&gt;
+    &lt;div class="p-col"&gt;
+        &lt;Panel header="Godfather"&gt;
+            The story begins as Don Vito Corleone, the head of a New York Mafia family, oversees his daughter's wedding.
+            His beloved son Michael has just come home from the war, but does not intend to become part of his father's business.
+            Through Michael's life the nature of the family business becomes clear. The business of the family is just like the head of the family,
+            kind and benevolent to those who give respect, but given to ruthless violence whenever anything stands against the good of the family.
+        &lt;/Panel&gt;
+    &lt;/div&gt;
+    &lt;div class="p-col"&gt;
+        &lt;Panel header="Godfather"&gt;
+            The story begins as Don Vito Corleone, the head of a New York Mafia family, oversees his daughter's wedding.
+            His beloved son Michael has just come home from the war, but does not intend to become part of his father's business.
+            Through Michael's life the nature of the family business becomes clear. The business of the family is just like the head of the family,
+            kind and benevolent to those who give respect, but given to ruthless violence whenever anything stands against the good of the family.
+        &lt;/Panel&gt;
+    &lt;/div&gt;
+&lt;/div&gt;
 
-			&lt;h3&gt;Panels&lt;/h3&gt;
-			&lt;div class="p-grid"&gt;
-				&lt;div class="p-col"&gt;
-					&lt;Panel header="Godfather"&gt;
-						The story begins as Don Vito Corleone, the head of a New York Mafia family, oversees his daughter's wedding.
-						His beloved son Michael has just come home from the war, but does not intend to become part of his father's business.
-						Through Michael's life the nature of the family business becomes clear. The business of the family is just like the head of the family,
-						kind and benevolent to those who give respect, but given to ruthless violence whenever anything stands against the good of the family.
-					&lt;/Panel&gt;
-				&lt;/div&gt;
-				&lt;div class="p-col"&gt;
-					&lt;Panel header="Godfather"&gt;
-						The story begins as Don Vito Corleone, the head of a New York Mafia family, oversees his daughter's wedding.
-						His beloved son Michael has just come home from the war, but does not intend to become part of his father's business.
-						Through Michael's life the nature of the family business becomes clear. The business of the family is just like the head of the family,
-						kind and benevolent to those who give respect, but given to ruthless violence whenever anything stands against the good of the family.
-					&lt;/Panel&gt;
-				&lt;/div&gt;
-				&lt;div class="p-col"&gt;
-					&lt;Panel header="Godfather"&gt;
-						The story begins as Don Vito Corleone, the head of a New York Mafia family, oversees his daughter's wedding.
-						His beloved son Michael has just come home from the war, but does not intend to become part of his father's business.
-						Through Michael's life the nature of the family business becomes clear. The business of the family is just like the head of the family,
-						kind and benevolent to those who give respect, but given to ruthless violence whenever anything stands against the good of the family.
-					&lt;/Panel&gt;
-				&lt;/div&gt;
-			&lt;/div&gt;
+&lt;h3&gt;Sample Layout&lt;/h3&gt;
+&lt;div class="p-grid sample-layout"&gt;
+    &lt;div class="p-col-12 p-md-2"&gt;
+        Menu
+    &lt;/div&gt;
+    &lt;div class="p-col-12 p-md-10 p-col-nogutter"&gt;
+        &lt;div class="p-col-12 p-col-nogutter"&gt;
+            Top Bar
+        &lt;/div&gt;
+        &lt;div class="p-col-12"&gt;
+            &lt;div class="p-grid"&gt;
+                &lt;div class="p-col-12 p-md-4"&gt;Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed imperdiet, orci nec
+                    dictum convallis, ligula mauris vestibulum turpis, nec varius tortor quam at diam. Nullam a viverra nibh.
+                    In tincidunt tempor lectus quis vulputate. Pellentesque nec dui aliquam, lobortis est in, lobortis ante&lt;/div&gt;
+                &lt;div class="p-col-12 p-md-4"&gt;Maecenas vel nisi aliquet, vulputate tortor id, laoreet massa. Maecenas mattis
+                    tristique bibendum. Suspendisse vel mi dictum, vestibulum lacus quis, pulvinar quam. Proin vulputate, nibh
+                    at finibus varius, leo eros lacinia elit, nec blandit odio tellus a justo. Donec nec ex auctor, tristique
+                    nulla nec, rutrum sapien.&lt;/div&gt;
+                &lt;div class="p-col-12 p-md-4"&gt;Proin efficitur in leo eget ornare. Nam vestibulum neque sed velit sagittis
+                    sodales. Sed scelerisque hendrerit magna a hendrerit. Cras tempor sem at justo pharetra convallis.
+                    Curabitur vel sodales purus. Vestibulum interdum facilisis nulla imperdiet suscipit. Quisque lectus felis,
+                    condimentum eget hendrerit sit amet.&lt;/div&gt;
 
-			&lt;h3&gt;Sample Layout&lt;/h3&gt;
-			&lt;div class="p-grid sample-layout"&gt;
-				&lt;div class="p-col-12 p-md-2"&gt;
-					Menu
-				&lt;/div&gt;
-				&lt;div class="p-col-12 p-md-10 p-col-nogutter"&gt;
-					&lt;div class="p-col-12 p-col-nogutter"&gt;
-						Top Bar
-					&lt;/div&gt;
-					&lt;div class="p-col-12"&gt;
-						&lt;div class="p-grid"&gt;
-							&lt;div class="p-col-12 p-md-4"&gt;Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed imperdiet, orci nec
-								dictum convallis, ligula mauris vestibulum turpis, nec varius tortor quam at diam. Nullam a viverra nibh.
-								In tincidunt tempor lectus quis vulputate. Pellentesque nec dui aliquam, lobortis est in, lobortis ante&lt;/div&gt;
-							&lt;div class="p-col-12 p-md-4"&gt;Maecenas vel nisi aliquet, vulputate tortor id, laoreet massa. Maecenas mattis
-								tristique bibendum. Suspendisse vel mi dictum, vestibulum lacus quis, pulvinar quam. Proin vulputate, nibh
-								at finibus varius, leo eros lacinia elit, nec blandit odio tellus a justo. Donec nec ex auctor, tristique
-								nulla nec, rutrum sapien.&lt;/div&gt;
-							&lt;div class="p-col-12 p-md-4"&gt;Proin efficitur in leo eget ornare. Nam vestibulum neque sed velit sagittis
-								sodales. Sed scelerisque hendrerit magna a hendrerit. Cras tempor sem at justo pharetra convallis.
-								Curabitur vel sodales purus. Vestibulum interdum facilisis nulla imperdiet suscipit. Quisque lectus felis,
-								condimentum eget hendrerit sit amet.&lt;/div&gt;
+                &lt;div class="p-col-6 p-md-3"&gt;&lt;img alt="Galleria 1" src="demo/images/nature/nature1.jpg" style="width: 100%" /&gt;&lt;/div&gt;
+                &lt;div class="p-col-6 p-md-3"&gt;&lt;img alt="Galleria 2" src="demo/images/nature/nature2.jpg" style="width: 100%" /&gt;&lt;/div&gt;
+                &lt;div class="p-col-6 p-md-3"&gt;&lt;img alt="Galleria 3" src="demo/images/nature/nature3.jpg" style="width: 100%" /&gt;&lt;/div&gt;
+                &lt;div class="p-col-6 p-md-3"&gt;&lt;img alt="Galleria 4" src="demo/images/nature/nature4.jpg" style="width: 100%" /&gt;&lt;/div&gt;
 
-							&lt;div class="p-col-6 p-md-3"&gt;&lt;img alt="Galleria 1" src="demo/images/nature/nature1.jpg" style="width: 100%" /&gt;&lt;/div&gt;
-							&lt;div class="p-col-6 p-md-3"&gt;&lt;img alt="Galleria 2" src="demo/images/nature/nature2.jpg" style="width: 100%" /&gt;&lt;/div&gt;
-							&lt;div class="p-col-6 p-md-3"&gt;&lt;img alt="Galleria 3" src="demo/images/nature/nature3.jpg" style="width: 100%" /&gt;&lt;/div&gt;
-							&lt;div class="p-col-6 p-md-3"&gt;&lt;img alt="Galleria 4" src="demo/images/nature/nature4.jpg" style="width: 100%" /&gt;&lt;/div&gt;
-
-							&lt;div class="p-col-12 p-md-6"&gt;Phasellus faucibus purus volutpat mauris lacinia sodales. Ut sit amet sapien
-								facilisis, commodo dui non, fringilla tellus. Quisque tempus facilisis nisi sodales finibus. Pellentesque
-								neque orci, ullamcorper vitae ligula quis, dignissim euismod augue.&lt;/div&gt;
-							&lt;div class="p-col-12 p-md-6"&gt;Fusce ullamcorper congue massa, eget ullamcorper nunc lobortis egestas. Lorem
-								ipsum dolor sit amet, consectetur adipiscing elit. Quisque ultrices dui eget dolor feugiat dapibus. Aliquam
-								pretium leo et egestas luctus. Nunc facilisis gravida tellus.&lt;/div&gt;
-						&lt;/div&gt;
-					&lt;/div&gt;
-				&lt;/div&gt;
-				&lt;div class="p-col-12"&gt;
-					Footer
-				&lt;/div&gt;
-			&lt;/div&gt;
-		&lt;/div&gt;
-	&lt;/div&gt;
-&lt;/template&gt;
+                &lt;div class="p-col-12 p-md-6"&gt;Phasellus faucibus purus volutpat mauris lacinia sodales. Ut sit amet sapien
+                    facilisis, commodo dui non, fringilla tellus. Quisque tempus facilisis nisi sodales finibus. Pellentesque
+                    neque orci, ullamcorper vitae ligula quis, dignissim euismod augue.&lt;/div&gt;
+                &lt;div class="p-col-12 p-md-6"&gt;Fusce ullamcorper congue massa, eget ullamcorper nunc lobortis egestas. Lorem
+                    ipsum dolor sit amet, consectetur adipiscing elit. Quisque ultrices dui eget dolor feugiat dapibus. Aliquam
+                    pretium leo et egestas luctus. Nunc facilisis gravida tellus.&lt;/div&gt;
+            &lt;/div&gt;
+        &lt;/div&gt;
+    &lt;/div&gt;
+    &lt;div class="p-col-12"&gt;
+        Footer
+    &lt;/div&gt;
+&lt;/div&gt;
 </template>
 </CodeHighlight>
 

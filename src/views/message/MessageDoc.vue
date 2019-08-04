@@ -231,47 +231,34 @@ import Message from 'primevue/message';
 				</a>
 <CodeHighlight>
 <template v-pre>
-&lt;template&gt;
-	&lt;div&gt;
-		&lt;div class="content-section introduction"&gt;
-			&lt;div class="feature-intro"&gt;
-				&lt;h1&gt;Message&lt;/h1&gt;
-				&lt;p&gt;Messages is used to display inline messages with various severities.&lt;/p&gt;
-			&lt;/div&gt;
-		&lt;/div&gt;
+&lt;h3&gt;Severities&lt;/h3&gt;
+&lt;Message severity="success"&gt;Order Submitted&lt;/Message&gt;
+&lt;Message severity="info"&gt;PrimeVue Rocks&lt;/Message&gt;
+&lt;Message severity="warn"&gt;There are unsaved changes&lt;/Message&gt;
+&lt;Message severity="error"&gt;Validation Failed&lt;/Message&gt;
 
-		&lt;div class="content-section implementation"&gt;
-			&lt;h3 class="first"&gt;Severities&lt;/h3&gt;
-			&lt;Message severity="success"&gt;Order Submitted&lt;/Message&gt;
-			&lt;Message severity="info"&gt;PrimeVue Rocks&lt;/Message&gt;
-			&lt;Message severity="warn"&gt;There are unsaved changes&lt;/Message&gt;
-			&lt;Message severity="error"&gt;Validation Failed&lt;/Message&gt;
+&lt;h3&gt;Dynamic&lt;/h3&gt;
+&lt;Button label="Show" @click="addMessages()" /&gt;
+&lt;Button label="Clear" @click="removeMessages()" class="p-button-secondary"/&gt;
 
-			&lt;h3&gt;Dynamic&lt;/h3&gt;
-			&lt;Button label="Show" @click="addMessages()" /&gt;
-			&lt;Button label="Clear" @click="removeMessages()" class="p-button-secondary"/&gt;
+&lt;transition-group name="p-messages" tag="div"&gt;
+    &lt;Message v-for="msg of messages" :severity="msg.severity" :key="msg.content"&gt;{{msg.content}}&lt;/Message&gt;
+&lt;/transition-group&gt;
 
-            &lt;transition-group name="p-messages" tag="div"&gt;
-                &lt;Message v-for="msg of messages" :severity="msg.severity" :key="msg.content"&gt;{{msg.content}}&lt;/Message&gt;
-            &lt;/transition-group&gt;
+&lt;h3&gt;Auto Dismiss&lt;/h3&gt;
+&lt;Message severity="warn" :life="10000" :sticky="false"&gt;This message will hide in 10 seconds.&lt;/Message&gt;
 
-			&lt;h3&gt;Auto Dismiss&lt;/h3&gt;
-			&lt;Message severity="warn" :life="10000" :sticky="false"&gt;This message will hide in 10 seconds.&lt;/Message&gt;
-
-			&lt;h3&gt;Validation Message&lt;/h3&gt;
-			&lt;div class="p-grid"&gt;
-				&lt;div class="p-col-12"&gt;
-					&lt;InputText placeholder="Username" class="p-error" /&gt;
-					&lt;ValidationMessage&gt;Field is required&lt;/ValidationMessage&gt;
-				&lt;/div&gt;
-				&lt;div class="p-col-12"&gt;
-					&lt;InputText placeholder="Email" class="p-error" :closable="false" /&gt;
-					&lt;ValidationMessage /&gt;
-				&lt;/div&gt;
-			&lt;/div&gt;
-		&lt;/div&gt;
-	&lt;/div&gt;
-&lt;/template&gt;
+&lt;h3&gt;Validation Message&lt;/h3&gt;
+&lt;div class="p-grid"&gt;
+    &lt;div class="p-col-12"&gt;
+        &lt;InputText placeholder="Username" class="p-error" /&gt;
+        &lt;ValidationMessage&gt;Field is required&lt;/ValidationMessage&gt;
+    &lt;/div&gt;
+    &lt;div class="p-col-12"&gt;
+        &lt;InputText placeholder="Email" class="p-error" :closable="false" /&gt;
+        &lt;ValidationMessage /&gt;
+    &lt;/div&gt;
+&lt;/div&gt;
 </template>
 </CodeHighlight>
 

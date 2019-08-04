@@ -257,41 +257,28 @@ export default {
 				</a>
 <CodeHighlight>
 <template v-pre>
-&lt;template&gt;
-	&lt;div&gt;
-		&lt;div class="content-section introduction"&gt;
-			&lt;div class="feature-intro"&gt;
-				&lt;h1&gt;AutoComplete&lt;/h1&gt;
-				&lt;p&gt;AutoComplete is an input component that provides real-time suggestions when being typed.&lt;/p&gt;
-			&lt;/div&gt;
-		&lt;/div&gt;
+&lt;h3&gt;Basic&lt;/h3&gt;
+&lt;AutoComplete v-model="selectedCountry" :suggestions="filteredCountriesBasic" @complete="searchCountryBasic($event)" field="name" /&gt;
+&lt;span style="marginLeft: .5em"&gt;Country: {{selectedCountry || 'none'}}&lt;/span&gt;
 
-		&lt;div class="content-section implementation"&gt;
-			&lt;h3 class="first"&gt;Basic&lt;/h3&gt;
-			&lt;AutoComplete v-model="selectedCountry" :suggestions="filteredCountriesBasic" @complete="searchCountryBasic($event)" field="name" /&gt;
-			&lt;span style="marginLeft: .5em"&gt;Country: {{selectedCountry || 'none'}}&lt;/span&gt;
+&lt;h3&gt;Dropdown and Templating&lt;/h3&gt;
+&lt;AutoComplete v-model="brand" :suggestions="filteredBrands" @complete="searchBrand($event)" placeholder="Hint: type 'v' or 'f'" :dropdown="true"&gt;
+    &lt;template #item="slotProps"&gt;
+        &lt;div class="p-clearfix p-autocomplete-brand-item"&gt;
+            &lt;img :alt="slotProps.item" :src="'demo/images/car/' + slotProps.item + '.png'" /&gt;
+            &lt;div&gt;{{slotProps.item}}&lt;/div&gt;
+        &lt;/div&gt;
+    &lt;/template&gt;
+&lt;/AutoComplete&gt;
+&lt;span style="marginLeft: .5em"&gt;Brand: {{brand || 'none'}}&lt;/span&gt;
 
-			&lt;h3&gt;Dropdown and Templating&lt;/h3&gt;
-			&lt;AutoComplete v-model="brand" :suggestions="filteredBrands" @complete="searchBrand($event)" placeholder="Hint: type 'v' or 'f'" :dropdown="true"&gt;
-				&lt;template #item="slotProps"&gt;
-					&lt;div class="p-clearfix p-autocomplete-brand-item"&gt;
-						&lt;img :alt="slotProps.item" :src="'demo/images/car/' + slotProps.item + '.png'" /&gt;
-						&lt;div&gt;{{slotProps.item}}&lt;/div&gt;
-					&lt;/div&gt;
-				&lt;/template&gt;
-			&lt;/AutoComplete&gt;
-			&lt;span style="marginLeft: .5em"&gt;Brand: {{brand || 'none'}}&lt;/span&gt;
-
-			&lt;h3&gt;Multiple&lt;/h3&gt;
-			&lt;span class="p-fluid"&gt;
-			&lt;AutoComplete :multiple="true" v-model="selectedCountries" :suggestions="filteredCountriesMultiple" @complete="searchCountryMultiple($event)" field="name" /&gt;
-		&lt;/span&gt;
-			&lt;ul&gt;
-				&lt;li v-for="(c,i) of selectedCountries" :key="i"&gt;{{c}}&lt;/li&gt;
-			&lt;/ul&gt;
-		&lt;/div&gt;
-	&lt;/div&gt;
-&lt;/template&gt;
+&lt;h3&gt;Multiple&lt;/h3&gt;
+&lt;span class="p-fluid"&gt;
+    &lt;AutoComplete :multiple="true" v-model="selectedCountries" :suggestions="filteredCountriesMultiple" @complete="searchCountryMultiple($event)" field="name" /&gt;
+&lt;/span&gt;
+&lt;ul&gt;
+    &lt;li v-for="(c,i) of selectedCountries" :key="i"&gt;{{c}}&lt;/li&gt;
+&lt;/ul&gt;
 </template>
 </CodeHighlight>
 

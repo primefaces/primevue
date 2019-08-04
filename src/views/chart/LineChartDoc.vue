@@ -4,27 +4,14 @@
 			<TabPanel header="Source">
 <CodeHighlight>
 <template v-pre>
-&lt;template&gt;
-	&lt;div&gt;
-		&lt;div class="content-section introduction"&gt;
-			&lt;div class="feature-intro"&gt;
-				&lt;h1&gt;Line Chart&lt;/h1&gt;
-				&lt;p&gt;A line chart or line graph is a type of chart which displays information as a series of data points called 'markers' connected by straight line segments.&lt;/p&gt;
-			&lt;/div&gt;
-		&lt;/div&gt;
+&lt;h3&gt;Basic&lt;/h3&gt;
+&lt;Chart type="line" :data="basicData" /&gt;
 
-		&lt;div class="content-section implementation"&gt;
-			&lt;h3 class="first"&gt;Basic&lt;/h3&gt;
-			&lt;Chart type="line" :data="basicData" /&gt;
+&lt;h3&gt;Multi Axis&lt;/h3&gt;
+&lt;Chart type="line" :data="multiAxisData" :options="multiAxisOptions" /&gt;
 
-			&lt;h3&gt;Multi Axis&lt;/h3&gt;
-			&lt;Chart type="line" :data="multiAxisData" :options="multiAxisOptions" /&gt;
-
-			&lt;h3&gt;Line Styles&lt;/h3&gt;
-			&lt;Chart type="line" :data="lineStylesData" /&gt;
-		&lt;/div&gt;
-	&lt;/div&gt;
-&lt;/template&gt;
+&lt;h3&gt;Line Styles&lt;/h3&gt;
+&lt;Chart type="line" :data="lineStylesData" /&gt;
 </template>
 </CodeHighlight>
 

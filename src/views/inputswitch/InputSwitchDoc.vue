@@ -153,26 +153,13 @@ export default {
 				</a>
 <CodeHighlight>
 <template v-pre>
-&lt;template&gt;
-	&lt;div&gt;
-		&lt;div class="content-section introduction"&gt;
-			&lt;div class="feature-intro"&gt;
-				&lt;h1&gt;InputSwitch&lt;/h1&gt;
-				&lt;p&gt;InputSwitch is used to select a boolean value.&lt;/p&gt;
-			&lt;/div&gt;
-		&lt;/div&gt;
+&lt;h3&gt;Basic&lt;/h3&gt;
+&lt;InputSwitch v-model="checked1" /&gt;
+&lt;p style="font-weight: bold"&gt;{{checked1}}&lt;/p&gt;
 
-		&lt;div class="content-section implementation"&gt;
-			&lt;h3 class="first"&gt;Basic&lt;/h3&gt;
-			&lt;InputSwitch v-model="checked1" /&gt;
-			&lt;p style="font-weight: bold"&gt;{{checked1}}&lt;/p&gt;
-
-			&lt;h3&gt;Preselection&lt;/h3&gt;
-			&lt;InputSwitch v-model="checked2" /&gt;
-			&lt;p style="font-weight: bold"&gt;{{checked2}}&lt;/p&gt;
-		&lt;/div&gt;
-	&lt;/div&gt;
-&lt;/template&gt;
+&lt;h3&gt;Preselection&lt;/h3&gt;
+&lt;InputSwitch v-model="checked2" /&gt;
+&lt;p style="font-weight: bold"&gt;{{checked2}}&lt;/p&gt;
 </template>
 </CodeHighlight>
 

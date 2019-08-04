@@ -171,54 +171,41 @@ export default {
 				</a>
 <CodeHighlight>
 <template v-pre>
-&lt;template&gt;
-	&lt;div&gt;
-        &lt;div class="content-section introduction"&gt;
-            &lt;div class="feature-intro"&gt;
-                &lt;h1&gt;Inplace&lt;/h1&gt;
-                &lt;p&gt;Inplace provides an easy to do editing and display at the same time where clicking the output displays the actual content.&lt;/p&gt;
-            &lt;/div&gt;
-        &lt;/div&gt;
+&lt;h3&gt;Input&lt;/h3&gt;
+&lt;Inplace :closable="true"&gt;
+    &lt;template #display&gt;
+        &#123;&#123;text || 'Click to Edit'&#125;&#125;
+    &lt;/template&gt;
+    &lt;template #content&gt;
+        &lt;InputText v-model="text" autoFocus /&gt;
+    &lt;/template&gt;
+&lt;/Inplace&gt;
 
-        &lt;div class="content-section implementation"&gt;
-            &lt;h3&gt;Input&lt;/h3&gt;
-            &lt;Inplace :closable="true"&gt;
-                &lt;template #display&gt;
-                    &#123;&#123;text || 'Click to Edit'&#125;&#125;
-                &lt;/template&gt;
-                &lt;template #content&gt;
-                    &lt;InputText v-model="text" autoFocus /&gt;
-                &lt;/template&gt;
-            &lt;/Inplace&gt;
+&lt;h3&gt;Image&lt;/h3&gt;
+&lt;Inplace&gt;
+    &lt;template #display&gt;
+        &lt;span className="pi pi-search" style="vertical-align: middle"&gt;&lt;/span&gt;
+        &lt;span style="margin-left:.5em; vertical-align: middle"&gt;View Picture&lt;/span&gt;
+    &lt;/template&gt;
+    &lt;template #content&gt;
+        &lt;img src="demo/images/nature/nature1.jpg" /&gt;
+    &lt;/template&gt;
+&lt;/Inplace&gt;
 
-            &lt;h3&gt;Image&lt;/h3&gt;
-            &lt;Inplace&gt;
-                &lt;template #display&gt;
-                    &lt;span className="pi pi-search" style="vertical-align: middle"&gt;&lt;/span&gt;
-                    &lt;span style="margin-left:.5em; vertical-align: middle"&gt;View Picture&lt;/span&gt;
-                &lt;/template&gt;
-                &lt;template #content&gt;
-                    &lt;img src="demo/images/nature/nature1.jpg" /&gt;
-                &lt;/template&gt;
-            &lt;/Inplace&gt;
-
-            &lt;h3&gt;Lazy Data&lt;/h3&gt;
-            &lt;Inplace @open="loadData"&gt;
-                &lt;template #display&gt;
-                    View Data
-                &lt;/template&gt;
-                &lt;template #content&gt;
-                    &lt;DataTable :value="cars"&gt;
-                        &lt;Column field="vin" header="Vin"&gt;&lt;/Column&gt;
-                        &lt;Column field="year" header="Year"&gt;&lt;/Column&gt;
-                        &lt;Column field="brand" header="Brand"&gt;&lt;/Column&gt;
-                        &lt;Column field="color" header="Color"&gt;&lt;/Column&gt;
-                    &lt;/DataTable&gt;
-                &lt;/template&gt;
-            &lt;/Inplace&gt;
-        &lt;/div&gt;
-    &lt;/div&gt;
-&lt;/template&gt;
+&lt;h3&gt;Lazy Data&lt;/h3&gt;
+&lt;Inplace @open="loadData"&gt;
+    &lt;template #display&gt;
+        View Data
+    &lt;/template&gt;
+    &lt;template #content&gt;
+        &lt;DataTable :value="cars"&gt;
+            &lt;Column field="vin" header="Vin"&gt;&lt;/Column&gt;
+            &lt;Column field="year" header="Year"&gt;&lt;/Column&gt;
+            &lt;Column field="brand" header="Brand"&gt;&lt;/Column&gt;
+            &lt;Column field="color" header="Color"&gt;&lt;/Column&gt;
+        &lt;/DataTable&gt;
+    &lt;/template&gt;
+&lt;/Inplace&gt;
 </template>
 </CodeHighlight>
 

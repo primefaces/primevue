@@ -8,7 +8,6 @@
 		</div>
 
 		<div class="content-section implementation dataview-demo">
-			<h3 class="first">Default</h3>
 			<DataView :value="cars" :layout="layout" paginatorPosition="both" :paginator="true" :rows="20" :sortOrder="sortOrder" :sortField="sortField">
 				<template #header>
 					<div class="p-grid p-nogutter">

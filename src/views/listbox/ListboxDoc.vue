@@ -212,31 +212,18 @@ data() {
 				</a>
 <CodeHighlight>
 <template v-pre>
-&lt;template&gt;
-	&lt;div&gt;
-		&lt;div class="content-section introduction"&gt;
-			&lt;div class="feature-intro"&gt;
-				&lt;h1&gt;Listbox&lt;/h1&gt;
-				&lt;p&gt;Listbox is used to select one or more values from a list of items.&lt;/p&gt;
-			&lt;/div&gt;
-		&lt;/div&gt;
+&lt;h3&gt;Single&lt;/h3&gt;
+&lt;Listbox v-model="selectedCity" :options="cities" optionLabel="name" /&gt;
 
-		&lt;div class="content-section implementation"&gt;
-			&lt;h3 class="first"&gt;Single&lt;/h3&gt;
-			&lt;Listbox v-model="selectedCity" :options="cities" optionLabel="name" /&gt;
-
-			&lt;h3&gt;Advanced with Templating, Filtering and Multiple Selection&lt;/h3&gt;
-			&lt;Listbox v-model="selectedCars" :options="cars" :multiple="true" :filter="true" optionLabel="brand" listStyle="max-height:250px" style="width:15em"&gt;
-				&lt;template #option="slotProps"&gt;
-					&lt;div class="p-clearfix"&gt;
-						&lt;img :alt="slotProps.option.brand" :src="'demo/images/car/' + slotProps.option.brand + '.png'" style="display:inline-block;margin:5px 0 0 5px;width:48px" /&gt;
-						&lt;span style="float:right;margin:1.25em .5em 0 0"&gt;{{slotProps.option.brand}}&lt;/span&gt;
-					&lt;/div&gt;
-				&lt;/template&gt;
-			&lt;/Listbox&gt;
-		&lt;/div&gt;
-	&lt;/div&gt;
-&lt;/template&gt;
+&lt;h3&gt;Advanced with Templating, Filtering and Multiple Selection&lt;/h3&gt;
+&lt;Listbox v-model="selectedCars" :options="cars" :multiple="true" :filter="true" optionLabel="brand" listStyle="max-height:250px" style="width:15em"&gt;
+    &lt;template #option="slotProps"&gt;
+        &lt;div class="p-clearfix"&gt;
+            &lt;img :alt="slotProps.option.brand" :src="'demo/images/car/' + slotProps.option.brand + '.png'" style="display:inline-block;margin:5px 0 0 5px;width:48px" /&gt;
+            &lt;span style="float:right;margin:1.25em .5em 0 0"&gt;{{slotProps.option.brand}}&lt;/span&gt;
+        &lt;/div&gt;
+    &lt;/template&gt;
+&lt;/Listbox&gt;
 </template>
 </CodeHighlight>
 

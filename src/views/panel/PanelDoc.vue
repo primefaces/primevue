@@ -158,34 +158,21 @@ import Panel from 'primevue/panel';
 				</a>
 <CodeHighlight>
 <template v-pre>
-&lt;template&gt;
-	&lt;div&gt;
-		&lt;div class="content-section introduction"&gt;
-			&lt;div class="feature-intro"&gt;
-				&lt;h1&gt;Panel&lt;/h1&gt;
-				&lt;p&gt;Panel is a grouping component with the optional content toggle feature.&lt;/p&gt;
-			&lt;/div&gt;
-		&lt;/div&gt;
+&lt;h3&gt;Regular&lt;/h3&gt;
+&lt;Panel header="Godfather I"&gt;
+    The story begins as Don Vito Corleone, the head of a New York Mafia family, oversees his daughter's wedding.
+    His beloved son Michael has just come home from the war, but does not intend to become part of his father's business.
+    Through Michael's life the nature of the family business becomes clear. The business of the family is just like the head of the family,
+    kind and benevolent to those who give respect, but given to ruthless violence whenever anything stands against the good of the family.
+&lt;/Panel&gt;
 
-		&lt;div class="content-section implementation"&gt;
-			&lt;h3 class="first"&gt;Regular&lt;/h3&gt;
-			&lt;Panel header="Godfather I"&gt;
-				The story begins as Don Vito Corleone, the head of a New York Mafia family, oversees his daughter's wedding.
-				His beloved son Michael has just come home from the war, but does not intend to become part of his father's business.
-				Through Michael's life the nature of the family business becomes clear. The business of the family is just like the head of the family,
-				kind and benevolent to those who give respect, but given to ruthless violence whenever anything stands against the good of the family.
-			&lt;/Panel&gt;
-
-			&lt;h3&gt;Toggleable&lt;/h3&gt;
-			&lt;Panel header="Godfather I" :toggleable="true"&gt;
-				The story begins as Don Vito Corleone, the head of a New York Mafia family, oversees his daughter's wedding.
-				His beloved son Michael has just come home from the war, but does not intend to become part of his father's business.
-				Through Michael's life the nature of the family business becomes clear. The business of the family is just like the head of the family,
-				kind and benevolent to those who give respect, but given to ruthless violence whenever anything stands against the good of the family.
-			&lt;/Panel&gt;
-		&lt;/div&gt;
-	&lt;/div&gt;
-&lt;/template&gt;
+&lt;h3&gt;Toggleable&lt;/h3&gt;
+&lt;Panel header="Godfather I" :toggleable="true"&gt;
+    The story begins as Don Vito Corleone, the head of a New York Mafia family, oversees his daughter's wedding.
+    His beloved son Michael has just come home from the war, but does not intend to become part of his father's business.
+    Through Michael's life the nature of the family business becomes clear. The business of the family is just like the head of the family,
+    kind and benevolent to those who give respect, but given to ruthless violence whenever anything stands against the good of the family.
+&lt;/Panel&gt;
 </template>
 </CodeHighlight>
 			</TabPanel>

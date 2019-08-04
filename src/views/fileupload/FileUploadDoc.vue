@@ -251,27 +251,14 @@ import FileUpload from 'primevue/fileupload';
 				</a>
 <CodeHighlight>
 <template v-pre>
-&lt;template&gt;
-	&lt;div&gt;
-		&lt;div class="content-section introduction"&gt;
-			&lt;div class="feature-intro"&gt;
-				&lt;h1&gt;FileUpload&lt;/h1&gt;
-				&lt;p&gt;FileUpload is an advanced uploader with dragdrop support, multi file uploads, auto uploading, progress tracking and validations.&lt;/p&gt;
-			&lt;/div&gt;
-		&lt;/div&gt;
+&lt;h3&gt;Advanced&lt;/h3&gt;
+&lt;FileUpload name="demo[]" url="./upload.php" @upload="onUpload" :multiple="true" accept="image/*" :maxFileSize="1000000" /&gt;
 
-		&lt;div class="content-section implementation"&gt;
-			&lt;h3&gt;Advanced&lt;/h3&gt;
-			&lt;FileUpload name="demo[]" url="./upload.php" @upload="onUpload" :multiple="true" accept="image/*" :maxFileSize="1000000" /&gt;
+&lt;h3&gt;Basic&lt;/h3&gt;
+&lt;FileUpload mode="basic" name="demo[]" url="./upload.php" accept="image/*" :maxFileSize="1000000" @upload="onUpload" /&gt;
 
-			&lt;h3&gt;Basic&lt;/h3&gt;
-			&lt;FileUpload mode="basic" name="demo[]" url="./upload.php" accept="image/*" :maxFileSize="1000000" @upload="onUpload" /&gt;
-
-			&lt;h3&gt;Basic with Auto&lt;/h3&gt;
-			&lt;FileUpload mode="basic" name="demo[]" url="./upload.php" accept="image/*" :maxFileSize="1000000" @upload="onUpload" :auto="true" chooseLabel="Browse" /&gt;
-		&lt;/div&gt;
-	&lt;/div&gt;
-&lt;/template&gt;
+&lt;h3&gt;Basic with Auto&lt;/h3&gt;
+&lt;FileUpload mode="basic" name="demo[]" url="./upload.php" accept="image/*" :maxFileSize="1000000" @upload="onUpload" :auto="true" chooseLabel="Browse" /&gt;
 </template>
 </CodeHighlight>
 

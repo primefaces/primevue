@@ -145,52 +145,39 @@ export default {
 				</a>
 <CodeHighlight>
 <template v-pre>
-&lt;template&gt;
-	&lt;div&gt;
-		&lt;div class="content-section introduction"&gt;
-			&lt;div class="feature-intro"&gt;
-				&lt;h1&gt;Checkbox&lt;/h1&gt;
-				&lt;p&gt;Checkbox is an extension to standard checkbox element with theming.&lt;/p&gt;
-			&lt;/div&gt;
-		&lt;/div&gt;
+&lt;h3&gt;Basic&lt;/h3&gt;
+&lt;Checkbox id="binary" v-model="checked" :binary="true"/&gt;
+&lt;label for="binary" class="p-checkbox-label" style="font-weight: bold"&gt;{{checked}}&lt;/label&gt;
 
-		&lt;div class="content-section implementation"&gt;
-			&lt;h3 class="first"&gt;Basic&lt;/h3&gt;
-			&lt;Checkbox id="binary" v-model="checked" :binary="true"/&gt;
-			&lt;label for="binary" class="p-checkbox-label" style="font-weight: bold"&gt;{{checked}}&lt;/label&gt;
+&lt;h3&gt;Multiple&lt;/h3&gt;
+&lt;div class="p-grid"&gt;
+    &lt;div class="p-col-12"&gt;
+        &lt;Checkbox id="city1" name="city" value="Chicago" v-model="cities" /&gt;
+        &lt;label for="city1" class="p-checkbox-label"&gt;Chicago&lt;/label&gt;
+    &lt;/div&gt;
+    &lt;div class="p-col-12"&gt;
+        &lt;Checkbox id="city2" name="city" value="Los Angeles" v-model="cities" /&gt;
+        &lt;label for="city2" class="p-checkbox-label"&gt;Los Angeles&lt;/label&gt;
+    &lt;/div&gt;
+    &lt;div class="p-col-12"&gt;
+        &lt;Checkbox id="city3" name="city" value="New York" v-model="cities" /&gt;
+        &lt;label for="city3" class="p-checkbox-label"&gt;New York&lt;/label&gt;
+    &lt;/div&gt;
+    &lt;div class="p-col-12"&gt;
+        &lt;Checkbox id="city4" name="city" value="San Francisco" v-model="cities" /&gt;
+        &lt;label for="city4" class="p-checkbox-label"&gt;San Francisco&lt;/label&gt;
+    &lt;/div&gt;
+&lt;/div&gt;
+&lt;p&gt;Selected Cities : &lt;span style="font-weight: bold"&gt;{{cities}}&lt;/span&gt;&lt;/p&gt;
 
-			&lt;h3&gt;Multiple&lt;/h3&gt;
-			&lt;div class="p-grid"&gt;
-				&lt;div class="p-col-12"&gt;
-					&lt;Checkbox id="city1" name="city" value="Chicago" v-model="cities" /&gt;
-					&lt;label for="city1" class="p-checkbox-label"&gt;Chicago&lt;/label&gt;
-				&lt;/div&gt;
-				&lt;div class="p-col-12"&gt;
-					&lt;Checkbox id="city2" name="city" value="Los Angeles" v-model="cities" /&gt;
-					&lt;label for="city2" class="p-checkbox-label"&gt;Los Angeles&lt;/label&gt;
-				&lt;/div&gt;
-				&lt;div class="p-col-12"&gt;
-					&lt;Checkbox id="city3" name="city" value="New York" v-model="cities" /&gt;
-					&lt;label for="city3" class="p-checkbox-label"&gt;New York&lt;/label&gt;
-				&lt;/div&gt;
-				&lt;div class="p-col-12"&gt;
-					&lt;Checkbox id="city4" name="city" value="San Francisco" v-model="cities" /&gt;
-					&lt;label for="city4" class="p-checkbox-label"&gt;San Francisco&lt;/label&gt;
-				&lt;/div&gt;
-			&lt;/div&gt;
-			&lt;p&gt;Selected Cities : &lt;span style="font-weight: bold"&gt;{{cities}}&lt;/span&gt;&lt;/p&gt;
-
-			&lt;h3&gt;Dynamic Values, Preselection, Value Binding and Disabled Option&lt;/h3&gt;
-			&lt;div class="p-grid"&gt;
-				&lt;div v-for="theme of themes" :key="theme.key" class="p-col-12"&gt;
-					&lt;Checkbox :id="theme.key" name="theme" :value="theme" v-model="selectedThemes" :disabled="theme.key === 'U'"/&gt;
-					&lt;label :for="theme.key" class="p-checkbox-label"&gt;{{theme.name}}&lt;/label&gt;
-				&lt;/div&gt;
-			&lt;/div&gt;
-			&lt;p&gt;Selected Themes: &lt;span style="font-weight: bold"&gt;{{this.selectedThemes}}&lt;/span&gt;&lt;/p&gt;
-		&lt;/div&gt;
-	&lt;/div&gt;
-&lt;/template&gt;
+&lt;h3&gt;Dynamic Values, Preselection, Value Binding and Disabled Option&lt;/h3&gt;
+&lt;div class="p-grid"&gt;
+    &lt;div v-for="theme of themes" :key="theme.key" class="p-col-12"&gt;
+        &lt;Checkbox :id="theme.key" name="theme" :value="theme" v-model="selectedThemes" :disabled="theme.key === 'U'"/&gt;
+        &lt;label :for="theme.key" class="p-checkbox-label"&gt;{{theme.name}}&lt;/label&gt;
+    &lt;/div&gt;
+&lt;/div&gt;
+&lt;p&gt;Selected Themes: &lt;span style="font-weight: bold"&gt;{{this.selectedThemes}}&lt;/span&gt;&lt;/p&gt;
 </template>
 </CodeHighlight>
 

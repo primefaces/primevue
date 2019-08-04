@@ -97,27 +97,14 @@ import Textarea from 'primevue/textarea';
 				</a>
 <CodeHighlight>
 <template v-pre>
-&lt;template&gt;
-	&lt;div&gt;
-		&lt;div class="content-section introduction"&gt;
-			&lt;div class="feature-intro"&gt;
-				&lt;h1&gt;Textarea&lt;/h1&gt;
-				&lt;p&gt;Textarea is a multi-line text input element.&lt;/p&gt;
-			&lt;/div&gt;
-		&lt;/div&gt;
+&lt;h3&gt;Basic&lt;/h3&gt;
+&lt;Textarea v-model="value1" rows="5" cols="30" /&gt;
 
-		&lt;div class="content-section implementation"&gt;
-			&lt;h3 class="first"&gt;Basic&lt;/h3&gt;
-			&lt;Textarea v-model="value1" rows="5" cols="30" /&gt;
+&lt;h3&gt;Auto Resize&lt;/h3&gt;
+&lt;Textarea v-model="value2" :autoResize="true" rows="5" cols="30" /&gt;
 
-			&lt;h3&gt;Auto Resize&lt;/h3&gt;
-			&lt;Textarea v-model="value2" :autoResize="true" rows="5" cols="30" /&gt;
-
-			&lt;h3&gt;Disabled&lt;/h3&gt;
-			&lt;Textarea v-model="value3" disabled rows="5" cols="30" /&gt;
-		&lt;/div&gt;
-	&lt;/div&gt;
-&lt;/template&gt;
+&lt;h3&gt;Disabled&lt;/h3&gt;
+&lt;Textarea v-model="value3" disabled rows="5" cols="30" /&gt;
 </template>
 </CodeHighlight>
 

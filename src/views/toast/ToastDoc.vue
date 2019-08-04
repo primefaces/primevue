@@ -248,60 +248,47 @@ this.$toast.removeAllGroups();
 				</a>
 <CodeHighlight>
 <template v-pre>
-&lt;template&gt;
-	&lt;div&gt;
-		&lt;div class="content-section introduction"&gt;
-			&lt;div class="feature-intro"&gt;
-				&lt;h1&gt;Toast&lt;/h1&gt;
-				&lt;p&gt;Toast is used to display messages in an overlay.&lt;/p&gt;
-			&lt;/div&gt;
-		&lt;/div&gt;
+&lt;h3&gt;Severities&lt;/h3&gt;
+&lt;div class="p-grid"&gt;
+    &lt;div class="p-col-12 p-md-3"&gt;
+        &lt;Button label="Success" class="p-button-success" @click="showSuccess" /&gt;
+    &lt;/div&gt;
+    &lt;div class="p-col-12 p-md-3"&gt;
+        &lt;Button label="Info" class="p-button-info" @click="showInfo" /&gt;
+    &lt;/div&gt;
+    &lt;div class="p-col-12 p-md-3"&gt;
+        &lt;Button label="Warn" class="p-button-warning" @click="showWarn" /&gt;
+    &lt;/div&gt;
+    &lt;div class="p-col-12 p-md-3"&gt;
+        &lt;Button label="Error" class="p-button-danger" @click="showError" /&gt;
+    &lt;/div&gt;
+&lt;/div&gt;
 
-		&lt;div class="content-section implementation p-fluid"&gt;
-			&lt;h3&gt;Severities&lt;/h3&gt;
-			&lt;div class="p-grid"&gt;
-				&lt;div class="p-col-12 p-md-3"&gt;
-					&lt;Button label="Success" class="p-button-success" @click="showSuccess" /&gt;
-				&lt;/div&gt;
-				&lt;div class="p-col-12 p-md-3"&gt;
-					&lt;Button label="Info" class="p-button-info" @click="showInfo" /&gt;
-				&lt;/div&gt;
-				&lt;div class="p-col-12 p-md-3"&gt;
-					&lt;Button label="Warn" class="p-button-warning" @click="showWarn" /&gt;
-				&lt;/div&gt;
-				&lt;div class="p-col-12 p-md-3"&gt;
-					&lt;Button label="Error" class="p-button-danger" @click="showError" /&gt;
-				&lt;/div&gt;
-			&lt;/div&gt;
+&lt;h3&gt;Positions&lt;/h3&gt;
+&lt;div class="p-grid"&gt;
+    &lt;div class="p-col-12 p-md-4"&gt;
+        &lt;Button label="Top Left" @click="showTopLeft" /&gt;
+    &lt;/div&gt;
+    &lt;div class="p-col-12 p-md-4"&gt;
+        &lt;Button label="Bottom Left" class="p-button-warning" @click="showBottomLeft" /&gt;
+    &lt;/div&gt;
+    &lt;div class="p-col-12 p-md-4"&gt;
+        &lt;Button label="Bottom Right" class="p-button-success" @click="showBottomRight" /&gt;
+    &lt;/div&gt;
+&lt;/div&gt;
 
-			&lt;h3&gt;Positions&lt;/h3&gt;
-			&lt;div class="p-grid"&gt;
-				&lt;div class="p-col-12 p-md-4"&gt;
-					&lt;Button label="Top Left" @click="showTopLeft" /&gt;
-				&lt;/div&gt;
-				&lt;div class="p-col-12 p-md-4"&gt;
-					&lt;Button label="Bottom Left" class="p-button-warning" @click="showBottomLeft" /&gt;
-				&lt;/div&gt;
-				&lt;div class="p-col-12 p-md-4"&gt;
-					&lt;Button label="Bottom Right" class="p-button-success" @click="showBottomRight" /&gt;
-				&lt;/div&gt;
-			&lt;/div&gt;
+&lt;h3&gt;Options&lt;/h3&gt;
+&lt;div class="p-grid"&gt;
+    &lt;div class="p-col-12 p-md-6"&gt;
+        &lt;Button @click="showMultiple" label="Multiple" class="p-button-warning" /&gt;
+    &lt;/div&gt;
+    &lt;div class="p-col-12 p-md-6"&gt;
+        &lt;Button @click="showSticky" label="Sticky" /&gt;
+    &lt;/div&gt;
+&lt;/div&gt;
 
-			&lt;h3&gt;Options&lt;/h3&gt;
-			&lt;div class="p-grid"&gt;
-				&lt;div class="p-col-12 p-md-6"&gt;
-					&lt;Button @click="showMultiple" label="Multiple" class="p-button-warning" /&gt;
-				&lt;/div&gt;
-				&lt;div class="p-col-12 p-md-6"&gt;
-					&lt;Button @click="showSticky" label="Sticky" /&gt;
-				&lt;/div&gt;
-			&lt;/div&gt;
-
-			&lt;h3&gt;Remove All&lt;/h3&gt;
-			&lt;Button @click="clear" label="Clear" /&gt;
-		&lt;/div&gt;
-	&lt;/div&gt;
-&lt;/template&gt;
+&lt;h3&gt;Remove All&lt;/h3&gt;
+&lt;Button @click="clear" label="Clear" /&gt;
 </template>
 </CodeHighlight>
 
