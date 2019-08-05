@@ -13,7 +13,6 @@
 <script>
 import ObjectUtils from '../utils/ObjectUtils';
 import TreeTableColumnSlot from './TreeTableColumnSlot';
-import { Fragment } from 'vue-fragment';
 
 export default {
     name: 'sub-ttnode',
@@ -83,14 +82,10 @@ export default {
         },
         childLevel() {
             return this.level + 1;
-        },
-        childrenToRender() {
-            return this.expanded ? this.node.children: null;
         }
     },
     components: {
-        'TTColumnSlot': TreeTableColumnSlot,
-        'TTFragment': Fragment
+        'TTColumnSlot': TreeTableColumnSlot
     }
 }
 </script>

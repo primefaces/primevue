@@ -46,7 +46,7 @@
 
 <script>
 import TreeTableColumnSlot from './TreeTableColumnSlot';
-import TreeTableRow from './TreeTableRow';
+import TreeTableRowLoader from './TreeTableRowLoader';
 
 export default {
     props: {
@@ -243,7 +243,7 @@ export default {
     },
     components: {
         'TTColumnSlot': TreeTableColumnSlot,
-        'TTRow': TreeTableRow
+        'TTRow': TreeTableRowLoader
     }
 }
 </script>
