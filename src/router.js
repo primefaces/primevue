@@ -380,7 +380,12 @@ export default new Router({
 			path: '/tree/filter',
 			name: 'treefilter',
 			component: () => import('./views/tree/TreeFilterDemo.vue')
-		},
+        },
+        {
+			path: '/treetable',
+			name: 'treetable',
+			component: () => import('./views/treetable/TreeTableDemo.vue')
+        },
 		{
 			path: '/tristatecheckbox',
 			name: 'tristatecheckbox',

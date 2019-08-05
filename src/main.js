@@ -48,6 +48,7 @@ import TabView from './components/tabview/TabView';
 import TabPanel from './components/tabpanel/TabPanel';
 import Textarea from './components/textarea/Textarea';
 import Tree from './components/tree/Tree';
+import TreeTable from './components/treetable/TreeTable';
 import Toast from './components/toast/Toast';
 import ToastService from './components/toast/ToastService';
 import Toolbar from './components/toolbar/Toolbar';
@@ -119,6 +120,7 @@ Vue.component('Toast', Toast);
 Vue.component('Toolbar', Toolbar);
 Vue.component('ToggleButton', ToggleButton);
 Vue.component('Tree', Tree);
+Vue.component('TreeTable', TreeTable);
 Vue.component('TriStateCheckbox', TriStateCheckbox);
 Vue.component('ValidationMessage', ValidationMessage);
 

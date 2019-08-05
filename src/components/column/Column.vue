@@ -61,6 +61,10 @@ export default {
         selectionMode: {
             type: String,
             default: null
+        },
+        expander: {
+            type: Boolean,
+            default: false
         }
     },
     render() {
