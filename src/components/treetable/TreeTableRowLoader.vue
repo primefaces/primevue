@@ -1,8 +1,7 @@
 <script>
 import TreeTableRow from './TreeTableRow';
-import TreeTableRowRecursiveLoader from './TreeTableRowRecursiveLoader';
 
-export default {
+const TreeTableRowLoader = {
     functional: true,
     props: {
         node: {
@@ -48,7 +47,7 @@ export default {
                 childNodeProps.node = childNode;
                 childNodeProps.level = context.props.level + 1;
 
-                let childNodeElement = createElement(TreeTableRowRecursiveLoader, { 
+                let childNodeElement = createElement(TreeTableRowLoader, { 
                     props: childNodeProps,
                     on: {
                         'node-toggle': context.listeners['node-toggle']
@@ -62,4 +61,6 @@ export default {
         return element;
     }
 };
+
+export default TreeTableRowLoader;
 </script>
