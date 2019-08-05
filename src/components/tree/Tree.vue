@@ -117,7 +117,7 @@ export default {
             const originalEvent = event.originalEvent;
             const node = event.node;
             const metaKey = (originalEvent.metaKey||originalEvent.ctrlKey);
-            const selected = this.selected;
+            const selected = this.isNodeSelected(node);
             let _selectionKeys;
         
             if (selected && metaKey) {
@@ -147,7 +147,7 @@ export default {
         },
         handleSelectionWithoutMetaKey(event) {
             const node = event.node;
-            const selected = this.isSelected(node);
+            const selected = this.isNodeSelected(node);
             let _selectionKeys;
             
             if (this.isSingleSelectionMode()) {
@@ -184,7 +184,7 @@ export default {
         isMultipleSelectionMode() {
             return this.selectionMode === 'multiple';
         },
-        isSelected(node) {
+        isNodeSelected(node) {
             return (this.selectionMode && this.selectionKeys) ? this.selectionKeys[node.key] === true : false;
         },
         isChecked(node) {
@@ -336,6 +336,7 @@ export default {
     display: inline-block;
     padding: 0 .25em;
     vertical-align: middle;
+    user-select: none;
 }
 
 .p-tree .p-treenode.p-treenode-leaf > .p-treenode-content > .p-tree-toggler {
