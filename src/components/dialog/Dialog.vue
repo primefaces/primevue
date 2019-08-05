@@ -3,7 +3,7 @@
         <div ref="container" :class="containerClass" v-if="visible">
             <div class="p-dialog-titlebar" v-if="showHeader">
                 <slot name="header">
-                    <span class="p-panel-title" v-if="header">{{header}}</span>
+                    <span class="p-dialog-title" v-if="header">{{header}}</span>
                 </slot>
                 <div class="p-dialog-titlebar-icons">
                     <button class="p-dialog-titlebar-icon p-dialog-titlebar-close p-link" @click="close" v-if="closable">
