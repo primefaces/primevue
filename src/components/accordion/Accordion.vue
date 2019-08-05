@@ -47,7 +47,7 @@ export default {
                             <div key={tab.header||i} class="p-accordion-tab">
                                 <div class={['p-accordion-header', {'p-highlight': tab.d_active, 'p-disabled': tab.disabled}]}>
                                     <a role="tab" on-click={event => this.onTabClick(event, tab)} on-keydown={event => this.onTabKeydown(event, tab)} tabindex={tab.disabled ? null : '0'}>
-                                        <span class="p-accordion-toggle-icon pi pi-fw pi-caret-right"></span>
+                                        <span class={['p-accordion-toggle-icon pi pi-fw ',{'pi-caret-right': !tab.d_active, 'pi-caret-down': tab.d_active}]}></span>
                                         {tab.header && <span class="p-accordion-header-text">{tab.header}</span>}
                                         {tab.$slots.header}
                                     </a>
