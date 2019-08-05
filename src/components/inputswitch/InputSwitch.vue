@@ -45,6 +45,7 @@ export default {
                 'p-inputswitch p-component',
                 {
                     'p-inputswitch-checked': this.value,
+					'p-disabled': this.disabled,
                     'p-inputswitch-focus': this.focused
                 }
             ];
