@@ -15,7 +15,24 @@
                 <Column field="name" header="Name" :expander="true"></Column>
                 <Column field="size" header="Size"></Column>
                 <Column field="type" header="Type"></Column>
-            </TreeTable> 
+            </TreeTable>
+
+            <h3>Dynamic Columns</h3>
+            <TreeTable :value="nodes">
+                <Column v-for="col of columns" :key="col.field"
+                    :field="col.field" :header="col.header" :expander="col.expander"></Column>
+            </TreeTable>
+
+            <h3>Programmatic Control</h3>
+            <div style="margin-bottom: 1em">
+                <Button type="button" icon="pi pi-plus" label="Expand All" @click="expandAll" />
+                <Button type="button" icon="pi pi-minus" label="Collapse All" @click="collapseAll" />
+            </div>
+            <TreeTable :value="nodes" :expandedKeys="expandedKeys">
+                <Column field="name" header="Name" :expander="true"></Column>
+                <Column field="size" header="Size"></Column>
+                <Column field="type" header="Type"></Column>
+            </TreeTable>
         </div>
 
         <TreeTableDoc />
@@ -31,12 +48,19 @@ export default {
     data() {
         return {
             nodes: null,
+            columns: null,
             expandedKeys: {}
         }
     },
     nodeService: null,
     created() {
         this.nodeService = new NodeService();
+
+        this.columns = [
+            {field: 'name', header: 'Vin', expander: true},
+            {field: 'size', header: 'Size'},
+            {field: 'type', header: 'Type'}
+        ];
     },
     mounted() {
         this.nodeService.getTreeTableNodes().then(data => this.nodes = data);
@@ -53,6 +77,7 @@ export default {
             this.expandedKeys = {};
         },
         expandNode(node) {
+            
             this.expandedKeys[node.key] = true;
             if (node.children && node.children.length) {
                 for (let child of node.children) {

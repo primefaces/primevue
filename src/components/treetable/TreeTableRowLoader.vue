@@ -41,7 +41,7 @@ const TreeTableRowLoader = {
         const node = context.props.node;
         const expanded = context.props.expandedKeys && context.props.expandedKeys[node.key] === true;
 
-        if (expanded) {
+        if (expanded && node.children && node.children.length) {
             for (let childNode of node.children) {
                 let childNodeProps = {...context.props};
                 childNodeProps.node = childNode;
