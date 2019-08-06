@@ -1,0 +1,63 @@
+<template>
+    <div>
+        <TreeTableSubMenu />
+
+        <div class="content-section introduction">
+            <div class="feature-intro">
+                <h1>TreeTable - Paginator</h1>
+               <p>Pagination is enabled by setting paginator property to true and defining the rows attribute as the number of root level nodes per page.</p>
+            </div>
+        </div>
+
+        <div class="content-section implementation">
+            <TreeTable :value="nodes" :paginator="true" :rows="10">
+                <Column field="name" header="Name" :expander="true"></Column>
+                <Column field="size" header="Size"></Column>
+                <Column field="type" header="Type"></Column>
+            </TreeTable>
+        </div>
+    </div>
+</template>
+
+<script>
+import TreeTableSubMenu from './TreeTableSubMenu';
+
+export default {
+    data() {
+        return {
+            nodes: null
+        }
+    },
+    nodeService: null,
+    created() {
+        let files = [];
+        for(let i = 0; i < 50; i++) {
+            let node = {
+                key: i,
+                data: {  
+                    name: 'Item ' + i,
+                    size: Math.floor(Math.random() * 1000) + 1 + 'kb',
+                    type: 'Type ' + i
+                },
+                children: [
+                    {
+                        key: i + ' - 0',
+                        data: {  
+                            name: 'Item ' + i + ' - 0',
+                            size: Math.floor(Math.random() * 1000) + 1 + 'kb',
+                            type: 'Type ' + i
+                        }
+                    }
+                ]
+            };
+
+            files.push(node);
+        }
+
+        this.nodes = files;
+    },
+    components: {
+        'TreeTableSubMenu': TreeTableSubMenu
+    }
+}
+</script>

@@ -4,6 +4,15 @@
         <div class="p-treetable-header" v-if="$scopedSlots.header">
             <slot name="header"></slot>
         </div>
+         <TTPaginator v-if="paginatorTop" :rows="d_rows" :first="d_first" :totalRecords="totalRecordsLength" :pageLinkSize="pageLinkSize" :template="paginatorTemplate" :rowsPerPageOptions="rowsPerPageOptions"
+                :currentPageReportTemplate="currentPageReportTemplate" class="p-paginator-top" @page="onPage($event)" :alwaysShow="alwaysShowPaginator">
+            <template #left v-if="$scopedSlots.paginatorLeft">
+                <slot name="paginatorLeft"></slot>
+            </template>
+            <template #right v-if="$scopedSlots.paginatorRight">
+                <slot name="paginatorRight"></slot>
+            </template>
+        </TTPaginator>
         <div class="p-treetable-wrapper">
             <table>
                 <thead class="p-treetable-thead">
@@ -26,7 +35,7 @@
                 </tfoot>
                 <tbody class="p-treetable-tbody">
                     <template v-if="!empty">
-                        <TTRow v-for="node of value" :key="node.key" :columns="columns" :node="node" :level="0"
+                        <TTRow v-for="node of dataToRender" :key="node.key" :columns="columns" :node="node" :level="0"
                         :expandedKeys="d_expandedKeys" @node-toggle="onNodeToggle"
                         :selectionMode="selectionMode" :selectionKeys="selectionKeys"></TTRow>
                     </template>
@@ -38,6 +47,15 @@
                 </tbody>
             </table>
         </div>
+        <TTPaginator v-if="paginatorBottom" :rows="d_rows" :first="d_first" :totalRecords="totalRecordsLength" :pageLinkSize="pageLinkSize" :template="paginatorTemplate" :rowsPerPageOptions="rowsPerPageOptions"
+                :currentPageReportTemplate="currentPageReportTemplate" class="p-paginator-bottom" @page="onPage($event)" :alwaysShow="alwaysShowPaginator">
+            <template #left v-if="$scopedSlots.paginatorLeft">
+                <slot name="paginatorLeft"></slot>
+            </template>
+            <template #right v-if="$scopedSlots.paginatorRight">
+                <slot name="paginatorRight"></slot>
+            </template>
+        </TTPaginator>
         <div class="p-treetable-footer" v-if="$scopedSlots.header">
             <slot name="footer"></slot>
         </div>
@@ -47,6 +65,7 @@
 <script>
 import TreeTableColumnSlot from './TreeTableColumnSlot';
 import TreeTableRowLoader from './TreeTableRowLoader';
+import Paginator from '../paginator/Paginator';
 
 export default {
     props: {
@@ -69,6 +88,50 @@ export default {
         metaKeySelection: {
             type: Boolean,
             default: true
+        },
+        rows: {
+            type: Number,
+            default: 0
+        },
+        first: {
+            type: Number,
+            default: 0
+        },
+        totalRecords: {
+            type: Number,
+            default: 0
+        },
+        paginator: {
+            type: Boolean,
+            default: false
+        },
+        paginatorPosition: {
+            type: String,
+            default: 'bottom'
+        },
+        alwaysShowPaginator: {
+            type: Boolean,
+            default: true
+        },
+        paginatorTemplate: {
+            type: String,
+            default: 'FirstPageLink PrevPageLink PageLinks NextPageLink LastPageLink RowsPerPageDropdown'
+        },
+        pageLinkSize: {
+            type: Number,
+            default: 5
+        },
+        rowsPerPageOptions: {
+            type: Array,
+            default: null
+        },
+        currentPageReportTemplate: {
+            type: String,
+            default: '({currentPage} of {totalPages})'
+        },
+        lazy: {
+            type: Boolean,
+            default: false
         },
         loading: {
             type: Boolean,
@@ -157,6 +220,18 @@ export default {
             this.d_expandedKeys = {...this.d_expandedKeys};
             this.$emit('update:expandedKeys', this.d_expandedKeys);
         },
+        onPage(event) {
+            this.d_first = event.first;
+            this.d_rows = event.rows;
+
+            this.$emit('update:first', this.d_first);
+            this.$emit('update:rows', this.d_rows);
+            this.$emit('page', event);
+        },
+        resetPage() {
+            this.d_first = 0;
+            this.$emit('update:first', this.d_first);
+        },
         getColumnHeaderClass(column) {
             const sorted = this.sortMode === 'single' ? (this.d_sortField === (column.field || column.sortField)) : this.getMultiSortMetaIndex(column) > -1;
 
@@ -224,6 +299,17 @@ export default {
         processedData() {
             return this.value;
         },
+        dataToRender() {
+            const data = this.processedData;
+
+            if (this.paginator) {
+                const first = this.lazy ? 0 : this.d_first;
+                return data.slice(first, first + this.d_rows);
+            }
+            else {
+                return data;
+            }
+        },
         empty() {
             const data = this.processedData;
             return (!data || data.length === 0);
@@ -239,11 +325,27 @@ export default {
             }
 
             return hasFooter;
+        },
+        paginatorTop() {
+            return this.paginator && (this.paginatorPosition !== 'bottom' || this.paginatorPosition === 'both');
+        },
+        paginatorBottom() {
+            return this.paginator && (this.paginatorPosition !== 'top' || this.paginatorPosition === 'both');
+        },
+        totalRecordsLength() {
+            if (this.lazy) {
+                return this.totalRecords;
+            }
+            else {
+                const data = this.processedData;
+                return data ? data.length : 0;
+            }
         }
     },
     components: {
         'TTColumnSlot': TreeTableColumnSlot,
-        'TTRow': TreeTableRowLoader
+        'TTRow': TreeTableRowLoader,
+        'TTPaginator': Paginator,
     }
 }
 </script>
