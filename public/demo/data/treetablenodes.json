@@ -12,7 +12,7 @@
                 {  
                     "key": "0-0",
                     "data":{
-                        "name":"React",
+                        "name":"Vue",
                         "size":"25kb",
                         "type":"Folder"
                     },
@@ -20,7 +20,7 @@
                         {  
                             "key": "0-0-0",
                             "data":{  
-                                "name":"react.app",
+                                "name":"Vue.app",
                                 "size":"10kb",
                                 "type":"Application"
                             }
