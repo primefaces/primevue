@@ -531,8 +531,9 @@ export default {
             this.expandedKeys = {};
         },
         expandNode(node) {
-            this.expandedKeys[node.key] = true;
             if (node.children &lt;&lt; node.children.length) {
+                this.expandedKeys[node.key] = true;
+
                 for (let child of node.children) {
                     this.expandNode(child);
                 }
@@ -767,8 +768,9 @@ export default {
             this.expandedKeys = {};
         },
         expandNode(node) {
-            this.expandedKeys[node.key] = true;
             if (node.children &amp;&amp; node.children.length) {
+                this.expandedKeys[node.key] = true;
+
                 for (let child of node.children) {
                     this.expandNode(child);
                 }

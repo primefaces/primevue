@@ -77,9 +77,9 @@ export default {
             this.expandedKeys = {};
         },
         expandNode(node) {
-            
-            this.expandedKeys[node.key] = true;
             if (node.children && node.children.length) {
+                this.expandedKeys[node.key] = true;
+
                 for (let child of node.children) {
                     this.expandNode(child);
                 }
