@@ -6,25 +6,25 @@
 			<div class="feature-intro">
 				<h1>DataTable - Column Resize</h1>
 				<p>Columns can be resized using drag drop by setting the resizableColumns to true. There are two resize modes; "fit" and "expand". Fit is the default one and the overall table width does not change when a column is resized. 
-                    In "expand" mode, table width also changes along with the column width. onColumnResize is a callback that passes the resized column header as a parameter.</p>
+                    In "expand" mode, table width also changes along with the column width.</p>
 			</div>
 		</div>
 
 		<div class="content-section implementation">
             <h3>Fit Mode</h3>
 			<DataTable :value="cars" :resizableColumns="true" columnResizeMode="fit">
-                <Column field="vin" header="Vin" :resizable="true"></Column>
-                <Column field="year" header="Year" :resizable="true"></Column>
-                <Column field="brand" header="Brand" :resizable="true"></Column>
-                <Column field="color" header="Color" :resizable="true"></Column>
+                <Column field="vin" header="Vin"></Column>
+                <Column field="year" header="Year"></Column>
+                <Column field="brand" header="Brand"></Column>
+                <Column field="color" header="Color"></Column>
             </DataTable>
 
             <h3>Expand Mode</h3>
 			<DataTable :value="cars" :resizableColumns="true" columnResizeMode="expand">
-                <Column field="vin" header="Vin" :resizable="true"></Column>
-                <Column field="year" header="Year" :resizable="true"></Column>
-                <Column field="brand" header="Brand" :resizable="true"></Column>
-                <Column field="color" header="Color" :resizable="true"></Column>
+                <Column field="vin" header="Vin"></Column>
+                <Column field="year" header="Year"></Column>
+                <Column field="brand" header="Brand"></Column>
+                <Column field="color" header="Color"></Column>
             </DataTable>
 		</div>
 
@@ -35,18 +35,18 @@
 <template v-pre>
 &lt;h3&gt;Fit Mode&lt;/h3&gt;
 &lt;DataTable :value="cars" :resizableColumns="true" columnResizeMode="fit"&gt;
-    &lt;Column field="vin" header="Vin" :resizable="true"&gt;&lt;/Column&gt;
-    &lt;Column field="year" header="Year" :resizable="true"&gt;&lt;/Column&gt;
-    &lt;Column field="brand" header="Brand" :resizable="true"&gt;&lt;/Column&gt;
-    &lt;Column field="color" header="Color" :resizable="true"&gt;&lt;/Column&gt;
+    &lt;Column field="vin" header="Vin"&gt;&lt;/Column&gt;
+    &lt;Column field="year" header="Year"&gt;&lt;/Column&gt;
+    &lt;Column field="brand" header="Brand"&gt;&lt;/Column&gt;
+    &lt;Column field="color" header="Color"&gt;&lt;/Column&gt;
 &lt;/DataTable&gt;
 
 &lt;h3&gt;Expand Mode&lt;/h3&gt;
 &lt;DataTable :value="cars" :resizableColumns="true" columnResizeMode="expand"&gt;
-    &lt;Column field="vin" header="Vin" :resizable="true"&gt;&lt;/Column&gt;
-    &lt;Column field="year" header="Year" :resizable="true"&gt;&lt;/Column&gt;
-    &lt;Column field="brand" header="Brand" :resizable="true"&gt;&lt;/Column&gt;
-    &lt;Column field="color" header="Color" :resizable="true"&gt;&lt;/Column&gt;
+    &lt;Column field="vin" header="Vin"&gt;&lt;/Column&gt;
+    &lt;Column field="year" header="Year"&gt;&lt;/Column&gt;
+    &lt;Column field="brand" header="Brand"&gt;&lt;/Column&gt;
+    &lt;Column field="color" header="Color"&gt;&lt;/Column&gt;
 &lt;/DataTable&gt;
 </template>
 </CodeHighlight>

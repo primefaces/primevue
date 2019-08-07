@@ -404,8 +404,8 @@ export default {
             const sorted = this.sortMode === 'single' ? (this.d_sortField === (column.field || column.sortField)) : this.getMultiSortMetaIndex(column) > -1;
 
             return [column.headerClass, 
-                    {'p-sortable-column': column.sortable}, 
-                    {'p-resizable-column': this.resizableColumns}, 
+                    {'p-sortable-column': column.sortable},
+                    {'p-resizable-column': this.resizableColumns},
                     {'p-highlight': sorted}
             ];
         },
@@ -943,7 +943,7 @@ export default {
                     'p-datatable-hoverable-rows': (this.rowHover || this.selectionMode),
                     'p-datatable-auto-layout': this.autoLayout,
                     'p-datatable-resizable': this.resizableColumns, 
-                    'p-datatable-resizable-fit': this.resizableColumns && this.columnResizeMode === 'fit', 
+                    'p-datatable-resizable-fit': this.resizableColumns && this.columnResizeMode === 'fit'
                 }
             ];
         },

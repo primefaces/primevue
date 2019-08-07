@@ -540,10 +540,10 @@ data() {
 <CodeHighlight>
 <template v-pre>
 &lt;DataTable :value="cars" :resizableColumns="true" columnResizeMode="fit | expand"&gt;
-    &lt;Column field="vin" header="Vin" :resizable="true"&gt;&lt;/Column&gt;
-    &lt;Column field="year" header="Year" :resizable="true"&gt;&lt;/Column&gt;
-    &lt;Column field="brand" header="Brand" :resizable="true"&gt;&lt;/Column&gt;
-    &lt;Column field="color" header="Color" :resizable="true"&gt;&lt;/Column&gt;
+    &lt;Column field="vin" header="Vin"&gt;&lt;/Column&gt;
+    &lt;Column field="year" header="Year"&gt;&lt;/Column&gt;
+    &lt;Column field="brand" header="Brand"&gt;&lt;/Column&gt;
+    &lt;Column field="color" header="Color"&gt;&lt;/Column&gt;
 &lt;/DataTable&gt;
 </template>
 </CodeHighlight>
@@ -552,10 +552,10 @@ data() {
 <CodeHighlight>
 <template v-pre>
 &lt;DataTable :value="cars" :resizableColumns="true" columnResizeMode="fit | expand"&gt;
-    &lt;Column field="vin" header="Vin" :resizable="true" headerStyle="width: 20%"&gt;&lt;/Column&gt;
-    &lt;Column field="year" header="Year" :resizable="true" headerStyle="width: 40%"&gt;&lt;/Column&gt;
-    &lt;Column field="brand" header="Brand" :resizable="true" headerStyle="width: 20%"&gt;&lt;/Column&gt;
-    &lt;Column field="color" header="Color" :resizable="true" headerStyle="width: 20%"&gt;&lt;/Column&gt;
+    &lt;Column field="vin" header="Vin" headerStyle="width: 20%"&gt;&lt;/Column&gt;
+    &lt;Column field="year" header="Year" headerStyle="width: 40%"&gt;&lt;/Column&gt;
+    &lt;Column field="brand" header="Brand" headerStyle="width: 20%"&gt;&lt;/Column&gt;
+    &lt;Column field="color" header="Color" headerStyle="width: 20%"&gt;&lt;/Column&gt;
 &lt;/DataTable&gt;
 </template>
 </CodeHighlight>

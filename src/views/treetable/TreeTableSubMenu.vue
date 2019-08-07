@@ -9,7 +9,7 @@
             <li><router-link to="/treetable/selection">&#9679; Selection</router-link></li>
             <li><router-link to="/treetable/lazy">&#9679; Lazy</router-link></li>
             <li><router-link to="/treetable/coltoggle">&#9679; ColToggle</router-link></li>
-            <li><router-link to="/treetable/resize">&#9679; Resize</router-link></li>
+            <li><router-link to="/treetable/colresize">&#9679; Resize</router-link></li>
             <li><router-link to="/treetable/responsive">&#9679; Responsive</router-link></li>
         </ul>
     </div>    
