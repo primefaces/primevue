@@ -421,6 +421,11 @@ export default new Router({
 			name: 'treetablecoltoggle',
 			component: () => import('./views/treetable/TreeTableColToggleDemo.vue')
         },
+        {
+			path: '/treetable/responsive',
+			name: 'treetableresponsive',
+			component: () => import('./views/treetable/TreeTableResponsiveDemo.vue')
+        },
 		{
 			path: '/tristatecheckbox',
 			name: 'tristatecheckbox',

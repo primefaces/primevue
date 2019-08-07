@@ -916,28 +916,4 @@ export default {
 .p-treetable .p-treetable-loading-icon {
     font-size: 2em;
 }
-
-@media screen and (max-width: 40em) {
-    .p-treetable-responsive .p-treetable-thead > tr > th,
-    .p-treetable-responsive .p-treetable-tfoot > tr > td {
-        display: none !important;
-    }
-
-    .p-treetable-responsive .p-treetable-tbody > tr > td {
-        text-align: left;
-        display: block;
-        border: 0 none;
-        width: 100% !important;
-		float: left;
-		clear: left;
-    }
-
-    .p-treetable-responsive .p-treetable-tbody > tr > td .p-column-title {
-        padding: .4em;
-        min-width: 30%;
-        display: inline-block;
-        margin: -.4em 1em -.4em -.4em;
-        font-weight: bold;
-    }
-}
 </style>

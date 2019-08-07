@@ -6,7 +6,7 @@ export default {
             type: null,
             default: null
         },
-        data: {
+        node: {
             type: null,
             default: null
         },
@@ -17,7 +17,7 @@ export default {
     },
     render(createElement, context) {
         const content = context.props.column.$scopedSlots[context.props.type]({
-            'data': context.props.data,
+            'node': context.props.node,
             'column': context.props.column
         });
         return [content];

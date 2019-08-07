@@ -12,7 +12,7 @@
                     <span :class="checkboxIcon"></span>
                 </div>
             </div>
-            <TTColumnSlot :data="node" :column="col" type="body" v-if="col.$scopedSlots.body" />
+            <TTColumnSlot :node="node" :column="col" type="body" v-if="col.$scopedSlots.body" />
             <template v-else>{{resolveFieldData(node.data, col.field)}}</template>
         </td>
     </tr>
