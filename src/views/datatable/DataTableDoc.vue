@@ -534,6 +534,34 @@ data() {
 </template>
 </CodeHighlight>
 
+                <h3>Column Resize</h3>
+                <p>Columns can be resized using drag drop by setting the <i>resizableColumns</i> to true. There are two resize modes; "fit" and "expand". Fit is the default one and the overall table width does not change when a column is resized. 
+                    In "expand" mode, table width also changes along with the column width. <i>column-resize-end</i> is a callback that passes the resized column header and delta change as a parameter.</p>
+<CodeHighlight>
+<template v-pre>
+&lt;DataTable :value="cars" :resizableColumns="true" columnResizeMode="fit | expand"&gt;
+    &lt;Column field="vin" header="Vin" :resizable="true"&gt;&lt;/Column&gt;
+    &lt;Column field="year" header="Year" :resizable="true"&gt;&lt;/Column&gt;
+    &lt;Column field="brand" header="Brand" :resizable="true"&gt;&lt;/Column&gt;
+    &lt;Column field="color" header="Color" :resizable="true"&gt;&lt;/Column&gt;
+&lt;/DataTable&gt;
+</template>
+</CodeHighlight>
+</CodeHighlight>
+
+            <p>It is important to note that when you need to change column widths, since table width is 100%, giving fixed pixel widths does not work well as browsers scale them, instead give percentage widths.</p>
+<CodeHighlight>
+<template v-pre>
+&lt;DataTable :value="cars" :resizableColumns="true" columnResizeMode="fit | expand"&gt;
+    &lt;Column field="vin" header="Vin" :resizable="true" headerStyle="width: 20%"&gt;&lt;/Column&gt;
+    &lt;Column field="year" header="Year" :resizable="true" headerStyle="width: 40%"&gt;&lt;/Column&gt;
+    &lt;Column field="brand" header="Brand" :resizable="true" headerStyle="width: 20%"&gt;&lt;/Column&gt;
+    &lt;Column field="color" header="Color" :resizable="true" headerStyle="width: 20%"&gt;&lt;/Column&gt;
+&lt;/DataTable&gt;
+</template>
+</CodeHighlight>
+</CodeHighlight>
+
                 <h3>Data Export</h3>
                 <p>DataTable can export its data in CSV format using <i>exportCSV()</i> method.</p>
 <CodeHighlight>
@@ -918,6 +946,18 @@ export default {
                                 <td>false</td>
                                 <td>Whether the cell widths scale according to their content or not.</td>
                             </tr>
+                            <tr>
+                                <td>resizableColumns</td>
+                                <td>boolean</td>
+                                <td>false</td>
+                                <td>When enabled, columns can be resized using drag and drop.</td>
+                            </tr>
+                            <tr>
+                                <td>columnResizeMode</td>
+                                <td>string</td>
+                                <td>fit</td>
+                                <td>Defines whether the overall table width should change on column resize, <br/> valid values are "fit" and "expand".</td>
+                            </tr>
                         </tbody>
                     </table>
                 </div>
@@ -969,6 +1009,12 @@ export default {
                                     event.data: Unselected row data. <br />
                                     event.type: Type of the selection, valid values are "row", "radio" or "checkbox".</td>
                                 <td>Callback to invoke when a row is unselected.</td>
+                            </tr>
+                            <tr>
+                                <td>column-resize-end</td>
+                                <td>event.element: DOM element of the resized column.<br />
+                                    event.delta: Change in column width</td>
+                                <td>Callback to invoke when a column is resized.</td>
                             </tr>
                         </tbody>
                     </table>

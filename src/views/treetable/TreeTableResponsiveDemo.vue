@@ -30,7 +30,6 @@
 
 <script>
 import NodeService from '../../service/NodeService';
-import TreeTableDoc from './TreeTableDoc';
 import TreeTableSubMenu from './TreeTableSubMenu';
 
 export default {
@@ -47,7 +46,6 @@ export default {
         this.nodeService.getTreeTableNodes().then(data => this.nodes = data);
     },
     components: {
-        'TreeTableDoc': TreeTableDoc,
         'TreeTableSubMenu': TreeTableSubMenu
     }
 }

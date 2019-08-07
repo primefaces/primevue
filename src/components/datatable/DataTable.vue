@@ -20,10 +20,11 @@
                     <slot name="paginatorRight"></slot>
                 </template>
             </DTPaginator>
-            <table>
+            <table ref="table">
                 <thead class="p-datatable-thead">
                     <tr>
                         <th v-for="(col,i) of columns" :key="col.columnKey||col.field||i" :style="col.headerStyle" :class="getColumnHeaderClass(col)" @click="onColumnHeaderClick($event, col)">
+                            <span class="p-column-resizer p-clickable" @mousedown="onColumnResizeStart" v-if="resizableColumns"></span>
                             <ColumnSlot :column="col" type="header" v-if="col.$scopedSlots.header" />
                             <span class="p-column-title" v-if="col.header">{{col.header}}</span>
                             <span v-if="col.sortable" :class="getSortableColumnIcon(col)"></span>
@@ -74,6 +75,7 @@
                 <slot name="footer"></slot>
             </div>
         </div>
+        <div ref="resizeHelper" class="p-column-resizer-helper p-highlight" style="display: none"></div>
     </div>
 </template>
 
@@ -228,6 +230,14 @@ export default {
         autoLayout: {
             type: Boolean,
             default: false
+        },
+        resizableColumns: {
+            type: Boolean,
+            default: false
+        },
+        columnResizeMode: {
+            type: String,
+            default: 'fit'
         }
     },
     data() {
@@ -244,6 +254,10 @@ export default {
     rowTouched: false,
     anchorRowIndex: null,
     rangeRowIndex: null,
+    documentColumnResizeListener: null,
+    documentColumnResizeEndListener: null,
+    lastResizeHelperX: null,
+    resizeColumnElement: null,
     watch: {
         first(newValue) {
             this.d_first = newValue;
@@ -268,6 +282,9 @@ export default {
     },
     mounted() {
         this.allChildren = this.$children;
+    },
+    beforeDestroy() {
+        this.unbindColumnResizeEvents();
     },
     methods: {
         resolveFieldData(rowData, field) {
@@ -388,6 +405,7 @@ export default {
 
             return [column.headerClass, 
                     {'p-sortable-column': column.sortable}, 
+                    {'p-resizable-column': this.resizableColumns}, 
                     {'p-highlight': sorted}
             ];
         },
@@ -834,6 +852,88 @@ export default {
         resetPage() {
             this.d_first = 0;
             this.$emit('update:first', this.d_first);
+        },
+        onColumnResizeStart(event) {
+            let containerLeft = DomHandler.getOffset(this.$el).left;
+            this.resizeColumnElement = event.target.parentElement;
+            this.columnResizing = true;
+            this.lastResizeHelperX = (event.pageX - containerLeft + this.$el.scrollLeft);
+
+            this.bindColumnResizeEvents();
+        },
+        onColumnResize(event) {
+            let containerLeft = DomHandler.getOffset(this.$el).left;
+            DomHandler.addClass(this.$el, 'p-unselectable-text');
+            this.$refs.resizeHelper.style.height = this.$el.offsetHeight + 'px';
+            this.$refs.resizeHelper.style.top = 0 + 'px';
+            this.$refs.resizeHelper.style.left = (event.pageX - containerLeft + this.$el.scrollLeft) + 'px';
+            
+            this.$refs.resizeHelper.style.display = 'block';
+        },
+        onColumnResizeEnd(event) {
+            let delta = this.$refs.resizeHelper.offsetLeft - this.lastResizeHelperX;
+            let columnWidth = this.resizeColumnElement.offsetWidth;
+            let newColumnWidth = columnWidth + delta;
+            let minWidth = this.resizeColumnElement.style.minWidth||15;
+
+            if(columnWidth + delta > parseInt(minWidth, 10)) {
+                if(this.columnResizeMode === 'fit') {
+                    let nextColumn = this.resizeColumnElement.nextElementSibling;
+                    let nextColumnWidth = nextColumn.offsetWidth - delta;
+                    
+                    if(newColumnWidth > 15 && nextColumnWidth > 15) {
+                        this.resizeColumnElement.style.width = newColumnWidth + 'px';
+                        if(nextColumn) {
+                            nextColumn.style.width = nextColumnWidth + 'px';
+                        }
+                    }
+                }
+                else if(this.columnResizeMode === 'expand') {
+                    this.$refs.table.style.width = this.$refs.table.offsetWidth + delta + 'px';
+                    this.resizeColumnElement.style.width = newColumnWidth + 'px';
+                }    
+                
+                this.$emit('column-resize-end', {
+                    element: this.resizeColumnElement,
+                    delta: delta
+                });
+            }
+                    
+            this.$refs.resizeHelper.style.display = 'none';
+            this.resizeColumn = null;
+            DomHandler.removeClass(this.$el, 'p-unselectable-text');
+
+            this.unbindColumnResizeEvents();
+        },
+        bindColumnResizeEvents() {
+            if (!this.documentColumnResizeListener) {
+                this.documentColumnResizeListener = document.addEventListener('mousemove', (event) => {
+                    if(this.columnResizing) {
+                        this.onColumnResize(event);
+                    }
+                });
+            }
+            
+            if (!this.documentColumnResizeEndListener) {
+                this.documentColumnResizeEndListener = document.addEventListener('mouseup', (event) => {
+                    if(this.columnResizing) {
+                        this.columnResizing = false;
+                        this.onColumnResizeEnd(event);
+                    }
+                });
+            }
+            
+        },
+        unbindColumnResizeEvents() {
+            if (this.documentColumnResizeListener) {
+                document.removeEventListener('document', this.documentColumnResizeListener);
+                this.documentColumnResizeListener = null;
+            }
+            
+            if (this.documentColumnResizeEndListener) {
+                document.removeEventListener('document', this.documentColumnResizeEndListener);
+                 this.documentColumnResizeEndListener = null;
+            }
         }
     },
     computed: {
@@ -841,7 +941,9 @@ export default {
             return [
                 'p-datatable p-component', {
                     'p-datatable-hoverable-rows': (this.rowHover || this.selectionMode),
-                    'p-datatable-auto-layout': this.autoLayout
+                    'p-datatable-auto-layout': this.autoLayout,
+                    'p-datatable-resizable': this.resizableColumns, 
+                    'p-datatable-resizable-fit': this.resizableColumns && this.columnResizeMode === 'fit', 
                 }
             ];
         },

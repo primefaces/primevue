@@ -32,11 +32,14 @@ export declare class DataTable extends Vue {
     csvSeparator?: string;
     exportFilename?: string;
     autoLayout?: boolean;
+    resizableColumns?: boolean;
+    columnResizeMode?: string;
     $emit(eventName: 'page', event: Event): this;
     $emit(eventName: 'sort', event: Event): this;
     $emit(eventName: 'filter', event: Event): this;
     $emit(eventName: 'row-select', event: Event): this;
     $emit(eventName: 'row-unselect', event: Event): this;
+    $emit(eventName: 'column-resize-end', event: Event): this;
     $slots: {
         header: VNode[];
         paginatorLeft: VNode[];
