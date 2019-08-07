@@ -21,7 +21,7 @@ export declare class DataTable extends Vue {
     defaultSortOrder?: number;
     multiSortMeta?: any[];
     sortMode?: string;
-    filters: {
+    filters?: {
         [s: string]: any;
     };
     selection?: any[]|any;
