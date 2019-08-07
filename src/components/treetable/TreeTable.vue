@@ -1,6 +1,12 @@
 <template>
     <div :class="containerClass">
         <slot></slot>
+        <div class="p-treetable-loading" v-if="loading">
+            <div class="p-treetable-loading-overlay p-component-overlay"></div>
+            <div class="p-treetable-loading-content">
+                <i :class="loadingIconClass"></i>
+            </div>
+        </div>
         <div class="p-treetable-header" v-if="$scopedSlots.header">
             <slot name="header"></slot>
         </div>
@@ -698,6 +704,9 @@ export default {
                 const data = this.processedData;
                 return data ? data.length : 0;
             }
+        },
+        loadingIconClass() {
+            return ['p-treetable-loading-icon pi-spin', this.loadingIcon];
         }
     },
     components: {
@@ -885,6 +894,29 @@ export default {
     display: none;
 }
 
+/* Loader */
+.p-treetable .p-treetable-loading-overlay {
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    -ms-filter: "progid:DXImageTransform.Microsoft.Alpha(Opacity=10)";
+    opacity: 0.1;
+    z-index: 1;
+}
+
+.p-treetable .p-treetable-loading-content {
+    position: absolute;
+    left: 50%;
+    top: 50%;
+    z-index: 2;
+    margin-top: -1em;
+    margin-left: -1em;
+}
+
+.p-treetable .p-treetable-loading-icon {
+    font-size: 2em;
+}
+
 @media screen and (max-width: 40em) {
     .p-treetable-responsive .p-treetable-thead > tr > th,
     .p-treetable-responsive .p-treetable-tfoot > tr > td {
@@ -907,28 +939,5 @@ export default {
         margin: -.4em 1em -.4em -.4em;
         font-weight: bold;
     }
-}
-
-/* Loader */
-.p-treetable-loading-overlay {
-    position: absolute;
-    width: 100%;
-    height: 100%;
-    -ms-filter: "progid:DXImageTransform.Microsoft.Alpha(Opacity=10)";
-    opacity: 0.1;
-    z-index: 1;
-}
-
-.p-treetable-loading-content {
-    position: absolute;
-    left: 50%;
-    top: 50%;
-    z-index: 2;
-    margin-top: -1em;
-    margin-left: -1em;
-}
-
-.p-treetable .p-treetable-loading-icon {
-    font-size: 2em;
 }
 </style>

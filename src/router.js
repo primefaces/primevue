@@ -411,6 +411,11 @@ export default new Router({
 			name: 'treetableselection',
 			component: () => import('./views/treetable/TreeTableSelectionDemo.vue')
         },
+        {
+			path: '/treetable/lazy',
+			name: 'treetablelazy',
+			component: () => import('./views/treetable/TreeTableLazyDemo.vue')
+        },
 		{
 			path: '/tristatecheckbox',
 			name: 'tristatecheckbox',
