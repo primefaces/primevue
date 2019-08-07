@@ -70,7 +70,7 @@ import NodeService from '../../service/NodeService';
 export default {
     data() {
         return {
-            nodes: null,
+            nodes: null
         }
     },
     nodeService: null,
@@ -95,7 +95,7 @@ import TreeTableSubMenu from './TreeTableSubMenu';
 export default {
     data() {
         return {
-            nodes: null,
+            nodes: null
         }
     },
     nodeService: null,
