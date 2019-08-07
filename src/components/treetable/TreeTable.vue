@@ -63,6 +63,8 @@
 </template>
 
 <script>
+import ObjectUtils from '../utils/ObjectUtils';
+import DomHandler from '../utils/DomHandler';
 import TreeTableColumnSlot from './TreeTableColumnSlot';
 import TreeTableRowLoader from './TreeTableRowLoader';
 import Paginator from '../paginator/Paginator';
@@ -276,8 +278,131 @@ export default {
 
             return index;
         },
-        onColumnHeaderClick() {
-            
+        onColumnHeaderClick(event, column) {
+            if (column.sortable) {
+                this.resetPage();
+                const targetNode = event.target;
+
+                if (DomHandler.hasClass(targetNode, 'p-sortable-column') || DomHandler.hasClass(targetNode, 'p-column-title') 
+                    || DomHandler.hasClass(targetNode, 'p-sortable-column-icon') || DomHandler.hasClass(targetNode.parentElement, 'p-sortable-column-icon')) {
+                    DomHandler.clearSelection();
+                    
+                    const columnField = column.field || column.sortField;
+                    this.d_sortOrder = (this.d_sortField === columnField) ? this.d_sortOrder * -1 : this.defaultSortOrder;
+                    this.d_sortField = columnField;
+
+                    if(this.sortMode === 'multiple') {
+                        let metaKey = event.metaKey || event.ctrlKey;
+                        if (!metaKey) {
+                            this.d_multiSortMeta = [];
+                        }
+
+                        this.addSortMeta({field: this.d_sortField, order: this.d_sortOrder});   
+                    }    
+
+                    this.$emit('update:sortField', this.d_sortFied);
+                    this.$emit('update:sortOrder', this.d_sortOrder);
+                    this.$emit('update:multiSortMeta', this.d_multiSortMeta);
+
+                    this.$emit('sort', {
+                        originalEvent: event,
+                        sortField: this.d_sortField,
+                        sortOrder: this.d_sortOrder,
+                        multiSortMeta: this.d_multiSortMeta
+                    });
+                }
+            }
+        },
+        addSortMeta(meta) {
+            let index = -1;
+            for (let i = 0; i < this.d_multiSortMeta.length; i++) {
+                if (this.d_multiSortMeta[i].field === meta.field) {
+                    index = i;
+                    break;
+                }
+            }
+
+            if(index >= 0)
+                this.d_multiSortMeta[index] = meta;
+            else
+                this.d_multiSortMeta.push(meta);
+
+            this.d_multiSortMeta = [...this.d_multiSortMeta];
+        },
+        sortSingle(nodes) {
+            return this.sortNodes(nodes);
+        },
+        sortNodesSingle(nodes) {
+            let _nodes = [...nodes];
+
+            _nodes.sort((node1, node2) => {
+                const value1 = ObjectUtils.resolveFieldData(node1.data, this.d_sortField);
+                const value2 = ObjectUtils.resolveFieldData(node2.data, this.d_sortField);
+                let result = null;
+
+                if (value1 == null && value2 != null)
+                    result = -1;
+                else if (value1 != null && value2 == null)
+                    result = 1;
+                else if (value1 == null && value2 == null)
+                    result = 0;
+                else if (typeof value1 === 'string' && typeof value2 === 'string')
+                    result = value1.localeCompare(value2, undefined, { numeric: true });
+                else
+                    result = (value1 < value2) ? -1 : (value1 > value2) ? 1 : 0;
+
+                return (this.d_sortOrder * result);
+            });
+
+            for (let i = 0; i < _nodes.length; i++) {
+                if (_nodes[i].children && _nodes[i].children.length) {
+                    _nodes[i].children = this.sortNodesSingle(_nodes[i].children);
+                }
+            }
+
+            return _nodes;
+        },
+        sortMultiple(nodes) {
+            return this.sortNodesMultiple(nodes); 
+        },
+        sortNodesMultiple(nodes) {
+            let _nodes = [...nodes];
+            _nodes.sort((node1, node2) => {
+                return this.multisortField(node1, node2, 0);
+            });
+
+            for (let i = 0; i < _nodes.length; i++) {
+                if (_nodes[i].children && _nodes[i].children.length) {
+                    _nodes[i].children = this.sortNodesMultiple(_nodes[i].children);
+                }
+            }
+
+            return _nodes;
+        },
+        multisortField(node1, node2, index) {
+            const value1 = ObjectUtils.resolveFieldData(node1.data, this.d_multiSortMeta[index].field);
+            const value2 = ObjectUtils.resolveFieldData(node2.data, this.d_multiSortMeta[index].field);
+            let result = null;
+
+            if (value1 == null && value2 != null)
+                result = -1;
+            else if (value1 != null && value2 == null)
+                result = 1;
+            else if (value1 == null && value2 == null)
+                result = 0;
+            else {
+                if (value1 === value2)  {
+                    return (this.d_multiSortMeta.length - 1) > (index) ? (this.multisortField(node1, node2, index + 1)) : 0;
+                }
+                else {
+                    if ((typeof value1 === 'string' || value1 instanceof String) && (typeof value2 === 'string' || value2 instanceof String))
+                        return (this.d_multiSortMeta[index].order * value1.localeCompare(value2, undefined, { numeric: true }));
+                    else
+                        result = (value1 < value2) ? -1 : 1;
+                }            
+            }
+
+            return (this.d_multiSortMeta[index].order * result);
         },
         isNodeSelected() {
             return false;
@@ -297,7 +422,30 @@ export default {
             return [];
         },
         processedData() {
-            return this.value;
+            if (this.lazy) {
+                return this.value;
+            }
+            else {
+                if (this.value && this.value.length) {
+                    let data = this.value;
+
+                    if (this.sorted) {
+                        if(this.sortMode === 'single')
+                            data = this.sortSingle(data);
+                        else if(this.sortMode === 'multiple')
+                            data = this.sortMultiple(data);
+                    }
+
+                    /*if (this.hasFilters) {
+                        data = this.filter(data);
+                    }*/
+
+                    return data;
+                }
+                else {
+                    return null;
+                }
+            }
         },
         dataToRender() {
             const data = this.processedData;
@@ -313,6 +461,9 @@ export default {
         empty() {
             const data = this.processedData;
             return (!data || data.length === 0);
+        },
+        sorted() {
+            return this.d_sortField || (this.d_multiSortMeta && this.d_multiSortMeta.length > 0);
         },
         hasFooter() {
             let hasFooter = false;
@@ -374,6 +525,7 @@ export default {
 
 .p-treetable .p-treetable-thead > tr > th .p-column-title {
     vertical-align: middle;
+    user-select: none;
 }
 
 .p-treetable .p-sortable-column {

@@ -963,6 +963,10 @@ export default {
     padding: .25em .5em;
 }
 
+.p-datatable .p-column-title {
+    user-select: none;
+}
+
 .p-datatable .p-sortable-column {
     cursor: pointer;
 }

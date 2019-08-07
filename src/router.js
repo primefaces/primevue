@@ -396,6 +396,11 @@ export default new Router({
 			name: 'treetablepaginator',
 			component: () => import('./views/treetable/TreeTablePaginatorDemo.vue')
         },
+        {
+			path: '/treetable/sort',
+			name: 'treetablesort',
+			component: () => import('./views/treetable/TreeTableSortDemo.vue')
+        },
 		{
 			path: '/tristatecheckbox',
 			name: 'tristatecheckbox',
