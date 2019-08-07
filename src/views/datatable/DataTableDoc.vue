@@ -547,7 +547,6 @@ data() {
 &lt;/DataTable&gt;
 </template>
 </CodeHighlight>
-</CodeHighlight>
 
             <p>It is important to note that when you need to change column widths, since table width is 100%, giving fixed pixel widths does not work well as browsers scale them, instead give percentage widths.</p>
 <CodeHighlight>
@@ -559,7 +558,6 @@ data() {
     &lt;Column field="color" header="Color" :resizable="true" headerStyle="width: 20%"&gt;&lt;/Column&gt;
 &lt;/DataTable&gt;
 </template>
-</CodeHighlight>
 </CodeHighlight>
 
                 <h3>Data Export</h3>

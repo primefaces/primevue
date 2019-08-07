@@ -870,7 +870,7 @@ export default {
             
             this.$refs.resizeHelper.style.display = 'block';
         },
-        onColumnResizeEnd(event) {
+        onColumnResizeEnd() {
             let delta = this.$refs.resizeHelper.offsetLeft - this.lastResizeHelperX;
             let columnWidth = this.resizeColumnElement.offsetWidth;
             let newColumnWidth = columnWidth + delta;
@@ -918,7 +918,7 @@ export default {
                 this.documentColumnResizeEndListener = document.addEventListener('mouseup', (event) => {
                     if(this.columnResizing) {
                         this.columnResizing = false;
-                        this.onColumnResizeEnd(event);
+                        this.onColumnResizeEnd();
                     }
                 });
             }
