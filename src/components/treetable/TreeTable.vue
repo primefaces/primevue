@@ -36,8 +36,8 @@
                 <tbody class="p-treetable-tbody">
                     <template v-if="!empty">
                         <TTRow v-for="node of dataToRender" :key="node.key" :columns="columns" :node="node" :level="0"
-                        :expandedKeys="d_expandedKeys" @node-toggle="onNodeToggle" @node-click="onNodeClick"
-                        :selectionMode="selectionMode" :selectionKeys="selectionKeys"></TTRow>
+                        :expandedKeys="d_expandedKeys" @node-toggle="onNodeToggle"
+                        :selectionMode="selectionMode" :selectionKeys="selectionKeys" @node-click="onNodeClick" @checkbox-change="onCheckboxChange"></TTRow>
                     </template>
                     <tr v-else class="p-treetable-emptymessage">
                         <td :colspan="columns.length">
@@ -232,7 +232,7 @@ export default {
             this.$emit('update:expandedKeys', this.d_expandedKeys);
         },
         onNodeClick(event) {
-            if (this.selectionMode != null && event.node.selectable !== false) {
+            if (this.rowSelectionMode && event.node.selectable !== false) {
                 const metaSelection = event.nodeTouched ? false : this.metaKeySelection;
                 const _selectionKeys = metaSelection ? this.handleSelectionWithMetaKey(event) : this.handleSelectionWithoutMetaKey(event);
 
@@ -303,6 +303,14 @@ export default {
             }
 
             return _selectionKeys;
+        },
+        onCheckboxChange(event) {
+            this.$emit('update:selectionKeys', event.selectionKeys);
+
+            if (event.check)
+                this.$emit('node-select', event.node);
+            else
+                this.$emit('node-unselect', event.node);
         },
         isSingleSelectionMode() {
             return this.selectionMode === 'single';
@@ -595,7 +603,7 @@ export default {
     computed: {
         containerClass() {
             return ['p-treetable p-component', {
-                'p-treetable-hoverable-rows': (this.rowHover || this.selectionMode),
+                'p-treetable-hoverable-rows': (this.rowHover || this.rowSelectionMode),
                 'p-treetable-auto-layout': this.autoLayout
             }];
         },
@@ -672,6 +680,15 @@ export default {
         },
         paginatorBottom() {
             return this.paginator && (this.paginatorPosition !== 'top' || this.paginatorPosition === 'both');
+        },
+        singleSelectionMode() {
+            return this.selectionMode && this.selectionMode === 'single';
+        },
+        multipleSelectionMode() {
+            return this.selectionMode && this.selectionMode === 'multiple';
+        },
+        rowSelectionMode() {
+            return this.singleSelectionMode || this.multipleSelectionMode;
         },
         totalRecordsLength() {
             if (this.lazy) {

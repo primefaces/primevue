@@ -34,7 +34,8 @@ const TreeTableRowLoader = {
             props: context.props,
             on: {
                 'node-toggle': context.listeners['node-toggle'],
-                'node-click': context.listeners['node-click']
+                'node-click': context.listeners['node-click'],
+                'checkbox-change': context.listeners['checkbox-change']
             }
         });
 
@@ -46,13 +47,47 @@ const TreeTableRowLoader = {
             for (let childNode of node.children) {
                 let childNodeProps = {...context.props};
                 childNodeProps.node = childNode;
+                childNodeProps.parentNode = node;
                 childNodeProps.level = context.props.level + 1;
 
                 let childNodeElement = createElement(TreeTableRowLoader, { 
                     props: childNodeProps,
                     on: {
                         'node-toggle': context.listeners['node-toggle'],
-                        'node-click': context.listeners['node-click']
+                        'node-click': context.listeners['node-click'],
+                        'checkbox-change': (event) => {
+                            let check = event.check;
+                            let _selectionKeys = {...event.selectionKeys};
+                            let checkedChildCount = 0;
+                            let childPartialSelected = false;
+                            
+                            for(let child of node.children) {
+                                if(_selectionKeys[child.key] && _selectionKeys[child.key].checked)
+                                    checkedChildCount++;
+                                else if(_selectionKeys[child.key] && _selectionKeys[child.key].partialChecked)
+                                    childPartialSelected = true;
+                            }
+
+                            if(check && checkedChildCount === node.children.length) {
+                                _selectionKeys[node.key] = {checked: true, partialChecked: false};
+                            }
+                            else {
+                                if (!check) {
+                                    delete _selectionKeys[node.key];
+                                }
+
+                                if(childPartialSelected || (checkedChildCount > 0 && checkedChildCount !== node.children.length))
+                                    _selectionKeys[node.key] = {checked: false, partialChecked: true};
+                                else
+                                    _selectionKeys[node.key] = {checked: false, partialChecked: false};
+                            }
+
+                            context.listeners['checkbox-change']({
+                                node: event.node,
+                                check: event.check,
+                                selectionKeys: _selectionKeys
+                            });
+                        }
                     }
                 });
 
