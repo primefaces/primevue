@@ -907,7 +907,7 @@ export default {
         },
         bindColumnResizeEvents() {
             if (!this.documentColumnResizeListener) {
-                this.documentColumnResizeListener = document.addEventListener('mousemove', (event) => {
+                this.documentColumnResizeListener = document.addEventListener('mousemove', () => {
                     if(this.columnResizing) {
                         this.onColumnResize(event);
                     }
@@ -915,7 +915,7 @@ export default {
             }
             
             if (!this.documentColumnResizeEndListener) {
-                this.documentColumnResizeEndListener = document.addEventListener('mouseup', (event) => {
+                this.documentColumnResizeEndListener = document.addEventListener('mouseup', () => {
                     if(this.columnResizing) {
                         this.columnResizing = false;
                         this.onColumnResizeEnd();

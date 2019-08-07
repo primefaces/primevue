@@ -539,7 +539,7 @@ export default {
                     if (this.filters.hasOwnProperty(col.field)) {
                         let filterMatchMode = col.filterMatchMode;
                         let filterValue = this.filters[col.field];
-                        let filterConstraint = FilterUtils[col.filterMatchMode];
+                        let filterConstraint = FilterUtils[filterMatchMode];
                         let paramsWithoutNode = {filterField, filterValue, filterConstraint, strict};
                         
                         if ((strict && !(this.findFilteredNodes(copyNode, paramsWithoutNode) || this.isFilterMatched(copyNode, paramsWithoutNode))) ||
@@ -557,10 +557,10 @@ export default {
                         let copyNodeForGlobal = {...copyNode};
                         let globalFilterValue = this.props.globalFilter;
                         let globalFilterConstraint = ObjectUtils.filterConstraints['contains'];
-                        paramsWithoutNode = {filterField, globalFilterValue, globalFilterConstraint, strict};
+                        let globalFilterParamsWithoutNode = {filterField, globalFilterValue, globalFilterConstraint, strict};
 
-                        if ((strict && (this.findFilteredNodes(copyNodeForGlobal, paramsWithoutNode) || this.isFilterMatched(copyNodeForGlobal, paramsWithoutNode))) ||
-                            (!strict && (this.isFilterMatched(copyNodeForGlobal, paramsWithoutNode) || this.findFilteredNodes(copyNodeForGlobal, paramsWithoutNode)))) {
+                        if ((strict && (this.findFilteredNodes(copyNodeForGlobal, globalFilterParamsWithoutNode) || this.isFilterMatched(copyNodeForGlobal, globalFilterParamsWithoutNode))) ||
+                            (!strict && (this.isFilterMatched(copyNodeForGlobal, globalFilterParamsWithoutNode) || this.findFilteredNodes(copyNodeForGlobal, globalFilterParamsWithoutNode)))) {
                                 globalMatch = true;
                                 copyNode = copyNodeForGlobal;
                         }
@@ -674,7 +674,7 @@ export default {
         },
         bindColumnResizeEvents() {
             if (!this.documentColumnResizeListener) {
-                this.documentColumnResizeListener = document.addEventListener('mousemove', (event) => {
+                this.documentColumnResizeListener = document.addEventListener('mousemove', () => {
                     if(this.columnResizing) {
                         this.onColumnResize(event);
                     }
@@ -682,7 +682,7 @@ export default {
             }
             
             if (!this.documentColumnResizeEndListener) {
-                this.documentColumnResizeEndListener = document.addEventListener('mouseup', (event) => {
+                this.documentColumnResizeEndListener = document.addEventListener('mouseup', () => {
                     if(this.columnResizing) {
                         this.columnResizing = false;
                         this.onColumnResizeEnd();
