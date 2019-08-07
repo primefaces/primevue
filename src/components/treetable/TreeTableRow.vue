@@ -6,9 +6,9 @@
             </span>
             <div class="p-checkbox p-treetable-checkbox p-component" @click="toggleCheckbox" v-if="checkboxSelectionMode && col.expander">
                 <div class="p-hidden-accessible">
-                    <input type="checkbox" />
+                    <input type="checkbox" @focus="onCheckboxFocus" @blur="onCheckboxBlur" />
                 </div>
-                <div :class="checkboxClass">
+                <div ref="checkboxEl" :class="checkboxClass">
                     <span :class="checkboxIcon"></span>
                 </div>
             </div>
@@ -53,6 +53,11 @@ export default {
         level: {
             type: Number,
             default: 0
+        }
+    },
+    data() {
+        return {
+            checkboxFocused: false
         }
     },
     nodeTouched: false,
@@ -183,6 +188,12 @@ export default {
                 check: event.check,
                 selectionKeys: _selectionKeys
             }); 
+        },
+        onCheckboxFocus() {
+           this.checkboxFocused = true;
+        },
+        onCheckboxBlur() {
+            this.checkboxFocused = false;
         }
     },
     computed: {
@@ -219,7 +230,7 @@ export default {
             return this.selectionMode === 'checkbox';
         },
         checkboxClass() {
-            return ['p-checkbox-box', {'p-highlight': this.checked}];
+            return ['p-checkbox-box', {'p-highlight': this.checked, 'p-focus': this.checkboxFocused}];
         },
         checkboxIcon() {
             return ['p-checkbox-icon p-c', {'pi pi-check': this.checked, 'pi pi-minus': this.partialChecked}];
