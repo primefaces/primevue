@@ -1,5 +1,5 @@
 <template>
-    <tr :class="containerClass" @click="onClick" @keydown="onKeyDown" @touchend="onTouchEnd" :style="node.style">
+    <tr :class="containerClass" @click="onClick" @keydown="onKeyDown" @touchend="onTouchEnd" :style="node.style" tabindex="0">
         <td v-for="(col,i) of columns" :key="col.columnKey||col.field||i" :style="col.bodyStyle" :class="col.bodyClass">
             <span class="p-treetable-toggler p-unselectable-text" @click="toggle" v-if="col.expander" :style="togglerStyle">
                 <i :class="togglerIcon"></i>
@@ -82,7 +82,50 @@ export default {
             this.nodeTouched = true;
         },
         onKeyDown(event) {
-            //todo
+            if (event.target === this.$el) {
+                const rowElement = this.$el;
+
+                switch (event.which) {
+                    //down arrow
+                    case 40:
+                        const nextRow = rowElement.nextElementSibling;
+                        if (nextRow) {
+                            nextRow.focus();
+                        }
+        
+                        event.preventDefault();
+                    break;
+        
+                    //up arrow
+                    case 38:
+                        const previousRow = rowElement.previousElementSibling;
+                        if (previousRow) {
+                            previousRow.focus();
+                        }
+        
+                        event.preventDefault();
+                    break;
+        
+                    //right-left arrows
+                    case 37:
+                    case 39:
+                        if (!this.leaf) {
+                            this.$emit('node-toggle', this.node);
+                            event.preventDefault();
+                        }
+                    break;
+        
+                    //enter
+                    case 13:
+                        this.onClick(event);
+                        event.preventDefault();
+                    break;
+        
+                    default:
+                        //no op
+                    break;
+                }
+            }
         },
         toggleCheckbox() {
             let _selectionKeys = this.selectionKeys ? {...this.selectionKeys} : {};   
