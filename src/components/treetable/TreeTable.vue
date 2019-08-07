@@ -56,7 +56,7 @@
                 <slot name="paginatorRight"></slot>
             </template>
         </TTPaginator>
-        <div class="p-treetable-footer" v-if="$scopedSlots.header">
+        <div class="p-treetable-footer" v-if="$scopedSlots.footer">
             <slot name="footer"></slot>
         </div>
     </div>
@@ -64,6 +64,7 @@
 
 <script>
 import ObjectUtils from '../utils/ObjectUtils';
+import FilterUtils from '../utils/FilterUtils';
 import DomHandler from '../utils/DomHandler';
 import TreeTableColumnSlot from './TreeTableColumnSlot';
 import TreeTableRowLoader from './TreeTableRowLoader';
@@ -170,6 +171,14 @@ export default {
         sortMode: {
             type: String,
             default: 'single'
+        },
+        filters: {
+            type: Object,
+            default: null
+        },
+        filterMode: {
+            type: String,
+            default: 'lenient'
         }
     },
     data() {
@@ -404,8 +413,104 @@ export default {
 
             return (this.d_multiSortMeta[index].order * result);
         },
-        isNodeSelected() {
-            return false;
+        filter(value) {
+            let filteredNodes = [];
+            const strict = this.filterMode === 'strict';
+            let valueChanged = false;
+
+            for (let node of value) {
+                let copyNode = {...node};
+                let localMatch = true;
+                let globalMatch = false;
+
+                for (let j = 0; j < this.columns.length; j++) {
+                    let col = this.columns[j];
+                    let filterField = col.field;
+
+                    //local
+                    if (this.filters.hasOwnProperty(col.field)) {
+                        let filterMatchMode = col.filterMatchMode;
+                        let filterValue = this.filters[col.field];
+                        let filterConstraint = FilterUtils[col.filterMatchMode];
+                        let paramsWithoutNode = {filterField, filterValue, filterConstraint, strict};
+                        
+                        if ((strict && !(this.findFilteredNodes(copyNode, paramsWithoutNode) || this.isFilterMatched(copyNode, paramsWithoutNode))) ||
+                            (!strict && !(this.isFilterMatched(copyNode, paramsWithoutNode) || this.findFilteredNodes(copyNode, paramsWithoutNode)))) {
+                                localMatch = false;
+                        }
+
+                        if (!localMatch) {
+                            break;
+                        }
+                    }
+
+                    //global
+                    if (this.hasGlobalFilter && !globalMatch) {
+                        let copyNodeForGlobal = {...copyNode};
+                        let globalFilterValue = this.props.globalFilter;
+                        let globalFilterConstraint = ObjectUtils.filterConstraints['contains'];
+                        paramsWithoutNode = {filterField, globalFilterValue, globalFilterConstraint, strict};
+
+                        if ((strict && (this.findFilteredNodes(copyNodeForGlobal, paramsWithoutNode) || this.isFilterMatched(copyNodeForGlobal, paramsWithoutNode))) ||
+                            (!strict && (this.isFilterMatched(copyNodeForGlobal, paramsWithoutNode) || this.findFilteredNodes(copyNodeForGlobal, paramsWithoutNode)))) {
+                                globalMatch = true;
+                                copyNode = copyNodeForGlobal;
+                        }
+                    }
+                }
+
+                let matches = localMatch;
+                if (this.hasGlobalFilter) {
+                    matches = localMatch && globalMatch;
+                }
+
+                if (matches) {
+                    filteredNodes.push(copyNode);
+                }
+
+                valueChanged = valueChanged || !localMatch || globalMatch;
+            }
+
+            return valueChanged ? filteredNodes : value;
+        },
+        findFilteredNodes(node, paramsWithoutNode) {
+            if (node) {
+                let matched = false;
+                if (node.children) {
+                    let childNodes = [...node.children];
+                    node.children = [];
+                    for (let childNode of childNodes) {
+                        let copyChildNode = {...childNode};
+                        if (this.isFilterMatched(copyChildNode, paramsWithoutNode)) {
+                            matched = true;
+                            node.children.push(copyChildNode);
+                        }
+                    }
+                }
+                
+                if (matched) {
+                    return true;
+                }
+            }
+        },
+        isFilterMatched(node, {filterField, filterValue, filterConstraint, strict}) {
+            let matched = false;
+            let dataFieldValue = ObjectUtils.resolveFieldData(node.data, filterField);
+            if (filterConstraint(dataFieldValue, filterValue)) {
+                matched = true;
+            }
+
+            if (!matched || (strict && !this.isNodeLeaf(node))) {
+                matched = this.findFilteredNodes(node, {filterField, filterValue, filterConstraint, strict}) || matched;
+            }
+
+            return matched;
+        },
+        isNodeSelected(node) {
+            return (this.selectionMode && this.selectionKeys) ? this.selectionKeys[node.key] === true : false;
+        },
+        isNodeLeaf(node) {
+            return node.leaf === false ? false : !(node.children && node.children.length);
         }
     },
     computed: {
@@ -436,9 +541,9 @@ export default {
                             data = this.sortMultiple(data);
                     }
 
-                    /*if (this.hasFilters) {
+                    if (this.hasFilters) {
                         data = this.filter(data);
-                    }*/
+                    }
 
                     return data;
                 }
@@ -476,6 +581,12 @@ export default {
             }
 
             return hasFooter;
+        },
+        hasFilters() {
+            return this.filters && Object.keys(this.filters).length > 0 && this.filters.constructor === Object;
+        },
+        hasGlobalFilter() {
+            return this.filters && this.filters.hasOwnProperty('global');
         },
         paginatorTop() {
             return this.paginator && (this.paginatorPosition !== 'bottom' || this.paginatorPosition === 'both');

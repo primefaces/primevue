@@ -401,6 +401,11 @@ export default new Router({
 			name: 'treetablesort',
 			component: () => import('./views/treetable/TreeTableSortDemo.vue')
         },
+        {
+			path: '/treetable/filter',
+			name: 'treetablefilter',
+			component: () => import('./views/treetable/TreeTableFilterDemo.vue')
+        },
 		{
 			path: '/tristatecheckbox',
 			name: 'tristatecheckbox',

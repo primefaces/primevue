@@ -5,6 +5,7 @@
             <li><router-link to="/treetable/templating">&#9679; Templating</router-link></li>
             <li><router-link to="/treetable/paginator">&#9679; Paginator</router-link></li>
             <li><router-link to="/treetable/sort">&#9679; Sort</router-link></li>
+            <li><router-link to="/treetable/filter">&#9679; Filter</router-link></li>
         </ul>
     </div>    
 </template>
