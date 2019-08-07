@@ -33,7 +33,8 @@ const TreeTableRowLoader = {
         const root = createElement(TreeTableRow, { 
             props: context.props,
             on: {
-                'node-toggle': context.listeners['node-toggle']
+                'node-toggle': context.listeners['node-toggle'],
+                'node-click': context.listeners['node-click']
             }
         });
 
@@ -50,7 +51,8 @@ const TreeTableRowLoader = {
                 let childNodeElement = createElement(TreeTableRowLoader, { 
                     props: childNodeProps,
                     on: {
-                        'node-toggle': context.listeners['node-toggle']
+                        'node-toggle': context.listeners['node-toggle'],
+                        'node-click': context.listeners['node-click']
                     }
                 });
 

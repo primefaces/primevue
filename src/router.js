@@ -406,6 +406,11 @@ export default new Router({
 			name: 'treetablefilter',
 			component: () => import('./views/treetable/TreeTableFilterDemo.vue')
         },
+        {
+			path: '/treetable/selection',
+			name: 'treetableselection',
+			component: () => import('./views/treetable/TreeTableSelectionDemo.vue')
+        },
 		{
 			path: '/tristatecheckbox',
 			name: 'tristatecheckbox',

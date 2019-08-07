@@ -983,6 +983,10 @@ export default {
     table-layout: auto;
 }
 
+.p-datatable-hoverable-rows .p-datatable-tbody > tr.p-highlight {
+    cursor: pointer;
+}
+
 /* Sections */
 .p-datatable-header,
 .p-datatable-footer {

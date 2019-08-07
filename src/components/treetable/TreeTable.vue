@@ -36,7 +36,7 @@
                 <tbody class="p-treetable-tbody">
                     <template v-if="!empty">
                         <TTRow v-for="node of dataToRender" :key="node.key" :columns="columns" :node="node" :level="0"
-                        :expandedKeys="d_expandedKeys" @node-toggle="onNodeToggle"
+                        :expandedKeys="d_expandedKeys" @node-toggle="onNodeToggle" @node-click="onNodeClick"
                         :selectionMode="selectionMode" :selectionKeys="selectionKeys"></TTRow>
                     </template>
                     <tr v-else class="p-treetable-emptymessage">
@@ -230,6 +230,85 @@ export default {
 
             this.d_expandedKeys = {...this.d_expandedKeys};
             this.$emit('update:expandedKeys', this.d_expandedKeys);
+        },
+        onNodeClick(event) {
+            if (this.selectionMode != null && event.node.selectable !== false) {
+                const metaSelection = event.nodeTouched ? false : this.metaKeySelection;
+                const _selectionKeys = metaSelection ? this.handleSelectionWithMetaKey(event) : this.handleSelectionWithoutMetaKey(event);
+
+                this.$emit('update:selectionKeys', _selectionKeys);
+            }
+        },
+        handleSelectionWithMetaKey(event) {
+            const originalEvent = event.originalEvent;
+            const node = event.node;
+            const metaKey = (originalEvent.metaKey||originalEvent.ctrlKey);
+            const selected = this.isNodeSelected(node);
+            let _selectionKeys;
+        
+            if (selected && metaKey) {
+                if (this.isSingleSelectionMode()) {
+                    _selectionKeys = {};
+                }
+                else {
+                    _selectionKeys = {...this.selectionKeys};
+                    delete _selectionKeys[node.key];
+                }
+
+                this.$emit('node-unselect', node);
+            }
+            else {
+                if (this.isSingleSelectionMode()) {
+                    _selectionKeys = {};
+                }
+                else if (this.isMultipleSelectionMode()) {
+                    _selectionKeys = !metaKey ? {} : (this.selectionKeys ? {...this.selectionKeys} : {});
+                }
+
+                _selectionKeys[node.key] = true;
+                this.$emit('node-select', node);
+            }
+
+            return _selectionKeys;
+        },
+        handleSelectionWithoutMetaKey(event) {
+            const node = event.node;
+            const selected = this.isNodeSelected(node);
+            let _selectionKeys;
+            
+            if (this.isSingleSelectionMode()) {
+                if (selected) {
+                    _selectionKeys = {};
+                    this.$emit('node-unselect', node);
+                }
+                else {
+                    _selectionKeys = {};
+                    _selectionKeys[node.key] = true;
+                    this.$emit('node-select', node);
+                }
+            }
+            else {
+                if (selected) {
+                    _selectionKeys = {...this.selectionKeys};
+                    delete _selectionKeys[node.key];
+
+                    this.$emit('node-unselect', node);
+                }
+                else {
+                    _selectionKeys = this.selectionKeys ? {...this.selectionKeys} : {};
+                    _selectionKeys[node.key] = true;
+                    
+                    this.$emit('node-select', node);
+                }
+            }
+
+            return _selectionKeys;
+        },
+        isSingleSelectionMode() {
+            return this.selectionMode === 'single';
+        },
+        isMultipleSelectionMode() {
+            return this.selectionMode === 'multiple';
         },
         onPage(event) {
             this.d_first = event.first;
@@ -653,6 +732,10 @@ export default {
 
 .p-treetable-auto-layout > .p-treetable-wrapper > table {
     table-layout: auto;
+}
+
+.p-treetable-hoverable-rows .p-treetable-tbody > tr.p-highlight {
+    cursor: pointer;
 }
 
 /* Sections */
