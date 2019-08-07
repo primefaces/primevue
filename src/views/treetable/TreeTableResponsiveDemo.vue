@@ -25,6 +25,70 @@
                 <Column field="type" header="Type" headerClass="sm-invisible" bodyClass="sm-invisible"></Column>
             </TreeTable>
         </div>
+
+        <div class="content-section documentation">
+            <TabView>
+                <TabPanel header="Source">
+<CodeHighlight>
+<template v-pre>
+&lt;TreeTable :value="nodes" class="p-treetable-responsive"&gt;
+    &lt;template #header&gt;
+        Responsive
+    &lt;/template&gt;
+    &lt;Column field="name" header="Name" :expander="true"&gt;
+            &lt;template #body="slotProps"&gt;
+            &#123;&#123;slotProps.node.data.name&#125;&#125;
+            &lt;span class="sm-visible"&gt;&#123;&#123;slotProps.node.data.size&#125;&#125;&lt;/span&gt;
+            &lt;span class="sm-visible"&gt;&#123;&#123;slotProps.node.data.type&#125;&#125;&lt;/span&gt;
+        &lt;/template&gt;
+    &lt;/Column&gt;
+    &lt;Column field="size" header="Size" headerClass="sm-invisible" bodyClass="sm-invisible"&gt;&lt;/Column&gt;
+    &lt;Column field="type" header="Type" headerClass="sm-invisible" bodyClass="sm-invisible"&gt;&lt;/Column&gt;
+&lt;/TreeTable&gt;
+</template>
+</CodeHighlight>
+
+<CodeHighlight lang="javascript">
+import NodeService from '../../service/NodeService';
+
+export default {
+    data() {
+        return {
+            nodes: null
+        }
+    },
+    nodeService: null,
+    created() {
+        this.nodeService = new NodeService();
+    },
+    mounted() {
+        this.nodeService.getTreeTableNodes().then(data => this.nodes = data);
+    }
+}
+</CodeHighlight>
+
+<CodeHighlight lang="css">
+.sm-visible {
+    display: none;
+}
+
+@media screen and (max-width: 40em) {
+    /deep/ {
+        .sm-invisible {
+            display: none;
+        }
+
+        .sm-visible {
+            display: inline;
+            margin-right: .5em;
+        }
+    }
+}
+</CodeHighlight>
+
+                </TabPanel>
+            </TabView>
+        </div>
     </div>
 </template>
 

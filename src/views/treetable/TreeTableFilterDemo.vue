@@ -61,13 +61,91 @@
             </TreeTable>
         </div>
 
-        <TreeTableDoc />
+        <div class="content-section documentation">
+            <TabView>
+                <TabPanel header="Source">
+<CodeHighlight>
+<template v-pre>
+&lt;h3&gt;Lenient Filter&lt;/h3&gt;
+&lt;TreeTable :value="nodes" :filters="filters" filterMode="lenient"&gt;
+    &lt;template #header&gt;
+        &lt;div style="text-align: right"&gt;
+            &lt;i class="pi pi-search" style="margin: 4px 4px 0px 0px;"&gt;&lt;/i&gt;
+            &lt;InputText v-model="filters['global']" placeholder="Global Search" size="50" /&gt;
+        &lt;/div&gt;
+    &lt;/template&gt;
+    &lt;Column field="name" header="Name" :expander="true"&gt;
+        &lt;template #filter&gt;
+            &lt;InputText type="text" v-model="filters['name']" class="p-column-filter" /&gt;
+        &lt;/template&gt;
+    &lt;/Column&gt;
+    &lt;Column field="size" header="Size"&gt;
+        &lt;template #filter&gt;
+            &lt;InputText type="text" v-model="filters['size']" class="p-column-filter" /&gt;
+        &lt;/template&gt;
+    &lt;/Column&gt;
+    &lt;Column field="type" header="Type"&gt;
+        &lt;template #filter&gt;
+            &lt;InputText type="text" v-model="filters['type']" class="p-column-filter" /&gt;
+        &lt;/template&gt;
+    &lt;/Column&gt;
+&lt;/TreeTable&gt;
+
+&lt;h3&gt;Strict Filter&lt;/h3&gt;
+&lt;TreeTable :value="nodes" :filters="filters" filterMode="strict"&gt;
+    &lt;template #header&gt;
+        &lt;div style="text-align: right"&gt;
+            &lt;i class="pi pi-search" style="margin: 4px 4px 0px 0px;"&gt;&lt;/i&gt;
+            &lt;InputText v-model="filters['global']" placeholder="Global Search" size="50" /&gt;
+        &lt;/div&gt;
+    &lt;/template&gt;
+    &lt;Column field="name" header="Name" :expander="true"&gt;
+        &lt;template #filter&gt;
+            &lt;InputText type="text" v-model="filters['name']" class="p-column-filter" /&gt;
+        &lt;/template&gt;
+    &lt;/Column&gt;
+    &lt;Column field="size" header="Size"&gt;
+        &lt;template #filter&gt;
+            &lt;InputText type="text" v-model="filters['size']" class="p-column-filter" /&gt;
+        &lt;/template&gt;
+    &lt;/Column&gt;
+    &lt;Column field="type" header="Type"&gt;
+        &lt;template #filter&gt;
+            &lt;InputText type="text" v-model="filters['type']" class="p-column-filter" /&gt;
+        &lt;/template&gt;
+    &lt;/Column&gt;
+&lt;/TreeTable&gt;
+</template>
+</CodeHighlight>
+
+<CodeHighlight lang="javascript">
+import NodeService from '../../service/NodeService';
+
+export default {
+    data() {
+        return {
+            filters: {},
+            nodes: null
+        }
+    },
+    nodeService: null,
+    created() {
+        this.nodeService = new NodeService();
+    },
+    mounted() {
+        this.nodeService.getTreeTableNodes().then(data => this.nodes = data);
+    }
+}
+</CodeHighlight>
+
+                </TabPanel>
+            </TabView>
+        </div>
     </div>
 </template>
 
 <script>
 import NodeService from '../../service/NodeService';
-import TreeTableDoc from './TreeTableDoc';
 import TreeTableSubMenu from './TreeTableSubMenu';
 
 export default {
@@ -85,7 +163,6 @@ export default {
         this.nodeService.getTreeTableNodes().then(data => this.nodes = data);
     },
     components: {
-        'TreeTableDoc': TreeTableDoc,
         'TreeTableSubMenu': TreeTableSubMenu
     }
 }

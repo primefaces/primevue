@@ -34,59 +34,78 @@
             </TreeTable>
         </div>
 
-        <TreeTableDoc />
+        <div class="content-section documentation">
+            <TabView>
+                <TabPanel header="Source">
+<CodeHighlight>
+<template v-pre>
+&lt;TreeTable :value="nodes"&gt;
+    &lt;template #header&gt;
+        FileSystem
+    &lt;/template&gt;
+    &lt;Column field="name" header="Name" :expander="true"&gt;&lt;/Column&gt;
+    &lt;Column field="size" header="Size"&gt;&lt;/Column&gt;
+    &lt;Column field="type" header="Type"&gt;&lt;/Column&gt;
+    &lt;Column headerStyle="width: 8em" bodyStyle="text-align: center"&gt;
+        &lt;template #header&gt;
+            &lt;Button type="button" icon="pi pi-cog"&gt;&lt;/Button&gt;
+        &lt;/template&gt;
+        &lt;template #body="slotProps"&gt;
+            &lt;Button type="button" icon="pi pi-search" class="p-button-success" style="margin-right: .5em"&gt;&lt;/Button&gt;
+            &lt;Button type="button" icon="pi pi-pencil" class="p-button-warning"&gt;&lt;/Button&gt;
+        &lt;/template&gt;
+    &lt;/Column&gt;
+    &lt;template #footer&gt;
+        &lt;div style="text-align:left"&gt;
+            &lt;Button icon="pi pi-refresh" /&gt;
+        &lt;/div&gt;
+    &lt;/template&gt;
+&lt;/TreeTable&gt;
+</template>
+</CodeHighlight>
+
+<CodeHighlight lang="javascript">
+import NodeService from '../../service/NodeService';
+
+export default {
+    data() {
+        return {
+            nodes: null,
+        }
+    },
+    nodeService: null,
+    created() {
+        this.nodeService = new NodeService();
+    },
+    mounted() {
+        this.nodeService.getTreeTableNodes().then(data => this.nodes = data);
+    }
+}
+</CodeHighlight>
+                </TabPanel>
+            </TabView>
+        </div>
     </div>
 </template>
 
 <script>
 import NodeService from '../../service/NodeService';
-import TreeTableDoc from './TreeTableDoc';
 import TreeTableSubMenu from './TreeTableSubMenu';
 
 export default {
     data() {
         return {
             nodes: null,
-            columns: null,
-            expandedKeys: {}
         }
     },
     nodeService: null,
     created() {
         this.nodeService = new NodeService();
-
-        this.columns = [
-            {field: 'name', header: 'Vin', expander: true},
-            {field: 'size', header: 'Size'},
-            {field: 'type', header: 'Type'}
-        ];
     },
     mounted() {
         this.nodeService.getTreeTableNodes().then(data => this.nodes = data);
     },
-    methods: {
-        expandAll() {
-            for (let node of this.nodes) {
-                this.expandNode(node);
-            }
-
-            this.expandedKeys = {...this.expandedKeys};
-        },
-        collapseAll() {
-            this.expandedKeys = {};
-        },
-        expandNode(node) {
-            if (node.children && node.children.length) {
-                this.expandedKeys[node.key] = true;
-
-                for (let child of node.children) {
-                    this.expandNode(child);
-                }
-            }
-        }
-    },
     components: {
-        'TreeTableDoc': TreeTableDoc,
         'TreeTableSubMenu': TreeTableSubMenu
     }
 }

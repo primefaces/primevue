@@ -24,6 +24,50 @@
                 <Column field="type" header="Type" :sortable="true"></Column>
             </TreeTable>
         </div>
+
+        <div class="content-section documentation">
+            <TabView>
+                <TabPanel header="Source">
+<CodeHighlight>
+<template v-pre>
+&lt;h3&gt;Single Column Sorting&lt;/h3&gt;
+&lt;TreeTable :value="nodes" sortMode="single"&gt;
+    &lt;Column field="name" header="Name" :expander="true" :sortable="true"&gt;&lt;/Column&gt;
+    &lt;Column field="size" header="Size" :sortable="true"&gt;&lt;/Column&gt;
+    &lt;Column field="type" header="Type" :sortable="true"&gt;&lt;/Column&gt;
+&lt;/TreeTable&gt;
+
+&lt;h3&gt;Multiple Column Sorting&lt;/h3&gt;
+&lt;TreeTable :value="nodes" sortMode="multiple"&gt;
+    &lt;Column field="name" header="Name" :expander="true" :sortable="true"&gt;&lt;/Column&gt;
+    &lt;Column field="size" header="Size" :sortable="true"&gt;&lt;/Column&gt;
+    &lt;Column field="type" header="Type" :sortable="true"&gt;&lt;/Column&gt;
+&lt;/TreeTable&gt;
+</template>
+</CodeHighlight>
+
+<CodeHighlight lang="javascript">
+import NodeService from '../../service/NodeService';
+
+export default {
+    data() {
+        return {
+            nodes: null
+        }
+    },
+    nodeService: null,
+    created() {
+        this.nodeService = new NodeService();
+    },
+    mounted() {
+        this.nodeService.getTreeTableNodes().then(data => this.nodes = data);
+    }
+}
+</CodeHighlight>
+
+                </TabPanel>
+            </TabView>
+        </div>
     </div>
 </template>
 

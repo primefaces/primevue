@@ -47,13 +47,88 @@
             </TreeTable>
         </div>
 
-        <TreeTableDoc />
+        <div class="content-section documentation">
+            <TabView>
+                <TabPanel header="Source">
+<CodeHighlight>
+<template v-pre>
+&lt;h3&gt;Single Selection&lt;/h3&gt;
+&lt;TreeTable :value="nodes" selectionMode="single" :selectionKeys.sync="selectedKey1"&gt;
+    &lt;Column field="name" header="Name" :expander="true"&gt;&lt;/Column&gt;
+    &lt;Column field="size" header="Size"&gt;&lt;/Column&gt;
+    &lt;Column field="type" header="Type"&gt;&lt;/Column&gt;
+&lt;/TreeTable&gt;
+
+&lt;h3&gt;Multiple Selection with MetaKey&lt;/h3&gt;
+&lt;TreeTable :value="nodes" selectionMode="multiple" :selectionKeys.sync="selectedKeys1"&gt;
+    &lt;Column field="name" header="Name" :expander="true"&gt;&lt;/Column&gt;
+    &lt;Column field="size" header="Size"&gt;&lt;/Column&gt;
+    &lt;Column field="type" header="Type"&gt;&lt;/Column&gt;
+&lt;/TreeTable&gt;
+
+&lt;h3&gt;Multiple Selection without MetaKey&lt;/h3&gt;
+&lt;TreeTable :value="nodes" selectionMode="multiple" :selectionKeys.sync="selectedKeys2" :metaKeySelection="false"&gt;
+    &lt;Column field="name" header="Name" :expander="true"&gt;&lt;/Column&gt;
+    &lt;Column field="size" header="Size"&gt;&lt;/Column&gt;
+    &lt;Column field="type" header="Type"&gt;&lt;/Column&gt;
+&lt;/TreeTable&gt;
+
+&lt;h3&gt;Checkbox Selection&lt;/h3&gt;
+&lt;TreeTable :value="nodes" selectionMode="checkbox" :selectionKeys.sync="selectedKeys3"&gt;
+    &lt;Column field="name" header="Name" :expander="true"&gt;&lt;/Column&gt;
+    &lt;Column field="size" header="Size"&gt;&lt;/Column&gt;
+    &lt;Column field="type" header="Type"&gt;&lt;/Column&gt;
+&lt;/TreeTable&gt;
+
+&lt;h3&gt;Events&lt;/h3&gt;
+&lt;TreeTable :value="nodes" selectionMode="single" :selectionKeys.sync="selectedKey2"
+    @node-select="onNodeSelect" @node-unselect="onNodeUnselect"&gt;
+    &lt;Column field="name" header="Name" :expander="true"&gt;&lt;/Column&gt;
+    &lt;Column field="size" header="Size"&gt;&lt;/Column&gt;
+    &lt;Column field="type" header="Type"&gt;&lt;/Column&gt;
+&lt;/TreeTable&gt;
+</template>
+</CodeHighlight>
+
+<CodeHighlight lang="javascript">
+import NodeService from '../../service/NodeService';
+
+export default {
+    data() {
+        return {
+            selectedKey1: null,
+            selectedKey2: null,
+            selectedKeys1: null,
+            selectedKeys2: null,
+            selectedKeys3: null,
+            nodes: null
+        }
+    },
+    nodeService: null,
+    created() {
+        this.nodeService = new NodeService();
+    },
+    mounted() {
+        this.nodeService.getTreeTableNodes().then(data => this.nodes = data);
+    },
+    methods: {
+        onNodeSelect(node) {
+            this.$toast.add({severity:'success', summary: 'Node Selected', detail: node.data.name, life: 3000});
+        },
+        onNodeUnselect(node) {
+            this.$toast.add({severity:'success', summary: 'Node Unselected', detail: node.data.name, life: 3000});
+        }
+    }
+}
+</CodeHighlight>
+                </TabPanel>
+            </TabView>
+        </div>
     </div>
 </template>
 
 <script>
 import NodeService from '../../service/NodeService';
-import TreeTableDoc from './TreeTableDoc';
 import TreeTableSubMenu from './TreeTableSubMenu';
 
 export default {
@@ -83,14 +158,7 @@ export default {
         }
     },
     components: {
-        'TreeTableDoc': TreeTableDoc,
         'TreeTableSubMenu': TreeTableSubMenu
     }
 }
 </script>
-
-<style scoped>
-button {
-    margin-right: .5em;
-}
-</style>

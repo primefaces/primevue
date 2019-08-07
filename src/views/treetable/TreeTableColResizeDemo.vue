@@ -25,6 +25,50 @@
                 <Column field="type" header="Type"></Column>
             </TreeTable>
         </div>
+
+        <div class="content-section documentation">
+            <TabView>
+                <TabPanel header="Source">
+<CodeHighlight>
+<template v-pre>
+&lt;h3&gt;Fit Mode&lt;/h3&gt;
+&lt;TreeTable :value="nodes" :resizableColumns="true" columnResizeMode="fit"&gt;
+    &lt;Column field="name" header="Name" :expander="true"&gt;&lt;/Column&gt;
+    &lt;Column field="size" header="Size"&gt;&lt;/Column&gt;
+    &lt;Column field="type" header="Type"&gt;&lt;/Column&gt;
+&lt;/TreeTable&gt;
+
+&lt;h3&gt;Expand Mdoe&lt;/h3&gt;
+&lt;TreeTable :value="nodes" :resizableColumns="true" columnResizeMode="expand"&gt;
+    &lt;Column field="name" header="Name" :expander="true"&gt;&lt;/Column&gt;
+    &lt;Column field="size" header="Size"&gt;&lt;/Column&gt;
+    &lt;Column field="type" header="Type"&gt;&lt;/Column&gt;
+&lt;/TreeTable&gt;
+</template>
+</CodeHighlight>
+
+<CodeHighlight lang="javascript">
+import NodeService from '../../service/NodeService';
+
+export default {
+    data() {
+        return {
+            nodes: null
+        }
+    },
+    nodeService: null,
+    created() {
+        this.nodeService = new NodeService();
+    },
+    mounted() {
+        this.nodeService.getTreeTableNodes().then(data => this.nodes = data);
+    }
+}
+</CodeHighlight>
+
+                </TabPanel>
+            </TabView>
+        </div>
     </div>
 </template>
 

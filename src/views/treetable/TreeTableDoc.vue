@@ -721,20 +721,34 @@ export default {
 			</TabPanel>
 
 			<TabPanel header="Source">
-				<a href="https://github.com/primefaces/primevue/tree/master/src/views/tree" class="btn-viewsource" target="_blank" rel="noopener noreferrer">
+				<a href="https://github.com/primefaces/primevue/tree/master/src/views/treetable" class="btn-viewsource" target="_blank" rel="noopener noreferrer">
 					<span>View on GitHub</span>
 				</a>
 <CodeHighlight>
 <template v-pre>
 &lt;h3&gt;Basic&lt;/h3&gt;
-&lt;Tree :value="nodes"&gt;&lt;/Tree&gt;
+&lt;TreeTable :value="nodes"&gt;
+    &lt;Column field="name" header="Name" :expander="true"&gt;&lt;/Column&gt;
+    &lt;Column field="size" header="Size"&gt;&lt;/Column&gt;
+    &lt;Column field="type" header="Type"&gt;&lt;/Column&gt;
+&lt;/TreeTable&gt;
+
+&lt;h3&gt;Dynamic Columns&lt;/h3&gt;
+&lt;TreeTable :value="nodes"&gt;
+    &lt;Column v-for="col of columns" :key="col.field"
+        :field="col.field" :header="col.header" :expander="col.expander"&gt;&lt;/Column&gt;
+&lt;/TreeTable&gt;
 
 &lt;h3&gt;Programmatic Control&lt;/h3&gt;
 &lt;div style="margin-bottom: 1em"&gt;
     &lt;Button type="button" icon="pi pi-plus" label="Expand All" @click="expandAll" /&gt;
     &lt;Button type="button" icon="pi pi-minus" label="Collapse All" @click="collapseAll" /&gt;
 &lt;/div&gt;
-&lt;Tree :value="nodes" :expandedKeys="expandedKeys"&gt;&lt;/Tree&gt;   
+&lt;TreeTable :value="nodes" :expandedKeys="expandedKeys"&gt;
+    &lt;Column field="name" header="Name" :expander="true"&gt;&lt;/Column&gt;
+    &lt;Column field="size" header="Size"&gt;&lt;/Column&gt;
+    &lt;Column field="type" header="Type"&gt;&lt;/Column&gt;
+&lt;/TreeTable&gt;  
 </template>
 </CodeHighlight>
 
@@ -745,15 +759,22 @@ export default {
     data() {
         return {
             nodes: null,
+            columns: null,
             expandedKeys: {}
         }
     },
     nodeService: null,
     created() {
         this.nodeService = new NodeService();
+
+        this.columns = [
+            {field: 'name', header: 'Vin', expander: true},
+            {field: 'size', header: 'Size'},
+            {field: 'type', header: 'Type'}
+        ];
     },
     mounted() {
-        this.nodeService.getTreeNodes().then(data => this.nodes = data);
+        this.nodeService.getTreeTableNodes().then(data => this.nodes = data);
     },
     methods: {
         expandAll() {
@@ -767,8 +788,9 @@ export default {
             this.expandedKeys = {};
         },
         expandNode(node) {
-            this.expandedKeys[node.key] = true;
             if (node.children &amp;&amp; node.children.length) {
+                this.expandedKeys[node.key] = true;
+
                 for (let child of node.children) {
                     this.expandNode(child);
                 }
