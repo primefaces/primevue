@@ -92,39 +92,43 @@ export default {
 
                 switch (event.which) {
                     //down arrow
-                    case 40:
+                    case 40: {
                         const nextRow = rowElement.nextElementSibling;
                         if (nextRow) {
                             nextRow.focus();
                         }
         
                         event.preventDefault();
-                    break;
+                        break;
+                    }
         
                     //up arrow
-                    case 38:
+                    case 38: {
                         const previousRow = rowElement.previousElementSibling;
                         if (previousRow) {
                             previousRow.focus();
                         }
         
                         event.preventDefault();
-                    break;
+                        break;
+                    }
         
                     //right-left arrows
                     case 37:
-                    case 39:
+                    case 39: {
                         if (!this.leaf) {
                             this.$emit('node-toggle', this.node);
                             event.preventDefault();
                         }
-                    break;
+                        break;
+                    }
         
                     //enter
-                    case 13:
+                    case 13: {
                         this.onClick(event);
                         event.preventDefault();
-                    break;
+                        break;
+                    }
         
                     default:
                         //no op
