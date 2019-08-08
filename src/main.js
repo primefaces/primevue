@@ -54,6 +54,7 @@ import ToastService from './components/toast/ToastService';
 import Toolbar from './components/toolbar/Toolbar';
 import ToggleButton from './components/togglebutton/ToggleButton';
 import TriStateCheckbox from './components/tristatecheckbox/TriStateCheckbox';
+import InputMask from './components/inputmask/InputMask';
 import ValidationMessage from './components/validationmessage/ValidationMessage';
 
 import CodeHighlight from './views/codehighlight/CodeHighlight';
@@ -122,6 +123,7 @@ Vue.component('ToggleButton', ToggleButton);
 Vue.component('Tree', Tree);
 Vue.component('TreeTable', TreeTable);
 Vue.component('TriStateCheckbox', TriStateCheckbox);
+Vue.component('InputMask', InputMask);
 Vue.component('ValidationMessage', ValidationMessage);
 
 Vue.component('CodeHighlight', CodeHighlight);

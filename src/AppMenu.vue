@@ -29,6 +29,7 @@
                         <router-link to="/textarea">&#9679; Textarea</router-link>
                         <router-link to="/togglebutton">&#9679; ToggleButton</router-link>
                         <router-link to="/tristatecheckbox">&#9679; TriCheckbox</router-link>
+                        <router-link to="/inputmask">&#9679; InputMask</router-link>
                     </div>
                 </div>
             </transition>

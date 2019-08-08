@@ -232,6 +232,11 @@ export default new Router({
 			component: () => import('./views/inputtext/InputTextDemo.vue')
 		},
 		{
+			path: '/inputmask',
+			name: 'inputmask',
+			component: () => import('./views/inputmask/InputMaskDemo.vue')
+		},
+		{
 			path: '/listbox',
 			name: 'listbox',
 			component: () => import('./views/listbox/ListboxDemo.vue')
