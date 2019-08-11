@@ -32,6 +32,9 @@ export declare class TreeTable extends Vue {
     filterMode?: string;
     resizableColumns?: boolean;
     columnResizeMode?: string;
+    $emit(eventName: 'page', event: Event): this;
+    $emit(eventName: 'sort', event: Event): this;
+    $emit(eventName: 'filter', event: Event): this;
     $emit(eventName: 'node-select', node: any): this;
     $emit(eventName: 'node-unselect', node: any): this;
     $emit(eventName: 'node-expand', node: any): this;
