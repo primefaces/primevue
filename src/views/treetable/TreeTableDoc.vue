@@ -4,13 +4,13 @@
 			<TabPanel header="Documentation">
 				<h3>Import</h3>
 <CodeHighlight lang="javascript">
-import Tree from 'primevue/tree';
+import TreeTable from 'primevue/treetable';
 </CodeHighlight>
 
 				<h3>Getting Started</h3>
-				<p>Tree component requires an array of TreeNode objects as its <i>value</i>.</p>
+				<p>Tree component requires an array of TreeNode objects as its <i>value</i> and columns defined with Column component.</p>
 
-                <h3>TreeNode API</h3>
+                <h3>TreeNode API utilized by the TreeTable</h3>
                 <div class="doc-tablewrapper">
                     <table class="doc-table">
                         <thead>
@@ -29,28 +29,10 @@ import Tree from 'primevue/tree';
                                 <td>Mandatory unique key of the node.</td>
                             </tr>
                             <tr>
-                                <td>label</td>
-                                <td>string</td>
-                                <td>null</td>
-                                <td>Label of the node.</td>
-                            </tr>
-                            <tr>
                                 <td>data</td>
                                 <td>any</td>
                                 <td>null</td>
                                 <td>Data represented by the node.</td>
-                            </tr>
-                            <tr>
-                                <td>type</td>
-                                <td>string</td>
-                                <td>null</td>
-                                <td>Type of the node to match a template.</td>
-                            </tr>
-                            <tr>
-                                <td>icon</td>
-                                <td>string</td>
-                                <td>null</td>
-                                <td>Icon of the node to display next to content.</td>
                             </tr>
                             <tr>
                                 <td>children</td>
@@ -71,12 +53,6 @@ import Tree from 'primevue/tree';
                                 <td>Style class of the node.</td>
                             </tr>
                             <tr>
-                                <td>selectable</td>
-                                <td>boolean</td>
-                                <td>null</td>
-                                <td>Whether the node is selectable when selection mode is enabled.</td>
-                            </tr>
-                            <tr>
                                 <td>leaf</td>
                                 <td>boolean</td>
                                 <td>null</td>
@@ -86,10 +62,14 @@ import Tree from 'primevue/tree';
                     </table>
                 </div>
 
-                <p>Example below loads the tree nodes from a remote datasource via a service called NodeService.</p>
+                <p>Example below loads the nodes from a remote datasource via a service called NodeService.</p>
 <CodeHighlight>
 <template v-pre>
-&lt;Tree :value="nodes"&gt;&lt;/Tree&gt;  
+&lt;TreeTable :value="nodes"&gt;
+    &lt;Column field="name" header="Name" :expander="true"&gt;&lt;/Column&gt;
+    &lt;Column field="size" header="Size"&gt;&lt;/Column&gt;
+    &lt;Column field="type" header="Type"&gt;&lt;/Column&gt;
+&lt;/TreeTable&gt;
 </template>
 </CodeHighlight>
 
@@ -107,7 +87,7 @@ export default {
         this.nodeService = new NodeService();
     },
     mounted() {
-        this.nodeService.getTreeNodes().then(data => this.nodes = data);
+        this.nodeService.getTreeTableNodes().then(data => this.nodes = data);
     }
 }
 </CodeHighlight>
@@ -117,70 +97,516 @@ import axios from 'axios';
 
 export default class NodeService {
 
-    getTreeNodes() {
-        return axios.get('demo/data/treenodes.json').then(res => res.data.root);
+    getTreeTableNodes() {
+        return axios.get('demo/data/treetablenodes.json').then(res => res.data.root);
     }
     
 }
 </CodeHighlight>
 
                 <p>The json response sample would be as following.</p>
+
+<div style="height: 400px; overflow: auto">
 <CodeHighlight lang="javascript">
 {
-    "root": [
+    "root":
+    [  
         {
             "key": "0",
-            "label": "Documents",
-            "data": "Documents Folder",
-            "icon": "pi pi-fw pi-inbox",
-            "children": [{
-                "key": "0-0",
-                "label": "Work",
-                "data": "Work Folder",
-                "icon": "pi pi-fw pi-cog",
-                "children": [{ "key": "0-0-0", "label": "Expenses.doc", "icon": "pi pi-fw pi-file", "data": "Expenses Document" }, { "key": "0-0-1", "label": "Resume.doc", "icon": "pi pi-fw pi-file", "data": "Resume Document" }]
+            "data":{  
+                "name":"Applications",
+                "size":"100kb",
+                "type":"Folder"
             },
-            {
-                "key": "0-1",
-                "label": "Home",
-                "data": "Home Folder",
-                "icon": "pi pi-fw pi-home",
-                "children": [{ "key": "0-1-0", "label": "Invoices.txt", "icon": "pi pi-fw pi-file", "data": "Invoices for this month" }]
-            }]
+            "children":[  
+                {  
+                    "key": "0-0",
+                    "data":{
+                        "name":"Vue",
+                        "size":"25kb",
+                        "type":"Folder"
+                    },
+                    "children":[  
+                        {  
+                            "key": "0-0-0",
+                            "data":{  
+                                "name":"Vue.app",
+                                "size":"10kb",
+                                "type":"Application"
+                            }
+                        },
+                        {  
+                            "key": "0-0-1",
+                            "data":{  
+                                "name":"native.app",
+                                "size":"10kb",
+                                "type":"Application"
+                            }
+                        },
+                        {  
+                            "key": "0-0-2",
+                            "data":{  
+                                "name":"mobile.app",
+                                "size":"5kb",
+                                "type":"Application"
+                            }
+                        }
+                    ]
+                },
+                {  
+                    "key": "0-1",
+                    "data":{  
+                        "name":"editor.app",
+                        "size":"25kb",
+                        "type":"Application"
+                    }
+                },
+                {  
+                    "key": "0-2",
+                    "data":{  
+                        "name":"settings.app",
+                        "size":"50kb",
+                        "type":"Application"
+                    }
+                }
+            ]
         },
-        {
+        {  
             "key": "1",
-            "label": "Events",
-            "data": "Events Folder",
-            "icon": "pi pi-fw pi-calendar",
-            "children": [
-                { "key": "1-0", "label": "Meeting", "icon": "pi pi-fw pi-calendar-plus", "data": "Meeting" },
-                { "key": "1-1", "label": "Product Launch", "icon": "pi pi-fw pi-calendar-plus", "data": "Product Launch" },
-                { "key": "1-2", "label": "Report Review", "icon": "pi pi-fw pi-calendar-plus", "data": "Report Review" }]
-        },
-        {
-            "key": "2",
-            "label": "Movies",
-            "data": "Movies Folder",
-            "icon": "pi pi-fw pi-star",
-            "children": [{
-                "key": "2-0",
-                "icon": "pi pi-fw pi-star",
-                "label": "Al Pacino",
-                "data": "Pacino Movies",
-                "children": [{ "key": "2-0-0", "label": "Scarface", "icon": "pi pi-fw pi-video", "data": "Scarface Movie" }, { "key": "2-0-1", "label": "Serpico", "icon": "pi pi-fw pi-video", "data": "Serpico Movie" }]
+            "data":{  
+                "name":"Cloud",
+                "size":"20kb",
+                "type":"Folder"
             },
-            {
-                "key": "2-1",
-                "label": "Robert De Niro",
-                "icon": "pi pi-fw pi-star",
-                "data": "De Niro Movies",
-                "children": [{ "key": "2-1-0", "label": "Goodfellas", "icon": "pi pi-fw pi-video", "data": "Goodfellas Movie" }, { "key": "2-1-1", "label": "Untouchables", "icon": "pi pi-fw pi-video", "data": "Untouchables Movie" }]
-            }]
+            "children":[  
+                {  
+                    "key": "1-0",
+                    "data":{  
+                        "name":"backup-1.zip",
+                        "size":"10kb",
+                        "type":"Zip"
+                    }
+                },
+                {  
+                    "key": "1-1",
+                    "data":{  
+                        "name":"backup-2.zip",
+                        "size":"10kb",
+                        "type":"Zip"
+                    }
+                }
+            ]
+        },
+        {  
+            "key": "2",
+            "data": {  
+                "name":"Desktop",
+                "size":"150kb",
+                "type":"Folder"
+            },
+            "children":[  
+                {  
+                    "key": "2-0",
+                    "data":{  
+                        "name":"note-meeting.txt",
+                        "size":"50kb",
+                        "type":"Text"
+                    }
+                },
+                {  
+                    "key": "2-1",
+                    "data":{  
+                        "name":"note-todo.txt",
+                        "size":"100kb",
+                        "type":"Text"
+                    }
+                }
+            ]
+        },
+        {  
+            "key": "3",
+            "data":{  
+                "name":"Documents",
+                "size":"75kb",
+                "type":"Folder"
+            },
+            "children":[
+                {  
+                    "key": "3-0",
+                    "data":{  
+                        "name":"Work",
+                        "size":"55kb",
+                        "type":"Folder"
+                    },
+                    "children":[  
+                        {  
+                            "key": "3-0-0",
+                            "data":{  
+                                "name":"Expenses.doc",
+                                "size":"30kb",
+                                "type":"Document"
+                            }
+                        },
+                        {  
+                            "key": "3-0-1",
+                            "data":{  
+                                "name":"Resume.doc",
+                                "size":"25kb",
+                                "type":"Resume"
+                            }
+                        }
+                    ]
+                },
+                {  
+                    "key": "3-1",
+                    "data":{  
+                        "name":"Home",
+                        "size":"20kb",
+                        "type":"Folder"
+                    },
+                    "children":[  
+                        {  
+                            "key": "3-1-0",
+                            "data":{  
+                                "name":"Invoices",
+                                "size":"20kb",
+                                "type":"Text"
+                            }
+                        }
+                    ]
+                }
+            ]
+        },
+        {  
+            "key": "4",
+            "data": {  
+                "name":"Downloads",
+                "size":"25kb",
+                "type":"Folder"
+            },
+            "children":[  
+                {  
+                    "key": "4-0",
+                    "data": {  
+                        "name":"Spanish",
+                        "size":"10kb",
+                        "type":"Folder"
+                    },
+                    "children":[  
+                        {  
+                            "key": "4-0-0",
+                            "data":{  
+                                "name":"tutorial-a1.txt",
+                                "size":"5kb",
+                                "type":"Text"
+                            }
+                        },
+                        {  
+                            "key": "4-0-1",
+                            "data":{  
+                                "name":"tutorial-a2.txt",
+                                "size":"5kb",
+                                "type":"Text"
+                            }
+                        }
+                    ]
+                },
+                {  
+                    "key": "4-1",
+                    "data":{  
+                        "name":"Travel",
+                        "size":"15kb",
+                        "type":"Text"
+                    },
+                    "children":[  
+                        {  
+                            "key": "4-1-0",
+                            "data":{  
+                                "name":"Hotel.pdf",
+                                "size":"10kb",
+                                "type":"PDF"
+                            }
+                        },
+                        {  
+                            "key": "4-1-1",
+                            "data":{  
+                                "name":"Flight.pdf",
+                                "size":"5kb",
+                                "type":"PDF"
+                            }
+                        }
+                    ]
+                }
+            ]
+        },
+        {  
+            "key": "5",
+            "data": {  
+                "name":"Main",
+                "size":"50kb",
+                "type":"Folder"
+            },
+            "children":[  
+                {  
+                    "key": "5-0",
+                    "data":{  
+                        "name":"bin",
+                        "size":"50kb",
+                        "type":"Link"
+                    }
+                },
+                { 
+                    "key": "5-1", 
+                    "data":{  
+                        "name":"etc",
+                        "size":"100kb",
+                        "type":"Link"
+                    }
+                },
+                {  
+                    "key": "5-2",
+                    "data":{  
+                        "name":"var",
+                        "size":"100kb",
+                        "type":"Link"
+                    }
+                }
+            ]
+        },
+        {  
+            "key": "6",
+            "data":{  
+                "name":"Other",
+                "size":"5kb",
+                "type":"Folder"
+            },
+            "children":[  
+                {  
+                    "key": "6-0",
+                    "data":{  
+                        "name":"todo.txt",
+                        "size":"3kb",
+                        "type":"Text"
+                    }
+                },
+                {  
+                    "key": "6-1",
+                    "data":{  
+                        "name":"logo.png",
+                        "size":"2kb",
+                        "type":"Picture"
+                    }
+                }
+            ]
+        },
+        {  
+            "key": "7",
+            "data":{  
+                "name":"Pictures",
+                "size":"150kb",
+                "type":"Folder"
+            },
+            "children":[  
+                {  
+                    "key": "7-0",
+                    "data":{  
+                        "name":"barcelona.jpg",
+                        "size":"90kb",
+                        "type":"Picture"
+                    }
+                },
+                {  
+                    "key": "7-1",
+                    "data":{  
+                        "name":"primeng.png",
+                        "size":"30kb",
+                        "type":"Picture"
+                    }
+                },
+                {  
+                    "key": "7-2",
+                    "data":{  
+                        "name":"prime.jpg",
+                        "size":"30kb",
+                        "type":"Picture"
+                    }
+                }
+            ]
+        },
+        {  
+            "key": "8",
+            "data":{  
+                "name":"Videos",
+                "size":"1500kb",
+                "type":"Folder"
+            },
+            "children":[  
+                {  
+                    "key": "8-0",
+                    "data":{  
+                        "name":"primefaces.mkv",
+                        "size":"1000kb",
+                        "type":"Video"
+                    }
+                },
+                {  
+                    "key": "8-1",
+                    "data":{  
+                        "name":"intro.avi",
+                        "size":"500kb",
+                        "type":"Video"
+                    }
+                }
+            ]
         }
     ]
 }
 </CodeHighlight>
+</div>
+
+                <h3>Dynamic Columns</h3>
+                <p>Column components can be dynamically generated using a v-for as well.</p>
+
+<CodeHighlight>
+<template v-pre>
+&lt;TreeTable :value="nodes"&gt;
+    &lt;Column v-for="col of columns" :key="col.field"
+        :field="col.field" :header="col.header" :expander="col.expander"&gt;&lt;/Column&gt;
+&lt;/TreeTable&gt;
+</template>
+</CodeHighlight>
+
+<CodeHighlight lang="javascript">
+import NodeService from '../../service/NodeService';
+
+export default {
+    data() {
+        return {
+            nodes: null,
+            columns: null
+        }
+    },
+    nodeService: null,
+    created() {
+        this.nodeService = new NodeService();
+
+        this.columns = [
+            {field: 'name', header: 'Vin', expander: true},
+            {field: 'size', header: 'Size'},
+            {field: 'type', header: 'Type'}
+        ];
+    },
+    mounted() {
+        this.nodeService.getTreeTableNodes().then(data => this.nodes = data);
+    }
+}
+</CodeHighlight>
+
+                <h3>Column Component Properties utilized by the TreeTable</h3>
+                <div class="doc-tablewrapper">
+                    <table class="doc-table">
+                        <thead>
+                            <tr>
+                                <th>Name</th>
+                                <th>Type</th>
+                                <th>Default</th>
+                                <th>Description</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <tr>
+                                <td>columnKey</td>
+                                <td>any</td>
+                                <td>null</td>
+                                <td>Identifier of a column if field property is not defined.</td>
+                            </tr>
+                            <tr>
+                                <td>expander</td>
+                                <td>boolean</td>
+                                <td>false</td>
+                                <td>Whether the column would display a toggle icon.</td>
+                            </tr>
+                            <tr>
+                                <td>field</td>
+                                <td>string</td>
+                                <td>null</td>
+                                <td>Property of a row data.</td>
+                            </tr>
+                            <tr>
+                                <td>sortField</td>
+                                <td>string</td>
+                                <td>null</td>
+                                <td>Property of a row data used for sorting, defaults to field.</td>
+                            </tr>
+                            <tr>
+                                <td>sortable</td>
+                                <td>any</td>
+                                <td>false</td>
+                                <td>Defines if a column is sortable.</td>
+                            </tr>
+                            <tr>
+                                <td>header</td>
+                                <td>any</td>
+                                <td>null</td>
+                                <td>Header content of the column.</td>
+                            </tr>
+                            <tr>
+                                <td>footer</td>
+                                <td>any</td>
+                                <td>null</td>
+                                <td>Footer content of the column.</td>
+                            </tr>
+                            <tr>
+                                <td>headerStyle</td>
+                                <td>object</td>
+                                <td>null</td>
+                                <td>Inline style of the column.</td>
+                            </tr>
+                            <tr>
+                                <td>headerClass</td>
+                                <td>string</td>
+                                <td>null</td>
+                                <td>Style class of the column.</td>
+                            </tr>
+                            <tr>
+                                <td>bodyStyle</td>
+                                <td>object</td>
+                                <td>null</td>
+                                <td>Inline style of the column.</td>
+                            </tr>
+                            <tr>
+                                <td>bodyClass</td>
+                                <td>string</td>
+                                <td>null</td>
+                                <td>Style class of the column.</td>
+                            </tr>
+                            <tr>
+                                <td>footerStyle</td>
+                                <td>object</td>
+                                <td>null</td>
+                                <td>Inline style of the column.</td>
+                            </tr>
+                            <tr>
+                                <td>footerClass</td>
+                                <td>string</td>
+                                <td>null</td>
+                                <td>Style class of the column.</td>
+                            </tr>
+                            <tr>
+                                <td>filterMatchMode</td>
+                                <td>string</td>
+                                <td>null</td>
+                                <td>Defines filterMatchMode; "startsWith", "contains", "endsWidth", "equals", "notEquals", "in" and "custom".</td>
+                            </tr>
+                            <tr>
+                                <td>excludeGlobalFilter</td>
+                                <td>boolean</td>
+                                <td>false</td>
+                                <td>Whether to exclude from global filtering or not.</td>
+                            </tr>
+                        </tbody>
+                    </table>
+                </div>
 
                 <h3>Programmatic Control</h3>
                 <p>Tree state can be controlled programmatically with the <i>expandedKeys</i> property that defines the keys
@@ -190,11 +616,15 @@ export default class NodeService {
                 <p>Example below expands and collapses all nodes with buttons.</p>
 <CodeHighlight>
 <template v-pre>
-&lt;div&gt;
+&lt;div style="margin-bottom: 1em"&gt;
     &lt;Button type="button" icon="pi pi-plus" label="Expand All" @click="expandAll" /&gt;
     &lt;Button type="button" icon="pi pi-minus" label="Collapse All" @click="collapseAll" /&gt;
 &lt;/div&gt;
-&lt;Tree :value="nodes" :expandedKeys="expandedKeys"&gt;&lt;/Tree&gt; 
+&lt;TreeTable :value="nodes" :expandedKeys="expandedKeys"&gt;
+    &lt;Column field="name" header="Name" :expander="true"&gt;&lt;/Column&gt;
+    &lt;Column field="size" header="Size"&gt;&lt;/Column&gt;
+    &lt;Column field="type" header="Type"&gt;&lt;/Column&gt;
+&lt;/TreeTable&gt;  
 </template>
 </CodeHighlight>
 
@@ -213,7 +643,7 @@ export default {
         this.nodeService = new NodeService();
     },
     mounted() {
-        this.nodeService.getTreeNodes().then(data => this.nodes = data);
+        this.nodeService.getTreeTableNodes().then(data => this.nodes = data);
     },
     methods: {
         expandAll() {
@@ -227,8 +657,9 @@ export default {
             this.expandedKeys = {};
         },
         expandNode(node) {
-            this.expandedKeys[node.key] = true;
             if (node.children &amp;&amp; node.children.length) {
+                this.expandedKeys[node.key] = true;
+
                 for (let child of node.children) {
                     this.expandNode(child);
                 }
@@ -254,11 +685,209 @@ export default {
         this.nodeService = new NodeService();
     },
     mounted() {
-        this.nodeService.getTreeNodes().then(data => {
+        this.nodeService.getTreeTableNodes().then(data => {
             this.nodes = data;
             this.expandedKeys[this.nodes[0].key] = true;
             this.expandedKeys[this.nodes[1].key] = true;
         });
+    }
+}
+</CodeHighlight>
+
+                <h3>Templating</h3>
+                <p>Field data of a corresponding node is displayed as the cell content by default, this can be customized using a <i>body</i> template where current node data and column properties are passed via the slot props. 
+                    On the other hand, <i>header</i> and <i>footer</i> sections of a column can either be defined with the properties or the templates. Similarly TreeTable itself also provides header and footer properties along with the templates for the main header and footer of the table.</p>
+            
+                <CodeHighlight>
+<template v-pre>
+&lt;TreeTable :value="nodes"&gt;
+    &lt;template #header&gt;
+        FileSystem
+    &lt;/template&gt;
+    &lt;Column field="name" header="Name" :expander="true"&gt;&lt;/Column&gt;
+    &lt;Column field="size" header="Size"&gt;&lt;/Column&gt;
+    &lt;Column field="type" header="Type"&gt;&lt;/Column&gt;
+    &lt;Column headerStyle="width: 8em" bodyStyle="text-align: center"&gt;
+        &lt;template #header&gt;
+            &lt;Button type="button" icon="pi pi-cog"&gt;&lt;/Button&gt;
+        &lt;/template&gt;
+        &lt;template #body="slotProps"&gt;
+            &lt;Button type="button" icon="pi pi-search" class="p-button-success" style="margin-right: .5em"&gt;&lt;/Button&gt;
+            &lt;Button type="button" icon="pi pi-pencil" class="p-button-warning"&gt;&lt;/Button&gt;
+        &lt;/template&gt;
+    &lt;/Column&gt;
+    &lt;template #footer&gt;
+        &lt;div style="text-align:left"&gt;
+            &lt;Button icon="pi pi-refresh" /&gt;
+        &lt;/div&gt;
+    &lt;/template&gt;
+&lt;/TreeTable&gt;
+</template>
+</CodeHighlight>
+
+                <h3>Pagination</h3>
+                <p>Pagination is enabled by setting <i>paginator</i> property to true and defining the <i>rows</i> property defines the number of rows per page. 
+                    See the <router-link to="/paginator">Paginator</router-link> for the available customization options such as paginator templates, page links, 
+                    rows per page options and more which can be passed through the TreeTable.</p>
+
+<CodeHighlight>
+<template v-pre>
+&lt;TreeTable :value="nodes" :paginator="true" :rows="10"&gt;
+    &lt;Column field="name" header="Name" :expander="true"&gt;&lt;/Column&gt;
+    &lt;Column field="size" header="Size"&gt;&lt;/Column&gt;
+    &lt;Column field="type" header="Type"&gt;&lt;/Column&gt;
+&lt;/TreeTable&gt;
+</template>
+</CodeHighlight>
+
+                <p>paginatorLeft and paginatorLeft templates are available to specify custom content at the left and right side.</p>
+<CodeHighlight>
+<template v-pre>
+&lt;TreeTable :value="nodes" :paginator="true" :rows="10"&gt;
+    &lt;Column field="name" header="Name" :expander="true"&gt;&lt;/Column&gt;
+    &lt;Column field="size" header="Size"&gt;&lt;/Column&gt;
+    &lt;Column field="type" header="Type"&gt;&lt;/Column&gt;
+    &lt;template #paginatorLeft&gt;
+        &lt;Button type="button" icon="pi pi-refresh" /&gt;
+    &lt;/template&gt;
+    &lt;template #paginatorRight&gt;
+        &lt;Button type="button" icon="pi pi-cloud" /&gt;
+    &lt;/template&gt;
+&lt;/TreeTable&gt;
+</template>
+</CodeHighlight>
+
+                <p>Paginator can also be programmed programmatically using a binding to the <i>first</i> property that defines the index of the
+                first element to display. For example setting first to zero will reset the paginator to the very first page. This property
+                also supports "sync" keyword in case you'd like your binding to be updated whenever the user changes the page.</p>
+<CodeHighlight>
+<template v-pre>
+&lt;TreeTable :value="nodes" :paginator="true" :rows="10" :first="firstRecordIndex"&gt;
+    &lt;Column field="name" header="Name" :expander="true"&gt;&lt;/Column&gt;
+    &lt;Column field="size" header="Size"&gt;&lt;/Column&gt;
+    &lt;Column field="type" header="Type"&gt;&lt;/Column&gt;
+&lt;/TreeTable&gt;
+</template>
+</CodeHighlight>
+
+                <h3>Sorting</h3>
+                <p>Enabling <i>sortable</i> property at column component would be enough to make a column sortable. 
+                The property to use when sorting is the <i>field</i> by default and can be customized using the <i>sortField</i>.</p>
+
+<CodeHighlight>
+<template v-pre>
+&lt;TreeTable :value="nodes" sortMode="single"&gt;
+    &lt;Column field="name" header="Name" :expander="true" :sortable="true"&gt;&lt;/Column&gt;
+    &lt;Column field="size" header="Size" :sortable="true"&gt;&lt;/Column&gt;
+    &lt;Column field="type" header="Type" :sortable="true"&gt;&lt;/Column&gt;
+&lt;/TreeTable&gt;
+</template>
+</CodeHighlight>
+
+                <p>By default sorting is executed on the clicked column only. To enable multiple field sorting, set <i>sortMode</i> property to "multiple" and use metakey when clicking on another column.</p>
+<CodeHighlight>
+<template v-pre>
+&lt;TreeTable :value="nodes" sortMode="multiple"&gt;
+    &lt;Column field="name" header="Name" :expander="true" :sortable="true"&gt;&lt;/Column&gt;
+    &lt;Column field="size" header="Size" :sortable="true"&gt;&lt;/Column&gt;
+    &lt;Column field="type" header="Type" :sortable="true"&gt;&lt;/Column&gt;
+&lt;/TreeTable&gt;
+</template>
+</CodeHighlight>
+
+                <p>In case you'd like to display the table as sorted per a single column by default on mount or programmatically apply sort, use <i>sortField</i> and <i>sortOrder</i> properties. These
+                two properties also support the "sync" keyword to get updated when the user applies sort a column.</p>
+<CodeHighlight>
+<template v-pre>
+&lt;TreeTable :value="nodes" sortField="size" :sortOrder="1""&gt;
+    &lt;Column field="name" header="Name" :expander="true" :sortable="true"&gt;&lt;/Column&gt;
+    &lt;Column field="size" header="Size" :sortable="true"&gt;&lt;/Column&gt;
+    &lt;Column field="type" header="Type" :sortable="true"&gt;&lt;/Column&gt;
+&lt;/TreeTable&gt;
+
+&lt;TreeTable :value="nodes" sortMode="single" sortField="dynamicSortField" :sortOrder="dynamicSortOrder"&gt;
+    &lt;Column field="name" header="Name" :expander="true" :sortable="true"&gt;&lt;/Column&gt;
+    &lt;Column field="size" header="Size" :sortable="true"&gt;&lt;/Column&gt;
+    &lt;Column field="type" header="Type" :sortable="true"&gt;&lt;/Column&gt;
+&lt;/TreeTable&gt;
+</template>
+</CodeHighlight>
+
+                <p>In multiple mode, use the <i>multiSortMeta</i> property and bind an array of SortMeta objects instead.</p>
+<CodeHighlight>
+<template v-pre>
+&lt;TreeTable :value="nodes" sortMode="multiple" :multiSortMeta="multiSortMeta"&gt;
+    &lt;Column field="name" header="Name" :expander="true" :sortable="true"&gt;&lt;/Column&gt;
+    &lt;Column field="size" header="Size" :sortable="true"&gt;&lt;/Column&gt;
+    &lt;Column field="type" header="Type" :sortable="true"&gt;&lt;/Column&gt;
+&lt;/TreeTable&gt;
+</template>
+</CodeHighlight>  
+
+<CodeHighlight lang="javascript">
+data() {
+    return {
+        multiSortMeta: [
+            {field: 'year', order: 1},
+            {field: 'brand', order: -1}
+        ]
+    }
+}
+</CodeHighlight>
+
+                <h3>Filtering</h3>
+                <p>Filtering is enabled by defining a filter template per column to populate the <i>filters</i> property of the TreeTable. The <i>filters</i>
+                property should be an key-value object where keys are the field name and the value is the filter value. The filter template receives the column properties
+                via the slotProps and accepts any form element as the filter element. Default match mode is "startsWith" and this can be configured per column using the <i>filterMatchMode</i> property that also accepts 
+                "contains", "endsWith", "equals", "notEquals" and "in" as available modes.</p>
+                <p>Optionally a global filter is available to search against all the fields, in this case the special <i>global</i> keyword should be the property to be populated.</p>
+
+                <p>In addition <i>filterMode</i> specifies the filtering strategy. In <b>lenient</b> mode when the query matches a node, children of the node are not searched further as all descendants of the node are included. On the other hand, 
+                 in <b>strict</b> mode when the query matches a node, filtering continues on all descendants.</p>
+<CodeHighlight>
+<template v-pre>
+&lt;TreeTable :value="nodes" :filters="filters" filterMode="lenient"&gt;
+    &lt;template #header&gt;
+        &lt;div style="text-align: right"&gt;
+            &lt;i class="pi pi-search" style="margin: 4px 4px 0px 0px;"&gt;&lt;/i&gt;
+            &lt;InputText v-model="filters['global']" placeholder="Global Search" size="50" /&gt;
+        &lt;/div&gt;
+    &lt;/template&gt;
+    &lt;Column field="name" header="Name" :expander="true"&gt;
+        &lt;template #filter&gt;
+            &lt;InputText type="text" v-model="filters['name']" class="p-column-filter" /&gt;
+        &lt;/template&gt;
+    &lt;/Column&gt;
+    &lt;Column field="size" header="Size"&gt;
+        &lt;template #filter&gt;
+            &lt;InputText type="text" v-model="filters['size']" class="p-column-filter" /&gt;
+        &lt;/template&gt;
+    &lt;/Column&gt;
+    &lt;Column field="type" header="Type"&gt;
+        &lt;template #filter&gt;
+            &lt;InputText type="text" v-model="filters['type']" class="p-column-filter" /&gt;
+        &lt;/template&gt;
+    &lt;/Column&gt;
+&lt;/TreeTable&gt;
+</template>
+</CodeHighlight>
+
+<CodeHighlight lang="javascript">
+import NodeService from '../../service/NodeService';
+
+export default {
+    data() {
+        return {
+            filters: {},
+            nodes: null
+        }
+    },
+    nodeService: null,
+    created() {
+        this.nodeService = new NodeService();
+    },
+    mounted() {
+        this.nodeService.getTreeTableNodes().then(data => this.nodes = data);
     }
 }
 </CodeHighlight>
@@ -272,21 +901,33 @@ export default {
                 in "checkbox" mode, instead of a boolean, value should be an object that has "checked" and "partialChecked" properties to represent the checked state of a node.</p>
 <CodeHighlight>
 <template v-pre>
-&lt;h3&gt;Single Selection&lt;/h3&gt;
-&lt;Tree :value="nodes" selectionMode="single" :selectionKeys.sync="selectedKey1"&gt;&lt;/Tree&gt;
-
-&lt;h3&gt;Multiple Selection with MetaKey&lt;/h3&gt;
-&lt;Tree :value="nodes" selectionMode="multiple" :selectionKeys.sync="selectedKeys1"&gt;&lt;/Tree&gt;
+&lt;TreeTable :value="nodes" selectionMode="multiple" :selectionKeys.sync="selectedKeys1"&gt;
+    &lt;Column field="name" header="Name" :expander="true"&gt;&lt;/Column&gt;
+    &lt;Column field="size" header="Size"&gt;&lt;/Column&gt;
+    &lt;Column field="type" header="Type"&gt;&lt;/Column&gt;
+&lt;/TreeTable&gt;
 
 &lt;h3&gt;Multiple Selection without MetaKey&lt;/h3&gt;
-&lt;Tree :value="nodes" selectionMode="multiple" :selectionKeys.sync="selectedKeys2" :metaKeySelection="false"&gt;&lt;/Tree&gt;
+&lt;TreeTable :value="nodes" selectionMode="multiple" :selectionKeys.sync="selectedKeys2" :metaKeySelection="false"&gt;
+    &lt;Column field="name" header="Name" :expander="true"&gt;&lt;/Column&gt;
+    &lt;Column field="size" header="Size"&gt;&lt;/Column&gt;
+    &lt;Column field="type" header="Type"&gt;&lt;/Column&gt;
+&lt;/TreeTable&gt;
 
 &lt;h3&gt;Checkbox Selection&lt;/h3&gt;
-&lt;Tree :value="nodes" selectionMode="checkbox" :selectionKeys.sync="selectedKeys3"&gt;&lt;/Tree&gt;
+&lt;TreeTable :value="nodes" selectionMode="checkbox" :selectionKeys.sync="selectedKeys3"&gt;
+    &lt;Column field="name" header="Name" :expander="true"&gt;&lt;/Column&gt;
+    &lt;Column field="size" header="Size"&gt;&lt;/Column&gt;
+    &lt;Column field="type" header="Type"&gt;&lt;/Column&gt;
+&lt;/TreeTable&gt;
 
 &lt;h3&gt;Events&lt;/h3&gt;
-&lt;Tree :value="nodes" selectionMode="single" :selectionKeys.sync="selectedKey2" :metaKeySelection="false"
-    @node-select="onNodeSelect" @node-unselect="onNodeUnselect"&gt;&lt;/Tree&gt;
+&lt;TreeTable :value="nodes" selectionMode="single" :selectionKeys.sync="selectedKey2"
+    @node-select="onNodeSelect" @node-unselect="onNodeUnselect"&gt;
+    &lt;Column field="name" header="Name" :expander="true"&gt;&lt;/Column&gt;
+    &lt;Column field="size" header="Size"&gt;&lt;/Column&gt;
+    &lt;Column field="type" header="Type"&gt;&lt;/Column&gt;
+&lt;/TreeTable&gt;
 </template>
 </CodeHighlight>
 
@@ -309,14 +950,14 @@ export default {
         this.nodeService = new NodeService();
     },
     mounted() {
-        this.nodeService.getTreeNodes().then(data => this.nodes = data);
+        this.nodeService.getTreeTableNodes().then(data => this.nodes = data);
     },
     methods: {
         onNodeSelect(node) {
-            this.$toast.add({severity:'success', summary: 'Node Selected', detail: node.label, life: 3000});
+            this.$toast.add({severity:'success', summary: 'Node Selected', detail: node.data.name, life: 3000});
         },
         onNodeUnselect(node) {
-            this.$toast.add({severity:'success', summary: 'Node Unselected', detail: node.label, life: 3000});
+            this.$toast.add({severity:'success', summary: 'Node Unselected', detail: node.data.name, life: 3000});
         }
     }
 }
@@ -342,7 +983,7 @@ export default {
         this.nodeService = new NodeService();
     },
     mounted() {
-        this.nodeService.getTreeNodes().then(data => {
+        this.nodeService.getTreeTableNodes().then(data => {
             this.nodes = data;
         
             //single preselection
@@ -360,14 +1001,168 @@ export default {
 </CodeHighlight>
 
                 <h3>Lazy</h3>
-                <p>Lazy Loading is handy to deal with huge datasets. Idea is instead of loading the whole tree, load child nodes on demand
-                    using expand expand. The important part is setting <i>leaf</i> to true on a node instance so that even without children, 
+                <p>Lazy Loading is handy to deal with huge datasets. Idea is instead of loading the whole tree, load nodes on demand when necessary. 
+                    The important part when lazy loading nodes is setting <i>leaf</i> to true on a node instance so that even without children, 
                     tree would render an expand icon. Example below uses an in memory collection to mimic a lazy loading scenario with timeouts.
                 </p>
 
+                <p>In addition lazy loading of root level nodes is implemented by handling pagination and sorting using <i>page</i> and <i>sort</i> events by making a remote query using the information
+                passed to the events such as first offset, number of rows and sort field for ordering. Filtering is handled differently as filter elements are defined using templates, use
+                the event you prefer on your form elements such as input, change, blur to make a remote call by passing the filters property to update the displayed data. Note that,
+                in lazy filtering, totalRecords should also be updated to align the data with the paginator.</p>.</p>
+
+                <p> Example below uses an in memory collection to mimic a lazy loading scenario with timeouts.</p>
+
 <CodeHighlight>
 <template v-pre>
-&lt;Tree :value="nodes" @node-expand="onNodeExpand" :loading="loading"&gt;&lt;/Tree&gt;
+&lt;TreeTable :value="nodes" :lazy="true" :paginator="true" :rows="rows" :loading="loading"
+    @node-expand="onExpand" @page="onPage" :totalRecords="totalRecords"&gt;
+    &lt;Column field="name" header="Name" :expander="true"&gt;&lt;/Column&gt;
+    &lt;Column field="size" header="Size"&gt;&lt;/Column&gt;
+    &lt;Column field="type" header="Type"&gt;&lt;/Column&gt;
+&lt;/TreeTable&gt;
+</template>
+</CodeHighlight>
+
+<CodeHighlight lang="javascript">
+export default {
+    data() {
+        return {
+            nodes: null,
+            rows: 10,
+            loading: false,
+            totalRecords: 0
+        }
+    },
+    mounted() {
+        this.loading = true;
+
+        setTimeout(() => {
+            this.loading = false;
+            this.nodes = this.loadNodes(0, this.rows);
+            this.totalRecords = 1000;
+        }, 1000);
+    },
+    methods: {
+        onExpand(node) {
+            if (!node.children) {
+                this.loading = true;
+                
+                setTimeout(() => {
+                    let lazyNode = {...node};
+        
+                    lazyNode.children = [
+                        {
+                            data: { 
+                                name: lazyNode.data.name + ' - 0',
+                                size: Math.floor(Math.random() * 1000) + 1 + 'kb',
+                                type: 'File'
+                            },
+                        },
+                        {
+                            data: {
+                                name: lazyNode.data.name + ' - 1',
+                                size: Math.floor(Math.random() * 1000) + 1 + 'kb',
+                                type: 'File'
+                            }
+                        }
+                    ];
+
+                    let nodes = this.nodes.map(n => {
+                        if (n.key === node.key) {
+                            n = lazyNode;
+                        }
+
+                        return n;
+                    });
+
+                    this.loading = false;
+                    this.nodes = nodes;
+                }, 250);
+            }
+        },
+        onPage(event) {
+            this.loading = true;
+
+            //imitate delay of a backend call
+            setTimeout(() => {    
+                this.loading = false;
+                this.nodes = this.loadNodes(event.first, this.rows);
+            }, 1000);
+        },
+        loadNodes(first, rows) {
+            let nodes = [];
+
+            for(let i = 0; i &lt; rows; i++) {
+                let node = {
+                    key: (first + i),
+                    data: { 
+                        name: 'Item ' + (first + i),
+                        size: Math.floor(Math.random() * 1000) + 1 + 'kb',
+                        type: 'Type ' + (first + i)
+                    },
+                    leaf: false
+                };
+
+                nodes.push(node);
+            }
+            
+            return nodes;
+        }
+    }
+}
+</CodeHighlight>
+
+                <h3>Column Resize</h3>
+                <p>Columns can be resized using drag drop by setting the <i>resizableColumns</i> to true. There are two resize modes; "fit" and "expand". Fit is the default one and the overall table width does not change when a column is resized. 
+                    In "expand" mode, table width also changes along with the column width. <i>column-resize-end</i> is a callback that passes the resized column header and delta change as a parameter.</p>
+<CodeHighlight>
+<template v-pre>
+&lt;h3&gt;Fit Mode&lt;/h3&gt;
+&lt;TreeTable :value="nodes" :resizableColumns="true" columnResizeMode="fit"&gt;
+    &lt;Column field="name" header="Name" :expander="true"&gt;&lt;/Column&gt;
+    &lt;Column field="size" header="Size"&gt;&lt;/Column&gt;
+    &lt;Column field="type" header="Type"&gt;&lt;/Column&gt;
+&lt;/TreeTable&gt;
+
+&lt;h3&gt;Expand Mdoe&lt;/h3&gt;
+&lt;TreeTable :value="nodes" :resizableColumns="true" columnResizeMode="expand"&gt;
+    &lt;Column field="name" header="Name" :expander="true"&gt;&lt;/Column&gt;
+    &lt;Column field="size" header="Size"&gt;&lt;/Column&gt;
+    &lt;Column field="type" header="Type"&gt;&lt;/Column&gt;
+&lt;/TreeTable&gt;
+</template>
+</CodeHighlight>
+
+            <p>It is important to note that when you need to change column widths, since table width is 100%, giving fixed pixel widths does not work well as browsers scale them, instead give percentage widths.</p>
+<CodeHighlight>
+<template v-pre>
+&lt;TreeTable :value="nodes" :resizableColumns="true"&gt;
+    &lt;Column field="name" header="Name" :expander="true"&gt;&lt;/Column headerStyle="width: 20%"&gt;
+    &lt;Column field="size" header="Size" headerStyle="width: 40%"&gt;&lt;/Column&gt;
+    &lt;Column field="type" header="Type headerStyle="width: 40%""&gt;&lt;/Column&gt;
+&lt;/TreeTable&gt;
+</template>
+</CodeHighlight>
+
+                <h3>Responsive</h3>
+                <p>TreeTable display can be optimized according to screen sizes, this example demonstrates a demo where columns are stacked on small screens.</p>
+<CodeHighlight>
+<template v-pre>
+&lt;TreeTable :value="nodes" class="p-treetable-responsive"&gt;
+    &lt;template #header&gt;
+        Responsive
+    &lt;/template&gt;
+    &lt;Column field="name" header="Name" :expander="true"&gt;
+            &lt;template #body="slotProps"&gt;
+            &#123;&#123;slotProps.node.data.name&#125;&#125;
+            &lt;span class="sm-visible"&gt;&#123;&#123;slotProps.node.data.size&#125;&#125;&lt;/span&gt;
+            &lt;span class="sm-visible"&gt;&#123;&#123;slotProps.node.data.type&#125;&#125;&lt;/span&gt;
+        &lt;/template&gt;
+    &lt;/Column&gt;
+    &lt;Column field="size" header="Size" headerClass="sm-invisible" bodyClass="sm-invisible"&gt;&lt;/Column&gt;
+    &lt;Column field="type" header="Type" headerClass="sm-invisible" bodyClass="sm-invisible"&gt;&lt;/Column&gt;
+&lt;/TreeTable&gt;
 </template>
 </CodeHighlight>
 
@@ -377,7 +1172,6 @@ import NodeService from '../../service/NodeService';
 export default {
     data() {
         return {
-            loading: false,
             nodes: null
         }
     },
@@ -386,164 +1180,32 @@ export default {
         this.nodeService = new NodeService();
     },
     mounted() {
-        this.loading = true;
-
-        setTimeout(() => {
-            this.nodes = this.initateNodes();
-            this.loading = false;
-        }, 2000);
-    },
-    methods: {
-        onNodeExpand(node) {
-            if (!node.children) {
-                this.loading = true;
-        
-                setTimeout(() => {
-                    let _node = {...node};
-                    _node.children = [];
-        
-                    for (let i = 0; i &lt; 3; i++) {
-                        _node.children.push({
-                            key: node.key + '-' + i,
-                            label: 'Lazy ' + node.label + '-' + i
-                        });
-                    }
-                    
-                    let _nodes = {...this.nodes}
-                    _nodes[parseInt(node.key, 10)] = _node; 
-                    
-                    this.nodes = _nodes;
-                    this.loading = false;
-                }, 500);  
-            }
-        },
-        initateNodes() {
-            return [{
-                key: '0',
-                label: 'Node 0',
-                leaf: false
-            },
-            {
-                key: '1',
-                label: 'Node 1',
-                leaf: false
-            },
-            {
-                key: '2',
-                label: 'Node 2',
-                leaf: false
-            }];
-        }
+        this.nodeService.getTreeTableNodes().then(data => this.nodes = data);
     }
 }
 </CodeHighlight>
 
-                <h3>Templating</h3>
-                <p>The <i>type</i> property of a TreeNode is used to map a template to a node to create the node label. If it is undefined and no default template is available, 
-                label of the node is used.</p>
-<CodeHighlight>
-<template v-pre>
-&lt;Tree :value="nodes"&gt;
-    &lt;template #default="slotProps"&gt;
-        &lt;b&gt;&#123;&#123;slotProps.node.label&#125;&#125;&lt;/b&gt;
-    &lt;/template&gt;
-    &lt;template #url="slotProps"&gt;
-        &lt;a :href="slotProps.node.data"&gt;&#123;&#123;slotProps.node.label&#125;&#125;&lt;/a&gt;
-    &lt;/template&gt;
-&lt;/Tree&gt;
-</template>
-</CodeHighlight>
-
-<CodeHighlight lang="javascript">
-export default {
-    data() {
-        return {
-            nodes: [
-                {
-                    key: '0',
-                    label: 'Introduction',
-                    children: [
-                        {key: '0-0', label: 'What is Vue.js?', data:'https://vuejs.org/v2/guide/#What-is-Vue-js', type: 'url'},
-                        {key: '0-1', label: 'Getting Started', data: 'https://vuejs.org/v2/guide/#Getting-Started', type: 'url'},
-                        {key: '0-2', label: 'Declarative Rendering', data:'https://vuejs.org/v2/guide/#Declarative-Rendering', type: 'url'},
-                        {key: '0-3', label: 'Conditionals and Loops', data: 'https://vuejs.org/v2/guide/#Conditionals-and-Loops', type: 'url'}
-                    ]
-                },
-                {
-                    key: '1',
-                    label: 'Components In-Depth',
-                    children: [
-                        {key: '1-0', label: 'Component Registration', data: 'https://vuejs.org/v2/guide/components-registration.html', type: 'url'},
-                        {key: '1-1', llabel: 'Props', data: 'https://vuejs.org/v2/guide/components-props.html', type: 'url'},
-                        {key: '1-2', llabel: 'Custom Events', data: 'https://vuejs.org/v2/guide/components-custom-events.html', type: 'url'},
-                        {key: '1-3', llabel: 'Slots', data: 'https://vuejs.org/v2/guide/components-slots.html', type: 'url'}
-                    ]
-                }
-            ]
-        }
-    }
+<CodeHighlight lang="css">
+.sm-visible {
+    display: none;
 }
-</CodeHighlight>
 
-                <h3>Filtering</h3>
-                <p>Filtering is enabled by setting the <i>filter</i> property to true, by default label property of a node 
-                is used to compare against the value in the text field, in order to customize which field(s) should be used during search, define the <i>filterBy</i> property as a comma separated list.</p>
-
-                <p>In addition <i>filterMode</i> specifies the filtering strategy. In <b>lenient</b> mode when the query matches a node, children of the node are not searched further as all descendants of the node are included. On the other hand, 
-                 in <b>strict</b> mode when the query matches a node, filtering continues on all descendants.</p>
-
-<CodeHighlight>
-<template v-pre>
-&lt;h3&gt;Lenient Filter&lt;/h3&gt;
-&lt;Tree :value="nodes" :filter="true" filterMode="lenient"&gt;&lt;/Tree&gt;
-
-&lt;h3&gt;Strict Filter&lt;/h3&gt;
-&lt;Tree :value="nodes" :filter="true" filterMode="strict"&gt;&lt;/Tree&gt;    
-</template>
-</CodeHighlight>
-
-<CodeHighlight lang="javascript">
-import NodeService from '../../service/NodeService';
-
-export default {
-    data() {
-        return {
-            nodes: null,
-            expandedKeys: {}
+@media screen and (max-width: 40em) {
+    /deep/ {
+        .sm-invisible {
+            display: none;
         }
-    },
-    nodeService: null,
-    created() {
-        this.nodeService = new NodeService();
-    },
-    mounted() {
-        this.nodeService.getTreeNodes().then(data => this.nodes = data);
-    },
-    methods: {
-        expandAll() {
-            for (let node of this.nodes) {
-                this.expandNode(node);
-            }
 
-            this.expandedKeys = {...this.expandedKeys};
-        },
-        collapseAll() {
-            this.expandedKeys = {};
-        },
-        expandNode(node) {
-            this.expandedKeys[node.key] = true;
-            if (node.children &lt;&lt; node.children.length) {
-                for (let child of node.children) {
-                    this.expandNode(child);
-                }
-            }
+        .sm-visible {
+            display: inline;
+            margin-right: .5em;
         }
     }
 }
 </CodeHighlight>
 
 				<h3>Properties</h3>
-                <p>Any valid attribute such as name and autofocus are passed to the underlying input element. Following is the additional property to configure the component.</p>
+                <p>Any valid attribute such as style and class are passed to the underlying root element. Following is the additional property to configure the component.</p>
 				<div class="doc-tablewrapper">
 					<table class="doc-table">
 						<thead>
@@ -568,16 +1230,16 @@ export default {
                                 <td>A map of keys to represent the state of the tree expansion state in controlled mode.</td>
                             </tr>
                             <tr>
-                                <td>selectionMode</td>
-                                <td>string</td>
-                                <td>null</td>
-                                <td>Defines the selection mode, valid values "single", "multiple", and "checkbox".</td>
-                            </tr>
-                            <tr>
                                 <td>selectionKeys</td>
                                 <td>any</td>
                                 <td>null</td>
                                 <td>A map of keys to control the selection state.</td>
+                            </tr>
+                            <tr>
+                                <td>selectionMode</td>
+                                <td>string</td>
+                                <td>null</td>
+                                <td>Defines the selection mode, valid values "single", "multiple", and "checkbox".</td>
                             </tr>
                             <tr>
                                 <td>metaKeySelection</td>
@@ -587,28 +1249,142 @@ export default {
                                     can be toggled individually. On touch enabled devices, metaKeySelection is turned off automatically.</td>
                             </tr>
                             <tr>
+                                <td>rows</td>
+                                <td>number</td>
+                                <td>null</td>
+                                <td>Number of rows to display per page.</td>
+                            </tr>
+                            <tr>
+                                <td>first</td>
+                                <td>number</td>
+                                <td>0</td>
+                                <td>Index of the first row to be displayed.</td>
+                            </tr>
+                            <tr>
+                                <td>totalRecords</td>
+                                <td>number</td>
+                                <td>null</td>
+                                <td>Number of total records, defaults to length of value when not defined.</td>
+                            </tr>
+                             <tr>
+                                <td>paginator</td>
+                                <td>boolean</td>
+                                <td>false</td>
+                                <td>When specified as true, enables the pagination.</td>
+                            </tr>
+                            <tr>
+                                <td>paginatorPosition</td>
+                                <td>string</td>
+                                <td>bottom</td>
+                                <td>Position of the paginator, options are "top","bottom" or "both".</td>
+                            </tr>
+                            <tr>
+                                <td>alwaysShowPaginator</td>
+                                <td>boolean</td>
+                                <td>true</td>
+                                <td>Whether to show it even there is only one page.</td>
+                            </tr>
+                            <tr>
+                                <td>paginatorTemplate</td>
+                                <td>string</td>
+                                <td>FirstPageLink PrevPageLink PageLinks <br /> NextPageLink LastPageLink RowsPerPageDropdown</td>
+                                <td>Template of the paginator.</td>
+                            </tr>
+                            <tr>
+                                <td>paginatorLeft</td>
+                                <td>Element</td>
+                                <td>null</td>
+                                <td>Content for the left side of the paginator.</td>
+                            </tr>
+                            <tr>
+                                <td>paginatorRight</td>
+                                <td>Element</td>
+                                <td>null</td>
+                                <td>Content for the right side of the paginator.</td>
+                            </tr>
+                            <tr>
+                                <td>pageLinkSize</td>
+                                <td>number</td>
+                                <td>5</td>
+                                <td>Number of page links to display.</td>
+                            </tr>
+                            <tr>
+                                <td>rowsPerPageOptions</td>
+                                <td>array</td>
+                                <td>null</td>
+                                <td>Array of integer values to display inside rows per page dropdown.</td>
+                            </tr>
+                            <tr>
+                                <td>currentPageReportTemplate</td>
+                                <td>string</td>
+                                <td>(&#123;currentPage&#125; of &#123;totalPages&#125;)</td>
+                                <td>Template of the current page report element.</td>
+                            </tr>
+                            <tr>
+                                <td>lazy</td>
+                                <td>boolean</td>
+                                <td>false</td>
+                                <td>Defines if data is loaded and interacted with in lazy manner.</td>
+                            </tr>
+                            <tr>
                                 <td>loading</td>
                                 <td>boolean</td>
                                 <td>false</td>
-                                <td>Whether to display loading indicator.</td>
+                                <td>Displays a loader to indicate data load is in progress.</td>
                             </tr>
                             <tr>
                                 <td>loadingIcon</td>
                                 <td>string</td>
-                                <td>pi pi-spin</td>
-                                <td>Icon to display when tree is loading.</td>
+                                <td>pi pi-spinner</td>
+                                <td>The icon to show while indicating data load is in progress.</td>
                             </tr>
                             <tr>
-                                <td>filter</td>
+                                <td>rowHover</td>
                                 <td>boolean</td>
                                 <td>false</td>
-                                <td>When specified, displays an input field to filter the items.</td>
+                                <td>When enabled, background of the rows change on hover.</td>
                             </tr>
                             <tr>
-                                <td>filterBy</td>
+                                <td>autoLayout</td>
+                                <td>boolean</td>
+                                <td>false</td>
+                                <td>Whether the cell widths scale according to their content or not.</td>
+                            </tr>
+                             <tr>
+                                <td>sortField</td>
                                 <td>string</td>
-                                <td>label</td>
-                                <td>When filtering is enabled, filterBy decides which field or fields (comma separated) to search against.</td>
+                                <td>null</td>
+                                <td>Name of the field to sort data by default.</td>
+                            </tr>
+                            <tr>
+                                <td>sortOrder</td>
+                                <td>number</td>
+                                <td>null</td>
+                                <td>Order to sort the data by default.</td>
+                            </tr>
+                            <tr>
+                                <td>defaultSortOrder</td>
+                                <td>number</td>
+                                <td>1</td>
+                                <td>Default sort order of an unsorted column.</td>
+                            </tr>
+                            <tr>
+                                <td>multiSortMeta</td>
+                                <td>array</td>
+                                <td>null</td>
+                                <td>An array of SortMeta objects to sort the data by default in multiple sort mode.</td>
+                            </tr>
+                            <tr>
+                                <td>sortMode</td>
+                                <td>string</td>
+                                <td>single</td>
+                                <td>Defines whether sorting works on single column or on multiple columns.</td>
+                            </tr>
+                            <tr>
+                                <td>filters</td>
+                                <td>object</td>
+                                <td>null</td>
+                                <td>Filters object with key-value pairs to define the filters.</td>
                             </tr>
                             <tr>
                                 <td>filterMode</td>
@@ -617,10 +1393,16 @@ export default {
                                 <td>Mode for filtering valid values are "lenient" and "strict". Default is lenient.</td>
                             </tr>
                             <tr>
-                                <td>filterPlaceholder</td>
+                                <td>resizableColumns</td>
+                                <td>boolean</td>
+                                <td>false</td>
+                                <td>When enabled, columns can be resized using drag and drop.</td>
+                            </tr>
+                            <tr>
+                                <td>columnResizeMode</td>
                                 <td>string</td>
-                                <td>null</td>
-                                <td>Placeholder text to show when filter input is empty.</td>
+                                <td>fit</td>
+                                <td>Defines whether the overall table width should change on column resize, <br/> valid values are "fit" and "expand".</td>
                             </tr>
 						</tbody>
 					</table>
@@ -637,6 +1419,29 @@ export default {
                             </tr>
 						</thead>
 						<tbody>
+                            <tr>
+                                <td>page</td>
+                                <td>event.page: New page number <br/>
+                                    event.first: Index of first record <br/>
+                                    event.rows: Number of rows to display in new page <br/>
+                                    event.pageCount: Total number of pages 
+                                </td>
+                                <td>Callback to invoke on pagination.</td>
+                            </tr>
+                            <tr>
+                                <td>sort</td>
+                                <td>event.originalEvent: Browser event. <br />
+                                    event.sortField: Field to sort against. <br />
+                                    event.sortOrder: Sort order as integer. <br />
+                                    event.multiSortMeta: MultiSort metadata.</td>
+                                <td>Callback to invoke on sort.</td>
+                            </tr>
+                            <tr>
+                                <td>filter</td>
+                                <td>event.filters: Collection of active filters. <br />
+                                    event.filteredValue: Filtered collection.</td>
+                                <td>Callback to invoke on filtering.</td>
+                            </tr>
                             <tr>
                                 <td>node-select</td>
                                 <td>node: Node instance</td>
@@ -657,6 +1462,12 @@ export default {
                                 <td>node: Node instance</td>
                                 <td>Callback to invoke when a node is collapsed.</td>
                             </tr>
+                            <tr>
+                                <td>column-resize-end</td>
+                                <td>event.element: DOM element of the resized column.<br />
+                                    event.delta: Change in column width</td>
+                                <td>Callback to invoke when a column is resized.</td>
+                            </tr>
 						</tbody>
 					</table>
 				</div>
@@ -673,44 +1484,44 @@ export default {
 						</thead>
 						<tbody>
                             <tr>
-                                <td>p-tree</td>
-                                <td>Main container element</td>
+                                <td>p-treetable</td>
+                                <td>Container element.</td>
                             </tr>
                             <tr>
-                                <td>p-tree-horizontal</td>
-                                <td>Main container element in horizontal mode</td>
+                                <td>p-treetable-header</td>
+                                <td>Header section.</td>
                             </tr>
                             <tr>
-                                <td>p-tree-container</td>
-                                <td>Container of nodes</td>
+                                <td>p-treetable-footer</td>
+                                <td>Footer section.</td>
                             </tr>
                             <tr>
-                                <td>p-treenode</td>
-                                <td>A treenode element</td>
+                                <td>p-column-title</td>
+                                <td>Title of a column.</td>
                             </tr>
                             <tr>
-                                <td>p-treenode-content</td>
-                                <td>Content of a treenode</td>
+                                <td>p-sortable-column</td>
+                                <td>Sortable column header.</td>
                             </tr>
                             <tr>
-                                <td>p-treenode-toggler</td>
-                                <td>Toggle element</td>
+                                <td>p-treetable-scrollable-header</td>
+                                <td>Container of header in a scrollable table.</td>
                             </tr>
                             <tr>
-                                <td>p-treenode-toggler-icon</td>
-                                <td>Toggle icon</td>
+                                <td>p-treetable-scrollable-body</td>
+                                <td>Container of body in a scrollable table.</td>
                             </tr>
                             <tr>
-                                <td>p-treenode-icon</td>
-                                <td>Icon of a treenode</td>
+                                <td>p-treetable-scrollable-footer</td>
+                                <td>Container of footer in a scrollable table.</td>
                             </tr>
                             <tr>
-                                <td>p-treenode-label</td>
-                                <td>Label of a treenode</td>
+                                <td>p-treetable-emptymessage</td>
+                                <td>Cell containing the empty message.</td>
                             </tr>
                             <tr>
-                                <td>p-treenode-children</td>
-                                <td>Container element for node children</td>
+                                <td>p-treetable-toggler</td>
+                                <td>Toggler icon.</td>
                             </tr>
 						</tbody>
 					</table>

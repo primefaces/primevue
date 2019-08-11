@@ -116,7 +116,7 @@ export default {
 }
 </CodeHighlight>
 
-                <h3>Column Component Properties</h3>
+                <h3>Column Component Properties utilized by the DataTable</h3>
                 <div class="doc-tablewrapper">
                     <table class="doc-table">
                         <thead>
@@ -857,7 +857,7 @@ export default {
                                 <td>pi pi-spinner</td>
                                 <td>The icon to show while indicating data load is in progress.</td>
                             </tr>
-                             <tr>
+                            <tr>
                                 <td>sortField</td>
                                 <td>string</td>
                                 <td>null</td>

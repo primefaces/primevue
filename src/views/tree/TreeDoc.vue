@@ -10,7 +10,7 @@ import Tree from 'primevue/tree';
 				<h3>Getting Started</h3>
 				<p>Tree component requires an array of TreeNode objects as its <i>value</i>.</p>
 
-                <h3>TreeNode API</h3>
+                <h3>TreeNode API utilized by the Tree</h3>
                 <div class="doc-tablewrapper">
                     <table class="doc-table">
                         <thead>
@@ -544,7 +544,7 @@ export default {
 </CodeHighlight>
 
 				<h3>Properties</h3>
-                <p>Any valid attribute such as name and autofocus are passed to the underlying input element. Following is the additional property to configure the component.</p>
+                <p>Any valid attribute such as style and class are passed to the underlying root element. Following is the additional property to configure the component.</p>
 				<div class="doc-tablewrapper">
 					<table class="doc-table">
 						<thead>

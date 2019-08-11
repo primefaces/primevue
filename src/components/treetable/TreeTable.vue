@@ -579,6 +579,11 @@ export default {
                 valueChanged = valueChanged || !localMatch || globalMatch;
             }
 
+            this.$emit('filter', {
+                filters: this.filters,
+                filteredValue: filteredNodes
+            });
+
             return valueChanged ? filteredNodes : value;
         },
         findFilteredNodes(node, paramsWithoutNode) {
