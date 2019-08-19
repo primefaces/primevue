@@ -351,13 +351,19 @@ export default {
             this.$emit('update:first', this.d_first);
         },
         getColumnHeaderClass(column) {
-            const sorted = this.sortMode === 'single' ? (this.d_sortField === (column.field || column.sortField)) : this.getMultiSortMetaIndex(column) > -1;
+            const sorted = this.isColumnSorted(column);
 
             return [column.headerClass, 
                     {'p-sortable-column': column.sortable}, 
                     {'p-resizable-column': this.resizableColumns},
                     {'p-highlight': sorted}
             ];
+        },
+        isColumnSorted(column) {
+            if (column.sortable)
+                return this.sortMode === 'single' ? (this.d_sortField === (column.field || column.sortField)) : this.getMultiSortMetaIndex(column) > -1; 
+            else
+                return false;
         },
         getSortableColumnIcon(column) {
             let sorted = false;
