@@ -453,7 +453,7 @@ export default {
             this.d_multiSortMeta = [...this.d_multiSortMeta];
         },
         sortSingle(nodes) {
-            return this.sortNodes(nodes);
+            return this.sortNodesSingle(nodes);
         },
         sortNodesSingle(nodes) {
             let _nodes = [...nodes];
