@@ -402,7 +402,7 @@ export default {
 
                         event.preventDefault();
                     } else if (k === 13) { // enter
-                        $vm.onBlur(event);
+                        $vm.$refs.input.blur();
                         $vm.updateModel(event);
                     } else if (k === 27) { // escape
                         $vm.$refs.input.value = $vm.focusText;
