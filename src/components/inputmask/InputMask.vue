@@ -1,5 +1,5 @@
 <template>
-    <input ref="input" :class="inputClass" v-on="listeners" :value="value" />
+    <input :class="inputClass" v-on="listeners" :value="value" />
 </template>
 
 <script>
@@ -29,18 +29,18 @@ export default {
         caret(first, last) {
             let range, begin, end;
 
-            if (!this.$refs.input.offsetParent || this.$refs.input !== document.activeElement) {
+            if (!this.$el.offsetParent || this.$el !== document.activeElement) {
                 return;
             }
 
             if (typeof first === 'number') {
                 begin = first;
                 end = (typeof last === 'number') ? last : begin;
-                if (this.$refs.input.setSelectionRange) {
-                    this.$refs.input.setSelectionRange(begin, end);
+                if (this.$el.setSelectionRange) {
+                    this.$el.setSelectionRange(begin, end);
                 }
-                else if (this.$refs.input['createTextRange']) {
-                    range = this.$refs.input['createTextRange']();
+                else if (this.$el['createTextRange']) {
+                    range = this.$el['createTextRange']();
                     range.collapse(true);
                     range.moveEnd('character', end);
                     range.moveStart('character', begin);
@@ -48,9 +48,9 @@ export default {
                 }
             }
             else {
-                if (this.$refs.input.setSelectionRange) {
-                    begin = this.$refs.input.selectionStart;
-                    end = this.$refs.input.selectionEnd;
+                if (this.$el.setSelectionRange) {
+                    begin = this.$el.selectionStart;
+                    end = this.$el.selectionEnd;
                 }
                 else if (document['selection'] && document['selection'].createRange) {
                     range = document['selection'].createRange();
@@ -123,7 +123,7 @@ export default {
             }
         },
         handleAndroidInput(event) {
-            var curVal = this.$refs.input.value;
+            var curVal = this.$el.value;
             var pos = this.caret();
             if (this.oldVal && this.oldVal.length && this.oldVal.length > curVal.length) {
                 // a deletion or backspace happened
@@ -156,12 +156,12 @@ export default {
             }
         },
         writeBuffer() {
-            this.$refs.input.value = this.buffer.join('');
+            this.$el.value = this.buffer.join('');
         },
         checkVal(allow) {
             this.isValueChecked = true;
             //try to place characters where they belong
-            let test = this.$refs.input.value,
+            let test = this.$el.value,
                 lastMatch = -1,
                 i,
                 c,
@@ -197,7 +197,7 @@ export default {
                 if (this.autoClear || this.buffer.join('') === this.defaultBuffer) {
                     // Invalid value. Remove it and replace it with the
                     // mask, which is the default behavior.
-                    if (this.$refs.input.value) this.$refs.input.value = '';
+                    if (this.$el.value) this.$el.value = '';
                     this.clearBuffer(0, this.len);
                 } else {
                     // Invalid value, but we opt to show the value to the
@@ -206,7 +206,7 @@ export default {
                 }
             } else {
                 this.writeBuffer();
-                this.$refs.input.value = this.$refs.input.value.substring(0, lastMatch + 1);
+                this.$el.value = this.$el.value.substring(0, lastMatch + 1);
             }
             return (this.partialPosition ? i : this.firstNonMaskPos);
         },
@@ -239,26 +239,26 @@ export default {
             this.$emit('input', (this.defaultBuffer !== val) ? val : '');
         },
         updateValue() {
-            if (this.$refs.input) {
+            if (this.$el) {
                 if (this.value == null) {
-                    this.$refs.input.value = '';
+                    this.$el.value = '';
                 }
                 else {
-                    this.$refs.input.value = this.value;
+                    this.$el.value = this.value;
                     this.checkVal();
                 }
 
                 setTimeout(() => {
-                    if(this.$refs.input) {
+                    if(this.$el) {
                         this.writeBuffer();
                         this.checkVal();
 
-                        let val = this.unmask ? this.getUnmaskedValue() : this.$refs.input.value;
+                        let val = this.unmask ? this.getUnmaskedValue() : this.$el.value;
                         this.$emit('input', (this.defaultBuffer !== val) ? val : '');
                     }
                 }, 10);
 
-                this.focusText = this.$refs.input.value;
+                this.focusText = this.$el.value;
             }
         }
     },
@@ -312,7 +312,7 @@ export default {
     },
     watch: {
         value(newValue, oldValue) {
-            if (oldValue && oldValue !== newValue && this.$refs.input.value !== newValue) {
+            if (oldValue && oldValue !== newValue && this.$el.value !== newValue) {
                 this.updateValue();
             }
         }
@@ -341,12 +341,12 @@ export default {
                     clearTimeout($vm.caretTimeoutId);
                     let pos;
 
-                    $vm.focusText = $vm.$refs.input.value;
+                    $vm.focusText = $vm.$el.value;
 
                     pos = $vm.checkVal();
 
                     $vm.caretTimeoutId = setTimeout(() => {
-                        if ($vm.$refs.input !== document.activeElement) {
+                        if ($vm.$el !== document.activeElement) {
                             return;
                         }
                         $vm.writeBuffer();
@@ -364,10 +364,10 @@ export default {
                     $vm.checkVal();
                     $vm.updateModel(event);
 
-                    if ($vm.$refs.input.value !== $vm.focusText) {
+                    if ($vm.$el.value !== $vm.focusText) {
                         let e = document.createEvent('HTMLEvents');
                         e.initEvent('change', true, false);
-                        $vm.$refs.input.dispatchEvent(e);
+                        $vm.$el.dispatchEvent(e);
                     }
 
                     $vm.$emit('blur', event);
@@ -382,7 +382,7 @@ export default {
                         begin,
                         end;
                     let iPhone = /iphone/i.test(DomHandler.getUserAgent());
-                    $vm.oldVal = $vm.$refs.input.value;
+                    $vm.oldVal = $vm.$el.value;
 
                     //backspace, delete, and escape get special treatment
                     if (k === 8 || k === 46 || (iPhone && k === 127)) {
@@ -402,10 +402,10 @@ export default {
 
                         event.preventDefault();
                     } else if (k === 13) { // enter
-                        $vm.$refs.input.blur();
+                        $vm.$el.blur();
                         $vm.updateModel(event);
                     } else if (k === 27) { // escape
-                        $vm.$refs.input.value = $vm.focusText;
+                        $vm.$el.value = $vm.focusText;
                         $vm.caret(0, $vm.checkVal());
                         $vm.updateModel(event);
                         event.preventDefault();
