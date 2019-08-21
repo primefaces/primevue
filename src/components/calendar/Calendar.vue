@@ -1,6 +1,6 @@
 <template>
     <span :class="containerClass">
-        <CalendarInputText ref="input" v-if="!inline" type="text" v-bind="$attrs" v-on="listeners" :value="inputFieldValue" :readonly="!manualInput" />
+        <CalendarInputText ref="input" v-if="!inline" type="text" v-bind="$attrs" v-on="listeners" v-model="inputFieldValue" :readonly="!manualInput" />
         <CalendarButton v-if="showIcon" :icon="icon" tabindex="-1" class="p-datepicker-trigger p-calendar-button" :disabled="$attrs.disabled" @click="onButtonClick" />
         <transition name="p-input-overlay" @enter="onOverlayEnter" @after-enter="onOverlayEnterComplete" @leave="onOverlayLeave">
             <div ref="overlay" :class="panelStyleClass" v-if="inline ? true : overlayVisible">
@@ -308,6 +308,7 @@ export default {
     },
     created() {
         this.updateCurrentMetaData();
+        this.updateInputFieldValue(this.value);
     },
     beforeDestroy() {
         if (this.timePickerTimer) {
@@ -330,7 +331,8 @@ export default {
             currentSecond: null,
             pm: null,
 			focused: false,
-            overlayVisible: false
+            overlayVisible: false,
+            inputFieldValue: null
         }
     },
     outsideClickListener: null,
@@ -713,11 +715,13 @@ export default {
                 this.currentSecond = date.getSeconds();
             }
             
+            let modelVal = null;
+
             if (this.isSingleSelection()) {
-                this.updateModel(date);
+                modelVal = date;
             }
             else if (this.isMultipleSelection()) {
-                this.updateModel(this.value ? [...this.value, date] : [date]);
+                modelVal = this.value ? [...this.value, date] : [date];
             }
             else if (this.isRangeSelection()) {
                 if (this.value && this.value.length) {
@@ -731,18 +735,57 @@ export default {
                         startDate = date;
                         endDate = null;
                     }
-                    
-                    this.updateModel([startDate, endDate]);
+                    modelVal = [startDate, endDate];
                 }
                 else {
-                    this.updateModel([date, null]);
+                    modelVal = [date, null];
                 }
             }
             
+            if (modelVal !== null) {
+                this.updateModel(modelVal);
+                this.updateInputFieldValue(modelVal);
+            }
             this.$emit('select', date);
         },
         updateModel(value) {
             this.$emit('input', value);
+        },
+        updateInputFieldValue(date) {
+            let formattedValue = '';
+
+            if (date) {
+                try {
+                    if (this.isSingleSelection()) {
+                        formattedValue = this.formatDateTime(date);
+                    }
+                    else if (this.isMultipleSelection()) {
+                        for(let i = 0; i < date.length; i++) {
+                            let dateAsString = this.formatDateTime(date[i]);
+                            formattedValue += dateAsString;
+                            if(i !== (date.length - 1)) {
+                                formattedValue += ', ';
+                            }
+                        }
+                    }
+                    else if (this.isRangeSelection()) {
+                        if (date && date.length) {
+                            let startDate = date[0];
+                            let endDate = date[1];
+                            
+                            formattedValue = this.formatDateTime(startDate);
+                            if (endDate) {
+                                formattedValue += ' - ' + this.formatDateTime(endDate);
+                            }
+                        }
+                    }
+                } 
+                catch(err) {
+                    formattedValue = date;
+                }
+            }
+            
+            this.inputFieldValue = formattedValue;
         },
         shouldSelectDate() {
             if (this.isMultipleSelection())
@@ -1465,7 +1508,7 @@ export default {
                     }
                     catch(err) {
                         //invalid date
-                        $vm.updateModel(val);
+                        $vm.updateModel(null);
                     }
                 },
                 focus: event => {
@@ -1477,7 +1520,17 @@ export default {
                     $vm.$emit('focus', event)
                 },
                 blur: event => {
-					$vm.focused = false;
+                    try {
+                        let value = $vm.parseValueFromString(event.target.value);
+                        if ($vm.isValidSelection(value)) {
+                            $vm.updateInputFieldValue(value);
+                        }
+                    }
+                    catch(err) {
+                        //invalid date
+                        $vm.inputFieldValue = null;
+                    }
+                    $vm.focused = false;
                     $vm.$emit('blur', event);
                 },
                 keydown: event => {
@@ -1525,42 +1578,6 @@ export default {
                     'p-datepicker-touch-ui': this.touchUI
                 }
             ];
-        },
-        inputFieldValue() {
-            let formattedValue = '';
-
-            if (this.value) {
-                try {
-                    if (this.isSingleSelection()) {
-                        formattedValue = this.formatDateTime(this.value);
-                    }
-                    else if (this.isMultipleSelection()) {
-                        for(let i = 0; i < this.value.length; i++) {
-                            let dateAsString = this.formatDateTime(this.value[i]);
-                            formattedValue += dateAsString;
-                            if(i !== (this.value.length - 1)) {
-                                formattedValue += ', ';
-                            }
-                        }
-                    }
-                    else if (this.isRangeSelection()) {
-                        if (this.value && this.value.length) {
-                            let startDate = this.value[0];
-                            let endDate = this.value[1];
-                            
-                            formattedValue = this.formatDateTime(startDate);
-                            if (endDate) {
-                                formattedValue += ' - ' + this.formatDateTime(endDate);
-                            }
-                        }
-                    }
-                } 
-                catch(err) {
-                    formattedValue = this.value;
-                }
-            }
-            
-            return formattedValue;
         },
         months() {
             let months = [];
