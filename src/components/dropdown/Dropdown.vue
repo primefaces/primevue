@@ -1,11 +1,11 @@
 <template>
-    <div ref="container" :class="containerClass" @click="onClick">
+    <div ref="container" :class="containerClass" @click="onClick($event)">
         <div class="p-hidden-accessible">
             <input ref="focusInput" type="text" role="listbox" readonly :disabled="disabled" @focus="onFocus" @blur="onBlur" @keydown="onKeyDown" :tabindex="tabindex"/>
         </div>
         <input v-if="editable" type="text" class="p-dropdown-label p-inputtext" :disabled="disabled" @focus="onFocus" @blur="onBlur" :placeholder="placeholder" :value="editableInputValue" @input="onEditableInput">
         <label v-if="!editable" :class="labelClass">{{label}}</label>
-        <i v-if="showClear && value != null" class="p-dropdown-clear-icon pi pi-times" @click="onClearClick"></i>
+        <i v-if="showClear && value != null" class="p-dropdown-clear-icon pi pi-times" @click="onClearClick($event)"></i>
         <div class="p-dropdown-trigger">
             <span class="p-dropdown-trigger-icon pi pi-chevron-down p-clickable"></span>
         </div>
@@ -235,7 +235,7 @@ export default {
             else
                 return option;
         },
-        onClearClick() {
+        onClearClick(event) {
             this.updateModel(event, null);
         },
         onClick(event) {
