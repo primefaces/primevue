@@ -78,6 +78,18 @@
             </div>
         </div>
         <div class="templates">
+            <h3>Premium Application Templates</h3>
+            <p>Powered by <a href="https://cli.vuejs.org">Vue-CLI</a>, create awesome applications in no time using the premium templates of PrimeVue and impress your users.</p>
+
+            <div class="p-grid">
+                <div class="p-col">
+                    <a href="https://www.primefaces.org/layouts/sapphire-vue">
+                        <img alt="Sapphire" src="../assets/images/layouts/sapphire.jpg">
+                    </a>
+                </div>
+            </div>
+        </div>
+        <div class="templates">
             <h3>Free Application Template for PrimeVue</h3>
             <p>Sigma is a free and open source admin template based on <a href="https://cli.vuejs.org">Vue-CLI</a>.</p>
 
