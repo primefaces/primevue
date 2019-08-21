@@ -664,6 +664,7 @@ export default {
             if (this.isMultipleSelection() && this.isSelected(dateMeta)) {
                 let newValue = this.value.filter(date => !this.isDateEquals(date, dateMeta));
                 this.updateModel(newValue);
+                this.updateInputFieldValue(newValue);
             }
             else {
                 if (this.shouldSelectDate(dateMeta)) {
