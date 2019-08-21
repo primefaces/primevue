@@ -1180,6 +1180,7 @@ export default {
             }
 
             this.updateModel(value);
+            this.updateInputFieldValue(value);
             this.$emit('select', value);
         },        
         toggleAMPM(event) {
@@ -1314,6 +1315,29 @@ export default {
             value.setHours(time.hour);
             value.setMinutes(time.minute);
             value.setSeconds(time.second);
+        },
+        parseTime(value) {
+            let tokens = value.split(':');
+            let validTokenLength = this.showSeconds ? 3 : 2;
+            
+            if (tokens.length !== validTokenLength) {
+                throw "Invalid time";
+            }
+            
+            let h = parseInt(tokens[0]);
+            let m = parseInt(tokens[1]);
+            let s = this.showSeconds ? parseInt(tokens[2]) : null;
+            
+            if (isNaN(h) || isNaN(m) || h > 23 || m > 59 || (this.hourFormat == '12' && h > 12) || (this.showSeconds && (isNaN(s) || s > 59))) {
+                throw "Invalid time";
+            }
+            else {
+                if (this.hourFormat == '12' && h !== 12 && this.pm) {
+                    h+= 12;
+                }
+                
+                return {hour: h, minute: m, second: s};
+            }
         },
         parseDate(value, format) {
             if (format == null || value == null) {
