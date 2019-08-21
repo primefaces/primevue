@@ -1465,6 +1465,7 @@ export default {
                     }
                     catch(err) {
                         //invalid date
+                        $vm.updateModel(val);
                     }
                 },
                 focus: event => {
