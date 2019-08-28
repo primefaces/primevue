@@ -62,11 +62,11 @@
                 </template>
                 <div class="p-timepicker" v-if="showTime||timeOnly">
                     <div class="p-hour-picker">
-                        <button class="p-link" @mousedown="onTimePickerElementMouseDown($event, 0, 1)" @mouseup="onTimePickerElementMouseUp($event)">
+                        <button class="p-link" @mousedown="onTimePickerElementMouseDown($event, 0, 1)" @mouseup="onTimePickerElementMouseUp($event)" @mouseout="onTimePickerElementMouseUp($event)">
                             <span class="pi pi-chevron-up"></span>
                         </button>
                         <span :style="{'display': currentHour < 10 ? 'inline': 'none'}">0</span><span>{{currentHour}}</span>
-                        <button class="p-link" @mousedown="onTimePickerElementMouseDown($event, 0, -1)" @mouseup="onTimePickerElementMouseUp($event)">
+                        <button class="p-link" @mousedown="onTimePickerElementMouseDown($event, 0, -1)" @mouseup="onTimePickerElementMouseUp($event)" @mouseout="onTimePickerElementMouseUp($event)">
                             <span class="pi pi-chevron-down"></span>
                         </button>
                     </div>
@@ -80,11 +80,11 @@
                         </span>
                     </div>
                     <div class="p-minute-picker">
-                        <button class="p-link" @mousedown="onTimePickerElementMouseDown($event, 1, 1)" @mouseup="onTimePickerElementMouseUp($event)">
+                        <button class="p-link" @mousedown="onTimePickerElementMouseDown($event, 1, 1)" @mouseup="onTimePickerElementMouseUp($event)" @mouseout="onTimePickerElementMouseUp($event)">
                             <span class="pi pi-chevron-up"></span>
                         </button>
                         <span :style="{'display': currentMinute < 10 ? 'inline': 'none'}">0</span><span>{{currentMinute}}</span>
-                        <button class="p-link" @mousedown="onTimePickerElementMouseDown($event, 1, -1)" @mouseup="onTimePickerElementMouseUp($event)">
+                        <button class="p-link" @mousedown="onTimePickerElementMouseDown($event, 1, -1)" @mouseup="onTimePickerElementMouseUp($event)" @mouseout="onTimePickerElementMouseUp($event)">
                             <span class="pi pi-chevron-down"></span>
                         </button>
                     </div>
@@ -98,11 +98,11 @@
                         </span>
                     </div>
                     <div class="p-second-picker" v-if="showSeconds">
-                        <button class="p-link" @mousedown="onTimePickerElementMouseDown($event, 2, 1)" @mouseup="onTimePickerElementMouseUp($event)">
+                        <button class="p-link" @mousedown="onTimePickerElementMouseDown($event, 2, 1)" @mouseup="onTimePickerElementMouseUp($event)" @mouseout="onTimePickerElementMouseUp($event)">
                             <span class="pi pi-chevron-up"></span>
                         </button>
                         <span :style="{'display': currentSecond < 10 ? 'inline': 'none'}">0</span><span>{{currentSecond}}</span>
-                        <button class="p-link" @mousedown="onTimePickerElementMouseDown($event, 2, -1)" @mouseup="onTimePickerElementMouseUp($event)">
+                        <button class="p-link" @mousedown="onTimePickerElementMouseDown($event, 2, -1)" @mouseup="onTimePickerElementMouseUp($event)" @mouseout="onTimePickerElementMouseUp($event)">
                             <span class="pi pi-chevron-down"></span>
                         </button>
                     </div>
@@ -330,7 +330,7 @@ export default {
             currentMinute: null,
             currentSecond: null,
             pm: null,
-			focused: false,
+            focused: false,
             overlayVisible: false,
             inputFieldValue: null
         }
@@ -1773,8 +1773,8 @@ export default {
 
 /* Datepicker */
 .p-datepicker {
-	width: auto;
-	padding: .2em;
+    width: auto;
+    padding: .2em;
     position: absolute;
 }
 
@@ -1792,50 +1792,50 @@ export default {
 
 /* Header */
 .p-datepicker .p-datepicker-header {
-	position: relative;
-	padding: .5em 0;
+    position: relative;
+    padding: .5em 0;
 }
 .p-datepicker .p-datepicker-prev,
 .p-datepicker .p-datepicker-next {
-	position: absolute;
-	top: .5em;
-	width: 1.8em;
+    position: absolute;
+    top: .5em;
+    width: 1.8em;
     height: 1.8em;
     cursor: pointer;
 }
 
 .p-datepicker .p-datepicker-prev {
-	left: .125em;
+    left: .125em;
 }
 .p-datepicker .p-datepicker-next {
-	right: .125em;
+    right: .125em;
 }
 
 .p-datepicker .p-datepicker-prev span,
 .p-datepicker .p-datepicker-next span {
-	display: block;
-	position: absolute;
-	left: 50%;
-	top: 50%;
+    display: block;
+    position: absolute;
+    left: 50%;
+    top: 50%;
     margin-top: -.5em;
     margin-left: -.5em;
 }
 
 .p-datepicker .p-datepicker-title {
-	margin: 0 2.3em;
-	line-height: 1.8em;
-	text-align: center;
+    margin: 0 2.3em;
+    line-height: 1.8em;
+    text-align: center;
 }
 .p-datepicker .p-datepicker-title select {
-	font-size: 1em;
-	margin: .125em 0;
+    font-size: 1em;
+    margin: .125em 0;
     vertical-align: middle;
 }
 .p-datepicker select.p-datepicker-month {
     margin-right: .25em;
 }
 .p-datepicker span.p-datepicker-year {
-	margin-left: .25em;
+    margin-left: .25em;
 }
 
 /* Multiple Month DatePicker */
@@ -1849,27 +1849,27 @@ export default {
 
 /* DatePicker Table */
 .p-datepicker table {
-	width: 100%;
-	font-size: .9em;
-	border-collapse: collapse;
-	margin: 0 0 .4em;
+    width: 100%;
+    font-size: .9em;
+    border-collapse: collapse;
+    margin: 0 0 .4em;
 }
 .p-datepicker th {
-	padding: .5em;
-	text-align: center;
-	font-weight: bold;
-	border: 0;
+    padding: .5em;
+    text-align: center;
+    font-weight: bold;
+    border: 0;
 }
 .p-datepicker td {
-	border: 0;
-	padding: 0;
+    border: 0;
+    padding: 0;
 }
 .p-datepicker td > span,
 .p-datepicker td > a {
-	display: block;
-	padding: .5em;
-	text-align: right;
-	text-decoration: none;
+    display: block;
+    padding: .5em;
+    text-align: right;
+    text-decoration: none;
 }
 
 .p-datepicker td a {
@@ -1878,7 +1878,7 @@ export default {
 
 .p-datepicker .p-datepicker-buttonbar,
 .p-datepicker .p-datepicker-footer {
-	padding: .5em;
+    padding: .5em;
 }
 
 .p-datepicker .p-datepicker-buttonbar:after {
@@ -1966,14 +1966,14 @@ input[type=text]::-ms-clear {
 }
 
 .p-datepicker-touch-ui.p-datepicker th {
-	padding: 2em 0;
+    padding: 2em 0;
 }
 .p-datepicker-touch-ui.p-datepicker td {
-	padding: 0;
+    padding: 0;
 }
 .p-datepicker-touch-ui.p-datepicker td span,
 .p-datepicker-touch-ui.p-datepicker td a {
-	padding: 2em 0;
+    padding: 2em 0;
 }
 
 .p-datepicker-touch-ui .p-timepicker {
