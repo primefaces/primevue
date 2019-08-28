@@ -950,6 +950,7 @@ export default {
         },
         onClearButtonClick(event) {
             this.updateModel(null);
+            this.updateInputFieldValue(null);
             this.overlayVisible = false;
             this.$emit('clear-click', event);
             event.preventDefault();
