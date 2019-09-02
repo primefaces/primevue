@@ -343,6 +343,7 @@ export default {
     watch: {
         value() {
             this.updateCurrentMetaData();
+            this.updateInputFieldValue(this.value);
         }
     },
     methods: {
