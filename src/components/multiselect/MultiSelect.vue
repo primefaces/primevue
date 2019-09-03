@@ -129,7 +129,7 @@ export default {
             this.headerCheckboxFocused = false;
         },
         onClick() {
-            if (!this.$refs.overlay || !this.$refs.overlay.contains(event.target)) {
+            if (!this.disabled && (!this.$refs.overlay || !this.$refs.overlay.contains(event.target))) {
                 this.overlayVisible = !this.overlayVisible;
                 this.$refs.focusInput.focus();
             }
