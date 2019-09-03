@@ -5,8 +5,8 @@
         </div>
         <div class="p-multiselect-label-container">
             <label :class="labelClass">
-                <slot name="value" :value="value">
-                    {{label}}
+                <slot name="value" :label="label" :value="value">
+                    {{label.toString()}}
                 </slot>
             </label>
         </div>
@@ -143,7 +143,7 @@ export default {
                 case 40:
                     if (this.visibleOptions && !this.overlayVisible && event.altKey) {
                         this.overlayVisible = true;
-                    } 
+                    }
                 break;
 
                 //space
@@ -190,7 +190,7 @@ export default {
         },
         onOptionKeyDown(event, option) {
             let listItem = event.target;
-        
+
             switch(event.which) {
                 //down
                 case 40:
@@ -198,20 +198,20 @@ export default {
                     if (nextItem) {
                         nextItem.focus();
                     }
-                    
+
                     event.preventDefault();
                 break;
-                
+
                 //up
                 case 38:
                     var prevItem = this.findPrevItem(listItem);
                     if (prevItem) {
                         prevItem.focus();
                     }
-                    
+
                     event.preventDefault();
                 break;
-                
+
                 //enter
                 case 13:
                     this.onOptionSelect(event, option);
@@ -232,7 +232,7 @@ export default {
         },
         findPrevItem(item) {
             let prevItem = item.previousElementSibling;
-            
+
             if (prevItem)
                 return DomHandler.hasClass(prevItem, 'p-disabled') ? this.findPrevItem(prevItem) : prevItem;
             else
@@ -308,28 +308,23 @@ export default {
         },
         labelClass() {
             return [
-                'p-multiselect-label', 
+                'p-multiselect-label',
                 {
-                    'p-placeholder': this.label == null && this.placeholder, 
+                    'p-placeholder': !this.label.length && this.placeholder,
                     'p-multiselect-label-empty': !this.placeholder
                 }
             ];
         },
         label() {
-            let label;
+            let label = [];
 
             if (this.value && this.value.length) {
-                label = '';
                 for(let i = 0; i < this.value.length; i++) {
-                    if(i !== 0) {
-                        label += ',';
-                    }
-
-                    label += this.getLabelByValue(this.value[i]);
+                    label.push(this.getLabelByValue(this.value[i]));
                 }
             }
             else {
-                label = this.placeholder || 'p-multiselect';
+                label.push(this.placeholder || 'p-multiselect');
             }
 
             return label;
@@ -347,7 +342,7 @@ export default {
             }
             else {
                 return this.value && this.options && (this.value.length > 0 && this.value.length === this.options.length);
-            }                
+            }
         }
     }
 }
@@ -476,7 +471,7 @@ export default {
     top: .25em;
     left: .125em;
 }
-            
+
 .p-multiselect-header .p-inputtext {
     padding: .125em .125em .125em 1.25em;
     width: 100%;
