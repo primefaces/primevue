@@ -78,6 +78,15 @@
             </div>
         </div>
         <div class="templates">
+
+            <div class="p-grid">
+                <div class="p-col">
+                    <a href="https://www.primefaces.org/store">
+                        <img alt="End of Summer Sale 2019" src="../assets/images/primestore-endofsummersale-2019-web.jpg">
+                    </a>
+                </div>
+            </div>
+
             <h3>Premium Application Templates</h3>
             <p>Powered by <a href="https://cli.vuejs.org">Vue-CLI</a>, create awesome applications in no time using the premium templates of PrimeVue and impress your users.</p>
 
