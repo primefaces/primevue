@@ -284,7 +284,7 @@ export default {
             return label;
         },
         onToggleAll(event) {
-            const value = this.allSelected ? [] : this.visibleOptions;
+            const value = this.allSelected ? [] : this.visibleOptions  && this.visibleOptions.map(option => this.getOptionValue(option));
 
             this.$emit('input', value);
             this.$emit('change', {originalEvent: event, value: value});
@@ -311,7 +311,7 @@ export default {
                 'p-multiselect-label', 
                 {
                     'p-placeholder': this.label == null && this.placeholder, 
-                    'p-multiselect-label-empty': !this.placeholder
+                    'p-multiselect-label-empty': !this.placeholder && (!this.value || this.value.length === 0)
                 }
             ];
         },
@@ -337,12 +337,16 @@ export default {
         allSelected() {
             if (this.filterValue && this.filterValue.trim().length > 0) {
                 let allSelected = true;
-                for (let option of this.visibleOptions) {
-                    if (!this.isSelected(option)) {
-                        allSelected = false;
-                        break;
-                    }
+				if(this.visibleOptions.length > 0) {
+					for (let option of this.visibleOptions) {
+						if (!this.isSelected(option)) {
+							allSelected = false;
+							break;
+						}
+					}
                 }
+                else
+                    allSelected = false;
                 return allSelected;
             }
             else {
