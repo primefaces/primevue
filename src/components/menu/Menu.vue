@@ -2,13 +2,13 @@
     <transition name="p-input-overlay" @enter="onEnter" @leave="onLeave">
         <div ref="container"  :class="containerClass" v-if="popup ? visible : true">
             <ul class="p-menu-list p-reset">
-                <template v-for="item of model">
+                <template v-for="(item, i) of model">
                     <template v-if="item.items">
-                        <li class="p-submenu-header " :key="item.label" v-if="item.items">{{item.label}}</li>
-                        <Menuitem v-for="child of item.items" :key="child.label" :item="child" @click="itemClick" />
+                        <li class="p-submenu-header " :key="item.label+i" v-if="item.items">{{item.label}}</li>
+                        <Menuitem v-for="(child, j) of item.items" :key="child.label+i+j" :item="child" @click="itemClick" />
                     </template>
                     <template v-else>
-                        <Menuitem :key="item.label" :item="item" @click="itemClick" />
+                        <Menuitem :key="item.label+i" :item="item" @click="itemClick" />
                     </template>
                 </template>
             </ul>
