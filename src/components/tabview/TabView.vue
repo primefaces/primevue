@@ -4,7 +4,7 @@
             <li role="presentation" v-for="(tab, i) of tabs" :key="tab.header || i" :class="['p-unselectable-text', {'p-highlight': (tab.d_active), 'p-disabled': tab.disabled}]">
                 <a role="tab" @click="onTabClick($event, tab)" @keydown="onTabKeydown($event, tab)" :tabindex="tab.disabled ? null : '0'">
                     <span class="p-tabview-title" v-if="tab.header">{{tab.header}}</span>
-                    <TabHeaderSlot :tab="tab" v-if="tab.$scopedSlots.header" />
+                    <TabPanelHeaderSlot :tab="tab" v-if="tab.$scopedSlots.header" />
                 </a>
             </li>
         </ul>
@@ -15,7 +15,7 @@
 </template>
 
 <script>
-const TabHeaderSlot = {
+const TabPanelHeaderSlot = {
     functional: true,
     props: {
         tab: {
@@ -79,7 +79,7 @@ export default {
         }
     },
     components: {
-        'TabHeaderSlot': TabHeaderSlot
+        'TabPanelHeaderSlot': TabPanelHeaderSlot
     }
 }
 </script>
