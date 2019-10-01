@@ -1009,7 +1009,7 @@ export default {
                 <p>In addition lazy loading of root level nodes is implemented by handling pagination and sorting using <i>page</i> and <i>sort</i> events by making a remote query using the information
                 passed to the events such as first offset, number of rows and sort field for ordering. Filtering is handled differently as filter elements are defined using templates, use
                 the event you prefer on your form elements such as input, change, blur to make a remote call by passing the filters property to update the displayed data. Note that,
-                in lazy filtering, totalRecords should also be updated to align the data with the paginator.</p>.</p>
+                in lazy filtering, totalRecords should also be updated to align the data with the paginator.</p>.
 
                 <p> Example below uses an in memory collection to mimic a lazy loading scenario with timeouts.</p>
 
