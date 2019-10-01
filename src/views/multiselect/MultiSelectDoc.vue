@@ -127,7 +127,7 @@ data() {
                             <tr>
                                 <td>filter</td>
                                 <td>boolean</td>
-                                <td>true</td>
+                                <td>false</td>
                                 <td>When specified, displays an input field to filter the items on keyup.</td>
                             </tr>
                             <tr>

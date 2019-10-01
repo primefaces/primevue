@@ -24,7 +24,7 @@
                             <span :class="['p-checkbox-icon p-c', {'pi pi-check': allSelected}]"></span>
                         </div>
                     </div>
-                    <div class="p-multiselect-filter-container">
+                    <div v-if="filter" class="p-multiselect-filter-container">
                         <input type="text" v-model="filterValue" class="p-multiselect-filter p-component p-inputtext p-component" :placeholder="filterPlaceholder">
                         <span class="p-multiselect-filter-icon pi pi-search"></span>
                     </div>
@@ -129,7 +129,7 @@ export default {
             this.headerCheckboxFocused = false;
         },
         onClick() {
-            if (!this.$refs.overlay || !this.$refs.overlay.contains(event.target)) {
+            if (!this.disabled && (!this.$refs.overlay || !this.$refs.overlay.contains(event.target))) {
                 this.overlayVisible = !this.overlayVisible;
                 this.$refs.focusInput.focus();
             }
@@ -143,7 +143,7 @@ export default {
                 case 40:
                     if (this.visibleOptions && !this.overlayVisible && event.altKey) {
                         this.overlayVisible = true;
-                    } 
+                    }
                 break;
 
                 //space
@@ -190,7 +190,7 @@ export default {
         },
         onOptionKeyDown(event, option) {
             let listItem = event.target;
-        
+
             switch(event.which) {
                 //down
                 case 40:
@@ -201,7 +201,7 @@ export default {
                     
                     event.preventDefault();
                 break;
-                
+
                 //up
                 case 38:
                     var prevItem = this.findPrevItem(listItem);
@@ -211,7 +211,7 @@ export default {
                     
                     event.preventDefault();
                 break;
-                
+
                 //enter
                 case 13:
                     this.onOptionSelect(event, option);
@@ -351,7 +351,7 @@ export default {
             }
             else {
                 return this.value && this.options && (this.value.length > 0 && this.value.length === this.options.length);
-            }                
+            }
         }
     }
 }
