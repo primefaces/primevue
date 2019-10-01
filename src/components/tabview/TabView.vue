@@ -1,4 +1,33 @@
+<template>
+    <div class="p-tabview p-component p-tabview-top">
+        <ul class="p-tabview-nav p-reset" role="tablist">
+            <li role="presentation" v-for="(tab, i) of tabs" :key="tab.header || i" :class="['p-unselectable-text', {'p-highlight': (tab.d_active), 'p-disabled': tab.disabled}]">
+                <a role="tab" @click="onTabClick($event, tab)" @keydown="onTabKeydown($event, tab)" :tabindex="tab.disabled ? null : '0'">
+                    <span class="p-tabview-title" v-if="tab.header">{{tab.header}}</span>
+                    <TabHeaderSlot :tab="tab" v-if="tab.$scopedSlots.header" />
+                </a>
+            </li>
+        </ul>
+        <div class="p-tabview-panels">
+            <slot></slot>
+        </div>
+    </div>
+</template>
+
 <script>
+const TabHeaderSlot = {
+    functional: true,
+    props: {
+        tab: {
+            type: null,
+            default: null
+        }
+    },
+    render(createElement, context) {
+        return [context.props.tab.$scopedSlots['header']()];
+    }
+};
+
 export default {
     data() {
         return {
@@ -49,28 +78,8 @@ export default {
             return activeTab;
         }
     },
-    render() {
-        return (
-            <div class="p-tabview p-component p-tabview-top">
-                <ul class="p-tabview-nav p-reset" role="tablist">
-                    {
-                        this.tabs.map(tab => {
-                            return (
-                                <li role="presentation" key={tab.header} class={['p-unselectable-text', {'p-highlight': (tab.d_active), 'p-disabled': tab.disabled}]}>
-                                     <a role="tab" on-click={event => this.onTabClick(event, tab)} on-keydown={event => this.onTabKeydown(event, tab)} tabindex={tab.disabled ? null : '0'}>
-                                        {tab.header && <span class="p-tabview-title">{tab.header}</span>}
-                                        {tab.$slots.header}
-                                    </a>
-                                </li>
-                            );
-                        })
-                    }
-                </ul>
-                <div class="p-tabview-panels">
-                    {this.$slots.default}
-                </div>
-            </div>
-        );
+    components: {
+        'TabHeaderSlot': TabHeaderSlot
     }
 }
 </script>

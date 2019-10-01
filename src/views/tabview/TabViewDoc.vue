@@ -258,8 +258,8 @@ export default {
 &lt;h3&gt;Programmatic&lt;/h3&gt;
 &lt;div style="padding: .5em 0"&gt;
     &lt;Button @click="activate(0)" class="p-button-secondary" label="Activate 1st" /&gt;
-    &lt;Button @click="activate(1)" class="p-button-secondary" label="Activate 2st" /&gt;
-    &lt;Button @click="activate(2)" class="p-button-secondary" label="Activate 3st" /&gt;
+    &lt;Button @click="activate(1)" class="p-button-secondary" label="Activate 2nd" /&gt;
+    &lt;Button @click="activate(2)" class="p-button-secondary" label="Activate 3rd" /&gt;
 &lt;/div&gt;
 
 &lt;TabView&gt;
