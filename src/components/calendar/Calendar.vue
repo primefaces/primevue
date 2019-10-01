@@ -62,11 +62,13 @@
                 </template>
                 <div class="p-timepicker" v-if="showTime||timeOnly">
                     <div class="p-hour-picker">
-                        <button class="p-link" @mousedown="onTimePickerElementMouseDown($event, 0, 1)" @mouseup="onTimePickerElementMouseUp($event)">
+                        <button class="p-link" @mousedown="onTimePickerElementMouseDown($event, 0, 1)" @mouseup="onTimePickerElementMouseUp($event)"
+                            @mouseout="onTimePickerElementMouseUp($event)">
                             <span class="pi pi-chevron-up"></span>
                         </button>
                         <span :style="{'display': currentHour < 10 ? 'inline': 'none'}">0</span><span>{{currentHour}}</span>
-                        <button class="p-link" @mousedown="onTimePickerElementMouseDown($event, 0, -1)" @mouseup="onTimePickerElementMouseUp($event)">
+                        <button class="p-link" @mousedown="onTimePickerElementMouseDown($event, 0, -1)" @mouseup="onTimePickerElementMouseUp($event)"
+                            @mouseout="onTimePickerElementMouseUp($event)">
                             <span class="pi pi-chevron-down"></span>
                         </button>
                     </div>
@@ -80,11 +82,13 @@
                         </span>
                     </div>
                     <div class="p-minute-picker">
-                        <button class="p-link" @mousedown="onTimePickerElementMouseDown($event, 1, 1)" @mouseup="onTimePickerElementMouseUp($event)">
+                        <button class="p-link" @mousedown="onTimePickerElementMouseDown($event, 1, 1)" @mouseup="onTimePickerElementMouseUp($event)"
+                            @mouseout="onTimePickerElementMouseUp($event)">
                             <span class="pi pi-chevron-up"></span>
                         </button>
                         <span :style="{'display': currentMinute < 10 ? 'inline': 'none'}">0</span><span>{{currentMinute}}</span>
-                        <button class="p-link" @mousedown="onTimePickerElementMouseDown($event, 1, -1)" @mouseup="onTimePickerElementMouseUp($event)">
+                        <button class="p-link" @mousedown="onTimePickerElementMouseDown($event, 1, -1)" @mouseup="onTimePickerElementMouseUp($event)"
+                            @mouseout="onTimePickerElementMouseUp($event)">
                             <span class="pi pi-chevron-down"></span>
                         </button>
                     </div>
@@ -98,11 +102,13 @@
                         </span>
                     </div>
                     <div class="p-second-picker" v-if="showSeconds">
-                        <button class="p-link" @mousedown="onTimePickerElementMouseDown($event, 2, 1)" @mouseup="onTimePickerElementMouseUp($event)">
+                        <button class="p-link" @mousedown="onTimePickerElementMouseDown($event, 2, 1)" @mouseup="onTimePickerElementMouseUp($event)"
+                            @mouseout="onTimePickerElementMouseUp($event)">
                             <span class="pi pi-chevron-up"></span>
                         </button>
                         <span :style="{'display': currentSecond < 10 ? 'inline': 'none'}">0</span><span>{{currentSecond}}</span>
-                        <button class="p-link" @mousedown="onTimePickerElementMouseDown($event, 2, -1)" @mouseup="onTimePickerElementMouseUp($event)">
+                        <button class="p-link" @mousedown="onTimePickerElementMouseDown($event, 2, -1)" @mouseup="onTimePickerElementMouseUp($event)"
+                            @mouseout="onTimePickerElementMouseUp($event)">
                             <span class="pi pi-chevron-down"></span>
                         </button>
                     </div>
