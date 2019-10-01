@@ -5,6 +5,7 @@
 				<h3>Import</h3>
 				<CodeHighlight lang="javascript">
 import DataTable from 'primevue/datatable';
+import Column from 'primevue/column';
 				</CodeHighlight>
 
                 <h3>Getting Started</h3>
