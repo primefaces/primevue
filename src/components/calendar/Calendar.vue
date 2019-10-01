@@ -341,8 +341,9 @@ export default {
     timePickerTimer: null,
     isKeydown: false,
     watch: {
-        value() {
+        value(newValue) {
             this.updateCurrentMetaData();
+            this.updateInputFieldValue(newValue);
         }
     },
     methods: {
