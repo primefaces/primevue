@@ -306,7 +306,6 @@ export default {
 
                 if (DomHandler.hasClass(targetNode, 'p-sortable-column') || DomHandler.hasClass(targetNode, 'p-column-title') 
                     || DomHandler.hasClass(targetNode, 'p-sortable-column-icon') || DomHandler.hasClass(targetNode.parentElement, 'p-sortable-column-icon')) {
-                    
                     DomHandler.clearSelection();
                     
                     this.d_sortOrder = (this.d_sortField === columnField) ? this.d_sortOrder * -1 : this.defaultSortOrder;
@@ -321,7 +320,7 @@ export default {
                         this.addSortMeta({field: this.d_sortField, order: this.d_sortOrder});   
                     }    
 
-                    this.$emit('update:sortField', this.d_sortFied);
+                    this.$emit('update:sortField', this.d_sortField);
                     this.$emit('update:sortOrder', this.d_sortOrder);
                     this.$emit('update:multiSortMeta', this.d_multiSortMeta);
 
