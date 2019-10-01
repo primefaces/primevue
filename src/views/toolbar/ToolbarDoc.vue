@@ -86,28 +86,28 @@ export default {
         return {
             items: [
                 {
-                    label: 'Update', 
+                    label: 'Update',
                     icon: 'pi pi-refresh'
                 },
                 {
-                    label: 'Delete', 
+                    label: 'Delete',
                     icon: 'pi pi-times'
                 },
                 {
-                    label: 'Vue Website', 
+                    label: 'Vue Website',
                     icon: 'pi pi-external-link',
                     command: () => {
                         window.location.href = 'https://vuejs.org/'
                     }
                 },
-                {   label: 'Upload', 
-                    icon: 'pi pi-upload', 
+                {   label: 'Upload',
+                    icon: 'pi pi-upload',
                     command: () => {
                         window.location.hash = "/fileupload"
                     }
                 }
             ]
-        } 
+        }
     }
 }
 </CodeHighlight>

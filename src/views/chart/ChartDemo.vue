@@ -33,7 +33,7 @@ export default {
                             "#FFCE56"
                         ]
                     }
-                ]    
+                ]
             }
         }
     },

@@ -97,22 +97,22 @@ export default {
                         if (nextRow) {
                             nextRow.focus();
                         }
-        
+
                         event.preventDefault();
                         break;
                     }
-        
+
                     //up arrow
                     case 38: {
                         const previousRow = rowElement.previousElementSibling;
                         if (previousRow) {
                             previousRow.focus();
                         }
-        
+
                         event.preventDefault();
                         break;
                     }
-        
+
                     //right-left arrows
                     case 37:
                     case 39: {
@@ -122,14 +122,14 @@ export default {
                         }
                         break;
                     }
-        
+
                     //enter
                     case 13: {
                         this.onClick(event);
                         event.preventDefault();
                         break;
                     }
-        
+
                     default:
                         //no op
                     break;
@@ -137,7 +137,7 @@ export default {
             }
         },
         toggleCheckbox() {
-            let _selectionKeys = this.selectionKeys ? {...this.selectionKeys} : {};   
+            let _selectionKeys = this.selectionKeys ? {...this.selectionKeys} : {};
             const _check = !this.checked;
 
             this.propagateDown(this.node, _check, _selectionKeys);
@@ -165,7 +165,7 @@ export default {
             let _selectionKeys = {...event.selectionKeys};
             let checkedChildCount = 0;
             let childPartialSelected = false;
-            
+
             for(let child of this.node.children) {
                 if(_selectionKeys[child.key] && _selectionKeys[child.key].checked)
                     checkedChildCount++;
@@ -191,7 +191,7 @@ export default {
                 node: event.node,
                 check: event.check,
                 selectionKeys: _selectionKeys
-            }); 
+            });
         },
         onCheckboxFocus() {
            this.checkboxFocused = true;
@@ -223,7 +223,7 @@ export default {
         },
         togglerStyle() {
             return {
-                marginLeft: this.level * 16 + 'px', 
+                marginLeft: this.level * 16 + 'px',
                 visibility: this.leaf ? 'hidden' : 'visible'
             };
         },

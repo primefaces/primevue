@@ -14,7 +14,7 @@
             <Tree :value="nodes" :filter="true" filterMode="lenient"></Tree>
 
             <h3>Strict Filter</h3>
-            <Tree :value="nodes" :filter="true" filterMode="strict"></Tree>          
+            <Tree :value="nodes" :filter="true" filterMode="strict"></Tree>
         </div>
 
         <div class="content-section documentation">
@@ -26,7 +26,7 @@
 &lt;Tree :value="nodes" :filter="true" filterMode="lenient"&gt;&lt;/Tree&gt;
 
 &lt;h3&gt;Strict Filter&lt;/h3&gt;
-&lt;Tree :value="nodes" :filter="true" filterMode="strict"&gt;&lt;/Tree&gt;    
+&lt;Tree :value="nodes" :filter="true" filterMode="strict"&gt;&lt;/Tree&gt;
 </template>
 </CodeHighlight>
 

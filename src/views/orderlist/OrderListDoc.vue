@@ -9,7 +9,7 @@ import OrderList from 'primevue/orderlist';
 
 				<h3>Getting Started</h3>
                 <p>OrderList requires an array as its value bound with the v-model directive and a template for its content.</p>
-                <p>Header of the component is defined with the "header" template and to define the content of an item in the list a named template called "item" needs to be defined which gets the 
+                <p>Header of the component is defined with the "header" template and to define the content of an item in the list a named template called "item" needs to be defined which gets the
                     <i>item</i> and the <i>index</i> via slotProps.
                 </p>
 <CodeHighlight>

@@ -7,5 +7,5 @@
             <li><router-link to="/tree/templating">&#9679; Templating</router-link></li>
             <li><router-link to="/tree/filter">&#9679; Filter</router-link></li>
         </ul>
-    </div>    
+    </div>
 </template>

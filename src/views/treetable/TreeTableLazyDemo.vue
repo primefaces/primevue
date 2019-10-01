@@ -5,7 +5,7 @@
         <div class="content-section introduction">
             <div class="feature-intro">
                 <h1>TreeTable - Lazy</h1>
-                <p>Lazy mode is handy to deal with large datasets, instead of loading the entire data, small chunks of data is loaded by invoking corresponding callbacks everytime paging or sorting. In addition, 
+                <p>Lazy mode is handy to deal with large datasets, instead of loading the entire data, small chunks of data is loaded by invoking corresponding callbacks everytime paging or sorting. In addition,
                     children of a node can be loaded on demand at onNodeExpand event as well. Sample belows imitates lazy paging by using an in memory list..</p>
             </div>
         </div>
@@ -56,13 +56,13 @@ export default {
         onExpand(node) {
             if (!node.children) {
                 this.loading = true;
-                
+
                 setTimeout(() => {
                     let lazyNode = {...node};
-        
+
                     lazyNode.children = [
                         {
-                            data: { 
+                            data: {
                                 name: lazyNode.data.name + ' - 0',
                                 size: Math.floor(Math.random() * 1000) + 1 + 'kb',
                                 type: 'File'
@@ -94,7 +94,7 @@ export default {
             this.loading = true;
 
             //imitate delay of a backend call
-            setTimeout(() => {    
+            setTimeout(() => {
                 this.loading = false;
                 this.nodes = this.loadNodes(event.first, this.rows);
             }, 1000);
@@ -105,7 +105,7 @@ export default {
             for(let i = 0; i &lt; rows; i++) {
                 let node = {
                     key: (first + i),
-                    data: { 
+                    data: {
                         name: 'Item ' + (first + i),
                         size: Math.floor(Math.random() * 1000) + 1 + 'kb',
                         type: 'Type ' + (first + i)
@@ -115,7 +115,7 @@ export default {
 
                 nodes.push(node);
             }
-            
+
             return nodes;
         }
     }
@@ -153,13 +153,13 @@ export default {
         onExpand(node) {
             if (!node.children) {
                 this.loading = true;
-                
+
                 setTimeout(() => {
                     let lazyNode = {...node};
-        
+
                     lazyNode.children = [
                         {
-                            data: { 
+                            data: {
                                 name: lazyNode.data.name + ' - 0',
                                 size: Math.floor(Math.random() * 1000) + 1 + 'kb',
                                 type: 'File'
@@ -191,7 +191,7 @@ export default {
             this.loading = true;
 
             //imitate delay of a backend call
-            setTimeout(() => {    
+            setTimeout(() => {
                 this.loading = false;
                 this.nodes = this.loadNodes(event.first, this.rows);
             }, 1000);
@@ -202,7 +202,7 @@ export default {
             for(let i = 0; i < rows; i++) {
                 let node = {
                     key: (first + i),
-                    data: { 
+                    data: {
                         name: 'Item ' + (first + i),
                         size: Math.floor(Math.random() * 1000) + 1 + 'kb',
                         type: 'Type ' + (first + i)
@@ -212,7 +212,7 @@ export default {
 
                 nodes.push(node);
             }
-            
+
             return nodes;
         }
     },

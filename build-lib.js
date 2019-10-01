@@ -20,7 +20,7 @@ fs.readdirSync(path.resolve(__dirname, './src/components/')).forEach(folder => {
             execSync(
                 `node ${vueCliServicePath} build src/components/${folder}/${file} --target lib --name ${filename} --dest components/${folder} --no-clean `
             )
-            
+
             execSync(
                 `node ${babelPath} src/components/${folder}/${file} --out-file components/${folder}/${file} --config-file=./.babelrc-lib`
             )

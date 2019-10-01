@@ -15,7 +15,7 @@ import InputMask from 'primevue/inputmask';
 
 				<h3>Mask</h3>
                 <p>Mask format can be a combination of the the following built-in definitions.</p>
-                
+
                 <ul>
                     <li>
                         a - Alpha character (A-Z,a-z)

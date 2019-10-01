@@ -12,7 +12,7 @@
                 <span class="p-tree-filter-icon pi pi-search"></span>
         </div>
         <ul class="p-tree-container" role="tree">
-            <TreeNode v-for="node of valueToRender" :key="node.key" :node="node" :templates="$scopedSlots" 
+            <TreeNode v-for="node of valueToRender" :key="node.key" :node="node" :templates="$scopedSlots"
                 :expandedKeys="d_expandedKeys" @node-toggle="onNodeToggle" @node-click="onNodeClick"
                 :selectionMode="selectionMode" :selectionKeys="selectionKeys" @checkbox-change="onCheckboxChange"></TreeNode>
         </ul>
@@ -92,7 +92,7 @@ export default {
             else {
                 this.d_expandedKeys[key] = true;
                 this.$emit('node-expand', node);
-            }                
+            }
 
             this.d_expandedKeys = {...this.d_expandedKeys};
             this.$emit('update:expandedKeys', this.d_expandedKeys);
@@ -119,7 +119,7 @@ export default {
             const metaKey = (originalEvent.metaKey||originalEvent.ctrlKey);
             const selected = this.isNodeSelected(node);
             let _selectionKeys;
-        
+
             if (selected && metaKey) {
                 if (this.isSingleSelectionMode()) {
                     _selectionKeys = {};
@@ -149,7 +149,7 @@ export default {
             const node = event.node;
             const selected = this.isNodeSelected(node);
             let _selectionKeys;
-            
+
             if (this.isSingleSelectionMode()) {
                 if (selected) {
                     _selectionKeys = {};
@@ -171,7 +171,7 @@ export default {
                 else {
                     _selectionKeys = this.selectionKeys ? {...this.selectionKeys} : {};
                     _selectionKeys[node.key] = true;
-                    
+
                     this.$emit('node-select', node);
                 }
             }
@@ -212,7 +212,7 @@ export default {
                         }
                     }
                 }
-                
+
                 if (matched) {
                     return true;
                 }
@@ -253,13 +253,13 @@ export default {
             for (let node of this.value) {
                 let _node = {...node};
                 let paramsWithoutNode = {searchFields, filterText, strict};
-                
+
                 if ((strict && (this.findFilteredNodes(_node, paramsWithoutNode) || this.isFilterMatched(_node, paramsWithoutNode))) ||
                     (!strict && (this.isFilterMatched(_node, paramsWithoutNode) || this.findFilteredNodes(_node, paramsWithoutNode)))) {
                     filteredNodes.push(_node);
                 }
             }
-            
+
             return filteredNodes;
         },
         valueToRender() {
@@ -407,5 +407,5 @@ export default {
 
 .p-tree .p-tree-loading-content .p-tree-loading-icon {
     font-size: 2em;
-} 
+}
 </style>

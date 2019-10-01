@@ -44,7 +44,7 @@ export default {
                         backgroundColor: '#9CCC65',
                         data: [28, 48, 40, 19, 86, 27, 90]
                     }
-                ]    
+                ]
             },
             multiAxisData: {
                 labels: ['January', 'February', 'March', 'April', 'May', 'June', 'July'],
@@ -84,7 +84,7 @@ export default {
                             min: 0,
                             max: 100
                         }
-                    }, 
+                    },
                     {
                         type: 'linear',
                         display: true,

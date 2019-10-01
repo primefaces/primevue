@@ -6,14 +6,14 @@
 			<div class="feature-intro">
 				<h1>DataTable - Lazy</h1>
 				<p>Lazy mode is handy to deal with large datasets, instead of loading the entire data, small chunks of data is loaded by invoking corresponding callbacks everytime paging, sorting and filtering happens.
-                    Sample belows imitates lazy paging by using an in memory list. It is also important to assign the logical number of rows to totalRecords by doing a projection query for paginator configuration 
+                    Sample belows imitates lazy paging by using an in memory list. It is also important to assign the logical number of rows to totalRecords by doing a projection query for paginator configuration
                     so that paginator displays the UI assuming there are actually records of totalRecords size although in reality they aren't as in lazy mode, only the records that are displayed on the current page exist.
                 </p>
 			</div>
 		</div>
 
 		<div class="content-section implementation">
-			<DataTable :value="cars" :lazy="true" :paginator="true" :rows="10" 
+			<DataTable :value="cars" :lazy="true" :paginator="true" :rows="10"
                 :totalRecords="totalRecords" :loading="loading" @page="onPage($event)">
                 <Column field="vin" header="Vin"></Column>
                 <Column field="year" header="Year"></Column>
@@ -27,7 +27,7 @@
                 <TabPanel header="Source">
 <CodeHighlight>
 <template v-pre>
-&lt;DataTable :value="cars" :lazy="true" :paginator="true" :rows="10" 
+&lt;DataTable :value="cars" :lazy="true" :paginator="true" :rows="10"
     :totalRecords="totalRecords" :loading="loading" @page="onPage($event)"&gt;
     &lt;Column field="vin" header="Vin"&gt;&lt;/Column&gt;
     &lt;Column field="year" header="Year"&gt;&lt;/Column&gt;

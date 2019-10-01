@@ -12,7 +12,7 @@
             </div>
             <transition-group ref="list" name="p-orderlist-flip" tag="ul" class="p-orderlist-list" :style="listStyle">
                 <template v-for="(item, i) of value">
-                    <li tabindex="0" :key="getItemKey(item, i)" :class="['p-orderlist-item', {'p-highlight': isSelected(item)}]" 
+                    <li tabindex="0" :key="getItemKey(item, i)" :class="['p-orderlist-item', {'p-highlight': isSelected(item)}]"
                         @click="onItemClick($event, item, i)" @keydown="onItemKeyDown($event, item, i)" @touchend="onItemTouchEnd">
                         <slot name="item" :item="item" :index="i"> </slot>
                     </li>
@@ -73,7 +73,7 @@ export default {
         moveUp() {
             if (this.d_selection) {
                 let value = [...this.value];
-                
+
                 for (let i = 0; i < this.d_selection.length; i++) {
                     let selectedItem = this.d_selection[i];
                     let selectedItemIndex = ObjectUtils.findIndexInList(selectedItem, value);
@@ -88,7 +88,7 @@ export default {
                         break;
                     }
                 }
-                           
+
                 this.reorderDirection = 'up';
                 this.$emit('input', value);
                 this.$emit('reorder', {
@@ -101,7 +101,7 @@ export default {
         moveTop() {
             if(this.d_selection) {
                 let value = [...this.value];
-                
+
                 for (let i = 0; i < this.d_selection.length; i++) {
                     let selectedItem = this.d_selection[i];
                     let selectedItemIndex = ObjectUtils.findIndexInList(selectedItem, value);
@@ -127,7 +127,7 @@ export default {
         moveDown() {
             if(this.d_selection) {
                 let value = [...this.value];
-                
+
                 for (let i = this.d_selection.length - 1; i >= 0; i--) {
                     let selectedItem = this.d_selection[i];
                     let selectedItemIndex = ObjectUtils.findIndexInList(selectedItem, value);
@@ -142,7 +142,7 @@ export default {
                         break;
                     }
                 }
-                
+
                 this.reorderDirection = 'down';
                 this.$emit('input', value);
                 this.$emit('reorder', {
@@ -155,7 +155,7 @@ export default {
         moveBottom() {
             if (this.d_selection) {
                 let value = [...this.value];
-                
+
                 for (let i = this.d_selection.length - 1; i >= 0; i--) {
                     let selectedItem = this.d_selection[i];
                     let selectedItemIndex = ObjectUtils.findIndexInList(selectedItem, value);
@@ -183,16 +183,16 @@ export default {
             let selectedIndex = ObjectUtils.findIndexInList(item, this.d_selection);
             let selected = (selectedIndex != -1);
             let metaSelection = this.itemTouched ? false : this.metaKeySelection;
-            
+
             if (metaSelection) {
                 let metaKey = (event.metaKey || event.ctrlKey);
-                
+
                 if (selected && metaKey) {
                     this.d_selection = this.d_selection.filter((val, index) => index !== selectedIndex);
                 }
                 else {
-                    this.d_selection = (metaKey) ? this.d_selection ? [...this.d_selection] : [] : [];            
-                    ObjectUtils.insertIntoOrderedArray(item, index, this.d_selection, this.value);    
+                    this.d_selection = (metaKey) ? this.d_selection ? [...this.d_selection] : [] : [];
+                    ObjectUtils.insertIntoOrderedArray(item, index, this.d_selection, this.value);
                 }
             }
             else {
@@ -201,22 +201,22 @@ export default {
                 }
                 else {
                     this.d_selection = this.d_selection ? [...this.d_selection] : [];
-                    ObjectUtils.insertIntoOrderedArray(item, index, this.d_selection, this.value);    
+                    ObjectUtils.insertIntoOrderedArray(item, index, this.d_selection, this.value);
                 }
             }
 
             this.$emit('update:selection', this.d_selection);
             this.$emit('selection-change', {
-                originalEvent:event, 
+                originalEvent:event,
                 value: this.d_selection
-            });   
+            });
         },
         onItemTouchEnd() {
             this.itemTouched = true;
         },
         onItemKeyDown(event, item, index) {
             let listItem = event.currentTarget;
-            
+
             switch(event.which) {
                 //down
                 case 40:
@@ -224,20 +224,20 @@ export default {
                     if (nextItem) {
                         nextItem.focus();
                     }
-                    
+
                     event.preventDefault();
                 break;
-                
+
                 //up
                 case 38:
                     var prevItem = this.findPrevItem(listItem);
                     if (prevItem) {
                         prevItem.focus();
                     }
-                    
+
                     event.preventDefault();
                 break;
-                
+
                 //enter
                 case 13:
                     this.onItemClick(event, item, index);
@@ -258,7 +258,7 @@ export default {
         },
         findPrevItem(item) {
             let prevItem = item.previousElementSibling;
-            
+
             if (prevItem)
                 return !DomHandler.hasClass(prevItem, 'p-orderlist-item') ? this.findPrevItem(prevItem) : prevItem;
             else
@@ -272,19 +272,19 @@ export default {
                     case 'up':
                         DomHandler.scrollInView(this.$refs.list.$el, listItems[0]);
                     break;
-                    
+
                     case 'top':
                         this.$refs.list.$el.scrollTop = 0;
                     break;
-                    
+
                     case 'down':
                         DomHandler.scrollInView(this.$refs.list.$el, listItems[listItems.length - 1]);
                     break;
-                    
+
                     case 'bottom':
                         this.$refs.list.$el.scrollTop = this.$refs.list.$el.scrollHeight;
                     break;
-                    
+
                     default:
                     break;
                 }
@@ -400,7 +400,7 @@ export default {
     .p-orderlist .p-orderlist-list-container {
         width: 100%;
     }
-    
+
     .p-orderlist .p-orderlist-controls .p-button.p-button.p-button-icon-only {
         display: inline-block;
         width: 20%;

@@ -198,7 +198,7 @@ export default {
                     if (nextItem) {
                         nextItem.focus();
                     }
-                    
+
                     event.preventDefault();
                 break;
 
@@ -208,7 +208,7 @@ export default {
                     if (prevItem) {
                         prevItem.focus();
                     }
-                    
+
                     event.preventDefault();
                 break;
 
@@ -232,7 +232,7 @@ export default {
         },
         findPrevItem(item) {
             let prevItem = item.previousElementSibling;
-            
+
             if (prevItem)
                 return DomHandler.hasClass(prevItem, 'p-disabled') ? this.findPrevItem(prevItem) : prevItem;
             else
@@ -308,9 +308,9 @@ export default {
         },
         labelClass() {
             return [
-                'p-multiselect-label', 
+                'p-multiselect-label',
                 {
-                    'p-placeholder': this.label == null && this.placeholder, 
+                    'p-placeholder': this.label == null && this.placeholder,
                     'p-multiselect-label-empty': !this.placeholder && (!this.value || this.value.length === 0)
                 }
             ];
@@ -480,7 +480,7 @@ export default {
     top: .25em;
     left: .125em;
 }
-            
+
 .p-multiselect-header .p-inputtext {
     padding: .125em .125em .125em 1.25em;
     width: 100%;

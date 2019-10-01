@@ -138,7 +138,7 @@ this.$toast.add({severity:'success', summary: 'Success Message', detail:'Order s
                 <p>A message can be targeted to a specific Toast component if their group properties match. Messages without a group
                     are forwarded to the default Toast component that does not have a group defined.
                 </p>
-				
+
 <CodeHighlight>
 &lt;Toast /&gt;
 &lt;Toast position="mykey" /&gt;

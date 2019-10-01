@@ -13,7 +13,7 @@
 
             <h3>Basic</h3>
             <FileUpload mode="basic" name="demo[]" url="./upload.php" accept="image/*" :maxFileSize="1000000" @upload="onUpload" />
-            
+
             <h3>Basic with Auto</h3>
             <FileUpload mode="basic" name="demo[]" url="./upload.php" accept="image/*" :maxFileSize="1000000" @upload="onUpload" :auto="true" chooseLabel="Browse" />
         </div>

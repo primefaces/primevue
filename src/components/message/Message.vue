@@ -8,7 +8,7 @@
                 </div>
                 <button class="p-messages-close p-link" @click="visible = false" v-if="closable">
                     <i class="p-messages-close-icon pi pi-times"></i>
-                </button>   
+                </button>
             </div>
         </div>
     </transition>

@@ -65,7 +65,7 @@ export default {
             return [
                 this.value ? this.onIcon: this.offIcon,
                 {
-                    'p-button-icon-left': this.iconPos === 'left', 
+                    'p-button-icon-left': this.iconPos === 'left',
                     'p-button-icon-right': this.iconPos === 'right'
                 }
             ]

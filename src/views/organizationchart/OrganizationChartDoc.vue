@@ -125,7 +125,7 @@ export default {
                 <p>All nodes are expanded by default however they can be expanded and collapsed when <i>collapsible</i> is enabled. The optional <i>collapsedKeys</i> property defines the keys
                     that are collapsed, this property is two-way binding enabled so that user changes or programmatic changes are reflected to the UI.
                 </p>
-                <p>Example below displays the root of chart in previous example as collapsed. Notice that the collapsedKeys is a map whose key is the 
+                <p>Example below displays the root of chart in previous example as collapsed. Notice that the collapsedKeys is a map whose key is the
                     key of the node and value is true.
                 </p>
 <CodeHighlight>

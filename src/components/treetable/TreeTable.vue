@@ -246,7 +246,7 @@ export default {
             else {
                 this.d_expandedKeys[key] = true;
                 this.$emit('node-expand', node);
-            }                
+            }
 
             this.d_expandedKeys = {...this.d_expandedKeys};
             this.$emit('update:expandedKeys', this.d_expandedKeys);
@@ -265,7 +265,7 @@ export default {
             const metaKey = (originalEvent.metaKey||originalEvent.ctrlKey);
             const selected = this.isNodeSelected(node);
             let _selectionKeys;
-        
+
             if (selected && metaKey) {
                 if (this.isSingleSelectionMode()) {
                     _selectionKeys = {};
@@ -295,7 +295,7 @@ export default {
             const node = event.node;
             const selected = this.isNodeSelected(node);
             let _selectionKeys;
-            
+
             if (this.isSingleSelectionMode()) {
                 if (selected) {
                     _selectionKeys = {};
@@ -317,7 +317,7 @@ export default {
                 else {
                     _selectionKeys = this.selectionKeys ? {...this.selectionKeys} : {};
                     _selectionKeys[node.key] = true;
-                    
+
                     this.$emit('node-select', node);
                 }
             }
@@ -353,15 +353,15 @@ export default {
         getColumnHeaderClass(column) {
             const sorted = this.isColumnSorted(column);
 
-            return [column.headerClass, 
-                    {'p-sortable-column': column.sortable}, 
+            return [column.headerClass,
+                    {'p-sortable-column': column.sortable},
                     {'p-resizable-column': this.resizableColumns},
                     {'p-highlight': sorted}
             ];
         },
         isColumnSorted(column) {
             if (column.sortable)
-                return this.sortMode === 'single' ? (this.d_sortField === (column.field || column.sortField)) : this.getMultiSortMetaIndex(column) > -1; 
+                return this.sortMode === 'single' ? (this.d_sortField === (column.field || column.sortField)) : this.getMultiSortMetaIndex(column) > -1;
             else
                 return false;
         },
@@ -380,7 +380,7 @@ export default {
                     sortOrder = this.d_multiSortMeta[metaIndex].order;
                 }
             }
-   
+
             return [
                 'p-sortable-column-icon pi pi-fw',
                 {'pi-sort': !sorted},
@@ -406,10 +406,10 @@ export default {
                 this.resetPage();
                 const targetNode = event.target;
 
-                if (DomHandler.hasClass(targetNode, 'p-sortable-column') || DomHandler.hasClass(targetNode, 'p-column-title') 
+                if (DomHandler.hasClass(targetNode, 'p-sortable-column') || DomHandler.hasClass(targetNode, 'p-column-title')
                     || DomHandler.hasClass(targetNode, 'p-sortable-column-icon') || DomHandler.hasClass(targetNode.parentElement, 'p-sortable-column-icon')) {
                     DomHandler.clearSelection();
-                    
+
                     const columnField = column.field || column.sortField;
                     this.d_sortOrder = (this.d_sortField === columnField) ? this.d_sortOrder * -1 : this.defaultSortOrder;
                     this.d_sortField = columnField;
@@ -420,8 +420,8 @@ export default {
                             this.d_multiSortMeta = [];
                         }
 
-                        this.addSortMeta({field: this.d_sortField, order: this.d_sortOrder});   
-                    }    
+                        this.addSortMeta({field: this.d_sortField, order: this.d_sortOrder});
+                    }
 
                     this.$emit('update:sortField', this.d_sortFied);
                     this.$emit('update:sortOrder', this.d_sortOrder);
@@ -486,7 +486,7 @@ export default {
             return _nodes;
         },
         sortMultiple(nodes) {
-            return this.sortNodesMultiple(nodes); 
+            return this.sortNodesMultiple(nodes);
         },
         sortNodesMultiple(nodes) {
             let _nodes = [...nodes];
@@ -522,7 +522,7 @@ export default {
                         return (this.d_multiSortMeta[index].order * value1.localeCompare(value2, undefined, { numeric: true }));
                     else
                         result = (value1 < value2) ? -1 : 1;
-                }            
+                }
             }
 
             return (this.d_multiSortMeta[index].order * result);
@@ -547,7 +547,7 @@ export default {
                         let filterValue = this.filters[col.field];
                         let filterConstraint = FilterUtils[filterMatchMode];
                         let paramsWithoutNode = {filterField, filterValue, filterConstraint, strict};
-                        
+
                         if ((strict && !(this.findFilteredNodes(copyNode, paramsWithoutNode) || this.isFilterMatched(copyNode, paramsWithoutNode))) ||
                             (!strict && !(this.isFilterMatched(copyNode, paramsWithoutNode) || this.findFilteredNodes(copyNode, paramsWithoutNode)))) {
                                 localMatch = false;
@@ -606,7 +606,7 @@ export default {
                         }
                     }
                 }
-                
+
                 if (matched) {
                     return true;
                 }
@@ -645,7 +645,7 @@ export default {
             this.$refs.resizeHelper.style.height = this.$el.offsetHeight + 'px';
             this.$refs.resizeHelper.style.top = 0 + 'px';
             this.$refs.resizeHelper.style.left = (event.pageX - containerLeft + this.$el.scrollLeft) + 'px';
-            
+
             this.$refs.resizeHelper.style.display = 'block';
         },
         onColumnResizeEnd() {
@@ -658,7 +658,7 @@ export default {
                 if(this.columnResizeMode === 'fit') {
                     let nextColumn = this.resizeColumnElement.nextElementSibling;
                     let nextColumnWidth = nextColumn.offsetWidth - delta;
-                    
+
                     if(newColumnWidth > 15 && nextColumnWidth > 15) {
                         this.resizeColumnElement.style.width = newColumnWidth + 'px';
                         if(nextColumn) {
@@ -669,14 +669,14 @@ export default {
                 else if(this.columnResizeMode === 'expand') {
                     this.$refs.table.style.width = this.$refs.table.offsetWidth + delta + 'px';
                     this.resizeColumnElement.style.width = newColumnWidth + 'px';
-                }    
-                
+                }
+
                 this.$emit('column-resize-end', {
                     element: this.resizeColumnElement,
                     delta: delta
                 });
             }
-                    
+
             this.$refs.resizeHelper.style.display = 'none';
             this.resizeColumn = null;
             DomHandler.removeClass(this.$el, 'p-unselectable-text');
@@ -691,7 +691,7 @@ export default {
                     }
                 });
             }
-            
+
             if (!this.documentColumnResizeEndListener) {
                 this.documentColumnResizeEndListener = document.addEventListener('mouseup', () => {
                     if(this.columnResizing) {
@@ -700,14 +700,14 @@ export default {
                     }
                 });
             }
-            
+
         },
         unbindColumnResizeEvents() {
             if (this.documentColumnResizeListener) {
                 document.removeEventListener('document', this.documentColumnResizeListener);
                 this.documentColumnResizeListener = null;
             }
-            
+
             if (this.documentColumnResizeEndListener) {
                 document.removeEventListener('document', this.documentColumnResizeEndListener);
                  this.documentColumnResizeEndListener = null;
@@ -719,8 +719,8 @@ export default {
             return ['p-treetable p-component', {
                 'p-treetable-hoverable-rows': (this.rowHover || this.rowSelectionMode),
                 'p-treetable-auto-layout': this.autoLayout,
-                'p-treetable-resizable': this.resizableColumns, 
-                'p-treetable-resizable-fit': this.resizableColumns && this.columnResizeMode === 'fit', 
+                'p-treetable-resizable': this.resizableColumns,
+                'p-treetable-resizable-fit': this.resizableColumns && this.columnResizeMode === 'fit',
             }];
         },
         columns() {

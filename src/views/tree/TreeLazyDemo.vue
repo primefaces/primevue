@@ -48,24 +48,24 @@ export default {
         onNodeExpand(node) {
             if (!node.children) {
                 this.loading = true;
-        
+
                 setTimeout(() => {
                     let _node = {...node};
                     _node.children = [];
-        
+
                     for (let i = 0; i &lt; 3; i++) {
                         _node.children.push({
                             key: node.key + '-' + i,
                             label: 'Lazy ' + node.label + '-' + i
                         });
                     }
-                    
+
                     let _nodes = {...this.nodes}
-                    _nodes[parseInt(node.key, 10)] = _node; 
-                    
+                    _nodes[parseInt(node.key, 10)] = _node;
+
                     this.nodes = _nodes;
                     this.loading = false;
-                }, 500);  
+                }, 500);
             }
         },
         initateNodes() {
@@ -121,24 +121,24 @@ export default {
         onNodeExpand(node) {
             if (!node.children) {
                 this.loading = true;
-        
+
                 setTimeout(() => {
                     let _node = {...node};
                     _node.children = [];
-        
+
                     for (let i = 0; i < 3; i++) {
                         _node.children.push({
                             key: node.key + '-' + i,
                             label: 'Lazy ' + node.label + '-' + i
                         });
                     }
-                    
+
                     let _nodes = {...this.nodes}
-                    _nodes[parseInt(node.key, 10)] = _node; 
-                    
+                    _nodes[parseInt(node.key, 10)] = _node;
+
                     this.nodes = _nodes;
                     this.loading = false;
-                }, 500);  
+                }, 500);
             }
         },
         initateNodes() {

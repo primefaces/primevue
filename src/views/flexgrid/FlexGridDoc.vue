@@ -11,7 +11,7 @@ npm install primeflex --save
                 <p>Then add the primeflex.css to your application</p>
 <CodeHighlight lang="js">
 import 'primeflex/primeflex.css';
-</CodeHighlight>             
+</CodeHighlight>
 
 
 				<h3>Getting Started</h3>

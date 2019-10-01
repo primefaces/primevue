@@ -1,6 +1,6 @@
 <template>
     <li :class="containerClass">
-        <div :class="contentClass" tabindex="0" role="treeitem" :aria-expanded="expanded" 
+        <div :class="contentClass" tabindex="0" role="treeitem" :aria-expanded="expanded"
             @click="onClick" @keydown="onKeyDown" @touchend="onTouchEnd" :style="node.style">
             <span class="p-tree-toggler p-unselectable-text p-link" @click="toggle">
                 <span :class="toggleIcon"></span>
@@ -18,7 +18,7 @@
         <ul class="p-treenode-children" role="group" v-if="hasChildren && expanded">
             <sub-treenode v-for="childNode of node.children" :key="childNode.key" :node="childNode" :templates="templates"
                 :expandedKeys="expandedKeys" @node-toggle="onChildNodeToggle" @node-click="onChildNodeClick"
-                :selectionMode="selectionMode" :selectionKeys="selectionKeys" 
+                :selectionMode="selectionMode" :selectionKeys="selectionKeys"
                 @checkbox-change="propagateUp"></sub-treenode>
         </ul>
     </li>
@@ -152,7 +152,7 @@ export default {
 
                     event.preventDefault();
                 break;
- 
+
                 //enter
                 case 13:
                     this.onClick(event);
@@ -165,7 +165,7 @@ export default {
             }
         },
         toggleCheckbox() {
-            let _selectionKeys = this.selectionKeys ? {...this.selectionKeys} : {};   
+            let _selectionKeys = this.selectionKeys ? {...this.selectionKeys} : {};
             const _check = !this.checked;
 
             this.propagateDown(this.node, _check, _selectionKeys);
@@ -193,7 +193,7 @@ export default {
             let _selectionKeys = {...event.selectionKeys};
             let checkedChildCount = 0;
             let childPartialSelected = false;
-            
+
             for(let child of this.node.children) {
                 if(_selectionKeys[child.key] && _selectionKeys[child.key].checked)
                     checkedChildCount++;
@@ -219,7 +219,7 @@ export default {
                 node: event.node,
                 check: event.check,
                 selectionKeys: _selectionKeys
-            }); 
+            });
         },
         onChildCheckboxChange(event) {
             this.$emit('checkbox-change', event);
@@ -270,7 +270,7 @@ export default {
             return this.node.leaf === false ? false : !(this.node.children && this.node.children.length);
         },
         selectable() {
-            return this.node.selectable === false ? false : this.selectionMode != null; 
+            return this.node.selectable === false ? false : this.selectionMode != null;
         },
         selected() {
             return (this.selectionMode && this.selectionKeys) ? this.selectionKeys[this.node.key] === true : false;

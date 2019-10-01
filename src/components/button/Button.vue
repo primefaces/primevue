@@ -34,7 +34,7 @@ export default {
             return [
                 this.icon,
                 {
-                    'p-button-icon-left': this.iconPos === 'left', 
+                    'p-button-icon-left': this.iconPos === 'left',
                     'p-button-icon-right': this.iconPos === 'right'
                 }
             ]

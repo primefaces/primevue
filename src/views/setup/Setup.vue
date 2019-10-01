@@ -61,7 +61,7 @@ new Vue({
 </CodeHighlight>
 
 
-        
+
             <h3>Dependencies</h3>
             <p>Majority of PrimeVue components (95%) are native and there are some exceptions having 3rd party dependencies such as Quill for Editor.</p>
             <p>In addition, components require PrimeIcons library for icons.</p>
@@ -102,11 +102,11 @@ dependencies: {
                     </tbody>
                 </table>
             </div>
-                
+
             <h3>Styles</h3>
-            <p>The css dependencies are as follows, note that you may change the theme with another one of your choice. If you are using a bundler such as webpack with a css loader you 
+            <p>The css dependencies are as follows, note that you may change the theme with another one of your choice. If you are using a bundler such as webpack with a css loader you
                 may import them to your main application component.</p>
-            
+
 <CodeHighlight class="language-javascript">
 primevue/resources/themes/nova-light/theme.css      //theme
 primevue/resources/primevue.min.css                 //shared css
@@ -115,11 +115,11 @@ primeicons/primeicons.css                           //icons
 
             <h3>Quickstart</h3>
             <p>An <a href="https://github.com/primefaces/primevue-quickstart">example application</a> based on vue-cli is available at github.</p>
-            
+
             <h3>Typescript</h3>
             <p>Typescript is fully supported as type definition files are provided in the npm package of PrimeVue. A sample <a href="https://github.com/primefaces/primevue-typescript-quickstart">typescript-primevue</a> application is available as well at github.</p>
 
-        </div>        
+        </div>
     </div>
 </template>
 

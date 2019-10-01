@@ -36,7 +36,7 @@ export default {
     },
     mounted() {
         this.tabs = this.$children;
-        
+
         let activeTab = this.findActiveTab();
         if (!activeTab && this.tabs.length) {
             this.tabs[0].d_active = true;
@@ -51,14 +51,14 @@ export default {
                     originalEvent: event,
                     tab: tab
                 });
-            }           
+            }
         },
         activateTab(tab) {
             for (let i = 0; i < this.tabs.length; i++) {
                 let active = this.tabs[i] === tab;
                 this.tabs[i].d_active = active;
                 this.tabs[i].$emit('update:active', active);
-            } 
+            }
         },
         onTabKeydown(event, tab) {
             if (event.which === 13) {
@@ -86,53 +86,53 @@ export default {
 
 <style>
 .p-tabview {
-    padding: .25em; 
+    padding: .25em;
 }
 
-.p-tabview .p-tabview-nav { 
+.p-tabview .p-tabview-nav {
     margin: 0;
 }
 
-.p-tabview .p-tabview-nav:after { 
+.p-tabview .p-tabview-nav:after {
     content: "";
     display: table;
     clear: both;
 }
 
-.p-tabview .p-tabview-nav li { 
-    list-style: none; 
-    float: left; 
-    position: relative; 
-    margin: 0 .125em 1px 0;  
-    padding: 0; 
-    white-space: nowrap; 
+.p-tabview .p-tabview-nav li {
+    list-style: none;
+    float: left;
+    position: relative;
+    margin: 0 .125em 1px 0;
+    padding: 0;
+    white-space: nowrap;
 }
 
-.p-tabview .p-tabview-nav li a { 
-    float: left; 
-    padding: .5em 1em; 
-    text-decoration: none; 
+.p-tabview .p-tabview-nav li a {
+    float: left;
+    padding: .5em 1em;
+    text-decoration: none;
 }
 
-.p-tabview .p-tabview-nav li.p-tabview-selected a, 
-.p-tabview .p-tabview-nav li.p-disabled a, 
-.p-tabview .p-tabview-nav li.p-state-processing a { 
-    cursor: text; 
+.p-tabview .p-tabview-nav li.p-tabview-selected a,
+.p-tabview .p-tabview-nav li.p-disabled a,
+.p-tabview .p-tabview-nav li.p-state-processing a {
+    cursor: text;
 }
 
-.p-tabview .p-tabview-nav li a, 
-.p-tabview.p-tabview-collapsible .p-tabview-nav li.p-tabview-selected a { 
-    cursor: pointer; 
+.p-tabview .p-tabview-nav li a,
+.p-tabview.p-tabview-collapsible .p-tabview-nav li.p-tabview-selected a {
+    cursor: pointer;
 }
 
-.p-tabview .p-tabview-panel { 
-    border-width: 0; 
-    padding: 1em; 
-    background: none; 
+.p-tabview .p-tabview-panel {
+    border-width: 0;
+    padding: 1em;
+    background: none;
 }
 
-.p-tabview .p-tabview-nav li { 
-    display: block; 
+.p-tabview .p-tabview-nav li {
+    display: block;
 }
 
 .p-tabview .p-tabview-nav li .p-tabview-left-icon,
@@ -151,27 +151,27 @@ export default {
     vertical-align: middle;
 }
 
-.p-tabview .p-tabview-nav li .p-tabview-close { 
-    margin: 0.5em 0.3em 0 0; 
-    cursor: pointer; 
+.p-tabview .p-tabview-nav li .p-tabview-close {
+    margin: 0.5em 0.3em 0 0;
+    cursor: pointer;
 }
 
 /* per orientation settings */
 /* top and bottom */
-.p-tabview.p-tabview-top > .p-tabview-nav li { 
+.p-tabview.p-tabview-top > .p-tabview-nav li {
     border-bottom: 0;
-    top: 1px; 
+    top: 1px;
 }
 
-.p-tabview.p-tabview-top > .p-tabview-nav { 
-    padding: .2em .2em 0; 
+.p-tabview.p-tabview-top > .p-tabview-nav {
+    padding: .2em .2em 0;
 }
 
-.p-tabview.p-tabview-bottom > .p-tabview-nav { 
-    padding: 0 .2em .2em; 
+.p-tabview.p-tabview-bottom > .p-tabview-nav {
+    padding: 0 .2em .2em;
 }
 
-.p-tabview.p-tabview-bottom > .p-tabview-nav li { 
+.p-tabview.p-tabview-bottom > .p-tabview-nav li {
     border-top: 0;
 }
 

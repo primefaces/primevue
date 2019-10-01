@@ -14,7 +14,7 @@
             </div>
             <transition-group ref="sourceList" name="p-picklist-flip" tag="ul" class="p-picklist-list p-picklist-source" :style="listStyle">
                 <template v-for="(item, i) of sourceList">
-                    <li tabindex="0" :key="getItemKey(item, i)" :class="['p-picklist-item', {'p-highlight': isSelected(item, 0)}]" 
+                    <li tabindex="0" :key="getItemKey(item, i)" :class="['p-picklist-item', {'p-highlight': isSelected(item, 0)}]"
                         @click="onItemClick($event, item, i, 0)" @keydown="onItemKeyDown($event, item, i, 0)" @touchend="onItemTouchEnd">
                         <slot name="item" :item="item" :index="i"> </slot>
                     </li>
@@ -35,7 +35,7 @@
             </div>
             <transition-group ref="targetList" name="p-picklist-flip" tag="ul" class="p-picklist-list p-picklist-target" :style="listStyle">
                 <template v-for="(item, i) of targetList">
-                    <li tabindex="0" :key="getItemKey(item, i)" :class="['p-picklist-item', {'p-highlight': isSelected(item, 1)}]" 
+                    <li tabindex="0" :key="getItemKey(item, i)" :class="['p-picklist-item', {'p-highlight': isSelected(item, 1)}]"
                         @click="onItemClick($event, item, i, 1)" @keydown="onItemKeyDown($event, item, i, 1)" @touchend="onItemTouchEnd">
                         <slot name="item" :item="item" :index="i"> </slot>
                     </li>
@@ -111,7 +111,7 @@ export default {
             if (this.d_selection && this.d_selection[listIndex]) {
                 let valueList = [...this.value[listIndex]];
                 let selectionList = this.d_selection[listIndex];
-                
+
                 for (let i = 0; i < selectionList.length; i++) {
                     let selectedItem = selectionList[i];
                     let selectedItemIndex = ObjectUtils.findIndexInList(selectedItem, valueList);
@@ -129,7 +129,7 @@ export default {
 
                 let value = [...this.value];
                 value[listIndex] = valueList;
-                           
+
                 this.reorderDirection = 'up';
                 this.$emit('input', value);
                 this.$emit('reorder', {
@@ -144,7 +144,7 @@ export default {
             if(this.d_selection) {
                 let valueList = [...this.value[listIndex]];
                 let selectionList = this.d_selection[listIndex];
-                
+
                 for (let i = 0; i < selectionList.length; i++) {
                     let selectedItem = selectionList[i];
                     let selectedItemIndex = ObjectUtils.findIndexInList(selectedItem, valueList);
@@ -174,7 +174,7 @@ export default {
             if(this.d_selection) {
                 let valueList = [...this.value[listIndex]];
                 let selectionList = this.d_selection[listIndex];
-                
+
                 for (let i = selectionList.length - 1; i >= 0; i--) {
                     let selectedItem = selectionList[i];
                     let selectedItemIndex = ObjectUtils.findIndexInList(selectedItem, valueList);
@@ -192,7 +192,7 @@ export default {
 
                 let value = [...this.value];
                 value[listIndex] = valueList;
-                
+
                 this.reorderDirection = 'down';
                 this.$emit('input', value);
                 this.$emit('reorder', {
@@ -206,7 +206,7 @@ export default {
             if (this.d_selection) {
                 let valueList = [...this.value[listIndex]];
                 let selectionList = this.d_selection[listIndex];
-                
+
                 for (let i = selectionList.length - 1; i >= 0; i--) {
                     let selectedItem = selectionList[i];
                     let selectedItemIndex = ObjectUtils.findIndexInList(selectedItem, valueList);
@@ -240,7 +240,7 @@ export default {
             if (selection) {
                 for (let i = 0; i < selection.length; i++) {
                     let selectedItem = selection[i];
-                    
+
                     if (ObjectUtils.findIndexInList(selectedItem, targetList) == -1) {
                         targetList.push(sourceList.splice(ObjectUtils.findIndexInList(selectedItem, sourceList),1)[0]);
                     }
@@ -298,7 +298,7 @@ export default {
             if (selection) {
                 for (let i = 0; i < selection.length; i++) {
                     let selectedItem = selection[i];
-                    
+
                     if (ObjectUtils.findIndexInList(selectedItem, sourceList) == -1) {
                         sourceList.push(targetList.splice(ObjectUtils.findIndexInList(selectedItem, targetList),1)[0]);
                     }
@@ -358,12 +358,12 @@ export default {
 
             if (metaSelection) {
                 let metaKey = (event.metaKey || event.ctrlKey);
-                
+
                 if (selected && metaKey) {
                     _selection = selectionList.filter((val, index) => index !== selectedIndex);
                 }
                 else {
-                    _selection = (metaKey) ? selectionList ? [...selectionList] : [] : [];   
+                    _selection = (metaKey) ? selectionList ? [...selectionList] : [] : [];
                     _selection.push(item);
                 }
             }
@@ -392,7 +392,7 @@ export default {
         },
         onItemKeyDown(event, item, index) {
             let listItem = event.currentTarget;
-            
+
             switch(event.which) {
                 //down
                 case 40:
@@ -400,20 +400,20 @@ export default {
                     if (nextItem) {
                         nextItem.focus();
                     }
-                    
+
                     event.preventDefault();
                 break;
-                
+
                 //up
                 case 38:
                     var prevItem = this.findPrevItem(listItem);
                     if (prevItem) {
                         prevItem.focus();
                     }
-                    
+
                     event.preventDefault();
                 break;
-                
+
                 //enter
                 case 13:
                     this.onItemClick(event, item, index);
@@ -434,7 +434,7 @@ export default {
         },
         findPrevItem(item) {
             let prevItem = item.previousElementSibling;
-            
+
             if (prevItem)
                 return !DomHandler.hasClass(prevItem, 'p-picklist-item') ? this.findPrevItem(prevItem) : prevItem;
             else
@@ -448,19 +448,19 @@ export default {
                     case 'up':
                         DomHandler.scrollInView(listElement, listItems[0]);
                     break;
-                    
+
                     case 'top':
                         listElement.scrollTop = 0;
                     break;
-                    
+
                     case 'down':
                         DomHandler.scrollInView(listElement, listItems[listItems.length - 1]);
                     break;
-                    
+
                     case 'bottom':
                         listElement.scrollTop = listElement.scrollHeight;
                     break;
-                    
+
                     default:
                     break;
                 }
@@ -544,7 +544,7 @@ export default {
     .p-picklist-list-wrapper {
         width: 100%;
     }
-    
+
     .p-picklist-buttons .p-button.p-button-icon-only {
         display: inline-block;
         width: 20%;

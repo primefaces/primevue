@@ -55,7 +55,7 @@ export default {
 </script>
 
 <style>
-.p-fieldset, 
+.p-fieldset,
 .p-fieldset .p-fieldset-legend {
     padding: 0.5em 1em;
 }

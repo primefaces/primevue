@@ -11,13 +11,13 @@
             <h3 class="first">Basic {{val1}}</h3>
             <Rating v-model="val1" />
 
-            <h3>No Cancel {{val2}}</h3> 
+            <h3>No Cancel {{val2}}</h3>
             <Rating v-model="val2" :cancel="false" />
 
-            <h3>ReadOnly</h3> 
+            <h3>ReadOnly</h3>
             <Rating :value="5" :readonly="true" :stars="10" :cancel="false" />
 
-            <h3>Disabled</h3> 
+            <h3>Disabled</h3>
             <Rating :value="8" :disabled="true" :stars="10" />
         </div>
 

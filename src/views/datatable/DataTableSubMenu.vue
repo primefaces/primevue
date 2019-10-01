@@ -14,5 +14,5 @@
             <li><router-link to="/datatable/colresize">&#9679; ColResize</router-link></li>
             <li><router-link to="/datatable/crud">&#9679; Crud</router-link></li>
         </ul>
-    </div>    
+    </div>
 </template>

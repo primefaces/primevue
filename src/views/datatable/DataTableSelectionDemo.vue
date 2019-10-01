@@ -1,7 +1,7 @@
 <template>
 	<div>
         <DataTableSubMenu />
-        
+
 		<div class="content-section introduction">
 			<div class="feature-intro">
 				<h1>DataTable - Selection</h1>
@@ -20,7 +20,7 @@
             </DataTable>
 
             <h3>Multiple</h3>
-            <p>In multiple mode, selection binding should be an array. For touch enabled devices, selection is managed by tapping and for other devices metakey or shiftkey are required. 
+            <p>In multiple mode, selection binding should be an array. For touch enabled devices, selection is managed by tapping and for other devices metakey or shiftkey are required.
                     Setting metaKeySelection property as false enables multiple selection without meta key.</p>
 			<DataTable :value="cars" :selection.sync="selectedCars1" selectionMode="multiple" dataKey="vin">
                 <template #header>
@@ -88,7 +88,7 @@
 &lt;/DataTable&gt;
 
 &lt;h3&gt;Multiple&lt;/h3&gt;
-&lt;p&gt;In multiple mode, selection binding should be an array. For touch enabled devices, selection is managed by tapping and for other devices metakey or shiftkey are required. 
+&lt;p&gt;In multiple mode, selection binding should be an array. For touch enabled devices, selection is managed by tapping and for other devices metakey or shiftkey are required.
         Setting metaKeySelection property as false enables multiple selection without meta key.&lt;/p&gt;
 &lt;DataTable :value="cars" :selection.sync="selectedCars1" selectionMode="multiple" dataKey="vin"&gt;
     &lt;template #header&gt;

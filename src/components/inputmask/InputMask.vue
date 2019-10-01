@@ -218,7 +218,7 @@ export default {
             var pos = this.checkVal(true);
             this.caret(pos);
             this.updateModel(event);
-            
+
             if (this.isCompleted()) {
                 this.$emit('complete', event);
             }
@@ -376,7 +376,7 @@ export default {
                     if ($vm.$attrs.readonly) {
                         return;
                     }
-                    
+
                     let k = event.which || event.keyCode,
                         pos,
                         begin,
@@ -466,7 +466,7 @@ export default {
                     if (completed) {
                         $vm.$emit('complete', event);
                     }
-                    
+
                     $vm.$emit('keypress', event);
                 },
                 paste: event => {

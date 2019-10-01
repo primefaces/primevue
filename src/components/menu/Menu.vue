@@ -85,7 +85,7 @@ export default {
             this.alignOverlay();
             this.bindOutsideClickListener();
             this.bindResizeListener();
-            
+
             if (this.autoZIndex) {
                 this.$refs.container.style.zIndex = String(this.baseZIndex + DomHandler.generateZIndex());
             }

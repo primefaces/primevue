@@ -12,5 +12,5 @@
             <li><router-link to="/treetable/colresize">&#9679; Resize</router-link></li>
             <li><router-link to="/treetable/responsive">&#9679; Responsive</router-link></li>
         </ul>
-    </div>    
+    </div>
 </template>

@@ -16,7 +16,7 @@ const items: [
         label: 'Options',
         items: [{label: 'New', icon: 'pi pi-fw pi-plus',command:()=>{ window.location.hash="/fileupload"; }},
                 {label: 'Delete', icon: 'pi pi-fw pi-trash', url: 'http://primetek.com.tr'}]
-    }, 
+    },
     {
         label: 'Account',
         items: [{label: 'Options', icon: 'pi pi-fw pi-cog',command:()=>{ window.location.hash="/"; }},
@@ -107,8 +107,8 @@ const items: [
 <CodeHighlight lang="js">
 const items = [
     {
-        label: 'New', 
-        icon: 'pi pi-plus', 
+        label: 'New',
+        icon: 'pi pi-plus',
         command: (event) => {
             // event.originalEvent: Browser event
             // event.item: Menuitem instance
@@ -122,20 +122,20 @@ const items = [
 <CodeHighlight lang="js">
 const items = [
     {
-        label: 'New', 
-        icon: 'pi pi-plus', 
+        label: 'New',
+        icon: 'pi pi-plus',
         command: (event) => {
             window.location.hash = "/fileupload";
         }
     },
     {
-        label: 'Link', 
+        label: 'Link',
         icon: 'pi pi-check',
         url: 'https://www.primefaces.org/primereact'
     }
 ];
 </CodeHighlight>
-        </div>        
+        </div>
     </div>
 </template>
 

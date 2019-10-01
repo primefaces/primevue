@@ -48,7 +48,7 @@ export default {
             let selected = this.isSelected(option);
             let optionValue = this.getOptionValue(option);
             let newValue;
-            
+
             if(this.multiple) {
                 if (selected)
                     newValue = this.value.filter(val => !ObjectUtils.equals(val, optionValue, this.dataKey));

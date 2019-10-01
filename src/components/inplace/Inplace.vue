@@ -1,6 +1,6 @@
 <template>
     <div :class="containerClass">
-        <div class="p-inplace-display" :tabindex="$attrs.tabindex||'0'" v-if="!d_active" @click="open" @keydown.enter="open"> 
+        <div class="p-inplace-display" :tabindex="$attrs.tabindex||'0'" v-if="!d_active" @click="open" @keydown.enter="open">
             <slot name="display"></slot>
         </div>
         <div class="p-inplace-content" v-else>

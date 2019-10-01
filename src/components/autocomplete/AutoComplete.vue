@@ -16,7 +16,7 @@
             <div ref="overlay" class="p-autocomplete-panel" :style="{'max-height': scrollHeight}" v-if="overlayVisible">
                 <ul class="p-autocomplete-items p-autocomplete-list p-component">
                     <li v-for="(item, i) of suggestions" class="p-autocomplete-list-item" :key="i" @click="selectItem($event, item)">
-                        <slot name="item" :item="item" :index="i">  
+                        <slot name="item" :item="item" :index="i">
                             {{getItemContent(item)}}
                         </slot>
                     </li>
@@ -213,12 +213,12 @@ export default {
             if (this.timeout) {
                 clearTimeout(this.timeout);
             }
-            
+
             let query = event.target.value;
             if (!this.multiple) {
                 this.$emit('input', query);
             }
-            
+
             if (query.length === 0) {
                 this.hideOverlay();
                 this.$emit('clear');
@@ -256,11 +256,11 @@ export default {
                                 DomHandler.removeClass(highlightItem, 'p-highlight');
                                 DomHandler.scrollInView(this.$refs.overlay, nextElement);
                             }
-                        }    
+                        }
                         else {
                             DomHandler.addClass(this.$refs.overlay.firstChild.firstChild, 'p-highlight');
                         }
-                        
+
                         event.preventDefault();
                     break;
 
@@ -274,7 +274,7 @@ export default {
                                 DomHandler.scrollInView(this.$refs.overlay, previousElement);
                             }
                         }
-                        
+
                         event.preventDefault();
                     break;
 
@@ -284,7 +284,7 @@ export default {
                             this.selectItem(event, this.suggestions[DomHandler.index(highlightItem)]);
                             this.hideOverlay();
                         }
-                        
+
                         event.preventDefault();
                     break;
 
@@ -299,14 +299,14 @@ export default {
                         if (highlightItem) {
                             this.selectItem(event, this.suggestions[DomHandler.index(highlightItem)]);
                         }
-                        
+
                         this.hideOverlay();
                     break;
 
                     default:
                     break;
                 }
-            } 
+            }
 
             if (this.multiple) {
                 switch(event.which) {
@@ -315,7 +315,7 @@ export default {
                         if (this.value && this.value.length && !this.$refs.input.value) {
                             let removedValue = this.value[this.value.length - 1];
                             let newValue = this.value.slice(0, -1);
-                            
+
                             this.$emit('input', newValue);
                             this.$emit('unselect', {
                                 originalEvent: event,
@@ -339,7 +339,7 @@ export default {
                     }
                 }
             }
-            
+
             return selected;
         }
     },
@@ -363,7 +363,7 @@ export default {
         },
         inputClass() {
             return ['p-autocomplete-input p-inputtext p-component', {
-                'p-autocomplete-dd-input': this.dropdown, 
+                'p-autocomplete-dd-input': this.dropdown,
                 'p-disabled': this.$attrs.disabled
             }];
         },
@@ -526,16 +526,16 @@ export default {
 
 .p-autocomplete-dd input,
 .p-autocomplete-dd .p-autocomplete-multiple-container {
-     -moz-border-radius-topright: 0px; 
+     -moz-border-radius-topright: 0px;
      -webkit-border-top-right-radius: 0px;
      border-top-right-radius: 0px;
      -moz-border-radius-bottomright: 0px;
      -webkit-border-bottom-right-radius: 0px;
      border-bottom-right-radius: 0px;
  }
- 
+
 .p-autocomplete-dd .p-autocomplete-dropdown {
-     -moz-border-radius-topleft: 0px; 
+     -moz-border-radius-topleft: 0px;
      -webkit-border-top-left-radius: 0px;
      border-top-left-radius: 0px;
      -moz-border-radius-bottomleft: 0px;

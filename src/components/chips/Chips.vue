@@ -2,7 +2,7 @@
     <div :class="['p-chips p-component', {'p-inputwrapper-filled': value, 'p-inputwrapper-focus': focused}]">
         <ul :class="['p-inputtext', {'p-disabled': $attrs.disabled, 'p-focus': focused}]" @click="onWrapperClick()">
             <li v-for="(val,i) of value" :key="`${i}_${val}`" class="p-chips-token p-highlight">
-                <slot name="chip" :value="val">  
+                <slot name="chip" :value="val">
                     <span class="p-chips-token-icon pi pi-fw pi-times" @click="removeItem($event, i)"></span>
                     <span class="p-chips-token-label">{{val}}</span>
                 </slot>
@@ -47,7 +47,7 @@ export default {
                         this.removeItem(event, this.value.length - 1);
                     }
                 break;
-            
+
                 //enter
                 case 13:
                     if (inputValue && inputValue.trim().length && (!this.max || this.max > this.value.length)) {
@@ -69,7 +69,7 @@ export default {
             if (this.$attrs.disabled) {
                 return;
             }
-            
+
             let values = [...this.value];
             const removedItem = values.splice(index, 1);
             this.$emit('input', values);

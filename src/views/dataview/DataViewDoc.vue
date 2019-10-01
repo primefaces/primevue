@@ -358,7 +358,7 @@ export default {
                                 <td>event.page: New page number <br/>
                                     event.first: Index of first record <br/>
                                     event.rows: Number of rows to display in new page <br/>
-                                    event.pageCount: Total number of pages 
+                                    event.pageCount: Total number of pages
                                 </td>
                                 <td>Callback to invoke when page changes, the event object contains information about the new state.</td>
                             </tr>

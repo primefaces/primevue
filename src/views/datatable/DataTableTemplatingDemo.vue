@@ -14,7 +14,7 @@
                 <template #header>
                     <div style="line-height:1.87em" class="clearfix">
                         <Button icon="pi pi-refresh" style="float: left"/>
-                        List of Cars 
+                        List of Cars
                     </div>
                 </template>
                 <Column field="vin" header="Vin"></Column>
@@ -49,7 +49,7 @@
     &lt;template #header&gt;
         &lt;div style="line-height:1.87em" class="p-clearfix"&gt;
             &lt;Button icon="pi pi-refresh" style="float: left"/&gt;
-            List of Cars 
+            List of Cars
         &lt;/div&gt;
     &lt;/template&gt;
     &lt;Column field="vin" header="Vin"&gt;&lt;/Column&gt;

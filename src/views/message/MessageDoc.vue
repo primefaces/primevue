@@ -50,7 +50,7 @@ data() {
 </CodeHighlight>
 
 				<h3>Sticky</h3>
-				<p>Messages are sticky by default, if you require them to be cleared automatically, disable <i>sticky</i> property and optionally configure the <i>life</i> property to specify how long the message 
+				<p>Messages are sticky by default, if you require them to be cleared automatically, disable <i>sticky</i> property and optionally configure the <i>life</i> property to specify how long the message
                 should be displayed which is 3000 ms by default.</p>
 <CodeHighlight>
 &lt;Message severity="warn" :life="5000" :sticky="false"&gt;This message will hide in 5 seconds.&lt;/Message&gt;
@@ -132,7 +132,7 @@ import Message from 'primevue/message';
 
 				<h3>Styling</h3>
 				<p>Following is the list of structural style classes, for theming classes visit <router-link to="/theming">theming</router-link> page.</p>
-				
+
                 <strong>Message</strong>
                 <div class="doc-tablewrapper">
 					<table class="doc-table">

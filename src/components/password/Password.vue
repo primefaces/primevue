@@ -88,7 +88,7 @@ export default {
                         if (!this.panel) {
                             this.createPanel();
                         }
-                        
+
                         vm.panel.style.zIndex = String(DomHandler.generateZIndex());
                         vm.panel.style.display = 'block';
                         setTimeout(() => {
@@ -97,7 +97,7 @@ export default {
                         }, 1);
                         DomHandler.absolutePosition(this.panel, this.$refs.input);
                     }
-                    
+
                     this.$emit('focus', event);
                 },
                 blur: event => {
@@ -133,7 +133,7 @@ export default {
                             else if (score >= 30 && score < 80) {
                                 label = this.mediumLabel;
                                 meterPos = '0px -20px';
-                            } 
+                            }
                             else if (score >= 80) {
                                 label = this.strongLabel;
                                 meterPos = '0px -30px';

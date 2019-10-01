@@ -44,7 +44,7 @@ export default {
                 value: this.d_collapsed
             });
         }
-    } 
+    }
 }
 </script>
 

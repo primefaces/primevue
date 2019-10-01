@@ -30,7 +30,7 @@ const TreeTableRowLoader = {
         }
     },
     render(createElement, context) {
-        const root = createElement(TreeTableRow, { 
+        const root = createElement(TreeTableRow, {
             props: context.props,
             on: {
                 'node-toggle': context.listeners['node-toggle'],
@@ -50,7 +50,7 @@ const TreeTableRowLoader = {
                 childNodeProps.parentNode = node;
                 childNodeProps.level = context.props.level + 1;
 
-                let childNodeElement = createElement(TreeTableRowLoader, { 
+                let childNodeElement = createElement(TreeTableRowLoader, {
                     props: childNodeProps,
                     on: {
                         'node-toggle': context.listeners['node-toggle'],
@@ -60,7 +60,7 @@ const TreeTableRowLoader = {
                             let _selectionKeys = {...event.selectionKeys};
                             let checkedChildCount = 0;
                             let childPartialSelected = false;
-                            
+
                             for(let child of node.children) {
                                 if(_selectionKeys[child.key] && _selectionKeys[child.key].checked)
                                     checkedChildCount++;

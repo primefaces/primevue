@@ -61,8 +61,8 @@ export default {
         add(message) {
             if (message.id == null) {
                 message.id = messageIdx++;
-            } 
-            
+            }
+
             this.messages = [...this.messages, message];
         },
         remove(message) {

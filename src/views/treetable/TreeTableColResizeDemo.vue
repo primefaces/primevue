@@ -5,7 +5,7 @@
         <div class="content-section introduction">
 			<div class="feature-intro">
 				<h1>TreeTable - Column Resize</h1>
-				<p>Columns can be resized using drag drop by setting the resizableColumns to true. There are two resize modes; "fit" and "expand". Fit is the default one and the overall table width does not change when a column is resized. 
+				<p>Columns can be resized using drag drop by setting the resizableColumns to true. There are two resize modes; "fit" and "expand". Fit is the default one and the overall table width does not change when a column is resized.
                     In "expand" mode, table width also changes along with the column width.</p>
 			</div>
 		</div>

@@ -52,7 +52,7 @@ export default {
         this.startProgress();
     },
     beforeDestroy() {
-        this.endProgress();  
+        this.endProgress();
     },
     components: {
         'ProgressBarDoc': ProgressBarDoc

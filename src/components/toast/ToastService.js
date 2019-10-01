@@ -15,7 +15,7 @@ const ToastService = {
             }
         }
     }
-    
+
 };
 
 export default ToastService;

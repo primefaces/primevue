@@ -55,7 +55,7 @@ export default {
             let themeElement = document.getElementById('theme-link');
             themeElement.setAttribute('href', themeElement.getAttribute('href').replace(this.theme, theme));
             this.theme = theme;
-            
+
             if (dark) {
                 if (!this.darkDemoStyle) {
                     this.darkDemoStyle = document.createElement('style');

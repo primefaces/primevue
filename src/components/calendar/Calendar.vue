@@ -359,7 +359,7 @@ export default {
                             break;
                         }
                     }
-                    
+
                     return selected;
                 }
                 else if( this.isRangeSelection()) {
@@ -368,12 +368,12 @@ export default {
                     else {
                         return this.isDateEquals(this.value[0], dateMeta);
                     }
-                        
+
                 }
             }
             else {
                 return false;
-            }         
+            }
         },
         isMonthSelected(month) {
             return this.value ? (this.value.getMonth() === month && this.value.getFullYear() === this.currentYear) : false;
@@ -390,7 +390,7 @@ export default {
                 let date = new Date(dateMeta.year, dateMeta.month, dateMeta.day);
                 return start.getTime() <= date.getTime() && end.getTime() >= date.getTime();
             }
-            
+
             return between;
         },
         getFirstDayOfMonthIndex(month, year) {
@@ -398,7 +398,7 @@ export default {
             day.setDate(1);
             day.setMonth(month);
             day.setFullYear(year);
-            
+
             let dayIndex = day.getDay() + this.sundayIndex;
             return dayIndex >= 7 ? dayIndex - 7 : dayIndex;
         },
@@ -411,7 +411,7 @@ export default {
         },
         getPreviousMonthAndYear(month, year) {
             let m, y;
-            
+
             if (month === 0) {
                 m = 11;
                 y = year - 1;
@@ -420,12 +420,12 @@ export default {
                 m = month - 1;
                 y = year;
             }
-            
+
             return {'month':m, 'year': y};
         },
         getNextMonthAndYear(month, year) {
             let m, y;
-            
+
             if (month === 11) {
                 m = 0;
                 y = year + 1;
@@ -434,7 +434,7 @@ export default {
                 m = month + 1;
                 y = year;
             }
-            
+
             return {'month':m,'year':y};
         },
         daylightSavingAdjust(date) {
@@ -443,7 +443,7 @@ export default {
             }
 
             date.setHours(date.getHours() > 12 ? date.getHours() + 2 : 0);
-            
+
             return date;
         },
         isToday(today, day, month, year) {
@@ -458,7 +458,7 @@ export default {
             if (otherMonth && !this.selectOtherMonths) {
                 return false;
             }
-            
+
             if (this.minDate) {
                 if (this.minDate.getFullYear() > year) {
                     validMin = false;
@@ -474,7 +474,7 @@ export default {
                     }
                 }
             }
-            
+
             if (this.maxDate) {
                 if (this.maxDate.getFullYear() < year) {
                     validMax = false;
@@ -490,15 +490,15 @@ export default {
                     }
                 }
             }
-            
+
             if (this.disabledDates) {
                 validDate = !this.isDateDisabled(day,month,year);
             }
-        
+
             if (this.disabledDays) {
                 validDay = !this.isDayDisabled(day,month,year)
             }
-            
+
             return validMin && validMax && validDate && validDay;
         },
         onOverlayEnter() {
@@ -533,7 +533,7 @@ export default {
                 else {
                     this.currentMonth--;
                 }
-            
+
                 this.$emit('month-change', {month: this.currentMonth, year: this.currentYear});
             }
         },
@@ -555,7 +555,7 @@ export default {
                 else {
                     this.currentMonth++;
                 }
-                
+
                 this.$emit('month-change', {month: this.currentMonth , year: this.currentYear});
             }
         },
@@ -566,14 +566,14 @@ export default {
             this.currentYear++;
         },
         isEnabled() {
-            return !this.$attrs.disabled && !this.$attrs.readonly;  
+            return !this.$attrs.disabled && !this.$attrs.readonly;
         },
         updateCurrentTimeMeta(date) {
             const hours = date.getHours();
 
             if (this.hourFormat === '12') {
                 this.pm = hours > 11;
-                
+
                 if (hours >= 12)
                     this.currentHour = (hours == 12) ? 12 : hours - 12;
                 else
@@ -582,7 +582,7 @@ export default {
             else {
                 this.currentHour = date.getHours();
             }
-            
+
             this.currentMinute = date.getMinutes();
             this.currentSecond = date.getSeconds();
         },
@@ -615,8 +615,8 @@ export default {
                 this.enableModality();
             }
             else if (this.$refs.overlay) {
-                DomHandler.relativePosition(this.$refs.overlay, this.$el);  
-            }        
+                DomHandler.relativePosition(this.$refs.overlay, this.$el);
+            }
         },
         onButtonClick() {
             if (this.isEnabled()) {
@@ -637,7 +637,7 @@ export default {
                     }
                 }
             }
-            
+
             return false;
         },
         isDayDisabled(day, month, year) {
@@ -660,7 +660,7 @@ export default {
             if (this.$attrs.disabled || !dateMeta.selectable) {
                 return;
             }
-            
+
             if (this.isMultipleSelection() && this.isSelected(dateMeta)) {
                 let newValue = this.value.filter(date => !this.isDateEquals(date, dateMeta));
                 this.updateModel(newValue);
@@ -678,7 +678,7 @@ export default {
                     }
                 }
             }
-            
+
             if (this.isSingleSelection() && (!this.showTime || this.hideOnDateTimeSelect)) {
                 setTimeout(() => {
                     this.overlayVisible = false;
@@ -691,7 +691,7 @@ export default {
         },
         selectDate(dateMeta) {
             let date = new Date(dateMeta.year, dateMeta.month, dateMeta.day);
-            
+
             if (this.showTime) {
                 if (this.hourFormat === '12' && this.pm && this.currentHour != 12)
                     date.setHours(this.currentHour + 12);
@@ -701,21 +701,21 @@ export default {
                 date.setMinutes(this.currentMinute);
                 date.setSeconds(this.currentSecond);
             }
-            
+
             if (this.minDate && this.minDate > date) {
                 date = this.minDate;
                 this.currentHour = date.getHours();
                 this.currentMinute = date.getMinutes();
                 this.currentSecond = date.getSeconds();
             }
-            
+
             if (this.maxDate && this.maxDate < date) {
                 date = this.maxDate;
                 this.currentHour = date.getHours();
                 this.currentMinute = date.getMinutes();
                 this.currentSecond = date.getSeconds();
             }
-            
+
             let modelVal = null;
 
             if (this.isSingleSelection()) {
@@ -728,7 +728,7 @@ export default {
                 if (this.value && this.value.length) {
                     let startDate = this.value[0];
                     let endDate = this.value[1];
-                    
+
                     if (!endDate && date.getTime() >= startDate.getTime()) {
                         endDate = date;
                     }
@@ -742,7 +742,7 @@ export default {
                     modelVal = [date, null];
                 }
             }
-            
+
             if (modelVal !== null) {
                 this.updateModel(modelVal);
                 this.updateInputFieldValue(modelVal);
@@ -773,19 +773,19 @@ export default {
                         if (date && date.length) {
                             let startDate = date[0];
                             let endDate = date[1];
-                            
+
                             formattedValue = this.formatDateTime(startDate);
                             if (endDate) {
                                 formattedValue += ' - ' + this.formatDateTime(endDate);
                             }
                         }
                     }
-                } 
+                }
                 catch(err) {
                     formattedValue = date;
                 }
             }
-            
+
             this.inputFieldValue = formattedValue;
         },
         shouldSelectDate() {
@@ -816,7 +816,7 @@ export default {
                     }
                 }
             }
-            
+
             return formattedValue;
         },
         formatDate(date, format) {
@@ -903,47 +903,47 @@ export default {
             if (!date) {
                 return '';
             }
-            
+
             let output = '';
             let hours = date.getHours();
             let minutes = date.getMinutes();
             let seconds = date.getSeconds();
-            
+
             if (this.hourFormat === '12' && hours > 11 && hours !== 12) {
                 hours -= 12;
             }
-            
+
             if (this.hourFormat === '12') {
                 output += hours === 0 ? 12 : (hours < 10) ? '0' + hours : hours;
-            } 
+            }
             else {
                 output += (hours < 10) ? '0' + hours : hours;
             }
             output += ':';
             output += (minutes < 10) ? '0' + minutes : minutes;
-            
+
             if (this.showSeconds) {
                 output += ':';
                 output += (seconds < 10) ? '0' + seconds : seconds;
             }
-            
+
             if (this.hourFormat === '12') {
                 output += date.getHours() > 11 ? ' PM' : ' AM';
             }
-            
+
             return output;
         },
         onTodayButtonClick(event) {
             let date = new Date();
             let dateMeta = {
-                day: date.getDate(), 
-                month: date.getMonth(), 
-                year: date.getFullYear(), 
-                otherMonth: date.getMonth() !== this.currentMonth || date.getFullYear() !== this.currentYear, 
-                today: true, 
+                day: date.getDate(),
+                month: date.getMonth(),
+                year: date.getFullYear(),
+                otherMonth: date.getMonth() !== this.currentMonth || date.getFullYear() !== this.currentYear,
+                today: true,
                 selectable: true
             };
-            
+
             this.onDateSelect(dateMeta);
             this.$emit('today-click', date);
             event.preventDefault();
@@ -1018,7 +1018,7 @@ export default {
         },
         decrementHour(event) {
             const newHour = this.currentHour - this.stepHour;
-            
+
             if (this.validateHour(newHour)) {
                 if (this.hourFormat == '24')
                     this.currentHour = (newHour < 0) ? (24 + newHour) : newHour;
@@ -1043,19 +1043,19 @@ export default {
                 value = this.value[this.value.length - 1];
             }
             let valueDateString = value ? value.toDateString() : null;
-            
+
             if (this.minDate && valueDateString && this.minDate.toDateString() === valueDateString) {
                 if (this.minDate.getHours() > hour) {
                     valid = false;
                 }
             }
-            
+
             if (this.maxDate && valueDateString && this.maxDate.toDateString() === valueDateString) {
                 if (this.maxDate.getHours() < hour) {
                     valid = false;
                 }
             }
-            
+
             return valid;
         },
         incrementMinute(event) {
@@ -1063,7 +1063,7 @@ export default {
             if (this.validateMinute(newMinute)) {
                 this.currentMinute = (newMinute > 59) ? newMinute - 60 : newMinute;
             }
-            
+
             event.preventDefault();
         },
         decrementMinute(event) {
@@ -1072,7 +1072,7 @@ export default {
             if (this.validateMinute(newMinute)) {
                 this.currentMinute = newMinute;
             }
-            
+
             event.preventDefault();
         },
         validateMinute(minute) {
@@ -1092,7 +1092,7 @@ export default {
                     }
                 }
             }
-            
+
             if (this.maxDate && valueDateString && this.maxDate.toDateString() === valueDateString) {
                 if (value.getHours() == this.maxDate.getHours()){
                     if (this.maxDate.getMinutes() < minute) {
@@ -1100,7 +1100,7 @@ export default {
                     }
                 }
             }
-            
+
             return valid;
         },
         incrementSecond(event) {
@@ -1108,7 +1108,7 @@ export default {
             if (this.validateSecond(newSecond)) {
                 this.currentSecond = (newSecond > 59) ? newSecond - 60 : newSecond;
             }
-        
+
             event.preventDefault();
         },
         decrementSecond(event) {
@@ -1117,7 +1117,7 @@ export default {
             if (this.validateSecond(newSecond)) {
                 this.currentSecond = newSecond;
             }
-            
+
             event.preventDefault();
         },
         validateSecond(second) {
@@ -1130,19 +1130,19 @@ export default {
                 value = this.value[this.value.length - 1];
             }
             let valueDateString = value ? value.toDateString() : null;
-            
+
             if (this.minDate && valueDateString && this.minDate.toDateString() === valueDateString) {
                 if (this.minDate.getSeconds() > second) {
                     valid = false;
                 }
             }
-            
+
             if (this.maxDate && valueDateString && this.maxDate.toDateString() === valueDateString) {
                 if (this.maxDate.getSeconds() < second) {
                     valid = false;
                 }
             }
-            
+
             return valid;
         },
         updateModelTime() {
@@ -1164,7 +1164,7 @@ export default {
             else {
                 value.setHours(this.currentHour);
             }
-            
+
             value.setMinutes(this.currentMinute);
             value.setSeconds(this.currentSecond);
 
@@ -1182,7 +1182,7 @@ export default {
             this.updateModel(value);
             this.updateInputFieldValue(value);
             this.$emit('select', value);
-        },        
+        },
         toggleAMPM(event) {
             this.pm = !this.pm;
             this.updateModelTime();
@@ -1201,7 +1201,7 @@ export default {
                 this.mask = document.createElement('div');
                 this.mask.style.zIndex = String(parseInt(this.$refs.overlay.style.zIndex, 10) - 1);
                 DomHandler.addMultipleClasses(this.mask, 'p-component-overlay p-datepicker-mask p-datepicker-mask-scrollblocker');
-                
+
                 this.maskClickListener = () => {
                     this.disableModality();
                 };
@@ -1214,9 +1214,9 @@ export default {
         disableModality() {
             if (this.mask) {
                 this.mask.removeEventListener('click', this.maskClickListener);
-                this.maskClickListener = null;         
+                this.maskClickListener = null;
                 document.body.removeChild(this.mask);
-                this.mask = null;   
+                this.mask = null;
 
                 let bodyChildren = document.body.children;
                 let hasBlockerMasks;
@@ -1227,7 +1227,7 @@ export default {
                         break;
                     }
                 }
-                
+
                 if (!hasBlockerMasks) {
                     DomHandler.removeClass(document.body, 'p-overflow-hidden');
                 }
@@ -1261,9 +1261,9 @@ export default {
             if (!text || text.trim().length === 0) {
                 return null;
             }
-            
+
             let value;
-            
+
             if (this.isSingleSelection()) {
                 value = this.parseDateTime(text);
             }
@@ -1281,13 +1281,13 @@ export default {
                     value[i] = this.parseDateTime(tokens[i].trim());
                 }
             }
-            
+
             return value;
         },
         parseDateTime(text) {
             let date;
             let parts = text.split(' ');
-            
+
             if (this.timeOnly) {
                 date = new Date();
                 this.populateTime(date, parts[0], parts[1]);
@@ -1302,14 +1302,14 @@ export default {
                     date = this.parseDate(text, dateFormat);
                 }
             }
-            
+
             return date;
         },
         populateTime(value, timeString, ampm) {
             if (this.hourFormat == '12' && !ampm) {
                 throw 'Invalid Time';
             }
-            
+
             this.pm = (ampm === 'PM' || ampm === 'pm');
             let time = this.parseTime(timeString);
             value.setHours(time.hour);
@@ -1319,15 +1319,15 @@ export default {
         parseTime(value) {
             let tokens = value.split(':');
             let validTokenLength = this.showSeconds ? 3 : 2;
-            
+
             if (tokens.length !== validTokenLength) {
                 throw "Invalid time";
             }
-            
+
             let h = parseInt(tokens[0]);
             let m = parseInt(tokens[1]);
             let s = this.showSeconds ? parseInt(tokens[2]) : null;
-            
+
             if (isNaN(h) || isNaN(m) || h > 23 || m > 59 || (this.hourFormat == '12' && h > 12) || (this.showSeconds && (isNaN(s) || s > 59))) {
                 throw "Invalid time";
             }
@@ -1335,7 +1335,7 @@ export default {
                 if (this.hourFormat == '12' && h !== 12 && this.pm) {
                     h+= 12;
                 }
-                
+
                 return {hour: h, minute: m, second: s};
             }
         },
@@ -1382,14 +1382,14 @@ export default {
                 let index = -1;
                 let arr = lookAhead(match) ? longNames : shortNames;
                 let names = [];
-                
+
                 for (let i = 0; i < arr.length; i++) {
                     names.push([i,arr[i]]);
                 }
                 names.sort((a,b) => {
                     return -(a[ 1 ].length - b[ 1 ].length);
                 });
-                
+
                 for (let i = 0; i < names.length; i++) {
                     let name = names[i][1];
                     if (value.substr(iValue, name.length).toLowerCase() === name.toLowerCase()) {
@@ -1415,7 +1415,7 @@ export default {
             if (this.view === 'month') {
                 day = 1;
             }
-            
+
             for (iFormat = 0; iFormat < format.length; iFormat++) {
                 if (literal) {
                     if (format.charAt(iFormat) === "'" && !lookAhead("'")) {
@@ -1524,7 +1524,7 @@ export default {
                         return;
                     }
                     $vm.isKeydown = false;
-                    
+
                     try {
                         let value = $vm.parseValueFromString(val);
                         if ($vm.isValidSelection(value)) {
@@ -1583,7 +1583,7 @@ export default {
             return [
                 'p-calendar',
                 {
-                    'p-calendar-w-btn': this.showIcon, 
+                    'p-calendar-w-btn': this.showIcon,
                     'p-calendar-timeonly': this.timeOnly,
                     'p-inputwrapper-filled': this.value,
                     'p-inputwrapper-focus': this.focused
@@ -1598,8 +1598,8 @@ export default {
                     'p-shadow': !this.inline,
                     'p-disabled': this.$attrs.disabled,
                     'p-datepicker-timeonly': this.timeOnly,
-                    'p-datepicker-multiple-month': this.numberOfMonths > 1, 
-                    'p-datepicker-monthpicker': (this.view === 'month'), 
+                    'p-datepicker-multiple-month': this.numberOfMonths > 1,
+                    'p-datepicker-monthpicker': (this.view === 'month'),
                     'p-datepicker-touch-ui': this.touchUI
                 }
             ];
@@ -1623,17 +1623,17 @@ export default {
                 let weekNumbers = [];
                 let monthRows = Math.ceil((daysLength + firstDay) / 7);
 
-                
+
                 for (let i = 0; i < monthRows; i++) {
                     let week = [];
-                    
+
                     if (i == 0) {
                         for (let j = (prevMonthDaysLength - firstDay + 1); j <= prevMonthDaysLength; j++) {
                             let prev = this.getPreviousMonthAndYear(month, year);
                             week.push({day: j, month: prev.month, year: prev.year, otherMonth: true,
                                     today: this.isToday(today, j, prev.month, prev.year), selectable: this.isSelectable(j, prev.month, prev.year, true)});
                         }
-                        
+
                         let remainingDaysLength = 7 - week.length;
                         for (let j = 0; j < remainingDaysLength; j++) {
                             week.push({day: dayNo, month: month, year: year, today: this.isToday(today, dayNo, month, year),
@@ -1653,15 +1653,15 @@ export default {
                                 week.push({day: dayNo, month: month, year: year, today: this.isToday(today, dayNo, month, year),
                                     selectable: this.isSelectable(dayNo, month, year, false)});
                             }
-                            
+
                             dayNo++;
                         }
                     }
 
                     if (this.showWeek) {
-                        weekNumbers.push(this.getWeekNumber(new Date(week[0].year, week[0].month, week[0].day))); 
+                        weekNumbers.push(this.getWeekNumber(new Date(week[0].year, week[0].month, week[0].day)));
                     }
-                    
+
                     dates.push(week);
                 }
 

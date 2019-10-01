@@ -32,34 +32,34 @@ export default {
         return {
             items: [
                 {
-                    label: 'Update', 
-                    icon: 'pi pi-refresh', 
+                    label: 'Update',
+                    icon: 'pi pi-refresh',
                     command: () => {
                         this.$toast.add({severity:'success', summary:'Updated', detail:'Data Updated', life: 3000});
                     }
                 },
                 {
-                    label: 'Delete', 
+                    label: 'Delete',
                     icon: 'pi pi-times',
                     command: () => {
                         this.$toast.add({ severity: 'warn', summary: 'Delete', detail: 'Data Deleted', life: 3000});
                     }
                 },
                 {
-                    label: 'Vue Website', 
+                    label: 'Vue Website',
                     icon: 'pi pi-external-link',
                     command: () => {
                         window.location.href = 'https://vuejs.org/'
                     }
                 },
-                {   label: 'Upload', 
-                    icon: 'pi pi-upload', 
+                {   label: 'Upload',
+                    icon: 'pi pi-upload',
                     command: () => {
                         window.location.hash = "/fileupload"
                     }
                 }
             ]
-        } 
+        }
     },
     methods: {
         save() {

@@ -6,7 +6,7 @@ module.exports = {
             libraryExport: 'default'
         }
     },
-    css: { 
-        extract: false 
+    css: {
+        extract: false
     }
 }

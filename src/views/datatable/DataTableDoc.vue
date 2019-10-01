@@ -8,9 +8,9 @@ import DataTable from 'primevue/datatable';
 				</CodeHighlight>
 
                 <h3>Getting Started</h3>
-                <p>DataTable requires a value as an array of objects and columns defined with Column component. Throughout the samples, a car interface having vin, brand, year and color properties is used to define an object to be displayed by the datatable. 
+                <p>DataTable requires a value as an array of objects and columns defined with Column component. Throughout the samples, a car interface having vin, brand, year and color properties is used to define an object to be displayed by the datatable.
                     Cars are loaded by a CarService that connects to a server to fetch the cars with a axios. Note that this is only for demo purposes, DataTable does not have any restrictions on how the data is provided.</p>
-			
+
                 <CodeHighlight lang="javascript">
 import axios from 'axios'
 
@@ -226,16 +226,16 @@ export default {
                 <p>Default table-layout is fixed meaning the cell widths do not depend on their content. If you require cells to scale based on their contents set <i>autoLayout</i> property to true. Note that Scrollable and/or Resizable tables do not support auto layout due to technical limitations.</p>
 
                 <h3>Templating</h3>
-                <p>Field data of a corresponding row is displayed as the cell content by default, this can be customized using a <i>body</i> template where current row data and column properties are passed via the slot props. 
+                <p>Field data of a corresponding row is displayed as the cell content by default, this can be customized using a <i>body</i> template where current row data and column properties are passed via the slot props.
                     On the other hand, <i>header</i> and <i>footer</i> sections of a column can either be defined with the properties or the templates. Similarly DataTable itself also provides header and footer properties along with the templates for the main header and footer of the table.</p>
-            
+
                 <CodeHighlight>
 <template v-pre>
 &lt;DataTable :value="cars"&gt;
     &lt;template #header&gt;
         &lt;div&gt;
             &lt;Button icon="pi pi-refresh" style="float: left"/&gt;
-            List of Cars 
+            List of Cars
         &lt;/div&gt;
     &lt;/template&gt;
     &lt;Column field="vin" header="Vin"&gt;&lt;/Column&gt;
@@ -263,8 +263,8 @@ export default {
 </CodeHighlight>
 
                 <h3>Pagination</h3>
-                <p>Pagination is enabled by setting <i>paginator</i> property to true and defining the <i>rows</i> property defines the number of rows per page. 
-                    See the <router-link to="/paginator">Paginator</router-link> for the available customization options such as paginator templates, page links, 
+                <p>Pagination is enabled by setting <i>paginator</i> property to true and defining the <i>rows</i> property defines the number of rows per page.
+                    See the <router-link to="/paginator">Paginator</router-link> for the available customization options such as paginator templates, page links,
                     rows per page options and more which can be passed through the DataTable.</p>
 
 <CodeHighlight>
@@ -311,8 +311,8 @@ export default {
 </CodeHighlight>
 
                 <h3>Lazy Loading</h3>
-                <p>Lazy mode is handy to deal with large datasets, instead of loading the entire data, small chunks of data is loaded by invoking corresponding callbacks everytime paging, sorting and filtering happens. Sample belows imitates lazy paging by using an in memory list. 
-                    It is also important to assign the logical number of rows to totalRecords by doing a projection query for paginator configuration so that paginator displays the UI 
+                <p>Lazy mode is handy to deal with large datasets, instead of loading the entire data, small chunks of data is loaded by invoking corresponding callbacks everytime paging, sorting and filtering happens. Sample belows imitates lazy paging by using an in memory list.
+                    It is also important to assign the logical number of rows to totalRecords by doing a projection query for paginator configuration so that paginator displays the UI
                     assuming there are actually records of totalRecords size although in reality they aren't as in lazy mode, only the records that are displayed on the current page exist.</p>
 
                 <p>Lazy loading is implemented by handling pagination and sorting using <i>page</i> and <i>sort</i> events by making a remote query using the information
@@ -323,7 +323,7 @@ export default {
                 <p>Here is a sample paging implementation with in memory data, a more enhanced example with a backend is being worked on and will be available at a github repository.</p>
 <CodeHighlight>
 <template v-pre>
-&lt;DataTable :value="cars" :lazy="true" :paginator="true" :rows="10" 
+&lt;DataTable :value="cars" :lazy="true" :paginator="true" :rows="10"
     :totalRecords="totalRecords" :loading="loading" @page="onPage($event)"&gt;
     &lt;Column field="vin" header="Vin"&gt;&lt;/Column&gt;
     &lt;Column field="year" header="Year"&gt;&lt;/Column&gt;
@@ -375,7 +375,7 @@ export default {
 </CodeHighlight>
 
                 <h3>Sorting</h3>
-                <p>Enabling <i>sortable</i> property at column component would be enough to make a column sortable. 
+                <p>Enabling <i>sortable</i> property at column component would be enough to make a column sortable.
                 The property to use when sorting is the <i>field</i> by default and can be customized using the <i>sortField</i>.</p>
 
 <CodeHighlight>
@@ -431,7 +431,7 @@ export default {
     &lt;Column field="color" header="Color" :sortable="true"&gt;&lt;/Column&gt;
 &lt;/DataTable&gt;
 </template>
-</CodeHighlight>  
+</CodeHighlight>
 
 <CodeHighlight lang="javascript">
 data() {
@@ -446,7 +446,7 @@ data() {
                 <h3>Filtering</h3>
                 <p>Filtering is enabled by defining a filter template per column to populate the <i>filters</i> property of the DataTable. The <i>filters</i>
                 property should be an key-value object where keys are the field name and the value is the filter value. The filter template receives the column properties
-                via the slotProps and accepts any form element as the filter element. Default match mode is "startsWith" and this can be configured per column using the <i>filterMatchMode</i> property that also accepts 
+                via the slotProps and accepts any form element as the filter element. Default match mode is "startsWith" and this can be configured per column using the <i>filterMatchMode</i> property that also accepts
                 "contains", "endsWith", "equals", "notEquals" and "in" as available modes.</p>
                 <p>Optionally a global filter is available to search against all the fields, in this case the special <i>global</i> keyword should be the property to be populated.</p>
 <CodeHighlight>
@@ -490,7 +490,7 @@ data() {
 </CodeHighlight>
 
                 <h3>Selection</h3>
-                <p>DataTable provides single and multiple selection modes on click of a row. Selected rows are bound to the <i>selection</i> property and updated using the sync keyword. 
+                <p>DataTable provides single and multiple selection modes on click of a row. Selected rows are bound to the <i>selection</i> property and updated using the sync keyword.
                     Alternatively column based selection can be done using radio buttons or checkboxes using <i>selectionMode</i> of a particular column. In addition row-select and row-unselect
                      events are provided as optional callbacks.</p>
 
@@ -535,7 +535,7 @@ data() {
 </CodeHighlight>
 
                 <h3>Column Resize</h3>
-                <p>Columns can be resized using drag drop by setting the <i>resizableColumns</i> to true. There are two resize modes; "fit" and "expand". Fit is the default one and the overall table width does not change when a column is resized. 
+                <p>Columns can be resized using drag drop by setting the <i>resizableColumns</i> to true. There are two resize modes; "fit" and "expand". Fit is the default one and the overall table width does not change when a column is resized.
                     In "expand" mode, table width also changes along with the column width. <i>column-resize-end</i> is a callback that passes the resized column header and delta change as a parameter.</p>
 <CodeHighlight>
 <template v-pre>
@@ -976,7 +976,7 @@ export default {
                                 <td>event.page: New page number <br/>
                                     event.first: Index of first record <br/>
                                     event.rows: Number of rows to display in new page <br/>
-                                    event.pageCount: Total number of pages 
+                                    event.pageCount: Total number of pages
                                 </td>
                                 <td>Callback to invoke on pagination.</td>
                             </tr>
@@ -1040,7 +1040,7 @@ export default {
 
                 <h3>Styling</h3>
                 <p>Any attribute such as style and class are passed to the main container element. Following are the additional properties to configure the component.</p>
-                
+
                 <div class="doc-tablewrapper">
                     <table class="doc-table">
                         <thead>

@@ -109,7 +109,7 @@ export default {
                         borderColor: '#FFA726',
                         backgroundColor: '#FFCC80'
                     }
-                ]   
+                ]
             }
         }
     },

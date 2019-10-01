@@ -2,11 +2,11 @@
     <div class="p-fileupload p-component" v-if="isAdvanced">
         <div class="p-fileupload-buttonbar">
             <span icon="pi pi-plus" :class="advancedChooseButtonClass">
-                <input ref="fileInput" type="file" @change="onFileSelect" @focus="onFocus" @blur="onBlur" 
+                <input ref="fileInput" type="file" @change="onFileSelect" @focus="onFocus" @blur="onBlur"
                     :multiple="multiple" :accept="accept" :disabled="disabled" />
                 <span class="p-button-icon p-button-icon-left p-clickable pi pi-fw pi-plus"></span>
                 <span class="p-button-text p-clickable">{{chooseLabel}}</span>
-            </span>  
+            </span>
             <FileUploadButton :label="uploadLabel" icon="pi pi-upload" @click="upload" :disabled="disabled || !hasFiles" />
             <FileUploadButton :label="cancelLabel" icon="pi pi-times" @click="clear" :disabled="disabled || !hasFiles" />
         </div>
@@ -24,7 +24,7 @@
                         <Button type="button" icon="pi pi-times" @click="remove(index)" />
                     </div>
                 </div>
-            </div>  
+            </div>
         </div>
     </div>
     <span :class="basicChooseButtonClass" @mouseup="onBasicUploaderClick" v-else-if="isBasic">
@@ -87,20 +87,20 @@ export default {
         },
         chooseLabel: {
             type: String,
-            default: 'Choose'  
+            default: 'Choose'
         },
         uploadLabel: {
             type: String,
-            default: 'Upload'  
+            default: 'Upload'
         },
         cancelLabel: {
             type: String,
-            default: 'Cancel'  
+            default: 'Cancel'
         }
     },
     data() {
         return {
-            files: null, 
+            files: null,
             messages: null,
             focused: false,
             progress: null
@@ -122,7 +122,7 @@ export default {
                 }
             }
 
-            this.$emit('select', {originalEvent: event, files: files});   
+            this.$emit('select', {originalEvent: event, files: files});
 
             if (this.auto && this.hasFiles) {
                 this.upload();
@@ -138,9 +138,9 @@ export default {
 
             this.$emit('before-upload', {
                 'xhr': xhr,
-                'formData': formData 
+                'formData': formData
             });
-            
+
             for (let file of this.files) {
                 formData.append(this.name, file, file.name);
             }
@@ -151,7 +151,7 @@ export default {
                 }
 
                 this.$emit('progress', {
-                    originalEvent: event, 
+                    originalEvent: event,
                     progress: this.progress
                 });
             });
@@ -159,16 +159,16 @@ export default {
             xhr.onreadystatechange = () => {
                 if (xhr.readyState === 4) {
                     this.progress = 0;
-                    
+
                     if (xhr.status >= 200 && xhr.status < 300) {
                         this.$emit('upload', {
-                            xhr: xhr, 
+                            xhr: xhr,
                             files: this.files
                         });
                     }
                     else {
                         this.$emit('error', {
-                            xhr: xhr, 
+                            xhr: xhr,
                             files: this.files
                         });
                     }
@@ -176,12 +176,12 @@ export default {
                     this.clear();
                 }
             };
-        
+
             xhr.open('POST', this.url, true);
-            
+
             this.$emit('before-send', {
                 'xhr': xhr,
-                'formData': formData 
+                'formData': formData
             });
 
             xhr.withCredentials = this.withCredentials;
@@ -195,7 +195,7 @@ export default {
 
             if (this.isAdvanced) {
                 this.clearInputElement();
-            } 
+            }
         },
         onFocus() {
             this.focused = true;
@@ -209,8 +209,8 @@ export default {
                     if ((sFile.name + sFile.type + sFile.size) === (file.name + file.type + file.size))
                         return true;
                 }
-            } 
-            
+            }
+
             return false;
         },
         validate(file) {
@@ -218,7 +218,7 @@ export default {
                 this.messages.push(this.invalidFileSizeMessage.replace('{0}', file.name).replace('{1}', this.formatSize(this.maxFileSize)));
                 return false;
             }
-            
+
             return true;
         },
         onDragEnter() {
@@ -256,7 +256,7 @@ export default {
             dm = 3,
             sizes = ['B', 'KB', 'MB', 'GB', 'TB', 'PB', 'EB', 'ZB', 'YB'],
             i = Math.floor(Math.log(bytes) / Math.log(k));
-            
+
             return parseFloat((bytes / Math.pow(k, i)).toFixed(dm)) + ' ' + sizes[i];
         }
     },
@@ -283,7 +283,7 @@ export default {
         },
         basicChooseButtonIconClass() {
             return ['p-button-icon-left pi', {
-                'pi-plus': !this.hasFiles || this.auto, 
+                'pi-plus': !this.hasFiles || this.auto,
                 'pi-upload': this.hasFiles && !this.auto
             }];
         },

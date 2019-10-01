@@ -42,7 +42,7 @@ export default {
         for(let i = 0; i &lt; 50; i++) {
             let node = {
                 key: i,
-                data: {  
+                data: {
                     name: 'Item ' + i,
                     size: Math.floor(Math.random() * 1000) + 1 + 'kb',
                     type: 'Type ' + i
@@ -50,7 +50,7 @@ export default {
                 children: [
                     {
                         key: i + ' - 0',
-                        data: {  
+                        data: {
                             name: 'Item ' + i + ' - 0',
                             size: Math.floor(Math.random() * 1000) + 1 + 'kb',
                             type: 'Type ' + i
@@ -86,7 +86,7 @@ export default {
         for(let i = 0; i < 50; i++) {
             let node = {
                 key: i,
-                data: {  
+                data: {
                     name: 'Item ' + i,
                     size: Math.floor(Math.random() * 1000) + 1 + 'kb',
                     type: 'Type ' + i
@@ -94,7 +94,7 @@ export default {
                 children: [
                     {
                         key: i + ' - 0',
-                        data: {  
+                        data: {
                             name: 'Item ' + i + ' - 0',
                             size: Math.floor(Math.random() * 1000) + 1 + 'kb',
                             type: 'Type ' + i

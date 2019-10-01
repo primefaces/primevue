@@ -1,7 +1,7 @@
 <template>
 	<div>
         <DataTableSubMenu />
-        
+
 		<div class="content-section introduction">
 			<div class="feature-intro">
 				<h1>DataTable - Responsive</h1>

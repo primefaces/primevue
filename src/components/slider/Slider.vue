@@ -66,11 +66,11 @@ export default {
                 else
                     this.updateModel(event, newValue);
             }
-            else {            
+            else {
                 if (this.step)
                     this.handleStepChange(event, newValue, this.value);
                 else
-                    this.updateModel(event, newValue);      
+                    this.updateModel(event, newValue);
             }
         },
         onSlide(event) {
@@ -80,12 +80,12 @@ export default {
         handleStepChange(event, newValue, oldValue) {
             let diff = (newValue - oldValue);
             let val = oldValue;
-            
+
             if (diff < 0)
                 val = oldValue + Math.ceil(newValue / this.step - oldValue / this.step) * this.step;
             else if (diff > 0)
                 val = oldValue + Math.floor(newValue / this.step - oldValue / this.step) * this.step;
-            
+
             this.updateModel(event, val);
         },
         updateModel(event, value) {
@@ -105,7 +105,7 @@ export default {
                     else if (newValue < this.value[0])
                         newValue = this.value[0];
                 }
-                
+
                 modelValue = [...this.value];
                 modelValue[this.handleIndex] = Math.floor(value);
             }
@@ -114,7 +114,7 @@ export default {
                     newValue = this.min;
                 else if (newValue > this.max)
                     newValue = this.max;
-                
+
                 modelValue = Math.floor(newValue);
             }
 
@@ -125,7 +125,7 @@ export default {
             if (this.disabled) {
                 return;
             }
-            
+
             if (!DomHandler.hasClass(event.target, 'p-slider-handle')) {
                 this.updateDomData();
                 this.onSlide(event);
@@ -135,7 +135,7 @@ export default {
             if (this.disabled) {
                 return;
             }
-            
+
             this.dragging = true;
             this.updateDomData();
             this.handleIndex = index;
@@ -237,7 +237,7 @@ export default {
                 this.mouseupListener = (event) => {
                     if (this.dragging) {
                         this.dragging = false;
-                        this.$emit('slideend', {originalEvent: event, values: this.value});                  
+                        this.$emit('slideend', {originalEvent: event, values: this.value});
                     }
                 };
 
@@ -249,7 +249,7 @@ export default {
                 document.removeEventListener('mousemove', this.dragListener);
                 this.dragListener = null;
             }
-            
+
             if (this.mouseupListener) {
                 document.removeEventListener('mouseup', this.mouseupListener);
                 this.mouseupListener = null;
@@ -289,7 +289,7 @@ export default {
                 return {'left': this.handlePosition + '%'};
             else
                 return {'bottom': this.handlePosition + '%'};
-            
+
         },
         handlePosition() {
             if (this.value === 0)
@@ -319,7 +319,7 @@ export default {
             else
                 return {'bottom': this.rangeStartPosition + '%'};
         },
-        rangeEndHandleStyle() {            
+        rangeEndHandleStyle() {
             if (this.horizontal)
                 return {'left': this.rangeEndPosition + '%'};
             else

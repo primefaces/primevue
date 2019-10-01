@@ -8,7 +8,7 @@ import PickList from 'primevue/picklist';
 </CodeHighlight>
 
 				<h3>Getting Started</h3>
-                <p>PickList requires a multidimensional array as its value bound with the v-model directive and a template for its content 
+                <p>PickList requires a multidimensional array as its value bound with the v-model directive and a template for its content
                     that gets the <i>item</i> instance and the <i>index</i> via slotProps.</p>
 <CodeHighlight>
 <template v-pre>
@@ -48,7 +48,7 @@ import PickList from 'primevue/picklist';
                 <p>In case you need to access the selected items in the list, define a binding to the <i>selection</i> property with the sync operator so that
                 it gets updated when the user makes a selection. Since it is two-way binding enabled, your changes to the selection will be reflected as well.  Note that
                 this is optional and only necessary when you need to access the selection.</p>
-                
+
 <CodeHighlight>
 <template v-pre>
 &lt;PickList v-model="cars" dataKey="vin" :selection.sync="selection"&gt;

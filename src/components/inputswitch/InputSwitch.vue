@@ -1,7 +1,7 @@
 <template>
     <div :class="containerClass" @click="onClick($event)">
         <div class="p-hidden-accessible">
-            <input ref="input" type="checkbox" :id="inputId" :name="name" :checked="value" :disabled="disabled" 
+            <input ref="input" type="checkbox" :id="inputId" :name="name" :checked="value" :disabled="disabled"
                 @focus="onFocus($event)" @blur="onBlur($event)" @keydown.enter.prevent="onClick($event)">
         </div>
         <span class="p-inputswitch-slider"></span>

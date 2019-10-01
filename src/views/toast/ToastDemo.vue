@@ -46,7 +46,7 @@
                     <Button @click="showSticky" label="Sticky" />
                 </div>
             </div>
-            
+
             <h3>Remove All</h3>
             <Button @click="clear" label="Clear" />
         </div>

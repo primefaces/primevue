@@ -21,9 +21,9 @@
                 </div>
             </div>
 
-            <p>PrimeVue PRO is a term based commercial support service. With the exclusive services of Pro account, 
+            <p>PrimeVue PRO is a term based commercial support service. With the exclusive services of Pro account,
                             you no longer need to post your questions in the community forum and your issues to community issue tracker.</p>
-                            
+
             <h3>Standard PRO Services</h3>
             <ul>
                 <li>Access to pro.primefaces.org</li>
@@ -37,9 +37,9 @@
                 <li>High priority to your issues.</li>
                 <li>Notifications about security updates.</li>
             </ul>
-                        
-            <h3>New Features (Optional)</h3>			
-                        
+
+            <h3>New Features (Optional)</h3>
+
             <p>New feature and enhancement requests are not available in core services and provided via an hour based model instead.  When you have a feature request we provide an estimate, if you confirm we deliver your request within an estimated timeframe and deduct the amount of work from your hours. These requests can be;</p>
 
             <ul>
@@ -50,8 +50,8 @@
                 <li>Proof of Concept implementations of a use case.</li>
                 <li>Code reviews to offer best practices.</li>
             </ul>
-            
-            <p>You can purchase additional hours along with the subscription and also anytime during your subscription period. If your subscription term ends with unused hours, they will be added to your new subscription term in case you extend.</p>    
+
+            <p>You can purchase additional hours along with the subscription and also anytime during your subscription period. If your subscription term ends with unused hours, they will be added to your new subscription term in case you extend.</p>
 
             <h3>Community Support</h3>
             <p><a href="https://forum.primefaces.org/viewforum.php?f=110">Forum</a> is where the community users gather to seek support, post topics and discuss the technology. PrimeTek does not

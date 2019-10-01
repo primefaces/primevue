@@ -1,5 +1,5 @@
 <template>
-	<Dropdown :value="rows" :options="rowsOptions" optionLabel="label" optionValue="value" 
+	<Dropdown :value="rows" :options="rowsOptions" optionLabel="label" optionValue="value"
         @input="onChange($event)"></Dropdown>
 </template>
 <script>

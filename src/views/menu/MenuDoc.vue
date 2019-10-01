@@ -63,7 +63,7 @@ let items: [
         label: 'Options',
         items: [{label: 'New', icon: 'pi pi-fw pi-plus',command:()=>{ window.location.hash="/fileupload"; }},
                 {label: 'Delete', icon: 'pi pi-fw pi-trash', url: 'http://primetek.com.tr'}]
-    }, 
+    },
     {
         label: 'Account',
         items: [{label: 'Options', icon: 'pi pi-fw pi-cog',command:()=>{ window.location.hash="/"; }},
@@ -79,7 +79,7 @@ let items: [
 &lt;Button type="button" label="Toggle" @click="toggle" /&gt;
 &lt;Menu ref="menu" :model="items" :popup="true" /&gt;
 </CodeHighlight>
-                
+
                 <h3>Properties</h3>
                 <p>Any attribute such as style and class are passed to the main container element. Following are the additional properties to configure the component.</p>
 				<div class="doc-tablewrapper">
@@ -92,7 +92,7 @@ let items: [
                                 <th>Description</th>
                             </tr>
 						</thead>
-						<tbody>   
+						<tbody>
                             <tr>
                                 <td>model</td>
                                 <td>array</td>
@@ -220,14 +220,14 @@ export default {
                 {
                     label: 'Options',
                     items: [{
-                        label: 'Update', 
-                        icon: 'pi pi-refresh', 
+                        label: 'Update',
+                        icon: 'pi pi-refresh',
                         command: () => {
                             this.$toast.add({severity:'success', summary:'Updated', detail:'Data Updated', life: 3000});
                         }
                     },
                     {
-                        label: 'Delete', 
+                        label: 'Delete',
                         icon: 'pi pi-times',
                         command: () => {
                             this.$toast.add({ severity: 'warn', summary: 'Delete', detail: 'Data Deleted', life: 3000});
@@ -237,22 +237,22 @@ export default {
                 {
                     label: 'Navigate',
                     items: [{
-                        label: 'Vue Website', 
+                        label: 'Vue Website',
                         icon: 'pi pi-external-link',
                         command: () => {
                             window.location.href = 'https://vuejs.org/'
                         }
                     },
-                    {   
-                        label: 'Upload', 
-                        icon: 'pi pi-upload', 
+                    {
+                        label: 'Upload',
+                        icon: 'pi pi-upload',
                         command: () => {
                             window.location.hash = "/fileupload"
                         }
                     }
                 ]}
             ]
-        } 
+        }
     },
     methods: {
         toggle(event) {

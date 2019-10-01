@@ -32,7 +32,7 @@ export default {
         onClick(event) {
             if (!this.$attrs.disabled) {
                 let newModelValue;
-                
+
                 if (this.binary) {
                     newModelValue = !this.modelValue;
                 }
@@ -40,7 +40,7 @@ export default {
                     if (this.checked)
                         newModelValue = this.modelValue.filter(val => !ObjectUtils.equals(val, this.value));
                     else
-                        newModelValue = this.modelValue ? [...this.modelValue, this.value] : [this.value]; 
+                        newModelValue = this.modelValue ? [...this.modelValue, this.value] : [this.value];
                 }
 
                 this.$emit('click', event);

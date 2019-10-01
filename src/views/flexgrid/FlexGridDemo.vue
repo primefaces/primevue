@@ -3,7 +3,7 @@
         <div class="content-section introduction">
             <div class="feature-intro">
                 <h1>FlexGrid</h1>
-                <p>Flex Grid CSS is a lightweight flex based responsive layout utility optimized for mobile phones, tablets and desktops. 
+                <p>Flex Grid CSS is a lightweight flex based responsive layout utility optimized for mobile phones, tablets and desktops.
                     Flex Grid CSS is not included in PrimeVue as it is provided by <a href="https://github.com/primefaces/primeflex">PrimeFlex</a> , a shared grid library between PrimeFaces, PrimeNG, PrimeReact and PrimeVue projects.</p>
             </div>
         </div>
@@ -21,7 +21,7 @@
                     <div class="box">3</div>
                 </div>
             </div>
-    
+
             <h3>Dynamic</h3>
             <Button type="button" icon="pi pi-plus" title="Add Column" @click="addColumn" :disabled="columns.length === 20" style="margin-right: .5em" />
             <Button type="button" icon="pi pi-minus" title="Remove Column" @click="removeColumn" :disabled="columns.length === 1" />
@@ -404,14 +404,14 @@
                             <div class="p-col-6 p-md-3"><img alt="Galleria 2" src="demo/images/nature/nature2.jpg" style="width: 100%" /></div>
                             <div class="p-col-6 p-md-3"><img alt="Galleria 3" src="demo/images/nature/nature3.jpg" style="width: 100%" /></div>
                             <div class="p-col-6 p-md-3"><img alt="Galleria 4" src="demo/images/nature/nature4.jpg" style="width: 100%" /></div>
-        
+
                             <div class="p-col-12 p-md-6">Phasellus faucibus purus volutpat mauris lacinia sodales. Ut sit amet sapien
                                 facilisis, commodo dui non, fringilla tellus. Quisque tempus facilisis nisi sodales finibus. Pellentesque
                                 neque orci, ullamcorper vitae ligula quis, dignissim euismod augue.</div>
                             <div class="p-col-12 p-md-6">Fusce ullamcorper congue massa, eget ullamcorper nunc lobortis egestas. Lorem
                                 ipsum dolor sit amet, consectetur adipiscing elit. Quisque ultrices dui eget dolor feugiat dapibus. Aliquam
                                 pretium leo et egestas luctus. Nunc facilisis gravida tellus.</div>
-                        </div>     
+                        </div>
                     </div>
                 </div>
                 <div class="p-col-12">
@@ -491,6 +491,6 @@ export default {
 
     .dynamic-box-enter, .dynamic-box-leave-to {
         transform: translateX(30px);
-    }    
+    }
 }
 </style>

@@ -17,9 +17,9 @@
                 </div>
                 <div ref="itemsWrapper" class="p-dropdown-items-wrapper" :style="{'max-height': scrollHeight}">
                     <ul class="p-dropdown-items p-dropdown-list p-component">
-                        <li v-for="(option, i) of visibleOptions" :class="['p-dropdown-item', {'p-highlight': isSelected(option), 'p-disabled': isOptionDisabled(option)}]" 
+                        <li v-for="(option, i) of visibleOptions" :class="['p-dropdown-item', {'p-highlight': isSelected(option), 'p-disabled': isOptionDisabled(option)}]"
                             :aria-label="getOptionLabel(option)" :key="getOptionLabel(option)" @click="onOptionSelect($event, option)">
-                            <slot name="option" :option="option" :index="i">  
+                            <slot name="option" :option="option" :index="i">
                                 {{getOptionLabel(option)}}
                             </slot>
                         </li>
@@ -221,7 +221,7 @@ export default {
                 return this.findNextOption(i);
             else
                 return option;
-            
+
         },
         findPrevOption(index) {
             let i = index - 1;
@@ -354,7 +354,7 @@ export default {
             return [
                 'p-dropdown p-component p-unselectable-text',
                 {
-                    'p-disabled': this.disabled, 
+                    'p-disabled': this.disabled,
                     'p-dropdown-clearable': this.showClear && !this.disabled,
                     'p-focus': this.focused
                 }
@@ -362,9 +362,9 @@ export default {
         },
         labelClass() {
             return [
-                'p-dropdown-label p-inputtext', 
+                'p-dropdown-label p-inputtext',
                 {
-                    'p-placeholder': this.label === null && this.placeholder, 
+                    'p-placeholder': this.label === null && this.placeholder,
                     'p-dropdown-label-empty': (this.label == null || this.label.length === 0)
                 }
             ];

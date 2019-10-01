@@ -102,7 +102,7 @@ export default {
         this.maxDate = new Date();
         this.maxDate.setMonth(nextMonth);
         this.maxDate.setFullYear(nextYear);
-        
+
         let invalidDate = new Date();
         invalidDate.setDate(today.getDate() - 1);
         this.invalidDates = [today,invalidDate];
@@ -155,7 +155,7 @@ export default {
     border-radius: 50%;
     width: 2em;
     height: 2em;
-    line-height: 2em; 
+    line-height: 2em;
     padding: 0;
     display: inline-block;
 }

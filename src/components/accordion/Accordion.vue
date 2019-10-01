@@ -52,7 +52,7 @@ export default {
     },
     methods: {
         onTabClick(event, tab) {
-            if (!tab.disabled) {              
+            if (!tab.disabled) {
                 if (!this.multiple && !tab.d_active) {
                     this.tabs.forEach(tab => tab.d_active = false);
                 }
@@ -73,7 +73,7 @@ export default {
             }
         },
         isSelected(index) {
-            return this.props.multiple ? (this.d_activeTabIndex && this.d_activeTabIndex.indexOf(index) >= 0) : this.d_activeTabIndex === index;  
+            return this.props.multiple ? (this.d_activeTabIndex && this.d_activeTabIndex.indexOf(index) >= 0) : this.d_activeTabIndex === index;
         }
     },
     components: {
@@ -83,41 +83,41 @@ export default {
 </script>
 
 <style>
-.p-accordion { 
-    width: 100%; 
+.p-accordion {
+    width: 100%;
 }
 
-.p-accordion .p-accordion-header { 
-    cursor: pointer; 
-    position: relative; 
-    margin-top: 1px; 
-    zoom: 1; 
+.p-accordion .p-accordion-header {
+    cursor: pointer;
+    position: relative;
+    margin-top: 1px;
+    zoom: 1;
 }
 
-.p-accordion .p-accordion-header a { 
-    display: block; 
+.p-accordion .p-accordion-header a {
+    display: block;
     padding: .5em;
 }
 
 .p-accordion .p-accordion-toggle-icon,
 .p-accordion .p-accordion-header-text {
-    vertical-align: middle;   
-}
-
-.p-accordion .p-accordion-header a > span { 
-    display: inline-block; 
     vertical-align: middle;
 }
 
-.p-accordion .p-accordion-content { 
+.p-accordion .p-accordion-header a > span {
+    display: inline-block;
+    vertical-align: middle;
+}
+
+.p-accordion .p-accordion-content {
     padding: 1em;
     border-top: 0;
     zoom: 1;
 }
 
-.p-accordion .p-accordion-header.p-disabled, 
-.p-accordion .p-accordion-header.p-disabled a { 
-    cursor: default; 
+.p-accordion .p-accordion-header.p-disabled,
+.p-accordion .p-accordion-header.p-disabled a {
+    cursor: default;
 }
 
 .p-accordion-content-wrapper-enter,

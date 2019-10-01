@@ -9,7 +9,7 @@ export default {
     data() {
         return {
            loaded: false
-        } 
+        }
     },
     mounted() {
         if (!this.loaded) {
@@ -47,7 +47,7 @@ export default {
                 const rect = this.$refs.container.getBoundingClientRect();
                 const docElement = document.documentElement;
                 const winHeight = docElement.clientHeight;
-        
+
                 return (winHeight >= rect.top);
             }
         },
@@ -59,7 +59,7 @@ export default {
 }
 </script>
 
-    
+
 
     componentWillUnmount() {
         this.unbindScrollListener();

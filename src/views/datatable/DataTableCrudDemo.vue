@@ -1,7 +1,7 @@
 <template>
 	<div>
         <DataTableSubMenu />
-        
+
 		<div class="content-section introduction">
 			<div class="feature-intro">
 				<h1>DataTable - Crud</h1>
@@ -43,14 +43,14 @@
                         <div class="p-col-8">
                             <InputText id="brand" v-model="car.brand" autocomplete="off" />
                         </div>
-                        
+
                         <div class="p-col-4"><label for="color">Color</label></div>
                         <div class="p-col-8">
                             <InputText id="color" v-model="car.color" autocomplete="off" />
                         </div>
                     </div>
                 </div>
-                
+
                 <template #footer>
                     <Button label="Delete" icon="pi pi-times" @click="deleteCar" class="p-button-danger" />
                     <Button label="Save" icon="pi pi-check" @click="saveCar" class="p-button-success" />
@@ -96,14 +96,14 @@
             &lt;div class="p-col-8"&gt;
                 &lt;InputText id="brand" v-model="car.brand" autocomplete="off" /&gt;
             &lt;/div&gt;
-            
+
             &lt;div class="p-col-4"&gt;&lt;label for="color"&gt;Color&lt;/label&gt;&lt;/div&gt;
             &lt;div class="p-col-8"&gt;
                 &lt;InputText id="color" v-model="car.color" autocomplete="off" /&gt;
             &lt;/div&gt;
         &lt;/div&gt;
     &lt;/div&gt;
-    
+
     &lt;template #footer&gt;
         &lt;Button label="Delete" icon="pi pi-times" @click="deleteCar" class="p-button-danger" /&gt;
         &lt;Button label="Save" icon="pi pi-check" @click="saveCar" class="p-button-success" /&gt;

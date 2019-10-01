@@ -131,7 +131,7 @@ export default {
 
             <h3>Custom Content</h3>
             <p>Calendar UI accepts custom content using header and footer templates.</p>
-            
+
 <CodeHighlight>
 &lt;Calendar v-model="value"&gt;
     &lt;template #header&gt;Header Content&lt;/template&gt;
@@ -623,7 +623,7 @@ export default {
         this.maxDate = new Date();
         this.maxDate.setMonth(nextMonth);
         this.maxDate.setFullYear(nextYear);
-        
+
         let invalidDate = new Date();
         invalidDate.setDate(today.getDate() - 1);
         this.invalidDates = [today,invalidDate];

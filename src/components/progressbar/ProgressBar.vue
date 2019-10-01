@@ -33,7 +33,7 @@ export default {
         },
         progressStyle() {
             return {
-                width: this.value + '%', 
+                width: this.value + '%',
                 display: 'block'
             };
         },
@@ -48,9 +48,9 @@ export default {
 </script>
 
 <style>
-.p-progressbar { 
-    height: 1.2em; 
-    text-align: left; 
+.p-progressbar {
+    height: 1.2em;
+    text-align: left;
     position: relative;
     overflow: hidden;
 }
@@ -111,7 +111,7 @@ export default {
     -webkit-animation-delay: 1.15s;
             animation-delay: 1.15s;
 }
-    
+
 @-webkit-keyframes p-progressbar-indeterminate-anim {
   0% {
     left: -35%;
@@ -121,7 +121,7 @@ export default {
     right: -90%; }
   100% {
     left: 100%;
-    right: -90%; } 
+    right: -90%; }
 }
 @keyframes p-progressbar-indeterminate-anim {
   0% {
@@ -132,7 +132,7 @@ export default {
     right: -90%; }
   100% {
     left: 100%;
-    right: -90%; } 
+    right: -90%; }
 }
 
 @-webkit-keyframes p-progressbar-indeterminate-anim-short {
@@ -144,7 +144,7 @@ export default {
     right: -8%; }
   100% {
     left: 107%;
-    right: -8%; } 
+    right: -8%; }
 }
 @keyframes p-progressbar-indeterminate-anim-short {
   0% {
@@ -155,6 +155,6 @@ export default {
     right: -8%; }
   100% {
     left: 107%;
-    right: -8%; } 
+    right: -8%; }
 }
 </style>

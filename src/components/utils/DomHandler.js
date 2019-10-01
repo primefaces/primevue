@@ -1,5 +1,5 @@
 export default class DomHandler {
-    
+
     static innerWidth(el) {
         let width = el.offsetWidth;
         let style = getComputedStyle(el);
@@ -50,7 +50,7 @@ export default class DomHandler {
                 let style = getComputedStyle(el);
                 height += parseFloat(style.marginTop) + parseFloat(style.marginBottom);
             }
-    
+
             return height;
         }
         else {
@@ -86,7 +86,7 @@ export default class DomHandler {
     static getCurrentZIndex() {
         return this.zindex;
     }
-    
+
     static index(element) {
         let children = element.parentNode.childNodes;
         let num = 0;
@@ -207,7 +207,7 @@ export default class DomHandler {
         element.style.top = top + 'px';
         element.style.left = left + 'px';
     }
-    
+
     static getHiddenElementOuterHeight(element) {
         element.style.visibility = 'hidden';
         element.style.display = 'block';
@@ -271,7 +271,7 @@ export default class DomHandler {
                 opacity = 0;
                 clearInterval(fading);
             }
-            
+
             element.style.opacity = opacity;
         }, interval);
     }
@@ -329,7 +329,7 @@ export default class DomHandler {
     static calculateScrollbarWidth() {
         if(this.calculatedScrollbarWidth != null)
             return this.calculatedScrollbarWidth;
-        
+
         let scrollDiv = document.createElement("div");
         scrollDiv.className = "p-scrollbar-measure";
         document.body.appendChild(scrollDiv);
@@ -338,7 +338,7 @@ export default class DomHandler {
         document.body.removeChild(scrollDiv);
 
         this.calculatedScrollbarWidth = scrollbarWidth;
-        
+
         return scrollbarWidth;
     }
 
@@ -379,5 +379,5 @@ export default class DomHandler {
 
     static isVisible(element) {
         return element.offsetParent != null;
-    } 
+    }
 }

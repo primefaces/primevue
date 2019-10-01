@@ -1,11 +1,11 @@
 <template>
     <span :class="containerClass">
         <input ref="input" :class="inputClass" v-bind="$attrs" v-on="listeners" :value="value">
-        <button type="button" :class="upButtonClass" @mousedown="onButtonMouseDown($event, 1)" @mouseup="onButtonMouseUp" @mouseleave="onButtonMouseLeave" 
+        <button type="button" :class="upButtonClass" @mousedown="onButtonMouseDown($event, 1)" @mouseup="onButtonMouseUp" @mouseleave="onButtonMouseLeave"
             @keydown="onButtonKeyDown($event, 1)" @keyup="onButtonKeyUp" :disabled="$attrs.disabled">
             <span class="p-spinner-button-icon pi pi-caret-up"></span>
         </button>
-        <button type="button" :class="downButtonClass" @mousedown="onButtonMouseDown($event, -1)" @mouseup="onButtonMouseUp" @mouseleave="onButtonMouseLeave" 
+        <button type="button" :class="downButtonClass" @mousedown="onButtonMouseDown($event, -1)" @mouseup="onButtonMouseUp" @mouseleave="onButtonMouseLeave"
             @keydown="onButtonKeyDown($event, -1)" @keyup="onButtonKeyUp" :disabled="$attrs.disabled">
             <span class="p-spinner-button-icon pi pi-caret-down"></span>
         </button>

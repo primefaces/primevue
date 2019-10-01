@@ -38,10 +38,10 @@ import Paginator from 'primevue/paginator';
 </CodeHighlight>
 
                 <h3>Template</h3>
-                <p>Paginator elements can be customized using the template property using the predefined keys, default value is 
+                <p>Paginator elements can be customized using the template property using the predefined keys, default value is
                 "FirstPageLink PrevPageLink PageLinks NextPageLink LastPageLink RowsPerPageDropdown". Here are the available elements that
                 can be placed inside a paginator in any order.</p>
-                
+
                 <ul>
                     <li>FirstPageLink</li>
                     <li>PrevPageLink</li>
@@ -53,7 +53,7 @@ import Paginator from 'primevue/paginator';
                 </ul>
 
 <CodeHighlight>
-&lt;Paginator :first.sync="offset" :rows="10" :totalRecords="totalItemsCount" 
+&lt;Paginator :first.sync="offset" :rows="10" :totalRecords="totalItemsCount"
             template="FirstPageLink PrevPageLink CurrentPageReport NextPageLink LastPageLink"&gt;&lt;/Paginator&gt;
 </CodeHighlight>
 
@@ -87,7 +87,7 @@ onPage(event) {
     //event.page: New page number
     //event.first: Index of first record
     //event.rows: Number of rows to display in new page
-    //event.pageCount: Total number of pages 
+    //event.pageCount: Total number of pages
 }
 </CodeHighlight>
 
@@ -171,7 +171,7 @@ onPage(event) {
                                 <td>event.page: New page number <br/>
                                     event.first: Index of first record <br/>
                                     event.rows: Number of rows to display in new page <br/>
-                                    event.pageCount: Total number of pages 
+                                    event.pageCount: Total number of pages
                                 </td>
                                 <td>Callback to invoke when page changes, the event object contains information about the new state.</td>
                             </tr>
@@ -239,7 +239,7 @@ onPage(event) {
 &lt;Paginator :rows="10" :totalRecords="totalRecords" :rowsPerPageOptions="[10,20,30]"&gt;&lt;/Paginator&gt;
 
 &lt;h3&gt;Custom&lt;/h3&gt;
-&lt;Paginator :first.sync="first" :rows="1" :totalRecords="totalRecords2" 
+&lt;Paginator :first.sync="first" :rows="1" :totalRecords="totalRecords2"
     template="FirstPageLink PrevPageLink CurrentPageReport NextPageLink LastPageLink"&gt;
     &lt;template #left&gt;
         &lt;Button type="button" icon="pi pi-refresh" @click="reset()"/&gt;

@@ -31,7 +31,7 @@
             </tr>
             <tr :style="childStyle" class="p-organizationchart-nodes">
                 <td v-for="child of node.children" :key="child.key" colspan="2">
-                    <sub-node :node="child" :templates="templates" :collapsedKeys="collapsedKeys" @node-toggle="onChildNodeToggle" :collapsible="collapsible" 
+                    <sub-node :node="child" :templates="templates" :collapsedKeys="collapsedKeys" @node-toggle="onChildNodeToggle" :collapsible="collapsible"
                                 :selectionMode="selectionMode" :selectionKeys="selectionKeys" @node-click="onChildNodeClick" />
                 </td>
             </tr>

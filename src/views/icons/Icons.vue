@@ -54,7 +54,7 @@ npm install primeicons --save
             <p>Here is the current list of PrimeIcons, more icons will be added periodically. You may also <a href="https://github.com/primefaces/primeicons/issues">request new icons</a> at the issue tracker.</p>
 
             <InputText v-model="filter" class="icon-filter" placeholder="Search an icon" />
-            
+
             <div class="p-grid icons-list">
                 <div class="p-col-12 p-md-2" v-for="icon of filteredIcons" :key="icon.properties.name">
                     <i :class="'pi pi-' + icon.properties.name"></i>
@@ -82,7 +82,7 @@ export default {
             if (this.filter)
                 return this.icons.filter(icon => icon.properties.name.indexOf(this.filter.toLowerCase()) > -1);
             else
-                return this.icons; 
+                return this.icons;
         }
     }
 }
@@ -90,7 +90,7 @@ export default {
 
 <style lang="css" scoped>
 .icon-filter {
-    width: 100%; 
+    width: 100%;
     padding: 1em;
     margin: 16px 0 26px 0;
 }

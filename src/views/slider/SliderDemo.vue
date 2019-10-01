@@ -14,7 +14,7 @@
             <h3>Input: {{value2}}</h3>
             <InputText v-model.number="value2" />
             <Slider v-model="value2" />
-            
+
             <h3>Step: {{value3}}</h3>
             <Slider v-model="value3" :step="20" />
 

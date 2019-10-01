@@ -121,7 +121,7 @@ export default {
 	.car-data > div {
 		padding: .429em;
     }
-    
+
     .p-dropdown {
         width: 12em;
     }

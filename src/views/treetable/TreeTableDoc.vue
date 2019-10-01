@@ -100,7 +100,7 @@ export default class NodeService {
     getTreeTableNodes() {
         return axios.get('demo/data/treetablenodes.json').then(res => res.data.root);
     }
-    
+
 }
 </CodeHighlight>
 
@@ -110,42 +110,42 @@ export default class NodeService {
 <CodeHighlight lang="javascript">
 {
     "root":
-    [  
+    [
         {
             "key": "0",
-            "data":{  
+            "data":{
                 "name":"Applications",
                 "size":"100kb",
                 "type":"Folder"
             },
-            "children":[  
-                {  
+            "children":[
+                {
                     "key": "0-0",
                     "data":{
                         "name":"Vue",
                         "size":"25kb",
                         "type":"Folder"
                     },
-                    "children":[  
-                        {  
+                    "children":[
+                        {
                             "key": "0-0-0",
-                            "data":{  
+                            "data":{
                                 "name":"Vue.app",
                                 "size":"10kb",
                                 "type":"Application"
                             }
                         },
-                        {  
+                        {
                             "key": "0-0-1",
-                            "data":{  
+                            "data":{
                                 "name":"native.app",
                                 "size":"10kb",
                                 "type":"Application"
                             }
                         },
-                        {  
+                        {
                             "key": "0-0-2",
-                            "data":{  
+                            "data":{
                                 "name":"mobile.app",
                                 "size":"5kb",
                                 "type":"Application"
@@ -153,17 +153,17 @@ export default class NodeService {
                         }
                     ]
                 },
-                {  
+                {
                     "key": "0-1",
-                    "data":{  
+                    "data":{
                         "name":"editor.app",
                         "size":"25kb",
                         "type":"Application"
                     }
                 },
-                {  
+                {
                     "key": "0-2",
-                    "data":{  
+                    "data":{
                         "name":"settings.app",
                         "size":"50kb",
                         "type":"Application"
@@ -171,25 +171,25 @@ export default class NodeService {
                 }
             ]
         },
-        {  
+        {
             "key": "1",
-            "data":{  
+            "data":{
                 "name":"Cloud",
                 "size":"20kb",
                 "type":"Folder"
             },
-            "children":[  
-                {  
+            "children":[
+                {
                     "key": "1-0",
-                    "data":{  
+                    "data":{
                         "name":"backup-1.zip",
                         "size":"10kb",
                         "type":"Zip"
                     }
                 },
-                {  
+                {
                     "key": "1-1",
-                    "data":{  
+                    "data":{
                         "name":"backup-2.zip",
                         "size":"10kb",
                         "type":"Zip"
@@ -197,25 +197,25 @@ export default class NodeService {
                 }
             ]
         },
-        {  
+        {
             "key": "2",
-            "data": {  
+            "data": {
                 "name":"Desktop",
                 "size":"150kb",
                 "type":"Folder"
             },
-            "children":[  
-                {  
+            "children":[
+                {
                     "key": "2-0",
-                    "data":{  
+                    "data":{
                         "name":"note-meeting.txt",
                         "size":"50kb",
                         "type":"Text"
                     }
                 },
-                {  
+                {
                     "key": "2-1",
-                    "data":{  
+                    "data":{
                         "name":"note-todo.txt",
                         "size":"100kb",
                         "type":"Text"
@@ -223,33 +223,33 @@ export default class NodeService {
                 }
             ]
         },
-        {  
+        {
             "key": "3",
-            "data":{  
+            "data":{
                 "name":"Documents",
                 "size":"75kb",
                 "type":"Folder"
             },
             "children":[
-                {  
+                {
                     "key": "3-0",
-                    "data":{  
+                    "data":{
                         "name":"Work",
                         "size":"55kb",
                         "type":"Folder"
                     },
-                    "children":[  
-                        {  
+                    "children":[
+                        {
                             "key": "3-0-0",
-                            "data":{  
+                            "data":{
                                 "name":"Expenses.doc",
                                 "size":"30kb",
                                 "type":"Document"
                             }
                         },
-                        {  
+                        {
                             "key": "3-0-1",
-                            "data":{  
+                            "data":{
                                 "name":"Resume.doc",
                                 "size":"25kb",
                                 "type":"Resume"
@@ -257,17 +257,17 @@ export default class NodeService {
                         }
                     ]
                 },
-                {  
+                {
                     "key": "3-1",
-                    "data":{  
+                    "data":{
                         "name":"Home",
                         "size":"20kb",
                         "type":"Folder"
                     },
-                    "children":[  
-                        {  
+                    "children":[
+                        {
                             "key": "3-1-0",
-                            "data":{  
+                            "data":{
                                 "name":"Invoices",
                                 "size":"20kb",
                                 "type":"Text"
@@ -277,33 +277,33 @@ export default class NodeService {
                 }
             ]
         },
-        {  
+        {
             "key": "4",
-            "data": {  
+            "data": {
                 "name":"Downloads",
                 "size":"25kb",
                 "type":"Folder"
             },
-            "children":[  
-                {  
+            "children":[
+                {
                     "key": "4-0",
-                    "data": {  
+                    "data": {
                         "name":"Spanish",
                         "size":"10kb",
                         "type":"Folder"
                     },
-                    "children":[  
-                        {  
+                    "children":[
+                        {
                             "key": "4-0-0",
-                            "data":{  
+                            "data":{
                                 "name":"tutorial-a1.txt",
                                 "size":"5kb",
                                 "type":"Text"
                             }
                         },
-                        {  
+                        {
                             "key": "4-0-1",
-                            "data":{  
+                            "data":{
                                 "name":"tutorial-a2.txt",
                                 "size":"5kb",
                                 "type":"Text"
@@ -311,25 +311,25 @@ export default class NodeService {
                         }
                     ]
                 },
-                {  
+                {
                     "key": "4-1",
-                    "data":{  
+                    "data":{
                         "name":"Travel",
                         "size":"15kb",
                         "type":"Text"
                     },
-                    "children":[  
-                        {  
+                    "children":[
+                        {
                             "key": "4-1-0",
-                            "data":{  
+                            "data":{
                                 "name":"Hotel.pdf",
                                 "size":"10kb",
                                 "type":"PDF"
                             }
                         },
-                        {  
+                        {
                             "key": "4-1-1",
-                            "data":{  
+                            "data":{
                                 "name":"Flight.pdf",
                                 "size":"5kb",
                                 "type":"PDF"
@@ -339,33 +339,33 @@ export default class NodeService {
                 }
             ]
         },
-        {  
+        {
             "key": "5",
-            "data": {  
+            "data": {
                 "name":"Main",
                 "size":"50kb",
                 "type":"Folder"
             },
-            "children":[  
-                {  
+            "children":[
+                {
                     "key": "5-0",
-                    "data":{  
+                    "data":{
                         "name":"bin",
                         "size":"50kb",
                         "type":"Link"
                     }
                 },
-                { 
-                    "key": "5-1", 
-                    "data":{  
+                {
+                    "key": "5-1",
+                    "data":{
                         "name":"etc",
                         "size":"100kb",
                         "type":"Link"
                     }
                 },
-                {  
+                {
                     "key": "5-2",
-                    "data":{  
+                    "data":{
                         "name":"var",
                         "size":"100kb",
                         "type":"Link"
@@ -373,25 +373,25 @@ export default class NodeService {
                 }
             ]
         },
-        {  
+        {
             "key": "6",
-            "data":{  
+            "data":{
                 "name":"Other",
                 "size":"5kb",
                 "type":"Folder"
             },
-            "children":[  
-                {  
+            "children":[
+                {
                     "key": "6-0",
-                    "data":{  
+                    "data":{
                         "name":"todo.txt",
                         "size":"3kb",
                         "type":"Text"
                     }
                 },
-                {  
+                {
                     "key": "6-1",
-                    "data":{  
+                    "data":{
                         "name":"logo.png",
                         "size":"2kb",
                         "type":"Picture"
@@ -399,33 +399,33 @@ export default class NodeService {
                 }
             ]
         },
-        {  
+        {
             "key": "7",
-            "data":{  
+            "data":{
                 "name":"Pictures",
                 "size":"150kb",
                 "type":"Folder"
             },
-            "children":[  
-                {  
+            "children":[
+                {
                     "key": "7-0",
-                    "data":{  
+                    "data":{
                         "name":"barcelona.jpg",
                         "size":"90kb",
                         "type":"Picture"
                     }
                 },
-                {  
+                {
                     "key": "7-1",
-                    "data":{  
+                    "data":{
                         "name":"primeng.png",
                         "size":"30kb",
                         "type":"Picture"
                     }
                 },
-                {  
+                {
                     "key": "7-2",
-                    "data":{  
+                    "data":{
                         "name":"prime.jpg",
                         "size":"30kb",
                         "type":"Picture"
@@ -433,25 +433,25 @@ export default class NodeService {
                 }
             ]
         },
-        {  
+        {
             "key": "8",
-            "data":{  
+            "data":{
                 "name":"Videos",
                 "size":"1500kb",
                 "type":"Folder"
             },
-            "children":[  
-                {  
+            "children":[
+                {
                     "key": "8-0",
-                    "data":{  
+                    "data":{
                         "name":"primefaces.mkv",
                         "size":"1000kb",
                         "type":"Video"
                     }
                 },
-                {  
+                {
                     "key": "8-1",
-                    "data":{  
+                    "data":{
                         "name":"intro.avi",
                         "size":"500kb",
                         "type":"Video"
@@ -624,7 +624,7 @@ export default {
     &lt;Column field="name" header="Name" :expander="true"&gt;&lt;/Column&gt;
     &lt;Column field="size" header="Size"&gt;&lt;/Column&gt;
     &lt;Column field="type" header="Type"&gt;&lt;/Column&gt;
-&lt;/TreeTable&gt;  
+&lt;/TreeTable&gt;
 </template>
 </CodeHighlight>
 
@@ -695,9 +695,9 @@ export default {
 </CodeHighlight>
 
                 <h3>Templating</h3>
-                <p>Field data of a corresponding node is displayed as the cell content by default, this can be customized using a <i>body</i> template where current node data and column properties are passed via the slot props. 
+                <p>Field data of a corresponding node is displayed as the cell content by default, this can be customized using a <i>body</i> template where current node data and column properties are passed via the slot props.
                     On the other hand, <i>header</i> and <i>footer</i> sections of a column can either be defined with the properties or the templates. Similarly TreeTable itself also provides header and footer properties along with the templates for the main header and footer of the table.</p>
-            
+
                 <CodeHighlight>
 <template v-pre>
 &lt;TreeTable :value="nodes"&gt;
@@ -726,8 +726,8 @@ export default {
 </CodeHighlight>
 
                 <h3>Pagination</h3>
-                <p>Pagination is enabled by setting <i>paginator</i> property to true and defining the <i>rows</i> property defines the number of rows per page. 
-                    See the <router-link to="/paginator">Paginator</router-link> for the available customization options such as paginator templates, page links, 
+                <p>Pagination is enabled by setting <i>paginator</i> property to true and defining the <i>rows</i> property defines the number of rows per page.
+                    See the <router-link to="/paginator">Paginator</router-link> for the available customization options such as paginator templates, page links,
                     rows per page options and more which can be passed through the TreeTable.</p>
 
 <CodeHighlight>
@@ -771,7 +771,7 @@ export default {
 </CodeHighlight>
 
                 <h3>Sorting</h3>
-                <p>Enabling <i>sortable</i> property at column component would be enough to make a column sortable. 
+                <p>Enabling <i>sortable</i> property at column component would be enough to make a column sortable.
                 The property to use when sorting is the <i>field</i> by default and can be customized using the <i>sortField</i>.</p>
 
 <CodeHighlight>
@@ -822,7 +822,7 @@ export default {
     &lt;Column field="type" header="Type" :sortable="true"&gt;&lt;/Column&gt;
 &lt;/TreeTable&gt;
 </template>
-</CodeHighlight>  
+</CodeHighlight>
 
 <CodeHighlight lang="javascript">
 data() {
@@ -838,11 +838,11 @@ data() {
                 <h3>Filtering</h3>
                 <p>Filtering is enabled by defining a filter template per column to populate the <i>filters</i> property of the TreeTable. The <i>filters</i>
                 property should be an key-value object where keys are the field name and the value is the filter value. The filter template receives the column properties
-                via the slotProps and accepts any form element as the filter element. Default match mode is "startsWith" and this can be configured per column using the <i>filterMatchMode</i> property that also accepts 
+                via the slotProps and accepts any form element as the filter element. Default match mode is "startsWith" and this can be configured per column using the <i>filterMatchMode</i> property that also accepts
                 "contains", "endsWith", "equals", "notEquals" and "in" as available modes.</p>
                 <p>Optionally a global filter is available to search against all the fields, in this case the special <i>global</i> keyword should be the property to be populated.</p>
 
-                <p>In addition <i>filterMode</i> specifies the filtering strategy. In <b>lenient</b> mode when the query matches a node, children of the node are not searched further as all descendants of the node are included. On the other hand, 
+                <p>In addition <i>filterMode</i> specifies the filtering strategy. In <b>lenient</b> mode when the query matches a node, children of the node are not searched further as all descendants of the node are included. On the other hand,
                  in <b>strict</b> mode when the query matches a node, filtering continues on all descendants.</p>
 <CodeHighlight>
 <template v-pre>
@@ -893,7 +893,7 @@ export default {
 </CodeHighlight>
 
                 <h3>Selection</h3>
-                <p>Tree supports <b>single</b>, <b>multiple</b> and <b>checkbox</b> selection modes. Define the <i>selectionKeys</i> with the sync operator and the <i>selectionMode</i> properties to enable the selection. 
+                <p>Tree supports <b>single</b>, <b>multiple</b> and <b>checkbox</b> selection modes. Define the <i>selectionKeys</i> with the sync operator and the <i>selectionMode</i> properties to enable the selection.
                 By default in multiple selection mode, metaKey is necessary to add to existing selections however this can be configured with <i>metaKeySelection</i> property. Note that
                 in touch enabled devices, Tree does not require metaKey. In addition selection on a particular node can be disabled if the <i>selectable</i> is false on the node instance.</p>
 
@@ -985,7 +985,7 @@ export default {
     mounted() {
         this.nodeService.getTreeTableNodes().then(data => {
             this.nodes = data;
-        
+
             //single preselection
             this.selectedKey1[this.nodes[0].key] = true;
 
@@ -1001,8 +1001,8 @@ export default {
 </CodeHighlight>
 
                 <h3>Lazy</h3>
-                <p>Lazy Loading is handy to deal with huge datasets. Idea is instead of loading the whole tree, load nodes on demand when necessary. 
-                    The important part when lazy loading nodes is setting <i>leaf</i> to true on a node instance so that even without children, 
+                <p>Lazy Loading is handy to deal with huge datasets. Idea is instead of loading the whole tree, load nodes on demand when necessary.
+                    The important part when lazy loading nodes is setting <i>leaf</i> to true on a node instance so that even without children,
                     tree would render an expand icon. Example below uses an in memory collection to mimic a lazy loading scenario with timeouts.
                 </p>
 
@@ -1047,13 +1047,13 @@ export default {
         onExpand(node) {
             if (!node.children) {
                 this.loading = true;
-                
+
                 setTimeout(() => {
                     let lazyNode = {...node};
-        
+
                     lazyNode.children = [
                         {
-                            data: { 
+                            data: {
                                 name: lazyNode.data.name + ' - 0',
                                 size: Math.floor(Math.random() * 1000) + 1 + 'kb',
                                 type: 'File'
@@ -1085,7 +1085,7 @@ export default {
             this.loading = true;
 
             //imitate delay of a backend call
-            setTimeout(() => {    
+            setTimeout(() => {
                 this.loading = false;
                 this.nodes = this.loadNodes(event.first, this.rows);
             }, 1000);
@@ -1096,7 +1096,7 @@ export default {
             for(let i = 0; i &lt; rows; i++) {
                 let node = {
                     key: (first + i),
-                    data: { 
+                    data: {
                         name: 'Item ' + (first + i),
                         size: Math.floor(Math.random() * 1000) + 1 + 'kb',
                         type: 'Type ' + (first + i)
@@ -1106,7 +1106,7 @@ export default {
 
                 nodes.push(node);
             }
-            
+
             return nodes;
         }
     }
@@ -1114,7 +1114,7 @@ export default {
 </CodeHighlight>
 
                 <h3>Column Resize</h3>
-                <p>Columns can be resized using drag drop by setting the <i>resizableColumns</i> to true. There are two resize modes; "fit" and "expand". Fit is the default one and the overall table width does not change when a column is resized. 
+                <p>Columns can be resized using drag drop by setting the <i>resizableColumns</i> to true. There are two resize modes; "fit" and "expand". Fit is the default one and the overall table width does not change when a column is resized.
                     In "expand" mode, table width also changes along with the column width. <i>column-resize-end</i> is a callback that passes the resized column header and delta change as a parameter.</p>
 <CodeHighlight>
 <template v-pre>
@@ -1424,7 +1424,7 @@ export default {
                                 <td>event.page: New page number <br/>
                                     event.first: Index of first record <br/>
                                     event.rows: Number of rows to display in new page <br/>
-                                    event.pageCount: Total number of pages 
+                                    event.pageCount: Total number of pages
                                 </td>
                                 <td>Callback to invoke on pagination.</td>
                             </tr>
@@ -1559,7 +1559,7 @@ export default {
     &lt;Column field="name" header="Name" :expander="true"&gt;&lt;/Column&gt;
     &lt;Column field="size" header="Size"&gt;&lt;/Column&gt;
     &lt;Column field="type" header="Type"&gt;&lt;/Column&gt;
-&lt;/TreeTable&gt;  
+&lt;/TreeTable&gt;
 </template>
 </CodeHighlight>
 

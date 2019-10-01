@@ -8,7 +8,7 @@ import FullCalendar from 'primevue/fullcalendar';
 </CodeHighlight>
 
 				<h3>Getting Started</h3>
-				<p>FullCalendar is a wrapper around on <a href="https://fullcalendar.io/docs/v4">FullCalendar 4.0.0+</a> so fullcalendar needs to be included in your project. 
+				<p>FullCalendar is a wrapper around on <a href="https://fullcalendar.io/docs/v4">FullCalendar 4.0.0+</a> so fullcalendar needs to be included in your project.
                 For a complete documentation and samples please refer to the <a href="https://fullcalendar.io/">fullcalendar website</a>.</p>
 <CodeHighlight>
 npm install @fullcalendar/core --save
@@ -190,7 +190,7 @@ export default {
 
 				<h3>Dependencies</h3>
                 <p><a href="https://fullcalendar.io/docs/v4">FullCalendar 4.0.0+</a></p>
-				
+
 			</TabPanel>
 
 			<TabPanel header="Source">

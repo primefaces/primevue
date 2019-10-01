@@ -8,9 +8,9 @@
         </div>
         <div class="p-listbox-list-wrapper" :style="listStyle">
             <ul class="p-listbox-list">
-                <li v-for="(option, i) of visibleOptions" :tabindex="isOptionDisabled(option) ? null : '0'" :class="['p-listbox-item', {'p-highlight': isSelected(option), 'p-disabled': isOptionDisabled(option)}]" 
+                <li v-for="(option, i) of visibleOptions" :tabindex="isOptionDisabled(option) ? null : '0'" :class="['p-listbox-item', {'p-highlight': isSelected(option), 'p-disabled': isOptionDisabled(option)}]"
                     :aria-label="getOptionLabel(option)" :key="getOptionLabel(option)" @click="onOptionSelect($event, option)" @touchend="onOptionTouchEnd()" @keydown="onOptionKeyDown($event, option)">
-                    <slot name="option" :option="option" :index="i">  
+                    <slot name="option" :option="option" :index="i">
                         {{getOptionLabel(option)}}
                     </slot>
                 </li>
@@ -57,19 +57,19 @@ export default {
             if (this.disabled || this.isOptionDisabled(option)) {
                 return;
             }
-            
+
             if(this.multiple)
                 this.onOptionSelectMultiple(event, option);
             else
                 this.onOptionSelectSingle(event, option);
-                
+
             this.optionTouched = false;
         },
         onOptionTouchEnd() {
             if (this.disabled) {
                 return;
             }
-        
+
             this.optionTouched = true;
         },
         onOptionSelectSingle(event, option) {
@@ -80,7 +80,7 @@ export default {
 
             if (metaSelection) {
                 let metaKey = (event.metaKey || event.ctrlKey);
-                
+
                 if (selected) {
                     if (metaKey) {
                         value = null;
@@ -101,7 +101,7 @@ export default {
                 this.updateModel(event, value);
             }
         },
-        onOptionSelectMultiple(event, option) {        
+        onOptionSelectMultiple(event, option) {
             let selected = this.isSelected(option);
             let valueChanged = false;
             let value = null;
@@ -109,13 +109,13 @@ export default {
 
             if (metaSelection) {
                 let metaKey = (event.metaKey || event.ctrlKey);
-                
+
                 if (selected) {
                     if(metaKey)
                         value = this.removeOption(option);
                     else
                         value = [this.getOptionValue(option)];
-                    
+
                     valueChanged = true;
                 }
                 else {
@@ -129,7 +129,7 @@ export default {
                     value = this.removeOption(option);
                 else
                     value = [...this.value || [], this.getOptionValue(option)];
-                
+
                 valueChanged = true;
             }
 
@@ -174,7 +174,7 @@ export default {
                     if(nextItem) {
                         nextItem.focus();
                     }
-                    
+
                     event.preventDefault();
                 break;
 
@@ -184,7 +184,7 @@ export default {
                     if(prevItem) {
                         prevItem.focus();
                     }
-                    
+
                     event.preventDefault();
                 break;
 
@@ -205,12 +205,12 @@ export default {
         },
         findPrevItem(item) {
             let prevItem = item.previousElementSibling;
-            
+
             if (prevItem)
                 return DomHandler.hasClass(prevItem, 'p-disabled') ? this.findPrevItem(prevItem) : prevItem;
             else
                 return null;
-        } 
+        }
     },
     computed: {
         visibleOptions() {
@@ -234,7 +234,7 @@ export default {
 }
 
 .p-listbox .p-listbox-list {
-    list-style-type: none; 
+    list-style-type: none;
     margin: 0;
     padding: 0;
 }

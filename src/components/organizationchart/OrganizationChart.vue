@@ -1,6 +1,6 @@
 <template>
     <div class="p-organizationchart p-component">
-        <OrganizationChartNode :node="value" :templates="$scopedSlots" 
+        <OrganizationChartNode :node="value" :templates="$scopedSlots"
             @node-toggle="onNodeToggle" :collapsedKeys="d_collapsedKeys" :collapsible="collapsible"
             @node-click="onNodeClick" :selectionMode="selectionMode" :selectionKeys="selectionKeys" />
     </div>
@@ -75,7 +75,7 @@ export default {
             else {
                 this.d_collapsedKeys[key] = true;
                 this.$emit('node-collapse', node);
-            }                
+            }
 
             this.d_collapsedKeys = {...this.d_collapsedKeys};
             this.$emit('update:collapsedKeys', this.d_collapsedKeys);

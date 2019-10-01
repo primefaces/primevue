@@ -185,7 +185,7 @@ export default {
                 if (data && data.length && this.sortField) {
                     data = this.sort();
                 }
-            
+
                 if (this.paginator) {
                     const first = this.lazy ? 0 : this.d_first;
                     return data.slice(first, first + this.d_rows);
@@ -193,7 +193,7 @@ export default {
                 else {
                     return data;
                 }
-                    
+
             }
             else {
                 return null;
