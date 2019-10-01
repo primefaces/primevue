@@ -25,6 +25,14 @@
                 <Column field="brand" header="Brand" :sortable="true"></Column>
                 <Column field="color" header="Color" :sortable="true"></Column>
             </DataTable>
+
+            <h3>Presort</h3>
+            <DataTable :value="cars" sortField="year" :sortOrder="-1">
+                <Column field="vin" header="Vin" :sortable="true"></Column>
+                <Column field="year" header="Year" :sortable="true"></Column>
+                <Column field="brand" header="Brand" :sortable="true"></Column>
+                <Column field="color" header="Color" :sortable="true"></Column>
+            </DataTable>
 		</div>
 
         <div class="content-section documentation">
@@ -42,6 +50,14 @@
 
 &lt;h3&gt;Multiple Columns&lt;/h3&gt;
 &lt;DataTable :value="cars" sortMode="multiple"&gt;
+    &lt;Column field="vin" header="Vin" :sortable="true"&gt;&lt;/Column&gt;
+    &lt;Column field="year" header="Year" :sortable="true"&gt;&lt;/Column&gt;
+    &lt;Column field="brand" header="Brand" :sortable="true"&gt;&lt;/Column&gt;
+    &lt;Column field="color" header="Color" :sortable="true"&gt;&lt;/Column&gt;
+&lt;/DataTable&gt;
+
+&lt;h3&gt;Presort&lt;/h3&gt;
+&lt;DataTable :value="cars" sortField="year" :sortOrder="-1"&gt;
     &lt;Column field="vin" header="Vin" :sortable="true"&gt;&lt;/Column&gt;
     &lt;Column field="year" header="Year" :sortable="true"&gt;&lt;/Column&gt;
     &lt;Column field="brand" header="Brand" :sortable="true"&gt;&lt;/Column&gt;
