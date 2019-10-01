@@ -1,4 +1,43 @@
+<template>
+    <div class="p-accordion p-component">
+        <slot></slot>
+        <div v-for="(tab, i) of tabs" :key="tab.header || i" class="p-accordion-tab">
+            <div :class="['p-accordion-header', {'p-highlight': tab.d_active, 'p-disabled': tab.disabled}]">
+                <a role="tab" @click="onTabClick($event, tab)" @keydown="onTabKeydown($event, tab)" :tabindex="tab.disabled ? null : '0'">
+                    <span :class="['p-accordion-toggle-icon pi pi-fw', {'pi-caret-right': !tab.d_active, 'pi-caret-down': tab.d_active}]"></span>
+                    <span class="p-accordion-header-text" v-if="tab.header">{{tab.header}}</span>
+                    <AccordionTabSlot :tab="tab" type="header" v-if="tab.$scopedSlots.header" />
+                </a>
+            </div>
+            <transition name="p-accordion-content-wrapper">
+                <div class="p-accordion-content-wrapper" v-show="tab.d_active">
+                    <div class="p-accordion-content">
+                        <AccordionTabSlot :tab="tab" type="default" v-if="tab.$scopedSlots.default" />
+                    </div>
+                </div>
+            </transition>
+        </div>
+    </div>
+</template>
+
 <script>
+const AccordionTabSlot = {
+    functional: true,
+    props: {
+        tab: {
+            type: null,
+            default: null
+        },
+        type: {
+            type: String,
+            default: null
+        }
+    },
+    render(createElement, context) {
+        return [context.props.tab.$scopedSlots[context.props.type]()];
+    }
+};
+
 export default {
     props: {
         multiple: Boolean
@@ -37,36 +76,8 @@ export default {
             return this.props.multiple ? (this.d_activeTabIndex && this.d_activeTabIndex.indexOf(index) >= 0) : this.d_activeTabIndex === index;  
         }
     },
-    render() {
-        return (
-            <div class="p-accordion p-component">
-                {this.$slots.default}
-                {
-                    this.tabs.map((tab, i) => {
-                        return (
-                            <div key={tab.header||i} class="p-accordion-tab">
-                                <div class={['p-accordion-header', {'p-highlight': tab.d_active, 'p-disabled': tab.disabled}]}>
-                                    <a role="tab" on-click={event => this.onTabClick(event, tab)} on-keydown={event => this.onTabKeydown(event, tab)} tabindex={tab.disabled ? null : '0'}>
-                                        <span class={['p-accordion-toggle-icon pi pi-fw ',{'pi-caret-right': !tab.d_active, 'pi-caret-down': tab.d_active}]}></span>
-                                        {tab.header && <span class="p-accordion-header-text">{tab.header}</span>}
-                                        {tab.$slots.header}
-                                    </a>
-                                </div>
-                                <transition name="p-accordion-content-wrapper">
-                                    {
-                                        <div class="p-accordion-content-wrapper" v-show={tab.d_active}>
-                                            <div class="p-accordion-content">
-                                                {tab.$slots.default}
-                                            </div>
-                                        </div>
-                                    }
-                                </transition>
-                            </div>
-                        );
-                    })
-                }
-            </div>
-        )
+    components: {
+        'AccordionTabSlot': AccordionTabSlot
     }
 }
 </script>
