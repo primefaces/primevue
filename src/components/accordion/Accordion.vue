@@ -48,7 +48,7 @@ export default {
         };
     },
     mounted() {
-        this.tabs = this.$children;
+        this.tabs = this.$children.filter(child => child.$options._componentTag.indexOf('AccordionTab')===0);
     },
     methods: {
         onTabClick(event, tab) {
