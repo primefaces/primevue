@@ -130,7 +130,6 @@ export default {
 
 			this.totalShiftedItems = totalShiftedItems;
 
-			//this.$emit('page-change', {originalEvent: event, index});
 			this.$emit('update:activeIndex', index);
 			this.d_activeIndex = index;
 		},
@@ -154,12 +153,9 @@ export default {
 					let activeIndex = this.d_activeIndex;
 					activeIndex = parseInt((activeIndex * this.d_numScroll) / matchedResponsiveData.numScroll);
 
-					//let totalShiftedItems = (matchedResponsiveData.numScroll * activeIndex) * -1;
-
 					this.totalShiftedItems = (matchedResponsiveData.numScroll * activeIndex) * -1;
 					this.d_numScroll = matchedResponsiveData.numScroll;
 
-					//this.$emit('page-change', {originalEvent: event, activeIndex});
 					this.$emit('update:activeIndex', activeIndex);
 					this.d_activeIndex = activeIndex;
 				}
@@ -167,10 +163,6 @@ export default {
 				if (this.d_numVisible !== matchedResponsiveData.numVisible) {
 					this.d_numVisible = matchedResponsiveData.numVisible;
 				}
-
-				/*if (Object.keys(state).length) {
-					this.setState(state);
-				}*/
 			}
 		},
 		navBackward(e,index){
