@@ -396,6 +396,7 @@ export default {
 	flex-direction: column;
 	overflow: hidden;
 	padding: 0 .1em;
+	width: 100%;
 }
 
 .p-carousel-header,
