@@ -78,7 +78,6 @@
             </div>
         </div>
         <div class="templates">
-
             <h3>Premium Application Templates</h3>
             <p>Powered by <a href="https://cli.vuejs.org">Vue-CLI</a>, create awesome applications in no time using the premium templates of PrimeVue and impress your users.</p>
 
