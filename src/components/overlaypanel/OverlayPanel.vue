@@ -59,7 +59,7 @@ export default {
         },
         show(event) {
             this.visible = true;
-            this.target = event.target;
+            this.target = event.currentTarget;
         },
         hide() {
             this.visible = false;
