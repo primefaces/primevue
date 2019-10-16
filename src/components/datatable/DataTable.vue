@@ -22,8 +22,9 @@
             </DTPaginator>
             <table ref="table">
                 <thead class="p-datatable-thead">
-                    <tr>
-                        <th v-for="(col,i) of columns" :key="col.columnKey||col.field||i" :style="col.headerStyle" :class="getColumnHeaderClass(col)" @click="onColumnHeaderClick($event, col)">
+                    <tr v-if="!headerColumnGroup">
+                        <th v-for="(col,i) of columns" :key="col.columnKey||col.field||i" :style="col.headerStyle" :class="getColumnHeaderClass(col)" @click="onColumnHeaderClick($event, col)"
+                            :colspan="col.colspan" :rowspan="col.rowspan">
                             <span class="p-column-resizer p-clickable" @mousedown="onColumnResizeStart" v-if="resizableColumns"></span>
                             <ColumnSlot :column="col" type="header" v-if="col.$scopedSlots.header" />
                             <span class="p-column-title" v-if="col.header">{{col.header}}</span>
@@ -32,15 +33,19 @@
                             <DTHeaderCheckbox :checked="allRowsSelected" @change="toggleRowsWithCheckbox" :disabled="empty" v-if="col.selectionMode ==='multiple'" />
                         </th>
                     </tr>
+                    <template v-else>
+                        <tr v-for="(row,i) of headerColumnGroup.rows" :key="i">
+                            <th v-for="(col,i) of row.columns" :key="col.columnKey||col.field||i" :style="col.headerStyle" :class="getColumnHeaderClass(col)" @click="onColumnHeaderClick($event, col)"
+                                :colspan="col.colspan" :rowspan="col.rowspan">
+                                <ColumnSlot :column="col" type="header" v-if="col.$scopedSlots.header" />
+                                <span class="p-column-title" v-if="col.header">{{col.header}}</span>
+                                <span v-if="col.sortable" :class="getSortableColumnIcon(col)"></span>
+                                <ColumnSlot :column="col" type="filter" v-if="col.$scopedSlots.filter" />
+                                <DTHeaderCheckbox :checked="allRowsSelected" @change="toggleRowsWithCheckbox" :disabled="empty" v-if="col.selectionMode ==='multiple'" />
+                            </th>
+                        </tr>
+                    </template>
                 </thead>
-                <tfoot class="p-datatable-tfoot" v-if="hasFooter">
-                    <tr>
-                        <td v-for="(col,i) of columns" :key="col.columnKey||col.field||i" :style="col.footerStyle" :class="col.footerClass">
-                            <ColumnSlot :column="col" type="footer" v-if="col.$scopedSlots.footer" />
-                            {{col.footer}}
-                        </td>
-                    </tr>
-                </tfoot>
                 <tbody class="p-datatable-tbody">
                     <template v-if="!empty">
                         <tr :class="getRowClass(rowData)" v-for="(rowData, index) of dataToRender" :key="getRowKey(rowData, index)"
@@ -61,6 +66,24 @@
                         </td>
                     </tr>
                 </tbody>
+                <tfoot class="p-datatable-tfoot" v-if="hasFooter">
+                    <tr v-if="!footerColumnGroup">>
+                        <td v-for="(col,i) of columns" :key="col.columnKey||col.field||i" :style="col.footerStyle" :class="col.footerClass"
+                            :colspan="col.colspan" :rowspan="col.rowspan">
+                            <ColumnSlot :column="col" type="footer" v-if="col.$scopedSlots.footer" />
+                            {{col.footer}}
+                        </td>
+                    </tr>
+                     <template v-else>
+                        <tr v-for="(row,i) of footerColumnGroup.rows" :key="i">
+                            <td v-for="(col,i) of row.columns" :key="col.columnKey||col.field||i" :style="col.footerStyle" :class="col.footerClass"
+                                :colspan="col.colspan" :rowspan="col.rowspan">
+                                <ColumnSlot :column="col" type="footer" v-if="col.$scopedSlots.footer" />
+                                {{col.footer}}
+                            </td>
+                        </tr>
+                    </template>
+                </tfoot>
             </table>
             <DTPaginator v-if="paginatorBottom" :rows="d_rows" :first="d_first" :totalRecords="totalRecordsLength" :pageLinkSize="pageLinkSize" :template="paginatorTemplate" :rowsPerPageOptions="rowsPerPageOptions"
 					:currentPageReportTemplate="currentPageReportTemplate" class="p-paginator-bottom" @page="onPage($event)" :alwaysShow="alwaysShowPaginator">
@@ -948,9 +971,31 @@ export default {
         },
         columns() {
             if (this.allChildren) {
-                return this.allChildren.filter(child =>  child.$options._propKeys.indexOf('columnKey') !== -1);
+                return this.allChildren.filter(child => child.$options._propKeys.indexOf('columnKey') !== -1);
             }
             return [];
+        },
+        headerColumnGroup() {
+            if (this.allChildren) {
+                for (let child of this.allChildren) {
+                    if (child.$vnode.tag.indexOf('columngroup') !== -1 && child.type === 'header') {
+                        return child;
+                    }
+                }
+            }
+
+            return null;
+        },
+        footerColumnGroup() {
+            if (this.allChildren) {
+                for (let child of this.allChildren) {
+                    if (child.$vnode.tag.indexOf('columngroup') !== -1 && child.type === 'footer') {
+                        return child;
+                    }
+                }
+            }
+
+            return null;
         },
         processedData() {
             if (this.lazy) {
@@ -1014,10 +1059,15 @@ export default {
         hasFooter() {
             let hasFooter = false;
 
-            for (let col of this.columns) {
-                if (col.footer || col.$scopedSlots.footer) {
-                    hasFooter = true;
-                    break;
+            if (this.footerColumnGroup) {
+                hasFooter = true;
+            }
+            else {
+                for (let col of this.columns) {
+                    if (col.footer || col.$scopedSlots.footer) {
+                        hasFooter = true;
+                        break;
+                    }
                 }
             }
 

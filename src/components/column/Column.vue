@@ -65,6 +65,14 @@ export default {
         expander: {
             type: Boolean,
             default: false
+        },
+        colspan: {
+            type: Number,
+            default: null
+        },
+        rowspan: {
+            type: Number,
+            default: null
         }
     },
     render() {
