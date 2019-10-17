@@ -37,7 +37,8 @@
                     </tr>
                     <template v-else>
                         <tr v-for="(row,i) of headerColumnGroup.rows" :key="i">
-                            <th v-for="(col,i) of row.columns" :key="col.columnKey||col.field||i" :style="col.headerStyle" :class="getColumnHeaderClass(col)" @click="onColumnHeaderClick($event, col)"
+                            <th v-for="(col,i) of row.columns" :key="col.columnKey||col.field||i" :style="col.headerStyle" :class="getColumnHeaderClass(col)"
+                            @dragstart="onColumnHeaderDragStart($event)" @dragover="onColumnHeaderDragOver($event)" @dragleave="onColumnHeaderDragLeave($event)" @drop="onColumnHeaderDrop($event)"
                                 :colspan="col.colspan" :rowspan="col.rowspan">
                                 <ColumnSlot :column="col" type="header" v-if="col.$scopedSlots.header" />
                                 <span class="p-column-title" v-if="col.header">{{col.header}}</span>
@@ -51,12 +52,16 @@
                 <tbody class="p-datatable-tbody">
                     <template v-if="!empty">
                         <tr :class="getRowClass(rowData)" v-for="(rowData, index) of dataToRender" :key="getRowKey(rowData, index)"
-                            @click="onRowClick($event, rowData, index)" @touchend="onRowTouchEnd($event)" @keydown="onRowKeyDown($event, rowData, index)" :tabindex="selectionMode ? '0' : null">
+                            @click="onRowClick($event, rowData, index)" @touchend="onRowTouchEnd($event)" @keydown="onRowKeyDown($event, rowData, index)" :tabindex="selectionMode ? '0' : null"
+                            @mousedown="onRowMouseDown($event)" @dragstart="onRowDragStart($event, index)" @dragover="onRowDragOver($event,index)" @dragleave="onRowDragLeave($event)" @dragend="onRowDragEnd($event)" @drop="onRowDrop($event)">
                             <td v-for="(col,i) of columns" :key="col.columnKey||col.field||i" :style="col.bodyStyle" :class="col.bodyClass">
                                 <ColumnSlot :data="rowData" :column="col" type="body" v-if="col.$scopedSlots.body" />
                                 <template v-else-if="col.selectionMode">
                                     <DTRadioButton :value="rowData" :checked="isSelected(rowData)" @change="toggleRowWithRadio" v-if="col.selectionMode === 'single'" />
                                     <DTCheckbox :value="rowData" :checked="isSelected(rowData)" @change="toggleRowWithCheckbox" v-else-if="col.selectionMode ==='multiple'" />
+                                </template>
+                                <template v-else-if="col.rowReorder">
+                                    <i :class="['p-datatable-reorderablerow-handle', col.rowReorderIcon]"></i>
                                 </template>
                                 <template v-else>{{resolveFieldData(rowData, col.field)}}</template>
                             </td>
@@ -294,6 +299,9 @@ export default {
     colReorderIconWidth: null,
     colReorderIconHeight: null,
     draggedColumn: null,
+    draggedRowIndex: null,
+    droppedRowIndex: null,
+    rowDragging: null,
     watch: {
         first(newValue) {
             this.d_first = newValue;
@@ -980,8 +988,8 @@ export default {
                  this.documentColumnResizeEndListener = null;
             }
         },
-        onColumnHeaderMouseDown(event) {
-            if (this.reorderableColumns) {
+        onColumnHeaderMouseDown(event, col) {
+            if (this.reorderableColumns && col.reorderableColumn) {
                 if (event.target.nodeName === 'INPUT' || event.target.nodeName === 'TEXTAREA' || DomHandler.hasClass(event.target, 'p-column-resizer'))
                     event.currentTarget.draggable = false;
                 else
@@ -1050,7 +1058,7 @@ export default {
                 if (allowDrop) {
                     ObjectUtils.reorderArray(this.columnOrder, dragIndex, dropIndex);
 
-                    this.$emit('colreorder', {
+                    this.$emit('col-reorder', {
                         dragIndex: dragIndex,
                         dropIndex: dropIndex,
                         columns: this.columns
@@ -1088,6 +1096,83 @@ export default {
             }
             
             return null;
+        },
+        onRowMouseDown(event) {
+            if (DomHandler.hasClass(event.target, 'p-datatable-reorderablerow-handle'))
+                event.currentTarget.draggable = true;
+            else
+                event.currentTarget.draggable = false;
+        },
+        onRowDragStart(event, index) {
+            this.rowDragging = true;
+            this.draggedRowIndex = index;
+            event.dataTransfer.setData('text', 'b');    // For firefox
+        },
+        onRowDragOver(event, index) {
+            if (this.rowDragging && this.draggedRowIndex !== index) {
+                let rowElement = event.currentTarget;
+                let rowY = DomHandler.getOffset(rowElement).top + DomHandler.getWindowScrollTop();
+                let pageY = event.pageY;
+                let rowMidY = rowY + DomHandler.getOuterHeight(rowElement) / 2;
+                let prevRowElement = rowElement.previousElementSibling;
+                
+                if (pageY < rowMidY) {
+                    DomHandler.removeClass(rowElement, 'p-datatable-dragpoint-bottom');
+        
+                    this.droppedRowIndex = index;
+                    if (prevRowElement)
+                        DomHandler.addClass(prevRowElement, 'p-datatable-dragpoint-bottom');
+                    else
+                        DomHandler.addClass(rowElement, 'p-datatable-dragpoint-top');
+                }
+                else {
+                    if (prevRowElement)
+                        DomHandler.removeClass(prevRowElement, 'p-datatable-dragpoint-bottom');
+                    else
+                        DomHandler.addClass(rowElement, 'p-datatable-dragpoint-top');
+        
+                    this.droppedRowIndex = index + 1;
+                    DomHandler.addClass(rowElement, 'p-datatable-dragpoint-bottom');
+                }
+
+                event.preventDefault();
+            }
+        },
+        onRowDragLeave(event) {
+            let rowElement = event.currentTarget;
+            let prevRowElement = rowElement.previousElementSibling;
+            if (prevRowElement) {
+                DomHandler.removeClass(prevRowElement, 'p-datatable-dragpoint-bottom');
+            }
+
+            DomHandler.removeClass(rowElement, 'p-datatable-dragpoint-bottom');
+            DomHandler.removeClass(rowElement, 'p-datatable-dragpoint-top');
+        },
+        onRowDragEnd(event) {
+            this.rowDragging = false;
+            this.draggedRowIndex = null;
+            this.droppedRowIndex = null;
+            event.currentTarget.draggable = false;
+        },
+        onRowDrop(event) {
+            let rowElement = event.currentTarget;
+
+            if (this.droppedRowIndex != null) {
+                let dropIndex = (this.draggedRowIndex > this.droppedRowIndex) ? this.droppedRowIndex : (this.droppedRowIndex === 0) ? 0 : this.droppedRowIndex - 1;
+                let processedData = [...this.processedData];
+                ObjectUtils.reorderArray(processedData, this.draggedRowIndex, dropIndex);
+
+                this.$emit('row-reorder', {
+                    dragIndex: this.draggedRowIndex,
+                    dropIndex: dropIndex,
+                    value: processedData
+                });
+            }
+
+            //cleanup
+            this.onRowDragLeave(event);
+            this.onRowDragEnd(event);
+            event.preventDefault();
         }
     },
     computed: {
