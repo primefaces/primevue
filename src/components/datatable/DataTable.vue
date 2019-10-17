@@ -23,7 +23,9 @@
             <table ref="table">
                 <thead class="p-datatable-thead">
                     <tr v-if="!headerColumnGroup">
-                        <th v-for="(col,i) of columns" :key="col.columnKey||col.field||i" :style="col.headerStyle" :class="getColumnHeaderClass(col)" @click="onColumnHeaderClick($event, col)"
+                        <th v-for="(col,i) of columns" :key="col.columnKey||col.field||i" :style="col.headerStyle" :class="getColumnHeaderClass(col)" 
+                            @click="onColumnHeaderClick($event, col)" @mousedown="onColumnHeaderMouseDown($event, col)"
+                            @dragstart="onColumnHeaderDragStart($event)" @dragover="onColumnHeaderDragOver($event)" @dragleave="onColumnHeaderDragLeave($event)" @drop="onColumnHeaderDrop($event)"
                             :colspan="col.colspan" :rowspan="col.rowspan">
                             <span class="p-column-resizer p-clickable" @mousedown="onColumnResizeStart" v-if="resizableColumns"></span>
                             <ColumnSlot :column="col" type="header" v-if="col.$scopedSlots.header" />
@@ -99,6 +101,8 @@
             </div>
         </div>
         <div ref="resizeHelper" class="p-column-resizer-helper p-highlight" style="display: none"></div>
+        <span ref="reorderIndicatorUp" class="pi pi-arrow-down p-datatable-reorder-indicator-up" style="position: absolute; display: none" v-if="reorderableColumns" />
+        <span ref="reorderIndicatorDown" class="pi pi-arrow-up p-datatable-reorder-indicator-down" style="position: absolute; display: none" v-if="reorderableColumns" />
     </div>
 </template>
 
@@ -261,6 +265,10 @@ export default {
         columnResizeMode: {
             type: String,
             default: 'fit'
+        },
+        reorderableColumns: {
+            type: Boolean,
+            default: false
         }
     },
     data() {
@@ -271,7 +279,8 @@ export default {
             d_sortField: this.sortField,
             d_sortOrder: this.sortOrder,
             d_multiSortMeta: this.multiSortMeta ? [...this.multiSortMeta] : [],
-            d_selectionKeys: null
+            d_selectionKeys: null,
+            columnOrder: null
         };
     },
     rowTouched: false,
@@ -281,6 +290,10 @@ export default {
     documentColumnResizeEndListener: null,
     lastResizeHelperX: null,
     resizeColumnElement: null,
+    columnResizing: false,
+    colReorderIconWidth: null,
+    colReorderIconHeight: null,
+    draggedColumn: null,
     watch: {
         first(newValue) {
             this.d_first = newValue;
@@ -305,6 +318,16 @@ export default {
     },
     mounted() {
         this.allChildren = this.$children;
+
+        if (this.reorderableColumns) {
+            let columnOrder = [];
+            for (let child of this.allChildren) {
+                if (child.$options._propKeys.indexOf('columnKey') !== -1) {
+                    columnOrder.push(child.columnKey||child.field);
+                }
+            }
+            this.columnOrder = columnOrder;
+        }
     },
     beforeDestroy() {
         this.unbindColumnResizeEvents();
@@ -956,6 +979,115 @@ export default {
                 document.removeEventListener('document', this.documentColumnResizeEndListener);
                  this.documentColumnResizeEndListener = null;
             }
+        },
+        onColumnHeaderMouseDown(event) {
+            if (this.reorderableColumns) {
+                if (event.target.nodeName === 'INPUT' || event.target.nodeName === 'TEXTAREA' || DomHandler.hasClass(event.target, 'p-column-resizer'))
+                    event.currentTarget.draggable = false;
+                else
+                    event.currentTarget.draggable = true;
+            }
+        },
+        onColumnHeaderDragStart(event) {
+            if(this.columnResizing) {
+                event.preventDefault();
+                return;
+            }
+            
+            this.colReorderIconWidth = DomHandler.getHiddenElementOuterWidth(this.$refs.reorderIndicatorUp);
+            this.colReorderIconHeight = DomHandler.getHiddenElementOuterHeight(this.$refs.reorderIndicatorUp);
+
+            this.draggedColumn = this.findParentHeader(event.target);
+            event.dataTransfer.setData('text', 'b'); // Firefox requires this to make dragging possible
+        },
+        onColumnHeaderDragOver(event) {
+            let dropHeader = this.findParentHeader(event.target);
+            if(this.reorderableColumns && this.draggedColumn && dropHeader) {
+                event.preventDefault();
+                let containerOffset = DomHandler.getOffset(this.$el);
+                let dropHeaderOffset = DomHandler.getOffset(dropHeader);
+                
+                if (this.draggedColumn !== dropHeader) {
+                    let targetLeft =  dropHeaderOffset.left - containerOffset.left;
+                    let columnCenter = dropHeaderOffset.left + dropHeader.offsetWidth / 2;
+                    
+                    this.$refs.reorderIndicatorUp.style.top = dropHeaderOffset.top - containerOffset.top - (this.colReorderIconHeight - 1) + 'px';
+                    this.$refs.reorderIndicatorDown.style.top = dropHeaderOffset.top - containerOffset.top + dropHeader.offsetHeight + 'px';
+
+                    if(event.pageX > columnCenter) {
+                        this.$refs.reorderIndicatorUp.style.left = (targetLeft + dropHeader.offsetWidth - Math.ceil(this.colReorderIconWidth / 2)) + 'px';
+                        this.$refs.reorderIndicatorDown.style.left = (targetLeft + dropHeader.offsetWidth - Math.ceil(this.colReorderIconWidth / 2))+ 'px';
+                        this.dropPosition = 1;
+                    }
+                    else {
+                        this.$refs.reorderIndicatorUp.style.left = (targetLeft - Math.ceil(this.colReorderIconWidth / 2)) + 'px';
+                        this.$refs.reorderIndicatorDown.style.left = (targetLeft - Math.ceil(this.colReorderIconWidth / 2))+ 'px';
+                        this.dropPosition = -1;
+                    }
+                                    
+                    this.$refs.reorderIndicatorUp.style.display = 'block';
+                    this.$refs.reorderIndicatorDown.style.display = 'block';
+                }
+            }
+        },
+        onColumnHeaderDragLeave(event) {
+            if(this.reorderableColumns && this.draggedColumn) {
+                event.preventDefault();
+                this.$refs.reorderIndicatorUp.style.display = 'none';
+                this.$refs.reorderIndicatorDown.style.display = 'none';
+            }
+        },
+        onColumnHeaderDrop(event) {
+            event.preventDefault();
+            if (this.draggedColumn) {
+                let dragIndex = DomHandler.index(this.draggedColumn);
+                let dropIndex = DomHandler.index(this.findParentHeader(event.target));
+                let allowDrop = (dragIndex !== dropIndex);
+                if (allowDrop && ((dropIndex - dragIndex === 1 && this.dropPosition === -1) || (dragIndex - dropIndex === 1 && this.dropPosition === 1))) {
+                    allowDrop = false;
+                }
+            
+                if (allowDrop) {
+                    ObjectUtils.reorderArray(this.columnOrder, dragIndex, dropIndex);
+
+                    this.$emit('colreorder', {
+                        dragIndex: dragIndex,
+                        dropIndex: dropIndex,
+                        columns: this.columns
+                    });
+                }
+                
+                this.$refs.reorderIndicatorUp.style.display = 'none';
+                this.$refs.reorderIndicatorDown.style.display = 'none';
+                this.draggedColumn.draggable = false;
+                this.draggedColumn = null;
+                this.dropPosition = null;
+            }
+        },
+        findParentHeader(element) {
+            if(element.nodeName === 'TH') {
+                return element;
+            }
+            else {
+                let parent = element.parentElement;
+                while(parent.nodeName !== 'TH') {
+                    parent = parent.parentElement;
+                    if (!parent) break;
+                }
+                return parent;
+            }
+        },
+        findColumnByKey(columns, key) {
+            if(columns && columns.length) {
+                for(let i = 0; i < columns.length; i++) {
+                    let child = columns[i];
+                    if(child.columnKey === key || child.field === key) {
+                        return child;
+                    }
+                }
+            }
+            
+            return null;
         }
     },
     computed: {
@@ -970,10 +1102,27 @@ export default {
             ];
         },
         columns() {
+            let columns = [];
+
             if (this.allChildren) {
-                return this.allChildren.filter(child => child.$options._propKeys.indexOf('columnKey') !== -1);
+                columns = this.allChildren.filter(child => child.$options._propKeys.indexOf('columnKey') !== -1);
+            
+                if (this.reorderableColumns && this.columnOrder) {
+                    let orderedColumns = [];
+                    for (let columnKey of this.columnOrder) {
+                        let column = this.findColumnByKey(columns, columnKey);
+                        if (column) {
+                            orderedColumns.push(column);
+                        }
+                    }
+
+                    return [...orderedColumns, ...columns.filter((item) => {
+                        return orderedColumns.indexOf(item) < 0;
+                    })];
+                }
             }
-            return [];
+            
+            return columns;
         },
         headerColumnGroup() {
             if (this.allChildren) {

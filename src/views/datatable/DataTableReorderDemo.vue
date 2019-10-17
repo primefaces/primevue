@@ -4,27 +4,32 @@
 
 		<div class="content-section introduction">
 			<div class="feature-intro">
-				<h1>DataTable</h1>
-				<p>DataTable displays data in tabular format.</p>
+				<h1>DataTable - Reorder</h1>
+				<p>Order of the columns and rows can be changed using drag and drop.</p>
 			</div>
 		</div>
 
 		<div class="content-section implementation">
-			<h3 class="first">Basic</h3>
-			<DataTable :value="cars">
-                <Column field="vin" header="Vin"></Column>
-                <Column field="year" header="Year"></Column>
-                <Column field="brand" header="Brand"></Column>
-                <Column field="color" header="Color"></Column>
-            </DataTable>
-
-            <h3>Dynamic Columns</h3>
-			<DataTable :value="cars">
+			<DataTable :value="cars" :reorderableColumns="true" @colreorder="onColReorder">
                 <Column v-for="col of columns" :field="col.field" :header="col.header" :key="col.field"></Column>
             </DataTable>
 		</div>
 
-        <DataTableDoc />
+        <div class="content-section documentation">
+            <TabView>
+                <TabPanel header="Source">
+<CodeHighlight>
+<template v-pre>
+
+</template>
+</CodeHighlight>
+
+<CodeHighlight lang="javascript">
+
+</CodeHighlight>
+                </TabPanel>
+            </TabView>
+        </div>
 	</div>
 </template>
 
@@ -53,6 +58,11 @@ export default {
     },
     mounted() {
         this.carService.getCarsSmall().then(data => this.cars = data);
+    },
+    methods: {
+        onColReorder(event) {
+            this.$toast.add({severity:'success', summary: 'Column Reordered', life: 3000});
+        }
     },
     components: {
         'DataTableDoc': DataTableDoc,
