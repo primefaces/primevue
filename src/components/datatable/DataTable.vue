@@ -1058,10 +1058,10 @@ export default {
                 if (allowDrop) {
                     ObjectUtils.reorderArray(this.columnOrder, dragIndex, dropIndex);
 
-                    this.$emit('col-reorder', {
+                    this.$emit('column-reorder', {
+                        originalEvent: event,
                         dragIndex: dragIndex,
-                        dropIndex: dropIndex,
-                        columns: this.columns
+                        dropIndex: dropIndex
                     });
                 }
                 
@@ -1163,6 +1163,7 @@ export default {
                 ObjectUtils.reorderArray(processedData, this.draggedRowIndex, dropIndex);
 
                 this.$emit('row-reorder', {
+                    originalEvent: event,
                     dragIndex: this.draggedRowIndex,
                     dropIndex: dropIndex,
                     value: processedData

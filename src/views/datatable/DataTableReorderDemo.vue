@@ -10,7 +10,7 @@
 		</div>
 
 		<div class="content-section implementation">
-			<DataTable :value="cars" :reorderableColumns="true" @col-reorder="onColReorder" @row-reorder="onRowReorder">
+			<DataTable :value="cars" :reorderableColumns="true" @column-reorder="onColReorder" @row-reorder="onRowReorder">
                 <Column :rowReorder="true" headerStyle="width: 3em" :reorderableColumn="false" />
                 <Column v-for="col of columns" :field="col.field" :header="col.header" :key="col.field"></Column>
             </DataTable>
@@ -21,7 +21,7 @@
                 <TabPanel header="Source">
 <CodeHighlight>
 <template v-pre>
-&lt;DataTable :value="cars" :reorderableColumns="true" @col-reorder="onColReorder" @row-reorder="onRowReorder"&gt;
+&lt;DataTable :value="cars" :reorderableColumns="true" @column-reorder="onColReorder" @row-reorder="onRowReorder"&gt;
     &lt;Column :rowReorder="true" headerStyle="width: 3em" :reorderableColumn="false" /&gt;
     &lt;Column v-for="col of columns" :field="col.field" :header="col.header" :key="col.field"&gt;&lt;/Column&gt;
 &lt;/DataTable&gt;

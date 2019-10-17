@@ -77,8 +77,8 @@ export default {
         rowReorder: {
             type: Boolean,
             default: false
-        }
-        ,rowReorderIcon: {
+        },
+        rowReorderIcon: {
             type: String,
             default: 'pi pi-bars'
         },

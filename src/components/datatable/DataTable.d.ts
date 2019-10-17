@@ -34,12 +34,15 @@ export declare class DataTable extends Vue {
     autoLayout?: boolean;
     resizableColumns?: boolean;
     columnResizeMode?: string;
+    reorderableColumns?: boolean;
     $emit(eventName: 'page', event: Event): this;
     $emit(eventName: 'sort', event: Event): this;
     $emit(eventName: 'filter', event: Event): this;
     $emit(eventName: 'row-select', event: Event): this;
     $emit(eventName: 'row-unselect', event: Event): this;
     $emit(eventName: 'column-resize-end', event: Event): this;
+    $emit(eventName: 'column-reorder', event: Event): this;
+    $emit(eventName: 'row-reorder', event: Event): this;
     $slots: {
         header: VNode[];
         paginatorLeft: VNode[];
