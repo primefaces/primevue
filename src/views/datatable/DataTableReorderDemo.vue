@@ -72,7 +72,6 @@ export default {
 <script>
 import CarService from '../../service/CarService';
 import DataTableSubMenu from './DataTableSubMenu';
-import DataTableDoc from './DataTableDoc';
 
 export default {
     data() {
@@ -96,7 +95,7 @@ export default {
         this.carService.getCarsSmall().then(data => this.cars = data);
     },
     methods: {
-        onColReorder(event) {
+        onColReorder() {
             this.$toast.add({severity:'success', summary: 'Column Reordered', life: 3000});
         },
         onRowReorder(event) {
@@ -105,7 +104,6 @@ export default {
         }
     },
     components: {
-        'DataTableDoc': DataTableDoc,
         'DataTableSubMenu': DataTableSubMenu
     }
 }

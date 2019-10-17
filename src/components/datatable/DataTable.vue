@@ -23,7 +23,7 @@
             <table ref="table">
                 <thead class="p-datatable-thead">
                     <tr v-if="!headerColumnGroup">
-                        <th v-for="(col,i) of columns" :key="col.columnKey||col.field||i" :style="col.headerStyle" :class="getColumnHeaderClass(col)" 
+                        <th v-for="(col,i) of columns" :key="col.columnKey||col.field||i" :style="col.headerStyle" :class="getColumnHeaderClass(col)"
                             @click="onColumnHeaderClick($event, col)" @mousedown="onColumnHeaderMouseDown($event, col)"
                             @dragstart="onColumnHeaderDragStart($event)" @dragover="onColumnHeaderDragOver($event)" @dragleave="onColumnHeaderDragLeave($event)" @drop="onColumnHeaderDrop($event)"
                             :colspan="col.colspan" :rowspan="col.rowspan">
@@ -1001,7 +1001,7 @@ export default {
                 event.preventDefault();
                 return;
             }
-            
+
             this.colReorderIconWidth = DomHandler.getHiddenElementOuterWidth(this.$refs.reorderIndicatorUp);
             this.colReorderIconHeight = DomHandler.getHiddenElementOuterHeight(this.$refs.reorderIndicatorUp);
 
@@ -1014,11 +1014,11 @@ export default {
                 event.preventDefault();
                 let containerOffset = DomHandler.getOffset(this.$el);
                 let dropHeaderOffset = DomHandler.getOffset(dropHeader);
-                
+
                 if (this.draggedColumn !== dropHeader) {
                     let targetLeft =  dropHeaderOffset.left - containerOffset.left;
                     let columnCenter = dropHeaderOffset.left + dropHeader.offsetWidth / 2;
-                    
+
                     this.$refs.reorderIndicatorUp.style.top = dropHeaderOffset.top - containerOffset.top - (this.colReorderIconHeight - 1) + 'px';
                     this.$refs.reorderIndicatorDown.style.top = dropHeaderOffset.top - containerOffset.top + dropHeader.offsetHeight + 'px';
 
@@ -1032,7 +1032,7 @@ export default {
                         this.$refs.reorderIndicatorDown.style.left = (targetLeft - Math.ceil(this.colReorderIconWidth / 2))+ 'px';
                         this.dropPosition = -1;
                     }
-                                    
+
                     this.$refs.reorderIndicatorUp.style.display = 'block';
                     this.$refs.reorderIndicatorDown.style.display = 'block';
                 }
@@ -1054,7 +1054,7 @@ export default {
                 if (allowDrop && ((dropIndex - dragIndex === 1 && this.dropPosition === -1) || (dragIndex - dropIndex === 1 && this.dropPosition === 1))) {
                     allowDrop = false;
                 }
-            
+
                 if (allowDrop) {
                     ObjectUtils.reorderArray(this.columnOrder, dragIndex, dropIndex);
 
@@ -1064,7 +1064,7 @@ export default {
                         dropIndex: dropIndex
                     });
                 }
-                
+
                 this.$refs.reorderIndicatorUp.style.display = 'none';
                 this.$refs.reorderIndicatorDown.style.display = 'none';
                 this.draggedColumn.draggable = false;
@@ -1094,7 +1094,7 @@ export default {
                     }
                 }
             }
-            
+
             return null;
         },
         onRowMouseDown(event) {
@@ -1115,10 +1115,10 @@ export default {
                 let pageY = event.pageY;
                 let rowMidY = rowY + DomHandler.getOuterHeight(rowElement) / 2;
                 let prevRowElement = rowElement.previousElementSibling;
-                
+
                 if (pageY < rowMidY) {
                     DomHandler.removeClass(rowElement, 'p-datatable-dragpoint-bottom');
-        
+
                     this.droppedRowIndex = index;
                     if (prevRowElement)
                         DomHandler.addClass(prevRowElement, 'p-datatable-dragpoint-bottom');
@@ -1130,7 +1130,7 @@ export default {
                         DomHandler.removeClass(prevRowElement, 'p-datatable-dragpoint-bottom');
                     else
                         DomHandler.addClass(rowElement, 'p-datatable-dragpoint-top');
-        
+
                     this.droppedRowIndex = index + 1;
                     DomHandler.addClass(rowElement, 'p-datatable-dragpoint-bottom');
                 }
@@ -1155,8 +1155,6 @@ export default {
             event.currentTarget.draggable = false;
         },
         onRowDrop(event) {
-            let rowElement = event.currentTarget;
-
             if (this.droppedRowIndex != null) {
                 let dropIndex = (this.draggedRowIndex > this.droppedRowIndex) ? this.droppedRowIndex : (this.droppedRowIndex === 0) ? 0 : this.droppedRowIndex - 1;
                 let processedData = [...this.processedData];
@@ -1192,7 +1190,7 @@ export default {
 
             if (this.allChildren) {
                 columns = this.allChildren.filter(child => child.$options._propKeys.indexOf('columnKey') !== -1);
-            
+
                 if (this.reorderableColumns && this.columnOrder) {
                     let orderedColumns = [];
                     for (let columnKey of this.columnOrder) {
@@ -1207,7 +1205,6 @@ export default {
                     })];
                 }
             }
-            
             return columns;
         },
         headerColumnGroup() {

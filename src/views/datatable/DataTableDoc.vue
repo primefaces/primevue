@@ -246,8 +246,8 @@ export default {
                             </tr>
                             <tr>
                                 <td>reorderableColumn</td>
-                                <td>string</td>
-                                <td>null</td>
+                                <td>boolean</td>
+                                <td>true</td>
                                 <td>Defines if the column itself can be reordered with dragging.</td>
                             </tr>
                         </tbody>
@@ -630,8 +630,7 @@ data() {
 </CodeHighlight>
 
                 <h3>Column Reorder</h3>
-                <p>Columns can be reordered using drag drop by setting the <i>reorderableColumns</i> to true. <i>column-reorder</i> is a callback that is invoked when a column is reordered. 
-                DataTable keeps the column order state internally using keys that identifies a column using the field property. If the column has no field, use columnKey instead.</p>
+                <p>Columns can be reordered using drag drop by setting the <i>reorderableColumns</i> to true. <i>column-reorder</i> is a callback that is invoked when a column is reordered. DataTable keeps the column order state internally using keys that identifies a column using the field property. If the column has no field, use columnKey instead.</p>
 <CodeHighlight>
 <template v-pre>
 &lt;DataTable :value="cars" :reorderableColumns="true"&gt;
@@ -644,8 +643,7 @@ data() {
 </CodeHighlight>
 
                 <h3>Row Reorder</h3>
-                <p>Data can be reordered using drag drop by adding a reorder column that will display an icon as a drag handle. 
-                    "row-reorder" is a mandatory callback that is invoked when a column is reordered, use this event to update the new order. Note that the reorder icon can be customized using <i>rowReorderIcon</i> of the column component.</p>
+                <p>Data can be reordered using drag drop by adding a reorder column that will display an icon as a drag handle. "row-reorder" is a mandatory callback that is invoked when a column is reordered, use this event to update the new order. Note that the reorder icon can be customized using <i>rowReorderIcon</i> of the column component.</p>
 <CodeHighlight>
 <template v-pre>
 &lt;DataTable :value="cars" @row-reorder="onRowReorder"&gt;
