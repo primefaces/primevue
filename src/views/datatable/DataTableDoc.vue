@@ -643,7 +643,7 @@ data() {
 </CodeHighlight>
 
                 <h3>Row Reorder</h3>
-                <p>Data can be reordered using drag drop by adding a reorder column that will display an icon as a drag handle. "row-reorder" is a mandatory callback that is invoked when a column is reordered, use this event to update the new order. Note that the reorder icon can be customized using <i>rowReorderIcon</i> of the column component.</p>
+                <p>Data can be reordered using drag drop by adding a reorder column that will display an icon as a drag handle along with the <i>row-order</i> event which is <b>mandatory</b> to update the new order. Note that the reorder icon can be customized using <i>rowReorderIcon</i> of the column component.</p>
 <CodeHighlight>
 <template v-pre>
 &lt;DataTable :value="cars" @row-reorder="onRowReorder"&gt;
