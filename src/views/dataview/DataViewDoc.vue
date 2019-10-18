@@ -510,7 +510,7 @@ export default {
         &amp; > div {
             display: flex;
             align-items: center;
-            
+
             img {
                 margin-right: 14px;
             }
