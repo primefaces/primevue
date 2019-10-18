@@ -44,11 +44,11 @@ export default {
     },
     data() {
         return {
-            tabs: []
+            d_children: []
         };
     },
     mounted() {
-        this.tabs = this.$children.filter(child => child.$options._componentTag.indexOf('AccordionTab')===0);
+        this.d_children = this.$children;
     },
     methods: {
         onTabClick(event, tab) {
@@ -74,6 +74,11 @@ export default {
         },
         isSelected(index) {
             return this.props.multiple ? (this.d_activeTabIndex && this.d_activeTabIndex.indexOf(index) >= 0) : this.d_activeTabIndex === index;
+        }
+    },
+    computed: {
+        tabs() {
+            return this.d_children.filter(child => child.$vnode.tag.indexOf('accordiontab') !== -1);
         }
     },
     components: {

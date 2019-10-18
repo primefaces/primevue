@@ -31,16 +31,11 @@ const TabPanelHeaderSlot = {
 export default {
     data() {
         return {
-            tabs: []
+            d_children: []
         };
     },
     mounted() {
-        this.tabs = this.$children;
-
-        let activeTab = this.findActiveTab();
-        if (!activeTab && this.tabs.length) {
-            this.tabs[0].d_active = true;
-        }
+        this.d_children = this.$children;
     },
     methods: {
         onTabClick(event, tab) {
@@ -76,6 +71,17 @@ export default {
             }
 
             return activeTab;
+        }
+    },
+    updated() {
+        let activeTab = this.findActiveTab();
+        if (!activeTab && this.tabs.length) {
+            this.tabs[0].d_active = true;
+        }
+    },
+    computed: {
+        tabs() {
+            return this.d_children.filter(child => child.$vnode.tag.indexOf('tabpanel') !== -1);
         }
     },
     components: {

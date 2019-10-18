@@ -1,5 +1,6 @@
 <script>
 export default {
+    name: 'accordiontab',
     props: {
         header: null,
         active: Boolean,

@@ -6,6 +6,7 @@
 
 <script>
 export default {
+    name: 'tabpanel',
     props: {
         header: null,
         active: Boolean,
