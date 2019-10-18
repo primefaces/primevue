@@ -499,6 +499,10 @@ export default {
 </CodeHighlight>
 
 <CodeHighlight lang="css">
+.p-dropdown {
+    width: 12em;
+}
+
 .p-dataview {
     .car-details {
         display: flex;
@@ -517,6 +521,7 @@ export default {
         }
     }
 }
+
 @media (max-width: 1024px) {
 	.p-dataview {
         .car-details {

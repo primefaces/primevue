@@ -102,6 +102,10 @@ export default {
 </script>
 
 <style lang="scss" scoped>
+.p-dropdown {
+    width: 12em;
+}
+
 .p-dataview {
     .car-details {
         display: flex;
