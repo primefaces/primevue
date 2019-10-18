@@ -6,6 +6,7 @@
 				<CodeHighlight lang="javascript">
 import DataTable from 'primevue/datatable';
 import Column from 'primevue/column';
+import ColumnGroup from 'primevue/columngroup';     //optional for column grouping
 				</CodeHighlight>
 
                 <h3>Getting Started</h3>
@@ -219,6 +220,36 @@ export default {
                                 <td>null</td>
                                 <td>Defines column based selection mode, options are "single" and "multiple".</td>
                             </tr>
+                            <tr>
+                                <td>colspan</td>
+                                <td>number</td>
+                                <td>null</td>
+                                <td>Number of columns to span for grouping.</td>
+                            </tr>
+                            <tr>
+                                <td>rowspan</td>
+                                <td>number</td>
+                                <td>null</td>
+                                <td>Number of rows to span for grouping.</td>
+                            </tr>
+                            <tr>
+                                <td>rowReorder</td>
+                                <td>boolean</td>
+                                <td>false</td>
+                                <td>Whether this column displays an icon to reorder the rows.</td>
+                            </tr>
+                            <tr>
+                                <td>rowReorderIcon</td>
+                                <td>string</td>
+                                <td>pi pi-bars</td>
+                                <td>Icon of the drag handle to reorder rows.</td>
+                            </tr>
+                            <tr>
+                                <td>reorderableColumn</td>
+                                <td>boolean</td>
+                                <td>true</td>
+                                <td>Defines if the column itself can be reordered with dragging.</td>
+                            </tr>
                         </tbody>
                     </table>
                 </div>
@@ -259,6 +290,43 @@ export default {
     &lt;template #footer&gt;
         In total there are &#123;&#123;cars ? cars.length : 0 &#125;&#125; cars.
     &lt;/template&gt;
+&lt;/DataTable&gt;
+</template>
+</CodeHighlight>
+
+                <h3>Column Grouping</h3>
+                <p>Columns can be grouped at header and footer sections by defining a ColumnGroup with nested rows and columns.</p>
+<CodeHighlight>
+<template v-pre>
+&lt;DataTable :value="sales"&gt;
+    &lt;ColumnGroup type="header"&gt;
+        &lt;Row&gt;
+            &lt;Column header="Brand" :rowspan="3" /&gt;
+            &lt;Column header="Sale Rate" :colspan="4" /&gt;
+        &lt;/Row&gt;
+        &lt;Row&gt;
+            &lt;Column header="Sales" :colspan="2" /&gt;
+            &lt;Column header="Profits" :colspan="2" /&gt;
+        &lt;/Row&gt;
+        &lt;Row&gt;
+            &lt;Column header="Last Year" /&gt;
+            &lt;Column header="This Year" /&gt;
+            &lt;Column header="Last Year" /&gt;
+            &lt;Column header="This Year" /&gt;
+        &lt;/Row&gt;
+    &lt;/ColumnGroup&gt;
+    &lt;Column field="brand" /&gt;
+    &lt;Column field="lastYearSale" /&gt;
+    &lt;Column field="thisYearSale" /&gt;
+    &lt;Column field="lastYearProfit" /&gt;
+    &lt;Column field="thisYearProfit" /&gt;
+    &lt;ColumnGroup type="footer"&gt;
+        &lt;Row&gt;
+            &lt;Column footer="Totals:" :colspan="3" /&gt;
+            &lt;Column footer="$506,202" /&gt;
+            &lt;Column footer="$531,020" /&gt;
+        &lt;/Row&gt;
+    &lt;/ColumnGroup&gt;
 &lt;/DataTable&gt;
 </template>
 </CodeHighlight>
@@ -559,6 +627,58 @@ data() {
     &lt;Column field="color" header="Color" headerStyle="width: 20%"&gt;&lt;/Column&gt;
 &lt;/DataTable&gt;
 </template>
+</CodeHighlight>
+
+                <h3>Column Reorder</h3>
+                <p>Columns can be reordered using drag drop by setting the <i>reorderableColumns</i> to true. <i>column-reorder</i> is a callback that is invoked when a column is reordered. DataTable keeps the column order state internally using keys that identifies a column using the field property. If the column has no field, use columnKey instead.</p>
+<CodeHighlight>
+<template v-pre>
+&lt;DataTable :value="cars" :reorderableColumns="true"&gt;
+    &lt;Column field="vin" header="Vin"&gt;&lt;/Column&gt;
+    &lt;Column field="year" header="Year"&gt;&lt;/Column&gt;
+    &lt;Column field="brand" header="Brand"&gt;&lt;/Column&gt;
+    &lt;Column field="color" header="Color"&gt;&lt;/Column&gt;
+&lt;/DataTable&gt;
+</template>
+</CodeHighlight>
+
+                <h3>Row Reorder</h3>
+                <p>Data can be reordered using drag drop by adding a reorder column that will display an icon as a drag handle along with the <i>row-order</i> event which is <b>mandatory</b> to update the new order. Note that the reorder icon can be customized using <i>rowReorderIcon</i> of the column component.</p>
+<CodeHighlight>
+<template v-pre>
+&lt;DataTable :value="cars" @row-reorder="onRowReorder"&gt;
+    &lt;Column :rowReorder="true" headerStyle="width: 3em" /&gt;
+    &lt;Column field="vin" header="Vin"&gt;&lt;/Column&gt;
+    &lt;Column field="year" header="Year"&gt;&lt;/Column&gt;
+    &lt;Column field="brand" header="Brand"&gt;&lt;/Column&gt;
+    &lt;Column field="color" header="Color"&gt;&lt;/Column&gt;
+&lt;/DataTable&gt;
+</template>
+</CodeHighlight>
+
+<CodeHighlight lang="javascript">
+import CarService from '../../service/CarService';
+
+export default {
+    data() {
+        return {
+            cars: null
+        }
+    },
+    carService: null,
+    created() {
+        this.carService = new CarService();
+    },
+    mounted() {
+        this.carService.getCarsSmall().then(data => this.cars = data);
+    },
+    methods: {
+        onRowReorder(event) {
+            //update new order
+            this.cars = event.value;
+        }
+    }
+}
 </CodeHighlight>
 
                 <h3>Data Export</h3>
@@ -957,6 +1077,12 @@ export default {
                                 <td>fit</td>
                                 <td>Defines whether the overall table width should change on column resize, <br/> valid values are "fit" and "expand".</td>
                             </tr>
+                            <tr>
+                                <td>reorderableColumns</td>
+                                <td>boolean</td>
+                                <td>false</td>
+                                <td>When enabled, columns can be reordered using drag and drop..</td>
+                            </tr>
                         </tbody>
                     </table>
                 </div>
@@ -1014,6 +1140,27 @@ export default {
                                 <td>event.element: DOM element of the resized column.<br />
                                     event.delta: Change in column width</td>
                                 <td>Callback to invoke when a column is resized.</td>
+                            </tr>
+                            <tr>
+                                <td>column-resize-end</td>
+                                <td>event.element: DOM element of the resized column.<br />
+                                    event.delta: Change in column width</td>
+                                <td>Callback to invoke when a column is resized.</td>
+                            </tr>
+                            <tr>
+                                <td>column-reorder</td>
+                                <td>event.originalEvent: Browser event<br />
+                                    event.dragIndex: Index of the dragged column<br />
+                                    event.dropIndex: Index of the dropped column</td>
+                                <td>Callback to invoke when a column is reordered.</td>
+                            </tr>
+                            <tr>
+                                <td>row-reorder</td>
+                                <td>event.originalEvent: Browser event<br />
+                                    event.originalEvent: Browser event.<br />
+                                    event.dragIndex: Index of the dragged row<br />
+                                    value: Reordered value</td>
+                                <td>Callback to invoke when a row is reordered.</td>
                             </tr>
                         </tbody>
                     </table>

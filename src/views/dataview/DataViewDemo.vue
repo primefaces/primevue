@@ -7,7 +7,7 @@
 			</div>
 		</div>
 
-		<div class="content-section implementation dataview-demo">
+		<div class="content-section implementation">
 			<DataView :value="cars" :layout="layout" paginatorPosition="both" :paginator="true" :rows="20" :sortOrder="sortOrder" :sortField="sortField">
 				<template #header>
 					<div class="p-grid p-nogutter">
@@ -20,27 +20,20 @@
 					</div>
 				</template>
 				<template #list="slotProps" >
-					<div class="p-col-12 car-details" style="padding: 2em; border-bottom: 1px solid #d9d9d9">
-						<div class="p-grid">
-							<div class="p-col-12 p-md-3">
-								<img :src="'demo/images/car/' + slotProps.data.brand + '.png'" :alt="slotProps.data.brand"/>
-							</div>
-							<div class="p-col-12 p-md-8 car-details">
-								<div class="p-grid">
-									<div class="p-col-12">Vin: <b>{{slotProps.data.vin}}</b></div>
-
-									<div class="p-col-12">Year: <b>{{slotProps.data.year}}</b></div>
-
-									<div class="p-col-12">Brand: <b>{{slotProps.data.brand}}</b></div>
-
-									<div class="p-col-12">Color: <b>{{slotProps.data.color}}</b></div>
-								</div>
-							</div>
-							<div class="p-col-12 p-md-1 search-icon" style="margin-top: 40px">
-								<Button icon="pi pi-search"></Button>
-							</div>
-						</div>
-					</div>
+					<div class="p-col-12">
+                        <div class="car-details">
+                            <div>
+                                <img :src="'demo/images/car/' + slotProps.data.brand + '.png'" :alt="slotProps.data.brand"/>
+                                <div class="p-grid">
+                                    <div class="p-col-12">Vin: <b>{{slotProps.data.vin}}</b></div>
+                                    <div class="p-col-12">Year: <b>{{slotProps.data.year}}</b></div>
+                                    <div class="p-col-12">Brand: <b>{{slotProps.data.brand}}</b></div>
+                                    <div class="p-col-12">Color: <b>{{slotProps.data.color}}</b></div>
+                                </div>
+                            </div>
+                            <Button icon="pi pi-search"></Button>
+                        </div>
+                    </div>
 				</template>
 				<template #grid="slotProps">
 					<div style="padding: .5em" class="p-col-12 p-md-3">
@@ -108,36 +101,37 @@ export default {
 }
 </script>
 
-<style lang="scss">
-.dataview-demo {
-	.ui-button {
-		margin-top: 3em;
-	}
-
-	.filter-container {
-		text-align: center;
-	}
-
-	.car-data > div {
-		padding: .429em;
-    }
-
-    .p-dropdown {
-        width: 12em;
-    }
+<style lang="scss" scoped>
+.p-dropdown {
+    width: 12em;
 }
 
-@media (max-width: 767px) {
-	.dataview-demo {
-		.car-details, .search-icon {
-			text-align: center;
-			margin-top: 0;
-		}
+.p-dataview {
+    .car-details {
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        padding: 2em;
+        border-bottom: 1px solid #d9dad9;
 
-		.filter-container {
-			text-align: left;
-		}
-	}
+        & > div {
+            display: flex;
+            align-items: center;
+
+            img {
+                margin-right: 14px;
+            }
+        }
+    }
 }
+@media (max-width: 1024px) {
+	.p-dataview {
+        .car-details {
 
+            img {
+                width: 75px;
+            }
+        }
+    }
+}
 </style>

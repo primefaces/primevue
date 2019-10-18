@@ -17,4 +17,9 @@ export declare class Column extends Vue {
     excludeGlobalFilter?: boolean;
     selectionMode?: string;
     expander?: boolean;
+    colspan?: number;
+    rowspan?: number;
+    rowReorder?: boolean;
+    rowReorderIcon?: string;
+    reorderableColumn?: boolean;
 }

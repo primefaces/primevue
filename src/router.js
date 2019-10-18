@@ -147,6 +147,11 @@ export default new Router({
 			component: () => import('./views/datatable/DataTableColToggleDemo.vue')
         },
         {
+			path: '/datatable/reorder',
+			name: 'datatablereorder',
+			component: () => import('./views/datatable/DataTableReorderDemo.vue')
+        },
+        {
 			path: '/datatable/responsive',
 			name: 'datatableresponsive',
 			component: () => import('./views/datatable/DataTableResponsiveDemo.vue')

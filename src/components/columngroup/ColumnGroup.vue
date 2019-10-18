@@ -15,15 +15,15 @@ export default {
     },
     data() {
         return {
-            _rows: null
+            children: null
         };
     },
     mounted() {
-        this._rows = this.$children;
+        this.children = this.$children;
     },
     computed: {
         rows() {
-            return this._rows;
+            return this.children;
         }
     }
 }

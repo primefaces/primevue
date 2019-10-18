@@ -37,24 +37,21 @@ export default {
 				<p>Note that there is no restriction to use both layouts at the same time, you may configure only one layout using the layout property with the corresponding template.</p>
 <CodeHighlight>
 <template v-pre>
-&lt;template #list="slotProps" &gt;
-	&lt;div class="p-col-12 car-details" style="padding: 2em; border-bottom: 1px solid #d9d9d9"&gt;
-		&lt;div class="p-grid"&gt;
-			&lt;div class="p-col-12 p-md-3"&gt;
-				&lt;img :src="'demo/images/car/' + slotProps.data.brand + '.png'" :alt="slotProps.data.brand"/&gt;
-			&lt;/div&gt;
-			&lt;div class="p-col-12 p-md-8 car-data"&gt;
-				&lt;div&gt;Vin: &lt;b&gt;{{slotProps.data.vin}}&lt;/b&gt;&lt;/div&gt;
-				&lt;div&gt;Year: &lt;b&gt;{{slotProps.data.year}}&lt;/b&gt;&lt;/div&gt;
-				&lt;div&gt;Brand: &lt;b&gt;{{slotProps.data.brand}}&lt;/b&gt;&lt;/div&gt;
-				&lt;div&gt;Color: &lt;b&gt;{{slotProps.data.color}}&lt;/b&gt;&lt;/div&gt;
-			&lt;/div&gt;
-
-			&lt;div class="p-col-12 p-md-1 search-icon" style="margin-top: 40px"&gt;
-				&lt;Button icon="pi pi-search"&gt;&lt;/Button&gt;
-			&lt;/div&gt;
-		&lt;/div&gt;
-	&lt;/div&gt;
+&lt;template #list="slotProps"&gt;
+	&lt;div class="p-col-12"&gt;
+        &lt;div class="car-details"&gt;
+            &lt;div&gt;
+                &lt;img :src="'demo/images/car/' + slotProps.data.brand + '.png'" :alt="slotProps.data.brand"/&gt;
+                &lt;div class="p-grid"&gt;
+                    &lt;div class="p-col-12"&gt;Vin: &lt;b&gt;&#123;&#123;slotProps.data.vin&#125;&#125;&lt;/b&gt;&lt;/div&gt;
+                    &lt;div class="p-col-12"&gt;Year: &lt;b&gt;&#123;&#123;slotProps.data.year&#125;&#125;&lt;/b&gt;&lt;/div&gt;
+                    &lt;div class="p-col-12"&gt;Brand: &lt;b&gt;&#123;&#123;slotProps.data.brand&#125;&#125;&lt;/b&gt;&lt;/div&gt;
+                    &lt;div class="p-col-12"&gt;Color: &lt;b&gt;&#123;&#123;slotProps.data.color&#125;&#125;&lt;/b&gt;&lt;/div&gt;
+                &lt;/div&gt;
+            &lt;/div&gt;
+            &lt;Button icon="pi pi-search"&gt;&lt;/Button&gt;
+        &lt;/div&gt;
+    &lt;/div&gt;
 &lt;/template&gt;
 &lt;template #grid="slotProps"&gt;
 	&lt;div style="padding: .5em" class="p-col-12 p-md-3"&gt;
@@ -426,26 +423,19 @@ export default {
             &lt;/div&gt;
         &lt;/div&gt;
     &lt;/template&gt;
-    &lt;template #list="slotProps" &gt;
-        &lt;div class="p-col-12 car-details" style="padding: 2em; border-bottom: 1px solid #d9d9d9"&gt;
-            &lt;div class="p-grid"&gt;
-                &lt;div class="p-col-12 p-md-3"&gt;
+    &lt;template #list="slotProps"&gt;
+        &lt;div class="p-col-12"&gt;
+            &lt;div class="car-details"&gt;
+                &lt;div&gt;
                     &lt;img :src="'demo/images/car/' + slotProps.data.brand + '.png'" :alt="slotProps.data.brand"/&gt;
-                &lt;/div&gt;
-                &lt;div class="p-col-12 p-md-8 car-details"&gt;
                     &lt;div class="p-grid"&gt;
-                        &lt;div class="p-col-12"&gt;Vin: &lt;b&gt;{{slotProps.data.vin}}&lt;/b&gt;&lt;/div&gt;
-
-                        &lt;div class="p-col-12"&gt;Year: &lt;b&gt;{{slotProps.data.year}}&lt;/b&gt;&lt;/div&gt;
-
-                        &lt;div class="p-col-12"&gt;Brand: &lt;b&gt;{{slotProps.data.brand}}&lt;/b&gt;&lt;/div&gt;
-
-                        &lt;div class="p-col-12"&gt;Color: &lt;b&gt;{{slotProps.data.color}}&lt;/b&gt;&lt;/div&gt;
+                        &lt;div class="p-col-12"&gt;Vin: &lt;b&gt;&#123;&#123;slotProps.data.vin&#125;&#125;&lt;/b&gt;&lt;/div&gt;
+                        &lt;div class="p-col-12"&gt;Year: &lt;b&gt;&#123;&#123;slotProps.data.year&#125;&#125;&lt;/b&gt;&lt;/div&gt;
+                        &lt;div class="p-col-12"&gt;Brand: &lt;b&gt;&#123;&#123;slotProps.data.brand&#125;&#125;&lt;/b&gt;&lt;/div&gt;
+                        &lt;div class="p-col-12"&gt;Color: &lt;b&gt;&#123;&#123;slotProps.data.color&#125;&#125;&lt;/b&gt;&lt;/div&gt;
                     &lt;/div&gt;
                 &lt;/div&gt;
-                &lt;div class="p-col-12 p-md-1 search-icon" style="margin-top: 40px"&gt;
-                    &lt;Button icon="pi pi-search"&gt;&lt;/Button&gt;
-                &lt;/div&gt;
+                &lt;Button icon="pi pi-search"&gt;&lt;/Button&gt;
             &lt;/div&gt;
         &lt;/div&gt;
     &lt;/template&gt;
@@ -510,7 +500,37 @@ export default {
 
 <CodeHighlight lang="css">
 .p-dropdown {
-	width: 12em;
+    width: 12em;
+}
+
+.p-dataview {
+    .car-details {
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        padding: 2em;
+        border-bottom: 1px solid #d9dad9;
+
+        &amp; > div {
+            display: flex;
+            align-items: center;
+
+            img {
+                margin-right: 14px;
+            }
+        }
+    }
+}
+
+@media (max-width: 1024px) {
+	.p-dataview {
+        .car-details {
+
+            img {
+                width: 75px;
+            }
+        }
+    }
 }
 </CodeHighlight>
 			</TabPanel>

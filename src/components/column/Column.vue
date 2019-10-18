@@ -73,6 +73,18 @@ export default {
         rowspan: {
             type: Number,
             default: null
+        },
+        rowReorder: {
+            type: Boolean,
+            default: false
+        },
+        rowReorderIcon: {
+            type: String,
+            default: 'pi pi-bars'
+        },
+        reorderableColumn: {
+            type: Boolean,
+            default: true
         }
     },
     render() {
