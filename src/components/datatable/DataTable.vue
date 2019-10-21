@@ -52,25 +52,17 @@
                 <tbody class="p-datatable-tbody">
                     <template v-if="!empty">
                         <template v-for="(rowData, index) of dataToRender">
+                            <tr class="p-rowgroup-header" v-if="rowGroupMode === 'subheader' && shouldRenderRowGroupHeader(dataToRender, rowData, index)" :key="getRowKey(rowData, index)">
+                                <td :colspan="columns.length">
+                                    <slot name="groupheader" :data="rowData"></slot>
+                                </td>
+                            </tr>
                             <tr :class="getRowClass(rowData)" :key="getRowKey(rowData, index)"
                                 @click="onRowClick($event, rowData, index)" @touchend="onRowTouchEnd($event)" @keydown="onRowKeyDown($event, rowData, index)" :tabindex="selectionMode ? '0' : null"
                                 @mousedown="onRowMouseDown($event)" @dragstart="onRowDragStart($event, index)" @dragover="onRowDragOver($event,index)" @dragleave="onRowDragLeave($event)" @dragend="onRowDragEnd($event)" @drop="onRowDrop($event)">
-                                <td v-for="(col,i) of columns" :key="col.columnKey||col.field||i" :style="col.bodyStyle" :class="col.bodyClass">
-                                    <ColumnSlot :data="rowData" :column="col" type="body" v-if="col.$scopedSlots.body" />
-                                    <template v-else-if="col.selectionMode">
-                                        <DTRadioButton :value="rowData" :checked="isSelected(rowData)" @change="toggleRowWithRadio" v-if="col.selectionMode === 'single'" />
-                                        <DTCheckbox :value="rowData" :checked="isSelected(rowData)" @change="toggleRowWithCheckbox" v-else-if="col.selectionMode ==='multiple'" />
-                                    </template>
-                                    <template v-else-if="col.rowReorder">
-                                        <i :class="['p-datatable-reorderablerow-handle', col.rowReorderIcon]"></i>
-                                    </template>
-                                    <template v-else-if="col.expander">
-                                        <button class="p-row-toggler p-link" @click="toggleRow($event, rowData)">
-                                            <span :class="rowTogglerIcon(rowData)"></span>
-                                        </button>
-                                    </template>
-                                    <template v-else>{{resolveFieldData(rowData, col.field)}}</template>
-                                </td>
+                                <DTBodyCell v-for="(col,i) of columns" :key="col.columnKey||col.field||i" :rowData="rowData" :column="col" :selected="isSelected(rowData)"
+                                    :rowTogglerIcon="rowTogglerIcon(rowData)" @row-toggle="toggleRow" 
+                                    @radio-change="toggleRowWithRadio" @checkbox-change="toggleRowWithCheckbox" />
                             </tr>
                             <tr class="p-datatable-row-expansion" v-if="expandedRows && isRowExpanded(rowData)" :key="getRowKey(rowData, index) + '_expansion'">
                                 <td :colspan="columns.length">
@@ -132,31 +124,8 @@ import Paginator from '../paginator/Paginator';
 import RowRadioButton from './RowRadioButton';
 import RowCheckbox from './RowCheckbox.vue';
 import HeaderCheckbox from './HeaderCheckbox.vue';
-
-const ColumnSlot = {
-    functional: true,
-    props: {
-        column: {
-            type: null,
-            default: null
-        },
-        data: {
-            type: null,
-            default: null
-        },
-        type: {
-            type: String,
-            default: null
-        }
-    },
-    render(createElement, context) {
-        const content = context.props.column.$scopedSlots[context.props.type]({
-            'data': context.props.data,
-            'column': context.props.column
-        });
-        return [content];
-    }
-};
+import ColumnSlot from './ColumnSlot.vue';
+import BodyCell from './BodyCell.vue';
 
 export default {
     props: {
@@ -299,6 +268,14 @@ export default {
         collapsedRowIcon: {
             type: String,
             default: 'pi-chevron-right'
+        },
+        rowGroupMode: {
+            type: String,
+            default: null
+        },
+        groupRowsBy: {
+            type: [Array,String],
+            default: null
         }
     },
     data() {
@@ -1228,7 +1205,8 @@ export default {
             this.onRowDragEnd(event);
             event.preventDefault();
         },
-        toggleRow(event, rowData) {
+        toggleRow(event) {
+            let rowData = event.data;
             let expanded;
             let expandedRowIndex;
             let _expandedRows = this.expandedRows ? [...this.expandedRows] : [];
@@ -1247,18 +1225,29 @@ export default {
                 }
                 _expandedRows.splice(expandedRowIndex, 1);
                 this.$emit('update:expandedRows', _expandedRows);
-                this.$emit('row-collapse', {originalEvent: event,data: rowData});
+                this.$emit('row-collapse', event);
             }
             else {
                 _expandedRows.push(rowData);
                 this.$emit('update:expandedRows', _expandedRows);
-                this.$emit('row-expand', {originalEvent: event,data: rowData});
+                this.$emit('row-expand', event);
             }
         },
         rowTogglerIcon(rowData) {
             const icon = this.isRowExpanded(rowData) ? this.expandedRowIcon : this.collapsedRowIcon;
             return ['p-row-toggler-icon pi pi-fw p-clickable', icon];
         },
+        shouldRenderRowGroupHeader(value, rowData, i) {
+            if (i === 0) {
+                return true;
+            }
+            else {
+                let currentRowFieldData = ObjectUtils.resolveFieldData(rowData, this.groupRowsBy);
+                let previousRowFieldData = ObjectUtils.resolveFieldData(value[i - 1], this.groupRowsBy);
+
+                return currentRowFieldData !== previousRowFieldData;
+            }
+        }
     },
     computed: {
         containerClass() {
@@ -1410,7 +1399,8 @@ export default {
         'DTPaginator': Paginator,
         'DTRadioButton': RowRadioButton,
         'DTCheckbox': RowCheckbox,
-        'DTHeaderCheckbox': HeaderCheckbox
+        'DTHeaderCheckbox': HeaderCheckbox,
+        'DTBodyCell': BodyCell
     }
 }
 </script>

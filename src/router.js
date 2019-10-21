@@ -152,6 +152,11 @@ export default new Router({
 			component: () => import('./views/datatable/DataTableReorderDemo.vue')
         },
         {
+			path: '/datatable/rowgroup',
+			name: 'datatablerowgroup',
+			component: () => import('./views/datatable/DataTableRowGroupDemo.vue')
+        },
+        {
 			path: '/datatable/responsive',
 			name: 'datatableresponsive',
 			component: () => import('./views/datatable/DataTableResponsiveDemo.vue')
