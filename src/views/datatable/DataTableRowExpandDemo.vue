@@ -4,7 +4,7 @@
 
 		<div class="content-section introduction">
 			<div class="feature-intro">
-				<h1>DataTabl - Row Expansion</h1>
+				<h1>DataTable - Row Expansion</h1>
 				<p>A row can be expanded to display additional content.</p>
 			</div>
 		</div>
