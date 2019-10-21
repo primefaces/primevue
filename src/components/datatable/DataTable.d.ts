@@ -38,6 +38,10 @@ export declare class DataTable extends Vue {
     expandedRows?: any[];
     expandedRowIcon?: string;
     collapsedRowIcon?: string;
+    rowGroupMode?: string;
+    groupRowsBy?: string[]|string;
+    expandableRowGroups?: boolean;
+    expandedRowGroups?: any[];
     $emit(eventName: 'page', event: Event): this;
     $emit(eventName: 'sort', event: Event): this;
     $emit(eventName: 'filter', event: Event): this;
