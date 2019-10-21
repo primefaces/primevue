@@ -849,7 +849,7 @@ export default {
         },
         calculateGroupTotal(brand) {
             let total = 0;
-            
+
             if (this.cars) {
                 for (let car of this.cars) {
                     if (car.brand === brand) {
