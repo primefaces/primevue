@@ -221,6 +221,12 @@ export default {
                                 <td>Defines column based selection mode, options are "single" and "multiple".</td>
                             </tr>
                             <tr>
+                                <td>expander</td>
+                                <td>boolean</td>
+                                <td>false</td>
+                                <td>Displays an icon to toggle row expansion.</td>
+                            </tr>
+                            <tr>
                                 <td>colspan</td>
                                 <td>number</td>
                                 <td>null</td>
@@ -379,70 +385,6 @@ export default {
 </template>
 </CodeHighlight>
 
-                <h3>Lazy Loading</h3>
-                <p>Lazy mode is handy to deal with large datasets, instead of loading the entire data, small chunks of data is loaded by invoking corresponding callbacks everytime paging, sorting and filtering happens. Sample belows imitates lazy paging by using an in memory list.
-                    It is also important to assign the logical number of rows to totalRecords by doing a projection query for paginator configuration so that paginator displays the UI
-                    assuming there are actually records of totalRecords size although in reality they aren't as in lazy mode, only the records that are displayed on the current page exist.</p>
-
-                <p>Lazy loading is implemented by handling pagination and sorting using <i>page</i> and <i>sort</i> events by making a remote query using the information
-                passed to the events such as first offset, number of rows and sort field for ordering. Filtering is handled differently as filter elements are defined using templates, use
-                the event you prefer on your form elements such as input, change, blur to make a remote call by passing the filters property to update the displayed data. Note that,
-                in lazy filtering, totalRecords should also be updated to align the data with the paginator.</p>
-
-                <p>Here is a sample paging implementation with in memory data, a more enhanced example with a backend is being worked on and will be available at a github repository.</p>
-<CodeHighlight>
-<template v-pre>
-&lt;DataTable :value="cars" :lazy="true" :paginator="true" :rows="10"
-    :totalRecords="totalRecords" :loading="loading" @page="onPage($event)"&gt;
-    &lt;Column field="vin" header="Vin"&gt;&lt;/Column&gt;
-    &lt;Column field="year" header="Year"&gt;&lt;/Column&gt;
-    &lt;Column field="brand" header="Brand"&gt;&lt;/Column&gt;
-    &lt;Column field="color" header="Color"&gt;&lt;/Column&gt;
-&lt;/DataTable&gt;
-</template>
-</CodeHighlight>
-
-<CodeHighlight lang="javascript">
-import CarService from '../../service/CarService';
-
-export default {
-    data() {
-        return {
-            loading: false,
-            totalRecords: 0,
-            cars: null
-        }
-    },
-    datasource: null,
-    carService: null,
-    created() {
-        this.carService = new CarService();
-    },
-    mounted() {
-        this.loading = true;
-
-        setTimeout(() => {
-            this.carService.getCarsLarge().then(data => {
-                this.datasource = data;
-                this.totalRecords = data.length,
-                this.cars = this.datasource.slice(0, 10);
-                this.loading = false;
-            });
-        }, 1000);
-    },
-    methods: {
-        onPage(event) {
-            this.loading = true;
-
-            setTimeout(() => {
-                this.cars = this.datasource.slice(event.first, event.first + event.rows);
-                this.loading = false;
-            }, 1000);
-        }
-    }
-}
-</CodeHighlight>
-
                 <h3>Sorting</h3>
                 <p>Enabling <i>sortable</i> property at column component would be enough to make a column sortable.
                 The property to use when sorting is the <i>field</i> by default and can be customized using the <i>sortField</i>.</p>
@@ -512,6 +454,7 @@ data() {
     }
 }
 </CodeHighlight>
+
                 <h3>Filtering</h3>
                 <p>Filtering is enabled by defining a filter template per column to populate the <i>filters</i> property of the DataTable. The <i>filters</i>
                 property should be an key-value object where keys are the field name and the value is the filter value. The filter template receives the column properties
@@ -601,6 +544,143 @@ data() {
     &lt;Column field="color" header="Color"&gt;&lt;/Column&gt;
 &lt;/DataTable&gt;
 </template>
+</CodeHighlight>
+
+                <h3>Lazy Loading</h3>
+                <p>Lazy mode is handy to deal with large datasets, instead of loading the entire data, small chunks of data is loaded by invoking corresponding callbacks everytime paging, sorting and filtering happens. Sample belows imitates lazy paging by using an in memory list.
+                    It is also important to assign the logical number of rows to totalRecords by doing a projection query for paginator configuration so that paginator displays the UI
+                    assuming there are actually records of totalRecords size although in reality they aren't as in lazy mode, only the records that are displayed on the current page exist.</p>
+
+                <p>Lazy loading is implemented by handling pagination and sorting using <i>page</i> and <i>sort</i> events by making a remote query using the information
+                passed to the events such as first offset, number of rows and sort field for ordering. Filtering is handled differently as filter elements are defined using templates, use
+                the event you prefer on your form elements such as input, change, blur to make a remote call by passing the filters property to update the displayed data. Note that,
+                in lazy filtering, totalRecords should also be updated to align the data with the paginator.</p>
+
+                <p>Here is a sample paging implementation with in memory data, a more enhanced example with a backend is being worked on and will be available at a github repository.</p>
+<CodeHighlight>
+<template v-pre>
+&lt;DataTable :value="cars" :lazy="true" :paginator="true" :rows="10"
+    :totalRecords="totalRecords" :loading="loading" @page="onPage($event)"&gt;
+    &lt;Column field="vin" header="Vin"&gt;&lt;/Column&gt;
+    &lt;Column field="year" header="Year"&gt;&lt;/Column&gt;
+    &lt;Column field="brand" header="Brand"&gt;&lt;/Column&gt;
+    &lt;Column field="color" header="Color"&gt;&lt;/Column&gt;
+&lt;/DataTable&gt;
+</template>
+</CodeHighlight>
+
+<CodeHighlight lang="javascript">
+import CarService from '../../service/CarService';
+
+export default {
+    data() {
+        return {
+            loading: false,
+            totalRecords: 0,
+            cars: null
+        }
+    },
+    datasource: null,
+    carService: null,
+    created() {
+        this.carService = new CarService();
+    },
+    mounted() {
+        this.loading = true;
+
+        setTimeout(() => {
+            this.carService.getCarsLarge().then(data => {
+                this.datasource = data;
+                this.totalRecords = data.length,
+                this.cars = this.datasource.slice(0, 10);
+                this.loading = false;
+            });
+        }, 1000);
+    },
+    methods: {
+        onPage(event) {
+            this.loading = true;
+
+            setTimeout(() => {
+                this.cars = this.datasource.slice(event.first, event.first + event.rows);
+                this.loading = false;
+            }, 1000);
+        }
+    }
+}
+</CodeHighlight>
+
+                <h3>Row Expansion</h3>
+                <p>Rows can be expanded to display additional content using the <i>expandedRows</i> property with the sync operator accompanied by a template named "expansion". <i>row-expand</i> and <i>row-collapse</i> are optional callbacks that are invoked when a row is expanded or toggled.</p>
+
+                <p>The <i>dataKey</i> property identifies a unique value of a row in the dataset, it is not mandatory in row expansion functionality however being able to define it increases the performance of the table signifantly.</p>
+<CodeHighlight>
+<template v-pre>
+&lt;DataTable :value="cars" :expandedRows.sync="expandedRows" dataKey="vin"
+    @row-expand="onRowExpand" @row-collapse="onRowCollapse"&gt;
+    &lt;template #header&gt;
+        &lt;div class="table-header-container"&gt;
+            &lt;Button icon="pi pi-plus" label="Expand All" @click="expandAll" /&gt;
+            &lt;Button icon="pi pi-minus" label="Collapse All" @click="collapseAll" /&gt;
+        &lt;/div&gt;
+    &lt;/template&gt;
+    &lt;Column :expander="true" headerStyle="width: 3em" /&gt;
+    &lt;Column field="vin" header="Vin"&gt;&lt;/Column&gt;
+    &lt;Column field="year" header="Year"&gt;&lt;/Column&gt;
+    &lt;Column field="brand" header="Brand"&gt;&lt;/Column&gt;
+    &lt;Column field="color" header="Color"&gt;&lt;/Column&gt;
+    &lt;template #expansion="slotProps"&gt;
+        &lt;div class="car-details"&gt;
+            &lt;div&gt;
+                &lt;img :src="'demo/images/car/' + slotProps.data.brand + '.png'" :alt="slotProps.data.brand"/&gt;
+                &lt;div class="p-grid"&gt;
+                    &lt;div class="p-col-12"&gt;Vin: &lt;b&gt;&#123;&#123;slotProps.data.vin&#125;&#125;&lt;/b&gt;&lt;/div&gt;
+                    &lt;div class="p-col-12"&gt;Year: &lt;b&gt;&#123;&#123;slotProps.data.year&#125;&#125;&lt;/b&gt;&lt;/div&gt;
+                    &lt;div class="p-col-12"&gt;Brand: &lt;b&gt;&#123;&#123;slotProps.data.brand&#125;&#125;&lt;/b&gt;&lt;/div&gt;
+                    &lt;div class="p-col-12"&gt;Color: &lt;b&gt;&#123;&#123;slotProps.data.color&#125;&#125;&lt;/b&gt;&lt;/div&gt;
+                &lt;/div&gt;
+            &lt;/div&gt;
+            &lt;Button icon="pi pi-search"&gt;&lt;/Button&gt;
+        &lt;/div&gt;
+    &lt;/template&gt;
+&lt;/DataTable&gt;
+</template>
+</CodeHighlight>
+
+<CodeHighlight lang="javascript">
+import CarService from '../../service/CarService';
+
+export default {
+    data() {
+        return {
+            cars: null,
+            expandedRows: []
+        }
+    },
+    carService: null,
+    created() {
+        this.carService = new CarService();
+    },
+    mounted() {
+        this.carService.getCarsSmall().then(data => this.cars = data);
+    },
+    methods: {
+        onRowExpand(event) {
+            this.$toast.add({severity: 'info', summary: 'Row Expanded', detail: 'Vin: ' + event.data.vin, life: 3000});
+        },
+        onRowCollapse(event) {
+            this.$toast.add({severity: 'success', summary: 'Row Collapsed', detail: 'Vin: ' + event.data.vin, life: 3000});
+        },
+        expandAll() {
+            this.expandedRows = this.cars.filter(car => car.vin);
+            this.$toast.add({severity: 'success', summary: 'All Rows Expanded', life: 3000});
+        },
+        collapseAll() {
+            this.expandedRows = null;
+            this.$toast.add({severity: 'success', summary: 'All Rows Collapsed', life: 3000});
+        }
+    }
+}
 </CodeHighlight>
 
                 <h3>Column Resize</h3>
@@ -1081,7 +1161,25 @@ export default {
                                 <td>reorderableColumns</td>
                                 <td>boolean</td>
                                 <td>false</td>
-                                <td>When enabled, columns can be reordered using drag and drop..</td>
+                                <td>When enabled, columns can be reordered using drag and drop.</td>
+                            </tr>
+                            <tr>
+                                <td>expandedRows</td>
+                                <td>array</td>
+                                <td>null</td>
+                                <td>A collection of row data display as expanded.</td>
+                            </tr>
+                            <tr>
+                                <td>expandedRowIcon</td>
+                                <td>string</td>
+                                <td>pi-chevron-down</td>
+                                <td>Icon of the row toggler to display the row as expanded.</td>
+                            </tr>
+                            <tr>
+                                <td>collapsedRowIcon</td>
+                                <td>string</td>
+                                <td>pi-chevron-right</td>
+                                <td>Icon of the row toggler to display the row as collapsed.</td>
                             </tr>
                         </tbody>
                     </table>
@@ -1161,6 +1259,18 @@ export default {
                                     event.dragIndex: Index of the dragged row<br />
                                     value: Reordered value</td>
                                 <td>Callback to invoke when a row is reordered.</td>
+                            </tr>
+                            <tr>
+                                <td>row-expand</td>
+                                <td>event.originalEvent: Browser event<br />
+                                    event.data: Expanded row data.</td>
+                                <td>Callback to invoke when a row is expanded.</td>
+                            </tr>
+                            <tr>
+                                <td>row-collapse</td>
+                                <td>event.originalEvent: Browser event<br />
+                                    event.data: Collapsed row data.</td>
+                                <td>Callback to invoke when a row is collapsed.</td>
                             </tr>
                         </tbody>
                     </table>

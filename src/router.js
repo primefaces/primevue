@@ -170,6 +170,11 @@ export default new Router({
 			path: '/datatable/colresize',
 			name: 'datatablecolresize',
 			component: () => import('./views/datatable/DataTableColResizeDemo.vue')
+        },
+        {
+			path: '/datatable/rowexpand',
+			name: 'datatablerowexpand',
+			component: () => import('./views/datatable/DataTableRowExpandDemo.vue')
 		},
         {
 			path: '/datatable/crud',

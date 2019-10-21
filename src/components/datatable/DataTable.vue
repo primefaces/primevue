@@ -51,21 +51,34 @@
                 </thead>
                 <tbody class="p-datatable-tbody">
                     <template v-if="!empty">
-                        <tr :class="getRowClass(rowData)" v-for="(rowData, index) of dataToRender" :key="getRowKey(rowData, index)"
-                            @click="onRowClick($event, rowData, index)" @touchend="onRowTouchEnd($event)" @keydown="onRowKeyDown($event, rowData, index)" :tabindex="selectionMode ? '0' : null"
-                            @mousedown="onRowMouseDown($event)" @dragstart="onRowDragStart($event, index)" @dragover="onRowDragOver($event,index)" @dragleave="onRowDragLeave($event)" @dragend="onRowDragEnd($event)" @drop="onRowDrop($event)">
-                            <td v-for="(col,i) of columns" :key="col.columnKey||col.field||i" :style="col.bodyStyle" :class="col.bodyClass">
-                                <ColumnSlot :data="rowData" :column="col" type="body" v-if="col.$scopedSlots.body" />
-                                <template v-else-if="col.selectionMode">
-                                    <DTRadioButton :value="rowData" :checked="isSelected(rowData)" @change="toggleRowWithRadio" v-if="col.selectionMode === 'single'" />
-                                    <DTCheckbox :value="rowData" :checked="isSelected(rowData)" @change="toggleRowWithCheckbox" v-else-if="col.selectionMode ==='multiple'" />
-                                </template>
-                                <template v-else-if="col.rowReorder">
-                                    <i :class="['p-datatable-reorderablerow-handle', col.rowReorderIcon]"></i>
-                                </template>
-                                <template v-else>{{resolveFieldData(rowData, col.field)}}</template>
-                            </td>
-                        </tr>
+                        <template v-for="(rowData, index) of dataToRender">
+                            <tr :class="getRowClass(rowData)" :key="getRowKey(rowData, index)"
+                                @click="onRowClick($event, rowData, index)" @touchend="onRowTouchEnd($event)" @keydown="onRowKeyDown($event, rowData, index)" :tabindex="selectionMode ? '0' : null"
+                                @mousedown="onRowMouseDown($event)" @dragstart="onRowDragStart($event, index)" @dragover="onRowDragOver($event,index)" @dragleave="onRowDragLeave($event)" @dragend="onRowDragEnd($event)" @drop="onRowDrop($event)">
+                                <td v-for="(col,i) of columns" :key="col.columnKey||col.field||i" :style="col.bodyStyle" :class="col.bodyClass">
+                                    <ColumnSlot :data="rowData" :column="col" type="body" v-if="col.$scopedSlots.body" />
+                                    <template v-else-if="col.selectionMode">
+                                        <DTRadioButton :value="rowData" :checked="isSelected(rowData)" @change="toggleRowWithRadio" v-if="col.selectionMode === 'single'" />
+                                        <DTCheckbox :value="rowData" :checked="isSelected(rowData)" @change="toggleRowWithCheckbox" v-else-if="col.selectionMode ==='multiple'" />
+                                    </template>
+                                    <template v-else-if="col.rowReorder">
+                                        <i :class="['p-datatable-reorderablerow-handle', col.rowReorderIcon]"></i>
+                                    </template>
+                                    <template v-else-if="col.expander">
+                                        <button class="p-row-toggler p-link" @click="toggleRow($event, rowData)">
+                                            <span :class="rowTogglerIcon(rowData)"></span>
+                                        </button>
+                                    </template>
+                                    <template v-else>{{resolveFieldData(rowData, col.field)}}</template>
+                                </td>
+                            </tr>
+                            <tr class="p-datatable-row-expansion" v-if="expandedRows && isRowExpanded(rowData)" :key="getRowKey(rowData, index) + '_expansion'">
+                                <td :colspan="columns.length">
+                                    <slot name="expansion" :data="rowData" :index="index">
+                                    </slot>
+                                </td>
+                            </tr>
+                        </template>
                     </template>
                     <tr v-else class="p-datatable-emptymessage">
                         <td :colspan="columns.length">
@@ -274,6 +287,18 @@ export default {
         reorderableColumns: {
             type: Boolean,
             default: false
+        },
+        expandedRows: {
+            type: Array,
+            default: null
+        },
+        expandedRowIcon: {
+            type: String,
+            default: 'pi-chevron-down'
+        },
+        collapsedRowIcon: {
+            type: String,
+            default: 'pi-chevron-right'
         }
     },
     data() {
@@ -285,6 +310,7 @@ export default {
             d_sortOrder: this.sortOrder,
             d_multiSortMeta: this.multiSortMeta ? [...this.multiSortMeta] : [],
             d_selectionKeys: null,
+            d_expandedRowKeys: null,
             columnOrder: null
         };
     },
@@ -321,6 +347,11 @@ export default {
         selection(newValue) {
             if (this.dataKey) {
                 this.updateSelectionKeys(newValue);
+            }
+        },
+        expandedRows(newValue) {
+            if (this.dataKey) {
+                this.updateExpandedRowKeys(newValue);
             }
         }
     },
@@ -758,10 +789,13 @@ export default {
             return false;
         },
         findIndexInSelection(rowData) {
+            return this.findIndex(rowData, this.selection);
+        },
+        findIndex(rowData, collection) {
             let index = -1;
-            if (this.selection && this.selection.length) {
-                for (let i = 0; i < this.selection.length; i++) {
-                    if (this.equals(rowData, this.selection[i])) {
+            if (collection && collection.length) {
+                for (let i = 0; i < collection.length; i++) {
+                    if (this.equals(rowData, collection[i])) {
                         index = i;
                         break;
                     }
@@ -781,8 +815,29 @@ export default {
                 this.d_selectionKeys[String(ObjectUtils.resolveFieldData(selection, this.dataKey))] = 1;
             }
         },
+        updateExpandedRowKeys(expandedRows) {
+            if (expandedRows && expandedRows.length) {
+                this.d_expandedRowKeys = {};
+                for (let data of expandedRows) {
+                    this.d_expandedRowKeys[String(ObjectUtils.resolveFieldData(data, this.dataKey))] = 1;
+                }
+            }
+            else {
+                this.d_expandedRowKeys = null;
+            }
+        },
         equals(data1, data2) {
             return this.compareSelectionBy === 'equals' ? (data1 === data2) : ObjectUtils.equals(data1, data2, this.dataKey);
+        },
+        isRowExpanded(rowData) {
+            if (rowData && this.expandedRows) {
+                if (this.dataKey)
+                    return this.d_expandedRowKeys ? this.d_expandedRowKeys[ObjectUtils.resolveFieldData(rowData, this.dataKey)] !== undefined : false;
+                else
+                    return this.findIndex(rowData, this.expandedRows) > -1;
+            }
+
+            return false;
         },
         getRowKey(rowData, index) {
             return this.dataKey ? ObjectUtils.resolveFieldData(rowData, this.dataKey): index;
@@ -1172,7 +1227,38 @@ export default {
             this.onRowDragLeave(event);
             this.onRowDragEnd(event);
             event.preventDefault();
-        }
+        },
+        toggleRow(event, rowData) {
+            let expanded;
+            let expandedRowIndex;
+            let _expandedRows = this.expandedRows ? [...this.expandedRows] : [];
+
+            if (this.dataKey) {
+                expanded = this.d_expandedRowKeys ? this.d_expandedRowKeys[ObjectUtils.resolveFieldData(rowData, this.dataKey)] !== undefined : false;
+            }
+            else {
+                expandedRowIndex = this.findIndex(rowData, this.expandedRows);
+                expanded = expandedRowIndex > -1;
+            }
+
+            if (expanded) {
+                if (expandedRowIndex == null) {
+                    expandedRowIndex = this.findIndex(rowData, this.expandedRows);
+                }
+                _expandedRows.splice(expandedRowIndex, 1);
+                this.$emit('update:expandedRows', _expandedRows);
+                this.$emit('row-collapse', {originalEvent: event,data: rowData});
+            }
+            else {
+                _expandedRows.push(rowData);
+                this.$emit('update:expandedRows', _expandedRows);
+                this.$emit('row-expand', {originalEvent: event,data: rowData});
+            }
+        },
+        rowTogglerIcon(rowData) {
+            const icon = this.isRowExpanded(rowData) ? this.expandedRowIcon : this.collapsedRowIcon;
+            return ['p-row-toggler-icon pi pi-fw p-clickable', icon];
+        },
     },
     computed: {
         containerClass() {
