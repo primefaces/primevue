@@ -783,14 +783,15 @@ export default {
     &lt;/template&gt;
     &lt;template #groupfooter="slotProps"&gt;
         &lt;td colspan="3" style="text-align: right"&gt;Total Price&lt;/td&gt;
-        &lt;td&gt;20000&lt;/td&gt;
+        &lt;td&gt;&#123;&#123;calculateGroupTotal(slotProps.data.brand)&#125;&#125;&lt;/td&gt;
     &lt;/template&gt;
 &lt;/DataTable&gt;
 
 &lt;h3&gt;Expandable Row Groups&lt;/h3&gt;
 &lt;DataTable :value="cars" rowGroupMode="subheader" groupRowsBy="brand"
     sortMode="single" sortField="brand" :sortOrder="1"
-    :expandableRowGroups="true" :expandedRowGroups.sync="expandedRowGroups"&gt;
+    :expandableRowGroups="true" :expandedRowGroups.sync="expandedRowGroups"
+    @rowgroup-expand="onRowExpand" @rowgroup-collapse="onRowCollapse"&gt;
     &lt;Column field="brand" header="Brand"&gt;&lt;/Column&gt;
     &lt;Column field="vin" header="Vin"&gt;&lt;/Column&gt;
     &lt;Column field="year" header="Year"&gt;&lt;/Column&gt;
@@ -801,7 +802,7 @@ export default {
     &lt;/template&gt;
     &lt;template #groupfooter="slotProps"&gt;
         &lt;td colspan="3" style="text-align: right"&gt;Total Price&lt;/td&gt;
-        &lt;td&gt;20000&lt;/td&gt;
+        &lt;td&gt;&#123;&#123;calculateGroupTotal(slotProps.data.brand)&#125;&#125;&lt;/td&gt;
     &lt;/template&gt;
 &lt;/DataTable&gt;
 
@@ -838,6 +839,27 @@ export default {
     },
     mounted() {
         this.carService.getCarsMedium().then(data => this.cars = data);
+    },
+    methods: {
+        onRowGroupExpand(event) {
+            this.$toast.add({severity: 'info', summary: 'Row Group Expanded', detail: 'Value: ' + event.data, life: 3000});
+        },
+        onRowGroupCollapse(event) {
+            this.$toast.add({severity: 'success', summary: 'Row Group Collapsed', detail: 'Value: ' + event.data, life: 3000});
+        },
+        calculateGroupTotal(brand) {
+            let total = 0;
+            
+            if (this.cars) {
+                for (let car of this.cars) {
+                    if (car.brand === brand) {
+                        total += car.price;
+                    }
+                }
+            }
+
+            return total;
+        }
     }
 }
 </CodeHighlight>
