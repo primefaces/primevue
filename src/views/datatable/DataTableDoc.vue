@@ -761,6 +761,87 @@ export default {
 }
 </CodeHighlight>
 
+                <h3>Row Group</h3>
+                <p>Row Grouping comes in two modes, in "subheader" mode rows are grouped by a header row along with an optional group footer. In addition, the groups can be made
+                    toggleable by enabling <i>expandableRowGroups</i> as true. On the other hand, the "rowspan" mode uses rowspans instead of a header to group rows. <i>groupRowsBy</i>
+                    property defines the field to use in row grouping. Multiple row grouping is available in "rowspan" mode by specifying the <i>groupRowsBy</i> as an array of fields.</p>
+
+                <p>Example below demonstrates the all grouping alternatives. Note that data needs to be sorted for grouping which can also be done by the table itself by speficying the sort properties.</p>
+
+<CodeHighlight>
+<template v-pre>
+&lt;h3&gt;Subheader Grouping&lt;/h3&gt;
+&lt;DataTable :value="cars" rowGroupMode="subheader" groupRowsBy="brand"
+    sortMode="single" sortField="brand" :sortOrder="1"&gt;
+    &lt;Column field="brand" header="Brand"&gt;&lt;/Column&gt;
+    &lt;Column field="vin" header="Vin"&gt;&lt;/Column&gt;
+    &lt;Column field="year" header="Year"&gt;&lt;/Column&gt;
+    &lt;Column field="color" header="Color"&gt;&lt;/Column&gt;
+    &lt;Column field="price" header="Price"&gt;&lt;/Column&gt;
+    &lt;template #groupheader="slotProps"&gt;
+        &lt;span&gt;&#123;&#123;slotProps.data.brand&#125;&#125;&lt;/span&gt;
+    &lt;/template&gt;
+    &lt;template #groupfooter="slotProps"&gt;
+        &lt;td colspan="3" style="text-align: right"&gt;Total Price&lt;/td&gt;
+        &lt;td&gt;20000&lt;/td&gt;
+    &lt;/template&gt;
+&lt;/DataTable&gt;
+
+&lt;h3&gt;Expandable Row Groups&lt;/h3&gt;
+&lt;DataTable :value="cars" rowGroupMode="subheader" groupRowsBy="brand"
+    sortMode="single" sortField="brand" :sortOrder="1"
+    :expandableRowGroups="true" :expandedRowGroups.sync="expandedRowGroups"&gt;
+    &lt;Column field="brand" header="Brand"&gt;&lt;/Column&gt;
+    &lt;Column field="vin" header="Vin"&gt;&lt;/Column&gt;
+    &lt;Column field="year" header="Year"&gt;&lt;/Column&gt;
+    &lt;Column field="color" header="Color"&gt;&lt;/Column&gt;
+    &lt;Column field="price" header="Price"&gt;&lt;/Column&gt;
+    &lt;template #groupheader="slotProps"&gt;
+        &lt;span&gt;&#123;&#123;slotProps.data.brand&#125;&#125;&lt;/span&gt;
+    &lt;/template&gt;
+    &lt;template #groupfooter="slotProps"&gt;
+        &lt;td colspan="3" style="text-align: right"&gt;Total Price&lt;/td&gt;
+        &lt;td&gt;20000&lt;/td&gt;
+    &lt;/template&gt;
+&lt;/DataTable&gt;
+
+&lt;h3&gt;RowSpan Grouping&lt;/h3&gt;
+&lt;DataTable :value="cars" rowGroupMode="rowspan" groupRowsBy="brand"
+    sortMode="single" sortField="brand" :sortOrder="1"&gt;
+    &lt;Column header="#" headerStyle="width:3em"&gt;
+        &lt;template #body="slotProps"&gt;
+            &#123;&#123;slotProps.index&#125;&#125;
+        &lt;/template&gt;
+    &lt;/Column&gt;
+    &lt;Column field="brand" header="Brand"&gt;&lt;/Column&gt;
+    &lt;Column field="year" header="Year"&gt;&lt;/Column&gt;
+    &lt;Column field="vin" header="Vin"&gt;&lt;/Column&gt;
+    &lt;Column field="color" header="Color"&gt;&lt;/Column&gt;
+    &lt;Column field="price" header="Price"&gt;&lt;/Column&gt;
+&lt;/DataTable&gt;
+</template>
+</CodeHighlight>
+
+<CodeHighlight lang="javascript">
+import CarService from '../../service/CarService';
+
+export default {
+    data() {
+        return {
+            cars: null,
+            expandedRowGroups: null
+        }
+    },
+    carService: null,
+    created() {
+        this.carService = new CarService();
+    },
+    mounted() {
+        this.carService.getCarsMedium().then(data => this.cars = data);
+    }
+}
+</CodeHighlight>
+
                 <h3>Data Export</h3>
                 <p>DataTable can export its data in CSV format using <i>exportCSV()</i> method.</p>
 <CodeHighlight>
@@ -1181,6 +1262,30 @@ export default {
                                 <td>pi-chevron-right</td>
                                 <td>Icon of the row toggler to display the row as collapsed.</td>
                             </tr>
+                            <tr>
+                                <td>rowGroupMode</td>
+                                <td>string</td>
+                                <td>null</td>
+                                <td>Defines the row group mode, valid options are "subheader" and "rowspan".</td>
+                            </tr>
+                            <tr>
+                                <td>groupRowsBy</td>
+                                <td>string|array</td>
+                                <td>null</td>
+                                <td>One or more field names to use in row grouping.</td>
+                            </tr>
+                            <tr>
+                                <td>expandableRowGroups</td>
+                                <td>boolean</td>
+                                <td>false</td>
+                                <td>Whether the row groups can be expandable.</td>
+                            </tr>
+                            <tr>
+                                <td>expandedRowGroups</td>
+                                <td>array</td>
+                                <td>null</td>
+                                <td>An array of group field values whose groups would be rendered as expanded.</td>
+                            </tr>
                         </tbody>
                     </table>
                 </div>
@@ -1271,6 +1376,18 @@ export default {
                                 <td>event.originalEvent: Browser event<br />
                                     event.data: Collapsed row data.</td>
                                 <td>Callback to invoke when a row is collapsed.</td>
+                            </tr>
+                            <tr>
+                                <td>rowgroup-expand</td>
+                                <td>event.originalEvent: Browser event<br />
+                                    event.data: Expanded group value.</td>
+                                <td>Callback to invoke when a row group is expanded.</td>
+                            </tr>
+                            <tr>
+                                <td>rowgroup-collapse</td>
+                                <td>event.originalEvent: Browser event<br />
+                                    event.data: Collapsed group value.</td>
+                                <td>Callback to invoke when a row group is collapsed.</td>
                             </tr>
                         </tbody>
                     </table>

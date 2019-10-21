@@ -11,7 +11,7 @@
 
 		<div class="content-section implementation">
             <h3>Subheader Grouping</h3>
-			<DataTable :value="cars" rowGroupMode="subheader" groupRowsBy="brand" 
+			<DataTable :value="cars" rowGroupMode="subheader" groupRowsBy="brand"
                 sortMode="single" sortField="brand" :sortOrder="1">
                 <Column field="brand" header="Brand"></Column>
                 <Column field="vin" header="Vin"></Column>
@@ -28,7 +28,7 @@
             </DataTable>
 
             <h3>Expandable Row Groups</h3>
-			<DataTable :value="cars" rowGroupMode="subheader" groupRowsBy="brand" 
+			<DataTable :value="cars" rowGroupMode="subheader" groupRowsBy="brand"
                 sortMode="single" sortField="brand" :sortOrder="1"
                 :expandableRowGroups="true" :expandedRowGroups.sync="expandedRowGroups">
                 <Column field="brand" header="Brand"></Column>
@@ -46,14 +46,14 @@
             </DataTable>
 
             <h3>RowSpan Grouping</h3>
-			<DataTable :value="cars" rowGroupMode="rowspan" groupRowsBy="brand" 
+			<DataTable :value="cars" rowGroupMode="rowspan" groupRowsBy="brand"
                 sortMode="single" sortField="brand" :sortOrder="1">
                 <Column header="#" headerStyle="width:3em">
                     <template #body="slotProps">
                         {{slotProps.index}}
                     </template>
                 </Column>
-                <Column field="brand" header="Brand"></Column>               
+                <Column field="brand" header="Brand"></Column>
                 <Column field="year" header="Year"></Column>
                 <Column field="vin" header="Vin"></Column>
                 <Column field="color" header="Color"></Column>
@@ -67,7 +67,7 @@
 <CodeHighlight>
 <template v-pre>
 &lt;h3&gt;Subheader Grouping&lt;/h3&gt;
-&lt;DataTable :value="cars" rowGroupMode="subheader" groupRowsBy="brand" 
+&lt;DataTable :value="cars" rowGroupMode="subheader" groupRowsBy="brand"
     sortMode="single" sortField="brand" :sortOrder="1"&gt;
     &lt;Column field="brand" header="Brand"&gt;&lt;/Column&gt;
     &lt;Column field="vin" header="Vin"&gt;&lt;/Column&gt;
@@ -84,7 +84,7 @@
 &lt;/DataTable&gt;
 
 &lt;h3&gt;Expandable Row Groups&lt;/h3&gt;
-&lt;DataTable :value="cars" rowGroupMode="subheader" groupRowsBy="brand" 
+&lt;DataTable :value="cars" rowGroupMode="subheader" groupRowsBy="brand"
     sortMode="single" sortField="brand" :sortOrder="1"
     :expandableRowGroups="true" :expandedRowGroups.sync="expandedRowGroups"&gt;
     &lt;Column field="brand" header="Brand"&gt;&lt;/Column&gt;
@@ -102,14 +102,14 @@
 &lt;/DataTable&gt;
 
 &lt;h3&gt;RowSpan Grouping&lt;/h3&gt;
-&lt;DataTable :value="cars" rowGroupMode="rowspan" groupRowsBy="brand" 
+&lt;DataTable :value="cars" rowGroupMode="rowspan" groupRowsBy="brand"
     sortMode="single" sortField="brand" :sortOrder="1"&gt;
     &lt;Column header="#" headerStyle="width:3em"&gt;
         &lt;template #body="slotProps"&gt;
             &#123;&#123;slotProps.index&#125;&#125;
         &lt;/template&gt;
     &lt;/Column&gt;
-    &lt;Column field="brand" header="Brand"&gt;&lt;/Column&gt;               
+    &lt;Column field="brand" header="Brand"&gt;&lt;/Column&gt;
     &lt;Column field="year" header="Year"&gt;&lt;/Column&gt;
     &lt;Column field="vin" header="Vin"&gt;&lt;/Column&gt;
     &lt;Column field="color" header="Color"&gt;&lt;/Column&gt;

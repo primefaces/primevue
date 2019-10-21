@@ -24,7 +24,7 @@
                 <thead class="p-datatable-thead">
                     <tr v-if="!headerColumnGroup">
                         <template v-for="(col,i) of columns">
-                            <th v-if="rowGroupMode !== 'subheader' || (groupRowsBy !== col.field)" 
+                            <th v-if="rowGroupMode !== 'subheader' || (groupRowsBy !== col.field)"
                                 :key="col.columnKey||col.field||i" :style="col.headerStyle" :class="getColumnHeaderClass(col)"
                                 @click="onColumnHeaderClick($event, col)" @mousedown="onColumnHeaderMouseDown($event, col)"
                                 @dragstart="onColumnHeaderDragStart($event)" @dragover="onColumnHeaderDragOver($event)" @dragleave="onColumnHeaderDragLeave($event)" @drop="onColumnHeaderDrop($event)"
@@ -69,8 +69,8 @@
                                 @mousedown="onRowMouseDown($event)" @dragstart="onRowDragStart($event, index)" @dragover="onRowDragOver($event,index)" @dragleave="onRowDragLeave($event)" @dragend="onRowDragEnd($event)" @drop="onRowDrop($event)">
                                 <template v-for="(col,i) of columns">
                                     <DTBodyCell v-if="shouldRenderBodyCell(dataToRender, col, index)" :key="col.columnKey||col.field||i" :rowData="rowData" :column="col" :index="index" :selected="isSelected(rowData)"
-                                        :rowTogglerIcon="col.expander ? rowTogglerIcon(rowData): null" @row-toggle="toggleRow" 
-                                        @radio-change="toggleRowWithRadio" @checkbox-change="toggleRowWithCheckbox" 
+                                        :rowTogglerIcon="col.expander ? rowTogglerIcon(rowData): null" @row-toggle="toggleRow"
+                                        @radio-change="toggleRowWithRadio" @checkbox-change="toggleRowWithCheckbox"
                                         :rowspan="rowGroupMode === 'rowspan' ? calculateRowGroupSize(dataToRender, col, index) : null" />
                                 </template>
                             </tr>
