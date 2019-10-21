@@ -59,10 +59,8 @@
 <script>
 import UniqueComponentId from '../utils/UniqueComponentId';
 import DomHandler from '../utils/DomHandler';
-import CarouselItem from "../carouselitem/CarouselItem";
 
 export default {
-	components: {CarouselItem},
 	props: {
 		value: null,
 		page: {
