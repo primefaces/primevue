@@ -10,22 +10,31 @@
 		</div>
 
 		<div class="content-section implementation">
+            <h3>Subheader Grouping</h3>
 			<DataTable :value="cars" rowGroupMode="subheader" groupRowsBy="brand" 
                 sortMode="single" sortField="brand" :sortOrder="1">
-                <template #header>
-                    Subheader Grouping
-                </template>
                 <Column field="brand" header="Brand"></Column>
                 <Column field="vin" header="Vin"></Column>
                 <Column field="year" header="Year"></Column>
                 <Column field="color" header="Color"></Column>
+                <Column field="price" header="Price"></Column>
                 <template #groupheader="slotProps">
-                    <strong>{{slotProps.data.brand}}</strong>
+                    <span>{{slotProps.data.brand}}</span>
                 </template>
                 <template #groupfooter="slotProps">
                     <td colspan="3" style="text-align: right">Total Price</td>
                     <td>20000</td>
                 </template>
+            </DataTable>
+
+            <h3>RowSpan Grouping</h3>
+			<DataTable :value="cars" rowGroupMode="rowspan" :groupRowsBy="['brand', 'year']" 
+                sortMode="multiple" :multiSortMeta="multiSortMeta">
+                <Column field="brand" header="Brand"></Column>
+                <Column field="vin" header="Vin"></Column>
+                <Column field="year" header="Year"></Column>
+                <Column field="color" header="Color"></Column>
+                <Column field="price" header="Price"></Column>
             </DataTable>
 		</div>
 
@@ -54,12 +63,18 @@ import DataTableSubMenu from './DataTableSubMenu';
 export default {
     data() {
         return {
-            cars: null
+            cars: null,
+            multiSortMeta: null
         }
     },
     carService: null,
     created() {
         this.carService = new CarService();
+
+        this.multiSortMeta = [
+            {field: 'brand', order: 1},
+            {field: 'year', order: 1}
+        ];
     },
     mounted() {
         this.carService.getCarsMedium().then(data => this.cars = data);
@@ -69,3 +84,10 @@ export default {
     }
 }
 </script>
+
+<style lang="scss" scoped>
+.p-rowgroup-header span,
+.p-rowgroup-footer td {
+    font-weight: 700;
+}
+</style>

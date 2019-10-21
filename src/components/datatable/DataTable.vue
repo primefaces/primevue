@@ -23,17 +23,20 @@
             <table ref="table">
                 <thead class="p-datatable-thead">
                     <tr v-if="!headerColumnGroup">
-                        <th v-for="(col,i) of columns" :key="col.columnKey||col.field||i" :style="col.headerStyle" :class="getColumnHeaderClass(col)"
-                            @click="onColumnHeaderClick($event, col)" @mousedown="onColumnHeaderMouseDown($event, col)"
-                            @dragstart="onColumnHeaderDragStart($event)" @dragover="onColumnHeaderDragOver($event)" @dragleave="onColumnHeaderDragLeave($event)" @drop="onColumnHeaderDrop($event)"
-                            :colspan="col.colspan" :rowspan="col.rowspan">
-                            <span class="p-column-resizer p-clickable" @mousedown="onColumnResizeStart" v-if="resizableColumns"></span>
-                            <ColumnSlot :column="col" type="header" v-if="col.$scopedSlots.header" />
-                            <span class="p-column-title" v-if="col.header">{{col.header}}</span>
-                            <span v-if="col.sortable" :class="getSortableColumnIcon(col)"></span>
-                            <ColumnSlot :column="col" type="filter" v-if="col.$scopedSlots.filter" />
-                            <DTHeaderCheckbox :checked="allRowsSelected" @change="toggleRowsWithCheckbox" :disabled="empty" v-if="col.selectionMode ==='multiple'" />
-                        </th>
+                        <template v-for="(col,i) of columns">
+                            <th v-if="rowGroupMode !== 'subheader' || (groupRowsBy !== col.field)" 
+                                :key="col.columnKey||col.field||i" :style="col.headerStyle" :class="getColumnHeaderClass(col)"
+                                @click="onColumnHeaderClick($event, col)" @mousedown="onColumnHeaderMouseDown($event, col)"
+                                @dragstart="onColumnHeaderDragStart($event)" @dragover="onColumnHeaderDragOver($event)" @dragleave="onColumnHeaderDragLeave($event)" @drop="onColumnHeaderDrop($event)"
+                                :colspan="col.colspan" :rowspan="col.rowspan">
+                                <span class="p-column-resizer p-clickable" @mousedown="onColumnResizeStart" v-if="resizableColumns"></span>
+                                <ColumnSlot :column="col" type="header" v-if="col.$scopedSlots.header" />
+                                <span class="p-column-title" v-if="col.header">{{col.header}}</span>
+                                <span v-if="col.sortable" :class="getSortableColumnIcon(col)"></span>
+                                <ColumnSlot :column="col" type="filter" v-if="col.$scopedSlots.filter" />
+                                <DTHeaderCheckbox :checked="allRowsSelected" @change="toggleRowsWithCheckbox" :disabled="empty" v-if="col.selectionMode ==='multiple'" />
+                            </th>
+                        </template>
                     </tr>
                     <template v-else>
                         <tr v-for="(row,i) of headerColumnGroup.rows" :key="i">
@@ -52,23 +55,28 @@
                 <tbody class="p-datatable-tbody">
                     <template v-if="!empty">
                         <template v-for="(rowData, index) of dataToRender">
-                            <tr class="p-rowgroup-header" v-if="rowGroupMode === 'subheader' && shouldRenderRowGroupHeader(dataToRender, rowData, index)" :key="getRowKey(rowData, index)">
-                                <td :colspan="columns.length">
+                            <tr class="p-rowgroup-header" v-if="rowGroupMode === 'subheader' && shouldRenderRowGroupHeader(dataToRender, rowData, index)" :key="getRowKey(rowData, index) + '_subheader'">
+                                <td :colspan="columns.length - 1">
                                     <slot name="groupheader" :data="rowData"></slot>
                                 </td>
                             </tr>
                             <tr :class="getRowClass(rowData)" :key="getRowKey(rowData, index)"
                                 @click="onRowClick($event, rowData, index)" @touchend="onRowTouchEnd($event)" @keydown="onRowKeyDown($event, rowData, index)" :tabindex="selectionMode ? '0' : null"
                                 @mousedown="onRowMouseDown($event)" @dragstart="onRowDragStart($event, index)" @dragover="onRowDragOver($event,index)" @dragleave="onRowDragLeave($event)" @dragend="onRowDragEnd($event)" @drop="onRowDrop($event)">
-                                <DTBodyCell v-for="(col,i) of columns" :key="col.columnKey||col.field||i" :rowData="rowData" :column="col" :selected="isSelected(rowData)"
-                                    :rowTogglerIcon="col.expander ? rowTogglerIcon(rowData): null" @row-toggle="toggleRow" 
-                                    @radio-change="toggleRowWithRadio" @checkbox-change="toggleRowWithCheckbox" />
+                                <template v-for="(col,i) of columns">
+                                    <DTBodyCell v-if="rowGroupMode !== 'subheader' || (groupRowsBy !== col.field)" :key="col.columnKey||col.field||i" :rowData="rowData" :column="col" :selected="isSelected(rowData)"
+                                        :rowTogglerIcon="col.expander ? rowTogglerIcon(rowData): null" @row-toggle="toggleRow" 
+                                        @radio-change="toggleRowWithRadio" @checkbox-change="toggleRowWithCheckbox" />
+                                </template>
                             </tr>
                             <tr class="p-datatable-row-expansion" v-if="expandedRows && isRowExpanded(rowData)" :key="getRowKey(rowData, index) + '_expansion'">
                                 <td :colspan="columns.length">
                                     <slot name="expansion" :data="rowData" :index="index">
                                     </slot>
                                 </td>
+                            </tr>
+                            <tr class="p-rowgroup-footer" v-if="rowGroupMode === 'subheader' && shouldRenderRowGroupFooter(dataToRender, rowData, index)" :key="getRowKey(rowData, index) + '_subfooter'">
+                                <slot name="groupfooter" :data="rowData"></slot>
                             </tr>
                         </template>
                     </template>
@@ -1247,6 +1255,17 @@ export default {
 
                 return currentRowFieldData !== previousRowFieldData;
             }
+        },
+        shouldRenderRowGroupFooter(value, rowData, i) {
+            if (i === (value.length - 1)) {
+                return true;
+            }
+            else {
+                let currentRowFieldData = ObjectUtils.resolveFieldData(rowData, this.groupRowsBy);
+                let nextRowFieldData = ObjectUtils.resolveFieldData(value[i + 1], this.groupRowsBy);
+
+                return currentRowFieldData !== nextRowFieldData;
+            }            
         }
     },
     computed: {
