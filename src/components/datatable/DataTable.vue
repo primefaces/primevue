@@ -64,7 +64,7 @@
                                 @click="onRowClick($event, rowData, index)" @touchend="onRowTouchEnd($event)" @keydown="onRowKeyDown($event, rowData, index)" :tabindex="selectionMode ? '0' : null"
                                 @mousedown="onRowMouseDown($event)" @dragstart="onRowDragStart($event, index)" @dragover="onRowDragOver($event,index)" @dragleave="onRowDragLeave($event)" @dragend="onRowDragEnd($event)" @drop="onRowDrop($event)">
                                 <template v-for="(col,i) of columns">
-                                    <DTBodyCell v-if="rowGroupMode !== 'subheader' || (groupRowsBy !== col.field)" :key="col.columnKey||col.field||i" :rowData="rowData" :column="col" :selected="isSelected(rowData)"
+                                    <DTBodyCell v-if="rowGroupMode === 'subheader' ? (groupRowsBy !== col.field) : true" :key="col.columnKey||col.field||i" :rowData="rowData" :column="col" :selected="isSelected(rowData)"
                                         :rowTogglerIcon="col.expander ? rowTogglerIcon(rowData): null" @row-toggle="toggleRow" 
                                         @radio-change="toggleRowWithRadio" @checkbox-change="toggleRowWithCheckbox" />
                                 </template>

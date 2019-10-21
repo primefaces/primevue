@@ -30,9 +30,9 @@
             <h3>RowSpan Grouping</h3>
 			<DataTable :value="cars" rowGroupMode="rowspan" :groupRowsBy="['brand', 'year']" 
                 sortMode="multiple" :multiSortMeta="multiSortMeta">
-                <Column field="brand" header="Brand"></Column>
-                <Column field="vin" header="Vin"></Column>
+                <Column field="brand" header="Brand"></Column>               
                 <Column field="year" header="Year"></Column>
+                <Column field="vin" header="Vin"></Column>
                 <Column field="color" header="Color"></Column>
                 <Column field="price" header="Price"></Column>
             </DataTable>
