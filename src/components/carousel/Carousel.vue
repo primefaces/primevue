@@ -1,51 +1,76 @@
 <template>
 	<div :id="id" :class="containerClass">
+		<div class="p-carousel-header" v-if="$scopedSlots.header">
+			<slot name="header"></slot>
+		</div>
 		<div :class="contentClasses">
-			<button :class="['p-carousel-prev p-link', {'p-disabled': d_activeIndex === 0}]" :disabled="d_activeIndex === 0" @click="navBackward">
-				<span class="p-carousel-prev-icon pi pi-chevron-left"></span>
-			</button>
-			<div class="p-carousel-container" :style="[{'height': isVertical() ? verticalContentHeight : 'auto'}]">
-				<div class="p-carousel-header" v-if="$scopedSlots.header">
-					<slot name="header"></slot>
-				</div>
-				<div ref="itemsContainer" class="p-carousel-items" @touchend="onTouchEnd" @touchstart="onTouchStart" @touchmove="onTouchMove">
-					<div v-for="(item, index) of value" :key="index" :class="['p-carousel-item',
+			<div class="p-carousel-container">
+				<button :class="['p-carousel-prev p-button', {'p-disabled': backwardIsDisabled}]" :disabled="backwardIsDisabled" @click="navBackward">
+					<span :class="['p-carousel-prev-icon pi', {'pi-chevron-left': !isVertical(),'pi-chevron-up': isVertical()}]"></span>
+				</button>
+
+				<div class="p-carousel-items-content" :style="[{'height': isVertical() ? verticalViewPortHeight : 'auto'}]">
+					<div ref="itemsContainer" class="p-carousel-items-container"
+						@transitionend="onTransitionEnd" @touchend="onTouchEnd" @touchstart="onTouchStart" @touchmove="onTouchMove">
+						<!--<CarouselItem v-bind="{ scopedSlots: $scopedSlots }" :value="value" :start="firstIndex()" :end="lastIndex()" v-if="$scopedSlots.item"></CarouselItem>-->
+						<template v-if="isCircular()">
+							<div v-for="(item, index) of value.slice(-1 * d_numVisible)" :key="index + '_scloned'" :class="['p-carousel-item p-carousel-item-cloned',
+								{'p-carousel-item-active': (totalShiftedItems * -1) === (value.length + d_numVisible),
+								'p-carousel-item-start': 0 === index,
+								'p-carousel-item-end': value.slice(-1 * d_numVisible).length - 1 === index}]">
+								<slot name="item" :data="item" :index="index"></slot>
+							</div>
+						</template>
+						<div v-for="(item, index) of value" :key="index" :class="['p-carousel-item',
 							{'p-carousel-item-active': firstIndex() <= index && lastIndex() >= index,
 							'p-carousel-item-start': firstIndex() === index,
 							'p-carousel-item-end': lastIndex() === index}]">
-						<slot name="item" :data="item" :index="index"></slot>
+							<slot name="item" :data="item" :index="index"></slot>
+						</div>
+						<template v-if="isCircular()">
+							<div v-for="(item, index) of value.slice(0, d_numVisible)" :key="index + '_fcloned'" :class="['p-carousel-item p-carousel-item-cloned',
+								{'p-carousel-item-active': totalShiftedItems === 0,
+								'p-carousel-item-start': 0 === index,
+								'p-carousel-item-end': value.slice(0, d_numVisible).length - 1 === index}]">
+								<slot name="item" :data="item" :index="index"></slot>
+							</div>
+						</template>
 					</div>
 				</div>
-				<div class="p-carousel-footer" v-if="$scopedSlots.footer">
-					<slot name="footer"></slot>
-				</div>
-			</div>
-			<button :class="['p-carousel-next p-link', {'p-disabled': d_activeIndex === totalDots-1}]" :disabled="d_activeIndex === totalDots-1" @click="navForward">
-				<span class="p-carousel-next-icon pi pi-chevron-right"></span>
-			</button>
-		</div>
-		<ul :class="dotsContentClasses">
-			<li v-for="(totalDot, i) of totalDots" :key="'p-carousel-dot-' + i" :class="['p-carousel-dot-item', {'p-highlight': d_activeIndex === i}]">
-				<button class="p-link" @click="onDotClick($event, i)">
-					<span :class="['p-carousel-dot-icon pi', {'pi-circle-on': d_activeIndex === i, 'pi-circle-off': !(d_activeIndex === i)}]"></span>
+
+				<button :class="['p-carousel-next p-button', {'p-disabled': forwardIsDisabled}]" :disabled="forwardIsDisabled" @click="navForward">
+					<span :class="['p-carousel-prev-icon pi', {'pi-chevron-right': !isVertical(),'pi-chevron-down': isVertical()}]"></span>
 				</button>
-			</li>
-		</ul>
+			</div>
+			<ul :class="dotsContentClasses">
+				<li v-for="(totalDot, i) of totalDots" :key="'p-carousel-dot-' + i" :class="['p-carousel-dot-item', {'p-highlight': d_page === i}]">
+					<button class="p-link" @click="onDotClick($event, i)">
+						<span :class="['p-carousel-dot-icon pi', {'pi-circle-on': d_page === i, 'pi-circle-off': !(d_page === i)}]"></span>
+					</button>
+				</li>
+			</ul>
+		</div>
+		<div class="p-carousel-footer" v-if="$scopedSlots.footer">
+			<slot name="footer"></slot>
+		</div>
 	</div>
 </template>
 
 <script>
 import UniqueComponentId from '../utils/UniqueComponentId';
+import DomHandler from '../utils/DomHandler';
+import CarouselItem from "../carouselitem/CarouselItem";
 
 export default {
+	components: {CarouselItem},
 	props: {
 		value: null,
-		activeIndex: {
+		page: {
 			type: Number,
 			default: 0
 		},
-		header: null,
-		footer: null,
+		//header: null,
+		//footer: null,
 		numVisible: {
 			type: Number,
 			default: 1
@@ -54,17 +79,25 @@ export default {
 			type: Number,
 			default: 1
 		},
-		responsive: Array,
+		responsiveOptions: Array,
 		orientation: {
 			type: String,
 			default: 'horizontal'
 		},
-		verticalContentHeight: {
+		verticalViewPortHeight: {
 			type: String,
 			default: '300px'
 		},
 		contentClass: String,
-		dotsContentClass: String
+		dotsContentClass: String,
+		circular: {
+			type: Boolean,
+			default: false
+		},
+		autoplayInterval: {
+			type: Number,
+			default:0
+		}
 	},
 	data() {
 		return {
@@ -72,30 +105,47 @@ export default {
 			d_numVisible: this.numVisible,
 			d_numScroll: this.numScroll,
 			d_oldNumScroll: 0,
-			d_activeIndex: this.activeIndex,
-			totalShiftedItems: this.activeIndex * this.numScroll * -1,
-			id : UniqueComponentId()
+			d_oldNumVisible: 0,
+			d_oldValue: null,
+			d_page: this.page,
+			totalShiftedItems: this.page * this.numScroll * -1,
+			id : UniqueComponentId(),
+			allowAutoplay : !!this.autoplayInterval,
+			d_circular : this.circular || this.allowAutoplay
 		}
 	},
 	isRemainingItemsAdded: false,
 	watch: {
-		activeIndex(newValue) {
-			this.d_activeIndex = newValue;
+		page(newValue) {
+			this.d_page = newValue;
 		},
-		numVisible(newValue) {
+		circular(newValue) {
+			this.d_circular = newValue;
+		},
+		numVisible(newValue, oldValue) {
 			this.d_numVisible = newValue;
+			this.d_oldNumVisible = oldValue;
 		},
 		numScroll(newValue, oldValue) {
 			this.d_oldNumScroll = oldValue;
 			this.d_numScroll = newValue;
+		},
+		value(oldValue) {
+			this.d_oldValue =oldValue;
 		}
 	},
 	methods: {
-		step(event, dir, index) {
+		step(dir, page) {
 			let totalShiftedItems = this.totalShiftedItems;
+			const isCircular = this.isCircular();
 
-			if (index != null) {
-				totalShiftedItems = (this.d_numScroll * index) * -1;
+			if (page != null) {
+				totalShiftedItems = (this.d_numScroll * page) * -1;
+
+				if (isCircular) {
+					totalShiftedItems -= this.d_numVisible;
+				}
+
 				this.isRemainingItemsAdded = false;
 			}
 			else {
@@ -105,92 +155,111 @@ export default {
 					this.isRemainingItemsAdded = false;
 				}
 
-				index = Math.abs(parseInt(totalShiftedItems / this.d_numScroll, 10));
+				let originalShiftedItems = isCircular ? (totalShiftedItems + this.d_numVisible) : totalShiftedItems;
+				page = Math.abs(Math.floor(originalShiftedItems / this.d_numScroll));
 			}
 
-			if (index === (this.totalDots - 1) && this.remainingItems > 0) {
+			if (isCircular && this.d_page === (this.totalDots - 1) && dir === -1) {
+				totalShiftedItems = -1 * (this.value.length + this.d_numVisible);
+				page = 0;
+			}
+			else if (isCircular && this.d_page === 0 && dir === 1) {
+				totalShiftedItems = 0;
+				page = (this.totalDots - 1);
+			}
+			else if (page === (this.totalDots - 1) && this.remainingItems > 0) {
 				totalShiftedItems += ((this.remainingItems * -1) - (this.d_numScroll * dir));
 				this.isRemainingItemsAdded = true;
 			}
 
 			if (this.$refs.itemsContainer) {
+				DomHandler.removeClass(this.$refs.itemsContainer, 'p-items-hidden');
 				this.$refs.itemsContainer.style.transform = this.isVertical() ? `translate3d(0, ${totalShiftedItems * (100/ this.d_numVisible)}%, 0)` : `translate3d(${totalShiftedItems * (100/ this.d_numVisible)}%, 0, 0)`;
 				this.$refs.itemsContainer.style.transition = 'transform 500ms ease 0s';
-
-				if (this.animationTimeout) {
-					clearTimeout(this.animationTimeout);
-				}
-
-				this.animationTimeout = setTimeout(() => {
-					if (this.$refs.itemsContainer) {
-						this.$refs.itemsContainer.style.transition = '';
-					}
-				}, 500);
 			}
 
 			this.totalShiftedItems = totalShiftedItems;
 
-			this.$emit('update:activeIndex', index);
-			this.d_activeIndex = index;
+			this.$emit('update:page', page);
+			this.d_page = page;
 		},
 		calculatePosition() {
-			if (this.$refs.itemsContainer && this.responsive) {
+			if (this.$refs.itemsContainer && this.responsiveOptions) {
 				let windowWidth = window.innerWidth;
-				let matchedResponsiveData = {
+				let matchedResponsiveOptionsData = {
 					numVisible: this.numVisible,
 					numScroll: this.numScroll
 				};
 
-				for (let i = 0; i < this.responsive.length; i++) {
-					let res = this.responsive[i];
+				for (let i = 0; i < this.responsiveOptions.length; i++) {
+					let res = this.responsiveOptions[i];
 
 					if (parseInt(res.breakpoint, 10) >= windowWidth) {
-						matchedResponsiveData = res;
+						matchedResponsiveOptionsData = res;
 					}
 				}
 
-				if (this.d_numScroll !== matchedResponsiveData.numScroll) {
-					let activeIndex = this.d_activeIndex;
-					activeIndex = parseInt((activeIndex * this.d_numScroll) / matchedResponsiveData.numScroll);
+				if (this.d_numScroll !== matchedResponsiveOptionsData.numScroll) {
+					let page = this.d_page;
+					page = parseInt((page * this.d_numScroll) / matchedResponsiveOptionsData.numScroll);
 
-					this.totalShiftedItems = (matchedResponsiveData.numScroll * activeIndex) * -1;
-					this.d_numScroll = matchedResponsiveData.numScroll;
+					this.totalShiftedItems = (matchedResponsiveOptionsData.numScroll * page) * -1;
 
-					this.$emit('update:activeIndex', activeIndex);
-					this.d_activeIndex = activeIndex;
+					if (this.isCircular()) {
+						this.totalShiftedItems -= matchedResponsiveOptionsData.numVisible;
+					}
+
+					this.d_numScroll = matchedResponsiveOptionsData.numScroll;
+
+					this.$emit('update:page', page);
+					this.d_page = page;
 				}
 
-				if (this.d_numVisible !== matchedResponsiveData.numVisible) {
-					this.d_numVisible = matchedResponsiveData.numVisible;
+				if (this.d_numVisible !== matchedResponsiveOptionsData.numVisible) {
+					this.d_numVisible = matchedResponsiveOptionsData.numVisible;
 				}
 			}
 		},
 		navBackward(e,index){
-			if (this.d_activeIndex !== 0) {
-				this.step(e, 1, index);
+			if (this.d_circular || this.d_page !== 0) {
+				this.step(1, index);
 			}
+
+			this.allowAutoplay = false;
 
 			if (e.cancelable) {
 				e.preventDefault();
 			}
 		},
 		navForward(e,index){
-			if (this.d_activeIndex < (this.totalDots - 1)) {
-				this.step(e, -1, index);
+			if (this.d_circular || this.d_page < (this.totalDots - 1)) {
+				this.step(-1, index);
 			}
+
+			this.allowAutoplay = false;
 
 			if (e.cancelable) {
 				e.preventDefault();
 			}
 		},
 		onDotClick(e, index) {
-			let activeIndex = this.d_activeIndex;
+			let page = this.d_page;
 
-			if (index > activeIndex) {
+			if (index > page) {
 				this.navForward(e, index);
 			}
-			else if (index < activeIndex) {
+			else if (index < page) {
 				this.navBackward(e, index);
+			}
+		},
+		onTransitionEnd() {
+			if (this.$refs.itemsContainer) {
+				DomHandler.addClass(this.$refs.itemsContainer, 'p-items-hidden');
+				this.$refs.itemsContainer.style.transition = '';
+
+				if ((this.d_page === 0 || this.d_page === (this.totalDots - 1)) && this.isCircular()) {
+					this.$refs.itemsContainer.style.transform = this.isVertical() ? `translate3d(0, ${this.totalShiftedItems * (100/ this.d_numVisible)}%, 0)` : `translate3d(${this.totalShiftedItems * (100/ this.d_numVisible)}%, 0, 0)`;
+				}
 			}
 		},
 		onTouchStart(e) {
@@ -239,6 +308,22 @@ export default {
 				this.documentResizeListener = null;
 			}
 		},
+		startAutoplay() {
+			this.interval = setInterval(() => {
+					if(this.d_page === (this.totalDots - 1)) {
+						this.step(-1, 0);
+					}
+					else {
+						this.step(-1, this.d_page + 1);
+					}
+				},
+				this.autoplayInterval);
+		},
+		stopAutoplay() {
+			if (this.interval) {
+				clearInterval(this.interval);
+			}
+		},
 		createStyle() {
 			if (!this.carouselStyle) {
 				this.carouselStyle = document.createElement('style');
@@ -252,8 +337,8 @@ export default {
             }
         `;
 
-			if (this.responsive) {
-				this.responsive.sort((data1, data2) => {
+			if (this.responsiveOptions) {
+				this.responsiveOptions.sort((data1, data2) => {
 					const value1 = data1.breakpoint;
 					const value2 = data2.breakpoint;
 					let result = null;
@@ -272,8 +357,8 @@ export default {
 					return -1 * result;
 				});
 
-				for (let i = 0; i < this.responsive.length; i++) {
-					let res = this.responsive[i];
+				for (let i = 0; i < this.responsiveOptions.length; i++) {
+					let res = this.responsiveOptions[i];
 
 					innerHTML += `
                     @media screen and (max-width: ${res.breakpoint}) {
@@ -290,61 +375,124 @@ export default {
 		isVertical() {
 			return this.orientation === 'vertical';
 		},
+		isCircular() {
+			return this.value && this.d_circular && this.value.length >= this.d_numVisible;
+		},
+		isAutoplay() {
+			return this.autoplayInterval && this.allowAutoplay;
+		},
 		firstIndex() {
-			return (this.totalShiftedItems * -1);
+			return this.isCircular()? (-1 * (this.totalShiftedItems + this.d_numVisible)) : (this.totalShiftedItems * -1);
 		},
 		lastIndex() {
-			return (this.totalShiftedItems * -1) + this.d_numVisible - 1;
+			return (this.firstIndex() + this.d_numVisible - 1);
 		}
 	},
 	mounted() {
 		this.createStyle();
 		this.calculatePosition();
 
-		if (this.responsive) {
+		if (this.responsiveOptions) {
 			this.bindDocumentListeners();
 		}
 	},
 	updated() {
-		if(this.d_oldNumScroll !== this.d_numScroll) {
+		const isCircular = this.isCircular();
+		let stateChanged = false;
+		let totalShiftedItems = this.totalShiftedItems;
+
+		if (this.autoplayInterval) {
+			this.stopAutoplay();
+		}
+
+		if(this.d_oldNumScroll !== this.d_numScroll || this.d_oldNumVisible !== this.d_numVisible || this.d_oldValue.length !== this.value.length) {
 			this.remainingItems = (this.value.length - this.d_numVisible) % this.d_numScroll;
 
-			let totalShiftedItems = this.totalShiftedItems;
-			let activeIndex = this.d_activeIndex;
+			let page = this.d_page;
+			if (this.totalDots !== 0 && page >= this.totalDots) {
+				page = this.totalDots - 1;
 
-			if (activeIndex === (this.totalDots - 1) && this.remainingItems > 0) {
+				this.$emit('update:page', page);
+
+				stateChanged = true;
+			}
+
+			totalShiftedItems = (page * this.d_numScroll) * -1;
+			if (isCircular) {
+				totalShiftedItems -= this.d_numVisible;
+			}
+
+			if (page === (this.totalDots - 1) && this.remainingItems > 0) {
 				totalShiftedItems += (-1 * this.remainingItems) + this.d_numScroll;
-				this.totalShiftedItems = totalShiftedItems;
 				this.isRemainingItemsAdded = true;
 			}
 			else {
 				this.isRemainingItemsAdded = false;
 			}
 
+			if (totalShiftedItems !== this.totalShiftedItems) {
+				this.totalShiftedItems = totalShiftedItems;
+
+				stateChanged = true;
+			}
+
 			this.d_oldNumScroll = this.d_numScroll;
 
 			this.$refs.itemsContainer.style.transform = this.isVertical() ? `translate3d(0, ${totalShiftedItems * (100/ this.d_numVisible)}%, 0)` : `translate3d(${totalShiftedItems * (100/ this.d_numVisible)}%, 0, 0)`;
 		}
+
+		if (isCircular) {
+			if (this.d_page === 0) {
+				totalShiftedItems = -1 * this.d_numVisible;
+			}
+			else if (totalShiftedItems === 0) {
+				totalShiftedItems = -1 * this.value.length;
+				if (this.remainingItems > 0) {
+					this.isRemainingItemsAdded = true;
+				}
+			}
+
+			if (totalShiftedItems !== this.totalShiftedItems) {
+				this.totalShiftedItems = totalShiftedItems;
+
+				stateChanged = true;
+			}
+		}
+
+		if (!stateChanged && this.isAutoplay()) {
+			this.startAutoplay();
+		}
 	},
 	beforeDestroy() {
-		if (this.responsive) {
+		if (this.responsiveOptions) {
 			this.unbindDocumentListeners();
+		}
+
+		if (this.autoplayInterval) {
+			this.stopAutoplay();
 		}
 	},
 	computed: {
 		totalDots() {
 			return this.value ? Math.ceil((this.value.length - this.d_numVisible) / this.d_numScroll) + 1 : 0;
 		},
+		backwardIsDisabled() {
+			return (this.value && (!this.circular || this.value.length < this.d_numVisible) && this.d_page === 0);
+		},
+		forwardIsDisabled() {
+			return (this.value && (!this.circular || this.value.length < this.d_numVisible) && (this.d_page === (this.totalDots - 1) || this.totalDots === 0));
+		},
 		containerClass() {
 			return ['p-carousel p-component', {
-				'p-carousel-vertical': this.isVertical()
+				'p-carousel-vertical': this.isVertical(),
+				'p-carousel-horizontal': !this.isVertical()
 			}];
 		},
 		contentClasses() {
 			return ['p-carousel-content ', this.contentClass];
 		},
 		dotsContentClasses() {
-			return ['p-carousel-dots-content p-reset', this.dotsContentClass];
+			return ['p-carousel-dots-container p-reset', this.dotsContentClass];
 		},
 	},
 	name: "Carousel"
@@ -360,93 +508,88 @@ export default {
 
 .p-carousel-content {
 	display: flex;
-	flex-direction: row;
+	flex-direction: column;
 	flex-wrap: nowrap;
 	overflow: auto;
-	padding: .5em;
+	padding: 0 .5em;
 }
 
-.p-carousel-prev.p-link,
-.p-carousel-next.p-link {
+.p-carousel-prev,
+.p-carousel-next {
 	align-self: center;
 	text-align: center;
 	flex-grow: 0;
 	flex-shrink: 0;
 	width: 2.5em;
 	height: 2.5em;
-	position: relative;
 }
 
 .p-carousel-prev span,
 .p-carousel-next span {
-	display: block;
-	position: absolute;
-	left: 50%;
-	top: 50%;
-	margin-top: -.45em;
-	margin-left: -.45em;
-}
-
-.p-carousel-prev span {
-	margin-left: -.5em;
+	width: 100%;
+	display: flex;
+	justify-content: center;
+	align-items: center;
 }
 
 .p-carousel-container {
 	display: flex;
-	flex-direction: column;
-	overflow: hidden;
+	flex-direction: row;
 	padding: 0 .1em;
+}
+
+.p-carousel-items-content {
+	overflow: hidden;
 	width: 100%;
 }
 
 .p-carousel-header,
 .p-carousel-footer {
-	padding: .5em;
+	padding: 0 .5em;
 	z-index: 1;
 }
 
-.p-carousel-items {
+.p-carousel-items-container {
 	display: flex;
 	flex-wrap: nowrap;
 	flex-direction: row;
 }
 
-.p-carousel-items .p-carousel-item {
+.p-carousel-items-container .p-carousel-item {
 	width: 100%;
 	box-sizing: border-box;
 	overflow: auto;
-	visibility: hidden;
-	transition: visibility 1s;
 }
 
-.p-carousel-items .p-carousel-item.p-carousel-item-active {
-	visibility: visible;
-}
-
-.p-carousel-dots-content {
+.p-carousel-dots-container {
 	display: flex;
 	flex-direction: row;
 	justify-content: center;
+	flex-wrap: wrap;
 	margin: .5em;
 }
 
 /* Vertical */
-.p-carousel-vertical .p-carousel-content {
+.p-carousel-vertical .p-carousel-container {
 	flex-direction: column;
-	flex-basis: 100%;
+	width: 100%;
 }
 
-.p-carousel-vertical .p-carousel-prev,
-.p-carousel-vertical .p-carousel-next {
-	transform: rotate(90deg);
-}
-
-.p-carousel-vertical .p-carousel-items {
+.p-carousel-vertical .p-carousel-items-container {
 	flex-direction: column;
 	height: 100%;
 }
 
-.p-carousel-vertical .p-carousel-dots-content {
+.p-carousel-vertical .p-carousel-dots-container {
 	margin: .75em 0;
+}
+
+/* Keyboard Support */
+.p-items-hidden .p-carousel-item {
+	visibility: hidden;
+}
+
+.p-items-hidden .p-carousel-item.p-carousel-item-active {
+	visibility: visible;
 }
 </style>

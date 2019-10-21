@@ -57,6 +57,11 @@ export default new Router({
 			component: () => import('./views/card/CardDemo.vue')
 		},
 		{
+			path: '/carousel',
+			name: 'carousel',
+			component: () => import('./views/carousel/CarouselDemo.vue')
+		},
+		{
 			path: '/chart',
 			name: 'chart',
 			component: () => import('./views/chart/ChartDemo.vue')
