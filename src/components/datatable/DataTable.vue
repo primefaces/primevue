@@ -57,10 +57,14 @@
                         <template v-for="(rowData, index) of dataToRender">
                             <tr class="p-rowgroup-header" v-if="rowGroupMode === 'subheader' && shouldRenderRowGroupHeader(dataToRender, rowData, index)" :key="getRowKey(rowData, index) + '_subheader'">
                                 <td :colspan="columns.length - 1">
+                                    <button class="p-row-toggler p-link" @click="toggleRowGroup($event, rowData)" v-if="expandableRowGroups">
+                                        <span :class="rowGroupTogglerIcon(rowData)"></span>
+                                    </button>
                                     <slot name="groupheader" :data="rowData"></slot>
                                 </td>
                             </tr>
                             <tr :class="getRowClass(rowData)" :key="getRowKey(rowData, index)"
+                                v-if="expandableRowGroups ? isRowGroupExpanded(rowData): true"
                                 @click="onRowClick($event, rowData, index)" @touchend="onRowTouchEnd($event)" @keydown="onRowKeyDown($event, rowData, index)" :tabindex="selectionMode ? '0' : null"
                                 @mousedown="onRowMouseDown($event)" @dragstart="onRowDragStart($event, index)" @dragover="onRowDragOver($event,index)" @dragleave="onRowDragLeave($event)" @dragend="onRowDragEnd($event)" @drop="onRowDrop($event)">
                                 <template v-for="(col,i) of columns">
@@ -282,6 +286,14 @@ export default {
         },
         groupRowsBy: {
             type: [Array,String],
+            default: null
+        },
+        expandableRowGroups: {
+            type: Boolean,
+            default: false
+        },
+        expandedRowGroups: {
+            type: Array,
             default: null
         }
     },
@@ -823,6 +835,10 @@ export default {
 
             return false;
         },
+        isRowGroupExpanded(rowData) {
+            let groupFieldValue = ObjectUtils.resolveFieldData(rowData, this.groupRowsBy);
+            return this.expandableRowGroups && this.expandedRowGroups && this.expandedRowGroups.indexOf(groupFieldValue) > -1;
+        },
         getRowKey(rowData, index) {
             return this.dataKey ? ObjectUtils.resolveFieldData(rowData, this.dataKey): index;
         },
@@ -1240,8 +1256,27 @@ export default {
                 this.$emit('row-expand', event);
             }
         },
+        toggleRowGroup(event, data) {
+            let groupFieldValue = ObjectUtils.resolveFieldData(data, this.groupRowsBy);
+            let _expandedRowGroups = this.expandedRowGroups ? [...this.expandedRowGroups] : [];
+
+            if (this.isRowGroupExpanded(data)) {
+                _expandedRowGroups = _expandedRowGroups.filter(group => group !== groupFieldValue);
+                this.$emit('update:expandedRowGroups', _expandedRowGroups);
+                this.$emit('rowgroup-collapse', {originalEvent: event, data: groupFieldValue});
+            }
+            else {
+                _expandedRowGroups.push(groupFieldValue);
+                this.$emit('update:expandedRowGroups', _expandedRowGroups);
+                this.$emit('rowgroup-expand', {originalEvent: event, data: groupFieldValue});
+            }
+        },
         rowTogglerIcon(rowData) {
             const icon = this.isRowExpanded(rowData) ? this.expandedRowIcon : this.collapsedRowIcon;
+            return ['p-row-toggler-icon pi pi-fw p-clickable', icon];
+        },
+        rowGroupTogglerIcon(rowData) {
+            const icon = this.isRowGroupExpanded(rowData) ? this.expandedRowIcon : this.collapsedRowIcon;
             return ['p-row-toggler-icon pi pi-fw p-clickable', icon];
         },
         shouldRenderRowGroupHeader(value, rowData, i) {
@@ -1256,15 +1291,20 @@ export default {
             }
         },
         shouldRenderRowGroupFooter(value, rowData, i) {
-            let currentRowFieldData = ObjectUtils.resolveFieldData(rowData, this.groupRowsBy);
-            let nextRowData = value[i + 1];
-            if (nextRowData) {
-                let nextRowFieldData = ObjectUtils.resolveFieldData(nextRowData, this.groupRowsBy);
-                return currentRowFieldData !== nextRowFieldData;
+            if (this.expandableRowGroups && !this.isRowGroupExpanded(rowData)) {
+                return false;
             }
             else {
-                return true;
-            }      
+                let currentRowFieldData = ObjectUtils.resolveFieldData(rowData, this.groupRowsBy);
+                let nextRowData = value[i + 1];
+                if (nextRowData) {
+                    let nextRowFieldData = ObjectUtils.resolveFieldData(nextRowData, this.groupRowsBy);
+                    return currentRowFieldData !== nextRowFieldData;
+                }
+                else {
+                    return true;
+                }
+            }
         },
         shouldRenderBodyCell(value, column, i) {
             if (this.rowGroupMode) {

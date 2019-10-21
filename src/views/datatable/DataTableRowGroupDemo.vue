@@ -29,7 +29,8 @@
 
             <h3>Expandable Row Groups</h3>
 			<DataTable :value="cars" rowGroupMode="subheader" groupRowsBy="brand" 
-                sortMode="single" sortField="brand" :sortOrder="1">
+                sortMode="single" sortField="brand" :sortOrder="1"
+                :expandableRowGroups="true" :expandedRowGroups.sync="expandedRowGroups">
                 <Column field="brand" header="Brand"></Column>
                 <Column field="vin" header="Vin"></Column>
                 <Column field="year" header="Year"></Column>
@@ -46,7 +47,7 @@
 
             <h3>RowSpan Grouping</h3>
 			<DataTable :value="cars" rowGroupMode="rowspan" groupRowsBy="brand" 
-                sortMode="multiple" :multiSortMeta="multiSortMeta">
+                sortMode="single" sortField="brand" :sortOrder="1">
                 <Column header="#" headerStyle="width:3em">
                     <template #body="slotProps">
                         {{slotProps.index}}
@@ -65,12 +66,76 @@
                 <TabPanel header="Source">
 <CodeHighlight>
 <template v-pre>
+&lt;h3&gt;Subheader Grouping&lt;/h3&gt;
+&lt;DataTable :value="cars" rowGroupMode="subheader" groupRowsBy="brand" 
+    sortMode="single" sortField="brand" :sortOrder="1"&gt;
+    &lt;Column field="brand" header="Brand"&gt;&lt;/Column&gt;
+    &lt;Column field="vin" header="Vin"&gt;&lt;/Column&gt;
+    &lt;Column field="year" header="Year"&gt;&lt;/Column&gt;
+    &lt;Column field="color" header="Color"&gt;&lt;/Column&gt;
+    &lt;Column field="price" header="Price"&gt;&lt;/Column&gt;
+    &lt;template #groupheader="slotProps"&gt;
+        &lt;span&gt;&#123;&#123;slotProps.data.brand&#125;&#125;&lt;/span&gt;
+    &lt;/template&gt;
+    &lt;template #groupfooter="slotProps"&gt;
+        &lt;td colspan="3" style="text-align: right"&gt;Total Price&lt;/td&gt;
+        &lt;td&gt;20000&lt;/td&gt;
+    &lt;/template&gt;
+&lt;/DataTable&gt;
 
+&lt;h3&gt;Expandable Row Groups&lt;/h3&gt;
+&lt;DataTable :value="cars" rowGroupMode="subheader" groupRowsBy="brand" 
+    sortMode="single" sortField="brand" :sortOrder="1"
+    :expandableRowGroups="true" :expandedRowGroups.sync="expandedRowGroups"&gt;
+    &lt;Column field="brand" header="Brand"&gt;&lt;/Column&gt;
+    &lt;Column field="vin" header="Vin"&gt;&lt;/Column&gt;
+    &lt;Column field="year" header="Year"&gt;&lt;/Column&gt;
+    &lt;Column field="color" header="Color"&gt;&lt;/Column&gt;
+    &lt;Column field="price" header="Price"&gt;&lt;/Column&gt;
+    &lt;template #groupheader="slotProps"&gt;
+        &lt;span&gt;&#123;&#123;slotProps.data.brand&#125;&#125;&lt;/span&gt;
+    &lt;/template&gt;
+    &lt;template #groupfooter="slotProps"&gt;
+        &lt;td colspan="3" style="text-align: right"&gt;Total Price&lt;/td&gt;
+        &lt;td&gt;20000&lt;/td&gt;
+    &lt;/template&gt;
+&lt;/DataTable&gt;
+
+&lt;h3&gt;RowSpan Grouping&lt;/h3&gt;
+&lt;DataTable :value="cars" rowGroupMode="rowspan" groupRowsBy="brand" 
+    sortMode="single" sortField="brand" :sortOrder="1"&gt;
+    &lt;Column header="#" headerStyle="width:3em"&gt;
+        &lt;template #body="slotProps"&gt;
+            &#123;&#123;slotProps.index&#125;&#125;
+        &lt;/template&gt;
+    &lt;/Column&gt;
+    &lt;Column field="brand" header="Brand"&gt;&lt;/Column&gt;               
+    &lt;Column field="year" header="Year"&gt;&lt;/Column&gt;
+    &lt;Column field="vin" header="Vin"&gt;&lt;/Column&gt;
+    &lt;Column field="color" header="Color"&gt;&lt;/Column&gt;
+    &lt;Column field="price" header="Price"&gt;&lt;/Column&gt;
+&lt;/DataTable&gt;
 </template>
 </CodeHighlight>
 
 <CodeHighlight lang="javascript">
+import CarService from '../../service/CarService';
 
+export default {
+    data() {
+        return {
+            cars: null,
+            expandedRowGroups: null
+        }
+    },
+    carService: null,
+    created() {
+        this.carService = new CarService();
+    },
+    mounted() {
+        this.carService.getCarsMedium().then(data => this.cars = data);
+    }
+}
 </CodeHighlight>
                 </TabPanel>
             </TabView>
@@ -86,17 +151,12 @@ export default {
     data() {
         return {
             cars: null,
-            multiSortMeta: null
+            expandedRowGroups: null
         }
     },
     carService: null,
     created() {
         this.carService = new CarService();
-
-        this.multiSortMeta = [
-            {field: 'brand', order: 1},
-            {field: 'year', order: 1}
-        ];
     },
     mounted() {
         this.carService.getCarsMedium().then(data => this.cars = data);
@@ -108,8 +168,20 @@ export default {
 </script>
 
 <style lang="scss" scoped>
-.p-rowgroup-header span,
 .p-rowgroup-footer td {
     font-weight: 700;
 }
+
+::v-deep .p-rowgroup-header {
+    span {
+        font-weight: 700;
+    }
+
+    .p-row-toggler {
+        vertical-align: middle;
+        margin-right: .25em;
+    }
+}
+
+
 </style>
