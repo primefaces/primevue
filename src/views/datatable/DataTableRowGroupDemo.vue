@@ -30,7 +30,8 @@
             <h3>Expandable Row Groups</h3>
 			<DataTable :value="cars" rowGroupMode="subheader" groupRowsBy="brand"
                 sortMode="single" sortField="brand" :sortOrder="1"
-                :expandableRowGroups="true" :expandedRowGroups.sync="expandedRowGroups">
+                :expandableRowGroups="true" :expandedRowGroups.sync="expandedRowGroups"
+                @rowgroup-expand="onRowGroupExpand" @rowgroup-collapse="onRowGroupCollapse">
                 <Column field="brand" header="Brand"></Column>
                 <Column field="vin" header="Vin"></Column>
                 <Column field="year" header="Year"></Column>
@@ -86,7 +87,8 @@
 &lt;h3&gt;Expandable Row Groups&lt;/h3&gt;
 &lt;DataTable :value="cars" rowGroupMode="subheader" groupRowsBy="brand"
     sortMode="single" sortField="brand" :sortOrder="1"
-    :expandableRowGroups="true" :expandedRowGroups.sync="expandedRowGroups"&gt;
+    :expandableRowGroups="true" :expandedRowGroups.sync="expandedRowGroups"
+    @rowgroup-expand="onRowExpand" @rowgroup-collapse="onRowCollapse"&gt;
     &lt;Column field="brand" header="Brand"&gt;&lt;/Column&gt;
     &lt;Column field="vin" header="Vin"&gt;&lt;/Column&gt;
     &lt;Column field="year" header="Year"&gt;&lt;/Column&gt;
@@ -134,6 +136,14 @@ export default {
     },
     mounted() {
         this.carService.getCarsMedium().then(data => this.cars = data);
+    },
+    methods: {
+        onRowGroupExpand(event) {
+            this.$toast.add({severity: 'info', summary: 'Row Group Expanded', detail: 'Value: ' + event.data, life: 3000});
+        },
+        onRowGroupCollapse(event) {
+            this.$toast.add({severity: 'success', summary: 'Row Group Collapsed', detail: 'Value: ' + event.data, life: 3000});
+        }
     }
 }
 </CodeHighlight>
@@ -160,6 +170,14 @@ export default {
     },
     mounted() {
         this.carService.getCarsMedium().then(data => this.cars = data);
+    },
+    methods: {
+        onRowGroupExpand(event) {
+            this.$toast.add({severity: 'info', summary: 'Row Group Expanded', detail: 'Value: ' + event.data, life: 3000});
+        },
+        onRowGroupCollapse(event) {
+            this.$toast.add({severity: 'success', summary: 'Row Group Collapsed', detail: 'Value: ' + event.data, life: 3000});
+        }
     },
     components: {
         'DataTableSubMenu': DataTableSubMenu
