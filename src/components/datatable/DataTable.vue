@@ -64,7 +64,7 @@
                                 @click="onRowClick($event, rowData, index)" @touchend="onRowTouchEnd($event)" @keydown="onRowKeyDown($event, rowData, index)" :tabindex="selectionMode ? '0' : null"
                                 @mousedown="onRowMouseDown($event)" @dragstart="onRowDragStart($event, index)" @dragover="onRowDragOver($event,index)" @dragleave="onRowDragLeave($event)" @dragend="onRowDragEnd($event)" @drop="onRowDrop($event)">
                                 <template v-for="(col,i) of columns">
-                                    <DTBodyCell v-if="shouldRenderBodyCell(dataToRender, col, index)" :key="col.columnKey||col.field||i" :rowData="rowData" :column="col" :selected="isSelected(rowData)"
+                                    <DTBodyCell v-if="shouldRenderBodyCell(dataToRender, col, index)" :key="col.columnKey||col.field||i" :rowData="rowData" :column="col" :index="index" :selected="isSelected(rowData)"
                                         :rowTogglerIcon="col.expander ? rowTogglerIcon(rowData): null" @row-toggle="toggleRow" 
                                         @radio-change="toggleRowWithRadio" @checkbox-change="toggleRowWithCheckbox" 
                                         :rowspan="rowGroupMode === 'rowspan' ? calculateRowGroupSize(dataToRender, col, index) : null" />
@@ -130,8 +130,6 @@ import ObjectUtils from '../utils/ObjectUtils';
 import FilterUtils from '../utils/FilterUtils';
 import DomHandler from '../utils/DomHandler';
 import Paginator from '../paginator/Paginator';
-import RowRadioButton from './RowRadioButton';
-import RowCheckbox from './RowCheckbox.vue';
 import HeaderCheckbox from './HeaderCheckbox.vue';
 import ColumnSlot from './ColumnSlot.vue';
 import BodyCell from './BodyCell.vue';
@@ -1295,7 +1293,15 @@ export default {
             }
         },
         isGrouped(column) {
-            return this.groupRowsBy != null && (this.groupRowsBy === column.field || this.groupRowsBy.indexOf(column.field) > -1);
+            if (this.groupRowsBy) {
+                if (Array.isArray(this.groupRowsBy))
+                    return this.groupRowsBy.indexOf(column.field) > -1;
+                else
+                    return this.groupRowsBy === column.field;
+            }
+            else {
+                return false;
+            }
         },
         calculateRowGroupSize(value, column, index) {
             if (this.isGrouped(column)) {
@@ -1469,8 +1475,6 @@ export default {
     components: {
         'ColumnSlot': ColumnSlot,
         'DTPaginator': Paginator,
-        'DTRadioButton': RowRadioButton,
-        'DTCheckbox': RowCheckbox,
         'DTHeaderCheckbox': HeaderCheckbox,
         'DTBodyCell': BodyCell
     }

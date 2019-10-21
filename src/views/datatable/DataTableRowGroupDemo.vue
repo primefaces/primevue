@@ -27,9 +27,31 @@
                 </template>
             </DataTable>
 
+            <h3>Expandable Row Groups</h3>
+			<DataTable :value="cars" rowGroupMode="subheader" groupRowsBy="brand" 
+                sortMode="single" sortField="brand" :sortOrder="1">
+                <Column field="brand" header="Brand"></Column>
+                <Column field="vin" header="Vin"></Column>
+                <Column field="year" header="Year"></Column>
+                <Column field="color" header="Color"></Column>
+                <Column field="price" header="Price"></Column>
+                <template #groupheader="slotProps">
+                    <span>{{slotProps.data.brand}}</span>
+                </template>
+                <template #groupfooter="slotProps">
+                    <td colspan="3" style="text-align: right">Total Price</td>
+                    <td>20000</td>
+                </template>
+            </DataTable>
+
             <h3>RowSpan Grouping</h3>
-			<DataTable :value="cars" rowGroupMode="rowspan" :groupRowsBy="['brand', 'year']" 
+			<DataTable :value="cars" rowGroupMode="rowspan" groupRowsBy="brand" 
                 sortMode="multiple" :multiSortMeta="multiSortMeta">
+                <Column header="#" headerStyle="width:3em">
+                    <template #body="slotProps">
+                        {{slotProps.index}}
+                    </template>
+                </Column>
                 <Column field="brand" header="Brand"></Column>               
                 <Column field="year" header="Year"></Column>
                 <Column field="vin" header="Vin"></Column>

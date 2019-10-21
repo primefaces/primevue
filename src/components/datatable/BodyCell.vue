@@ -1,6 +1,6 @@
 <template>
     <td :style="column.bodyStyle" :class="column.bodyClass">
-        <ColumnSlot :data="rowData" :column="column" type="body" v-if="column.$scopedSlots.body" />
+        <ColumnSlot :data="rowData" :column="column" :index="index" type="body" v-if="column.$scopedSlots.body" />
         <template v-else-if="column.selectionMode">
             <DTRadioButton :value="rowData" :checked="selected" @change="toggleRowWithRadio" v-if="column.selectionMode === 'single'" />
             <DTCheckbox :value="rowData" :checked="selected" @change="toggleRowWithCheckbox" v-else-if="column.selectionMode ==='multiple'" />
@@ -31,6 +31,10 @@ export default {
         },
         column: {
             type: Object,
+            default: null
+        },
+        index: {
+            type: Number,
             default: null
         },
         rowTogglerIcon: {
