@@ -23,7 +23,7 @@
                 </template>
                 <template #groupfooter="slotProps">
                     <td colspan="3" style="text-align: right">Total Price</td>
-                    <td>20000</td>
+                    <td>{{calculateGroupTotal(slotProps.data.brand)}}</td>
                 </template>
             </DataTable>
 
@@ -42,7 +42,7 @@
                 </template>
                 <template #groupfooter="slotProps">
                     <td colspan="3" style="text-align: right">Total Price</td>
-                    <td>20000</td>
+                    <td>{{calculateGroupTotal(slotProps.data.brand)}}</td>
                 </template>
             </DataTable>
 
@@ -80,7 +80,7 @@
     &lt;/template&gt;
     &lt;template #groupfooter="slotProps"&gt;
         &lt;td colspan="3" style="text-align: right"&gt;Total Price&lt;/td&gt;
-        &lt;td&gt;20000&lt;/td&gt;
+        &lt;td&gt;&#123;&#123;calculateGroupTotal(slotProps.data.brand)&#125;&#125;&lt;/td&gt;
     &lt;/template&gt;
 &lt;/DataTable&gt;
 
@@ -99,7 +99,7 @@
     &lt;/template&gt;
     &lt;template #groupfooter="slotProps"&gt;
         &lt;td colspan="3" style="text-align: right"&gt;Total Price&lt;/td&gt;
-        &lt;td&gt;20000&lt;/td&gt;
+        &lt;td&gt;&#123;&#123;calculateGroupTotal(slotProps.data.brand)&#125;&#125;&lt;/td&gt;
     &lt;/template&gt;
 &lt;/DataTable&gt;
 
@@ -143,6 +143,19 @@ export default {
         },
         onRowGroupCollapse(event) {
             this.$toast.add({severity: 'success', summary: 'Row Group Collapsed', detail: 'Value: ' + event.data, life: 3000});
+        },
+        calculateGroupTotal(brand) {
+            let total = 0;
+            
+            if (this.cars) {
+                for (let car of this.cars) {
+                    if (car.brand === brand) {
+                        total += car.price;
+                    }
+                }
+            }
+
+            return total;
         }
     }
 }
@@ -177,6 +190,19 @@ export default {
         },
         onRowGroupCollapse(event) {
             this.$toast.add({severity: 'success', summary: 'Row Group Collapsed', detail: 'Value: ' + event.data, life: 3000});
+        },
+        calculateGroupTotal(brand) {
+            let total = 0;
+            
+            if (this.cars) {
+                for (let car of this.cars) {
+                    if (car.brand === brand) {
+                        total += car.price;
+                    }
+                }
+            }
+
+            return total;
         }
     },
     components: {
