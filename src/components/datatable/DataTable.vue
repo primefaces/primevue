@@ -64,9 +64,10 @@
                                 @click="onRowClick($event, rowData, index)" @touchend="onRowTouchEnd($event)" @keydown="onRowKeyDown($event, rowData, index)" :tabindex="selectionMode ? '0' : null"
                                 @mousedown="onRowMouseDown($event)" @dragstart="onRowDragStart($event, index)" @dragover="onRowDragOver($event,index)" @dragleave="onRowDragLeave($event)" @dragend="onRowDragEnd($event)" @drop="onRowDrop($event)">
                                 <template v-for="(col,i) of columns">
-                                    <DTBodyCell v-if="rowGroupMode === 'subheader' ? (groupRowsBy !== col.field) : true" :key="col.columnKey||col.field||i" :rowData="rowData" :column="col" :selected="isSelected(rowData)"
+                                    <DTBodyCell v-if="shouldRenderBodyCell(dataToRender, col, index)" :key="col.columnKey||col.field||i" :rowData="rowData" :column="col" :selected="isSelected(rowData)"
                                         :rowTogglerIcon="col.expander ? rowTogglerIcon(rowData): null" @row-toggle="toggleRow" 
-                                        @radio-change="toggleRowWithRadio" @checkbox-change="toggleRowWithCheckbox" />
+                                        @radio-change="toggleRowWithRadio" @checkbox-change="toggleRowWithCheckbox" 
+                                        :rowspan="rowGroupMode === 'rowspan' ? calculateRowGroupSize(dataToRender, col, index) : null" />
                                 </template>
                             </tr>
                             <tr class="p-datatable-row-expansion" v-if="expandedRows && isRowExpanded(rowData)" :key="getRowKey(rowData, index) + '_expansion'">
@@ -1246,26 +1247,78 @@ export default {
             return ['p-row-toggler-icon pi pi-fw p-clickable', icon];
         },
         shouldRenderRowGroupHeader(value, rowData, i) {
-            if (i === 0) {
-                return true;
+            let currentRowFieldData = ObjectUtils.resolveFieldData(rowData, this.groupRowsBy);
+            let prevRowData = value[i - 1];
+            if (prevRowData) {
+                let previousRowFieldData = ObjectUtils.resolveFieldData(prevRowData, this.groupRowsBy);
+                return currentRowFieldData !== previousRowFieldData;
             }
             else {
-                let currentRowFieldData = ObjectUtils.resolveFieldData(rowData, this.groupRowsBy);
-                let previousRowFieldData = ObjectUtils.resolveFieldData(value[i - 1], this.groupRowsBy);
-
-                return currentRowFieldData !== previousRowFieldData;
+                return true;
             }
         },
         shouldRenderRowGroupFooter(value, rowData, i) {
-            if (i === (value.length - 1)) {
-                return true;
+            let currentRowFieldData = ObjectUtils.resolveFieldData(rowData, this.groupRowsBy);
+            let nextRowData = value[i + 1];
+            if (nextRowData) {
+                let nextRowFieldData = ObjectUtils.resolveFieldData(nextRowData, this.groupRowsBy);
+                return currentRowFieldData !== nextRowFieldData;
             }
             else {
-                let currentRowFieldData = ObjectUtils.resolveFieldData(rowData, this.groupRowsBy);
-                let nextRowFieldData = ObjectUtils.resolveFieldData(value[i + 1], this.groupRowsBy);
+                return true;
+            }      
+        },
+        shouldRenderBodyCell(value, column, i) {
+            if (this.rowGroupMode) {
+                if (this.rowGroupMode === 'subheader') {
+                    return this.groupRowsBy !== column.field;
+                }
+                else if (this.rowGroupMode === 'rowspan') {
+                    if (this.isGrouped(column)) {
+                        let prevRowData = value[i - 1];
+                        if (prevRowData) {
+                            let currentRowFieldData = ObjectUtils.resolveFieldData(value[i], column.field);
+                            let previousRowFieldData = ObjectUtils.resolveFieldData(prevRowData, column.field);
+                            return currentRowFieldData !== previousRowFieldData;
+                        }
+                        else {
+                            return true;
+                        }
+                    }
+                    else {
+                        return true;
+                    }
+                }
+            }
+            else {
+                return true;
+            }
+        },
+        isGrouped(column) {
+            return this.groupRowsBy != null && (this.groupRowsBy === column.field || this.groupRowsBy.indexOf(column.field) > -1);
+        },
+        calculateRowGroupSize(value, column, index) {
+            if (this.isGrouped(column)) {
+                let currentRowFieldData = ObjectUtils.resolveFieldData(value[index], column.field);
+                let nextRowFieldData = currentRowFieldData;
+                let groupRowSpan = 0;
 
-                return currentRowFieldData !== nextRowFieldData;
-            }            
+                while (currentRowFieldData === nextRowFieldData) {
+                    groupRowSpan++;
+                    let nextRowData = value[++index];
+                    if (nextRowData) {
+                        nextRowFieldData = ObjectUtils.resolveFieldData(nextRowData, column.field);
+                    }
+                    else {
+                        break;
+                    }
+                }
+
+                return groupRowSpan === 1 ? null : groupRowSpan;
+            }
+            else {
+                return null;
+            }
         }
     },
     computed: {
