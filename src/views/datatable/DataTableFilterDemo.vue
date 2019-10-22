@@ -19,12 +19,12 @@
                 </template>
                 <Column field="vin" header="Vin" filterMatchMode="startsWith">
                     <template #filter>
-                        <InputText type="text" v-model="filters['vin']" class="p-column-filter" />
+                        <InputText type="text" v-model="filters['vin']" class="p-column-filter" placeholder="Starts with" />
                     </template>
                 </Column>
                 <Column field="year" header="Year" filterMatchMode="contains">
                     <template #filter>
-                        <InputText type="text" v-model="filters['year']" class="p-column-filter" />
+                        <InputText type="text" v-model="filters['year']" class="p-column-filter" placeholder="Contains" />
                     </template>
                 </Column>
                 <Column field="brand" header="Brand" filterMatchMode="equals">
@@ -64,12 +64,12 @@
     &lt;/template&gt;
     &lt;Column field="vin" header="Vin" filterMatchMode="startsWith"&gt;
         &lt;template #filter&gt;
-            &lt;InputText type="text" v-model="filters['vin']" class="p-column-filter" /&gt;
+            &lt;InputText type="text" v-model="filters['vin']" class="p-column-filter" placeholder="Starts with" /&gt;
         &lt;/template&gt;
     &lt;/Column&gt;
     &lt;Column field="year" header="Year" filterMatchMode="contains"&gt;
         &lt;template #filter&gt;
-            &lt;InputText type="text" v-model="filters['year']" class="p-column-filter" /&gt;
+            &lt;InputText type="text" v-model="filters['year']" class="p-column-filter" placeholder="Contains" /&gt;
         &lt;/template&gt;
     &lt;/Column&gt;
     &lt;Column field="brand" header="Brand" filterMatchMode="equals"&gt;
