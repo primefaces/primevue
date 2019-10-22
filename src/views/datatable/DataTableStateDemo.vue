@@ -265,6 +265,8 @@ export default {
                 {name: 'Orange', value: 'Orange'},
                 {name: 'Blue', value: 'Blue'}
             ],
+            selectedCar1: null,
+            selectedCar2: null,
             cars: null
         }
     },
