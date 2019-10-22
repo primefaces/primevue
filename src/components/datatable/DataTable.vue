@@ -407,7 +407,6 @@ export default {
         },
         onColumnHeaderClick(event, column) {
             if (column.sortable) {
-                this.resetPage();
                 const targetNode = event.target;
                 const columnField = column.field || column.sortField;
 
@@ -437,6 +436,8 @@ export default {
                         sortOrder: this.d_sortOrder,
                         multiSortMeta: this.d_multiSortMeta
                     });
+
+                    this.resetPage();
                 }
             }
         },
