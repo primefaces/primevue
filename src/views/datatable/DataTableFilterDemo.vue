@@ -29,7 +29,7 @@
                 </Column>
                 <Column field="brand" header="Brand" filterMatchMode="equals">
                     <template #filter>
-                        <Dropdown v-model="filters['brand']" :options="brands" optionLabel="brand" optionValue="value" placeholder="Select a Brand" class="p-column-filter">
+                        <Dropdown v-model="filters['brand']" :options="brands" optionLabel="brand" optionValue="value" placeholder="Select a Brand" class="p-column-filter" :showClear="true">
                             <template #option="slotProps">
                                 <div class="p-clearfix p-dropdown-car-option">
                                     <img :alt="slotProps.option.brand" :src="'demo/images/car/' + slotProps.option.brand + '.png'" />
@@ -74,7 +74,7 @@
     &lt;/Column&gt;
     &lt;Column field="brand" header="Brand" filterMatchMode="equals"&gt;
         &lt;template #filter&gt;
-            &lt;Dropdown v-model="filters['brand']" :options="brands" optionLabel="brand" optionValue="value" placeholder="Select a Brand" class="p-column-filter"&gt;
+            &lt;Dropdown v-model="filters['brand']" :options="brands" optionLabel="brand" optionValue="value" placeholder="Select a Brand" class="p-column-filter" :showClear="true"&gt;
                 &lt;template #option="slotProps"&gt;
                     &lt;div class="p-clearfix p-dropdown-car-option"&gt;
                         &lt;img :alt="slotProps.option.brand" :src="'demo/images/car/' + slotProps.option.brand + '.png'" /&gt;
