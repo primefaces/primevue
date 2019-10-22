@@ -433,6 +433,8 @@ export default {
 			}
 
 			this.d_oldNumScroll = this.d_numScroll;
+			this.d_oldNumVisible = this.d_numVisible;
+			this.d_oldValue = this.value;
 
 			this.$refs.itemsContainer.style.transform = this.isVertical() ? `translate3d(0, ${totalShiftedItems * (100/ this.d_numVisible)}%, 0)` : `translate3d(${totalShiftedItems * (100/ this.d_numVisible)}%, 0, 0)`;
 		}

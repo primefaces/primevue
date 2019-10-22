@@ -166,7 +166,7 @@ export default {
 	}
 
 	&.custom-carousel {
-		.p-carousel-dot-icon  {
+		/deep/ .p-carousel-dot-icon  {
 			width: 16px !important;
 			height: 16px !important;
 			border-radius: 50%;
