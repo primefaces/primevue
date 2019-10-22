@@ -649,6 +649,7 @@ body {
                 .p-tabview-panels {
                     background: transparent;
                     border: 0 none;
+                    color: #484848;
                 }
             }
         }
@@ -1133,4 +1134,17 @@ pre[class*="language-"] code {
 .p-toast.p-toast-topright,
 .p-toast.p-toast-topleft {
     top: 100px;
+}
+
+/* Dark Theme such as luna-amber, luna-blue, luna-green and luna-pink */
+.dark-theme {
+    .implementation { 
+        background-color: #3f3f3f !important; 
+        color: #dedede !important;
+
+        > h3,
+        > h4 {
+            color: #dedede !important
+        }
+    }
 }
