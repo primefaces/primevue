@@ -1,5 +1,5 @@
 <template>
-	<div class="carousel-demo">
+	<div>
 		<div class="content-section introduction">
 			<div class="feature-intro">
 				<h1>Carousel</h1>
@@ -56,7 +56,7 @@
 					</div>
 				</template>
 			</Carousel>
-			<Carousel :value="cars" :numVisible="1" :numScroll="1" orientation="vertical" :responsiveOptions="responsiveOptions" verticalViewPortHeight="330px"
+			<Carousel :value="cars" :numVisible="1" :numScroll="1" orientation="vertical" verticalViewPortHeight="330px"
 						style="max-width: 400px; margin-top: 2em">
 				<template #header>
 					<h3>Vertical</h3>
@@ -127,44 +127,86 @@ export default {
 }
 </script>
 
-<style>
-.carousel-demo .car-details > .p-grid {
-	border: 1px solid #b3c2ca;
-	border-radius: 3px;
-	margin: .3em;
-	text-align: center;
-	padding: 2em 0 2.25em 0;
+<style lang="scss" scoped>
+.p-carousel {
+	.p-carousel-content {
+		.p-carousel-item {
+			.car-details {
+				> .p-grid {
+					border: 1px solid #b3c2ca;
+					border-radius: 3px;
+					margin: .3em;
+					text-align: center;
+					padding: 2em 0 2.25em 0;
+				}
+			}
+
+			.car-data {
+				.car-title {
+					font-weight: 700;
+					font-size: 20px;
+					margin-top: 24px;
+				}
+
+				.car-subtitle {
+					margin: .25em 0 2em 0;
+				}
+
+				button {
+					margin-left: .5em;
+
+					&:first-child {
+						margin-left: 0;
+					}
+				}
+			}
+		}
+	}
+
+	&.custom-carousel {
+		.p-carousel-dot-icon  {
+			width: 16px !important;
+			height: 16px !important;
+			border-radius: 50%;
+		}
+	}
+
+	&.p-carousel-horizontal {
+		.p-carousel-content {
+			.p-carousel-item {
+				&.p-carousel-item-start {
+					.car-details {
+						> .p-grid {
+							margin-left: .6em;
+						}
+					}
+				}
+
+				&.p-carousel-item-end {
+					.car-details {
+						> .p-grid {
+							margin-right: .6em;
+						}
+					}
+				}
+			}
+		}
+	}
 }
 
-.carousel-demo .car-data .car-title {
-	font-weight: 700;
-	font-size: 20px;
-	margin-top: 24px;
-}
-
-.carousel-demo .car-data .car-subtitle {
-	margin: .25em 0 2em 0;
-}
-
-.carousel-demo .car-data button {
-	margin-left: .5em;
-}
-
-.carousel-demo .car-data button:first-child {
-	margin-left: 0;
-}
-
-.carousel-demo .p-carousel.custom-carousel .p-carousel-dot-icon {
-	width: 16px !important;
-	height: 16px !important;
-	border-radius: 50%;
-}
-
-.carousel-demo .p-carousel.p-carousel-horizontal .p-carousel-content .p-carousel-item.p-carousel-item-start .car-details > .p-grid {
-	margin-left: .6em;
-}
-
-.carousel-demo .p-carousel.p-carousel-horizontal .p-carousel-content .p-carousel-item.p-carousel-item-end .car-details > .p-grid {
-	margin-right: .6em;
+/* Dark Theme such as luna-amber, luna-blue, luna-green and luna-pink */
+.dark-theme {
+	.p-carousel {
+		.p-carousel-content {
+			.p-carousel-item {
+				.car-details {
+					> .p-grid {
+						border: 1px solid #191919;
+						background-color: #323232;
+					}
+				}
+			}
+		}
+	}
 }
 </style>
