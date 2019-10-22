@@ -10,39 +10,11 @@ import Carousel from 'primevue/carousel';
 				<h3>Getting Started</h3>
 				<p>Carousel requires a collection of items as its value along with a template to render each item.</p>
 <CodeHighlight>
-&lt;Carousel :value="cars"&gt;&lt;/Carousel&gt;
-</CodeHighlight>
-
-				<h3>Templates</h3>
-				<p>Carousel provides <i>header</i>, <i>item</i> and <i>footer</i> as the named templates to place content.</p>
-				<CodeHighlight>
-<template v-pre>
-&lt;Carousel :value="cars" :numVisible="4" :numScroll="3" :responsiveOptions="responsiveOptions"&gt;
-	&lt;template #header&gt;
-		&lt;h2&gt;Basic&lt;/h2&gt;
-	&lt;/template&gt;
-	&lt;template #item="slotProps"&gt;
-		&lt;div class="car-details"&gt;
-			&lt;div class="p-grid p-nogutter"&gt;
-				&lt;div class="p-col-12"&gt;
-					&lt;img :src="'demo/images/car/' + slotProps.data.brand + '.png'" :alt="slotProps.data.brand" /&gt;
-				&lt;/div&gt;
-				&lt;div class="p-col-12 car-data"&gt;
-					&lt;div class="car-title"&gt;{{slotProps.data.brand}}&lt;/div&gt;
-					&lt;div class="car-subtitle"&gt;{{slotProps.data.year}} | {{slotProps.data.color}}&lt;/div&gt;
-
-					&lt;div class="car-buttons"&gt;
-						&lt;Button icon="pi pi-search" class="p-button-secondary" /&gt;
-						&lt;Button icon="pi pi-star" class="p-button-secondary" /&gt;
-						&lt;Button icon="pi pi-cog" class="p-button-secondary" /&gt;
-					&lt;/div&gt;
-				&lt;/div&gt;
-			&lt;/div&gt;
-		&lt;/div&gt;
+&lt;Carousel :value="cars"&gt;
+    &lt;template #item="slotProps"&gt;
 	&lt;/template&gt;
 &lt;/Carousel&gt;
-</template>
-				</CodeHighlight>
+</CodeHighlight>
 
 				<h3>Items per page and Scroll Items</h3>
 				<p>Number of items per page is defined using the <i>numVisible</i> property whereas number of items to scroll is defined with the <i>numScroll</i> property.</p>
@@ -110,6 +82,7 @@ data() {
 
 				<h3>Header and Footer</h3>
 				<p>Custom content projection is available using the <i>header</i> and <i>footer</i> templates.</p>
+                
 <CodeHighlight>
 &lt;Carousel :value="cars" :numVisible="3" :numScroll="1" :responsiveOptions="responsiveOptions"&gt;
 	&lt;template #header&gt;
