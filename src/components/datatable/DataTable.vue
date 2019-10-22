@@ -295,6 +295,14 @@ export default {
         expandedRowGroups: {
             type: Array,
             default: null
+        },
+        stateStorage: {
+            type: String,
+            default: 'session'
+        },
+        stateKey: {
+            type: String,
+            default: null
         }
     },
     data() {
@@ -307,7 +315,7 @@ export default {
             d_multiSortMeta: this.multiSortMeta ? [...this.multiSortMeta] : [],
             d_selectionKeys: null,
             d_expandedRowKeys: null,
-            columnOrder: null
+            d_columnOrder: null
         };
     },
     rowTouched: false,
@@ -324,6 +332,9 @@ export default {
     draggedRowIndex: null,
     droppedRowIndex: null,
     rowDragging: null,
+    columnWidthsState: null,
+    tableWidthState: null,
+    columnWidthsRestored: false,
     watch: {
         first(newValue) {
             this.d_first = newValue;
@@ -351,6 +362,11 @@ export default {
             }
         }
     },
+    beforeMount() {
+        if (this.isStateful()) {
+            this.restoreState();
+        }
+    },
     mounted() {
         this.allChildren = this.$children;
 
@@ -361,11 +377,21 @@ export default {
                     columnOrder.push(child.columnKey||child.field);
                 }
             }
-            this.columnOrder = columnOrder;
+            this.d_columnOrder = columnOrder;
         }
     },
     beforeDestroy() {
         this.unbindColumnResizeEvents();
+    },
+    updated() {
+        if (this.isStateful()) {
+            this.saveState();
+
+            if (this.resizableColumns && !this.columnWidthsRestored) {
+                this.restoreColumnWidths();
+                this.columnWidthsRestored = true;
+            }
+        }
     },
     methods: {
         resolveFieldData(rowData, field) {
@@ -1015,6 +1041,10 @@ export default {
             DomHandler.removeClass(this.$el, 'p-unselectable-text');
 
             this.unbindColumnResizeEvents();
+
+            if (this.isStateful()) {
+                this.saveState();
+            }
         },
         bindColumnResizeEvents() {
             if (!this.documentColumnResizeListener) {
@@ -1114,7 +1144,7 @@ export default {
                 }
 
                 if (allowDrop) {
-                    ObjectUtils.reorderArray(this.columnOrder, dragIndex, dropIndex);
+                    ObjectUtils.reorderArray(this.d_columnOrder, dragIndex, dropIndex);
 
                     this.$emit('column-reorder', {
                         originalEvent: event,
@@ -1368,6 +1398,165 @@ export default {
             else {
                 return null;
             }
+        },
+        isStateful() {
+            return this.stateKey != null;
+        },
+        getStorage() {
+            switch(this.stateStorage) {
+                case 'local':
+                    return window.localStorage;
+
+                case 'session':
+                    return window.sessionStorage;
+
+                default:
+                    throw new Error(this.stateStorage + ' is not a valid value for the state storage, supported values are "local" and "session".');
+            }
+        },
+        saveState() {
+            const storage = this.getStorage();
+            let state = {};
+
+            if (this.paginator) {
+                state.first = this.d_first;
+                state.rows = this.d_rows;
+            }
+
+            if (this.d_sortField) {
+                state.sortField = this.d_sortField;
+                state.sortOrder = this.d_sortOrder;
+            }
+
+            if (this.d_multiSortMeta) {
+                state.multiSortMeta = this.d_multiSortMeta;
+            }
+
+            if (this.hasFilters) {
+                state.filters = this.filters;
+            }
+
+            if (this.resizableColumns) {
+                this.saveColumnWidths(state);
+            }
+
+            if (this.reorderableColumns) {
+                state.columnOrder = this.d_columnOrder;
+            }
+
+            if (this.expandedRows) {
+                state.expandedRows = this.expandedRows;
+                state.expandedRowKeys = this.d_expandedRowKeys;
+            }
+
+            if (this.expandedRowGroups) {
+                state.expandedRowGroups = this.expandedRowGroups;
+            }
+
+            if (this.selection) {
+                state.selection = this.selection;
+                state.selectionKeys = this.d_selectionKeys;
+            }
+
+            if (Object.keys(state).length) {
+                storage.setItem(this.stateKey, JSON.stringify(state));
+            }
+        },
+        restoreState() {
+            const storage = this.getStorage();
+            const stateString = storage.getItem(this.stateKey);
+
+            if (stateString) {
+                let restoredState = JSON.parse(stateString);
+
+                if (this.paginator) {
+                    this.d_first = restoredState.first;
+                    this.d_rows = restoredState.rows;
+                }
+
+                if (restoredState.sortField) {
+                    this.d_sortField = restoredState.sortField;
+                    this.d_sortOrder = restoredState.sortOrder;
+                }
+
+                if (restoredState.multiSortMeta) {
+                    this.d_multiSortMeta = restoredState.multiSortMeta;
+                }
+
+                if (restoredState.filters) {
+                    this.$emit('update:filters', restoredState.filters);
+                }
+
+                if (this.resizableColumns) {
+                    this.columnWidthsState = restoredState.columnWidths;
+                    this.tableWidthState = restoredState.tableWidth;
+                }
+
+                if (this.reorderableColumns) {
+                    this.d_columnOrder = restoredState.columnOrder;
+                }
+
+                if (restoredState.expandedRows) {
+                    this.d_expandedRowKeys = restoredState.expandedRowKeys;
+                    this.$emit('update:expandedRows', restoredState.expandedRows);
+                }
+
+                if (restoredState.expandedRowGroups) {
+                    this.$emit('update:expandedRowGroups', restoredState.expandedRowGroups);
+                }
+
+                if (this.selection) {
+                    this.selection = restoredState.selection;
+                    this.d_selectionKeys = restoredState.d_selectionKeys;
+                    this.$emit('update:selection', this.selection);
+                }
+            }
+        },
+        saveColumnWidths(state) {
+            let widths = [];
+            let headers = DomHandler.find(this.$el, '.p-datatable-thead > tr > th');
+            headers.forEach(header => widths.push(DomHandler.getOuterWidth(header)));
+            state.columnWidths = widths.join(',');
+
+            if (this.columnResizeMode === 'expand') {
+                /*TODO: Keep state when scrollable tables are implemented
+                state.tableWidth = this.scrollable ? DomHandler.findSingle(this.container, '.p-datatable-scrollable-header-table').style.width :
+                                                    DomHandler.getOuterWidth(this.table) + 'px';*/
+                state.tableWidth = DomHandler.getOuterWidth(this.$refs.table) + 'px'
+            }
+        },
+        restoreColumnWidths() {
+            //TODO: Restore state when scrollable tables are implemented
+            if (this.columnWidthsState) {
+                let widths = this.columnWidthsState.split(',');
+
+                if (this.columnResizeMode === 'expand' && this.tableWidthState) {
+                    this.$refs.table.style.width = this.tableWidthState;
+                    this.$el.style.width = this.tableWidthState;
+
+                    /*if (this.scrollable) {
+                        this.setScrollableItemsWidthOnExpandResize(null, this.tableWidthState, 0);
+                    }
+                    else {
+                        this.$refs.table.style.width = this.tableWidthState;
+                        this.$el.style.width = this.tableWidthState;
+                    }*/
+                }
+                /*
+                if (this.props.scrollable) {
+                    let headerCols = DomHandler.find(this.container, '.p-datatable-scrollable-header-table > colgroup > col');
+                    let bodyCols = DomHandler.find(this.container, '.p-datatable-scrollable-body-table > colgroup > col');
+
+                    headerCols.map((col, index) => col.style.width = widths[index] + 'px');
+                    bodyCols.map((col, index) => col.style.width = widths[index] + 'px');
+                }
+                else {
+                    let headers = DomHandler.find(this.table, '.p-datatable-thead > tr > th');
+                    headers.map((header, index) => header.style.width = widths[index] + 'px');
+                }*/
+                let headers = DomHandler.find(this.$refs.table, '.p-datatable-thead > tr > th');
+                headers.forEach((header, index) => header.style.width = widths[index] + 'px');
+            }
         }
     },
     computed: {
@@ -1387,9 +1576,9 @@ export default {
             if (this.allChildren) {
                 columns = this.allChildren.filter(child => child.$options._propKeys.indexOf('columnKey') !== -1);
 
-                if (this.reorderableColumns && this.columnOrder) {
+                if (this.reorderableColumns && this.d_columnOrder) {
                     let orderedColumns = [];
-                    for (let columnKey of this.columnOrder) {
+                    for (let columnKey of this.d_columnOrder) {
                         let column = this.findColumnByKey(columns, columnKey);
                         if (column) {
                             orderedColumns.push(column);

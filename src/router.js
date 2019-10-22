@@ -185,7 +185,12 @@ export default new Router({
 			path: '/datatable/rowexpand',
 			name: 'datatablerowexpand',
 			component: () => import('./views/datatable/DataTableRowExpandDemo.vue')
-		},
+        },
+        {
+			path: '/datatable/state',
+			name: 'datatablestate',
+			component: () => import('./views/datatable/DataTableStateDemo.vue')
+        },
         {
 			path: '/datatable/crud',
 			name: 'datatablecrud',

@@ -16,6 +16,7 @@
             <li><router-link to="/datatable/rowgroup">&#9679; RowGroup</router-link></li>
             <li><router-link to="/datatable/responsive">&#9679; Responsive</router-link></li>
             <li><router-link to="/datatable/export">&#9679; Export</router-link></li>
+            <li><router-link to="/datatable/state">&#9679; State</router-link></li>
             <li><router-link to="/datatable/crud">&#9679; Crud</router-link></li>
         </ul>
     </div>
