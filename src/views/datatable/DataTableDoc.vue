@@ -914,8 +914,8 @@ export default {
 <CodeHighlight>
 <template v-pre>
 &lt;DataTable :value="cars" :paginator="true" :rows="10" :filters.sync="filters" :resizableColumns="true"
-    stateStorage="session" stateKey="dt-state-demo-session"&gt;
-    :selection.sync="selectedCar" selectionMode="single" dataKey="vin"
+    stateStorage="session" stateKey="dt-state-demo-session"
+    :selection.sync="selectedCar" selectionMode="single" dataKey="vin"&gt;
     &lt;template #header&gt;
         &lt;div style="text-align: right"&gt;
             &lt;i class="pi pi-search" style="margin: 4px 4px 0px 0px;"&gt;&lt;/i&gt;
