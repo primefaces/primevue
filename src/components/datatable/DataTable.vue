@@ -836,8 +836,11 @@ export default {
             return false;
         },
         isRowGroupExpanded(rowData) {
-            let groupFieldValue = ObjectUtils.resolveFieldData(rowData, this.groupRowsBy);
-            return this.expandableRowGroups && this.expandedRowGroups && this.expandedRowGroups.indexOf(groupFieldValue) > -1;
+            if (this.expandableRowGroups && this.expandedRowGroups) {
+                let groupFieldValue = ObjectUtils.resolveFieldData(rowData, this.groupRowsBy);
+                return this.expandedRowGroups.indexOf(groupFieldValue) > -1;
+            }
+            return false;
         },
         getRowKey(rowData, index) {
             return this.dataKey ? ObjectUtils.resolveFieldData(rowData, this.dataKey): index;
