@@ -82,7 +82,7 @@ data() {
 
 				<h3>Header and Footer</h3>
 				<p>Custom content projection is available using the <i>header</i> and <i>footer</i> templates.</p>
-                
+
 <CodeHighlight>
 &lt;Carousel :value="cars" :numVisible="3" :numScroll="1" :responsiveOptions="responsiveOptions"&gt;
 	&lt;template #header&gt;
