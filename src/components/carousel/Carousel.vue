@@ -1,18 +1,16 @@
 <template>
-	<div :id="id" :class="containerClass">
+	<div :id="id" :class="['p-carousel p-component', {'p-carousel-vertical': isVertical(), 'p-carousel-horizontal': !isVertical()}]">
 		<div class="p-carousel-header" v-if="$scopedSlots.header">
 			<slot name="header"></slot>
 		</div>
 		<div :class="contentClasses">
-			<div class="p-carousel-container">
+			<div :class="containerClasses">
 				<button :class="['p-carousel-prev p-button', {'p-disabled': backwardIsDisabled}]" :disabled="backwardIsDisabled" @click="navBackward">
 					<span :class="['p-carousel-prev-icon pi', {'pi-chevron-left': !isVertical(),'pi-chevron-up': isVertical()}]"></span>
 				</button>
 
 				<div class="p-carousel-items-content" :style="[{'height': isVertical() ? verticalViewPortHeight : 'auto'}]">
-					<div ref="itemsContainer" class="p-carousel-items-container"
-						@transitionend="onTransitionEnd" @touchend="onTouchEnd" @touchstart="onTouchStart" @touchmove="onTouchMove">
-						<!--<CarouselItem v-bind="{ scopedSlots: $scopedSlots }" :value="value" :start="firstIndex()" :end="lastIndex()" v-if="$scopedSlots.item"></CarouselItem>-->
+					<div ref="itemsContainer" class="p-carousel-items-container" @transitionend="onTransitionEnd" @touchend="onTouchEnd" @touchstart="onTouchStart" @touchmove="onTouchMove">
 						<template v-if="isCircular()">
 							<div v-for="(item, index) of value.slice(-1 * d_numVisible)" :key="index + '_scloned'" :class="['p-carousel-item p-carousel-item-cloned',
 								{'p-carousel-item-active': (totalShiftedItems * -1) === (value.length + d_numVisible),
@@ -67,8 +65,6 @@ export default {
 			type: Number,
 			default: 0
 		},
-		//header: null,
-		//footer: null,
 		numVisible: {
 			type: Number,
 			default: 1
@@ -87,6 +83,7 @@ export default {
 			default: '300px'
 		},
 		contentClass: String,
+		containerClass: String,
 		dotsContentClass: String,
 		circular: {
 			type: Boolean,
@@ -99,6 +96,7 @@ export default {
 	},
 	data() {
 		return {
+			id : UniqueComponentId(),
 			remainingItems: 0,
 			d_numVisible: this.numVisible,
 			d_numScroll: this.numScroll,
@@ -107,7 +105,6 @@ export default {
 			d_oldValue: null,
 			d_page: this.page,
 			totalShiftedItems: this.page * this.numScroll * -1,
-			id : UniqueComponentId(),
 			allowAutoplay : !!this.autoplayInterval,
 			d_circular : this.circular || this.allowAutoplay
 		}
@@ -480,11 +477,8 @@ export default {
 		forwardIsDisabled() {
 			return (this.value && (!this.circular || this.value.length < this.d_numVisible) && (this.d_page === (this.totalDots - 1) || this.totalDots === 0));
 		},
-		containerClass() {
-			return ['p-carousel p-component', {
-				'p-carousel-vertical': this.isVertical(),
-				'p-carousel-horizontal': !this.isVertical()
-			}];
+		containerClasses() {
+			return ['p-carousel-container', this.containerClass];
 		},
 		contentClasses() {
 			return ['p-carousel-content ', this.contentClass];
