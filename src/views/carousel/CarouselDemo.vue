@@ -131,6 +131,14 @@ export default {
 
 <style lang="scss" scoped>
 .p-carousel {
+
+	.p-carousel-header {
+		h3 {
+			font-weight: 400;
+			font-size: 18px;
+		}
+	}
+
 	.p-carousel-content {
 		.p-carousel-item {
 			.car-details {
