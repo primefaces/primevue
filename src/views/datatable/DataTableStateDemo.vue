@@ -11,7 +11,7 @@
 
 		<div class="content-section implementation">
             <h3>Session Storage</h3>
-			<DataTable :value="cars" :paginator="true" :rows="10" :filters.sync="filters" :resizableColumns="true"
+			<DataTable :value="cars" :paginator="true" :rows="10" :filters.sync="filters"
                 :selection.sync="selectedCar1" selectionMode="single" dataKey="vin"
                 stateStorage="session" stateKey="dt-state-demo-session">
                 <template #header>
@@ -53,7 +53,7 @@
 			</DataTable>
 
             <h3>Local Storage</h3>
-			<DataTable :value="cars" :paginator="true" :rows="10" :filters.sync="filters" :resizableColumns="true"
+			<DataTable :value="cars" :paginator="true" :rows="10" :filters.sync="filters"
                 :selection.sync="selectedCar2" selectionMode="single" dataKey="vin"
                 stateStorage="local" stateKey="dt-state-demo-local">
                 <template #header>
@@ -101,7 +101,7 @@
 <CodeHighlight>
 <template v-pre>
 &lt;h3&gt;Session Storage&lt;/h3&gt;
-&lt;DataTable :value="cars" :paginator="true" :rows="10" :filters.sync="filters" :resizableColumns="true"
+&lt;DataTable :value="cars" :paginator="true" :rows="10" :filters.sync="filters"
     :selection.sync="selectedCar1" selectionMode="single" dataKey="vin"
     stateStorage="session" stateKey="dt-state-demo-session"&gt;
     &lt;template #header&gt;
@@ -143,7 +143,7 @@
 &lt;/DataTable&gt;
 
 &lt;h3&gt;Local Storage&lt;/h3&gt;
-&lt;DataTable :value="cars" :paginator="true" :rows="10" :filters.sync="filters" :resizableColumns="true"
+&lt;DataTable :value="cars" :paginator="true" :rows="10" :filters.sync="filters"
     :selection.sync="selectedCar2" selectionMode="single" dataKey="vin"
     stateStorage="local" stateKey="dt-state-demo-local"&gt;
     &lt;template #header&gt;

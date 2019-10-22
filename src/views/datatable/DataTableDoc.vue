@@ -913,7 +913,7 @@ export default {
                 </p>
 <CodeHighlight>
 <template v-pre>
-&lt;DataTable :value="cars" :paginator="true" :rows="10" :filters.sync="filters" :resizableColumns="true"
+&lt;DataTable :value="cars" :paginator="true" :rows="10" :filters.sync="filters"
     stateStorage="session" stateKey="dt-state-demo-session"
     :selection.sync="selectedCar" selectionMode="single" dataKey="vin"&gt;
     &lt;template #header&gt;
