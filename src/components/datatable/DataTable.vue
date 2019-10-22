@@ -1505,10 +1505,9 @@ export default {
                     this.$emit('update:expandedRowGroups', restoredState.expandedRowGroups);
                 }
 
-                if (this.selection) {
-                    this.selection = restoredState.selection;
+                if (restoredState.selection) {
                     this.d_selectionKeys = restoredState.d_selectionKeys;
-                    this.$emit('update:selection', this.selection);
+                    this.$emit('update:selection', restoredState.selection);
                 }
             }
         },
