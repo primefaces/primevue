@@ -408,6 +408,7 @@ export default {
 				page = this.totalDots - 1;
 
 				this.$emit('update:page', page);
+				this.d_page = page;
 
 				stateChanged = true;
 			}
@@ -553,7 +554,7 @@ export default {
 	overflow: auto;
 }
 
-.p-carousel-dots-container {
+.p-carousel .p-carousel-dots-container {
 	display: flex;
 	flex-direction: row;
 	justify-content: center;
