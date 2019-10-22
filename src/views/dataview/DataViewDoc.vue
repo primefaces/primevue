@@ -58,7 +58,6 @@ export default {
 		&lt;Panel :header="slotProps.data.vin" style="text-align: center"&gt;
 			&lt;img :src="'demo/images/car/' + slotProps.data.brand + '.png'" :alt="slotProps.data.brand"/&gt;
 			&lt;div class="car-detail"&gt;{{slotProps.data.year}} - {{slotProps.data.color}}&lt;/div&gt;
-			&lt;hr class="ui-widget-content" style="border-top: 0" /&gt;
 			&lt;Button icon="pi pi-search"&gt;&lt;/Button&gt;
 		&lt;/Panel&gt;
 	&lt;/div&gt;
@@ -444,7 +443,6 @@ export default {
             &lt;Panel :header="slotProps.data.vin" style="text-align: center"&gt;
                 &lt;img :src="'demo/images/car/' + slotProps.data.brand + '.png'" :alt="slotProps.data.brand"/&gt;
                 &lt;div class="car-detail"&gt;{{slotProps.data.year}} - {{slotProps.data.color}}&lt;/div&gt;
-                &lt;hr class="ui-widget-content" style="border-top: 0" /&gt;
                 &lt;Button icon="pi pi-search"&gt;&lt;/Button&gt;
             &lt;/Panel&gt;
         &lt;/div&gt;
@@ -520,15 +518,37 @@ export default {
             }
         }
     }
+
+    .car-detail {
+        padding: 0 1em 1em 1em;
+        border-bottom: 1px solid #d9dad9;
+        margin: 1em;
+    }
+
+    .p-panel-content {
+        padding: 1em;
+    }
 }
 
 @media (max-width: 1024px) {
 	.p-dataview {
         .car-details {
-
             img {
                 width: 75px;
             }
+        }
+    }
+}
+
+/* Dark Theme such as luna-amber, luna-blue, luna-green and luna-pink */
+.dark-theme {
+    .p-dataview {
+        .car-details {
+            border-bottom-color: #191919;
+        }
+
+        .car-detail {
+            border-bottom: 1px solid #191919;
         }
     }
 }
