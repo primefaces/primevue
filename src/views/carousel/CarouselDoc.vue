@@ -320,6 +320,7 @@ data() {
 		&lt;/div&gt;
 	&lt;/template&gt;
 &lt;/Carousel&gt;
+
 &lt;Carousel :value="cars" :numVisible="3" :numScroll="1" :responsiveOptions="responsiveOptions" class="custom-carousel" :circular="true" :autoplayInterval="3000"&gt;
 	&lt;template #header&gt;
 		&lt;h2&gt;Circular, AutoPlay, 3 Items per Page and Scroll by 1&lt;/h2&gt;
@@ -344,6 +345,7 @@ data() {
 		&lt;/div&gt;
 	&lt;/template&gt;
 &lt;/Carousel&gt;
+
 &lt;Carousel :value="cars" :numVisible="1" :numScroll="1" orientation="vertical" :responsiveOptions="responsiveOptions" verticalViewPortHeight="330px"
 			style="max-width: 400px; margin-top: 2em"&gt;
 	&lt;template #header&gt;

@@ -32,6 +32,7 @@
 					</div>
 				</template>
 			</Carousel>
+
 			<Carousel :value="cars" :numVisible="3" :numScroll="1" :responsiveOptions="responsiveOptions" class="custom-carousel" :circular="true" :autoplayInterval="3000">
 				<template #header>
 					<h3>Circular, AutoPlay, 3 Items per Page and Scroll by 1</h3>
@@ -56,6 +57,7 @@
 					</div>
 				</template>
 			</Carousel>
+
 			<Carousel :value="cars" :numVisible="1" :numScroll="1" orientation="vertical" verticalViewPortHeight="330px"
 						style="max-width: 400px; margin-top: 2em">
 				<template #header>
