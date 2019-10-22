@@ -52,6 +52,8 @@ export declare class DataTable extends Vue {
     $emit(eventName: 'row-reorder', event: Event): this;
     $emit(eventName: 'row-expand', event: Event): this;
     $emit(eventName: 'row-collapse', event: Event): this;
+    $emit(eventName: 'rowgroup-expand', event: Event): this;
+    $emit(eventName: 'rowgroup-collapse', event: Event): this;
     $slots: {
         header: VNode[];
         paginatorLeft: VNode[];
