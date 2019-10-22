@@ -908,7 +908,7 @@ export default {
 
                 <h3>TableState</h3>
                 <p>Stateful table allows keeping the state such as page, sort and filtering either at local storage or session storage so that when the page is visited again, table would render the data using its last settings.
-                    Enabling state is easy as defining a unique <i>stateKey</i>, the storage to keep the state is defined with the <i>stateStorage</i> property that accepts session for sessionStorage and local for localStorage. 
+                    Enabling state is easy as defining a unique <i>stateKey</i>, the storage to keep the state is defined with the <i>stateStorage</i> property that accepts session for sessionStorage and local for localStorage.
                     Currently following features are supported by TableState; paging, sorting, filtering, column resizing, column reordering, row expansion, row group expansion and row selection.
                 </p>
 <CodeHighlight>
