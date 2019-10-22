@@ -184,6 +184,7 @@
 
 <CodeHighlight lang="javascript">
 import CarService from '../../service/CarService';
+
 export default {
     data() {
         return {
