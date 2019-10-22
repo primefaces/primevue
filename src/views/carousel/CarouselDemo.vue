@@ -3,14 +3,14 @@
 		<div class="content-section introduction">
 			<div class="feature-intro">
 				<h1>Carousel</h1>
-				<p>Carousel.</p>
+				<p>Carousel is a content slider featuring various customization options.</p>
 			</div>
 		</div>
 
 		<div class="content-section implementation">
 			<Carousel :value="cars" :numVisible="4" :numScroll="3" :responsiveOptions="responsiveOptions">
 				<template #header>
-					<h2>Basic</h2>
+					<h3>Basic</h3>
 				</template>
 				<template #item="slotProps">
 					<div class="car-details">
@@ -34,7 +34,7 @@
 			</Carousel>
 			<Carousel :value="cars" :numVisible="3" :numScroll="1" :responsiveOptions="responsiveOptions" class="custom-carousel" :circular="true" :autoplayInterval="3000">
 				<template #header>
-					<h2>Circular, AutoPlay, 3 Items per Page and Scroll by 1</h2>
+					<h3>Circular, AutoPlay, 3 Items per Page and Scroll by 1</h3>
 				</template>
 				<template #item="slotProps">
 					<div class="car-details">
@@ -59,7 +59,7 @@
 			<Carousel :value="cars" :numVisible="1" :numScroll="1" orientation="vertical" :responsiveOptions="responsiveOptions" verticalViewPortHeight="330px"
 						style="max-width: 400px; margin-top: 2em">
 				<template #header>
-					<h2>Vertical</h2>
+					<h3>Vertical</h3>
 				</template>
 				<template #item="slotProps">
 					<div class="car-details">
@@ -82,11 +82,14 @@
 				</template>
 			</Carousel>
 		</div>
+
+		<CarouselDoc/>
 	</div>
 </template>
 
 <script>
 import CarService from "../../service/CarService";
+import CarouselDoc from "./CarouselDoc";
 
 export default {
 	data() {
@@ -118,12 +121,14 @@ export default {
 	mounted() {
 		this.carService.getCarsSmall().then(data => this.cars = data);
 	},
-	name: "CarouselDemo",
+	components: {
+		'CarouselDoc': CarouselDoc
+	},
 }
 </script>
 
 <style>
-.carousel-demo .p-carousel .p-carousel-content .p-carousel-item .car-details > .p-grid {
+.carousel-demo .car-details > .p-grid {
 	border: 1px solid #b3c2ca;
 	border-radius: 3px;
 	margin: .3em;
@@ -131,21 +136,21 @@ export default {
 	padding: 2em 0 2.25em 0;
 }
 
-.carousel-demo .p-carousel .p-carousel-content .p-carousel-item .car-data .car-title {
+.carousel-demo .car-data .car-title {
 	font-weight: 700;
 	font-size: 20px;
 	margin-top: 24px;
 }
 
-.carousel-demo .p-carousel .p-carousel-content .p-carousel-item .car-data .car-subtitle {
+.carousel-demo .car-data .car-subtitle {
 	margin: .25em 0 2em 0;
 }
 
-.carousel-demo .p-carousel .p-carousel-content .p-carousel-item .car-data button {
+.carousel-demo .car-data button {
 	margin-left: .5em;
 }
 
-.carousel-demo .p-carousel .p-carousel-content .p-carousel-item .car-data button:first-child {
+.carousel-demo .car-data button:first-child {
 	margin-left: 0;
 }
 

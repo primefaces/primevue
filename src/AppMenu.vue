@@ -56,6 +56,7 @@
             <transition name="layout-submenu-wrapper">
                 <div v-show="activeMenuIndex === 2">
                     <div>
+                        <router-link to="/carousel">&#9679; Carousel</router-link>
                         <router-link to="/datatable">&#9679; DataTable</router-link>
                         <router-link to="/dataview">&#9679; DataView</router-link>
                         <router-link to="/fullcalendar">&#9679; FullCalendar</router-link>
