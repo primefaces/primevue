@@ -911,8 +911,8 @@ export default {
                     Enabling state is easy as defining a unique <i>stateKey</i>, the storage to keep the state is defined with the <i>stateStorage</i> property that accepts session for sessionStorage and local for localStorage. 
                     Currently following features are supported by TableState; paging, sorting, filtering, column resizing, column reordering, row expansion, row group expansion and row selection.
                 </p>
-<pre>
-<code class="language-markup" pCode ngNonBindable>
+<CodeHighlight>
+<template v-pre>
 &lt;DataTable :value="cars" :paginator="true" :rows="10" :filters.sync="filters" :resizableColumns="true"
     stateStorage="session" stateKey="dt-state-demo-session"&gt;
     &lt;template #header&gt;
@@ -952,8 +952,8 @@ export default {
         No records found.
     &lt;/template&gt;
 &lt;/DataTable&gt;
-</code>
-</pre>
+</template>
+</CodeHighlight>
 
 <CodeHighlight lang="javascript">
 import CarService from '../../service/CarService';
@@ -1063,25 +1063,25 @@ export default {
     &lt;Column field="vin" header="Vin"&gt;
         &lt;template #body="slotProps"&gt;
             &lt;span class="p-column-title"&gt;Vin&lt;/span&gt;
-            {{slotProps.data.vin}}
+            &#123;&#123;slotProps.data.vin&#125;&#125;
         &lt;/template&gt;
     &lt;/Column&gt;
     &lt;Column field="year" header="Year"&gt;
         &lt;template #body="slotProps"&gt;
             &lt;span class="p-column-title"&gt;Year&lt;/span&gt;
-            {{slotProps.data.year}}
+            &#123;&#123;slotProps.data.year&#125;&#125;
         &lt;/template&gt;
     &lt;/Column&gt;
     &lt;Column field="brand" header="Brand"&gt;
         &lt;template #body="slotProps"&gt;
             &lt;span class="p-column-title"&gt;Brand&lt;/span&gt;
-            {{slotProps.data.brand}}
+            &#123;&#123;slotProps.data.brand&#125;&#125;
         &lt;/template&gt;
     &lt;/Column&gt;
     &lt;Column field="color" header="Color"&gt;
         &lt;template #body="slotProps"&gt;
             &lt;span class="p-column-title"&gt;Color&lt;/span&gt;
-            {{slotProps.data.color}}
+            &#123;&#123;slotProps.data.color&#125;&#125;
         &lt;/template&gt;
     &lt;/Column&gt;
 &lt;/DataTable&gt;
