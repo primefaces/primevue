@@ -82,9 +82,14 @@
             <p>Powered by <a href="https://cli.vuejs.org">Vue-CLI</a>, create awesome applications in no time using the premium templates of PrimeVue and impress your users.</p>
 
             <div class="p-grid">
-                <div class="p-col-12 p-md-6">
+                <div class="p-col-12">
                     <a href="https://www.primefaces.org/layouts/sapphire-vue">
                         <img alt="Sapphire" src="../assets/images/layouts/sapphire.jpg">
+                    </a>
+                </div>
+                <div class="p-col-12 p-md-6">
+                    <a href="https://www.primefaces.org/layouts/babylon-vue">
+                        <img alt="Babylon" src="../assets/images/layouts/babylon.jpg">
                     </a>
                 </div>
                 <div class="p-col-12 p-md-6">

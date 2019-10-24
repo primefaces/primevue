@@ -19,6 +19,7 @@
                         <li class="topbar-submenu-header">PREMIUM TEMPLATES</li>
                         <li><a href="https://www.primefaces.org/sapphire-vue"><img src="./assets/images/layouts/themeswitcher-sapphire.png" alt="Sapphire" /><span>Sapphire</span><span class="theme-badge material">material</span></a></li>
                         <li><a href="https://www.primefaces.org/sapphire-vue"><img src="./assets/images/layouts/themeswitcher-avalon.png" alt="Avalon" /><span>Avalon</span><span class="theme-badge bootstrap">bootstrap</span></a></li>
+                        <li><a href="https://www.primefaces.org/babylon-vue"><img src="./assets/images/layouts/themeswitcher-babylon.png" alt="Babylon" /><span>Babylon</span></a></li>
                         <li class="topbar-submenu-header">FREE TEMPLATES</li>
                         <li><a href="https://www.primefaces.org/sigma-vue"><img src="./assets/images/layouts/themeswitcher-sigma.png" alt="Sigma" /><span>Sigma</span></a></li>
                         <li class="topbar-submenu-header">FREE THEMES</li>
