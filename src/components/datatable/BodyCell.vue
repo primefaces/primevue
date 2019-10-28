@@ -1,6 +1,7 @@
 <template>
-    <td :style="column.bodyStyle" :class="column.bodyClass">
-        <ColumnSlot :data="rowData" :column="column" :index="index" type="body" v-if="column.$scopedSlots.body" />
+    <td :style="column.bodyStyle" :class="containerClass" @click="onClick" @keydown="onKeyDown">
+        <ColumnSlot :data="rowData" :column="column" :index="index" type="body" v-if="column.$scopedSlots.body && !editing" />
+        <ColumnSlot :data="rowData" :column="column" :index="index" type="editor" v-else-if="column.$scopedSlots.editor && editing" />
         <template v-else-if="column.selectionMode">
             <DTRadioButton :value="rowData" :checked="selected" @change="toggleRowWithRadio" v-if="column.selectionMode === 'single'" />
             <DTCheckbox :value="rowData" :checked="selected" @change="toggleRowWithCheckbox" v-else-if="column.selectionMode ==='multiple'" />
@@ -18,6 +19,7 @@
 </template>
 
 <script>
+import DomHandler from '../utils/DomHandler';
 import ObjectUtils from '../utils/ObjectUtils';
 import ColumnSlot from './ColumnSlot.vue';
 import RowRadioButton from './RowRadioButton';
@@ -46,8 +48,22 @@ export default {
             default: false
         },
     },
+    documentEditListener: null,
+    data() {
+        return {
+            editing: false
+        }
+    },
     mounted() {
         this.children = this.$children;
+    },
+    updated() {
+        if (this.editing) {
+            let focusable = DomHandler.findSingle(this.$el, 'input');
+            if (focusable) {
+                focusable.focus();
+            }
+        }
     },
     methods: {
         resolveFieldData() {
@@ -64,6 +80,54 @@ export default {
         },
         toggleRowWithCheckbox(event) {
             this.$emit('checkbox-change', event);
+        },
+        onClick() {
+            if (this.isEditable() && !this.editing) {
+                this.editing = true;
+
+                this.bindDocumentEditListener();
+            }
+        },
+        isEditable() {
+            return this.column.$scopedSlots.editor != null;
+        },
+        bindDocumentEditListener() {
+            if (!this.documentEditListener) {
+                this.documentEditListener = (event) => {
+                    if (this.isOutsideClicked(event)) {
+                        this.switchCellToViewMode();
+                    }
+                };
+                
+                document.addEventListener('click', this.documentEditListener);
+            }
+        },
+        unbindDocumentEditListener() {
+            if (this.documentEditListener) {
+                document.removeEventListener('click', this.documentEditListener);
+                this.documentEditListener = null;
+            }
+        },
+        switchCellToViewMode() {
+            this.editing = false;
+            this.unbindDocumentEditListener();
+        },
+        isOutsideClicked(event) {
+            return !this.$el.contains(event.target) && !this.$el.isSameNode(event.target);
+        },
+        onKeyDown(event) {
+            if (event.which === 13 || event.which === 9 || event.which === 27) {
+                this.switchCellToViewMode();
+            }
+        }
+    },
+    computed: {
+        containerClass() {
+            return [this.column.bodyClass, {
+                'p-selection-column': this.column.selectionMode != null,
+                'p-editable-column': this.isEditable(),
+                'p-cell-editing': this.editing
+            }];
         }
     },
     components: {

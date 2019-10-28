@@ -192,6 +192,11 @@ export default new Router({
 			component: () => import('./views/datatable/DataTableStateDemo.vue')
         },
         {
+			path: '/datatable/edit',
+			name: 'datatableedit',
+			component: () => import('./views/datatable/DataTableEditDemo.vue')
+        },
+        {
 			path: '/datatable/crud',
 			name: 'datatablecrud',
 			component: () => import('./views/datatable/DataTableCrudDemo.vue')
