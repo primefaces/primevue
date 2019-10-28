@@ -44,7 +44,7 @@ data() {
 <template v-pre>
 &lt;Dropdown v-model="selectedCar" :options="cars" optionLabel="brand" placeholder="Select a Car" :filter="true" :showClear="true"&gt;
 	&lt;template #option="slotProps"&gt;
-		&lt;div class="p-clearfix p-dropdown-car-option"&gt;
+		&lt;div class="p-dropdown-car-option"&gt;
 			&lt;img :alt="slotProps.option.brand" :src="'demo/images/car/' + slotProps.option.brand + '.png'" /&gt;
 			&lt;span&gt;{{slotProps.option.brand}}&lt;/span&gt;
 		&lt;/div&gt;
@@ -254,7 +254,7 @@ data() {
 &lt;h3&gt;Advanced with Templating, Filtering and Clear Icon&lt;/h3&gt;
 &lt;Dropdown v-model="selectedCar" :options="cars" optionLabel="brand" placeholder="Select a Car" :filter="true" :showClear="true"&gt;
     &lt;template #option="slotProps"&gt;
-        &lt;div class="p-clearfix p-dropdown-car-option"&gt;
+        &lt;div class="p-dropdown-car-option"&gt;
             &lt;img :alt="slotProps.option.brand" :src="'demo/images/car/' + slotProps.option.brand + '.png'" /&gt;
             &lt;span&gt;{{slotProps.option.brand}}&lt;/span&gt;
         &lt;/div&gt;
@@ -299,16 +299,18 @@ export default {
 }
 
 .p-dropdown-car-option {
-	img {
-		vertical-align: middle;
-		margin-right: .5em;
-		width: 24px;
-	}
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
 
-	span {
-		float: right;
-		margin-top: .125em;
-	}
+    img {
+        margin-right: .5em;
+        width: 24px;
+    }
+
+    span {
+        margin-top: .125em;
+    }
 }
 </CodeHighlight>
 			</TabPanel>

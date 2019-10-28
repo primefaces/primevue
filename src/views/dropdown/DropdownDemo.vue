@@ -17,7 +17,7 @@
             <h3>Advanced with Templating, Filtering and Clear Icon</h3>
             <Dropdown v-model="selectedCar" :options="cars" optionLabel="brand" placeholder="Select a Car" :filter="true" :showClear="true">
                 <template #option="slotProps">
-                    <div class="p-clearfix p-dropdown-car-option">
+                    <div class="p-dropdown-car-option">
                         <img :alt="slotProps.option.brand" :src="'demo/images/car/' + slotProps.option.brand + '.png'" />
                         <span>{{slotProps.option.brand}}</span>
                     </div>
@@ -70,14 +70,16 @@ export default {
 }
 
 .p-dropdown-car-option {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+
     img {
-        vertical-align: middle;
         margin-right: .5em;
         width: 24px;
     }
 
     span {
-        float: right;
         margin-top: .125em;
     }
 }
