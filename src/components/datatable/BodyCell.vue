@@ -81,13 +81,6 @@ export default {
         toggleRowWithCheckbox(event) {
             this.$emit('checkbox-change', event);
         },
-        onClick() {
-            if (this.isEditable() && !this.editing) {
-                this.editing = true;
-
-                this.bindDocumentEditListener();
-            }
-        },
         isEditable() {
             return this.column.$scopedSlots.editor != null;
         },
@@ -115,7 +108,15 @@ export default {
         isOutsideClicked(event) {
             return !this.$el.contains(event.target) && !this.$el.isSameNode(event.target);
         },
+        onClick() {
+            if (this.isEditable() && !this.editing) {
+                this.editing = true;
+
+                this.bindDocumentEditListener();
+            }
+        },
         onKeyDown(event) {
+            //tab, enter or escape
             if (event.which === 13 || event.which === 9 || event.which === 27) {
                 this.switchCellToViewMode();
             }
