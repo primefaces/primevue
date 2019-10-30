@@ -1,7 +1,7 @@
 <template>
     <td :style="column.bodyStyle" :class="containerClass" @click="onClick" @keydown="onKeyDown">
-        <ColumnSlot :data="rowData" :column="column" :index="index" type="body" v-if="column.$scopedSlots.body && !editing" />
-        <ColumnSlot :data="rowData" :column="column" :index="index" type="editor" v-else-if="column.$scopedSlots.editor && editing" />
+        <ColumnSlot :data="rowData" :column="column" :index="index" type="body" v-if="column.$scopedSlots.body && !d_editing" />
+        <ColumnSlot :data="rowData" :column="column" :index="index" type="editor" v-else-if="column.$scopedSlots.editor && d_editing" />
         <template v-else-if="column.selectionMode">
             <DTRadioButton :value="rowData" :checked="selected" @change="toggleRowWithRadio" v-if="column.selectionMode === 'single'" />
             <DTCheckbox :value="rowData" :checked="selected" @change="toggleRowWithCheckbox" v-else-if="column.selectionMode ==='multiple'" />
@@ -12,6 +12,17 @@
         <template v-else-if="column.expander">
             <button class="p-row-toggler p-link" @click="toggleRow">
                 <span :class="rowTogglerIcon"></span>
+            </button>
+        </template>
+        <template v-else-if="editMode === 'row' && column.rowEditor">
+            <button class="p-row-editor-init p-link" v-if="!d_editing" @click="onRowEditInit">
+                <span class="p-row-editor-init-icon pi pi-fw pi-pencil p-clickable"></span>
+            </button>
+            <button class="p-row-editor-save p-link" v-if="d_editing" @click="onRowEditSave">
+                <span class="p-row-editor-save-icon pi pi-fw pi-check p-clickable"></span>
+            </button>
+            <button class="p-row-editor-cancel p-link" v-if="d_editing" @click="onRowEditCancel">
+                <span class="p-row-editor-cancel-icon pi pi-fw pi-times p-clickable"></span>
             </button>
         </template>
         <template v-else>{{resolveFieldData()}}</template>
@@ -47,18 +58,31 @@ export default {
             type: Boolean,
             default: false
         },
+        editing: {
+            type: Boolean,
+            default: false
+        },
+        editMode: {
+            type: String,
+            default: null
+        }
     },
     documentEditListener: null,
     data() {
         return {
-            editing: false
+            d_editing: this.editing
+        }
+    },
+    watch: {
+        editing(newValue) {
+            this.d_editing = newValue;
         }
     },
     mounted() {
         this.children = this.$children;
     },
     updated() {
-        if (this.editing) {
+        if (this.d_editing) {
             let focusable = DomHandler.findSingle(this.$el, 'input');
             if (focusable) {
                 focusable.focus();
@@ -102,22 +126,22 @@ export default {
             }
         },
         switchCellToViewMode() {
-            this.editing = false;
+            this.d_editing = false;
             this.unbindDocumentEditListener();
         },
         isOutsideClicked(event) {
             return !this.$el.contains(event.target) && !this.$el.isSameNode(event.target);
         },
         onClick(event) {
-            if (this.isEditable() && !this.editing) {
-                this.editing = true;
+            if (this.editMode === 'cell' && this.isEditable() && !this.d_editing) {
+                this.d_editing = true;
                 this.bindDocumentEditListener();
-                this.$emit('edit-init', {originalEvent: event, data: this.rowData, field: this.column.field, index: this.index});
+                this.$emit('cell-edit-init', {originalEvent: event, data: this.rowData, field: this.column.field, index: this.index});
             }
         },
         completeEdit(event, type) {
             let editEvent = {originalEvent: event, data: this.rowData, field: this.column.field, index: this.index, type: type, preventDefault: () => event.preventDefault()};
-            this.$emit('edit-complete', editEvent);
+            this.$emit('cell-edit-complete', editEvent);
 
             if (!event.defaultPrevented) {
                 this.switchCellToViewMode();
@@ -131,7 +155,7 @@ export default {
                 
                 case 27:
                     this.switchCellToViewMode();
-                    this.$emit('edit-cancel', {originalEvent: event, data: this.rowData, field: this.column.field, index: this.index});
+                    this.$emit('cell-edit-cancel', {originalEvent: event, data: this.rowData, field: this.column.field, index: this.index});
                 break;
 
                 case 9:
@@ -217,6 +241,15 @@ export default {
         },
         isEditingCellValid() {
             return (DomHandler.find(this.$el, '.p-invalid').length === 0);
+        },
+        onRowEditInit(event) {
+            this.$emit('row-edit-init', {originalEvent: event, data: this.rowData, field: this.column.field, index: this.index});
+        },
+        onRowEditSave(event) {
+            this.$emit('row-edit-save', {originalEvent: event, data: this.rowData, field: this.column.field, index: this.index});
+        },
+        onRowEditCancel(event) {
+            this.$emit('row-edit-cancel', {originalEvent: event, data: this.rowData, field: this.column.field, index: this.index});
         }
     },
     computed: {
@@ -224,7 +257,7 @@ export default {
             return [this.column.bodyClass, {
                 'p-selection-column': this.column.selectionMode != null,
                 'p-editable-column': this.isEditable(),
-                'p-cell-editing': this.editing
+                'p-cell-editing': this.d_editing
             }];
         }
     },

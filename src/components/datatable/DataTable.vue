@@ -72,7 +72,9 @@
                                         :rowTogglerIcon="col.expander ? rowTogglerIcon(rowData): null" @row-toggle="toggleRow"
                                         @radio-change="toggleRowWithRadio" @checkbox-change="toggleRowWithCheckbox"
                                         :rowspan="rowGroupMode === 'rowspan' ? calculateRowGroupSize(dataToRender, col, index) : null" 
-                                        @edit-init="onEditInit" @edit-complete="onEditComplete" @edit-cancel="onEditCancel" />
+                                        :editMode="editMode" :editing="editMode === 'row' && isRowEditing(rowData)"
+                                        @cell-edit-init="onCellEditInit" @cell-edit-complete="onCellEditComplete" @cell-edit-cancel="onCellEditCancel" 
+                                        @row-edit-init="onRowEditInit" @row-edit-save="onRowEditSave" @row-edit-cancel="onRowEditCancel"/>
                                 </template>
                             </tr>
                             <tr class="p-datatable-row-expansion" v-if="expandedRows && isRowExpanded(rowData)" :key="getRowKey(rowData, index) + '_expansion'">
@@ -308,6 +310,10 @@ export default {
         editMode: {
             type: String,
             default: null
+        },
+        editingRows: {
+            type: Array,
+            default: null
         }
     },
     data() {
@@ -320,7 +326,8 @@ export default {
             d_multiSortMeta: this.multiSortMeta ? [...this.multiSortMeta] : [],
             d_selectionKeys: null,
             d_expandedRowKeys: null,
-            d_columnOrder: null
+            d_columnOrder: null,
+            d_editingRowKeys: null
         };
     },
     rowTouched: false,
@@ -364,6 +371,11 @@ export default {
         expandedRows(newValue) {
             if (this.dataKey) {
                 this.updateExpandedRowKeys(newValue);
+            }
+        },
+        editingRows(newValue) {
+            if (this.dataKey) {
+                this.updateEditingRowKeys(newValue);
             }
         }
     },
@@ -852,6 +864,17 @@ export default {
             }
             else {
                 this.d_expandedRowKeys = null;
+            }
+        },
+        updateEditingRowKeys(editingRows) {
+            if (editingRows && editingRows.length) {
+                this.d_editingRowKeys = {};
+                for (let data of editingRows) {
+                    this.d_editingRowKeys[String(ObjectUtils.resolveFieldData(data, this.dataKey))] = 1;
+                }
+            }
+            else {
+                this.d_editingRowKeys = null;
             }
         },
         equals(data1, data2) {
@@ -1563,14 +1586,42 @@ export default {
                 headers.forEach((header, index) => header.style.width = widths[index] + 'px');
             }
         },
-        onEditInit(event) {
-            this.$emit('edit-init', event);
+        onCellEditInit(event) {
+            this.$emit('cell-edit-init', event);
         },
-        onEditComplete(event) {
-            this.$emit('edit-complete', event);
+        onCellEditComplete(event) {
+            this.$emit('cell-edit-complete', event);
         },
-        onEditCancel(event) {
-            this.$emit('edit-cancel', event);
+        onCellEditCancel(event) {
+            this.$emit('cell-edit-cancel', event);
+        },
+        isRowEditing(rowData) {
+            if (rowData && this.editingRows) {
+                if (this.dataKey)
+                    return this.d_editingRowKeys ? this.d_editingRowKeys[ObjectUtils.resolveFieldData(rowData, this.dataKey)] !== undefined : false;
+                else
+                    return this.findIndex(rowData, this.editingRows) > -1;
+            }
+
+            return false;
+        },
+        onRowEditInit(event) {
+            let _editingRows = this.editingRows ? [...this.editingRows] : [];
+            _editingRows.push(event.data);
+            this.$emit('update:editingRows', _editingRows);
+            this.$emit('row-edit-init', event);        
+        },
+        onRowEditSave(event) {
+            let _editingRows = [...this.editingRows];
+            _editingRows.splice(this.findIndex(event.data, this._editingRows), 1);
+            this.$emit('update:editingRows', _editingRows);
+            this.$emit('row-edit-save', event);
+        },
+        onRowEditCancel(event) {
+            let _editingRows = [...this.editingRows];
+            _editingRows.splice(this.findIndex(event.data, this._editingRows), 1);
+            this.$emit('update:editingRows', _editingRows);
+            this.$emit('row-edit-cancel', event);
         }
     },
     computed: {

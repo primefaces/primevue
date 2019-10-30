@@ -85,6 +85,10 @@ export default {
         reorderableColumn: {
             type: Boolean,
             default: true
+        },
+        rowEditor: {
+            type: Boolean,
+            default: false
         }
     },
     render() {

@@ -22,4 +22,5 @@ export declare class Column extends Vue {
     rowReorder?: boolean;
     rowReorderIcon?: string;
     reorderableColumn?: boolean;
+    rowEditor?: boolean;
 }
