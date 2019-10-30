@@ -116,9 +116,91 @@ export default {
             }
         },
         onKeyDown(event) {
-            //tab, enter or escape
-            if (event.which === 13 || event.which === 9 || event.which === 27) {
-                this.switchCellToViewMode();
+            switch (event.which) {
+                case 13:
+                case 27:
+                    this.switchCellToViewMode();
+                break;
+
+                case 9:
+                    if (event.shiftKey)
+                        this.moveToPreviousCell(event);
+                    else
+                        this.moveToNextCell(event);
+
+                    this.switchCellToViewMode();
+                break;
+            }
+        },
+        moveToPreviousCell(event) {
+            let currentCell = this.findCell(event.target);
+            let targetCell = this.findPreviousEditableColumn(currentCell);
+
+            if (targetCell) {
+                DomHandler.invokeElementMethod(targetCell, 'click');
+                event.preventDefault();
+            }
+        },
+        moveToNextCell(event) {
+            let currentCell = this.findCell(event.target);
+            let targetCell = this.findNextEditableColumn(currentCell);
+
+            if (targetCell) {
+                DomHandler.invokeElementMethod(targetCell, 'click');
+                event.preventDefault();
+            }
+        },
+        findCell(element) {
+            if (element) {
+                let cell = element;
+                while (cell && !DomHandler.hasClass(cell, 'p-cell-editing')) {
+                    cell = cell.parentElement;
+                }
+
+                return cell;
+            }
+            else {
+                return null;
+            }
+        },
+        findPreviousEditableColumn(cell) {
+            let prevCell = cell.previousElementSibling;
+
+            if (!prevCell) {
+                let previousRow = cell.parentElement.previousElementSibling;
+                if (previousRow) {
+                    prevCell = previousRow.lastElementChild;
+                }
+            }
+
+            if (prevCell) {
+                if (DomHandler.hasClass(prevCell, 'p-editable-column'))
+                    return prevCell;
+                else
+                    return this.findPreviousEditableColumn(prevCell);
+            }
+            else {
+                return null;
+            }
+        },
+        findNextEditableColumn(cell) {
+            let nextCell = cell.nextElementSibling;
+
+            if (!nextCell) {
+                let nextRow = cell.parentElement.nextElementSibling;
+                if (nextRow) {
+                    nextCell = nextRow.firstElementChild;
+                }
+            }
+
+            if (nextCell) {
+                if (DomHandler.hasClass(nextCell, 'p-editable-column'))
+                    return nextCell;
+                else
+                    return this.findNextEditableColumn(nextCell);
+            }
+            else {
+                return null;
             }
         }
     },

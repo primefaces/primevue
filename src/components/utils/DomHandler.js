@@ -380,4 +380,8 @@ export default class DomHandler {
     static isVisible(element) {
         return element.offsetParent != null;
     }
+
+    static invokeElementMethod(element, methodName, args) {
+        (element)[methodName].apply(element, args);
+    }
 }
