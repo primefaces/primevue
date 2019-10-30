@@ -5,7 +5,9 @@
 		<div class="content-section introduction">
 			<div class="feature-intro">
 				<h1>DataTable</h1>
-				<p>Cell and Row editing provide a rapid and user friendly way to manipulate data within the table.</p>
+				<p>In cell editing provides a rapid and user friendly way to manipulate the data. The datatable provides a flexible API 
+                    so that the editing behavior is implemented by the page author whether it utilizes v-model or vuex.
+                </p>
 			</div>
 		</div>
 
