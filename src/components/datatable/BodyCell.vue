@@ -88,7 +88,7 @@ export default {
             if (!this.documentEditListener) {
                 this.documentEditListener = (event) => {
                     if (this.isOutsideClicked(event)) {
-                        this.switchCellToViewMode();
+                        this.completeEdit(event, 'outside');
                     }
                 };
                 
@@ -108,27 +108,39 @@ export default {
         isOutsideClicked(event) {
             return !this.$el.contains(event.target) && !this.$el.isSameNode(event.target);
         },
-        onClick() {
+        onClick(event) {
             if (this.isEditable() && !this.editing) {
                 this.editing = true;
-
                 this.bindDocumentEditListener();
+                this.$emit('edit-init', {originalEvent: event, data: this.rowData, field: this.column.field, index: this.index});
+            }
+        },
+        completeEdit(event, type) {
+            let editEvent = {originalEvent: event, data: this.rowData, field: this.column.field, index: this.index, type: type, preventDefault: () => event.preventDefault()};
+            this.$emit('edit-complete', editEvent);
+
+            if (!event.defaultPrevented) {
+                this.switchCellToViewMode();
             }
         },
         onKeyDown(event) {
             switch (event.which) {
                 case 13:
+                    this.completeEdit(event, 'enter');
+                break;
+                
                 case 27:
                     this.switchCellToViewMode();
+                    this.$emit('edit-cancel', {originalEvent: event, data: this.rowData, field: this.column.field, index: this.index});
                 break;
 
                 case 9:
+                    this.completeEdit(event, 'tab');
+
                     if (event.shiftKey)
                         this.moveToPreviousCell(event);
                     else
                         this.moveToNextCell(event);
-
-                    this.switchCellToViewMode();
                 break;
             }
         },
@@ -202,6 +214,9 @@ export default {
             else {
                 return null;
             }
+        },
+        isEditingCellValid() {
+            return (DomHandler.find(this.$el, '.p-invalid').length === 0);
         }
     },
     computed: {

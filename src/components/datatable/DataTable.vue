@@ -71,7 +71,8 @@
                                     <DTBodyCell v-if="shouldRenderBodyCell(dataToRender, col, index)" :key="col.columnKey||col.field||i" :rowData="rowData" :column="col" :index="index" :selected="isSelected(rowData)"
                                         :rowTogglerIcon="col.expander ? rowTogglerIcon(rowData): null" @row-toggle="toggleRow"
                                         @radio-change="toggleRowWithRadio" @checkbox-change="toggleRowWithCheckbox"
-                                        :rowspan="rowGroupMode === 'rowspan' ? calculateRowGroupSize(dataToRender, col, index) : null" />
+                                        :rowspan="rowGroupMode === 'rowspan' ? calculateRowGroupSize(dataToRender, col, index) : null" 
+                                        @edit-init="onEditInit" @edit-complete="onEditComplete" @edit-cancel="onEditCancel" />
                                 </template>
                             </tr>
                             <tr class="p-datatable-row-expansion" v-if="expandedRows && isRowExpanded(rowData)" :key="getRowKey(rowData, index) + '_expansion'">
@@ -301,6 +302,10 @@ export default {
             default: 'session'
         },
         stateKey: {
+            type: String,
+            default: null
+        },
+        editMode: {
             type: String,
             default: null
         }
@@ -1557,6 +1562,15 @@ export default {
                 let headers = DomHandler.find(this.$refs.table, '.p-datatable-thead > tr > th');
                 headers.forEach((header, index) => header.style.width = widths[index] + 'px');
             }
+        },
+        onEditInit(event) {
+            this.$emit('edit-init', event);
+        },
+        onEditComplete(event) {
+            this.$emit('edit-complete', event);
+        },
+        onEditCancel(event) {
+            this.$emit('edit-cancel', event);
         }
     },
     computed: {

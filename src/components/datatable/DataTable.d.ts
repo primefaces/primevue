@@ -44,6 +44,7 @@ export declare class DataTable extends Vue {
     expandedRowGroups?: any[];
     stateStorage?: string;
     stateKey?: string;
+    editMode?: string;
     $emit(eventName: 'page', event: Event): this;
     $emit(eventName: 'sort', event: Event): this;
     $emit(eventName: 'filter', event: Event): this;
@@ -56,6 +57,9 @@ export declare class DataTable extends Vue {
     $emit(eventName: 'row-collapse', event: Event): this;
     $emit(eventName: 'rowgroup-expand', event: Event): this;
     $emit(eventName: 'rowgroup-collapse', event: Event): this;
+    $emit(eventName: 'edit-init', event: Event): this;
+    $emit(eventName: 'edit-complete', event: Event): this;
+    $emit(eventName: 'edit-cancel', event: Event): this;
     $slots: {
         header: VNode[];
         paginatorLeft: VNode[];
