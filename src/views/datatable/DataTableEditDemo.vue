@@ -49,12 +49,12 @@
 			<DataTable :value="cars2" editMode="cell" @cell-edit-init="onCellEditInit" @cell-edit-complete="onCellEditComplete" @cell-edit-cancel="onCellEditCancel">
                 <Column field="vin" header="Vin">
                     <template #editor="slotProps">
-                        <InputText :value="slotProps.data[slotProps.column.field]" @input="onCellEdit($event, slotProps)" />
+                        <InputText :value="slotProps.data[slotProps.column.field]" @input="onCellEdit($event)" />
                     </template>
                 </Column>
                 <Column field="year" header="Year">
                     <template #editor="slotProps">
-                        <InputText :value="slotProps.data[slotProps.column.field]" @input="onCellEdit($event, slotProps)" />
+                        <InputText :value="slotProps.data[slotProps.column.field]" @input="onCellEdit($event)" />
                     </template>
                 </Column>
                 <Column field="brand" header="Brand">
@@ -71,7 +71,7 @@
                 </Column>
                 <Column field="color" header="Color">
                     <template #editor="slotProps">
-                        <InputText :value="slotProps.data[slotProps.column.field]" @input="onCellEdit($event, slotProps)" />
+                        <InputText :value="slotProps.data[slotProps.column.field]" @input="onCellEdit($event)" />
                     </template>
                 </Column>
             </DataTable>
@@ -134,9 +134,9 @@ export default {
             cars1: null,
             cars2: null,
             cars3: null,
-            editingCar: null,
-            editingCarIndex: null,
-            originalCar: null,
+            editingCell: null,
+            editingCellIndex: null,
+            originalCell: null,
             editingRows: null,
             brands: [
                 {brand: 'Audi', value: 'Audi'},
@@ -157,15 +157,18 @@ export default {
     },
     methods: {
         onCellEditInit(event) {
-            this.editingCarIndex = event.index;
-            this.editingCar = {...event.data};      //update on input
-            this.originalCar = {...event.data};     //revert with escape key
+            this.editingRowIndex = event.index;
+            this.editingCellValue = event.data[event.field];       //update on input
+            this.originalCellValue = event.data[event.field];      //revert with escape key
         },
         onCellEditComplete(event) {
             switch (event.field) {
                 case 'year':
-                    if (this.isPositiveInteger(this.editingCar.year)) {
-                        Vue.set(this.cars2, this.editingCarIndex, this.editingCar);
+                    if (this.isPositiveInteger(this.editingCellValue)) {
+                        let editingRow = {...this.cars2[this.editingRowIndex]};
+                        editingRow.year = parseInt(this.editingCellValue);
+                        Vue.set(this.cars2, this.editingRowIndex, editingRow);
+                        this.clearEditState();
                     }
                     else {
                         this.$toast.add({severity:'error', summary: 'Validation Failed', detail:'Year must be a number', life: 3000});
@@ -174,8 +177,11 @@ export default {
                 break;
 
                 default:
-                    if (this.editingCar[event.field].trim().length > 0) {
-                        Vue.set(this.cars2, this.editingCarIndex, this.editingCar);
+                    if (this.editingCellValue.trim().length > 0) {
+                        let editingRow = {...this.cars2[this.editingRowIndex]};
+                        editingRow[event.field] = this.editingCellValue;
+                        Vue.set(this.cars2, this.editingRowIndex, editingRow);
+                        this.clearEditState();
                     }
                     else {
                         this.$toast.add({severity:'error', summary: 'Validation Failed', detail: event.field + ' is required', life: 3000});
@@ -185,11 +191,16 @@ export default {
             }
         },
         onCellEditCancel(event) {
-            Vue.set(this.cars2, event.index, this.originalCar);
-            this.editingCar = null;
+            
+            this.clearEditState();
         },
-        onCellEdit(newValue, props) {
-            this.editingCar[props.column.field] = newValue;
+        onCellEdit(newValue) {
+            this.editingCellValue = newValue;
+        },
+        clearEditState() {
+            this.editingCellValue = null;
+            this.editingCellValue = null;
+            this.originalCellValue = null;
         },
         isPositiveInteger(val) {
             let str = String(val);
