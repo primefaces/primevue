@@ -82,7 +82,7 @@ export default {
 
 /deep/ .orange-car {
     background-color: #344b5f !important;
-    color: #ffffff !important; 
+    color: #ffffff !important;
 }
 </CodeHighlight>
                 </TabPanel>
@@ -133,6 +133,6 @@ export default {
 
 /deep/ .orange-car {
     background-color: #344b5f !important;
-    color: #ffffff !important; 
+    color: #ffffff !important;
 }
 </style>

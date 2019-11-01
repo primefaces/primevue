@@ -1345,7 +1345,7 @@ export default {
 </CodeHighlight>
 
                 <h3>Row and Cell Styling</h3>
-                <p>Certain rows or cells can easily be styled based on conditions. Cell styling is implemented with templating whereas row styling utilizes the <i>rowClass</i> property which takes the 
+                <p>Certain rows or cells can easily be styled based on conditions. Cell styling is implemented with templating whereas row styling utilizes the <i>rowClass</i> property which takes the
                 row data as a parameter and returns the style class as a string.</p>
 <CodeHighlight>
 <template v-pre>
@@ -1402,7 +1402,7 @@ export default {
 
 /deep/ .orange-car {
     background-color: #344b5f !important;
-    color: #ffffff !important; 
+    color: #ffffff !important;
 }
 </CodeHighlight>
 
