@@ -105,7 +105,7 @@ export default {
         onKeyDown(event) {
             if (event.which === 9) {
                 event.preventDefault();
-                
+
                 let focusableElements = DomHandler.getFocusableElements(this.$refs.container);
 
                 if (focusableElements && focusableElements.length > 0) {

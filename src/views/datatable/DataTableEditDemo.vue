@@ -5,7 +5,7 @@
 		<div class="content-section introduction">
 			<div class="feature-intro">
 				<h1>DataTable - InCell Edit</h1>
-				<p>In cell editing provides a rapid and user friendly way to manipulate the data. The datatable provides a flexible API 
+				<p>In cell editing provides a rapid and user friendly way to manipulate the data. The datatable provides a flexible API
                     so that the editing behavior is implemented by the page author whether it utilizes v-model or vuex.
                 </p>
 			</div>
@@ -194,7 +194,7 @@ export default {
             if (!this.editingCellRows[event.index]) {
                 return;
             }
-            
+
             const editingCellValue = this.editingCellRows[event.index][event.field];
 
             switch (event.field) {
@@ -299,7 +299,7 @@ export default {
             if (!this.editingCellRows[event.index]) {
                 return;
             }
-            
+
             const editingCellValue = this.editingCellRows[event.index][event.field];
 
             switch (event.field) {

@@ -690,11 +690,11 @@ export default {
 </CodeHighlight>
 
                 <h3>InCell Editing</h3>
-                <p>In cell editing provides a rapid and user friendly way to manipulate the data. The datatable provides a flexible API 
+                <p>In cell editing provides a rapid and user friendly way to manipulate the data. The datatable provides a flexible API
                     so that the editing behavior is implemented by the page author whether it utilizes v-model or vuex.
                 </p>
-                
-                <p>Individuals cell editing is configured by setting the <i>editMode</i> to "cell" and defining editors with the "editor" template. The content of the 
+
+                <p>Individuals cell editing is configured by setting the <i>editMode</i> to "cell" and defining editors with the "editor" template. The content of the
                 editor defines how the editing is implemented, below example demonstrates two cases. In the first example, simple v-model editors are utilized. This is pretty straightforward in most cases.
                 On the other hand, second example is more advanced to consider validations and ability to revert values with the escape key.</p>
 <CodeHighlight>
@@ -784,7 +784,7 @@ export default {
             if (!this.editingCellRows[event.index]) {
                 return;
             }
-            
+
             const editingCellValue = this.editingCellRows[event.index][event.field];
 
             switch (event.field) {
@@ -886,7 +886,7 @@ export default {
         this.carService.getCarsSmall().then(data => this.cars = data);
     }
 }
-</CodeHighlight>               
+</CodeHighlight>
 
                 <h3>Column Resize</h3>
                 <p>Columns can be resized using drag drop by setting the <i>resizableColumns</i> to true. There are two resize modes; "fit" and "expand". Fit is the default one and the overall table width does not change when a column is resized.

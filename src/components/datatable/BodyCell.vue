@@ -115,7 +115,7 @@ export default {
                         this.completeEdit(event, 'outside');
                     }
                 };
-                
+
                 document.addEventListener('click', this.documentEditListener);
             }
         },
@@ -141,17 +141,17 @@ export default {
         },
         completeEdit(event, type) {
             let completeEvent = {
-                originalEvent: event, 
-                data: this.rowData, 
-                field: this.column.field, 
-                index: this.index, 
-                type: type, 
+                originalEvent: event,
+                data: this.rowData,
+                field: this.column.field,
+                index: this.index,
+                type: type,
                 defaultPrevented: false,
                 preventDefault: function() {
                     this.defaultPrevented = true;
                 }
             };
-            
+
             this.$emit('cell-edit-complete', completeEvent);
 
             if (!completeEvent.defaultPrevented) {
@@ -164,7 +164,7 @@ export default {
                     case 13:
                         this.completeEdit(event, 'enter');
                     break;
-                    
+
                     case 27:
                         this.switchCellToViewMode();
                         this.$emit('cell-edit-cancel', {originalEvent: event, data: this.rowData, field: this.column.field, index: this.index});

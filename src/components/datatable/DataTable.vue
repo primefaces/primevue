@@ -71,9 +71,9 @@
                                     <DTBodyCell v-if="shouldRenderBodyCell(dataToRender, col, index)" :key="col.columnKey||col.field||i" :rowData="rowData" :column="col" :index="index" :selected="isSelected(rowData)"
                                         :rowTogglerIcon="col.expander ? rowTogglerIcon(rowData): null" @row-toggle="toggleRow"
                                         @radio-change="toggleRowWithRadio" @checkbox-change="toggleRowWithCheckbox"
-                                        :rowspan="rowGroupMode === 'rowspan' ? calculateRowGroupSize(dataToRender, col, index) : null" 
+                                        :rowspan="rowGroupMode === 'rowspan' ? calculateRowGroupSize(dataToRender, col, index) : null"
                                         :editMode="editMode" :editing="editMode === 'row' && isRowEditing(rowData)"
-                                        @cell-edit-init="onCellEditInit" @cell-edit-complete="onCellEditComplete" @cell-edit-cancel="onCellEditCancel" 
+                                        @cell-edit-init="onCellEditInit" @cell-edit-complete="onCellEditComplete" @cell-edit-cancel="onCellEditCancel"
                                         @row-edit-init="onRowEditInit" @row-edit-save="onRowEditSave" @row-edit-cancel="onRowEditCancel"/>
                                 </template>
                             </tr>
@@ -1609,7 +1609,7 @@ export default {
             let _editingRows = this.editingRows ? [...this.editingRows] : [];
             _editingRows.push(event.data);
             this.$emit('update:editingRows', _editingRows);
-            this.$emit('row-edit-init', event);        
+            this.$emit('row-edit-init', event);
         },
         onRowEditSave(event) {
             let _editingRows = [...this.editingRows];
