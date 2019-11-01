@@ -256,6 +256,12 @@ export default {
                                 <td>true</td>
                                 <td>Defines if the column itself can be reordered with dragging.</td>
                             </tr>
+                            <tr>
+                                <td>rowEditor</td>
+                                <td>boolean</td>
+                                <td>false</td>
+                                <td>When enabled, column displays row editor controls.</td>
+                            </tr>
                         </tbody>
                     </table>
                 </div>
@@ -682,6 +688,205 @@ export default {
     }
 }
 </CodeHighlight>
+
+                <h3>InCell Editing</h3>
+                <p>In cell editing provides a rapid and user friendly way to manipulate the data. The datatable provides a flexible API 
+                    so that the editing behavior is implemented by the page author whether it utilizes v-model or vuex.
+                </p>
+                
+                <p>Individuals cell editing is configured by setting the <i>editMode</i> to "cell" and defining editors with the "editor" template. The content of the 
+                editor defines how the editing is implemented, below example demonstrates two cases. In the first example, simple v-model editors are utilized. This is pretty straightforward in most cases.
+                On the other hand, second example is more advanced to consider validations and ability to revert values with the escape key.</p>
+<CodeHighlight>
+<template v-pre>
+&lt;h3&gt;Basic Cell Editing&lt;/h3&gt;
+&lt;p&gt;Simple editors with v-model.&lt;/p&gt;
+&lt;DataTable :value="cars1" editMode="cell"&gt;
+    &lt;Column field="vin" header="Vin"&gt;
+        &lt;template #editor="slotProps"&gt;
+            &lt;InputText v-model="slotProps.data[slotProps.column.field]" /&gt;
+        &lt;/template&gt;
+    &lt;/Column&gt;
+    &lt;Column field="year" header="Year"&gt;
+        &lt;template #editor="slotProps"&gt;
+            &lt;InputText v-model="slotProps.data[slotProps.column.field]" /&gt;
+        &lt;/template&gt;
+    &lt;/Column&gt;
+    &lt;Column field="brand" header="Brand"&gt;
+        &lt;template #editor="slotProps"&gt;
+            &lt;Dropdown v-model="slotProps.data['brand']" :options="brands" optionLabel="brand" optionValue="value" placeholder="Select a Brand"&gt;
+                &lt;template #option="optionProps"&gt;
+                    &lt;div class="p-dropdown-car-option"&gt;
+                        &lt;img :alt="optionProps.option.brand" :src="'demo/images/car/' + optionProps.option.brand + '.png'" /&gt;
+                        &lt;span&gt;{{optionProps.option.brand}}&lt;/span&gt;
+                    &lt;/div&gt;
+                &lt;/template&gt;
+            &lt;/Dropdown&gt;
+        &lt;/template&gt;
+    &lt;/Column&gt;
+    &lt;Column field="color" header="Color"&gt;
+        &lt;template #editor="slotProps"&gt;
+            &lt;InputText v-model="slotProps.data[slotProps.column.field]" /&gt;
+        &lt;/template&gt;
+    &lt;/Column&gt;
+&lt;/DataTable&gt;
+
+&lt;h3&gt;Advanced Cell Editing&lt;/h3&gt;
+&lt;p&gt;Custom implementation with validations, dynamic columns and reverting values with the escape key.&lt;/p&gt;
+&lt;DataTable :value="cars2" editMode="cell" @cell-edit-complete="onCellEditComplete"&gt;
+    &lt;Column v-for="col of columns" :field="col.field" :header="col.header" :key="col.field"&gt;
+        &lt;template #editor="slotProps"&gt;
+            &lt;InputText :value="slotProps.data[slotProps.column.field]" @input="onCellEdit($event, slotProps)" /&gt;
+        &lt;/template&gt;
+    &lt;/Column&gt;
+&lt;/DataTable&gt;
+</template>
+</CodeHighlight>
+
+<CodeHighlight lang="javascript">
+import CarService from '../../service/CarService';
+import Vue from 'vue';
+
+export default {
+    data() {
+        return {
+            cars1: null,
+            cars2: null,
+            cars3: null,
+            editingCellRows: {},
+            columns: null,
+            brands: [
+                {brand: 'Audi', value: 'Audi'},
+                {brand: 'BMW', value: 'BMW'},
+                {brand: 'Fiat', value: 'Fiat'},
+                {brand: 'Honda', value: 'Honda'},
+                {brand: 'Jaguar', value: 'Jaguar'},
+                {brand: 'Mercedes', value: 'Mercedes'},
+                {brand: 'Renault', value: 'Renault'},
+                {brand: 'Volkswagen', value: 'Volkswagen'},
+                {brand: 'Volvo', value: 'Volvo'}
+            ]
+        }
+    },
+    carService: null,
+    created() {
+        this.carService = new CarService();
+
+        this.columns = [
+            {field: 'vin', header: 'Vin'},
+            {field: 'year', header: 'Year'},
+            {field: 'brand', header: 'Brand'},
+            {field: 'color', header: 'Color'}
+        ];
+    },
+    methods: {
+        onCellEditComplete(event) {
+            if (!this.editingCellRows[event.index]) {
+                return;
+            }
+            
+            const editingCellValue = this.editingCellRows[event.index][event.field];
+
+            switch (event.field) {
+                case 'year':
+                    if (this.isPositiveInteger(editingCellValue))
+                        Vue.set(this.cars2, event.index, this.editingCellRows[event.index]);
+                    else
+                        event.preventDefault();
+                break;
+
+                default:
+                    if (editingCellValue.trim().length > 0)
+                        Vue.set(this.cars2, event.index, this.editingCellRows[event.index]);
+                    else
+                        event.preventDefault();
+                break;
+            }
+        },
+        onCellEdit(newValue, props) {
+            if (!this.editingCellRows[props.index]) {
+                this.editingCellRows[props.index] = {...props.data};
+            }
+
+            this.editingCellRows[props.index][props.column.field] = newValue;
+        },
+        isPositiveInteger(val) {
+            let str = String(val);
+            str = str.trim();
+            if (!str) {
+                return false;
+            }
+            str = str.replace(/^0+/, "") || "0";
+            var n = Math.floor(Number(str));
+            return n !== Infinity &amp;&amp; String(n) === str &amp;&amp; n >= 0;
+        }
+    },
+    mounted() {
+        this.carService.getCarsSmall().then(data => this.cars1 = data);
+        this.carService.getCarsSmall().then(data => this.cars2 = data);
+    }
+}
+</CodeHighlight>
+
+                <p>Row Editing is defined by setting <i>cellEdit</i> as "row", defining <i>editingRows</i> with the sync operator to hold the reference to the editing rows and adding a row editor column to provide the editing controls. Note that
+                since <i>editingRows</i> is two-way binding enabled, you may use it to initially display one or more rows in editing more or programmatically toggle row editing.</p>
+<CodeHighlight>
+<template v-pre>
+&lt;h3&gt;Row Editing&lt;/h3&gt;
+&lt;DataTable :value="cars" editMode="row" dataKey="vin" :editingRows.sync="editingRows"
+    @row-edit-init="onRowEditInit" @row-edit-cancel="onRowEditCancel"&gt;
+    &lt;Column field="vin" header="Vin"&gt;&lt;/Column&gt;
+    &lt;Column field="year" header="Year"&gt;
+        &lt;template #editor="slotProps"&gt;
+            &lt;InputText v-model="slotProps.data[slotProps.column.field]" /&gt;
+        &lt;/template&gt;
+    &lt;/Column&gt;
+    &lt;Column field="brand" header="Brand"&gt;
+        &lt;template #editor="slotProps"&gt;
+            &lt;InputText v-model="slotProps.data[slotProps.column.field]" /&gt;
+        &lt;/template&gt;
+    &lt;/Column&gt;
+    &lt;Column field="color" header="Color"&gt;
+        &lt;template #editor="slotProps"&gt;
+            &lt;InputText v-model="slotProps.data[slotProps.column.field]" /&gt;
+        &lt;/template&gt;
+    &lt;/Column&gt;
+    &lt;Column :rowEditor="true" headerStyle="width:6em" bodyStyle="text-align:center"&gt;&lt;/Column&gt;
+&lt;/DataTable&gt;
+</template>
+</CodeHighlight>
+
+<CodeHighlight lang="javascript">
+import CarService from '../../service/CarService';
+import Vue from 'vue';
+
+export default {
+    data() {
+        return {
+            cars: null,
+            editingRows: []
+        }
+    },
+    carService: null,
+    originalRows: null,
+    created() {
+        this.carService = new CarService();
+
+        this.originalRows = {};
+    },
+    methods: {
+        onRowEditInit(event) {
+            this.originalRows[event.index] = {...this.cars3[event.index]};
+        },
+        onRowEditCancel(event) {
+            Vue.set(this.cars3, event.index, this.originalRows[event.index]);
+        }
+    },
+    mounted() {
+        this.carService.getCarsSmall().then(data => this.cars = data);
+    }
+}
+</CodeHighlight>               
 
                 <h3>Column Resize</h3>
                 <p>Columns can be resized using drag drop by setting the <i>resizableColumns</i> to true. There are two resize modes; "fit" and "expand". Fit is the default one and the overall table width does not change when a column is resized.
@@ -1413,6 +1618,18 @@ export default {
                                 <td>null</td>
                                 <td>Unique identifier of a stateful table to use in state storage.</td>
                             </tr>
+                            <tr>
+                                <td>editMode</td>
+                                <td>string</td>
+                                <td>null</td>
+                                <td>Defines the incell editing mode, valid options are "cell" and "row".</td>
+                            </tr>
+                            <tr>
+                                <td>editingRows</td>
+                                <td>array</td>
+                                <td>null</td>
+                                <td>A collection of rows to represent the current editing data in row edit mode.</td>
+                            </tr>
                         </tbody>
                     </table>
                 </div>
@@ -1515,6 +1732,55 @@ export default {
                                 <td>event.originalEvent: Browser event<br />
                                     event.data: Collapsed group value.</td>
                                 <td>Callback to invoke when a row group is collapsed.</td>
+                            </tr>
+                            <tr>
+                                <td>cell-edit-init</td>
+                                <td>event.originalEvent: Browser event<br />
+                                    event.data: Row data to edit. <br />
+                                    event.field: Field name of the row data. <br />
+                                    event.index: Index of the row data to edit. <br /></td>
+                                <td>Callback to invoke when cell edit is initiated.</td>
+                            </tr>
+                            <tr>
+                                <td>cell-edit-complete</td>
+                                <td>event.originalEvent: Browser event<br />
+                                    event.data: Row data to edit. <br />
+                                    event.field: Field name of the row data. <br />
+                                    event.index: Index of the row data to edit. <br />
+                                    event.type: Type of completion such as "enter", "outside" or "tab". <br /></td>
+                                <td>Callback to invoke when cell edit is completed.</td>
+                            </tr>
+                            <tr>
+                                <td>cell-edit-cancel</td>
+                                <td>event.originalEvent: Browser event<br />
+                                    event.data: Row data to edit. <br />
+                                    event.field: Field name of the row data. <br />
+                                    event.index: Index of the row data to edit. <br /></td>
+                                <td>Callback to invoke when cell edit is cancelled with escape key.</td>
+                            </tr>
+                            <tr>
+                                <td>row-edit-init</td>
+                                <td>event.originalEvent: Browser event<br />
+                                    event.data: Row data to edit. <br />
+                                    event.field: Field name of the row data. <br />
+                                    event.index: Index of the row data to edit. <br /></td>
+                                <td>Callback to invoke when row edit is initiated.</td>
+                            </tr>
+                            <tr>
+                                <td>row-edit-save</td>
+                                <td>event.originalEvent: Browser event<br />
+                                    event.data: Row data to edit. <br />
+                                    event.field: Field name of the row data. <br />
+                                    event.index: Index of the row data to edit. <br /></td>
+                                <td>Callback to invoke when row edit is saved.</td>
+                            </tr>
+                            <tr>
+                                <td>row-edit-cancel</td>
+                                <td>event.originalEvent: Browser event<br />
+                                    event.data: Row data to edit. <br />
+                                    event.field: Field name of the row data. <br />
+                                    event.index: Index of the row data to edit. <br /></td>
+                                <td>Callback to invoke when row edit is cancelled.</td>
                             </tr>
                         </tbody>
                     </table>
