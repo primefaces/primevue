@@ -314,6 +314,10 @@ export default {
         editingRows: {
             type: Array,
             default: null
+        },
+        rowClass: {
+            type: null,
+            default: null
         }
     },
     data() {
@@ -901,14 +905,22 @@ export default {
             return this.dataKey ? ObjectUtils.resolveFieldData(rowData, this.dataKey): index;
         },
         getRowClass(rowData) {
+            let rowStyleClass = ['p-datatable-row'];
             if (this.selection) {
-                return ['p-datatable-row', {
+                rowStyleClass.push({
                     'p-highlight': this.isSelected(rowData)
-                }];
+                });
             }
-            else {
-                return 'p-datatable-row';
+
+            if (this.rowClass) {
+                let rowClassValue = this.rowClass(rowData);
+
+                if (rowClassValue) {
+                    rowStyleClass.push(rowClassValue);
+                }
             }
+
+            return rowStyleClass;
         },
         selectRange(event) {
             let rangeStart, rangeEnd;

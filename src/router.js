@@ -200,7 +200,12 @@ export default new Router({
 			path: '/datatable/crud',
 			name: 'datatablecrud',
 			component: () => import('./views/datatable/DataTableCrudDemo.vue')
-		},
+        },
+        {
+			path: '/datatable/style',
+			name: 'datatablestyle',
+			component: () => import('./views/datatable/DataTableStyleDemo.vue')
+        },
 		{
 			path: '/dataview',
 			name: 'dataview',

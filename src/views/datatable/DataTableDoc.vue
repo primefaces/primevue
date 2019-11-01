@@ -1344,6 +1344,67 @@ export default {
 }
 </CodeHighlight>
 
+                <h3>Row and Cell Styling</h3>
+                <p>Certain rows or cells can easily be styled based on conditions. Cell styling is implemented with templating whereas row styling utilizes the <i>rowClass</i> property which takes the 
+                row data as a parameter and returns the style class as a string.</p>
+<CodeHighlight>
+<template v-pre>
+&lt;DataTable :value="cars" :rowClass="rowClass"&gt;
+    &lt;Column field="vin" header="Vin"&gt;&lt;/Column&gt;
+    &lt;Column field="year" header="Year" bodyStyle="padding: 0"&gt;
+            &lt;template #body="slotProps"&gt;
+            &lt;div :class="['year-cell', {'old-car': slotProps.data.year &lt; 2010}]"&gt;
+                &#123;&#123;slotProps.data.year&#125;&#125;
+            &lt;/div&gt;
+        &lt;/template&gt;
+    &lt;/Column&gt;
+    &lt;Column field="brand" header="Brand"&gt;&lt;/Column&gt;
+    &lt;Column field="color" header="Color"&gt;&lt;/Column&gt;
+&lt;/DataTable&gt;
+</template>
+</CodeHighlight>
+
+<CodeHighlight lang="javascript">
+import CarService from '../../service/CarService';
+
+export default {
+    data() {
+        return {
+            columns: null,
+            cars: null
+        }
+    },
+    carService: null,
+    created() {
+        this.carService = new CarService();
+    },
+    mounted() {
+        this.carService.getCarsSmall().then(data => this.cars = data);
+    },
+    methods: {
+        rowClass(data) {
+            return data.color === 'Orange' ? 'orange-car': null;
+        }
+    }
+}
+</CodeHighlight>
+
+<CodeHighlight lang="css">
+.year-cell {
+    padding: 0.429em 0.857em;
+
+    &amp;.old-car {
+        background-color: #41b783;
+        font-weight: 700;
+        color: #ffffff;
+    }
+}
+
+/deep/ .orange-car {
+    background-color: #344b5f !important;
+    color: #ffffff !important; 
+}
+</CodeHighlight>
 
                 <h3>Properties</h3>
                 <div class="doc-tablewrapper">
@@ -1629,6 +1690,12 @@ export default {
                                 <td>array</td>
                                 <td>null</td>
                                 <td>A collection of rows to represent the current editing data in row edit mode.</td>
+                            </tr>
+                            <tr>
+                                <td>rowClass</td>
+                                <td>function</td>
+                                <td>null</td>
+                                <td>A function that takes the row data and returns a string to apply a particular class for the row.</td>
                             </tr>
                         </tbody>
                     </table>

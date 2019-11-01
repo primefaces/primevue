@@ -46,6 +46,7 @@ export declare class DataTable extends Vue {
     stateKey?: string;
     editMode?: string;
     editingRows?: any[];
+    rowClass?: any;
     $emit(eventName: 'page', event: Event): this;
     $emit(eventName: 'sort', event: Event): this;
     $emit(eventName: 'filter', event: Event): this;
