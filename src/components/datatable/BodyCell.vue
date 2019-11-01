@@ -140,10 +140,21 @@ export default {
             }
         },
         completeEdit(event, type) {
-            let editEvent = {originalEvent: event, data: this.rowData, field: this.column.field, index: this.index, type: type, preventDefault: () => event.preventDefault()};
-            this.$emit('cell-edit-complete', editEvent);
+            let completeEvent = {
+                originalEvent: event, 
+                data: this.rowData, 
+                field: this.column.field, 
+                index: this.index, 
+                type: type, 
+                defaultPrevented: false,
+                preventDefault: function() {
+                    this.defaultPrevented = true;
+                }
+            };
+            
+            this.$emit('cell-edit-complete', completeEvent);
 
-            if (!event.defaultPrevented) {
+            if (!completeEvent.defaultPrevented) {
                 this.switchCellToViewMode();
             }
         },
