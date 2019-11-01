@@ -1,7 +1,7 @@
 <template>
     <transition name="p-input-overlay" @enter="onEnter" @leave="onLeave">
         <div ref="container"  :class="containerClass" v-if="popup ? visible : true">
-            <ul class="p-menu-list p-reset">
+            <ul class="p-menu-list p-reset" role="menu">
                 <template v-for="(item, i) of model">
                     <template v-if="item.items">
                         <li class="p-submenu-header " :key="item.label+i" v-if="item.items">{{item.label}}</li>
