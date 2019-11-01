@@ -52,7 +52,9 @@ export default {
     mask: null,
     documentKeydownListener: null,
     destroyed() {
-        //this.unbindDocumentKeydownListener();  
+        if (this.modal) {
+            this.disableModality();
+        }
     },
     methods: {
         close() {
