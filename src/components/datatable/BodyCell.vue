@@ -148,24 +148,26 @@ export default {
             }
         },
         onKeyDown(event) {
-            switch (event.which) {
-                case 13:
-                    this.completeEdit(event, 'enter');
-                break;
-                
-                case 27:
-                    this.switchCellToViewMode();
-                    this.$emit('cell-edit-cancel', {originalEvent: event, data: this.rowData, field: this.column.field, index: this.index});
-                break;
+            if (this.editMode === 'cell') {
+                switch (event.which) {
+                    case 13:
+                        this.completeEdit(event, 'enter');
+                    break;
+                    
+                    case 27:
+                        this.switchCellToViewMode();
+                        this.$emit('cell-edit-cancel', {originalEvent: event, data: this.rowData, field: this.column.field, index: this.index});
+                    break;
 
-                case 9:
-                    this.completeEdit(event, 'tab');
+                    case 9:
+                        this.completeEdit(event, 'tab');
 
-                    if (event.shiftKey)
-                        this.moveToPreviousCell(event);
-                    else
-                        this.moveToNextCell(event);
-                break;
+                        if (event.shiftKey)
+                            this.moveToPreviousCell(event);
+                        else
+                            this.moveToNextCell(event);
+                    break;
+                }
             }
         },
         moveToPreviousCell(event) {
