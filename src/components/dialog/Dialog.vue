@@ -50,6 +50,10 @@ export default {
         }
     },
     mask: null,
+    documentKeydownListener: null,
+    destroyed() {
+        //this.unbindDocumentKeydownListener();  
+    },
     methods: {
         close() {
             this.$emit('update:visible', false);
@@ -85,6 +89,7 @@ export default {
                 DomHandler.addMultipleClasses(this.mask, 'p-component-overlay p-dialog-mask p-fadein');
                 document.body.appendChild(this.mask);
                 DomHandler.addClass(document.body, 'p-overflow-hidden');
+                this.bindDocumentKeydownListener();
             }
         },
         disableModality() {
@@ -92,6 +97,48 @@ export default {
                 document.body.removeChild(this.mask);
                 DomHandler.removeClass(document.body, 'p-overflow-hidden');
                 this.mask = null;
+                this.unbindDocumentKeydownListener();
+            }
+        },
+        onKeyDown(event) {
+            if (event.which === 9) {
+                event.preventDefault();
+                
+                let focusableElements = DomHandler.getFocusableElements(this.$refs.container);
+
+                if (focusableElements && focusableElements.length > 0) {
+                    if (!document.activeElement) {
+                        focusableElements[0].focus();
+                    }
+                    else {
+                        let focusedIndex = focusableElements.indexOf(document.activeElement);
+
+                        if (event.shiftKey) {
+                            if (focusedIndex == -1 || focusedIndex === 0)
+                                focusableElements[focusableElements.length - 1].focus();
+                            else
+                                focusableElements[focusedIndex - 1].focus();
+                        }
+                        else {
+                            if (focusedIndex == -1 || focusedIndex === (focusableElements.length - 1))
+                                focusableElements[0].focus();
+                            else
+                                focusableElements[focusedIndex + 1].focus();
+                        }
+                    }
+                }
+            }
+        },
+        bindDocumentKeydownListener() {
+            if (!this.documentKeydownListener) {
+                this.documentKeydownListener = this.onKeyDown.bind(this);
+                window.document.addEventListener('keydown', this.documentKeydownListener);
+            }
+        },
+        unbindDocumentKeydownListener() {
+            if (this.documentKeydownListener) {
+                window.document.removeEventListener('keydown', this.documentKeydownListener);
+                this.documentKeydownListener = null;
             }
         }
     },
