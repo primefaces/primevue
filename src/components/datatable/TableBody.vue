@@ -16,10 +16,10 @@
                     @mousedown="onRowMouseDown($event)" @dragstart="onRowDragStart($event, index)" @dragover="onRowDragOver($event,index)" @dragleave="onRowDragLeave($event)" @dragend="onRowDragEnd($event)" @drop="onRowDrop($event)">
                     <template v-for="(col,i) of columns">
                         <DTBodyCell v-if="shouldRenderBodyCell(value, col, index)" :key="col.columnKey||col.field||i" :rowData="rowData" :column="col" :index="index" :selected="isSelected(rowData)"
-                            :rowTogglerIcon="col.expander ? rowTogglerIcon(rowData): null" @row-toggle="onRowToggle($event)"
-                            @radio-change="onRadioChange($event)" @checkbox-change="onCheckboxChange($event)"
+                            :rowTogglerIcon="col.expander ? rowTogglerIcon(rowData): null"
                             :rowspan="rowGroupMode === 'rowspan' ? calculateRowGroupSize(value, col, index) : null"
                             :editMode="editMode" :editing="editMode === 'row' && isRowEditing(rowData)"
+                            @radio-change="onRadioChange($event)" @checkbox-change="onCheckboxChange($event)" @row-toggle="onRowToggle($event)"
                             @cell-edit-init="onCellEditInit($event)" @cell-edit-complete="onCellEditComplete($event)" @cell-edit-cancel="onCellEditCancel($event)"
                             @row-edit-init="onRowEditInit($event)" @row-edit-save="onRowEditSave($event)" @row-edit-cancel="onRowEditCancel($event)"/>
                     </template>
@@ -93,6 +93,10 @@ export default {
             type: Array,
             default: null
         },
+        expandedRowKeys: {
+            type: null,
+            default: null
+        },
         selection: {
             type: [Array,Object],
             default: null
@@ -116,6 +120,14 @@ export default {
         compareSelectionBy: {
             type: String,
             default: 'deepEquals'
+        },
+        editingRows: {
+            type: Array,
+            default: null
+        },
+        editingRowKeys: {
+            type: null,
+            default: null
         }
     },
     methods: {
@@ -238,7 +250,7 @@ export default {
         isRowEditing(rowData) {
             if (rowData && this.editingRows) {
                 if (this.dataKey)
-                    return this.d_editingRowKeys ? this.d_editingRowKeys[ObjectUtils.resolveFieldData(rowData, this.dataKey)] !== undefined : false;
+                    return this.editingRowKeys ? this.editingRowKeys[ObjectUtils.resolveFieldData(rowData, this.dataKey)] !== undefined : false;
                 else
                     return this.findIndex(rowData, this.editingRows) > -1;
             }
@@ -248,7 +260,7 @@ export default {
         isRowExpanded(rowData) {
             if (rowData && this.expandedRows) {
                 if (this.dataKey)
-                    return this.d_expandedRowKeys ? this.d_expandedRowKeys[ObjectUtils.resolveFieldData(rowData, this.dataKey)] !== undefined : false;
+                    return this.expandedRowKeys ? this.expandedRowKeys[ObjectUtils.resolveFieldData(rowData, this.dataKey)] !== undefined : false;
                 else
                     return this.findIndex(rowData, this.expandedRows) > -1;
             }
