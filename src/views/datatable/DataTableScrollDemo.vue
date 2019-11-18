@@ -17,6 +17,18 @@
                 <Column field="brand" header="Brand"></Column>
                 <Column field="color" header="Color"></Column>
             </DataTable>
+
+            <h3>Horizontal and Vertical</h3>
+            <DataTable :value="cars" :scrollable="true" scrollHeight="200px" style="width: 600px">
+                <Column field="vin" header="Vin" headerStyle="width: 250px"></Column>
+                <Column field="year" header="Year" headerStyle="width: 250px"></Column>
+                <Column field="brand" header="Brand" headerStyle="width: 250px"></Column>
+                <Column field="color" header="Color" headerStyle="width: 250px"></Column>
+                <Column field="vin" header="Vin" headerStyle="width: 250px"></Column>
+                <Column field="year" header="Year" headerStyle="width: 250px"></Column>
+                <Column field="brand" header="Brand" headerStyle="width: 250px"></Column>
+                <Column field="color" header="Color" headerStyle="width: 250px"></Column>
+            </DataTable>
 		</div>
 
         <div class="content-section documentation">

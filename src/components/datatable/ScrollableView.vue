@@ -68,10 +68,54 @@ export default {
     },
     methods: {
         onHeaderScroll() {
-
+            this.$refs.scrollHeader.scrollLeft = 0;
         },
         onBodyScroll() {
+            let frozenView = this.$refs.previousElementSibling;
+            let frozenScrollBody;
+            if (frozenView) {
+                frozenScrollBody = DomHandler.findSingle(frozenView, '.p-datatable-scrollable-body');
+            }
+            
+            this.$refs.scrollHeaderBox.style.marginLeft = -1 * this.$refs.scrollBody.scrollLeft + 'px';
+            if( this.$refs.scrollFooterBox) {
+                this.$refs.scrollFooterBox.style.marginLeft = -1 * this.$refs.scrollBody.scrollLeft + 'px';
+            }
+            
+            if(frozenScrollBody) {
+                frozenScrollBody.scrollTop = this.$refs.scrollBody.scrollTop;
+            }
+            /*
+            if (this.props.virtualScroll) {
+                let viewport = DomHandler.getClientHeight(this.scrollBody);
+                let tableHeight = DomHandler.getOuterHeight(this.scrollTable);
+                let pageHeight = this.props.virtualRowHeight * this.props.rows;
+                let virtualTableHeight = DomHandler.getOuterHeight(this.virtualScroller);
+                let pageCount = (virtualTableHeight / pageHeight)||1;
+                let scrollBodyTop = this.scrollTable.style.top||'0';
+                
+                if(this.scrollBody.scrollTop + viewport > parseFloat(scrollBodyTop) + tableHeight || this.scrollBody.scrollTop < parseFloat(scrollBodyTop)) {
+                    if (this.loadingTable) {
+                        this.loadingTable.style.display = 'table';
+                        this.loadingTable.style.top = this.scrollBody.scrollTop + 'px';
+                    }
+                    
+                    let page = Math.floor((this.scrollBody.scrollTop * pageCount) / (this.scrollBody.scrollHeight)) + 1;
+                    if(this.props.onVirtualScroll) {
+                        this.props.onVirtualScroll({
+                            page: page
+                        });
+                        
+                        this.virtualScrollCallback = () => {
+                            if (this.loadingTable) {
+                                this.loadingTable.style.display = 'none';
+                            }
 
+                            this.scrollTable.style.top = ((page - 1) * pageHeight) + 'px';
+                        }
+                    }
+                }
+            }*/
         },
         setScrollHeight() {
             if (this.scrollHeight) {
