@@ -50,7 +50,7 @@ export default {
             }
 
             return hasFooter;
-        },
+        }
     },
     components: {
         'DTColumnSlot': ColumnSlot
