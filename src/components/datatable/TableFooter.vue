@@ -1,13 +1,13 @@
 <template>
     <tfoot class="p-datatable-tfoot" v-if="hasFooter">
-        <tr v-if="!columnGroup">>
+        <tr v-if="!columnGroup">
             <td v-for="(col,i) of columns" :key="col.columnKey||col.field||i" :style="col.footerStyle" :class="col.footerClass"
                 :colspan="col.colspan" :rowspan="col.rowspan">
                 <DTColumnSlot :column="col" type="footer" v-if="col.$scopedSlots.footer" />
                 {{col.footer}}
             </td>
         </tr>
-            <template v-else>
+        <template v-else>
             <tr v-for="(row,i) of columnGroup.rows" :key="i">
                 <td v-for="(col,i) of row.columns" :key="col.columnKey||col.field||i" :style="col.footerStyle" :class="col.footerClass"
                     :colspan="col.colspan" :rowspan="col.rowspan">
