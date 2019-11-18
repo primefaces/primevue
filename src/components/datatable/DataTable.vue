@@ -1520,7 +1520,7 @@ export default {
         },
         dataToRender() {
             const data = this.processedData;
-            
+
             if (data && this.paginator) {
                 const first = this.lazy ? 0 : this.d_first;
                 return data.slice(first, first + this.d_rows);

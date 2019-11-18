@@ -42,7 +42,7 @@
     </tbody>
 </template>
 
-<script> 
+<script>
 import ObjectUtils from '../utils/ObjectUtils';
 import BodyCell from './BodyCell.vue';
 

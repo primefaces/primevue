@@ -55,7 +55,7 @@ export default {
     },
     mounted() {
         this.setScrollHeight();
-                
+
         if (!this.frozen)
             this.alignScrollBar();
         else
@@ -76,12 +76,12 @@ export default {
             if (frozenView) {
                 frozenScrollBody = DomHandler.findSingle(frozenView, '.p-datatable-scrollable-body');
             }
-            
+
             this.$refs.scrollHeaderBox.style.marginLeft = -1 * this.$refs.scrollBody.scrollLeft + 'px';
             if( this.$refs.scrollFooterBox) {
                 this.$refs.scrollFooterBox.style.marginLeft = -1 * this.$refs.scrollBody.scrollLeft + 'px';
             }
-            
+
             if(frozenScrollBody) {
                 frozenScrollBody.scrollTop = this.$refs.scrollBody.scrollTop;
             }
@@ -93,19 +93,19 @@ export default {
                 let virtualTableHeight = DomHandler.getOuterHeight(this.virtualScroller);
                 let pageCount = (virtualTableHeight / pageHeight)||1;
                 let scrollBodyTop = this.scrollTable.style.top||'0';
-                
-                if(this.scrollBody.scrollTop + viewport > parseFloat(scrollBodyTop) + tableHeight || this.scrollBody.scrollTop < parseFloat(scrollBodyTop)) {
+
+                if(this.scrollBody.scrollTop + viewport > parseFloat(scrollBodyTop) + tableHeight || this.scrollBody.scrollTop < parseFloat(scrollBodyTop)) {
                     if (this.loadingTable) {
                         this.loadingTable.style.display = 'table';
                         this.loadingTable.style.top = this.scrollBody.scrollTop + 'px';
                     }
-                    
+
                     let page = Math.floor((this.scrollBody.scrollTop * pageCount) / (this.scrollBody.scrollHeight)) + 1;
                     if(this.props.onVirtualScroll) {
                         this.props.onVirtualScroll({
                             page: page
                         });
-                        
+
                         this.virtualScrollCallback = () => {
                             if (this.loadingTable) {
                                 this.loadingTable.style.display = 'none';
@@ -127,7 +127,7 @@ export default {
                     let relativeHeight = DomHandler.getOuterHeight(datatableContainer.parentElement) * parseInt(this.scrollHeight, 10) / 100;
                     let staticHeight = containerHeight - 100;       //total height of headers, footers, paginators
                     let scrollBodyHeight = (relativeHeight - staticHeight);
-                    
+
                     this.$refs.scrollBody.style.height = 'auto';
                     this.$refs.scrollBody.style.maxHeight = scrollBodyHeight + 'px';
                     this.$refs.scrollBody.style.visibility = 'visible';
@@ -142,7 +142,7 @@ export default {
         },
         alignScrollBar() {
             let scrollBarWidth = this.hasVerticalOverflow() ? DomHandler.calculateScrollbarWidth() : 0;
-            
+
             this.$refs.scrollHeaderBox.style.marginRight = scrollBarWidth + 'px';
             if (this.$refs.scrollFooterBox) {
                 this.$refs.scrollFooterBox.style.marginRight = scrollBarWidth + 'px';
