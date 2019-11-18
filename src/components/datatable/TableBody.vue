@@ -7,7 +7,7 @@
                         <button class="p-row-toggler p-link" @click="onRowGroupToggle($event, rowData)" v-if="expandableRowGroups">
                             <span :class="rowGroupTogglerIcon(rowData)"></span>
                         </button>
-                        <slot name="groupheader" :data="rowData"></slot>
+                        <DTRowExpansionTemplate :template="templates['groupheader']" :data="rowData" :index="index" />
                     </td>
                 </tr>
                 <tr :class="getRowClass(rowData)" :key="getRowKey(rowData, index)"
@@ -26,8 +26,7 @@
                 </tr>
                 <tr class="p-datatable-row-expansion" v-if="expandedRows && isRowExpanded(rowData)" :key="getRowKey(rowData, index) + '_expansion'">
                     <td :colspan="columns.length">
-                        <slot name="expansion" :data="rowData" :index="index">
-                        </slot>
+                        <DTRowExpansionTemplate :template="templates['expansion']" :data="rowData" :index="index" />
                     </td>
                 </tr>
                 <tr class="p-rowgroup-footer" v-if="rowGroupMode === 'subheader' && shouldRenderRowGroupFooter(value, rowData, index)" :key="getRowKey(rowData, index) + '_subfooter'">
@@ -43,9 +42,38 @@
     </tbody>
 </template>
 
-<script>
+<script> 
 import ObjectUtils from '../utils/ObjectUtils';
 import BodyCell from './BodyCell.vue';
+
+const RowExpansionTemplate = {
+    functional: true,
+    props: {
+        name: {
+            type: String,
+            default: null
+        },
+        data: {
+            type: null,
+            default: null
+        },
+        index: {
+            type: Number,
+            default: null
+        },
+        template: {
+            type: null,
+            default: null
+        }
+    },
+    render(createElement, context) {
+        const content = context.props.template({
+            'data': context.props.data,
+            'index': context.props.index
+        });
+        return [content];
+    }
+}
 
 export default {
     props: {
@@ -126,6 +154,10 @@ export default {
             default: null
         },
         editingRowKeys: {
+            type: null,
+            default: null
+        },
+        templates: {
             type: null,
             default: null
         }
@@ -366,11 +398,9 @@ export default {
             this.$emit('row-edit-cancel', event);
         }
     },
-    computed: {
-
-    },
     components: {
-        'DTBodyCell': BodyCell
+        'DTBodyCell': BodyCell,
+        'DTRowExpansionTemplate': RowExpansionTemplate
     }
 }
 </script>
