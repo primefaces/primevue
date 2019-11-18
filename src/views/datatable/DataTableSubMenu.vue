@@ -9,6 +9,7 @@
             <li><router-link to="/datatable/filter">&#9679; Filter</router-link></li>
             <li><router-link to="/datatable/selection">&#9679; Selection</router-link></li>
             <li><router-link to="/datatable/lazy">&#9679; Lazy</router-link></li>
+            <li><router-link to="/datatable/scroll">&#9679; Scroll</router-link></li>
             <li><router-link to="/datatable/rowexpand">&#9679; Expand</router-link></li>
             <li><router-link to="/datatable/edit">&#9679; Edit</router-link></li>
             <li><router-link to="/datatable/coltoggle">&#9679; ColToggle</router-link></li>

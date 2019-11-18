@@ -202,6 +202,11 @@ export default new Router({
 			component: () => import('./views/datatable/DataTableCrudDemo.vue')
         },
         {
+			path: '/datatable/scroll',
+			name: 'datatablescroll',
+			component: () => import('./views/datatable/DataTableScrollDemo.vue')
+        },
+        {
 			path: '/datatable/style',
 			name: 'datatablestyle',
 			component: () => import('./views/datatable/DataTableStyleDemo.vue')

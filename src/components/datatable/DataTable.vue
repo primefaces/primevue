@@ -7,51 +7,26 @@
                 <i :class="loadingIconClass"></i>
             </div>
         </div>
+        <div class="p-datatable-header" v-if="$scopedSlots.header">
+            <slot name="header"></slot>
+        </div>
+        <DTPaginator v-if="paginatorTop" :rows="d_rows" :first="d_first" :totalRecords="totalRecordsLength" :pageLinkSize="pageLinkSize" :template="paginatorTemplate" :rowsPerPageOptions="rowsPerPageOptions"
+                :currentPageReportTemplate="currentPageReportTemplate" class="p-paginator-top" @page="onPage($event)" :alwaysShow="alwaysShowPaginator">
+            <template #left v-if="$scopedSlots.paginatorLeft">
+                <slot name="paginatorLeft"></slot>
+            </template>
+            <template #right v-if="$scopedSlots.paginatorRight">
+                <slot name="paginatorRight"></slot>
+            </template>
+        </DTPaginator>
         <div class="p-datatable-wrapper">
-            <div class="p-datatable-header" v-if="$scopedSlots.header">
-                <slot name="header"></slot>
-            </div>
-            <DTPaginator v-if="paginatorTop" :rows="d_rows" :first="d_first" :totalRecords="totalRecordsLength" :pageLinkSize="pageLinkSize" :template="paginatorTemplate" :rowsPerPageOptions="rowsPerPageOptions"
-					:currentPageReportTemplate="currentPageReportTemplate" class="p-paginator-top" @page="onPage($event)" :alwaysShow="alwaysShowPaginator">
-                <template #left v-if="$scopedSlots.paginatorLeft">
-                    <slot name="paginatorLeft"></slot>
-                </template>
-                <template #right v-if="$scopedSlots.paginatorRight">
-                    <slot name="paginatorRight"></slot>
-                </template>
-            </DTPaginator>
             <table ref="table">
-                <thead class="p-datatable-thead">
-                    <tr v-if="!headerColumnGroup">
-                        <template v-for="(col,i) of columns">
-                            <th v-if="rowGroupMode !== 'subheader' || (groupRowsBy !== col.field)"
-                                :key="col.columnKey||col.field||i" :style="col.headerStyle" :class="getColumnHeaderClass(col)"
-                                @click="onColumnHeaderClick($event, col)" @mousedown="onColumnHeaderMouseDown($event, col)"
-                                @dragstart="onColumnHeaderDragStart($event)" @dragover="onColumnHeaderDragOver($event)" @dragleave="onColumnHeaderDragLeave($event)" @drop="onColumnHeaderDrop($event)"
-                                :colspan="col.colspan" :rowspan="col.rowspan">
-                                <span class="p-column-resizer p-clickable" @mousedown="onColumnResizeStart" v-if="resizableColumns"></span>
-                                <ColumnSlot :column="col" type="header" v-if="col.$scopedSlots.header" />
-                                <span class="p-column-title" v-if="col.header">{{col.header}}</span>
-                                <span v-if="col.sortable" :class="getSortableColumnIcon(col)"></span>
-                                <ColumnSlot :column="col" type="filter" v-if="col.$scopedSlots.filter" />
-                                <DTHeaderCheckbox :checked="allRowsSelected" @change="toggleRowsWithCheckbox" :disabled="empty" v-if="col.selectionMode ==='multiple'" />
-                            </th>
-                        </template>
-                    </tr>
-                    <template v-else>
-                        <tr v-for="(row,i) of headerColumnGroup.rows" :key="i">
-                            <th v-for="(col,i) of row.columns" :key="col.columnKey||col.field||i" :style="col.headerStyle" :class="getColumnHeaderClass(col)"
-                            @dragstart="onColumnHeaderDragStart($event)" @dragover="onColumnHeaderDragOver($event)" @dragleave="onColumnHeaderDragLeave($event)" @drop="onColumnHeaderDrop($event)"
-                                :colspan="col.colspan" :rowspan="col.rowspan">
-                                <ColumnSlot :column="col" type="header" v-if="col.$scopedSlots.header" />
-                                <span class="p-column-title" v-if="col.header">{{col.header}}</span>
-                                <span v-if="col.sortable" :class="getSortableColumnIcon(col)"></span>
-                                <ColumnSlot :column="col" type="filter" v-if="col.$scopedSlots.filter" />
-                                <DTHeaderCheckbox :checked="allRowsSelected" @change="toggleRowsWithCheckbox" :disabled="empty" v-if="col.selectionMode ==='multiple'" />
-                            </th>
-                        </tr>
-                    </template>
-                </thead>
+                <DTTableHeader :columnGroup="headerColumnGroup" :columns="columns" :rowGroupMode="rowGroupMode"
+                        :groupRowsBy="groupRowsBy" :resizableColumns="resizableColumns" :allRowsSelected="allRowsSelected" :empty="empty"
+                        :sortMode="sortMode" :sortField="d_sortField" :sortOrder="d_sortOrder" :multiSortMeta="d_multiSortMeta"
+                        @column-click="onColumnHeaderClick($event)"  @column-mousedown="onColumnHeaderMouseDown($event)"
+                        @column-dragstart="onColumnHeaderDragStart($event)" @column-dragover="onColumnHeaderDragOver($event)" @column-dragleave="onColumnHeaderDragLeave($event)" @column-drop="onColumnHeaderDrop($event)"
+                        @column-resizestart="onColumnResizeStart($event)" @checkbox-change="toggleRowsWithCheckbox($event)" />
                 <tbody class="p-datatable-tbody">
                     <template v-if="!empty">
                         <template v-for="(rowData, index) of dataToRender">
@@ -113,18 +88,18 @@
                     </template>
                 </tfoot>
             </table>
-            <DTPaginator v-if="paginatorBottom" :rows="d_rows" :first="d_first" :totalRecords="totalRecordsLength" :pageLinkSize="pageLinkSize" :template="paginatorTemplate" :rowsPerPageOptions="rowsPerPageOptions"
-					:currentPageReportTemplate="currentPageReportTemplate" class="p-paginator-bottom" @page="onPage($event)" :alwaysShow="alwaysShowPaginator">
-                <template #left v-if="$scopedSlots.paginatorLeft">
-                    <slot name="paginatorLeft"></slot>
-                </template>
-                <template #right v-if="$scopedSlots.paginatorRight">
-                    <slot name="paginatorRight"></slot>
-                </template>
-            </DTPaginator>
-            <div class="p-datatable-footer" v-if="$scopedSlots.footer">
-                <slot name="footer"></slot>
-            </div>
+        </div>
+        <DTPaginator v-if="paginatorBottom" :rows="d_rows" :first="d_first" :totalRecords="totalRecordsLength" :pageLinkSize="pageLinkSize" :template="paginatorTemplate" :rowsPerPageOptions="rowsPerPageOptions"
+                :currentPageReportTemplate="currentPageReportTemplate" class="p-paginator-bottom" @page="onPage($event)" :alwaysShow="alwaysShowPaginator">
+            <template #left v-if="$scopedSlots.paginatorLeft">
+                <slot name="paginatorLeft"></slot>
+            </template>
+            <template #right v-if="$scopedSlots.paginatorRight">
+                <slot name="paginatorRight"></slot>
+            </template>
+        </DTPaginator>
+        <div class="p-datatable-footer" v-if="$scopedSlots.footer">
+            <slot name="footer"></slot>
         </div>
         <div ref="resizeHelper" class="p-column-resizer-helper p-highlight" style="display: none"></div>
         <span ref="reorderIndicatorUp" class="pi pi-arrow-down p-datatable-reorder-indicator-up" style="position: absolute; display: none" v-if="reorderableColumns" />
@@ -137,9 +112,10 @@ import ObjectUtils from '../utils/ObjectUtils';
 import FilterUtils from '../utils/FilterUtils';
 import DomHandler from '../utils/DomHandler';
 import Paginator from '../paginator/Paginator';
-import HeaderCheckbox from './HeaderCheckbox.vue';
 import ColumnSlot from './ColumnSlot.vue';
 import BodyCell from './BodyCell.vue';
+//import ScrollableView from './ScrollableView.vue';
+import TableHeader from './TableHeader.vue';
 
 export default {
     props: {
@@ -426,7 +402,10 @@ export default {
             this.$emit('update:rows', this.d_rows);
             this.$emit('page', event);
         },
-        onColumnHeaderClick(event, column) {
+        onColumnHeaderClick(e) {
+            const event = e.originalEvent;
+            const column = e.column;
+
             if (column.sortable) {
                 const targetNode = event.target;
                 const columnField = column.field || column.sortField;
@@ -514,51 +493,6 @@ export default {
             }
 
             return (this.d_multiSortMeta[index].order * result);
-        },
-        getMultiSortMetaIndex(column) {
-            let index = -1;
-
-            for (let i = 0; i < this.d_multiSortMeta.length; i++) {
-                let meta = this.d_multiSortMeta[i];
-                if (meta.field === (column.field || column.sortField)) {
-                    index = i;
-                    break;
-                }
-            }
-
-            return index;
-        },
-        getColumnHeaderClass(column) {
-            const sorted = this.sortMode === 'single' ? (this.d_sortField === (column.field || column.sortField)) : this.getMultiSortMetaIndex(column) > -1;
-
-            return [column.headerClass,
-                    {'p-sortable-column': column.sortable},
-                    {'p-resizable-column': this.resizableColumns},
-                    {'p-highlight': sorted}
-            ];
-        },
-        getSortableColumnIcon(column) {
-            let sorted = false;
-            let sortOrder = null;
-
-            if (this.sortMode === 'single') {
-                sorted =  this.d_sortField === (column.field || column.sortField);
-                sortOrder = sorted ? this.d_sortOrder: 0;
-            }
-            else if (this.sortMode === 'multiple') {
-                let metaIndex = this.getMultiSortMetaIndex(column);
-                if (metaIndex > -1) {
-                    sorted = true;
-                    sortOrder = this.d_multiSortMeta[metaIndex].order;
-                }
-            }
-
-            return [
-                'p-sortable-column-icon pi pi-fw',
-                {'pi-sort': !sorted},
-                {'pi-sort-up': sorted && sortOrder > 0},
-                {'pi-sort-down': sorted && sortOrder < 0},
-            ];
         },
         addSortMeta(meta) {
             let index = -1;
@@ -1117,8 +1051,11 @@ export default {
                  this.documentColumnResizeEndListener = null;
             }
         },
-        onColumnHeaderMouseDown(event, col) {
-            if (this.reorderableColumns && col.reorderableColumn) {
+        onColumnHeaderMouseDown(e) {
+            const event = e.originalEvent;
+            const column = e.column;
+
+            if (this.reorderableColumns && column.reorderableColumn) {
                 if (event.target.nodeName === 'INPUT' || event.target.nodeName === 'TEXTAREA' || DomHandler.hasClass(event.target, 'p-column-resizer'))
                     event.currentTarget.draggable = false;
                 else
@@ -1126,7 +1063,7 @@ export default {
             }
         },
         onColumnHeaderDragStart(event) {
-            if(this.columnResizing) {
+            if (this.columnResizing) {
                 event.preventDefault();
                 return;
             }
@@ -1784,8 +1721,9 @@ export default {
     components: {
         'ColumnSlot': ColumnSlot,
         'DTPaginator': Paginator,
-        'DTHeaderCheckbox': HeaderCheckbox,
-        'DTBodyCell': BodyCell
+        'DTBodyCell': BodyCell,
+        //'DTScrollableView': ScrollableView,
+        'DTTableHeader': TableHeader
     }
 }
 </script>
@@ -1972,5 +1910,4 @@ export default {
 .p-datatable .p-datatable-loading-icon {
     font-size: 2em;
 }
-
 </style>
