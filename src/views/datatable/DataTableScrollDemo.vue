@@ -20,14 +20,22 @@
 
             <h3>Horizontal and Vertical</h3>
             <DataTable :value="cars" :scrollable="true" scrollHeight="200px" style="width: 600px">
-                <Column field="vin" header="Vin" headerStyle="width: 250px"></Column>
-                <Column field="year" header="Year" headerStyle="width: 250px"></Column>
-                <Column field="brand" header="Brand" headerStyle="width: 250px"></Column>
-                <Column field="color" header="Color" headerStyle="width: 250px"></Column>
-                <Column field="vin" header="Vin" headerStyle="width: 250px"></Column>
-                <Column field="year" header="Year" headerStyle="width: 250px"></Column>
-                <Column field="brand" header="Brand" headerStyle="width: 250px"></Column>
-                <Column field="color" header="Color" headerStyle="width: 250px"></Column>
+                <Column field="vin" header="Vin" headerStyle="width: 250px" columnKey="vin_1"></Column>
+                <Column field="year" header="Year" headerStyle="width: 250px" columnKey="year_1"></Column>
+                <Column field="brand" header="Brand" headerStyle="width: 250px" columnKey="brand_1"></Column>
+                <Column field="color" header="Color" headerStyle="width: 250px" columnKey="color_1"></Column>
+                <Column field="vin" header="Vin" headerStyle="width: 250px" columnKey="vin_2"></Column>
+                <Column field="year" header="Year" headerStyle="width: 250px" columnKey="year_2"></Column>
+                <Column field="brand" header="Brand" headerStyle="width: 250px" columnKey="brand_2"></Column>
+                <Column field="color" header="Color" headerStyle="width: 250px" columnKey="color_2"></Column>
+            </DataTable>
+
+            <h3>Frozen Rows</h3>
+            <DataTable :value="cars" :frozenValue="frozenCars" :scrollable="true" scrollHeight="200px">
+                <Column field="vin" header="Vin"></Column>
+                <Column field="year" header="Year"></Column>
+                <Column field="brand" header="Brand"></Column>
+                <Column field="color" header="Color"></Column>
             </DataTable>
 		</div>
 
@@ -55,7 +63,8 @@ import DataTableSubMenu from './DataTableSubMenu';
 export default {
     data() {
         return {
-            cars: null
+            cars: null,
+            frozenCars: null
         }
     },
     carService: null,
@@ -64,6 +73,11 @@ export default {
     },
     mounted() {
         this.carService.getCarsLarge().then(data => this.cars = data);
+
+        this.frozenCars = [
+            {brand: "BMW", year: 2013, color: "Grey", vin: "fh2uf23"},
+            {brand: "Chevrolet", year: 2011, color: "Black", vin: "4525g23"}
+        ];
     },
     components: {
         'DataTableSubMenu': DataTableSubMenu

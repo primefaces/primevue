@@ -7,6 +7,7 @@
                         <col v-for="(col,i) of columns" :key="col.columnKey||col.field||i" :style="col.headerStyle" />
                     </colgroup>
                     <slot name="header"></slot>
+                    <slot name="frozenbody"></slot>
                 </table>
             </div>
         </div>
