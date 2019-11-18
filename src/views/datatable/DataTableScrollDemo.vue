@@ -11,7 +11,7 @@
 
 		<div class="content-section implementation">
             <h3>Vertical</h3>
-			<DataTable :value="cars">
+			<DataTable :value="cars" :scrollable="true" scrollHeight="200px">
                 <Column field="vin" header="Vin"></Column>
                 <Column field="year" header="Year"></Column>
                 <Column field="brand" header="Brand"></Column>

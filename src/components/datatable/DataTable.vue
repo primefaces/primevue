@@ -19,7 +19,7 @@
                 <slot name="paginatorRight"></slot>
             </template>
         </DTPaginator>
-        <div class="p-datatable-wrapper">
+        <div class="p-datatable-wrapper" v-if="!scrollable">
             <table ref="table">
                 <DTTableHeader :columnGroup="headerColumnGroup" :columns="columns" :rowGroupMode="rowGroupMode"
                         :groupRowsBy="groupRowsBy" :resizableColumns="resizableColumns" :allRowsSelected="allRowsSelected" :empty="empty"
@@ -38,6 +38,32 @@
                     @row-edit-init="onRowEditInit($event)" @row-edit-save="onRowEditSave($event)" @row-edit-cancel="onRowEditCancel($event)"/>
                 <DTTableFooter :columnGroup="footerColumnGroup" :columns="columns" />
             </table>
+        </div>
+        <div class="p-datatable-scrollable-wrapper" v-else>
+            <DTScrollableView :scrollHeight="scrollHeight" :columns="columns">
+                <template #header>
+                    <DTTableHeader :columnGroup="headerColumnGroup" :columns="columns" :rowGroupMode="rowGroupMode"
+                        :groupRowsBy="groupRowsBy" :resizableColumns="resizableColumns" :allRowsSelected="allRowsSelected" :empty="empty"
+                        :sortMode="sortMode" :sortField="d_sortField" :sortOrder="d_sortOrder" :multiSortMeta="d_multiSortMeta"
+                        @column-click="onColumnHeaderClick($event)" @column-mousedown="onColumnHeaderMouseDown($event)"
+                        @column-dragstart="onColumnHeaderDragStart($event)" @column-dragover="onColumnHeaderDragOver($event)" @column-dragleave="onColumnHeaderDragLeave($event)" @column-drop="onColumnHeaderDrop($event)"
+                        @column-resizestart="onColumnResizeStart($event)" @checkbox-change="toggleRowsWithCheckbox($event)" />
+                </template>
+                <template #body>
+                    <DTTableBody :value="dataToRender" :columns="columns" :empty="empty" :dataKey="dataKey" :selection="selection" :selectionKeys="d_selectionKeys" :selectionMode="selectionMode"
+                        :rowGroupMode="rowGroupMode" :groupRowsBy="groupRowsBy" :expandableRowGroups="expandableRowGroups" :rowClass="rowClass" :editMode="editMode" :compareSelectionBy="compareSelectionBy"
+                        :expandedRowIcon="expandedRowIcon" :collapsedRowIcon="collapsedRowIcon" :expandedRows="expandedRows" :expandedRowKeys="d_expandedRowKeys" :expandedRowGroups="expandedRowGroups"
+                        :editingRows="editingRows" :editingRowKeys="d_editingRowKeys" :templates="$scopedSlots"
+                        @rowgroup-toggle="toggleRowGroup" @row-click="onRowClick($event)" @row-touchend="onRowTouchEnd" @row-keydown="onRowKeyDown"
+                        @row-mousedown="onRowMouseDown" @row-dragstart="onRowDragStart($event)" @row-dragover="onRowDragOver($event)" @row-dragleave="onRowDragLeave($event)" @row-dragend="onRowDragEnd($event)" @row-drop="onRowDrop($event)"
+                        @row-toggle="toggleRow($event)" @radio-change="toggleRowWithRadio($event)" @checkbox-change="toggleRowWithCheckbox($event)"
+                        @cell-edit-init="onCellEditInit($event)" @cell-edit-complete="onCellEditComplete($event)" @cell-edit-cancel="onCellEditCancel($event)"
+                        @row-edit-init="onRowEditInit($event)" @row-edit-save="onRowEditSave($event)" @row-edit-cancel="onRowEditCancel($event)"/>
+                </template>
+                <template #footer>
+                    <DTTableFooter :columnGroup="footerColumnGroup" :columns="columns" />
+                </template>
+            </DTScrollableView>
         </div>
         <DTPaginator v-if="paginatorBottom" :rows="d_rows" :first="d_first" :totalRecords="totalRecordsLength" :pageLinkSize="pageLinkSize" :template="paginatorTemplate" :rowsPerPageOptions="rowsPerPageOptions"
                 :currentPageReportTemplate="currentPageReportTemplate" class="p-paginator-bottom" @page="onPage($event)" :alwaysShow="alwaysShowPaginator">
@@ -62,7 +88,7 @@ import ObjectUtils from '../utils/ObjectUtils';
 import FilterUtils from '../utils/FilterUtils';
 import DomHandler from '../utils/DomHandler';
 import Paginator from '../paginator/Paginator';
-//import ScrollableView from './ScrollableView.vue';
+import ScrollableView from './ScrollableView.vue';
 import TableHeader from './TableHeader.vue';
 import TableBody from './TableBody.vue';
 import TableFooter from './TableFooter.vue';
@@ -243,6 +269,14 @@ export default {
         },
         rowClass: {
             type: null,
+            default: null
+        },
+        scrollable: {
+            type: Boolean,
+            default: false
+        },
+        scrollHeight: {
+            type: String,
             default: null
         }
     },
@@ -1409,7 +1443,8 @@ export default {
                     'p-datatable-hoverable-rows': (this.rowHover || this.selectionMode),
                     'p-datatable-auto-layout': this.autoLayout,
                     'p-datatable-resizable': this.resizableColumns,
-                    'p-datatable-resizable-fit': this.resizableColumns && this.columnResizeMode === 'fit'
+                    'p-datatable-resizable-fit': this.resizableColumns && this.columnResizeMode === 'fit',
+                    'p-datatable-scrollable': this.scrollable
                 }
             ];
         },
@@ -1532,7 +1567,7 @@ export default {
     },
     components: {
         'DTPaginator': Paginator,
-        //'DTScrollableView': ScrollableView,
+        'DTScrollableView': ScrollableView,
         'DTTableHeader': TableHeader,
         'DTTableBody': TableBody,
         'DTTableFooter': TableFooter,
