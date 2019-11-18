@@ -97,6 +97,10 @@ export default {
             type: [Array,Object],
             default: null
         },
+        selectionKeys: {
+            type: null,
+            default: null
+        },
         selectionMode: {
             type: String,
             default: null
@@ -109,6 +113,10 @@ export default {
             type: String,
             default: null
         },
+        compareSelectionBy: {
+            type: String,
+            default: 'deepEquals'
+        }
     },
     methods: {
         shouldRenderRowGroupHeader(value, rowData, i) {
@@ -257,7 +265,7 @@ export default {
         isSelected(rowData) {
             if (rowData && this.selection) {
                 if (this.dataKey) {
-                    return this.d_selectionKeys ? this.d_selectionKeys[ObjectUtils.resolveFieldData(rowData, this.dataKey)] !== undefined : false;
+                    return this.selectionKeys ? this.selectionKeys[ObjectUtils.resolveFieldData(rowData, this.dataKey)] !== undefined : false;
                 }
                 else {
                     if (this.selection instanceof Array)
@@ -284,6 +292,9 @@ export default {
             }
 
             return index;
+        },
+        equals(data1, data2) {
+            return this.compareSelectionBy === 'equals' ? (data1 === data2) : ObjectUtils.equals(data1, data2, this.dataKey);
         },
         onRowGroupToggle(event, data) {
             this.$emit('rowgroup-toggle', {originalEvent: event, data: data});
