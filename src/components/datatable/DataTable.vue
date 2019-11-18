@@ -69,24 +69,7 @@
                         </td>
                     </tr>
                 </tbody>
-                <tfoot class="p-datatable-tfoot" v-if="hasFooter">
-                    <tr v-if="!footerColumnGroup">>
-                        <td v-for="(col,i) of columns" :key="col.columnKey||col.field||i" :style="col.footerStyle" :class="col.footerClass"
-                            :colspan="col.colspan" :rowspan="col.rowspan">
-                            <ColumnSlot :column="col" type="footer" v-if="col.$scopedSlots.footer" />
-                            {{col.footer}}
-                        </td>
-                    </tr>
-                     <template v-else>
-                        <tr v-for="(row,i) of footerColumnGroup.rows" :key="i">
-                            <td v-for="(col,i) of row.columns" :key="col.columnKey||col.field||i" :style="col.footerStyle" :class="col.footerClass"
-                                :colspan="col.colspan" :rowspan="col.rowspan">
-                                <ColumnSlot :column="col" type="footer" v-if="col.$scopedSlots.footer" />
-                                {{col.footer}}
-                            </td>
-                        </tr>
-                    </template>
-                </tfoot>
+                <DTTableFooter :columnGroup="footerColumnGroup" :columns="columns" />
             </table>
         </div>
         <DTPaginator v-if="paginatorBottom" :rows="d_rows" :first="d_first" :totalRecords="totalRecordsLength" :pageLinkSize="pageLinkSize" :template="paginatorTemplate" :rowsPerPageOptions="rowsPerPageOptions"
@@ -112,10 +95,10 @@ import ObjectUtils from '../utils/ObjectUtils';
 import FilterUtils from '../utils/FilterUtils';
 import DomHandler from '../utils/DomHandler';
 import Paginator from '../paginator/Paginator';
-import ColumnSlot from './ColumnSlot.vue';
 import BodyCell from './BodyCell.vue';
 //import ScrollableView from './ScrollableView.vue';
 import TableHeader from './TableHeader.vue';
+import TableFooter from './TableFooter.vue';
 
 export default {
     props: {
@@ -1687,23 +1670,6 @@ export default {
         sorted() {
             return this.d_sortField || (this.d_multiSortMeta && this.d_multiSortMeta.length > 0);
         },
-        hasFooter() {
-            let hasFooter = false;
-
-            if (this.footerColumnGroup) {
-                hasFooter = true;
-            }
-            else {
-                for (let col of this.columns) {
-                    if (col.footer || col.$scopedSlots.footer) {
-                        hasFooter = true;
-                        break;
-                    }
-                }
-            }
-
-            return hasFooter;
-        },
         hasFilters() {
             return this.filters && Object.keys(this.filters).length > 0 && this.filters.constructor === Object;
         },
@@ -1719,11 +1685,11 @@ export default {
         }
     },
     components: {
-        'ColumnSlot': ColumnSlot,
         'DTPaginator': Paginator,
         'DTBodyCell': BodyCell,
         //'DTScrollableView': ScrollableView,
-        'DTTableHeader': TableHeader
+        'DTTableHeader': TableHeader,
+        'DTTableFooter': TableFooter
     }
 }
 </script>
