@@ -37,6 +37,24 @@
                 <Column field="brand" header="Brand"></Column>
                 <Column field="color" header="Color"></Column>
             </DataTable>
+
+            <h3>Frozen Columns</h3>
+            <DataTable :value="cars" :scrollable="true" scrollHeight="200px" frozenWidth="300px">
+                <Column field="vin" header="Vin" headerStyle="width: 300px" columnKey="vin_1" :frozen="true">
+                    <template #body="slotProps">
+                        <span style="font-weight: bold">{{slotProps.data.vin}}</span>
+                    </template>
+                </Column>
+                <Column field="year" header="Year" headerStyle="width: 300px" columnKey="year_1"></Column>
+                <Column field="brand" header="Brand" headerStyle="width: 300px" columnKey="brand_1"></Column>
+                <Column field="color" header="Color" headerStyle="width: 300px" columnKey="color_1"></Column>
+                <Column field="year" header="Year" headerStyle="width: 300px" columnKey="year_2"></Column>
+                <Column field="brand" header="Brand" headerStyle="width: 300px" columnKey="brand_2"></Column>
+                <Column field="color" header="Color" headerStyle="width: 300px" columnKey="color_2"></Column>
+                <Column field="year" header="Year" headerStyle="width: 300px" columnKey="year_3"></Column>
+                <Column field="brand" header="Brand" headerStyle="width: 300px" columnKey="brand_3"></Column>
+                <Column field="color" header="Color" headerStyle="width: 300px" columnKey="color_3"></Column>
+            </DataTable>
 		</div>
 
         <div class="content-section documentation">

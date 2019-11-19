@@ -89,6 +89,10 @@ export default {
         rowEditor: {
             type: Boolean,
             default: false
+        },
+        frozen: {
+            type: Boolean,
+            default: false
         }
     },
     render() {

@@ -1,5 +1,5 @@
 <template>
-      <div :class="containerClass">
+      <div :class="containerClass" :style="containerStyle">
         <div class="p-datatable-scrollable-header" ref="scrollHeader" @scroll="onHeaderScroll">
             <div class="p-datatable-scrollable-header-box" ref="scrollHeaderBox">
                 <table class="p-datatable-scrollable-header-table'">
@@ -72,18 +72,18 @@ export default {
             this.$refs.scrollHeader.scrollLeft = 0;
         },
         onBodyScroll() {
-            let frozenView = this.$refs.previousElementSibling;
+            let frozenView = this.$el.previousElementSibling;
             let frozenScrollBody;
             if (frozenView) {
                 frozenScrollBody = DomHandler.findSingle(frozenView, '.p-datatable-scrollable-body');
             }
 
             this.$refs.scrollHeaderBox.style.marginLeft = -1 * this.$refs.scrollBody.scrollLeft + 'px';
-            if( this.$refs.scrollFooterBox) {
+            if (this.$refs.scrollFooterBox) {
                 this.$refs.scrollFooterBox.style.marginLeft = -1 * this.$refs.scrollBody.scrollLeft + 'px';
             }
 
-            if(frozenScrollBody) {
+            if (frozenScrollBody) {
                 frozenScrollBody.scrollTop = this.$refs.scrollBody.scrollTop;
             }
             /*
@@ -166,6 +166,24 @@ export default {
     computed: {
         containerClass() {
             return ['p-datatable-scrollable-view', {'p-datatable-frozen-view': this.frozen, 'p-datatable-unfrozen-view': !this.frozen && this.frozenWidth}];
+        },
+        containerStyle() {
+            if (this.frozenWidth) {
+                if (this.frozen) {
+                    return {
+                        width: this.frozenWidth
+                    };
+                }
+                else {
+                    return {
+                        width: 'calc(100% - ' + this.frozenWidth + ')',
+                        left: this.frozenWidth
+                    }
+                }
+            }
+            else {
+                return null;
+            }
         }
     }
 }
