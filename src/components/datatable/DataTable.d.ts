@@ -47,6 +47,13 @@ export declare class DataTable extends Vue {
     editMode?: string;
     editingRows?: any[];
     rowClass?: any;
+    scrollable?: boolean;
+    scrollHeight?: string;
+    frozenValue?: any[];
+    frozenWidth?: string;
+    virtualScroll?: boolean;
+    virtualRowHeight?: string;
+    virtualScrollDelay?: number;
     $emit(eventName: 'page', event: Event): this;
     $emit(eventName: 'sort', event: Event): this;
     $emit(eventName: 'filter', event: Event): this;

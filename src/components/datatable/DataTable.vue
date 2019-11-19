@@ -340,11 +340,11 @@ export default {
         },
         virtualRowHeight: {
             type: Number,
-            default: null
+            default: 28
         },
         virtualScrollDelay: {
             type: Number,
-            default: 159
+            default: 150
         }
     },
     data() {

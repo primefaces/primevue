@@ -262,6 +262,18 @@ export default {
                                 <td>false</td>
                                 <td>When enabled, column displays row editor controls.</td>
                             </tr>
+                            <tr>
+                                <td>rowEditor</td>
+                                <td>boolean</td>
+                                <td>false</td>
+                                <td>When enabled, column displays row editor controls.</td>
+                            </tr>
+                            <tr>
+                                <td>frozen</td>
+                                <td>boolean</td>
+                                <td>false</td>
+                                <td>Whether the column is fixed in horizontal scrolling.</td>
+                            </tr>
                         </tbody>
                     </table>
                 </div>
@@ -550,6 +562,149 @@ data() {
     &lt;Column field="color" header="Color"&gt;&lt;/Column&gt;
 &lt;/DataTable&gt;
 </template>
+</CodeHighlight>
+
+                <h3>Scrolling</h3>
+                <p>DataTable supports both horizontal and vertical scrolling as well as frozen columns and rows. Scrollable DataTable is enabled using <i>scrollable</i> property and <i>scrollHeight</i> to define the viewport height.</p>
+<CodeHighlight>
+<template v-pre>
+&lt;DataTable :value="cars" :scrollable="true" scrollHeight="200px"&gt;
+    &lt;Column field="vin" header="Vin"&gt;&lt;/Column&gt;
+    &lt;Column field="year" header="Year"&gt;&lt;/Column&gt;
+    &lt;Column field="brand" header="Brand"&gt;&lt;/Column&gt;
+    &lt;Column field="color" header="Color"&gt;&lt;/Column&gt;
+&lt;/DataTable&gt;
+</template>
+</CodeHighlight>
+
+            <p>Horizontal Scrolling requires a width of DataTable to be defined and explicit widths on columns.</p>
+<CodeHighlight>
+<template v-pre>
+&lt;DataTable :value="cars" :scrollable="true" scrollHeight="200px" style="width: 600px"&gt;
+    &lt;Column field="vin" header="Vin" headerStyle="width: 250px" columnKey="vin_1"&gt;&lt;/Column&gt;
+    &lt;Column field="year" header="Year" headerStyle="width: 250px" columnKey="year_1"&gt;&lt;/Column&gt;
+    &lt;Column field="brand" header="Brand" headerStyle="width: 250px" columnKey="brand_1"&gt;&lt;/Column&gt;
+    &lt;Column field="color" header="Color" headerStyle="width: 250px" columnKey="color_1"&gt;&lt;/Column&gt;
+    &lt;Column field="vin" header="Vin" headerStyle="width: 250px" columnKey="vin_2"&gt;&lt;/Column&gt;
+    &lt;Column field="year" header="Year" headerStyle="width: 250px" columnKey="year_2"&gt;&lt;/Column&gt;
+    &lt;Column field="brand" header="Brand" headerStyle="width: 250px" columnKey="brand_2"&gt;&lt;/Column&gt;
+    &lt;Column field="color" header="Color" headerStyle="width: 250px" columnKey="color_2"&gt;&lt;/Column&gt;
+&lt;/DataTable&gt;
+</template>
+</CodeHighlight>
+
+            <p>Certain columns can be frozen by using the <i>frozen</i> property of the column component. Widths of the frozen section is specified by the <i>frozenWidth</i> property.</p>
+<CodeHighlight>
+<template v-pre>
+&lt;DataTable :value="cars" :scrollable="true" scrollHeight="200px" frozenWidth="300px" :loading="loading"&gt;
+    &lt;Column field="vin" header="Vin" headerStyle="width: 300px" columnKey="vin_1" :frozen="true"&gt;
+        &lt;template #body="slotProps"&gt;
+            &lt;span style="font-weight: bold"&gt;&#123;&#123;slotProps.data.vin&#125;&#125;&lt;/span&gt;
+        &lt;/template&gt;
+    &lt;/Column&gt;
+    &lt;Column field="year" header="Year" headerStyle="width: 300px" columnKey="year_1"&gt;&lt;/Column&gt;
+    &lt;Column field="brand" header="Brand" headerStyle="width: 300px" columnKey="brand_1"&gt;&lt;/Column&gt;
+    &lt;Column field="color" header="Color" headerStyle="width: 300px" columnKey="color_1"&gt;&lt;/Column&gt;
+    &lt;Column field="year" header="Year" headerStyle="width: 300px" columnKey="year_2"&gt;&lt;/Column&gt;
+    &lt;Column field="brand" header="Brand" headerStyle="width: 300px" columnKey="brand_2"&gt;&lt;/Column&gt;
+    &lt;Column field="color" header="Color" headerStyle="width: 300px" columnKey="color_2"&gt;&lt;/Column&gt;
+    &lt;Column field="year" header="Year" headerStyle="width: 300px" columnKey="year_3"&gt;&lt;/Column&gt;
+    &lt;Column field="brand" header="Brand" headerStyle="width: 300px" columnKey="brand_3"&gt;&lt;/Column&gt;
+    &lt;Column field="color" header="Color" headerStyle="width: 300px" columnKey="color_3"&gt;&lt;/Column&gt;
+&lt;/DataTable&gt;
+</template>
+</CodeHighlight>
+
+            <p>Note that frozen columns are enabled, frozen and scrollable cells may have content with varying height which leads to misalignment. Provide fixed height to cells to avoid alignment issues.</p>
+<CodeHighlight>
+<template v-pre>
+&lt;DataTable :value="cars" :scrollable="true" scrollHeight="200px" frozenWidth="300px" :loading="loading"&gt;
+    &lt;Column field="vin" header="Vin" headerStyle="width: 300px" bodyStyle="height: 25px" columnKey="vin" :frozen="true"&gt;
+        &lt;template #body="slotProps"&gt;
+            &lt;span style="font-weight: bold"&gt;&#123;&#123;slotProps.data.vin&#125;&#125;&lt;/span&gt;
+        &lt;/template&gt;
+    &lt;/Column&gt;
+    &lt;Column field="year" header="Year" headerStyle="width: 300px" bodyStyle="height: 25px" columnKey="year"&gt;&lt;/Column&gt;
+    &lt;Column field="brand" header="Brand" headerStyle="width: 300px" bodyStyle="height: 25px" columnKey="brand"&gt;&lt;/Column&gt;
+    &lt;Column field="color" header="Color" headerStyle="width: 300px" bodyStyle="height: 25px" columnKey="color"&gt;&lt;/Column&gt;
+&lt;/DataTable&gt;
+</template>
+</CodeHighlight>
+
+            <p>One or more rows can be displayed as fixed using the <i>frozenValue</i> property.</p>
+<CodeHighlight>
+<template v-pre>
+&lt;DataTable :value="cars" :frozenValue="frozenCars" :scrollable="true" scrollHeight="200px" :loading="loading"&gt;
+    &lt;Column field="vin" header="Vin"&gt;&lt;/Column&gt;
+    &lt;Column field="year" header="Year"&gt;&lt;/Column&gt;
+    &lt;Column field="brand" header="Brand"&gt;&lt;/Column&gt;
+    &lt;Column field="color" header="Color"&gt;&lt;/Column&gt;
+&lt;/DataTable&gt;
+</template>
+</CodeHighlight>
+
+            <p>When using frozen columns with column grouping, use <i>frozenheadergroup</i> and <i>frozenfootergroup</i> types to define grouping for the frozen section.</p>
+
+            <p>Virtual scrolling is enabled using <i>virtualScroll</i> and <i>onVirtualScroll</i> properties combined with lazy loading so that data is loaded on the fly during scrolling. 
+            For smooth scrolling twice the amount of rows property is loaded on a lazy load event. In addition, to avoid performance problems row height is not calculated automatically and 
+            should be provided using <i>virtualRowHeight</i> property which defaults to 28px. View the <router-link to="/datatable/scroll">scrolling demo</router-link> for a sample in-memory implementation.</p>
+
+<CodeHighlight>
+<template v-pre>
+&lt;DataTable :value="lazyCars" :scrollable="true" scrollHeight="200px" :lazy="true" :rows="20"
+    :virtualScroll="true" :virtualRowHeight="30" @virtual-scroll="onVirtualScroll" :totalRecords="lazyTotalRecords"&gt;
+    &lt;Column field="vin" header="Vin"&gt;
+        &lt;template #loading&gt;
+            &lt;span class="loading-text"&gt;&lt;/span&gt;
+        &lt;/template&gt;
+    &lt;/Column&gt;
+    &lt;Column field="year" header="Year"&gt;
+        &lt;template #loading&gt;
+            &lt;span class="loading-text"&gt;&lt;/span&gt;
+        &lt;/template&gt;
+    &lt;/Column&gt;
+    &lt;Column field="brand" header="Brand"&gt;
+        &lt;template #loading&gt;
+            &lt;span class="loading-text"&gt;&lt;/span&gt;
+        &lt;/template&gt;
+    &lt;/Column&gt;
+    &lt;Column field="color" header="Color"&gt;
+        &lt;template #loading&gt;
+            &lt;span class="loading-text"&gt;&lt;/span&gt;
+        &lt;/template&gt;
+    &lt;/Column&gt;
+&lt;/DataTable&gt;
+</template>
+</CodeHighlight>
+
+<CodeHighlight lang="javascript">
+import CarService from '../../service/CarService';
+
+export default {
+    data() {
+        return {
+            lazyCars: null,
+            lazyTotalRecords: 0
+        }
+    },
+    carService: null,
+    mounted() {
+        this.lazyCars = this.loadChunk(0, 40);
+        this.lazyTotalRecords = //retrieve logical number of rows from a datasource;
+    },
+    methods: {
+          loadChunk(index, length) {
+            //return data from a datasource between [index, index + length];
+        },
+        onVirtualScroll(event) {
+            //last chunk
+            if (event.first === (this.lazyTotalRecords - 20))
+                this.lazyCars = this.loadChunk(event.first, 20)
+            else
+                this.lazyCars = this.loadChunk(event.first, event.rows)
+        }
+    }
+}
 </CodeHighlight>
 
                 <h3>Lazy Loading</h3>
@@ -1697,6 +1852,48 @@ export default {
                                 <td>null</td>
                                 <td>A function that takes the row data and returns a string to apply a particular class for the row.</td>
                             </tr>
+                            <tr>
+                                <td>scrollable</td>
+                                <td>boolean</td>
+                                <td>false</td>
+                                <td>When specified, enables horizontal and/or vertical scrolling.</td>
+                            </tr>
+                            <tr>
+                                <td>scrollHeight</td>
+                                <td>string</td>
+                                <td>null</td>
+                                <td>Height of the scroll viewport.</td>
+                            </tr>
+                            <tr>
+                                <td>virtualScroll</td>
+                                <td>boolean</td>
+                                <td>false</td>
+                                <td>Whether the data should be loaded on demand during scroll.</td>
+                            </tr>
+                            <tr>
+                                <td>virtualScrollDelay</td>
+                                <td>number</td>
+                                <td>150</td>
+                                <td>Delay in virtual scroll before doing a call to lazy load.</td>
+                            </tr>
+                            <tr>
+                                <td>virtualRowHeight</td>
+                                <td>number</td>
+                                <td>28</td>
+                                <td>Height of a row to use in calculations of virtual scrolling.</td>
+                            </tr>
+                            <tr>
+                                <td>frozenWidth</td>
+                                <td>string</td>
+                                <td>null</td>
+                                <td>Width of the frozen part in scrollable DataTable.</td>
+                            </tr>
+                            <tr>
+                                <td>frozenValue</td>
+                                <td>array</td>
+                                <td>null</td>
+                                <td>Items of the frozen part in scrollable DataTable.</td>
+                            </tr>
                         </tbody>
                     </table>
                 </div>
@@ -1848,6 +2045,12 @@ export default {
                                     event.field: Field name of the row data. <br />
                                     event.index: Index of the row data to edit. <br /></td>
                                 <td>Callback to invoke when row edit is cancelled.</td>
+                            </tr>
+                            <tr>
+                                <td>virtual-scroll</td>
+                                <td>event.first: Index of the first row. <br />
+                                    event.rows: Rows per page.</td>
+                                <td>Callback to invoke during virtual scrolling.</td>
                             </tr>
                         </tbody>
                     </table>
