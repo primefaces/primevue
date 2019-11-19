@@ -11,7 +11,7 @@
 
 		<div class="content-section implementation">
             <h3>Vertical</h3>
-			<DataTable :value="cars" :scrollable="true" scrollHeight="200px">
+			<DataTable :value="cars" :scrollable="true" scrollHeight="200px" :loading="loading">
                 <Column field="vin" header="Vin"></Column>
                 <Column field="year" header="Year"></Column>
                 <Column field="brand" header="Brand"></Column>
@@ -19,7 +19,7 @@
             </DataTable>
 
             <h3>Virtual Scroll</h3>
-			<DataTable :value="lazyCars" :scrollable="true" scrollHeight="200px" :lazy="true" :rows="20"
+			<DataTable :value="lazyCars" :scrollable="true" scrollHeight="200px" :lazy="true" :rows="20" :loading="loading"
                 :virtualScroll="true" :virtualRowHeight="30" @virtual-scroll="onVirtualScroll" :totalRecords="lazyTotalRecords">
                 <Column field="vin" header="Vin">
                     <template #loading>
@@ -44,7 +44,7 @@
             </DataTable>
 
             <h3>Horizontal and Vertical</h3>
-            <DataTable :value="cars" :scrollable="true" scrollHeight="200px" style="width: 600px">
+            <DataTable :value="cars" :scrollable="true" scrollHeight="200px" style="width: 600px" :loading="loading">
                 <Column field="vin" header="Vin" headerStyle="width: 250px" columnKey="vin_1"></Column>
                 <Column field="year" header="Year" headerStyle="width: 250px" columnKey="year_1"></Column>
                 <Column field="brand" header="Brand" headerStyle="width: 250px" columnKey="brand_1"></Column>
@@ -56,7 +56,7 @@
             </DataTable>
 
             <h3>Frozen Rows</h3>
-            <DataTable :value="cars" :frozenValue="frozenCars" :scrollable="true" scrollHeight="200px">
+            <DataTable :value="cars" :frozenValue="frozenCars" :scrollable="true" scrollHeight="200px" :loading="loading">
                 <Column field="vin" header="Vin"></Column>
                 <Column field="year" header="Year"></Column>
                 <Column field="brand" header="Brand"></Column>
@@ -64,7 +64,7 @@
             </DataTable>
 
             <h3>Frozen Columns</h3>
-            <DataTable :value="cars" :scrollable="true" scrollHeight="200px" frozenWidth="300px">
+            <DataTable :value="cars" :scrollable="true" scrollHeight="200px" frozenWidth="300px" :loading="loading">
                 <Column field="vin" header="Vin" headerStyle="width: 300px" columnKey="vin_1" :frozen="true">
                     <template #body="slotProps">
                         <span style="font-weight: bold">{{slotProps.data.vin}}</span>
@@ -109,7 +109,8 @@ export default {
             cars: null,
             frozenCars: null,
             lazyCars: null,
-            lazyTotalRecords: 0
+            lazyTotalRecords: 0,
+            loading: false
         }
     },
     carService: null,
@@ -161,8 +162,15 @@ export default {
         ];
     },
     mounted() {
-        this.carService.getCarsLarge().then(data => this.cars = data);
+        this.loading = true;
 
+        setTimeout(() => {
+            this.carService.getCarsLarge().then(data => {
+                this.cars = data
+                this.loading = false;
+            });
+        }, 150);
+        
         this.frozenCars = [
             {brand: "BMW", year: 2013, color: "Grey", vin: "fh2uf23"},
             {brand: "Chevrolet", year: 2011, color: "Black", vin: "4525g23"}
