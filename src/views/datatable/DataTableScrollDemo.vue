@@ -12,7 +12,6 @@
 		<div class="content-section implementation">
             <h3>Vertical</h3>
 			<DataTable :value="cars" :scrollable="true" scrollHeight="200px" :loading="loading" :resizableColumns="true" stateStorage="session" stateKey="dt-state-demo-session" columnResizeMode="expand">
-                <template #header>XXX</template>
                 <Column field="vin" header="Vin"></Column>
                 <Column field="year" header="Year"></Column>
                 <Column field="brand" header="Brand"></Column>
