@@ -61,7 +61,7 @@
                         @row-edit-init="onRowEditInit($event)" @row-edit-save="onRowEditSave($event)" @row-edit-cancel="onRowEditCancel($event)"/>
                 </template>
                 <template #frozenbody>
-                    <DTTableBody :value="frozenValue" :columns="frozenColumns" :dataKey="dataKey" :selection="selection" :selectionKeys="d_selectionKeys" :selectionMode="selectionMode"
+                    <DTTableBody v-if="frozenValue" :value="frozenValue" :columns="frozenColumns" :dataKey="dataKey" :selection="selection" :selectionKeys="d_selectionKeys" :selectionMode="selectionMode"
                         :rowGroupMode="rowGroupMode" :groupRowsBy="groupRowsBy" :expandableRowGroups="expandableRowGroups" :rowClass="rowClass" :editMode="editMode" :compareSelectionBy="compareSelectionBy"
                         :expandedRowIcon="expandedRowIcon" :collapsedRowIcon="collapsedRowIcon" :expandedRows="expandedRows" :expandedRowKeys="d_expandedRowKeys" :expandedRowGroups="expandedRowGroups"
                         :editingRows="editingRows" :editingRowKeys="d_editingRowKeys" :templates="$scopedSlots"
@@ -75,7 +75,8 @@
                     <DTTableFooter :columnGroup="frozenFooterColumnGroup" :columns="frozenColumns" />
                 </template>
             </DTScrollableView>
-            <DTScrollableView :scrollHeight="scrollHeight" :columns="scrollableColumns" :frozenWidth="frozenWidth">
+            <DTScrollableView :scrollHeight="scrollHeight" :columns="scrollableColumns" :frozenWidth="frozenWidth" :rows="rows"
+                :virtualScroll="virtualScroll" :virtualRowHeight="virtualRowHeight" :totalRecords="totalRecordsLength" @virtual-scroll="onVirtualScroll">
                 <template #header>
                     <DTTableHeader :columnGroup="headerColumnGroup" :columns="scrollableColumns" :rowGroupMode="rowGroupMode"
                         :groupRowsBy="groupRowsBy" :resizableColumns="resizableColumns" :allRowsSelected="allRowsSelected" :empty="empty"
@@ -96,7 +97,7 @@
                         @row-edit-init="onRowEditInit($event)" @row-edit-save="onRowEditSave($event)" @row-edit-cancel="onRowEditCancel($event)"/>
                 </template>
                 <template #frozenbody>
-                    <DTTableBody :value="frozenValue" :columns="scrollableColumns" :dataKey="dataKey" :selection="selection" :selectionKeys="d_selectionKeys" :selectionMode="selectionMode"
+                    <DTTableBody  v-if="frozenValue" :value="frozenValue" :columns="scrollableColumns" :dataKey="dataKey" :selection="selection" :selectionKeys="d_selectionKeys" :selectionMode="selectionMode"
                         :rowGroupMode="rowGroupMode" :groupRowsBy="groupRowsBy" :expandableRowGroups="expandableRowGroups" :rowClass="rowClass" :editMode="editMode" :compareSelectionBy="compareSelectionBy"
                         :expandedRowIcon="expandedRowIcon" :collapsedRowIcon="collapsedRowIcon" :expandedRows="expandedRows" :expandedRowKeys="d_expandedRowKeys" :expandedRowGroups="expandedRowGroups"
                         :editingRows="editingRows" :editingRowKeys="d_editingRowKeys" :templates="$scopedSlots"
@@ -332,6 +333,18 @@ export default {
         frozenWidth: {
             type: String,
             default: null
+        },
+        virtualScroll: {
+            type: Boolean,
+            default: false
+        },
+        virtualRowHeight: {
+            type: Number,
+            default: null
+        },
+        virtualScrollDelay: {
+            type: Number,
+            default: 159
         }
     },
     data() {
@@ -365,6 +378,7 @@ export default {
     columnWidthsState: null,
     tableWidthState: null,
     columnWidthsRestored: false,
+    virtualScrollTimer: null,
     watch: {
         first(newValue) {
             this.d_first = newValue;
@@ -1488,7 +1502,19 @@ export default {
             _editingRows.splice(this.findIndex(event.data, this._editingRows), 1);
             this.$emit('update:editingRows', _editingRows);
             this.$emit('row-edit-cancel', event);
-        }
+        },
+        onVirtualScroll(event) {
+            if(this.virtualScrollTimer) {
+                clearTimeout(this.virtualScrollTimer);
+            }
+                
+            this.virtualScrollTimer = setTimeout(() => {
+                this.$emit('virtual-scroll', {
+                        first: (event.page - 1) * this.rows,
+                        rows: this.rows * 2
+                    });
+                }, this.virtualScrollDelay);
+            }
     },
     computed: {
         containerClass() {
@@ -1498,7 +1524,8 @@ export default {
                     'p-datatable-auto-layout': this.autoLayout,
                     'p-datatable-resizable': this.resizableColumns,
                     'p-datatable-resizable-fit': this.resizableColumns && this.columnResizeMode === 'fit',
-                    'p-datatable-scrollable': this.scrollable
+                    'p-datatable-scrollable': this.scrollable,
+                    'p-datatable-virtual-scrollable': this.virtualScroll
                 }
             ];
         },
