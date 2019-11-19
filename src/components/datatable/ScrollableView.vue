@@ -22,6 +22,7 @@
                 <colgroup class="p-datatable-scrollable-colgroup">
                     <col v-for="(col,i) of columns" :key="col.columnKey||col.field||i" :style="col.headerStyle" />
                 </colgroup>
+                <DTTableLoadingBody :columns="columns" :rows="rows" />
             </table>
             <div class="p-datatable-virtual-scroller" ref="virtualScroller"></div>
         </div>
@@ -40,6 +41,7 @@
 
 <script>
 import DomHandler from '../utils/DomHandler';
+import TableLoadingBody from './TableLoadingBody';
 
 export default {
     props: {
@@ -128,7 +130,7 @@ export default {
             if (this.$refs.scrollFooterBox) {
                 this.$refs.scrollFooterBox.style.marginLeft = -1 * this.$refs.scrollBody.scrollLeft + 'px';
             }
-            
+
             if (this.virtualScroll) {
                 let viewport = DomHandler.getClientHeight(this.$refs.scrollBody);
                 let tableHeight = DomHandler.getOuterHeight(this.$refs.scrollTable);
@@ -231,6 +233,9 @@ export default {
         bodyTableStyle() {
             return this.virtualScroll ? {top: '0'} : null;
         }
+    },
+    components: {
+        'DTTableLoadingBody': TableLoadingBody
     }
 }
 </script>

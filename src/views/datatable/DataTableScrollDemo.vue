@@ -21,10 +21,26 @@
             <h3>Virtual Scroll</h3>
 			<DataTable :value="lazyCars" :scrollable="true" scrollHeight="200px" :lazy="true" :rows="20"
                 :virtualScroll="true" :virtualRowHeight="30" @virtual-scroll="onVirtualScroll" :totalRecords="lazyTotalRecords">
-                <Column field="vin" header="Vin"></Column>
-                <Column field="year" header="Year"></Column>
-                <Column field="brand" header="Brand"></Column>
-                <Column field="color" header="Color"></Column>
+                <Column field="vin" header="Vin">
+                    <template #loading>
+                        <span class="loading-text"></span>
+                    </template>
+                </Column>
+                <Column field="year" header="Year">
+                    <template #loading>
+                        <span class="loading-text"></span>
+                    </template>
+                </Column>
+                <Column field="brand" header="Brand">
+                    <template #loading>
+                        <span class="loading-text"></span>
+                    </template>
+                </Column>
+                <Column field="color" header="Color">
+                    <template #loading>
+                        <span class="loading-text"></span>
+                    </template>
+                </Column>
             </DataTable>
 
             <h3>Horizontal and Vertical</h3>
@@ -154,7 +170,7 @@ export default {
 
         setTimeout(() => {
             this.lazyCars = this.loadChunk(0, 40);
-            this.lazyTotalRecords = 250000;    
+            this.lazyTotalRecords = 250000;
         }, 250);
     },
     methods: {
@@ -162,21 +178,21 @@ export default {
             let chunk = [];
             for (let i = 0; i < length; i++) {
                 chunk[i] = {...this.inmemoryData[i], ...{vin: (index + i)}};
-            } 
+            }
 
             return chunk;
         },
         onVirtualScroll(event) {
             /*
-                For demo purposes keep loading the same dataset, 
-                in a real production application, this data should come from server by building the query with LazyLoadEvent options 
+                For demo purposes keep loading the same dataset,
+                in a real production application, this data should come from server by building the query with LazyLoadEvent options
             */
             setTimeout(() => {
                 //last chunk
                 if (event.first === 249980)
                     this.lazyCars = this.loadChunk(event.first, 20)
-                else 
-                    this.lazyCars = this.loadChunk(event.first, event.rows)    
+                else
+                    this.lazyCars = this.loadChunk(event.first, event.rows)
             }, 250);
         }
     },
@@ -185,3 +201,14 @@ export default {
     }
 }
 </script>
+
+<style lang="scss" scoped>
+.loading-text {
+    display: block;
+    background-color: #f1f1f1;
+    min-height: 19px;
+    animation: pulse 1s infinite ease-in-out;
+    text-indent: -99999px;
+    overflow: hidden;
+}
+</style>

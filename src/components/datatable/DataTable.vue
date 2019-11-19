@@ -1507,7 +1507,7 @@ export default {
             if(this.virtualScrollTimer) {
                 clearTimeout(this.virtualScrollTimer);
             }
-                
+
             this.virtualScrollTimer = setTimeout(() => {
                 this.$emit('virtual-scroll', {
                         first: (event.page - 1) * this.rows,
