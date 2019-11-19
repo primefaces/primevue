@@ -2,7 +2,7 @@
       <div :class="containerClass" :style="containerStyle">
         <div class="p-datatable-scrollable-header" ref="scrollHeader" @scroll="onHeaderScroll">
             <div class="p-datatable-scrollable-header-box" ref="scrollHeaderBox">
-                <table class="p-datatable-scrollable-header-table'">
+                <table class="p-datatable-scrollable-header-table">
                     <colgroup class="p-datatable-scrollable-colgroup">
                         <col v-for="(col,i) of columns" :key="col.columnKey||col.field||i" :style="col.headerStyle" />
                     </colgroup>
