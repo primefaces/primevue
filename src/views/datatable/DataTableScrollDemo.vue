@@ -230,7 +230,7 @@ export default {
                 this.loading = false;
             });
         }, 150);
-        
+
         this.frozenCars = [
             {brand: "BMW", year: 2013, color: "Grey", vin: "fh2uf23"},
             {brand: "Chevrolet", year: 2011, color: "Black", vin: "4525g23"}
@@ -244,7 +244,7 @@ export default {
     methods: {
           loadChunk(index, length) {
             let chunk = [];
-            for (let i = 0; i < length; i++) {
+            for (let i = 0; i &lt; length; i++) {
                 chunk[i] = {...this.inmemoryData[i], ...{vin: (index + i)}};
             }
 
@@ -354,7 +354,7 @@ export default {
                 this.loading = false;
             });
         }, 150);
-        
+
         this.frozenCars = [
             {brand: "BMW", year: 2013, color: "Grey", vin: "fh2uf23"},
             {brand: "Chevrolet", year: 2011, color: "Black", vin: "4525g23"}

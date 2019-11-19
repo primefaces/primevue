@@ -645,8 +645,8 @@ data() {
 
             <p>When using frozen columns with column grouping, use <i>frozenheadergroup</i> and <i>frozenfootergroup</i> types to define grouping for the frozen section.</p>
 
-            <p>Virtual scrolling is enabled using <i>virtualScroll</i> and <i>onVirtualScroll</i> properties combined with lazy loading so that data is loaded on the fly during scrolling. 
-            For smooth scrolling twice the amount of rows property is loaded on a lazy load event. In addition, to avoid performance problems row height is not calculated automatically and 
+            <p>Virtual scrolling is enabled using <i>virtualScroll</i> and <i>onVirtualScroll</i> properties combined with lazy loading so that data is loaded on the fly during scrolling.
+            For smooth scrolling twice the amount of rows property is loaded on a lazy load event. In addition, to avoid performance problems row height is not calculated automatically and
             should be provided using <i>virtualRowHeight</i> property which defaults to 28px. View the <router-link to="/datatable/scroll">scrolling demo</router-link> for a sample in-memory implementation.</p>
 
 <CodeHighlight>
