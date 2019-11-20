@@ -364,8 +364,8 @@ export default {
             return [
                 'p-dropdown-label p-inputtext',
                 {
-                    'p-placeholder': this.label === null && this.placeholder,
-                    'p-dropdown-label-empty': (this.label == null || this.label.length === 0)
+                    'p-placeholder': this.label === this.placeholder,
+                    'p-dropdown-label-empty': (this.label === 'p-emptylabel' || this.label.length === 0)
                 }
             ];
         },
@@ -374,7 +374,7 @@ export default {
             if (selectedOption)
                 return this.getOptionLabel(selectedOption);
             else
-                return this.placeholder||'p-dropdown';
+                return this.placeholder||'p-emptylabel';
         },
         editableInputValue() {
             let selectedOption = this.getSelectedOption();
