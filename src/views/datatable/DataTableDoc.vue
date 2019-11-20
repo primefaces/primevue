@@ -1933,6 +1933,12 @@ export default {
                                 <td>Callback to invoke on filtering.</td>
                             </tr>
                             <tr>
+                                <td>row-click</td>
+                                <td>event.originalEvent: Browser event. <br />
+                                    event.data: Selected row data.</td>
+                                <td>Callback to invoke when a row is clicked.</td>
+                            </tr>
+                            <tr>
                                 <td>row-select</td>
                                 <td>event.originalEvent: Browser event. <br />
                                     event.data: Selected row data. <br />
