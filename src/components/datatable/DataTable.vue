@@ -616,19 +616,21 @@ export default {
         },
         onRowClick(e) {
             const event = e.originalEvent;
-            const rowData = e.data;
-            const rowIndex = e.index;
+            const target = event.target;
+            const targetNode = target.nodeName;
+            const parentNode = target.parentElement && target.parentElement.nodeName;
 
+            if (targetNode == 'INPUT' || targetNode == 'BUTTON' || targetNode == 'A' ||
+                parentNode == 'INPUT' || parentNode == 'BUTTON' || parentNode == 'A' ||
+                (DomHandler.hasClass(target, 'p-clickable'))) {
+                return;
+            }
+
+            this.$emit('row-click', event);
+            
             if (this.selectionMode) {
-                let target = event.target;
-                let targetNode = target.nodeName;
-                let parentNode = target.parentElement && target.parentElement.nodeName;
-
-                if (targetNode == 'INPUT' || targetNode == 'BUTTON' || targetNode == 'A' ||
-                    parentNode == 'INPUT' || parentNode == 'BUTTON' || parentNode == 'A' ||
-                    (DomHandler.hasClass(target, 'p-clickable'))) {
-                    return;
-                }
+                const rowData = e.data;
+                const rowIndex = e.index;
 
                 if (this.isMultipleSelectionMode() && event.shiftKey && this.anchorRowIndex != null) {
                     DomHandler.clearSelection();
