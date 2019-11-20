@@ -627,7 +627,7 @@ export default {
             }
 
             this.$emit('row-click', event);
-            
+
             if (this.selectionMode) {
                 const rowData = e.data;
                 const rowIndex = e.index;
