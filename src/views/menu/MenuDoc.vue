@@ -35,17 +35,13 @@ export default {
 				{
 					label: 'Vue Website',
 					icon: 'pi pi-external-link',
-					command: () => {
-						window.location.href = 'https://vuejs.org/'
-					}
+					url: 'https://vuejs.org/'
 				},
 				{
-					label: 'Upload',
-					icon: 'pi pi-upload',
-					command: () => {
-						window.location.hash = "/fileupload"
-					}
-				}
+                    label: 'Router',
+                    icon: 'pi pi-upload',
+                    to: '/fileupload'
+                }
 			]
 		}
 	}
@@ -58,18 +54,18 @@ export default {
                 <h3>SubMenus</h3>
                 <p>Menu supports one level of nesting via subitems of an item.</p>
 <CodeHighlight lang="js">
-let items: [
+const items: [
     {
         label: 'Options',
-        items: [{label: 'New', icon: 'pi pi-fw pi-plus',command:()=>{ window.location.hash="/fileupload"; }},
+        items: [{label: 'New', icon: 'pi pi-fw pi-plus', command:() => {} },
                 {label: 'Delete', icon: 'pi pi-fw pi-trash', url: 'http://primetek.com.tr'}]
     },
     {
         label: 'Account',
-        items: [{label: 'Options', icon: 'pi pi-fw pi-cog',command:()=>{ window.location.hash="/"; }},
-                {label: 'Sign Out', icon: 'pi pi-fw pi-power-off'} ]
+        items: [{label: 'Options', icon: 'pi pi-fw pi-cog', to: '/options'},
+                {label: 'Sign Out', icon: 'pi pi-fw pi-power-off', to: '/logout'} ]
     }
-]
+];
 </CodeHighlight>
 
                 <h3>Popup Mode</h3>
@@ -78,6 +74,12 @@ let items: [
 <CodeHighlight>
 &lt;Button type="button" label="Toggle" @click="toggle" /&gt;
 &lt;Menu ref="menu" :model="items" :popup="true" /&gt;
+</CodeHighlight>
+
+<CodeHighlight lang="js">
+toggle(event) {
+    this.$refs.menu.toggle(event);
+}
 </CodeHighlight>
 
                 <h3>Properties</h3>
@@ -169,26 +171,26 @@ let items: [
                             </tr>
 						</thead>
 						<tbody>
-						<tr>
-                            <td>p-menu</td>
-                            <td>Container element.</td>
-                        </tr>
-                        <tr>
-                            <td>p-menu-list</td>
-                            <td>List element.</td>
-                        </tr>
-                        <tr>
-                            <td>p-menuitem</td>
-                            <td>Menuitem element.</td>
-                        </tr>
-                        <tr>
-                            <td>p-menuitem-text</td>
-                            <td>Label of a menuitem.</td>
-                        </tr>
-                        <tr>
-                            <td>p-menuitem-icon</td>
-                            <td>Icon of a menuitem.</td>
-                        </tr>
+                            <tr>
+                                <td>p-menu</td>
+                                <td>Container element.</td>
+                            </tr>
+                            <tr>
+                                <td>p-menu-list</td>
+                                <td>List element.</td>
+                            </tr>
+                            <tr>
+                                <td>p-menuitem</td>
+                                <td>Menuitem element.</td>
+                            </tr>
+                            <tr>
+                                <td>p-menuitem-text</td>
+                                <td>Label of a menuitem.</td>
+                            </tr>
+                            <tr>
+                                <td>p-menuitem-icon</td>
+                                <td>Icon of a menuitem.</td>
+                            </tr>
 						</tbody>
 					</table>
 				</div>
@@ -239,16 +241,12 @@ export default {
                     items: [{
                         label: 'Vue Website',
                         icon: 'pi pi-external-link',
-                        command: () => {
-                            window.location.href = 'https://vuejs.org/'
-                        }
+                        url: 'https://vuejs.org/'
                     },
                     {
-                        label: 'Upload',
+                        label: 'Router',
                         icon: 'pi pi-upload',
-                        command: () => {
-                            window.location.hash = "/fileupload"
-                        }
+                        to: '/fileupload'
                     }
                 ]}
             ]

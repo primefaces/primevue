@@ -49,16 +49,12 @@ export default {
                     items: [{
                         label: 'Vue Website',
                         icon: 'pi pi-external-link',
-                        command: () => {
-                            window.location.href = 'https://vuejs.org/'
-                        }
+                        url: 'https://vuejs.org/'
                     },
                     {
-                        label: 'Upload',
+                        label: 'Router',
                         icon: 'pi pi-upload',
-                        command: () => {
-                            window.location.hash = "/fileupload"
-                        }
+                        to: '/fileupload'
                     }
                 ]}
             ]

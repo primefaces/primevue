@@ -14,15 +14,15 @@
 const items: [
     {
         label: 'Options',
-        items: [{label: 'New', icon: 'pi pi-fw pi-plus',command:()=>{ window.location.hash="/fileupload"; }},
+        items: [{label: 'New', icon: 'pi pi-fw pi-plus', command:() => {} },
                 {label: 'Delete', icon: 'pi pi-fw pi-trash', url: 'http://primetek.com.tr'}]
     },
     {
         label: 'Account',
-        items: [{label: 'Options', icon: 'pi pi-fw pi-cog',command:()=>{ window.location.hash="/"; }},
-                {label: 'Sign Out', icon: 'pi pi-fw pi-power-off'} ]
+        items: [{label: 'Options', icon: 'pi pi-fw pi-cog', to: '/options'},
+                {label: 'Sign Out', icon: 'pi pi-fw pi-power-off', to: '/logout'} ]
     }
-]
+];
                 </CodeHighlight>
 
                 <p>MenuItem provides the following properties. Note that not all of them may be utilized by the corresponding menu component.</p>
@@ -49,6 +49,12 @@ const items: [
                                 <td>string</td>
                                 <td>null</td>
                                 <td>Icon of the item.</td>
+                            </tr>
+                            <tr>
+                                <td>to</td>
+                                <td>string</td>
+                                <td>null</td>
+                                <td>Path of the route.</td>
                             </tr>
                             <tr>
                                 <td>command</td>
@@ -118,20 +124,18 @@ const items = [
 </CodeHighlight>
 
                 <h3>Navigation</h3>
-                <p>Navigation is specified using url property for external links or using command function for internal router.</p>
+                <p>Navigation is specified using <i>url</i> property for external links or using <i>to</i> property for internal routing.</p>
 <CodeHighlight lang="js">
 const items = [
     {
-        label: 'New',
+        label: 'Internal',
         icon: 'pi pi-plus',
-        command: (event) => {
-            window.location.hash = "/fileupload";
-        }
+        to: '/fileupload'
     },
     {
-        label: 'Link',
+        label: 'External',
         icon: 'pi pi-check',
-        url: 'https://www.primefaces.org/primereact'
+        url: 'https://www.primefaces.org/primevue'
     }
 ];
 </CodeHighlight>

@@ -1,10 +1,14 @@
 <template>
-<li :class="containerClass" role="menuitem" :style="item.style">
-    <a :href="item.url||'#'" class="p-menuitem-link" @click="onClick" :target="item.target">
-        <span :class="['p-menuitem-icon', item.icon]"></span>
-        <span class="p-menuitem-text">{{item.label}}</span>
-    </a>
-</li>
+    <li :class="containerClass" role="menuitem" :style="item.style" v-if="item.visible !== false">
+        <router-link v-if="item.to" :to="item.to" class="p-menuitem-link">
+            <span :class="['p-menuitem-icon', item.icon]"></span>
+            <span class="p-menuitem-text">{{item.label}}</span>
+        </router-link>
+        <a v-else :href="item.url||'#'" class="p-menuitem-link" @click="onClick" :target="item.target">
+            <span :class="['p-menuitem-icon', item.icon]"></span>
+            <span class="p-menuitem-text">{{item.label}}</span>
+        </a>
+    </li>
 </template>
 
 <script>
@@ -18,7 +22,6 @@ export default {
                 originalEvent: event,
                 item: this.item
             });
-            event.preventDefault();
         }
     },
     computed: {

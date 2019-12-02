@@ -1,10 +1,10 @@
 <template>
     <transition name="p-input-overlay" @enter="onEnter" @leave="onLeave">
-        <div ref="container"  :class="containerClass" v-if="popup ? visible : true">
+        <div ref="container" :class="containerClass" v-if="popup ? visible : true">
             <ul class="p-menu-list p-reset" role="menu">
                 <template v-for="(item, i) of model">
-                    <template v-if="item.items">
-                        <li class="p-submenu-header " :key="item.label+i" v-if="item.items">{{item.label}}</li>
+                    <template v-if="item.items && item.visible !== false">
+                        <li class="p-submenu-header" :key="item.label+i" v-if="item.items">{{item.label}}</li>
                         <Menuitem v-for="(child, j) of item.items" :key="child.label+i+j" :item="child" @click="itemClick" />
                     </template>
                     <template v-else>
@@ -41,7 +41,7 @@ export default {
         baseZIndex: {
             type: Number,
             default: 0
-        },
+        }
     },
     data() {
         return {
@@ -54,9 +54,7 @@ export default {
     beforeDestroy() {
         this.restoreAppend();
         this.unbindResizeListener();
-        if (this.dismissable) {
-            this.unbindOutsideClickListener();
-        }
+        this.unbindOutsideClickListener();
         this.target = null;
     },
     methods: {
@@ -64,8 +62,9 @@ export default {
             const item = event.item;
             if (item.command) {
                 item.command(event);
+                event.originalEvent.preventDefault();
             }
-            this.overlayVisible = false;
+            this.hide();
         },
         toggle(event) {
             if (this.visible)
@@ -96,16 +95,12 @@ export default {
         },
         alignOverlay() {
             DomHandler.absolutePosition(this.$refs.container, this.target);
-
-            if (DomHandler.getOffset(this.$refs.container).top < DomHandler.getOffset(this.target).top) {
-                DomHandler.addClass(this.$refs.container, 'p-overlaypanel-flipped');
-            }
         },
         bindOutsideClickListener() {
             if (!this.outsideClickListener) {
                 this.outsideClickListener = (event) => {
                     if (this.visible && this.$refs.container && !this.$refs.container.contains(event.target) && !this.isTargetClicked(event)) {
-                        this.visible = false;
+                        this.hide();
                     }
                 };
                 document.addEventListener('click', this.outsideClickListener);
@@ -121,7 +116,7 @@ export default {
             if (!this.resizeListener) {
                 this.resizeListener = () => {
                     if (this.visible) {
-                        this.visible = false;
+                        this.hide();
                     }
                 };
                 window.addEventListener('resize', this.resizeListener);
