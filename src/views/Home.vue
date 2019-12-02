@@ -79,14 +79,6 @@
         </div>
         <div class="templates">
 
-            <div class="p-grid">
-                <div class="p-col-12">
-                    <a href="https://www.primefaces.org/store">
-                        <img alt="Black Friday 2019" src="../assets/images/black-friday-2019.jpg">
-                    </a>
-                </div>
-            </div>
-
             <h3>Premium Application Templates</h3>
             <p>Powered by <a href="https://cli.vuejs.org">Vue-CLI</a>, create awesome applications in no time using the premium templates of PrimeVue and impress your users.</p>
 
