@@ -1,5 +1,5 @@
 <template>
-    <div class="p-card p-component ui-card-shadow" style="width: 360px;">
+    <div class="p-card p-component">
         <div class="p-card-header" v-if="$slots.header">
             <slot name="header"></slot>
         </div>
