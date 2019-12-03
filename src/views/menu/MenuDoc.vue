@@ -7,6 +7,9 @@
 import Menu from 'primevue/menu';
 </CodeHighlight>
 
+                <h3>MenuModel</h3>
+                <p>Menu uses the common MenuModel API to define the items, visit <router-link to="/menumodel">MenuModel API</router-link> for details.</p>
+
 				<h3>Getting Started</h3>
 				<p>Menu requires a collection of menuitems as its model.</p>
 <CodeHighlight>
@@ -47,9 +50,6 @@ export default {
 	}
 }
 </CodeHighlight>
-
-                <h3>MenuModel</h3>
-                <p>Menu uses the common MenuModel API to define the items, visit <router-link to="/theming">MenuModel API</router-link> for details.</p>
 
                 <h3>SubMenus</h3>
                 <p>Menu supports one level of nesting via subitems of an item.</p>

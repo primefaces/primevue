@@ -40,6 +40,11 @@ export default new Router({
 			path: '/autocomplete',
 			name: 'autocomplete',
 			component: () => import('./views/autocomplete/AutoCompleteDemo.vue')
+        },
+        {
+			path: '/breadcrumb',
+			name: 'breadcrumb',
+			component: () => import('./views/breadcrumb/BreadcrumbDemo.vue')
 		},
 		{
 			path: '/button',

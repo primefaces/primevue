@@ -3,7 +3,7 @@
         <div class="content-section introduction">
             <div class="feature-intro">
                 <h1>Menu</h1>
-                <p>Menu is a navigation / command component that supports dynamic and static positioning..</p>
+                <p>Menu is a navigation / command component that supports dynamic and static positioning.</p>
             </div>
         </div>
 

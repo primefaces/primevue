@@ -127,6 +127,7 @@
                 <div v-show="activeMenuIndex === 6">
                     <div>
                         <router-link to="/menumodel">&#9679; MenuModel</router-link>
+                        <router-link to="/breadcrumb">&#9679; Breadcrumb</router-link>
                         <router-link to="/menu">&#9679; Menu</router-link>
                     </div>
                 </div>
