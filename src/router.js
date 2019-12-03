@@ -400,7 +400,12 @@ export default new Router({
 			path: '/tabview',
 			name: 'tabview',
 			component: () => import('./views/tabview/TabViewDemo.vue')
-		},
+        },
+        {
+			path: '/tieredmenu',
+			name: 'tieredmenu',
+			component: () => import('./views/tieredmenu/TieredMenuDemo.vue')
+        },
 		{
 			path: '/toast',
 			name: 'toast',
