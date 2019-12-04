@@ -112,10 +112,7 @@ export default {
         },
         onLeafClick() {
             this.activeItem = null;
-
-            if (!this.root) {
-                this.$emit('leaf-click');
-            }
+            this.$emit('leaf-click');
         },
         onItemKeyDown(event, item) {
             let listItem = event.currentTarget.parentElement;

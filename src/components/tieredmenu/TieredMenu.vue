@@ -1,7 +1,7 @@
 <template>
     <transition name="p-input-overlay" @enter="onEnter" @leave="onLeave">
         <div ref="container" :class="containerClass" v-if="popup ? visible : true">
-            <TieredMenuSub :model="model" :root="true" :popup="popup" />
+            <TieredMenuSub :model="model" :root="true" :popup="popup" @leaf-click="onLeafClick"/>
         </div>
     </transition>
 </template>
@@ -135,6 +135,11 @@ export default {
                     document.body.removeChild(this.$refs.container);
                 else
                     document.getElementById(this.appendTo).removeChild(this.$refs.container);
+            }
+        },
+        onLeafClick() {
+            if (this.popup) {
+                this.hide();
             }
         }
     },
