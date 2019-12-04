@@ -12,9 +12,6 @@ import TieredMenu from 'primevue/tieredmenu';
 
 				<h3>Getting Started</h3>
 				<p>TieredMenu requires a collection of menuitems as its model.</p>
-<CodeHighlight>
-&lt;TieredMenu :model="items" /&gt;
-</CodeHighlight>
 
 <CodeHighlight lang="js">
 export default {
@@ -156,17 +153,32 @@ export default {
 }
 </CodeHighlight>
 
-                <h3>Popup Mode</h3>
-                <p>TieredMenu is inline by default whereas popup mode is supported by enabling popup property and calling toggle method with an event of the target.</p>
+                <h3>Document Menu</h3>
+                <p>Setting global property attaches the context menu to the document.</p>
+<CodeHighlight>
+&lt;ContextMenu :global="true" :model="items" /&gt;
+</CodeHighlight>
+
+                <h3>Element Menu</h3>
+                <p>ContextMenu is attached to a custom element manually using the reference and calling the <i>show(event)</i> method.</p>
 
 <CodeHighlight>
-&lt;Button type="button" label="Toggle" @click="toggle" /&gt;
-&lt;TieredMenu ref="menu" :model="items" :popup="true" /&gt;
+&lt;img alt="logo" src="demo/images/nature/nature3.jpg" @contextmenu="onImageRightClick"&gt;
+&lt;ContextMenu ref="menu" :model="items" /&gt;
 </CodeHighlight>
 
 <CodeHighlight lang="js">
-toggle(event) {
-    this.$refs.menu.toggle(event);
+export default {
+    data() {
+        return {
+            items: //items
+        }
+    },
+    methods: {
+        onImageRightClick(event) {
+            this.$refs.menu.show(event);
+        }
+    }
 }
 </CodeHighlight>
 
@@ -190,12 +202,6 @@ toggle(event) {
                                 <td>An array of menuitems.</td>
                             </tr>
                             <tr>
-                                <td>popup</td>
-                                <td>boolean</td>
-                                <td>false</td>
-                                <td>Defines if menu would displayed as a popup.</td>
-                            </tr>
-                            <tr>
                                 <td>appendTo</td>
                                 <td>string</td>
                                 <td>null</td>
@@ -212,6 +218,12 @@ toggle(event) {
                                 <td>boolean</td>
                                 <td>true</td>
                                 <td>Whether to automatically manage layering.</td>
+                            </tr>
+                            <tr>
+                                <td>global</td>
+                                <td>boolean</td>
+                                <td>false</td>
+                                <td>Attaches the menu to document instead of a particular item.</td>
                             </tr>
 						</tbody>
 					</table>
@@ -231,18 +243,17 @@ toggle(event) {
                             <tr>
                                 <td>toggle</td>
                                 <td>event: Browser event</td>
-                                <td>Toggles the visiblity of the overlay.</td>
+                                <td>Toggles the visibility of the menu.</td>
                             </tr>
                             <tr>
                                 <td>show</td>
-                                <td>event: Browser event <br />
-                                    target: Optional target if event.target would not be used</td>
-                                <td>Shows the overlay.</td>
+                                <td>event: Browser event</td>
+                                <td>Shows the menu.</td>
                             </tr>
                             <tr>
                                 <td>hide</td>
                                 <td>-</td>
-                                <td>Hides the overlay.</td>
+                                <td>Hides the menu.</td>
                             </tr>
 						</tbody>
 					</table>
@@ -260,7 +271,7 @@ toggle(event) {
 						</thead>
 						<tbody>
                             <tr>
-                                <td>p-tieredmenu</td>
+                                <td>p-contextmenu</td>
                                 <td>Container element.</td>
                             </tr>
                             <tr>
@@ -292,17 +303,13 @@ toggle(event) {
 			</TabPanel>
 
 			<TabPanel header="Source">
-				<a href="https://github.com/primefaces/primevue/tree/master/src/views/tieredmenu" class="btn-viewsource" target="_blank" rel="noopener noreferrer">
+				<a href="https://github.com/primefaces/primevue/tree/master/src/views/contextmenu" class="btn-viewsource" target="_blank" rel="noopener noreferrer">
 					<span>View on GitHub</span>
 				</a>
 <CodeHighlight>
 <template v-pre>
-&lt;h3&gt;Inline&lt;/h3&gt;
-&lt;TieredMenu :model="items" /&gt;
-
-&lt;h3&gt;Overlay&lt;/h3&gt;
-&lt;Button type="button" label="Toggle" @click="toggle" /&gt;
-&lt;TieredMenu ref="menu" :model="items" :popup="true" /&gt;
+&lt;img alt="logo" src="demo/images/nature/nature3.jpg" @contextmenu="onImageRightClick"&gt;
+&lt;ContextMenu ref="menu" :model="items" /&gt;
 </template>
 </CodeHighlight>
 
@@ -444,8 +451,8 @@ export default {
         }
     },
     methods: {
-        toggle(event) {
-            this.$refs.menu.toggle(event);
+        onImageRightClick(event) {
+            this.$refs.menu.show(event);
         }
     }
 }

@@ -92,7 +92,7 @@ toggle(event) {
 						<tr>
 							<td>toggle</td>
 							<td>event: Browser event</td>
-							<td>Toggles the visiblity of the overlay.</td>
+							<td>Toggles the visibility of the overlay.</td>
 						</tr>
 						<tr>
 							<td>show</td>

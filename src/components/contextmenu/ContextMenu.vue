@@ -12,10 +12,6 @@ import ContextMenuSub from './ContextMenuSub';
 
 export default {
     props: {
-        popup: {
-            type: Boolean,
-            default: false
-        },
 		model: {
             type: Array,
             default: null
@@ -31,11 +27,16 @@ export default {
         baseZIndex: {
             type: Number,
             default: 0
+        },
+        global: {
+            type: Boolean,
+            default: false
         }
     },
     target: null,
     outsideClickListener: null,
     resizeListener: null,
+    documentContextMenuListener: null,
     pageX: null,
     pageY: null,
     data() {
@@ -47,6 +48,7 @@ export default {
         this.restoreAppend();
         this.unbindResizeListener();
         this.unbindOutsideClickListener();
+        this.unbindDocumentContextMenuListener();
     },
     methods: {
         itemClick(event) {
@@ -87,6 +89,10 @@ export default {
             this.bindOutsideClickListener();
             this.bindResizeListener();
 
+            if (this.global) {
+                this.bindDocumentContextMenuListener();
+            }
+
             if (this.autoZIndex) {
                 this.$refs.container.style.zIndex = String(this.baseZIndex + DomHandler.generateZIndex());
             }
@@ -94,6 +100,10 @@ export default {
         onLeave() {
             this.unbindOutsideClickListener();
             this.unbindResizeListener();
+
+            if (this.global) {
+                this.unbindDocumentContextMenuListener();
+            }
         },
         position() {
             let left = this.pageX + 1;
@@ -171,6 +181,21 @@ export default {
                     document.body.removeChild(this.$refs.container);
                 else
                     document.getElementById(this.appendTo).removeChild(this.$refs.container);
+            }
+        },
+        bindDocumentContextMenuListener() {
+            if (!this.documentContextMenuListener) {
+                this.documentContextMenuListener = (event) => {
+                    this.show(event);
+                };
+
+                document.addEventListener('contextmenu', this.documentContextMenuListener);
+            }
+        },
+        unbindDocumentContextMenuListener() {
+            if(this.documentContextMenuListener) {
+                document.removeEventListener('contextmenu', this.documentContextMenuListener);
+                this.documentContextMenuListener = null;
             }
         }
     },
