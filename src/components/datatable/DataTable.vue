@@ -626,7 +626,7 @@ export default {
                 return;
             }
 
-            this.$emit('row-click', event);
+            this.$emit('row-click', e);
 
             if (this.selectionMode) {
                 const rowData = e.data;
