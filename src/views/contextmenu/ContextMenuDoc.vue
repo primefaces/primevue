@@ -4,14 +4,14 @@
 			<TabPanel header="Documentation">
 				<h3>Import</h3>
 <CodeHighlight lang="javascript">
-import TieredMenu from 'primevue/tieredmenu';
+import ContextMenu from 'primevue/contextmenu';
 </CodeHighlight>
 
                 <h3>MenuModel</h3>
-                <p>TieredMenu uses the common MenuModel API to define the items, visit <router-link to="/menumodel">MenuModel API</router-link> for details.</p>
+                <p>ContextMenu uses the common MenuModel API to define the items, visit <router-link to="/menumodel">MenuModel API</router-link> for details.</p>
 
 				<h3>Getting Started</h3>
-				<p>TieredMenu requires a collection of menuitems as its model.</p>
+				<p>ContextMenu requires a collection of menuitems as its model.</p>
 
 <CodeHighlight lang="js">
 export default {
