@@ -4,7 +4,7 @@
 			<TabPanel header="Documentation">
 				<h3>Import</h3>
 <CodeHighlight lang="javascript">
-import TieredMenu from 'primevue/menu';
+import TieredMenu from 'primevue/tieredmenu';
 </CodeHighlight>
 
                 <h3>MenuModel</h3>
@@ -264,8 +264,8 @@ toggle(event) {
                                 <td>Container element.</td>
                             </tr>
                             <tr>
-                                <td>p-menu-list</td>
-                                <td>List element.</td>
+                                <td>p-submenu-list</td>
+                                <td>Submenu list element.</td>
                             </tr>
                             <tr>
                                 <td>p-menuitem</td>

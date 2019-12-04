@@ -4,16 +4,16 @@
 			<TabPanel header="Documentation">
 				<h3>Import</h3>
 <CodeHighlight lang="javascript">
-import TieredMenu from 'primevue/menu';
+import Menubar from 'primevue/menubar';
 </CodeHighlight>
 
                 <h3>MenuModel</h3>
-                <p>TieredMenu uses the common MenuModel API to define the items, visit <router-link to="/menumodel">MenuModel API</router-link> for details.</p>
+                <p>Menubar uses the common MenuModel API to define the items, visit <router-link to="/menumodel">MenuModel API</router-link> for details.</p>
 
 				<h3>Getting Started</h3>
-				<p>TieredMenu requires a collection of menuitems as its model.</p>
+				<p>Menubar requires a collection of menuitems as its model.</p>
 <CodeHighlight>
-&lt;TieredMenu :model="items" /&gt;
+&lt;Menubar :model="items" /&gt;
 </CodeHighlight>
 
 <CodeHighlight lang="js">
@@ -144,29 +144,12 @@ export default {
                    ]
                 },
                 {
-                   separator:true
-                },
-                {
                    label:'Quit',
                    icon:'pi pi-fw pi-power-off'
                 }
              ]
         }
     }
-}
-</CodeHighlight>
-
-                <h3>Popup Mode</h3>
-                <p>TieredMenu is inline by default whereas popup mode is supported by enabling popup property and calling toggle method with an event of the target.</p>
-
-<CodeHighlight>
-&lt;Button type="button" label="Toggle" @click="toggle" /&gt;
-&lt;TieredMenu ref="menu" :model="items" :popup="true" /&gt;
-</CodeHighlight>
-
-<CodeHighlight lang="js">
-toggle(event) {
-    this.$refs.menu.toggle(event);
 }
 </CodeHighlight>
 
@@ -189,61 +172,6 @@ toggle(event) {
                                 <td>null</td>
                                 <td>An array of menuitems.</td>
                             </tr>
-                            <tr>
-                                <td>popup</td>
-                                <td>boolean</td>
-                                <td>false</td>
-                                <td>Defines if menu would displayed as a popup.</td>
-                            </tr>
-                            <tr>
-                                <td>appendTo</td>
-                                <td>string</td>
-                                <td>null</td>
-                                <td>DOM element instance where the dialog should be mounted.</td>
-                            </tr>
-                            <tr>
-                                <td>baseZIndex</td>
-                                <td>number</td>
-                                <td>0</td>
-                                <td>Base zIndex value to use in layering.</td>
-                            </tr>
-                            <tr>
-                                <td>autoZIndex</td>
-                                <td>boolean</td>
-                                <td>true</td>
-                                <td>Whether to automatically manage layering.</td>
-                            </tr>
-						</tbody>
-					</table>
-				</div>
-
-				<h3>Methods</h3>
-				<div class="doc-tablewrapper">
-					<table class="doc-table">
-						<thead>
-                            <tr>
-                                <th>Name</th>
-                                <th>Parameters</th>
-                                <th>Description</th>
-                            </tr>
-						</thead>
-						<tbody>
-                            <tr>
-                                <td>toggle</td>
-                                <td>event: Browser event</td>
-                                <td>Toggles the visiblity of the overlay.</td>
-                            </tr>
-                            <tr>
-                                <td>show</td>
-                                <td>event: Browser event <br />
-                                    target: Optional target if event.target would not be used</td>
-                                <td>Shows the overlay.</td>
-                            </tr>
-                            <tr>
-                                <td>hide</td>
-                                <td>-</td>
-                                <td>Hides the overlay.</td>
-                            </tr>
 						</tbody>
 					</table>
 				</div>
@@ -260,12 +188,16 @@ toggle(event) {
 						</thead>
 						<tbody>
                             <tr>
-                                <td>p-tieredmenu</td>
+                                <td>p-menubar</td>
                                 <td>Container element.</td>
                             </tr>
                             <tr>
-                                <td>p-menu-list</td>
-                                <td>List element.</td>
+                                <td>p-menubar-root-list</td>
+                                <td>Root list element.</td>
+                            </tr>
+                            <tr>
+                                <td>p-submenu-list</td>
+                                <td>Submenu list element.</td>
                             </tr>
                             <tr>
                                 <td>p-menuitem</td>
@@ -297,12 +229,10 @@ toggle(event) {
 				</a>
 <CodeHighlight>
 <template v-pre>
-&lt;h3&gt;Inline&lt;/h3&gt;
-&lt;TieredMenu :model="items" /&gt;
-
-&lt;h3&gt;Overlay&lt;/h3&gt;
-&lt;Button type="button" label="Toggle" @click="toggle" /&gt;
-&lt;TieredMenu ref="menu" :model="items" :popup="true" /&gt;
+&lt;Menubar :model="items"&gt;
+    &lt;InputText placeholder="Search" type="text" /&gt;
+    &lt;Button label="Logout" icon="pi pi-power-off" :style="{'margin-left': '.25em'}"/&gt;
+&lt;/Menubar&gt;
 </template>
 </CodeHighlight>
 
@@ -434,18 +364,10 @@ export default {
                    ]
                 },
                 {
-                   separator:true
-                },
-                {
                    label:'Quit',
                    icon:'pi pi-fw pi-power-off'
                 }
              ]
-        }
-    },
-    methods: {
-        toggle(event) {
-            this.$refs.menu.toggle(event);
         }
     }
 }
