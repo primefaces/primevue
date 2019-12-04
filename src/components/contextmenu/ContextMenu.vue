@@ -77,7 +77,7 @@ export default {
             else {
                 this.visible = true;
             }
-            
+
             event.stopPropagation();
             event.preventDefault();
         },

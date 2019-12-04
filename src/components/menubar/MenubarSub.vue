@@ -12,7 +12,7 @@
                     @click="onItemClick($event, item)" @keydown="onItemKeyDown($event, item)">
                     <span :class="['p-menuitem-icon', item.icon]"></span>
                     <span class="p-menuitem-text">{{item.label}}</span>
-                    <span :class="getSubmenuIcon(item)" v-if="item.items"></span>
+                    <span :class="getSubmenuIcon()" v-if="item.items"></span>
                 </a>
                 <sub-menu :model="item.items" v-if="item.visible !== false && item.items" :key="item.label + '_sub_'"
                     @leaf-click="onLeafClick" @keydown-item="onChildItemKeyDown" :parentActive="item === activeItem" />
@@ -131,7 +131,7 @@ export default {
                     else {
                         this.navigateToNextItem(listItem);
                     }
-                    
+
                     event.preventDefault();
                 break;
 
@@ -157,7 +157,7 @@ export default {
                             this.expandSubmenu(item, listItem);
                         }
                     }
-                
+
                     event.preventDefault();
                 break;
 
@@ -166,10 +166,10 @@ export default {
                     if (this.root) {
                         this.navigateToPrevItem(listItem);
                     }
-                    
+
                     event.preventDefault();
                 break;
-                
+
                 default:
                 break;
             }
@@ -258,7 +258,7 @@ export default {
                 this.documentClickListener = null;
             }
         },
-        getSubmenuIcon(item) {
+        getSubmenuIcon() {
             return [
                 'p-submenu-icon pi pi-fw', {'pi-caret-right': !this.root, 'pi-caret-down': this.root}
             ];
