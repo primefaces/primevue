@@ -43,7 +43,7 @@ export default {
                                label:'Video',
                                icon:'pi pi-fw pi-video'
                             },
-             
+
                          ]
                       },
                       {
@@ -79,7 +79,7 @@ export default {
                          label:'Justify',
                          icon:'pi pi-fw pi-align-justify'
                       },
-             
+
                    ]
                 },
                 {
@@ -89,12 +89,12 @@ export default {
                       {
                          label:'New',
                          icon:'pi pi-fw pi-user-plus',
-             
+
                       },
                       {
                          label:'Delete',
                          icon:'pi pi-fw pi-user-minus',
-             
+
                       },
                       {
                          label:'Search',
@@ -134,7 +134,7 @@ export default {
                                label:'Delete',
                                icon:'pi pi-fw pi-calendar-minus'
                             },
-             
+
                          ]
                       },
                       {

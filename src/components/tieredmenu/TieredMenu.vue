@@ -1,7 +1,7 @@
 <template>
     <transition name="p-input-overlay" @enter="onEnter" @leave="onLeave">
         <div ref="container" :class="containerClass" v-if="popup ? visible : true">
-            <TieredMenuSub :model="model" :root="true" />
+            <TieredMenuSub :model="model" :root="true" :popup="popup" />
         </div>
     </transition>
 </template>
@@ -159,7 +159,6 @@ export default {
 
 .p-tieredmenu.p-tieredmenu-dynamic {
     position: absolute;
-    display: none;
 }
 
 .p-tieredmenu .p-menu-separator {
