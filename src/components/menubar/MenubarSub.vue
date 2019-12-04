@@ -188,7 +188,7 @@ export default {
             }
             else {
                 //left
-                if (event.which === 37) {
+                if (event.originalEvent.which === 37) {
                     this.collapseMenu(event.element);
                 }
             }
