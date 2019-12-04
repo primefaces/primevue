@@ -47,7 +47,6 @@ export default {
         this.restoreAppend();
         this.unbindResizeListener();
         this.unbindOutsideClickListener();
-        this.target = null;
     },
     methods: {
         itemClick(event) {
@@ -71,12 +70,10 @@ export default {
             this.pageX = event.pageX;
             this.pageY = event.pageY;
 
-            if (this.visible) {
+            if (this.visible)
                 this.position();
-            }
-            else {
+            else
                 this.visible = true;
-            }
 
             event.stopPropagation();
             event.preventDefault();

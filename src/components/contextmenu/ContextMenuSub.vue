@@ -1,25 +1,27 @@
 <template>
-    <ul :class="containerClass" role="menu">
-        <template v-for="(item, i) of model">
-            <li role="menuitem" :class="getItemClass(item)" :style="item.style" v-if="item.visible !== false && !item.separator" :key="item.label + i"
-                @mouseenter="onItemMouseEnter($event, item)">
-                <router-link v-if="item.to" :to="item.to" class="p-menuitem-link"
-                    @click.native="onItemClick($event, item)">
-                    <span :class="['p-menuitem-icon', item.icon]"></span>
-                    <span class="p-menuitem-text">{{item.label}}</span>
-                </router-link>
-                <a v-else :href="item.url||'#'" class="p-menuitem-link" :target="item.target"
-                    @click="onItemClick($event, item)">
-                    <span :class="['p-menuitem-icon', item.icon]"></span>
-                    <span class="p-menuitem-text">{{item.label}}</span>
-                    <span class="p-submenu-icon pi pi-fw pi-caret-right" v-if="item.items"></span>
-                </a>
-                <sub-menu :model="item.items" v-if="item.visible !== false && item.items" :key="item.label + '_sub_'"
-                    @leaf-click="onLeafClick" :parentActive="item === activeItem" />
-            </li>
-            <li class="p-menu-separator" :style="item.style" v-if="item.visible !== false && item.separator" :key="'separator' + i"></li>
-        </template>
-    </ul>
+    <transition name="p-contextmenusub" @enter="onEnter">
+        <ul ref="container" :class="containerClass" role="menu" v-if="root ? true : parentActive">
+            <template v-for="(item, i) of model">
+                <li role="menuitem" :class="getItemClass(item)" :style="item.style" v-if="item.visible !== false && !item.separator" :key="item.label + i"
+                    @mouseenter="onItemMouseEnter($event, item)">
+                    <router-link v-if="item.to" :to="item.to" class="p-menuitem-link"
+                        @click.native="onItemClick($event, item)">
+                        <span :class="['p-menuitem-icon', item.icon]"></span>
+                        <span class="p-menuitem-text">{{item.label}}</span>
+                    </router-link>
+                    <a v-else :href="item.url||'#'" class="p-menuitem-link" :target="item.target"
+                        @click="onItemClick($event, item)">
+                        <span :class="['p-menuitem-icon', item.icon]"></span>
+                        <span class="p-menuitem-text">{{item.label}}</span>
+                        <span class="p-submenu-icon pi pi-fw pi-caret-right" v-if="item.items"></span>
+                    </a>
+                    <sub-menu :model="item.items" v-if="item.visible !== false && item.items" :key="item.label + '_sub_'"
+                        @leaf-click="onLeafClick" :parentActive="item === activeItem" />
+                </li>
+                <li class="p-menu-separator" :style="item.style" v-if="item.visible !== false && item.separator" :key="'separator' + i"></li>
+            </template>
+        </ul>
+    </transition>
 </template>
 
 <script>
@@ -87,20 +89,23 @@ export default {
             this.activeItem = null;
             this.$emit('leaf-click');
         },
+        onEnter() {
+            this.position();
+        },
         position() {
-            const parentItem = this.$el.parentElement;
-            const containerOffset = DomHandler.getOffset(this.$el.parentElement)
+            const parentItem = this.$refs.container.parentElement;
+            const containerOffset = DomHandler.getOffset(this.$refs.container.parentElement)
             const viewport = DomHandler.getViewport();
-            const sublistWidth = this.$el.offsetParent ? this.$el.offsetWidth : DomHandler.getHiddenElementOuterWidth(this.$el);
+            const sublistWidth = this.$refs.container.offsetParent ? this.$refs.container.offsetWidth : DomHandler.getHiddenElementOuterWidth(this.$refs.container);
             const itemOuterWidth = DomHandler.getOuterWidth(parentItem.children[0]);
 
-            this.$el.style.top = '0px';
+            this.$refs.container.style.top = '0px';
 
             if ((parseInt(containerOffset.left, 10) + itemOuterWidth + sublistWidth) > (viewport.width - DomHandler.calculateScrollbarWidth())) {
-                this.$el.style.left = -1 * sublistWidth + 'px';
+                this.$refs.container.style.left = -1 * sublistWidth + 'px';
             }
             else {
-                this.$el.style.left = itemOuterWidth + 'px';
+                this.$refs.container.style.left = itemOuterWidth + 'px';
             }
         },
         getItemClass(item) {
