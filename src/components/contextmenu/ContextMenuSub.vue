@@ -1,0 +1,121 @@
+<template>
+    <ul :class="containerClass" role="menu">
+        <template v-for="(item, i) of model">
+            <li role="menuitem" :class="getItemClass(item)" :style="item.style" v-if="item.visible !== false && !item.separator" :key="item.label + i"
+                @mouseenter="onItemMouseEnter($event, item)">
+                <router-link v-if="item.to" :to="item.to" class="p-menuitem-link"
+                    @click.native="onItemClick($event, item)">
+                    <span :class="['p-menuitem-icon', item.icon]"></span>
+                    <span class="p-menuitem-text">{{item.label}}</span>
+                </router-link>
+                <a v-else :href="item.url||'#'" class="p-menuitem-link" :target="item.target"
+                    @click="onItemClick($event, item)">
+                    <span :class="['p-menuitem-icon', item.icon]"></span>
+                    <span class="p-menuitem-text">{{item.label}}</span>
+                    <span class="p-submenu-icon pi pi-fw pi-caret-right" v-if="item.items"></span>
+                </a>
+                <sub-menu :model="item.items" v-if="item.visible !== false && item.items" :key="item.label + '_sub_'"
+                    @leaf-click="onLeafClick" :parentActive="item === activeItem" />
+            </li>
+            <li class="p-menu-separator" :style="item.style" v-if="item.visible !== false && item.separator" :key="'separator' + i"></li>
+        </template>
+    </ul>
+</template>
+
+<script>
+import DomHandler from '../utils/DomHandler';
+
+export default {
+    name: 'sub-menu',
+    props: {
+        model: {
+            type: Array,
+            default: null
+        },
+        root: {
+            type: Boolean,
+            default: false
+        },
+        parentActive: {
+            type: Boolean,
+            default: false
+        }
+    },
+    watch: {
+        parentActive(newValue) {
+            if (!newValue) {
+                this.activeItem = null;
+            }
+        }
+    },
+    data() {
+        return {
+            activeItem: null
+        }
+    },
+    methods: {
+        onItemMouseEnter(event, item) {
+            if (item.disabled) {
+                event.preventDefault();
+                return;
+            }
+
+            this.activeItem = item;
+        },
+        onItemClick(event, item) {
+            if (item.disabled) {
+                event.preventDefault();
+                return;
+            }
+
+            if (!item.url) {
+                event.preventDefault();
+            }
+
+            if (item.command) {
+                item.command({
+                    originalEvent: event,
+                    item: item
+                });
+            }
+
+            if (!item.items) {
+                this.onLeafClick();
+            }
+        },
+        onLeafClick() {
+            this.activeItem = null;
+            this.$emit('leaf-click');
+        },
+        position() {
+            const parentItem = this.$el.parentElement;
+            const containerOffset = DomHandler.getOffset(this.$el.parentElement)
+            const viewport = DomHandler.getViewport();
+            const sublistWidth = this.$el.offsetParent ? this.$el.offsetWidth : DomHandler.getHiddenElementOuterWidth(this.$el);
+            const itemOuterWidth = DomHandler.getOuterWidth(parentItem.children[0]);
+
+            this.$el.style.top = '0px';
+
+            if ((parseInt(containerOffset.left, 10) + itemOuterWidth + sublistWidth) > (viewport.width - DomHandler.calculateScrollbarWidth())) {
+                this.$el.style.left = -1 * sublistWidth + 'px';
+            }
+            else {
+                this.$el.style.left = itemOuterWidth + 'px';
+            }
+        },
+        getItemClass(item) {
+            return [
+                'p-menuitem', item.class, {
+                    'p-menuitem-active': this.activeItem === item,
+                    'p-disabled': item.disabled,
+                }
+            ]
+        }
+    },
+    computed: {
+        containerClass() {
+            return {'p-submenu-list': !this.root};
+        }
+    }
+}
+</script>

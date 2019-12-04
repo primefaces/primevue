@@ -117,6 +117,11 @@ export default new Router({
 			component: () => import('./views/chips/ChipsDemo.vue')
         },
         {
+			path: '/contextmenu',
+			name: 'contextmenu',
+			component: () => import('./views/contextmenu/ContextMenuDemo.vue')
+        },
+        {
 			path: '/datatable',
 			name: 'datatable',
 			component: () => import('./views/datatable/DataTableDemo.vue')
