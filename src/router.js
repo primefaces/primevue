@@ -297,6 +297,11 @@ export default new Router({
 			component: () => import('./views/menu/MenuDemo.vue')
         },
         {
+			path: '/menubar',
+			name: 'menubar',
+			component: () => import('./views/menubar/MenubarDemo.vue')
+        },
+        {
 			path: '/menumodel',
 			name: 'menumodel',
 			component: () => import('./views/menumodel/MenuModel.vue')
