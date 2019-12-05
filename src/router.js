@@ -410,7 +410,32 @@ export default new Router({
 			path: '/textarea',
 			name: 'textarea',
 			component: () => import('./views/textarea/TextareaDemo.vue')
-		},
+        },
+        {
+			path: '/tabmenu',
+			name: 'tabmenu',
+            component: () => import('./views/tabmenu/TabMenuDemo.vue'),
+            children: [{
+                path: '',
+                component: () => import('./views/tabmenu/HomeDemo.vue')
+            },
+            {
+                path: '/tabmenu/calendar',
+                component: () => import('./views/tabmenu/CalendarDemo.vue')
+            },
+            {
+                path: '/tabmenu/edit',
+                component: () => import('./views/tabmenu/EditDemo.vue')
+            },
+            {
+                path: '/tabmenu/documentation',
+                component: () => import('./views/tabmenu/DocumentationDemo.vue')
+            },
+            {
+                path: '/tabmenu/settings',
+                component: () => import('./views/tabmenu/SettingsDemo.vue')
+            }]
+        },
 		{
 			path: '/tabview',
 			name: 'tabview',
