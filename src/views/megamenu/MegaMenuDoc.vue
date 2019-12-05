@@ -4,153 +4,159 @@
 			<TabPanel header="Documentation">
 				<h3>Import</h3>
 <CodeHighlight lang="javascript">
-import Menubar from 'primevue/menubar';
+import MegaMenu from 'primevue/megamenu';
 </CodeHighlight>
 
                 <h3>MenuModel</h3>
-                <p>Menubar uses the common MenuModel API to define the items, visit <router-link to="/menumodel">MenuModel API</router-link> for details.</p>
+                <p>MegaMenu uses the common MenuModel API to define the items, visit <router-link to="/menumodel">MenuModel API</router-link> for details.</p>
 
-				<h3>Getting Started</h3>
-				<p>Menubar requires a collection of menuitems as its model.</p>
-<CodeHighlight>
-&lt;Menubar :model="items" /&gt;
+                <h3>Getting Started</h3>
+                <p>Layout of the MegaMenu is managed by the <a href="https://github.com/primefaces/primeflex">PrimeFlex</a> that can be downloaded from npm.</p>
+<CodeHighlight lang="js">
+npm install primeflex --save
 </CodeHighlight>
 
-<CodeHighlight lang="js">
+				<p>MegaMenu requires a collection of menuitems as its model.</p>
+<CodeHighlight>
+&lt;MegaMenu :model="items" /&gt;
+</CodeHighlight>
+
+<CodeHighlight lang="javascript">
 export default {
     data() {
         return {
             items: [
                 {
-                   label:'File',
-                   icon:'pi pi-fw pi-file',
-                   items:[
-                      {
-                         label:'New',
-                         icon:'pi pi-fw pi-plus',
-                         items:[
+                    label: 'Videos', icon: 'pi pi-fw pi-video',
+                    items: [
+                        [
                             {
-                               label:'Bookmark',
-                               icon:'pi pi-fw pi-bookmark'
+                                label: 'Video 1',
+                                items: [{label: 'Video 1.1'}, {label: 'Video 1.2'}]
                             },
                             {
-                               label:'Video',
-                               icon:'pi pi-fw pi-video'
-                            },
-
-                         ]
-                      },
-                      {
-                         label:'Delete',
-                         icon:'pi pi-fw pi-trash'
-                      },
-                      {
-                         separator:true
-                      },
-                      {
-                         label:'Export',
-                         icon:'pi pi-fw pi-external-link'
-                      }
-                   ]
-                },
-                {
-                   label:'Edit',
-                   icon:'pi pi-fw pi-pencil',
-                   items:[
-                      {
-                         label:'Left',
-                         icon:'pi pi-fw pi-align-left'
-                      },
-                      {
-                         label:'Right',
-                         icon:'pi pi-fw pi-align-right'
-                      },
-                      {
-                         label:'Center',
-                         icon:'pi pi-fw pi-align-center'
-                      },
-                      {
-                         label:'Justify',
-                         icon:'pi pi-fw pi-align-justify'
-                      },
-
-                   ]
-                },
-                {
-                   label:'Users',
-                   icon:'pi pi-fw pi-user',
-                   items:[
-                      {
-                         label:'New',
-                         icon:'pi pi-fw pi-user-plus',
-
-                      },
-                      {
-                         label:'Delete',
-                         icon:'pi pi-fw pi-user-minus',
-
-                      },
-                      {
-                         label:'Search',
-                         icon:'pi pi-fw pi-users',
-                         items:[
-                            {
-                               label:'Filter',
-                               icon:'pi pi-fw pi-filter',
-                               items:[
-                                  {
-                                     label:'Print',
-                                     icon:'pi pi-fw pi-print'
-                                  }
-                               ]
-                            },
-                            {
-                               icon:'pi pi-fw pi-bars',
-                               label:'List'
+                                label: 'Video 2',
+                                items: [{label: 'Video 2.1'}, {label: 'Video 2.2'}]
                             }
-                         ]
-                      }
-                   ]
-                },
-                {
-                   label:'Events',
-                   icon:'pi pi-fw pi-calendar',
-                   items:[
-                      {
-                         label:'Edit',
-                         icon:'pi pi-fw pi-pencil',
-                         items:[
+                        ],
+                        [
                             {
-                               label:'Save',
-                               icon:'pi pi-fw pi-calendar-plus'
+                                label: 'Video 3',
+                                items: [{label: 'Video 3.1'}, {label: 'Video 3.2'}]
                             },
                             {
-                               label:'Delete',
-                               icon:'pi pi-fw pi-calendar-minus'
-                            },
-
-                         ]
-                      },
-                      {
-                         label:'Archieve',
-                         icon:'pi pi-fw pi-calendar-times',
-                         items:[
-                            {
-                               label:'Remove',
-                               icon:'pi pi-fw pi-calendar-minus'
+                                label: 'Video 4',
+                                items: [{label: 'Video 4.1'}, {label: 'Video 4.2'}]
                             }
-                         ]
-                      }
-                   ]
+                        ]
+                    ]
                 },
                 {
-                   label:'Quit',
-                   icon:'pi pi-fw pi-power-off'
+                    label: 'Users', icon: 'pi pi-fw pi-users',
+                    items: [
+                        [
+                            {
+                                label: 'User 1',
+                                items: [{label: 'User 1.1'}, {label: 'User 1.2'}]
+                            },
+                            {
+                                label: 'User 2',
+                                items: [{label: 'User 2.1'}, {label: 'User 2.2'}]
+                            },
+                        ],
+                        [
+                            {
+                                label: 'User 3',
+                                items: [{label: 'User 3.1'}, {label: 'User 3.2'}]
+                            },
+                            {
+                                label: 'User 4',
+                                items: [{label: 'User 4.1'}, {label: 'User 4.2'}]
+                            }
+                        ],
+                        [
+                            {
+                                label: 'User 5',
+                                items: [{label: 'User 5.1'}, {label: 'User 5.2'}]
+                            },
+                            {
+                                label: 'User 6',
+                                items: [{label: 'User 6.1'}, {label: 'User 6.2'}]
+                            }
+                        ]
+                    ]
+                },
+                {
+                    label: 'Events', icon: 'pi pi-fw pi-calendar',
+                    items: [
+                        [
+                            {
+                                label: 'Event 1',
+                                items: [{label: 'Event 1.1'}, {label: 'Event 1.2'}]
+                            },
+                            {
+                                label: 'Event 2',
+                                items: [{label: 'Event 2.1'}, {label: 'Event 2.2'}]
+                            }
+                        ],
+                        [
+                            {
+                                label: 'Event 3',
+                                items: [{label: 'Event 3.1'}, {label: 'Event 3.2'}]
+                            },
+                            {
+                                label: 'Event 4',
+                                items: [{label: 'Event 4.1'}, {label: 'Event 4.2'}]
+                            }
+                        ]
+                    ]
+                },
+                {
+                    label: 'Settings', icon: 'pi pi-fw pi-cog',
+                    items: [
+                        [
+                            {
+                                label: 'Setting 1',
+                                items: [{label: 'Setting 1.1'}, {label: 'Setting 1.2'}]
+                            },
+                            {
+                                label: 'Setting 2',
+                                items: [{label: 'Setting 2.1'}, {label: 'Setting 2.2'}]
+                            },
+                            {
+                                label: 'Setting 3',
+                                items: [{label: 'Setting 3.1'}, {label: 'Setting 3.2'}]
+                            }
+                        ],
+                        [
+                            {
+                                label: 'Setting 4',
+                                items: [{label: 'Setting 4.1'}, {label: 'Setting 4.2'}]
+                            }
+                        ]
+                    ]
                 }
-             ]
+            ]
         }
     }
 }
+</CodeHighlight>
+
+                <h3>Orientation</h3>
+                <p>Default orientation is "horizontal" with "vertical" as the alternative.</p>
+<CodeHighlight>
+&lt;MegaMenu :model="items" orientation="vertical" /&gt;
+</CodeHighlight>
+
+                <h3>Custom Content</h3>
+                <p>Any content inside the megamenu will be displayed on the right side by default. You may use ".p-megamenu-custom" style class to change the location of the content.</p>
+<CodeHighlight>
+<template v-pre>
+&lt;MegaMenu :model="items"&gt;
+    &lt;InputText placeholder="Search" type="text" /&gt;
+    &lt;Button label="Logout" icon="pi pi-power-off" /&gt;
+&lt;/MegaMenu&gt;
+</template>
 </CodeHighlight>
 
                 <h3>Properties</h3>
@@ -172,6 +178,12 @@ export default {
                                 <td>null</td>
                                 <td>An array of menuitems.</td>
                             </tr>
+                            <tr>
+                                <td>orientation</td>
+                                <td>string</td>
+                                <td>horizontal</td>
+                                <td>Defines the orientation, valid values are horizontal and vertical.</td>
+                            </tr>
 						</tbody>
 					</table>
 				</div>
@@ -188,15 +200,27 @@ export default {
 						</thead>
 						<tbody>
                             <tr>
-                                <td>p-menubar</td>
+                                <td>p-megamenu</td>
                                 <td>Container element.</td>
                             </tr>
                             <tr>
-                                <td>p-menubar-root-list</td>
+                                <td>p-megamenu-horizontal</td>
+                                <td>Container element in horizontal orientation.</td>
+                            </tr>
+                            <tr>
+                                <td>p-megamenu-vertical</td>
+                                <td>Container element in vertical orientation.</td>
+                            </tr>
+                            <tr>
+                                <td>p-megamenu-root-list</td>
                                 <td>Root list element.</td>
                             </tr>
                             <tr>
-                                <td>p-submenu-list</td>
+                                <td>p-megamenu-panel</td>
+                                <td>Submenu container.</td>
+                            </tr>
+                            <tr>
+                                <td>p-megamenu-submenu</td>
                                 <td>Submenu list element.</td>
                             </tr>
                             <tr>
@@ -215,24 +239,29 @@ export default {
                                 <td>p-submenu-icon</td>
                                 <td>Arrow icon of a submenu.</td>
                             </tr>
+                            <tr>
+                                <td>p-megamenu-custom</td>
+                                <td>Container of the default slot.</td>
+                            </tr>
 						</tbody>
 					</table>
 				</div>
 
 				<h3>Dependencies</h3>
-				<p>None.</p>
+				<p>PrimeFlex.</p>
 			</TabPanel>
 
 			<TabPanel header="Source">
-				<a href="https://github.com/primefaces/primevue/tree/master/src/views/menubar" class="btn-viewsource" target="_blank" rel="noopener noreferrer">
+				<a href="https://github.com/primefaces/primevue/tree/master/src/views/megamenu" class="btn-viewsource" target="_blank" rel="noopener noreferrer">
 					<span>View on GitHub</span>
 				</a>
 <CodeHighlight>
 <template v-pre>
-&lt;Menubar :model="items"&gt;
-    &lt;InputText placeholder="Search" type="text" /&gt;
-    &lt;Button label="Logout" icon="pi pi-power-off" :style="{'margin-left': '.25em'}"/&gt;
-&lt;/Menubar&gt;
+&lt;h3&gt;Horizontal&lt;/h3&gt;
+&lt;MegaMenu :model="items" /&gt;
+
+&lt;h3&gt;Vertical&lt;/h3&gt;
+&lt;MegaMenu :model="items" orientation="vertical"/&gt;
 </template>
 </CodeHighlight>
 
@@ -242,132 +271,116 @@ export default {
         return {
             items: [
                 {
-                   label:'File',
-                   icon:'pi pi-fw pi-file',
-                   items:[
-                      {
-                         label:'New',
-                         icon:'pi pi-fw pi-plus',
-                         items:[
+                    label: 'Videos', icon: 'pi pi-fw pi-video',
+                    items: [
+                        [
                             {
-                               label:'Bookmark',
-                               icon:'pi pi-fw pi-bookmark'
+                                label: 'Video 1',
+                                items: [{label: 'Video 1.1'}, {label: 'Video 1.2'}]
                             },
                             {
-                               label:'Video',
-                               icon:'pi pi-fw pi-video'
-                            },
-
-                         ]
-                      },
-                      {
-                         label:'Delete',
-                         icon:'pi pi-fw pi-trash'
-                      },
-                      {
-                         separator:true
-                      },
-                      {
-                         label:'Export',
-                         icon:'pi pi-fw pi-external-link'
-                      }
-                   ]
-                },
-                {
-                   label:'Edit',
-                   icon:'pi pi-fw pi-pencil',
-                   items:[
-                      {
-                         label:'Left',
-                         icon:'pi pi-fw pi-align-left'
-                      },
-                      {
-                         label:'Right',
-                         icon:'pi pi-fw pi-align-right'
-                      },
-                      {
-                         label:'Center',
-                         icon:'pi pi-fw pi-align-center'
-                      },
-                      {
-                         label:'Justify',
-                         icon:'pi pi-fw pi-align-justify'
-                      },
-
-                   ]
-                },
-                {
-                   label:'Users',
-                   icon:'pi pi-fw pi-user',
-                   items:[
-                      {
-                         label:'New',
-                         icon:'pi pi-fw pi-user-plus',
-
-                      },
-                      {
-                         label:'Delete',
-                         icon:'pi pi-fw pi-user-minus',
-
-                      },
-                      {
-                         label:'Search',
-                         icon:'pi pi-fw pi-users',
-                         items:[
-                            {
-                               label:'Filter',
-                               icon:'pi pi-fw pi-filter',
-                               items:[
-                                  {
-                                     label:'Print',
-                                     icon:'pi pi-fw pi-print'
-                                  }
-                               ]
-                            },
-                            {
-                               icon:'pi pi-fw pi-bars',
-                               label:'List'
+                                label: 'Video 2',
+                                items: [{label: 'Video 2.1'}, {label: 'Video 2.2'}]
                             }
-                         ]
-                      }
-                   ]
-                },
-                {
-                   label:'Events',
-                   icon:'pi pi-fw pi-calendar',
-                   items:[
-                      {
-                         label:'Edit',
-                         icon:'pi pi-fw pi-pencil',
-                         items:[
+                        ],
+                        [
                             {
-                               label:'Save',
-                               icon:'pi pi-fw pi-calendar-plus'
+                                label: 'Video 3',
+                                items: [{label: 'Video 3.1'}, {label: 'Video 3.2'}]
                             },
                             {
-                               label:'Delete',
-                               icon:'pi pi-fw pi-calendar-minus'
-                            },
-
-                         ]
-                      },
-                      {
-                         label:'Archieve',
-                         icon:'pi pi-fw pi-calendar-times',
-                         items:[
-                            {
-                               label:'Remove',
-                               icon:'pi pi-fw pi-calendar-minus'
+                                label: 'Video 4',
+                                items: [{label: 'Video 4.1'}, {label: 'Video 4.2'}]
                             }
-                         ]
-                      }
-                   ]
+                        ]
+                    ]
                 },
                 {
-                   label:'Quit',
-                   icon:'pi pi-fw pi-power-off'
+                    label: 'Users', icon: 'pi pi-fw pi-users',
+                    items: [
+                        [
+                            {
+                                label: 'User 1',
+                                items: [{label: 'User 1.1'}, {label: 'User 1.2'}]
+                            },
+                            {
+                                label: 'User 2',
+                                items: [{label: 'User 2.1'}, {label: 'User 2.2'}]
+                            },
+                        ],
+                        [
+                            {
+                                label: 'User 3',
+                                items: [{label: 'User 3.1'}, {label: 'User 3.2'}]
+                            },
+                            {
+                                label: 'User 4',
+                                items: [{label: 'User 4.1'}, {label: 'User 4.2'}]
+                            }
+                        ],
+                        [
+                            {
+                                label: 'User 5',
+                                items: [{label: 'User 5.1'}, {label: 'User 5.2'}]
+                            },
+                            {
+                                label: 'User 6',
+                                items: [{label: 'User 6.1'}, {label: 'User 6.2'}]
+                            }
+                        ]
+                    ]
+                },
+                {
+                    label: 'Events', icon: 'pi pi-fw pi-calendar',
+                    items: [
+                        [
+                            {
+                                label: 'Event 1',
+                                items: [{label: 'Event 1.1'}, {label: 'Event 1.2'}]
+                            },
+                            {
+                                label: 'Event 2',
+                                items: [{label: 'Event 2.1'}, {label: 'Event 2.2'}]
+                            }
+                        ],
+                        [
+                            {
+                                label: 'Event 3',
+                                items: [{label: 'Event 3.1'}, {label: 'Event 3.2'}]
+                            },
+                            {
+                                label: 'Event 4',
+                                items: [{label: 'Event 4.1'}, {label: 'Event 4.2'}]
+                            }
+                        ]
+                    ]
+                },
+                {
+                    label: 'Settings', icon: 'pi pi-fw pi-cog',
+                    items: [
+                        [
+                            {
+                                label: 'Setting 1',
+                                items: [{label: 'Setting 1.1'}, {label: 'Setting 1.2'}]
+                            },
+                            {
+                                label: 'Setting 2',
+                                items: [{label: 'Setting 2.1'}, {label: 'Setting 2.2'}]
+                            },
+                            {
+                                label: 'Setting 3',
+                                items: [{label: 'Setting 3.1'}, {label: 'Setting 3.2'}]
+                            }
+                        ],
+                        [
+                            {
+                                label: 'Setting 4',
+                                items: [{label: 'Setting 4.1'}, {label: 'Setting 4.2'}]
+                            }
+                        ]
+                    ]
                 }
-             ]
+            ]
         }
     }
 }

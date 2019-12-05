@@ -153,6 +153,17 @@ export default {
 }
 </CodeHighlight>
 
+                <h3>Custom Content</h3>
+                <p>Any content inside the megamenu will be displayed on the right side by default. You may use ".p-menubar-custom" style class to change the location of the content.</p>
+<CodeHighlight>
+<template v-pre>
+&lt;Menubar :model="items"&gt;
+    &lt;InputText placeholder="Search" type="text" /&gt;
+    &lt;Button label="Logout" icon="pi pi-power-off" /&gt;
+&lt;/Menubar&gt;
+</template>
+</CodeHighlight>
+
                 <h3>Properties</h3>
                 <p>Any attribute such as style and class are passed to the main container element. Following are the additional properties to configure the component.</p>
 				<div class="doc-tablewrapper">

@@ -33,7 +33,7 @@
                 </div>
             </li>
         </ul>
-        <div class="p-menubar-custom" v-if="$slots.default">
+        <div class="p-megamenu-custom" v-if="$slots.default">
             <slot></slot>
         </div>
     </div>
