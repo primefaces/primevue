@@ -8,6 +8,29 @@
                     <span class="p-menuitem-text">{{category.label}}</span>
                     <span v-if="category.items" :class="getCategorySubMenuIcon(category)"></span>
                 </a>
+                <div class="p-megamenu-panel" v-if="category.items">
+                    <div class="p-grid">
+                        <div v-for="(column,columnIndex) of category.items" :key="category.label + '_column_' + columnIndex" :class="getColumnClassName(category)">
+                            <ul v-for="(submenu,submenuIndex) of column" class="p-megamenu-submenu" :key="submenu.label + '_submenu_' + submenuIndex">
+                                <li :class="getSubmenuHeaderClass(submenu)" :style="submenu.style">{{submenu.label}}</li>
+                                <template v-for="(item, i) of submenu.items">
+                                    <li role="menuitem" :class="getSubmenuItemClass(item)" :style="item.style" v-if="item.visible !== false && !item.separator" :key="item.label + i">
+                                        <router-link v-if="item.to" :to="item.to" class="p-menuitem-link" @click.native="onLeafClick($event, item)">
+                                            <span :class="['p-menuitem-icon', item.icon]"></span>
+                                            <span class="p-menuitem-text">{{item.label}}</span>
+                                        </router-link>
+                                        <a v-else :href="item.url||'#'" class="p-menuitem-link" :target="item.target" @click="onLeafClick($event, item)">
+                                            <span :class="['p-menuitem-icon', item.icon]"></span>
+                                            <span class="p-menuitem-text">{{item.label}}</span>
+                                            <span :class="getSubmenuIcon()" v-if="item.items"></span>
+                                        </a>
+                                    </li>
+                                    <li class="p-menu-separator" :style="item.style" v-if="item.visible !== false && item.separator" :key="'separator' + i"></li>
+                                </template>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
             </li>
         </ul>
         <div class="p-menubar-custom" v-if="$slots.default">
@@ -17,6 +40,8 @@
 </template>
 
 <script>
+import DomHandler from '../utils/DomHandler';
+
 export default {
     props: {
 		model: {
@@ -28,23 +53,156 @@ export default {
             default: 'horizontal'
         }
     },
+    documentClickListener: null,
     data() {
         return {
             activeItem: null
         }
     },
+    beforeDestroy() {
+        this.unbindDocumentClickListener();
+    },
     methods: {
-        itemClick(event) {
-            
+        onLeafClick(event, item) {
+            if (item.disabled) {
+                event.preventDefault();
+                return;
+            }
+
+            if (!item.url) {
+                event.preventDefault();
+            }
+
+            if (item.command) {
+                item.command({
+                    originalEvent: event,
+                    item: item
+                });
+            }
+
+            this.activeItem = null;
         },
         onCategoryMouseEnter(event, category) {
-
+            if (category.disabled) {
+                event.preventDefault();
+                return;
+            }
+            
+            if (this.activeItem) {
+                this.activeItem = category;
+            }
         },
         onCategoryClick(event, category) {
+            if (category.disabled) {
+                event.preventDefault();
+                return;
+            }
 
+            if (!category.url) {
+                event.preventDefault();
+            }
+
+            if (category.command) {
+                category.command({
+                    originalEvent: event,
+                    item: category
+                });
+            }
+
+            if (category.items) {
+                if (this.activeItem && this.activeItem === category) {
+                    this.activeItem = null;
+                    this.unbindDocumentClickListener();
+                }
+                else {
+                    this.activeItem = category;
+                    this.bindDocumentClickListener();
+                }                    
+            }
         },
         onCategoryKeydown(event, category) {
+            let listItem = event.currentTarget.parentElement;
 
+            switch(event.which) {
+                //down
+                case 40:
+                    if (this.horizontal)
+                        this.expandMenu(category);
+                    else
+                        this.navigateToNextItem(listItem);
+
+                    event.preventDefault();
+                break;
+
+                //up
+                case 38:
+                    if (this.vertical)
+                        this.navigateToPrevItem(listItem);
+                    else if (category.items && category === this.activeItem)
+                        this.collapseMenu();
+                
+                    event.preventDefault();
+                break;
+
+                //right
+                case 39:
+                    if (this.horizontal)
+                        this.navigateToNextItem(listItem);
+                    else
+                        this.expandMenu(category);
+                
+                    event.preventDefault()
+                break;
+
+                //left
+                case 37:
+                    if (this.horizontal)
+                        this.navigateToPrevItem(listItem);
+                    else if (category.items && category === this.activeItem)
+                        this.collapseMenu();
+
+                    event.preventDefault();
+                break;
+                
+                default:
+                break;
+            }
+        },
+        expandMenu(item) {
+            if (item.items) {
+                this.activeItem = item;
+            }
+        },
+        collapseMenu(item) {
+            this.activeItem = null;
+        },
+        findNextItem(item) {
+            let nextItem = item.nextElementSibling;
+
+            if (nextItem)
+                return DomHandler.hasClass(nextItem, 'p-disabled') || !DomHandler.hasClass(nextItem, 'p-menuitem') ? this.findNextItem(nextItem) : nextItem;
+            else
+                return null;
+        },
+        findPrevItem(item) {
+            let prevItem = item.previousElementSibling;
+            
+            if (prevItem)
+                return DomHandler.hasClass(prevItem, 'p-disabled') || !DomHandler.hasClass(prevItem, 'p-menuitem') ? this.findPrevItem(prevItem) : prevItem;
+            else
+                return null;
+        },
+        navigateToNextItem(listItem) {
+            var nextItem = this.findNextItem(listItem);
+            if (nextItem) {
+                nextItem.children[0].focus();
+            }
+        },
+        navigateToPrevItem(listItem) {
+            var prevItem = this.findPrevItem(listItem);
+            if (prevItem) {
+                prevItem.children[0].focus();
+            }
         },
         getCategoryClass(category) {
             return ['p-menuitem', {
@@ -60,7 +218,60 @@ export default {
         },
         getCategoryIcon(category) {
             return ['p-menuitem-icon', category.icon];
-        }
+        },
+        getColumnClassName(category) {
+            let length = category.items ? category.items.length: 0;
+            let columnClass;
+
+            switch(length) {
+                case 2:
+                    columnClass= 'p-col-6';
+                break;
+                
+                case 3:
+                    columnClass= 'p-col-4';
+                break;
+                
+                case 4:
+                    columnClass= 'p-col-3';
+                break;
+                
+                case 6:
+                    columnClass= 'p-col-2';
+                break;
+                            
+                default:
+                    columnClass= 'p-col-12';
+                break;
+            }
+            
+            return columnClass;
+        },
+        getSubmenuHeaderClass(submenu) {
+            return ['p-megamenu-submenu-header', submenu.class, {'p-disabled': submenu.disabled}];
+        },
+        getSubmenuItemClass(item) {
+            return ['p-menuitem', item.class, {'p-disabled': item.disabled}];
+        },
+        bindDocumentClickListener() {
+            if (!this.documentClickListener) {
+                this.documentClickListener = (event) => {
+                    console.log(event);
+                    if (this.$el && !this.$el.contains(event.target)) {
+                        this.activeItem = null;
+                        this.unbindDocumentClickListener();
+                    }
+                };
+
+                document.addEventListener('click', this.documentClickListener);
+            }
+        },
+        unbindDocumentClickListener() {
+            if (this.documentClickListener) {
+                document.removeEventListener('click', this.documentClickListener);
+                this.documentClickListener = null;
+            }
+        },
     },
     computed: {
         containerClass() {

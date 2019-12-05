@@ -8,7 +8,11 @@
         </div>
 
         <div class="content-section implementation">
+            <h3>Horizontal</h3>
             <MegaMenu :model="items" />
+
+            <h3>Vertical</h3>
+            <MegaMenu :model="items" orientation="vertical"/>
         </div>
 
         <MegaMenuDoc />
@@ -126,7 +130,7 @@ export default {
                         ],
                         [
                             {
-                                label: 'Technology 4',
+                                label: 'Setting 4',
                                 items: [{label: 'Setting 4.1'}, {label: 'Setting 4.2'}]
                             }
                         ]
