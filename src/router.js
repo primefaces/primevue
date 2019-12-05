@@ -405,7 +405,28 @@ export default new Router({
 			path: '/splitbutton',
 			name: 'splitbutton',
 			component: () => import('./views/splitbutton/SplitButtonDemo.vue')
-		},
+        },
+        {
+			path: '/steps',
+			name: 'steps',
+            component: () => import('./views/steps/StepsDemo.vue'),
+            children: [{
+                path: '',
+                component: () => import('./views/steps/PersonalDemo.vue')
+            },
+            {
+                path: '/steps/seat',
+                component: () => import('./views/steps/SeatDemo.vue')
+            },
+            {
+                path: '/steps/payment',
+                component: () => import('./views/steps/PaymentDemo.vue')
+            },
+            {
+                path: '/steps/confirmation',
+                component: () => import('./views/steps/ConfirmationDemo.vue')
+            }]
+        },
 		{
 			path: '/textarea',
 			name: 'textarea',

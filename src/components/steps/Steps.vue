@@ -1,0 +1,91 @@
+<template>
+    <div :class="containerClass">
+        Steps
+    </div>
+</template>
+
+<script>
+export default {
+    props: {
+		model: {
+            type: Array,
+            default: null
+        },
+        readonly: {
+            type: Boolean,
+            default: true
+        }
+    },
+    methods: {
+
+    },
+    computed: {
+        activeRoute() {
+            return this.$route.path;
+        },
+        containerClass() {
+            return ['p-steps p-component', {'p-steps-readonly': this.readonly}];
+        }
+    }
+}
+</script>
+
+<style>
+.p-steps ul {
+    list-style-type: none;
+    padding: 0;
+    margin: 0;
+}
+
+.p-steps ul:after {
+    content: "";
+    display: table;
+    clear: both;
+}
+
+.p-steps .p-steps-item {
+    float: left;
+    box-sizing: border-box;
+    cursor: pointer;
+}
+
+.p-steps.p-steps-readonly .p-steps-item {
+    cursor: auto;
+}
+
+.p-steps .p-steps-item .p-menuitem-link {
+    text-decoration: none;
+    display: block;
+    padding: 1em;
+    position: relative;
+    text-align: center;
+}
+
+.p-steps .p-steps-item.p-steps-current .p-menuitem-link,
+.p-steps .p-steps-item.p-disabled .p-menuitem-link {
+    cursor: default;
+}
+
+.p-steps .p-steps-number {
+    font-size: 2em;
+    display: block;
+}
+
+.p-steps .p-steps-title {
+    display: block;
+    white-space: nowrap;
+}
+
+@media (max-width: 40em) {
+    .p-steps .p-steps-item .p-menuitem-link {
+        padding: 0.5em;
+    }
+
+    .p-steps .p-steps-item .p-steps-title {
+        display: none;
+    }
+}
+.p-steps .p-steps-item {
+     width: 25%;
+ }
+</style>

@@ -68,7 +68,7 @@ body {
 }
 
 .layout-topbar {
-    background-color: #ffffff;
+    background-color: #20272a;
     display: block;
     padding: 0;
     height: 70px;
@@ -132,7 +132,7 @@ body {
 
             > a {
                 text-decoration: none;
-                color: #484848;
+                color: #ffffff;
                 min-width: 120px;
                 font-size: 16px;
                 display: inline-block;
@@ -143,7 +143,7 @@ body {
                 @include transition(background-color .2s);
 
                 &:hover {
-                    background-color: #eeeeee;
+                    background-color: #4a4f52;
                 }
 
                 &:focus {
@@ -498,7 +498,6 @@ body {
 
         &.content-submenu {
             background-color: #20272a;
-            border-bottom: 1px solid #1b81d7;
             padding: 15px 30px;
             @include clearfix();
 

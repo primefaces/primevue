@@ -132,6 +132,7 @@
                         <router-link to="/megamenu">&#9679; MegaMenu</router-link>
                         <router-link to="/menu">&#9679; Menu</router-link>
                         <router-link to="/menubar">&#9679; Menubar</router-link>
+                        <router-link to="/steps">&#9679; Steps</router-link>
                         <router-link to="/tabmenu">&#9679; TabMenu</router-link>
                         <router-link to="/tieredmenu">&#9679; TieredMenu</router-link>
                     </div>

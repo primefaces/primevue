@@ -25,11 +25,6 @@ export default {
             default: null
         }
     },
-    data() {
-        return {
-            visible: false
-        };
-    },
     methods: {
         onItemClick(event, item) {
             if (item.disabled) {
