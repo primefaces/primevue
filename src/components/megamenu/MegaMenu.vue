@@ -1,12 +1,12 @@
 <template>
     <div :class="containerClass">
         <ul class="p-megamenu-root-list">
-            <li v-for="(category,index) of model" :key="category.label + '_' + index" :class="getCategoryClass(category)" :style="category.style" 
+            <li v-for="(category,index) of model" :key="category.label + '_' + index" :class="getCategoryClass(category)" :style="category.style"
                 @mouseenter="onCategoryMouseEnter($event, category)">
                 <a :href="category.url||'#'" class="p-menuitem-link" :target="category.target" @click="onCategoryClick($event, category)" @keydown="onCategoryKeydown($event, category)">
                     <span v-if="category.icon" :class="getCategoryIcon(category)"></span>
                     <span class="p-menuitem-text">{{category.label}}</span>
-                    <span v-if="category.items" :class="getCategorySubMenuIcon(category)"></span>
+                    <span v-if="category.items" :class="getCategorySubMenuIcon()"></span>
                 </a>
                 <div class="p-megamenu-panel" v-if="category.items">
                     <div class="p-grid">
@@ -87,7 +87,7 @@ export default {
                 event.preventDefault();
                 return;
             }
-            
+
             if (this.activeItem) {
                 this.activeItem = category;
             }
@@ -117,7 +117,7 @@ export default {
                 else {
                     this.activeItem = category;
                     this.bindDocumentClickListener();
-                }                    
+                }
             }
         },
         onCategoryKeydown(event, category) {
@@ -140,7 +140,7 @@ export default {
                         this.navigateToPrevItem(listItem);
                     else if (category.items && category === this.activeItem)
                         this.collapseMenu();
-                
+
                     event.preventDefault();
                 break;
 
@@ -150,7 +150,7 @@ export default {
                         this.navigateToNextItem(listItem);
                     else
                         this.expandMenu(category);
-                
+
                     event.preventDefault()
                 break;
 
@@ -163,7 +163,7 @@ export default {
 
                     event.preventDefault();
                 break;
-                
+
                 default:
                 break;
             }
@@ -173,7 +173,7 @@ export default {
                 this.activeItem = item;
             }
         },
-        collapseMenu(item) {
+        collapseMenu() {
             this.activeItem = null;
         },
         findNextItem(item) {
@@ -186,7 +186,7 @@ export default {
         },
         findPrevItem(item) {
             let prevItem = item.previousElementSibling;
-            
+
             if (prevItem)
                 return DomHandler.hasClass(prevItem, 'p-disabled') || !DomHandler.hasClass(prevItem, 'p-menuitem') ? this.findPrevItem(prevItem) : prevItem;
             else
@@ -210,7 +210,7 @@ export default {
                 'p-disabled': category.disabled
             }, category.class];
         },
-        getCategorySubMenuIcon(category) {
+        getCategorySubMenuIcon() {
             return ['p-submenu-icon pi pi-fw', {
                 'pi-caret-down': this.horizontal,
                 'pi-caret-right': this.vertical
@@ -227,24 +227,24 @@ export default {
                 case 2:
                     columnClass= 'p-col-6';
                 break;
-                
+
                 case 3:
                     columnClass= 'p-col-4';
                 break;
-                
+
                 case 4:
                     columnClass= 'p-col-3';
                 break;
-                
+
                 case 6:
                     columnClass= 'p-col-2';
                 break;
-                            
+
                 default:
                     columnClass= 'p-col-12';
                 break;
             }
-            
+
             return columnClass;
         },
         getSubmenuHeaderClass(submenu) {
