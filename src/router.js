@@ -297,6 +297,11 @@ export default new Router({
 			component: () => import('./views/listbox/ListboxDemo.vue')
         },
         {
+			path: '/megamenu',
+			name: 'megamenu',
+			component: () => import('./views/megamenu/MegaMenuDemo.vue')
+        },
+        {
 			path: '/menu',
 			name: 'menu',
 			component: () => import('./views/menu/MenuDemo.vue')
