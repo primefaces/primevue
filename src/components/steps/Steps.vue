@@ -2,10 +2,14 @@
     <div :class="containerClass">
         <ul role="tablist">
             <li v-for="(item,index) of model" :key="item.to" :class="getItemClass(item)" :style="item.style">
-                <router-link :to="item.to" class="p-menuitem-link" @click.native="onItemClick($event, item)">
+                <router-link :to="item.to" class="p-menuitem-link" @click.native="onItemClick($event, item)" v-if="!isItemDisabled(item)">
                     <span class="p-steps-number">{{index + 1}}</span>
                     <span class="p-steps-title">{{item.label}}</span>
                 </router-link>
+                <span v-else class="p-menuitem-link">
+                    <span class="p-steps-number">{{index + 1}}</span>
+                    <span class="p-steps-title">{{item.label}}</span>
+                </span>
             </li>
         </ul>
     </div>
@@ -40,8 +44,11 @@ export default {
         getItemClass(item) {
             return ['p-steps-item', item.class, {
                 'p-highlight p-steps-current': (this.activeRoute === item.to),
-                'p-disabled': (item.disabled || (this.activeRoute !== item.to && this.readonly))
+                'p-disabled': this.isItemDisabled(item)
             }];
+        },
+        isItemDisabled(item) {
+            return (item.disabled || (this.readonly && this.activeRoute !== item.to));
         }
     },
     computed: {

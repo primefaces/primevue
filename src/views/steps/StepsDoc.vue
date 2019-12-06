@@ -8,12 +8,12 @@ import Steps from 'primevue/steps';
 </CodeHighlight>
 
                 <h3>MenuModel</h3>
-                <p>TabMenu uses the common MenuModel API to define the items, visit <router-link to="/menumodel">MenuModel API</router-link> for details.</p>
+                <p>Steps uses the common MenuModel API to define the items, visit <router-link to="/menumodel">MenuModel API</router-link> for details.</p>
 
 				<h3>Getting Started</h3>
-				<p>TabMenu is integrated with Vue Router and requires a collection of menuitems as its model.</p>
+				<p>Steps is integrated with Vue Router and requires a collection of menuitems as its model.</p>
 <CodeHighlight>
-&lt;Menu :model="items" /&gt;
+&lt;Steps :model="items" /&gt;
 &lt;router-view /&gt;
 </CodeHighlight>
 
@@ -21,16 +21,32 @@ import Steps from 'primevue/steps';
 export default {
 	data() {
 		return {
-			items: [
-                {label: 'Home', icon: 'pi pi-fw pi-home', to: '/tabmenu'},
-                {label: 'Calendar', icon: 'pi pi-fw pi-calendar', to: '/tabmenu/calendar'},
-                {label: 'Edit', icon: 'pi pi-fw pi-pencil', to: '/tabmenu/edit'},
-                {label: 'Documentation', icon: 'pi pi-fw pi-file', to: '/tabmenu/documentation'},
-                {label: 'Settings', icon: 'pi pi-fw pi-cog', to: '/tabmenu/settings'}
-            ]
+			items: [{
+                label: 'Personal',
+                to: '/steps'
+            },
+            {
+                label: 'Seat',
+                to: '/steps/seat'
+            },
+            {
+                label: 'Payment',
+                to: '/steps/payment'
+            },
+            {
+                label: 'Confirmation',
+                to: '/steps/confirmation'
+            }]
 		}
 	}
 }
+</CodeHighlight>
+
+                <h3>Interactive</h3>
+                <p>Items are readonly by default, if you'd like to make them interactive then disable <i>readonly</i> property.</p>
+<CodeHighlight>
+&lt;Steps :model="items" :readonly="false" /&gt;
+&lt;router-view /&gt;
 </CodeHighlight>
 
                 <h3>Properties</h3>
@@ -52,6 +68,12 @@ export default {
                                 <td>null</td>
                                 <td>An array of menuitems.</td>
                             </tr>
+                             <tr>
+                                <td>readonly</td>
+                                <td>boolean</td>
+                                <td>true</td>
+                                <td>Whether the items are clickable or not.</td>
+                            </tr>
 						</tbody>
 					</table>
 				</div>
@@ -68,28 +90,20 @@ export default {
 						</thead>
 						<tbody>
                             <tr>
-                                <td>p-tabmenu</td>
+                                <td>p-steps</td>
                                 <td>Container element.</td>
                             </tr>
                             <tr>
-                                <td>p-tabmenu-nav</td>
-                                <td>List element.</td>
-                            </tr>
-                            <tr>
-                                <td>p-tabmenuitem</td>
+                                <td>p-steps-item</td>
                                 <td>Menuitem element.</td>
                             </tr>
                             <tr>
-                                <td>p-highlight</td>
-                                <td>Active menuitem element.</td>
+                                <td>p-steps-number</td>
+                                <td>Number of menuitem.</td>
                             </tr>
                             <tr>
-                                <td>p-menuitem-icon</td>
-                                <td>Icon of a menuitem.</td>
-                            </tr>
-                            <tr>
-                                <td>p-menuitem-text</td>
-                                <td>Text of a menuitem.</td>
+                                <td>p-steps-title</td>
+                                <td>Label of menuitem.</td>
                             </tr>
 						</tbody>
 					</table>
@@ -105,7 +119,7 @@ export default {
 				</a>
 <CodeHighlight>
 <template v-pre>
-&lt;Menu :model="items" /&gt;
+&lt;Steps :model="items" :readonly="false" /&gt;
 &lt;router-view /&gt;
 </template>
 </CodeHighlight>
@@ -114,13 +128,22 @@ export default {
 export default {
     data() {
         return {
-            items: [
-                {label: 'Home', icon: 'pi pi-fw pi-home', to: '/tabmenu'},
-                {label: 'Calendar', icon: 'pi pi-fw pi-calendar', to: '/tabmenu/calendar'},
-                {label: 'Edit', icon: 'pi pi-fw pi-pencil', to: '/tabmenu/edit'},
-                {label: 'Documentation', icon: 'pi pi-fw pi-file', to: '/tabmenu/documentation'},
-                {label: 'Settings', icon: 'pi pi-fw pi-cog', to: '/tabmenu/settings'}
-            ]
+            items: [{
+                label: 'Personal',
+                to: '/steps'
+            },
+            {
+                label: 'Seat',
+                to: '/steps/seat'
+            },
+            {
+                label: 'Payment',
+                to: '/steps/payment'
+            },
+            {
+                label: 'Confirmation',
+                to: '/steps/confirmation'
+            }]
         }
     }
 }
