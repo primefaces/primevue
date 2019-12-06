@@ -1,6 +1,6 @@
 <template>
-    <div class="tabmenudemo-content">
-        <i class="pi pi-fw pi-user" style="font-size: 3em" />
+    <div class="stepsdemo-content">
+        <i class="pi pi-fw pi-user" />
         <h1>Personal Component Content</h1>
     </div>
 </template>

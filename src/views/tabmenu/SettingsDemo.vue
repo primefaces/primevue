@@ -1,6 +1,6 @@
 <template>
     <div class="tabmenudemo-content">
-        <i class="pi pi-fw pi-cog" style="font-size: 3em" />
+        <i class="pi pi-fw pi-cog" />
         <h1>Settings Component Content</h1>
     </div>
 </template>

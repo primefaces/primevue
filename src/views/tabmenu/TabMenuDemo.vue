@@ -43,11 +43,14 @@ export default {
         font-weight: 400;
         display: inline-block;
         vertical-align: middle;
+        font-size: 24px;
+        margin-top: 1em;
     }
 
     i {
         vertical-align: middle;
+        font-size: 2em;
+        margin-top: .3em;
     }
 }
-
 </style>

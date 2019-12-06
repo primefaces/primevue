@@ -1,6 +1,13 @@
 <template>
     <div :class="containerClass">
-        Steps
+        <ul role="tablist">
+            <li v-for="(item,index) of model" :key="item.to" :class="getItemClass(item)" :style="item.style">
+                <router-link :to="item.to" class="p-menuitem-link" @click.native="onItemClick($event, item)">
+                    <span class="p-steps-number">{{index + 1}}</span>
+                    <span class="p-steps-title">{{item.label}}</span>
+                </router-link>
+            </li>
+        </ul>
     </div>
 </template>
 
@@ -17,7 +24,25 @@ export default {
         }
     },
     methods: {
+        onItemClick(event, item) {
+            if (item.disabled || this.readonly) {
+                event.preventDefault();
+                return;
+            }
 
+            if (item.command) {
+                item.command({
+                    originalEvent: event,
+                    item: item
+                });
+            }
+        },
+        getItemClass(item) {
+            return ['p-steps-item', item.class, {
+                'p-highlight p-steps-current': (this.activeRoute === item.to),
+                'p-disabled': (item.disabled || (this.activeRoute !== item.to && this.readonly))
+            }];
+        }
     },
     computed: {
         activeRoute() {
@@ -45,8 +70,6 @@ export default {
 
 .p-steps .p-steps-item {
     float: left;
-    box-sizing: border-box;
-    cursor: pointer;
 }
 
 .p-steps.p-steps-readonly .p-steps-item {

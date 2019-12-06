@@ -1,6 +1,6 @@
 <template>
     <div class="tabmenudemo-content">
-        <i class="pi pi-fw pi-calendar" style="font-size: 3em" />
+        <i class="pi pi-fw pi-calendar" />
         <h1>Calendar Component Content</h1>
     </div>
 </template>
