@@ -1,5 +1,5 @@
 <template>
-    <transition name="p-dialog" @enter="onEnter" @leave="onLeave">
+    <transition name="p-dialog" @enter="onEnter" @leave="onLeave" @appear="onEnter">
         <div ref="container" :class="containerClass" v-if="visible">
             <div class="p-dialog-titlebar" v-if="showHeader">
                 <slot name="header">
@@ -51,7 +51,7 @@ export default {
     },
     mask: null,
     documentKeydownListener: null,
-    destroyed() {
+    beforeDestroy() {
         if (this.modal) {
             this.disableModality();
         }
