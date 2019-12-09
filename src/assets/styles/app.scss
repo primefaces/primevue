@@ -82,7 +82,7 @@ body {
 
     .menu-button {
         display: none;
-        color: #34495e;
+        color: #ffffff;
         font-size: 24px;
         position: absolute;
         left: 0;
@@ -95,7 +95,7 @@ body {
         @include transition(background-color .2s);
 
         &:hover {
-            background-color: #eeeeee;
+            background-color: #363c3f;
         }
 
         i {
@@ -144,7 +144,7 @@ body {
                 @include transition(background-color .2s);
 
                 &:hover {
-                    background-color: #4a4f52;
+                    background-color: #363c3f;
                 }
 
                 &:focus {
@@ -815,7 +815,7 @@ body {
                 text-align: left;
             }
 
-            > a{
+            > a {
                 font-weight: bold;
                 color: #03c4e8;
             }
@@ -934,14 +934,14 @@ body {
         }
         
         .topbar-menu {
-            background-color: #ffffff;
+            background-color: #20272a;
             float: none;
             width: 100%;
             height: 41px;
             margin: 0;
             text-align: center;
-            border-bottom: 1px solid #dadada;
-            border-top: 1px solid #dadada;
+            border-bottom: 1px solid #363c3f;
+            border-top: 1px solid #363c3f;
 
             > li {
                 height: 40px;
