@@ -16,6 +16,7 @@
             <li><router-link to="/datatable/colresize">&#9679; ColResize</router-link></li>
             <li><router-link to="/datatable/reorder">&#9679; Reorder</router-link></li>
             <li><router-link to="/datatable/rowgroup">&#9679; RowGroup</router-link></li>
+            <li><router-link to="/datatable/contextmenu">&#9679; ContextMenu</router-link></li>
             <li><router-link to="/datatable/responsive">&#9679; Responsive</router-link></li>
             <li><router-link to="/datatable/export">&#9679; Export</router-link></li>
             <li><router-link to="/datatable/state">&#9679; State</router-link></li>

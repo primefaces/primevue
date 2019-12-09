@@ -221,6 +221,11 @@ export default new Router({
 			name: 'datatablestyle',
 			component: () => import('./views/datatable/DataTableStyleDemo.vue')
         },
+        {
+			path: '/datatable/contextmenu',
+			name: 'datatablecontextmenu',
+			component: () => import('./views/datatable/DataTableContextMenuDemo.vue')
+        },
 		{
 			path: '/dataview',
 			name: 'dataview',

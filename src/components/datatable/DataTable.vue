@@ -27,11 +27,11 @@
                         @column-click="onColumnHeaderClick($event)" @column-mousedown="onColumnHeaderMouseDown($event)"
                         @column-dragstart="onColumnHeaderDragStart($event)" @column-dragover="onColumnHeaderDragOver($event)" @column-dragleave="onColumnHeaderDragLeave($event)" @column-drop="onColumnHeaderDrop($event)"
                         @column-resizestart="onColumnResizeStart($event)" @checkbox-change="toggleRowsWithCheckbox($event)" />
-                <DTTableBody :value="dataToRender" :columns="columns" :empty="empty" :dataKey="dataKey" :selection="selection" :selectionKeys="d_selectionKeys" :selectionMode="selectionMode"
+                <DTTableBody :value="dataToRender" :columns="columns" :empty="empty" :dataKey="dataKey" :selection="selection" :selectionKeys="d_selectionKeys" :selectionMode="selectionMode" :contextMenuSelection="contextMenuSelection"
                     :rowGroupMode="rowGroupMode" :groupRowsBy="groupRowsBy" :expandableRowGroups="expandableRowGroups" :rowClass="rowClass" :editMode="editMode" :compareSelectionBy="compareSelectionBy"
                     :expandedRowIcon="expandedRowIcon" :collapsedRowIcon="collapsedRowIcon" :expandedRows="expandedRows" :expandedRowKeys="d_expandedRowKeys" :expandedRowGroups="expandedRowGroups"
                     :editingRows="editingRows" :editingRowKeys="d_editingRowKeys" :templates="$scopedSlots"
-                    @rowgroup-toggle="toggleRowGroup" @row-click="onRowClick($event)" @row-touchend="onRowTouchEnd" @row-keydown="onRowKeyDown"
+                    @rowgroup-toggle="toggleRowGroup" @row-click="onRowClick($event)" @row-rightclick="onRowRightClick($event)" @row-touchend="onRowTouchEnd" @row-keydown="onRowKeyDown"
                     @row-mousedown="onRowMouseDown" @row-dragstart="onRowDragStart($event)" @row-dragover="onRowDragOver($event)" @row-dragleave="onRowDragLeave($event)" @row-dragend="onRowDragEnd($event)" @row-drop="onRowDrop($event)"
                     @row-toggle="toggleRow($event)" @radio-change="toggleRowWithRadio($event)" @checkbox-change="toggleRowWithCheckbox($event)"
                     @cell-edit-init="onCellEditInit($event)" @cell-edit-complete="onCellEditComplete($event)" @cell-edit-cancel="onCellEditCancel($event)"
@@ -50,22 +50,22 @@
                         @column-resizestart="onColumnResizeStart($event)" @checkbox-change="toggleRowsWithCheckbox($event)" />
                 </template>
                 <template #body>
-                    <DTTableBody :value="dataToRender" :columns="frozenColumns" :empty="empty" :dataKey="dataKey" :selection="selection" :selectionKeys="d_selectionKeys" :selectionMode="selectionMode"
+                    <DTTableBody :value="dataToRender" :columns="frozenColumns" :empty="empty" :dataKey="dataKey" :selection="selection" :selectionKeys="d_selectionKeys" :selectionMode="selectionMode" :contextMenuSelection="contextMenuSelection"
                         :rowGroupMode="rowGroupMode" :groupRowsBy="groupRowsBy" :expandableRowGroups="expandableRowGroups" :rowClass="rowClass" :editMode="editMode" :compareSelectionBy="compareSelectionBy"
                         :expandedRowIcon="expandedRowIcon" :collapsedRowIcon="collapsedRowIcon" :expandedRows="expandedRows" :expandedRowKeys="d_expandedRowKeys" :expandedRowGroups="expandedRowGroups"
                         :editingRows="editingRows" :editingRowKeys="d_editingRowKeys" :templates="$scopedSlots"
-                        @rowgroup-toggle="toggleRowGroup" @row-click="onRowClick($event)" @row-touchend="onRowTouchEnd" @row-keydown="onRowKeyDown"
+                        @rowgroup-toggle="toggleRowGroup" @row-click="onRowClick($event)" @row-rightclick="onRowRightClick($event)" @row-touchend="onRowTouchEnd" @row-keydown="onRowKeyDown"
                         @row-mousedown="onRowMouseDown" @row-dragstart="onRowDragStart($event)" @row-dragover="onRowDragOver($event)" @row-dragleave="onRowDragLeave($event)" @row-dragend="onRowDragEnd($event)" @row-drop="onRowDrop($event)"
                         @row-toggle="toggleRow($event)" @radio-change="toggleRowWithRadio($event)" @checkbox-change="toggleRowWithCheckbox($event)"
                         @cell-edit-init="onCellEditInit($event)" @cell-edit-complete="onCellEditComplete($event)" @cell-edit-cancel="onCellEditCancel($event)"
                         @row-edit-init="onRowEditInit($event)" @row-edit-save="onRowEditSave($event)" @row-edit-cancel="onRowEditCancel($event)"/>
                 </template>
                 <template #frozenbody>
-                    <DTTableBody v-if="frozenValue" :value="frozenValue" :columns="frozenColumns" :dataKey="dataKey" :selection="selection" :selectionKeys="d_selectionKeys" :selectionMode="selectionMode"
+                    <DTTableBody v-if="frozenValue" :value="frozenValue" :columns="frozenColumns" :dataKey="dataKey" :selection="selection" :selectionKeys="d_selectionKeys" :selectionMode="selectionMode" :contextMenuSelection="contextMenuSelection"
                         :rowGroupMode="rowGroupMode" :groupRowsBy="groupRowsBy" :expandableRowGroups="expandableRowGroups" :rowClass="rowClass" :editMode="editMode" :compareSelectionBy="compareSelectionBy"
                         :expandedRowIcon="expandedRowIcon" :collapsedRowIcon="collapsedRowIcon" :expandedRows="expandedRows" :expandedRowKeys="d_expandedRowKeys" :expandedRowGroups="expandedRowGroups"
                         :editingRows="editingRows" :editingRowKeys="d_editingRowKeys" :templates="$scopedSlots"
-                        @rowgroup-toggle="toggleRowGroup" @row-click="onRowClick($event)" @row-touchend="onRowTouchEnd" @row-keydown="onRowKeyDown"
+                        @rowgroup-toggle="toggleRowGroup" @row-click="onRowClick($event)" @row-rightclick="onRowRightClick($event)" @row-touchend="onRowTouchEnd" @row-keydown="onRowKeyDown"
                         @row-mousedown="onRowMouseDown" @row-dragstart="onRowDragStart($event)" @row-dragover="onRowDragOver($event)" @row-dragleave="onRowDragLeave($event)" @row-dragend="onRowDragEnd($event)" @row-drop="onRowDrop($event)"
                         @row-toggle="toggleRow($event)" @radio-change="toggleRowWithRadio($event)" @checkbox-change="toggleRowWithCheckbox($event)"
                         @cell-edit-init="onCellEditInit($event)" @cell-edit-complete="onCellEditComplete($event)" @cell-edit-cancel="onCellEditCancel($event)"
@@ -86,22 +86,22 @@
                         @column-resizestart="onColumnResizeStart($event)" @checkbox-change="toggleRowsWithCheckbox($event)" />
                 </template>
                 <template #body>
-                    <DTTableBody :value="dataToRender" :columns="scrollableColumns" :empty="empty" :dataKey="dataKey" :selection="selection" :selectionKeys="d_selectionKeys" :selectionMode="selectionMode"
+                    <DTTableBody :value="dataToRender" :columns="scrollableColumns" :empty="empty" :dataKey="dataKey" :selection="selection" :selectionKeys="d_selectionKeys" :selectionMode="selectionMode" :contextMenuSelection="contextMenuSelection"
                         :rowGroupMode="rowGroupMode" :groupRowsBy="groupRowsBy" :expandableRowGroups="expandableRowGroups" :rowClass="rowClass" :editMode="editMode" :compareSelectionBy="compareSelectionBy"
                         :expandedRowIcon="expandedRowIcon" :collapsedRowIcon="collapsedRowIcon" :expandedRows="expandedRows" :expandedRowKeys="d_expandedRowKeys" :expandedRowGroups="expandedRowGroups"
                         :editingRows="editingRows" :editingRowKeys="d_editingRowKeys" :templates="$scopedSlots"
-                        @rowgroup-toggle="toggleRowGroup" @row-click="onRowClick($event)" @row-touchend="onRowTouchEnd" @row-keydown="onRowKeyDown"
+                        @rowgroup-toggle="toggleRowGroup" @row-click="onRowClick($event)" @row-rightclick="onRowRightClick($event)" @row-touchend="onRowTouchEnd" @row-keydown="onRowKeyDown"
                         @row-mousedown="onRowMouseDown" @row-dragstart="onRowDragStart($event)" @row-dragover="onRowDragOver($event)" @row-dragleave="onRowDragLeave($event)" @row-dragend="onRowDragEnd($event)" @row-drop="onRowDrop($event)"
                         @row-toggle="toggleRow($event)" @radio-change="toggleRowWithRadio($event)" @checkbox-change="toggleRowWithCheckbox($event)"
                         @cell-edit-init="onCellEditInit($event)" @cell-edit-complete="onCellEditComplete($event)" @cell-edit-cancel="onCellEditCancel($event)"
                         @row-edit-init="onRowEditInit($event)" @row-edit-save="onRowEditSave($event)" @row-edit-cancel="onRowEditCancel($event)"/>
                 </template>
                 <template #frozenbody>
-                    <DTTableBody  v-if="frozenValue" :value="frozenValue" :columns="scrollableColumns" :dataKey="dataKey" :selection="selection" :selectionKeys="d_selectionKeys" :selectionMode="selectionMode"
+                    <DTTableBody  v-if="frozenValue" :value="frozenValue" :columns="scrollableColumns" :dataKey="dataKey" :selection="selection" :selectionKeys="d_selectionKeys" :selectionMode="selectionMode" :contextMenuSelection="contextMenuSelection"
                         :rowGroupMode="rowGroupMode" :groupRowsBy="groupRowsBy" :expandableRowGroups="expandableRowGroups" :rowClass="rowClass" :editMode="editMode" :compareSelectionBy="compareSelectionBy"
                         :expandedRowIcon="expandedRowIcon" :collapsedRowIcon="collapsedRowIcon" :expandedRows="expandedRows" :expandedRowKeys="d_expandedRowKeys" :expandedRowGroups="expandedRowGroups"
                         :editingRows="editingRows" :editingRowKeys="d_editingRowKeys" :templates="$scopedSlots"
-                        @rowgroup-toggle="toggleRowGroup" @row-click="onRowClick($event)" @row-touchend="onRowTouchEnd" @row-keydown="onRowKeyDown"
+                        @rowgroup-toggle="toggleRowGroup" @row-click="onRowClick($event)" @row-rightclick="onRowRightClick($event)" @row-touchend="onRowTouchEnd" @row-keydown="onRowKeyDown"
                         @row-mousedown="onRowMouseDown" @row-dragstart="onRowDragStart($event)" @row-dragover="onRowDragOver($event)" @row-dragleave="onRowDragLeave($event)" @row-dragend="onRowDragEnd($event)" @row-drop="onRowDrop($event)"
                         @row-toggle="toggleRow($event)" @radio-change="toggleRowWithRadio($event)" @checkbox-change="toggleRowWithCheckbox($event)"
                         @cell-edit-init="onCellEditInit($event)" @cell-edit-complete="onCellEditComplete($event)" @cell-edit-cancel="onCellEditCancel($event)"
@@ -241,6 +241,10 @@ export default {
         metaKeySelection: {
             type: Boolean,
             default: true
+        },
+        contextMenuSelection: {
+            type: Object,
+            default: null
         },
         rowHover: {
             type: Boolean,
@@ -617,6 +621,7 @@ export default {
         onRowClick(e) {
             const event = e.originalEvent;
             const target = event.target;
+            const rowIndex = event.index;
             const targetNode = target.nodeName;
             const parentNode = target.parentElement && target.parentElement.nodeName;
 
@@ -656,7 +661,7 @@ export default {
                                 this.$emit('update:selection', _selection);
                             }
 
-                            this.$emit('row-unselect', {originalEvent: event, data: rowData, type: 'row'});
+                            this.$emit('row-unselect', {originalEvent: event, data: rowData, index: rowIndex, type: 'row'});
                         }
                         else {
                             if(this.isSingleSelectionMode()) {
@@ -668,18 +673,18 @@ export default {
                                 this.$emit('update:selection', _selection);
                             }
 
-                            this.$emit('row-select', {originalEvent: event, data: rowData, type: 'row'});
+                            this.$emit('row-select', {originalEvent: event, data: rowData, index: rowIndex, type: 'row'});
                         }
                     }
                     else {
                         if (this.selectionMode === 'single') {
                             if (selected) {
                                 this.$emit('update:selection', null);
-                                this.$emit('row-unselect', {originalEvent: event, data: rowData, type: 'row'});
+                                this.$emit('row-unselect', {originalEvent: event, data: rowData, index: rowIndex, type: 'row'});
                             }
                             else {
                                 this.$emit('update:selection', rowData);
-                                this.$emit('row-select', {originalEvent: event, data: rowData, type: 'row'});
+                                this.$emit('row-select', {originalEvent: event, data: rowData, index: rowIndex, type: 'row'});
                             }
                         }
                         else if (this.selectionMode === 'multiple') {
@@ -687,12 +692,12 @@ export default {
                                 const selectionIndex = this.findIndexInSelection(rowData);
                                 const _selection = this.selection.filter((val, i) => i != selectionIndex);
                                 this.$emit('update:selection', _selection);
-                                this.$emit('row-unselect', {originalEvent: event, data: rowData, type: 'row'});
+                                this.$emit('row-unselect', {originalEvent: event, data: rowData, index: rowIndex, type: 'row'});
                             }
                             else {
                                 const _selection = this.selection ? [...this.selection, rowData] : [rowData];
                                 this.$emit('update:selection', _selection);
-                                this.$emit('row-select', {originalEvent: event, data: rowData, type: 'row'});
+                                this.$emit('row-select', {originalEvent: event, data: rowData, index: rowIndex, type: 'row'});
                             }
                         }
                     }
@@ -700,6 +705,12 @@ export default {
             }
 
             this.rowTouched = false;
+        },
+        onRowRightClick(event) {
+            DomHandler.clearSelection();
+
+            this.$emit('update:contextMenuSelection', event.data);
+            this.$emit('row-contextmenu', event);
         },
         onRowTouchEnd() {
             this.rowTouched = true;

@@ -78,7 +78,7 @@ export default {
                       {
                          label: 'New',
                          icon:'pi pi-fw pi-user-plus',
-             
+
                       },
                       {
                          label: 'Delete',
@@ -288,7 +288,7 @@ export default {
                       {
                          label: 'New',
                          icon:'pi pi-fw pi-user-plus',
-             
+
                       },
                       {
                          label: 'Delete',

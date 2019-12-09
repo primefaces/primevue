@@ -31,7 +31,7 @@ export default {
                 event.preventDefault();
                 return;
             }
-            
+
             if (item.command) {
                 item.command({
                     originalEvent: event,

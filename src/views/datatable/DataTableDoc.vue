@@ -1359,6 +1359,58 @@ export default {
 }
 </CodeHighlight>
 
+                <h3>ContextMenu</h3>
+                <p>DataTable provides exclusive integration with the ContextMenu component using <i>contextMenuSelection</i> property along with the <i>row-contextmenu</i> event.
+<CodeHighlight>
+<template v-pre>
+&lt;DataTable :value="cars" :contextMenuSelection.sync="selectedCar" @row-contextmenu="onRowContextMenu"&gt;
+    &lt;Column field="vin" header="Vin"&gt;&lt;/Column&gt;
+    &lt;Column field="year" header="Year"&gt;&lt;/Column&gt;
+    &lt;Column field="brand" header="Brand"&gt;&lt;/Column&gt;
+    &lt;Column field="color" header="Color"&gt;&lt;/Column&gt;
+&lt;/DataTable&gt;
+
+&lt;ContextMenu :model="menuModel" ref="cm" /&gt;
+</template>
+</CodeHighlight>
+
+<CodeHighlight lang="javascript">
+import CarService from '../../service/CarService';
+
+export default {
+    data() {
+        return {
+            cars: null,
+            selectedCar: null,
+            menuModel: [
+                {label: 'View', icon: 'pi pi-fw pi-search', command: () => this.viewCar(this.selectedCar)},
+                {label: 'Delete', icon: 'pi pi-fw pi-times', command: () => this.deleteCar(this.selectedCar)}
+            ]
+        }
+    },
+    carService: null,
+    created() {
+        this.carService = new CarService();
+    },
+    mounted() {
+        this.carService.getCarsSmall().then(data => this.cars = data);
+    },
+    methods: {
+        onRowContextMenu(event) {
+            this.$refs.cm.show(event.originalEvent);
+        },
+        viewCar(car) {
+            this.$toast.add({severity: 'info', summary: 'Car Selected', detail: car.vin + ' - ' + car.brand});
+        },
+        deleteCar(car) {
+            this.cars = this.cars.filter((c) => c.vin !== car.vin);
+            this.$toast.add({severity: 'info', summary: 'Car Deleted', detail: car.vin + ' - ' + car.brand});
+            this.selectedCar = null;
+        }
+    }
+}
+</CodeHighlight>
+
                 <h3>Empty Message</h3>
                 <p>When there is no data, you may use the <i>empty</i> template to display a message.</p>
 <CodeHighlight>
@@ -1739,6 +1791,12 @@ export default {
                                     can be toggled individually. On touch enabled devices, metaKeySelection is turned off automatically.</td>
                             </tr>
                             <tr>
+                                <td>contextMenuSelection</td>
+                                <td>object</td>
+                                <td>null</td>
+                                <td>Selected row instance with the ContextMenu.</td>
+                            </tr>
+                            <tr>
                                 <td>rowHover</td>
                                 <td>boolean</td>
                                 <td>false</td>
@@ -1935,13 +1993,22 @@ export default {
                             <tr>
                                 <td>row-click</td>
                                 <td>event.originalEvent: Browser event. <br />
-                                    event.data: Selected row data.</td>
+                                    event.data: Selected row data. <br />
+                                    event.index: Row index.</td>
                                 <td>Callback to invoke when a row is clicked.</td>
+                            </tr>
+                            <tr>
+                                <td>row-contextmenu</td>
+                                <td>event.originalEvent: Browser event. <br />
+                                    event.data: Selected row data. <br />
+                                    event.index: Row index.</td>
+                                <td>Callback to invoke when a row is selected with a ContextMenu.</td>
                             </tr>
                             <tr>
                                 <td>row-select</td>
                                 <td>event.originalEvent: Browser event. <br />
                                     event.data: Selected row data. <br />
+                                    event.index: Row index. <br />
                                     event.type: Type of the selection, valid values are "row", "radio" or "checkbox".</td>
                                 <td>Callback to invoke when a row is selected.</td>
                             </tr>
@@ -1949,6 +2016,7 @@ export default {
                                 <td>row-unselect</td>
                                 <td>event.originalEvent: Browser event. <br />
                                     event.data: Unselected row data. <br />
+                                    event.index: Row index. <br />
                                     event.type: Type of the selection, valid values are "row", "radio" or "checkbox".</td>
                                 <td>Callback to invoke when a row is unselected.</td>
                             </tr>
