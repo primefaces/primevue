@@ -12,7 +12,7 @@
         <transition name="p-input-overlay" @enter="onOverlayEnter" @leave="onOverlayLeave">
             <div ref="overlay" class="p-dropdown-panel" v-if="overlayVisible">
                 <div v-if="filter" class="p-dropdown-filter-container">
-                    <input type="text" v-model="filterValue" autoComplete="off" class="p-dropdown-filter p-inputtext p-component" :placeholder="filterPlaceholder" @keydown="onFilterKeyDown" />
+                    <input type="text" ref="filterInput" v-model="filterValue" autoComplete="off" class="p-dropdown-filter p-inputtext p-component" :placeholder="filterPlaceholder" @keydown="onFilterKeyDown" />
                     <span class="p-dropdown-filter-icon pi pi-search"></span>
                 </div>
                 <div ref="itemsWrapper" class="p-dropdown-items-wrapper" :style="{'max-height': scrollHeight}">
@@ -262,6 +262,10 @@ export default {
         onOverlayEnter() {
             this.alignOverlay();
             this.bindOutsideClickListener();
+
+            if (this.filter) {
+                this.$refs.filterInput.focus();
+            }
         },
         onOverlayLeave() {
             this.unbindOutsideClickListener();
