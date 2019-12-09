@@ -60,8 +60,6 @@ new Vue({
 &lt;/script&gt;
 </CodeHighlight>
 
-
-
             <h3>Dependencies</h3>
             <p>Majority of PrimeVue components (95%) are native and there are some exceptions having 3rd party dependencies such as Quill for Editor.</p>
             <p>In addition, components require PrimeIcons library for icons.</p>
@@ -118,6 +116,37 @@ primeicons/primeicons.css                           //icons
 
             <h3>Typescript</h3>
             <p>Typescript is fully supported as type definition files are provided in the npm package of PrimeVue. A sample <a href="https://github.com/primefaces/primevue-typescript-quickstart">typescript-primevue</a> application is available as well at github.</p>
+
+            <h3>Nuxt.js Integration</h3>
+            <p>PrimeVue can easily be added to a Nuxt.js with the following steps.</p>
+            <p><strong>1)</strong> Add primevue.js to the plugins folder with the components you'd like to use.</p>
+<CodeHighlight class="language-javascript">
+import Vue from 'vue';
+import InputText from 'primevue/inputtext';
+import Button from 'primevue/button';
+import Toast from 'primevue/toast';
+import ToastService from 'primevue/toastservice';
+
+Vue.use(ToastService);
+
+Vue.component('InputText', InputText);
+Vue.component('Button', Button);
+Vue.component('Toast', Toast);
+</CodeHighlight>
+
+            <p><strong>2)</strong> Add requires CSS dependencies and the plugin configuration in nuxt.config.js.</p>
+<CodeHighlight class="language-javascript">
+css: [
+    {src: 'primevue/resources/primevue.min.css'},
+    {src: 'primevue/resources/themes/nova-light/theme.css'},
+    {src: 'primeicons/primeicons.css'},
+  ],
+plugins: [
+    {src:'~/plugins/primevue.js', mode: 'client'}
+]
+</CodeHighlight>
+
+            <p>That is all, for a complete example please refer to the <a href="https://github.com/primefaces/primevue-nuxtjs-quickstart">primevue-nuxtjs-quickstart</a> sample.</p>
 
         </div>
     </div>
