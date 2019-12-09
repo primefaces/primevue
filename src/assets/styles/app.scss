@@ -256,28 +256,17 @@ body {
     @include shadow(0 0 2px rgba(0,0,0,0.25));
 
     .layout-menu {
+        padding-bottom: 150px;
 
-        > a {
+        > span {
             width: 100%;
             height: 50px;
             display: block;
-            padding: 15px 0px 0px 25px;
+            padding: 15px 0px 0px 20px;
             border-top: solid 1px #e3e9ea;
             color: #484848;
-            cursor: pointer;
             user-select: none;
             transition: background-color .2s;
-
-            &:hover {
-                background-color: #eeeeee;
-            }
-
-            &:focus {
-                z-index: 1;
-                outline: 0 none;
-                transition: box-shadow .3s;
-                box-shadow: inset 0 0 0 0.2em $focusBorderColor;
-            }
 
             span {
                 font-size: 16px;
@@ -298,54 +287,15 @@ body {
                     display: inline;
                 }
             }
-            
-            &.active-menuitem {
-                background-color: #ffffff;
-                color: #42b983;
-                
-                img {
-                    &.layout-menu-icon-active {
-                        display: inline;
-                    }
-                    &.layout-menu-icon-inactive {
-                        display: none;
-                    }
-                }
-            }
         }
         
         > div {
-            width: auto;
             background-color: #ffffff;
+            padding: 0 10px 15px 10px;
             
-            > div {
-                overflow: hidden;
-                padding: 20px 15px;
-            }
-
-            &.layout-submenu-wrapper-enter,
-            &.layout-submenu-wrapper-leave-to {
-                max-height: 0;
-            }
-
-            &.layout-submenu-wrapper-enter-to,
-            &.layout-submenu-wrapper-leave {
-                max-height: 1000px;
-            }
-
-            &.layout-submenu-wrapper-leave-active {
-                overflow: hidden;
-                transition: max-height 0.45s cubic-bezier(0, 1, 0, 1);
-            }
-
-            &.layout-submenu-wrapper-enter-active {
-                overflow: hidden;
-                transition: max-height 1s ease-in-out;
-            }
-
             a {
                 width: 50%;
-                float: left;
+                display: inline-block;
                 padding: 6px;
                 cursor: pointer;
                 border-radius: 4px;
@@ -363,6 +313,10 @@ body {
                     outline: 0 none;
                     transition: box-shadow .3s;
                     box-shadow: inset 0 0 0 0.2em $focusBorderColor;
+                }
+
+                &.router-link-active {
+                    color: #42b983;
                 }
 
                 .menuitem-badge {
@@ -434,7 +388,7 @@ body {
         
         &.introduction {
             color: #ffffff;
-            @include background-gradient-left2right(#299198,#32BCC8);
+            @include background-gradient-left2right(#0061ad,#4ca1e4);
             
             .feature-intro {
                 h1 {
