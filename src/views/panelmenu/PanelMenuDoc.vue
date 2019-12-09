@@ -8,7 +8,7 @@ import PanelMenu from 'primevue/panelmenu';
 </CodeHighlight>
 
                 <h3>MenuModel</h3>
-                <p>Menu uses the common MenuModel API to define the items, visit <router-link to="/menumodel">MenuModel API</router-link> for details.</p>
+                <p>PanelMenu uses the common MenuModel API to define the items, visit <router-link to="/menumodel">MenuModel API</router-link> for details.</p>
 
 				<h3>Getting Started</h3>
 				<p>PanelMenu requires a collection of menuitems as its model.</p>
@@ -217,7 +217,7 @@ export default {
 			</TabPanel>
 
 			<TabPanel header="Source">
-				<a href="https://github.com/primefaces/primevue/tree/master/src/views/menu" class="btn-viewsource" target="_blank" rel="noopener noreferrer">
+				<a href="https://github.com/primefaces/primevue/tree/master/src/views/panelmenu" class="btn-viewsource" target="_blank" rel="noopener noreferrer">
 					<span>View on GitHub</span>
 				</a>
 <CodeHighlight>
