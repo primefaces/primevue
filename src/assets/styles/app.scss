@@ -433,9 +433,8 @@ body {
         }
         
         &.introduction {
-            background: url('./assets/images/component-intro-bg.jpg');
             color: #ffffff;
-            background-size: cover;
+            @include background-gradient-left2right(#299198,#32BCC8);
             
             .feature-intro {
                 h1 {
