@@ -14,15 +14,15 @@
                     <ul v-if="themesMenuVisible">
                         <li class="topbar-submenu-header">THEMING</li>
                         <li><router-link to="/theming" @click.native="hideThemesMenu()"><i class="pi pi-fw pi-file"/><span>Guide</span></router-link></li>
-                        <li><a href="https://www.primefaces.org/designer/primevue"><i class="pi pi-fw pi-cog" /><span>Designer</span></a></li>
-                        <li><router-link to="/icons" @click.native="hideThemesMenu()"><i class="pi pi-fw pi-search"/><span>Icons</span></router-link></li>
-                        <li class="topbar-submenu-header">PREMIUM TEMPLATES</li>
+                        <li><a href="https://www.primefaces.org/designer/primevue"><i class="pi pi-fw pi-palette" /><span>Designer</span></a></li>
+                        <li><router-link to="/icons" @click.native="hideThemesMenu()"><i class="pi pi-fw pi-info-circle"/><span>Icons</span></router-link></li>
+                        <li class="topbar-submenu-header">PREMIUM ADMIN TEMPLATES</li>
                         <li><a href="https://www.primefaces.org/sapphire-vue"><img src="./assets/images/layouts/themeswitcher-sapphire.png" alt="Sapphire" /><span>Sapphire</span><span class="theme-badge material">material</span></a></li>
                         <li><a href="https://www.primefaces.org/avalon-vue"><img src="./assets/images/layouts/themeswitcher-avalon.png" alt="Avalon" /><span>Avalon</span><span class="theme-badge bootstrap">bootstrap</span></a></li>
                         <li><a href="https://www.primefaces.org/babylon-vue"><img src="./assets/images/layouts/themeswitcher-babylon.png" alt="Babylon" /><span>Babylon</span></a></li>
-                        <li class="topbar-submenu-header">FREE TEMPLATES</li>
+                        <li class="topbar-submenu-header">FREE ADMIN TEMPLATE</li>
                         <li><a href="https://www.primefaces.org/sigma-vue"><img src="./assets/images/layouts/themeswitcher-sigma.png" alt="Sigma" /><span>Sigma</span></a></li>
-                        <li class="topbar-submenu-header">FREE THEMES</li>
+                        <li class="topbar-submenu-header">FREE COMPONENT THEMES</li>
                         <li><a href="#" @click="changeTheme($event, 'nova-light', false)"><img src="./assets/images/layouts/themeswitcher-nova-light.png" alt="Nova Light" /><span>Nova Light</span></a></li>
                         <li><a @click="changeTheme($event, 'nova-dark', false)"><img src="./assets/images/layouts/themeswitcher-nova-dark.png" alt="Nova Dark" /><span>Nova Dark</span></a></li>
                         <li><a @click="changeTheme($event, 'nova-colored', false)"><img src="./assets/images/layouts/themeswitcher-nova-colored.png" alt="Nova Colored" /><span>Nova Colored</span></a></li>

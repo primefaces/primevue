@@ -64,6 +64,7 @@ body {
     font-weight: normal;
     color: #484848;
     -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
     font-size: 14px;
 }
 
@@ -181,8 +182,11 @@ body {
                             padding: 6px 12px;
                             font-weight: bold;
                             text-align: left;
-                            color: #ffffff;
-                            background-color: #34485e;
+                            margin-top: 18px;
+
+                            &:first-child {
+                                margin-top: 6px;
+                            }
                         }
                     }
 
@@ -335,22 +339,6 @@ body {
             }
         }
     }
-
-    .nano {
-        > .nano-content {
-            .layout-menu {
-                padding-bottom: 120px;
-            }
-        }
-
-        > .nano-pane {
-            background-color: transparent;
-
-            .nano-slider {
-                background-color: #aaaaaa;
-            }
-        }
-    }
 }
 
 .layout-mask {
@@ -409,14 +397,9 @@ body {
 
                 a {
                     border-radius: 3px;
-                    background-color: #2f4860;
-                    color: #ffffff;
+                    background-color: #ffffff;
                     padding: 2px 4px;
-                    @include transition(background-color .2s);
-
-                    &:hover {
-                        background-color: #536e8b;
-                    }
+                    color: #484848;
                 }
             }
         }
@@ -524,7 +507,7 @@ body {
             
             .btn-viewsource {
                 background-color: #444;
-                padding: .5em;
+                padding: .5em 1em;
                 border-radius: 2px;
                 color: #fff;
                 font-weight: 700;
@@ -535,12 +518,6 @@ body {
                 &:hover {
                     background-color: #595959;
                 }
-
-                i {
-                    margin-right: .25em;
-                    background-color: transparent;
-                    font-family: 'FontAwesome';
-                }
             }
 
             i:not([class~="pi"]) {
@@ -550,6 +527,7 @@ body {
                 font-style: normal;
                 font-size: 14px;
                 padding: 2px;
+                letter-spacing: .5px;
             }
 
             /* Demo Tabs Source */
@@ -596,15 +574,15 @@ body {
                         &.p-highlight:hover a {
                             border: 0 none;
                             background: #f5f7f8;
-                            color: #42b983;
-                            border-bottom: 1px solid #42b983;
+                            color: #3294e0;
+                            border-bottom: 1px solid #3294e0;
                         }
 
                         &:not(.p-highlight):not(.p-disabled):hover a {
                             color: #34495e;
                             background-color: transparent;
                             border: 0 none;
-                            border-bottom: 1px solid #42b983;
+                            border-bottom: 1px solid #3294e0;
                         }
                     }
                 }
