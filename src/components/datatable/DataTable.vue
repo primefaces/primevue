@@ -621,7 +621,6 @@ export default {
         onRowClick(e) {
             const event = e.originalEvent;
             const target = event.target;
-            const rowIndex = event.index;
             const targetNode = target.nodeName;
             const parentNode = target.parentElement && target.parentElement.nodeName;
 
@@ -661,7 +660,7 @@ export default {
                                 this.$emit('update:selection', _selection);
                             }
 
-                            this.$emit('row-unselect', {originalEvent: event, data: rowData, index: rowIndex, type: 'row'});
+                            this.$emit('row-unselect', {originalEvent: event, data: rowData, index: event.index, type: 'row'});
                         }
                         else {
                             if(this.isSingleSelectionMode()) {
@@ -673,18 +672,18 @@ export default {
                                 this.$emit('update:selection', _selection);
                             }
 
-                            this.$emit('row-select', {originalEvent: event, data: rowData, index: rowIndex, type: 'row'});
+                            this.$emit('row-select', {originalEvent: event, data: rowData, index: event.index, type: 'row'});
                         }
                     }
                     else {
                         if (this.selectionMode === 'single') {
                             if (selected) {
                                 this.$emit('update:selection', null);
-                                this.$emit('row-unselect', {originalEvent: event, data: rowData, index: rowIndex, type: 'row'});
+                                this.$emit('row-unselect', {originalEvent: event, data: rowData, index: event.index, type: 'row'});
                             }
                             else {
                                 this.$emit('update:selection', rowData);
-                                this.$emit('row-select', {originalEvent: event, data: rowData, index: rowIndex, type: 'row'});
+                                this.$emit('row-select', {originalEvent: event, data: rowData, index: event.index, type: 'row'});
                             }
                         }
                         else if (this.selectionMode === 'multiple') {
@@ -692,12 +691,12 @@ export default {
                                 const selectionIndex = this.findIndexInSelection(rowData);
                                 const _selection = this.selection.filter((val, i) => i != selectionIndex);
                                 this.$emit('update:selection', _selection);
-                                this.$emit('row-unselect', {originalEvent: event, data: rowData, index: rowIndex, type: 'row'});
+                                this.$emit('row-unselect', {originalEvent: event, data: rowData, index: event.index, type: 'row'});
                             }
                             else {
                                 const _selection = this.selection ? [...this.selection, rowData] : [rowData];
                                 this.$emit('update:selection', _selection);
-                                this.$emit('row-select', {originalEvent: event, data: rowData, index: rowIndex, type: 'row'});
+                                this.$emit('row-select', {originalEvent: event, data: rowData, index: event.index, type: 'row'});
                             }
                         }
                     }
