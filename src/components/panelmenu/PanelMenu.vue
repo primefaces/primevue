@@ -9,8 +9,8 @@
                         <span class="p-menuitem-text">{{item.label}}</span>
                     </a>
                 </div>
-                <transition name="p-panelmenu-content-wrapper">
-                    <div class="p-panelmenu-content-wrapper" v-show="item === activeItem">
+                <transition name="p-toggleable-content">
+                    <div class="p-toggleable-content" v-show="item === activeItem">
                         <div class="p-panelmenu-content" v-if="item.items">
                             <PanelMenuSub :model="item.items" class="p-panelmenu-root-submenu" />
                         </div>
@@ -144,25 +144,5 @@ export default {
     padding: .25em;
     display: block;
     text-decoration: none;
-}
-
-.p-panelmenu-content-wrapper-enter,
-.p-panelmenu-content-wrapper-leave-to {
-    max-height: 0;
-}
-
-.p-panelmenu-content-wrapper-enter-to,
-.p-panelmenu-content-wrapper-leave {
-    max-height: 1000px;
-}
-
-.p-panelmenu-content-wrapper-leave-active {
-    overflow: hidden;
-    transition: max-height 0.45s cubic-bezier(0, 1, 0, 1);
-}
-
-.p-panelmenu-content-wrapper-enter-active {
-    overflow: hidden;
-    transition: max-height 1s ease-in-out;
 }
 </style>

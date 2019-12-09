@@ -9,8 +9,8 @@
                     <AccordionTabSlot :tab="tab" type="header" v-if="tab.$scopedSlots.header" />
                 </a>
             </div>
-            <transition name="p-accordion-content-wrapper">
-                <div class="p-accordion-content-wrapper" v-show="tab.d_active">
+            <transition name="p-toggleable-content">
+                <div class="p-toggleable-content" v-show="tab.d_active">
                     <div class="p-accordion-content">
                         <AccordionTabSlot :tab="tab" type="default" v-if="tab.$scopedSlots.default" />
                     </div>
@@ -123,25 +123,5 @@ export default {
 .p-accordion .p-accordion-header.p-disabled,
 .p-accordion .p-accordion-header.p-disabled a {
     cursor: default;
-}
-
-.p-accordion-content-wrapper-enter,
-.p-accordion-content-wrapper-leave-to {
-    max-height: 0;
-}
-
-.p-accordion-content-wrapper-enter-to,
-.p-accordion-content-wrapper-leave {
-    max-height: 1000px;
-}
-
-.p-accordion-content-wrapper-leave-active {
-    overflow: hidden;
-    transition: max-height 0.45s cubic-bezier(0, 1, 0, 1);
-}
-
-.p-accordion-content-wrapper-enter-active {
-    overflow: hidden;
-    transition: max-height 1s ease-in-out;
 }
 </style>

@@ -11,8 +11,8 @@
                     <span :class="['p-menuitem-icon', item.icon]"></span>
                     <span class="p-menuitem-text">{{item.label}}</span>
                 </a>
-                <transition name="p-panelmenu-content-wrapper">
-                    <div class="p-panelmenu-content-wrapper" v-show="item === activeItem">
+                <transition name="p-toggleable-content">
+                    <div class="p-toggleable-content" v-show="item === activeItem">
                         <sub-panelmenu :model="item.items" v-if="item.visible !== false && item.items" :key="item.label + '_sub_'" />
                     </div>
                 </transition>

@@ -8,8 +8,8 @@
                 <span :class="{'pi pi-minus': !d_collapsed, 'pi pi-plus': d_collapsed}"></span>
             </a>
         </div>
-        <transition name="p-panel-content-wrapper">
-            <div class="p-panel-content-wrapper" v-show="!d_collapsed">
+        <transition name="p-toggleable-content">
+            <div class="p-toggleable-content" v-show="!d_collapsed">
                 <div class="p-panel-content">
                     <slot></slot>
                 </div>
@@ -85,25 +85,5 @@ export default {
 	border-width: 1px 0 0;
 	padding: .25em .5em;
 	text-align:left;
-}
-
-.p-panel-content-wrapper-enter,
-.p-panel-content-wrapper-leave-to {
-    max-height: 0;
-}
-
-.p-panel-content-wrapper-enter-to,
-.p-panel-content-wrapper-leave {
-    max-height: 1000px;
-}
-
-.p-panel-content-wrapper-leave-active {
-    overflow: hidden;
-    transition: max-height 0.45s cubic-bezier(0, 1, 0, 1);
-}
-
-.p-panel-content-wrapper-enter-active {
-    overflow: hidden;
-    transition: max-height 1s ease-in-out;
 }
 </style>

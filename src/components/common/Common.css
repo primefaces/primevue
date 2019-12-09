@@ -131,3 +131,24 @@ button {
     -webkit-transition: transform .3s, opacity .15s;
     transition: transform .3s, opacity .15s;
 }
+
+/* Toggleable Content */
+.p-toggleable-content-enter,
+.p-toggleable-content-leave-to {
+    max-height: 0;
+}
+
+.p-toggleable-content-enter-to,
+.p-toggleable-content-leave {
+    max-height: 1000px;
+}
+
+.p-toggleable-content-leave-active {
+    overflow: hidden;
+    transition: max-height 0.45s cubic-bezier(0, 1, 0, 1);
+}
+
+.p-toggleable-content-enter-active {
+    overflow: hidden;
+    transition: max-height 1s ease-in-out;
+}
