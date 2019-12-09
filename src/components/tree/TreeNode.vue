@@ -148,7 +148,7 @@ export default {
                 //right-left arrows
                 case 37:
                 case 39:
-                    this.$emit('toggle', this.node);
+                    this.$emit('node-toggle', this.node);
 
                     event.preventDefault();
                 break;
