@@ -39,6 +39,7 @@ import OrganizationChart from './components/organizationchart/OrganizationChart'
 import OverlayPanel from './components/overlaypanel/OverlayPanel';
 import Paginator from './components/paginator/Paginator';
 import Panel from './components/panel/Panel';
+import PanelMenu from './components/panelmenu/PanelMenu';
 import Password from './components/password/Password';
 import PickList from './components/picklist/PickList';
 import ProgressBar from './components/progressbar/ProgressBar';
@@ -119,6 +120,7 @@ Vue.component('OrganizationChart', OrganizationChart);
 Vue.component('OverlayPanel', OverlayPanel);
 Vue.component('Paginator', Paginator);
 Vue.component('Panel', Panel);
+Vue.component('PanelMenu', PanelMenu);
 Vue.component('Password', Password);
 Vue.component('PickList', PickList);
 Vue.component('ProgressBar', ProgressBar);

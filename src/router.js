@@ -352,6 +352,11 @@ export default new Router({
 			component: () => import('./views/panel/PanelDemo.vue')
         },
         {
+			path: '/panelmenu',
+			name: 'panelmenu',
+			component: () => import('./views/panelmenu/PanelMenuDemo.vue')
+		},
+        {
 			path: '/picklist',
 			name: 'picklist',
 			component: () => import('./views/picklist/PickListDemo.vue')
