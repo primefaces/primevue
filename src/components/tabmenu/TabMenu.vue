@@ -31,11 +31,7 @@ export default {
                 event.preventDefault();
                 return;
             }
-
-            if (!item.url) {
-                event.preventDefault();
-            }
-
+            
             if (item.command) {
                 item.command({
                     originalEvent: event,

@@ -43,7 +43,7 @@ export default {
                 return;
             }
 
-            if (!item.url) {
+            if (!item.url && !item.to) {
                 event.preventDefault();
             }
 

@@ -69,7 +69,7 @@ export default {
                 return;
             }
 
-            if (!item.url) {
+            if (!item.url && !item.to) {
                 event.preventDefault();
             }
 
@@ -98,7 +98,7 @@ export default {
                 return;
             }
 
-            if (!category.url) {
+            if (!category.url && !category.to) {
                 event.preventDefault();
             }
 
@@ -256,7 +256,6 @@ export default {
         bindDocumentClickListener() {
             if (!this.documentClickListener) {
                 this.documentClickListener = (event) => {
-                    console.log(event);
                     if (this.$el && !this.$el.contains(event.target)) {
                         this.activeItem = null;
                         this.unbindDocumentClickListener();
