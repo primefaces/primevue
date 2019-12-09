@@ -9,6 +9,13 @@
                         <span class="p-menuitem-text">{{item.label}}</span>
                     </a>
                 </div>
+                <transition name="p-panelmenu-content-wrapper">
+                    <div class="p-panelmenu-content-wrapper" v-show="item === activeItem">
+                        <div class="p-panelmenu-content" v-if="item.items">
+                            <PanelMenuSub :model="item.items" class="p-panelmenu-root-submenu" />
+                        </div>
+                    </div>
+                </transition>
             </div>
         </template>
     </div>
@@ -31,7 +38,26 @@ export default {
     },
     methods: {
         onItemClick(event, item) {
+            if (item.disabled) {
+                event.preventDefault();
+                return;
+            }
 
+            if (!item.url) {
+                event.preventDefault();
+            }
+
+            if (item.command) {
+                item.command({
+                    originalEvent: event,
+                    item: item
+                });
+            }
+
+            if (this.activeItem && this.activeItem === item)
+                this.activeItem = null;
+            else
+                this.activeItem = item;
         },
         getPanelClass(item) {
             return ['p-panelmenu-panel', item.class, {'p-disabled': item.disabled}];
@@ -118,5 +144,25 @@ export default {
     padding: .25em;
     display: block;
     text-decoration: none;
+}
+
+.p-panelmenu-content-wrapper-enter,
+.p-panelmenu-content-wrapper-leave-to {
+    max-height: 0;
+}
+
+.p-panelmenu-content-wrapper-enter-to,
+.p-panelmenu-content-wrapper-leave {
+    max-height: 1000px;
+}
+
+.p-panelmenu-content-wrapper-leave-active {
+    overflow: hidden;
+    transition: max-height 0.45s cubic-bezier(0, 1, 0, 1);
+}
+
+.p-panelmenu-content-wrapper-enter-active {
+    overflow: hidden;
+    transition: max-height 1s ease-in-out;
 }
 </style>
