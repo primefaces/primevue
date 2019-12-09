@@ -1,5 +1,5 @@
 <template>
-    <transition name="p-dialog" @enter="onEnter" @leave="onLeave" @appear="onEnter">
+    <transition name="p-dialog" @enter="onEnter" @leave="onLeave" @appear="onAppear">
         <div ref="container" :class="containerClass" v-if="visible">
             <div class="p-dialog-titlebar" v-if="showHeader">
                 <slot name="header">
@@ -76,6 +76,11 @@ export default {
 
             if (this.modal) {
                 this.disableModality();
+            }
+        },
+        onAppear() {
+            if (this.visible) {
+                this.onEnter();
             }
         },
         focus() {
