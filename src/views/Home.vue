@@ -60,7 +60,7 @@
 
         <div class="whouses">
             <h3>Key Users</h3>
-            <p>Open source products of <a href="http://www.primetek.com.tr">PrimeTek</a> are used all around the world by 1M+ developers in Fortune 500 companies, corporations, government and educational
+            <p>Open source products of <a href="https://www.primetek.com.tr">PrimeTek</a> are used all around the world by 1M+ developers in Fortune 500 companies, corporations, government and educational
                 institutions.</p>
             <div class="p-grid">
                 <div class="p-col-6 p-md-2"><img alt="airbus" src="../assets/images/home/airbus.svg"/></div>
