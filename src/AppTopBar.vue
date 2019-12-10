@@ -11,17 +11,11 @@
             <li class="topbar-menu-themes">
                 <a tabindex="0" @click="toggleThemesMenu($event)" class="themes-menu-link">Themes</a>
                 <transition name="p-input-overlay" @enter="onThemesMenuEnter" @leave="onThemesMenuLeave">
-                    <ul v-if="themesMenuVisible">
+                    <ul v-show="themesMenuVisible">
                         <li class="topbar-submenu-header">THEMING</li>
-                        <li><router-link to="/theming" @click.native="hideThemesMenu()"><i class="pi pi-fw pi-file"/><span>Guide</span></router-link></li>
+                        <li><router-link to="/theming" @click.native="hideThemesMenu"><i class="pi pi-fw pi-file"/><span>Guide</span></router-link></li>
                         <li><a href="https://www.primefaces.org/designer/primevue"><i class="pi pi-fw pi-palette" /><span>Designer</span></a></li>
-                        <li><router-link to="/icons" @click.native="hideThemesMenu()"><i class="pi pi-fw pi-info-circle"/><span>Icons</span></router-link></li>
-                        <li class="topbar-submenu-header">PREMIUM ADMIN TEMPLATES</li>
-                        <li><a href="https://www.primefaces.org/sapphire-vue"><img src="./assets/images/layouts/themeswitcher-sapphire.png" alt="Sapphire" /><span>Sapphire</span><span class="theme-badge material">material</span></a></li>
-                        <li><a href="https://www.primefaces.org/avalon-vue"><img src="./assets/images/layouts/themeswitcher-avalon.png" alt="Avalon" /><span>Avalon</span><span class="theme-badge bootstrap">bootstrap</span></a></li>
-                        <li><a href="https://www.primefaces.org/babylon-vue"><img src="./assets/images/layouts/themeswitcher-babylon.png" alt="Babylon" /><span>Babylon</span></a></li>
-                        <li class="topbar-submenu-header">FREE ADMIN TEMPLATE</li>
-                        <li><a href="https://www.primefaces.org/sigma-vue"><img src="./assets/images/layouts/themeswitcher-sigma.png" alt="Sigma" /><span>Sigma</span></a></li>
+                        <li><router-link to="/icons" @click.native="hideThemesMenu"><i class="pi pi-fw pi-info-circle"/><span>Icons</span></router-link></li>
                         <li class="topbar-submenu-header">FREE COMPONENT THEMES</li>
                         <li><a href="#" @click="changeTheme($event, 'nova-light', false)"><img src="./assets/images/layouts/themeswitcher-nova-light.png" alt="Nova Light" /><span>Nova Light</span></a></li>
                         <li><a @click="changeTheme($event, 'nova-dark', false)"><img src="./assets/images/layouts/themeswitcher-nova-dark.png" alt="Nova Dark" /><span>Nova Dark</span></a></li>
@@ -31,6 +25,19 @@
                         <li><a @click="changeTheme($event, 'luna-green', true)"><img src="./assets/images/layouts/themeswitcher-luna-green.png" alt="Luna Green" /><span>Luna Green</span></a></li>
                         <li><a @click="changeTheme($event, 'luna-pink', true)"><img src="./assets/images/layouts/themeswitcher-luna-pink.png" alt="Luna Pink" /><span>Luna Pink</span></a></li>
                         <li><a @click="changeTheme($event, 'rhea', false)"><img src="./assets/images/layouts/themeswitcher-rhea.png" alt="Rhea" /><span>Rhea</span></a></li>
+                    </ul>
+                </transition>
+            </li>
+            <li class="topbar-menu-themes">
+                <a tabindex="0" @click="toggleTemplatesMenu($event)" class="templates-menu-link">Templates</a>
+                <transition name="p-input-overlay" @enter="onTemplatesMenuEnter" @leave="onTemplatesMenuLeave">
+                    <ul v-show="templatesMenuVisible">
+                        <li class="topbar-submenu-header">FREE ADMIN TEMPLATE</li>
+                        <li><a href="https://www.primefaces.org/sigma-vue"><img src="./assets/images/layouts/themeswitcher-sigma.png" alt="Sigma" /><span>Sigma</span></a></li>
+                        <li class="topbar-submenu-header">PREMIUM ADMIN TEMPLATES</li>
+                        <li><a href="https://www.primefaces.org/sapphire-vue"><img src="./assets/images/layouts/themeswitcher-sapphire.png" alt="Sapphire" /><span>Sapphire</span><span class="theme-badge material">material</span></a></li>
+                        <li><a href="https://www.primefaces.org/avalon-vue"><img src="./assets/images/layouts/themeswitcher-avalon.png" alt="Avalon" /><span>Avalon</span><span class="theme-badge bootstrap">bootstrap</span></a></li>
+                        <li><a href="https://www.primefaces.org/babylon-vue"><img src="./assets/images/layouts/themeswitcher-babylon.png" alt="Babylon" /><span>Babylon</span></a></li>
                     </ul>
                 </transition>
             </li>
@@ -44,12 +51,15 @@ import DomHandler from './components/utils/DomHandler';
 
 export default {
     themesMenuOutsideClickListener: null,
+    templatesMenuOutsideClickListener: null,
     themesMenuElement: null,
+    templatesMenuElement: null,
     darkDemoStyle: null,
     data() {
         return {
             theme: 'nova-light',
-            themesMenuVisible: false
+            themesMenuVisible: false,
+            templatesMenuVisible: false
         }
     },
     methods: {
@@ -101,11 +111,23 @@ export default {
             this.themesMenuElement = null;
             this.unbindThemesMenuOutsideClickListener();
         },
+        toggleTemplatesMenu(event) {
+            this.templatesMenuVisible = !this.templatesMenuVisible;
+            event.preventDefault();
+        },
+        onTemplatesMenuEnter(el) {
+            this.templatesMenuElement = el;
+            this.bindTemplatesMenuOutsideClickListener();
+        },
+        onTemplatesMenuLeave() {
+            this.templatesMenuElement = null;
+            this.unbindTemplatesMenuOutsideClickListener();
+        },
         bindThemesMenuOutsideClickListener() {
             if (!this.themesMenuOutsideClickListener) {
                 this.themesMenuOutsideClickListener = (event) => {
-                    if (this.themesMenuVisible && this.isOutsideOfThemesMenuClicked(event)) {
-                        this.hideThemesMenu();
+                    if ((this.themesMenuVisible && this.isOutsideOfOverlayMenuClicked(event, this.themesMenuElement, 'themes-menu-link'))) {
+                        this.themesMenuVisible = false;
                     }
                 };
                 document.addEventListener('click', this.themesMenuOutsideClickListener);
@@ -117,8 +139,24 @@ export default {
                 this.themesMenuOutsideClickListener = null;
             }
         },
-        isOutsideOfThemesMenuClicked(event) {
-            return !(DomHandler.hasClass(event.target, 'themes-menu-link') || this.themesMenuElement.isSameNode(event.target) || this.themesMenuElement.contains(event.target));
+        bindTemplatesMenuOutsideClickListener() {
+            if (!this.templatesMenuOutsideClickListener) {
+                this.templatesMenuOutsideClickListener = (event) => {
+                    if ((this.templatesMenuVisible && this.isOutsideOfOverlayMenuClicked(event, this.templatesMenuElement, 'templates-menu-link'))) {
+                        this.templatesMenuVisible = false;
+                    }
+                };
+                document.addEventListener('click', this.templatesMenuOutsideClickListener);
+            }
+        },
+        unbindTemplatesMenuOutsideClickListener() {
+            if (this.templatesMenuOutsideClickListener) {
+                document.removeEventListener('click', this.templatesMenuOutsideClickListener);
+                this.templatesMenuOutsideClickListener = null;
+            }
+        },
+        isOutsideOfOverlayMenuClicked(event, element, style) {
+            return !(DomHandler.hasClass(event.target, style) || element.isSameNode(event.target) || element.contains(event.target));
         },
         hideThemesMenu() {
             this.themesMenuVisible = false;
