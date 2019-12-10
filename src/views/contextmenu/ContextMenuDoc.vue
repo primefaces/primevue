@@ -205,7 +205,7 @@ export default {
                                 <td>appendTo</td>
                                 <td>string</td>
                                 <td>null</td>
-                                <td>DOM element instance where the dialog should be mounted.</td>
+                                <td>Id of the element or "body" for document where the overlay should be appended to.</td>
                             </tr>
                             <tr>
                                 <td>baseZIndex</td>
