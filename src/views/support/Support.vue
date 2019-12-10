@@ -8,6 +8,13 @@
         </div>
 
         <div class="content-section support documentation">
+            <h3 style="margin-top:0">Community Support</h3>
+            <p><a href="https://forum.primefaces.org/viewforum.php?f=110">Forum</a> is where the community users gather to seek support, post topics and discuss the technology. PrimeTek does not
+            guarantee response at forum although it is monitored and maintained by our staff. If you need to secure our response within 1 business day, you may consider PrimeVue PRO support.</p>
+
+            <h3>Enterprise Support</h3>
+            <p>PrimeVue PRO is a term based commercial support service. With the exclusive services of Pro account,
+                            you no longer need to post your questions in the community forum and your issues to community issue tracker.</p>
             <div class="support-image">
                 <div class="p-grid">
                     <div class="p-col-12 p-md-6">
@@ -21,8 +28,7 @@
                 </div>
             </div>
 
-            <p>PrimeVue PRO is a term based commercial support service. With the exclusive services of Pro account,
-                            you no longer need to post your questions in the community forum and your issues to community issue tracker.</p>
+            
 
             <h3>Standard PRO Services</h3>
             <ul>
@@ -52,10 +58,6 @@
             </ul>
 
             <p>You can purchase additional hours along with the subscription and also anytime during your subscription period. If your subscription term ends with unused hours, they will be added to your new subscription term in case you extend.</p>
-
-            <h3>Community Support</h3>
-            <p><a href="https://forum.primefaces.org/viewforum.php?f=110">Forum</a> is where the community users gather to seek support, post topics and discuss the technology. PrimeTek does not
-            guarantee response at forum although it is monitored and maintained by our staff. If you need to secure our response within 1 business day, you may consider PrimeVue PRO support.</p>
         </div>
     </div>
 </template>
