@@ -67,7 +67,7 @@ new Vue({
 <CodeHighlight lang="js">
 dependencies: {
     "vue": "^2.6.10",
-    "primeicons": "^1.0.0"
+    "primeicons": "^2.0.0"
 }
 </CodeHighlight>
 
