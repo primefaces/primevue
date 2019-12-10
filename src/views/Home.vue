@@ -48,7 +48,7 @@
                 <div class="p-col-12 p-md-3">
                     <img alt="templates" src="../assets/images/home/icon-templates.svg" />
                     <span class="feature-name">TEMPLATES</span>
-                    <p>Professionally designed highly customizable Vue application templates to get started in no time.  (Coming soon...)</p>
+                    <p>Professionally designed highly customizable Vue application templates to get started in no time.</p>
                 </div>
                 <div class="p-col-12 p-md-3">
                     <img alt="templates" src="../assets/images/home/icon-sigma.svg" />
