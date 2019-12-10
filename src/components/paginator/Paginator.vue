@@ -74,6 +74,11 @@ export default {
         },
         rows(newValue) {
             this.d_rows = newValue;
+        },
+        totalRecords(newValue) {
+            if (this.page > 0 && newValue && (this.d_first >= newValue)) {
+                this.changePage(this.pageCount - 1);
+            }
         }
     },
     methods: {
