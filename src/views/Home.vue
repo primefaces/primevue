@@ -52,8 +52,8 @@
                 </div>
                 <div class="p-col-12 p-md-3">
                     <img alt="templates" src="../assets/images/home/icon-sigma.svg" />
-                    <span class="feature-name">FREE ADMIN TEMPLATE</span>
-                    <p>An elegant admin template powered by vue-cli.</p>
+                    <span class="feature-name">Accessibility</span>
+                    <p>Fully accessible and in complaince with Section 508 standards.</p>
                 </div>
             </div>
         </div>

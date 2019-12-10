@@ -786,7 +786,7 @@ body {
             display: block;
             font-weight: bold;
             font-size: 16px;
-            margin-top: 4px;
+            margin-top: 1em;
             color: #20272a;
         }
 
@@ -802,7 +802,8 @@ body {
         }
 
         p {
-            margin-bottom: 30px;
+            margin-top: 1em;
+            margin-bottom: 2em;
 
             &.features-tagline {
                 color: #484848;
@@ -840,7 +841,7 @@ body {
             width: 100%;
         }
 
-        .p-g > div {
+        .p-grid > div {
             padding: 1em .5em;
         }
 
