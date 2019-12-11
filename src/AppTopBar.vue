@@ -8,7 +8,7 @@
         </router-link>
         <ul class="topbar-menu">
             <li><router-link to="/setup">Get Started</router-link></li>
-            <li class="topbar-menu-themes">
+            <li class="topbar-submenu">
                 <a tabindex="0" @click="toggleThemesMenu($event)" class="themes-menu-link">Themes</a>
                 <transition name="p-input-overlay" @enter="onThemesMenuEnter" @leave="onThemesMenuLeave">
                     <ul v-show="themesMenuVisible">
@@ -28,7 +28,7 @@
                     </ul>
                 </transition>
             </li>
-            <li class="topbar-menu-themes">
+            <li class="topbar-submenu">
                 <a tabindex="0" @click="toggleTemplatesMenu($event)" class="templates-menu-link">Templates</a>
                 <transition name="p-input-overlay" @enter="onTemplatesMenuEnter" @leave="onTemplatesMenuLeave">
                     <ul v-show="templatesMenuVisible">
@@ -41,7 +41,20 @@
                     </ul>
                 </transition>
             </li>
-            <li><router-link to="/support">Support</router-link></li>
+            <li class="topbar-submenu topbar-resources-submenu">
+                <a tabindex="0" @click="toggleResourcesMenu($event)" class="resources-menu-link">Resources</a>
+                <transition name="p-input-overlay" @enter="onResourcesMenuEnter" @leave="onResourcesMenuLeave">
+                    <ul v-show="resourcesMenuVisible">
+                        <li><router-link to="/icons" @click.native="hideResourcesMenu"><span>Support</span></router-link></li>
+                        <li><a href="https://github.com/primefaces/primevue" target="_blank"><span>Source Code</span></a></li>
+                        <li><a href="https://www.primefaces.org/store" target="_blank"><span>PrimeStore</span></a></li>
+                        <li><a href="https://www.primefaces.org/category/primevue/" target="_blank"><span>Blog</span></a></li>
+                        <li><a href="https://twitter.com/primevue?lang=en" target="_blank"><span>Twitter</span></a></li>
+                        <li><a href="https://www.primefaces.org/whouses/" target="_blank"><span>Who Uses</span></a></li>
+                        <li><a href="https://www.primetek.com.tr" target="_blank"><span>About PrimeTek</span></a></li>
+                    </ul>
+                </transition>
+            </li>
         </ul>
     </div>
 </template>
@@ -52,14 +65,17 @@ import DomHandler from './components/utils/DomHandler';
 export default {
     themesMenuOutsideClickListener: null,
     templatesMenuOutsideClickListener: null,
+    resourcesMenuOutsideClickListener: null,
     themesMenuElement: null,
     templatesMenuElement: null,
+    resourcesMenuElement: null,
     darkDemoStyle: null,
     data() {
         return {
             theme: 'nova-light',
             themesMenuVisible: false,
-            templatesMenuVisible: false
+            templatesMenuVisible: false,
+            resourcesMenuVisible: false
         }
     },
     methods: {
@@ -123,6 +139,18 @@ export default {
             this.templatesMenuElement = null;
             this.unbindTemplatesMenuOutsideClickListener();
         },
+        toggleResourcesMenu(event) {
+            this.resourcesMenuVisible = !this.resourcesMenuVisible;
+            event.preventDefault();
+        },
+        onResourcesMenuEnter(el) {
+            this.resourcesMenuElement = el;
+            this.bindResourcesMenuOutsideClickListener();
+        },
+        onResourcesMenuLeave() {
+            this.resourcesMenuElement = null;
+            this.unbindResourcesMenuOutsideClickListener();
+        },
         bindThemesMenuOutsideClickListener() {
             if (!this.themesMenuOutsideClickListener) {
                 this.themesMenuOutsideClickListener = (event) => {
@@ -155,11 +183,30 @@ export default {
                 this.templatesMenuOutsideClickListener = null;
             }
         },
+        bindResourcesMenuOutsideClickListener() {
+            if (!this.resourcesMenuOutsideClickListener) {
+                this.resourcesMenuOutsideClickListener = (event) => {
+                    if ((this.resourcesMenuVisible && this.isOutsideOfOverlayMenuClicked(event, this.resourcesMenuElement, 'resources-menu-link'))) {
+                        this.resourcesMenuVisible = false;
+                    }
+                };
+                document.addEventListener('click', this.resourcesMenuOutsideClickListener);
+            }
+        },
+        unbindResourcesMenuOutsideClickListener() {
+            if (this.resourcesMenuOutsideClickListener) {
+                document.removeEventListener('click', this.resourcesMenuOutsideClickListener);
+                this.resourcesMenuOutsideClickListener = null;
+            }
+        },
         isOutsideOfOverlayMenuClicked(event, element, style) {
             return !(DomHandler.hasClass(event.target, style) || element.isSameNode(event.target) || element.contains(event.target));
         },
         hideThemesMenu() {
             this.themesMenuVisible = false;
+        },
+        hideResourcesMenu() {
+            this.resourcesMenuVisible = false;
         }
     }
 }
