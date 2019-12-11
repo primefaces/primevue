@@ -58,7 +58,7 @@ const items: [
     {
         label: 'Options',
         items: [{label: 'New', icon: 'pi pi-fw pi-plus', command:() => {} },
-                {label: 'Delete', icon: 'pi pi-fw pi-trash', url: 'http://primetek.com.tr'}]
+                {label: 'Delete', icon: 'pi pi-fw pi-trash', url: 'https://www.primetek.com.tr'}]
     },
     {
         label: 'Account',
