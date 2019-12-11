@@ -45,7 +45,7 @@
                 <a tabindex="0" @click="toggleResourcesMenu($event)" class="resources-menu-link">Resources</a>
                 <transition name="p-input-overlay" @enter="onResourcesMenuEnter" @leave="onResourcesMenuLeave">
                     <ul v-show="resourcesMenuVisible">
-                        <li><router-link to="/icons" @click.native="hideResourcesMenu"><span>Support</span></router-link></li>
+                        <li><router-link to="/support" @click.native="hideResourcesMenu"><span>Support</span></router-link></li>
                         <li><a href="https://github.com/primefaces/primevue" target="_blank"><span>Source Code</span></a></li>
                         <li><a href="https://www.primefaces.org/store" target="_blank"><span>PrimeStore</span></a></li>
                         <li><a href="https://www.primefaces.org/category/primevue/" target="_blank"><span>Blog</span></a></li>
