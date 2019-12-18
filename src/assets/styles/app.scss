@@ -25,7 +25,7 @@
     }
 }
 
-@mixin shadow($value) {
+@mixin shadow($value...) {
     -webkit-box-shadow: $value;
     -moz-box-shadow: $value;
     box-shadow: $value;
@@ -69,7 +69,7 @@ body {
 }
 
 .layout-topbar {
-    background-color: #20272a;
+    background-color: #ffffff;
     display: block;
     padding: 0;
     height: 70px;
@@ -133,7 +133,7 @@ body {
 
             > a {
                 text-decoration: none;
-                color: #ffffff;
+                color: #484848;
                 min-width: 120px;
                 font-size: 16px;
                 display: inline-block;
@@ -144,7 +144,7 @@ body {
                 @include transition(background-color .2s);
 
                 &:hover {
-                    background-color: #363c3f;
+                    background-color: #eeeeee;
                 }
 
                 &:focus {
@@ -277,29 +277,34 @@ body {
     position: fixed;
     left: 0;
     top: 70px;
-    height: 100%;
+    height: calc(100% - 70px);
     background-color: #ffffff;
     overflow: auto;
-    width: 300px;
+    width: 280px;
     @include shadow(0 0 2px rgba(0,0,0,0.25));
 
     .layout-menu {
-        padding-bottom: 150px;
 
         > span {
             width: 100%;
             height: 50px;
             display: block;
-            padding: 15px 0px 0px 20px;
+            padding: 0px 0px 0px 20px;
+            margin-bottom: 12px;
             border-top: solid 1px #e3e9ea;
-            color: #484848;
+            background-color: #f4f4f4;
+            color: #767676;
+            font-weight: 700;
             user-select: none;
             transition: background-color .2s;
+            display: flex;
+            align-items: center;
 
             span {
-                font-size: 16px;
-                margin: -2px 0px 0px 30px;
+                font-size: 14px;
+                margin: 0px 0px 0px 8px;
                 display: block;
+                text-transform: uppercase;
             }
 
             img {
@@ -320,9 +325,10 @@ body {
         > div {
             background-color: #ffffff;
             padding: 0 15px 15px 15px;
+            display: flex;
+            flex-direction: column;
             
             a {
-                width: 50%;
                 display: inline-block;
                 padding: 6px;
                 cursor: pointer;
@@ -344,7 +350,8 @@ body {
                 }
 
                 &.router-link-active {
-                    color: #007ad9;
+                    color: #526F89;
+                    font-weight: 700;
                 }
 
                 .menuitem-badge {
@@ -382,7 +389,7 @@ body {
 }
 
 .layout-content {
-    margin-left: 300px;
+    margin-left: 280px;
     padding-top: 70px;
     
     .content-section {
@@ -400,9 +407,10 @@ body {
         
         &.introduction {
             color: #ffffff;
-            @include background-gradient-left2right(#0061ad,#4ca1e4);
+            @include background-gradient-left2right(#455C71,#526F89);
             
             .feature-intro {
+                
                 h1 {
                     font-size: 28px;
                     margin: 0 0 20px 0;
@@ -457,7 +465,7 @@ body {
         }
 
         &.content-submenu {
-            background-color: #20272a;
+            background-color: #f4f4f4;
             padding: 15px 30px;
             @include clearfix();
 
@@ -473,7 +481,7 @@ body {
                     padding: .25em;
 
                     a {
-                        color: #cac6c6;
+                        color: #484848;
                         display: block;
                         width: 90%;
                         border: 1px solid transparent;
@@ -482,8 +490,9 @@ body {
                         @include transition(border-color .1s);
 
                         &:hover {
-                            border: 1px solid #ffffff;
-                            color: #ffffff;
+                            border: 1px solid #adadad;
+                            color: #363636;
+                            background-color: #ececec
                         }
 
                         &:focus {
@@ -725,14 +734,14 @@ body {
 .home-button {
     font-weight: bold;
     text-align: center;
-    color: #ffffff;
-    background-color: #007ad9;
+    color: #ffffff !important;
+    background-color: #455C71;
     padding: 10px 24px 9px 24px;
     border-radius: 3px;
     @include transition(background-color .2s);
 
     &:hover {
-        background-color: #116fbf;
+        background-color: #708EA5;
         color: #ffffff;
     }
 }
@@ -759,6 +768,13 @@ body {
         line-height: 22px;
         margin-top: 0;
         margin-bottom: 2em;
+    }
+    a {
+        color: #526F89;
+
+        &:hover {
+            color: #638FB7;
+        }
     }
     
     /* Introduction */
@@ -795,6 +811,17 @@ body {
         text-align: center;
         padding: 0 30px 30px 30px;
 
+        .feature-card {
+            background-color: #ffffff;
+            @include shadow(0 0.8px 1.7px rgba(0, 0, 0, 0.008), 0 1.9px 4.2px rgba(0, 0, 0, 0.012),0 3.6px 7.9px rgba(0, 0, 0, 0.015),0 6.5px 14.1px rgba(0, 0, 0, 0.018),0 12.1px 26.3px rgba(0, 0, 0, 0.022),0 29px 63px rgba(0, 0, 0, 0.03));
+            height: 100%;
+            border-radius: 4px;
+            
+            .feature-card-detail {
+                padding: 0 16px 16px 16px;
+            }
+        }
+
         h3 {
              font-size:24px;
              color: #484848;
@@ -803,7 +830,7 @@ body {
         }
 
         img {
-            width: 57px;
+            width: 100%;
         }
 
         .feature-name {

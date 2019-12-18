@@ -16,44 +16,76 @@
 
             <div class="p-grid">
                 <div class="p-col-12 p-md-3">
-                    <img alt="component" src="../assets/images/home/icon-component.svg" />
-                    <span class="feature-name">50+ COMPONENTS</span>
-                    <p>The most complete set of native widgets featuring 50+ easy to use components for all your UI requirements.</p>
+                    <div class="feature-card">
+                        <img alt="component" src="https://placehold.it/400x150" />
+                        <div class="feature-card-detail">
+                            <span class="feature-name">50+ COMPONENTS</span>
+                            <p>The most complete set of native widgets featuring 50+ easy to use components for all your UI requirements.</p>
+                        </div>
+                    </div>
                 </div>
                 <div class="p-col-12 p-md-3">
-                    <img alt="opensource" src="../assets/images/home/icon-opensource.svg" />
-                    <span class="feature-name">OPEN SOURCE</span>
-                    <p>Hosted at <a href="https://github.com/primefaces/primevue">GitHub</a>, all widgets are open source and free to use under MIT license. Feel the power of open source.</p>
+                    <div class="feature-card">
+                        <img alt="opensource" src="https://placehold.it/400x150" />
+                        <div class="feature-card-detail">
+                            <span class="feature-name">OPEN SOURCE</span>
+                            <p>Hosted at <a href="https://github.com/primefaces/primevue">GitHub</a>, all widgets are open source and free to use under MIT license. Feel the power of open source.</p>
+                        </div>
+                    </div>
                 </div>
                 <div class="p-col-12 p-md-3">
-                    <img alt="themes" src="../assets/images/home/icon-themes.svg" />
-                    <span class="feature-name">THEMES</span>
-                    <p>Don’t get tied up in just one look&feel. Choose from a variety of options including material and flat design.</p>
+                    <div class="feature-card">
+                        <img alt="themes" src="https://placehold.it/400x150" />
+                        <div class="feature-card-detail">
+                            <span class="feature-name">THEMES</span>
+                            <p>Don’t get tied up in just one look&feel. Choose from a variety of options including material and flat design.</p>
+                        </div>
+                    </div>
                 </div>
                 <div class="p-col-12 p-md-3">
-                    <img alt="community" src="../assets/images/home/icon-community.svg" />
-                    <span class="feature-name">COMMUNITY</span>
-                    <p>Join PrimeVue community to become a part of an active, vibrant and growing open source foundation.</p>
+                    <div class="feature-card">
+                        <img alt="community" src="https://placehold.it/400x150" />
+                        <div class="feature-card-detail">
+                            <span class="feature-name">COMMUNITY</span>
+                            <p>Join PrimeVue community to become a part of an active, vibrant and growing open source foundation.</p>
+                        </div>
+                    </div>
                 </div>
                 <div class="p-col-12 p-md-3">
-                    <img alt="productive" src="../assets/images/home/icon-productive.svg" />
-                    <span class="feature-name">PRODUCTIVITY</span>
-                    <p>Allocate your valuable time on business logic rather than dealing with the complex user interface requirements.</p>
+                    <div class="feature-card">
+                        <img alt="productive" src="https://placehold.it/400x150" />
+                        <div class="feature-card-detail">
+                            <span class="feature-name">PRODUCTIVITY</span>
+                            <p>Allocate your valuable time on business logic rather than dealing with the complex user interface requirements.</p>
+                        </div>
+                    </div>
                 </div>
                 <div class="p-col-12 p-md-3">
-                    <img alt="mobile" src="../assets/images/home/icon-mobile.svg" />
-                    <span class="feature-name">MOBILE</span>
-                    <p>Enhanced mobile user experience with  touch optimized responsive design elements.</p>
+                    <div class="feature-card">
+                        <img alt="mobile" src="https://placehold.it/400x150" />
+                        <div class="feature-card-detail">
+                            <span class="feature-name">MOBILE</span>
+                            <p>Enhanced mobile user experience with  touch optimized responsive design elements.</p>
+                        </div>
+                    </div>
                 </div>
                 <div class="p-col-12 p-md-3">
-                    <img alt="templates" src="../assets/images/home/icon-templates.svg" />
-                    <span class="feature-name">TEMPLATES</span>
-                    <p>Professionally designed highly customizable Vue application templates to get started in no time.</p>
+                    <div class="feature-card">
+                        <img alt="templates" src="https://placehold.it/400x150" />
+                        <div class="feature-card-detail">
+                            <span class="feature-name">TEMPLATES</span>
+                            <p>Professionally designed highly customizable Vue application templates to get started in no time.</p>
+                        </div>
+                    </div>
                 </div>
                 <div class="p-col-12 p-md-3">
-                    <img alt="templates" src="../assets/images/home/icon-sigma.svg" />
-                    <span class="feature-name">ACCESSIBILITY</span>
-                    <p>Fully accessible and in complaince with Section 508 standards.</p>
+                    <div class="feature-card">
+                        <img alt="templates" src="https://placehold.it/400x150" />
+                        <div class="feature-card-detail">
+                            <span class="feature-name">ACCESSIBILITY</span>
+                            <p>Fully accessible and in complaince with Section 508 standards.</p>
+                        </div>
+                    </div>
                 </div>
             </div>
         </div>
