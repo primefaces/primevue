@@ -38,7 +38,7 @@
                         <img alt="themes" src="../assets/images/home/vue-themes.png" />
                         <div class="feature-card-detail">
                             <span class="feature-name">THEMES</span>
-                            <p>Don’t get tied up in just one look&feel. Choose from a variety of options including material and flat design.</p>
+                            <p>Don’t get tied up in just one look&feel. Choose from a variety of options including material and bootstrap design.</p>
                         </div>
                     </div>
                 </div>
@@ -73,7 +73,7 @@
                     <div class="feature-card">
                         <img alt="templates" src="../assets/images/home/vue-lts.png" />
                         <div class="feature-card-detail">
-                            <span class="feature-name">LTS</span>
+                            <span class="feature-name">PRODUCTIVITY</span>
                             <p>Allocate your valuable time on business logic rather than dealing with the complex user interface requirements.</p>
                         </div>
                     </div>
