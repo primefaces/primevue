@@ -82,7 +82,7 @@ body {
 
     .menu-button {
         display: none;
-        color: #ffffff;
+        color: #484848;
         font-size: 24px;
         position: absolute;
         left: 0;
@@ -95,7 +95,7 @@ body {
         @include transition(background-color .2s);
 
         &:hover {
-            background-color: #363c3f;
+            background-color: #eeeeee;
         }
 
         i {
@@ -988,13 +988,13 @@ body {
         }
         
         .topbar-menu {
-            background-color: #20272a;
+            background-color: #ffffff;
             float: none;
             width: 100%;
             height: 41px;
             margin: -1px 0 0 0;
-            border-bottom: 1px solid #363c3f;
-            border-top: 1px solid #363c3f;
+            border-bottom: 1px solid #e3e9ea;
+            border-top: 1px solid #e3e9ea;
 
             > li {
                 height: 40px;
