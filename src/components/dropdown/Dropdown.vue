@@ -242,7 +242,7 @@ export default {
             if (this.disabled) {
                 return;
             }
-            
+
             if (DomHandler.hasClass(event.target, 'p-dropdown-clear-icon')) {
                 return;
             }
