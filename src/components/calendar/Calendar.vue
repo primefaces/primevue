@@ -957,6 +957,7 @@ export default {
             event.preventDefault();
         },
         onClearButtonClick(event) {
+            this.inputFieldValue = '';
             this.updateModel(null);
             this.overlayVisible = false;
             this.$emit('clear-click', event);
