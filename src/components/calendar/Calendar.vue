@@ -1,17 +1,17 @@
 <template>
     <span :class="containerClass">
         <CalendarInputText ref="input" v-if="!inline" type="text" v-bind="$attrs" v-on="listeners" v-model="inputFieldValue" :readonly="!manualInput" />
-        <CalendarButton v-if="showIcon" :icon="icon" tabindex="-1" class="p-datepicker-trigger p-calendar-button" :disabled="$attrs.disabled" @click="onButtonClick" />
+        <CalendarButton v-if="showIcon" :icon="icon" tabindex="-1" class="p-datepicker-trigger p-calendar-button" :disabled="$attrs.disabled" @click="onButtonClick" type="button" />
         <transition name="p-input-overlay" @enter="onOverlayEnter" @after-enter="onOverlayEnterComplete" @leave="onOverlayLeave">
             <div ref="overlay" :class="panelStyleClass" v-if="inline ? true : overlayVisible">
                 <template v-if="!timeOnly">
                     <div class="p-datepicker-group" v-for="(month,i) of months" :key="month.month + month.year">
                         <div class="p-datepicker-header">
                             <slot name="header"></slot>
-                            <button class="p-datepicker-prev p-link" v-if="i === 0" @click="navBackward($event)">
+                            <button class="p-datepicker-prev p-link" v-if="i === 0" @click="navBackward($event)" type="button">
                                 <span class="p-datepicker-prev-icon pi pi-chevron-left"></span>
                             </button>
-                            <button class="p-datepicker-next p-link" v-if="numberOfMonths === 1 ? true : (i === numberOfMonths - 1)"  @click="navForward($event)">
+                            <button class="p-datepicker-next p-link" v-if="numberOfMonths === 1 ? true : (i === numberOfMonths - 1)"  @click="navForward($event)" type="button">
                                 <span class="p-datepicker-next-icon pi pi-chevron-right"></span>
                             </button>
                             <div class="p-datepicker-title">
@@ -63,12 +63,12 @@
                 <div class="p-timepicker" v-if="showTime||timeOnly">
                     <div class="p-hour-picker">
                         <button class="p-link" @mousedown="onTimePickerElementMouseDown($event, 0, 1)" @mouseup="onTimePickerElementMouseUp($event)"
-                            @mouseleave="onTimePickerElementMouseLeave()">
+                            @mouseleave="onTimePickerElementMouseLeave()" type="button">
                             <span class="pi pi-chevron-up"></span>
                         </button>
                         <span :style="{'display': currentHour < 10 ? 'inline': 'none'}">0</span><span>{{currentHour}}</span>
                         <button class="p-link" @mousedown="onTimePickerElementMouseDown($event, 0, -1)" @mouseup="onTimePickerElementMouseUp($event)"
-                            @mouseleave="onTimePickerElementMouseLeave()">
+                            @mouseleave="onTimePickerElementMouseLeave()" type="button">
                             <span class="pi pi-chevron-down"></span>
                         </button>
                     </div>
@@ -83,12 +83,12 @@
                     </div>
                     <div class="p-minute-picker">
                         <button class="p-link" @mousedown="onTimePickerElementMouseDown($event, 1, 1)" @mouseup="onTimePickerElementMouseUp($event)"
-                            @mouseleave="onTimePickerElementMouseLeave()">
+                            @mouseleave="onTimePickerElementMouseLeave()" type="button">
                             <span class="pi pi-chevron-up"></span>
                         </button>
                         <span :style="{'display': currentMinute < 10 ? 'inline': 'none'}">0</span><span>{{currentMinute}}</span>
                         <button class="p-link" @mousedown="onTimePickerElementMouseDown($event, 1, -1)" @mouseup="onTimePickerElementMouseUp($event)"
-                            @mouseleave="onTimePickerElementMouseLeave()">
+                            @mouseleave="onTimePickerElementMouseLeave()" type="button">
                             <span class="pi pi-chevron-down"></span>
                         </button>
                     </div>
@@ -103,12 +103,12 @@
                     </div>
                     <div class="p-second-picker" v-if="showSeconds">
                         <button class="p-link" @mousedown="onTimePickerElementMouseDown($event, 2, 1)" @mouseup="onTimePickerElementMouseUp($event)"
-                            @mouseleave="onTimePickerElementMouseLeave()">
+                            @mouseleave="onTimePickerElementMouseLeave()" type="button">
                             <span class="pi pi-chevron-up"></span>
                         </button>
                         <span :style="{'display': currentSecond < 10 ? 'inline': 'none'}">0</span><span>{{currentSecond}}</span>
                         <button class="p-link" @mousedown="onTimePickerElementMouseDown($event, 2, -1)" @mouseup="onTimePickerElementMouseUp($event)"
-                            @mouseleave="onTimePickerElementMouseLeave()">
+                            @mouseleave="onTimePickerElementMouseLeave()" type="button">
                             <span class="pi pi-chevron-down"></span>
                         </button>
                     </div>
@@ -122,11 +122,11 @@
                         </span>
                     </div>
                     <div class="p-ampm-picker" v-if="hourFormat=='12'">
-                        <button class="p-link" @click="toggleAMPM($event)">
+                        <button class="p-link" @click="toggleAMPM($event)" type="button">
                             <span class="pi pi-chevron-up"></span>
                         </button>
                         <span>{{pm ? 'PM' : 'AM'}}</span>
-                        <button class="p-link" @click="toggleAMPM($event)">
+                        <button class="p-link" @click="toggleAMPM($event)" type="button">
                             <span class="pi pi-chevron-down"></span>
                         </button>
                     </div>
