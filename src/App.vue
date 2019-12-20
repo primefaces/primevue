@@ -2,6 +2,7 @@
     <div class="layout-wrapper">
         <app-topbar @menubutton-click="onMenuButtonClick"/>
         <app-menu :active="sidebarActive" />
+        <app-configurator />
         <div :class="['layout-mask', {'layout-mask-active': sidebarActive}]" @click="onMaskClick"></div>
         <div class="layout-content">
             <router-view/>
@@ -18,6 +19,7 @@
 import AppTopBar from '@/AppTopBar.vue';
 import AppMenu from '@/AppMenu.vue';
 import AppFooter from '@/AppFooter.vue';
+import AppConfigurator from '@/AppConfigurator.vue';
 
 export default {
     data() {
@@ -42,7 +44,8 @@ export default {
     components: {
         'app-topbar': AppTopBar,
         'app-menu': AppMenu,
-        'app-footer': AppFooter
+        'app-footer': AppFooter,
+        'app-configurator': AppConfigurator
     },
 }
 </script>

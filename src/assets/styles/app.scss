@@ -40,6 +40,21 @@
     border-top-right-radius: $val;
 }
 
+@mixin border-radius-left($val) {
+    -moz-border-radius-topleft: $val;
+    -webkit-border-top-left-radius: $val;
+    border-top-left-radius: $val;
+    -moz-border-radius-bottomleft: $val;
+    -webkit-border-bottom-left-radius: $val;
+    border-bottom-left-radius: $val;
+}
+
+@mixin border-radius($val) {
+    -moz-border-radius: $val;
+    -webkit-border-radius: $val;
+    border-radius: $val;
+}
+
 @keyframes pulse {
     0% {
         background-color: rgba(165, 165, 165, 0.1)
@@ -52,6 +67,14 @@
     }
 }
 
+@mixin rotate($deg) {    
+    -webkit-transform: rotate($deg);
+    -moz-transform: rotate($deg);
+    -o-transform: rotate($deg);
+    -ms-transform: rotate($deg);
+    transform: rotate($deg);
+}
+
 $focusBorderColor:#8dcdff;
 
 body {
@@ -59,7 +82,7 @@ body {
     height: 100%;
     overflow-x: hidden;
     overflow-y: auto;
-    background-color: #20272a;
+    background-color: #ffffff;
     font-family: "Open Sans", "Helvetica Neue", sans-serif;
     font-weight: normal;
     color: #484848;
@@ -114,7 +137,7 @@ body {
 
         &:focus {
             outline: 0 none;
-            transition: box-shadow .3s;
+            transition: box-shadow .2s;
             box-shadow: 0 0 0 0.2em $focusBorderColor;
         }
     }
@@ -150,7 +173,7 @@ body {
                 &:focus {
                     z-index: 1;
                     outline: 0 none;
-                    transition: box-shadow .3s;
+                    transition: box-shadow .2s;
                     box-shadow: inset 0 0 0 0.2em $focusBorderColor;
                 }
             }
@@ -345,7 +368,7 @@ body {
                 &:focus {
                     z-index: 1;
                     outline: 0 none;
-                    transition: box-shadow .3s;
+                    transition: box-shadow .2s;
                     box-shadow: inset 0 0 0 0.2em $focusBorderColor;
                 }
 
@@ -497,7 +520,7 @@ body {
 
                         &:focus {
                             outline: 0 none;
-                            transition: box-shadow .3s;
+                            transition: box-shadow .2s;
                             box-shadow: 0 0 0 0.2em $focusBorderColor;
                         }
                     }
@@ -594,7 +617,7 @@ body {
 
                             &:focus {
                                 outline: 0 none;
-                                transition: background-color .3s, box-shadow .3s;
+                                transition: background-color .2s, box-shadow .2s;
                                 box-shadow: 0 0 0 0.2em $focusBorderColor;
                             }
                         }
@@ -712,6 +735,199 @@ body {
         color:#20272a
     }
 }
+
+.layout-config {
+    position: fixed;
+    padding: 0;
+    top: 70px;
+    display: block;
+    right: 0;
+    width: 550px;
+    z-index: 996;
+    height: calc(100% - 70px);
+    transform: translate3d(550px, 0px, 0px);
+    @include transition(transform .2s);
+    background-color: #ffffff;
+    
+    &.layout-config-active {
+        transform: translate3d(0px, 0px, 0px);
+        
+        .layout-config-content {
+            .layout-config-button {
+                i {
+                    @include rotate(360deg);
+                }
+            }
+        }
+    }
+
+    .layout-config-content-wrapper {
+        position: relative;
+        height: 100%;
+        padding: 0;
+        @include shadow(0 2px 10px 0 rgba(0, 0, 0, 0.24));
+        
+        .layout-config-button {
+            display: block;
+            position: absolute;
+            width: 52px;
+            height: 52px;
+            line-height: 52px;
+            background-color: #445c71;
+            text-align: center;
+            color: #fafafa;
+            top: 230px;
+            left: -51px;
+            z-index: -1;
+            overflow: hidden;
+            cursor: pointer;
+            @include border-radius-left(3px);
+            @include transition(background-color .2s, box-shadow .2s);
+            box-shadow: 0 7px 8px -4px rgba(0, 0, 0, 0.2),
+                        0 5px 22px 4px rgba(0, 0, 0, 0.12), 
+                        0 12px 17px 2px rgba(0, 0, 0, 0.14);
+
+            i {
+                font-size: 42px;
+                line-height: inherit;
+                cursor: pointer;
+                @include rotate(0deg);
+                @include transition(transform 1s);
+            }
+
+            &:hover {
+                background-color: #577691;
+            }
+        }
+    }
+
+    .layout-config-content {
+        overflow: auto;
+        height: 100%;
+    }
+
+    .layout-config-close {
+        position: absolute;
+        width: 25px;
+        height: 25px;
+        line-height: 25px;
+        text-align: center;
+        right: 20px;
+        top: 20px;
+        z-index: 999;
+        background-color: #41b783;
+        @include border-radius(50%);
+        @include transition(background-color .2s, box-shadow .2s);
+
+        i {
+            color: #ffffff;
+            line-height: inherit;
+            font-size: 16px;
+        }
+
+        &:hover {
+            background-color: #3aa476;
+        }
+
+        &:focus {
+            outline: 0 none;
+            box-shadow: 0 0 0 0.2em $focusBorderColor;
+        }
+    }
+
+    h1 {
+        font-size: 18px;
+        letter-spacing: .1px;
+        margin: 0 0 .5em 0;
+    }
+
+    .p-grid > div {
+        padding: 1em;
+        text-align: center;
+
+        span {
+            display: block;
+        }
+    }
+
+    p {
+        margin: 0 0 2em 0;
+    }
+
+    .free-themes {
+        padding: 2em;
+        color: #484848;
+        background-color: #ffffff;
+
+        p {
+            color: #727272;
+        }
+    }
+
+    .current-theme {
+        box-shadow: 0 0 0 0.2em $focusBorderColor;
+    }
+
+    img {
+        width: 100%;
+    }
+
+    button {
+        text-align: center;
+        position: relative;
+        @include transition(box-shadow .2s);
+
+        i {
+            line-height: inherit;
+            font-size: 28px;
+            color: #41b783;
+            position: absolute;
+            top: 0;
+            left: 50%;
+            margin-left: -18px;
+            margin-top: -18px;
+            padding: .18em;
+            box-shadow: 0 2px 6px 0 rgba(0, 0, 0, 0.25);
+            background-color: #ffffff;
+            border-radius: 50%;
+            width: 36px;
+            height: 36px;
+        }
+
+        &:focus {
+            box-shadow: 0 0 0 0.2em $focusBorderColor;
+        }
+    }
+
+    .premium-themes {
+        padding: 2em;
+        background-color: #2c3135;
+        color: #ffffff;
+
+        p {
+            color: #d8d8d8;
+        }
+    }
+}
+
+@media screen and (max-width: 1024px) {
+    .layout-config {
+        top: 110px;
+        height: calc(100% - 110px);
+        transform: translate3d(100%, 0px, 0px);
+        
+        .layout-config-button {
+            left: auto;
+            right: -52px;
+        }
+
+        &.layout-config-active {
+            width: 100%;
+            transform: translate3d(0px, 0px, 0px);
+        }
+    }
+}
+
 
 .clearfix {
     display: inline-block;
