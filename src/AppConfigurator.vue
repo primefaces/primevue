@@ -36,6 +36,13 @@
                         </div>
                         <div class="p-col-3">
                             <button class="p-link">
+                                <img src="./assets/images/layouts/themeswitcher-nova-vue.png" alt="Nova Colored" @click="changeTheme($event, 'nova-vue', false)"/>
+                                <i class="pi pi-check" v-if="theme === 'nova-vue'" />
+                            </button>
+                            <span>Nova-Vue</span>
+                        </div>
+                        <div class="p-col-3">
+                            <button class="p-link">
                                 <img src="./assets/images/layouts/themeswitcher-luna-blue.png" alt="Luna Blue" @click="changeTheme($event, 'luna-blue', false)"/>
                                 <i class="pi pi-check" v-if="theme === 'luna-blue'" />
                             </button>
@@ -44,7 +51,7 @@
                         <div class="p-col-3">
                             <button class="p-link">
                                 <img src="./assets/images/layouts/themeswitcher-luna-green.png" alt="Luna Green" @click="changeTheme($event, 'luna-green', false)"/>
-                                <i class="pi pi-check" v-if="theme === 'luna-blue'" />
+                                <i class="pi pi-check" v-if="theme === 'luna-green'" />
                             </button>
                             <span>Luna-Green</span>
                         </div>
@@ -100,6 +107,8 @@
 </template>
 
 <script>
+import DomHandler from './components/utils/DomHandler';
+
 export default {
     data() {
         return {
@@ -140,7 +149,7 @@ export default {
             let themeElement = document.getElementById('theme-link');
             themeElement.setAttribute('href', themeElement.getAttribute('href').replace(this.theme, theme));
             this.theme = theme;
-            const hasBodyDarkTheme = this.hasClass(document.body, 'dark-theme');
+            const hasBodyDarkTheme = DomHandler.hasClass(document.body, 'dark-theme');
 
             if (dark) {
                 if (!hasBodyDarkTheme) {
@@ -151,7 +160,6 @@ export default {
                 this.removeClass(document.body, 'dark-theme');
             }
 
-            this.hideThemesMenu();
             event.preventDefault();
         },
         bindOutsideClickListener() {
