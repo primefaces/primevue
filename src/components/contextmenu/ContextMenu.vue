@@ -50,6 +50,11 @@ export default {
         this.unbindOutsideClickListener();
         this.unbindDocumentContextMenuListener();
     },
+    mounted() {
+        if (this.global) {
+            this.bindDocumentContextMenuListener();
+        }
+    },
     methods: {
         itemClick(event) {
             const item = event.item;
@@ -89,10 +94,6 @@ export default {
             this.bindOutsideClickListener();
             this.bindResizeListener();
 
-            if (this.global) {
-                this.bindDocumentContextMenuListener();
-            }
-
             if (this.autoZIndex) {
                 this.$refs.container.style.zIndex = String(this.baseZIndex + DomHandler.generateZIndex());
             }
@@ -100,10 +101,6 @@ export default {
         onLeave() {
             this.unbindOutsideClickListener();
             this.unbindResizeListener();
-
-            if (this.global) {
-                this.unbindDocumentContextMenuListener();
-            }
         },
         position() {
             let left = this.pageX + 1;
