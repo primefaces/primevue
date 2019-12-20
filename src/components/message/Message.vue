@@ -53,8 +53,8 @@ export default {
         },
         iconClass() {
             return ['p-messages-icon pi', {
-                'pi-check': this.severity === 'info',
-                'pi-info-circle': this.severity === 'success',
+                'pi-info-circle': this.severity === 'info',
+                'pi-check': this.severity === 'success',
                 'pi-exclamation-triangle': this.severity === 'warn',
                 'pi-times-circle': this.severity === 'error'
             }];
