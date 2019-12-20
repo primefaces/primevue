@@ -310,7 +310,7 @@ export default {
             return [
                 'p-multiselect-label',
                 {
-                    'p-placeholder': this.label == null && this.placeholder,
+                    'p-placeholder': this.label === this.placeholder,
                     'p-multiselect-label-empty': !this.placeholder && (!this.value || this.value.length === 0)
                 }
             ];
