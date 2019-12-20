@@ -239,6 +239,10 @@ export default {
             this.updateModel(event, null);
         },
         onClick(event) {
+            if (this.disabled) {
+                return;
+            }
+            
             if (DomHandler.hasClass(event.target, 'p-dropdown-clear-icon')) {
                 return;
             }
