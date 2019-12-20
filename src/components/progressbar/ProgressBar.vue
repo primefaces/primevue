@@ -1,7 +1,7 @@
 <template>
     <div role="progressbar" :class="containerClass" :aria-valuemin="0" :aria-valuenow="value" :aria-valuemax="100">
         <div v-if="determinate" class="p-progressbar-value p-progressbar-value-animate" :style="progressStyle"></div>
-        <div v-if="determinate && value" class="p-progressbar-label">{{value + '%'}}</div>
+        <div v-if="determinate && value && showValue" class="p-progressbar-label">{{value + '%'}}</div>
         <div v-if="indeterminate" class="p-progressbar-indeterminate-container">
             <div class="p-progressbar-value p-progressbar-value-animate"></div>
         </div>
