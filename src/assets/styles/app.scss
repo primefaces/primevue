@@ -745,12 +745,12 @@ body {
     width: 550px;
     z-index: 996;
     height: calc(100% - 70px);
-    transform: translate3d(550px, 0px, 0px);
     @include transition(transform .2s);
+    transform: translateX(550px);
     background-color: #ffffff;
     
     &.layout-config-active {
-        transform: translate3d(0px, 0px, 0px);
+        transform: translateX(0);
         
         .layout-config-content {
             .layout-config-button {
@@ -914,7 +914,7 @@ body {
     .layout-config {
         top: 110px;
         height: calc(100% - 110px);
-        transform: translate3d(100%, 0px, 0px);
+        transform: translateX(100%);
         
         .layout-config-button {
             left: auto;
@@ -923,7 +923,7 @@ body {
 
         &.layout-config-active {
             width: 100%;
-            transform: translate3d(0px, 0px, 0px);
+            transform: translateX(0);
         }
     }
 }
