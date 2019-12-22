@@ -81,7 +81,7 @@
 
                 <div class="premium-themes">
                     <h1>PREMIUM VUE-CLI TEMPLATES</h1>
-                    <p>Beautifully crafted premium <a href="https://cli.vuejs.org">Vue CLI</a> application templates by PrimeTek design team.</p>
+                    <p>Beautifully crafted premium <a href="https://cli.vuejs.org">Vue CLI</a> application templates by the PrimeTek design team.</p>
                     <div class="p-grid">
                         <div class="p-col-12">
                             <a href="https://www.primefaces.org/layouts/sapphire-vue">
