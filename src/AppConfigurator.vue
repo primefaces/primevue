@@ -11,7 +11,7 @@
             <div class="layout-config-content">
                 <div class="free-themes">
                     <h1 style="margin-top: 0">FREE THEMES</h1>
-                    <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.</p>
+                    <p>Built-in component themes created by the <a href="https://www.primefaces.org/designer/primevue">PrimeVue Theme Designer</a>.</p>
                     <div class="p-grid">
                         <div class="p-col-3">
                             <button class="p-link">
@@ -81,7 +81,7 @@
 
                 <div class="premium-themes">
                     <h1>PREMIUM VUE-CLI TEMPLATES</h1>
-                    <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.</p>
+                    <p>Beautifully crafted premium <a href="https://cli.vuejs.org">Vue CLI</a> application templates by PrimeTek design team.</p>
                     <div class="p-grid">
                         <div class="p-col-12">
                             <a href="https://www.primefaces.org/layouts/sapphire-vue">
