@@ -96,18 +96,18 @@ export default {
                 if (this.handleIndex == 0) {
                     if (newValue < this.min)
                         newValue = this.min;
-                    else if (value > this.value[1])
+                    else if (newValue >= this.value[1])
                         newValue = this.value[1];
                 }
                 else {
                     if (newValue > this.max)
                         newValue = this.max;
-                    else if (newValue < this.value[0])
+                    else if (newValue <= this.value[0])
                         newValue = this.value[0];
                 }
 
                 modelValue = [...this.value];
-                modelValue[this.handleIndex] = Math.floor(value);
+                modelValue[this.handleIndex] = Math.floor(newValue);
             }
             else {
                 if (newValue < this.min)
