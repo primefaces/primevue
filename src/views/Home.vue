@@ -17,7 +17,7 @@
             <div class="p-grid">
                 <div class="p-col-12 p-md-4">
                     <div class="feature-card">
-                        <img alt="component" src="../assets/images/home/vue-components.png" />
+                        <img alt="components" src="../assets/images/home/vue-components.png" />
                         <div class="feature-card-detail">
                             <span class="feature-name">50+ COMPONENTS</span>
                             <p>The most complete set of native widgets featuring 50+ easy to use components for all your UI requirements.</p>
@@ -44,7 +44,7 @@
                 </div>
                 <div class="p-col-12 p-md-4">
                     <div class="feature-card">
-                        <img alt="community" src="../assets/images/home/vue-templates.png" />
+                        <img alt="templates" src="../assets/images/home/vue-templates.png" />
                         <div class="feature-card-detail">
                             <span class="feature-name">TEMPLATES</span>
                             <p>Professionally designed highly customizable Vue application templates to get started in no time.</p>
@@ -53,7 +53,7 @@
                 </div>
                 <div class="p-col-12 p-md-4">
                     <div class="feature-card">
-                        <img alt="productive" src="../assets/images/home/vue-accesibility.png" />
+                        <img alt="accesibility" src="../assets/images/home/vue-accesibility.png" />
                         <div class="feature-card-detail">
                             <span class="feature-name">ACCESSIBILITY</span>
                             <p>Fully accessible and in complaince with Section 508 standards.</p>
@@ -62,7 +62,7 @@
                 </div>
                 <div class="p-col-12 p-md-4">
                     <div class="feature-card">
-                        <img alt="mobile" src="../assets/images/home/vue-pro.png" />
+                        <img alt="pro" src="../assets/images/home/vue-pro.png" />
                         <div class="feature-card-detail">
                             <span class="feature-name">PRO SUPPORT</span>
                             <p>With the exclusive services of Pro account, you no longer need to post your questions in the community forum and your issues to community issue tracker.</p>
@@ -71,7 +71,7 @@
                 </div>
                 <div class="p-col-12 p-md-4">
                     <div class="feature-card">
-                        <img alt="templates" src="../assets/images/home/vue-lts.png" />
+                        <img alt="productivity" src="../assets/images/home/vue-lts.png" />
                         <div class="feature-card-detail">
                             <span class="feature-name">PRODUCTIVITY</span>
                             <p>Allocate your valuable time on business logic rather than dealing with the complex user interface requirements.</p>
@@ -80,7 +80,7 @@
                 </div>
                 <div class="p-col-12 p-md-4">
                     <div class="feature-card">
-                        <img alt="templates" src="../assets/images/home/vue-community.png" />
+                        <img alt="community" src="../assets/images/home/vue-community.png" />
                         <div class="feature-card-detail">
                             <span class="feature-name">COMMUNITY</span>
                             <p>Join PrimeVue community to become a part of an active, vibrant and growing open source foundation.</p>
@@ -89,7 +89,7 @@
                 </div>
                 <div class="p-col-12 p-md-4">
                     <div class="feature-card">
-                        <img alt="templates" src="../assets/images/home/vue-mobile.png" />
+                        <img alt="mobile" src="../assets/images/home/vue-mobile.png" />
                         <div class="feature-card-detail">
                             <span class="feature-name">MOBILE</span>
                             <p>Enhanced mobile user experience with touch optimized responsive design elements.</p>
