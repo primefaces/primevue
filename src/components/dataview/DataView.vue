@@ -13,7 +13,7 @@
 			</template>
 		</DVPaginator>
 		<div class="p-dataview-content">
-			<div class="p-grid">
+			<div class="p-grid p-nogutter">
 				<template v-for="(item,index) of items">
 					<slot v-if="$scopedSlots.list && layout === 'list'" name="list" :data="item" :index="index"></slot>
 					<slot v-if="$scopedSlots.grid && layout === 'grid'" name="grid" :data="item" :index="index"></slot>
