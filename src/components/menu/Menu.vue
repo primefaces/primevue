@@ -60,6 +60,10 @@ export default {
     methods: {
         itemClick(event) {
             const item = event.item;
+            if (item.disabled || (!item.to && !item.url)) {
+                event.originalEvent.preventDefault();
+            }
+
             if (item.command) {
                 item.command(event);
                 event.originalEvent.preventDefault();
