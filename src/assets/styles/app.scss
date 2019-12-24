@@ -293,6 +293,12 @@ body {
             background: -webkit-linear-gradient(to bottom, #563D7C, #966BD8);  /* Chrome 10-25, Safari 5.1-6 */
             background: linear-gradient(to bottom, #563D7C, #966BD8); /* W3C, IE 10+/ Edge, Firefox 16+, Chrome 26+, Opera 12+, Safari 7+ */  
         }
+
+        .theme-badge.darkmode {
+            background-color: #141d26;
+            background: -webkit-linear-gradient(to bottom, #141d26, #5a6067);  /* Chrome 10-25, Safari 5.1-6 */
+            background: linear-gradient(to bottom, #141d26, #5a6067); /* W3C, IE 10+/ Edge, Firefox 16+, Chrome 26+, Opera 12+, Safari 7+ */ 
+        }
     }
 }
 
@@ -745,12 +751,14 @@ body {
     width: 550px;
     z-index: 996;
     height: calc(100% - 70px);
-    @include transition(transform .2s);
-    transform: translateX(550px);
+    @include transition(transform .3s);
+    transform: translate3d(550px,0,0);
     background-color: #ffffff;
+    backface-visibility: hidden;
+    -webkit-backface-visibility: hidden;
     
     &.layout-config-active {
-        transform: translateX(0);
+        transform: translate3d(0,0,0);
         
         .layout-config-content {
             .layout-config-button {
@@ -914,7 +922,7 @@ body {
     .layout-config {
         top: 110px;
         height: calc(100% - 110px);
-        transform: translateX(100%);
+        transform: translate3d(100%,0,0);
         
         .layout-config-button {
             left: auto;
@@ -923,7 +931,7 @@ body {
 
         &.layout-config-active {
             width: 100%;
-            transform: translateX(0);
+            transform: translate3d(0,0,0);
         }
     }
 }
@@ -1238,7 +1246,7 @@ body {
         top: 70px;
         left: -300px;
         z-index: 999;
-        @include transition(left .2s);
+        @include transition(left .3s);
 
         &.active {
             left: 0;

@@ -98,6 +98,11 @@
                                 <img alt="Avalon" src="./assets/images/layouts/avalon.jpg">
                             </a>
                         </div>
+                        <div class="p-col-12">
+                            <a href="https://www.primefaces.org/layouts/apollo-vue">
+                                <img alt="Apollo" src="./assets/images/layouts/apollo.jpg">
+                            </a>
+                        </div>
                     </div>
                 </div>
 
