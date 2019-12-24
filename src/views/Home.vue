@@ -71,7 +71,7 @@
                 </div>
                 <div class="p-col-12 p-md-4">
                     <div class="feature-card">
-                        <img alt="productivity" src="../assets/images/home/vue-lts.png" />
+                        <img alt="productivity" src="../assets/images/home/vue-productivity.png" />
                         <div class="feature-card-detail">
                             <span class="feature-name">PRODUCTIVITY</span>
                             <p>Allocate your valuable time on business logic rather than dealing with the complex user interface requirements.</p>
