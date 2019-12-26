@@ -493,6 +493,11 @@ export default new Router({
 			component: () => import('./views/toolbar/ToolbarDemo.vue')
         },
         {
+			path: '/tooltip',
+			name: 'tooltip',
+			component: () => import('./views/tooltip/TooltipDemo.vue')
+		},
+        {
 			path: '/tree',
 			name: 'tree',
 			component: () => import('./views/tree/TreeDemo.vue')

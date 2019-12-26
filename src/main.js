@@ -63,6 +63,7 @@ import TreeTable from './components/treetable/TreeTable';
 import Toast from './components/toast/Toast';
 import ToastService from './components/toast/ToastService';
 import Toolbar from './components/toolbar/Toolbar';
+import Tooltip from './components/tooltip/Tooltip';
 import ToggleButton from './components/togglebutton/ToggleButton';
 import TriStateCheckbox from './components/tristatecheckbox/TriStateCheckbox';
 import InputMask from './components/inputmask/InputMask';
@@ -79,6 +80,8 @@ import '@fullcalendar/daygrid/main.min.css';
 import '@fullcalendar/timegrid/main.min.css';
 
 Vue.use(ToastService);
+
+Vue.directive('tooltip', Tooltip);
 
 Vue.config.productionTip = false;
 

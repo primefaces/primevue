@@ -1,0 +1,67 @@
+.p-tooltip {
+    position:absolute;
+    display:none;
+    padding: .25em .5em;
+    max-width: 12.5em;
+}
+
+.p-tooltip.p-tooltip-right,
+.p-tooltip.p-tooltip-left {
+    padding: 0 .25em;
+}
+
+.p-tooltip.p-tooltip-top,
+.p-tooltip.p-tooltip-bottom {
+    padding:.25em 0;
+}
+
+.p-tooltip .p-tooltip-text {
+   padding: .125em .5em;
+   background-color: rgb(76, 76, 76);
+   color: #ffffff;
+   white-space: pre-line;
+}
+
+.p-tooltip-arrow {
+    position: absolute;
+    width: 0;
+    height: 0;
+    border-color: transparent;
+    border-style: solid;
+}
+
+.p-tooltip-right .p-tooltip-arrow {
+    top: 50%;
+    left: 0;
+    margin-top: -.25em;
+    border-width: .25em .25em .25em 0;
+    border-right-color: rgb(76, 76, 76);
+}
+
+.p-tooltip-left .p-tooltip-arrow {
+    top: 50%;
+    right: 0;
+    margin-top: -.25em;
+    border-width: .25em 0 .25em .25em;
+    border-left-color: rgb(76, 76, 76);
+}
+
+.p-tooltip.p-tooltip-top {
+    padding: .25em 0;
+}
+
+.p-tooltip-top .p-tooltip-arrow {
+    bottom: 0;
+    left: 50%;
+    margin-left: -.25em;
+    border-width: .25em .25em 0;
+    border-top-color: rgb(76, 76, 76);
+}
+
+.p-tooltip-bottom .p-tooltip-arrow {
+    top: 0;
+    left: 50%;
+    margin-left: -.25em;
+    border-width: 0 .25em .25em;
+    border-bottom-color: rgb(76, 76, 76);
+}

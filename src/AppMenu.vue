@@ -78,6 +78,7 @@
                 <router-link to="/dialog">Dialog</router-link>
                 <router-link to="/overlaypanel">OverlayPanel</router-link>
                 <router-link to="/sidebar">Sidebar</router-link>
+                 <router-link to="/tooltip">Tooltip</router-link>
             </div>
 
             <span>
