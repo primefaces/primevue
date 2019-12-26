@@ -78,10 +78,10 @@ export default {
     .p-datatable-thead > tr > th {
         border: 0 none;
         text-align: left;
-    } 
+    }
 
     .p-datatable-tbody > tr > td {
         border: 0 none;
-    } 
+    }
 }
 </style>
