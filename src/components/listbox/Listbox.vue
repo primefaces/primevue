@@ -2,14 +2,14 @@
     <div class="p-listbox p-inputtext p-component">
         <div class="p-listbox-header" v-if="filter">
             <div class="p-listbox-filter-container">
-                <input type="text" role="textbox" class="p-inputtext p-component" v-model="filterValue">
+                <input type="text" class="p-inputtext p-component" v-model="filterValue">
                 <span class="p-listbox-filter-icon pi pi-search"></span>
             </div>
         </div>
         <div class="p-listbox-list-wrapper" :style="listStyle">
-            <ul class="p-listbox-list">
+            <ul class="p-listbox-list" role="listbox" aria-multiselectable="multiple">
                 <li v-for="(option, i) of visibleOptions" :tabindex="isOptionDisabled(option) ? null : '0'" :class="['p-listbox-item', {'p-highlight': isSelected(option), 'p-disabled': isOptionDisabled(option)}]"
-                    :aria-label="getOptionLabel(option)" :key="getOptionLabel(option)" @click="onOptionSelect($event, option)" @touchend="onOptionTouchEnd()" @keydown="onOptionKeyDown($event, option)">
+                    :aria-label="getOptionLabel(option)" :key="getOptionLabel(option)" @click="onOptionSelect($event, option)" @touchend="onOptionTouchEnd()" @keydown="onOptionKeyDown($event, option)" role="option" :aria-selected="isSelected(option)">
                     <slot name="option" :option="option" :index="i">
                         {{getOptionLabel(option)}}
                     </slot>

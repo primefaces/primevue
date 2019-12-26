@@ -8,9 +8,9 @@
         </div>
 
         <div class="content-section implementation">
-            <Button type="button" label="Toggle" @click="toggle" />
+            <Button type="button" label="Toggle" @click="toggle" aria:haspopup="true" aria-controls="overlay_panel" />
 
-            <OverlayPanel ref="op" appendTo="body" :showCloseIcon="true">
+            <OverlayPanel ref="op" appendTo="body" :showCloseIcon="true" id="overlay_panel">
                 <img src="demo/images/nature/nature1.jpg" alt="Nature Image">
             </OverlayPanel>
         </div>

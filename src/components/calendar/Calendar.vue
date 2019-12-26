@@ -1,6 +1,6 @@
 <template>
     <span :class="containerClass">
-        <CalendarInputText ref="input" v-if="!inline" type="text" v-bind="$attrs" v-on="listeners" v-model="inputFieldValue" :readonly="!manualInput" />
+        <CalendarInputText ref="input" v-if="!inline" type="text" v-bind="$attrs" v-on="listeners" v-model="inputFieldValue" :readonly="!manualInput" :aria-labelledby="ariaLabelledBy"/>
         <CalendarButton v-if="showIcon" :icon="icon" tabindex="-1" class="p-datepicker-trigger p-calendar-button" :disabled="$attrs.disabled" @click="onButtonClick" type="button" />
         <transition name="p-input-overlay" @enter="onOverlayEnter" @after-enter="onOverlayEnterComplete" @leave="onOverlayLeave">
             <div ref="overlay" :class="panelStyleClass" v-if="inline ? true : overlayVisible">
@@ -310,6 +310,10 @@ export default {
                     weekHeader: 'Wk'
                 }
             }
+        },
+        ariaLabelledBy: {
+            type: String,
+            default: null
         }
     },
     oldViewDate: null,

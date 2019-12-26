@@ -23,7 +23,8 @@
             <table ref="table">
                 <thead class="p-treetable-thead">
                     <tr>
-                        <th v-for="(col,i) of columns" :key="col.columnKey||col.field||i" :style="col.headerStyle" :class="getColumnHeaderClass(col)" @click="onColumnHeaderClick($event, col)">
+                        <th v-for="(col,i) of columns" :key="col.columnKey||col.field||i" :style="col.headerStyle" :class="getColumnHeaderClass(col)" @click="onColumnHeaderClick($event, col)"
+                            :tabindex="col.sortable ? '0' : null"  :aria-sort="getAriaSort(col)" @keydown="onColumnKeyDown($event, col)">
                             <span class="p-column-resizer p-clickable" @mousedown="onColumnResizeStart" v-if="resizableColumns"></span>
                             <TTColumnSlot :column="col" type="header" v-if="col.$scopedSlots.header" />
                             <span class="p-column-title" v-if="col.header">{{col.header}}</span>
@@ -382,10 +383,11 @@ export default {
             }
 
             return [
-                'p-sortable-column-icon pi pi-fw',
-                {'pi-sort': !sorted},
-                {'pi-sort-up': sorted && sortOrder > 0},
-                {'pi-sort-down': sorted && sortOrder < 0},
+                'p-sortable-column-icon pi pi-fw', {
+                    'pi-sort': !sorted,
+                    'pi-sort-up': sorted && sortOrder > 0,
+                    'pi-sort-down': sorted && sortOrder < 0
+                }
             ];
         },
         getMultiSortMetaIndex(column) {
@@ -711,6 +713,25 @@ export default {
             if (this.documentColumnResizeEndListener) {
                 document.removeEventListener('document', this.documentColumnResizeEndListener);
                  this.documentColumnResizeEndListener = null;
+            }
+        },
+        onColumnKeyDown(event, col) {
+            if (event.currentTarget.nodeName === 'TH' && DomHandler.hasClass(event.currentTarget, 'p-sortable-column')) {
+                this.onColumnHeaderClick(event, col);
+            }
+        },
+        getAriaSort(column) {
+            if (column.sortable) {
+                const sortIcon = this.getSortableColumnIcon(column);
+                if (sortIcon[1]['pi-sort-down'])
+                    return 'descending';
+                else if (sortIcon[1]['pi-sort-up'])
+                    return 'ascending';
+                else
+                    return 'none';
+            }
+            else {
+                return null;
             }
         }
     },

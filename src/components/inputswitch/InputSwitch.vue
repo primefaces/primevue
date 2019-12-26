@@ -2,7 +2,7 @@
     <div :class="containerClass" @click="onClick($event)">
         <div class="p-hidden-accessible">
             <input ref="input" type="checkbox" :id="inputId" :name="name" :checked="value" :disabled="disabled"
-                @focus="onFocus($event)" @blur="onBlur($event)" @keydown.enter.prevent="onClick($event)">
+                @focus="onFocus($event)" @blur="onBlur($event)" @keydown.enter.prevent="onClick($event)" role="switch" :aria-checked="value" :aria-labelledby="ariaLabelledBy">
         </div>
         <span class="p-inputswitch-slider"></span>
     </div>
@@ -14,7 +14,8 @@ export default {
         value: Boolean,
         inputId: String,
         name: String,
-        disabled: Boolean
+        disabled: Boolean,
+        ariaLabelledBy: null
     },
     data() {
         return {

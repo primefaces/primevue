@@ -3,14 +3,16 @@
         <template v-for="(item, index) of model">
             <div :key="item.label + '_' + index" :class="getPanelClass(item)" :style="item.style">
                 <div :class="getHeaderClass(item)" :style="item.style">
-                    <a :href="item.url || '#'" class="p-panelmenu-header-link" @click="onItemClick($event, item)">
+                    <a :href="item.url || '#'" class="p-panelmenu-header-link" @click="onItemClick($event, item)"
+                        :aria-expanded="isActive(item)" :id="ariaId +'_header'" :aria-controls="ariaId +'_content'">
                         <span v-if="item.items" :class="getPanelToggleIcon(item)"></span>
                         <span v-if="item.icon" :class="getPanelIcon(item)"></span>
                         <span class="p-menuitem-text">{{item.label}}</span>
                     </a>
                 </div>
                 <transition name="p-toggleable-content">
-                    <div class="p-toggleable-content" v-show="item === activeItem">
+                    <div class="p-toggleable-content" v-show="item === activeItem"
+                        role="region" :id="ariaId +'_content' " :aria-labelledby="ariaId +'_header'">
                         <div class="p-panelmenu-content" v-if="item.items">
                             <PanelMenuSub :model="item.items" class="p-panelmenu-root-submenu" />
                         </div>
@@ -23,6 +25,7 @@
 
 <script>
 import PanelMenuSub from './PanelMenuSub';
+import UniqueComponentId from '../utils/UniqueComponentId';
 
 export default {
     props: {
@@ -69,14 +72,20 @@ export default {
         getPanelIcon(item) {
             return ['p-menuitem-icon', item.icon];
         },
+        isActive(item) {
+            return item === this.activeItem;
+        },
         getHeaderClass(item) {
-            return ['p-component p-panelmenu-header', {'p-highlight': (item === this.activeItem)}];
+            return ['p-component p-panelmenu-header', {'p-highlight': this.isActive(item)}];
         }
-    },
-    computed: {
     },
     components: {
         'PanelMenuSub': PanelMenuSub
+    },
+    computed: {
+        ariaId() {
+            return UniqueComponentId();
+        }
     }
 }
 </script>

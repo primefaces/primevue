@@ -74,6 +74,12 @@ toggle(event) {
                                 <td>true</td>
                                 <td>Whether to automatically manage layering.</td>
                             </tr>
+                            <tr>
+                                <td>ariaCloseLabel</td>
+                                <td>string</td>
+                                <td>close</td>
+                                <td>Aria label of the close icon.</td>
+                            </tr>
 						</tbody>
 					</table>
 				</div>
@@ -146,10 +152,10 @@ toggle(event) {
 				</a>
 <CodeHighlight>
 <template v-pre>
-&lt;Button type="button" label="Toggle" @click="toggle" /&gt;
+&lt;Button type="button" label="Toggle" @click="toggle" aria:haspopup="true" aria-controls="overlay_panel"/&gt;
 
-&lt;OverlayPanel ref="op" appendTo="body" :showCloseIcon="true"&gt;
-    &lt;img src="demo/images/nature/nature1.jpg" alt="Nature Image"&gt;
+&lt;OverlayPanel ref="op" id="overlay_panel"&gt;
+	&lt;img src="demo/images/nature/nature1.jpg" alt="Nature Image"&gt;
 &lt;/OverlayPanel&gt;
 </template>
 </CodeHighlight>

@@ -1,6 +1,6 @@
 <template>
     <div :class="containerClass">
-        <div class="p-toast-item">
+        <div class="p-toast-item" role="alert" aria-live="assertive" aria-atomic="true">
             <button class="p-toast-icon-close p-link" @click="onCloseClick" v-if="message.closable !== false">
                 <span class="p-toast-icon-close-icon pi pi-times"></span>
             </button>

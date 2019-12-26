@@ -209,8 +209,8 @@ toggle(event) {
 &lt;Menu :model="items" /&gt;
 
 &lt;h3&gt;Overlay&lt;/h3&gt;
-&lt;Button type="button" label="Toggle" @click="toggle" /&gt;
-&lt;Menu ref="menu" :model="items" :popup="true" /&gt;
+&lt;Button type="button" label="Toggle" @click="toggle" aria-haspopup="true" aria-controls="overlay_menu" /&gt;
+&lt;Menu id="overlay_menu" ref="menu" :model="items" :popup="true" /&gt;
 </template>
 </CodeHighlight>
 

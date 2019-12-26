@@ -6,7 +6,7 @@
                 <span :class="toggleIcon"></span>
             </span>
             <div class="p-checkbox p-component" v-if="checkboxMode">
-                <div :class="checkboxClass">
+                <div :class="checkboxClass" role="checkbox" :aria-checked="checked">
                     <span :class="checkboxIcon"></span>
                 </div>
             </div>

@@ -12,8 +12,8 @@
             <TieredMenu :model="items" />
 
             <h3>Overlay</h3>
-            <Button type="button" label="Toggle" @click="toggle" />
-            <TieredMenu ref="menu" :model="items" :popup="true" />
+            <Button type="button" label="Toggle" @click="toggle" aria-haspopup="true" aria-controls="overlay_tmenu"/>
+            <TieredMenu id="overlay_tmenu" ref="menu" :model="items" :popup="true" />
         </div>
 
         <TieredMenuDoc />

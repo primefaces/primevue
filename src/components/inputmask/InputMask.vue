@@ -23,7 +23,8 @@ export default {
         unmask: {
             type: Boolean,
             default: false
-        }
+        },
+        ariaLabelledBy: null
     },
     methods: {
         caret(first, last) {

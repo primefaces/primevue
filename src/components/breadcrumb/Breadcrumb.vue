@@ -1,5 +1,5 @@
 <template>
-    <div class="p-breadcrumb p-component">
+    <nav class="p-breadcrumb p-component" aria-label="Breadcrumb">
         <ul>
             <BreadcrumbItem v-if="home" :item="home" class="p-breadcrumb-home" />
             <template v-for="(item, i) of model">
@@ -7,7 +7,7 @@
                 <BreadcrumbItem :key="item.label + i" :item="item" />
             </template>
         </ul>
-    </div>
+    </nav>
 </template>
 
 <script>

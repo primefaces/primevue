@@ -147,7 +147,7 @@ export default {
 </script>
 
 <style scoped lang="scss">
-    .p-panelmenu {
-        width: 22em;
-    }
+.p-panelmenu {
+    width: 22em;
+}
 </style>

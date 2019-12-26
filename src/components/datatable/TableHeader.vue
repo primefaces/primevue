@@ -2,11 +2,11 @@
     <thead class="p-datatable-thead">
         <tr v-if="!columnGroup">
             <template v-for="(col,i) of columns">
-                <th v-if="rowGroupMode !== 'subheader' || (groupRowsBy !== col.field)"
+                <th v-if="rowGroupMode !== 'subheader' || (groupRowsBy !== col.field)" :tabindex="col.sortable ? '0' : '-1'" @keydown="onColumnKeyDown($event, col)"
                     :key="col.columnKey||col.field||i" :style="col.headerStyle" :class="getColumnHeaderClass(col)"
                     @click="onColumnHeaderClick($event, col)" @mousedown="onColumnHeaderMouseDown($event, col)"
                     @dragstart="onColumnHeaderDragStart($event)" @dragover="onColumnHeaderDragOver($event)" @dragleave="onColumnHeaderDragLeave($event)" @drop="onColumnHeaderDrop($event)"
-                    :colspan="col.colspan" :rowspan="col.rowspan">
+                    :colspan="col.colspan" :rowspan="col.rowspan" :aria-sort="getAriaSort(col)">
                     <span class="p-column-resizer p-clickable" @mousedown="onColumnResizeStart($event)" v-if="resizableColumns"></span>
                     <DTColumnSlot :column="col" type="header" v-if="col.$scopedSlots.header" />
                     <span class="p-column-title" v-if="col.header">{{col.header}}</span>
@@ -18,9 +18,9 @@
         </tr>
         <template v-else>
             <tr v-for="(row,i) of columnGroup.rows" :key="i">
-                <th v-for="(col,i) of row.columns" :key="col.columnKey||col.field||i" :style="col.headerStyle" :class="getColumnHeaderClass(col)"
+                <th v-for="(col,i) of row.columns" :key="col.columnKey||col.field||i" :style="col.headerStyle" :class="getColumnHeaderClass(col)" :tabindex="col.sortable ? '0' : '-1'" @keydown="onColumnKeyDown($event, col)"
                 @dragstart="onColumnHeaderDragStart($event)" @dragover="onColumnHeaderDragOver($event)" @dragleave="onColumnHeaderDragLeave($event)" @drop="onColumnHeaderDrop($event)"
-                    :colspan="col.colspan" :rowspan="col.rowspan">
+                    :colspan="col.colspan" :rowspan="col.rowspan" :aria-sort="getAriaSort(col)">
                     <ColumnSlot :column="col" type="header" v-if="col.$scopedSlots.header" />
                     <span class="p-column-title" v-if="col.header">{{col.header}}</span>
                     <span v-if="col.sortable" :class="getSortableColumnIcon(col)"></span>
@@ -33,6 +33,7 @@
 </template>
 
 <script>
+import DomHandler from '../utils/DomHandler';
 import ColumnSlot from './ColumnSlot.vue';
 import HeaderCheckbox from './HeaderCheckbox.vue';
 
@@ -110,10 +111,11 @@ export default {
             }
 
             return [
-                'p-sortable-column-icon pi pi-fw',
-                {'pi-sort': !sorted},
-                {'pi-sort-up': sorted && sortOrder > 0},
-                {'pi-sort-down': sorted && sortOrder < 0},
+                'p-sortable-column-icon pi pi-fw', {
+                    'pi-sort': !sorted,
+                    'pi-sort-up': sorted && sortOrder > 0,
+                    'pi-sort-down': sorted && sortOrder < 0
+                }
             ];
         },
         getMultiSortMetaIndex(column) {
@@ -152,6 +154,25 @@ export default {
         },
         onHeaderCheckboxChange(event) {
             this.$emit('checkbox-change', event);
+        },
+        onColumnKeyDown(event, col) {
+            if (event.currentTarget.nodeName === 'TH' && DomHandler.hasClass(event.currentTarget, 'p-sortable-column')) {
+                this.$emit('column-click', {originalEvent: event, column: col});
+            }
+        },
+        getAriaSort(column) {
+            if (column.sortable) {
+                const sortIcon = this.getSortableColumnIcon(column);
+                if (sortIcon[1]['pi-sort-down'])
+                    return 'descending';
+                else if (sortIcon[1]['pi-sort-up'])
+                    return 'ascending';
+                else
+                    return 'none';
+            }
+            else {
+                return null;
+            }
         }
     },
     components: {

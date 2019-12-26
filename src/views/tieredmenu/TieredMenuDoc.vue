@@ -301,8 +301,8 @@ toggle(event) {
 &lt;TieredMenu :model="items" /&gt;
 
 &lt;h3&gt;Overlay&lt;/h3&gt;
-&lt;Button type="button" label="Toggle" @click="toggle" /&gt;
-&lt;TieredMenu ref="menu" :model="items" :popup="true" /&gt;
+&lt;Button type="button" label="Toggle" @click="toggle" aria-haspopup="true" aria-controls="overlay_tmenu" /&gt;
+&lt;TieredMenu id="overlay_tmenu" ref="menu" :model="items" :popup="true" /&gt;
 </template>
 </CodeHighlight>
 

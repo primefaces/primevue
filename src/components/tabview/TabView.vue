@@ -2,7 +2,7 @@
     <div class="p-tabview p-component p-tabview-top">
         <ul class="p-tabview-nav p-reset" role="tablist">
             <li role="presentation" v-for="(tab, i) of tabs" :key="tab.header || i" :class="['p-unselectable-text', {'p-highlight': (tab.d_active), 'p-disabled': tab.disabled}]">
-                <a role="tab" @click="onTabClick($event, tab)" @keydown="onTabKeydown($event, tab)" :tabindex="tab.disabled ? null : '0'">
+                <a role="tab" @click="onTabClick($event, tab)" @keydown="onTabKeydown($event, tab)" :tabindex="tab.disabled ? null : '0'" :aria-selected="tab.d_active">
                     <span class="p-tabview-title" v-if="tab.header">{{tab.header}}</span>
                     <TabPanelHeaderSlot :tab="tab" v-if="tab.$scopedSlots.header" />
                 </a>

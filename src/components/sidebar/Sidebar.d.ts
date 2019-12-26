@@ -8,6 +8,7 @@ export declare class Sidebar extends Vue {
     dismissable?: boolean;
     showCloseIcon?: boolean;
     modal?: boolean;
+    ariaCloseLabel?: string;
     $emit(eventName: 'show'): this;
     $emit(eventName: 'hide'): this;
     $slots: {

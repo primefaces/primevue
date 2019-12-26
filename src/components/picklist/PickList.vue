@@ -12,10 +12,10 @@
             <div class="p-picklist-caption" v-if="$slots.sourceHeader">
                 <slot name="sourceHeader"></slot>
             </div>
-            <transition-group ref="sourceList" name="p-picklist-flip" tag="ul" class="p-picklist-list p-picklist-source" :style="listStyle">
+            <transition-group ref="sourceList" name="p-picklist-flip" tag="ul" class="p-picklist-list p-picklist-source" :style="listStyle" role="listbox" aria-multiselectable="multiple">
                 <template v-for="(item, i) of sourceList">
                     <li tabindex="0" :key="getItemKey(item, i)" :class="['p-picklist-item', {'p-highlight': isSelected(item, 0)}]"
-                        @click="onItemClick($event, item, i, 0)" @keydown="onItemKeyDown($event, item, i, 0)" @touchend="onItemTouchEnd">
+                        @click="onItemClick($event, item, i, 0)" @keydown="onItemKeyDown($event, item, i, 0)" @touchend="onItemTouchEnd" role="option" :aria-selected="isSelected(item, 0)">
                         <slot name="item" :item="item" :index="i"> </slot>
                     </li>
                 </template>
@@ -33,10 +33,10 @@
             <div class="p-picklist-caption" v-if="$slots.targetHeader">
                 <slot name="targetHeader"></slot>
             </div>
-            <transition-group ref="targetList" name="p-picklist-flip" tag="ul" class="p-picklist-list p-picklist-target" :style="listStyle">
+            <transition-group ref="targetList" name="p-picklist-flip" tag="ul" class="p-picklist-list p-picklist-target" :style="listStyle" role="listbox" aria-multiselectable="multiple">
                 <template v-for="(item, i) of targetList">
                     <li tabindex="0" :key="getItemKey(item, i)" :class="['p-picklist-item', {'p-highlight': isSelected(item, 1)}]"
-                        @click="onItemClick($event, item, i, 1)" @keydown="onItemKeyDown($event, item, i, 1)" @touchend="onItemTouchEnd">
+                        @click="onItemClick($event, item, i, 1)" @keydown="onItemKeyDown($event, item, i, 1)" @touchend="onItemTouchEnd" role="option" :aria-selected="isSelected(item, 1)">
                         <slot name="item" :item="item" :index="i"> </slot>
                     </li>
                 </template>

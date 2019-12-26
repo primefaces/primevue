@@ -10,6 +10,7 @@ export declare class AutoComplete extends Vue {
     multiple?: boolean;
     minLength?: number;
     delay?: number;
+    ariaLabelledBy?: string;
     $emit(eventName: 'input', value: any): this;
     $emit(eventName: 'select', e: {originalEvent: Event, value: any}): this;
     $emit(eventName: 'unselect', e: {originalEvent: Event, value: any}): this;

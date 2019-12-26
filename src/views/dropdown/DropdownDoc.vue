@@ -150,6 +150,12 @@ data() {
                                 <td>null</td>
                                 <td>Index of the element in tabbing order.</td>
                             </tr>
+                            <tr>
+                                <td>ariaLabelledBy</td>
+                                <td>string</td>
+                                <td>null</td>
+                                <td>Establishes relationships between the component and label(s) where its value should be one or more element IDs.</td>
+                            </tr>
 						</tbody>
 					</table>
 				</div>

@@ -1,12 +1,12 @@
 <template>
     <div :class="containerClass">
         <ul role="tablist">
-            <li v-for="(item,index) of model" :key="item.to" :class="getItemClass(item)" :style="item.style">
-                <router-link :to="item.to" class="p-menuitem-link" @click.native="onItemClick($event, item)" v-if="!isItemDisabled(item)">
+            <li v-for="(item,index) of model" :key="item.to" :class="getItemClass(item)" :style="item.style" role="tab" :aria-selected="isActive(item)" :aria-expanded="isActive(item)">
+                <router-link :to="item.to" class="p-menuitem-link" @click.native="onItemClick($event, item)" v-if="!isItemDisabled(item)" role="presentation">
                     <span class="p-steps-number">{{index + 1}}</span>
                     <span class="p-steps-title">{{item.label}}</span>
                 </router-link>
-                <span v-else class="p-menuitem-link">
+                <span v-else class="p-menuitem-link" role="presentation">
                     <span class="p-steps-number">{{index + 1}}</span>
                     <span class="p-steps-title">{{item.label}}</span>
                 </span>
@@ -40,6 +40,9 @@ export default {
                     item: item
                 });
             }
+        },
+        isActive(item) {
+            return this.activeRoute === item.to;
         },
         getItemClass(item) {
             return ['p-steps-item', item.class, {

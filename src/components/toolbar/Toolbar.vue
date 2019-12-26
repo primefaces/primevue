@@ -1,5 +1,5 @@
 <template>
-    <div class="p-toolbar p-component">
+    <div class="p-toolbar p-component" role="toolbar">
         <div class="p-toolbar-group-left">
              <slot name="left"></slot>
         </div>

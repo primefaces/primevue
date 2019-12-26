@@ -9,6 +9,7 @@ export declare class SelectButton extends Vue {
     multiple?: boolean;
     disabled?: boolean;
     dataKey?: string;
+    ariaLabelledBy?: string;
     $emit(eventName: 'input', value: any): this;
     $emit(eventName: 'focus', event: Event): this;
     $emit(eventName: 'blur', event: Event): this;

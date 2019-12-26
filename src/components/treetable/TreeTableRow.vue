@@ -4,7 +4,7 @@
             <span class="p-treetable-toggler p-unselectable-text" @click="toggle" v-if="col.expander" :style="togglerStyle">
                 <i :class="togglerIcon"></i>
             </span>
-            <div class="p-checkbox p-treetable-checkbox p-component" @click="toggleCheckbox" v-if="checkboxSelectionMode && col.expander">
+            <div class="p-checkbox p-treetable-checkbox p-component" @click="toggleCheckbox" v-if="checkboxSelectionMode && col.expander" role="checkbox" :aria-checked="checked">
                 <div class="p-hidden-accessible">
                     <input type="checkbox" @focus="onCheckboxFocus" @blur="onCheckboxBlur" />
                 </div>

@@ -1,7 +1,8 @@
 <template>
     <div ref="container" :class="containerClass" @click="onClick">
         <div class="p-hidden-accessible">
-            <input ref="focusInput" type="text" role="listbox" readonly :disabled="disabled" @focus="onFocus" @blur="onBlur" @keydown="onKeyDown" :tabindex="tabindex"/>
+            <input ref="focusInput" type="text" role="listbox" readonly :disabled="disabled" @focus="onFocus" @blur="onBlur" @keydown="onKeyDown" :tabindex="tabindex"
+                aria-haspopup="listbox" :aria-expanded="overlayVisible" :aria-labelledby="ariaLabelledBy"/>
         </div>
         <div class="p-multiselect-label-container">
             <label :class="labelClass">
@@ -16,11 +17,11 @@
         <transition name="p-input-overlay" @enter="onOverlayEnter" @leave="onOverlayLeave">
             <div ref="overlay" class="p-multiselect-panel" v-if="overlayVisible">
                 <div class="p-multiselect-header">
-                    <div class="p-checkbox p-component" @click="onToggleAll">
+                    <div class="p-checkbox p-component" @click="onToggleAll" role="checkbox" :aria-checked="allSelected">
                         <div class="p-hidden-accessible">
                             <input type="checkbox" readonly @focus="onHeaderCheckboxFocus" @blur="onHeaderCheckboxBlur">
                         </div>
-                        <div :class="['p-checkbox-box p-component', {'p-highlight': allSelected, 'p-focus': headerCheckboxFocused}]">
+                        <div :class="['p-checkbox-box p-component', {'p-highlight': allSelected, 'p-focus': headerCheckboxFocused}]" role="checkbox" :aria-checked="allSelected">
                             <span :class="['p-checkbox-icon p-c', {'pi pi-check': allSelected}]"></span>
                         </div>
                     </div>
@@ -33,8 +34,8 @@
                     </button>
                 </div>
                 <div ref="itemsWrapper" class="p-multiselect-items-wrapper" :style="{'max-height': scrollHeight}">
-                    <ul class="p-multiselect-items p-multiselect-list p-component">
-                        <li v-for="(option, i) of visibleOptions" :class="['p-multiselect-item', {'p-highlight': isSelected(option), 'p-disabled': isOptionDisabled(option)}]"
+                    <ul class="p-multiselect-items p-multiselect-list p-component" role="listbox" aria-multiselectable="true">
+                        <li v-for="(option, i) of visibleOptions" :class="['p-multiselect-item', {'p-highlight': isSelected(option), 'p-disabled': isOptionDisabled(option)}]" role="option" :aria-selected="isSelected(option)"
                             :aria-label="getOptionLabel(option)" :key="getOptionLabel(option)" @click="onOptionSelect($event, option)" @keydown="onOptionKeyDown($event, option)" :tabindex="tabindex||'0'">
                             <div class="p-checkbox p-component">
                                 <div :class="['p-checkbox-box p-component', {'p-highlight': isSelected(option)}]">
@@ -72,7 +73,8 @@ export default {
 		filter: Boolean,
 		tabindex: String,
         dataKey: null,
-        filterPlaceholder: String
+        filterPlaceholder: String,
+        ariaLabelledBy: null
     },
     data() {
         return {

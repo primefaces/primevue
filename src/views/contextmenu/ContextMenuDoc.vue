@@ -308,7 +308,7 @@ export default {
 				</a>
 <CodeHighlight>
 <template v-pre>
-&lt;img alt="logo" src="demo/images/nature/nature3.jpg" @contextmenu="onImageRightClick"&gt;
+&lt;img alt="logo" src="demo/images/nature/nature3.jpg" @contextmenu="onImageRightClick" aria-haspopup="true"&gt;
 &lt;ContextMenu ref="menu" :model="items" /&gt;
 </template>
 </CodeHighlight>

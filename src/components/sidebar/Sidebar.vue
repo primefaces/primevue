@@ -1,7 +1,7 @@
 <template>
     <transition name="p-sidebar" @enter="onEnter" @leave="onLeave">
-        <div :class="containerClass" v-if="visible" ref="container">
-            <button class="p-sidebar-close p-link" @click="hide">
+        <div :class="containerClass" v-if="visible" ref="container" role="complementary" :aria-modal="modal">
+            <button class="p-sidebar-close p-link" @click="hide" :aria-label="ariaCloseLabel">
                 <span class="p-sidebar-close-icon pi pi-times" />
             </button>
             <slot></slot>
@@ -41,6 +41,10 @@ export default {
         modal: {
             type: Boolean,
             default: true
+        },
+        ariaCloseLabel: {
+            type: String,
+            default: 'close'
         }
     },
     mask: null,

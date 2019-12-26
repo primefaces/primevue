@@ -553,7 +553,7 @@ body {
 
             p {
                 color:  #484848;
-                font-size: 16px;
+                font-size: 14px;
                 line-height: 24px;
                 margin: 10px 0;
             }
@@ -564,7 +564,13 @@ body {
             }
 
             a {
-                color: #3294e0;
+                color: #638fb7;
+                font-weight: 700;
+                @include transition(color .2s);
+        
+                &:hover {
+                    color: #82a5c5;
+                }
             }
             
             .btn-viewsource {
@@ -809,6 +815,16 @@ body {
         }
     }
 
+    a {
+        color: #638fb7;
+        font-weight: 700;
+        @include transition(color .2s);
+
+        &:hover {
+            color: #82a5c5;
+        }
+    }
+
     .layout-config-content {
         overflow: auto;
         height: 100%;
@@ -994,10 +1010,11 @@ body {
         margin-bottom: 2em;
     }
     a {
-        color: #526F89;
+        color: #638fb7;
+        @include transition(color .2s);
 
         &:hover {
-            color: #638FB7;
+            color: #82a5c5;
         }
     }
     
@@ -1116,7 +1133,7 @@ body {
         }
 
         .p-grid > div {
-            padding: 1em .5em;
+            padding: 2em .5em;
         }
 
         p {

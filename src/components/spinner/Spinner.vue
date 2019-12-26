@@ -1,6 +1,6 @@
 <template>
     <span :class="containerClass">
-        <input ref="input" :class="inputClass" v-bind="$attrs" v-on="listeners" :value="value">
+        <input ref="input" :class="inputClass" v-bind="$attrs" v-on="listeners" :value="value" :aria-valumin="min" :aria-valuemax="max" :aria-valuenow="value" :aria-labelledby="ariaLabelledBy">
         <button type="button" :class="upButtonClass" @mousedown="onButtonMouseDown($event, 1)" @mouseup="onButtonMouseUp" @mouseleave="onButtonMouseLeave"
             @keydown="onButtonKeyDown($event, 1)" @keyup="onButtonKeyUp" :disabled="$attrs.disabled">
             <span class="p-spinner-button-icon pi pi-caret-up"></span>
@@ -22,7 +22,8 @@ export default {
             default: 1
         },
         min: Number,
-        max: Number
+        max: Number,
+        ariaLabelledBy: String
     },
     data() {
         return {

@@ -1,6 +1,6 @@
 <template>
     <transition name="p-messages">
-        <div :class="containerClass" v-if="visible">
+        <div :class="containerClass" v-if="visible" role="alert">
             <div class="p-messages-wrapper">
                 <span :class="iconClass"></span>
                 <div class="p-messages-text">

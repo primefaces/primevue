@@ -1,12 +1,14 @@
 <template>
     <div ref="container" :class="containerClass" @click="onClick($event)">
         <div class="p-hidden-accessible">
-            <input ref="focusInput" type="text" role="listbox" readonly :disabled="disabled" @focus="onFocus" @blur="onBlur" @keydown="onKeyDown" :tabindex="tabindex"/>
+            <input ref="focusInput" type="text" readonly :disabled="disabled" @focus="onFocus" @blur="onBlur" @keydown="onKeyDown" :tabindex="tabindex"
+                aria-haspopup="listbox" :aria-expanded="overlayVisible" :aria-labelledby="ariaLabelledBy"/>
         </div>
-        <input v-if="editable" type="text" class="p-dropdown-label p-inputtext" :disabled="disabled" @focus="onFocus" @blur="onBlur" :placeholder="placeholder" :value="editableInputValue" @input="onEditableInput">
+        <input v-if="editable" type="text" class="p-dropdown-label p-inputtext" :disabled="disabled" @focus="onFocus" @blur="onBlur" :placeholder="placeholder" :value="editableInputValue" @input="onEditableInput"
+            aria-haspopup="listbox" :aria-expanded="overlayVisible">
         <label v-if="!editable" :class="labelClass">{{label}}</label>
         <i v-if="showClear && value != null" class="p-dropdown-clear-icon pi pi-times" @click="onClearClick($event)"></i>
-        <div class="p-dropdown-trigger">
+        <div class="p-dropdown-trigger" role="button" aria-haspopup="listbox" :aria-expanded="overlayVisible">
             <span class="p-dropdown-trigger-icon pi pi-chevron-down p-clickable"></span>
         </div>
         <transition name="p-input-overlay" @enter="onOverlayEnter" @leave="onOverlayLeave">
@@ -16,9 +18,9 @@
                     <span class="p-dropdown-filter-icon pi pi-search"></span>
                 </div>
                 <div ref="itemsWrapper" class="p-dropdown-items-wrapper" :style="{'max-height': scrollHeight}">
-                    <ul class="p-dropdown-items p-dropdown-list p-component">
+                    <ul class="p-dropdown-items p-dropdown-list p-component" role="listbox">
                         <li v-for="(option, i) of visibleOptions" :class="['p-dropdown-item', {'p-highlight': isSelected(option), 'p-disabled': isOptionDisabled(option)}]"
-                            :aria-label="getOptionLabel(option)" :key="getOptionLabel(option)" @click="onOptionSelect($event, option)">
+                            :aria-label="getOptionLabel(option)" :key="getOptionLabel(option)" @click="onOptionSelect($event, option)" role="option" :aria-selected="isSelected(option)">
                             <slot name="option" :option="option" :index="i">
                                 {{getOptionLabel(option)}}
                             </slot>
@@ -52,7 +54,8 @@ export default {
 		disabled: Boolean,
         dataKey: null,
 		showClear: Boolean,
-		tabindex: String
+        tabindex: String,
+        ariaLabelledBy: null
     },
     data() {
         return {

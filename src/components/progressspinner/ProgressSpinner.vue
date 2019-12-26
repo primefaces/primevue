@@ -1,5 +1,5 @@
 <template>
-    <div class="p-progress-spinner">
+    <div class="p-progress-spinner" role="alert" aria-busy="true">
         <svg class="p-progress-spinner-svg" viewBox="25 25 50 50" :style="svgStyle">
             <circle class="p-progress-spinner-circle" cx="50" cy="50" r="20" :fill="fill" :stroke-width="strokeWidth" strokeMiterlimit="10" />
         </svg>

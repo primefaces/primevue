@@ -2,15 +2,15 @@
     <transition name="p-contextmenusub" @enter="onEnter">
         <ul ref="container" :class="containerClass" role="menu" v-if="root ? true : parentActive">
             <template v-for="(item, i) of model">
-                <li role="menuitem" :class="getItemClass(item)" :style="item.style" v-if="item.visible !== false && !item.separator" :key="item.label + i"
+                <li role="none" :class="getItemClass(item)" :style="item.style" v-if="item.visible !== false && !item.separator" :key="item.label + i"
                     @mouseenter="onItemMouseEnter($event, item)">
                     <router-link v-if="item.to" :to="item.to" class="p-menuitem-link"
-                        @click.native="onItemClick($event, item)">
+                        @click.native="onItemClick($event, item)" role="menuitem">
                         <span :class="['p-menuitem-icon', item.icon]"></span>
                         <span class="p-menuitem-text">{{item.label}}</span>
                     </router-link>
                     <a v-else :href="item.url||'#'" class="p-menuitem-link" :target="item.target"
-                        @click="onItemClick($event, item)">
+                        @click="onItemClick($event, item)" :aria-haspopup="item.items != null" :aria-expanded="item === activeItem" role="menuitem">
                         <span :class="['p-menuitem-icon', item.icon]"></span>
                         <span class="p-menuitem-text">{{item.label}}</span>
                         <span class="p-submenu-icon pi pi-fw pi-caret-right" v-if="item.items"></span>
@@ -18,7 +18,7 @@
                     <sub-menu :model="item.items" v-if="item.visible !== false && item.items" :key="item.label + '_sub_'"
                         @leaf-click="onLeafClick" :parentActive="item === activeItem" />
                 </li>
-                <li class="p-menu-separator" :style="item.style" v-if="item.visible !== false && item.separator" :key="'separator' + i"></li>
+                <li class="p-menu-separator" :style="item.style" v-if="item.visible !== false && item.separator" :key="'separator' + i" role="separator"></li>
             </template>
         </ul>
     </transition>

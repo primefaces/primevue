@@ -401,6 +401,12 @@ export default {
                                 <td>true</td>
                                 <td>Wheter to allow prevents entering the date manually via typing.</td>
                             </tr>
+                            <tr>
+                                <td>ariaLabelledBy</td>
+                                <td>string</td>
+                                <td>null</td>
+                                <td>Establishes relationships between the component and label(s) where its value should be one or more element IDs.</td>
+                            </tr>
                         </tbody>
                     </table>
                 </div>

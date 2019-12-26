@@ -1,12 +1,12 @@
 <template>
     <transition name="p-dialog" @enter="onEnter" @leave="onLeave" @appear="onAppear">
-        <div ref="container" :class="containerClass" v-if="visible">
+        <div ref="container" :class="containerClass" v-if="visible" role="dialog" :aria-labelledby="ariaLabelledById" :aria-modal="modal">
             <div class="p-dialog-titlebar" v-if="showHeader">
                 <slot name="header">
-                    <span class="p-dialog-title" v-if="header">{{header}}</span>
+                    <span :id="ariaLabelledById" class="p-dialog-title" v-if="header" >{{header}}</span>
                 </slot>
                 <div class="p-dialog-titlebar-icons">
-                    <button class="p-dialog-titlebar-icon p-dialog-titlebar-close p-link" @click="close" v-if="closable">
+                    <button class="p-dialog-titlebar-icon p-dialog-titlebar-close p-link" @click="close" v-if="closable" :aria-label="ariaCloseLabel">
                         <span class="p-dialog-titlebar-close-icon pi pi-times"></span>
                     </button>
                 </div>
@@ -22,6 +22,7 @@
 </template>
 
 <script>
+import UniqueComponentId from '../utils/UniqueComponentId';
 import DomHandler from '../utils/DomHandler';
 
 export default {
@@ -47,6 +48,10 @@ export default {
         autoZIndex: {
             type: Boolean,
             default: true
+        },
+        ariaCloseLabel: {
+            type: String,
+            default: 'close'
         }
     },
     mask: null,
@@ -154,6 +159,12 @@ export default {
             return ['p-dialog p-component', {
                 'p-dialog-rtl': this.rtl
             }];
+        },
+        ariaId() {
+            return UniqueComponentId();
+        },
+        ariaLabelledById() {
+            return this.header != null ? this.ariaId + '_header' : null;
         }
     }
 }

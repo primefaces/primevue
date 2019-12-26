@@ -2,7 +2,7 @@
     <div :class="buttonClass" @click="onClick($event)">
         <div class="p-hidden-accessible">
             <input ref="input" type="checkbox" :id="inputId" :name="name" :checked="value" :disabled="disabled"
-                @focus="onFocus($event)" @blur="onBlur($event)" @keydown.enter.prevent="onClick($event)">
+                @focus="onFocus($event)" @blur="onBlur($event)" @keydown.enter.prevent="onClick($event)" role="button" :aria-pressed="value" :aria-labelledby="ariaLabelledBy">
         </div>
         <span v-if="hasIcon" :class="iconClass"></span>
         <span class="p-button-text p-unselectable-text p-c">{{label}}</span>
@@ -23,7 +23,8 @@ export default {
             type: String,
             default: 'left'
         },
-        disabled: Boolean
+        disabled: Boolean,
+        ariaLabelledBy: String
     },
     data() {
         return {

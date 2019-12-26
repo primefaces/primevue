@@ -1,9 +1,12 @@
 <template>
     <div :class="containerClass" @click="onBarClick" ref="container">
         <span class="p-slider-range" :style="rangeStyle"></span>
-        <span v-if="!range" class="p-slider-handle" :style="handleStyle" @mousedown="onHandleMouseDown($event)" @keydown="onHandleKeyDown($event)" tabindex="0"></span>
-        <span v-if="range" class="p-slider-handle" :style="rangeStartHandleStyle" @mousedown="onHandleMouseDown($event, 0)" @keydown="onHandleKeyDown($event, 0)" tabindex="0"></span>
-        <span v-if="range" class="p-slider-handle" :style="rangeEndHandleStyle" @mousedown="onHandleMouseDown($event, 1)" @keydown="onHandleKeyDown($event, 1)" tabindex="0"></span>
+        <span v-if="!range" class="p-slider-handle" :style="handleStyle" @mousedown="onHandleMouseDown($event)" @keydown="onHandleKeyDown($event)" tabindex="0"
+             role="slider" :aria-valuemin="min" aria-valuenow="value" aria-valuemax="max" :aria-labelledby="ariaLabelledBy"></span>
+        <span v-if="range" class="p-slider-handle" :style="rangeStartHandleStyle" @mousedown="onHandleMouseDown($event, 0)" @keydown="onHandleKeyDown($event, 0)" tabindex="0"
+            role="slider" :aria-valuemin="min" aria-valuenow="value ? value[0] : null" aria-valuemax="max" :aria-labelledby="ariaLabelledBy"></span>
+        <span v-if="range" class="p-slider-handle" :style="rangeEndHandleStyle" @mousedown="onHandleMouseDown($event, 1)" @keydown="onHandleKeyDown($event, 1)" tabindex="0"
+            role="slider" :aria-valuemin="min" aria-valuenow="value = value[1] : null" aria-valuemax="max" :aria-labelledby="ariaLabelledBy"></span>
     </div>
 </template>
 
@@ -36,7 +39,11 @@ export default {
         disabled: {
 			type: Boolean,
 			default: false
-		}
+        },
+        ariaLabelledBy: {
+            type: String,
+			default: null
+        }
     },
     dragging: false,
     handleIndex: null,

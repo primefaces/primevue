@@ -96,6 +96,12 @@ import Sidebar from 'primevue/sidebar';
                                 <td>true</td>
                                 <td>Whether to a modal layer behind the sidebar.</td>
                             </tr>
+                            <tr>
+                                <td>ariaCloseLabel</td>
+                                <td>string</td>
+                                <td>close</td>
+                                <td>Aria label of the close icon.</td>
+                            </tr>
 						</tbody>
 					</table>
 				</div>

@@ -4,7 +4,7 @@
             <div class="p-overlaypanel-content">
                 <slot></slot>
             </div>
-            <button class="p-overlaypanel-close p-link" @click="hide" v-if="showCloseIcon">
+            <button class="p-overlaypanel-close p-link" @click="hide" v-if="showCloseIcon" :aria-label="ariaCloseLabel">
                 <span class="p-overlaypanel-close-icon pi pi-times"></span>
             </button>
         </div>
@@ -24,7 +24,10 @@ export default {
 			type: Boolean,
 			default: false
 		},
-        appendTo: String,
+        appendTo: {
+			type: String,
+			default: null
+		},
         baseZIndex: {
             type: Number,
             default: 0
@@ -32,6 +35,10 @@ export default {
         autoZIndex: {
             type: Boolean,
             default: true
+        },
+        ariaCloseLabel: {
+            type: String,
+            default: 'close'
         }
     },
     data() {

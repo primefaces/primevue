@@ -20,7 +20,7 @@
             </template>
         </DTPaginator>
         <div class="p-datatable-wrapper" v-if="!scrollable">
-            <table ref="table">
+            <table ref="table" role="grid">
                 <DTTableHeader :columnGroup="headerColumnGroup" :columns="columns" :rowGroupMode="rowGroupMode"
                         :groupRowsBy="groupRowsBy" :resizableColumns="resizableColumns" :allRowsSelected="allRowsSelected" :empty="empty"
                         :sortMode="sortMode" :sortField="d_sortField" :sortOrder="d_sortOrder" :multiSortMeta="d_multiSortMeta"

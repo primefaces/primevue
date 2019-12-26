@@ -1,9 +1,10 @@
 <template>
     <div :class="containerClass">
-        <ul class="p-megamenu-root-list">
+        <ul class="p-megamenu-root-list" role="menubar">
             <li v-for="(category,index) of model" :key="category.label + '_' + index" :class="getCategoryClass(category)" :style="category.style"
-                @mouseenter="onCategoryMouseEnter($event, category)">
-                <a :href="category.url||'#'" class="p-menuitem-link" :target="category.target" @click="onCategoryClick($event, category)" @keydown="onCategoryKeydown($event, category)">
+                @mouseenter="onCategoryMouseEnter($event, category)" role="none">
+                <a :href="category.url||'#'" class="p-menuitem-link" :target="category.target" @click="onCategoryClick($event, category)" @keydown="onCategoryKeydown($event, category)"
+                    role="menuitem" :aria-haspopup="category.items != null" :aria-expanded="category === activeItem">
                     <span v-if="category.icon" :class="getCategoryIcon(category)"></span>
                     <span class="p-menuitem-text">{{category.label}}</span>
                     <span v-if="category.items" :class="getCategorySubMenuIcon()"></span>
@@ -11,21 +12,21 @@
                 <div class="p-megamenu-panel" v-if="category.items">
                     <div class="p-grid">
                         <div v-for="(column,columnIndex) of category.items" :key="category.label + '_column_' + columnIndex" :class="getColumnClassName(category)">
-                            <ul v-for="(submenu,submenuIndex) of column" class="p-megamenu-submenu" :key="submenu.label + '_submenu_' + submenuIndex">
-                                <li :class="getSubmenuHeaderClass(submenu)" :style="submenu.style">{{submenu.label}}</li>
+                            <ul v-for="(submenu,submenuIndex) of column" class="p-megamenu-submenu" :key="submenu.label + '_submenu_' + submenuIndex" role="menu">
+                                <li :class="getSubmenuHeaderClass(submenu)" :style="submenu.style" role="presentation">{{submenu.label}}</li>
                                 <template v-for="(item, i) of submenu.items">
-                                    <li role="menuitem" :class="getSubmenuItemClass(item)" :style="item.style" v-if="item.visible !== false && !item.separator" :key="item.label + i">
-                                        <router-link v-if="item.to" :to="item.to" class="p-menuitem-link" @click.native="onLeafClick($event, item)">
+                                    <li role="none" :class="getSubmenuItemClass(item)" :style="item.style" v-if="item.visible !== false && !item.separator" :key="item.label + i">
+                                        <router-link v-if="item.to" :to="item.to" class="p-menuitem-link" @click.native="onLeafClick($event, item)" role="menuitem">
                                             <span :class="['p-menuitem-icon', item.icon]"></span>
                                             <span class="p-menuitem-text">{{item.label}}</span>
                                         </router-link>
-                                        <a v-else :href="item.url||'#'" class="p-menuitem-link" :target="item.target" @click="onLeafClick($event, item)">
+                                        <a v-else :href="item.url||'#'" class="p-menuitem-link" :target="item.target" @click="onLeafClick($event, item)" role="menuitem">
                                             <span :class="['p-menuitem-icon', item.icon]"></span>
                                             <span class="p-menuitem-text">{{item.label}}</span>
                                             <span :class="getSubmenuIcon()" v-if="item.items"></span>
                                         </a>
                                     </li>
-                                    <li class="p-menu-separator" :style="item.style" v-if="item.visible !== false && item.separator" :key="'separator' + i"></li>
+                                    <li class="p-menu-separator" :style="item.style" v-if="item.visible !== false && item.separator" :key="'separator' + i" role="separator"></li>
                                 </template>
                             </ul>
                         </div>

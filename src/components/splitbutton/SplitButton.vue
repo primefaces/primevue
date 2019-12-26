@@ -1,12 +1,13 @@
 <template>
     <div ref="container" class="p-splitbutton p-buttonset p-component">
         <PVSButton type="button" :icon="icon" :label="label" @click="onClick" :disabled="disabled" :tabindex="tabindex" />
-        <PVSButton type="button" class="p-splitbutton-menubutton" icon="pi pi-caret-down" @click="onDropdownButtonClick" :disabled="disabled" />
+        <PVSButton type="button" class="p-splitbutton-menubutton" icon="pi pi-caret-down" @click="onDropdownButtonClick" :disabled="disabled" 
+            :aria-expanded="overlayVisible" aria-haspopup="true" :aria-owns="ariaId + '_overlay'"/>
         <transition name="p-input-overlay" @enter="onOverlayEnter" @leave="onOverlayLeave">
-            <div ref="overlay" class="p-menu p-menu-dynamic p-component" v-if="overlayVisible">
-                <ul class="p-menu-list p-reset">
-                    <li role="menuitem" v-for="item of model" :key="item.label" :target="item.target" :style="item.style" :class="['p-menuitem', item.class]">
-                        <a :href="item.url||'#'" class="p-menuitem-link" @click="itemClick($event, item)">
+            <div id="ariaId + '_overlay'" ref="overlay" class="p-menu p-menu-dynamic p-component" v-if="overlayVisible">
+                <ul class="p-menu-list p-reset" role="menu">
+                    <li role="none" v-for="item of model" :key="item.label" :target="item.target" :style="item.style" :class="['p-menuitem', item.class]">
+                        <a :href="item.url||'#'" class="p-menuitem-link" @click="itemClick($event, item)" role="menuitem">
                             <span :class="['p-menuitem-icon', item.icon]"></span>
                             <span class="p-menuitem-text">{{item.label}}</span>
                         </a>
@@ -20,6 +21,7 @@
 <script>
 import Button from '../button/Button';
 import DomHandler from '../utils/DomHandler';
+import UniqueComponentId from '../utils/UniqueComponentId';
 
 export default {
     props: {
@@ -103,6 +105,11 @@ export default {
                 document.removeEventListener('click', this.outsideClickListener);
                 this.outsideClickListener = null;
             }
+        },
+    },
+    computed: {
+        ariaId() {
+            return UniqueComponentId();
         }
     },
     components: {

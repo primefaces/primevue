@@ -5,5 +5,6 @@ export declare class Spinner extends Vue {
     step?: number;
     min?: number;
     max?: number;
+    ariaLabelledBy?: string;
     $emit(eventName: 'input', value: any): this;
 }

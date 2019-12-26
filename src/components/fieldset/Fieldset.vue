@@ -2,9 +2,10 @@
     <fieldset :class="['p-fieldset p-component', {'p-fieldset-toggleable': toggleable}]">
         <legend class="p-fieldset-legend p-unselectable-text">
             <slot name="legend" v-if="!toggleable">
-                <span class="p-fieldset-legend-text" >{{legend}}</span>
+                <span class="p-fieldset-legend-text" :id="ariaId + '_header'">{{legend}}</span>
             </slot>
-            <a tabindex="0" v-if="toggleable" @click="toggle" @keydown.enter="toggle">
+            <a tabindex="0" v-if="toggleable" @click="toggle" @keydown.enter="toggle"
+                :id="ariaId +  '_header'" :aria-controls="ariaId + '_content'" :aria-expanded="!d_collapsed">
                 <span :class="iconClass"></span>
                 <slot name="legend">
                     <span class="p-fieldset-legend-text">{{legend}}</span>
@@ -12,7 +13,8 @@
             </a>
         </legend>
         <transition name="p-fieldset-content-wrapper">
-            <div class="p-fieldset-content-wrapper" v-show="!d_collapsed">
+            <div class="p-fieldset-content-wrapper" v-show="!d_collapsed"
+                role="region" :id="ariaId + '_content'" :aria-labelledby="ariaId + '_header'">
                 <div class="p-fieldset-content">
                     <slot></slot>
                 </div>
@@ -22,6 +24,8 @@
 </template>
 
 <script>
+import UniqueComponentId from '../utils/UniqueComponentId';
+
 export default {
     props: {
         legend: String,
@@ -49,7 +53,10 @@ export default {
 				'pi-minus': !this.d_collapsed,
 				'pi-plus': this.d_collapsed
 			}]
-		}
+        },
+        ariaId() {
+            return UniqueComponentId();
+        }
 	}
 }
 </script>

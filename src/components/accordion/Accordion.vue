@@ -3,14 +3,16 @@
         <slot></slot>
         <div v-for="(tab, i) of tabs" :key="tab.header || i" class="p-accordion-tab">
             <div :class="['p-accordion-header', {'p-highlight': tab.d_active, 'p-disabled': tab.disabled}]">
-                <a role="tab" @click="onTabClick($event, tab)" @keydown="onTabKeydown($event, tab)" :tabindex="tab.disabled ? null : '0'">
+                <a role="tab" @click="onTabClick($event, tab)" @keydown="onTabKeydown($event, tab)" :tabindex="tab.disabled ? null : '0'"
+                    :aria-expanded="tab.d_active" :id="ariaId + i + '_header'" :aria-controls="ariaId + i + '_content'">
                     <span :class="['p-accordion-toggle-icon pi pi-fw', {'pi-caret-right': !tab.d_active, 'pi-caret-down': tab.d_active}]"></span>
                     <span class="p-accordion-header-text" v-if="tab.header">{{tab.header}}</span>
                     <AccordionTabSlot :tab="tab" type="header" v-if="tab.$scopedSlots.header" />
                 </a>
             </div>
             <transition name="p-toggleable-content">
-                <div class="p-toggleable-content" v-show="tab.d_active">
+                <div class="p-toggleable-content" v-show="tab.d_active"
+                    role="region" :id="ariaId + i + '_content' " :aria-labelledby="ariaId + i + '_header'">
                     <div class="p-accordion-content">
                         <AccordionTabSlot :tab="tab" type="default" v-if="tab.$scopedSlots.default" />
                     </div>
@@ -21,6 +23,8 @@
 </template>
 
 <script>
+import UniqueComponentId from '../utils/UniqueComponentId';
+
 const AccordionTabSlot = {
     functional: true,
     props: {
@@ -79,6 +83,9 @@ export default {
     computed: {
         tabs() {
             return this.d_children.filter(child => child.$vnode.tag.indexOf('accordiontab') !== -1);
+        },
+        ariaId() {
+            return UniqueComponentId();
         }
     },
     components: {

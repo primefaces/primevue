@@ -52,6 +52,7 @@ export declare class Calendar extends Vue {
     showWeek?: boolean;
     manualInput?: boolean;
     locale?: LocaleSettings;
+    ariaLabelledBy?: string;
     $emit(eventName: 'show'): this;
     $emit(eventName: 'hide'): this;
     $emit(eventName: 'month-change', e: { month: number, year: number }): this;

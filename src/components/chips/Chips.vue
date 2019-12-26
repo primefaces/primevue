@@ -8,7 +8,7 @@
                 </slot>
             </li>
             <li class="p-chips-input-token">
-                <input ref="input" type="text" class="p-inputtext p-component" @focus="onFocus($event)" @blur="onBlur($event)" @keydown="onKeyDown($event)" :disabled="$attrs.disabled || maxedOut">
+                <input ref="input" type="text" class="p-inputtext p-component" @focus="onFocus($event)" @blur="onBlur($event)" @keydown="onKeyDown($event)" :disabled="$attrs.disabled || maxedOut" :aria-labelledby="ariaLabelledBy">
             </li>
         </ul>
     </div>
@@ -18,7 +18,8 @@
 export default {
     props: {
         value: Array,
-        max: Number
+        max: Number,
+        ariaLabelledBy: null
     },
     data() {
         return {

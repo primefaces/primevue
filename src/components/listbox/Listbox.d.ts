@@ -12,6 +12,7 @@ export declare class Listbox extends Vue {
     multiple?: boolean;
     metaKeySelection?: boolean;
     filter?: boolean;
+    ariaLabelledBy?: string;
     $emit(eventName: 'input', value: any): this;
     $emit(eventName: 'change', e: { originalEvent: Event, value: any }): this;
     $slots: {

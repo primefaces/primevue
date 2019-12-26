@@ -1,21 +1,22 @@
 <template>
-    <span :class="containerClass">
-        <input ref="input" :class="inputClass" v-bind="$attrs" v-on="listeners" :value="inputValue" type="text" autoComplete="off" v-if="!multiple">
+    <span :class="containerClass" aria-haspopup="listbox" :aria-owns="listId" :aria-expanded="overlayVisible">
+        <input ref="input" :class="inputClass" v-bind="$attrs" v-on="listeners" :value="inputValue" type="text" autoComplete="off" v-if="!multiple"
+            role="searchbox" aria-autocomplete="list" :aria-controls="listId" :aria-labelledby="ariaLabelledBy">
         <ul ref="multiContainer" :class="multiContainerClass" v-if="multiple" @click="onMultiContainerClick">
             <li v-for="(item, i) of value" :key="i" class="p-autocomplete-token p-highlight">
                 <span class="p-autocomplete-token-icon pi pi-fw pi-times" @click="removeItem($event, i)"></span>
                 <span class="p-autocomplete-token-label">{{getItemContent(item)}}</span>
             </li>
             <li class="p-autocomplete-input-token">
-                <input ref="input" type="text" autoComplete="off" v-bind="$attrs" v-on="listeners">
+                <input ref="input" type="text" autoComplete="off" v-bind="$attrs" v-on="listeners" role="searchbox" aria-autocomplete="list" :aria-controls="listId" :aria-labelledby="ariaLabelledBy">
             </li>
         </ul>
         <i class="p-autocomplete-loader pi pi-spinner pi-spin" v-show="searching"></i>
         <Button ref="dropdownButton" type="button" icon="pi pi-fw pi-chevron-down" class="p-autocomplete-dropdown" :disabled="$attrs.disabled" @click="onDropdownClick" v-if="dropdown"/>
         <transition name="p-input-overlay" @enter="onOverlayEnter" @leave="onOverlayLeave">
             <div ref="overlay" class="p-autocomplete-panel" :style="{'max-height': scrollHeight}" v-if="overlayVisible">
-                <ul class="p-autocomplete-items p-autocomplete-list p-component">
-                    <li v-for="(item, i) of suggestions" class="p-autocomplete-list-item" :key="i" @click="selectItem($event, item)">
+                <ul :id="listId" class="p-autocomplete-items p-autocomplete-list p-component" role="listbox">
+                    <li v-for="(item, i) of suggestions" class="p-autocomplete-list-item" :key="i" @click="selectItem($event, item)" role="option">
                         <slot name="item" :item="item" :index="i">
                             {{getItemContent(item)}}
                         </slot>
@@ -30,6 +31,7 @@
 import ObjectUtils from '../utils/ObjectUtils';
 import DomHandler from '../utils/DomHandler';
 import Button from '../button/Button';
+import UniqueComponentId from '../utils/UniqueComponentId';
 
 export default {
     inheritAttrs: false,
@@ -66,6 +68,10 @@ export default {
         delay: {
             type: Number,
             default: 300
+        },
+        ariaLabelledBy: {
+            type: String,
+            default: null
         }
     },
     timeout: null,
@@ -385,6 +391,9 @@ export default {
             else {
                 return '';
             }
+        },
+        listId() {
+            return UniqueComponentId() + '_list';
         }
     },
     components: {
