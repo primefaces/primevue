@@ -22,6 +22,18 @@
 			<DataTable :value="cars">
                 <Column v-for="col of columns" :field="col.field" :header="col.header" :key="col.field"></Column>
             </DataTable>
+
+            <h3>Styled</h3>
+            <div class="p-card">
+                <div class="p-card-body" style="padding:0">
+                    <DataTable :value="cars" class="p-datatable-custom">
+                        <Column field="vin" header="Vin"></Column>
+                        <Column field="year" header="Year"></Column>
+                        <Column field="brand" header="Brand"></Column>
+                        <Column field="color" header="Color"></Column>
+                    </DataTable>
+                </div>
+            </div>
 		</div>
 
         <DataTableDoc />
@@ -60,3 +72,16 @@ export default {
     }
 }
 </script>
+
+<style lang="scss" scoped>
+/deep/ .p-datatable.p-datatable-custom {
+    .p-datatable-thead > tr > th {
+        border: 0 none;
+        text-align: left;
+    } 
+
+    .p-datatable-tbody > tr > td {
+        border: 0 none;
+    } 
+}
+</style>

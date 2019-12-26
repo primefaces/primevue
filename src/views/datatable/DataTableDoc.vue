@@ -2241,6 +2241,18 @@ export default {
 &lt;DataTable :value="cars"&gt;
     &lt;Column v-for="col of columns" :field="col.field" :header="col.header" :key="col.field"&gt;&lt;/Column&gt;
 &lt;/DataTable&gt;
+
+&lt;h3&gt;Styled&lt;/h3&gt;
+&lt;div class="p-card"&gt;
+    &lt;div class="p-card-body" style="padding:0"&gt;
+        &lt;DataTable :value="cars" class="p-datatable-custom"&gt;
+            &lt;Column field="vin" header="Vin"&gt;&lt;/Column&gt;
+            &lt;Column field="year" header="Year"&gt;&lt;/Column&gt;
+            &lt;Column field="brand" header="Brand"&gt;&lt;/Column&gt;
+            &lt;Column field="color" header="Color"&gt;&lt;/Column&gt;
+        &lt;/DataTable&gt;
+    &lt;/div&gt;
+&lt;/div&gt;
 </template>
 </CodeHighlight>
 
@@ -2268,6 +2280,19 @@ export default {
     mounted() {
         this.carService.getCarsSmall().then(data => this.cars = data);
     }
+}
+</CodeHighlight>
+
+<CodeHighlight lang="css">
+/deep/ .p-datatable.p-datatable-custom {
+    .p-datatable-thead > tr > th {
+        border: 0 none;
+        text-align: left;
+    } 
+
+    .p-datatable-tbody > tr > td {
+        border: 0 none;
+    } 
 }
 </CodeHighlight>
 			</TabPanel>
