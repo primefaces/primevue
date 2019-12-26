@@ -48,7 +48,7 @@
                 <router-link to="/dataview">DataView</router-link>
                 <router-link to="/fullcalendar">FullCalendar</router-link>
                 <router-link to="/orderlist">OrderList</router-link>
-                <router-link to="/organizationchart">Org Chart</router-link>
+                <router-link to="/organizationchart">OrganizationChart</router-link>
                 <router-link to="/paginator">Paginator</router-link>
                 <router-link to="/picklist">PickList</router-link>
                 <router-link to="/tree">Tree</router-link>
