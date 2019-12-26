@@ -26,7 +26,7 @@
 
             <h3>Focus and Blur</h3>
             <InputText type="text" placeholder="Focus" v-tooltip.bottom.focus="'Enter your username'" />
-        
+
             <h3>Button</h3>
             <Button type="button" label="Save" icon="pi pi-check" v-tooltip="'Click to proceed'" />
         </div>

@@ -22,7 +22,7 @@ directives: {
 <template v-pre>
 &lt;InputText type="text" v-tooltip="'Enter your username'" /&gt;
 </template>
-</CodeHighlight>				
+</CodeHighlight>
 
 				<h3>Positions</h3>
 				<p>There are four choices to position the tooltip, default value is "right" and alternatives are "top", "bottom", "left". Position is specified using a modifier.</p>
@@ -44,7 +44,7 @@ directives: {
 </CodeHighlight>
 
                 <h3>Modifiers</h3>
-                <p>As seen in positions and event sections, tooltip is configured via modifiers that can be chained. Tooltip below, 
+                <p>As seen in positions and event sections, tooltip is configured via modifiers that can be chained. Tooltip below,
                     gets displayed at the top of the input at focus event.
                 </p>
 <CodeHighlight>
