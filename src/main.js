@@ -78,7 +78,9 @@ import 'prismjs/themes/prism-coy.css';
 import '@fullcalendar/core/main.min.css';
 import '@fullcalendar/daygrid/main.min.css';
 import '@fullcalendar/timegrid/main.min.css';
+import Vuelidate from 'vuelidate';
 
+Vue.use(Vuelidate);
 Vue.use(ToastService);
 
 Vue.directive('tooltip', Tooltip);
