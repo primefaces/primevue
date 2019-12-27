@@ -25,8 +25,6 @@ function unbindEvents(el) {
         el.removeEventListener('mouseleave', onMouseLeave);
         el.removeEventListener('click', onClick);
     }
-
-    //this.unbindDocumentResizeListener();
 }
 
 function onMouseEnter(event) {
@@ -58,6 +56,11 @@ function show(el) {
     align(el);
     DomHandler.fadeIn(tooltipElement, 250);
     tooltipElement.style.zIndex = ++DomHandler.zindex;
+
+    window.addEventListener('resize', function onWindowResize() {
+        hide(el);
+        this.removeEventListener('resize', onWindowResize);
+    });
 }
 
 function hide(el) {
@@ -92,11 +95,13 @@ function create(el) {
 }
 
 function remove(el) {
-    let tooltipElement = getTooltipElement(el);
-    if (tooltipElement && tooltipElement.parentElement) {
-        document.body.removeChild(tooltipElement);
+    if (el) {
+        let tooltipElement = getTooltipElement(el);
+        if (tooltipElement && tooltipElement.parentElement) {
+            document.body.removeChild(tooltipElement);
+        }
+        el.$_ptooltipId = null;
     }
-    el.$_ptooltipId = null;
 }
 
 function align(el) {

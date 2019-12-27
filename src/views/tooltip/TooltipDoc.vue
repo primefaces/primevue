@@ -3,15 +3,15 @@
 		<TabView>
 			<TabPanel header="Documentation">
 				<h3>Getting Started</h3>
-				<p>Tooltip is a directive that needs to be imported and configured with a name of your choice.</p>
-<CodeHighlight>
+				<p>Tooltip is a directive that needs to be imported and configured with a name of your choice. Global configuration is done with the <i>Vue.directive</i> function.</p>
+<CodeHighlight lang="js">
 import Tooltip from 'primevue/tooltip';
 
 Vue.directive('tooltip', Tooltip);
 </CodeHighlight>
 
                 <p>Tooltip can also be configured locally using the directives property of your component.</p>
-<CodeHighlight>
+<CodeHighlight lang="js">
 directives: {
     tooltip: Tooltip
 }
