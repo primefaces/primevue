@@ -5,14 +5,11 @@
         <transition name="p-input-overlay" @enter="onOverlayEnter" @after-enter="onOverlayEnterComplete" @leave="onOverlayLeave">
             <div ref="overlay" :class="panelStyleClass" v-if="inline ? true : overlayVisible">
                 <template v-if="!timeOnly">
-                    <div class="p-datepicker-group" v-for="(month,i) of months" :key="month.month + month.year">
+                    <div class="p-datepicker-group" v-for="(month,groupIndex) of months" :key="month.month + month.year">
                         <div class="p-datepicker-header">
                             <slot name="header"></slot>
-                            <button class="p-datepicker-prev p-link" v-if="i === 0" @click="navBackward($event)" type="button">
+                            <button class="p-datepicker-prev p-link" v-if="groupIndex === 0" @click="onPrevButtonClick" type="button" @keydown="onContainerButtonKeydown">
                                 <span class="p-datepicker-prev-icon pi pi-chevron-left"></span>
-                            </button>
-                            <button class="p-datepicker-next p-link" v-if="numberOfMonths === 1 ? true : (i === numberOfMonths - 1)"  @click="navForward($event)" type="button">
-                                <span class="p-datepicker-next-icon pi pi-chevron-right"></span>
                             </button>
                             <div class="p-datepicker-title">
                                 <span class="p-datepicker-month" v-if="!monthNavigator && (view !== 'month')">{{locale.monthNames[month.month]}}</span>
@@ -24,6 +21,10 @@
                                     <option :value="year" v-for="year of yearOptions" :key="year" :selected="year === currentYear">{{year}}</option>
                                 </select>
                             </div>
+                            <button class="p-datepicker-next p-link" v-if="numberOfMonths === 1 ? true : (groupIndex === numberOfMonths - 1)"
+                                @click="onNextButtonClick" type="button" @keydown="onContainerButtonKeydown">
+                                <span class="p-datepicker-next-icon pi pi-chevron-right"></span>
+                            </button>
                         </div>
                         <div class="p-datepicker-calendar-container" v-if="view ==='date'">
                             <table class="p-datepicker-calendar">
@@ -41,11 +42,12 @@
                                     <tr v-for="(week,i) of month.dates" :key="week[0].day + '' + week[0].month">
                                         <td v-if="showWeek" class="p-datepicker-weeknumber">
                                             <span class="p-disabled">
+                                                <span style="visibility:hidden" v-if="month.weekNumbers[i] < 10">0</span>
                                                 {{month.weekNumbers[i]}}
                                             </span>
                                         </td>
                                         <td v-for="date of week" :key="date.day + '' + date.month" :class="{'p-datepicker-other-month': date.otherMonth, 'p-datepicker-today': date.today}">
-                                            <span :class="{'p-highlight': isSelected(date), 'p-disabled': !date.selectable}" @click="onDateSelect(date)" draggable="false">
+                                            <span :class="{'p-highlight': isSelected(date), 'p-disabled': !date.selectable}" @click="onDateSelect($event, date)" draggable="false" @keydown="onDateCellKeydown($event,date,groupIndex)">
                                                 <slot name="date" :date="date">{{date.day}}</slot>
                                             </span>
                                         </td>
@@ -55,7 +57,7 @@
                         </div>
                     </div>
                     <div class="p-monthpicker" v-if="view === 'month'">
-                        <span v-for="(m,i) of monthPickerValues" :key="m" @click="onMonthSelect(i)" class="p-monthpicker-month" :class="{'p-highlight': isMonthSelected(i)}">
+                        <span v-for="(m,i) of monthPickerValues" :key="m" @click="onMonthSelect($event, i)" @keydown="onMonthCellKeydown($event,i)" class="p-monthpicker-month" :class="{'p-highlight': isMonthSelected(i)}">
                             {{m}}
                         </span>
                     </div>
@@ -63,12 +65,12 @@
                 <div class="p-timepicker" v-if="showTime||timeOnly">
                     <div class="p-hour-picker">
                         <button class="p-link" @mousedown="onTimePickerElementMouseDown($event, 0, 1)" @mouseup="onTimePickerElementMouseUp($event)"
-                            @mouseleave="onTimePickerElementMouseLeave()" type="button">
+                            @mouseleave="onTimePickerElementMouseLeave()" @keydown.enter="onTimePickerElementMouseDown($event, 0, 1)" @keyup.enter="onTimePickerElementMouseUp($event)" type="button">
                             <span class="pi pi-chevron-up"></span>
                         </button>
                         <span :style="{'display': currentHour < 10 ? 'inline': 'none'}">0</span><span>{{currentHour}}</span>
                         <button class="p-link" @mousedown="onTimePickerElementMouseDown($event, 0, -1)" @mouseup="onTimePickerElementMouseUp($event)"
-                            @mouseleave="onTimePickerElementMouseLeave()" type="button">
+                            @mouseleave="onTimePickerElementMouseLeave()" @keydown.enter="onTimePickerElementMouseDown($event, 0, -1)" @keyup.enter="onTimePickerElementMouseUp($event)" type="button">
                             <span class="pi pi-chevron-down"></span>
                         </button>
                     </div>
@@ -83,12 +85,12 @@
                     </div>
                     <div class="p-minute-picker">
                         <button class="p-link" @mousedown="onTimePickerElementMouseDown($event, 1, 1)" @mouseup="onTimePickerElementMouseUp($event)"
-                            @mouseleave="onTimePickerElementMouseLeave()" type="button">
+                            @mouseleave="onTimePickerElementMouseLeave()" @keydown.enter="onTimePickerElementMouseDown($event, 1, 1)" @keyup.enter="onTimePickerElementMouseUp($event)" type="button">
                             <span class="pi pi-chevron-up"></span>
                         </button>
                         <span :style="{'display': currentMinute < 10 ? 'inline': 'none'}">0</span><span>{{currentMinute}}</span>
                         <button class="p-link" @mousedown="onTimePickerElementMouseDown($event, 1, -1)" @mouseup="onTimePickerElementMouseUp($event)"
-                            @mouseleave="onTimePickerElementMouseLeave()" type="button">
+                            @mouseleave="onTimePickerElementMouseLeave()" @keydown.enter="onTimePickerElementMouseDown($event, 1, -1)" @keyup.enter="onTimePickerElementMouseUp($event)" type="button">
                             <span class="pi pi-chevron-down"></span>
                         </button>
                     </div>
@@ -103,12 +105,12 @@
                     </div>
                     <div class="p-second-picker" v-if="showSeconds">
                         <button class="p-link" @mousedown="onTimePickerElementMouseDown($event, 2, 1)" @mouseup="onTimePickerElementMouseUp($event)"
-                            @mouseleave="onTimePickerElementMouseLeave()" type="button">
+                            @mouseleave="onTimePickerElementMouseLeave()" @keydown.enter="onTimePickerElementMouseDown($event, 2, 1)" @keyup.enter="onTimePickerElementMouseUp($event)" type="button">
                             <span class="pi pi-chevron-up"></span>
                         </button>
                         <span :style="{'display': currentSecond < 10 ? 'inline': 'none'}">0</span><span>{{currentSecond}}</span>
                         <button class="p-link" @mousedown="onTimePickerElementMouseDown($event, 2, -1)" @mouseup="onTimePickerElementMouseUp($event)"
-                            @mouseleave="onTimePickerElementMouseLeave()" type="button">
+                            @mouseleave="onTimePickerElementMouseLeave()" @keydown.enter="onTimePickerElementMouseDown($event, 2, -1)" @keyup.enter="onTimePickerElementMouseUp($event)" type="button">
                             <span class="pi pi-chevron-down"></span>
                         </button>
                     </div>
@@ -132,8 +134,8 @@
                     </div>
                 </div>
                 <div class="p-datepicker-buttonbar" v-if="showButtonBar">
-                    <CalendarButton type="button" :label="locale['today']" @click="onTodayButtonClick($event)" class="p-button-secondary" />
-                    <CalendarButton type="button" :label="locale['clear']" @click="onClearButtonClick($event)" class="p-button-secondary" />
+                    <CalendarButton type="button" :label="locale['today']" @click="onTodayButtonClick($event)" class="p-button-secondary" @keydown="onContainerButtonKeydown"/>
+                    <CalendarButton type="button" :label="locale['clear']" @click="onClearButtonClick($event)" class="p-button-secondary" @keydown="onContainerButtonKeydown"/>
                 </div>
                 <slot name="footer"></slot>
             </div>
@@ -317,9 +319,20 @@ export default {
         }
     },
     oldViewDate: null,
+    navigationState: null,
     created() {
         this.updateCurrentMetaData();
         this.updateInputFieldValue(this.value);
+    },
+    mounted() {
+        if (this.inline) {
+            this.initFocusableCell();
+        }
+    },
+    updated() {
+        if (this.$refs.overlay) {
+            this.updateFocus();
+        }
     },
     beforeDestroy() {
         if (this.timePickerTimer) {
@@ -527,6 +540,14 @@ export default {
             this.unbindOutsideClickListener();
             this.$emit('hide');
         },
+        onPrevButtonClick(event) {
+            this.navigationState = {backward: true, button: true};
+            this.navBackward(event);
+        },
+        onNextButtonClick(event) {
+            this.navigationState = {backward: false, button: true};
+            this.navForward(event);
+        },
         navBackward(event) {
             event.preventDefault();
 
@@ -668,10 +689,13 @@ export default {
             this.currentYear = parseInt(value);
             this.$emit('year-change', {month: this.currentMonth + 1, year: this.currentYear});
         },
-        onDateSelect(dateMeta) {
+        onDateSelect(event, dateMeta) {
             if (this.$attrs.disabled || !dateMeta.selectable) {
                 return;
             }
+
+            DomHandler.find(this.$refs.overlay, '.p-datepicker-calendar td span:not(.p-disabled)').forEach(cell => cell.tabIndex = -1);
+            event.currentTarget.focus();
 
             if (this.isMultipleSelection() && this.isSelected(dateMeta)) {
                 let newValue = this.value.filter(date => !this.isDateEquals(date, dateMeta));
@@ -956,7 +980,7 @@ export default {
                 selectable: true
             };
 
-            this.onDateSelect(dateMeta);
+            this.onDateSelect(null, dateMeta);
             this.$emit('today-click', date);
             event.preventDefault();
         },
@@ -1209,8 +1233,8 @@ export default {
                 clearInterval(this.timePickerTimer);
             }
         },
-        onMonthSelect(index) {
-            this.onDateSelect({year: this.currentYear, month: index, day: 1, selectable: true});
+        onMonthSelect(event, index) {
+            this.onDateSelect(event, {year: this.currentYear, month: index, day: 1, selectable: true});
         },
         enableModality() {
             if (!this.mask) {
@@ -1526,6 +1550,320 @@ export default {
             checkDate.setMonth( 0 );
             checkDate.setDate( 1 );
             return Math.floor( Math.round((time - checkDate.getTime()) / 86400000 ) / 7 ) + 1;
+        },
+        onDateCellKeydown(event, date, groupIndex) {
+            const cellContent = event.currentTarget;
+            const cell = cellContent.parentElement;
+
+            switch (event.which) {
+                //down arrow
+                case 40: {
+                    cellContent.tabIndex = '-1';
+                    let cellIndex = DomHandler.index(cell);
+                    let nextRow = cell.parentElement.nextElementSibling;
+                    if (nextRow) {
+                        let focusCell = nextRow.children[cellIndex].children[0];
+                        if (DomHandler.hasClass(focusCell, 'p-disabled')) {
+                            this.navigationState = {backward: false};
+                            this.navForward(event);
+                        }
+                        else {
+                            nextRow.children[cellIndex].children[0].tabIndex = '0';
+                            nextRow.children[cellIndex].children[0].focus();
+                        }
+                    }
+                    else {
+                        this.navigationState = {backward: false};
+                        this.navForward(event);
+                    }
+                    event.preventDefault();
+                    break;
+                }
+
+                //up arrow
+                case 38: {
+                    cellContent.tabIndex = '-1';
+                    let cellIndex = DomHandler.index(cell);
+                    let prevRow = cell.parentElement.previousElementSibling;
+                    if (prevRow) {
+                        let focusCell = prevRow.children[cellIndex].children[0];
+                        if (DomHandler.hasClass(focusCell, 'p-disabled')) {
+                            this.navigationState = {backward: true};
+                            this.navBackward(event);
+                        }
+                        else {
+                            focusCell.tabIndex = '0';
+                            focusCell.focus();
+                        }
+                    }
+                    else {
+                        this.navigationState = {backward: true};
+                        this.navBackward(event);
+                    }
+                    event.preventDefault();
+                    break;
+                }
+
+                //left arrow
+                case 37: {
+                    cellContent.tabIndex = '-1';
+                    let prevCell = cell.previousElementSibling;
+                    if (prevCell) {
+                        let focusCell = prevCell.children[0];
+                        if (DomHandler.hasClass(focusCell, 'p-disabled')) {
+                            this.navigateToMonth(true, groupIndex);
+                        }
+                        else {
+                            focusCell.tabIndex = '0';
+                            focusCell.focus();
+                        }
+                    }
+                    else {
+                        this.navigateToMonth(true, groupIndex);
+                    }
+                    event.preventDefault();
+                    break;
+                }
+
+                //right arrow
+                case 39: {
+                    cellContent.tabIndex = '-1';
+                    let nextCell = cell.nextElementSibling;
+                    if (nextCell) {
+                        let focusCell = nextCell.children[0];
+                        if (DomHandler.hasClass(focusCell, 'p-disabled')) {
+                            this.navigateToMonth(false, groupIndex);
+                        }
+                        else {
+                            focusCell.tabIndex = '0';
+                            focusCell.focus();
+                        }
+                    }
+                    else {
+                        this.navigateToMonth(false, groupIndex);
+                    }
+                    event.preventDefault();
+                    break;
+                }
+
+                //enter
+                case 13: {
+                    this.onDateSelect(event, date);
+                    event.preventDefault();
+                    break;
+                }
+
+                //escape
+                case 27: {
+                    this.overlayVisible = false;
+                    event.preventDefault();
+                    break;
+                }
+
+                //tab
+                case 9: {
+                    this.trapFocus(event);
+                    break;
+                }
+
+                default:
+                    //no op
+                break;
+            }
+        },
+        navigateToMonth(prev, groupIndex) {
+            if (prev) {
+                if (this.numberOfMonths === 1 || (groupIndex === 0)) {
+                    this.navigationState = {backward: true};
+                    this.navBackward(event);
+                }
+                else {
+                    let prevMonthContainer = this.$refs.overlay.children[groupIndex - 1];
+                    let cells = DomHandler.find(prevMonthContainer, '.p-datepicker-calendar td span:not(.p-disabled)');
+                    let focusCell = cells[cells.length - 1];
+                    focusCell.tabIndex = '0';
+                    focusCell.focus();
+                }
+            }
+            else {
+                if (this.numberOfMonths === 1 || (groupIndex === this.numberOfMonths - 1)) {
+                    this.navigationState = {backward: false};
+                    this.navForward(event);
+                }
+                else {
+                    let nextMonthContainer = this.$refs.overlay.children[groupIndex + 1];
+                    let focusCell = DomHandler.findSingle(nextMonthContainer, '.p-datepicker-calendar td span:not(.p-disabled)');
+                    focusCell.tabIndex = '0';
+                    focusCell.focus();
+                }
+            }   
+        },
+        onMonthCellKeydown(event, index) {
+            const cell = event.currentTarget;
+
+            switch (event.which) {
+                //arrows
+                case 38: 
+                case 40: {
+                    cell.tabIndex = '-1';
+                    var cells = cell.parentElement.children;
+                    var cellIndex = DomHandler.index(cell);
+                    let nextCell = cells[event.which === 40 ? cellIndex + 3 : cellIndex -3];
+                    if (nextCell) {
+                        nextCell.tabIndex = '0';
+                        nextCell.focus();
+                    }
+                    event.preventDefault();
+                    break;
+                }
+
+                //left arrow
+                case 37: {
+                    cell.tabIndex = '-1';
+                    let prevCell = cell.previousElementSibling;
+                    if (prevCell) {
+                        prevCell.tabIndex = '0';
+                        prevCell.focus();
+                    }
+                    event.preventDefault();
+                    break;
+                }
+
+                //right arrow
+                case 39: {
+                    cell.tabIndex = '-1';
+                    let nextCell = cell.nextElementSibling;
+                    if (nextCell) {
+                        nextCell.tabIndex = '0';
+                        nextCell.focus();
+                    }
+                    event.preventDefault();
+                    break;
+                }
+
+                //enter
+                case 13: {
+                    this.onMonthSelect(event, index);
+                    event.preventDefault();
+                    break;
+                }
+
+                //escape
+                case 27: {
+                    this.overlayVisible = false;
+                    event.preventDefault();
+                    break;
+                }
+
+                //tab
+                case 9: {
+                    this.trapFocus(event);
+                    break;
+                }
+
+                default:
+                    //no op
+                break;
+            }
+        },
+        updateFocus() {
+            let cell;
+            if (this.navigationState) {
+                if (this.navigationState.button) {
+                    this.initFocusableCell();
+
+                    if (this.navigationState.backward)
+                        DomHandler.findSingle(this.$refs.overlay, '.p-datepicker-prev').focus();
+                    else
+                        DomHandler.findSingle(this.$refs.overlay, '.p-datepicker-next').focus();
+                }
+                else {
+                    if (this.navigationState.backward) {
+                        let cells = DomHandler.find(this.$refs.overlay, '.p-datepicker-calendar td span:not(.p-disabled)');
+                        cell = cells[cells.length - 1];
+                    }
+                    else {
+                        cell = DomHandler.findSingle(this.$refs.overlay, '.p-datepicker-calendar td span:not(.p-disabled)');
+                    }
+
+                    if (cell) {
+                        cell.tabIndex = '0';
+                        cell.focus();
+                    }
+                }
+
+                this.navigationState = null;
+            }
+            else {
+                this.initFocusableCell();
+            }
+        },
+        initFocusableCell() {
+            let cell;
+            if (this.view === 'month') {
+                let cells = DomHandler.find(this.$refs.overlay, '.p-monthpicker .p-monthpicker-month');
+                let selectedCell= DomHandler.findSingle(this.$refs.overlay, '.p-monthpicker .p-monthpicker-month.p-highlight');
+                cells.forEach(cell => cell.tabIndex = -1);
+                cell = selectedCell || cells[0];
+            }
+            else {
+                cell = DomHandler.findSingle(this.$refs.overlay, 'span.p-highlight');
+                if (!cell) {
+                    let todayCell = DomHandler.findSingle(this.$refs.overlay, 'td.p-datepicker-today');
+                    if (todayCell)
+                        cell = todayCell.children[0];
+                    else
+                        cell = DomHandler.findSingle(this.$refs.overlay, '.p-datepicker-calendar td span:not(.p-disabled)');
+                }
+            }
+
+            if (cell) {
+                cell.tabIndex = '0';
+            }
+        },
+        trapFocus(event) {
+            event.preventDefault();
+            let focusableElements = DomHandler.getFocusableElements(this.$refs.overlay);
+
+            if (focusableElements && focusableElements.length > 0) {
+                if (!document.activeElement) {
+                    focusableElements[0].focus();
+                }
+                else {
+                    let focusedIndex = focusableElements.indexOf(document.activeElement);
+
+                    if (event.shiftKey) {
+                        if (focusedIndex == -1 || focusedIndex === 0)
+                            focusableElements[focusableElements.length - 1].focus();
+                        else
+                            focusableElements[focusedIndex - 1].focus();
+                    }
+                    else {
+                        if (focusedIndex == -1 || focusedIndex === (focusableElements.length - 1))
+                            focusableElements[0].focus();
+                        else
+                            focusableElements[focusedIndex + 1].focus();
+                    }
+                }
+            }
+        },
+        onContainerButtonKeydown(event) {
+             switch (event.which) {
+                //tab
+                case 9:
+                    this.trapFocus(event);
+                break;
+
+                //escape
+                case 27:
+                    this.overlayVisible = false;
+                    event.preventDefault();
+                break;
+
+                default:
+                    //Noop
+                break;
+             }
         }
     },
     computed: {
@@ -1576,12 +1914,29 @@ export default {
                     $vm.$emit('blur', event);
                 },
                 keydown: event => {
-                    $vm.isKeydown = true;
-                    if (event.keyCode === 9) {
-                        if ($vm.touchUI)
-                            $vm.disableModality();
-                        else
+                    switch (event.which) {
+                        //escape
+                        case 27: {
                             $vm.overlayVisible = false;
+                            break;
+                        }
+
+                        //tab
+                        case 9: {
+                            if ($vm.touchUI) {
+                                $vm.disableModality();
+                            }
+
+                            if (event.shiftKey) {
+                                $vm.overlayVisible = false;
+                            }
+
+                            break;
+                        }
+
+                        default:
+                            //no op
+                        break;
                     }
 
                     $vm.$emit('keydown', event);
@@ -1644,7 +1999,6 @@ export default {
                 let today = new Date();
                 let weekNumbers = [];
                 let monthRows = Math.ceil((daysLength + firstDay) / 7);
-
 
                 for (let i = 0; i < monthRows; i++) {
                     let week = [];
