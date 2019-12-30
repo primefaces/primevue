@@ -169,152 +169,7 @@ export default {
     }
 }
 </CodeHighlight>
-<CodeHighlight lang="css">
-/deep/ .stepsdemo-content  {
-    h1 {
-        font-weight: 400;
-        display: inline-block;
-        vertical-align: middle;
-        font-size: 24px;
-        margin-top: 1em;
-    }
 
-    i {
-        vertical-align: middle;
-        font-size: 2em;
-        margin-top: .3em;
-    }
-
-    .p-card-body {
-        padding: 0;
-        padding-bottom: 0;
-        padding-top: 0;
-        border-radius: 2px;
-    }
-
-    .card-header-message {
-        font-size: 14px;
-        color: #ffffff;
-    }
-
-    .wizard-header {
-        background-color: #057ad8;
-        margin:0;
-        max-height: 48px;
-    }
-
-    .wizard-header-content {
-        align-self: center;
-        padding: 0px;
-        font-weight: 600;
-        margin-left: 1em;
-    }
-
-    .wizard-header-steps {
-        align-self: center;
-        text-align: center;
-        max-width:90px;
-        padding: 0px;
-        font-size: 14px;
-        font-weight: normal;
-    }
-
-    .wizard-content {
-        padding-left: 1em;
-        margin-top: .1em;
-
-        p {
-            margin: 0;
-        }
-
-        &.wizard-confirmation {
-            box-shadow: 0 25px 0 -23px #ededed;
-
-            p {
-                font-weight: 600;
-            }
-            label.wizard-input-label {
-                opacity: 0.6;
-                font-size: 14px;
-            }
-        }
-    }
-
-    .wizard-content-summary {
-        margin-bottom: .1em;
-        padding-left: 1em;
-
-        p {
-            margin: 0;
-        }
-    }
-
-    .wizard-footer {
-        background-color: #ededed;
-        margin-top: 2em;
-        margin-left: 0;
-        margin-right:0;
-
-        & button {
-            max-width: 77px;
-
-            &:disabled {
-                background-color: #a0a0a0;
-                border: none;
-                cursor: unset;
-            }
-        }
-    }
-
-    .wizard-footer-back-button {
-        align-self: center;
-        text-align: left;
-        margin-left: .5em;
-
-        span.pi {
-            top: 54%;
-        }
-    }
-
-    .wizard-footer-next-button {
-        align-self: center;
-        text-align: right;
-        margin-right: .5em;
-
-        span.pi {
-            top: 54%;
-        }
-    }
-
-    .wizard-footer-complete-button {
-        align-self: center;
-        text-align: right;
-        margin-right: .5em;
-
-        & button {
-            max-width: 108px;
-        }
-    }
-
-    .wizard-input-label {
-        font-size: 12px;
-    }
-
-    p.wizard-input-header {
-        margin-bottom: 7px;
-    }
-
-    @media screen and (max-width: 768px) {
-        .wizard-content {
-            padding-right: 1em;
-        }
-
-        .wizard-header {
-            max-height: 66px;
-        }
-    }
-}
-</CodeHighlight>
 			</TabPanel>
             <TabPanel header="Personal">
 <CodeHighlight>
@@ -344,13 +199,11 @@ export default {
             &lt;/div&gt;
             &lt;div class="p-grid p-fluid wizard-content"&gt;
                 &lt;div class="p-col-12 p-md-3" style="max-width: 176px;"&gt;
-                    &lt;InputText v-model="$v.firstname.$model" :class="{'p-error':$v.firstname.$invalid && submitted}" /&gt;
-                    &lt;label class="wizard-input-label"&gt;First&lt;/label&gt;
+                    &lt;InputText v-model="$v.firstname.$model" :class="{'p-error':$v.firstname.$invalid && submitted}" placeholder="Firstname" /&gt;
                     &lt;ValidationMessage v-show="$v.firstname.$invalid && submitted" style="font-size: 12px"&gt;Firstname is required.&lt;/ValidationMessage&gt;
                 &lt;/div&gt;
                 &lt;div class="p-col-12 p-md-3" style="max-width: 176px;"&gt;
-                    &lt;InputText v-model="$v.lastname.$model" :class="{'p-error':$v.lastname.$invalid && submitted}" /&gt;
-                    &lt;label class="wizard-input-label"&gt;Last&lt;/label&gt;
+                    &lt;InputText v-model="$v.lastname.$model" :class="{'p-error':$v.lastname.$invalid && submitted}" placeholder="Lastname"/&gt;
                     &lt;ValidationMessage v-show="$v.lastname.$invalid && submitted" style="font-size: 12px"&gt;Lastname is required.&lt;/ValidationMessage&gt;
                 &lt;/div&gt;
             &lt;/div&gt;
@@ -363,7 +216,7 @@ export default {
             &lt;/div&gt;
         &lt;/template&gt;
         &lt;template slot="footer"&gt;
-            &lt;div class="p-grid p-fluid p-justify-between wizard-footer"&gt;
+            &lt;div class="p-grid p-fluid p-justify-between wizard-footer demo-footer"&gt;
                 &lt;div class="p-col-4 wizard-footer-back-button"&gt;
                     &lt;Button label="Back" :disabled="true" class="disabled-button" icon="pi pi-angle-left" /&gt;
                 &lt;/div&gt;
@@ -443,11 +296,9 @@ export default {
             &lt;div class="p-grid p-fluid wizard-content"&gt;
                 &lt;div class="p-col-12 p-md-3" style="max-width: 176px;"&gt;
                     &lt;Dropdown v-model="selectedClass" :options="classes" @change="setVagons($event)" optionLabel="name" placeholder="Select a Class" /&gt;
-                    &lt;label class="wizard-input-label"&gt;Class&lt;/label&gt;
                 &lt;/div&gt;
                 &lt;div class="p-col-12 p-md-3" style="max-width: 176px;"&gt;
                     &lt;Dropdown v-model="selectedVagon" :options="vagons" @change="setSeats($event)" optionLabel="vagon" placeholder="Select a Vagon" /&gt;
-                    &lt;label class="wizard-input-label"&gt;Vagon&lt;/label&gt;
                 &lt;/div&gt;
             &lt;/div&gt;
             &lt;div class="p-grid p-fluid wizard-content"&gt;
@@ -458,7 +309,7 @@ export default {
             &lt;/div&gt;
         &lt;/template&gt;
         &lt;template slot="footer"&gt;
-            &lt;div class="p-grid p-fluid p-justify-between wizard-footer"&gt;
+            &lt;div class="p-grid p-fluid p-justify-between wizard-footer demo-footer"&gt;
                 &lt;div class="p-col-4 wizard-footer-back-button"&gt;
                     &lt;Button label="Back" class="disabled-button" @click="prevPage()" icon="pi pi-angle-left" /&gt;
                 &lt;/div&gt;
@@ -661,7 +512,7 @@ export default {
             &lt;/div&gt;
         &lt;/template&gt;
         &lt;template slot="footer"&gt;
-            &lt;div class="p-grid p-fluid p-justify-between wizard-footer"&gt;
+            &lt;div class="p-grid p-fluid p-justify-between wizard-footer demo-footer"&gt;
                 &lt;div class="p-col-4 wizard-footer-back-button"&gt;
                     &lt;Button label="Back" class="disabled-button" @click="prevPage()" icon="pi pi-angle-left" /&gt;
                 &lt;/div&gt;

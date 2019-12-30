@@ -25,11 +25,9 @@
                 <div class="p-grid p-fluid wizard-content">
                     <div class="p-col-12 p-md-3" style="max-width: 176px;">
                         <Dropdown v-model="selectedClass" :options="classes" @change="setVagons($event)" optionLabel="name" placeholder="Select a Class" />
-                        <label class="wizard-input-label">Class</label>
                     </div>
                     <div class="p-col-12 p-md-3" style="max-width: 176px;">
                         <Dropdown v-model="selectedVagon" :options="vagons" @change="setSeats($event)" optionLabel="vagon" placeholder="Select a Vagon" />
-                        <label class="wizard-input-label">Vagon</label>
                     </div>
                 </div>
                 <div class="p-grid p-fluid wizard-content">
@@ -40,7 +38,7 @@
                 </div>
             </template>
             <template slot="footer">
-                <div class="p-grid p-fluid p-justify-between wizard-footer">
+                <div class="p-grid p-fluid p-justify-between wizard-footer demo-footer">
                     <div class="p-col-4 wizard-footer-back-button">
                         <Button label="Back" class="disabled-button" @click="prevPage()" icon="pi pi-angle-left" />
                     </div>

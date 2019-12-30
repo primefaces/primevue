@@ -82,9 +82,10 @@ export default {
 
     .p-card-body {
         padding: 0;
-        padding-bottom: 0;
-        padding-top: 0;
-        border-radius: 2px;
+    }
+
+    .p-card-content {
+        padding: 1em;
     }
 
     .card-header-message {
@@ -145,19 +146,12 @@ export default {
     }
 
     .wizard-footer {
-        background-color: #ededed;
         margin-top: 2em;
         margin-left: 0;
         margin-right:0;
 
-        & button {
-            max-width: 77px;
-
-            &:disabled {
-                background-color: #a0a0a0;
-                border: none;
-                cursor: unset;
-            }
+        button {
+            max-width: 75px;
         }
     }
 
@@ -167,7 +161,7 @@ export default {
         margin-left: .5em;
 
         span.pi {
-            top: 54%;
+            margin-top: -.4em;
         }
     }
 
@@ -177,7 +171,7 @@ export default {
         margin-right: .5em;
 
         span.pi {
-            top: 54%;
+            margin-top: -.4em;
         }
     }
 
@@ -186,7 +180,7 @@ export default {
         text-align: right;
         margin-right: .5em;
 
-        & button {
+        button {
             max-width: 108px;
         }
     }

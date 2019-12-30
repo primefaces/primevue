@@ -491,6 +491,10 @@ body {
             &.implementation-charts {
                 background-color: #FFFFFF;
             }
+
+            .demo-footer {
+                background-color: #ededed;
+            }
         }
 
         &.content-submenu {
@@ -619,7 +623,7 @@ body {
                         @include border-radius-top(3px);
                             
                         a {
-                            font-weight: 700;
+                            font-weight: 400;
                             color: #34495e;
                             text-shadow: none;
                             height: inherit;
@@ -1411,6 +1415,10 @@ pre[class*="language-"] code {
         > h3,
         > h4 {
             color: #dedede !important
+        }
+
+        .demo-footer {
+            background-color: #535353 !important;
         }
     }
 }

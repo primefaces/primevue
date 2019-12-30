@@ -24,13 +24,11 @@
                 </div>
                 <div class="p-grid p-fluid wizard-content">
                     <div class="p-col-12 p-md-3" style="max-width: 176px;">
-                        <InputText v-model="$v.firstname.$model" :class="{'p-error':$v.firstname.$invalid && submitted}" />
-                        <label class="wizard-input-label">First</label>
+                        <InputText v-model="$v.firstname.$model" :class="{'p-error':$v.firstname.$invalid && submitted}" placeholder="Firstname"/>
                         <ValidationMessage v-show="$v.firstname.$invalid && submitted" style="font-size: 12px">Firstname is required.</ValidationMessage>
                     </div>
                     <div class="p-col-12 p-md-3" style="max-width: 176px;">
-                        <InputText v-model="$v.lastname.$model" :class="{'p-error':$v.lastname.$invalid && submitted}" />
-                        <label class="wizard-input-label">Last</label>
+                        <InputText v-model="$v.lastname.$model" :class="{'p-error':$v.lastname.$invalid && submitted}" placeholder="Lastname" />
                         <ValidationMessage v-show="$v.lastname.$invalid && submitted" style="font-size: 12px">Lastname is required.</ValidationMessage>
                     </div>
                 </div>
@@ -43,7 +41,7 @@
                 </div>
             </template>
             <template slot="footer">
-                <div class="p-grid p-fluid p-justify-between wizard-footer">
+                <div class="p-grid p-fluid p-justify-between wizard-footer demo-footer">
                     <div class="p-col-4 wizard-footer-back-button">
                         <Button label="Back" :disabled="true" class="disabled-button" icon="pi pi-angle-left" />
                     </div>

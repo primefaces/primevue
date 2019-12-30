@@ -56,7 +56,7 @@
                 </div>
             </template>
             <template slot="footer">
-                <div class="p-grid p-fluid p-justify-between wizard-footer">
+                <div class="p-grid p-fluid p-justify-between wizard-footer demo-footer">
                     <div class="p-col-4 wizard-footer-back-button">
                         <Button label="Back" class="disabled-button" @click="prevPage()" icon="pi pi-angle-left" />
                     </div>
