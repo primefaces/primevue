@@ -527,6 +527,11 @@ body {
                             transition: box-shadow .2s;
                             box-shadow: 0 0 0 0.2em $focusBorderColor;
                         }
+
+                        &.router-link-exact-active {
+                            color: #aebecd;
+                            font-weight: 700;
+                        }
                     }
                 }
             }
