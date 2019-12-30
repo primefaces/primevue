@@ -596,7 +596,7 @@ export default {
                             <tr>
                                 <td>filterMatchMode</td>
                                 <td>string</td>
-                                <td>null</td>
+                                <td>startsWith</td>
                                 <td>Defines filterMatchMode; "startsWith", "contains", "endsWidth", "equals", "notEquals", "in" and "custom".</td>
                             </tr>
                             <tr>
