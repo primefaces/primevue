@@ -58,7 +58,7 @@ export default {
             this.$router.push(this.items[event.pageIndex - 1].to);
         },
         complete() {
-            this.$toast.add({severity:'success', summary:'Order submitted', detail: 'Dear,' + this.formObject.firstname + ' ' + this.formObject.lastname + ' your order completed.', life: 3000});
+            this.$toast.add({severity:'success', summary:'Order submitted', detail: 'Dear, ' + this.formObject.firstname + ' ' + this.formObject.lastname + ' your order completed.'});
         }
     }
 }
@@ -127,12 +127,10 @@ export default {
 
             p {
                 font-weight: 600;
-                color: #484848;
             }
             label.wizard-input-label {
                 opacity: 0.6;
                 font-size: 14px;
-                color: #484848;
             }
         }
     }
@@ -153,7 +151,7 @@ export default {
         margin-right:0;
 
         & button {
-            max-width: 59px;
+            max-width: 77px;
 
             &:disabled {
                 background-color: #a0a0a0;
@@ -167,12 +165,20 @@ export default {
         align-self: center;
         text-align: left;
         margin-left: .5em;
+
+        span.pi {
+            top: 54%;
+        }
     }
 
     .wizard-footer-next-button {
         align-self: center;
         text-align: right;
         margin-right: .5em;
+
+        span.pi {
+            top: 54%;
+        }
     }
 
     .wizard-footer-complete-button {
@@ -181,13 +187,12 @@ export default {
         margin-right: .5em;
 
         & button {
-            max-width: 88px;
+            max-width: 108px;
         }
     }
 
     .wizard-input-label {
         font-size: 12px;
-        color: #898989;
     }
 
     p.wizard-input-header {

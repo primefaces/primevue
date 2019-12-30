@@ -45,10 +45,10 @@
             <template slot="footer">
                 <div class="p-grid p-fluid p-justify-between wizard-footer">
                     <div class="p-col-4 wizard-footer-back-button">
-                        <Button label="Back" :disabled="true" class="disabled-button" />
+                        <Button label="Back" :disabled="true" class="disabled-button" icon="pi pi-angle-left" />
                     </div>
                     <div class="p-col-4 wizard-footer-next-button">
-                        <Button label="Next" @click="nextPage(!$v.$invalid)" />
+                        <Button label="Next" @click="nextPage(!$v.$invalid)" icon="pi pi-angle-right" iconPos="right" />
                     </div>
                 </div>
             </template>
