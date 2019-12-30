@@ -42,16 +42,16 @@ export default {
             }
         },
         isActive(item) {
-            return this.activeRoute === item.to;
+            return this.activeRoute === item.to || this.activeRoute === item.to + '/' ;
         },
         getItemClass(item) {
             return ['p-steps-item', item.class, {
-                'p-highlight p-steps-current': (this.activeRoute === item.to),
+                'p-highlight p-steps-current': this.isActive(item),
                 'p-disabled': this.isItemDisabled(item)
             }];
         },
         isItemDisabled(item) {
-            return (item.disabled || (this.readonly && this.activeRoute !== item.to));
+            return (item.disabled || (this.readonly && !this.isActive(item)));
         }
     },
     computed: {

@@ -40,10 +40,13 @@ export default {
             }
         },
         isActive(item) {
-            return this.activeRoute === item.to;
+            return this.activeRoute === item.to || this.activeRoute === item.to + '/' ;
         },
         getItemClass(item) {
-            return ['p-tabmenuitem', item.class, {'p-highlight': this.activeRoute === item.to, 'p-disabled': item.disabled}];
+            return ['p-tabmenuitem', item.class, {
+                'p-highlight': this.isActive(item),
+                'p-disabled': item.disabled
+            }];
         },
         getItemIcon(item) {
             return ['p-menuitem-icon', item.icon];
