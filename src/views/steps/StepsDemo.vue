@@ -49,9 +49,9 @@ export default {
     methods: {
         nextPage(event) {
             for (let field in event.formData) {
-                this.formObject[field] = event.formData[field]; 
+                this.formObject[field] = event.formData[field];
             }
-            
+
             this.$router.push(this.items[event.pageIndex + 1].to);
         },
         prevPage(event) {
@@ -85,8 +85,6 @@ export default {
         padding-bottom: 0;
         padding-top: 0;
         border-radius: 2px;
-        box-shadow: 0 1px 4px 0 rgba(0, 0, 0, 0.3);
-        background-color: #f9f9f9;
     }
 
     .card-header-message {
@@ -95,24 +93,24 @@ export default {
     }
 
     .wizard-header {
-        background-color: #057ad8; 
-        margin:0; 
+        background-color: #057ad8;
+        margin:0;
         max-height: 48px;
     }
 
     .wizard-header-content {
-        align-self: center; 
+        align-self: center;
         padding: 0px;
         font-weight: 600;
         margin-left: 1em;
     }
 
     .wizard-header-steps {
-        align-self: center; 
-        text-align: center; 
-        max-width:90px;  
+        align-self: center;
+        text-align: center;
+        max-width:90px;
         padding: 0px;
-        font-size: 14px; 
+        font-size: 14px;
         font-weight: normal;
     }
 
@@ -126,6 +124,7 @@ export default {
 
         &.wizard-confirmation {
             box-shadow: 0 25px 0 -23px #ededed;
+
             p {
                 font-weight: 600;
                 color: #484848;
@@ -148,9 +147,9 @@ export default {
     }
 
     .wizard-footer {
-        background-color: #ededed; 
-        margin-top: 2em; 
-        margin-left: 0; 
+        background-color: #ededed;
+        margin-top: 2em;
+        margin-left: 0;
         margin-right:0;
 
         & button {
@@ -165,20 +164,20 @@ export default {
     }
 
     .wizard-footer-back-button {
-        align-self: center; 
-        text-align: left; 
+        align-self: center;
+        text-align: left;
         margin-left: .5em;
     }
 
     .wizard-footer-next-button {
-        align-self: center; 
-        text-align: right; 
+        align-self: center;
+        text-align: right;
         margin-right: .5em;
     }
 
     .wizard-footer-complete-button {
-        align-self: center; 
-        text-align: right; 
+        align-self: center;
+        text-align: right;
         margin-right: .5em;
 
         & button {

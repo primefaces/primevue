@@ -54,8 +54,6 @@
 </template>
 
 <script>
-import {required, minLength, integer} from 'vuelidate/lib/validators';
-
 export default {
     data () {
         return {
@@ -76,18 +74,18 @@ export default {
             if (this.selectedClass && event.value) {
                 this.vagons = [];
                 this.seats = [];
-                for(let i = 1; i < 3 * event.value.factor; i++) {
-                    this.vagons.push({vagon: i+event.value.code, type: event.value.name, factor: event.value.factor});
+                for (let i = 1; i < 3 * event.value.factor; i++) {
+                    this.vagons.push({vagon: i + event.value.code, type: event.value.name, factor: event.value.factor});
                 }
-            }            
+            }
         },
         setSeats(event) {
             if (this.selectedVagon && event.value) {
                 this.seats = [];
-                for(let i = 1; i < 10 * event.value.factor; i++) {
+                for (let i = 1; i < 10 * event.value.factor; i++) {
                     this.seats.push({seat: i, type: event.value.type});
                 }
-            } 
+            }
         },
         nextPage() {
             this.$emit('nextPage', {formData: {class: this.selectedClass.name, vagon: this.selectedVagon.vagon, seat: this.selectedSeat.seat}, pageIndex: 1});

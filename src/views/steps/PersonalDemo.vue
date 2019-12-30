@@ -57,7 +57,7 @@
 </template>
 
 <script>
-import {required, minLength, integer} from 'vuelidate/lib/validators';
+import {required, integer} from 'vuelidate/lib/validators';
 
 export default {
     data () {

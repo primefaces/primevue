@@ -74,11 +74,6 @@ export default {
     props: {
         formData: Object
     },
-    data() {
-        return {
-
-        }
-    },
     methods: {
         prevPage() {
             this.$emit('prevPage', {pageIndex: 3});

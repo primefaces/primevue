@@ -1696,14 +1696,14 @@ export default {
                     focusCell.tabIndex = '0';
                     focusCell.focus();
                 }
-            }   
+            }
         },
         onMonthCellKeydown(event, index) {
             const cell = event.currentTarget;
 
             switch (event.which) {
                 //arrows
-                case 38: 
+                case 38:
                 case 40: {
                     cell.tabIndex = '-1';
                     var cells = cell.parentElement.children;
