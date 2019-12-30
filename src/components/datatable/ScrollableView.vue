@@ -18,7 +18,7 @@
                 </colgroup>
                 <slot name="body"></slot>
             </table>
-            <table ref="loadingTable" :style="{top:'0', display: 'none'}" class="p-datatable-scrollable-body-table p-datatable-loading-virtual-table p-datatable-virtual-table">
+            <table ref="loadingTable" :style="{top:'0', display: 'none'}" class="p-datatable-scrollable-body-table p-datatable-loading-virtual-table p-datatable-virtual-table" v-if="virtualScroll">
                 <colgroup class="p-datatable-scrollable-colgroup">
                     <col v-for="(col,i) of columns" :key="col.columnKey||col.field||i" :style="col.headerStyle" />
                 </colgroup>

@@ -20,7 +20,7 @@
                 <div ref="itemsWrapper" class="p-dropdown-items-wrapper" :style="{'max-height': scrollHeight}">
                     <ul class="p-dropdown-items p-dropdown-list p-component" role="listbox">
                         <li v-for="(option, i) of visibleOptions" :class="['p-dropdown-item', {'p-highlight': isSelected(option), 'p-disabled': isOptionDisabled(option)}]"
-                            :aria-label="getOptionLabel(option)" :key="getOptionLabel(option)" @click="onOptionSelect($event, option)" role="option" :aria-selected="isSelected(option)">
+                            :aria-label="getOptionLabel(option)" :key="getOptionLabel(option) + '_' + i" @click="onOptionSelect($event, option)" role="option" :aria-selected="isSelected(option)">
                             <slot name="option" :option="option" :index="i">
                                 {{getOptionLabel(option)}}
                             </slot>
