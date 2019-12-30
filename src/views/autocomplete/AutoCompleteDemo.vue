@@ -13,7 +13,7 @@
             <span style="marginLeft: .5em">Country: {{selectedCountry || 'none'}}</span>
 
             <h3>Dropdown and Templating</h3>
-            <AutoComplete v-model="brand" :suggestions="filteredBrands" @complete="searchBrand($event)" placeholder="Hint: type 'v' or 'f'" :dropdown="true">
+            <AutoComplete v-model="brand" :suggestions="filteredBrands" @complete="searchBrand($event)" placeholder="Search car brands" :dropdown="true">
                 <template #item="slotProps">
                     <div class="p-clearfix p-autocomplete-brand-item">
                         <img :alt="slotProps.item" :src="'demo/images/car/' + slotProps.item + '.png'" />
