@@ -742,7 +742,7 @@ export default {
 
                     //enter
                     case 13:
-                        this.onRowClick(event, rowData, rowIndex);
+                        this.onRowClick({originalEvent: event, data: rowData, index: rowIndex});
                     break;
 
                     default:
