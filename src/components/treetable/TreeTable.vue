@@ -716,7 +716,7 @@ export default {
             }
         },
         onColumnKeyDown(event, col) {
-            if (event.currentTarget.nodeName === 'TH' && DomHandler.hasClass(event.currentTarget, 'p-sortable-column')) {
+            if (event.which === 13 && event.currentTarget.nodeName === 'TH' && DomHandler.hasClass(event.currentTarget, 'p-sortable-column')) {
                 this.onColumnHeaderClick(event, col);
             }
         },
