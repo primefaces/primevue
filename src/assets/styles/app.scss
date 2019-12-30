@@ -494,7 +494,7 @@ body {
         }
 
         &.content-submenu {
-            background-color: #f4f4f4;
+            background-color: #3e5265;
             padding: 15px 30px;
             @include clearfix();
 
@@ -510,18 +510,16 @@ body {
                     padding: .25em;
 
                     a {
-                        color: #484848;
+                        color: #ffffff;
                         display: block;
                         width: 90%;
                         border: 1px solid transparent;
                         padding: 6px 12px;
                         border-radius: 3px;
-                        @include transition(border-color .1s);
+                        @include transition(background-color .1s);
 
-                        &:hover {
-                            border: 1px solid #adadad;
-                            color: #363636;
-                            background-color: #ececec
+                        &:hover {   
+                            background-color: #4c667d;                        
                         }
 
                         &:focus {
@@ -787,10 +785,10 @@ body {
             width: 52px;
             height: 52px;
             line-height: 52px;
-            background-color: #445c71;
+            background-color: #41b883;
             text-align: center;
             color: #fafafa;
-            top: 230px;
+            top: 200px;
             left: -51px;
             z-index: -1;
             overflow: hidden;
@@ -810,7 +808,7 @@ body {
             }
 
             &:hover {
-                background-color: #577691;
+                background-color: #3aa476;
             }
         }
     }
