@@ -956,24 +956,6 @@ a {
     }
 }
 
-@media screen and (max-width: 960px) {
-    .layout-config {
-        top: 110px;
-        height: calc(100% - 110px);
-        transform: translate3d(100%,0,0);
-        
-        .layout-config-button {
-            left: auto;
-            right: -52px;
-        }
-
-        &.layout-config-active {
-            width: 100%;
-            transform: translate3d(0,0,0);
-        }
-    }
-}
-
 .clearfix {
     display: inline-block;
 
@@ -1278,7 +1260,6 @@ a {
             }
         }
     }
-
 
     .layout-sidebar {
         top: 70px;
