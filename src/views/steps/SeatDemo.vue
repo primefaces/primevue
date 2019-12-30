@@ -42,10 +42,10 @@
             <template slot="footer">
                 <div class="p-grid p-fluid p-justify-between wizard-footer">
                     <div class="p-col-4 wizard-footer-back-button">
-                        <Button label="Back" class="disabled-button" @click="prevPage()" />
+                        <Button label="Back" class="disabled-button" @click="prevPage()" icon="pi pi-angle-left" />
                     </div>
                     <div class="p-col-4 wizard-footer-next-button">
-                        <Button label="Next" @click="nextPage()" />
+                        <Button label="Next" @click="nextPage()" icon="pi pi-angle-right" iconPos="right" />
                     </div>
                 </div>
             </template>
