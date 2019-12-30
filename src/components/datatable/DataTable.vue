@@ -447,9 +447,6 @@ export default {
         }
     },
     methods: {
-        resolveFieldData(rowData, field) {
-            return ObjectUtils.resolveFieldData(rowData, field);
-        },
         onPage(event) {
             this.d_first = event.first;
             this.d_rows = event.rows;
