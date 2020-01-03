@@ -2835,10 +2835,10 @@ body .p-carousel .p-carousel-content .p-carousel-next {
   border-radius: 50%;
   margin: 0.2em;
   color: #333333;
-  -moz-transition: color 0.2s;
-  -o-transition: color 0.2s;
-  -webkit-transition: color 0.2s;
-  transition: color 0.2s;
+  -moz-transition: color 0.2s, box-shadow 0.2s;
+  -o-transition: color 0.2s, box-shadow 0.2s;
+  -webkit-transition: color 0.2s, box-shadow 0.2s;
+  transition: color 0.2s, box-shadow 0.2s;
 }
 body .p-carousel .p-carousel-content .p-carousel-prev:not(.p-disabled):hover,
 body .p-carousel .p-carousel-content .p-carousel-next:not(.p-disabled):hover {
