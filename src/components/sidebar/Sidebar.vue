@@ -1,7 +1,7 @@
 <template>
     <transition name="p-sidebar" @enter="onEnter" @leave="onLeave">
         <div :class="containerClass" v-if="visible" ref="container" role="complementary" :aria-modal="modal">
-            <button class="p-sidebar-close p-link" @click="hide" :aria-label="ariaCloseLabel">
+            <button class="p-sidebar-close p-link" @click="hide" :aria-label="ariaCloseLabel" v-if="showCloseIcon">
                 <span class="p-sidebar-close-icon pi pi-times" />
             </button>
             <slot></slot>
