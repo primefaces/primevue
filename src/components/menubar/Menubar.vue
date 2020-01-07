@@ -1,5 +1,5 @@
 <template>
-    <div class="p-menubar p-component'">
+    <div class="p-menubar p-component">
         <MenubarSub :model="model" :root="true" />
         <div class="p-menubar-custom" v-if="$slots.default">
             <slot></slot>
