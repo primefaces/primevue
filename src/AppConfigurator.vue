@@ -103,6 +103,11 @@
                                 <img alt="Apollo" src="./assets/images/layouts/apollo.jpg">
                             </a>
                         </div>
+                        <div class="p-col-12">
+                            <a href="https://www.primefaces.org/layouts/roma-vue">
+                                <img alt="Roma" src="./assets/images/layouts/roma.jpg">
+                            </a>
+                        </div>
                     </div>
                 </div>
 
