@@ -2071,24 +2071,29 @@ export default {
             return this.dateFormat || this.locale.dateFormat;
         },
         yearOptions() {
-            let $vm = this;
-            const years = this.yearRange.split(':');
-            let yearStart = parseInt(years[0]);
-            let yearEnd = parseInt(years[1]);
-            let yearOptions = [];
+            if (this.yearRange) {
+                let $vm = this;
+                const years = this.yearRange.split(':');
+                let yearStart = parseInt(years[0]);
+                let yearEnd = parseInt(years[1]);
+                let yearOptions = [];
 
-            if (this.currentYear < yearStart) {
-                $vm.currentYear = yearEnd;
-            }
-            else if (this.currentYear > yearEnd) {
-                $vm.currentYear = yearStart;
-            }
+                if (this.currentYear < yearStart) {
+                    $vm.currentYear = yearEnd;
+                }
+                else if (this.currentYear > yearEnd) {
+                    $vm.currentYear = yearStart;
+                }
 
-            for (let i = yearStart; i <= yearEnd; i++) {
-                yearOptions.push(i);
-            }
+                for (let i = yearStart; i <= yearEnd; i++) {
+                    yearOptions.push(i);
+                }
 
-            return yearOptions;
+                return yearOptions;
+            }
+            else {
+                return null;
+            }
         },
         monthPickerValues() {
             let monthPickerValues = [];
