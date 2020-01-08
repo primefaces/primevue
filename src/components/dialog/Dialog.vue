@@ -1,24 +1,26 @@
 <template>
-    <transition name="p-dialog" @enter="onEnter" @leave="onLeave" @appear="onAppear">
-        <div ref="container" :class="containerClass" v-if="visible" role="dialog" :aria-labelledby="ariaLabelledById" :aria-modal="modal">
-            <div class="p-dialog-titlebar" v-if="showHeader">
-                <slot name="header">
-                    <span :id="ariaLabelledById" class="p-dialog-title" v-if="header" >{{header}}</span>
-                </slot>
-                <div class="p-dialog-titlebar-icons">
-                    <button class="p-dialog-titlebar-icon p-dialog-titlebar-close p-link" @click="close" v-if="closable" :aria-label="ariaCloseLabel">
-                        <span class="p-dialog-titlebar-close-icon pi pi-times"></span>
-                    </button>
+    <div ref="mask" :class="wrapperClass" v-if="visible">
+        <transition name="p-dialog" @enter="onEnter" @leave="onLeave" @appear="onAppear">
+            <div ref="container" :class="containerClass" :style="containerStyle" v-if="visible" v-bind="$attrs" v-on="listeners" role="dialog" :aria-labelledby="ariaLabelledById" :aria-modal="modal">
+                <div class="p-dialog-titlebar" v-if="showHeader">
+                    <slot name="header">
+                        <span :id="ariaLabelledById" class="p-dialog-title" v-if="header" >{{header}}</span>
+                    </slot>
+                    <div class="p-dialog-titlebar-icons">
+                        <button class="p-dialog-titlebar-icon p-dialog-titlebar-close p-link" @click="close" v-if="closable" :aria-label="ariaCloseLabel">
+                            <span class="p-dialog-titlebar-close-icon pi pi-times"></span>
+                        </button>
+                    </div>
+                </div>
+                <div class="p-dialog-content" :style="contentStyle">
+                    <slot></slot>
+                </div>
+                <div class="p-dialog-footer" v-if="footer || $slots.footer">
+                    <slot name="footer">{{footer}}</slot>
                 </div>
             </div>
-            <div class="p-dialog-content" :style="contentStyle">
-                <slot></slot>
-            </div>
-            <div class="p-dialog-footer" v-if="footer || $slots.footer">
-                <slot name="footer">{{footer}}</slot>
-            </div>
-        </div>
-    </transition>
+        </transition>
+    </div>
 </template>
 
 <script>
@@ -26,6 +28,7 @@ import UniqueComponentId from '../utils/UniqueComponentId';
 import DomHandler from '../utils/DomHandler';
 
 export default {
+    inheritAttrs: false,
     props: {
 		header: null,
 		footer: null,
@@ -54,12 +57,28 @@ export default {
             default: 'close'
         }
     },
-    mask: null,
-    documentKeydownListener: null,
-    beforeDestroy() {
-        if (this.modal) {
-            this.disableModality();
+    data() {
+        return {
+            dialogClasses: null,
+            dialogStyles: null
         }
+    },
+    documentKeydownListener: null,
+    updated() {
+        if (this.$refs.mask) {
+            this.dialogClasses = this.$vnode.data.class;
+            this.dialogStyles = this.$vnode.data.style;
+
+            DomHandler.removeClass(this.$refs.mask, this.$vnode.data.class);
+            if (this.$vnode.data.style) {
+                Object.keys(this.$vnode.data.style).forEach((key) => {
+                    this.$refs.mask.style[key] = '';
+                });
+            }
+        }
+    },
+    beforeDestroy() {
+        this.disableModality();
     },
     methods: {
         close() {
@@ -72,16 +91,13 @@ export default {
                 this.$refs.container.style.zIndex = String(this.baseZIndex + DomHandler.generateZIndex());
             }
             this.focus();
-            if (this.modal) {
-                this.enableModality();
-            }
+
+            this.enableModality();
         },
         onLeave() {
             this.$emit('hide');
 
-            if (this.modal) {
-                this.disableModality();
-            }
+            this.disableModality();
         },
         onAppear() {
             if (this.visible) {
@@ -95,20 +111,16 @@ export default {
             }
         },
         enableModality() {
-            if (!this.mask) {
-                this.mask = document.createElement('div');
-                this.mask.style.zIndex = String(parseInt(this.$refs.container.style.zIndex, 10) - 1);
-                DomHandler.addMultipleClasses(this.mask, 'p-component-overlay p-dialog-mask p-fadein');
-                document.body.appendChild(this.mask);
+            this.$refs.mask.style.zIndex = String(parseInt(this.$refs.container.style.zIndex, 10) - 1);
+
+            if (this.modal) {
                 DomHandler.addClass(document.body, 'p-overflow-hidden');
                 this.bindDocumentKeydownListener();
             }
         },
         disableModality() {
-            if (this.mask) {
-                document.body.removeChild(this.mask);
+            if (this.modal) {
                 DomHandler.removeClass(document.body, 'p-overflow-hidden');
-                this.mask = null;
                 this.unbindDocumentKeydownListener();
             }
         },
@@ -155,10 +167,23 @@ export default {
         }
     },
     computed: {
+        listeners() {
+            return {
+                ...this.$listeners
+            };
+        },
+        wrapperClass() {
+            return ['p-dialog-wrapper', {
+                'p-component-overlay p-dialog-mask p-fadein': this.modal
+            }];
+        },
         containerClass() {
             return ['p-dialog p-component', {
                 'p-dialog-rtl': this.rtl
-            }];
+            }, this.dialogClasses];
+        },
+        containerStyle() {
+            return this.dialogStyles;
         },
         ariaId() {
             return UniqueComponentId();
@@ -171,15 +196,24 @@ export default {
 </script>
 
 <style>
+.p-dialog-wrapper {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    pointer-events: none;
+}
+.p-dialog-wrapper.p-dialog-mask {
+    pointer-events: auto;
+}
 .p-dialog {
     position: fixed;
     padding: 0;
-    top: 50%;
-    left: 50%;
-    transform: translateX(-50%) translateY(-50%);
-}
-.p-dialog-visible {
-    display: block;
+    pointer-events: auto;
 }
 .p-dialog .p-dialog-titlebar {
 	padding: .5em .75em;
@@ -235,12 +269,6 @@ export default {
     text-align: right;
 }
 
-.p-dialog-mask {
-    position: fixed;
-    width: 100%;
-    height: 100%;
-}
-
 /* ConfirmDialog */
 .p-confirmdialog {
     width: 30em;
@@ -280,10 +308,16 @@ export default {
 
 /* Animation */
 .p-dialog-enter-active {
+    top: 50%;
+    left: 50%;
+    transform: translateX(-50%) translateY(-50%);
     transition: all 150ms cubic-bezier(0, 0, 0.2, 1);
 }
 
 .p-dialog-leave-active {
+    top: 50%;
+    left: 50%;
+    transform: translateX(-50%) translateY(-50%);
     transition: all 75ms cubic-bezier(0.4, 0.0, 0.2, 1);
 }
 
