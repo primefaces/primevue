@@ -140,7 +140,7 @@ export default {
                 this.outsideClickListener = null;
             }
         },
-        isOutsideTopbarMenuClicked(event, element) {
+        isOutsideTopbarMenuClicked(event) {
             return !(this.$refs.topbarMenu.isSameNode(event.target) || this.$refs.topbarMenu.contains(event.target));
         }
     }
