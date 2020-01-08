@@ -6,16 +6,16 @@
         <router-link to="/" class="logo">
             <img alt="logo" src="./assets/images/primevue-logo.png">
         </router-link>
-        <ul class="topbar-menu">
+        <ul ref="topbarMenu" class="topbar-menu">
             <li><router-link to="/setup">Get Started</router-link></li>
             <li class="topbar-submenu">
-                <a tabindex="0" @click="toggleThemesMenu($event)" class="themes-menu-link">Themes</a>
-                <transition name="p-input-overlay" @enter="onThemesMenuEnter" @leave="onThemesMenuLeave">
-                    <ul v-show="themesMenuVisible">
+                <a tabindex="0" @click="toggleMenu($event, 0)" class="themes-menu-link">Themes</a>
+                <transition name="p-input-overlay" @enter="onMenuEnter" @leave="onMenuLeave">
+                    <ul v-show="activeMenuIndex === 0">
                         <li class="topbar-submenu-header">THEMING</li>
-                        <li><router-link to="/theming" @click.native="hideThemesMenu"><i class="pi pi-fw pi-file"/><span>Guide</span></router-link></li>
+                        <li><router-link to="/theming"><i class="pi pi-fw pi-file"/><span>Guide</span></router-link></li>
                         <li><a href="https://www.primefaces.org/designer/primevue"><i class="pi pi-fw pi-palette" /><span>Designer</span></a></li>
-                        <li><router-link to="/icons" @click.native="hideThemesMenu"><i class="pi pi-fw pi-info-circle"/><span>Icons</span></router-link></li>
+                        <li><router-link to="/icons"><i class="pi pi-fw pi-info-circle"/><span>Icons</span></router-link></li>
                         <li class="topbar-submenu-header">FREE COMPONENT THEMES</li>
                         <li><a href="#" @click="changeTheme($event, 'nova-light', false)"><img src="./assets/images/layouts/themeswitcher-nova-light.png" alt="Nova Light" /><span>Nova Light</span></a></li>
                         <li><a @click="changeTheme($event, 'nova-dark', false)"><img src="./assets/images/layouts/themeswitcher-nova-dark.png" alt="Nova Dark" /><span>Nova Dark</span></a></li>
@@ -30,9 +30,9 @@
                 </transition>
             </li>
             <li class="topbar-submenu">
-                <a tabindex="0" @click="toggleTemplatesMenu($event)" class="templates-menu-link">Templates</a>
-                <transition name="p-input-overlay" @enter="onTemplatesMenuEnter" @leave="onTemplatesMenuLeave">
-                    <ul v-show="templatesMenuVisible">
+                <a tabindex="0" @click="toggleMenu($event, 1)" class="templates-menu-link">Templates</a>
+                <transition name="p-input-overlay" @enter="onMenuEnter" @leave="onMenuLeave">
+                    <ul v-show="activeMenuIndex === 1">
                         <li class="topbar-submenu-header">FREE ADMIN TEMPLATE</li>
                         <li><a href="https://www.primefaces.org/sigma-vue"><img src="./assets/images/layouts/themeswitcher-sigma.png" alt="Sigma" /><span>Sigma</span></a></li>
                         <li class="topbar-submenu-header">PREMIUM ADMIN TEMPLATES</li>
@@ -45,10 +45,10 @@
                 </transition>
             </li>
             <li class="topbar-submenu topbar-resources-submenu">
-                <a tabindex="0" @click="toggleResourcesMenu($event)" class="resources-menu-link">Resources</a>
-                <transition name="p-input-overlay" @enter="onResourcesMenuEnter" @leave="onResourcesMenuLeave">
-                    <ul v-show="resourcesMenuVisible">
-                        <li><router-link to="/support" @click.native="hideResourcesMenu"><span>Support</span></router-link></li>
+                <a tabindex="0" @click="toggleMenu($event, 2)" class="resources-menu-link">Resources</a>
+                <transition name="p-input-overlay" @enter="onMenuEnter" @leave="onMenuLeave">
+                    <ul v-show="activeMenuIndex === 2">
+                        <li><router-link to="/support"><span>Support</span></router-link></li>
                         <li><a href="https://github.com/primefaces/primevue" target="_blank"><span>Source Code</span></a></li>
                         <li><a href="https://www.primefaces.org/store" target="_blank"><span>PrimeStore</span></a></li>
                         <li><a href="https://www.primefaces.org/category/primevue/" target="_blank"><span>Blog</span></a></li>
@@ -63,22 +63,18 @@
 </template>
 
 <script>
-import DomHandler from './components/utils/DomHandler';
-
 export default {
-    themesMenuOutsideClickListener: null,
-    templatesMenuOutsideClickListener: null,
-    resourcesMenuOutsideClickListener: null,
-    themesMenuElement: null,
-    templatesMenuElement: null,
-    resourcesMenuElement: null,
+    outsideClickListener: null,
     darkDemoStyle: null,
+    watch: {
+        $route() {
+            this.activeMenuIndex = null;
+        }
+    },
     data() {
         return {
             theme: 'nova-light',
-            themesMenuVisible: false,
-            templatesMenuVisible: false,
-            resourcesMenuVisible: false
+            activeMenuIndex: null
         }
     },
     methods: {
@@ -97,7 +93,7 @@ export default {
                 this.removeClass(document.body, 'dark-theme');
             }
 
-            this.hideThemesMenu();
+            this.activeMenuIndex = null;
             event.preventDefault();
         },
         addClass(element, className) {
@@ -118,98 +114,34 @@ export default {
             else
                 return new RegExp('(^| )' + className + '( |$)', 'gi').test(element.className);
         },
-        toggleThemesMenu(event) {
-            this.themesMenuVisible = !this.themesMenuVisible;
+        toggleMenu(event, index) {
+            this.activeMenuIndex = (this.activeMenuIndex === index) ? null : index;
             event.preventDefault();
         },
-        onThemesMenuEnter(el) {
-            this.themesMenuElement = el;
-            this.bindThemesMenuOutsideClickListener();
+        onMenuEnter() {
+            this.bindOutsideClickListener();
         },
-        onThemesMenuLeave() {
-            this.themesMenuElement = null;
-            this.unbindThemesMenuOutsideClickListener();
+        onMenuLeave() {
+            this.unbindOutsideClickListener();
         },
-        toggleTemplatesMenu(event) {
-            this.templatesMenuVisible = !this.templatesMenuVisible;
-            event.preventDefault();
-        },
-        onTemplatesMenuEnter(el) {
-            this.templatesMenuElement = el;
-            this.bindTemplatesMenuOutsideClickListener();
-        },
-        onTemplatesMenuLeave() {
-            this.templatesMenuElement = null;
-            this.unbindTemplatesMenuOutsideClickListener();
-        },
-        toggleResourcesMenu(event) {
-            this.resourcesMenuVisible = !this.resourcesMenuVisible;
-            event.preventDefault();
-        },
-        onResourcesMenuEnter(el) {
-            this.resourcesMenuElement = el;
-            this.bindResourcesMenuOutsideClickListener();
-        },
-        onResourcesMenuLeave() {
-            this.resourcesMenuElement = null;
-            this.unbindResourcesMenuOutsideClickListener();
-        },
-        bindThemesMenuOutsideClickListener() {
-            if (!this.themesMenuOutsideClickListener) {
-                this.themesMenuOutsideClickListener = (event) => {
-                    if ((this.themesMenuVisible && this.isOutsideOfOverlayMenuClicked(event, this.themesMenuElement, 'themes-menu-link'))) {
-                        this.themesMenuVisible = false;
+        bindOutsideClickListener() {
+            if (!this.outsideClickListener) {
+                this.outsideClickListener = (event) => {
+                    if ((this.activeMenuIndex != null && this.isOutsideTopbarMenuClicked(event))) {
+                        this.activeMenuIndex = null;
                     }
                 };
-                document.addEventListener('click', this.themesMenuOutsideClickListener);
+                document.addEventListener('click', this.outsideClickListener);
             }
         },
-        unbindThemesMenuOutsideClickListener() {
-            if (this.themesMenuOutsideClickListener) {
-                document.removeEventListener('click', this.themesMenuOutsideClickListener);
-                this.themesMenuOutsideClickListener = null;
+        unbindOutsideClickListener() {
+            if (this.outsideClickListener) {
+                document.removeEventListener('click', this.outsideClickListener);
+                this.outsideClickListener = null;
             }
         },
-        bindTemplatesMenuOutsideClickListener() {
-            if (!this.templatesMenuOutsideClickListener) {
-                this.templatesMenuOutsideClickListener = (event) => {
-                    if ((this.templatesMenuVisible && this.isOutsideOfOverlayMenuClicked(event, this.templatesMenuElement, 'templates-menu-link'))) {
-                        this.templatesMenuVisible = false;
-                    }
-                };
-                document.addEventListener('click', this.templatesMenuOutsideClickListener);
-            }
-        },
-        unbindTemplatesMenuOutsideClickListener() {
-            if (this.templatesMenuOutsideClickListener) {
-                document.removeEventListener('click', this.templatesMenuOutsideClickListener);
-                this.templatesMenuOutsideClickListener = null;
-            }
-        },
-        bindResourcesMenuOutsideClickListener() {
-            if (!this.resourcesMenuOutsideClickListener) {
-                this.resourcesMenuOutsideClickListener = (event) => {
-                    if ((this.resourcesMenuVisible && this.isOutsideOfOverlayMenuClicked(event, this.resourcesMenuElement, 'resources-menu-link'))) {
-                        this.resourcesMenuVisible = false;
-                    }
-                };
-                document.addEventListener('click', this.resourcesMenuOutsideClickListener);
-            }
-        },
-        unbindResourcesMenuOutsideClickListener() {
-            if (this.resourcesMenuOutsideClickListener) {
-                document.removeEventListener('click', this.resourcesMenuOutsideClickListener);
-                this.resourcesMenuOutsideClickListener = null;
-            }
-        },
-        isOutsideOfOverlayMenuClicked(event, element, style) {
-            return !(DomHandler.hasClass(event.target, style) || element.isSameNode(event.target) || element.contains(event.target));
-        },
-        hideThemesMenu() {
-            this.themesMenuVisible = false;
-        },
-        hideResourcesMenu() {
-            this.resourcesMenuVisible = false;
+        isOutsideTopbarMenuClicked(event, element) {
+            return !(this.$refs.topbarMenu.isSameNode(event.target) || this.$refs.topbarMenu.contains(event.target));
         }
     }
 }
