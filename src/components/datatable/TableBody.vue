@@ -36,7 +36,7 @@
         </template>
         <tr v-else class="p-datatable-emptymessage">
             <td :colspan="columns.length">
-                <slot name="empty"></slot>
+                <DTEmptySlotTemplate :template="templates.empty" />
             </td>
         </tr>
     </tbody>
@@ -71,6 +71,20 @@ const RowExpansionTemplate = {
             'data': context.props.data,
             'index': context.props.index
         });
+        return [content];
+    }
+}
+
+const EmptySlotTemplate = {
+    functional: true,
+    props: {
+        template: {
+            type: null,
+            default: null
+        }
+    },
+    render(createElement, context) {
+        const content = context.props.template();
         return [content];
     }
 }
@@ -420,7 +434,8 @@ export default {
     },
     components: {
         'DTBodyCell': BodyCell,
-        'DTRowExpansionTemplate': RowExpansionTemplate
+        'DTRowExpansionTemplate': RowExpansionTemplate,
+        'DTEmptySlotTemplate': EmptySlotTemplate
     }
 }
 </script>
