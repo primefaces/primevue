@@ -89,6 +89,11 @@
                             </a>
                         </div>
                         <div class="p-col-12">
+                            <a href="https://www.primefaces.org/layouts/serenity-vue">
+                                <img alt="Serenity" src="./assets/images/layouts/serenity.jpg">
+                            </a>
+                        </div>
+                        <div class="p-col-12">
                             <a href="https://www.primefaces.org/layouts/babylon-vue">
                                 <img alt="Babylon" src="./assets/images/layouts/babylon.jpg">
                             </a>
