@@ -575,7 +575,7 @@ export default {
                     let columnField = col.field;
 
                     //local
-                    if (this.filters.hasOwnProperty(columnField)) {
+                    if (Object.prototype.hasOwnProperty.call(this.filters, columnField)) {
                         let filterValue = this.filters[columnField];
                         let dataFieldValue = ObjectUtils.resolveFieldData(data[i], columnField);
                         let filterConstraint = FilterUtils[col.filterMatchMode];
@@ -1769,7 +1769,7 @@ export default {
             return this.filters && Object.keys(this.filters).length > 0 && this.filters.constructor === Object;
         },
         hasGlobalFilter() {
-            return this.filters && this.filters.hasOwnProperty('global');
+            return this.filters && Object.prototype.hasOwnProperty.call(this.filters, 'global');
         },
         loadingIconClass() {
             return ['p-datatable-loading-icon pi-spin', this.loadingIcon];

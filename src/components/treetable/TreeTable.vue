@@ -544,7 +544,7 @@ export default {
                     let filterField = col.field;
 
                     //local
-                    if (this.filters.hasOwnProperty(col.field)) {
+                    if (Object.prototype.hasOwnProperty.call(this.filters, col.field)) {
                         let filterMatchMode = col.filterMatchMode;
                         let filterValue = this.filters[col.field];
                         let filterConstraint = FilterUtils[filterMatchMode];
@@ -810,7 +810,7 @@ export default {
             return this.filters && Object.keys(this.filters).length > 0 && this.filters.constructor === Object;
         },
         hasGlobalFilter() {
-            return this.filters && this.filters.hasOwnProperty('global');
+            return this.filters && Object.prototype.hasOwnProperty.call(this.filters, 'global');
         },
         paginatorTop() {
             return this.paginator && (this.paginatorPosition !== 'bottom' || this.paginatorPosition === 'both');
