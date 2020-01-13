@@ -58,7 +58,7 @@ import Button from 'primevue/button';
 </CodeHighlight>
 
 				<h3>Properties</h3>
-                <p>Any valid attribute such as style and class are passed to the underlying button element. Following are the additional properties to configure the component.</p>
+                <p>Any valid property such as style and class are passed to the underlying button element. Following are the additional properties to configure the component.</p>
 				<div class="doc-tablewrapper">
 					<table class="doc-table">
 						<thead>

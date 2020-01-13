@@ -36,7 +36,7 @@ export default {
 					checkboxes as checked by default.</p>
 
 				<h3>Properties</h3>
-                <p>Any valid attribute such as name and autofocus are passed to the underlying input element. Following are the additional properties to configure the component.</p>
+                <p>Any valid property such as name and autofocus are passed to the underlying input element. Following are the additional properties to configure the component.</p>
 				<div class="doc-tablewrapper">
 					<table class="doc-table">
 						<thead>
