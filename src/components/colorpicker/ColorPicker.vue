@@ -1,6 +1,6 @@
 <template>
     <div :class="containerClass">
-        <input ref="input" type="text" :class="inputClass" readonly="readonly" :tabindex="tabindex" :disabled="disabled" 
+        <input ref="input" type="text" :class="inputClass" readonly="readonly" :tabindex="tabindex" :disabled="disabled"
             @click="onInputClick" @keydown="onInputKeydown" v-if="!inline"/>
         <transition name="p-input-overlay" @enter="onOverlayEnter" @leave="onOverlayLeave">
             <div ref="picker" :class="pickerClass" v-if="inline ? true : overlayVisible">
@@ -102,7 +102,7 @@ export default {
                 s: saturation,
                 b: brightness
             });
-            
+
             this.selfUpdate = true;
             this.updateColorHandle();
             this.updateInput();
@@ -115,7 +115,7 @@ export default {
                 s: 100,
                 b: 100
             });
-     
+
             this.selfUpdate = true;
             this.updateColorSelector();
             this.updateHue();
@@ -126,11 +126,11 @@ export default {
                 case 'hex':
                     this.$emit('input', this.HSBtoHEX(this.hsbValue));
                 break;
-                
+
                 case 'rgb':
                     this.$emit('input', this.HSBtoRGB(this.hsbValue));
                 break;
-                
+
                 case 'hsb':
                     this.$emit('input', this.hsbValue);
                 break;
@@ -160,7 +160,7 @@ export default {
             if (this.$refs.hueHandle) {
                 this.$refs.hueHandle.style.top = Math.floor(150 - (150 * this.hsbValue.h / 360)) + 'px';
             }
-        },  
+        },
         updateInput() {
             if (this.$refs.input) {
                 this.$refs.input.style.backgroundColor = '#' + this.HSBtoHEX(this.hsbValue);
@@ -215,9 +215,6 @@ export default {
             var max = Math.max(rgb.r, rgb.g, rgb.b);
             var delta = max - min;
             hsb.b = max;
-            if (max !== 0) {
-                
-            }
             hsb.s = max !== 0 ? 255 * delta / max : 0;
             if (hsb.s !== 0) {
                 if (rgb.r === max) {
@@ -251,7 +248,7 @@ export default {
                     g: v,
                     b: v
                 }
-            } 
+            }
             else {
                 var t1 = v;
                 var t2 = (255-s)*v/255;
@@ -273,12 +270,12 @@ export default {
                 rgb.g.toString(16),
                 rgb.b.toString(16)
             ];
-            
+
             for (var key in hex) {
                 if (hex[key].length === 1) {
                     hex[key] = '0' + hex[key];
                 }
-            }        
+            }
 
             return hex.join('');
         },
@@ -327,7 +324,7 @@ export default {
         alignOverlay() {
             DomHandler.relativePosition(this.$refs.picker, this.$refs.input);
         },
-        onInputClick(event) {
+        onInputClick() {
             if (this.disabled) {
                 return;
             }
@@ -341,7 +338,7 @@ export default {
                     this.overlayVisible = !this.overlayVisible;
                     event.preventDefault();
                 break;
-                            
+
                 //escape and tab
                 case 27:
                 case 9:
@@ -357,7 +354,7 @@ export default {
             if (this.disabled) {
                 return;
             }
-        
+
             this.colorDragging = true;
             this.bindDocumentMouseMoveListener();
             this.bindDocumentMouseUpListener();
@@ -368,7 +365,7 @@ export default {
             if (this.disabled) {
                 return;
             }
-            
+
             this.hueDragging = true;
             this.bindDocumentMouseMoveListener();
             this.bindDocumentMouseUpListener();
@@ -416,7 +413,7 @@ export default {
         },
         bindDocumentMouseUpListener() {
             if (!this.documentMouseUpListener) {
-                this.documentMouseUpListener = (event) => {
+                this.documentMouseUpListener = () => {
                     this.colorDragging = false;
                     this.hueDragging = false;
                     DomHandler.removeClass(this.$el, 'p-colorpicker-dragging');

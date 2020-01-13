@@ -93,7 +93,7 @@ export default {
                         </tbody>
                     </table>
                 </div>
-                        
+
                 <h3>Events</h3>
                 <div class="doc-tablewrapper">
                     <table class="doc-table">
