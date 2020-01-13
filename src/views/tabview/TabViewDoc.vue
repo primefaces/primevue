@@ -167,7 +167,7 @@ export default {
 				</div>
 
                 <h3>Properties of TabView</h3>
-                <p>Any attribute such as style and class are passed to the main container element.</p>
+                <p>Any property as style and class are passed to the main container element.</p>
 
 				<h3>Events</h3>
 				<div class="doc-tablewrapper">

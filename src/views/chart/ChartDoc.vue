@@ -77,7 +77,7 @@ options: {
 </CodeHighlight>
 
 		<h3>Properties</h3>
-        <p>Any attribute such as style and class are passed to the main container element. Following is the additional property to configure the component.</p>
+        <p>Any property as style and class are passed to the main container element. Following is the additional property to configure the component.</p>
 		<div class="doc-tablewrapper">
 			<table class="doc-table">
 				<thead>

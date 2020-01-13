@@ -14,7 +14,7 @@ import Password from 'primevue/password';
 </CodeHighlight>
 
 				<h3>Properties</h3>
-				<p>Any valid property such as name and placeholder are passed to the underlying input element. Following are the additional properties to configure the component.</p>
+				<p>Any property such as name and placeholder are passed to the underlying input element. Following are the additional properties to configure the component.</p>
 				<div class="doc-tablewrapper">
 					<table class="doc-table">
 						<thead>

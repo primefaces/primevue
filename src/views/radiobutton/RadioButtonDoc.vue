@@ -34,7 +34,7 @@ export default {
 </CodeHighlight>
 
 				<h3>Properties</h3>
-                <p>Any valid property such as name and autofocus are passed to the underlying input element. Following is the additional property to configure the component.</p>
+                <p>Any property such as name and autofocus are passed to the underlying input element. Following is the additional property to configure the component.</p>
 				<div class="doc-tablewrapper">
 					<table class="doc-table">
 						<thead>

@@ -1206,7 +1206,7 @@ export default {
 </CodeHighlight>
 
 				<h3>Properties</h3>
-                <p>Any valid property such as style and class are passed to the underlying root element. Following is the additional property to configure the component.</p>
+                <p>Any property such as style and class are passed to the underlying root element. Following is the additional property to configure the component.</p>
 				<div class="doc-tablewrapper">
 					<table class="doc-table">
 						<thead>
