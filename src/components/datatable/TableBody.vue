@@ -84,8 +84,13 @@ const EmptySlotTemplate = {
         }
     },
     render(createElement, context) {
-        const content = context.props.template();
-        return [content];
+        if (context.props.template) {
+            const content = context.props.template();
+            return [content];
+        }
+        else {
+            return null;
+        }
     }
 }
 
