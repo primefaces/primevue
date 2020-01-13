@@ -9,10 +9,10 @@
 
         <div class="content-section implementation">
             <h3>Inline</h3>
-            <ColorPicker v-model="color1" :inline="true" />{{color1}}
+            <ColorPicker v-model="color1" :inline="true" />
 
             <h3>Overlay</h3>
-            <ColorPicker v-model="color2" />{{color2}}
+            <ColorPicker v-model="color2" />
         </div>
 
         <ColorPickerDoc />
