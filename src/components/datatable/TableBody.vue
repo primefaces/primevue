@@ -4,7 +4,7 @@
             <template v-for="(rowData, index) of value">
                 <tr class="p-rowgroup-header" v-if="rowGroupMode === 'subheader' && shouldRenderRowGroupHeader(value, rowData, index)" :key="getRowKey(rowData, index) + '_subheader'">
                     <td :colspan="columns.length - 1">
-                        <button class="p-row-toggler p-link" @click="onRowGroupToggle($event, rowData)" v-if="expandableRowGroups">
+                        <button class="p-row-toggler p-link" @click="onRowGroupToggle($event, rowData)" v-if="expandableRowGroups" type="button">
                             <span :class="rowGroupTogglerIcon(rowData)"></span>
                         </button>
                         <DTRowExpansionTemplate :template="templates['groupheader']" :data="rowData" :index="index" />

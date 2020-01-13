@@ -5,7 +5,7 @@
 		</div>
 		<div :class="contentClasses">
 			<div :class="containerClasses">
-				<button :class="['p-carousel-prev p-button', {'p-disabled': backwardIsDisabled}]" :disabled="backwardIsDisabled" @click="navBackward">
+				<button :class="['p-carousel-prev p-button', {'p-disabled': backwardIsDisabled}]" :disabled="backwardIsDisabled" @click="navBackward" type="button">
 					<span :class="['p-carousel-prev-icon pi', {'pi-chevron-left': !isVertical(),'pi-chevron-up': isVertical()}]"></span>
 				</button>
 
@@ -36,13 +36,13 @@
 					</div>
 				</div>
 
-				<button :class="['p-carousel-next p-button', {'p-disabled': forwardIsDisabled}]" :disabled="forwardIsDisabled" @click="navForward">
+				<button :class="['p-carousel-next p-button', {'p-disabled': forwardIsDisabled}]" :disabled="forwardIsDisabled" @click="navForward" type="button">
 					<span :class="['p-carousel-prev-icon pi', {'pi-chevron-right': !isVertical(),'pi-chevron-down': isVertical()}]"></span>
 				</button>
 			</div>
 			<ul :class="dotsContentClasses">
 				<li v-for="(totalDot, i) of totalDots" :key="'p-carousel-dot-' + i" :class="['p-carousel-dot-item', {'p-highlight': d_page === i}]">
-					<button class="p-link" @click="onDotClick($event, i)">
+					<button class="p-link" @click="onDotClick($event, i)" type="button">
 						<span :class="['p-carousel-dot-icon pi', {'pi-circle-on': d_page === i, 'pi-circle-off': !(d_page === i)}]"></span>
 					</button>
 				</li>

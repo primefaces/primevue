@@ -15,17 +15,17 @@
                     </select>
                 </span>
                 <span class="ql-formats">
-                    <button class="ql-bold"></button>
-                    <button class="ql-italic"></button>
-                    <button class="ql-underline"></button>
+                    <button class="ql-bold" type="button"></button>
+                    <button class="ql-italic" type="button"></button>
+                    <button class="ql-underline" type="button"></button>
                 </span>
                 <span class="ql-formats">
                     <select class="ql-color"></select>
                     <select class="ql-background"></select>
                 </span>
                 <span class="ql-formats">
-                    <button class="ql-list" value="ordered"></button>
-                    <button class="ql-list" value="bullet"></button>
+                    <button class="ql-list" value="ordered" type="button"></button>
+                    <button class="ql-list" value="bullet" type="button"></button>
                     <select class="ql-align">
                         <option defaultValue></option>
                         <option value="center"></option>
@@ -34,9 +34,9 @@
                     </select>
                 </span>
                 <span class="ql-formats">
-                    <button class="ql-link"></button>
-                    <button class="ql-image"></button>
-                    <button class="ql-code-block"></button>
+                    <button class="ql-link" type="button"></button>
+                    <button class="ql-image" type="button"></button>
+                    <button class="ql-code-block" type="button"></button>
                 </span>
                 <span class="ql-formats">
                     <button class="ql-clean"></button>

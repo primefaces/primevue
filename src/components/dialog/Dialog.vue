@@ -7,7 +7,7 @@
                         <span :id="ariaLabelledById" class="p-dialog-title" v-if="header" >{{header}}</span>
                     </slot>
                     <div class="p-dialog-titlebar-icons">
-                        <button class="p-dialog-titlebar-icon p-dialog-titlebar-close p-link" @click="close" v-if="closable" :aria-label="ariaCloseLabel">
+                        <button class="p-dialog-titlebar-icon p-dialog-titlebar-close p-link" @click="close" v-if="closable" :aria-label="ariaCloseLabel" type="button">
                             <span class="p-dialog-titlebar-close-icon pi pi-times"></span>
                         </button>
                     </div>

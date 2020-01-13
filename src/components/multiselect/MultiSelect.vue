@@ -29,7 +29,7 @@
                         <input type="text" v-model="filterValue" class="p-multiselect-filter p-component p-inputtext p-component" :placeholder="filterPlaceholder">
                         <span class="p-multiselect-filter-icon pi pi-search"></span>
                     </div>
-                    <button class="p-multiselect-close p-link" @click="onCloseClick">
+                    <button class="p-multiselect-close p-link" @click="onCloseClick" type="button">
                         <span class="p-multiselect-close-icon pi pi-times" />
                     </button>
                 </div>

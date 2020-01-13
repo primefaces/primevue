@@ -6,7 +6,7 @@
                 <div class="p-messages-text">
                     <slot></slot>
                 </div>
-                <button class="p-messages-close p-link" @click="visible = false" v-if="closable">
+                <button class="p-messages-close p-link" @click="visible = false" v-if="closable" type="button">
                     <i class="p-messages-close-icon pi pi-times"></i>
                 </button>
             </div>

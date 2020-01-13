@@ -15,13 +15,13 @@
             </button>
         </template>
         <template v-else-if="editMode === 'row' && column.rowEditor">
-            <button class="p-row-editor-init p-link" v-if="!d_editing" @click="onRowEditInit">
+            <button class="p-row-editor-init p-link" v-if="!d_editing" @click="onRowEditInit" type="button">
                 <span class="p-row-editor-init-icon pi pi-fw pi-pencil p-clickable"></span>
             </button>
-            <button class="p-row-editor-save p-link" v-if="d_editing" @click="onRowEditSave">
+            <button class="p-row-editor-save p-link" v-if="d_editing" @click="onRowEditSave" type="button">
                 <span class="p-row-editor-save-icon pi pi-fw pi-check p-clickable"></span>
             </button>
-            <button class="p-row-editor-cancel p-link" v-if="d_editing" @click="onRowEditCancel">
+            <button class="p-row-editor-cancel p-link" v-if="d_editing" @click="onRowEditCancel" type="button">
                 <span class="p-row-editor-cancel-icon pi pi-fw pi-times p-clickable"></span>
             </button>
         </template>

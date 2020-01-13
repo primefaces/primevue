@@ -4,7 +4,7 @@
             <div class="p-overlaypanel-content">
                 <slot></slot>
             </div>
-            <button class="p-overlaypanel-close p-link" @click="hide" v-if="showCloseIcon" :aria-label="ariaCloseLabel">
+            <button class="p-overlaypanel-close p-link" @click="hide" v-if="showCloseIcon" :aria-label="ariaCloseLabel" type="button">
                 <span class="p-overlaypanel-close-icon pi pi-times"></span>
             </button>
         </div>
