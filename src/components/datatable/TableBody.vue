@@ -36,7 +36,7 @@
         </template>
         <tr v-else class="p-datatable-emptymessage">
             <td :colspan="columns.length">
-                <DTEmptySlotTemplate :template="templates.empty" />
+                <DTEmptySlotTemplate :template="templates.empty" v-if="templates.empty"/>
             </td>
         </tr>
     </tbody>
@@ -84,13 +84,8 @@ const EmptySlotTemplate = {
         }
     },
     render(createElement, context) {
-        if (context.props.template) {
-            const content = context.props.template();
-            return [content];
-        }
-        else {
-            return null;
-        }
+        const content = context.props.template();
+        return [content];
     }
 }
 
