@@ -1,7 +1,7 @@
 <template>
     <div :class="containerClass">
         <input ref="input" type="text" :class="inputClass" readonly="readonly" :tabindex="tabindex" :disabled="disabled"
-            @click="onInputClick" @keydown="onInputKeydown" v-if="!inline"/>
+            @click="onInputClick" @keydown="onInputKeydown" v-if="!inline" :aria-labelledby="ariaLabelledBy"/>
         <transition name="p-input-overlay" @enter="onOverlayEnter" @leave="onOverlayLeave">
             <div ref="picker" :class="pickerClass" v-if="inline ? true : overlayVisible">
                 <div class="p-colorpicker-content">
@@ -55,6 +55,10 @@ export default {
         baseZIndex: {
             type: Number,
             default: 0
+        },
+        ariaLabelledBy: {
+            type: String,
+            default: null
         }
     },
     data() {

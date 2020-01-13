@@ -9,5 +9,6 @@ export declare class ColorPicker extends Vue {
     tabindex?: string;
     autoZIndex?: boolean;
     baseZIndex?: number;
+    ariaLabelledBy?: string;
     $emit(eventName: 'input', value: any): this;
 }
