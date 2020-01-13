@@ -10,6 +10,7 @@
                 <router-link to="/calendar">Calendar</router-link>
                 <router-link to="/checkbox">Checkbox</router-link>
                 <router-link to="/chips">Chips</router-link>
+                <router-link to="/colorpicker">ColorPicker</router-link>
                 <router-link to="/dropdown">Dropdown</router-link>
                 <router-link to="/editor">Editor</router-link>
                 <router-link to="/inputgroup">InputGroup</router-link>

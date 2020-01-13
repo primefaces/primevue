@@ -1,6 +1,7 @@
 @import '../../components/common/Common.css';
 @import '../../components/button/Button.css';
 @import '../../components/checkbox/Checkbox.css';
+@import '../../components/colorpicker/ColorPicker.css';
 @import '../../components/inputtext/InputText.css';
 @import '../../components/password/Password.css';
 @import '../../components/radiobutton/RadioButton.css';

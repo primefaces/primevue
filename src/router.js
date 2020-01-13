@@ -117,6 +117,11 @@ export default new Router({
 			component: () => import('./views/chips/ChipsDemo.vue')
         },
         {
+			path: '/colorpicker',
+			name: 'colorpicker',
+			component: () => import('./views/colorpicker/ColorPickerDemo.vue')
+		},
+        {
 			path: '/contextmenu',
 			name: 'contextmenu',
 			component: () => import('./views/contextmenu/ContextMenuDemo.vue')
