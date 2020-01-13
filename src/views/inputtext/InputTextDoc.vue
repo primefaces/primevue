@@ -25,6 +25,9 @@ import InputText from 'primevue/inputtext';
 				<h3>Properties</h3>
 				<p>InputText passes any valid attribute to the underlying input element.</p>
 
+                <h3>Events</h3>
+                <p>Any valid event such as focus, blur and input are passed to the underlying input element.</p>
+
 				<h3>Styling</h3>
 				<p>Following is the list of structural style classes, for theming classes visit <router-link to="/theming">theming</router-link> page.</p>
 				<div class="doc-tablewrapper">

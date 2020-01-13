@@ -167,21 +167,6 @@ export default {
                                 <td>Callback to invoke to search for suggestions.</td>
                             </tr>
                             <tr>
-                                <td>input</td>
-                                <td>value: New value</td>
-                                <td>Callback to invoke on value change.</td>
-                            </tr>
-                            <tr>
-                                <td>focus</td>
-                                <td>event: Browser event</td>
-                                <td>Callback to invoke when autocomplete gets focus.</td>
-                            </tr>
-                            <tr>
-                                <td>blur</td>
-                                <td>event: Browser event</td>
-                                <td>Callback to invoke when autocomplete loses focus.</td>
-                            </tr>
-                            <tr>
                                 <td>select</td>
                                 <td>event.originalEvent: Browser event <br />
                                     event.value: Selected item</td>

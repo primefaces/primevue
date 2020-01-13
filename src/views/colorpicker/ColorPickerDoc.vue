@@ -8,41 +8,166 @@ import ColorPicker from 'primevue/colorpicker';
 </CodeHighlight>
 
 				<h3>Getting Started</h3>
-				<p>A model can be bound using the standard v-model directive.</p>
+				<p>A model can be bound using the standard v-model directive. Default color format to use in value binding is "hex" and other possible values are "rgb" and "hsb".</p>
 <CodeHighlight>
-&lt;InputText type="text" v-model="value" /&gt;
+&lt;ColorPicker v-model="color" /&gt;
 </CodeHighlight>
 
-				<h3>Float Label</h3>
-				<p>A floating label is implemented by wrapping the input and the label inside a container having <i>.p-float-label</i> style class.</p>
-<CodeHighlight>
-&lt;span class="p-float-label"&gt;
-	&lt;InputText id="username" type="text" v-model="value" /&gt;
-	&lt;label for="username"&gt;Username&lt;/label&gt;
-&lt;/span&gt;
+<CodeHighlight lang="javascript">
+export default {
+    data() {
+        return {
+            color2: '1976D2'
+        }
+    }
+}
 </CodeHighlight>
 
-				<h3>Properties</h3>
-				<p>InputText passes any valid attribute to the underlying input element.</p>
+                <h3>Inline and Overlay</h3>
+                <p>ColorPicker is displayed as an overlay with a preview option by default where second alternative is the inline mode.</p>
+<CodeHighlight>
+&lt;ColorPicker v-model="color" :inline="true" /&gt;
+</CodeHighlight>
 
-				<h3>Styling</h3>
-				<p>Following is the list of structural style classes, for theming classes visit <router-link to="/theming">theming</router-link> page.</p>
-				<div class="doc-tablewrapper">
-					<table class="doc-table">
-						<thead>
-						<tr>
-							<th>Name</th>
-							<th>Element</th>
-						</tr>
-						</thead>
-						<tbody>
-						<tr>
-							<td>p-inputtext</td>
-							<td>Input element</td>
-						</tr>
-						</tbody>
-					</table>
-				</div>
+                <h3>Properties</h3>
+                 <p>Any attribute such as style and class are passed to the main container element. Following are the additional properties to configure the component.</p>
+                <div class="doc-tablewrapper">
+                    <table class="doc-table">
+                        <thead>
+                            <tr>
+                                <th>Name</th>
+                                <th>Type</th>
+                                <th>Default</th>
+                                <th>Description</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <tr>
+                                <td>value</td>
+                                <td>any</td>
+                                <td>null</td>
+                                <td>Value of the component.</td>
+                            </tr>
+                            <tr>
+                                <td>defaultColor</td>
+                                <td>string</td>
+                                <td>ff0000</td>
+                                <td>Initial color to display when value is not defined.</td>
+                            </tr>
+                            <tr>
+                                <td>inline</td>
+                                <td>boolean</td>
+                                <td>false</td>
+                                <td>Whether to display as an overlay or not.</td>
+                            </tr>
+                            <tr>
+                                <td>format</td>
+                                <td>string</td>
+                                <td>hex</td>
+                                <td>Format to use in value binding, supported formats are "hex", "rgb" and "hsb".</td>
+                            </tr>
+                            <tr>
+                                <td>disabled</td>
+                                <td>boolean</td>
+                                <td>false</td>
+                                <td>When present, it specifies that the component should be disabled.</td>
+                            </tr>
+                            <tr>
+                                <td>tabindex</td>
+                                <td>string</td>
+                                <td>null</td>
+                                <td>Index of the element in tabbing order.</td>
+                            </tr>
+                            <tr>
+                                <td>baseZIndex</td>
+                                <td>number</td>
+                                <td>0</td>
+                                <td>Base zIndex value to use in layering.</td>
+                            </tr>
+                            <tr>
+                                <td>autoZIndex</td>
+                                <td>boolean</td>
+                                <td>true</td>
+                                <td>Whether to automatically manage layering.</td>
+                            </tr>
+                        </tbody>
+                    </table>
+                </div>
+                        
+                <h3>Events</h3>
+                <div class="doc-tablewrapper">
+                    <table class="doc-table">
+                        <thead>
+                            <tr>
+                                <th>Name</th>
+                                <th>Parameters</th>
+                                <th>Description</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <tr>
+                                <td>input</td>
+                                <td>value: New value</td>
+                                <td>Callback to invoke on value change.</td>
+                            </tr>
+                        </tbody>
+                    </table>
+                </div>
+
+                <h3>Styling</h3>
+                <p>Following is the list style classed of the component.</p>
+                <div class="doc-tablewrapper">
+                    <table class="doc-table">
+                        <thead>
+                            <tr>
+                                <th>Name</th>
+                                <th>Element</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <tr>
+                                <td>p-colorpicker</td>
+                                <td>Container element.</td>
+                            </tr>
+                            <tr>
+                                <td>p-colorpicker-overlay</td>
+                                <td>Container element in overlay mode.</td>
+                            </tr>
+                            <tr>
+                                <td>p-colorpicker-preview </td>
+                                <td>Preview input in overlay mode.</td>
+                            </tr>
+                            <tr>
+                                <td>p-colorpicker-panel</td>
+                                <td>Panel element of the colorpicker.</td>
+                            </tr>
+                            <tr>
+                                <td>p-colorpicker-content</td>
+                                <td>Wrapper that contains color and hue sections.</td>
+                            </tr>
+                            <tr>
+                                <td>p-colorpicker-color-selector</td>
+                                <td>Color selector container.</td>
+                            </tr>
+                            <tr>
+                                <td>p-colorpicker-color</td>
+                                <td>Color element.</td>
+                            </tr>
+                            <tr>
+                                <td>p-colorpicker-color-handle</td>
+                                <td>Handle of the color element.</td>
+                            </tr>
+                            <tr>
+                                <td>p-colorpicker-hue</td>
+                                <td>Hue slider.</td>
+                            </tr>
+                            <tr>
+                                <td>p-colorpicker-hue-handle</td>
+                                <td>Handle of the hue slider.</td>
+                            </tr>
+                        </tbody>
+                    </table>
+                </div>
 
 				<h3>Dependencies</h3>
 				<p>None.</p>
@@ -54,30 +179,22 @@ import ColorPicker from 'primevue/colorpicker';
 				</a>
 <CodeHighlight>
 <template v-pre>
-&lt;h3&gt;Basic&lt;/h3&gt;
-&lt;InputText type="text" v-model="value1" /&gt;
-&lt;span :style="{marginLeft: '.5em'}"&gt;{{value1}}&lt;/span&gt;
+&lt;h3&gt;Inline&lt;/h3&gt;
+&lt;ColorPicker v-model="color1" :inline="true" /&gt;
 
-&lt;h3&gt;Floating Label&lt;/h3&gt;
-&lt;span class="p-float-label"&gt;
-    &lt;InputText id="username" type="text" v-model="value2" /&gt;
-    &lt;label for="username"&gt;Username&lt;/label&gt;
-&lt;/span&gt;
-
-&lt;h3&gt;Disabled&lt;/h3&gt;
-&lt;InputText type="text" v-model="value3" disabled /&gt;
+&lt;h3&gt;Overlay&lt;/h3&gt;
+&lt;ColorPicker v-model="color2" /&gt;
 </template>
 </CodeHighlight>
 
 <CodeHighlight lang="javascript">
 export default {
-	data() {
-		return {
-			value1: '',
-			value2: '',
-			value3: 'PrimeVue'
-		}
-	}
+    data() {
+        return {
+            color1: null,
+            color2: '1976D2'
+        }
+    }
 }
 </CodeHighlight>
 			</TabPanel>
