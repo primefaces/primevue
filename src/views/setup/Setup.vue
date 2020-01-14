@@ -21,9 +21,9 @@ npm install primeicons --save
             Import the components as .vue files for seamless integration within your project where path of each component is available at the "import" section of a component documentation.</p>
 
 <CodeHighlight lang="js">
-//import {ComponentName} from 'primevue/{componentname}';
+//import ComponentName from 'primevue/componentname';
 
-import {Dialog} from 'primevue/dialog';
+import Dialog from 'primevue/dialog';
 </CodeHighlight>
 
             <p>In the next step, register the component with the tag name you'd like to use.</p>
