@@ -1,7 +1,7 @@
 <template>
-    <div ref="mask" :class="wrapperClass" v-if="d_visible">
+    <div ref="mask" :class="wrapperClass" v-if="visible">
         <transition name="p-dialog" @enter="onEnter" @leave="onLeave" @appear="onAppear">
-            <div ref="container" :class="containerClass" :style="containerStyle" v-if="d_visible" v-bind="$attrs" v-on="listeners" role="dialog" :aria-labelledby="ariaLabelledById" :aria-modal="modal">
+            <div ref="container" :class="containerClass" :style="containerStyle" v-if="visible" v-bind="$attrs" v-on="listeners" role="dialog" :aria-labelledby="ariaLabelledById" :aria-modal="modal">
                 <div class="p-dialog-titlebar" v-if="showHeader">
                     <slot name="header">
                         <span :id="ariaLabelledById" class="p-dialog-title" v-if="header" >{{header}}</span>
@@ -57,20 +57,10 @@ export default {
             default: 'close'
         }
     },
-    watch: {
-        visible(newValue) {
-            this.d_visible = newValue;
-
-            if(!this.d_visible) {
-                this.disableModality()
-            }
-        }
-    },
     data() {
         return {
             dialogClasses: null,
-            dialogStyles: null,
-            d_visible: this.visible
+            dialogStyles: null
         }
     },
     documentKeydownListener: null,
@@ -92,8 +82,7 @@ export default {
     },
     methods: {
         close() {
-            this.d_visible = false;
-            this.$emit('update:visible', this.d_visible);
+            this.$emit('update:visible', false);
         },
         onEnter() {
             this.$emit('show');
@@ -111,7 +100,7 @@ export default {
             this.disableModality();
         },
         onAppear() {
-            if (this.d_visible) {
+            if (this.visible) {
                 this.onEnter();
             }
         },
