@@ -1,7 +1,7 @@
 <template>
-    <div ref="mask" :class="wrapperClass" v-if="visible">
+    <div ref="mask" :class="wrapperClass" v-if="d_visible || blockScroll">
         <transition name="p-dialog" @enter="onEnter" @leave="onLeave" @appear="onAppear">
-            <div ref="container" :class="containerClass" :style="containerStyle" v-if="visible" v-bind="$attrs" v-on="listeners" role="dialog" :aria-labelledby="ariaLabelledById" :aria-modal="modal">
+            <div ref="container" :class="containerClass" :style="containerStyle" v-if="d_visible" v-bind="$attrs" v-on="listeners" role="dialog" :aria-labelledby="ariaLabelledById" :aria-modal="modal">
                 <div class="p-dialog-titlebar" v-if="showHeader">
                     <slot name="header">
                         <span :id="ariaLabelledById" class="p-dialog-title" v-if="header" >{{header}}</span>
@@ -60,7 +60,21 @@ export default {
     data() {
         return {
             dialogClasses: null,
-            dialogStyles: null
+            dialogStyles: null,
+            d_visible: this.visible,
+            blockScroll: false,
+        }
+    },
+    watch: {
+        visible(newValue) {
+            this.d_visible = newValue;
+
+            if(this.d_visible && this.modal) {
+                this.blockScroll = true;
+            }
+            else {
+                Promise.resolve(null).then(() => this.blockScroll = false);
+            }
         }
     },
     documentKeydownListener: null,
@@ -82,7 +96,9 @@ export default {
     },
     methods: {
         close() {
-            this.$emit('update:visible', false);
+            this.d_visible = false;
+
+            this.$emit('update:visible', this.d_visible);
         },
         onEnter() {
             this.$emit('show');
@@ -100,7 +116,7 @@ export default {
             this.disableModality();
         },
         onAppear() {
-            if (this.visible) {
+            if (this.d_visible) {
                 this.onEnter();
             }
         },
