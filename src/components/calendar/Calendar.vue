@@ -1809,9 +1809,9 @@ export default {
             else {
                 cell = DomHandler.findSingle(this.$refs.overlay, 'span.p-highlight');
                 if (!cell) {
-                    let todayCell = DomHandler.findSingle(this.$refs.overlay, 'td.p-datepicker-today');
+                    let todayCell = DomHandler.findSingle(this.$refs.overlay, 'td.p-datepicker-today span:not(.p-disabled)');
                     if (todayCell)
-                        cell = todayCell.children[0];
+                        cell = todayCell;
                     else
                         cell = DomHandler.findSingle(this.$refs.overlay, '.p-datepicker-calendar td span:not(.p-disabled)');
                 }
