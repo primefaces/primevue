@@ -783,7 +783,7 @@ export default {
                 this.updateModel(modelVal);
                 this.updateInputFieldValue(modelVal);
             }
-            this.$emit('select', date);
+            this.$emit('date-select', date);
         },
         updateModel(value) {
             this.$emit('input', value);
@@ -1221,7 +1221,7 @@ export default {
 
             this.updateModel(value);
             this.updateInputFieldValue(value);
-            this.$emit('select', value);
+            this.$emit('date-select', value);
         },
         toggleAMPM(event) {
             this.pm = !this.pm;

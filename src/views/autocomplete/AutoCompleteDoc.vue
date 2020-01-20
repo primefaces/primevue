@@ -167,13 +167,13 @@ export default {
                                 <td>Callback to invoke to search for suggestions.</td>
                             </tr>
                             <tr>
-                                <td>select</td>
+                                <td>item-select</td>
                                 <td>event.originalEvent: Browser event <br />
                                     event.value: Selected item</td>
                                 <td>Callback to invoke when a suggestion is selected.</td>
                             </tr>
                             <tr>
-                                <td>unselect</td>
+                                <td>item-unselect</td>
                                 <td>event.originalEvent: Browser event <br />
                                     event.value: Unselected item</td>
                                 <td>Callback to invoke when a selected value is removed.</td>

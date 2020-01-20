@@ -152,7 +152,7 @@ export default {
                 this.$emit('input', item);
             }
 
-            this.$emit('select', {
+            this.$emit('item-select', {
                 originalEvent: event,
                 value: item
             });
@@ -167,7 +167,7 @@ export default {
             let removedValue = this.value[index];
             let newValue = this.value.filter((val, i) => (index !== i));
             this.$emit('input', newValue);
-            this.$emit('unselect', {
+            this.$emit('item-unselect', {
                 originalEvent: event,
                 value: removedValue
             });
@@ -323,7 +323,7 @@ export default {
                             let newValue = this.value.slice(0, -1);
 
                             this.$emit('input', newValue);
-                            this.$emit('unselect', {
+                            this.$emit('item-unselect', {
                                 originalEvent: event,
                                 value: removedValue
                             });
