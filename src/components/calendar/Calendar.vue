@@ -1914,6 +1914,8 @@ export default {
                     $vm.$emit('blur', event);
                 },
                 keydown: event => {
+                    $vm.isKeydown = true;
+
                     switch (event.which) {
                         //escape
                         case 27: {
