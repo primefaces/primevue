@@ -56,7 +56,7 @@
                         <img alt="accesibility" src="../assets/images/home/vue-accesibility.png" />
                         <div class="feature-card-detail">
                             <span class="feature-name">ACCESSIBILITY</span>
-                            <p>Fully accessible and in complaince with Section 508 standards.</p>
+                            <p>Fully accessible and in compliance with Section 508 standards.</p>
                         </div>
                     </div>
                 </div>
