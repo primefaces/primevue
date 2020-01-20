@@ -1,7 +1,7 @@
 <template>
-    <div ref="mask" :class="wrapperClass" v-if="d_visible || blockScroll">
-        <transition name="p-dialog" @enter="onEnter" @leave="onLeave" @appear="onAppear">
-            <div ref="container" :class="containerClass" :style="containerStyle" v-if="d_visible" v-bind="$attrs" v-on="listeners" role="dialog" :aria-labelledby="ariaLabelledById" :aria-modal="modal">
+    <div ref="mask" :class="wrapperClass" v-if="isMaskVisible">
+        <transition name="p-dialog" @before-enter="onBeforeEnter" @enter="onEnter" @leave="onLeave" @after-leave="onAfterLeave" @appear="onAppear">
+            <div ref="container" :class="containerClass" :style="containerStyle" v-if="visible" v-bind="$attrs" v-on="listeners" role="dialog" :aria-labelledby="ariaLabelledById" :aria-modal="modal">
                 <div class="p-dialog-titlebar" v-if="showHeader">
                     <slot name="header">
                         <span :id="ariaLabelledById" class="p-dialog-title" v-if="header" >{{header}}</span>
@@ -22,19 +22,17 @@
         </transition>
     </div>
 </template>
-
 <script>
 import UniqueComponentId from '../utils/UniqueComponentId';
 import DomHandler from '../utils/DomHandler';
-
 export default {
     inheritAttrs: false,
     props: {
-		header: null,
-		footer: null,
+        header: null,
+        footer: null,
         visible: Boolean,
         modal: Boolean,
-		contentStyle: null,
+        contentStyle: null,
         rtl: Boolean,
         closable: {
             type: Boolean,
@@ -61,20 +59,7 @@ export default {
         return {
             dialogClasses: null,
             dialogStyles: null,
-            d_visible: this.visible,
-            blockScroll: false,
-        }
-    },
-    watch: {
-        visible(newValue) {
-            this.d_visible = newValue;
-
-            if(this.d_visible && this.modal) {
-                this.blockScroll = true;
-            }
-            else {
-                Promise.resolve(null).then(() => this.blockScroll = false);
-            }
+            isMaskVisible: this.visible
         }
     },
     documentKeydownListener: null,
@@ -82,7 +67,6 @@ export default {
         if (this.$refs.mask) {
             this.dialogClasses = this.$vnode.data.class;
             this.dialogStyles = this.$vnode.data.style;
-
             DomHandler.removeClass(this.$refs.mask, this.$vnode.data.class);
             if (this.$vnode.data.style) {
                 Object.keys(this.$vnode.data.style).forEach((key) => {
@@ -90,33 +74,41 @@ export default {
                 });
             }
         }
+
+        if (this.visible && !this.isMaskVisible) {
+            this.isMaskVisible = true;
+        }
     },
     beforeDestroy() {
         this.disableModality();
     },
     methods: {
         close() {
-            this.d_visible = false;
-
-            this.$emit('update:visible', this.d_visible);
+            this.$emit('update:visible', false);
+        },
+        onBeforeEnter(el) {
+            if (this.autoZIndex) {
+                el.style.zIndex = String(this.baseZIndex + DomHandler.generateZIndex());
+            }
         },
         onEnter() {
+            this.$refs.mask.style.zIndex = String(parseInt(this.$refs.container.style.zIndex, 10) - 1);
+
             this.$emit('show');
-
-            if (this.autoZIndex) {
-                this.$refs.container.style.zIndex = String(this.baseZIndex + DomHandler.generateZIndex());
-            }
             this.focus();
-
             this.enableModality();
         },
-        onLeave() {
+        onLeave(el, done) {
             this.$emit('hide');
 
+            done();
+        },
+        onAfterLeave() {
+            this.isMaskVisible = false;
             this.disableModality();
         },
         onAppear() {
-            if (this.d_visible) {
+            if (this.visible) {
                 this.onEnter();
             }
         },
@@ -127,8 +119,6 @@ export default {
             }
         },
         enableModality() {
-            this.$refs.mask.style.zIndex = String(parseInt(this.$refs.container.style.zIndex, 10) - 1);
-
             if (this.modal) {
                 DomHandler.addClass(document.body, 'p-overflow-hidden');
                 this.bindDocumentKeydownListener();
@@ -143,16 +133,13 @@ export default {
         onKeyDown(event) {
             if (event.which === 9) {
                 event.preventDefault();
-
                 let focusableElements = DomHandler.getFocusableElements(this.$refs.container);
-
                 if (focusableElements && focusableElements.length > 0) {
                     if (!document.activeElement) {
                         focusableElements[0].focus();
                     }
                     else {
                         let focusedIndex = focusableElements.indexOf(document.activeElement);
-
                         if (event.shiftKey) {
                             if (focusedIndex == -1 || focusedIndex === 0)
                                 focusableElements[focusableElements.length - 1].focus();
@@ -210,7 +197,6 @@ export default {
     }
 }
 </script>
-
 <style>
 .p-dialog-wrapper {
     position: fixed;
@@ -232,7 +218,7 @@ export default {
     pointer-events: auto;
 }
 .p-dialog .p-dialog-titlebar {
-	padding: .5em .75em;
+    padding: .5em .75em;
     position: relative;
     border: 0;
 }
@@ -275,7 +261,6 @@ export default {
     vertical-align: middle;
     border: 1px solid transparent;
 }
-
 .p-dialog .p-dialog-titlebar-icon span {
     display: block;
     margin: 0;
@@ -284,12 +269,10 @@ export default {
     padding: 1em;
     text-align: right;
 }
-
 /* ConfirmDialog */
 .p-confirmdialog {
     width: 30em;
 }
-
 .p-confirmdialog.p-dialog .p-dialog-content {
     padding: 1em 2em;
 }
@@ -301,27 +284,22 @@ export default {
 .p-confirmdialog .p-dialog-content .p-confirmdialog-message {
     vertical-align: middle;
 }
-
 /* Fluid */
 .p-fluid .p-dialog-footer .p-button {
     width: auto;
 }
-
 /* RTL */
 .p-rtl .p-dialog .p-dialog-titlebar-close  {
     float: left;
 }
-
 .p-rtl .p-dialog .p-dialog-footer {
     text-align: left;
 }
-
 @media screen and (max-width: 40em) {
     .p-confirmdialog {
         width: 90%;
     }
 }
-
 /* Animation */
 .p-dialog-enter-active {
     top: 50%;
@@ -329,20 +307,17 @@ export default {
     transform: translateX(-50%) translateY(-50%);
     transition: all 150ms cubic-bezier(0, 0, 0.2, 1);
 }
-
 .p-dialog-leave-active {
     top: 50%;
     left: 50%;
     transform: translateX(-50%) translateY(-50%);
     transition: all 75ms cubic-bezier(0.4, 0.0, 0.2, 1);
 }
-
 .p-dialog-enter,
 .p-dialog-leave-to {
     opacity: 0;
     transform: translateX(-50%) translateY(-50%) scale(0.7);
 }
-
 /* Maximize */
 .p-dialog-maximized {
     -webkit-transition: none;
@@ -352,7 +327,6 @@ export default {
     top: 0;
     left: 0;
 }
-
 .p-dialog-maximized .p-dialog-content {
     -webkit-transition: height .3s;
     transition: height .3s;
