@@ -57,7 +57,7 @@ export declare class Calendar extends Vue {
     $emit(eventName: 'hide'): this;
     $emit(eventName: 'month-change', e: { month: number, year: number }): this;
     $emit(eventName: 'year-change', e: { month: number, year: number }): this;
-    $emit(eventName: 'select', value: Date): this;
+    $emit(eventName: 'date-select', value: Date): this;
     $emit(eventName: 'input', value: Date): this;
     $emit(eventName: 'today-click', value: Date): this;
     $emit(eventName: 'clear-click', event: Event): this;

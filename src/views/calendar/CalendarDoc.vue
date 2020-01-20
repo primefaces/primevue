@@ -424,10 +424,9 @@ export default {
                         </thead>
                         <tbody>
                             <tr>
-                                <td>select</td>
+                                <td>date-select</td>
                                 <td>value: Selected value</td>
-                                <td>Callback to invoke when a date is selected.
-                                </td>
+                                <td>Callback to invoke when a date is selected.</td>
                             </tr>
                             <tr>
                                 <td>show</td>

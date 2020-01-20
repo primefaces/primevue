@@ -12,8 +12,8 @@ export declare class AutoComplete extends Vue {
     delay?: number;
     ariaLabelledBy?: string;
     $emit(eventName: 'input', value: any): this;
-    $emit(eventName: 'select', e: {originalEvent: Event, value: any}): this;
-    $emit(eventName: 'unselect', e: {originalEvent: Event, value: any}): this;
+    $emit(eventName: 'item-select', e: {originalEvent: Event, value: any}): this;
+    $emit(eventName: 'item-unselect', e: {originalEvent: Event, value: any}): this;
     $emit(eventName: 'dropdown-click', e: {originalEvent: Event, query: string}): this;
     $emit(eventName: 'complete', e: {originalEvent: Event, query: string}): this;
     $emit(eventName: 'clear'): this;
