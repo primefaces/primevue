@@ -96,7 +96,7 @@ export default {
 			return 'p-selectbutton p-buttonset p-component p-buttonset-' + String(this.options ? this.options.length : 0);
         },
         equalityKey() {
-            return this.optionValue ? null : this.dataKey; 
+            return this.optionValue ? null : this.dataKey;
         }
 	}
 }

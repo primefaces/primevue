@@ -422,7 +422,7 @@ export default {
                 return this.value;
         },
         equalityKey() {
-            return this.optionValue ? null : this.dataKey; 
+            return this.optionValue ? null : this.dataKey;
         }
     }
 }

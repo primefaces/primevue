@@ -356,7 +356,7 @@ export default {
             }
         },
         equalityKey() {
-            return this.optionValue ? null : this.dataKey; 
+            return this.optionValue ? null : this.dataKey;
         }
     }
 }

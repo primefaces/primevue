@@ -220,7 +220,7 @@ export default {
                 return this.options;
         },
         equalityKey() {
-            return this.optionValue ? null : this.dataKey; 
+            return this.optionValue ? null : this.dataKey;
         }
     }
 }
