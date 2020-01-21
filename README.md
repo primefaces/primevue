@@ -21,7 +21,7 @@ This is the recommended way if your application uses [vue-cli](https://cli.vuejs
 ```js
 //import {ComponentName} from 'primevue/{componentname}';
 
-import {Dialog} from 'primevue/dialog';
+import Dialog from 'primevue/dialog';
 ```
 In the next step, register the component with the tag name you'd like to use.
 ```js
@@ -60,7 +60,7 @@ In addition, components require PrimeIcons library for icons.
 ```js
 dependencies: {
     "vue": "^2.6.10",
-    "primeicons": "^1.0.0"
+    "primeicons": "^2.0.0"
 }
 ```
 
@@ -79,7 +79,7 @@ The css dependencies are as follows, note that you may change the theme with ano
 
 ```javascript
 primevue/resources/themes/nova-light/theme.css      //theme
-primevue/resources/primevue.min.css                 //shared css
+primevue/resources/primevue.min.css                 //core css
 primeicons/primeicons.css                           //icons
 ```
 
