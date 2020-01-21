@@ -251,7 +251,7 @@ export default {
                 return;
             }
 
-            if (DomHandler.hasClass(event.target, 'p-dropdown-clear-icon')) {
+            if (DomHandler.hasClass(event.target, 'p-dropdown-clear-icon') || event.target.tagName === 'INPUT') {
                 return;
             }
             else if (!this.$refs.overlay || !this.$refs.overlay.contains(event.target)) {
