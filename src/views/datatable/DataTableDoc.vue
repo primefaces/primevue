@@ -1070,7 +1070,8 @@ export default {
 </CodeHighlight>
 
                 <h3>Column Reorder</h3>
-                <p>Columns can be reordered using drag drop by setting the <i>reorderableColumns</i> to true. <i>column-reorder</i> is a callback that is invoked when a column is reordered. DataTable keeps the column order state internally using keys that identifies a column using the field property. If the column has no field, use columnKey instead.</p>
+                <p>Columns can be reordered using drag drop by setting the <i>reorderableColumns</i> to true. <i>column-reorder</i> is a callback that is invoked when a column is reordered. DataTable keeps the column order state internally using keys that identifies a column using the field property. If the column has no field, use columnKey instead as
+                it is mandatory for columns to have unique keys when reordering is enabled.</p>
 <CodeHighlight>
 <template v-pre>
 &lt;DataTable :value="cars" :reorderableColumns="true"&gt;
