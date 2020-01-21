@@ -52,7 +52,7 @@ export default {
 
             if(this.multiple) {
                 if (selected)
-                    newValue = this.value.filter(val => !ObjectUtils.equals(val, optionValue, this.dataKey));
+                    newValue = this.value.filter(val => !ObjectUtils.equals(val, optionValue, this.equalityKey));
                 else
                     newValue = this.value ? [...this.value, optionValue]: [optionValue];
             }
@@ -69,7 +69,7 @@ export default {
             if (this.multiple) {
                 if (this.value) {
                     for (let val of this.value) {
-                        if (ObjectUtils.equals(val, optionValue, this.dataKey)) {
+                        if (ObjectUtils.equals(val, optionValue, this.equalityKey)) {
                             selected = true;
                             break;
                         }
@@ -77,7 +77,7 @@ export default {
                 }
             }
             else {
-                selected = ObjectUtils.equals(this.value, optionValue, this.dataKey);
+                selected = ObjectUtils.equals(this.value, optionValue, this.equalityKey);
             }
 
             return selected;
@@ -94,7 +94,10 @@ export default {
 	computed: {
 		containerClass() {
 			return 'p-selectbutton p-buttonset p-component p-buttonset-' + String(this.options ? this.options.length : 0);
-		}
-	},
+        },
+        equalityKey() {
+            return this.optionValue ? null : this.dataKey; 
+        }
+	}
 }
 </script>

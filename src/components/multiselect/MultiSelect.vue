@@ -109,7 +109,7 @@ export default {
 
             if (this.value) {
                 for (let val of this.value) {
-                    if (ObjectUtils.equals(val, optionValue, this.dataKey)) {
+                    if (ObjectUtils.equals(val, optionValue, this.equalityKey)) {
                         selected = true;
                         break;
                     }
@@ -183,7 +183,7 @@ export default {
             let value = null;
 
             if (selected)
-                value = this.value.filter(val => !ObjectUtils.equals(val, this.getOptionValue(option), this.dataKey));
+                value = this.value.filter(val => !ObjectUtils.equals(val, this.getOptionValue(option), this.equalityKey));
             else
                 value = [...this.value || [], this.getOptionValue(option)];
 
@@ -276,7 +276,7 @@ export default {
                 for (let option of this.options) {
                     let optionValue = this.getOptionValue(option);
 
-                    if(ObjectUtils.equals(optionValue, val, this.dataKey)) {
+                    if(ObjectUtils.equals(optionValue, val, this.equalityKey)) {
                         label = this.getOptionLabel(option);
                         break;
                     }
@@ -354,6 +354,9 @@ export default {
             else {
                 return this.value && this.options && (this.value.length > 0 && this.value.length === this.options.length);
             }
+        },
+        equalityKey() {
+            return this.optionValue ? null : this.dataKey; 
         }
     }
 }

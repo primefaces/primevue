@@ -144,7 +144,7 @@ export default {
             if (this.multiple) {
                 if (this.value) {
                     for (let val of this.value) {
-                        if (ObjectUtils.equals(val, optionValue, this.dataKey)) {
+                        if (ObjectUtils.equals(val, optionValue, this.equalityKey)) {
                             selected = true;
                             break;
                         }
@@ -152,13 +152,13 @@ export default {
                 }
             }
             else {
-                selected = ObjectUtils.equals(this.value, optionValue, this.dataKey);
+                selected = ObjectUtils.equals(this.value, optionValue, this.equalityKey);
             }
 
             return selected;
         },
         removeOption(option) {
-            return this.value.filter(val => !ObjectUtils.equals(val, this.getOptionValue(option), this.dataKey));
+            return this.value.filter(val => !ObjectUtils.equals(val, this.getOptionValue(option), this.equalityKey));
         },
         updateModel(event, value) {
             this.$emit('input', value);
@@ -218,6 +218,9 @@ export default {
                 return this.options.filter(option => this.getOptionLabel(option).toLowerCase().indexOf(this.filterValue.toLowerCase()) > -1);
             else
                 return this.options;
+        },
+        equalityKey() {
+            return this.optionValue ? null : this.dataKey; 
         }
     }
 }
