@@ -320,8 +320,8 @@ export default {
     transition: none;
     transform: none;
     width: 100vw !important;
-    top: 0;
-    left: 0;
+    max-height: 100%;
+    margin: auto;
 }
 .p-dialog-maximized .p-dialog-content {
     -webkit-transition: height .3s;
