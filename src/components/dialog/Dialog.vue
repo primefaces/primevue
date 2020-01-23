@@ -213,9 +213,11 @@ export default {
     pointer-events: auto;
 }
 .p-dialog {
-    position: fixed;
     padding: 0;
     pointer-events: auto;
+    max-height: 90%;
+    margin: 5% auto;
+    overflow-y: auto;
 }
 .p-dialog .p-dialog-titlebar {
     padding: .5em .75em;
@@ -302,21 +304,15 @@ export default {
 }
 /* Animation */
 .p-dialog-enter-active {
-    top: 50%;
-    left: 50%;
-    transform: translateX(-50%) translateY(-50%);
     transition: all 150ms cubic-bezier(0, 0, 0.2, 1);
 }
 .p-dialog-leave-active {
-    top: 50%;
-    left: 50%;
-    transform: translateX(-50%) translateY(-50%);
     transition: all 75ms cubic-bezier(0.4, 0.0, 0.2, 1);
 }
 .p-dialog-enter,
 .p-dialog-leave-to {
     opacity: 0;
-    transform: translateX(-50%) translateY(-50%) scale(0.7);
+    transform: scale(0.7);
 }
 /* Maximize */
 .p-dialog-maximized {
