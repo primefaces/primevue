@@ -16,6 +16,8 @@ export declare class MultiSelect extends Vue {
     ariaLabelledBy?: string;
     $emit(eventName: 'input', value: any): this;
     $emit(eventName: 'change', e: {originalEvent: Event, value: any}): this;
+    $emit(eventName: 'before-show'): this;
+    $emit(eventName: 'before-leave'): this;
     $emit(eventName: 'show'): this;
     $emit(eventName: 'hide'): this;
     $slots: {

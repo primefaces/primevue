@@ -124,12 +124,12 @@ export default {
             return selectedOptionIndex;
         },
         show() {
+            this.$emit('before-show');
             this.overlayVisible = true;
-            this.$emit('show');
         },
         hide() {
+            this.$emit('before-hide');
             this.overlayVisible = false;
-            this.$emit('hide');
         },
         onFocus() {
             this.focused = true;
@@ -291,9 +291,12 @@ export default {
             if (this.filter) {
                 this.$refs.filterInput.focus();
             }
+
+            this.$emit('show');
         },
         onOverlayLeave() {
             this.unbindOutsideClickListener();
+            this.$emit('hide');
         },
         alignOverlay() {
             if (this.appendTo) {

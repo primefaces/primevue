@@ -189,14 +189,24 @@ data() {
                                 <td>Callback to invoke on value change.</td>
                             </tr>
                             <tr>
+                                <td>before-show</td>
+                                <td>-</td>
+                                <td>Callback to invoke before the overlay is shown.</td>
+                            </tr>
+                            <tr>
+                                <td>before-hide</td>
+                                <td>-</td>
+                                <td>Callback to invoke before the overlay is hidden.</td>
+                            </tr>
+                            <tr>
                                 <td>show</td>
                                 <td>-</td>
-                                <td>Callback to invoke when the dropdown overlay is shown.</td>
+                                <td>Callback to invoke when the overlay is shown.</td>
                             </tr>
                             <tr>
                                 <td>hide</td>
                                 <td>-</td>
-                                <td>Callback to invoke when the dropdown overlay is hidden.</td>
+                                <td>Callback to invoke when the overlay is hidden.</td>
                             </tr>
 						</tbody>
 					</table>
