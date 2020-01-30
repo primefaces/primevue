@@ -2,29 +2,14 @@
     <div ref="container" class="p-splitbutton p-buttonset p-component">
         <PVSButton type="button" :icon="icon" :label="label" @click="onClick" :disabled="disabled" :tabindex="tabindex" />
         <PVSButton type="button" class="p-splitbutton-menubutton" icon="pi pi-caret-down" @click="onDropdownButtonClick" :disabled="disabled"
-            :aria-expanded="overlayVisible" aria-haspopup="true" :aria-owns="ariaId + '_overlay'"/>
-        <transition name="p-input-overlay" @enter="onOverlayEnter" @leave="onOverlayLeave">
-            <div id="ariaId + '_overlay'" ref="overlay" class="p-menu p-menu-dynamic p-component" v-if="overlayVisible">
-                <ul class="p-menu-list p-reset" role="menu">
-                    <li v-for="item of model" :key="item.label" :target="item.target" :style="item.style" :class="['p-menuitem', item.class]" role="menuitem">
-                        <router-link v-if="item.to" :to="item.to" :class="['p-menuitem-link', {'p-disabled': item.disabled}]">
-                            <span :class="['p-menuitem-icon', item.icon]"></span>
-                            <span class="p-menuitem-text">{{item.label}}</span>
-                        </router-link>
-                        <a v-else :href="item.url" :class="['p-menuitem-link', {'p-disabled': item.disabled}]"
-                            @click="itemClick($event, item)" :target="item.target" :tabindex="item.disabled ? null : '0'">
-                            <span :class="['p-menuitem-icon', item.icon]"></span>
-                            <span class="p-menuitem-text">{{item.label}}</span>
-                        </a>
-                    </li>
-                </ul>
-            </div>
-        </transition>
+            aria-haspopup="true" :aria-controls="ariaId + '_overlay'"/>
+        <Menu :id="ariaId + '_overlay'" ref="menu" :model="model" :popup="true" :autoZIndex="autoZIndex" :baseZIndex="baseZIndex" />
     </div>
 </template>
 
 <script>
 import Button from '../button/Button';
+import Menu from '../menu/Menu';
 import DomHandler from '../utils/DomHandler';
 import UniqueComponentId from '../utils/UniqueComponentId';
 
@@ -57,65 +42,15 @@ export default {
         baseZIndex: {
             type: Number,
             default: 0
-        },
-    },
-    data() {
-        return {
-            overlayVisible: false
-        };
-    },
-    beforeDestroy() {
-        this.unbindOutsideClickListener();
+        }
     },
     methods: {
         onClick(event) {
             this.$emit('click', event);
-            this.overlayVisible = false;
         },
         onDropdownButtonClick() {
-            this.overlayVisible = !this.overlayVisible;
-        },
-        itemClick(event, item) {
-            if (item.disabled) {
-                return;
-            }
-
-            if (item.command) {
-                item.command({originalEvent: event, item: item });
-                event.preventDefault();
-            }
-
-            this.overlayVisible = false;
-        },
-        onOverlayEnter() {
-            if (this.autoZIndex) {
-                this.$refs.overlay.style.zIndex = String(this.baseZIndex + DomHandler.generateZIndex());
-            }
-            this.alignOverlay();
-            this.bindOutsideClickListener();
-        },
-        onOverlayLeave() {
-            this.unbindOutsideClickListener();
-        },
-        alignOverlay() {
-            DomHandler.relativePosition(this.$refs.overlay, this.$refs.container);
-        },
-        bindOutsideClickListener() {
-            if (!this.outsideClickListener) {
-                this.outsideClickListener = (event) => {
-                    if (this.overlayVisible && this.$refs.overlay && !this.$refs.container.contains(event.target)) {
-                        this.overlayVisible = false;
-                    }
-                };
-                document.addEventListener('click', this.outsideClickListener);
-            }
-        },
-        unbindOutsideClickListener() {
-            if (this.outsideClickListener) {
-                document.removeEventListener('click', this.outsideClickListener);
-                this.outsideClickListener = null;
-            }
-        },
+            this.$refs.menu.toggle(event);
+        }
     },
     computed: {
         ariaId() {
@@ -123,7 +58,8 @@ export default {
         }
     },
     components: {
-        'PVSButton': Button
+        'PVSButton': Button,
+        'PVSMenu': Menu
     }
 }
 </script>
