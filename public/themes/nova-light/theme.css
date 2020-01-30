@@ -2116,6 +2116,21 @@ body .p-datatable .p-datatable-tbody > tr.p-datatable-dragpoint-top > td {
 body .p-datatable .p-datatable-tbody > tr.p-datatable-dragpoint-bottom > td {
   box-shadow: inset 0 -2px 0 0 #007ad9;
 }
+body .p-datatable .p-datatable-tbody > tr:focus {
+  outline: none;
+}
+body .p-datatable .p-datatable-tbody > tr:focus + tr > td {
+  box-shadow: 0 -0.2em 0 0 #8dcdff;
+}
+body .p-datatable .p-datatable-tbody > tr:focus > td {
+  box-shadow: 0 -0.2em 0 0 #8dcdff, 0 0.2em 0 0 #8dcdff;
+}
+body .p-datatable .p-datatable-tbody > tr:focus > td:first-child {
+  box-shadow: 0 -0.2em 0 0 #8dcdff, 0 0.2em 0 0 #8dcdff, -0.1em -0.1em 0 0.1em #8dcdff;
+}
+body .p-datatable .p-datatable-tbody > tr:focus > td:last-child {
+  box-shadow: 0 -0.2em 0 0 #8dcdff, 0 0.2em 0 0 #8dcdff, 0.1em -0.1em 0 0.1em #8dcdff;
+}
 body .p-datatable .p-datatable-tbody > tr:nth-child(even) {
   background-color: #f9f9f9;
 }
@@ -2810,6 +2825,21 @@ body .p-treetable .p-treetable-tbody > tr.p-highlight-contextmenu {
 }
 body .p-treetable .p-treetable-tbody > tr.p-highlight-contextmenu .p-treetable-toggler {
   color: #ffffff;
+}
+body .p-treetable .p-treetable-tbody > tr:focus {
+  outline: none;
+}
+body .p-treetable .p-treetable-tbody > tr:focus + tr > td {
+  box-shadow: 0 -0.2em 0 0 #8dcdff;
+}
+body .p-treetable .p-treetable-tbody > tr:focus > td {
+  box-shadow: 0 -0.2em 0 0 #8dcdff, 0 0.2em 0 0 #8dcdff;
+}
+body .p-treetable .p-treetable-tbody > tr:focus > td:first-child {
+  box-shadow: 0 -0.2em 0 0 #8dcdff, 0 0.2em 0 0 #8dcdff, -0.1em -0.1em 0 0.1em #8dcdff;
+}
+body .p-treetable .p-treetable-tbody > tr:focus > td:last-child {
+  box-shadow: 0 -0.2em 0 0 #8dcdff, 0 0.2em 0 0 #8dcdff, 0.1em -0.1em 0 0.1em #8dcdff;
 }
 body .p-treetable.p-treetable-hoverable-rows .p-treetable-tbody > tr:not(.p-highlight):not(.p-highlight-contextmenu):hover {
   cursor: pointer;
