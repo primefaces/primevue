@@ -1,5 +1,5 @@
 <template>
-    <div ref="mask" :class="wrapperClass" v-if="isMaskVisible">
+    <div ref="mask" :class="wrapperClass" v-if="maskVisible">
         <transition name="p-dialog" @before-enter="onBeforeEnter" @enter="onEnter" @leave="onLeave" @after-leave="onAfterLeave" @appear="onAppear">
             <div ref="container" :class="containerClass" :style="containerStyle" v-if="visible" v-bind="$attrs" v-on="listeners" role="dialog" :aria-labelledby="ariaLabelledById" :aria-modal="modal">
                 <div class="p-dialog-titlebar" v-if="showHeader">
@@ -59,7 +59,7 @@ export default {
         return {
             dialogClasses: null,
             dialogStyles: null,
-            isMaskVisible: this.visible
+            maskVisible: this.visible
         }
     },
     documentKeydownListener: null,
@@ -75,8 +75,8 @@ export default {
             }
         }
 
-        if (this.visible && !this.isMaskVisible) {
-            this.isMaskVisible = true;
+        if (this.visible && !this.maskVisible) {
+            this.maskVisible = true;
         }
     },
     beforeDestroy() {
@@ -104,7 +104,7 @@ export default {
             done();
         },
         onAfterLeave() {
-            this.isMaskVisible = false;
+            this.maskVisible = false;
             this.disableModality();
         },
         onAppear() {
