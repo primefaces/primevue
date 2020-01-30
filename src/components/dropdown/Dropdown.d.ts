@@ -19,6 +19,8 @@ export declare class Dropdown extends Vue {
     appendTo?: string;
     $emit(eventName: 'input', value: string): this;
     $emit(eventName: 'change', e: { originalEvent: Event, value: string }): this;
+    $emit(eventName: 'show'): this;
+    $emit(eventName: 'hide'): this;
     $slot: {
         option: VNode[];
     }

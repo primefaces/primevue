@@ -180,6 +180,16 @@ data() {
                                 <td>value: New value</td>
                                 <td>Callback to invoke on value change.</td>
                             </tr>
+                            <tr>
+                                <td>show</td>
+                                <td>-</td>
+                                <td>Callback to invoke when the dropdown overlay is shown.</td>
+                            </tr>
+                            <tr>
+                                <td>hide</td>
+                                <td>-</td>
+                                <td>Callback to invoke when the dropdown overlay is hidden.</td>
+                            </tr>
                         </tbody>
                     </table>
                 </div>

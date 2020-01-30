@@ -123,6 +123,14 @@ export default {
 
             return selectedOptionIndex;
         },
+        show() {
+            this.overlayVisible = true;
+            this.$emit('show');
+        },
+        hide() {
+            this.overlayVisible = false;
+            this.$emit('hide');
+        },
         onFocus() {
             this.focused = true;
         },
@@ -144,7 +152,7 @@ export default {
                 //space
                 case 32:
                     if (!this.overlayVisible) {
-                        this.overlayVisible = true;
+                        this.show();
                         event.preventDefault();
                     }
                 break;
@@ -153,14 +161,14 @@ export default {
                 case 13:
                 case 27:
                     if (this.overlayVisible) {
-                        this.overlayVisible = false;
+                        this.hide();
                         event.preventDefault();
                     }
                 break;
 
                 //tab
                 case 9:
-                    this.overlayVisible = false;
+                    this.hide();
                 break;
 
                 default:
@@ -194,7 +202,7 @@ export default {
         onDownKey(event) {
             if (this.visibleOptions) {
                 if (!this.overlayVisible && event.altKey) {
-                    this.overlayVisible = true;
+                    this.show();
                 }
                 else {
                     let nextOption = this.findNextOption(this.getSelectedOptionIndex());
@@ -255,7 +263,11 @@ export default {
                 return;
             }
             else if (!this.$refs.overlay || !this.$refs.overlay.contains(event.target)) {
-                this.overlayVisible = !this.overlayVisible;
+                if (this.overlayVisible)
+                    this.hide();
+                else
+                    this.show();
+                    
                 this.$refs.focusInput.focus();
             }
         },
@@ -265,7 +277,7 @@ export default {
             this.$refs.focusInput.focus();
 
             setTimeout(() => {
-                this.overlayVisible = false;
+                this.hide();
             }, 100);
         },
         onEditableInput(event) {
@@ -299,7 +311,7 @@ export default {
             if (!this.outsideClickListener) {
                 this.outsideClickListener = (event) => {
                     if (this.overlayVisible && this.$refs.overlay && !this.$refs.container.contains(event.target)) {
-                        this.overlayVisible = false;
+                        this.hide();
                     }
                 };
                 document.addEventListener('click', this.outsideClickListener);
