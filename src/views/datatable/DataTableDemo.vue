@@ -12,7 +12,7 @@
 		<div class="content-section implementation">
             <div class="p-card">
                 <div class="p-card-body" style="padding:0">
-                    <DataTable :value="cars" class="p-datatable-responsive p-datatable-cars" :selection.sync="selectedCar" selectionMode="single" 
+                    <DataTable :value="cars" class="p-datatable-responsive p-datatable-cars" :selection.sync="selectedCar" selectionMode="single"
                         dataKey="vin" :paginator="true" :rows="10" :filters="filters">
                         <template #header>
                             List of Cars

@@ -451,15 +451,15 @@ export default {
 <style>
 .p-colorpicker {
     display: inline-block;
-} 
+}
 
 .p-colorpicker-dragging {
     cursor: pointer;
-} 
+}
 
 .p-colorpicker-overlay {
     position: relative;
-} 
+}
 
 .p-colorpicker-panel {
     position: relative;
@@ -528,7 +528,7 @@ export default {
      opacity: .85;
      cursor: pointer;
  }
- 
+
  .p-colorpicker-panel.p-disabled .p-colorpicker-hue-handle,
  .p-colorpicker-panel.p-disabled .p-colorpicker-color-handle  {
       opacity: .5;

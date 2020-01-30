@@ -2251,7 +2251,7 @@ export default {
 <template v-pre>
 &lt;div class="p-card"&gt;
     &lt;div class="p-card-body" style="padding:0"&gt;
-        &lt;DataTable :value="cars" class="p-datatable-responsive p-datatable-cars" :selection.sync="selectedCar" selectionMode="single" 
+        &lt;DataTable :value="cars" class="p-datatable-responsive p-datatable-cars" :selection.sync="selectedCar" selectionMode="single"
             dataKey="vin" :paginator="true" :rows="10" :filters="filters"&gt;
             &lt;template #header&gt;
                 List of Cars
