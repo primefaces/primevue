@@ -64,20 +64,14 @@ export default {
     },
     documentKeydownListener: null,
     updated() {
-        if (this.$refs.mask) {
-            this.dialogClasses = this.$vnode.data.class;
-            this.dialogStyles = this.$vnode.data.style;
-            DomHandler.removeClass(this.$refs.mask, this.$vnode.data.class);
-            if (this.$vnode.data.style) {
-                Object.keys(this.$vnode.data.style).forEach((key) => {
-                    this.$refs.mask.style[key] = '';
-                });
-            }
-        }
+        this.removeStylesFromMask();
 
         if (this.visible && !this.maskVisible) {
             this.maskVisible = true;
         }
+    },
+    mounted() {
+        this.removeStylesFromMask();
     },
     beforeDestroy() {
         this.disableModality();
@@ -164,6 +158,18 @@ export default {
             if (this.documentKeydownListener) {
                 window.document.removeEventListener('keydown', this.documentKeydownListener);
                 this.documentKeydownListener = null;
+            }
+        },
+        removeStylesFromMask() {
+            if (this.$refs.mask) {
+                this.dialogClasses = this.$vnode.data.class;
+                this.dialogStyles = this.$vnode.data.style;
+                DomHandler.removeClass(this.$refs.mask, this.$vnode.data.class);
+                if (this.$vnode.data.style) {
+                    Object.keys(this.$vnode.data.style).forEach((key) => {
+                        this.$refs.mask.style[key] = '';
+                    });
+                }
             }
         }
     },
