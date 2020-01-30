@@ -695,7 +695,10 @@ export default {
             }
 
             DomHandler.find(this.$refs.overlay, '.p-datepicker-calendar td span:not(.p-disabled)').forEach(cell => cell.tabIndex = -1);
-            event.currentTarget.focus();
+
+            if (event) {
+                event.currentTarget.focus();
+            }
 
             if (this.isMultipleSelection() && this.isSelected(dateMeta)) {
                 let newValue = this.value.filter(date => !this.isDateEquals(date, dateMeta));
