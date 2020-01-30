@@ -2,6 +2,8 @@
     <div class="content-section content-submenu p-clearfix">
         <ul>
             <li><router-link to="/datatable">&#9679; Documentation</router-link></li>
+            <li><router-link to="/datatable/basic">&#9679; Basic</router-link></li>
+            <li><router-link to="/datatable/dynamiccolumns">&#9679; Dynamic</router-link></li>
             <li><router-link to="/datatable/templating">&#9679; Templating</router-link></li>
             <li><router-link to="/datatable/colgroup">&#9679; ColGroup</router-link></li>
             <li><router-link to="/datatable/paginator">&#9679; Paginator</router-link></li>

@@ -132,6 +132,16 @@ export default new Router({
 			component: () => import('./views/datatable/DataTableDemo.vue')
         },
         {
+			path: '/datatable/basic',
+			name: 'datatablebasic',
+			component: () => import('./views/datatable/DataTableBasicDemo.vue')
+        },
+        {
+			path: '/datatable/dynamiccolumns',
+			name: 'datatabledynamiccolumns',
+			component: () => import('./views/datatable/DataTableDynamicColumnsDemo.vue')
+        },
+        {
 			path: '/datatable/templating',
 			name: 'datatabletemplating',
 			component: () => import('./views/datatable/DataTableTemplatingDemo.vue')

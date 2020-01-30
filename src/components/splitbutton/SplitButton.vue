@@ -3,14 +3,13 @@
         <PVSButton type="button" :icon="icon" :label="label" @click="onClick" :disabled="disabled" :tabindex="tabindex" />
         <PVSButton type="button" class="p-splitbutton-menubutton" icon="pi pi-caret-down" @click="onDropdownButtonClick" :disabled="disabled"
             aria-haspopup="true" :aria-controls="ariaId + '_overlay'"/>
-        <Menu :id="ariaId + '_overlay'" ref="menu" :model="model" :popup="true" :autoZIndex="autoZIndex" :baseZIndex="baseZIndex" />
+        <PVSMenu :id="ariaId + '_overlay'" ref="menu" :model="model" :popup="true" :autoZIndex="autoZIndex" :baseZIndex="baseZIndex" />
     </div>
 </template>
 
 <script>
 import Button from '../button/Button';
 import Menu from '../menu/Menu';
-import DomHandler from '../utils/DomHandler';
 import UniqueComponentId from '../utils/UniqueComponentId';
 
 export default {
