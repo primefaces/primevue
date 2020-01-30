@@ -390,7 +390,7 @@ export default {
         onItemTouchEnd() {
             this.itemTouched = true;
         },
-        onItemKeyDown(event, item, index) {
+        onItemKeyDown(event, item, index, listIndex) {
             let listItem = event.currentTarget;
 
             switch(event.which) {
@@ -416,7 +416,7 @@ export default {
 
                 //enter
                 case 13:
-                    this.onItemClick(event, item, index);
+                    this.onItemClick(event, item, index, listIndex);
                     event.preventDefault();
                 break;
 
