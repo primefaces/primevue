@@ -2249,27 +2249,73 @@ export default {
 				</a>
 <CodeHighlight>
 <template v-pre>
-&lt;h3 class="first"&gt;Basic&lt;/h3&gt;
-&lt;DataTable :value="cars"&gt;
-    &lt;Column field="vin" header="Vin"&gt;&lt;/Column&gt;
-    &lt;Column field="year" header="Year"&gt;&lt;/Column&gt;
-    &lt;Column field="brand" header="Brand"&gt;&lt;/Column&gt;
-    &lt;Column field="color" header="Color"&gt;&lt;/Column&gt;
-&lt;/DataTable&gt;
-
-&lt;h3&gt;Dynamic Columns&lt;/h3&gt;
-&lt;DataTable :value="cars"&gt;
-    &lt;Column v-for="col of columns" :field="col.field" :header="col.header" :key="col.field"&gt;&lt;/Column&gt;
-&lt;/DataTable&gt;
-
-&lt;h3&gt;Styled&lt;/h3&gt;
 &lt;div class="p-card"&gt;
     &lt;div class="p-card-body" style="padding:0"&gt;
-        &lt;DataTable :value="cars" class="p-datatable-custom"&gt;
-            &lt;Column field="vin" header="Vin"&gt;&lt;/Column&gt;
-            &lt;Column field="year" header="Year"&gt;&lt;/Column&gt;
-            &lt;Column field="brand" header="Brand"&gt;&lt;/Column&gt;
-            &lt;Column field="color" header="Color"&gt;&lt;/Column&gt;
+        &lt;DataTable :value="cars" class="p-datatable-responsive p-datatable-cars" :selection.sync="selectedCar" selectionMode="single" 
+            dataKey="vin" :paginator="true" :rows="10" :filters="filters"&gt;
+            &lt;template #header&gt;
+                List of Cars
+                &lt;div  class="p-datatable-globalfilter-container"&gt;
+                    &lt;InputText v-model="filters['global']" placeholder="Global Search" /&gt;
+                &lt;/div&gt;
+            &lt;/template&gt;
+            &lt;Column field="vin" header="Vin" :sortable="true"&gt;
+                &lt;template #body="slotProps"&gt;
+                    &lt;span class="p-column-title"&gt;Vin&lt;/span&gt;
+                    {{slotProps.data.vin}}
+                &lt;/template&gt;
+                &lt;template #filter&gt;
+                    &lt;InputText type="text" v-model="filters['vin']" class="p-column-filter" placeholder="Starts with" /&gt;
+                &lt;/template&gt;
+            &lt;/Column&gt;
+            &lt;Column field="year" header="Year" :sortable="true" filterMatchMode="contains"&gt;
+                &lt;template #body="slotProps"&gt;
+                    &lt;span class="p-column-title"&gt;Year&lt;/span&gt;
+                    {{slotProps.data.year}}
+                &lt;/template&gt;
+                &lt;template #filter&gt;
+                    &lt;InputText type="text" v-model="filters['year']" class="p-column-filter" placeholder="Contains" /&gt;
+                &lt;/template&gt;
+            &lt;/Column&gt;
+            &lt;Column field="brand" header="Brand" :sortable="true" filterMatchMode="equals"&gt;
+                &lt;template #body="slotProps"&gt;
+                    &lt;span class="p-column-title"&gt;Brand&lt;/span&gt;
+                    &lt;img :alt="slotProps.data.brand" :src="'demo/images/car/' + slotProps.data.brand + '.png'" width="50" style="vertical-align:middle; margin-right: 1em"/&gt;
+                    &lt;span style="vertical-align:middle"&gt;{{slotProps.data.brand}}&lt;/span&gt;
+                &lt;/template&gt;
+                &lt;template #filter&gt;
+                    &lt;Dropdown v-model="filters['brand']" :options="brands" optionLabel="brand" optionValue="value" placeholder="Select a Brand" class="p-column-filter" :showClear="true"&gt;
+                        &lt;template #option="brandSlotProps"&gt;
+                            &lt;div class="p-clearfix p-dropdown-car-option"&gt;
+                                &lt;img :alt="brandSlotProps.option.brand" :src="'demo/images/car/' + brandSlotProps.option.brand + '.png'" /&gt;
+                                &lt;span&gt;{{brandSlotProps.option.brand}}&lt;/span&gt;
+                            &lt;/div&gt;
+                        &lt;/template&gt;
+                    &lt;/Dropdown&gt;
+                &lt;/template&gt;
+            &lt;/Column&gt;
+            &lt;Column field="color" header="Color" :sortable="true" filterMatchMode="in"&gt;
+                &lt;template #body="slotProps"&gt;
+                    &lt;span class="p-column-title"&gt;Color&lt;/span&gt;
+                    {{slotProps.data.color}}
+                &lt;/template&gt;
+                &lt;template #filter&gt;
+                    &lt;MultiSelect v-model="filters['color']" :options="colors" optionLabel="name" optionValue="value" placeholder="Select a Color" class="p-column-filter" /&gt;
+                &lt;/template&gt;
+            &lt;/Column&gt;
+            &lt;Column headerStyle="width: 8em; text-align: center" bodyStyle="text-align: center"&gt;
+                &lt;template #body="slotProps"&gt;
+                    &lt;span class="p-column-title"&gt;Color&lt;/span&gt;
+                    {{slotProps.data.color}}
+                &lt;/template&gt;
+                &lt;template #header&gt;
+                    &lt;Button type="button" icon="pi pi-cog"&gt;&lt;/Button&gt;
+                &lt;/template&gt;
+                &lt;template #body&gt;
+                    &lt;Button type="button" icon="pi pi-search" class="p-button-success" style="margin-right: .5em"&gt;&lt;/Button&gt;
+                    &lt;Button type="button" icon="pi pi-pencil" class="p-button-warning"&gt;&lt;/Button&gt;
+                &lt;/template&gt;
+            &lt;/Column&gt;
         &lt;/DataTable&gt;
     &lt;/div&gt;
 &lt;/div&gt;
@@ -2282,32 +2328,91 @@ import CarService from '../../service/CarService';
 export default {
     data() {
         return {
-            columns: null,
-            cars: null
+            cars: null,
+            selectedCar: null,
+            filters: {},
+            brands: [
+                {brand: 'Audi', value: 'Audi'},
+                {brand: 'BMW', value: 'BMW'},
+                {brand: 'Fiat', value: 'Fiat'},
+                {brand: 'Honda', value: 'Honda'},
+                {brand: 'Jaguar', value: 'Jaguar'},
+                {brand: 'Mercedes', value: 'Mercedes'},
+                {brand: 'Renault', value: 'Renault'},
+                {brand: 'Volkswagen', value: 'Volkswagen'},
+                {brand: 'Volvo', value: 'Volvo'}
+            ],
+            colors: [
+                {name: 'White', value: 'White'},
+                {name: 'Green', value: 'Green'},
+                {name: 'Silver', value: 'Silver'},
+                {name: 'Black', value: 'Black'},
+                {name: 'Red', value: 'Red'},
+                {name: 'Maroon', value: 'Maroon'},
+                {name: 'Brown', value: 'Brown'},
+                {name: 'Orange', value: 'Orange'},
+                {name: 'Blue', value: 'Blue'}
+            ]
         }
     },
     carService: null,
     created() {
         this.carService = new CarService();
-
-        this.columns = [
-            {field: 'vin', header: 'Vin'},
-            {field: 'year', header: 'Year'},
-            {field: 'brand', header: 'Brand'},
-            {field: 'color', header: 'Color'}
-        ];
     },
     mounted() {
-        this.carService.getCarsSmall().then(data => this.cars = data);
+        this.carService.getCarsLarge().then(data => this.cars = data);
     }
 }
 </CodeHighlight>
 
 <CodeHighlight lang="css">
-/deep/ .p-datatable.p-datatable-custom {
+.p-column-filter {
+    margin-top: 1em;
+}
+
+.p-dropdown-car-option {
+    display: flex;
+    align-items: center;
+    text-align: left;
+
+    img {
+        margin-right: .5em;
+        width: 24px;
+    }
+
+    span {
+        margin-top: .125em;
+    }
+}
+
+.p-datatable-globalfilter-container {
+    float: right;
+
+    input {
+        width: 250px;
+    }
+}
+
+/deep/ .p-datatable.p-datatable-cars {
+    .p-datatable-header {
+        border: 0 none;
+        padding: 12px;
+        text-align: left;
+        font-size: 20px;
+    }
+
+    .p-paginator {
+        border: 0 none;
+        padding: 1em;
+    }
+
     .p-datatable-thead > tr > th {
         border: 0 none;
         text-align: left;
+    }
+
+        .p-column-title {
+        font-size: 16px;
     }
 
     .p-datatable-tbody > tr > td {

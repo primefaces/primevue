@@ -1818,6 +1818,7 @@ export default {
 
 .p-datatable .p-column-title {
     user-select: none;
+    vertical-align: middle;
 }
 
 .p-datatable .p-sortable-column {
