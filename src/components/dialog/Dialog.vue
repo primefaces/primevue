@@ -98,10 +98,8 @@ export default {
             this.focus();
             this.enableModality();
         },
-        onLeave(el, done) {
+        onLeave() {
             this.$emit('hide');
-
-            done();
         },
         onAfterLeave() {
             this.maskVisible = false;
@@ -218,6 +216,7 @@ export default {
     max-height: 90%;
     margin: 5% auto;
     overflow-y: auto;
+    transform: scale(1);
 }
 .p-dialog .p-dialog-titlebar {
     padding: .5em .75em;
