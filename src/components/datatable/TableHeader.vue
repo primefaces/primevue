@@ -2,7 +2,7 @@
     <thead class="p-datatable-thead">
         <tr v-if="!columnGroup">
             <template v-for="(col,i) of columns">
-                <th v-if="rowGroupMode !== 'subheader' || (groupRowsBy !== col.field)" :tabindex="col.sortable ? '0' : '-1'" @keydown="onColumnKeyDown($event, col)"
+                <th v-if="rowGroupMode !== 'subheader' || (groupRowsBy !== col.field)" :tabindex="col.sortable ? '0' : null" @keydown="onColumnKeyDown($event, col)"
                     :key="col.columnKey||col.field||i" :style="col.headerStyle" :class="getColumnHeaderClass(col)"
                     @click="onColumnHeaderClick($event, col)" @mousedown="onColumnHeaderMouseDown($event, col)"
                     @dragstart="onColumnHeaderDragStart($event)" @dragover="onColumnHeaderDragOver($event)" @dragleave="onColumnHeaderDragLeave($event)" @drop="onColumnHeaderDrop($event)"
@@ -18,7 +18,7 @@
         </tr>
         <template v-else>
             <tr v-for="(row,i) of columnGroup.rows" :key="i">
-                <th v-for="(col,i) of row.columns" :key="col.columnKey||col.field||i" :style="col.headerStyle" :class="getColumnHeaderClass(col)" :tabindex="col.sortable ? '0' : '-1'" @keydown="onColumnKeyDown($event, col)"
+                <th v-for="(col,i) of row.columns" :key="col.columnKey||col.field||i" :style="col.headerStyle" :class="getColumnHeaderClass(col)" :tabindex="col.sortable ? '0' : null" @keydown="onColumnKeyDown($event, col)"
                 @dragstart="onColumnHeaderDragStart($event)" @dragover="onColumnHeaderDragOver($event)" @dragleave="onColumnHeaderDragLeave($event)" @drop="onColumnHeaderDrop($event)"
                     :colspan="col.colspan" :rowspan="col.rowspan" :aria-sort="getAriaSort(col)">
                     <ColumnSlot :column="col" type="header" v-if="col.$scopedSlots.header" />
