@@ -41,6 +41,10 @@ export default {
         baseZIndex: {
             type: Number,
             default: 0
+        },
+        align: {
+            type: Boolean,
+            default: true
         }
     },
     data() {
@@ -85,7 +89,9 @@ export default {
         },
         onEnter() {
             this.appendContainer();
-            this.alignOverlay();
+            if (this.align) {
+                this.alignOverlay();
+            }
             this.bindOutsideClickListener();
             this.bindResizeListener();
 
