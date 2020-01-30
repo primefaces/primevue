@@ -185,3 +185,18 @@
         </div>
     </div>
 </template>
+
+<script>
+export default {
+    mounted() {
+        let afId = this.$route.query['af_id'];
+        if (afId) {
+            let today = new Date();
+            let expire = new Date();
+            expire.setTime(today.getTime() + 3600000*24*7);
+            document.cookie = 'primeaffiliateid=' + afId + ';expires=' + expire.toUTCString() + ';path=/; domain:primefaces.org';
+        }
+        
+    }
+}
+</script>
