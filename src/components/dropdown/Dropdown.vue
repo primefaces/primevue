@@ -267,7 +267,7 @@ export default {
                     this.hide();
                 else
                     this.show();
-                    
+
                 this.$refs.focusInput.focus();
             }
         },
