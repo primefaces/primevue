@@ -1,5 +1,36 @@
 # Changelog
 
+## [1.0.2](https://github.com/primefaces/primevue/tree/1.0.2) (2020-01-30)
+
+[Full Changelog](https://github.com/primefaces/primevue/compare/1.0.0...1.0.2)
+
+**Implemented New Features and Enhancements:**
+
+- Align focus visuals with the theme [\#177](https://github.com/primefaces/primevue/issues/177)
+- Refactor SplitButton to use Menu [\#174](https://github.com/primefaces/primevue/issues/174)
+- DataTable onPage event fires without sort and filter information [\#163](https://github.com/primefaces/primevue/issues/163)
+- Ability to disable SplitButton or Menu items [\#161](https://github.com/primefaces/primevue/issues/161)
+- Enter key should select a PickList item [\#156](https://github.com/primefaces/primevue/issues/156)
+- Dialog in mobile view [\#153](https://github.com/primefaces/primevue/issues/153)
+- Dropdown and MultiSelect on expand event [\#150](https://github.com/primefaces/primevue/issues/150)
+
+**Fixed bugs:**
+
+- Editable Dropdown loses focus [\#149](https://github.com/primefaces/primevue/issues/149)
+- Rename select event with \*-select [\#148](https://github.com/primefaces/primevue/issues/148)
+- Dialog block UI removes page scroll [\#145](https://github.com/primefaces/primevue/issues/145)
+- Calendar select event has no value [\#144](https://github.com/primefaces/primevue/issues/144)
+- Calendar manual input fails [\#143](https://github.com/primefaces/primevue/issues/143)
+- Calendar giving focus to today when disabled [\#141](https://github.com/primefaces/primevue/issues/141)
+- optionValue and dataKey combination is broken is Select Components [\#90](https://github.com/primefaces/primevue/issues/90)
+- DataTable column headers always receive focus [\#176](https://github.com/primefaces/primevue/issues/176)
+- Disabled button should remove pointer cursor [\#175](https://github.com/primefaces/primevue/issues/175)
+- Dialog visuals broken when initially displayed [\#167](https://github.com/primefaces/primevue/issues/167)
+- Dialog animation leave does not work [\#166](https://github.com/primefaces/primevue/issues/166)
+- rowsPerPageOptions dropdown is not coming in Paginator [\#159](https://github.com/primefaces/primevue/issues/159)
+- Calendar today button TypeError: Cannot read property 'currentTarget' of null [\#158](https://github.com/primefaces/primevue/issues/158)
+- Row edit save not working properly in data table [\#151](https://github.com/primefaces/primevue/issues/151)
+
 ## [1.0.1](https://github.com/primefaces/primevue/tree/1.0.1) (2020-01-21)
 
 [Full Changelog](https://github.com/primefaces/primevue/compare/1.0.0...1.0.1)
