@@ -1577,13 +1577,13 @@ export default {
         },
         onRowEditSave(event) {
             let _editingRows = [...this.editingRows];
-            _editingRows.splice(this.findIndex(event.data, this._editingRows), 1);
+            _editingRows.splice(this.findIndex(event.data, _editingRows), 1);
             this.$emit('update:editingRows', _editingRows);
             this.$emit('row-edit-save', event);
         },
         onRowEditCancel(event) {
             let _editingRows = [...this.editingRows];
-            _editingRows.splice(this.findIndex(event.data, this._editingRows), 1);
+            _editingRows.splice(this.findIndex(event.data, _editingRows), 1);
             this.$emit('update:editingRows', _editingRows);
             this.$emit('row-edit-cancel', event);
         },
