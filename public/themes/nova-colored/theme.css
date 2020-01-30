@@ -1567,10 +1567,10 @@ body .p-panel .p-panel-titlebar .p-panel-titlebar-icon {
   -moz-border-radius: 3px;
   -webkit-border-radius: 3px;
   border-radius: 3px;
-  -moz-transition: color 0.2s, box-shadow 0.2s;
-  -o-transition: color 0.2s, box-shadow 0.2s;
-  -webkit-transition: color 0.2s, box-shadow 0.2s;
-  transition: color 0.2s, box-shadow 0.2s;
+  -moz-transition: color 0.2s, background-color 0.2s, box-shadow 0.2s;
+  -o-transition: color 0.2s, background-color 0.2s, box-shadow 0.2s;
+  -webkit-transition: color 0.2s, background-color 0.2s, box-shadow 0.2s;
+  transition: color 0.2s, background-color 0.2s, box-shadow 0.2s;
 }
 body .p-panel .p-panel-titlebar .p-panel-titlebar-icon:hover {
   color: #5ab7ff;
@@ -3468,28 +3468,28 @@ body .p-slidemenu .p-menuitem-link .p-menuitem-icon {
   color: #333333;
   margin-right: 0.5em;
 }
-body .p-menu .p-menuitem-link:hover,
-body .p-menubar .p-menuitem-link:hover,
-body .p-tieredmenu .p-menuitem-link:hover,
-body .p-contextmenu .p-menuitem-link:hover,
-body .p-megamenu .p-menuitem-link:hover,
-body .p-slidemenu .p-menuitem-link:hover {
+body .p-menu .p-menuitem-link:not(.p-disabled):hover,
+body .p-menubar .p-menuitem-link:not(.p-disabled):hover,
+body .p-tieredmenu .p-menuitem-link:not(.p-disabled):hover,
+body .p-contextmenu .p-menuitem-link:not(.p-disabled):hover,
+body .p-megamenu .p-menuitem-link:not(.p-disabled):hover,
+body .p-slidemenu .p-menuitem-link:not(.p-disabled):hover {
   background-color: #eaeaea;
 }
-body .p-menu .p-menuitem-link:hover .p-menuitem-text,
-body .p-menubar .p-menuitem-link:hover .p-menuitem-text,
-body .p-tieredmenu .p-menuitem-link:hover .p-menuitem-text,
-body .p-contextmenu .p-menuitem-link:hover .p-menuitem-text,
-body .p-megamenu .p-menuitem-link:hover .p-menuitem-text,
-body .p-slidemenu .p-menuitem-link:hover .p-menuitem-text {
+body .p-menu .p-menuitem-link:not(.p-disabled):hover .p-menuitem-text,
+body .p-menubar .p-menuitem-link:not(.p-disabled):hover .p-menuitem-text,
+body .p-tieredmenu .p-menuitem-link:not(.p-disabled):hover .p-menuitem-text,
+body .p-contextmenu .p-menuitem-link:not(.p-disabled):hover .p-menuitem-text,
+body .p-megamenu .p-menuitem-link:not(.p-disabled):hover .p-menuitem-text,
+body .p-slidemenu .p-menuitem-link:not(.p-disabled):hover .p-menuitem-text {
   color: #333333;
 }
-body .p-menu .p-menuitem-link:hover .p-menuitem-icon,
-body .p-menubar .p-menuitem-link:hover .p-menuitem-icon,
-body .p-tieredmenu .p-menuitem-link:hover .p-menuitem-icon,
-body .p-contextmenu .p-menuitem-link:hover .p-menuitem-icon,
-body .p-megamenu .p-menuitem-link:hover .p-menuitem-icon,
-body .p-slidemenu .p-menuitem-link:hover .p-menuitem-icon {
+body .p-menu .p-menuitem-link:not(.p-disabled):hover .p-menuitem-icon,
+body .p-menubar .p-menuitem-link:not(.p-disabled):hover .p-menuitem-icon,
+body .p-tieredmenu .p-menuitem-link:not(.p-disabled):hover .p-menuitem-icon,
+body .p-contextmenu .p-menuitem-link:not(.p-disabled):hover .p-menuitem-icon,
+body .p-megamenu .p-menuitem-link:not(.p-disabled):hover .p-menuitem-icon,
+body .p-slidemenu .p-menuitem-link:not(.p-disabled):hover .p-menuitem-icon {
   color: #333333;
 }
 body .p-menu .p-menuitem-link:focus,

@@ -60,8 +60,8 @@ export default {
     methods: {
         itemClick(event) {
             const item = event.item;
-            if (item.disabled || (!item.to && !item.url)) {
-                event.originalEvent.preventDefault();
+            if (item.disabled) {
+                return;
             }
 
             if (item.command) {
@@ -198,6 +198,7 @@ export default {
     padding: .25em;
     display: block;
     text-decoration: none;
+    cursor: pointer;
 }
 
 .p-menu .p-menuitem-icon {

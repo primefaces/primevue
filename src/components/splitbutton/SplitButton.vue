@@ -6,8 +6,13 @@
         <transition name="p-input-overlay" @enter="onOverlayEnter" @leave="onOverlayLeave">
             <div id="ariaId + '_overlay'" ref="overlay" class="p-menu p-menu-dynamic p-component" v-if="overlayVisible">
                 <ul class="p-menu-list p-reset" role="menu">
-                    <li role="none" v-for="item of model" :key="item.label" :target="item.target" :style="item.style" :class="['p-menuitem', item.class]">
-                        <a :href="item.url||'#'" class="p-menuitem-link" @click="itemClick($event, item)" role="menuitem">
+                    <li v-for="item of model" :key="item.label" :target="item.target" :style="item.style" :class="['p-menuitem', item.class]" role="menuitem">
+                        <router-link v-if="item.to" :to="item.to" :class="['p-menuitem-link', {'p-disabled': item.disabled}]">
+                            <span :class="['p-menuitem-icon', item.icon]"></span>
+                            <span class="p-menuitem-text">{{item.label}}</span>
+                        </router-link>
+                        <a v-else :href="item.url" :class="['p-menuitem-link', {'p-disabled': item.disabled}]"
+                            @click="itemClick($event, item)" :target="item.target" :tabindex="item.disabled ? null : '0'">
                             <span :class="['p-menuitem-icon', item.icon]"></span>
                             <span class="p-menuitem-text">{{item.label}}</span>
                         </a>
@@ -71,11 +76,16 @@ export default {
             this.overlayVisible = !this.overlayVisible;
         },
         itemClick(event, item) {
+            if (item.disabled) {
+                return;
+            }
+
             if (item.command) {
                 item.command({originalEvent: event, item: item });
+                event.preventDefault();
             }
+
             this.overlayVisible = false;
-            event.preventDefault();
         },
         onOverlayEnter() {
             if (this.autoZIndex) {

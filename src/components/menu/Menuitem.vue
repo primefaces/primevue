@@ -1,10 +1,10 @@
 <template>
     <li :class="containerClass" role="none" :style="item.style" v-if="item.visible !== false">
-        <router-link v-if="item.to" :to="item.to" class="p-menuitem-link" role="menuitem">
+        <router-link v-if="item.to" :to="item.to" :class="linkClass" role="menuitem">
             <span :class="['p-menuitem-icon', item.icon]"></span>
             <span class="p-menuitem-text">{{item.label}}</span>
         </router-link>
-        <a v-else :href="item.url||'#'" class="p-menuitem-link" @click="onClick" :target="item.target" role="menuitem" >
+        <a v-else :href="item.url" :class="linkClass" @click="onClick" :target="item.target" role="menuitem" :tabindex="item.disabled ? null : '0'">
             <span :class="['p-menuitem-icon', item.icon]"></span>
             <span class="p-menuitem-text">{{item.label}}</span>
         </a>
@@ -26,10 +26,10 @@ export default {
     },
     computed: {
         containerClass() {
-            return [
-                'p-menitem',
-                this.item.class
-            ]
+            return ['p-menuitem', this.item.class];
+        },
+        linkClass() {
+            return ['p-menuitem-link', {'p-disabled': this.item.disabled}];
         }
     }
 }
