@@ -312,7 +312,7 @@ export default {
     transition: all 150ms cubic-bezier(0, 0, 0.2, 1);
 }
 .p-dialog-leave-active {
-    transition: all 75ms cubic-bezier(0.4, 0.0, 0.2, 1);
+    transition: all 150ms cubic-bezier(0.4, 0.0, 0.2, 1);
 }
 .p-dialog-enter,
 .p-dialog-leave-to {
