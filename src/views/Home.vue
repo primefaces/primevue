@@ -196,7 +196,7 @@ export default {
             expire.setTime(today.getTime() + 3600000*24*7);
             document.cookie = 'primeaffiliateid=' + afId + ';expires=' + expire.toUTCString() + ';path=/; domain:primefaces.org';
         }
-        
+
     }
 }
 </script>
