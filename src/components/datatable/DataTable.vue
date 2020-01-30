@@ -451,9 +451,13 @@ export default {
             this.d_first = event.first;
             this.d_rows = event.rows;
 
+            let pageEvent = this.createLazyLoadEvent(event);
+            pageEvent.pageCount = event.pageCount;
+            pageEvent.page = event.page;
+
             this.$emit('update:first', this.d_first);
             this.$emit('update:rows', this.d_rows);
-            this.$emit('page', event);
+            this.$emit('page', pageEvent);
         },
         onColumnHeaderClick(e) {
             const event = e.originalEvent;
@@ -483,12 +487,7 @@ export default {
                     this.$emit('update:sortOrder', this.d_sortOrder);
                     this.$emit('update:multiSortMeta', this.d_multiSortMeta);
 
-                    this.$emit('sort', {
-                        originalEvent: event,
-                        sortField: this.d_sortField,
-                        sortOrder: this.d_sortOrder,
-                        multiSortMeta: this.d_multiSortMeta
-                    });
+                    this.$emit('sort', this.createLazyLoadEvent(event));
 
                     this.resetPage();
                 }
@@ -608,10 +607,9 @@ export default {
                 filteredValue = data;
             }
 
-            this.$emit('filter', {
-                filters: this.filters,
-                filteredValue: filteredValue
-            });
+            let filterEvent = this.createLazyLoadEvent(event);
+            filterEvent.filterValue = filteredValue;
+            this.$emit('filter', filterEvent);
 
             return filteredValue;
         },
@@ -1598,7 +1596,19 @@ export default {
                         rows: this.rows * 2
                     });
                 }, this.virtualScrollDelay);
-            }
+        },
+        createLazyLoadEvent(event) {
+            return {
+                originalEvent: event,
+                first: this.d_first,
+                rows: this.d_rows,
+                sortField: this.d_sortField,
+                sortOrder: this.d_sortOrder,
+                filters: this.filters,
+                globalFilter: this.filters && this.filters['global'] ? this.filters['global'].value : null,
+                multiSortMeta: this.d_multiSortMeta
+            };
+        }
     },
     computed: {
         containerClass() {

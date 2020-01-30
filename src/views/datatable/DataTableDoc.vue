@@ -1973,23 +1973,42 @@ export default {
                                 <td>event.page: New page number <br/>
                                     event.first: Index of first record <br/>
                                     event.rows: Number of rows to display in new page <br/>
-                                    event.pageCount: Total number of pages
+                                    event.pageCount: Total number of pages <br />
+                                    event.sortField: Field to sort against <br />
+                                    event.sortOrder: Sort order as integer <br />
+                                    event.multiSortMeta: MultiSort metadata <br />
+                                    event.filters: Collection of active filters <br />
+                                    event.filteredValue: Filtered collection
                                 </td>
-                                <td>Callback to invoke on pagination.</td>
+                                <td>Callback to invoke on pagination. Sort and Filter information is also available for lazy loading implementation.</td>
                             </tr>
                             <tr>
                                 <td>sort</td>
-                                <td>event.originalEvent: Browser event. <br />
-                                    event.sortField: Field to sort against. <br />
-                                    event.sortOrder: Sort order as integer. <br />
-                                    event.multiSortMeta: MultiSort metadata.</td>
-                                <td>Callback to invoke on sort.</td>
+                                <td>event.page: New page number <br/>
+                                    event.first: Index of first record <br/>
+                                    event.rows: Number of rows to display in new page <br/>
+                                    event.pageCount: Total number of pages <br />
+                                    event.sortField: Field to sort against <br />
+                                    event.sortOrder: Sort order as integer <br />
+                                    event.multiSortMeta: MultiSort metadata <br />
+                                    event.filters: Collection of active filters <br />
+                                    event.filteredValue: Filtered collection
+                                </td>
+                                <td>Callback to invoke on sort. Page and Filter information is also available for lazy loading implementation.</td>
                             </tr>
                             <tr>
                                 <td>filter</td>
-                                <td>event.filters: Collection of active filters. <br />
-                                    event.filteredValue: Filtered collection.</td>
-                                <td>Callback to invoke on filtering.</td>
+                                <td>event.page: New page number <br/>
+                                    event.first: Index of first record <br/>
+                                    event.rows: Number of rows to display in new page <br/>
+                                    event.pageCount: Total number of pages <br />
+                                    event.sortField: Field to sort against <br />
+                                    event.sortOrder: Sort order as integer <br />
+                                    event.multiSortMeta: MultiSort metadata <br />
+                                    event.filters: Collection of active filters <br />
+                                    event.filteredValue: Filtered collection
+                                </td>
+                                <td>Callback to invoke on filtering. Page and Sort information is also available for lazy loading implementation.</td>
                             </tr>
                             <tr>
                                 <td>row-click</td>
