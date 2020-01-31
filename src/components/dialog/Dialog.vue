@@ -217,11 +217,12 @@ export default {
     pointer-events: auto;
 }
 .p-dialog {
+    display: flex;
+    flex-direction: column;
     padding: 0;
     pointer-events: auto;
     max-height: 90%;
     margin: 5% auto;
-    overflow-y: auto;
     transform: scale(1);
 }
 .p-dialog .p-dialog-titlebar {
@@ -235,6 +236,7 @@ export default {
     padding: .5em .75em;
     background: none;
     zoom: 1;
+    overflow-y: auto;
 }
 .p-dialog-resizable .p-dialog-content {
     overflow: auto;
