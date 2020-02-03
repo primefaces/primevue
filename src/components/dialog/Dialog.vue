@@ -7,6 +7,9 @@
                         <span :id="ariaLabelledById" class="p-dialog-title" v-if="header" >{{header}}</span>
                     </slot>
                     <div class="p-dialog-titlebar-icons">
+                        <button class="p-dialog-titlebar-icon p-dialog-titlebar-maximize p-link" @click="maximize" v-if="maximizable" type="button">
+                            <span :class="maximizeIconClass"></span>
+                        </button>
                         <button class="p-dialog-titlebar-icon p-dialog-titlebar-close p-link" @click="close" v-if="closable" :aria-label="ariaCloseLabel" type="button">
                             <span class="p-dialog-titlebar-close-icon pi pi-times"></span>
                         </button>
@@ -34,6 +37,7 @@ export default {
         modal: Boolean,
         contentStyle: null,
         rtl: Boolean,
+        maximizable: Boolean,
         closable: {
             type: Boolean,
             default: true
@@ -59,7 +63,8 @@ export default {
         return {
             dialogClasses: null,
             dialogStyles: null,
-            maskVisible: this.visible
+            maskVisible: this.visible,
+            maximized: false
         }
     },
     documentKeydownListener: null,
@@ -120,6 +125,18 @@ export default {
             if (this.modal) {
                 DomHandler.removeClass(document.body, 'p-overflow-hidden');
                 this.unbindDocumentKeydownListener();
+            }
+        },
+        maximize() {
+            this.maximized = !this.maximized;
+
+            if (!this.modal) {
+                if (this.maximized) {
+                    DomHandler.addClass(document.body, 'p-overflow-hidden');
+                }
+                else {
+                    DomHandler.removeClass(document.body, 'p-overflow-hidden');
+                }
             }
         },
         onKeyDown(event) {
@@ -189,8 +206,15 @@ export default {
         },
         containerClass() {
             return ['p-dialog p-component', {
-                'p-dialog-rtl': this.rtl
+                'p-dialog-rtl': this.rtl,
+                'p-dialog-maximized': this.maximizable && this.maximized
             }, this.dialogClasses];
+        },
+        maximizeIconClass() {
+            return ['p-dialog-titlebar-maximize-icon pi', {
+                'pi-window-maximize': !this.maximized,
+                'pi-window-minimize': this.maximized
+            }];
         },
         containerStyle() {
             return this.dialogStyles;
@@ -232,6 +256,7 @@ export default {
     padding: .5em .75em;
     position: relative;
     border: 0;
+    flex-shrink: 0;
 }
 .p-dialog .p-dialog-content {
     position: relative;
@@ -280,6 +305,7 @@ export default {
 .p-dialog-footer {
     padding: 1em;
     text-align: right;
+    flex-shrink: 0;
 }
 /* ConfirmDialog */
 .p-confirmdialog {
@@ -331,10 +357,10 @@ export default {
     transform: none;
     width: 100vw !important;
     max-height: 100%;
-    margin: auto;
+    height: 100%;
+    margin: 0;
 }
 .p-dialog-maximized .p-dialog-content {
-    -webkit-transition: height .3s;
-    transition: height .3s;
+    flex-grow: 1;
 }
 </style>
