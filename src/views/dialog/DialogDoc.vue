@@ -131,6 +131,12 @@ export default {
                                 <td>close</td>
                                 <td>Aria label of the close icon.</td>
                             </tr>
+                            <tr>
+                                <td>maximizable</td>
+                                <td>boolean</td>
+                                <td>false</td>
+                                <td>Whether the dialog can be displayed full screen.</td>
+                            </tr>
 						</tbody>
 					</table>
 				</div>
