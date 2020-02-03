@@ -162,13 +162,16 @@ export default {
         },
         removeStylesFromMask() {
             if (this.$refs.mask) {
-                this.dialogClasses = this.$vnode.data.class;
                 this.dialogStyles = this.$vnode.data.style;
-                DomHandler.removeClass(this.$refs.mask, this.$vnode.data.class);
-                if (this.$vnode.data.style) {
-                    Object.keys(this.$vnode.data.style).forEach((key) => {
+                if (this.dialogStyles) {
+                    Object.keys(this.dialogStyles).forEach((key) => {
                         this.$refs.mask.style[key] = '';
                     });
+                }
+
+                this.dialogClasses = this.$vnode.data.class || this.$vnode.data.staticClass;
+                if (this.dialogClasses) {
+                    this.$refs.mask.classList = 'p-dialog-wrapper' + (this.modal && ' p-component-overlay p-dialog-mask p-fadein');
                 }
             }
         }
