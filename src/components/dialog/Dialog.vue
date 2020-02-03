@@ -225,7 +225,7 @@ export default {
     padding: 0;
     pointer-events: auto;
     max-height: 90%;
-    margin: 5% auto;
+    margin: 5% 0;
     transform: scale(1);
 }
 .p-dialog .p-dialog-titlebar {
