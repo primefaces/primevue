@@ -57,6 +57,10 @@ export default {
         ariaCloseLabel: {
             type: String,
             default: 'close'
+        },
+        position: {
+            type: String,
+            default: 'center'
         }
     },
     data() {
@@ -181,6 +185,12 @@ export default {
                 this.documentKeydownListener = null;
             }
         },
+        getPositionClass() {
+            const positions = ['left', 'right', 'top', 'topLeft', 'topRight', 'bottom', 'bottomLeft', 'bottomRight'];
+            const pos = positions.find(item => item === this.position);
+
+            return pos ? `p-dialog-${pos}` : '';
+        },
         removeStylesFromMask() {
             if (this.$refs.mask) {
                 this.dialogStyles = this.$vnode.data.style;
@@ -192,7 +202,7 @@ export default {
 
                 this.dialogClasses = this.$vnode.data.class || this.$vnode.data.staticClass;
                 if (this.dialogClasses) {
-                    this.$refs.mask.classList = 'p-dialog-wrapper' + (this.modal && ' p-component-overlay p-dialog-mask p-fadein');
+                    this.$refs.mask.classList = 'p-dialog-wrapper' + (this.modal && ' p-component-overlay p-dialog-mask p-fadein ') + this.getPositionClass();
                 }
             }
         }
@@ -205,8 +215,8 @@ export default {
         },
         wrapperClass() {
             return ['p-dialog-wrapper', {
-                'p-component-overlay p-dialog-mask p-fadein': this.modal
-            }];
+                'p-component-overlay p-dialog-mask p-fadein': this.modal,
+            }, this.getPositionClass()];
         },
         containerClass() {
             return ['p-dialog p-component', {
@@ -253,7 +263,6 @@ export default {
     padding: 0;
     pointer-events: auto;
     max-height: 90%;
-    margin: 5% 0;
     transform: scale(1);
 }
 .p-dialog .p-dialog-titlebar {
@@ -362,9 +371,38 @@ export default {
     width: 100vw !important;
     max-height: 100%;
     height: 100%;
-    margin: 0;
 }
 .p-dialog-maximized .p-dialog-content {
     flex-grow: 1;
+}
+
+/* Position */
+.p-dialog-left {
+    justify-content: flex-start;
+}
+.p-dialog-right {
+    justify-content: flex-end;
+}
+.p-dialog-top {
+    align-items: flex-start;
+}
+.p-dialog-topLeft {
+    justify-content: flex-start;
+    align-items: flex-start;
+}
+.p-dialog-topRight {
+    justify-content: flex-end;
+    align-items: flex-start;
+}
+.p-dialog-bottom {
+    align-items: flex-end;
+}
+.p-dialog-bottomLeft {
+    justify-content: flex-start;
+    align-items: flex-end;
+}
+.p-dialog-bottomRight {
+    justify-content: flex-end;
+    align-items: flex-end;
 }
 </style>
