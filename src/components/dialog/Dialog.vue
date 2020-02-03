@@ -79,7 +79,7 @@ export default {
         this.removeStylesFromMask();
     },
     beforeDestroy() {
-        this.disableModality();
+        this.disableDocumentSettings();
     },
     methods: {
         close() {
@@ -95,14 +95,14 @@ export default {
 
             this.$emit('show');
             this.focus();
-            this.enableModality();
+            this.enableDocumentSettings();
         },
         onLeave() {
             this.$emit('hide');
         },
         onAfterLeave() {
             this.maskVisible = false;
-            this.disableModality();
+            this.disableDocumentSettings();
         },
         onAppear() {
             if (this.visible) {
@@ -115,28 +115,32 @@ export default {
                 focusable.focus();
             }
         },
-        enableModality() {
-            if (this.modal) {
-                DomHandler.addClass(document.body, 'p-overflow-hidden');
-                this.bindDocumentKeydownListener();
-            }
-        },
-        disableModality() {
-            if (this.modal) {
-                DomHandler.removeClass(document.body, 'p-overflow-hidden');
-                this.unbindDocumentKeydownListener();
-            }
-        },
         maximize() {
             this.maximized = !this.maximized;
 
             if (!this.modal) {
-                if (this.maximized) {
+                if (this.maximized)
                     DomHandler.addClass(document.body, 'p-overflow-hidden');
-                }
-                else {
+                else
                     DomHandler.removeClass(document.body, 'p-overflow-hidden');
-                }
+            }
+        },
+        enableDocumentSettings() {
+            if (this.modal) {
+                DomHandler.addClass(document.body, 'p-overflow-hidden');
+                this.bindDocumentKeydownListener();
+            }
+            else if (this.maximizable && this.maximized) {
+                DomHandler.addClass(document.body, 'p-overflow-hidden');
+            }
+        },
+        disableDocumentSettings() {
+            if (this.modal) {
+                DomHandler.removeClass(document.body, 'p-overflow-hidden');
+                this.unbindDocumentKeydownListener();
+            }
+            else if (this.maximizable && this.maximized) {
+                DomHandler.removeClass(document.body, 'p-overflow-hidden');
             }
         },
         onKeyDown(event) {
