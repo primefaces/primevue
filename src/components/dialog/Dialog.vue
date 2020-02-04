@@ -1,7 +1,7 @@
 <template>
-    <div ref="mask" :class="wrapperClass" v-if="maskVisible">
+    <div ref="mask" :class="maskClass" v-if="maskVisible">
         <transition name="p-dialog" @before-enter="onBeforeEnter" @enter="onEnter" @leave="onLeave" @after-leave="onAfterLeave" @appear="onAppear">
-            <div ref="container" :class="containerClass" :style="containerStyle" v-if="visible" v-bind="$attrs" v-on="listeners" role="dialog" :aria-labelledby="ariaLabelledById" :aria-modal="modal">
+            <div ref="dialog" :class="dialogClass" :style="dialogStyle" v-if="visible" v-bind="$attrs" v-on="listeners" role="dialog" :aria-labelledby="ariaLabelledById" :aria-modal="modal">
                 <div class="p-dialog-titlebar" v-if="showHeader">
                     <slot name="header">
                         <span :id="ariaLabelledById" class="p-dialog-title" v-if="header" >{{header}}</span>
@@ -95,7 +95,7 @@ export default {
             }
         },
         onEnter() {
-            this.$refs.mask.style.zIndex = String(parseInt(this.$refs.container.style.zIndex, 10) - 1);
+            this.$refs.mask.style.zIndex = String(parseInt(this.$refs.dialog.style.zIndex, 10) - 1);
 
             this.$emit('show');
             this.focus();
@@ -114,7 +114,7 @@ export default {
             }
         },
         focus() {
-            let focusable = DomHandler.findSingle(this.$refs.container, 'input,button');
+            let focusable = DomHandler.findSingle(this.$refs.dialog, 'input,button');
             if (focusable) {
                 focusable.focus();
             }
@@ -150,7 +150,7 @@ export default {
         onKeyDown(event) {
             if (event.which === 9) {
                 event.preventDefault();
-                let focusableElements = DomHandler.getFocusableElements(this.$refs.container);
+                let focusableElements = DomHandler.getFocusableElements(this.$refs.dialog);
                 if (focusableElements && focusableElements.length > 0) {
                     if (!document.activeElement) {
                         focusableElements[0].focus();
@@ -202,7 +202,7 @@ export default {
 
                 this.dialogClasses = this.$vnode.data.class || this.$vnode.data.staticClass;
                 if (this.dialogClasses) {
-                    this.$refs.mask.classList = 'p-dialog-wrapper' + (this.modal && ' p-component-overlay p-dialog-mask p-fadein ') + this.getPositionClass();
+                    this.$refs.mask.classList = 'p-dialog-mask' + (this.modal && ' p-component-overlay ') + this.getPositionClass();
                 }
             }
         }
@@ -213,12 +213,12 @@ export default {
                 ...this.$listeners
             };
         },
-        wrapperClass() {
-            return ['p-dialog-wrapper', {
-                'p-component-overlay p-dialog-mask p-fadein': this.modal,
+        maskClass() {
+            return ['p-dialog-mask', {
+                'p-component-overlay': this.modal,
             }, this.getPositionClass()];
         },
-        containerClass() {
+        dialogClass() {
             return ['p-dialog p-component', {
                 'p-dialog-rtl': this.rtl,
                 'p-dialog-maximized': this.maximizable && this.maximized
@@ -230,7 +230,7 @@ export default {
                 'pi-window-minimize': this.maximized
             }];
         },
-        containerStyle() {
+        dialogStyle() {
             return this.dialogStyles;
         },
         ariaId() {
@@ -243,7 +243,7 @@ export default {
 }
 </script>
 <style>
-.p-dialog-wrapper {
+.p-dialog-mask {
     position: fixed;
     top: 0;
     left: 0;
@@ -254,7 +254,7 @@ export default {
     align-items: center;
     pointer-events: none;
 }
-.p-dialog-wrapper.p-dialog-mask {
+.p-dialog-mask.p-component-overlay {
     pointer-events: auto;
 }
 .p-dialog {
@@ -352,6 +352,7 @@ export default {
     }
 }
 /* Animation */
+/* Center */
 .p-dialog-enter-active {
     transition: all 150ms cubic-bezier(0, 0, 0.2, 1);
 }
@@ -362,6 +363,60 @@ export default {
 .p-dialog-leave-to {
     opacity: 0;
     transform: scale(0.7);
+}
+/* Top, Bottom, Left, Right, Top* and Bottom* */
+.p-dialog-top .p-dialog,
+.p-dialog-bottom .p-dialog,
+.p-dialog-left .p-dialog,
+.p-dialog-right .p-dialog,
+.p-dialog-topLeft .p-dialog,
+.p-dialog-topRight .p-dialog,
+.p-dialog-bottomLeft .p-dialog,
+.p-dialog-bottomRight .p-dialog {
+    margin: .75em;
+    transform: translate3d(0px, 0px, 0px);
+}
+.p-dialog-top .p-dialog-enter-active,
+.p-dialog-top .p-dialog-leave-active,
+.p-dialog-bottom .p-dialog-enter-active,
+.p-dialog-bottom .p-dialog-leave-active,
+.p-dialog-left .p-dialog-enter-active,
+.p-dialog-left .p-dialog-leave-active,
+.p-dialog-right .p-dialog-enter-active,
+.p-dialog-right .p-dialog-leave-active,
+.p-dialog-topLeft .p-dialog-enter-active,
+.p-dialog-topLeft .p-dialog-leave-active,
+.p-dialog-topRight .p-dialog-enter-active,
+.p-dialog-topRight .p-dialog-leave-active,
+.p-dialog-bottomLeft .p-dialog-enter-active,
+.p-dialog-bottomLeft .p-dialog-leave-active,
+.p-dialog-bottomRight .p-dialog-enter-active,
+.p-dialog-bottomRight .p-dialog-leave-active {
+    transition: all .3s ease-out;
+}
+.p-dialog-top .p-dialog-enter,
+.p-dialog-top .p-dialog-leave-to {
+    transform: translate3d(0px, -100%, 0px);
+}
+.p-dialog-bottom .p-dialog-enter,
+.p-dialog-bottom .p-dialog-leave-to {
+    transform: translate3d(0px, 100%, 0px);
+}
+.p-dialog-left .p-dialog-enter,
+.p-dialog-left .p-dialog-leave-to,
+.p-dialog-topLeft .p-dialog-enter,
+.p-dialog-topLeft .p-dialog-leave-to,
+.p-dialog-bottomLeft .p-dialog-enter,
+.p-dialog-bottomLeft .p-dialog-leave-to {
+    transform: translate3d(-100%, 0px, 0px);
+}
+.p-dialog-right .p-dialog-enter,
+.p-dialog-right .p-dialog-leave-to,
+.p-dialog-topRight .p-dialog-enter,
+.p-dialog-topRight .p-dialog-leave-to,
+.p-dialog-bottomRight .p-dialog-enter,
+.p-dialog-bottomRight .p-dialog-leave-to {
+    transform: translate3d(100%, 0px, 0px);
 }
 /* Maximize */
 .p-dialog-maximized {
