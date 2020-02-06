@@ -12,6 +12,8 @@ export declare class Dialog extends Vue {
     baseZIndex?: number;
     autoZIndex?: boolean;
     ariaCloseLabel?: string;
+    position?: string;
+    maximizable?: boolean;
     $emit(eventName: 'show'): this;
     $emit(eventName: 'hide'): this;
     $slots: {

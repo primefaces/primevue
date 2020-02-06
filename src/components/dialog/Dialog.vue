@@ -186,7 +186,7 @@ export default {
             }
         },
         getPositionClass() {
-            const positions = ['left', 'right', 'top', 'topLeft', 'topRight', 'bottom', 'bottomLeft', 'bottomRight'];
+            const positions = ['left', 'right', 'top', 'topleft', 'topright', 'bottom', 'bottomleft', 'bottomright'];
             const pos = positions.find(item => item === this.position);
 
             return pos ? `p-dialog-${pos}` : '';
@@ -369,10 +369,10 @@ export default {
 .p-dialog-bottom .p-dialog,
 .p-dialog-left .p-dialog,
 .p-dialog-right .p-dialog,
-.p-dialog-topLeft .p-dialog,
-.p-dialog-topRight .p-dialog,
-.p-dialog-bottomLeft .p-dialog,
-.p-dialog-bottomRight .p-dialog {
+.p-dialog-topleft .p-dialog,
+.p-dialog-topright .p-dialog,
+.p-dialog-bottomleft .p-dialog,
+.p-dialog-bottomright .p-dialog {
     margin: .75em;
     transform: translate3d(0px, 0px, 0px);
 }
@@ -384,14 +384,14 @@ export default {
 .p-dialog-left .p-dialog-leave-active,
 .p-dialog-right .p-dialog-enter-active,
 .p-dialog-right .p-dialog-leave-active,
-.p-dialog-topLeft .p-dialog-enter-active,
-.p-dialog-topLeft .p-dialog-leave-active,
-.p-dialog-topRight .p-dialog-enter-active,
-.p-dialog-topRight .p-dialog-leave-active,
-.p-dialog-bottomLeft .p-dialog-enter-active,
-.p-dialog-bottomLeft .p-dialog-leave-active,
-.p-dialog-bottomRight .p-dialog-enter-active,
-.p-dialog-bottomRight .p-dialog-leave-active {
+.p-dialog-topleft .p-dialog-enter-active,
+.p-dialog-topleft .p-dialog-leave-active,
+.p-dialog-topright .p-dialog-enter-active,
+.p-dialog-topright .p-dialog-leave-active,
+.p-dialog-bottomleft .p-dialog-enter-active,
+.p-dialog-bottomleft .p-dialog-leave-active,
+.p-dialog-bottomright .p-dialog-enter-active,
+.p-dialog-bottomright .p-dialog-leave-active {
     transition: all .3s ease-out;
 }
 .p-dialog-top .p-dialog-enter,
@@ -404,18 +404,18 @@ export default {
 }
 .p-dialog-left .p-dialog-enter,
 .p-dialog-left .p-dialog-leave-to,
-.p-dialog-topLeft .p-dialog-enter,
-.p-dialog-topLeft .p-dialog-leave-to,
-.p-dialog-bottomLeft .p-dialog-enter,
-.p-dialog-bottomLeft .p-dialog-leave-to {
+.p-dialog-topleft .p-dialog-enter,
+.p-dialog-topleft .p-dialog-leave-to,
+.p-dialog-bottomleft .p-dialog-enter,
+.p-dialog-bottomleft .p-dialog-leave-to {
     transform: translate3d(-100%, 0px, 0px);
 }
 .p-dialog-right .p-dialog-enter,
 .p-dialog-right .p-dialog-leave-to,
-.p-dialog-topRight .p-dialog-enter,
-.p-dialog-topRight .p-dialog-leave-to,
-.p-dialog-bottomRight .p-dialog-enter,
-.p-dialog-bottomRight .p-dialog-leave-to {
+.p-dialog-topright .p-dialog-enter,
+.p-dialog-topright .p-dialog-leave-to,
+.p-dialog-bottomright .p-dialog-enter,
+.p-dialog-bottomright .p-dialog-leave-to {
     transform: translate3d(100%, 0px, 0px);
 }
 /* Maximize */

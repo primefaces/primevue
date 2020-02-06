@@ -50,8 +50,8 @@ export default {
 &lt;/Dialog&gt;
 </CodeHighlight>
 
-				<h3>Dynamic Content</h3>
-				<p>Dynamic content may move the dialog boundaries outside of the viewport. Common solution is defining max-height via <i>contentStyle</i> so longer content displays a scrollbar.</p>
+                <h3>Positioning</h3>
+                <p>Dialog location is controlled with the <i>position</i> property whose default value is center. Other valid values are top", "bottom", "left", "right", "topleft", "topright", "bottomleft" and "bottomright"<div class=""></div>
 
 				<h3>Properties</h3>
 				<div class="doc-tablewrapper">
@@ -93,7 +93,7 @@ export default {
                                 <td>position</td>
                                 <td>string</td>
                                 <td>center</td>
-                                <td>Position of the dialog, options are "center", "top", "bottom", "left", "right", "topLeft", "topRight", "bottomLeft" or "bottomRight".</td>
+                                <td>Position of the dialog, options are "center", "top", "bottom", "left", "right", "topleft", "topright", "bottomleft" or "bottomright".</td>
                             </tr>
                             <tr>
                                 <td>contentStyle</td>
