@@ -52,6 +52,11 @@ export default {
 
                 <h3>Positioning</h3>
                 <p>Dialog location is controlled with the <i>position</i> property whose default value is center. Other valid values are top", "bottom", "left", "right", "topleft", "topright", "bottomleft" and "bottomright"<div class=""></div>
+<CodeHighlight>
+&lt;Dialog position="top" :visible.sync="display"&gt;
+	Content
+&lt;/Dialog&gt;
+</CodeHighlight>
 
 				<h3>Properties</h3>
 				<div class="doc-tablewrapper">
