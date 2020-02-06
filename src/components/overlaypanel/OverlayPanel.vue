@@ -77,7 +77,7 @@ export default {
             if (this.dismissable) {
                 this.bindOutsideClickListener();
             }
-            
+
             this.bindResizeListener();
 
             if (this.autoZIndex) {
