@@ -1047,6 +1047,25 @@ a {
             padding: 100px 100px 0 100px;
             height: 200px;
         }
+
+        .introduction-promo {
+            display: inline-block;
+            margin-left: -50px;
+            margin-bottom: 20px;
+            padding: 10px 50px 10px 175px;
+            font-size: 1.5em;
+            background-image: linear-gradient(90deg, #445C72 0%, #DBDCDE 100%);
+            position: relative;
+            color: #ffffff;
+            font-weight: 700;
+
+            img {
+                position: absolute;
+                height: 75px;
+                left: 50px;
+                top: -12px;
+            }
+        }
     }
 
     /* Features */
