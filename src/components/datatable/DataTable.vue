@@ -1616,7 +1616,7 @@ export default {
                 sortOrder: this.d_sortOrder,
                 multiSortMeta: this.d_multiSortMeta,
                 filters: this.filters,
-                filterMatchModes: filterMatchModes 
+                filterMatchModes: filterMatchModes
             };
         }
     },

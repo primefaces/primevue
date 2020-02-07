@@ -713,7 +713,7 @@ export default {
                     assuming there are actually records of totalRecords size although in reality they aren't as in lazy mode, only the records that are displayed on the current page exist.</p>
 
                 <p>Lazy loading is implemented by handling pagination and sorting using <i>page</i> and <i>sort</i> events by making a remote query using the information
-                passed to the events such as first offset, number of rows and sort field for ordering. Filtering is handled differently as filter elements are defined using templates. <i>filter</i> event is not triggered in 
+                passed to the events such as first offset, number of rows and sort field for ordering. Filtering is handled differently as filter elements are defined using templates. <i>filter</i> event is not triggered in
                 lazy mode instead use the event you prefer on your form elements such as input, change, blur to make a remote call by passing the filters property to update the displayed data. Note that,
                 in lazy filtering, totalRecords should also be updated to align the data with the paginator.</p>
 
@@ -1979,7 +1979,7 @@ export default {
                                     event.sortOrder: Sort order as integer <br />
                                     event.multiSortMeta: MultiSort metadata <br />
                                     event.filters: Collection of active filters <br />
-                                    event.filterMatchModes: Match modes per field 
+                                    event.filterMatchModes: Match modes per field
                                 </td>
                                 <td>Callback to invoke on pagination. Sort and Filter information is also available for lazy loading implementation.</td>
                             </tr>
@@ -1992,7 +1992,7 @@ export default {
                                     event.sortOrder: Sort order as integer <br />
                                     event.multiSortMeta: MultiSort metadata <br />
                                     event.filters: Collection of active filters <br />
-                                    event.filterMatchModes: Match modes per field 
+                                    event.filterMatchModes: Match modes per field
                                 </td>
                                 <td>Callback to invoke on sort. Page and Filter information is also available for lazy loading implementation.</td>
                             </tr>
@@ -2006,7 +2006,7 @@ export default {
                                     event.multiSortMeta: MultiSort metadata <br />
                                     event.filters: Collection of active filters <br />
                                     event.filteredValue: Filtered collection <br />
-                                    event.filterMatchModes: Match modes per field 
+                                    event.filterMatchModes: Match modes per field
                                 </td>
                                 <td>Event to emit after filtering, not triggered in lazy mode.</td>
                             </tr>
