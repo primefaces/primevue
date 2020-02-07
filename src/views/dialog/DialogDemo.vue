@@ -75,13 +75,13 @@
                 </div>
                 <div class="p-col">
                     <Button label="Top" icon="pi pi-arrow-down" @click="openPosition('top')" class="p-button-warning" />
-                    <Button label="TopLeft" icon="pi pi-arrow-down" @click="openPosition('topLeft')" class="p-button-warning" />
-                    <Button label="TopRight" icon="pi pi-arrow-down" @click="openPosition('topRight')" class="p-button-warning" />
+                    <Button label="TopLeft" icon="pi pi-arrow-down" @click="openPosition('topleft')" class="p-button-warning" />
+                    <Button label="TopRight" icon="pi pi-arrow-down" @click="openPosition('topright')" class="p-button-warning" />
                 </div>
                 <div class="p-col">
                     <Button label="Bottom" icon="pi pi-arrow-up" @click="openPosition('bottom')" class="p-button-warning" />
-                    <Button label="BottomLeft" icon="pi pi-arrow-up" @click="openPosition('bottomLeft')" class="p-button-warning" />
-                    <Button label="BottomRight" icon="pi pi-arrow-up" @click="openPosition('bottomRight')" class="p-button-warning" />
+                    <Button label="BottomLeft" icon="pi pi-arrow-up" @click="openPosition('bottomleft')" class="p-button-warning" />
+                    <Button label="BottomRight" icon="pi pi-arrow-up" @click="openPosition('bottomright')" class="p-button-warning" />
                 </div>
             </div>
 
