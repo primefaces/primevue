@@ -159,7 +159,8 @@ export default {
     margin: .5em .5em .5em 0;
     width: 140px;
 }
-.p-dialog .p-dialog-content {
+
+/deep/ .p-dialog-content {
     line-height: 1.5;
 }
 </style>
