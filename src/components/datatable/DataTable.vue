@@ -608,7 +608,7 @@ export default {
             }
 
             let filterEvent = this.createLazyLoadEvent(event);
-            filterEvent.filterValue = filteredValue;
+            filterEvent.filteredValue = filteredValue;
             this.$emit('filter', filterEvent);
 
             return filteredValue;
@@ -1598,15 +1598,25 @@ export default {
                 }, this.virtualScrollDelay);
         },
         createLazyLoadEvent(event) {
+            let filterMatchModes;
+            if (this.hasFilters) {
+                filterMatchModes = {};
+                this.columns.forEach(col => {
+                    if (col.field) {
+                        filterMatchModes[col.field] = col.filterMatchMode;
+                    }
+                });
+            }
+
             return {
                 originalEvent: event,
                 first: this.d_first,
                 rows: this.d_rows,
                 sortField: this.d_sortField,
                 sortOrder: this.d_sortOrder,
+                multiSortMeta: this.d_multiSortMeta,
                 filters: this.filters,
-                globalFilter: this.filters && this.filters['global'] ? this.filters['global'].value : null,
-                multiSortMeta: this.d_multiSortMeta
+                filterMatchModes: filterMatchModes 
             };
         }
     },

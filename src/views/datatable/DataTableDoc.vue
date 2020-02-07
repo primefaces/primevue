@@ -1970,45 +1970,45 @@ export default {
                         <tbody>
                             <tr>
                                 <td>page</td>
-                                <td>event.page: New page number <br/>
+                                <td>event.originalEvent: Browser event <br >
+                                    event.page: New page number <br/>
+                                    event.pageCount: Total page count <br/>
                                     event.first: Index of first record <br/>
                                     event.rows: Number of rows to display in new page <br/>
-                                    event.pageCount: Total number of pages <br />
                                     event.sortField: Field to sort against <br />
                                     event.sortOrder: Sort order as integer <br />
                                     event.multiSortMeta: MultiSort metadata <br />
                                     event.filters: Collection of active filters <br />
-                                    event.filteredValue: Filtered collection
+                                    event.filterMatchModes: Match modes per field 
                                 </td>
                                 <td>Callback to invoke on pagination. Sort and Filter information is also available for lazy loading implementation.</td>
                             </tr>
                             <tr>
                                 <td>sort</td>
-                                <td>event.page: New page number <br/>
+                                <td>event.originalEvent: Browser event <br >
                                     event.first: Index of first record <br/>
                                     event.rows: Number of rows to display in new page <br/>
-                                    event.pageCount: Total number of pages <br />
                                     event.sortField: Field to sort against <br />
                                     event.sortOrder: Sort order as integer <br />
                                     event.multiSortMeta: MultiSort metadata <br />
                                     event.filters: Collection of active filters <br />
-                                    event.filteredValue: Filtered collection
+                                    event.filterMatchModes: Match modes per field 
                                 </td>
                                 <td>Callback to invoke on sort. Page and Filter information is also available for lazy loading implementation.</td>
                             </tr>
                             <tr>
                                 <td>filter</td>
-                                <td>event.page: New page number <br/>
+                                <td>event.originalEvent: Browser event <br >
                                     event.first: Index of first record <br/>
                                     event.rows: Number of rows to display in new page <br/>
-                                    event.pageCount: Total number of pages <br />
                                     event.sortField: Field to sort against <br />
                                     event.sortOrder: Sort order as integer <br />
                                     event.multiSortMeta: MultiSort metadata <br />
                                     event.filters: Collection of active filters <br />
-                                    event.filteredValue: Filtered collection
+                                    event.filteredValue: Filtered collection <br />
+                                    event.filterMatchModes: Match modes per field 
                                 </td>
-                                <td>Callback to invoke on filtering. Page and Sort information is also available for lazy loading implementation.</td>
+                                <td>Event to emit after filtering, not triggered in lazy mode.</td>
                             </tr>
                             <tr>
                                 <td>row-click</td>
