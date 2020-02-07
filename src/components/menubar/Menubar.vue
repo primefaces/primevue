@@ -49,6 +49,7 @@ export default {
     padding: .25em;
     position: relative;
     text-decoration: none;
+    cursor: pointer;
 }
 
 .p-menubar .p-menuitem-icon {

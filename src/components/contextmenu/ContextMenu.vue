@@ -242,6 +242,7 @@ export default {
     padding: .25em;
     display: block;
     position: relative;
+    cursor: pointer;
 }
 
 .p-contextmenu .p-menuitem-icon {

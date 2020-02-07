@@ -3,13 +3,13 @@
         <template v-for="(item, i) of model">
             <li role="none" :class="getItemClass(item)" :style="item.style" v-if="item.visible !== false && !item.separator" :key="item.label + i"
                 @mouseenter="onItemMouseEnter($event, item)">
-                <router-link v-if="item.to" :to="item.to" class="p-menuitem-link"
+                <router-link v-if="item.to" :to="item.to" :class="getLinkClass(item)"
                     @click.native="onItemClick($event, item)" @keydown.native="onItemKeyDown($event, item)" role="menuitem">
                     <span :class="['p-menuitem-icon', item.icon]"></span>
                     <span class="p-menuitem-text">{{item.label}}</span>
                 </router-link>
-                <a v-else :href="item.url||'#'" class="p-menuitem-link" :target="item.target" :aria-haspopup="item.items != null" :aria-expanded="item === activeItem"
-                    @click="onItemClick($event, item)" @keydown="onItemKeyDown($event, item)" role="menuitem">
+                <a v-else :href="item.url" :class="getLinkClass(item)" :target="item.target" :aria-haspopup="item.items != null" :aria-expanded="item === activeItem"
+                    @click="onItemClick($event, item)" @keydown="onItemKeyDown($event, item)" role="menuitem" :tabindex="item.disabled ? null : '0'">
                     <span :class="['p-menuitem-icon', item.icon]"></span>
                     <span class="p-menuitem-text">{{item.label}}</span>
                     <span :class="getSubmenuIcon()" v-if="item.items"></span>
@@ -239,6 +239,9 @@ export default {
                     'p-disabled': item.disabled,
                 }
             ]
+        },
+        getLinkClass(item) {
+            return ['p-menuitem-link', {'p-disabled': item.disabled}];
         },
         bindDocumentClickListener() {
             if (!this.documentClickListener) {
