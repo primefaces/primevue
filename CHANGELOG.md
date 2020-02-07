@@ -1,5 +1,26 @@
 # Changelog
 
+## [1.0.3](https://github.com/primefaces/primevue/tree/1.0.3) (2020-02-07)
+
+[Full Changelog](https://github.com/primefaces/primevue/compare/1.0.2...1.0.3)
+
+**Implemented New Features and Enhancements:**
+
+- Add position property to Dialog [\#184](https://github.com/primefaces/primevue/issues/184)
+- Add maximizable property to Dialog [\#183](https://github.com/primefaces/primevue/issues/183)
+- DataTable "$event" argument on page/sort events does not contains filterSearchMode. [\#181](https://github.com/primefaces/primevue/issues/181)
+- Dialog header not visible [\#179](https://github.com/primefaces/primevue/issues/179)
+- Ability to disable TieredMenu items [\#173](https://github.com/primefaces/primevue/issues/173)
+- Ability to disable ContextMenu items [\#169](https://github.com/primefaces/primevue/issues/169)
+- Ability to disable Menubar items [\#168](https://github.com/primefaces/primevue/issues/168)
+
+**Fixed bugs:**
+
+- Chart.vue : Error in v-on handler: "TypeError: this.emit is not a function" [\#188](https://github.com/primefaces/primevue/issues/188)
+- OverlayPanel dismissable does not work [\#187](https://github.com/primefaces/primevue/issues/187)
+- Could not find module './components/row/Row' [\#185](https://github.com/primefaces/primevue/issues/185)
+- Style classes are not rendered correctly on Dialog [\#182](https://github.com/primefaces/primevue/issues/182)
+
 ## [1.0.2](https://github.com/primefaces/primevue/tree/1.0.2) (2020-01-30)
 
 [Full Changelog](https://github.com/primefaces/primevue/compare/1.0.0...1.0.2)
