@@ -441,22 +441,22 @@ export default {
 .p-dialog-top {
     align-items: flex-start;
 }
-.p-dialog-topLeft {
+.p-dialog-topleft {
     justify-content: flex-start;
     align-items: flex-start;
 }
-.p-dialog-topRight {
+.p-dialog-topright {
     justify-content: flex-end;
     align-items: flex-start;
 }
 .p-dialog-bottom {
     align-items: flex-end;
 }
-.p-dialog-bottomLeft {
+.p-dialog-bottomleft {
     justify-content: flex-start;
     align-items: flex-end;
 }
-.p-dialog-bottomRight {
+.p-dialog-bottomright {
     justify-content: flex-end;
     align-items: flex-end;
 }
