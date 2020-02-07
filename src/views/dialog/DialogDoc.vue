@@ -227,7 +227,7 @@ export default {
 <CodeHighlight>
 <template v-pre>
 &lt;h3&gt;Basic&lt;/h3&gt;
-&lt;Button label="Show" icon="pi pi-external-link" class="show-btn" @click="openBasic" /&gt;
+&lt;Button label="Show" icon="pi pi-external-link" @click="openBasic" /&gt;
 &lt;Dialog header="Godfather I" :visible.sync="displayBasic" :style="{width: '50vw'}"&gt;
     The story begins as Don Vito Corleone, the head of a New York Mafia family, oversees his daughter's wedding.
         His beloved son Michael has just come home from the war, but does not intend to become part of his father's business.
@@ -239,7 +239,7 @@ export default {
     &lt;/template&gt;
 &lt;/Dialog&gt;
 
-&lt;Button label="Long Content" icon="pi pi-external-link" class="show-btn" @click="openBasic2" /&gt;
+&lt;Button label="Long Content" icon="pi pi-external-link" @click="openBasic2" /&gt;
 &lt;Dialog header="Godfather Casting" :visible.sync="displayBasic2" :style="{width: '50vw'}"&gt;
     Puzo was first to show interest in having Marlon Brando portray Don Vito Corleone by sending a letter to Brando in which he stated Brando was the "only actor who can play the Godfather." Despite Puzo's wishes, the executives at Paramount were against having Brando, partly due to the poor performance of his recent films and also his short temper. Coppola favored Brando or Laurence Olivier for the role, but Olivier's agent refused the role claiming Olivier was sick; however, Olivier went on to star in Sleuth later that year. The studio mainly pushed for Ernest Borgnine to receive the part. Other considerations were George C. Scott, Richard Conte, Anthony Quinn, and Orson Welles.
     &lt;br&gt;&lt;br&gt;
@@ -260,7 +260,7 @@ export default {
 &lt;/Dialog&gt;
 
 &lt;h3&gt;Modal&lt;/h3&gt;
-&lt;Button label="Show" icon="pi pi-external-link" class="show-btn" @click="openModal" /&gt;
+&lt;Button label="Show" icon="pi pi-external-link" @click="openModal" /&gt;
 &lt;Dialog header="Godfather I" :visible.sync="displayModal" :style="{width: '50vw'}" :modal="true"&gt;
     The story begins as Don Vito Corleone, the head of a New York Mafia family, oversees his daughter's wedding.
         His beloved son Michael has just come home from the war, but does not intend to become part of his father's business.
@@ -273,7 +273,7 @@ export default {
 &lt;/Dialog&gt;
 
 &lt;h3&gt;Maximizable&lt;/h3&gt;
-&lt;Button label="Show" icon="pi pi-external-link" class="show-btn" @click="openMaximizable" /&gt;
+&lt;Button label="Show" icon="pi pi-external-link" @click="openMaximizable" /&gt;
 &lt;Dialog header="Godfather I" :visible.sync="displayMaximizable" :style="{width: '50vw'}" :maximizable="true" :modal="true"&gt;
     The story begins as Don Vito Corleone, the head of a New York Mafia family, oversees his daughter's wedding.
         His beloved son Michael has just come home from the war, but does not intend to become part of his father's business.
@@ -288,18 +288,18 @@ export default {
 &lt;h3&gt;Position&lt;/h3&gt;
 &lt;div class="p-grid p-dir-col"&gt;
     &lt;div class="p-col"&gt;
-        &lt;Button label="Left" icon="pi pi-arrow-right" @click="openPosition('left')" class="show-btn p-button-dark" /&gt;
-        &lt;Button label="Right" icon="pi pi-arrow-left" @click="openPosition('right')" class="show-btn p-button-dark" /&gt;
+        &lt;Button label="Left" icon="pi pi-arrow-right" @click="openPosition('left')" class="p-button-warning"/&gt;
+        &lt;Button label="Right" icon="pi pi-arrow-left" @click="openPosition('right')" class="p-button-warning"/&gt;
     &lt;/div&gt;
     &lt;div class="p-col"&gt;
-        &lt;Button label="Top" icon="pi pi-arrow-down" @click="openPosition('top')" class="show-btn p-button-success" /&gt;
-        &lt;Button label="TopLeft" icon="pi pi-arrow-down" @click="openPosition('topLeft')" class="show-btn p-button-success" /&gt;
-        &lt;Button label="TopRight" icon="pi pi-arrow-down" @click="openPosition('topRight')" class="show-btn p-button-success" /&gt;
+        &lt;Button label="Top" icon="pi pi-arrow-down" @click="openPosition('top')" class="p-button-warning" /&gt;
+        &lt;Button label="TopLeft" icon="pi pi-arrow-down" @click="openPosition('topLeft')" class="p-button-warning" /&gt;
+        &lt;Button label="TopRight" icon="pi pi-arrow-down" @click="openPosition('topRight')" class="p-button-warning" /&gt;
     &lt;/div&gt;
     &lt;div class="p-col"&gt;
-        &lt;Button label="Bottom" icon="pi pi-arrow-up" @click="openPosition('bottom')" class="show-btn p-button-warning" /&gt;
-        &lt;Button label="BottomLeft" icon="pi pi-arrow-up" @click="openPosition('bottomLeft')" class="show-btn p-button-warning" /&gt;
-        &lt;Button label="BottomRight" icon="pi pi-arrow-up" @click="openPosition('bottomRight')" class="show-btn p-button-warning" /&gt;
+        &lt;Button label="Bottom" icon="pi pi-arrow-up" @click="openPosition('bottom')" class="p-button-warning" /&gt;
+        &lt;Button label="BottomLeft" icon="pi pi-arrow-up" @click="openPosition('bottomLeft')" class="p-button-warning" /&gt;
+        &lt;Button label="BottomRight" icon="pi pi-arrow-up" @click="openPosition('bottomRight')" class="p-button-warning" /&gt;
     &lt;/div&gt;
 &lt;/div&gt;
 
@@ -379,7 +379,7 @@ body .p-button-dark:enabled:hover {
 body .p-button-dark:enabled:focus {
     box-shadow: 0 0 0 0.2em #95a9bd;
 }
-body .show-btn {
+body .{
     margin: .5em .5em .5em 0;
     width: 140px;
 }

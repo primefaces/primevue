@@ -9,7 +9,7 @@
 
         <div class="content-section implementation">
             <h3>Basic</h3>
-            <Button label="Show" icon="pi pi-external-link" class="show-btn" @click="openBasic" />
+            <Button label="Show" icon="pi pi-external-link" @click="openBasic" />
             <Dialog header="Godfather I" :visible.sync="displayBasic" :style="{width: '50vw'}">
                 The story begins as Don Vito Corleone, the head of a New York Mafia family, oversees his daughter's wedding.
                     His beloved son Michael has just come home from the war, but does not intend to become part of his father's business.
@@ -21,7 +21,7 @@
                 </template>
             </Dialog>
 
-            <Button label="Long Content" icon="pi pi-external-link" class="show-btn" @click="openBasic2" />
+            <Button label="Long Content" icon="pi pi-external-link" @click="openBasic2" />
             <Dialog header="Godfather Casting" :visible.sync="displayBasic2" :style="{width: '50vw'}">
                 Puzo was first to show interest in having Marlon Brando portray Don Vito Corleone by sending a letter to Brando in which he stated Brando was the "only actor who can play the Godfather." Despite Puzo's wishes, the executives at Paramount were against having Brando, partly due to the poor performance of his recent films and also his short temper. Coppola favored Brando or Laurence Olivier for the role, but Olivier's agent refused the role claiming Olivier was sick; however, Olivier went on to star in Sleuth later that year. The studio mainly pushed for Ernest Borgnine to receive the part. Other considerations were George C. Scott, Richard Conte, Anthony Quinn, and Orson Welles.
                 <br><br>
@@ -42,7 +42,7 @@
             </Dialog>
 
             <h3>Modal</h3>
-            <Button label="Show" icon="pi pi-external-link" class="show-btn" @click="openModal" />
+            <Button label="Show" icon="pi pi-external-link" @click="openModal" />
             <Dialog header="Godfather I" :visible.sync="displayModal" :style="{width: '50vw'}" :modal="true">
                 The story begins as Don Vito Corleone, the head of a New York Mafia family, oversees his daughter's wedding.
                     His beloved son Michael has just come home from the war, but does not intend to become part of his father's business.
@@ -55,7 +55,7 @@
             </Dialog>
 
             <h3>Maximizable</h3>
-            <Button label="Show" icon="pi pi-external-link" class="show-btn" @click="openMaximizable" />
+            <Button label="Show" icon="pi pi-external-link" @click="openMaximizable" />
             <Dialog header="Godfather I" :visible.sync="displayMaximizable" :style="{width: '50vw'}" :maximizable="true" :modal="true">
                 The story begins as Don Vito Corleone, the head of a New York Mafia family, oversees his daughter's wedding.
                     His beloved son Michael has just come home from the war, but does not intend to become part of his father's business.
@@ -70,18 +70,18 @@
             <h3>Position</h3>
             <div class="p-grid p-dir-col">
                 <div class="p-col">
-                    <Button label="Left" icon="pi pi-arrow-right" @click="openPosition('left')" class="show-btn p-button-dark" />
-                    <Button label="Right" icon="pi pi-arrow-left" @click="openPosition('right')" class="show-btn p-button-dark" />
+                    <Button label="Left" icon="pi pi-arrow-right" @click="openPosition('left')" class="p-button-warning" />
+                    <Button label="Right" icon="pi pi-arrow-left" @click="openPosition('right')" class="p-button-warning" />
                 </div>
                 <div class="p-col">
-                    <Button label="Top" icon="pi pi-arrow-down" @click="openPosition('top')" class="show-btn p-button-success" />
-                    <Button label="TopLeft" icon="pi pi-arrow-down" @click="openPosition('topLeft')" class="show-btn p-button-success" />
-                    <Button label="TopRight" icon="pi pi-arrow-down" @click="openPosition('topRight')" class="show-btn p-button-success" />
+                    <Button label="Top" icon="pi pi-arrow-down" @click="openPosition('top')" class="p-button-warning" />
+                    <Button label="TopLeft" icon="pi pi-arrow-down" @click="openPosition('topLeft')" class="p-button-warning" />
+                    <Button label="TopRight" icon="pi pi-arrow-down" @click="openPosition('topRight')" class="p-button-warning" />
                 </div>
                 <div class="p-col">
-                    <Button label="Bottom" icon="pi pi-arrow-up" @click="openPosition('bottom')" class="show-btn p-button-warning" />
-                    <Button label="BottomLeft" icon="pi pi-arrow-up" @click="openPosition('bottomLeft')" class="show-btn p-button-warning" />
-                    <Button label="BottomRight" icon="pi pi-arrow-up" @click="openPosition('bottomRight')" class="show-btn p-button-warning" />
+                    <Button label="Bottom" icon="pi pi-arrow-up" @click="openPosition('bottom')" class="p-button-warning" />
+                    <Button label="BottomLeft" icon="pi pi-arrow-up" @click="openPosition('bottomLeft')" class="p-button-warning" />
+                    <Button label="BottomRight" icon="pi pi-arrow-up" @click="openPosition('bottomRight')" class="p-button-warning" />
                 </div>
             </div>
 
@@ -153,22 +153,13 @@ export default {
     }
 }
 </script>
-<style>
-body .p-button-dark {
-    background-color: #455b70;
-    border-color: #455b70;
-}
-body .p-button-dark:enabled:hover {
-    background-color: #364758;
-}
-body .p-button-dark:enabled:focus {
-    box-shadow: 0 0 0 0.2em #95a9bd;
-}
-body .show-btn {
+
+<style scoped lang="scss">
+.p-button {
     margin: .5em .5em .5em 0;
     width: 140px;
 }
-body .p-dialog .p-dialog-content {
+.p-dialog .p-dialog-content {
     line-height: 1.5;
 }
 </style>
