@@ -1,5 +1,5 @@
 <template>
-    <div aria-live="polite" class="p-message p-component p-message-error">
+    <div aria-live="polite" :class="containerClass">
         <span :class="iconClass"></span>
         <span class="p-message-text"><slot></slot></span>
     </div>
@@ -32,8 +32,8 @@ export default {
         },
         iconClass() {
             return ['p-message-icon pi', {
-                'pi-check': this.severity === 'info',
-                'pi-info-circle': this.severity === 'success',
+                'pi-info-circle': this.severity === 'info',
+                'pi-check': this.severity === 'success',
                 'pi-exclamation-triangle': this.severity === 'warn',
                 'pi-times-circle': this.severity === 'error'
             }];
