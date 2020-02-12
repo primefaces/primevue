@@ -54,7 +54,8 @@
                         <li><a href="https://www.primefaces.org/store" target="_blank"><span>PrimeStore</span></a></li>
                         <li><a href="https://www.primefaces.org/category/primevue/" target="_blank"><span>Blog</span></a></li>
                         <li><a href="https://twitter.com/primevue?lang=en" target="_blank"><span>Twitter</span></a></li>
-                        <li><a href="https://www.primefaces.org/whouses/" target="_blank"><span>Who Uses</span></a></li>
+                        <li><a href="https://www.primefaces.org/whouses" target="_blank"><span>Who Uses</span></a></li>
+                        <li><a href="https://www.primefaces.org/newsletter" target="_blank"><span>Newsletter</span></a></li>
                         <li><a href="https://www.primetek.com.tr" target="_blank"><span>About PrimeTek</span></a></li>
                     </ul>
                 </transition>
