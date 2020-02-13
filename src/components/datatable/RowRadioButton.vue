@@ -1,5 +1,5 @@
 <template>
-    <div class="p-radiobutton p-component" @click="onClick">
+    <div class="p-radiobutton p-component" @click.stop="onClick">
         <div class="p-hidden-accessible">
            <input ref="input" type="radio" :checked="checked" @focus="onFocus($event)" @blur="onBlur($event)" :disabled="disabled">
         </div>

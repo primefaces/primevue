@@ -54,7 +54,7 @@
 
             <h3>RadioButton</h3>
             <p>Single selection can also be handled using radio buttons by enabling the selectionMode property of column as "single".</p>
-			<DataTable :value="cars" :selection.sync="selectedCar3" dataKey="vin">
+			<DataTable :value="cars" :selection.sync="selectedCar3" dataKey="vin" :row-hover="true" @row-select="onRowSelect" @row-unselect="onRowUnselect" @row-click="onRowClick">
                 <Column selectionMode="single" headerStyle="width: 3em"></Column>
                 <Column field="vin" header="Vin"></Column>
                 <Column field="year" header="Year"></Column>
@@ -64,7 +64,7 @@
 
             <h3>Checkbox</h3>
             <p>Multiple selection can also be handled using checkboxes by enabling the selectionMode property of column as "multiple".</p>
-			<DataTable :value="cars" :selection.sync="selectedCars3" dataKey="vin">
+			<DataTable :value="cars" :selection.sync="selectedCars3" dataKey="vin" :row-hover="true" @row-select="onRowSelect" @row-unselect="onRowUnselect" @row-click="onRowClick">
                 <Column selectionMode="multiple" headerStyle="width: 3em"></Column>
                 <Column field="vin" header="Vin"></Column>
                 <Column field="year" header="Year"></Column>
@@ -209,7 +209,10 @@ export default {
         },
         onRowUnselect(event) {
             this.$toast.add({severity: 'warn', summary: 'Car Unselected', detail: 'Vin: ' + event.data.vin, life: 3000});
-        }
+        },
+		onRowClick(event) {
+			this.$toast.add({severity: "info", summary: "Car Clicked", detail: "Vin: " + event.data.vin, life: 3000});
+		}
     },
     components: {
         'DataTableSubMenu': DataTableSubMenu
