@@ -61,7 +61,6 @@
                 <Column field="brand" header="Brand"></Column>
                 <Column field="color" header="Color"></Column>
             </DataTable>
-			<p>Selected car: {{selectedCar3}}</p>
 
             <h3>Checkbox</h3>
             <p>Multiple selection can also be handled using checkboxes by enabling the selectionMode property of column as "multiple".</p>
@@ -72,7 +71,6 @@
                 <Column field="brand" header="Brand"></Column>
                 <Column field="color" header="Color"></Column>
             </DataTable>
-			<p>Selected cars: {{selectedCars3}}</p>
 		</div>
 
         <div class="content-section documentation">
