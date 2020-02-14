@@ -2,22 +2,19 @@
 <html lang="en">
 
     <head>
+        <script async src="https://www.googletagmanager.com/gtag/js?id=UA-93461466-1"></script>
+        <script>
+            window.dataLayer = window.dataLayer || [];
+            function gtag(){dataLayer.push(arguments);}
+            gtag('js', new Date());
+            gtag('config', 'UA-93461466-1');
+        </script>
         <meta charset="utf-8">
         <meta http-equiv="X-UA-Compatible" content="IE=edge">
         <meta name="viewport" content="width=device-width,initial-scale=1.0">
         <link rel="icon" href="<%= BASE_URL %>favicon.ico">
         <title>PrimeVUE</title>
         <link id="theme-link" rel="stylesheet" href="<%= BASE_URL %>themes/nova-light/theme.css">
-        <script>
-            window.ga = window.ga || function () {
-                (ga.q = ga.q || []).push(arguments)
-            };
-            ga.l = +new Date;
-            ga('create', 'UA-93461466-1', 'auto');
-            ga('require', 'urlChangeTracker');
-            ga('send', 'pageview');
-        </script>
-        <script async src="https://www.google-analytics.com/analytics.js"></script>
     </head>
 
     <body>
