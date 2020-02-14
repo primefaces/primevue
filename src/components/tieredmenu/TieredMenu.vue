@@ -189,6 +189,7 @@ export default {
     display: block;
     position: relative;
     text-decoration: none;
+    cursor: pointer;
 }
 
 .p-tieredmenu .p-menuitem-icon {

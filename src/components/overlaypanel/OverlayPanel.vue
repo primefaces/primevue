@@ -74,7 +74,10 @@ export default {
         onEnter() {
             this.appendContainer();
             this.alignOverlay();
-            this.bindOutsideClickListener();
+            if (this.dismissable) {
+                this.bindOutsideClickListener();
+            }
+
             this.bindResizeListener();
 
             if (this.autoZIndex) {

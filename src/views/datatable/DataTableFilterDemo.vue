@@ -13,7 +13,7 @@
 			<DataTable :value="cars" :filters="filters" :paginator="true" :rows="10">
                 <template #header>
                     <div style="text-align: right">
-                        <i class="pi pi-search" style="margin: 4px 4px 0px 0px;"></i>
+                        <i class="pi pi-search" style="margin: 4px 4px 0 0"></i>
                         <InputText v-model="filters['global']" placeholder="Global Search" size="50" />
                     </div>
                 </template>
@@ -58,7 +58,7 @@
 &lt;DataTable :value="cars" :filters="filters" :paginator="true" :rows="10"&gt;
     &lt;template #header&gt;
         &lt;div style="text-align: right"&gt;
-            &lt;i class="pi pi-search" style="margin: 4px 4px 0px 0px;"&gt;&lt;/i&gt;
+            &lt;i class="pi pi-search" style="margin: 4px 4px 0 0"&gt;&lt;/i&gt;
             &lt;InputText v-model="filters['global']" placeholder="Global Search" size="50" /&gt;
         &lt;/div&gt;
     &lt;/template&gt;

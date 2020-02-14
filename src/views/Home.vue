@@ -1,6 +1,8 @@
 <template>
     <div class="home">
         <div class="introduction">
+            <span class="introduction-promo"><img alt="Gold Sponsor" src="../assets/images/home/vue-gold.png" />
+                <span>Vue.js Gold Sponsor</span></span>
             <h1>The Most Complete UI Framework</h1>
             <h2>for VUE</h2>
 
@@ -196,7 +198,7 @@ export default {
             expire.setTime(today.getTime() + 3600000*24*7);
             document.cookie = 'primeaffiliateid=' + afId + ';expires=' + expire.toUTCString() + ';path=/; domain:primefaces.org';
         }
-        
+
     }
 }
 </script>

@@ -67,7 +67,7 @@ export default {
                 const dataset = this.chart.getDatasetAtEvent(event);
 
                 if (element && element[0] && dataset) {
-                    this.emit('select', {originalEvent: event, element: element[0], dataset: dataset});
+                    this.$emit('select', {originalEvent: event, element: element[0], dataset: dataset});
                 }
             }
         },

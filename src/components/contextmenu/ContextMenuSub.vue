@@ -4,13 +4,12 @@
             <template v-for="(item, i) of model">
                 <li role="none" :class="getItemClass(item)" :style="item.style" v-if="item.visible !== false && !item.separator" :key="item.label + i"
                     @mouseenter="onItemMouseEnter($event, item)">
-                    <router-link v-if="item.to" :to="item.to" class="p-menuitem-link"
-                        @click.native="onItemClick($event, item)" role="menuitem">
+                    <router-link v-if="item.to" :to="item.to" :class="getLinkClass(item)" @click.native="onItemClick($event, item)" role="menuitem">
                         <span :class="['p-menuitem-icon', item.icon]"></span>
                         <span class="p-menuitem-text">{{item.label}}</span>
                     </router-link>
-                    <a v-else :href="item.url||'#'" class="p-menuitem-link" :target="item.target"
-                        @click="onItemClick($event, item)" :aria-haspopup="item.items != null" :aria-expanded="item === activeItem" role="menuitem">
+                    <a v-else :href="item.url" :class="getLinkClass(item)" :target="item.target" @click="onItemClick($event, item)"
+                         :aria-haspopup="item.items != null" :aria-expanded="item === activeItem" role="menuitem"  :tabindex="item.disabled ? null : '0'">
                         <span :class="['p-menuitem-icon', item.icon]"></span>
                         <span class="p-menuitem-text">{{item.label}}</span>
                         <span class="p-submenu-icon pi pi-fw pi-caret-right" v-if="item.items"></span>
@@ -115,6 +114,9 @@ export default {
                     'p-disabled': item.disabled,
                 }
             ]
+        },
+        getLinkClass(item) {
+            return ['p-menuitem-link', {'p-disabled': item.disabled}];
         }
     },
     computed: {
