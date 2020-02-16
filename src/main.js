@@ -1,5 +1,6 @@
 import Vue from 'vue';
 import App from './App.vue';
+import VueGtag from "vue-gtag";
 import router from './router';
 import AutoComplete from './components/autocomplete/AutoComplete';
 import Accordion from './components/accordion/Accordion';
@@ -85,6 +86,13 @@ Vue.use(Vuelidate);
 Vue.use(ToastService);
 
 Vue.directive('tooltip', Tooltip);
+
+Vue.use(VueGtag, {
+  config: {
+    id: 'UA-93461466-1',
+    disableScriptLoad: true
+  }
+}, router);
 
 Vue.config.productionTip = false;
 
