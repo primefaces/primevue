@@ -888,7 +888,7 @@ export default {
 }
 
 .p-treetable-auto-layout > .p-treetable-wrapper > table {
-    table-layout: auto;
+    table-layout: auto !important;
 }
 
 .p-treetable-hoverable-rows .p-treetable-tbody > tr.p-highlight {
