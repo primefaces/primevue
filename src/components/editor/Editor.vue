@@ -75,23 +75,9 @@ export default {
             theme: 'snow',
             formats: this.formats
         });
-
-        this.quill.on('text-change', (delta, source) => {
-            let html = this.$refs.editorElement.children[0].innerHTML;
-            if (html === '<p><br></p>') {
-                html = '';
-            }
-
-            this.$emit('input', html);
-            this.$emit('text-change', {
-                htmlValue: html,
-                textValue: this.quill.getText(),
-                delta: delta,
-                source: source
-            });
-        });
-
+        this.quill.on('text-change', this.onTextChange.bind(this));
         this.renderValue(this.value);
+		this.$emit('init');
     },
     methods: {
         renderValue(value) {
@@ -101,9 +87,24 @@ export default {
                 else
                     this.quill.setText('');
             }
-        }
+        },
+		onTextChange(delta, oldDelta, source) {
+			let html = this.$refs.editorElement.children[0].innerHTML;
+            if (html === '<p><br></p>') {
+                html = '';
+            }
+			if (source != 'api')
+				this.$emit('input', html);
+            this.$emit('text-change', {
+                htmlValue: html,
+                textValue: this.quill.getText(),
+                delta: delta,
+                source: source
+            });
+		}
     },
     beforeDestroy() {
+		this.quill.off('text-change', this.onTextChange.bind(this));
         this.quill = null;
     }
 }
