@@ -28,9 +28,18 @@ export default {
         }
     },
     watch: {
-        $route() {
-            this.sidebarActive = false;
-            this.$toast.removeAllGroups();
+        $route: {
+            immediate: true,
+            handler(to) {
+                let route = window.location.href.split('/#')[1];
+                if (to.path === route) {
+                    gtag('config', 'UA-93461466-1', {
+                        'page_path': '/primevue' + to.path
+                    });
+                }
+                this.sidebarActive = false;
+                this.$toast.removeAllGroups();
+            }
         }
     },
     methods: {
