@@ -887,7 +887,7 @@ export default {
     overflow-x: auto;
 }
 
-.p-treetable-auto-layout > .p-treetable-wrapper > table {
+.p-treetable-auto-layout table {
     table-layout: auto;
 }
 
