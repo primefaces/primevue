@@ -151,9 +151,9 @@ npm install quill --save
 &lt;Editor v-model="value2" editorStyle="height: 320px"&gt;
     &lt;template slot="toolbar"&gt;
     &lt;span class="ql-formats"&gt;
-        &lt;button class="ql-bold"&gt;&lt;/button&gt;
-        &lt;button class="ql-italic"&gt;&lt;/button&gt;
-        &lt;button class="ql-underline"&gt;&lt;/button&gt;
+        &lt;button class="ql-bold" v-tooltip.bottom="'Bold'"&gt;&lt;/button&gt;
+        &lt;button class="ql-italic" v-tooltip.bottom="'Italic'"&gt;&lt;/button&gt;
+        &lt;button class="ql-underline" v-tooltip.bottom="'Underline'"&gt;&lt;/button&gt;
     &lt;/span&gt;
     &lt;/template&gt;
 &lt;/Editor&gt;

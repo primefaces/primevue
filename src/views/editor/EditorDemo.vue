@@ -15,9 +15,9 @@
             <Editor v-model="value2" editorStyle="height: 320px">
                 <template slot="toolbar">
                     <span class="ql-formats">
-                        <button class="ql-bold"></button>
-                        <button class="ql-italic"></button>
-                        <button class="ql-underline"></button>
+                        <button class="ql-bold" v-tooltip.bottom="'Bold'"></button>
+                        <button class="ql-italic" v-tooltip.bottom="'Italic'"></button>
+                        <button class="ql-underline" v-tooltip.bottom="'Underline'"></button>
                     </span>
                 </template>
             </Editor>
