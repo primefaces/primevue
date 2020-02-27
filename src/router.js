@@ -433,7 +433,6 @@ export default new Router({
         },
         {
 			path: '/steps',
-			name: 'steps',
             component: () => import('./views/steps/StepsDemo.vue'),
             children: [{
                 path: '',
@@ -459,7 +458,6 @@ export default new Router({
         },
         {
 			path: '/tabmenu',
-			name: 'tabmenu',
             component: () => import('./views/tabmenu/TabMenuDemo.vue'),
             children: [{
                 path: '',
