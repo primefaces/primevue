@@ -1,5 +1,28 @@
 # Changelog
 
+## [1.0.5](https://github.com/primefaces/primevue/tree/1.0.5) (2020-02-27)
+
+[Full Changelog](https://github.com/primefaces/primevue/compare/1.0.4...1.0.5)
+
+**Implemented New Features and Enhancements:**
+
+- Tooltip Component missing typescript declaration file [\#202](https://github.com/primefaces/primevue/issues/202)
+
+**Fixed bugs:**
+
+- Tooltip reactive text [\#206](https://github.com/primefaces/primevue/issues/206)
+- Editor infinite loop with some specific values [\#204](https://github.com/primefaces/primevue/issues/204)
+- DataTable \> Missing `custom` filterMatchMode [\#200](https://github.com/primefaces/primevue/issues/200)
+- Top\* and Bottom\* animation are not working correctly on Dialog with 'position' property [\#190](https://github.com/primefaces/primevue/issues/190)
+
+## [1.0.4](https://github.com/primefaces/primevue/tree/1.0.4) (2020-02-08)
+
+[Full Changelog](https://github.com/primefaces/primevue/compare/1.0.3...1.0.4)
+
+**Fixed bugs:**
+
+- Dialog positions regressions [\#191](https://github.com/primefaces/primevue/issues/191)
+
 ## [1.0.3](https://github.com/primefaces/primevue/tree/1.0.3) (2020-02-07)
 
 [Full Changelog](https://github.com/primefaces/primevue/compare/1.0.2...1.0.3)
