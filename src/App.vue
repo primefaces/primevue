@@ -33,7 +33,7 @@ export default {
             handler(to) {
                 let route = window.location.href.split('/#')[1];
                 if (to.path === route) {
-                    gtag('config', 'UA-93461466-1', {
+                    window['gtag']('config', 'UA-93461466-1', {
                         'page_path': '/primevue' + to.path
                     });
                 }
