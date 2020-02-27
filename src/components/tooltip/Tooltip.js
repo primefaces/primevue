@@ -225,6 +225,10 @@ const Tooltip = {
     unbind(el) {
         remove(el);
         unbindEvents(el);
+    },
+    update(el, options) {
+        el.$_ptooltipModifiers = options.modifiers;
+        el.$_ptooltipValue = options.value;
     }
 };
 
