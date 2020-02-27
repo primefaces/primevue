@@ -76,22 +76,25 @@ export default {
             formats: this.formats
         });
 
-        this.quill.on('text-change', (delta, source) => {
-            let html = this.$refs.editorElement.children[0].innerHTML;
-            if (html === '<p><br></p>') {
-                html = '';
-            }
-
-            this.$emit('input', html);
-            this.$emit('text-change', {
-                htmlValue: html,
-                textValue: this.quill.getText(),
-                delta: delta,
-                source: source
-            });
-        });
-
         this.renderValue(this.value);
+
+        this.quill.on('text-change', (delta, oldContents, source) => {
+            if (source === 'user') {
+                let html = this.$refs.editorElement.children[0].innerHTML;
+                let text = this.quill.getText().trim();
+                if (html === '<p><br></p>') {
+                    html = '';
+                }
+
+                this.$emit('input', html);
+                this.$emit('text-change', {
+                    htmlValue: html,
+                    textValue: text,
+                    delta: delta,
+                    source: source
+                });
+            }
+        });
     },
     methods: {
         renderValue(value) {
