@@ -209,6 +209,14 @@ export default {
                                 <td>Defines filterMatchMode; "startsWith", "contains", "endsWidth", "equals", "notEquals", "in" and "custom".</td>
                             </tr>
                             <tr>
+                                <td>filterFunction</td>
+                                <td>function</td>
+                                <td>null</td>
+                                <td>A function that takes a value and a filter to compare against by returning either true or false. filterMatchMode must be set
+                                    to "custom" for this function to be triggered.
+                                </td>
+                            </tr>
+                            <tr>
                                 <td>excludeGlobalFilter</td>
                                 <td>boolean</td>
                                 <td>false</td>
@@ -477,7 +485,7 @@ data() {
                 <p>Filtering is enabled by defining a filter template per column to populate the <i>filters</i> property of the DataTable. The <i>filters</i>
                 property should be an key-value object where keys are the field name and the value is the filter value. The filter template receives the column properties
                 via the slotProps and accepts any form element as the filter element. Default match mode is "startsWith" and this can be configured per column using the <i>filterMatchMode</i> property that also accepts
-                "contains", "endsWith", "equals", "notEquals" and "in" as available modes.</p>
+                "contains", "endsWith", "equals", "notEquals", "in" and "custom" as available modes.</p>
                 <p>Optionally a global filter is available to search against all the fields, in this case the special <i>global</i> keyword should be the property to be populated.</p>
 <CodeHighlight>
 <template v-pre>
@@ -517,6 +525,33 @@ data() {
     &lt;/Column&gt;
 &lt;/DataTable&gt;
 </template>
+</CodeHighlight>
+
+                <p>Custom filtering is implemented by setting the filterMatchMode to "custom" and defining a filter function.</p>
+<CodeHighlight>
+<template v-pre>
+&lt;Column field="vin" header="Vin" filterMatchMode="myOwnEquals"&gt;
+        &lt;template #filter&gt;
+            &lt;InputText type="text" v-model="filters['vin']" class="p-column-filter" /&gt;
+        &lt;/template&gt;
+    &lt;/Column&gt;
+</template>
+</CodeHighlight>
+
+<CodeHighlight lang="javascript">
+methods: {
+    myOwnEquals(value, filter) {
+        if (filter === undefined || filter === null || (typeof filter === 'string' &amp;&amp; filter.trim() === '')) {
+            return true;
+        }
+
+        if (value === undefined || value === null) {
+            return false;
+        }
+
+        return value.toString().toLowerCase() === filter.toString().toLowerCase();
+    }
+}
 </CodeHighlight>
 
                 <h3>Selection</h3>

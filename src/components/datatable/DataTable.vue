@@ -577,8 +577,7 @@ export default {
                     if (Object.prototype.hasOwnProperty.call(this.filters, columnField)) {
                         let filterValue = this.filters[columnField];
                         let dataFieldValue = ObjectUtils.resolveFieldData(data[i], columnField);
-                        let filterConstraint = FilterUtils[col.filterMatchMode];
-
+                        let filterConstraint = col.filterMatchMode === 'custom' ? col.filterFunction : FilterUtils[col.filterMatchMode];
                         if (!filterConstraint(dataFieldValue, filterValue)) {
                             localMatch = false;
                         }

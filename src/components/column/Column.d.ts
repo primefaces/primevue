@@ -14,6 +14,7 @@ export declare class Column extends Vue {
     footerStyle?: object;
     footerClass?: string;
     filterMatchMode?: string;
+    filterFunction?: Function;
     excludeGlobalFilter?: boolean;
     selectionMode?: string;
     expander?: boolean;

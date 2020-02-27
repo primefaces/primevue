@@ -54,6 +54,10 @@ export default {
             type: String,
             default: 'startsWith'
         },
+        filterFunction: {
+            type: Function,
+            default: null
+        },
         excludeGlobalFilter: {
             type: Boolean,
             default: false
