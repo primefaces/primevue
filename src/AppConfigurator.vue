@@ -83,34 +83,34 @@
                     <h1>PREMIUM VUE-CLI TEMPLATES</h1>
                     <p>Beautifully crafted premium <a href="https://cli.vuejs.org">Vue CLI</a> application templates by the PrimeTek design team.</p>
                     <div class="p-grid">
-                        <div class="p-col-12">
+                        <div class="p-col-12 p-md-6">
                             <a href="https://www.primefaces.org/layouts/sapphire-vue">
-                                <img alt="Sapphire" src="./assets/images/layouts/sapphire.jpg">
+                                <img alt="Sapphire" src="./assets/images/layouts/sapphire-vue.jpg">
                             </a>
                         </div>
-                        <div class="p-col-12">
+                        <div class="p-col-12 p-md-6">
                             <a href="https://www.primefaces.org/layouts/serenity-vue">
-                                <img alt="Serenity" src="./assets/images/layouts/serenity.jpg">
+                                <img alt="Serenity" src="./assets/images/layouts/serenity-vue.jpg">
                             </a>
                         </div>
-                        <div class="p-col-12">
+                        <div class="p-col-12 p-md-6">
                             <a href="https://www.primefaces.org/layouts/babylon-vue">
-                                <img alt="Babylon" src="./assets/images/layouts/babylon.jpg">
+                                <img alt="Babylon" src="./assets/images/layouts/babylon-vue.jpg">
                             </a>
                         </div>
-                        <div class="p-col-12">
+                        <div class="p-col-12 p-md-6">
                             <a href="https://www.primefaces.org/layouts/avalon-vue">
-                                <img alt="Avalon" src="./assets/images/layouts/avalon.jpg">
+                                <img alt="Avalon" src="./assets/images/layouts/avalon-vue.jpg">
                             </a>
                         </div>
-                        <div class="p-col-12">
+                        <div class="p-col-12 p-md-6">
                             <a href="https://www.primefaces.org/layouts/apollo-vue">
-                                <img alt="Apollo" src="./assets/images/layouts/apollo.jpg">
+                                <img alt="Apollo" src="./assets/images/layouts/apollo-vue.jpg">
                             </a>
                         </div>
-                        <div class="p-col-12">
+                        <div class="p-col-12 p-md-6">
                             <a href="https://www.primefaces.org/layouts/roma-vue">
-                                <img alt="Roma" src="./assets/images/layouts/roma.jpg">
+                                <img alt="Roma" src="./assets/images/layouts/roma-vue.jpg">
                             </a>
                         </div>
                     </div>
