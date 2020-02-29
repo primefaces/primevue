@@ -1,8 +1,8 @@
 <template>
     <div class="p-tabview p-component p-tabview-top">
         <ul class="p-tabview-nav p-reset" role="tablist">
-            <li role="presentation" v-for="(tab, i) of tabs" :key="tab.header || i" :class="['p-unselectable-text', {'p-highlight': (tab.d_active), 'p-disabled': tab.disabled}]">
-                <a role="tab" @click="onTabClick($event, tab)" @keydown="onTabKeydown($event, tab)" :tabindex="tab.disabled ? null : '0'" :aria-selected="tab.d_active">
+            <li role="presentation" v-for="(tab, i) of tabs" :key="tab.header || i" :class="['p-unselectable-text', {'p-highlight': (tab.d_visible), 'p-disabled': tab.disabled, 'p-hidden': tab.hidden}]">
+                <a role="tab" @click="onTabClick($event, tab)" @keydown="onTabKeydown($event, tab)" :tabindex="tab.disabled ? null : '0'" :aria-selected="tab.d_visible">
                     <span class="p-tabview-title" v-if="tab.header">{{tab.header}}</span>
                     <TabPanelHeaderSlot :tab="tab" v-if="tab.$scopedSlots.header" />
                 </a>
@@ -39,7 +39,7 @@ export default {
     },
     methods: {
         onTabClick(event, tab) {
-            if (!tab.disabled && !tab.d_active) {
+            if (!tab.disabled && !tab.d_visible) {
                 this.activateTab(tab);
 
                 this.$emit('tab-change', {
@@ -51,7 +51,7 @@ export default {
         activateTab(tab) {
             for (let i = 0; i < this.tabs.length; i++) {
                 let active = this.tabs[i] === tab;
-                this.tabs[i].d_active = active;
+                this.tabs[i].d_visible = active;
                 this.tabs[i].$emit('update:active', active);
             }
         },
@@ -64,7 +64,7 @@ export default {
             let activeTab;
             for (let i = 0; i < this.tabs.length; i++) {
                 let tab = this.tabs[i];
-                if (tab.d_active) {
+                if (tab.d_visible) {
                     activeTab = tab;
                     break;
                 }
@@ -76,7 +76,7 @@ export default {
     updated() {
         let activeTab = this.findActiveTab();
         if (!activeTab && this.tabs.length) {
-            this.tabs[0].d_active = true;
+            this.tabs[0].d_visible = true;
         }
     },
     computed: {
@@ -112,6 +112,10 @@ export default {
     margin: 0 .125em 1px 0;
     padding: 0;
     white-space: nowrap;
+}
+
+.p-tabview .p-tabview-nav li.p-hidden {
+    display: none;
 }
 
 .p-tabview .p-tabview-nav li a {
