@@ -1,8 +1,8 @@
 <template>
     <div class="p-tabview p-component p-tabview-top">
         <ul class="p-tabview-nav p-reset" role="tablist">
-            <li role="presentation" v-for="(tab, i) of tabs" :key="tab.header || i" :class="['p-unselectable-text', {'p-highlight': (tab.d_visible), 'p-disabled': tab.disabled, 'p-hidden': tab.hidden}]">
-                <a role="tab" @click="onTabClick($event, tab)" @keydown="onTabKeydown($event, tab)" :tabindex="tab.disabled ? null : '0'" :aria-selected="tab.d_visible">
+            <li role="presentation" v-for="(tab, i) of tabs" :key="tab.header || i" :class="['p-unselectable-text', {'p-highlight': (tab.c_visible), 'p-disabled': tab.disabled, 'p-hidden': tab.hidden}]">
+                <a role="tab" @click="onTabClick($event, tab)" @keydown="onTabKeydown($event, tab)" :tabindex="tab.disabled ? null : '0'" :aria-selected="tab.c_visible">
                     <span class="p-tabview-title" v-if="tab.header">{{tab.header}}</span>
                     <TabPanelHeaderSlot :tab="tab" v-if="tab.$scopedSlots.header" />
                 </a>
@@ -39,7 +39,7 @@ export default {
     },
     methods: {
         onTabClick(event, tab) {
-            if (!tab.disabled && !tab.d_visible) {
+            if (!tab.disabled && !tab.c_visible) {
                 this.activateTab(tab);
 
                 this.$emit('tab-change', {
@@ -51,7 +51,7 @@ export default {
         activateTab(tab) {
             for (let i = 0; i < this.tabs.length; i++) {
                 let active = this.tabs[i] === tab;
-                this.tabs[i].d_visible = active;
+                this.tabs[i].d_active = active;
                 this.tabs[i].$emit('update:active', active);
             }
         },
@@ -60,23 +60,25 @@ export default {
                 this.onTabClick(event, tab);
             }
         },
-        findActiveTab() {
-            let activeTab;
+        findVisibleTabs() {
+            var visibleTabs = new Array();
             for (let i = 0; i < this.tabs.length; i++) {
                 let tab = this.tabs[i];
-                if (tab.d_visible) {
-                    activeTab = tab;
-                    break;
+                if (tab.c_visible) {
+                    visibleTabs[visibleTabs.length] = tab;
                 }
             }
-
-            return activeTab;
+            return visibleTabs;
         }
     },
     updated() {
-        let activeTab = this.findActiveTab();
-        if (!activeTab && this.tabs.length) {
-            this.tabs[0].d_visible = true;
+        let visibleTabs = this.findVisibleTabs();
+        if (this.tabs.length) {
+            if (visibleTabs.length == 0) {
+                this.activateTab(this.tabs[0]);
+            } else if (visibleTabs.length > 1) {
+                this.activateTab(visibleTabs[0]);
+            }
         }
     },
     computed: {

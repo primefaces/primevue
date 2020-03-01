@@ -1,5 +1,5 @@
 <template>
-    <div class="p-tabview-panel" role="tabpanel" v-show="d_visible">
+    <div class="p-tabview-panel" role="tabpanel" v-show="c_visible">
         <slot></slot>
     </div>
 </template>
@@ -15,15 +15,17 @@ export default {
     },
     data() {
         return {
-            d_visible: this.active && !this.hidden
+            d_active: false
+        };
+    },
+    computed: {
+        c_visible: function() {
+            return this.d_active && !this.hidden;
         }
     },
     watch: {
         active(newValue) {
-            this.d_visible = newValue && this.hidden;
-        },
-        hidden(newValue) {
-            this.d_visible = this.active && newValue;
+            this.d_active = newValue;
         }
     }
 }
