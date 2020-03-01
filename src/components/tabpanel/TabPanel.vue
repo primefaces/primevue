@@ -26,6 +26,7 @@ export default {
     watch: {
         active(newValue) {
             this.d_active = newValue;
+            if (newValue) this.$emit("activated", this);
         }
     }
 }

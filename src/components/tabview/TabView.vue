@@ -36,6 +36,9 @@ export default {
     },
     mounted() {
         this.d_children = this.$children;
+        for (let i = 0; i < this.tabs.length; i++) {
+            this.tabs[i].$on("activated", this.onTabActivatedByProp);
+        }
     },
     methods: {
         onTabClick(event, tab) {
@@ -47,6 +50,9 @@ export default {
                     tab: tab
                 });
             }
+        },
+        onTabActivatedByProp(tab) {
+            this.activateTab(tab);
         },
         activateTab(tab) {
             for (let i = 0; i < this.tabs.length; i++) {
@@ -73,18 +79,14 @@ export default {
     },
     updated() {
         let visibleTabs = this.findVisibleTabs();
-        if (this.tabs.length) {
-            if (visibleTabs.length == 0) {
-                this.activateTab(this.tabs[0]);
-            } else if (visibleTabs.length > 1) {
-                this.activateTab(visibleTabs[0]);
-            }
+        if (visibleTabs.length == 0 && this.tabs.length) {
+            this.activateTab(this.tabs[0]);
         }
     },
     computed: {
         tabs() {
             return this.d_children.filter(child => child.$vnode.tag.indexOf('tabpanel') !== -1);
-        }
+        },
     },
     components: {
         'TabPanelHeaderSlot': TabPanelHeaderSlot
