@@ -3,6 +3,7 @@
 [![npm version](https://badge.fury.io/js/primevue.svg)](https://badge.fury.io/js/primevue)
 [![Join the chat at https://gitter.im/primefaces/primevue](https://badges.gitter.im/primefaces/primevue.svg)](https://gitter.im/primefaces/primevue?utm_source=badge&utm_medium=badge&utm_campaign=pr-badge&utm_content=badge)
 
+[![PrimeVue Hero](https://www.primefaces.org/wp-content/uploads/2020/03/primevue-github-02032020.jpg "PrimeVue Hero")](https://www.primefaces.org/primevue)
 
 # PrimeVue
 
