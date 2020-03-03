@@ -465,7 +465,7 @@ export default {
 
             if (column.sortable) {
                 const targetNode = event.target;
-                const columnField = column.field || column.sortField;
+                const columnField = column.sortField || column.field;
 
                 if (DomHandler.hasClass(targetNode, 'p-sortable-column') || DomHandler.hasClass(targetNode, 'p-column-title')
                     || DomHandler.hasClass(targetNode, 'p-sortable-column-icon') || DomHandler.hasClass(targetNode.parentElement, 'p-sortable-column-icon')) {
@@ -499,6 +499,7 @@ export default {
             data.sort((data1, data2) => {
                 let value1 = ObjectUtils.resolveFieldData(data1, this.d_sortField);
                 let value2 = ObjectUtils.resolveFieldData(data2, this.d_sortField);
+                
                 let result = null;
 
                 if (value1 == null && value2 != null)
