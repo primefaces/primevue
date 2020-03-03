@@ -170,6 +170,18 @@
                 </div>
             </div>
         </div>
+        <div class="primevue-designer">
+            <h3>PrimeVue Designer API</h3>
+            <div class="p-grid">
+                <div className="p-col-12">
+                    <img alt="PrimeReact Designer" src="../assets/images/primevue-designer.jpg" />
+                    <p><a href="https://www.primefaces.org/designer/primevue">Designer API</a> is a SASS based theme engine to create PrimeVue themes easily featuring over 500 variables,
+                        a demo application and a base sample theme. Whether you have your own style guide or just need a custom theme, Designer API is the right tool to design and bring them to existence.</p>
+
+                    <p>Visit <a href="https://www.primefaces.org/designer/primevue">Designer API HomePage</a> for more information, live demos and access to a trial version.</p>
+                </div>
+            </div>
+        </div>
         <div class="prosupport">
             <div class="p-grid">
                 <div class="p-col-12 p-md-6">
