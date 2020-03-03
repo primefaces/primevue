@@ -86,7 +86,7 @@ export default {
     },
     methods: {
         getColumnHeaderClass(column) {
-            const sorted = this.sortMode === 'single' ? (this.sortField === (column.field || column.sortField)) : this.getMultiSortMetaIndex(column) > -1;
+            const sorted = this.sortMode === 'single' ? (this.sortField === column.field || this.sortField === column.sortField) : this.getMultiSortMetaIndex(column) > -1;
 
             return [column.headerClass,
                     {'p-sortable-column': column.sortable},
@@ -99,7 +99,7 @@ export default {
             let sortOrder = null;
 
             if (this.sortMode === 'single') {
-                sorted =  this.sortField === (column.field || column.sortField);
+                sorted = (this.sortField === column.field || this.sortField === column.sortField);
                 sortOrder = sorted ? this.sortOrder: 0;
             }
             else if (this.sortMode === 'multiple') {
