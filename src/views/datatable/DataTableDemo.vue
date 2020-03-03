@@ -12,7 +12,7 @@
 		<div class="content-section implementation">
             <div class="p-card">
                 <div class="p-card-body" style="padding:0">
-                    <DataTable :value="customers" :paginator="true" class="p-datatable-responsive p-datatable-customers" :rows="10" 
+                    <DataTable :value="customers" :paginator="true" class="p-datatable-responsive p-datatable-customers" :rows="10"
                         dataKey="id" :rowHover="true" :selection.sync="selectedCustomers"
                         paginatorTemplate="FirstPageLink PrevPageLink PageLinks NextPageLink LastPageLink CurrentPageReport RowsPerPageDropdown" :rowsPerPageOptions="[10,25,50]">
                         <template #header>
