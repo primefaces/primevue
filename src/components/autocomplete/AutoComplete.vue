@@ -72,6 +72,10 @@ export default {
         ariaLabelledBy: {
             type: String,
             default: null
+        },
+        appendTo: {
+            type: String,
+            default: null
         }
     },
     timeout: null,
@@ -97,9 +101,14 @@ export default {
             }
         }
     },
+    beforeDestroy() {
+        this.restoreAppend();
+        this.unbindOutsideClickListener();
+    },
     methods: {
         onOverlayEnter() {
             this.$refs.overlay.style.zIndex = String(DomHandler.generateZIndex());
+            this.appendContainer();
             this.alignOverlay();
             this.bindOutsideClickListener();
         },
@@ -107,10 +116,11 @@ export default {
             this.unbindOutsideClickListener();
         },
         alignOverlay() {
-            if (this.multiple)
-                DomHandler.relativePosition(this.$refs.overlay, this.$refs.multiContainer);
+            let target = this.multiple ? this.$refs.multiContainer : this.$refs.input;
+            if (this.appendTo)
+                DomHandler.absolutePosition(this.$refs.overlay, target);
             else
-                DomHandler.relativePosition(this.$refs.overlay, this.$refs.input);
+                DomHandler.relativePosition(this.$refs.overlay, target);
         },
         bindOutsideClickListener() {
             if (!this.outsideClickListener) {
@@ -347,6 +357,22 @@ export default {
             }
 
             return selected;
+        },
+        appendContainer() {
+            if (this.appendTo) {
+                if (this.appendTo === 'body')
+                    document.body.appendChild(this.$refs.overlay);
+                else
+                    document.getElementById(this.appendTo).appendChild(this.$refs.overlay);
+            }
+        },
+        restoreAppend() {
+            if (this.$refs.overlay && this.appendTo) {
+                if (this.appendTo === 'body')
+                    document.body.removeChild(this.$refs.overlay);
+                else
+                    document.getElementById(this.appendTo).removeChild(this.$refs.overlay);
+            }
         }
     },
     computed: {
