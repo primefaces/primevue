@@ -95,7 +95,7 @@ export default {
     },
     methods: {
         getOptionLabel(option) {
-            return ObjectUtils.resolveFieldData(option, this.optionLabel);
+            return this.optionLabel ? ObjectUtils.resolveFieldData(option, this.optionLabel) : option;
         },
         getOptionValue(option) {
             return this.optionValue ? ObjectUtils.resolveFieldData(option, this.optionValue) : option;
