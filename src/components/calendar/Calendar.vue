@@ -316,6 +316,10 @@ export default {
         ariaLabelledBy: {
             type: String,
             default: null
+        },
+        appendTo: {
+            type: String,
+            default: null
         }
     },
     oldViewDate: null,
@@ -344,6 +348,7 @@ export default {
             this.mask = null;
         }
 
+        this.restoreAppend();
         this.unbindOutsideClickListener();
     },
     data() {
@@ -530,6 +535,7 @@ export default {
             if (this.autoZIndex) {
                 this.$refs.overlay.style.zIndex = String(this.baseZIndex + DomHandler.generateZIndex());
             }
+            this.appendContainer();
             this.alignOverlay();
             this.$emit('show');
         },
@@ -648,7 +654,10 @@ export default {
                 this.enableModality();
             }
             else if (this.$refs.overlay) {
-                DomHandler.relativePosition(this.$refs.overlay, this.$el);
+                if (this.appendTo)
+                    DomHandler.absolutePosition(this.$refs.overlay, this.$el);
+                else
+                    DomHandler.relativePosition(this.$refs.overlay, this.$el);
             }
         },
         onButtonClick() {
@@ -1867,6 +1876,22 @@ export default {
                     //Noop
                 break;
              }
+        },
+        appendContainer() {
+            if (this.appendTo) {
+                if (this.appendTo === 'body')
+                    document.body.appendChild(this.$refs.overlay);
+                else
+                    document.getElementById(this.appendTo).appendChild(this.$refs.overlay);
+            }
+        },
+        restoreAppend() {
+            if (this.$refs.overlay && this.appendTo) {
+                if (this.appendTo === 'body')
+                    document.body.removeChild(this.$refs.overlay);
+                else
+                    document.getElementById(this.appendTo).removeChild(this.$refs.overlay);
+            }
         }
     },
     computed: {
