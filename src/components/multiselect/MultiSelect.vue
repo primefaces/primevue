@@ -274,7 +274,7 @@ export default {
             }
             else {
                 DomHandler.relativePosition(this.$refs.overlay, this.$refs.container);
-            }   
+            }
         },
         bindOutsideClickListener() {
             if (!this.outsideClickListener) {

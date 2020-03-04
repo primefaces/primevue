@@ -83,7 +83,7 @@ export default {
         hide() {
             this.visible = false;
         },
-        onEnter(element) {
+        onEnter() {
             this.appendContainer();
             this.alignOverlay();
             this.bindOutsideClickListener();
