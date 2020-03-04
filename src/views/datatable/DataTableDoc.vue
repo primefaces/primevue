@@ -2325,6 +2325,10 @@ export default {
             &lt;/template&gt;
             &lt;Column selectionMode="multiple" headerStyle="width: 3em; padding-top: 2.75em"&gt;&lt;/Column&gt;
             &lt;Column field="name" header="Name" :sortable="true"&gt;
+                &lt;template #body="slotProps"&gt;
+                    &lt;span class="p-column-title"&gt;Name&lt;/span&gt;
+                    &#123;&#123;slotProps.data.name&#125;&#125;
+                &lt;/template&gt;
                 &lt;template #filter&gt;
                     &lt;InputText type="text" v-model="filters['name']" class="p-column-filter" placeholder="Search by name"/&gt;
                 &lt;/template&gt;
@@ -2346,7 +2350,7 @@ export default {
                     &lt;span style="vertical-align: middle; margin-left: .5em"&gt;&#123;&#123;slotProps.data.representative.name&#125;&#125;&lt;/span&gt;
                 &lt;/template&gt;
                     &lt;template #filter&gt;
-                    &lt;MultiSelect v-model="filters['representative.name'']" :options="representatives" optionLabel="name" optionValue="name" placeholder="All" class="p-column-filter"&gt;
+                    &lt;MultiSelect v-model="filters['representative.name']" :options="representatives" optionLabel="name" optionValue="name" placeholder="All" class="p-column-filter"&gt;
                         &lt;template #option="slotProps"&gt;
                             &lt;div class="p-multiselect-representative-option"&gt;
                                 &lt;img :alt="slotProps.option.name" :src="'demo/images/avatar/' + slotProps.option.image" width="32" style="vertical-align: middle" /&gt;
@@ -2428,7 +2432,7 @@ export default {
         this.customerService = new CustomerService();
     },
     mounted() {
-        this.customerService.getCustomers().then(data => this.customers = data);
+        this.customerService.getCustomersLarge().then(data => this.customers = data);
     },
     methods: {
         filterDate(value, filter) {
@@ -2461,17 +2465,51 @@ export default {
 </CodeHighlight>
 
 <CodeHighlight lang="css">
-.p-column-filter {
-    margin-top: 1em;
+.customer-badge {
+    border-radius: 2px;
+    padding: .25em .5em;
+    text-transform: uppercase;
+    font-weight: 700;
+    font-size: 12px;
+    letter-spacing: .3px;
+
+    &amp;.status-qualified {
+        background-color: #C8E6C9;
+        color: #256029;
+    }
+
+    &amp;.status-unqualified {
+        background-color: #FFCDD2;
+        color: #C63737;
+    }
+
+    &amp;.status-negotiation {
+        background-color: #FEEDAF;
+        color: #8A5340;
+    }
+
+    &amp;.status-new {
+        background-color: #B3E5FC;
+        color: #23547B;
+    }
+
+    &amp;.status-renewal {
+        background-color: #ECCFFF;
+        color: #694382;
+    }
+
+    &amp;.status-proposal {
+        background-color: #FFD8B2;
+        color: #805B36;
+    }
 }
 
-.p-dropdown-car-option {
-    display: flex;
-    align-items: center;
-    text-align: left;
+.p-multiselect-representative-option {
+    display: inline-block;
+    vertical-align: middle;
 
     img {
-        margin-right: .5em;
+        vertical-align: middle;
         width: 24px;
     }
 
@@ -2480,15 +2518,51 @@ export default {
     }
 }
 
+/deep/ .p-paginator {
+    .p-dropdown {
+        float: left;
+    }
+
+    .p-paginator-current {
+        float: right;
+    }
+}
+
+/deep/ .p-progressbar {
+    height: 8px;
+    background-color: #D8DADC;
+
+    .p-progressbar-value {
+        background-color: #00ACAD;
+    }
+}
+
+/deep/ .p-column-filter {
+    margin-top: 1em;
+    display: block;
+
+    input {
+        width: 100%;
+    }
+}
+
 .p-datatable-globalfilter-container {
     float: right;
 
     input {
-        width: 250px;
+        width: 200px;
     }
 }
 
-/deep/ .p-datatable.p-datatable-cars {
+/deep/ .p-datepicker {
+    min-width: 25em;
+
+    td {
+        font-weight: 400;
+    }
+}
+
+/deep/ .p-datatable.p-datatable-customers {
     .p-datatable-header {
         border: 0 none;
         padding: 12px;
@@ -2506,12 +2580,9 @@ export default {
         text-align: left;
     }
 
-        .p-column-title {
-        font-size: 16px;
-    }
-
     .p-datatable-tbody > tr > td {
         border: 0 none;
+        cursor: auto;
     }
 }
 </CodeHighlight>

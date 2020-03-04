@@ -134,7 +134,7 @@ export default {
             {brand: 'Toshiba', lastYearSale: 75, thisYearSale: 54, lastYearProfit: 21212, thisYearProfit: 12533}
         ];
     },
-    computed: {
+    computed: {
         lastYearTotal() {
             let total = 0;
             for(let sale of this.sales) {
@@ -184,7 +184,7 @@ export default {
             {brand: 'Toshiba', lastYearSale: 75, thisYearSale: 54, lastYearProfit: 21212, thisYearProfit: 12533}
         ];
     },
-    computed: {
+    computed: {
         lastYearTotal() {
             let total = 0;
             for(let sale of this.sales) {

@@ -23,6 +23,10 @@
                         </template>
                         <Column selectionMode="multiple" headerStyle="width: 3em; padding-top: 2.75em"></Column>
                         <Column field="name" header="Name" :sortable="true">
+                            <template #body="slotProps">
+                                <span class="p-column-title">Name</span>
+                                {{slotProps.data.name}}
+                            </template>
                             <template #filter>
                                 <InputText type="text" v-model="filters['name']" class="p-column-filter" placeholder="Search by name"/>
                             </template>
@@ -132,7 +136,7 @@ export default {
         this.customerService = new CustomerService();
     },
     mounted() {
-        this.customerService.getCustomers().then(data => this.customers = data);
+        this.customerService.getCustomersLarge().then(data => this.customers = data);
     },
     methods: {
         filterDate(value, filter) {
@@ -241,8 +245,9 @@ export default {
     }
 }
 
-.p-column-filter {
+/deep/ .p-column-filter {
     margin-top: 1em;
+    display: block;
 
     input {
         width: 100%;
@@ -253,11 +258,11 @@ export default {
     float: right;
 
     input {
-        width: 250px;
+        width: 200px;
     }
 }
 
-/deep/  .p-datepicker {
+/deep/ .p-datepicker {
     min-width: 25em;
 
     td {
