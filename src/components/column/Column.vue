@@ -14,6 +14,10 @@ export default {
             type: String,
             default: null
         },
+        filterField: {
+            type: String,
+            default: null
+        },
         sortable: {
             type: Boolean,
             default: false

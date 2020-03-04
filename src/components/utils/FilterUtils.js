@@ -87,7 +87,7 @@ export default class FilterUtils {
         }
 
         for (let i = 0; i < filter.length; i++) {
-            if (filter[i] === value || (value.getTime && filter[i].getTime && value.getTime() === filter[i].getTime())) {
+            if (ObjectUtils.equals(value, filter[i])) {
                 return true;
             }
         }
@@ -96,7 +96,7 @@ export default class FilterUtils {
     }
 
     static lt(value, filter) {
-        if (filter === undefined || filter === null || (filter.trim && filter.trim().length === 0)) {
+        if (filter === undefined || filter === null || (filter.trim && filter.trim().length === 0)) {
             return true;
         }
 
@@ -111,7 +111,7 @@ export default class FilterUtils {
     }
 
     static lte(value, filter) {
-        if (filter === undefined || filter === null || (filter.trim && filter.trim().length === 0)) {
+        if (filter === undefined || filter === null || (filter.trim && filter.trim().length === 0)) {
             return true;
         }
 
@@ -126,7 +126,7 @@ export default class FilterUtils {
     }
 
     static gt(value, filter) {
-        if (filter === undefined || filter === null || (filter.trim && filter.trim().length === 0)) {
+        if (filter === undefined || filter === null || (filter.trim && filter.trim().length === 0)) {
             return true;
         }
 
@@ -141,7 +141,7 @@ export default class FilterUtils {
     }
 
     static gte(value, filter) {
-        if (filter === undefined || filter === null || (filter.trim && filter.trim().length === 0)) {
+        if (filter === undefined || filter === null || (filter.trim && filter.trim().length === 0)) {
             return true;
         }
 

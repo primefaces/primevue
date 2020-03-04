@@ -572,7 +572,7 @@ export default {
 
                 for(let j = 0; j < this.columns.length; j++) {
                     let col = this.columns[j];
-                    let columnField = col.field;
+                    let columnField = col.filterField || col.field;
 
                     //local
                     if (Object.prototype.hasOwnProperty.call(this.filters, columnField)) {

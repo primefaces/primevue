@@ -27,17 +27,17 @@
                                 <InputText type="text" v-model="filters['name']" class="p-column-filter" placeholder="Search by name"/>
                             </template>
                         </Column>
-                        <Column field="country" header="Country" :sortable="true" sortField="country.name">
+                        <Column header="Country" :sortable="true" sortField="country.name" filterField="country.name" filterMatchMode="contains">
                             <template #body="slotProps">
                                 <span class="p-column-title">Country</span>
                                 <img src="../../assets/images/flag_placeholder.png" :class="'flag flag-' + slotProps.data.country.code"  />
                                 <span style="vertical-align: middle; margin-left: .5em">{{slotProps.data.country.name}}</span>
                             </template>
                             <template #filter>
-                                <InputText type="text" v-model="filters['country']" class="p-column-filter" filterMatchMode="contains" placeholder="Search by country"/>
+                                <InputText type="text" v-model="filters['country.name']" class="p-column-filter" placeholder="Search by country"/>
                             </template>
                         </Column>
-                        <Column field="representative" header="Representative" :sortable="true" sortField="representative.name" filterMatchMode="in">
+                        <Column header="Representative" :sortable="true" sortField="representative.name" filterField="representative.name" filterMatchMode="in">
                             <template #body="slotProps">
                                 <span class="p-column-title">Representative</span>
                                 <img :alt="slotProps.data.representative.name" :src="'demo/images/avatar/' + slotProps.data.representative.image" width="32" style="vertical-align: middle" />
@@ -243,20 +243,9 @@ export default {
 
 .p-column-filter {
     margin-top: 1em;
-}
 
-.p-dropdown-car-option {
-    display: flex;
-    align-items: center;
-    text-align: left;
-
-    img {
-        margin-right: .5em;
-        width: 24px;
-    }
-
-    span {
-        margin-top: .125em;
+    input {
+        width: 100%;
     }
 }
 

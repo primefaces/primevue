@@ -1767,7 +1767,13 @@ export default {
                                 <td>sortField</td>
                                 <td>string</td>
                                 <td>null</td>
-                                <td>Name of the field to sort data by default.</td>
+                                <td>Name of the field to use in sorting.</td>
+                            </tr>
+                             <tr>
+                                <td>filterField</td>
+                                <td>string</td>
+                                <td>null</td>
+                                <td>Name of the field to use in filtering.</td>
                             </tr>
                             <tr>
                                 <td>sortOrder</td>
@@ -2282,73 +2288,108 @@ export default {
 				<a href="https://github.com/primefaces/primevue/tree/master/src/views/datatabledemo" class="btn-viewsource" target="_blank" rel="noopener noreferrer">
 					<span>View on GitHub</span>
 				</a>
+<CodeHighlight lang="javascript">
+&#123;
+    "data": [
+        &#123;
+            "id": 1000,
+            "name": "James Butt",
+            "country": {
+                "name": "Montserrat",
+                "code": "ms"
+            &#125;,
+            "company": "Benton, John B Jr",
+            "date": "2018-08-13",
+            "status": "negotiation",
+            "activity": 96,
+            "representative": &#123;
+                "name": "Ioni Bowcher",
+                "image": "ionibowcher.png"
+            &#125;
+        &#125;,
+        /...
+</CodeHighlight>
+
 <CodeHighlight>
 <template v-pre>
 &lt;div class="p-card"&gt;
     &lt;div class="p-card-body" style="padding:0"&gt;
-        &lt;DataTable :value="cars" class="p-datatable-responsive p-datatable-cars" :selection.sync="selectedCar" selectionMode="single"
-            dataKey="vin" :paginator="true" :rows="10" :filters="filters"&gt;
+        &lt;DataTable :value="customers" :paginator="true" class="p-datatable-responsive p-datatable-customers" :rows="10"
+            dataKey="id" :rowHover="true" :selection.sync="selectedCustomers" :filters="filters"
+            paginatorTemplate="FirstPageLink PrevPageLink PageLinks NextPageLink LastPageLink CurrentPageReport RowsPerPageDropdown" :rowsPerPageOptions="[10,25,50]"&gt;
             &lt;template #header&gt;
-                List of Cars
-                &lt;div  class="p-datatable-globalfilter-container"&gt;
+                List of Customers
+                &lt;div class="p-datatable-globalfilter-container"&gt;
                     &lt;InputText v-model="filters['global']" placeholder="Global Search" /&gt;
                 &lt;/div&gt;
             &lt;/template&gt;
-            &lt;Column field="vin" header="Vin" :sortable="true"&gt;
-                &lt;template #body="slotProps"&gt;
-                    &lt;span class="p-column-title"&gt;Vin&lt;/span&gt;
-                    {{slotProps.data.vin}}
-                &lt;/template&gt;
+            &lt;Column selectionMode="multiple" headerStyle="width: 3em; padding-top: 2.75em"&gt;&lt;/Column&gt;
+            &lt;Column field="name" header="Name" :sortable="true"&gt;
                 &lt;template #filter&gt;
-                    &lt;InputText type="text" v-model="filters['vin']" class="p-column-filter" placeholder="Starts with" /&gt;
+                    &lt;InputText type="text" v-model="filters['name']" class="p-column-filter" placeholder="Search by name"/&gt;
                 &lt;/template&gt;
             &lt;/Column&gt;
-            &lt;Column field="year" header="Year" :sortable="true" filterMatchMode="contains"&gt;
+            &lt;Column header="Country" :sortable="true" sortField="country.name" filterField="country.name" filterMatchMode="contains"&gt;
                 &lt;template #body="slotProps"&gt;
-                    &lt;span class="p-column-title"&gt;Year&lt;/span&gt;
-                    {{slotProps.data.year}}
+                    &lt;span class="p-column-title"&gt;Country&lt;/span&gt;
+                    &lt;img src="../../assets/images/flag_placeholder.png" :class="'flag flag-' + slotProps.data.country.code"  /&gt;
+                    &lt;span style="vertical-align: middle; margin-left: .5em"&gt;&#123;&#123;slotProps.data.country.name&#125;&#125;&lt;/span&gt;
                 &lt;/template&gt;
                 &lt;template #filter&gt;
-                    &lt;InputText type="text" v-model="filters['year']" class="p-column-filter" placeholder="Contains" /&gt;
+                    &lt;InputText type="text" v-model="filters['country.name']" class="p-column-filter" placeholder="Search by country"/&gt;
                 &lt;/template&gt;
             &lt;/Column&gt;
-            &lt;Column field="brand" header="Brand" :sortable="true" filterMatchMode="equals"&gt;
+            &lt;Column header="Representative" :sortable="true" sortField="representative.name" filterField="representative.name" filterMatchMode="in"&gt;
                 &lt;template #body="slotProps"&gt;
-                    &lt;span class="p-column-title"&gt;Brand&lt;/span&gt;
-                    &lt;img :alt="slotProps.data.brand" :src="'demo/images/car/' + slotProps.data.brand + '.png'" width="50" style="vertical-align:middle; margin-right: 1em"/&gt;
-                    &lt;span style="vertical-align:middle"&gt;{{slotProps.data.brand}}&lt;/span&gt;
+                    &lt;span class="p-column-title"&gt;Representative&lt;/span&gt;
+                    &lt;img :alt="slotProps.data.representative.name" :src="'demo/images/avatar/' + slotProps.data.representative.image" width="32" style="vertical-align: middle" /&gt;
+                    &lt;span style="vertical-align: middle; margin-left: .5em"&gt;&#123;&#123;slotProps.data.representative.name&#125;&#125;&lt;/span&gt;
                 &lt;/template&gt;
-                &lt;template #filter&gt;
-                    &lt;Dropdown v-model="filters['brand']" :options="brands" optionLabel="brand" optionValue="value" placeholder="Select a Brand" class="p-column-filter" :showClear="true"&gt;
-                        &lt;template #option="brandSlotProps"&gt;
-                            &lt;div class="p-clearfix p-dropdown-car-option"&gt;
-                                &lt;img :alt="brandSlotProps.option.brand" :src="'demo/images/car/' + brandSlotProps.option.brand + '.png'" /&gt;
-                                &lt;span&gt;{{brandSlotProps.option.brand}}&lt;/span&gt;
+                    &lt;template #filter&gt;
+                    &lt;MultiSelect v-model="filters['representative']" :options="representatives" optionLabel="name" placeholder="All" class="p-column-filter"&gt;
+                        &lt;template #option="slotProps"&gt;
+                            &lt;div class="p-multiselect-representative-option"&gt;
+                                &lt;img :alt="slotProps.option.name" :src="'demo/images/avatar/' + slotProps.option.image" width="32" style="vertical-align: middle" /&gt;
+                                &lt;span style="vertical-align: middle; margin-left: .5em"&gt;&#123;&#123;slotProps.option.name&#125;&#125;&lt;/span&gt;
                             &lt;/div&gt;
+                        &lt;/template&gt;
+                    &lt;/MultiSelect&gt;
+                &lt;/template&gt;
+            &lt;/Column&gt;
+            &lt;Column field="date" header="Date" :sortable="true" filterMatchMode="custom" :filterFunction="filterDate"&gt;
+                &lt;template #filter&gt;
+                    &lt;Calendar v-model="filters['date']" dateFormat="yy-mm-dd" class="p-column-filter" filterMatchMode="equals" placeholder="Registration Date"/&gt;
+                &lt;/template&gt;
+            &lt;/Column&gt;
+            &lt;Column field="status" header="Status" :sortable="true" filterMatchMode="equals"&gt;
+                &lt;template #body="slotProps"&gt;
+                    &lt;span class="p-column-title"&gt;Status&lt;/span&gt;
+                    &lt;span :class="'customer-badge status-' + slotProps.data.status"&gt;&#123;&#123;slotProps.data.status&#125;&#125;&lt;/span&gt;
+                &lt;/template&gt;
+                &lt;template #filter&gt;
+                    &lt;Dropdown v-model="filters['status']" :options="statuses" placeholder="Select a Status" class="p-column-filter" :showClear="true"&gt;
+                        &lt;template #option="slotProps"&gt;
+                            &lt;span :class="'customer-badge status-' + slotProps.option"&gt;&#123;&#123;slotProps.option&#125;&#125;&lt;/span&gt;
                         &lt;/template&gt;
                     &lt;/Dropdown&gt;
                 &lt;/template&gt;
             &lt;/Column&gt;
-            &lt;Column field="color" header="Color" :sortable="true" filterMatchMode="in"&gt;
+            &lt;Column field="activity" header="Activity" :sortable="true" filterMatchMode="gte"&gt;
                 &lt;template #body="slotProps"&gt;
-                    &lt;span class="p-column-title"&gt;Color&lt;/span&gt;
-                    {{slotProps.data.color}}
+                    &lt;span class="p-column-title"&gt;Activity&lt;/span&gt;
+                    &lt;ProgressBar :value="slotProps.data.activity" :showValue="false" /&gt;
                 &lt;/template&gt;
                 &lt;template #filter&gt;
-                    &lt;MultiSelect v-model="filters['color']" :options="colors" optionLabel="name" optionValue="value" placeholder="Select a Color" class="p-column-filter" /&gt;
+                    &lt;InputText type="text" v-model="filters['activity']" class="p-column-filter" placeholder="Minimum"/&gt;
                 &lt;/template&gt;
             &lt;/Column&gt;
-            &lt;Column headerStyle="width: 8em; text-align: center" bodyStyle="text-align: center"&gt;
-                &lt;template #body="slotProps"&gt;
-                    &lt;span class="p-column-title"&gt;Color&lt;/span&gt;
-                    {{slotProps.data.color}}
-                &lt;/template&gt;
+            &lt;Column headerStyle="width: 8em; text-align: center" bodyStyle="text-align: center; overflow: visible"&gt;
                 &lt;template #header&gt;
-                    &lt;Button type="button" icon="pi pi-cog"&gt;&lt;/Button&gt;
+                    &lt;span class="p-column-title"&gt;Options&lt;/span&gt;
+                    &lt;Button type="button" icon="pi pi-cog" class="p-column-filter p-button-secondary" style="width:auto"&gt;&lt;/Button&gt;
                 &lt;/template&gt;
                 &lt;template #body&gt;
-                    &lt;Button type="button" icon="pi pi-search" class="p-button-success" style="margin-right: .5em"&gt;&lt;/Button&gt;
-                    &lt;Button type="button" icon="pi pi-pencil" class="p-button-warning"&gt;&lt;/Button&gt;
+                    &lt;Button type="button" icon="pi pi-cog" class="p-button-secondary"&gt;&lt;/Button&gt;
                 &lt;/template&gt;
             &lt;/Column&gt;
         &lt;/DataTable&gt;
@@ -2358,44 +2399,63 @@ export default {
 </CodeHighlight>
 
 <CodeHighlight lang="javascript">
-import CarService from '../../service/CarService';
+import CustomerService from '../../service/CustomerService';
 
 export default {
     data() {
         return {
-            cars: null,
-            selectedCar: null,
+            customers: null,
+            selectedCustomers: null,
             filters: {},
-            brands: [
-                {brand: 'Audi', value: 'Audi'},
-                {brand: 'BMW', value: 'BMW'},
-                {brand: 'Fiat', value: 'Fiat'},
-                {brand: 'Honda', value: 'Honda'},
-                {brand: 'Jaguar', value: 'Jaguar'},
-                {brand: 'Mercedes', value: 'Mercedes'},
-                {brand: 'Renault', value: 'Renault'},
-                {brand: 'Volkswagen', value: 'Volkswagen'},
-                {brand: 'Volvo', value: 'Volvo'}
+            representatives: [
+                {name: "Amy Elsner", image: 'amyelsner.png'},
+                {name: "Anna Fali", image: 'annafali.png'},
+                {name: "Asiya Javayant", image: 'asiyajavayant.png'},
+                {name: "Bernardo Dominic", image: 'bernardodominic.png'},
+                {name: "Elwin Sharvill", image: 'elwinsharvill.png'},
+                {name: "Ioni Bowcher", image: 'ionibowcher.png'},
+                {name: "Ivan Magalhaes",image: 'ivanmagalhaes.png'},
+                {name: "Onyama Limba", image: 'onyamalimba.png'},
+                {name: "Stephen Shaw", image: 'stephenshaw.png'},
+                {name: "XuXue Feng", image: 'xuxuefeng.png'}
             ],
-            colors: [
-                {name: 'White', value: 'White'},
-                {name: 'Green', value: 'Green'},
-                {name: 'Silver', value: 'Silver'},
-                {name: 'Black', value: 'Black'},
-                {name: 'Red', value: 'Red'},
-                {name: 'Maroon', value: 'Maroon'},
-                {name: 'Brown', value: 'Brown'},
-                {name: 'Orange', value: 'Orange'},
-                {name: 'Blue', value: 'Blue'}
+            statuses: [
+                'unqualified', 'qualified', 'new', 'negotiation', 'renewal', 'proposal'
             ]
         }
     },
-    carService: null,
     created() {
-        this.carService = new CarService();
+        this.customerService = new CustomerService();
     },
     mounted() {
-        this.carService.getCarsLarge().then(data => this.cars = data);
+        this.customerService.getCustomers().then(data => this.customers = data);
+    },
+    methods: {
+        filterDate(value, filter) {
+            if (filter === undefined || filter === null || (typeof filter === 'string' &amp;&amp; filter.trim() === '')) {
+                return true;
+            }
+
+            if (value === undefined || value === null) {
+                return false;
+            }
+
+            return value === this.formatDate(filter);
+        },
+        formatDate(date) {
+            let month = date.getMonth() + 1;
+            let day = date.getDate();
+
+            if (month &lt; 10) {
+                month = '0' + month;
+            }
+
+            if (day &lt; 10) {
+                day = '0' + day;
+            }
+
+            return date.getFullYear() + '-' + month + '-' + day;
+        }
     }
 }
 </CodeHighlight>

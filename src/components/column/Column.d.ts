@@ -4,6 +4,7 @@ export declare class Column extends Vue {
     columnKey?: any;
     field?: string;
     sortField?: string;
+    filterField?: string;
     sortable?: boolean;
     header?: any;
     footer?: any;
