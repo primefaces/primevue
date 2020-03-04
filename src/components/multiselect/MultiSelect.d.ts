@@ -14,6 +14,7 @@ export declare class MultiSelect extends Vue {
     dataKey?: string;
     filterPlaceholder?: string;
     ariaLabelledBy?: string;
+    appendTo?: string;
     $emit(eventName: 'input', value: any): this;
     $emit(eventName: 'change', e: {originalEvent: Event, value: any}): this;
     $emit(eventName: 'before-show'): this;

@@ -301,7 +301,7 @@ export default {
         alignOverlay() {
             if (this.appendTo) {
                 DomHandler.absolutePosition(this.$refs.overlay, this.$refs.container);
-                this.$refs.overlay.style.width = DomHandler.getOuterWidth(this.$refs.container) + 'px';
+                this.$refs.overlay.style.minWidth = DomHandler.getOuterWidth(this.$refs.container) + 'px';
             } else {
                 DomHandler.relativePosition(this.$refs.overlay, this.$refs.container);
             }
