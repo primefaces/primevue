@@ -206,7 +206,7 @@ export default {
                                 <td>filterMatchMode</td>
                                 <td>string</td>
                                 <td>startsWith</td>
-                                <td>Defines filterMatchMode; "startsWith", "contains", "endsWidth", "equals", "notEquals", "in" and "custom".</td>
+                                <td>Defines filterMatchMode; "startsWith", "contains", "endsWidth", "equals", "notEquals", "in", "lt", "lte", "gt", "gte" and "custom".</td>
                             </tr>
                             <tr>
                                 <td>filterFunction</td>
@@ -485,7 +485,7 @@ data() {
                 <p>Filtering is enabled by defining a filter template per column to populate the <i>filters</i> property of the DataTable. The <i>filters</i>
                 property should be an key-value object where keys are the field name and the value is the filter value. The filter template receives the column properties
                 via the slotProps and accepts any form element as the filter element. Default match mode is "startsWith" and this can be configured per column using the <i>filterMatchMode</i> property that also accepts
-                "contains", "endsWith", "equals", "notEquals", "in" and "custom" as available modes.</p>
+                "contains", "endsWith", "equals", "notEquals", "in", "lt", "lte", "gt", "gte" and "custom" as available modes.</p>
                 <p>Optionally a global filter is available to search against all the fields, in this case the special <i>global</i> keyword should be the property to be populated.</p>
 <CodeHighlight>
 <template v-pre>

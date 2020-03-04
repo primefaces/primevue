@@ -13,8 +13,8 @@
             <div class="p-card">
                 <div class="p-card-body" style="padding:0">
                     <DataTable :value="customers" :paginator="true" class="p-datatable-responsive p-datatable-customers" :rows="10"
-                        dataKey="id" :rowHover="true" :selection.sync="selectedCustomers"
-                        paginatorTemplate="FirstPageLink PrevPageLink PageLinks NextPageLink LastPageLink CurrentPageReport RowsPerPageDropdown" :rowsPerPageOptions="[10,25,50]">
+                        dataKey="id" :rowHover="true" :selection.sync="selectedCustomers" :filters="filters"
+                        paginatorTemplate="FirstPageLink PrevPageLink PageLinks NextPageLink LastPageLink CurrentPageReport " :rowsPerPageOptions="[10,25,50]">
                         <template #header>
                             List of Customers
                             <div class="p-datatable-globalfilter-container">
@@ -72,7 +72,7 @@
                                 </Dropdown>
                             </template>
                         </Column>
-                        <Column field="activity" header="Activity" :sortable="true">
+                        <Column field="activity" header="Activity" :sortable="true" filterMatchMode="gte">
                             <template #body="slotProps">
                                 <span class="p-column-title">Activity</span>
                                 <ProgressBar :value="slotProps.data.activity" :showValue="false" />
@@ -133,14 +133,6 @@ export default {
     },
     mounted() {
         this.customerService.getCustomers().then(data => this.customers = data);
-    },
-    methods: {
-        toggle(event, menu) {
-            menu.toggle(event);
-        },
-        save() {
-            this.$toast.add({severity: 'success', summary: 'Success', detail: 'Data Saved', life: 3000});
-        }
     },
     components: {
         'DataTableDoc': DataTableDoc,
