@@ -8,5 +8,6 @@ export declare class SplitButton extends Vue {
     tabindex?: string;
     autoZIndex?: boolean;
     baseZIndex?: number;
+    appendTo?: string;
     $emit(eventName: 'click', event: Event): this;
 }

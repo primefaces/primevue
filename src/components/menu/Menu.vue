@@ -41,10 +41,6 @@ export default {
         baseZIndex: {
             type: Number,
             default: 0
-        },
-        align: {
-            type: Boolean,
-            default: true
         }
     },
     data() {
@@ -87,11 +83,9 @@ export default {
         hide() {
             this.visible = false;
         },
-        onEnter() {
+        onEnter(element) {
             this.appendContainer();
-            if (this.align) {
-                this.alignOverlay();
-            }
+            this.alignOverlay();
             this.bindOutsideClickListener();
             this.bindResizeListener();
 
@@ -104,7 +98,10 @@ export default {
             this.unbindResizeListener();
         },
         alignOverlay() {
-            DomHandler.absolutePosition(this.$refs.container, this.target);
+            if (this.appendTo)
+                DomHandler.absolutePosition(this.$refs.container, this.target);
+            else
+                DomHandler.relativePosition(this.$refs.container, this.target);
         },
         bindOutsideClickListener() {
             if (!this.outsideClickListener) {

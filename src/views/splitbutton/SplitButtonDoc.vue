@@ -129,6 +129,12 @@ export default {
                                 <td>0</td>
                                 <td>Base zIndex value to use in layering.</td>
                             </tr>
+                            <tr>
+                                <td>appendTo</td>
+                                <td>string</td>
+                                <td>null</td>
+                                <td>Id of the element or "body" for document where the overlay should be appended to.</td>
+                            </tr>
 						</tbody>
 					</table>
 				</div>
