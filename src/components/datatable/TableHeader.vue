@@ -18,8 +18,8 @@
         </tr>
         <template v-else>
             <tr v-for="(row,i) of columnGroup.rows" :key="i">
-                <th v-for="(col,i) of row.columns" :key="col.columnKey||col.field||i" :style="col.headerStyle" :class="getColumnHeaderClass(col)" :tabindex="col.sortable ? '0' : null" @keydown="onColumnKeyDown($event, col)"
-                @dragstart="onColumnHeaderDragStart($event)" @dragover="onColumnHeaderDragOver($event)" @dragleave="onColumnHeaderDragLeave($event)" @drop="onColumnHeaderDrop($event)"
+                <th v-for="(col,i) of row.columns" :key="col.columnKey||col.field||i" :style="col.headerStyle" :class="getColumnHeaderClass(col)" :tabindex="col.sortable ? '0' : null" 
+                    @click="onColumnHeaderClick($event, col)" @keydown="onColumnKeyDown($event, col)" @dragstart="onColumnHeaderDragStart($event)" @dragover="onColumnHeaderDragOver($event)" @dragleave="onColumnHeaderDragLeave($event)" @drop="onColumnHeaderDrop($event)"
                     :colspan="col.colspan" :rowspan="col.rowspan" :aria-sort="getAriaSort(col)">
                     <ColumnSlot :column="col" type="header" v-if="col.$scopedSlots.header" />
                     <span class="p-column-title" v-if="col.header">{{col.header}}</span>

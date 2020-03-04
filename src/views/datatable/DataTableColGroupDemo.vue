@@ -21,22 +21,38 @@
                         <Column header="Profits" :colspan="2" />
                     </Row>
                     <Row>
-                        <Column header="Last Year" />
-                        <Column header="This Year" />
-                        <Column header="Last Year" />
-                        <Column header="This Year" />
+                        <Column header="Last Year" :sortable="true" field="lastYearSale"/>
+                        <Column header="This Year" :sortable="true" field="thisYearSale"/>
+                        <Column header="Last Year" :sortable="true" field="lastYearProfit"/>
+                        <Column header="This Year" :sortable="true" field="thisYearProfit"/>
                     </Row>
                 </ColumnGroup>
-               <Column field="brand" />
-                <Column field="lastYearSale" />
-                <Column field="thisYearSale" />
-                <Column field="lastYearProfit" />
-                <Column field="thisYearProfit" />
+                <Column field="brand" />
+                <Column field="lastYearSale">
+                    <template #body="slotProps">
+                        {{slotProps.data.lastYearSale}}%
+                    </template>
+                </Column>
+                <Column field="thisYearSale">
+                    <template #body="slotProps">
+                        {{slotProps.data.thisYearSale}}%
+                    </template>
+                </Column>
+                <Column field="lastYearProfit">
+                    <template #body="slotProps">
+                        ${{slotProps.data.lastYearProfit.toLocaleString()}}
+                    </template>
+                </Column>
+                <Column field="thisYearProfit">
+                    <template #body="slotProps">
+                        ${{slotProps.data.thisYearProfit.toLocaleString()}}
+                    </template>
+                </Column>
                 <ColumnGroup type="footer">
                     <Row>
-                        <Column footer="Totals:" :colspan="3" />
-                        <Column footer="$506,202" />
-                        <Column footer="$531,020" />
+                        <Column footer="Totals:" :colspan="3" footerStyle="text-align:right"/>
+                        <Column :footer="lastYearTotal" />
+                        <Column :footer="thisYearTotal" />
                     </Row>
                 </ColumnGroup>
             </DataTable>
@@ -58,22 +74,38 @@
             &lt;Column header="Profits" :colspan="2" /&gt;
         &lt;/Row&gt;
         &lt;Row&gt;
-            &lt;Column header="Last Year" /&gt;
-            &lt;Column header="This Year" /&gt;
-            &lt;Column header="Last Year" /&gt;
-            &lt;Column header="This Year" /&gt;
+            &lt;Column header="Last Year" :sortable="true" field="lastYearSale"/&gt;
+            &lt;Column header="This Year" :sortable="true" field="thisYearSale"/&gt;
+            &lt;Column header="Last Year" :sortable="true" field="lastYearProfit"/&gt;
+            &lt;Column header="This Year" :sortable="true" field="thisYearProfit"/&gt;
         &lt;/Row&gt;
     &lt;/ColumnGroup&gt;
     &lt;Column field="brand" /&gt;
-    &lt;Column field="lastYearSale" /&gt;
-    &lt;Column field="thisYearSale" /&gt;
-    &lt;Column field="lastYearProfit" /&gt;
-    &lt;Column field="thisYearProfit" /&gt;
+    &lt;Column field="lastYearSale"&gt;
+        &lt;template #body="slotProps"&gt;
+            &#123;&#123;slotProps.data.lastYearSale&#125;&#125;%
+        &lt;/template&gt;
+    &lt;/Column&gt;
+    &lt;Column field="thisYearSale"&gt;
+        &lt;template #body="slotProps"&gt;
+            &#123;&#123;slotProps.data.thisYearSale&#125;&#125;%
+        &lt;/template&gt;
+    &lt;/Column&gt;
+    &lt;Column field="lastYearProfit"&gt;
+        &lt;template #body="slotProps"&gt;
+            $&#123;&#123;slotProps.data.lastYearProfit.toLocaleString()&#125;&#125;
+        &lt;/template&gt;
+    &lt;/Column&gt;
+    &lt;Column field="thisYearProfit"&gt;
+        &lt;template #body="slotProps"&gt;
+            $&#123;&#123;slotProps.data.thisYearProfit.toLocaleString()&#125;&#125;
+        &lt;/template&gt;
+    &lt;/Column&gt;
     &lt;ColumnGroup type="footer"&gt;
         &lt;Row&gt;
-            &lt;Column footer="Totals:" :colspan="3" /&gt;
-            &lt;Column footer="$506,202" /&gt;
-            &lt;Column footer="$531,020" /&gt;
+            &lt;Column footer="Totals:" :colspan="3" footerStyle="text-align:right"/&gt;
+            &lt;Column :footer="lastYearTotal" /&gt;
+            &lt;Column :footer="thisYearTotal" /&gt;
         &lt;/Row&gt;
     &lt;/ColumnGroup&gt;
 &lt;/DataTable&gt;
@@ -90,17 +122,35 @@ export default {
     carService: null,
     created() {
         this.sales = [
-            {brand: 'Apple', lastYearSale: '51%', thisYearSale: '40%', lastYearProfit: '$54,406.00', thisYearProfit: '$43,342'},
-            {brand: 'Samsung', lastYearSale: '83%', thisYearSale: '96%', lastYearProfit: '$423,132', thisYearProfit: '$312,122'},
-            {brand: 'Microsoft', lastYearSale: '38%', thisYearSale: '5%', lastYearProfit: '$12,321', thisYearProfit: '$8,500'},
-            {brand: 'Philips', lastYearSale: '49%', thisYearSale: '22%', lastYearProfit: '$745,232', thisYearProfit: '$650,323,'},
-            {brand: 'Song', lastYearSale: '17%', thisYearSale: '79%', lastYearProfit: '$643,242', thisYearProfit: '500,332'},
-            {brand: 'LG', lastYearSale: '52%', thisYearSale: ' 65%', lastYearProfit: '$421,132', thisYearProfit: '$150,005'},
-            {brand: 'Sharp', lastYearSale: '82%', thisYearSale: '12%', lastYearProfit: '$131,211', thisYearProfit: '$100,214'},
-            {brand: 'Panasonic', lastYearSale: '44%', thisYearSale: '45%', lastYearProfit: '$66,442', thisYearProfit: '$53,322'},
-            {brand: 'HTC', lastYearSale: '90%', thisYearSale: '56%', lastYearProfit: '$765,442', thisYearProfit: '$296,232'},
-            {brand: 'Toshiba', lastYearSale: '75%', thisYearSale: '54%', lastYearProfit: '$21,212', thisYearProfit: '$12,533'}
+            {brand: 'Apple', lastYearSale: 51, thisYearSale: 40, lastYearProfit: 54406, thisYearProfit: 43342},
+            {brand: 'Samsung', lastYearSale: 83, thisYearSale: 9, lastYearProfit: 423132, thisYearProfit: 312122},
+            {brand: 'Microsoft', lastYearSale: 38, thisYearSale: 5, lastYearProfit: 12321, thisYearProfit: 8500},
+            {brand: 'Philips', lastYearSale: 49, thisYearSale: 22, lastYearProfit: 745232, thisYearProfit: 65323},
+            {brand: 'Song', lastYearSale: 17, thisYearSale: 79, lastYearProfit: 643242, thisYearProfit: 500332},
+            {brand: 'LG', lastYearSale: 52, thisYearSale:  65, lastYearProfit: 421132, thisYearProfit: 150005},
+            {brand: 'Sharp', lastYearSale: 82, thisYearSale: 12, lastYearProfit: 131211, thisYearProfit: 100214},
+            {brand: 'Panasonic', lastYearSale: 44, thisYearSale: 45, lastYearProfit: 66442, thisYearProfit: 53322},
+            {brand: 'HTC', lastYearSale: 90, thisYearSale: 56, lastYearProfit: 765442, thisYearProfit: 296232},
+            {brand: 'Toshiba', lastYearSale: 75, thisYearSale: 54, lastYearProfit: 21212, thisYearProfit: 12533}
         ];
+    },
+    computed: {
+        lastYearTotal() {
+            let total = 0;
+            for(let sale of this.sales) {
+                total += sale.lastYearProfit;
+            }
+
+            return '$' + total.toLocaleString();
+        },
+        thisYearTotal() {
+            let total = 0;
+            for(let sale of this.sales) {
+                total += sale.thisYearProfit;
+            }
+
+            return '$' + total.toLocaleString();
+        }
     }
 }
 </CodeHighlight>
@@ -122,17 +172,35 @@ export default {
     carService: null,
     created() {
         this.sales = [
-            {brand: 'Apple', lastYearSale: '51%', thisYearSale: '40%', lastYearProfit: '$54,406.00', thisYearProfit: '$43,342'},
-            {brand: 'Samsung', lastYearSale: '83%', thisYearSale: '96%', lastYearProfit: '$423,132', thisYearProfit: '$312,122'},
-            {brand: 'Microsoft', lastYearSale: '38%', thisYearSale: '5%', lastYearProfit: '$12,321', thisYearProfit: '$8,500'},
-            {brand: 'Philips', lastYearSale: '49%', thisYearSale: '22%', lastYearProfit: '$745,232', thisYearProfit: '$650,323,'},
-            {brand: 'Song', lastYearSale: '17%', thisYearSale: '79%', lastYearProfit: '$643,242', thisYearProfit: '500,332'},
-            {brand: 'LG', lastYearSale: '52%', thisYearSale: ' 65%', lastYearProfit: '$421,132', thisYearProfit: '$150,005'},
-            {brand: 'Sharp', lastYearSale: '82%', thisYearSale: '12%', lastYearProfit: '$131,211', thisYearProfit: '$100,214'},
-            {brand: 'Panasonic', lastYearSale: '44%', thisYearSale: '45%', lastYearProfit: '$66,442', thisYearProfit: '$53,322'},
-            {brand: 'HTC', lastYearSale: '90%', thisYearSale: '56%', lastYearProfit: '$765,442', thisYearProfit: '$296,232'},
-            {brand: 'Toshiba', lastYearSale: '75%', thisYearSale: '54%', lastYearProfit: '$21,212', thisYearProfit: '$12,533'}
+            {brand: 'Apple', lastYearSale: 51, thisYearSale: 40, lastYearProfit: 54406, thisYearProfit: 43342},
+            {brand: 'Samsung', lastYearSale: 83, thisYearSale: 9, lastYearProfit: 423132, thisYearProfit: 312122},
+            {brand: 'Microsoft', lastYearSale: 38, thisYearSale: 5, lastYearProfit: 12321, thisYearProfit: 8500},
+            {brand: 'Philips', lastYearSale: 49, thisYearSale: 22, lastYearProfit: 745232, thisYearProfit: 65323},
+            {brand: 'Song', lastYearSale: 17, thisYearSale: 79, lastYearProfit: 643242, thisYearProfit: 500332},
+            {brand: 'LG', lastYearSale: 52, thisYearSale:  65, lastYearProfit: 421132, thisYearProfit: 150005},
+            {brand: 'Sharp', lastYearSale: 82, thisYearSale: 12, lastYearProfit: 131211, thisYearProfit: 100214},
+            {brand: 'Panasonic', lastYearSale: 44, thisYearSale: 45, lastYearProfit: 66442, thisYearProfit: 53322},
+            {brand: 'HTC', lastYearSale: 90, thisYearSale: 56, lastYearProfit: 765442, thisYearProfit: 296232},
+            {brand: 'Toshiba', lastYearSale: 75, thisYearSale: 54, lastYearProfit: 21212, thisYearProfit: 12533}
         ];
+    },
+    computed: {
+        lastYearTotal() {
+            let total = 0;
+            for(let sale of this.sales) {
+                total += sale.lastYearProfit;
+            }
+
+            return '$' + total.toLocaleString();
+        },
+        thisYearTotal() {
+            let total = 0;
+            for(let sale of this.sales) {
+                total += sale.thisYearProfit;
+            }
+
+            return '$' + total.toLocaleString();
+        }
     },
     components: {
         'DataTableSubMenu': DataTableSubMenu
