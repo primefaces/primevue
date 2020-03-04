@@ -14,7 +14,7 @@
                 <div class="p-card-body" style="padding:0">
                     <DataTable :value="customers" :paginator="true" class="p-datatable-responsive p-datatable-customers" :rows="10"
                         dataKey="id" :rowHover="true" :selection.sync="selectedCustomers" :filters="filters"
-                        paginatorTemplate="FirstPageLink PrevPageLink PageLinks NextPageLink LastPageLink CurrentPageReport " :rowsPerPageOptions="[10,25,50]">
+                        paginatorTemplate="FirstPageLink PrevPageLink PageLinks NextPageLink LastPageLink CurrentPageReport RowsPerPageDropdown" :rowsPerPageOptions="[10,25,50]">
                         <template #header>
                             List of Customers
                             <div class="p-datatable-globalfilter-container">
@@ -54,9 +54,9 @@
                                 </MultiSelect>
                             </template>
                         </Column>
-                        <Column field="date" header="Date" :sortable="true">
+                        <Column field="date" header="Date" :sortable="true" filterMatchMode="custom" :filterFunction="filterDate">
                             <template #filter>
-                                <Calendar v-model="filters['date']" class="p-column-filter" filterMatchMode="equals" placeholder="Member since"/>
+                                <Calendar v-model="filters['date']" dateFormat="yy-mm-dd" class="p-column-filter" filterMatchMode="equals" placeholder="Registration Date"/>
                             </template>
                         </Column>
                         <Column field="status" header="Status" :sortable="true" filterMatchMode="equals">
@@ -133,6 +133,33 @@ export default {
     },
     mounted() {
         this.customerService.getCustomers().then(data => this.customers = data);
+    },
+    methods: {
+        filterDate(value, filter) {
+            if (filter === undefined || filter === null || (typeof filter === 'string' && filter.trim() === '')) {
+                return true;
+            }
+
+            if (value === undefined || value === null) {
+                return false;
+            }
+
+            return value === this.formatDate(filter);
+        },
+        formatDate(date) {
+            let month = date.getMonth() + 1;
+            let day = date.getDate();
+
+            if (month < 10) {
+                month = '0' + month;
+            }
+
+            if (day < 10) {
+                day = '0' + day;
+            }
+
+            return date.getFullYear() + '-' + month + '-' + day;
+        }
     },
     components: {
         'DataTableDoc': DataTableDoc,
