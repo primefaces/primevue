@@ -2389,8 +2389,7 @@ export default {
             &lt;/Column&gt;
             &lt;Column headerStyle="width: 8em; text-align: center" bodyStyle="text-align: center; overflow: visible"&gt;
                 &lt;template #header&gt;
-                    &lt;span class="p-column-title"&gt;Options&lt;/span&gt;
-                    &lt;Button type="button" icon="pi pi-cog" class="p-column-filter p-button-secondary" style="width:auto"&gt;&lt;/Button&gt;
+                    &lt;Button type="button" icon="pi pi-cog" class="p-button-secondary" style="width:auto;margin-top: 1em"&gt;&lt;/Button&gt;
                 &lt;/template&gt;
                 &lt;template #body&gt;
                     &lt;Button type="button" icon="pi pi-cog" class="p-button-secondary"&gt;&lt;/Button&gt;

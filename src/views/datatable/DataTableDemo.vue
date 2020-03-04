@@ -88,7 +88,7 @@
                         <Column headerStyle="width: 8em; text-align: center" bodyStyle="text-align: center; overflow: visible">
                             <template #header>
                                 <span class="p-column-title">Options</span>
-                                <Button type="button" icon="pi pi-cog" class="p-column-filter p-button-secondary" style="width:auto"></Button>
+                                <Button type="button" icon="pi pi-cog" class="p-button-secondary" style="width:auto;margin-top: 1em"></Button>
                             </template>
                             <template #body>
                                 <Button type="button" icon="pi pi-cog" class="p-button-secondary"></Button>
