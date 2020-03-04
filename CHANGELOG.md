@@ -1,5 +1,24 @@
 # Changelog
 
+## [1.0.6](https://github.com/primefaces/primevue/tree/1.0.6) (2020-03-04)
+
+[Full Changelog](https://github.com/primefaces/primevue/compare/1.0.5...1.0.6)
+
+**Implemented New Features and Enhancements:**
+
+- Add appendTo to components with Overlays [\#224](https://github.com/primefaces/primevue/issues/224)
+- Add filterField to column [\#223](https://github.com/primefaces/primevue/issues/223)
+- Accents support in Table filtering [\#220](https://github.com/primefaces/primevue/issues/220)
+- Date support in table filtering [\#219](https://github.com/primefaces/primevue/issues/219)
+- New filtering modes for Table [\#217](https://github.com/primefaces/primevue/issues/217)
+
+**Fixed bugs:**
+
+- CurrentPageReport is initially wrong [\#222](https://github.com/primefaces/primevue/issues/222)
+- Primitive values support in Select components [\#221](https://github.com/primefaces/primevue/issues/221)
+- sortField of column is ignored [\#216](https://github.com/primefaces/primevue/issues/216)
+- DataTable Column Group Sort Bug [\#214](https://github.com/primefaces/primevue/issues/214)
+
 ## [1.0.5](https://github.com/primefaces/primevue/tree/1.0.5) (2020-02-27)
 
 [Full Changelog](https://github.com/primefaces/primevue/compare/1.0.4...1.0.5)
