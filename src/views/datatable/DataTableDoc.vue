@@ -2346,7 +2346,7 @@ export default {
                     &lt;span style="vertical-align: middle; margin-left: .5em"&gt;&#123;&#123;slotProps.data.representative.name&#125;&#125;&lt;/span&gt;
                 &lt;/template&gt;
                     &lt;template #filter&gt;
-                    &lt;MultiSelect v-model="filters['representative']" :options="representatives" optionLabel="name" placeholder="All" class="p-column-filter"&gt;
+                    &lt;MultiSelect v-model="filters['representative.name'']" :options="representatives" optionLabel="name" optionValue="name" placeholder="All" class="p-column-filter"&gt;
                         &lt;template #option="slotProps"&gt;
                             &lt;div class="p-multiselect-representative-option"&gt;
                                 &lt;img :alt="slotProps.option.name" :src="'demo/images/avatar/' + slotProps.option.image" width="32" style="vertical-align: middle" /&gt;
