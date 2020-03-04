@@ -58,6 +58,14 @@ export default {
 &lt;/Dialog&gt;
 </CodeHighlight>
 
+                <h3>Popup Content inside the Dialog</h3>
+                <p>If the dialog contains components with popup elements such as Dropdown or Calendar, set <i>contentStyle</i> to overflow:visible so that overlays can be displayed outside of the content area.</p>
+<CodeHighlight>
+&lt;Dialog :visible.sync="display" :contentStyle="{overflow: 'visible'}"&gt;
+	Content
+&lt;/Dialog&gt;
+</CodeHighlight>
+
 				<h3>Properties</h3>
 				<div class="doc-tablewrapper">
 					<table class="doc-table">
