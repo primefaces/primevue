@@ -12,22 +12,10 @@
 				default: '({currentPage} of {totalPages})'
 			}
 		},
-		data() {
-			return {
-				text: ''
-			}
-		},
-		watch: {
-			page() {
-				this.text = this.template
-					.replace("{currentPage}", this.page + 1)
-					.replace("{totalPages}", this.pageCount);
-			}
-		},
-		mounted() {
-			this.text = this.template
-				.replace("{currentPage}", this.page + 1)
-				.replace("{totalPages}", this.pageCount);
+		computed: {
+            text() {
+                return this.template.replace("{currentPage}", this.page + 1).replace("{totalPages}", this.pageCount);
+            }
 		}
 	}
 </script>
