@@ -1,5 +1,13 @@
 # Changelog
 
+## [1.0.7](https://github.com/primefaces/primevue/tree/1.0.7) (2020-03-05)
+
+[Full Changelog](https://github.com/primefaces/primevue/compare/1.0.6...1.0.7)
+
+**Implemented New Features and Enhancements:**
+
+- Move column filters to their own row  [\#226](https://github.com/primefaces/primevue/issues/226)
+
 ## [1.0.6](https://github.com/primefaces/primevue/tree/1.0.6) (2020-03-04)
 
 [Full Changelog](https://github.com/primefaces/primevue/compare/1.0.5...1.0.6)
