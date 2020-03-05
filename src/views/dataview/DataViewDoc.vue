@@ -8,7 +8,7 @@ import DataView from 'primevue/dataview';
 				</CodeHighlight>
 
                 <h3>PrimeFlex</h3>
-                <p>DataView utilizes PrimeFlex library so it needs to be installed before getting started. Refer to <router-link to="/theming">FlexGrid</router-link> documentation for details.</p>
+                <p>DataView utilizes PrimeFlex library so it needs to be installed before getting started. Refer to <router-link to="/flexgrid">FlexGrid</router-link> documentation for details.</p>
 
 				<h3>Getting Started</h3>
 				<p>DataView requires a collection of items as its value and one or more templates depending on the layout mode e.g. list and grid. Throughout the samples, a car interface having vin, brand, year and color properties are used to define an object to be displayed by the dataview. Cars are loaded by a CarService that connects to a server to fetch the cars.</p>
