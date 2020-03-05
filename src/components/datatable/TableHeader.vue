@@ -18,7 +18,7 @@
             </tr>
             <tr v-if="hasColumnFilter()">
                 <template v-for="(col,i) of columns">
-                    <th v-if="rowGroupMode !== 'subheader' || (groupRowsBy !== col.field)" :key="col.columnKey||col.field||i" 
+                    <th v-if="rowGroupMode !== 'subheader' || (groupRowsBy !== col.field)" :key="col.columnKey||col.field||i"
                         :class="getFilterColumnClass(col)" :style="col.filterStyle">
                         <DTColumnSlot :column="col" type="filter" v-if="col.$scopedSlots.filter" />
                         <DTHeaderCheckbox :checked="allRowsSelected" @change="onHeaderCheckboxChange($event)" :disabled="empty" v-if="col.selectionMode ==='multiple'" />
