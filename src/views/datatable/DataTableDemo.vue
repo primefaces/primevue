@@ -21,7 +21,7 @@
                                 <InputText v-model="filters['global']" placeholder="Global Search" />
                             </div>
                         </template>
-                        <Column selectionMode="multiple" headerStyle="width: 3em; padding-top: 2.75em"></Column>
+                        <Column selectionMode="multiple" headerStyle="width: 3em"></Column>
                         <Column field="name" header="Name" :sortable="true">
                             <template #body="slotProps">
                                 <span class="p-column-title">Name</span>
@@ -86,9 +86,6 @@
                             </template>
                         </Column>
                         <Column headerStyle="width: 8em; text-align: center" bodyStyle="text-align: center; overflow: visible">
-                            <template #header>
-                                <Button type="button" icon="pi pi-cog" class="p-button-secondary" style="margin-top: 1em"></Button>
-                            </template>
                             <template #body>
                                 <Button type="button" icon="pi pi-cog" class="p-button-secondary"></Button>
                             </template>
@@ -245,7 +242,6 @@ export default {
 }
 
 /deep/ .p-column-filter {
-    margin-top: 1em;
     display: block;
 
     input {
@@ -285,6 +281,10 @@ export default {
     .p-datatable-thead > tr > th {
         border: 0 none;
         text-align: left;
+
+        &.p-filter-column {
+            border-top: 1px solid #c8c8c8;
+        }
     }
 
     .p-datatable-tbody > tr > td {

@@ -2323,7 +2323,7 @@ export default {
                     &lt;InputText v-model="filters['global']" placeholder="Global Search" /&gt;
                 &lt;/div&gt;
             &lt;/template&gt;
-            &lt;Column selectionMode="multiple" headerStyle="width: 3em; padding-top: 2.75em"&gt;&lt;/Column&gt;
+            &lt;Column selectionMode="multiple" headerStyle="width: 3em"&gt;&lt;/Column&gt;
             &lt;Column field="name" header="Name" :sortable="true"&gt;
                 &lt;template #body="slotProps"&gt;
                     &lt;span class="p-column-title"&gt;Name&lt;/span&gt;
@@ -2388,9 +2388,6 @@ export default {
                 &lt;/template&gt;
             &lt;/Column&gt;
             &lt;Column headerStyle="width: 8em; text-align: center" bodyStyle="text-align: center; overflow: visible"&gt;
-                &lt;template #header&gt;
-                    &lt;Button type="button" icon="pi pi-cog" class="p-button-secondary" style="margin-top: 1em"&gt;&lt;/Button&gt;
-                &lt;/template&gt;
                 &lt;template #body&gt;
                     &lt;Button type="button" icon="pi pi-cog" class="p-button-secondary"&gt;&lt;/Button&gt;
                 &lt;/template&gt;
@@ -2537,7 +2534,6 @@ export default {
 }
 
 /deep/ .p-column-filter {
-    margin-top: 1em;
     display: block;
 
     input {
@@ -2577,6 +2573,10 @@ export default {
     .p-datatable-thead > tr > th {
         border: 0 none;
         text-align: left;
+
+        &.p-filter-column {
+            border-top: 1px solid #c8c8c8;
+        }
     }
 
     .p-datatable-tbody > tr > td {

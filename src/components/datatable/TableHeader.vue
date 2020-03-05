@@ -1,21 +1,31 @@
 <template>
     <thead class="p-datatable-thead">
-        <tr v-if="!columnGroup">
-            <template v-for="(col,i) of columns">
-                <th v-if="rowGroupMode !== 'subheader' || (groupRowsBy !== col.field)" :tabindex="col.sortable ? '0' : null" @keydown="onColumnKeyDown($event, col)"
-                    :key="col.columnKey||col.field||i" :style="col.headerStyle" :class="getColumnHeaderClass(col)"
-                    @click="onColumnHeaderClick($event, col)" @mousedown="onColumnHeaderMouseDown($event, col)"
-                    @dragstart="onColumnHeaderDragStart($event)" @dragover="onColumnHeaderDragOver($event)" @dragleave="onColumnHeaderDragLeave($event)" @drop="onColumnHeaderDrop($event)"
-                    :colspan="col.colspan" :rowspan="col.rowspan" :aria-sort="getAriaSort(col)">
-                    <span class="p-column-resizer p-clickable" @mousedown="onColumnResizeStart($event)" v-if="resizableColumns"></span>
-                    <DTColumnSlot :column="col" type="header" v-if="col.$scopedSlots.header" />
-                    <span class="p-column-title" v-if="col.header">{{col.header}}</span>
-                    <span v-if="col.sortable" :class="getSortableColumnIcon(col)"></span>
-                    <DTColumnSlot :column="col" type="filter" v-if="col.$scopedSlots.filter" />
-                    <DTHeaderCheckbox :checked="allRowsSelected" @change="onHeaderCheckboxChange($event)" :disabled="empty" v-if="col.selectionMode ==='multiple'" />
-                </th>
-            </template>
-        </tr>
+        <template v-if="!columnGroup">
+            <tr>
+                <template v-for="(col,i) of columns">
+                    <th v-if="rowGroupMode !== 'subheader' || (groupRowsBy !== col.field)" :tabindex="col.sortable ? '0' : null" @keydown="onColumnKeyDown($event, col)"
+                        :key="col.columnKey||col.field||i" :style="col.headerStyle" :class="getColumnHeaderClass(col)"
+                        @click="onColumnHeaderClick($event, col)" @mousedown="onColumnHeaderMouseDown($event, col)"
+                        @dragstart="onColumnHeaderDragStart($event)" @dragover="onColumnHeaderDragOver($event)" @dragleave="onColumnHeaderDragLeave($event)" @drop="onColumnHeaderDrop($event)"
+                        :colspan="col.colspan" :rowspan="col.rowspan" :aria-sort="getAriaSort(col)">
+                        <span class="p-column-resizer p-clickable" @mousedown="onColumnResizeStart($event)" v-if="resizableColumns"></span>
+                        <DTColumnSlot :column="col" type="header" v-if="col.$scopedSlots.header" />
+                        <span class="p-column-title" v-if="col.header">{{col.header}}</span>
+                        <span v-if="col.sortable" :class="getSortableColumnIcon(col)"></span>
+                        <DTHeaderCheckbox :checked="allRowsSelected" @change="onHeaderCheckboxChange($event)" :disabled="empty" v-if="col.selectionMode ==='multiple' && !hasColumnFilter()" />
+                    </th>
+                </template>
+            </tr>
+            <tr v-if="hasColumnFilter()">
+                <template v-for="(col,i) of columns">
+                    <th v-if="rowGroupMode !== 'subheader' || (groupRowsBy !== col.field)" :key="col.columnKey||col.field||i" 
+                        :class="getFilterColumnClass(col)" :style="col.filterStyle">
+                        <DTColumnSlot :column="col" type="filter" v-if="col.$scopedSlots.filter" />
+                        <DTHeaderCheckbox :checked="allRowsSelected" @change="onHeaderCheckboxChange($event)" :disabled="empty" v-if="col.selectionMode ==='multiple'" />
+                    </th>
+                </template>
+            </tr>
+        </template>
         <template v-else>
             <tr v-for="(row,i) of columnGroup.rows" :key="i">
                 <th v-for="(col,i) of row.columns" :key="col.columnKey||col.field||i" :style="col.headerStyle" :class="getColumnHeaderClass(col)" :tabindex="col.sortable ? '0' : null"
@@ -93,6 +103,9 @@ export default {
                     {'p-resizable-column': this.resizableColumns},
                     {'p-highlight': sorted}
             ];
+        },
+        getFilterColumnClass(column) {
+            return ['p-filter-column', column.filterClass];
         },
         getSortableColumnIcon(column) {
             let sorted = false;
@@ -173,6 +186,17 @@ export default {
             else {
                 return null;
             }
+        },
+        hasColumnFilter() {
+            if (this.columns) {
+                for (let col of this.columns) {
+                    if (col.$scopedSlots.filter) {
+                        return true;
+                    }
+                }
+            }
+
+            return false;
         }
     },
     components: {
