@@ -59,7 +59,7 @@ export default class FilterUtils {
         if (value.getTime && filter.getTime)
             return value.getTime() === filter.getTime();
         else
-            return ObjectUtils.removeAccents(value.toString()).toLowerCase() == ObjectUtils.removeAccents(filter.toString()).toLowerCase();
+            return ObjectUtils.removeAccents(value.toString()).toLowerCase() === ObjectUtils.removeAccents(filter.toString()).toLowerCase();
     }
 
     static notEquals(value, filter) {
@@ -74,7 +74,7 @@ export default class FilterUtils {
         if (value.getTime && filter.getTime)
             return value.getTime() !== filter.getTime();
         else
-            return ObjectUtils.removeAccents(value.toString()).toLowerCase() != ObjectUtils.removeAccents(filter.toString()).toLowerCase();
+            return ObjectUtils.removeAccents(value.toString()).toLowerCase() !== ObjectUtils.removeAccents(filter.toString()).toLowerCase();
     }
 
     static in(value, filter) {
