@@ -42,6 +42,11 @@ export default new Router({
 			component: () => import('./views/autocomplete/AutoCompleteDemo.vue')
         },
         {
+			path: '/blockui',
+			name: 'blockui',
+			component: () => import('./views/blockui/BlockUIDemo.vue')
+		},
+        {
 			path: '/breadcrumb',
 			name: 'breadcrumb',
 			component: () => import('./views/breadcrumb/BreadcrumbDemo.vue')
