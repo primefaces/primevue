@@ -89,6 +89,10 @@ export default {
 </script>
 
 <style>
+.p-chips {
+    display: inline-block;
+}
+
 .p-chips > ul.p-inputtext {
     clear: left;
     cursor: text;
@@ -147,5 +151,9 @@ export default {
     -moz-border-radius: 0;
     -webkit-border-radius: 0;
     border-radius: 0;
+}
+
+.p-fluid .p-chips {
+    display: block;
 }
 </style>
