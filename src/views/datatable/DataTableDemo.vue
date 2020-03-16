@@ -21,6 +21,9 @@
                                 <InputText v-model="filters['global']" placeholder="Global Search" />
                             </div>
                         </template>
+                        <template #empty>
+                            No customers found.
+                        </template>
                         <Column selectionMode="multiple" headerStyle="width: 3em"></Column>
                         <Column field="name" header="Name" :sortable="true">
                             <template #body="slotProps">
@@ -60,7 +63,7 @@
                         </Column>
                         <Column field="date" header="Date" :sortable="true" filterMatchMode="custom" :filterFunction="filterDate">
                             <template #filter>
-                                <Calendar v-model="filters['date']" dateFormat="yy-mm-dd" class="p-column-filter" filterMatchMode="equals" placeholder="Registration Date"/>
+                                <Calendar v-model="filters['date']" dateFormat="yy-mm-dd" class="p-column-filter" placeholder="Registration Date"/>
                             </template>
                         </Column>
                         <Column field="status" header="Status" :sortable="true" filterMatchMode="equals">

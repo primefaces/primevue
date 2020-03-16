@@ -2323,6 +2323,9 @@ export default {
                     &lt;InputText v-model="filters['global']" placeholder="Global Search" /&gt;
                 &lt;/div&gt;
             &lt;/template&gt;
+            &lt;template #empty&gt;
+                No customers found.
+            &lt;/template&gt;
             &lt;Column selectionMode="multiple" headerStyle="width: 3em"&gt;&lt;/Column&gt;
             &lt;Column field="name" header="Name" :sortable="true"&gt;
                 &lt;template #body="slotProps"&gt;
@@ -2362,7 +2365,7 @@ export default {
             &lt;/Column&gt;
             &lt;Column field="date" header="Date" :sortable="true" filterMatchMode="custom" :filterFunction="filterDate"&gt;
                 &lt;template #filter&gt;
-                    &lt;Calendar v-model="filters['date']" dateFormat="yy-mm-dd" class="p-column-filter" filterMatchMode="equals" placeholder="Registration Date"/&gt;
+                    &lt;Calendar v-model="filters['date']" dateFormat="yy-mm-dd" class="p-column-filter" placeholder="Registration Date"/&gt;
                 &lt;/template&gt;
             &lt;/Column&gt;
             &lt;Column field="status" header="Status" :sortable="true" filterMatchMode="equals"&gt;
