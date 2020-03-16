@@ -29,8 +29,14 @@
                             <TTColumnSlot :column="col" type="header" v-if="col.$scopedSlots.header" />
                             <span class="p-column-title" v-if="col.header">{{col.header}}</span>
                             <span v-if="col.sortable" :class="getSortableColumnIcon(col)"></span>
-                            <TTColumnSlot :column="col" type="filter" v-if="col.$scopedSlots.filter" />
                         </th>
+                    </tr>
+                    <tr v-if="hasColumnFilter()">
+                        <template v-for="(col,i) of columns">
+                            <th :key="col.columnKey||col.field||i" :class="getFilterColumnHeaderClass(col)" :style="col.filterHeaderStyle">
+                                <TTColumnSlot :column="col" type="filter" v-if="col.$scopedSlots.filter" />
+                            </th>
+                        </template>
                     </tr>
                 </thead>
                 <tfoot class="p-treetable-tfoot" v-if="hasFooter">
@@ -359,6 +365,9 @@ export default {
                     {'p-resizable-column': this.resizableColumns},
                     {'p-highlight': sorted}
             ];
+        },
+        getFilterColumnHeaderClass(column) {
+            return ['p-filter-column', column.filterHeaderClass];
         },
         isColumnSorted(column) {
             if (column.sortable)
@@ -733,6 +742,17 @@ export default {
             else {
                 return null;
             }
+        },
+        hasColumnFilter() {
+            if (this.columns) {
+                for (let col of this.columns) {
+                    if (col.$scopedSlots.filter) {
+                        return true;
+                    }
+                }
+            }
+
+            return false;
         }
     },
     computed: {

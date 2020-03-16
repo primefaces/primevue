@@ -202,7 +202,7 @@ export default {
                                 <td>null</td>
                                 <td>Style class of the column.</td>
                             </tr>
-                             <tr>
+                            <tr>
                                 <td>filterHeaderStyle</td>
                                 <td>object</td>
                                 <td>null</td>
