@@ -1,0 +1,191 @@
+<template>
+	<div class="content-section documentation">
+		<TabView>
+			<TabPanel header="Documentation">
+				<h3>Import</h3>
+<CodeHighlight lang="javascript">
+import Terminal from 'primevue/terminal';
+import TerminalService from 'primevue/terminalservice';
+</CodeHighlight>
+
+				<h3>Getting Started</h3>
+				<p>Commands are processed using an EventBus implementation called TerminalService.
+                    Import this service into your component and subscribe to commandHandler to process commands by
+                        sending replies to commands with the <i>response</i> event.</p>
+<CodeHighlight>
+&lt;Terminal welcomeMessage="Welcome to PrimeVue" prompt="primevue $" /&gt;
+</CodeHighlight>
+
+<CodeHighlight lang="js">
+import TerminalService from 'primevue/terminalservice';
+
+export default {
+    mounted() {
+        TerminalService.$on('command', (text) => {
+            let response;
+            let argsIndex = text.indexOf(' ');
+            let command = argsIndex !== -1 ? text.substring(0, argsIndex) : text;
+
+            switch(command) {
+                case "date":
+                    response = 'Today is ' + new Date().toDateString();
+                    break;
+
+                case "greet":
+                    response = 'Hola ' + text.substring(argsIndex + 1);
+                    break;
+
+                case "random":
+                    response = Math.floor(Math.random() * 100);
+                    break;
+
+                default:
+                    response = "Unknown command: " + command;
+            }
+
+            TerminalService.$emit('response', response);
+        });
+    }
+}
+</CodeHighlight>
+
+                <h3>Properties</h3>
+                <p>Any property as style and class are passed to the main container element. Following are the additional properties to configure the component.</p>
+				<div class="doc-tablewrapper">
+					<table class="doc-table">
+						<thead>
+                            <tr>
+                                <th>Name</th>
+                                <th>Type</th>
+                                <th>Default</th>
+                                <th>Description</th>
+                            </tr>
+						</thead>
+						<tbody>
+                            <tr>
+                                <td>welcomeMessage</td>
+                                <td>string</td>
+                                <td>null</td>
+                                <td>Initial text to display on terminal.</td>
+                            </tr>
+                            <tr>
+                                <td>prompt</td>
+                                <td>string</td>
+                                <td>null</td>
+                                <td>Prompt text for each command.</td>
+                            </tr>
+						</tbody>
+					</table>
+				</div>
+
+				<h3>Styling</h3>
+				<p>Following is the list of structural style classes, for theming classes visit <router-link to="/theming">theming</router-link> page.</p>
+				<div class="doc-tablewrapper">
+					<table class="doc-table">
+						<thead>
+                            <tr>
+                                <th>Name</th>
+                                <th>Element</th>
+                            </tr>
+						</thead>
+						<tbody>
+                             <tr>
+                                <td>p-terminal</td>
+                                <td>Container element.</td>
+                            </tr>
+                            <tr>
+                                <td>p-terminal-content</td>
+                                <td>Content of terminal.</td>
+                            </tr>
+                            <tr>
+                                <td>p-terminal-prompt</td>
+                                <td>Prompt text.</td>
+                            </tr>
+                             <tr>
+                                <td>p-terminal-response</td>
+                                <td>Command response.</td>
+                            </tr>
+                            <tr>
+                                <td>p-terminal-input</td>
+                                <td>Input element to enter commands.</td>
+                            </tr>
+                        </tbody>
+					</table>
+				</div>
+
+				<h3>Dependencies</h3>
+				<p>None.</p>
+			</TabPanel>
+
+			<TabPanel header="Source">
+				<a href="https://github.com/primefaces/primevue/tree/master/src/views/terminal" class="btn-viewsource" target="_blank" rel="noopener noreferrer">
+					<span>View on GitHub</span>
+				</a>
+<CodeHighlight>
+&lt;h3&gt;Basic&lt;/h3&gt;
+&lt;p&gt;Enter "date" to display the current date, "greet &#123;0&#125;" for a message and "random" to get a random number.&lt;/p&gt;
+&lt;Terminal welcomeMessage="Welcome to PrimeVue" prompt="primevue $" /&gt;
+
+&lt;h3&gt;Custom Theme&lt;/h3&gt;
+&lt;Terminal welcomeMessage="Welcome to PrimeVue" prompt="primevue $" class="dark-terminal" /&gt;
+</CodeHighlight>
+
+<CodeHighlight lang="js">
+import TerminalService from 'primevue/terminalservice';
+
+export default {
+    mounted() {
+        TerminalService.$on('command', (text) => {
+            let response;
+            let argsIndex = text.indexOf(' ');
+            let command = argsIndex !== -1 ? text.substring(0, argsIndex) : text;
+
+            switch(command) {
+                case "date":
+                    response = 'Today is ' + new Date().toDateString();
+                    break;
+
+                case "greet":
+                    response = 'Hola ' + text.substring(argsIndex + 1);
+                    break;
+
+                case "random":
+                    response = Math.floor(Math.random() * 100);
+                    break;
+
+                default:
+                    response = "Unknown command: " + command;
+            }
+
+            TerminalService.$emit('response', response);
+        });
+    }
+}
+</CodeHighlight>
+
+<CodeHighlight lang="css">
+p {
+    margin-top: 0;
+}
+
+/deep/ .dark-terminal {
+    background-color: #212121;
+    color: #ffffff;
+
+    .p-terminal-command {
+        color: #80CBC4;
+    }
+
+    .p-terminal-prompt {
+        color: #FFD54F;
+    }
+
+    .p-terminal-response {
+        color: #9FA8DA;
+    }
+}
+</CodeHighlight>
+			</TabPanel>
+		</TabView>
+	</div>
+</template>

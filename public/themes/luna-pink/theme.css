@@ -3133,7 +3133,8 @@ body .p-toast .p-toast-item-container.p-toast-message-error .p-toast-icon-close 
 }
 
 body .p-component-overlay {
-  background-color: rgba(0, 0, 0, 0.4);
+  background-color: #000000;
+  opacity: 0.4;
 }
 body .p-overlaypanel {
   background-color: #323232;
@@ -3980,29 +3981,6 @@ body .p-progressbar .p-progressbar-label {
   color: #dedede;
   line-height: 24px;
 }
-body .p-galleria .p-galleria-nav-prev,
-body .p-galleria .p-galleria-nav-next {
-  -moz-transition: all 0.2s;
-  -o-transition: all 0.2s;
-  -webkit-transition: all 0.2s;
-  transition: all 0.2s;
-  position: absolute;
-  color: #888888;
-}
-body .p-galleria .p-galleria-nav-prev:hover,
-body .p-galleria .p-galleria-nav-next:hover {
-  -webkit-transform: scale(1.2);
-  -moz-transform: scale(1.2);
-  -o-transform: scale(1.2);
-  -ms-transform: scale(1.2);
-  transform: scale(1.2);
-}
-body .p-galleria .p-galleria-nav-prev {
-  font-size: 16px;
-}
-body .p-galleria .p-galleria-nav-next {
-  font-size: 16px;
-}
 body .p-terminal {
   background-color: #323232;
   color: #dedede;
@@ -4012,7 +3990,6 @@ body .p-terminal {
 body .p-terminal .p-terminal-input {
   font-size: 14px;
   font-family: "Open Sans", "Helvetica Neue", sans-serif;
-  height: 16px;
 }
 body .p-terminal .p-terminal-command {
   height: 16px;
@@ -4044,6 +4021,9 @@ body .p-inplace .p-inplace-display:focus {
 body .p-fluid .p-inplace.p-inplace-closable .p-inplace-content > :first-child {
   display: inline-block;
   width: calc(100% - 2.357em);
+}
+body .p-blockui {
+  transition-duration: 0.2s;
 }
 
 /* Add your customizations of theme here */

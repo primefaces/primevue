@@ -491,6 +491,11 @@ export default new Router({
 			component: () => import('./views/tabview/TabViewDemo.vue')
         },
         {
+			path: '/terminal',
+			name: 'terminal',
+			component: () => import('./views/terminal/TerminalDemo.vue')
+        },
+        {
 			path: '/tieredmenu',
 			name: 'tieredmenu',
 			component: () => import('./views/tieredmenu/TieredMenuDemo.vue')
