@@ -10,8 +10,8 @@ import TerminalService from 'primevue/terminalservice';
 
 				<h3>Getting Started</h3>
 				<p>Commands are processed using an EventBus implementation called TerminalService.
-                    Import this service into your component and subscribe to commandHandler to process commands by
-                        sending replies to commands with the <i>response</i> event.</p>
+                    Import this service into your component and subscribe to the <i>command</i> event to process the commands by
+                        sending replies with the <i>response</i> event.</p>
 <CodeHighlight>
 &lt;Terminal welcomeMessage="Welcome to PrimeVue" prompt="primevue $" /&gt;
 </CodeHighlight>
