@@ -19,7 +19,7 @@
             <tr v-if="hasColumnFilter()">
                 <template v-for="(col,i) of columns">
                     <th v-if="rowGroupMode !== 'subheader' || (groupRowsBy !== col.field)" :key="col.columnKey||col.field||i"
-                        :class="getFilterColumnClass(col)" :style="col.filterStyle">
+                        :class="getFilterColumnHeaderClass(col)" :style="col.filterHeaderStyle">
                         <DTColumnSlot :column="col" type="filter" v-if="col.$scopedSlots.filter" />
                         <DTHeaderCheckbox :checked="allRowsSelected" @change="onHeaderCheckboxChange($event)" :disabled="empty" v-if="col.selectionMode ==='multiple'" />
                     </th>
@@ -104,8 +104,8 @@ export default {
                     {'p-highlight': sorted}
             ];
         },
-        getFilterColumnClass(column) {
-            return ['p-filter-column', column.filterClass];
+        getFilterColumnHeaderClass(column) {
+            return ['p-filter-column', column.filterHeaderClass];
         },
         getSortableColumnIcon(column) {
             let sorted = false;

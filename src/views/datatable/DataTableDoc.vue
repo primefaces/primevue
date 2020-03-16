@@ -202,6 +202,18 @@ export default {
                                 <td>null</td>
                                 <td>Style class of the column.</td>
                             </tr>
+                             <tr>
+                                <td>filterHeaderStyle</td>
+                                <td>object</td>
+                                <td>null</td>
+                                <td>Inline style of the column filter header.</td>
+                            </tr>
+                            <tr>
+                                <td>filterHeaderClass</td>
+                                <td>string</td>
+                                <td>null</td>
+                                <td>Style class of the column filter header.</td>
+                            </tr>
                             <tr>
                                 <td>filterMatchMode</td>
                                 <td>string</td>

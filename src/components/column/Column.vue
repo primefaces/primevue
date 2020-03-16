@@ -54,6 +54,14 @@ export default {
             type: String,
             default: null
         },
+        filterHeaderClass: {
+            type: String,
+            default: false
+        },
+        filterHeaderStyle: {
+            type: null,
+            default: false
+        },
         filterMatchMode: {
             type: String,
             default: 'startsWith'
