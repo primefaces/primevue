@@ -21,8 +21,8 @@ import TerminalDoc from './TerminalDoc';
 import TerminalService from '../../components/terminal/TerminalService';
 
 export default {
-    mounted() {
-        TerminalService.$on('command', (text) => {
+    methods: {
+        commandHandler(text) {
             let response;
             let argsIndex = text.indexOf(' ');
             let command = argsIndex !== -1 ? text.substring(0, argsIndex) : text;
@@ -45,7 +45,13 @@ export default {
             }
 
             TerminalService.$emit('response', response);
-        });
+        }
+    },
+    mounted() {
+        TerminalService.$on('command', this.commandHandler);
+    },
+    beforeDestroy() {
+        TerminalService.$off('command', this.commandHandler);
     },
     components: {
         'TerminalDoc': TerminalDoc

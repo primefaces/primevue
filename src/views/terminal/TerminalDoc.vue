@@ -20,8 +20,8 @@ import TerminalService from 'primevue/terminalservice';
 import TerminalService from 'primevue/terminalservice';
 
 export default {
-    mounted() {
-        TerminalService.$on('command', (text) => {
+     methods: {
+        commandHandler(text) {
             let response;
             let argsIndex = text.indexOf(' ');
             let command = argsIndex !== -1 ? text.substring(0, argsIndex) : text;
@@ -44,7 +44,13 @@ export default {
             }
 
             TerminalService.$emit('response', response);
-        });
+        }
+    },
+    mounted() {
+        TerminalService.$on('command', this.commandHandler);
+    },
+    beforeDestroy() {
+        TerminalService.$off('command', this.commandHandler);
     }
 }
 </CodeHighlight>
@@ -130,8 +136,8 @@ export default {
 import TerminalService from 'primevue/terminalservice';
 
 export default {
-    mounted() {
-        TerminalService.$on('command', (text) => {
+     methods: {
+        commandHandler(text) {
             let response;
             let argsIndex = text.indexOf(' ');
             let command = argsIndex !== -1 ? text.substring(0, argsIndex) : text;
@@ -154,7 +160,13 @@ export default {
             }
 
             TerminalService.$emit('response', response);
-        });
+        }
+    },
+    mounted() {
+        TerminalService.$on('command', this.commandHandler);
+    },
+    beforeDestroy() {
+        TerminalService.$off('command', this.commandHandler);
     }
 }
 </CodeHighlight>
