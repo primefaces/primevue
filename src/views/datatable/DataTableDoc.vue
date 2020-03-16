@@ -2328,7 +2328,8 @@ export default {
     &lt;div class="p-card-body" style="padding:0"&gt;
         &lt;DataTable :value="customers" :paginator="true" class="p-datatable-responsive p-datatable-customers" :rows="10"
             dataKey="id" :rowHover="true" :selection.sync="selectedCustomers" :filters="filters"
-            paginatorTemplate="FirstPageLink PrevPageLink PageLinks NextPageLink LastPageLink CurrentPageReport RowsPerPageDropdown" :rowsPerPageOptions="[10,25,50]"&gt;
+            paginatorTemplate="FirstPageLink PrevPageLink PageLinks NextPageLink LastPageLink CurrentPageReport RowsPerPageDropdown" :rowsPerPageOptions="[10,25,50]"
+            currentPageReportTemplate="Showing {first} to {last} of {totalRecords} entries"&gt;
             &lt;template #header&gt;
                 List of Customers
                 &lt;div class="p-datatable-globalfilter-container"&gt;
