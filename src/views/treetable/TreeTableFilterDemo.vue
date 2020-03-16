@@ -20,17 +20,17 @@
                 </template>
                 <Column field="name" header="Name" :expander="true">
                     <template #filter>
-                        <InputText type="text" v-model="filters['name']" class="p-column-filter" />
+                        <InputText type="text" v-model="filters['name']" class="p-column-filter" placeholder="Filter by name" />
                     </template>
                 </Column>
                 <Column field="size" header="Size">
                     <template #filter>
-                        <InputText type="text" v-model="filters['size']" class="p-column-filter" />
+                        <InputText type="text" v-model="filters['size']" class="p-column-filter" placeholder="Filter by size"/>
                     </template>
                 </Column>
                 <Column field="type" header="Type">
                     <template #filter>
-                        <InputText type="text" v-model="filters['type']" class="p-column-filter" />
+                        <InputText type="text" v-model="filters['type']" class="p-column-filter" placeholder="Filter by type"/>
                     </template>
                 </Column>
             </TreeTable>
@@ -45,17 +45,17 @@
                 </template>
                 <Column field="name" header="Name" :expander="true">
                     <template #filter>
-                        <InputText type="text" v-model="filters['name']" class="p-column-filter" />
+                        <InputText type="text" v-model="filters['name']" class="p-column-filter" placeholder="Filter by name" />
                     </template>
                 </Column>
                 <Column field="size" header="Size">
                     <template #filter>
-                        <InputText type="text" v-model="filters['size']" class="p-column-filter" />
+                        <InputText type="text" v-model="filters['size']" class="p-column-filter" placeholder="Filter by size" />
                     </template>
                 </Column>
                 <Column field="type" header="Type">
                     <template #filter>
-                        <InputText type="text" v-model="filters['type']" class="p-column-filter" />
+                        <InputText type="text" v-model="filters['type']" class="p-column-filter" placeholder="Filter by type" />
                     </template>
                 </Column>
             </TreeTable>
@@ -76,17 +76,17 @@
     &lt;/template&gt;
     &lt;Column field="name" header="Name" :expander="true"&gt;
         &lt;template #filter&gt;
-            &lt;InputText type="text" v-model="filters['name']" class="p-column-filter" /&gt;
+            &lt;InputText type="text" v-model="filters['name']" class="p-column-filter" placeholder="Filter by name" /&gt;
         &lt;/template&gt;
     &lt;/Column&gt;
     &lt;Column field="size" header="Size"&gt;
         &lt;template #filter&gt;
-            &lt;InputText type="text" v-model="filters['size']" class="p-column-filter" /&gt;
+            &lt;InputText type="text" v-model="filters['size']" class="p-column-filter" placeholder="Filter by size" /&gt;
         &lt;/template&gt;
     &lt;/Column&gt;
     &lt;Column field="type" header="Type"&gt;
         &lt;template #filter&gt;
-            &lt;InputText type="text" v-model="filters['type']" class="p-column-filter" /&gt;
+            &lt;InputText type="text" v-model="filters['type']" class="p-column-filter" placeholder="Filter by type" /&gt;
         &lt;/template&gt;
     &lt;/Column&gt;
 &lt;/TreeTable&gt;
@@ -101,17 +101,17 @@
     &lt;/template&gt;
     &lt;Column field="name" header="Name" :expander="true"&gt;
         &lt;template #filter&gt;
-            &lt;InputText type="text" v-model="filters['name']" class="p-column-filter" /&gt;
+            &lt;InputText type="text" v-model="filters['name']" class="p-column-filter" placeholder="Filter by name" /&gt;
         &lt;/template&gt;
     &lt;/Column&gt;
     &lt;Column field="size" header="Size"&gt;
         &lt;template #filter&gt;
-            &lt;InputText type="text" v-model="filters['size']" class="p-column-filter" /&gt;
+            &lt;InputText type="text" v-model="filters['size']" class="p-column-filter" placeholder="Filter by size" /&gt;
         &lt;/template&gt;
     &lt;/Column&gt;
     &lt;Column field="type" header="Type"&gt;
         &lt;template #filter&gt;
-            &lt;InputText type="text" v-model="filters['type']" class="p-column-filter" /&gt;
+            &lt;InputText type="text" v-model="filters['type']" class="p-column-filter" placeholder="Filter by type" /&gt;
         &lt;/template&gt;
     &lt;/Column&gt;
 &lt;/TreeTable&gt;
