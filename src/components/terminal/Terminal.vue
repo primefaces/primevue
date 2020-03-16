@@ -19,19 +19,6 @@
 import TerminalService from './TerminalService';
 
 export default {
-    data() {
-        return {
-            commandText: null,
-            commands: []
-        }
-    },
-    mounted () {
-        TerminalService.$on('response', (response) => {
-            this.commands[this.commands.length - 1].response = response;
-        });
-
-        this.$refs.input.focus();
-    },
     props: {
         welcomeMessage: {
             type: String,
@@ -41,6 +28,19 @@ export default {
             type: String,
             default: null
         }
+    },
+    data() {
+        return {
+            commandText: null,
+            commands: []
+        }
+    },
+    mounted() {
+        TerminalService.$on('response', this.responseListener);
+        this.$refs.input.focus();
+    },
+    beforeDestroy() {
+        TerminalService.$off('response', this.responseListener);
     },
     methods: {
         onClick() {
@@ -52,6 +52,9 @@ export default {
                 TerminalService.$emit('command', this.commandText);
                 this.commandText = '';
             }
+        },
+        responseListener(response) {
+            this.commands[this.commands.length - 1].response = response;
         }
     }
 }
