@@ -3133,7 +3133,8 @@ body .p-toast .p-toast-item-container.p-toast-message-error .p-toast-icon-close 
 }
 
 body .p-component-overlay {
-  background-color: rgba(0, 0, 0, 0.4);
+  background-color: #000000;
+  opacity: 0.4;
 }
 body .p-overlaypanel {
   background-color: #ffffff;
@@ -4044,6 +4045,9 @@ body .p-inplace .p-inplace-display:focus {
 body .p-fluid .p-inplace.p-inplace-closable .p-inplace-content > :first-child {
   display: inline-block;
   width: calc(100% - 2.357em);
+}
+body .p-blockui {
+  transition-duration: 0.2s;
 }
 
 /* Add your customizations of theme here */

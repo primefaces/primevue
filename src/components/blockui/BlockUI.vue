@@ -44,7 +44,7 @@ export default {
         block() {
             if (this.fullScreen) {
                 this.mask = document.createElement('div');
-                this.mask.setAttribute('class', 'p-blockui p-component-overlay p-blockui-document');
+                this.mask.setAttribute('class', 'p-blockui p-blockui-document');
                 document.body.appendChild(this.mask);
                 DomHandler.addClass(document.body, 'p-overflow-hidden');
                 document.activeElement.blur();
@@ -54,20 +54,32 @@ export default {
                 if (target) {
                     this.mask = document.createElement('div');
 
-                    this.mask.setAttribute('class', 'p-blockui p-component-overlay');
+                    this.mask.setAttribute('class', 'p-blockui');
                     target.$el.appendChild(this.mask);
                     target.$el.style.position = 'relative';
                 }
             }
 
-            if (this.mask && this.autoZIndex) {
+            if (this.mask) {
+                setTimeout(() => {
+                    DomHandler.addClass(this.mask, 'p-component-overlay');
+                }, 1);
+            }
+
+            if (this.autoZIndex) {
                 this.mask.style.zIndex = String(this.baseZIndex + DomHandler.generateZIndex());
             }
 
             this.$emit('block');
         },
         unblock() {
-            if (this.fullScreen) {
+            DomHandler.addClass(this.mask, 'p-blockui-leave');
+            this.mask.addEventListener('transitionend', () => {
+                this.removeMask();
+            });
+        },
+        removeMask() {
+             if (this.fullScreen) {
                 document.body.removeChild(this.mask);
                 DomHandler.removeClass(document.body, 'p-overflow-hidden');
             }
@@ -88,6 +100,8 @@ export default {
     left: 0;
     width: 100%;
     height: 100%;
+    opacity: 0;
+    transition-property: opacity;
 }
 
 .p-blockui.p-component-overlay {
@@ -96,5 +110,9 @@ export default {
 
 .p-blockui-document.p-component-overlay {
     position: fixed;
+}
+
+.p-blockui-leave.p-component-overlay {
+    opacity: 0 !important;
 }
 </style>
