@@ -56,7 +56,7 @@ export default {
         },
         filterHeaderClass: {
             type: String,
-            default: false
+            default: null
         },
         filterHeaderStyle: {
             type: null,
