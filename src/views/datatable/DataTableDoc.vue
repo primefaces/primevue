@@ -2586,6 +2586,10 @@ export default {
         border: 0 none;
         cursor: auto;
     }
+
+    .p-dropdown-label:not(.p-placeholder) {
+        text-transform: uppercase;
+    }
 }
 </CodeHighlight>
 			</TabPanel>
