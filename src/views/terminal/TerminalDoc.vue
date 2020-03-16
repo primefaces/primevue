@@ -122,12 +122,8 @@ export default {
 					<span>View on GitHub</span>
 				</a>
 <CodeHighlight>
-&lt;h3&gt;Basic&lt;/h3&gt;
 &lt;p&gt;Enter "date" to display the current date, "greet &#123;0&#125;" for a message and "random" to get a random number.&lt;/p&gt;
-&lt;Terminal welcomeMessage="Welcome to PrimeVue" prompt="primevue $" /&gt;
-
-&lt;h3&gt;Custom Theme&lt;/h3&gt;
-&lt;Terminal welcomeMessage="Welcome to PrimeVue" prompt="primevue $" class="dark-terminal" /&gt;
+&lt;Terminal welcomeMessage="Welcome to PrimeVue" prompt="primevue $" class="dark-demo-terminal" /&gt;
 </CodeHighlight>
 
 <CodeHighlight lang="js">
@@ -168,7 +164,7 @@ p {
     margin-top: 0;
 }
 
-/deep/ .dark-terminal {
+/deep/ .dark-demo-terminall {
     background-color: #212121;
     color: #ffffff;
 

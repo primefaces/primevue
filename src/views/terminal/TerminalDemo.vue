@@ -8,12 +8,8 @@
         </div>
 
         <div class="content-section implementation">
-            <h3>Basic</h3>
             <p>Enter "date" to display the current date, "greet {0}" for a message and "random" to get a random number.</p>
-            <Terminal welcomeMessage="Welcome to PrimeVue" prompt="primevue $" />
-
-            <h3>Custom Theme</h3>
-            <Terminal welcomeMessage="Welcome to PrimeVue" prompt="primevue $" class="dark-terminal" />
+            <Terminal welcomeMessage="Welcome to PrimeVue" prompt="primevue $" class="dark-demo-terminal" />
         </div>
 
         <TerminalDoc />
@@ -62,7 +58,7 @@ p {
     margin-top: 0;
 }
 
-/deep/ .dark-terminal {
+/deep/ .dark-demo-terminal {
     background-color: #212121;
     color: #ffffff;
 
