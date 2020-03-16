@@ -52,10 +52,18 @@ import Paginator from 'primevue/paginator';
                     <li>CurrentPageReport</li>
                 </ul>
 
-<CodeHighlight>
-&lt;Paginator :first.sync="offset" :rows="10" :totalRecords="totalItemsCount"
-            template="FirstPageLink PrevPageLink CurrentPageReport NextPageLink LastPageLink"&gt;&lt;/Paginator&gt;
-</CodeHighlight>
+                <h3>CurrentPageReport</h3>
+                <p>Current page report item in the itemplate displays information about the pagination state. Default value is (&#123;currentPage&#125; of &#123;totalPages&#125;)
+                    whereas available placeholders are the following;
+                </p>
+                <ul>
+                    <li>&#123;currentPage&#125;</li>
+                    <li>&#123;totalPages&#125;</li>
+                    <li>&#123;rows&#125;</li>
+                    <li>&#123;first&#125;</li>
+                    <li>&#123;last&#125;</li>
+                    <li>&#123;totalRecords&#125;</li>
+                </ul>
 
                 <h3>Custom Content</h3>
                 <p>There are two templates available named "left" and "right" to add custom content to these locations. Both templates get
@@ -65,9 +73,9 @@ import Paginator from 'primevue/paginator';
 <template v-pre>
 &lt;Paginator :first.sync="offset" :rows="10" :totalRecords="totalItemsCount"&gt;
     &lt;template #left="slotProps"&gt;
-        Page: {{slotProps.state.page}}
-        First: {{slotProps.state.first}}
-        Rows: {{slotProps.state.rows}}
+        Page: &#123;&#123;slotProps.state.page&#125;&#125;
+        First: &#123;&#123;slotProps.state.first&#125;&#125;
+        Rows: &#123;&#123;slotProps.state.rows&#125;&#125;
     &lt;/template&gt;
     &lt;template #right&gt;
         &lt;Button type="button" icon="pi pi-search" /&gt;
@@ -142,8 +150,10 @@ onPage(event) {
                             <tr>
                                 <td>currentPageReportTemplate</td>
                                 <td>string</td>
-                                <td>({currentPage} of {totalPages})</td>
-                                <td>Template of the current page report element.</td>
+                                <td>(&#123;currentPage&#125; of &#123;totalPages&#125;)</td>
+                                <td>Template of the current page report element. Available placeholders are
+                                    &#123;currentPage&#125;,&#123;totalPages&#125;,&#123;rows&#125;,&#123;first&#125;,&#123;last&#125; and &#123;totalRecords&#125;
+                                </td>
                             </tr>
                             <tr>
                                 <td>alwaysShow</td>
