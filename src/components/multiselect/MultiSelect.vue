@@ -445,6 +445,7 @@ export default {
     cursor: pointer;
     text-overflow: ellipsis;
     overflow: hidden;
+    white-space: nowrap;
 }
 
 .p-multiselect-label-empty {
