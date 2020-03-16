@@ -100,11 +100,10 @@ export default {
             this.virtualScrollCallback();
             this.virtualScrollCallback = null;
         }
+
+        this.setScrollHeight();
     },
     watch: {
-        scrollHeight() {
-            this.setScrollHeight();
-        },
         totalRecords(newValue) {
             if (this.virtualScroll) {
                 this.$refs.virtualScroller.style.height = newValue * this.virtualRowHeight + 'px';
@@ -162,21 +161,28 @@ export default {
         },
         setScrollHeight() {
             if (this.scrollHeight) {
-                if(this.scrollHeight.indexOf('%') !== -1) {
-                    let datatableContainer = this.findDataTableContainer(this.$el);
-                    this.$refs.scrollBody.style.visibility = 'hidden';
-                    this.$refs.scrollBody.style.height = '100px';         //temporary height to calculate static height
-                    let containerHeight = DomHandler.getOuterHeight(datatableContainer);
-                    let relativeHeight = DomHandler.getOuterHeight(datatableContainer.parentElement) * parseInt(this.scrollHeight, 10) / 100;
-                    let staticHeight = containerHeight - 100;       //total height of headers, footers, paginators
-                    let scrollBodyHeight = (relativeHeight - staticHeight);
-
-                    this.$refs.scrollBody.style.height = 'auto';
-                    this.$refs.scrollBody.style.maxHeight = scrollBodyHeight + 'px';
-                    this.$refs.scrollBody.style.visibility = 'visible';
+                let frozenView = this.$el.previousElementSibling;
+                if (frozenView) {
+                    let frozenScrollBody = DomHandler.findSingle(frozenView, '.p-datatable-scrollable-body');
+                    this.$refs.scrollBody.style.maxHeight = frozenScrollBody.style.maxHeight;
                 }
                 else {
-                    this.$refs.scrollBody.style.maxHeight = this.scrollHeight;
+                    if(this.scrollHeight.indexOf('%') !== -1) {
+                        let datatableContainer = this.findDataTableContainer(this.$el);
+                        this.$refs.scrollBody.style.visibility = 'hidden';
+                        this.$refs.scrollBody.style.height = '100px';         //temporary height to calculate static height
+                        let containerHeight = DomHandler.getOuterHeight(datatableContainer);
+                        let relativeHeight = DomHandler.getOuterHeight(datatableContainer.parentElement) * parseInt(this.scrollHeight, 10) / 100;
+                        let staticHeight = containerHeight - 100;       //total height of headers, footers, paginators
+                        let scrollBodyHeight = (relativeHeight - staticHeight);
+
+                        this.$refs.scrollBody.style.height = 'auto';
+                        this.$refs.scrollBody.style.maxHeight = scrollBodyHeight + 'px';
+                        this.$refs.scrollBody.style.visibility = 'visible';
+                    }
+                    else {
+                        this.$refs.scrollBody.style.maxHeight = this.scrollHeight;
+                    }
                 }
             }
         },
