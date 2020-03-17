@@ -1,6 +1,6 @@
 <template>
     <li :class="containerClass" role="none" :style="item.style" v-if="item.visible !== false">
-        <router-link v-if="item.to" :to="item.to" :class="linkClass" role="menuitem">
+        <router-link v-if="item.to && !item.disabled" :to="item.to" :class="linkClass" role="menuitem">
             <span :class="['p-menuitem-icon', item.icon]"></span>
             <span class="p-menuitem-text">{{item.label}}</span>
         </router-link>

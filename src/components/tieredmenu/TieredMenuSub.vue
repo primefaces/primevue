@@ -3,7 +3,7 @@
         <template v-for="(item, i) of model">
             <li :class="getItemClass(item)" :style="item.style" v-if="item.visible !== false && !item.separator" :key="item.label + i"
                 @mouseenter="onItemMouseEnter($event, item)" role="none">
-                <router-link v-if="item.to" :to="item.to" :class="getLinkClass(item)"
+                <router-link v-if="item.to && !item.disabled" :to="item.to" :class="getLinkClass(item)"
                     @click.native="onItemClick($event, item)" @keydown.native="onItemKeyDown($event, item)" role="menuitem">
                     <span :class="['p-menuitem-icon', item.icon]"></span>
                     <span class="p-menuitem-text">{{item.label}}</span>
