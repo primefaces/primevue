@@ -423,6 +423,9 @@ body .p-dropdown:not(.p-disabled).p-focus {
 body .p-dropdown .p-dropdown-label {
   padding-right: 2em;
 }
+body .p-dropdown .p-dropdown-label.p-placeholder {
+  color: #a6a6a6;
+}
 body .p-dropdown .p-dropdown-label:focus {
   outline: 0 none;
   -webkit-box-shadow: none;
@@ -521,6 +524,9 @@ body .p-multiselect .p-multiselect-label {
   font-weight: 400;
   color: #666666;
 }
+body .p-multiselect .p-multiselect-label.p-placeholder {
+  color: #a6a6a6;
+}
 body .p-multiselect .p-multiselect-trigger {
   background-color: #f4f4f4;
   width: 2em;
@@ -571,6 +577,7 @@ body .p-multiselect-panel .p-multiselect-header .p-checkbox {
   vertical-align: middle;
 }
 body .p-multiselect-panel .p-multiselect-header .p-multiselect-close {
+  line-height: 1;
   color: #666666;
   top: 50%;
   margin-top: -0.5em;
@@ -698,6 +705,11 @@ body .p-listbox:not(.p-disabled) .p-listbox-item:not(.p-highlight):not(.p-disabl
 }
 body .p-listbox.p-disabled .p-checkbox-box:not(.p-disabled):not(.p-highlight):hover {
   border: 1px solid #dadada;
+}
+body .p-listbox .p-listbox-list-wrapper {
+  -moz-border-radius: 2px;
+  -webkit-border-radius: 2px;
+  border-radius: 2px;
 }
 body .p-listbox .p-listbox-footer {
   padding: 0.429em 0.857em 0.429em 0.857em;
@@ -1893,9 +1905,6 @@ body .p-card {
   box-shadow: 0 0 6px 0 rgba(0, 0, 0, 0.16);
 }
 
-body {
-  /* Responsive Table */
-}
 body .p-paginator {
   background-color: #ffffff;
   border: 1px solid #dadada;
@@ -2073,6 +2082,12 @@ body .p-datatable .p-editable-column input {
   font-size: 14px;
   font-family: "Open Sans", "Helvetica Neue", sans-serif;
 }
+body .p-datatable .p-row-editor-init {
+  -moz-transition: background-color 0.2s, box-shadow 0.2s;
+  -o-transition: background-color 0.2s, box-shadow 0.2s;
+  -webkit-transition: background-color 0.2s, box-shadow 0.2s;
+  transition: background-color 0.2s, box-shadow 0.2s;
+}
 body .p-datatable .p-datatable-tbody > tr {
   background: #ffffff;
   color: #666666;
@@ -2192,39 +2207,6 @@ body .p-datatable.p-datatable-borderless .p-datatable-tfoot > tr > td {
 }
 body .p-datatable.p-datatable-borderless .p-paginator {
   border: 0 none;
-}
-body .p-datatable-responsive .p-datatable-tbody > tr > td .p-column-title {
-  display: none;
-}
-@media screen and (max-width: 40em) {
-  body .p-datatable.p-datatable-responsive .p-datatable-thead > tr > th,
-body .p-datatable.p-datatable-responsive .p-datatable-tfoot > tr > td {
-    display: none !important;
-  }
-  body .p-datatable.p-datatable-responsive .p-datatable-tbody > tr > td {
-    text-align: left;
-    display: block;
-    border: 0 none !important;
-    width: 100% !important;
-    float: left;
-    clear: left;
-  }
-  body .p-datatable.p-datatable-responsive .p-datatable-tbody > tr > td .p-column-title {
-    padding: 0.4em;
-    min-width: 30%;
-    display: inline-block;
-    margin: -0.4em 1em -0.4em -0.4em;
-    font-weight: bold;
-  }
-  body .p-datatable.p-datatable-responsive .p-paginator-top {
-    border-bottom: 1px solid #dadada;
-  }
-  body .p-datatable.p-datatable-responsive .p-paginator-bottom {
-    border-top: 1px solid #dadada;
-  }
-  body .p-datatable.p-datatable-responsive .p-datatable-tbody > tr > td {
-    border: 0 none;
-  }
 }
 body .p-datascroller .p-datascroller-header {
   background-color: #7B95A3;
@@ -3133,8 +3115,7 @@ body .p-toast .p-toast-item-container.p-toast-message-error .p-toast-icon-close 
 }
 
 body .p-component-overlay {
-  background-color: #000000;
-  opacity: 0.4;
+  background-color: rgba(0, 0, 0, 0.4);
 }
 body .p-overlaypanel {
   background-color: #ffffff;
@@ -3275,9 +3256,16 @@ body .p-sidebar {
 }
 body .p-sidebar .p-sidebar-close {
   color: #a6a6a6;
+  -moz-transition: background-color 0.2s, box-shadow 0.2s;
+  -o-transition: background-color 0.2s, box-shadow 0.2s;
+  -webkit-transition: background-color 0.2s, box-shadow 0.2s;
+  transition: background-color 0.2s, box-shadow 0.2s;
 }
 body .p-sidebar .p-sidebar-close:hover {
   color: #666666;
+}
+body .p-sidebar-mask {
+  transition-duration: 0.2s;
 }
 body .p-tooltip .p-tooltip-text {
   background-color: #AFD3C8;
