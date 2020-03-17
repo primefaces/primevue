@@ -36,7 +36,8 @@
         </template>
         <tr v-else class="p-datatable-emptymessage">
             <td :colspan="columns.length">
-                <DTEmptySlotTemplate :template="templates.empty" v-if="templates.empty"/>
+                <DTSlotTemplate :template="templates.empty" v-if="templates.empty && !loading"/>
+                <DTSlotTemplate :template="templates.loading" v-if="templates.loading && loading"/>
             </td>
         </tr>
     </tbody>
@@ -75,7 +76,7 @@ const RowExpansionTemplate = {
     }
 }
 
-const EmptySlotTemplate = {
+const SlotTemplate = {
     functional: true,
     props: {
         template: {
@@ -174,6 +175,10 @@ export default {
         editingRowKeys: {
             type: null,
             default: null
+        },
+        loading: {
+            type: Boolean,
+            default: false
         },
         templates: {
             type: null,
@@ -435,7 +440,7 @@ export default {
     components: {
         'DTBodyCell': BodyCell,
         'DTRowExpansionTemplate': RowExpansionTemplate,
-        'DTEmptySlotTemplate': EmptySlotTemplate
+        'DTSlotTemplate': SlotTemplate
     }
 }
 </script>

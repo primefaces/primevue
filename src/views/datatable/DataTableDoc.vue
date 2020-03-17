@@ -1476,10 +1476,14 @@ export default {
 </CodeHighlight>
 
                 <h3>Loading</h3>
-                <p>A loading status indicator can be displayed when the <i>loading</i> property is enabled. The icon is customized through <i>loadingIcon</i> property.</p>
+                <p>A loading status indicator can be displayed when the <i>loading</i> property is enabled. The icon is customized through <i>loadingIcon</i> property. Additionally
+                an option loading template is available to render as the body until the data is loaded.</p>
 <CodeHighlight>
 <template v-pre>
 &lt;DataTable :value="cars" :loading="loading"&gt;
+     &lt;template #loading&gt;
+        Loading records, please wait...
+    &lt;/template&gt;
     &lt;Column field="vin" header="Vin"&gt;&lt;/Column&gt;
     &lt;Column field="year" header="Year"&gt;&lt;/Column&gt;
     &lt;Column field="brand" header="Brand"&gt;&lt;/Column&gt;
@@ -2331,7 +2335,7 @@ export default {
 &lt;div class="p-card"&gt;
     &lt;div class="p-card-body" style="padding:0"&gt;
         &lt;DataTable :value="customers" :paginator="true" class="p-datatable-responsive p-datatable-customers" :rows="10"
-            dataKey="id" :rowHover="true" :selection.sync="selectedCustomers" :filters="filters"
+            dataKey="id" :rowHover="true" :selection.sync="selectedCustomers" :filters="filters" :loading="loading"
             paginatorTemplate="FirstPageLink PrevPageLink PageLinks NextPageLink LastPageLink CurrentPageReport RowsPerPageDropdown" :rowsPerPageOptions="[10,25,50]"
             currentPageReportTemplate="Showing {first} to {last} of {totalRecords} entries"&gt;
             &lt;template #header&gt;
@@ -2342,6 +2346,9 @@ export default {
             &lt;/template&gt;
             &lt;template #empty&gt;
                 No customers found.
+            &lt;/template&gt;
+            &lt;template #loading&gt;
+                Loading customers data. Please wait.
             &lt;/template&gt;
             &lt;Column selectionMode="multiple" headerStyle="width: 3em"&gt;&lt;/Column&gt;
             &lt;Column field="name" header="Name" :sortable="true"&gt;
@@ -2427,6 +2434,7 @@ export default {
             customers: null,
             selectedCustomers: null,
             filters: {},
+            loading: true,
             representatives: [
                 {name: "Amy Elsner", image: 'amyelsner.png'},
                 {name: "Anna Fali", image: 'annafali.png'},
@@ -2448,7 +2456,10 @@ export default {
         this.customerService = new CustomerService();
     },
     mounted() {
-        this.customerService.getCustomersLarge().then(data => this.customers = data);
+        this.customerService.getCustomersLarge().then(data => {
+            this.customers = data;
+            this.loading = false;
+        });
     },
     methods: {
         filterDate(value, filter) {

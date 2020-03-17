@@ -13,7 +13,7 @@
             <div class="p-card">
                 <div class="p-card-body" style="padding:0">
                     <DataTable :value="customers" :paginator="true" class="p-datatable-customers" :rows="10"
-                        dataKey="id" :rowHover="true" :selection.sync="selectedCustomers" :filters="filters"
+                        dataKey="id" :rowHover="true" :selection.sync="selectedCustomers" :filters="filters" :loading="loading"
                         paginatorTemplate="FirstPageLink PrevPageLink PageLinks NextPageLink LastPageLink CurrentPageReport RowsPerPageDropdown" :rowsPerPageOptions="[10,25,50]"
                         currentPageReportTemplate="Showing {first} to {last} of {totalRecords} entries">
                         <template #header>
@@ -24,6 +24,9 @@
                         </template>
                         <template #empty>
                             No customers found.
+                        </template>
+                        <template #loading>
+                            Loading customers data. Please wait.
                         </template>
                         <Column selectionMode="multiple" headerStyle="width: 3em"></Column>
                         <Column field="name" header="Name" :sortable="true">
@@ -115,6 +118,7 @@ export default {
             customers: null,
             selectedCustomers: null,
             filters: {},
+            loading: true,
             representatives: [
                 {name: "Amy Elsner", image: 'amyelsner.png'},
                 {name: "Anna Fali", image: 'annafali.png'},
@@ -137,6 +141,7 @@ export default {
     },
     mounted() {
         this.customerService.getCustomersLarge().then(data => this.customers = data);
+        this.loading = false;
     },
     methods: {
         filterDate(value, filter) {
