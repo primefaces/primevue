@@ -12,7 +12,7 @@
 		<div class="content-section implementation">
             <div class="p-card">
                 <div class="p-card-body" style="padding:0">
-                    <DataTable :value="customers" :paginator="true" class="p-datatable-responsive p-datatable-customers" :rows="10"
+                    <DataTable :value="customers" :paginator="true" class="p-datatable-customers" :rows="10"
                         dataKey="id" :rowHover="true" :selection.sync="selectedCustomers" :filters="filters"
                         paginatorTemplate="FirstPageLink PrevPageLink PageLinks NextPageLink LastPageLink CurrentPageReport RowsPerPageDropdown" :rowsPerPageOptions="[10,25,50]"
                         currentPageReportTemplate="Showing {first} to {last} of {totalRecords} entries">
@@ -298,6 +298,40 @@ export default {
 
     .p-dropdown-label:not(.p-placeholder) {
         text-transform: uppercase;
+    }
+}
+
+/* Responsive */
+.p-datatable-customers .p-datatable-tbody > tr > td .p-column-title {
+    display: none;
+}
+
+@media screen and (max-width: 64em) {
+    /deep/ .p-datatable {
+        &.p-datatable-customers {
+            .p-datatable-thead > tr > th,
+            .p-datatable-tfoot > tr > td {
+                display: none !important;
+            }
+
+            .p-datatable-tbody > tr > td {
+                text-align: left;
+                display: block;
+                border: 0 none !important;
+                width: 100% !important;
+                float: left;
+                clear: left;
+                border: 0 none;
+
+                .p-column-title {
+                    padding: .4em;
+                    min-width: 30%;
+                    display: inline-block;
+                    margin: -.4em 1em -.4em -.4em;
+                    font-weight: bold;
+                }
+            }
+        }
     }
 }
 </style>

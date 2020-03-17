@@ -2604,6 +2604,40 @@ export default {
         text-transform: uppercase;
     }
 }
+
+/* Responsive */
+.p-datatable-customers .p-datatable-tbody > tr > td .p-column-title {
+    display: none;
+}
+
+@media screen and (max-width: 64em) {
+    /deep/ .p-datatable {
+        &.p-datatable-customers {
+            .p-datatable-thead > tr > th,
+            .p-datatable-tfoot > tr > td {
+                display: none !important;
+            }
+
+            .p-datatable-tbody > tr > td {
+                text-align: left;
+                display: block;
+                border: 0 none !important;
+                width: 100% !important;
+                float: left;
+                clear: left;
+                border: 0 none;
+
+                .p-column-title {
+                    padding: .4em;
+                    min-width: 30%;
+                    display: inline-block;
+                    margin: -.4em 1em -.4em -.4em;
+                    font-weight: bold;
+                }
+            }
+        }
+    }
+}
 </CodeHighlight>
 			</TabPanel>
 		</TabView>
