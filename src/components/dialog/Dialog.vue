@@ -1,6 +1,6 @@
 <template>
     <div ref="mask" :class="maskClass" v-if="maskVisible">
-        <transition name="p-dialog" @before-enter="onBeforeEnter" @enter="onEnter" @leave="onLeave" @after-leave="onAfterLeave" @appear="onAppear">
+        <transition name="p-dialog" @before-enter="onBeforeEnter" @enter="onEnter" @before-leave="onBeforeLeave" @leave="onLeave" @after-leave="onAfterLeave" @appear="onAppear">
             <div ref="dialog" :class="dialogClass" :style="dialogStyle" v-if="visible" v-bind="$attrs" v-on="listeners" role="dialog" :aria-labelledby="ariaLabelledById" :aria-modal="modal">
                 <div class="p-dialog-titlebar" v-if="showHeader">
                     <slot name="header">
@@ -78,6 +78,10 @@ export default {
         if (this.visible && !this.maskVisible) {
             this.maskVisible = true;
         }
+
+        if (this.modal && this.$refs.mask && !DomHandler.hasClass(this.$refs.mask, 'p-component-overlay')) {
+            DomHandler.addClass(this.$refs.mask, 'p-component-overlay');
+        }
     },
     mounted() {
         this.removeStylesFromMask();
@@ -100,6 +104,9 @@ export default {
             this.$emit('show');
             this.focus();
             this.enableDocumentSettings();
+        },
+        onBeforeLeave() {
+            DomHandler.addClass(this.$refs.mask, 'p-dialog-mask-leave');
         },
         onLeave() {
             this.$emit('hide');
@@ -214,9 +221,7 @@ export default {
             };
         },
         maskClass() {
-            return ['p-dialog-mask', {
-                'p-component-overlay': this.modal,
-            }, this.getPositionClass()];
+            return ['p-dialog-mask', this.getPositionClass()];
         },
         dialogClass() {
             return ['p-dialog p-component', {
@@ -253,6 +258,9 @@ export default {
     justify-content: center;
     align-items: center;
     pointer-events: none;
+    background-color: transparent;
+    transition-property: background-color;
+    transition-duration: 150ms;
 }
 .p-dialog-mask.p-component-overlay {
     pointer-events: auto;
@@ -364,6 +372,11 @@ export default {
     opacity: 0;
     transform: scale(0.7);
 }
+
+.p-dialog-mask.p-dialog-mask-leave {
+    background-color: transparent;
+}
+
 /* Top, Bottom, Left, Right, Top* and Bottom* */
 .p-dialog-top .p-dialog,
 .p-dialog-bottom .p-dialog,
