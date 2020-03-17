@@ -126,9 +126,6 @@ export default {
                     font-weight: bold;
                 }
             }
-            .p-datatable-tbody > tr > td {
-                border: 0 none;
-            }
         }
     }
 }

@@ -1515,10 +1515,10 @@ export default {
 </CodeHighlight>
 
                 <h3>Responsive</h3>
-                <p>DataTable display can be optimized according to screen sizes, this example demonstrates a demo where columns are stacked on small screens.</p>
+                <p>DataTable display can be optimized according to screen sizes, this example demonstrates a sample demo where columns are stacked on small screens.</p>
 <CodeHighlight>
 <template v-pre>
-&lt;DataTable :value="cars" class="p-datatable-responsive"&gt;
+&lt;DataTable :value="cars" class="p-datatable-responsive-demo"&gt;
     &lt;template #header&gt;
         Responsive
     &lt;/template&gt;
@@ -1570,31 +1570,35 @@ export default {
 </CodeHighlight>
 
 <CodeHighlight lang="css">
-.p-datatable-responsive .p-datatable-tbody > tr > td .p-column-title {
+.p-datatable-responsive-demo .p-datatable-tbody > tr > td .p-column-title {
     display: none;
 }
 
 @media screen and (max-width: 40em) {
-    .p-datatable-responsive .p-datatable-thead > tr > th,
-    .p-datatable-responsive .p-datatable-tfoot > tr > td {
-        display: none !important;
-    }
+    /deep/ .p-datatable {
+        &.p-datatable-responsive-demo {
+            .p-datatable-thead > tr > th,
+            .p-datatable-tfoot > tr > td {
+                display: none !important;
+            }
 
-    .p-datatable-responsive .p-datatable-tbody > tr > td {
-        text-align: left;
-        display: block;
-        border: 0 none;
-        width: 100% !important;
-		float: left;
-		clear: left;
-    }
+            .p-datatable-tbody > tr > td {
+                text-align: left;
+                display: block;
+                border: 0 none !important;
+                width: 100% !important;
+                float: left;
+                clear: left;
 
-    .p-datatable-responsive .p-datatable-tbody > tr > td .p-column-title {
-        padding: .4em;
-        min-width: 30%;
-        display: inline-block;
-        margin: -.4em 1em -.4em -.4em;
-        font-weight: bold;
+                .p-column-title {
+                    padding: .4em;
+                    min-width: 30%;
+                    display: inline-block;
+                    margin: -.4em 1em -.4em -.4em;
+                    font-weight: bold;
+                }
+            }
+        }
     }
 }
 </CodeHighlight>
@@ -2625,7 +2629,6 @@ export default {
                 width: 100% !important;
                 float: left;
                 clear: left;
-                border: 0 none;
 
                 .p-column-title {
                     padding: .4em;
