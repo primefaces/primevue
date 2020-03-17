@@ -53,7 +53,6 @@ export default {
                 const target = this.$children ? this.$children[0]: null;
                 if (target) {
                     this.mask = document.createElement('div');
-
                     this.mask.setAttribute('class', 'p-blockui');
                     target.$el.appendChild(this.mask);
                     target.$el.style.position = 'relative';
