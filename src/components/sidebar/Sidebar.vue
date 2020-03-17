@@ -252,6 +252,7 @@ export default {
 .p-sidebar-close {
     float: right;
     cursor: pointer;
+    line-height: 1;
 }
 
 @media screen and (max-width: 64em) {

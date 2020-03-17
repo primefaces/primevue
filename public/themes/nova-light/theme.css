@@ -577,6 +577,7 @@ body .p-multiselect-panel .p-multiselect-header .p-checkbox {
   vertical-align: middle;
 }
 body .p-multiselect-panel .p-multiselect-header .p-multiselect-close {
+  line-height: 1;
   color: #848484;
   top: 50%;
   margin-top: -0.5em;
@@ -704,6 +705,11 @@ body .p-listbox:not(.p-disabled) .p-listbox-item:not(.p-highlight):not(.p-disabl
 }
 body .p-listbox.p-disabled .p-checkbox-box:not(.p-disabled):not(.p-highlight):hover {
   border: 1px solid #a6a6a6;
+}
+body .p-listbox .p-listbox-list-wrapper {
+  -moz-border-radius: 3px;
+  -webkit-border-radius: 3px;
+  border-radius: 3px;
 }
 body .p-listbox .p-listbox-footer {
   padding: 0.429em 0.857em 0.429em 0.857em;
@@ -2076,6 +2082,12 @@ body .p-datatable .p-editable-column input {
   font-size: 14px;
   font-family: "Open Sans", "Helvetica Neue", sans-serif;
 }
+body .p-datatable .p-row-editor-init {
+  -moz-transition: background-color 0.2s, box-shadow 0.2s;
+  -o-transition: background-color 0.2s, box-shadow 0.2s;
+  -webkit-transition: background-color 0.2s, box-shadow 0.2s;
+  transition: background-color 0.2s, box-shadow 0.2s;
+}
 body .p-datatable .p-datatable-tbody > tr {
   background: #ffffff;
   color: #333333;
@@ -3244,6 +3256,10 @@ body .p-sidebar {
 }
 body .p-sidebar .p-sidebar-close {
   color: #848484;
+  -moz-transition: background-color 0.2s, box-shadow 0.2s;
+  -o-transition: background-color 0.2s, box-shadow 0.2s;
+  -webkit-transition: background-color 0.2s, box-shadow 0.2s;
+  transition: background-color 0.2s, box-shadow 0.2s;
 }
 body .p-sidebar .p-sidebar-close:hover {
   color: #333333;
