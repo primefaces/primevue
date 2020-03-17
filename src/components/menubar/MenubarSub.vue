@@ -235,8 +235,7 @@ export default {
         getItemClass(item) {
             return [
                 'p-menuitem', item.class, {
-                    'p-menuitem-active': this.activeItem === item,
-                    'p-disabled': item.disabled,
+                    'p-menuitem-active': this.activeItem === item
                 }
             ]
         },
