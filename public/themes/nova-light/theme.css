@@ -3248,6 +3248,9 @@ body .p-sidebar .p-sidebar-close {
 body .p-sidebar .p-sidebar-close:hover {
   color: #333333;
 }
+body .p-sidebar-mask {
+  transition-duration: 0.2s;
+}
 body .p-tooltip .p-tooltip-text {
   background-color: #333333;
   color: #ffffff;

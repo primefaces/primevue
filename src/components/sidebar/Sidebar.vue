@@ -83,21 +83,28 @@ export default {
         enableModality() {
             if (!this.mask) {
                 this.mask = document.createElement('div');
+                this.mask.setAttribute('class', 'p-sidebar-mask');
                 this.mask.style.zIndex = String(parseInt(this.$refs.container.style.zIndex, 10) - 1);
-                DomHandler.addMultipleClasses(this.mask, 'p-component-overlay');
                 if (this.dismissable) {
                     this.bindMaskClickListener();
                 }
                 document.body.appendChild(this.mask);
                 DomHandler.addClass(document.body, 'p-overflow-hidden');
+
+                setTimeout(() => {
+                    DomHandler.addClass(this.mask, 'p-component-overlay');
+                }, 1);
             }
         },
         disableModality() {
             if (this.mask) {
-                this.unbindMaskClickListener();
-                document.body.removeChild(this.mask);
-                DomHandler.removeClass(document.body, 'p-overflow-hidden');
-                this.mask = null;
+                DomHandler.addClass(this.mask, 'p-sidebar-mask-leave');
+                this.mask.addEventListener('transitionend', () => {
+                    this.unbindMaskClickListener();
+                    document.body.removeChild(this.mask);
+                    DomHandler.removeClass(document.body, 'p-overflow-hidden');
+                    this.mask = null;
+                });
             }
         },
         bindMaskClickListener() {
@@ -134,6 +141,15 @@ export default {
     padding: .5em 1em;
     -webkit-transition: transform .3s;
     transition: transform .3s;
+}
+
+.p-sidebar-mask {
+    background-color: transparent;
+    transition: background-color;
+}
+
+.p-sidebar-mask-leave.p-component-overlay {
+    background-color: transparent;
 }
 
 .p-sidebar-left {
