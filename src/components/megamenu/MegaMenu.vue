@@ -255,7 +255,7 @@ export default {
             return ['p-menuitem', item.class];
         },
         getLinkClass(item) {
-            return ['p-menuitem-link', {'p-disabled': item.disabled}];  
+            return ['p-menuitem-link', {'p-disabled': item.disabled}];
         },
         bindDocumentClickListener() {
             if (!this.documentClickListener) {
