@@ -3133,8 +3133,7 @@ body .p-toast .p-toast-item-container.p-toast-message-error .p-toast-icon-close 
 }
 
 body .p-component-overlay {
-  background-color: #000000;
-  opacity: 0.4;
+  background-color: rgba(0, 0, 0, 0.4);
 }
 body .p-overlaypanel {
   background-color: #ffffff;

@@ -100,8 +100,8 @@ export default {
     left: 0;
     width: 100%;
     height: 100%;
-    opacity: 0;
-    transition-property: opacity;
+    background-color: transparent;
+    transition-property: background-color;
 }
 
 .p-blockui.p-component-overlay {
@@ -113,6 +113,6 @@ export default {
 }
 
 .p-blockui-leave.p-component-overlay {
-    opacity: 0 !important;
+    background-color: transparent;
 }
 </style>
