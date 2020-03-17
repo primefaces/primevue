@@ -5,12 +5,12 @@
 		<div class="content-section introduction">
 			<div class="feature-intro">
 				<h1>DataTable - Responsive</h1>
-				<p>DataTable display can be optimized according for different screen sizes, this example demonstrates a demo where columns are stacked on small screens.</p>
+				<p>DataTable display can be optimized according for different screen sizes, this example demonstrates a demo where columns are stacked on a small screens.</p>
 			</div>
 		</div>
 
 		<div class="content-section implementation">
-			<DataTable :value="cars" class="p-datatable-responsive">
+			<DataTable :value="cars" class="p-datatable-responsive-demo" :paginator="true" :rows="10" paginatorPosition="both">
                 <template #header>
                     Responsive
                 </template>
@@ -46,7 +46,7 @@
                 <TabPanel header="Source">
 <CodeHighlight>
 <template v-pre>
-&lt;DataTable :value="cars" class="p-datatable-responsive"&gt;
+&lt;DataTable :value="cars" class="p-datatable-responsive" :paginator="true" rows="10" paginatorPosition="both"&gt;
     &lt;template #header&gt;
         Responsive
     &lt;/template&gt;
@@ -98,31 +98,38 @@ export default {
 </CodeHighlight>
 
 <CodeHighlight lang="css">
-.p-datatable-responsive .p-datatable-tbody > tr > td .p-column-title {
+.p-datatable-responsive-demo .p-datatable-tbody > tr > td .p-column-title {
     display: none;
 }
 
 @media screen and (max-width: 40em) {
-    .p-datatable-responsive .p-datatable-thead > tr > th,
-    .p-datatable-responsive .p-datatable-tfoot > tr > td {
-        display: none !important;
-    }
+    /deep/ .p-datatable {
+        &.p-datatable-responsive-demo {
+            .p-datatable-thead > tr > th,
+            .p-datatable-tfoot > tr > td {
+                display: none !important;
+            }
 
-    .p-datatable-responsive .p-datatable-tbody > tr > td {
-        text-align: left;
-        display: block;
-        border: 0 none;
-        width: 100% !important;
-		float: left;
-		clear: left;
-    }
+            .p-datatable-tbody > tr > td {
+                text-align: left;
+                display: block;
+                border: 0 none !important;
+                width: 100% !important;
+                float: left;
+                clear: left;
 
-    .p-datatable-responsive .p-datatable-tbody > tr > td .p-column-title {
-        padding: .4em;
-        min-width: 30%;
-        display: inline-block;
-        margin: -.4em 1em -.4em -.4em;
-        font-weight: bold;
+                .p-column-title {
+                    padding: .4em;
+                    min-width: 30%;
+                    display: inline-block;
+                    margin: -.4em 1em -.4em -.4em;
+                    font-weight: bold;
+                }
+            }
+            .p-datatable-tbody > tr > td {
+                border: 0 none;
+            }
+        }
     }
 }
 </CodeHighlight>
@@ -147,7 +154,7 @@ export default {
         this.carService = new CarService();
     },
     mounted() {
-        this.carService.getCarsSmall().then(data => this.cars = data);
+        this.carService.getCarsMedium().then(data => this.cars = data);
     },
     components: {
         'DataTableSubMenu': DataTableSubMenu
@@ -155,32 +162,37 @@ export default {
 }
 </script>
 
-<style>
-.p-datatable-responsive .p-datatable-tbody > tr > td .p-column-title {
+<style lang="scss" scoped>
+.p-datatable-responsive-demo .p-datatable-tbody > tr > td .p-column-title {
     display: none;
 }
 
 @media screen and (max-width: 40em) {
-    .p-datatable-responsive .p-datatable-thead > tr > th,
-    .p-datatable-responsive .p-datatable-tfoot > tr > td {
-        display: none !important;
-    }
+    /deep/ .p-datatable {
+        &.p-datatable-responsive-demo {
+            .p-datatable-thead > tr > th,
+            .p-datatable-tfoot > tr > td {
+                display: none !important;
+            }
 
-    .p-datatable-responsive .p-datatable-tbody > tr > td {
-        text-align: left;
-        display: block;
-        border: 0 none;
-        width: 100% !important;
-		float: left;
-		clear: left;
-    }
+            .p-datatable-tbody > tr > td {
+                text-align: left;
+                display: block;
+                border: 0 none !important;
+                width: 100% !important;
+                float: left;
+                clear: left;
+                border: 0 none;
 
-    .p-datatable-responsive .p-datatable-tbody > tr > td .p-column-title {
-        padding: .4em;
-        min-width: 30%;
-        display: inline-block;
-        margin: -.4em 1em -.4em -.4em;
-        font-weight: bold;
+                .p-column-title {
+                    padding: .4em;
+                    min-width: 30%;
+                    display: inline-block;
+                    margin: -.4em 1em -.4em -.4em;
+                    font-weight: bold;
+                }
+            }
+        }
     }
 }
 </style>
