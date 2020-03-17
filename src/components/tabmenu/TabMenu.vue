@@ -3,11 +3,11 @@
         <ul class="p-tabmenu-nav p-reset" role="tablist">
             <template v-for="(item,i) of model">
                 <li :key="item.label + '_' + i" :class="getItemClass(item)" :style="item.style" v-if="item.visible !== false" role="tab" :aria-selected="isActive(item)" :aria-expanded="isActive(item)">
-                    <router-link v-if="item.to" :to="item.to" class="p-menuitem-link" @click.native="onItemClick($event, item)" role="presentation">
+                    <router-link v-if="item.to && !item.disabled" :to="item.to" class="p-menuitem-link" @click.native="onItemClick($event, item)" role="presentation">
                         <span :class="getItemIcon(item)" v-if="item.icon"></span>
                         <span class="p-menuitem-text">{{item.label}}</span>
                     </router-link>
-                    <a v-else :href="item.url||'#'" class="p-menuitem-link" :target="item.target" @click="onItemClick($event, item)" role="presentation">
+                    <a v-else :href="item.url" class="p-menuitem-link" :target="item.target" @click="onItemClick($event, item)" role="presentation" :tabindex="item.disabled ? null : '0'">
                         <span :class="getItemIcon(item)" v-if="item.icon"></span>
                         <span class="p-menuitem-text">{{item.label}}</span>
                     </a>
