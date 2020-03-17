@@ -423,6 +423,9 @@ body .p-dropdown:not(.p-disabled).p-focus {
 body .p-dropdown .p-dropdown-label {
   padding-right: 2em;
 }
+body .p-dropdown .p-dropdown-label.p-placeholder {
+  color: #666666;
+}
 body .p-dropdown .p-dropdown-label:focus {
   outline: 0 none;
   -webkit-box-shadow: none;
@@ -520,6 +523,9 @@ body .p-multiselect .p-multiselect-label {
   padding-right: 2em;
   font-weight: 400;
   color: #333333;
+}
+body .p-multiselect .p-multiselect-label.p-placeholder {
+  color: #666666;
 }
 body .p-multiselect .p-multiselect-trigger {
   background-color: #ffffff;
