@@ -1,12 +1,32 @@
 # Changelog
 
-## [1.0.7](https://github.com/primefaces/primevue/tree/1.0.7) (2020-03-05)
+## [1.1.0](https://github.com/primefaces/primevue/tree/1.1.0) (2020-03-17)
 
-[Full Changelog](https://github.com/primefaces/primevue/compare/1.0.6...1.0.7)
+[Full Changelog](https://github.com/primefaces/primevue/compare/1.0.6...1.1.0)
 
 **Implemented New Features and Enhancements:**
 
-- Move column filters to their own row  [\#226](https://github.com/primefaces/primevue/issues/226)
+- Move column filters to their own row [\#226](https://github.com/primefaces/primevue/issues/226)
+- Loading template for DataTable [\#244](https://github.com/primefaces/primevue/issues/244)
+- Move TreeTable filters to their own header row [\#241](https://github.com/primefaces/primevue/issues/241)
+- Add filterHeaderStyle and filterHeaderClass to Column [\#240](https://github.com/primefaces/primevue/issues/240)
+- Unify placeholder colors [\#239](https://github.com/primefaces/primevue/issues/239)
+- Opacity Animation for Modals [\#237](https://github.com/primefaces/primevue/issues/237)
+- Remove Responsive DataTable [\#232](https://github.com/primefaces/primevue/issues/232)
+- Display issues with Chips [\#231](https://github.com/primefaces/primevue/issues/231)
+- More options for currentPageReportTemplate [\#230](https://github.com/primefaces/primevue/issues/230)
+- New Component: Terminal [\#229](https://github.com/primefaces/primevue/issues/229)
+- New Component: BlockUI [\#211](https://github.com/primefaces/primevue/issues/211)
+- Ability to disable TabMenu items [\#172](https://github.com/primefaces/primevue/issues/172)
+- Ability to disable MegaMenu items [\#170](https://github.com/primefaces/primevue/issues/170)
+
+**Fixed bugs:**
+
+- Disabled menuitems with routerLink integration are still functional [\#243](https://github.com/primefaces/primevue/issues/243)
+- Disabled menuitems opacity is doubled in MenuBar, TieredMenu and ContextMenu [\#242](https://github.com/primefaces/primevue/issues/242)
+- MultiSelect label size grows on items select [\#238](https://github.com/primefaces/primevue/issues/238)
+- DataTable scrollHeight doesn't calculate correctly with frozen columns and percentages [\#234](https://github.com/primefaces/primevue/issues/234)
+- Select components may throw non-primitive key error [\#233](https://github.com/primefaces/primevue/issues/233)
 
 ## [1.0.6](https://github.com/primefaces/primevue/tree/1.0.6) (2020-03-04)
 
