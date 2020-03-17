@@ -9,7 +9,7 @@
         <div class="p-listbox-list-wrapper" :style="listStyle">
             <ul class="p-listbox-list" role="listbox" aria-multiselectable="multiple">
                 <li v-for="(option, i) of visibleOptions" :tabindex="isOptionDisabled(option) ? null : '0'" :class="['p-listbox-item', {'p-highlight': isSelected(option), 'p-disabled': isOptionDisabled(option)}]"
-                    :aria-label="getOptionLabel(option)" :key="getOptionLabel(option)" @click="onOptionSelect($event, option)" @touchend="onOptionTouchEnd()" @keydown="onOptionKeyDown($event, option)" role="option" :aria-selected="isSelected(option)">
+                    :aria-label="getOptionLabel(option)" :key="getOptionRenderKey(option)" @click="onOptionSelect($event, option)" @touchend="onOptionTouchEnd()" @keydown="onOptionKeyDown($event, option)" role="option" :aria-selected="isSelected(option)">
                     <slot name="option" :option="option" :index="i">
                         {{getOptionLabel(option)}}
                     </slot>
@@ -49,6 +49,9 @@ export default {
         },
         getOptionValue(option) {
             return this.optionValue ? ObjectUtils.resolveFieldData(option, this.optionValue) : option;
+        },
+        getOptionRenderKey(option) {
+            return this.dataKey ? ObjectUtils.resolveFieldData(option, this.dataKey) : this.getOptionLabel(option);
         },
         isOptionDisabled(option) {
             return this.optionDisabled ? ObjectUtils.resolveFieldData(option, this.optionDisabled) : false;

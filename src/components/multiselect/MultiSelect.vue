@@ -36,7 +36,7 @@
                 <div ref="itemsWrapper" class="p-multiselect-items-wrapper" :style="{'max-height': scrollHeight}">
                     <ul class="p-multiselect-items p-multiselect-list p-component" role="listbox" aria-multiselectable="true">
                         <li v-for="(option, i) of visibleOptions" :class="['p-multiselect-item', {'p-highlight': isSelected(option), 'p-disabled': isOptionDisabled(option)}]" role="option" :aria-selected="isSelected(option)"
-                            :aria-label="getOptionLabel(option)" :key="getOptionLabel(option)" @click="onOptionSelect($event, option)" @keydown="onOptionKeyDown($event, option)" :tabindex="tabindex||'0'">
+                            :aria-label="getOptionLabel(option)" :key="getOptionRenderKey(option)" @click="onOptionSelect($event, option)" @keydown="onOptionKeyDown($event, option)" :tabindex="tabindex||'0'">
                             <div class="p-checkbox p-component">
                                 <div :class="['p-checkbox-box p-component', {'p-highlight': isSelected(option)}]">
                                     <span :class="['p-checkbox-icon p-c', {'pi pi-check': isSelected(option)}]"></span>
@@ -104,6 +104,9 @@ export default {
         },
         getOptionValue(option) {
             return this.optionValue ? ObjectUtils.resolveFieldData(option, this.optionValue) : option;
+        },
+        getOptionRenderKey(option) {
+            return this.dataKey ? ObjectUtils.resolveFieldData(option, this.dataKey) : this.getOptionLabel(option);
         },
         isOptionDisabled(option) {
             return this.optionDisabled ? ObjectUtils.resolveFieldData(option, this.optionDisabled) : false;

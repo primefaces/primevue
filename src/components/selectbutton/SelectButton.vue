@@ -1,6 +1,6 @@
 <template>
     <div :class="containerClass" role="group">
-        <div v-for="(option, i) of options" :key="getOptionLabel(option)" :aria-label="getOptionLabel(option)" role="button" :aria-pressed="isSelected(option)"
+        <div v-for="(option, i) of options" :key="getOptionRenderKey(option)" :aria-label="getOptionLabel(option)" role="button" :aria-pressed="isSelected(option)"
             @click="onOptionSelect($event, option, i)" @keydown.enter.prevent="onOptionSelect($event, option, i)" @keydown.space.prevent="onOptionSelect($event, option)"
             :tabindex="isOptionDisabled(option) ? null : '0'" @focus="onFocus($event, i)" @blur="onBlur($event)" :aria-labelledby="ariaLabelledBy"
             :class="['p-button p-component p-button-text-only', {'p-highlight': isSelected(option), 'p-disabled': isOptionDisabled(option), 'p-focus': (i === focusedIndex)}]">
@@ -37,6 +37,9 @@ export default {
         },
         getOptionValue(option) {
             return this.optionValue ? ObjectUtils.resolveFieldData(option, this.optionValue) : option;
+        },
+        getOptionRenderKey(option) {
+            return this.dataKey ? ObjectUtils.resolveFieldData(option, this.dataKey) : this.getOptionLabel(option);
         },
         isOptionDisabled(option) {
             return this.optionDisabled ? ObjectUtils.resolveFieldData(option, this.optionDisabled) : false;
