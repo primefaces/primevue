@@ -53,7 +53,7 @@ import Paginator from 'primevue/paginator';
                 </ul>
 
                 <h3>CurrentPageReport</h3>
-                <p>Current page report item in the itemplate displays information about the pagination state. Default value is (&#123;currentPage&#125; of &#123;totalPages&#125;)
+                <p>Current page report item in the template displays information about the pagination state. Default value is (&#123;currentPage&#125; of &#123;totalPages&#125;)
                     whereas available placeholders are the following;
                 </p>
                 <ul>
