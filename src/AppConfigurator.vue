@@ -84,6 +84,11 @@
                     <p>Beautifully crafted premium <a href="https://cli.vuejs.org">Vue CLI</a> application templates by the PrimeTek design team.</p>
                     <div class="p-grid">
                         <div class="p-col-12 p-md-6">
+                            <a href="https://www.primefaces.org/layouts/ultima-vue">
+                                <img alt="Ultima" src="./assets/images/layouts/ultima-vue.jpg">
+                            </a>
+                        </div>
+                        <div class="p-col-12 p-md-6">
                             <a href="https://www.primefaces.org/layouts/sapphire-vue">
                                 <img alt="Sapphire" src="./assets/images/layouts/sapphire-vue.jpg">
                             </a>
