@@ -122,32 +122,37 @@
             <p>Gorgeous Vue-CLI application templates designed by professional designers and implemented by Vue Experts to help you reach your goals in no time.</p>
 
             <div class="p-grid">
-                <div class="p-col-12 p-md-4">
+                <div class="p-col-12 p-md-3">
+                    <a href="https://www.primefaces.org/layouts/ultima-vue">
+                        <img alt="Ultima" src="../assets/images/layouts/ultima-vue.jpg">
+                    </a>
+                </div>
+                <div class="p-col-12 p-md-3">
                     <a href="https://www.primefaces.org/layouts/sapphire-vue">
                         <img alt="Sapphire" src="../assets/images/layouts/sapphire-vue.jpg">
                     </a>
                 </div>
-                <div class="p-col-12 p-md-4">
+                <div class="p-col-12 p-md-3">
                     <a href="https://www.primefaces.org/layouts/serenity-vue">
                         <img alt="Serenity" src="../assets/images/layouts/serenity-vue.jpg">
                     </a>
                 </div>
-                <div class="p-col-12 p-md-4">
+                <div class="p-col-12 p-md-3">
                     <a href="https://www.primefaces.org/layouts/avalon-vue">
                         <img alt="Avalon" src="../assets/images/layouts/avalon-vue.jpg">
                     </a>
                 </div>
-                <div class="p-col-12 p-md-4">
+                <div class="p-col-12 p-md-3">
                     <a href="https://www.primefaces.org/layouts/babylon-vue">
                         <img alt="Babylon" src="../assets/images/layouts/babylon-vue.jpg">
                     </a>
                 </div>
-                <div class="p-col-12 p-md-4">
+                <div class="p-col-12 p-md-3">
                     <a href="https://www.primefaces.org/layouts/apollo-vue">
                         <img alt="Apollo" src="../assets/images/layouts/apollo-vue.jpg">
                     </a>
                 </div>
-                <div class="p-col-12 p-md-4">
+                <div class="p-col-12 p-md-3">
                     <a href="https://www.primefaces.org/layouts/roma-vue">
                         <img alt="Roma" src="../assets/images/layouts/roma-vue.jpg">
                     </a>
