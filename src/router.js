@@ -599,7 +599,52 @@ export default new Router({
 			path: '/tristatecheckbox',
 			name: 'tristatecheckbox',
 			component: () => import('./views/tristatecheckbox/TriStateCheckboxDemo.vue')
-		}
+        },
+        {
+			path: '/galleria',
+			name: 'galleria',
+			component: () => import('./views/galleria/GalleriaDemo.vue')
+        },
+        {
+			path: '/galleria/basic',
+			name: 'galleriabasic',
+			component: () => import('./views/galleria/GalleriaBasicDemo.vue')
+        },
+        {
+			path: '/galleria/indicator',
+			name: 'galleriaindicator',
+			component: () => import('./views/galleria/GalleriaIndicatorDemo.vue')
+        },
+        {
+			path: '/galleria/thumbnail',
+			name: 'galleriathumbnail',
+			component: () => import('./views/galleria/GalleriaThumbnailDemo.vue')
+        },
+        {
+			path: '/galleria/preview',
+			name: 'galleriapreview',
+			component: () => import('./views/galleria/GalleriaPreviewDemo.vue')
+        },
+        {
+			path: '/galleria/responsive',
+			name: 'galleriaresponsive',
+			component: () => import('./views/galleria/GalleriaResponsiveDemo.vue')
+        },
+        {
+			path: '/galleria/fullscreen',
+			name: 'galleriafullscreen',
+			component: () => import('./views/galleria/GalleriaFullScreenDemo.vue')
+        },
+        {
+			path: '/galleria/circular',
+			name: 'galleriacircular',
+			component: () => import('./views/galleria/GalleriaCircularDemo.vue')
+        },
+        {
+			path: '/galleria/caption',
+			name: 'galleriacaption',
+			component: () => import('./views/galleria/GalleriaCaptionDemo.vue')
+        }
 	],
 	scrollBehavior() {
         return {x: 0, y: 0};

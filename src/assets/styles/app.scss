@@ -67,7 +67,7 @@
     }
 }
 
-@mixin rotate($deg) {    
+@mixin rotate($deg) {
     -webkit-transform: rotate($deg);
     -moz-transform: rotate($deg);
     -o-transform: rotate($deg);
@@ -156,7 +156,7 @@ a {
             box-shadow: 0 0 0 0.2em $focusBorderColor;
         }
     }
-    
+
     .topbar-menu {
         list-style-type: none;
         float: right;
@@ -214,7 +214,7 @@ a {
 
                     > li {
                         line-height: 1;
-                        
+
                         &.topbar-submenu-header {
                             padding: 6px 12px;
                             font-weight: bold;
@@ -280,7 +280,7 @@ a {
                             }
                         }
 
-                        
+
                     }
                 }
             }
@@ -296,23 +296,23 @@ a {
             position: relative;
             top: -1px;
         }
-        
+
         .theme-badge.material {
             background: #2196F3;  /* fallback for old browsers */
             background: -webkit-linear-gradient(to bottom, #2196F3, #2196F3);  /* Chrome 10-25, Safari 5.1-6 */
-            background: linear-gradient(to bottom, #2196F3, #2196F3); /* W3C, IE 10+/ Edge, Firefox 16+, Chrome 26+, Opera 12+, Safari 7+ */  
+            background: linear-gradient(to bottom, #2196F3, #2196F3); /* W3C, IE 10+/ Edge, Firefox 16+, Chrome 26+, Opera 12+, Safari 7+ */
         }
-        
+
         .theme-badge.bootstrap {
             background: #563D7C;  /* fallback for old browsers */
             background: -webkit-linear-gradient(to bottom, #563D7C, #966BD8);  /* Chrome 10-25, Safari 5.1-6 */
-            background: linear-gradient(to bottom, #563D7C, #966BD8); /* W3C, IE 10+/ Edge, Firefox 16+, Chrome 26+, Opera 12+, Safari 7+ */  
+            background: linear-gradient(to bottom, #563D7C, #966BD8); /* W3C, IE 10+/ Edge, Firefox 16+, Chrome 26+, Opera 12+, Safari 7+ */
         }
 
         .theme-badge.darkmode {
             background-color: #141d26;
             background: -webkit-linear-gradient(to bottom, #141d26, #5a6067);  /* Chrome 10-25, Safari 5.1-6 */
-            background: linear-gradient(to bottom, #141d26, #5a6067); /* W3C, IE 10+/ Edge, Firefox 16+, Chrome 26+, Opera 12+, Safari 7+ */ 
+            background: linear-gradient(to bottom, #141d26, #5a6067); /* W3C, IE 10+/ Edge, Firefox 16+, Chrome 26+, Opera 12+, Safari 7+ */
         }
     }
 }
@@ -359,19 +359,19 @@ a {
                 &.layout-menu-icon-active {
                     display: none;
                 }
-                
+
                 &.layout-menu-icon-inactive {
                     display: inline;
                 }
             }
         }
-        
+
         > div {
             background-color: #ffffff;
             padding: 0 15px 15px 15px;
             display: flex;
             flex-direction: column;
-            
+
             a {
                 display: inline-block;
                 padding: 6px;
@@ -401,7 +401,7 @@ a {
                 .menuitem-badge {
                     background: #00b09b;  /* fallback for old browsers */
                     background: -webkit-linear-gradient(to bottom, #96c93d, #00b09b);  /* Chrome 10-25, Safari 5.1-6 */
-                    background: linear-gradient(to bottom, #96c93d, #00b09b); /* W3C, IE 10+/ Edge, Firefox 16+, Chrome 26+, Opera 12+, Safari 7+ */    
+                    background: linear-gradient(to bottom, #96c93d, #00b09b); /* W3C, IE 10+/ Edge, Firefox 16+, Chrome 26+, Opera 12+, Safari 7+ */
                     padding: 2px 4px;
                     vertical-align: middle;
                     border-radius: 3px;
@@ -435,7 +435,7 @@ a {
 .layout-content {
     margin-left: 280px;
     padding-top: 70px;
-    
+
     .content-section {
         display: block;
         padding: 30px;
@@ -444,17 +444,17 @@ a {
         &:first-of-type > div > span {
             line-height: 1.5em;
         }
-        
+
         h2 {
             margin-top: 0;
         }
-        
+
         &.introduction {
             color: #ffffff;
             @include background-gradient-left2right(#455C71,#526F89);
-            
+
             .feature-intro {
-                
+
                 h1 {
                     font-size: 28px;
                     margin: 0 0 20px 0;
@@ -479,9 +479,14 @@ a {
                 }
             }
         }
-        
+
         &.implementation {
             background-color: #ffffff;
+
+            > hr {
+                margin-top: 24px;
+                opacity: .3;
+            }
 
             > h3 {
                 font-weight: 400;
@@ -537,8 +542,8 @@ a {
                         border-radius: 3px;
                         @include transition(background-color .1s);
 
-                        &:hover {   
-                            background-color: #4c667d;                        
+                        &:hover {
+                            background-color: #4c667d;
                         }
 
                         &:focus {
@@ -555,7 +560,7 @@ a {
                 }
             }
         }
-        
+
         &.documentation {
             border-top: 1px solid #dadada;
 
@@ -589,12 +594,12 @@ a {
                 color: #638fb7;
                 font-weight: 700;
                 @include transition(color .2s);
-        
+
                 &:hover {
                     color: #82a5c5;
                 }
             }
-            
+
             .btn-viewsource {
                 background-color: #444;
                 padding: .5em 1em;
@@ -604,7 +609,7 @@ a {
                 margin: .5em 0;
                 display: inline-block;
                 @include transition(background-color .2s);
-                
+
                 &:hover {
                     background-color: #595959;
                     color: #fff;
@@ -637,7 +642,7 @@ a {
                         border: 0 none;
                         top: 1px;
                         @include border-radius-top(3px);
-                            
+
                         a {
                             font-weight: 400;
                             color: #34495e;
@@ -701,7 +706,7 @@ a {
                     color: #ffffff;
                 }
             }
-                    
+
             li {
                 line-height: 1.5;
             }
@@ -753,11 +758,11 @@ a {
         float: right;
         font-size: 24px;
     }
-    
+
     a {
         margin-left: 16px;
     }
-    
+
     .icon-github {
         width: 29.1px;
         height: 29.1px;
@@ -785,10 +790,10 @@ a {
     background-color: #ffffff;
     backface-visibility: hidden;
     -webkit-backface-visibility: hidden;
-    
+
     &.layout-config-active {
         transform: translate3d(0,0,0);
-        
+
         .layout-config-content-wrapper {
             .layout-config-button {
                 i {
@@ -803,7 +808,7 @@ a {
         height: 100%;
         padding: 0;
         @include shadow(0 2px 10px 0 rgba(0, 0, 0, 0.24));
-        
+
         .layout-config-button {
             display: block;
             position: absolute;
@@ -821,7 +826,7 @@ a {
             @include border-radius-left(3px);
             @include transition(background-color .2s, box-shadow .2s);
             box-shadow: 0 7px 8px -4px rgba(0, 0, 0, 0.2),
-                        0 5px 22px 4px rgba(0, 0, 0, 0.12), 
+                        0 5px 22px 4px rgba(0, 0, 0, 0.12),
                         0 12px 17px 2px rgba(0, 0, 0, 0.14);
 
             i {
@@ -999,13 +1004,13 @@ a {
         padding: 10px 24px 9px 24px;
         border-radius: 3px;
         @include transition(background-color .2s);
-    
+
         &:hover {
             background-color: #708EA5;
             color: #ffffff;
         }
     }
-    
+
     .home-button2 {
         font-weight: bold;
         text-align: center;
@@ -1015,13 +1020,13 @@ a {
         border-radius: 3px;
         @include transition(background-color .2s);
         display: inline-block;
-    
+
         &:hover {
             background-color: #E5AF36;
             color: #8C6816 !important;
         }
     }
-    
+
     /* Introduction */
     .introduction {
         background-color: #1976d2;
@@ -1080,7 +1085,7 @@ a {
             @include shadow(0 0.8px 1.7px rgba(0, 0, 0, 0.008), 0 1.9px 4.2px rgba(0, 0, 0, 0.012),0 3.6px 7.9px rgba(0, 0, 0, 0.015),0 6.5px 14.1px rgba(0, 0, 0, 0.018),0 12.1px 26.3px rgba(0, 0, 0, 0.022),0 29px 63px rgba(0, 0, 0, 0.03));
             height: 100%;
             border-radius: 4px;
-            
+
             .feature-card-detail {
                 padding: 0 16px 16px 16px;
             }
@@ -1168,13 +1173,13 @@ a {
             }
         }
     }
-    
+
     .templates {
         background-color: #f5f7f8;
         text-align: center;
         padding: 30px;
         border-bottom: 1px solid #c4c5c6;
-        
+
         h3 {
              font-size:24px;
              color: #484848;
@@ -1186,7 +1191,7 @@ a {
             font-size: 16px;
             font-weight: 700;
         }
-        
+
         img {
             width: 100%;
         }
@@ -1267,7 +1272,7 @@ a {
                 width: 180px;
             }
         }
-        
+
         .topbar-menu {
             background-color: #ffffff;
             float: none;
@@ -1312,13 +1317,13 @@ a {
     .layout-content {
         margin-left: 0;
         padding-top: 111px;
-        
+
         .content-section {
             &.submenu ul li {
                 width: 50%;
             }
         }
-        
+
     }
 
     .home {
@@ -1347,7 +1352,7 @@ a {
         top: 110px;
         height: calc(100% - 110px);
         transform: translate3d(100%,0,0);
-        
+
         .layout-config-button {
             left: auto;
             right: -52px;
@@ -1443,8 +1448,8 @@ pre[class*="language-"] code {
 
 /* Dark Theme such as luna-amber, luna-blue, luna-green and luna-pink */
 .dark-theme {
-    .implementation { 
-        background-color: #3f3f3f !important; 
+    .implementation {
+        background-color: #3f3f3f !important;
         color: #dedede !important;
 
         > h3,

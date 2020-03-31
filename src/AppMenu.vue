@@ -132,6 +132,14 @@
             </div>
 
             <span>
+                <img alt="multimedia" class="layout-menu-icon-inactive" src="./assets/images/menu/multimedia.svg" />
+                <span>Multimedia</span>
+            </span>
+            <div>
+                <router-link to="/galleria">Galleria</router-link>
+            </div>
+
+            <span>
                 <img alt="misc" class="layout-menu-icon-inactive" src="./assets/images/menu/misc.svg" />
                 <span>Misc</span>
             </span>
