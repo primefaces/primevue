@@ -98,6 +98,7 @@ export default {
             default: 'Cancel'
         }
     },
+    duplicateIEEvent: false,
     data() {
         return {
             files: null,
@@ -108,6 +109,11 @@ export default {
     },
     methods: {
         onFileSelect(event) {
+            if (event.type !== 'drop' && this.isIE11() && this.duplicateIEEvent) {
+                this.duplicateIEEvent = false;
+                return;
+            }
+
             this.messages = [];
             this.files = this.files || [];
             let files = event.dataTransfer ? event.dataTransfer.files : event.target.files;
@@ -128,7 +134,10 @@ export default {
                 this.upload();
             }
 
-            if (this.isAdvanced) {
+            if (event.type !== 'drop' && this.isIE11()) {
+                this.clearIEInput();
+            }
+            else {
                 this.clearInputElement();
             }
         },
@@ -213,6 +222,9 @@ export default {
 
             return false;
         },
+        isIE11() {
+            return !!window['MSInputMethodContext'] && !!document['documentMode'];
+        },
         validate(file) {
             if (this.maxFileSize && file.size > this.maxFileSize) {
                 this.messages.push(this.invalidFileSizeMessage.replace('{0}', file.name).replace('{1}', this.formatSize(this.maxFileSize)));
@@ -247,6 +259,12 @@ export default {
         },
         clearInputElement() {
             this.$refs.fileInput.value = '';
+        },
+        clearIEInput() {
+            if (this.$refs.fileInput) {
+                this.duplicateIEEvent = true; //IE11 fix to prevent onFileChange trigger again
+                this.$refs.fileInput.value = '';
+            }
         },
         formatSize(bytes) {
             if (bytes === 0) {
