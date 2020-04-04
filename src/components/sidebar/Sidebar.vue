@@ -83,21 +83,28 @@ export default {
         enableModality() {
             if (!this.mask) {
                 this.mask = document.createElement('div');
+                this.mask.setAttribute('class', 'p-sidebar-mask');
                 this.mask.style.zIndex = String(parseInt(this.$refs.container.style.zIndex, 10) - 1);
-                DomHandler.addMultipleClasses(this.mask, 'p-component-overlay');
                 if (this.dismissable) {
                     this.bindMaskClickListener();
                 }
                 this.$root.$el.appendChild(this.mask);
                 DomHandler.addClass(document.body, 'p-overflow-hidden');
+
+                setTimeout(() => {
+                    DomHandler.addClass(this.mask, 'p-component-overlay');
+                }, 1);
             }
         },
         disableModality() {
             if (this.mask) {
-                this.mask.remove();
-                DomHandler.removeClass(document.body, 'p-overflow-hidden');
-                this.maskClickListener = null;
-                this.mask = null;
+                DomHandler.addClass(this.mask, 'p-sidebar-mask-leave');
+                this.mask.addEventListener('transitionend', () => {
+                    this.unbindMaskClickListener();
+                    this.mask.remove();
+                    DomHandler.removeClass(document.body, 'p-overflow-hidden');
+                    this.mask = null;
+                });
             }
         },
         bindMaskClickListener() {
@@ -134,6 +141,16 @@ export default {
     padding: .5em 1em;
     -webkit-transition: transform .3s;
     transition: transform .3s;
+}
+
+.p-sidebar-mask {
+    background-color: transparent;
+    transition: background-color;
+}
+
+.p-sidebar-mask-leave.p-component-overlay {
+    background-color: transparent;
+    transition: background-color 400ms cubic-bezier(0.25, 0.8, 0.25, 1);
 }
 
 .p-sidebar-left {
@@ -236,6 +253,7 @@ export default {
 .p-sidebar-close {
     float: right;
     cursor: pointer;
+    line-height: 1;
 }
 
 @media screen and (max-width: 64em) {
