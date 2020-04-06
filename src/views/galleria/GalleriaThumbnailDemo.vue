@@ -12,10 +12,10 @@
         <div class="content-section implementation">
             <h3 class="first">Basic</h3>
             <Galleria :value="images" :responsiveOptions="responsiveOptions" :numVisible="5" style="max-width: 520px">
-                <template #previewItem="slotProps">
+                <template #item="slotProps">
 					<img :src="slotProps.item.previewImageSrc" :alt="slotProps.item.alt" style="width: 100%; display: block;" />
 				</template>
-				<template #thumbnailItem="slotProps">
+				<template #thumbnail="slotProps">
                     <div class="p-grid p-nogutter p-justify-center">
                         <img :src="slotProps.item.thumbnailImageSrc" :alt="slotProps.item.alt" tyle="width: 100%; display: block;" />
                     </div>
@@ -27,10 +27,10 @@
                 <template #header>
                     Left
                 </template>
-                <template #previewItem="slotProps">
+                <template #item="slotProps">
 					<img :src="slotProps.item.previewImageSrc" :alt="slotProps.item.alt" style="width: 100%; display: block;" />
 				</template>
-				<template #thumbnailItem="slotProps">
+				<template #thumbnail="slotProps">
                     <div class="p-grid p-nogutter p-justify-center">
                         <img :src="slotProps.item.thumbnailImageSrc" :alt="slotProps.item.alt" tyle="width: 100%; display: block;" />
                     </div>
@@ -41,10 +41,10 @@
                 <template #header>
                     Right
                 </template>
-                <template #previewItem="slotProps">
+                <template #item="slotProps">
 					<img :src="slotProps.item.previewImageSrc" :alt="slotProps.item.alt" style="width: 100%; display: block;" />
 				</template>
-				<template #thumbnailItem="slotProps">
+				<template #thumbnail="slotProps">
                     <div class="p-grid p-nogutter p-justify-center">
                         <img :src="slotProps.item.thumbnailImageSrc" :alt="slotProps.item.alt" tyle="width: 100%; display: block;" />
                     </div>
@@ -55,10 +55,10 @@
                 <template #header>
                     Top
                 </template>
-                <template #previewItem="slotProps">
+                <template #item="slotProps">
 					<img :src="slotProps.item.previewImageSrc" :alt="slotProps.item.alt" style="width: 100%; display: block;" />
 				</template>
-				<template #thumbnailItem="slotProps">
+				<template #thumbnail="slotProps">
                     <div class="p-grid p-nogutter p-justify-center">
                         <img :src="slotProps.item.thumbnailImageSrc" :alt="slotProps.item.alt" tyle="width: 100%; display: block;" />
                     </div>
@@ -69,10 +69,10 @@
                 <template #header>
                     Bottom
                 </template>
-                <template #previewItem="slotProps">
+                <template #item="slotProps">
 					<img :src="slotProps.item.previewImageSrc" :alt="slotProps.item.alt" style="width: 100%; display: block;" />
 				</template>
-				<template #thumbnailItem="slotProps">
+				<template #thumbnail="slotProps">
                     <div class="p-grid p-nogutter p-justify-center">
                         <img :src="slotProps.item.thumbnailImageSrc" :alt="slotProps.item.alt" tyle="width: 100%; display: block;" />
                     </div>
@@ -87,10 +87,10 @@
 <template v-pre>
 &lt;h3 class="first"&gt;Basic&lt;/h3&gt;
 &lt;Galleria :value="images" :responsiveOptions="responsiveOptions" :numVisible="5" style="max-width: 520px"&gt;
-    &lt;template #previewItem="slotProps"&gt;
+    &lt;template #item="slotProps"&gt;
         &lt;img :src="slotProps.item.previewImageSrc" :alt="slotProps.item.alt" style="width: 100%; display: block;" /&gt;
     &lt;/template&gt;
-    &lt;template #thumbnailItem="slotProps"&gt;
+    &lt;template #thumbnail="slotProps"&gt;
         &lt;div class="p-grid p-nogutter p-justify-center"&gt;
             &lt;img :src="slotProps.item.thumbnailImageSrc" :alt="slotProps.item.alt" tyle="width: 100%; display: block;" /&gt;
         &lt;/div&gt;
@@ -102,10 +102,10 @@
     &lt;template #header&gt;
         Left
     &lt;/template&gt;
-    &lt;template #previewItem="slotProps"&gt;
+    &lt;template #item="slotProps"&gt;
         &lt;img :src="slotProps.item.previewImageSrc" :alt="slotProps.item.alt" style="width: 100%; display: block;" /&gt;
     &lt;/template&gt;
-    &lt;template #thumbnailItem="slotProps"&gt;
+    &lt;template #thumbnail="slotProps"&gt;
         &lt;div class="p-grid p-nogutter p-justify-center"&gt;
             &lt;img :src="slotProps.item.thumbnailImageSrc" :alt="slotProps.item.alt" tyle="width: 100%; display: block;" /&gt;
         &lt;/div&gt;
@@ -116,10 +116,10 @@
     &lt;template #header&gt;
         Right
     &lt;/template&gt;
-    &lt;template #previewItem="slotProps"&gt;
+    &lt;template #item="slotProps"&gt;
         &lt;img :src="slotProps.item.previewImageSrc" :alt="slotProps.item.alt" style="width: 100%; display: block;" /&gt;
     &lt;/template&gt;
-    &lt;template #thumbnailItem="slotProps"&gt;
+    &lt;template #thumbnail="slotProps"&gt;
         &lt;div class="p-grid p-nogutter p-justify-center"&gt;
             &lt;img :src="slotProps.item.thumbnailImageSrc" :alt="slotProps.item.alt" tyle="width: 100%; display: block;" /&gt;
         &lt;/div&gt;
@@ -130,10 +130,10 @@
     &lt;template #header&gt;
         Top
     &lt;/template&gt;
-    &lt;template #previewItem="slotProps"&gt;
+    &lt;template #item="slotProps"&gt;
         &lt;img :src="slotProps.item.previewImageSrc" :alt="slotProps.item.alt" style="width: 100%; display: block;" /&gt;
     &lt;/template&gt;
-    &lt;template #thumbnailItem="slotProps"&gt;
+    &lt;template #thumbnail="slotProps"&gt;
         &lt;div class="p-grid p-nogutter p-justify-center"&gt;
             &lt;img :src="slotProps.item.thumbnailImageSrc" :alt="slotProps.item.alt" tyle="width: 100%; display: block;" /&gt;
         &lt;/div&gt;
@@ -144,10 +144,10 @@
     &lt;template #header&gt;
         Bottom
     &lt;/template&gt;
-    &lt;template #previewItem="slotProps"&gt;
+    &lt;template #item="slotProps"&gt;
         &lt;img :src="slotProps.item.previewImageSrc" :alt="slotProps.item.alt" style="width: 100%; display: block;" /&gt;
     &lt;/template&gt;
-    &lt;template #thumbnailItem="slotProps"&gt;
+    &lt;template #thumbnail="slotProps"&gt;
         &lt;div class="p-grid p-nogutter p-justify-center"&gt;
             &lt;img :src="slotProps.item.thumbnailImageSrc" :alt="slotProps.item.alt" tyle="width: 100%; display: block;" /&gt;
         &lt;/div&gt;

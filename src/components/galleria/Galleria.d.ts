@@ -23,14 +23,14 @@ export declare class Galleria extends Vue {
     indicatorsPosition?: string;
     baseZIndex?: number;
     maskClass?: string;
-    galleriaStyle?: string;
-    galleriaClass?: string;
+    containerStyle?: string;
+    containerClass?: string;
 	$slots: {
 		header: VNode[];
         footer: VNode[];
-        previewItem: VNode[];
+        item: VNode[];
         previewCaption: VNode[];
         indicator: VNode[];
-        thumbnailItem: VNode[];
+        thumbnail: VNode[];
 	}
 }

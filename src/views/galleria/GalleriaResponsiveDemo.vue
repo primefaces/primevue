@@ -11,10 +11,10 @@
 
         <div class="content-section implementation">
             <Galleria :value="images" :responsiveOptions="responsiveOptions" :numVisible="7" :circular="true" style="max-width: 800px">
-                <template #previewItem="slotProps">
+                <template #item="slotProps">
 					<img :src="slotProps.item.previewImageSrc" :alt="slotProps.item.alt" style="width: 100%; display: block;" />
 				</template>
-				<template #thumbnailItem="slotProps">
+				<template #thumbnail="slotProps">
                     <div class="p-grid p-nogutter p-justify-center">
                         <img :src="slotProps.item.thumbnailImageSrc" :alt="slotProps.item.alt" style="display: block;" />
                     </div>
@@ -28,10 +28,10 @@
 <CodeHighlight>
 <template v-pre>
 &lt;Galleria :value="images" :responsiveOptions="responsiveOptions" :numVisible="7" :circular="true" style="max-width: 800px"&gt;
-    &lt;template #previewItem="slotProps"&gt;
+    &lt;template #item="slotProps"&gt;
         &lt;img :src="slotProps.item.previewImageSrc" :alt="slotProps.item.alt" style="width: 100%; display: block;" /&gt;
     &lt;/template&gt;
-    &lt;template #thumbnailItem="slotProps"&gt;
+    &lt;template #thumbnail="slotProps"&gt;
         &lt;div class="p-grid p-nogutter p-justify-center"&gt;
             &lt;img :src="slotProps.item.thumbnailImageSrc" :alt="slotProps.item.alt" style="display: block;" /&gt;
         &lt;/div&gt;

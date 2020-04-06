@@ -101,11 +101,11 @@ export default {
             type: String,
             default: null
         },
-        galleriaStyle: {
+        containerStyle: {
             type: String,
             default: null
         },
-        galleriaClass: {
+        containerClass: {
             type: String,
             default: null
         }

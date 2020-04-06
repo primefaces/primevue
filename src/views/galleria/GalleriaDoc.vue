@@ -8,10 +8,10 @@ import Galleria from 'primevue/galleria';
 </CodeHighlight>
 
 				<h3>Getting Started</h3>
-				<p>Galleria requires previewItem template and a value as an array of objects.</p>
+				<p>Galleria requires item template and a value as an array of objects.</p>
 <CodeHighlight>
 &lt;Galleria :value="images"&gt;
-    &lt;template #previewItem="slotProps"&gt;
+    &lt;template #item="slotProps"&gt;
         &lt;img :src="slotProps.item.previewImageSrc" :alt="slotProps.item.alt" /&gt;
     &lt;/template&gt;
 &lt;/Galleria&gt;
@@ -39,10 +39,10 @@ export default {
 
 <CodeHighlight>
 &lt;Galleria :value="images" :numVisible="5"&gt;
-    &lt;template #previewItem="slotProps"&gt;
+    &lt;template #item="slotProps"&gt;
         &lt;img :src="slotProps.item.previewImageSrc" :alt="slotProps.item.alt" style="width: 100%" /&gt;
     &lt;/template&gt;
-    &lt;template #thumbnailItem="slotProps"&gt;
+    &lt;template #thumbnail="slotProps"&gt;
         &lt;div class="p-grid p-nogutter p-justify-center"&gt;
             &lt;img :src="slotProps.item.thumbnailImageSrc" :alt="slotProps.item.alt" /&gt;
         &lt;/div&gt;
@@ -56,10 +56,10 @@ export default {
 
 <CodeHighlight>
 &lt;Galleria :value="images" :responsiveOptions="responsiveOptions" :numVisible="5"&gt;
-    &lt;template #previewItem="slotProps"&gt;
+    &lt;template #item="slotProps"&gt;
         &lt;img :src="slotProps.item.previewImageSrc" :alt="slotProps.item.alt" style="width: 100%" /&gt;
     &lt;/template&gt;
-    &lt;template #thumbnailItem="slotProps"&gt;
+    &lt;template #thumbnail="slotProps"&gt;
         &lt;div class="p-grid p-nogutter p-justify-center"&gt;
             &lt;img :src="slotProps.item.thumbnailImageSrc" :alt="slotProps.item.alt" /&gt;
         &lt;/div&gt;
@@ -92,10 +92,10 @@ responsiveOptions: [
     &lt;template #header&gt;
         &lt;h1&gt;Header&lt;/h1&gt;
     &lt;/template&gt;
-    &lt;template #previewItem="slotProps"&gt;
+    &lt;template #item="slotProps"&gt;
         &lt;img :src="slotProps.item.previewImageSrc" :alt="slotProps.item.alt" style="width: 100%" /&gt;
     &lt;/template&gt;
-    &lt;template #thumbnailItem="slotProps"&gt;
+    &lt;template #thumbnail="slotProps"&gt;
         &lt;div class="p-grid p-nogutter p-justify-center"&gt;
             &lt;img :src="slotProps.item.thumbnailImageSrc" :alt="slotProps.item.alt" /&gt;
         &lt;/div&gt;
@@ -252,7 +252,7 @@ responsiveOptions: [
                                 <td>Style class of the mask on fullscreen mode.</td>
                             </tr>
                             <tr>
-                                <td>galleriaStyle</td>
+                                <td>containerStyle</td>
                                 <td>string</td>
                                 <td>null</td>
                                 <td>Inline style of the component on fullscreen mode. Otherwise, the 'style' property can be used.</td>
@@ -331,10 +331,10 @@ responsiveOptions: [
 &lt;Galleria ref="galleria" :value="images" :activeItemIndex.sync="activeItemIndex" :numVisible="5" style="max-width: 520px;" :class="galleriaClass"
     :showThumbnails="showThumbnails" :showPreviewNavButtons="true" :showNavButtonsOnPreviewHover="true"
     :circular="true" :autoPlay="true" :transitionInterval="3000"&gt;
-    &lt;template #previewItem="slotProps"&gt;
+    &lt;template #item="slotProps"&gt;
         &lt;img :src="slotProps.item.previewImageSrc" :alt="slotProps.item.alt" :style="[{'width': !isPreviewFullScreen ? '100%' : '', 'display': !isPreviewFullScreen ? 'block' : ''}]" /&gt;
     &lt;/template&gt;
-    &lt;template #thumbnailItem="slotProps"&gt;
+    &lt;template #thumbnail="slotProps"&gt;
         &lt;div class="p-grid p-nogutter p-justify-center"&gt;
             &lt;img :src="slotProps.item.thumbnailImageSrc" :alt="slotProps.item.alt" style="display: block;" /&gt;
         &lt;/div&gt;

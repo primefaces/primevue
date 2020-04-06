@@ -13,10 +13,10 @@
             <Galleria ref="galleria" :value="images" :activeItemIndex.sync="activeItemIndex" :numVisible="5" style="max-width: 520px;" :class="galleriaClass"
                 :showThumbnails="showThumbnails" :showPreviewNavButtons="true" :showNavButtonsOnPreviewHover="true"
                 :circular="true" :autoPlay="true" :transitionInterval="3000">
-                <template #previewItem="slotProps">
+                <template #item="slotProps">
 					<img :src="slotProps.item.previewImageSrc" :alt="slotProps.item.alt" :style="[{'width': !isPreviewFullScreen ? '100%' : '', 'display': !isPreviewFullScreen ? 'block' : ''}]" />
 				</template>
-				<template #thumbnailItem="slotProps">
+				<template #thumbnail="slotProps">
                     <div class="p-grid p-nogutter p-justify-center">
                         <img :src="slotProps.item.thumbnailImageSrc" :alt="slotProps.item.alt" style="display: block;" />
                     </div>

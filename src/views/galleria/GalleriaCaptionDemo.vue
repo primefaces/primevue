@@ -11,10 +11,10 @@
 
         <div class="content-section implementation">
             <Galleria :value="images" :responsiveOptions="responsiveOptions" :numVisible="5" style="max-width: 520px">
-                <template #previewItem="{item}">
+                <template #item="{item}">
 					<img :src="item.previewImageSrc" :alt="item.alt" style="width: 100%; display: block;" />
 				</template>
-				<template #thumbnailItem="{item}">
+				<template #thumbnail="{item}">
                     <div class="p-grid p-nogutter p-justify-center">
                         <img :src="item.thumbnailImageSrc" :alt="item.alt" style="display: block;" />
                     </div>
@@ -32,10 +32,10 @@
 <CodeHighlight>
 <template v-pre>
 &lt;Galleria :value="images" :responsiveOptions="responsiveOptions" :numVisible="5" style="max-width: 520px"&gt;
-    &lt;template #previewItem="{item}"&gt;
+    &lt;template #item="{item}"&gt;
         &lt;img :src="item.previewImageSrc" :alt="item.alt" style="width: 100%; display: block;" /&gt;
     &lt;/template&gt;
-    &lt;template #thumbnailItem="{item}"&gt;
+    &lt;template #thumbnail="{item}"&gt;
         &lt;div class="p-grid p-nogutter p-justify-center"&gt;
             &lt;img :src="item.thumbnailImageSrc" :alt="item.alt" style="display: block;" /&gt;
         &lt;/div&gt;

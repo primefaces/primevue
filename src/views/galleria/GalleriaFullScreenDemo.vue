@@ -11,12 +11,12 @@
 
         <div class="content-section implementation">
             <h3 class="first">Basic</h3>
-            <Galleria :value="images" :responsiveOptions="responsiveOptions2" :numVisible="9" galleriaStyle="max-width: 50%"
+            <Galleria :value="images" :responsiveOptions="responsiveOptions2" :numVisible="9" containerStyle="max-width: 50%"
                 :circular="true" :fullScreen="true" :showPreviewNavButtons="true" :visible.sync="displayBasic">
-                <template #previewItem="slotProps">
+                <template #item="slotProps">
 					<img :src="slotProps.item.previewImageSrc" :alt="slotProps.item.alt" style="width: 100%; display: block;" />
 				</template>
-				<template #thumbnailItem="slotProps">
+				<template #thumbnail="slotProps">
                     <div class="p-grid p-nogutter p-justify-center">
                         <img :src="slotProps.item.thumbnailImageSrc" :alt="slotProps.item.alt" style="display: block;" />
                     </div>
@@ -26,12 +26,12 @@
             <Button label="Show" icon="pi pi-external-link" @click="displayBasic = true" />
 
             <h3>Without Thumbnails</h3>
-            <Galleria :value="images" :responsiveOptions="responsiveOptions" :numVisible="7" galleriaStyle="max-width: 850px"
+            <Galleria :value="images" :responsiveOptions="responsiveOptions" :numVisible="7" containerStyle="max-width: 850px"
                 :circular="true" :fullScreen="true" :showPreviewNavButtons="true" :showThumbnails="false" :visible.sync="displayBasic2">
-                <template #previewItem="slotProps">
+                <template #item="slotProps">
 					<img :src="slotProps.item.previewImageSrc" :alt="slotProps.item.alt" style="width: 100%; display: block;" />
 				</template>
-				<template #thumbnailItem="slotProps">
+				<template #thumbnail="slotProps">
                     <div class="p-grid p-nogutter p-justify-center">
                         <img :src="slotProps.item.thumbnailImageSrc" :alt="slotProps.item.alt" style="display: block;" />
                     </div>
@@ -41,12 +41,12 @@
             <Button label="Show" icon="pi pi-external-link" @click="displayBasic2 = true" />
 
             <h3>Custom Contents</h3>
-            <Galleria :value="images" :activeItemIndex.sync="activeItemIndex" :responsiveOptions="responsiveOptions" :numVisible="7" galleriaStyle="max-width: 850px"
+            <Galleria :value="images" :activeItemIndex.sync="activeItemIndex" :responsiveOptions="responsiveOptions" :numVisible="7" containerStyle="max-width: 850px"
                 :circular="true" :fullScreen="true" :showPreviewNavButtons="true" :showThumbnails="false" :visible.sync="displayCustom">
-                <template #previewItem="slotProps">
+                <template #item="slotProps">
 					<img :src="slotProps.item.previewImageSrc" :alt="slotProps.item.alt" style="width: 100%; display: block;" />
 				</template>
-				<template #thumbnailItem="slotProps">
+				<template #thumbnail="slotProps">
                     <div class="p-grid p-nogutter p-justify-center">
                         <img :src="slotProps.item.thumbnailImageSrc" :alt="slotProps.item.alt" style="display: block;" />
                     </div>
@@ -66,12 +66,12 @@
 <CodeHighlight>
 <template v-pre>
 &lt;h3 class="first"&gt;Basic&lt;/h3&gt;
-&lt;Galleria :value="images" :responsiveOptions="responsiveOptions2" :numVisible="9" galleriaStyle="max-width: 50%"
+&lt;Galleria :value="images" :responsiveOptions="responsiveOptions2" :numVisible="9" containerStyle="max-width: 50%"
     :circular="true" :fullScreen="true" :showPreviewNavButtons="true" :visible.sync="displayBasic"&gt;
-    &lt;template #previewItem="slotProps"&gt;
+    &lt;template #item="slotProps"&gt;
         &lt;img :src="slotProps.item.previewImageSrc" :alt="slotProps.item.alt" style="width: 100%; display: block;" /&gt;
     &lt;/template&gt;
-    &lt;template #thumbnailItem="slotProps"&gt;
+    &lt;template #thumbnail="slotProps"&gt;
         &lt;div class="p-grid p-nogutter p-justify-center"&gt;
             &lt;img :src="slotProps.item.thumbnailImageSrc" :alt="slotProps.item.alt" style="display: block;" /&gt;
         &lt;/div&gt;
@@ -81,12 +81,12 @@
 &lt;Button label="Show" icon="pi pi-external-link" @click="displayBasic = true" /&gt;
 
 &lt;h3&gt;Without Thumbnails&lt;/h3&gt;
-&lt;Galleria :value="images" :responsiveOptions="responsiveOptions" :numVisible="7" galleriaStyle="max-width: 850px"
+&lt;Galleria :value="images" :responsiveOptions="responsiveOptions" :numVisible="7" containerStyle="max-width: 850px"
     :circular="true" :fullScreen="true" :showPreviewNavButtons="true" :showThumbnails="false" :visible.sync="displayBasic2"&gt;
-    &lt;template #previewItem="slotProps"&gt;
+    &lt;template #item="slotProps"&gt;
         &lt;img :src="slotProps.item.previewImageSrc" :alt="slotProps.item.alt" style="width: 100%; display: block;" /&gt;
     &lt;/template&gt;
-    &lt;template #thumbnailItem="slotProps"&gt;
+    &lt;template #thumbnail="slotProps"&gt;
         &lt;div class="p-grid p-nogutter p-justify-center"&gt;
             &lt;img :src="slotProps.item.thumbnailImageSrc" :alt="slotProps.item.alt" style="display: block;" /&gt;
         &lt;/div&gt;
@@ -96,12 +96,12 @@
 &lt;Button label="Show" icon="pi pi-external-link" @click="displayBasic2 = true" /&gt;
 
 &lt;h3&gt;Custom Contents&lt;/h3&gt;
-&lt;Galleria :value="images" :activeItemIndex.sync="activeItemIndex" :responsiveOptions="responsiveOptions" :numVisible="7" galleriaStyle="max-width: 850px"
+&lt;Galleria :value="images" :activeItemIndex.sync="activeItemIndex" :responsiveOptions="responsiveOptions" :numVisible="7" containerStyle="max-width: 850px"
     :circular="true" :fullScreen="true" :showPreviewNavButtons="true" :showThumbnails="false" :visible.sync="displayCustom"&gt;
-    &lt;template #previewItem="slotProps"&gt;
+    &lt;template #item="slotProps"&gt;
         &lt;img :src="slotProps.item.previewImageSrc" :alt="slotProps.item.alt" style="width: 100%; display: block;" /&gt;
     &lt;/template&gt;
-    &lt;template #thumbnailItem="slotProps"&gt;
+    &lt;template #thumbnail="slotProps"&gt;
         &lt;div class="p-grid p-nogutter p-justify-center"&gt;
             &lt;img :src="slotProps.item.thumbnailImageSrc" :alt="slotProps.item.alt" style="display: block;" /&gt;
         &lt;/div&gt;

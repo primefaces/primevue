@@ -13,7 +13,7 @@
                         'p-galleria-thumbnail-item-start': firstItemAciveIndex() === index,
                         'p-galleria-thumbnail-item-end': lastItemActiveIndex() === index }]">
                         <div class="p-galleria-thumbnail-item-content" :tabindex="isItemActive(index) ? 0 : null" @click="onItemClick(index)" @keydown.enter="onItemClick(index)">
-                            <GalleriaItemSlot type="thumbnailItem" :item="item" :templates="templates" />
+                            <GalleriaItemSlot type="thumbnail" :item="item" :templates="templates" />
                         </div>
                     </div>
                 </div>

@@ -5,7 +5,7 @@
             <span class="p-galleria-preview-prev-icon pi pi-chevron-left"></span>
         </button>
         <div class="p-galleria-preview-items-content">
-            <GalleriaItemSlot type="previewItem" :item="activeItem" :templates="templates" />
+            <GalleriaItemSlot type="item" :item="activeItem" :templates="templates" />
         </div>
         <button v-if="showPreviewNavButtons" type="button" :class="navForwardClass" @click="navForward($event)" :disabled="isNavForwardDisabled()">
             <span class="p-galleria-preview-next-icon pi pi-chevron-right"></span>
