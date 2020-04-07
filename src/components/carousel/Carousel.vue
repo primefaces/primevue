@@ -106,7 +106,8 @@ export default {
 			d_page: this.page,
 			totalShiftedItems: this.page * this.numScroll * -1,
 			allowAutoplay : !!this.autoplayInterval,
-			d_circular : this.circular || this.allowAutoplay
+			d_circular : this.circular || this.allowAutoplay,
+			swipeThreshold: 20
 		}
 	},
 	isRemainingItemsAdded: false,
@@ -281,11 +282,13 @@ export default {
 			}
 		},
 		changePageOnTouch(e, diff) {
-			if (diff < 0) {           // left
-				this.navForward(e);
-			}
-			else {                    // right
-				this.navBackward(e);
+			if (Math.abs(diff) > this.swipeThreshold) {
+				if (diff < 0) {           // left
+					this.navForward(e);
+				}
+				else {                    // right
+					this.navBackward(e);
+				}
 			}
 		},
 		bindDocumentListeners() {
