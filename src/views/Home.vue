@@ -18,7 +18,7 @@
                     <div class="feature-card">
                         <img alt="components" src="../assets/images/home/vue-components.png" />
                         <div class="feature-card-detail">
-                            <span class="feature-name">50+ COMPONENTS</span>
+                            <span class="feature-name">60+ COMPONENTS</span>
                             <p>The ultimate set of UI Components to assist you with 50+ impressive Vue Components.</p>
                         </div>
                     </div>
