@@ -10,7 +10,7 @@
 		</div>
 
 		<div class="content-section implementation">
-			<DataTable :value="cars" :contextMenuSelection.sync="selectedCar" @row-contextmenu="onRowContextMenu">
+			<DataTable :value="cars" contextMenu :contextMenuSelection.sync="selectedCar" @row-contextmenu="onRowContextMenu">
                 <Column field="vin" header="Vin"></Column>
                 <Column field="year" header="Year"></Column>
                 <Column field="brand" header="Brand"></Column>
@@ -25,7 +25,7 @@
                 <TabPanel header="Source">
 <CodeHighlight>
 <template v-pre>
-&lt;DataTable :value="cars" :contextMenuSelection.sync="selectedCar" @row-contextmenu="onRowContextMenu"&gt;
+&lt;DataTable :value="cars" contextMenu :contextMenuSelection.sync="selectedCar" @row-contextmenu="onRowContextMenu"&gt;
     &lt;Column field="vin" header="Vin"&gt;&lt;/Column&gt;
     &lt;Column field="year" header="Year"&gt;&lt;/Column&gt;
     &lt;Column field="brand" header="Brand"&gt;&lt;/Column&gt;

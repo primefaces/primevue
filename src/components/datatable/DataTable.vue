@@ -27,7 +27,7 @@
                         @column-click="onColumnHeaderClick($event)" @column-mousedown="onColumnHeaderMouseDown($event)"
                         @column-dragstart="onColumnHeaderDragStart($event)" @column-dragover="onColumnHeaderDragOver($event)" @column-dragleave="onColumnHeaderDragLeave($event)" @column-drop="onColumnHeaderDrop($event)"
                         @column-resizestart="onColumnResizeStart($event)" @checkbox-change="toggleRowsWithCheckbox($event)" />
-                <DTTableBody :value="dataToRender" :columns="columns" :empty="empty" :dataKey="dataKey" :selection="selection" :selectionKeys="d_selectionKeys" :selectionMode="selectionMode" :contextMenuSelection="contextMenuSelection"
+                <DTTableBody :value="dataToRender" :columns="columns" :empty="empty" :dataKey="dataKey" :selection="selection" :selectionKeys="d_selectionKeys" :selectionMode="selectionMode" :contextMenu="contextMenu" :contextMenuSelection="contextMenuSelection"
                     :rowGroupMode="rowGroupMode" :groupRowsBy="groupRowsBy" :expandableRowGroups="expandableRowGroups" :rowClass="rowClass" :editMode="editMode" :compareSelectionBy="compareSelectionBy"
                     :expandedRowIcon="expandedRowIcon" :collapsedRowIcon="collapsedRowIcon" :expandedRows="expandedRows" :expandedRowKeys="d_expandedRowKeys" :expandedRowGroups="expandedRowGroups"
                     :editingRows="editingRows" :editingRowKeys="d_editingRowKeys" :templates="$scopedSlots" :loading="loading"
@@ -50,7 +50,7 @@
                         @column-resizestart="onColumnResizeStart($event)" @checkbox-change="toggleRowsWithCheckbox($event)" />
                 </template>
                 <template #body>
-                    <DTTableBody :value="dataToRender" :columns="frozenColumns" :empty="empty" :dataKey="dataKey" :selection="selection" :selectionKeys="d_selectionKeys" :selectionMode="selectionMode" :contextMenuSelection="contextMenuSelection"
+                    <DTTableBody :value="dataToRender" :columns="frozenColumns" :empty="empty" :dataKey="dataKey" :selection="selection" :selectionKeys="d_selectionKeys" :selectionMode="selectionMode" :contextMenu="contextMenu" :contextMenuSelection="contextMenuSelection"
                         :rowGroupMode="rowGroupMode" :groupRowsBy="groupRowsBy" :expandableRowGroups="expandableRowGroups" :rowClass="rowClass" :editMode="editMode" :compareSelectionBy="compareSelectionBy"
                         :expandedRowIcon="expandedRowIcon" :collapsedRowIcon="collapsedRowIcon" :expandedRows="expandedRows" :expandedRowKeys="d_expandedRowKeys" :expandedRowGroups="expandedRowGroups"
                         :editingRows="editingRows" :editingRowKeys="d_editingRowKeys" :templates="$scopedSlots"
@@ -61,7 +61,7 @@
                         @row-edit-init="onRowEditInit($event)" @row-edit-save="onRowEditSave($event)" @row-edit-cancel="onRowEditCancel($event)"/>
                 </template>
                 <template #frozenbody>
-                    <DTTableBody v-if="frozenValue" :value="frozenValue" :columns="frozenColumns" :dataKey="dataKey" :selection="selection" :selectionKeys="d_selectionKeys" :selectionMode="selectionMode" :contextMenuSelection="contextMenuSelection"
+                    <DTTableBody v-if="frozenValue" :value="frozenValue" :columns="frozenColumns" :dataKey="dataKey" :selection="selection" :selectionKeys="d_selectionKeys" :selectionMode="selectionMode" :contextMenu="contextMenu" :contextMenuSelection="contextMenuSelection"
                         :rowGroupMode="rowGroupMode" :groupRowsBy="groupRowsBy" :expandableRowGroups="expandableRowGroups" :rowClass="rowClass" :editMode="editMode" :compareSelectionBy="compareSelectionBy"
                         :expandedRowIcon="expandedRowIcon" :collapsedRowIcon="collapsedRowIcon" :expandedRows="expandedRows" :expandedRowKeys="d_expandedRowKeys" :expandedRowGroups="expandedRowGroups"
                         :editingRows="editingRows" :editingRowKeys="d_editingRowKeys" :templates="$scopedSlots"
@@ -86,7 +86,7 @@
                         @column-resizestart="onColumnResizeStart($event)" @checkbox-change="toggleRowsWithCheckbox($event)" />
                 </template>
                 <template #body>
-                    <DTTableBody :value="dataToRender" :columns="scrollableColumns" :empty="empty" :dataKey="dataKey" :selection="selection" :selectionKeys="d_selectionKeys" :selectionMode="selectionMode" :contextMenuSelection="contextMenuSelection"
+                    <DTTableBody :value="dataToRender" :columns="scrollableColumns" :empty="empty" :dataKey="dataKey" :selection="selection" :selectionKeys="d_selectionKeys" :selectionMode="selectionMode" :contextMenu="contextMenu" :contextMenuSelection="contextMenuSelection"
                         :rowGroupMode="rowGroupMode" :groupRowsBy="groupRowsBy" :expandableRowGroups="expandableRowGroups" :rowClass="rowClass" :editMode="editMode" :compareSelectionBy="compareSelectionBy"
                         :expandedRowIcon="expandedRowIcon" :collapsedRowIcon="collapsedRowIcon" :expandedRows="expandedRows" :expandedRowKeys="d_expandedRowKeys" :expandedRowGroups="expandedRowGroups"
                         :editingRows="editingRows" :editingRowKeys="d_editingRowKeys" :templates="$scopedSlots"
@@ -97,7 +97,7 @@
                         @row-edit-init="onRowEditInit($event)" @row-edit-save="onRowEditSave($event)" @row-edit-cancel="onRowEditCancel($event)"/>
                 </template>
                 <template #frozenbody>
-                    <DTTableBody  v-if="frozenValue" :value="frozenValue" :columns="scrollableColumns" :dataKey="dataKey" :selection="selection" :selectionKeys="d_selectionKeys" :selectionMode="selectionMode" :contextMenuSelection="contextMenuSelection"
+                    <DTTableBody  v-if="frozenValue" :value="frozenValue" :columns="scrollableColumns" :dataKey="dataKey" :selection="selection" :selectionKeys="d_selectionKeys" :selectionMode="selectionMode" :contextMenu="contextMenu" :contextMenuSelection="contextMenuSelection"
                         :rowGroupMode="rowGroupMode" :groupRowsBy="groupRowsBy" :expandableRowGroups="expandableRowGroups" :rowClass="rowClass" :editMode="editMode" :compareSelectionBy="compareSelectionBy"
                         :expandedRowIcon="expandedRowIcon" :collapsedRowIcon="collapsedRowIcon" :expandedRows="expandedRows" :expandedRowKeys="d_expandedRowKeys" :expandedRowGroups="expandedRowGroups"
                         :editingRows="editingRows" :editingRowKeys="d_editingRowKeys" :templates="$scopedSlots"
@@ -241,6 +241,10 @@ export default {
         metaKeySelection: {
             type: Boolean,
             default: true
+        },
+        contextMenu: {
+            type: Boolean,
+            default: false
         },
         contextMenuSelection: {
             type: Object,
@@ -702,6 +706,7 @@ export default {
         },
         onRowRightClick(event) {
             DomHandler.clearSelection();
+            event.originalEvent.target.focus();
 
             this.$emit('update:contextMenuSelection', event.data);
             this.$emit('row-contextmenu', event);

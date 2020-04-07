@@ -1408,10 +1408,10 @@ export default {
 </CodeHighlight>
 
                 <h3>ContextMenu</h3>
-                <p>DataTable provides exclusive integration with the ContextMenu component using <i>contextMenuSelection</i> property along with the <i>row-contextmenu</i> event.
+                <p>DataTable provides exclusive integration with the ContextMenu component using, <i>contextMenu</i>, <i>contextMenuSelection</i> property along with the <i>row-contextmenu</i> event.
 <CodeHighlight>
 <template v-pre>
-&lt;DataTable :value="cars" :contextMenuSelection.sync="selectedCar" @row-contextmenu="onRowContextMenu"&gt;
+&lt;DataTable :value="cars" contextMenu :contextMenuSelection.sync="selectedCar" @row-contextmenu="onRowContextMenu"&gt;
     &lt;Column field="vin" header="Vin"&gt;&lt;/Column&gt;
     &lt;Column field="year" header="Year"&gt;&lt;/Column&gt;
     &lt;Column field="brand" header="Brand"&gt;&lt;/Column&gt;
@@ -1851,6 +1851,12 @@ export default {
                                     When true metaKey needs to be pressed to select or unselect an item and <br/>
                                     when set to false selection of each item
                                     can be toggled individually. On touch enabled devices, metaKeySelection is turned off automatically.</td>
+                            </tr>
+                            <tr>
+                                <td>contextMenu</td>
+                                <td>boolean</td>
+                                <td>false</td>
+                                <td>Enables context menu integration.</td>
                             </tr>
                             <tr>
                                 <td>contextMenuSelection</td>

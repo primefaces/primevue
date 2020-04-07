@@ -28,6 +28,7 @@ export declare class DataTable extends Vue {
     selectionMode?: string;
     compareSelectionBy?: string;
     metaKeySelection?: boolean;
+    contextMenu?: boolean;
     contextMenuSelection?: any;
     rowHover?: boolean;
     csvSeparator?: string;
