@@ -42,22 +42,40 @@ import Chips from 'primevue/chips';
 						</thead>
 						<tbody>
                             <tr>
-                                <td>value</td>
-                                <td>array</td>
-                                <td>null</td>
-                                <td>Value of the component.</td>
+                                <td>addOnBlur</td>
+                                <td>boolean</td>
+                                <td>false</td>
+                                <td>Whether to add an item when the input loses focus.</td>
                             </tr>
                             <tr>
-                                <td>max</td>
-                                <td>number</td>
-                                <td>null</td>
-                                <td>Maximum number of entries allowed.</td>
+                                <td>allowDuplicate</td>
+                                <td>boolean</td>
+                                <td>true</td>
+                                <td>Whether to allow duplicate values or not.</td>
                             </tr>
                             <tr>
                                 <td>ariaLabelledBy</td>
                                 <td>string</td>
                                 <td>null</td>
                                 <td>Establishes relationships between the component and label(s) where its value should be one or more element IDs.</td>
+                            </tr>
+                             <tr>
+                                <td>max</td>
+                                <td>number</td>
+                                <td>null</td>
+                                <td>Maximum number of entries allowed.</td>
+                            </tr>
+                            <tr>
+                                <td>value</td>
+                                <td>array</td>
+                                <td>null</td>
+                                <td>Value of the component.</td>
+                            </tr>
+                            <tr>
+                                <td>separator</td>
+                                <td>string</td>
+                                <td>null</td>
+                                <td>Separator char to add an item when pressed in addition to the enter key. Currently only possible value is ","</td>
                             </tr>
 						</tbody>
 					</table>
@@ -153,8 +171,11 @@ import Chips from 'primevue/chips';
 &lt;h3&gt;Basic&lt;/h3&gt;
 &lt;Chips v-model="value1" /&gt;
 
+&lt;h3&gt;Comma Separator&lt;/h3&gt;
+&lt;Chips v-model="value2" separator="," /&gt;
+
 &lt;h3&gt;Template&lt;/h3&gt;
-&lt;Chips v-model="value2"&gt;
+&lt;Chips v-model="value3"&gt;
     &lt;template #chip="slotProps"&gt;
         &lt;div&gt;
             &lt;span&gt;{{slotProps.value}} - (active) &lt;/span&gt;
@@ -170,7 +191,8 @@ export default {
 	data() {
 		return {
 			value1: null,
-			value2: null
+			value2: null,
+            value3: null
 		}
 	}
 }
