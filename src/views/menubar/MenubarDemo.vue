@@ -9,8 +9,10 @@
 
         <div class="content-section implementation">
             <Menubar :model="items">
-                <InputText placeholder="Search" type="text" />
-                <Button label="Logout" icon="pi pi-power-off" :style="{'margin-left': '.25em'}"/>
+                <template #end>
+                    <InputText placeholder="Search" type="text" />
+                    <Button label="Logout" icon="pi pi-power-off" :style="{'margin-left': '.25em'}"/>
+                </template>
             </Menubar>
         </div>
 

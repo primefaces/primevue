@@ -154,12 +154,16 @@ export default {
 </CodeHighlight>
 
                 <h3>Custom Content</h3>
-                <p>Any content inside the megamenu will be displayed on the right side by default. You may use ".p-menubar-custom" style class to change the location of the content.</p>
+                <p>Two slots named "start" and "end" are provided to embed content before or after the menubar.</p>
 <CodeHighlight>
 <template v-pre>
 &lt;Menubar :model="items"&gt;
-    &lt;InputText placeholder="Search" type="text" /&gt;
-    &lt;Button label="Logout" icon="pi pi-power-off" /&gt;
+    &lt;template #start&gt;
+        Before
+    &lt;/template&gt;
+    &lt;template #end&gt;
+        After
+    &lt;/template&gt;
 &lt;/Menubar&gt;
 </template>
 </CodeHighlight>
@@ -241,8 +245,10 @@ export default {
 <CodeHighlight>
 <template v-pre>
 &lt;Menubar :model="items"&gt;
-    &lt;InputText placeholder="Search" type="text" /&gt;
-    &lt;Button label="Logout" icon="pi pi-power-off" :style="{'margin-left': '.25em'}"/&gt;
+    &lt;template #end&gt;
+        &lt;InputText placeholder="Search" type="text" /&gt;
+        &lt;Button label="Logout" icon="pi pi-power-off" :style="{'margin-left': '.25em'}"/&gt;
+    &lt;/template&gt;
 &lt;/Menubar&gt;
 </template>
 </CodeHighlight>

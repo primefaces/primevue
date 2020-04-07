@@ -1,8 +1,14 @@
 <template>
     <div class="p-menubar p-component">
+        <div class="p-menubar-start" v-if="$slots.start">
+            <slot name="start"></slot>
+        </div>
         <MenubarSub :model="model" :root="true" />
         <div class="p-menubar-custom" v-if="$slots.default">
             <slot></slot>
+        </div>
+        <div class="p-menubar-end" v-if="$slots.end">
+            <slot name="end"></slot>
         </div>
     </div>
 </template>
@@ -26,6 +32,7 @@ export default {
 <style>
 .p-menubar {
     padding: .25em;
+    display: flex;
 }
 
 .p-menubar .p-menu-separator {
@@ -122,7 +129,11 @@ export default {
 }
 
 .p-menubar .p-menubar-custom {
-    float: right;
+    margin-left: auto;
     padding: .25em;
+}
+
+.p-menubar .p-menubar-end {
+    margin-left: auto;
 }
 </style>
