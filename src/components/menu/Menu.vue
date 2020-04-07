@@ -98,10 +98,7 @@ export default {
             this.unbindResizeListener();
         },
         alignOverlay() {
-            if (this.appendTo)
-                DomHandler.absolutePosition(this.$refs.container, this.target);
-            else
-                DomHandler.relativePosition(this.$refs.container, this.target);
+            DomHandler.absolutePosition(this.$refs.container, this.target);
         },
         bindOutsideClickListener() {
             if (!this.outsideClickListener) {
