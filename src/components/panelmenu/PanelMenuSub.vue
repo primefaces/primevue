@@ -2,13 +2,13 @@
     <ul class="p-submenu-list" role="tree">
         <template v-for="(item, i) of model">
             <li role="none" :class="getItemClass(item)" :style="item.style" v-if="item.visible !== false && !item.separator" :key="item.label + i">
-                <router-link v-if="item.to" :to="item.to" class="p-menuitem-link" @click.native="onItemClick($event, item)"
+                <router-link v-if="item.to && !item.disabled" :to="item.to" :class="getLinkClass(item)" @click.native="onItemClick($event, item)"
                     role="treeitem" :aria-expanded="isActive(item)">
                     <span :class="['p-menuitem-icon', item.icon]"></span>
                     <span class="p-menuitem-text">{{item.label}}</span>
                 </router-link>
-                <a v-else :href="item.url||'#'" class="p-menuitem-link" :target="item.target" @click="onItemClick($event, item)"
-                    role="treeitem" :aria-expanded="isActive(item)">
+                <a v-else :href="item.url" :class="getLinkClass(item)" :target="item.target" @click="onItemClick($event, item)"
+                    role="treeitem" :aria-expanded="isActive(item)" :tabindex="item.disabled ? null : '0'">
                     <span :class="getSubmenuIcon(item)" v-if="item.items"></span>
                     <span :class="['p-menuitem-icon', item.icon]"></span>
                     <span class="p-menuitem-text">{{item.label}}</span>
@@ -62,7 +62,10 @@ export default {
                 this.activeItem = item;
         },
         getItemClass(item) {
-            return ['p-menuitem', item.className, {'p-disabled': item.disabled}];
+            return ['p-menuitem', item.className];
+        },
+        getLinkClass(item) {
+            return ['p-menuitem-link', {'p-disabled': item.disabled}];
         },
         isActive(item) {
             return item === this.activeItem;

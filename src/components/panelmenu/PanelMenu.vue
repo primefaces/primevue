@@ -3,7 +3,7 @@
         <template v-for="(item, index) of model">
             <div :key="item.label + '_' + index" :class="getPanelClass(item)" :style="item.style">
                 <div :class="getHeaderClass(item)" :style="item.style">
-                    <a :href="item.url || '#'" class="p-panelmenu-header-link" @click="onItemClick($event, item)"
+                    <a :href="item.url" class="p-panelmenu-header-link" @click="onItemClick($event, item)" :tabindex="item.disabled ? null : '0'"
                         :aria-expanded="isActive(item)" :id="ariaId +'_header'" :aria-controls="ariaId +'_content'">
                         <span v-if="item.items" :class="getPanelToggleIcon(item)"></span>
                         <span v-if="item.icon" :class="getPanelIcon(item)"></span>
@@ -63,7 +63,7 @@ export default {
                 this.activeItem = item;
         },
         getPanelClass(item) {
-            return ['p-panelmenu-panel', item.class, {'p-disabled': item.disabled}];
+            return ['p-panelmenu-panel', item.class];
         },
         getPanelToggleIcon(item) {
             const active = item === this.activeItem;
@@ -76,7 +76,7 @@ export default {
             return item === this.activeItem;
         },
         getHeaderClass(item) {
-            return ['p-component p-panelmenu-header', {'p-highlight': this.isActive(item)}];
+            return ['p-component p-panelmenu-header', {'p-highlight': this.isActive(item), 'p-disabled': item.disabled}];
         }
     },
     components: {
