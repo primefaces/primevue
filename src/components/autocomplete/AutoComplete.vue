@@ -431,24 +431,26 @@ export default {
 <style>
 .p-autocomplete {
     width: auto;
-    zoom: 1;
     cursor: pointer;
     -moz-box-shadow: none;
     -webkit-box-shadow: none;
     box-shadow: none;
     position: relative;
-    display: inline-block;
+    display: -webkit-inline-flex;
+    display: -ms-inline-flexbox;
+    display: inline-flex;
 }
 
 .p-autocomplete .p-autocomplete-dropdown {
-    height: 100%;
     width: 2em;
     margin-right: 0;
-    vertical-align: top;
 }
 
 .p-autocomplete .p-autocomplete-input {
-    padding-right: 1.5em;
+    -webkit-box-flex: 1;
+    -webkit-flex: 1 1 auto;
+    -ms-flex: 1 1 auto;
+    flex: 1 1 auto;
 }
 
 .p-autocomplete-loader {
@@ -582,11 +584,6 @@ export default {
 .p-fluid .p-autocomplete,
 .p-fluid .p-autocomplete-input {
     width: 100%;
-}
-
-.p-fluid .p-autocomplete.p-autocomplete-dd .p-autocomplete-input,
-.p-fluid .p-autocomplete.p-autocomplete-dd .p-autocomplete-multiple-container {
-    width: calc(100% - 2em);
 }
 
 .p-fluid .p-autocomplete .p-autocomplete-dropdown.p-button {
