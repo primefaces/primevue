@@ -9,7 +9,11 @@
 
         <div class="content-section implementation">
             <h3>Advanced</h3>
-            <FileUpload name="demo[]" url="./upload.php" @upload="onUpload" :multiple="true" accept="image/*" :maxFileSize="1000000" />
+            <FileUpload name="demo[]" url="./upload.php" @upload="onUpload" :multiple="true" accept="image/*" :maxFileSize="1000000">
+                <template #empty>
+                    <p>Drag and drop files to here to upload.</p>
+                </template>
+            </FileUpload>
 
             <h3>Basic</h3>
             <FileUpload mode="basic" name="demo[]" url="./upload.php" accept="image/*" :maxFileSize="1000000" @upload="onUpload" />

@@ -25,6 +25,10 @@
                     </div>
                 </div>
             </div>
+            <div class="p-fileupload-empty" v-if="$scopedSlots.empty && !hasFiles">
+                <slot name="empty">
+                </slot>
+            </div>
         </div>
     </div>
     <span :class="basicChooseButtonClass" @mouseup="onBasicUploaderClick" v-else-if="isBasic">
@@ -38,6 +42,7 @@
 import Button from '../button/Button';
 import ProgressBar from '../progressbar/ProgressBar';
 import Message from '../message/Message';
+import DomHandler from '../utils/DomHandler';
 
 export default {
     props: {
@@ -233,17 +238,38 @@ export default {
 
             return true;
         },
-        onDragEnter() {
-
-        },
-        onDragLeave() {
-
+        onDragEnter(event) {
+            console.log('enter');
+            if (!this.disabled) {
+                event.stopPropagation();
+                event.preventDefault();
+            }
         },
         onDragOver() {
-
+            if (!this.disabled) {
+                DomHandler.addClass(this.$refs.content, 'p-fileupload-highlight');
+                event.stopPropagation();
+                event.preventDefault();
+            }
+        },
+        onDragLeave() {
+            if (!this.disabled) {
+                DomHandler.removeClass(this.$refs.content, 'p-fileupload-highlight');
+            }
         },
         onDrop() {
+            if (!this.disabled) {
+                DomHandler.removeClass(this.$refs.content, 'p-fileupload-highlight');
+                event.stopPropagation();
+                event.preventDefault();
 
+                const files = event.dataTransfer ? event.dataTransfer.files : event.target.files;
+                const allowDrop = this.multiple || (files && files.length === 1);
+
+                if (allowDrop) {
+                    this.onFileSelect(event);
+                }
+            }
         },
         onBasicUploaderClick() {
             if (this.hasFiles) {

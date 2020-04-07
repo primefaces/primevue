@@ -28,6 +28,7 @@
 <script>
 import UniqueComponentId from '../utils/UniqueComponentId';
 import DomHandler from '../utils/DomHandler';
+
 export default {
     inheritAttrs: false,
     props: {

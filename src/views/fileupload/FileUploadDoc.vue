@@ -56,6 +56,16 @@ import FileUpload from 'primevue/fileupload';
 				<h3>Request Customization</h3>
 				<p>XHR request to upload the files can be customized using the before-upload callback that passes the xhr instance and FormData object as event parameters.</p>
 
+                <h3>Empty Template</h3>
+                <p>When there is no file selected, you may use the empty slot to display content.</p>
+<CodeHighlight>
+&lt;FileUpload name="demo[]" url="./upload" /&gt;
+    &lt;template #empty&gt;
+        &lt;p&gt;Drag and drop files to here to upload.&lt;/p&gt;
+    &lt;/template&gt;
+&lt;/FileUpload&gt;
+</CodeHighlight>
+
 				<h3>Properties</h3>
 				<div class="doc-tablewrapper">
 					<table class="doc-table">
@@ -252,7 +262,11 @@ import FileUpload from 'primevue/fileupload';
 <CodeHighlight>
 <template v-pre>
 &lt;h3&gt;Advanced&lt;/h3&gt;
-&lt;FileUpload name="demo[]" url="./upload.php" @upload="onUpload" :multiple="true" accept="image/*" :maxFileSize="1000000" /&gt;
+&lt;FileUpload name="demo[]" url="./upload.php" @upload="onUpload" :multiple="true" accept="image/*" :maxFileSize="1000000"&gt;
+    &lt;template #empty&gt;
+        &lt;p&gt;Drag and drop files to here to upload.&lt;/p&gt;
+    &lt;/template&gt;
+&lt;/FileUpload&gt;
 
 &lt;h3&gt;Basic&lt;/h3&gt;
 &lt;FileUpload mode="basic" name="demo[]" url="./upload.php" accept="image/*" :maxFileSize="1000000" @upload="onUpload" /&gt;
