@@ -128,12 +128,11 @@ export default {
     display: block;
 }
 
-.p-menubar .p-menubar-custom {
-    margin-left: auto;
-    padding: .25em;
-}
-
+.p-menubar .p-menubar-custom,
 .p-menubar .p-menubar-end {
     margin-left: auto;
+    align-self: center;
+    margin-right: .25em;
+
 }
 </style>
