@@ -252,7 +252,8 @@ export default {
         },
         remove(index) {
             this.clearInputElement();
-            this.state.files.slice(index, 1);
+            this.files.splice(index, 1);
+            this.files = [...this.files];
         },
         isImage(file) {
             return /^image\//.test(file.type);
