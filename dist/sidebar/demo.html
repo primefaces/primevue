@@ -1,0 +1,17 @@
+<meta charset="utf-8">
+<title>sidebar demo</title>
+<script src="https://unpkg.com/vue"></script>
+<script src="./sidebar.umd.js"></script>
+
+
+<div id="app">
+  <demo></demo>
+</div>
+
+<script>
+new Vue({
+  components: {
+    demo: sidebar
+  }
+}).$mount('#app')
+</script>
