@@ -15,9 +15,6 @@
     "lint": "vue-cli-service lint",
     "test:unit": "vue-cli-service test:unit"
   },
-   "files": [
-    "dist"
-  ],
   "devDependencies": {
     "core-js": "^2.6.5",
     "vue": "^2.6.10",
