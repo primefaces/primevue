@@ -40,10 +40,20 @@ data() {
 
 				<h3>Custom Content</h3>
 				<p>Label of an option is used as the display text of an item by default, for custom content support define an <i>option</i> template that gets the option instance as a parameter.</p>
+                <p>In addition the <i>value</i> template can be used to customize the selected value.</p>
 <CodeHighlight>
 <template v-pre>
-&lt;Dropdown v-model="selectedCar" :options="cars" optionLabel="brand" placeholder="Select a Car" :filter="true" :showClear="true"&gt;
-	&lt;template #option="slotProps"&gt;
+&lt;Dropdown v-model="selectedCar" :options="cars" optionLabel="brand" :filter="true" :showClear="true"&gt;
+	&lt;template #value="slotProps"&gt;
+        &lt;div class="p-dropdown-car-value" v-if="slotProps.value"&gt;
+            &lt;img :alt="slotProps.value.brand" :src="'demo/images/car/' + slotProps.value.brand + '.png'" /&gt;
+            &lt;span&gt;{{slotProps.value.brand}}&lt;/span&gt;
+        &lt;/div&gt;
+        &lt;span v-else&gt;
+            Select a Car
+        &lt;/span&gt;
+    &lt;/template&gt;
+    &lt;template #option="slotProps"&gt;
 		&lt;div class="p-dropdown-car-option"&gt;
 			&lt;img :alt="slotProps.option.brand" :src="'demo/images/car/' + slotProps.option.brand + '.png'" /&gt;
 			&lt;span&gt;{{slotProps.option.brand}}&lt;/span&gt;
@@ -284,7 +294,14 @@ data() {
 &lt;Dropdown v-model="selectedCity2" :options="cities" optionLabel="name" :editable="true"/&gt;
 
 &lt;h3&gt;Advanced with Templating, Filtering and Clear Icon&lt;/h3&gt;
-&lt;Dropdown v-model="selectedCar" :options="cars" optionLabel="brand" placeholder="Select a Car" :filter="true" :showClear="true"&gt;
+&lt;Dropdown v-model="selectedCar" :options="cars" optionLabel="brand" :filter="true" :showClear="true"&gt;
+    &lt;div class="p-dropdown-car-value" v-if="slotProps.value"&gt;
+        &lt;img :alt="slotProps.value.brand" :src="'demo/images/car/' + slotProps.value.brand + '.png'" /&gt;
+        &lt;span&gt;{{slotProps.value.brand}}&lt;/span&gt;
+    &lt;/div&gt;
+    &lt;span v-else&gt;
+        Select a Car
+    &lt;/span&gt;
     &lt;template #option="slotProps"&gt;
         &lt;div class="p-dropdown-car-option"&gt;
             &lt;img :alt="slotProps.option.brand" :src="'demo/images/car/' + slotProps.option.brand + '.png'" /&gt;
@@ -327,10 +344,11 @@ export default {
 
 <CodeHighlight lang="css">
 .p-dropdown {
-	width: 12em;
+    width: 12em;
 }
 
-.p-dropdown-car-option {
+.p-dropdown-car-option,
+.p-dropdown-car-value {
     display: flex;
     justify-content: space-between;
     align-items: center;
@@ -343,6 +361,15 @@ export default {
     span {
         margin-top: .125em;
     }
+}
+
+.p-dropdown-car-value {
+    justify-content: flex-start;
+}
+
+.p-dropdown-empty-car-token {
+    background: #d95f00;
+    color: #ffffff;
 }
 </CodeHighlight>
 			</TabPanel>

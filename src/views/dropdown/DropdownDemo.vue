@@ -15,7 +15,16 @@
             <Dropdown v-model="selectedCity2" :options="cities" optionLabel="name" :editable="true"/>
 
             <h3>Advanced with Templating, Filtering and Clear Icon</h3>
-            <Dropdown v-model="selectedCar" :options="cars" optionLabel="brand" placeholder="Select a Car" :filter="true" :showClear="true">
+            <Dropdown v-model="selectedCar" :options="cars" optionLabel="brand" :filter="true" :showClear="true">
+                <template #value="slotProps">
+                    <div class="p-dropdown-car-value" v-if="slotProps.value">
+                        <img :alt="slotProps.value.brand" :src="'demo/images/car/' + slotProps.value.brand + '.png'" />
+                        <span>{{slotProps.value.brand}}</span>
+                    </div>
+                    <span v-else>
+                        Select a Car
+                    </span>
+                </template>
                 <template #option="slotProps">
                     <div class="p-dropdown-car-option">
                         <img :alt="slotProps.option.brand" :src="'demo/images/car/' + slotProps.option.brand + '.png'" />
@@ -69,7 +78,8 @@ export default {
     width: 12em;
 }
 
-.p-dropdown-car-option {
+.p-dropdown-car-option,
+.p-dropdown-car-value {
     display: flex;
     justify-content: space-between;
     align-items: center;
@@ -82,5 +92,14 @@ export default {
     span {
         margin-top: .125em;
     }
+}
+
+.p-dropdown-car-value {
+    justify-content: flex-start;
+}
+
+.p-dropdown-empty-car-token {
+    background: #d95f00;
+    color: #ffffff;
 }
 </style>

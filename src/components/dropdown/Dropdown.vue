@@ -6,7 +6,11 @@
         </div>
         <input v-if="editable" type="text" class="p-dropdown-label p-inputtext" :disabled="disabled" @focus="onFocus" @blur="onBlur" :placeholder="placeholder" :value="editableInputValue" @input="onEditableInput"
             aria-haspopup="listbox" :aria-expanded="overlayVisible">
-        <label v-if="!editable" :class="labelClass">{{label}}</label>
+        <label v-if="!editable" :class="labelClass">
+            <slot name="value" :value="value">
+                {{label}}
+            </slot>
+        </label>
         <i v-if="showClear && value != null" class="p-dropdown-clear-icon pi pi-times" @click="onClearClick($event)"></i>
         <div class="p-dropdown-trigger" role="button" aria-haspopup="listbox" :aria-expanded="overlayVisible">
             <span class="p-dropdown-trigger-icon pi pi-chevron-down p-clickable"></span>
