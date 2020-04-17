@@ -322,7 +322,6 @@ export default {
             default: null
         }
     },
-    oldViewDate: null,
     navigationState: null,
     created() {
         this.updateCurrentMetaData();
@@ -372,7 +371,7 @@ export default {
     watch: {
         value(newValue) {
             this.updateCurrentMetaData();
-            this.updateInputFieldValue(newValue || this.inputFieldValue);
+            this.updateInputFieldValue(newValue);
         }
     },
     methods: {
@@ -1916,7 +1915,6 @@ export default {
                     catch(err) {
                         //invalid date
                         $vm.updateModel(null);
-                        $vm.inputFieldValue = val;
                     }
                 },
                 focus: event => {
@@ -1974,17 +1972,12 @@ export default {
             };
         },
         viewDate() {
-            let $vm = this;
             let propValue = this.value;
             if (propValue && Array.isArray(propValue)) {
                 propValue = propValue[0];
             }
 
-            let vDate = propValue || $vm.oldViewDate || new Date();
-
-            $vm.oldViewDate = vDate;
-
-            return vDate;
+            return propValue || new Date();
         },
         containerClass() {
             return [
