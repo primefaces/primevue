@@ -77,6 +77,12 @@ import Chips from 'primevue/chips';
                                 <td>null</td>
                                 <td>Separator char to add an item when pressed in addition to the enter key. Currently only possible value is ","</td>
                             </tr>
+                            <tr>
+                                <td>placeholder</td>
+                                <td>string</td>
+                                <td>null</td>
+                                <td>Specifies a short hint that describes the expected value of the input field.</td>
+                            </tr>
 						</tbody>
 					</table>
 				</div>

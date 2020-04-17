@@ -8,7 +8,7 @@
                 </slot>
             </li>
             <li class="p-chips-input-token">
-                <input ref="input" type="text" class="p-inputtext p-component" @focus="onFocus($event)" @blur="onBlur($event)"
+                <input ref="input" type="text" class="p-inputtext p-component" @focus="onFocus($event)" @blur="onBlur($event)" :placeholder="placeholder"
                     @keydown="onKeyDown($event)" @paste="onPaste($event)" :disabled="$attrs.disabled || maxedOut" :aria-labelledby="ariaLabelledBy">
             </li>
         </ul>
@@ -41,6 +41,10 @@ export default {
         allowDuplicate: {
             type: Boolean,
             default: true
+        },
+        placeholder: {
+            type: String,
+            default: null
         }
     },
     data() {

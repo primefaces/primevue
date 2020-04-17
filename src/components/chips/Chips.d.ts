@@ -7,6 +7,7 @@ export declare class Chips extends Vue {
     addOnBlur?: boolean;
     allowDuplicate?: boolean;
     separator?: string;
+    placeholder?: string;
     $emit(eventName: 'focus', event: Event): this;
     $emit(eventName: 'blur', event: Event): this;
     $emit(eventName: 'input', value: any[]): this;
