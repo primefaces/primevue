@@ -6,7 +6,7 @@
         </div>
         <div class="p-multiselect-label-container">
             <label :class="labelClass">
-                <slot name="value" :value="value">
+                <slot name="value" :value="value" :placeholder="placeholder">
                     {{label}}
                 </slot>
             </label>
@@ -358,7 +358,7 @@ export default {
                 'p-multiselect-label',
                 {
                     'p-placeholder': this.label === this.placeholder,
-                    'p-multiselect-label-empty': !this.placeholder && (!this.value || this.value.length === 0)
+                    'p-multiselect-label-empty': !this.$scopedSlots['value'] && !this.placeholder && (!this.value || this.value.length === 0)
                 }
             ];
         },
