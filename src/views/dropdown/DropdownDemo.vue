@@ -15,14 +15,14 @@
             <Dropdown v-model="selectedCity2" :options="cities" optionLabel="name" :editable="true"/>
 
             <h3>Advanced with Templating, Filtering and Clear Icon</h3>
-            <Dropdown v-model="selectedCar" :options="cars" optionLabel="brand" :filter="true" :showClear="true">
+            <Dropdown v-model="selectedCar" :options="cars" optionLabel="brand" :filter="true" placeholder="Select a Car" :showClear="true">
                 <template #value="slotProps">
                     <div class="p-dropdown-car-value" v-if="slotProps.value">
                         <img :alt="slotProps.value.brand" :src="'demo/images/car/' + slotProps.value.brand + '.png'" />
                         <span>{{slotProps.value.brand}}</span>
                     </div>
                     <span v-else>
-                        Select a Car
+                        {{slotProps.placeholder}}
                     </span>
                 </template>
                 <template #option="slotProps">

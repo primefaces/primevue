@@ -43,14 +43,14 @@ data() {
                 <p>In addition the <i>value</i> template can be used to customize the selected value.</p>
 <CodeHighlight>
 <template v-pre>
-&lt;Dropdown v-model="selectedCar" :options="cars" optionLabel="brand" :filter="true" :showClear="true"&gt;
+&lt;Dropdown v-model="selectedCar" :options="cars" optionLabel="brand" :filter="true" placeholder="Select a Car" :showClear="true"&gt;
 	&lt;template #value="slotProps"&gt;
         &lt;div class="p-dropdown-car-value" v-if="slotProps.value"&gt;
             &lt;img :alt="slotProps.value.brand" :src="'demo/images/car/' + slotProps.value.brand + '.png'" /&gt;
             &lt;span&gt;{{slotProps.value.brand}}&lt;/span&gt;
         &lt;/div&gt;
         &lt;span v-else&gt;
-            Select a Car
+            {{slotProps.placeholder}}
         &lt;/span&gt;
     &lt;/template&gt;
     &lt;template #option="slotProps"&gt;
@@ -294,13 +294,13 @@ data() {
 &lt;Dropdown v-model="selectedCity2" :options="cities" optionLabel="name" :editable="true"/&gt;
 
 &lt;h3&gt;Advanced with Templating, Filtering and Clear Icon&lt;/h3&gt;
-&lt;Dropdown v-model="selectedCar" :options="cars" optionLabel="brand" :filter="true" :showClear="true"&gt;
+&lt;Dropdown v-model="selectedCar" :options="cars" optionLabel="brand" :filter="true" placeholder="Select a Car" :showClear="true"&gt;
     &lt;div class="p-dropdown-car-value" v-if="slotProps.value"&gt;
         &lt;img :alt="slotProps.value.brand" :src="'demo/images/car/' + slotProps.value.brand + '.png'" /&gt;
         &lt;span&gt;{{slotProps.value.brand}}&lt;/span&gt;
     &lt;/div&gt;
     &lt;span v-else&gt;
-        Select a Car
+        {{slotProps.placeholder}}
     &lt;/span&gt;
     &lt;template #option="slotProps"&gt;
         &lt;div class="p-dropdown-car-option"&gt;
