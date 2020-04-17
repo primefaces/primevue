@@ -393,9 +393,9 @@ export default {
 
             return [
                 'p-sortable-column-icon pi pi-fw', {
-                    'pi-sort': !sorted,
-                    'pi-sort-up': sorted && sortOrder > 0,
-                    'pi-sort-down': sorted && sortOrder < 0
+                    'pi-sort-alt': !sorted,
+                    'pi-sort-amount-up-alt': sorted && sortOrder > 0,
+                    'pi-sort-amount-down': sorted && sortOrder < 0
                 }
             ];
         },
@@ -732,9 +732,9 @@ export default {
         getAriaSort(column) {
             if (column.sortable) {
                 const sortIcon = this.getSortableColumnIcon(column);
-                if (sortIcon[1]['pi-sort-down'])
+                if (sortIcon[1]['pi-sort-amount-down'])
                     return 'descending';
-                else if (sortIcon[1]['pi-sort-up'])
+                else if (sortIcon[1]['pi-sort-amount-up-alt'])
                     return 'ascending';
                 else
                     return 'none';
