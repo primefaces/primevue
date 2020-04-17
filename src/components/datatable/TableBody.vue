@@ -30,7 +30,7 @@
                     </td>
                 </tr>
                 <tr class="p-rowgroup-footer" v-if="rowGroupMode === 'subheader' && shouldRenderRowGroupFooter(value, rowData, index)" :key="getRowKey(rowData, index) + '_subfooter'">
-                    <slot name="groupfooter" :data="rowData"></slot>
+                    <DTRowExpansionTemplate :template="templates['groupfooter']" :data="rowData" :index="index" />
                 </tr>
             </template>
         </template>
