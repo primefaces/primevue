@@ -1,5 +1,5 @@
 <template>
-    <textarea ref="element" :class="['p-inputtextarea p-inputtext p-component', {'p-filled': filled, 'p-inputtextarea-resizable ': autoResize}]" v-on="listeners" :value="value"></textarea>
+    <textarea :class="['p-inputtextarea p-inputtext p-component', {'p-filled': filled, 'p-inputtextarea-resizable ': autoResize}]" v-on="listeners" :value="value"></textarea>
 </template>
 
 <script>
@@ -10,26 +10,35 @@ export default {
     },
     cachedScrollHeight: null,
     mounted() {
-        if (this.autoResize) {
+        if (this.$el.offsetParent && this.autoResize) {
             this.resize();
         }
     },
     updated() {
-        if (this.autoResize) {
+        if (this.$el.offsetParent && this.autoResize) {
             this.resize();
         }
     },
     methods: {
         resize() {
-            this.$refs.element.style.height = '';
-            this.$refs.element.style.height = this.$refs.element.scrollHeight + 'px';
-
-            if (parseFloat(this.$refs.element.style.height) >= parseFloat(this.$refs.element.style.maxHeight)) {
-                this.$refs.element.style.overflowY = "scroll";
-                this.$refs.element.style.height = this.$refs.element.style.maxHeight;
+            if (!this.cachedScrollHeight) {
+                this.cachedScrollHeight = this.$el.scrollHeight;
+                this.$el.style.overflow = "hidden";
             }
-            else {
-                this.$refs.element.style.overflow = "hidden";
+
+            if (this.cachedScrollHeight !== this.$el.scrollHeight) {
+                this.$el.style.height = ''
+                this.$el.style.height = this.$el.scrollHeight + 'px';
+
+                if (parseFloat(this.$el.style.height) >= parseFloat(this.$el.style.maxHeight)) {
+                    this.$el.style.overflowY = "scroll";
+                    this.$el.style.height = this.$el.style.maxHeight;
+                }
+                else {
+                    this.$el.style.overflow = "hidden";
+                }
+
+                this.cachedScrollHeight = this.$el.scrollHeight;
             }
         }
     },
