@@ -1,6 +1,6 @@
 <template>
     <span :class="containerClass">
-        <INInputText ref="input" class="p-inputnumber-input" v-bind="$attrs" v-on="listeners" :aria-valumin="min" :aria-valuemax="max" :aria-labelledby="ariaLabelledBy" />
+        <INInputText ref="input" class="p-inputnumber-input" :value="formattedValue" v-bind="$attrs" v-on="listeners" :aria-valumin="min" :aria-valuemax="max" />
         <span class="p-inputnumber-button-group" v-if="showButtons && buttonLayout === 'stacked'">
             <Button :class="upButtonClass" icon="incrementButtonIcon" v-on="upButtonListeners" :disabled="$attrs.disabled" />
             <Button :class="downButtonClass" icon="decrementButtonIcon" v-on="downButtonListeners" :disabled="$attrs.disabled" />
@@ -61,11 +61,11 @@ export default {
             type: String,
             default: 'decimal'
         },
-        suffix: {
+        prefix: {
             type: String,
             default: null
         },
-        prefix: {
+        suffix: {
             type: String,
             default: null
         },
@@ -100,10 +100,6 @@ export default {
         step: {
             type: Number,
             default: null
-        },
-        ariaLabelledBy: {
-            type: String,
-            default: null
         }
     },
     numberFormat: null,
@@ -117,15 +113,6 @@ export default {
     _index: null,
     isSpecialChar: null,
     timer: null,
-    watch: {
-        value(newValue) {
-            const formattedValue = this.formatValue(newValue);
-            if (this.$refs.input.$el.value !== formattedValue) {
-                this.$refs.input.$el.value = formattedValue;
-                this.$refs.input.$el.setAttribute('aria-valuenow', this.props.value);
-            }
-        }
-    },
     created() {
         this.numberFormat = new Intl.NumberFormat(this.locale, this.getOptions());
         const numerals = [...new Intl.NumberFormat(this.locale, {useGrouping: false}).format(9876543210)].reverse();
@@ -138,10 +125,6 @@ export default {
         this._suffix = new RegExp(`[${this.suffix||''}]`, 'g');
         this._prefix = new RegExp(`[${this.prefix||''}]`, 'g');
         this._index = d => index.get(d);
-    },
-    mounted() {
-        this.$refs.input.$el.value = this.formatValue(this.value);
-        this.$refs.input.$el.setAttribute('aria-valuenow', this.value);
     },
     methods: {
         getOptions() {
@@ -619,6 +602,9 @@ export default {
                 keydown: event => this.onDownButtonKeyDown(event),
                 keyup: event => this.onDownButtonKeyUp(event)
             }
+        },
+        formattedValue() {
+            return this.formatValue(this.value);
         }
     },
     components: {

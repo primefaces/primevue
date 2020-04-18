@@ -11,11 +11,11 @@
             <h3>Numerals</h3>
             <div class="p-grid p-fluid">
                 <div class="p-col-12 p-md-3">
-                    Integer Only
+                    Integer Only - {{value1}}
                     <InputNumber v-model="value1" />
                 </div>
                 <div class="p-col-12 p-md-3">
-                    Without Grouping
+                    Without Grouping - {{value2}}
                     <InputNumber v-model="value2" mode="decimal" :useGrouping="false" />
                 </div>
                 <div class="p-col-12 p-md-3">
@@ -94,12 +94,12 @@
                 <div class="p-col-12 p-md-3">
                     Horizontal with Step
                     <InputNumber v-model="value18" showButtons buttonLayout="horizontal" spinnerMode="horizontal" :step="0.25"
-                        decrementButtonclass="p-button-danger" incrementButtonclass="p-button-success" incrementButtonIcon="pi pi-plus" decrementButtonIcon="pi pi-minus" mode="currency" currency="EUR" />
+                        decrementButtonClass="p-button-danger" incrementButtonClass="p-button-success" incrementButtonIcon="pi pi-plus" decrementButtonIcon="pi pi-minus" mode="currency" currency="EUR" />
                 </div>
                 <div class="p-col-12 p-md-3">
                     <div>Vertical</div>
                     <InputNumber v-model="value19" mode="decimal" showButtons buttonLayout="vertical" spinnerMode="vertical"
-                        decrementButtonclass="p-button-secondary" incrementButtonclass="p-button-secondary" incrementButtonIcon="pi pi-plus" decrementButtonIcon="pi pi-minus" />
+                        decrementButtonClass="p-button-secondary" incrementButtonClass="p-button-secondary" incrementButtonIcon="pi pi-plus" decrementButtonIcon="pi pi-minus" />
                 </div>
                 <div class="p-col-12 p-md-3">
                     Min-Max Boundaries
