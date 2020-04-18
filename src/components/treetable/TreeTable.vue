@@ -365,8 +365,8 @@ export default {
             if (column.sortable) {
                 return this.sortMode === 'single' ? (this.d_sortField === (column.field || column.sortField)) : this.getMultiSortMetaIndex(column) > -1;
             }
-                
-            return false; 
+
+            return false;
         },
         getColumnHeaderClass(column) {
             return [column.headerClass,
