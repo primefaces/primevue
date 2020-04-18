@@ -15,6 +15,7 @@
                 <router-link to="/editor">Editor</router-link>
                 <router-link to="/inputgroup">InputGroup</router-link>
                 <router-link to="/inputmask">InputMask</router-link>
+                <router-link to="/inputnumber">InputNumber</router-link>
                 <router-link to="/inputswitch">InputSwitch</router-link>
                 <router-link to="/inputtext">InputText</router-link>
                 <router-link to="/listbox">Listbox</router-link>
