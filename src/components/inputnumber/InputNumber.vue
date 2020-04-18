@@ -2,11 +2,11 @@
     <span :class="containerClass">
         <INInputText ref="input" class="p-inputnumber-input" :value="formattedValue" v-bind="$attrs" v-on="listeners" :aria-valumin="min" :aria-valuemax="max" />
         <span class="p-inputnumber-button-group" v-if="showButtons && buttonLayout === 'stacked'">
-            <Button :class="upButtonClass" icon="incrementButtonIcon" v-on="upButtonListeners" :disabled="$attrs.disabled" />
-            <Button :class="downButtonClass" icon="decrementButtonIcon" v-on="downButtonListeners" :disabled="$attrs.disabled" />
+            <Button :class="upButtonClass" :icon="incrementButtonIcon" v-on="upButtonListeners" :disabled="$attrs.disabled" />
+            <Button :class="downButtonClass" :icon="decrementButtonIcon" v-on="downButtonListeners" :disabled="$attrs.disabled" />
         </span>
-        <INButton :class="upButtonClass" icon="incrementButtonIcon" v-on="upButtonListeners" v-if="showButtons && buttonLayout !== 'stacked'" :disabled="$attrs.disabled" />
-        <INButton :class="downButtonClass" icon="decrementButtonIcon" v-on="downButtonListeners" v-if="showButtons && buttonLayout !== 'stacked'" :disabled="$attrs.disabled" />
+        <INButton :class="upButtonClass" :icon="incrementButtonIcon" v-on="upButtonListeners" v-if="showButtons && buttonLayout !== 'stacked'" :disabled="$attrs.disabled" />
+        <INButton :class="downButtonClass" :icon="decrementButtonIcon" v-on="downButtonListeners" v-if="showButtons && buttonLayout !== 'stacked'" :disabled="$attrs.disabled" />
     </span>
 </template>
 
@@ -99,7 +99,7 @@ export default {
         },
         step: {
             type: Number,
-            default: null
+            default: 1
         }
     },
     numberFormat: null,
