@@ -435,7 +435,7 @@ export default {
                                 this.d_sortField = null;
                             }
                             else {
-                                this.d_sortOrder = this.d_sortOrder * -1
+                                this.d_sortOrder = this.d_sortOrder * -1;
                             }
                         }
                         else {
