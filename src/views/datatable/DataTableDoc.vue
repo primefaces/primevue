@@ -1820,6 +1820,12 @@ export default {
                                 <td>Defines whether sorting works on single column or on multiple columns.</td>
                             </tr>
                             <tr>
+                                <td>removableSort</td>
+                                <td>boolean</td>
+                                <td>false</td>
+                                <td>When enabled, columns can have an un-sorted state.</td>
+                            </tr>
+                            <tr>
                                 <td>filters</td>
                                 <td>object</td>
                                 <td>null</td>

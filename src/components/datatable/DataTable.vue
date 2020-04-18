@@ -222,6 +222,10 @@ export default {
             type: String,
             default: 'single'
         },
+        removableSort: {
+            type: Boolean,
+            default: false
+        },
         filters: {
             type: Object,
             default: null
@@ -475,24 +479,35 @@ export default {
                     || DomHandler.hasClass(targetNode, 'p-sortable-column-icon') || DomHandler.hasClass(targetNode.parentElement, 'p-sortable-column-icon')) {
                     DomHandler.clearSelection();
 
-                    this.d_sortOrder = (this.d_sortField === columnField) ? this.d_sortOrder * -1 : this.defaultSortOrder;
-                    this.d_sortField = columnField;
-
-                    if(this.sortMode === 'multiple') {
-                        let metaKey = event.metaKey || event.ctrlKey;
-                        if (!metaKey) {
-                            this.d_multiSortMeta = [];
+                    if (this.sortMode === 'single') {
+                        if (this.d_sortField === columnField) {
+                            if (this.removableSort && (this.d_sortOrder * -1 === this.defaultSortOrder)) {
+                                this.d_sortOrder = null;
+                                this.d_sortField = null;
+                            }
+                            else {
+                                this.d_sortOrder = this.d_sortOrder * -1
+                            }
+                        }
+                        else {
+                            this.d_sortOrder = this.defaultSortOrder;
+                            this.d_sortField = columnField;
                         }
 
-                        this.addSortMeta({field: this.d_sortField, order: this.d_sortOrder});
+                        this.$emit('update:sortField', this.d_sortField);
+                        this.$emit('update:sortOrder', this.d_sortOrder);
+                    }
+                    else if (this.sortMode === 'multiple') {
+                        let metaKey = event.metaKey || event.ctrlKey;
+                        if (!metaKey) {
+                            this.d_multiSortMeta =  this.d_multiSortMeta.filter(meta => meta.field === columnField);
+                        }
+
+                        this.addMultiSortField(columnField);
+                        this.$emit('update:multiSortMeta', this.d_multiSortMeta);
                     }
 
-                    this.$emit('update:sortField', this.d_sortField);
-                    this.$emit('update:sortOrder', this.d_sortOrder);
-                    this.$emit('update:multiSortMeta', this.d_multiSortMeta);
-
                     this.$emit('sort', this.createLazyLoadEvent(event));
-
                     this.resetPage();
                 }
             }
@@ -551,19 +566,18 @@ export default {
 
             return (this.d_multiSortMeta[index].order * result);
         },
-        addSortMeta(meta) {
-            let index = -1;
-            for (let i = 0; i < this.d_multiSortMeta.length; i++) {
-                if (this.d_multiSortMeta[i].field === meta.field) {
-                    index = i;
-                    break;
-                }
+        addMultiSortField(field, metaKey) {
+            let index =  this.d_multiSortMeta.findIndex(meta => meta.field === field);
+            
+            if (index >= 0) {
+                if (this.removableSort && (this.d_multiSortMeta[index].order * -1 === this.defaultSortOrder))
+                    this.d_multiSortMeta.splice(index, 1);
+                else
+                    this.d_multiSortMeta[index] = {field: field, order: this.d_multiSortMeta[index].order * -1};
             }
-
-            if(index >= 0)
-                this.d_multiSortMeta[index] = meta;
-            else
-                this.d_multiSortMeta.push(meta);
+            else {
+                this.d_multiSortMeta.push({field: field, order: this.defaultSortOrder});
+            }
 
             this.d_multiSortMeta = [...this.d_multiSortMeta];
         },
