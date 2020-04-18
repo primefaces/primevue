@@ -445,6 +445,7 @@ export default {
 
                         this.$emit('update:sortField', this.d_sortField);
                         this.$emit('update:sortOrder', this.d_sortOrder);
+                        this.resetPage();
                     }
                     else if (this.sortMode === 'multiple') {
                         let metaKey = event.metaKey || event.ctrlKey;
@@ -462,7 +463,6 @@ export default {
                         sortOrder: this.d_sortOrder,
                         multiSortMeta: this.d_multiSortMeta
                     });
-                    this.resetPage();
                 }
             }
         },
