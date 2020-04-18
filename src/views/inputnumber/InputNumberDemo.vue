@@ -11,11 +11,11 @@
             <h3>Numerals</h3>
             <div class="p-grid p-fluid">
                 <div class="p-col-12 p-md-3">
-                    Integer Only - {{value1}}
+                    Integer Only
                     <InputNumber v-model="value1" />
                 </div>
                 <div class="p-col-12 p-md-3">
-                    Without Grouping - {{value2}}
+                    Without Grouping
                     <InputNumber v-model="value2" mode="decimal" :useGrouping="false" />
                 </div>
                 <div class="p-col-12 p-md-3">
@@ -145,3 +145,9 @@ export default {
 	}
 }
 </script>
+
+<style scoped>
+.p-inputnumber {
+    margin-top: 1em;
+}
+</style>
