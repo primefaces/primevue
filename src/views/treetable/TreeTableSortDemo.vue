@@ -23,6 +23,13 @@
                 <Column field="size" header="Size" :sortable="true"></Column>
                 <Column field="type" header="Type" :sortable="true"></Column>
             </TreeTable>
+
+            <h3>Removable Sort</h3>
+            <TreeTable :value="nodes" sortMode="single" removableSort>
+                <Column field="name" header="Name" :expander="true" :sortable="true"></Column>
+                <Column field="size" header="Size" :sortable="true"></Column>
+                <Column field="type" header="Type" :sortable="true"></Column>
+            </TreeTable>
         </div>
 
         <div class="content-section documentation">
@@ -39,6 +46,13 @@
 
 &lt;h3&gt;Multiple Column Sorting&lt;/h3&gt;
 &lt;TreeTable :value="nodes" sortMode="multiple"&gt;
+    &lt;Column field="name" header="Name" :expander="true" :sortable="true"&gt;&lt;/Column&gt;
+    &lt;Column field="size" header="Size" :sortable="true"&gt;&lt;/Column&gt;
+    &lt;Column field="type" header="Type" :sortable="true"&gt;&lt;/Column&gt;
+&lt;/TreeTable&gt;
+
+&lt;h3&gt;Removable Sort&lt;/h3&gt;
+&lt;TreeTable :value="nodes" sortMode="single" removableSort&gt;
     &lt;Column field="name" header="Name" :expander="true" :sortable="true"&gt;&lt;/Column&gt;
     &lt;Column field="size" header="Size" :sortable="true"&gt;&lt;/Column&gt;
     &lt;Column field="type" header="Type" :sortable="true"&gt;&lt;/Column&gt;
