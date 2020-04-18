@@ -566,9 +566,9 @@ export default {
 
             return (this.d_multiSortMeta[index].order * result);
         },
-        addMultiSortField(field, metaKey) {
+        addMultiSortField(field) {
             let index =  this.d_multiSortMeta.findIndex(meta => meta.field === field);
-            
+
             if (index >= 0) {
                 if (this.removableSort && (this.d_multiSortMeta[index].order * -1 === this.defaultSortOrder))
                     this.d_multiSortMeta.splice(index, 1);
