@@ -29,6 +29,7 @@
                             <TTColumnSlot :column="col" type="header" v-if="col.$scopedSlots.header" />
                             <span class="p-column-title" v-if="col.header">{{col.header}}</span>
                             <span v-if="col.sortable" :class="getSortableColumnIcon(col)"></span>
+                            <span v-if="isMultiSorted(col)" class="p-sortable-column-badge">{{getMultiSortMetaIndex(col) + 1}}</span>
                         </th>
                     </tr>
                     <tr v-if="hasColumnFilter()">
@@ -357,23 +358,25 @@ export default {
             this.d_first = 0;
             this.$emit('update:first', this.d_first);
         },
+        isMultiSorted(column) {
+            return column.sortable && this.getMultiSortMetaIndex(column) > -1
+        },
+        isColumnSorted(column) {
+            if (column.sortable) {
+                return this.sortMode === 'single' ? (this.d_sortField === (column.field || column.sortField)) : this.getMultiSortMetaIndex(column) > -1;
+            }
+                
+            return false; 
+        },
         getColumnHeaderClass(column) {
-            const sorted = this.isColumnSorted(column);
-
             return [column.headerClass,
                     {'p-sortable-column': column.sortable},
                     {'p-resizable-column': this.resizableColumns},
-                    {'p-highlight': sorted}
+                    {'p-highlight': this.isColumnSorted(column)}
             ];
         },
         getFilterColumnHeaderClass(column) {
             return ['p-filter-column', column.filterHeaderClass];
-        },
-        isColumnSorted(column) {
-            if (column.sortable)
-                return this.sortMode === 'single' ? (this.d_sortField === (column.field || column.sortField)) : this.getMultiSortMetaIndex(column) > -1;
-            else
-                return false;
         },
         getSortableColumnIcon(column) {
             let sorted = false;
@@ -897,6 +900,7 @@ export default {
 
 .p-treetable .p-sortable-column {
     cursor: pointer;
+    user-select: none;
 }
 
 .p-treetable .p-sortable-column-icon {

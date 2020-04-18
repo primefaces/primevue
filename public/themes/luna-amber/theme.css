@@ -2063,6 +2063,15 @@ body .p-datatable .p-sortable-column {
 body .p-datatable .p-sortable-column .p-sortable-column-icon {
   color: #888888;
 }
+body .p-datatable .p-sortable-column .p-sortable-column-badge {
+  border-radius: 50%;
+  height: 18px;
+  min-width: 18px;
+  line-height: 18px;
+  display: inline-block;
+  color: #FFB300;
+  background-color: #212121;
+}
 body .p-datatable .p-sortable-column:not(.p-highlight):hover {
   background-color: #4c4c4c;
   color: #dedede;
@@ -2743,6 +2752,15 @@ body .p-treetable .p-sortable-column {
 }
 body .p-treetable .p-sortable-column .p-sortable-column-icon {
   color: #888888;
+}
+body .p-treetable .p-sortable-column .p-sortable-column-badge {
+  border-radius: 50%;
+  height: 18px;
+  min-width: 18px;
+  line-height: 18px;
+  display: inline-block;
+  color: #FFB300;
+  background-color: #212121;
 }
 body .p-treetable .p-sortable-column:not(.p-highlight):hover {
   background-color: #4c4c4c;

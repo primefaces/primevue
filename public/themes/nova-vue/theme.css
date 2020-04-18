@@ -2063,6 +2063,15 @@ body .p-datatable .p-sortable-column {
 body .p-datatable .p-sortable-column .p-sortable-column-icon {
   color: #848484;
 }
+body .p-datatable .p-sortable-column .p-sortable-column-badge {
+  border-radius: 50%;
+  height: 18px;
+  min-width: 18px;
+  line-height: 18px;
+  display: inline-block;
+  color: #41b883;
+  background-color: #ffffff;
+}
 body .p-datatable .p-sortable-column:not(.p-highlight):hover {
   background-color: #e0e0e0;
   color: #333333;
@@ -2743,6 +2752,15 @@ body .p-treetable .p-sortable-column {
 }
 body .p-treetable .p-sortable-column .p-sortable-column-icon {
   color: #848484;
+}
+body .p-treetable .p-sortable-column .p-sortable-column-badge {
+  border-radius: 50%;
+  height: 18px;
+  min-width: 18px;
+  line-height: 18px;
+  display: inline-block;
+  color: #41b883;
+  background-color: #ffffff;
 }
 body .p-treetable .p-sortable-column:not(.p-highlight):hover {
   background-color: #e0e0e0;

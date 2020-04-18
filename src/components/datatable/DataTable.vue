@@ -1852,6 +1852,7 @@ export default {
 
 .p-datatable .p-sortable-column {
     cursor: pointer;
+    user-select: none;
 }
 
 .p-datatable .p-sortable-column-icon {

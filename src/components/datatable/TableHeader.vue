@@ -12,6 +12,7 @@
                         <DTColumnSlot :column="col" type="header" v-if="col.$scopedSlots.header" />
                         <span class="p-column-title" v-if="col.header">{{col.header}}</span>
                         <span v-if="col.sortable" :class="getSortableColumnIcon(col)"></span>
+                        <span v-if="isMultiSorted(col)" class="p-sortable-column-badge">{{getMultiSortMetaIndex(col) + 1}}</span>
                         <DTHeaderCheckbox :checked="allRowsSelected" @change="onHeaderCheckboxChange($event)" :disabled="empty" v-if="col.selectionMode ==='multiple' && !hasColumnFilter()" />
                     </th>
                 </template>
@@ -34,6 +35,7 @@
                     <ColumnSlot :column="col" type="header" v-if="col.$scopedSlots.header" />
                     <span class="p-column-title" v-if="col.header">{{col.header}}</span>
                     <span v-if="col.sortable" :class="getSortableColumnIcon(col)"></span>
+                    <span v-if="isMultiSorted(col)" class="p-sortable-column-badge">{{getMultiSortMetaIndex(col) + 1}}</span>
                     <DTColumnSlot :column="col" type="filter" v-if="col.$scopedSlots.filter" />
                     <DTHeaderCheckbox :checked="allRowsSelected" @change="onHeaderCheckboxChange($event)" :disabled="empty" v-if="col.selectionMode ==='multiple'" />
                 </th>
@@ -95,13 +97,17 @@ export default {
         }
     },
     methods: {
+        isMultiSorted(column) {
+            return column.sortable && this.getMultiSortMetaIndex(column) > -1
+        },
+        isColumnSorted(column) {
+            return this.sortMode === 'single' ? (this.sortField && (this.sortField === column.field || this.sortField === column.sortField)) : this.isMultiSorted(column);
+        },
         getColumnHeaderClass(column) {
-            const sorted = this.sortMode === 'single' ? (this.sortField && (this.sortField === column.field || this.sortField === column.sortField)) : this.getMultiSortMetaIndex(column) > -1;
-
             return [column.headerClass,
                     {'p-sortable-column': column.sortable},
                     {'p-resizable-column': this.resizableColumns},
-                    {'p-highlight': sorted}
+                    {'p-highlight': this.isColumnSorted(column)}
             ];
         },
         getFilterColumnHeaderClass(column) {
