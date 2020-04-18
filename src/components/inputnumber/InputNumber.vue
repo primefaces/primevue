@@ -619,16 +619,20 @@ export default {
     display: inline-flex;
 }
 
-.p-inputnumber-button-up,
-.p-inputnumber-button-down {
+.p-inputnumber-button {
     display: flex;
     align-items: center;
     justify-content: center;
     flex: 0 0 auto;
 }
 
-.p-inputnumber-input {
-    flex: 1 1 auto;
+.p-inputnumber-buttons-stacked .p-inputnumber-button .p-button-text,
+.p-inputnumber-buttons-horizontal .p-inputnumber-button .p-button-text {
+    display: none;
+}
+
+.p-inputnumber .p-inputnumber-button span {
+    font-size: inherit;
 }
 
 .p-inputnumber-buttons-stacked .p-inputnumber-button-up {
@@ -698,6 +702,10 @@ export default {
     border-top-left-radius: 0;
     border-top-right-radius: 0;
     width: auto;
+}
+
+.p-inputnumber-input {
+    flex: 1 1 auto;
 }
 
 .p-fluid .p-inputnumber {
