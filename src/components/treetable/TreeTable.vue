@@ -354,9 +354,13 @@ export default {
             this.d_first = event.first;
             this.d_rows = event.rows;
 
+            let pageEvent = this.createLazyLoadEvent(event);
+            pageEvent.pageCount = event.pageCount;
+            pageEvent.page = event.page;
+
             this.$emit('update:first', this.d_first);
             this.$emit('update:rows', this.d_rows);
-            this.$emit('page', event);
+            this.$emit('page', pageEvent);
         },
         resetPage() {
             this.d_first = 0;
@@ -457,12 +461,7 @@ export default {
                         this.$emit('update:multiSortMeta', this.d_multiSortMeta);
                     }
 
-                    this.$emit('sort', {
-                        originalEvent: event,
-                        sortField: this.d_sortField,
-                        sortOrder: this.d_sortOrder,
-                        multiSortMeta: this.d_multiSortMeta
-                    });
+                    this.$emit('sort', this.createLazyLoadEvent(event));
                 }
             }
         },
@@ -602,10 +601,9 @@ export default {
                 valueChanged = valueChanged || !localMatch || globalMatch;
             }
 
-            this.$emit('filter', {
-                filters: this.filters,
-                filteredValue: filteredNodes
-            });
+            let filterEvent = this.createLazyLoadEvent(event);
+            filterEvent.filteredValue = filteredNodes;
+            this.$emit('filter', filterEvent);
 
             return valueChanged ? filteredNodes : value;
         },
@@ -647,6 +645,28 @@ export default {
         },
         isNodeLeaf(node) {
             return node.leaf === false ? false : !(node.children && node.children.length);
+        },
+        createLazyLoadEvent(event) {
+            let filterMatchModes;
+            if (this.hasFilters) {
+                filterMatchModes = {};
+                this.columns.forEach(col => {
+                    if (col.field) {
+                        filterMatchModes[col.field] = col.filterMatchMode;
+                    }
+                });
+            }
+
+            return {
+                originalEvent: event,
+                first: this.d_first,
+                rows: this.d_rows,
+                sortField: this.d_sortField,
+                sortOrder: this.d_sortOrder,
+                multiSortMeta: this.d_multiSortMeta,
+                filters: this.filters,
+                filterMatchModes: filterMatchModes
+            };
         },
         onColumnResizeStart(event) {
             let containerLeft = DomHandler.getOffset(this.$el).left;
