@@ -202,7 +202,7 @@ export default {
         },
         filterLocale: {
             type: String,
-            default: null
+            default: undefined
         },
         resizableColumns: {
             type: Boolean,
