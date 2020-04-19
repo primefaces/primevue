@@ -717,13 +717,14 @@ a {
             }
 
             i:not([class~="pi"]) {
-                background-color: #fcf2a7;
-                font-family: monaco, Consolas, Lucida Console, monospace;
-                font-weight: bold;
+                background-color: #ffffff;
+                font-family: Consolas, Monaco, 'Andale Mono', 'Ubuntu Mono', monospace;
                 font-style: normal;
                 font-size: 14px;
-                padding: 2px;
+                padding: 2px 4px;
                 letter-spacing: .5px;
+                color: #2f9c0a;
+                border-radius: 4px;
             }
 
             /* Demo Tabs Source */
