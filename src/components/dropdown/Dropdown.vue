@@ -52,7 +52,8 @@ export default {
 			default: '200px'
 		},
 		filter: Boolean,
-		filterPlaceholder: String,
+        filterPlaceholder: String,
+        filterLocale: String,
 		editable: Boolean,
 		placeholder: String,
 		disabled: Boolean,
@@ -378,8 +379,8 @@ export default {
         searchOptionInRange(start, end) {
             for (let i = start; i < end; i++) {
                 let opt = this.visibleOptions[i];
-                let label = this.getOptionLabel(opt).toLowerCase();
-                if (label.startsWith(this.searchValue.toLowerCase())) {
+                let label = this.getOptionLabel(opt).toLocaleLowerCase(this.filterLocale);
+                if (label.startsWith(this.searchValue.toLocaleLowerCase(this.filterLocale))) {
                     return opt;
                 }
             }
@@ -406,7 +407,7 @@ export default {
     computed: {
         visibleOptions() {
             if (this.filterValue && this.filterValue.trim().length > 0)
-                return this.options.filter(option => this.getOptionLabel(option).toLowerCase().indexOf(this.filterValue.toLowerCase()) > -1);
+                return this.options.filter(option => this.getOptionLabel(option).toLocaleLowerCase(this.filterLocale).indexOf(this.filterValue.toLocaleLowerCase(this.filterLocale)) > -1);
             else
                 return this.options;
         },

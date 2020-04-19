@@ -1412,6 +1412,12 @@ export default {
                                 <td>Mode for filtering valid values are "lenient" and "strict". Default is lenient.</td>
                             </tr>
                             <tr>
+                                <td>filterLocale</td>
+                                <td>string</td>
+                                <td>undefined</td>
+                                <td>Locale to use in filtering. The default locale is the host environment's current locale.</td>
+                            </tr>
+                            <tr>
                                 <td>resizableColumns</td>
                                 <td>boolean</td>
                                 <td>false</td>

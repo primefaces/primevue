@@ -13,6 +13,7 @@ export declare class MultiSelect extends Vue {
     tabindex?: string;
     dataKey?: string;
     filterPlaceholder?: string;
+    filterLocale?: string;
     ariaLabelledBy?: string;
     appendTo?: string;
     $emit(eventName: 'input', value: any): this;

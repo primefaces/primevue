@@ -9,6 +9,7 @@ export declare class Dropdown extends Vue {
     scrollHeight?: string;
     filter?: boolean;
     filterPlaceholder?: string;
+    filterLocale?: string;
     editable?: boolean;
     placeholder?: string;
     disabled?: boolean;

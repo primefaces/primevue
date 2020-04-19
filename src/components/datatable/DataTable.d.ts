@@ -25,6 +25,7 @@ export declare class DataTable extends Vue {
     filters?: {
         [s: string]: any;
     };
+    filterLocale?: string;
     selection?: any[]|any;
     selectionMode?: string;
     compareSelectionBy?: string;

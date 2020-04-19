@@ -35,7 +35,8 @@ export default {
         dataKey: null,
         multiple: Boolean,
         metaKeySelection: Boolean,
-        filter: Boolean
+        filter: Boolean,
+        filterLocale: String
     },
     optionTouched: false,
     data() {
@@ -218,7 +219,7 @@ export default {
     computed: {
         visibleOptions() {
             if (this.filterValue)
-                return this.options.filter(option => this.getOptionLabel(option).toLowerCase().indexOf(this.filterValue.toLowerCase()) > -1);
+                return this.options.filter(option => this.getOptionLabel(option).toLocaleLowerCase(this.filterLocale).indexOf(this.filterValue.toLocaleLowerCase(this.filterLocale)) > -1);
             else
                 return this.options;
         },

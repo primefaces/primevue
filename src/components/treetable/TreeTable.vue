@@ -200,6 +200,10 @@ export default {
             type: String,
             default: 'lenient'
         },
+        filterLocale: {
+            type: String,
+            default: null
+        },
         resizableColumns: {
             type: Boolean,
             default: false
@@ -590,7 +594,7 @@ export default {
                     if (this.hasGlobalFilter && !globalMatch) {
                         let copyNodeForGlobal = {...copyNode};
                         let globalFilterValue = this.props.globalFilter;
-                        let globalFilterConstraint = ObjectUtils.filterConstraints['contains'];
+                        let globalFilterConstraint = FilterUtils['contains'];
                         let globalFilterParamsWithoutNode = {filterField, globalFilterValue, globalFilterConstraint, strict};
 
                         if ((strict && (this.findFilteredNodes(copyNodeForGlobal, globalFilterParamsWithoutNode) || this.isFilterMatched(copyNodeForGlobal, globalFilterParamsWithoutNode))) ||
@@ -642,7 +646,7 @@ export default {
         isFilterMatched(node, {filterField, filterValue, filterConstraint, strict}) {
             let matched = false;
             let dataFieldValue = ObjectUtils.resolveFieldData(node.data, filterField);
-            if (filterConstraint(dataFieldValue, filterValue)) {
+            if (filterConstraint(dataFieldValue, filterValue, this.filterLocale)) {
                 matched = true;
             }
 

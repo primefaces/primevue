@@ -68,6 +68,10 @@ export default {
         filterPlaceholder: {
             type: String,
             default: null
+        },
+        filterLocale: {
+            type: String,
+            default: null
         }
     },
     data() {
@@ -221,7 +225,7 @@ export default {
         isFilterMatched(node, {searchFields, filterText, strict}) {
             let matched = false;
             for(let field of searchFields) {
-                let fieldValue = String(ObjectUtils.resolveFieldData(node, field)).toLowerCase();
+                let fieldValue = String(ObjectUtils.resolveFieldData(node, field)).toLocaleLowerCase(this.filterLocale);
                 if(fieldValue.indexOf(filterText) > -1) {
                     matched = true;
                 }
@@ -247,7 +251,7 @@ export default {
         filteredValue() {
             let filteredNodes = [];
             const searchFields = this.filterBy.split(',');
-            const filterText = this.filterValue.trim().toLowerCase();
+            const filterText = this.filterValue.trim().toLocaleLowerCase(this.filterLocale);
             const strict = this.filterMode === 'strict';
 
             for (let node of this.value) {

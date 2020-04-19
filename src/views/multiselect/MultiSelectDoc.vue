@@ -149,6 +149,12 @@ data() {
                                 <td>Placeholder text to show when filter input is empty.</td>
                             </tr>
                             <tr>
+                                <td>filterLocale</td>
+                                <td>string</td>
+                                <td>undefined</td>
+                                <td>Locale to use in filtering. The default locale is the host environment's current locale.</td>
+                            </tr>
+                            <tr>
                                 <td>ariaLabelledBy</td>
                                 <td>string</td>
                                 <td>null</td>

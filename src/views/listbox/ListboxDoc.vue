@@ -137,6 +137,12 @@ data() {
                                 <td>false</td>
                                 <td>When specified, displays a filter input at header.</td>
                             </tr>
+                            <tr>
+                                <td>filterLocale</td>
+                                <td>string</td>
+                                <td>undefined</td>
+                                <td>Locale to use in filtering. The default locale is the host environment's current locale.</td>
+                            </tr>
 						</tbody>
 					</table>
 				</div>

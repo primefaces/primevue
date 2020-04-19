@@ -230,6 +230,10 @@ export default {
             type: Object,
             default: null
         },
+        filterLocale: {
+            type: String,
+            default: null
+        },
         selection: {
             type: [Array,Object],
             default: null
@@ -597,7 +601,7 @@ export default {
                         let filterValue = this.filters[columnField];
                         let dataFieldValue = ObjectUtils.resolveFieldData(data[i], columnField);
                         let filterConstraint = col.filterMatchMode === 'custom' ? col.filterFunction : FilterUtils[col.filterMatchMode];
-                        if (!filterConstraint(dataFieldValue, filterValue)) {
+                        if (!filterConstraint(dataFieldValue, filterValue, this.filterLocale)) {
                             localMatch = false;
                         }
 
@@ -607,7 +611,7 @@ export default {
                     }
 
                     if (!col.excludeGlobalFilter && this.hasGlobalFilter && !globalMatch) {
-                        globalMatch = FilterUtils.contains(ObjectUtils.resolveFieldData(data[i], columnField), this.filters['global']);
+                        globalMatch = FilterUtils.contains(ObjectUtils.resolveFieldData(data[i], columnField), this.filters['global'], this.filterLocale);
                     }
                 }
 

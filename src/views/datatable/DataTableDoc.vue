@@ -1832,6 +1832,12 @@ export default {
                                 <td>Filters object with key-value pairs to define the filters.</td>
                             </tr>
                             <tr>
+                                <td>filterLocale</td>
+                                <td>string</td>
+                                <td>undefined</td>
+                                <td>Locale to use in filtering. The default locale is the host environment's current locale.</td>
+                            </tr>
+                            <tr>
                                 <td>selection</td>
                                 <td>any</td>
                                 <td>null</td>

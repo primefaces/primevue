@@ -12,6 +12,7 @@ export declare class Tree extends Vue {
     filterBy?: string;
     filterMode?: string;
     filterPlaceholder?: string;
+    filterLocale?: string;
     $emit(eventName: 'node-select', node: any): this;
     $emit(eventName: 'node-unselect', node: any): this;
     $emit(eventName: 'node-expand', node: any): this;

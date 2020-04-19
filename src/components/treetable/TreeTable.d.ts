@@ -31,6 +31,7 @@ export declare class TreeTable extends Vue {
         [s: string]: any;
     };
     filterMode?: string;
+    filterLocale?: string;
     resizableColumns?: boolean;
     columnResizeMode?: string;
     $emit(eventName: 'page', event: Event): this;

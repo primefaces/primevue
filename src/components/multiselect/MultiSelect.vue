@@ -74,6 +74,7 @@ export default {
 		tabindex: String,
         dataKey: null,
         filterPlaceholder: String,
+        filterLocale: String,
         ariaLabelledBy: null,
         appendTo: {
             type: String,
@@ -340,7 +341,7 @@ export default {
     computed: {
         visibleOptions() {
             if (this.filterValue && this.filterValue.trim().length > 0)
-                return this.options.filter(option => this.getOptionLabel(option).toLowerCase().indexOf(this.filterValue.toLowerCase()) > -1);
+                return this.options.filter(option => this.getOptionLabel(option).toLocaleLowerCase(this.filterLocale).indexOf(this.filterValue.toLocaleLowerCase(this.filterLocale)) > -1);
             else
                 return this.options;
         },
