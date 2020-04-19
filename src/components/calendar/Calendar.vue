@@ -1,6 +1,6 @@
 <template>
     <span :class="containerClass">
-        <CalendarInputText ref="input" v-if="!inline" type="text" v-bind="$attrs" v-on="listeners" v-model="inputFieldValue" :readonly="!manualInput" :aria-labelledby="ariaLabelledBy"/>
+        <CalendarInputText ref="input" v-if="!inline" type="text" v-bind="$attrs" v-on="listeners" :value="inputFieldValue" :readonly="!manualInput" :aria-labelledby="ariaLabelledBy"/>
         <CalendarButton v-if="showIcon" :icon="icon" tabindex="-1" class="p-datepicker-trigger p-calendar-button" :disabled="$attrs.disabled" @click="onButtonClick" type="button" :aria-label="inputFieldValue"/>
         <transition name="p-input-overlay" @enter="onOverlayEnter" @after-enter="onOverlayEnterComplete" @leave="onOverlayLeave">
             <div ref="overlay" :class="panelStyleClass" v-if="inline ? true : overlayVisible" role="dialog" :aria-labelledby="ariaLabelledBy">
@@ -325,7 +325,6 @@ export default {
     navigationState: null,
     created() {
         this.updateCurrentMetaData();
-        this.updateInputFieldValue(this.value);
     },
     mounted() {
         if (this.inline) {
@@ -335,6 +334,13 @@ export default {
     updated() {
         if (this.$refs.overlay) {
             this.updateFocus();
+        }
+
+        if (this.$refs.input && this.selectionStart != null && this.selectionEnd != null) {
+            this.$refs.input.$el.selectionStart = this.selectionStart;
+            this.$refs.input.$el.selectionEnd = this.selectionEnd;
+            this.selectionStart = null;
+            this.selectionEnd = null;
         }
     },
     beforeDestroy() {
@@ -359,8 +365,7 @@ export default {
             currentSecond: null,
             pm: null,
 			focused: false,
-            overlayVisible: false,
-            inputFieldValue: null
+            overlayVisible: false
         }
     },
     outsideClickListener: null,
@@ -371,11 +376,17 @@ export default {
     watch: {
         value(newValue) {
             this.updateCurrentMetaData();
-            this.updateInputFieldValue(newValue);
         }
     },
     methods: {
+        isComparable() {
+            return this.value != null && typeof this.value !== 'string';
+        },
         isSelected(dateMeta) {
+            if (!this.isComparable()) {
+                return false;
+            }
+
             if (this.value) {
                 if (this.isSingleSelection()) {
                     return this.isDateEquals(this.value, dateMeta);
@@ -400,12 +411,11 @@ export default {
 
                 }
             }
-            else {
-                return false;
-            }
+
+            return false;
         },
         isMonthSelected(month) {
-            return this.value ? (this.value.getMonth() === month && this.value.getFullYear() === this.currentYear) : false;
+            return this.isComparable() ? (this.value.getMonth() === month && this.value.getFullYear() === this.currentYear) : false;
         },
         isDateEquals(value, dateMeta) {
             if (value)
@@ -711,7 +721,6 @@ export default {
             if (this.isMultipleSelection() && this.isSelected(dateMeta)) {
                 let newValue = this.value.filter(date => !this.isDateEquals(date, dateMeta));
                 this.updateModel(newValue);
-                this.updateInputFieldValue(newValue);
             }
             else {
                 if (this.shouldSelectDate(dateMeta)) {
@@ -792,48 +801,11 @@ export default {
 
             if (modelVal !== null) {
                 this.updateModel(modelVal);
-                this.updateInputFieldValue(modelVal);
             }
             this.$emit('date-select', date);
         },
         updateModel(value) {
             this.$emit('input', value);
-        },
-        updateInputFieldValue(date) {
-            let formattedValue = '';
-
-            if (date) {
-                try {
-                    if (this.isSingleSelection()) {
-                        formattedValue = this.formatDateTime(date);
-                    }
-                    else if (this.isMultipleSelection()) {
-                        for(let i = 0; i < date.length; i++) {
-                            let dateAsString = this.formatDateTime(date[i]);
-                            formattedValue += dateAsString;
-                            if(i !== (date.length - 1)) {
-                                formattedValue += ', ';
-                            }
-                        }
-                    }
-                    else if (this.isRangeSelection()) {
-                        if (date && date.length) {
-                            let startDate = date[0];
-                            let endDate = date[1];
-
-                            formattedValue = this.formatDateTime(startDate);
-                            if (endDate) {
-                                formattedValue += ' - ' + this.formatDateTime(endDate);
-                            }
-                        }
-                    }
-                }
-                catch(err) {
-                    formattedValue = date;
-                }
-            }
-
-            this.inputFieldValue = formattedValue;
         },
         shouldSelectDate() {
             if (this.isMultipleSelection())
@@ -849,6 +821,45 @@ export default {
         },
         isMultipleSelection() {
             return this.selectionMode === 'multiple';
+        },
+        formatValue(value) {
+            if (typeof value === 'string') {
+                return value;
+            }
+ 
+            let formattedValue = '';
+            if (value) {
+                try {
+                    if (this.isSingleSelection()) {
+                        formattedValue = this.formatDateTime(value);
+                    }
+                    else if (this.isMultipleSelection()) {
+                        for(let i = 0; i < value.length; i++) {
+                            let dateAsString = this.formatDateTime(value[i]);
+                            formattedValue += dateAsString;
+                            if(i !== (value.length - 1)) {
+                                formattedValue += ', ';
+                            }
+                        }
+                    }
+                    else if (this.isRangeSelection()) {
+                        if (value && value.length) {
+                            let startDate = value[0];
+                            let endDate = value[1];
+
+                            formattedValue = this.formatDateTime(startDate);
+                            if (endDate) {
+                                formattedValue += ' - ' + this.formatDateTime(endDate);
+                            }
+                        }
+                    }
+                }
+                catch(err) {
+                    formattedValue = value;
+                }
+            }
+
+            return formattedValue;
         },
         formatDateTime(date) {
             let formattedValue = null;
@@ -996,7 +1007,6 @@ export default {
             event.preventDefault();
         },
         onClearButtonClick(event) {
-            this.inputFieldValue = '';
             this.updateModel(null);
             this.overlayVisible = false;
             this.$emit('clear-click', event);
@@ -1087,6 +1097,10 @@ export default {
         validateHour(hour) {
             let valid = true;
             let value = this.value;
+            if (!this.isComparable()) {
+                return valid;
+            }
+
             if (this.isRangeSelection()) {
                 value = this.value[1] || this.value[0];
             }
@@ -1129,6 +1143,10 @@ export default {
         validateMinute(minute) {
             let valid = true;
             let value = this.value;
+            if (!this.isComparable()) {
+                return valid;
+            }
+
             if (this.isRangeSelection()) {
                 value = this.value[1] || this.value[0];
             }
@@ -1174,6 +1192,10 @@ export default {
         validateSecond(second) {
             let valid = true;
             let value = this.value;
+            if (!this.isComparable()) {
+                return valid;
+            }
+
             if (this.isRangeSelection()) {
                 value = this.value[1] || this.value[0];
             }
@@ -1197,7 +1219,8 @@ export default {
             return valid;
         },
         updateModelTime() {
-            let value = this.value;
+            let value = this.isComparable() ? this.value : new Date();
+
             if (this.isRangeSelection()) {
                 value = this.value[1] || this.value[0];
             }
@@ -1231,7 +1254,6 @@ export default {
             }
 
             this.updateModel(value);
-            this.updateInputFieldValue(value);
             this.$emit('date-select', value);
         },
         toggleAMPM(event) {
@@ -1308,7 +1330,7 @@ export default {
             }
             return isValid;
         },
-        parseValueFromString(text) {
+        parseValue(text) {
             if (!text || text.trim().length === 0) {
                 return null;
             }
@@ -1370,8 +1392,9 @@ export default {
         parseTime(value) {
             let tokens = value.split(':');
             let validTokenLength = this.showSeconds ? 3 : 2;
+            let regex = (/^[0-9][0-9]$/);
 
-            if (tokens.length !== validTokenLength) {
+            if (tokens.length !== validTokenLength || !tokens[0].match(regex) || !tokens[1].match(regex) || (this.showSeconds && !tokens[2].match(regex))) {
                 throw "Invalid time";
             }
 
@@ -1907,14 +1930,16 @@ export default {
                     $vm.isKeydown = false;
 
                     try {
-                        let value = $vm.parseValueFromString(val);
+                        this.selectionStart = this.$refs.input.$el.selectionStart;
+                        this.selectionEnd = this.$refs.input.$el.selectionEnd;
+
+                        let value = $vm.parseValue(val);
                         if ($vm.isValidSelection(value)) {
                             $vm.updateModel(value);
                         }
                     }
                     catch(err) {
-                        //invalid date
-                        $vm.updateModel(null);
+                        $vm.updateModel(val);
                     }
                 },
                 focus: event => {
@@ -1926,16 +1951,6 @@ export default {
                     $vm.$emit('focus', event)
                 },
                 blur: event => {
-                    try {
-                        let value = $vm.parseValueFromString(event.target.value);
-                        if ($vm.isValidSelection(value)) {
-                            $vm.updateInputFieldValue(value);
-                        }
-                    }
-                    catch(err) {
-                        //invalid date
-                        $vm.inputFieldValue = null;
-                    }
                     $vm.focused = false;
                     $vm.$emit('blur', event);
                 },
@@ -1973,11 +1988,18 @@ export default {
         },
         viewDate() {
             let propValue = this.value;
+            if (typeof propValue === 'string') {
+                return new Date();
+            }
+
             if (propValue && Array.isArray(propValue)) {
                 propValue = propValue[0];
             }
 
             return propValue || new Date();
+        },
+        inputFieldValue() {
+            return this.formatValue(this.value);
         },
         containerClass() {
             return [
