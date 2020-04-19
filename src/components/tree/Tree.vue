@@ -71,7 +71,7 @@ export default {
         },
         filterLocale: {
             type: String,
-            default: null
+            default: undefined
         }
     },
     data() {
