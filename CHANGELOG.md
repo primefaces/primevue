@@ -1,8 +1,8 @@
 # Changelog
 
-## [1.2.0](https://github.com/primefaces/primevue/tree/1.2.0) (2020-04-07)
+## [1.3.0](https://github.com/primefaces/primevue/tree/1.3.0) (2020-04-20)
 
-[Full Changelog](https://github.com/primefaces/primevue/compare/1.2.0...1.1.0)
+[Full Changelog](https://github.com/primefaces/primevue/compare/1.1.0...1.3.0)
 
 **Implemented New Features and Enhancements:**
 
@@ -16,6 +16,14 @@
 - Add menubar-left and menubar-right slots to Menubar [\#246](https://github.com/primefaces/primevue/issues/246)
 - New Component: Galleria [\#212](https://github.com/primefaces/primevue/issues/212)
 - Ability to disable PanelMenu items [\#171](https://github.com/primefaces/primevue/issues/171)
+- TreeTable should pass more information on page-sort-filter events [\#282](https://github.com/primefaces/primevue/issues/282)
+- filterLocale for components with filtering [\#279](https://github.com/primefaces/primevue/issues/279)
+- Update sort icons [\#278](https://github.com/primefaces/primevue/issues/278)
+- Placeholder for Chips [\#277](https://github.com/primefaces/primevue/issues/277)
+- New Component: InputNumber [\#275](https://github.com/primefaces/primevue/issues/275)
+- Value slot for Dropdown [\#271](https://github.com/primefaces/primevue/issues/271)
+- Removable sort on DataTable - TreeTable [\#235](https://github.com/primefaces/primevue/issues/235)
+- Order indicators for Multi column sorting [\#189](https://github.com/primefaces/primevue/issues/189)
 
 **Fixed bugs:**
 
@@ -23,6 +31,11 @@
 - Popup menu does not appear where it should  [\#258](https://github.com/primefaces/primevue/issues/258)
 - FileUpload Multiple: Error when deleting file before upload [\#257](https://github.com/primefaces/primevue/issues/257)
 - FileUpload in auto mode sends two post requests in IE11 [\#254](https://github.com/primefaces/primevue/issues/254)
+- TreeTable global filtering fails [\#283](https://github.com/primefaces/primevue/issues/283)
+- Loop on treetable sort [\#281](https://github.com/primefaces/primevue/issues/281)
+- Datatable Group footer doesn't work [\#276](https://github.com/primefaces/primevue/issues/276)
+- Textarea with autoResize true not displayed correctly when initially hidden [\#274](https://github.com/primefaces/primevue/issues/274)
+- Calendar is not empty when the v-model is null [\#270](https://github.com/primefaces/primevue/issues/270)
 
 **Deprecated:**
 
@@ -293,7 +306,6 @@
 - Time buttons select a date on mouseout event on Calendar with showTime property [\#75](https://github.com/primefaces/primevue/issues/75)
 - Clicking column header resets paginator [\#74](https://github.com/primefaces/primevue/issues/74)
 - Calendar.vue: "close on blur" not working properly [\#71](https://github.com/primefaces/primevue/issues/71)
-- Calendar.vue: Poor handling of user input. [\#70](https://github.com/primefaces/primevue/issues/70)
 
 ## [1.0.0-beta.11](https://github.com/primefaces/primevue/tree/1.0.0-beta.11) (2019-10-18)
 
