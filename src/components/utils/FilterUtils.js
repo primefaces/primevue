@@ -77,7 +77,7 @@ export default class FilterUtils {
             return ObjectUtils.removeAccents(value.toString()).toLocaleLowerCase(filterLocale) !== ObjectUtils.removeAccents(filter.toString()).toLocaleLowerCase(filterLocale);
     }
 
-    static in(value, filter, filterLocale) {
+    static in(value, filter) {
         if (filter === undefined || filter === null || filter.length === 0) {
             return true;
         }
@@ -95,7 +95,7 @@ export default class FilterUtils {
         return false;
     }
 
-    static lt(value, filter, filterLocale) {
+    static lt(value, filter) {
         if (filter === undefined || filter === null || (filter.trim && filter.trim().length === 0)) {
             return true;
         }
@@ -110,7 +110,7 @@ export default class FilterUtils {
             return value < parseFloat(filter);
     }
 
-    static lte(value, filter, filterLocale) {
+    static lte(value, filter) {
         if (filter === undefined || filter === null || (filter.trim && filter.trim().length === 0)) {
             return true;
         }
@@ -125,7 +125,7 @@ export default class FilterUtils {
             return value <= parseFloat(filter);
     }
 
-    static gt(value, filter, filterLocale) {
+    static gt(value, filter) {
         if (filter === undefined || filter === null || (filter.trim && filter.trim().length === 0)) {
             return true;
         }
@@ -140,7 +140,7 @@ export default class FilterUtils {
             return value > parseFloat(filter);
     }
 
-    static gte(value, filter, filterLocale) {
+    static gte(value, filter) {
         if (filter === undefined || filter === null || (filter.trim && filter.trim().length === 0)) {
             return true;
         }

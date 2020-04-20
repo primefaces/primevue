@@ -826,7 +826,7 @@ export default {
             if (typeof value === 'string') {
                 return value;
             }
- 
+
             let formattedValue = '';
             if (value) {
                 try {

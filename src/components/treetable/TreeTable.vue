@@ -519,7 +519,7 @@ export default {
             _nodes.sort((node1, node2) => {
                 return this.multisortField(node1, node2, 0);
             });
-            
+
             return _nodes;
         },
         multisortField(node1, node2, index) {
