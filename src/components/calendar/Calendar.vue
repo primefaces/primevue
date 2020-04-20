@@ -374,7 +374,7 @@ export default {
     timePickerTimer: null,
     isKeydown: false,
     watch: {
-        value(newValue) {
+        value() {
             this.updateCurrentMetaData();
         }
     },
@@ -1899,6 +1899,26 @@ export default {
                 break;
              }
         },
+        onInput(val) {
+            // IE 11 Workaround for input placeholder : https://github.com/primefaces/primeng/issues/2026
+            if (!this.isKeydown) {
+                return;
+            }
+            this.isKeydown = false;
+
+            try {
+                this.selectionStart = this.$refs.input.$el.selectionStart;
+                this.selectionEnd = this.$refs.input.$el.selectionEnd;
+
+                let value = this.parseValue(val);
+                if (this.isValidSelection(value)) {
+                    this.updateModel(value);
+                }
+            }
+            catch(err) {
+                this.updateModel(val);
+            }
+        },
         appendContainer() {
             if (this.appendTo) {
                 if (this.appendTo === 'body')
@@ -1923,24 +1943,7 @@ export default {
             return {
                 ...$vm.$listeners,
                 input: val => {
-                     // IE 11 Workaround for input placeholder : https://github.com/primefaces/primeng/issues/2026
-                    if (!$vm.isKeydown) {
-                        return;
-                    }
-                    $vm.isKeydown = false;
-
-                    try {
-                        this.selectionStart = this.$refs.input.$el.selectionStart;
-                        this.selectionEnd = this.$refs.input.$el.selectionEnd;
-
-                        let value = $vm.parseValue(val);
-                        if ($vm.isValidSelection(value)) {
-                            $vm.updateModel(value);
-                        }
-                    }
-                    catch(err) {
-                        $vm.updateModel(val);
-                    }
+                     this.onInput(val);
                 },
                 focus: event => {
                     $vm.focus = true;
