@@ -509,12 +509,6 @@ export default {
                 return (this.d_sortOrder * result);
             });
 
-            for (let i = 0; i < _nodes.length; i++) {
-                if (_nodes[i].children && _nodes[i].children.length) {
-                    _nodes[i].children = this.sortNodesSingle(_nodes[i].children);
-                }
-            }
-
             return _nodes;
         },
         sortMultiple(nodes) {
@@ -525,13 +519,7 @@ export default {
             _nodes.sort((node1, node2) => {
                 return this.multisortField(node1, node2, 0);
             });
-
-            for (let i = 0; i < _nodes.length; i++) {
-                if (_nodes[i].children && _nodes[i].children.length) {
-                    _nodes[i].children = this.sortNodesMultiple(_nodes[i].children);
-                }
-            }
-
+            
             return _nodes;
         },
         multisortField(node1, node2, index) {
