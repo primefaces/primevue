@@ -157,6 +157,11 @@
                         <img alt="Ultima" src="../assets/images/layouts/ultima-vue.jpg">
                     </a>
                 </div>
+                <div class="p-col-12 p-md-3">
+                    <a href="https://www.primefaces.org/layouts/prestige-vue">
+                        <img alt="Prestige" src="../assets/images/layouts/prestige-vue.jpg">
+                    </a>
+                </div>
                 <div class="p-col-12 p-md-3"></div>
             </div>
         </div>
