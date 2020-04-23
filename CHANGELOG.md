@@ -1,5 +1,19 @@
 # Changelog
 
+## [1.3.1](https://github.com/primefaces/primevue/tree/1.3.1) (2020-04-23)
+
+[Full Changelog](https://github.com/primefaces/primevue/compare/1.3.0...1.3.1)
+
+**Implemented New Features and Enhancements:**
+
+- FilterPlaceholder for Listbox [\#284](https://github.com/primefaces/primevue/issues/284)
+- Function support for MenuModel visible prop [\#286](https://github.com/primefaces/primevue/issues/286)
+
+**Fixed bugs:**
+
+- Group Header Broken without Footer Template [\#288](https://github.com/primefaces/primevue/issues/288)
+- SplitButton is misaligned [\#289](https://github.com/primefaces/primevue/issues/289)
+
 ## [1.3.0](https://github.com/primefaces/primevue/tree/1.3.0) (2020-04-20)
 
 [Full Changelog](https://github.com/primefaces/primevue/compare/1.1.0...1.3.0)
