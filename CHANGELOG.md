@@ -27,7 +27,7 @@
 
 **Fixed bugs:**
 
-- Calendar.vue: Poor handling of user input.[\#70](https://github.com/primefaces/primevue/issues/70)
+- Calendar.vue: Poor handling of user input [\#70](https://github.com/primefaces/primevue/issues/70)
 - Carousel - Button inside carousel-item is not clickable in mobile phones [\#264](https://github.com/primefaces/primevue/issues/264)
 - Popup menu does not appear where it should  [\#258](https://github.com/primefaces/primevue/issues/258)
 - FileUpload Multiple: Error when deleting file before upload [\#257](https://github.com/primefaces/primevue/issues/257)
