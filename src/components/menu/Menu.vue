@@ -51,6 +51,7 @@ export default {
     target: null,
     outsideClickListener: null,
     resizeListener: null,
+    relativeAlign: false,
     beforeDestroy() {
         this.restoreAppend();
         this.unbindResizeListener();
@@ -78,10 +79,13 @@ export default {
         },
         show(event) {
             this.visible = true;
+            this.relativeAlign = event.relativeAlign;
             this.target = event.currentTarget;
         },
         hide() {
             this.visible = false;
+            this.target = false;
+            this.relativeAlign = false;
         },
         onEnter() {
             this.appendContainer();
@@ -98,7 +102,11 @@ export default {
             this.unbindResizeListener();
         },
         alignOverlay() {
-            DomHandler.absolutePosition(this.$refs.container, this.target);
+            if (this.relativeAlign)
+                DomHandler.relativePosition(this.$refs.container, this.target);
+            else
+                DomHandler.absolutePosition(this.$refs.container, this.target);
+
         },
         bindOutsideClickListener() {
             if (!this.outsideClickListener) {
@@ -150,6 +158,12 @@ export default {
                 else
                     document.getElementById(this.appendTo).removeChild(this.$refs.container);
             }
+        },
+        beforeDestroy() {
+            this.restoreAppend();
+            this.unbindResizeListener();
+            this.unbindOutsideClickListener();
+            this.target = null;
         }
     },
     computed: {
