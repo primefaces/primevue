@@ -52,6 +52,31 @@
 - Textarea with autoResize true not displayed correctly when initially hidden [\#274](https://github.com/primefaces/primevue/issues/274)
 - Calendar is not empty when the v-model is null [\#270](https://github.com/primefaces/primevue/issues/270)
 
+
+## [1.2.0](https://github.com/primefaces/primevue/tree/1.2.0) (2020-04-17)
+
+[Full Changelog](https://github.com/primefaces/primevue/compare/1.0.6...1.1.0)
+
+**Implemented New Features and Enhancements:**
+
+- Improve autocomplete css by using flex [\#249](https://github.com/primefaces/primevue/issues/249)
+- Improve DataTable ContextMenu Styling [\#253](https://github.com/primefaces/primevue/issues/253)
+- DragDrop support for FileUpload [\#262](https://github.com/primefaces/primevue/issues/262)
+- Add empty template to FileUpload [\#265](https://github.com/primefaces/primevue/issues/265)
+- Separator, addOnBlur and allowDuplicate for Chips [\#252](https://github.com/primefaces/primevue/issues/252)
+- Add menubar-left and menubar-right slots to Menubar [\#246](https://github.com/primefaces/primevue/issues/246)
+- Ability to disable PanelMenu items [\#171](https://github.com/primefaces/primevue/issues/171)
+- Add id property to Steps [\#251](https://github.com/primefaces/primevue/issues/251)
+- ReImplemented Steps styles [\#250](https://github.com/primefaces/primevue/issues/250)
+- ReImplemented Steps styles [\#250](https://github.com/primefaces/primevue/issues/250)
+
+**Fixed bugs:**
+
+- Carousel - Button inside carousel-item is not clickable in mobile phones [\#264](https://github.com/primefaces/primevue/issues/264)
+- FileUpload Multiple: Error when deleting file before upload [\#257](https://github.com/primefaces/primevue/issues/257)
+- Popup menu does not appear where it should [\#258](https://github.com/primefaces/primevue/issues/258)
+- FileUpload in auto mode sends two post requests in IE11 [\#254](https://github.com/primefaces/primevue/issues/254)
+
 **Deprecated:**
 
 - Deprecate menubar custom slot [\#260](https://github.com/primefaces/primevue/issues/260)
