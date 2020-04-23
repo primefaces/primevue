@@ -1,5 +1,5 @@
 <template>
-    <li :class="containerClass">
+    <li :class="containerClass" v-if="visible()">
         <router-link v-if="item.to" :to="item.to" class="p-menuitem-link">
             <span v-if="item.icon" :class="item.icon"></span>
             <span v-if="item.label" class="p-menuitem-text">{{item.label}}</span>
@@ -24,6 +24,9 @@ export default {
                     item: this.item
                 });
             }
+        },
+        visible() {
+            return (typeof this.item.visible === 'function' ? this.item.visible() : this.item.visible !== false);
         }
     },
     computed: {

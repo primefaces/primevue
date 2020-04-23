@@ -1,7 +1,7 @@
 <template>
     <div class="p-panelmenu p-component">
         <template v-for="(item, index) of model">
-            <div :key="item.label + '_' + index" :class="getPanelClass(item)" :style="item.style">
+            <div v-if="visible(item) ":key="item.label + '_' + index" :class="getPanelClass(item)" :style="item.style">
                 <div :class="getHeaderClass(item)" :style="item.style">
                     <a :href="item.url" class="p-panelmenu-header-link" @click="onItemClick($event, item)" :tabindex="item.disabled ? null : '0'"
                         :aria-expanded="isActive(item)" :id="ariaId +'_header'" :aria-controls="ariaId +'_content'">
@@ -77,6 +77,9 @@ export default {
         },
         getHeaderClass(item) {
             return ['p-component p-panelmenu-header', {'p-highlight': this.isActive(item), 'p-disabled': item.disabled}];
+        },
+        visible(item) {
+            return (typeof item.visible === 'function' ? item.visible() : item.visible !== false);
         }
     },
     components: {

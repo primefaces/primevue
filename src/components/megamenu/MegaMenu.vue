@@ -1,38 +1,40 @@
 <template>
     <div :class="containerClass">
         <ul class="p-megamenu-root-list" role="menubar">
-            <li v-for="(category,index) of model" :key="category.label + '_' + index" :class="getCategoryClass(category)" :style="category.style"
-                @mouseenter="onCategoryMouseEnter($event, category)" role="none">
-                <a :href="category.url" :class="getLinkClass(category)" :target="category.target" @click="onCategoryClick($event, category)" @keydown="onCategoryKeydown($event, category)"
-                    role="menuitem" :aria-haspopup="category.items != null" :aria-expanded="category === activeItem" :tabindex="category.disabled ? null : '0'">
-                    <span v-if="category.icon" :class="getCategoryIcon(category)"></span>
-                    <span class="p-menuitem-text">{{category.label}}</span>
-                    <span v-if="category.items" :class="getCategorySubMenuIcon()"></span>
-                </a>
-                <div class="p-megamenu-panel" v-if="category.items">
-                    <div class="p-grid">
-                        <div v-for="(column,columnIndex) of category.items" :key="category.label + '_column_' + columnIndex" :class="getColumnClassName(category)">
-                            <ul v-for="(submenu,submenuIndex) of column" class="p-megamenu-submenu" :key="submenu.label + '_submenu_' + submenuIndex" role="menu">
-                                <li :class="getSubmenuHeaderClass(submenu)" :style="submenu.style" role="presentation">{{submenu.label}}</li>
-                                <template v-for="(item, i) of submenu.items">
-                                    <li role="none" :class="getSubmenuItemClass(item)" :style="item.style" v-if="item.visible !== false && !item.separator" :key="item.label + i">
-                                        <router-link v-if="item.to && !item.disabled" :to="item.to" :class="getLinkClass(item)" @click.native="onLeafClick($event, item)" role="menuitem">
-                                            <span :class="['p-menuitem-icon', item.icon]"></span>
-                                            <span class="p-menuitem-text">{{item.label}}</span>
-                                        </router-link>
-                                        <a v-else :href="item.url" :class="getLinkClass(item)" :target="item.target" @click="onLeafClick($event, item)" role="menuitem" :tabindex="item.disabled ? null : '0'">
-                                            <span :class="['p-menuitem-icon', item.icon]"></span>
-                                            <span class="p-menuitem-text">{{item.label}}</span>
-                                            <span :class="getSubmenuIcon()" v-if="item.items"></span>
-                                        </a>
-                                    </li>
-                                    <li class="p-menu-separator" :style="item.style" v-if="item.visible !== false && item.separator" :key="'separator' + i" role="separator"></li>
-                                </template>
-                            </ul>
+            <template v-for="(category,index) of model">
+                <li v-if="visible(category)" :key="category.label + '_' + index" :class="getCategoryClass(category)" :style="category.style"
+                    @mouseenter="onCategoryMouseEnter($event, category)" role="none">
+                    <a :href="category.url" :class="getLinkClass(category)" :target="category.target" @click="onCategoryClick($event, category)" @keydown="onCategoryKeydown($event, category)"
+                        role="menuitem" :aria-haspopup="category.items != null" :aria-expanded="category === activeItem" :tabindex="category.disabled ? null : '0'">
+                        <span v-if="category.icon" :class="getCategoryIcon(category)"></span>
+                        <span class="p-menuitem-text">{{category.label}}</span>
+                        <span v-if="category.items" :class="getCategorySubMenuIcon()"></span>
+                    </a>
+                    <div class="p-megamenu-panel" v-if="category.items">
+                        <div class="p-grid">
+                            <div v-for="(column,columnIndex) of category.items" :key="category.label + '_column_' + columnIndex" :class="getColumnClassName(category)">
+                                <ul v-for="(submenu,submenuIndex) of column" class="p-megamenu-submenu" :key="submenu.label + '_submenu_' + submenuIndex" role="menu">
+                                    <li :class="getSubmenuHeaderClass(submenu)" :style="submenu.style" role="presentation">{{submenu.label}}</li>
+                                    <template v-for="(item, i) of submenu.items">
+                                        <li role="none" :class="getSubmenuItemClass(item)" :style="item.style" v-if="visible(item) && !item.separator" :key="item.label + i">
+                                            <router-link v-if="item.to && !item.disabled" :to="item.to" :class="getLinkClass(item)" @click.native="onLeafClick($event, item)" role="menuitem">
+                                                <span :class="['p-menuitem-icon', item.icon]"></span>
+                                                <span class="p-menuitem-text">{{item.label}}</span>
+                                            </router-link>
+                                            <a v-else :href="item.url" :class="getLinkClass(item)" :target="item.target" @click="onLeafClick($event, item)" role="menuitem" :tabindex="item.disabled ? null : '0'">
+                                                <span :class="['p-menuitem-icon', item.icon]"></span>
+                                                <span class="p-menuitem-text">{{item.label}}</span>
+                                                <span :class="getSubmenuIcon()" v-if="item.items"></span>
+                                            </a>
+                                        </li>
+                                        <li class="p-menu-separator" :style="item.style" v-if="visible(item) && item.separator" :key="'separator' + i" role="separator"></li>
+                                    </template>
+                                </ul>
+                            </div>
                         </div>
                     </div>
-                </div>
-            </li>
+                </li>
+            </template>
         </ul>
         <div class="p-megamenu-custom" v-if="$slots.default">
             <slot></slot>
@@ -275,6 +277,9 @@ export default {
                 this.documentClickListener = null;
             }
         },
+        visible(item) {
+            return (typeof item.visible === 'function' ? item.visible() : item.visible !== false);
+        }
     },
     computed: {
         containerClass() {

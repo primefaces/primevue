@@ -1,7 +1,7 @@
 <template>
     <ul class="p-submenu-list" role="tree">
         <template v-for="(item, i) of model">
-            <li role="none" :class="getItemClass(item)" :style="item.style" v-if="item.visible !== false && !item.separator" :key="item.label + i">
+            <li role="none" :class="getItemClass(item)" :style="item.style" v-if="visible(item) && !item.separator" :key="item.label + i">
                 <router-link v-if="item.to && !item.disabled" :to="item.to" :class="getLinkClass(item)" @click.native="onItemClick($event, item)"
                     role="treeitem" :aria-expanded="isActive(item)">
                     <span :class="['p-menuitem-icon', item.icon]"></span>
@@ -15,11 +15,11 @@
                 </a>
                 <transition name="p-toggleable-content">
                     <div class="p-toggleable-content" v-show="item === activeItem">
-                        <sub-panelmenu :model="item.items" v-if="item.visible !== false && item.items" :key="item.label + '_sub_'" />
+                        <sub-panelmenu :model="item.items" v-if="visible(item) && item.items" :key="item.label + '_sub_'" />
                     </div>
                 </transition>
             </li>
-            <li class="p-menu-separator" :style="item.style" v-if="item.visible !== false && item.separator" :key="'separator' + i"></li>
+            <li class="p-menu-separator" :style="item.style" v-if="visible(item) && item.separator" :key="'separator' + i"></li>
         </template>
     </ul>
 </template>
@@ -73,6 +73,9 @@ export default {
         getSubmenuIcon(item) {
             const active = this.isActive(item);
             return ['p-panelmenu-icon pi pi-fw', {'pi-caret-right': !active, 'pi-caret-down': active}];
+        },
+        visible(item) {
+            return (typeof item.visible === 'function' ? item.visible() : item.visible !== false);
         }
     }
 }

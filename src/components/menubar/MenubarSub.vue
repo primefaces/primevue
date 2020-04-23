@@ -1,7 +1,7 @@
 <template>
     <ul :class="containerClass" :role="root ? 'menubar' : 'menu'">
         <template v-for="(item, i) of model">
-            <li role="none" :class="getItemClass(item)" :style="item.style" v-if="item.visible !== false && !item.separator" :key="item.label + i"
+            <li role="none" :class="getItemClass(item)" :style="item.style" v-if="visible(item) && !item.separator" :key="item.label + i"
                 @mouseenter="onItemMouseEnter($event, item)">
                 <router-link v-if="item.to && !item.disabled" :to="item.to" :class="getLinkClass(item)"
                     @click.native="onItemClick($event, item)" @keydown.native="onItemKeyDown($event, item)" role="menuitem">
@@ -14,10 +14,10 @@
                     <span class="p-menuitem-text">{{item.label}}</span>
                     <span :class="getSubmenuIcon()" v-if="item.items"></span>
                 </a>
-                <sub-menu :model="item.items" v-if="item.visible !== false && item.items" :key="item.label + '_sub_'"
+                <sub-menu :model="item.items" v-if="visible(item) && item.items" :key="item.label + '_sub_'"
                     @leaf-click="onLeafClick" @keydown-item="onChildItemKeyDown" :parentActive="item === activeItem" />
             </li>
-            <li class="p-menu-separator" :style="item.style" v-if="item.visible !== false && item.separator" :key="'separator' + i" role="separator"></li>
+            <li class="p-menu-separator" :style="item.style" v-if="visible(item) && item.separator" :key="'separator' + i" role="separator"></li>
         </template>
     </ul>
 </template>
@@ -264,6 +264,9 @@ export default {
             return [
                 'p-submenu-icon pi pi-fw', {'pi-caret-right': !this.root, 'pi-caret-down': this.root}
             ];
+        },
+        visible(item) {
+            return (typeof item.visible === 'function' ? item.visible() : item.visible !== false);
         }
     },
     computed: {

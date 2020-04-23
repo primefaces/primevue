@@ -2,7 +2,7 @@
     <transition name="p-contextmenusub" @enter="onEnter">
         <ul ref="container" :class="containerClass" role="menu" v-if="root ? true : parentActive">
             <template v-for="(item, i) of model">
-                <li role="none" :class="getItemClass(item)" :style="item.style" v-if="item.visible !== false && !item.separator" :key="item.label + i"
+                <li role="none" :class="getItemClass(item)" :style="item.style" v-if="visible() && !item.separator" :key="item.label + i"
                     @mouseenter="onItemMouseEnter($event, item)">
                     <router-link v-if="item.to && !item.disabled" :to="item.to" :class="getLinkClass(item)" @click.native="onItemClick($event, item)" role="menuitem">
                         <span :class="['p-menuitem-icon', item.icon]"></span>
@@ -14,10 +14,10 @@
                         <span class="p-menuitem-text">{{item.label}}</span>
                         <span class="p-submenu-icon pi pi-fw pi-caret-right" v-if="item.items"></span>
                     </a>
-                    <sub-menu :model="item.items" v-if="item.visible !== false && item.items" :key="item.label + '_sub_'"
+                    <sub-menu :model="item.items" v-if="visible() && item.items" :key="item.label + '_sub_'"
                         @leaf-click="onLeafClick" :parentActive="item === activeItem" />
                 </li>
-                <li class="p-menu-separator" :style="item.style" v-if="item.visible !== false && item.separator" :key="'separator' + i" role="separator"></li>
+                <li class="p-menu-separator" :style="item.style" v-if="visible() && item.separator" :key="'separator' + i" role="separator"></li>
             </template>
         </ul>
     </transition>
@@ -116,6 +116,9 @@ export default {
         },
         getLinkClass(item) {
             return ['p-menuitem-link', {'p-disabled': item.disabled}];
+        },
+        visible() {
+            return (typeof this.item.visible === 'function' ? this.item.visible() : this.item.visible !== false);
         }
     },
     computed: {

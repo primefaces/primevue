@@ -2,7 +2,7 @@
     <div class="p-tabmenu p-component">
         <ul class="p-tabmenu-nav p-reset" role="tablist">
             <template v-for="(item,i) of model">
-                <li :key="item.label + '_' + i" :class="getItemClass(item)" :style="item.style" v-if="item.visible !== false" role="tab" :aria-selected="isActive(item)" :aria-expanded="isActive(item)">
+                <li :key="item.label + '_' + i" :class="getItemClass(item)" :style="item.style" v-if="visible(item)" role="tab" :aria-selected="isActive(item)" :aria-expanded="isActive(item)">
                     <router-link v-if="item.to && !item.disabled" :to="item.to" class="p-menuitem-link" @click.native="onItemClick($event, item)" role="presentation">
                         <span :class="getItemIcon(item)" v-if="item.icon"></span>
                         <span class="p-menuitem-text">{{item.label}}</span>
@@ -50,6 +50,9 @@ export default {
         },
         getItemIcon(item) {
             return ['p-menuitem-icon', item.icon];
+        },
+        visible(item) {
+            return (typeof item.visible === 'function' ? item.visible() : item.visible !== false);
         }
     },
     computed: {

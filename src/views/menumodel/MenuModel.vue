@@ -81,6 +81,12 @@ const items: [
                                 <td>When set as true, disables the menuitem.</td>
                             </tr>
                             <tr>
+                                <td>visible</td>
+                                <td>boolean/function</td>
+                                <td>true</td>
+                                <td>A boolean or a function to return a boolean to specify if the item is visible.</td>
+                            </tr>
+                            <tr>
                                 <td>target</td>
                                 <td>string</td>
                                 <td>null</td>
@@ -136,6 +142,22 @@ const items = [
         label: 'External',
         icon: 'pi pi-check',
         url: 'https://www.primefaces.org/primevue'
+    }
+];
+</CodeHighlight>
+
+            <h3>Visibility</h3>
+            <p>It is a common case to hide certain items based on conditions such as user roles, <i>visible</i> property is available
+            to implement such cases by supporting functions that returns booleans or simple booleans.</p>
+<CodeHighlight lang="js">
+const items = [
+    {
+        label: 'Remove',
+        visible: false
+    },
+    {
+        label: 'Delete',
+        visible: () => this.isUserAdmin()
     }
 ];
 </CodeHighlight>

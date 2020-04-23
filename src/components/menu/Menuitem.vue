@@ -1,5 +1,5 @@
 <template>
-    <li :class="containerClass" role="none" :style="item.style" v-if="item.visible !== false">
+    <li :class="containerClass" role="none" :style="item.style" v-if="visible()">
         <router-link v-if="item.to && !item.disabled" :to="item.to" :class="linkClass" role="menuitem">
             <span :class="['p-menuitem-icon', item.icon]"></span>
             <span class="p-menuitem-text">{{item.label}}</span>
@@ -22,6 +22,9 @@ export default {
                 originalEvent: event,
                 item: this.item
             });
+        },
+        visible() {
+            return (typeof this.item.visible === 'function' ? this.item.visible() : this.item.visible !== false);
         }
     },
     computed: {
