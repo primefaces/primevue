@@ -2,7 +2,7 @@
     <tbody class="p-datatable-tbody">
         <template v-if="!empty">
             <template v-for="(rowData, index) of value">
-                <tr class="p-rowgroup-header" v-if="rowGroupMode === 'subheader' && shouldRenderRowGroupHeader(value, rowData, index)" :key="getRowKey(rowData, index) + '_subheader'">
+                <tr class="p-rowgroup-header" v-if="templates['groupheader'] && rowGroupMode === 'subheader' && shouldRenderRowGroupHeader(value, rowData, index)" :key="getRowKey(rowData, index) + '_subheader'">
                     <td :colspan="columns.length - 1">
                         <button class="p-row-toggler p-link" @click="onRowGroupToggle($event, rowData)" v-if="expandableRowGroups" type="button">
                             <span :class="rowGroupTogglerIcon(rowData)"></span>
@@ -24,12 +24,12 @@
                             @row-edit-init="onRowEditInit($event)" @row-edit-save="onRowEditSave($event)" @row-edit-cancel="onRowEditCancel($event)"/>
                     </template>
                 </tr>
-                <tr class="p-datatable-row-expansion" v-if="expandedRows && isRowExpanded(rowData)" :key="getRowKey(rowData, index) + '_expansion'">
+                <tr class="p-datatable-row-expansion" v-if="templates['expansion'] && expandedRows && isRowExpanded(rowData)" :key="getRowKey(rowData, index) + '_expansion'">
                     <td :colspan="columns.length">
                         <DTRowExpansionTemplate :template="templates['expansion']" :data="rowData" :index="index" />
                     </td>
                 </tr>
-                <tr class="p-rowgroup-footer" v-if="rowGroupMode === 'subheader' && shouldRenderRowGroupFooter(value, rowData, index)" :key="getRowKey(rowData, index) + '_subfooter'">
+                <tr class="p-rowgroup-footer" v-if="templates['groupfooter'] && rowGroupMode === 'subheader' && shouldRenderRowGroupFooter(value, rowData, index)" :key="getRowKey(rowData, index) + '_subfooter'">
                     <DTRowExpansionTemplate :template="templates['groupfooter']" :data="rowData" :index="index" />
                 </tr>
             </template>
