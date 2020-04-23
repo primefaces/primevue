@@ -138,6 +138,12 @@ data() {
                                 <td>When specified, displays a filter input at header.</td>
                             </tr>
                             <tr>
+                                <td>filterPlaceholder</td>
+                                <td>string</td>
+                                <td>null</td>
+                                <td>Placeholder text to show when filter input is empty.</td>
+                            </tr>
+                            <tr>
                                 <td>filterLocale</td>
                                 <td>string</td>
                                 <td>undefined</td>

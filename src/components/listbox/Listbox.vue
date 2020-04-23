@@ -2,7 +2,7 @@
     <div class="p-listbox p-inputtext p-component">
         <div class="p-listbox-header" v-if="filter">
             <div class="p-listbox-filter-container">
-                <input type="text" class="p-inputtext p-component" v-model="filterValue">
+                <input type="text" class="p-inputtext p-component" v-model="filterValue" :placeholder="filterPlaceholder">
                 <span class="p-listbox-filter-icon pi pi-search"></span>
             </div>
         </div>
@@ -36,6 +36,7 @@ export default {
         multiple: Boolean,
         metaKeySelection: Boolean,
         filter: Boolean,
+        filterPlaceholder: String,
         filterLocale: String
     },
     optionTouched: false,

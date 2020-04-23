@@ -12,6 +12,7 @@ export declare class Listbox extends Vue {
     multiple?: boolean;
     metaKeySelection?: boolean;
     filter?: boolean;
+    filterPlaceholder?: string;
     filterLocale?: string;
     ariaLabelledBy?: string;
     $emit(eventName: 'input', value: any): this;
