@@ -65,35 +65,12 @@ export default {
 
 <style>
 .p-messages-wrapper {
-    padding: 1em;
-    position: relative;
+    display: flex;
+    align-items: center;
 }
 
-.p-messages-icon-container,
-.p-messages-close-container {
-    flex-basis: auto;
-    flex-grow: 0;
-    flex-shrink: 0;
-}
-
-.p-messages-text {
-    display: inline-block;
-    vertical-align: middle;
-}
-
-.p-messages-icon {
-    padding: 0;
-    margin-right: .25em;
-    vertical-align: middle;
-}
-
-.p-messages .p-messages-summary {
-    font-weight: bold;
-    margin-right: .25em;
-}
-
-.p-messages-close {
-    position: absolute;
+.p-messages-close.p-link {
+    margin-left: auto
 }
 
 .p-messages-enter {

@@ -247,10 +247,9 @@ export default {
     height: 30em;
 }
 
-.p-sidebar-close {
-    float: right;
-    cursor: pointer;
-    line-height: 1;
+.p-sidebar-close.p-link {
+    margin-left: auto;
+    display: flex;
 }
 
 @media screen and (max-width: 64em) {

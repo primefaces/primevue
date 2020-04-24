@@ -152,8 +152,6 @@ export default {
 
 <style>
 .p-overlaypanel {
-    padding: 0;
-    margin: 0;
     position: absolute;
     margin-top: 10px;
 }
@@ -163,25 +161,10 @@ export default {
     margin-bottom: 10px;
 }
 
-.p-overlaypanel-content {
-    padding: 0.5em 1em;
-}
-
 .p-overlaypanel-close {
-    position: absolute;
-    top: -1em;
-    right: -1em;
-    width: 2em;
-    height: 2em;
-    line-height: 2em;
-    text-align: center;
-    -moz-border-radius: 100%;
-    -webkit-border-radius: 100%;
-    border-radius: 100%;
-}
-
-.p-overlaypanel-close-icon {
-    line-height: inherit;
+    display: flex;
+    justify-content: center;
+    align-content: center;
 }
 
 /* Animation */

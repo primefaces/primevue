@@ -16,9 +16,6 @@
 }
 
 .p-tooltip .p-tooltip-text {
-   padding: .125em .5em;
-   background-color: rgb(76, 76, 76);
-   color: #ffffff;
    white-space: pre-line;
 }
 
@@ -35,7 +32,6 @@
     left: 0;
     margin-top: -.25em;
     border-width: .25em .25em .25em 0;
-    border-right-color: rgb(76, 76, 76);
 }
 
 .p-tooltip-left .p-tooltip-arrow {
@@ -43,7 +39,6 @@
     right: 0;
     margin-top: -.25em;
     border-width: .25em 0 .25em .25em;
-    border-left-color: rgb(76, 76, 76);
 }
 
 .p-tooltip.p-tooltip-top {
@@ -55,7 +50,6 @@
     left: 50%;
     margin-left: -.25em;
     border-width: .25em .25em 0;
-    border-top-color: rgb(76, 76, 76);
 }
 
 .p-tooltip-bottom .p-tooltip-arrow {
@@ -63,5 +57,4 @@
     left: 50%;
     margin-left: -.25em;
     border-width: 0 .25em .25em;
-    border-bottom-color: rgb(76, 76, 76);
 }

@@ -31,36 +31,11 @@ export default {
 </script>
 
 <style>
-.p-breadcrumb {
-    margin: 0;
-    padding: 0;
-    padding: .5em;
-}
-
 .p-breadcrumb ul {
     margin: 0;
     padding: 0;
-}
-
-.p-breadcrumb ul li {
-    display: inline-block;
-    margin: 0 .25em;
-}
-
-.p-breadcrumb-chevron, .p-breadcrumb-home {
-    vertical-align: middle;
-}
-
-.p-breadcrumb ul li .p-menuitem-link {
-    text-decoration: none;
-}
-
-.p-breadcrumb .p-menuitem-icon {
-    margin-right: .25em;
-    vertical-align: middle;
-}
-
-.p-breadcrumb .p-menuitem-text {
-    vertical-align: middle;
+    list-style-type: none;
+    display: flex;
+    align-items: center;
 }
 </style>

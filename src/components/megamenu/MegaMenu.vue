@@ -299,10 +299,6 @@ export default {
 </script>
 
 <style>
-.p-megamenu {
-    padding: .25em;
-}
-
 .p-megamenu-root-list {
     margin: 0;
     padding: 0;
@@ -314,18 +310,9 @@ export default {
 }
 
 .p-megamenu .p-menuitem-link {
-    padding: .25em;
-    display: block;
-    text-decoration: none;
-}
-
-.p-megamenu .p-menuitem-icon {
-    margin-right: .25em;
-    vertical-align: middle;
-}
-
-.p-megamenu .p-menuitem-text {
-    vertical-align: middle;
+    cursor: pointer;
+    display: flex;
+    align-items: center;
 }
 
 .p-megamenu-panel {
@@ -339,10 +326,6 @@ export default {
     display: block;
 }
 
-.p-megamenu-panel .p-menuitem {
-    margin: .125em 0;
-}
-
 .p-megamenu-submenu {
     margin: 0;
     padding: 0;
@@ -350,18 +333,10 @@ export default {
     width: 12.5em;
 }
 
-.p-megamenu-submenu-header {
-    padding: .25em;
-}
-
 /* Horizontal */
-.p-megamenu-horizontal .p-megamenu-root-list > .p-menuitem {
-    display: inline-block;
-}
-
-.p-megamenu-horizontal .p-megamenu-root-list > .p-menuitem > .p-menuitem-link > .p-submenu-icon {
-    vertical-align: middle;
-    margin-left: .25em;
+.p-megamenu-horizontal .p-megamenu-root-list {
+    display: flex;
+    align-items: center;
 }
 
 /* Vertical */
@@ -369,12 +344,8 @@ export default {
     width: 12.5em;
 }
 
-.p-megamenu-vertical .p-megamenu-root-list > .p-menuitem {
-    display: block;
-}
-
-.p-megamenu-vertical .p-megamenu-root-list > .p-menuitem > .p-menuitem-link {
-    position: relative;
+.p-megamenu-vertical .p-megamenu-root-list {
+    flex-direction: column;
 }
 
 .p-megamenu-vertical .p-megamenu-root-list > .p-menuitem-active > .p-megamenu-panel {
@@ -383,16 +354,6 @@ export default {
 }
 
 .p-megamenu-vertical .p-megamenu-root-list > .p-menuitem > .p-menuitem-link > .p-submenu-icon {
-    position: absolute;
-    width: 1em;
-    height: 1em;
-    top: 50%;
-    right: 0;
-    margin-top: -.5em;
-}
-
-.p-megamenu .p-grid {
-    -ms-flex-wrap: nowrap;
-    flex-wrap: nowrap;
+    margin-left: auto;
 }
 </style>

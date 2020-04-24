@@ -261,105 +261,41 @@ export default {
     pointer-events: none;
     background-color: transparent;
     transition-property: background-color;
-    transition-duration: 150ms;
 }
+
 .p-dialog-mask.p-component-overlay {
     pointer-events: auto;
 }
+
 .p-dialog {
     display: flex;
     flex-direction: column;
-    padding: 0;
     pointer-events: auto;
     max-height: 90%;
     transform: scale(1);
 }
-.p-dialog .p-dialog-titlebar {
-    padding: .5em .75em;
-    position: relative;
-    border: 0;
-    flex-shrink: 0;
-}
-.p-dialog .p-dialog-content {
-    position: relative;
-    border: 0;
-    padding: .5em .75em;
-    background: none;
-    zoom: 1;
+
+.p-dialog-content {
     overflow-y: auto;
 }
-.p-dialog-resizable .p-dialog-content {
-    overflow: auto;
+
+.p-dialog-titlebar {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
 }
-.p-dialog .p-resizable-handle {
-    width: 14px;
-    height: 14px;
-    right: 3px;
-    bottom: 3px;
-    position: absolute;
-    font-size: .1px;
-    display: block;
-    cursor: se-resize;
-}
-.p-draggable .p-dialog-titlebar {
-    cursor: move;
-}
-.p-dialog .p-dialog-titlebar-icons {
-    float: right;
-}
-.p-dialog .p-dialog-titlebar-icons:after {
-    content: "";
-    display: table;
-    clear: both;
-}
+
 .p-dialog .p-dialog-titlebar-icon {
-    text-decoration: none;
-    padding: .125em;
-    cursor: pointer;
-    display: inline-block;
-    vertical-align: middle;
-    border: 1px solid transparent;
+    display: flex;
+    align-items: center;
+    justify-content: center;
 }
-.p-dialog .p-dialog-titlebar-icon span {
-    display: block;
-    margin: 0;
-}
-.p-dialog-footer {
-    padding: 1em;
-    text-align: right;
-    flex-shrink: 0;
-}
-/* ConfirmDialog */
-.p-confirmdialog {
-    width: 30em;
-}
-.p-confirmdialog.p-dialog .p-dialog-content {
-    padding: 1em 2em;
-}
-.p-confirmdialog .p-dialog-content .p-confirmdialog-icon {
-    font-size: 1.5em;
-    vertical-align: middle;
-    margin-right: .5em;
-}
-.p-confirmdialog .p-dialog-content .p-confirmdialog-message {
-    vertical-align: middle;
-}
+
 /* Fluid */
 .p-fluid .p-dialog-footer .p-button {
     width: auto;
 }
-/* RTL */
-.p-rtl .p-dialog .p-dialog-titlebar-close  {
-    float: left;
-}
-.p-rtl .p-dialog .p-dialog-footer {
-    text-align: left;
-}
-@media screen and (max-width: 40em) {
-    .p-confirmdialog {
-        width: 90%;
-    }
-}
+
 /* Animation */
 /* Center */
 .p-dialog-enter-active {
@@ -432,6 +368,7 @@ export default {
 .p-dialog-bottomright .p-dialog-leave-to {
     transform: translate3d(100%, 0px, 0px);
 }
+
 /* Maximize */
 .p-dialog-maximized {
     -webkit-transition: none;

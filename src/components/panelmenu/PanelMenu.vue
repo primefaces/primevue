@@ -94,67 +94,25 @@ export default {
 </script>
 
 <style>
-.p-panelmenu {
-    width: auto;
-}
-
 .p-panelmenu .p-menu-separator {
     border-width: 1px 0 0 0;
 }
 
-.p-panelmenu .p-panelmenu-content-wrapper {
-    overflow: hidden;
-}
-
-.p-panelmenu .p-panelmenu-header {
-    margin: -1px 0 0 0;
-    zoom: 1;
-}
-
 .p-panelmenu .p-panelmenu-header-link {
-    padding: .5em;
-    display: block;
-    text-decoration: none;
-}
-
-.p-panelmenu .p-panelmenu-icon {
-    vertical-align: middle;
-}
-
-.p-panelmenu .p-menuitem-text {
-    vertical-align: middle;
-}
-
-.p-panelmenu .p-menuitem-icon {
-    margin-right: .25em;
-    vertical-align: middle;
-}
-
-.p-panelmenu .p-panelmenu-content {
-    padding: 0.25em;
-    border-top: 0;
-    margin-bottom: 1px;
+    display: flex;
+    align-items: center;
+    user-select: none;
 }
 
 .p-panelmenu .p-submenu-list {
     margin: 0;
     padding: 0;
     list-style: none;
-    margin-left: 1.5em;
-}
-
-.p-panelmenu .p-panelmenu-content > .p-panelmenu-root-submenu.p-submenu-list {
-    margin-left: 0;
-}
-
-.p-panelmenu .p-menuitem {
-    overflow: hidden;
-    margin: .125em 0;
 }
 
 .p-panelmenu .p-menuitem-link {
-    padding: .25em;
-    display: block;
-    text-decoration: none;
+    display: flex;
+    align-items: center;
+    user-select: none;
 }
 </style>

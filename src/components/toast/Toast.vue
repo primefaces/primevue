@@ -99,6 +99,10 @@ export default {
     width: 20em;
 }
 
+.p-toast-message {
+    flex: 1 1 auto;
+}
+
 .p-toast-topright {
 	top: 20px;
 	right: 20px;
@@ -119,51 +123,13 @@ export default {
 	right: 20px;
 }
 
-.p-toast-item-container {
-    position: relative;
-}
-
 .p-toast-item {
-	position: relative;
-	display: block;
-    padding: .5em 1em;
-    overflow: hidden;
+    display: flex;
+    align-items: flex-start;
 }
 
-.p-toast-item .p-toast-detail {
-	padding: 0;
-	margin: 0;
-}
-
-.p-toast-icon-close {
-	position: absolute;
-	top: 4px;
-	right: 4px;
+.p-toast-icon-close.p-link {
 	cursor: pointer;
-}
-
-.p-toast-title {
-	font-weight: bold;
-	padding: 0 0 .5em 0;
-	display: block;
-}
-
-.p-toast-image {
-    position: absolute;
-    display: inline-block;
-    left: .5em;
-    top: .25em;
-    padding: 0;
-	font-size: 2em;
-}
-
-.p-toast-message {
-	padding: 0 0 .25em 0;
-    margin-left: 2.5em;
-}
-
-.p-toast-message p {
-	font-weight: normal;
 }
 
 /* Animations */

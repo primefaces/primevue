@@ -348,62 +348,22 @@ export default {
 </script>
 
 <style>
-.p-fileupload-buttonbar .p-fileupload-choose.p-disabled input {
+.p-fileupload-choose.p-disabled input {
     cursor: default;
 }
 
-.p-fileupload-buttonbar {
-    padding: .5em;
-    border-bottom: 0 none;
-}
-
-.p-fileupload-buttonbar .p-button {
-    vertical-align: middle;
-    margin-right: .25em;
-}
-
 .p-fileupload-content {
-    padding: 1em;
     position: relative;
-    transition: border-color .3s;
-}
-
-.p-fileupload-content.p-fileupload-highlight {
-    border-color: #156090;
-}
-
-.p-fileupload-files img {
-    border: none;
-}
-
-.p-fileupload-files {
-    display: table;
 }
 
 .p-fileupload-row {
     display: table-row;
-}
-
-.p-fileupload-row > div {
-    display: table-cell;
-    padding: .5em 1em;
-    vertical-align: middle;
+    display: flex;
 }
 
 .p-fileupload-content .p-progressbar {
     width: 100%;
     position: absolute;
-    top: 1px;
-    left: 0;
-    height: .25em;
-    border: 0 none;
-}
-
-.p-fileupload-content .p-progressbar-value {
-    -moz-border-radius: 0;
-    -webkit-border-radius: 0;
-    border-radius: 0;
-    border: 0 none;
 }
 
 .p-button.p-fileupload-choose {
@@ -431,9 +391,5 @@ export default {
 
 .p-fluid .p-fileupload .p-button {
     width: auto;
-}
-
-.p-fluid .p-fileupload-content .p-button-icon-only {
-    width: 2em;
 }
 </style>

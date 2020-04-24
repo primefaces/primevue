@@ -159,10 +159,9 @@ export default {
 <style>
 .p-tieredmenu {
     width: 12.5em;
-    padding: .25em;
 }
 
-.p-tieredmenu.p-tieredmenu-dynamic {
+.p-tieredmenu-dynamic {
     position: absolute;
 }
 
@@ -171,46 +170,30 @@ export default {
 }
 
 .p-tieredmenu ul {
-    list-style: none;
     margin: 0;
     padding: 0;
+    list-style: none;
 }
 
 .p-tieredmenu .p-submenu-list {
-    display: none;
     position: absolute;
-    width: 12.5em;
-    padding: .25em;
+    min-width: 100%;
     z-index: 1;
+    display: none;
 }
 
 .p-tieredmenu .p-menuitem-link {
-    padding: .25em;
-    display: block;
-    position: relative;
-    text-decoration: none;
     cursor: pointer;
-}
-
-.p-tieredmenu .p-menuitem-icon {
-    margin-right: .25em;
-    vertical-align: middle;
-}
-
-.p-tieredmenu .p-menuitem-text {
-    vertical-align: middle;
+    display: flex;
+    align-items: center;
 }
 
 .p-tieredmenu .p-menuitem {
     position: relative;
-    margin: .125em 0;
 }
 
 .p-tieredmenu .p-menuitem-link .p-submenu-icon {
-    position: absolute;
-    margin-top: -.5em;
-    right: 0;
-    top: 50%;
+    margin-left: auto;;
 }
 
 .p-tieredmenu .p-menuitem-active > .p-submenu-list {

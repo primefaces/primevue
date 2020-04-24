@@ -35,17 +35,6 @@ export default {
             default: true
         }
     },
-    stepsStyle: null,
-    watch: {
-		model(newValue) {
-			if (this.model !== newValue) {
-                this.createStyle();
-            }
-        }
-    },
-    mounted() {
-        this.createStyle();
-    },
     methods: {
         onItemClick(event, item) {
             if (item.disabled || this.readonly) {
@@ -72,21 +61,6 @@ export default {
         isItemDisabled(item) {
             return (item.disabled || (this.readonly && !this.isActive(item)));
         },
-        createStyle() {
-            if (!this.stepsStyle) {
-                this.stepsStyle = document.createElement('style');
-                this.stepsStyle.type = 'text/css';
-                document.body.appendChild(this.stepsStyle);
-            }
-
-            let innerHTML = `
-                #${this.id} .p-steps-item {
-                    flex: 1 0 ${ (100/ this.model.length) }%
-                }
-            `;
-
-            this.stepsStyle.innerHTML = innerHTML;
-        },
         visible(item) {
             return (typeof item.visible === 'function' ? item.visible() : item.visible !== false);
         }
@@ -104,56 +78,35 @@ export default {
 
 <style>
 .p-steps ul {
-    list-style-type: none;
     padding: 0;
     margin: 0;
+    list-style-type: none;
     display: flex;
-    flex-wrap: nowrap;
-    flex-direction: row;
 }
 
-.p-steps .p-steps-item {
-    width: 100%;
-    box-sizing: border-box;
+.p-steps-item {
     position: relative;
     display: flex;
     justify-content: center;
+    flex: 1 1 auto;
+}
+
+.p-steps-item .p-menuitem-link {
+    display: inline-flex;
+    flex-direction: column;
+    align-items: center;
 }
 
 .p-steps.p-steps-readonly .p-steps-item {
     cursor: auto;
 }
 
-.p-steps .p-steps-item .p-menuitem-link {
-    text-decoration: none;
-    padding: 1em;
-    display: inline-flex;
-    flex-direction: column;
-    align-items: center;
-}
-
-.p-steps .p-steps-item.p-steps-current .p-menuitem-link,
-.p-steps .p-steps-item.p-disabled .p-menuitem-link {
+.p-steps-item.p-steps-current .p-menuitem-link,
+.p-steps-item.p-disabled .p-menuitem-link {
     cursor: default;
 }
 
-.p-steps .p-steps-number {
-    font-size: 2em;
-    display: block;
-}
-
-.p-steps .p-steps-title {
-    display: block;
+.p-steps-title {
     white-space: nowrap;
-}
-
-@media (max-width: 40em) {
-    .p-steps ul {
-        flex-wrap: wrap;
-    }
-
-    .p-steps .p-steps-item .p-menuitem-link {
-        padding: 0.5em;
-    }
 }
 </style>

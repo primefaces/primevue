@@ -31,18 +31,7 @@ export default {
 
 <style>
 .p-menubar {
-    padding: .25em;
     display: flex;
-}
-
-.p-menubar .p-menu-separator {
-    border-width: 1px 0 0 0;
-}
-
-.p-menubar:after {
-    content: "";
-    clear: both;
-    display: table;
 }
 
 .p-menubar ul {
@@ -52,33 +41,18 @@ export default {
 }
 
 .p-menubar .p-menuitem-link {
-    display: block;
-    padding: .25em;
-    position: relative;
-    text-decoration: none;
     cursor: pointer;
+    display: flex;
+    align-items: center;
 }
 
-.p-menubar .p-menuitem-icon {
-    margin-right: .25em;
+.p-menubar .p-menuitem {
+    position: relative;
 }
 
 .p-menubar .p-menubar-root-list {
-    display: inline-block;
-}
-
-.p-menubar .p-menubar-root-list > .p-menuitem {
-    display: inline-block;
-    position: relative;
-}
-
-.p-menubar .p-menubar-root-list > .p-menuitem > .p-menuitem-link {
-    padding: .5em;
-}
-
-.p-menubar .p-menubar-root-list > .p-menuitem > .p-menuitem-link > .p-submenu-icon {
-    vertical-align: middle;
-    margin-left: .25em;
+    display: flex;
+    align-items: center;
 }
 
 .p-menubar .p-menubar-root-list > li ul {
@@ -93,13 +67,8 @@ export default {
 .p-menubar .p-submenu-list {
     display: none;
     position: absolute;
-    min-width: 12.5em;
-    padding: .25em;
-}
-
-.p-menubar .p-submenu-list .p-menuitem {
-    margin: .125em 0;
-    position: relative;
+    min-width: 100%;
+    z-index: 1;
 }
 
 .p-menubar .p-submenu-list > .p-menuitem-active > .p-submenu-list  {
@@ -108,31 +77,17 @@ export default {
     top: 0;
 }
 
-.p-menubar .p-menuitem-icon {
-    margin-right: .25em;
-    vertical-align: middle;
-}
-
-.p-menubar .p-menuitem-text {
-    vertical-align: middle;
-}
-
 .p-menubar .p-submenu-list .p-menuitem-link .p-submenu-icon {
-    position: absolute;
-    margin-top: -.5em;
-    right: 0;
-    top: 50%;
+    margin-left: auto;
 }
 
-.p-menubar .p-menuitem-active > .p-submenu > .p-submenu-list {
-    display: block;
+.p-menubar .p-menu-separator {
+    border-width: 1px 0 0 0;
 }
 
 .p-menubar .p-menubar-custom,
 .p-menubar .p-menubar-end {
     margin-left: auto;
     align-self: center;
-    margin-right: .25em;
-
 }
 </style>

@@ -182,10 +182,9 @@ export default {
 <style>
 .p-menu {
     width: 12.5em;
-    padding: .25em;
 }
 
-.p-menu.p-menu-dynamic {
+.p-menu-dynamic {
     position: absolute;
 }
 
@@ -194,33 +193,14 @@ export default {
 }
 
 .p-menu ul {
-    list-style: none;
     margin: 0;
     padding: 0;
-}
-
-.p-menu .p-submenu-header {
-    padding: .25em .5em;
-    margin: .125em 0;
-}
-
-.p-menu .p-menuitem {
-    margin: .125em 0;
+    list-style: none;
 }
 
 .p-menu .p-menuitem-link {
-    padding: .25em;
-    display: block;
-    text-decoration: none;
     cursor: pointer;
-}
-
-.p-menu .p-menuitem-icon {
-    margin-right: .25em;
-    vertical-align: middle;
-}
-
-.p-menu .p-menuitem-text {
-    vertical-align: middle;
+    display: flex;
+    align-items: center;
 }
 </style>

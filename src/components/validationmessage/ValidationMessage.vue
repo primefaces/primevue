@@ -44,19 +44,11 @@ export default {
 
 <style>
 .p-message {
-    border: 1px solid;
-    margin: 0px .25em;
-    padding: .25em .5em;
-    display: inline-block;
-    vertical-align: top;
-}
-
-.p-message .p-message-icon,
-.p-message .p-message-text {
-    vertical-align: middle;
+    display: inline-flex;
+    align-items: center;
 }
 
 .p-fluid .p-message {
-    display: block;
+    display: flex;
 }
 </style>

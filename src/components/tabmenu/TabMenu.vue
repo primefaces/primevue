@@ -64,44 +64,21 @@ export default {
 </script>
 
 <style>
-/** TabMenu **/
-.p-tabmenu .p-tabmenu-nav {
+.p-tabmenu-nav {
+    display: flex;
     margin: 0;
-    padding: .25em .5em 0 .25em;
-}
-
-.p-tabmenu .p-tabmenu-nav .p-tabmenuitem {
-    list-style: none;
-    float: left;
-    position: relative;
-    margin: 0 .2em 1px 0;
     padding: 0;
-    white-space: nowrap;
-    display: block;
-    border-bottom: 0;
-    top: 1px;
+    list-style-type: none;
 }
 
-.p-tabmenu .p-tabmenu-nav .p-tabmenuitem a {
-    float: left;
-    padding: 0.5em 1em;
-    text-decoration: none;
+.p-tabmenu-nav a {
+    cursor: pointer;
+    user-select: none;
+    display: flex;
+    align-items: center;
 }
 
-.p-tabmenu .p-tabmenu-nav a {
-    padding: 0.5em 1em;
-}
-
-.p-tabmenu .p-menuitem-icon  {
-    margin-right: .25em;
-    vertical-align: middle;
-}
-
-.p-tabmenu .p-menuitem-text  {
-    vertical-align: middle;
-}
-
-.p-tabmenu .p-tabmenu-nav .p-tabmenuitem.p-disabled a {
-     cursor: default;
+.p-tabmenu-nav li.p-disabled a {
+    cursor: auto;
 }
 </style>
