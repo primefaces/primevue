@@ -138,8 +138,6 @@ export default {
 <style>
 .p-sidebar {
     position: fixed;
-    padding: .5em 1em;
-    -webkit-transition: transform .3s;
     transition: transform .3s;
 }
 
