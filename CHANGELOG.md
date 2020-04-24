@@ -1,6 +1,6 @@
 # Changelog
 
-## [1.3.2](https://github.com/primefaces/primevue/tree/1.3.1) (2020-04-24)
+## [1.3.2](https://github.com/primefaces/primevue/tree/1.3.2) (2020-04-24)
 
 [Full Changelog](https://github.com/primefaces/primevue/compare/1.3.1...1.3.2)
 
