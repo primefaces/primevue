@@ -57,41 +57,16 @@ export default {
 </script>
 
 <style>
-.p-panel {
-	padding: 0.2em;
+.p-panel-titlebar {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
 }
 
-.p-panel .p-panel-titlebar {
-	padding: .5em .75em;
-}
-
-.p-panel .p-panel-titlebar-icon {
-	float: right;
+.p-panel-titlebar-icon {
+    display: inline-flex;
+    justify-content: center;
+    align-items: center;
     cursor: pointer;
-    height: 1.25em;
-    width: 1.25em;
-    line-height: 1.25em;
-    text-align: center;
-    -webkit-user-select: none;
-    -khtml-user-select: none;
-    -moz-user-select: none;
-    -o-user-select: none;
-    user-select: none;
-}
-
-.p-panel .p-panel-titlebar-icon span {
-    line-height: inherit;
-}
-
-.p-panel .p-panel-content {
-	border: 0;
-    background: none;
-    padding: .5em .75em;
-}
-
-.p-panel .p-panel-footer {
-	border-width: 1px 0 0;
-	padding: .25em .5em;
-	text-align:left;
 }
 </style>

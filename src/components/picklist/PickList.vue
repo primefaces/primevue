@@ -1,12 +1,10 @@
 <template>
     <div class="p-picklist p-component p-picklist-responsive">
         <div class="p-picklist-buttons p-picklist-source-controls">
-            <div class="p-picklist-buttons-cell">
-                <PLButton type="button" icon="pi pi-angle-up" @click="moveUp($event, 0)"></PLButton>
-                <PLButton type="button" icon="pi pi-angle-double-up" @click="moveTop($event, 0)"></PLButton>
-                <PLButton type="button" icon="pi pi-angle-down" @click="moveDown($event, 0)"></PLButton>
-                <PLButton type="button" icon="pi pi-angle-double-down" @click="moveBottom($event, 0)"></PLButton>
-            </div>
+            <PLButton type="button" icon="pi pi-angle-up" @click="moveUp($event, 0)"></PLButton>
+            <PLButton type="button" icon="pi pi-angle-double-up" @click="moveTop($event, 0)"></PLButton>
+            <PLButton type="button" icon="pi pi-angle-down" @click="moveDown($event, 0)"></PLButton>
+            <PLButton type="button" icon="pi pi-angle-double-down" @click="moveBottom($event, 0)"></PLButton>
         </div>
         <div class="p-picklist-list-wrapper p-picklist-source-wrapper">
             <div class="p-picklist-caption" v-if="$slots.sourceHeader">
@@ -22,12 +20,10 @@
             </transition-group>
         </div>
         <div class="p-picklist-buttons">
-            <div class="p-picklist-buttons-cell">
-                <PLButton type="button" icon="pi pi-angle-right" @click="moveToTarget"></PLButton>
-                <PLButton type="button" icon="pi pi-angle-double-right" @click="moveAllToTarget"></PLButton>
-                <PLButton type="button" icon="pi pi-angle-left" @click="moveToSource"></PLButton>
-                <PLButton type="button" icon="pi pi-angle-double-left" @click="moveAllToSource"></PLButton>
-            </div>
+            <PLButton type="button" icon="pi pi-angle-right" @click="moveToTarget"></PLButton>
+            <PLButton type="button" icon="pi pi-angle-double-right" @click="moveAllToTarget"></PLButton>
+            <PLButton type="button" icon="pi pi-angle-left" @click="moveToSource"></PLButton>
+            <PLButton type="button" icon="pi pi-angle-double-left" @click="moveAllToSource"></PLButton>
         </div>
         <div class="p-picklist-list-wrapper p-picklist-target-wrapper">
             <div class="p-picklist-caption" v-if="$slots.targetHeader">
@@ -43,12 +39,10 @@
             </transition-group>
         </div>
         <div class="p-picklist-buttons p-picklist-target-controls">
-            <div class="p-picklist-buttons-cell">
-                <PLButton type="button" icon="pi pi-angle-up" @click="moveUp($event, 1)"></PLButton>
-                <PLButton type="button" icon="pi pi-angle-double-up" @click="moveTop($event, 1)"></PLButton>
-                <PLButton type="button" icon="pi pi-angle-down" @click="moveDown($event, 1)"></PLButton>
-                <PLButton type="button" icon="pi pi-angle-double-down" @click="moveBottom($event, 1)"></PLButton>
-            </div>
+            <PLButton type="button" icon="pi pi-angle-up" @click="moveUp($event, 1)"></PLButton>
+            <PLButton type="button" icon="pi pi-angle-double-up" @click="moveTop($event, 1)"></PLButton>
+            <PLButton type="button" icon="pi pi-angle-down" @click="moveDown($event, 1)"></PLButton>
+            <PLButton type="button" icon="pi pi-angle-double-down" @click="moveBottom($event, 1)"></PLButton>
         </div>
     </div>
 </template>
@@ -484,50 +478,29 @@ export default {
 <style>
 .p-picklist {
     display: flex;
-    flex-wrap: wrap;
-}
-
-.p-picklist-buttons,
-.p-picklist-list-wrapper {
-    flex: 0 0 auto;
 }
 
 .p-picklist-buttons {
-    padding: 0 .25em;
-    width: 10%;
-    align-self: center;
-}
-
-.p-picklist-buttons .p-button.p-button-icon-only {
-    display: block;
-    margin-bottom: 0.25em;
-    width: 100%;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
 }
 
 .p-picklist-list-wrapper {
-    width: 35%;
+    flex: 1 1 auto;
 }
 
 .p-picklist-list {
     list-style-type: none;
     margin: 0;
     padding: 0;
-    overflow:auto;
-    height: 12.5em;
-}
-
-.p-picklist-caption {
-    text-align: center;
-	padding: .5em .75em;
-    border-bottom: 0 none;
+    overflow: auto;
+    min-height: 12em;
+    max-height: 24em;
 }
 
 .p-picklist-item {
-    margin: 1px;
-    padding: .125em;
     cursor: pointer;
-    border: 0 none;
-    font-weight: inherit;
 }
 
 .p-picklist-item.p-picklist-flip-enter-active.p-picklist-flip-enter-to,
@@ -536,19 +509,12 @@ export default {
 }
 
 @media (max-width: 767px) {
+    .p-picklist {
+        flex-direction: column;
+    }
+
     .p-picklist-buttons {
-        width: 100%;
-        text-align: center;
-    }
-
-    .p-picklist-list-wrapper {
-        width: 100%;
-    }
-
-    .p-picklist-buttons .p-button.p-button-icon-only {
-        display: inline-block;
-        width: 20%;
-        margin-right: .25em;
+        flex-direction: row;
     }
 }
 

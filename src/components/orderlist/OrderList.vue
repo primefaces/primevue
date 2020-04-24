@@ -300,82 +300,30 @@ export default {
 
 <style>
 .p-orderlist {
-    display: -webkit-box;
-    display: -ms-flexbox;
     display: flex;
-    -ms-flex-wrap: wrap;
-    flex-wrap: wrap;
 }
 
-.p-orderlist-controls-left {
-    flex-direction: row;
-}
-
-.p-orderlist-controls-right {
-    flex-direction: row-reverse;
-}
-
-.p-orderlist-controls,
-.p-orderlist-list-container {
-    -webkit-box-flex: 0;
-    -ms-flex: 0 0 auto;
-    flex: 0 0 auto;
-}
 .p-orderlist-controls {
-    padding: 0 .25em;
-    width: 16.66666%;
-    align-self: center;
-}
-
-.p-orderlist-controls .p-button.p-button-icon-only {
-    display: block;
-    margin-bottom: 0.25em;
-    width: 100%;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
 }
 
 .p-orderlist-list-container {
-    width: 83.33333%;
+    flex: 1 1 auto;
 }
 
 .p-orderlist-list {
     list-style-type: none;
     margin: 0;
     padding: 0;
-    overflow:auto;
-    height: 12.5em;
-}
-
-.p-orderlist-caption {
-    text-align: center;
-	padding: .5em .75em;
-    border-bottom: 0 none;
+    overflow: auto;
+    min-height: 12em;
+    max-height: 24em;
 }
 
 .p-orderlist-item {
-    margin: 1px;
-    padding: .125em;
     cursor: pointer;
-    border: 0 none;
-    font-weight: inherit;
-}
-
-.p-orderlist-filter-container {
-    position: relative;
-    width: 100%;
-    padding: .5em .6em;
-    border-bottom: 0 none;
-}
-
-.p-orderlist-filter-container .p-inputtext {
-    text-indent: 1.1em;
-    width: 100%;
-}
-
-.p-orderlist-filter-container .p-orderlist-filter-icon {
-    position: absolute;
-    top: 50%;
-    left: 1em;
-    margin-top: -.6em;
 }
 
 .p-orderlist.p-state-disabled .p-orderlist-item,
@@ -387,25 +335,13 @@ export default {
     overflow: hidden;
 }
 
-.p-orderlist .p-orderlist-droppoint {
-    height: 6px;
-    list-style-type: none;
-}
-
 @media (max-width: 767px) {
+    .p-orderlist {
+        flex-direction: column;
+    }
+
     .p-orderlist-controls {
-        width: 100%;
-        text-align: center;
-    }
-
-    .p-orderlist .p-orderlist-list-container {
-        width: 100%;
-    }
-
-    .p-orderlist .p-orderlist-controls .p-button.p-button.p-button-icon-only {
-        display: inline-block;
-        width: 20%;
-        margin-right: .25em;
+        flex-direction: row;
     }
 }
 </style>

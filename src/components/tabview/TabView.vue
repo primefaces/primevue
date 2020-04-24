@@ -1,7 +1,7 @@
 <template>
-    <div class="p-tabview p-component p-tabview-top">
-        <ul class="p-tabview-nav p-reset" role="tablist">
-            <li role="presentation" v-for="(tab, i) of tabs" :key="tab.header || i" :class="['p-unselectable-text', {'p-highlight': (tab.d_active), 'p-disabled': tab.disabled}]">
+    <div class="p-tabview p-component">
+        <ul class="p-tabview-nav" role="tablist">
+            <li role="presentation" v-for="(tab, i) of tabs" :key="tab.header || i" :class="[{'p-highlight': (tab.d_active), 'p-disabled': tab.disabled}]">
                 <a role="tab" @click="onTabClick($event, tab)" @keydown="onTabKeydown($event, tab)" :tabindex="tab.disabled ? null : '0'" :aria-selected="tab.d_active">
                     <span class="p-tabview-title" v-if="tab.header">{{tab.header}}</span>
                     <TabPanelHeaderSlot :tab="tab" v-if="tab.$scopedSlots.header" />
@@ -91,151 +91,21 @@ export default {
 </script>
 
 <style>
-.p-tabview {
-    padding: .25em;
-}
-
-.p-tabview .p-tabview-nav {
+.p-tabview-nav {
+    display: flex;
     margin: 0;
-}
-
-.p-tabview .p-tabview-nav:after {
-    content: "";
-    display: table;
-    clear: both;
-}
-
-.p-tabview .p-tabview-nav li {
-    list-style: none;
-    float: left;
-    position: relative;
-    margin: 0 .125em 1px 0;
     padding: 0;
-    white-space: nowrap;
+    list-style-type: none;
 }
 
-.p-tabview .p-tabview-nav li a {
-    float: left;
-    padding: .5em 1em;
-    text-decoration: none;
-}
-
-.p-tabview .p-tabview-nav li.p-tabview-selected a,
-.p-tabview .p-tabview-nav li.p-disabled a,
-.p-tabview .p-tabview-nav li.p-state-processing a {
-    cursor: text;
-}
-
-.p-tabview .p-tabview-nav li a,
-.p-tabview.p-tabview-collapsible .p-tabview-nav li.p-tabview-selected a {
+.p-tabview-nav a {
     cursor: pointer;
+    user-select: none;
+    display: flex;
+    align-items: center;
 }
 
-.p-tabview .p-tabview-panel {
-    border-width: 0;
-    padding: 1em;
-    background: none;
-}
-
-.p-tabview .p-tabview-nav li {
-    display: block;
-}
-
-.p-tabview .p-tabview-nav li .p-tabview-left-icon,
-.p-tabview .p-tabview-nav li .p-tabview-right-icon,
-.p-tabview .p-tabview-nav li .p-tabview-title {
-    vertical-align: middle;
-}
-
-.p-tabview .p-tabview-nav li .p-tabview-left-icon {
-    margin-right: .25em;
-    vertical-align: middle;
-}
-
-.p-tabview .p-tabview-nav li .p-tabview-right-icon {
-    margin-left: .25em;
-    vertical-align: middle;
-}
-
-.p-tabview .p-tabview-nav li .p-tabview-close {
-    margin: 0.5em 0.3em 0 0;
-    cursor: pointer;
-}
-
-/* per orientation settings */
-/* top and bottom */
-.p-tabview.p-tabview-top > .p-tabview-nav li {
-    border-bottom: 0;
-    top: 1px;
-}
-
-.p-tabview.p-tabview-top > .p-tabview-nav {
-    padding: .2em .2em 0;
-}
-
-.p-tabview.p-tabview-bottom > .p-tabview-nav {
-    padding: 0 .2em .2em;
-}
-
-.p-tabview.p-tabview-bottom > .p-tabview-nav li {
-    border-top: 0;
-}
-
-/* left and right*/
-.p-tabview-left:after,
-.p-tabview-right:after {
-    clear:both;
-    content: ".";
-    display: block;
-    height: 0;
-    visibility: hidden;
-}
-
-.p-tabview-left > .p-tabview-nav {
-    float:left;
-    width: 25%;
-    height: 300px;
-    background-image: none;
-    padding-top: 1px;
-}
-
-.p-tabview-left > .p-tabview-panels {
-    float:right;
-    width: 75%;
-}
-
-.p-tabview.p-tabview-left > .p-tabview-nav li,
-.p-tabview.p-tabview-right > .p-tabview-nav li{
-    display: block;
-    float: right;
-    white-space: normal;
-    width: 99%;
-}
-
-.p-tabview.p-tabview-left > .p-tabview-nav li {
-    margin: 0 0 1px 0;
-    border-right:0 none;
-}
-
-.p-tabview.p-tabview-right > .p-tabview-nav {
-    float:right;
-    width: 25%;
-    height: 300px;
-    background-image: none;
-    padding-top: 1px;
-}
-
-.p-tabview.p-tabview-right > .p-tabview-panels {
-    float:left;
-    width: 75%;
-}
-
-.p-tabview.p-tabview-right > .p-tabview-nav li {
-    margin: 0 0 1px 0;
-    border-left:0 none;
-}
-/* RTL */
-.p-rtl .p-tabview .p-tabview-nav li {
-    float: right;
+.p-tabview-nav li.p-disabled a {
+    cursor: auto;
 }
 </style>

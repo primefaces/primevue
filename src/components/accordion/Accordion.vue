@@ -5,7 +5,7 @@
             <div :class="['p-accordion-header', {'p-highlight': tab.d_active, 'p-disabled': tab.disabled}]">
                 <a role="tab" @click="onTabClick($event, tab)" @keydown="onTabKeydown($event, tab)" :tabindex="tab.disabled ? null : '0'"
                     :aria-expanded="tab.d_active" :id="ariaId + i + '_header'" :aria-controls="ariaId + i + '_content'">
-                    <span :class="['p-accordion-toggle-icon pi pi-fw', {'pi-caret-right': !tab.d_active, 'pi-caret-down': tab.d_active}]"></span>
+                    <span :class="['p-accordion-toggle-icon pi', {'pi-caret-right': !tab.d_active, 'pi-caret-down': tab.d_active}]"></span>
                     <span class="p-accordion-header-text" v-if="tab.header">{{tab.header}}</span>
                     <AccordionTabSlot :tab="tab" type="header" v-if="tab.$scopedSlots.header" />
                 </a>
@@ -95,40 +95,17 @@ export default {
 </script>
 
 <style>
-.p-accordion {
-    width: 100%;
-}
-
-.p-accordion .p-accordion-header {
+.p-accordion-header a {
     cursor: pointer;
-    position: relative;
-    margin-top: 1px;
-    zoom: 1;
+    display: flex;
+    align-items: center;
 }
 
-.p-accordion .p-accordion-header a {
-    display: block;
-    padding: .5em;
-}
-
-.p-accordion .p-accordion-toggle-icon,
-.p-accordion .p-accordion-header-text {
-    vertical-align: middle;
-}
-
-.p-accordion .p-accordion-header a > span {
-    display: inline-block;
-    vertical-align: middle;
-}
-
-.p-accordion .p-accordion-content {
-    padding: 1em;
-    border-top: 0;
-    zoom: 1;
-}
-
-.p-accordion .p-accordion-header.p-disabled,
-.p-accordion .p-accordion-header.p-disabled a {
+.p-accordion-header.p-disabled a {
     cursor: default;
+}
+
+.p-accordion-header-text {
+    line-height: 1;
 }
 </style>

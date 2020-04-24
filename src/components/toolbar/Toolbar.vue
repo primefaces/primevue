@@ -17,20 +17,8 @@ export default {
 
 <style>
 .p-toolbar {
-    padding: .25em .5em;
-}
-
-.p-toolbar:after {
-    content: "";
-    display: table;
-    clear: both;
-}
-
-.p-toolbar-group-left {
-    float:left
-}
-
-.p-toolbar-group-right {
-    float:right
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
 }
 </style>
