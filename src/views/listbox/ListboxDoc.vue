@@ -225,7 +225,7 @@ data() {
 <CodeHighlight>
 <template v-pre>
 &lt;h3&gt;Single&lt;/h3&gt;
-&lt;Listbox v-model="selectedCity" :options="cities" optionLabel="name" /&gt;
+&lt;Listbox v-model="selectedCity" :options="cities" optionLabel="name" style="width:15em" /&gt;
 
 &lt;h3&gt;Advanced with Templating, Filtering and Multiple Selection&lt;/h3&gt;
 &lt;Listbox v-model="selectedCars" :options="cars" :multiple="true" :filter="true" optionLabel="brand" listStyle="max-height:250px" style="width:15em"&gt;

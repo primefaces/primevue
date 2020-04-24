@@ -10,25 +10,25 @@
         <div class="content-section implementation">
             <h3 class="first">Basic</h3>
             <Checkbox id="binary" v-model="checked" :binary="true" />
-            <label for="binary" class="p-checkbox-label" style="font-weight: bold">{{checked}}</label>
+            <label for="binary" style="font-weight: bold">{{checked}}</label>
 
             <h3>Multiple</h3>
             <div class="p-grid">
                 <div class="p-col-12">
                     <Checkbox id="city1" name="city" value="Chicago" v-model="cities" />
-                    <label for="city1" class="p-checkbox-label">Chicago</label>
+                    <label for="city1">Chicago</label>
                 </div>
                 <div class="p-col-12">
                     <Checkbox id="city2" name="city" value="Los Angeles" v-model="cities" />
-                    <label for="city2" class="p-checkbox-label">Los Angeles</label>
+                    <label for="city2">Los Angeles</label>
                 </div>
                 <div class="p-col-12">
                     <Checkbox id="city3" name="city" value="New York" v-model="cities" />
-                    <label for="city3" class="p-checkbox-label">New York</label>
+                    <label for="city3">New York</label>
                 </div>
                 <div class="p-col-12">
                     <Checkbox id="city4" name="city" value="San Francisco" v-model="cities" />
-                    <label for="city4" class="p-checkbox-label">San Francisco</label>
+                    <label for="city4">San Francisco</label>
                 </div>
             </div>
             <p>Selected Cities : <span style="font-weight: bold">{{cities}}</span></p>
@@ -37,7 +37,7 @@
             <div class="p-grid">
                 <div v-for="theme of themes" :key="theme.key" class="p-col-12">
                     <Checkbox :id="theme.key" name="theme" :value="theme" v-model="selectedThemes" :disabled="theme.key === 'U'"/>
-                    <label :for="theme.key" class="p-checkbox-label">{{theme.name}}</label>
+                    <label :for="theme.key">{{theme.name}}</label>
                 </div>
             </div>
             <p>Selected Themes: <span style="font-weight: bold">{{this.selectedThemes}}</span></p>
@@ -67,3 +67,10 @@ export default {
     }
 }
 </script>
+
+<style scoped>
+label {
+    vertical-align: middle;
+    margin-left: .5em;
+}
+</style>

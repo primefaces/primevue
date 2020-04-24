@@ -1,7 +1,7 @@
 <template>
     <button :class="buttonClass" v-on="$listeners">
         <span v-if="icon" :class="iconClass"></span>
-        <span class="p-button-text p-c">{{label||'p-btn'}}</span>
+        <span class="p-button-text p-c" v-if="label">{{label}}</span>
     </button>
 </template>
 

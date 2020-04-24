@@ -22,7 +22,7 @@
                     <span class="p-dropdown-filter-icon pi pi-search"></span>
                 </div>
                 <div ref="itemsWrapper" class="p-dropdown-items-wrapper" :style="{'max-height': scrollHeight}">
-                    <ul class="p-dropdown-items p-dropdown-list p-component" role="listbox">
+                    <ul class="p-dropdown-items p-component" role="listbox">
                         <li v-for="(option, i) of visibleOptions" :class="['p-dropdown-item', {'p-highlight': isSelected(option), 'p-disabled': isOptionDisabled(option)}]"
                             :aria-label="getOptionLabel(option)" :key="getOptionRenderKey(option)" @click="onOptionSelect($event, option)" role="option" :aria-selected="isSelected(option)">
                             <slot name="option" :option="option" :index="i">
@@ -453,126 +453,80 @@ export default {
 
 <style>
 .p-dropdown {
-    display: inline-block;
+    display: inline-flex;
+    cursor: pointer;
     position: relative;
-    cursor: pointer;
-    vertical-align: middle;
 }
 
-.p-dropdown .p-dropdown-clear-icon {
+.p-dropdown-clear-icon {
     position: absolute;
-    right: 2em;
     top: 50%;
-    font-size: 1em;
-    height: 1em;
     margin-top: -.5em;
 }
 
-.p-dropdown .p-dropdown-trigger {
-    border-right: none;
-    border-top: none;
-    border-bottom: none;
-    cursor: pointer;
-    width: 1.5em;
-    height: 100%;
-    position: absolute;
-    right: 0;
-    top: 0;
-    padding: 0 .25em;
+.p-dropdown-trigger {
+    display: flex;
+    align-items: center;
+    justify-content: center;
 }
 
-.p-dropdown .p-dropdown-trigger .p-dropdown-trigger-icon {
-    top: 50%;
-    left: 50%;
-    margin-top: -.5em;
-    margin-left: -.5em;
-    position: absolute;
-}
-
-.p-dropdown .p-dropdown-label  {
+.p-dropdown-label {
     display: block;
-    border: none;
     white-space: nowrap;
     overflow: hidden;
-    font-weight: normal;
-    width: 100%;
-    padding-right: 1.5em;
+    flex: 1 1 auto;
+    width: 1%;
+    text-overflow: ellipsis;
 }
 
-.p-dropdown .p-dropdown-item-empty,
-.p-dropdown .p-dropdown-label-empty {
+.p-dropdown-label-empty {
     overflow: hidden;
     visibility: hidden;
 }
 
-.p-dropdown.p-disabled .p-dropdown-trigger,
-.p-dropdown.p-disabled .p-dropdown-label {
-    cursor: default;
-}
-
-.p-dropdown label.p-dropdown-label  {
-    cursor: pointer;
-}
-
-.p-dropdown input.p-dropdown-label  {
+input.p-dropdown-label  {
     cursor: default;
 }
 
 .p-dropdown .p-dropdown-panel {
     min-width: 100%;
-    z-index: 1;
 }
 
 .p-dropdown-panel {
     position: absolute;
-    height: auto;
 }
 
-.p-dropdown-panel .p-dropdown-items-wrapper {
+.p-dropdown-items-wrapper {
     overflow: auto;
 }
 
-.p-dropdown-panel .p-dropdown-item {
-    font-weight: normal;
-    border: 0 none;
+.p-dropdown-item {
     cursor: pointer;
-    margin: 1px 0;
-    padding: .125em .25em;
-    text-align: left;
 }
 
-.p-dropdown-panel .p-dropdown-item-group {
-    font-weight: bold;
-}
-
-.p-dropdown-panel .p-dropdown-list {
-    padding: 0.4em;
-    border: 0 none;
-    margin: 0;
+.p-dropdown-items {
     list-style-type: none;
 }
 
-.p-dropdown-panel .p-dropdown-filter {
+.p-dropdown-filter {
     width: 100%;
-    box-sizing: border-box;
-    padding-right: 1.5em;
 }
 
-.p-dropdown-panel .p-dropdown-filter-container {
+.p-dropdown-filter-container {
     position: relative;
-    margin: 0;
-    padding: 0.4em;
-    display: inline-block;
 }
 
-.p-dropdown-panel .p-dropdown-filter-container .p-dropdown-filter-icon {
+.p-dropdown-filter-icon {
     position: absolute;
-    top: .8em;
-    right: 1em;
+    top: 50%;
+    margin-top: -.5em;
 }
 
-/** Dropdown **/
 .p-fluid .p-dropdown {
-    width: 100%;
+    display: flex;
+}
+
+.p-fluid .p-dropdown .p-dropdown-label {
+    width: 1%;
 }
 </style>

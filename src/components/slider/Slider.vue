@@ -339,47 +339,40 @@ export default {
 <style>
 .p-slider {
 	position: relative;
-	text-align: left;
-}
-.p-slider .p-slider-handle {
-	position: absolute;
-	width: 1.2em;
-	height: 1.2em;
-	cursor: default;
-	-ms-touch-action: none;
-	touch-action: none;
-}
-.p-slider .p-slider-range {
-	position: absolute;
-	font-size: .7em;
-	display: block;
-	border: 0;
-	background-position: 0 0;
 }
 
-.p-slider-horizontal {
-	height: .8em;
+.p-slider .p-slider-handle {
+	position: absolute;
+	cursor: default;
+	touch-action: none;
 }
-.p-slider-horizontal .p-slider-handle {
-	top: -.3em;
-	margin-left: -.6em;
+
+.p-slider-range {
+	position: absolute;
+	display: block;
 }
+
 .p-slider-horizontal .p-slider-range {
-	top: 0;
+    top: 0;
+    left: 0;
 	height: 100%;
 }
+
+.p-slider-horizontal .p-slider-handle {
+    margin-top: -.5em;
+}
+
 .p-slider-vertical {
-	width: .8em;
 	height: 100px;
 }
-.p-slider-vertical .p-slider-handle {
-	left: -.3em;
-	margin-left: 0;
-	margin-bottom: -.6em;
-}
+
 .p-slider-vertical .p-slider-range {
-	left: 0;
-    width: 100%;
+    left: 50%;
     bottom: 0;
+    width: 100%;
+}
+
+.p-slider-vertical .p-slider-handle {
+    margin-left: -.5em;
 }
 </style>

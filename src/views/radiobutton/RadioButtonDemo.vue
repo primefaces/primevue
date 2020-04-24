@@ -12,19 +12,19 @@
             <div class="p-grid">
                 <div class="p-col-12">
                     <RadioButton id="city1" name="city" value="Chicago" v-model="city" />
-                    <label for="city1" class="p-radiobutton-label">Chicago</label>
+                    <label for="city1">Chicago</label>
                 </div>
                 <div class="p-col-12">
                     <RadioButton id="city2" name="city" value="Los Angeles" v-model="city" />
-                    <label for="city2" class="p-radiobutton-label">Los Angeles</label>
+                    <label for="city2">Los Angeles</label>
                 </div>
                 <div class="p-col-12">
                     <RadioButton id="city3" name="city" value="New York" v-model="city" />
-                    <label for="city3" class="p-radiobutton-label">New York</label>
+                    <label for="city3">New York</label>
                 </div>
                 <div class="p-col-12">
                     <RadioButton id="city4" name="city" value="San Francisco" v-model="city" />
-                    <label for="city4" class="p-radiobutton-label">San Francisco</label>
+                    <label for="city4">San Francisco</label>
                 </div>
             </div>
             <p>Selected City: <span style="font-weight: bold">{{this.city}}</span></p>
@@ -33,7 +33,7 @@
             <div class="p-grid">
                 <div v-for="theme of themes" :key="theme.key" class="p-col-12">
                     <RadioButton :id="theme.key" name="theme" :value="theme" v-model="selectedTheme" :disabled="theme.key === 'U'" />
-                    <label :for="theme.key" class="p-radiobutton-label">{{theme.name}}</label>
+                    <label :for="theme.key">{{theme.name}}</label>
                 </div>
             </div>
            <p>Selected Theme: <span style="font-weight: bold">{{this.selectedTheme}}</span></p>
@@ -62,3 +62,10 @@ export default {
     }
 }
 </script>
+
+<style scoped>
+label {
+    vertical-align: middle;
+    margin-left: .5em;
+}
+</style>

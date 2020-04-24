@@ -2,7 +2,7 @@
     <div class="p-listbox p-inputtext p-component">
         <div class="p-listbox-header" v-if="filter">
             <div class="p-listbox-filter-container">
-                <input type="text" class="p-inputtext p-component" v-model="filterValue" :placeholder="filterPlaceholder">
+                <input type="text" class="p-listbox-filter p-inputtext p-component" v-model="filterValue" :placeholder="filterPlaceholder">
                 <span class="p-listbox-filter-icon pi pi-search"></span>
             </div>
         </div>
@@ -232,72 +232,31 @@ export default {
 </script>
 
 <style>
-.p-listbox {
-    padding: .25em;
-    width: 10em;
+.p-listbox-list-wrapper {
+    overflow: auto;
 }
 
-.p-listbox .p-listbox-list-wrapper {
-    overflow:auto;
-}
-
-.p-listbox .p-listbox-list {
+.p-listbox-list {
     list-style-type: none;
     margin: 0;
     padding: 0;
 }
 
-.p-listbox .p-listbox-item {
-    padding: .25em;
-    border: 0 none;
-    cursor: pointer;
-    font-weight: normal;
-    margin-bottom: 1px;
-}
-
-.p-listbox .p-listbox-item > span {
-    vertical-align: middle;
-}
-
-.p-listbox .p-listbox-item:last-child {
-    margin-bottom: 0;
-}
-
-.p-listbox.p-disabled .p-listbox-item {
-    cursor: default;
-}
-
-.p-listbox-header {
-    margin-bottom: 0.3em;
-    padding: .125em .2em;
-    position: relative;
-}
-
-.p-listbox-header .p-checkbox {
-    display: inline-block;
-    vertical-align: middle;
+.p-listbox-item {
     cursor: pointer;
 }
 
-.p-listbox-header .p-listbox-filter-container {
-    display: inline-block;
-    vertical-align: middle;
+.p-listbox-filter-container {
     position: relative;
-    width: 100%;
 }
 
-.p-listbox-header.p-listbox-header-w-checkbox .p-listbox-filter-container {
-    width: calc(100% - 2em);
-}
-
-.p-listbox-header .p-listbox-filter-container .p-listbox-filter-icon {
+.p-listbox-filter-icon {
     position: absolute;
-    top: .25em;
-    left: .25em;
+    top: 50%;
+    margin-top: -.5em;
 }
 
-.p-listbox-header .p-inputtext {
-    padding: .125em .125em .125em 1.25em;
+.p-listbox-filter {
     width: 100%;
 }
 </style>

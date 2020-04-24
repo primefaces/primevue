@@ -3,7 +3,7 @@
        <div class="p-hidden-accessible">
            <input ref="input" type="checkbox" :checked="value === true" v-bind="$attrs" @focus="onFocus()" @blur="onBlur()" :aria-labelledby="ariaLabelledBy">
         </div>
-        <div ref="box" :class="['p-checkbox-box p-component', {'p-highlight': (value != null), 'p-disabled': $attrs.disabled, 'p-focus': focused}]" role="checkbox" :aria-checked="value === true">
+        <div ref="box" :class="['p-checkbox-box', {'p-highlight': (value != null), 'p-disabled': $attrs.disabled, 'p-focus': focused}]" role="checkbox" :aria-checked="value === true">
             <span :class="['p-checkbox-icon p-c', icon]"></span>
         </div>
     </div>

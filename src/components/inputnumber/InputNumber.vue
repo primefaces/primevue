@@ -43,11 +43,11 @@ export default {
         },
         incrementButtonIcon: {
             type: String,
-            default: 'pi pi-caret-up',
+            default: 'pi pi-chevron-up',
         },
         decrementButtonIcon: {
             type: String,
-            default: 'pi pi-caret-down',
+            default: 'pi pi-chevron-down',
         },
         locale: {
             type: String,
