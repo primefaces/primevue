@@ -243,21 +243,22 @@ export default {
             if (this.$el) {
                 if (this.value == null) {
                     this.$el.value = '';
+                    this.$emit('input', '');
                 }
                 else {
                     this.$el.value = this.value;
                     this.checkVal();
+
+                    setTimeout(() => {
+                        if (this.$el) {
+                            this.writeBuffer();
+                            this.checkVal();
+
+                            let val = this.unmask ? this.getUnmaskedValue() : this.$el.value;
+                            this.$emit('input', (this.defaultBuffer !== val) ? val : '');
+                        }
+                    }, 10);
                 }
-
-                setTimeout(() => {
-                    if(this.$el) {
-                        this.writeBuffer();
-                        this.checkVal();
-
-                        let val = this.unmask ? this.getUnmaskedValue() : this.$el.value;
-                        this.$emit('input', (this.defaultBuffer !== val) ? val : '');
-                    }
-                }, 10);
 
                 this.focusText = this.$el.value;
             }
