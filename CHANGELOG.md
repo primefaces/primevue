@@ -1,5 +1,14 @@
 # Changelog
 
+## [1.3.2](https://github.com/primefaces/primevue/tree/1.3.1) (2020-04-24)
+
+[Full Changelog](https://github.com/primefaces/primevue/compare/1.3.1...1.3.2)
+
+**Fixed bugs:**
+
+- Context Menu throw error after update to 1.3.1 [\#291](https://github.com/primefaces/primevue/issues/291)
+- InputMask somehow clears the initial value to empty string [\#290](https://github.com/primefaces/primevue/issues/290)
+
 ## [1.3.1](https://github.com/primefaces/primevue/tree/1.3.1) (2020-04-23)
 
 [Full Changelog](https://github.com/primefaces/primevue/compare/1.3.0...1.3.1)
