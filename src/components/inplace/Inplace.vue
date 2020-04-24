@@ -61,9 +61,6 @@ export default {
 .p-inplace .p-inplace-display {
     display: inline;
     cursor: pointer;
-    border: 0 none;
-    padding: .25em;
-    font-weight: normal;
 }
 
 .p-inplace .p-inplace-content {

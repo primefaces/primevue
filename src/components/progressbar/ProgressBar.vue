@@ -78,14 +78,6 @@ export default {
     font-weight: bold;
 }
 
-.p-progressbar-indeterminate {
-    height: .5em;
-}
-
-.p-progressbar-indeterminate .p-progressbar-value {
-    border: 0 none;
-}
-
 .p-progressbar-indeterminate .p-progressbar-value::before {
       content: '';
       position: absolute;

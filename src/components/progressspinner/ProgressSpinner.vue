@@ -105,5 +105,4 @@ export default {
         stroke: #ffa700;
     }
 }
-
 </style>

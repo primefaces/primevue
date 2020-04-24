@@ -8,7 +8,7 @@
                 <div class="p-terminal-response">{{command.response}}</div>
             </div>
         </div>
-        <div>
+        <div class="p-terminal-prompt-container">
             <span class="p-terminal-prompt">{{prompt}}</span>
             <input ref="input" type="text" v-model="commandText" class="p-terminal-input" autocomplete="off" @keydown="onKeydown">
         </div>
@@ -64,23 +64,20 @@ export default {
 .p-terminal {
     height: 18em;
     overflow: auto;
-    padding: .25em;
+}
+
+.p-terminal-prompt-container {
+    display: flex;
+    align-items: center;
 }
 
 .p-terminal-input {
+    flex: 1 1 auto;
     border: 0 none;
     background-color: transparent;
     color: inherit;
     padding: 0;
-    margin: 0 0 0 .125em;
-    width: 75%;
-    outline: none;
-    vertical-align: baseline;
-}
-
-.p-terminal-command {
-    margin-left: .125em;
-    -moz-margin-start: .125em;
+    outline: 0 none;
 }
 
 .p-terminal-input::-ms-clear {
