@@ -1374,14 +1374,6 @@ a {
         .layout-mask {
             top: 140px;
         }
-        .topbar-menu {
-            >li.topbar-submenu {
-                >ul  {
-                        top: 180px;
-
-                }
-            }
-        }
         .layout-news-container {
             background-image: linear-gradient(180deg, rgba(255,255,255,0.30) 0%, #FFFFFF 100%);
         }
@@ -1498,6 +1490,16 @@ a {
 }
 
 @media screen and (max-width: 640px) {
+    .layout-wrapper.layout-news-active {
+        .topbar-menu {
+            >li.topbar-submenu {
+                >ul  {
+                    top: 180px;
+                }
+            }
+        }
+    }
+
     .layout-topbar {
         .topbar-menu {
             > li {
