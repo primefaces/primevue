@@ -1,6 +1,6 @@
 <template>
     <div class="content-section layout-footer clearfix">
-        <span>PrimeVue 2.0.0</span>
+        <span>PrimeVue 1.3.2</span>
         <div class="footer-links">
             <a href="https://github.com/primefaces/primevue"><i class=" icon-github fa fa-github-square"></i></a>
             <a href="https://twitter.com/primevue"><i class="icon-twitter fa fa-twitter-square"></i></a>
