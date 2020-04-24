@@ -2,8 +2,7 @@
     <div :class="containerClass">
         <slot></slot>
         <div class="p-datatable-loading" v-if="loading">
-            <div class="p-datatable-loading-overlay p-component-overlay"></div>
-            <div class="p-datatable-loading-content">
+            <div class="p-datatable-loading-overlay p-component-overlay">
                 <i :class="loadingIconClass"></i>
             </div>
         </div>
@@ -1843,24 +1842,9 @@ export default {
     table-layout: fixed;
 }
 
-.p-datatable .p-datatable-thead > tr > th,
-.p-datatable .p-datatable-tbody > tr > td,
-.p-datatable .p-datatable-tfoot > tr > td {
-    padding: .25em .5em;
-}
-
-.p-datatable .p-column-title {
-    user-select: none;
-    vertical-align: middle;
-}
-
 .p-datatable .p-sortable-column {
     cursor: pointer;
     user-select: none;
-}
-
-.p-datatable .p-sortable-column-icon {
-    vertical-align: middle;
 }
 
 .p-datatable-auto-layout > .p-datatable-wrapper {
@@ -1871,43 +1855,18 @@ export default {
     table-layout: auto;
 }
 
-.p-datatable-hoverable-rows .p-datatable-tbody > tr.p-highlight {
+.p-datatable-hoverable-rows .p-datatable-row {
     cursor: pointer;
-}
-
-/* Sections */
-.p-datatable-header,
-.p-datatable-footer {
-    padding: .25em .5em;
-    text-align: center;
-    font-weight: bold;
-}
-
-.p-datatable-header {
-    border-bottom: 0 none;
-}
-
-.p-datatable-footer {
-    border-top: 0 none;
-}
-
-/* Paginator */
-.p-datatable .p-paginator-top {
-    border-bottom: 0 none;
-}
-
-.p-datatable .p-paginator-bottom {
-    border-top: 0 none;
 }
 
 /* Scrollable */
 .p-datatable-scrollable-wrapper {
     position: relative;
 }
+
 .p-datatable-scrollable-header,
 .p-datatable-scrollable-footer {
     overflow: hidden;
-    border: 0 none;
 }
 
 .p-datatable-scrollable-body {
@@ -1934,12 +1893,7 @@ export default {
 
 .p-datatable-unfrozen-view {
     position: absolute;
-    top: 0px;
-}
-
-/* Filter */
-.p-column-filter {
-    width: 100%;
+    top: 0;
 }
 
 /* Resizable */
@@ -1995,25 +1949,10 @@ export default {
 }
 
 /* Loader */
-.p-datatable .p-datatable-loading-overlay {
+.p-datatable-loading-overlay {
     position: absolute;
-    width: 100%;
-    height: 100%;
-    -ms-filter: "progid:DXImageTransform.Microsoft.Alpha(Opacity=10)";
-    opacity: 0.1;
-    z-index: 1;
-}
-
-.p-datatable .p-datatable-loading-content {
-    position: absolute;
-    left: 50%;
-    top: 50%;
-    z-index: 2;
-    margin-top: -1em;
-    margin-left: -1em;
-}
-
-.p-datatable .p-datatable-loading-icon {
-    font-size: 2em;
+    display: flex;
+    align-items: center;
+    justify-content: center;
 }
 </style>

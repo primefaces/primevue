@@ -88,55 +88,48 @@ export default {
 </script>
 
 <style>
-.p-organizationchart .p-organizationchart-table {
+.p-organizationchart-table {
     border-spacing: 0;
     border-collapse: separate;
     margin: 0 auto;
 }
 
-.p-organizationchart .p-organizationchart-table > tbody > tr > td {
+.p-organizationchart-table > tbody > tr > td {
     text-align: center;
     vertical-align: top;
-    padding: 0;
     padding: 0 .75em;
 }
 
-.p-organizationchart .p-organizationchart-node-content {
-    padding: .5em .75em;
+.p-organizationchart-node-content {
     display: inline-block;
     position: relative;
 }
 
-.p-organizationchart .p-organizationchart-node-content .p-node-toggler {
+.p-organizationchart-node-content .p-node-toggler {
     position: absolute;
     bottom: -9px;
     margin-left: -8px;
     z-index: 2;
     left: 50%;
     user-select: none;
-    -moz-user-select: none;
-    -webkit-user-select: none;
     cursor: pointer;
 }
 
-.p-organizationchart .p-organizationchart-line-down {
+.p-organizationchart-line-down {
     margin: 0 auto;
     height: 20px;
     width: 1px;
-    float: none;
 }
 
-.p-organizationchart .p-organizationchart-line-right {
-    float: none;
+.p-organizationchart-line-right {
     border-radius: 0px;
 }
 
-.p-organizationchart .p-organizationchart-line-left {
-    float: none;
+ .p-organizationchart-line-left {
     border-radius: 0;
 }
 
-.p-organizationchart .p-organizationchart-node-content.p-organizationchart-selectable-node {
+.p-organizationchart-selectable-node {
     cursor: pointer;
 }
 </style>

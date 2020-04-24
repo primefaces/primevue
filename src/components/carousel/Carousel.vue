@@ -501,62 +501,36 @@ export default {
 .p-carousel {
 	display: flex;
 	flex-direction: column;
-	width: 100%;
 }
 
 .p-carousel-content {
 	display: flex;
 	flex-direction: column;
-	flex-wrap: nowrap;
 	overflow: auto;
-	padding: 0 .5em;
 }
 
 .p-carousel-prev,
 .p-carousel-next {
 	align-self: center;
-	text-align: center;
 	flex-grow: 0;
-	flex-shrink: 0;
-	width: 2.5em;
-	height: 2.5em;
-}
-
-.p-carousel-prev span,
-.p-carousel-next span {
-	width: 100%;
-	display: flex;
-	justify-content: center;
+    flex-shrink: 0;
+    display: flex;
+    justify-content: center;
 	align-items: center;
 }
 
 .p-carousel-container {
 	display: flex;
 	flex-direction: row;
-	padding: 0 .1em;
 }
 
 .p-carousel-items-content {
 	overflow: hidden;
-	width: 100%;
-}
-
-.p-carousel-header,
-.p-carousel-footer {
-	padding: 0 .5em;
-	z-index: 1;
 }
 
 .p-carousel-items-container {
 	display: flex;
-	flex-wrap: nowrap;
 	flex-direction: row;
-}
-
-.p-carousel-items-container .p-carousel-item {
-	width: 100%;
-	box-sizing: border-box;
-	overflow: auto;
 }
 
 .p-carousel .p-carousel-dots-container {
@@ -564,22 +538,16 @@ export default {
 	flex-direction: row;
 	justify-content: center;
 	flex-wrap: wrap;
-	margin: .5em;
 }
 
 /* Vertical */
 .p-carousel-vertical .p-carousel-container {
 	flex-direction: column;
-	width: 100%;
 }
 
 .p-carousel-vertical .p-carousel-items-container {
 	flex-direction: column;
 	height: 100%;
-}
-
-.p-carousel-vertical .p-carousel-dots-container {
-	margin: .75em 0;
 }
 
 /* Keyboard Support */

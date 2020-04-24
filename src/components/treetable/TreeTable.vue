@@ -2,8 +2,7 @@
     <div :class="containerClass">
         <slot></slot>
         <div class="p-treetable-loading" v-if="loading">
-            <div class="p-treetable-loading-overlay p-component-overlay"></div>
-            <div class="p-treetable-loading-content">
+            <div class="p-treetable-loading-overlay p-component-overlay">
                 <i :class="loadingIconClass"></i>
             </div>
         </div>
@@ -909,112 +908,25 @@ export default {
     table-layout: fixed;
 }
 
-.p-treetable-toggler {
-    cursor: pointer;
-    display: inline-block;
-}
-
-.p-treetable .p-treetable-thead > tr > th,
-.p-treetable .p-treetable-tbody > tr > td,
-.p-treetable .p-treetable-tfoot > tr > td {
-    padding: .25em .5em;
-}
-
-.p-treetable .p-treetable-thead > tr > th .p-column-title {
-    vertical-align: middle;
-    user-select: none;
-}
-
 .p-treetable .p-sortable-column {
     cursor: pointer;
     user-select: none;
-}
-
-.p-treetable .p-sortable-column-icon {
-    vertical-align: middle;
 }
 
 .p-treetable-auto-layout > .p-treetable-wrapper {
     overflow-x: auto;
 }
 
-.p-treetable-auto-layout table {
+.p-treetable-auto-layout > .p-treetable-wrapper > table {
     table-layout: auto;
 }
 
-.p-treetable-hoverable-rows .p-treetable-tbody > tr.p-highlight {
+.p-treetable-hoverable-rows .p-treetable-row {
     cursor: pointer;
 }
 
-/* Sections */
-.p-treetable-header,
-.p-treetable-footer {
-    padding: .25em .5em;
-    text-align: center;
-    font-weight: bold;
-}
-
-.p-treetable-header {
-    border-bottom: 0 none;
-}
-
-.p-treetable-footer {
-    border-top: 0 none;
-}
-
-/* Paginator */
-.p-treetable .p-paginator-top {
-    border-bottom: 0 none;
-}
-
-.p-treetable .p-paginator-bottom {
-    border-top: 0 none;
-}
-
-/* Scrollable */
-.p-treetable-scrollable-wrapper {
-    position: relative;
-}
-.p-treetable-scrollable-header,
-.p-treetable-scrollable-footer {
-    overflow: hidden;
-    border: 0 none;
-}
-
-.p-treetable-scrollable-body {
-    overflow: auto;
-    position: relative;
-}
-
-.p-treetable-scrollable-body > table > .p-treetable-tbody > tr:first-child > td {
-    border-top: 0 none;
-}
-
-.p-treetable-virtual-table {
-    position: absolute;
-}
-
-/* Frozen Columns */
-.p-treetable-frozen-view .p-treetable-scrollable-body {
-    overflow: hidden;
-}
-
-.p-treetable-frozen-view > .p-treetable-scrollable-body > table > .p-treetable-tbody > tr > td:last-child {
-    border-right: 0 none;
-}
-
-.p-treetable-unfrozen-view {
-    position: absolute;
-    top: 0px;
-}
-
-/* Filter */
-.p-column-filter {
-    width: 100%;
-}
-
 /* Resizable */
-.p-treetable-resizable > .p-treetable-tablewrapper {
+.p-treetable-resizable > .p-treetable-wrapper {
     overflow-x: auto;
 }
 
@@ -1053,49 +965,12 @@ export default {
     display: none;
 }
 
-/* Selection */
-.p-treetable .p-treetable-checkbox {
-    margin: 0 .5em 0 .25em;
-    vertical-align: middle;
-}
-
-/* Edit */
-.p-treetable .p-treetable-tbody > tr > td.p-cell-editing .p-component {
-    width: 100%;
-}
-
-/* Reorder */
-.p-treetable-reorder-indicator-up,
-.p-treetable-reorder-indicator-down {
-    position: absolute;
-    display: none;
-}
-
-/* Responsive */
-.p-treetable-responsive .p-treetable-tbody > tr > td .p-column-title {
-    display: none;
-}
 
 /* Loader */
-.p-treetable .p-treetable-loading-overlay {
+.p-treetable-loading-overlay {
     position: absolute;
-    width: 100%;
-    height: 100%;
-    -ms-filter: "progid:DXImageTransform.Microsoft.Alpha(Opacity=10)";
-    opacity: 0.1;
-    z-index: 1;
-}
-
-.p-treetable .p-treetable-loading-content {
-    position: absolute;
-    left: 50%;
-    top: 50%;
-    z-index: 2;
-    margin-top: -1em;
-    margin-left: -1em;
-}
-
-.p-treetable .p-treetable-loading-icon {
-    font-size: 2em;
+    display: flex;
+    align-items: center;
+    justify-content: center;
 }
 </style>
