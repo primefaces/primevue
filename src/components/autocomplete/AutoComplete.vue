@@ -4,15 +4,15 @@
             role="searchbox" aria-autocomplete="list" :aria-controls="listId" :aria-labelledby="ariaLabelledBy">
         <ul ref="multiContainer" :class="multiContainerClass" v-if="multiple" @click="onMultiContainerClick">
             <li v-for="(item, i) of value" :key="i" class="p-autocomplete-token p-highlight">
-                <span class="p-autocomplete-token-icon pi pi-fw pi-times" @click="removeItem($event, i)"></span>
                 <span class="p-autocomplete-token-label">{{getItemContent(item)}}</span>
+                <span class="p-autocomplete-token-icon pi pi-times" @click="removeItem($event, i)"></span>
             </li>
             <li class="p-autocomplete-input-token">
                 <input ref="input" type="text" autoComplete="off" v-bind="$attrs" v-on="listeners" role="searchbox" aria-autocomplete="list" :aria-controls="listId" :aria-labelledby="ariaLabelledBy">
             </li>
         </ul>
         <i class="p-autocomplete-loader pi pi-spinner pi-spin" v-show="searching"></i>
-        <Button ref="dropdownButton" type="button" icon="pi pi-fw pi-chevron-down" class="p-autocomplete-dropdown" :disabled="$attrs.disabled" @click="onDropdownClick" v-if="dropdown"/>
+        <Button ref="dropdownButton" type="button" icon="pi pi-chevron-down" class="p-autocomplete-dropdown" :disabled="$attrs.disabled" @click="onDropdownClick" v-if="dropdown"/>
         <transition name="p-input-overlay" @enter="onOverlayEnter" @leave="onOverlayLeave">
             <div ref="overlay" class="p-autocomplete-panel" :style="{'max-height': scrollHeight}" v-if="overlayVisible">
                 <ul :id="listId" class="p-autocomplete-items p-autocomplete-list p-component" role="listbox">
@@ -430,27 +430,8 @@ export default {
 
 <style>
 .p-autocomplete {
-    width: auto;
-    cursor: pointer;
-    -moz-box-shadow: none;
-    -webkit-box-shadow: none;
-    box-shadow: none;
-    position: relative;
-    display: -webkit-inline-flex;
-    display: -ms-inline-flexbox;
     display: inline-flex;
-}
-
-.p-autocomplete .p-autocomplete-dropdown {
-    width: 2em;
-    margin-right: 0;
-}
-
-.p-autocomplete .p-autocomplete-input {
-    -webkit-box-flex: 1;
-    -webkit-flex: 1 1 auto;
-    -ms-flex: 1 1 auto;
-    flex: 1 1 auto;
+    position: relative;
 }
 
 .p-autocomplete-loader {
@@ -460,8 +441,20 @@ export default {
     margin-top: -.5em;
 }
 
-.p-autocomplete-query {
-    font-weight: bold;
+.p-autocomplete-dd .p-autocomplete-input {
+    flex: 1 1 auto;
+    width: 1%;
+}
+
+.p-autocomplete-dd .p-autocomplete-input,
+.p-autocomplete-dd .p-autocomplete-multiple-container {
+     border-top-right-radius: 0;
+     border-bottom-right-radius: 0;
+ }
+ 
+.p-autocomplete-dd .p-autocomplete-dropdown {
+     border-top-left-radius: 0;
+     border-bottom-left-radius: 0px;
 }
 
 .p-autocomplete .p-autocomplete-panel {
@@ -473,120 +466,47 @@ export default {
     overflow: auto;
 }
 
-.p-autocomplete-panel .p-autocomplete-list {
-    border: 0 none;
-    padding: 0;
-    margin: 0;
-}
-
-.p-autocomplete-panel .p-autocomplete-list-item {
-    border: 0 none;
+.p-autocomplete-list-item {
     cursor: pointer;
-    font-weight: normal;
-    margin: 1px 0;
-    padding: 0.186em 0.313em;
-    text-align: left;
-}
-
-.p-autocomplete .p-button-icon-only,
-.p-autocomplete .p-button-icon-only:enabled:hover,
-.p-autocomplete .p-button-icon-only:enabled:focus,
-.p-autocomplete .p-button-icon-only:enabled:active {
-    border-left: 0 none;
-}
-
-/* Multiple Selection */
-.p-autocomplete-multiple-container {
-    display: inline-block;
-    vertical-align: middle;
 }
 
 .p-autocomplete-multiple-container.p-inputtext {
-    clear: left;
     cursor: text;
     list-style-type: none;
     margin: 0;
     overflow: hidden;
-    padding: 0 1.5em 0 .25em;
+    display: flex;
+    align-items: center;
 }
 
 .p-autocomplete-token {
     cursor: default;
-    display: inline-block;
-    vertical-align: middle;
-    overflow: hidden;
-    padding: .125em .5em;
-    white-space: nowrap;
-    position: relative;
-    margin-right: .125em;
-    border: 0 none;
-    font-size: .9em;
-}
-
-.p-autocomplete-token-label {
-    display: block;
-    margin-right: 2em;
-}
-
-.p-autocomplete-token-icon {
-    margin-top: -.5em;
-    position: absolute;
-    right: 0.2em;
-    top: 50%;
-    cursor: pointer;
+    display: inline-flex;
+    align-items: center;
+    flex: 0 0 auto;
 }
 
 .p-autocomplete-input-token {
-    display: inline-block;
-    vertical-align: middle;
-    list-style-type: none;
-    margin: 0 0 0 .125em;
-    padding: .25em .25em .25em 0;
+    flex: 1 1 auto;
+    display: inline-flex;
 }
 
 .p-autocomplete-input-token input {
     border: 0 none;
-    width: 10em;
-    outline: medium none;
+    outline: 0 none;
     background-color: transparent;
     margin: 0;
     padding: 0;
     box-shadow: none;
-    -moz-border-radius: 0;
-    -webkit-border-radius: 0;
     border-radius: 0;
-}
-
-.p-autocomplete-dd .p-autocomplete-loader {
-    right: 2.25em;
-}
-
-.p-autocomplete-dd input,
-.p-autocomplete-dd .p-autocomplete-multiple-container {
-     -moz-border-radius-topright: 0px;
-     -webkit-border-top-right-radius: 0px;
-     border-top-right-radius: 0px;
-     -moz-border-radius-bottomright: 0px;
-     -webkit-border-bottom-right-radius: 0px;
-     border-bottom-right-radius: 0px;
- }
-
-.p-autocomplete-dd .p-autocomplete-dropdown {
-     -moz-border-radius-topleft: 0px;
-     -webkit-border-top-left-radius: 0px;
-     border-top-left-radius: 0px;
-     -moz-border-radius-bottomleft: 0px;
-     -webkit-border-bottom-left-radius: 0px;
-     border-bottom-left-radius: 0px;
-}
-
-/** AutoComplete **/
-.p-fluid .p-autocomplete,
-.p-fluid .p-autocomplete-input {
     width: 100%;
 }
 
-.p-fluid .p-autocomplete .p-autocomplete-dropdown.p-button {
-    width: 2em;
+.p-fluid .p-autocomplete {
+    display: flex;
+}
+
+.p-fluid .p-autocomplete-dd .p-autocomplete-input {
+    width: 1%;
 }
 </style>

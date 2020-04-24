@@ -34,7 +34,7 @@
                     </button>
                 </div>
                 <div ref="itemsWrapper" class="p-multiselect-items-wrapper" :style="{'max-height': scrollHeight}">
-                    <ul class="p-multiselect-items p-multiselect-list p-component" role="listbox" aria-multiselectable="true">
+                    <ul class="p-multiselect-items p-component" role="listbox" aria-multiselectable="true">
                         <li v-for="(option, i) of visibleOptions" :class="['p-multiselect-item', {'p-highlight': isSelected(option), 'p-disabled': isOptionDisabled(option)}]" role="option" :aria-selected="isSelected(option)"
                             :aria-label="getOptionLabel(option)" :key="getOptionRenderKey(option)" @click="onOptionSelect($event, option)" @keydown="onOptionKeyDown($event, option)" :tabindex="tabindex||'0'">
                             <div class="p-checkbox p-component">
@@ -410,46 +410,26 @@ export default {
 
 <style>
 .p-multiselect {
-    display: inline-block;
+    display: inline-flex;
+    cursor: pointer;
     position: relative;
-    width: auto;
-    cursor: pointer;
 }
 
-.p-multiselect .p-multiselect-trigger {
-    border-right: none;
-    border-top: none;
-    border-bottom: none;
-    cursor: pointer;
-    width: 1.5em;
-    height: 100%;
-    position: absolute;
-    right: 0;
-    top: 0;
-    padding: 0 .25em;
-}
-
-.p-multiselect .p-multiselect-trigger .p-multiselect-trigger-icon {
-    top: 50%;
-    left: 50%;
-    margin-top: -.5em;
-    margin-left: -.5em;
-    position: absolute;
+.p-multiselect-trigger {
+    display: flex;
+    align-items: center;
+    justify-content: center;
 }
 
 .p-multiselect .p-multiselect-label-container {
     overflow: hidden;
+    flex: 1 1 auto;
 }
 
 .p-multiselect .p-multiselect-label  {
     display: block;
-    padding: .25em 2em .25em .25em;
-    width: auto;
-    border: none;
-    cursor: pointer;
-    text-overflow: ellipsis;
-    overflow: hidden;
     white-space: nowrap;
+    text-overflow: ellipsis;
 }
 
 .p-multiselect-label-empty {
@@ -457,109 +437,50 @@ export default {
     visibility: hidden;
 }
 
-.p-multiselect.p-disabled .p-multiselect-trigger,
-.p-multiselect.p-disabled .p-multiselect-label {
-    cursor: auto;
-}
-
-.p-multiselect-panel {
-    padding: 0.2em;
-    position: absolute;
-    min-width: 10em;
-    z-index: 2;
-}
-
 .p-multiselect .p-multiselect-panel {
     min-width: 100%;
 }
 
-.p-multiselect-panel .p-multiselect-items-wrapper {
-    overflow: auto;
-    position: relative;
-    padding: 0.2em 0;
+.p-multiselect-panel {
+    position: absolute;
 }
 
-.p-multiselect-panel .p-multiselect-list {
-    border: 0 none;
-    margin: 0;
+.p-multiselect-items-wrapper {
+    overflow: auto;
+}
+
+.p-multiselect-items {
     list-style-type: none;
 }
 
-.p-multiselect-panel .p-multiselect-item {
-    border: 0 none;
+.p-multiselect-item {
     cursor: pointer;
-    font-weight: normal;
-    margin: 1px 0;
-    padding: .125em .25em;
-    text-align: left;
-    white-space: nowrap;
-    display: block;
-    position: relative;
-}
-
-.p-multiselect-panel .p-multiselect-item .p-checkbox {
-    display: inline-block;
-    vertical-align: middle;
-}
-
-.p-multiselect-panel .p-multiselect-item > span {
-    display: inline-block;
-    vertical-align: middle;
+    display: flex;
+    align-items: center;
 }
 
 .p-multiselect-header {
-    margin-bottom: 0.3em;
-    padding: .25em;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+}
+
+.p-multiselect-filter-container {
     position: relative;
-    text-align: left;
+    flex: 1 1 auto;
 }
 
-.p-multiselect-header .p-checkbox {
-    display: inline-block;
-    vertical-align: middle;
-    cursor:pointer;
-}
-
-.p-multiselect-header .p-multiselect-filter-container {
-    position: relative;
-    display: inline-block;
-    vertical-align: middle;
-    width: 65%;
-}
-
-.p-multiselect-header .p-multiselect-filter-container .p-multiselect-filter-icon {
+.p-multiselect-filter-icon {
     position: absolute;
-    top: .25em;
-    left: .125em;
+    top: 50%;
+    margin-top: -.5em;
 }
 
-.p-multiselect-header .p-inputtext {
-    padding: .125em .125em .125em 1.25em;
+.p-multiselect-filter-container .p-inputtext {
     width: 100%;
-}
-
-.p-multiselect-header .p-multiselect-close {
-    position: absolute;
-    right: .375em;
-    top: .375em;
-    display: block;
-    border: 0 none;
-}
-
-.p-multiselect-header a.p-multiselect-all,
-.p-multiselect-header a.p-multiselect-none {
-    float:left;
-    margin-right: 10px;
-    display: block;
-}
-
-.p-multiselect-header .p-multiselect-close.p-state-hover {
-    padding:0px;
 }
 
 .p-fluid .p-multiselect {
-    width: 100%;
-    box-sizing: border-box;
+    display: flex;
 }
-
 </style>

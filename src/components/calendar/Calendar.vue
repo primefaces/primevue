@@ -75,13 +75,7 @@
                         </button>
                     </div>
                     <div class="p-separator">
-                        <span class="p-separator-spacer">
-                            <span class="pi pi-chevron-up"></span>
-                        </span>
                         <span>{{timeSeparator}}</span>
-                        <span class="p-separator-spacer">
-                            <span class="pi pi-chevron-up"></span>
-                        </span>
                     </div>
                     <div class="p-minute-picker">
                         <button class="p-link" @mousedown="onTimePickerElementMouseDown($event, 1, 1)" @mouseup="onTimePickerElementMouseUp($event)" @keydown="onContainerButtonKeydown"
@@ -95,13 +89,7 @@
                         </button>
                     </div>
                     <div class="p-separator" v-if="showSeconds">
-                        <span class="p-separator-spacer">
-                            <span class="pi pi-chevron-up"></span>
-                        </span>
                         <span>{{timeSeparator}}</span>
-                        <span class="p-separator-spacer">
-                            <span class="pi pi-chevron-up"></span>
-                        </span>
                     </div>
                     <div class="p-second-picker" v-if="showSeconds">
                         <button class="p-link" @mousedown="onTimePickerElementMouseDown($event, 2, 1)" @mouseup="onTimePickerElementMouseUp($event)" @keydown="onContainerButtonKeydown"
@@ -115,13 +103,7 @@
                         </button>
                     </div>
                     <div class="p-separator" v-if="hourFormat=='12'">
-                        <span class="p-separator-spacer">
-                            <span class="pi pi-chevron-up"></span>
-                        </span>
                         <span>{{timeSeparator}}</span>
-                        <span class="p-separator-spacer">
-                            <span class="pi pi-chevron-up"></span>
-                        </span>
                     </div>
                     <div class="p-ampm-picker" v-if="hourFormat=='12'">
                         <button class="p-link" @click="toggleAMPM($event)" type="button">
@@ -2020,7 +2002,6 @@ export default {
                 'p-datepicker p-component',
                 {
                     'p-datepicker-inline': this.inline,
-                    'p-shadow': !this.inline,
                     'p-disabled': this.$attrs.disabled,
                     'p-datepicker-timeonly': this.timeOnly,
                     'p-datepicker-multiple-month': this.numberOfMonths > 1,
@@ -2162,21 +2143,22 @@ export default {
 <style>
 .p-calendar {
     position: relative;
-    display: inline-block;
+    display: inline-flex;
 }
 
-.p-calendar .p-calendar-button {
-    position: absolute;
-    height: 100%;
-    border-top-left-radius: 0px;
-    border-bottom-left-radius: 0px;
-    width: 2em;
-    border-left: 0 none;
+.p-calendar .p-inputtext {
+    flex: 1 1 auto;
+    width: 1%;
 }
 
-.p-calendar .p-calendar-button:enabled:hover,
-.p-calendar .p-calendar-button:focus {
-    border-left: 0 none;
+.p-calendar-w-btn .p-inputtext {
+    border-top-right-radius: 0;
+    border-bottom-right-radius: 0;
+}
+
+.p-calendar-button {
+    border-top-left-radius: 0;
+    border-bottom-left-radius: 0;
 }
 
 .p-calendar .p-datepicker {
@@ -2185,203 +2167,85 @@ export default {
 
 /* Fluid */
 .p-fluid .p-calendar {
-    width: 100%;
+    display: flex;
 }
 
-.p-fluid .p-calendar-button {
-    width: 2em;
-}
-
-.p-fluid .p-datepicker-buttonbar button {
-    width: auto;
-}
-
-.p-fluid .p-calendar.p-calendar-w-btn .p-inputtext {
-    width: calc(100% - 2em);
+.p-fluid .p-calendar .p-inputtext {
+    width: 1%;
 }
 
 /* Datepicker */
 .p-datepicker {
 	width: auto;
-	padding: .2em;
     position: absolute;
 }
 
-.p-datepicker.p-datepicker-inline {
-    display: inline-block;
+.p-datepicker-inline {
+    display: inline-flex;
     position: static;
-}
-
-.p-datepicker .p-datepicker-group {
-    border-left-width: 0;
-    border-right-width: 0;
-    border-top-width: 0;
-    border-bottom-width: 0;
 }
 
 /* Header */
 .p-datepicker .p-datepicker-header {
-	position: relative;
-	padding: .5em 0;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
 }
+
 .p-datepicker .p-datepicker-prev,
 .p-datepicker .p-datepicker-next {
-	position: absolute;
-	top: .5em;
-	width: 1.8em;
-    height: 1.8em;
     cursor: pointer;
-}
-
-.p-datepicker .p-datepicker-prev {
-	left: .125em;
-}
-.p-datepicker .p-datepicker-next {
-	right: .125em;
-}
-
-.p-datepicker .p-datepicker-prev span,
-.p-datepicker .p-datepicker-next span {
-	display: block;
-	position: absolute;
-	left: 50%;
-	top: 50%;
-    margin-top: -.5em;
-    margin-left: -.5em;
-}
-
-.p-datepicker .p-datepicker-title {
-	margin: 0 2.3em;
-	line-height: 1.8em;
-	text-align: center;
-}
-.p-datepicker .p-datepicker-title select {
-	font-size: 1em;
-	margin: .125em 0;
-    vertical-align: middle;
-}
-.p-datepicker select.p-datepicker-month {
-    margin-right: .25em;
-}
-.p-datepicker span.p-datepicker-year {
-	margin-left: .25em;
+    display: inline-flex;
+    justify-content: center;
+    align-items: center;
 }
 
 /* Multiple Month DatePicker */
-.p-datepicker-multiple-month .p-datepicker-group {
-    display: table-cell;
-    border-left-width: 0;
-    border-top-width: 0;
-    border-bottom-width: 0;
-    border-right-width: 1px;
+.p-datepicker-multiple-month {
+    display: flex;
 }
 
 /* DatePicker Table */
 .p-datepicker table {
 	width: 100%;
-	font-size: .9em;
 	border-collapse: collapse;
-	margin: 0 0 .4em;
 }
-.p-datepicker th {
-	padding: .5em;
-	text-align: center;
-	font-weight: bold;
-	border: 0;
-}
-.p-datepicker td {
-	border: 0;
-	padding: 0;
-}
+
 .p-datepicker td > span,
 .p-datepicker td > a {
-	display: block;
-	padding: .5em;
-	text-align: right;
-	text-decoration: none;
+    display: flex;
+    justify-content: center;
+    align-self: center;
 }
 
 .p-datepicker td a {
     cursor: pointer;
 }
 
-.p-datepicker .p-datepicker-buttonbar,
-.p-datepicker .p-datepicker-footer {
-	padding: .5em;
-}
-
-.p-datepicker .p-datepicker-buttonbar:after {
-    content: "";
-    display: table;
-    clear: both;
-}
-
-.p-datepicker .p-datepicker-buttonbar > button:last-child {
-    float: right;
-}
-
-.p-calendar.p-calendar-w-btn input {
-    -moz-border-radius-topright: 0px;
-    -webkit-border-top-right-radius: 0px;
-    -khtml-border-top-right-radius: 0px;
-    border-top-right-radius: 0px;
-    -moz-border-radius-bottomright: 0px;
-    -webkit-border-bottom-right-radius: 0px;
-    -khtml-border-bottom-right-radius: 0px;
-    border-bottom-right-radius: 0px;
-}
-
 /* Month Picker */
-.p-monthpicker .p-monthpicker-month {
+.p-monthpicker-month {
     width: 33.3%;
-    display: inline-block;
-    text-align: center;
-    padding: .5em;
+    display: inline-flex;
+    align-content: center;
+    justify-content: center;
     cursor: pointer;
-}
-
-.p-datepicker-monthpicker select.p-datepicker-year {
-    width: auto;
 }
 
 /* Time Picker */
 .p-timepicker {
-    text-align: center;
-    padding: .5em 0;
+    display: flex;
+    justify-content: center;
 }
 
-.p-timepicker > div {
-    display: inline-block;
-    margin-left: .5em;
-    min-width: 1.5em;
+.p-timepicker .p-separator {
+    display: flex;
+    justify-content: center;
+    align-items: center;
 }
 
-.p-timepicker > .p-minute-picker,
-.p-timepicker > .p-second-picker {
-    margin-left: 0;
-}
-
-.p-timepicker > .p-separator {
-    margin-left: 0px;
-    min-width: .75em;
-}
-
-.p-timepicker > .p-separator .p-separator-spacer {
-    visibility: hidden;
-    display: block;
-}
-
-.p-timepicker > div button {
+.p-timepicker button {
     display: block;
     cursor: pointer;
-}
-
-.p-timepicker > div button:last-child {
-    margin-top: .3em;
-}
-
-input[type=text]::-ms-clear {
-    display: none;
 }
 
 /* Touch UI */
@@ -2393,46 +2257,4 @@ input[type=text]::-ms-clear {
     min-width: 80vw;
     transform: translate(-50%, -50%);
 }
-
-.p-datepicker-touch-ui.p-datepicker th {
-	padding: 2em 0;
-}
-.p-datepicker-touch-ui.p-datepicker td {
-	padding: 0;
-}
-.p-datepicker-touch-ui.p-datepicker td span,
-.p-datepicker-touch-ui.p-datepicker td a {
-	padding: 2em 0;
-}
-
-.p-datepicker-touch-ui .p-timepicker {
-    padding: 1em 0;
-}
-
-.p-datepicker-touch-ui .p-timepicker > div a {
-    font-size: 2em;
-}
-
-.p-datepicker-mask {
-    position: fixed;
-    width: 100%;
-    height: 100%;
-}
-
-@media screen and (max-width: 40em) {
-    .p-datepicker-multiple-month {
-        width: 17em;
-        overflow: auto;
-    }
-
-    .p-datepicker-touch-ui.p-datepicker th {
-        padding: 1em 0;
-    }
-
-    .p-datepicker-touch-ui.p-datepicker td span,
-    .p-datepicker-touch-ui.p-datepicker td a {
-        padding: 1em 0;
-    }
-}
-
 </style>

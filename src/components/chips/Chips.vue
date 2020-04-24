@@ -1,10 +1,10 @@
 <template>
     <div :class="['p-chips p-component', {'p-inputwrapper-filled': value, 'p-inputwrapper-focus': focused}]">
-        <ul :class="['p-inputtext', {'p-disabled': $attrs.disabled, 'p-focus': focused}]" @click="onWrapperClick()">
+        <ul :class="['p-inputtext p-chips-multiple-container', {'p-disabled': $attrs.disabled, 'p-focus': focused}]" @click="onWrapperClick()">
             <li v-for="(val,i) of value" :key="`${i}_${val}`" class="p-chips-token p-highlight">
                 <slot name="chip" :value="val">
-                    <span class="p-chips-token-icon pi pi-fw pi-times" @click="removeItem($event, i)"></span>
                     <span class="p-chips-token-label">{{val}}</span>
+                    <span class="p-chips-token-icon pi pi-fw pi-times" @click="removeItem($event, i)"></span>
                 </slot>
             </li>
             <li class="p-chips-input-token">
@@ -151,70 +151,42 @@ export default {
 
 <style>
 .p-chips {
-    display: inline-block;
+    display: inline-flex;
 }
 
-.p-chips > ul.p-inputtext {
-    clear: left;
+.p-chips-multiple-container.p-inputtext {
     cursor: text;
     list-style-type: none;
     margin: 0;
     overflow: hidden;
-    padding: 0 .25em;
+    display: flex;
+    align-items: center;
 }
 
 .p-chips-token {
     cursor: default;
-    display: inline-block;
-    vertical-align: middle;
-    overflow: hidden;
-    padding: .125em .5em;
-    white-space: nowrap;
-    position: relative;
-    margin-right: .125em;
-    border: 0 none;
-    font-size: .9em;
-}
-
-.p-chips-token .p-chips-token-label {
-    display: block;
-    margin-right: 2em;
-}
-
-.p-chips > .p-disabled .p-chips-token-label {
-    margin-right: 0;
-}
-
-.p-chips-token .p-chips-token-icon {
-    margin-top: -.5em;
-    position: absolute;
-    right: 0.2em;
-    top: 50%;
-    cursor: pointer;
+    display: inline-flex;
+    align-items: center;
+    flex: 0 0 auto;
 }
 
 .p-chips-input-token {
-    display: inline-block;
-    vertical-align: middle;
-    list-style-type: none;
-    margin: 0 0 0 .125em;
-    padding: .25em .25em .25em 0;
+    flex: 1 1 auto;
+    display: inline-flex;
 }
 
-.p-chips-input-token .p-inputtext {
+.p-chips-input-token input {
     border: 0 none;
-    width: 10em;
-    outline: medium none;
+    outline: 0 none;
     background-color: transparent;
     margin: 0;
     padding: 0;
     box-shadow: none;
-    -moz-border-radius: 0;
-    -webkit-border-radius: 0;
     border-radius: 0;
+    width: 100%;
 }
 
 .p-fluid .p-chips {
-    display: block;
+    display: flex;
 }
 </style>
