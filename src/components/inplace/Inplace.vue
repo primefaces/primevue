@@ -66,4 +66,13 @@ export default {
 .p-inplace .p-inplace-content {
     display: inline;
 }
+
+.p-fluid .p-inplace.p-inplace-closable .p-inplace-content {
+    display: flex;
+}
+
+.p-fluid .p-inplace.p-inplace-closable .p-inplace-content > .p-inputtext {
+    flex: 1 1 auto;
+    width: 1%;
+}
 </style>

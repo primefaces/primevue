@@ -262,7 +262,7 @@ export default {
         },
         getSubmenuIcon() {
             return [
-                'p-submenu-icon pi pi-fw', {'pi-caret-right': !this.root, 'pi-caret-down': this.root}
+                'p-submenu-icon pi', {'pi-caret-right': !this.root, 'pi-caret-down': this.root}
             ];
         },
         visible(item) {

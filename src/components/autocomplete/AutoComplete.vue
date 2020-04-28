@@ -11,12 +11,12 @@
                 <input ref="input" type="text" autoComplete="off" v-bind="$attrs" v-on="listeners" role="searchbox" aria-autocomplete="list" :aria-controls="listId" :aria-labelledby="ariaLabelledBy">
             </li>
         </ul>
-        <i class="p-autocomplete-loader pi pi-spinner pi-spin" v-show="searching"></i>
+        <i class="p-autocomplete-loader pi pi-spinner pi-spin" v-if="searching"></i>
         <Button ref="dropdownButton" type="button" icon="pi pi-chevron-down" class="p-autocomplete-dropdown" :disabled="$attrs.disabled" @click="onDropdownClick" v-if="dropdown"/>
         <transition name="p-input-overlay" @enter="onOverlayEnter" @leave="onOverlayLeave">
-            <div ref="overlay" class="p-autocomplete-panel" :style="{'max-height': scrollHeight}" v-if="overlayVisible">
-                <ul :id="listId" class="p-autocomplete-items p-autocomplete-list p-component" role="listbox">
-                    <li v-for="(item, i) of suggestions" class="p-autocomplete-list-item" :key="i" @click="selectItem($event, item)" role="option">
+            <div ref="overlay" class="p-autocomplete-panel p-component" :style="{'max-height': scrollHeight}" v-if="overlayVisible">
+                <ul :id="listId" class="p-autocomplete-items" role="listbox">
+                    <li v-for="(item, i) of suggestions" class="p-autocomplete-item" :key="i" @click="selectItem($event, item)" role="option">
                         <slot name="item" :item="item" :index="i">
                             {{getItemContent(item)}}
                         </slot>
@@ -436,7 +436,6 @@ export default {
 
 .p-autocomplete-loader {
     position: absolute;
-    right: .25em;
     top: 50%;
     margin-top: -.5em;
 }
@@ -466,14 +465,21 @@ export default {
     overflow: auto;
 }
 
-.p-autocomplete-list-item {
+.p-autocomplete-items {
+    margin: 0;
+    padding: 0;
+    list-style-type: none;
+}
+
+.p-autocomplete-item {
     cursor: pointer;
 }
 
-.p-autocomplete-multiple-container.p-inputtext {
-    cursor: text;
-    list-style-type: none;
+.p-autocomplete-multiple-container {
     margin: 0;
+    padding: 0;
+    list-style-type: none;
+    cursor: text;
     overflow: hidden;
     display: flex;
     align-items: center;
@@ -484,6 +490,10 @@ export default {
     display: inline-flex;
     align-items: center;
     flex: 0 0 auto;
+}
+
+.p-autocomplete-token-icon {
+    cursor: pointer;
 }
 
 .p-autocomplete-input-token {

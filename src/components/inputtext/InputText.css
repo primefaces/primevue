@@ -13,18 +13,10 @@
     width: 100%;
 }
 
-.p-inputgroup .p-inputgroup-addon {
+.p-inputgroup-addon {
     display: flex;
     align-items: center;
     justify-content: center;
-}
-
-.p-inputgroup .p-button {
-    margin-right: 0;
-}
-
-.p-fluid .p-inputgroup .p-button {
-    width: auto;
 }
 
 .p-inputgroup .p-inputtext,
@@ -44,7 +36,8 @@
     pointer-events: none;
     top: 50%;
     margin-top: -.5em;
-    transition: 0.3s ease all; 
+    transition-property: all;
+    transition-timing-function: ease;
     line-height: 1;
 }
     
@@ -52,11 +45,11 @@
 .p-float-label input.p-filled ~ label,
 .p-float-label .p-inputwrapper-focus ~ label,
 .p-float-label .p-inputwrapper-filled ~ label {
-    top:-.75em;
-    font-size:12px;
+    top: -.75em;
+    font-size: 12px;
 }
 
 .p-float-label .input:-webkit-autofill ~ label {
-    top:-20px;
-    font-size:12px;
+    top: -20px;
+    font-size: 12px;
 }

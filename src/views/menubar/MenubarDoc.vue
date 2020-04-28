@@ -247,7 +247,7 @@ export default {
 &lt;Menubar :model="items"&gt;
     &lt;template #end&gt;
         &lt;InputText placeholder="Search" type="text" /&gt;
-        &lt;Button label="Logout" icon="pi pi-power-off" :style="{'margin-left': '.25em'}"/&gt;
+        &lt;Button label="Logout" icon="pi pi-power-off" :style="{'margin-left': '0 .5em'}"/&gt;
     &lt;/template&gt;
 &lt;/Menubar&gt;
 </template>

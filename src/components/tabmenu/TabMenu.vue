@@ -78,6 +78,10 @@ export default {
     align-items: center;
 }
 
+.p-tabmenu-nav .p-menuitem-text {
+    line-height: 1;
+}
+
 .p-tabmenu-nav li.p-disabled a {
     cursor: auto;
 }

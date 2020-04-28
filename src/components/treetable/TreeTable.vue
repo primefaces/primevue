@@ -925,6 +925,10 @@ export default {
     cursor: pointer;
 }
 
+.p-treetable-toggler {
+    cursor: pointer;
+}
+
 /* Resizable */
 .p-treetable-resizable > .p-treetable-wrapper {
     overflow-x: auto;

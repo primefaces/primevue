@@ -1,7 +1,7 @@
 <template>
     <div aria-live="polite" :class="containerClass">
         <span :class="iconClass"></span>
-        <span class="p-message-text"><slot></slot></span>
+        <span class="p-message-text"><slot>&nbsp;</slot></span>
     </div>
 </template>
 
@@ -28,7 +28,7 @@ export default {
     },
     computed: {
         containerClass() {
-            return 'p-message p-component p-message-' + this.severity;
+            return ['p-message p-component p-message-' + this.severity, {'p-message-icon-only': !this.$scopedSlots.default}];
         },
         iconClass() {
             return ['p-message-icon pi', {
@@ -46,6 +46,13 @@ export default {
 .p-message {
     display: inline-flex;
     align-items: center;
+    justify-content: center;
+    vertical-align: top;
+}
+
+.p-message-icon-only .p-message-text {
+    visibility: hidden;
+    width: 0;
 }
 
 .p-fluid .p-message {

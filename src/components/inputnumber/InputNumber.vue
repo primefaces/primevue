@@ -631,14 +631,11 @@ export default {
     display: none;
 }
 
-.p-inputnumber .p-inputnumber-button span {
-    font-size: inherit;
-}
-
 .p-inputnumber-buttons-stacked .p-inputnumber-button-up {
     border-top-left-radius: 0;
     border-bottom-left-radius: 0;
     border-bottom-right-radius: 0;
+    padding: 0;
 }
 
 .p-inputnumber-buttons-stacked .p-inputnumber-input {
@@ -650,6 +647,7 @@ export default {
     border-top-left-radius: 0;
     border-top-right-radius: 0;
     border-bottom-left-radius: 0;
+    padding: 0;
 }
 
 .p-inputnumber-buttons-stacked .p-inputnumber-button-group {
@@ -682,12 +680,11 @@ export default {
     flex-direction: column;
 }
 
-.p-inputnumber-buttons-vertical .p-inputnumber-button-up {
+.p-inputnumber-buttons-vertical .p-inputnumber-button-up.p-button-icon-only {
     order: 1;
-    flex: 1 1 auto;
     border-bottom-left-radius: 0;
     border-bottom-right-radius: 0;
-    width: auto;
+    width: 100%;
 }
 
 .p-inputnumber-buttons-vertical .p-inputnumber-input {
@@ -696,12 +693,11 @@ export default {
     text-align: center;
 }
 
-.p-inputnumber-buttons-vertical .p-inputnumber-button-down {
+.p-inputnumber-buttons-vertical .p-inputnumber-button-down.p-button-icon-only {
     order: 3;
-    flex: 1 1 auto;
     border-top-left-radius: 0;
     border-top-right-radius: 0;
-    width: auto;
+    width: 100%;
 }
 
 .p-inputnumber-input {
@@ -716,8 +712,7 @@ export default {
     width: 1%;
 }
 
-.p-fluid .p-inputnumber-buttons-vertical .p-inputnumber-input,
-.p-fluid .p-inputnumber-buttons-vertical .p-inputnumber-button {
+.p-fluid .p-inputnumber-buttons-vertical .p-inputnumber-input {
     width: 100%;
 }
 </style>

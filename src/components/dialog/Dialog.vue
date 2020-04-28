@@ -285,6 +285,10 @@ export default {
     justify-content: space-between;
 }
 
+.p-dialog-title {
+    list-style: 1;
+}
+
 .p-dialog .p-dialog-titlebar-icon {
     display: flex;
     align-items: center;

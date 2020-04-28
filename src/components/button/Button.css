@@ -1,9 +1,18 @@
 .p-button {
+    margin: 0;
     display: inline-flex;
     cursor: pointer;
-    margin-right: 0.25em;
     user-select: none;
     align-items: center;
+    vertical-align: bottom;
+}
+
+.p-button-text {
+    flex: 1 1 auto;
+}
+
+.p-button-icon-right {
+    order: 1;
 }
 
 .p-button:disabled {
@@ -14,12 +23,8 @@
     justify-content: center;
 }
 
-.p-fluid .p-button {
-    display: flex;
-    width: 100%;
-}
-
-.p-fluid .p-button-icon-only {
-    display: inline-flex;
-    width: auto;
+.p-button-icon-only .p-button-text {
+    visibility: hidden;
+    width: 0;
+    flex: 0 0 auto;
 }

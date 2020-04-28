@@ -67,7 +67,7 @@ export default {
         },
         getPanelToggleIcon(item) {
             const active = item === this.activeItem;
-            return ['p-panelmenu-icon pi pi-fw', {'pi-caret-right': !active,' pi-caret-down': active}];
+            return ['p-panelmenu-icon pi', {'pi-chevron-right': !active,' pi-chevron-down': active}];
         },
         getPanelIcon(item) {
             return ['p-menuitem-icon', item.icon];
@@ -94,14 +94,11 @@ export default {
 </script>
 
 <style>
-.p-panelmenu .p-menu-separator {
-    border-width: 1px 0 0 0;
-}
-
 .p-panelmenu .p-panelmenu-header-link {
     display: flex;
     align-items: center;
     user-select: none;
+    cursor: pointer;
 }
 
 .p-panelmenu .p-submenu-list {
@@ -114,5 +111,10 @@ export default {
     display: flex;
     align-items: center;
     user-select: none;
+    cursor: pointer;
+}
+
+.p-panelmenu .p-menuitem-text {
+    line-height: 1;
 }
 </style>

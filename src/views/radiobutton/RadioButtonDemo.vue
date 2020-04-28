@@ -64,8 +64,12 @@ export default {
 </script>
 
 <style scoped>
+.p-col-12 {
+    display: flex;
+    align-items: center;
+}
+
 label {
-    vertical-align: middle;
     margin-left: .5em;
 }
 </style>

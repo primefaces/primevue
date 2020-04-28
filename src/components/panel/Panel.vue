@@ -63,6 +63,10 @@ export default {
     align-items: center;
 }
 
+.p-panel-title {
+    line-height: 1;
+}
+
 .p-panel-titlebar-icon {
     display: inline-flex;
     justify-content: center;

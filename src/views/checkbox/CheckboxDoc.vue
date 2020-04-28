@@ -152,8 +152,12 @@ export default {
 <CodeHighlight>
 <template v-pre>
 &lt;h3&gt;Basic&lt;/h3&gt;
-&lt;Checkbox id="binary" v-model="checked" :binary="true"/&gt;
-&lt;label for="binary" class="p-checkbox-label" style="font-weight: bold"&gt;{{checked}}&lt;/label&gt;
+&lt;div class="p-grid"&gt;
+    &lt;div class="p-col-12"&gt;
+        &lt;Checkbox id="binary" v-model="checked" :binary="true"/&gt;
+        &lt;label for="binary" class="p-checkbox-label" style="font-weight: bold"&gt;{{checked}}&lt;/label&gt;
+    &lt;/div&gt;
+&lt;/div&gt;
 
 &lt;h3&gt;Multiple&lt;/h3&gt;
 &lt;div class="p-grid"&gt;

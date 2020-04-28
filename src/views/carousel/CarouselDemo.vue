@@ -143,7 +143,7 @@ export default {
 		.p-carousel-item {
 			.car-details {
 				> .p-grid {
-					border: 1px solid #b3c2ca;
+					border: 1px solid #c8c8c8;
 					border-radius: 3px;
 					margin: .3em;
 					text-align: center;

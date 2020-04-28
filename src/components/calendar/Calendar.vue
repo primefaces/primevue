@@ -1,7 +1,7 @@
 <template>
     <span :class="containerClass">
         <CalendarInputText ref="input" v-if="!inline" type="text" v-bind="$attrs" v-on="listeners" :value="inputFieldValue" :readonly="!manualInput" :aria-labelledby="ariaLabelledBy"/>
-        <CalendarButton v-if="showIcon" :icon="icon" tabindex="-1" class="p-datepicker-trigger p-calendar-button" :disabled="$attrs.disabled" @click="onButtonClick" type="button" :aria-label="inputFieldValue"/>
+        <CalendarButton v-if="showIcon" :icon="icon" tabindex="-1" class="p-datepicker-trigger" :disabled="$attrs.disabled" @click="onButtonClick" type="button" :aria-label="inputFieldValue"/>
         <transition name="p-input-overlay" @enter="onOverlayEnter" @after-enter="onOverlayEnterComplete" @leave="onOverlayLeave">
             <div ref="overlay" :class="panelStyleClass" v-if="inline ? true : overlayVisible" role="dialog" :aria-labelledby="ariaLabelledBy">
                 <template v-if="!timeOnly">
@@ -68,7 +68,7 @@
                             @mouseleave="onTimePickerElementMouseLeave()" @keydown.enter="onTimePickerElementMouseDown($event, 0, 1)" @keyup.enter="onTimePickerElementMouseUp($event)" type="button">
                             <span class="pi pi-chevron-up"></span>
                         </button>
-                        <span :style="{'display': currentHour < 10 ? 'inline': 'none'}">0</span><span>{{currentHour}}</span>
+                        <span>{{formattedCurrentHour}}</span>
                         <button class="p-link" @mousedown="onTimePickerElementMouseDown($event, 0, -1)" @mouseup="onTimePickerElementMouseUp($event)" @keydown="onContainerButtonKeydown"
                             @mouseleave="onTimePickerElementMouseLeave()" @keydown.enter="onTimePickerElementMouseDown($event, 0, -1)" @keyup.enter="onTimePickerElementMouseUp($event)" type="button">
                             <span class="pi pi-chevron-down"></span>
@@ -82,7 +82,7 @@
                             @mouseleave="onTimePickerElementMouseLeave()" @keydown.enter="onTimePickerElementMouseDown($event, 1, 1)" @keyup.enter="onTimePickerElementMouseUp($event)" type="button">
                             <span class="pi pi-chevron-up"></span>
                         </button>
-                        <span :style="{'display': currentMinute < 10 ? 'inline': 'none'}">0</span><span>{{currentMinute}}</span>
+                       <span>{{formattedCurrentMinute}}</span>
                         <button class="p-link" @mousedown="onTimePickerElementMouseDown($event, 1, -1)" @mouseup="onTimePickerElementMouseUp($event)" @keydown="onContainerButtonKeydown"
                             @mouseleave="onTimePickerElementMouseLeave()" @keydown.enter="onTimePickerElementMouseDown($event, 1, -1)" @keyup.enter="onTimePickerElementMouseUp($event)" type="button">
                             <span class="pi pi-chevron-down"></span>
@@ -96,7 +96,7 @@
                             @mouseleave="onTimePickerElementMouseLeave()" @keydown.enter="onTimePickerElementMouseDown($event, 2, 1)" @keyup.enter="onTimePickerElementMouseUp($event)" type="button">
                             <span class="pi pi-chevron-up"></span>
                         </button>
-                        <span :style="{'display': currentSecond < 10 ? 'inline': 'none'}">0</span><span>{{currentSecond}}</span>
+                        <span>{{formattedCurrentSecond}}</span>
                         <button class="p-link" @mousedown="onTimePickerElementMouseDown($event, 2, -1)" @mouseup="onTimePickerElementMouseUp($event)" @keydown="onContainerButtonKeydown"
                             @mouseleave="onTimePickerElementMouseLeave()" @keydown.enter="onTimePickerElementMouseDown($event, 2, -1)" @keyup.enter="onTimePickerElementMouseUp($event)" type="button">
                             <span class="pi pi-chevron-down"></span>
@@ -2131,6 +2131,15 @@ export default {
             }
 
             return monthPickerValues;
+        },
+        formattedCurrentHour() {
+            return this.currentHour < 10 ? '0' + this.currentHour : this.currentHour;
+        },
+        formattedCurrentMinute() {
+            return this.currentHour < 10 ? '0' + this.currentHour : this.currentHour;
+        },
+        formattedCurrentSecond() {
+            return this.currentHour < 10 ? '0' + this.currentHour : this.currentHour;
         }
     },
     components: {
@@ -2156,13 +2165,9 @@ export default {
     border-bottom-right-radius: 0;
 }
 
-.p-calendar-button {
+.p-calendar-w-btn .p-datepicker-trigger {
     border-top-left-radius: 0;
     border-bottom-left-radius: 0;
-}
-
-.p-calendar .p-datepicker {
-    min-width: 100%;
 }
 
 /* Fluid */
@@ -2175,6 +2180,10 @@ export default {
 }
 
 /* Datepicker */
+.p-calendar .p-datepicker {
+    min-width: 100%;
+}
+
 .p-datepicker {
 	width: auto;
     position: absolute;
@@ -2186,14 +2195,18 @@ export default {
 }
 
 /* Header */
-.p-datepicker .p-datepicker-header {
+.p-datepicker-header {
     display: flex;
     align-items: center;
     justify-content: space-between;
 }
 
-.p-datepicker .p-datepicker-prev,
-.p-datepicker .p-datepicker-next {
+.p-datepicker-header .p-datepicker-title {
+    margin: 0 auto;
+}
+
+.p-datepicker-prev,
+.p-datepicker-next {
     cursor: pointer;
     display: inline-flex;
     justify-content: center;
@@ -2211,14 +2224,10 @@ export default {
 	border-collapse: collapse;
 }
 
-.p-datepicker td > span,
-.p-datepicker td > a {
+.p-datepicker td > span {
     display: flex;
     justify-content: center;
     align-self: center;
-}
-
-.p-datepicker td a {
     cursor: pointer;
 }
 
@@ -2231,13 +2240,15 @@ export default {
     cursor: pointer;
 }
 
-/* Time Picker */
-.p-timepicker {
+/*  Button Bar */
+.p-datepicker-buttonbar {
     display: flex;
-    justify-content: center;
+    justify-content: space-between;
+    align-items: center;
 }
 
-.p-timepicker .p-separator {
+/* Time Picker */
+.p-timepicker {
     display: flex;
     justify-content: center;
     align-items: center;
@@ -2246,6 +2257,13 @@ export default {
 .p-timepicker button {
     display: block;
     cursor: pointer;
+    line-height: 1;
+}
+
+.p-timepicker > div {
+    display: flex;
+    align-items: center;
+    flex-direction: column;
 }
 
 /* Touch UI */

@@ -8,8 +8,13 @@
         </div>
 
         <div class="content-section implementation">
-            <TriStateCheckbox v-model="value" />
-            <p>Value: <span style="font-weight: bold">{{value == null ? 'null' : value}}</span></p>
+            <div class="p-grid">
+                <div class="p-col-12">
+                    <TriStateCheckbox v-model="value" />
+                    <label>{{value == null ? 'null' : value}}</label>
+                </div>
+            </div>
+
         </div>
 
         <TriStateCheckboxDoc/>
@@ -30,3 +35,15 @@ export default {
     }
 }
 </script>
+
+<style scoped>
+.p-col-12 {
+    display: flex;
+    align-items: center;
+}
+
+label {
+    font-weight: bold;
+    margin-left: .5em;
+}
+</style>

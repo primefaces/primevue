@@ -57,6 +57,16 @@ import Button from 'primevue/button';
 &lt;Button label="Primary" class="p-button-raised p-button-rounded" /&gt;
 </CodeHighlight>
 
+                <h3>ButtonSet</h3>
+                <p>Wrapping the buttons in a container having a <i>.p-buttonset</i> class, groups the buttons side to side.</p>
+<CodeHighlight>
+&lt;span class="p-buttonset"&gt;
+    &lt;Button label="Save" icon="pi pi-check" /&gt;
+    &lt;Button label="Delete" icon="pi pi-trash" /&gt;
+    &lt;Button label="Cancel" icon="pi pi-times" /&gt;
+&lt;/span&gt;
+</CodeHighlight>
+
 				<h3>Properties</h3>
                 <p>Any property such as style and class are passed to the underlying button element. Following are the additional properties to configure the component.</p>
 				<div class="doc-tablewrapper">
@@ -97,24 +107,24 @@ import Button from 'primevue/button';
 				<div class="doc-tablewrapper">
 					<table class="doc-table">
 						<thead>
-						<tr>
-							<th>Name</th>
-							<th>Element</th>
-						</tr>
+                            <tr>
+                                <th>Name</th>
+                                <th>Element</th>
+                            </tr>
 						</thead>
 						<tbody>
-						<tr>
-							<td>p-button</td>
-							<td>Button element</td>
-						</tr>
-						<tr>
-							<td>p-button-icon</td>
-							<td>Icon element</td>
-						</tr>
-						<tr>
-							<td>p-button-text</td>
-							<td>Label element of the button</td>
-						</tr>
+                            <tr>
+                                <td>p-button</td>
+                                <td>Button element</td>
+                            </tr>
+                            <tr>
+                                <td>p-button-icon</td>
+                                <td>Icon element</td>
+                            </tr>
+                            <tr>
+                                <td>p-button-text</td>
+                                <td>Label element of the button</td>
+                            </tr>
 						</tbody>
 					</table>
 				</div>
@@ -159,6 +169,13 @@ import Button from 'primevue/button';
 &lt;Button label="Info" class="p-button-rounded p-button-info" /&gt;
 &lt;Button label="Warning" class="p-button-rounded p-button-warning" /&gt;
 &lt;Button label="Danger" class="p-button-rounded p-button-danger" /&gt;
+
+&lt;h3&gt;ButtonSet&lt;/h3&gt;
+&lt;span class="p-buttonset"&gt;
+    &lt;Button label="Save" icon="pi pi-check" /&gt;
+    &lt;Button label="Delete" icon="pi pi-trash" /&gt;
+    &lt;Button label="Cancel" icon="pi pi-times" /&gt;
+&lt;/span&gt;
 </template>
 </CodeHighlight>
 

@@ -9,8 +9,12 @@
 
         <div class="content-section implementation">
             <h3 class="first">Basic</h3>
-            <Checkbox id="binary" v-model="checked" :binary="true" />
-            <label for="binary" style="font-weight: bold">{{checked}}</label>
+            <div class="p-grid">
+                <div class="p-col-12">
+                     <Checkbox id="binary" v-model="checked" :binary="true" />
+                    <label for="binary" style="font-weight: bold">{{checked}}</label>
+                </div>
+            </div>
 
             <h3>Multiple</h3>
             <div class="p-grid">
@@ -69,8 +73,12 @@ export default {
 </script>
 
 <style scoped>
+.p-col-12 {
+    display: flex;
+    align-items: center;
+}
+
 label {
-    vertical-align: middle;
     margin-left: .5em;
 }
 </style>

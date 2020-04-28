@@ -27,10 +27,7 @@
     font-size: 100%;
     list-style: none;
 }
-.p-disabled {
-    cursor: default !important;
-}
-.p-disabled a {
+.p-disabled, .p-disabled * {
     cursor: default !important;
 }
 .p-component-overlay {

@@ -157,16 +157,8 @@ export default {
 </script>
 
 <style>
-.p-tieredmenu {
-    width: 12.5em;
-}
-
 .p-tieredmenu-dynamic {
     position: absolute;
-}
-
-.p-tieredmenu .p-menu-separator {
-    border-width: 1px 0 0 0;
 }
 
 .p-tieredmenu ul {
@@ -188,12 +180,16 @@ export default {
     align-items: center;
 }
 
+.p-tieredmenu .p-menuitem-text {
+    line-height: 1;
+}
+
 .p-tieredmenu .p-menuitem {
     position: relative;
 }
 
 .p-tieredmenu .p-menuitem-link .p-submenu-icon {
-    margin-left: auto;;
+    margin-left: auto;
 }
 
 .p-tieredmenu .p-menuitem-active > .p-submenu-list {

@@ -533,11 +533,15 @@ export default {
 	flex-direction: row;
 }
 
-.p-carousel .p-carousel-dots-container {
+.p-carousel-dots-container {
 	display: flex;
 	flex-direction: row;
 	justify-content: center;
 	flex-wrap: wrap;
+}
+
+.p-carousel-dot-item > button {
+    display: inline-flex;
 }
 
 /* Vertical */

@@ -19,7 +19,7 @@
                 </template>
             </transition-group>
         </div>
-        <div class="p-picklist-buttons">
+        <div class="p-picklist-buttons p-picklist-transfer-buttons">
             <PLButton type="button" icon="pi pi-angle-right" @click="moveToTarget"></PLButton>
             <PLButton type="button" icon="pi pi-angle-double-right" @click="moveAllToTarget"></PLButton>
             <PLButton type="button" icon="pi pi-angle-left" @click="moveToSource"></PLButton>
@@ -507,15 +507,4 @@ export default {
 .p-picklist-item.p-picklist-flip-leave-active.p-picklist-flip-leave-to {
     transition: none !important;
 }
-
-@media (max-width: 767px) {
-    .p-picklist {
-        flex-direction: column;
-    }
-
-    .p-picklist-buttons {
-        flex-direction: row;
-    }
-}
-
 </style>

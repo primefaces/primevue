@@ -180,16 +180,8 @@ export default {
 </script>
 
 <style>
-.p-menu {
-    width: 12.5em;
-}
-
 .p-menu-dynamic {
     position: absolute;
-}
-
-.p-menu .p-menu-separator {
-    border-width: 1px 0 0 0;
 }
 
 .p-menu ul {
@@ -202,5 +194,9 @@ export default {
     cursor: pointer;
     display: flex;
     align-items: center;
+}
+
+.p-menu .p-menuitem-text {
+    line-height: 1;
 }
 </style>

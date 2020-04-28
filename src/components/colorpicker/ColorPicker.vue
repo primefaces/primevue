@@ -465,8 +465,6 @@ export default {
     position: relative;
     width: 193px;
     height: 166px;
-    background-color: #323232;
-    border-color: #191919;
 }
 
 .p-colorpicker-overlay-panel {
@@ -474,7 +472,6 @@ export default {
 }
 
 .p-colorpicker-preview {
-    width: 2em;
     cursor: pointer;
 }
 
@@ -502,7 +499,7 @@ export default {
      border-radius: 100%;
      width: 10px;
      height: 10px;
-     border: 1px solid #ffffff;
+     border: 1px solid;
      margin: -5px 0 0 -5px;
      cursor: pointer;
 }
@@ -524,7 +521,7 @@ export default {
      margin-left: -2px;
      margin-top: -5px;
      height: 10px;
-     border: 2px solid #ffffff;
+     border: 2px solid;
      opacity: .85;
      cursor: pointer;
  }

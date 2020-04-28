@@ -103,6 +103,7 @@ export default {
 <style lang="scss" scoped>
 .p-dropdown {
     width: 12em;
+    font-weight: normal;
 }
 
 .p-dataview {
@@ -111,7 +112,6 @@ export default {
         justify-content: space-between;
         align-items: center;
         padding: 2em;
-        border-bottom: 1px solid #d9dad9;
 
         & > div {
             display: flex;
@@ -147,10 +147,6 @@ export default {
 /* Dark Theme such as luna-amber, luna-blue, luna-green and luna-pink */
 .dark-theme {
     .p-dataview {
-        .car-details {
-            border-bottom-color: #191919;
-        }
-
         .car-detail {
             border-bottom: 1px solid #191919;
         }

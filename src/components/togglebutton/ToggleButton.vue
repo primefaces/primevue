@@ -54,9 +54,6 @@ export default {
             return {
                 'p-button p-togglebutton p-component': true,
                 'p-button-icon-only': this.hasIcon && !this.hasLabel,
-                'p-button-text-icon-left': this.hasIcon && this.hasLabel && this.iconPos === 'left',
-                'p-button-text-icon-right': this.hasIcon && this.hasLabel && this.iconPos === 'right',
-                'p-button-text-only': !this.hasIcon && this.hasLabel,
                 'p-disabled': this.disabled,
                 'p-focus': this.focused,
                 'p-highlight': this.value === true
@@ -66,8 +63,8 @@ export default {
             return [
                 this.value ? this.onIcon: this.offIcon,
                 {
-                    'p-button-icon-left': this.iconPos === 'left',
-                    'p-button-icon-right': this.iconPos === 'right'
+                    'p-button-icon-left': this.iconPos === 'left' && this.label,
+                    'p-button-icon-right': this.iconPos === 'right' && this.label
                 }
             ]
         },
@@ -78,7 +75,7 @@ export default {
             return this.onIcon && this.onIcon.length > 0 && this.offIcon && this.offIcon.length > 0;
         },
         label() {
-            return this.hasLabel ? (this.value ? this.onLabel : this.offLabel): 'p-btn';
+            return this.hasLabel ? (this.value ? this.onLabel : this.offLabel): '&nbsp;';
         }
     }
 }

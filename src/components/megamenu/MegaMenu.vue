@@ -214,7 +214,7 @@ export default {
             }, category.class];
         },
         getCategorySubMenuIcon() {
-            return ['p-submenu-icon pi pi-fw', {
+            return ['p-submenu-icon pi', {
                 'pi-caret-down': this.horizontal,
                 'pi-caret-right': this.vertical
             }];
@@ -299,6 +299,10 @@ export default {
 </script>
 
 <style>
+.p-megamenu .p-grid {
+    flex-wrap: nowrap;
+}
+
 .p-megamenu-root-list {
     margin: 0;
     padding: 0;
@@ -313,6 +317,10 @@ export default {
     cursor: pointer;
     display: flex;
     align-items: center;
+}
+
+.p-megamenu .p-menuitem-text {
+    line-height: 1;
 }
 
 .p-megamenu-panel {
@@ -330,7 +338,6 @@ export default {
     margin: 0;
     padding: 0;
     list-style: none;
-    width: 12.5em;
 }
 
 /* Horizontal */
@@ -340,10 +347,6 @@ export default {
 }
 
 /* Vertical */
-.p-megamenu-vertical {
-    width: 12.5em;
-}
-
 .p-megamenu-vertical .p-megamenu-root-list {
     flex-direction: column;
 }

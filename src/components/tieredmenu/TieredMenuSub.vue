@@ -12,7 +12,7 @@
                     @click="onItemClick($event, item)" @keydown="onItemKeyDown($event, item)" role="menuitem" :tabindex="item.disabled ? null : '0'">
                     <span :class="['p-menuitem-icon', item.icon]"></span>
                     <span class="p-menuitem-text">{{item.label}}</span>
-                    <span class="p-submenu-icon pi pi-fw pi-caret-right" v-if="item.items"></span>
+                    <span class="p-submenu-icon pi pi-caret-right" v-if="item.items"></span>
                 </a>
                 <sub-menu :model="item.items" v-if="visible(item) && item.items" :key="item.label + '_sub_'"
                     @leaf-click="onLeafClick" @keydown-item="onChildItemKeyDown" :parentActive="item === activeItem" />

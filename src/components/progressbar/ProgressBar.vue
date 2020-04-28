@@ -49,8 +49,6 @@ export default {
 
 <style>
 .p-progressbar {
-    height: 1.2em;
-    text-align: left;
     position: relative;
     overflow: hidden;
 }
@@ -64,9 +62,6 @@ export default {
 }
 
 .p-progressbar-determinate .p-progressbar-value-animate {
-    -webkit-transition: width 1s ease-in-out;
-    -moz-transition: width 1s ease-in-out;
-    -o-transition: width 1s ease-in-out;
     transition: width 1s ease-in-out;
 }
 

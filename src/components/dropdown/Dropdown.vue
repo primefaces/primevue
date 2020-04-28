@@ -16,13 +16,15 @@
             <span class="p-dropdown-trigger-icon pi pi-chevron-down p-clickable"></span>
         </div>
         <transition name="p-input-overlay" @enter="onOverlayEnter" @leave="onOverlayLeave">
-            <div ref="overlay" class="p-dropdown-panel" v-if="overlayVisible">
-                <div v-if="filter" class="p-dropdown-filter-container">
-                    <input type="text" ref="filterInput" v-model="filterValue" autoComplete="off" class="p-dropdown-filter p-inputtext p-component" :placeholder="filterPlaceholder" @keydown="onFilterKeyDown" />
-                    <span class="p-dropdown-filter-icon pi pi-search"></span>
+            <div ref="overlay" class="p-dropdown-panel p-component" v-if="overlayVisible">
+                <div class="p-dropdown-header" v-if="filter">
+                     <div  class="p-dropdown-filter-container">
+                        <input type="text" ref="filterInput" v-model="filterValue" autoComplete="off" class="p-dropdown-filter p-inputtext p-component" :placeholder="filterPlaceholder" @keydown="onFilterKeyDown" />
+                        <span class="p-dropdown-filter-icon pi pi-search"></span>
+                    </div>
                 </div>
                 <div ref="itemsWrapper" class="p-dropdown-items-wrapper" :style="{'max-height': scrollHeight}">
-                    <ul class="p-dropdown-items p-component" role="listbox">
+                    <ul class="p-dropdown-items" role="listbox">
                         <li v-for="(option, i) of visibleOptions" :class="['p-dropdown-item', {'p-highlight': isSelected(option), 'p-disabled': isOptionDisabled(option)}]"
                             :aria-label="getOptionLabel(option)" :key="getOptionRenderKey(option)" @click="onOptionSelect($event, option)" role="option" :aria-selected="isSelected(option)">
                             <slot name="option" :option="option" :index="i">
@@ -292,6 +294,7 @@ export default {
             this.$emit('input', event.target.value);
         },
         onOverlayEnter() {
+            this.$refs.overlay.style.zIndex = String(DomHandler.generateZIndex());
             this.appendContainer();
             this.alignOverlay();
             this.bindOutsideClickListener();
@@ -477,6 +480,8 @@ export default {
     flex: 1 1 auto;
     width: 1%;
     text-overflow: ellipsis;
+    cursor: pointer;
+    font-weight: normal;
 }
 
 .p-dropdown-label-empty {
@@ -502,9 +507,12 @@ input.p-dropdown-label  {
 
 .p-dropdown-item {
     cursor: pointer;
+    font-weight: normal;
 }
 
 .p-dropdown-items {
+    margin: 0;
+    padding: 0;
     list-style-type: none;
 }
 

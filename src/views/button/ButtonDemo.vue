@@ -38,6 +38,13 @@
             <Button label="Info" class="p-button-rounded p-button-info" />
             <Button label="Warning" class="p-button-rounded p-button-warning" />
             <Button label="Danger" class="p-button-rounded p-button-danger" />
+
+            <h3>Button Set</h3>
+            <span class="p-buttonset">
+                <Button label="Save" icon="pi pi-check" />
+                <Button label="Delete" icon="pi pi-trash" />
+                <Button label="Cancel" icon="pi pi-times" />
+            </span>
         </div>
 
         <ButtonDoc/>

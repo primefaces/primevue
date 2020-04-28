@@ -1847,6 +1847,16 @@ export default {
     user-select: none;
 }
 
+.p-datatable .p-sortable-column .p-column-title,
+.p-datatable .p-sortable-column .p-sortable-column-icon,
+.p-datatable .p-sortable-column .p-sortable-column-badge {
+    vertical-align: middle;
+}
+
+.p-datatable .p-sortable-column .p-sortable-column-badge {
+    display: inline-block;
+}
+
 .p-datatable-auto-layout > .p-datatable-wrapper {
     overflow-x: auto;
 }

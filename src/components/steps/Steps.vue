@@ -77,6 +77,10 @@ export default {
 </script>
 
 <style>
+.p-steps {
+    position: relative;
+}
+
 .p-steps ul {
     padding: 0;
     margin: 0;
@@ -95,6 +99,7 @@ export default {
     display: inline-flex;
     flex-direction: column;
     align-items: center;
+    overflow: hidden;
 }
 
 .p-steps.p-steps-readonly .p-steps-item {
@@ -108,5 +113,15 @@ export default {
 
 .p-steps-title {
     white-space: nowrap;
+}
+
+.p-steps-number {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.p-steps-title {
+    display: block;
 }
 </style>

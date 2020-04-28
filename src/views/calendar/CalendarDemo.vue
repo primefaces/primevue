@@ -149,14 +149,13 @@ export default {
 
 <style scoped>
 .special-day {
+    display: flex;
+    align-items: center;
+    justify-content: center;
     background-color: #1dcbb3;
     color: #ffffff;
-    font-weight: bold;
     border-radius: 50%;
     width: 2em;
     height: 2em;
-    line-height: 2em;
-    padding: 0;
-    display: inline-block;
 }
 </style>

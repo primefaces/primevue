@@ -219,7 +219,7 @@ export default {
             return (this.selectionMode && this.selectionKeys) ? this.selectionKeys[this.node.key] === true : false;
         },
         togglerIcon() {
-            return ['p-treetable-toggler-icon pi pi-fw', {'pi-chevron-right': !this.expanded, 'pi-chevron-down': this.expanded}];
+            return ['p-treetable-toggler-icon pi', {'pi-chevron-right': !this.expanded, 'pi-chevron-down': this.expanded}];
         },
         togglerStyle() {
             return {

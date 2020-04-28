@@ -71,5 +71,10 @@ export default {
 
 .p-fieldset-toggleable .p-fieldset-legend a {
     cursor: pointer;
+    user-select: none;
+}
+
+.p-fieldset-legend-text {
+    line-height: 1;
 }
 </style>

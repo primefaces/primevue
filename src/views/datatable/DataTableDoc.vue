@@ -2583,11 +2583,11 @@ export default {
 }
 
 /deep/ .p-column-filter {
-    display: block;
+    width: 100%;
+}
 
-    input {
-        width: 100%;
-    }
+/deep/ .p-multiselect-panel {
+    min-width: 16em;
 }
 
 .p-datatable-globalfilter-container {

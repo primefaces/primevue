@@ -71,7 +71,6 @@ export default {
     cursor: pointer;
 }
 
-.p-rating.p-disabled .p-rating-icon,
 .p-rating.p-rating-readonly .p-rating-icon {
     cursor: default;
 }

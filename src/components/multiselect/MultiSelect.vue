@@ -15,9 +15,9 @@
             <span class="p-multiselect-trigger-icon pi pi-chevron-down p-c"></span>
         </div>
         <transition name="p-input-overlay" @enter="onOverlayEnter" @leave="onOverlayLeave">
-            <div ref="overlay" class="p-multiselect-panel" v-if="overlayVisible">
+            <div ref="overlay" class="p-multiselect-panel p-component" v-if="overlayVisible">
                 <div class="p-multiselect-header">
-                    <div class="p-checkbox p-component" @click="onToggleAll" role="checkbox" :aria-checked="allSelected">
+                    <div class="p-checkbox" @click="onToggleAll" role="checkbox" :aria-checked="allSelected">
                         <div class="p-hidden-accessible">
                             <input type="checkbox" readonly @focus="onHeaderCheckboxFocus" @blur="onHeaderCheckboxBlur">
                         </div>
@@ -26,7 +26,7 @@
                         </div>
                     </div>
                     <div v-if="filter" class="p-multiselect-filter-container">
-                        <input type="text" v-model="filterValue" class="p-multiselect-filter p-component p-inputtext p-component" :placeholder="filterPlaceholder">
+                        <input type="text" v-model="filterValue" class="p-multiselect-filter p-inputtext p-component" :placeholder="filterPlaceholder">
                         <span class="p-multiselect-filter-icon pi pi-search"></span>
                     </div>
                     <button class="p-multiselect-close p-link" @click="onCloseClick" type="button">
@@ -262,6 +262,7 @@ export default {
                 return null;
         },
         onOverlayEnter() {
+            this.$refs.overlay.style.zIndex = String(DomHandler.generateZIndex());
             this.appendContainer();
             this.alignOverlay();
             this.bindOutsideClickListener();
@@ -421,15 +422,18 @@ export default {
     justify-content: center;
 }
 
-.p-multiselect .p-multiselect-label-container {
+.p-multiselect-label-container {
     overflow: hidden;
     flex: 1 1 auto;
+    cursor: pointer;
 }
 
-.p-multiselect .p-multiselect-label  {
+.p-multiselect-label  {
     display: block;
     white-space: nowrap;
     text-overflow: ellipsis;
+    cursor: pointer;
+    font-weight: normal;
 }
 
 .p-multiselect-label-empty {
@@ -450,6 +454,8 @@ export default {
 }
 
 .p-multiselect-items {
+    margin: 0;
+    padding: 0;
     list-style-type: none;
 }
 
@@ -457,6 +463,7 @@ export default {
     cursor: pointer;
     display: flex;
     align-items: center;
+    font-weight: normal;
 }
 
 .p-multiselect-header {

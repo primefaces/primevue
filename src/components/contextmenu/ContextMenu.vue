@@ -211,12 +211,7 @@ export default {
 
 <style>
 .p-contextmenu {
-    width: 12.5em;
     position: absolute;
-}
-
-.p-contextmenu .p-menu-separator {
-    border-width: 1px 0 0 0;
 }
 
 .p-contextmenu ul {
@@ -235,6 +230,10 @@ export default {
     cursor: pointer;
     display: flex;
     align-items: center;
+}
+
+.p-contextmenu .p-menuitem-text {
+    line-height: 1;
 }
 
 .p-contextmenu .p-menuitem {

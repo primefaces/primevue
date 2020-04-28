@@ -108,4 +108,8 @@ export default {
 .p-tabview-nav li.p-disabled a {
     cursor: auto;
 }
+
+.p-tabview-title {
+    line-height: 1;
+}
 </style>

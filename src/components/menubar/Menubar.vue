@@ -46,6 +46,10 @@ export default {
     align-items: center;
 }
 
+.p-menubar .p-menuitem-text {
+    line-height: 1;
+}
+
 .p-menubar .p-menuitem {
     position: relative;
 }
@@ -67,7 +71,6 @@ export default {
 .p-menubar .p-submenu-list {
     display: none;
     position: absolute;
-    min-width: 100%;
     z-index: 1;
 }
 
@@ -79,10 +82,6 @@ export default {
 
 .p-menubar .p-submenu-list .p-menuitem-link .p-submenu-icon {
     margin-left: auto;
-}
-
-.p-menubar .p-menu-separator {
-    border-width: 1px 0 0 0;
 }
 
 .p-menubar .p-menubar-custom,

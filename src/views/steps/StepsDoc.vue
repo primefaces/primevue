@@ -125,7 +125,7 @@ export default {
 				</a>
 <CodeHighlight>
 <template v-pre>
-&lt;Steps :model="items" :readonly="true" /&gt;
+&lt;Steps :model="items" :readonly="true"  style="margin-bottom: 1em" /&gt;
 &lt;keep-alive&gt;
     &lt;router-view :formData="formObject" @prevPage="prevPage($event)" @nextPage="nextPage($event)" @complete="complete" /&gt;
 &lt;/keep-alive&gt;

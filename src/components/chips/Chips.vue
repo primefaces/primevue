@@ -4,11 +4,11 @@
             <li v-for="(val,i) of value" :key="`${i}_${val}`" class="p-chips-token p-highlight">
                 <slot name="chip" :value="val">
                     <span class="p-chips-token-label">{{val}}</span>
-                    <span class="p-chips-token-icon pi pi-fw pi-times" @click="removeItem($event, i)"></span>
+                    <span class="p-chips-token-icon pi pi-times" @click="removeItem($event, i)"></span>
                 </slot>
             </li>
             <li class="p-chips-input-token">
-                <input ref="input" type="text" class="p-inputtext p-component" @focus="onFocus($event)" @blur="onBlur($event)" :placeholder="placeholder"
+                <input ref="input" type="text" @focus="onFocus($event)" @blur="onBlur($event)" :placeholder="placeholder"
                     @keydown="onKeyDown($event)" @paste="onPaste($event)" :disabled="$attrs.disabled || maxedOut" :aria-labelledby="ariaLabelledBy">
             </li>
         </ul>
@@ -154,10 +154,11 @@ export default {
     display: inline-flex;
 }
 
-.p-chips-multiple-container.p-inputtext {
-    cursor: text;
-    list-style-type: none;
+.p-chips-multiple-container {
     margin: 0;
+    padding: 0;
+    list-style-type: none;
+    cursor: text;
     overflow: hidden;
     display: flex;
     align-items: center;
@@ -173,6 +174,10 @@ export default {
 .p-chips-input-token {
     flex: 1 1 auto;
     display: inline-flex;
+}
+
+.p-chips-token-icon {
+    cursor: pointer;
 }
 
 .p-chips-input-token input {

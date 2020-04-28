@@ -190,7 +190,8 @@ export default {
 
                     > button {
                         background-color: transparent;
-                        padding: .1em .4em;
+                        padding: .3em;
+                        margin: .2em;
                         border: 0 none;
                         border-radius: 0;
                         color: #ffffff;

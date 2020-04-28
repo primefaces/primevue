@@ -334,14 +334,4 @@ export default {
 .p-orderlist.p-state-disabled .p-orderlist-list {
     overflow: hidden;
 }
-
-@media (max-width: 767px) {
-    .p-orderlist {
-        flex-direction: column;
-    }
-
-    .p-orderlist-controls {
-        flex-direction: row;
-    }
-}
 </style>

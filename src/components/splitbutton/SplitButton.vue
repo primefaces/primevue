@@ -1,7 +1,7 @@
 <template>
     <div class="p-splitbutton p-buttonset p-component">
         <PVSButton type="button" class="p-splitbutton-defaultbutton" :icon="icon" :label="label" @click="onClick" :disabled="disabled" :tabindex="tabindex" />
-        <PVSButton type="button" class="p-splitbutton-menubutton" icon="pi pi-caret-down" @click="onDropdownButtonClick" :disabled="disabled"
+        <PVSButton type="button" class="p-splitbutton-menubutton" icon="pi pi-chevron-down" @click="onDropdownButtonClick" :disabled="disabled"
             aria-haspopup="true" :aria-controls="ariaId + '_overlay'"/>
         <PVSMenu :id="ariaId + '_overlay'" ref="menu" :model="model" :popup="true" :autoZIndex="autoZIndex"
             :baseZIndex="baseZIndex" :appendTo="appendTo" />
@@ -82,8 +82,14 @@ export default {
     display: flex;
     align-items: center;
     justify-content: center;
-    border-top-left-radius: 0;
-    border-bottom-left-radius: 0;
+}
+
+.p-splitbutton .p-button:focus {
+    z-index: 1;
+}
+
+.p-splitbutton .p-menu {
+    min-width: 100%;
 }
 
 .p-fluid .p-splitbutton  {

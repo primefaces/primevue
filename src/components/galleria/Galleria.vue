@@ -183,17 +183,22 @@ export default {
     display: flex;
     flex-direction: column;
     position: relative;
+    height: 100%;
 }
 
 .p-galleria-preview-container {
     position: relative;
     display: flex;
+    height: 100%;
 }
 
 .p-galleria-preview-nav-button {
     position: absolute;
     top: 50%;
     margin-top: -.5em;
+    display: inline-flex;
+    justify-content: center;
+    align-items: center;
 }
 
 .p-galleria-preview-prev {
@@ -208,6 +213,8 @@ export default {
     display: flex;
     justify-content: center;
     align-items: center;
+    height: 100%;
+    width: 100%;
 }
 
 .p-galleria-preview-nav-onhover .p-galleria-preview-nav-button {
@@ -232,12 +239,6 @@ export default {
     width: 100%;
 }
 
-.p-galleria-indicator-container {
-    display: flex;
-    align-items: center;
-    justify-content: center;
-}
-
 /* Thumbnails */
 .p-galleria-thumbnail-content {
     display: flex;
@@ -250,6 +251,9 @@ export default {
 .p-galleria-thumbnail-next {
     align-self: center;
     flex: 0 0 auto;
+    display: flex;
+    justify-content: center;
+	align-items: center;
 }
 
 .p-galleria-thumbnail-prev span,
@@ -281,35 +285,6 @@ export default {
 
 .p-galleria-thumbnail-item-content {
     cursor: pointer;
-}
-
-/* Indicators */
-.p-galleria-indicator-onpreview .p-galleria-indicator-container {
-    position: absolute;
-}
-
-.p-galleria-indicator-onpreview.p-galleria-indicators-top .p-galleria-indicator-container {
-    top: 0;
-    left: 0;
-    width: 100%;
-}
-
-.p-galleria-indicator-onpreview.p-galleria-indicators-right .p-galleria-indicator-container {
-    right: 0;
-    top: 0;
-    height: 100%;
-}
-
-.p-galleria-indicator-onpreview.p-galleria-indicators-bottom .p-galleria-indicator-container {
-    bottom: 0;
-    left: 0;
-    width: 100%;
-}
-
-.p-galleria-indicator-onpreview.p-galleria-indicators-left .p-galleria-indicator-container {
-    left: 0;
-    top: 0;
-    height: 100%;
 }
 
 /* Positions */
@@ -347,6 +322,17 @@ export default {
 }
 
 /* Indicators */
+.p-galleria-indicator-container {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.p-galleria-indicator-item > button {
+    display: inline-flex;
+    align-items: center;
+}
+
 .p-galleria-indicators-left .p-galleria-preview-content,
 .p-galleria-indicators-right .p-galleria-preview-content {
     flex-direction: row;
@@ -366,6 +352,39 @@ export default {
 .p-galleria-indicators-left .p-galleria-indicator-container,
 .p-galleria-indicators-right .p-galleria-indicator-container {
     flex-direction: column;
+}
+
+.p-galleria-indicator-onpreview .p-galleria-indicator-container {
+    position: absolute;
+    display: flex;
+}
+
+.p-galleria-indicator-onpreview.p-galleria-indicators-top .p-galleria-indicator-container {
+    top: 0;
+    left: 0;
+    width: 100%;
+    align-items: flex-start;
+}
+
+.p-galleria-indicator-onpreview.p-galleria-indicators-right .p-galleria-indicator-container {
+    right: 0;
+    top: 0;
+    height: 100%;
+    align-items: flex-end;
+}
+
+.p-galleria-indicator-onpreview.p-galleria-indicators-bottom .p-galleria-indicator-container {
+    bottom: 0;
+    left: 0;
+    width: 100%;
+    align-items: flex-end;
+}
+
+.p-galleria-indicator-onpreview.p-galleria-indicators-left .p-galleria-indicator-container {
+    left: 0;
+    top: 0;
+    height: 100%;
+    align-items: flex-start;
 }
 
 /* FullScreen */

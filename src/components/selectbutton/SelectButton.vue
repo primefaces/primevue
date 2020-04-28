@@ -1,5 +1,5 @@
 <template>
-    <div :class="containerClass" role="group">
+    <div class="p-selectbutton p-buttonset p-component" role="group">
         <div v-for="(option, i) of options" :key="getOptionRenderKey(option)" :aria-label="getOptionLabel(option)" role="button" :aria-pressed="isSelected(option)"
             @click="onOptionSelect($event, option, i)" @keydown.enter.prevent="onOptionSelect($event, option, i)" @keydown.space.prevent="onOptionSelect($event, option)"
             :tabindex="isOptionDisabled(option) ? null : '0'" @focus="onFocus($event, i)" @blur="onBlur($event)" :aria-labelledby="ariaLabelledBy"
@@ -95,9 +95,6 @@ export default {
         }
     },
 	computed: {
-		containerClass() {
-			return 'p-selectbutton p-buttonset p-component p-buttonset-' + String(this.options ? this.options.length : 0);
-        },
         equalityKey() {
             return this.optionValue ? null : this.dataKey;
         }

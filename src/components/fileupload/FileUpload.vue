@@ -364,6 +364,8 @@ export default {
 .p-fileupload-content .p-progressbar {
     width: 100%;
     position: absolute;
+    top: 0;
+    left: 0;
 }
 
 .p-button.p-fileupload-choose {

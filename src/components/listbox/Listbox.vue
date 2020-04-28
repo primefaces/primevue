@@ -1,5 +1,5 @@
 <template>
-    <div class="p-listbox p-inputtext p-component">
+    <div class="p-listbox p-component">
         <div class="p-listbox-header" v-if="filter">
             <div class="p-listbox-filter-container">
                 <input type="text" class="p-listbox-filter p-inputtext p-component" v-model="filterValue" :placeholder="filterPlaceholder">

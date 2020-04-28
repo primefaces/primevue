@@ -5,7 +5,7 @@
             <div :class="['p-accordion-header', {'p-highlight': tab.d_active, 'p-disabled': tab.disabled}]">
                 <a role="tab" @click="onTabClick($event, tab)" @keydown="onTabKeydown($event, tab)" :tabindex="tab.disabled ? null : '0'"
                     :aria-expanded="tab.d_active" :id="ariaId + i + '_header'" :aria-controls="ariaId + i + '_content'">
-                    <span :class="['p-accordion-toggle-icon pi', {'pi-caret-right': !tab.d_active, 'pi-caret-down': tab.d_active}]"></span>
+                    <span :class="['p-accordion-toggle-icon pi', {'pi-chevron-right': !tab.d_active, 'pi-chevron-down': tab.d_active}]"></span>
                     <span class="p-accordion-header-text" v-if="tab.header">{{tab.header}}</span>
                     <AccordionTabSlot :tab="tab" type="header" v-if="tab.$scopedSlots.header" />
                 </a>
@@ -99,6 +99,7 @@ export default {
     cursor: pointer;
     display: flex;
     align-items: center;
+    user-select: none;
 }
 
 .p-accordion-header.p-disabled a {

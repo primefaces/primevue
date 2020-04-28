@@ -38,4 +38,8 @@ export default {
     display: flex;
     align-items: center;
 }
+
+.p-breadcrumb .p-menuitem-text {
+    line-height: 1;
+}
 </style>

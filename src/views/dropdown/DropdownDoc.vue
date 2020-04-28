@@ -365,17 +365,16 @@ export default {
     }
 
     span {
-        margin-top: .125em;
+        line-height: 1;
     }
 }
 
 .p-dropdown-car-value {
     justify-content: flex-start;
-}
 
-.p-dropdown-empty-car-token {
-    background: #d95f00;
-    color: #ffffff;
+    img {
+        width: 19px;
+    }
 }
 </CodeHighlight>
 			</TabPanel>

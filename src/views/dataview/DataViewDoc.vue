@@ -499,6 +499,7 @@ export default {
 <CodeHighlight lang="css">
 .p-dropdown {
     width: 12em;
+    font-weight: normal;
 }
 
 .p-dataview {
