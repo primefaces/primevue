@@ -11,7 +11,7 @@
                         <span v-if="category.items" :class="getCategorySubMenuIcon()"></span>
                     </a>
                     <div class="p-megamenu-panel" v-if="category.items">
-                        <div class="p-grid">
+                        <div class="p-megamenu-grid">
                             <div v-for="(column,columnIndex) of category.items" :key="category.label + '_column_' + columnIndex" :class="getColumnClassName(category)">
                                 <ul v-for="(submenu,submenuIndex) of column" class="p-megamenu-submenu" :key="submenu.label + '_submenu_' + submenuIndex" role="menu">
                                     <li :class="getSubmenuHeaderClass(submenu)" :style="submenu.style" role="presentation">{{submenu.label}}</li>
@@ -228,23 +228,23 @@ export default {
 
             switch(length) {
                 case 2:
-                    columnClass= 'p-col-6';
+                    columnClass= 'p-megamenu-col-6';
                 break;
 
                 case 3:
-                    columnClass= 'p-col-4';
+                    columnClass= 'p-megamenu-col-4';
                 break;
 
                 case 4:
-                    columnClass= 'p-col-3';
+                    columnClass= 'p-megamenu-col-3';
                 break;
 
                 case 6:
-                    columnClass= 'p-col-2';
+                    columnClass= 'p-megamenu-col-2';
                 break;
 
                 default:
-                    columnClass= 'p-col-12';
+                    columnClass= 'p-megamenu-col-12';
                 break;
             }
 
@@ -358,5 +358,39 @@ export default {
 
 .p-megamenu-vertical .p-megamenu-root-list > .p-menuitem > .p-menuitem-link > .p-submenu-icon {
     margin-left: auto;
+}
+
+
+.p-megamenu-grid {
+    display: flex;
+}
+
+.p-megamenu-col-2,
+.p-megamenu-col-3,
+.p-megamenu-col-4,
+.p-megamenu-col-6,
+.p-megamenu-col-12 {
+    flex: 0 0 auto;
+    padding: 0.5em;
+}
+
+.p-megamenu-col-2 {
+    width: 16.6667%;
+}
+
+.p-megamenu-col-3 {
+    width: 25%;
+}
+
+.p-megamenu-col-4 {
+    width: 33.3333%;
+}
+
+.p-megamenu-col-6 {
+    width: 50%;
+}
+
+.p-megamenu-col-12 {
+    width: 100%;
 }
 </style>

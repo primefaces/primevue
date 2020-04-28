@@ -248,7 +248,7 @@ export default {
 				</div>
 
 				<h3>Dependencies</h3>
-				<p>PrimeFlex.</p>
+				<p>None.</p>
 			</TabPanel>
 
 			<TabPanel header="Source">
