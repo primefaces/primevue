@@ -473,6 +473,7 @@ export default {
 
 .p-autocomplete-item {
     cursor: pointer;
+    white-space: nowrap;
 }
 
 .p-autocomplete-multiple-container {

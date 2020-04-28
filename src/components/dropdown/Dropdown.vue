@@ -508,6 +508,7 @@ input.p-dropdown-label  {
 .p-dropdown-item {
     cursor: pointer;
     font-weight: normal;
+    white-space: nowrap;
 }
 
 .p-dropdown-items {

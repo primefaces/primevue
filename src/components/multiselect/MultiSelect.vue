@@ -464,6 +464,7 @@ export default {
     display: flex;
     align-items: center;
     font-weight: normal;
+    white-space: nowrap;
 }
 
 .p-multiselect-header {

@@ -254,10 +254,6 @@ export default {
     width: 100%;
 }
 
-/deep/ .p-multiselect-panel {
-    min-width: 16em;
-}
-
 .p-datatable-globalfilter-container {
     float: right;
 
