@@ -2227,7 +2227,7 @@ export default {
 .p-datepicker td > span {
     display: flex;
     justify-content: center;
-    align-self: center;
+    align-items: center;
     cursor: pointer;
 }
 
