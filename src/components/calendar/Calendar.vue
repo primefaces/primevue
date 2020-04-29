@@ -2255,9 +2255,10 @@ export default {
 }
 
 .p-timepicker button {
-    display: block;
+    display: flex;
+    align-content: center;
+    justify-content: center;
     cursor: pointer;
-    line-height: 1;
 }
 
 .p-timepicker > div {
