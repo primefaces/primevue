@@ -48,5 +48,5 @@
 }
 
 .p-buttonset .p-button:focus {
-    z-index: 1;
+    position: relative;
 }
