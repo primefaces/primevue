@@ -103,6 +103,11 @@ export default {
     user-select: none;
     display: flex;
     align-items: center;
+    position: relative;
+}
+
+.p-tabview-nav a:focus {
+    z-index: 1;
 }
 
 .p-tabview-nav li.p-disabled a {
