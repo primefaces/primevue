@@ -100,6 +100,7 @@ export default {
     display: flex;
     align-items: center;
     user-select: none;
+    position: relative;
 }
 
 .p-accordion-header.p-disabled a {
