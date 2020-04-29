@@ -12,7 +12,7 @@
 }
 
 .p-radiobutton-icon {
-    transform: scale(.5);
+    transform: scale(.25);
     transition-property: transform;
 }
 
