@@ -559,9 +559,9 @@ export default {
             return ['p-inputnumber p-component', {
                 'p-inputwrapper-filled': this.filled,
                 'p-inputwrapper-focus': this.focused,
-                'p-inputnumber-buttons-stacked': this.buttonLayout === 'stacked',
-                'p-inputnumber-buttons-horizontal': this.buttonLayout === 'horizontal',
-                'p-inputnumber-buttons-vertical': this.buttonLayout === 'vertical'
+                'p-inputnumber-buttons-stacked': this.showButtons && this.buttonLayout === 'stacked',
+                'p-inputnumber-buttons-horizontal': this.showButtons && this.buttonLayout === 'horizontal',
+                'p-inputnumber-buttons-vertical': this.showButtons && this.buttonLayout === 'vertical'
             }];
         },
         upButtonClass() {
