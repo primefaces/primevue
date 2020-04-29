@@ -1,5 +1,5 @@
 <template>
-    <div class="p-panel p-component">
+    <div :class="containerClass">
         <div class="p-panel-titlebar">
             <slot name="header">
                 <span class="p-panel-title" v-if="header" :id="ariaId + '_header'">{{header}}</span>
@@ -41,6 +41,9 @@ export default {
     computed: {
         ariaId() {
             return UniqueComponentId();
+        },
+        containerClass() {
+            return ['p-panel p-component', {'p-panel-toggleable': this.toggleable}];
         }
     },
     methods: {
