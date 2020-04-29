@@ -736,6 +736,7 @@ a {
                     border-radius: 3px 3px 0 0;
                     padding: 4px 4px 0px 4px;
                     border-bottom: 1px solid #dadada;
+                    background-color: transparent;
 
                     li {
                         margin-right: 4px;
@@ -753,6 +754,7 @@ a {
                             padding-top: 8px;
                             border: 0 none;
                             border-bottom: 1px solid transparent;
+                            margin-bottom: -1px;
                             @include border-radius-top(3px);
                             @include transition(background-color .2s);
 
