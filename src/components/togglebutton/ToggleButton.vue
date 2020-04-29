@@ -1,9 +1,5 @@
 <template>
-    <div :class="buttonClass" @click="onClick($event)">
-        <div class="p-hidden-accessible">
-            <input ref="input" type="checkbox" :id="inputId" :name="name" :checked="value" :disabled="disabled"
-                @focus="onFocus($event)" @blur="onBlur($event)" @keydown.enter.prevent="onClick($event)" role="button" :aria-pressed="value" :aria-labelledby="ariaLabelledBy">
-        </div>
+    <div :class="buttonClass" @click="onClick($event)" role="checkbox" :aria-labelledby="ariaLabelledBy" :aria-checked="value" :tabindex="$attrs.disabled ? null : '0'">
         <span v-if="hasIcon" :class="iconClass"></span>
         <span class="p-button-text p-unselectable-text p-c">{{label}}</span>
     </div>
@@ -17,36 +13,19 @@ export default {
 		offIcon: String,
         onLabel: String,
         offLabel: String,
-        inputId: String,
-        name: String,
         iconPos: {
             type: String,
             default: 'left'
         },
-        disabled: Boolean,
         ariaLabelledBy: String
-    },
-    data() {
-        return {
-            focused: false
-        }
     },
     methods: {
         onClick(event) {
-            if (!this.disabled) {
+            if (!this.$attrs.disabled) {
                 this.$emit('click', event);
                 this.$emit('input', !this.value);
                 this.$emit('change', event);
-                this.$refs.input.focus();
             }
-        },
-        onFocus(event) {
-            this.focused = true;
-            this.$emit('focus', event);
-        },
-        onBlur() {
-            this.focused = false;
-            this.$emit('blur', event);
         }
     },
     computed: {
@@ -54,8 +33,7 @@ export default {
             return {
                 'p-button p-togglebutton p-component': true,
                 'p-button-icon-only': this.hasIcon && !this.hasLabel,
-                'p-disabled': this.disabled,
-                'p-focus': this.focused,
+                'p-disabled': this.$attrs.disabled,
                 'p-highlight': this.value === true
             }
         },

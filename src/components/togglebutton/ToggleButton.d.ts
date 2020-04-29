@@ -6,14 +6,7 @@ export declare class ToggleButton extends Vue {
     offIcon?: string;
     onLabel?: string;
     offLabel?: string;
-    inputId?: string;
-    name?: string;
     iconPos?: string;
-    disabled?: boolean;
     ariaLabelledBy?: string;
-    $emit(eventName: 'click', event: Event): this;
-    $emit(eventName: 'input', value: any): this;
-    $emit(eventName: 'change', event: Event): this;
-    $emit(eventName: 'focus', event: Event): this;
-    $emit(eventName: 'blur', event: Event): this;
+    $emit(eventName: string, event: Event): this;
 }

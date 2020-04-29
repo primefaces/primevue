@@ -74,28 +74,10 @@ export default {
                                 <td>Label for the off state.</td>
                             </tr>
                             <tr>
-                                <td>inputId</td>
-                                <td>string</td>
-                                <td>null</td>
-                                <td>Identifier of the input element.</td>
-                            </tr>
-                            <tr>
-                                <td>name</td>
-                                <td>string</td>
-                                <td>null</td>
-                                <td>Name of the input element.</td>
-                            </tr>
-                            <tr>
                                 <td>iconPos</td>
                                 <td>string</td>
                                 <td>left</td>
                                 <td>Position of the icon, valid values are "left" and "right".</td>
-                            </tr>
-                            <tr>
-                                <td>disabled</td>
-                                <td>boolean</td>
-                                <td>null</td>
-                                <td>When present, it specifies that the element should be disabled.</td>
                             </tr>
                             <tr>
                                 <td>ariaLabelledBy</td>
