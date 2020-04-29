@@ -250,6 +250,8 @@ export default {
 .p-sidebar-close.p-link {
     margin-left: auto;
     display: flex;
+    align-items: center;
+    justify-content: center;
 }
 
 @media screen and (max-width: 64em) {
