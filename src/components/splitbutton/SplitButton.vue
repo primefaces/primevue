@@ -84,10 +84,6 @@ export default {
     justify-content: center;
 }
 
-.p-splitbutton .p-button:focus {
-    z-index: 1;
-}
-
 .p-splitbutton .p-menu {
     min-width: 100%;
 }

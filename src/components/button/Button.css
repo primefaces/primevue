@@ -28,3 +28,25 @@
     width: 0;
     flex: 0 0 auto;
 }
+
+.p-buttonset .p-button {
+    margin: 0;
+}
+
+.p-buttonset .p-button:not(:first-child):not(:last-child) {
+    border-radius: 0;
+}
+
+.p-buttonset .p-button:first-child {
+    border-top-right-radius: 0;
+    border-bottom-right-radius: 0;
+}
+
+.p-buttonset .p-button:last-child {
+    border-top-left-radius: 0;
+    border-bottom-left-radius: 0;
+}
+
+.p-buttonset .p-button:focus {
+    z-index: 1;
+}
