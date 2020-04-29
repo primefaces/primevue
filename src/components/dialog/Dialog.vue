@@ -289,6 +289,11 @@ export default {
     list-style: 1;
 }
 
+.p-dialog .p-dialog-titlebar-icons {
+    display: flex;
+    align-items: center;
+}
+
 .p-dialog .p-dialog-titlebar-icon {
     display: flex;
     align-items: center;
