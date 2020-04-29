@@ -314,7 +314,7 @@ export default {
 &lt;/Accordion&gt;
 
 &lt;h3&gt;Programmatic&lt;/h3&gt;
-&lt;div style="padding: .5em 0"&gt;
+&lt;div style="padding: .5em 0 1em 0"&gt;
     &lt;Button :icon="active1 ? 'pi pi-minus' : 'pi pi-plus'" label="Toggle 1st" @click="active1 = !active1" class="p-button-secondary" /&gt;
     &lt;Button :icon="active2 ? 'pi pi-minus' : 'pi pi-plus'" label="Toggle 2nd" @click="active2 = !active2" class="p-button-secondary" style="margin-left: .5em" /&gt;
     &lt;Button :icon="active3 ? 'pi pi-minus' : 'pi pi-plus'" label="Toggle 3rd" @click="active3 = !active3" class="p-button-secondary" style="margin-left: .5em" /&gt;
