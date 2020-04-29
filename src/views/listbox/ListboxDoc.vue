@@ -42,9 +42,9 @@ data() {
 <template v-pre>
 &lt;Listbox v-model="selectedCars" :options="cars" :multiple="true" :filter="true" optionLabel="brand" listStyle="max-height:250px" style="width:15em"&gt;
 	&lt;template #option="slotProps"&gt;
-		&lt;div class="p-clearfix"&gt;
-			&lt;img :alt="slotProps.option.brand" :src="'demo/images/car/' + slotProps.option.brand + '.png'" style="display:inline-block;margin:5px 0 0 5px;width:48px" /&gt;
-			&lt;span style="float:right;margin:1.25em .5em 0 0"&gt;{{slotProps.option.brand}}&lt;/span&gt;
+		&lt;div&gt;
+			&lt;img :alt="slotProps.option.brand" :src="'demo/images/car/' + slotProps.option.brand + '.png'" /&gt;
+			&lt;span&gt;{{slotProps.option.brand}}&lt;/span&gt;
 		&lt;/div&gt;
 	&lt;/template&gt;
 &lt;/Listbox&gt;
@@ -230,9 +230,9 @@ data() {
 &lt;h3&gt;Advanced with Templating, Filtering and Multiple Selection&lt;/h3&gt;
 &lt;Listbox v-model="selectedCars" :options="cars" :multiple="true" :filter="true" optionLabel="brand" listStyle="max-height:250px" style="width:15em"&gt;
     &lt;template #option="slotProps"&gt;
-        &lt;div class="p-clearfix"&gt;
-            &lt;img :alt="slotProps.option.brand" :src="'demo/images/car/' + slotProps.option.brand + '.png'" style="display:inline-block;margin:5px 0 0 5px;width:48px" /&gt;
-            &lt;span style="float:right;margin:1.25em .5em 0 0"&gt;{{slotProps.option.brand}}&lt;/span&gt;
+        &lt;div class="car-item"&gt;
+            &lt;img :alt="slotProps.option.brand" :src="'demo/images/car/' + slotProps.option.brand + '.png'" /&gt;
+            &lt;span&gt;{{slotProps.option.brand}}&lt;/span&gt;
         &lt;/div&gt;
     &lt;/template&gt;
 &lt;/Listbox&gt;
@@ -265,6 +265,18 @@ export default {
 			]
 		}
 	}
+}
+</CodeHighlight>
+
+<CodeHighlight lang="css">
+/deep/ .car-item {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+
+    img {
+        width:32px;
+    }
 }
 </CodeHighlight>
 			</TabPanel>
