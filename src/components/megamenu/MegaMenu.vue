@@ -18,11 +18,11 @@
                                     <template v-for="(item, i) of submenu.items">
                                         <li role="none" :class="getSubmenuItemClass(item)" :style="item.style" v-if="visible(item) && !item.separator" :key="item.label + i">
                                             <router-link v-if="item.to && !item.disabled" :to="item.to" :class="getLinkClass(item)" @click.native="onLeafClick($event, item)" role="menuitem">
-                                                <span :class="['p-menuitem-icon', item.icon]"></span>
+                                                <span v-if="item.icon" :class="['p-menuitem-icon', item.icon]"></span>
                                                 <span class="p-menuitem-text">{{item.label}}</span>
                                             </router-link>
                                             <a v-else :href="item.url" :class="getLinkClass(item)" :target="item.target" @click="onLeafClick($event, item)" role="menuitem" :tabindex="item.disabled ? null : '0'">
-                                                <span :class="['p-menuitem-icon', item.icon]"></span>
+                                                <span v-if="item.icon" :class="['p-menuitem-icon', item.icon]"></span>
                                                 <span class="p-menuitem-text">{{item.label}}</span>
                                                 <span :class="getSubmenuIcon()" v-if="item.items"></span>
                                             </a>
