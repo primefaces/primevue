@@ -96,7 +96,7 @@ export default {
 <style>
 .p-toast {
     position: fixed;
-    width: 20em;
+    width: 25em;
 }
 
 .p-toast-message {
@@ -126,6 +126,12 @@ export default {
 .p-toast-item {
     display: flex;
     align-items: flex-start;
+}
+
+.p-toast-icon-close {
+    display: flex;
+    align-items: center;
+    justify-content: center;
 }
 
 .p-toast-icon-close.p-link {
