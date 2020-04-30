@@ -69,6 +69,12 @@ export default {
     align-items: center;
 }
 
+.p-messages-close {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
 .p-messages-close.p-link {
     margin-left: auto
 }
