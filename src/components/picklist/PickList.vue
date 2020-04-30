@@ -487,7 +487,7 @@ export default {
 }
 
 .p-picklist-list-wrapper {
-    flex: 1 1 auto;
+    flex: 1 1 50%;
 }
 
 .p-picklist-list {
