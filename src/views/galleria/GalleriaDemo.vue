@@ -149,18 +149,6 @@ export default {
                     background-image: linear-gradient(180deg, rgba(0,0,0,0.00) 0%, rgba(0,0,0,0.50) 70%);
 
                     .p-galleria-thumbnail-container {
-                        .p-galleria-thumbnail-prev,
-                        .p-galleria-thumbnail-next {
-                            background-color: transparent !important;
-                            color: #ffffff;
-                            border: 0 none;
-                            font-size: 1.2em;
-
-                            &:hover {
-                                color: var(--primaryColor);
-                            }
-                        }
-
                         .p-galleria-thumbnail-items-content {
                             .p-galleria-thumbnail-items-container {
                                 .p-galleria-thumbnail-item {

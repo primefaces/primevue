@@ -384,11 +384,18 @@ export default {
 
 <CodeHighlight lang="css">
 .p-carousel {
+    .p-carousel-header {
+		h3 {
+			font-weight: 500;
+			font-size: 18px;
+		}
+	}
+
 	.p-carousel-content {
 		.p-carousel-item {
 			.car-details {
 				> .p-grid {
-					border: 1px solid #b3c2ca;
+					border: 1px solid #dee2e6;
 					border-radius: 3px;
 					margin: .3em;
 					text-align: center;
@@ -398,7 +405,7 @@ export default {
 
 			.car-data {
 				.car-title {
-					font-weight: 700;
+					font-weight: 600;
 					font-size: 20px;
 					margin-top: 24px;
 				}

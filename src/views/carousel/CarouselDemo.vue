@@ -134,7 +134,7 @@ export default {
 
 	.p-carousel-header {
 		h3 {
-			font-weight: 400;
+			font-weight: 500;
 			font-size: 18px;
 		}
 	}
@@ -143,7 +143,7 @@ export default {
 		.p-carousel-item {
 			.car-details {
 				> .p-grid {
-					border: 1px solid #c8c8c8;
+					border: 1px solid #dee2e6;
 					border-radius: 3px;
 					margin: .3em;
 					text-align: center;
@@ -153,7 +153,7 @@ export default {
 
 			.car-data {
 				.car-title {
-					font-weight: 700;
+					font-weight: 600;
 					font-size: 20px;
 					margin-top: 24px;
 				}
