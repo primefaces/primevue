@@ -12,9 +12,9 @@
 		<div class="content-section implementation">
 			<DataTable :value="cars">
                 <template #header>
-                    <div style="line-height:1.87em" class="clearfix">
-                        <Button icon="pi pi-refresh" style="float: left"/>
+                    <div class="table-header">
                         List of Cars
+                        <Button icon="pi pi-refresh" />
                     </div>
                 </template>
                 <Column field="vin" header="Vin"></Column>
@@ -123,3 +123,11 @@ export default {
     }
 }
 </script>
+
+<style lang="scss" scoped>
+.table-header {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+}
+</style>

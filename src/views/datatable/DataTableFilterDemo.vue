@@ -194,10 +194,11 @@ export default {
     text-align: left;
 }
 
-.p-multiselect {
-    width: 100%;
-}
-
+.p-filter-column {
+    .p-multiselect, .p-dropdown, .p-inputtext {
+        width: 100%;
+    }
+} 
 .p-dropdown-car-option {
     img {
         vertical-align: middle;
