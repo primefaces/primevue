@@ -102,6 +102,10 @@ export default {
     position: relative;
 }
 
+.p-panelmenu .p-panelmenu-header-link:focus {
+    z-index: 1;
+}
+
 .p-panelmenu .p-submenu-list {
     margin: 0;
     padding: 0;
