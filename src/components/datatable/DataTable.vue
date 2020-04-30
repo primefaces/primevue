@@ -1959,7 +1959,7 @@ export default {
 }
 
 /* Loader */
-.p-datatable-loading-overlay {
+.p-datatable .p-datatable-loading-overlay {
     position: absolute;
     display: flex;
     align-items: center;

@@ -143,7 +143,7 @@ export default {
 
 .p-sidebar-mask {
     background-color: transparent;
-    transition: background-color;
+    transition-property: background-color;
 }
 
 .p-sidebar-mask-leave.p-component-overlay {
