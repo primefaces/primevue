@@ -481,7 +481,6 @@ export default {
     width: 1%;
     text-overflow: ellipsis;
     cursor: pointer;
-    font-weight: normal;
 }
 
 .p-dropdown-label-empty {

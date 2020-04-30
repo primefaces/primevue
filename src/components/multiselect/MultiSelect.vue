@@ -433,7 +433,6 @@ export default {
     white-space: nowrap;
     text-overflow: ellipsis;
     cursor: pointer;
-    font-weight: normal;
 }
 
 .p-multiselect-label-empty {
