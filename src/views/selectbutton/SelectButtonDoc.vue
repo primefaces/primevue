@@ -216,7 +216,7 @@ export default {
         width: 24px;
         margin-right: .5em;
     }
-} 
+}
 </CodeHighlight>
 			</TabPanel>
 		</TabView>

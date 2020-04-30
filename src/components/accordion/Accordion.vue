@@ -105,7 +105,7 @@ export default {
 
 .p-accordion-header a:focus {
     z-index: 1;
-} 
+}
 
 .p-accordion-header.p-disabled a {
     cursor: default;
