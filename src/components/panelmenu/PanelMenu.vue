@@ -99,6 +99,7 @@ export default {
     align-items: center;
     user-select: none;
     cursor: pointer;
+    position: relative;
 }
 
 .p-panelmenu .p-submenu-list {
