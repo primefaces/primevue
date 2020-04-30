@@ -168,6 +168,10 @@ export default {
 }
 </script>
 
-<style scoped>
-
+<style scoped lang="scss">
+.p-filter-column {
+    .p-multiselect, .p-dropdown, .p-inputtext {
+        width: 100%;
+    }
+}
 </style>

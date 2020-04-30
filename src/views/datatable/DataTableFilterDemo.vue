@@ -199,6 +199,7 @@ export default {
         width: 100%;
     }
 }
+
 .p-dropdown-car-option {
     img {
         vertical-align: middle;
