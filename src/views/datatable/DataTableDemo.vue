@@ -272,19 +272,16 @@ export default {
 
 /deep/ .p-datatable.p-datatable-customers {
     .p-datatable-header {
-        border: 0 none;
         padding: 12px;
         text-align: left;
         font-size: 20px;
     }
 
     .p-paginator {
-        border: 0 none;
         padding: 1em;
     }
 
     .p-datatable-thead > tr > th {
-        border: 0 none;
         text-align: left;
 
         &.p-filter-column {
@@ -293,7 +290,6 @@ export default {
     }
 
     .p-datatable-tbody > tr > td {
-        border: 0 none;
         cursor: auto;
     }
 
