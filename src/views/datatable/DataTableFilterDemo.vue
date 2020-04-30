@@ -198,7 +198,7 @@ export default {
     .p-multiselect, .p-dropdown, .p-inputtext {
         width: 100%;
     }
-} 
+}
 .p-dropdown-car-option {
     img {
         vertical-align: middle;
