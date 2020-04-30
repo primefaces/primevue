@@ -40,10 +40,10 @@ export default {
 <template v-pre>
 &lt;SelectButton v-model="selectedCar" :options="cars" optionLabel="brand"&gt;
 	&lt;template #option="slotProps"&gt;
-		&lt;div style="text-align: center; padding: 1em; width: 125px"&gt;
-			&lt;img :alt="slotProps.option.brand" :src="'demo/images/car/' + slotProps.option.brand + '.png'" style="width:48px" /&gt;
-			&lt;div style="margin-top: 1em"&gt;{{slotProps.option.brand}}&lt;/div&gt;
-		&lt;/div&gt;
+        &lt;div class="car-option"&gt;
+            &lt;img :alt="slotProps.option.brand" :src="'demo/images/car/' + slotProps.option.brand + '.png'" /&gt;
+            &lt;div&gt;{{slotProps.option.brand}}&lt;/div&gt;
+        &lt;/div&gt;
 	&lt;/template&gt;
 &lt;/SelectButton&gt;
 </template>
@@ -171,9 +171,9 @@ export default {
 &lt;h3&gt;Custom Content&lt;/h3&gt;
 &lt;SelectButton v-model="selectedCar" :options="cars" optionLabel="brand"&gt;
     &lt;template #option="slotProps"&gt;
-        &lt;div style="text-align: center; padding: 1em; width: 125px"&gt;
-            &lt;img :alt="slotProps.option.brand" :src="'demo/images/car/' + slotProps.option.brand + '.png'" style="width:48px" /&gt;
-            &lt;div style="margin-top: 1em"&gt;{{slotProps.option.brand}}&lt;/div&gt;
+        &lt;div class="car-option"&gt;
+            &lt;img :alt="slotProps.option.brand" :src="'demo/images/car/' + slotProps.option.brand + '.png'" /&gt;
+            &lt;div&gt;{{slotProps.option.brand}}&lt;/div&gt;
         &lt;/div&gt;
     &lt;/template&gt;
 &lt;/SelectButton&gt;
@@ -204,6 +204,19 @@ export default {
 		this.selectedCar = this.cars[1];
 	}
 }
+</CodeHighlight>
+
+<CodeHighlight lang="css">
+/deep/ .car-option {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    img {
+        width: 24px;
+        margin-right: .5em;
+    }
+} 
 </CodeHighlight>
 			</TabPanel>
 		</TabView>
