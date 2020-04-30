@@ -76,6 +76,11 @@ export default {
     user-select: none;
     display: flex;
     align-items: center;
+    position: relative;
+}
+
+.p-tabmenu-nav a:focus {
+    z-index: 1;
 }
 
 .p-tabmenu-nav .p-menuitem-text {
