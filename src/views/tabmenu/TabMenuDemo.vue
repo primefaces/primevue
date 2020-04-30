@@ -39,18 +39,17 @@ export default {
 
 <style scoped lang="scss">
 /deep/ .tabmenudemo-content  {
+    display: flex;
+    align-items: center;
+    padding: 1em;
+
     h1 {
         font-weight: 400;
-        display: inline-block;
-        vertical-align: middle;
-        font-size: 24px;
-        margin-top: 1em;
+        font-size: 16px;
     }
 
     i {
-        vertical-align: middle;
-        font-size: 2em;
-        margin-top: .3em;
+        margin-right: .5em;
     }
 }
 </style>
