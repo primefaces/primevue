@@ -327,7 +327,7 @@ export default {
     min-height: 4em;
 }
 
-.p-tree-loading-mask {
+.p-tree .p-tree-loading-mask {
     position: absolute;
     z-index: 1;
     display: flex;

@@ -969,9 +969,7 @@ export default {
     display: none;
 }
 
-
-/* Loader */
-.p-treetable-loading-overlay {
+.p-treetable .p-treetable-loading-overlay {
     position: absolute;
     display: flex;
     align-items: center;
