@@ -17,8 +17,8 @@
                         paginatorTemplate="FirstPageLink PrevPageLink PageLinks NextPageLink LastPageLink CurrentPageReport RowsPerPageDropdown" :rowsPerPageOptions="[10,25,50]"
                         currentPageReportTemplate="Showing {first} to {last} of {totalRecords} entries">
                         <template #header>
-                            List of Customers
-                            <div class="p-datatable-globalfilter-container">
+                            <div class="table-header">
+                                List of Customers
                                 <InputText v-model="filters['global']" placeholder="Global Search" />
                             </div>
                         </template>
@@ -232,12 +232,8 @@ export default {
 }
 
 /deep/ .p-paginator {
-    .p-dropdown {
-        float: left;
-    }
-
     .p-paginator-current {
-        float: right;
+        margin-left: auto;
     }
 }
 
@@ -254,12 +250,9 @@ export default {
     width: 100%;
 }
 
-.p-datatable-globalfilter-container {
-    float: right;
-
-    input {
-        width: 200px;
-    }
+.table-header {
+    display: flex;
+    justify-content: space-between;
 }
 
 /deep/ .p-datepicker {
@@ -283,10 +276,6 @@ export default {
 
     .p-datatable-thead > tr > th {
         text-align: left;
-
-        &.p-filter-column {
-            border-top: 1px solid #c8c8c8;
-        }
     }
 
     .p-datatable-tbody > tr > td {

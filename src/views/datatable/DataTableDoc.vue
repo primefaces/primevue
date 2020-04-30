@@ -2357,8 +2357,8 @@ export default {
             paginatorTemplate="FirstPageLink PrevPageLink PageLinks NextPageLink LastPageLink CurrentPageReport RowsPerPageDropdown" :rowsPerPageOptions="[10,25,50]"
             currentPageReportTemplate="Showing {first} to {last} of {totalRecords} entries"&gt;
             &lt;template #header&gt;
-                List of Customers
-                &lt;div class="p-datatable-globalfilter-container"&gt;
+                &lt;div class="table-header"&gt;
+                    List of Customers
                     &lt;InputText v-model="filters['global']" placeholder="Global Search" /&gt;
                 &lt;/div&gt;
             &lt;/template&gt;
@@ -2518,32 +2518,32 @@ export default {
     font-size: 12px;
     letter-spacing: .3px;
 
-    &amp;.status-qualified {
+    &.status-qualified {
         background-color: #C8E6C9;
         color: #256029;
     }
 
-    &amp;.status-unqualified {
+    &.status-unqualified {
         background-color: #FFCDD2;
         color: #C63737;
     }
 
-    &amp;.status-negotiation {
+    &.status-negotiation {
         background-color: #FEEDAF;
         color: #8A5340;
     }
 
-    &amp;.status-new {
+    &.status-new {
         background-color: #B3E5FC;
         color: #23547B;
     }
 
-    &amp;.status-renewal {
+    &.status-renewal {
         background-color: #ECCFFF;
         color: #694382;
     }
 
-    &amp;.status-proposal {
+    &.status-proposal {
         background-color: #FFD8B2;
         color: #805B36;
     }
@@ -2564,12 +2564,8 @@ export default {
 }
 
 /deep/ .p-paginator {
-    .p-dropdown {
-        float: left;
-    }
-
     .p-paginator-current {
-        float: right;
+        margin-left: auto;
     }
 }
 
@@ -2586,12 +2582,9 @@ export default {
     width: 100%;
 }
 
-.p-datatable-globalfilter-container {
-    float: right;
-
-    input {
-        width: 200px;
-    }
+.table-header {
+    display: flex;
+    justify-content: space-between;
 }
 
 /deep/ .p-datepicker {
@@ -2604,28 +2597,20 @@ export default {
 
 /deep/ .p-datatable.p-datatable-customers {
     .p-datatable-header {
-        border: 0 none;
         padding: 12px;
         text-align: left;
         font-size: 20px;
     }
 
     .p-paginator {
-        border: 0 none;
         padding: 1em;
     }
 
     .p-datatable-thead > tr > th {
-        border: 0 none;
         text-align: left;
-
-        &.p-filter-column {
-            border-top: 1px solid #c8c8c8;
-        }
     }
 
     .p-datatable-tbody > tr > td {
-        border: 0 none;
         cursor: auto;
     }
 
@@ -2654,6 +2639,7 @@ export default {
                 width: 100% !important;
                 float: left;
                 clear: left;
+                border: 0 none;
 
                 .p-column-title {
                     padding: .4em;
