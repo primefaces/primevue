@@ -4,8 +4,8 @@
             <span icon="pi pi-plus" :class="advancedChooseButtonClass">
                 <input ref="fileInput" type="file" @change="onFileSelect" @focus="onFocus" @blur="onBlur"
                     :multiple="multiple" :accept="accept" :disabled="disabled" />
-                <span class="p-button-icon p-button-icon-left p-clickable pi pi-fw pi-plus"></span>
-                <span class="p-button-text p-clickable">{{chooseLabel}}</span>
+                <span class="p-button-icon p-button-icon-left pi pi-fw pi-plus"></span>
+                <span class="p-button-text">{{chooseLabel}}</span>
             </span>
             <FileUploadButton :label="uploadLabel" icon="pi pi-upload" @click="upload" :disabled="disabled || !hasFiles" />
             <FileUploadButton :label="cancelLabel" icon="pi pi-times" @click="clear" :disabled="disabled || !hasFiles" />
@@ -33,7 +33,7 @@
     </div>
     <span :class="basicChooseButtonClass" @mouseup="onBasicUploaderClick" v-else-if="isBasic">
         <span :class="basicChooseButtonIconClass"></span>
-        <span class="p-button-text p-clickable">{{basicChooseButtonLabel}}</span>
+        <span class="p-button-text">{{basicChooseButtonLabel}}</span>
         <input ref="fileInput" type="file" :accept="accept" :disabled="disabled" @change="onFileSelect" @focus="onFocus" @blur="onBlur" v-if="!hasFiles" />
     </span>
 </template>

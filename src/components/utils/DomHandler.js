@@ -416,4 +416,14 @@ export default class DomHandler {
 
         return visibleFocusableElements;
     }
+
+    static isClickable(element) {
+        const targetNode = element.nodeName;
+        const parentNode = element.parentElement && element.parentElement.nodeName;
+
+        return (targetNode == 'INPUT' || targetNode == 'BUTTON' || targetNode == 'A' ||
+                parentNode == 'INPUT' || parentNode == 'BUTTON' || parentNode == 'A' ||
+                this.hasClass(element, 'p-button') || this.hasClass(element.parentElement, 'p-button')
+        );
+    }
 }

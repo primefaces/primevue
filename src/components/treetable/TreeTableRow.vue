@@ -69,9 +69,8 @@ export default {
             this.$emit('node-toggle', this.node);
         },
         onClick(event) {
-            let targetNode = event.target.nodeName;
-            if (targetNode === 'INPUT' || targetNode === 'BUTTON' || targetNode === 'A' || DomHandler.hasClass(event.target, 'p-clickable')
-                || DomHandler.hasClass(event.target, 'p-treetable-toggler') || DomHandler.hasClass(event.target.parentElement, 'p-treetable-toggler')) {
+            if (DomHandler.isClickable(event.target) ||
+                DomHandler.hasClass(event.target, 'p-treetable-toggler') || DomHandler.hasClass(event.target.parentElement, 'p-treetable-toggler')) {
                 return;
             }
 

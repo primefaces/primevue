@@ -295,11 +295,11 @@ export default {
         },
         rowTogglerIcon(rowData) {
             const icon = this.isRowExpanded(rowData) ? this.expandedRowIcon : this.collapsedRowIcon;
-            return ['p-row-toggler-icon pi p-clickable', icon];
+            return ['p-row-toggler-icon pi', icon];
         },
         rowGroupTogglerIcon(rowData) {
             const icon = this.isRowGroupExpanded(rowData) ? this.expandedRowIcon : this.collapsedRowIcon;
-            return ['p-row-toggler-icon pi p-clickable', icon];
+            return ['p-row-toggler-icon pi', icon];
         },
         isGrouped(column) {
             if (this.groupRowsBy) {

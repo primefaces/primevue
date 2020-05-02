@@ -8,7 +8,7 @@
                         @click="onColumnHeaderClick($event, col)" @mousedown="onColumnHeaderMouseDown($event, col)"
                         @dragstart="onColumnHeaderDragStart($event)" @dragover="onColumnHeaderDragOver($event)" @dragleave="onColumnHeaderDragLeave($event)" @drop="onColumnHeaderDrop($event)"
                         :colspan="col.colspan" :rowspan="col.rowspan" :aria-sort="getAriaSort(col)">
-                        <span class="p-column-resizer p-clickable" @mousedown="onColumnResizeStart($event)" v-if="resizableColumns"></span>
+                        <span class="p-column-resizer" @mousedown="onColumnResizeStart($event)" v-if="resizableColumns"></span>
                         <DTColumnSlot :column="col" type="header" v-if="col.$scopedSlots.header" />
                         <span class="p-column-title" v-if="col.header">{{col.header}}</span>
                         <span v-if="col.sortable" :class="getSortableColumnIcon(col)"></span>

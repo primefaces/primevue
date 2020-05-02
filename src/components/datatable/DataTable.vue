@@ -636,13 +636,7 @@ export default {
         },
         onRowClick(e) {
             const event = e.originalEvent;
-            const target = event.target;
-            const targetNode = target.nodeName;
-            const parentNode = target.parentElement && target.parentElement.nodeName;
-
-            if (targetNode == 'INPUT' || targetNode == 'BUTTON' || targetNode == 'A' ||
-                parentNode == 'INPUT' || parentNode == 'BUTTON' || parentNode == 'A' ||
-                (DomHandler.hasClass(target, 'p-clickable'))) {
+            if (DomHandler.isClickable(event.target)) {
                 return;
             }
 

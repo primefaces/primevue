@@ -5,7 +5,7 @@
             :tabindex="isOptionDisabled(option) ? null : '0'" @focus="onFocus($event, i)" @blur="onBlur($event)" :aria-labelledby="ariaLabelledBy"
             :class="['p-button p-component p-button-text-only', {'p-highlight': isSelected(option), 'p-disabled': isOptionDisabled(option), 'p-focus': (i === focusedIndex)}]">
             <slot name="option" :option="option" :index="i">
-                <span class="p-button-text p-c">{{getOptionLabel(option)}}</span>
+                <span class="p-button-text ">{{getOptionLabel(option)}}</span>
             </slot>
         </div>
     </div>
