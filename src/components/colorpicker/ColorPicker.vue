@@ -499,9 +499,11 @@ export default {
      border-radius: 100%;
      width: 10px;
      height: 10px;
-     border: 1px solid;
+     border-width: 1px;
+     border-style: solid;
      margin: -5px 0 0 -5px;
      cursor: pointer;
+     opacity: .85;
 }
 
 .p-colorpicker-panel .p-colorpicker-hue {
@@ -521,13 +523,9 @@ export default {
      margin-left: -2px;
      margin-top: -5px;
      height: 10px;
-     border: 2px solid;
+     border-width: 2px;
+     border-style: solid;
      opacity: .85;
      cursor: pointer;
- }
-
- .p-colorpicker-panel.p-disabled .p-colorpicker-hue-handle,
- .p-colorpicker-panel.p-disabled .p-colorpicker-color-handle  {
-      opacity: .5;
- }
+}
 </style>

@@ -110,10 +110,6 @@ export default {
     z-index: 1;
 }
 
-.p-tabview-nav li.p-disabled a {
-    cursor: auto;
-}
-
 .p-tabview-title {
     line-height: 1;
 }

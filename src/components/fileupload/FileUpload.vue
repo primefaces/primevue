@@ -348,10 +348,6 @@ export default {
 </script>
 
 <style>
-.p-fileupload-choose.p-disabled input {
-    cursor: default;
-}
-
 .p-fileupload-content {
     position: relative;
 }

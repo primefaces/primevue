@@ -107,10 +107,6 @@ export default {
     z-index: 1;
 }
 
-.p-accordion-header.p-disabled a {
-    cursor: default;
-}
-
 .p-accordion-header-text {
     line-height: 1;
 }

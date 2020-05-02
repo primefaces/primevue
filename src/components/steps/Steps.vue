@@ -106,8 +106,7 @@ export default {
     cursor: auto;
 }
 
-.p-steps-item.p-steps-current .p-menuitem-link,
-.p-steps-item.p-disabled .p-menuitem-link {
+.p-steps-item.p-steps-current .p-menuitem-link {
     cursor: default;
 }
 
