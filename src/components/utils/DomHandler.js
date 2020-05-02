@@ -423,7 +423,8 @@ export default class DomHandler {
 
         return (targetNode == 'INPUT' || targetNode == 'BUTTON' || targetNode == 'A' ||
                 parentNode == 'INPUT' || parentNode == 'BUTTON' || parentNode == 'A' ||
-                this.hasClass(element, 'p-button') || this.hasClass(element.parentElement, 'p-button')
+                this.hasClass(element, 'p-button') || this.hasClass(element.parentElement, 'p-button') ||
+                this.hasClass(element.parentElement, 'p-checkbox') || this.hasClass(element.parentElement, 'p-radiobutton') 
         );
     }
 }

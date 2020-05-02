@@ -297,7 +297,7 @@ export default {
             return ['p-checkbox-box', {'p-highlight': this.checked}];
         },
         checkboxIcon() {
-            return ['p-checkbox-icon p-c', {'pi pi-check': this.checked, 'pi pi-minus': this.partialChecked}];
+            return ['p-checkbox-icon', {'pi pi-check': this.checked, 'pi pi-minus': this.partialChecked}];
         },
         checkboxMode() {
             return this.selectionMode === 'checkbox' && this.node.selectable !== false;

@@ -22,7 +22,7 @@
                             <input type="checkbox" readonly @focus="onHeaderCheckboxFocus" @blur="onHeaderCheckboxBlur">
                         </div>
                         <div :class="['p-checkbox-box p-component', {'p-highlight': allSelected, 'p-focus': headerCheckboxFocused}]" role="checkbox" :aria-checked="allSelected">
-                            <span :class="['p-checkbox-icon p-c', {'pi pi-check': allSelected}]"></span>
+                            <span :class="['p-checkbox-icon', {'pi pi-check': allSelected}]"></span>
                         </div>
                     </div>
                     <div v-if="filter" class="p-multiselect-filter-container">
@@ -39,7 +39,7 @@
                             :aria-label="getOptionLabel(option)" :key="getOptionRenderKey(option)" @click="onOptionSelect($event, option)" @keydown="onOptionKeyDown($event, option)" :tabindex="tabindex||'0'">
                             <div class="p-checkbox p-component">
                                 <div :class="['p-checkbox-box p-component', {'p-highlight': isSelected(option)}]">
-                                    <span :class="['p-checkbox-icon p-c', {'pi pi-check': isSelected(option)}]"></span>
+                                    <span :class="['p-checkbox-icon', {'pi pi-check': isSelected(option)}]"></span>
                                 </div>
                             </div>
                             <slot name="option" :option="option" :index="i">

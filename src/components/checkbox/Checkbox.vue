@@ -4,7 +4,7 @@
            <input ref="input" type="checkbox" :checked="checked" :value="value" v-bind="$attrs" @focus="onFocus($event)" @blur="onBlur($event)" :aria-labelledby="ariaLabelledBy">
         </div>
         <div ref="box" :class="['p-checkbox-box', {'p-highlight': checked, 'p-disabled': $attrs.disabled, 'p-focus': focused}]" role="checkbox" :aria-checked="checked">
-            <span :class="['p-checkbox-icon p-c', {'pi pi-check': checked}]"></span>
+            <span :class="['p-checkbox-icon', {'pi pi-check': checked}]"></span>
         </div>
     </div>
 </template>

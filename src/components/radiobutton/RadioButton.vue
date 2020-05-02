@@ -4,7 +4,7 @@
            <input ref="input" type="radio" :checked="checked" :value="value" v-bind="$attrs" @focus="onFocus($event)" @blur="onBlur($event)" :aria-labelledby="ariaLabelledBy">
         </div>
         <div ref="box" :class="['p-radiobutton-box', {'p-highlight': checked, 'p-disabled': $attrs.disabled, 'p-focus': focused}]" role="radio" :aria-checked="checked">
-            <span :class="['p-radiobutton-icon p-c', {'pi pi-circle-on': checked}]"></span>
+            <span :class="['p-radiobutton-icon', {'pi pi-circle-on': checked}]"></span>
         </div>
     </div>
 </template>
