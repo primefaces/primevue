@@ -15,7 +15,10 @@
                 <template #item="slotProps">
                     <div class="p-caritem">
                         <img :src="'demo/images/car/' + slotProps.item.brand + '.png'">
-                        <div>{{slotProps.item.brand}} - {{slotProps.item.year}} - {{slotProps.item.color}}</div>
+                        <div>
+                            <span class="p-caritem-vin">{{slotProps.item.vin}}</span>
+                            <span>{{slotProps.item.year}} - {{slotProps.item.color}}</span>
+                        </div>
                     </div>
                 </template>
             </OrderList>
@@ -49,23 +52,24 @@ export default {
 
 <style lang="scss" scoped>
 .p-caritem {
-    &:after {
-        content: "";
-        display: table;
-        clear: both;
+    display: flex;
+    align-items: center;
+
+    div {
+        display: flex;
+        flex-direction: column;
+    }
+
+    .p-caritem-vin {
+        font-weight: 600;
+        display: block;
+        margin-bottom: .25em;
     }
 
     img {
-        display:inline-block;
-        margin:2px 0 2px 2px;
         width: 48px;
         height: 48px;
-    }
-
-    div {
-        font-size:14px;
-        float:right;
-        margin: 16px 6px 0 0;
+        margin-right: .5em;
     }
 }
 </style>

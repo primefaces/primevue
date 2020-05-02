@@ -16,7 +16,10 @@ import PickList from 'primevue/picklist';
     &lt;template #item="slotProps"&gt;
         &lt;div class="p-caritem"&gt;
             &lt;img :src="'demo/images/car/' + slotProps.item.brand + '.png'"&gt;
-            &lt;div&gt;&#123;&#123;slotProps.item.brand&#125;&#125; - &#123;&#123;slotProps.item.year&#125;&#125; - &#123;&#123;slotProps.item.color&#125;&#125;&lt;/div&gt;
+            &lt;div&gt;
+                &lt;span class="p-caritem-vin"&gt;{{slotProps.item.vin}}&lt;/span&gt;
+                &lt;span&gt;{{slotProps.item.year}} - {{slotProps.item.color}}&lt;/span&gt;
+            &lt;/div&gt;
         &lt;/div&gt;
     &lt;/template&gt;
 &lt;/PickList&gt;
@@ -37,7 +40,10 @@ import PickList from 'primevue/picklist';
     &lt;template #item="slotProps"&gt;
         &lt;div class="p-caritem"&gt;
             &lt;img :src="'demo/images/car/' + slotProps.item.brand + '.png'"&gt;
-            &lt;div&gt;&#123;&#123;slotProps.item.brand&#125;&#125; - &#123;&#123;slotProps.item.year&#125;&#125; - &#123;&#123;slotProps.item.color&#125;&#125;&lt;/div&gt;
+            &lt;div&gt;
+                &lt;span class="p-caritem-vin"&gt;{{slotProps.item.vin}}&lt;/span&gt;
+                &lt;span&gt;{{slotProps.item.year}} - {{slotProps.item.color}}&lt;/span&gt;
+            &lt;/div&gt;
         &lt;/div&gt;
     &lt;/template&gt;
 &lt;/PickList&gt;
@@ -55,7 +61,10 @@ import PickList from 'primevue/picklist';
     &lt;template #item="slotProps"&gt;
         &lt;div class="p-caritem"&gt;
             &lt;img :src="'demo/images/car/' + slotProps.item.brand + '.png'"&gt;
-            &lt;div&gt;&#123;&#123;slotProps.item.brand&#125;&#125; - &#123;&#123;slotProps.item.year&#125;&#125; - &#123;&#123;slotProps.item.color&#125;&#125;&lt;/div&gt;
+            &lt;div&gt;
+                &lt;span class="p-caritem-vin"&gt;{{slotProps.item.vin}}&lt;/span&gt;
+                &lt;span&gt;{{slotProps.item.year}} - {{slotProps.item.color}}&lt;/span&gt;
+            &lt;/div&gt;
         &lt;/div&gt;
     &lt;/template&gt;
 &lt;/PickList&gt;
@@ -230,7 +239,10 @@ import PickList from 'primevue/picklist';
     &lt;template #item="slotProps"&gt;
         &lt;div class="p-caritem"&gt;
             &lt;img :src="'demo/images/car/' + slotProps.item.brand + '.png'"&gt;
-            &lt;div&gt;&#123;&#123;slotProps.item.brand&#125;&#125; - &#123;&#123;slotProps.item.year&#125;&#125; - &#123;&#123;slotProps.item.color&#125;&#125;&lt;/div&gt;
+            &lt;div&gt;
+                &lt;span class="p-caritem-vin"&gt;{{slotProps.item.vin}}&lt;/span&gt;
+                &lt;span&gt;{{slotProps.item.year}} - {{slotProps.item.color}}&lt;/span&gt;
+            &lt;/div&gt;
         &lt;/div&gt;
     &lt;/template&gt;
 &lt;/PickList&gt;
@@ -258,23 +270,24 @@ export default {
 
 <CodeHighlight lang="css">
 .p-caritem {
-    &amp;:after {
-        content: "";
-        display: table;
-        clear: both;
+    display: flex;
+    align-items: center;
+
+    div {
+        display: flex;
+        flex-direction: column;
+    }
+
+    .p-caritem-vin {
+        font-weight: 600;
+        display: block;
+        margin-bottom: .25em;
     }
 
     img {
-        display:inline-block;
-        margin:2px 0 2px 2px;
         width: 48px;
         height: 48px;
-    }
-
-    div {
-        font-size:14px;
-        float:right;
-        margin: 16px 6px 0 0;
+        margin-right: .5em;
     }
 }
 </CodeHighlight>
