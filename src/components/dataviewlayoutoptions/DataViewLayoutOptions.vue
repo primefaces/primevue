@@ -2,11 +2,11 @@
 	<div class="p-dataview-layout-options p-selectbutton p-buttonset">
 		<button :class="buttonListClass" @click="changeLayout('list')" type="button">
 			<i class="pi pi-bars"></i>
-			<span class="p-button-text ">&nbsp;</span>
+			<span class="p-button-text">&nbsp;</span>
 		</button>
 		<button :class="buttonGridClass" @click="changeLayout('grid')" type="button">
 			<i class="pi pi-th-large"></i>
-			<span class="p-button-text ">&nbsp;</span>
+			<span class="p-button-text">&nbsp;</span>
 		</button>
 	</div>
 </template>

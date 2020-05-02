@@ -12,7 +12,7 @@
             </label>
         </div>
         <div class="p-multiselect-trigger">
-            <span class="p-multiselect-trigger-icon pi pi-chevron-down "></span>
+            <span class="p-multiselect-trigger-icon pi pi-chevron-down"></span>
         </div>
         <transition name="p-input-overlay" @enter="onOverlayEnter" @leave="onOverlayLeave">
             <div ref="overlay" class="p-multiselect-panel p-component" v-if="overlayVisible">
