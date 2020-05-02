@@ -1,5 +1,5 @@
 <template>
-	<div class="p-paginator p-component p-unselectable-text" v-if="alwaysShow ? true : (pageLinks && pageLinks.length > 1)">
+	<div class="p-paginator p-component" v-if="alwaysShow ? true : (pageLinks && pageLinks.length > 1)">
         <div class="p-paginator-left-content" v-if="$scopedSlots.left">
             <slot name="left" :state="currentState"></slot>
         </div>
@@ -223,5 +223,6 @@ export default {
     align-items: center;
     justify-content: center;
     line-height: 1;
+    user-select: none;
 }
 </style>

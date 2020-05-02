@@ -416,7 +416,7 @@ export default {
         },
         containerClass() {
             return [
-                'p-dropdown p-component p-unselectable-text',
+                'p-dropdown p-component',
                 {
                     'p-disabled': this.disabled,
                     'p-dropdown-clearable': this.showClear && !this.disabled,
@@ -459,6 +459,7 @@ export default {
     display: inline-flex;
     cursor: pointer;
     position: relative;
+    user-select: none;
 }
 
 .p-dropdown-clear-icon {

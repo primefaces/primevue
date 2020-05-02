@@ -89,7 +89,8 @@ button {
 	margin: 0;
 	padding: 0;
 	border: none;
-	cursor: pointer;
+    cursor: pointer;
+    user-select: none;
 }
 
 /* Overlay Animations */

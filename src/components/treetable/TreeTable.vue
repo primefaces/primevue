@@ -927,6 +927,7 @@ export default {
 
 .p-treetable-toggler {
     cursor: pointer;
+    user-select: none;
 }
 
 /* Resizable */

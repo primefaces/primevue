@@ -1,6 +1,6 @@
 <template>
     <fieldset :class="['p-fieldset p-component', {'p-fieldset-toggleable': toggleable}]">
-        <legend class="p-fieldset-legend p-unselectable-text">
+        <legend class="p-fieldset-legend">
             <slot name="legend" v-if="!toggleable">
                 <span class="p-fieldset-legend-text" :id="ariaId + '_header'">{{legend}}</span>
             </slot>

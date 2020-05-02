@@ -348,7 +348,7 @@ export default {
         },
         containerClass() {
             return [
-                'p-multiselect p-component p-unselectable-text',
+                'p-multiselect p-component',
                 {
                     'p-disabled': this.disabled,
                     'p-focus': this.focused
@@ -414,6 +414,7 @@ export default {
     display: inline-flex;
     cursor: pointer;
     position: relative;
+    user-select: none;
 }
 
 .p-multiselect-trigger {
