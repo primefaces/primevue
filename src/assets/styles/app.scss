@@ -1,60 +1,5 @@
 @charset "UTF-8";
 
-@mixin background-gradient-left2right($start-color, $end-color) {
-    background-color: $start-color;
-    background-image: -webkit-linear-gradient(left, $start-color, $end-color);
-    background-image: -moz-linear-gradient(left, $start-color, $end-color);
-    background-image: -ms-linear-gradient(left, $start-color, $end-color);
-    background-image: -o-linear-gradient(left, $start-color, $end-color);
-    background-image: linear-gradient(to right, $start-color, $end-color);
-    filter: progid:DXImageTransform.Microsoft.gradient(startColorStr='#{$start-color}', endColorStr='#{$end-color}', gradientType='1');
-}
-
-@mixin transition($transition...) {
-    -moz-transition:    $transition;
-    -o-transition:      $transition;
-    -webkit-transition: $transition;
-    transition:         $transition;
-}
-
-@mixin clearfix {
-    &:after {
-        content: "";
-        display: table;
-        clear: both;
-    }
-}
-
-@mixin shadow($value...) {
-    -webkit-box-shadow: $value;
-    -moz-box-shadow: $value;
-    box-shadow: $value;
-}
-
-@mixin border-radius-top($val) {
-    -moz-border-radius-topleft: $val;
-    -webkit-border-top-left-radius: $val;
-    border-top-left-radius: $val;
-    -moz-border-radius-topright: $val;
-    -webkit-border-top-right-radius: $val;
-    border-top-right-radius: $val;
-}
-
-@mixin border-radius-left($val) {
-    -moz-border-radius-topleft: $val;
-    -webkit-border-top-left-radius: $val;
-    border-top-left-radius: $val;
-    -moz-border-radius-bottomleft: $val;
-    -webkit-border-bottom-left-radius: $val;
-    border-bottom-left-radius: $val;
-}
-
-@mixin border-radius($val) {
-    -moz-border-radius: $val;
-    -webkit-border-radius: $val;
-    border-radius: $val;
-}
-
 @keyframes pulse {
     0% {
         background-color: rgba(165, 165, 165, 0.1)
@@ -65,14 +10,6 @@
     100% {
         background-color: rgba(165, 165, 165, 0.1)
     }
-}
-
-@mixin rotate($deg) {
-    -webkit-transform: rotate($deg);
-    -moz-transform: rotate($deg);
-    -o-transform: rotate($deg);
-    -ms-transform: rotate($deg);
-    transform: rotate($deg);
 }
 
 $focusBorderColor:#8dcdff;
@@ -94,6 +31,7 @@ body {
 
 input[type="number"] {
     -moz-appearance: textfield;
+
     &::-webkit-outer-spin-button,
     &::-webkit-inner-spin-button {
         -webkit-appearance: none;
@@ -127,30 +65,24 @@ a {
         display: -webkit-box;
         display: -ms-flexbox;
         display: flex;
-        -webkit-box-pack: center;
-        -ms-flex-pack: center;
         justify-content: center;
-        -webkit-box-align: center;
-        -ms-flex-align: center;
         align-items: center;
         color: #ffffff;
         font-weight: bold;
         font-size: 20px;
 
         .layout-news-details {
-            display: -webkit-box;
-            display: -ms-flexbox;
             display: flex;
-            -webkit-box-align: center;
-            -ms-flex-align: center;
             align-items: center;
             z-index: 1;
+
             .rate {
                 color: #f2b837;
                 font-size: 25px;
                 font-weight: bold;
                 margin: 0 .25em;
             }
+
             .helper-text {
                 background-color: #f2b837;
                 color: #212121;
@@ -158,9 +90,11 @@ a {
                 margin-right: 0.3em;
             }
         }
+
         img.layouts-news-text-image {
             height: 60px;
         }
+
         img.layouts-news-mockup-image {
             height: 70px;
             position: absolute;
@@ -177,9 +111,7 @@ a {
         border-radius: 50%;
         display: -ms-flexbox;
         display: flex;
-        -ms-flex-pack: center;
         justify-content: center;
-        -ms-flex-align: center;
         align-items: center;
         width: 23px;
         height: 23px;
@@ -216,7 +148,7 @@ a {
     left: 0;
     width: 100%;
     z-index: 997;
-    @include shadow(0 0 4px rgba(0,0,0,0.25));
+    box-shadow: 0 0 4px rgba(0,0,0,0.25);
 
     .menu-button {
         display: none;
@@ -230,7 +162,7 @@ a {
         line-height: 70px;
         text-align: center;
         cursor: pointer;
-        @include transition(background-color .2s);
+        transition: background-color .2s;
 
         &:hover {
             background-color: #eeeeee;
@@ -279,7 +211,7 @@ a {
                 user-select: none;
                 line-height: inherit;
                 cursor: pointer;
-                @include transition(background-color .2s);
+                transition: background-color .2s;
 
                 &:hover {
                     background-color: #eeeeee;
@@ -303,8 +235,6 @@ a {
                     width: 275px;
                     max-height: 400px;
                     background-color: #ffffff;
-                    -moz-box-shadow: 0 0 10px 0 rgba(0, 0, 0, 0.3);
-                    -webkit-box-shadow: 0 0 10px 0 rgba(0, 0, 0, 0.3);
                     box-shadow: 0 0 10px 0 rgba(0, 0, 0, 0.3);
                     overflow: auto;
                     list-style-type: none;
@@ -335,7 +265,7 @@ a {
                         user-select: none;
                         cursor: pointer;
                         border-bottom: 1px solid #f4f4f4;
-                        @include transition(background-color .2s);
+                        transition: background-color .2s;
 
                         &:hover {
                             background-color: #eeeeee;
@@ -398,21 +328,15 @@ a {
         }
 
         .theme-badge.material {
-            background: #2196F3;  /* fallback for old browsers */
-            background: -webkit-linear-gradient(to bottom, #2196F3, #2196F3);  /* Chrome 10-25, Safari 5.1-6 */
-            background: linear-gradient(to bottom, #2196F3, #2196F3); /* W3C, IE 10+/ Edge, Firefox 16+, Chrome 26+, Opera 12+, Safari 7+ */
+            background: linear-gradient(to bottom, #2196F3, #2196F3);
         }
 
         .theme-badge.bootstrap {
-            background: #563D7C;  /* fallback for old browsers */
-            background: -webkit-linear-gradient(to bottom, #563D7C, #966BD8);  /* Chrome 10-25, Safari 5.1-6 */
-            background: linear-gradient(to bottom, #563D7C, #966BD8); /* W3C, IE 10+/ Edge, Firefox 16+, Chrome 26+, Opera 12+, Safari 7+ */
+            background: linear-gradient(to bottom, #563D7C, #966BD8);
         }
 
         .theme-badge.darkmode {
-            background-color: #141d26;
-            background: -webkit-linear-gradient(to bottom, #141d26, #5a6067);  /* Chrome 10-25, Safari 5.1-6 */
-            background: linear-gradient(to bottom, #141d26, #5a6067); /* W3C, IE 10+/ Edge, Firefox 16+, Chrome 26+, Opera 12+, Safari 7+ */
+            background: linear-gradient(to bottom, #141d26, #5a6067);
         }
     }
 }
@@ -425,7 +349,7 @@ a {
     background-color: #ffffff;
     overflow: auto;
     width: 280px;
-    @include shadow(0 0 2px rgba(0,0,0,0.25));
+    box-shadow: 0 0 2px rgba(0,0,0,0.25);
 
     .layout-menu {
 
@@ -499,9 +423,7 @@ a {
                 }
 
                 .menuitem-badge {
-                    background: #00b09b;  /* fallback for old browsers */
-                    background: -webkit-linear-gradient(to bottom, #96c93d, #00b09b);  /* Chrome 10-25, Safari 5.1-6 */
-                    background: linear-gradient(to bottom, #96c93d, #00b09b); /* W3C, IE 10+/ Edge, Firefox 16+, Chrome 26+, Opera 12+, Safari 7+ */
+                    background: linear-gradient(to bottom, #96c93d, #00b09b);
                     padding: 2px 4px;
                     vertical-align: middle;
                     border-radius: 3px;
@@ -529,7 +451,7 @@ a {
     left: 0;
     background-color: #4c5254;
     opacity: .7;
-    @include transition(opacity .5s);
+    transition: opacity .5s;
 }
 
 .layout-content {
@@ -551,7 +473,7 @@ a {
 
         &.introduction {
             color: #ffffff;
-            @include background-gradient-left2right(#455C71,#526F89);
+            background-image: linear-gradient(to left, #455C71, #526F89);
 
             .feature-intro {
 
@@ -620,7 +542,6 @@ a {
         &.content-submenu {
             background-color: #3e5265;
             padding: 15px 30px;
-            @include clearfix();
 
             ul {
                 margin: 0;
@@ -640,7 +561,7 @@ a {
                         border: 1px solid transparent;
                         padding: 6px 12px;
                         border-radius: 3px;
-                        @include transition(background-color .1s);
+                        transition: background-color .1s;
 
                         &:hover {
                             background-color: #4c667d;
@@ -693,7 +614,7 @@ a {
             a {
                 color: #638fb7;
                 font-weight: 700;
-                @include transition(color .2s);
+                transition: color .2s;
 
                 &:hover {
                     color: #82a5c5;
@@ -708,7 +629,7 @@ a {
                 font-weight: 700;
                 margin: .5em 0;
                 display: inline-block;
-                @include transition(background-color .2s);
+                transition: background-color .2s;
 
                 &:hover {
                     background-color: #595959;
@@ -743,7 +664,8 @@ a {
                         box-shadow: none !important;
                         border: 0 none;
                         top: 1px;
-                        @include border-radius-top(3px);
+                        border-top-right-radius: 3px;
+                        border-top-left-radius: 3px;
 
                         a {
                             font-weight: 400;
@@ -755,8 +677,9 @@ a {
                             border: 0 none;
                             border-bottom: 1px solid transparent;
                             margin-bottom: -1px;
-                            @include border-radius-top(3px);
-                            @include transition(background-color .2s);
+                            border-top-right-radius: 3px;
+                            border-top-left-radius: 3px;
+                            transition: background-color .2s;
 
                             &:focus {
                                 outline: 0 none;
@@ -888,11 +811,10 @@ a {
     width: 550px;
     z-index: 996;
     height: calc(100% - 70px);
-    @include transition(transform .3s);
+    transition: transform .3s;
     transform: translate3d(550px,0,0);
     background-color: #ffffff;
     backface-visibility: hidden;
-    -webkit-backface-visibility: hidden;
 
     &.layout-config-active {
         transform: translate3d(0,0,0);
@@ -900,7 +822,7 @@ a {
         .layout-config-content-wrapper {
             .layout-config-button {
                 i {
-                    @include rotate(360deg);
+                    transform: rotate(360deg);
                 }
             }
         }
@@ -910,7 +832,7 @@ a {
         position: relative;
         height: 100%;
         padding: 0;
-        @include shadow(0 2px 10px 0 rgba(0, 0, 0, 0.24));
+        box-shadow: 0 2px 10px 0 rgba(0, 0, 0, 0.24);
 
         .layout-config-button {
             display: block;
@@ -926,8 +848,9 @@ a {
             z-index: -1;
             overflow: hidden;
             cursor: pointer;
-            @include border-radius-left(3px);
-            @include transition(background-color .2s, box-shadow .2s);
+            border-top-left-radius: 3px;
+            border-top-right-radius: 3px;
+            transition: background-color .2s, box-shadow .2s;
             box-shadow: 0 7px 8px -4px rgba(0, 0, 0, 0.2),
                         0 5px 22px 4px rgba(0, 0, 0, 0.12),
                         0 12px 17px 2px rgba(0, 0, 0, 0.14);
@@ -936,8 +859,8 @@ a {
                 font-size: 26px;
                 line-height: inherit;
                 cursor: pointer;
-                @include rotate(0deg);
-                @include transition(transform 1s);
+                transform: rotate(0deg);
+                transition: transform 1s;
             }
 
             &:hover {
@@ -949,7 +872,7 @@ a {
     a {
         color: #638fb7;
         font-weight: 700;
-        @include transition(color .2s);
+        transition: color .2s;
 
         &:hover {
             color: #82a5c5;
@@ -971,8 +894,8 @@ a {
         top: 20px;
         z-index: 999;
         background-color: #41b783;
-        @include border-radius(50%);
-        @include transition(background-color .2s, box-shadow .2s);
+        border-radius: 50%;
+        transition: background-color .2s, box-shadow .2s;
 
         i {
             color: #ffffff;
@@ -1030,7 +953,7 @@ a {
     button {
         text-align: center;
         position: relative;
-        @include transition(box-shadow .2s);
+        transition: box-shadow .2s;
 
         i {
             line-height: inherit;
@@ -1092,7 +1015,7 @@ a {
     }
     a {
         color: #638fb7;
-        @include transition(color .2s);
+        transition: color .2s;
 
         &:hover {
             color: #82a5c5;
@@ -1106,7 +1029,7 @@ a {
         background-color: #455C71;
         padding: 10px 24px 9px 24px;
         border-radius: 3px;
-        @include transition(background-color .2s);
+        transition: background-color .2s;
 
         &:hover {
             background-color: #708EA5;
@@ -1117,11 +1040,11 @@ a {
     .home-button2 {
         font-weight: bold;
         text-align: center;
-        color: #8C6816 !important;;
+        color: #8C6816 !important;
         background-color: #FFCB54;
         padding: 10px 24px 9px 24px;
         border-radius: 3px;
-        @include transition(background-color .2s);
+        transition: background-color .2s;
         display: inline-block;
 
         &:hover {
@@ -1185,7 +1108,7 @@ a {
 
         .feature-card {
             background-color: #ffffff;
-            @include shadow(0 0.8px 1.7px rgba(0, 0, 0, 0.008), 0 1.9px 4.2px rgba(0, 0, 0, 0.012),0 3.6px 7.9px rgba(0, 0, 0, 0.015),0 6.5px 14.1px rgba(0, 0, 0, 0.018),0 12.1px 26.3px rgba(0, 0, 0, 0.022),0 29px 63px rgba(0, 0, 0, 0.03));
+            box-shadow: 0 0.8px 1.7px rgba(0, 0, 0, 0.008), 0 1.9px 4.2px rgba(0, 0, 0, 0.012),0 3.6px 7.9px rgba(0, 0, 0, 0.015),0 6.5px 14.1px rgba(0, 0, 0, 0.018),0 12.1px 26.3px rgba(0, 0, 0, 0.022),0 29px 63px rgba(0, 0, 0, 0.03);
             height: 100%;
             border-radius: 4px;
 
@@ -1433,7 +1356,7 @@ a {
         top: 70px;
         left: -300px;
         z-index: 999;
-        @include transition(left .3s);
+        transition: left .3s;
 
         &.active {
             left: 0;
@@ -1525,13 +1448,11 @@ a {
 @-webkit-keyframes fadeInDown {
     from {
         opacity: 0;
-        -webkit-transform: translate3d(0, -20px, 0);
         transform: translate3d(0, -20px, 0);
     }
 
     to {
         opacity: 1;
-        -webkit-transform: none;
         transform: none;
     }
 }
