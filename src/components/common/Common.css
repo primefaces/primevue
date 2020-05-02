@@ -1,9 +1,7 @@
 .p-component, .p-component * {
     box-sizing: border-box;
 }
-.p-hidden {
-    display: none;
-}
+
 .p-hidden-accessible {
     border: 0;
     clip: rect(0 0 0 0);
@@ -14,10 +12,12 @@
     position: absolute;
     width: 1px;
 }
+
 .p-hidden-accessible input,
 .p-hidden-accessible select {
     transform: scale(0);
 }
+
 .p-reset {
     margin: 0;
     padding: 0;
@@ -27,9 +27,11 @@
     font-size: 100%;
     list-style: none;
 }
+
 .p-disabled, .p-disabled * {
     cursor: default !important;
 }
+
 .p-component-overlay {
     position: fixed;
     top: 0;
@@ -37,9 +39,11 @@
     width: 100%;
     height: 100%;
 }
+
 .p-overflow-hidden {
     overflow: hidden;
 }
+
 .p-unselectable-text {
     -webkit-user-select: none;
     -khtml-user-select: none;
@@ -47,6 +51,7 @@
     -o-user-select: none;
     user-select: none;
 }
+
 .p-scrollbar-measure {
     width: 100px;
     height: 100px;
@@ -54,6 +59,7 @@
     position: absolute;
     top: -9999px;
 }
+
 .p-clearfix:after {
     content: "";
     display: table;
@@ -74,8 +80,6 @@ input[type="submit"],
 input[type="reset"],
 input[type="file"]::-webkit-file-upload-button,
 button {
-    -moz-border-radius: 0;
-    -webkit-border-radius: 0;
     border-radius: 0;
 }
 
@@ -90,27 +94,19 @@ button {
 
 /* Overlay Animations */
 .p-input-overlay {
-    -webkit-transform: translateY(5%);
-    -ms-transform: translateY(5%);
     transform: translateY(5%);
     opacity: 0;
-    -webkit-transition: transform .3s, opacity .3s;
     transition: transform .3s, opacity .3s;
 }
 
 .p-input-overlay-visible {
-    -webkit-transform: translateY(0);
-    -ms-transform: translateY(0);
     transform: translateY(0);
     opacity: 1;
 }
 
 .p-input-overlay-hidden {
     opacity: 0;
-    -webkit-transform: translateY(5%);
-    -ms-transform: translateY(5%);
     transform: translateY(5%);
-    -webkit-transition: transform .3s, opacity .15s;
     transition: transform .3s, opacity .15s;
 }
 
@@ -118,14 +114,11 @@ button {
 .p-input-overlay-enter,
 .p-input-overlay-leave-to {
     opacity: 0;
-    -webkit-transform: translateY(5%);
-    -ms-transform: translateY(5%);
     transform: translateY(5%);
 }
 
 .p-input-overlay-enter-active,
 .p-input-overlay-leave-active {
-    -webkit-transition: transform .3s, opacity .15s;
     transition: transform .3s, opacity .15s;
 }
 
