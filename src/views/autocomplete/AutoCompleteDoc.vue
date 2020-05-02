@@ -261,7 +261,7 @@ export default {
 &lt;h3&gt;Dropdown and Templating&lt;/h3&gt;
 &lt;AutoComplete v-model="brand" :suggestions="filteredBrands" @complete="searchBrand($event)" placeholder="Hint: type 'v' or 'f'" :dropdown="true"&gt;
     &lt;template #item="slotProps"&gt;
-        &lt;div class="p-clearfix p-autocomplete-brand-item"&gt;
+        &lt;div class="p-autocomplete-brand-item"&gt;
             &lt;img :alt="slotProps.item" :src="'demo/images/car/' + slotProps.item + '.png'" /&gt;
             &lt;div&gt;{{slotProps.item}}&lt;/div&gt;
         &lt;/div&gt;
@@ -341,17 +341,13 @@ export default {
 
 <CodeHighlight lang="css">
 .p-autocomplete-brand-item {
-	img {
-		width: 32px;
-		display: inline-block;
-		margin: 5px 0 2px 5px;
-	}
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
 
-	div {
-		font-size: 16px;
-		float: right;
-		margin: 10px 10px 0 0;
-	}
+    img {
+        width: 28px;
+    }
 }
 </CodeHighlight>
 			</TabPanel>

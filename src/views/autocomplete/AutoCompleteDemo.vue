@@ -15,7 +15,7 @@
             <h3>Dropdown and Templating</h3>
             <AutoComplete v-model="brand" :suggestions="filteredBrands" @complete="searchBrand($event)" placeholder="Search car brands" :dropdown="true">
                 <template #item="slotProps">
-                    <div class="p-clearfix p-autocomplete-brand-item">
+                    <div class="p-autocomplete-brand-item">
                         <img :alt="slotProps.item" :src="'demo/images/car/' + slotProps.item + '.png'" />
                         <div>{{slotProps.item}}</div>
                     </div>
@@ -102,16 +102,12 @@ export default {
 
 <style lang="scss">
 .p-autocomplete-brand-item {
-    img {
-        width: 32px;
-        display: inline-block;
-        margin: 5px 0 2px 5px;
-    }
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
 
-    div {
-        font-size: 16px;
-        float: right;
-        margin: 10px 10px 0 0;
+    img {
+        width: 28px;
     }
 }
 </style>
