@@ -294,7 +294,7 @@ export default {
             }];
         },
         checkboxClass() {
-            return ['p-checkbox-box', {'p-highlight': this.checked}];
+            return ['p-checkbox-box', {'p-highlight': this.checked, 'p-indeterminate': this.partialChecked}];
         },
         checkboxIcon() {
             return ['p-checkbox-icon', {'pi pi-check': this.checked, 'pi pi-minus': this.partialChecked}];

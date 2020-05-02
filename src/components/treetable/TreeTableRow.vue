@@ -233,7 +233,7 @@ export default {
             return this.selectionMode === 'checkbox';
         },
         checkboxClass() {
-            return ['p-checkbox-box', {'p-highlight': this.checked, 'p-focus': this.checkboxFocused}];
+            return ['p-checkbox-box', {'p-highlight': this.checked, 'p-focus': this.checkboxFocused, 'p-indeterminate': this.partialChecked}];
         },
         checkboxIcon() {
             return ['p-checkbox-icon', {'pi pi-check': this.checked, 'pi pi-minus': this.partialChecked}];
