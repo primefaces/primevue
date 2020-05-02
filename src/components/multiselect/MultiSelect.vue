@@ -488,6 +488,13 @@ export default {
     width: 100%;
 }
 
+.p-multiselect-close {
+    display: flex;
+    align-content: center;
+    justify-content: center;
+    flex-shrink: 0;
+}
+
 .p-fluid .p-multiselect {
     display: flex;
 }
