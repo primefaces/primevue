@@ -145,7 +145,7 @@ export default {
                                 <td>Container element</td>
                             </tr>
                             <tr>
-                                <td>p-button-icon-left</td>
+                                <td>p-button-icon</td>
                                 <td>Icon element.</td>
                             </tr>
                             <tr>

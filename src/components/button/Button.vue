@@ -30,6 +30,7 @@ export default {
         iconClass() {
             return [
                 this.icon,
+                'p-button-icon',
                 {
                     'p-button-icon-left': this.iconPos === 'left' && this.label,
                     'p-button-icon-right': this.iconPos === 'right' && this.label
