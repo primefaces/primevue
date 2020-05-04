@@ -17,7 +17,11 @@
                         <li><a href="https://www.primefaces.org/designer/primevue"><i class="pi pi-fw pi-palette" /><span>Designer</span></a></li>
                         <li><router-link to="/icons"><i class="pi pi-fw pi-info-circle"/><span>Icons</span></router-link></li>
                         <li class="topbar-submenu-header">FREE COMPONENT THEMES</li>
-                        <li><a href="#" @click="changeTheme($event, 'nova-light', false)"><img src="./assets/images/layouts/themeswitcher-nova-light.png" alt="Nova Light" /><span>Nova Light</span></a></li>
+                        <li><a @click="changeTheme($event, 'saga-blue', false)"><img src="./assets/images/layouts/themeswitcher-saga-blue.png" alt="Saga Blue" /><span>Saga Blue</span></a></li>
+                        <li><a @click="changeTheme($event, 'saga-teal', false)"><img src="./assets/images/layouts/themeswitcher-saga-teal.png" alt="Saga Teal" /><span>Saga Teal</span></a></li>
+                        <li><a @click="changeTheme($event, 'saga-purple', false)"><img src="./assets/images/layouts/themeswitcher-saga-purple.png" alt="Saga Purple" /><span>Saga Purple</span></a></li>
+                        <li><a @click="changeTheme($event, 'saga-grey', false)"><img src="./assets/images/layouts/themeswitcher-saga-grey.png" alt="Saga Grey" /><span>Saga Grey</span></a></li>
+                        <li><a @click="changeTheme($event, 'nova-light', false)"><img src="./assets/images/layouts/themeswitcher-nova-light.png" alt="Nova Light" /><span>Nova Light</span></a></li>
                         <li><a @click="changeTheme($event, 'nova-dark', false)"><img src="./assets/images/layouts/themeswitcher-nova-dark.png" alt="Nova Dark" /><span>Nova Dark</span></a></li>
                         <li><a @click="changeTheme($event, 'nova-colored', false)"><img src="./assets/images/layouts/themeswitcher-nova-colored.png" alt="Nova Colored" /><span>Nova Colored</span></a></li>
                         <li><a @click="changeTheme($event, 'nova-vue', false)"><img src="./assets/images/layouts/themeswitcher-nova-vue.png" alt="Nova Vue" /><span>Nova Vue</span></a></li>
