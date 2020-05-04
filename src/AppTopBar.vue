@@ -81,7 +81,7 @@ export default {
     },
     data() {
         return {
-            theme: 'nova-light',
+            theme: 'saga-blue',
             activeMenuIndex: null
         }
     },
