@@ -288,7 +288,7 @@ export default {
 
             setTimeout(() => {
                 this.hide();
-            }, 100);
+            }, 200);
         },
         onEditableInput(event) {
             this.$emit('input', event.target.value);
