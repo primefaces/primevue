@@ -69,6 +69,9 @@ import InputText from 'primevue/inputtext';
 
 &lt;h3&gt;Disabled&lt;/h3&gt;
 &lt;InputText type="text" v-model="value3" disabled /&gt;
+
+&lt;h3&gt;Invalid&lt;/h3&gt;
+&lt;InputText type="text" class="p-error" /&gt;
 </template>
 </CodeHighlight>
 

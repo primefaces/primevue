@@ -20,6 +20,9 @@
 
             <h3>Disabled</h3>
             <InputText type="text" v-model="value3" disabled />
+
+             <h3>Invalid</h3>
+            <InputText type="text" class="p-error" readonly />
         </div>
 
         <InputTextDoc />
