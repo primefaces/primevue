@@ -349,7 +349,8 @@ export default {
 
 .p-slider-range {
 	position: absolute;
-	display: block;
+    display: block;
+
 }
 
 .p-slider-horizontal .p-slider-range {
@@ -358,21 +359,13 @@ export default {
 	height: 100%;
 }
 
-.p-slider-horizontal .p-slider-handle {
-    margin-top: -.5em;
-}
-
 .p-slider-vertical {
 	height: 100px;
 }
 
 .p-slider-vertical .p-slider-range {
-    left: 50%;
     bottom: 0;
+    left: 0;
     width: 100%;
-}
-
-.p-slider-vertical .p-slider-handle {
-    margin-left: -.5em;
 }
 </style>
