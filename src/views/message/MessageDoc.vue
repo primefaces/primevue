@@ -56,15 +56,15 @@ data() {
 &lt;Message severity="warn" :life="5000" :sticky="false"&gt;This message will hide in 5 seconds.&lt;/Message&gt;
 </CodeHighlight>
 
-				<h3>ValidationMessage Component</h3>
+				<h3>Inline Message Component</h3>
 <CodeHighlight lang="javascript">
-import Message from 'primevue/message';
+import InlineMessage from 'primevue/inlinemessage';
 </CodeHighlight>
 
-				<p>ValidationMessage component is useful in cases where a single message needs to be displayed related to an element such as forms. It has one property, <i>severity</i> of the message.</p>
+				<p>InlineMessage component is useful in cases where a single message needs to be displayed related to an element such as forms. It has one property, <i>severity</i> of the message.</p>
 <CodeHighlight>
 &lt;InputText placeholder="Username" class="p-error" /&gt;
-&lt;ValidationMessage&gt;Field is required&lt;/ValidationMessage&gt;
+&lt;InlineMessage&gt;Field is required&lt;/InlineMessage&gt;
 </CodeHighlight>
 
 
@@ -179,7 +179,7 @@ import Message from 'primevue/message';
 					</table>
 				</div>
 
-                <strong>ValidationMessage</strong>
+                <strong>InlineMessage</strong>
                 <div class="doc-tablewrapper">
 					<table class="doc-table">
 						<thead>
@@ -190,31 +190,31 @@ import Message from 'primevue/message';
 						</thead>
 						<tbody>
                             <tr>
-                                <td>p-message</td>
+                                <td>p-inline-message</td>
                                 <td>Container element.</td>
                             </tr>
                             <tr>
-                                <td>p-message-info</td>
+                                <td>p-inline-message-info</td>
                                 <td>Container element when displaying info messages.</td>
                             </tr>
                             <tr>
-                                <td>p-message-warn</td>
+                                <td>p-inline-message-warn</td>
                                 <td>Container element when displaying warning messages.</td>
                             </tr>
                             <tr>
-                                <td>p-message-error</td>
+                                <td>p-inline-message-error</td>
                                 <td>Container element when displaying error messages.</td>
                             </tr>
                             <tr>
-                                <td>p-message-success</td>
+                                <td>p-inline-message-success</td>
                                 <td>Container element when displaying success messages.</td>
                             </tr>
                             <tr>
-                                <td>p-message-icon</td>
+                                <td>p-inline-message-icon</td>
                                 <td>Severity icon.</td>
                             </tr>
                            <tr>
-                                <td>p-message-text</td>
+                                <td>p-inline-message-text</td>
                                 <td>Content of a message.</td>
                             </tr>
 						</tbody>
@@ -252,11 +252,11 @@ import Message from 'primevue/message';
 &lt;div class="p-grid"&gt;
     &lt;div class="p-col-12"&gt;
         &lt;InputText placeholder="Username" class="p-error" /&gt;
-        &lt;ValidationMessage&gt;Field is required&lt;/ValidationMessage&gt;
+        &lt;InlineMessage&gt;Field is required&lt;/InlineMessage&gt;
     &lt;/div&gt;
     &lt;div class="p-col-12"&gt;
         &lt;InputText placeholder="Email" class="p-error" :closable="false" /&gt;
-        &lt;ValidationMessage /&gt;
+        &lt;InlineMessage /&gt;
     &lt;/div&gt;
 &lt;/div&gt;
 </template>

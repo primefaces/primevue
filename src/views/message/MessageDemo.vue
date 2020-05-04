@@ -24,15 +24,15 @@
             <h3>Auto Dismiss</h3>
             <Message severity="warn" :life="10000" :sticky="false">This message will hide in 10 seconds.</Message>
 
-            <h3>Validation Message</h3>
+            <h3>Inline Message</h3>
             <div class="p-grid">
                 <div class="p-col-12">
                     <InputText placeholder="Username" class="p-error" />
-                    <ValidationMessage>Field is required</ValidationMessage>
+                    <InlineMessage>Field is required</InlineMessage>
                 </div>
                 <div class="p-col-12">
                     <InputText placeholder="Email" class="p-error" :closable="false" />
-                    <ValidationMessage />
+                    <InlineMessage />
                 </div>
             </div>
         </div>
