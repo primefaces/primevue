@@ -9,11 +9,11 @@
 
         <div class="content-section implementation">
             <h3 class="first">Basic</h3>
-            <Button label="Click" />
-            <Button label="Click" icon="pi pi-check" />
-            <Button label="Click" icon="pi pi-check" iconPos="right" />
+            <Button label="Submit" />
+            <Button label="Submit" icon="pi pi-check" />
+            <Button label="Submit" icon="pi pi-check" iconPos="right" />
             <Button icon="pi pi-check" />
-            <Button label="Click" disabled="disabled" />
+            <Button label="Submit" disabled="disabled" />
 
             <h3>Severities</h3>
             <Button label="Primary" />

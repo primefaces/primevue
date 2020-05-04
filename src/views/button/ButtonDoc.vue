@@ -16,19 +16,19 @@ import Button from 'primevue/button';
 				<h3>Label</h3>
 				<p>Text of the button is defined using the <i>label</i> property.</p>
 <CodeHighlight>
-&lt;Button label="Click" /&gt;
+&lt;Button label="Submit" /&gt;
 </CodeHighlight>
 				<h3>Icons</h3>
 				<p>Icon on a button is specified with <i>icon</i> property and position is configured using <i>iconPos</i> attribute. Default
 					icon position is "left" and alternative is "right". To display only an icon, leave the label as undefined.</p>
 <CodeHighlight>
-&lt;Button label="Click" icon="pi pi-check" iconPos="right" /&gt;
+&lt;Button label="Submit" icon="pi pi-check" iconPos="right" /&gt;
 </CodeHighlight>
 
 				<h3>Events</h3>
 				<p>Events are defined with the standard notation.</p>
 <CodeHighlight>
-&lt;Button label="Click" @click="handleClick($event)"/&gt;
+&lt;Button label="Submit" @click="handleClick($event)"/&gt;
 </CodeHighlight>
 
 				<h3>Severity</h3>
@@ -140,11 +140,11 @@ import Button from 'primevue/button';
 <CodeHighlight>
 <template v-pre>
 &lt;h3&gt;Basic&lt;/h3&gt;
-&lt;Button label="Click" /&gt;
-&lt;Button label="Click" icon="pi pi-check" /&gt;
-&lt;Button label="Click" icon="pi pi-check" iconPos="right" /&gt;
+&lt;Button label="Submit" /&gt;
+&lt;Button label="Submit" icon="pi pi-check" /&gt;
+&lt;Button label="Submit" icon="pi pi-check" iconPos="right" /&gt;
 &lt;Button icon="pi pi-check" /&gt;
-&lt;Button label="Click" disabled="disabled" /&gt;
+&lt;Button label="Submit" disabled="disabled" /&gt;
 
 &lt;h3&gt;Severities&lt;/h3&gt;
 &lt;Button label="Primary" /&gt;
