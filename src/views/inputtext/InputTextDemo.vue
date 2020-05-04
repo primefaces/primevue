@@ -22,7 +22,7 @@
             <InputText type="text" v-model="value3" disabled />
 
              <h3>Invalid</h3>
-            <InputText type="text" class="p-error" readonly />
+            <InputText type="text" class="p-error" />
         </div>
 
         <InputTextDoc />
