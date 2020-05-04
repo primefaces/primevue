@@ -1,13 +1,13 @@
 <template>
-    <transition name="p-messages">
+    <transition name="p-message">
         <div :class="containerClass" v-if="visible" role="alert">
-            <div class="p-messages-wrapper">
+            <div class="p-message-wrapper">
                 <span :class="iconClass"></span>
-                <div class="p-messages-text">
+                <div class="p-message-text">
                     <slot></slot>
                 </div>
-                <button class="p-messages-close p-link" @click="visible = false" v-if="closable" type="button">
-                    <i class="p-messages-close-icon pi pi-times"></i>
+                <button class="p-message-close p-link" @click="visible = false" v-if="closable" type="button">
+                    <i class="p-message-close-icon pi pi-times"></i>
                 </button>
             </div>
         </div>
@@ -49,10 +49,10 @@ export default {
     },
     computed: {
         containerClass() {
-            return 'p-messages p-component p-messages-' + this.severity;
+            return 'p-message p-component p-message-' + this.severity;
         },
         iconClass() {
-            return ['p-messages-icon pi', {
+            return ['p-message-icon pi', {
                 'pi-info-circle': this.severity === 'info',
                 'pi-check': this.severity === 'success',
                 'pi-exclamation-triangle': this.severity === 'warn',
@@ -64,47 +64,47 @@ export default {
 </script>
 
 <style>
-.p-messages-wrapper {
+.p-message-wrapper {
     display: flex;
     align-items: center;
 }
 
-.p-messages-close {
+.p-message-close {
     display: flex;
     align-items: center;
     justify-content: center;
 }
 
-.p-messages-close.p-link {
+.p-message-close.p-link {
     margin-left: auto
 }
 
-.p-messages-enter {
+.p-message-enter {
     opacity: 0;
 }
 
-.p-messages-enter-active {
+.p-message-enter-active {
     -webkit-transition: opacity .3s;
     transition: opacity .3s;
 }
 
-.p-messages.p-messages-leave {
+.p-message.p-message-leave {
     max-height: 1000px;
 }
 
-.p-messages.p-messages-leave-to {
+.p-message.p-message-leave-to {
     max-height: 0;
     opacity: 0;
     margin: 0 !important;
 }
 
-.p-messages-leave-active {
+.p-message-leave-active {
     overflow: hidden;
     -webkit-transition: max-height .3s cubic-bezier(0, 1, 0, 1), opacity .3s, margin .3s;
     transition: max-height .3 cubic-bezier(0, 1, 0, 1), opacity .3s, margin .3s;
 }
 
-.p-messages-leave-active .p-messages-close {
+.p-message-leave-active .p-message-close {
     display: none;
 }
 </style>
