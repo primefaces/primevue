@@ -18,10 +18,9 @@
                         <li><router-link to="/icons"><i class="pi pi-fw pi-info-circle"/><span>Icons</span></router-link></li>
                         <li class="topbar-submenu-header">FREE COMPONENT THEMES</li>
                         <li><a @click="changeTheme($event, 'saga-blue', false)"><img src="./assets/images/layouts/themeswitcher-saga-blue.png" alt="Saga Blue" /><span>Saga Blue</span></a></li>
-                        <li><a @click="changeTheme($event, 'saga-teal', false)"><img src="./assets/images/layouts/themeswitcher-saga-teal.png" alt="Saga Teal" /><span>Saga Teal</span></a></li>
-                        <li><a @click="changeTheme($event, 'saga-iris', false)"><img src="./assets/images/layouts/themeswitcher-saga-iris.png" alt="Saga Iris" /><span>Saga Iris</span></a></li>
+                        <li><a @click="changeTheme($event, 'saga-green', false)"><img src="./assets/images/layouts/themeswitcher-saga-green.png" alt="Saga Green" /><span>Saga Green</span></a></li>
                         <li><a @click="changeTheme($event, 'saga-purple', false)"><img src="./assets/images/layouts/themeswitcher-saga-purple.png" alt="Saga Purple" /><span>Saga Purple</span></a></li>
-                        <li><a @click="changeTheme($event, 'saga-grey', false)"><img src="./assets/images/layouts/themeswitcher-saga-grey.png" alt="Saga Grey" /><span>Saga Grey</span></a></li>
+                        <li><a @click="changeTheme($event, 'saga-orange', false)"><img src="./assets/images/layouts/themeswitcher-saga-orange.png" alt="Saga Orange" /><span>Saga Orange</span></a></li>
                         <li><a @click="changeTheme($event, 'nova-light', false)"><img src="./assets/images/layouts/themeswitcher-nova-light.png" alt="Nova Light" /><span>Nova Light</span></a></li>
                         <li><a @click="changeTheme($event, 'nova-dark', false)"><img src="./assets/images/layouts/themeswitcher-nova-dark.png" alt="Nova Dark" /><span>Nova Dark</span></a></li>
                         <li><a @click="changeTheme($event, 'nova-colored', false)"><img src="./assets/images/layouts/themeswitcher-nova-colored.png" alt="Nova Colored" /><span>Nova Colored</span></a></li>
