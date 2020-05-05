@@ -625,6 +625,9 @@
 .p-inputswitch.p-inputswitch-checked .p-inputswitch-slider {
   background: #007ad9;
 }
+.p-inputswitch.p-inputswitch-checked .p-inputswitch-slider:before {
+  background: #cccccc;
+}
 .p-inputswitch.p-inputswitch-checked:not(.p-disabled):hover .p-inputswitch-slider {
   background: #116fbf;
 }
@@ -2998,7 +3001,7 @@
   border-radius: 3px;
   width: auto;
   height: auto;
-  transition: box-shadow 0.2s;
+  transition: background-color 0.2s, box-shadow 0.2s;
 }
 .p-message .p-message-close:hover {
   background: transparent;
