@@ -5,9 +5,15 @@
 
 .p-component {
   font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif, "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol";
-  font-size: 14px;
+  font-size: 1rem;
   font-weight: normal;
   text-decoration: none;
+}
+.p-component.p-component-sm {
+  font-size: 0.75rem;
+}
+.p-component.p-component-lg {
+  font-size: 1.25rem;
 }
 
 .p-component-overlay {
@@ -24,7 +30,7 @@
 }
 
 .p-link {
-  font-size: 14px;
+  font-size: 1rem;
   font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif, "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol";
   border-radius: 3px;
 }
@@ -73,7 +79,7 @@
 }
 .p-autocomplete.p-autocomplete-multiple .p-autocomplete-multiple-container .p-autocomplete-input-token input {
   font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif, "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol";
-  font-size: 14px;
+  font-size: 1rem;
   color: #495057;
   padding: 0;
   margin: 0;
@@ -177,7 +183,7 @@
   margin-right: 0.5em;
 }
 .p-datepicker table {
-  font-size: 14px;
+  font-size: 1rem;
   margin: 0.5em 0;
 }
 .p-datepicker table th {
@@ -240,10 +246,10 @@
   margin-top: 0.2em;
 }
 .p-datepicker .p-timepicker span {
-  font-size: 1.286em;
+  font-size: 1.25em;
 }
 .p-datepicker .p-timepicker > div {
-  padding: 0 0.429em;
+  padding: 0 0.5em;
 }
 .p-datepicker.p-datepicker-timeonly .p-timepicker {
   border-top: 0 none;
@@ -361,7 +367,7 @@
 }
 .p-chips .p-chips-multiple-container .p-chips-input-token input {
   font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif, "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol";
-  font-size: 14px;
+  font-size: 1rem;
   color: #495057;
   padding: 0;
   margin: 0;
@@ -629,7 +635,7 @@
 }
 
 .p-inputtext {
-  font-size: 14px;
+  font-size: 1rem;
   color: #495057;
   background: #ffffff;
   padding: 0.5em 0.5em;
@@ -845,7 +851,7 @@
   border-color: #1ABC9C;
 }
 .p-radiobutton .p-radiobutton-box .p-radiobutton-icon {
-  font-size: 12px;
+  font-size: 0.75em;
   transition-duration: 0.2s;
 }
 .p-radiobutton .p-radiobutton-box.p-highlight {
@@ -863,7 +869,6 @@
 }
 
 .p-rating .p-rating-icon {
-  font-size: 14px;
   color: #495057;
   margin-left: 0.5em;
   transition: color 0.2s, box-shadow 0.2s;
@@ -1057,7 +1062,7 @@
   background: #1ABC9C;
   border: 1px solid #1ABC9C;
   padding: 0.5em 1em;
-  font-size: 14px;
+  font-size: 1rem;
   transition: background-color 0.2s, box-shadow 0.2s;
   border-radius: 3px;
 }
@@ -1253,7 +1258,7 @@
   padding: 1em;
   border-top-left-radius: 3px;
   border-top-right-radius: 3px;
-  font-size: 18px;
+  font-size: 1.25em;
   font-weight: 600;
 }
 .p-datatable .p-datatable-footer {
@@ -1390,7 +1395,7 @@
   padding: 1em;
   border-top-left-radius: 3px;
   border-top-right-radius: 3px;
-  font-size: 18px;
+  font-size: 1.25em;
   font-weight: 600;
 }
 .p-dataview .p-dataview-content {
@@ -1442,7 +1447,7 @@
   color: #ffffff;
   background: #1ABC9C;
   border: 1px solid #1ABC9C;
-  font-size: 14px;
+  font-size: 1rem;
   transition: background-color 0.2s, box-shadow 0.2s;
   border-radius: 3px;
   display: flex;
@@ -1820,7 +1825,7 @@
   padding: 1em;
   border-top-left-radius: 3px;
   border-top-right-radius: 3px;
-  font-size: 18px;
+  font-size: 1.25em;
   font-weight: 600;
 }
 .p-treetable .p-treetable-footer {
@@ -2174,7 +2179,7 @@
 }
 .p-dialog .p-dialog-titlebar .p-dialog-title {
   font-weight: 600;
-  font-size: 18px;
+  font-size: 1.25em;
 }
 .p-dialog .p-dialog-titlebar .p-dialog-titlebar-icon {
   width: 2em;
@@ -3347,7 +3352,7 @@
   padding: 1em;
 }
 .p-terminal .p-terminal-input {
-  font-size: 14px;
+  font-size: 1rem;
   font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif, "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol";
 }
 

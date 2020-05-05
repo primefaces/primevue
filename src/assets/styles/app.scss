@@ -14,6 +14,10 @@
 
 $focusBorderColor:#8dcdff;
 
+html {
+    font-size: 14px;
+}
+
 body {
     margin: 0px;
     height: 100%;
@@ -25,7 +29,6 @@ body {
     color: #495057;
     -webkit-font-smoothing: antialiased;
     -moz-osx-font-smoothing: grayscale;
-    font-size: 14px;
 }
 
 
@@ -535,6 +538,20 @@ a {
 
             .demo-footer {
                 background-color: #ededed;
+            }
+        }
+
+        .component-sizes {
+            display: inline-flex;
+            flex-direction: column;
+        
+            .p-component {
+                margin-bottom: 1em;
+                flex: 0 0 auto;
+         
+                &:last-child{
+                    margin-bottom: 0;
+                } 
             }
         }
 

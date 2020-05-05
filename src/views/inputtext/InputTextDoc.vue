@@ -72,6 +72,13 @@ import InputText from 'primevue/inputtext';
 
 &lt;h3&gt;Invalid&lt;/h3&gt;
 &lt;InputText type="text" class="p-error" /&gt;
+
+&lt;h3&gt;Sizes&lt;/h3&gt;
+&lt;div class="component-sizes"&gt;
+    &lt;InputText type="text" class="p-component-sm" placeholder="Small" /&gt;
+    &lt;InputText type="text" placeholder="Normal" /&gt;
+    &lt;InputText type="text" class="p-component-lg" placeholder="Large" /&gt;
+&lt;/div&gt;
 </template>
 </CodeHighlight>
 

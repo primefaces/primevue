@@ -23,6 +23,13 @@
 
              <h3>Invalid</h3>
             <InputText type="text" class="p-error" />
+
+            <h3>Sizes</h3>
+            <div class="component-sizes">
+                <InputText type="text" class="p-component-sm" placeholder="Small" />
+                <InputText type="text" placeholder="Normal" />
+                <InputText type="text" class="p-component-lg" placeholder="Large" />
+            </div>
         </div>
 
         <InputTextDoc />
@@ -45,7 +52,3 @@ export default {
 	}
 }
 </script>
-
-<style>
-
-</style>
