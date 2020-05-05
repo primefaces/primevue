@@ -19,6 +19,7 @@
                         <li class="topbar-submenu-header">FREE COMPONENT THEMES</li>
                         <li><a @click="changeTheme($event, 'saga-blue', false)"><img src="./assets/images/layouts/themeswitcher-saga-blue.png" alt="Saga Blue" /><span>Saga Blue</span></a></li>
                         <li><a @click="changeTheme($event, 'saga-teal', false)"><img src="./assets/images/layouts/themeswitcher-saga-teal.png" alt="Saga Teal" /><span>Saga Teal</span></a></li>
+                        <li><a @click="changeTheme($event, 'saga-iris', false)"><img src="./assets/images/layouts/themeswitcher-saga-iris.png" alt="Saga Iris" /><span>Saga Iris</span></a></li>
                         <li><a @click="changeTheme($event, 'saga-purple', false)"><img src="./assets/images/layouts/themeswitcher-saga-purple.png" alt="Saga Purple" /><span>Saga Purple</span></a></li>
                         <li><a @click="changeTheme($event, 'saga-grey', false)"><img src="./assets/images/layouts/themeswitcher-saga-grey.png" alt="Saga Grey" /><span>Saga Grey</span></a></li>
                         <li><a @click="changeTheme($event, 'nova-light', false)"><img src="./assets/images/layouts/themeswitcher-nova-light.png" alt="Nova Light" /><span>Nova Light</span></a></li>
