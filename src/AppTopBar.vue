@@ -21,18 +21,18 @@
                         <li><a @click="changeTheme($event, 'saga-green', false)"><img src="./assets/images/layouts/themeswitcher-saga-green.png" alt="Saga Green" /><span>Saga Green</span></a></li>
                         <li><a @click="changeTheme($event, 'saga-purple', false)"><img src="./assets/images/layouts/themeswitcher-saga-purple.png" alt="Saga Purple" /><span>Saga Purple</span></a></li>
                         <li><a @click="changeTheme($event, 'saga-orange', false)"><img src="./assets/images/layouts/themeswitcher-saga-orange.png" alt="Saga Orange" /><span>Saga Orange</span></a></li>
-                        <li><a @click="changeTheme($event, 'vela-blue', true)"><img src="./assets/images/layouts/themeswitcher-vela-blue.png" alt="Vela Blue" /><span>Vela Blue</span></a></li>
-                        <li><a @click="changeTheme($event, 'vela-green', true)"><img src="./assets/images/layouts/themeswitcher-vela-green.png" alt="Vela Green" /><span>Vela Green</span></a></li>
-                        <li><a @click="changeTheme($event, 'vela-purple', true)"><img src="./assets/images/layouts/themeswitcher-vela-purple.png" alt="Vela Purple" /><span>Vela Purple</span></a></li>
-                        <li><a @click="changeTheme($event, 'vela-orange', true)"><img src="./assets/images/layouts/themeswitcher-vela-orange.png" alt="Vela Orange" /><span>Vela Orange</span></a></li>
+                        <li><a @click="changeTheme($event, 'vela-blue', 'dark-theme-alt')"><img src="./assets/images/layouts/themeswitcher-vela-blue.png" alt="Vela Blue" /><span>Vela Blue</span></a></li>
+                        <li><a @click="changeTheme($event, 'vela-green', 'dark-theme-alt')"><img src="./assets/images/layouts/themeswitcher-vela-green.png" alt="Vela Green" /><span>Vela Green</span></a></li>
+                        <li><a @click="changeTheme($event, 'vela-purple', 'dark-theme-alt')"><img src="./assets/images/layouts/themeswitcher-vela-purple.png" alt="Vela Purple" /><span>Vela Purple</span></a></li>
+                        <li><a @click="changeTheme($event, 'vela-orange', 'dark-theme-alt')"><img src="./assets/images/layouts/themeswitcher-vela-orange.png" alt="Vela Orange" /><span>Vela Orange</span></a></li>
                         <li><a @click="changeTheme($event, 'nova-light', false)"><img src="./assets/images/layouts/themeswitcher-nova-light.png" alt="Nova Light" /><span>Nova Light</span></a></li>
                         <li><a @click="changeTheme($event, 'nova-dark', false)"><img src="./assets/images/layouts/themeswitcher-nova-dark.png" alt="Nova Dark" /><span>Nova Dark</span></a></li>
                         <li><a @click="changeTheme($event, 'nova-colored', false)"><img src="./assets/images/layouts/themeswitcher-nova-colored.png" alt="Nova Colored" /><span>Nova Colored</span></a></li>
                         <li><a @click="changeTheme($event, 'nova-vue', false)"><img src="./assets/images/layouts/themeswitcher-nova-vue.png" alt="Nova Vue" /><span>Nova Vue</span></a></li>
-                        <li><a @click="changeTheme($event, 'luna-amber', true)"><img src="./assets/images/layouts/themeswitcher-luna-amber.png" alt="Luna Amber" /><span>Luna Amber</span></a></li>
-                        <li><a @click="changeTheme($event, 'luna-blue', true)"><img src="./assets/images/layouts/themeswitcher-luna-blue.png" alt="Luna Blue" /><span>Luna Blue</span></a></li>
-                        <li><a @click="changeTheme($event, 'luna-green', true)"><img src="./assets/images/layouts/themeswitcher-luna-green.png" alt="Luna Green" /><span>Luna Green</span></a></li>
-                        <li><a @click="changeTheme($event, 'luna-pink', true)"><img src="./assets/images/layouts/themeswitcher-luna-pink.png" alt="Luna Pink" /><span>Luna Pink</span></a></li>
+                        <li><a @click="changeTheme($event, 'luna-amber', 'dark-theme')"><img src="./assets/images/layouts/themeswitcher-luna-amber.png" alt="Luna Amber" /><span>Luna Amber</span></a></li>
+                        <li><a @click="changeTheme($event, 'luna-blue', 'dark-theme')"><img src="./assets/images/layouts/themeswitcher-luna-blue.png" alt="Luna Blue" /><span>Luna Blue</span></a></li>
+                        <li><a @click="changeTheme($event, 'luna-green', 'dark-theme')"><img src="./assets/images/layouts/themeswitcher-luna-green.png" alt="Luna Green" /><span>Luna Green</span></a></li>
+                        <li><a @click="changeTheme($event, 'luna-pink', 'dark-theme')"><img src="./assets/images/layouts/themeswitcher-luna-pink.png" alt="Luna Pink" /><span>Luna Pink</span></a></li>
                         <li><a @click="changeTheme($event, 'rhea', false)"><img src="./assets/images/layouts/themeswitcher-rhea.png" alt="Rhea" /><span>Rhea</span></a></li>
                     </ul>
                 </transition>
@@ -94,25 +94,25 @@ export default {
             let themeElement = document.getElementById('theme-link');
             themeElement.setAttribute('href', themeElement.getAttribute('href').replace(this.theme, theme));
             this.theme = theme;
-            const hasBodyDarkTheme = this.hasClass(document.body, 'dark-theme');
 
             if (dark) {
-                if (!hasBodyDarkTheme) {
-                    this.addClass(document.body, 'dark-theme');
-                }
+                this.addClass(document.body, dark);
             }
-            else if(hasBodyDarkTheme) {
+            else {
                 this.removeClass(document.body, 'dark-theme');
+                this.removeClass(document.body, 'dark-theme-alt');
             }
 
             this.activeMenuIndex = null;
             event.preventDefault();
         },
         addClass(element, className) {
-            if (element.classList)
-                element.classList.add(className);
-            else
-                element.className += ' ' + className;
+            if (!this.hasClass(element, className)) {
+                if (element.classList)
+                    element.classList.add(className);
+                else
+                    element.className += ' ' + className;
+            }
         },
         removeClass(element, className) {
             if (element.classList)

@@ -1519,7 +1519,6 @@ pre[class*="language-"] code {
     top: 100px;
 }
 
-/* Dark Theme such as luna-amber, luna-blue, luna-green and luna-pink */
 .dark-theme {
     .implementation {
         background-color: #3f3f3f !important;
@@ -1533,5 +1532,21 @@ pre[class*="language-"] code {
         .demo-footer {
             background-color: #535353 !important;
         }
+    }
+}
+
+.dark-theme-alt {
+    .implementation {
+        background-color: #151e27 !important;
+        color: #ebedef !important;
+    }
+
+    > h3,
+    > h4 {
+        color: #ebedef !important
+    }
+
+    .demo-footer {
+        background-color: #151e27 !important;
     }
 }
