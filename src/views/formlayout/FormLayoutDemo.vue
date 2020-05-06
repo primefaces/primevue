@@ -122,8 +122,8 @@
             <h3>Help Text</h3>
             <div class="p-field p-fluid">
                 <label for="username">Username</label> 
-                <InputText id="username" type="username" />
-                <small>Enter your username to reset your password.</small>
+                <InputText id="username" type="username" aria-describedby="username-help" />
+                <small id="username-help">Enter your username to reset your passwordt.</small>
             </div>
 
             <h3>Advanced</h3>
