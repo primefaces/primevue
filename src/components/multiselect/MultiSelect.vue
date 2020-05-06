@@ -1,7 +1,7 @@
 <template>
     <div ref="container" :class="containerClass" @click="onClick">
         <div class="p-hidden-accessible">
-            <input ref="focusInput" type="text" role="listbox" readonly :disabled="disabled" @focus="onFocus" @blur="onBlur" @keydown="onKeyDown" :tabindex="tabindex"
+            <input ref="focusInput" type="text" role="listbox" :id="inputId" readonly :disabled="disabled" @focus="onFocus" @blur="onBlur" @keydown="onKeyDown" :tabindex="tabindex"
                 aria-haspopup="listbox" :aria-expanded="overlayVisible" :aria-labelledby="ariaLabelledBy"/>
         </div>
         <div class="p-multiselect-label-container">
@@ -71,7 +71,8 @@ export default {
 		placeholder: String,
 		disabled: Boolean,
 		filter: Boolean,
-		tabindex: String,
+        tabindex: String,
+        inputId: String,
         dataKey: null,
         filterPlaceholder: String,
         filterLocale: String,

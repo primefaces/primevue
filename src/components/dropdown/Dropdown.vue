@@ -1,16 +1,16 @@
 <template>
     <div ref="container" :class="containerClass" @click="onClick($event)">
         <div class="p-hidden-accessible">
-            <input ref="focusInput" type="text" readonly :disabled="disabled" @focus="onFocus" @blur="onBlur" @keydown="onKeyDown" :tabindex="tabindex"
+            <input ref="focusInput" type="text" :id="inputId" readonly :disabled="disabled" @focus="onFocus" @blur="onBlur" @keydown="onKeyDown" :tabindex="tabindex"
                 aria-haspopup="listbox" :aria-expanded="overlayVisible" :aria-labelledby="ariaLabelledBy"/>
         </div>
         <input v-if="editable" type="text" class="p-dropdown-label p-inputtext" :disabled="disabled" @focus="onFocus" @blur="onBlur" :placeholder="placeholder" :value="editableInputValue" @input="onEditableInput"
             aria-haspopup="listbox" :aria-expanded="overlayVisible">
-        <label v-if="!editable" :class="labelClass">
+        <span v-if="!editable" :class="labelClass">
             <slot name="value" :value="value" :placeholder="placeholder">
                 {{label}}
             </slot>
-        </label>
+        </span>
         <i v-if="showClear && value != null" class="p-dropdown-clear-icon pi pi-times" @click="onClearClick($event)"></i>
         <div class="p-dropdown-trigger" role="button" aria-haspopup="listbox" :aria-expanded="overlayVisible">
             <span class="p-dropdown-trigger-icon pi pi-chevron-down"></span>
@@ -60,7 +60,8 @@ export default {
 		placeholder: String,
 		disabled: Boolean,
         dataKey: null,
-		showClear: Boolean,
+        showClear: Boolean,
+        inputId: String,
         tabindex: String,
         ariaLabelledBy: null,
         appendTo: {

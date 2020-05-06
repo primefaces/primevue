@@ -16,6 +16,7 @@ export declare class Dropdown extends Vue {
     dataKey?: string;
     showClear?: boolean;
     tabindex?: string;
+    inputId?: string;
     ariaLabelledBy?: string;
     appendTo?: string;
     $emit(eventName: 'input', value: string): this;

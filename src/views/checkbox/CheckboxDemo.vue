@@ -11,7 +11,7 @@
             <h3 class="first">Basic</h3>
             <div class="p-grid">
                 <div class="p-col-12">
-                     <Checkbox id="binary" v-model="checked" :binary="true" />
+                    <Checkbox id="binary" v-model="checked" :binary="true" />
                     <label for="binary" style="font-weight: bold">{{checked}}</label>
                 </div>
             </div>

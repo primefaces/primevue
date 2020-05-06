@@ -1,0 +1,83 @@
+.p-field {
+    margin-bottom: 1em;
+}
+
+.p-field label {
+    display: inline-block;
+    margin-bottom: .5em;
+}
+
+.p-field.p-grid label {
+    margin-bottom: 0;
+    display: flex;
+    align-items: center;
+}
+
+.p-field.p-grid,
+.p-formgrid.p-grid {
+    margin-top: 0;
+}
+
+.p-field.p-grid .p-col-fixed,
+.p-formgrid.p-grid .p-col-fixed,
+.p-field.p-grid .p-col,
+.p-formgrid.p-grid .p-col,
+.p-formgroup .p-grid .p-col-1, 
+.p-formgrid.p-grid .p-col-1, 
+.p-field.p-grid .p-col-2,
+.p-formgrid.p-grid .p-col-2, 
+.p-field.p-grid .p-col-3, 
+.p-formgrid.p-grid .p-col-3, 
+.p-field.p-grid .p-col-4, 
+.p-formgroup.p-grid .p-col-4, 
+.p-field.p-grid .p-col-5, 
+.p-formgrid.p-grid .p-col-5, 
+.p-field.p-grid .p-col-6, 
+.p-formgrid.p-grid .p-col-6,
+.p-formgroup .p-grid .p-col-7, 
+.p-formgrid.p-grid .p-col-7, 
+.p-field.p-grid .p-col-8, 
+.p-formgrid.p-grid .p-col-8, 
+.p-formgroup .p-grid .p-col-9, 
+.p-formgrid.p-grid .p-col-9, 
+.p-field.p-grid .p-col-10, 
+.p-formgrid.p-grid .p-col-10, 
+.p-field.p-grid .p-col-11, 
+.p-formgroup.p-grid .p-col-11, 
+.p-field.p-grid .p-col-12,
+.p-formgrid.p-grid .p-col-12 {
+    padding-top: 0;
+    padding-bottom: 0;
+}
+
+.p-formgroup-inline {
+    display: flex;
+    flex-wrap: wrap;
+}
+
+.p-formgroup-inline .p-field,
+.p-formgroup-inline .p-field-checkbox,
+.p-formgroup-inline .p-field-radiobutton {
+    margin-right: 1em;
+    margin-bottom: 0;
+}
+
+.p-formgroup-inline .p-field label,
+.p-formgroup-inline .p-field-checkbox label,
+.p-formgroup-inline .p-field-radiobutton label {
+    margin-right: .5em;
+    margin-bottom: 0;
+}
+
+.p-field-checkbox,
+.p-field-radiobutton {
+    margin-bottom: 1em;
+    display: flex;
+    align-items: center;
+}
+
+.p-field-checkbox label,
+.p-field-radiobutton label {
+    margin-left: .5em;
+    line-height: 1;
+}

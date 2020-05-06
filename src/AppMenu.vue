@@ -3,7 +3,7 @@
         <div class="layout-menu">
             <span>
                 <img alt="input" class="layout-menu-icon-inactive" src="./assets/images/menu/input.svg" />
-                <span>Input</span>
+                <span>Form</span>
             </span>
             <div>
                 <router-link to="/autocomplete">AutoComplete</router-link>
@@ -18,6 +18,7 @@
                 <router-link to="/inputnumber">InputNumber</router-link>
                 <router-link to="/inputswitch">InputSwitch</router-link>
                 <router-link to="/inputtext">InputText</router-link>
+                <router-link to="/formlayout">FormLayout</router-link>
                 <router-link to="/listbox">Listbox</router-link>
                 <router-link to="/multiselect">MultiSelect</router-link>
                 <router-link to="/password">Password</router-link>

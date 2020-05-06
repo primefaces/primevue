@@ -285,6 +285,11 @@ export default new Router({
 			path: '/flexgrid',
 			name: 'flexgrid',
 			component: () => import('./views/flexgrid/FlexGridDemo.vue')
+        },
+        {
+			path: '/formlayout',
+			name: 'formlayout',
+			component: () => import('./views/formlayout/FormLayoutDemo.vue')
 		},
 		{
 			path: '/fullcalendar',

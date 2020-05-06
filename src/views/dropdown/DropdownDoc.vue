@@ -167,6 +167,12 @@ data() {
                                 <td>Index of the element in tabbing order.</td>
                             </tr>
                             <tr>
+                                <td>inputId</td>
+                                <td>string</td>
+                                <td>null</td>
+                                <td>Identifier of the underlying input element.</td>
+                            </tr>
+                            <tr>
                                 <td>ariaLabelledBy</td>
                                 <td>string</td>
                                 <td>null</td>

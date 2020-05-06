@@ -11,6 +11,7 @@ export declare class MultiSelect extends Vue {
     disabled?: boolean;
     filter?: boolean;
     tabindex?: string;
+    inputId?: string;
     dataKey?: string;
     filterPlaceholder?: string;
     filterLocale?: string;
