@@ -123,7 +123,7 @@
             <div class="p-field p-fluid">
                 <label for="username">Username</label> 
                 <InputText id="username" type="username" aria-describedby="username-help" />
-                <small id="username-help">Enter your username to reset your passwordt.</small>
+                <small id="username-help">Enter your username to reset your password.</small>
             </div>
 
             <h3>Advanced</h3>
