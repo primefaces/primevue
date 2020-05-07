@@ -53,3 +53,15 @@
     top: -20px;
     font-size: 12px;
 }
+
+.p-input-icon-left,
+.p-input-icon-right {
+    position: relative;
+}
+
+.p-input-icon-left > i,
+.p-input-icon-right > i {
+    position: absolute;
+    top: 50%;
+    margin-top: -.5em;
+}

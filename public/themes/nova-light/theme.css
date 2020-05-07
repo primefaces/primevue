@@ -668,6 +668,22 @@
   transition-duration: 0.2s;
 }
 
+.p-input-icon-left > i {
+  left: 0.429em;
+}
+
+.p-input-icon-left > .p-inputtext {
+  padding-left: 1.858em;
+}
+
+.p-input-icon-right > i {
+  right: 0.429em;
+}
+
+.p-input-icon-right > .p-inputtext {
+  padding-right: 1.858em;
+}
+
 .p-listbox {
   background: #ffffff;
   color: #333333;

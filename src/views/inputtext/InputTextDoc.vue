@@ -22,6 +22,21 @@ import InputText from 'primevue/inputtext';
 &lt;/span&gt;
 </CodeHighlight>
 
+                <h3>Icons</h3>
+                <p>An icon can be integrated within an input field by wrapping the input and the icon with an element having either <i>p-input-icon-right</i>
+                or <i>p-input-icon-left</i> class depending on the icon location.</p>
+<CodeHighlight>
+&lt;span class="p-input-icon-left"&gt;
+    &lt;i class="pi pi-search" /&gt;
+    &lt;InputText type="text" v-model="value1" placeholder="Search" /&gt;
+&lt;/span&gt;
+
+&lt;span class="p-input-icon-right"&gt;
+    &lt;i class="pi pi-spin pi-spinner" /&gt;
+    &lt;InputText type="text" v-model="value2" /&gt;
+&lt;/span&gt;
+</CodeHighlight>
+
 				<h3>Properties</h3>
 				<p>InputText passes any valid attribute to the underlying input element.</p>
 
@@ -57,7 +72,7 @@ import InputText from 'primevue/inputtext';
 				</a>
 <CodeHighlight>
 <template v-pre>
-&lt;h3&gt;Basic&lt;/h3&gt;
+&lt;h3 class="first"&gt;Basic&lt;/h3&gt;
 &lt;InputText type="text" v-model="value1" /&gt;
 &lt;span :style="{marginLeft: '.5em'}"&gt;{{value1}}&lt;/span&gt;
 
@@ -67,10 +82,22 @@ import InputText from 'primevue/inputtext';
     &lt;label for="username"&gt;Username&lt;/label&gt;
 &lt;/span&gt;
 
-&lt;h3&gt;Disabled&lt;/h3&gt;
-&lt;InputText type="text" v-model="value3" disabled /&gt;
+&lt;h3&gt;Left Icon&lt;/h3&gt;
+&lt;span class="p-input-icon-left"&gt;
+    &lt;i class="pi pi-search" /&gt;
+    &lt;InputText type="text" v-model="value3" placeholder="Search" /&gt;
+&lt;/span&gt;
 
-&lt;h3&gt;Invalid&lt;/h3&gt;
+&lt;h3&gt;Right Icon&lt;/h3&gt;
+&lt;span class="p-input-icon-right"&gt;
+    &lt;i class="pi pi-spin pi-spinner" /&gt;
+    &lt;InputText type="text" v-model="value4" /&gt;
+&lt;/span&gt;
+
+&lt;h3&gt;Disabled&lt;/h3&gt;
+&lt;InputText type="text" v-model="value5" disabled /&gt;
+
+    &lt;h3&gt;Invalid&lt;/h3&gt;
 &lt;InputText type="text" class="p-error" /&gt;
 
 &lt;h3&gt;Sizes&lt;/h3&gt;
@@ -86,9 +113,11 @@ import InputText from 'primevue/inputtext';
 export default {
 	data() {
 		return {
-			value1: '',
-			value2: '',
-			value3: 'PrimeVue'
+            value1: '',
+            value2: '',
+            value3: '',
+            value4: '',
+            value5: 'PrimeVue'
 		}
 	}
 }

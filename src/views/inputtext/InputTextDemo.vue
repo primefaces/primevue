@@ -18,8 +18,20 @@
                 <label for="username">Username</label>
             </span>
 
+            <h3>Left Icon</h3>
+            <span class="p-input-icon-left">
+                <i class="pi pi-search" />
+                <InputText type="text" v-model="value3" placeholder="Search" />
+            </span>
+
+            <h3>Right Icon</h3>
+            <span class="p-input-icon-right">
+                <i class="pi pi-spin pi-spinner" />
+                <InputText type="text" v-model="value4" />
+            </span>
+
             <h3>Disabled</h3>
-            <InputText type="text" v-model="value3" disabled />
+            <InputText type="text" v-model="value5" disabled />
 
              <h3>Invalid</h3>
             <InputText type="text" class="p-error" />
@@ -44,7 +56,9 @@ export default {
         return {
             value1: '',
             value2: '',
-            value3: 'PrimeVue'
+            value3: '',
+            value4: '',
+            value5: 'PrimeVue'
         }
     },
 	components: {
