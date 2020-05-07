@@ -10,9 +10,9 @@
             </div>
         </a>
 
-        <app-topbar @menubutton-click="onMenuButtonClick"/>
+        <app-topbar @menubutton-click="onMenuButtonClick" @change-theme="changeTheme" :theme="theme" />
         <app-menu :active="sidebarActive" />
-        <app-configurator />
+        <app-configurator @change-theme="changeTheme" :theme="theme" />
         <div :class="['layout-mask', {'layout-mask-active': sidebarActive}]" @click="onMaskClick"></div>
         <div class="layout-content">
             <router-view/>
@@ -35,7 +35,8 @@ export default {
     data() {
         return {
             sidebarActive: false,
-            newsActive: false
+            newsActive: false,
+            theme: 'saga-blue'
         }
     },
     watch: {
@@ -62,6 +63,41 @@ export default {
         },
         hideNews() {
             this.newsActive = false;
+        },
+        changeTheme(event) {
+            let themeElement = document.getElementById('theme-link');
+            themeElement.setAttribute('href', themeElement.getAttribute('href').replace(this.theme, event.theme));
+            this.theme = event.theme;
+
+            if (event.dark) {
+                this.addClass(document.body, event.dark);
+            }
+            else {
+                this.removeClass(document.body, 'dark-theme');
+                this.removeClass(document.body, 'dark-theme-alt');
+            }
+
+            this.activeMenuIndex = null;
+        },
+        addClass(element, className) {
+            if (!this.hasClass(element, className)) {
+                if (element.classList)
+                    element.classList.add(className);
+                else
+                    element.className += ' ' + className;
+            }
+        },
+        removeClass(element, className) {
+            if (element.classList)
+                element.classList.remove(className);
+            else
+                element.className = element.className.replace(new RegExp('(^|\\b)' + className.split(' ').join('|') + '(\\b|$)', 'gi'), ' ');
+        },
+        hasClass(element, className) {
+            if (element.classList)
+                return element.classList.contains(className);
+            else
+                return new RegExp('(^| )' + className + '( |$)', 'gi').test(element.className);
         }
     },
     components: {

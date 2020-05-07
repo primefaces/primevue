@@ -12,7 +12,64 @@
                 <div class="free-themes">
                     <h1 style="margin-top: 0">FREE THEMES</h1>
                     <p>Built-in component themes created by the <a href="https://www.primefaces.org/designer/primevue">PrimeVue Theme Designer</a>.</p>
+                    
                     <div class="p-grid">
+                        <div class="p-col-3">
+                            <button class="p-link">
+                                <img src="./assets/images/layouts/themeswitcher-saga-blue.png" alt="Saga Blue" @click="changeTheme($event, 'saga-blue', false)"/>
+                                <i class="pi pi-check" v-if="theme === 'saga-blue'" />
+                            </button>
+                            <span>Saga-Blue</span>
+                        </div>
+                        <div class="p-col-3">
+                            <button class="p-link">
+                                <img src="./assets/images/layouts/themeswitcher-saga-green.png" alt="Saga Green" @click="changeTheme($event, 'saga-green', false)"/>
+                                <i class="pi pi-check" v-if="theme === 'saga-green'" />
+                            </button>
+                            <span>Saga-Green</span>
+                        </div>
+                        <div class="p-col-3">
+                            <button class="p-link">
+                                <img src="./assets/images/layouts/themeswitcher-saga-purple.png" alt="Saga Purple" @click="changeTheme($event, 'saga-purple', false)"/>
+                                <i class="pi pi-check" v-if="theme === 'saga-purple'" />
+                            </button>
+                            <span>Saga-Purple</span>
+                        </div>
+                        <div class="p-col-3">
+                            <button class="p-link">
+                                <img src="./assets/images/layouts/themeswitcher-saga-orange.png" alt="Saga Orange" @click="changeTheme($event, 'saga-orange', false)"/>
+                                <i class="pi pi-check" v-if="theme === 'saga-orange'" />
+                            </button>
+                            <span>Saga-Orange</span>
+                        </div>
+                        <div class="p-col-3">
+                            <button class="p-link">
+                                <img src="./assets/images/layouts/themeswitcher-vela-blue.png" alt="Vela Blue" @click="changeTheme($event, 'vela-blue', 'dark-theme-alt')"/>
+                                <i class="pi pi-check" v-if="theme === 'vela-blue'" />
+                            </button>
+                            <span>Vela-Blue</span>
+                        </div>
+                        <div class="p-col-3">
+                            <button class="p-link">
+                                <img src="./assets/images/layouts/themeswitcher-vela-green.png" alt="Vela Green" @click="changeTheme($event, 'vela-green', 'dark-theme-alt')"/>
+                                <i class="pi pi-check" v-if="theme === 'vela-green'" />
+                            </button>
+                            <span>Vela-Green</span>
+                        </div>
+                        <div class="p-col-3">
+                            <button class="p-link">
+                                <img src="./assets/images/layouts/themeswitcher-vela-purple.png" alt="Vela Purple" @click="changeTheme($event, 'vela-purple', 'dark-theme-alt')"/>
+                                <i class="pi pi-check" v-if="theme === 'vela-blue'" />
+                            </button>
+                            <span>Vela-Purple</span>
+                        </div>
+                        <div class="p-col-3">
+                            <button class="p-link">
+                                <img src="./assets/images/layouts/themeswitcher-vela-orange.png" alt="Vela Orange" @click="changeTheme($event, 'vela-orange', 'dark-theme-alt')"/>
+                                <i class="pi pi-check" v-if="theme === 'vela-orange'" />
+                            </button>
+                            <span>Vela-Orange</span>
+                        </div>
                         <div class="p-col-3">
                             <button class="p-link">
                                 <img src="./assets/images/layouts/themeswitcher-nova-light.png" alt="Nova Light" @click="changeTheme($event, 'nova-light', false)"/>
@@ -43,28 +100,28 @@
                         </div>
                         <div class="p-col-3">
                             <button class="p-link">
-                                <img src="./assets/images/layouts/themeswitcher-luna-blue.png" alt="Luna Blue" @click="changeTheme($event, 'luna-blue', false)"/>
+                                <img src="./assets/images/layouts/themeswitcher-luna-blue.png" alt="Luna Blue" @click="changeTheme($event, 'luna-blue', 'dark-theme')"/>
                                 <i class="pi pi-check" v-if="theme === 'luna-blue'" />
                             </button>
                             <span>Luna-Blue</span>
                         </div>
                         <div class="p-col-3">
                             <button class="p-link">
-                                <img src="./assets/images/layouts/themeswitcher-luna-green.png" alt="Luna Green" @click="changeTheme($event, 'luna-green', false)"/>
+                                <img src="./assets/images/layouts/themeswitcher-luna-green.png" alt="Luna Green" @click="changeTheme($event, 'luna-green', 'dark-theme')"/>
                                 <i class="pi pi-check" v-if="theme === 'luna-green'" />
                             </button>
                             <span>Luna-Green</span>
                         </div>
                         <div class="p-col-3">
                             <button class="p-link">
-                                <img src="./assets/images/layouts/themeswitcher-luna-amber.png" alt="Luna Amber" @click="changeTheme($event, 'luna-amber', false)" target="_blank"/>
+                                <img src="./assets/images/layouts/themeswitcher-luna-amber.png" alt="Luna Amber" @click="changeTheme($event, 'luna-amber', 'dark-theme')" target="_blank"/>
                                 <i class="pi pi-check" v-if="theme === 'luna-amber'" />
                             </button>
                             <span>Luna-Amber</span>
                         </div>
                         <div class="p-col-3">
                             <button class="p-link">
-                                <img src="./assets/images/layouts/themeswitcher-luna-pink.png" alt="Luna Pink" @click="changeTheme($event, 'luna-pink', false)" target="_blank"/>
+                                <img src="./assets/images/layouts/themeswitcher-luna-pink.png" alt="Luna Pink" @click="changeTheme($event, 'luna-pink', 'dark-theme')" target="_blank"/>
                                 <i class="pi pi-check" v-if="theme === 'luna-pink'" />
                             </button>
                             <span>Luna-Pink</span>
@@ -130,10 +187,12 @@
 import DomHandler from './components/utils/DomHandler';
 
 export default {
+    props: {
+        theme: String
+    },
     data() {
         return {
-            active: false,
-            theme: 'nova-light'
+            active: false
         }
     },
     outsideClickListener: null,
@@ -166,20 +225,7 @@ export default {
             event.preventDefault();
         },
         changeTheme(event, theme, dark) {
-            let themeElement = document.getElementById('theme-link');
-            themeElement.setAttribute('href', themeElement.getAttribute('href').replace(this.theme, theme));
-            this.theme = theme;
-            const hasBodyDarkTheme = DomHandler.hasClass(document.body, 'dark-theme');
-
-            if (dark) {
-                if (!hasBodyDarkTheme) {
-                    this.addClass(document.body, 'dark-theme');
-                }
-            }
-            else if(hasBodyDarkTheme) {
-                this.removeClass(document.body, 'dark-theme');
-            }
-
+            this.$emit('change-theme', {theme: theme, dark: dark});
             event.preventDefault();
         },
         bindOutsideClickListener() {
@@ -200,7 +246,7 @@ export default {
         },
         isOutsideClicked(event) {
             return !(this.$el.isSameNode(event.target) || this.$el.contains(event.target));
-        },
+        }
     }
 }
 </script>

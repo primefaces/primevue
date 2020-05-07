@@ -12,7 +12,7 @@
     }
 }
 
-$focusBorderColor:#8dcdff;
+$focusBorderColor:#b6daf2;
 
 html {
     font-size: 14px;
@@ -44,7 +44,7 @@ input[type="number"] {
 
 a {
     text-decoration: none;
-    color: #4eafe6;
+    color: #2874A6;
 }
 
 .layout-news {
@@ -351,7 +351,7 @@ a {
     height: calc(100% - 70px);
     background-color: #ffffff;
     overflow: auto;
-    width: 280px;
+    width: 250px;
     box-shadow: 0 0 2px rgba(0,0,0,0.25);
 
     .layout-menu {
@@ -457,7 +457,7 @@ a {
 }
 
 .layout-content {
-    margin-left: 280px;
+    margin-left: 250px;
     padding-top: 70px;
 
     .content-section {
@@ -628,13 +628,9 @@ a {
             }
 
             a {
-                color: #638fb7;
-                font-weight: 700;
+                color: #2874A6;
+                font-weight: 500;
                 transition: color .2s;
-
-                &:hover {
-                    color: #82a5c5;
-                }
             }
 
             .btn-viewsource {
@@ -790,31 +786,10 @@ a {
 
 .layout-footer {
     font-size: 14px;
-    color: #84939f;
-
-    span a {
-        margin-left: 0;
-    }
-
-    .footer-links {
-        float: right;
-        font-size: 24px;
-    }
 
     a {
-        margin-left: 16px;
-    }
-
-    .icon-github {
-        width: 29.1px;
-        height: 29.1px;
-        color:#20272a
-    }
-
-    .icon-twitter {
-        width: 29.1px;
-        height: 29.1px;
-        color:#20272a
+        color: #495057;
+        font-weight: 600;
     }
 }
 
@@ -886,13 +861,9 @@ a {
     }
 
     a {
-        color: #638fb7;
-        font-weight: 700;
+        color: #2874A6;
         transition: color .2s;
-
-        &:hover {
-            color: #82a5c5;
-        }
+        font-weight: 500;
     }
 
     .layout-config-content {
@@ -953,8 +924,13 @@ a {
         color: #495057;
         background-color: #ffffff;
 
-        p {
-            color: #727272;
+        img {
+            width: 50px;
+            border-radius: 4px;
+        }
+
+        span {
+            font-size: 13px;
         }
     }
 
@@ -962,13 +938,10 @@ a {
         box-shadow: 0 0 0 0.2em $focusBorderColor;
     }
 
-    img {
-        width: 100%;
-    }
-
     button {
-        text-align: center;
         position: relative;
+        display: inline-flex;
+        justify-content: center;
         transition: box-shadow .2s;
 
         i {
@@ -1001,6 +974,10 @@ a {
         p {
             color: #d8d8d8;
         }
+
+        img {
+            width: 100%;
+        }
     }
 }
 
@@ -1030,12 +1007,9 @@ a {
         margin-bottom: 2em;
     }
     a {
-        color: #638fb7;
+        color: #2E86C1;
+        font-weight: 500;
         transition: color .2s;
-
-        &:hover {
-            color: #82a5c5;
-        }
     }
 
     .home-button {

@@ -85,46 +85,13 @@ export default {
     },
     data() {
         return {
-            theme: 'saga-blue',
             activeMenuIndex: null
         }
     },
     methods: {
         changeTheme(event, theme, dark) {
-            let themeElement = document.getElementById('theme-link');
-            themeElement.setAttribute('href', themeElement.getAttribute('href').replace(this.theme, theme));
-            this.theme = theme;
-
-            if (dark) {
-                this.addClass(document.body, dark);
-            }
-            else {
-                this.removeClass(document.body, 'dark-theme');
-                this.removeClass(document.body, 'dark-theme-alt');
-            }
-
-            this.activeMenuIndex = null;
+           this.$emit('change-theme', {theme: theme, dark: dark});
             event.preventDefault();
-        },
-        addClass(element, className) {
-            if (!this.hasClass(element, className)) {
-                if (element.classList)
-                    element.classList.add(className);
-                else
-                    element.className += ' ' + className;
-            }
-        },
-        removeClass(element, className) {
-            if (element.classList)
-                element.classList.remove(className);
-            else
-                element.className = element.className.replace(new RegExp('(^|\\b)' + className.split(' ').join('|') + '(\\b|$)', 'gi'), ' ');
-        },
-        hasClass(element, className) {
-            if (element.classList)
-                return element.classList.contains(className);
-            else
-                return new RegExp('(^| )' + className + '( |$)', 'gi').test(element.className);
         },
         toggleMenu(event, index) {
             this.activeMenuIndex = (this.activeMenuIndex === index) ? null : index;
