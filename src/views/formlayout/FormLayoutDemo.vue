@@ -3,7 +3,8 @@
         <div class="content-section introduction">
             <div class="feature-intro">
                 <h1>Form Layout</h1>
-                <p>Form layout is a CSS utility optimized for creating forms.</p>
+                <p>Form layout is a CSS utility optimized for creating forms with ease. FormLayout is not included in PrimeVue as it is provided by <a href="https://github.com/primefaces/primeflex">PrimeFlex</a>,
+                a shared grid library between PrimeFaces, PrimeNG, PrimeReact and PrimeVue projects.</p>
             </div>
         </div>
 
