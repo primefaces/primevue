@@ -565,6 +565,39 @@ import 'primeflex/primeflex.css';
 
 				<h3>Customization</h3>
 				<p>PrimeFlex allows customization of breakpoints and gutters via SASS variables, visit the <a href="https://github.com/primefaces/primeflex">PrimeFlex</a> repository to get access to the primeflex.scss file to build your own customized Grid.</p>
+				
+                <div class="doc-tablewrapper">
+					<table class="doc-table">
+						<thead>
+                            <tr>
+                                <th>Variable</th>
+                                <th>Default</th>
+                            </tr>
+						</thead>
+						<tbody>
+                            <tr>
+                                <td>$sm</td>
+                                <td>576px</td>
+                            </tr>
+                            <tr>
+                                <td>$md</td>
+                                <td>768</td>
+                            </tr>
+                            <tr>
+                                <td>$lg</td>
+                                <td>992</td>
+                            </tr>
+                            <tr>
+                                <td>$xl</td>
+                                <td>1200px</td>
+                            </tr>
+                            <tr>
+                                <td>$gutter</td>
+                                <td>.5em</td>
+                            </tr>
+						</tbody>
+					</table>
+				</div>
 
 			</TabPanel>
 
