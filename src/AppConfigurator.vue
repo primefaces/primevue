@@ -12,7 +12,7 @@
                 <div class="free-themes">
                     <h1 style="margin-top: 0">FREE THEMES</h1>
                     <p>Built-in component themes created by the <a href="https://www.primefaces.org/designer/primevue">PrimeVue Theme Designer</a>.</p>
-                    
+
                     <div class="p-grid">
                         <div class="p-col-3">
                             <button class="p-link">
@@ -184,8 +184,6 @@
 </template>
 
 <script>
-import DomHandler from './components/utils/DomHandler';
-
 export default {
     props: {
         theme: String
