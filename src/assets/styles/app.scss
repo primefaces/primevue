@@ -681,11 +681,10 @@ a {
 
                         a {
                             font-weight: 400;
-                            color: #34495e;
+                            color: #495057;
                             text-shadow: none;
                             height: inherit;
                             background-color: transparent;
-                            padding-top: 8px;
                             border: 0 none;
                             border-bottom: 1px solid transparent;
                             margin-bottom: -1px;
@@ -708,15 +707,15 @@ a {
                         &.p-highlight:hover a {
                             border: 0 none;
                             background: #f5f7f8;
-                            color: #3294e0;
-                            border-bottom: 1px solid #3294e0;
+                            color: #2874A6;
+                            border-bottom: 1px solid #2874A6;
                         }
 
                         &:not(.p-highlight):not(.p-disabled):hover a {
-                            color: #34495e;
+                            color: #2874A6;
                             background-color: transparent;
                             border: 0 none;
-                            border-bottom: 1px solid #3294e0;
+                            border-bottom: 1px solid #2874A6;
                         }
                     }
                 }
@@ -942,7 +941,7 @@ a {
         position: relative;
         display: inline-flex;
         justify-content: center;
-        transition: box-shadow .2s;
+        transition: box-shadow .2s, transform .2s;
 
         i {
             line-height: inherit;
@@ -964,11 +963,15 @@ a {
         &:focus {
             box-shadow: 0 0 0 0.2em $focusBorderColor;
         }
+
+        &:hover {
+            transform: scale(1.1);
+        } 
     }
 
     .premium-themes {
         padding: 2em;
-        background-color: #2c3135;
+        background-color: #212529;
         color: #ffffff;
 
         p {
@@ -1049,7 +1052,6 @@ a {
         background: url('./assets/images/home/primevue-introduction.jpg');
         background-repeat: no-repeat;
         background-size: cover;
-        color: #222222;
         padding: 115px 30px 135px 50px;
 
         h1 {
@@ -1123,18 +1125,6 @@ a {
             font-weight: bold;
             font-size: 16px;
             margin-top: 1em;
-            color: #20272a;
-        }
-
-        .p-g {
-            p {
-                color: #20272a;
-                margin-bottom: 30px;
-            }
-
-            > div {
-                padding: .5em 2em;
-            }
         }
 
         p {
@@ -1161,7 +1151,7 @@ a {
 
     /* Who Uses */
     .whouses {
-        background-color: #222222;
+        background-color: #495057;
         color: #ffffff;
         text-align: center;
         padding: 30px;
@@ -1222,7 +1212,6 @@ a {
         border-bottom: 1px solid #dcdedf;
         background-color: #f5f7f8;
         padding: 30px;
-        color: #222222;
 
         p {
             line-height: 22px;
