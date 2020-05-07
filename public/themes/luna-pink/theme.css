@@ -670,6 +670,7 @@
 
 .p-input-icon-left > i {
   left: 0.429em;
+  color: #888888;
 }
 
 .p-input-icon-left > .p-inputtext {
@@ -678,6 +679,7 @@
 
 .p-input-icon-right > i {
   right: 0.429em;
+  color: #888888;
 }
 
 .p-input-icon-right > .p-inputtext {
