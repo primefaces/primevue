@@ -565,7 +565,7 @@ import 'primeflex/primeflex.css';
 
 				<h3>Customization</h3>
 				<p>PrimeFlex allows customization of breakpoints and gutters via SASS variables, visit the <a href="https://github.com/primefaces/primeflex">PrimeFlex</a> repository to get access to the primeflex.scss file to build your own customized Grid.</p>
-				
+
                 <div class="doc-tablewrapper">
 					<table class="doc-table">
 						<thead>
