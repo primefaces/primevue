@@ -1149,79 +1149,79 @@
 }
 
 .p-button.p-button-info, .p-buttonset.p-button-info > .p-button {
-  color: #ffffff;
-  background: #2980B9;
-  border: 1px solid #2980B9;
+  color: #212529;
+  background: #4FC3F7;
+  border: 1px solid #4FC3F7;
 }
 .p-button.p-button-info:enabled:hover, .p-buttonset.p-button-info > .p-button:enabled:hover {
-  background: #2471A3;
-  color: #ffffff;
-  border-color: #2471A3;
+  background: #29B6F6;
+  color: #212529;
+  border-color: #29B6F6;
 }
 .p-button.p-button-info:enabled:focus, .p-buttonset.p-button-info > .p-button:enabled:focus {
-  box-shadow: 0 0 0 0.2em #7fbbe3;
+  box-shadow: 0 0 0 0.2em #c9edfd;
 }
 .p-button.p-button-info:enabled:active, .p-buttonset.p-button-info > .p-button:enabled:active {
-  background: #1F618D;
-  color: #ffffff;
-  border-color: #1F618D;
+  background: #03A9F4;
+  color: #212529;
+  border-color: #03A9F4;
 }
 
 .p-button.p-button-success, .p-buttonset.p-button-success > .p-button {
-  color: #ffffff;
-  background: #27AE60;
-  border: 1px solid #27AE60;
+  color: #212529;
+  background: #AED581;
+  border: 1px solid #AED581;
 }
 .p-button.p-button-success:enabled:hover, .p-buttonset.p-button-success > .p-button:enabled:hover {
-  background: #229954;
-  color: #ffffff;
-  border-color: #229954;
+  background: #9CCC65;
+  color: #212529;
+  border-color: #9CCC65;
 }
 .p-button.p-button-success:enabled:focus, .p-buttonset.p-button-success > .p-button:enabled:focus {
-  box-shadow: 0 0 0 0.2em #75e0a2;
+  box-shadow: 0 0 0 0.2em #ebf5e1;
 }
 .p-button.p-button-success:enabled:active, .p-buttonset.p-button-success > .p-button:enabled:active {
-  background: #1E8449;
-  color: #ffffff;
-  border-color: #1E8449;
+  background: #8BC34A;
+  color: #212529;
+  border-color: #8BC34A;
 }
 
 .p-button.p-button-warning, .p-buttonset.p-button-warning > .p-button {
-  color: #ffffff;
-  background: #F39C12;
-  border: 1px solid #F39C12;
+  color: #212529;
+  background: #FFB74D;
+  border: 1px solid #FFB74D;
 }
 .p-button.p-button-warning:enabled:hover, .p-buttonset.p-button-warning > .p-button:enabled:hover {
-  background: #D68910;
-  color: #ffffff;
-  border-color: #D68910;
+  background: #FFA726;
+  color: #212529;
+  border-color: #FFA726;
 }
 .p-button.p-button-warning:enabled:focus, .p-buttonset.p-button-warning > .p-button:enabled:focus {
-  box-shadow: 0 0 0 0.2em #f9cf8b;
+  box-shadow: 0 0 0 0.2em blanchedalmond;
 }
 .p-button.p-button-warning:enabled:active, .p-buttonset.p-button-warning > .p-button:enabled:active {
-  background: #B9770E;
-  color: #ffffff;
-  border-color: #B9770E;
+  background: #FF9800;
+  color: #212529;
+  border-color: #FF9800;
 }
 
 .p-button.p-button-danger, .p-buttonset.p-button-danger > .p-button {
-  color: #ffffff;
-  background: #C0392B;
-  border: 1px solid #f44336;
+  color: #212529;
+  background: #E57373;
+  border: 1px solid #E57373;
 }
 .p-button.p-button-danger:enabled:hover, .p-buttonset.p-button-danger > .p-button:enabled:hover {
-  background: #e53935;
-  color: #ffffff;
-  border-color: #e53935;
+  background: #EF5350;
+  color: #212529;
+  border-color: #EF5350;
 }
 .p-button.p-button-danger:enabled:focus, .p-buttonset.p-button-danger > .p-button:enabled:focus {
-  box-shadow: 0 0 0 0.2em #e48f86;
+  box-shadow: 0 0 0 0.2em #f9dfdf;
 }
 .p-button.p-button-danger:enabled:active, .p-buttonset.p-button-danger > .p-button:enabled:active {
-  background: #922B21;
-  color: #ffffff;
-  border-color: #922B21;
+  background: #F44336;
+  color: #212529;
+  border-color: #F44336;
 }
 
 .p-carousel .p-carousel-content .p-carousel-prev,
