@@ -1108,6 +1108,9 @@
 .p-button .p-button-icon-right {
   margin-left: 0.5em;
 }
+.p-button .p-badge {
+  margin-left: 0.5em;
+}
 .p-button.p-button-icon-only {
   width: 2.357em;
 }
@@ -3411,6 +3414,10 @@
   min-width: 2em;
   height: 2em;
   line-height: 2em;
+}
+.p-badge.p-badge-secondary {
+  background-color: transparent;
+  color: #9575CD;
 }
 .p-badge.p-badge-success {
   background-color: #AED581;

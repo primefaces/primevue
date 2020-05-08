@@ -2,6 +2,7 @@
     <button :class="buttonClass" v-on="$listeners">
         <span v-if="icon" :class="iconClass"></span>
         <span class="p-button-text">{{label||'&nbsp;'}}</span>
+        <span class="p-badge" v-if="badge" :class="badgeClass">{{badge}}</span>
     </button>
 </template>
 
@@ -17,6 +18,13 @@ export default {
         iconPos: {
             type: String,
             default: 'left'
+        },
+        badge: {
+            type: String
+        },
+        badgeClass: {
+            type: String,
+            default: 'p-badge-secondary'
         }
     },
     computed: {

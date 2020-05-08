@@ -454,11 +454,6 @@ a {
     .content-section {
         display: block;
         padding: 30px;
-        background-color: #f5f7f8;
-
-        &:first-of-type > div > span {
-            line-height: 1.5em;
-        }
 
         h2 {
             margin-top: 0;
@@ -588,6 +583,7 @@ a {
 
         &.documentation {
             border-top: 1px solid #dadada;
+            background-color: #f5f7f8;
 
             h3 {
                 color:  #495057;
