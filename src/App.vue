@@ -69,12 +69,11 @@ export default {
             themeElement.setAttribute('href', themeElement.getAttribute('href').replace(this.theme, event.theme));
             this.theme = event.theme;
 
+            this.removeClass(document.body, 'dark-theme');
+            this.removeClass(document.body, 'dark-theme-alt');
+
             if (event.dark) {
                 this.addClass(document.body, event.dark);
-            }
-            else {
-                this.removeClass(document.body, 'dark-theme');
-                this.removeClass(document.body, 'dark-theme-alt');
             }
 
             this.activeMenuIndex = null;
