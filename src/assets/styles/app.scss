@@ -12,7 +12,7 @@
     }
 }
 
-$focusBorderColor:#b6daf2;
+$focusBorderColor:#BBDEFB;
 
 html {
     font-size: 14px;
@@ -31,7 +31,6 @@ body {
     -moz-osx-font-smoothing: grayscale;
 }
 
-
 input[type="number"] {
     -moz-appearance: textfield;
 
@@ -44,7 +43,7 @@ input[type="number"] {
 
 a {
     text-decoration: none;
-    color: #2874A6;
+    color: #1976D2;
 }
 
 .layout-news {
@@ -624,7 +623,7 @@ a {
             }
 
             a {
-                color: #2874A6;
+                color: #1976D2;
                 font-weight: 500;
                 transition: color .2s;
             }
@@ -703,15 +702,15 @@ a {
                         &.p-highlight:hover a {
                             border: 0 none;
                             background: #f5f7f8;
-                            color: #2874A6;
-                            border-bottom: 1px solid #2874A6;
+                            color: #1976D2;
+                            border-bottom: 1px solid #1976D2;
                         }
 
                         &:not(.p-highlight):not(.p-disabled):hover a {
-                            color: #2874A6;
+                            color: #1976D2;
                             background-color: transparent;
                             border: 0 none;
-                            border-bottom: 1px solid #2874A6;
+                            border-bottom: 1px solid #1976D2;
                         }
                     }
                 }
@@ -856,7 +855,7 @@ a {
     }
 
     a {
-        color: #2874A6;
+        color: #1976D2;
         transition: color .2s;
         font-weight: 500;
     }
@@ -976,6 +975,10 @@ a {
 
         img {
             width: 100%;
+        }
+
+        a {
+            color: #2196F3;
         }
     }
 }
