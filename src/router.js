@@ -42,6 +42,11 @@ export default new Router({
 			component: () => import('./views/autocomplete/AutoCompleteDemo.vue')
         },
         {
+			path: '/badge',
+			name: 'badge',
+			component: () => import('./views/badge/BadgeDemo.vue')
+		},
+        {
 			path: '/blockui',
 			name: 'blockui',
 			component: () => import('./views/blockui/BlockUIDemo.vue')

@@ -1,0 +1,27 @@
+.p-badge {
+    display: inline-block;
+    border-radius: 50%;
+    text-align: center;
+}
+
+.p-tag {
+    display: inline-block;
+    text-align: center;
+}
+
+.p-tag.p-tag-rounded {
+    border-radius: 10em;
+}
+
+.p-overlay-badge {
+    position: relative;
+    display: inline-block;
+}
+
+.p-overlay-badge .p-badge {
+    position: absolute;
+    top: 0;
+    right: 0;
+    transform: translate(1em, -1em);
+    margin: 0;
+}
