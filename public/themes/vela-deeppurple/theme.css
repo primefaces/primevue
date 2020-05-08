@@ -1224,6 +1224,28 @@
   border-color: #F44336;
 }
 
+.p-button.p-button-link {
+  color: #9575CD;
+  background: transparent;
+  border: transparent;
+}
+.p-button.p-button-link:enabled:hover {
+  background: transparent;
+  color: #9575CD;
+  border-color: transparent;
+}
+.p-button.p-button-link:enabled:hover .p-button-text {
+  text-decoration: underline;
+}
+.p-button.p-button-link:enabled:focus {
+  box-shadow: 0 0 0 0.2em #D1C4E9;
+}
+.p-button.p-button-link:enabled:active {
+  background: transparent;
+  color: #9575CD;
+  border-color: transparent;
+}
+
 .p-carousel .p-carousel-content .p-carousel-prev,
 .p-carousel .p-carousel-content .p-carousel-next {
   background: #ffffff;

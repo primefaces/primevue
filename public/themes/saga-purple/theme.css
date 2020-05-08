@@ -1130,13 +1130,13 @@
 }
 
 .p-button.p-button-secondary, .p-buttonset.p-button-secondary > .p-button {
-  color: #9C27B0;
+  color: #7B1FA2;
   background: #ffffff;
   border: 1px solid #9C27B0;
 }
 .p-button.p-button-secondary:enabled:hover, .p-buttonset.p-button-secondary > .p-button:enabled:hover {
   background: #e9ecef;
-  color: #8E24AA;
+  color: #7B1FA2;
   border-color: #8E24AA;
 }
 .p-button.p-button-secondary:enabled:focus, .p-buttonset.p-button-secondary > .p-button:enabled:focus {
@@ -1222,6 +1222,28 @@
   background: #B71C1C;
   color: #ffffff;
   border-color: #B71C1C;
+}
+
+.p-button.p-button-link {
+  color: #7B1FA2;
+  background: transparent;
+  border: transparent;
+}
+.p-button.p-button-link:enabled:hover {
+  background: transparent;
+  color: #7B1FA2;
+  border-color: transparent;
+}
+.p-button.p-button-link:enabled:hover .p-button-text {
+  text-decoration: underline;
+}
+.p-button.p-button-link:enabled:focus {
+  box-shadow: 0 0 0 0.2em #E1BEE7;
+}
+.p-button.p-button-link:enabled:active {
+  background: transparent;
+  color: #7B1FA2;
+  border-color: transparent;
 }
 
 .p-carousel .p-carousel-content .p-carousel-prev,

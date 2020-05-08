@@ -32,7 +32,7 @@ import Button from 'primevue/button';
 </CodeHighlight>
 
 				<h3>Severity</h3>
-				<p>Different color options are available as severity levels.</p>
+				<p>Different options are available as severity levels.</p>
 
 				<ul>
 					<li>.p-button-secondary</li>
@@ -56,6 +56,12 @@ import Button from 'primevue/button';
 <CodeHighlight>
 &lt;Button label="Primary" class="p-button-raised p-button-rounded" /&gt;
 </CodeHighlight>
+
+                <h3>Link Buttons</h3>
+                <p>Use "p-button-link" class to render the button as a link.</p>
+<CodeHighlight>
+&lt;Button label="Link" class="p-button-link" /&gt;
+</CodeHighlight> 
 
                 <h3>ButtonSet</h3>
                 <p>Wrapping the buttons in a container having a <i>.p-buttonset</i> class, groups the buttons side to side.</p>
@@ -153,6 +159,7 @@ import Button from 'primevue/button';
 &lt;Button label="Info" class="p-button-info" /&gt;
 &lt;Button label="Warning" class="p-button-warning" /&gt;
 &lt;Button label="Danger" class="p-button-danger" /&gt;
+&lt;Button label="Link" class="p-button-link" /&gt;
 
 &lt;h3&gt;Raised Buttons&lt;/h3&gt;
 &lt;Button label="Primary" class="p-button-raised" /&gt;

@@ -22,6 +22,7 @@
             <Button label="Info" class="p-button-info" />
             <Button label="Warning" class="p-button-warning" />
             <Button label="Danger" class="p-button-danger" />
+            <Button label="Link" class="p-button-link" />
 
             <h3>Raised Buttons</h3>
             <Button label="Primary" class="p-button-raised" />
