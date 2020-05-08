@@ -22,7 +22,7 @@
 }
 
 .p-disabled, .p-component:disabled {
-  opacity: 0.8;
+  opacity: 0.5;
 }
 
 .pi {
