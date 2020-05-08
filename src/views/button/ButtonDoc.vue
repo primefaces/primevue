@@ -61,7 +61,7 @@ import Button from 'primevue/button';
                 <p>Use "p-button-link" class to render the button as a link.</p>
 <CodeHighlight>
 &lt;Button label="Link" class="p-button-link" /&gt;
-</CodeHighlight> 
+</CodeHighlight>
 
                 <h3>ButtonSet</h3>
                 <p>Wrapping the buttons in a container having a <i>.p-buttonset</i> class, groups the buttons side to side.</p>
