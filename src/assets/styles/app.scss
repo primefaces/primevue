@@ -454,7 +454,7 @@ a {
     .content-section {
         display: block;
         padding: 30px;
-        background-color: #f8f8f8;
+        background-color: #f5f7f8;
 
         &:first-of-type > div > span {
             line-height: 1.5em;
@@ -466,7 +466,7 @@ a {
 
         &.introduction {
             color: #ffffff;
-            background-image: linear-gradient(to left, #455A64, #607D8B);
+            background-color: #607D8B;
 
             .feature-intro {
 
@@ -547,7 +547,7 @@ a {
         }
 
         &.content-submenu {
-            background-color: #3e5265;
+            background-color: #546E7A;
             padding: 15px 30px;
 
             ul {
@@ -571,7 +571,7 @@ a {
                         transition: background-color .1s;
 
                         &:hover {
-                            background-color: #4c667d;
+                            background-color: rgba(255,255,255,0.1);
                         }
 
                         &:focus {
@@ -581,7 +581,6 @@ a {
                         }
 
                         &.router-link-exact-active {
-                            color: #aebecd;
                             font-weight: 700;
                         }
                     }
