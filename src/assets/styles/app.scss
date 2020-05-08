@@ -263,12 +263,11 @@ a {
                     a {
                         text-decoration: none;
                         color: #495057;
-                        padding: 6px 12px;
+                        padding: 8px 12px;
                         display: block;
                         user-select: none;
-                        cursor: pointer;
-                        border-bottom: 1px solid #f4f4f4;
                         transition: background-color .2s;
+                        cursor: pointer;
 
                         &:hover {
                             background-color: #e9ecef;
@@ -287,8 +286,10 @@ a {
 
                         i {
                             vertical-align: middle;
-                            font-size: 24px;
+                            font-size: 18px;
                             margin-right: 4px;
+                            margin-left: 4px;
+                            color: #6c757d;
                         }
                     }
 
@@ -306,10 +307,6 @@ a {
 
                             span {
                                 margin-left: 6px;
-                            }
-
-                            &:before {
-                                content: '\25cf';
                             }
                         }
 
@@ -362,8 +359,7 @@ a {
             display: block;
             padding: 0px 0px 0px 20px;
             margin-bottom: 12px;
-            border-top: solid 1px #e3e9ea;
-            background-color: #f4f4f4;
+            background-color: #f8f9fa;
             color: #767676;
             font-weight: 700;
             user-select: none;
