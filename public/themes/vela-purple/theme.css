@@ -3403,4 +3403,55 @@
   background: rgba(0, 0, 0, 0.4);
 }
 
+.p-badge {
+  background: #BA68C8;
+  color: #ffffff;
+  font-size: 0.75em;
+  font-weight: 700;
+  min-width: 2em;
+  height: 2em;
+  line-height: 2em;
+}
+.p-badge.p-badge-success {
+  background-color: #AED581;
+  color: #212529;
+}
+.p-badge.p-badge-info {
+  background-color: #4FC3F7;
+  color: #212529;
+}
+.p-badge.p-badge-warning {
+  background-color: #FFF176;
+  color: #212529;
+}
+.p-badge.p-badge-danger {
+  background-color: #E57373;
+  color: #212529;
+}
+
+.p-tag {
+  background: #BA68C8;
+  color: #ffffff;
+  font-size: 0.75em;
+  font-weight: 700;
+  padding: 0.25em 0.4em;
+  border-radius: 3px;
+}
+.p-tag.p-tag-success {
+  background-color: #AED581;
+  color: #212529;
+}
+.p-tag.p-tag-info {
+  background-color: #4FC3F7;
+  color: #212529;
+}
+.p-tag.p-tag-warning {
+  background-color: #FFF176;
+  color: #212529;
+}
+.p-tag.p-tag-danger {
+  background-color: #E57373;
+  color: #212529;
+}
+
 /* Add your customizations of theme here */

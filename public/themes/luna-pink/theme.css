@@ -3369,4 +3369,55 @@
   background: rgba(0, 0, 0, 0.4);
 }
 
+.p-badge {
+  background: #cc285c;
+  color: #ffffff;
+  font-size: 0.75em;
+  font-weight: 700;
+  min-width: 2em;
+  height: 2em;
+  line-height: 2em;
+}
+.p-badge.p-badge-success {
+  background-color: #34A835;
+  color: #ffffff;
+}
+.p-badge.p-badge-info {
+  background-color: #007ad9;
+  color: #ffffff;
+}
+.p-badge.p-badge-warning {
+  background-color: #ffba01;
+  color: #212121;
+}
+.p-badge.p-badge-danger {
+  background-color: #e91224;
+  color: #ffffff;
+}
+
+.p-tag {
+  background: #cc285c;
+  color: #ffffff;
+  font-size: 0.75em;
+  font-weight: 700;
+  padding: 0.25em 0.4em;
+  border-radius: 3px;
+}
+.p-tag.p-tag-success {
+  background-color: #34A835;
+  color: #ffffff;
+}
+.p-tag.p-tag-info {
+  background-color: #007ad9;
+  color: #ffffff;
+}
+.p-tag.p-tag-warning {
+  background-color: #ffba01;
+  color: #212121;
+}
+.p-tag.p-tag-danger {
+  background-color: #e91224;
+  color: #ffffff;
+}
+
 /* Add your customizations of theme here */

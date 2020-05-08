@@ -3369,4 +3369,55 @@
   background: rgba(0, 0, 0, 0.4);
 }
 
+.p-badge {
+  background: #7B95A3;
+  color: #ffffff;
+  font-size: 0.75em;
+  font-weight: 700;
+  min-width: 2em;
+  height: 2em;
+  line-height: 2em;
+}
+.p-badge.p-badge-success {
+  background-color: #A3E2C6;
+  color: #323E39;
+}
+.p-badge.p-badge-info {
+  background-color: #A3DEF8;
+  color: #3D4447;
+}
+.p-badge.p-badge-warning {
+  background-color: #FEEDBC;
+  color: #333333;
+}
+.p-badge.p-badge-danger {
+  background-color: #F4B6B6;
+  color: #262222;
+}
+
+.p-tag {
+  background: #7B95A3;
+  color: #ffffff;
+  font-size: 0.75em;
+  font-weight: 700;
+  padding: 0.25em 0.4em;
+  border-radius: 2px;
+}
+.p-tag.p-tag-success {
+  background-color: #A3E2C6;
+  color: #323E39;
+}
+.p-tag.p-tag-info {
+  background-color: #A3DEF8;
+  color: #3D4447;
+}
+.p-tag.p-tag-warning {
+  background-color: #FEEDBC;
+  color: #333333;
+}
+.p-tag.p-tag-danger {
+  background-color: #F4B6B6;
+  color: #262222;
+}
+
 /* Add your customizations of theme here */
