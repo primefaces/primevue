@@ -52,14 +52,9 @@
 
             <h3>Sizes</h3>
             <div class="badges">
-                <span class="p-badge" style="font-size: 1em">2</span>
-                <span class="p-badge p-badge-success" style="font-size: 1.25em">8</span>
-                <span class="p-badge p-badge-info" style="font-size: 1.5em">4</span>
-                <span class="p-badge p-badge-warning" style="font-size: 1.75em">12</span>
-                <span class="p-badge p-badge-danger" style="font-size: 2em">3</span>
-
-                <h1>Heading 1 <span class="p-tag p-tag-success">New</span></h1>
-                <h2>Heading 2 <span class="p-tag p-tag-success">New</span></h2>
+                <span class="p-badge">2</span>
+                <span class="p-badge p-badge-l p-badge-sucess">4</span>
+                <span class="p-badge p-badge-xl p-badge-warning">6</span>
             </div>
         </div>
 
@@ -85,16 +80,16 @@ export default {
 <style lang="scss" scoped>
 .badges {
     .p-badge, .p-tag {
-        margin-right: .5em;
+        margin-right: .5rem;
     }
 }
 
 .p-button {
-    margin-right: .5em;
+    margin-right: .5rem;
 }
 
 .p-overlay-badge {
-    margin-right: 2em;
+    margin-right: 2rem;
 }
 
 /deep/ h1, h2 {

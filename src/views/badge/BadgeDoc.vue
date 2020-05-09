@@ -52,13 +52,11 @@
 </CodeHighlight>
 
                 <h3>Sizes</h3>
-                <p>Badge sizes are adjusted according to their font size.</p>
+                <p>Badge sizes are adjusted with additional classes.</p>
 <CodeHighlight>
-&lt;span class="p-badge" style="font-size: 1em"&gt;2&lt;/span&gt;
-&lt;span class="p-badge p-badge-success" style="font-size: 1.25em"&gt;8&lt;/span&gt;
-&lt;span class="p-badge p-badge-info" style="font-size: 1.5em"&gt;4&lt;/span&gt;
-&lt;span class="p-badge p-badge-warning" style="font-size: 1.75em"&gt;12&lt;/span&gt;
-&lt;span class="p-badge p-badge-danger" style="font-size: 2em"&gt;3&lt;/span&gt;
+&lt;span class="p-badge"&gt;2&lt;/span&gt;
+&lt;span class="p-badge p-badge-l p-badge-sucess"&gt;4&lt;/span&gt;
+&lt;span class="p-badge p-badge-xl p-badge-warning"&gt;6&lt;/span&gt;
 </CodeHighlight>
 
                 <p>In addition, when placed inside another element, badge sizes can also derive their size from their parent.</p>
@@ -93,6 +91,14 @@
                             <tr>
                                 <td>p-overlay-badge</td>
                                 <td>Wrapper of a badge and its target.</td>
+                            </tr>
+                            <tr>
+                                <td>p-badge-l</td>
+                                <td>Large badge element</td>
+                            </tr>
+                            <tr>
+                                <td>p-badge-l</td>
+                                <td>Extra large badge element</td>
                             </tr>
 						</tbody>
 					</table>
@@ -152,14 +158,9 @@
 
 &lt;h3&gt;Sizes&lt;/h3&gt;
 &lt;div class="badges"&gt;
-    &lt;span class="p-badge" style="font-size: 1em"&gt;2&lt;/span&gt;
-    &lt;span class="p-badge p-badge-success" style="font-size: 1.25em"&gt;8&lt;/span&gt;
-    &lt;span class="p-badge p-badge-info" style="font-size: 1.5em"&gt;4&lt;/span&gt;
-    &lt;span class="p-badge p-badge-warning" style="font-size: 1.75em"&gt;12&lt;/span&gt;
-    &lt;span class="p-badge p-badge-danger" style="font-size: 2em"&gt;3&lt;/span&gt;
-
-    &lt;h1&gt;Heading 1 &lt;span class="p-tag p-tag-success"&gt;New&lt;/span&gt;&lt;/h1&gt;
-    &lt;h2&gt;Heading 2 &lt;span class="p-tag p-tag-success"&gt;New&lt;/span&gt;&lt;/h2&gt;
+    &lt;span class="p-badge"&gt;2&lt;/span&gt;
+    &lt;span class="p-badge p-badge-l p-badge-sucess"&gt;4&lt;/span&gt;
+    &lt;span class="p-badge p-badge-xl p-badge-warning"&gt;6&lt;/span&gt;
 &lt;/div&gt;
 </template>
 </CodeHighlight>

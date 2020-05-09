@@ -1064,6 +1064,9 @@
 }
 .p-button .p-badge {
   margin-left: 0.5rem;
+  min-width: 1rem;
+  height: 1rem;
+  line-height: 1rem;
 }
 .p-button.p-button-raised {
   box-shadow: 0 2px 3px 0 rgba(0, 0, 0, 0.15);
@@ -3335,9 +3338,9 @@
   color: #212121;
   font-size: 0.75rem;
   font-weight: 700;
-  min-width: 2rem;
-  height: 2rem;
-  line-height: 2rem;
+  min-width: 1.5rem;
+  height: 1.5rem;
+  line-height: 1.5rem;
 }
 .p-badge.p-badge-secondary {
   background-color: #f4f4f4;
@@ -3358,6 +3361,18 @@
 .p-badge.p-badge-danger {
   background-color: #e91224;
   color: #ffffff;
+}
+.p-badge.p-badge-l {
+  font-size: 1.125rem;
+  min-width: 2.25rem;
+  height: 2.25rem;
+  line-height: 2.25rem;
+}
+.p-badge.p-badge-xl {
+  font-size: 1.5rem;
+  min-width: 3rem;
+  height: 3rem;
+  line-height: 3rem;
 }
 
 .p-tag {
