@@ -118,12 +118,12 @@
 }
 .p-autocomplete-panel.p-error > .p-inputtext, .p-autocomplete-panel.p-invalid > .p-inputtext {
   border-color: #f44336;
-  border-width: 1px 1px 1px 1px;
+  border-width: 1px;
 }
 
 .p-calendar.p-error > .p-inputtext, .p-calendar.p-invalid > .p-inputtext {
   border-color: #f44336;
-  border-width: 1px 1px 1px 1px;
+  border-width: 1px;
 }
 
 .p-datepicker {
@@ -296,14 +296,14 @@
 }
 
 .p-checkbox {
-  width: 20px;
-  height: 20px;
+  width: 1.5rem;
+  height: 1.5rem;
 }
 .p-checkbox .p-checkbox-box {
   border: 1px solid #ced4da;
   background: #ffffff;
-  width: 20px;
-  height: 20px;
+  width: 1.5rem;
+  height: 1.5rem;
   color: #495057;
   border-radius: 3px;
   transition: background-color 0.2s, border-color 0.2s, box-shadow 0.2s;
@@ -368,7 +368,7 @@
 }
 .p-chips.p-error > .p-inputtext, .p-chips.p-invalid > .p-inputtext {
   border-color: #f44336;
-  border-width: 1px 1px 1px 1px;
+  border-width: 1px;
 }
 
 .p-colorpicker-preview {
@@ -472,7 +472,7 @@
 }
 .p-dropdown-panel.p-error, .p-dropdown-panel.p-invalid {
   border-color: #f44336;
-  border-width: 1px 1px 1px 1px;
+  border-width: 1px;
 }
 
 .p-editor-container .p-editor-toolbar {
@@ -627,7 +627,7 @@
 }
 .p-inputswitch.p-error, .p-inputswitch.p-invalid {
   border-color: #f44336;
-  border-width: 1px 1px 1px 1px;
+  border-width: 1px;
 }
 
 .p-inputtext {
@@ -651,7 +651,7 @@
 }
 .p-inputtext.p-error, .p-inputtext.p-invalid {
   border-color: #f44336;
-  border-width: 1px 1px 1px 1px;
+  border-width: 1px;
 }
 
 .p-float-label label {
@@ -726,7 +726,7 @@
 }
 .p-listbox.p-error, .p-listbox.p-invalid {
   border-color: #f44336;
-  border-width: 1px 1px 1px 1px;
+  border-width: 1px;
 }
 
 .p-multiselect {
@@ -827,7 +827,7 @@
 }
 .p-multiselect-panel.p-error, .p-multiselect-panel.p-invalid {
   border-color: #f44336;
-  border-width: 1px 1px 1px 1px;
+  border-width: 1px;
 }
 
 .p-password-panel {
@@ -848,8 +848,8 @@
 .p-radiobutton .p-radiobutton-box {
   border: 1px solid #ced4da;
   background: #ffffff;
-  width: 20px;
-  height: 20px;
+  width: 1.5rem;
+  height: 1.5rem;
   color: #495057;
   border-radius: 50%;
   transition: background-color 0.2s, border-color 0.2s, box-shadow 0.2s;
@@ -864,13 +864,17 @@
   border-color: #9C27B0;
 }
 .p-radiobutton .p-radiobutton-box .p-radiobutton-icon {
-  font-size: 0.75rem;
+  width: 0.75rem;
+  height: 0.75rem;
   transition-duration: 0.2s;
+  border-radius: 50%;
 }
 .p-radiobutton .p-radiobutton-box.p-highlight {
   border-color: #9C27B0;
   background: #9C27B0;
-  color: #ffffff;
+}
+.p-radiobutton .p-radiobutton-box.p-highlight .p-radiobutton-icon {
+  background-color: #ffffff;
 }
 .p-radiobutton .p-radiobutton-box.p-highlight:not(.p-disabled):hover {
   border-color: #7B1FA2;
@@ -943,7 +947,7 @@
 }
 .p-selectbutton.p-error > .p-button, .p-selectbutton.p-invalid > .p-button {
   border-color: #f44336;
-  border-width: 1px 1px 1px 1px;
+  border-width: 1px;
 }
 
 .p-slider {
@@ -1023,7 +1027,7 @@
 }
 .p-togglebutton.p-button.p-error > .p-button, .p-togglebutton.p-button.p-invalid > .p-button {
   border-color: #f44336;
-  border-width: 1px 1px 1px 1px;
+  border-width: 1px;
 }
 
 .p-button {
@@ -1065,6 +1069,12 @@
 .p-button .p-badge {
   margin-left: 0.5rem;
 }
+.p-button.p-button-raised {
+  box-shadow: 0 2px 3px 0 rgba(0, 0, 0, 0.15);
+}
+.p-button.p-button-rounded {
+  border-radius: 1rem;
+}
 .p-button.p-button-icon-only {
   width: 2.357rem;
 }
@@ -1072,11 +1082,8 @@
 .p-button.p-button-icon-only .p-button-icon-right {
   margin: 0;
 }
-.p-button.p-button-raised {
-  box-shadow: 0 2px 3px 0 rgba(0, 0, 0, 0.15);
-}
-.p-button.p-button-rounded {
-  border-radius: 15px;
+.p-button.p-button-icon-only.p-button-rounded {
+  border-radius: 50%;
 }
 
 .p-fluid .p-button {
@@ -1299,9 +1306,9 @@
 }
 .p-datatable .p-sortable-column .p-sortable-column-badge {
   border-radius: 50%;
-  height: 18px;
-  min-width: 18px;
-  line-height: 18px;
+  height: 1.143rem;
+  min-width: 1.143rem;
+  line-height: 1.143rem;
   color: #9C27B0;
   background: #ffffff;
   margin-left: 0.5rem;
@@ -1634,7 +1641,7 @@
   min-width: 2.357rem;
   height: 2.357rem;
   border: 0 none;
-  margin: 2px;
+  margin: 0.143rem;
   transition: background-color 0.2s, box-shadow 0.2s;
   border-radius: 3px;
 }
@@ -1661,7 +1668,7 @@
   min-width: 2.357rem;
   height: 2.357rem;
   border: 0 none;
-  margin: 2px;
+  margin: 0.143rem;
   transition: background-color 0.2s, box-shadow 0.2s;
   border-radius: 3px;
 }
@@ -1866,9 +1873,9 @@
 }
 .p-treetable .p-sortable-column .p-sortable-column-badge {
   border-radius: 50%;
-  height: 18px;
-  min-width: 18px;
-  line-height: 18px;
+  height: 1.143rem;
+  min-width: 1.143rem;
+  line-height: 1.143rem;
   color: #9C27B0;
   background: #ffffff;
   margin-left: 0.5rem;
@@ -2337,7 +2344,7 @@
   border-bottom-left-radius: 3px;
 }
 .p-fileupload .p-progressbar {
-  height: 4px;
+  height: 0.25rem;
 }
 
 .p-fileupload-choose:not(.p-disabled):hover {
@@ -2378,7 +2385,7 @@
 }
 
 .p-contextmenu {
-  padding: 4px 0;
+  padding: 0.25rem 0;
   background: #ffffff;
   color: #495057;
   border: 0 none;
@@ -2420,7 +2427,7 @@
   box-shadow: inset 0 0 0 0.15rem #E1BEE7;
 }
 .p-contextmenu .p-submenu-list {
-  padding: 4px 0;
+  padding: 0.25rem 0;
   background: #ffffff;
   border: 0 none;
   box-shadow: 0 1px 6px 0 rgba(0, 0, 0, 0.1);
@@ -2436,7 +2443,7 @@
 }
 .p-contextmenu .p-menu-separator {
   border-top: 1px solid #dee2e6;
-  margin: 4px 0;
+  margin: 0.25rem 0;
 }
 .p-contextmenu .p-submenu-icon {
   font-size: 0.75rem;
@@ -2450,7 +2457,7 @@
   border-radius: 3px;
 }
 .p-megamenu .p-megamenu-root-list .p-submenu-icon {
-  margin: 0 0 0 5px;
+  margin: 0 0 0 0.5rem;
   font-size: 0.75rem;
 }
 .p-megamenu .p-menuitem-link {
@@ -2503,12 +2510,12 @@
   border-top-left-radius: 3px;
 }
 .p-megamenu .p-megamenu-submenu {
-  padding: 4px 0;
+  padding: 0.25rem 0;
   width: 12.5rem;
 }
 .p-megamenu .p-megamenu-submenu .p-menu-separator {
   border-top: 1px solid #dee2e6;
-  margin: 4px 0;
+  margin: 0.25rem 0;
 }
 .p-megamenu .p-menuitem.p-menuitem-active > .p-menuitem-link {
   background: #e9ecef;
@@ -2521,11 +2528,11 @@
 }
 .p-megamenu.p-megamenu-vertical {
   width: 12.5rem;
-  padding: 4px 0;
+  padding: 0.25rem 0;
 }
 
 .p-menu {
-  padding: 4px 0;
+  padding: 0.25rem 0;
   background: #ffffff;
   color: #495057;
   border: 1px solid #dee2e6;
@@ -2581,7 +2588,7 @@
 }
 .p-menu .p-menu-separator {
   border-top: 1px solid #dee2e6;
-  margin: 4px 0;
+  margin: 0.25rem 0;
 }
 
 .p-menubar {
@@ -2592,7 +2599,7 @@
   border-radius: 3px;
 }
 .p-menubar .p-menubar-root-list > .p-menuitem > .p-menuitem-link .p-submenu-icon {
-  margin: 0 0 0 5px;
+  margin: 0 0 0 0.5rem;
   font-size: 0.75rem;
 }
 .p-menubar .p-menuitem-link {
@@ -2630,7 +2637,7 @@
   box-shadow: inset 0 0 0 0.15rem #E1BEE7;
 }
 .p-menubar .p-submenu-list {
-  padding: 4px 0;
+  padding: 0.25rem 0;
   background: #ffffff;
   border: 0 none;
   box-shadow: 0 1px 6px 0 rgba(0, 0, 0, 0.1);
@@ -2638,7 +2645,7 @@
 }
 .p-menubar .p-submenu-list .p-menu-separator {
   border-top: 1px solid #dee2e6;
-  margin: 4px 0;
+  margin: 0.25rem 0;
 }
 .p-menubar .p-submenu-list .p-submenu-icon {
   font-size: 0.75rem;
@@ -2694,7 +2701,7 @@
   color: #495057;
 }
 .p-panelmenu .p-panelmenu-content {
-  padding: 4px 0;
+  padding: 0.25rem 0;
   border: 1px solid #dee2e6;
   background: #ffffff;
   color: #495057;
@@ -2850,7 +2857,7 @@
 }
 
 .p-tieredmenu {
-  padding: 4px 0;
+  padding: 0.25rem 0;
   background: #ffffff;
   color: #495057;
   border: 1px solid #dee2e6;
@@ -2896,7 +2903,7 @@
   box-shadow: 0 1px 6px 0 rgba(0, 0, 0, 0.1);
 }
 .p-tieredmenu .p-submenu-list {
-  padding: 4px 0;
+  padding: 0.25rem 0;
   background: #ffffff;
   border: 0 none;
   box-shadow: 0 1px 6px 0 rgba(0, 0, 0, 0.1);
@@ -2912,7 +2919,7 @@
 }
 .p-tieredmenu .p-menu-separator {
   border-top: 1px solid #dee2e6;
-  margin: 4px 0;
+  margin: 0.25rem 0;
 }
 .p-tieredmenu .p-submenu-icon {
   font-size: 0.75rem;
@@ -3331,7 +3338,7 @@
 
 .p-progressbar {
   border: 0 none;
-  height: 24px;
+  height: 1.5rem;
   background: #dee2e6;
   border-radius: 3px;
   border-radius: 3px;
@@ -3343,7 +3350,7 @@
 }
 .p-progressbar .p-progressbar-label {
   color: #495057;
-  line-height: 24px;
+  line-height: 1.5rem;
 }
 
 .p-terminal {
