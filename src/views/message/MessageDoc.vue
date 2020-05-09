@@ -63,7 +63,7 @@ import InlineMessage from 'primevue/inlinemessage';
 
 				<p>InlineMessage component is useful in cases where a single message needs to be displayed related to an element such as forms. It has one property, <i>severity</i> of the message.</p>
 <CodeHighlight>
-&lt;InputText placeholder="Username" class="p-error" /&gt;
+&lt;InputText placeholder="Username" class="p-invalid" /&gt;
 &lt;InlineMessage&gt;Field is required&lt;/InlineMessage&gt;
 </CodeHighlight>
 
@@ -251,11 +251,11 @@ import InlineMessage from 'primevue/inlinemessage';
 &lt;h3&gt;Validation Message&lt;/h3&gt;
 &lt;div class="p-grid"&gt;
     &lt;div class="p-col-12"&gt;
-        &lt;InputText placeholder="Username" class="p-error" /&gt;
+        &lt;InputText placeholder="Username" class="p-invalid" /&gt;
         &lt;InlineMessage&gt;Field is required&lt;/InlineMessage&gt;
     &lt;/div&gt;
     &lt;div class="p-col-12"&gt;
-        &lt;InputText placeholder="Email" class="p-error" :closable="false" /&gt;
+        &lt;InputText placeholder="Email" class="p-invalid" :closable="false" /&gt;
         &lt;InlineMessage /&gt;
     &lt;/div&gt;
 &lt;/div&gt;

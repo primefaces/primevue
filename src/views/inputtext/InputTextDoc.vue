@@ -98,7 +98,7 @@ import InputText from 'primevue/inputtext';
 &lt;InputText type="text" v-model="value5" disabled /&gt;
 
     &lt;h3&gt;Invalid&lt;/h3&gt;
-&lt;InputText type="text" class="p-error" /&gt;
+&lt;InputText type="text" class="p-invalid" /&gt;
 
 &lt;h3&gt;Sizes&lt;/h3&gt;
 &lt;div class="component-sizes"&gt;

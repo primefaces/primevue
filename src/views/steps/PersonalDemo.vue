@@ -24,18 +24,18 @@
                 </div>
                 <div class="p-grid p-fluid wizard-content">
                     <div class="p-col-12 p-md-3" style="max-width: 176px;">
-                        <InputText v-model="$v.firstname.$model" :class="{'p-error':$v.firstname.$invalid && submitted}" placeholder="Firstname"/>
+                        <InputText v-model="$v.firstname.$model" :class="{'p-invalid':$v.firstname.$invalid && submitted}" placeholder="Firstname"/>
                         <ValidationMessage v-show="$v.firstname.$invalid && submitted" style="font-size: 12px">Firstname is required.</ValidationMessage>
                     </div>
                     <div class="p-col-12 p-md-3" style="max-width: 176px;">
-                        <InputText v-model="$v.lastname.$model" :class="{'p-error':$v.lastname.$invalid && submitted}" placeholder="Lastname" />
+                        <InputText v-model="$v.lastname.$model" :class="{'p-invalid':$v.lastname.$invalid && submitted}" placeholder="Lastname" />
                         <ValidationMessage v-show="$v.lastname.$invalid && submitted" style="font-size: 12px">Lastname is required.</ValidationMessage>
                     </div>
                 </div>
                 <div class="p-grid p-fluid wizard-content">
                     <div class="p-col-12 p-md-3" style="max-width: 176px;">
                             <p class="wizard-input-header">Your Age</p>
-                            <InputText v-model="$v.age.$model" :class="{'p-error':$v.age.$error && submitted}" />
+                            <InputText v-model="$v.age.$model" :class="{'p-invalid':$v.age.$error && submitted}" />
                             <ValidationMessage v-show="$v.age.$invalid && submitted" style="margin-top: .5em; font-size: 12px">Age should be number.</ValidationMessage>
                     </div>
                 </div>

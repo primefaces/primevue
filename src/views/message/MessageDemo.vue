@@ -27,11 +27,11 @@
             <h3>Inline Message</h3>
             <div class="p-grid">
                 <div class="p-col-12">
-                    <InputText placeholder="Username" class="p-error" />
+                    <InputText placeholder="Username" class="p-invalid" />
                     <InlineMessage>Field is required</InlineMessage>
                 </div>
                 <div class="p-col-12">
-                    <InputText placeholder="Email" class="p-error" :closable="false" />
+                    <InputText placeholder="Email" class="p-invalid" :closable="false" />
                     <InlineMessage />
                 </div>
             </div>

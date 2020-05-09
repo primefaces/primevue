@@ -34,7 +34,7 @@
             <InputText type="text" v-model="value5" disabled />
 
              <h3>Invalid</h3>
-            <InputText type="text" class="p-error" />
+            <InputText type="text" class="p-invalid" />
 
             <h3>Sizes</h3>
             <div class="component-sizes">
