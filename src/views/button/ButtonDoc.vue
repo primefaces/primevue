@@ -110,7 +110,7 @@ import Button from 'primevue/button';
                                 <td>iconPos</td>
                                 <td>string</td>
                                 <td>left</td>
-                                <td>Position of the icon, valid values are "left" and "right".</td>
+                                <td>Position of the icon, valid values are "left", "right", "bottom" and "top".</td>
                             </tr>
                             <tr>
                                 <td>badge</td>
@@ -165,12 +165,16 @@ import Button from 'primevue/button';
 				</a>
 <CodeHighlight>
 <template v-pre>
-&lt;h3&gt;Basic&lt;/h3&gt;
+&lt;h3 class="first"&gt;Basic&lt;/h3&gt;
 &lt;Button label="Submit" /&gt;
+&lt;Button label="Submit" disabled="disabled" /&gt;
+
+&lt;h3&gt;Icons&lt;/h3&gt;
+&lt;Button icon="pi pi-check" /&gt;
 &lt;Button label="Submit" icon="pi pi-check" /&gt;
 &lt;Button label="Submit" icon="pi pi-check" iconPos="right" /&gt;
-&lt;Button icon="pi pi-check" /&gt;
-&lt;Button label="Submit" disabled="disabled" /&gt;
+&lt;Button label="Submit" icon="pi pi-check" iconPos="top" /&gt;
+&lt;Button label="Submit" icon="pi pi-check" iconPos="bottom" /&gt;
 
 &lt;h3&gt;Severities&lt;/h3&gt;
 &lt;Button label="Primary" /&gt;
@@ -201,7 +205,7 @@ import Button from 'primevue/button';
 &lt;Button type="button" label="Emails" badge="8" /&gt;
 &lt;Button type="button" label="Messages" icon="pi pi-users" class="p-button-warning" badge="8" badgeClass="p-badge-info" /&gt;
 
-&lt;h3&gt;ButtonSet&lt;/h3&gt;
+&lt;h3&gt;Button Set&lt;/h3&gt;
 &lt;span class="p-buttonset"&gt;
     &lt;Button label="Save" icon="pi pi-check" /&gt;
     &lt;Button label="Delete" icon="pi pi-trash" /&gt;

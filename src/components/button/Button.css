@@ -29,6 +29,14 @@
     flex: 0 0 auto;
 }
 
+.p-button-vertical {
+    flex-direction: column;
+}
+
+.p-button-icon-bottom {
+    order: 2;
+}
+
 .p-buttonset .p-button {
     margin: 0;
 }

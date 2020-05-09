@@ -10,10 +10,14 @@
         <div class="content-section implementation">
             <h3 class="first">Basic</h3>
             <Button label="Submit" />
+            <Button label="Submit" disabled="disabled" />
+
+            <h3>Icons</h3>
+            <Button icon="pi pi-check" />
             <Button label="Submit" icon="pi pi-check" />
             <Button label="Submit" icon="pi pi-check" iconPos="right" />
-            <Button icon="pi pi-check" />
-            <Button label="Submit" disabled="disabled" />
+            <Button label="Submit" icon="pi pi-check" iconPos="top" />
+            <Button label="Submit" icon="pi pi-check" iconPos="bottom" />
 
             <h3>Severities</h3>
             <Button label="Primary" />

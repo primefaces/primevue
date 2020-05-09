@@ -32,6 +32,7 @@ export default {
             return {
                 'p-button p-component': true,
                 'p-button-icon-only': this.icon && !this.label,
+                'p-button-vertical': (this.iconPos === 'top' || this.iconPos === 'bottom') && this.label,
                 'p-disabled': this.disabled
             }
         },
@@ -41,7 +42,9 @@ export default {
                 'p-button-icon',
                 {
                     'p-button-icon-left': this.iconPos === 'left' && this.label,
-                    'p-button-icon-right': this.iconPos === 'right' && this.label
+                    'p-button-icon-right': this.iconPos === 'right' && this.label,
+                    'p-button-icon-top': this.iconPos === 'top' && this.label,
+                    'p-button-icon-bottom': this.iconPos === 'bottom' && this.label
                 }
             ]
         }

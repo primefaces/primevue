@@ -1056,6 +1056,12 @@
 .p-button .p-button-icon-right {
   margin-left: 0.5rem;
 }
+.p-button .p-button-icon-bottom {
+  margin-top: 0.5rem;
+}
+.p-button .p-button-icon-top {
+  margin-bottom: 0.5rem;
+}
 .p-button .p-badge {
   margin-left: 0.5rem;
 }
