@@ -10,12 +10,3 @@
     justify-content: center;
     align-items: center;
 }
-
-.p-radiobutton-icon {
-    transform: scale(.25);
-    transition-property: transform;
-}
-
-.p-radiobutton-box.p-highlight .p-radiobutton-icon {
-    transform: scale(1);
-}

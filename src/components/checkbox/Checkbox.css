@@ -10,13 +10,3 @@
     justify-content: center;
     align-items: center;
 }
-
-.p-checkbox-icon {
-    transform: scale(0);
-    transition-property: transform;
-}
-
-.p-checkbox-box.p-highlight .p-checkbox-icon ,
-.p-checkbox-box.p-indeterminate .p-checkbox-icon {
-    transform: scale(1);
-}

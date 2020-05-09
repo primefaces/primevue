@@ -310,6 +310,7 @@
 }
 .p-checkbox .p-checkbox-box .p-checkbox-icon {
   transition-duration: 0.2s;
+  color: #ffffff;
 }
 .p-checkbox .p-checkbox-box:not(.p-disabled):hover {
   border-color: #4CAF50;
@@ -323,7 +324,6 @@
 .p-checkbox .p-checkbox-box.p-highlight {
   border-color: #4CAF50;
   background: #4CAF50;
-  color: #ffffff;
 }
 .p-checkbox .p-checkbox-box.p-highlight:not(.p-disabled):hover {
   border-color: #388E3C;
@@ -864,17 +864,13 @@
   border-color: #4CAF50;
 }
 .p-radiobutton .p-radiobutton-box .p-radiobutton-icon {
-  width: 0.75rem;
-  height: 0.75rem;
+  font-size: 0.75rem;
   transition-duration: 0.2s;
-  border-radius: 50%;
+  color: #ffffff;
 }
 .p-radiobutton .p-radiobutton-box.p-highlight {
   border-color: #4CAF50;
   background: #4CAF50;
-}
-.p-radiobutton .p-radiobutton-box.p-highlight .p-radiobutton-icon {
-  background-color: #ffffff;
 }
 .p-radiobutton .p-radiobutton-box.p-highlight:not(.p-disabled):hover {
   border-color: #388E3C;
