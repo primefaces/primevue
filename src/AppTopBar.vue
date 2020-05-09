@@ -98,7 +98,8 @@ export default {
     },
     methods: {
         changeTheme(event, theme, dark) {
-           this.$emit('change-theme', {theme: theme, dark: dark});
+            this.$emit('change-theme', {theme: theme, dark: dark});
+            this.activeMenuIndex = null;
             event.preventDefault();
         },
         toggleMenu(event, index) {
