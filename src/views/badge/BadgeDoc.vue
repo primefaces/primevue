@@ -2,46 +2,70 @@
 	<div class="content-section documentation">
 		<TabView>
 			<TabPanel header="Documentation">
-				<h3>Import</h3>
-<CodeHighlight lang="javascript">
-import InputText from 'primevue/inputtext';
-</CodeHighlight>
-
 				<h3>Getting Started</h3>
-				<p>A model can be bound using the standard v-model directive.</p>
+				<p>A badge is offered as pure css rather than a component.</p>
+
+				<h3>Numbers</h3>
+				<p>Use <i>.p-badge</i> class to display numbers inside badges.</p>
 <CodeHighlight>
-&lt;InputText type="text" v-model="value" /&gt;
+&lt;span class="p-badge"&gt;2&lt;/span&gt;
 </CodeHighlight>
 
-				<h3>Float Label</h3>
-				<p>A floating label is implemented by wrapping the input and the label inside a container having <i>.p-float-label</i> style class.</p>
+                <h3>Tags</h3>
+				<p>Tags are optimized for text rather than number and used with the <i>.p-tag</i> class. For more rounded styling like pills, add the <i>.p-tag-rounded</i> class</p>
 <CodeHighlight>
-&lt;span class="p-float-label"&gt;
-	&lt;InputText id="username" type="text" v-model="value" /&gt;
-	&lt;label for="username"&gt;Username&lt;/label&gt;
+&lt;span class="p-tag"&gt;New&lt;/span&gt;
+&lt;span class="p-tag p-tag-rounded"&gt;New&lt;/span&gt;
+</CodeHighlight>
+
+                <h3>Severities</h3>
+                <p>Different options are available as severity levels with.</p>
+
+				<ul>
+					<li>.p-badge-secondary</li>
+					<li>.p-badge-success</li>
+					<li>.p-badge-info</li>
+					<li>.p-badge-warning</li>
+					<li>.p-badge-danger</li>
+				</ul>
+
+                <h3>Positoning</h3>
+                <p>A badge can easily be positioned relative to another element when both are wrapped inside an element with <i>p-overlay-badge</i> class.</p>
+<CodeHighlight>
+&lt;span class="p-overlay-badge"&gt;
+    &lt;span class="p-badge"&gt;2&lt;/span&gt;
+    &lt;i class="pi pi-bell" style="font-size: 2em"&gt;&lt;/i&gt;
+&lt;/span&gt;
+
+&lt;span class="p-overlay-badge"&gt;
+    &lt;span class="p-badge p-badge-warning"&gt;5&lt;/span&gt;
+    &lt;Button type="button" label="New" /&gt;
 &lt;/span&gt;
 </CodeHighlight>
 
-                <h3>Icons</h3>
-                <p>An icon can be integrated within an input field by wrapping the input and the icon with an element having either <i>p-input-icon-right</i>
-                or <i>p-input-icon-left</i> class depending on the icon location.</p>
-<CodeHighlight>
-&lt;span class="p-input-icon-left"&gt;
-    &lt;i class="pi pi-search" /&gt;
-    &lt;InputText type="text" v-model="value1" placeholder="Search" /&gt;
-&lt;/span&gt;
+                <h3>Inline Button Badges</h3>
+                <p>Buttons provide integrated badge support with the <i>badge</i> and <i>badgeClass</i> properties.</p>
 
-&lt;span class="p-input-icon-right"&gt;
-    &lt;i class="pi pi-spin pi-spinner" /&gt;
-    &lt;InputText type="text" v-model="value2" /&gt;
-&lt;/span&gt;
+<CodeHighlight>
+&lt;Button type="button" label="Emails" badge="8" /&gt;
+&lt;Button type="button" label="Messages" icon="pi pi-users" class="p-button-warning" badge="8" badgeClass="p-class-error" /&gt;
 </CodeHighlight>
 
-				<h3>Properties</h3>
-				<p>InputText passes any valid attribute to the underlying input element.</p>
+                <h3>Sizes</h3>
+                <p>Badge sizes are adjusted according to their font size.</p>
+<CodeHighlight>
+&lt;span class="p-badge" style="font-size: 1em"&gt;2&lt;/span&gt;
+&lt;span class="p-badge p-badge-success" style="font-size: 1.25em"&gt;8&lt;/span&gt;
+&lt;span class="p-badge p-badge-info" style="font-size: 1.5em"&gt;4&lt;/span&gt;
+&lt;span class="p-badge p-badge-warning" style="font-size: 1.75em"&gt;12&lt;/span&gt;
+&lt;span class="p-badge p-badge-danger" style="font-size: 2em"&gt;3&lt;/span&gt;
+</CodeHighlight>
 
-                <h3>Events</h3>
-                <p>Any valid event such as focus, blur and input are passed to the underlying input element.</p>
+                <p>In addition, when placed inside another element, badge sizes can also derive their size from their parent.</p>
+<CodeHighlight>
+&lt;h1&gt;Heading 1 &lt;span class="p-tag p-tag-success"&gt;New&lt;/span&gt;&lt;/h1&gt;
+&lt;h2&gt;Heading 2 &lt;span class="p-tag p-tag-success"&gt;New&lt;/span&gt;&lt;/h2&gt;
+</CodeHighlight>
 
 				<h3>Styling</h3>
 				<p>Following is the list of structural style classes, for theming classes visit <router-link to="/theming">theming</router-link> page.</p>
@@ -54,10 +78,22 @@ import InputText from 'primevue/inputtext';
 						</tr>
 						</thead>
 						<tbody>
-						<tr>
-							<td>p-inputtext</td>
-							<td>Input element</td>
-						</tr>
+                            <tr>
+                                <td>p-badge</td>
+                                <td>Badge element</td>
+                            </tr>
+                            <tr>
+                                <td>p-tag</td>
+                                <td>Tag element</td>
+                            </tr>
+                            <tr>
+                                <td>p-tag-rounded</td>
+                                <td>Rounded tag element</td>
+                            </tr>
+                            <tr>
+                                <td>p-overlay-badge</td>
+                                <td>Wrapper of a badge and its target.</td>
+                            </tr>
 						</tbody>
 					</table>
 				</div>
@@ -67,60 +103,65 @@ import InputText from 'primevue/inputtext';
 			</TabPanel>
 
 			<TabPanel header="Source">
-				<a href="https://github.com/primefaces/primevue/tree/master/src/views/inputtext" class="btn-viewsource" target="_blank" rel="noopener noreferrer">
+				<a href="https://github.com/primefaces/primevue/tree/master/src/views/badge" class="btn-viewsource" target="_blank" rel="noopener noreferrer">
 					<span>View on GitHub</span>
 				</a>
 <CodeHighlight>
 <template v-pre>
-&lt;h3 class="first"&gt;Basic&lt;/h3&gt;
-&lt;InputText type="text" v-model="value1" /&gt;
-&lt;span :style="{marginLeft: '.5em'}"&gt;{{value1}}&lt;/span&gt;
+&lt;h3&gt;Numbers&lt;/h3&gt;
+&lt;div class="badges"&gt;
+    &lt;span class="p-badge"&gt;2&lt;/span&gt;
+    &lt;span class="p-badge p-badge-success"&gt;8&lt;/span&gt;
+    &lt;span class="p-badge p-badge-info"&gt;4&lt;/span&gt;
+    &lt;span class="p-badge p-badge-warning"&gt;12&lt;/span&gt;
+    &lt;span class="p-badge p-badge-danger"&gt;3&lt;/span&gt;
+&lt;/div&gt;
 
-&lt;h3&gt;Floating Label&lt;/h3&gt;
-&lt;span class="p-float-label"&gt;
-    &lt;InputText id="username" type="text" v-model="value2" /&gt;
-    &lt;label for="username"&gt;Username&lt;/label&gt;
+&lt;h3&gt;Tags&lt;/h3&gt;
+&lt;div class="badges"&gt;
+    &lt;span class="p-tag"&gt;Primary&lt;/span&gt;
+    &lt;span class="p-tag p-tag-success"&gt;Success&lt;/span&gt;
+    &lt;span class="p-tag p-tag-info"&gt;Info&lt;/span&gt;
+    &lt;span class="p-tag p-tag-warning"&gt;Warning&lt;/span&gt;
+    &lt;span class="p-tag p-tag-danger"&gt;Danger&lt;/span&gt;
+&lt;/div&gt;
+
+&lt;h3&gt;Pills&lt;/h3&gt;
+&lt;div class="badges"&gt;
+    &lt;span class="p-tag p-tag-rounded"&gt;Primary&lt;/span&gt;
+    &lt;span class="p-tag p-tag-rounded p-tag-success"&gt;Success&lt;/span&gt;
+    &lt;span class="p-tag p-tag-rounded p-tag-info"&gt;Info&lt;/span&gt;
+    &lt;span class="p-tag p-tag-rounded p-tag-warning"&gt;Warning&lt;/span&gt;
+    &lt;span class="p-tag p-tag-rounded p-tag-danger"&gt;Danger&lt;/span&gt;
+&lt;/div&gt;
+
+&lt;h3&gt;Positioned Badge&lt;/h3&gt;
+&lt;span class="p-overlay-badge"&gt;
+    &lt;span class="p-badge"&gt;2&lt;/span&gt;
+    &lt;i class="pi pi-bell" style="font-size: 2em"&gt;&lt;/i&gt;
 &lt;/span&gt;
 
-&lt;h3&gt;Left Icon&lt;/h3&gt;
-&lt;span class="p-input-icon-left"&gt;
-    &lt;i class="pi pi-search" /&gt;
-    &lt;InputText type="text" v-model="value3" placeholder="Search" /&gt;
+&lt;span class="p-overlay-badge"&gt;
+    &lt;span class="p-badge p-badge-warning"&gt;5&lt;/span&gt;
+    &lt;Button type="button" label="New" /&gt;
 &lt;/span&gt;
 
-&lt;h3&gt;Right Icon&lt;/h3&gt;
-&lt;span class="p-input-icon-right"&gt;
-    &lt;i class="pi pi-spin pi-spinner" /&gt;
-    &lt;InputText type="text" v-model="value4" /&gt;
-&lt;/span&gt;
-
-&lt;h3&gt;Disabled&lt;/h3&gt;
-&lt;InputText type="text" v-model="value5" disabled /&gt;
-
-    &lt;h3&gt;Invalid&lt;/h3&gt;
-&lt;InputText type="text" class="p-error" /&gt;
+&lt;h3&gt;Inline Button Badge&lt;/h3&gt;
+&lt;Button type="button" label="Emails" badge="8" /&gt;
+&lt;Button type="button" label="Messages" icon="pi pi-users" class="p-button-warning" badge="8" badgeClass="p-class-error" /&gt;
 
 &lt;h3&gt;Sizes&lt;/h3&gt;
-&lt;div class="component-sizes"&gt;
-    &lt;InputText type="text" class="p-component-sm" placeholder="Small" /&gt;
-    &lt;InputText type="text" placeholder="Normal" /&gt;
-    &lt;InputText type="text" class="p-component-lg" placeholder="Large" /&gt;
+&lt;div class="badges"&gt;
+    &lt;span class="p-badge" style="font-size: 1em"&gt;2&lt;/span&gt;
+    &lt;span class="p-badge p-badge-success" style="font-size: 1.25em"&gt;8&lt;/span&gt;
+    &lt;span class="p-badge p-badge-info" style="font-size: 1.5em"&gt;4&lt;/span&gt;
+    &lt;span class="p-badge p-badge-warning" style="font-size: 1.75em"&gt;12&lt;/span&gt;
+    &lt;span class="p-badge p-badge-danger" style="font-size: 2em"&gt;3&lt;/span&gt;
+
+    &lt;h1&gt;Heading 1 &lt;span class="p-tag p-tag-success"&gt;New&lt;/span&gt;&lt;/h1&gt;
+    &lt;h2&gt;Heading 2 &lt;span class="p-tag p-tag-success"&gt;New&lt;/span&gt;&lt;/h2&gt;
 &lt;/div&gt;
 </template>
-</CodeHighlight>
-
-<CodeHighlight lang="javascript">
-export default {
-	data() {
-		return {
-            value1: '',
-            value2: '',
-            value3: '',
-            value4: '',
-            value5: 'PrimeVue'
-		}
-	}
-}
 </CodeHighlight>
 			</TabPanel>
 		</TabView>

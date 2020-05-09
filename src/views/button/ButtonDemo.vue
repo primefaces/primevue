@@ -40,6 +40,10 @@
             <Button label="Warning" class="p-button-rounded p-button-warning" />
             <Button label="Danger" class="p-button-rounded p-button-danger" />
 
+            <h3>Badges</h3>
+            <Button type="button" label="Emails" badge="8" />
+            <Button type="button" label="Messages" icon="pi pi-users" class="p-button-warning" badge="8" badgeClass="p-badge-info" />
+
             <h3>Button Set</h3>
             <span class="p-buttonset">
                 <Button label="Save" icon="pi pi-check" />

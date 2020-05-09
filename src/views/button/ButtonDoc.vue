@@ -63,6 +63,14 @@ import Button from 'primevue/button';
 &lt;Button label="Link" class="p-button-link" /&gt;
 </CodeHighlight>
 
+                <h3>Badges</h3>
+                <p>Badge is a small status indicator for a button. Refer to the <router-link to="/badge">badge</router-link> documentation for available styling options.</p>
+
+<CodeHighlight>
+&lt;Button type="button" label="Emails" badge="8" /&gt;
+&lt;Button type="button" label="Messages" icon="pi pi-users" class="p-button-warning" badge="8" badgeClass="p-badge-info" /&gt;
+</CodeHighlight>
+
                 <h3>ButtonSet</h3>
                 <p>Wrapping the buttons in a container having a <i>.p-buttonset</i> class, groups the buttons side to side.</p>
 <CodeHighlight>
@@ -103,6 +111,18 @@ import Button from 'primevue/button';
                                 <td>string</td>
                                 <td>left</td>
                                 <td>Position of the icon, valid values are "left" and "right".</td>
+                            </tr>
+                            <tr>
+                                <td>badge</td>
+                                <td>string</td>
+                                <td>null</td>
+                                <td>Value of the badge.</td>
+                            </tr>
+                            <tr>
+                                <td>badgeClass</td>
+                                <td>string</td>
+                                <td>p-badge-secondary</td>
+                                <td>Style class of the badge.</td>
                             </tr>
 						</tbody>
 					</table>
@@ -176,6 +196,10 @@ import Button from 'primevue/button';
 &lt;Button label="Info" class="p-button-rounded p-button-info" /&gt;
 &lt;Button label="Warning" class="p-button-rounded p-button-warning" /&gt;
 &lt;Button label="Danger" class="p-button-rounded p-button-danger" /&gt;
+
+&lt;h3&gt;Badges&lt;/h3&gt;
+&lt;Button type="button" label="Emails" badge="8" /&gt;
+&lt;Button type="button" label="Messages" icon="pi pi-users" class="p-button-warning" badge="8" badgeClass="p-badge-info" /&gt;
 
 &lt;h3&gt;ButtonSet&lt;/h3&gt;
 &lt;span class="p-buttonset"&gt;

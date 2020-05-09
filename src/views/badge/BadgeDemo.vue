@@ -16,10 +16,10 @@
                 <span class="p-badge p-badge-warning">12</span>
                 <span class="p-badge p-badge-danger">3</span>
             </div>
-           
+
             <h3>Tags</h3>
             <div class="badges">
-                <span class="p-tag">Primary</span> 
+                <span class="p-tag">Primary</span>
                 <span class="p-tag p-tag-success">Success</span>
                 <span class="p-tag p-tag-info">Info</span>
                 <span class="p-tag p-tag-warning">Warning</span>
@@ -48,7 +48,7 @@
 
             <h3>Inline Button Badge</h3>
             <Button type="button" label="Emails" badge="8" />
-            <Button type="button" label="Messages" icon="pi pi-users" class="p-button-warning" badge="8" badgeClass="p-" />
+            <Button type="button" label="Messages" icon="pi pi-users" class="p-button-warning" badge="8" badgeClass="p-class-error" />
 
             <h3>Sizes</h3>
             <div class="badges">
@@ -61,7 +61,6 @@
                 <h1>Heading 1 <span class="p-tag p-tag-success">New</span></h1>
                 <h2>Heading 2 <span class="p-tag p-tag-success">New</span></h2>
             </div>
-           
         </div>
 
         <BadgeDoc />
