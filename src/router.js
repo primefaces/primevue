@@ -442,11 +442,6 @@ export default new Router({
 			component: () => import('./views/slider/SliderDemo.vue')
 		},
 		{
-			path: '/spinner',
-			name: 'spinner',
-			component: () => import('./views/spinner/SpinnerDemo.vue')
-		},
-		{
 			path: '/splitbutton',
 			name: 'splitbutton',
 			component: () => import('./views/splitbutton/SplitButtonDemo.vue')

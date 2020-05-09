@@ -26,7 +26,6 @@
                 <router-link to="/rating">Rating</router-link>
                 <router-link to="/selectbutton">SelectButton</router-link>
                 <router-link to="/slider">Slider</router-link>
-                <router-link to="/spinner">Spinner</router-link>
                 <router-link to="/textarea">Textarea</router-link>
                 <router-link to="/togglebutton">ToggleButton</router-link>
                 <router-link to="/tristatecheckbox">TriCheckbox</router-link>
