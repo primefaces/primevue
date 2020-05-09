@@ -16,8 +16,6 @@
             <Button icon="pi pi-check" />
             <Button label="Submit" icon="pi pi-check" />
             <Button label="Submit" icon="pi pi-check" iconPos="right" />
-            <Button label="Submit" icon="pi pi-check" iconPos="top" />
-            <Button label="Submit" icon="pi pi-check" iconPos="bottom" />
 
             <h3>Severities</h3>
             <Button label="Primary" />
@@ -37,6 +35,7 @@
             <Button label="Danger" class="p-button-raised p-button-danger" />
 
             <h3>Rounded Buttons</h3>
+            <Button icon="pi pi-check" class="p-button-rounded" />
             <Button label="Primary" class="p-button-rounded" />
             <Button label="Secondary" class="p-button-rounded p-button-secondary" />
             <Button label="Success" class="p-button-rounded p-button-success" />

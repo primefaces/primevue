@@ -2739,9 +2739,10 @@
   color: #333333;
   border: 1px solid #dee2e6;
   background: #ffffff;
-  min-width: 28px;
-  height: 28px;
-  font-size: 1.145rem;
+  min-width: 2rem;
+  height: 2rem;
+  line-height: 2rem;
+  font-size: 1.143rem;
   z-index: 1;
   border-radius: 50%;
 }
@@ -2770,7 +2771,7 @@
   left: 0;
   display: block;
   position: absolute;
-  margin-top: -14px;
+  margin-top: -1rem;
 }
 
 .p-tabmenu .p-tabmenu-nav {

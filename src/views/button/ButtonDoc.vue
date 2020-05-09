@@ -187,6 +187,7 @@ import Button from 'primevue/button';
 
 &lt;h3&gt;Raised Buttons&lt;/h3&gt;
 &lt;Button label="Primary" class="p-button-raised" /&gt;
+&lt;Button label="Primary" class="p-button-raised" /&gt;
 &lt;Button label="Secondary" class="p-button-raised p-button-secondary" /&gt;
 &lt;Button label="Success" class="p-button-raised p-button-success" /&gt;
 &lt;Button label="Info" class="p-button-raised p-button-info" /&gt;

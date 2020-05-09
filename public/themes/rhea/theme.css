@@ -2739,8 +2739,9 @@
   color: #a6a6a6;
   border: 1px solid #c8c8c8;
   background: #ffffff;
-  min-width: 28px;
-  height: 28px;
+  min-width: 2rem;
+  height: 2rem;
+  line-height: 2rem;
   font-size: 1.143rem;
   z-index: 1;
   border-radius: 50%;
@@ -2770,7 +2771,7 @@
   left: 0;
   display: block;
   position: absolute;
-  margin-top: -14px;
+  margin-top: -1rem;
 }
 
 .p-tabmenu .p-tabmenu-nav {
