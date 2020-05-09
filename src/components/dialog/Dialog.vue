@@ -122,9 +122,9 @@ export default {
             }
         },
         focus() {
-            let focusable = DomHandler.findSingle(this.$refs.dialog, 'input,button');
-            if (focusable) {
-                focusable.focus();
+            let focusableElements = DomHandler.getFocusableElements(this.$refs.dialog);
+            if (focusableElements && focusableElements.length > 0) {
+                focusableElements[0].focus();
             }
         },
         maximize() {
