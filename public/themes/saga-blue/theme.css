@@ -9,12 +9,6 @@
   font-weight: normal;
   text-decoration: none;
 }
-.p-component.p-component-sm {
-  font-size: 0.875rem;
-}
-.p-component.p-component-lg {
-  font-size: 1.25rem;
-}
 
 .p-component-overlay {
   background-color: rgba(0, 0, 0, 0.4);
