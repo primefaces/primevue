@@ -50,13 +50,6 @@
                 <Button label="Delete" icon="pi pi-trash" />
                 <Button label="Cancel" icon="pi pi-times" />
             </span>
-
-            <h3>Sizes</h3>
-            <div class="component-sizes">
-                <Button label="Small" icon="pi pi-check" class="p-component-sm" />
-                <Button label="Normal" icon="pi pi-check" />
-                <Button  icon="pi pi-check" label="Large" class="p-component-lg" />
-            </div>
         </div>
 
         <ButtonDoc/>

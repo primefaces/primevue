@@ -207,13 +207,6 @@ import Button from 'primevue/button';
     &lt;Button label="Delete" icon="pi pi-trash" /&gt;
     &lt;Button label="Cancel" icon="pi pi-times" /&gt;
 &lt;/span&gt;
-
-&lt;h3&gt;Sizes&lt;/h3&gt;
-&lt;div class="component-sizes"&gt;
-    &lt;Button label="Small" icon="pi pi-check" class="p-component-sm" /&gt;
-    &lt;Button label="Normal" icon="pi pi-check" /&gt;
-    &lt;Button  icon="pi pi-check" label="Large" class="p-component-lg" /&gt;
-&lt;/div&gt;
 </template>
 </CodeHighlight>
 
