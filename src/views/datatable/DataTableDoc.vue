@@ -338,6 +338,44 @@ export default {
 </template>
 </CodeHighlight>
 
+                <h3>Sizes</h3>
+                <p>In addition to the regular table, a smal and a large version are available with different paddings. For a table
+                with smaller paddings use <i>p-datatable-sm</i> class and for a larger one use <i>p-datatable-lg</i>.</p>
+
+<CodeHighlight>
+<template v-pre>
+&lt;DataTable :value="cars" class="p-datatable-sm"&gt;
+    &lt;template #header&gt;
+        Small Table
+    &lt;/template&gt;
+    &lt;Column field="vin" header="Vin"&gt;&lt;/Column&gt;
+    &lt;Column field="year" header="Year"&gt;&lt;/Column&gt;
+    &lt;Column field="brand" header="Brand"&gt;&lt;/Column&gt;
+    &lt;Column field="color" header="Color"&gt;&lt;/Column&gt;
+&lt;/DataTable&gt;
+
+&lt;DataTable :value="cars"&gt;
+    &lt;template #header&gt;
+        Normal Table
+    &lt;/template&gt;
+    &lt;Column field="vin" header="Vin"&gt;&lt;/Column&gt;
+    &lt;Column field="year" header="Year"&gt;&lt;/Column&gt;
+    &lt;Column field="brand" header="Brand"&gt;&lt;/Column&gt;
+    &lt;Column field="color" header="Color"&gt;&lt;/Column&gt;
+&lt;/DataTable&gt;
+
+&lt;DataTable :value="cars" class="p-datatable-lg"&gt;
+    &lt;template #header&gt;
+        Large Table
+    &lt;/template&gt;
+    &lt;Column field="vin" header="Vin"&gt;&lt;/Column&gt;
+    &lt;Column field="year" header="Year"&gt;&lt;/Column&gt;
+    &lt;Column field="brand" header="Brand"&gt;&lt;/Column&gt;
+    &lt;Column field="color" header="Color"&gt;&lt;/Column&gt;
+&lt;/DataTable&gt;
+</template>
+</CodeHighlight>
+
                 <h3>Column Grouping</h3>
                 <p>Columns can be grouped at header and footer sections by defining a ColumnGroup with nested rows and columns.</p>
 <CodeHighlight>

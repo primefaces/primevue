@@ -738,6 +738,41 @@ export default {
 </template>
 </CodeHighlight>
 
+                <h3>Sizes</h3>
+                <p>In addition to the regular table, a smal and a large version are available with different paddings. For a table
+                with smaller paddings use <i>p-treetable-sm</i> class and for a larger one use <i>p-treetable-lg</i>.</p>
+
+<CodeHighlight>
+<template v-pre>
+&lt;TreeTable :value="nodes" class="p-treetable-sm"&gt;
+    &lt;template #header&gt;
+        Small Table
+    &lt;/template&gt;
+    &lt;Column field="name" header="Name" :expander="true"&gt;&lt;/Column&gt;
+    &lt;Column field="size" header="Size"&gt;&lt;/Column&gt;
+    &lt;Column field="type" header="Type"&gt;&lt;/Column&gt;
+&lt;/TreeTable&gt;
+
+&lt;TreeTable :value="nodes"&gt;
+    &lt;template #header&gt;
+        Small Table
+    &lt;/template&gt;
+    &lt;Column field="name" header="Name" :expander="true"&gt;&lt;/Column&gt;
+    &lt;Column field="size" header="Size"&gt;&lt;/Column&gt;
+    &lt;Column field="type" header="Type"&gt;&lt;/Column&gt;
+&lt;/TreeTable&gt;
+
+&lt;TreeTable :value="nodes" class="p-treetable-lg"&gt;
+    &lt;template #header&gt;
+        Small Table
+    &lt;/template&gt;
+    &lt;Column field="name" header="Name" :expander="true"&gt;&lt;/Column&gt;
+    &lt;Column field="size" header="Size"&gt;&lt;/Column&gt;
+    &lt;Column field="type" header="Type"&gt;&lt;/Column&gt;
+&lt;/TreeTable&gt;
+</template>
+</CodeHighlight>
+
                 <h3>Pagination</h3>
                 <p>Pagination is enabled by setting <i>paginator</i> property to true and defining the <i>rows</i> property defines the number of rows per page.
                     See the <router-link to="/paginator">Paginator</router-link> for the available customization options such as paginator templates, page links,

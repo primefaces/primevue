@@ -57,16 +57,24 @@ import InputText from 'primevue/inputtext';
 				<div class="doc-tablewrapper">
 					<table class="doc-table">
 						<thead>
-						<tr>
-							<th>Name</th>
-							<th>Element</th>
-						</tr>
+                            <tr>
+                                <th>Name</th>
+                                <th>Element</th>
+                            </tr>
 						</thead>
 						<tbody>
-						<tr>
-							<td>p-inputtext</td>
-							<td>Input element</td>
-						</tr>
+                            <tr>
+                                <td>p-inputtext</td>
+                                <td>Input element</td>
+                            </tr>
+                            <tr>
+                                <td>p-inputtext-sm</td>
+                                <td>Smaller input element</td>
+                            </tr>
+                            <tr>
+                                <td>p-inputtext-lg</td>
+                                <td>Larger input element</td>
+                            </tr>
 						</tbody>
 					</table>
 				</div>

@@ -654,8 +654,8 @@
   border-width: 1px;
 }
 .p-inputtext.p-inputtext-sm {
-  font-size: 0.875rem;
-  padding: 0.4375rem 0.4375rem;
+  font-size: 0.75rem;
+  padding: 0.375rem 0.375rem;
 }
 .p-inputtext.p-inputtext-lg {
   font-size: 1.25rem;
@@ -1093,11 +1093,11 @@
   border-radius: 50%;
 }
 .p-button.p-button-sm {
-  font-size: 0.875rem;
-  padding: 0.4375rem 0.875rem;
+  font-size: 0.75rem;
+  padding: 0.375rem 0.75rem;
 }
 .p-button.p-button-sm .p-button-icon {
-  font-size: 0.875rem;
+  font-size: 0.75rem;
 }
 .p-button.p-button-lg {
   font-size: 1.25rem;
@@ -1410,19 +1410,19 @@
   font-size: 2rem;
 }
 .p-datatable.p-datatable-sm .p-datatable-header {
-  padding: 0.875rem 0.875rem;
+  padding: 0.75rem 0.75rem;
 }
 .p-datatable.p-datatable-sm .p-datatable-thead > tr > th {
-  padding: 0.875rem 0.875rem;
+  padding: 0.75rem 0.75rem;
 }
 .p-datatable.p-datatable-sm .p-datatable-tbody > tr > td {
-  padding: 0.875rem 0.875rem;
+  padding: 0.75rem 0.75rem;
 }
 .p-datatable.p-datatable-sm .p-datatable-tfoot > tr > td {
-  padding: 0.875rem 0.875rem;
+  padding: 0.75rem 0.75rem;
 }
 .p-datatable.p-datatable-sm .p-datatable-footer {
-  padding: 0.875rem 0.875rem;
+  padding: 0.75rem 0.75rem;
 }
 .p-datatable.p-datatable-lg .p-datatable-header {
   padding: 1.25rem 1.25rem;
@@ -1988,6 +1988,36 @@
 }
 .p-treetable .p-treetable-loading-icon {
   font-size: 2rem;
+}
+.p-treetable.p-treetable-sm .p-treetable-header {
+  padding: 0.75rem 0.75rem;
+}
+.p-treetable.p-treetable-sm .p-treetable-thead > tr > th {
+  padding: 0.75rem 0.75rem;
+}
+.p-treetable.p-treetable-sm .p-treetable-tbody > tr > td {
+  padding: 0.75rem 0.75rem;
+}
+.p-treetable.p-treetable-sm .p-treetable-tfoot > tr > td {
+  padding: 0.75rem 0.75rem;
+}
+.p-treetable.p-treetable-sm .p-treetable-footer {
+  padding: 0.75rem 0.75rem;
+}
+.p-treetable.p-treetable-lg .p-treetable-header {
+  padding: 1.25rem 1.25rem;
+}
+.p-treetable.p-treetable-lg .p-treetable-thead > tr > th {
+  padding: 1.25rem 1.25rem;
+}
+.p-treetable.p-treetable-lg .p-treetable-tbody > tr > td {
+  padding: 1.25rem 1.25rem;
+}
+.p-treetable.p-treetable-lg .p-treetable-tfoot > tr > td {
+  padding: 1.25rem 1.25rem;
+}
+.p-treetable.p-treetable-lg .p-treetable-footer {
+  padding: 1.25rem 1.25rem;
 }
 
 .p-accordion .p-accordion-header a {

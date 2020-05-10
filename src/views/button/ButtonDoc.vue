@@ -160,6 +160,14 @@ import Button from 'primevue/button';
                                 <td>p-button-text</td>
                                 <td>Label element of the button</td>
                             </tr>
+                            <tr>
+                                <td>p-button-sm</td>
+                                <td>Smaller button element</td>
+                            </tr>
+                            <tr>
+                                <td>p-button-lg</td>
+                                <td>Larger button element</td>
+                            </tr>
 						</tbody>
 					</table>
 				</div>

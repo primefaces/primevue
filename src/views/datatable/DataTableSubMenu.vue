@@ -5,6 +5,7 @@
             <li><router-link to="/datatable/basic">Basic</router-link></li>
             <li><router-link to="/datatable/dynamiccolumns">Dynamic</router-link></li>
             <li><router-link to="/datatable/templating">Templating</router-link></li>
+            <li><router-link to="/datatable/size">Size</router-link></li>
             <li><router-link to="/datatable/colgroup">ColGroup</router-link></li>
             <li><router-link to="/datatable/paginator">Paginator</router-link></li>
             <li><router-link to="/datatable/sort">Sort</router-link></li>

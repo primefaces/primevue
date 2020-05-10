@@ -210,6 +210,11 @@ export default new Router({
 			path: '/datatable/colgroup',
 			name: 'datatablecolgroup',
 			component: () => import('./views/datatable/DataTableColGroupDemo.vue')
+        },
+        {
+			path: '/datatable/size',
+			name: 'datatablesize',
+			component: () => import('./views/datatable/DataTableSizeDemo.vue')
 		},
         {
 			path: '/datatable/colresize',
@@ -564,6 +569,11 @@ export default new Router({
 			path: '/treetable/templating',
 			name: 'treetabletemplating',
 			component: () => import('./views/treetable/TreeTableTemplatingDemo.vue')
+        },
+        {
+			path: '/treetable/size',
+			name: 'treetablesize',
+			component: () => import('./views/treetable/TreeTableSizeDemo.vue')
         },
         {
 			path: '/treetable/paginator',
