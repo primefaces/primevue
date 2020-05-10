@@ -1274,15 +1274,19 @@
   background: #41b883;
 }
 
-.p-datatable .p-paginator {
-  border-width: 1px;
+.p-datatable .p-paginator-top {
+  border-width: 1px 1px 0 1px;
+  border-radius: 0;
+}
+.p-datatable .p-paginator-bottom {
+  border-width: 0 1px 1px 1px;
   border-radius: 0;
 }
 .p-datatable .p-datatable-header {
   background: #f4f4f4;
   color: #333333;
   border: 1px solid #c8c8c8;
-  border-width: 1px;
+  border-width: 1px 1px 0 1px;
   padding: 0.857rem 1rem;
   border-top-left-radius: 3px;
   border-top-right-radius: 3px;
@@ -1440,15 +1444,19 @@
   padding: 0.71375rem 1.25rem;
 }
 
-.p-dataview .p-paginator {
-  border-width: 1px;
+.p-dataview .p-paginator-top {
+  border-width: 1px 1px 0 1px;
+  border-radius: 0;
+}
+.p-dataview .p-paginator-bottom {
+  border-width: 0 1px 1px 1px;
   border-radius: 0;
 }
 .p-dataview .p-dataview-header {
   background: #f4f4f4;
   color: #333333;
   border: 1px solid #c8c8c8;
-  border-width: 1px;
+  border-width: 1px 1px 0 1px;
   padding: 0.857rem 1rem;
   border-top-left-radius: 3px;
   border-top-right-radius: 3px;
@@ -1869,15 +1877,19 @@
   font-size: 2rem;
 }
 
-.p-treetable .p-paginator {
-  border-width: 1px;
+.p-treetable .p-paginator-top {
+  border-width: 1px 1px 0 1px;
+  border-radius: 0;
+}
+.p-treetable .p-paginator-bottom {
+  border-width: 0 1px 1px 1px;
   border-radius: 0;
 }
 .p-treetable .p-treetable-header {
   background: #f4f4f4;
   color: #333333;
   border: 1px solid #c8c8c8;
-  border-width: 1px;
+  border-width: 1px 1px 0 1px;
   padding: 0.857rem 1rem;
   border-top-left-radius: 3px;
   border-top-right-radius: 3px;

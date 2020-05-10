@@ -1274,7 +1274,11 @@
   background: #4DB6AC;
 }
 
-.p-datatable .p-paginator {
+.p-datatable .p-paginator-top {
+  border-width: 1px 0 1px 0;
+  border-radius: 0;
+}
+.p-datatable .p-paginator-bottom {
   border-width: 0 0 1px 0;
   border-radius: 0;
 }
@@ -1440,7 +1444,11 @@
   padding: 1.25rem 1.25rem;
 }
 
-.p-dataview .p-paginator {
+.p-dataview .p-paginator-top {
+  border-width: 1px 0 1px 0;
+  border-radius: 0;
+}
+.p-dataview .p-paginator-bottom {
   border-width: 0 0 1px 0;
   border-radius: 0;
 }
@@ -1869,7 +1877,11 @@
   font-size: 2rem;
 }
 
-.p-treetable .p-paginator {
+.p-treetable .p-paginator-top {
+  border-width: 1px 0 1px 0;
+  border-radius: 0;
+}
+.p-treetable .p-paginator-bottom {
   border-width: 0 0 1px 0;
   border-radius: 0;
 }
