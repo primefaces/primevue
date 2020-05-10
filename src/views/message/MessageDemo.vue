@@ -24,16 +24,16 @@
             <h3>Auto Dismiss</h3>
             <Message severity="warn" :life="10000" :sticky="false">This message will hide in 10 seconds.</Message>
 
-            <h3>Inline Message</h3>
-            <div class="p-grid">
-                <div class="p-col-12">
-                    <InputText placeholder="Username" class="p-invalid" />
-                    <InlineMessage>Field is required</InlineMessage>
-                </div>
-                <div class="p-col-12">
-                    <InputText placeholder="Email" class="p-invalid" :closable="false" />
-                    <InlineMessage />
-                </div>
+            <h3>Validation Message</h3>
+            <div class="p-formgroup-inline" style="margin-bottom:.5rem">
+                <Label for="username" class="p-sr-only">Username</Label>
+                <InputText placeholder="Username" class="p-invalid" />
+                <InlineMessage>Username is required</InlineMessage>
+            </div>
+            <div class="p-formgroup-inline">
+                <Label for="email" class="p-sr-only">email</Label>
+                <InputText placeholder="email" class="p-invalid" />
+                <InlineMessage />
             </div>
         </div>
 
@@ -75,6 +75,6 @@ button.p-button {
 }
 
 .p-inputtext {
-    margin-right: .25em;
+    margin-right: .5em;
 }
 </style>

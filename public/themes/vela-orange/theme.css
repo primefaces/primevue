@@ -3004,14 +3004,14 @@
 }
 
 .p-inline-message {
-  padding: 1rem 1.5rem;
-  margin: 1rem 0;
+  padding: 0.5rem 0.5rem;
+  margin: 0;
   border-radius: 3px;
 }
 .p-inline-message.p-inline-message-info {
   background: #B3E5FC;
   border: solid #03A9F4;
-  border-width: 0 0 0 6px;
+  border-width: 1px;
   color: #01579B;
 }
 .p-inline-message.p-inline-message-info .p-inline-message-icon {
@@ -3020,7 +3020,7 @@
 .p-inline-message.p-inline-message-success {
   background: #C8E6C9;
   border: solid #4CAF50;
-  border-width: 0 0 0 6px;
+  border-width: 1px;
   color: #1B5E20;
 }
 .p-inline-message.p-inline-message-success .p-inline-message-icon {
@@ -3029,7 +3029,7 @@
 .p-inline-message.p-inline-message-warn {
   background: #FFECB3;
   border: solid #FFC107;
-  border-width: 0 0 0 6px;
+  border-width: 1px;
   color: #7f6003;
 }
 .p-inline-message.p-inline-message-warn .p-inline-message-icon {
@@ -3038,14 +3038,14 @@
 .p-inline-message.p-inline-message-error {
   background: #FFCDD2;
   border: solid #F44336;
-  border-width: 0 0 0 6px;
+  border-width: 1px;
   color: #B71C1C;
 }
 .p-inline-message.p-inline-message-error .p-inline-message-icon {
   color: #B71C1C;
 }
 .p-inline-message .p-inline-message-icon {
-  font-size: 1.5rem;
+  font-size: 1rem;
   margin-right: 0.5rem;
 }
 .p-inline-message .p-inline-message-text {

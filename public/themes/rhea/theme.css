@@ -2970,8 +2970,8 @@
 }
 
 .p-inline-message {
-  padding: 1rem;
-  margin: 1rem 0;
+  padding: 0.5rem;
+  margin: 0;
   border-radius: 2px;
 }
 .p-inline-message.p-inline-message-info {
@@ -3011,7 +3011,7 @@
   color: #212121;
 }
 .p-inline-message .p-inline-message-icon {
-  font-size: 1.5rem;
+  font-size: 1rem;
   margin-right: 0.5rem;
 }
 .p-inline-message .p-inline-message-text {
