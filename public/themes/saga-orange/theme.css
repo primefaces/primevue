@@ -1264,7 +1264,6 @@
   padding: 1rem;
   border-top-left-radius: 3px;
   border-top-right-radius: 3px;
-  font-size: 1.25rem;
   font-weight: 600;
 }
 .p-datatable .p-datatable-footer {
@@ -1401,7 +1400,6 @@
   padding: 1rem;
   border-top-left-radius: 3px;
   border-top-right-radius: 3px;
-  font-size: 1.25rem;
   font-weight: 600;
 }
 .p-dataview .p-dataview-content {
@@ -1831,7 +1829,6 @@
   padding: 1rem;
   border-top-left-radius: 3px;
   border-top-right-radius: 3px;
-  font-size: 1.25rem;
   font-weight: 600;
 }
 .p-treetable .p-treetable-footer {

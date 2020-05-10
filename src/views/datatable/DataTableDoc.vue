@@ -2359,7 +2359,10 @@ export default {
             &lt;template #header&gt;
                 &lt;div class="table-header"&gt;
                     List of Customers
-                    &lt;InputText v-model="filters['global']" placeholder="Global Search" /&gt;
+                    &lt;span class="p-input-icon-left"&gt;
+                        &lt;i class="pi pi-search" /&gt;
+                        &lt;InputText v-model="filters['global']" placeholder="Global Search" /&gt;
+                    &lt;/span&gt;
                 &lt;/div&gt;
             &lt;/template&gt;
             &lt;template #empty&gt;
@@ -2570,7 +2573,7 @@ export default {
 }
 
 /deep/ .p-progressbar {
-    height: 8px;
+    height: .5rem;
     background-color: #D8DADC;
 
     .p-progressbar-value {
@@ -2588,7 +2591,7 @@ export default {
 }
 
 /deep/ .p-datepicker {
-    min-width: 25em;
+    min-width: 25rem;
 
     td {
         font-weight: 400;
@@ -2597,13 +2600,13 @@ export default {
 
 /deep/ .p-datatable.p-datatable-customers {
     .p-datatable-header {
-        padding: 12px;
+        padding: 1rem;
         text-align: left;
-        font-size: 20px;
+        font-size: 1.5rem;
     }
 
     .p-paginator {
-        padding: 1em;
+        padding: 1rem;
     }
 
     .p-datatable-thead > tr > th {
@@ -2642,10 +2645,10 @@ export default {
                 border: 0 none;
 
                 .p-column-title {
-                    padding: .4em;
+                    padding: .4rem;
                     min-width: 30%;
                     display: inline-block;
-                    margin: -.4em 1em -.4em -.4em;
+                    margin: -.4rem 1rem -.4rem -.4rem;
                     font-weight: bold;
                 }
             }
