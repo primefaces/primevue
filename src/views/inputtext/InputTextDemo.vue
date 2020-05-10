@@ -35,6 +35,13 @@
 
              <h3>Invalid</h3>
             <InputText type="text" class="p-invalid" />
+
+            <h3>Sizes</h3>
+            <div class="sizes">
+                <InputText type="text" class="p-inputtext-sm" placeholder="Small" />
+                <InputText type="text" class="p-inputtext" placeholder="Normal" />
+                <InputText type="text" class="p-inputtext-lg"  placeholder="Large" />
+            </div>
         </div>
 
         <InputTextDoc />
@@ -59,3 +66,16 @@ export default {
 	}
 }
 </script>
+
+<style lang="scss" scoped>
+.sizes {
+    .p-inputtext {
+        display: block;
+        margin-bottom: .5rem;
+
+        &:last-child {
+            margin-bottom: 0;
+        }
+    }
+}
+</style>

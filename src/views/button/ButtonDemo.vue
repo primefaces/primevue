@@ -53,6 +53,13 @@
                 <Button label="Delete" icon="pi pi-trash" />
                 <Button label="Cancel" icon="pi pi-times" />
             </span>
+
+            <h3>Sizes</h3>
+            <div class="sizes">
+                <Button label="Small" icon="pi pi-check" class="p-button-sm"  />
+                <Button label="Normal" icon="pi pi-check" class="p-button"  />
+                <Button label="Large" icon="pi pi-check" class="p-button-lg" />
+            </div>
         </div>
 
         <ButtonDoc/>
@@ -69,8 +76,19 @@ export default {
 }
 </script>
 
-<style scoped>
+<style lang="scss" scoped>
 button {
     margin-right: .5em;
+}
+
+.sizes {
+    .p-button {
+        margin-bottom: .5rem;
+        display: block;
+
+        &:last-child {
+            margin-bottom: 0;
+        }
+    }
 }
 </style>

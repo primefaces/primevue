@@ -653,6 +653,14 @@
   border-color: e7a3a3;
   border-width: 1px;
 }
+.p-inputtext.p-inputtext-sm {
+  font-size: 0.875rem;
+  padding: 0.375375rem 0.375375rem;
+}
+.p-inputtext.p-inputtext-lg {
+  font-size: 1.25rem;
+  padding: 0.53625rem 0.53625rem;
+}
 
 .p-float-label label {
   left: 0.429rem;
@@ -1084,6 +1092,20 @@
 .p-button.p-button-icon-only.p-button-rounded {
   border-radius: 50%;
 }
+.p-button.p-button-sm {
+  font-size: 0.875rem;
+  padding: 0.375375rem 0.875rem;
+}
+.p-button.p-button-sm .p-button-icon {
+  font-size: 0.875rem;
+}
+.p-button.p-button-lg {
+  font-size: 1.25rem;
+  padding: 0.53625rem 1.25rem;
+}
+.p-button.p-button-lg .p-button-icon {
+  font-size: 1.25rem;
+}
 
 .p-fluid .p-button {
   width: 100%;
@@ -1386,6 +1408,36 @@
 }
 .p-datatable .p-datatable-loading-icon {
   font-size: 2rem;
+}
+.p-datatable.p-datatable-sm .p-datatable-header {
+  padding: 0.749875rem 0.875rem;
+}
+.p-datatable.p-datatable-sm .p-datatable-thead > tr > th {
+  padding: 0.499625rem 0.749875rem;
+}
+.p-datatable.p-datatable-sm .p-datatable-tbody > tr > td {
+  padding: 0.499625rem 0.749875rem;
+}
+.p-datatable.p-datatable-sm .p-datatable-tfoot > tr > td {
+  padding: 0.499625rem 0.875rem;
+}
+.p-datatable.p-datatable-sm .p-datatable-footer {
+  padding: 0.499625rem 0.875rem;
+}
+.p-datatable.p-datatable-lg .p-datatable-header {
+  padding: 1.07125rem 1.25rem;
+}
+.p-datatable.p-datatable-lg .p-datatable-thead > tr > th {
+  padding: 0.71375rem 1.07125rem;
+}
+.p-datatable.p-datatable-lg .p-datatable-tbody > tr > td {
+  padding: 0.71375rem 1.07125rem;
+}
+.p-datatable.p-datatable-lg .p-datatable-tfoot > tr > td {
+  padding: 0.71375rem 1.25rem;
+}
+.p-datatable.p-datatable-lg .p-datatable-footer {
+  padding: 0.71375rem 1.25rem;
 }
 
 .p-dataview .p-paginator {
@@ -3359,7 +3411,7 @@
   background-color: #F4B6B6;
   color: #262222;
 }
-.p-badge.p-badge-l {
+.p-badge.p-badge-lg {
   font-size: 1.125rem;
   min-width: 2.25rem;
   height: 2.25rem;

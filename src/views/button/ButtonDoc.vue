@@ -81,6 +81,15 @@ import Button from 'primevue/button';
 &lt;/span&gt;
 </CodeHighlight>
 
+                <h3>Sizes</h3>
+                <p>2 more sizes are available in addition to a regular button, for a smaller input add <i>p-button-sm</i> and for a larger one, use <i>p-button-lg</i>.
+                Note that these classes available to change the size of a particular button, for global scaling see the <router-link to="/theming">theming</router-link> page.</p>
+<CodeHighlight>
+&lt;Button label="Small" icon="pi pi-check" class="p-button-sm"  /&gt;
+&lt;Button label="Normal" icon="pi pi-check" class="p-button"  /&gt;
+&lt;Button label="Large" icon="pi pi-check" class="p-button-lg" /&gt;
+</CodeHighlight>
+
 				<h3>Properties</h3>
                 <p>Any property such as style and class are passed to the underlying button element. Following are the additional properties to configure the component.</p>
 				<div class="doc-tablewrapper">
@@ -212,6 +221,13 @@ import Button from 'primevue/button';
     &lt;Button label="Delete" icon="pi pi-trash" /&gt;
     &lt;Button label="Cancel" icon="pi pi-times" /&gt;
 &lt;/span&gt;
+
+&lt;h3&gt;Sizes&lt;/h3&gt;
+&lt;div class="sizes"&gt;
+    &lt;Button label="Small" icon="pi pi-check" class="p-button-sm"  /&gt;
+    &lt;Button label="Normal" icon="pi pi-check" class="p-button"  /&gt;
+    &lt;Button label="Large" icon="pi pi-check" class="p-button-lg" /&gt;
+&lt;/div&gt;
 </template>
 </CodeHighlight>
 

@@ -37,6 +37,15 @@ import InputText from 'primevue/inputtext';
 &lt;/span&gt;
 </CodeHighlight>
 
+                <h3>Sizes</h3>
+                <p>2 more sizes are available in addition to a regular input, for a smaller input add <i>p-inputtext-sm</i> and for a larger one, use <i>p-inputtext-lg</i>.
+                Note that these classes should be used to change the size of a particular field, for global scaling see the <router-link to="/theming">theming</router-link> page.</p>
+<CodeHighlight>
+&lt;InputText type="text" class="p-inputtext-sm" placeholder="Small" /&gt;
+&lt;InputText type="text" class="p-inputtext" placeholder="Normal" /&gt;
+&lt;InputText type="text" class="p-inputtext-lg"  placeholder="Large" /&gt;
+</CodeHighlight>
+
 				<h3>Properties</h3>
 				<p>InputText passes any valid attribute to the underlying input element.</p>
 
@@ -97,8 +106,15 @@ import InputText from 'primevue/inputtext';
 &lt;h3&gt;Disabled&lt;/h3&gt;
 &lt;InputText type="text" v-model="value5" disabled /&gt;
 
-    &lt;h3&gt;Invalid&lt;/h3&gt;
+&lt;h3&gt;Invalid&lt;/h3&gt;
 &lt;InputText type="text" class="p-invalid" /&gt;
+
+&lt;h3&gt;Sizes&lt;/h3&gt;
+&lt;div class="sizes"&gt;
+    &lt;InputText type="text" class="p-inputtext-sm" placeholder="Small" /&gt;
+    &lt;InputText type="text" class="p-inputtext" placeholder="Normal" /&gt;
+    &lt;InputText type="text" class="p-inputtext-lg"  placeholder="Large" /&gt;
+&lt;/div&gt;
 </template>
 </CodeHighlight>
 

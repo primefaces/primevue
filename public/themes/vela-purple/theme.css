@@ -653,6 +653,14 @@
   border-color: #e57373;
   border-width: 1px;
 }
+.p-inputtext.p-inputtext-sm {
+  font-size: 0.875rem;
+  padding: 0.4375rem 0.4375rem;
+}
+.p-inputtext.p-inputtext-lg {
+  font-size: 1.25rem;
+  padding: 0.625rem 0.625rem;
+}
 
 .p-float-label label {
   left: 0.5rem;
@@ -1084,6 +1092,20 @@
 .p-button.p-button-icon-only.p-button-rounded {
   border-radius: 50%;
 }
+.p-button.p-button-sm {
+  font-size: 0.875rem;
+  padding: 0.4375rem 0.875rem;
+}
+.p-button.p-button-sm .p-button-icon {
+  font-size: 0.875rem;
+}
+.p-button.p-button-lg {
+  font-size: 1.25rem;
+  padding: 0.625rem 1.25rem;
+}
+.p-button.p-button-lg .p-button-icon {
+  font-size: 1.25rem;
+}
 
 .p-fluid .p-button {
   width: 100%;
@@ -1261,7 +1283,7 @@
   color: #ebedef;
   border: 1px solid #2C3E50;
   border-width: 0 0 1px 0;
-  padding: 1rem;
+  padding: 1rem 1rem;
   border-top-left-radius: 3px;
   border-top-right-radius: 3px;
   font-weight: 600;
@@ -1271,14 +1293,14 @@
   color: #ebedef;
   border: 1px solid #2C3E50;
   border-width: 0 0 1px 0;
-  padding: 1rem;
+  padding: 1rem 1rem;
   font-weight: 600;
   border-bottom-left-radius: 3px;
   border-bottom-right-radius: 3px;
 }
 .p-datatable .p-datatable-thead > tr > th {
   text-align: left;
-  padding: 1rem;
+  padding: 1rem 1rem;
   border: 1px solid #2C3E50;
   border-width: 0 0 1px 0;
   font-weight: 600;
@@ -1288,7 +1310,7 @@
 }
 .p-datatable .p-datatable-tfoot > tr > td {
   text-align: left;
-  padding: 1rem;
+  padding: 1rem 1rem;
   border: 1px solid #2C3E50;
   border-width: 0 0 1px 0;
   font-weight: 600;
@@ -1335,7 +1357,7 @@
   text-align: left;
   border: 1px solid #2C3E50;
   border-width: 0 0 1px 0;
-  padding: 1rem;
+  padding: 1rem 1rem;
 }
 .p-datatable .p-datatable-tbody > tr > td .p-row-toggler {
   color: #AEB6BF;
@@ -1387,6 +1409,36 @@
 .p-datatable .p-datatable-loading-icon {
   font-size: 2rem;
 }
+.p-datatable.p-datatable-sm .p-datatable-header {
+  padding: 0.875rem 0.875rem;
+}
+.p-datatable.p-datatable-sm .p-datatable-thead > tr > th {
+  padding: 0.875rem 0.875rem;
+}
+.p-datatable.p-datatable-sm .p-datatable-tbody > tr > td {
+  padding: 0.875rem 0.875rem;
+}
+.p-datatable.p-datatable-sm .p-datatable-tfoot > tr > td {
+  padding: 0.875rem 0.875rem;
+}
+.p-datatable.p-datatable-sm .p-datatable-footer {
+  padding: 0.875rem 0.875rem;
+}
+.p-datatable.p-datatable-lg .p-datatable-header {
+  padding: 1.25rem 1.25rem;
+}
+.p-datatable.p-datatable-lg .p-datatable-thead > tr > th {
+  padding: 1.25rem 1.25rem;
+}
+.p-datatable.p-datatable-lg .p-datatable-tbody > tr > td {
+  padding: 1.25rem 1.25rem;
+}
+.p-datatable.p-datatable-lg .p-datatable-tfoot > tr > td {
+  padding: 1.25rem 1.25rem;
+}
+.p-datatable.p-datatable-lg .p-datatable-footer {
+  padding: 1.25rem 1.25rem;
+}
 
 .p-dataview .p-paginator {
   border-width: 0 0 1px 0;
@@ -1397,7 +1449,7 @@
   color: #ebedef;
   border: 1px solid #2C3E50;
   border-width: 0 0 1px 0;
-  padding: 1rem;
+  padding: 1rem 1rem;
   border-top-left-radius: 3px;
   border-top-right-radius: 3px;
   font-weight: 600;
@@ -1416,7 +1468,7 @@
   color: #ebedef;
   border: 1px solid #2C3E50;
   border-width: 0 0 1px 0;
-  padding: 1rem;
+  padding: 1rem 1rem;
   font-weight: 600;
   border-bottom-left-radius: 3px;
   border-bottom-right-radius: 3px;
@@ -1826,7 +1878,7 @@
   color: #ebedef;
   border: 1px solid #2C3E50;
   border-width: 0 0 1px 0;
-  padding: 1rem;
+  padding: 1rem 1rem;
   border-top-left-radius: 3px;
   border-top-right-radius: 3px;
   font-weight: 600;
@@ -1836,14 +1888,14 @@
   color: #ebedef;
   border: 1px solid #2C3E50;
   border-width: 0 0 1px 0;
-  padding: 1rem;
+  padding: 1rem 1rem;
   font-weight: 600;
   border-bottom-left-radius: 3px;
   border-bottom-right-radius: 3px;
 }
 .p-treetable .p-treetable-thead > tr > th {
   text-align: left;
-  padding: 1rem;
+  padding: 1rem 1rem;
   border: 1px solid #2C3E50;
   border-width: 0 0 1px 0;
   font-weight: 600;
@@ -1853,7 +1905,7 @@
 }
 .p-treetable .p-treetable-tfoot > tr > td {
   text-align: left;
-  padding: 1rem;
+  padding: 1rem 1rem;
   border: 1px solid #2C3E50;
   border-width: 0 0 1px 0;
   font-weight: 600;
@@ -1900,7 +1952,7 @@
   text-align: left;
   border: 1px solid #2C3E50;
   border-width: 0 0 1px 0;
-  padding: 1rem;
+  padding: 1rem 1rem;
 }
 .p-treetable .p-treetable-tbody > tr > td .p-treetable-toggler {
   color: #AEB6BF;
@@ -3393,7 +3445,7 @@
   background-color: #E57373;
   color: #212529;
 }
-.p-badge.p-badge-l {
+.p-badge.p-badge-lg {
   font-size: 1.125rem;
   min-width: 2.25rem;
   height: 2.25rem;
