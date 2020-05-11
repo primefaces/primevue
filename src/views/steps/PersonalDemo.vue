@@ -5,6 +5,7 @@
                 Personal Information
             </template>
             <template slot="content">
+                <p class="p-text-secondary">Enter your information</p>
                 <div class="p-fluid">
                     <div class="p-field">
                         <label for="firstname">Firstname</label>
@@ -25,7 +26,7 @@
             </template>
             <template slot="footer">
                 <div class="p-grid p-nogutter p-justify-between">
-                    <Button label="Back" :disabled="true" class="disabled-button" icon="pi pi-angle-left" />
+                    <i></i>
                     <Button label="Next" @click="nextPage(!$v.$invalid)" icon="pi pi-angle-right" iconPos="right" />
                 </div>
             </template>

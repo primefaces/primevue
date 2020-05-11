@@ -186,6 +186,7 @@ export default {
             Personal Information
         &lt;/template&gt;
         &lt;template slot="content"&gt;
+            &lt;p class="p-text-secondary"&gt;Enter your information&lt;/p&gt;
             &lt;div class="p-fluid"&gt;
                 &lt;div class="p-field"&gt;
                     &lt;label for="firstname"&gt;Firstname&lt;/label&gt;
@@ -206,7 +207,7 @@ export default {
         &lt;/template&gt;
         &lt;template slot="footer"&gt;
             &lt;div class="p-grid p-nogutter p-justify-between"&gt;
-                &lt;Button label="Back" :disabled="true" class="disabled-button" icon="pi pi-angle-left" /&gt;
+                &lt;i&gt;&lt;/i&gt;
                 &lt;Button label="Next" @click="nextPage(!$v.$invalid)" icon="pi pi-angle-right" iconPos="right" /&gt;
             &lt;/div&gt;
         &lt;/template&gt;
@@ -261,6 +262,7 @@ export default {
                 Seat Information
             &lt;/template&gt;
             &lt;template slot="content"&gt;
+                &lt;p class="p-text-secondary"&gt;Choose your seat&lt;/p&gt;
                 &lt;div class="p-fluid p-formgrid p-grid"&gt;
                     &lt;div class="p-field p-col-12 p-md-6"&gt;
                         &lt;label for="class"&gt;Class&lt;/label&gt;
@@ -278,7 +280,7 @@ export default {
             &lt;/template&gt;
             &lt;template slot="footer"&gt;
                 &lt;div class="p-grid p-nogutter p-justify-between"&gt;
-                    &lt;Button label="Back" :disabled="true" class="disabled-button" icon="pi pi-angle-left" /&gt;
+                    &lt;Button label="Back" @click="prevPage()" icon="pi pi-angle-left" /&gt;
                     &lt;Button label="Next" @click="nextPage()" icon="pi pi-angle-right" iconPos="right" /&gt;
                 &lt;/div&gt;
             &lt;/template&gt;
@@ -340,6 +342,7 @@ export default {
             Payment Information
         &lt;/template&gt;
         &lt;template slot="content"&gt;
+            &lt;p class="p-text-secondary"&gt;Enter your card details&lt;/p&gt;
             &lt;div class="p-fluid p-formgrid p-grid"&gt;
                 &lt;div class="p-field p-col-12"&gt;
                     &lt;label for="class"&gt;Class&lt;/label&gt;
@@ -365,7 +368,7 @@ export default {
         &lt;/template&gt;
         &lt;template slot="footer"&gt;
             &lt;div class="p-grid p-nogutter p-justify-between"&gt;
-                &lt;Button label="Back" :disabled="true" class="disabled-button" icon="pi pi-angle-left" /&gt;
+                &lt;Button label="Back" @click="prevPage()" icon="pi pi-angle-left" /&gt;
                 &lt;Button label="Next" @click="nextPage()" icon="pi pi-angle-right" iconPos="right" /&gt;
             &lt;/div&gt;
         &lt;/template&gt;
@@ -444,7 +447,7 @@ export default {
         &lt;/template&gt;
         &lt;template slot="footer"&gt;
             &lt;div class="p-grid p-nogutter p-justify-between"&gt;
-                &lt;Button label="Back" class="disabled-button" @click="prevPage()" icon="pi pi-angle-left" /&gt;
+                &lt;Button label="Back" @click="prevPage()"  icon="pi pi-angle-left" /&gt;
                 &lt;Button label="Complete" @click="complete()" icon="pi pi-check" iconPos="right" class="p-button-success"/&gt;
             &lt;/div&gt;
         &lt;/template&gt;

@@ -44,7 +44,7 @@
             </template>
             <template slot="footer">
                 <div class="p-grid p-nogutter p-justify-between">
-                    <Button label="Back" class="disabled-button" @click="prevPage()" icon="pi pi-angle-left" />
+                    <Button label="Back" @click="prevPage()" icon="pi pi-angle-left" />
                     <Button label="Complete" @click="complete()" icon="pi pi-check" iconPos="right" class="p-button-success"/>
                 </div>
             </template>

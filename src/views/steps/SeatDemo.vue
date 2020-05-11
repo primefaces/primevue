@@ -5,6 +5,7 @@
                 Seat Information
             </template>
             <template slot="content">
+                <p class="p-text-secondary">Choose your seat</p>
                 <div class="p-fluid p-formgrid p-grid">
                     <div class="p-field p-col-12 p-md-6">
                         <label for="class">Class</label>
@@ -22,7 +23,7 @@
             </template>
             <template slot="footer">
                 <div class="p-grid p-nogutter p-justify-between">
-                    <Button label="Back" :disabled="true" class="disabled-button" icon="pi pi-angle-left" />
+                    <Button label="Back" @click="prevPage()" icon="pi pi-angle-left" />
                     <Button label="Next" @click="nextPage()" icon="pi pi-angle-right" iconPos="right" />
                 </div>
             </template>
