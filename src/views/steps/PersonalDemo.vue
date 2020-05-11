@@ -4,8 +4,10 @@
             <template slot="title">
                 Personal Information
             </template>
+            <template slot="subtitle">
+                Enter your personal information
+            </template>
             <template slot="content">
-                <p class="p-text-secondary">Enter your information</p>
                 <div class="p-fluid">
                     <div class="p-field">
                         <label for="firstname">Firstname</label>

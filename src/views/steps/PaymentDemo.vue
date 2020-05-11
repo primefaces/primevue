@@ -4,8 +4,10 @@
             <template slot="title">
                 Payment Information
             </template>
+            <template slot="subtitle">
+                Enter your card details
+            </template>
             <template slot="content">
-                <p class="p-text-secondary">Enter your card details</p>
                 <div class="p-fluid p-formgrid p-grid">
                     <div class="p-field p-col-12">
                         <label for="class">Class</label>

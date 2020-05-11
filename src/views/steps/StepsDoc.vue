@@ -185,6 +185,9 @@ export default {
         &lt;template slot="title"&gt;
             Personal Information
         &lt;/template&gt;
+        &lt;template slot="subtitle"&gt;
+            Enter your information
+        &lt;/template&gt;
         &lt;template slot="content"&gt;
             &lt;p class="p-text-secondary"&gt;Enter your information&lt;/p&gt;
             &lt;div class="p-fluid"&gt;
@@ -258,11 +261,13 @@ export default {
 <template v-pre>
     &lt;div class="stepsdemo-content"&gt;
         &lt;Card&gt;
-           &lt;template slot="title"&gt;
+            &lt;template slot="title"&gt;
                 Seat Information
             &lt;/template&gt;
+            &lt;template slot="subtitle"&gt;
+                Choose your seat
+            &lt;/template&gt;
             &lt;template slot="content"&gt;
-                &lt;p class="p-text-secondary"&gt;Choose your seat&lt;/p&gt;
                 &lt;div class="p-fluid p-formgrid p-grid"&gt;
                     &lt;div class="p-field p-col-12 p-md-6"&gt;
                         &lt;label for="class"&gt;Class&lt;/label&gt;
@@ -341,8 +346,10 @@ export default {
         &lt;template slot="title"&gt;
             Payment Information
         &lt;/template&gt;
+        &lt;template slot="subtitle"&gt;
+            Enter your card details
+        &lt;/template&gt;
         &lt;template slot="content"&gt;
-            &lt;p class="p-text-secondary"&gt;Enter your card details&lt;/p&gt;
             &lt;div class="p-fluid p-formgrid p-grid"&gt;
                 &lt;div class="p-field p-col-12"&gt;
                     &lt;label for="class"&gt;Class&lt;/label&gt;

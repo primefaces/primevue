@@ -13,8 +13,8 @@
                     Simple Card
                 </template>
                 <template slot="content">
-                    Lorem ipsum dolor sit amet, consectetur adipisicing elit. Inventore sed consequuntur error repudiandae numquam deserunt
-                    quisquam repellat libero asperiores earum nam nobis, culpa ratione quam perferendis esse, cupiditate neque quas!
+                    <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Inventore sed consequuntur error repudiandae numquam deserunt
+                    quisquam repellat libero asperiores earum nam nobis, culpa ratione quam perferendis esse, cupiditate neque quas!</p>
                 </template>
             </Card>
 
@@ -26,8 +26,8 @@
                     Advanced Card
                 </template>
                 <template slot="content">
-                    Lorem ipsum dolor sit amet, consectetur adipisicing elit. Inventore sed consequuntur error repudiandae numquam deserunt
-                    quisquam repellat libero asperiores earum nam nobis, culpa ratione quam perferendis esse, cupiditate neque quas!
+                    <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Inventore sed consequuntur error repudiandae numquam deserunt
+                    quisquam repellat libero asperiores earum nam nobis, culpa ratione quam perferendis esse, cupiditate neque quas!</p>
                 </template>
                 <template slot="footer">
                     <Button icon="pi pi-check" label="Save" class="p-button-raised" />
@@ -49,3 +49,10 @@ export default {
     }
 }
 </script>
+
+<style lang="scss" scoped>
+p {
+    line-height: 1.5;
+    margin: 0;
+}
+</style>

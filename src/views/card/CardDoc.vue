@@ -86,8 +86,8 @@ import Card from 'primevue/card';
         Simple Card
     &lt;/template&gt;
     &lt;template slot="content"&gt;
-        Lorem ipsum dolor sit amet, consectetur adipisicing elit. Inventore sed consequuntur error repudiandae numquam deserunt
-        quisquam repellat libero asperiores earum nam nobis, culpa ratione quam perferendis esse, cupiditate neque quas!
+        &lt;p&gt;Lorem ipsum dolor sit amet, consectetur adipisicing elit. Inventore sed consequuntur error repudiandae numquam deserunt
+        quisquam repellat libero asperiores earum nam nobis, culpa ratione quam perferendis esse, cupiditate neque quas!&lt;/p&gt;
     &lt;/template&gt;
 &lt;/Card&gt;
 
@@ -99,8 +99,8 @@ import Card from 'primevue/card';
         Advanced Card
     &lt;/template&gt;
     &lt;template slot="content"&gt;
-        Lorem ipsum dolor sit amet, consectetur adipisicing elit. Inventore sed consequuntur error repudiandae numquam deserunt
-        quisquam repellat libero asperiores earum nam nobis, culpa ratione quam perferendis esse, cupiditate neque quas!
+        &lt;p&gt;Lorem ipsum dolor sit amet, consectetur adipisicing elit. Inventore sed consequuntur error repudiandae numquam deserunt
+        quisquam repellat libero asperiores earum nam nobis, culpa ratione quam perferendis esse, cupiditate neque quas!&lt;/p&gt;
     &lt;/template&gt;
     &lt;template slot="footer"&gt;
         &lt;Button icon="pi pi-check" label="Save" class="p-button-raised" /&gt;

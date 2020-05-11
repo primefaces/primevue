@@ -4,8 +4,10 @@
            <template slot="title">
                 Seat Information
             </template>
+            <template slot="subtitle">
+                Choose your seat
+            </template>
             <template slot="content">
-                <p class="p-text-secondary">Choose your seat</p>
                 <div class="p-fluid p-formgrid p-grid">
                     <div class="p-field p-col-12 p-md-6">
                         <label for="class">Class</label>
