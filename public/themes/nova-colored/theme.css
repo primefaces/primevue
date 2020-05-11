@@ -19,6 +19,10 @@
   opacity: 0.5;
 }
 
+.p-error, .p-invalid {
+  color: #a80000;
+}
+
 .pi {
   font-size: 1rem;
 }

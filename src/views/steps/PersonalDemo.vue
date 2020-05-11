@@ -2,52 +2,31 @@
     <div class="stepsdemo-content">
         <Card>
             <template slot="title">
-                <div class="p-grid p-fluid p-justify-between wizard-header">
-                    <div class="p-col-8 wizard-header-content">
-                        <p class="card-header-message">Personal Information</p>
-                    </div>
-                    <div class="p-col-2 wizard-header-steps">
-                        <p class="card-header-message">Step 1/4</p>
-                    </div>
-                </div>
+                Personal Information
             </template>
             <template slot="content">
-                <div class="p-grid p-fluid wizard-content-summary">
-                    <div class="p-col-12">
-                        <p>Please enter your information and proceed to the next step</p>
+                <div class="p-fluid">
+                    <div class="p-field">
+                        <label for="firstname">Firstname</label>
+                        <InputText id="firstname" v-model="$v.firstname.$model" :class="{'p-invalid':$v.firstname.$invalid && submitted}" />
+                        <small v-show="$v.firstname.$invalid && submitted" class="p-error">Firstname is required.</small>
                     </div>
-                </div>
-                <div class="p-grid p-fluid wizard-content">
-                    <div class="p-col-12 p-md-4" style="padding-bottom: 0px; max-width: 235px;">
-                        <p>Your Name</p>
+                    <div class="p-field">
+                        <label for="lastname">Lastname</label>
+                        <InputText v-model="$v.lastname.$model" :class="{'p-invalid':$v.lastname.$invalid && submitted}" />
+                        <small v-show="$v.lastname.$invalid && submitted" class="p-error">Lastname is required.</small>
                     </div>
-                </div>
-                <div class="p-grid p-fluid wizard-content">
-                    <div class="p-col-12 p-md-3" style="max-width: 176px;">
-                        <InputText v-model="$v.firstname.$model" :class="{'p-invalid':$v.firstname.$invalid && submitted}" placeholder="Firstname"/>
-                        <ValidationMessage v-show="$v.firstname.$invalid && submitted" style="font-size: 12px">Firstname is required.</ValidationMessage>
-                    </div>
-                    <div class="p-col-12 p-md-3" style="max-width: 176px;">
-                        <InputText v-model="$v.lastname.$model" :class="{'p-invalid':$v.lastname.$invalid && submitted}" placeholder="Lastname" />
-                        <ValidationMessage v-show="$v.lastname.$invalid && submitted" style="font-size: 12px">Lastname is required.</ValidationMessage>
-                    </div>
-                </div>
-                <div class="p-grid p-fluid wizard-content">
-                    <div class="p-col-12 p-md-3" style="max-width: 176px;">
-                            <p class="wizard-input-header">Your Age</p>
-                            <InputText v-model="$v.age.$model" :class="{'p-invalid':$v.age.$error && submitted}" />
-                            <ValidationMessage v-show="$v.age.$invalid && submitted" style="margin-top: .5em; font-size: 12px">Age should be number.</ValidationMessage>
+                    <div class="p-field">
+                        <label for="age">Age</label>
+                        <InputText id="age" v-model="$v.age.$model" :class="{'p-invalid':$v.age.$error && submitted}" />
+                        <small v-show="$v.age.$invalid && submitted" class="p-error">Age should be a number.</small>
                     </div>
                 </div>
             </template>
             <template slot="footer">
-                <div class="p-grid p-fluid p-justify-between wizard-footer demo-footer">
-                    <div class="p-col-4 wizard-footer-back-button">
-                        <Button label="Back" :disabled="true" class="disabled-button" icon="pi pi-angle-left" />
-                    </div>
-                    <div class="p-col-4 wizard-footer-next-button">
-                        <Button label="Next" @click="nextPage(!$v.$invalid)" icon="pi pi-angle-right" iconPos="right" />
-                    </div>
+                <div class="p-grid p-nogutter p-justify-between">
+                    <Button label="Back" :disabled="true" class="disabled-button" icon="pi pi-angle-left" />
+                    <Button label="Next" @click="nextPage(!$v.$invalid)" icon="pi pi-angle-right" iconPos="right" />
                 </div>
             </template>
         </Card>
@@ -90,6 +69,3 @@ export default {
     }
 }
 </script>
-
-<style>
-</style>

@@ -2,67 +2,50 @@
     <div class="stepsdemo-content">
         <Card>
             <template slot="title">
-                <div class="p-grid p-fluid p-justify-between wizard-header">
-                    <div class="p-col-8 wizard-header-content">
-                        <p class="card-header-message">Confirmation</p>
-                    </div>
-                    <div class="p-col-2 wizard-header-steps">
-                        <p class="card-header-message">Step 4/4</p>
-                    </div>
-                </div>
+                Confirmation
             </template>
             <template slot="content">
-                <div class="p-grid p-fluid wizard-content wizard-confirmation">
-                    <div class="p-col-12 p-md-3">
-                        <label class="wizard-input-label">Your Name</label>
-                        <p>{{formData.firstname ? formData.firstname : '-'}} {{formData.lastname ? formData.lastname : '-'}}</p>
-                    </div>
-                    <div class="p-col-12 p-md-1">
-                        <label class="wizard-input-label">Your Age</label>
-                        <p>{{formData.age ? formData.age : '-'}}</p>
-                    </div>
+                <div class="p-field p-col-12">
+                    <label for="class">Name</label>
+                    <b>{{formData.firstname ? formData.firstname : '-'}} {{formData.lastname ? formData.lastname : '-'}}</b>
                 </div>
-                <div class="p-grid p-fluid wizard-content wizard-confirmation">
-                    <div class="p-col-12 p-md-3">
-                        <label class="wizard-input-label">Seat Class</label>
-                        <p>{{formData.class ? formData.class : '-'}}</p>
-                    </div>
-                    <div class="p-col-12 p-md-3">
-                        <label class="wizard-input-label">Vagon Number</label>
-                        <p>{{formData.vagon ? formData.vagon : '-'}}</p>
-                    </div>
-                    <div class="p-col-12 p-md-1">
-                        <label class="wizard-input-label">Seat</label>
-                        <p>{{formData.seat ? formData.seat : '-'}}</p>
-                    </div>
+                <div class="p-field p-col-12">
+                    <label for="Age">Age</label>
+                    <b>{{formData.age ? formData.age : '-'}}</b>
                 </div>
-                <div class="p-grid p-fluid wizard-content wizard-confirmation">
-                    <div class="p-col-12 p-md-3">
-                        <label class="wizard-input-label">Cardholder Name</label>
-                        <p>{{formData.cardholderName ? formData.cardholderName : '-'}}</p>
-                    </div>
-                    <div class="p-col-12 p-md-3">
-                        <label class="wizard-input-label">Cardholder Number</label>
-                        <p>{{formData.cardholderNumber ? formData.cardholderNumber : '-'}}</p>
-                    </div>
-                    <div class="p-col-12 p-md-1">
-                        <label class="wizard-input-label">Date</label>
-                        <p>{{formData.date ? formData.date : '-'}}</p>
-                    </div>
-                    <div class="p-col-12 p-md-1">
-                        <label class="wizard-input-label">CVV</label>
-                        <p>{{formData.cvv && formData.cvv.length === 3  ? '**' + formData.cvv[2] : '-'}}</p>
-                    </div>
+                <div class="p-field p-col-12">
+                    <label for="Age">Seat Class</label>
+                    <b>{{formData.class ? formData.class : '-'}}</b>
+                </div>
+                <div class="p-field p-col-12">
+                    <label for="Age">Wagon Number</label>
+                    <b>{{formData.vagon ? formData.vagon : '-'}}</b>
+                </div>
+                <div class="p-field p-col-12">
+                    <label for="Age">Seat</label>
+                    <b>{{formData.seat ? formData.seat : '-'}}</b>
+                </div>
+                <div class="p-field p-col-12">
+                    <label for="Age">Cardholder Name</label>
+                    <b>{{formData.cardholderName ? formData.cardholderName : '-'}}</b>
+                </div>
+                <div class="p-field p-col-12">
+                    <label for="Age">Card Number</label>
+                    <b>{{formData.cardholderNumber ? formData.cardholderNumber : '-'}}</b>
+                </div>
+                <div class="p-field p-col-12">
+                    <label for="Age">Date</label>
+                    <b>{{formData.date ? formData.date : '-'}}</b>
+                </div>
+                <div class="p-field p-col-12">
+                    <label for="Age">CVV</label>
+                    <b>{{formData.cvv && formData.cvv.length === 3  ? '**' + formData.cvv[2] : '-'}}</b>
                 </div>
             </template>
             <template slot="footer">
-                <div class="p-grid p-fluid p-justify-between wizard-footer demo-footer">
-                    <div class="p-col-4 wizard-footer-back-button">
-                        <Button label="Back" class="disabled-button" @click="prevPage()" icon="pi pi-angle-left" />
-                    </div>
-                    <div class="p-col-6 wizard-footer-complete-button">
-                        <Button label="Complete" @click="complete()" icon="pi pi-check" iconPos="right" />
-                    </div>
+                <div class="p-grid p-nogutter p-justify-between">
+                    <Button label="Back" class="disabled-button" @click="prevPage()" icon="pi pi-angle-left" />
+                    <Button label="Complete" @click="complete()" icon="pi pi-check" iconPos="right" class="p-button-success"/>
                 </div>
             </template>
         </Card>

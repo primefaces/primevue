@@ -1,50 +1,29 @@
 <template>
     <div class="stepsdemo-content">
         <Card>
-            <template slot="title">
-                <div class="p-grid p-fluid p-justify-between wizard-header">
-                    <div class="p-col-8 wizard-header-content">
-                        <p class="card-header-message">Seat Information</p>
-                    </div>
-                    <div class="p-col-2 wizard-header-steps">
-                        <p class="card-header-message">Step 2/4</p>
-                    </div>
-                </div>
+           <template slot="title">
+                Seat Information
             </template>
             <template slot="content">
-                <div class="p-grid p-fluid wizard-content-summary">
-                    <div class="p-col-12">
-                        <p>Please pick your seat and proceed to the payment</p>
+                <div class="p-fluid p-formgrid p-grid">
+                    <div class="p-field p-col-12 p-md-6">
+                        <label for="class">Class</label>
+                        <Dropdown inputId="class" v-model="selectedClass" :options="classes" @change="setVagons($event)" optionLabel="name" placeholder="Select a Class" />
                     </div>
-                </div>
-                <div class="p-grid p-fluid wizard-content">
-                    <div class="p-col-12 p-md-4" style="padding-bottom: 0px; max-width: 235px;">
-                        <p>Class and Vagon</p>
+                    <div class="p-field p-col-12 p-md-6">
+                        <label for="lastname">Wagon</label>
+                        <Dropdown inputId="wagon" v-model="selectedVagon" :options="vagons" @change="setSeats($event)" optionLabel="vagon" placeholder="Select a Vagon" />
                     </div>
-                </div>
-                <div class="p-grid p-fluid wizard-content">
-                    <div class="p-col-12 p-md-3" style="max-width: 176px;">
-                        <Dropdown v-model="selectedClass" :options="classes" @change="setVagons($event)" optionLabel="name" placeholder="Select a Class" />
-                    </div>
-                    <div class="p-col-12 p-md-3" style="max-width: 176px;">
-                        <Dropdown v-model="selectedVagon" :options="vagons" @change="setSeats($event)" optionLabel="vagon" placeholder="Select a Vagon" />
-                    </div>
-                </div>
-                <div class="p-grid p-fluid wizard-content">
-                    <div class="p-col-12 p-md-3" style="max-width: 176px;">
-                        <p class="wizard-input-header">Seat</p>
-                        <Dropdown v-model="selectedSeat" :options="seats" optionLabel="seat" placeholder="Select a Seat" />
+                    <div class="p-field p-col-12">
+                        <label for="seat">Seat</label>
+                        <Dropdown inputId="seat" v-model="selectedSeat" :options="seats" optionLabel="seat" placeholder="Select a Seat" />
                     </div>
                 </div>
             </template>
             <template slot="footer">
-                <div class="p-grid p-fluid p-justify-between wizard-footer demo-footer">
-                    <div class="p-col-4 wizard-footer-back-button">
-                        <Button label="Back" class="disabled-button" @click="prevPage()" icon="pi pi-angle-left" />
-                    </div>
-                    <div class="p-col-4 wizard-footer-next-button">
-                        <Button label="Next" @click="nextPage()" icon="pi pi-angle-right" iconPos="right" />
-                    </div>
+                <div class="p-grid p-nogutter p-justify-between">
+                    <Button label="Back" :disabled="true" class="disabled-button" icon="pi pi-angle-left" />
+                    <Button label="Next" @click="nextPage()" icon="pi pi-angle-right" iconPos="right" />
                 </div>
             </template>
         </Card>
