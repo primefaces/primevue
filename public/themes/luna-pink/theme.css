@@ -2468,7 +2468,6 @@
 .p-contextmenu .p-menuitem-link {
   padding: 0.857rem;
   color: #dedede;
-  font-weight: normal;
   border-radius: 0;
   transition: background-color 0.2s, box-shadow 0.2s;
 }
@@ -2529,14 +2528,43 @@
   border: 1px solid #191919;
   border-radius: 3px;
 }
-.p-megamenu .p-megamenu-root-list .p-submenu-icon {
-  margin: 0 0 0 0.5rem;
-  font-size: 0.75rem;
+.p-megamenu .p-megamenu-root-list > .p-menuitem > .p-menuitem-link {
+  padding: 0.857rem;
+  color: #dedede;
+  border-radius: 3px;
+  transition: background-color 0.2s, box-shadow 0.2s;
+}
+.p-megamenu .p-megamenu-root-list > .p-menuitem > .p-menuitem-link .p-menuitem-text {
+  color: #dedede;
+}
+.p-megamenu .p-megamenu-root-list > .p-menuitem > .p-menuitem-link .p-menuitem-icon {
+  color: #dedede;
+  margin-right: 0.5rem;
+}
+.p-megamenu .p-megamenu-root-list > .p-menuitem > .p-menuitem-link .p-submenu-icon {
+  color: #dedede;
+  margin-left: 0.5rem;
+}
+.p-megamenu .p-megamenu-root-list > .p-menuitem > .p-menuitem-link:not(.p-disabled):hover {
+  background: #4c4c4c;
+}
+.p-megamenu .p-megamenu-root-list > .p-menuitem > .p-menuitem-link:not(.p-disabled):hover .p-menuitem-text {
+  color: #dedede;
+}
+.p-megamenu .p-megamenu-root-list > .p-menuitem > .p-menuitem-link:not(.p-disabled):hover .p-menuitem-icon {
+  color: #dedede;
+}
+.p-megamenu .p-megamenu-root-list > .p-menuitem > .p-menuitem-link:not(.p-disabled):hover .p-submenu-icon {
+  color: #dedede;
+}
+.p-megamenu .p-megamenu-root-list > .p-menuitem > .p-menuitem-link:focus {
+  outline: 0 none;
+  outline-offset: 0;
+  box-shadow: inset 0 0 0 0.2rem #f1b6c8;
 }
 .p-megamenu .p-menuitem-link {
   padding: 0.857rem;
   color: #dedede;
-  font-weight: normal;
   border-radius: 0;
   transition: background-color 0.2s, box-shadow 0.2s;
 }
@@ -2615,7 +2643,6 @@
 .p-menu .p-menuitem-link {
   padding: 0.857rem;
   color: #dedede;
-  font-weight: normal;
   border-radius: 0;
   transition: background-color 0.2s, box-shadow 0.2s;
 }
@@ -2671,14 +2698,9 @@
   border: 1px solid #191919;
   border-radius: 3px;
 }
-.p-menubar .p-menubar-root-list > .p-menuitem > .p-menuitem-link .p-submenu-icon {
-  margin: 0 0 0 0.5rem;
-  font-size: 0.75rem;
-}
 .p-menubar .p-menuitem-link {
   padding: 0.857rem;
   color: #dedede;
-  font-weight: normal;
   border-radius: 0;
   transition: background-color 0.2s, box-shadow 0.2s;
 }
@@ -2705,6 +2727,40 @@
   color: #dedede;
 }
 .p-menubar .p-menuitem-link:focus {
+  outline: 0 none;
+  outline-offset: 0;
+  box-shadow: inset 0 0 0 0.2rem #f1b6c8;
+}
+.p-menubar .p-menubar-root-list > .p-menuitem > .p-menuitem-link {
+  padding: 0.857rem;
+  color: #dedede;
+  border-radius: 3px;
+  transition: background-color 0.2s, box-shadow 0.2s;
+}
+.p-menubar .p-menubar-root-list > .p-menuitem > .p-menuitem-link .p-menuitem-text {
+  color: #dedede;
+}
+.p-menubar .p-menubar-root-list > .p-menuitem > .p-menuitem-link .p-menuitem-icon {
+  color: #dedede;
+  margin-right: 0.5rem;
+}
+.p-menubar .p-menubar-root-list > .p-menuitem > .p-menuitem-link .p-submenu-icon {
+  color: #dedede;
+  margin-left: 0.5rem;
+}
+.p-menubar .p-menubar-root-list > .p-menuitem > .p-menuitem-link:not(.p-disabled):hover {
+  background: #4c4c4c;
+}
+.p-menubar .p-menubar-root-list > .p-menuitem > .p-menuitem-link:not(.p-disabled):hover .p-menuitem-text {
+  color: #dedede;
+}
+.p-menubar .p-menubar-root-list > .p-menuitem > .p-menuitem-link:not(.p-disabled):hover .p-menuitem-icon {
+  color: #dedede;
+}
+.p-menubar .p-menubar-root-list > .p-menuitem > .p-menuitem-link:not(.p-disabled):hover .p-submenu-icon {
+  color: #dedede;
+}
+.p-menubar .p-menubar-root-list > .p-menuitem > .p-menuitem-link:focus {
   outline: 0 none;
   outline-offset: 0;
   box-shadow: inset 0 0 0 0.2rem #f1b6c8;
@@ -2788,7 +2844,6 @@
 .p-panelmenu .p-panelmenu-content .p-menuitem .p-menuitem-link {
   padding: 0.857rem;
   color: #dedede;
-  font-weight: normal;
   border-radius: 0;
   transition: background-color 0.2s, box-shadow 0.2s;
 }
@@ -2923,7 +2978,6 @@
 .p-tieredmenu .p-menuitem-link {
   padding: 0.857rem;
   color: #dedede;
-  font-weight: normal;
   border-radius: 0;
   transition: background-color 0.2s, box-shadow 0.2s;
 }
@@ -3491,4 +3545,4 @@
   color: #ffffff;
 }
 
-/* Add your customizations of theme here */
+/* Customizations to the designer theme should be defined here */
