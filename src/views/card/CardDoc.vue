@@ -98,6 +98,9 @@ import Card from 'primevue/card';
     &lt;template slot="title"&gt;
         Advanced Card
     &lt;/template&gt;
+    &lt;template slot="subtitle"&gt;
+        Card subtitle
+    &lt;/template&gt;
     &lt;template slot="content"&gt;
         &lt;p&gt;Lorem ipsum dolor sit amet, consectetur adipisicing elit. Inventore sed consequuntur error repudiandae numquam deserunt
         quisquam repellat libero asperiores earum nam nobis, culpa ratione quam perferendis esse, cupiditate neque quas!&lt;/p&gt;

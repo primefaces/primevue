@@ -2110,6 +2110,7 @@
   background: #1C2833;
   color: #ebedef;
   box-shadow: none;
+  border-radius: 3px;
 }
 .p-card .p-card-body {
   padding: 1rem;
@@ -2122,6 +2123,10 @@
 .p-card .p-card-subtitle {
   font-weight: 700;
   margin-bottom: 0.5rem;
+  color: #AEB6BF;
+}
+.p-card .p-card-content {
+  padding: 1rem 0;
 }
 .p-card .p-card-footer {
   padding: 1rem 0 0 0;
