@@ -435,6 +435,11 @@ export default new Router({
 			path: '/selectbutton',
 			name: 'selectbutton',
 			component: () => import('./views/selectbutton/SelectButtonDemo.vue')
+        },
+        {
+			path: '/shadow',
+			name: 'shadow',
+			component: () => import('./views/shadow/ShadowDemo.vue')
 		},
 		{
 			path: '/sidebar',
