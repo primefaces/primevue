@@ -16,11 +16,11 @@
             <div class="pro-section p-grid p-nogutter">
                 <div class="pro-section-text p-col-12 p-md-8">
                      <p>PrimeVue PRO is a term based commercial support service. With the exclusive services of Pro account,
-                            you no longer need to post your questions in the community forum and your issues to community issue tracker. 
+                            you no longer need to post your questions in the community forum and your issues to community issue tracker.
                     With PrimeVue PRO, it's easy to support, tune and add features to PrimeVue as if it were an in-house framework.</p>
                      <a class="action-button" href="mailto:primevue@primetek.com.tr">GET A QUOTE</a>
                 </div>
-               
+
                 <div class="pro-section-image p-col-12 p-md-4">
                     <img alt="PRO" src="../../assets/images/home/icon-pro.svg" />
                 </div>
@@ -62,7 +62,7 @@
 /deep/ .pro-section {
     display: flex;
     margin-top: .75rem;
-    
+
     .pro-section-text {
         flex: 1 1 auto;
         padding: 0rem 1rem 0 0;
