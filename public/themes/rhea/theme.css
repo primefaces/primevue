@@ -911,6 +911,7 @@
   color: #666666;
   margin-left: 0.5rem;
   transition: color 0.2s, box-shadow 0.2s;
+  font-size: 1.143rem;
 }
 .p-rating .p-rating-icon.p-rating-cancel {
   color: #f3b9b9;
