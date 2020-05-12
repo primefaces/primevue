@@ -135,11 +135,12 @@
             }
 
             i:not([class~="pi"]) {
-                background-color: #2196f3;
-                color: #ffffff;
+                background-color: var(--layer-0);
+                color: #2196f3;
                 font-family: Monaco, courier, monospace;
                 font-style: normal;
                 font-size: 12px;
+                font-weight: 500;
                 padding: 2px 4px;
                 letter-spacing: .5px;
                 border-radius: 3px;
