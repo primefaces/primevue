@@ -19,15 +19,15 @@
                         <li class="topbar-submenu-header">FREE COMPONENT THEMES</li>
                         <li><a @click="changeTheme($event, 'saga-blue', false)"><img src="./assets/images/themes/saga-blue.png" alt="Saga Blue" /><span>Saga Blue</span></a></li>
                         <li><a @click="changeTheme($event, 'saga-cyan', false)"><img src="./assets/images/themes/saga-cyan.png" alt="Saga Cyan" /><span>Saga Cyan</span></a></li>
-                        <li><a @click="changeTheme($event, 'saga-deeppurple', false)"><img src="./assets/images/themes/saga-deeppurple.png" alt="Saga DeepPurple" /><span>Saga DeepPurple</span></a></li>
+                        <li><a @click="changeTheme($event, 'saga-deeppurple', false)"><img src="./assets/images/themes/saga-deeppurple.png" alt="Saga Deep Purple" /><span>Saga Deep Purple</span></a></li>
                         <li><a @click="changeTheme($event, 'saga-green', false)"><img src="./assets/images/themes/saga-green.png" alt="Saga Green" /><span>Saga Green</span></a></li>
                         <li><a @click="changeTheme($event, 'saga-indigo', false)"><img src="./assets/images/themes/saga-indigo.png" alt="Saga Indigo" /><span>Saga Indigo</span></a></li>
                         <li><a @click="changeTheme($event, 'saga-orange', false)"><img src="./assets/images/themes/saga-orange.png" alt="Saga Orange" /><span>Saga Orange</span></a></li>
                         <li><a @click="changeTheme($event, 'saga-purple', false)"><img src="./assets/images/themes/saga-purple.png" alt="Saga Purple" /><span>Saga Purple</span></a></li>
                         <li><a @click="changeTheme($event, 'saga-teal', false)"><img src="./assets/images/themes/saga-teal.png" alt="Saga Teal" /><span>Saga Teal</span></a></li>
                         <li><a @click="changeTheme($event, 'vela-blue')"><img src="./assets/images/themes/vela-blue.png" alt="Vela Blue" /><span>Vela Blue</span></a></li>
-                        <li><a @click="changeTheme($event, 'vela-cyan')"><img src="./assets/images/themes/vela-cyan.png" alt="Vela Blue" /><span>Vela Cyan</span></a></li>
-                        <li><a @click="changeTheme($event, 'vela-deeppurple')"><img src="./assets/images/themes/vela-deeppurple.png" alt="Vela Blue" /><span>Vela DeepPurple</span></a></li>
+                        <li><a @click="changeTheme($event, 'vela-cyan')"><img src="./assets/images/themes/vela-cyan.png" alt="Vela Cyan" /><span>Vela Cyan</span></a></li>
+                        <li><a @click="changeTheme($event, 'vela-deeppurple')"><img src="./assets/images/themes/vela-deeppurple.png" alt="Vela Deep Purple" /><span>Vela Deep Purple</span></a></li>
                         <li><a @click="changeTheme($event, 'vela-green')"><img src="./assets/images/themes/vela-green.png" alt="Vela Green" /><span>Vela Green</span></a></li>
                         <li><a @click="changeTheme($event, 'vela-indigo')"><img src="./assets/images/themes/vela-indigo.png" alt="Vela Indigo" /><span>Vela Indigo</span></a></li>
                         <li><a @click="changeTheme($event, 'vela-orange')"><img src="./assets/images/themes/vela-orange.png" alt="Vela Orange" /><span>Vela Orange</span></a></li>
