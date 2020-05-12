@@ -1,0 +1,316 @@
+.layout-content {
+    margin-left: 250px;
+    padding-top: 70px;
+
+    .content-section {
+        display: block;
+        padding: 30px;
+
+        h2 {
+            margin-top: 0;
+        }
+
+        &.introduction {
+            color: #ffffff;
+            background-color: #607D8B;
+
+            .feature-intro {
+
+                h1 {
+                    font-size: 28px;
+                    margin: 0 0 20px 0;
+                    color: #ffffff;
+                    font-weight: 700;
+                }
+
+                p {
+                    margin: 0;
+                    line-height: 2em;
+                    font-size: 16px;
+                    color: #ffffff;
+                }
+
+                a {
+                    border-radius: 3px;
+                    background-color: #ffffff;
+                    padding: 2px 4px;
+                    color: #495057;
+                }
+            }
+        }
+
+        &.implementation {
+            background-color: #ffffff;
+
+            > hr {
+                margin-top: 24px;
+                opacity: .3;
+            }
+
+            > h3 {
+                font-weight: 500;
+                margin-top: 30px;
+                font-size: 18px;
+
+                &:first-child {
+                    margin-top: 0px;
+                }
+            }
+
+            .p-col-12 > h3 {
+                font-weight: 400;
+                margin-top: 30px;
+                font-size: 18px;
+            }
+
+            h3.first {
+                margin-top: 0px;
+            }
+
+            &.implementation-charts {
+                background-color: #FFFFFF;
+            }
+        }
+
+        .component-sizes {
+            display: inline-flex;
+            flex-direction: column;
+        
+            .p-component {
+                margin-bottom: 1em;
+                flex: 0 0 auto;
+         
+                &:last-child{
+                    margin-bottom: 0;
+                } 
+            }
+        }
+
+        &.content-submenu {
+            background-color: #546E7A;
+            padding: 15px 30px;
+
+            ul {
+                margin: 0;
+                padding: 0;
+                width: 100%;
+
+                li {
+                    list-style: none;
+                    width: 20%;
+                    display: inline-block;
+                    padding: .25em;
+
+                    a {
+                        color: #ffffff;
+                        display: block;
+                        width: 90%;
+                        border: 1px solid transparent;
+                        padding: 6px 12px;
+                        border-radius: 3px;
+                        transition: background-color .1s;
+
+                        &:hover {
+                            background-color: rgba(255,255,255,0.1);
+                        }
+
+                        &:focus {
+                            outline: 0 none;
+                            transition: box-shadow .2s;
+                            box-shadow: 0 0 0 0.2em $focusBorderColor;
+                        }
+
+                        &.router-link-exact-active {
+                            font-weight: 700;
+                        }
+                    }
+                }
+            }
+        }
+
+        &.documentation {
+            border-top: 1px solid #dadada;
+            background-color: #f5f7f8;
+
+            h3 {
+                color:  #495057;
+                margin-top: 25px;
+                margin-bottom: 0px;
+                font-size: 22px;
+                font-weight: normal;
+            }
+
+            h4 {
+                text-align: center;
+                font-weight: 700;
+                font-size: 16px;
+            }
+
+            p {
+                color:  #495057;
+                font-size: 14px;
+                line-height: 24px;
+                margin: 10px 0;
+            }
+
+            .doc-tablewrapper {
+                margin: 16px 0;
+                overflow: auto;
+            }
+
+            a {
+                color: #1976D2;
+                font-weight: 500;
+                transition: color .2s;
+            }
+
+            .btn-viewsource {
+                background-color: #444;
+                padding: .5em 1em;
+                border-radius: 2px;
+                color: #fff;
+                font-weight: 700;
+                margin: .5em 0;
+                display: inline-block;
+                transition: background-color .2s;
+
+                &:hover {
+                    background-color: #595959;
+                    color: #fff;
+                }
+            }
+
+            i:not([class~="pi"]) {
+                background-color: #ffffff;
+                font-family: Consolas, Monaco, 'Andale Mono', 'Ubuntu Mono', monospace;
+                font-style: normal;
+                font-size: 14px;
+                padding: 2px 4px;
+                letter-spacing: .5px;
+                color: #257908;
+                border-radius: 4px;
+                font-weight: 500;
+            }
+
+            /* Demo Tabs Source */
+            .p-tabview {
+                background: none;
+                border: 0 none;
+
+                .p-tabview-nav {
+                    border-radius: 3px 3px 0 0;
+                    padding: 4px 4px 0px 4px;
+                    border-bottom: 1px solid #dadada;
+                    background-color: transparent;
+
+                    li {
+                        margin-right: 4px;
+                        box-shadow: none !important;
+                        border: 0 none;
+                        top: 1px;
+                        border-top-right-radius: 3px;
+                        border-top-left-radius: 3px;
+
+                        a {
+                            font-weight: 400;
+                            color: #495057;
+                            text-shadow: none;
+                            height: inherit;
+                            background-color: transparent;
+                            border: 0 none;
+                            border-bottom: 1px solid transparent;
+                            margin-bottom: -1px;
+                            border-top-right-radius: 3px;
+                            border-top-left-radius: 3px;
+                            transition: background-color .2s;
+
+                            &:focus {
+                                outline: 0 none;
+                                transition: background-color .2s, box-shadow .2s;
+                                box-shadow: 0 0 0 0.2em $focusBorderColor;
+                            }
+                        }
+
+                        &.tab-doc {
+                            margin-right: 0;
+                        }
+
+                        &.p-highlight a,
+                        &.p-highlight:hover a {
+                            border: 0 none;
+                            background: #f5f7f8;
+                            color: #1976D2;
+                            border-bottom: 1px solid #1976D2;
+                        }
+
+                        &:not(.p-highlight):not(.p-disabled):hover a {
+                            color: #1976D2;
+                            background-color: transparent;
+                            border: 0 none;
+                            border-bottom: 1px solid #1976D2;
+                        }
+                    }
+                }
+
+                .p-tabview-panels {
+                    background: transparent;
+                    border: 0 none;
+                    color: #495057;
+                }
+            }
+        }
+
+        &.support {
+            .support-image {
+                background-color: #495057;
+                padding: 30px;
+                color: #ffffff;
+                text-align: left;
+
+                .p-md-6:last-child {
+                    text-align: right;
+                }
+
+                h3, p {
+                    color: #ffffff;
+                }
+            }
+
+            li {
+                line-height: 1.5;
+            }
+        }
+
+        .doc-table {
+            border-collapse: collapse;
+            width: 100%;
+
+            th {
+                background-color: #d6dade;
+                padding: 10px 14px;
+                text-align: left;
+                border: solid 1px #d6dade;
+            }
+
+            tbody{
+                td {
+                    padding: 10px 14px;
+                    border: 1px solid #eaecee;
+                }
+
+                tr{
+                    &:nth-child(even) {
+                        background-color: #eaecee;
+                    }
+                    &:nth-child(odd) {
+                        background-color: #ffffff;
+
+                        td {
+                            border: 1px solid #ffffff;
+                        }
+                    }
+                }
+            }
+        }
+    }
+}

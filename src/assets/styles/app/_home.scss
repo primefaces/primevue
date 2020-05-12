@@ -1,0 +1,457 @@
+/* Home Component*/
+.home {
+    p {
+        line-height: 22px;
+        margin-top: 0;
+        margin-bottom: 2em;
+    }
+    a {
+        color: #2E86C1;
+        font-weight: 500;
+        transition: color .2s;
+    }
+
+    .home-button {
+        font-weight: bold;
+        text-align: center;
+        color: #ffffff !important;
+        background-color: #455C71;
+        padding: 10px 24px 9px 24px;
+        border-radius: 3px;
+        transition: background-color .2s;
+
+        &:hover {
+            background-color: #708EA5;
+            color: #ffffff;
+        }
+    }
+
+    .home-button2 {
+        font-weight: bold;
+        text-align: center;
+        color: #8C6816 !important;
+        background-color: #FFCB54;
+        padding: 10px 24px 9px 24px;
+        border-radius: 3px;
+        transition: background-color .2s;
+        display: inline-block;
+
+        &:hover {
+            background-color: #E5AF36;
+            color: #8C6816 !important;
+        }
+    }
+
+    /* Introduction */
+    .introduction {
+        background-color: #1976d2;
+        background: url('./assets/images/home/primevue-introduction.jpg');
+        background-repeat: no-repeat;
+        background-size: cover;
+        padding: 115px 30px 135px 50px;
+
+        h1 {
+            font-weight: normal;
+            margin-bottom: 5px;
+            font-size: 24px;
+        }
+
+        h2 {
+            font-weight: bold;
+            margin-bottom: 40px;
+            margin-top: 0;
+            font-size: 24px;
+        }
+
+        > div {
+            padding: 100px 100px 0 100px;
+            height: 200px;
+        }
+
+        .introduction-promo {
+            display: inline-block;
+            margin-left: -50px;
+            margin-bottom: 20px;
+            padding: 10px 50px 10px 175px;
+            font-size: 1.5em;
+            background-image: linear-gradient(90deg, #445C72 0%, #DBDCDE 100%);
+            position: relative;
+            color: #ffffff;
+            font-weight: 700;
+
+            img {
+                position: absolute;
+                height: 75px;
+                left: 50px;
+                top: -12px;
+            }
+        }
+    }
+
+    /* Features */
+    .features {
+        background-color: #f9f9f9;
+        text-align: center;
+        padding: 0 30px 30px 30px;
+
+        .feature-card {
+            background-color: #ffffff;
+            box-shadow: 0 0.8px 1.7px rgba(0, 0, 0, 0.008), 0 1.9px 4.2px rgba(0, 0, 0, 0.012),0 3.6px 7.9px rgba(0, 0, 0, 0.015),0 6.5px 14.1px rgba(0, 0, 0, 0.018),0 12.1px 26.3px rgba(0, 0, 0, 0.022),0 29px 63px rgba(0, 0, 0, 0.03);
+            height: 100%;
+            border-radius: 4px;
+
+            .feature-card-detail {
+                padding: 0 16px 16px 16px;
+            }
+        }
+
+        h3 {
+             font-size:24px;
+             color: #495057;
+             padding: 30px 0 12px 0;
+             margin: 0;
+        }
+
+        img {
+            width: 100%;
+        }
+
+        .feature-name {
+            display: block;
+            font-weight: bold;
+            font-size: 16px;
+            margin-top: 1em;
+        }
+
+        p {
+            margin-top: 1em;
+            margin-bottom: 2em;
+
+            &.features-tagline {
+                color: #495057;
+                margin-bottom: 0;
+                margin-top: -5px;
+                margin-bottom: 2em;
+            }
+
+            &.features-description {
+                color: #495057;
+                text-align: left;
+            }
+
+            > a {
+                font-weight: bold;
+            }
+        }
+    }
+
+    /* Who Uses */
+    .whouses {
+        background-color: #495057;
+        color: #ffffff;
+        text-align: center;
+        padding: 30px;
+
+        h3 {
+            font-size: 24px;
+            margin-top: 0;
+            margin-bottom: 12px;
+        }
+
+        img {
+            height: 30px;
+            width: 100%;
+        }
+
+        .p-grid > div {
+            padding: 2em .5em;
+        }
+
+        p {
+            margin-bottom: 30px;
+
+            > a {
+                font-weight: bold;
+            }
+        }
+    }
+
+    .templates {
+        background-color: #f5f7f8;
+        text-align: center;
+        padding: 30px;
+        border-bottom: 1px solid #c4c5c6;
+
+        h3 {
+             font-size:24px;
+             color: #495057;
+             margin-top: 0;
+             margin-bottom: 12px;
+        }
+
+        h4 {
+            font-size: 16px;
+            font-weight: 700;
+        }
+
+        img {
+            width: 100%;
+        }
+
+        a {
+            font-weight: bold;
+        }
+    }
+
+    /* PRO */
+    .prosupport {
+        border-bottom: 1px solid #dcdedf;
+        background-color: #f5f7f8;
+        padding: 30px;
+
+        p {
+            line-height: 22px;
+            margin-bottom: 1em;
+        }
+
+        h3 {
+            font-size: 24px;
+        }
+
+        img {
+            margin-top: 10px;
+        }
+
+        .p-md-6:last-child {
+            text-align: center;
+        }
+    }
+}/* Home Component*/
+.home {
+    p {
+        line-height: 22px;
+        margin-top: 0;
+        margin-bottom: 2em;
+    }
+    a {
+        color: #2E86C1;
+        font-weight: 500;
+        transition: color .2s;
+    }
+
+    .home-button {
+        font-weight: bold;
+        text-align: center;
+        color: #ffffff !important;
+        background-color: #455C71;
+        padding: 10px 24px 9px 24px;
+        border-radius: 3px;
+        transition: background-color .2s;
+
+        &:hover {
+            background-color: #708EA5;
+            color: #ffffff;
+        }
+    }
+
+    .home-button2 {
+        font-weight: bold;
+        text-align: center;
+        color: #8C6816 !important;
+        background-color: #FFCB54;
+        padding: 10px 24px 9px 24px;
+        border-radius: 3px;
+        transition: background-color .2s;
+        display: inline-block;
+
+        &:hover {
+            background-color: #E5AF36;
+            color: #8C6816 !important;
+        }
+    }
+
+    /* Introduction */
+    .introduction {
+        background-color: #1976d2;
+        background: url('./assets/images/home/primevue-introduction.jpg');
+        background-repeat: no-repeat;
+        background-size: cover;
+        padding: 115px 30px 135px 50px;
+
+        h1 {
+            font-weight: normal;
+            margin-bottom: 5px;
+            font-size: 24px;
+        }
+
+        h2 {
+            font-weight: bold;
+            margin-bottom: 40px;
+            margin-top: 0;
+            font-size: 24px;
+        }
+
+        > div {
+            padding: 100px 100px 0 100px;
+            height: 200px;
+        }
+
+        .introduction-promo {
+            display: inline-block;
+            margin-left: -50px;
+            margin-bottom: 20px;
+            padding: 10px 50px 10px 175px;
+            font-size: 1.5em;
+            background-image: linear-gradient(90deg, #445C72 0%, #DBDCDE 100%);
+            position: relative;
+            color: #ffffff;
+            font-weight: 700;
+
+            img {
+                position: absolute;
+                height: 75px;
+                left: 50px;
+                top: -12px;
+            }
+        }
+    }
+
+    /* Features */
+    .features {
+        background-color: #f9f9f9;
+        text-align: center;
+        padding: 0 30px 30px 30px;
+
+        .feature-card {
+            background-color: #ffffff;
+            box-shadow: 0 0.8px 1.7px rgba(0, 0, 0, 0.008), 0 1.9px 4.2px rgba(0, 0, 0, 0.012),0 3.6px 7.9px rgba(0, 0, 0, 0.015),0 6.5px 14.1px rgba(0, 0, 0, 0.018),0 12.1px 26.3px rgba(0, 0, 0, 0.022),0 29px 63px rgba(0, 0, 0, 0.03);
+            height: 100%;
+            border-radius: 4px;
+
+            .feature-card-detail {
+                padding: 0 16px 16px 16px;
+            }
+        }
+
+        h3 {
+             font-size:24px;
+             color: #495057;
+             padding: 30px 0 12px 0;
+             margin: 0;
+        }
+
+        img {
+            width: 100%;
+        }
+
+        .feature-name {
+            display: block;
+            font-weight: bold;
+            font-size: 16px;
+            margin-top: 1em;
+        }
+
+        p {
+            margin-top: 1em;
+            margin-bottom: 2em;
+
+            &.features-tagline {
+                color: #495057;
+                margin-bottom: 0;
+                margin-top: -5px;
+                margin-bottom: 2em;
+            }
+
+            &.features-description {
+                color: #495057;
+                text-align: left;
+            }
+
+            > a {
+                font-weight: bold;
+            }
+        }
+    }
+
+    /* Who Uses */
+    .whouses {
+        background-color: #495057;
+        color: #ffffff;
+        text-align: center;
+        padding: 30px;
+
+        h3 {
+            font-size: 24px;
+            margin-top: 0;
+            margin-bottom: 12px;
+        }
+
+        img {
+            height: 30px;
+            width: 100%;
+        }
+
+        .p-grid > div {
+            padding: 2em .5em;
+        }
+
+        p {
+            margin-bottom: 30px;
+
+            > a {
+                font-weight: bold;
+            }
+        }
+    }
+
+    .templates {
+        background-color: #f5f7f8;
+        text-align: center;
+        padding: 30px;
+        border-bottom: 1px solid #c4c5c6;
+
+        h3 {
+             font-size:24px;
+             color: #495057;
+             margin-top: 0;
+             margin-bottom: 12px;
+        }
+
+        h4 {
+            font-size: 16px;
+            font-weight: 700;
+        }
+
+        img {
+            width: 100%;
+        }
+
+        a {
+            font-weight: bold;
+        }
+    }
+
+    /* PRO */
+    .prosupport {
+        border-bottom: 1px solid #dcdedf;
+        background-color: #f5f7f8;
+        padding: 30px;
+
+        p {
+            line-height: 22px;
+            margin-bottom: 1em;
+        }
+
+        h3 {
+            font-size: 24px;
+        }
+
+        img {
+            margin-top: 10px;
+        }
+
+        .p-md-6:last-child {
+            text-align: center;
+        }
+    }
+}

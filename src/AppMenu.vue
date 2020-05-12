@@ -2,7 +2,19 @@
     <div :class="['layout-sidebar', {'active': active}]">
         <div class="layout-menu">
             <span>
-                <img alt="input" class="layout-menu-icon-inactive" src="./assets/images/menu/input.svg" />
+                <i class="pi pi-home"></i>
+                <span>General</span>
+            </span>
+            <div>
+                <router-link to="/setup">Get Started</router-link>
+                <router-link to="/theming">Theming</router-link>
+                <router-link to="/theming">Designer</router-link>
+                <router-link to="/theming">Sass API</router-link>
+                <router-link to="/icons">Icons</router-link>
+            </div>
+
+            <span>
+                <i class="pi pi-id-card"></i>
                 <span>Form</span>
             </span>
             <div>
@@ -32,7 +44,7 @@
             </div>
 
             <span>
-                <img alt="button" class="layout-menu-icon-inactive" src="./assets/images/menu/button.svg" />
+                <i class="pi pi-mobile" style="transform: rotate(90deg);"></i>
                 <span>Button</span>
             </span>
             <div>
@@ -41,7 +53,7 @@
             </div>
 
             <span>
-                <img alt="data" class="layout-menu-icon-inactive" src="./assets/images/menu/data.svg" />
+                <i class="pi pi-list"></i>
                 <span>Data</span>
             </span>
             <div>
@@ -58,7 +70,7 @@
             </div>
 
             <span>
-                <img alt="panel" class="layout-menu-icon-inactive" src="./assets/images/menu/panel.svg" />
+               <i class="pi pi-th-large"></i>
                 <span>Panel</span>
             </span>
             <div>
@@ -73,7 +85,7 @@
             </div>
 
             <span>
-                <img alt="overlay" class="layout-menu-icon-inactive" src="./assets/images/menu/overlay.svg" />
+                <i class="pi pi-clone"></i>
                 <span>Overlay</span>
             </span>
             <div>
@@ -84,7 +96,7 @@
             </div>
 
             <span>
-                <img alt="file" class="layout-menu-icon-inactive" src="./assets/images/menu/file.svg" />
+                <i class="pi pi-file-o"></i>
                 <span>File</span>
             </span>
             <div>
@@ -92,7 +104,7 @@
             </div>
 
             <span>
-                <img alt="menu" class="layout-menu-icon-inactive" src="./assets/images/menu/menu.svg" />
+                <i class="pi pi-bars"></i>
                 <span>Menu</span>
             </span>
             <div>
@@ -109,7 +121,7 @@
             </div>
 
             <span>
-                <img alt="charts" class="layout-menu-icon-inactive" src="./assets/images/menu/charts.svg" />
+                <i class="pi pi-chart-bar"></i>
                 <span>Chart</span>
             </span>
             <div>
@@ -124,7 +136,7 @@
             </div>
 
             <span>
-                <img alt="message" class="layout-menu-icon-inactive" src="./assets/images/menu/message.svg" />
+                <i class="pi pi-comment"></i>
                 <span>Messages</span>
             </span>
             <div>
@@ -133,7 +145,7 @@
             </div>
 
             <span>
-                <img alt="multimedia" class="layout-menu-icon-inactive" src="./assets/images/menu/multimedia.svg" />
+                <i class="pi pi-image"></i>
                 <span>Multimedia</span>
             </span>
             <div>
@@ -141,7 +153,7 @@
             </div>
 
             <span>
-                <img alt="misc" class="layout-menu-icon-inactive" src="./assets/images/menu/misc.svg" />
+                <i class="pi pi-share-alt"></i>
                 <span>Misc</span>
             </span>
             <div>

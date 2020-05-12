@@ -1,0 +1,195 @@
+.layout-config {
+    position: fixed;
+    padding: 0;
+    top: 70px;
+    display: block;
+    right: 0;
+    width: 550px;
+    z-index: 996;
+    height: calc(100% - 70px);
+    transition: transform .3s;
+    transform: translate3d(550px,0,0);
+    background-color: #ffffff;
+    backface-visibility: hidden;
+
+    &.layout-config-active {
+        transform: translate3d(0,0,0);
+
+        .layout-config-content-wrapper {
+            .layout-config-button {
+                i {
+                    transform: rotate(360deg);
+                }
+            }
+        }
+    }
+
+    .layout-config-content-wrapper {
+        position: relative;
+        height: 100%;
+        padding: 0;
+        box-shadow: 0 2px 10px 0 rgba(0, 0, 0, 0.24);
+
+        .layout-config-button {
+            display: block;
+            position: absolute;
+            width: 52px;
+            height: 52px;
+            line-height: 52px;
+            background-color: #41b883;
+            text-align: center;
+            color: #fafafa;
+            top: 200px;
+            left: -51px;
+            z-index: -1;
+            overflow: hidden;
+            cursor: pointer;
+            border-top-left-radius: 3px;
+            border-top-right-radius: 3px;
+            transition: background-color .2s, box-shadow .2s;
+            box-shadow: 0 7px 8px -4px rgba(0, 0, 0, 0.2),
+                        0 5px 22px 4px rgba(0, 0, 0, 0.12),
+                        0 12px 17px 2px rgba(0, 0, 0, 0.14);
+
+            i {
+                font-size: 26px;
+                line-height: inherit;
+                cursor: pointer;
+                transform: rotate(0deg);
+                transition: transform 1s;
+            }
+
+            &:hover {
+                background-color: #3aa476;
+            }
+        }
+    }
+
+    a {
+        color: #1976D2;
+        transition: color .2s;
+        font-weight: 500;
+    }
+
+    .layout-config-content {
+        overflow: auto;
+        height: 100%;
+    }
+
+    .layout-config-close {
+        position: absolute;
+        width: 25px;
+        height: 25px;
+        line-height: 25px;
+        text-align: center;
+        right: 20px;
+        top: 20px;
+        z-index: 999;
+        background-color: #41b783;
+        border-radius: 50%;
+        transition: background-color .2s, box-shadow .2s;
+
+        i {
+            color: #ffffff;
+            line-height: inherit;
+            font-size: 16px;
+        }
+
+        &:hover {
+            background-color: #3aa476;
+        }
+
+        &:focus {
+            outline: 0 none;
+            box-shadow: 0 0 0 0.2em $focusBorderColor;
+        }
+    }
+
+    h1 {
+        font-size: 18px;
+        letter-spacing: .1px;
+        margin: 0 0 .5em 0;
+    }
+
+    .p-grid > div {
+        padding: 1em .5em;
+        text-align: center;
+
+        span {
+            display: block;
+        }
+    }
+
+    p {
+        margin: 0 0 2em 0;
+    }
+
+    .free-themes {
+        padding: 2em;
+        color: #495057;
+        background-color: #ffffff;
+
+        img {
+            width: 50px;
+            border-radius: 4px;
+        }
+
+        span {
+            font-size: 12px;
+        }
+    }
+
+    .current-theme {
+        box-shadow: 0 0 0 0.2em $focusBorderColor;
+    }
+
+    button {
+        position: relative;
+        display: inline-flex;
+        justify-content: center;
+        transition: box-shadow .2s, transform .2s;
+
+        i {
+            line-height: inherit;
+            font-size: 28px;
+            color: #41b783;
+            position: absolute;
+            top: 0;
+            left: 50%;
+            margin-left: -18px;
+            margin-top: -18px;
+            padding: .18em;
+            box-shadow: 0 2px 6px 0 rgba(0, 0, 0, 0.25);
+            background-color: #ffffff;
+            border-radius: 50%;
+            width: 36px;
+            height: 36px;
+        }
+
+        &:focus {
+            box-shadow: 0 0 0 0.2em $focusBorderColor;
+        }
+
+        &:hover {
+            transform: scale(1.1);
+        } 
+    }
+
+    .premium-themes {
+        padding: 2em;
+        background-color: #212529;
+        color: #ffffff;
+
+        p {
+            color: #d8d8d8;
+        }
+
+        img {
+            width: 100%;
+        }
+
+        a {
+            color: #2196F3;
+        }
+    }
+}

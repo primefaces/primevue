@@ -1,0 +1,94 @@
+.layout-sidebar {
+    position: fixed;
+    left: 0;
+    top: 70px;
+    height: calc(100% - 70px);
+    background-color: #ffffff;
+    overflow: auto;
+    width: 250px;
+    box-shadow: 0 0 2px rgba(0,0,0,0.25);
+
+    .layout-menu {
+
+        > span {
+            width: 100%;
+            height: 50px;
+            display: block;
+            padding: 0px 0px 0px 20px;
+            margin-bottom: 12px;
+            background-color: #f8f9fa;
+            color: #767676;
+            font-weight: 700;
+            user-select: none;
+            transition: background-color .2s;
+            display: flex;
+            align-items: center;
+
+            span {
+                font-size: 14px;
+                margin: 0px 0px 0px 8px;
+                display: block;
+                line-height: 1;
+            }
+
+            img {
+                width: 20px;
+                height: auto;
+                float: left;
+
+                &.layout-menu-icon-active {
+                    display: none;
+                }
+
+                &.layout-menu-icon-inactive {
+                    display: inline;
+                }
+            }
+        }
+
+        > div {
+            background-color: #ffffff;
+            padding: 0 15px 15px 15px;
+            display: flex;
+            flex-direction: column;
+
+            a {
+                display: inline-block;
+                padding: 6px;
+                cursor: pointer;
+                border-radius: 4px;
+                font-size: 14px;
+                color: #495057;
+                transition: background-color .2s;
+
+                &:hover {
+                    background-color: #e9ecef;
+                }
+
+                &:focus {
+                    z-index: 1;
+                    outline: 0 none;
+                    transition: box-shadow .2s;
+                    box-shadow: 0 0 0 0.2em $focusBorderColor;
+                }
+
+                &.router-link-active {
+                    color: #526F89;
+                    font-weight: 700;
+                }
+
+                .menuitem-badge {
+                    background: linear-gradient(to bottom, #96c93d, #00b09b);
+                    padding: 2px 4px;
+                    vertical-align: middle;
+                    border-radius: 3px;
+                    color: #ffffff;
+                    font-weight: bold;
+                    font-size: 11px;
+                    position: relative;
+                    top: -1px;
+                }
+            }
+        }
+    }
+}

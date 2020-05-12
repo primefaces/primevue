@@ -1,0 +1,91 @@
+
+.layout-news {
+    position: fixed;
+    top: 0;
+    left: 0;
+    z-index: 997;
+    height: 70px;
+    width: 100%;
+    display: flex;
+    -ms-flex-pack: center;
+    justify-content: center;
+    -ms-flex-align: center;
+    align-items: center;
+    background-image: url("assets/images/topbar-easter-2020-bg.jpg");
+
+    .layout-news-container {
+        width: 100%;
+        height: 100%;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        color: #ffffff;
+        font-weight: bold;
+        font-size: 20px;
+
+        .layout-news-details {
+            display: flex;
+            align-items: center;
+            z-index: 1;
+
+            .rate {
+                color: #f2b837;
+                font-size: 25px;
+                font-weight: bold;
+                margin: 0 .25em;
+            }
+
+            .helper-text {
+                background-color: #f2b837;
+                color: #212121;
+                padding: 0 0.2em;
+                margin-right: 0.3em;
+            }
+        }
+
+        img.layouts-news-text-image {
+            height: 60px;
+        }
+
+        img.layouts-news-mockup-image {
+            height: 70px;
+            position: absolute;
+            right: 52px;
+        }
+    }
+
+    .layout-news-close {
+        color: #fff;
+        position: absolute;
+        z-index: 2;
+        right: 28px;
+        background-color: rgba(0,0,0,.3);
+        border-radius: 50%;
+        display: -ms-flexbox;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        width: 23px;
+        height: 23px;
+    }
+}
+
+.layout-wrapper.layout-news-active {
+    .layout-topbar {
+        top: 70px
+    }
+
+    .layout-sidebar {
+        top: 140px;
+        height: calc(100% - 140px);
+    }
+
+    .layout-config {
+        top: 140px;
+        height: calc(100% - 140px);
+    }
+
+    .layout-content {
+        padding-top: 140px;
+    }
+}
