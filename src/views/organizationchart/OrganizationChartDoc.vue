@@ -647,7 +647,7 @@ export default {
 }
 </CodeHighlight>
 
-<CodeHighlight lang="scss">
+<CodeHighlight lang="css">
 /deep/ .p-organizationchart {
     .p-person {
         padding: 0;
