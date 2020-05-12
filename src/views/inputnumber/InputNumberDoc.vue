@@ -106,8 +106,8 @@ Vertical
 
 				<h3>Properties</h3>
 				<p>InputNumber passes any valid attribute to the underlying input element.</p>
-                <div className="doc-tablewrapper">
-                    <table className="doc-table">
+                <div class="doc-tablewrapper">
+                    <table class="doc-table">
                         <thead>
                             <tr>
                                 <th>Name</th>
@@ -142,13 +142,13 @@ Vertical
                                 <td>Layout of the buttons, valid values are "stacked" (default), "horizontal" and "vertical".</td>
                             </tr>
                             <tr>
-                                <td>incrementButtonClassName</td>
+                                <td>incrementButtonClass</td>
                                 <td>string</td>
                                 <td>null</td>
                                 <td>Style class of the increment button.</td>
                             </tr>
                             <tr>
-                                <td>decrementButtonClassName</td>
+                                <td>decrementButtonClass</td>
                                 <td>string</td>
                                 <td>null</td>
                                 <td>Style class of the decrement button.</td>
