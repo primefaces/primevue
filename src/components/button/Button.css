@@ -41,16 +41,16 @@
     margin: 0;
 }
 
-.p-buttonset .p-button:not(:first-child):not(:last-child) {
+.p-buttonset .p-button:not(:first-of-type):not(:last-of-type) {
     border-radius: 0;
 }
 
-.p-buttonset .p-button:first-child {
+.p-buttonset .p-button:first-of-type {
     border-top-right-radius: 0;
     border-bottom-right-radius: 0;
 }
 
-.p-buttonset .p-button:last-child {
+.p-buttonset .p-button:last-of-type {
     border-top-left-radius: 0;
     border-bottom-left-radius: 0;
 }
