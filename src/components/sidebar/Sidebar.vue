@@ -1,10 +1,12 @@
 <template>
     <transition name="p-sidebar" @enter="onEnter" @leave="onLeave">
         <div :class="containerClass" v-if="visible" ref="container" role="complementary" :aria-modal="modal">
-            <button class="p-sidebar-close p-link" @click="hide" :aria-label="ariaCloseLabel" v-if="showCloseIcon" type="button">
-                <span class="p-sidebar-close-icon pi pi-times" />
-            </button>
-            <slot></slot>
+            <div class="p-sidebar-content">
+                <button class="p-sidebar-close p-link" @click="hide" :aria-label="ariaCloseLabel" v-if="showCloseIcon" type="button">
+                    <span class="p-sidebar-close-icon pi pi-times" />
+                </button>
+                <slot></slot>
+            </div>
         </div>
     </transition>
 </template>
@@ -141,6 +143,19 @@ export default {
     transition: transform .3s;
 }
 
+.p-sidebar-content {
+    position: relative;
+}
+
+.p-sidebar-close {
+    position: absolute;
+    top: 0;
+    right: 0;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
 .p-sidebar-mask {
     background-color: transparent;
     transition-property: background-color;
@@ -245,13 +260,6 @@ export default {
 .p-sidebar-top.p-sidebar-lg,
 .p-sidebar-bottom.p-sidebar-lg {
     height: 30em;
-}
-
-.p-sidebar-close.p-link {
-    margin-left: auto;
-    display: flex;
-    align-items: center;
-    justify-content: center;
 }
 
 @media screen and (max-width: 64em) {
