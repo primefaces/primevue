@@ -23,8 +23,6 @@
 				</template>
             </Galleria>
 
-            <hr />
-
             <h3>Change Preview On Indicator Hover</h3>
             <Galleria :value="images" :responsiveOptions="responsiveOptions" :numVisible="5" style="max-width: 520px"
                 :showThumbnails="false" :showIndicators="true" :changePreviewOnIndicatorHover="true">
@@ -38,8 +36,6 @@
 				</template>
             </Galleria>
 
-            <hr />
-
             <h3>Show Indicator On Preview</h3>
             <Galleria :value="images" :responsiveOptions="responsiveOptions" :numVisible="5" style="max-width: 520px"
                 :showThumbnails="false" :showIndicators="true" :changePreviewOnIndicatorHover="true" :showIndicatorsOnPreview="true">
@@ -52,8 +48,6 @@
                     </div>
 				</template>
             </Galleria>
-
-            <hr />
 
             <h3>Position</h3>
             <Galleria :value="images" :responsiveOptions="responsiveOptions" :numVisible="5" style="max-width: 520px"

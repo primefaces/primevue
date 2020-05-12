@@ -8,7 +8,7 @@
         </div>
 
         <div class="content-section implementation">
-            <h3 class="first">Basic</h3>
+            <h3>Basic</h3>
             <InputText type="text" v-model="value1" />
             <span :style="{marginLeft: '.5em'}">{{value1}}</span>
 

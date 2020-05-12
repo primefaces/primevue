@@ -1,6 +1,5 @@
 .layout-topbar {
-    background-color: #ffffff;
-    display: block;
+    background-color: var(--layer-0);
     padding: 0;
     height: 70px;
     position: fixed;
@@ -12,8 +11,7 @@
 
     .menu-button {
         display: none;
-        color: #495057;
-        font-size: 24px;
+        color: var(--text-color);
         position: absolute;
         left: 0;
         top: 0;
@@ -21,20 +19,21 @@
         height: 70px;
         line-height: 70px;
         text-align: center;
-        cursor: pointer;
         transition: background-color .2s;
+        cursor: pointer;
 
         &:hover {
             background-color: #e9ecef;
         }
 
         i {
+            font-size: 24px;
             line-height: inherit;
         }
     }
 
     .logo {
-        margin-left: 45px;
+        margin-left: 35px;
         margin-top: 8px;
         display: inline-block;
 
@@ -63,18 +62,18 @@
 
             > a {
                 text-decoration: none;
-                color: #495057;
+                color: var(--text-color);
                 min-width: 120px;
                 font-size: 16px;
                 display: inline-block;
                 text-align: center;
                 user-select: none;
                 line-height: inherit;
-                cursor: pointer;
                 transition: background-color .2s;
+                cursor: pointer;
 
                 &:hover {
-                    background-color: #e9ecef;
+                    background-color: var(--layer-2);
                 }
 
                 &:focus {
@@ -94,11 +93,11 @@
                     right: 0;
                     width: 275px;
                     max-height: 400px;
-                    background-color: #ffffff;
+                    background-color: var(--layer-0);
                     box-shadow: 0 0 10px 0 rgba(0, 0, 0, 0.3);
                     overflow: auto;
                     list-style-type: none;
-                    padding: 6px 12px;
+                    padding: 1rem;
                     margin: 0;
                     border-radius: 3px;
 
@@ -106,68 +105,48 @@
                         line-height: 1;
 
                         &.topbar-submenu-header {
-                            padding: 6px 12px;
+                            padding: .5rem;
                             font-weight: bold;
                             text-align: left;
-                            margin-top: 18px;
+                            margin-top: 1rem;
 
                             &:first-child {
-                                margin-top: 6px;
+                                margin-top: 0;
                             }
                         }
                     }
 
                     a {
                         text-decoration: none;
-                        color: #495057;
-                        padding: 8px 12px;
+                        color: var(--text-color);
+                        padding: .5rem;
                         display: block;
                         user-select: none;
                         transition: background-color .2s;
+                        border-radius: 3px;
                         cursor: pointer;
 
                         &:hover {
-                            background-color: #e9ecef;
+                            background-color: var(--layer-2);
                             cursor: pointer;
+                        }
+
+                        span {
+                            margin-left: .5rem;
+                            vertical-align: middle;
+                        }
+
+                        i {
+                            vertical-align: middle;
+                            color: var(--text-color-secondary);
+                            vertical-align: middle;
                         }
 
                         img {
                             width: 32px;
                             vertical-align: middle;
-                            margin-right: 4px;
+                            margin-right: .5rem;
                         }
-
-                        span {
-                            margin-left: 8px;
-                        }
-
-                        i {
-                            vertical-align: middle;
-                            font-size: 18px;
-                            margin-right: 4px;
-                            margin-left: 4px;
-                            color: #6c757d;
-                        }
-                    }
-
-                    li:last-child {
-                        a {
-                            border-bottom: 0 none;
-                        }
-                    }
-                }
-
-                &.topbar-resources-submenu {
-                    > ul {
-                        a {
-                            padding: 12px 6px;
-
-                            span {
-                                margin-left: 6px;
-                            }
-                        }
-
-
                     }
                 }
             }

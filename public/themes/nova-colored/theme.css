@@ -1,4 +1,14 @@
 @charset "UTF-8";
+:root {
+  --layer-0: #ffffff;
+  --layer-1: #f4f4f4;
+  --layer-2: #eaeaea;
+  --text-color: #333333;
+  --text-color-secondary: #848484;
+  --primary-color: #007ad9;
+  --primary-color-text: #ffffff;
+}
+
 * {
   box-sizing: border-box;
 }
