@@ -2,8 +2,8 @@
     <div>
         <div class="content-section introduction">
             <div class="feature-intro">
-                <h1>AccordionPanel</h1>
-                <p>AccordionPanel groups a collection of contents in tabs.</p>
+                <h1>Accordion</h1>
+                <p>Accordion groups a collection of contents in tabs.</p>
             </div>
         </div>
 
