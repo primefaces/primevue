@@ -1,8 +1,8 @@
 import Vue from 'vue';
 
 export declare class RadioButton extends Vue {
-    value: any;
-    modelValue: any;
+    value?: any;
+    modelValue?: any;
     $emit(eventName: 'click', event: Event): this;
     $emit(eventName: 'input', value: any): this;
     $emit(eventName: 'change', event: Event): this;

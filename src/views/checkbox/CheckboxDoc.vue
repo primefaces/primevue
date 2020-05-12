@@ -60,12 +60,6 @@ export default {
                                 <td>false</td>
                                 <td>Allows to select a boolean value instead of multiple values.</td>
                             </tr>
-                            <tr>
-                                <td>ariaLabelledBy</td>
-                                <td>string</td>
-                                <td>null</td>
-                                <td>Establishes relationships between the component and label(s) where its value should be one or more element IDs.</td>
-                            </tr>
 						</tbody>
 					</table>
 				</div>
