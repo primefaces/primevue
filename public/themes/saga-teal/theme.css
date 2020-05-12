@@ -1861,6 +1861,9 @@
 .p-tree .p-tree-container .p-treenode .p-treenode-content .p-checkbox {
   margin-right: 0.5rem;
 }
+.p-tree .p-tree-container .p-treenode .p-treenode-content .p-checkbox .p-indeterminate .p-checkbox-icon {
+  color: #495057;
+}
 .p-tree .p-tree-container .p-treenode .p-treenode-content:focus {
   outline: 0 none;
   outline-offset: 0;
@@ -1992,6 +1995,12 @@
 }
 .p-treetable .p-treetable-tbody > tr > td .p-treetable-toggler:hover {
   color: #009688;
+}
+.p-treetable .p-treetable-tbody > tr > td .p-treetable-toggler + .p-checkbox {
+  margin-right: 0.5rem;
+}
+.p-treetable .p-treetable-tbody > tr > td .p-treetable-toggler + .p-checkbox .p-indeterminate .p-checkbox-icon {
+  color: #495057;
 }
 .p-treetable .p-treetable-tbody > tr.p-highlight {
   background: #009688;
@@ -2914,6 +2923,9 @@
   outline: 0 none;
   outline-offset: 0;
   box-shadow: inset 0 0 0 0.15rem #B2DFDB;
+}
+.p-panelmenu .p-panelmenu-content .p-menuitem .p-menuitem-link .p-panelmenu-icon {
+  margin-right: 0.5rem;
 }
 .p-panelmenu .p-panelmenu-content .p-submenu-list:not(.p-panelmenu-root-submenu) {
   padding: 0 0 0 1rem;
