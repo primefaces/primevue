@@ -2229,6 +2229,7 @@ export default {
     justify-content: center;
     align-items: center;
     cursor: pointer;
+    margin: 0 auto;
 }
 
 /* Month Picker */
