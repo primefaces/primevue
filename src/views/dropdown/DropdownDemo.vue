@@ -98,7 +98,7 @@ export default {
     justify-content: flex-start;
 
     img {
-        width: 19px;
+        width: 17px;
     }
 }
 </style>

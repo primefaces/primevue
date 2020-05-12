@@ -424,7 +424,7 @@
 }
 .p-dropdown .p-dropdown-label {
   border: 0 none;
-  padding-right: 2rem;
+  padding-right: 1.5rem;
 }
 .p-dropdown .p-dropdown-label.p-placeholder {
   color: #aeb6bf;
@@ -442,7 +442,7 @@
 }
 .p-dropdown .p-dropdown-clear-icon {
   color: #aeb6bf;
-  right: 2.857rem;
+  right: 2.357rem;
 }
 
 .p-dropdown-panel {
