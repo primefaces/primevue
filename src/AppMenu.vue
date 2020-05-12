@@ -8,8 +8,9 @@
             <div>
                 <router-link to="/setup">Get Started</router-link>
                 <router-link to="/theming">Theming</router-link>
-                <router-link to="/theming">Designer</router-link>
-                <router-link to="/theming">Sass API</router-link>
+                <a href="https://www.primefaces.org/designer/primevue">Designer</a>
+                <a href="https://www.primefaces.org/designer/api/primevue/2.0.0">Sass API</a>
+                <router-link to="/flexgrid">PrimeFlex</router-link>
                 <router-link to="/icons">Icons</router-link>
             </div>
 
@@ -78,7 +79,6 @@
                 <router-link to="/card">Card</router-link>
                 <router-link to="/deferredcontent">Deferred</router-link>
                 <router-link to="/fieldset">Fieldset</router-link>
-                <router-link to="/flexgrid">FlexGrid</router-link>
                 <router-link to="/panel">Panel</router-link>
                 <router-link to="/tabview">TabView</router-link>
                 <router-link to="/toolbar">Toolbar</router-link>
@@ -146,7 +146,7 @@
 
             <span>
                 <i class="pi pi-image"></i>
-                <span>Multimedia</span>
+                <span>Image</span>
             </span>
             <div>
                 <router-link to="/galleria">Galleria</router-link>

@@ -42,7 +42,7 @@ import InputText from 'primevue/inputtext';
                 Note that these classes should be used to change the size of a particular field, for global scaling see the <router-link to="/theming">theming</router-link> page.</p>
 <CodeHighlight>
 &lt;InputText type="text" class="p-inputtext-sm" placeholder="Small" /&gt;
-&lt;InputText type="text" class="p-inputtext" placeholder="Normal" /&gt;
+&lt;InputText type="text" placeholder="Normal" /&gt;
 &lt;InputText type="text" class="p-inputtext-lg"  placeholder="Large" /&gt;
 </CodeHighlight>
 
@@ -120,7 +120,7 @@ import InputText from 'primevue/inputtext';
 &lt;h3&gt;Sizes&lt;/h3&gt;
 &lt;div class="sizes"&gt;
     &lt;InputText type="text" class="p-inputtext-sm" placeholder="Small" /&gt;
-    &lt;InputText type="text" class="p-inputtext" placeholder="Normal" /&gt;
+    &lt;InputText type="text" placeholder="Normal" /&gt;
     &lt;InputText type="text" class="p-inputtext-lg"  placeholder="Large" /&gt;
 &lt;/div&gt;
 </template>

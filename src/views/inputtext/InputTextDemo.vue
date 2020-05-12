@@ -39,7 +39,7 @@
             <h3>Sizes</h3>
             <div class="sizes">
                 <InputText type="text" class="p-inputtext-sm" placeholder="Small" />
-                <InputText type="text" class="p-inputtext" placeholder="Normal" />
+                <InputText type="text" placeholder="Normal" />
                 <InputText type="text" class="p-inputtext-lg"  placeholder="Large" />
             </div>
         </div>
