@@ -289,8 +289,8 @@ export default {
         },
         toggleIcon() {
             return ['p-tree-toggler-icon pi pi-fw', {
-                'pi-caret-down': this.expanded,
-                'pi-caret-right': !this.expanded
+                'pi-angle-down': this.expanded,
+                'pi-angle-right': !this.expanded
             }];
         },
         checkboxClass() {

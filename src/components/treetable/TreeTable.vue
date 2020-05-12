@@ -18,7 +18,7 @@
                 <slot name="paginatorRight"></slot>
             </template>
         </TTPaginator>
-        <div class="p-treetable-tablewrapper">
+        <div class="p-treetable-wrapper">
             <table ref="table">
                 <thead class="p-treetable-thead">
                     <tr>
@@ -921,7 +921,7 @@ export default {
     table-layout: auto;
 }
 
-.p-treetable-hoverable-rows .p-treetable-row {
+.p-treetable-hoverable-rows .p-treetable-tbody > tr {
     cursor: pointer;
 }
 

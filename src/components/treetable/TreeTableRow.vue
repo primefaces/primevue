@@ -13,7 +13,7 @@
                 </div>
             </div>
             <TTColumnSlot :node="node" :column="col" type="body" v-if="col.$scopedSlots.body" />
-            <template v-else>{{resolveFieldData(node.data, col.field)}}</template>
+            <template>{{resolveFieldData(node.data, col.field)}}</template>
         </td>
     </tr>
 </template>
@@ -218,7 +218,7 @@ export default {
             return (this.selectionMode && this.selectionKeys) ? this.selectionKeys[this.node.key] === true : false;
         },
         togglerIcon() {
-            return ['p-treetable-toggler-icon pi', {'pi-chevron-right': !this.expanded, 'pi-chevron-down': this.expanded}];
+            return ['p-treetable-toggler-icon pi', {'pi-angle-right': !this.expanded, 'pi-angle-down': this.expanded}];
         },
         togglerStyle() {
             return {

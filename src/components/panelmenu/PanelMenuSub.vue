@@ -72,7 +72,7 @@ export default {
         },
         getSubmenuIcon(item) {
             const active = this.isActive(item);
-            return ['p-panelmenu-icon pi pi-fw', {'pi-caret-right': !active, 'pi-caret-down': active}];
+            return ['p-panelmenu-icon pi pi-fw', {'pi-angle-right': !active, 'pi-angle-down': active}];
         },
         visible(item) {
             return (typeof item.visible === 'function' ? item.visible() : item.visible !== false);
