@@ -48,8 +48,8 @@
         }
 
         &.introduction {
-            color: #ffffff;
-            background-color: #2196f3;
+            background-color: var(--primary-color);
+            color: var(--primary-color-text);
 
             .feature-intro {
                 h1 {
@@ -135,15 +135,16 @@
             }
 
             i:not([class~="pi"]) {
-                background-color: var(--primary-color);
-                color: var(--primary-color-text);
-                font-family: Consolas, Monaco, 'Andale Mono', 'Ubuntu Mono', monospace;
+                background-color: #2196f3;
+                color: #ffffff;
+                font-family: Monaco, courier, monospace;
                 font-style: normal;
-                font-size: 14px;
+                font-size: 12px;
                 padding: 2px 4px;
                 letter-spacing: .5px;
-                border-radius: 4px;
-                font-weight: 500;
+                border-radius: 3px;
+                font-weight: 600;
+                margin: 0 2px;
             }
 
             .p-tabview {
