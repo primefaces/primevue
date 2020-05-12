@@ -66,8 +66,8 @@
                     <label for="datetemplate">Date Template</label>
                     <Calendar id="datetemplate" v-model="date12">
                         <template #date="slotProps">
-                            <div v-if="slotProps.date.day > 10 && slotProps.date.day < 15" class="special-day">{{slotProps.date.day}}</div>
-                            <span v-else>{{slotProps.date.day}}</span>
+                            <strong v-if="slotProps.date.day > 10 && slotProps.date.day < 15" class="special-day">{{slotProps.date.day}}</strong>
+                            <template v-else>{{slotProps.date.day}}</template>
                         </template>
                     </Calendar>
                 </div>
@@ -150,13 +150,6 @@ export default {
 
 <style scoped>
 .special-day {
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    background-color: #1dcbb3;
-    color: #ffffff;
-    border-radius: 50%;
-    width: 2em;
-    height: 2em;
+    text-decoration: line-through;
 }
 </style>
