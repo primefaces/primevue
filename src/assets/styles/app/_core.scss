@@ -10,6 +10,7 @@
     }
 }
 
+$linkColor: #2196f3;
 $focusBorderColor:#BBDEFB;
 
 html {
@@ -41,7 +42,6 @@ input[type="number"] {
 
 a {
     text-decoration: none;
-    color: #1976D2;
 }
 
 .layout-mask {
@@ -144,4 +144,19 @@ pre[class*="language-"] code {
 .p-toast.p-toast-topright,
 .p-toast.p-toast-topleft {
     top: 100px;
+}
+
+.action-button {
+    font-weight: bold;
+    text-align: center;
+    color: #ffffff !important;
+    background-color: #455C71;
+    padding: 10px 24px 9px 24px;
+    border-radius: 3px;
+    transition: background-color .2s;
+
+    &:hover {
+        background-color: #708EA5;
+        color: #ffffff;
+    }
 }

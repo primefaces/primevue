@@ -6,7 +6,7 @@
             <h1>The Ultimate UI Component Library</h1>
             <h2>for Vue</h2>
 
-            <router-link to="/setup" class="home-button">GET STARTED</router-link>
+            <router-link to="/setup" class="action-button">GET STARTED</router-link>
         </div>
 
         <div class="features">
@@ -117,7 +117,6 @@
             </div>
         </div>
         <div class="templates">
-
             <h3>Premium Application Templates</h3>
             <p>Gorgeous Vue-CLI application templates designed by professional designers and implemented by Vue Experts to help you reach your goals in no time.</p>
 
@@ -195,7 +194,7 @@
                     <h3>PrimeVue PRO Support</h3>
                     <p>No time to wait for a response at forum or issue tracker? Then PrimeVue PRO Support is definitely for you.</p>
                     <p>PrimeVUE PRO is an exceptional support service where you'll contact the PrimeTek via a private channel and receive assistance just in a couple of hours. Optionally PrimeVue PRO offers the ability to request changes and new features for the component library.</p>
-                    <a class="home-button2" href="mailto:contact@primetek.com.tr">
+                    <a class="action-button" href="mailto:contact@primetek.com.tr">
                         Get a Quote
                     </a>
                 </div>
