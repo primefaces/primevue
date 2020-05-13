@@ -43,7 +43,7 @@ export default {
 					{
 						label: 'Dataset 1',
 						backgroundColor: [
-							 '#EC407A',
+                            '#EC407A',
                             '#AB47BC',
                             '#42A5F5',
                             '#7E57C2',

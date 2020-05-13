@@ -78,7 +78,7 @@ export default {
                 document.body.setAttribute('data-darktheme', 'true');
             else
                 document.body.removeAttribute('data-darktheme')
-            
+
         },
         addClass(element, className) {
             if (!this.hasClass(element, className)) {

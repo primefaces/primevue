@@ -224,7 +224,7 @@
                 </router-link>
             </div>
 
-            
+
 
             <span>
                 <i class="pi pi-share-alt"></i>

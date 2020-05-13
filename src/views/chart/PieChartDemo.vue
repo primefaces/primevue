@@ -61,7 +61,7 @@ export default {
                     labels: {
                         fontColor: '#495057'
                     }
-                } 
+                }
             }
         },
         getDarkTheme() {
@@ -70,7 +70,7 @@ export default {
                     labels: {
                         fontColor: '#ebedef'
                     }
-                } 
+                }
             }
         }
     },
