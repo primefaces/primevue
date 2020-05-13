@@ -8,7 +8,7 @@
         </div>
 
         <div class="content-section implementation">
-            <Chart type="pie" :data="chartData" />
+            <Chart type="pie" :data="chartData" :options="chartOptions" />
         </div>
 
         <PieChartDoc/>
@@ -17,8 +17,17 @@
 
 <script>
 import PieChartDoc from './PieChartDoc';
+import EventBus from '@/EventBus';
 
 export default {
+    mounted() {
+        EventBus.$on('change-theme', event => {
+            if (event.dark)
+                this.chartOptions = this.getDarkTheme();
+            else
+                this.chartOptions = this.getLightTheme();
+        });
+    },
     data() {
         return {
             chartData: {
@@ -27,17 +36,41 @@ export default {
                     {
                         data: [300, 50, 100],
                         backgroundColor: [
-                            "#FF6384",
-                            "#36A2EB",
-                            "#FFCE56"
+                            "#42A5F5",
+                            "#66BB6A",
+                            "#FFA726"
                         ],
                         hoverBackgroundColor: [
-                            "#FF6384",
-                            "#36A2EB",
-                            "#FFCE56"
+                            "#64B5F6",
+                            "#81C784",
+                            "#FFB74D"
                         ]
                     }
                 ]
+            },
+            chartOptions: this.isDarkTheme() ? this.getDarkTheme() : this.getLightTheme()
+        }
+    },
+    methods: {
+        isDarkTheme() {
+            return document.body.getAttribute('data-darktheme') !== null;
+        },
+        getLightTheme() {
+            return {
+                legend: {
+                    labels: {
+                        fontColor: '#495057'
+                    }
+                } 
+            }
+        },
+        getDarkTheme() {
+            return {
+                legend: {
+                    labels: {
+                        fontColor: '#ebedef'
+                    }
+                } 
             }
         }
     },

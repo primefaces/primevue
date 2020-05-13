@@ -17,8 +17,21 @@
 
 <script>
 import ComboChartDoc from './ComboChartDoc';
+import EventBus from '@/EventBus';
 
 export default {
+     mounted() {
+        EventBus.$on('change-theme', event => {
+            if (event.dark)
+                this.applyDarkTheme();
+            else
+                this.applyLightTheme();
+        });
+
+        if (this.isDarkTheme()) {
+            this.applyDarkTheme();
+        }
+    },
     data() {
         return {
             chartData: {
@@ -26,7 +39,7 @@ export default {
                 datasets: [{
                     type: 'line',
                     label: 'Dataset 1',
-                    borderColor: '#AA5493',
+                    borderColor: '#42A5F5',
                     borderWidth: 2,
                     fill: false,
                     data: [
@@ -41,7 +54,7 @@ export default {
                 }, {
                     type: 'bar',
                     label: 'Dataset 2',
-                    backgroundColor: '#2f4860',
+                    backgroundColor: '#66BB6A',
                     data: [
                         21,
                         84,
@@ -56,7 +69,7 @@ export default {
                 }, {
                     type: 'bar',
                     label: 'Dataset 3',
-                    backgroundColor: '#00bb7e',
+                    backgroundColor: '#FFA726',
                     data: [
                         41,
                         52,
@@ -79,6 +92,59 @@ export default {
                     intersect: true
                 }
             }
+        }
+    },
+    methods: {
+        isDarkTheme() {
+            return document.body.getAttribute('data-darktheme') !== null;
+        },
+        applyLightTheme() {
+            this.chartOptions = {
+                legend: {
+                    labels: {
+                        fontColor: '#495057'
+                    }
+                },
+                scales: {
+                    xAxes: [{
+                        ticks: {
+                            fontColor: '#495057'
+                        }
+                    }],
+                    yAxes: [{
+                        ticks: {
+                            fontColor: '#495057'
+                        }
+                    }]
+                }
+            }
+        },
+        applyDarkTheme() {
+            this.chartOptions = {
+                legend: {
+                    labels: {
+                        fontColor: '#ebedef'
+                    }
+                },
+                scales: {
+                    xAxes: [{
+                        ticks: {
+                            fontColor: '#ebedef'
+                        },
+                        gridLines: {
+                            color: 'rgba(255,255,255,0.2)'
+                        }
+                    }],
+                    yAxes: [{
+                        ticks: {
+                            fontColor: '#ebedef'
+                        },
+                        gridLines: {
+                            color: 'rgba(255,255,255,0.2)'
+                        }
+                    }]
+                }
+            };
         }
     },
     components: {

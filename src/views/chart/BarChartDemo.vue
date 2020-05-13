@@ -9,16 +9,16 @@
 
         <div class="content-section implementation">
             <h3 class="vertical">Vertical</h3>
-            <Chart type="bar" :data="basicData" />
+            <Chart type="bar" :data="basicData" :options="basicOptions" />
 
             <h3>Horizontal</h3>
-            <Chart type="horizontalBar" :data="basicData" />
+            <Chart type="horizontalBar" :data="basicData" :options="basicOptions" />
 
             <h3>Multi Axis</h3>
-            <Chart type="bar" :data="multiAxisData" :options="multiAxisOptions"/>
+            <Chart type="bar" :data="multiAxisData" :options="multiAxisOptions "/>
 
             <h3>Stacked</h3>
-            <Chart type="bar" :data="stackedData" :options="stackedOptions"/>
+            <Chart type="bar" :data="stackedData" :options="stackedOptions" />
         </div>
 
         <BarChartDoc/>
@@ -27,8 +27,21 @@
 
 <script>
 import BarChartDoc from './BarChartDoc';
+import EventBus from '@/EventBus';
 
 export default {
+    mounted() {
+        EventBus.$on('change-theme', event => {
+            if (event.dark)
+                this.applyDarkTheme();
+            else
+                this.applyLightTheme();
+        });
+
+        if (this.isDarkTheme()) {
+            this.applyDarkTheme();
+        }
+    },
     data() {
         return {
             basicData: {
@@ -41,7 +54,7 @@ export default {
                     },
                     {
                         label: 'My Second dataset',
-                        backgroundColor: '#9CCC65',
+                        backgroundColor: '#FFA726',
                         data: [28, 48, 40, 19, 86, 27, 90]
                     }
                 ]
@@ -105,7 +118,7 @@ export default {
                 datasets: [{
                     type: 'bar',
                     label: 'Dataset 1',
-                    backgroundColor: '#66BB6A',
+                    backgroundColor: '#42A5F5',
                     data: [
                         50,
                         25,
@@ -118,7 +131,7 @@ export default {
                 }, {
                     type: 'bar',
                     label: 'Dataset 2',
-                    backgroundColor: '#FFCA28',
+                    backgroundColor: '#66BB6A',
                     data: [
                         21,
                         84,
@@ -131,7 +144,7 @@ export default {
                 }, {
                     type: 'bar',
                     label: 'Dataset 3',
-                    backgroundColor: '#42A5F5',
+                    backgroundColor: '#FFA726',
                     data: [
                         41,
                         52,
@@ -157,7 +170,155 @@ export default {
                         stacked: true
                     }]
                 }
-            }
+            },
+            basicOptions: null
+        }
+    },
+    methods: {
+        isDarkTheme() {
+            return document.body.getAttribute('data-darktheme') !== null;
+        },
+        applyLightTheme() {
+            this.basicOptions = {
+                legend: {
+                    labels: {
+                        fontColor: '#495057'
+                    }
+                },
+                scales: {
+                    xAxes: [{
+                        ticks: {
+                            fontColor: '#495057'
+                        }
+                    }],
+                    yAxes: [{
+                        ticks: {
+                            fontColor: '#495057'
+                        }
+                    }]
+                }
+            };
+
+            this.stackedOptions.scales.xAxes[0].ticks = {
+                fontColor: '#495057'
+            };
+            this.stackedOptions.scales.xAxes[0].gridLines = {
+                color: '#ebedef'
+            };
+            this.stackedOptions.scales.yAxes[0].ticks = {
+                fontColor: '#495057'
+            };
+            this.stackedOptions.scales.yAxes[0].gridLines = {
+                color: '#ebedef'
+            };
+            this.stackedOptions.legend = {
+                labels:  {
+                    fontColor: '#495057'
+                }
+            };
+            this.stackedOptions = {...this.stackedOptions};
+
+            this.multiAxisOptions.scales.xAxes = [{
+                    ticks: {
+                        fontColor: '#495057'
+                    },
+                    gridLines: {
+                        color: '#ebedef'
+                    }
+                }
+            ];
+            this.multiAxisOptions.scales.yAxes[0].ticks = {
+                fontColor: '#495057'
+            };
+            this.multiAxisOptions.scales.yAxes[0].gridLines = {
+                color: '#ebedef'
+            };
+            this.multiAxisOptions.scales.yAxes[1].ticks = {
+                fontColor: '#495057'
+            };
+            this.multiAxisOptions.scales.yAxes[1].gridLines = {
+                color: '#ebedef'
+            };
+            this.multiAxisOptions.legend = {
+                labels:  {
+                    fontColor: '#495057'
+                }
+            };
+            this.multiAxisOptions = {...this.multiAxisOptions};
+        },
+        applyDarkTheme() {
+            this.basicOptions = {
+                legend: {
+                    labels: {
+                        fontColor: '#ebedef'
+                    }
+                },
+                scales: {
+                    xAxes: [{
+                        ticks: {
+                            fontColor: '#ebedef'
+                        },
+                        gridLines: {
+                            color: 'rgba(255,255,255,0.2)'
+                        }
+                    }],
+                    yAxes: [{
+                        ticks: {
+                            fontColor: '#ebedef'
+                        },
+                        gridLines: {
+                            color: 'rgba(255,255,255,0.2)'
+                        }
+                    }]
+                }
+            };
+
+            this.stackedOptions.scales.xAxes[0].ticks = {
+                fontColor: '#ebedef'
+            };
+            this.stackedOptions.scales.xAxes[0].gridLines = {
+                color: 'rgba(255,255,255,0.2)'
+            };
+            this.stackedOptions.scales.yAxes[0].ticks = {
+                fontColor: '#ebedef'
+            };
+            this.stackedOptions.scales.yAxes[0].gridLines = {
+                color: 'rgba(255,255,255,0.2)'
+            };
+            this.stackedOptions.legend = {
+                labels:  {
+                    fontColor: '#ebedef'
+                }
+            };
+            this.stackedOptions = {...this.stackedOptions};
+
+            this.multiAxisOptions.scales.xAxes = [{
+                    ticks: {
+                        fontColor: '#ebedef'
+                    },
+                    gridLines: {
+                        color: 'rgba(255,255,255,0.2)'
+                    }
+                }
+            ];
+            this.multiAxisOptions.scales.yAxes[0].ticks = {
+                fontColor: '#ebedef'
+            };
+            this.multiAxisOptions.scales.yAxes[0].gridLines = {
+                color: 'rgba(255,255,255,0.2)'
+            };
+            this.multiAxisOptions.scales.yAxes[1].ticks = {
+                fontColor: '#ebedef'
+            };
+            this.multiAxisOptions.scales.yAxes[1].gridLines = {
+                color: 'rgba(255,255,255,0.2)'
+            };
+            this.multiAxisOptions.legend = {
+                labels:  {
+                    fontColor: '#ebedef'
+                }
+            };
+            this.multiAxisOptions = {...this.multiAxisOptions};
         }
     },
     components: {

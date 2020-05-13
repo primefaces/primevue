@@ -30,6 +30,7 @@ import AppTopBar from '@/AppTopBar.vue';
 import AppMenu from '@/AppMenu.vue';
 import AppFooter from '@/AppFooter.vue';
 import AppConfigurator from '@/AppConfigurator.vue';
+import EventBus from '@/EventBus';
 
 export default {
     data() {
@@ -70,6 +71,14 @@ export default {
             this.theme = event.theme;
 
             this.activeMenuIndex = null;
+
+            EventBus.$emit('change-theme', event);
+
+            if (event.dark)
+                document.body.setAttribute('data-darktheme', 'true');
+            else
+                document.body.removeAttribute('data-darktheme')
+            
         },
         addClass(element, className) {
             if (!this.hasClass(element, className)) {

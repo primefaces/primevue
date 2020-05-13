@@ -8,7 +8,7 @@
         </div>
 
         <div class="content-section implementation">
-            <Chart type="radar" :data="chartData" />
+            <Chart type="radar" :data="chartData" :options="chartOptions" />
         </div>
 
         <RadarChartDoc/>
@@ -17,8 +17,17 @@
 
 <script>
 import RadarChartDoc from './RadarChartDoc';
+import EventBus from '@/EventBus';
 
 export default {
+    mounted() {
+        EventBus.$on('change-theme', event => {
+            if (event.dark)
+                this.chartOptions = this.getDarkTheme();
+            else
+                this.chartOptions = this.getLightTheme();
+        });
+    },
     data() {
         return {
             chartData: {
@@ -45,7 +54,41 @@ export default {
                         data: [28, 48, 40, 19, 96, 27, 100]
                     }
                 ]
-            }
+            },
+            chartOptions: this.isDarkTheme() ? this.getDarkTheme(): this.getLightTheme()
+        }
+    },
+    methods: {
+        isDarkTheme() {
+            return document.body.getAttribute('data-darktheme') !== null;
+        },
+        getLightTheme() {
+            return {
+                legend: {
+                    labels: {
+                        fontColor: '#495057'
+                    }
+                },
+                scale: {
+                    gridLines: {
+                        color: '#ebedef'
+                    }
+                }
+            };
+        },
+        getDarkTheme() {
+            return {
+                legend: {
+                    labels: {
+                        fontColor: '#ebedef'
+                    }
+                },
+                scale: {
+                    gridLines: {
+                        color: 'rgba(255,255,255,0.2)'
+                    }
+                }
+            };
         }
     },
     components: {

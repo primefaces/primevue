@@ -18,15 +18,15 @@ export default {
 					{
 						data: [300, 50, 100],
 						backgroundColor: [
-							"#FF6384",
-							"#36A2EB",
-							"#FFCE56"
-						],
-						hoverBackgroundColor: [
-							"#FF6384",
-							"#36A2EB",
-							"#FFCE56"
-						]
+                            "#42A5F5",
+                            "#66BB6A",
+                            "#FFA726"
+                        ],
+                        hoverBackgroundColor: [
+                            "#64B5F6",
+                            "#81C784",
+                            "#FFB74D"
+                        ]
 					}
 				]
 			}

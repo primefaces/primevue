@@ -22,11 +22,11 @@ export default {
 						14
 					],
 					backgroundColor: [
-						"#FF6384",
-						"#4BC0C0",
-						"#FFCE56",
-						"#E7E9ED",
-						"#36A2EB"
+						"#42A5F5",
+                        "#66BB6A",
+                        "#FFA726",
+                        "#26C6DA",
+                        "#7E57C2"
 					],
 					label: 'My dataset'
 				}],

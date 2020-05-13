@@ -32,7 +32,7 @@ export default {
 					},
 					{
 						label: 'My Second dataset',
-						backgroundColor: '#9CCC65',
+						backgroundColor: '#FFA726',
 						data: [28, 48, 40, 19, 86, 27, 90]
 					}
 				]
@@ -43,13 +43,13 @@ export default {
 					{
 						label: 'Dataset 1',
 						backgroundColor: [
-							'#EC407A',
-							'#AB47BC',
-							'#42A5F5',
-							'#7E57C2',
-							'#66BB6A',
-							'#FFCA28',
-							'#26A69A'
+							 '#EC407A',
+                            '#AB47BC',
+                            '#42A5F5',
+                            '#7E57C2',
+                            '#66BB6A',
+                            '#FFCA28',
+                            '#26A69A'
 						],
 						yAxisID: 'y-axis-1',
 						data: [65, 59, 80, 81, 56, 55, 10]
@@ -102,7 +102,7 @@ export default {
 					{
 						type: 'bar',
 						label: 'Dataset 1',
-						backgroundColor: '#66BB6A',
+						backgroundColor: '#42A5F5',
 						data: [
 							50,
 							25,
@@ -116,7 +116,7 @@ export default {
 					{
 						type: 'bar',
 						label: 'Dataset 2',
-						backgroundColor: '#FFCA28',
+						backgroundColor: '#66BB6A',
 						data: [
 							21,
 							84,
@@ -130,7 +130,7 @@ export default {
 					{
 						type: 'bar',
 						label: 'Dataset 3',
-						backgroundColor: '#42A5F5',
+						backgroundColor: '#FFA726',
 						data: [
 							41,
 							52,

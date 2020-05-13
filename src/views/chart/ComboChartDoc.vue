@@ -17,7 +17,7 @@ export default {
 				datasets: [{
 					type: 'line',
 					label: 'Dataset 1',
-					borderColor: '#AA5493',
+					borderColor: '#42A5F5',
 					borderWidth: 2,
 					fill: false,
 					data: [
@@ -33,7 +33,7 @@ export default {
 				{
 					type: 'bar',
 					label: 'Dataset 2',
-					backgroundColor: '#2f4860',
+					backgroundColor: '#66BB6A',
 					data: [
 						21,
 						84,
@@ -49,7 +49,7 @@ export default {
 				{
 					type: 'bar',
 					label: 'Dataset 3',
-					backgroundColor: '#00bb7e',
+					backgroundColor: '#FFA726',
 					data: [
 						41,
 						52,

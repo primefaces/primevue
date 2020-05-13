@@ -8,7 +8,7 @@
         </div>
 
         <div class="content-section implementation">
-            <Chart type="polarArea" :data="chartData" />
+            <Chart type="polarArea" :data="chartData" :options="chartOptions" />
         </div>
 
         <PolarAreaChartDoc/>
@@ -17,8 +17,17 @@
 
 <script>
 import PolarAreaChartDoc from './PolarAreaChartDoc';
+import EventBus from '@/EventBus';
 
 export default {
+    mounted() {
+        EventBus.$on('change-theme', event => {
+            if (event.dark)
+                this.chartOptions = this.getDarkTheme();
+            else
+                this.chartOptions = this.getLightTheme();
+        });
+    },
     data() {
         return {
             chartData: {
@@ -31,11 +40,11 @@ export default {
                         14
                     ],
                     backgroundColor: [
-                        "#FF6384",
-                        "#4BC0C0",
-                        "#FFCE56",
-                        "#E7E9ED",
-                        "#36A2EB"
+                        "#42A5F5",
+                        "#66BB6A",
+                        "#FFA726",
+                        "#26C6DA",
+                        "#7E57C2"
                     ],
                     label: 'My dataset'
                 }],
@@ -46,7 +55,41 @@ export default {
                     "Grey",
                     "Blue"
                 ]
-            }
+            },
+            chartOptions: this.isDarkTheme() ? this.getDarkTheme(): this.getLightTheme()
+        }
+    },
+    methods: {
+        isDarkTheme() {
+            return document.body.getAttribute('data-darktheme') !== null;
+        },
+        getLightTheme() {
+            return {
+                legend: {
+                    labels: {
+                        fontColor: '#495057'
+                    }
+                },
+                scale: {
+                    gridLines: {
+                        color: '#ebedef'
+                    }
+                }
+            };
+        },
+        getDarkTheme() {
+            return {
+                legend: {
+                    labels: {
+                        fontColor: '#ebedef'
+                    }
+                },
+                scale: {
+                    gridLines: {
+                        color: 'rgba(255,255,255,0.2)'
+                    }
+                }
+            };
         }
     },
     components: {
