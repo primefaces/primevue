@@ -67,6 +67,10 @@
                             </template>
                         </Column>
                         <Column field="date" header="Date" :sortable="true" filterMatchMode="custom" :filterFunction="filterDate">
+                            <template #body="slotProps">
+                                <span class="p-column-title">Date</span>
+                                <span style="vertical-align: middle; margin-left: .5em">{{slotProps.data.date}}</span>
+                            </template>
                             <template #filter>
                                 <Calendar v-model="filters['date']" dateFormat="yy-mm-dd" class="p-column-filter" placeholder="Registration Date"/>
                             </template>
@@ -291,7 +295,7 @@ export default {
     display: none;
 }
 
-@media screen and (max-width: 64em) {
+@media screen and (max-width: 960px) {
     /deep/ .p-datatable {
         &.p-datatable-customers {
             .p-datatable-thead > tr > th,
@@ -299,21 +303,29 @@ export default {
                 display: none !important;
             }
 
-            .p-datatable-tbody > tr > td {
-                text-align: left;
-                display: block;
-                border: 0 none !important;
-                width: 100% !important;
-                float: left;
-                clear: left;
-                border: 0 none;
+            .p-datatable-tbody > tr {
+                border-bottom: 1px solid var(--layer-2);
 
-                .p-column-title {
-                    padding: .4rem;
-                    min-width: 30%;
-                    display: inline-block;
-                    margin: -.4rem 1rem -.4rem -.4rem;
-                    font-weight: bold;
+                > td {
+                    text-align: left;
+                    display: block;
+                    border: 0 none !important;
+                    width: 100% !important;
+                    float: left;
+                    clear: left;
+                    border: 0 none;
+
+                    .p-column-title {
+                        padding: .4rem;
+                        min-width: 30%;
+                        display: inline-block;
+                        margin: -.4rem 1rem -.4rem -.4rem;
+                        font-weight: bold;
+                    }
+
+                    .p-progressbar {
+                        margin-top: .5rem;
+                    }
                 }
             }
         }
