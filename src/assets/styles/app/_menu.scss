@@ -53,13 +53,13 @@
                     box-shadow: 0 0 0 0.2em $focusBorderColor;
                 }
 
-                &.router-link-active {
+                &.router-link-exact-active {
                     font-weight: 700;
                 }
             }
 
             > div {
-                &.router-link-active {
+                &.router-link-exact-active {
                     > a {
                         font-weight: 700;
                     }      
@@ -75,7 +75,8 @@
                     list-style-type: none;
 
                     a {
-                        padding: .5rem .5rem .5rem 2rem;
+                        font-size: .875rem;
+                        padding: .475rem .5rem .475rem 2rem;
                     }
                 }
             }
