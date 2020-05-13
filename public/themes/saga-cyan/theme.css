@@ -813,15 +813,15 @@
 .p-multiselect-panel .p-multiselect-header .p-multiselect-close {
   width: 2rem;
   height: 2rem;
-  color: #9ba2aa;
-  background: transparent;
+  color: #6c757d;
+  background: #e9ecef;
   border-radius: 50%;
   transition: background-color 0.2s, box-shadow 0.2s, box-shadow 0.2s;
   margin-left: 0.5rem;
 }
 .p-multiselect-panel .p-multiselect-header .p-multiselect-close:hover {
-  color: #9ba2aa;
-  background: #e9ecef;
+  color: #495057;
+  background: #dee2e6;
 }
 .p-multiselect-panel .p-multiselect-items {
   padding: 0.5rem 0;

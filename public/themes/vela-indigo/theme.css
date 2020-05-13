@@ -814,14 +814,14 @@
   width: 2rem;
   height: 2rem;
   color: #aeb6bf;
-  background: transparent;
+  background: rgba(255, 255, 255, 0.1);
   border-radius: 50%;
   transition: background-color 0.2s, box-shadow 0.2s, box-shadow 0.2s;
   margin-left: 0.5rem;
 }
 .p-multiselect-panel .p-multiselect-header .p-multiselect-close:hover {
   color: #ebedef;
-  background: rgba(255, 255, 255, 0.1);
+  background: rgba(255, 255, 255, 0.2);
 }
 .p-multiselect-panel .p-multiselect-items {
   padding: 0.5rem 0;
