@@ -55,7 +55,7 @@
                         <img alt="accesibility" src="../assets/images/home/vue-accesibility.png" />
                         <div class="feature-card-detail">
                             <span class="feature-name">ACCESSIBILITY</span>
-                            <p>UI Components for everyone with full support for Section 508 compliance.</p>
+                            <p>UI Components for everyone with full support for Web Content Accessibility Guidelines (WCAG).</p>
                         </div>
                     </div>
                 </div>

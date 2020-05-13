@@ -83,7 +83,7 @@ html {
 						</thead>
 						<tbody>
                             <tr>
-                                <td>p-components</td>
+                                <td>p-component</td>
                                 <td>Applies component theming such as font-family and font-size to an element.</td>
                             </tr>
                             <tr>
@@ -97,10 +97,6 @@ html {
                             <tr>
                                 <td>p-reset</td>
                                 <td>Resets the browsers defaults.</td>
-                            </tr>
-                            <tr>
-                                <td>p-link</td>
-                                <td>Renders a button as a link.</td>
                             </tr>
                             <tr>
                                 <td>p-link</td>

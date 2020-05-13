@@ -15,7 +15,12 @@ export default new Router({
 			path: '/setup',
 			name: 'setup',
 			component: () => import('./views/setup/Setup.vue')
-		},
+        },
+        {
+			path: '/accessibility',
+			name: 'accessibility',
+			component: () => import('./views/accessibility/AccessibilityDemo.vue')
+        },
 		{
 			path: '/support',
 			name: 'support',

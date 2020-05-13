@@ -10,6 +10,7 @@
                 <router-link to="/theming">Theming</router-link>
                 <a href="https://www.primefaces.org/designer/primevue">Designer</a>
                 <a href="https://www.primefaces.org/designer/api/primevue/2.0.0">Sass API</a>
+                <router-link to="/accessibility">Accessibility</router-link>
                 <router-link to="/flexgrid">PrimeFlex</router-link>
                 <router-link to="/icons">Icons</router-link>
             </div>
