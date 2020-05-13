@@ -48,7 +48,7 @@
 
             <h3>Inline Button Badge</h3>
             <Button type="button" label="Emails" badge="8" />
-            <Button type="button" label="Messages" icon="pi pi-users" class="p-button-warning" badge="8" badgeClass="p-class-error" />
+            <Button type="button" label="Messages" icon="pi pi-users" class="p-button-warning" badge="8" badgeClass="p-badge-danger" />
 
             <h3>Sizes</h3>
             <div class="badges">

@@ -221,7 +221,7 @@ import Button from 'primevue/button';
 
 &lt;h3&gt;Badges&lt;/h3&gt;
 &lt;Button type="button" label="Emails" badge="8" /&gt;
-&lt;Button type="button" label="Messages" icon="pi pi-users" class="p-button-warning" badge="8" badgeClass="p-badge-info" /&gt;
+&lt;Button type="button" label="Messages" icon="pi pi-users" class="p-button-warning" badge="8" badgeClass="p-badge-danger" /&gt;
 
 &lt;h3&gt;Button Set&lt;/h3&gt;
 &lt;span class="p-buttonset"&gt;

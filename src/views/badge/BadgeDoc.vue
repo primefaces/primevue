@@ -48,7 +48,7 @@
 
 <CodeHighlight>
 &lt;Button type="button" label="Emails" badge="8" /&gt;
-&lt;Button type="button" label="Messages" icon="pi pi-users" class="p-button-warning" badge="8" badgeClass="p-class-error" /&gt;
+&lt;Button type="button" label="Messages" icon="pi pi-users" class="p-button-warning" badge="8" badgeClass="p-badge-danger" /&gt;
 </CodeHighlight>
 
                 <h3>Sizes</h3>
@@ -154,7 +154,7 @@
 
 &lt;h3&gt;Inline Button Badge&lt;/h3&gt;
 &lt;Button type="button" label="Emails" badge="8" /&gt;
-&lt;Button type="button" label="Messages" icon="pi pi-users" class="p-button-warning" badge="8" badgeClass="p-class-error" /&gt;
+&lt;Button type="button" label="Messages" icon="pi pi-users" class="p-button-warning" badge="8" badgeClass="p-badge-danger" /&gt;
 
 &lt;h3&gt;Sizes&lt;/h3&gt;
 &lt;div class="badges"&gt;
