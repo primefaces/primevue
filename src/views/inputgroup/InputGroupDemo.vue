@@ -79,7 +79,7 @@
 
             <h3>Checkbox and RadioButton</h3>
             <div class="p-grid p-fluid">
-                <div class="p-col-12 p-md-4">
+                <div class="p-col-12 p-md-12">
                     <div class="p-inputgroup">
                         <span class="p-inputgroup-addon">
                             <Checkbox v-model="checked1" :binary="true" />
@@ -88,7 +88,7 @@
                     </div>
                 </div>
 
-                <div class="p-col-12 p-md-4">
+                <div class="p-col-12 p-md-12">
                     <div class="p-inputgroup">
                         <InputText placeholder="Price"/>
                         <span class="p-inputgroup-addon">
@@ -97,7 +97,7 @@
                     </div>
                 </div>
 
-                <div class="p-col-12 p-md-4">
+                <div class="p-col-12 p-md-12">
                     <div class="p-inputgroup">
                         <span class="p-inputgroup-addon">
                             <Checkbox v-model="checked2" :binary="true" />

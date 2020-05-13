@@ -2136,10 +2136,10 @@ export default {
             return this.currentHour < 10 ? '0' + this.currentHour : this.currentHour;
         },
         formattedCurrentMinute() {
-            return this.currentHour < 10 ? '0' + this.currentHour : this.currentHour;
+            return this.currentMinute < 10 ? '0' + this.currentMinute : this.currentMinute;
         },
         formattedCurrentSecond() {
-            return this.currentHour < 10 ? '0' + this.currentHour : this.currentHour;
+            return this.currentSecond < 10 ? '0' + this.currentSecond : this.currentSecond;
         }
     },
     components: {

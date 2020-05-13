@@ -874,8 +874,8 @@
 .p-radiobutton .p-radiobutton-box {
   border: 1px solid #dadada;
   background: #f4f4f4;
-  width: 1.5rem;
-  height: 1.5rem;
+  width: 20px;
+  height: 20px;
   color: #666666;
   border-radius: 50%;
   transition: background-color 0.2s, border-color 0.2s, box-shadow 0.2s;

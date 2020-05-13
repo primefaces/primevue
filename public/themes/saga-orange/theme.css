@@ -868,8 +868,8 @@
 }
 
 .p-radiobutton {
-  width: 20px;
-  height: 20px;
+  width: 1.5rem;
+  height: 1.5rem;
 }
 .p-radiobutton .p-radiobutton-box {
   border: 1px solid #ced4da;
