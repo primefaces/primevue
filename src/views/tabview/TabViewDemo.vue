@@ -28,7 +28,7 @@
             </TabView>
 
             <h3>Programmatic</h3>
-            <div style="padding: .5em 0">
+            <div style="padding: .5rem 0 1rem 0">
                 <Button @click="activate(0)" class="p-button-secondary" label="Activate 1st" />
                 <Button @click="activate(1)" class="p-button-secondary" label="Activate 2nd" />
                 <Button @click="activate(2)" class="p-button-secondary" label="Activate 3rd" />
