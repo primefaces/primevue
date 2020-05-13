@@ -72,6 +72,11 @@
                 font-size: 1.5rem;
                 font-weight: 500;
                 color: var(--text-color);
+
+                &:first-child,
+                &.first {
+                    margin-top: 0;
+                }
             }
 
             a {

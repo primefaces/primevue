@@ -8,8 +8,8 @@
         </div>
 
         <div class="content-section documentation">
-            <h3 style="margin-top:0">Architecture</h3>
-            <img alt="Architecture" src="../../assets/images/architecture.jpg" style="width: 100%; margin-top:16px;" />
+            <h3>Architecture</h3>
+            <img alt="Architecture" src="../../assets/images/architecture.jpg" class="architecture-image"/>
             <p>PrimeVue is a design agnostic library so unlike other UI libraries it does not enforce a certain styling such as material or bootstrap. In order to achieve this, styling has been
                 separated into core and theme. Core resides inside PrimeVue to implement the structure of the components such as positioning whereas theme brings the colors, paddings
                 and margins.</p>
@@ -129,9 +129,20 @@ export default {
 }
 </script>
 
-<style scoped>
-.designer-image {
+<style lang="scss" scoped>
+.designer-image,
+.architecture-image {
+    width: 75%;
+    margin: 0 auto;
     display: block;
-    margin-top: 30px;
+    margin-top: 2rem;
+    margin-bottom: 2rem;
+}
+
+@media screen and (max-width: 960px) {
+    .designer-image,
+    .architecture-image {
+        width: 100%;
+    }
 }
 </style>
