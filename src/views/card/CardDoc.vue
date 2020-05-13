@@ -30,8 +30,8 @@ import Card from 'primevue/card';
         quisquam repellat libero asperiores earum nam nobis, culpa ratione quam perferendis esse, cupiditate neque quas!
     &lt;/template&gt;
     &lt;template slot="footer"&gt;
-        &lt;Button icon="pi pi-check" label="Save" class="p-button-raised" /&gt;
-        &lt;Button icon="pi pi-times" label="Cancel" class="p-button-raised p-button-secondary" style="margin-left: .5em" /&gt;
+        &lt;Button icon="pi pi-check" label="Save" /&gt;
+        &lt;Button icon="pi pi-times" label="Cancel" class="p-button-secondary" style="margin-left: .5em" /&gt;
     &lt;/template&gt;
 &lt;/Card&gt;
 </CodeHighlight>
@@ -106,8 +106,8 @@ import Card from 'primevue/card';
         quisquam repellat libero asperiores earum nam nobis, culpa ratione quam perferendis esse, cupiditate neque quas!&lt;/p&gt;
     &lt;/template&gt;
     &lt;template slot="footer"&gt;
-        &lt;Button icon="pi pi-check" label="Save" class="p-button-raised" /&gt;
-        &lt;Button icon="pi pi-times" label="Cancel" class="p-button-raised p-button-secondary" style="margin-left: .5em" /&gt;
+        &lt;Button icon="pi pi-check" label="Save" /&gt;
+        &lt;Button icon="pi pi-times" label="Cancel" class="p-button-secondary" style="margin-left: .5em" /&gt;
     &lt;/template&gt;
 &lt;/Card&gt;
 </template>
