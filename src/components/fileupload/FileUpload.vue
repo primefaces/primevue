@@ -353,8 +353,8 @@ export default {
 }
 
 .p-fileupload-row {
-    display: table-row;
     display: flex;
+    align-items: center;
 }
 
 .p-fileupload-content .p-progressbar {

@@ -2452,6 +2452,9 @@
 .p-fileupload .p-progressbar {
   height: 0.25rem;
 }
+.p-fileupload .p-fileupload-row > div {
+  margin-right: 0.5rem;
+}
 
 .p-fileupload-choose:not(.p-disabled):hover {
   background: #1b9044;
