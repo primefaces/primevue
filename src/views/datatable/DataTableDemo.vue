@@ -241,7 +241,7 @@ export default {
     background-color: #D8DADC;
 
     .p-progressbar-value {
-        background-color: #00ACAD;
+        background-color: #607D8B;
     }
 }
 
