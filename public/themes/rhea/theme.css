@@ -1103,6 +1103,7 @@
 }
 .p-button.p-button-icon-only {
   width: 2.357rem;
+  padding: 0.429rem 0;
 }
 .p-button.p-button-icon-only .p-button-icon-left,
 .p-button.p-button-icon-only .p-button-icon-right {

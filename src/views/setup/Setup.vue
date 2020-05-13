@@ -41,7 +41,7 @@ Vue.component('Dialog', Dialog);
 <CodeHighlight>
 &lt;meta charset="utf-8"&gt;
 &lt;title&gt;calendar demo&lt;/title&gt;
-&lt;link href="https://unpkg.com/primevue/resources/themes/nova-light/theme.css " rel="stylesheet"&gt;
+&lt;link href="https://unpkg.com/primevue/resources/themes/saga-blue/theme.css " rel="stylesheet"&gt;
 &lt;link href="https://unpkg.com/primevue/resources/primevue.min.css " rel="stylesheet"&gt;
 &lt;link href="https://unpkg.com/primeicons/primeicons.css " rel="stylesheet"&gt;
 &lt;script src="https://unpkg.com/vue"&gt;&lt;/script&gt;
@@ -67,7 +67,7 @@ new Vue({
 <CodeHighlight lang="js">
 dependencies: {
     "vue": "^2.6.10",
-    "primeicons": "^2.0.0"
+    "primeicons": "^3.0.0"
 }
 </CodeHighlight>
 
@@ -105,10 +105,39 @@ dependencies: {
             <p>The css dependencies are as follows, note that you may change the theme with another one of your choice. If you are using a bundler such as webpack with a css loader you
                 may import them to your main application component.</p>
 
-<CodeHighlight class="language-javascript">
-primevue/resources/themes/nova-light/theme.css      //theme
-primevue/resources/primevue.min.css                 //shared css
+<CodeHighlight lang="js">
+primevue/resources/themes/saga-blue/theme.css       //theme
+primevue/resources/primevue.min.css                 //core css
 primeicons/primeicons.css                           //icons
+</CodeHighlight>
+
+            <h3>Free Themes</h3>
+            <p>PrimeVue ships with 25 free themes to choose from, import paths are as follows.</p>
+<CodeHighlight lang="css">
+primevue/resources/themes/saga-blue/theme.css
+primevue/resources/themes/saga-cyan/theme.css
+primevue/resources/themes/saga-deeppurple/theme.css
+primevue/resources/themes/saga-green/theme.css
+primevue/resources/themes/saga-indigo/theme.css
+primevue/resources/themes/saga-orange/theme.css
+primevue/resources/themes/saga-purple/theme.css
+primevue/resources/themes/vela-blue/theme.css
+primevue/resources/themes/vela-cyan/theme.css
+primevue/resources/themes/vela-deeppurple/theme.css
+primevue/resources/themes/vela-green/theme.css
+primevue/resources/themes/vela-indigo/theme.css
+primevue/resources/themes/vela-orange/theme.css
+primevue/resources/themes/vela-purple/theme.css
+primevue/resources/themes/vela-teal/theme.css
+primevue/resources/themes/nova-light/theme.css
+primevue/resources/themes/nova-dark/theme.css
+primevue/resources/themes/nova-colored/theme.css
+primevue/resources/themes/nova-vue/theme.css
+primevue/resources/themes/luna-amber/theme.css
+primevue/resources/themes/luna-blue/theme.css
+primevue/resources/themes/luna-green/theme.css
+primevue/resources/themes/luna-pink/theme.css
+primevue/resources/themes/rhea/theme.css
 </CodeHighlight>
 
             <h3>Quickstart</h3>
