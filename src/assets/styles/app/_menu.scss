@@ -7,6 +7,7 @@
     overflow: auto;
     width: 250px;
     border-right: 1px solid var(--layer-2);
+    user-select: none;
 
     .layout-menu {
         > span {
@@ -69,7 +70,6 @@
                 }
 
                 ul {
-                    display: none;
                     padding: .5rem 0;
                     margin: 0;
                     list-style-type: none;
