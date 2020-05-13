@@ -1,7 +1,5 @@
 <template>
     <div>
-        <TreeTableSubMenu />
-
         <div class="content-section introduction">
             <div class="feature-intro">
                 <h1>TreeTable</h1>
@@ -42,7 +40,6 @@
 <script>
 import NodeService from '../../service/NodeService';
 import TreeTableDoc from './TreeTableDoc';
-import TreeTableSubMenu from './TreeTableSubMenu';
 
 export default {
     data() {
@@ -87,8 +84,7 @@ export default {
         }
     },
     components: {
-        'TreeTableDoc': TreeTableDoc,
-        'TreeTableSubMenu': TreeTableSubMenu
+        'TreeTableDoc': TreeTableDoc
     }
 }
 </script>

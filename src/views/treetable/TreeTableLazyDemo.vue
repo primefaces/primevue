@@ -1,7 +1,5 @@
 <template>
     <div>
-        <TreeTableSubMenu />
-
         <div class="content-section introduction">
             <div class="feature-intro">
                 <h1>TreeTable - Lazy</h1>
@@ -129,8 +127,6 @@ export default {
 </template>
 
 <script>
-import TreeTableSubMenu from './TreeTableSubMenu';
-
 export default {
     data() {
         return {
@@ -215,9 +211,6 @@ export default {
 
             return nodes;
         }
-    },
-    components: {
-        'TreeTableSubMenu': TreeTableSubMenu
     }
 }
 </script>

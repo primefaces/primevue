@@ -60,15 +60,71 @@
             </span>
             <div>
                 <router-link to="/carousel">Carousel</router-link>
-                <router-link to="/datatable">DataTable</router-link>
+                <router-link to="/datatable" v-slot="{href,route,navigate,isActive,isExactActive}">
+                    <div :class="[isActive && 'router-link-active', isExactActive && 'router-link-exact-active']">
+                        <a :href="href" @click="navigate">DataTable</a>
+                        <ul>
+                            <li><router-link to="/datatable/basic">Basic</router-link></li>
+                            <li><router-link to="/datatable/dynamiccolumns">Dynamic</router-link></li>
+                            <li><router-link to="/datatable/templating">Templating</router-link></li>
+                            <li><router-link to="/datatable/size">Size</router-link></li>
+                            <li><router-link to="/datatable/colgroup">ColGroup</router-link></li>
+                            <li><router-link to="/datatable/paginator">Paginator</router-link></li>
+                            <li><router-link to="/datatable/sort">Sort</router-link></li>
+                            <li><router-link to="/datatable/filter">Filter</router-link></li>
+                            <li><router-link to="/datatable/selection">Selection</router-link></li>
+                            <li><router-link to="/datatable/lazy">Lazy</router-link></li>
+                            <li><router-link to="/datatable/scroll">Scroll</router-link></li>
+                            <li><router-link to="/datatable/rowexpand">Expand</router-link></li>
+                            <li><router-link to="/datatable/edit">Edit</router-link></li>
+                            <li><router-link to="/datatable/coltoggle">ColToggle</router-link></li>
+                            <li><router-link to="/datatable/colresize">ColResize</router-link></li>
+                            <li><router-link to="/datatable/reorder">Reorder</router-link></li>
+                            <li><router-link to="/datatable/rowgroup">RowGroup</router-link></li>
+                            <li><router-link to="/datatable/contextmenu">ContextMenu</router-link></li>
+                            <li><router-link to="/datatable/responsive">Responsive</router-link></li>
+                            <li><router-link to="/datatable/export">Export</router-link></li>
+                            <li><router-link to="/datatable/state">State</router-link></li>
+                            <li><router-link to="/datatable/style">Style</router-link></li>
+                            <li><router-link to="/datatable/crud">Crud</router-link></li>
+                        </ul>
+                    </div>
+                </router-link>
+
                 <router-link to="/dataview">DataView</router-link>
                 <router-link to="/fullcalendar">FullCalendar</router-link>
                 <router-link to="/orderlist">OrderList</router-link>
                 <router-link to="/organizationchart">OrganizationChart</router-link>
                 <router-link to="/paginator">Paginator</router-link>
                 <router-link to="/picklist">PickList</router-link>
-                <router-link to="/tree">Tree</router-link>
-                <router-link to="/treetable">TreeTable</router-link>
+                <router-link to="/tree" v-slot="{href,route,navigate,isActive,isExactActive}">
+                    <div :class="[isActive && 'router-link-active', isExactActive && 'router-link-exact-active']">
+                        <a :href="href" @click="navigate">Tree</a>
+                        <ul>
+                            <li><router-link to="/tree/selection">Selection</router-link></li>
+                            <li><router-link to="/tree/lazy">Lazy</router-link></li>
+                            <li><router-link to="/tree/templating">Templating</router-link></li>
+                            <li><router-link to="/tree/filter">Filter</router-link></li>
+                        </ul>
+                    </div>
+                </router-link>
+                <router-link to="/treetable" v-slot="{href,route,navigate,isActive,isExactActive}">
+                    <div :class="[isActive && 'router-link-active', isExactActive && 'router-link-exact-active']">
+                        <a :href="href" @click="navigate">TreeTable</a>
+                        <ul>
+                            <li><router-link to="/treetable/templating">Templating</router-link></li>
+                            <li><router-link to="/treetable/size">Size</router-link></li>
+                            <li><router-link to="/treetable/paginator">Paginator</router-link></li>
+                            <li><router-link to="/treetable/sort">Sort</router-link></li>
+                            <li><router-link to="/treetable/filter">Filter</router-link></li>
+                            <li><router-link to="/treetable/selection">Selection</router-link></li>
+                            <li><router-link to="/treetable/lazy">Lazy</router-link></li>
+                            <li><router-link to="/treetable/coltoggle">ColToggle</router-link></li>
+                            <li><router-link to="/treetable/colresize">Resize</router-link></li>
+                            <li><router-link to="/treetable/responsive">Responsive</router-link></li>
+                        </ul>
+                    </div>
+                </router-link>
             </div>
 
             <span>
@@ -150,8 +206,25 @@
                 <span>Image</span>
             </span>
             <div>
-                <router-link to="/galleria">Galleria</router-link>
+                <router-link to="/galleria" v-slot="{href,route,navigate,isActive,isExactActive}">
+                    <div :class="[isActive && 'router-link-active', isExactActive && 'router-link-exact-active']">
+                        <a :href="href" @click="navigate">Galleria</a>
+                        <ul>
+                            <li><router-link to="/galleria">Documentation</router-link></li>
+                            <li><router-link to="/galleria/basic">Basic</router-link></li>
+                            <li><router-link to="/galleria/indicator">Indicator</router-link></li>
+                            <li><router-link to="/galleria/thumbnail">Thumbnail</router-link></li>
+                            <li><router-link to="/galleria/preview">Preview</router-link></li>
+                            <li><router-link to="/galleria/responsive">Responsive</router-link></li>
+                            <li><router-link to="/galleria/fullscreen">FullScreen</router-link></li>
+                            <li><router-link to="/galleria/circular">Circular</router-link></li>
+                            <li><router-link to="/galleria/caption">Caption</router-link></li>
+                        </ul>
+                    </div>
+                </router-link>
             </div>
+
+            
 
             <span>
                 <i class="pi pi-share-alt"></i>

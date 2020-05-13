@@ -1,7 +1,5 @@
 <template>
     <div>
-        <TreeSubMenu />
-
         <div class="content-section introduction">
             <div class="feature-intro">
                 <h1>Tree - Filter</h1>
@@ -77,7 +75,6 @@ export default {
 
 <script>
 import NodeService from '../../service/NodeService';
-import TreeSubMenu from './TreeSubMenu';
 
 export default {
     data() {
@@ -112,9 +109,6 @@ export default {
                 }
             }
         }
-    },
-    components: {
-        'TreeSubMenu': TreeSubMenu
     }
 }
 </script>

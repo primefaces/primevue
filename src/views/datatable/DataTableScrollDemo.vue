@@ -1,7 +1,5 @@
 <template>
 	<div>
-        <DataTableSubMenu />
-
 		<div class="content-section introduction">
 			<div class="feature-intro">
 				<h1>DataTable - Scroll</h1>
@@ -285,7 +283,6 @@ export default {
 
 <script>
 import CarService from '../../service/CarService';
-import DataTableSubMenu from './DataTableSubMenu';
 
 export default {
     data() {
@@ -387,9 +384,6 @@ export default {
                     this.lazyCars = this.loadChunk(event.first, event.rows)
             }, 250);
         }
-    },
-    components: {
-        'DataTableSubMenu': DataTableSubMenu
     }
 }
 </script>

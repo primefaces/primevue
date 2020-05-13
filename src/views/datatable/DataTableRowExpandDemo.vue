@@ -1,7 +1,5 @@
 <template>
 	<div>
-        <DataTableSubMenu />
-
 		<div class="content-section introduction">
 			<div class="feature-intro">
 				<h1>DataTable - Row Expansion</h1>
@@ -119,7 +117,6 @@ export default {
 
 <script>
 import CarService from '../../service/CarService';
-import DataTableSubMenu from './DataTableSubMenu';
 
 export default {
     data() {
@@ -150,9 +147,6 @@ export default {
             this.expandedRows = null;
             this.$toast.add({severity: 'success', summary: 'All Rows Collapsed', life: 3000});
         }
-    },
-    components: {
-        'DataTableSubMenu': DataTableSubMenu
     }
 }
 </script>

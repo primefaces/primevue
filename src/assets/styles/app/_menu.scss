@@ -56,6 +56,29 @@
                     font-weight: 700;
                 }
             }
+
+            > div {
+                &.router-link-active {
+                    > a {
+                        font-weight: 700;
+                    }      
+                    
+                    ul {
+                        display: block;
+                    }
+                }
+
+                ul {
+                    display: none;
+                    padding: .5rem 0;
+                    margin: 0;
+                    list-style-type: none;
+
+                    a {
+                        padding: .5rem .5rem .5rem 2rem;
+                    }
+                }
+            }
         }
     }
 }

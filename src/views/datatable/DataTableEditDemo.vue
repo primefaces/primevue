@@ -1,7 +1,5 @@
 <template>
 	<div>
-        <DataTableSubMenu />
-
 		<div class="content-section introduction">
 			<div class="feature-intro">
 				<h1>DataTable - InCell Edit</h1>
@@ -150,7 +148,6 @@
 
 <CodeHighlight lang="javascript">
 import CarService from '../../service/CarService';
-import DataTableSubMenu from './DataTableSubMenu';
 import Vue from 'vue';
 
 export default {
@@ -241,9 +238,6 @@ export default {
         this.carService.getCarsSmall().then(data => this.cars1 = data);
         this.carService.getCarsSmall().then(data => this.cars2 = data);
         this.carService.getCarsSmall().then(data => this.cars3 = data);
-    },
-    components: {
-        'DataTableSubMenu': DataTableSubMenu
     }
 }
 </CodeHighlight>
@@ -255,7 +249,6 @@ export default {
 
 <script>
 import CarService from '../../service/CarService';
-import DataTableSubMenu from './DataTableSubMenu';
 import Vue from 'vue';
 
 export default {
@@ -346,9 +339,6 @@ export default {
         this.carService.getCarsSmall().then(data => this.cars1 = data);
         this.carService.getCarsSmall().then(data => this.cars2 = data);
         this.carService.getCarsSmall().then(data => this.cars3 = data);
-    },
-    components: {
-        'DataTableSubMenu': DataTableSubMenu
     }
 }
 </script>

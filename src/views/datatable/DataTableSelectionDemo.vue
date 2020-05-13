@@ -1,7 +1,5 @@
 <template>
 	<div>
-        <DataTableSubMenu />
-
 		<div class="content-section introduction">
 			<div class="feature-intro">
 				<h1>DataTable - Selection</h1>
@@ -182,7 +180,6 @@ export default {
 
 <script>
 import CarService from '../../service/CarService';
-import DataTableSubMenu from './DataTableSubMenu';
 
 export default {
     data() {
@@ -210,9 +207,6 @@ export default {
         onRowUnselect(event) {
             this.$toast.add({severity: 'warn', summary: 'Car Unselected', detail: 'Vin: ' + event.data.vin, life: 3000});
         }
-    },
-    components: {
-        'DataTableSubMenu': DataTableSubMenu
     }
 }
 </script>

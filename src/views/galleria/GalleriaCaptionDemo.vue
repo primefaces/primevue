@@ -1,7 +1,5 @@
 <template>
     <div>
-        <GalleriaSubMenu />
-
         <div class="content-section introduction">
             <div class="feature-intro">
                 <h1 style="margin-bottom: 0px;">Galleria - Caption</h1>
@@ -88,7 +86,6 @@ export default {
 
 <script>
 import GalleriaService from '../../service/GalleriaService';
-import GalleriaSubMenu from './GalleriaSubMenu';
 
 export default {
     data() {
@@ -116,9 +113,6 @@ export default {
 	},
 	mounted() {
 		this.galleriaService.getImages().then(data => this.images = data);
-    },
-    components: {
-        'GalleriaSubMenu': GalleriaSubMenu
     }
 }
 </script>

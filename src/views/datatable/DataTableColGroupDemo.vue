@@ -1,7 +1,5 @@
 <template>
 	<div>
-        <DataTableSubMenu />
-
 		<div class="content-section introduction">
 			<div class="feature-intro">
 				<h1>DataTable - Column Group</h1>
@@ -161,8 +159,6 @@ export default {
 </template>
 
 <script>
-import DataTableSubMenu from './DataTableSubMenu';
-
 export default {
     data() {
         return {
@@ -201,9 +197,6 @@ export default {
 
             return '$' + total.toLocaleString();
         }
-    },
-    components: {
-        'DataTableSubMenu': DataTableSubMenu
     }
 }
 </script>

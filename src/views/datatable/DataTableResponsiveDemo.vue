@@ -1,7 +1,5 @@
 <template>
 	<div>
-        <DataTableSubMenu />
-
 		<div class="content-section introduction">
 			<div class="feature-intro">
 				<h1>DataTable - Responsive</h1>
@@ -138,7 +136,6 @@ export default {
 
 <script>
 import CarService from '../../service/CarService';
-import DataTableSubMenu from './DataTableSubMenu';
 
 export default {
     data() {
@@ -152,9 +149,6 @@ export default {
     },
     mounted() {
         this.carService.getCarsMedium().then(data => this.cars = data);
-    },
-    components: {
-        'DataTableSubMenu': DataTableSubMenu
     }
 }
 </script>

@@ -1,7 +1,5 @@
 <template>
     <div>
-        <TreeSubMenu />
-
         <div class="content-section introduction">
             <div class="feature-intro">
                 <h1>Tree - Templating</h1>
@@ -73,8 +71,6 @@ export default {
 </template>
 
 <script>
-import TreeSubMenu from './TreeSubMenu';
-
 export default {
     data() {
         return {
@@ -101,9 +97,6 @@ export default {
                 }
             ]
         }
-    },
-    components: {
-        'TreeSubMenu': TreeSubMenu
     }
 }
 </script>

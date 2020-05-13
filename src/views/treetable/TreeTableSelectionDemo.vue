@@ -1,7 +1,5 @@
 <template>
     <div>
-        <TreeTableSubMenu />
-
         <div class="content-section introduction">
             <div class="feature-intro">
                 <h1>TreeTable - Selection</h1>
@@ -129,7 +127,6 @@ export default {
 
 <script>
 import NodeService from '../../service/NodeService';
-import TreeTableSubMenu from './TreeTableSubMenu';
 
 export default {
     data() {
@@ -156,9 +153,6 @@ export default {
         onNodeUnselect(node) {
             this.$toast.add({severity:'success', summary: 'Node Unselected', detail: node.data.name, life: 3000});
         }
-    },
-    components: {
-        'TreeTableSubMenu': TreeTableSubMenu
     }
 }
 </script>

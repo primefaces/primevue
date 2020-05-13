@@ -1,7 +1,5 @@
 <template>
     <div>
-        <GalleriaSubMenu />
-
         <div class="content-section introduction">
             <div class="feature-intro">
                 <h1 style="margin-bottom: 0px;">Galleria - Indicator</h1>
@@ -463,7 +461,6 @@ export default {
 
 <script>
 import GalleriaService from '../../service/GalleriaService';
-import GalleriaSubMenu from './GalleriaSubMenu';
 
 export default {
     data() {
@@ -495,9 +492,6 @@ export default {
             this.images = data;
             this.images2 = data.slice(0, 5);
         });
-    },
-    components: {
-        'GalleriaSubMenu': GalleriaSubMenu
     }
 }
 </script>

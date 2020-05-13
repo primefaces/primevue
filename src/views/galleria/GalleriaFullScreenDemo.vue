@@ -1,7 +1,5 @@
 <template>
     <div>
-        <GalleriaSubMenu />
-
         <div class="content-section introduction">
             <div class="feature-intro">
                 <h1 style="margin-bottom: 0px;">Galleria - FullScreen</h1>
@@ -184,7 +182,6 @@ export default {
 
 <script>
 import GalleriaService from '../../service/GalleriaService';
-import GalleriaSubMenu from './GalleriaSubMenu';
 
 export default {
     data() {
@@ -240,9 +237,6 @@ export default {
             this.activeItemIndex = index;
             this.displayCustom = true;
         }
-    },
-    components: {
-        'GalleriaSubMenu': GalleriaSubMenu
     }
 }
 </script>

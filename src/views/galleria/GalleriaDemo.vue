@@ -1,7 +1,5 @@
 <template>
     <div class="galleria-demo">
-        <GalleriaSubMenu />
-
         <div class="content-section introduction">
             <div class="feature-intro">
                 <h1>Galleria</h1>
@@ -41,7 +39,6 @@
 
 <script>
 import GalleriaService from '../../service/GalleriaService';
-import GalleriaSubMenu from './GalleriaSubMenu';
 import GalleriaDoc from './GalleriaDoc';
 
 export default {
@@ -127,7 +124,6 @@ export default {
         }
     },
     components: {
-        'GalleriaSubMenu': GalleriaSubMenu,
         'GalleriaDoc': GalleriaDoc
     }
 }

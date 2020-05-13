@@ -1,7 +1,5 @@
 <template>
 	<div>
-        <DataTableSubMenu />
-
 		<div class="content-section introduction">
 			<div class="feature-intro">
 				<h1>DataTable - ContextMenu</h1>
@@ -80,7 +78,6 @@ export default {
 
 <script>
 import CarService from '../../service/CarService';
-import DataTableSubMenu from './DataTableSubMenu';
 
 export default {
     data() {
@@ -112,9 +109,6 @@ export default {
             this.$toast.add({severity: 'info', summary: 'Car Deleted', detail: car.vin + ' - ' + car.brand});
             this.selectedCar = null;
         }
-    },
-    components: {
-        'DataTableSubMenu': DataTableSubMenu
     }
 }
 </script>

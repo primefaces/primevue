@@ -5,48 +5,6 @@
     .content-section {
         padding: 2rem;
 
-        &.content-submenu {
-            background-color: var(--layer-1);
-            color: var(--text-color);
-
-            ul {
-                margin: 0;
-                padding: 0;
-                width: 100%;
-
-                li {
-                    list-style: none;
-                    width: 20%;
-                    display: inline-block;
-                    padding: .25rem;
-
-                    a {
-                        color: var(--text-color);
-                        display: block;
-                        width: 100%;
-                        border: 1px solid transparent;
-                        padding: .5rem 1rem;
-                        border-radius: 3px;
-                        transition: background-color .2s;
-
-                        &:hover {
-                            background-color: var(--layer-2);
-                        }
-
-                        &:focus {
-                            outline: 0 none;
-                            transition: box-shadow .2s;
-                            box-shadow: 0 0 0 0.2em $focusBorderColor;
-                        }
-
-                        &.router-link-exact-active {
-                            font-weight: 700;
-                        }
-                    }
-                }
-            }
-        }
-
         &.introduction {
             background-color: var(--primary-color);
             color: var(--primary-color-text);

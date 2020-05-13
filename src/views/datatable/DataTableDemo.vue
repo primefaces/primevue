@@ -1,7 +1,5 @@
 <template>
 	<div>
-        <DataTableSubMenu />
-
 		<div class="content-section introduction">
 			<div class="feature-intro">
 				<h1>DataTable</h1>
@@ -111,7 +109,6 @@
 
 <script>
 import CustomerService from '../../service/CustomerService';
-import DataTableSubMenu from './DataTableSubMenu';
 import DataTableDoc from './DataTableDoc';
 import '../../assets/styles/flags.css';
 
@@ -174,8 +171,7 @@ export default {
         }
     },
     components: {
-        'DataTableDoc': DataTableDoc,
-        'DataTableSubMenu': DataTableSubMenu
+        'DataTableDoc': DataTableDoc
     }
 }
 </script>

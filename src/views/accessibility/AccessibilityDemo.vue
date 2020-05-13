@@ -9,9 +9,9 @@
 
         <div class="content-section documentation">
             <h3 style="margin-top:0">WCAG</h3>
-            <p>The Web Content Accessibility Guidelines (WCAG) are part of a series of web accessibility guidelines published by the Web Accessibility Initiative (WAI) 
+            <p>The Web Content Accessibility Guidelines (WCAG) are part of a series of web accessibility guidelines published by the Web Accessibility Initiative (WAI)
                 of the World Wide Web Consortium (W3C), the main international standards organization for the Internet.</p>
-            
+
             <h3>Accessible Components</h3>
             <p>PrimeVue components are implemented based on the WCAG guidelines and follow the best practices outlined here.</p>
             <ul>

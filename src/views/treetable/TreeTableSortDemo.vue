@@ -1,7 +1,5 @@
 <template>
     <div>
-        <TreeTableSubMenu />
-
         <div class="content-section introduction">
             <div class="feature-intro">
                 <h1>TreeTable - Sort</h1>
@@ -87,7 +85,6 @@ export default {
 
 <script>
 import NodeService from '../../service/NodeService';
-import TreeTableSubMenu from './TreeTableSubMenu';
 
 export default {
     data() {
@@ -101,9 +98,6 @@ export default {
     },
     mounted() {
         this.nodeService.getTreeTableNodes().then(data => this.nodes = data);
-    },
-    components: {
-        'TreeTableSubMenu': TreeTableSubMenu
     }
 }
 </script>
