@@ -101,8 +101,15 @@ export default {
 }
 </script>
 
-<style scoped>
+<style scoped lang="scss">
 button {
     margin-right: .5em;
+}
+
+/deep/ .p-tree {
+    a {
+        color: #2196f3;
+    }
+    
 }
 </style>
