@@ -110,7 +110,7 @@ export default {
             if (ua.indexOf('MSIE ') > 0 || ua.indexOf('Trident/') > 0) {
                 return true;
             }
-            
+
             return false;
         }
     },
