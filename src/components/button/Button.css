@@ -41,6 +41,10 @@
     margin: 0;
 }
 
+.p-buttonset .p-button:not(:last-child) {
+    border-right: 0 none;
+}
+
 .p-buttonset .p-button:not(:first-of-type):not(:last-of-type) {
     border-radius: 0;
 }

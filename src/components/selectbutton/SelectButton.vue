@@ -101,9 +101,3 @@ export default {
 	}
 }
 </script>
-
-<style>
-.p-buttonset .p-button:not(:last-child) {
-    border-right: 0 none;
-}
-</style>
