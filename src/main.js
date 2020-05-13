@@ -162,6 +162,11 @@ Vue.component('Galleria', Galleria);
 
 Vue.component('CodeHighlight', CodeHighlight);
 
+router.beforeEach(function (to, from, next) { 
+    window.scrollTo(0, 0);
+    next();
+});
+
 new Vue({
   router,
   render: h => h(App)

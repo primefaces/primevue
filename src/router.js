@@ -675,8 +675,5 @@ export default new Router({
 			name: 'galleriacaption',
 			component: () => import('./views/galleria/GalleriaCaptionDemo.vue')
         }
-	],
-	scrollBehavior() {
-        return {x: 0, y: 0};
-	}
+	]
 });
