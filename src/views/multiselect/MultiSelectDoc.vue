@@ -43,9 +43,9 @@ data() {
 			&lt;img :alt="option.brand" :src="'demo/images/car/' + option.brand + '.png'" /&gt;
 			&lt;span&gt;{{option.brand}}&lt;/span&gt;
 		&lt;/div&gt;
-		&lt;div class="p-multiselect-empty-car-token" v-if="!slotProps.value || slotProps.value.length === 0"&gt;
-			Select Brands
-		&lt;/div&gt;
+		&lt;template v-if="!slotProps.value || slotProps.value.length === 0"&gt;
+            Select Brands
+        &lt;template&gt;
 	&lt;/template&gt;
 	&lt;template #option="slotProps"&gt;
 		&lt;div class="p-multiselect-car-option"&gt;
@@ -289,9 +289,9 @@ data() {
             &lt;img :alt="option.brand" :src="'demo/images/car/' + option.brand + '.png'" /&gt;
             &lt;span&gt;{{option.brand}}&lt;/span&gt;
         &lt;/div&gt;
-        &lt;div class="p-multiselect-empty-car-token" v-if="!slotProps.value || slotProps.value.length === 0"&gt;
+		&lt;template v-if="!slotProps.value || slotProps.value.length === 0"&gt;
             Select Brands
-        &lt;/div&gt;
+        &lt;template&gt;
     &lt;/template&gt;
     &lt;template #option="slotProps"&gt;
         &lt;div class="p-multiselect-car-option"&gt;
@@ -327,48 +327,42 @@ export default {
 
 <CodeHighlight lang="css">
 .p-multiselect {
-	min-width: 15em;
+    min-width: 15rem;
 }
 
-.p-multiselect-car-option {
-	display: inline-block;
-	vertical-align: middle;
+/deep/ .multiselect-custom {
+    .p-multiselect-label:not(.p-placeholder) {
+        padding-top: .25rem;
+        padding-bottom: .25rem;
+    }
 
-	img {
-		vertical-align: middle;
-		margin-right: .5em;
-		width: 24px;
-	}
+    .p-multiselect-car-option {
+        display: flex;
+        align-items: center;
 
-	span {
-		margin-top: .125em;
-	}
-}
+        img {
+            margin-right: .5rem;
+            width: 24px;
+        }
+    }
 
-.p-multiselect-car-token,
-.p-multiselect-empty-car-token {
-	padding: 2px 4px;
-	margin: 0 0.286em 0 0;
-	display: inline-block;
-	vertical-align: middle;
-	height: 1.857em;
-	border-radius: 3px;
-}
+    .p-multiselect-car-token {
+        padding: .25rem .5rem;
+        margin: 0 0.286rem 0 0;
+        border-radius: 3px;
+        display: inline-flex;
+    }
 
-.p-multiselect-car-token img {
-	width: 20px;
-	vertical-align: middle;
-	margin-right: .5em
-}
+    .p-multiselect-car-token img {
+        width: 17px;
+        margin-right: .5rem;
+        align-items: center;
+    }
 
-.p-multiselect-car-token {
-	background: #007ad9;
-	color: #ffffff;
-}
-
-.p-multiselect-empty-car-token {
-	background: #d95f00;
-	color: #ffffff;
+    .p-multiselect-car-token {
+        background: #2196f3;
+        color: #ffffff;
+    }
 }
 </CodeHighlight>
 			</TabPanel>
