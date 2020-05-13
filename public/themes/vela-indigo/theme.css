@@ -108,7 +108,7 @@
 }
 
 .p-autocomplete-panel {
-  background: #34495E;
+  background: #1C2833;
   color: #ebedef;
   border: 1px solid #2C3E50;
   border-radius: 3px;
@@ -446,7 +446,7 @@
 }
 
 .p-dropdown-panel {
-  background: #34495E;
+  background: #1C2833;
   color: #ebedef;
   border: 1px solid #2C3E50;
   border-radius: 3px;
@@ -456,7 +456,7 @@
   padding: 0.5rem 1rem;
   border-bottom: 1px solid #2C3E50;
   color: #ebedef;
-  background: #212F3C;
+  background: #1C2833;
   margin: 0;
   border-top-right-radius: 3px;
   border-top-left-radius: 3px;
@@ -705,7 +705,7 @@
 }
 
 .p-listbox {
-  background: #34495E;
+  background: #1C2833;
   color: #ebedef;
   border: 1px solid #2C3E50;
   border-radius: 3px;
@@ -714,7 +714,7 @@
   padding: 0.5rem 1rem;
   border-bottom: 1px solid #2C3E50;
   color: #ebedef;
-  background: #212F3C;
+  background: #1C2833;
   margin: 0;
   border-top-right-radius: 3px;
   border-top-left-radius: 3px;
@@ -785,7 +785,7 @@
 }
 
 .p-multiselect-panel {
-  background: #34495E;
+  background: #1C2833;
   color: #ebedef;
   border: 1px solid #2C3E50;
   border-radius: 3px;
@@ -795,7 +795,7 @@
   padding: 0.5rem 1rem;
   border-bottom: 1px solid #2C3E50;
   color: #ebedef;
-  background: #212F3C;
+  background: #1C2833;
   margin: 0;
   border-top-right-radius: 3px;
   border-top-left-radius: 3px;
