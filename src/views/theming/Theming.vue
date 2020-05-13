@@ -9,6 +9,7 @@
 
         <div class="content-section documentation">
             <h3 style="margin-top:0">Architecture</h3>
+            <img alt="Architecture" src="../../assets/images/architecture.jpg" style="width: 100%; margin-top:16px;" />
             <p>PrimeVue is a design agnostic library so unlike other UI libraries it does not enforce a certain styling such as material or bootstrap. In order to achieve this, styling has been
                 separated into core and theme. Core resides inside PrimeVue to implement the structure of the components such as positioning whereas theme brings the colors, paddings
                 and margins.</p>
