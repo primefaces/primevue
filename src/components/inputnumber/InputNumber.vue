@@ -262,7 +262,6 @@ export default {
             }
         },
         onInput(event) {
-            debugger;
             if (this.isSpecialChar) {
                 event.target.value = this.lastValue;
             }
@@ -542,7 +541,7 @@ export default {
         },
         onInputFocus(event) {
             this.focused = true;
-            this.$emit('blur', event);
+            this.$emit('focus', event);
         },
         onInputBlur(event) {
             this.focused = false;
