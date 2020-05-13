@@ -491,7 +491,7 @@ export default {
 
 .p-multiselect-close {
     display: flex;
-    align-content: center;
+    align-items: center;
     justify-content: center;
     flex-shrink: 0;
 }

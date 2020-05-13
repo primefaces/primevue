@@ -164,7 +164,7 @@ export default {
 .p-overlaypanel-close {
     display: flex;
     justify-content: center;
-    align-content: center;
+    align-items: center;
 }
 
 /* Animation */

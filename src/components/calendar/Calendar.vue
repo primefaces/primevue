@@ -2236,7 +2236,7 @@ export default {
 .p-monthpicker-month {
     width: 33.3%;
     display: inline-flex;
-    align-content: center;
+    align-items: center;
     justify-content: center;
     cursor: pointer;
 }
@@ -2257,7 +2257,7 @@ export default {
 
 .p-timepicker button {
     display: flex;
-    align-content: center;
+    align-items: center;
     justify-content: center;
     cursor: pointer;
 }
