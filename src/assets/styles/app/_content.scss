@@ -6,8 +6,9 @@
         padding: 2rem;
 
         &.introduction {
-            background-color: var(--primary-color);
-            color: var(--primary-color-text);
+            background-color: var(--layer-1);
+            color: var(--text-color);
+            border-bottom: 1px solid var(--layer-2);
 
             .feature-intro {
                 h1 {
@@ -65,6 +66,7 @@
         &.documentation {
             background-color: var(--layer-1);
             color: var(--text-color);
+            border-top: 1px solid var(--layer-2);
 
             h3 {
                 margin-top: 1.5rem;
