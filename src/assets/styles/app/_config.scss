@@ -99,10 +99,12 @@
         }
     }
 
-    h1 {
-        font-size: 1.286rem;
-        letter-spacing: .1px;
-        margin: 0 0 .5rem 0;
+    h3 {
+        margin-top: 1.5rem;
+        margin-bottom: .75rem;
+        font-size: 1.5rem;
+        font-weight: 500;
+        color: var(--text-color);
     }
 
     .p-grid > div {

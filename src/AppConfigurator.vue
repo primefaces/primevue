@@ -10,14 +10,14 @@
 
             <div class="layout-config-content">
                 <div class="free-themes">
-                    <h1 style="margin-top: 0">COMPONENT SCALE</h1>
+                    <h3 style="margin-top: 0">Component Scale</h3>
                     <div class="config-scale">
                         <Button icon="pi pi-minus" @click="decrementScale()" class="p-button-secondary" :disabled="scale === scales[0]"/>
                         <i class="pi pi-circle-on" v-for="s of scales" :class="{'scale-active': s === scale}" :key="s"/>
                         <Button icon="pi pi-plus"  @click="incrementScale()" class="p-button-secondary" :disabled="scale === scales[scales.length - 1]" />
                     </div>
 
-                    <h1>FREE THEMES</h1>
+                    <h3>Free Themes</h3>
                     <p>Built-in component themes created by the <a href="https://www.primefaces.org/designer/primevue">PrimeVue Theme Designer</a>.</p>
 
                     <div class="p-grid">
@@ -200,7 +200,7 @@
                 </div>
 
                 <div class="premium-themes">
-                    <h1>PREMIUM VUE-CLI TEMPLATES</h1>
+                    <h3>Premium Vue-CLI Template</h3>
                     <p>Beautifully crafted premium <a href="https://cli.vuejs.org">Vue CLI</a> application templates by the PrimeTek design team.</p>
                     <div class="p-grid">
                         <div class="p-col-12 p-md-6">
