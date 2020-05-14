@@ -654,6 +654,7 @@
   background: #585858;
   padding: 0.429rem 0.429rem;
   border: 1px solid #585858;
+  border-width: 1px;
   transition: border-color 0.2s, box-shadow 0.2s;
   appearance: none;
   border-radius: 3px;
