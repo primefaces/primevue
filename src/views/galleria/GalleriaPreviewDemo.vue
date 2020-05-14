@@ -22,7 +22,7 @@
 
             <h3>Navigation Buttons</h3>
             <Galleria :value="images" :responsiveOptions="responsiveOptions" :numVisible="5" :circular="true" style="max-width: 520px"
-                :showPreviewNavButtons="true">
+                :showItemNavigators="true">
                 <template #header>
                     With Thumbnails
                 </template>
@@ -37,7 +37,7 @@
             </Galleria>
 
             <Galleria :value="images" :responsiveOptions="responsiveOptions" :numVisible="5" :circular="true" style="max-width: 520px; margin-top: 2em"
-                :showPreviewNavButtons="true" :showThumbnails="false">
+                :showItemNavigators="true" :showThumbnails="false">
                 <template #header>
                     Without Thumbnails
                 </template>
@@ -51,9 +51,9 @@
 				</template>
             </Galleria>
 
-            <h3>Show Navigation Buttons on Preview Hover</h3>
+            <h3>Show Navigation Buttons on Hover</h3>
             <Galleria :value="images" :responsiveOptions="responsiveOptions" :numVisible="5" :circular="true" style="max-width: 520px;"
-                :showPreviewNavButtons="true" :showNavButtonsOnPreviewHover="true">
+                :showItemNavigators="true" :showItemNavigatorsOnHover="true">
                 <template #header>
                     With Thumbnails
                 </template>
@@ -68,7 +68,7 @@
             </Galleria>
 
             <Galleria :value="images" :responsiveOptions="responsiveOptions" :numVisible="5" :circular="true" style="max-width: 520px; margin-top: 2em"
-                :showPreviewNavButtons="true" :showThumbnails="false" :showNavButtonsOnPreviewHover="true">
+                :showItemNavigators="true" :showThumbnails="false" :showItemNavigatorsOnHover="true">
                 <template #header>
                     Without Thumbnails
                 </template>
@@ -84,7 +84,7 @@
 
             <h3>Advanced</h3>
             <Galleria :value="images" :responsiveOptions="responsiveOptions" :numVisible="5" :circular="true" style="max-width: 520px;"
-                :showPreviewNavButtons="true" :showThumbnails="false" :showNavButtonsOnPreviewHover="true"
+                :showItemNavigators="true" :showThumbnails="false" :showItemNavigatorsOnHover="true"
                 :showIndicators="true" :showIndicatorsOnPreview="true" :changePreviewOnIndicatorHover="true">
                 <template #item="slotProps">
 					<img :src="slotProps.item.previewImageSrc" :alt="slotProps.item.alt" style="width: 100%; display: block;" />

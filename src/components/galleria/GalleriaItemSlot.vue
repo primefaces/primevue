@@ -25,9 +25,9 @@ export default {
 
         if (template) {
             let content;
-            switch(type) {
+            switch (type) {
                 case 'item':
-                case 'previewCaption':
+                case 'caption':
                 case 'thumbnail':
                     content = template({
                         item

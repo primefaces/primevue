@@ -1,28 +1,24 @@
 <template>
-  <div class="p-galleria-preview-content">
-    <div class="p-galleria-preview-container">
-        <button v-if="showPreviewNavButtons" type="button" :class="navBackwardClass" @click="navBackward($event)" :disabled="isNavBackwardDisabled()">
-            <span class="p-galleria-preview-prev-icon pi pi-chevron-left"></span>
+  <div class="p-galleria-item-wrapper">
+    <div class="p-galleria-item-container">
+        <button v-if="showItemNavigators" type="button" :class="navBackwardClass" @click="navBackward($event)" :disabled="isNavBackwardDisabled()">
+            <span class="p-galleria-item-prev-icon pi pi-chevron-left"></span>
         </button>
-        <div class="p-galleria-preview-items-content">
+        <div class="p-galleria-item">
             <GalleriaItemSlot type="item" :item="activeItem" :templates="templates" />
         </div>
-        <button v-if="showPreviewNavButtons" type="button" :class="navForwardClass" @click="navForward($event)" :disabled="isNavForwardDisabled()">
-            <span class="p-galleria-preview-next-icon pi pi-chevron-right"></span>
+        <button v-if="showItemNavigators" type="button" :class="navForwardClass" @click="navForward($event)" :disabled="isNavForwardDisabled()">
+            <span class="p-galleria-item-next-icon pi pi-chevron-right"></span>
         </button>
-        <div class="p-galleria-preview-caption">
-            <GalleriaItemSlot type="previewCaption" :item="activeItem" :templates="templates" />
+        <div class="p-galleria-caption" v-if="templates['caption']">
+            <GalleriaItemSlot type="caption" :item="activeItem" :templates="templates" />
         </div>
     </div>
-    <ul v-if="showIndicators" class="p-galleria-indicator-container p-reset">
+    <ul v-if="showIndicators" class="p-galleria-indicators p-reset">
         <li v-for="(item, index) of value" :key="`p-galleria-indicator-${index}`" tabindex="0"
             @click="onIndicatorClick(index)" @mouseenter="onIndicatorMouseEnter(index)" @keydown.enter="onIndicatorKeyDown(index)"
-            :class="['p-galleria-indicator-item', {'p-highlight': isIndicatorItemActive(index)}]">
-            <button type="button" tabIndex="-1" class="p-link" v-if="!templates['indicator']">
-                <span :class="['p-galleria-indicator-icon pi', {
-                    'pi-circle-on': isIndicatorItemActive(index),
-                    'pi-circle-off': !isIndicatorItemActive(index)}]" />
-            </button>
+            :class="['p-galleria-indicator', {'p-highlight': isIndicatorItemActive(index)}]">
+            <button type="button" tabindex="-1" class="p-link" v-if="!templates['indicator']"></button>
             <GalleriaItemSlot type="indicator" :index="index" :templates="templates" />
         </li>
     </ul>
@@ -46,7 +42,7 @@ export default {
             type: Array,
             default: null
         },
-        showPreviewNavButtons: {
+        showItemNavigators: {
             type: Boolean,
             default: true
         },
@@ -58,7 +54,7 @@ export default {
             type: Boolean,
             default: true
         },
-        changePreviewOnIndicatorHover: {
+        changeItemOnIndicatorHover: {
             type: Boolean,
             default: true
         },
@@ -119,7 +115,7 @@ export default {
             this.$emit('update:activeItemIndex', index);
         },
         onIndicatorMouseEnter(index) {
-            if (this.changePreviewOnIndicatorHover) {
+            if (this.changeItemOnIndicatorHover) {
                 this.stopSlideShow();
 
                 this.$emit('update:activeItemIndex', index);
@@ -145,12 +141,12 @@ export default {
             return this.value[this.activeItemIndex];
         },
         navBackwardClass() {
-            return ['p-galleria-preview-prev p-galleria-preview-nav-button p-button', {
+            return ['p-galleria-item-prev p-galleria-item-nav p-link', {
                 'p-disabled': this.isNavBackwardDisabled()
             }];
         },
         navForwardClass() {
-            return ['p-galleria-preview-next p-galleria-preview-nav-button p-button', {
+            return ['p-galleria-item-next p-galleria-item-nav p-link', {
                 'p-disabled': this.isNavForwardDisabled()
             }];
         }

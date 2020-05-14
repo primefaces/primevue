@@ -299,7 +299,7 @@ responsiveOptions: [
                                 <td>Container of the preview content. It contains navigation buttons, preview item and caption content.</td>
                             </tr>
                             <tr>
-                                <td>p-galleria-indicator-container</td>
+                                <td>p-galleria-indicators</td>
                                 <td>Container of the indicators. It contains indicator items.</td>
                             </tr>
                             <tr>

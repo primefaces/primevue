@@ -10,7 +10,7 @@
         <div class="content-section implementation">
             <h3 class="first">Basic</h3>
             <Galleria :value="images" :responsiveOptions="responsiveOptions2" :numVisible="9" containerStyle="max-width: 50%"
-                :circular="true" :fullScreen="true" :showPreviewNavButtons="true" :visible.sync="displayBasic">
+                :circular="true" :fullScreen="true" :showItemNavigators="true" :visible.sync="displayBasic">
                 <template #item="slotProps">
 					<img :src="slotProps.item.previewImageSrc" :alt="slotProps.item.alt" style="width: 100%; display: block;" />
 				</template>
@@ -25,7 +25,7 @@
 
             <h3>Without Thumbnails</h3>
             <Galleria :value="images" :responsiveOptions="responsiveOptions" :numVisible="7" containerStyle="max-width: 850px"
-                :circular="true" :fullScreen="true" :showPreviewNavButtons="true" :showThumbnails="false" :visible.sync="displayBasic2">
+                :circular="true" :fullScreen="true" :showItemNavigators="true" :showThumbnails="false" :visible.sync="displayBasic2">
                 <template #item="slotProps">
 					<img :src="slotProps.item.previewImageSrc" :alt="slotProps.item.alt" style="width: 100%; display: block;" />
 				</template>
@@ -40,7 +40,7 @@
 
             <h3>Custom Contents</h3>
             <Galleria :value="images" :activeItemIndex.sync="activeItemIndex" :responsiveOptions="responsiveOptions" :numVisible="7" containerStyle="max-width: 850px"
-                :circular="true" :fullScreen="true" :showPreviewNavButtons="true" :showThumbnails="false" :visible.sync="displayCustom">
+                :circular="true" :fullScreen="true" :showItemNavigators="true" :showThumbnails="false" :visible.sync="displayCustom">
                 <template #item="slotProps">
 					<img :src="slotProps.item.previewImageSrc" :alt="slotProps.item.alt" style="width: 100%; display: block;" />
 				</template>

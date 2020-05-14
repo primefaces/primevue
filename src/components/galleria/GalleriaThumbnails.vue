@@ -1,11 +1,11 @@
 <template>
-    <div class="p-galleria-thumbnail-content">
+    <div class="p-galleria-thumbnail-wrapper">
         <div class="p-galleria-thumbnail-container">
-            <button v-if="showThumbnailNavButtons" :class="navBackwardClass" @click="navBackward($event)" :disabled="isNavBackwardDisabled()">
+            <button v-if="showThumbnailNavigators" :class="navBackwardClass" @click="navBackward($event)" :disabled="isNavBackwardDisabled()">
                 <span :class="navBackwardIconClass"></span>
             </button>
-            <div class="p-galleria-thumbnail-items-content" :style="{'height': isVertical ? contentHeight : ''}">
-                <div ref="itemsContainer" class="p-galleria-thumbnail-items-container" @transitionend="onTransitionEnd"
+            <div class="p-galleria-thumbnail-items-container" :style="{'height': isVertical ? contentHeight : ''}">
+                <div ref="itemsContainer" class="p-galleria-thumbnail-items" @transitionend="onTransitionEnd"
                     @touchstart="onTouchStart($event)" @touchmove="onTouchMove($event)" @touchend="onTouchEnd($event)">
                     <div v-for="(item, index) of value" :key="`p-galleria-thumbnail-item-${index}`" :class="['p-galleria-thumbnail-item', {
                         'p-galleria-thumbnail-item-current': activeItemIndex === index,
@@ -18,7 +18,7 @@
                     </div>
                 </div>
             </div>
-            <button v-if="showThumbnailNavButtons" :class="navForwardClass" @click="navForward($event)" :disabled="isNavForwardDisabled()">
+            <button v-if="showThumbnailNavigators" :class="navForwardClass" @click="navForward($event)" :disabled="isNavForwardDisabled()">
                 <span :class="navForwardIconClass"></span>
             </button>
         </div>
@@ -67,7 +67,7 @@ export default {
             type: String,
             default: "300px"
         },
-        showThumbnailNavButtons: {
+        showThumbnailNavigators: {
             type: Boolean,
             default: true
         },
@@ -382,12 +382,12 @@ export default {
     },
     computed: {
         navBackwardClass() {
-            return ['p-galleria-thumbnail-prev p-button', {
+            return ['p-galleria-thumbnail-prev p-link', {
                 'p-disabled': this.isNavBackwardDisabled()
             }];
         },
         navForwardClass() {
-            return ['p-galleria-thumbnail-next p-button', {
+            return ['p-galleria-thumbnail-next p-link', {
                 'p-disabled': this.isNavForwardDisabled()
             }];
         },

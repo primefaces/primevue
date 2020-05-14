@@ -17,7 +17,7 @@
                         <img :src="item.thumbnailImageSrc" :alt="item.alt" style="display: block;" />
                     </div>
 				</template>
-                <template #previewCaption="{item}">
+                <template #itemCaption="{item}">
                     <h4 style="margin-bottom: .5rem;">{{item.title}}</h4>
                     <p>{{item.alt}}</p>
                 </template>
@@ -38,7 +38,7 @@
             &lt;img :src="item.thumbnailImageSrc" :alt="item.alt" style="display: block;" /&gt;
         &lt;/div&gt;
     &lt;/template&gt;
-    &lt;template #previewCaption="{item}"&gt;
+    &lt;template #itemCaption="{item}"&gt;
         &lt;h4 style="margin-bottom: .5rem;"&gt;{{item.title}}&lt;/h4&gt;
         &lt;p&gt;{{item.alt}}&lt;/p&gt;
     &lt;/template&gt;

@@ -7,14 +7,14 @@
             <GalleriaItemSlot type="header" :templates="$attrs.templates"/>
         </div>
         <div class="p-galleria-content">
-            <GalleriaPreview :value="$attrs.value" :activeItemIndex.sync="activeItemIndex" :circular="$attrs.circular" :templates="$attrs.templates"
-                :showIndicators="$attrs.showIndicators" :changePreviewOnIndicatorHover="$attrs.changePreviewOnIndicatorHover"
-                :showPreviewNavButtons="$attrs.showPreviewNavButtons" :autoPlay="$attrs.autoPlay" :slideShowActive.sync="slideShowActive"
+            <GalleriaItem :value="$attrs.value" :activeItemIndex.sync="activeItemIndex" :circular="$attrs.circular" :templates="$attrs.templates"
+                :showIndicators="$attrs.showIndicators" :changeItemOnIndicatorHover="$attrs.changeItemOnIndicatorHover"
+                :showItemNavigators="$attrs.showItemNavigators" :autoPlay="$attrs.autoPlay" :slideShowActive.sync="slideShowActive"
                 @startSlideShow="startSlideShow" @stopSlideShow="stopSlideShow" />
 
             <GalleriaThumbnails v-if="$attrs.showThumbnails" :containerId="id" :value="$attrs.value" :activeItemIndex.sync="activeItemIndex" :templates="$attrs.templates"
                 :numVisible="$attrs.numVisible" :responsiveOptions="$attrs.responsiveOptions" :circular="$attrs.circular"
-                :isVertical="isVertical()" :contentHeight="$attrs.verticalThumbnailViewPortHeight" :showThumbnailNavButtons="$attrs.showThumbnailNavButtons"
+                :isVertical="isVertical()" :contentHeight="$attrs.verticalThumbnailViewPortHeight" :showThumbnailNavigators="$attrs.showThumbnailNavigators"
                 :slideShowActive.sync="slideShowActive" @stopSlideShow="stopSlideShow" />
         </div>
         <div v-if="$attrs.templates && $attrs.templates['footer']" class="p-galleria-footer">
@@ -25,7 +25,7 @@
 
 <script>
 import UniqueComponentId from '../utils/UniqueComponentId';
-import GalleriaPreview from './GalleriaPreview';
+import GalleriaItem from './GalleriaItem';
 import GalleriaThumbnails from './GalleriaThumbnails';
 import GalleriaItemSlot from './GalleriaItemSlot';
 
@@ -88,13 +88,13 @@ export default {
 
             return ['p-galleria p-component', {
                 'p-galleria-fullscreen': this.$attrs.fullScreen,
-                'p-galleria-indicator-onpreview': this.$attrs.showIndicatorsOnPreview,
-                'p-galleria-preview-nav-onhover': this.$attrs.showNavButtonsOnPreviewHover && !this.$attrs.fullScreen
+                'p-galleria-indicator-onitem': this.$attrs.showIndicatorsOnItem,
+                'p-galleria-item-nav-onhover': this.$attrs.showItemNavigatorsOnHover && !this.$attrs.fullScreen
             }, thumbnailsPosClass, indicatorPosClass, this.$attrs.containerClass]
         }
     },
     components: {
-        'GalleriaPreview': GalleriaPreview,
+        'GalleriaItem': GalleriaItem,
         'GalleriaThumbnails': GalleriaThumbnails,
         'GalleriaItemSlot': GalleriaItemSlot
     }
