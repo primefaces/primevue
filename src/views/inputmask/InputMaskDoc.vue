@@ -118,34 +118,34 @@ import InputMask from 'primevue/inputmask';
 				</a>
 <CodeHighlight>
 <template v-pre>
-&lt;div class="p-grid p-fluid"&gt;
-    &lt;div class="p-col-12 p-md-4"&gt;
-        &lt;h3&gt;Basic {{val1}}&lt;/h3&gt;
+&lt;div class="p-fluid p-formgrid p-grid"&gt;
+    &lt;div class="p-field p-col-12 p-md-4"&gt;
+        &lt;label for="basic"&gt;Basic&lt;/label&gt;
         &lt;InputMask mask="99-999999" v-model="val1" placeholder="99-999999" /&gt;
     &lt;/div&gt;
 
-    &lt;div class="p-col-12 p-md-4"&gt;
-        &lt;h3&gt;SSN {{val2}}&lt;/h3&gt;
+    &lt;div class="p-field p-col-12 p-md-4"&gt;
+        &lt;label for="ssn"&gt;SSN&lt;/label&gt;
         &lt;InputMask mask="999-99-9999" v-model="val2" placeholder="999-99-9999" /&gt;
     &lt;/div&gt;
 
-    &lt;div class="p-col-12 p-md-4"&gt;
-        &lt;h3&gt;Date {{val3}}&lt;/h3&gt;
+    &lt;div class="p-field p-col-12 p-md-4"&gt;
+        &lt;label for="date"&gt;Date&lt;/label&gt;
         &lt;InputMask mask="99/99/9999" v-model="val3" placeholder="99/99/9999" slotChar="mm/dd/yyyy" /&gt;
     &lt;/div&gt;
 
-    &lt;div class="p-col-12 p-md-4"&gt;
-        &lt;h3&gt;Phone {{val4}}&lt;/h3&gt;
+    &lt;div class="p-field p-col-12 p-md-4"&gt;
+        &lt;label for="Phone"&gt;Phone&lt;/label&gt;
         &lt;InputMask mask="(999) 999-9999" v-model="val4" placeholder="(999) 999-9999" /&gt;
     &lt;/div&gt;
 
-    &lt;div class="p-col-12 p-md-4"&gt;
-        &lt;h3&gt;Phone Ext {{val5}}&lt;/h3&gt;
+    &lt;div class="p-field p-col-12 p-md-4"&gt;
+        &lt;label for="phoneext"&gt;Phone Ext&lt;/label&gt;
         &lt;InputMask mask="(999) 999-9999? x99999" v-model="val5" placeholder="(999) 999-9999? x99999"/&gt;
     &lt;/div&gt;
 
-    &lt;div class="p-col-12 p-md-4"&gt;
-        &lt;h3&gt;Serial Number {{val6}}&lt;/h3&gt;
+    &lt;div class="p-field p-col-12 p-md-4"&gt;
+        &lt;label for="serial"&gt;Serial&lt;/label&gt;
         &lt;InputMask mask="a*-999-a999" v-model="val6" placeholder="a*-999-a999" /&gt;
     &lt;/div&gt;
 &lt;/div&gt;
