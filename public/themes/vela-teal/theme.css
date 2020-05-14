@@ -1254,45 +1254,38 @@
 
 .p-carousel .p-carousel-content .p-carousel-prev,
 .p-carousel .p-carousel-content .p-carousel-next {
-  background: #ffffff;
-  border: 1px solid #dee2e6;
-  margin: 0.2rem;
+  background: transparent;
   color: #aeb6bf;
   border-radius: 50%;
+  width: 2rem;
+  height: 2rem;
   transition: background-color 0.2s, box-shadow 0.2s;
-  width: 2.357rem;
-  height: 2.357rem;
+  margin: 0.5rem;
 }
 .p-carousel .p-carousel-content .p-carousel-prev:not(.p-disabled):hover,
 .p-carousel .p-carousel-content .p-carousel-next:not(.p-disabled):hover {
-  background: #e9ecef;
-  color: #ebedef;
-  border-color: #dee2e6;
+  background: rgba(255, 255, 255, 0.1);
+  color: #aeb6bf;
 }
-.p-carousel .p-carousel-dots-container {
-  padding: 0.5rem 1rem;
+.p-carousel .p-carousel-indicators {
+  padding: 1rem;
 }
-.p-carousel .p-carousel-dots-container .p-carousel-dot-item {
-  margin: 0;
+.p-carousel .p-carousel-indicators .p-carousel-indicator {
+  margin-right: 0.5rem;
 }
-.p-carousel .p-carousel-dots-container .p-carousel-dot-item button {
-  padding: 0.286rem;
+.p-carousel .p-carousel-indicators .p-carousel-indicator button {
+  background-color: #34495E;
+  width: 2rem;
+  height: 0.5rem;
   transition: background-color 0.2s, box-shadow 0.2s;
+  border-radius: 0;
 }
-.p-carousel .p-carousel-dots-container .p-carousel-dot-item .p-carousel-dot-icon {
-  width: 20px;
-  height: 6px;
-  background: #dee2e6;
-  transition: background-color 0.2s, box-shadow 0.2s;
+.p-carousel .p-carousel-indicators .p-carousel-indicator button:hover {
+  background: rgba(255, 255, 255, 0.1);
 }
-.p-carousel .p-carousel-dots-container .p-carousel-dot-item .p-carousel-dot-icon:before {
-  content: " ";
-}
-.p-carousel .p-carousel-dots-container .p-carousel-dot-item:hover .p-carousel-dot-icon {
-  background: #ced4da;
-}
-.p-carousel .p-carousel-dots-container .p-carousel-dot-item.p-highlight .p-carousel-dot-icon {
+.p-carousel .p-carousel-indicators .p-carousel-indicator.p-highlight button {
   background: #4DB6AC;
+  color: #212529;
 }
 
 .p-datatable .p-paginator-top {

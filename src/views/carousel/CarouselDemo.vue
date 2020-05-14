@@ -13,12 +13,12 @@
 					<h3>Basic</h3>
 				</template>
 				<template #item="slotProps">
-					<div class="car-details">
-						<div class="p-grid p-nogutter">
-							<div class="p-col-12">
+					<div class="car-item">
+						<div class="car-content">
+							<div>
 								<img :src="'demo/images/car/' + slotProps.data.brand + '.png'" :alt="slotProps.data.brand" />
 							</div>
-							<div class="p-col-12 car-data">
+							<div>
 								<div class="car-title">{{slotProps.data.brand}}</div>
 								<div class="car-subtitle">{{slotProps.data.year}} | {{slotProps.data.color}}</div>
 
@@ -38,12 +38,12 @@
 					<h3>Circular, AutoPlay, 3 Items per Page and Scroll by 1</h3>
 				</template>
 				<template #item="slotProps">
-					<div class="car-details">
-						<div class="p-grid p-nogutter">
-							<div class="p-col-12">
+					<div class="car-item">
+						<div class="car-content">
+							<div>
 								<img :src="'demo/images/car/' + slotProps.data.brand + '.png'" :alt="slotProps.data.brand" />
 							</div>
-							<div class="p-col-12 car-data">
+							<div>
 								<div class="car-title">{{slotProps.data.brand}}</div>
 								<div class="car-subtitle">{{slotProps.data.year}} | {{slotProps.data.color}}</div>
 
@@ -58,18 +58,18 @@
 				</template>
 			</Carousel>
 
-			<Carousel :value="cars" :numVisible="1" :numScroll="1" orientation="vertical" verticalViewPortHeight="330px"
+			<Carousel :value="cars" :numVisible="1" :numScroll="1" orientation="vertical" verticalViewPortHeight="325px"
 						style="max-width: 400px; margin-top: 2em">
 				<template #header>
 					<h3>Vertical</h3>
 				</template>
 				<template #item="slotProps">
-					<div class="car-details">
-						<div class="p-grid p-nogutter">
-							<div class="p-col-12">
+					<div class="car-item">
+						<div class="car-content">
+							<div>
 								<img :src="'demo/images/car/' + slotProps.data.brand + '.png'" :alt="slotProps.data.brand" />
 							</div>
-							<div class="p-col-12 car-data">
+							<div>
 								<div class="car-title">{{slotProps.data.brand}}</div>
 								<div class="car-subtitle">{{slotProps.data.year}} | {{slotProps.data.color}}</div>
 
@@ -131,92 +131,38 @@ export default {
 
 <style lang="scss" scoped>
 .p-carousel {
+    margin-bottom: 1rem;
 
-	.p-carousel-header {
-		h3 {
-			font-weight: 500;
-			font-size: 18px;
-		}
-	}
-
-	.p-carousel-content {
-		.p-carousel-item {
-			.car-details {
-				> .p-grid {
-					border: 1px solid #dee2e6;
-					border-radius: 3px;
-					margin: .3rem;
-					text-align: center;
-					padding: 2em 0 2.25em 0;
-				}
-			}
-
-			.car-data {
-				.car-title {
-					font-weight: 600;
-					font-size: 20px;
-					margin-top: 24px;
-				}
-
-				.car-subtitle {
-					margin: .25em 0 2em 0;
-				}
-
-				button {
-					margin-left: .5rem;
-
-					&:first-child {
-						margin-left: 0;
-					}
-				}
-			}
-		}
-	}
-
-	&.custom-carousel {
-		/deep/ .p-carousel-dot-icon  {
-			width: 16px !important;
-			height: 16px !important;
-			border-radius: 50%;
-		}
-	}
-
-	&.p-carousel-horizontal {
-		.p-carousel-content {
-			.p-carousel-item {
-				&.p-carousel-item-start {
-					.car-details {
-						> .p-grid {
-							margin-left: .6rem;
-						}
-					}
-				}
-
-				&.p-carousel-item-end {
-					.car-details {
-						> .p-grid {
-							margin-right: .6rem;
-						}
-					}
-				}
-			}
-		}
-	}
+    &:last-child {
+        margin-bottom: 0rem;
+    }
 }
 
-/* Dark Theme such as luna-amber, luna-blue, luna-green and luna-pink */
-.dark-theme {
-	.p-carousel {
-		.p-carousel-content {
-			.p-carousel-item {
-				.car-details {
-					> .p-grid {
-						border: 1px solid #191919;
-						background-color: #323232;
-					}
-				}
-			}
-		}
-	}
+.car-item {
+    .car-content {
+        border: 1px solid var(--layer-2);
+        border-radius: 3px;
+        margin: .3rem;
+        text-align: center;
+        padding: 2em 0 2.25em 0;
+    }
+
+    .car-title {
+        font-weight: 600;
+        font-size: 20px;
+        margin-top: 24px;
+    }
+
+    .car-subtitle {
+        margin: .25em 0 2em 0;
+    }
+
+    button {
+        margin-left: .5rem;
+
+        &:first-child {
+            margin-left: 0;
+        }
+    }
 }
 </style>

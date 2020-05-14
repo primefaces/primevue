@@ -35,23 +35,23 @@ import Carousel from 'primevue/carousel';
 		&lt;h2&gt;Basic&lt;/h2&gt;
 	&lt;/template&gt;
 	&lt;template #item="slotProps"&gt;
-		&lt;div class="car-details"&gt;
-			&lt;div class="p-grid p-nogutter"&gt;
-				&lt;div class="p-col-12"&gt;
-					&lt;img :src="'demo/images/car/' + slotProps.data.brand + '.png'" :alt="slotProps.data.brand" /&gt;
-				&lt;/div&gt;
-				&lt;div class="p-col-12 car-data"&gt;
-					&lt;div class="car-title"&gt;{{slotProps.data.brand}}&lt;/div&gt;
-					&lt;div class="car-subtitle"&gt;{{slotProps.data.year}} | {{slotProps.data.color}}&lt;/div&gt;
+		&lt;div class="car-item"&gt;
+            &lt;div class="car-content"&gt;
+                &lt;div&gt;
+                    &lt;img :src="'demo/images/car/' + slotProps.data.brand + '.png'" :alt="slotProps.data.brand" /&gt;
+                &lt;/div&gt;
+                &lt;div&gt;
+                    &lt;div class="car-title"&gt;{{slotProps.data.brand}}&lt;/div&gt;
+                    &lt;div class="car-subtitle"&gt;{{slotProps.data.year}} | {{slotProps.data.color}}&lt;/div&gt;
 
-					&lt;div class="car-buttons"&gt;
-						&lt;Button icon="pi pi-search" class="p-button-secondary" /&gt;
-						&lt;Button icon="pi pi-star" class="p-button-secondary" /&gt;
-						&lt;Button icon="pi pi-cog" class="p-button-secondary" /&gt;
-					&lt;/div&gt;
-				&lt;/div&gt;
-			&lt;/div&gt;
-		&lt;/div&gt;
+                    &lt;div class="car-buttons"&gt;
+                        &lt;Button icon="pi pi-search" class="p-button-secondary" /&gt;
+                        &lt;Button icon="pi pi-star" class="p-button-secondary" /&gt;
+                        &lt;Button icon="pi pi-cog" class="p-button-secondary" /&gt;
+                    &lt;/div&gt;
+                &lt;/div&gt;
+            &lt;/div&gt;
+        &lt;/div&gt;
 	&lt;/template&gt;
 &lt;/Carousel&gt;
 </template>
@@ -124,86 +124,86 @@ data() {
 				<div class="doc-tablewrapper">
 					<table class="doc-table">
 						<thead>
-						<tr>
-							<th>Name</th>
-							<th>Type</th>
-							<th>Default</th>
-							<th>Description</th>
-						</tr>
-						</thead>
-						<tbody>
-						<tr>
-							<td>value</td>
-							<td>array</td>
-							<td>null</td>
-							<td>An array of objects to display.</td>
-						</tr>
-						<tr>
-							<td>page</td>
-							<td>number</td>
-							<td>null</td>
-							<td>Index of the first item.</td>
-						</tr>
-						<tr>
-							<td>circular</td>
-							<td>boolean</td>
-							<td>false</td>
-							<td>Defines if scrolling would be infinite.</td>
-						</tr>
-						<tr>
-							<td>autoplayInterval</td>
-							<td>number</td>
-							<td>null</td>
-							<td>Time in milliseconds to scroll items automatically.</td>
-						</tr>
-						<tr>
-							<td>numVisible</td>
-							<td>number</td>
-							<td>1</td>
-							<td>Number of items per page.</td>
-						</tr>
-						<tr>
-							<td>numScroll</td>
-							<td>number</td>
-							<td>1</td>
-							<td>Number of items to scroll.</td>
-						</tr>
-						<tr>
-							<td>responsiveOptions</td>
-							<td>any</td>
-							<td>null</td>
-							<td>An array of options for responsive design.</td>
-						</tr>
-						<tr>
-							<td>orientation</td>
-							<td>string</td>
-							<td>horizontal</td>
-							<td>Specifies the layout of the component, valid values are "horizontal" and "vertical".</td>
-						</tr>
-						<tr>
-							<td>verticalViewPortHeight</td>
-							<td>string</td>
-							<td>300px</td>
-							<td>Height of the viewport in vertical layout.</td>
-						</tr>
-						<tr>
-							<td>contentClass</td>
-							<td>string</td>
-							<td>null</td>
-							<td>Style class of main content.</td>
-						</tr>
-						<tr>
-							<td>containerClass</td>
-							<td>string</td>
-							<td>null</td>
-							<td>Style class of the viewport container.</td>
-						</tr>
-						<tr>
-							<td>dotsContainerClass</td>
-							<td>string</td>
-							<td>null</td>
-							<td>Style class of the paginator items.</td>
-						</tr>
+                            <tr>
+                                <th>Name</th>
+                                <th>Type</th>
+                                <th>Default</th>
+                                <th>Description</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <tr>
+                                <td>value</td>
+                                <td>array</td>
+                                <td>null</td>
+                                <td>An array of objects to display.</td>
+                            </tr>
+                            <tr>
+                                <td>page</td>
+                                <td>number</td>
+                                <td>null</td>
+                                <td>Index of the first item.</td>
+                            </tr>
+                            <tr>
+                                <td>circular</td>
+                                <td>boolean</td>
+                                <td>false</td>
+                                <td>Defines if scrolling would be infinite.</td>
+                            </tr>
+                            <tr>
+                                <td>autoplayInterval</td>
+                                <td>number</td>
+                                <td>null</td>
+                                <td>Time in milliseconds to scroll items automatically.</td>
+                            </tr>
+                            <tr>
+                                <td>numVisible</td>
+                                <td>number</td>
+                                <td>1</td>
+                                <td>Number of items per page.</td>
+                            </tr>
+                            <tr>
+                                <td>numScroll</td>
+                                <td>number</td>
+                                <td>1</td>
+                                <td>Number of items to scroll.</td>
+                            </tr>
+                            <tr>
+                                <td>responsiveOptions</td>
+                                <td>any</td>
+                                <td>null</td>
+                                <td>An array of options for responsive design.</td>
+                            </tr>
+                            <tr>
+                                <td>orientation</td>
+                                <td>string</td>
+                                <td>horizontal</td>
+                                <td>Specifies the layout of the component, valid values are "horizontal" and "vertical".</td>
+                            </tr>
+                            <tr>
+                                <td>verticalViewPortHeight</td>
+                                <td>string</td>
+                                <td>300px</td>
+                                <td>Height of the viewport in vertical layout.</td>
+                            </tr>
+                            <tr>
+                                <td>contentClass</td>
+                                <td>string</td>
+                                <td>null</td>
+                                <td>Style class of main content.</td>
+                            </tr>
+                            <tr>
+                                <td>containerClass</td>
+                                <td>string</td>
+                                <td>null</td>
+                                <td>Style class of the viewport container.</td>
+                            </tr>
+                            <tr>
+                                <td>indicatorsContentClass</td>
+                                <td>string</td>
+                                <td>null</td>
+                                <td>Style class of the indicator items.</td>
+                            </tr>
 						</tbody>
 					</table>
 				</div>
@@ -213,48 +213,44 @@ data() {
 				<div class="doc-tablewrapper">
 					<table class="doc-table">
 						<thead>
-						<tr>
-							<th>Name</th>
-							<th>Element</th>
-						</tr>
-						</thead>
-						<tbody>
-						<tr>
-							<td>p-carousel</td>
-							<td>Container element.</td>
-						</tr>
-						<tr>
-							<td>p-carousel-header</td>
-							<td>Header section.</td>
-						</tr>
-						<tr>
-							<td>p-carousel-footer</td>
-							<td>Footer section.</td>
-						</tr>
-						<tr>
-							<td>p-carousel-content</td>
-							<td>Main content element. It contains the container of the viewport.</td>
-						</tr>
-						<tr>
-							<td>p-carousel-container</td>
-							<td>Container of the viewport. It contains navigation buttons and viewport.</td>
-						</tr>
-						<tr>
-							<td>p-carousel-items-content</td>
-							<td>Viewport.</td>
-						</tr>
-						<tr>
-							<td>p-carousel-dots-container</td>
-							<td>Container of the paginator.</td>
-						</tr>
-						<tr>
-							<td>p-carousel-dot-item</td>
-							<td>Paginator element.</td>
-						</tr>
-						<tr>
-							<td>p-carousel-dot-icon</td>
-							<td>Paginator element icon.</td>
-						</tr>
+                            <tr>
+                                <th>Name</th>
+                                <th>Element</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <tr>
+                                <td>p-carousel</td>
+                                <td>Container element.</td>
+                            </tr>
+                            <tr>
+                                <td>p-carousel-header</td>
+                                <td>Header section.</td>
+                            </tr>
+                            <tr>
+                                <td>p-carousel-footer</td>
+                                <td>Footer section.</td>
+                            </tr>
+                            <tr>
+                                <td>p-carousel-content</td>
+                                <td>Main content element. It contains the container of the viewport.</td>
+                            </tr>
+                            <tr>
+                                <td>p-carousel-container</td>
+                                <td>Container of the viewport. It contains navigation buttons and viewport.</td>
+                            </tr>
+                            <tr>
+                                <td>p-carousel-items-content</td>
+                                <td>Viewport.</td>
+                            </tr>
+                            <tr>
+                                <td>p-carousel-indicators</td>
+                                <td>Container of the indicators.</td>
+                            </tr>
+                            <tr>
+                                <td>p-carousel-indicator</td>
+                                <td>Indicator element.</td>
+                            </tr>
 						</tbody>
 					</table>
 				</div>
@@ -274,23 +270,23 @@ data() {
 		&lt;h2&gt;Basic&lt;/h2&gt;
 	&lt;/template&gt;
 	&lt;template #item="slotProps"&gt;
-		&lt;div class="car-details"&gt;
-			&lt;div class="p-grid p-nogutter"&gt;
-				&lt;div class="p-col-12"&gt;
-					&lt;img :src="'demo/images/car/' + slotProps.data.brand + '.png'" :alt="slotProps.data.brand" /&gt;
-				&lt;/div&gt;
-				&lt;div class="p-col-12 car-data"&gt;
-					&lt;div class="car-title"&gt;{{slotProps.data.brand}}&lt;/div&gt;
-					&lt;div class="car-subtitle"&gt;{{slotProps.data.year}} | {{slotProps.data.color}}&lt;/div&gt;
+		&lt;div class="car-item"&gt;
+            &lt;div class="car-content"&gt;
+                &lt;div&gt;
+                    &lt;img :src="'demo/images/car/' + slotProps.data.brand + '.png'" :alt="slotProps.data.brand" /&gt;
+                &lt;/div&gt;
+                &lt;div&gt;
+                    &lt;div class="car-title"&gt;{{slotProps.data.brand}}&lt;/div&gt;
+                    &lt;div class="car-subtitle"&gt;{{slotProps.data.year}} | {{slotProps.data.color}}&lt;/div&gt;
 
-					&lt;div class="car-buttons"&gt;
-						&lt;Button icon="pi pi-search" class="p-button-secondary" /&gt;
-						&lt;Button icon="pi pi-star" class="p-button-secondary" /&gt;
-						&lt;Button icon="pi pi-cog" class="p-button-secondary" /&gt;
-					&lt;/div&gt;
-				&lt;/div&gt;
-			&lt;/div&gt;
-		&lt;/div&gt;
+                    &lt;div class="car-buttons"&gt;
+                        &lt;Button icon="pi pi-search" class="p-button-secondary" /&gt;
+                        &lt;Button icon="pi pi-star" class="p-button-secondary" /&gt;
+                        &lt;Button icon="pi pi-cog" class="p-button-secondary" /&gt;
+                    &lt;/div&gt;
+                &lt;/div&gt;
+            &lt;/div&gt;
+        &lt;/div&gt;
 	&lt;/template&gt;
 &lt;/Carousel&gt;
 
@@ -299,23 +295,23 @@ data() {
 		&lt;h2&gt;Circular, AutoPlay, 3 Items per Page and Scroll by 1&lt;/h2&gt;
 	&lt;/template&gt;
 	&lt;template #item="slotProps"&gt;
-		&lt;div class="car-details"&gt;
-			&lt;div class="p-grid p-nogutter"&gt;
-				&lt;div class="p-col-12"&gt;
-					&lt;img :src="'demo/images/car/' + slotProps.data.brand + '.png'" :alt="slotProps.data.brand" /&gt;
-				&lt;/div&gt;
-				&lt;div class="p-col-12 car-data"&gt;
-					&lt;div class="car-title"&gt;{{slotProps.data.brand}}&lt;/div&gt;
-					&lt;div class="car-subtitle"&gt;{{slotProps.data.year}} | {{slotProps.data.color}}&lt;/div&gt;
+		&lt;div class="car-item"&gt;
+            &lt;div class="car-content"&gt;
+                &lt;div&gt;
+                    &lt;img :src="'demo/images/car/' + slotProps.data.brand + '.png'" :alt="slotProps.data.brand" /&gt;
+                &lt;/div&gt;
+                &lt;div&gt;
+                    &lt;div class="car-title"&gt;{{slotProps.data.brand}}&lt;/div&gt;
+                    &lt;div class="car-subtitle"&gt;{{slotProps.data.year}} | {{slotProps.data.color}}&lt;/div&gt;
 
-					&lt;div class="car-buttons"&gt;
-						&lt;Button icon="pi pi-search" class="p-button-secondary" /&gt;
-						&lt;Button icon="pi pi-star" class="p-button-secondary" /&gt;
-						&lt;Button icon="pi pi-cog" class="p-button-secondary" /&gt;
-					&lt;/div&gt;
-				&lt;/div&gt;
-			&lt;/div&gt;
-		&lt;/div&gt;
+                    &lt;div class="car-buttons"&gt;
+                        &lt;Button icon="pi pi-search" class="p-button-secondary" /&gt;
+                        &lt;Button icon="pi pi-star" class="p-button-secondary" /&gt;
+                        &lt;Button icon="pi pi-cog" class="p-button-secondary" /&gt;
+                    &lt;/div&gt;
+                &lt;/div&gt;
+            &lt;/div&gt;
+        &lt;/div&gt;
 	&lt;/template&gt;
 &lt;/Carousel&gt;
 
@@ -325,23 +321,23 @@ data() {
 		&lt;h2&gt;Vertical&lt;/h2&gt;
 	&lt;/template&gt;
 	&lt;template #item="slotProps"&gt;
-		&lt;div class="car-details"&gt;
-			&lt;div class="p-grid p-nogutter"&gt;
-				&lt;div class="p-col-12"&gt;
-					&lt;img :src="'demo/images/car/' + slotProps.data.brand + '.png'" :alt="slotProps.data.brand" /&gt;
-				&lt;/div&gt;
-				&lt;div class="p-col-12 car-data"&gt;
-					&lt;div class="car-title"&gt;{{slotProps.data.brand}}&lt;/div&gt;
-					&lt;div class="car-subtitle"&gt;{{slotProps.data.year}} | {{slotProps.data.color}}&lt;/div&gt;
+		&lt;div class="car-item"&gt;
+            &lt;div class="car-content"&gt;
+                &lt;div&gt;
+                    &lt;img :src="'demo/images/car/' + slotProps.data.brand + '.png'" :alt="slotProps.data.brand" /&gt;
+                &lt;/div&gt;
+                &lt;div&gt;
+                    &lt;div class="car-title"&gt;{{slotProps.data.brand}}&lt;/div&gt;
+                    &lt;div class="car-subtitle"&gt;{{slotProps.data.year}} | {{slotProps.data.color}}&lt;/div&gt;
 
-					&lt;div class="car-buttons"&gt;
-						&lt;Button icon="pi pi-search" class="p-button-secondary" /&gt;
-						&lt;Button icon="pi pi-star" class="p-button-secondary" /&gt;
-						&lt;Button icon="pi pi-cog" class="p-button-secondary" /&gt;
-					&lt;/div&gt;
-				&lt;/div&gt;
-			&lt;/div&gt;
-		&lt;/div&gt;
+                    &lt;div class="car-buttons"&gt;
+                        &lt;Button icon="pi pi-search" class="p-button-secondary" /&gt;
+                        &lt;Button icon="pi pi-star" class="p-button-secondary" /&gt;
+                        &lt;Button icon="pi pi-cog" class="p-button-secondary" /&gt;
+                    &lt;/div&gt;
+                &lt;/div&gt;
+            &lt;/div&gt;
+        &lt;/div&gt;
 	&lt;/template&gt;
 &lt;/Carousel&gt;
 </template>
@@ -383,93 +379,32 @@ export default {
 </CodeHighlight>
 
 <CodeHighlight lang="css">
-.p-carousel {
-    .p-carousel-header {
-		h3 {
-			font-weight: 500;
-			font-size: 18px;
-		}
-	}
+.car-item {
+    .car-content {
+        border: 1px solid var(--layer-2);
+        border-radius: 3px;
+        margin: .3rem;
+        text-align: center;
+        padding: 2em 0 2.25em 0;
+    }
 
-	.p-carousel-content {
-		.p-carousel-item {
-			.car-details {
-				> .p-grid {
-					border: 1px solid #dee2e6;
-					border-radius: 3px;
-					margin: .3rem;
-					text-align: center;
-					padding: 2em 0 2.25em 0;
-				}
-			}
+    .car-title {
+        font-weight: 600;
+        font-size: 20px;
+        margin-top: 24px;
+    }
 
-			.car-data {
-				.car-title {
-					font-weight: 600;
-					font-size: 20px;
-					margin-top: 24px;
-				}
+    .car-subtitle {
+        margin: .25em 0 2em 0;
+    }
 
-				.car-subtitle {
-					margin: .25em 0 2em 0;
-				}
+    button {
+        margin-left: .5rem;
 
-				button {
-					margin-left: .5rem;
-
-					&amp;:first-child {
-						margin-left: 0;
-					}
-				}
-			}
-		}
-	}
-
-	&amp;.custom-carousel {
-		.p-carousel-dot-icon  {
-			width: 16px !important;
-			height: 16px !important;
-			border-radius: 50%;
-		}
-	}
-
-	&amp;.p-carousel-horizontal {
-		.p-carousel-content {
-			.p-carousel-item {
-				&amp;.p-carousel-item-start {
-					.car-details {
-						> .p-grid {
-							margin-left: .6rem;
-						}
-					}
-				}
-
-				&amp;.p-carousel-item-end {
-					.car-details {
-						> .p-grid {
-							margin-right: .6rem;
-						}
-					}
-				}
-			}
-		}
-	}
-}
-
-/* Dark Theme such as luna-amber, luna-blue, luna-green and luna-pink */
-.dark-theme {
-	.p-carousel {
-		.p-carousel-content {
-			.p-carousel-item {
-				.car-details {
-					> .p-grid {
-						border: 1px solid #191919;
-						background-color: #323232;
-					}
-				}
-			}
-		}
-	}
+        &:first-child {
+            margin-left: 0;
+        }
+    }
 }
 </CodeHighlight>
 			</TabPanel>

@@ -1254,45 +1254,38 @@
 
 .p-carousel .p-carousel-content .p-carousel-prev,
 .p-carousel .p-carousel-content .p-carousel-next {
-  background: #cc285c;
-  border: 1px solid #cc285c;
-  margin: 0.2rem;
-  color: #ffffff;
+  background: transparent;
+  color: #888888;
   border-radius: 50%;
+  width: 2rem;
+  height: 2rem;
   transition: background-color 0.2s, box-shadow 0.2s;
-  width: 2.357rem;
-  height: 2.357rem;
+  margin: 0.5rem;
 }
 .p-carousel .p-carousel-content .p-carousel-prev:not(.p-disabled):hover,
 .p-carousel .p-carousel-content .p-carousel-next:not(.p-disabled):hover {
-  background: #b72452;
-  color: #ffffff;
-  border-color: #b72452;
+  background: #4c4c4c;
+  color: #888888;
 }
-.p-carousel .p-carousel-dots-container {
-  padding: 0.571rem 0.857rem;
+.p-carousel .p-carousel-indicators {
+  padding: 1rem;
 }
-.p-carousel .p-carousel-dots-container .p-carousel-dot-item {
-  margin: 0;
+.p-carousel .p-carousel-indicators .p-carousel-indicator {
+  margin-right: 0.5rem;
 }
-.p-carousel .p-carousel-dots-container .p-carousel-dot-item button {
-  padding: 0.286rem;
+.p-carousel .p-carousel-indicators .p-carousel-indicator button {
+  background-color: #585858;
+  width: 2rem;
+  height: 0.5rem;
   transition: background-color 0.2s, box-shadow 0.2s;
+  border-radius: 0;
 }
-.p-carousel .p-carousel-dots-container .p-carousel-dot-item .p-carousel-dot-icon {
-  width: 20px;
-  height: 6px;
-  background: #252525;
-  transition: background-color 0.2s, box-shadow 0.2s;
-}
-.p-carousel .p-carousel-dots-container .p-carousel-dot-item .p-carousel-dot-icon:before {
-  content: " ";
-}
-.p-carousel .p-carousel-dots-container .p-carousel-dot-item:hover .p-carousel-dot-icon {
+.p-carousel .p-carousel-indicators .p-carousel-indicator button:hover {
   background: #4c4c4c;
 }
-.p-carousel .p-carousel-dots-container .p-carousel-dot-item.p-highlight .p-carousel-dot-icon {
+.p-carousel .p-carousel-indicators .p-carousel-indicator.p-highlight button {
   background: #cc285c;
+  color: #ffffff;
 }
 
 .p-datatable .p-paginator-top {

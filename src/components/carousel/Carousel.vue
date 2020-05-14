@@ -5,7 +5,7 @@
 		</div>
 		<div :class="contentClasses">
 			<div :class="containerClasses">
-				<button :class="['p-carousel-prev p-button', {'p-disabled': backwardIsDisabled}]" :disabled="backwardIsDisabled" @click="navBackward" type="button">
+				<button :class="['p-carousel-prev p-link', {'p-disabled': backwardIsDisabled}]" :disabled="backwardIsDisabled" @click="navBackward" type="button">
 					<span :class="['p-carousel-prev-icon pi', {'pi-chevron-left': !isVertical(),'pi-chevron-up': isVertical()}]"></span>
 				</button>
 
@@ -36,15 +36,13 @@
 					</div>
 				</div>
 
-				<button :class="['p-carousel-next p-button', {'p-disabled': forwardIsDisabled}]" :disabled="forwardIsDisabled" @click="navForward" type="button">
+				<button :class="['p-carousel-next p-link', {'p-disabled': forwardIsDisabled}]" :disabled="forwardIsDisabled" @click="navForward" type="button">
 					<span :class="['p-carousel-prev-icon pi', {'pi-chevron-right': !isVertical(),'pi-chevron-down': isVertical()}]"></span>
 				</button>
 			</div>
-			<ul :class="dotsContentClasses">
-				<li v-for="(totalDot, i) of totalDots" :key="'p-carousel-dot-' + i" :class="['p-carousel-dot-item', {'p-highlight': d_page === i}]">
-					<button class="p-link" @click="onDotClick($event, i)" type="button">
-						<span :class="['p-carousel-dot-icon pi', {'pi-circle-on': d_page === i, 'pi-circle-off': !(d_page === i)}]"></span>
-					</button>
+			<ul :class="indicatorsContentClasses">
+				<li v-for="(indicator, i) of totalIndicators" :key="'p-carousel-indicator-' + i" :class="['p-carousel-indicator', {'p-highlight': d_page === i}]">
+					<button class="p-link" @click="onIndicatorClick($event, i)" type="button" />
 				</li>
 			</ul>
 		</div>
@@ -84,7 +82,7 @@ export default {
 		},
 		contentClass: String,
 		containerClass: String,
-		dotsContentClass: String,
+		indicatorsContentClass: String,
 		circular: {
 			type: Boolean,
 			default: false
@@ -155,15 +153,15 @@ export default {
 				page = Math.abs(Math.floor(originalShiftedItems / this.d_numScroll));
 			}
 
-			if (isCircular && this.d_page === (this.totalDots - 1) && dir === -1) {
+			if (isCircular && this.d_page === (this.totalIndicators - 1) && dir === -1) {
 				totalShiftedItems = -1 * (this.value.length + this.d_numVisible);
 				page = 0;
 			}
 			else if (isCircular && this.d_page === 0 && dir === 1) {
 				totalShiftedItems = 0;
-				page = (this.totalDots - 1);
+				page = (this.totalIndicators - 1);
 			}
-			else if (page === (this.totalDots - 1) && this.remainingItems > 0) {
+			else if (page === (this.totalIndicators - 1) && this.remainingItems > 0) {
 				totalShiftedItems += ((this.remainingItems * -1) - (this.d_numScroll * dir));
 				this.isRemainingItemsAdded = true;
 			}
@@ -228,7 +226,7 @@ export default {
 			}
 		},
 		navForward(e,index){
-			if (this.d_circular || this.d_page < (this.totalDots - 1)) {
+			if (this.d_circular || this.d_page < (this.totalIndicators - 1)) {
 				this.step(-1, index);
 			}
 
@@ -238,7 +236,7 @@ export default {
 				e.preventDefault();
 			}
 		},
-		onDotClick(e, index) {
+		onIndicatorClick(e, index) {
 			let page = this.d_page;
 
 			if (index > page) {
@@ -253,7 +251,7 @@ export default {
 				DomHandler.addClass(this.$refs.itemsContainer, 'p-items-hidden');
 				this.$refs.itemsContainer.style.transition = '';
 
-				if ((this.d_page === 0 || this.d_page === (this.totalDots - 1)) && this.isCircular()) {
+				if ((this.d_page === 0 || this.d_page === (this.totalIndicators - 1)) && this.isCircular()) {
 					this.$refs.itemsContainer.style.transform = this.isVertical() ? `translate3d(0, ${this.totalShiftedItems * (100/ this.d_numVisible)}%, 0)` : `translate3d(${this.totalShiftedItems * (100/ this.d_numVisible)}%, 0, 0)`;
 				}
 			}
@@ -308,7 +306,7 @@ export default {
 		},
 		startAutoplay() {
 			this.interval = setInterval(() => {
-					if(this.d_page === (this.totalDots - 1)) {
+					if(this.d_page === (this.totalIndicators - 1)) {
 						this.step(-1, 0);
 					}
 					else {
@@ -407,8 +405,8 @@ export default {
 			this.remainingItems = (this.value.length - this.d_numVisible) % this.d_numScroll;
 
 			let page = this.d_page;
-			if (this.totalDots !== 0 && page >= this.totalDots) {
-				page = this.totalDots - 1;
+			if (this.totalIndicators !== 0 && page >= this.totalIndicators) {
+				page = this.totalIndicators - 1;
 
 				this.$emit('update:page', page);
 				this.d_page = page;
@@ -421,7 +419,7 @@ export default {
 				totalShiftedItems -= this.d_numVisible;
 			}
 
-			if (page === (this.totalDots - 1) && this.remainingItems > 0) {
+			if (page === (this.totalIndicators - 1) && this.remainingItems > 0) {
 				totalShiftedItems += (-1 * this.remainingItems) + this.d_numScroll;
 				this.isRemainingItemsAdded = true;
 			}
@@ -474,14 +472,14 @@ export default {
 		}
 	},
 	computed: {
-		totalDots() {
+		totalIndicators() {
 			return this.value ? Math.ceil((this.value.length - this.d_numVisible) / this.d_numScroll) + 1 : 0;
 		},
 		backwardIsDisabled() {
 			return (this.value && (!this.circular || this.value.length < this.d_numVisible) && this.d_page === 0);
 		},
 		forwardIsDisabled() {
-			return (this.value && (!this.circular || this.value.length < this.d_numVisible) && (this.d_page === (this.totalDots - 1) || this.totalDots === 0));
+			return (this.value && (!this.circular || this.value.length < this.d_numVisible) && (this.d_page === (this.totalIndicators - 1) || this.totalIndicators === 0));
 		},
 		containerClasses() {
 			return ['p-carousel-container', this.containerClass];
@@ -489,8 +487,8 @@ export default {
 		contentClasses() {
 			return ['p-carousel-content ', this.contentClass];
 		},
-		dotsContentClasses() {
-			return ['p-carousel-dots-container p-reset', this.dotsContentClass];
+		indicatorsContentClasses() {
+			return ['p-carousel-indicators p-reset', this.indicatorsContentClass];
 		},
 	},
 	name: "Carousel"
@@ -533,15 +531,17 @@ export default {
 	flex-direction: row;
 }
 
-.p-carousel-dots-container {
+.p-carousel-indicators {
 	display: flex;
 	flex-direction: row;
 	justify-content: center;
 	flex-wrap: wrap;
 }
 
-.p-carousel-dot-item > button {
-    display: inline-flex;
+.p-carousel-indicator > button {
+    display: flex;
+    align-items: center;
+    justify-content: center;
 }
 
 /* Vertical */
