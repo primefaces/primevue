@@ -118,6 +118,27 @@
         margin: 0 0 2em 0;
     }
 
+    .config-scale {
+        display: flex;
+        align-items: center;
+        margin: 1rem 0 2rem 0;
+
+        button {
+            margin-right: .5rem;
+        }
+
+        i {
+            margin-right: .5rem;
+            font-size: .75rem;
+            color: var(--text-color-secondary);
+
+            &.scale-active {
+                font-size: 1.25rem;
+                color: $linkColor;
+            }
+        }
+    }
+
     .free-themes {
         padding: 2em;
         color: var(--text-color);
