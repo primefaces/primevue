@@ -18,7 +18,7 @@
                     </div>
 				</template>
                 <template #previewCaption="{item}">
-                    <h4 style="margin-bottom: .5em;">{{item.title}}</h4>
+                    <h4 style="margin-bottom: .5rem;">{{item.title}}</h4>
                     <p>{{item.alt}}</p>
                 </template>
             </Galleria>
@@ -39,7 +39,7 @@
         &lt;/div&gt;
     &lt;/template&gt;
     &lt;template #previewCaption="{item}"&gt;
-        &lt;h4 style="margin-bottom: .5em;"&gt;{{item.title}}&lt;/h4&gt;
+        &lt;h4 style="margin-bottom: .5rem;"&gt;{{item.title}}&lt;/h4&gt;
         &lt;p&gt;{{item.alt}}&lt;/p&gt;
     &lt;/template&gt;
 &lt;/Galleria&gt;

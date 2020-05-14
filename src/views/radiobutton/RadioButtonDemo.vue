@@ -70,6 +70,6 @@ export default {
 }
 
 label {
-    margin-left: .5em;
+    margin-left: .5rem;
 }
 </style>

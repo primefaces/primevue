@@ -69,6 +69,6 @@ export default {
 }
 
 button {
-    margin-right: .5em;
+    margin-right: .5rem;
 }
 </style>

@@ -217,7 +217,7 @@ export default {
 
     .p-row-toggler {
         vertical-align: middle;
-        margin-right: .25em;
+        margin-right: .25rem;
     }
 }
 

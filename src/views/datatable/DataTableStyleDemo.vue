@@ -69,7 +69,7 @@ export default {
 
 <CodeHighlight lang="css">
 .year-cell {
-    padding: 0.429em 0.857em;
+    padding: 0.429em 0.857rem;
 
     &amp;.old-car {
         background-color: #41b783;
@@ -116,7 +116,7 @@ export default {
 
 <style scoped lang="scss">
 .year-cell {
-    padding: 0.429em 0.857em;
+    padding: 0.429em 0.857rem;
 
     &.old-car {
         background-color: #41b783;

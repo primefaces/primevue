@@ -453,8 +453,8 @@ export default {
     .sample-layout > div {
         background-color: #c2c8ce;
         text-align: center;
-        padding-top: 1em;
-        padding-bottom: 1em;
+        padding-top: 1rem;
+        padding-bottom: 1rem;
         border-radius: 4px;
     }
 
@@ -478,7 +478,7 @@ export default {
     }
 
     .nested-grid .p-col-4 {
-        padding-bottom: 1em;
+        padding-bottom: 1rem;
     }
 
     .dynamic-box-enter-active, .dynamic-box-leave-active {

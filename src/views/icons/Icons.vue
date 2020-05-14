@@ -91,7 +91,7 @@ export default {
 <style lang="css" scoped>
 .icon-filter {
     width: 100%;
-    padding: 1em;
+    padding: 1rem;
     margin: 16px 0 26px 0;
 }
 </style>

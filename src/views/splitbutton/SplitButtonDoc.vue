@@ -255,7 +255,7 @@ export default {
 
 <CodeHighlight lang="css">
 .p-splitbutton {
-	margin-right: .5em;
+	margin-right: .5rem;
 }
 </CodeHighlight>
 			</TabPanel>

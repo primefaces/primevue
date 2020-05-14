@@ -35,7 +35,7 @@
     position: absolute;
     pointer-events: none;
     top: 50%;
-    margin-top: -.5em;
+    margin-top: -.5rem;
     transition-property: all;
     transition-timing-function: ease;
     line-height: 1;
@@ -45,7 +45,7 @@
 .p-float-label input.p-filled ~ label,
 .p-float-label .p-inputwrapper-focus ~ label,
 .p-float-label .p-inputwrapper-filled ~ label {
-    top: -.75em;
+    top: -.75rem;
     font-size: 12px;
 }
 
@@ -63,5 +63,5 @@
 .p-input-icon-right > i {
     position: absolute;
     top: 50%;
-    margin-top: -.5em;
+    margin-top: -.5rem;
 }

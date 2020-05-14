@@ -97,7 +97,7 @@ export default {
 .p-organizationchart-table > tbody > tr > td {
     text-align: center;
     vertical-align: top;
-    padding: 0 .75em;
+    padding: 0 .75rem;
 }
 
 .p-organizationchart-node-content {

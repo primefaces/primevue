@@ -1633,10 +1633,10 @@ export default {
                 clear: left;
 
                 .p-column-title {
-                    padding: .4em;
+                    padding: .4rem;
                     min-width: 30%;
                     display: inline-block;
-                    margin: -.4em 1em -.4em -.4em;
+                    margin: -.4em 1em -.4em -.4rem;
                     font-weight: bold;
                 }
             }
@@ -1692,7 +1692,7 @@ export default {
 
 <CodeHighlight lang="css">
 .year-cell {
-    padding: 0.429em 0.857em;
+    padding: 0.429em 0.857rem;
 
     &amp;.old-car {
         background-color: #41b783;
@@ -2473,7 +2473,7 @@ export default {
                     &lt;InputText type="text" v-model="filters['activity']" class="p-column-filter" placeholder="Minimum"/&gt;
                 &lt;/template&gt;
             &lt;/Column&gt;
-            &lt;Column headerStyle="width: 8em; text-align: center" bodyStyle="text-align: center; overflow: visible"&gt;
+            &lt;Column headerStyle="width: 8rem; text-align: center" bodyStyle="text-align: center; overflow: visible"&gt;
                 &lt;template #body&gt;
                     &lt;Button type="button" icon="pi pi-cog" class="p-button-secondary"&gt;&lt;/Button&gt;
                 &lt;/template&gt;
@@ -2553,7 +2553,7 @@ export default {
 <CodeHighlight lang="css">
 .customer-badge {
     border-radius: 2px;
-    padding: .25em .5em;
+    padding: .25em .5rem;
     text-transform: uppercase;
     font-weight: 700;
     font-size: 12px;
@@ -2600,7 +2600,7 @@ export default {
     }
 
     span {
-        margin-top: .125em;
+        margin-top: .125rem;
     }
 }
 

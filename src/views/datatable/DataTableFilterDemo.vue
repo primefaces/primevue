@@ -197,13 +197,13 @@ export default {
 .p-dropdown-car-option {
     img {
         vertical-align: middle;
-        margin-right: .5em;
+        margin-right: .5rem;
         width: 24px;
     }
 
     span {
         float: right;
-        margin-top: .125em;
+        margin-top: .125rem;
     }
 }
 </style>

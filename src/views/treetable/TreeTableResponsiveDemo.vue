@@ -78,7 +78,7 @@ export default {
 
         .sm-visible {
             display: inline;
-            margin-right: .5em;
+            margin-right: .5rem;
         }
     }
 }
@@ -122,7 +122,7 @@ export default {
 
         .sm-visible {
             display: inline;
-            margin-right: .5em;
+            margin-right: .5rem;
         }
     }
 }

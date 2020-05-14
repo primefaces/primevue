@@ -22,7 +22,7 @@
             <Inplace>
                 <template #display>
                     <span class="pi pi-search" style="vertical-align: middle"></span>
-                    <span style="margin-left:.5em; vertical-align: middle">View Picture</span>
+                    <span style="margin-left:.5rem; vertical-align: middle">View Picture</span>
                 </template>
                 <template #content>
                     <img src="demo/images/nature/nature1.jpg" />

@@ -371,7 +371,7 @@ export default {
 .p-megamenu-col-6,
 .p-megamenu-col-12 {
     flex: 0 0 auto;
-    padding: 0.5em;
+    padding: 0.5rem;
 }
 
 .p-megamenu-col-2 {

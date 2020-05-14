@@ -287,11 +287,11 @@ export default {
 
 <CodeHighlight lang="css">
 button.p-button {
-	margin-right: .5em;
+	margin-right: .5rem;
 }
 
 .p-inputtext {
-	margin-right: .25em;
+	margin-right: .25rem;
 }
 </CodeHighlight>
 			</TabPanel>

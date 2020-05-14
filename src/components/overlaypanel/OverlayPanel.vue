@@ -195,7 +195,7 @@ export default {
 
 .p-overlaypanel:after, .p-overlaypanel:before {
 	bottom: 100%;
-	left: 1.25em;
+	left: 1.25rem;
 	content: " ";
 	height: 0;
 	width: 0;

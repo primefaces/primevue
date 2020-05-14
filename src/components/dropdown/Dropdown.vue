@@ -466,7 +466,7 @@ export default {
 .p-dropdown-clear-icon {
     position: absolute;
     top: 50%;
-    margin-top: -.5em;
+    margin-top: -.5rem;
 }
 
 .p-dropdown-trigger {
@@ -529,7 +529,7 @@ input.p-dropdown-label  {
 .p-dropdown-filter-icon {
     position: absolute;
     top: 50%;
-    margin-top: -.5em;
+    margin-top: -.5rem;
 }
 
 .p-fluid .p-dropdown {

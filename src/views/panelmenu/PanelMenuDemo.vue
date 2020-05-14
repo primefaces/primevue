@@ -148,6 +148,6 @@ export default {
 
 <style scoped lang="scss">
 .p-panelmenu {
-    width: 22em;
+    width: 22rem;
 }
 </style>

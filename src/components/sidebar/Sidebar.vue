@@ -168,14 +168,14 @@ export default {
 .p-sidebar-left {
     top: 0;
     left: 0;
-    width: 20em;
+    width: 20rem;
     height: 100%;
 }
 
 .p-sidebar-right {
     top: 0;
     right: 0;
-    width: 20em;
+    width: 20rem;
     height: 100%;
 }
 
@@ -183,14 +183,14 @@ export default {
     top: 0;
     left: 0;
     width: 100%;
-    height: 10em;
+    height: 10rem;
 }
 
 .p-sidebar-bottom {
     bottom: 0;
     left: 0;
     width: 100%;
-    height: 10em;
+    height: 10rem;
 }
 
 .p-sidebar-full {
@@ -234,32 +234,32 @@ export default {
 
 .p-sidebar-left.p-sidebar-sm,
 .p-sidebar-right.p-sidebar-sm {
-    width: 20em;
+    width: 20rem;
 }
 
 .p-sidebar-left.p-sidebar-md,
 .p-sidebar-right.p-sidebar-md {
-    width: 40em;
+    width: 40rem;
 }
 
 .p-sidebar-left.p-sidebar-lg,
 .p-sidebar-right.p-sidebar-lg {
-    width: 60em;
+    width: 60rem;
 }
 
 .p-sidebar-top.p-sidebar-sm,
 .p-sidebar-bottom.p-sidebar-sm {
-    height: 10em;
+    height: 10rem;
 }
 
 .p-sidebar-top.p-sidebar-md,
 .p-sidebar-bottom.p-sidebar-md {
-    height: 20em;
+    height: 20rem;
 }
 
 .p-sidebar-top.p-sidebar-lg,
 .p-sidebar-bottom.p-sidebar-lg {
-    height: 30em;
+    height: 30rem;
 }
 
 @media screen and (max-width: 64em) {
@@ -267,7 +267,7 @@ export default {
     .p-sidebar-left.p-sidebar-md,
     .p-sidebar-right.p-sidebar-lg,
     .p-sidebar-right.p-sidebar-md {
-        width: 20em;
+        width: 20rem;
     }
 }
 </style>

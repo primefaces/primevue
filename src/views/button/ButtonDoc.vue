@@ -241,7 +241,7 @@ import Button from 'primevue/button';
 
 <CodeHighlight lang="css">
 button {
-	margin-right: .5em;
+	margin-right: .5rem;
 }
 </CodeHighlight>
 			</TabPanel>

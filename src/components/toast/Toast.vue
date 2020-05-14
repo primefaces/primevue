@@ -96,7 +96,7 @@ export default {
 <style>
 .p-toast {
     position: fixed;
-    width: 25em;
+    width: 25rem;
 }
 
 .p-toast-message {

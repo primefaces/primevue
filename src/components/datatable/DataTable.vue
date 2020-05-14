@@ -1926,7 +1926,7 @@ export default {
     top: 0;
     right: 0;
     margin: 0;
-    width: .5em;
+    width: .5rem;
     height: 100%;
     padding: 0px;
     cursor:col-resize;

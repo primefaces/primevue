@@ -174,8 +174,8 @@ export default {
 
                     > button {
                         background-color: transparent;
-                        padding: .3em;
-                        margin: .2em;
+                        padding: .3rem;
+                        margin: .2rem;
                         border: 0 none;
                         border-radius: 0;
                         color: #ffffff;
@@ -189,8 +189,8 @@ export default {
                         flex-grow: 1;
 
                         > span {
-                            font-size: .9em;
-                            padding-left: .829em;
+                            font-size: .9rem;
+                            padding-left: .829rem;
 
                             &.title {
                                 font-weight: bold;
@@ -204,9 +204,9 @@ export default {
                 .p-galleria-preview-container {
                     .p-galleria-preview-nav-button {
                         top: 50%;
-                        height: 20em;
-                        width: 4em;
-                        margin-top: -10em;
+                        height: 20rem;
+                        width: 4rem;
+                        margin-top: -10rem;
                     }
                 }
             }

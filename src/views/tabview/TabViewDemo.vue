@@ -140,12 +140,12 @@ export default {
     }
 
     span {
-        margin: 0 .5em;
+        margin: 0 .5rem;
     }
 }
 
 .p-button {
-    margin-right: .25em;
+    margin-right: .25rem;
 }
 
 .p-tabview p {

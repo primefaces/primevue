@@ -62,7 +62,7 @@ export default {
 
 <style>
 .p-terminal {
-    height: 18em;
+    height: 18rem;
     overflow: auto;
 }
 

@@ -35,7 +35,7 @@
 				</template>
             </Galleria>
 
-            <Galleria :value="images" :responsiveOptions="responsiveOptions2" :numVisible="4" thumbnailsPosition="right" style="max-width: 610px; margin-top: 2em;">
+            <Galleria :value="images" :responsiveOptions="responsiveOptions2" :numVisible="4" thumbnailsPosition="right" style="max-width: 610px; margin-top: 2rem;">
                 <template #header>
                     Right
                 </template>
@@ -49,7 +49,7 @@
 				</template>
             </Galleria>
 
-            <Galleria :value="images" :responsiveOptions="responsiveOptions" :numVisible="5" thumbnailsPosition="top" style="max-width: 520px; margin-top: 2em;">
+            <Galleria :value="images" :responsiveOptions="responsiveOptions" :numVisible="5" thumbnailsPosition="top" style="max-width: 520px; margin-top: 2rem;">
                 <template #header>
                     Top
                 </template>
@@ -63,7 +63,7 @@
 				</template>
             </Galleria>
 
-            <Galleria :value="images" :responsiveOptions="responsiveOptions" :numVisible="5" thumbnailsPosition="bottom" style="max-width: 520px; margin-top: 2em;">
+            <Galleria :value="images" :responsiveOptions="responsiveOptions" :numVisible="5" thumbnailsPosition="bottom" style="max-width: 520px; margin-top: 2rem;">
                 <template #header>
                     Bottom
                 </template>
@@ -110,7 +110,7 @@
     &lt;/template&gt;
 &lt;/Galleria&gt;
 
-&lt;Galleria :value="images" :responsiveOptions="responsiveOptions2" :numVisible="4" thumbnailsPosition="right" style="max-width: 610px; margin-top: 2em;"&gt;
+&lt;Galleria :value="images" :responsiveOptions="responsiveOptions2" :numVisible="4" thumbnailsPosition="right" style="max-width: 610px; margin-top: 2rem;"&gt;
     &lt;template #header&gt;
         Right
     &lt;/template&gt;
@@ -124,7 +124,7 @@
     &lt;/template&gt;
 &lt;/Galleria&gt;
 
-&lt;Galleria :value="images" :responsiveOptions="responsiveOptions" :numVisible="5" thumbnailsPosition="top" style="max-width: 520px; margin-top: 2em;"&gt;
+&lt;Galleria :value="images" :responsiveOptions="responsiveOptions" :numVisible="5" thumbnailsPosition="top" style="max-width: 520px; margin-top: 2rem;"&gt;
     &lt;template #header&gt;
         Top
     &lt;/template&gt;
@@ -138,7 +138,7 @@
     &lt;/template&gt;
 &lt;/Galleria&gt;
 
-&lt;Galleria :value="images" :responsiveOptions="responsiveOptions" :numVisible="5" thumbnailsPosition="bottom" style="max-width: 520px; margin-top: 2em;"&gt;
+&lt;Galleria :value="images" :responsiveOptions="responsiveOptions" :numVisible="5" thumbnailsPosition="bottom" style="max-width: 520px; margin-top: 2rem;"&gt;
     &lt;template #header&gt;
         Bottom
     &lt;/template&gt;

@@ -346,7 +346,7 @@ export default {
 <style lang="scss" scoped>
 /deep/ .p-datatable th,
 /deep/ .p-datatable td {
-    height: 3.5em;
+    height: 3.5rem;
 }
 
 .p-dropdown-car-option {
@@ -355,12 +355,12 @@ export default {
     align-items: center;
 
     img {
-        margin-right: .5em;
+        margin-right: .5rem;
         width: 24px;
     }
 
     span {
-        margin-top: .125em;
+        margin-top: .125rem;
     }
 }
 </style>

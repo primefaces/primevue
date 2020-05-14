@@ -71,7 +71,7 @@ export default {
 
 body .fc {
   /* extra precedence to overcome jqui */
-  font-size: 1em; }
+  font-size: 1rem; }
 
 /* Colors
 --------------------------------------------------------------------------------------------------*/
@@ -99,10 +99,10 @@ body .fc {
   box-sizing: border-box;
   /* dimensions */
   margin: 0;
-  height: 2.1em;
-  padding: 0 .6em;
+  height: 2.1rem;
+  padding: 0 .6rem;
   /* text & cursor */
-  font-size: 1em;
+  font-size: 1rem;
   /* normalize */
   white-space: nowrap;
   cursor: pointer; }
@@ -130,9 +130,9 @@ body .fc {
 .fc button .fc-icon {
   /* non-theme */
   position: relative;
-  top: -0.05em;
+  top: -0.05rem;
   /* seems to be a good adjustment across browsers */
-  margin: 0 .2em;
+  margin: 0 .2rem;
   vertical-align: middle; }
 
 /*
@@ -266,7 +266,7 @@ hr.fc-divider {
   table-layout: fixed;
   border-collapse: collapse;
   border-spacing: 0;
-  font-size: 1em;
+  font-size: 1rem;
   /* normalize cross-browser */ }
 
 .fc th {
@@ -392,7 +392,7 @@ temporary rendered events).
   /* for resize handle and other inner positioning */
   display: block;
   /* make the <a> tag block */
-  font-size: .85em;
+  font-size: .85rem;
   line-height: 1.3;
   border-radius: 3px;
   border: 1px solid #3a87ad;
@@ -612,7 +612,7 @@ tr:first-child > td > .fc-day-grid-event {
 /* "more" link that represents hidden events */
 a.fc-more {
   margin: 1px 3px;
-  font-size: .85em;
+  font-size: .85rem;
   cursor: pointer;
   text-decoration: none; }
 
@@ -691,9 +691,9 @@ TODO: more distinction between this file and common.css
 --------------------------------------------------------------------------------------------------*/
 .fc-icon {
   display: inline-block;
-  height: 1em;
-  line-height: 1em;
-  font-size: 1em;
+  height: 1rem;
+  line-height: 1rem;
+  font-size: 1rem;
   text-align: center;
   overflow: hidden;
   font-family: "Courier New", Courier, monospace;
@@ -764,7 +764,7 @@ NOTE: use percentage font sizes or else old IE chokes
   border-style: solid; }
 
 .fc-unthemed .fc-popover .fc-header .fc-close {
-  font-size: .9em;
+  font-size: .9rem;
   margin-top: 2px; }
 
 /* List View
@@ -864,10 +864,10 @@ NOTE: use percentage font sizes or else old IE chokes
   text-align: center; }
 
 .fc-toolbar.fc-header-toolbar {
-  margin-bottom: 1em; }
+  margin-bottom: 1rem; }
 
 .fc-toolbar.fc-footer-toolbar {
-  margin-top: 1em; }
+  margin-top: 1rem; }
 
 .fc-toolbar .fc-left {
   float: left; }
@@ -882,7 +882,7 @@ NOTE: use percentage font sizes or else old IE chokes
 .fc .fc-toolbar > * > * {
   /* extra precedence to override button border margins */
   float: left;
-  margin-left: .75em; }
+  margin-left: .75rem; }
 
 /* the first thing within each left/center/right section */
 .fc .fc-toolbar > * > :first-child {
@@ -934,11 +934,11 @@ NOTE: use percentage font sizes or else old IE chokes
 .fc-basicWeek-view .fc-content-skeleton,
 .fc-basicDay-view .fc-content-skeleton {
   /* there may be week numbers in these views, so no padding-top */
-  padding-bottom: 1em;
+  padding-bottom: 1rem;
   /* ensure a space at bottom of cell for user selecting/clicking */ }
 
 .fc-basic-view .fc-body .fc-row {
-  min-height: 4em;
+  min-height: 4rem;
   /* ensure that all rows are at least this tall */ }
 
 /* a "rigid" row will take up a constant amount of height because content-skeleton is absolute */
@@ -979,7 +979,7 @@ NOTE: use percentage font sizes or else old IE chokes
   border-radius: 0 0 0 3px; }
 
 .fc-basic-view .fc-day-top .fc-week-number {
-  min-width: 1.5em;
+  min-width: 1.5rem;
   text-align: center;
   background-color: #f2f2f2;
   color: #808080; }
@@ -991,7 +991,7 @@ NOTE: use percentage font sizes or else old IE chokes
 .fc-basic-view td.fc-week-number > * {
   /* work around the way we do column resizing and ensure a minimum width */
   display: inline-block;
-  min-width: 1.25em; }
+  min-width: 1.25rem; }
 
 /* AgendaView all-day area
 --------------------------------------------------------------------------------------------------*/
@@ -1001,11 +1001,11 @@ NOTE: use percentage font sizes or else old IE chokes
   /* so the "more.." popover will be over the time grid */ }
 
 .fc-agenda-view .fc-day-grid .fc-row {
-  min-height: 3em;
+  min-height: 3rem;
   /* all-day section will never get shorter than this */ }
 
 .fc-agenda-view .fc-day-grid .fc-row .fc-content-skeleton {
-  padding-bottom: 1em;
+  padding-bottom: 1rem;
   /* give space underneath events for clicking/selecting days */ }
 
 /* TimeGrid axis running down the side (for both the all-day area and the slot area)
@@ -1086,7 +1086,7 @@ NOTE: use percentage font sizes or else old IE chokes
 /* TimeGrid Slats (lines that run horizontally)
 --------------------------------------------------------------------------------------------------*/
 .fc-time-grid .fc-slats td {
-  height: 1.5em;
+  height: 1.5rem;
   border-bottom: 0;
   /* each cell is responsible for its top border */ }
 
@@ -1173,7 +1173,7 @@ be a descendant of the grid when it is being dragged.
   padding: 0 1px; }
 
 .fc-time-grid-event .fc-time {
-  font-size: .85em;
+  font-size: .85rem;
   white-space: nowrap; }
 
 /* short mode, where time and title are on the same line */
@@ -1200,7 +1200,7 @@ be a descendant of the grid when it is being dragged.
   /* seperate with a dash, wrapped in nbsp's */ }
 
 .fc-time-grid-event.fc-short .fc-title {
-  font-size: .85em;
+  font-size: .85rem;
   /* make the title text the same size as the time */
   padding: 0;
   /* undo padding from above */ }
@@ -1405,12 +1405,12 @@ be a descendant of the grid when it is being dragged.
     /* use a more border-friendly method for this... */ }
   .fc tbody .fc-row .fc-content-skeleton tbody tr:last-child td {
     /* only works in newer browsers */
-    padding-bottom: 1em;
+    padding-bottom: 1rem;
     /* ...gives space within the skeleton. also ensures min height in a way */ }
   .fc tbody .fc-row .fc-content-skeleton table {
     /* provides a min-height for the row, but only effective for IE, which exaggerates this value,
      making it look more like 3em. for other browers, it will already be this tall */
-    height: 1em; }
+    height: 1rem; }
   /* Undo month-view event limiting. Display all events and hide the "more" links
 --------------------------------------------------------------------------------------------------*/
   .fc-more-cell,
@@ -1442,7 +1442,7 @@ be a descendant of the grid when it is being dragged.
     position: static; }
   /* in case there are no events, we still want some height */
   .fc-time-grid .fc-content-skeleton table {
-    height: 4em; }
+    height: 4rem; }
   /* kill the horizontal spacing made by the event container. event margins will be done below */
   .fc-time-grid .fc-event-container {
     margin: 0 !important; }

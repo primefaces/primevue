@@ -148,6 +148,6 @@ export default {
 
 <style scoped>
 .p-inputnumber {
-    margin-top: 1em;
+    margin-top: 1rem;
 }
 </style>

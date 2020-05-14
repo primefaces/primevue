@@ -43,7 +43,7 @@
             margin-left: -50px;
             margin-bottom: 20px;
             padding: 10px 50px 10px 175px;
-            font-size: 1.5em;
+            font-size: 1.5rem;
             background-image: linear-gradient(90deg, #445C72 0%, #DBDCDE 100%);
             position: relative;
             color: #ffffff;
@@ -89,18 +89,18 @@
             display: block;
             font-weight: bold;
             font-size: 16px;
-            margin-top: 1em;
+            margin-top: 1rem;
         }
 
         p {
-            margin-top: 1em;
-            margin-bottom: 2em;
+            margin-top: 1rem;
+            margin-bottom: 2rem;
 
             &.features-tagline {
                 color: var(--text-color);
                 margin-bottom: 0;
                 margin-top: -5px;
-                margin-bottom: 2em;
+                margin-bottom: 2rem;
             }
         }
     }
@@ -123,7 +123,7 @@
         }
 
         .p-grid > div {
-            padding: 2em .5em;
+            padding: 2em .5rem;
         }
 
         p {
@@ -188,7 +188,7 @@
 
         p {
             line-height: 22px;
-            margin-bottom: 1em;
+            margin-bottom: 1rem;
         }
 
         h3 {

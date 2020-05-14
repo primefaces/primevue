@@ -81,7 +81,7 @@ import Card from 'primevue/card';
 				</a>
 <CodeHighlight>
 <template v-pre>
-&lt;Card style="width: 25em; margin-bottom: 2em"&gt;
+&lt;Card style="width: 25rem; margin-bottom: 2em"&gt;
     &lt;template slot="title"&gt;
         Simple Card
     &lt;/template&gt;

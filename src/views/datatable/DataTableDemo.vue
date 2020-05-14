@@ -97,7 +97,7 @@
                                 <InputText type="text" v-model="filters['activity']" class="p-column-filter" placeholder="Minimum"/>
                             </template>
                         </Column>
-                        <Column headerStyle="width: 8em; text-align: center" bodyStyle="text-align: center; overflow: visible">
+                        <Column headerStyle="width: 8rem; text-align: center" bodyStyle="text-align: center; overflow: visible">
                             <template #body>
                                 <Button type="button" icon="pi pi-cog" class="p-button-secondary"></Button>
                             </template>
@@ -183,7 +183,7 @@ export default {
 <style lang="scss" scoped>
 .customer-badge {
     border-radius: 2px;
-    padding: .25em .5em;
+    padding: .25em .5rem;
     text-transform: uppercase;
     font-weight: 700;
     font-size: 12px;
@@ -230,7 +230,7 @@ export default {
     }
 
     span {
-        margin-top: .125em;
+        margin-top: .125rem;
     }
 }
 

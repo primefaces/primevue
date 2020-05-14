@@ -293,7 +293,7 @@ export default {
 
 .image-gallery {
     text-align: center;
-    padding: 1em;
+    padding: 1rem;
 }
 </CodeHighlight>
             </TabPanel>

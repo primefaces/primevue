@@ -103,7 +103,7 @@ export default {
 
 <style scoped lang="scss">
 button {
-    margin-right: .5em;
+    margin-right: .5rem;
 }
 
 /deep/ .p-tree {

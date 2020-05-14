@@ -145,7 +145,7 @@ export default {
 				> .p-grid {
 					border: 1px solid #dee2e6;
 					border-radius: 3px;
-					margin: .3em;
+					margin: .3rem;
 					text-align: center;
 					padding: 2em 0 2.25em 0;
 				}
@@ -163,7 +163,7 @@ export default {
 				}
 
 				button {
-					margin-left: .5em;
+					margin-left: .5rem;
 
 					&:first-child {
 						margin-left: 0;
@@ -187,7 +187,7 @@ export default {
 				&.p-carousel-item-start {
 					.car-details {
 						> .p-grid {
-							margin-left: .6em;
+							margin-left: .6rem;
 						}
 					}
 				}
@@ -195,7 +195,7 @@ export default {
 				&.p-carousel-item-end {
 					.car-details {
 						> .p-grid {
-							margin-right: .6em;
+							margin-right: .6rem;
 						}
 					}
 				}

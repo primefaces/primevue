@@ -50,10 +50,10 @@ export default {
 
 <style scoped>
 .p-slider-horizontal, .p-inputtext {
-    width: 14em;
+    width: 14rem;
 }
 
 .p-slider-vertical {
-     height: 14em;
+     height: 14rem;
 }
 </style>

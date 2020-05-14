@@ -482,7 +482,7 @@ export default {
 .p-multiselect-filter-icon {
     position: absolute;
     top: 50%;
-    margin-top: -.5em;
+    margin-top: -.5rem;
 }
 
 .p-multiselect-filter-container .p-inputtext {

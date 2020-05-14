@@ -102,7 +102,7 @@ export default {
 
 <style lang="scss" scoped>
 .p-dropdown {
-    width: 12em;
+    width: 12rem;
     font-weight: normal;
 }
 
@@ -111,7 +111,7 @@ export default {
         display: flex;
         justify-content: space-between;
         align-items: center;
-        padding: 2em;
+        padding: 2rem;
 
         & > div {
             display: flex;
@@ -124,13 +124,13 @@ export default {
     }
 
     .car-detail {
-        padding: 0 1em 1em 1em;
+        padding: 0 1em 1em 1rem;
         border-bottom: 1px solid #d9dad9;
-        margin: 1em;
+        margin: 1rem;
     }
 
     .p-panel-content {
-        padding: 1em;
+        padding: 1rem;
     }
 }
 

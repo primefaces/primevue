@@ -117,10 +117,10 @@ export default {
                 clear: left;
 
                 .p-column-title {
-                    padding: .4em;
+                    padding: .4rem;
                     min-width: 30%;
                     display: inline-block;
-                    margin: -.4em 1em -.4em -.4em;
+                    margin: -.4em 1em -.4em -.4rem;
                     font-weight: bold;
                 }
             }
@@ -176,10 +176,10 @@ export default {
                 border: 0 none;
 
                 .p-column-title {
-                    padding: .4em;
+                    padding: .4rem;
                     min-width: 30%;
                     display: inline-block;
-                    margin: -.4em 1em -.4em -.4em;
+                    margin: -.4em 1em -.4em -.4rem;
                     font-weight: bold;
                 }
             }

@@ -332,7 +332,7 @@ export default {
 .p-dialog-topright .p-dialog,
 .p-dialog-bottomleft .p-dialog,
 .p-dialog-bottomright .p-dialog {
-    margin: .75em;
+    margin: .75rem;
     transform: translate3d(0px, 0px, 0px);
 }
 .p-dialog-top .p-dialog-enter-active,

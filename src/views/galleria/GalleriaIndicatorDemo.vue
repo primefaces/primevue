@@ -63,7 +63,7 @@
 				</template>
             </Galleria>
 
-            <Galleria :value="images" :responsiveOptions="responsiveOptions" :numVisible="5" style="max-width: 520px; margin-top: 2em;"
+            <Galleria :value="images" :responsiveOptions="responsiveOptions" :numVisible="5" style="max-width: 520px; margin-top: 2rem;"
                 :showThumbnails="false" :showIndicators="true" :changePreviewOnIndicatorHover="true" :showIndicatorsOnPreview="true" indicatorsPosition="top">
                 <template #header>
                     Top
@@ -78,7 +78,7 @@
 				</template>
             </Galleria>
 
-            <Galleria :value="images" :responsiveOptions="responsiveOptions" :numVisible="5" style="max-width: 520px; margin-top: 2em;"
+            <Galleria :value="images" :responsiveOptions="responsiveOptions" :numVisible="5" style="max-width: 520px; margin-top: 2rem;"
                 :showThumbnails="false" :showIndicators="true" :changePreviewOnIndicatorHover="true" :showIndicatorsOnPreview="true" indicatorsPosition="left">
                 <template #header>
                     Left
@@ -93,7 +93,7 @@
 				</template>
             </Galleria>
 
-            <Galleria :value="images" :responsiveOptions="responsiveOptions" :numVisible="5" style="max-width: 520px; margin-top: 2em;"
+            <Galleria :value="images" :responsiveOptions="responsiveOptions" :numVisible="5" style="max-width: 520px; margin-top: 2rem;"
                 :showThumbnails="false" :showIndicators="true" :changePreviewOnIndicatorHover="true" :showIndicatorsOnPreview="true" indicatorsPosition="right">
                 <template #header>
                     Right
@@ -128,7 +128,7 @@
 				</template>
             </Galleria>
 
-            <Galleria :value="images" :responsiveOptions="responsiveOptions" :numVisible="5" style="max-width: 520px; margin-top: 2em;" class="custom-indicator-galleria"
+            <Galleria :value="images" :responsiveOptions="responsiveOptions" :numVisible="5" style="max-width: 520px; margin-top: 2rem;" class="custom-indicator-galleria"
                 :showThumbnails="false" :showIndicators="true" :changePreviewOnIndicatorHover="true" indicatorsPosition="left">
                 <template #item="slotProps">
 					<img :src="slotProps.item.previewImageSrc" :alt="slotProps.item.alt" style="width: 100%; display: block;" />
@@ -145,7 +145,7 @@
 				</template>
             </Galleria>
 
-            <Galleria :value="images2" :responsiveOptions="responsiveOptions" :numVisible="5" style="max-width: 520px; margin-top: 2em;" class="custom-indicator-galleria2"
+            <Galleria :value="images2" :responsiveOptions="responsiveOptions" :numVisible="5" style="max-width: 520px; margin-top: 2rem;" class="custom-indicator-galleria2"
                 :showThumbnails="false" :showIndicators="true" :changePreviewOnIndicatorHover="true" indicatorsPosition="left">
                 <template #item="slotProps">
 					<img :src="slotProps.item.previewImageSrc" :alt="slotProps.item.alt" style="width: 100%; display: block;" />
@@ -156,7 +156,7 @@
                     </div>
 				</template>
                 <template #indicator="{index}">
-                    <div style="padding: .2em; cursor: pointer">
+                    <div style="padding: .2rem; cursor: pointer">
                         <img :src="images2[index].thumbnailImageSrc" :alt="images2[index].alt" style="display: block"/>
                     </div>
 				</template>
@@ -229,7 +229,7 @@
     &lt;/template&gt;
 &lt;/Galleria&gt;
 
-&lt;Galleria :value="images" :responsiveOptions="responsiveOptions" :numVisible="5" style="max-width: 520px; margin-top: 2em;"
+&lt;Galleria :value="images" :responsiveOptions="responsiveOptions" :numVisible="5" style="max-width: 520px; margin-top: 2rem;"
     :showThumbnails="false" :showIndicators="true" :changePreviewOnIndicatorHover="true" :showIndicatorsOnPreview="true" indicatorsPosition="top"&gt;
     &lt;template #header&gt;
         Top
@@ -244,7 +244,7 @@
     &lt;/template&gt;
 &lt;/Galleria&gt;
 
-&lt;Galleria :value="images" :responsiveOptions="responsiveOptions" :numVisible="5" style="max-width: 520px; margin-top: 2em;"
+&lt;Galleria :value="images" :responsiveOptions="responsiveOptions" :numVisible="5" style="max-width: 520px; margin-top: 2rem;"
     :showThumbnails="false" :showIndicators="true" :changePreviewOnIndicatorHover="true" :showIndicatorsOnPreview="true" indicatorsPosition="left"&gt;
     &lt;template #header&gt;
         Left
@@ -259,7 +259,7 @@
     &lt;/template&gt;
 &lt;/Galleria&gt;
 
-&lt;Galleria :value="images" :responsiveOptions="responsiveOptions" :numVisible="5" style="max-width: 520px; margin-top: 2em;"
+&lt;Galleria :value="images" :responsiveOptions="responsiveOptions" :numVisible="5" style="max-width: 520px; margin-top: 2rem;"
     :showThumbnails="false" :showIndicators="true" :changePreviewOnIndicatorHover="true" :showIndicatorsOnPreview="true" indicatorsPosition="right"&gt;
     &lt;template #header&gt;
         Right
@@ -294,7 +294,7 @@
     &lt;/template&gt;
 &lt;/Galleria&gt;
 
-&lt;Galleria :value="images" :responsiveOptions="responsiveOptions" :numVisible="5" style="max-width: 520px; margin-top: 2em;" class="custom-indicator-galleria"
+&lt;Galleria :value="images" :responsiveOptions="responsiveOptions" :numVisible="5" style="max-width: 520px; margin-top: 2rem;" class="custom-indicator-galleria"
     :showThumbnails="false" :showIndicators="true" :changePreviewOnIndicatorHover="true" indicatorsPosition="left"&gt;
     &lt;template #item="slotProps"&gt;
         &lt;img :src="slotProps.item.previewImageSrc" :alt="slotProps.item.alt" style="width: 100%; display: block;" /&gt;
@@ -311,7 +311,7 @@
     &lt;/template&gt;
 &lt;/Galleria&gt;
 
-&lt;Galleria :value="images2" :responsiveOptions="responsiveOptions" :numVisible="5" style="max-width: 520px; margin-top: 2em;" class="custom-indicator-galleria2"
+&lt;Galleria :value="images2" :responsiveOptions="responsiveOptions" :numVisible="5" style="max-width: 520px; margin-top: 2rem;" class="custom-indicator-galleria2"
     :showThumbnails="false" :showIndicators="true" :changePreviewOnIndicatorHover="true" indicatorsPosition="left"&gt;
     &lt;template #item="slotProps"&gt;
         &lt;img :src="slotProps.item.previewImageSrc" :alt="slotProps.item.alt" style="width: 100%; display: block;" /&gt;
@@ -322,7 +322,7 @@
         &lt;/div&gt;
     &lt;/template&gt;
     &lt;template #indicator="{index}"&gt;
-        &lt;div style="padding: .2em; cursor: pointer"&gt;
+        &lt;div style="padding: .2rem; cursor: pointer"&gt;
             &lt;img :src="images2[index].thumbnailImageSrc" :alt="images2[index].alt" style="display: block"/&gt;
         &lt;/div&gt;
     &lt;/template&gt;

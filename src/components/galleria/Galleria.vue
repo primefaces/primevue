@@ -195,7 +195,7 @@ export default {
 .p-galleria-preview-nav-button {
     position: absolute;
     top: 50%;
-    margin-top: -.5em;
+    margin-top: -.5rem;
     display: inline-flex;
     justify-content: center;
     align-items: center;
@@ -404,7 +404,7 @@ export default {
 .p-galleria-mask .p-galleria-preview-nav-button {
     position: fixed;
     top: 50%;
-    margin-top: -.5em;
+    margin-top: -.5rem;
 }
 
 /* Keyboard Support */

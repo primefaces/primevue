@@ -41,7 +41,7 @@ export default {
 /deep/ .tabmenudemo-content  {
     display: flex;
     align-items: center;
-    padding: 1em;
+    padding: 1rem;
 
     h1 {
         font-weight: 400;
@@ -49,7 +49,7 @@ export default {
     }
 
     i {
-        margin-right: .5em;
+        margin-right: .5rem;
     }
 }
 </style>

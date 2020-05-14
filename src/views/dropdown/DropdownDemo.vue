@@ -75,7 +75,7 @@ export default {
 
 <style lang="scss" scoped>
 .p-dropdown {
-    width: 12em;
+    width: 12rem;
 }
 
 .p-dropdown-car-option,
@@ -85,7 +85,7 @@ export default {
     align-items: center;
 
     img {
-        margin-right: .5em;
+        margin-right: .5rem;
         width: 24px;
     }
 

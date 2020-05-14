@@ -319,12 +319,12 @@ export default {
 .p-tree-filter-icon {
     position: absolute;
     top: 50%;
-    margin-top: -.5em;
+    margin-top: -.5rem;
 }
 
 .p-tree-loading {
     position: relative;
-    min-height: 4em;
+    min-height: 4rem;
 }
 
 .p-tree .p-tree-loading-mask {

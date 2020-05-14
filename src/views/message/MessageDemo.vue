@@ -71,10 +71,10 @@ export default {
 
 <style scoped>
 button.p-button {
-    margin-right: .5em;
+    margin-right: .5rem;
 }
 
 .p-inputtext {
-    margin-right: .5em;
+    margin-right: .5rem;
 }
 </style>

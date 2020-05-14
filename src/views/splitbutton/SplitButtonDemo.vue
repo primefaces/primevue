@@ -75,6 +75,6 @@ export default {
 
 <style lang="scss" scoped>
 .p-splitbutton {
-    margin-right: .5em;
+    margin-right: .5rem;
 }
 </style>

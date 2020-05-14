@@ -44,6 +44,6 @@ export default {
 
 label {
     font-weight: bold;
-    margin-left: .5em;
+    margin-left: .5rem;
 }
 </style>

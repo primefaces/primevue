@@ -261,14 +261,14 @@ export default {
 
 <style scoped>
 .p-cardialog-content {
-    padding: 1em;
+    padding: 1rem;
 }
 
 .p-cardialog-content .p-col-4 {
-    padding: .75em;
+    padding: .75rem;
 }
 
 .p-cardialog-content .p-col-8 {
-    padding: .5em;
+    padding: .5rem;
 }
 </style>

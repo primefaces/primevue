@@ -70,7 +70,7 @@ export default {
 
     img {
         width: 24px;
-        margin-right: .5em;
+        margin-right: .5rem;
     }
 }
 </style>

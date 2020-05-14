@@ -391,7 +391,7 @@ export default {
 	}
 
 	span {
-		margin: 0 .5em;
+		margin: 0 .5rem;
 	}
 }
 </CodeHighlight>

@@ -15,7 +15,7 @@ import Inplace from 'primevue/inplace';
 &lt;Inplace&gt;
     &lt;template #display&gt;
         &lt;span class="pi pi-search" style="vertical-align: middle"&gt;&lt;/span&gt;
-        &lt;span style="margin-left:.5em; vertical-align: middle"&gt;View Picture&lt;/span&gt;
+        &lt;span style="margin-left:.5rem; vertical-align: middle"&gt;View Picture&lt;/span&gt;
     &lt;/template&gt;
     &lt;template #content&gt;
         &lt;img src="demo/images/nature/nature1.jpg" /&gt;
@@ -185,7 +185,7 @@ export default {
 &lt;Inplace&gt;
     &lt;template #display&gt;
         &lt;span className="pi pi-search" style="vertical-align: middle"&gt;&lt;/span&gt;
-        &lt;span style="margin-left:.5em; vertical-align: middle"&gt;View Picture&lt;/span&gt;
+        &lt;span style="margin-left:.5rem; vertical-align: middle"&gt;View Picture&lt;/span&gt;
     &lt;/template&gt;
     &lt;template #content&gt;
         &lt;img src="demo/images/nature/nature1.jpg" /&gt;

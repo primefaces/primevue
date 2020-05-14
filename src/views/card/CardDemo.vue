@@ -8,7 +8,7 @@
         </div>
 
         <div class="content-section implementation">
-            <Card style="width: 25em; margin-bottom: 2em">
+            <Card style="width: 25rem; margin-bottom: 2em">
                 <template slot="title">
                     Simple Card
                 </template>

@@ -437,7 +437,7 @@ export default {
 .p-autocomplete-loader {
     position: absolute;
     top: 50%;
-    margin-top: -.5em;
+    margin-top: -.5rem;
 }
 
 .p-autocomplete-dd .p-autocomplete-input {

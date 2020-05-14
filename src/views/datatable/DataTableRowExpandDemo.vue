@@ -156,10 +156,10 @@ export default {
     text-align: left;
 
     button {
-        min-width: 10em;
+        min-width: 10rem;
 
         &:first-child {
-            margin-right: .5em;
+            margin-right: .5rem;
         }
     }
 }
@@ -168,7 +168,7 @@ export default {
     display: flex;
     justify-content: space-between;
     align-items: center;
-    padding: 2em;
+    padding: 2rem;
 
     & > div {
         display: flex;

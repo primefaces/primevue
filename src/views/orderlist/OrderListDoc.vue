@@ -219,13 +219,13 @@ export default {
     .p-caritem-vin {
         font-weight: 600;
         display: block;
-        margin-bottom: .25em;
+        margin-bottom: .25rem;
     }
 
     img {
         width: 48px;
         height: 48px;
-        margin-right: .5em;
+        margin-right: .5rem;
     }
 }
 </CodeHighlight>

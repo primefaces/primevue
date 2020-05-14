@@ -655,7 +655,7 @@ export default {
     }
 
     .node-header, .node-content {
-        padding: .5em .7em;
+        padding: .5em .7rem;
     }
 
     .node-header {
