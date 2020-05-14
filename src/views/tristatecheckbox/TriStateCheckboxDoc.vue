@@ -123,8 +123,10 @@ import TriStateCheckbox from 'primevue/tristatecheckbox';
 				</a>
 <CodeHighlight>
 <template v-pre>
-&lt;TriStateCheckbox v-model="value" /&gt;
-&lt;span &gt;{{value == null ? 'null' : value}}&lt;/span&gt;
+&lt;div class="p-field-checkbox"&gt;
+    &lt;TriStateCheckbox v-model="value" /&gt;
+    &lt;label&gt;{{value == null ? 'null' : value}}&lt;/label&gt;
+&lt;/div&gt;
 </template>
 </CodeHighlight>
 

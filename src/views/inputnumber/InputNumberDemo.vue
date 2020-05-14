@@ -9,101 +9,101 @@
 
         <div class="content-section implementation">
             <h3>Numerals</h3>
-            <div class="p-grid p-fluid">
-                <div class="p-col-12 p-md-3">
-                    Integer Only
-                    <InputNumber v-model="value1" />
+            <div class="p-fluid p-grid p-formgrid">
+                <div class="p-field p-col-12 p-md-3">
+                    <label for="integeronly">Integer Only</label>
+                    <InputNumber id="integeronly" v-model="value1" />
                 </div>
-                <div class="p-col-12 p-md-3">
-                    Without Grouping
-                    <InputNumber v-model="value2" mode="decimal" :useGrouping="false" />
+                <div class="p-field p-col-12 p-md-3">
+                    <label for="withoutgrouping">Without Grouping</label>
+                    <InputNumber id="withoutgrouping" v-model="value2" mode="decimal" :useGrouping="false" />
                 </div>
-                <div class="p-col-12 p-md-3">
-                    Min-Max Fraction Digits
-                    <InputNumber v-model="value3" mode="decimal" :minFractionDigits="2" :maxFractionDigits="5" />
+                <div class="p-field p-col-12 p-md-3">
+                    <label for="integeronly">Min-Max Fraction Digits</label>
+                    <InputNumber id="integeronly" v-model="value3" mode="decimal" :minFractionDigits="2" :maxFractionDigits="5" />
                 </div>
-                <div class="p-col-12 p-md-3">
-                    Min-Max Boundaries
-                    <InputNumber v-model="value4" mode="decimal" :min="0" :max="100" />
+                <div class="p-field p-col-12 p-md-3">
+                    <label for="minmax">Min-Max Boundaries</label>
+                    <InputNumber id="minmax" v-model="value4" mode="decimal" :min="0" :max="100" />
                 </div>
 
-                <div class="p-col-12 p-md-3">
-                    User Locale
-                    <InputNumber v-model="value5" mode="decimal" :minFractionDigits="2" />
+                <div class="p-field p-col-12 p-md-3">
+                    <label for="locale-user">User Locale</label>
+                    <InputNumber id="locale-user" v-model="value5" mode="decimal" :minFractionDigits="2" />
                 </div>
-                <div class="p-col-12 p-md-3">
-                    United State Locale
-                    <InputNumber v-model="value6" mode="decimal" locale="en-US" :minFractionDigits="2" />
+                <div class="p-field p-col-12 p-md-3">
+                    <label for="locale-us">United States Locale</label>
+                    <InputNumber id="locale-us" v-model="value6" mode="decimal" locale="en-US" :minFractionDigits="2" />
                 </div>
-                <div class="p-col-12 p-md-3">
-                    German Locale
-                    <InputNumber v-model="value7" mode="decimal" locale="de-DE" :minFractionDigits="2"/>
+                <div class="p-field p-col-12 p-md-3">
+                    <label for="locale-german">German Locale</label>
+                    <InputNumber id="locale-german" v-model="value7" mode="decimal" locale="de-DE" :minFractionDigits="2"/>
                 </div>
-                <div class="p-col-12 p-md-3">
-                    Indian Locale
-                    <InputNumber v-model="value8" mode="decimal" locale="en-IN" :minFractionDigits="2" />
+                <div class="p-field p-col-12 p-md-3">
+                    <label for="locale-japan">Indian Locale</label>
+                    <InputNumber id="locale-japan" v-model="value8" mode="decimal" locale="en-IN" :minFractionDigits="2" />
                 </div>
             </div>
 
             <h3>Currency</h3>
             <div class="p-grid p-fluid">
-                <div class="p-col-12 p-md-3">
-                    United States
-                    <InputNumber v-model="value9" mode="currency" currency="USD" locale="en-US" />
+                <div class="p-field p-col-12 p-md-3">
+                    <label for="currency-us">United States</label>
+                    <InputNumber id="currency-us" v-model="value9" mode="currency" currency="USD" locale="en-US" />
                 </div>
-                <div class="p-col-12 p-md-3">
-                    Germany
-                    <InputNumber v-model="value10" mode="currency" currency="EUR" locale="de-DE" />
+                <div class="p-field p-col-12 p-md-3">
+                    <label for="currency-germany">Germany</label>
+                    <InputNumber id="currency-germany" v-model="value10" mode="currency" currency="EUR" locale="de-DE" />
                 </div>
-                <div class="p-col-12 p-md-3">
-                    India
-                    <InputNumber v-model="value11" mode="currency" currency="INR" currencyDisplay="code" locale="en-IN" />
+                <div class="p-field p-col-12 p-md-3">
+                    <label for="currency-india">India</label>
+                    <InputNumber id="currency-india" v-model="value11" mode="currency" currency="INR" currencyDisplay="code" locale="en-IN" />
                 </div>
-                <div class="p-col-12 p-md-3">
-                    Japan
-                    <InputNumber v-model="value12" mode="currency" currency="JPY" locale="jp-JP" />
+                <div class="p-field p-col-12 p-md-3">
+                    <label for="currency-japan">Japan</label>
+                    <InputNumber id="currency-japan" v-model="value12" mode="currency" currency="JPY" locale="jp-JP" />
                 </div>
             </div>
 
             <h3>Prefix and Suffix</h3>
             <div class="p-grid p-fluid">
-                <div class="p-col-12 p-md-3">
-                    Mile
-                    <InputNumber v-model="value13" suffix=" mi" />
+                <div class="p-field p-col-12 p-md-3">
+                    <label for="mile">Mile</label>
+                    <InputNumber id="mile" v-model="value13" suffix=" mi" />
                 </div>
-                <div class="p-col-12 p-md-3">
-                    Percent
-                    <InputNumber v-model="value14" prefix="%" />
+                <div class="p-field p-col-12 p-md-3">
+                    <label for="percent">Percent</label>
+                    <InputNumber id="percent" v-model="value14" prefix="%" />
                 </div>
-                <div class="p-col-12 p-md-3">
-                    Expiry
-                    <InputNumber v-model="value15" prefix="Expires in " suffix=" days" />
+                <div class="p-field p-col-12 p-md-3">
+                    <label for="expiry">Expiry</label>
+                    <InputNumber id="expiry" v-model="value15" prefix="Expires in " suffix=" days" />
                 </div>
-                <div class="p-col-12 p-md-3">
-                    Temperature
-                    <InputNumber v-model="value16" prefix="&uarr; " suffix="℃" :min="0" :max="40" />
+                <div class="p-field p-col-12 p-md-3">
+                    <label for="temperature">Temperature</label>
+                    <InputNumber id="temperature" v-model="value16" prefix="&uarr; " suffix="℃" :min="0" :max="40" />
                 </div>
             </div>
 
             <h3>Buttons</h3>
             <div class="p-grid p-fluid">
-                <div class="p-col-12 p-md-3">
-                    Stacked
-                    <InputNumber v-model="value17" showButtons mode="currency" currency="USD" />
+                <div class="p-field p-col-12 p-md-3">
+                    <label for="stacked">Stacked</label>
+                    <InputNumber id="stacked" v-model="value17" showButtons mode="currency" currency="USD" />
                 </div>
-                <div class="p-col-12 p-md-3">
-                    Horizontal with Step
-                    <InputNumber v-model="value18" showButtons buttonLayout="horizontal" spinnerMode="horizontal" :step="0.25"
+                <div class="p-field p-col-12 p-md-3">
+                    <label for="horizontal">Horizontal with Step</label>
+                    <InputNumber id="horizontal" v-model="value18" showButtons buttonLayout="horizontal" spinnerMode="horizontal" :step="0.25"
                         decrementButtonClass="p-button-danger" incrementButtonClass="p-button-success" incrementButtonIcon="pi pi-plus" decrementButtonIcon="pi pi-minus" mode="currency" currency="EUR" />
                 </div>
-                <div class="p-col-12 p-md-3">
-                    <div>Vertical</div>
-                    <InputNumber v-model="value19" mode="decimal" showButtons buttonLayout="vertical" spinnerMode="vertical"
+                <div class="p-field p-col-12 p-md-3">
+                    <label for="vertical">Vertical</label>
+                    <InputNumber id="vertical" v-model="value19" mode="decimal" showButtons buttonLayout="vertical" spinnerMode="vertical"
                         decrementButtonClass="p-button-secondary" incrementButtonClass="p-button-secondary" incrementButtonIcon="pi pi-plus" decrementButtonIcon="pi pi-minus" />
                 </div>
-                <div class="p-col-12 p-md-3">
-                    Min-Max Boundaries
-                    <InputNumber v-model="value20" mode="decimal" showButtons :min="0" :max="100" />
+                <div class="p-field p-col-12 p-md-3">
+                    <label for="minmax-buttons">Min-Max Boundaries</label>
+                    <InputNumber id="minmax-buttons" v-model="value20" mode="decimal" showButtons :min="0" :max="100" />
                 </div>
             </div>
         </div>
@@ -147,7 +147,7 @@ export default {
 </script>
 
 <style scoped>
-.p-inputnumber {
-    margin-top: 1rem;
+.layout-content .content-section.implementation > h3 {
+    font-weight: 600;
 }
 </style>
