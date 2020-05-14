@@ -35,13 +35,20 @@
             <Button label="Danger" class="p-button-raised p-button-danger" />
 
             <h3>Rounded Buttons</h3>
-            <Button icon="pi pi-check" class="p-button-rounded" />
             <Button label="Primary" class="p-button-rounded" />
             <Button label="Secondary" class="p-button-rounded p-button-secondary" />
             <Button label="Success" class="p-button-rounded p-button-success" />
             <Button label="Info" class="p-button-rounded p-button-info" />
             <Button label="Warning" class="p-button-rounded p-button-warning" />
             <Button label="Danger" class="p-button-rounded p-button-danger" />
+
+            <h3>Rounded Icon Buttons</h3>
+            <Button icon="pi pi-check" class="p-button-rounded" />
+            <Button icon="pi pi-bookmark" class="p-button-rounded p-button-secondary" />
+            <Button icon="pi pi-search" class="p-button-rounded p-button-success" />
+            <Button icon="pi pi-user" class="p-button-rounded p-button-info" />
+            <Button icon="pi pi-lock" class="p-button-rounded p-button-warning" />
+            <Button icon="pi pi-times" class="p-button-rounded p-button-danger" />
 
             <h3>Badges</h3>
             <Button type="button" label="Emails" badge="8" />

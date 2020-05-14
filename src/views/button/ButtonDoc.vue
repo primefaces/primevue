@@ -212,12 +212,19 @@ import Button from 'primevue/button';
 &lt;Button label="Danger" class="p-button-raised p-button-danger" /&gt;
 
 &lt;h3&gt;Rounded Buttons&lt;/h3&gt;
-&lt;Button label="Primary" class="p-button-rounded" /&gt;
 &lt;Button label="Secondary" class="p-button-rounded p-button-secondary" /&gt;
 &lt;Button label="Success" class="p-button-rounded p-button-success" /&gt;
 &lt;Button label="Info" class="p-button-rounded p-button-info" /&gt;
 &lt;Button label="Warning" class="p-button-rounded p-button-warning" /&gt;
 &lt;Button label="Danger" class="p-button-rounded p-button-danger" /&gt;
+
+&lt;h3&gt;Rounded Icon Buttons&lt;/h3&gt;
+&lt;Button icon="pi pi-check" class="p-button-rounded" /&gt;
+&lt;Button icon="pi pi-bookmark" class="p-button-rounded p-button-secondary" /&gt;
+&lt;Button icon="pi pi-search" class="p-button-rounded p-button-success" /&gt;
+&lt;Button icon="pi pi-user" class="p-button-rounded p-button-info" /&gt;
+&lt;Button icon="pi pi-lock" class="p-button-rounded p-button-warning" /&gt;
+&lt;Button icon="pi pi-times" class="p-button-rounded p-button-danger" /&gt;
 
 &lt;h3&gt;Badges&lt;/h3&gt;
 &lt;Button type="button" label="Emails" badge="8" /&gt;
