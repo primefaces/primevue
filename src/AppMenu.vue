@@ -60,10 +60,11 @@
             </span>
             <div>
                 <router-link to="/carousel">Carousel</router-link>
-                <router-link to="/datatable" v-slot="{href,route,navigate,isActive,isExactActive}">
-                    <div :class="[isActive && 'router-link-active', isExactActive && 'router-link-exact-active']">
-                        <a :href="href" @click="navigate">DataTable</a>
+                <a tabindex="0" @click="toggleSubmenu($event, 'datatable')">DataTable</a>
+                <transition name="p-toggleable-content">
+                    <div class="p-toggleable-content" v-show="activeSubmenus['datatable'] === true">
                         <ul>
+                            <li><router-link to="/datatable">Documentation</router-link></li>
                             <li><router-link to="/datatable/basic">Basic</router-link></li>
                             <li><router-link to="/datatable/dynamiccolumns">Dynamic</router-link></li>
                             <li><router-link to="/datatable/templating">Templating</router-link></li>
@@ -89,7 +90,7 @@
                             <li><router-link to="/datatable/crud">Crud</router-link></li>
                         </ul>
                     </div>
-                </router-link>
+                </transition>
 
                 <router-link to="/dataview">DataView</router-link>
                 <router-link to="/fullcalendar">FullCalendar</router-link>
@@ -97,21 +98,24 @@
                 <router-link to="/organizationchart">OrganizationChart</router-link>
                 <router-link to="/paginator">Paginator</router-link>
                 <router-link to="/picklist">PickList</router-link>
-                <router-link to="/tree" v-slot="{href,route,navigate,isActive,isExactActive}">
-                    <div :class="[isActive && 'router-link-active', isExactActive && 'router-link-exact-active']">
-                        <a :href="href" @click="navigate">Tree</a>
+                <a tabindex="0" @click="toggleSubmenu($event, 'tree')">Tree</a>
+                <transition name="p-toggleable-content">
+                    <div class="p-toggleable-content" v-show="activeSubmenus['tree']">
                         <ul>
+                            <li><router-link to="/tree">Documentation</router-link></li>
                             <li><router-link to="/tree/selection">Selection</router-link></li>
                             <li><router-link to="/tree/lazy">Lazy</router-link></li>
                             <li><router-link to="/tree/templating">Templating</router-link></li>
                             <li><router-link to="/tree/filter">Filter</router-link></li>
                         </ul>
                     </div>
-                </router-link>
-                <router-link to="/treetable" v-slot="{href,route,navigate,isActive,isExactActive}">
-                    <div :class="[isActive && 'router-link-active', isExactActive && 'router-link-exact-active']">
-                        <a :href="href" @click="navigate">TreeTable</a>
+                </transition>
+
+                <a tabindex="0" @click="toggleSubmenu($event, 'treetable')">TreeTable</a>
+                <transition name="p-toggleable-content">
+                    <div class="p-toggleable-content" v-show="activeSubmenus['treetable']">
                         <ul>
+                            <li><router-link to="/treetable">Documentation</router-link></li>
                             <li><router-link to="/treetable/templating">Templating</router-link></li>
                             <li><router-link to="/treetable/size">Size</router-link></li>
                             <li><router-link to="/treetable/paginator">Paginator</router-link></li>
@@ -124,7 +128,7 @@
                             <li><router-link to="/treetable/responsive">Responsive</router-link></li>
                         </ul>
                     </div>
-                </router-link>
+                </transition>
             </div>
 
             <span>
@@ -206,10 +210,10 @@
                 <span>Image</span>
             </span>
             <div>
-                <router-link to="/galleria" v-slot="{href,route,navigate,isActive,isExactActive}">
-                    <div :class="[isActive && 'router-link-active', isExactActive && 'router-link-exact-active']">
-                        <a :href="href" @click="navigate">Galleria</a>
-                        <ul>
+                <a tabindex="0" @click="toggleSubmenu($event, 'galleria')">Galleria</a>
+                <transition name="p-toggleable-content">
+                    <div class="p-toggleable-content" v-show="activeSubmenus['galleria']">
+                         <ul>
                             <li><router-link to="/galleria">Documentation</router-link></li>
                             <li><router-link to="/galleria/basic">Basic</router-link></li>
                             <li><router-link to="/galleria/indicator">Indicator</router-link></li>
@@ -221,10 +225,8 @@
                             <li><router-link to="/galleria/caption">Caption</router-link></li>
                         </ul>
                     </div>
-                </router-link>
+                </transition>
             </div>
-
-
 
             <span>
                 <i class="pi pi-share-alt"></i>
@@ -250,12 +252,14 @@ export default {
     },
     data() {
         return {
-            activeMenuIndex: null
+            activeSubmenus: {}
         }
     },
     methods: {
-        toggleMenu(event, index) {
-            this.activeMenuIndex = (this.activeMenuIndex === index) ? null : index;
+        toggleSubmenu(event, name) {
+            this.activeSubmenus[name] = this.activeSubmenus[name] ? false: true;
+            this.activeSubmenus = {...this.activeSubmenus};
+            event.preventDefault();
         }
     }
 }

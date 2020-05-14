@@ -41,6 +41,7 @@
                 padding: .5rem;
                 border-radius: 3px;
                 transition: background-color .2s;
+                cursor: pointer;
 
                 &:hover {
                     background-color: var(--layer-2);
