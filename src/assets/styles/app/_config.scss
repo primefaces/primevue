@@ -95,18 +95,18 @@
 
         &:focus {
             outline: 0 none;
-            box-shadow: 0 0 0 0.2em $focusBorderColor;
+            box-shadow: 0 0 0 0.2rem $focusBorderColor;
         }
     }
 
     h1 {
-        font-size: 18px;
+        font-size: 1.286rem;
         letter-spacing: .1px;
-        margin: 0 0 .5em 0;
+        margin: 0 0 .5rem 0;
     }
 
     .p-grid > div {
-        padding: 1em .5rem;
+        padding: 1rem .5rem;
         text-align: center;
 
         span {
@@ -115,7 +115,7 @@
     }
 
     p {
-        margin: 0 0 2em 0;
+        margin: 0 0 2rem 0;
     }
 
     .config-scale {
@@ -123,8 +123,9 @@
         align-items: center;
         margin: 1rem 0 2rem 0;
 
-        button {
+        .p-button {
             margin-right: .5rem;
+            border: 0 none !important;
         }
 
         i {
@@ -155,40 +156,42 @@
     }
 
     .current-theme {
-        box-shadow: 0 0 0 0.2em $focusBorderColor;
+        box-shadow: 0 0 0 0.2rem $focusBorderColor;
     }
 
-    button {
-        position: relative;
-        display: inline-flex;
-        justify-content: center;
-        transition: box-shadow .2s, transform .2s;
-
-        i {
-            line-height: inherit;
-            font-size: 28px;
-            color: #41b783;
-            position: absolute;
-            top: 0;
-            left: 50%;
-            margin-left: -18px;
-            margin-top: -18px;
-            padding: .18rem;
-            box-shadow: 0 2px 6px 0 rgba(0, 0, 0, 0.25);
-            background-color: #ffffff;
-            border-radius: 50%;
-            width: 36px;
-            height: 36px;
+    .p-grid {
+        button {
+            position: relative;
+            display: inline-flex;
+            justify-content: center;
+            transition: box-shadow .2s, transform .2s;
+    
+            i {
+                line-height: inherit;
+                font-size: 28px;
+                color: #41b783;
+                position: absolute;
+                top: 0;
+                left: 50%;
+                margin-left: -18px;
+                margin-top: -18px;
+                padding: .18rem;
+                box-shadow: 0 2px 6px 0 rgba(0, 0, 0, 0.25);
+                background-color: #ffffff;
+                border-radius: 50%;
+                width: 36px;
+                height: 36px;
+            }
+    
+            &:focus {
+                box-shadow: 0 0 0 0.2rem $focusBorderColor;
+            }
+    
+            &:hover {
+                transform: scale(1.1);
+            } 
         }
-
-        &:focus {
-            box-shadow: 0 0 0 0.2em $focusBorderColor;
-        }
-
-        &:hover {
-            transform: scale(1.1);
-        } 
-    }
+    }    
 
     .premium-themes {
         padding: 2rem;
