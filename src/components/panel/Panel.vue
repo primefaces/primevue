@@ -4,10 +4,13 @@
             <slot name="header">
                 <span class="p-panel-title" v-if="header" :id="ariaId + '_header'">{{header}}</span>
             </slot>
-            <a v-if="toggleable" tabindex="0" class="p-panel-titlebar-icon p-panel-titlebar-toggler" @click="toggle" @keydown.enter="toggle"
-                :id="ariaId +  '_header'" :aria-controls="ariaId + '_content'" :aria-expanded="!d_collapsed">
-                <span :class="{'pi pi-minus': !d_collapsed, 'pi pi-plus': d_collapsed}"></span>
-            </a>
+            <div class="p-panel-icons">
+                 <slot name="icons"></slot>
+                <a v-if="toggleable" tabindex="0" class="p-panel-titlebar-icon p-panel-titlebar-toggler" @click="toggle" @keydown.enter="toggle"
+                    :id="ariaId +  '_header'" :aria-controls="ariaId + '_content'" :aria-expanded="!d_collapsed">
+                    <span :class="{'pi pi-minus': !d_collapsed, 'pi pi-plus': d_collapsed}"></span>
+                </a>
+            </div>
         </div>
         <transition name="p-toggleable-content">
             <div class="p-toggleable-content" v-show="!d_collapsed" role="region" :id="ariaId + '_content'" :aria-labelledby="ariaId + '_header'">
