@@ -3,7 +3,7 @@ import Vue, {VNode} from 'vue';
 export declare class Galleria extends Vue {
     id?: string;
     value?: any;
-    activeItemIndex?: number;
+    activeIndex?: number;
     fullScreen?: boolean;
     visible?: boolean;
     numVisible?: number;

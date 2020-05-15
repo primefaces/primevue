@@ -8,7 +8,7 @@
                 <div ref="itemsContainer" class="p-galleria-thumbnail-items" @transitionend="onTransitionEnd"
                     @touchstart="onTouchStart($event)" @touchmove="onTouchMove($event)" @touchend="onTouchEnd($event)">
                     <div v-for="(item, index) of value" :key="`p-galleria-thumbnail-item-${index}`" :class="['p-galleria-thumbnail-item', {
-                        'p-galleria-thumbnail-item-current': activeItemIndex === index,
+                        'p-galleria-thumbnail-item-current': activeIndex === index,
                         'p-galleria-thumbnail-item-active': isItemActive(index),
                         'p-galleria-thumbnail-item-start': firstItemAciveIndex() === index,
                         'p-galleria-thumbnail-item-end': lastItemActiveIndex() === index }]">
@@ -43,7 +43,7 @@ export default {
             type: Number,
             default: 3
         },
-        activeItemIndex: {
+        activeIndex: {
             type: Number,
             default: 0
         },
@@ -83,8 +83,8 @@ export default {
         return {
             d_numVisible: this.numVisible,
             d_oldNumVisible: this.numVisible,
-            d_activeItemIndex: this.activeItemIndex,
-            d_oldActiveItemIndex: this.activeItemIndex,
+            d_activeIndex: this.activeIndex,
+            d_oldActiveItemIndex: this.activeIndex,
             totalShiftedItems: 0,
             page: 0
         }
@@ -94,8 +94,8 @@ export default {
 			this.d_numVisible = newValue;
 			this.d_oldNumVisible = oldValue;
         },
-        activeItemIndex(newValue, oldValue) {
-			this.d_activeItemIndex = newValue;
+        activeIndex(newValue, oldValue) {
+			this.d_activeIndex = newValue;
 			this.d_oldActiveItemIndex = oldValue;
         }
     },
@@ -110,18 +110,18 @@ export default {
     updated() {
         let totalShiftedItems = this.totalShiftedItems;
 
-        if (this.d_oldNumVisible !== this.d_numVisible || this.d_oldActiveItemIndex !== this.d_activeItemIndex) {
-            if (this.d_activeItemIndex <= this.getMedianItemIndex()) {
+        if (this.d_oldNumVisible !== this.d_numVisible || this.d_oldActiveItemIndex !== this.d_activeIndex) {
+            if (this.d_activeIndex <= this.getMedianItemIndex()) {
                 totalShiftedItems = 0;
             }
-            else if (this.value.length - this.d_numVisible + this.getMedianItemIndex() < this.d_activeItemIndex) {
+            else if (this.value.length - this.d_numVisible + this.getMedianItemIndex() < this.d_activeIndex) {
                 totalShiftedItems = this.d_numVisible - this.value.length;
             }
-            else if (this.value.length - this.d_numVisible < this.d_activeItemIndex && this.d_numVisible % 2 === 0) {
-                totalShiftedItems = (this.d_activeItemIndex * -1) + this.getMedianItemIndex() + 1;
+            else if (this.value.length - this.d_numVisible < this.d_activeIndex && this.d_numVisible % 2 === 0) {
+                totalShiftedItems = (this.d_activeIndex * -1) + this.getMedianItemIndex() + 1;
             }
             else {
-                totalShiftedItems = (this.d_activeItemIndex * -1) + this.getMedianItemIndex();
+                totalShiftedItems = (this.d_activeIndex * -1) + this.getMedianItemIndex();
             }
 
             if (totalShiftedItems !== this.totalShiftedItems) {
@@ -130,12 +130,12 @@ export default {
 
             this.$refs.itemsContainer.style.transform = this.isVertical ? `translate3d(0, ${totalShiftedItems * (100/ this.d_numVisible)}%, 0)` : `translate3d(${totalShiftedItems * (100/ this.d_numVisible)}%, 0, 0)`;
 
-            if (this.d_oldActiveItemIndex !== this.d_activeItemIndex) {
+            if (this.d_oldActiveItemIndex !== this.d_activeIndex) {
                 DomHandler.removeClass(this.$refs.itemsContainer, 'p-items-hidden');
                 this.$refs.itemsContainer.style.transition = 'transform 500ms ease 0s';
             }
 
-            this.d_oldActiveItemIndex = this.d_activeItemIndex;
+            this.d_oldActiveItemIndex = this.d_activeIndex;
             this.d_oldNumVisible = this.d_numVisible;
         }
     },
@@ -160,10 +160,10 @@ export default {
             }
 
             if (this.circular) {
-                if (dir < 0 && this.value.length - 1 === this.d_activeItemIndex) {
+                if (dir < 0 && this.value.length - 1 === this.d_activeIndex) {
                     totalShiftedItems = 0;
                 }
-                else if (dir > 0 && this.d_activeItemIndex === 0) {
+                else if (dir > 0 && this.d_activeIndex === 0) {
                     totalShiftedItems = this.d_numVisible - this.value.length;
                 }
             }
@@ -189,14 +189,14 @@ export default {
         navBackward(e) {
             this.stopSlideShow();
 
-            let prevItemIndex = this.d_activeItemIndex !== 0 ? this.d_activeItemIndex - 1 : 0;
+            let prevItemIndex = this.d_activeIndex !== 0 ? this.d_activeIndex - 1 : 0;
             let diff = prevItemIndex + this.totalShiftedItems;
             if ((this.d_numVisible - diff - 1) > this.getMedianItemIndex() && ((-1 * this.totalShiftedItems) !== 0 || this.circular)) {
                 this.step(1);
             }
 
-            let activeIndex = this.circular && this.d_activeItemIndex === 0 ? this.value.length - 1 : prevItemIndex;
-            this.$emit('update:activeItemIndex', activeIndex);
+            let activeIndex = this.circular && this.d_activeIndex === 0 ? this.value.length - 1 : prevItemIndex;
+            this.$emit('update:activeIndex', activeIndex);
 
             if (e.cancelable) {
                 e.preventDefault();
@@ -205,13 +205,13 @@ export default {
         navForward(e) {
             this.stopSlideShow();
 
-            let nextItemIndex = this.d_activeItemIndex + 1;
+            let nextItemIndex = this.d_activeIndex + 1;
             if (nextItemIndex + this.totalShiftedItems > this.getMedianItemIndex() && ((-1 * this.totalShiftedItems) < this.getTotalPageNumber() - 1 || this.circular)) {
                 this.step(-1);
             }
 
-            let activeIndex = this.circular && (this.value.length - 1) === this.d_activeItemIndex ? 0 : nextItemIndex;
-            this.$emit('update:activeItemIndex', activeIndex);
+            let activeIndex = this.circular && (this.value.length - 1) === this.d_activeIndex ? 0 : nextItemIndex;
+            this.$emit('update:activeIndex', activeIndex);
 
             if (e.cancelable) {
                 e.preventDefault();
@@ -221,10 +221,10 @@ export default {
             this.stopSlideShow();
 
             let selectedItemIndex = index;
-            if (selectedItemIndex !== this.d_activeItemIndex) {
+            if (selectedItemIndex !== this.d_activeIndex) {
                 const diff = selectedItemIndex + this.totalShiftedItems;
                 let dir = 0;
-                if (selectedItemIndex < this.d_activeItemIndex) {
+                if (selectedItemIndex < this.d_activeIndex) {
                     dir = (this.d_numVisible - diff - 1) - this.getMedianItemIndex();
                     if (dir > 0 && (-1 * this.totalShiftedItems) !== 0) {
                         this.step(dir);
@@ -237,7 +237,7 @@ export default {
                     }
                 }
 
-                this.$emit('update:activeItemIndex', selectedItemIndex);
+                this.$emit('update:activeIndex', selectedItemIndex);
             }
         },
         onTransitionEnd() {
@@ -365,10 +365,10 @@ export default {
             }
         },
         isNavBackwardDisabled() {
-            return (!this.circular && this.d_activeItemIndex === 0) || (this.value.length <= this.d_numVisible);
+            return (!this.circular && this.d_activeIndex === 0) || (this.value.length <= this.d_numVisible);
         },
         isNavForwardDisabled() {
-            return (!this.circular && this.d_activeItemIndex === (this.value.length - 1)) || (this.value.length <= this.d_numVisible);
+            return (!this.circular && this.d_activeIndex === (this.value.length - 1)) || (this.value.length <= this.d_numVisible);
         },
         firstItemAciveIndex() {
             return this.totalShiftedItems * -1;

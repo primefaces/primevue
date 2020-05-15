@@ -21,7 +21,7 @@ export default {
             type: Array,
             default: null
         },
-        activeItemIndex: {
+        activeIndex: {
             type: Number,
             default: 0
         },
@@ -136,8 +136,8 @@ export default {
     },
     methods: {
         onActiveItemChange(index) {
-            if (this.activeItemIndex !== index) {
-                this.$emit('update:activeItemIndex', index);
+            if (this.activeIndex !== index) {
+                this.$emit('update:activeIndex', index);
             }
         },
         maskHide() {

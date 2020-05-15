@@ -7,12 +7,12 @@
             <GalleriaItemSlot type="header" :templates="$attrs.templates"/>
         </div>
         <div class="p-galleria-content">
-            <GalleriaItem :value="$attrs.value" :activeItemIndex.sync="activeItemIndex" :circular="$attrs.circular" :templates="$attrs.templates"
+            <GalleriaItem :value="$attrs.value" :activeIndex.sync="activeIndex" :circular="$attrs.circular" :templates="$attrs.templates"
                 :showIndicators="$attrs.showIndicators" :changeItemOnIndicatorHover="$attrs.changeItemOnIndicatorHover"
                 :showItemNavigators="$attrs.showItemNavigators" :autoPlay="$attrs.autoPlay" :slideShowActive.sync="slideShowActive"
                 @startSlideShow="startSlideShow" @stopSlideShow="stopSlideShow" />
 
-            <GalleriaThumbnails v-if="$attrs.showThumbnails" :containerId="id" :value="$attrs.value" :activeItemIndex.sync="activeItemIndex" :templates="$attrs.templates"
+            <GalleriaThumbnails v-if="$attrs.showThumbnails" :containerId="id" :value="$attrs.value" :activeIndex.sync="activeIndex" :templates="$attrs.templates"
                 :numVisible="$attrs.numVisible" :responsiveOptions="$attrs.responsiveOptions" :circular="$attrs.circular"
                 :isVertical="isVertical()" :contentHeight="$attrs.verticalThumbnailViewPortHeight" :showThumbnailNavigators="$attrs.showThumbnailNavigators"
                 :slideShowActive.sync="slideShowActive" @stopSlideShow="stopSlideShow" />
@@ -35,17 +35,17 @@ export default {
     data() {
         return {
             id: this.$attrs.id || UniqueComponentId(),
-            activeItemIndex: this.$attrs.activeItemIndex,
+            activeIndex: this.$attrs.activeIndex,
             slideShowActive: false
         }
     },
     watch: {
-        '$attrs.activeItemIndex': function(newVal) {
-            this.activeItemIndex = newVal;
+        '$attrs.activeIndex': function(newVal) {
+            this.activeIndex = newVal;
         }
     },
     updated() {
-        this.$emit('activeItemChange', this.activeItemIndex);
+        this.$emit('activeItemChange', this.activeIndex);
     },
     beforeDestroy() {
 		if (this.slideShowActive) {
@@ -58,8 +58,8 @@ export default {
         },
         startSlideShow() {
             this.interval = setInterval(() => {
-                let activeIndex = (this.$attrs.circular && (this.$attrs.value.length - 1) === this.activeItemIndex) ? 0 : (this.activeItemIndex + 1);
-                this.activeItemIndex = activeIndex;
+                let activeIndex = (this.$attrs.circular && (this.$attrs.value.length - 1) === this.activeIndex) ? 0 : (this.activeIndex + 1);
+                this.activeIndex = activeIndex;
             }, this.$attrs.transitionInterval);
 
             this.slideShowActive = true;

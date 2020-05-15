@@ -34,7 +34,7 @@ export default {
             type: Boolean,
             default: false
         },
-        activeItemIndex: {
+        activeIndex: {
             type: Number,
             default: 0
         },
@@ -74,20 +74,20 @@ export default {
     },
     methods: {
         next() {
-            let nextItemIndex = this.activeItemIndex + 1;
-            let activeIndex = this.circular && this.value.length - 1 === this.activeItemIndex
+            let nextItemIndex = this.activeIndex + 1;
+            let activeIndex = this.circular && this.value.length - 1 === this.activeIndex
                         ? 0
                         : nextItemIndex;
 
-            this.$emit('update:activeItemIndex', activeIndex);
+            this.$emit('update:activeIndex', activeIndex);
         },
         prev() {
-            let prevItemIndex = this.activeItemIndex !== 0 ? this.activeItemIndex - 1 : 0;
-            let activeIndex = this.circular && this.activeItemIndex === 0
+            let prevItemIndex = this.activeIndex !== 0 ? this.activeIndex - 1 : 0;
+            let activeIndex = this.circular && this.activeIndex === 0
                     ? this.value.length - 1
                     : prevItemIndex
 
-            this.$emit('update:activeItemIndex', activeIndex);
+            this.$emit('update:activeIndex', activeIndex);
         },
         stopSlideShow() {
             if (this.slideShowActive && this.stopSlideShow) {
@@ -112,33 +112,33 @@ export default {
         },
         onIndicatorClick(index) {
             this.stopSlideShow();
-            this.$emit('update:activeItemIndex', index);
+            this.$emit('update:activeIndex', index);
         },
         onIndicatorMouseEnter(index) {
             if (this.changeItemOnIndicatorHover) {
                 this.stopSlideShow();
 
-                this.$emit('update:activeItemIndex', index);
+                this.$emit('update:activeIndex', index);
             }
         },
         onIndicatorKeyDown(index) {
             this.stopSlideShow();
 
-            this.$emit('update:activeItemIndex', index);
+            this.$emit('update:activeIndex', index);
         },
         isIndicatorItemActive(index) {
-            return this.activeItemIndex === index;
+            return this.activeIndex === index;
         },
         isNavBackwardDisabled() {
-            return !this.circular && this.activeItemIndex === 0;
+            return !this.circular && this.activeIndex === 0;
         },
         isNavForwardDisabled() {
-            return !this.circular && this.activeItemIndex === (this.value.length - 1);
+            return !this.circular && this.activeIndex === (this.value.length - 1);
         }
     },
     computed: {
         activeItem() {
-            return this.value[this.activeItemIndex];
+            return this.value[this.activeIndex];
         },
         navBackwardClass() {
             return ['p-galleria-item-prev p-galleria-item-nav p-link', {

@@ -8,7 +8,7 @@
         </div>
 
         <div class="content-section implementation">
-            <Galleria ref="galleria" :value="images" :activeItemIndex.sync="activeItemIndex" :numVisible="5" style="max-width: 640px;" :class="galleriaClass"
+            <Galleria ref="galleria" :value="images" :activeIndex.sync="activeIndex" :numVisible="5" style="max-width: 640px;" :class="galleriaClass"
                 :showThumbnails="showThumbnails" :showItemNavigators="true" :showItemNavigatorsOnHover="true"
                 :circular="true" :autoPlay="true" :transitionInterval="3000">
                 <template #item="slotProps">
@@ -23,9 +23,9 @@
                     <div class="custom-galleria-footer">
                         <Button icon="pi pi-list" @click="onThumbnailButtonClick" />
                         <span v-if="images">
-                            <span>{{activeItemIndex + 1}}/{{images.length}}</span>
-                            <span class="title">{{images[activeItemIndex].title}}</span>
-                            <span>{{images[activeItemIndex].alt}}</span>
+                            <span>{{activeIndex + 1}}/{{images.length}}</span>
+                            <span class="title">{{images[activeIndex].title}}</span>
+                            <span>{{images[activeIndex].alt}}</span>
                         </span>
                         <Button :icon="fullScreenIcon" @click="toggleFullScreen" />
                     </div>
@@ -43,7 +43,7 @@ export default {
     data() {
         return {
             images: null,
-            activeItemIndex: 0,
+            activeIndex: 0,
             showThumbnails: false,
             isPreviewFullScreen: false
         }

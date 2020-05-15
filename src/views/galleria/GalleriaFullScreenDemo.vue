@@ -35,7 +35,7 @@
             <Button label="Show" icon="pi pi-external-link" @click="displayBasic2 = true" />
 
             <h3>Custom Content</h3>
-            <Galleria :value="images" :activeItemIndex.sync="activeItemIndex" :responsiveOptions="responsiveOptions" :numVisible="7" containerStyle="max-width: 850px"
+            <Galleria :value="images" :activeIndex.sync="activeIndex" :responsiveOptions="responsiveOptions" :numVisible="7" containerStyle="max-width: 850px"
                 :circular="true" :fullScreen="true" :showItemNavigators="true" :showThumbnails="false" :visible.sync="displayCustom">
                 <template #item="slotProps">
 					<img :src="slotProps.item.previewImageSrc" :alt="slotProps.item.alt" style="width: 100%; display: block;" />
@@ -84,7 +84,7 @@
 &lt;Button label="Show" icon="pi pi-external-link" @click="displayBasic2 = true" /&gt;
 
 &lt;h3&gt;Custom Content&lt;/h3&gt;
-&lt;Galleria :value="images" :activeItemIndex.sync="activeItemIndex" :responsiveOptions="responsiveOptions" :numVisible="7" containerStyle="max-width: 850px"
+&lt;Galleria :value="images" :activeIndex.sync="activeIndex" :responsiveOptions="responsiveOptions" :numVisible="7" containerStyle="max-width: 850px"
     :circular="true" :fullScreen="true" :showItemNavigators="true" :showThumbnails="false" :visible.sync="displayCustom"&gt;
     &lt;template #item="slotProps"&gt;
         &lt;img :src="slotProps.item.previewImageSrc" :alt="slotProps.item.alt" style="width: 100%; display: block;" /&gt;
@@ -109,7 +109,7 @@ export default {
     data() {
         return {
             images: null,
-            activeItemIndex: 0,
+            activeIndex: 0,
 			responsiveOptions: [
 				{
                     breakpoint: '1024px',
@@ -156,7 +156,7 @@ export default {
     },
     methods: {
         imageClick(index) {
-            this.activeItemIndex = index;
+            this.activeIndex = index;
             this.displayCustom = true;
         }
     }
@@ -175,7 +175,7 @@ export default {
     data() {
         return {
             images: null,
-            activeItemIndex: 0,
+            activeIndex: 0,
 			responsiveOptions: [
 				{
                     breakpoint: '1024px',
@@ -222,7 +222,7 @@ export default {
     },
     methods: {
         imageClick(index) {
-            this.activeItemIndex = index;
+            this.activeIndex = index;
             this.displayCustom = true;
         }
     }
