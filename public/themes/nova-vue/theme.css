@@ -3316,14 +3316,14 @@
   padding: 1rem;
 }
 .p-galleria .p-galleria-indicators .p-galleria-indicator button {
-  background-color: #e9ecef;
+  background-color: #f4f4f4;
   width: 1rem;
   height: 1rem;
   transition: background-color 0.2s, box-shadow 0.2s;
   border-radius: 50%;
 }
 .p-galleria .p-galleria-indicators .p-galleria-indicator button:hover {
-  background: #dee2e6;
+  background: #eaeaea;
 }
 .p-galleria .p-galleria-indicators .p-galleria-indicator.p-highlight button {
   background: #41b883;
