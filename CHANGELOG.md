@@ -1,5 +1,27 @@
 # Changelog
 
+## [2.0.0-beta.1](https://github.com/primefaces/primevue/tree/2.0.0-beta.1) (2020-05-15)
+
+[Full Changelog](https://github.com/primefaces/primevue/compare/1.3.2...2.0.0-beta.1)
+
+**Implemented New Features and Enhancements:**
+
+- Modernize CSS [\#263](https://github.com/primefaces/primevue/issues/263)
+- Responsive Menubar [\#316](https://github.com/primefaces/primevue/issues/316)
+- Top and Bottom icon positioning for button [\#309](https://github.com/primefaces/primevue/issues/309)
+- Badges and Tags [\#308](https://github.com/primefaces/primevue/issues/308)
+- Saga and Vela Themes [\#307](https://github.com/primefaces/primevue/issues/307)
+- Add link button [\#306](https://github.com/primefaces/primevue/issues/306)
+- Icons inside InputText [\#305](https://github.com/primefaces/primevue/issues/305)
+- Add inputId to Dropdown and MultiSelect [\#303](https://github.com/primefaces/primevue/issues/303)
+- ToggleButton refactor [\#297](https://github.com/primefaces/primevue/issues/297)
+- Decouple MegaMenu from PrimeFlex [\#295](https://github.com/primefaces/primevue/issues/295)
+
+**Breaking Changes:**
+- Remove Spinner [\#287](https://github.com/primefaces/primevue/issues/287)
+- Rename ValidationMessage to InlineMessage [\#301](https://github.com/primefaces/primevue/issues/301)
+- Refactor Messages css naming [\#302](https://github.com/primefaces/primevue/issues/302)
+
 ## [1.3.2](https://github.com/primefaces/primevue/tree/1.3.2) (2020-04-24)
 
 [Full Changelog](https://github.com/primefaces/primevue/compare/1.3.1...1.3.2)
