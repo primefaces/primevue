@@ -9,8 +9,8 @@
 
         <div class="content-section implementation">
             <div style="padding: .5rem 0">
-                <Button icon="pi pi-minus" @click="activeIndex--" class="p-button-secondary" />
-                <Button icon="pi pi-plus" @click="activeIndex++" class="p-button-secondary" style="margin-left: .5rem" />
+                <Button icon="pi pi-minus" @click="prev" class="p-button-secondary" />
+                <Button icon="pi pi-plus" @click="next" class="p-button-secondary" style="margin-left: .5rem" />
             </div>
 
             <Galleria :value="images" :activeIndex.sync="activeIndex" :responsiveOptions="responsiveOptions" :numVisible="5" style="max-width: 640px">
@@ -29,8 +29,8 @@
 <CodeHighlight>
 <template v-pre>
 &lt;div style="padding: .5rem 0"&gt;
-    &lt;Button icon="pi pi-minus" @click="activeIndex--" class="p-button-secondary" /&gt;
-    &lt;Button icon="pi pi-plus" @click="activeIndex++" class="p-button-secondary" style="margin-left: .5rem" /&gt;
+    &lt;Button icon="pi pi-minus" @click="prev" class="p-button-secondary" /&gt;
+    &lt;Button icon="pi pi-plus" @click="next" class="p-button-secondary" style="margin-left: .5rem" /&gt;
 &lt;/div&gt;
 
 &lt;Galleria :value="images" :activeIndex.sync="activeIndex" :responsiveOptions="responsiveOptions" :numVisible="5" style="max-width: 640px"&gt;
@@ -75,16 +75,12 @@ export default {
 	mounted() {
 		this.galleriaService.getImages().then(data => this.images = data);
     },
-    computed: {
-        activeIndex: {
-            get: function() {
-                return this.activeIndex;
-            },
-            set: function(newValue) {
-                if (this.images && 0 &lt;= newValue && newValue &lt;= (this.images.length - 1)) {
-                    this.activeIndex = newValue;
-                }
-            }
+    methods: {
+        next() {
+            this.activeIndex = (this.activeIndex === this.images.length - 1) ? 0 : this.activeIndex + 1;
+        },
+        prev() {
+            this.activeIndex = (this.activeIndex === 0) ? 0 : this.images.length - 1;
         }
     }
 }
@@ -126,16 +122,12 @@ export default {
 	mounted() {
 		this.galleriaService.getImages().then(data => this.images = data);
     },
-    computed: {
-        activeIndex: {
-            get: function() {
-                return this.activeIndex;
-            },
-            set: function(newValue) {
-                if (this.images && 0 <= newValue && newValue <= (this.images.length - 1)) {
-                    this.activeIndex = newValue;
-                }
-            }
+    methods: {
+        next() {
+            this.activeIndex = (this.activeIndex === this.images.length - 1) ? 0 : this.activeIndex + 1;
+        },
+        prev() {
+            this.activeIndex = (this.activeIndex === 0) ? 0 : this.images.length - 1;
         }
     }
 }
