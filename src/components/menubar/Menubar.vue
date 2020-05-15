@@ -6,7 +6,7 @@
         <div class="p-menubar-start" v-if="$slots.start">
             <slot name="start"></slot>
         </div>
-        <MenubarSub ref="rootmenu" :model="model" :root="true" :mobileActive="mobileActive"/>
+        <MenubarSub ref="rootmenu" :model="model" :root="true" :mobileActive="mobileActive" @leaf-click="onLeafClick"/>
         <div class="p-menubar-custom" v-if="$slots.default">
             <slot></slot>
         </div>
@@ -61,6 +61,9 @@ export default {
                 this.outsideClickListener = null;
             }
         },
+        onLeafClick() {
+            this.mobileActive = false;
+        }
     },
     computed: {
         containerClass() {

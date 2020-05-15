@@ -99,7 +99,7 @@ export default {
                 });
             }
 
-            if (this.root && item.items) {
+            if (item.items) {
                 if (this.activeItem && item === this.activeItem)
                     this.activeItem = null;
                 else
