@@ -61,7 +61,7 @@
             <div>
                 <router-link to="/carousel">Carousel</router-link>
                 <router-link to="/datatable" v-slot="{ href, route, navigate, isActive }">
-                    <a tabindex="0" @click="toggleSubmenu($event, 'datatable')">DataTable</a>                
+                    <a tabindex="0" @click="toggleSubmenu($event, 'datatable')">DataTable</a>
                     <transition name="p-toggleable-content">
                         <div class="p-toggleable-content" v-show="isSubmenuActive('datatable', isActive)">
                             <ul>
