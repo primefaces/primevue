@@ -8,7 +8,7 @@
         </div>
 
         <div class="content-section implementation">
-            <Galleria :value="images" :responsiveOptions="responsiveOptions" :numVisible="5" style="max-width: 520px"
+            <Galleria :value="images" :responsiveOptions="responsiveOptions" :numVisible="5" style="max-width: 640px"
                 :circular="true" :autoPlay="true" :transitionInterval="2000">
                 <template #item="slotProps">
 					<img :src="slotProps.item.previewImageSrc" :alt="slotProps.item.alt" style="width: 100%; display: block;" />
@@ -24,7 +24,7 @@
                 <TabPanel header="Source">
 <CodeHighlight>
 <template v-pre>
-&lt;Galleria :value="images" :responsiveOptions="responsiveOptions" :numVisible="5" style="max-width: 520px"
+&lt;Galleria :value="images" :responsiveOptions="responsiveOptions" :numVisible="5" style="max-width: 640px"
     :circular="true" :autoPlay="true" :transitionInterval="2000"&gt;
     &lt;template #item="slotProps"&gt;
         &lt;img :src="slotProps.item.previewImageSrc" :alt="slotProps.item.alt" style="width: 100%; display: block;" /&gt;

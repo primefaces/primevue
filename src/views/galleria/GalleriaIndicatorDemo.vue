@@ -9,7 +9,7 @@
 
         <div class="content-section implementation">
             <h3>Indicators with Click Event</h3>
-            <Galleria :value="images" :responsiveOptions="responsiveOptions" :numVisible="5" style="max-width: 520px"
+            <Galleria :value="images" :responsiveOptions="responsiveOptions" :numVisible="5" style="max-width: 640px"
                 :showThumbnails="false" :showIndicators="true">
                 <template #item="slotProps">
 					<img :src="slotProps.item.previewImageSrc" :alt="slotProps.item.alt" style="width: 100%; display: block;" />
@@ -17,7 +17,7 @@
             </Galleria>
 
             <h3>Indicators with Hover Event</h3>
-            <Galleria :value="images" :responsiveOptions="responsiveOptions" :numVisible="5" style="max-width: 520px"
+            <Galleria :value="images" :responsiveOptions="responsiveOptions" :numVisible="5" style="max-width: 640px"
                 :showThumbnails="false" :showIndicators="true" :changeItemOnIndicatorHover="true">
                 <template #item="slotProps">
 					<img :src="slotProps.item.previewImageSrc" :alt="slotProps.item.alt" style="width: 100%; display: block;" />
@@ -25,7 +25,7 @@
             </Galleria>
 
             <h3>Inside Content</h3>
-            <Galleria :value="images" :responsiveOptions="responsiveOptions" :numVisible="5" style="max-width: 520px"
+            <Galleria :value="images" :responsiveOptions="responsiveOptions" :numVisible="5" style="max-width: 640px"
                 :showThumbnails="false" :showIndicators="true" :changeItemOnIndicatorHover="true" :showIndicatorsOnItem="true">
                 <template #item="slotProps">
 					<img :src="slotProps.item.previewImageSrc" :alt="slotProps.item.alt" style="width: 100%; display: block;" />
@@ -33,7 +33,7 @@
             </Galleria>
 
             <h3>Positioned at Top</h3>
-            <Galleria :value="images" :responsiveOptions="responsiveOptions" :numVisible="5" style="max-width: 520px"
+            <Galleria :value="images" :responsiveOptions="responsiveOptions" :numVisible="5" style="max-width: 640px"
                 :showThumbnails="false" :showIndicators="true" :changeItemOnIndicatorHover="true" :showIndicatorsOnItem="true" indicatorsPosition="top">
                 <template #item="slotProps">
 					<img :src="slotProps.item.previewImageSrc" :alt="slotProps.item.alt" style="width: 100%; display: block;" />
@@ -41,7 +41,7 @@
             </Galleria>
 
             <h3>Positioned at Left</h3>
-            <Galleria :value="images" :responsiveOptions="responsiveOptions" :numVisible="5" style="max-width: 520px"
+            <Galleria :value="images" :responsiveOptions="responsiveOptions" :numVisible="5" style="max-width: 640px"
                 :showThumbnails="false" :showIndicators="true" :changeItemOnIndicatorHover="true" :showIndicatorsOnItem="true" indicatorsPosition="left">
                 <template #item="slotProps">
 					<img :src="slotProps.item.previewImageSrc" :alt="slotProps.item.alt" style="width: 100%; display: block;" />
@@ -49,7 +49,7 @@
             </Galleria>
 
             <h3>Positioned at Right</h3>
-            <Galleria :value="images" :responsiveOptions="responsiveOptions" :numVisible="5" style="max-width: 520px"
+            <Galleria :value="images" :responsiveOptions="responsiveOptions" :numVisible="5" style="max-width: 640px"
                 :showThumbnails="false" :showIndicators="true" :changeItemOnIndicatorHover="true" :showIndicatorsOnItem="true" indicatorsPosition="right">
                 <template #item="slotProps">
 					<img :src="slotProps.item.previewImageSrc" :alt="slotProps.item.alt" style="width: 100%; display: block;" />
@@ -57,7 +57,7 @@
             </Galleria>
 
             <h3>Indicator Template</h3>
-            <Galleria :value="images" :responsiveOptions="responsiveOptions" :numVisible="5" style="max-width: 520px;" class="custom-indicator-galleria"
+            <Galleria :value="images" :responsiveOptions="responsiveOptions" :numVisible="5" style="max-width: 640px;" class="custom-indicator-galleria"
                 :showThumbnails="false" :showIndicators="true" :changeItemOnIndicatorHover="true" :showIndicatorsOnItem="true" indicatorsPosition="left">
                 <template #item="slotProps">
 					<img :src="slotProps.item.previewImageSrc" :alt="slotProps.item.alt" style="width: 100%; display: block;" />
@@ -76,7 +76,7 @@
 <CodeHighlight>
 <template v-pre>
 &lt;h3&gt;Indicators with Click Event&lt;/h3&gt;
-&lt;Galleria :value="images" :responsiveOptions="responsiveOptions" :numVisible="5" style="max-width: 520px"
+&lt;Galleria :value="images" :responsiveOptions="responsiveOptions" :numVisible="5" style="max-width: 640px"
     :showThumbnails="false" :showIndicators="true"&gt;
     &lt;template #item="slotProps"&gt;
         &lt;img :src="slotProps.item.previewImageSrc" :alt="slotProps.item.alt" style="width: 100%; display: block;" /&gt;
@@ -84,7 +84,7 @@
 &lt;/Galleria&gt;
 
 &lt;h3&gt;Indicators with Hover Event&lt;/h3&gt;
-&lt;Galleria :value="images" :responsiveOptions="responsiveOptions" :numVisible="5" style="max-width: 520px"
+&lt;Galleria :value="images" :responsiveOptions="responsiveOptions" :numVisible="5" style="max-width: 640px"
     :showThumbnails="false" :showIndicators="true" :changeItemOnIndicatorHover="true"&gt;
     &lt;template #item="slotProps"&gt;
         &lt;img :src="slotProps.item.previewImageSrc" :alt="slotProps.item.alt" style="width: 100%; display: block;" /&gt;
@@ -92,7 +92,7 @@
 &lt;/Galleria&gt;
 
 &lt;h3&gt;Inside Content&lt;/h3&gt;
-&lt;Galleria :value="images" :responsiveOptions="responsiveOptions" :numVisible="5" style="max-width: 520px"
+&lt;Galleria :value="images" :responsiveOptions="responsiveOptions" :numVisible="5" style="max-width: 640px"
     :showThumbnails="false" :showIndicators="true" :changeItemOnIndicatorHover="true" :showIndicatorsOnItem="true"&gt;
     &lt;template #item="slotProps"&gt;
         &lt;img :src="slotProps.item.previewImageSrc" :alt="slotProps.item.alt" style="width: 100%; display: block;" /&gt;
@@ -100,7 +100,7 @@
 &lt;/Galleria&gt;
 
 &lt;h3&gt;Positioned at Top&lt;/h3&gt;
-&lt;Galleria :value="images" :responsiveOptions="responsiveOptions" :numVisible="5" style="max-width: 520px"
+&lt;Galleria :value="images" :responsiveOptions="responsiveOptions" :numVisible="5" style="max-width: 640px"
     :showThumbnails="false" :showIndicators="true" :changeItemOnIndicatorHover="true" :showIndicatorsOnItem="true" indicatorsPosition="top"&gt;
     &lt;template #item="slotProps"&gt;
         &lt;img :src="slotProps.item.previewImageSrc" :alt="slotProps.item.alt" style="width: 100%; display: block;" /&gt;
@@ -108,7 +108,7 @@
 &lt;/Galleria&gt;
 
 &lt;h3&gt;Positioned at Left&lt;/h3&gt;
-&lt;Galleria :value="images" :responsiveOptions="responsiveOptions" :numVisible="5" style="max-width: 520px"
+&lt;Galleria :value="images" :responsiveOptions="responsiveOptions" :numVisible="5" style="max-width: 640px"
     :showThumbnails="false" :showIndicators="true" :changeItemOnIndicatorHover="true" :showIndicatorsOnItem="true" indicatorsPosition="left"&gt;
     &lt;template #item="slotProps"&gt;
         &lt;img :src="slotProps.item.previewImageSrc" :alt="slotProps.item.alt" style="width: 100%; display: block;" /&gt;
@@ -116,7 +116,7 @@
 &lt;/Galleria&gt;
 
 &lt;h3&gt;Positioned at Right&lt;/h3&gt;
-&lt;Galleria :value="images" :responsiveOptions="responsiveOptions" :numVisible="5" style="max-width: 520px"
+&lt;Galleria :value="images" :responsiveOptions="responsiveOptions" :numVisible="5" style="max-width: 640px"
     :showThumbnails="false" :showIndicators="true" :changeItemOnIndicatorHover="true" :showIndicatorsOnItem="true" indicatorsPosition="right"&gt;
     &lt;template #item="slotProps"&gt;
         &lt;img :src="slotProps.item.previewImageSrc" :alt="slotProps.item.alt" style="width: 100%; display: block;" /&gt;
@@ -124,7 +124,7 @@
 &lt;/Galleria&gt;
 
 &lt;h3&gt;Indicator Template&lt;/h3&gt;
-&lt;Galleria :value="images" :responsiveOptions="responsiveOptions" :numVisible="5" style="max-width: 520px;" class="custom-indicator-galleria"
+&lt;Galleria :value="images" :responsiveOptions="responsiveOptions" :numVisible="5" style="max-width: 640px;" class="custom-indicator-galleria"
     :showThumbnails="false" :showIndicators="true" :changeItemOnIndicatorHover="true" :showIndicatorsOnItem="true" indicatorsPosition="left"&gt;
     &lt;template #item="slotProps"&gt;
         &lt;img :src="slotProps.item.previewImageSrc" :alt="slotProps.item.alt" style="width: 100%; display: block;" /&gt;

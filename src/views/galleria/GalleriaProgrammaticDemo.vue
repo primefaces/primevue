@@ -13,7 +13,7 @@
                 <Button icon="pi pi-plus" @click="activeIndex++" class="p-button-secondary" style="margin-left: .5rem" />
             </div>
 
-            <Galleria :value="images" :activeItemIndex.sync="activeIndex" :responsiveOptions="responsiveOptions" :numVisible="5" style="max-width: 520px">
+            <Galleria :value="images" :activeItemIndex.sync="activeIndex" :responsiveOptions="responsiveOptions" :numVisible="5" style="max-width: 640px">
                 <template #item="slotProps">
 					<img :src="slotProps.item.previewImageSrc" :alt="slotProps.item.alt" style="width: 100%" />
 				</template>
@@ -33,7 +33,7 @@
     &lt;Button icon="pi pi-plus" @click="activeIndex++" class="p-button-secondary" style="margin-left: .5rem" /&gt;
 &lt;/div&gt;
 
-&lt;Galleria :value="images" :activeItemIndex.sync="activeIndex" :responsiveOptions="responsiveOptions" :numVisible="5" style="max-width: 520px"&gt;
+&lt;Galleria :value="images" :activeItemIndex.sync="activeIndex" :responsiveOptions="responsiveOptions" :numVisible="5" style="max-width: 640px"&gt;
     &lt;template #item="slotProps"&gt;
         &lt;img :src="slotProps.item.previewImageSrc" :alt="slotProps.item.alt" style="width: 100%" /&gt;
     &lt;/template&gt;

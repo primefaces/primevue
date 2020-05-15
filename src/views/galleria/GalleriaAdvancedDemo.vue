@@ -8,7 +8,7 @@
         </div>
 
         <div class="content-section implementation">
-            <Galleria ref="galleria" :value="images" :activeItemIndex.sync="activeItemIndex" :numVisible="5" style="max-width: 520px;" :class="galleriaClass"
+            <Galleria ref="galleria" :value="images" :activeItemIndex.sync="activeItemIndex" :numVisible="5" style="max-width: 640px;" :class="galleriaClass"
                 :showThumbnails="showThumbnails" :showItemNavigators="true" :showItemNavigatorsOnHover="true"
                 :circular="true" :autoPlay="true" :transitionInterval="3000">
                 <template #item="slotProps">

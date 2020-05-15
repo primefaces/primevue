@@ -9,7 +9,7 @@
 
         <div class="content-section implementation">
             <h3>Positioned at Bottom</h3>
-            <Galleria :value="images" :responsiveOptions="responsiveOptions" :numVisible="5" style="max-width: 520px">
+            <Galleria :value="images" :responsiveOptions="responsiveOptions" :numVisible="5" style="max-width: 640px">
                 <template #item="slotProps">
 					<img :src="slotProps.item.previewImageSrc" :alt="slotProps.item.alt" style="width: 100%; display: block;" />
 				</template>
@@ -43,7 +43,7 @@
             </Galleria>
 
             <h3>Positioned at Top</h3>
-            <Galleria :value="images" :responsiveOptions="responsiveOptions" :numVisible="5" thumbnailsPosition="top" style="max-width: 520px">
+            <Galleria :value="images" :responsiveOptions="responsiveOptions" :numVisible="5" thumbnailsPosition="top" style="max-width: 640px">
                 <template #item="slotProps">
 					<img :src="slotProps.item.previewImageSrc" :alt="slotProps.item.alt" style="width: 100%; display: block;" />
 				</template>
@@ -59,7 +59,7 @@
 <CodeHighlight>
 <template v-pre>
 &lt;h3&gt;Positioned at Bottom&lt;/h3&gt;
-&lt;Galleria :value="images" :responsiveOptions="responsiveOptions" :numVisible="5" style="max-width: 520px"&gt;
+&lt;Galleria :value="images" :responsiveOptions="responsiveOptions" :numVisible="5" style="max-width: 640px"&gt;
     &lt;template #item="slotProps"&gt;
         &lt;img :src="slotProps.item.previewImageSrc" :alt="slotProps.item.alt" style="width: 100%; display: block;" /&gt;
     &lt;/template&gt;
@@ -93,7 +93,7 @@
 &lt;/Galleria&gt;
 
 &lt;h3&gt;Positioned at Top&lt;/h3&gt;
-&lt;Galleria :value="images" :responsiveOptions="responsiveOptions" :numVisible="5" thumbnailsPosition="top" style="max-width: 520px"&gt;
+&lt;Galleria :value="images" :responsiveOptions="responsiveOptions" :numVisible="5" thumbnailsPosition="top" style="max-width: 640px"&gt;
     &lt;template #item="slotProps"&gt;
         &lt;img :src="slotProps.item.previewImageSrc" :alt="slotProps.item.alt" style="width: 100%; display: block;" /&gt;
     &lt;/template&gt;
