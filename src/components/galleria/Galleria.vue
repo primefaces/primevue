@@ -285,6 +285,13 @@ export default {
     align-items: center;
     justify-content: center;
     cursor: pointer;
+    opacity: .5;
+    transition: opacity .3s;
+}
+
+.p-galleria-thumbnail-item:hover,
+.p-galleria-thumbnail-item-current {
+    opacity: 1;
 }
 
 /* Positions */
