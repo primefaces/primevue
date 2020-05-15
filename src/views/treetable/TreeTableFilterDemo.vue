@@ -2,7 +2,7 @@
     <div>
         <div class="content-section introduction">
             <div class="feature-intro">
-                <h1>TreeTable - Filter</h1>
+                <h1>TreeTable <span>Filter</span></h1>
                 <p>Filtering is enabled by defining a filter template per column to populate the filters property of the TreTable.</p>
             </div>
         </div>

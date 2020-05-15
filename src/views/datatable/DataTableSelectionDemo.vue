@@ -2,7 +2,7 @@
 	<div>
 		<div class="content-section introduction">
 			<div class="feature-intro">
-				<h1>DataTable - Selection</h1>
+				<h1>DataTable <span>Selection</span></h1>
 				<p>DataTable provides single and multiple selection modes based on row click or using radio button and checkbox elements.</p>
 			</div>
 		</div>

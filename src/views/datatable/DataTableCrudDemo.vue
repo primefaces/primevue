@@ -2,7 +2,7 @@
 	<div>
 		<div class="content-section introduction">
 			<div class="feature-intro">
-				<h1>DataTable - Crud</h1>
+				<h1>DataTable <span>Crud</span></h1>
 				<p>This samples demonstrates a CRUD implementation using various PrimeReact components.</p>
 			</div>
 		</div>

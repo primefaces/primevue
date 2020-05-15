@@ -2,7 +2,7 @@
     <div class="galleria-demo">
         <div class="content-section introduction">
             <div class="feature-intro">
-                <h1>Galleria - Programmatic</h1>
+                <h1>Galleria <span>Programmatic</span></h1>
                 <p>Galleria can be controlled programmatically using the <b>activeIndex</b> property.</p>
             </div>
         </div>

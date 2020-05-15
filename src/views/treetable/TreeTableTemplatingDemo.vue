@@ -2,7 +2,7 @@
     <div>
         <div class="content-section introduction">
             <div class="feature-intro">
-                <h1>TreeTable - Templating</h1>
+                <h1>TreeTable <span>Templating</span></h1>
                 <p>Custom content at header, body and footer sections are supported via templating.</p>
             </div>
         </div>

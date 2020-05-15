@@ -2,7 +2,7 @@
     <div>
         <div class="content-section introduction">
             <div class="feature-intro">
-                <h1>Galleria - Caption</h1>
+                <h1>Galleria <span>Caption</span></h1>
                 <p>Caption displays a description for an item.</p>
             </div>
         </div>

@@ -2,7 +2,7 @@
     <div>
         <div class="content-section introduction">
             <div class="feature-intro">
-                <h1>Galleria - Navigator</h1>
+                <h1>Galleria <span>Navigator</span></h1>
                 <p>Combining item navigators, thumbnails and indicators provide various UI alternatives.</p>
             </div>
         </div>

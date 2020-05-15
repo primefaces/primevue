@@ -2,7 +2,7 @@
     <div>
         <div class="content-section introduction">
             <div class="feature-intro">
-                <h1>Tree - Lazy</h1>
+                <h1>Tree <span>Lazy</span></h1>
                 <p>Lazy loading is handy when dealing with huge datasets. This example imitates a lazy loading case with timeouts.</p>
             </div>
         </div>

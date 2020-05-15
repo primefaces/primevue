@@ -2,7 +2,7 @@
 	<div>
 		<div class="content-section introduction">
 			<div class="feature-intro">
-				<h1>DataTable - Column Group</h1>
+				<h1>DataTable <span>ColumnGroup</span></h1>
 				<p>Columns can be grouped at header and footer using headerColumnGroup and footerColumnGroup components.</p>
 			</div>
 		</div>

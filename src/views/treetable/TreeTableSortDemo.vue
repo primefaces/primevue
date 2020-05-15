@@ -2,7 +2,7 @@
     <div>
         <div class="content-section introduction">
             <div class="feature-intro">
-                <h1>TreeTable - Sort</h1>
+                <h1>TreeTable <span>Sort</span></h1>
                <p>TreeTable supports both single column and multiple column sorting..</p>
             </div>
         </div>

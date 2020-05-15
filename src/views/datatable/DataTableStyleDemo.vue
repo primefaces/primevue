@@ -2,7 +2,7 @@
 	<div>
 		<div class="content-section introduction">
 			<div class="feature-intro">
-				<h1>DataTable - Style</h1>
+				<h1>DataTable <span>Style</span></h1>
 				<p>Certain rows or cells can easily be styled based on conditions.</p>
 			</div>
 		</div>

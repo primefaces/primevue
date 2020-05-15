@@ -2,7 +2,7 @@
     <div>
         <div class="content-section introduction">
             <div class="feature-intro">
-                <h1>Tree - Selection</h1>
+                <h1>Tree <span>Selection</span></h1>
                 <p>Tree supports <b>single</b>, <b>multiple</b> and <b>checkbox</b> as selection modes.</p>
             </div>
         </div>

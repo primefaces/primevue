@@ -2,7 +2,7 @@
 	<div>
 		<div class="content-section introduction">
 			<div class="feature-intro">
-				<h1>DataTable - Size</h1>
+				<h1>DataTable <span>Size</span></h1>
 				<p>In addition to a regular table, a smaller and a larger alternatives available.</p>
 			</div>
 		</div>

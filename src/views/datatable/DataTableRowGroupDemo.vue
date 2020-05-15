@@ -2,7 +2,7 @@
 	<div>
 		<div class="content-section introduction">
 			<div class="feature-intro">
-				<h1>DataTable - Row Grouping</h1>
+				<h1>DataTable <span>Row Grouping</span></h1>
 				<p>Rows can either be grouped by a separate grouping row or using rowspan.</p>
 			</div>
 		</div>

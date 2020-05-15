@@ -2,7 +2,7 @@
 	<div>
 		<div class="content-section introduction">
 			<div class="feature-intro">
-				<h1>DataTable - Column Toggle</h1>
+				<h1>DataTable <span>Column Toggle</span></h1>
 				<p>MultiSelect component can be used to implement column toggle functionality.</p>
 			</div>
 		</div>

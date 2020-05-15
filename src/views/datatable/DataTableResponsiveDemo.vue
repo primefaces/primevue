@@ -2,7 +2,7 @@
 	<div>
 		<div class="content-section introduction">
 			<div class="feature-intro">
-				<h1>DataTable - Responsive</h1>
+				<h1>DataTable <span>Responsive</span></h1>
 				<p>DataTable display can be optimized according for different screen sizes, this example demonstrates a demo where columns are stacked on a small screens.</p>
 			</div>
 		</div>

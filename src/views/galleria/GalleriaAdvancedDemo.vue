@@ -2,7 +2,7 @@
     <div class="galleria-demo">
         <div class="content-section introduction">
             <div class="feature-intro">
-                <h1>Galleria - Advanced</h1>
+                <h1>Galleria <span>Advanced</span></h1>
                 <p>Galleria can be extended further to implement complex requirements.</p>
             </div>
         </div>

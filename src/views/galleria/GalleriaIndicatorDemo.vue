@@ -2,7 +2,7 @@
     <div>
         <div class="content-section introduction">
             <div class="feature-intro">
-                <h1>Galleria - Indicator</h1>
+                <h1>Galleria <span>Indicator</span></h1>
                 <p>Indicators allow quick navigation between the items.</p>
             </div>
         </div>

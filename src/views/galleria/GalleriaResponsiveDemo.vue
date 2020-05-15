@@ -2,7 +2,7 @@
     <div>
         <div class="content-section introduction">
             <div class="feature-intro">
-                <h1>Galleria - Responsive</h1>
+                <h1>Galleria <span>Responsive</span></h1>
                 <p>Galleria responsiveness is defined with the <b>responsiveOptions</b> property.</p>
             </div>
         </div>

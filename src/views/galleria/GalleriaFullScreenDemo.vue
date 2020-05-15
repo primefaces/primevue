@@ -2,7 +2,7 @@
     <div>
         <div class="content-section introduction">
             <div class="feature-intro">
-                <h1>Galleria - FullScreen</h1>
+                <h1>Galleria <span>FullScreen</span></h1>
                 <p>In fullscreen mode content covers the whole page over a mask..</p>
             </div>
         </div>

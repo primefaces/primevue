@@ -2,7 +2,7 @@
     <div>
         <div class="content-section introduction">
             <div class="feature-intro">
-                <h1>Galleria - Thumbnail</h1>
+                <h1>Galleria <span>Thumbnail</span></h1>
                 <p>Thumbnails represent a smaller version of the actual content.</p>
             </div>
         </div>

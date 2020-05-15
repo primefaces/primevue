@@ -2,7 +2,7 @@
 	<div>
 		<div class="content-section introduction">
 			<div class="feature-intro">
-				<h1>DataTable - Reorder</h1>
+				<h1>DataTable <span>Reorder</span></h1>
 				<p>Order of the columns and rows can be changed using drag and drop.</p>
 			</div>
 		</div>

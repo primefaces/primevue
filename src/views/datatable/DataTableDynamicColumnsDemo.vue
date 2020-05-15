@@ -2,7 +2,7 @@
 	<div>
 		<div class="content-section introduction">
 			<div class="feature-intro">
-				<h1>DataTable - Dynamic Columns</h1>
+				<h1>DataTable <span>Dynamic Columns</span></h1>
 				<p>Columns can be defined dynamically using the v-for directive.</p>
 			</div>
 		</div>

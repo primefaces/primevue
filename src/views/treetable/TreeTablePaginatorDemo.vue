@@ -2,7 +2,7 @@
     <div>
         <div class="content-section introduction">
             <div class="feature-intro">
-                <h1>TreeTable - Paginator</h1>
+                <h1>TreeTable <span>Paginator</span></h1>
                <p>Pagination is enabled by setting paginator property to true and defining the rows attribute as the number of root level nodes per page.</p>
             </div>
         </div>

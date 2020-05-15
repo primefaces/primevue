@@ -2,7 +2,7 @@
     <div>
         <div class="content-section introduction">
             <div class="feature-intro">
-                <h1>TreeTable - Size</h1>
+                <h1>TreeTable <span>Size</span></h1>
                 <p>In addition to a regular table, a smaller and a larger alternatives available.</p>
             </div>
         </div>
@@ -19,7 +19,7 @@
 
             <TreeTable :value="nodes" style="margin-bottom: 2rem">
                 <template #header>
-                    Small Table
+                    Normal Table
                 </template>
                 <Column field="name" header="Name" :expander="true"></Column>
                 <Column field="size" header="Size"></Column>
@@ -28,7 +28,7 @@
 
             <TreeTable :value="nodes" class="p-treetable-lg" >
                 <template #header>
-                    Small Table
+                    Large Table
                 </template>
                 <Column field="name" header="Name" :expander="true"></Column>
                 <Column field="size" header="Size"></Column>

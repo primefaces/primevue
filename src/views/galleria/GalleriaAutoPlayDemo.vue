@@ -2,7 +2,7 @@
     <div>
         <div class="content-section introduction">
             <div class="feature-intro">
-                <h1>Galleria - AutoPlay</h1>
+                <h1>Galleria <span>AutoPlay</span></h1>
                 <p>AutoPlay mode is used to implement slideshows.</p>
             </div>
         </div>

@@ -2,7 +2,7 @@
     <div>
         <div class="content-section introduction">
             <div class="feature-intro">
-                <h1>Tree - Filter</h1>
+                <h1>Tree <span>Filter</span></h1>
                 <p>Filtering updates the node based on the constraints.</p>
             </div>
         </div>

@@ -2,7 +2,7 @@
     <div>
         <div class="content-section introduction">
             <div class="feature-intro">
-                <h1>Tree - Templating</h1>
+                <h1>Tree <span>Templating</span></h1>
                 <p>Tree is used to display hierarchical data.</p>
             </div>
         </div>

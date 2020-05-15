@@ -2,7 +2,7 @@
     <div>
         <div class="content-section introduction">
             <div class="feature-intro">
-                <h1>TreeTable - Lazy</h1>
+                <h1>TreeTable <span>Lazy</span></h1>
                 <p>Lazy mode is handy to deal with large datasets, instead of loading the entire data, small chunks of data is loaded by invoking corresponding callbacks everytime paging or sorting. In addition,
                     children of a node can be loaded on demand at onNodeExpand event as well. Sample belows imitates lazy paging by using an in memory list..</p>
             </div>
