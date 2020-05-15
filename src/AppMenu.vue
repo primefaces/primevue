@@ -60,37 +60,39 @@
             </span>
             <div>
                 <router-link to="/carousel">Carousel</router-link>
-                <a tabindex="0" @click="toggleSubmenu($event, 'datatable')">DataTable</a>
-                <transition name="p-toggleable-content">
-                    <div class="p-toggleable-content" v-show="activeSubmenus['datatable'] === true">
-                        <ul>
-                            <li><router-link to="/datatable">Documentation</router-link></li>
-                            <li><router-link to="/datatable/basic">Basic</router-link></li>
-                            <li><router-link to="/datatable/dynamiccolumns">Dynamic</router-link></li>
-                            <li><router-link to="/datatable/templating">Templating</router-link></li>
-                            <li><router-link to="/datatable/size">Size</router-link></li>
-                            <li><router-link to="/datatable/colgroup">ColGroup</router-link></li>
-                            <li><router-link to="/datatable/paginator">Paginator</router-link></li>
-                            <li><router-link to="/datatable/sort">Sort</router-link></li>
-                            <li><router-link to="/datatable/filter">Filter</router-link></li>
-                            <li><router-link to="/datatable/selection">Selection</router-link></li>
-                            <li><router-link to="/datatable/lazy">Lazy</router-link></li>
-                            <li><router-link to="/datatable/scroll">Scroll</router-link></li>
-                            <li><router-link to="/datatable/rowexpand">Expand</router-link></li>
-                            <li><router-link to="/datatable/edit">Edit</router-link></li>
-                            <li><router-link to="/datatable/coltoggle">ColToggle</router-link></li>
-                            <li><router-link to="/datatable/colresize">ColResize</router-link></li>
-                            <li><router-link to="/datatable/reorder">Reorder</router-link></li>
-                            <li><router-link to="/datatable/rowgroup">RowGroup</router-link></li>
-                            <li><router-link to="/datatable/contextmenu">ContextMenu</router-link></li>
-                            <li><router-link to="/datatable/responsive">Responsive</router-link></li>
-                            <li><router-link to="/datatable/export">Export</router-link></li>
-                            <li><router-link to="/datatable/state">State</router-link></li>
-                            <li><router-link to="/datatable/style">Style</router-link></li>
-                            <li><router-link to="/datatable/crud">Crud</router-link></li>
-                        </ul>
-                    </div>
-                </transition>
+                <router-link to="/datatable" v-slot="{ href, route, navigate, isActive }">
+                    <a tabindex="0" @click="toggleSubmenu($event, 'datatable')">DataTable</a>                
+                    <transition name="p-toggleable-content">
+                        <div class="p-toggleable-content" v-show="isSubmenuActive('datatable', isActive)">
+                            <ul>
+                                <li><router-link to="/datatable">Documentation</router-link></li>
+                                <li><router-link to="/datatable/basic">Basic</router-link></li>
+                                <li><router-link to="/datatable/dynamiccolumns">Dynamic</router-link></li>
+                                <li><router-link to="/datatable/templating">Templating</router-link></li>
+                                <li><router-link to="/datatable/size">Size</router-link></li>
+                                <li><router-link to="/datatable/colgroup">ColGroup</router-link></li>
+                                <li><router-link to="/datatable/paginator">Paginator</router-link></li>
+                                <li><router-link to="/datatable/sort">Sort</router-link></li>
+                                <li><router-link to="/datatable/filter">Filter</router-link></li>
+                                <li><router-link to="/datatable/selection">Selection</router-link></li>
+                                <li><router-link to="/datatable/lazy">Lazy</router-link></li>
+                                <li><router-link to="/datatable/scroll">Scroll</router-link></li>
+                                <li><router-link to="/datatable/rowexpand">Expand</router-link></li>
+                                <li><router-link to="/datatable/edit">Edit</router-link></li>
+                                <li><router-link to="/datatable/coltoggle">ColToggle</router-link></li>
+                                <li><router-link to="/datatable/colresize">ColResize</router-link></li>
+                                <li><router-link to="/datatable/reorder">Reorder</router-link></li>
+                                <li><router-link to="/datatable/rowgroup">RowGroup</router-link></li>
+                                <li><router-link to="/datatable/contextmenu">ContextMenu</router-link></li>
+                                <li><router-link to="/datatable/responsive">Responsive</router-link></li>
+                                <li><router-link to="/datatable/export">Export</router-link></li>
+                                <li><router-link to="/datatable/state">State</router-link></li>
+                                <li><router-link to="/datatable/style">Style</router-link></li>
+                                <li><router-link to="/datatable/crud">Crud</router-link></li>
+                            </ul>
+                        </div>
+                    </transition>
+                </router-link>
 
                 <router-link to="/dataview">DataView</router-link>
                 <router-link to="/fullcalendar">FullCalendar</router-link>
@@ -98,37 +100,40 @@
                 <router-link to="/organizationchart">OrganizationChart</router-link>
                 <router-link to="/paginator">Paginator</router-link>
                 <router-link to="/picklist">PickList</router-link>
-                <a tabindex="0" @click="toggleSubmenu($event, 'tree')">Tree</a>
-                <transition name="p-toggleable-content">
-                    <div class="p-toggleable-content" v-show="activeSubmenus['tree']">
-                        <ul>
-                            <li><router-link to="/tree">Documentation</router-link></li>
-                            <li><router-link to="/tree/selection">Selection</router-link></li>
-                            <li><router-link to="/tree/lazy">Lazy</router-link></li>
-                            <li><router-link to="/tree/templating">Templating</router-link></li>
-                            <li><router-link to="/tree/filter">Filter</router-link></li>
-                        </ul>
-                    </div>
-                </transition>
-
-                <a tabindex="0" @click="toggleSubmenu($event, 'treetable')">TreeTable</a>
-                <transition name="p-toggleable-content">
-                    <div class="p-toggleable-content" v-show="activeSubmenus['treetable']">
-                        <ul>
-                            <li><router-link to="/treetable">Documentation</router-link></li>
-                            <li><router-link to="/treetable/templating">Templating</router-link></li>
-                            <li><router-link to="/treetable/size">Size</router-link></li>
-                            <li><router-link to="/treetable/paginator">Paginator</router-link></li>
-                            <li><router-link to="/treetable/sort">Sort</router-link></li>
-                            <li><router-link to="/treetable/filter">Filter</router-link></li>
-                            <li><router-link to="/treetable/selection">Selection</router-link></li>
-                            <li><router-link to="/treetable/lazy">Lazy</router-link></li>
-                            <li><router-link to="/treetable/coltoggle">ColToggle</router-link></li>
-                            <li><router-link to="/treetable/colresize">Resize</router-link></li>
-                            <li><router-link to="/treetable/responsive">Responsive</router-link></li>
-                        </ul>
-                    </div>
-                </transition>
+                <router-link to="/tree" v-slot="{ href, route, navigate, isActive }">
+                    <a tabindex="0" @click="toggleSubmenu($event, 'tree')">Tree</a>
+                    <transition name="p-toggleable-content">
+                        <div class="p-toggleable-content" v-show="isSubmenuActive('tree', isActive)">
+                            <ul>
+                                <li><router-link to="/tree">Documentation</router-link></li>
+                                <li><router-link to="/tree/selection">Selection</router-link></li>
+                                <li><router-link to="/tree/lazy">Lazy</router-link></li>
+                                <li><router-link to="/tree/templating">Templating</router-link></li>
+                                <li><router-link to="/tree/filter">Filter</router-link></li>
+                            </ul>
+                        </div>
+                    </transition>
+                </router-link>
+                <router-link to="/treetable" v-slot="{ href, route, navigate, isActive }">
+                    <a tabindex="0" @click="toggleSubmenu($event, 'treetable')">TreeTable</a>
+                    <transition name="p-toggleable-content">
+                        <div class="p-toggleable-content" v-show="isSubmenuActive('treetable', isActive)">
+                            <ul>
+                                <li><router-link to="/treetable">Documentation</router-link></li>
+                                <li><router-link to="/treetable/templating">Templating</router-link></li>
+                                <li><router-link to="/treetable/size">Size</router-link></li>
+                                <li><router-link to="/treetable/paginator">Paginator</router-link></li>
+                                <li><router-link to="/treetable/sort">Sort</router-link></li>
+                                <li><router-link to="/treetable/filter">Filter</router-link></li>
+                                <li><router-link to="/treetable/selection">Selection</router-link></li>
+                                <li><router-link to="/treetable/lazy">Lazy</router-link></li>
+                                <li><router-link to="/treetable/coltoggle">ColToggle</router-link></li>
+                                <li><router-link to="/treetable/colresize">Resize</router-link></li>
+                                <li><router-link to="/treetable/responsive">Responsive</router-link></li>
+                            </ul>
+                        </div>
+                    </transition>
+                </router-link>
             </div>
 
             <span>
@@ -210,23 +215,25 @@
                 <span>Image</span>
             </span>
             <div>
-                <a tabindex="0" @click="toggleSubmenu($event, 'galleria')">Galleria</a>
-                <transition name="p-toggleable-content">
-                    <div class="p-toggleable-content" v-show="activeSubmenus['galleria']">
-                         <ul>
-                            <li><router-link to="/galleria">Documentation</router-link></li>
-                            <li><router-link to="/galleria/programmatic">Programmatic</router-link></li>
-                            <li><router-link to="/galleria/indicator">Indicator</router-link></li>
-                            <li><router-link to="/galleria/thumbnail">Thumbnail</router-link></li>
-                            <li><router-link to="/galleria/navigator">Navigator</router-link></li>
-                            <li><router-link to="/galleria/responsive">Responsive</router-link></li>
-                            <li><router-link to="/galleria/fullscreen">FullScreen</router-link></li>
-                            <li><router-link to="/galleria/autoplay">AutoPlay</router-link></li>
-                            <li><router-link to="/galleria/caption">Caption</router-link></li>
-                            <li><router-link to="/galleria/advanced">Advanced</router-link></li>
-                        </ul>
-                    </div>
-                </transition>
+                <router-link to="/galleria" v-slot="{ href, route, navigate, isActive }">
+                    <a tabindex="0" @click="toggleSubmenu($event, 'galleria')">Galleria</a>
+                    <transition name="p-toggleable-content">
+                        <div class="p-toggleable-content" v-show="isSubmenuActive('galleria', isActive)">
+                            <ul>
+                                <li><router-link to="/galleria">Documentation</router-link></li>
+                                <li><router-link to="/galleria/programmatic">Programmatic</router-link></li>
+                                <li><router-link to="/galleria/indicator">Indicator</router-link></li>
+                                <li><router-link to="/galleria/thumbnail">Thumbnail</router-link></li>
+                                <li><router-link to="/galleria/navigator">Navigator</router-link></li>
+                                <li><router-link to="/galleria/responsive">Responsive</router-link></li>
+                                <li><router-link to="/galleria/fullscreen">FullScreen</router-link></li>
+                                <li><router-link to="/galleria/autoplay">AutoPlay</router-link></li>
+                                <li><router-link to="/galleria/caption">Caption</router-link></li>
+                                <li><router-link to="/galleria/advanced">Advanced</router-link></li>
+                            </ul>
+                        </div>
+                    </transition>
+                </router-link>
             </div>
 
             <span>
@@ -261,6 +268,9 @@ export default {
             this.activeSubmenus[name] = this.activeSubmenus[name] ? false: true;
             this.activeSubmenus = {...this.activeSubmenus};
             event.preventDefault();
+        },
+        isSubmenuActive(name, routerIsActive) {
+            return this.activeSubmenus.hasOwnProperty(name) ? this.activeSubmenus[name] : routerIsActive;
         }
     }
 }
