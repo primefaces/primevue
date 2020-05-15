@@ -14,7 +14,7 @@
                     <span class="p-menuitem-text">{{item.label}}</span>
                     <span :class="getSubmenuIcon()" v-if="item.items"></span>
                 </a>
-                <sub-menu :model="item.items" v-if="visible(item) && item.items" :key="item.label + '_sub_'"
+                <sub-menu :model="item.items" v-if="visible(item) && item.items" :key="item.label + '_sub_'" :mobileActive="mobileActive"
                     @leaf-click="onLeafClick" @keydown-item="onChildItemKeyDown" :parentActive="item === activeItem" />
             </li>
             <li class="p-menu-separator" :style="item.style" v-if="visible(item) && item.separator" :key="'separator' + i" role="separator"></li>
@@ -43,6 +43,10 @@ export default {
         parentActive: {
             type: Boolean,
             default: false
+        },
+        mobileActive: {
+            type: Boolean,
+            default: false
         }
     },
     documentClickListener: null,
@@ -68,7 +72,7 @@ export default {
     },
     methods: {
         onItemMouseEnter(event, item) {
-            if (item.disabled) {
+            if (item.disabled || this.mobileActive) {
                 event.preventDefault();
                 return;
             }
@@ -99,7 +103,7 @@ export default {
                 });
             }
 
-            if (this.root && item.items) {
+            if (item.items) {
                 if (this.activeItem && item === this.activeItem)
                     this.activeItem = null;
                 else

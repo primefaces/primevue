@@ -11,7 +11,6 @@
             <Menubar :model="items">
                 <template #end>
                     <InputText placeholder="Search" type="text" />
-                    <Button label="Logout" icon="pi pi-power-off" :style="{'margin': '0 .5em'}"/>
                 </template>
             </Menubar>
         </div>

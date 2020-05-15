@@ -1,9 +1,12 @@
 <template>
-    <div class="p-menubar p-component">
+    <div :class="containerClass">
+        <a ref="menubutton" tabindex="0" class="p-menubar-button" @click="toggle($event)">
+            <i class="pi pi-bars" />
+        </a>
         <div class="p-menubar-start" v-if="$slots.start">
             <slot name="start"></slot>
         </div>
-        <MenubarSub :model="model" :root="true" />
+        <MenubarSub ref="rootmenu" :model="model" :root="true" :mobileActive="mobileActive"/>
         <div class="p-menubar-custom" v-if="$slots.default">
             <slot></slot>
         </div>
@@ -15,12 +18,53 @@
 
 <script>
 import MenubarSub from './MenubarSub';
+import DomHandler from '../utils/DomHandler';
 
 export default {
     props: {
 		model: {
             type: Array,
             default: null
+        }
+    },
+    outsideClickListener: null,
+    data() {
+        return {
+            mobileActive: false
+        }
+    },
+    beforeDestroy() {
+        this.mobileActive = false;
+        this.unbindOutsideClickListener();
+    },
+    methods: {
+        toggle(event) {
+            this.mobileActive = !this.mobileActive;
+            this.$refs.rootmenu.$el.style.zIndex = String(DomHandler.generateZIndex());
+            this.bindOutsideClickListener();
+            event.preventDefault();
+        },
+        bindOutsideClickListener() {
+            if (!this.outsideClickListener) {
+                this.outsideClickListener = (event) => {
+                    if (this.mobileActive && this.$refs.rootmenu.$el !== event.target && !this.$refs.rootmenu.$el.contains(event.target)
+                        && this.$refs.menubutton !== event.target && !this.$refs.menubutton.contains(event.target)) {
+                        this.mobileActive = false;
+                    }
+                };
+                document.addEventListener('click', this.outsideClickListener);
+            }
+        },
+        unbindOutsideClickListener() {
+            if (this.outsideClickListener) {
+                document.removeEventListener('click', this.outsideClickListener);
+                this.outsideClickListener = null;
+            }
+        },
+    },
+    computed: {
+        containerClass() {
+            return ['p-menubar p-component', {'p-menubar-mobile-active': this.mobileActive}];
         }
     },
     components: {
@@ -32,6 +76,7 @@ export default {
 <style>
 .p-menubar {
     display: flex;
+    align-items: center;
 }
 
 .p-menubar ul {
@@ -54,17 +99,17 @@ export default {
     position: relative;
 }
 
-.p-menubar .p-menubar-root-list {
+.p-menubar-root-list {
     display: flex;
     align-items: center;
 }
 
-.p-menubar .p-menubar-root-list > li ul {
+.p-menubar-root-list > li ul {
     display: none;
     z-index: 1;
 }
 
-.p-menubar .p-menubar-root-list > .p-menuitem-active > .p-submenu-list {
+.p-menubar-root-list > .p-menuitem-active > .p-submenu-list {
     display: block;
 }
 
@@ -88,5 +133,12 @@ export default {
 .p-menubar .p-menubar-end {
     margin-left: auto;
     align-self: center;
+}
+
+.p-menubar-button {
+    display: none;
+    cursor: pointer;
+    align-items: center;
+    justify-content: center;
 }
 </style>
