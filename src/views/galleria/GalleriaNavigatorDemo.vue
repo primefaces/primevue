@@ -2,53 +2,53 @@
     <div>
         <div class="content-section introduction">
             <div class="feature-intro">
-                <h1>Galleria - Thumbnail</h1>
-                <p>Thumbnails represent a smaller version of the actual content.</p>
+                <h1>Galleria - Navigator</h1>
+                <p>Combining item navigators, thumbnails and indicators provide various UI alternatives.</p>
             </div>
         </div>
 
         <div class="content-section implementation">
-            <h3>Positioned at Bottom</h3>
-            <Galleria :value="images" :responsiveOptions="responsiveOptions" :numVisible="5" style="max-width: 520px">
+            <h3>Item Navigators and Thumbnails</h3>
+            <Galleria :value="images" :responsiveOptions="responsiveOptions" :numVisible="5" :circular="true" style="max-width: 520px"
+                :showItemNavigators="true">
                 <template #item="slotProps">
 					<img :src="slotProps.item.previewImageSrc" :alt="slotProps.item.alt" style="width: 100%; display: block;" />
 				</template>
 				<template #thumbnail="slotProps">
-                    <img :src="slotProps.item.thumbnailImageSrc" :alt="slotProps.item.alt" tyle="width: 100%; display: block;" />
+                    <img :src="slotProps.item.thumbnailImageSrc" :alt="slotProps.item.alt" style="display: block;" />
 				</template>
             </Galleria>
 
-            <h3>Positioned at Left</h3>
-            <Galleria :value="images" :responsiveOptions="responsiveOptions2" :numVisible="4" thumbnailsPosition="left" style="max-width: 610px">
+            <h3>Item Navigators without Thumbnails</h3>
+            <Galleria :value="images" :responsiveOptions="responsiveOptions" :numVisible="5" :circular="true" style="max-width: 520px"
+                :showItemNavigators="true" :showThumbnails="false">
                 <template #item="slotProps">
 					<img :src="slotProps.item.previewImageSrc" :alt="slotProps.item.alt" style="width: 100%; display: block;" />
 				</template>
 				<template #thumbnail="slotProps">
-                    <div class="p-grid p-nogutter p-justify-center">
-                        <img :src="slotProps.item.thumbnailImageSrc" :alt="slotProps.item.alt" tyle="width: 100%; display: block;" />
-                    </div>
+                    <img :src="slotProps.item.thumbnailImageSrc" :alt="slotProps.item.alt" style="display: block;" />
 				</template>
             </Galleria>
 
-            <h3>Positioned at Right</h3>
-            <Galleria :value="images" :responsiveOptions="responsiveOptions2" :numVisible="4" thumbnailsPosition="right" style="max-width: 610px">
+            <h3>Item Navigators on Hover</h3>
+            <Galleria :value="images" :responsiveOptions="responsiveOptions" :numVisible="5" :circular="true" style="max-width: 520px;"
+                :showItemNavigators="true" :showItemNavigatorsOnHover="true">
                 <template #item="slotProps">
 					<img :src="slotProps.item.previewImageSrc" :alt="slotProps.item.alt" style="width: 100%; display: block;" />
 				</template>
 				<template #thumbnail="slotProps">
-                    <div class="p-grid p-nogutter p-justify-center">
-                        <img :src="slotProps.item.thumbnailImageSrc" :alt="slotProps.item.alt" tyle="width: 100%; display: block;" />
-                    </div>
+                    <img :src="slotProps.item.thumbnailImageSrc" :alt="slotProps.item.alt" style="display: block;" />
 				</template>
             </Galleria>
 
-            <h3>Positioned at Top</h3>
-            <Galleria :value="images" :responsiveOptions="responsiveOptions" :numVisible="5" thumbnailsPosition="top" style="max-width: 520px">
+            <h3>Item Navigators and Indicators</h3>
+            <Galleria :value="images" :responsiveOptions="responsiveOptions" :numVisible="5" :circular="true" style="max-width: 520px;"
+                :showItemNavigators="true" :showThumbnails="false" :showItemNavigatorsOnHover="true" :showIndicators="true">
                 <template #item="slotProps">
 					<img :src="slotProps.item.previewImageSrc" :alt="slotProps.item.alt" style="width: 100%; display: block;" />
 				</template>
 				<template #thumbnail="slotProps">
-                   <img :src="slotProps.item.thumbnailImageSrc" :alt="slotProps.item.alt" tyle="width: 100%; display: block;" />
+                     <img :src="slotProps.item.thumbnailImageSrc" :alt="slotProps.item.alt" style="display: block;" />
 				</template>
             </Galleria>
         </div>
@@ -58,47 +58,47 @@
                 <TabPanel header="Source">
 <CodeHighlight>
 <template v-pre>
-&lt;h3&gt;Positioned at Bottom&lt;/h3&gt;
-&lt;Galleria :value="images" :responsiveOptions="responsiveOptions" :numVisible="5" style="max-width: 520px"&gt;
+&lt;h3&gt;Item Navigators and Thumbnails&lt;/h3&gt;
+&lt;Galleria :value="images" :responsiveOptions="responsiveOptions" :numVisible="5" :circular="true" style="max-width: 520px"
+    :showItemNavigators="true"&gt;
     &lt;template #item="slotProps"&gt;
         &lt;img :src="slotProps.item.previewImageSrc" :alt="slotProps.item.alt" style="width: 100%; display: block;" /&gt;
     &lt;/template&gt;
     &lt;template #thumbnail="slotProps"&gt;
-        &lt;img :src="slotProps.item.thumbnailImageSrc" :alt="slotProps.item.alt" tyle="width: 100%; display: block;" /&gt;
+        &lt;img :src="slotProps.item.thumbnailImageSrc" :alt="slotProps.item.alt" style="display: block;" /&gt;
     &lt;/template&gt;
 &lt;/Galleria&gt;
 
-&lt;h3&gt;Positioned at Left&lt;/h3&gt;
-&lt;Galleria :value="images" :responsiveOptions="responsiveOptions2" :numVisible="4" thumbnailsPosition="left" style="max-width: 610px"&gt;
+&lt;h3&gt;Item Navigators without Thumbnails&lt;/h3&gt;
+&lt;Galleria :value="images" :responsiveOptions="responsiveOptions" :numVisible="5" :circular="true" style="max-width: 520px"
+    :showItemNavigators="true" :showThumbnails="false"&gt;
     &lt;template #item="slotProps"&gt;
         &lt;img :src="slotProps.item.previewImageSrc" :alt="slotProps.item.alt" style="width: 100%; display: block;" /&gt;
     &lt;/template&gt;
     &lt;template #thumbnail="slotProps"&gt;
-        &lt;div class="p-grid p-nogutter p-justify-center"&gt;
-            &lt;img :src="slotProps.item.thumbnailImageSrc" :alt="slotProps.item.alt" tyle="width: 100%; display: block;" /&gt;
-        &lt;/div&gt;
+        &lt;img :src="slotProps.item.thumbnailImageSrc" :alt="slotProps.item.alt" style="display: block;" /&gt;
     &lt;/template&gt;
 &lt;/Galleria&gt;
 
-&lt;h3&gt;Positioned at Right&lt;/h3&gt;
-&lt;Galleria :value="images" :responsiveOptions="responsiveOptions2" :numVisible="4" thumbnailsPosition="right" style="max-width: 610px"&gt;
+&lt;h3&gt;Item Navigators on Hover&lt;/h3&gt;
+&lt;Galleria :value="images" :responsiveOptions="responsiveOptions" :numVisible="5" :circular="true" style="max-width: 520px;"
+    :showItemNavigators="true" :showItemNavigatorsOnHover="true"&gt;
     &lt;template #item="slotProps"&gt;
         &lt;img :src="slotProps.item.previewImageSrc" :alt="slotProps.item.alt" style="width: 100%; display: block;" /&gt;
     &lt;/template&gt;
     &lt;template #thumbnail="slotProps"&gt;
-        &lt;div class="p-grid p-nogutter p-justify-center"&gt;
-            &lt;img :src="slotProps.item.thumbnailImageSrc" :alt="slotProps.item.alt" tyle="width: 100%; display: block;" /&gt;
-        &lt;/div&gt;
+        &lt;img :src="slotProps.item.thumbnailImageSrc" :alt="slotProps.item.alt" style="display: block;" /&gt;
     &lt;/template&gt;
 &lt;/Galleria&gt;
 
-&lt;h3&gt;Positioned at Top&lt;/h3&gt;
-&lt;Galleria :value="images" :responsiveOptions="responsiveOptions" :numVisible="5" thumbnailsPosition="top" style="max-width: 520px"&gt;
+&lt;h3&gt;Item Navigators and Indicators&lt;/h3&gt;
+&lt;Galleria :value="images" :responsiveOptions="responsiveOptions" :numVisible="5" :circular="true" style="max-width: 520px;"
+    :showItemNavigators="true" :showThumbnails="false" :showItemNavigatorsOnHover="true" :showIndicators="true"&gt;
     &lt;template #item="slotProps"&gt;
         &lt;img :src="slotProps.item.previewImageSrc" :alt="slotProps.item.alt" style="width: 100%; display: block;" /&gt;
     &lt;/template&gt;
     &lt;template #thumbnail="slotProps"&gt;
-        &lt;img :src="slotProps.item.thumbnailImageSrc" :alt="slotProps.item.alt" tyle="width: 100%; display: block;" /&gt;
+            &lt;img :src="slotProps.item.thumbnailImageSrc" :alt="slotProps.item.alt" style="display: block;" /&gt;
     &lt;/template&gt;
 &lt;/Galleria&gt;
 </template>
@@ -124,17 +124,7 @@ export default {
                     breakpoint: '560px',
                     numVisible: 1
                 }
-            ],
-            responsiveOptions2: [
-                {
-                    breakpoint: '768px',
-                    numVisible: 3
-                },
-                {
-                    breakpoint: '560px',
-                    numVisible: 1
-                }
-            ]
+			]
         }
     },
     galleriaService: null,
@@ -172,17 +162,7 @@ export default {
                     breakpoint: '560px',
                     numVisible: 1
                 }
-            ],
-            responsiveOptions2: [
-                {
-                    breakpoint: '768px',
-                    numVisible: 3
-                },
-                {
-                    breakpoint: '560px',
-                    numVisible: 1
-                }
-            ]
+			]
         }
     },
     galleriaService: null,

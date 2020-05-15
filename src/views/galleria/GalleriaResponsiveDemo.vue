@@ -2,8 +2,8 @@
     <div>
         <div class="content-section introduction">
             <div class="feature-intro">
-                <h1 style="margin-bottom: 0px;">Galleria - Responsive</h1>
-                <p></p>
+                <h1>Galleria - Responsive</h1>
+                <p>Galleria responsiveness is defined with the <b>responsiveOptions</b> property.</p>
             </div>
         </div>
 
@@ -13,9 +13,7 @@
 					<img :src="slotProps.item.previewImageSrc" :alt="slotProps.item.alt" style="width: 100%; display: block;" />
 				</template>
 				<template #thumbnail="slotProps">
-                    <div class="p-grid p-nogutter p-justify-center">
-                        <img :src="slotProps.item.thumbnailImageSrc" :alt="slotProps.item.alt" style="display: block;" />
-                    </div>
+                    <img :src="slotProps.item.thumbnailImageSrc" :alt="slotProps.item.alt" style="display: block;" />
 				</template>
             </Galleria>
         </div>
@@ -30,16 +28,14 @@
         &lt;img :src="slotProps.item.previewImageSrc" :alt="slotProps.item.alt" style="width: 100%; display: block;" /&gt;
     &lt;/template&gt;
     &lt;template #thumbnail="slotProps"&gt;
-        &lt;div class="p-grid p-nogutter p-justify-center"&gt;
-            &lt;img :src="slotProps.item.thumbnailImageSrc" :alt="slotProps.item.alt" style="display: block;" /&gt;
-        &lt;/div&gt;
+        &lt;img :src="slotProps.item.thumbnailImageSrc" :alt="slotProps.item.alt" style="display: block;" /&gt;
     &lt;/template&gt;
 &lt;/Galleria&gt;
 </template>
 </CodeHighlight>
 
 <CodeHighlight lang="javascript">
-import GalleriaService from '../../service/GalleriaService';
+import PhotoService from '../../service/PhotoService';
 
 export default {
     data() {
@@ -67,7 +63,7 @@ export default {
     },
     galleriaService: null,
 	created() {
-		this.galleriaService = new GalleriaService();
+		this.galleriaService = new PhotoService();
 	},
 	mounted() {
 		this.galleriaService.getImages().then(data => this.images = data);
@@ -81,7 +77,7 @@ export default {
 </template>
 
 <script>
-import GalleriaService from '../../service/GalleriaService';
+import PhotoService from '../../service/PhotoService';
 
 export default {
     data() {
@@ -109,7 +105,7 @@ export default {
     },
     galleriaService: null,
 	created() {
-		this.galleriaService = new GalleriaService();
+		this.galleriaService = new PhotoService();
 	},
 	mounted() {
 		this.galleriaService.getImages().then(data => this.images = data);

@@ -8,10 +8,10 @@ export declare class Galleria extends Vue {
     visible?: boolean;
     numVisible?: number;
     responsiveOptions?: any[];
-    showPreviewNavButtons?: boolean;
-    showThumbnailNavButtons?: boolean;
-    showNavButtonsOnPreviewHover?: boolean;
-    changePreviewOnIndicatorHover?: boolean;
+    showItemNavigators?: boolean;
+    showThumbnailNavigators?: boolean;
+    showItemNavigatorsOnHover?: boolean;
+    changeItemOnIndicatorHover?: boolean;
     circular?: boolean;
     autoPlay?: boolean;
     transitionInterval?: number;
@@ -19,7 +19,7 @@ export declare class Galleria extends Vue {
     thumbnailsPosition?: string;
     verticalThumbnailViewPortHeight?: string;
     showIndicators?: boolean;
-    showIndicatorsOnPreview?: boolean;
+    showIndicatorsOnItem?: boolean;
     indicatorsPosition?: string;
     baseZIndex?: number;
     maskClass?: string;

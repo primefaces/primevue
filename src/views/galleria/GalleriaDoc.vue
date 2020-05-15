@@ -17,6 +17,117 @@ import Galleria from 'primevue/galleria';
 &lt;/Galleria&gt;
 </CodeHighlight>
 
+                <p>For the rest of the documentation, sample data below would be return from an example service e.g. PhotoService.</p>
+<div style="overflow: auto; height: 400px">
+<CodeHighlight lang="js">
+{
+    "data":[
+        {
+            "previewImageSrc": "demo/images/galleria/galleria1.jpg",
+            "thumbnailImageSrc": "demo/images/galleria/galleria1s.jpg",
+            "alt": "Description for Image 1",
+            "title": "Title 1"
+        },
+        {
+            "previewImageSrc": "demo/images/galleria/galleria2.jpg",
+            "thumbnailImageSrc": "demo/images/galleria/galleria2s.jpg",
+            "alt": "Description for Image 2",
+            "title": "Title 2"
+        },
+        {
+            "previewImageSrc": "demo/images/galleria/galleria3.jpg",
+            "thumbnailImageSrc": "demo/images/galleria/galleria3s.jpg",
+            "alt": "Description for Image 3",
+            "title": "Title 3"
+        },
+        {
+            "previewImageSrc": "demo/images/galleria/galleria4.jpg",
+            "thumbnailImageSrc": "demo/images/galleria/galleria4s.jpg",
+            "alt": "Description for Image 4",
+            "title": "Title 4"
+        },
+        {
+            "previewImageSrc": "demo/images/galleria/galleria5.jpg",
+            "thumbnailImageSrc": "demo/images/galleria/galleria5s.jpg",
+            "alt": "Description for Image 5",
+            "title": "Title 5"
+        },
+        {
+            "previewImageSrc": "demo/images/galleria/galleria6.jpg",
+            "thumbnailImageSrc": "demo/images/galleria/galleria6s.jpg",
+            "alt": "Description for Image 6",
+            "title": "Title 6"
+        },
+        {
+            "previewImageSrc": "demo/images/galleria/galleria7.jpg",
+            "thumbnailImageSrc": "demo/images/galleria/galleria7s.jpg",
+            "alt": "Description for Image 7",
+            "title": "Title 7"
+        },
+        {
+            "previewImageSrc": "demo/images/galleria/galleria8.jpg",
+            "thumbnailImageSrc": "demo/images/galleria/galleria8s.jpg",
+            "alt": "Description for Image 8",
+            "title": "Title 8"
+        },
+        {
+            "previewImageSrc": "demo/images/galleria/galleria9.jpg",
+            "thumbnailImageSrc": "demo/images/galleria/galleria9s.jpg",
+            "alt": "Description for Image 9",
+            "title": "Title 9"
+        },
+        {
+            "previewImageSrc": "demo/images/galleria/galleria10.jpg",
+            "thumbnailImageSrc": "demo/images/galleria/galleria10s.jpg",
+            "alt": "Description for Image 10",
+            "title": "Title 10"
+        },
+        {
+            "previewImageSrc": "demo/images/galleria/galleria11.jpg",
+            "thumbnailImageSrc": "demo/images/galleria/galleria11s.jpg",
+            "alt": "Description for Image 11",
+            "title": "Title 11"
+        },
+        {
+            "previewImageSrc": "demo/images/galleria/galleria12.jpg",
+            "thumbnailImageSrc": "demo/images/galleria/galleria12s.jpg",
+            "alt": "Description for Image 12",
+            "title": "Title 12"
+        },
+        {
+            "previewImageSrc": "demo/images/galleria/galleria13.jpg",
+            "thumbnailImageSrc": "demo/images/galleria/galleria13s.jpg",
+            "alt": "Description for Image 13",
+            "title": "Title 13"
+        },
+        {
+            "previewImageSrc": "demo/images/galleria/galleria14.jpg",
+            "thumbnailImageSrc": "demo/images/galleria/galleria14s.jpg",
+            "alt": "Description for Image 14",
+            "title": "Title 14"
+        },
+        {
+            "previewImageSrc": "demo/images/galleria/galleria15.jpg",
+            "thumbnailImageSrc": "demo/images/galleria/galleria15s.jpg",
+            "alt": "Description for Image 15",
+            "title": "Title 15"
+        }
+    ]
+}
+</CodeHighlight>
+</div>
+
+<CodeHighlight lang="js">
+import axios from 'axios'
+
+export default class PhotoService {
+
+	getImages() {
+        return axios.get('demo/data/photos.json').then(res => res.data.data);
+    }
+}
+</CodeHighlight>
+
 <CodeHighlight lang="js">
 export default {
     data() {
@@ -26,7 +137,7 @@ export default {
     },
     galleriaService: null,
 	created() {
-		this.galleriaService = new GalleriaService();
+		this.galleriaService = new PhotoService();
 	},
 	mounted() {
         this.galleriaService.getImages().then(data => this.images = data);
@@ -43,15 +154,13 @@ export default {
         &lt;img :src="slotProps.item.previewImageSrc" :alt="slotProps.item.alt" style="width: 100%" /&gt;
     &lt;/template&gt;
     &lt;template #thumbnail="slotProps"&gt;
-        &lt;div class="p-grid p-nogutter p-justify-center"&gt;
-            &lt;img :src="slotProps.item.thumbnailImageSrc" :alt="slotProps.item.alt" /&gt;
-        &lt;/div&gt;
+        &lt;img :src="slotProps.item.thumbnailImageSrc" :alt="slotProps.item.alt" /&gt;
     &lt;/template&gt;
 &lt;/Galleria&gt;
 </CodeHighlight>
 
 				<h3>Responsive</h3>
-                <p>For responsive design, <i>numVisible</i> can be defined using the <i>responsiveOptions</i> property that should be an array of
+                <p>For responsive design, <i>numVisible</i> can be defined using the <i>responsiveOptions</i> property which references an array of
                 objects whose breakpoint defines the max-width to apply the settings.</p>
 
 <CodeHighlight>
@@ -60,9 +169,7 @@ export default {
         &lt;img :src="slotProps.item.previewImageSrc" :alt="slotProps.item.alt" style="width: 100%" /&gt;
     &lt;/template&gt;
     &lt;template #thumbnail="slotProps"&gt;
-        &lt;div class="p-grid p-nogutter p-justify-center"&gt;
-            &lt;img :src="slotProps.item.thumbnailImageSrc" :alt="slotProps.item.alt" /&gt;
-        &lt;/div&gt;
+        &lt;img :src="slotProps.item.thumbnailImageSrc" :alt="slotProps.item.alt" /&gt;
     &lt;/template&gt;
 &lt;/Galleria&gt;
 </CodeHighlight>
@@ -84,7 +191,6 @@ responsiveOptions: [
 ]
 </CodeHighlight>
 
-
 				<h3>Header and Footer</h3>
                 <p>Custom content projection is available using the <i>header</i> and <i>footer</i> properties.</p>
 <CodeHighlight>
@@ -95,13 +201,19 @@ responsiveOptions: [
     &lt;template #item="slotProps"&gt;
         &lt;img :src="slotProps.item.previewImageSrc" :alt="slotProps.item.alt" style="width: 100%" /&gt;
     &lt;/template&gt;
-    &lt;template #thumbnail="slotProps"&gt;
-        &lt;div class="p-grid p-nogutter p-justify-center"&gt;
-            &lt;img :src="slotProps.item.thumbnailImageSrc" :alt="slotProps.item.alt" /&gt;
-        &lt;/div&gt;
-    &lt;/template&gt;
     &lt;template #footer&gt;
         &lt;h1&gt;Footer&lt;/h1&gt;
+    &lt;/template&gt;
+&lt;/Galleria&gt;
+</CodeHighlight>
+
+                <h3>Indicators</h3>
+                <p>Indicators allow quick navigation between the items. Set <i>showIndicators</i> to display indicators which can be customized further
+                with the <i>changeItemOnIndicatorHover</i>, <i>showIndicatorsOnItem</i> and <i>indicatorsPosition</i> properties.</p>
+<CodeHighlight>
+&lt;Galleria :value="images" :showIndicators="true"&gt;
+    &lt;template #item="slotProps"&gt;
+        &lt;img :src="slotProps.item.previewImageSrc" :alt="slotProps.item.alt" /&gt;
     &lt;/template&gt;
 &lt;/Galleria&gt;
 </CodeHighlight>
@@ -162,28 +274,28 @@ responsiveOptions: [
                                 <td>An array of options for responsive design.</td>
                             </tr>
                             <tr>
-                                <td>showPreviewNavButtons</td>
+                                <td>showItemNavigators</td>
                                 <td>boolean</td>
                                 <td>false</td>
-                                <td>Whether to display navigation buttons in preview container.</td>
+                                <td>Whether to display navigation buttons in item section.</td>
                             </tr>
                             <tr>
-                                <td>showThumbnailNavButtons</td>
+                                <td>showThumbnailNavigators</td>
                                 <td>boolean</td>
                                 <td>true</td>
                                 <td>Whether to display navigation buttons in thumbnail container.</td>
                             </tr>
                             <tr>
-                                <td>showNavButtonsOnPreviewHover</td>
+                                <td>showItemNavigatorsOnHover</td>
                                 <td>boolean</td>
                                 <td>false</td>
-                                <td>Whether to display navigation buttons on preview container's hover.</td>
+                                <td>Whether to display navigation buttons on item hover.</td>
                             </tr>
                             <tr>
-                                <td>changePreviewOnIndicatorHover</td>
+                                <td>changeItemOnIndicatorHover</td>
                                 <td>boolean</td>
                                 <td>false</td>
-                                <td>When enabled, preview item is changed on indicator item's hover.</td>
+                                <td>When enabled, item is changed on indicator hover.</td>
                             </tr>
                             <tr>
                                 <td>circular</td>
@@ -228,10 +340,10 @@ responsiveOptions: [
                                 <td>Whether to display indicator container.</td>
                             </tr>
                             <tr>
-                                <td>showIndicatorsOnPreview</td>
+                                <td>showIndicatorsOnItem</td>
                                 <td>boolean</td>
                                 <td>false</td>
-                                <td>When enabled, indicator container is displayed on preview container.</td>
+                                <td>When enabled, indicator container is displayed on item container.</td>
                             </tr>
                             <tr>
                                 <td>indicatorsPosition</td>
@@ -328,206 +440,50 @@ responsiveOptions: [
 				</a>
 <CodeHighlight>
 <template v-pre>
-&lt;Galleria ref="galleria" :value="images" :activeItemIndex.sync="activeItemIndex" :numVisible="5" style="max-width: 520px;" :class="galleriaClass"
-    :showThumbnails="showThumbnails" :showPreviewNavButtons="true" :showNavButtonsOnPreviewHover="true"
-    :circular="true" :autoPlay="true" :transitionInterval="3000"&gt;
+&lt;Galleria :value="images" :responsiveOptions="responsiveOptions" :numVisible="5" style="max-width: 520px"&gt;
     &lt;template #item="slotProps"&gt;
-        &lt;img :src="slotProps.item.previewImageSrc" :alt="slotProps.item.alt" :style="[{'width': !isPreviewFullScreen ? '100%' : '', 'display': !isPreviewFullScreen ? 'block' : ''}]" /&gt;
+        &lt;img :src="slotProps.item.previewImageSrc" :alt="slotProps.item.alt" style="width: 100%" /&gt;
     &lt;/template&gt;
     &lt;template #thumbnail="slotProps"&gt;
-        &lt;div class="p-grid p-nogutter p-justify-center"&gt;
-            &lt;img :src="slotProps.item.thumbnailImageSrc" :alt="slotProps.item.alt" style="display: block;" /&gt;
-        &lt;/div&gt;
-    &lt;/template&gt;
-    &lt;template #footer&gt;
-        &lt;div class="custom-galleria-footer"&gt;
-            &lt;Button icon="pi pi-list" @click="onThumbnailButtonClick" /&gt;
-            &lt;span v-if="images"&gt;
-                &lt;span&gt;{{activeItemIndex + 1}}/{{images.length}}&lt;/span&gt;
-                &lt;span class="title"&gt;{{images[activeItemIndex].title}}&lt;/span&gt;
-                &lt;span&gt;{{images[activeItemIndex].alt}}&lt;/span&gt;
-            &lt;/span&gt;
-            &lt;Button :icon="fullScreenIcon" @click="toggleFullScreen" /&gt;
-        &lt;/div&gt;
+        &lt;img :src="slotProps.item.thumbnailImageSrc" :alt="slotProps.item.alt" /&gt;
     &lt;/template&gt;
 &lt;/Galleria&gt;
 </template>
 </CodeHighlight>
 
 <CodeHighlight lang="javascript">
-import GalleriaService from '../../service/GalleriaService';
+import PhotoService from '../../service/PhotoService';
 
 export default {
     data() {
         return {
             images: null,
-            activeItemIndex: 0,
-            showThumbnails: false,
-            isPreviewFullScreen: false
+			responsiveOptions: [
+				{
+                    breakpoint: '1024px',
+                    numVisible: 5
+                },
+                {
+                    breakpoint: '768px',
+                    numVisible: 3
+                },
+                {
+                    breakpoint: '560px',
+                    numVisible: 1
+                }
+			]
         }
     },
     galleriaService: null,
 	created() {
-		this.galleriaService = new GalleriaService();
+		this.galleriaService = new PhotoService();
 	},
 	mounted() {
-        this.galleriaService.getImages().then(data => this.images = data);
-        this.bindDocumentListeners();
-    },
-    methods: {
-        onThumbnailButtonClick() {
-            this.showThumbnails = !this.showThumbnails;
-        },
-        toggleFullScreen() {
-            if (this.isPreviewFullScreen) {
-                this.closePreviewFullScreen();
-            }
-            else {
-                this.openPreviewFullScreen();
-            }
-        },
-        onFullScreenChange() {
-            this.isPreviewFullScreen = !this.isPreviewFullScreen;
-        },
-        openPreviewFullScreen() {
-            let elem = this.$refs.galleria.$el;
-            if (elem.requestFullscreen) {
-                elem.requestFullscreen();
-            }
-            else if (elem.mozRequestFullScreen) { /* Firefox */
-                elem.mozRequestFullScreen();
-            }
-            else if (elem.webkitRequestFullscreen) { /* Chrome, Safari & Opera */
-                elem.webkitRequestFullscreen();
-            }
-            else if (elem.msRequestFullscreen) { /* IE/Edge */
-                elem.msRequestFullscreen();
-            }
-        },
-        closePreviewFullScreen() {
-            if (document.exitFullscreen) {
-                document.exitFullscreen();
-            }
-            else if (document.mozCancelFullScreen) {
-                document.mozCancelFullScreen();
-            }
-            else if (document.webkitExitFullscreen) {
-                document.webkitExitFullscreen();
-            }
-            else if (document.msExitFullscreen) {
-                document.msExitFullscreen();
-            }
-        },
-        bindDocumentListeners() {
-            document.addEventListener("fullscreenchange", this.onFullScreenChange);
-            document.addEventListener("mozfullscreenchange", this.onFullScreenChange);
-            document.addEventListener("webkitfullscreenchange", this.onFullScreenChange);
-            document.addEventListener("msfullscreenchange", this.onFullScreenChange);
-        },
-        unbindDocumentListeners() {
-            document.removeEventListener("fullscreenchange", this.onFullScreenChange);
-            document.removeEventListener("mozfullscreenchange", this.onFullScreenChange);
-            document.removeEventListener("webkitfullscreenchange", this.onFullScreenChange);
-            document.removeEventListener("msfullscreenchange", this.onFullScreenChange);
-        }
-    },
-    computed: {
-        galleriaClass() {
-            return ['custom-galleria', {'preview-fullscreen': this.isPreviewFullScreen}];
-        },
-        fullScreenIcon() {
-            return `pi ${this.isPreviewFullScreen ? 'pi-window-minimize' : 'pi-window-maximize'}`;
-        }
+		this.galleriaService.getImages().then(data => this.images = data);
     }
 }
 </CodeHighlight>
 
-<CodeHighlight lang="css">
-//SCSS
-::v-deep {
-    .custom-galleria {
-        &.p-galleria {
-            .p-galleria-content {
-                height: 95%;
-                overflow: hidden;
-                position: relative;
-
-                .p-galleria-thumbnail-content {
-                    position: absolute;
-                    width: 100%;
-                    bottom: 0;
-                    background-image: linear-gradient(180deg, rgba(0,0,0,0.00) 0%, rgba(0,0,0,0.50) 70%);
-
-                    .p-galleria-thumbnail-container {
-                        .p-galleria-thumbnail-items-content {
-                            .p-galleria-thumbnail-items-container {
-                                .p-galleria-thumbnail-item {
-                                    opacity: .6;
-
-                                    &.p-galleria-thumbnail-item-current {
-                                        opacity: 1;
-                                    }
-                                }
-                            }
-                        }
-                    }
-                }
-            }
-
-            .p-galleria-footer {
-                padding: 0;
-                background-color: rgba(0, 0, 0, .9);
-                border: rgba(0, 0, 0, .9);
-
-                .custom-galleria-footer {
-                    width: 100%;
-                    display: flex;
-                    align-items: center;
-                    justify-content: stretch;
-                    color: #ffffff;
-
-                    > button {
-                        background-color: transparent;
-                        padding: .3rem;
-                        margin: .2rem;
-                        border: 0 none;
-                        border-radius: 0;
-                        color: #ffffff;
-
-                        &:hover {
-                            background-color: transparent;
-                        }
-                    }
-
-                    > span {
-                        flex-grow: 1;
-
-                        > span {
-                            font-size: .9rem;
-                            padding-left: .829rem;
-
-                            &.title {
-                                font-weight: bold;
-                            }
-                        }
-                    }
-                }
-            }
-
-            &.preview-fullscreen {
-                .p-galleria-preview-container {
-                    .p-galleria-preview-nav-button {
-                        top: 50%;
-                        height: 20rem;
-                        width: 4rem;
-                        margin-top: -10rem;
-                    }
-                }
-            }
-        }
-    }
-}
-</CodeHighlight>
 			</TabPanel>
 		</TabView>
 	</div>

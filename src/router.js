@@ -636,9 +636,9 @@ export default new Router({
 			component: () => import('./views/galleria/GalleriaDemo.vue')
         },
         {
-			path: '/galleria/basic',
-			name: 'galleriabasic',
-			component: () => import('./views/galleria/GalleriaBasicDemo.vue')
+			path: '/galleria/programmatic',
+			name: 'galleriaprogrammatic',
+			component: () => import('./views/galleria/GalleriaProgrammaticDemo.vue')
         },
         {
 			path: '/galleria/indicator',
@@ -651,9 +651,9 @@ export default new Router({
 			component: () => import('./views/galleria/GalleriaThumbnailDemo.vue')
         },
         {
-			path: '/galleria/preview',
-			name: 'galleriapreview',
-			component: () => import('./views/galleria/GalleriaPreviewDemo.vue')
+			path: '/galleria/navigator',
+			name: 'gallerianavigator',
+			component: () => import('./views/galleria/GalleriaNavigatorDemo.vue')
         },
         {
 			path: '/galleria/responsive',
@@ -666,14 +666,19 @@ export default new Router({
 			component: () => import('./views/galleria/GalleriaFullScreenDemo.vue')
         },
         {
-			path: '/galleria/circular',
-			name: 'galleriacircular',
-			component: () => import('./views/galleria/GalleriaCircularDemo.vue')
+			path: '/galleria/autoplay',
+			name: 'galleriaautoplay',
+			component: () => import('./views/galleria/GalleriaAutoPlayDemo.vue')
         },
         {
 			path: '/galleria/caption',
 			name: 'galleriacaption',
 			component: () => import('./views/galleria/GalleriaCaptionDemo.vue')
+        },
+        {
+			path: '/galleria/advanced',
+			name: 'galleriaadvvanced',
+			component: () => import('./views/galleria/GalleriaAdvancedDemo.vue')
         }
 	]
 });

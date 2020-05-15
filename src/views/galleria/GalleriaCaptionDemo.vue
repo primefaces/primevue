@@ -2,8 +2,8 @@
     <div>
         <div class="content-section introduction">
             <div class="feature-intro">
-                <h1 style="margin-bottom: 0px;">Galleria - Caption</h1>
-                <p></p>
+                <h1>Galleria - Caption</h1>
+                <p>Caption displays a description for an item.</p>
             </div>
         </div>
 
@@ -17,7 +17,7 @@
                         <img :src="item.thumbnailImageSrc" :alt="item.alt" style="display: block;" />
                     </div>
 				</template>
-                <template #itemCaption="{item}">
+                <template #caption="{item}">
                     <h4 style="margin-bottom: .5rem;">{{item.title}}</h4>
                     <p>{{item.alt}}</p>
                 </template>
@@ -38,7 +38,7 @@
             &lt;img :src="item.thumbnailImageSrc" :alt="item.alt" style="display: block;" /&gt;
         &lt;/div&gt;
     &lt;/template&gt;
-    &lt;template #itemCaption="{item}"&gt;
+    &lt;template #caption="{item}"&gt;
         &lt;h4 style="margin-bottom: .5rem;"&gt;{{item.title}}&lt;/h4&gt;
         &lt;p&gt;{{item.alt}}&lt;/p&gt;
     &lt;/template&gt;
@@ -47,7 +47,7 @@
 </CodeHighlight>
 
 <CodeHighlight lang="javascript">
-import GalleriaService from '../../service/GalleriaService';
+import PhotoService from '../../service/PhotoService';
 
 export default {
     data() {
@@ -71,10 +71,10 @@ export default {
     },
     galleriaService: null,
 	created() {
-		this.galleriaService = new GalleriaService();
+		this.galleriaService = new PhotoService();
 	},
 	mounted() {
-		this.galleriaService.getImages().then(data =&gt; this.images = data);
+		this.galleriaService.getImages().then(data => this.images = data);
     }
 }
 </CodeHighlight>
@@ -85,7 +85,7 @@ export default {
 </template>
 
 <script>
-import GalleriaService from '../../service/GalleriaService';
+import PhotoService from '../../service/PhotoService';
 
 export default {
     data() {
@@ -109,7 +109,7 @@ export default {
     },
     galleriaService: null,
 	created() {
-		this.galleriaService = new GalleriaService();
+		this.galleriaService = new PhotoService();
 	},
 	mounted() {
 		this.galleriaService.getImages().then(data => this.images = data);
