@@ -35,6 +35,10 @@
                     padding: 2px 4px;
                 }
             }
+
+            + .documentation {
+                border-top: 0 none;
+            }
         }
 
         &.implementation {
