@@ -129,9 +129,9 @@ primevue/resources/themes/vela-indigo/theme.css
 primevue/resources/themes/vela-orange/theme.css
 primevue/resources/themes/vela-purple/theme.css
 primevue/resources/themes/vela-teal/theme.css
-primevue/resources/themes/nova-light/theme.css
-primevue/resources/themes/nova-dark/theme.css
-primevue/resources/themes/nova-colored/theme.css
+primevue/resources/themes/nova/theme.css
+primevue/resources/themes/nova-alt/theme.css
+primevue/resources/themes/nova-accent/theme.css
 primevue/resources/themes/nova-vue/theme.css
 primevue/resources/themes/luna-amber/theme.css
 primevue/resources/themes/luna-blue/theme.css
@@ -167,7 +167,7 @@ Vue.component('Toast', Toast);
 <CodeHighlight class="language-javascript">
 css: [
     {src: 'primevue/resources/primevue.min.css'},
-    {src: 'primevue/resources/themes/nova-light/theme.css'},
+    {src: 'primevue/resources/themes/saga-blue/theme.css'},
     {src: 'primeicons/primeicons.css'},
   ],
 plugins: [

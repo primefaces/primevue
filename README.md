@@ -78,7 +78,7 @@ PrimeFlex | DataView
 The css dependencies are as follows, note that you may change the theme with another one of your choice. If you are using a bundler such as webpack with a css loader you may import them to your main application component.
 
 ```javascript
-primevue/resources/themes/nova-light/theme.css      //theme
+primevue/resources/themes/saga-blue/theme.css       //theme
 primevue/resources/primevue.min.css                 //core css
 primeicons/primeicons.css                           //icons
 ```

@@ -138,21 +138,21 @@
                                 <img src="./assets/images/layouts/themeswitcher-nova.png" alt="Nova" @click="changeTheme($event, 'nova')"/>
                                 <i class="pi pi-check" v-if="theme === 'nova'" />
                             </button>
-                            <span>Nova Light</span>
+                            <span>Nova</span>
                         </div>
                         <div class="p-col-3">
                             <button class="p-link">
                                 <img src="./assets/images/layouts/themeswitcher-nova-alt.png" alt="Nova Alt" @click="changeTheme($event, 'nova-alt')"/>
                                 <i class="pi pi-check" v-if="theme === 'nova-alt'" />
                             </button>
-                            <span>Nova Dark</span>
+                            <span>Nova Alt</span>
                         </div>
                         <div class="p-col-3">
                             <button class="p-link">
                                 <img src="./assets/images/layouts/themeswitcher-nova-accent.png" alt="Nova Accent" @click="changeTheme($event, 'nova-accent')"/>
                                 <i class="pi pi-check" v-if="theme === 'nova-accent'" />
                             </button>
-                            <span>Nova Colored</span>
+                            <span>Nova Accent</span>
                         </div>
                         <div class="p-col-3">
                             <button class="p-link">
