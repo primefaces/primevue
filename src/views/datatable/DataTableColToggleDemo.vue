@@ -11,11 +11,12 @@
 			<DataTable :value="cars">
                 <template #header>
                     <div style="text-align:left">
-                        <MultiSelect v-model="columns" :options="columnOptions" optionLabel="header" placeholder="Select Columns" style="width: 20em"/>
+                        <MultiSelect :value="selectedColumns" :options="columns" optionLabel="header" @input="onToggle" 
+                            placeholder="Select Columns" style="width: 20em"/>
                     </div>
                 </template>
                 <Column field="vin" header="Vin" />
-                <Column v-for="col of columns" :field="col.field" :header="col.header" :key="col.field"></Column>
+                <Column v-for="col of selectedColumns" :field="col.field" :header="col.header" :key="col.field"></Column>
             </DataTable>
 		</div>
 
@@ -27,11 +28,12 @@
 &lt;DataTable :value="cars"&gt;
     &lt;template #header&gt;
         &lt;div style="text-align:left"&gt;
-            &lt;MultiSelect v-model="columns" :options="columnOptions" optionLabel="header" placeholder="Select Columns" style="width: 20em"/&gt;
+            &lt;MultiSelect :value="selectedColumns" :options="columns" optionLabel="header" @input="onToggle" 
+                placeholder="Select Columns" style="width: 20em"/&gt;
         &lt;/div&gt;
     &lt;/template&gt;
     &lt;Column field="vin" header="Vin" /&gt;
-    &lt;Column v-for="col of columns" :field="col.field" :header="col.header" :key="col.field"&gt;&lt;/Column&gt;
+    &lt;Column v-for="col of selectedColumns" :field="col.field" :header="col.header" :key="col.field"&gt;&lt;/Column&gt;
 &lt;/DataTable&gt;
 </template>
 </CodeHighlight>
@@ -42,8 +44,8 @@ import CarService from '../../service/CarService';
 export default {
     data() {
         return {
+            selectedColumns: null,
             columns: null,
-            columnOptions: null,
             cars: null
         }
     },
@@ -56,11 +58,15 @@ export default {
             {field: 'brand', header: 'Brand'},
             {field: 'color', header: 'Color'}
         ];
-
-        this.columnOptions = [...this.columns];
+        this.selectedColumns = this.columns;
     },
     mounted() {
         this.carService.getCarsSmall().then(data => this.cars = data);
+    },
+    methods: {
+        onToggle(value) {
+            this.selectedColumns = this.columns.filter(col => value.includes(col));
+        }
     }
 }
 </CodeHighlight>
@@ -72,11 +78,12 @@ export default {
 
 <script>
 import CarService from '../../service/CarService';
+
 export default {
     data() {
         return {
+            selectedColumns: null,
             columns: null,
-            columnOptions: null,
             cars: null
         }
     },
@@ -89,11 +96,15 @@ export default {
             {field: 'brand', header: 'Brand'},
             {field: 'color', header: 'Color'}
         ];
-
-        this.columnOptions = [...this.columns];
+        this.selectedColumns = this.columns;
     },
     mounted() {
         this.carService.getCarsSmall().then(data => this.cars = data);
+    },
+    methods: {
+        onToggle(value) {
+            this.selectedColumns = this.columns.filter(col => value.includes(col));
+        }
     }
 }
 </script>
