@@ -7,9 +7,6 @@
             <slot name="start"></slot>
         </div>
         <MenubarSub ref="rootmenu" :model="model" :root="true" :mobileActive="mobileActive" @leaf-click="onLeafClick"/>
-        <div class="p-menubar-custom" v-if="$slots.default">
-            <slot></slot>
-        </div>
         <div class="p-menubar-end" v-if="$slots.end">
             <slot name="end"></slot>
         </div>
