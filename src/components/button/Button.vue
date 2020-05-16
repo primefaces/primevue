@@ -1,5 +1,5 @@
 <template>
-    <button :class="buttonClass" v-on="$listeners">
+    <button :class="buttonClass" v-on="$listeners" type="button">
         <span v-if="icon" :class="iconClass"></span>
         <span class="p-button-text">{{label||'&nbsp;'}}</span>
         <span class="p-badge" v-if="badge" :class="badgeClass">{{badge}}</span>
