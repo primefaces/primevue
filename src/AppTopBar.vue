@@ -33,9 +33,9 @@
                         <li><a @click="changeTheme($event, 'vela-orange', true)"><img src="./assets/images/themes/vela-orange.png" alt="Vela Orange" /><span>Vela Orange</span></a></li>
                         <li><a @click="changeTheme($event, 'vela-purple', true)"><img src="./assets/images/themes/vela-purple.png" alt="Vela Purple" /><span>Vela Purple</span></a></li>
                         <li><a @click="changeTheme($event, 'vela-teal', true)"><img src="./assets/images/themes/vela-teal.png" alt="Vela Teal" /><span>Vela Teal</span></a></li>
-                        <li><a @click="changeTheme($event, 'nova-light')"><img src="./assets/images/layouts/themeswitcher-nova-light.png" alt="Nova Light" /><span>Nova Light</span></a></li>
-                        <li><a @click="changeTheme($event, 'nova-dark')"><img src="./assets/images/layouts/themeswitcher-nova-dark.png" alt="Nova Dark" /><span>Nova Dark</span></a></li>
-                        <li><a @click="changeTheme($event, 'nova-colored')"><img src="./assets/images/layouts/themeswitcher-nova-colored.png" alt="Nova Colored" /><span>Nova Colored</span></a></li>
+                        <li><a @click="changeTheme($event, 'nova')"><img src="./assets/images/layouts/themeswitcher-nova.png" alt="Nova" /><span>Nova</span></a></li>
+                        <li><a @click="changeTheme($event, 'nova-alt')"><img src="./assets/images/layouts/themeswitcher-nova-alt.png" alt="Nova Alt" /><span>Nova Alt</span></a></li>
+                        <li><a @click="changeTheme($event, 'nova-accent')"><img src="./assets/images/layouts/themeswitcher-nova-accent.png" alt="Nova Accent" /><span>Nova Accent</span></a></li>
                         <li><a @click="changeTheme($event, 'nova-vue')"><img src="./assets/images/layouts/themeswitcher-nova-vue.png" alt="Nova Vue" /><span>Nova Vue</span></a></li>
                         <li><a @click="changeTheme($event, 'luna-amber', true)"><img src="./assets/images/layouts/themeswitcher-luna-amber.png" alt="Luna Amber" /><span>Luna Amber</span></a></li>
                         <li><a @click="changeTheme($event, 'luna-blue', true)"><img src="./assets/images/layouts/themeswitcher-luna-blue.png" alt="Luna Blue" /><span>Luna Blue</span></a></li>

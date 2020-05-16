@@ -135,22 +135,22 @@
                         </div>
                         <div class="p-col-3">
                             <button class="p-link">
-                                <img src="./assets/images/layouts/themeswitcher-nova-light.png" alt="Nova Light" @click="changeTheme($event, 'nova-light')"/>
-                                <i class="pi pi-check" v-if="theme === 'nova-light'" />
+                                <img src="./assets/images/layouts/themeswitcher-nova.png" alt="Nova" @click="changeTheme($event, 'nova')"/>
+                                <i class="pi pi-check" v-if="theme === 'nova'" />
                             </button>
                             <span>Nova Light</span>
                         </div>
                         <div class="p-col-3">
                             <button class="p-link">
-                                <img src="./assets/images/layouts/themeswitcher-nova-dark.png" alt="Nova Dark" @click="changeTheme($event, 'nova-dark')"/>
-                                <i class="pi pi-check" v-if="theme === 'nova-dark'" />
+                                <img src="./assets/images/layouts/themeswitcher-nova-alt.png" alt="Nova Alt" @click="changeTheme($event, 'nova-alt')"/>
+                                <i class="pi pi-check" v-if="theme === 'nova-alt'" />
                             </button>
                             <span>Nova Dark</span>
                         </div>
                         <div class="p-col-3">
                             <button class="p-link">
-                                <img src="./assets/images/layouts/themeswitcher-nova-colored.png" alt="Nova Colored" @click="changeTheme($event, 'nova-colored')"/>
-                                <i class="pi pi-check" v-if="theme === 'nova-colored'" />
+                                <img src="./assets/images/layouts/themeswitcher-nova-accent.png" alt="Nova Accent" @click="changeTheme($event, 'nova-accent')"/>
+                                <i class="pi pi-check" v-if="theme === 'nova-accent'" />
                             </button>
                             <span>Nova Colored</span>
                         </div>
