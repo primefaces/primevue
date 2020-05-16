@@ -11,7 +11,7 @@
 			<DataTable :value="cars">
                 <template #header>
                     <div style="text-align:left">
-                        <MultiSelect :value="selectedColumns" :options="columns" optionLabel="header" @input="onToggle" 
+                        <MultiSelect :value="selectedColumns" :options="columns" optionLabel="header" @input="onToggle"
                             placeholder="Select Columns" style="width: 20em"/>
                     </div>
                 </template>
@@ -28,7 +28,7 @@
 &lt;DataTable :value="cars"&gt;
     &lt;template #header&gt;
         &lt;div style="text-align:left"&gt;
-            &lt;MultiSelect :value="selectedColumns" :options="columns" optionLabel="header" @input="onToggle" 
+            &lt;MultiSelect :value="selectedColumns" :options="columns" optionLabel="header" @input="onToggle"
                 placeholder="Select Columns" style="width: 20em"/&gt;
         &lt;/div&gt;
     &lt;/template&gt;
