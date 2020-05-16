@@ -39,6 +39,9 @@ export default {
         TerminalService.$on('response', this.responseListener);
         this.$refs.input.focus();
     },
+    updated() {
+        this.$el.scrollTop = this.$el.scrollHeight;
+    },
     beforeDestroy() {
         TerminalService.$off('response', this.responseListener);
     },
