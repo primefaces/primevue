@@ -1,12 +1,12 @@
 <template>
     <div :class="containerClass">
-        <div class="p-panel-titlebar">
+        <div class="p-panel-header">
             <slot name="header">
                 <span class="p-panel-title" v-if="header" :id="ariaId + '_header'">{{header}}</span>
             </slot>
             <div class="p-panel-icons">
                  <slot name="icons"></slot>
-                <a v-if="toggleable" tabindex="0" class="p-panel-titlebar-icon p-panel-titlebar-toggler" @click="toggle" @keydown.enter="toggle"
+                <a v-if="toggleable" tabindex="0" class="p-panel-header-icon p-panel-toggler" @click="toggle" @keydown.enter="toggle"
                     :id="ariaId +  '_header'" :aria-controls="ariaId + '_content'" :aria-expanded="!d_collapsed">
                     <span :class="{'pi pi-minus': !d_collapsed, 'pi pi-plus': d_collapsed}"></span>
                 </a>
@@ -63,7 +63,7 @@ export default {
 </script>
 
 <style>
-.p-panel-titlebar {
+.p-panel-header {
     display: flex;
     justify-content: space-between;
     align-items: center;
@@ -73,7 +73,7 @@ export default {
     line-height: 1;
 }
 
-.p-panel-titlebar-icon {
+.p-panel-header-icon {
     display: inline-flex;
     justify-content: center;
     align-items: center;

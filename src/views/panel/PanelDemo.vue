@@ -19,7 +19,7 @@
             <h3>Advanced</h3>
             <Panel header="Godfather I" :toggleable="true">
                 <template #icons>
-                    <a tabindex="0" class="p-panel-titlebar-icon" @click="toggle">
+                    <a tabindex="0" class="p-panel-header-icon" @click="toggle">
                         <span class="pi pi-cog"></span>
                     </a>
                     <Menu id="config_menu" ref="menu" :model="items" :popup="true" />

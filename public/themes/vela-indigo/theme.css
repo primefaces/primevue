@@ -2185,7 +2185,7 @@
   color: #ebedef;
 }
 
-.p-panel .p-panel-titlebar {
+.p-panel .p-panel-header {
   border: 1px solid #2C3E50;
   padding: 1rem;
   background: #1C2833;
@@ -2193,10 +2193,10 @@
   border-top-right-radius: 3px;
   border-top-left-radius: 3px;
 }
-.p-panel .p-panel-titlebar .p-panel-title {
+.p-panel .p-panel-header .p-panel-title {
   font-weight: 600;
 }
-.p-panel .p-panel-titlebar .p-panel-titlebar-icon {
+.p-panel .p-panel-header .p-panel-header-icon {
   width: 2rem;
   height: 2rem;
   color: #aeb6bf;
@@ -2204,16 +2204,16 @@
   border-radius: 50%;
   transition: background-color 0.2s, background-color 0.2s, box-shadow 0.2s;
 }
-.p-panel .p-panel-titlebar .p-panel-titlebar-icon:hover {
+.p-panel .p-panel-header .p-panel-header-icon:hover {
   color: #ebedef;
   background: rgba(255, 255, 255, 0.1);
 }
-.p-panel .p-panel-titlebar .p-panel-titlebar-icon:focus {
+.p-panel .p-panel-header .p-panel-header-icon:focus {
   outline: 0 none;
   outline-offset: 0;
   box-shadow: 0 0 0 0.1rem #C5CAE9;
 }
-.p-panel.p-panel-toggleable .p-panel-titlebar {
+.p-panel.p-panel-toggleable .p-panel-header {
   padding: 0.5rem 1rem;
 }
 .p-panel .p-panel-content {

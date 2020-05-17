@@ -57,13 +57,13 @@ import Panel from 'primevue/panel';
 </CodeHighlight>
 
                 <h3>Custom Icons</h3>
-                <p>Additional icons can be placed at the header section of the panel using the special <i>icons</i> slot. For a unified look, it is suggest to add <i>.p-panel-titlebar-icon</i>
+                <p>Additional icons can be placed at the header section of the panel using the special <i>icons</i> slot. For a unified look, it is suggest to add <i>.p-panel-header-icon</i>
                 class to your icons.</p>
 <CodeHighlight>
 &lt;h3&gt;Advanced&lt;/h3&gt;
 &lt;Panel header="Godfather I"&gt;
     &lt;template #icons&gt;
-        &lt;a tabindex="0" class="p-panel-titlebar-icon" @click="toggle"&gt;
+        &lt;a tabindex="0" class="p-panel-header-icon" @click="toggle"&gt;
             &lt;span class="pi pi-cog"&gt;&lt;/span&gt;
         &lt;/a&gt;
         &lt;Menu id="config_menu" ref="menu" :model="items" :popup="true" /&gt;
@@ -144,7 +144,7 @@ import Panel from 'primevue/panel';
                                 <td>Container element.</td>
                             </tr>
                             <tr>
-                                <td>p-panel-titlebar</td>
+                                <td>p-panel-header</td>
                                 <td>Header section.</td>
                             </tr>
                             <tr>
@@ -152,7 +152,11 @@ import Panel from 'primevue/panel';
                                 <td>Title text of panel.</td>
                             </tr>
                             <tr>
-                                <td>p-panel-titlebar-toggler</td>
+                                <td>p-panel-header-icon</td>
+                                <td>Action icons inside header.</td>
+                            </tr>
+                            <tr>
+                                <td>p-panel-toggler</td>
                                 <td>Toggle icon.</td>
                             </tr>
                             <tr>
@@ -185,7 +189,7 @@ import Panel from 'primevue/panel';
 &lt;h3&gt;Advanced&lt;/h3&gt;
 &lt;Panel header="Godfather I" :toggleable="true"&gt;
     &lt;template #icons&gt;
-        &lt;a tabindex="0" class="p-panel-titlebar-icon" @click="toggle"&gt;
+        &lt;a tabindex="0" class="p-panel-header-icon" @click="toggle"&gt;
             &lt;span class="pi pi-cog"&gt;&lt;/span&gt;
         &lt;/a&gt;
         &lt;Menu id="config_menu" ref="menu" :model="items" :popup="true" /&gt;
