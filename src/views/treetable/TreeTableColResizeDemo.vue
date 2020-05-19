@@ -16,7 +16,7 @@
                 <Column field="type" header="Type"></Column>
             </TreeTable>
 
-            <h3>Expand Mdoe</h3>
+            <h3>Expand Mode</h3>
             <TreeTable :value="nodes" :resizableColumns="true" columnResizeMode="expand">
                 <Column field="name" header="Name" :expander="true"></Column>
                 <Column field="size" header="Size"></Column>
@@ -36,7 +36,7 @@
     &lt;Column field="type" header="Type"&gt;&lt;/Column&gt;
 &lt;/TreeTable&gt;
 
-&lt;h3&gt;Expand Mdoe&lt;/h3&gt;
+&lt;h3&gt;Expand Mode&lt;/h3&gt;
 &lt;TreeTable :value="nodes" :resizableColumns="true" columnResizeMode="expand"&gt;
     &lt;Column field="name" header="Name" :expander="true"&gt;&lt;/Column&gt;
     &lt;Column field="size" header="Size"&gt;&lt;/Column&gt;
