@@ -19,7 +19,7 @@
             </Galleria>
 
             <h3>Positioned at Left</h3>
-            <Galleria :value="images" :responsiveOptions="responsiveOptions2" :numVisible="4" thumbnailsPosition="left" style="max-width: 610px">
+            <Galleria :value="images" :responsiveOptions="responsiveOptions2" :numVisible="4" thumbnailsPosition="left" style="max-width: 640px">
                 <template #item="slotProps">
 					<img :src="slotProps.item.previewImageSrc" :alt="slotProps.item.alt" style="width: 100%; display: block;" />
 				</template>
@@ -31,7 +31,7 @@
             </Galleria>
 
             <h3>Positioned at Right</h3>
-            <Galleria :value="images" :responsiveOptions="responsiveOptions2" :numVisible="4" thumbnailsPosition="right" style="max-width: 610px">
+            <Galleria :value="images" :responsiveOptions="responsiveOptions2" :numVisible="4" thumbnailsPosition="right" style="max-width: 640px">
                 <template #item="slotProps">
 					<img :src="slotProps.item.previewImageSrc" :alt="slotProps.item.alt" style="width: 100%; display: block;" />
 				</template>
@@ -69,7 +69,7 @@
 &lt;/Galleria&gt;
 
 &lt;h3&gt;Positioned at Left&lt;/h3&gt;
-&lt;Galleria :value="images" :responsiveOptions="responsiveOptions2" :numVisible="4" thumbnailsPosition="left" style="max-width: 610px"&gt;
+&lt;Galleria :value="images" :responsiveOptions="responsiveOptions2" :numVisible="4" thumbnailsPosition="left" style="max-width: 640px"&gt;
     &lt;template #item="slotProps"&gt;
         &lt;img :src="slotProps.item.previewImageSrc" :alt="slotProps.item.alt" style="width: 100%; display: block;" /&gt;
     &lt;/template&gt;
@@ -81,7 +81,7 @@
 &lt;/Galleria&gt;
 
 &lt;h3&gt;Positioned at Right&lt;/h3&gt;
-&lt;Galleria :value="images" :responsiveOptions="responsiveOptions2" :numVisible="4" thumbnailsPosition="right" style="max-width: 610px"&gt;
+&lt;Galleria :value="images" :responsiveOptions="responsiveOptions2" :numVisible="4" thumbnailsPosition="right" style="max-width: 640px"&gt;
     &lt;template #item="slotProps"&gt;
         &lt;img :src="slotProps.item.previewImageSrc" :alt="slotProps.item.alt" style="width: 100%; display: block;" /&gt;
     &lt;/template&gt;

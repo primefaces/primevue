@@ -63,7 +63,7 @@
 					<img :src="slotProps.item.previewImageSrc" :alt="slotProps.item.alt" style="width: 100%; display: block;" />
 				</template>
                 <template #indicator="{index}">
-                    <span style="color: #e9ecef; cursor: pointer">
+                    <span class="indicator-text">
                         {{index + 1}}
                     </span>
 				</template>
@@ -174,6 +174,23 @@ export default {
     }
 }
 </CodeHighlight>
+
+<CodeHighlight lang="css">
+::v-deep {
+    .custom-indicator-galleria {
+        .indicator-text {
+            color: #e9ecef;
+            cursor: pointer;
+        }
+
+        .p-highlight {
+            .indicator-text {
+                color: var(--primary-color);
+            }
+        }
+    }
+}
+</CodeHighlight>
                 </TabPanel>
             </TabView>
         </div>
@@ -216,3 +233,20 @@ export default {
     }
 }
 </script>
+
+<style lang="scss" scoped>
+::v-deep {
+    .custom-indicator-galleria {
+        .indicator-text {
+            color: #e9ecef;
+            cursor: pointer;
+        }
+
+        .p-highlight {
+            .indicator-text {
+                color: var(--primary-color);
+            }
+        }
+    }
+}
+</style>
