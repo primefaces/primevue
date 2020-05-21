@@ -19,8 +19,8 @@
                     <InputNumber id="withoutgrouping" v-model="value2" mode="decimal" :useGrouping="false" />
                 </div>
                 <div class="p-field p-col-12 p-md-3">
-                    <label for="integeronly">Min-Max Fraction Digits</label>
-                    <InputNumber id="integeronly" v-model="value3" mode="decimal" :minFractionDigits="2" :maxFractionDigits="5" />
+                    <label for="minmaxfraction">Min-Max Fraction Digits</label>
+                    <InputNumber id="minmaxfraction" v-model="value3" mode="decimal" :minFractionDigits="2" :maxFractionDigits="5" />
                 </div>
                 <div class="p-field p-col-12 p-md-3">
                     <label for="minmax">Min-Max Boundaries</label>

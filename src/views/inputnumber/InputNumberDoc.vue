@@ -331,8 +331,8 @@ Vertical
         &lt;InputNumber id="withoutgrouping" v-model="value2" mode="decimal" :useGrouping="false" /&gt;
     &lt;/div&gt;
     &lt;div class="p-field p-col-12 p-md-3"&gt;
-        &lt;label for="integeronly"&gt;Min-Max Fraction Digits&lt;/label&gt;
-        &lt;InputNumber id="integeronly" v-model="value3" mode="decimal" :minFractionDigits="2" :maxFractionDigits="5" /&gt;
+        &lt;label for="minmaxfraction"&gt;Min-Max Fraction Digits&lt;/label&gt;
+        &lt;InputNumber id="minmaxfraction" v-model="value3" mode="decimal" :minFractionDigits="2" :maxFractionDigits="5" /&gt;
     &lt;/div&gt;
     &lt;div class="p-field p-col-12 p-md-3"&gt;
         &lt;label for="minmax"&gt;Min-Max Boundaries&lt;/label&gt;
