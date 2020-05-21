@@ -12,7 +12,7 @@
                 :showThumbnails="showThumbnails" :showItemNavigators="true" :showItemNavigatorsOnHover="true"
                 :circular="true" :autoPlay="true" :transitionInterval="3000">
                 <template #item="slotProps">
-					<img :src="slotProps.item.previewImageSrc" :alt="slotProps.item.alt" :style="[{'width': !fullScreen ? '100%' : '', 'display': !fullScreen ? 'block' : ''}]" />
+					<img :src="slotProps.item.itemImageSrc" :alt="slotProps.item.alt" :style="[{'width': !fullScreen ? '100%' : '', 'display': !fullScreen ? 'block' : ''}]" />
 				</template>
 				<template #thumbnail="slotProps">
                     <div class="p-grid p-nogutter p-justify-center">
@@ -42,7 +42,7 @@
     :showThumbnails="showThumbnails" :showItemNavigators="true" :showItemNavigatorsOnHover="true"
     :circular="true" :autoPlay="true" :transitionInterval="3000"&gt;
     &lt;template #item="slotProps"&gt;
-        &lt;img :src="slotProps.item.previewImageSrc" :alt="slotProps.item.alt" :style="[{'width': !fullScreen ? '100%' : '', 'display': !fullScreen ? 'block' : ''}]" /&gt;
+        &lt;img :src="slotProps.item.itemImageSrc" :alt="slotProps.item.alt" :style="[{'width': !fullScreen ? '100%' : '', 'display': !fullScreen ? 'block' : ''}]" /&gt;
     &lt;/template&gt;
     &lt;template #thumbnail="slotProps"&gt;
         &lt;div class="p-grid p-nogutter p-justify-center"&gt;

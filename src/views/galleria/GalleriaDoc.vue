@@ -12,7 +12,7 @@ import Galleria from 'primevue/galleria';
 <CodeHighlight>
 &lt;Galleria :value="images"&gt;
     &lt;template #item="slotProps"&gt;
-        &lt;img :src="slotProps.item.previewImageSrc" :alt="slotProps.item.alt" /&gt;
+        &lt;img :src="slotProps.item.itemImageSrc" :alt="slotProps.item.alt" /&gt;
     &lt;/template&gt;
 &lt;/Galleria&gt;
 </CodeHighlight>
@@ -23,91 +23,91 @@ import Galleria from 'primevue/galleria';
 {
     "data":[
         {
-            "previewImageSrc": "demo/images/galleria/galleria1.jpg",
+            "itemImageSrc": "demo/images/galleria/galleria1.jpg",
             "thumbnailImageSrc": "demo/images/galleria/galleria1s.jpg",
             "alt": "Description for Image 1",
             "title": "Title 1"
         },
         {
-            "previewImageSrc": "demo/images/galleria/galleria2.jpg",
+            "itemImageSrc": "demo/images/galleria/galleria2.jpg",
             "thumbnailImageSrc": "demo/images/galleria/galleria2s.jpg",
             "alt": "Description for Image 2",
             "title": "Title 2"
         },
         {
-            "previewImageSrc": "demo/images/galleria/galleria3.jpg",
+            "itemImageSrc": "demo/images/galleria/galleria3.jpg",
             "thumbnailImageSrc": "demo/images/galleria/galleria3s.jpg",
             "alt": "Description for Image 3",
             "title": "Title 3"
         },
         {
-            "previewImageSrc": "demo/images/galleria/galleria4.jpg",
+            "itemImageSrc": "demo/images/galleria/galleria4.jpg",
             "thumbnailImageSrc": "demo/images/galleria/galleria4s.jpg",
             "alt": "Description for Image 4",
             "title": "Title 4"
         },
         {
-            "previewImageSrc": "demo/images/galleria/galleria5.jpg",
+            "itemImageSrc": "demo/images/galleria/galleria5.jpg",
             "thumbnailImageSrc": "demo/images/galleria/galleria5s.jpg",
             "alt": "Description for Image 5",
             "title": "Title 5"
         },
         {
-            "previewImageSrc": "demo/images/galleria/galleria6.jpg",
+            "itemImageSrc": "demo/images/galleria/galleria6.jpg",
             "thumbnailImageSrc": "demo/images/galleria/galleria6s.jpg",
             "alt": "Description for Image 6",
             "title": "Title 6"
         },
         {
-            "previewImageSrc": "demo/images/galleria/galleria7.jpg",
+            "itemImageSrc": "demo/images/galleria/galleria7.jpg",
             "thumbnailImageSrc": "demo/images/galleria/galleria7s.jpg",
             "alt": "Description for Image 7",
             "title": "Title 7"
         },
         {
-            "previewImageSrc": "demo/images/galleria/galleria8.jpg",
+            "itemImageSrc": "demo/images/galleria/galleria8.jpg",
             "thumbnailImageSrc": "demo/images/galleria/galleria8s.jpg",
             "alt": "Description for Image 8",
             "title": "Title 8"
         },
         {
-            "previewImageSrc": "demo/images/galleria/galleria9.jpg",
+            "itemImageSrc": "demo/images/galleria/galleria9.jpg",
             "thumbnailImageSrc": "demo/images/galleria/galleria9s.jpg",
             "alt": "Description for Image 9",
             "title": "Title 9"
         },
         {
-            "previewImageSrc": "demo/images/galleria/galleria10.jpg",
+            "itemImageSrc": "demo/images/galleria/galleria10.jpg",
             "thumbnailImageSrc": "demo/images/galleria/galleria10s.jpg",
             "alt": "Description for Image 10",
             "title": "Title 10"
         },
         {
-            "previewImageSrc": "demo/images/galleria/galleria11.jpg",
+            "itemImageSrc": "demo/images/galleria/galleria11.jpg",
             "thumbnailImageSrc": "demo/images/galleria/galleria11s.jpg",
             "alt": "Description for Image 11",
             "title": "Title 11"
         },
         {
-            "previewImageSrc": "demo/images/galleria/galleria12.jpg",
+            "itemImageSrc": "demo/images/galleria/galleria12.jpg",
             "thumbnailImageSrc": "demo/images/galleria/galleria12s.jpg",
             "alt": "Description for Image 12",
             "title": "Title 12"
         },
         {
-            "previewImageSrc": "demo/images/galleria/galleria13.jpg",
+            "itemImageSrc": "demo/images/galleria/galleria13.jpg",
             "thumbnailImageSrc": "demo/images/galleria/galleria13s.jpg",
             "alt": "Description for Image 13",
             "title": "Title 13"
         },
         {
-            "previewImageSrc": "demo/images/galleria/galleria14.jpg",
+            "itemImageSrc": "demo/images/galleria/galleria14.jpg",
             "thumbnailImageSrc": "demo/images/galleria/galleria14s.jpg",
             "alt": "Description for Image 14",
             "title": "Title 14"
         },
         {
-            "previewImageSrc": "demo/images/galleria/galleria15.jpg",
+            "itemImageSrc": "demo/images/galleria/galleria15.jpg",
             "thumbnailImageSrc": "demo/images/galleria/galleria15s.jpg",
             "alt": "Description for Image 15",
             "title": "Title 15"
@@ -151,7 +151,7 @@ export default {
 <CodeHighlight>
 &lt;Galleria :value="images" :numVisible="5"&gt;
     &lt;template #item="slotProps"&gt;
-        &lt;img :src="slotProps.item.previewImageSrc" :alt="slotProps.item.alt" style="width: 100%" /&gt;
+        &lt;img :src="slotProps.item.itemImageSrc" :alt="slotProps.item.alt" style="width: 100%" /&gt;
     &lt;/template&gt;
     &lt;template #thumbnail="slotProps"&gt;
         &lt;img :src="slotProps.item.thumbnailImageSrc" :alt="slotProps.item.alt" /&gt;
@@ -166,7 +166,7 @@ export default {
 <CodeHighlight>
 &lt;Galleria :value="images" :responsiveOptions="responsiveOptions" :numVisible="5"&gt;
     &lt;template #item="slotProps"&gt;
-        &lt;img :src="slotProps.item.previewImageSrc" :alt="slotProps.item.alt" style="width: 100%" /&gt;
+        &lt;img :src="slotProps.item.itemImageSrc" :alt="slotProps.item.alt" style="width: 100%" /&gt;
     &lt;/template&gt;
     &lt;template #thumbnail="slotProps"&gt;
         &lt;img :src="slotProps.item.thumbnailImageSrc" :alt="slotProps.item.alt" /&gt;
@@ -199,7 +199,7 @@ responsiveOptions: [
         &lt;h1&gt;Header&lt;/h1&gt;
     &lt;/template&gt;
     &lt;template #item="slotProps"&gt;
-        &lt;img :src="slotProps.item.previewImageSrc" :alt="slotProps.item.alt" style="width: 100%" /&gt;
+        &lt;img :src="slotProps.item.itemImageSrc" :alt="slotProps.item.alt" style="width: 100%" /&gt;
     &lt;/template&gt;
     &lt;template #footer&gt;
         &lt;h1&gt;Footer&lt;/h1&gt;
@@ -213,7 +213,7 @@ responsiveOptions: [
 <CodeHighlight>
 &lt;Galleria :value="images" :showIndicators="true"&gt;
     &lt;template #item="slotProps"&gt;
-        &lt;img :src="slotProps.item.previewImageSrc" :alt="slotProps.item.alt" /&gt;
+        &lt;img :src="slotProps.item.itemImageSrc" :alt="slotProps.item.alt" /&gt;
     &lt;/template&gt;
 &lt;/Galleria&gt;
 </CodeHighlight>
@@ -403,12 +403,12 @@ responsiveOptions: [
                                 <td>Footer section.</td>
                             </tr>
                             <tr>
-                                <td>p-galleria-preview-content</td>
-                                <td>Preview content element. It contains preview and indicator containers.</td>
+                                <td>p-galleria-item-wrapper</td>
+                                <td>Item wrapper element. It contains item container and indicators.</td>
                             </tr>
                             <tr>
-                                <td>p-galleria-preview-container</td>
-                                <td>Container of the preview content. It contains navigation buttons, preview item and caption content.</td>
+                                <td>p-galleria-item-container</td>
+                                <td>Container of the item wrapper. It contains navigation buttons, items and caption content.</td>
                             </tr>
                             <tr>
                                 <td>p-galleria-indicators</td>
@@ -423,8 +423,8 @@ responsiveOptions: [
                                 <td>Container of the thumbnail content. It contains navigation buttons and thumbnail items.</td>
                             </tr>
                             <tr>
-                                <td>p-galleria-preview-caption</td>
-                                <td>Content of the preview caption.</td>
+                                <td>p-galleria-caption</td>
+                                <td>Content of the item caption.</td>
                             </tr>
                         </tbody>
                     </table>
@@ -442,7 +442,7 @@ responsiveOptions: [
 <template v-pre>
 &lt;Galleria :value="images" :responsiveOptions="responsiveOptions" :numVisible="5" style="max-width: 640px"&gt;
     &lt;template #item="slotProps"&gt;
-        &lt;img :src="slotProps.item.previewImageSrc" :alt="slotProps.item.alt" style="width: 100%" /&gt;
+        &lt;img :src="slotProps.item.itemImageSrc" :alt="slotProps.item.alt" style="width: 100%" /&gt;
     &lt;/template&gt;
     &lt;template #thumbnail="slotProps"&gt;
         &lt;img :src="slotProps.item.thumbnailImageSrc" :alt="slotProps.item.alt" /&gt;

@@ -10,7 +10,7 @@
         <div class="content-section implementation">
             <Galleria :value="images" :responsiveOptions="responsiveOptions" :numVisible="7" :circular="true" style="max-width: 800px">
                 <template #item="slotProps">
-					<img :src="slotProps.item.previewImageSrc" :alt="slotProps.item.alt" style="width: 100%; display: block;" />
+					<img :src="slotProps.item.itemImageSrc" :alt="slotProps.item.alt" style="width: 100%; display: block;" />
 				</template>
 				<template #thumbnail="slotProps">
                     <img :src="slotProps.item.thumbnailImageSrc" :alt="slotProps.item.alt" style="display: block;" />
@@ -25,7 +25,7 @@
 <template v-pre>
 &lt;Galleria :value="images" :responsiveOptions="responsiveOptions" :numVisible="7" :circular="true" style="max-width: 800px"&gt;
     &lt;template #item="slotProps"&gt;
-        &lt;img :src="slotProps.item.previewImageSrc" :alt="slotProps.item.alt" style="width: 100%; display: block;" /&gt;
+        &lt;img :src="slotProps.item.itemImageSrc" :alt="slotProps.item.alt" style="width: 100%; display: block;" /&gt;
     &lt;/template&gt;
     &lt;template #thumbnail="slotProps"&gt;
         &lt;img :src="slotProps.item.thumbnailImageSrc" :alt="slotProps.item.alt" style="display: block;" /&gt;
