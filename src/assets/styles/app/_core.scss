@@ -131,7 +131,8 @@ pre[class*="language-"] code {
             color: var(--text-color);
         }
 
-        &.operator {
+        &.operator,
+        &.string {
             background: transparent;
         }
     }
