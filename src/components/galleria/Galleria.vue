@@ -182,7 +182,6 @@ export default {
     display: flex;
     flex-direction: column;
     position: relative;
-    height: 100%;
 }
 
 .p-galleria-item-container {
@@ -299,7 +298,6 @@ export default {
 .p-galleria-thumbnails-left .p-galleria-content,
 .p-galleria-thumbnails-right .p-galleria-content {
     flex-direction: row;
-    align-items: center;
 }
 
 .p-galleria-thumbnails-left .p-galleria-item-wrapper,
@@ -320,6 +318,7 @@ export default {
 .p-galleria-thumbnails-left .p-galleria-thumbnail-container,
 .p-galleria-thumbnails-right .p-galleria-thumbnail-container {
     flex-direction: column;
+    flex-grow: 1;
 }
 
 .p-galleria-thumbnails-left .p-galleria-thumbnail-items,

@@ -10,7 +10,7 @@
         <div class="content-section implementation">
             <Galleria :value="images" :responsiveOptions="responsiveOptions" :numVisible="5" style="max-width: 640px">
                 <template #item="slotProps">
-					<img :src="slotProps.item.previewImageSrc" :alt="slotProps.item.alt" style="width: 100%" />
+					<img :src="slotProps.item.itemImageSrc" :alt="slotProps.item.alt" style="width: 100%" />
 				</template>
 				<template #thumbnail="slotProps">
                     <img :src="slotProps.item.thumbnailImageSrc" :alt="slotProps.item.alt" />

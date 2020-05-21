@@ -12,7 +12,7 @@
                 :showThumbnails="showThumbnails" :showItemNavigators="true" :showItemNavigatorsOnHover="true"
                 :circular="true" :autoPlay="true" :transitionInterval="3000">
                 <template #item="slotProps">
-					<img :src="slotProps.item.previewImageSrc" :alt="slotProps.item.alt" :style="[{'width': !isPreviewFullScreen ? '100%' : '', 'display': !isPreviewFullScreen ? 'block' : ''}]" />
+					<img :src="slotProps.item.itemImageSrc" :alt="slotProps.item.alt" :style="[{'width': !fullScreen ? '100%' : '', 'display': !fullScreen ? 'block' : ''}]" />
 				</template>
 				<template #thumbnail="slotProps">
                     <div class="p-grid p-nogutter p-justify-center">
@@ -22,15 +22,147 @@
                 <template #footer>
                     <div class="custom-galleria-footer">
                         <Button icon="pi pi-list" @click="onThumbnailButtonClick" />
-                        <span v-if="images">
+                        <span v-if="images" class="title-container">
                             <span>{{activeIndex + 1}}/{{images.length}}</span>
                             <span class="title">{{images[activeIndex].title}}</span>
                             <span>{{images[activeIndex].alt}}</span>
                         </span>
-                        <Button :icon="fullScreenIcon" @click="toggleFullScreen" />
+                        <Button :icon="fullScreenIcon" @click="toggleFullScreen" class="fullscreen-button" />
                     </div>
                 </template>
             </Galleria>
+        </div>
+
+        <div class="content-section documentation">
+            <TabView>
+                <TabPanel header="Source">
+<CodeHighlight>
+<template v-pre>
+&lt;Galleria ref="galleria" :value="images" :activeIndex.sync="activeIndex" :numVisible="5" style="max-width: 640px;" :class="galleriaClass"
+    :showThumbnails="showThumbnails" :showItemNavigators="true" :showItemNavigatorsOnHover="true"
+    :circular="true" :autoPlay="true" :transitionInterval="3000"&gt;
+    &lt;template #item="slotProps"&gt;
+        &lt;img :src="slotProps.item.itemImageSrc" :alt="slotProps.item.alt" :style="[{'width': !fullScreen ? '100%' : '', 'display': !fullScreen ? 'block' : ''}]" /&gt;
+    &lt;/template&gt;
+    &lt;template #thumbnail="slotProps"&gt;
+        &lt;div class="p-grid p-nogutter p-justify-center"&gt;
+            &lt;img :src="slotProps.item.thumbnailImageSrc" :alt="slotProps.item.alt" style="display: block;" /&gt;
+        &lt;/div&gt;
+    &lt;/template&gt;
+    &lt;template #footer&gt;
+        &lt;div class="custom-galleria-footer"&gt;
+            &lt;Button icon="pi pi-list" @click="onThumbnailButtonClick" /&gt;
+            &lt;span v-if="images" class="title-container"&gt;
+                &lt;span&gt;{{activeIndex + 1}}/{{images.length}}&lt;/span&gt;
+                &lt;span class="title"&gt;{{images[activeIndex].title}}&lt;/span&gt;
+                &lt;span&gt;{{images[activeIndex].alt}}&lt;/span&gt;
+            &lt;/span&gt;
+            &lt;Button :icon="fullScreenIcon" @click="toggleFullScreen" class="fullscreen-button" /&gt;
+        &lt;/div&gt;
+    &lt;/template&gt;
+&lt;/Galleria&gt;
+</template>
+</CodeHighlight>
+
+<CodeHighlight lang="javascript">
+import PhotoService from '../../service/PhotoService';
+
+export default {
+    data() {
+        return {
+            images: null,
+			responsiveOptions: [
+				{
+                    breakpoint: '1024px',
+                    numVisible: 5
+                },
+                {
+                    breakpoint: '768px',
+                    numVisible: 3
+                },
+                {
+                    breakpoint: '560px',
+                    numVisible: 1
+                }
+			]
+        }
+    },
+    galleriaService: null,
+	created() {
+		this.galleriaService = new PhotoService();
+	},
+	mounted() {
+		this.galleriaService.getImages().then(data => this.images = data);
+    }
+}
+</CodeHighlight>
+
+<CodeHighlight lang="css">
+::v-deep {
+    .custom-galleria {
+        &.fullscreen {
+            display: flex;
+            flex-direction: column;
+
+            .p-galleria-content {
+                flex-grow: 1;
+                justify-content: center;
+            }
+        }
+
+        .p-galleria-content {
+            position: relative;
+        }
+
+        .p-galleria-thumbnail-wrapper {
+            position: absolute;
+            bottom: 0;
+            left: 0;
+            width: 100%;
+        }
+
+        .p-galleria-thumbnail-items-container {
+            width: 100%;
+        }
+
+        .custom-galleria-footer {
+            display: flex;
+            align-items: center;
+            background-color: rgba(0, 0, 0, .9);
+            color: #ffffff;
+
+            > button {
+                background-color: transparent;
+                color: #ffffff;
+                border: 0 none;
+                border-radius: 0;
+                margin: .2rem 0;
+
+                &.fullscreen-button {
+                    margin-left: auto;
+                }
+
+                &:hover {
+                    background-color: rgba(255, 255, 255, 0.1);
+                }
+            }
+        }
+
+        .title-container {
+            > span {
+                font-size: .9rem;
+                padding-left: .829rem;
+
+                &.title {
+                    font-weight: bold;
+                }
+            }
+        }
+    }
+}
+</CodeHighlight>
+                </TabPanel>
+            </TabView>
         </div>
     </div>
 </template>
@@ -45,7 +177,7 @@ export default {
             images: null,
             activeIndex: 0,
             showThumbnails: false,
-            isPreviewFullScreen: false
+            fullScreen: false
         }
     },
     galleriaService: null,
@@ -61,17 +193,17 @@ export default {
             this.showThumbnails = !this.showThumbnails;
         },
         toggleFullScreen() {
-            if (this.isPreviewFullScreen) {
-                this.closePreviewFullScreen();
+            if (this.fullScreen) {
+                this.closeFullScreen();
             }
             else {
-                this.openPreviewFullScreen();
+                this.openFullScreen();
             }
         },
         onFullScreenChange() {
-            this.isPreviewFullScreen = !this.isPreviewFullScreen;
+            this.fullScreen = !this.fullScreen;
         },
-        openPreviewFullScreen() {
+        openFullScreen() {
             let elem = this.$refs.galleria.$el;
             if (elem.requestFullscreen) {
                 elem.requestFullscreen();
@@ -86,7 +218,7 @@ export default {
                 elem.msRequestFullscreen();
             }
         },
-        closePreviewFullScreen() {
+        closeFullScreen() {
             if (document.exitFullscreen) {
                 document.exitFullscreen();
             }
@@ -115,10 +247,10 @@ export default {
     },
     computed: {
         galleriaClass() {
-            return ['custom-galleria', {'preview-fullscreen': this.isPreviewFullScreen}];
+            return ['custom-galleria', {'fullscreen': this.fullScreen}];
         },
         fullScreenIcon() {
-            return `pi ${this.isPreviewFullScreen ? 'pi-window-minimize' : 'pi-window-maximize'}`;
+            return `pi ${this.fullScreen ? 'pi-window-minimize' : 'pi-window-maximize'}`;
         }
     }
 }
@@ -127,82 +259,61 @@ export default {
 <style lang="scss" scoped>
 ::v-deep {
     .custom-galleria {
-        &.p-galleria {
+        &.fullscreen {
+            display: flex;
+            flex-direction: column;
+
             .p-galleria-content {
-                height: 95%;
-                overflow: hidden;
-                position: relative;
+                flex-grow: 1;
+                justify-content: center;
+            }
+        }
 
-                .p-galleria-thumbnail-content {
-                    position: absolute;
-                    width: 100%;
-                    bottom: 0;
-                    background-image: linear-gradient(180deg, rgba(0,0,0,0.00) 0%, rgba(0,0,0,0.50) 70%);
+        .p-galleria-content {
+            position: relative;
+        }
 
-                    .p-galleria-thumbnail-container {
-                        .p-galleria-thumbnail-items-content {
-                            .p-galleria-thumbnail-items-container {
-                                .p-galleria-thumbnail-item {
-                                    opacity: .6;
+        .p-galleria-thumbnail-wrapper {
+            position: absolute;
+            bottom: 0;
+            left: 0;
+            width: 100%;
+        }
 
-                                    &.p-galleria-thumbnail-item-current {
-                                        opacity: 1;
-                                    }
-                                }
-                            }
-                        }
-                    }
+        .p-galleria-thumbnail-items-container {
+            width: 100%;
+        }
+
+        .custom-galleria-footer {
+            display: flex;
+            align-items: center;
+            background-color: rgba(0, 0, 0, .9);
+            color: #ffffff;
+
+            > button {
+                background-color: transparent;
+                color: #ffffff;
+                border: 0 none;
+                border-radius: 0;
+                margin: .2rem 0;
+
+                &.fullscreen-button {
+                    margin-left: auto;
+                }
+
+                &:hover {
+                    background-color: rgba(255, 255, 255, 0.1);
                 }
             }
+        }
 
-            .p-galleria-footer {
-                padding: 0;
-                background-color: rgba(0, 0, 0, .9);
-                border: rgba(0, 0, 0, .9);
+        .title-container {
+            > span {
+                font-size: .9rem;
+                padding-left: .829rem;
 
-                .custom-galleria-footer {
-                    width: 100%;
-                    display: flex;
-                    align-items: center;
-                    justify-content: stretch;
-                    color: #ffffff;
-
-                    > button {
-                        background-color: transparent;
-                        padding: .3rem;
-                        margin: .2rem;
-                        border: 0 none;
-                        border-radius: 0;
-                        color: #ffffff;
-
-                        &:hover {
-                            background-color: transparent;
-                        }
-                    }
-
-                    > span {
-                        flex-grow: 1;
-
-                        > span {
-                            font-size: .9rem;
-                            padding-left: .829rem;
-
-                            &.title {
-                                font-weight: bold;
-                            }
-                        }
-                    }
-                }
-            }
-
-            &.preview-fullscreen {
-                .p-galleria-preview-container {
-                    .p-galleria-preview-nav-button {
-                        top: 50%;
-                        height: 20rem;
-                        width: 4rem;
-                        margin-top: -10rem;
-                    }
+                &.title {
+                    font-weight: bold;
                 }
             }
         }

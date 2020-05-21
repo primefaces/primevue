@@ -10,7 +10,7 @@
         <div class="content-section implementation">
             <Galleria :value="images" :responsiveOptions="responsiveOptions" :numVisible="5" style="max-width: 640px">
                 <template #item="{item}">
-					<img :src="item.previewImageSrc" :alt="item.alt" style="width: 100%; display: block;" />
+					<img :src="item.itemImageSrc" :alt="item.alt" style="width: 100%; display: block;" />
 				</template>
 				<template #thumbnail="{item}">
                     <div class="p-grid p-nogutter p-justify-center">
@@ -31,7 +31,7 @@
 <template v-pre>
 &lt;Galleria :value="images" :responsiveOptions="responsiveOptions" :numVisible="5" style="max-width: 640px"&gt;
     &lt;template #item="{item}"&gt;
-        &lt;img :src="item.previewImageSrc" :alt="item.alt" style="width: 100%; display: block;" /&gt;
+        &lt;img :src="item.itemImageSrc" :alt="item.alt" style="width: 100%; display: block;" /&gt;
     &lt;/template&gt;
     &lt;template #thumbnail="{item}"&gt;
         &lt;div class="p-grid p-nogutter p-justify-center"&gt;

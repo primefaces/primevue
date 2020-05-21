@@ -29,7 +29,7 @@ export declare class Galleria extends Vue {
 		header: VNode[];
         footer: VNode[];
         item: VNode[];
-        previewCaption: VNode[];
+        caption: VNode[];
         indicator: VNode[];
         thumbnail: VNode[];
 	}
