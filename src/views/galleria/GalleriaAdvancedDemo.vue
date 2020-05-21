@@ -133,6 +133,7 @@ export default {
 
             > button {
                 background-color: transparent;
+                color: #ffffff;
                 border: 0 none;
                 border-radius: 0;
                 margin: .2rem 0;
@@ -291,6 +292,7 @@ export default {
 
             > button {
                 background-color: transparent;
+                color: #ffffff;
                 border: 0 none;
                 border-radius: 0;
                 margin: .2rem 0;
