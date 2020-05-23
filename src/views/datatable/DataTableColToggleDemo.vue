@@ -16,7 +16,7 @@
                     </div>
                 </template>
                 <Column field="vin" header="Vin" />
-                <Column v-for="col of selectedColumns" :field="col.field" :header="col.header" :key="col.field"></Column>
+                <Column v-for="(col, index) of selectedColumns" :field="col.field" :header="col.header" :key="col.field + '_' + index"></Column>
             </DataTable>
 		</div>
 
@@ -33,7 +33,7 @@
         &lt;/div&gt;
     &lt;/template&gt;
     &lt;Column field="vin" header="Vin" /&gt;
-    &lt;Column v-for="col of selectedColumns" :field="col.field" :header="col.header" :key="col.field"&gt;&lt;/Column&gt;
+    &lt;Column v-for="(col, index) of selectedColumns" :field="col.field" :header="col.header" :key="col.field + '_' + index"&gt;&lt;/Column&gt;
 &lt;/DataTable&gt;
 </template>
 </CodeHighlight>
