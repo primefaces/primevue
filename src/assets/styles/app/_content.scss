@@ -33,6 +33,10 @@
                     color: var(--primary-color);
                     border-radius: 3px;
                     padding: 2px 4px;
+
+                    &:hover {
+                        text-decoration: underline;
+                    }
                 }
             }
 

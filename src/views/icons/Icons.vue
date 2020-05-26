@@ -1,5 +1,5 @@
 <template>
-    <div class="icons-page">
+    <div>
         <div class="content-section introduction">
             <div class="feature-intro">
                 <h1>Icons</h1>
@@ -17,14 +17,14 @@ npm install primeicons --save
 
             <h3>Getting Started</h3>
             <p>PrimeIcons use the <strong>pi pi-&#123;icon&#125;</strong> syntax such as <strong>pi pi-check</strong>.
-            A standalone icon can be displayed using an element such as <i>i</i> or <i>span</i></p>
+            A standalone icon can be displayed using an element like <i>i</i> or <i>span</i></p>
 
 <CodeHighlight>
 &lt;i class="pi pi-check"&gt;&lt;/i&gt;
 &lt;i class="pi pi-times"&gt;&lt;/i&gt;
 </CodeHighlight>
 
-<i class="pi pi-check"></i>
+<i class="pi pi-check" style="margin-right: .5rem"></i>
 <i class="pi pi-times"></i>
 
             <h3>Size</h3>
@@ -37,21 +37,21 @@ npm install primeicons --save
             <i class="pi pi-check"></i>
 
 <CodeHighlight>
-&lt;i class="pi pi-check" style="fontSize: 3em"&gt;&lt;/i&gt;
+&lt;i class="pi pi-check" style="fontSize: 2rem"&gt;&lt;/i&gt;
 </CodeHighlight>
 
-            <i class="pi pi-check" style="fontSize: 3em"></i>
+            <i class="pi pi-check" style="fontSize: 2rem"></i>
 
             <h3>Spinning Animation</h3>
-            <p>Special pi-spin class applies infinite rotate to an icon.</p>
+            <p>Special pi-spin class applies continuous rotation to an icon.</p>
 <CodeHighlight>
-&lt;i class="pi pi-spin pi-spinner" style="fontSizi class="pi pi-spin pi-spinner" style="fontSiz
+&lt;i class="pi pi-spin pi-spinner" style="fontSize: 2rem"&gt;&lt;/i&gt;
 </CodeHighlight>
 
-            <i class="pi pi-spin pi-spinner" style="fontSize: 3em"></i>
+            <i class="pi pi-spin pi-spinner" style="fontSize: 2rem"></i>
 
             <h3>List of Icons</h3>
-            <p>Here is the current list of PrimeIcons, more icons will be added periodically. You may also <a href="https://github.com/primefaces/primeicons/issues">request new icons</a> at the issue tracker.</p>
+            <p>Here is the current list of PrimeIcons, more icons are added periodically. You may also <a href="https://github.com/primefaces/primeicons/issues">request new icons</a> at the issue tracker.</p>
 
             <InputText v-model="filter" class="icon-filter" placeholder="Search an icon" />
 
@@ -88,10 +88,24 @@ export default {
 }
 </script>
 
-<style lang="css" scoped>
+<style lang="scss" scoped>
 .icon-filter {
     width: 100%;
     padding: 1rem;
-    margin: 16px 0 26px 0;
+    margin: 1rem 0 1.5rem 0;
+}
+
+.icons-list {
+    text-align: center;
+
+    i {
+        font-size: 1.5rem;
+        color: var(--text-color-secondary);
+        margin-bottom: .5rem;
+    }
+
+    .p-md-2 {
+        padding-bottom: 2rem;
+    }
 }
 </style>
