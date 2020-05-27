@@ -259,12 +259,10 @@ export default {
     mounted() {
         this.loading = true;
 
-        setTimeout(() => {
-            this.carService.getCarsLarge().then(data => {
-                this.cars = data
-                this.loading = false;
-            });
-        }, 150);
+        this.carService.getCarsLarge().then(data => {
+            this.cars = data
+            this.loading = false;
+        });
 
         this.frozenCars = [
             {brand: "BMW", year: 2013, color: "Grey", vin: "fh2uf23"},
@@ -389,12 +387,10 @@ export default {
     mounted() {
         this.loading = true;
 
-        setTimeout(() => {
-            this.carService.getCarsLarge().then(data => {
-                this.cars = data
-                this.loading = false;
-            });
-        }, 150);
+         this.carService.getCarsLarge().then(data => {
+            this.cars = data
+            this.loading = false;
+        });
 
         this.frozenCars = [
             {brand: "BMW", year: 2013, color: "Grey", vin: "fh2uf23"},
