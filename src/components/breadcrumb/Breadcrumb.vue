@@ -42,4 +42,8 @@ export default {
 .p-breadcrumb .p-menuitem-text {
     line-height: 1;
 }
+
+.p-breadcrumb .p-menuitem-link {
+    text-decoration: none;
+}
 </style>

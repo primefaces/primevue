@@ -194,6 +194,7 @@ export default {
     cursor: pointer;
     display: flex;
     align-items: center;
+    text-decoration: none;
 }
 
 .p-menu .p-menuitem-text {

@@ -78,5 +78,6 @@ export default {
     justify-content: center;
     align-items: center;
     cursor: pointer;
+    text-decoration: none;
 }
 </style>

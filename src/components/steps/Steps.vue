@@ -100,6 +100,7 @@ export default {
     flex-direction: column;
     align-items: center;
     overflow: hidden;
+    text-decoration: none;
 }
 
 .p-steps.p-steps-readonly .p-steps-item {

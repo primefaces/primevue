@@ -100,6 +100,7 @@ export default {
     user-select: none;
     cursor: pointer;
     position: relative;
+    text-decoration: none;
 }
 
 .p-panelmenu .p-panelmenu-header-link:focus {
@@ -117,6 +118,7 @@ export default {
     align-items: center;
     user-select: none;
     cursor: pointer;
+    text-decoration: none;
 }
 
 .p-panelmenu .p-menuitem-text {

@@ -317,6 +317,7 @@ export default {
     cursor: pointer;
     display: flex;
     align-items: center;
+    text-decoration: none;
 }
 
 .p-megamenu .p-menuitem-text {

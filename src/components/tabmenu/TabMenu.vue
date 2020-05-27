@@ -77,6 +77,7 @@ export default {
     display: flex;
     align-items: center;
     position: relative;
+    text-decoration: none;
 }
 
 .p-tabmenu-nav a:focus {

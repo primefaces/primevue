@@ -17,7 +17,6 @@
   font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif, "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol";
   font-size: 1rem;
   font-weight: normal;
-  text-decoration: none;
 }
 
 .p-component-overlay {
@@ -2057,7 +2056,7 @@
   padding: 1.25rem 1.25rem;
 }
 
-.p-accordion .p-accordion-header a {
+.p-accordion .p-accordion-header .p-accordion-header-link {
   padding: 1rem;
   border: 1px solid #2C3E50;
   color: #ebedef;
@@ -2066,27 +2065,27 @@
   border-radius: 3px;
   transition: background-color 0.2s, box-shadow 0.2s;
 }
-.p-accordion .p-accordion-header a .p-accordion-toggle-icon {
+.p-accordion .p-accordion-header .p-accordion-header-link .p-accordion-toggle-icon {
   margin-right: 0.5rem;
 }
-.p-accordion .p-accordion-header:not(.p-disabled) a:focus {
+.p-accordion .p-accordion-header:not(.p-disabled) .p-accordion-header-link:focus {
   outline: 0 none;
   outline-offset: 0;
   box-shadow: 0 0 0 0.1rem #C8E6C9;
 }
-.p-accordion .p-accordion-header:not(.p-highlight):not(.p-disabled):hover a {
+.p-accordion .p-accordion-header:not(.p-highlight):not(.p-disabled):hover .p-accordion-header-link {
   background: #212F3D;
   border-color: 1px solid #2C3E50;
   color: #ebedef;
 }
-.p-accordion .p-accordion-header:not(.p-disabled).p-highlight a {
+.p-accordion .p-accordion-header:not(.p-disabled).p-highlight .p-accordion-header-link {
   background: #1C2833;
   border-color: 1px solid #2C3E50;
   color: #ebedef;
   border-bottom-right-radius: 0;
   border-bottom-left-radius: 0;
 }
-.p-accordion .p-accordion-header:not(.p-disabled).p-highlight:hover a {
+.p-accordion .p-accordion-header:not(.p-disabled).p-highlight:hover .p-accordion-header-link {
   border-color: 1px solid #2C3E50;
   background: #212F3D;
   color: #ebedef;
@@ -2105,20 +2104,20 @@
 .p-accordion .p-accordion-tab {
   margin-bottom: 0;
 }
-.p-accordion .p-accordion-tab .p-accordion-header a {
+.p-accordion .p-accordion-tab .p-accordion-header .p-accordion-header-link {
   border-radius: 0;
 }
-.p-accordion .p-accordion-tab:not(:first-child) .p-accordion-header a {
+.p-accordion .p-accordion-tab:not(:first-child) .p-accordion-header .p-accordion-header-link {
   border-top: 0 none;
 }
-.p-accordion .p-accordion-tab:not(:first-child) .p-accordion-header:not(.p-highlight):not(.p-disabled):hover a, .p-accordion .p-accordion-tab:not(:first-child) .p-accordion-header:not(.p-disabled).p-highlight:hover a {
+.p-accordion .p-accordion-tab:not(:first-child) .p-accordion-header:not(.p-highlight):not(.p-disabled):hover .p-accordion-header-link, .p-accordion .p-accordion-tab:not(:first-child) .p-accordion-header:not(.p-disabled).p-highlight:hover .p-accordion-header-link {
   border-top: 0 none;
 }
-.p-accordion .p-accordion-tab:first-child .p-accordion-header a {
+.p-accordion .p-accordion-tab:first-child .p-accordion-header .p-accordion-header-link {
   border-top-right-radius: 3px;
   border-top-left-radius: 3px;
 }
-.p-accordion .p-accordion-tab:last-child .p-accordion-header:not(.p-highlight) a {
+.p-accordion .p-accordion-tab:last-child .p-accordion-header:not(.p-highlight) .p-accordion-header-link {
   border-bottom-right-radius: 3px;
   border-bottom-left-radius: 3px;
 }
@@ -2243,7 +2242,7 @@
 .p-tabview .p-tabview-nav li {
   margin-right: 0;
 }
-.p-tabview .p-tabview-nav li a {
+.p-tabview .p-tabview-nav li .p-tabview-nav-link {
   border: solid #2C3E50;
   border-width: 0 0 2px 0;
   background: transparent;
@@ -2255,18 +2254,18 @@
   transition: border-color 0.2s, box-shadow 0.2s;
   margin: 0 0 -2px 0;
 }
-.p-tabview .p-tabview-nav li a:not(.p-disabled):focus {
+.p-tabview .p-tabview-nav li .p-tabview-nav-link:not(.p-disabled):focus {
   outline: 0 none;
   outline-offset: 0;
   box-shadow: 0 0 0 0.1rem #C8E6C9;
 }
-.p-tabview .p-tabview-nav li:not(.p-highlight):not(.p-disabled):hover a {
+.p-tabview .p-tabview-nav li:not(.p-highlight):not(.p-disabled):hover .p-tabview-nav-link {
   background: transparent;
   border-color: #34495E;
   color: #aeb6bf;
   border-width: 0 0 2px 0;
 }
-.p-tabview .p-tabview-nav li.p-highlight a {
+.p-tabview .p-tabview-nav li.p-highlight .p-tabview-nav-link {
   background: transparent;
   border-color: #81C784;
   color: #81C784;

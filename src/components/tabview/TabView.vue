@@ -2,7 +2,7 @@
     <div class="p-tabview p-component">
         <ul class="p-tabview-nav" role="tablist">
             <li role="presentation" v-for="(tab, i) of tabs" :key="tab.header || i" :class="[{'p-highlight': (tab.d_active), 'p-disabled': tab.disabled}]">
-                <a role="tab" @click="onTabClick($event, tab)" @keydown="onTabKeydown($event, tab)" :tabindex="tab.disabled ? null : '0'" :aria-selected="tab.d_active">
+                <a role="tab" class="p-tabview-nav-link" @click="onTabClick($event, tab)" @keydown="onTabKeydown($event, tab)" :tabindex="tab.disabled ? null : '0'" :aria-selected="tab.d_active">
                     <span class="p-tabview-title" v-if="tab.header">{{tab.header}}</span>
                     <TabPanelHeaderSlot :tab="tab" v-if="tab.$scopedSlots.header" />
                 </a>
@@ -98,15 +98,16 @@ export default {
     list-style-type: none;
 }
 
-.p-tabview-nav a {
+.p-tabview-nav-link {
     cursor: pointer;
     user-select: none;
     display: flex;
     align-items: center;
     position: relative;
+    text-decoration: none;
 }
 
-.p-tabview-nav a:focus {
+.p-tabview-nav-link:focus {
     z-index: 1;
 }
 

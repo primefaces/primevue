@@ -17,7 +17,6 @@
   font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif, "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol";
   font-size: 1rem;
   font-weight: normal;
-  text-decoration: none;
 }
 
 .p-component-overlay {
@@ -2057,7 +2056,7 @@
   padding: 0.71375rem 1.25rem;
 }
 
-.p-accordion .p-accordion-header a {
+.p-accordion .p-accordion-header .p-accordion-header-link {
   padding: 0.857rem 1rem;
   border: 1px solid #191919;
   color: #dedede;
@@ -2066,27 +2065,27 @@
   border-radius: 3px;
   transition: background-color 0.2s, box-shadow 0.2s;
 }
-.p-accordion .p-accordion-header a .p-accordion-toggle-icon {
+.p-accordion .p-accordion-header .p-accordion-header-link .p-accordion-toggle-icon {
   margin-right: 0.5rem;
 }
-.p-accordion .p-accordion-header:not(.p-disabled) a:focus {
+.p-accordion .p-accordion-header:not(.p-disabled) .p-accordion-header-link:focus {
   outline: 0 none;
   outline-offset: 0;
   box-shadow: 0 0 0 0.2rem #88e9aa;
 }
-.p-accordion .p-accordion-header:not(.p-highlight):not(.p-disabled):hover a {
+.p-accordion .p-accordion-header:not(.p-highlight):not(.p-disabled):hover .p-accordion-header-link {
   background: #191919;
   border-color: #191919;
   color: #1ea04c;
 }
-.p-accordion .p-accordion-header:not(.p-disabled).p-highlight a {
+.p-accordion .p-accordion-header:not(.p-disabled).p-highlight .p-accordion-header-link {
   background: #1ea04c;
   border-color: #1ea04c;
   color: #ffffff;
   border-bottom-right-radius: 0;
   border-bottom-left-radius: 0;
 }
-.p-accordion .p-accordion-header:not(.p-disabled).p-highlight:hover a {
+.p-accordion .p-accordion-header:not(.p-disabled).p-highlight:hover .p-accordion-header-link {
   border-color: #18803c;
   background: #18803c;
   color: #ffffff;
@@ -2226,7 +2225,7 @@
 .p-tabview .p-tabview-nav li {
   margin-right: 2px;
 }
-.p-tabview .p-tabview-nav li a {
+.p-tabview .p-tabview-nav li .p-tabview-nav-link {
   border: 1px solid #191919;
   border-width: 1px;
   background: #191919;
@@ -2238,18 +2237,18 @@
   transition: background-color 0.2s, box-shadow 0.2s;
   margin: 0 0 -1px 0;
 }
-.p-tabview .p-tabview-nav li a:not(.p-disabled):focus {
+.p-tabview .p-tabview-nav li .p-tabview-nav-link:not(.p-disabled):focus {
   outline: 0 none;
   outline-offset: 0;
   box-shadow: 0 0 0 0.2rem #88e9aa;
 }
-.p-tabview .p-tabview-nav li:not(.p-highlight):not(.p-disabled):hover a {
+.p-tabview .p-tabview-nav li:not(.p-highlight):not(.p-disabled):hover .p-tabview-nav-link {
   background: #191919;
   border-color: #191919;
   color: #1ea04c;
   border-width: 1px;
 }
-.p-tabview .p-tabview-nav li.p-highlight a {
+.p-tabview .p-tabview-nav li.p-highlight .p-tabview-nav-link {
   background: #1ea04c;
   border-color: #1ea04c;
   color: #ffffff;
