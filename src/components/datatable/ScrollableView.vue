@@ -11,7 +11,7 @@
                 </table>
             </div>
         </div>
-        <div class="p-datatable-scrollable-body" ref="scrollBody" @scroll="onBodyScroll">
+        <div class="p-datatable-scrollable-body" ref="scrollBody" @scroll="onBodyScroll" :style="{maxHeight: scrollHeight !== 'flex' ? scrollHeight: null}">
             <table ref="scrollTable" :class="bodyTableClass" :style="bodyTableStyle">
                 <colgroup class="p-datatable-scrollable-colgroup">
                     <col v-for="(col,i) of columns" :key="col.columnKey||col.field||i" :style="col.headerStyle" />
@@ -80,8 +80,6 @@ export default {
     },
     virtualScrollCallback: null,
     mounted() {
-        this.setScrollHeight();
-
         if (!this.frozen)
             this.alignScrollBar();
         else
@@ -100,8 +98,6 @@ export default {
             this.virtualScrollCallback();
             this.virtualScrollCallback = null;
         }
-
-        this.setScrollHeight();
     },
     watch: {
         totalRecords(newValue) {
@@ -155,33 +151,6 @@ export default {
                         }
 
                         this.$refs.scrollTable.style.top = ((page - 1) * pageHeight) + 'px';
-                    }
-                }
-            }
-        },
-        setScrollHeight() {
-            if (this.scrollHeight) {
-                let frozenView = this.$el.previousElementSibling;
-                if (frozenView) {
-                    let frozenScrollBody = DomHandler.findSingle(frozenView, '.p-datatable-scrollable-body');
-                    this.$refs.scrollBody.style.maxHeight = frozenScrollBody.style.maxHeight;
-                }
-                else {
-                    if(this.scrollHeight.indexOf('%') !== -1) {
-                        let datatableContainer = this.findDataTableContainer(this.$el);
-                        this.$refs.scrollBody.style.visibility = 'hidden';
-                        this.$refs.scrollBody.style.height = '100px';         //temporary height to calculate static height
-                        let containerHeight = DomHandler.getOuterHeight(datatableContainer);
-                        let relativeHeight = DomHandler.getOuterHeight(datatableContainer.parentElement) * parseInt(this.scrollHeight, 10) / 100;
-                        let staticHeight = containerHeight - 100;       //total height of headers, footers, paginators
-                        let scrollBodyHeight = (relativeHeight - staticHeight);
-
-                        this.$refs.scrollBody.style.height = 'auto';
-                        this.$refs.scrollBody.style.maxHeight = scrollBodyHeight + 'px';
-                        this.$refs.scrollBody.style.visibility = 'visible';
-                    }
-                    else {
-                        this.$refs.scrollBody.style.maxHeight = this.scrollHeight;
                     }
                 }
             }

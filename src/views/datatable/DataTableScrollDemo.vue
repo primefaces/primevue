@@ -16,6 +16,24 @@
                 <Column field="color" header="Color"></Column>
             </DataTable>
 
+            <h3>Flexible Scroll</h3>
+            <p>Flex scroll feature makes the scrollable viewport section dynamic so that it can grow or shrink relative to the parent size of the table. 
+                Click the button below to display a maximizable Dialog where data viewport adjusts itself according to the size changes.</p>
+
+            <Button label="Show" icon="pi pi-external-link" @click="openDialog" />
+            <Dialog header="Flex Scroll" :visible.sync="dialogVisible" :style="{width: '50vw'}" :maximizable="true" :modal="true" :contentStyle="{height: '300px'}">
+                <DataTable :value="cars" :scrollable="true" scrollHeight="flex">
+                    <Column field="vin" header="Vin"></Column>
+                    <Column field="year" header="Year"></Column>
+                    <Column field="brand" header="Brand"></Column>
+                    <Column field="color" header="Color"></Column>
+                </DataTable>
+                <template #footer>
+                    <Button label="Yes" icon="pi pi-check" @click="closeDialog" />
+                    <Button label="No" icon="pi pi-times" @click="closeDialog" class="p-button-secondary"/>
+                </template>
+            </Dialog>
+
             <h3>Virtual Scroll</h3>
 			<DataTable :value="lazyCars" :scrollable="true" scrollHeight="200px" :lazy="true" :rows="20" :loading="loading"
                 :virtualScroll="true" :virtualRowHeight="30" @virtual-scroll="onVirtualScroll" :totalRecords="lazyTotalRecords">
@@ -93,6 +111,24 @@
     &lt;Column field="color" header="Color"&gt;&lt;/Column&gt;
 &lt;/DataTable&gt;
 
+&lt;h3&gt;Flexible Scroll&lt;/h3&gt;
+&lt;p&gt;Flex scroll feature makes the scrollable viewport section dynamic so that it can grow or shrink relative to the parent size of the table. 
+    Click the button below to display a maximizable Dialog where data viewport adjusts itself according to the size changes.&lt;/p&gt;
+
+&lt;Button label="Show" icon="pi pi-external-link" @click="openDialog" /&gt;
+&lt;Dialog header="Flex Scroll" :visible.sync="dialogVisible" :style="{width: '50vw'}" :maximizable="true" :modal="true" :contentStyle="{height: '300px'}"&gt;
+    &lt;DataTable :value="cars" :scrollable="true" scrollHeight="flex"&gt;
+        &lt;Column field="vin" header="Vin"&gt;&lt;/Column&gt;
+        &lt;Column field="year" header="Year"&gt;&lt;/Column&gt;
+        &lt;Column field="brand" header="Brand"&gt;&lt;/Column&gt;
+        &lt;Column field="color" header="Color"&gt;&lt;/Column&gt;
+    &lt;/DataTable&gt;
+    &lt;template #footer&gt;
+        &lt;Button label="Yes" icon="pi pi-check" @click="closeDialog" /&gt;
+        &lt;Button label="No" icon="pi pi-times" @click="closeDialog" class="p-button-secondary"/&gt;
+    &lt;/template&gt;
+&lt;/Dialog&gt;
+
 &lt;h3&gt;Virtual Scroll&lt;/h3&gt;
 &lt;DataTable :value="lazyCars" :scrollable="true" scrollHeight="200px" :lazy="true" :rows="20" :loading="loading"
     :virtualScroll="true" :virtualRowHeight="30" @virtual-scroll="onVirtualScroll" :totalRecords="lazyTotalRecords"&gt;
@@ -168,7 +204,8 @@ export default {
             frozenCars: null,
             lazyCars: null,
             lazyTotalRecords: 0,
-            loading: false
+            loading: false,
+            dialogVisible: false
         }
     },
     carService: null,
@@ -260,6 +297,12 @@ export default {
                 else
                     this.lazyCars = this.loadChunk(event.first, event.rows)
             }, 250);
+        },
+        openDialog() {
+            this.dialogVisible = true;
+        },
+        closeDialog() {
+            this.dialogVisible = false;
         }
     }
 }
@@ -291,7 +334,8 @@ export default {
             frozenCars: null,
             lazyCars: null,
             lazyTotalRecords: 0,
-            loading: false
+            loading: false,
+            dialogVisible: false
         }
     },
     carService: null,
@@ -383,6 +427,12 @@ export default {
                 else
                     this.lazyCars = this.loadChunk(event.first, event.rows)
             }, 250);
+        },
+        openDialog() {
+            this.dialogVisible = true;
+        },
+        closeDialog() {
+            this.dialogVisible = false;
         }
     }
 }

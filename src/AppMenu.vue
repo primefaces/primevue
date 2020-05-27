@@ -78,6 +78,7 @@
                                     <li><router-link to="/datatable/selection">Selection</router-link></li>
                                     <li><router-link to="/datatable/lazy">Lazy</router-link></li>
                                     <li><router-link to="/datatable/scroll">Scroll</router-link></li>
+                                    <li><router-link to="/datatable/flexscroll">FlexScroll</router-link></li>
                                     <li><router-link to="/datatable/rowexpand">Expand</router-link></li>
                                     <li><router-link to="/datatable/edit">Edit</router-link></li>
                                     <li><router-link to="/datatable/coltoggle">ColToggle</router-link></li>

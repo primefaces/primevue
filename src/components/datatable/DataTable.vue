@@ -1645,7 +1645,8 @@ export default {
                     'p-datatable-resizable': this.resizableColumns,
                     'p-datatable-resizable-fit': this.resizableColumns && this.columnResizeMode === 'fit',
                     'p-datatable-scrollable': this.scrollable,
-                    'p-datatable-virtual-scrollable': this.virtualScroll
+                    'p-datatable-virtual-scrollable': this.virtualScroll,
+                    'p-datatable-flex-scrollable': (this.scrollable && this.scrollHeight === 'flex')
                 }
             ];
         },
@@ -1898,6 +1899,26 @@ export default {
 .p-datatable-unfrozen-view {
     position: absolute;
     top: 0;
+}
+
+/* Flex Scrollable */
+.p-datatable-flex-scrollable {
+    display: flex;
+    flex-direction: column;
+    flex: 1;
+    height: 100%;
+}
+
+.p-datatable-flex-scrollable .p-datatable-scrollable-wrapper,
+.p-datatable-flex-scrollable .p-datatable-scrollable-view {
+    display: flex;
+    flex-direction: column;
+    flex: 1;
+    height: 100%;
+}
+
+.p-datatable-flex-scrollable .p-datatable-scrollable-body {
+    flex: 1;
 }
 
 /* Resizable */

@@ -662,7 +662,43 @@ methods: {
 </template>
 </CodeHighlight>
 
-            <p>Horizontal Scrolling requires a width of DataTable to be defined and explicit widths on columns.</p>
+                <h3>Flex Scroll</h3>
+                <p>In cases where viewport should adjust itself according to the table parent's height instead of a fixed viewport height, set scrollHeight option as flex. In example below, table is inside a Dialog where viewport size dynamically responds to the dialog size changes such as maximizing.</p>
+<CodeHighlight>
+<template v-pre>
+&lt;Button label="Show" icon="pi pi-external-link" @click="openDialog" /&gt;
+&lt;Dialog header="Flex Scroll" :visible.sync="dialogVisible" :style="{width: '50vw'}" :maximizable="true" :modal="true" :contentStyle="{height: '300px'}"&gt;
+    &lt;DataTable :value="cars" :scrollable="true" scrollHeight="flex"&gt;
+        &lt;Column field="vin" header="Vin"&gt;&lt;/Column&gt;
+        &lt;Column field="year" header="Year"&gt;&lt;/Column&gt;
+        &lt;Column field="brand" header="Brand"&gt;&lt;/Column&gt;
+        &lt;Column field="color" header="Color"&gt;&lt;/Column&gt;
+    &lt;/DataTable&gt;
+    &lt;template #footer&gt;
+        &lt;Button label="Yes" icon="pi pi-check" @click="closeDialog" /&gt;
+        &lt;Button label="No" icon="pi pi-times" @click="closeDialog" class="p-button-secondary"/&gt;
+    &lt;/template&gt;
+&lt;/Dialog&gt;
+</template>
+</CodeHighlight>
+
+                <h3>Full Page Scroll</h3>
+                <p>FlexScroll can also be used for cases where scrollable viewport should be responsive with respect to the window size. See the Full Page demo for an example.</p>
+<CodeHighlight>
+<template v-pre>
+&lt;div style="height: calc(100vh - 143px)"&gt;
+    &lt;DataTable :value="cars" :scrollable="true" scrollHeight="flex"&gt;
+        &lt;Column field="vin" header="Vin"&gt;&lt;/Column&gt;
+        &lt;Column field="year" header="Year"&gt;&lt;/Column&gt;
+        &lt;Column field="brand" header="Brand"&gt;&lt;/Column&gt;
+        &lt;Column field="color" header="Color"&gt;&lt;/Column&gt;
+    &lt;/DataTable&gt;
+&lt;/div&gt;
+</template>
+</CodeHighlight>
+
+                <h3>Horizontal Scrolling</h3>
+                <p>In horizontal scrolling, it is required to give fixed widths to columns. In general when customizing the column widths of scrollable tables, use colgroup as below to avoid misalignment issues as it will apply both the header, body and footer sections which are different separate elements internally.</p>
 <CodeHighlight>
 <template v-pre>
 &lt;DataTable :value="cars" :scrollable="true" scrollHeight="200px" style="width: 600px"&gt;
@@ -678,7 +714,8 @@ methods: {
 </template>
 </CodeHighlight>
 
-            <p>Certain columns can be frozen by using the <i>frozen</i> property of the column component. Widths of the frozen section is specified by the <i>frozenWidth</i> property.</p>
+                <h3>Frozen Rows and Columns</h3>
+                <p>Certain columns can be frozen by using the <i>frozen</i> property of the column component. Widths of the frozen section is specified by the <i>frozenWidth</i> property.</p>
 <CodeHighlight>
 <template v-pre>
 &lt;DataTable :value="cars" :scrollable="true" scrollHeight="200px" frozenWidth="300px" :loading="loading"&gt;
@@ -730,6 +767,7 @@ methods: {
 
             <p>When using frozen columns with column grouping, use <i>frozenheadergroup</i> and <i>frozenfootergroup</i> types to define grouping for the frozen section.</p>
 
+            <h3>Virtual Scrolling</h3>
             <p>Virtual scrolling is enabled using <i>virtualScroll</i> and <i>onVirtualScroll</i> properties combined with lazy loading so that data is loaded on the fly during scrolling.
             For smooth scrolling twice the amount of rows property is loaded on a lazy load event. In addition, to avoid performance problems row height is not calculated automatically and
             should be provided using <i>virtualRowHeight</i> property which defaults to 28px. View the <router-link to="/datatable/scroll">scrolling demo</router-link> for a sample in-memory implementation.</p>
@@ -2038,7 +2076,7 @@ export default {
                                 <td>scrollHeight</td>
                                 <td>string</td>
                                 <td>null</td>
-                                <td>Height of the scroll viewport.</td>
+                                <td>Height of the scroll viewport in fixed pixels or the "flex" keyword for a dynamic size.</td>
                             </tr>
                             <tr>
                                 <td>virtualScroll</td>
