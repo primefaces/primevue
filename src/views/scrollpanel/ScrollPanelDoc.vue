@@ -41,7 +41,7 @@ import ScrollPanel from 'primevue/scrollpanel';
 
 				<h3>Properties</h3>
                 <p>Any property such as style and class are passed to the main container element. There are no component specific properties.</p>
-				
+
 				<h3>Styling</h3>
 				<p>Following is the list of structural style classes, for theming classes visit <router-link to="/theming">theming</router-link> page.</p>
 				<div class="doc-tablewrapper">
@@ -150,7 +150,7 @@ import ScrollPanel from 'primevue/scrollpanel';
 
 <CodeHighlight lang="js">
 export default {
-    
+
 }
 </CodeHighlight>
 

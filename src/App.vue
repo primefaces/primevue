@@ -55,7 +55,7 @@ export default {
                         'page_path': '/primevue' + to.path
                     });
                 }
-                
+
                 this.sidebarActive = false;
                 this.$toast.removeAllGroups();
             }
