@@ -42,7 +42,7 @@
                 <router-link to="/slider">Slider</router-link>
                 <router-link to="/textarea">Textarea</router-link>
                 <router-link to="/togglebutton">ToggleButton</router-link>
-                <router-link to="/tristatecheckbox">TriCheckbox</router-link>
+                <router-link to="/tristatecheckbox">TriStateCheckbox</router-link>
             </div>
 
             <span>
