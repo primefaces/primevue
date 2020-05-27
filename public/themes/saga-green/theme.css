@@ -2296,7 +2296,7 @@
   box-shadow: 0 0 14px 0 rgba(0, 0, 0, 0.1);
   border: 0 none;
 }
-.p-dialog .p-dialog-titlebar {
+.p-dialog .p-dialog-header {
   border-bottom: 1px solid #dee2e6;
   background: #ffffff;
   color: #495057;
@@ -2304,11 +2304,11 @@
   border-top-right-radius: 3px;
   border-top-left-radius: 3px;
 }
-.p-dialog .p-dialog-titlebar .p-dialog-title {
+.p-dialog .p-dialog-header .p-dialog-title {
   font-weight: 600;
   font-size: 1.25rem;
 }
-.p-dialog .p-dialog-titlebar .p-dialog-titlebar-icon {
+.p-dialog .p-dialog-header .p-dialog-header-icon {
   width: 2rem;
   height: 2rem;
   color: #9ba2aa;
@@ -2317,16 +2317,16 @@
   transition: background-color 0.2s, box-shadow 0.2s, box-shadow 0.2s;
   margin-right: 0.5rem;
 }
-.p-dialog .p-dialog-titlebar .p-dialog-titlebar-icon:hover {
+.p-dialog .p-dialog-header .p-dialog-header-icon:hover {
   color: #9ba2aa;
   background: #e9ecef;
 }
-.p-dialog .p-dialog-titlebar .p-dialog-titlebar-icon:focus {
+.p-dialog .p-dialog-header .p-dialog-header-icon:focus {
   outline: 0 none;
   outline-offset: 0;
   box-shadow: 0 0 0 0.2rem #C8E6C9;
 }
-.p-dialog .p-dialog-titlebar .p-dialog-titlebar-icon:last-child {
+.p-dialog .p-dialog-header .p-dialog-header-icon:last-child {
   margin-right: 0;
 }
 .p-dialog .p-dialog-content {

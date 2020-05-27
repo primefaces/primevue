@@ -2,16 +2,16 @@
     <div ref="mask" :class="maskClass" v-if="maskVisible">
         <transition name="p-dialog" @before-enter="onBeforeEnter" @enter="onEnter" @before-leave="onBeforeLeave" @leave="onLeave" @after-leave="onAfterLeave" @appear="onAppear">
             <div ref="dialog" :class="dialogClass" :style="dialogStyle" v-if="visible" v-bind="$attrs" v-on="listeners" role="dialog" :aria-labelledby="ariaLabelledById" :aria-modal="modal">
-                <div class="p-dialog-titlebar" v-if="showHeader">
+                <div class="p-dialog-header" v-if="showHeader">
                     <slot name="header">
                         <span :id="ariaLabelledById" class="p-dialog-title" v-if="header" >{{header}}</span>
                     </slot>
-                    <div class="p-dialog-titlebar-icons">
-                        <button class="p-dialog-titlebar-icon p-dialog-titlebar-maximize p-link" @click="maximize" v-if="maximizable" type="button">
+                    <div class="p-dialog-header-icons">
+                        <button class="p-dialog-header-icon p-dialog-header-maximize p-link" @click="maximize" v-if="maximizable" type="button" tabindex="-1">
                             <span :class="maximizeIconClass"></span>
                         </button>
-                        <button class="p-dialog-titlebar-icon p-dialog-titlebar-close p-link" @click="close" v-if="closable" :aria-label="ariaCloseLabel" type="button">
-                            <span class="p-dialog-titlebar-close-icon pi pi-times"></span>
+                        <button class="p-dialog-header-icon p-dialog-header-close p-link" @click="close" v-if="closable" :aria-label="ariaCloseLabel" type="button" tabindex="-1">
+                            <span class="p-dialog-header-close-icon pi pi-times"></span>
                         </button>
                     </div>
                 </div>
@@ -122,9 +122,9 @@ export default {
             }
         },
         focus() {
-            let focusable = DomHandler.findSingle(this.$refs.dialog, 'input,button');
-            if (focusable) {
-                focusable.focus();
+            let focusable = DomHandler.getFocusableElements(this.$refs.dialog);
+            if (focusable && focusable.length) {
+                focusable[0].focus();
             }
         },
         maximize() {
@@ -231,7 +231,7 @@ export default {
             }, this.dialogClasses];
         },
         maximizeIconClass() {
-            return ['p-dialog-titlebar-maximize-icon pi', {
+            return ['p-dialog-header-maximize-icon pi', {
                 'pi-window-maximize': !this.maximized,
                 'pi-window-minimize': this.maximized
             }];
@@ -279,7 +279,7 @@ export default {
     overflow-y: auto;
 }
 
-.p-dialog-titlebar {
+.p-dialog-header {
     display: flex;
     align-items: center;
     justify-content: space-between;
@@ -289,12 +289,12 @@ export default {
     list-style: 1;
 }
 
-.p-dialog .p-dialog-titlebar-icons {
+.p-dialog .p-dialog-header-icons {
     display: flex;
     align-items: center;
 }
 
-.p-dialog .p-dialog-titlebar-icon {
+.p-dialog .p-dialog-header-icon {
     display: flex;
     align-items: center;
     justify-content: center;
