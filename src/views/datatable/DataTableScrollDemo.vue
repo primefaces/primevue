@@ -17,7 +17,7 @@
             </DataTable>
 
             <h3>Flexible Scroll</h3>
-            <p>Flex scroll feature makes the scrollable viewport section dynamic so that it can grow or shrink relative to the parent size of the table. 
+            <p>Flex scroll feature makes the scrollable viewport section dynamic so that it can grow or shrink relative to the parent size of the table.
                 Click the button below to display a maximizable Dialog where data viewport adjusts itself according to the size changes.</p>
 
             <Button label="Show" icon="pi pi-external-link" @click="openDialog" />
@@ -112,7 +112,7 @@
 &lt;/DataTable&gt;
 
 &lt;h3&gt;Flexible Scroll&lt;/h3&gt;
-&lt;p&gt;Flex scroll feature makes the scrollable viewport section dynamic so that it can grow or shrink relative to the parent size of the table. 
+&lt;p&gt;Flex scroll feature makes the scrollable viewport section dynamic so that it can grow or shrink relative to the parent size of the table.
     Click the button below to display a maximizable Dialog where data viewport adjusts itself according to the size changes.&lt;/p&gt;
 
 &lt;Button label="Show" icon="pi pi-external-link" @click="openDialog" /&gt;
