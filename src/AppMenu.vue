@@ -279,7 +279,15 @@ export default {
             event.preventDefault();
         },
         isSubmenuActive(name, routerIsActive) {
-            return this.activeSubmenus.hasOwnProperty(name) ? this.activeSubmenus[name] : routerIsActive;
+            if (this.activeSubmenus.hasOwnProperty(name)) {
+                return this.activeSubmenus[name];
+            }
+            else if (routerIsActive) {
+                this.activeSubmenus[name] = true;
+                return true;
+            }
+
+            return false;
         }
     }
 }
