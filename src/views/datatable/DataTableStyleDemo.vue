@@ -12,7 +12,7 @@
                 <Column field="vin" header="Vin"></Column>
                 <Column field="year" header="Year" bodyStyle="padding: 0">
                      <template #body="slotProps">
-                        <div :class="['year-cell', {'old-car': slotProps.data.year < 2010}]">
+                        <div :class="[{'old-car': slotProps.data.year < 2010}]">
                             {{slotProps.data.year}}
                         </div>
                     </template>
@@ -31,7 +31,7 @@
     &lt;Column field="vin" header="Vin"&gt;&lt;/Column&gt;
     &lt;Column field="year" header="Year" bodyStyle="padding: 0"&gt;
             &lt;template #body="slotProps"&gt;
-            &lt;div :class="['year-cell', {'old-car': slotProps.data.year &lt; 2010}]"&gt;
+            &lt;div :class="[{'old-car': slotProps.data.year &lt; 2010}]"&gt;
                 &#123;&#123;slotProps.data.year&#125;&#125;
             &lt;/div&gt;
         &lt;/template&gt;
@@ -61,25 +61,20 @@ export default {
     },
     methods: {
         rowClass(data) {
-            return data.color === 'Orange' ? 'orange-car': null;
+            return data.color === 'Gray' ? 'gray-car': null;
         }
     }
 }
 </CodeHighlight>
 
 <CodeHighlight lang="css">
-.year-cell {
-    padding: 0.429em 0.857rem;
-
-    &amp;.old-car {
-        background-color: #41b783;
-        font-weight: 700;
-        color: #ffffff;
-    }
+.old-car {
+    font-weight: 700;
+    text-decoration: line-through;
 }
 
-/deep/ .orange-car {
-    background-color: #344b5f !important;
+/deep/ .gray-car {
+    background-color: #607D8B !important;
     color: #ffffff !important;
 }
 </CodeHighlight>
@@ -108,25 +103,20 @@ export default {
     },
     methods: {
         rowClass(data) {
-            return data.color === 'Orange' ? 'orange-car': null;
+            return data.color === 'Gray' ? 'gray-car': null;
         }
     }
 }
 </script>
 
 <style scoped lang="scss">
-.year-cell {
-    padding: 0.429em 0.857rem;
-
-    &.old-car {
-        background-color: #41b783;
-        font-weight: 700;
-        color: #ffffff;
-    }
+.old-car {
+    font-weight: 700;
+    text-decoration: line-through;
 }
 
-/deep/ .orange-car {
-    background-color: #344b5f !important;
+/deep/ .gray-car {
+    background-color: #607D8B !important;
     color: #ffffff !important;
 }
 </style>
