@@ -983,13 +983,15 @@
   height: 0.286rem;
 }
 .p-slider.p-slider-horizontal .p-slider-handle {
-  margin-top: -0.4285rem;
+  margin-top: -0.5715rem;
+  margin-left: -0.5715rem;
 }
 .p-slider.p-slider-vertical {
   width: 0.286rem;
 }
 .p-slider.p-slider-vertical .p-slider-handle {
-  margin-left: -0.4285rem;
+  margin-left: -0.5715rem;
+  margin-bottom: -0.5715rem;
 }
 .p-slider .p-slider-handle {
   height: 1.143rem;
