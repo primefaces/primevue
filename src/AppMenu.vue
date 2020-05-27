@@ -152,6 +152,7 @@
                 <router-link to="/deferredcontent">Deferred</router-link>
                 <router-link to="/fieldset">Fieldset</router-link>
                 <router-link to="/panel">Panel</router-link>
+                <router-link to="/scrollpanel">ScrollPanel</router-link>
                 <router-link to="/tabview">TabView</router-link>
                 <router-link to="/toolbar">Toolbar</router-link>
             </div>

@@ -435,7 +435,12 @@ export default new Router({
 			path: '/rating',
 			name: 'rating',
 			component: () => import('./views/rating/RatingDemo.vue')
-		},
+        },
+        {
+			path: '/scrollpanel',
+			name: 'scrollpanel',
+			component: () => import('./views/scrollpanel/ScrollPanelDemo.vue')
+        },
 		{
 			path: '/selectbutton',
 			name: 'selectbutton',

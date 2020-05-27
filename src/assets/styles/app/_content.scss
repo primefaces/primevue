@@ -93,6 +93,10 @@
                 text-decoration: none;
                 color: $linkColor;
                 font-weight: 500;
+
+                &:hover {
+                    text-decoration: underline;
+                }
             }
 
             p {
@@ -152,6 +156,10 @@
                                 transition: background-color .2s, box-shadow .2s;
                                 box-shadow: 0 0 0 0.2em $focusBorderColor;
                             }
+
+                            &:hover {
+                                text-decoration: none;
+                            }
                         }
 
                         &.p-highlight a,
@@ -180,6 +188,10 @@
                         text-decoration: none;
                         color: $linkColor;
                         font-weight: 500;
+
+                        &:hover {
+                            text-decoration: underline;
+                        }
                     }
                 }
             }

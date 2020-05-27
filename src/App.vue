@@ -49,12 +49,6 @@ export default {
         $route: {
             immediate: true,
             handler(to) {
-                let route = window.location.href.split('/#')[1];
-                if (to.path === route) {
-                    window['gtag']('config', 'UA-93461466-1', {
-                        'page_path': '/primevue' + to.path
-                    });
-                }
                 this.sidebarActive = false;
                 this.$toast.removeAllGroups();
             }
