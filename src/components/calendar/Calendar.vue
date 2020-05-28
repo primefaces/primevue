@@ -3,7 +3,7 @@
         <CalendarInputText ref="input" v-if="!inline" type="text" v-bind="$attrs" v-on="listeners" :value="inputFieldValue" :readonly="!manualInput" :aria-labelledby="ariaLabelledBy" inputmode="none" />
         <CalendarButton v-if="showIcon" :icon="icon" tabindex="-1" class="p-datepicker-trigger" :disabled="$attrs.disabled" @click="onButtonClick" type="button" :aria-label="inputFieldValue"/>
         <transition name="p-input-overlay" @enter="onOverlayEnter" @after-enter="onOverlayEnterComplete" @leave="onOverlayLeave">
-            <div ref="overlay" :class="panelStyleClass" v-if="inline ? true : overlayVisible" role="dialog" :aria-labelledby="ariaLabelledBy">
+            <div ref="overlay" :class="panelStyleClass" v-if="inline ? true : overlayVisible" :role="inline ? null : dialog" :aria-labelledby="ariaLabelledBy">
                 <template v-if="!timeOnly">
                     <div class="p-datepicker-group" v-for="(month,groupIndex) of months" :key="month.month + month.year">
                         <div class="p-datepicker-header">
