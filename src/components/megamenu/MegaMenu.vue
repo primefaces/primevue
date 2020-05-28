@@ -215,8 +215,8 @@ export default {
         },
         getCategorySubMenuIcon() {
             return ['p-submenu-icon pi', {
-                'pi-caret-down': this.horizontal,
-                'pi-caret-right': this.vertical
+                'pi-angle-down': this.horizontal,
+                'pi-angle-right': this.vertical
             }];
         },
         getCategoryIcon(category) {

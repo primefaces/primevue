@@ -263,7 +263,7 @@ export default {
         },
         getSubmenuIcon() {
             return [
-                'p-submenu-icon pi', {'pi-caret-right': !this.root, 'pi-caret-down': this.root}
+                'p-submenu-icon pi', {'pi-angle-right': !this.root, 'pi-angle-down': this.root}
             ];
         },
         visible(item) {
