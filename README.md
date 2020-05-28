@@ -2,7 +2,7 @@
 [![License: MIT](https://img.shields.io/badge/License-MIT-yellow.svg)](https://opensource.org/licenses/MIT)
 [![npm version](https://badge.fury.io/js/primevue.svg)](https://badge.fury.io/js/primevue)
 
-[![PrimeVue Hero](https://www.primefaces.org/wp-content/uploads/2020/03/primevue-github-02032020.jpg "PrimeVue Hero")](https://www.primefaces.org/primevue)
+[![PrimeVue Hero](https://i2.wp.com/www.primefaces.org/wp-content/uploads/2020/05/experimental-1-1.jpg?resize=1060%2C596&ssl=1 "PrimeVue Hero")](https://www.primefaces.org/primevue)
 
 # PrimeVue
 
