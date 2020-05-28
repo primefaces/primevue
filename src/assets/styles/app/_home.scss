@@ -13,29 +13,12 @@
 
     .introduction {
         background-color: var(--layer-0);
-        background: url('./assets/images/home/primevue-introduction.jpg');
+        background: url('./assets/images/home/intro-bg.jpg');
         background-repeat: no-repeat;
         background-size: cover;
         padding: 115px 30px 135px 50px;
         color: #455C71;
-
-        h1 {
-            font-weight: 400;
-            margin-bottom: 5px;
-            font-size: 24px;
-        }
-
-        h2 {
-            font-weight: 700;
-            margin-bottom: 40px;
-            margin-top: 0;
-            font-size: 24px;
-        }
-
-        > div {
-            padding: 100px 100px 0 100px;
-            height: 200px;
-        }
+        position: relative;
 
         .introduction-promo {
             display: inline-block;
@@ -54,6 +37,26 @@
                 left: 50px;
                 top: -12px;
             }
+        }
+
+        h1 {
+            font-weight: 400;
+            margin-bottom: 5px;
+            font-size: 24px;
+        }
+
+        h2 {
+            font-weight: 700;
+            margin-bottom: 40px;
+            margin-top: 0;
+            font-size: 24px;
+        }
+
+        .introduction-devices {
+            position: absolute;
+            bottom: 0;
+            right: 0;
+            width: 60%;
         }
     }
 

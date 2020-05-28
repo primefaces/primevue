@@ -1,12 +1,15 @@
 <template>
     <div class="home">
         <div class="introduction">
-            <span class="introduction-promo"><img alt="Gold Sponsor" src="../assets/images/home/vue-gold.png" />
-            <span>Vue.js Gold Sponsor</span></span>
+            <span class="introduction-promo">
+                <img alt="Gold Sponsor" src="../assets/images/home/vue-gold.png" />
+                <span>Vue.js Gold Sponsor</span>
+            </span>
             <h1>The Ultimate UI Component Library</h1>
             <h2>for Vue</h2>
 
             <router-link to="/setup" class="action-button">GET STARTED</router-link>
+            <img alt="devices" class="introduction-devices" src="../assets/images/home/intro-devices.png" />
         </div>
 
         <div class="features">
