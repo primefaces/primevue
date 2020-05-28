@@ -69,6 +69,7 @@ export default {
     margin: 0;
     padding: 0;
     list-style-type: none;
+    flex-wrap: wrap;
 }
 
 .p-tabmenu-nav a {

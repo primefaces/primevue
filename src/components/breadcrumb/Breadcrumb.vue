@@ -37,6 +37,7 @@ export default {
     list-style-type: none;
     display: flex;
     align-items: center;
+    flex-wrap: wrap;
 }
 
 .p-breadcrumb .p-menuitem-text {

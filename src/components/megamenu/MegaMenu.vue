@@ -345,6 +345,7 @@ export default {
 .p-megamenu-horizontal .p-megamenu-root-list {
     display: flex;
     align-items: center;
+    flex-wrap: wrap;
 }
 
 /* Vertical */

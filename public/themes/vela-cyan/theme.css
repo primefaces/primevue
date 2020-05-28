@@ -1135,6 +1135,12 @@
 .p-fluid .p-button-icon-only {
   width: 2.357rem;
 }
+.p-fluid .p-buttonset {
+  display: flex;
+}
+.p-fluid .p-buttonset .p-button {
+  flex: 1;
+}
 
 .p-button.p-button-secondary, .p-buttonset.p-button-secondary > .p-button, .p-splitbutton.p-button-secondary > .p-button {
   color: #4DD0E1;
@@ -1273,6 +1279,7 @@
 }
 .p-carousel .p-carousel-indicators .p-carousel-indicator {
   margin-right: 0.5rem;
+  margin-bottom: 0.5rem;
 }
 .p-carousel .p-carousel-indicators .p-carousel-indicator button {
   background-color: #34495E;
