@@ -312,6 +312,11 @@
   box-shadow: 0 0 0 0.2rem #C5CAE9;
 }
 
+@media screen and (max-width: 769px) {
+  .p-datepicker table th, .p-datepicker table td {
+    padding: 0;
+  }
+}
 .p-checkbox {
   width: 1.5rem;
   height: 1.5rem;
@@ -1645,7 +1650,7 @@
   color: #ffffff;
 }
 
-@media screen and (max-width: 960px) {
+@media screen and (max-width: 769px) {
   .p-orderlist {
     flex-direction: column;
   }
@@ -1806,7 +1811,7 @@
   color: #ffffff;
 }
 
-@media screen and (max-width: 960px) {
+@media screen and (max-width: 769px) {
   .p-picklist {
     flex-direction: column;
   }

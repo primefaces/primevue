@@ -312,6 +312,11 @@
   box-shadow: 0 0 0 0.2rem #c2e9d8;
 }
 
+@media screen and (max-width: 769px) {
+  .p-datepicker table th, .p-datepicker table td {
+    padding: 0.25rem;
+  }
+}
 .p-checkbox {
   width: 1.5rem;
   height: 1.5rem;
