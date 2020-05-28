@@ -104,7 +104,7 @@
             <div class="p-grid">
                 <div class="p-col-6 p-md-2"><img alt="airbus" src="../assets/images/home/airbus.svg"/></div>
                 <div class="p-col-6 p-md-2"><img alt="amex" src="../assets/images/home/amex.svg"/></div>
-                <div class="p-col-6 p-md-2"><img alt="bmw" src="../assets/images/home/bmw.svg"/></div>
+                <div class="p-col-6 p-md-2"><img alt="bmw" src="../assets/images/home/nvidia.svg"/></div>
                 <div class="p-col-6 p-md-2"><img alt="ebay" src="../assets/images/home/ebay.svg"/></div>
                 <div class="p-col-6 p-md-2"><img alt="ford" src="../assets/images/home/ford.svg"/></div>
                 <div class="p-col-6 p-md-2"><img alt="fox" src="../assets/images/home/fox.svg"/></div>
