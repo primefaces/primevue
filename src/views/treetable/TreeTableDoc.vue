@@ -419,7 +419,7 @@ export default class NodeService {
                 {
                     "key": "7-1",
                     "data":{
-                        "name":"primeng.png",
+                        "name":"primevue.png",
                         "size":"30kb",
                         "type":"Picture"
                     }
