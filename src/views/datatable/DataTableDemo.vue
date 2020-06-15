@@ -42,7 +42,7 @@
                         <Column header="Country" :sortable="true" sortField="country.name" filterField="country.name" filterMatchMode="contains">
                             <template #body="slotProps">
                                 <span class="p-column-title">Country</span>
-                                <img src="../../assets/images/flag_placeholder.png" :class="'flag flag-' + slotProps.data.country.code"  />
+                                <img src="../../assets/images/flag_placeholder.png" :class="'flag flag-' + slotProps.data.country.code" width="30" />
                                 <span style="vertical-align: middle; margin-left: .5em">{{slotProps.data.country.name}}</span>
                             </template>
                             <template #filter>
