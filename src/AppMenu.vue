@@ -18,9 +18,10 @@
                 <span>Utilities</span>
             </span>
             <div>
-                <router-link to="/elevation">Elevation</router-link>
-                <router-link to="/flexgrid">Grid System</router-link>
                 <router-link to="/icons">Icons</router-link>
+                <router-link to="/flexgrid">Grid System</router-link>
+                <router-link to="/elevation">Elevation</router-link>
+                <router-link to="/spacing">Spacing</router-link>
             </div>
 
             <span>

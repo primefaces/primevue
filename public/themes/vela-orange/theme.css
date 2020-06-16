@@ -51,22 +51,6 @@
   box-shadow: 0 0 0 0.1rem #FFECB3;
 }
 
-::-webkit-input-placeholder {
-  color: #aeb6bf;
-}
-
-:-moz-placeholder {
-  color: #aeb6bf;
-}
-
-::-moz-placeholder {
-  color: #aeb6bf;
-}
-
-:-ms-input-placeholder {
-  color: #aeb6bf;
-}
-
 .p-autocomplete .p-autocomplete-loader {
   right: 0.5rem;
 }
@@ -122,7 +106,7 @@
   border: 0 none;
   color: #ebedef;
   background: transparent;
-  transition: background-color 0.2s, box-shadow 0.2s;
+  transition: background-color 0.2s, color 0.2s, border-color 0.2s, box-shadow 0.2s;
   border-radius: 0;
 }
 .p-autocomplete-panel .p-autocomplete-items .p-autocomplete-item:hover {
@@ -169,20 +153,22 @@
   width: 2.5rem;
   height: 2.5rem;
   color: #aeb6bf;
+  border: 0 none;
   background: transparent;
   border-radius: 50%;
-  transition: background-color 0.2s, background-color 0.2s, box-shadow 0.2s;
+  transition: background-color 0.2s, color 0.2s, border-color 0.2s, box-shadow 0.2s;
 }
 .p-datepicker .p-datepicker-header .p-datepicker-prev:hover,
 .p-datepicker .p-datepicker-header .p-datepicker-next:hover {
   color: #ebedef;
+  border-color: transparent;
   background: rgba(255, 255, 255, 0.1);
 }
 .p-datepicker .p-datepicker-header .p-datepicker-title {
   line-height: 1;
 }
 .p-datepicker .p-datepicker-header .p-datepicker-title select {
-  transition: border-color 0.2s, box-shadow 0.2s;
+  transition: background-color 0.2s, color 0.2s, border-color 0.2s, box-shadow 0.2s;
 }
 .p-datepicker .p-datepicker-header .p-datepicker-title select:focus {
   outline: 0 none;
@@ -211,7 +197,7 @@
   width: 2.5rem;
   height: 2.5rem;
   border-radius: 50%;
-  transition: background-color 0.2s, box-shadow 0.2s;
+  transition: background-color 0.2s, color 0.2s, border-color 0.2s, box-shadow 0.2s;
 }
 .p-datepicker table td > span.p-highlight {
   color: #212529;
@@ -247,7 +233,7 @@
   color: #aeb6bf;
   background: transparent;
   border-radius: 50%;
-  transition: background-color 0.2s, background-color 0.2s, box-shadow 0.2s;
+  transition: background-color 0.2s, color 0.2s, border-color 0.2s, box-shadow 0.2s;
 }
 .p-datepicker .p-timepicker button:hover {
   color: #ebedef;
@@ -270,7 +256,7 @@
 }
 .p-datepicker .p-monthpicker .p-monthpicker-month {
   padding: 0.5rem;
-  transition: background-color 0.2s, box-shadow 0.2s;
+  transition: background-color 0.2s, color 0.2s, border-color 0.2s, box-shadow 0.2s;
   border-radius: 3px;
 }
 .p-datepicker .p-monthpicker .p-monthpicker-month.p-highlight {
@@ -312,6 +298,11 @@
   box-shadow: 0 0 0 0.1rem #FFECB3;
 }
 
+@media screen and (max-width: 769px) {
+  .p-datepicker table th, .p-datepicker table td {
+    padding: 0;
+  }
+}
 .p-checkbox {
   width: 1.5rem;
   height: 1.5rem;
@@ -323,7 +314,7 @@
   height: 1.5rem;
   color: #ebedef;
   border-radius: 3px;
-  transition: background-color 0.2s, border-color 0.2s, box-shadow 0.2s;
+  transition: background-color 0.2s, color 0.2s, border-color 0.2s, box-shadow 0.2s;
 }
 .p-checkbox .p-checkbox-box .p-checkbox-icon {
   transition-duration: 0.2s;
@@ -409,7 +400,7 @@
 .p-dropdown {
   background: #34495E;
   border: 1px solid #2C3E50;
-  transition: border-color 0.2s, box-shadow 0.2s;
+  transition: background-color 0.2s, color 0.2s, border-color 0.2s, box-shadow 0.2s;
   border-radius: 3px;
 }
 .p-dropdown:not(.p-disabled):hover {
@@ -476,7 +467,7 @@
   border: 0 none;
   color: #ebedef;
   background: transparent;
-  transition: background-color 0.2s, box-shadow 0.2s;
+  transition: background-color 0.2s, color 0.2s, border-color 0.2s, box-shadow 0.2s;
   border-radius: 0;
 }
 .p-dropdown-panel .p-dropdown-items .p-dropdown-item.p-highlight {
@@ -610,7 +601,7 @@
 }
 .p-inputswitch .p-inputswitch-slider {
   background: #34495E;
-  transition: background-color 0.2s, box-shadow 0.2s;
+  transition: background-color 0.2s, color 0.2s, border-color 0.2s, box-shadow 0.2s;
   border-radius: 30px;
 }
 .p-inputswitch .p-inputswitch-slider:before {
@@ -654,7 +645,7 @@
   padding: 0.5rem 0.5rem;
   border: 1px solid #2C3E50;
   border-width: 1px;
-  transition: border-color 0.2s, box-shadow 0.2s;
+  transition: background-color 0.2s, color 0.2s, border-color 0.2s, box-shadow 0.2s;
   appearance: none;
   border-radius: 3px;
 }
@@ -704,6 +695,22 @@
   padding-right: 2rem;
 }
 
+::-webkit-input-placeholder {
+  color: #aeb6bf;
+}
+
+:-moz-placeholder {
+  color: #aeb6bf;
+}
+
+::-moz-placeholder {
+  color: #aeb6bf;
+}
+
+:-ms-input-placeholder {
+  color: #aeb6bf;
+}
+
 .p-listbox {
   background: #1C2833;
   color: #ebedef;
@@ -734,7 +741,7 @@
   padding: 0.5rem 1rem;
   border: 0 none;
   color: #ebedef;
-  transition: background-color 0.2s, box-shadow 0.2s;
+  transition: background-color 0.2s, color 0.2s, border-color 0.2s, box-shadow 0.2s;
   border-radius: 0;
 }
 .p-listbox .p-listbox-list .p-listbox-item.p-highlight {
@@ -758,7 +765,7 @@
 .p-multiselect {
   background: #34495E;
   border: 1px solid #2C3E50;
-  transition: border-color 0.2s, box-shadow 0.2s;
+  transition: background-color 0.2s, color 0.2s, border-color 0.2s, box-shadow 0.2s;
   border-radius: 3px;
 }
 .p-multiselect:not(.p-disabled):hover {
@@ -814,13 +821,15 @@
   width: 2rem;
   height: 2rem;
   color: #aeb6bf;
+  border: 0 none;
   background: rgba(255, 255, 255, 0.1);
   border-radius: 50%;
-  transition: background-color 0.2s, box-shadow 0.2s, box-shadow 0.2s;
+  transition: background-color 0.2s, color 0.2s, border-color 0.2s, box-shadow 0.2s;
   margin-left: 0.5rem;
 }
 .p-multiselect-panel .p-multiselect-header .p-multiselect-close:hover {
   color: #ebedef;
+  border-color: transparent;
   background: rgba(255, 255, 255, 0.2);
 }
 .p-multiselect-panel .p-multiselect-items {
@@ -832,7 +841,7 @@
   border: 0 none;
   color: #ebedef;
   background: transparent;
-  transition: background-color 0.2s, box-shadow 0.2s;
+  transition: background-color 0.2s, color 0.2s, border-color 0.2s, box-shadow 0.2s;
   border-radius: 0;
 }
 .p-multiselect-panel .p-multiselect-items .p-multiselect-item.p-highlight {
@@ -878,7 +887,7 @@
   height: 1.5rem;
   color: #ebedef;
   border-radius: 50%;
-  transition: background-color 0.2s, border-color 0.2s, box-shadow 0.2s;
+  transition: background-color 0.2s, color 0.2s, border-color 0.2s, box-shadow 0.2s;
 }
 .p-radiobutton .p-radiobutton-box:not(.p-disabled):not(.p-highlight):hover {
   border-color: #FFD54F;
@@ -910,7 +919,7 @@
 .p-rating .p-rating-icon {
   color: #ebedef;
   margin-left: 0.5rem;
-  transition: color 0.2s, box-shadow 0.2s;
+  transition: background-color 0.2s, color 0.2s, border-color 0.2s, box-shadow 0.2s;
   font-size: 1.143rem;
 }
 .p-rating .p-rating-icon.p-rating-cancel {
@@ -935,7 +944,7 @@
   background: #34495E;
   border: 1px solid #34495E;
   color: #ebedef;
-  transition: background-color 0.2s, box-shadow 0.2s;
+  transition: background-color 0.2s, color 0.2s, border-color 0.2s, box-shadow 0.2s;
 }
 .p-selectbutton .p-button .p-button-icon-left,
 .p-selectbutton .p-button .p-button-icon-right {
@@ -998,7 +1007,7 @@
   background: #34495E;
   border: 2px solid #FFD54F;
   border-radius: 50%;
-  transition: background-color 0.2s, box-shadow 0.2s;
+  transition: background-color 0.2s, color 0.2s, border-color 0.2s, box-shadow 0.2s;
 }
 .p-slider .p-slider-handle:focus {
   outline: 0 none;
@@ -1017,7 +1026,7 @@
   background: #34495E;
   border: 1px solid #34495E;
   color: #ebedef;
-  transition: background-color 0.2s, box-shadow 0.2s;
+  transition: background-color 0.2s, color 0.2s, border-color 0.2s, box-shadow 0.2s;
 }
 .p-togglebutton.p-button .p-button-icon-left,
 .p-togglebutton.p-button .p-button-icon-right {
@@ -1061,7 +1070,7 @@
   border: 1px solid #FFD54F;
   padding: 0.5rem 1rem;
   font-size: 1rem;
-  transition: background-color 0.2s, box-shadow 0.2s;
+  transition: background-color 0.2s, color 0.2s, border-color 0.2s, box-shadow 0.2s;
   border-radius: 3px;
 }
 .p-button:enabled:hover {
@@ -1262,16 +1271,18 @@
 .p-carousel .p-carousel-content .p-carousel-prev,
 .p-carousel .p-carousel-content .p-carousel-next {
   background: transparent;
+  border: 0 none;
   color: #aeb6bf;
   border-radius: 50%;
   width: 2rem;
   height: 2rem;
-  transition: background-color 0.2s, box-shadow 0.2s;
+  transition: background-color 0.2s, color 0.2s, border-color 0.2s, box-shadow 0.2s;
   margin: 0.5rem;
 }
 .p-carousel .p-carousel-content .p-carousel-prev:not(.p-disabled):hover,
 .p-carousel .p-carousel-content .p-carousel-next:not(.p-disabled):hover {
   background: rgba(255, 255, 255, 0.1);
+  border-color: transparent;
   color: #aeb6bf;
 }
 .p-carousel .p-carousel-indicators {
@@ -1285,7 +1296,7 @@
   background-color: #34495E;
   width: 2rem;
   height: 0.5rem;
-  transition: background-color 0.2s, box-shadow 0.2s;
+  transition: background-color 0.2s, color 0.2s, border-color 0.2s, box-shadow 0.2s;
   border-radius: 0;
 }
 .p-carousel .p-carousel-indicators .p-carousel-indicator button:hover {
@@ -1332,7 +1343,7 @@
   font-weight: 600;
   color: #ebedef;
   background: #1C2833;
-  transition: background-color 0.2s, outline-color 0.2s;
+  transition: background-color 0.2s, color 0.2s, border-color 0.2s, box-shadow 0.2s;
 }
 .p-datatable .p-datatable-tfoot > tr > td {
   text-align: left;
@@ -1376,7 +1387,7 @@
 .p-datatable .p-datatable-tbody > tr {
   background: #1C2833;
   color: #ebedef;
-  transition: background-color 0.2s, box-shadow 0.2s;
+  transition: background-color 0.2s, color 0.2s, border-color 0.2s, box-shadow 0.2s;
   outline-color: #FFECB3;
 }
 .p-datatable .p-datatable-tbody > tr > td {
@@ -1387,7 +1398,7 @@
 }
 .p-datatable .p-datatable-tbody > tr > td .p-row-toggler {
   color: #aeb6bf;
-  transition: color 0.2s, box-shadow 0.2s;
+  transition: background-color 0.2s, color 0.2s, border-color 0.2s, box-shadow 0.2s;
 }
 .p-datatable .p-datatable-tbody > tr > td .p-row-toggler:hover {
   color: #FFD54F;
@@ -1534,7 +1545,7 @@
   background: #FFD54F;
   border: 1px solid #FFD54F;
   font-size: 1rem;
-  transition: background-color 0.2s, box-shadow 0.2s;
+  transition: background-color 0.2s, color 0.2s, border-color 0.2s, box-shadow 0.2s;
   border-radius: 3px;
   display: flex;
   align-items: center;
@@ -1569,7 +1580,7 @@
   background: #34495E;
   border: 1px solid #34495E;
   color: #ebedef;
-  transition: background-color 0.2s, box-shadow 0.2s;
+  transition: background-color 0.2s, color 0.2s, border-color 0.2s, box-shadow 0.2s;
 }
 .fc .fc-toolbar .fc-button.fc-dayGridMonth-button:not(.p-disabled):not(.fc-active):hover, .fc .fc-toolbar .fc-button.fc-timeGridWeek-button:not(.p-disabled):not(.fc-active):hover, .fc .fc-toolbar .fc-button.fc-timeGridDay-button:not(.p-disabled):not(.fc-active):hover {
   background: #485b6e;
@@ -1629,7 +1640,7 @@
   border: 0 none;
   color: #ebedef;
   background: transparent;
-  transition: transform 0.2s, background-color 0.2s, box-shadow 0.2s;
+  transition: transform 0.2s, background-color 0.2s, color 0.2s, border-color 0.2s, box-shadow 0.2s;
 }
 .p-orderlist .p-orderlist-list .p-orderlist-item:not(.p-highlight):hover {
   background: rgba(255, 255, 255, 0.1);
@@ -1694,7 +1705,7 @@
   margin-left: -0.46em;
   color: #aeb6bf;
   border-radius: 3px;
-  transition: color 0.2s, box-shadow 0.2s;
+  transition: background-color 0.2s, color 0.2s, border-color 0.2s, box-shadow 0.2s;
 }
 .p-organizationchart .p-organizationchart-node-content .p-node-toggler:focus {
   outline: 0 none;
@@ -1716,12 +1727,13 @@
 .p-paginator .p-paginator-prev,
 .p-paginator .p-paginator-next,
 .p-paginator .p-paginator-last {
+  background-color: transparent;
+  border: 0 none;
   color: #aeb6bf;
   min-width: 2.357rem;
   height: 2.357rem;
-  border: 0 none;
   margin: 0.143rem;
-  transition: background-color 0.2s, box-shadow 0.2s;
+  transition: background-color 0.2s, color 0.2s, border-color 0.2s, box-shadow 0.2s;
   border-radius: 3px;
 }
 .p-paginator .p-paginator-first:not(.p-disabled):not(.p-highlight):hover,
@@ -1729,6 +1741,7 @@
 .p-paginator .p-paginator-next:not(.p-disabled):not(.p-highlight):hover,
 .p-paginator .p-paginator-last:not(.p-disabled):not(.p-highlight):hover {
   background: rgba(255, 255, 255, 0.1);
+  border-color: transparent;
   color: #ebedef;
 }
 .p-paginator .p-dropdown {
@@ -1743,20 +1756,23 @@
   border: 0 none;
 }
 .p-paginator .p-paginator-pages .p-paginator-page {
+  background-color: transparent;
+  border: 0 none;
   color: #aeb6bf;
   min-width: 2.357rem;
   height: 2.357rem;
-  border: 0 none;
   margin: 0.143rem;
-  transition: background-color 0.2s, box-shadow 0.2s;
+  transition: background-color 0.2s, color 0.2s, border-color 0.2s, box-shadow 0.2s;
   border-radius: 3px;
 }
 .p-paginator .p-paginator-pages .p-paginator-page.p-highlight {
   background: #FFD54F;
+  border-color: #FFD54F;
   color: #212529;
 }
 .p-paginator .p-paginator-pages .p-paginator-page:not(.p-highlight):hover {
   background: rgba(255, 255, 255, 0.1);
+  border-color: transparent;
   color: #ebedef;
 }
 
@@ -1790,7 +1806,7 @@
   border: 0 none;
   color: #ebedef;
   background: transparent;
-  transition: transform 0.2s, background-color 0.2s, box-shadow 0.2s;
+  transition: transform 0.2s, background-color 0.2s, color 0.2s, border-color 0.2s, box-shadow 0.2s;
 }
 .p-picklist .p-picklist-list .p-picklist-item:not(.p-highlight):hover {
   background: rgba(255, 255, 255, 0.1);
@@ -1846,13 +1862,13 @@
 }
 .p-tree .p-tree-container .p-treenode .p-treenode-content {
   border-radius: 3px;
-  transition: background-color 0.2s, box-shadow 0.2s;
+  transition: background-color 0.2s, color 0.2s, border-color 0.2s, box-shadow 0.2s;
   padding: 0.5rem;
 }
 .p-tree .p-tree-container .p-treenode .p-treenode-content .p-tree-toggler {
   margin-right: 0.5rem;
   color: #aeb6bf;
-  transition: color 0.2s, box-shadow 0.2s;
+  transition: background-color 0.2s, color 0.2s, border-color 0.2s, box-shadow 0.2s;
 }
 .p-tree .p-tree-container .p-treenode .p-treenode-content .p-tree-toggler:hover {
   color: #FFD54F;
@@ -1938,7 +1954,7 @@
   font-weight: 600;
   color: #ebedef;
   background: #1C2833;
-  transition: background-color 0.2s, outline-color 0.2s;
+  transition: background-color 0.2s, color 0.2s, border-color 0.2s, box-shadow 0.2s;
 }
 .p-treetable .p-treetable-tfoot > tr > td {
   text-align: left;
@@ -1982,7 +1998,7 @@
 .p-treetable .p-treetable-tbody > tr {
   background: #1C2833;
   color: #ebedef;
-  transition: background-color 0.2s, box-shadow 0.2s;
+  transition: background-color 0.2s, color 0.2s, border-color 0.2s, box-shadow 0.2s;
   outline-color: #FFECB3;
 }
 .p-treetable .p-treetable-tbody > tr > td {
@@ -1994,7 +2010,7 @@
 .p-treetable .p-treetable-tbody > tr > td .p-treetable-toggler {
   color: #aeb6bf;
   margin-right: 0.5rem;
-  transition: color 0.2s, box-shadow 0.2s;
+  transition: background-color 0.2s, color 0.2s, border-color 0.2s, box-shadow 0.2s;
 }
 .p-treetable .p-treetable-tbody > tr > td .p-treetable-toggler:hover {
   color: #FFD54F;
@@ -2070,7 +2086,7 @@
   background: #1C2833;
   font-weight: 600;
   border-radius: 3px;
-  transition: background-color 0.2s, box-shadow 0.2s;
+  transition: background-color 0.2s, color 0.2s, border-color 0.2s, box-shadow 0.2s;
 }
 .p-accordion .p-accordion-header .p-accordion-header-link .p-accordion-toggle-icon {
   margin-right: 0.5rem;
@@ -2171,13 +2187,13 @@
 }
 .p-fieldset.p-fieldset-toggleable .p-fieldset-legend {
   padding: 0;
-  transition: background-color 0.2s, box-shadow 0.2s;
+  transition: background-color 0.2s, color 0.2s, border-color 0.2s, box-shadow 0.2s;
 }
 .p-fieldset.p-fieldset-toggleable .p-fieldset-legend a {
   padding: 1rem;
   color: #ebedef;
   border-radius: 3px;
-  transition: background-color 0.2s, box-shadow 0.2s;
+  transition: background-color 0.2s, color 0.2s, border-color 0.2s, box-shadow 0.2s;
 }
 .p-fieldset.p-fieldset-toggleable .p-fieldset-legend a .p-fieldset-toggler {
   margin-right: 0.5rem;
@@ -2209,11 +2225,13 @@
   height: 2rem;
   color: #aeb6bf;
   background: transparent;
+  border: 0 none;
   border-radius: 50%;
-  transition: background-color 0.2s, background-color 0.2s, box-shadow 0.2s;
+  transition: background-color 0.2s, color 0.2s, border-color 0.2s, box-shadow 0.2s;
 }
 .p-panel .p-panel-header .p-panel-header-icon:hover {
   color: #ebedef;
+  border-color: transparent;
   background: rgba(255, 255, 255, 0.1);
 }
 .p-panel .p-panel-header .p-panel-header-icon:focus {
@@ -2258,7 +2276,7 @@
   font-weight: 600;
   border-top-right-radius: 3px;
   border-top-left-radius: 3px;
-  transition: border-color 0.2s, box-shadow 0.2s;
+  transition: background-color 0.2s, color 0.2s, border-color 0.2s, box-shadow 0.2s;
   margin: 0 0 -2px 0;
 }
 .p-tabview .p-tabview-nav li .p-tabview-nav-link:not(.p-disabled):focus {
@@ -2318,13 +2336,15 @@
   width: 2rem;
   height: 2rem;
   color: #aeb6bf;
+  border: 0 none;
   background: transparent;
   border-radius: 50%;
-  transition: background-color 0.2s, box-shadow 0.2s, box-shadow 0.2s;
+  transition: background-color 0.2s, color 0.2s, border-color 0.2s, box-shadow 0.2s;
   margin-right: 0.5rem;
 }
 .p-dialog .p-dialog-header .p-dialog-header-icon:hover {
   color: #ebedef;
+  border-color: transparent;
   background: rgba(255, 255, 255, 0.1);
 }
 .p-dialog .p-dialog-header .p-dialog-header-icon:focus {
@@ -2370,6 +2390,7 @@
 }
 .p-overlaypanel .p-overlaypanel-close {
   background: #FFD54F;
+  border: 0 none;
   color: #212529;
   width: 2rem;
   height: 2rem;
@@ -2377,10 +2398,11 @@
   top: -1rem;
   right: -1rem;
   border-radius: 50%;
-  transition: background-color 0.2s, box-shadow 0.2s;
+  transition: background-color 0.2s, color 0.2s, border-color 0.2s, box-shadow 0.2s;
 }
 .p-overlaypanel .p-overlaypanel-close:hover {
   background: #FFC107;
+  border-color: transparent;
   color: #212529;
 }
 .p-overlaypanel:after {
@@ -2409,14 +2431,16 @@
 }
 .p-sidebar .p-sidebar-close {
   background: transparent;
+  border: 0 none;
   color: #aeb6bf;
   width: 2rem;
   height: 2rem;
   border-radius: 50%;
-  transition: background-color 0.2s, box-shadow 0.2s;
+  transition: background-color 0.2s, color 0.2s, border-color 0.2s, box-shadow 0.2s;
 }
 .p-sidebar .p-sidebar-close:hover {
   background: rgba(255, 255, 255, 0.1);
+  border-color: transparent;
   color: #ebedef;
 }
 
@@ -2494,7 +2518,7 @@
   padding: 1rem;
 }
 .p-breadcrumb ul li .p-menuitem-link {
-  transition: background-color 0.2s, box-shadow 0.2s;
+  transition: background-color 0.2s, color 0.2s, border-color 0.2s, box-shadow 0.2s;
   border-radius: 3px;
 }
 .p-breadcrumb ul li .p-menuitem-link:focus {
@@ -2525,7 +2549,7 @@
   padding: 0.75rem 1rem;
   color: #ebedef;
   border-radius: 0;
-  transition: background-color 0.2s, box-shadow 0.2s;
+  transition: background-color 0.2s, color 0.2s, border-color 0.2s, box-shadow 0.2s;
   user-select: none;
 }
 .p-contextmenu .p-menuitem-link .p-menuitem-text {
@@ -2575,7 +2599,7 @@
   margin: 0.25rem 0;
 }
 .p-contextmenu .p-submenu-icon {
-  font-size: 0.75rem;
+  font-size: 0.875rem;
 }
 
 .p-megamenu {
@@ -2589,7 +2613,7 @@
   padding: 0.75rem 1rem;
   color: #ebedef;
   border-radius: 3px;
-  transition: background-color 0.2s, box-shadow 0.2s;
+  transition: background-color 0.2s, color 0.2s, border-color 0.2s, box-shadow 0.2s;
   user-select: none;
 }
 .p-megamenu .p-megamenu-root-list > .p-menuitem > .p-menuitem-link .p-menuitem-text {
@@ -2624,7 +2648,7 @@
   padding: 0.75rem 1rem;
   color: #ebedef;
   border-radius: 0;
-  transition: background-color 0.2s, box-shadow 0.2s;
+  transition: background-color 0.2s, color 0.2s, border-color 0.2s, box-shadow 0.2s;
   user-select: none;
 }
 .p-megamenu .p-menuitem-link .p-menuitem-text {
@@ -2703,7 +2727,7 @@
   padding: 0.75rem 1rem;
   color: #ebedef;
   border-radius: 0;
-  transition: background-color 0.2s, box-shadow 0.2s;
+  transition: background-color 0.2s, color 0.2s, border-color 0.2s, box-shadow 0.2s;
   user-select: none;
 }
 .p-menu .p-menuitem-link .p-menuitem-text {
@@ -2762,7 +2786,7 @@
   padding: 0.75rem 1rem;
   color: #ebedef;
   border-radius: 0;
-  transition: background-color 0.2s, box-shadow 0.2s;
+  transition: background-color 0.2s, color 0.2s, border-color 0.2s, box-shadow 0.2s;
   user-select: none;
 }
 .p-menubar .p-menuitem-link .p-menuitem-text {
@@ -2796,7 +2820,7 @@
   padding: 0.75rem 1rem;
   color: #ebedef;
   border-radius: 3px;
-  transition: background-color 0.2s, box-shadow 0.2s;
+  transition: background-color 0.2s, color 0.2s, border-color 0.2s, box-shadow 0.2s;
   user-select: none;
 }
 .p-menubar .p-menubar-root-list > .p-menuitem > .p-menuitem-link .p-menuitem-text {
@@ -2839,7 +2863,7 @@
   margin: 0.25rem 0;
 }
 .p-menubar .p-submenu-list .p-submenu-icon {
-  font-size: 0.75rem;
+  font-size: 0.875rem;
 }
 .p-menubar .p-menuitem.p-menuitem-active > .p-menuitem-link {
   background: rgba(255, 255, 255, 0.1);
@@ -2859,14 +2883,19 @@
     display: flex;
     color: #aeb6bf;
     background: transparent;
-    border: 1px solid rgba(255, 255, 255, 0.1);
+    border: 0 none;
     width: 2.5rem;
     height: 2.5rem;
     border-radius: 3px;
-    transition: box-shadow 0.2s;
+    transition: background-color 0.2s, color 0.2s, border-color 0.2s, box-shadow 0.2s;
   }
   .p-menubar .p-menubar-button i {
     font-size: 1.5rem;
+  }
+  .p-menubar .p-menubar-button:hover {
+    color: #aeb6bf;
+    background: rgba(255, 255, 255, 0.1);
+    border-color: transparent;
   }
   .p-menubar .p-menubar-button:focus {
     outline: 0 none;
@@ -2887,7 +2916,7 @@
     margin: 0.25rem 0;
   }
   .p-menubar .p-menubar-root-list .p-submenu-icon {
-    font-size: 0.75rem;
+    font-size: 0.875rem;
   }
   .p-menubar .p-menubar-root-list > .p-menuitem {
     width: 100%;
@@ -2897,7 +2926,7 @@
     padding: 0.75rem 1rem;
     color: #ebedef;
     border-radius: 0;
-    transition: background-color 0.2s, box-shadow 0.2s;
+    transition: background-color 0.2s, color 0.2s, border-color 0.2s, box-shadow 0.2s;
     user-select: none;
   }
   .p-menubar .p-menubar-root-list > .p-menuitem > .p-menuitem-link .p-menuitem-text {
@@ -2981,7 +3010,7 @@
   background: #1C2833;
   font-weight: 600;
   border-radius: 3px;
-  transition: background-color 0.2s, box-shadow 0.2s;
+  transition: background-color 0.2s, color 0.2s, border-color 0.2s, box-shadow 0.2s;
 }
 .p-panelmenu .p-panelmenu-header > a .p-panelmenu-icon {
   margin-right: 0.5rem;
@@ -3030,7 +3059,7 @@
   padding: 0.75rem 1rem;
   color: #ebedef;
   border-radius: 0;
-  transition: background-color 0.2s, box-shadow 0.2s;
+  transition: background-color 0.2s, color 0.2s, border-color 0.2s, box-shadow 0.2s;
   user-select: none;
 }
 .p-panelmenu .p-panelmenu-content .p-menuitem .p-menuitem-link .p-menuitem-text {
@@ -3089,7 +3118,7 @@
 
 .p-steps .p-steps-item .p-menuitem-link {
   background: transparent;
-  transition: background-color 0.2s, box-shadow 0.2s;
+  transition: background-color 0.2s, color 0.2s, border-color 0.2s, box-shadow 0.2s;
   border-radius: 3px;
   background: transparent;
 }
@@ -3149,7 +3178,7 @@
   font-weight: 600;
   border-top-right-radius: 3px;
   border-top-left-radius: 3px;
-  transition: border-color 0.2s, box-shadow 0.2s;
+  transition: background-color 0.2s, color 0.2s, border-color 0.2s, box-shadow 0.2s;
   margin: 0 0 -2px 0;
 }
 .p-tabmenu .p-tabmenu-nav .p-tabmenuitem .p-menuitem-link .p-menuitem-icon {
@@ -3185,7 +3214,7 @@
   padding: 0.75rem 1rem;
   color: #ebedef;
   border-radius: 0;
-  transition: background-color 0.2s, box-shadow 0.2s;
+  transition: background-color 0.2s, color 0.2s, border-color 0.2s, box-shadow 0.2s;
   user-select: none;
 }
 .p-tieredmenu .p-menuitem-link .p-menuitem-text {
@@ -3239,7 +3268,7 @@
   margin: 0.25rem 0;
 }
 .p-tieredmenu .p-submenu-icon {
-  font-size: 0.75rem;
+  font-size: 0.875rem;
 }
 
 .p-inline-message {
@@ -3357,7 +3386,7 @@
   border-radius: 50%;
   width: 2rem;
   height: 2rem;
-  transition: background-color 0.2s, box-shadow 0.2s;
+  transition: background-color 0.2s, color 0.2s, border-color 0.2s, box-shadow 0.2s;
 }
 .p-message .p-message-close:hover {
   background: rgba(255, 255, 255, 0.5);
@@ -3403,7 +3432,7 @@
   border-radius: 50%;
   width: 2rem;
   height: 2rem;
-  transition: background-color 0.2s, box-shadow 0.2s;
+  transition: background-color 0.2s, color 0.2s, border-color 0.2s, box-shadow 0.2s;
 }
 .p-toast .p-toast-item-container .p-toast-icon-close:hover {
   background: rgba(255, 255, 255, 0.2);
@@ -3455,7 +3484,7 @@
   color: #ebedef;
   width: 4rem;
   height: 4rem;
-  transition: background-color 0.2s, box-shadow 0.2s;
+  transition: background-color 0.2s, color 0.2s, border-color 0.2s, box-shadow 0.2s;
   border-radius: 50%;
 }
 .p-galleria .p-galleria-close .p-galleria-close-icon {
@@ -3470,7 +3499,7 @@
   color: #aeb6bf;
   width: 4rem;
   height: 4rem;
-  transition: background-color 0.2s, box-shadow 0.2s;
+  transition: background-color 0.2s, color 0.2s, border-color 0.2s, box-shadow 0.2s;
 }
 .p-galleria .p-galleria-item-nav .p-galleria-item-prev-icon,
 .p-galleria .p-galleria-item-nav .p-galleria-item-next-icon {
@@ -3492,7 +3521,7 @@
   background-color: #34495E;
   width: 1rem;
   height: 1rem;
-  transition: background-color 0.2s, box-shadow 0.2s;
+  transition: background-color 0.2s, color 0.2s, border-color 0.2s, box-shadow 0.2s;
   border-radius: 50%;
 }
 .p-galleria .p-galleria-indicators .p-galleria-indicator button:hover {
@@ -3532,7 +3561,7 @@
   color: #aeb6bf;
   width: 2rem;
   height: 2rem;
-  transition: background-color 0.2s, box-shadow 0.2s;
+  transition: background-color 0.2s, color 0.2s, border-color 0.2s, box-shadow 0.2s;
   border-radius: 50%;
 }
 .p-galleria .p-galleria-thumbnail-container .p-galleria-thumbnail-prev:hover,
@@ -3548,7 +3577,7 @@
 .p-inplace .p-inplace-display {
   padding: 0.5rem 0.5rem;
   border-radius: 3px;
-  transition: background-color 0.2s, box-shadow 0.2s;
+  transition: background-color 0.2s, color 0.2s, border-color 0.2s, box-shadow 0.2s;
 }
 .p-inplace .p-inplace-display:not(.p-disabled):hover {
   background: rgba(255, 255, 255, 0.1);

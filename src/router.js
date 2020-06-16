@@ -465,6 +465,11 @@ export default new Router({
 			path: '/slider',
 			name: 'slider',
 			component: () => import('./views/slider/SliderDemo.vue')
+        },
+        {
+			path: '/spacing',
+			name: 'spacing',
+			component: () => import('./views/spacing/SpacingDemo.vue')
 		},
 		{
 			path: '/splitbutton',
