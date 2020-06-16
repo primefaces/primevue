@@ -290,6 +290,11 @@ export default new Router({
 			path: '/editor',
 			name: 'editor',
 			component: () => import('./views/editor/EditorDemo.vue')
+        },
+        {
+			path: '/elevation',
+			name: 'elevation',
+			component: () => import('./views/elevation/ElevationDemo.vue')
 		},
 		{
 			path: '/fieldset',
@@ -451,11 +456,6 @@ export default new Router({
 			name: 'selectbutton',
 			component: () => import('./views/selectbutton/SelectButtonDemo.vue')
         },
-        {
-			path: '/shadow',
-			name: 'shadow',
-			component: () => import('./views/shadow/ShadowDemo.vue')
-		},
 		{
 			path: '/sidebar',
 			name: 'sidebar',

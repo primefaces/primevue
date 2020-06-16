@@ -11,7 +11,15 @@
                 <a href="https://www.primefaces.org/designer/primevue">Designer</a>
                 <a href="https://www.primefaces.org/designer/api/primevue/2.0.0">Sass API</a>
                 <router-link to="/accessibility">Accessibility</router-link>
-                <router-link to="/flexgrid">PrimeFlex</router-link>
+            </div>
+
+            <span>
+                <i class="pi pi-cog"></i>
+                <span>Utilities</span>
+            </span>
+            <div>
+                <router-link to="/elevation">Elevation</router-link>
+                <router-link to="/flexgrid">Grid System</router-link>
                 <router-link to="/icons">Icons</router-link>
             </div>
 
@@ -256,7 +264,6 @@
                 <router-link to="/inplace">Inplace</router-link>
                 <router-link to="/progressbar">ProgressBar</router-link>
                 <router-link to="/progressspinner">ProgressSpinner</router-link>
-                <router-link to="/shadow">Shadow</router-link>
                 <router-link to="/terminal">Terminal</router-link>
             </div>
         </div>
