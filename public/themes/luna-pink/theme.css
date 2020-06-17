@@ -1356,7 +1356,7 @@
   background: #323232;
   color: #dedede;
   border: 1px solid #191919;
-  border-width: 1px;
+  border-width: 0 1px 1px 1px;
   padding: 0.571rem 1rem;
   font-weight: normal;
   border-bottom-left-radius: 3px;
@@ -1446,19 +1446,6 @@
 .p-datatable .p-datatable-tbody > tr.p-datatable-dragpoint-bottom > td {
   box-shadow: inset 0 -2px 0 0 #F48FB1;
 }
-.p-datatable .p-datatable-tbody > tr:nth-child(even) {
-  background: #323232;
-}
-.p-datatable .p-datatable-tbody > tr:nth-child(even).p-highlight {
-  background: #F48FB1;
-  color: #212529;
-}
-.p-datatable .p-datatable-tbody > tr:nth-child(even).p-highlight .p-row-toggler {
-  color: #212529;
-}
-.p-datatable .p-datatable-tbody > tr:nth-child(even).p-highlight .p-row-toggler:hover {
-  color: #212529;
-}
 .p-datatable.p-datatable-hoverable-rows .p-datatable-tbody > tr:not(.p-highlight):hover {
   background: #4c4c4c;
   color: #dedede;
@@ -1472,6 +1459,40 @@
 }
 .p-datatable .p-datatable-loading-icon {
   font-size: 2rem;
+}
+.p-datatable.p-datatable-gridlines .p-datatable-header {
+  border-width: 1px 1px 0 1px;
+}
+.p-datatable.p-datatable-gridlines .p-datatable-footer {
+  border-width: 0 1px 1px 1px;
+}
+.p-datatable.p-datatable-gridlines .p-paginator-top {
+  border-width: 0 1px 0 1px;
+}
+.p-datatable.p-datatable-gridlines .p-paginator-bottom {
+  border-width: 0 1px 1px 1px;
+}
+.p-datatable.p-datatable-gridlines .p-datatable-thead > tr > th {
+  border-width: 1px;
+}
+.p-datatable.p-datatable-gridlines .p-datatable-tbody > tr > td {
+  border-width: 1px;
+}
+.p-datatable.p-datatable-gridlines .p-datatable-tfoot > tr > td {
+  border-width: 1px;
+}
+.p-datatable.p-datatable-striped .p-datatable-tbody > tr:nth-child(even) {
+  background: #323232;
+}
+.p-datatable.p-datatable-striped .p-datatable-tbody > tr:nth-child(even).p-highlight {
+  background: #F48FB1;
+  color: #212529;
+}
+.p-datatable.p-datatable-striped .p-datatable-tbody > tr:nth-child(even).p-highlight .p-row-toggler {
+  color: #212529;
+}
+.p-datatable.p-datatable-striped .p-datatable-tbody > tr:nth-child(even).p-highlight .p-row-toggler:hover {
+  color: #212529;
 }
 .p-datatable.p-datatable-sm .p-datatable-header {
   padding: 0.72845rem 0.85rem;
@@ -1535,7 +1556,7 @@
   background: #323232;
   color: #dedede;
   border: 1px solid #191919;
-  border-width: 1px;
+  border-width: 0 1px 1px 1px;
   padding: 0.571rem 1rem;
   font-weight: normal;
   border-bottom-left-radius: 3px;
@@ -1751,7 +1772,8 @@
 .p-paginator {
   background: #252525;
   color: #dedede;
-  border: 1px solid #191919;
+  border: solid #191919;
+  border-width: 1px;
   padding: 0;
   border-radius: 3px;
 }
@@ -1972,7 +1994,7 @@
   background: #323232;
   color: #dedede;
   border: 1px solid #191919;
-  border-width: 1px;
+  border-width: 0 1px 1px 1px;
   padding: 0.571rem 1rem;
   font-weight: normal;
   border-bottom-left-radius: 3px;
@@ -2079,6 +2101,27 @@
 }
 .p-treetable .p-treetable-loading-icon {
   font-size: 2rem;
+}
+.p-treetable.p-treetable-gridlines .p-datatable-header {
+  border-width: 1px 1px 0 1px;
+}
+.p-treetable.p-treetable-gridlines .p-treetable-footer {
+  border-width: 0 1px 1px 1px;
+}
+.p-treetable.p-treetable-gridlines .p-treetable-top {
+  border-width: 0 1px 0 1px;
+}
+.p-treetable.p-treetable-gridlines .p-treetable-bottom {
+  border-width: 0 1px 1px 1px;
+}
+.p-treetable.p-treetable-gridlines .p-treetable-thead > tr > th {
+  border-width: 1px;
+}
+.p-treetable.p-treetable-gridlines .p-treetable-tbody > tr > td {
+  border-width: 1px;
+}
+.p-treetable.p-treetable-gridlines .p-treetable-tfoot > tr > td {
+  border-width: 1px;
 }
 .p-treetable.p-treetable-sm .p-treetable-header {
   padding: 0.749875rem 0.875rem;

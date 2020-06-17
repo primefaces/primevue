@@ -1447,19 +1447,6 @@
 .p-datatable .p-datatable-tbody > tr.p-datatable-dragpoint-bottom > td {
   box-shadow: inset 0 -2px 0 0 #4CAF50;
 }
-.p-datatable .p-datatable-tbody > tr:nth-child(even) {
-  background: #ffffff;
-}
-.p-datatable .p-datatable-tbody > tr:nth-child(even).p-highlight {
-  background: #4CAF50;
-  color: #ffffff;
-}
-.p-datatable .p-datatable-tbody > tr:nth-child(even).p-highlight .p-row-toggler {
-  color: #ffffff;
-}
-.p-datatable .p-datatable-tbody > tr:nth-child(even).p-highlight .p-row-toggler:hover {
-  color: #ffffff;
-}
 .p-datatable.p-datatable-hoverable-rows .p-datatable-tbody > tr:not(.p-highlight):hover {
   background: #e9ecef;
   color: #495057;
@@ -1473,6 +1460,40 @@
 }
 .p-datatable .p-datatable-loading-icon {
   font-size: 2rem;
+}
+.p-datatable.p-datatable-gridlines .p-datatable-header {
+  border-width: 1px 1px 0 1px;
+}
+.p-datatable.p-datatable-gridlines .p-datatable-footer {
+  border-width: 0 1px 1px 1px;
+}
+.p-datatable.p-datatable-gridlines .p-paginator-top {
+  border-width: 0 1px 0 1px;
+}
+.p-datatable.p-datatable-gridlines .p-paginator-bottom {
+  border-width: 0 1px 1px 1px;
+}
+.p-datatable.p-datatable-gridlines .p-datatable-thead > tr > th {
+  border-width: 1px;
+}
+.p-datatable.p-datatable-gridlines .p-datatable-tbody > tr > td {
+  border-width: 1px;
+}
+.p-datatable.p-datatable-gridlines .p-datatable-tfoot > tr > td {
+  border-width: 1px;
+}
+.p-datatable.p-datatable-striped .p-datatable-tbody > tr:nth-child(even) {
+  background: #fbfcfc;
+}
+.p-datatable.p-datatable-striped .p-datatable-tbody > tr:nth-child(even).p-highlight {
+  background: #4CAF50;
+  color: #ffffff;
+}
+.p-datatable.p-datatable-striped .p-datatable-tbody > tr:nth-child(even).p-highlight .p-row-toggler {
+  color: #ffffff;
+}
+.p-datatable.p-datatable-striped .p-datatable-tbody > tr:nth-child(even).p-highlight .p-row-toggler:hover {
+  color: #ffffff;
 }
 .p-datatable.p-datatable-sm .p-datatable-header {
   padding: 0.5rem 0.5rem;
@@ -1752,7 +1773,8 @@
 .p-paginator {
   background: #ffffff;
   color: #6c757d;
-  border: 1px solid #e9ecef;
+  border: solid #e9ecef;
+  border-width: 0;
   padding: 0.5rem 1rem;
   border-radius: 4px;
 }
@@ -2080,6 +2102,27 @@
 }
 .p-treetable .p-treetable-loading-icon {
   font-size: 2rem;
+}
+.p-treetable.p-treetable-gridlines .p-datatable-header {
+  border-width: 1px 1px 0 1px;
+}
+.p-treetable.p-treetable-gridlines .p-treetable-footer {
+  border-width: 0 1px 1px 1px;
+}
+.p-treetable.p-treetable-gridlines .p-treetable-top {
+  border-width: 0 1px 0 1px;
+}
+.p-treetable.p-treetable-gridlines .p-treetable-bottom {
+  border-width: 0 1px 1px 1px;
+}
+.p-treetable.p-treetable-gridlines .p-treetable-thead > tr > th {
+  border-width: 1px;
+}
+.p-treetable.p-treetable-gridlines .p-treetable-tbody > tr > td {
+  border-width: 1px;
+}
+.p-treetable.p-treetable-gridlines .p-treetable-tfoot > tr > td {
+  border-width: 1px;
 }
 .p-treetable.p-treetable-sm .p-treetable-header {
   padding: 0.875rem 0.875rem;

@@ -266,6 +266,16 @@ export default new Router({
 			name: 'datatablecontextmenu',
 			component: () => import('./views/datatable/DataTableContextMenuDemo.vue')
         },
+        {
+			path: '/datatable/gridlines',
+			name: 'datatablegridlines',
+			component: () => import('./views/datatable/DataTableGridLinesDemo.vue')
+        },
+        {
+			path: '/datatable/striped',
+			name: 'datatablestriped',
+			component: () => import('./views/datatable/DataTableStripedDemo.vue')
+        },
 		{
 			path: '/dataview',
 			name: 'dataview',
