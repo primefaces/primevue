@@ -207,18 +207,10 @@ export default {
 
             this.spin(event, dir);
         },
-        spin(event, dir) {
+        spin(event, dir, value) {
             let step = this.step * dir;
-            let currentValue = this.value || 0;
-            let newValue = currentValue + step;
-
-            if (this.min !== null && newValue < this.min) {
-                newValue = this.min;
-            }
-
-            if (this.max !== null && newValue > this.max) {
-                newValue = this.max;
-            }
+            let currentValue = this.parseValue(this.$refs.input.$el.value) || 0;
+            let newValue = this.validateValue(currentValue + step);
 
             this.updateInput(newValue, 'spin');
             this.updateModel(event, newValue);
@@ -492,16 +484,19 @@ export default {
         updateValue(event, valueStr, operation) {
             if (valueStr != null) {
                 let newValue = this.parseValue(valueStr);
-                let valid = this.isWithinRange(newValue);
-
-                if (valid) {
-                    this.updateInput(newValue, operation);
-                    this.updateModel(event, newValue);
-                }
+                this.updateInput(newValue, operation);
             }
         },
-        isWithinRange(value) {
-            return value == null || ((this.min == null || value > this.min) && (this.max == null || value < this.max));
+        validateValue(value) {
+            if (this.min != null && value < this.min) {
+                return this.min;
+            }
+
+            if (this.max != null && value > this.max) {
+                return this.max;
+            }
+
+            return value;
         },
         updateInput(value, operation) {
             let currentLength = this.$refs.input.$el.value.length;
@@ -545,6 +540,12 @@ export default {
         },
         onInputBlur(event) {
             this.focused = false;
+
+            let newValue = this.validateValue(this.parseValue(this.$refs.input.$el.value));
+            this.$refs.input.$el.value = this.formatValue(newValue);
+            this.$refs.input.$el.setAttribute('aria-valuenow', newValue);
+            this.updateModel(event, newValue);
+
             this.$emit('blur', event);
         },
         clearTimer() {
