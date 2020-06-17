@@ -25,6 +25,10 @@
                         <li><a @click="changeTheme($event, 'vela-green', true)"><img src="./assets/images/themes/vela-green.png" alt="Vela Green" /><span>Vela Green</span></a></li>
                         <li><a @click="changeTheme($event, 'vela-orange', true)"><img src="./assets/images/themes/vela-orange.png" alt="Vela Orange" /><span>Vela Orange</span></a></li>
                         <li><a @click="changeTheme($event, 'vela-purple', true)"><img src="./assets/images/themes/vela-purple.png" alt="Vela Purple" /><span>Vela Purple</span></a></li>
+                        <li><a @click="changeTheme($event, 'arya-blue', true)"><img src="./assets/images/themes/vela-blue.png" alt="Arya Blue" /><span>Arya Blue</span></a></li>
+                        <li><a @click="changeTheme($event, 'arya-green', true)"><img src="./assets/images/themes/vela-green.png" alt="Arya Green" /><span>Arya Green</span></a></li>
+                        <li><a @click="changeTheme($event, 'arya-orange', true)"><img src="./assets/images/themes/vela-orange.png" alt="Arya Orange" /><span>Arya Orange</span></a></li>
+                        <li><a @click="changeTheme($event, 'arya-purple', true)"><img src="./assets/images/themes/vela-purple.png" alt="Arya Purple" /><span>Arya Purple</span></a></li>
                         <li><a @click="changeTheme($event, 'nova')"><img src="./assets/images/layouts/themeswitcher-nova.png" alt="Nova" /><span>Nova</span></a></li>
                         <li><a @click="changeTheme($event, 'nova-alt')"><img src="./assets/images/layouts/themeswitcher-nova-alt.png" alt="Nova Alt" /><span>Nova Alt</span></a></li>
                         <li><a @click="changeTheme($event, 'nova-accent')"><img src="./assets/images/layouts/themeswitcher-nova-accent.png" alt="Nova Accent" /><span>Nova Accent</span></a></li>
