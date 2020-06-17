@@ -18,21 +18,13 @@
                         <li><router-link to="/icons"><i class="pi pi-fw pi-info-circle"/><span>Icons</span></router-link></li>
                         <li class="topbar-submenu-header">FREE COMPONENT THEMES</li>
                         <li><a @click="changeTheme($event, 'saga-blue')"><img src="./assets/images/themes/saga-blue.png" alt="Saga Blue" /><span>Saga Blue</span></a></li>
-                        <li><a @click="changeTheme($event, 'saga-cyan')"><img src="./assets/images/themes/saga-cyan.png" alt="Saga Cyan" /><span>Saga Cyan</span></a></li>
-                        <li><a @click="changeTheme($event, 'saga-deeppurple')"><img src="./assets/images/themes/saga-deeppurple.png" alt="Saga Deep Purple" /><span>Saga Deep Purple</span></a></li>
                         <li><a @click="changeTheme($event, 'saga-green')"><img src="./assets/images/themes/saga-green.png" alt="Saga Green" /><span>Saga Green</span></a></li>
-                        <li><a @click="changeTheme($event, 'saga-indigo')"><img src="./assets/images/themes/saga-indigo.png" alt="Saga Indigo" /><span>Saga Indigo</span></a></li>
                         <li><a @click="changeTheme($event, 'saga-orange')"><img src="./assets/images/themes/saga-orange.png" alt="Saga Orange" /><span>Saga Orange</span></a></li>
                         <li><a @click="changeTheme($event, 'saga-purple')"><img src="./assets/images/themes/saga-purple.png" alt="Saga Purple" /><span>Saga Purple</span></a></li>
-                        <li><a @click="changeTheme($event, 'saga-teal')"><img src="./assets/images/themes/saga-teal.png" alt="Saga Teal" /><span>Saga Teal</span></a></li>
                         <li><a @click="changeTheme($event, 'vela-blue', true)"><img src="./assets/images/themes/vela-blue.png" alt="Vela Blue" /><span>Vela Blue</span></a></li>
-                        <li><a @click="changeTheme($event, 'vela-cyan', true)"><img src="./assets/images/themes/vela-cyan.png" alt="Vela Cyan" /><span>Vela Cyan</span></a></li>
-                        <li><a @click="changeTheme($event, 'vela-deeppurple', true)"><img src="./assets/images/themes/vela-deeppurple.png" alt="Vela Deep Purple" /><span>Vela Deep Purple</span></a></li>
                         <li><a @click="changeTheme($event, 'vela-green', true)"><img src="./assets/images/themes/vela-green.png" alt="Vela Green" /><span>Vela Green</span></a></li>
-                        <li><a @click="changeTheme($event, 'vela-indigo', true)"><img src="./assets/images/themes/vela-indigo.png" alt="Vela Indigo" /><span>Vela Indigo</span></a></li>
                         <li><a @click="changeTheme($event, 'vela-orange', true)"><img src="./assets/images/themes/vela-orange.png" alt="Vela Orange" /><span>Vela Orange</span></a></li>
                         <li><a @click="changeTheme($event, 'vela-purple', true)"><img src="./assets/images/themes/vela-purple.png" alt="Vela Purple" /><span>Vela Purple</span></a></li>
-                        <li><a @click="changeTheme($event, 'vela-teal', true)"><img src="./assets/images/themes/vela-teal.png" alt="Vela Teal" /><span>Vela Teal</span></a></li>
                         <li><a @click="changeTheme($event, 'nova')"><img src="./assets/images/layouts/themeswitcher-nova.png" alt="Nova" /><span>Nova</span></a></li>
                         <li><a @click="changeTheme($event, 'nova-alt')"><img src="./assets/images/layouts/themeswitcher-nova-alt.png" alt="Nova Alt" /><span>Nova Alt</span></a></li>
                         <li><a @click="changeTheme($event, 'nova-accent')"><img src="./assets/images/layouts/themeswitcher-nova-accent.png" alt="Nova Accent" /><span>Nova Accent</span></a></li>

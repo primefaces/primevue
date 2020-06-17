@@ -30,31 +30,10 @@
                         </div>
                         <div class="p-col-3">
                             <button class="p-link">
-                                <img src="./assets/images/themes/saga-cyan.png" alt="Saga Cyan" @click="changeTheme($event, 'saga-cyan')"/>
-                                <i class="pi pi-check" v-if="theme === 'saga-cyan'" />
-                            </button>
-                            <span>Saga Cyan</span>
-                        </div>
-                        <div class="p-col-3">
-                            <button class="p-link">
-                                <img src="./assets/images/themes/saga-deeppurple.png" alt="Saga Deep Purple" @click="changeTheme($event, 'saga-deeppurple')"/>
-                                <i class="pi pi-check" v-if="theme === 'saga-deeppurple'" />
-                            </button>
-                            <span>Saga Deep Purple</span>
-                        </div>
-                        <div class="p-col-3">
-                            <button class="p-link">
                                 <img src="./assets/images/themes/saga-green.png" alt="Saga Green" @click="changeTheme($event, 'saga-green')"/>
                                 <i class="pi pi-check" v-if="theme === 'saga-green'" />
                             </button>
                             <span>Saga Green</span>
-                        </div>
-                        <div class="p-col-3">
-                            <button class="p-link">
-                                <img src="./assets/images/themes/saga-indigo.png" alt="Saga Indigo" @click="changeTheme($event, 'saga-indigo', false)"/>
-                                <i class="pi pi-check" v-if="theme === 'saga-indigo'" />
-                            </button>
-                            <span>Saga Indigo</span>
                         </div>
                         <div class="p-col-3">
                             <button class="p-link">
@@ -72,13 +51,6 @@
                         </div>
                         <div class="p-col-3">
                             <button class="p-link">
-                                <img src="./assets/images/themes/saga-teal.png" alt="Saga Teal" @click="changeTheme($event, 'saga-teal')"/>
-                                <i class="pi pi-check" v-if="theme === 'saga-teal'" />
-                            </button>
-                            <span>Saga Teal</span>
-                        </div>
-                        <div class="p-col-3">
-                            <button class="p-link">
                                 <img src="./assets/images/themes/vela-blue.png" alt="Vela Blue" @click="changeTheme($event, 'vela-blue', true)"/>
                                 <i class="pi pi-check" v-if="theme === 'vela-blue'" />
                             </button>
@@ -86,31 +58,10 @@
                         </div>
                         <div class="p-col-3">
                             <button class="p-link">
-                                <img src="./assets/images/themes/vela-cyan.png" alt="Vela Cyan" @click="changeTheme($event, 'vela-cyan', true)"/>
-                                <i class="pi pi-check" v-if="theme === 'vela-cyan'" />
-                            </button>
-                            <span>Vela Cyan</span>
-                        </div>
-                        <div class="p-col-3">
-                            <button class="p-link">
-                                <img src="./assets/images/themes/vela-deeppurple.png" alt="Vela Deep Purple" @click="changeTheme($event, 'vela-deeppurple', true)"/>
-                                <i class="pi pi-check" v-if="theme === 'vela-deeppurple'" />
-                            </button>
-                            <span>Vela Deep Purple</span>
-                        </div>
-                        <div class="p-col-3">
-                            <button class="p-link">
                                 <img src="./assets/images/themes/vela-green.png" alt="Vela Green" @click="changeTheme($event, 'vela-green', true)"/>
                                 <i class="pi pi-check" v-if="theme === 'vela-green'" />
                             </button>
                             <span>Vela Green</span>
-                        </div>
-                        <div class="p-col-3">
-                            <button class="p-link">
-                                <img src="./assets/images/themes/vela-indigo.png" alt="Vela Indigo" @click="changeTheme($event, 'vela-indigo', true)"/>
-                                <i class="pi pi-check" v-if="theme === 'vela-indigo'" />
-                            </button>
-                            <span>Vela Indigo</span>
                         </div>
                         <div class="p-col-3">
                             <button class="p-link">
@@ -125,13 +76,6 @@
                                 <i class="pi pi-check" v-if="theme === 'vela-purple'" />
                             </button>
                             <span>Vela Purple</span>
-                        </div>
-                        <div class="p-col-3">
-                            <button class="p-link">
-                                <img src="./assets/images/themes/vela-teal.png" alt="Vela Teal" @click="changeTheme($event, 'vela-teal', true)"/>
-                                <i class="pi pi-check" v-if="theme === 'vela-teal'" />
-                            </button>
-                            <span>Vela Teal</span>
                         </div>
                         <div class="p-col-3">
                             <button class="p-link">
