@@ -81,7 +81,7 @@
                 </div>
                 <div class="p-field p-col-12 p-md-3">
                     <label for="temperature">Temperature</label>
-                    <InputNumber id="temperature" v-model="value16" prefix="&uarr; " suffix="℃" :min="0" :max="40" />
+                    <InputNumber id="temperature" v-model="value16" prefix="↑ " suffix="℃" :min="0" :max="40" />
                 </div>
             </div>
 
