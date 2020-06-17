@@ -23,11 +23,10 @@
                 }
 
                 a {
-                    background-color: var(--primary-color-text);
-                    color: var(--primary-color);
-                    border-radius: 3px;
-                    padding: 2px 4px;
-
+                    text-decoration: none;
+                    color: $linkColor;
+                    font-weight: 600;
+    
                     &:hover {
                         text-decoration: underline;
                     }
@@ -141,7 +140,7 @@
                     a {
                         text-decoration: none;
                         color: $linkColor;
-                        font-weight: 500;
+                        font-weight: 600;
 
                         &:hover {
                             text-decoration: underline;
