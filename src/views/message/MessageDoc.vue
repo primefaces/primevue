@@ -2,12 +2,12 @@
 	<div class="content-section documentation">
 		<TabView>
 			<TabPanel header="Documentation">
-				<h3>Import</h3>
+				<h5>Import</h5>
 <CodeHighlight lang="javascript">
 import Message from 'primevue/message';
 </CodeHighlight>
 
-				<h3>Getting Started</h3>
+				<h5>Getting Started</h5>
 				<p>Message component requires a content to display.</p>
 <CodeHighlight>
 &lt;Message&gt;Welcome to PrimeVue&lt;/Message&gt;
@@ -33,7 +33,7 @@ data() {
 }
 </CodeHighlight>
 
-				<h3>Severities</h3>
+				<h5>Severities</h5>
 				<p>There are four possible values for the severity of a message. Default one is "info".</p>
 
 				<ul>
@@ -43,20 +43,20 @@ data() {
 					<li>error</li>
 				</ul>
 
-				<h3>Closable</h3>
+				<h5>Closable</h5>
 				<p>Messages are closable by default resulting in a close icon being displayed on top right corner. In order to disable closable messages, set <i>closable</i> to false.</p>
 <CodeHighlight>
 &lt;Message severity="success" :closable="false"&gt;Order Submitted&lt;/Message&gt;
 </CodeHighlight>
 
-				<h3>Sticky</h3>
+				<h5>Sticky</h5>
 				<p>Messages are sticky by default, if you require them to be cleared automatically, disable <i>sticky</i> property and optionally configure the <i>life</i> property to specify how long the message
                 should be displayed which is 3000 ms by default.</p>
 <CodeHighlight>
 &lt;Message severity="warn" :life="5000" :sticky="false"&gt;This message will hide in 5 seconds.&lt;/Message&gt;
 </CodeHighlight>
 
-				<h3>Inline Message Component</h3>
+				<h5>Inline Message Component</h5>
 <CodeHighlight lang="javascript">
 import InlineMessage from 'primevue/inlinemessage';
 </CodeHighlight>
@@ -68,7 +68,7 @@ import InlineMessage from 'primevue/inlinemessage';
 </CodeHighlight>
 
 
-				<h3>Properties of Message</h3>
+				<h5>Properties of Message</h5>
 				<div class="doc-tablewrapper">
 					<table class="doc-table">
 						<thead>
@@ -108,7 +108,7 @@ import InlineMessage from 'primevue/inlinemessage';
 					</table>
 				</div>
 
-                <h3>Properties of ValidationMessage</h3>
+                <h5>Properties of ValidationMessage</h5>
 				<div class="doc-tablewrapper">
 					<table class="doc-table">
 						<thead>
@@ -130,7 +130,7 @@ import InlineMessage from 'primevue/inlinemessage';
 					</table>
 				</div>
 
-				<h3>Styling</h3>
+				<h5>Styling</h5>
 				<p>Following is the list of structural style classes, for theming classes visit <router-link to="/theming">theming</router-link> page.</p>
 
                 <strong>Message</strong>
@@ -221,7 +221,7 @@ import InlineMessage from 'primevue/inlinemessage';
 					</table>
 				</div>
 
-				<h3>Dependencies</h3>
+				<h5>Dependencies</h5>
 				<p>None.</p>
 			</TabPanel>
 

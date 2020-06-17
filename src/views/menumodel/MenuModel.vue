@@ -8,7 +8,7 @@
         </div>
 
         <div class="content-section documentation">
-            <h3 style="margin-top:0">MenuItem</h3>
+            <h5">MenuItem</h5>
                 <p>Core of the API is the MenuItem class that defines various options such as the label, icon and children of an item in a menu.</p>
 <CodeHighlight lang="js">
 const items: [
@@ -114,7 +114,7 @@ const items: [
                     </table>
                 </div>
 
-                <h3>Command</h3>
+                <h5>Command</h5>
                 <p>The function to invoke when an item is clicked is defined using the command property.</p>
 <CodeHighlight lang="js">
 const items = [
@@ -129,7 +129,7 @@ const items = [
 ];
 </CodeHighlight>
 
-                <h3>Navigation</h3>
+                <h5>Navigation</h5>
                 <p>Navigation is specified using <i>url</i> property for external links or using <i>to</i> property for internal routing.</p>
 <CodeHighlight lang="js">
 const items = [
@@ -146,7 +146,7 @@ const items = [
 ];
 </CodeHighlight>
 
-            <h3>Visibility</h3>
+            <h5>Visibility</h5>
             <p>It is a common case to hide certain items based on conditions such as user roles, <i>visible</i> property is available
             to implement such cases by supporting functions that returns booleans or simple booleans.</p>
 <CodeHighlight lang="js">

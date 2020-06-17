@@ -2,24 +2,24 @@
 	<div class="content-section documentation">
 		<TabView>
 			<TabPanel header="Documentation">
-				<h3>Import</h3>
+				<h5>Import</h5>
 <CodeHighlight lang="javascript">
 import Textarea from 'primevue/textarea';
 </CodeHighlight>
 
-				<h3>Getting Started</h3>
+				<h5>Getting Started</h5>
 				<p>A model can be bound using the standard v-model directive.</p>
 <CodeHighlight>
 &lt;Textarea v-model="value" rows="5" cols="30" /&gt;
 </CodeHighlight>
 
-				<h3>AutoResize</h3>
+				<h5>AutoResize</h5>
 				<p>In auto resize mode, textarea grows instead of displaying a scrollbar.</p>
 <CodeHighlight>
 &lt;Textarea v-model="value" :autoResize="true" rows="5" cols="30" /&gt;
 </CodeHighlight>
 
-				<h3>Properties</h3>
+				<h5>Properties</h5>
 				<p>InputTextarea passes any attribute to the underlying textarea element, additional attributes are the following.</p>
 				<div class="doc-tablewrapper">
 					<table class="doc-table">
@@ -48,10 +48,10 @@ import Textarea from 'primevue/textarea';
 					</table>
 				</div>
 
-                <h3>Events</h3>
+                <h5>Events</h5>
                 <p>Any valid event such as focus, blur and input are passed to the underlying input element.</p>
 
-				<h3>Styling</h3>
+				<h5>Styling</h5>
 				<p>Following is the list of structural style classes, for theming classes visit <router-link to="/theming">theming</router-link> page.</p>
 				<div class="doc-tablewrapper">
 					<table class="doc-table">
@@ -70,7 +70,7 @@ import Textarea from 'primevue/textarea';
 					</table>
 				</div>
 
-				<h3>Dependencies</h3>
+				<h5>Dependencies</h5>
 				<p>None.</p>
 			</TabPanel>
 

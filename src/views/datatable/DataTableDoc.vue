@@ -2,14 +2,14 @@
     <div class="content-section documentation">
 		<TabView>
 			<TabPanel header="Documentation">
-				<h3>Import</h3>
+				<h5>Import</h5>
 				<CodeHighlight lang="javascript">
 import DataTable from 'primevue/datatable';
 import Column from 'primevue/column';
 import ColumnGroup from 'primevue/columngroup';     //optional for column grouping
 				</CodeHighlight>
 
-                <h3>Getting Started</h3>
+                <h5>Getting Started</h5>
                 <p>DataTable requires a value as an array of objects and columns defined with Column component. Throughout the samples, a car interface having vin, brand, year and color properties is used to define an object to be displayed by the datatable.
                     Cars are loaded by a CarService that connects to a server to fetch the cars with a axios. Note that this is only for demo purposes, DataTable does not have any restrictions on how the data is provided.</p>
 
@@ -81,7 +81,7 @@ export default {
 }
 </CodeHighlight>
 
-                <h3>Dynamic Columns</h3>
+                <h5>Dynamic Columns</h5>
                 <p>Column components can be dynamically generated using a v-for as well.</p>
 <CodeHighlight>
 <template v-pre>
@@ -118,7 +118,7 @@ export default {
 }
 </CodeHighlight>
 
-                <h3>Column Component Properties utilized by the DataTable</h3>
+                <h5>Column Component Properties utilized by the DataTable</h5>
                 <div class="doc-tablewrapper">
                     <table class="doc-table">
                         <thead>
@@ -298,10 +298,10 @@ export default {
                     </table>
                 </div>
 
-                <h3>Auto Layout</h3>
+                <h5>Auto Layout</h5>
                 <p>Default table-layout is fixed meaning the cell widths do not depend on their content. If you require cells to scale based on their contents set <i>autoLayout</i> property to true. Note that Scrollable and/or Resizable tables do not support auto layout due to technical limitations.</p>
 
-                <h3>Templating</h3>
+                <h5>Templating</h5>
                 <p>Field data of a corresponding row is displayed as the cell content by default, this can be customized using a <i>body</i> template where current row data and column properties are passed via the slot props.
                     On the other hand, <i>header</i> and <i>footer</i> sections of a column can either be defined with the properties or the templates. Similarly DataTable itself also provides header and footer properties along with the templates for the main header and footer of the table.</p>
 
@@ -338,7 +338,7 @@ export default {
 </template>
 </CodeHighlight>
 
-                <h3>Sizes</h3>
+                <h5>Sizes</h5>
                 <p>In addition to the regular table, a smal and a large version are available with different paddings. For a table
                 with smaller paddings use <i>p-datatable-sm</i> class and for a larger one use <i>p-datatable-lg</i>.</p>
 
@@ -376,7 +376,7 @@ export default {
 </template>
 </CodeHighlight>
 
-                <h3>Column Grouping</h3>
+                <h5>Column Grouping</h5>
                 <p>Columns can be grouped at header and footer sections by defining a ColumnGroup with nested rows and columns.</p>
 <CodeHighlight>
 <template v-pre>
@@ -413,7 +413,7 @@ export default {
 </template>
 </CodeHighlight>
 
-                <h3>Pagination</h3>
+                <h5>Pagination</h5>
                 <p>Pagination is enabled by setting <i>paginator</i> property to true and defining the <i>rows</i> property defines the number of rows per page.
                     See the <router-link to="/paginator">Paginator</router-link> for the available customization options such as paginator templates, page links,
                     rows per page options and more which can be passed through the DataTable.</p>
@@ -461,7 +461,7 @@ export default {
 </template>
 </CodeHighlight>
 
-                <h3>Sorting</h3>
+                <h5>Sorting</h5>
                 <p>Enabling <i>sortable</i> property at column component would be enough to make a column sortable.
                 The property to use when sorting is the <i>field</i> by default and can be customized using the <i>sortField</i>.</p>
 
@@ -531,7 +531,7 @@ data() {
 }
 </CodeHighlight>
 
-                <h3>Filtering</h3>
+                <h5>Filtering</h5>
                 <p>Filtering is enabled by defining a filter template per column to populate the <i>filters</i> property of the DataTable. The <i>filters</i>
                 property should be an key-value object where keys are the field name and the value is the filter value. The filter template receives the column properties
                 via the slotProps and accepts any form element as the filter element. Default match mode is "startsWith" and this can be configured per column using the <i>filterMatchMode</i> property that also accepts
@@ -604,7 +604,7 @@ methods: {
 }
 </CodeHighlight>
 
-                <h3>Selection</h3>
+                <h5>Selection</h5>
                 <p>DataTable provides single and multiple selection modes on click of a row. Selected rows are bound to the <i>selection</i> property and updated using the sync keyword.
                     Alternatively column based selection can be done using radio buttons or checkboxes using <i>selectionMode</i> of a particular column. In addition row-select and row-unselect
                      events are provided as optional callbacks.</p>
@@ -649,7 +649,7 @@ methods: {
 </template>
 </CodeHighlight>
 
-                <h3>Scrolling</h3>
+                <h5>Scrolling</h5>
                 <p>DataTable supports both horizontal and vertical scrolling as well as frozen columns and rows. Scrollable DataTable is enabled using <i>scrollable</i> property and <i>scrollHeight</i> to define the viewport height.</p>
 <CodeHighlight>
 <template v-pre>
@@ -662,7 +662,7 @@ methods: {
 </template>
 </CodeHighlight>
 
-                <h3>Flex Scroll</h3>
+                <h5>Flex Scroll</h5>
                 <p>In cases where viewport should adjust itself according to the table parent's height instead of a fixed viewport height, set scrollHeight option as flex. In example below, table is inside a Dialog where viewport size dynamically responds to the dialog size changes such as maximizing.</p>
 <CodeHighlight>
 <template v-pre>
@@ -682,7 +682,7 @@ methods: {
 </template>
 </CodeHighlight>
 
-                <h3>Full Page Scroll</h3>
+                <h5>Full Page Scroll</h5>
                 <p>FlexScroll can also be used for cases where scrollable viewport should be responsive with respect to the window size. See the Full Page demo for an example.</p>
 <CodeHighlight>
 <template v-pre>
@@ -697,7 +697,7 @@ methods: {
 </template>
 </CodeHighlight>
 
-                <h3>Horizontal Scrolling</h3>
+                <h5>Horizontal Scrolling</h5>
                 <p>In horizontal scrolling, it is required to give fixed widths to columns. In general when customizing the column widths of scrollable tables, use colgroup as below to avoid misalignment issues as it will apply both the header, body and footer sections which are different separate elements internally.</p>
 <CodeHighlight>
 <template v-pre>
@@ -714,7 +714,7 @@ methods: {
 </template>
 </CodeHighlight>
 
-                <h3>Frozen Rows and Columns</h3>
+                <h5>Frozen Rows and Columns</h5>
                 <p>Certain columns can be frozen by using the <i>frozen</i> property of the column component. Widths of the frozen section is specified by the <i>frozenWidth</i> property.</p>
 <CodeHighlight>
 <template v-pre>
@@ -767,7 +767,7 @@ methods: {
 
             <p>When using frozen columns with column grouping, use <i>frozenheadergroup</i> and <i>frozenfootergroup</i> types to define grouping for the frozen section.</p>
 
-            <h3>Virtual Scrolling</h3>
+            <h5>Virtual Scrolling</h5>
             <p>Virtual scrolling is enabled using <i>virtualScroll</i> and <i>onVirtualScroll</i> properties combined with lazy loading so that data is loaded on the fly during scrolling.
             For smooth scrolling twice the amount of rows property is loaded on a lazy load event. In addition, to avoid performance problems row height is not calculated automatically and
             should be provided using <i>virtualRowHeight</i> property which defaults to 28px. View the <router-link to="/datatable/scroll">scrolling demo</router-link> for a sample in-memory implementation.</p>
@@ -830,7 +830,7 @@ export default {
 }
 </CodeHighlight>
 
-                <h3>Lazy Loading</h3>
+                <h5>Lazy Loading</h5>
                 <p>Lazy mode is handy to deal with large datasets, instead of loading the entire data, small chunks of data is loaded by invoking corresponding callbacks such as paging and sorting. Sample belows imitates lazy paging by using an in memory list.
                     It is also important to assign the logical number of rows to totalRecords by doing a projection query for paginator configuration so that paginator displays the UI
                     assuming there are actually records of totalRecords size although in reality they aren't as in lazy mode, only the records that are displayed on the current page exist.</p>
@@ -894,7 +894,7 @@ export default {
 }
 </CodeHighlight>
 
-                <h3>Row Expansion</h3>
+                <h5>Row Expansion</h5>
                 <p>Rows can be expanded to display additional content using the <i>expandedRows</i> property with the sync operator accompanied by a template named "expansion". <i>row-expand</i> and <i>row-collapse</i> are optional callbacks that are invoked when a row is expanded or toggled.</p>
 
                 <p>The <i>dataKey</i> property identifies a unique value of a row in the dataset, it is not mandatory in row expansion functionality however being able to define it increases the performance of the table signifantly.</p>
@@ -967,7 +967,7 @@ export default {
 }
 </CodeHighlight>
 
-                <h3>InCell Editing</h3>
+                <h5>InCell Editing</h5>
                 <p>In cell editing provides a rapid and user friendly way to manipulate the data. The datatable provides a flexible API
                     so that the editing behavior is implemented by the page author whether it utilizes v-model or vuex.
                 </p>
@@ -1166,7 +1166,7 @@ export default {
 }
 </CodeHighlight>
 
-                <h3>Column Resize</h3>
+                <h5>Column Resize</h5>
                 <p>Columns can be resized using drag drop by setting the <i>resizableColumns</i> to true. There are two resize modes; "fit" and "expand". Fit is the default one and the overall table width does not change when a column is resized.
                     In "expand" mode, table width also changes along with the column width. <i>column-resize-end</i> is a callback that passes the resized column header and delta change as a parameter.</p>
 <CodeHighlight>
@@ -1192,7 +1192,7 @@ export default {
 </template>
 </CodeHighlight>
 
-                <h3>Column Reorder</h3>
+                <h5>Column Reorder</h5>
                 <p>Columns can be reordered using drag drop by setting the <i>reorderableColumns</i> to true. <i>column-reorder</i> is a callback that is invoked when a column is reordered. DataTable keeps the column order state internally using keys that identifies a column using the field property. If the column has no field, use columnKey instead as
                 it is mandatory for columns to have unique keys when reordering is enabled.</p>
 <CodeHighlight>
@@ -1206,7 +1206,7 @@ export default {
 </template>
 </CodeHighlight>
 
-                <h3>Row Reorder</h3>
+                <h5>Row Reorder</h5>
                 <p>Data can be reordered using drag drop by adding a reorder column that will display an icon as a drag handle along with the <i>row-order</i> event which is <b>mandatory</b> to update the new order. Note that the reorder icon can be customized using <i>rowReorderIcon</i> of the column component.</p>
 <CodeHighlight>
 <template v-pre>
@@ -1245,7 +1245,7 @@ export default {
 }
 </CodeHighlight>
 
-                <h3>Row Group</h3>
+                <h5>Row Group</h5>
                 <p>Row Grouping comes in two modes, in "subheader" mode rows are grouped by a header row along with an optional group footer. In addition, the groups can be made
                     toggleable by enabling <i>expandableRowGroups</i> as true. On the other hand, the "rowspan" mode uses rowspans instead of a header to group rows. <i>groupRowsBy</i>
                     property defines the field to use in row grouping. Multiple row grouping is available in "rowspan" mode by specifying the <i>groupRowsBy</i> as an array of fields.</p>
@@ -1348,7 +1348,7 @@ export default {
 }
 </CodeHighlight>
 
-                <h3>Data Export</h3>
+                <h5>Data Export</h5>
                 <p>DataTable can export its data in CSV format using <i>exportCSV()</i> method.</p>
 <CodeHighlight>
 <template v-pre>
@@ -1390,7 +1390,7 @@ export default {
 }
 </CodeHighlight>
 
-                <h3>TableState</h3>
+                <h5>TableState</h5>
                 <p>Stateful table allows keeping the state such as page, sort and filtering either at local storage or session storage so that when the page is visited again, table would render the data using its last settings.
                     Enabling state is easy as defining a unique <i>stateKey</i>, the storage to keep the state is defined with the <i>stateStorage</i> property that accepts session for sessionStorage and local for localStorage.
                     Currently following features are supported by TableState; paging, sorting, filtering, column resizing, column reordering, row expansion, row group expansion and row selection.
@@ -1483,7 +1483,7 @@ export default {
 }
 </CodeHighlight>
 
-                <h3>ContextMenu</h3>
+                <h5>ContextMenu</h5>
                 <p>DataTable provides exclusive integration with the ContextMenu component using, <i>contextMenu</i>, <i>contextMenuSelection</i> property along with the <i>row-contextmenu</i> event.
 <CodeHighlight>
 <template v-pre>
@@ -1535,7 +1535,7 @@ export default {
 }
 </CodeHighlight>
 
-                <h3>Empty Message</h3>
+                <h5>Empty Message</h5>
                 <p>When there is no data, you may use the <i>empty</i> template to display a message.</p>
 <CodeHighlight>
 <template v-pre>
@@ -1551,7 +1551,7 @@ export default {
 </template>
 </CodeHighlight>
 
-                <h3>Loading</h3>
+                <h5>Loading</h5>
                 <p>A loading status indicator can be displayed when the <i>loading</i> property is enabled. The icon is customized through <i>loadingIcon</i> property. Additionally
                 an option loading template is available to render as the body until the data is loaded.</p>
 <CodeHighlight>
@@ -1594,7 +1594,7 @@ export default {
 }
 </CodeHighlight>
 
-                <h3>Responsive</h3>
+                <h5>Responsive</h5>
                 <p>DataTable display can be optimized according to screen sizes, this example demonstrates a sample demo where columns are stacked on small screens.</p>
 <CodeHighlight>
 <template v-pre>
@@ -1683,7 +1683,7 @@ export default {
 }
 </CodeHighlight>
 
-                <h3>Row and Cell Styling</h3>
+                <h5>Row and Cell Styling</h5>
                 <p>Certain rows or cells can easily be styled based on conditions. Cell styling is implemented with templating whereas row styling utilizes the <i>rowClass</i> property which takes the
                 row data as a parameter and returns the style class as a string.</p>
 <CodeHighlight>
@@ -1745,7 +1745,7 @@ export default {
 }
 </CodeHighlight>
 
-                <h3>Properties</h3>
+                <h5>Properties</h5>
                 <div class="doc-tablewrapper">
                     <table class="doc-table">
                         <thead>
@@ -2112,7 +2112,7 @@ export default {
                     </table>
                 </div>
 
-                <h3>Events</h3>
+                <h5>Events</h5>
                 <div class="doc-tablewrapper">
                     <table class="doc-table">
                         <thead>
@@ -2305,7 +2305,7 @@ export default {
                     </table>
                 </div>
 
-                <h3>Methods</h3>
+                <h5>Methods</h5>
                 <div class="doc-tablewrapper">
                     <table class="doc-table">
                         <thead>
@@ -2325,7 +2325,7 @@ export default {
                     </table>
                 </div>
 
-                <h3>Styling</h3>
+                <h5>Styling</h5>
                 <p>Any property as style and class are passed to the main container element. Following are the additional properties to configure the component.</p>
 
                 <div class="doc-tablewrapper">
@@ -2393,7 +2393,7 @@ export default {
                     </table>
                 </div>
 
-                <h3>Dependencies</h3>
+                <h5>Dependencies</h5>
                 <p>None.</p>
 
             </TabPanel>

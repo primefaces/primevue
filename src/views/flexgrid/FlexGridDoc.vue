@@ -2,7 +2,7 @@
 	<div class="content-section documentation flexgrid-demo">
 		<TabView>
 			<TabPanel header="Documentation">
-                <h3>Install</h3>
+                <h5>Install</h5>
                 <p>PrimeFlex is available at npm, if you have an existing application run the following command to download it to your project.</p>
 <CodeHighlight lang="js">
 npm install primeflex --save
@@ -14,7 +14,7 @@ import 'primeflex/primeflex.css';
 </CodeHighlight>
 
 
-				<h3>Getting Started</h3>
+				<h5>Getting Started</h5>
 				<p>FlexGrid is a CSS utility based on flexbox. For more information about Flex, visit <a href="https://css-tricks.com/snippets/css/a-guide-to-flexbox/">A Complete Guide to Flexbox</a>. A basic grid is defined by giving
 					a container <i>p-grid</i> class and children the <i>p-col</i> class. Children of the grid will have the same width and scale according to the width of the parent.</p>
 <CodeHighlight>
@@ -37,7 +37,7 @@ import 'primeflex/primeflex.css';
 	</div>
 </div>
 
-				<h3>Direction</h3>
+				<h5>Direction</h5>
 				<p>Default direction is <b>row</b> and <i>p-dir-*</i> class at the container defines the other possible directions which can be <b>row reverse</b>, <b>column</b> and <b>column reverse</b></p>
 <CodeHighlight>
 <!-- Row Reverse -->
@@ -97,7 +97,7 @@ import 'primeflex/primeflex.css';
 		<div class="box">3</div>
 	</div>
 </div>
-				<h3>12 Column Grid</h3>
+				<h5>12 Column Grid</h5>
 				<p>FlexGrid includes a 12 column based layout utility where width of a column is defined with the <i>p-col-&#123;number&#125;</i> style class. Columns with prefined widths can be used with columns with auto width (p-col) as well.</p>
 
 				<p>In the first example below, first column covers the 4 units out of 12 and the rest of the columns share the remaining space whereas in the second example, all three columns have explicit units.</p>
@@ -163,7 +163,7 @@ import 'primeflex/primeflex.css';
 	</div>
 </div>
 
-				<h3>MultiLine</h3>
+				<h5>MultiLine</h5>
 				<p>When the number of columns exceed 12, columns wrap to a new line.</p>
 <CodeHighlight>
 &lt;div class="p-grid"&gt;
@@ -189,7 +189,7 @@ import 'primeflex/primeflex.css';
 	</div>
 </div>
 
-				<h3>Fixed Width Column</h3>
+				<h5>Fixed Width Column</h5>
 				<p>A column can have a fixed width while siblings having auto width. Apply <i>p-col-fixed</i> class to fix a column width.</p>
 <CodeHighlight>
 &lt;div class="p-grid"&gt;
@@ -206,7 +206,7 @@ import 'primeflex/primeflex.css';
 		<div class="box">auto</div>
 	</div>
 </div>
-				<h3>Responsive</h3>
+				<h5>Responsive</h5>
 				<p>Responsive layout is achieved by applying breakpoint specific classes to the columns whereas <i>p-col-*</i> define the default behavior for mobile devices with small screens. Four screen sizes are supported with different breakpoints.</p>
 				<div class="doc-tablewrapper">
 					<table class="doc-table">
@@ -272,7 +272,7 @@ import 'primeflex/primeflex.css';
 	</div>
 </div>
 
-				<h3>Horizontal Alignment</h3>
+				<h5>Horizontal Alignment</h5>
 				<p><i>p-justify-*</i> classes are used on the container element to define the alignment along the main axis.</p>
 				<div class="doc-tablewrapper">
 					<table class="doc-table">
@@ -330,7 +330,7 @@ import 'primeflex/primeflex.css';
 	</div>
 </div>
 
-				<h3>Vertical Alignment</h3>
+				<h5>Vertical Alignment</h5>
 				<p><i>p-align-*</i> classes are used on the container element to define the alignment along the cross axis.</p>
 				<div class="doc-tablewrapper">
 					<table class="doc-table">
@@ -436,7 +436,7 @@ import 'primeflex/primeflex.css';
 	</div>
 </div>
 
-				<h3>Offset</h3>
+				<h5>Offset</h5>
 				<p>Offset classes allow defining a left margin on a column to avoid adding empty columns for spacing.</p>
 <CodeHighlight>
 &lt;div class="p-grid"&gt;
@@ -509,7 +509,7 @@ import 'primeflex/primeflex.css';
 					</table>
 				</div>
 
-				<h3>Nested</h3>
+				<h5>Nested</h5>
 				<p>Columns can be nested to create more complex layouts.</p>
 <CodeHighlight>
 &lt;div class="p-grid nested-grid"&gt;
@@ -551,7 +551,7 @@ import 'primeflex/primeflex.css';
 	</div>
 </div>
 
-				<h3>Gutter</h3>
+				<h5>Gutter</h5>
 				<p>A .5 em padding is applied to each column along with negative margins on the container element, in case you'd like to remove these gutters, apply
 					<i>p-nogutter</i> class to the container. Gutters can also be removed on an ndividual columns with the same class name.
 				</p>
@@ -563,7 +563,7 @@ import 'primeflex/primeflex.css';
 &lt;/div&gt;
 </CodeHighlight>
 
-				<h3>Customization</h3>
+				<h5>Customization</h5>
 				<p>PrimeFlex allows customization of breakpoints and gutters via SASS variables, visit the <a href="https://github.com/primefaces/primeflex">PrimeFlex</a> repository to get access to the primeflex.scss file to build your own customized Grid.</p>
 
                 <div class="doc-tablewrapper">

@@ -8,7 +8,7 @@
 		</div>
 
 		<div class="content-section implementation">
-            <h3>Subheader Grouping</h3>
+            <h5>Subheader Grouping</h5>
 			<DataTable :value="cars" rowGroupMode="subheader" groupRowsBy="brand"
                 sortMode="single" sortField="brand" :sortOrder="1">
                 <Column field="brand" header="Brand"></Column>
@@ -25,7 +25,7 @@
                 </template>
             </DataTable>
 
-            <h3>Expandable Row Groups</h3>
+            <h5>Expandable Row Groups</h5>
 			<DataTable :value="cars" rowGroupMode="subheader" groupRowsBy="brand"
                 sortMode="single" sortField="brand" :sortOrder="1"
                 :expandableRowGroups="true" :expandedRowGroups.sync="expandedRowGroups"
@@ -44,7 +44,7 @@
                 </template>
             </DataTable>
 
-            <h3>RowSpan Grouping</h3>
+            <h5>RowSpan Grouping</h5>
 			<DataTable :value="cars" rowGroupMode="rowspan" groupRowsBy="brand"
                 sortMode="single" sortField="brand" :sortOrder="1">
                 <Column header="#" headerStyle="width:3em">

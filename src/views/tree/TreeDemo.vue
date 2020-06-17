@@ -8,10 +8,10 @@
         </div>
 
         <div class="content-section implementation">
-            <h3>Basic</h3>
+            <h5>Basic</h5>
             <Tree :value="nodes"></Tree>
 
-            <h3>Programmatic Control</h3>
+            <h5>Programmatic Control</h5>
             <div style="margin-bottom: 1em">
                 <Button type="button" icon="pi pi-plus" label="Expand All" @click="expandAll" />
                 <Button type="button" icon="pi pi-minus" label="Collapse All" @click="collapseAll" />

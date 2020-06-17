@@ -8,10 +8,10 @@
         </div>
 
         <div class="content-section implementation">
-            <h3 class="first">Default</h3>
+            <h5>Default</h5>
             <Editor v-model="value1" editorStyle="height: 320px"/>
 
-            <h3>Customized</h3>
+            <h5>Customized</h5>
             <Editor v-model="value2" editorStyle="height: 320px">
                 <template slot="toolbar">
                     <span class="ql-formats">

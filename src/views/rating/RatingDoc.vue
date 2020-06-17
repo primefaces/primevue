@@ -2,30 +2,30 @@
 	<div class="content-section documentation">
 		<TabView>
 			<TabPanel header="Documentation">
-				<h3>Import</h3>
+				<h5>Import</h5>
 <CodeHighlight lang="javascript">
 import Rating from 'primevue/rating';
 </CodeHighlight>
 
-				<h3>Getting Started</h3>
+				<h5>Getting Started</h5>
 				<p>Two-way value binding is defined using v-model.</p>
 <CodeHighlight>
 &lt;Rating v-model="val" /&gt;
 </CodeHighlight>
 
-				<h3>Number of Stars</h3>
+				<h5>Number of Stars</h5>
 				<p>Number of stars to display is defined with <i>stars</i> property, default is 5.</p>
 <CodeHighlight>
 &lt;Rating v-model="val" :stars="7"/&gt;
 </CodeHighlight>
 
-				<h3>Cancel</h3>
+				<h5>Cancel</h5>
 				<p>A cancel icon is displayed to reset the value by default, set <i>cancel</i> as false to remove this option.</p>
 <CodeHighlight>
 &lt;Rating v-model="val" :cancel="false" /&gt;
 </CodeHighlight>
 
-				<h3>Properties</h3>
+				<h5>Properties</h5>
                 <p>Any property as style and class are passed to the main container element. Following are the additional properties to configure the component.</p>
 				<div class="doc-tablewrapper">
 					<table class="doc-table">
@@ -72,7 +72,7 @@ import Rating from 'primevue/rating';
 					</table>
 				</div>
 
-				<h3>Events</h3>
+				<h5>Events</h5>
 				<div class="doc-tablewrapper">
 					<table class="doc-table">
                         <thead>
@@ -98,7 +98,7 @@ import Rating from 'primevue/rating';
 					</table>
 				</div>
 
-				<h3>Styling</h3>
+				<h5>Styling</h5>
 				<p>Following is the list of structural style classes, for theming classes visit <router-link to="/theming">theming</router-link> page.</p>
 				<div class="doc-tablewrapper">
 					<table class="doc-table">
@@ -129,7 +129,7 @@ import Rating from 'primevue/rating';
 					</table>
 				</div>
 
-				<h3>Dependencies</h3>
+				<h5>Dependencies</h5>
 				<p>None.</p>
 			</TabPanel>
 

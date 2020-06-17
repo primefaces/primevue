@@ -8,7 +8,7 @@
         </div>
 
         <div class="content-section implementation">
-            <h3>Basic</h3>
+            <h5>Basic</h5>
              <div class="p-field-radiobutton">
                 <RadioButton id="city1" name="city" value="Chicago" v-model="city" />
                 <label for="city1">Chicago</label>
@@ -27,7 +27,7 @@
             </div>
             <p>Selected City: <span style="font-weight: bold">{{this.city}}</span></p>
 
-            <h3>Dynamic Values, Preselection, Value Binding and Disabled Option</h3>
+            <h5>Dynamic Values, Preselection, Value Binding and Disabled Option</h5>
             <div v-for="theme of themes" :key="theme.key" class="p-field-radiobutton">
                 <RadioButton :id="theme.key" name="theme" :value="theme" v-model="selectedTheme" :disabled="theme.key === 'U'" />
                 <label :for="theme.key">{{theme.name}}</label>

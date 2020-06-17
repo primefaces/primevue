@@ -1,25 +1,21 @@
 <template>
     <div>
-        <div class="content-section introduction">
-            <div class="feature-intro">
-                <h1>Theming</h1>
-                <p>Choose from a variety of themes or develop your own theme easily.</p>
-            </div>
-        </div>
-
         <div class="content-section documentation">
-            <h3>Architecture</h3>
+            <h1>Theming</h1>
+            <p>Choose from a variety of themes or develop your own theme easily.</p>
+
+            <h5>Architecture</h5>
             <img alt="Architecture" src="../../assets/images/architecture.jpg" class="architecture-image"/>
             <p>PrimeVue is a design agnostic library so unlike other UI libraries it does not enforce a certain styling such as material or bootstrap. In order to achieve this, styling has been
                 separated into core and theme. Core resides inside PrimeVue to implement the structure of the components such as positioning whereas theme brings the colors, paddings
                 and margins.</p>
 
-            <h3>Themes</h3>
+            <h5>Themes</h5>
             <p>PrimeVue offers various free themes and premium themes along with premium templates that provide an application layout as well. All the free themes are built with
                 the <a href="https://www.primefaces.org/designer/primevue">Theme Designer</a> and the npm package brings the CSS output of the theme whereas SCSS is kept as a premium feature
                 in the designer. This means free themes are open source and for customization with SASS, a designer license needs to be acquired.</p>
 
-            <h3>Customization</h3>
+            <h5>Customization</h5>
             <p>CSS of the themes share the same license as PrimeVue which is MIT, this means the generated CSS can be customized per your needs however this should be avoided if your customizations
                 are not simple. For instance even to change a primary color, since there is no variable a find and replace should be performed various times. On the other hand, this can be achieved
                 by changing a single variable e.g. $primaryColor. Visit the <a href="https://www.primefaces.org/designer/api/primevue/2.0.0">SASS API</a> for the documentation of available customization options.</p>
@@ -35,7 +31,7 @@
                 <img alt="PrimeVue Designer" src="../../assets/images/primevue-designer.jpg" style="width: 100%" />
             </a>
 
-            <h3>Scaling</h3>
+            <h5>Scaling</h5>
             <p>PrimeVue utilizes rem units to make sure the components blend in with the rest of your UI perfectly. This also enables scaling, for example changing the size of the components
                 is easy as configuring the font size of your document. Code below sets the scale of the components based on 16px. If you reqire bigger or smaller component, you may
                 change this variable and components will resize accordingly.</p>
@@ -53,7 +49,7 @@ html {
 &lt;Button label="Button" class="p-button-lg" /&gt;
 </CodeHighlight>
 
-            <h3>Local Styling</h3>
+            <h5>Local Styling</h5>
             <p>Theming styles the components globally, in case you required to change the style of a certain component for a specific use case use the class property and override the defaults.
                 Example below changes the background of the panel. Note that this is only for local styling, if you require to change the background color of all the panel, a custom theme is a far better choice.</p>
 <CodeHighlight>
@@ -71,7 +67,7 @@ html {
 &lt;/style&gt;
 </CodeHighlight>
 
-            <h3>Utility Classes</h3>
+            <h5>Utility Classes</h5>
             <p>A couple of utility classes are provided as a solution to common requirements.</p>
 
             <div class="doc-tablewrapper">

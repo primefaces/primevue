@@ -2,12 +2,12 @@
 	<div class="content-section documentation">
 		<TabView>
 			<TabPanel header="Documentation">
-				<h3>Import</h3>
+				<h5>Import</h5>
 <CodeHighlight lang="javascript">
 import ColorPicker from 'primevue/colorpicker';
 </CodeHighlight>
 
-				<h3>Getting Started</h3>
+				<h5>Getting Started</h5>
 				<p>A model can be bound using the standard v-model directive. Default color format to use in value binding is "hex" and other possible values are "rgb" and "hsb".</p>
 <CodeHighlight>
 &lt;ColorPicker v-model="color" /&gt;
@@ -23,13 +23,13 @@ export default {
 }
 </CodeHighlight>
 
-                <h3>Inline and Overlay</h3>
+                <h5>Inline and Overlay</h5>
                 <p>ColorPicker is displayed as an overlay with a preview option by default where second alternative is the inline mode.</p>
 <CodeHighlight>
 &lt;ColorPicker v-model="color" :inline="true" /&gt;
 </CodeHighlight>
 
-                <h3>Properties</h3>
+                <h5>Properties</h5>
                  <p>Any property as style and class are passed to the main container element. Following are the additional properties to configure the component.</p>
                 <div class="doc-tablewrapper">
                     <table class="doc-table">
@@ -100,7 +100,7 @@ export default {
                     </table>
                 </div>
 
-                <h3>Events</h3>
+                <h5>Events</h5>
                 <div class="doc-tablewrapper">
                     <table class="doc-table">
                         <thead>
@@ -120,7 +120,7 @@ export default {
                     </table>
                 </div>
 
-                <h3>Styling</h3>
+                <h5>Styling</h5>
                 <p>Following is the list style classed of the component.</p>
                 <div class="doc-tablewrapper">
                     <table class="doc-table">
@@ -175,7 +175,7 @@ export default {
                     </table>
                 </div>
 
-				<h3>Dependencies</h3>
+				<h5>Dependencies</h5>
 				<p>None.</p>
 			</TabPanel>
 

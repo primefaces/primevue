@@ -2,12 +2,12 @@
 	<div class="content-section documentation">
 		<TabView>
 			<TabPanel header="Documentation">
-				<h3>Import</h3>
+				<h5>Import</h5>
 <CodeHighlight lang="javascript">
 import Listbox from 'primevue/listbox';
 </CodeHighlight>
 
-				<h3>Getting Started</h3>
+				<h5>Getting Started</h5>
 				<p>Listbox requires a value to bind and a collection of arbitrary objects along with the <i>optionLabel</i> property to specify the label property of the option.</p>
 <CodeHighlight>
 &lt;Listbox v-model="selectedCity" :options="cities" optionLabel="name" /&gt;
@@ -28,7 +28,7 @@ data() {
 }
 </CodeHighlight>
 
-				<h3>Selection</h3>
+				<h5>Selection</h5>
 				<p>Listbox allows selection of either single or multiple items. In single case, model should be a single object reference whereas in multiple case should be an array. Multiple items can either be selected
 					using metaKey or toggled individually depending on the value of <i>metaKeySelection</i> property value which is true by default. On touch enabled
 					devices metaKeySelection is turned off automatically.</p>
@@ -36,7 +36,7 @@ data() {
 &lt;Listbox v-model="selectedCity" :options="cities" optionLabel="name" :multiple="true"/&gt;
 </CodeHighlight>
 
-				<h3>Custom Content</h3>
+				<h5>Custom Content</h5>
 				<p>Label of an option is used as the display text of an item by default, for custom content support define an <i>option</i> template that gets the option instance as a parameter.</p>
 <CodeHighlight>
 <template v-pre>
@@ -51,13 +51,13 @@ data() {
 </template>
 </CodeHighlight>
 
-				<h3>Filter</h3>
+				<h5>Filter</h5>
 				<p>Filtering allows searching items in the list using an input field at the header. In order to use filtering, enable <i>filter</i> property.</p>
 <CodeHighlight>
 &lt;Listbox v-model="selectedCity" :options="cities" optionLabel="name" :filter="true"/&gt;
 </CodeHighlight>
 
-				<h3>Properties</h3>
+				<h5>Properties</h5>
                 <p>Any property as style and class are passed to the main container element. Following are the additional properties to configure the component.</p>
 				<div class="doc-tablewrapper">
 					<table class="doc-table">
@@ -153,7 +153,7 @@ data() {
 					</table>
 				</div>
 
-				<h3>Events</h3>
+				<h5>Events</h5>
 				<div class="doc-tablewrapper">
 					<table class="doc-table">
 						<thead>
@@ -179,7 +179,7 @@ data() {
 					</table>
 				</div>
 
-				<h3>Styling</h3>
+				<h5>Styling</h5>
 				<p>Following is the list of structural style classes, for theming classes visit <router-link to="/theming">theming</router-link> page.</p>
 				<div class="doc-tablewrapper">
 					<table class="doc-table">
@@ -214,7 +214,7 @@ data() {
 					</table>
 				</div>
 
-				<h3>Dependencies</h3>
+				<h5>Dependencies</h5>
 				<p>None.</p>
 			</TabPanel>
 

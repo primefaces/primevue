@@ -2,13 +2,13 @@
 	<div class="content-section documentation">
 		<TabView>
 			<TabPanel header="Documentation">
-				<h3>Import</h3>
+				<h5>Import</h5>
 <CodeHighlight lang="javascript">
 import TabView from 'primevue/tabview';
 import TabPanel from 'primevue/tabpanel';
 </CodeHighlight>
 
-				<h3>Getting Started</h3>
+				<h5>Getting Started</h5>
 				<p>Tabview element consists of one or more TabPanel elements. Header of the tab is defined using header attribute.</p>
 <CodeHighlight>
 &lt;TabView&gt;
@@ -24,7 +24,7 @@ import TabPanel from 'primevue/tabpanel';
 &lt;/TabView&gt;
 </CodeHighlight>
 
-                <h3>Active</h3>
+                <h5>Active</h5>
 				<p>Visibility of the content is specified with the active property that supports one or two-way binding.</p>
 <CodeHighlight>
 &lt;TabView&gt;
@@ -55,7 +55,7 @@ import TabPanel from 'primevue/tabpanel';
 &lt;/TabView&gt;
 </CodeHighlight>
 
-				<h3>Disabled</h3>
+				<h5>Disabled</h5>
 				<p>A tab can be disabled to prevent the content to be displayed by setting the disabled property on a panel.</p>
 <CodeHighlight>
 &lt;TabView&gt;
@@ -71,7 +71,7 @@ import TabPanel from 'primevue/tabpanel';
 &lt;/TabView&gt;
 </CodeHighlight>
 
-				<h3>Header Template</h3>
+				<h5>Header Template</h5>
 				<p>Custom content for the title section of a panel is defined using the header template.</p>
 <CodeHighlight>
 &lt;TabView class="tabview-custom"&gt;
@@ -92,7 +92,7 @@ import TabPanel from 'primevue/tabpanel';
 &lt;/TabView&gt;
 </CodeHighlight>
 
-                <h3>Programmatic Control</h3>
+                <h5>Programmatic Control</h5>
 				<p>Tabs can be controlled programmatically using active property that defines the active tab.</p>
 <CodeHighlight>
 &lt;Button @click="activate(0)" class="p-button-secondary" label="Activate 1st" /&gt;
@@ -132,7 +132,7 @@ export default {
 }
 </CodeHighlight>
 
-				<h3>Properties of TabPanel</h3>
+				<h5>Properties of TabPanel</h5>
 				<div class="doc-tablewrapper">
 					<table class="doc-table">
 						<thead>
@@ -166,10 +166,10 @@ export default {
 					</table>
 				</div>
 
-                <h3>Properties of TabView</h3>
+                <h5>Properties of TabView</h5>
                 <p>Any property as style and class are passed to the main container element.</p>
 
-				<h3>Events</h3>
+				<h5>Events</h5>
 				<div class="doc-tablewrapper">
 					<table class="doc-table">
 						<thead>
@@ -191,7 +191,7 @@ export default {
 					</table>
 				</div>
 
-				<h3>Styling</h3>
+				<h5>Styling</h5>
 				<p>Following is the list of structural style classes, for theming classes visit <router-link to="/theming">theming</router-link> page.</p>
 				<div class="doc-tablewrapper">
 					<table class="doc-table">
@@ -226,7 +226,7 @@ export default {
 					</table>
 				</div>
 
-				<h3>Dependencies</h3>
+				<h5>Dependencies</h5>
 				<p>None.</p>
 			</TabPanel>
 

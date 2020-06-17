@@ -2,12 +2,12 @@
 	<div class="content-section documentation">
 		<TabView>
 			<TabPanel header="Documentation">
-				<h3>Import</h3>
+				<h5>Import</h5>
 <CodeHighlight lang="javascript">
 import Dropdown from 'primevue/dropdown';
 </CodeHighlight>
 
-				<h3>Getting Started</h3>
+				<h5>Getting Started</h5>
 				<p>Dropdown requires a value to bind and a collection of arbitrary objects along with the <i>optionLabel</i> property to specify the label property of the option.</p>
 <CodeHighlight>
 &lt;Dropdown v-model="selectedCity" :options="cities" optionLabel="name" placeholder="Select a City" /&gt;
@@ -28,17 +28,17 @@ data() {
 }
 </CodeHighlight>
 
-				<h3>Placeholder</h3>
+				<h5>Placeholder</h5>
 				<p>Common pattern is providing an empty option as the placeholder when using native selects, however Dropdown has built-in support using the placeholder option so it is suggested to use it instead of creating an empty option.</p>
 
-				<h3>Filtering</h3>
+				<h5>Filtering</h5>
 				<p>Options can be filtered using an input field in the overlay by enabling the <i>filter</i> property.</p>
 
 <CodeHighlight>
 &lt;Dropdown v-model="selectedCar" :options="cars" optionLabel="brand" placeholder="Select a Car" :filter="true" filterPlaceholder="Find Car"/&gt;
 </CodeHighlight>
 
-				<h3>Custom Content</h3>
+				<h5>Custom Content</h5>
 				<p>Label of an option is used as the display text of an item by default, for custom content support define an <i>option</i> template that gets the option instance as a parameter.</p>
                 <p>In addition the <i>value</i> template can be used to customize the selected value.</p>
 <CodeHighlight>
@@ -63,7 +63,7 @@ data() {
 </template>
 </CodeHighlight>
 
-				<h3>Properties</h3>
+				<h5>Properties</h5>
                 <p>Any property as style and class are passed to the main container element. Following are the additional properties to configure the component.</p>
 				<div class="doc-tablewrapper">
 					<table class="doc-table">
@@ -188,7 +188,7 @@ data() {
 					</table>
 				</div>
 
-				<h3>Events</h3>
+				<h5>Events</h5>
 				<div class="doc-tablewrapper">
 					<table class="doc-table">
 						<thead>
@@ -234,7 +234,7 @@ data() {
 					</table>
 				</div>
 
-				<h3>Styling</h3>
+				<h5>Styling</h5>
 				<p>Following is the list of structural style classes, for theming classes visit <router-link to="/theming">theming</router-link> page.</p>
 				<div class="doc-tablewrapper">
 					<table class="doc-table">
@@ -289,7 +289,7 @@ data() {
 					</table>
 				</div>
 
-				<h3>Dependencies</h3>
+				<h5>Dependencies</h5>
 				<p>None.</p>
 			</TabPanel>
 

@@ -8,13 +8,13 @@
         </div>
 
         <div class="content-section implementation">
-            <h3 class="first">Basic</h3>
+            <h5>Basic</h5>
             <Dropdown v-model="selectedCity1" :options="cities" optionLabel="name" placeholder="Select a City" />
 
-            <h3>Editable</h3>
+            <h5>Editable</h5>
             <Dropdown v-model="selectedCity2" :options="cities" optionLabel="name" :editable="true"/>
 
-            <h3>Advanced with Templating, Filtering and Clear Icon</h3>
+            <h5>Advanced with Templating, Filtering and Clear Icon</h5>
             <Dropdown v-model="selectedCar" :options="cars" optionLabel="brand" :filter="true" placeholder="Select a Car" :showClear="true">
                 <template #value="slotProps">
                     <div class="p-dropdown-car-value" v-if="slotProps.value">

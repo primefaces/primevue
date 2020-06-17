@@ -2,12 +2,12 @@
 	<div class="content-section documentation">
 		<TabView>
 			<TabPanel header="Documentation">
-				<h3>Import</h3>
+				<h5>Import</h5>
 <CodeHighlight lang="javascript">
 import SplitButton from 'primevue/splitbutton';
 </CodeHighlight>
 
-				<h3>Getting Started</h3>
+				<h5>Getting Started</h5>
 				<p>SplitButton has a default command button and a collection of additional options defined by the <i>model</i> property.</p>
 <CodeHighlight lang="js">
 export default {
@@ -52,10 +52,10 @@ export default {
 &lt;SplitButton label="Save" icon="pi pi-plus" :model="items"&gt;&lt;/SplitButton&gt;
 </CodeHighlight>
 
-                <h3>MenuModel</h3>
+                <h5>MenuModel</h5>
                 <p>SplitButton uses the common MenuModel API to define the items, visit <router-link to="/menumodel">MenuModel API</router-link> for details.
 
-				<h3>Severity</h3>
+				<h5>Severity</h5>
 				<p>Different color options are available as severity levels.</p>
 
 				<ul>
@@ -75,7 +75,7 @@ export default {
 &lt;SplitButton label="Save" icon="pi pi-plus" :model="items" class="p-button-danger"&gt;&lt;/SplitButton&gt;
 </CodeHighlight>
 
-				<h3>Properties</h3>
+				<h5>Properties</h5>
 				<div class="doc-tablewrapper">
 					<table class="doc-table">
 						<thead>
@@ -139,7 +139,7 @@ export default {
 					</table>
 				</div>
 
-				<h3>Events</h3>
+				<h5>Events</h5>
 				<div class="doc-tablewrapper">
 					<table class="doc-table">
 						<thead>
@@ -159,7 +159,7 @@ export default {
 					</table>
 				</div>
 
-				<h3>Styling</h3>
+				<h5>Styling</h5>
 				<p>Following is the list of structural style classes, for theming classes visit <router-link to="/theming">theming</router-link> page.</p>
 				<div class="doc-tablewrapper">
 					<table class="doc-table">
@@ -186,7 +186,7 @@ export default {
 					</table>
 				</div>
 
-				<h3>Dependencies</h3>
+				<h5>Dependencies</h5>
 				<p>None.</p>
 			</TabPanel>
 

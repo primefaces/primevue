@@ -8,7 +8,7 @@
 		</div>
 
 		<div class="content-section implementation">
-            <h3>Session Storage</h3>
+            <h5>Session Storage</h5>
 			<DataTable :value="cars" :paginator="true" :rows="10" :filters.sync="filters"
                 :selection.sync="selectedCar1" selectionMode="single" dataKey="vin"
                 stateStorage="session" stateKey="dt-state-demo-session">
@@ -50,7 +50,7 @@
                 </template>
 			</DataTable>
 
-            <h3>Local Storage</h3>
+            <h5>Local Storage</h5>
 			<DataTable :value="cars" :paginator="true" :rows="10" :filters.sync="filters"
                 :selection.sync="selectedCar2" selectionMode="single" dataKey="vin"
                 stateStorage="local" stateKey="dt-state-demo-local">

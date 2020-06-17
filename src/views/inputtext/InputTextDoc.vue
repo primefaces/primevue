@@ -2,18 +2,18 @@
 	<div class="content-section documentation">
 		<TabView>
 			<TabPanel header="Documentation">
-				<h3>Import</h3>
+				<h5>Import</h5>
 <CodeHighlight lang="javascript">
 import InputText from 'primevue/inputtext';
 </CodeHighlight>
 
-				<h3>Getting Started</h3>
+				<h5>Getting Started</h5>
 				<p>A model can be bound using the standard v-model directive.</p>
 <CodeHighlight>
 &lt;InputText type="text" v-model="value" /&gt;
 </CodeHighlight>
 
-				<h3>Float Label</h3>
+				<h5>Float Label</h5>
 				<p>A floating label is implemented by wrapping the input and the label inside a container having <i>.p-float-label</i> style class.</p>
 <CodeHighlight>
 &lt;span class="p-float-label"&gt;
@@ -22,7 +22,7 @@ import InputText from 'primevue/inputtext';
 &lt;/span&gt;
 </CodeHighlight>
 
-                <h3>Icons</h3>
+                <h5>Icons</h5>
                 <p>An icon can be integrated within an input field by wrapping the input and the icon with an element having either <i>p-input-icon-right</i>
                 or <i>p-input-icon-left</i> class depending on the icon location.</p>
 <CodeHighlight>
@@ -37,7 +37,7 @@ import InputText from 'primevue/inputtext';
 &lt;/span&gt;
 </CodeHighlight>
 
-                <h3>Sizes</h3>
+                <h5>Sizes</h5>
                 <p>2 more sizes are available in addition to a regular input, for a smaller input add <i>p-inputtext-sm</i> and for a larger one, use <i>p-inputtext-lg</i>.
                 Note that these classes should be used to change the size of a particular field, for global scaling see the <router-link to="/theming">theming</router-link> page.</p>
 <CodeHighlight>
@@ -46,13 +46,13 @@ import InputText from 'primevue/inputtext';
 &lt;InputText type="text" class="p-inputtext-lg"  placeholder="Large" /&gt;
 </CodeHighlight>
 
-				<h3>Properties</h3>
+				<h5>Properties</h5>
 				<p>InputText passes any valid attribute to the underlying input element.</p>
 
-                <h3>Events</h3>
+                <h5>Events</h5>
                 <p>Any valid event such as focus, blur and input are passed to the underlying input element.</p>
 
-				<h3>Styling</h3>
+				<h5>Styling</h5>
 				<p>Following is the list of structural style classes, for theming classes visit <router-link to="/theming">theming</router-link> page.</p>
 				<div class="doc-tablewrapper">
 					<table class="doc-table">
@@ -79,7 +79,7 @@ import InputText from 'primevue/inputtext';
 					</table>
 				</div>
 
-				<h3>Dependencies</h3>
+				<h5>Dependencies</h5>
 				<p>None.</p>
 			</TabPanel>
 
@@ -89,7 +89,7 @@ import InputText from 'primevue/inputtext';
 				</a>
 <CodeHighlight>
 <template v-pre>
-&lt;h3 class="first"&gt;Basic&lt;/h3&gt;
+&lt;h5&gt;Basic&lt;/h3&gt;
 &lt;InputText type="text" v-model="value1" /&gt;
 &lt;span :style="{marginLeft: '.5em'}"&gt;{{value1}}&lt;/span&gt;
 

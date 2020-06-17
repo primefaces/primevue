@@ -8,7 +8,7 @@
 		</div>
 
 		<div class="content-section implementation">
-            <h3>Vertical</h3>
+            <h5>Vertical</h5>
 			<DataTable :value="cars" :scrollable="true" scrollHeight="200px" :loading="loading">
                 <Column field="vin" header="Vin"></Column>
                 <Column field="year" header="Year"></Column>
@@ -16,7 +16,7 @@
                 <Column field="color" header="Color"></Column>
             </DataTable>
 
-            <h3>Flexible Scroll</h3>
+            <h5>Flexible Scroll</h5>
             <p>Flex scroll feature makes the scrollable viewport section dynamic so that it can grow or shrink relative to the parent size of the table.
                 Click the button below to display a maximizable Dialog where data viewport adjusts itself according to the size changes.</p>
 
@@ -34,7 +34,7 @@
                 </template>
             </Dialog>
 
-            <h3>Virtual Scroll</h3>
+            <h5>Virtual Scroll</h5>
 			<DataTable :value="lazyCars" :scrollable="true" scrollHeight="200px" :lazy="true" :rows="20" :loading="loading"
                 :virtualScroll="true" :virtualRowHeight="30" @virtual-scroll="onVirtualScroll" :totalRecords="lazyTotalRecords">
                 <Column field="vin" header="Vin">
@@ -59,7 +59,7 @@
                 </Column>
             </DataTable>
 
-            <h3>Horizontal and Vertical</h3>
+            <h5>Horizontal and Vertical</h5>
             <DataTable :value="cars" :scrollable="true" scrollHeight="200px" style="width: 600px" :loading="loading">
                 <Column field="vin" header="Vin" headerStyle="width: 250px" columnKey="vin_1"></Column>
                 <Column field="year" header="Year" headerStyle="width: 250px" columnKey="year_1"></Column>
@@ -71,7 +71,7 @@
                 <Column field="color" header="Color" headerStyle="width: 250px" columnKey="color_2"></Column>
             </DataTable>
 
-            <h3>Frozen Rows</h3>
+            <h5>Frozen Rows</h5>
             <DataTable :value="cars" :frozenValue="frozenCars" :scrollable="true" scrollHeight="200px" :loading="loading">
                 <Column field="vin" header="Vin"></Column>
                 <Column field="year" header="Year"></Column>
@@ -79,7 +79,7 @@
                 <Column field="color" header="Color"></Column>
             </DataTable>
 
-            <h3>Frozen Columns</h3>
+            <h5>Frozen Columns</h5>
             <DataTable :value="cars" :scrollable="true" scrollHeight="200px" frozenWidth="300px" :loading="loading">
                 <Column field="vin" header="Vin" headerStyle="width: 300px" columnKey="vin_1" :frozen="true">
                     <template #body="slotProps">

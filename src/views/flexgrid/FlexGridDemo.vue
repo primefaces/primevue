@@ -1,15 +1,11 @@
 <template>
     <div>
-        <div class="content-section introduction">
-            <div class="feature-intro">
-                <h1>FlexGrid</h1>
-                <p>Flex Grid CSS is a lightweight flex based responsive layout utility optimized for mobile phones, tablets and desktops.
-                    Flex Grid CSS is not included in PrimeVue as it is provided by <a href="https://github.com/primefaces/primeflex">PrimeFlex</a>, a shared grid library between PrimeFaces, PrimeNG, PrimeReact and PrimeVue projects.</p>
-            </div>
-        </div>
-
         <div class="content-section implementation flexgrid-demo">
-            <h3 class="first">Basic</h3>
+            <h1>FlexGrid</h1>
+            <p>Flex Grid CSS is a lightweight flex based responsive layout utility optimized for mobile phones, tablets and desktops.
+                Flex Grid CSS is not included in PrimeVue as it is provided by <a href="https://github.com/primefaces/primeflex">PrimeFlex</a>, a shared grid library between PrimeFaces, PrimeNG, PrimeReact and PrimeVue projects.</p>
+
+            <h5>Basic</h5>
             <div class="p-grid">
                 <div class="p-col">
                     <div class="box">1</div>
@@ -22,7 +18,7 @@
                 </div>
             </div>
 
-            <h3>Dynamic</h3>
+            <h5>Dynamic</h5>
             <Button type="button" icon="pi pi-plus" title="Add Column" @click="addColumn" :disabled="columns.length === 20" style="margin-right: .5em" />
             <Button type="button" icon="pi pi-minus" title="Remove Column" @click="removeColumn" :disabled="columns.length === 1" />
 
@@ -34,7 +30,7 @@
                 </transition-group>
             </div>
 
-            <h3>Reverse Direction</h3>
+            <h5>Reverse Direction</h5>
             <div class="p-grid p-dir-rev">
                 <div class="p-col">
                     <div class="box">1</div>
@@ -47,7 +43,7 @@
                 </div>
             </div>
 
-            <h3>Column Direction</h3>
+            <h5>Column Direction</h5>
             <div class="p-grid p-dir-col">
                 <div class="p-col">
                     <div class="box">1</div>
@@ -60,7 +56,7 @@
                 </div>
             </div>
 
-            <h3>Reverse Column Direction</h3>
+            <h5>Reverse Column Direction</h5>
             <div class="p-grid p-dir-col-rev">
                 <div class="p-col">
                     <div class="box">1</div>
@@ -73,7 +69,7 @@
                 </div>
             </div>
 
-            <h3>12 Column Grid</h3>
+            <h5>12 Column Grid</h5>
             <div class="p-grid">
                 <div class="p-col-4">
                     <div class="box">4</div>
@@ -128,7 +124,7 @@
                 </div>
             </div>
 
-            <h3>MultiLine</h3>
+            <h5>MultiLine</h5>
             <div class="p-grid">
                 <div class="p-col-6">
                     <div class="box">6</div>
@@ -144,7 +140,7 @@
                 </div>
             </div>
 
-            <h3>Fixed Width Column</h3>
+            <h5>Fixed Width Column</h5>
             <div class="p-grid">
                 <div class="p-col-fixed" style="width:100px">
                     <div class="box">100px</div>
@@ -154,7 +150,7 @@
                 </div>
             </div>
 
-            <h3>Responsive</h3>
+            <h5>Responsive</h5>
             <div class="p-grid">
                 <div class="p-col-12 p-md-6 p-lg-3">
                     <div class="box">p-col-12 p-md-6 p-lg-3</div>
@@ -170,7 +166,7 @@
                 </div>
             </div>
 
-            <h3>Horizontal Alignment - Start</h3>
+            <h5>Horizontal Alignment - Start</h5>
             <div class="p-grid p-justify-start">
                 <div class="p-col-2">
                     <div class="box">2</div>
@@ -183,7 +179,7 @@
                 </div>
             </div>
 
-            <h3>Horizontal Alignment - End</h3>
+            <h5>Horizontal Alignment - End</h5>
             <div class="p-grid p-justify-end">
                 <div class="p-col-2">
                     <div class="box">2</div>
@@ -196,7 +192,7 @@
                 </div>
             </div>
 
-            <h3>Horizontal Alignment - Center</h3>
+            <h5>Horizontal Alignment - Center</h5>
             <div class="p-grid p-justify-center">
                 <div class="p-col-2">
                     <div class="box">2</div>
@@ -209,7 +205,7 @@
                 </div>
             </div>
 
-            <h3>Horizontal Alignment - Between</h3>
+            <h5>Horizontal Alignment - Between</h5>
             <div class="p-grid p-justify-between">
                 <div class="p-col-2">
                     <div class="box">2</div>
@@ -222,7 +218,7 @@
                 </div>
             </div>
 
-            <h3>Horizontal Alignment - Around</h3>
+            <h5>Horizontal Alignment - Around</h5>
             <div class="p-grid p-justify-around">
                 <div class="p-col-2">
                     <div class="box">2</div>
@@ -235,7 +231,7 @@
                 </div>
             </div>
 
-            <h3>Horizontal Alignment - Even</h3>
+            <h5>Horizontal Alignment - Even</h5>
             <div class="p-grid p-justify-even">
                 <div class="p-col-2">
                     <div class="box">2</div>
@@ -248,7 +244,7 @@
                 </div>
             </div>
 
-            <h3>Vertical Alignment - Start</h3>
+            <h5>Vertical Alignment - Start</h5>
             <div class="p-grid p-align-start vertical-container">
                 <div class="p-col">
                     <div class="box">4</div>
@@ -261,7 +257,7 @@
                 </div>
             </div>
 
-            <h3>Vertical Alignment - End</h3>
+            <h5>Vertical Alignment - End</h5>
             <div class="p-grid p-align-end vertical-container">
                 <div class="p-col">
                     <div class="box">4</div>
@@ -274,7 +270,7 @@
                 </div>
             </div>
 
-            <h3>Vertical Alignment - Center</h3>
+            <h5>Vertical Alignment - Center</h5>
             <div class="p-grid p-align-center vertical-container">
                 <div class="p-col">
                     <div class="box">4</div>
@@ -287,7 +283,7 @@
                 </div>
             </div>
 
-            <h3>Vertical Alignment - Stretch</h3>
+            <h5>Vertical Alignment - Stretch</h5>
             <div class="p-grid p-align-stretch vertical-container">
                 <div class="p-col">
                     <div class="box box-stretched">4</div>
@@ -300,7 +296,7 @@
                 </div>
             </div>
 
-            <h3>Vertical Alignment - Per Column</h3>
+            <h5>Vertical Alignment - Per Column</h5>
             <div class="p-grid vertical-container">
                 <div class="p-col p-col-align-start">
                     <div class="box">4</div>
@@ -313,7 +309,7 @@
                 </div>
             </div>
 
-            <h3>Offset</h3>
+            <h5>Offset</h5>
             <div class="p-grid">
                 <div class="p-col-6 p-offset-3">
                     <div class="box">6</div>
@@ -329,7 +325,7 @@
                 </div>
             </div>
 
-            <h3>Nested</h3>
+            <h5>Nested</h5>
             <div class="p-grid nested-grid">
                 <div class="p-col-8">
                     <div class="p-grid">
@@ -349,7 +345,7 @@
                 </div>
             </div>
 
-            <h3>Panels</h3>
+            <h5>Panels</h5>
             <div class="p-grid">
                 <div class="p-col">
                     <Panel header="Godfather">
@@ -377,7 +373,7 @@
                 </div>
             </div>
 
-            <h3>Sample Layout</h3>
+            <h5>Sample Layout</h5>
             <div class="p-grid sample-layout">
                 <div class="p-col-12 p-md-2">
                     Menu

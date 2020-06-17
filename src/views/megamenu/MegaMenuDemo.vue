@@ -8,10 +8,10 @@
         </div>
 
         <div class="content-section implementation">
-            <h3>Horizontal</h3>
+            <h5>Horizontal</h5>
             <MegaMenu :model="items" />
 
-            <h3>Vertical</h3>
+            <h5>Vertical</h5>
             <MegaMenu :model="items" orientation="vertical"/>
         </div>
 

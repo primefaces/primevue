@@ -2,18 +2,18 @@
 	<div class="content-section documentation">
 		<TabView>
 			<TabPanel header="Documentation">
-				<h3>Import</h3>
+				<h5>Import</h5>
 <CodeHighlight lang="javascript">
 import InputMask from 'primevue/inputmask';
 </CodeHighlight>
 
-				<h3>Getting Started</h3>
+				<h5>Getting Started</h5>
 				<p>A model can be bound using the standard v-model directive.</p>
 <CodeHighlight>
 &lt;InputMask v-model="value" mask="99-999999" /&gt;
 </CodeHighlight>
 
-				<h3>Mask</h3>
+				<h5>Mask</h5>
                 <p>Mask format can be a combination of the the following built-in definitions.</p>
 
                 <ul>
@@ -31,12 +31,12 @@ import InputMask from 'primevue/inputmask';
 &lt;InputMask v-model="value" mask="a*-999-a999" /&gt;
 </CodeHighlight>
 
-                <h3>SlotChar</h3>
+                <h5>SlotChar</h5>
                 <p>Underscore is the default placeholder for a mask and this can be customized using <i>slotChart</i> option.</p>
 <CodeHighlight>
 &lt;InputMask v-model="value" mask="99/99/9999" slotChar="mm/dd/yyyy" /&gt;
 </CodeHighlight>
-                <h3>Optional Values</h3>
+                <h5>Optional Values</h5>
                 <p>If the input does not complete the mask definition, it is cleared by default.
                     Use <i>autoClear</i> property to control this behavior. In addition, certain part of
                     a mask can be made optional by using ? symbol where anything after the question
@@ -45,7 +45,7 @@ import InputMask from 'primevue/inputmask';
 &lt;InputMask v-model="value" mask="(999) 999-9999? x99999" /&gt;
 </CodeHighlight>
 
-				<h3>Properties</h3>
+				<h5>Properties</h5>
 				<p>InputText passes any valid attribute to the underlying input element. In addition;</p>
                 <div class="doc-tablewrapper">
 					<table class="doc-table">
@@ -86,10 +86,10 @@ import InputMask from 'primevue/inputmask';
 					</table>
 				</div>
 
-                <h3>Events</h3>
+                <h5>Events</h5>
                 <p>Any valid event such as focus, blur and input are passed to the underlying input element.</p>
 
-				<h3>Styling</h3>
+				<h5>Styling</h5>
 				<p>Following is the list of structural style classes, for theming classes visit <router-link to="/theming">theming</router-link> page.</p>
 				<div class="doc-tablewrapper">
 					<table class="doc-table">
@@ -108,7 +108,7 @@ import InputMask from 'primevue/inputmask';
 					</table>
 				</div>
 
-				<h3>Dependencies</h3>
+				<h5>Dependencies</h5>
 				<p>None.</p>
 			</TabPanel>
 

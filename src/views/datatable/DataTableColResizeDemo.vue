@@ -9,7 +9,7 @@
 		</div>
 
 		<div class="content-section implementation">
-            <h3>Fit Mode</h3>
+            <h5>Fit Mode</h5>
 			<DataTable :value="cars" :resizableColumns="true" columnResizeMode="fit">
                 <Column field="vin" header="Vin"></Column>
                 <Column field="year" header="Year"></Column>
@@ -17,7 +17,7 @@
                 <Column field="color" header="Color"></Column>
             </DataTable>
 
-            <h3>Expand Mode</h3>
+            <h5>Expand Mode</h5>
 			<DataTable :value="cars" :resizableColumns="true" columnResizeMode="expand">
                 <Column field="vin" header="Vin"></Column>
                 <Column field="year" header="Year"></Column>

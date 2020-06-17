@@ -8,7 +8,7 @@
 		</div>
 
 		<div class="content-section implementation">
-            <h3 class="first">Single Column</h3>
+            <h5>Single Column</h5>
 			<DataTable :value="cars">
                 <Column field="vin" header="Vin" :sortable="true"></Column>
                 <Column field="year" header="Year" :sortable="true"></Column>
@@ -16,7 +16,7 @@
                 <Column field="color" header="Color" :sortable="true"></Column>
             </DataTable>
 
-            <h3>Multiple Columns</h3>
+            <h5>Multiple Columns</h5>
 			<DataTable :value="cars" sortMode="multiple">
                 <Column field="vin" header="Vin" :sortable="true"></Column>
                 <Column field="year" header="Year" :sortable="true"></Column>
@@ -24,7 +24,7 @@
                 <Column field="color" header="Color" :sortable="true"></Column>
             </DataTable>
 
-            <h3>Presort</h3>
+            <h5>Presort</h5>
             <DataTable :value="cars" sortField="year" :sortOrder="-1">
                 <Column field="vin" header="Vin" :sortable="true"></Column>
                 <Column field="year" header="Year" :sortable="true"></Column>
@@ -32,7 +32,7 @@
                 <Column field="color" header="Color" :sortable="true"></Column>
             </DataTable>
 
-            <h3>Removable Sort</h3>
+            <h5>Removable Sort</h5>
 			<DataTable :value="cars" removableSort>
                 <Column field="vin" header="Vin" :sortable="true"></Column>
                 <Column field="year" header="Year" :sortable="true"></Column>
@@ -46,7 +46,7 @@
                 <TabPanel header="Source">
 <CodeHighlight>
 <template v-pre>
-&lt;h3 class="first"&gt;Single Column&lt;/h3&gt;
+&lt;h5&gt;Single Column&lt;/h3&gt;
 &lt;DataTable :value="cars"&gt;
     &lt;Column field="vin" header="Vin" :sortable="true"&gt;&lt;/Column&gt;
     &lt;Column field="year" header="Year" :sortable="true"&gt;&lt;/Column&gt;

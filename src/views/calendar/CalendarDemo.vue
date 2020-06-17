@@ -8,7 +8,7 @@
         </div>
 
         <div class="content-section implementation">
-            <h3>Popup</h3>
+            <h5>Popup</h5>
             <div class=" p-fluid p-grid p-formgrid">
                 <div class="p-field p-col-12 p-md-4">
                     <label for="basic">Basic</label>
@@ -77,7 +77,7 @@
                 </div>
             </div>
 
-            <h3>Inline</h3>
+            <h5>Inline</h5>
             <Calendar v-model="date14" :inline="true" :showWeek="true" />
         </div>
 

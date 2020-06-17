@@ -2,18 +2,18 @@
 	<div class="content-section documentation">
 		<TabView>
 			<TabPanel header="Documentation">
-				<h3>Import</h3>
+				<h5>Import</h5>
 <CodeHighlight lang="javascript">
 import Editor from 'primevue/editor';
 </CodeHighlight>
 
-				<h3>Getting Started</h3>
+				<h5>Getting Started</h5>
 				<p>A model can be bound using the standard v-model directive.</p>
 <CodeHighlight>
 &lt;Editor v-model="value" editorStyle="height: 320px"/&gt;
 </CodeHighlight>
 
-				<h3>Toolbar</h3>
+				<h5>Toolbar</h5>
 				<p>Editor provides a default toolbar with common options, to customize it define your elements inside the header element. Refer to <a href="http://quilljs.com/docs/modules/toolbar/">Quill documentation</a> for available controls.</p>
 <CodeHighlight>
 &lt;Editor v-model="value" editorStyle="height: 320px"&gt;
@@ -27,7 +27,7 @@ import Editor from 'primevue/editor';
 &lt;/Editor&gt;
 </CodeHighlight>
 
-				<h3>Properties</h3>
+				<h5>Properties</h5>
 				<div class="doc-tablewrapper">
 					<table class="doc-table">
 						<thead>
@@ -73,7 +73,7 @@ import Editor from 'primevue/editor';
 					</table>
 				</div>
 
-				<h3>Events</h3>
+				<h5>Events</h5>
 				<div class="doc-tablewrapper">
 					<table class="doc-table">
 						<thead>
@@ -103,7 +103,7 @@ import Editor from 'primevue/editor';
 
 				<p>Refer to <a href="http://beta.quilljs.com/docs/api/#events">Quill documentation</a> for more information.</p>
 
-				<h3>Styling</h3>
+				<h5>Styling</h5>
 				<p>Following is the list of structural style classes, for theming classes visit <router-link to="/theming">theming</router-link> page.</p>
 				<div class="doc-tablewrapper">
 					<table class="doc-table">
@@ -130,7 +130,7 @@ import Editor from 'primevue/editor';
 					</table>
 				</div>
 
-				<h3>Dependencies</h3>
+				<h5>Dependencies</h5>
 				<p><a href="http://quilljs.com">Quill</a> Editor 1.3+.</p>
 				<p>Resources of quill needs to be added to your application.</p>
 <CodeHighlight>

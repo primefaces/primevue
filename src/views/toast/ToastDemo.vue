@@ -8,7 +8,7 @@
         </div>
 
         <div class="content-section implementation p-fluid">
-            <h3>Severities</h3>
+            <h5>Severities</h5>
             <div class="p-grid">
                 <div class="p-col-12 p-md-3">
                     <Button label="Success" class="p-button-success" @click="showSuccess" />
@@ -24,7 +24,7 @@
                 </div>
             </div>
 
-            <h3>Positions</h3>
+            <h5>Positions</h5>
             <div class="p-grid">
                 <div class="p-col-12 p-md-4">
                     <Button label="Top Left" @click="showTopLeft" />
@@ -37,7 +37,7 @@
                 </div>
             </div>
 
-            <h3>Options</h3>
+            <h5>Options</h5>
             <div class="p-grid">
                 <div class="p-col-12 p-md-6">
                     <Button @click="showMultiple" label="Multiple" class="p-button-warning" />
@@ -47,7 +47,7 @@
                 </div>
             </div>
 
-            <h3>Remove All</h3>
+            <h5>Remove All</h5>
             <Button @click="clear" label="Clear" />
         </div>
 

@@ -4,7 +4,7 @@
 			<TabPanel header="Source">
 <CodeHighlight>
 <template v-pre>
-&lt;h3 class="vertical"&gt;Vertical&lt;/h3&gt;
+&lt;h5&gt;Vertical&lt;/h3&gt;
 &lt;Chart type="bar" :data="basicData" /&gt;
 
 &lt;h3&gt;Horizontal&lt;/h3&gt;

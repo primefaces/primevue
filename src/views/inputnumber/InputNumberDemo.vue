@@ -8,7 +8,7 @@
         </div>
 
         <div class="content-section implementation">
-            <h3>Numerals</h3>
+            <h5>Numerals</h5>
             <div class="p-fluid p-grid p-formgrid">
                 <div class="p-field p-col-12 p-md-3">
                     <label for="integeronly">Integer Only</label>
@@ -45,7 +45,7 @@
                 </div>
             </div>
 
-            <h3>Currency</h3>
+            <h5>Currency</h5>
             <div class="p-grid p-fluid">
                 <div class="p-field p-col-12 p-md-3">
                     <label for="currency-us">United States</label>
@@ -65,7 +65,7 @@
                 </div>
             </div>
 
-            <h3>Prefix and Suffix</h3>
+            <h5>Prefix and Suffix</h5>
             <div class="p-grid p-fluid">
                 <div class="p-field p-col-12 p-md-3">
                     <label for="mile">Mile</label>
@@ -85,7 +85,7 @@
                 </div>
             </div>
 
-            <h3>Buttons</h3>
+            <h5>Buttons</h5>
             <div class="p-grid p-fluid">
                 <div class="p-field p-col-12 p-md-3">
                     <label for="stacked">Stacked</label>

@@ -8,10 +8,10 @@
         </div>
 
         <div class="content-section implementation">
-            <h3 class="first">Inline</h3>
+            <h5>Inline</h5>
             <Menu :model="items" />
 
-            <h3>Overlay</h3>
+            <h5>Overlay</h5>
             <Button type="button" label="Toggle" @click="toggle" aria-haspopup="true" aria-controls="overlay_menu"/>
             <Menu id="overlay_menu" ref="menu" :model="items" :popup="true" />
         </div>

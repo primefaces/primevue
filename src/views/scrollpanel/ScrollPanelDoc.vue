@@ -2,12 +2,12 @@
 	<div class="content-section documentation">
 		<TabView>
 			<TabPanel header="Documentation">
-				<h3>Import</h3>
+				<h5>Import</h5>
 <CodeHighlight lang="javascript">
 import ScrollPanel from 'primevue/scrollpanel';
 </CodeHighlight>
 
-				<h3>Getting Started</h3>
+				<h5>Getting Started</h5>
 				<p>ScrollPanel usage is similar to any container element.</p>
 <CodeHighlight>
 &lt;ScrollPanel style="width: 100%; height: 200px"&gt;
@@ -15,7 +15,7 @@ import ScrollPanel from 'primevue/scrollpanel';
 &lt;/ScrollPanel&gt;
 </CodeHighlight>
 
-                <h3>Customization</h3>
+                <h5>Customization</h5>
                 <p>Look and feel can easily be customized, here is an example with custom scrollbars.</p>
 <CodeHighlight>
 &lt;ScrollPanel style="width: 100%; height: 200px" class="custom"&gt;
@@ -39,10 +39,10 @@ import ScrollPanel from 'primevue/scrollpanel';
 }
 </CodeHighlight>
 
-				<h3>Properties</h3>
+				<h5>Properties</h5>
                 <p>Any property such as style and class are passed to the main container element. There are no component specific properties.</p>
 
-				<h3>Styling</h3>
+				<h5>Styling</h5>
 				<p>Following is the list of structural style classes, for theming classes visit <router-link to="/theming">theming</router-link> page.</p>
 				<div class="doc-tablewrapper">
 					<table class="doc-table">
@@ -81,7 +81,7 @@ import ScrollPanel from 'primevue/scrollpanel';
 					</table>
 				</div>
 
-				<h3>Dependencies</h3>
+				<h5>Dependencies</h5>
 				<p>None.</p>
 			</TabPanel>
 

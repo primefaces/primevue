@@ -8,11 +8,11 @@
         </div>
 
         <div class="content-section implementation">
-            <h3 class="first">Basic</h3>
+            <h5>Basic</h5>
             <AutoComplete v-model="selectedCountry" :suggestions="filteredCountriesBasic" @complete="searchCountryBasic($event)" field="name" />
             <span style="marginLeft: .5em">Country: {{selectedCountry || 'none'}}</span>
 
-            <h3>Dropdown and Templating</h3>
+            <h5>Dropdown and Templating</h5>
             <AutoComplete v-model="brand" :suggestions="filteredBrands" @complete="searchBrand($event)" placeholder="Search car brands" :dropdown="true">
                 <template #item="slotProps">
                     <div class="p-autocomplete-brand-item">
@@ -23,7 +23,7 @@
             </AutoComplete>
             <span style="marginLeft: .5em">Brand: {{brand || 'none'}}</span>
 
-            <h3>Multiple</h3>
+            <h5>Multiple</h5>
             <span class="p-fluid">
                 <AutoComplete :multiple="true" v-model="selectedCountries" :suggestions="filteredCountriesMultiple" @complete="searchCountryMultiple($event)" field="name" />
             </span>

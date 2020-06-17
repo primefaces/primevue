@@ -8,7 +8,7 @@
         </div>
 
         <div class="content-section implementation">
-            <h3>Lenient Filter</h3>
+            <h5>Lenient Filter</h5>
             <TreeTable :value="nodes" :filters="filters" filterMode="lenient">
                 <template #header>
                     <div style="text-align: right">
@@ -33,7 +33,7 @@
                 </Column>
             </TreeTable>
 
-            <h3>Strict Filter</h3>
+            <h5>Strict Filter</h5>
             <TreeTable :value="nodes" :filters="filters" filterMode="strict">
                 <template #header>
                     <div style="text-align: right">

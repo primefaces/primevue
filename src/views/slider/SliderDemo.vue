@@ -8,20 +8,20 @@
         </div>
 
         <div class="content-section implementation">
-            <h3 class="first">Basic: {{value1}}</h3>
+            <h5>Basic: {{value1}}</h5>
             <Slider v-model="value1" />
 
-            <h3>Input: {{value2}}</h3>
+            <h5>Input: {{value2}}</h5>
             <InputText v-model.number="value2" />
             <Slider v-model="value2" />
 
-            <h3>Step: {{value3}}</h3>
+            <h5>Step: {{value3}}</h5>
             <Slider v-model="value3" :step="20" />
 
-            <h3>Range: {{value4}}</h3>
+            <h5>Range: {{value4}}</h5>
             <Slider v-model="value4" :range="true" />
 
-            <h3>Vertical: {{value5}}</h3>
+            <h5>Vertical: {{value5}}</h5>
             <Slider v-model="value5" orientation="vertical" />
         </div>
 

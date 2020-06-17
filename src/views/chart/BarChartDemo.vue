@@ -8,16 +8,16 @@
         </div>
 
         <div class="content-section implementation">
-            <h3 class="vertical">Vertical</h3>
+            <h5>Vertical</h5>
             <Chart type="bar" :data="basicData" :options="basicOptions" />
 
-            <h3>Horizontal</h3>
+            <h5>Horizontal</h5>
             <Chart type="horizontalBar" :data="basicData" :options="basicOptions" />
 
-            <h3>Multi Axis</h3>
+            <h5>Multi Axis</h5>
             <Chart type="bar" :data="multiAxisData" :options="multiAxisOptions "/>
 
-            <h3>Stacked</h3>
+            <h5>Stacked</h5>
             <Chart type="bar" :data="stackedData" :options="stackedOptions" />
         </div>
 

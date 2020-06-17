@@ -8,11 +8,11 @@
         </div>
 
         <div class="content-section documentation">
-            <h3 style="margin-top:0">Community Support</h3>
+            <h5">Community Support</h5>
             <p><a href="https://forum.primefaces.org/viewforum.php?f=110">Forum</a> is where the community users gather to seek support, post topics and discuss the technology. PrimeTek does not
             guarantee response at forum although it is monitored and maintained by our staff. If you need to secure our response within 1 business day, you may consider PrimeVue PRO support.</p>
 
-            <h3>PrimeVue PRO Support</h3>
+            <h5>PrimeVue PRO Support</h5>
             <div class="pro-section p-grid p-nogutter">
                 <div class="pro-section-text p-col-12 p-md-8">
                      <p>PrimeVue PRO is a term based commercial support service. With the exclusive services of Pro account,
@@ -26,7 +26,7 @@
                 </div>
             </div>
 
-            <h3>Standard PRO Services</h3>
+            <h5>Standard PRO Services</h5>
             <ul>
                 <li>Access to pro.primefaces.org</li>
                 <li>Response within 1 business day.</li>
@@ -40,7 +40,7 @@
                 <li>Notifications about security updates.</li>
             </ul>
 
-            <h3>New Features (Optional)</h3>
+            <h5>New Features (Optional)</h5>
 
             <p>New feature and enhancement requests are not available in core services and provided via an hour based model instead.  When you have a feature request we provide an estimate, if you confirm we deliver your request within an estimated timeframe and deduct the amount of work from your hours. These requests can be;</p>
 

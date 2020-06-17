@@ -8,10 +8,10 @@
         </div>
 
         <div class="content-section implementation">
-            <h3 class="first">Single</h3>
+            <h5>Single</h5>
             <Listbox v-model="selectedCity" :options="cities" optionLabel="name" style="width:15em" />
 
-            <h3>Advanced with Templating, Filtering and Multiple Selection</h3>
+            <h5>Advanced with Templating, Filtering and Multiple Selection</h5>
             <Listbox v-model="selectedCars" :options="cars" :multiple="true" :filter="true" optionLabel="brand" listStyle="max-height:250px" style="width:15em">
                 <template #option="slotProps">
                     <div class="car-item">

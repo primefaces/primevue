@@ -8,12 +8,12 @@
         </div>
 
         <div class="content-section implementation">
-            <h3 class="first">Document</h3>
+            <h5>Document</h5>
             <BlockUI :blocked="blockedDocument" :fullScreen="true"></BlockUI>
 
             <Button type="button" label="Block" @click="blockDocument()"></Button>
 
-            <h3>Panel</h3>
+            <h5>Panel</h5>
             <Button type="button" label="Block" @click="blockPanel()"></Button>
             <Button type="button" label="Unblock" @click="unblockPanel()"></Button>
 

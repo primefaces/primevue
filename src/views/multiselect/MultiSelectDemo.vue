@@ -8,10 +8,10 @@
         </div>
 
         <div class="content-section implementation">
-            <h3 class="first">Basic</h3>
+            <h5>Basic</h5>
             <MultiSelect v-model="selectedCars1" :options="cars" optionLabel="brand" placeholder="Select Brands" />
 
-            <h3>Advanced with Templating and Filtering</h3>
+            <h5>Advanced with Templating and Filtering</h5>
             <MultiSelect v-model="selectedCars2" :options="cars" optionLabel="brand" placeholder="Select a Car" :filter="true" class="multiselect-custom">
                 <template #value="slotProps">
                     <div class="p-multiselect-car-token" v-for="option of slotProps.value" :key="option.brand">

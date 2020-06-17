@@ -8,13 +8,13 @@
         </div>
 
         <div class="content-section implementation">
-            <h3 class="first">Basic</h3>
+            <h5>Basic</h5>
             <Chart type="line" :data="basicData" :options="basicOptions" />
 
-            <h3>Multi Axis</h3>
+            <h5>Multi Axis</h5>
             <Chart type="line" :data="multiAxisData" :options="multiAxisOptions" />
 
-            <h3>Line Styles</h3>
+            <h5>Line Styles</h5>
             <Chart type="line" :data="lineStylesData" :options="basicOptions" />
         </div>
 

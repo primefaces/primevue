@@ -8,13 +8,13 @@
         </div>
 
         <div class="content-section implementation p-fluid">
-            <h3 class="first">Basic</h3>
+            <h5>Basic</h5>
             <Chips v-model="value1" />
 
-            <h3>Comma Separator</h3>
+            <h5>Comma Separator</h5>
             <Chips v-model="value2" separator="," />
 
-            <h3>Template</h3>
+            <h5>Template</h5>
             <Chips v-model="value3">
                 <template #chip="slotProps">
                     <div>

@@ -8,7 +8,7 @@
         </div>
 
         <div class="content-section implementation">
-            <h3>Input</h3>
+            <h5>Input</h5>
             <Inplace :closable="true">
                 <template #display>
                     {{text || 'Click to Edit'}}
@@ -18,7 +18,7 @@
                 </template>
             </Inplace>
 
-            <h3>Image</h3>
+            <h5>Image</h5>
             <Inplace>
                 <template #display>
                     <span class="pi pi-search" style="vertical-align: middle"></span>
@@ -29,7 +29,7 @@
                 </template>
             </Inplace>
 
-            <h3>Lazy Data</h3>
+            <h5>Lazy Data</h5>
             <Inplace @open="loadData">
                 <template #display>
                     View Data

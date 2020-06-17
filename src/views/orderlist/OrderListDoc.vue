@@ -2,12 +2,12 @@
 	<div class="content-section documentation">
 		<TabView>
 			<TabPanel header="Documentation">
-				<h3>Import</h3>
+				<h5>Import</h5>
 <CodeHighlight lang="javascript">
 import OrderList from 'primevue/orderlist';
 </CodeHighlight>
 
-				<h3>Getting Started</h3>
+				<h5>Getting Started</h5>
                 <p>OrderList requires an array as its value bound with the v-model directive and a template for its content.</p>
                 <p>Header of the component is defined with the "header" template and to define the content of an item in the list a named template called "item" needs to be defined which gets the
                     <i>item</i> and the <i>index</i> via slotProps.
@@ -31,7 +31,7 @@ import OrderList from 'primevue/orderlist';
 </template>
 </CodeHighlight>
 
-                <h3>Selection</h3>
+                <h5>Selection</h5>
                 <p>In case you'd need to access the selected items in the list, define a binding to the <i>selection</i> property with the sync operator so that
                 it gets updated when the user makes a selection. Since it is two-way binding enabled, your changes to the selection will be reflected as well.  Note that
                 this is optional and only necessary when you need to access the selection.</p>
@@ -57,10 +57,10 @@ import OrderList from 'primevue/orderlist';
 </template>
 </CodeHighlight>
 
-                <h3>DataKey</h3>
+                <h5>DataKey</h5>
                 <p>It is recommended to provide the name of the field that uniquely identifies the a record in the data via the <i>dataKey</i> property for better performance.</p>
 
-				<h3>Properties</h3>
+				<h5>Properties</h5>
                 <p>Any property as style and class are passed to the main container element. Following are the additional properties to configure the component.</p>
 				<div class="doc-tablewrapper">
 					<table class="doc-table">
@@ -110,7 +110,7 @@ import OrderList from 'primevue/orderlist';
 					</table>
 				</div>
 
-				<h3>Events</h3>
+				<h5>Events</h5>
 				<div class="doc-tablewrapper">
 					<table class="doc-table">
 						<thead>
@@ -133,7 +133,7 @@ import OrderList from 'primevue/orderlist';
 					</table>
 				</div>
 
-				<h3>Styling</h3>
+				<h5>Styling</h5>
 				<p>Following is the list of structural style classes, for theming classes visit <router-link to="/theming">theming</router-link> page.</p>
 				<div class="doc-tablewrapper">
 					<table class="doc-table">
@@ -160,7 +160,7 @@ import OrderList from 'primevue/orderlist';
 					</table>
 				</div>
 
-				<h3>Dependencies</h3>
+				<h5>Dependencies</h5>
 				<p>None.</p>
 			</TabPanel>
 

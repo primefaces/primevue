@@ -8,21 +8,21 @@
         </div>
 
         <div class="content-section implementation">
-            <h3>Single Column Sorting</h3>
+            <h5>Single Column Sorting</h5>
             <TreeTable :value="nodes" sortMode="single">
                 <Column field="name" header="Name" :expander="true" :sortable="true"></Column>
                 <Column field="size" header="Size" :sortable="true"></Column>
                 <Column field="type" header="Type" :sortable="true"></Column>
             </TreeTable>
 
-            <h3>Multiple Column Sorting</h3>
+            <h5>Multiple Column Sorting</h5>
             <TreeTable :value="nodes" sortMode="multiple">
                 <Column field="name" header="Name" :expander="true" :sortable="true"></Column>
                 <Column field="size" header="Size" :sortable="true"></Column>
                 <Column field="type" header="Type" :sortable="true"></Column>
             </TreeTable>
 
-            <h3>Removable Sort</h3>
+            <h5>Removable Sort</h5>
             <TreeTable :value="nodes" sortMode="single" removableSort>
                 <Column field="name" header="Name" :expander="true" :sortable="true"></Column>
                 <Column field="size" header="Size" :sortable="true"></Column>

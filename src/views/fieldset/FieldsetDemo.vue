@@ -8,7 +8,7 @@
         </div>
 
         <div class="content-section implementation">
-            <h3 class="first">Regular</h3>
+            <h5>Regular</h5>
             <Fieldset legend="Godfather I">
                 <p>The story begins as Don Vito Corleone, the head of a New York Mafia family, oversees his daughter's wedding.
                 His beloved son Michael has just come home from the war, but does not intend to become part of his father's business.
@@ -16,7 +16,7 @@
                 kind and benevolent to those who give respect, but given to ruthless violence whenever anything stands against the good of the family.</p>
             </Fieldset>
 
-            <h3>Toggleable</h3>
+            <h5>Toggleable</h5>
             <Fieldset legend="Godfather I" :toggleable="true">
                 <p>The story begins as Don Vito Corleone, the head of a New York Mafia family, oversees his daughter's wedding.
                 His beloved son Michael has just come home from the war, but does not intend to become part of his father's business.

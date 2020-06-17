@@ -2,13 +2,13 @@
 	<div class="content-section documentation">
 		<TabView>
 			<TabPanel header="Documentation">
-				<h3>Import</h3>
+				<h5>Import</h5>
 <CodeHighlight lang="javascript">
 import Accordion from 'primevue/accordion';
 import AccordionTab from 'primevue/accordiontab';
 </CodeHighlight>
 
-				<h3>Getting Started</h3>
+				<h5>Getting Started</h5>
 				<p>Accordion element consists of one or more AccordionTab elements. Title of the tab is defined using header attribute.</p>
 <CodeHighlight>
 &lt;Accordion&gt;
@@ -24,7 +24,7 @@ import AccordionTab from 'primevue/accordiontab';
 &lt;/Accordion&gt;
 </CodeHighlight>
 
-				<h3>Active</h3>
+				<h5>Active</h5>
 				<p>Visibility of the content is specified with the active property that supports one or two-way binding.</p>
 <CodeHighlight>
 &lt;Accordion&gt;
@@ -55,7 +55,7 @@ import AccordionTab from 'primevue/accordiontab';
 &lt;/Accordion&gt;
 </CodeHighlight>
 
-				<h3>Multiple</h3>
+				<h5>Multiple</h5>
 				<p>By default only one tab at a time can be active, enabling multiple property changes this behavior to allow multiple
 					tabs be active at the same time.</p>
 <CodeHighlight>
@@ -72,7 +72,7 @@ import AccordionTab from 'primevue/accordiontab';
 &lt;/Accordion&gt;
 </CodeHighlight>
 
-				<h3>Disabled</h3>
+				<h5>Disabled</h5>
 				<p>A tab can be disabled by setting the disabled property to true.</p>
 <CodeHighlight>
 &lt;Accordion&gt;
@@ -88,7 +88,7 @@ import AccordionTab from 'primevue/accordiontab';
 &lt;/Accordion&gt;
 </CodeHighlight>
 
-				<h3>Custom Content at Headers</h3>
+				<h5>Custom Content at Headers</h5>
 				<p>Custom content for the title section of a panel is defined using the header template.</p>
 <CodeHighlight>
 &lt;Accordion&gt;
@@ -116,7 +116,7 @@ import AccordionTab from 'primevue/accordiontab';
 &lt;/Accordion&gt;
 </CodeHighlight>
 
-				<h3>Programmatic Control</h3>
+				<h5>Programmatic Control</h5>
 				<p>Tabs can be controlled programmatically using active property.</p>
 <CodeHighlight>
 &lt;div&gt;
@@ -150,7 +150,7 @@ export default {
 }
 </CodeHighlight>
 
-				<h3>Properties of AccordionTab</h3>
+				<h5>Properties of AccordionTab</h5>
 				<div class="doc-tablewrapper">
 					<table class="doc-table">
 						<thead>
@@ -184,7 +184,7 @@ export default {
 					</table>
 				</div>
 
-				<h3>Properties of Accordion</h3>
+				<h5>Properties of Accordion</h5>
                 <p>Any property as style and class are passed to the main container element. Following is the additional property to configure the component.</p>
 				<div class="doc-tablewrapper">
 					<table class="doc-table">
@@ -207,7 +207,7 @@ export default {
 					</table>
 				</div>
 
-				<h3>Events</h3>
+				<h5>Events</h5>
 				<div class="doc-tablewrapper">
 					<table class="doc-table">
 						<thead>
@@ -236,7 +236,7 @@ export default {
 					</table>
 				</div>
 
-				<h3>Styling</h3>
+				<h5>Styling</h5>
 				<p>Following is the list of structural style classes, for theming classes visit <router-link to="/theming">theming</router-link> page.</p>
 				<div class="doc-tablewrapper">
 					<table class="doc-table">
@@ -263,7 +263,7 @@ export default {
 					</table>
 				</div>
 
-				<h3>Dependencies</h3>
+				<h5>Dependencies</h5>
 				<p>None.</p>
 			</TabPanel>
 

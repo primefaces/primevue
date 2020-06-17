@@ -9,14 +9,14 @@
 		</div>
 
         <div class="content-section implementation">
-            <h3>Fit Mode</h3>
+            <h5>Fit Mode</h5>
             <TreeTable :value="nodes" :resizableColumns="true" columnResizeMode="fit">
                 <Column field="name" header="Name" :expander="true"></Column>
                 <Column field="size" header="Size"></Column>
                 <Column field="type" header="Type"></Column>
             </TreeTable>
 
-            <h3>Expand Mode</h3>
+            <h5>Expand Mode</h5>
             <TreeTable :value="nodes" :resizableColumns="true" columnResizeMode="expand">
                 <Column field="name" header="Name" :expander="true"></Column>
                 <Column field="size" header="Size"></Column>

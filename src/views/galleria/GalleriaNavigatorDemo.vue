@@ -8,7 +8,7 @@
         </div>
 
         <div class="content-section implementation">
-            <h3>Item Navigators and Thumbnails</h3>
+            <h5>Item Navigators and Thumbnails</h5>
             <Galleria :value="images" :responsiveOptions="responsiveOptions" :numVisible="5" :circular="true" style="max-width: 640px"
                 :showItemNavigators="true">
                 <template #item="slotProps">
@@ -19,7 +19,7 @@
 				</template>
             </Galleria>
 
-            <h3>Item Navigators without Thumbnails</h3>
+            <h5>Item Navigators without Thumbnails</h5>
             <Galleria :value="images" :responsiveOptions="responsiveOptions" :numVisible="5" :circular="true" style="max-width: 640px"
                 :showItemNavigators="true" :showThumbnails="false">
                 <template #item="slotProps">
@@ -30,7 +30,7 @@
 				</template>
             </Galleria>
 
-            <h3>Item Navigators on Hover</h3>
+            <h5>Item Navigators on Hover</h5>
             <Galleria :value="images" :responsiveOptions="responsiveOptions" :numVisible="5" :circular="true" style="max-width: 640px;"
                 :showItemNavigators="true" :showItemNavigatorsOnHover="true">
                 <template #item="slotProps">
@@ -41,7 +41,7 @@
 				</template>
             </Galleria>
 
-            <h3>Item Navigators and Indicators</h3>
+            <h5>Item Navigators and Indicators</h5>
             <Galleria :value="images" :responsiveOptions="responsiveOptions" :numVisible="5" :circular="true" style="max-width: 640px;"
                 :showItemNavigators="true" :showThumbnails="false" :showItemNavigatorsOnHover="true" :showIndicators="true">
                 <template #item="slotProps">

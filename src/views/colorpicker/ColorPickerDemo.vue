@@ -8,10 +8,10 @@
         </div>
 
         <div class="content-section implementation">
-            <h3>Inline</h3>
+            <h5>Inline</h5>
             <ColorPicker v-model="color1" :inline="true" />
 
-            <h3>Overlay</h3>
+            <h5>Overlay</h5>
             <ColorPicker v-model="color2" />
         </div>
 

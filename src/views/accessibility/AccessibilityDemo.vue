@@ -1,18 +1,14 @@
 <template>
     <div>
-        <div class="content-section introduction">
-            <div class="feature-intro">
-                <h1>Accessibility</h1>
-                <p>UI Components for everyone with full support for Web Content Accessibility Guidelines (WCAG).</p>
-            </div>
-        </div>
-
         <div class="content-section documentation">
-            <h3 style="margin-top:0">WCAG</h3>
+            <h1>Accessibility</h1>
+            <p>UI Components for everyone with full support for Web Content Accessibility Guidelines (WCAG).</p>
+
+            <h5>WCAG</h5>
             <p>The Web Content Accessibility Guidelines (WCAG) are part of a series of web accessibility guidelines published by the Web Accessibility Initiative (WAI)
                 of the World Wide Web Consortium (W3C), the main international standards organization for the Internet.</p>
 
-            <h3>Accessible Components</h3>
+            <h5>Accessible Components</h5>
             <p>PrimeVue components are implemented based on the WCAG guidelines and follow the best practices outlined here.</p>
             <ul>
                 <li>Utilize semantic HTML where suitable.</li>
@@ -23,7 +19,7 @@
                 <li>Avoid colors that produce optical vibrations against a dark background, which can induce eye strain.</li>
             </ul>
 
-            <h3>Utility CSS Classes</h3>
+            <h5>Utility CSS Classes</h5>
             <div class="doc-tablewrapper">
                 <table class="doc-table">
                     <thead>

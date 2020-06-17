@@ -8,13 +8,13 @@
         </div>
 
         <div class="content-section implementation">
-            <h3>Basic</h3>
+            <h5>Basic</h5>
             <div class="p-field-checkbox">
                 <Checkbox id="binary" v-model="checked" :binary="true" />
                 <label for="binary">{{checked}}</label>
             </div>
 
-            <h3>Multiple</h3>
+            <h5>Multiple</h5>
             <div class="p-field-checkbox">
                 <Checkbox id="city1" name="city" value="Chicago" v-model="cities" />
                 <label for="city1">Chicago</label>
@@ -33,7 +33,7 @@
             </div>
             <p>Selected Cities : <span style="font-weight: bold">{{cities}}</span></p>
 
-            <h3>Dynamic Values, Preselection, Value Binding and Disabled Option</h3>
+            <h5>Dynamic Values, Preselection, Value Binding and Disabled Option</h5>
             <div v-for="theme of themes" :key="theme.key" class="p-field-checkbox">
                 <Checkbox :id="theme.key" name="theme" :value="theme" v-model="selectedThemes" :disabled="theme.key === 'U'"/>
                 <label :for="theme.key">{{theme.name}}</label>

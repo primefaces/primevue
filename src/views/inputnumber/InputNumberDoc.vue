@@ -2,19 +2,19 @@
 	<div class="content-section documentation">
 		<TabView>
 			<TabPanel header="Documentation">
-				<h3>Import</h3>
+				<h5>Import</h5>
 <CodeHighlight lang="javascript">
 import InputNumber from 'primevue/inputnumber';
 </CodeHighlight>
 
-<h3>Getting Started</h3>
+<h5>Getting Started</h5>
             <p>InputNumber is used with the standard v-model directive. Component always provides a number type although formatting on the input is a string.</p>
 
 <CodeHighlight>
 &lt;InputNumber v-model="value" /&gt;
 </CodeHighlight>
 
-            <h3>Decimal Mode</h3>
+            <h5>Decimal Mode</h5>
             <p>Format is defined using the <i>mode</i> property, "decimal" is the default value allowing only integers when there is no other configuration.</p>
 <CodeHighlight>
 &lt;InputNumber v-model="value" mode="decimal" /&gt;
@@ -41,7 +41,7 @@ Indian Locale
 &lt;InputNumber v-model="value4" mode="decimal" locale="en-IN" :minFractionDigits="2" /&gt;
 </CodeHighlight>
 
-            <h3>Currency</h3>
+            <h5>Currency</h5>
             <p>Currency formatting is specified by setting the <i>mode</i> option to currency and <i>currency</i> property. In addition <i>currencyDisplay</i> option
             allows how the currency is displayed, valid values are "symbol" (default) or "code".</p>
 <CodeHighlight>
@@ -58,7 +58,7 @@ Japan
 &lt;InputNumber v-model="value4" mode="currency" currency="JPY" locale="jp-JP" /&gt;
 </CodeHighlight>
 
-            <h3>Prefix and Suffix</h3>
+            <h5>Prefix and Suffix</h5>
             <p>Custom texts e.g. units can be placed before or after the input section with the <i>prefix</i> and <i>suffix</i> properties.</p>
 <CodeHighlight>
 Mile
@@ -74,7 +74,7 @@ Temperature
 &lt;InputNumber v-model="value4" prefix="&uarr; " suffix="℃" :min="0" :max="40" /&gt;
 </CodeHighlight>
 
-            <h3>Buttons</h3>
+            <h5>Buttons</h5>
             <p>Spinner buttons is enabled using the <i>showButtons</i> options and layout is defined with the <i>buttonLayout</i>. Default value is "stacked" whereas
             "horizontal" and "stacked" are alternatives. Note that even there are no buttons, up and down arrow keys can be used to spin the values with keyboard.</p>
 <CodeHighlight>
@@ -90,21 +90,21 @@ Vertical
     decrementButtonClass="p-button-secondary" incrementButtonClass="p-button-secondary" incrementButtonIcon="pi pi-plus" decrementButtonIcon="pi pi-minus" /&gt;
 </CodeHighlight>
 
-            <h3>Step</h3>
+            <h5>Step</h5>
             <p>Step factor is 1 by default and can be customized with <i>step</i> option.</p>
 <CodeHighlight>
 &lt;InputNumber v-model="value" :step="0.25" /&gt;
 </CodeHighlight>
 
 
-            <h3>Min and Max Boundaries</h3>
+            <h5>Min and Max Boundaries</h5>
             <p>Value to be entered can be restricted by configuring the <i>min</i> and <i>max</i> options.</p>
 <CodeHighlight>
 &lt;InputNumber v-model="value" :min="0" :max="100" /&gt;
 </CodeHighlight>
 
 
-				<h3>Properties</h3>
+				<h5>Properties</h5>
 				<p>InputNumber passes any valid attribute to the underlying input element.</p>
                 <div class="doc-tablewrapper">
                     <table class="doc-table">
@@ -256,10 +256,10 @@ Vertical
                     </table>
                 </div>
 
-                <h3>Events</h3>
+                <h5>Events</h5>
                 <p>Any valid event such as focus, blur and input are passed to the underlying input element.</p>
 
-				<h3>Styling</h3>
+				<h5>Styling</h5>
 				<p>Following is the list of structural style classes, for theming classes visit <router-link to="/theming">theming</router-link> page.</p>
 				<div class="doc-tablewrapper">
 					<table class="doc-table">
@@ -310,7 +310,7 @@ Vertical
 					</table>
 				</div>
 
-				<h3>Dependencies</h3>
+				<h5>Dependencies</h5>
 				<p>None.</p>
 			</TabPanel>
 

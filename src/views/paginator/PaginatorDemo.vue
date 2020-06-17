@@ -8,10 +8,10 @@
 		</div>
 
 		<div class="content-section implementation">
-			<h3>Basic</h3>
+			<h5>Basic</h5>
 			<Paginator :rows="10" :totalRecords="totalRecords" :rowsPerPageOptions="[10,20,30]"></Paginator>
 
-			<h3>Custom</h3>
+			<h5>Custom</h5>
 			<Paginator :first.sync="first" :rows="1" :totalRecords="totalRecords2"
                 template="FirstPageLink PrevPageLink CurrentPageReport NextPageLink LastPageLink">
                 <template #left>

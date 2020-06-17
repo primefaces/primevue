@@ -8,23 +8,23 @@
         </div>
 
         <div class="content-section implementation">
-            <h3 class="first">Severities</h3>
+            <h5>Severities</h5>
             <Message severity="success">Order Submitted</Message>
             <Message severity="info">PrimeVue Rocks</Message>
             <Message severity="warn">There are unsaved changes</Message>
             <Message severity="error">Validation Failed</Message>
 
-            <h3>Dynamic</h3>
+            <h5>Dynamic</h5>
             <Button label="Show" @click="addMessages()" />
             <Button label="Clear" @click="removeMessages()" class="p-button-secondary"/>
             <transition-group name="p-messages" tag="div">
                 <Message v-for="msg of messages" :severity="msg.severity" :key="msg.content">{{msg.content}}</Message>
             </transition-group>
 
-            <h3>Auto Dismiss</h3>
+            <h5>Auto Dismiss</h5>
             <Message severity="warn" :life="10000" :sticky="false">This message will hide in 10 seconds.</Message>
 
-            <h3>Validation Message</h3>
+            <h5>Validation Message</h5>
             <div class="p-formgroup-inline" style="margin-bottom:.5rem">
                 <Label for="username" class="p-sr-only">Username</Label>
                 <InputText placeholder="Username" class="p-invalid" />

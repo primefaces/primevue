@@ -8,17 +8,17 @@
         </div>
 
         <div class="content-section implementation">
-            <h3>Advanced</h3>
+            <h5>Advanced</h5>
             <FileUpload name="demo[]" url="./upload.php" @upload="onUpload" :multiple="true" accept="image/*" :maxFileSize="1000000">
                 <template #empty>
                     <p>Drag and drop files to here to upload.</p>
                 </template>
             </FileUpload>
 
-            <h3>Basic</h3>
+            <h5>Basic</h5>
             <FileUpload mode="basic" name="demo[]" url="./upload.php" accept="image/*" :maxFileSize="1000000" @upload="onUpload" />
 
-            <h3>Basic with Auto</h3>
+            <h5>Basic with Auto</h5>
             <FileUpload mode="basic" name="demo[]" url="./upload.php" accept="image/*" :maxFileSize="1000000" @upload="onUpload" :auto="true" chooseLabel="Browse" />
         </div>
 

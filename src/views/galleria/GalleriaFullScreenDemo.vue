@@ -8,7 +8,7 @@
         </div>
 
         <div class="content-section implementation">
-            <h3>With Thumbnails</h3>
+            <h5>With Thumbnails</h5>
             <Galleria :value="images" :responsiveOptions="responsiveOptions2" :numVisible="9" containerStyle="max-width: 50%"
                 :circular="true" :fullScreen="true" :showItemNavigators="true" :visible.sync="displayBasic">
                 <template #item="slotProps">
@@ -21,7 +21,7 @@
 
             <Button label="Show" icon="pi pi-external-link" @click="displayBasic = true" />
 
-            <h3>Without Thumbnails</h3>
+            <h5>Without Thumbnails</h5>
             <Galleria :value="images" :responsiveOptions="responsiveOptions" :numVisible="7" containerStyle="max-width: 850px"
                 :circular="true" :fullScreen="true" :showItemNavigators="true" :showThumbnails="false" :visible.sync="displayBasic2">
                 <template #item="slotProps">
@@ -34,7 +34,7 @@
 
             <Button label="Show" icon="pi pi-external-link" @click="displayBasic2 = true" />
 
-            <h3>Custom Content</h3>
+            <h5>Custom Content</h5>
             <Galleria :value="images" :activeIndex.sync="activeIndex" :responsiveOptions="responsiveOptions" :numVisible="7" containerStyle="max-width: 850px"
                 :circular="true" :fullScreen="true" :showItemNavigators="true" :showThumbnails="false" :visible.sync="displayCustom">
                 <template #item="slotProps">

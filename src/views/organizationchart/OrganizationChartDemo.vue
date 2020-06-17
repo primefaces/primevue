@@ -8,7 +8,7 @@
         </div>
 
         <div class="content-section implementation">
-            <h3>Advanced</h3>
+            <h5>Advanced</h5>
             <OrganizationChart :value="data1" :collapsible="true" class="company" selectionMode="single" :selectionKeys.sync="selection"
                 @node-select="onNodeSelect" @node-unselect="onNodeUnselect" @node-collapse="onNodeCollapse" @node-expand="onNodeExpand">
                 <template #person="slotProps">
@@ -23,7 +23,7 @@
                 </template>
             </OrganizationChart>
 
-            <h3>Basic</h3>
+            <h5>Basic</h5>
             <OrganizationChart :value="data2">
                 <template #default="slotProps">
                     <span>{{slotProps.node.data.label}}</span>

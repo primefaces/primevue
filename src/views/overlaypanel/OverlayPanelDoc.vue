@@ -2,12 +2,12 @@
 	<div class="content-section documentation">
 		<TabView>
 			<TabPanel header="Documentation">
-				<h3>Import</h3>
+				<h5>Import</h5>
 <CodeHighlight lang="javascript">
 import OverlayPanel from 'primevue/overlaypanel';
 </CodeHighlight>
 
-				<h3>Getting Started</h3>
+				<h5>Getting Started</h5>
 				<p>OverlayPanel is accessed via its reference where visibility is controlled using toggle, show and hide methods.</p>
 <CodeHighlight>
 &lt;Button type="button" label="Toggle" @click="toggle" /&gt;
@@ -23,7 +23,7 @@ toggle(event) {
 }
 </CodeHighlight>
 
-				<h3>Dismissable and CloseIcon</h3>
+				<h5>Dismissable and CloseIcon</h5>
 				<p>Clicking outside the overlay hides the panel, setting <i>dismissable</i> to false disables this behavior.
 					Additionally enabling <i>showCloseIcon</i> property displays a close icon at the top right corner to close the panel.</p>
 <CodeHighlight>
@@ -32,7 +32,7 @@ toggle(event) {
 &lt;/OverlayPanel&gt;
 </CodeHighlight>
 
-				<h3>Properties</h3>
+				<h5>Properties</h5>
 				<div class="doc-tablewrapper">
 					<table class="doc-table">
 						<thead>
@@ -84,7 +84,7 @@ toggle(event) {
 					</table>
 				</div>
 
-				<h3>Methods</h3>
+				<h5>Methods</h5>
 				<div class="doc-tablewrapper">
 					<table class="doc-table">
 						<thead>
@@ -115,7 +115,7 @@ toggle(event) {
 					</table>
 				</div>
 
-				<h3>Styling</h3>
+				<h5>Styling</h5>
 				<p>Following is the list of structural style classes, for theming classes visit <router-link to="/theming">theming</router-link> page.</p>
 				<div class="doc-tablewrapper">
 					<table class="doc-table">
@@ -142,7 +142,7 @@ toggle(event) {
 					</table>
 				</div>
 
-				<h3>Dependencies</h3>
+				<h5>Dependencies</h5>
 				<p>None.</p>
 			</TabPanel>
 

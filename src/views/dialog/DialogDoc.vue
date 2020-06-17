@@ -2,12 +2,12 @@
 	<div class="content-section documentation">
 		<TabView>
 			<TabPanel header="Documentation">
-				<h3>Import</h3>
+				<h5>Import</h5>
 <CodeHighlight lang="javascript">
 import Dialog from 'primevue/dialog';
 </CodeHighlight>
 
-				<h3>Getting Started</h3>
+				<h5>Getting Started</h5>
 				<p>Dialog is used as a container and visibility is managed with <i>visible</i> property that requires the sync operator for two-way binding.</p>
 <CodeHighlight>
 &lt;Dialog header="Godfather I" :visible.sync="display" &gt;
@@ -28,7 +28,7 @@ export default {
 }
 </CodeHighlight>
 
-				<h3>Header and Footer</h3>
+				<h5>Header and Footer</h5>
 				<p>Header and Footer sections are defined using properties with the same name that accept simple strings or with the <i>header</i> and <i>footer</i> templates for custom content.</p>
 <CodeHighlight>
 &lt;Dialog header="Header Text" footer="Footer Text" :visible.sync="display"&gt;
@@ -50,7 +50,7 @@ export default {
 &lt;/Dialog&gt;
 </CodeHighlight>
 
-                <h3>Positioning</h3>
+                <h5>Positioning</h5>
                 <p>Dialog location is controlled with the <i>position</i> property whose default value is center. Other valid values are top", "bottom", "left", "right", "topleft", "topright", "bottomleft" and "bottomright"<div class=""></div>
 <CodeHighlight>
 &lt;Dialog position="top" :visible.sync="display"&gt;
@@ -58,7 +58,7 @@ export default {
 &lt;/Dialog&gt;
 </CodeHighlight>
 
-                <h3>Popup Content inside the Dialog</h3>
+                <h5>Popup Content inside the Dialog</h5>
                 <p>If the dialog contains components with popup elements such as Dropdown or Calendar, set <i>contentStyle</i> to overflow:visible so that overlays can be displayed outside of the content area.</p>
 <CodeHighlight>
 &lt;Dialog :visible.sync="display" :contentStyle="{overflow: 'visible'}"&gt;
@@ -66,7 +66,7 @@ export default {
 &lt;/Dialog&gt;
 </CodeHighlight>
 
-				<h3>Properties</h3>
+				<h5>Properties</h5>
 				<div class="doc-tablewrapper">
 					<table class="doc-table">
 						<thead>
@@ -160,7 +160,7 @@ export default {
 					</table>
 				</div>
 
-				<h3>Events</h3>
+				<h5>Events</h5>
 				<div class="doc-tablewrapper">
 					<table class="doc-table">
 						<thead>
@@ -185,7 +185,7 @@ export default {
 					</table>
 				</div>
 
-				<h3>Styling</h3>
+				<h5>Styling</h5>
 				<p>Following is the list of structural style classes, for theming classes visit <router-link to="/theming">theming</router-link> page.</p>
 				<div class="doc-tablewrapper">
 					<table class="doc-table">
@@ -224,7 +224,7 @@ export default {
 					</table>
 				</div>
 
-				<h3>Dependencies</h3>
+				<h5>Dependencies</h5>
 				<p>None.</p>
 			</TabPanel>
 

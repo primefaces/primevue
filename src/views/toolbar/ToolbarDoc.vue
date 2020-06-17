@@ -2,12 +2,12 @@
 	<div class="content-section documentation">
 		<TabView>
 			<TabPanel header="Documentation">
-				<h3>Import</h3>
+				<h5>Import</h5>
 <CodeHighlight lang="javascript">
 import Toolbar from 'primevue/toolbar';
 </CodeHighlight>
 
-				<h3>Getting Started</h3>
+				<h5>Getting Started</h5>
 				<p>Toolbar provides <i>left</i> and <i>right</i> templates to place content at these sections.</p>
 <CodeHighlight>
 &lt;Toolbar&gt;
@@ -26,7 +26,7 @@ import Toolbar from 'primevue/toolbar';
 &lt;/Toolbar&gt;
 </CodeHighlight>
 
-				<h3>Styling</h3>
+				<h5>Styling</h5>
 				<p>Following is the list of structural style classes, for theming classes visit <router-link to="/theming">theming</router-link> page.</p>
 				<div class="doc-tablewrapper">
 					<table class="doc-table">
@@ -53,7 +53,7 @@ import Toolbar from 'primevue/toolbar';
 					</table>
 				</div>
 
-				<h3>Dependencies</h3>
+				<h5>Dependencies</h5>
 				<p>None.</p>
 			</TabPanel>
 

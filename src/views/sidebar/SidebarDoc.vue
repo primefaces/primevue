@@ -2,12 +2,12 @@
 	<div class="content-section documentation">
 		<TabView>
 			<TabPanel header="Documentation">
-				<h3>Import</h3>
+				<h5>Import</h5>
 <CodeHighlight lang="javascript">
 import Sidebar from 'primevue/sidebar';
 </CodeHighlight>
 
-				<h3>Getting Started</h3>
+				<h5>Getting Started</h5>
 				<p>Sidebar is used as a container and visibility is controlled with <i>visible</i> property that requires the sync operator for two-way binding.</p>
 <CodeHighlight>
 &lt;Sidebar :visible.sync="visibleLeft"&gt;
@@ -17,7 +17,7 @@ import Sidebar from 'primevue/sidebar';
 &lt;Button icon="pi pi-arrow-right" @click="visibleLeft = true" /&gt;
 </CodeHighlight>
 
-				<h3>Position</h3>
+				<h5>Position</h5>
 				<p>Sidebar can either be located on the left (default), right, top or bottom of the screen depending on the <i>position</i> property.</p>
 <CodeHighlight>
 &lt;Sidebar :visible.sync="visibleRight" position="right"&gt;
@@ -25,7 +25,7 @@ import Sidebar from 'primevue/sidebar';
 &lt;/Sidebar&gt;
 </CodeHighlight>
 
-				<h3>Size</h3>
+				<h5>Size</h5>
 				<p>Sidebar size can be changed using a fixed value or using one of the three predefined ones.</p>
 <CodeHighlight>
 &lt;Sidebar :visible.sync="visibleLeft" class="p-sidebar-sm"&gt;&lt;/Sidebar&gt;
@@ -33,7 +33,7 @@ import Sidebar from 'primevue/sidebar';
 &lt;Sidebar :visible.sync="visibleLeft" class="p-sidebar-lg"&gt;&lt;/Sidebar&gt;
 </CodeHighlight>
 
-				<h3>Full Screen</h3>
+				<h5>Full Screen</h5>
 				<p>Full screen mode allows the sidebar to cover whole screen.</p>
 <CodeHighlight>
 &lt;Sidebar :visible.sync="visibleFull" position="full"&gt;
@@ -42,7 +42,7 @@ import Sidebar from 'primevue/sidebar';
 </CodeHighlight>
 
 
-				<h3>Properties</h3>
+				<h5>Properties</h5>
 				<div class="doc-tablewrapper">
 					<table class="doc-table">
 						<thead>
@@ -106,7 +106,7 @@ import Sidebar from 'primevue/sidebar';
 					</table>
 				</div>
 
-				<h3>Events</h3>
+				<h5>Events</h5>
 				<div class="doc-tablewrapper">
 					<table class="doc-table">
 						<thead>
@@ -131,7 +131,7 @@ import Sidebar from 'primevue/sidebar';
 					</table>
 				</div>
 
-				<h3>Styling</h3>
+				<h5>Styling</h5>
 				<p>Following is the list of structural style classes, for theming classes visit <router-link to="/theming">theming</router-link> page.</p>
 				<div class="doc-tablewrapper">
 					<table class="doc-table">
@@ -194,7 +194,7 @@ import Sidebar from 'primevue/sidebar';
 					</table>
 				</div>
 
-				<h3>Dependencies</h3>
+				<h5>Dependencies</h5>
 				<p>None.</p>
 			</TabPanel>
 

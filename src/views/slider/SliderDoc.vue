@@ -2,18 +2,18 @@
 	<div class="content-section documentation">
 		<TabView>
 			<TabPanel header="Documentation">
-				<h3>Import</h3>
+				<h5>Import</h5>
 <CodeHighlight lang="javascript">
 import Slider from 'primevue/slider';
 </CodeHighlight>
 
-				<h3>Getting Started</h3>
+				<h5>Getting Started</h5>
 				<p>Two-way binding is defined using the standard v-model directive.</p>
 <CodeHighlight>
 &lt;Slider v-model="value" /&gt;
 </CodeHighlight>
 
-				<h3>Range</h3>
+				<h5>Range</h5>
 				<p>Range slider provides two handles to define two values. Enable <i>range</i> property and bind an array to implement a range slider.</p>
 
 <CodeHighlight>
@@ -30,25 +30,25 @@ export default {
 }
 </CodeHighlight>
 
-				<h3>Orientation</h3>
+				<h5>Orientation</h5>
 				<p>Default layout of slider is horizontal, use <i>orientation</i> property for the alternative vertical mode.</p>
 <CodeHighlight>
 &lt;Slider v-model="value" orientation="vertical" /&gt;
 </CodeHighlight>
 
-				<h3>Step</h3>
+				<h5>Step</h5>
 				<p>Step factor is 1 by default and can be customized with <i>step</i> option.</p>
 <CodeHighlight>
 &lt;Slider v-model="value" :step="20" /&gt;
 </CodeHighlight>
 
-				<h3>Min-Max</h3>
+				<h5>Min-Max</h5>
 				<p>Boundaries are specified with min and max attributes.</p>
 <CodeHighlight>
 &lt;Slider v-model="value" :step="20" :min="50" :max="200" /&gt;
 </CodeHighlight>
 
-				<h3>Properties</h3>
+				<h5>Properties</h5>
                 <p>Any property as style and class are passed to the main container element. Following are the additional properties to configure the component.</p>
 				<div class="doc-tablewrapper">
 					<table class="doc-table">
@@ -113,7 +113,7 @@ export default {
 					</table>
 				</div>
 
-				<h3>Events</h3>
+				<h5>Events</h5>
 				<div class="doc-tablewrapper">
 					<table class="doc-table">
 						<thead>
@@ -146,7 +146,7 @@ export default {
 					</table>
 				</div>
 
-				<h3>Styling</h3>
+				<h5>Styling</h5>
 				<p>Following is the list of structural style classes, for theming classes visit <router-link to="/theming">theming</router-link> page.</p>
 				<div class="doc-tablewrapper">
 					<table class="doc-table">
@@ -169,7 +169,7 @@ export default {
 					</table>
 				</div>
 
-				<h3>Dependencies</h3>
+				<h5>Dependencies</h5>
 				<p>None.</p>
 			</TabPanel>
 

@@ -8,7 +8,7 @@
         </div>
 
         <div class="content-section implementation">
-            <h3>Indicators with Click Event</h3>
+            <h5>Indicators with Click Event</h5>
             <Galleria :value="images" :responsiveOptions="responsiveOptions" :numVisible="5" style="max-width: 640px"
                 :showThumbnails="false" :showIndicators="true">
                 <template #item="slotProps">
@@ -16,7 +16,7 @@
 				</template>
             </Galleria>
 
-            <h3>Indicators with Hover Event</h3>
+            <h5>Indicators with Hover Event</h5>
             <Galleria :value="images" :responsiveOptions="responsiveOptions" :numVisible="5" style="max-width: 640px"
                 :showThumbnails="false" :showIndicators="true" :changeItemOnIndicatorHover="true">
                 <template #item="slotProps">
@@ -24,7 +24,7 @@
 				</template>
             </Galleria>
 
-            <h3>Inside Content</h3>
+            <h5>Inside Content</h5>
             <Galleria :value="images" :responsiveOptions="responsiveOptions" :numVisible="5" style="max-width: 640px"
                 :showThumbnails="false" :showIndicators="true" :changeItemOnIndicatorHover="true" :showIndicatorsOnItem="true">
                 <template #item="slotProps">
@@ -32,7 +32,7 @@
 				</template>
             </Galleria>
 
-            <h3>Positioned at Top</h3>
+            <h5>Positioned at Top</h5>
             <Galleria :value="images" :responsiveOptions="responsiveOptions" :numVisible="5" style="max-width: 640px"
                 :showThumbnails="false" :showIndicators="true" :changeItemOnIndicatorHover="true" :showIndicatorsOnItem="true" indicatorsPosition="top">
                 <template #item="slotProps">
@@ -40,7 +40,7 @@
 				</template>
             </Galleria>
 
-            <h3>Positioned at Left</h3>
+            <h5>Positioned at Left</h5>
             <Galleria :value="images" :responsiveOptions="responsiveOptions" :numVisible="5" style="max-width: 640px"
                 :showThumbnails="false" :showIndicators="true" :changeItemOnIndicatorHover="true" :showIndicatorsOnItem="true" indicatorsPosition="left">
                 <template #item="slotProps">
@@ -48,7 +48,7 @@
 				</template>
             </Galleria>
 
-            <h3>Positioned at Right</h3>
+            <h5>Positioned at Right</h5>
             <Galleria :value="images" :responsiveOptions="responsiveOptions" :numVisible="5" style="max-width: 640px"
                 :showThumbnails="false" :showIndicators="true" :changeItemOnIndicatorHover="true" :showIndicatorsOnItem="true" indicatorsPosition="right">
                 <template #item="slotProps">
@@ -56,7 +56,7 @@
 				</template>
             </Galleria>
 
-            <h3>Indicator Template</h3>
+            <h5>Indicator Template</h5>
             <Galleria :value="images" :responsiveOptions="responsiveOptions" :numVisible="5" style="max-width: 640px;" class="custom-indicator-galleria"
                 :showThumbnails="false" :showIndicators="true" :changeItemOnIndicatorHover="true" :showIndicatorsOnItem="true" indicatorsPosition="left">
                 <template #item="slotProps">

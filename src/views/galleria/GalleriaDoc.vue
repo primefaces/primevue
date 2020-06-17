@@ -2,12 +2,12 @@
 	<div class="content-section documentation">
 		<TabView>
 			<TabPanel header="Documentation">
-				<h3>Import</h3>
+				<h5>Import</h5>
 <CodeHighlight lang="javascript">
 import Galleria from 'primevue/galleria';
 </CodeHighlight>
 
-				<h3>Getting Started</h3>
+				<h5>Getting Started</h5>
 				<p>Galleria requires item template and a value as an array of objects.</p>
 <CodeHighlight>
 &lt;Galleria :value="images"&gt;
@@ -145,7 +145,7 @@ export default {
 }
 </CodeHighlight>
 
-				<h3>Items per page</h3>
+				<h5>Items per page</h5>
                 <p>Number of items per page is defined using the <i>numVisible</i> property.</p>
 
 <CodeHighlight>
@@ -159,7 +159,7 @@ export default {
 &lt;/Galleria&gt;
 </CodeHighlight>
 
-				<h3>Responsive</h3>
+				<h5>Responsive</h5>
                 <p>For responsive design, <i>numVisible</i> can be defined using the <i>responsiveOptions</i> property which references an array of
                 objects whose breakpoint defines the max-width to apply the settings.</p>
 
@@ -191,7 +191,7 @@ responsiveOptions: [
 ]
 </CodeHighlight>
 
-				<h3>Header and Footer</h3>
+				<h5>Header and Footer</h5>
                 <p>Custom content projection is available using the <i>header</i> and <i>footer</i> properties.</p>
 <CodeHighlight>
 &lt;Galleria :value="images" :responsiveOptions="responsiveOptions" :numVisible="5" style="max-width: 640px"&gt;
@@ -207,7 +207,7 @@ responsiveOptions: [
 &lt;/Galleria&gt;
 </CodeHighlight>
 
-                <h3>Indicators</h3>
+                <h5>Indicators</h5>
                 <p>Indicators allow quick navigation between the items. Set <i>showIndicators</i> to display indicators which can be customized further
                 with the <i>changeItemOnIndicatorHover</i>, <i>showIndicatorsOnItem</i> and <i>indicatorsPosition</i> properties.</p>
 <CodeHighlight>
@@ -218,7 +218,7 @@ responsiveOptions: [
 &lt;/Galleria&gt;
 </CodeHighlight>
 
-				<h3>Properties</h3>
+				<h5>Properties</h5>
                 <p>Any property as style and class are passed to the main container element. Following are the additional properties to configure the component.</p>
 				<div class="doc-tablewrapper">
 					<table class="doc-table">
@@ -379,7 +379,7 @@ responsiveOptions: [
                     </table>
 				</div>
 
-				<h3>Styling</h3>
+				<h5>Styling</h5>
 				<p>Following is the list of structural style classes, for theming classes visit <router-link to="/theming">theming</router-link> page.</p>
 				<div class="doc-tablewrapper">
 					<table class="doc-table">
@@ -430,7 +430,7 @@ responsiveOptions: [
                     </table>
 				</div>
 
-				<h3>Dependencies</h3>
+				<h5>Dependencies</h5>
 				<p>None.</p>
 			</TabPanel>
 

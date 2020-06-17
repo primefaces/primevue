@@ -8,16 +8,16 @@
         </div>
 
         <div class="content-section implementation">
-            <h3 class="first">Basic</h3>
+            <h5>Basic</h5>
             <Button label="Submit" />
             <Button label="Submit" disabled="disabled" />
 
-            <h3>Icons</h3>
+            <h5>Icons</h5>
             <Button icon="pi pi-check" />
             <Button label="Submit" icon="pi pi-check" />
             <Button label="Submit" icon="pi pi-check" iconPos="right" />
 
-            <h3>Severities</h3>
+            <h5>Severities</h5>
             <Button label="Primary" />
             <Button label="Secondary" class="p-button-secondary" />
             <Button label="Success" class="p-button-success" />
@@ -27,7 +27,7 @@
             <Button label="Danger" class="p-button-danger" />
             <Button label="Link" class="p-button-link" />
 
-            <h3>Raised Buttons</h3>
+            <h5>Raised Buttons</h5>
             <Button label="Primary" class="p-button-raised" />
             <Button label="Secondary" class="p-button-raised p-button-secondary" />
             <Button label="Success" class="p-button-raised p-button-success" />
@@ -36,7 +36,7 @@
             <Button label="Help" class="p-button-raised p-button-help" />
             <Button label="Danger" class="p-button-raised p-button-danger" />
 
-            <h3>Rounded Buttons</h3>
+            <h5>Rounded Buttons</h5>
             <Button label="Primary" class="p-button-rounded" />
             <Button label="Secondary" class="p-button-rounded p-button-secondary" />
             <Button label="Success" class="p-button-rounded p-button-success" />
@@ -45,7 +45,7 @@
             <Button label="Help" class="p-button-rounded p-button-help" />
             <Button label="Danger" class="p-button-rounded p-button-danger" />
 
-            <h3>Rounded Icon Buttons</h3>
+            <h5>Rounded Icon Buttons</h5>
             <Button icon="pi pi-check" class="p-button-rounded" />
             <Button icon="pi pi-bookmark" class="p-button-rounded p-button-secondary" />
             <Button icon="pi pi-search" class="p-button-rounded p-button-success" />
@@ -54,18 +54,18 @@
             <Button icon="pi pi-lock" class="p-button-rounded p-button-help" />
             <Button icon="pi pi-times" class="p-button-rounded p-button-danger" />
 
-            <h3>Badges</h3>
+            <h5>Badges</h5>
             <Button type="button" label="Emails" badge="8" />
             <Button type="button" label="Messages" icon="pi pi-users" class="p-button-warning" badge="8" badgeClass="p-badge-danger" />
 
-            <h3>Button Set</h3>
+            <h5>Button Set</h5>
             <span class="p-buttonset">
                 <Button label="Save" icon="pi pi-check" />
                 <Button label="Delete" icon="pi pi-trash" />
                 <Button label="Cancel" icon="pi pi-times" />
             </span>
 
-            <h3>Sizes</h3>
+            <h5>Sizes</h5>
             <div class="sizes">
                 <Button label="Small" icon="pi pi-check" class="p-button-sm"  />
                 <Button label="Normal" icon="pi pi-check" class="p-button"  />

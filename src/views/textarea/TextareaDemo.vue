@@ -8,13 +8,13 @@
         </div>
 
         <div class="content-section implementation">
-            <h3 class="first">Basic</h3>
+            <h5>Basic</h5>
             <Textarea v-model="value1" rows="5" cols="30" />
 
-            <h3>Auto Resize</h3>
+            <h5>Auto Resize</h5>
             <Textarea v-model="value2" :autoResize="true" rows="5" cols="30" />
 
-            <h3>Disabled</h3>
+            <h5>Disabled</h5>
             <Textarea v-model="value3" disabled rows="5" cols="30" />
         </div>
 

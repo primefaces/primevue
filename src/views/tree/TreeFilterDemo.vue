@@ -8,10 +8,10 @@
         </div>
 
         <div class="content-section implementation">
-            <h3>Lenient Filter</h3>
+            <h5>Lenient Filter</h5>
             <Tree :value="nodes" :filter="true" filterMode="lenient"></Tree>
 
-            <h3>Strict Filter</h3>
+            <h5>Strict Filter</h5>
             <Tree :value="nodes" :filter="true" filterMode="strict"></Tree>
         </div>
 

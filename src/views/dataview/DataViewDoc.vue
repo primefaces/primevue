@@ -2,15 +2,15 @@
 	<div class="content-section documentation">
 		<TabView>
 			<TabPanel header="Documentation">
-				<h3>Import</h3>
+				<h5>Import</h5>
 				<CodeHighlight lang="javascript">
 import DataView from 'primevue/dataview';
 				</CodeHighlight>
 
-                <h3>PrimeFlex</h3>
+                <h5>PrimeFlex</h5>
                 <p>DataView utilizes PrimeFlex library so it needs to be installed before getting started. Refer to <router-link to="/flexgrid">FlexGrid</router-link> documentation for details.</p>
 
-				<h3>Getting Started</h3>
+				<h5>Getting Started</h5>
 				<p>DataView requires a collection of items as its value and one or more templates depending on the layout mode e.g. list and grid. Throughout the samples, a car interface having vin, brand, year and color properties are used to define an object to be displayed by the dataview. Cars are loaded by a CarService that connects to a server to fetch the cars.</p>
 <CodeHighlight lang="js">
 <template v-pre>
@@ -31,7 +31,7 @@ export default {
 </template>
 </CodeHighlight>
 
-				<h3>Layouts</h3>
+				<h5>Layouts</h5>
 				<p>DataView has two layout modes; <i>list</i> and <i>grid</i> where a separate template is used to render an item in each mode. In list mode name of the template is "list" whereas
 					in grid mode it is "grid".</p>
 				<p>Note that there is no restriction to use both layouts at the same time, you may configure only one layout using the layout property with the corresponding template.</p>
@@ -65,20 +65,20 @@ export default {
 </template>
 </CodeHighlight>
 
-				<h3>Sections</h3>
+				<h5>Sections</h5>
 				<p>Header and Footer are the two templates that are capable of displaying custom content.</p>
 <CodeHighlight>
 &lt;template #header&gt;Header Content&lt;/template&gt;
 &lt;template #footer&gt;Footer Content&lt;/template&gt;
 </CodeHighlight>
 
-                <h3>Empty Message</h3>
+                <h5>Empty Message</h5>
                 <p>Where there is no data to display, the optional <i>empty</i> template can be used to display information.</p>
 <CodeHighlight>
 &lt;template #empty&gt;No records found.&lt;/template&gt;
 </CodeHighlight>
 
-				<h3>DataViewLayoutOptions</h3>
+				<h5>DataViewLayoutOptions</h5>
 				<p>When both layout modes are enabled in DataView, a UI element would be necessary to let the user toggle between the view. DataViewLayoutOptions is a helper component
 					to display a buttonset to choose the layout mode in DataView. Location of the DataViewLayoutOptions should be inside the DataView component. If you prefer a different UI element
 					you can create your own that updates the layout property of the DataView.
@@ -100,7 +100,7 @@ export default {
 </template>
 </CodeHighlight>
 
-				<h3>Paginator</h3>
+				<h5>Paginator</h5>
 				<p>Pagination is enabled by setting paginator property to true, rows attribute defines the number of rows per page and pageLinks specify the the number
 					of page links to display. To customize the left and right side of the paginators, use <i>paginatorLeft</i> and <i>paginatorRight</i> templates.</p>
 <CodeHighlight>
@@ -122,7 +122,7 @@ export default {
 </template>
 </CodeHighlight>
 
-				<h3>Sorting</h3>
+				<h5>Sorting</h5>
 				<p><i>sortField</i> and <i>sortOrder</i> properties are available for the sorting functionality, for flexibility there is no built-in UI available so that a custom UI can be used for the sorting element.
 					Here is an example that uses a dropdown where simply updating the sortField-sortOrder bindings of the DataView initiates sorting.</p>
 <CodeHighlight>
@@ -193,7 +193,7 @@ export default {
 </template>
 </CodeHighlight>
 
-                <h3>Lazy Loading</h3>
+                <h5>Lazy Loading</h5>
                 <p>Lazy loading is useful to deal with huge datasets, in order to implement lazy loading use the pagination and utilize the <i>page</i> callback to load your data from the backend.
                 Pagination in this case needs to display the logical number of records bound to the <i>totalRecords</i> property so that paginator can display itself according to the total records although you'd only
                 need to load the data of the current page.</p>
@@ -232,7 +232,7 @@ export default {
 </template>
 </CodeHighlight>
 
-				<h3>Properties</h3>
+				<h5>Properties</h5>
 				<div class="doc-tablewrapper">
 					<table class="doc-table">
 						<thead>
@@ -338,7 +338,7 @@ export default {
 					</table>
 				</div>
 
-                <h3>Events</h3>
+                <h5>Events</h5>
                 <div class="doc-tablewrapper">
                     <table class="doc-table">
                         <thead>
@@ -362,7 +362,7 @@ export default {
                     </table>
                 </div>
 
-				<h3>Styling</h3>
+				<h5>Styling</h5>
 				<p>Following is the list of structural style classes, for theming classes visit <router-link to="/theming">theming</router-link> page.</p>
 				<div class="doc-tablewrapper">
 					<table class="doc-table">
@@ -400,7 +400,7 @@ export default {
 						</tbody>
 					</table>
 
-					<h3>Dependencies</h3>
+					<h5>Dependencies</h5>
 					<p>None.</p>
 				</div>
 			</TabPanel>

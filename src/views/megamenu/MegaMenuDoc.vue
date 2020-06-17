@@ -2,15 +2,15 @@
 	<div class="content-section documentation">
 		<TabView>
 			<TabPanel header="Documentation">
-				<h3>Import</h3>
+				<h5>Import</h5>
 <CodeHighlight lang="javascript">
 import MegaMenu from 'primevue/megamenu';
 </CodeHighlight>
 
-                <h3>MenuModel</h3>
+                <h5>MenuModel</h5>
                 <p>MegaMenu uses the common MenuModel API to define the items, visit <router-link to="/menumodel">MenuModel API</router-link> for details.</p>
 
-                <h3>Getting Started</h3>
+                <h5>Getting Started</h5>
                 <p>Layout of the MegaMenu is managed by the <a href="https://github.com/primefaces/primeflex">PrimeFlex</a> that can be downloaded from npm.</p>
 <CodeHighlight lang="js">
 npm install primeflex --save
@@ -142,13 +142,13 @@ export default {
 }
 </CodeHighlight>
 
-                <h3>Orientation</h3>
+                <h5>Orientation</h5>
                 <p>Default orientation is "horizontal" with "vertical" as the alternative.</p>
 <CodeHighlight>
 &lt;MegaMenu :model="items" orientation="vertical" /&gt;
 </CodeHighlight>
 
-                <h3>Custom Content</h3>
+                <h5>Custom Content</h5>
                 <p>Any content inside the megamenu will be displayed on the right side by default. You may use ".p-megamenu-custom" style class to change the location of the content.</p>
 <CodeHighlight>
 <template v-pre>
@@ -159,7 +159,7 @@ export default {
 </template>
 </CodeHighlight>
 
-                <h3>Properties</h3>
+                <h5>Properties</h5>
                 <p>Any property as style and class are passed to the main container element. Following are the additional properties to configure the component.</p>
 				<div class="doc-tablewrapper">
 					<table class="doc-table">
@@ -188,7 +188,7 @@ export default {
 					</table>
 				</div>
 
-				<h3>Styling</h3>
+				<h5>Styling</h5>
 				<p>Following is the list of structural style classes, for theming classes visit <router-link to="/theming">theming</router-link> page.</p>
 				<div class="doc-tablewrapper">
 					<table class="doc-table">
@@ -247,7 +247,7 @@ export default {
 					</table>
 				</div>
 
-				<h3>Dependencies</h3>
+				<h5>Dependencies</h5>
 				<p>None.</p>
 			</TabPanel>
 

@@ -8,10 +8,10 @@
         </div>
 
         <div class="content-section implementation">
-            <h3 class="first">Basic</h3>
+            <h5>Basic</h5>
             <ProgressSpinner />
 
-            <h3>Custom</h3>
+            <h5>Custom</h5>
             <ProgressSpinner style="width:50px;height:50px" strokeWidth="8" fill="#EEEEEE" animationDuration=".5s"/>
         </div>
 

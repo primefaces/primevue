@@ -8,7 +8,7 @@
         </div>
 
         <div class="content-section implementation">
-            <h3>Positions</h3>
+            <h5>Positions</h5>
             <div class="p-grid p-fluid">
                 <div class="p-col-12 p-md-3">
                     <InputText type="text" placeholder="Right" v-tooltip.right="'Enter your username'" />
@@ -24,10 +24,10 @@
                 </div>
             </div>
 
-            <h3>Focus and Blur</h3>
+            <h5>Focus and Blur</h5>
             <InputText type="text" placeholder="Focus" v-tooltip.bottom.focus="'Enter your username'" />
 
-            <h3>Button</h3>
+            <h5>Button</h5>
             <Button type="button" label="Save" icon="pi pi-check" v-tooltip="'Click to proceed'" />
         </div>
 

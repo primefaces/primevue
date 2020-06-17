@@ -9,7 +9,7 @@
 
 		<div class="content-section implementation">
             <div class="card">
-                <h3 class="first">Single</h3>
+                <h5>Single</h5>
                 <p>In single mode, a row is selected on click event of a row. If the row is already selected then the row gets unselected.</p>
                 <DataTable :value="cars" :selection.sync="selectedCar1" selectionMode="single" dataKey="vin">
                     <Column field="vin" header="Vin"></Column>
@@ -20,7 +20,7 @@
             </div>
 
             <div class="card">
-                <h3>Multiple</h3>
+                <h5>Multiple</h5>
                 <p>In multiple mode, selection binding should be an array. For touch enabled devices, selection is managed by tapping and for other devices metakey or shiftkey are required.
                         Setting metaKeySelection property as false enables multiple selection without meta key.</p>
                 <DataTable :value="cars" :selection.sync="selectedCars1" selectionMode="multiple" dataKey="vin">
@@ -45,7 +45,7 @@
             </div>
 
             <div class="card">
-                <h3>Events</h3>
+                <h5>Events</h5>
                 <p>row-select and row-unselects are available as selection events.</p>
                 <DataTable :value="cars" :selection.sync="selectedCar2" selectionMode="single" dataKey="vin"
                     @row-select="onRowSelect" @row-unselect="onRowUnselect">
@@ -57,7 +57,7 @@
             </div>
 
             <div class="card">
-                <h3>RadioButton</h3>
+                <h5>RadioButton</h5>
                 <p>Single selection can also be handled using radio buttons by enabling the selectionMode property of column as "single".</p>
                 <DataTable :value="cars" :selection.sync="selectedCar3" dataKey="vin">
                     <Column selectionMode="single" headerStyle="width: 3em"></Column>
@@ -69,7 +69,7 @@
             </div>
 
             <div class="card">
-                <h3>Checkbox</h3>
+                <h5>Checkbox</h5>
                 <p>Multiple selection can also be handled using checkboxes by enabling the selectionMode property of column as "multiple".</p>
                 <DataTable :value="cars" :selection.sync="selectedCars3" dataKey="vin">
                     <Column selectionMode="multiple" headerStyle="width: 3em"></Column>
@@ -86,7 +86,7 @@
                 <TabPanel header="Source">
 <CodeHighlight>
 <template v-pre>
-&lt;h3 class="first"&gt;Single&lt;/h3&gt;
+&lt;h5&gt;Single&lt;/h3&gt;
 &lt;p&gt;In single mode, a row is selected on click event of a row. If the row is already selected then the row gets unselected.&lt;/p&gt;
 &lt;DataTable :value="cars" :selection.sync="selectedCar1" selectionMode="single" dataKey="vin"&gt;
     &lt;Column field="vin" header="Vin"&gt;&lt;/Column&gt;

@@ -8,7 +8,7 @@
         </div>
 
         <div class="content-section implementation">
-            <h3>Numbers</h3>
+            <h5>Numbers</h5>
             <div class="badges">
                  <span class="p-badge">2</span>
                 <span class="p-badge p-badge-success">8</span>
@@ -17,7 +17,7 @@
                 <span class="p-badge p-badge-danger">3</span>
             </div>
 
-            <h3>Tags</h3>
+            <h5>Tags</h5>
             <div class="badges">
                 <span class="p-tag">Primary</span>
                 <span class="p-tag p-tag-success">Success</span>
@@ -26,7 +26,7 @@
                 <span class="p-tag p-tag-danger">Danger</span>
             </div>
 
-            <h3>Pills</h3>
+            <h5>Pills</h5>
             <div class="badges">
                 <span class="p-tag p-tag-rounded">Primary</span>
                 <span class="p-tag p-tag-rounded p-tag-success">Success</span>
@@ -35,7 +35,7 @@
                 <span class="p-tag p-tag-rounded p-tag-danger">Danger</span>
             </div>
 
-            <h3>Positioned Badge</h3>
+            <h5>Positioned Badge</h5>
             <span class="p-overlay-badge">
                  <span class="p-badge">2</span>
                 <i class="pi pi-bell" style="font-size: 2em"></i>
@@ -46,11 +46,11 @@
                 <Button type="button" label="New" />
             </span>
 
-            <h3>Inline Button Badge</h3>
+            <h5>Inline Button Badge</h5>
             <Button type="button" label="Emails" badge="8" />
             <Button type="button" label="Messages" icon="pi pi-users" class="p-button-warning" badge="8" badgeClass="p-badge-danger" />
 
-            <h3>Sizes</h3>
+            <h5>Sizes</h5>
             <div class="badges">
                 <span class="p-badge">2</span>
                 <span class="p-badge p-badge-lg p-badge-sucess">4</span>

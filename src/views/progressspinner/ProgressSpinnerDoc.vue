@@ -2,12 +2,12 @@
 	<div class="content-section documentation">
 		<TabView>
 			<TabPanel header="Documentation">
-				<h3>Import</h3>
+				<h5>Import</h5>
 <CodeHighlight lang="javascript">
 import ProgressSpinner from 'primevue/progressspinner';
 </CodeHighlight>
 
-				<h3>Getting Started</h3>
+				<h5>Getting Started</h5>
 				<p>ProgressSpinner is defined using ProgressSpinner element.</p>
 <CodeHighlight>
 <template v-pre>
@@ -15,7 +15,7 @@ import ProgressSpinner from 'primevue/progressspinner';
 </template>
 </CodeHighlight>
 
-                <h3>Colors</h3>
+                <h5>Colors</h5>
                 <p>Colors of the spinner can be changed by overriding the keyframes animation.</p>
 <CodeHighlight lang="css">
 @keyframes ui-progress-spinner-color {
@@ -36,7 +36,7 @@ import ProgressSpinner from 'primevue/progressspinner';
 }
 </CodeHighlight>
 
-				<h3>Properties</h3>
+				<h5>Properties</h5>
                 <p>Any property as style and class are passed to the main container element. Following are the additional properties to configure the component.</p>
 				<div class="doc-tablewrapper">
 					<table class="doc-table">
@@ -71,7 +71,7 @@ import ProgressSpinner from 'primevue/progressspinner';
 					</table>
 				</div>
 
-				<h3>Styling</h3>
+				<h5>Styling</h5>
 				<p>Following is the list of structural style classes, for theming classes visit <router-link to="/theming">theming</router-link> page.</p>
 				<div class="doc-tablewrapper">
 					<table class="doc-table">
@@ -98,7 +98,7 @@ import ProgressSpinner from 'primevue/progressspinner';
 					</table>
 				</div>
 
-				<h3>Dependencies</h3>
+				<h5>Dependencies</h5>
 				<p>None.</p>
 			</TabPanel>
 

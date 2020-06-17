@@ -2,18 +2,18 @@
 	<div class="content-section documentation">
 		<TabView>
 			<TabPanel header="Documentation">
-				<h3>Import</h3>
+				<h5>Import</h5>
 <CodeHighlight lang="javascript">
 import Checkbox from 'primevue/checkbox';
 </CodeHighlight>
 
-				<h3>Getting Started</h3>
+				<h5>Getting Started</h5>
 				<p>Checkbox can either be used in multiple selection with other checkboxes or as a single checkbox to provide a boolean value.</p>
 <CodeHighlight>
 &lt;Checkbox v-model="checked" :binary="true" /&gt;
 </CodeHighlight>
 
-				<h3>Multiple Values</h3>
+				<h5>Multiple Values</h5>
 				<p>Multiple mode is enabled by default, v-model property refers to an array to bind the selected values.</p>
 <CodeHighlight>
 &lt;Checkbox id="city1" inputId="city1" name="city" value="Chicago" v-model="cities" /&gt;
@@ -35,7 +35,7 @@ export default {
 				<p>As v-model is two-way binding enabled, prepopulating the model array with values is enough to display the related
 					checkboxes as checked by default.</p>
 
-				<h3>Properties</h3>
+				<h5>Properties</h5>
                 <p>Any property such as name and autofocus are passed to the underlying input element. Following are the additional properties to configure the component.</p>
 				<div class="doc-tablewrapper">
 					<table class="doc-table">
@@ -64,7 +64,7 @@ export default {
 					</table>
 				</div>
 
-				<h3>Events</h3>
+				<h5>Events</h5>
 				<div class="doc-tablewrapper">
 					<table class="doc-table">
 						<thead>
@@ -104,7 +104,7 @@ export default {
 					</table>
 				</div>
 
-				<h3>Styling</h3>
+				<h5>Styling</h5>
 				<p>Following is the list of structural style classes, for theming classes visit <router-link to="/theming">theming</router-link> page.</p>
 				<div class="doc-tablewrapper">
 					<table class="doc-table">
@@ -135,7 +135,7 @@ export default {
 					</table>
 				</div>
 
-				<h3>Dependencies</h3>
+				<h5>Dependencies</h5>
 				<p>None.</p>
 			</TabPanel>
 

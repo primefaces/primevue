@@ -2,15 +2,15 @@
 	<div class="content-section documentation">
 		<TabView>
 			<TabPanel header="Documentation">
-				<h3>Import</h3>
+				<h5>Import</h5>
 <CodeHighlight lang="javascript">
 import TieredMenu from 'primevue/tieredmenu';
 </CodeHighlight>
 
-                <h3>MenuModel</h3>
+                <h5>MenuModel</h5>
                 <p>TieredMenu uses the common MenuModel API to define the items, visit <router-link to="/menumodel">MenuModel API</router-link> for details.</p>
 
-				<h3>Getting Started</h3>
+				<h5>Getting Started</h5>
 				<p>TieredMenu requires a collection of menuitems as its model.</p>
 <CodeHighlight>
 &lt;TieredMenu :model="items" /&gt;
@@ -156,7 +156,7 @@ export default {
 }
 </CodeHighlight>
 
-                <h3>Popup Mode</h3>
+                <h5>Popup Mode</h5>
                 <p>TieredMenu is inline by default whereas popup mode is supported by enabling popup property and calling toggle method with an event of the target.</p>
 
 <CodeHighlight>
@@ -170,7 +170,7 @@ toggle(event) {
 }
 </CodeHighlight>
 
-                <h3>Properties</h3>
+                <h5>Properties</h5>
                 <p>Any property as style and class are passed to the main container element. Following are the additional properties to configure the component.</p>
 				<div class="doc-tablewrapper">
 					<table class="doc-table">
@@ -217,7 +217,7 @@ toggle(event) {
 					</table>
 				</div>
 
-				<h3>Methods</h3>
+				<h5>Methods</h5>
 				<div class="doc-tablewrapper">
 					<table class="doc-table">
 						<thead>
@@ -248,7 +248,7 @@ toggle(event) {
 					</table>
 				</div>
 
-				<h3>Styling</h3>
+				<h5>Styling</h5>
 				<p>Following is the list of structural style classes, for theming classes visit <router-link to="/theming">theming</router-link> page.</p>
 				<div class="doc-tablewrapper">
 					<table class="doc-table">
@@ -287,7 +287,7 @@ toggle(event) {
 					</table>
 				</div>
 
-				<h3>Dependencies</h3>
+				<h5>Dependencies</h5>
 				<p>None.</p>
 			</TabPanel>
 

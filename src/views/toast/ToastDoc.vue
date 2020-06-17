@@ -2,7 +2,7 @@
 	<div class="content-section documentation">
 		<TabView>
 			<TabPanel header="Documentation">
-                <h3>ToastService</h3>
+                <h5>ToastService</h5>
                 <p>Toast messages are dynamically created using a <i>ToastService</i> that needs to be installed globally before the application
                     instance is created.</p>
 <CodeHighlight lang="javascript">
@@ -16,12 +16,12 @@ new Vue({
 }).$mount('#app');
 </CodeHighlight>
 
-				<h3>Import</h3>
+				<h5>Import</h5>
 <CodeHighlight lang="javascript">
 import Toast from 'primevue/toast';
 </CodeHighlight>
 
-				<h3>Getting Started</h3>
+				<h5>Getting Started</h5>
                 <p>Ideal location of a Toast is the main application template so that it can be used by any component within the application.</p>
 
 				<p>A single message is represented by the Message interface in PrimeVue that defines various properties such as severity,
@@ -30,7 +30,7 @@ import Toast from 'primevue/toast';
 this.$toast.add({severity:'success', summary: 'Success Message', detail:'Order submitted', life: 3000});
 </CodeHighlight>
 
-				<h3>Message API</h3>
+				<h5>Message API</h5>
 				<div class="doc-tablewrapper">
 					<table class="doc-table">
 						<thead>
@@ -82,7 +82,7 @@ this.$toast.add({severity:'success', summary: 'Success Message', detail:'Order s
 					</table>
 				</div>
 
-                <h3>MessageService API</h3>
+                <h5>MessageService API</h5>
 				<div class="doc-tablewrapper">
 					<table class="doc-table">
 						<thead>
@@ -113,7 +113,7 @@ this.$toast.add({severity:'success', summary: 'Success Message', detail:'Order s
 					</table>
 				</div>
 
-				<h3>Severities</h3>
+				<h5>Severities</h5>
 				<p>There are four possible values for the severity of a message. Info is the default.</p>
 
 				<ul>
@@ -123,7 +123,7 @@ this.$toast.add({severity:'success', summary: 'Success Message', detail:'Order s
 					<li>error</li>
 				</ul>
 
-				<h3>Position</h3>
+				<h5>Position</h5>
 				<p>There are four positions available for the toast container defined by the <i>position</i> property that defaults to "topright". Other
 					valid values are "topleft", "bottomleft" and "bottomright"
 				</p>
@@ -134,7 +134,7 @@ this.$toast.add({severity:'success', summary: 'Success Message', detail:'Order s
 &lt;Toast position="bottomright" /&gt;
 </CodeHighlight>
 
-                <h3>Groups</h3>
+                <h5>Groups</h5>
                 <p>A message can be targeted to a specific Toast component if their group properties match. Messages without a group
                     are forwarded to the default Toast component that does not have a group defined.
                 </p>
@@ -149,13 +149,13 @@ this.$toast.add({severity:'success', summary: 'Default Message'});
 this.$toast.add({severity:'success', summary: 'Specific Message', group: 'mykey'});
 </CodeHighlight>
 
-				<h3>Clearing Messages</h3>
+				<h5>Clearing Messages</h5>
 				<p><i>removeGroup(group)</i> clears the messages for a specific Toast whereas <i>removeAllGroups()</i> method clears all messages.</p>
 <CodeHighlight lang="js">
 this.$toast.removeAllGroups();
 </CodeHighlight>
 
-				<h3>Properties</h3>
+				<h5>Properties</h5>
 				<div class="doc-tablewrapper">
 					<table class="doc-table">
 						<thead>
@@ -195,7 +195,7 @@ this.$toast.removeAllGroups();
 					</table>
 				</div>
 
-				<h3>Styling</h3>
+				<h5>Styling</h5>
 				<p>Following is the list of structural style classes, for theming classes visit <router-link to="/theming">theming</router-link> page.</p>
 				<div class="doc-tablewrapper">
 					<table class="doc-table">
@@ -238,7 +238,7 @@ this.$toast.removeAllGroups();
 					</table>
 				</div>
 
-				<h3>Dependencies</h3>
+				<h5>Dependencies</h5>
 				<p>None.</p>
 			</TabPanel>
 

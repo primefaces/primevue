@@ -8,7 +8,7 @@
         </div>
 
         <div class="content-section implementation">
-            <h3 class="first">Default</h3>
+            <h5>Default</h5>
             <TabView>
                 <TabPanel header="Godfather I">
                     <p>The story begins as Don Vito Corleone, the head of a New York Mafia family, overseeshis daughter's wedding. His beloved son ichael has just come home from the war,
@@ -27,7 +27,7 @@
                 </TabPanel>
             </TabView>
 
-            <h3>Programmatic</h3>
+            <h5>Programmatic</h5>
             <div style="padding: .5rem 0 1rem 0">
                 <Button @click="activate(0)" class="p-button-secondary" label="Activate 1st" />
                 <Button @click="activate(1)" class="p-button-secondary" label="Activate 2nd" />
@@ -52,7 +52,7 @@
                 </TabPanel>
             </TabView>
 
-            <h3>Disabled</h3>
+            <h5>Disabled</h5>
             <TabView>
                 <TabPanel header="Godfather I">
                     <p>The story begins as Don Vito Corleone, the head of a New York Mafia family, overseeshis daughter's wedding. His beloved son ichael has just come home from the war,
@@ -72,7 +72,7 @@
                  <TabPanel header="Godfather IV" :disabled="true"></TabPanel>
             </TabView>
 
-            <h3>Custom Headers</h3>
+            <h5>Custom Headers</h5>
             <TabView class="tabview-custom">
                 <TabPanel>
                     <template slot="header">

@@ -8,7 +8,7 @@
         </div>
 
         <div class="content-section implementation">
-            <h3>Basic</h3>
+            <h5>Basic</h5>
             <Button label="Show" icon="pi pi-external-link" @click="openBasic" />
             <Dialog header="Godfather I" :visible.sync="displayBasic" :style="{width: '50vw'}">
                 The story begins as Don Vito Corleone, the head of a New York Mafia family, oversees his daughter's wedding.
@@ -41,7 +41,7 @@
                 </template>
             </Dialog>
 
-            <h3>Modal</h3>
+            <h5>Modal</h5>
             <Button label="Show" icon="pi pi-external-link" @click="openModal" />
             <Dialog header="Godfather I" :visible.sync="displayModal" :style="{width: '50vw'}" :modal="true">
                 The story begins as Don Vito Corleone, the head of a New York Mafia family, oversees his daughter's wedding.
@@ -54,7 +54,7 @@
                 </template>
             </Dialog>
 
-            <h3>Maximizable</h3>
+            <h5>Maximizable</h5>
             <Button label="Show" icon="pi pi-external-link" @click="openMaximizable" />
             <Dialog header="Godfather I" :visible.sync="displayMaximizable" :style="{width: '50vw'}" :maximizable="true" :modal="true">
                 The story begins as Don Vito Corleone, the head of a New York Mafia family, oversees his daughter's wedding.
@@ -67,7 +67,7 @@
                 </template>
             </Dialog>
 
-            <h3>Position</h3>
+            <h5>Position</h5>
             <div class="p-grid p-dir-col">
                 <div class="p-col">
                     <Button label="Left" icon="pi pi-arrow-right" @click="openPosition('left')" class="p-button-warning" />

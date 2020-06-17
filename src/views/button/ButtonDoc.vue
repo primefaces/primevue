@@ -2,36 +2,36 @@
 	<div class="content-section documentation">
 		<TabView>
 			<TabPanel header="Documentation">
-				<h3>Import</h3>
+				<h5>Import</h5>
 <CodeHighlight lang="javascript">
 import Button from 'primevue/button';
 </CodeHighlight>
 
-				<h3>Getting Started</h3>
+				<h5>Getting Started</h5>
 				<p>Button is created using the Button element.</p>
 <CodeHighlight>
 &lt;Button /&gt;
 </CodeHighlight>
 
-				<h3>Label</h3>
+				<h5>Label</h5>
 				<p>Text of the button is defined using the <i>label</i> property.</p>
 <CodeHighlight>
 &lt;Button label="Submit" /&gt;
 </CodeHighlight>
-				<h3>Icons</h3>
+				<h5>Icons</h5>
 				<p>Icon on a button is specified with <i>icon</i> property and position is configured using <i>iconPos</i> attribute. Default
 					icon position is "left" and alternative is "right". To display only an icon, leave the label as undefined.</p>
 <CodeHighlight>
 &lt;Button label="Submit" icon="pi pi-check" iconPos="right" /&gt;
 </CodeHighlight>
 
-				<h3>Events</h3>
+				<h5>Events</h5>
 				<p>Events are defined with the standard notation.</p>
 <CodeHighlight>
 &lt;Button label="Submit" @click="handleClick($event)"/&gt;
 </CodeHighlight>
 
-				<h3>Severity</h3>
+				<h5>Severity</h5>
 				<p>Different options are available as severity levels.</p>
 
 				<ul>
@@ -53,19 +53,19 @@ import Button from 'primevue/button';
 &lt;Button label="Danger" class="p-button-danger" /&gt;
 </CodeHighlight>
 
-				<h3>Raised and Rounded Buttons</h3>
+				<h5>Raised and Rounded Buttons</h5>
 				<p>A button can be raised by having "p-button-raised" style class and similarly borders can be made rounded using "p-button-rounded" class.</p>
 <CodeHighlight>
 &lt;Button label="Primary" class="p-button-raised p-button-rounded" /&gt;
 </CodeHighlight>
 
-                <h3>Link Buttons</h3>
+                <h5>Link Buttons</h5>
                 <p>Use "p-button-link" class to render the button as a link.</p>
 <CodeHighlight>
 &lt;Button label="Link" class="p-button-link" /&gt;
 </CodeHighlight>
 
-                <h3>Badges</h3>
+                <h5>Badges</h5>
                 <p>Badge is a small status indicator for a button. Refer to the <router-link to="/badge">badge</router-link> documentation for available styling options.</p>
 
 <CodeHighlight>
@@ -73,7 +73,7 @@ import Button from 'primevue/button';
 &lt;Button type="button" label="Messages" icon="pi pi-users" class="p-button-warning" badge="8" badgeClass="p-badge-info" /&gt;
 </CodeHighlight>
 
-                <h3>ButtonSet</h3>
+                <h5>ButtonSet</h5>
                 <p>Wrapping the buttons in a container having a <i>.p-buttonset</i> class, groups the buttons side to side.</p>
 <CodeHighlight>
 &lt;span class="p-buttonset"&gt;
@@ -83,7 +83,7 @@ import Button from 'primevue/button';
 &lt;/span&gt;
 </CodeHighlight>
 
-                <h3>Sizes</h3>
+                <h5>Sizes</h5>
                 <p>2 more sizes are available in addition to a regular button, for a smaller input add <i>p-button-sm</i> and for a larger one, use <i>p-button-lg</i>.
                 Note that these classes available to change the size of a particular button, for global scaling see the <router-link to="/theming">theming</router-link> page.</p>
 <CodeHighlight>
@@ -92,7 +92,7 @@ import Button from 'primevue/button';
 &lt;Button label="Large" icon="pi pi-check" class="p-button-lg" /&gt;
 </CodeHighlight>
 
-				<h3>Properties</h3>
+				<h5>Properties</h5>
                 <p>Any property such as style and class are passed to the underlying button element. Following are the additional properties to configure the component.</p>
 				<div class="doc-tablewrapper">
 					<table class="doc-table">
@@ -139,7 +139,7 @@ import Button from 'primevue/button';
 					</table>
 				</div>
 
-				<h3>Styling</h3>
+				<h5>Styling</h5>
 				<p>Following is the list of structural style classes, for theming classes visit <router-link to="/theming">theming</router-link> page.</p>
 				<div class="doc-tablewrapper">
 					<table class="doc-table">
@@ -174,7 +174,7 @@ import Button from 'primevue/button';
 					</table>
 				</div>
 
-				<h3>Dependencies</h3>
+				<h5>Dependencies</h5>
 				<p>None.</p>
 			</TabPanel>
 
@@ -184,7 +184,7 @@ import Button from 'primevue/button';
 				</a>
 <CodeHighlight>
 <template v-pre>
-&lt;h3 class="first"&gt;Basic&lt;/h3&gt;
+&lt;h5&gt;Basic&lt;/h3&gt;
 &lt;Button label="Submit" /&gt;
 &lt;Button label="Submit" disabled="disabled" /&gt;
 

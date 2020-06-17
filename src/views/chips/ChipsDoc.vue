@@ -2,18 +2,18 @@
 	<div class="content-section documentation">
 		<TabView>
 			<TabPanel header="Documentation">
-				<h3>Import</h3>
+				<h5>Import</h5>
 <CodeHighlight lang="javascript">
 import Chips from 'primevue/chips';
 </CodeHighlight>
 
-				<h3>Getting Started</h3>
+				<h5>Getting Started</h5>
 				<p>An array as the value can be bound using the standard v-model directive.</p>
 <CodeHighlight>
 &lt;Chips v-model="value" /&gt;
 </CodeHighlight>
 
-				<h3>Custom Content</h3>
+				<h5>Custom Content</h5>
 				<p>A chip is customized using the <i>chip</i> template where the chip value is passed to the slotProps with the value property.</p>
 <CodeHighlight>
 <template v-pre>
@@ -28,7 +28,7 @@ import Chips from 'primevue/chips';
 </template>
 </CodeHighlight>
 
-				<h3>Properties</h3>
+				<h5>Properties</h5>
                 <p>Any property as style and class are passed to the main container element. Following are the additional properties to configure the component.</p>
 				<div class="doc-tablewrapper">
 					<table class="doc-table">
@@ -87,7 +87,7 @@ import Chips from 'primevue/chips';
 					</table>
 				</div>
 
-				<h3>Events</h3>
+				<h5>Events</h5>
 				<div class="doc-tablewrapper">
 					<table class="doc-table">
 						<thead>
@@ -129,7 +129,7 @@ import Chips from 'primevue/chips';
 					</table>
 				</div>
 
-				<h3>Styling</h3>
+				<h5>Styling</h5>
 				<p>Following is the list of structural style classes, for theming classes visit <router-link to="/theming">theming</router-link> page.</p>
 				<div class="doc-tablewrapper">
 					<table class="doc-table">
@@ -164,7 +164,7 @@ import Chips from 'primevue/chips';
 					</table>
 				</div>
 
-				<h3>Dependencies</h3>
+				<h5>Dependencies</h5>
 				<p>None.</p>
 			</TabPanel>
 

@@ -2,12 +2,12 @@
 	<div class="content-section documentation">
 		<TabView>
 			<TabPanel header="Documentation">
-				<h3>Import</h3>
+				<h5>Import</h5>
 <CodeHighlight lang="javascript">
 import Carousel from 'primevue/carousel';
 </CodeHighlight>
 
-				<h3>Getting Started</h3>
+				<h5>Getting Started</h5>
 				<p>Carousel requires a collection of items as its value along with a template to render each item.</p>
 <CodeHighlight>
 &lt;Carousel :value="cars"&gt;
@@ -16,7 +16,7 @@ import Carousel from 'primevue/carousel';
 &lt;/Carousel&gt;
 </CodeHighlight>
 
-				<h3>Items per page and Scroll Items</h3>
+				<h5>Items per page and Scroll Items</h5>
 				<p>Number of items per page is defined using the <i>numVisible</i> property whereas number of items to scroll is defined with the <i>numScroll</i> property.</p>
 <CodeHighlight>
 &lt;Carousel :value="cars" :numVisible="3" :numScroll="1"&gt;
@@ -25,7 +25,7 @@ import Carousel from 'primevue/carousel';
 &lt;/Carousel&gt;
 </CodeHighlight>
 
-				<h3>Responsive</h3>
+				<h5>Responsive</h5>
 				<p>For responsive design, <i>numVisible</i> and <i>numScroll</i> can be defined using the <i>responsiveOptions</i> property that should be an array of
 					objects whose breakpoint defines the max-width to apply the settings.</p>
 <CodeHighlight>
@@ -80,7 +80,7 @@ data() {
 },
 </CodeHighlight>
 
-				<h3>Header and Footer</h3>
+				<h5>Header and Footer</h5>
 				<p>Custom content projection is available using the <i>header</i> and <i>footer</i> templates.</p>
 
 <CodeHighlight>
@@ -97,7 +97,7 @@ data() {
 &lt;/Carousel&gt;
 </CodeHighlight>
 
-				<h3>Orientation</h3>
+				<h5>Orientation</h5>
 				<p>Default layout of the Carousel is horizontal, other possible option is the vertical mode that is configured with the <i>orientation</i> property.</p>
 <CodeHighlight>
 &lt;Carousel :value="cars" :numVisible="1" :numScroll="1" orientation="vertical" verticalViewPortHeight="330px" :responsiveOptions="responsiveOptions"&gt;
@@ -107,7 +107,7 @@ data() {
 &lt;/Carousel&gt;
 </CodeHighlight>
 
-				<h3>AutoPlay and Circular</h3>
+				<h5>AutoPlay and Circular</h5>
 				<p>When <i>autoplayInterval</i> is defined in milliseconds, items are scrolled automatically. In addition, for infinite scrolling <i>circular</i> property needs to be enabled. Note that in autoplay mode, circular is enabled by default.</p>
 <CodeHighlight>
 &lt;Carousel :value="cars" :numVisible="3" :numScroll="1" :circular="true" :autoplayInterval="3000"&gt;
@@ -120,7 +120,7 @@ data() {
 &lt;/Carousel&gt;
 </CodeHighlight>
 
-				<h3>Properties</h3>
+				<h5>Properties</h5>
 				<div class="doc-tablewrapper">
 					<table class="doc-table">
 						<thead>
@@ -208,7 +208,7 @@ data() {
 					</table>
 				</div>
 
-				<h3>Styling</h3>
+				<h5>Styling</h5>
 				<p>Following is the list of structural style classes, for theming classes visit <router-link to="/theming">theming</router-link> page.</p>
 				<div class="doc-tablewrapper">
 					<table class="doc-table">
@@ -255,7 +255,7 @@ data() {
 					</table>
 				</div>
 
-				<h3>Dependencies</h3>
+				<h5>Dependencies</h5>
 				<p>None.</p>
 			</TabPanel>
 

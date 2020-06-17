@@ -13,7 +13,7 @@
         </div>
 
         <div class="features">
-            <h3>Features</h3>
+            <h5>Features</h5>
             <p class="features-tagline">Congratulations! <span role="img" aria-label="celebrate">🎉</span> Your quest to find the UI library for Vue.js is now complete.</p>
 
             <div class="p-grid">
@@ -102,7 +102,7 @@
         </div>
 
         <div class="whouses">
-            <h3>Key Users</h3>
+            <h5>Key Users</h5>
             <p>The creator of PrimeVue is PrimeTek Informatics, the distinguished component library vendor who built popular open source projects such as PrimeFaces, PrimeNG and PrimeReact over the past years.</p>
             <div class="p-grid">
                 <div class="p-col-6 p-md-2"><img alt="airbus" src="../assets/images/home/airbus.svg"/></div>
@@ -120,7 +120,7 @@
             </div>
         </div>
         <div class="templates">
-            <h3>Premium Application Templates</h3>
+            <h5>Premium Application Templates</h5>
             <p>Gorgeous Vue-CLI application templates designed by professional designers and implemented by Vue Experts to help you reach your goals in no time.</p>
 
             <div class="p-grid">
@@ -168,7 +168,7 @@
             </div>
         </div>
         <div class="templates">
-            <h3>Free Application Template for PrimeVue</h3>
+            <h5>Free Application Template for PrimeVue</h5>
             <p>Sigma is a free and open source admin template based on <a href="https://cli.vuejs.org">Vue-CLI</a>.</p>
 
             <div class="p-grid">
@@ -180,7 +180,7 @@
             </div>
         </div>
         <div class="primevue-designer">
-            <h3>PrimeVue Designer API</h3>
+            <h5>PrimeVue Designer API</h5>
             <div class="p-grid">
                 <div class="p-col-12">
                     <img alt="PrimeVue Designer" src="../assets/images/primevue-designer.jpg" />
@@ -194,7 +194,7 @@
         <div class="prosupport">
             <div class="p-grid">
                 <div class="p-col-12 p-md-6">
-                    <h3>PrimeVue PRO Support</h3>
+                    <h5>PrimeVue PRO Support</h5>
                     <p>No time to wait for a response at forum or issue tracker? Then PrimeVue PRO Support is definitely for you.</p>
                     <p>PrimeVUE PRO is an exceptional support service where you'll contact the PrimeTek via a private channel and receive assistance just in a couple of hours. Optionally PrimeVue PRO offers the ability to request changes and new features for the component library.</p>
                     <a class="action-button" href="mailto:contact@primetek.com.tr">

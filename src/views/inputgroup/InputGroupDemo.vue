@@ -8,7 +8,7 @@
         </div>
 
         <div class="content-section implementation">
-            <h3 class="first">Addons</h3>
+            <h5>Addons</h5>
             <div class="p-grid p-fluid">
                 <div class="p-col-12 p-md-4">
                     <div class="p-inputgroup">
@@ -35,7 +35,7 @@
                 </div>
             </div>
 
-            <h3>Multiple Addons</h3>
+            <h5>Multiple Addons</h5>
             <div class="p-grid">
                 <div class="p-col-12">
                     <div class="p-inputgroup">
@@ -52,7 +52,7 @@
                 </div>
             </div>
 
-            <h3>Button Addons</h3>
+            <h5>Button Addons</h5>
             <div class="p-grid p-fluid">
                 <div class="p-col-12 p-md-4">
                     <div class="p-inputgroup">
@@ -77,7 +77,7 @@
                 </div>
             </div>
 
-            <h3>Checkbox and RadioButton</h3>
+            <h5>Checkbox and RadioButton</h5>
             <div class="p-grid p-fluid">
                 <div class="p-col-12 p-md-12">
                     <div class="p-inputgroup">

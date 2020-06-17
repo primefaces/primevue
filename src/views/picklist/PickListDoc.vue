@@ -2,12 +2,12 @@
 	<div class="content-section documentation">
 		<TabView>
 			<TabPanel header="Documentation">
-				<h3>Import</h3>
+				<h5>Import</h5>
 <CodeHighlight lang="javascript">
 import PickList from 'primevue/picklist';
 </CodeHighlight>
 
-				<h3>Getting Started</h3>
+				<h5>Getting Started</h5>
                 <p>PickList requires a multidimensional array as its value bound with the v-model directive and a template for its content
                     that gets the <i>item</i> instance and the <i>index</i> via slotProps.</p>
 <CodeHighlight>
@@ -26,7 +26,7 @@ import PickList from 'primevue/picklist';
 </template>
 </CodeHighlight>
 
-                <h3>Templates</h3>
+                <h5>Templates</h5>
                 <p>In addition to the mandatory "item" template, picklist provides "sourceHeader" and "targetHeader" slots as optional templates.</p>
 <CodeHighlight>
 <template v-pre>
@@ -50,7 +50,7 @@ import PickList from 'primevue/picklist';
 </template>
 </CodeHighlight>
 
-                <h3>Selection</h3>
+                <h5>Selection</h5>
                 <p>In case you need to access the selected items in the list, define a binding to the <i>selection</i> property with the sync operator so that
                 it gets updated when the user makes a selection. Since it is two-way binding enabled, your changes to the selection will be reflected as well.  Note that
                 this is optional and only necessary when you need to access the selection.</p>
@@ -71,10 +71,10 @@ import PickList from 'primevue/picklist';
 </template>
 </CodeHighlight>
 
-                <h3>DataKey</h3>
+                <h5>DataKey</h5>
                 <p>It is recommended to provide the name of the field that uniquely identifies the a record in the data via the <i>dataKey</i> property for better performance.</p>
 
-				<h3>Properties</h3>
+				<h5>Properties</h5>
                 <p>Any property as style and class are passed to the main container element. Following are the additional properties to configure the component.</p>
 				<div class="doc-tablewrapper">
 					<table class="doc-table">
@@ -124,7 +124,7 @@ import PickList from 'primevue/picklist';
 					</table>
 				</div>
 
-				<h3>Events</h3>
+				<h5>Events</h5>
 				<div class="doc-tablewrapper">
 					<table class="doc-table">
 						<thead>
@@ -176,7 +176,7 @@ import PickList from 'primevue/picklist';
 					</table>
 				</div>
 
-				<h3>Styling</h3>
+				<h5>Styling</h5>
 				<p>Following is the list of structural style classes, for theming classes visit <router-link to="/theming">theming</router-link> page.</p>
 				<div class="doc-tablewrapper">
 					<table class="doc-table">
@@ -219,7 +219,7 @@ import PickList from 'primevue/picklist';
 					</table>
 				</div>
 
-				<h3>Dependencies</h3>
+				<h5>Dependencies</h5>
 				<p>None.</p>
 			</TabPanel>
 

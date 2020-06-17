@@ -10,7 +10,7 @@
 		</div>
 
 		<div class="content-section implementation">
-            <h3>Basic Cell Editing</h3>
+            <h5>Basic Cell Editing</h5>
             <p>Simple editors with v-model.</p>
 			<DataTable :value="cars1" editMode="cell">
                 <Column field="vin" header="Vin">
@@ -42,7 +42,7 @@
                 </Column>
             </DataTable>
 
-            <h3>Advanced Cell Editing</h3>
+            <h5>Advanced Cell Editing</h5>
             <p>Custom implementation with validations, dynamic columns and reverting values with the escape key.</p>
 			<DataTable :value="cars2" editMode="cell" @cell-edit-complete="onCellEditComplete">
                 <Column v-for="col of columns" :field="col.field" :header="col.header" :key="col.field">
@@ -52,7 +52,7 @@
                 </Column>
             </DataTable>
 
-            <h3>Row Editing</h3>
+            <h5>Row Editing</h5>
             <DataTable :value="cars3" editMode="row" dataKey="vin" :editingRows.sync="editingRows"
                 @row-edit-init="onRowEditInit" @row-edit-cancel="onRowEditCancel">
                 <Column field="vin" header="Vin"></Column>

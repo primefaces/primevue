@@ -10,7 +10,7 @@
 		<div class="content-section implementation">
 			<Carousel :value="cars" :numVisible="4" :numScroll="3" :responsiveOptions="responsiveOptions">
 				<template #header>
-					<h3>Basic</h3>
+					<h5>Basic</h5>
 				</template>
 				<template #item="slotProps">
 					<div class="car-item">
@@ -35,7 +35,7 @@
 
 			<Carousel :value="cars" :numVisible="3" :numScroll="1" :responsiveOptions="responsiveOptions" class="custom-carousel" :circular="true" :autoplayInterval="3000">
 				<template #header>
-					<h3>Circular, AutoPlay, 3 Items per Page and Scroll by 1</h3>
+					<h5>Circular, AutoPlay, 3 Items per Page and Scroll by 1</h5>
 				</template>
 				<template #item="slotProps">
 					<div class="car-item">
@@ -61,7 +61,7 @@
 			<Carousel :value="cars" :numVisible="1" :numScroll="1" orientation="vertical" verticalViewPortHeight="325px"
 						style="max-width: 400px; margin-top: 2em">
 				<template #header>
-					<h3>Vertical</h3>
+					<h5>Vertical</h5>
 				</template>
 				<template #item="slotProps">
 					<div class="car-item">

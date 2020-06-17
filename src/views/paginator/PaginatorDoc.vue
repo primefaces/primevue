@@ -2,18 +2,18 @@
     <div class="content-section documentation">
         <TabView>
             <TabPanel header="Documentation">
-                <h3>Import</h3>
+                <h5>Import</h5>
 <CodeHighlight lang="javascript">
 import Paginator from 'primevue/paginator';
 </CodeHighlight>
 
-                <h3>Getting Started</h3>
+                <h5>Getting Started</h5>
                 <p><i>rows</i> and <i>totalRecords</i> are the required properties of the Paginator.</p>
 <CodeHighlight>
 &lt;Paginator :rows="10" :totalRecords="totalItemsCount"&gt;&lt;/Paginator&gt;
 </CodeHighlight>
 
-                <h3>Start Index</h3>
+                <h5>Start Index</h5>
                 <p><i>first</i> property defines the index of the first item displayed by the paginator.</p>
 
 <CodeHighlight>
@@ -25,7 +25,7 @@ import Paginator from 'primevue/paginator';
 &lt;Paginator :first.sync="offset" :rows="10" :totalRecords="totalItemsCount"&gt;&lt;/Paginator&gt;
 </CodeHighlight>
 
-                <h3>Rows Per Page</h3>
+                <h5>Rows Per Page</h5>
                 <p>Number of items per page can be changed by the user using a dropdown with the <i>rowsPerPageOptions</i> property which accepts an array of possible values.</p>
 <CodeHighlight>
 &lt;Paginator :first.sync="offset" :rows="rows" :totalRecords="totalItemsCount" :rowsPerPageOptions="[10,20,30]"&gt;&lt;/Paginator&gt;
@@ -37,7 +37,7 @@ import Paginator from 'primevue/paginator';
 &lt;Paginator :first.sync="offset" :rows.sync="rows" :totalRecords="totalItemsCount" :rowsPerPageOptions="[10,20,30]"&gt;&lt;/Paginator&gt;
 </CodeHighlight>
 
-                <h3>Template</h3>
+                <h5>Template</h5>
                 <p>Paginator elements can be customized using the template property using the predefined keys, default value is
                 "FirstPageLink PrevPageLink PageLinks NextPageLink LastPageLink RowsPerPageDropdown". Here are the available elements that
                 can be placed inside a paginator in any order.</p>
@@ -52,7 +52,7 @@ import Paginator from 'primevue/paginator';
                     <li>CurrentPageReport</li>
                 </ul>
 
-                <h3>CurrentPageReport</h3>
+                <h5>CurrentPageReport</h5>
                 <p>Current page report item in the template displays information about the pagination state. Default value is (&#123;currentPage&#125; of &#123;totalPages&#125;)
                     whereas available placeholders are the following;
                 </p>
@@ -65,7 +65,7 @@ import Paginator from 'primevue/paginator';
                     <li>&#123;totalRecords&#125;</li>
                 </ul>
 
-                <h3>Custom Content</h3>
+                <h5>Custom Content</h5>
                 <p>There are two templates available named "left" and "right" to add custom content to these locations. Both templates get
                     a state object as a slot property to provide the current page, first index and the rows.
                 </p>
@@ -84,7 +84,7 @@ import Paginator from 'primevue/paginator';
 </template>
 </CodeHighlight>
 
-                <h3>Page Change Event</h3>
+                <h5>Page Change Event</h5>
                 <p>Paginator provides only one event called <i>page</i> that passes all the information about the change event.</p>
 <CodeHighlight>
 &lt;Paginator :rows="10" :totalRecords="totalItemsCount" @page="onPage($event)"&gt;&lt;/Paginator&gt;
@@ -99,7 +99,7 @@ onPage(event) {
 }
 </CodeHighlight>
 
-                <h3>Properties</h3>
+                <h5>Properties</h5>
                 <div class="doc-tablewrapper">
                     <table class="doc-table">
                         <thead>
@@ -165,7 +165,7 @@ onPage(event) {
                     </table>
                 </div>
 
-                <h3>Events</h3>
+                <h5>Events</h5>
                 <div class="doc-tablewrapper">
                     <table class="doc-table">
                         <thead>
@@ -189,7 +189,7 @@ onPage(event) {
                     </table>
                 </div>
 
-                <h3>Styling</h3>
+                <h5>Styling</h5>
                 <p>Following is the list of structural style classes, for theming classes visit <router-link to="/theming">theming</router-link> page.</p>
                 <div class="doc-tablewrapper">
                     <table class="doc-table">
@@ -235,7 +235,7 @@ onPage(event) {
                         </tbody>
                     </table>
 
-                    <h3>Dependencies</h3>
+                    <h5>Dependencies</h5>
                     <p>None.</p>
                 </div>
             </TabPanel>

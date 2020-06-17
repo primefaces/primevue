@@ -2,15 +2,15 @@
 	<div class="content-section documentation">
 		<TabView>
 			<TabPanel header="Documentation">
-				<h3>Import</h3>
+				<h5>Import</h5>
 <CodeHighlight lang="javascript">
 import Tree from 'primevue/tree';
 </CodeHighlight>
 
-				<h3>Getting Started</h3>
+				<h5>Getting Started</h5>
 				<p>Tree component requires an array of TreeNode objects as its <i>value</i>.</p>
 
-                <h3>TreeNode API utilized by the Tree</h3>
+                <h5>TreeNode API utilized by the Tree</h5>
                 <div class="doc-tablewrapper">
                     <table class="doc-table">
                         <thead>
@@ -182,7 +182,7 @@ export default class NodeService {
 }
 </CodeHighlight>
 
-                <h3>Programmatic Control</h3>
+                <h5>Programmatic Control</h5>
                 <p>Tree state can be controlled programmatically with the <i>expandedKeys</i> property that defines the keys
                     that are expanded. This property is a Map instance whose key is the key of a node and value is a boolean. Note that <i>expandedKeys</i> also supports two-way binding with the sync modifier.
                 </p>
@@ -263,7 +263,7 @@ export default {
 }
 </CodeHighlight>
 
-                <h3>Selection</h3>
+                <h5>Selection</h5>
                 <p>Tree supports <b>single</b>, <b>multiple</b> and <b>checkbox</b> selection modes. Define the <i>selectionKeys</i> with the sync operator and the <i>selectionMode</i> properties to enable the selection.
                 By default in multiple selection mode, metaKey is necessary to add to existing selections however this can be configured with <i>metaKeySelection</i> property. Note that
                 in touch enabled devices, Tree does not require metaKey. In addition selection on a particular node can be disabled if the <i>selectable</i> is false on the node instance.</p>
@@ -359,7 +359,7 @@ export default {
 }
 </CodeHighlight>
 
-                <h3>Lazy</h3>
+                <h5>Lazy</h5>
                 <p>Lazy Loading is handy to deal with huge datasets. Idea is instead of loading the whole tree, load child nodes on demand
                     using expand expand. The important part is setting <i>leaf</i> to true on a node instance so that even without children,
                     tree would render an expand icon. Example below uses an in memory collection to mimic a lazy loading scenario with timeouts.
@@ -438,7 +438,7 @@ export default {
 }
 </CodeHighlight>
 
-                <h3>Templating</h3>
+                <h5>Templating</h5>
                 <p>The <i>type</i> property of a TreeNode is used to map a template to a node to create the node label. If it is undefined and no default template is available,
                 label of the node is used.</p>
 <CodeHighlight>
@@ -485,7 +485,7 @@ export default {
 }
 </CodeHighlight>
 
-                <h3>Filtering</h3>
+                <h5>Filtering</h5>
                 <p>Filtering is enabled by setting the <i>filter</i> property to true, by default label property of a node
                 is used to compare against the value in the text field, in order to customize which field(s) should be used during search, define the <i>filterBy</i> property as a comma separated list.</p>
 
@@ -543,7 +543,7 @@ export default {
 }
 </CodeHighlight>
 
-				<h3>Properties</h3>
+				<h5>Properties</h5>
                 <p>Any property such as style and class are passed to the underlying root element. Following is the additional property to configure the component.</p>
 				<div class="doc-tablewrapper">
 					<table class="doc-table">
@@ -633,7 +633,7 @@ export default {
 					</table>
 				</div>
 
-				<h3>Events</h3>
+				<h5>Events</h5>
 				<div class="doc-tablewrapper">
 					<table class="doc-table">
 						<thead>
@@ -668,7 +668,7 @@ export default {
 					</table>
 				</div>
 
-				<h3>Styling</h3>
+				<h5>Styling</h5>
 				<p>Following is the list of structural style classes, for theming classes visit <router-link to="/theming">theming</router-link> page.</p>
 				<div class="doc-tablewrapper">
 					<table class="doc-table">
@@ -723,7 +723,7 @@ export default {
 					</table>
 				</div>
 
-				<h3>Dependencies</h3>
+				<h5>Dependencies</h5>
 				<p>None.</p>
 			</TabPanel>
 

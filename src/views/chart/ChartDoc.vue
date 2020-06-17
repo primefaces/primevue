@@ -1,20 +1,20 @@
 <template>
 	<div class="content-section documentation">
-        <h3>Getting Started</h3>
+        <h5>Getting Started</h5>
         <p>To begin with, charts.js package needs to be installed in your project.</p>
  <CodeHighlight lang="javascript">
 npm install chart.js --save
 </CodeHighlight>
 
-		<h3 style="margin-top: 0">Import</h3>
+		<h5>Import</h5>
 <CodeHighlight lang="javascript">
 import Chart from 'primevue/chart';
 </CodeHighlight>
 
-		<h3>Chart Types</h3>
+		<h5>Chart Types</h5>
 		<p>Chart type is defined using the <i>type</i> property. Currently there are 6 options available; <b>pie</b>, <b>doughtnut</b>, <b>line</b>, <b>bar</b>, <b>radar</b> and <b>polarArea</b>.</p>
 
-		<h3>Data</h3>
+		<h5>Data</h5>
 		<p>Data of a chart is provided using a binding to the <i>data</i> property, each type has its own format of data. Here is an example of a line chart.  For more information refer to the <a href="https://www.chartjs.org/">charts.js</a> documentation.</p>
 <CodeHighlight>
 &lt;Chart type="bar" :data="basicData" /&gt;
@@ -44,7 +44,7 @@ export default {
 }
 </CodeHighlight>
 
-		<h3>Options</h3>
+		<h5>Options</h5>
 		<p>While a series can be customized per dataset, general chart options are defined with options property.
 			Example below adds a title and customizes the legend position of the chart. For all available options refer to the <a href="https://www.chartjs.org/">charts.js</a> documentation.</p>
 <CodeHighlight>
@@ -76,7 +76,7 @@ options: {
 }
 </CodeHighlight>
 
-		<h3>Properties</h3>
+		<h5>Properties</h5>
         <p>Any property as style and class are passed to the main container element. Following is the additional property to configure the component.</p>
 		<div class="doc-tablewrapper">
 			<table class="doc-table">
@@ -123,7 +123,7 @@ options: {
 			</table>
 		</div>
 
-		<h3>Methods</h3>
+		<h5>Methods</h5>
 		<div class="doc-tablewrapper">
 			<table class="doc-table">
 				<thead>
@@ -153,7 +153,7 @@ options: {
 			</table>
 		</div>
 
-        <h3>Events</h3>
+        <h5>Events</h5>
         <div class="doc-tablewrapper">
             <table class="doc-table">
                 <thead>
@@ -179,7 +179,7 @@ options: {
             </table>
         </div>
 
-        <h3>Styling</h3>
+        <h5>Styling</h5>
         <div class="doc-tablewrapper">
             <table class="doc-table">
                 <thead>

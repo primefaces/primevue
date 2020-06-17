@@ -8,7 +8,7 @@
         </div>
 
         <div class="content-section implementation">
-            <h3>Positioned at Bottom</h3>
+            <h5>Positioned at Bottom</h5>
             <Galleria :value="images" :responsiveOptions="responsiveOptions" :numVisible="5" style="max-width: 640px">
                 <template #item="slotProps">
 					<img :src="slotProps.item.itemImageSrc" :alt="slotProps.item.alt" style="width: 100%; display: block;" />
@@ -18,7 +18,7 @@
 				</template>
             </Galleria>
 
-            <h3>Positioned at Left</h3>
+            <h5>Positioned at Left</h5>
             <Galleria :value="images" :responsiveOptions="responsiveOptions2" :numVisible="4" thumbnailsPosition="left" style="max-width: 640px">
                 <template #item="slotProps">
 					<img :src="slotProps.item.itemImageSrc" :alt="slotProps.item.alt" style="width: 100%; display: block;" />
@@ -30,7 +30,7 @@
 				</template>
             </Galleria>
 
-            <h3>Positioned at Right</h3>
+            <h5>Positioned at Right</h5>
             <Galleria :value="images" :responsiveOptions="responsiveOptions2" :numVisible="4" thumbnailsPosition="right" style="max-width: 640px">
                 <template #item="slotProps">
 					<img :src="slotProps.item.itemImageSrc" :alt="slotProps.item.alt" style="width: 100%; display: block;" />
@@ -42,7 +42,7 @@
 				</template>
             </Galleria>
 
-            <h3>Positioned at Top</h3>
+            <h5>Positioned at Top</h5>
             <Galleria :value="images" :responsiveOptions="responsiveOptions" :numVisible="5" thumbnailsPosition="top" style="max-width: 640px">
                 <template #item="slotProps">
 					<img :src="slotProps.item.itemImageSrc" :alt="slotProps.item.alt" style="width: 100%; display: block;" />

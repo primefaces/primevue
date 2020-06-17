@@ -8,13 +8,13 @@
         </div>
 
         <div class="content-section implementation">
-            <h3 class="first">Dynamic</h3>
+            <h5>Dynamic</h5>
             <ProgressBar :value="value1" />
 
-            <h3>Static</h3>
+            <h5>Static</h5>
             <ProgressBar :value="value2" :showValue="false" />
 
-            <h3>Indeterminate</h3>
+            <h5>Indeterminate</h5>
             <ProgressBar mode="indeterminate" style="height: .5em" />
         </div>
 

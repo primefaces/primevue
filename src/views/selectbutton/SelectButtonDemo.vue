@@ -8,15 +8,15 @@
         </div>
 
         <div class="content-section implementation">
-            <h3 class="first">Single</h3>
+            <h5>Single</h5>
             <SelectButton v-model="selectedCity" :options="cities" optionLabel="name" />
             <p>Selected City: <span style="font-weight: bold">{{selectedCity}}</span></p>
 
-            <h3>Multiple</h3>
+            <h5>Multiple</h5>
             <SelectButton v-model="selectedCars" :options="cars" optionLabel="brand" :multiple="true" />
             <p>Selected Cars: <span style="font-weight: bold">{{selectedCars}}</span></p>
 
-            <h3>Custom Content</h3>
+            <h5>Custom Content</h5>
             <SelectButton v-model="selectedCar" :options="cars" optionLabel="brand">
                 <template #option="slotProps">
                     <div class="car-option">

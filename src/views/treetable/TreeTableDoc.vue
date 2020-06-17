@@ -2,16 +2,16 @@
 	<div class="content-section documentation">
 		<TabView>
 			<TabPanel header="Documentation">
-				<h3>Import</h3>
+				<h5>Import</h5>
 <CodeHighlight lang="javascript">
 import TreeTable from 'primevue/treetable';
 import Column from 'primevue/column';
 </CodeHighlight>
 
-				<h3>Getting Started</h3>
+				<h5>Getting Started</h5>
 				<p>Tree component requires an array of TreeNode objects as its <i>value</i> and columns defined with Column component.</p>
 
-                <h3>TreeNode API utilized by the TreeTable</h3>
+                <h5>TreeNode API utilized by the TreeTable</h5>
                 <div class="doc-tablewrapper">
                     <table class="doc-table">
                         <thead>
@@ -465,7 +465,7 @@ export default class NodeService {
 </CodeHighlight>
 </div>
 
-                <h3>Dynamic Columns</h3>
+                <h5>Dynamic Columns</h5>
                 <p>Column components can be dynamically generated using a v-for as well.</p>
 
 <CodeHighlight>
@@ -503,7 +503,7 @@ export default {
 }
 </CodeHighlight>
 
-                <h3>Column Component Properties utilized by the TreeTable</h3>
+                <h5>Column Component Properties utilized by the TreeTable</h5>
                 <div class="doc-tablewrapper">
                     <table class="doc-table">
                         <thead>
@@ -621,7 +621,7 @@ export default {
                     </table>
                 </div>
 
-                <h3>Programmatic Control</h3>
+                <h5>Programmatic Control</h5>
                 <p>Tree state can be controlled programmatically with the <i>expandedKeys</i> property that defines the keys
                     that are expanded. This property is a Map instance whose key is the key of a node and value is a boolean. Note that <i>expandedKeys</i> also supports two-way binding with the sync modifier.
                 </p>
@@ -707,7 +707,7 @@ export default {
 }
 </CodeHighlight>
 
-                <h3>Templating</h3>
+                <h5>Templating</h5>
                 <p>Field data of a corresponding node is displayed as the cell content by default, this can be customized using a <i>body</i> template where current node data and column properties are passed via the slot props.
                     On the other hand, <i>header</i> and <i>footer</i> sections of a column can either be defined with the properties or the templates. Similarly TreeTable itself also provides header and footer properties along with the templates for the main header and footer of the table.</p>
 
@@ -738,7 +738,7 @@ export default {
 </template>
 </CodeHighlight>
 
-                <h3>Sizes</h3>
+                <h5>Sizes</h5>
                 <p>In addition to the regular table, a smal and a large version are available with different paddings. For a table
                 with smaller paddings use <i>p-treetable-sm</i> class and for a larger one use <i>p-treetable-lg</i>.</p>
 
@@ -773,7 +773,7 @@ export default {
 </template>
 </CodeHighlight>
 
-                <h3>Pagination</h3>
+                <h5>Pagination</h5>
                 <p>Pagination is enabled by setting <i>paginator</i> property to true and defining the <i>rows</i> property defines the number of rows per page.
                     See the <router-link to="/paginator">Paginator</router-link> for the available customization options such as paginator templates, page links,
                     rows per page options and more which can be passed through the TreeTable.</p>
@@ -818,7 +818,7 @@ export default {
 </template>
 </CodeHighlight>
 
-                <h3>Sorting</h3>
+                <h5>Sorting</h5>
                 <p>Enabling <i>sortable</i> property at column component would be enough to make a column sortable.
                 The property to use when sorting is the <i>field</i> by default and can be customized using the <i>sortField</i>.</p>
 
@@ -883,7 +883,7 @@ data() {
 }
 </CodeHighlight>
 
-                <h3>Filtering</h3>
+                <h5>Filtering</h5>
                 <p>Filtering is enabled by defining a filter template per column to populate the <i>filters</i> property of the TreeTable. The <i>filters</i>
                 property should be an key-value object where keys are the field name and the value is the filter value. The filter template receives the column properties
                 via the slotProps and accepts any form element as the filter element. Default match mode is "startsWith" and this can be configured per column using the <i>filterMatchMode</i> property that also accepts
@@ -940,7 +940,7 @@ export default {
 }
 </CodeHighlight>
 
-                <h3>Selection</h3>
+                <h5>Selection</h5>
                 <p>Tree supports <b>single</b>, <b>multiple</b> and <b>checkbox</b> selection modes. Define the <i>selectionKeys</i> with the sync operator and the <i>selectionMode</i> properties to enable the selection.
                 By default in multiple selection mode, metaKey is necessary to add to existing selections however this can be configured with <i>metaKeySelection</i> property. Note that
                 in touch enabled devices, Tree does not require metaKey. In addition selection on a particular node can be disabled if the <i>selectable</i> is false on the node instance.</p>
@@ -1048,7 +1048,7 @@ export default {
 }
 </CodeHighlight>
 
-                <h3>Lazy</h3>
+                <h5>Lazy</h5>
                 <p>Lazy Loading is handy to deal with huge datasets. Idea is instead of loading the whole tree, load nodes on demand when necessary.
                     The important part when lazy loading nodes is setting <i>leaf</i> to true on a node instance so that even without children,
                     tree would render an expand icon. Example below uses an in memory collection to mimic a lazy loading scenario with timeouts.
@@ -1161,7 +1161,7 @@ export default {
 }
 </CodeHighlight>
 
-                <h3>Column Resize</h3>
+                <h5>Column Resize</h5>
                 <p>Columns can be resized using drag drop by setting the <i>resizableColumns</i> to true. There are two resize modes; "fit" and "expand". Fit is the default one and the overall table width does not change when a column is resized.
                     In "expand" mode, table width also changes along with the column width. <i>column-resize-end</i> is a callback that passes the resized column header and delta change as a parameter.</p>
 <CodeHighlight>
@@ -1193,7 +1193,7 @@ export default {
 </template>
 </CodeHighlight>
 
-                <h3>Responsive</h3>
+                <h5>Responsive</h5>
                 <p>TreeTable display can be optimized according to screen sizes, this example demonstrates a demo where columns are stacked on small screens.</p>
 <CodeHighlight>
 <template v-pre>
@@ -1252,7 +1252,7 @@ export default {
 }
 </CodeHighlight>
 
-				<h3>Properties</h3>
+				<h5>Properties</h5>
                 <p>Any property such as style and class are passed to the underlying root element. Following is the additional property to configure the component.</p>
 				<div class="doc-tablewrapper">
 					<table class="doc-table">
@@ -1468,7 +1468,7 @@ export default {
 					</table>
 				</div>
 
-				<h3>Events</h3>
+				<h5>Events</h5>
 				<div class="doc-tablewrapper">
 					<table class="doc-table">
 						<thead>
@@ -1551,7 +1551,7 @@ export default {
 					</table>
 				</div>
 
-				<h3>Styling</h3>
+				<h5>Styling</h5>
 				<p>Following is the list of structural style classes, for theming classes visit <router-link to="/theming">theming</router-link> page.</p>
 				<div class="doc-tablewrapper">
 					<table class="doc-table">
@@ -1606,7 +1606,7 @@ export default {
 					</table>
 				</div>
 
-				<h3>Dependencies</h3>
+				<h5>Dependencies</h5>
 				<p>None.</p>
 			</TabPanel>
 

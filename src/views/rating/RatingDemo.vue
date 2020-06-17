@@ -8,16 +8,16 @@
         </div>
 
         <div class="content-section implementation">
-            <h3 class="first">Basic {{val1}}</h3>
+            <h5>Basic {{val1}}</h5>
             <Rating v-model="val1" />
 
-            <h3>No Cancel {{val2}}</h3>
+            <h5>No Cancel {{val2}}</h5>
             <Rating v-model="val2" :cancel="false" />
 
-            <h3>ReadOnly</h3>
+            <h5>ReadOnly</h5>
             <Rating :value="5" :readonly="true" :stars="10" :cancel="false" />
 
-            <h3>Disabled</h3>
+            <h5>Disabled</h5>
             <Rating :value="8" :disabled="true" :stars="10" />
         </div>
 

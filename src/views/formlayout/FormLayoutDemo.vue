@@ -9,7 +9,7 @@
         </div>
 
         <div class="content-section implementation">
-            <h3>Vertical</h3>
+            <h5>Vertical</h5>
             <div class="p-fluid">
                 <div class="p-field">
                     <label for="firstname1">Firstname</label>
@@ -21,7 +21,7 @@
                 </div>
             </div>
 
-            <h3>Vertical and Grid</h3>
+            <h5>Vertical and Grid</h5>
             <div class="p-fluid p-formgrid p-grid">
                  <div class="p-field p-col">
                     <label for="firstname2">Firstname</label>
@@ -33,7 +33,7 @@
                 </div>
             </div>
 
-            <h3>Horizontal and Fixed Width</h3>
+            <h5>Horizontal and Fixed Width</h5>
              <div class="p-field p-grid">
                 <label for="firstname3" class="p-col-fixed" style="width:100px">Firstname</label>
                 <div class="p-col">
@@ -47,7 +47,7 @@
                 </div>
             </div>
 
-            <h3>Horizontal and Fluid</h3>
+            <h5>Horizontal and Fluid</h5>
             <div class="p-fluid">
                  <div class="p-field p-grid">
                     <label for="firstname4" class="p-col-12 p-mb-2 p-md-2 p-mb-md-0">Firstname</label>
@@ -63,7 +63,7 @@
                 </div>
             </div>
 
-            <h3>Inline</h3>
+            <h5>Inline</h5>
             <div class="p-formgroup-inline">
                  <div class="p-field">
                     <label for="firstname5" class="p-sr-only">Firstname</label>
@@ -76,7 +76,7 @@
                 <Button type="button" label="Submit" />
             </div>
 
-            <h3>Vertical Checkbox</h3>
+            <h5>Vertical Checkbox</h5>
             <div class="p-field-checkbox">
                 <Checkbox id="city1" name="city1" value="Chicago" v-model="cities1" />
                 <label for="city1">Chicago</label>
@@ -86,7 +86,7 @@
                 <label for="city2">Los Angeles</label>
             </div>
 
-            <h3>Horizontal Checkbox</h3>
+            <h5>Horizontal Checkbox</h5>
             <div class="p-formgroup-inline">
                 <div class="p-field-checkbox">
                     <Checkbox id="city3" name="city2" value="Chicago" v-model="cities2" />
@@ -98,7 +98,7 @@
                 </div>
             </div>
 
-            <h3>Vertical RadioButton</h3>
+            <h5>Vertical RadioButton</h5>
             <div class="p-field-radiobutton">
                 <RadioButton id="city5" name="city1" value="Chicago" v-model="city1" />
                 <label for="city5">Chicago</label>
@@ -108,7 +108,7 @@
                 <label for="city6">Los Angeles</label>
             </div>
 
-            <h3>Horizontal RadioButton</h3>
+            <h5>Horizontal RadioButton</h5>
             <div class="p-formgroup-inline">
                 <div class="p-field-checkbox">
                     <RadioButton id="city7" name="city2" value="Chicago" v-model="city2" />
@@ -120,14 +120,14 @@
                 </div>
             </div>
 
-            <h3>Help Text</h3>
+            <h5>Help Text</h5>
             <div class="p-field p-fluid">
                 <label for="username">Username</label>
                 <InputText id="username" type="username" aria-describedby="username-help" />
                 <small id="username-help">Enter your username to reset your password.</small>
             </div>
 
-            <h3>Advanced</h3>
+            <h5>Advanced</h5>
             <div class="p-fluid p-formgrid p-grid">
                 <div class="p-field p-col-12 p-md-6">
                     <label for="firstname6">Firstname</label>

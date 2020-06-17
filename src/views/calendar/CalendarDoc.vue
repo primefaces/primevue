@@ -2,12 +2,12 @@
 	<div class="content-section documentation">
 		<TabView>
 			<TabPanel header="Documentation">
-				<h3>Import</h3>
+				<h5>Import</h5>
 <CodeHighlight lang="js">
 import Calendar from 'primevue/calendar';
 </CodeHighlight>
 
-                <h3>Getting Started</h3>
+                <h5>Getting Started</h5>
                 <p>Two-way value binding is defined using the standard v-model directive referencing to a Date property.</p>
 
 <CodeHighlight>
@@ -24,13 +24,13 @@ export default {
 }
 </CodeHighlight>
 
-                <h3>Popup and Inline</h3>
+                <h5>Popup and Inline</h5>
                 <p>Calendar is displayed in a popup by default and <i>inline</i> property needs to be enabled for inline mode.</p>
 <CodeHighlight>
 &lt;Calendar v-model="value" :inline="true" /&gt;
 </CodeHighlight>
 
-                <h3>Selection Mode</h3>
+                <h5>Selection Mode</h5>
                 <p>By default calendar allows selecting one date only whereas multiple dates can be selected by setting <i>selectionMode</i> to multiple. In this
                 case calendar updates the value with an array of dates where optionally number of selectable dates can be restricted with maxDateCount property.
                 Third alternative is the range mode that allows selecting a range based on an array of two values where first value is the start date and second value
@@ -40,7 +40,7 @@ export default {
 &lt;Calendar v-model="value" selectionMode="single || multiple || range" /&gt;
 </CodeHighlight>
 
-                <h3>DateFormat</h3>
+                <h5>DateFormat</h5>
                 <p>Default date format is mm/dd/yy, to customize this use <i>dateFormat</i> property or define it at locale settings. Note that standalone property overrides the value in locale settings.</p>
 
 <CodeHighlight>
@@ -68,7 +68,7 @@ export default {
                     <li>anything else - literal text</li>
                 </ul>
 
-                <h3>Time</h3>
+                <h5>Time</h5>
                 <p>TimePicker is enabled with <i>showTime</i> property and 24 (default) or 12 hour mode is configured using <i>hourFormat</i> option. If you
                     need to use the time picker as standalone, use the <i>timeOnly</i> property.
                 </p>
@@ -78,7 +78,7 @@ export default {
 &lt;Calendar v-model="value" :showTime="true" :timeOnly="true" /&gt;
 </CodeHighlight>
 
-                <h3>Date Restriction</h3>
+                <h5>Date Restriction</h5>
                 <p>To disable entering dates manually, set <i>manualInput</i> to true and to restrict selectable dates with the <i>minDate</i>
                     and <i>maxDate</i> options.</p>
 <CodeHighlight>
@@ -90,19 +90,19 @@ export default {
 &lt;Calendar v-model="value" :disabledDates="invalidDates" :disabledDays="[0,6]" /&gt;
 </CodeHighlight>
 
-                <h3>Button Bar</h3>
+                <h5>Button Bar</h5>
                 <p>Button bar displays today and clear buttons and enabled using <i>showButtonBar</i> property.</p>
 <CodeHighlight>
 &lt;Calendar v-model="value" :showButtonBar="true" /&gt;
 </CodeHighlight>
 
-                <h3>Multiple Months</h3>
+                <h5>Multiple Months</h5>
                 <p>Displaying multiple months is enabled by setting <i>numberOfMonths</i> property to a value greater than 1.</p>
 <CodeHighlight>
 &lt;Calendar v-model="value" :numberOfMonths="3" /&gt;
 </CodeHighlight>
 
-                <h3>Localization</h3>
+                <h5>Localization</h5>
                 <p>Localization for different languages and formats is defined by binding the locale settings object to the <i>locale</i> property. Following is the default values for English.</p>
 <CodeHighlight>
 &lt;Calendar v-model="value" :locale="en" /&gt;
@@ -129,7 +129,7 @@ export default {
 }
 </CodeHighlight>
 
-            <h3>Custom Content</h3>
+            <h5>Custom Content</h5>
             <p>Calendar UI accepts custom content using header and footer templates.</p>
 
 <CodeHighlight>
@@ -160,19 +160,19 @@ export default {
 }
 </CodeHighlight>
 
-                <h3>Month Picker</h3>
+                <h5>Month Picker</h5>
                 <p>Month picker is used to select month and year only without the date, set view mode as "month" to activate month picker.</p>
 <CodeHighlight>
 &lt;Calendar v-model="value" view="month" dateFormat="mm/yy" :yearNavigator="true" yearRange="2000:2030" /&gt;
 </CodeHighlight>
 
-                <h3>Touch UI</h3>
+                <h5>Touch UI</h5>
                 <p>Touch UI mode displays the calendar overlay at the center of the screen as optimized for touch devices.</p>
 <CodeHighlight>
 &lt;Calendar v-model="value" :touchUI="true" /&gt;
 </CodeHighlight>
 
-                <h3>Properties</h3>
+                <h5>Properties</h5>
                 <p>Any property such as name and placeholder are passed to the underlying input element. Following are the additional properties to configure the component.</p>
                 <div class="doc-tablewrapper">
                     <table class="doc-table">
@@ -423,7 +423,7 @@ export default {
                     </table>
                 </div>
 
-                <h3>Events</h3>
+                <h5>Events</h5>
                 <p>Any valid event such as focus, blur and input are passed to the underlying input element. Following are the additional events to configure the component.</p>
                 <div class="doc-tablewrapper">
                     <table class="doc-table">
@@ -478,7 +478,7 @@ export default {
                     </table>
                 </div>
 
-                <h3>Styling</h3>
+                <h5>Styling</h5>
                 <p>Following is the list of structural style classes, for theming classes visit <router-link to="/theming">theming</router-link> page.</p>
                 <div class="doc-tablewrapper">
                     <table class="doc-table">
@@ -541,7 +541,7 @@ export default {
                     </table>
                 </div>
 
-				<h3>Dependencies</h3>
+				<h5>Dependencies</h5>
 				<p>None.</p>
 			</TabPanel>
 

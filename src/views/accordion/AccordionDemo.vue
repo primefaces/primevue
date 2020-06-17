@@ -8,7 +8,7 @@
         </div>
 
         <div class="content-section implementation">
-            <h3 class="first">Default</h3>
+            <h5>Default</h5>
             <Accordion>
                 <AccordionTab header="Godfather I">
                     <p>The story begins as Don Vito Corleone, the head of a New York Mafia family, overseeshis daughter's wedding. His beloved son ichael has just come home from the war,
@@ -27,7 +27,7 @@
                 </AccordionTab>
             </Accordion>
 
-            <h3>Multiple</h3>
+            <h5>Multiple</h5>
             <Accordion :multiple="true">
                 <AccordionTab header="Godfather I">
                     <p>The story begins as Don Vito Corleone, the head of a New York Mafia family, overseeshis daughter's wedding. His beloved son ichael has just come home from the war,
@@ -48,7 +48,7 @@
                 </AccordionTab>
             </Accordion>
 
-            <h3>Programmatic</h3>
+            <h5>Programmatic</h5>
             <div style="padding: .5em 0 1em 0">
                  <Button :icon="active1 ? 'pi pi-minus' : 'pi pi-plus'" label="Toggle 1st" @click="active1 = !active1" class="p-button-secondary" />
                  <Button :icon="active2 ? 'pi pi-minus' : 'pi pi-plus'" label="Toggle 2nd" @click="active2 = !active2" class="p-button-secondary" style="margin-left: .5em" />
@@ -73,7 +73,7 @@
                 </AccordionTab>
             </Accordion>
 
-            <h3>Custom Headers</h3>
+            <h5>Custom Headers</h5>
             <Accordion class="accordion-custom">
                 <AccordionTab>
                     <template slot="header">
