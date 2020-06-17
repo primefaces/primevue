@@ -342,6 +342,10 @@
   border-color: #a80000;
 }
 
+.p-highlight .p-checkbox .p-checkbox-box {
+  border-color: #ffffff;
+}
+
 .p-chips .p-chips-multiple-container {
   padding: 0.2145rem 0.429rem;
 }
@@ -916,6 +920,10 @@
   border-color: #a80000;
 }
 
+.p-highlight .p-radiobutton .p-radiobutton-box {
+  border-color: #ffffff;
+}
+
 .p-rating .p-rating-icon {
   color: #333333;
   margin-left: 0.5rem;
@@ -1225,6 +1233,25 @@
   background: #D38B10;
   color: #333333;
   border-color: #D38B10;
+}
+
+.p-button.p-button-help, .p-buttonset.p-button-help > .p-button, .p-splitbutton.p-button-help > .p-button {
+  color: #ffffff;
+  background: #9C27B0;
+  border: 1px solid #9C27B0;
+}
+.p-button.p-button-help:enabled:hover, .p-buttonset.p-button-help > .p-button:enabled:hover, .p-splitbutton.p-button-help > .p-button:enabled:hover {
+  background: #8E24AA;
+  color: #ffffff;
+  border-color: #8E24AA;
+}
+.p-button.p-button-help:enabled:focus, .p-buttonset.p-button-help > .p-button:enabled:focus, .p-splitbutton.p-button-help > .p-button:enabled:focus {
+  box-shadow: 0 0 0 0.2rem #CE93D8;
+}
+.p-button.p-button-help:enabled:active, .p-buttonset.p-button-help > .p-button:enabled:active, .p-splitbutton.p-button-help > .p-button:enabled:active {
+  background: #7B1FA2;
+  color: #ffffff;
+  border-color: #7B1FA2;
 }
 
 .p-button.p-button-danger, .p-buttonset.p-button-danger > .p-button, .p-splitbutton.p-button-danger > .p-button {
@@ -1550,7 +1577,7 @@
   display: flex;
   align-items: center;
 }
-.fc .fc-toolbar .fc-button:enabled:hover {
+.fc .fc-toolbar .fc-button:hover {
   background: #318c63;
   color: #ffffff;
   border-color: #318c63;
@@ -1582,7 +1609,7 @@
   color: #333333;
   transition: background-color 0.2s, color 0.2s, border-color 0.2s, box-shadow 0.2s;
 }
-.fc .fc-toolbar .fc-button.fc-dayGridMonth-button:not(.p-disabled):not(.fc-active):hover, .fc .fc-toolbar .fc-button.fc-timeGridWeek-button:not(.p-disabled):not(.fc-active):hover, .fc .fc-toolbar .fc-button.fc-timeGridDay-button:not(.p-disabled):not(.fc-active):hover {
+.fc .fc-toolbar .fc-button.fc-dayGridMonth-button:hover, .fc .fc-toolbar .fc-button.fc-timeGridWeek-button:hover, .fc .fc-toolbar .fc-button.fc-timeGridDay-button:hover {
   background: #c8c8c8;
   border-color: #c8c8c8;
   color: #333333;
@@ -1592,7 +1619,12 @@
   border-color: #41b883;
   color: #ffffff;
 }
-.fc .fc-toolbar .fc-button.fc-dayGridMonth-button.p-focus, .fc .fc-toolbar .fc-button.fc-dayGridMonth-button:focus, .fc .fc-toolbar .fc-button.fc-timeGridWeek-button.p-focus, .fc .fc-toolbar .fc-button.fc-timeGridWeek-button:focus, .fc .fc-toolbar .fc-button.fc-timeGridDay-button.p-focus, .fc .fc-toolbar .fc-button.fc-timeGridDay-button:focus {
+.fc .fc-toolbar .fc-button.fc-dayGridMonth-button.fc-button-active:hover, .fc .fc-toolbar .fc-button.fc-timeGridWeek-button.fc-button-active:hover, .fc .fc-toolbar .fc-button.fc-timeGridDay-button.fc-button-active:hover {
+  background: #318c63;
+  border-color: #318c63;
+  color: #ffffff;
+}
+.fc .fc-toolbar .fc-button.fc-dayGridMonth-button:focus, .fc .fc-toolbar .fc-button.fc-timeGridWeek-button:focus, .fc .fc-toolbar .fc-button.fc-timeGridDay-button:focus {
   outline: 0 none;
   outline-offset: 0;
   box-shadow: 0 0 0 0.2rem #c2e9d8;
@@ -1652,8 +1684,8 @@
   box-shadow: inset 0 0 0 0.2rem #c2e9d8;
 }
 .p-orderlist .p-orderlist-list .p-orderlist-item.p-highlight {
-  background: #41b883;
   color: #ffffff;
+  background: #41b883;
 }
 
 @media screen and (max-width: 960px) {
@@ -1818,8 +1850,8 @@
   box-shadow: inset 0 0 0 0.2rem #c2e9d8;
 }
 .p-picklist .p-picklist-list .p-picklist-item.p-highlight {
-  background: #41b883;
   color: #ffffff;
+  background: #41b883;
 }
 
 @media screen and (max-width: 960px) {
@@ -3535,6 +3567,14 @@
   background: rgba(255, 255, 255, 0.1);
   color: #aeb6bf;
 }
+.p-galleria .p-galleria-thumbnail-container .p-galleria-thumbnail-item-content {
+  transition: background-color 0.2s, color 0.2s, border-color 0.2s, box-shadow 0.2s;
+}
+.p-galleria .p-galleria-thumbnail-container .p-galleria-thumbnail-item-content:focus {
+  outline: 0 none;
+  outline-offset: 0;
+  box-shadow: 0 0 0 0.2rem #c2e9d8;
+}
 
 .p-galleria-mask {
   background: rgba(0, 0, 0, 0.9);
@@ -3652,26 +3692,6 @@
 .p-tag.p-tag-danger {
   background-color: #e91224;
   color: #ffffff;
-}
-
-.p-shadow-1 {
-  box-shadow: 0 1px 3px rgba(0, 0, 0, 0.12), 0 1px 2px rgba(0, 0, 0, 0.24);
-}
-
-.p-shadow-2 {
-  box-shadow: 0 3px 6px rgba(0, 0, 0, 0.16), 0 3px 6px rgba(0, 0, 0, 0.23);
-}
-
-.p-shadow-3 {
-  box-shadow: 0 10px 20px rgba(0, 0, 0, 0.19), 0 6px 6px rgba(0, 0, 0, 0.23);
-}
-
-.p-shadow-4 {
-  box-shadow: 0 14px 28px rgba(0, 0, 0, 0.25), 0 10px 10px rgba(0, 0, 0, 0.22);
-}
-
-.p-shadow-5 {
-  box-shadow: 0 19px 38px rgba(0, 0, 0, 0.3), 0 15px 12px rgba(0, 0, 0, 0.22);
 }
 
 /* Customizations to the designer theme should be defined here */
