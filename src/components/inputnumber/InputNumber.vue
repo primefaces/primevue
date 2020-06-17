@@ -207,7 +207,7 @@ export default {
 
             this.spin(event, dir);
         },
-        spin(event, dir, value) {
+        spin(event, dir) {
             let step = this.step * dir;
             let currentValue = this.parseValue(this.$refs.input.$el.value) || 0;
             let newValue = this.validateValue(currentValue + step);
