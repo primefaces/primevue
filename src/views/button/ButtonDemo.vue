@@ -23,6 +23,7 @@
             <Button label="Success" class="p-button-success" />
             <Button label="Info" class="p-button-info" />
             <Button label="Warning" class="p-button-warning" />
+            <Button label="Help" class="p-button-help" />
             <Button label="Danger" class="p-button-danger" />
             <Button label="Link" class="p-button-link" />
 
@@ -32,6 +33,7 @@
             <Button label="Success" class="p-button-raised p-button-success" />
             <Button label="Info" class="p-button-raised p-button-info" />
             <Button label="Warning" class="p-button-raised p-button-warning" />
+            <Button label="Help" class="p-button-raised p-button-help" />
             <Button label="Danger" class="p-button-raised p-button-danger" />
 
             <h3>Rounded Buttons</h3>
@@ -40,6 +42,7 @@
             <Button label="Success" class="p-button-rounded p-button-success" />
             <Button label="Info" class="p-button-rounded p-button-info" />
             <Button label="Warning" class="p-button-rounded p-button-warning" />
+            <Button label="Help" class="p-button-rounded p-button-help" />
             <Button label="Danger" class="p-button-rounded p-button-danger" />
 
             <h3>Rounded Icon Buttons</h3>
@@ -48,6 +51,7 @@
             <Button icon="pi pi-search" class="p-button-rounded p-button-success" />
             <Button icon="pi pi-user" class="p-button-rounded p-button-info" />
             <Button icon="pi pi-lock" class="p-button-rounded p-button-warning" />
+            <Button icon="pi pi-lock" class="p-button-rounded p-button-help" />
             <Button icon="pi pi-times" class="p-button-rounded p-button-danger" />
 
             <h3>Badges</h3>

@@ -39,6 +39,7 @@ import Button from 'primevue/button';
 					<li>.p-button-success</li>
 					<li>.p-button-info</li>
 					<li>.p-button-warning</li>
+                    <li>.p-button-help</li>
 					<li>.p-button-danger</li>
 				</ul>
 
@@ -48,6 +49,7 @@ import Button from 'primevue/button';
 &lt;Button label="Success" class="p-button-success" /&gt;
 &lt;Button label="Info" class="p-button-info" /&gt;
 &lt;Button label="Warning" class="p-button-warning" /&gt;
+&lt;Button label="Warning" class="p-button-help" /&gt;
 &lt;Button label="Danger" class="p-button-danger" /&gt;
 </CodeHighlight>
 
