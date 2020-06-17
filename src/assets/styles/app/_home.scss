@@ -12,7 +12,7 @@
     }
 
     .introduction {
-        background-color: var(--layer-0);
+        background-color: var(--surface-a);
         background: url('./assets/images/home/intro-bg.jpg');
         background-repeat: no-repeat;
         background-size: cover;
@@ -61,13 +61,13 @@
     }
 
     .features {
-        background-color: var(--layer-1);
+        background-color: var(--surface-b);
         text-align: center;
         padding: 0 30px 30px 30px;
 
         .feature-card {
-            background-color: var(--layer-0);
-            box-shadow: 0 0.8px 1.7px rgba(0, 0, 0, 0.008), 0 1.9px 4.2px rgba(0, 0, 0, 0.012),0 3.6px 7.9px rgba(0, 0, 0, 0.015),0 6.5px 14.1px rgba(0, 0, 0, 0.018),0 12.1px 26.3px rgba(0, 0, 0, 0.022),0 29px 63px rgba(0, 0, 0, 0.03);
+            background-color: var(--surface-e);
+            box-shadow: 0 2px 1px -1px rgba(0,0,0,.2), 0 1px 1px 0 rgba(0,0,0,.14), 0 1px 3px 0 rgba(0,0,0,.12);
             height: 100%;
             border-radius: 3px;
 
@@ -109,7 +109,7 @@
 
     .whouses {
         background-color: #34495E;
-        color: #eAECEE;
+        color: #EAECEE;
         text-align: center;
         padding: 30px;
 
@@ -138,10 +138,10 @@
     }
 
     .templates {
-        background-color: var(--layer-1);
+        background-color: var(--surface-b);
         text-align: center;
         padding: 30px;
-        border-bottom: 1px solid var(--layer-2);
+        border-bottom: 1px solid var(--surface-d);
 
         h3 {
              font-size:24px;
@@ -157,6 +157,7 @@
 
         img {
             width: 100%;
+            box-shadow: 0 2px 1px -1px rgba(0,0,0,.2), 0 1px 1px 0 rgba(0,0,0,.14), 0 1px 3px 0 rgba(0,0,0,.12);
         }
 
         a {
@@ -165,7 +166,7 @@
     }
 
     .primevue-designer {
-        background-color: var(--layer-0);
+        background-color: var(--surface-a);
         color: var(--text-color);
         padding: 30px;
     
@@ -183,8 +184,8 @@
     }
 
     .prosupport {
-        border-bottom: 1px solid var(--layer-0);
-        background-color: var(--layer-1);
+        border-bottom: 1px solid var(--surface-d);
+        background-color: var(--surface-b);
         padding: 30px;
         color: var(--text-color);
 

@@ -1,11 +1,8 @@
 <template>
     <div :class="['layout-sidebar', {'active': active}]">
         <div class="layout-menu">
-            <span>
-                <i class="pi pi-home"></i>
-                <span>General</span>
-            </span>
-            <div>
+            <div class="menu-category">General</div>
+            <div class="menu-items">
                 <router-link to="/setup">Get Started</router-link>
                 <router-link to="/theming">Theming</router-link>
                 <a href="https://www.primefaces.org/designer/primevue">Designer</a>
@@ -13,22 +10,16 @@
                 <router-link to="/accessibility">Accessibility</router-link>
             </div>
 
-            <span>
-                <i class="pi pi-cog"></i>
-                <span>Utilities</span>
-            </span>
-            <div>
+            <div class="menu-category">Utilities</div>
+            <div class="menu-items">
                 <router-link to="/icons">Icons</router-link>
                 <router-link to="/flexgrid">Grid System</router-link>
                 <router-link to="/elevation">Elevation</router-link>
                 <router-link to="/spacing">Spacing</router-link>
             </div>
 
-            <span>
-                <i class="pi pi-id-card"></i>
-                <span>Form</span>
-            </span>
-            <div>
+            <div class="menu-category">Form</div>
+            <div class="menu-items">
                 <router-link to="/autocomplete">AutoComplete</router-link>
                 <router-link to="/calendar">Calendar</router-link>
                 <router-link to="/checkbox">Checkbox</router-link>
@@ -54,20 +45,14 @@
                 <router-link to="/tristatecheckbox">TriStateCheckbox</router-link>
             </div>
 
-            <span>
-                <i class="pi pi-mobile" style="transform: rotate(90deg);"></i>
-                <span>Button</span>
-            </span>
-            <div>
+            <div class="menu-category">Button</div>
+            <div class="menu-items">
                 <router-link to="/button">Button</router-link>
                 <router-link to="/splitbutton">SplitButton</router-link>
             </div>
 
-            <span>
-                <i class="pi pi-list"></i>
-                <span>Data</span>
-            </span>
-            <div>
+            <div class="menu-category">Data</div>
+            <div class="menu-items">
                 <router-link to="/carousel">Carousel</router-link>
                 <router-link to="/datatable" v-slot="{ href, route, navigate, isActive }">
                     <div>
@@ -154,11 +139,8 @@
                 </router-link>
             </div>
 
-            <span>
-               <i class="pi pi-th-large"></i>
-                <span>Panel</span>
-            </span>
-            <div>
+            <div class="menu-category">Panel</div>
+            <div class="menu-items">
                 <router-link to="/accordion">Accordion</router-link>
                 <router-link to="/card">Card</router-link>
                 <router-link to="/deferredcontent">Deferred</router-link>
@@ -169,30 +151,21 @@
                 <router-link to="/toolbar">Toolbar</router-link>
             </div>
 
-            <span>
-                <i class="pi pi-clone"></i>
-                <span>Overlay</span>
-            </span>
-            <div>
+            <div class="menu-category">Overlay</div>
+            <div class="menu-items">
                 <router-link to="/dialog">Dialog</router-link>
                 <router-link to="/overlaypanel">OverlayPanel</router-link>
                 <router-link to="/sidebar">Sidebar</router-link>
                 <router-link to="/tooltip">Tooltip</router-link>
             </div>
 
-            <span>
-                <i class="pi pi-file-o"></i>
-                <span>File</span>
-            </span>
-            <div>
+            <div class="menu-category">File</div>
+            <div class="menu-items">
                 <router-link to="/fileupload">Upload</router-link>
             </div>
 
-            <span>
-                <i class="pi pi-bars"></i>
-                <span>Menu</span>
-            </span>
-            <div>
+            <div class="menu-category">Menu</div>
+            <div class="menu-items">
                 <router-link to="/menumodel">MenuModel</router-link>
                 <router-link to="/breadcrumb">Breadcrumb</router-link>
                 <router-link to="/contextmenu">ContextMenu</router-link>
@@ -205,11 +178,8 @@
                 <router-link to="/tieredmenu">TieredMenu</router-link>
             </div>
 
-            <span>
-                <i class="pi pi-chart-bar"></i>
-                <span>Chart</span>
-            </span>
-            <div>
+            <div class="menu-category">Chart</div>
+            <div class="menu-items">
                 <router-link to="/chart">ChartModel</router-link>
                 <router-link to="/chart/pie">Pie</router-link>
                 <router-link to="/chart/doughnut">Doughnut</router-link>
@@ -220,20 +190,14 @@
                 <router-link to="/chart/combo">Combo</router-link>
             </div>
 
-            <span>
-                <i class="pi pi-comment"></i>
-                <span>Messages</span>
-            </span>
-            <div>
+            <div class="menu-category">Messages</div>
+            <div class="menu-items">
                 <router-link to="/message">Message</router-link>
                 <router-link to="/toast">Toast</router-link>
             </div>
 
-            <span>
-                <i class="pi pi-image"></i>
-                <span>Image</span>
-            </span>
-            <div>
+            <div class="menu-category">Media</div>
+            <div class="menu-items">
                 <router-link to="/galleria" v-slot="{ href, route, navigate, isActive }">
                     <div>
                         <a tabindex="0" @click="toggleSubmenu($event, 'galleria')">Galleria</a>
@@ -257,11 +221,8 @@
                 </router-link>
             </div>
 
-            <span>
-                <i class="pi pi-share-alt"></i>
-                <span>Misc</span>
-            </span>
-            <div>
+            <div class="menu-category">Misc</div>
+            <div class="menu-items">
                 <router-link to="/badge">Badge</router-link>
                 <router-link to="/blockui">BlockUI</router-link>
                 <router-link to="/inplace">Inplace</router-link>

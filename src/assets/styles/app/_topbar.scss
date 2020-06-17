@@ -1,5 +1,5 @@
 .layout-topbar {
-    background-color: var(--layer-0);
+    background-color: var(--surface-a);
     padding: 0;
     height: 70px;
     position: fixed;
@@ -8,6 +8,7 @@
     width: 100%;
     z-index: 997;
     box-shadow: 0 0 4px rgba(0,0,0,0.25);
+    border-bottom: 1px solid var(--surface-d);
 
     .menu-button {
         display: none;
@@ -73,7 +74,7 @@
                 cursor: pointer;
 
                 &:hover {
-                    background-color: var(--layer-2);
+                    background-color: var(--surface-c);
                 }
 
                 &:focus {
@@ -93,7 +94,7 @@
                     right: 0;
                     width: 275px;
                     max-height: 400px;
-                    background-color: var(--layer-1);
+                    background-color: var(--surface-a);
                     box-shadow: 0 0 10px 0 rgba(0, 0, 0, 0.3);
                     overflow: auto;
                     list-style-type: none;
@@ -127,7 +128,7 @@
                         cursor: pointer;
 
                         &:hover {
-                            background-color: var(--layer-2);
+                            background-color: var(--surface-c);
                             cursor: pointer;
                         }
 

@@ -3,35 +3,32 @@
     left: 0;
     top: 70px;
     height: calc(100% - 70px);
-    background-color: var(--layer-0);
+    background-color: var(--surface-a);
     overflow: auto;
     width: 250px;
-    border-right: 1px solid var(--layer-2);
+    border-right: 1px solid var(--surface-d);
     user-select: none;
+    padding: 1rem;
 
     .layout-menu {
-        > span {
-            width: 100%;
-            height: 3.5rem;
+        .menu-category {
             display: block;
-            padding-left: 1.5rem;
-            background-color: var(--layer-1);
             color: var(--text-color-secondary);
-            font-weight: 700;
+            font-weight: 600;
             user-select: none;
-            transition: background-color .2s;
-            display: flex;
-            align-items: center;
+            padding: 1.5rem 0 1rem 0;
+            font-size: 0.857rem;
+            text-transform: uppercase;
+            border-top: 1px solid var(--surface-d);
 
-            span {
-                margin-left: .5rem;
-                display: block;
-                line-height: 1;
+            &:first-child {
+                border-top: 0 none;
+                padding-top: 1rem;
             }
         }
 
-        > div {
-            padding: 1rem;
+        .menu-items {
+            padding: 0 0 1rem 0;
             display: flex;
             flex-direction: column;
 
@@ -44,7 +41,7 @@
                 cursor: pointer;
 
                 &:hover {
-                    background-color: var(--layer-2);
+                    background-color: var(--surface-c);
                 }
 
                 &:focus {

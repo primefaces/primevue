@@ -1,8 +1,10 @@
 @charset "UTF-8";
 :root {
-  --layer-0: #ffffff;
-  --layer-1: #f4f4f4;
-  --layer-2: #eaeaea;
+  --surface-a: #ffffff;
+  --surface-b: #f4f4f4;
+  --surface-c: #eaeaea;
+  --surface-d: #dadada;
+  --surface-e: #ffffff;
   --text-color: #495057;
   --text-color-secondary: #6c757d;
   --primary-color: #7B95A3;

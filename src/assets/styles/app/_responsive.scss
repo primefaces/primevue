@@ -25,6 +25,7 @@
 
     .layout-topbar {
         text-align: center;
+        height: 111px;
 
         .menu-button {
             display: inline-block;
@@ -39,13 +40,12 @@
         }
 
         .topbar-menu {
-            background-color: var(--layer-0);
+            background-color: var(--surface-a);
             float: none;
             width: 100%;
             height: 41px;
-            margin: -1px 0 0 0;
-            border-bottom: 1px solid var(--layer-2);
-            border-top: 1px solid var(--layer-2);
+            margin: 0;
+            border-top: 1px solid var(--surface-d);
 
             > li {
                 height: 40px;

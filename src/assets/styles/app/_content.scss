@@ -6,16 +6,12 @@
         padding: 2rem;
 
         &.introduction {
-            background-color: var(--layer-1);
+            background-color: var(--surface-b);
             color: var(--text-color);
-            border-bottom: 1px solid var(--layer-2);
+            padding-bottom: 0;
 
             .feature-intro {
                 h1 {
-                    font-size: 2rem;
-                    margin: 0 0 1.5rem 0;
-                    font-weight: 700;
-
                     span {
                         font-weight: 400;
                         color: var(--text-color-secondary);
@@ -24,8 +20,6 @@
 
                 p {
                     margin: 0;
-                    line-height: 2;
-                    font-size: 1.143rem;
                 }
 
                 a {
@@ -39,55 +33,20 @@
                     }
                 }
             }
-
-            + .documentation {
-                border-top: 0 none;
-            }
         }
 
         &.implementation {
-            background-color: var(--layer-0);
+            background-color: var(--surface-b);
             color: var(--text-color);
 
-            h3 {
-                font-weight: 500;
-                margin: 2rem 0 1rem 0;
-                font-size: 1.286rem;
-                color: var(--text-color);
-
-                &:first-child,
-                &.first {
-                    margin-top: 0;
-                }
-            }
-
-            .component-sizes {
-                display: inline-flex;
-                flex-direction: column;
-            
-                .p-component {
-                    margin-bottom: 1rem;
-                    flex: 0 0 auto;
-             
-                    &:last-child {
-                        margin-bottom: 0;
-                    } 
-                }
+            +.documentation {
+                padding-top: 0;
             }
         }
 
         &.documentation {
-            background-color: var(--layer-1);
+            background-color: var(--surface-b);
             color: var(--text-color);
-            border-top: 1px solid var(--layer-2);
-
-            h3 {
-                margin-top: 1.5rem;
-                margin-bottom: 0;
-                font-size: 1.5rem;
-                font-weight: 500;
-                color: var(--text-color);
-            }
 
             a {
                 text-decoration: none;
@@ -99,20 +58,13 @@
                 }
             }
 
-            p {
-                font-size: 1rem;
-                line-height: 1.5;
-                margin: .75rem 0;
-                color: var(--text-color);
-            }
-
             .doc-tablewrapper {
                 margin: 1rem 0;
                 overflow: auto;
             }
 
             i:not([class~="pi"]) {
-                background-color: var(--layer-0);
+                background-color: var(--surface-a);
                 color: #2196f3;
                 font-family: Monaco, courier, monospace;
                 font-style: normal;
@@ -132,7 +84,7 @@
                 .p-tabview-nav {
                     border-radius: 0;
                     padding: 0;
-                    border-bottom: 1px solid var(--layer-2);
+                    border-bottom: 1px solid var(--surface-d);
                     background-color: transparent;
 
                     li {
@@ -158,6 +110,7 @@
                             }
 
                             &:hover {
+                                background: transparent;
                                 text-decoration: none;
                             }
                         }
@@ -200,10 +153,10 @@
         .doc-table {
             border-collapse: collapse;
             width: 100%;
-            background-color: var(--layer-0);
+            background-color: var(--surface-a);
 
             th {
-                border-bottom: 1px solid var(--layer-2);
+                border-bottom: 1px solid var(--surface-d);
                 padding: 1rem;
                 text-align: left;
             }
@@ -211,9 +164,27 @@
             tbody{
                 td {
                     padding: 1rem;
-                    border-bottom: 1px solid var(--layer-2);
+                    border-bottom: 1px solid var(--surface-d);
                 }
             }
+        }
+    }
+
+    .card {
+        background: var(--surface-e);
+        padding: 2rem;
+        box-shadow: 0 2px 1px -1px rgba(0,0,0,.2), 0 1px 1px 0 rgba(0,0,0,.14), 0 1px 3px 0 rgba(0,0,0,.12);
+        border-radius: 4px;
+        margin-bottom: 2rem;
+        
+        .card-header {
+            display: flex;
+            align-items: center;
+            justify-content: between;
+        }
+
+        &:last-child {
+            margin-bottom: 0;
         }
     }
 }
