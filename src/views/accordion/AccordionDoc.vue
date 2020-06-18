@@ -273,47 +273,47 @@ export default {
 				</a>
 <CodeHighlight>
 <template v-pre>
-&lt;h3&gt;Default&lt;/h3&gt;
+&lt;h5&gt;Default&lt;/h5&gt;
 &lt;Accordion&gt;
-    &lt;AccordionTab header="Godfather I"&gt;
-        &lt;p&gt;The story begins as Don Vito Corleone, the head of a New York Mafia family, overseeshis daughter's wedding. His beloved son ichael has just come home from the war,
-        but does not intend to become part of his father's business. Through Michael's life the nature of the family business becomes clear. The business of the family is
-        just like the head of the family, kind and benevolent to those who give respect, but given to ruthless violence whenever anything stands against the good of the family.&lt;/p&gt;
+    &lt;AccordionTab header="Header I"&gt;
+        &lt;p&gt;Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation 
+            ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. 
+            Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.&lt;/p&gt;
     &lt;/AccordionTab&gt;
-    &lt;AccordionTab header="Godfather II"&gt;
-        &lt;p&gt;Francis Ford Coppola's legendary continuation and sequel to his landmark 1972 film, TheGodfather parallels the young Vito Corleone's rise with his son Michael's spiritual fall,
-        deepening The Godfather's depiction of the dark side of the American dream. In the early 1900s, the child Vito flees his Sicilian village for America after the local Mafia kills
-        his family. Vito struggles to make a living, legally or illegally, for his wife and growing brood in Little Italy.&lt;/p&gt;
+    &lt;AccordionTab header="Header II"&gt;
+        &lt;p&gt;Sed ut perspiciatis unde omnis iste natus error sit voluptatem accusantium doloremque laudantium, totam rem aperiam, eaque ipsa quae ab illo inventore veritatis et quasi 
+            architecto beatae vitae dicta sunt explicabo. Nemo enim ipsam voluptatem quia voluptas sit aspernatur aut odit aut fugit, sed quia consequuntur magni dolores eos qui ratione 
+            voluptatem sequi nesciunt. Consectetur, adipisci velit, sed quia non numquam eius modi.&lt;/p&gt;
     &lt;/AccordionTab&gt;
-    &lt;AccordionTab header="Godfather III"&gt;
-        &lt;p&gt;The Godfather Part III is set in 1979 and 1980. Michael has moved back to New York and taken great strides to remove the family from crime. He turns over his New York criminal
-        interests to longtime enforcer Joey Zasa. He uses his wealth in an attempt to rehabilitate his reputation through numerous philanthropic acts, administered by a foundation named after his father.
-        A decade earlier, he gave custody of his two children to Kay, who has since remarried.&lt;/p&gt;
+    &lt;AccordionTab header="Header III"&gt;
+        &lt;p&gt;At vero eos et accusamus et iusto odio dignissimos ducimus qui blanditiis praesentium voluptatum deleniti atque corrupti quos dolores et quas molestias excepturi sint occaecati 
+            cupiditate non provident, similique sunt in culpa qui officia deserunt mollitia animi, id est laborum et dolorum fuga. Et harum quidem rerum facilis est et expedita distinctio. 
+            Nam libero tempore, cum soluta nobis est eligendi optio cumque nihil impedit quo minus.&lt;/p&gt;
     &lt;/AccordionTab&gt;
 &lt;/Accordion&gt;
 
-&lt;h3&gt;Multiple&lt;/h3&gt;
+&lt;h5&gt;Multiple&lt;/h5&gt;
 &lt;Accordion :multiple="true"&gt;
-    &lt;AccordionTab header="Godfather I"&gt;
-        &lt;p&gt;The story begins as Don Vito Corleone, the head of a New York Mafia family, overseeshis daughter's wedding. His beloved son ichael has just come home from the war,
-        but does not intend to become part of his father's business. Through Michael's life the nature of the family business becomes clear. The business of the family is
-        just like the head of the family, kind and benevolent to those who give respect, but given to ruthless violence whenever anything stands against the good of the family.&lt;/p&gt;
+    &lt;AccordionTab header="Header I"&gt;
+        &lt;p&gt;Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation 
+            ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. 
+            Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.&lt;/p&gt;
     &lt;/AccordionTab&gt;
-    &lt;AccordionTab header="Godfather II"&gt;
-        &lt;p&gt;Francis Ford Coppola's legendary continuation and sequel to his landmark 1972 film, TheGodfather parallels the young Vito Corleone's rise with his son Michael's spiritual fall,
-        deepening The Godfather's depiction of the dark side of the American dream. In the early 1900s, the child Vito flees his Sicilian village for America after the local Mafia kills
-        his family. Vito struggles to make a living, legally or illegally, for his wife and growing brood in Little Italy.&lt;/p&gt;
+    &lt;AccordionTab header="Header II"&gt;
+        &lt;p&gt;Sed ut perspiciatis unde omnis iste natus error sit voluptatem accusantium doloremque laudantium, totam rem aperiam, eaque ipsa quae ab illo inventore veritatis et quasi 
+            architecto beatae vitae dicta sunt explicabo. Nemo enim ipsam voluptatem quia voluptas sit aspernatur aut odit aut fugit, sed quia consequuntur magni dolores eos qui ratione 
+            voluptatem sequi nesciunt. Consectetur, adipisci velit, sed quia non numquam eius modi.&lt;/p&gt;
     &lt;/AccordionTab&gt;
-    &lt;AccordionTab header="Godfather III"&gt;
-        &lt;p&gt;The Godfather Part III is set in 1979 and 1980. Michael has moved back to New York and taken great strides to remove the family from crime. He turns over his New York criminal
-        interests to longtime enforcer Joey Zasa. He uses his wealth in an attempt to rehabilitate his reputation through numerous philanthropic acts, administered by a foundation named after his father.
-        A decade earlier, he gave custody of his two children to Kay, who has since remarried.&lt;/p&gt;
+    &lt;AccordionTab header="Header III"&gt;
+        &lt;p&gt;At vero eos et accusamus et iusto odio dignissimos ducimus qui blanditiis praesentium voluptatum deleniti atque corrupti quos dolores et quas molestias excepturi sint occaecati 
+            cupiditate non provident, similique sunt in culpa qui officia deserunt mollitia animi, id est laborum et dolorum fuga. Et harum quidem rerum facilis est et expedita distinctio. 
+            Nam libero tempore, cum soluta nobis est eligendi optio cumque nihil impedit quo minus.&lt;/p&gt;
     &lt;/AccordionTab&gt;
-    &lt;AccordionTab header="Godfather IV" :disabled="true"&gt;
+    &lt;AccordionTab header="Header IV" :disabled="true"&gt;
     &lt;/AccordionTab&gt;
 &lt;/Accordion&gt;
 
-&lt;h3&gt;Programmatic&lt;/h3&gt;
+&lt;h5&gt;Programmatic&lt;/h5&gt;
 &lt;div style="padding: .5em 0 1em 0"&gt;
     &lt;Button :icon="active1 ? 'pi pi-minus' : 'pi pi-plus'" label="Toggle 1st" @click="active1 = !active1" class="p-button-secondary" /&gt;
     &lt;Button :icon="active2 ? 'pi pi-minus' : 'pi pi-plus'" label="Toggle 2nd" @click="active2 = !active2" class="p-button-secondary" style="margin-left: .5em" /&gt;
@@ -321,52 +321,52 @@ export default {
 &lt;/div&gt;
 
 &lt;Accordion :multiple="true"&gt;
-    &lt;AccordionTab header="Godfather I" :active="active1"&gt;
-        &lt;p&gt;The story begins as Don Vito Corleone, the head of a New York Mafia family, overseeshis daughter's wedding. His beloved son ichael has just come home from the war,
-        but does not intend to become part of his father's business. Through Michael's life the nature of the family business becomes clear. The business of the family is
-        just like the head of the family, kind and benevolent to those who give respect, but given to ruthless violence whenever anything stands against the good of the family.&lt;/p&gt;
+    &lt;AccordionTab header="Header I" :active="active1"&gt;
+        &lt;p&gt;Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation 
+            ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. 
+            Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.&lt;/p&gt;
     &lt;/AccordionTab&gt;
-    &lt;AccordionTab header="Godfather II" :active="active2"&gt;
-        &lt;p&gt;Francis Ford Coppola's legendary continuation and sequel to his landmark 1972 film, TheGodfather parallels the young Vito Corleone's rise with his son Michael's spiritual fall,
-        deepening The Godfather's depiction of the dark side of the American dream. In the early 1900s, the child Vito flees his Sicilian village for America after the local Mafia kills
-        his family. Vito struggles to make a living, legally or illegally, for his wife and growing brood in Little Italy.&lt;/p&gt;
+    &lt;AccordionTab header="Header II" :active="active2"&gt;
+        &lt;p&gt;Sed ut perspiciatis unde omnis iste natus error sit voluptatem accusantium doloremque laudantium, totam rem aperiam, eaque ipsa quae ab illo inventore veritatis et quasi 
+            architecto beatae vitae dicta sunt explicabo. Nemo enim ipsam voluptatem quia voluptas sit aspernatur aut odit aut fugit, sed quia consequuntur magni dolores eos qui ratione 
+            voluptatem sequi nesciunt. Consectetur, adipisci velit, sed quia non numquam eius modi.&lt;/p&gt;
     &lt;/AccordionTab&gt;
-    &lt;AccordionTab header="Godfather III" :active="active3"&gt;
-        &lt;p&gt;The Godfather Part III is set in 1979 and 1980. Michael has moved back to New York and taken great strides to remove the family from crime. He turns over his New York criminal
-        interests to longtime enforcer Joey Zasa. He uses his wealth in an attempt to rehabilitate his reputation through numerous philanthropic acts, administered by a foundation named after his father.
-        A decade earlier, he gave custody of his two children to Kay, who has since remarried.&lt;/p&gt;
+    &lt;AccordionTab header="Header III" :active="active3"&gt;
+        &lt;p&gt;At vero eos et accusamus et iusto odio dignissimos ducimus qui blanditiis praesentium voluptatum deleniti atque corrupti quos dolores et quas molestias excepturi sint occaecati 
+            cupiditate non provident, similique sunt in culpa qui officia deserunt mollitia animi, id est laborum et dolorum fuga. Et harum quidem rerum facilis est et expedita distinctio. 
+            Nam libero tempore, cum soluta nobis est eligendi optio cumque nihil impedit quo minus.&lt;/p&gt;
     &lt;/AccordionTab&gt;
 &lt;/Accordion&gt;
 
-&lt;h3&gt;Custom Headers&lt;/h3&gt;
+&lt;h5&gt;Custom Headers&lt;/h5&gt;
 &lt;Accordion class="accordion-custom"&gt;
     &lt;AccordionTab&gt;
         &lt;template slot="header"&gt;
             &lt;i class="pi pi-calendar"&gt;&lt;/i&gt;
-            &lt;span&gt;Godfather I&lt;/span&gt;
+            &lt;span&gt;Header I&lt;/span&gt;
         &lt;/template&gt;
-        &lt;p&gt;The story begins as Don Vito Corleone, the head of a New York Mafia family, overseeshis daughter's wedding. His beloved son ichael has just come home from the war,
-        but does not intend to become part of his father's business. Through Michael's life the nature of the family business becomes clear. The business of the family is
-        just like the head of the family, kind and benevolent to those who give respect, but given to ruthless violence whenever anything stands against the good of the family.&lt;/p&gt;
+        &lt;p&gt;Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation 
+            ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. 
+            Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.&lt;/p&gt;
     &lt;/AccordionTab&gt;
     &lt;AccordionTab&gt;
         &lt;template slot="header"&gt;
             &lt;i class="pi pi-user"&gt;&lt;/i&gt;
-            &lt;span&gt;Godfather II&lt;/span&gt;
+            &lt;span&gt;Header II&lt;/span&gt;
         &lt;/template&gt;
-        &lt;p&gt;Francis Ford Coppola's legendary continuation and sequel to his landmark 1972 film, TheGodfather parallels the young Vito Corleone's rise with his son Michael's spiritual fall,
-        deepening The Godfather's depiction of the dark side of the American dream. In the early 1900s, the child Vito flees his Sicilian village for America after the local Mafia kills
-        his family. Vito struggles to make a living, legally or illegally, for his wife and growing brood in Little Italy.&lt;/p&gt;
+        &lt;p&gt;Sed ut perspiciatis unde omnis iste natus error sit voluptatem accusantium doloremque laudantium, totam rem aperiam, eaque ipsa quae ab illo inventore veritatis et quasi 
+            architecto beatae vitae dicta sunt explicabo. Nemo enim ipsam voluptatem quia voluptas sit aspernatur aut odit aut fugit, sed quia consequuntur magni dolores eos qui ratione 
+            voluptatem sequi nesciunt. Consectetur, adipisci velit, sed quia non numquam eius modi.&lt;/p&gt;
     &lt;/AccordionTab&gt;
     &lt;AccordionTab&gt;
         &lt;template slot="header"&gt;
             &lt;i class="pi pi-search"&gt;&lt;/i&gt;
-            &lt;span&gt;Godfather III&lt;/span&gt;
+            &lt;span&gt;Header III&lt;/span&gt;
             &lt;i class="pi pi-cog"&gt;&lt;/i&gt;
         &lt;/template&gt;
-        &lt;p&gt;The Godfather Part III is set in 1979 and 1980. Michael has moved back to New York and taken great strides to remove the family from crime. He turns over his New York criminal
-        interests to longtime enforcer Joey Zasa. He uses his wealth in an attempt to rehabilitate his reputation through numerous philanthropic acts, administered by a foundation named after his father.
-        A decade earlier, he gave custody of his two children to Kay, who has since remarried.&lt;/p&gt;
+        &lt;p&gt;At vero eos et accusamus et iusto odio dignissimos ducimus qui blanditiis praesentium voluptatum deleniti atque corrupti quos dolores et quas molestias excepturi sint occaecati 
+            cupiditate non provident, similique sunt in culpa qui officia deserunt mollitia animi, id est laborum et dolorum fuga. Et harum quidem rerum facilis est et expedita distinctio. 
+            Nam libero tempore, cum soluta nobis est eligendi optio cumque nihil impedit quo minus.&lt;/p&gt;
     &lt;/AccordionTab&gt;
 &lt;/Accordion&gt;
 </template>
