@@ -8,11 +8,13 @@
         </div>
 
         <div class="content-section implementation">
-            <Menubar :model="items">
-                <template #end>
-                    <InputText placeholder="Search" type="text" />
-                </template>
-            </Menubar>
+            <div class="card">
+                <Menubar :model="items">
+                    <template #end>
+                        <InputText placeholder="Search" type="text" />
+                    </template>
+                </Menubar>
+            </div>
         </div>
 
         <MenubarDoc />

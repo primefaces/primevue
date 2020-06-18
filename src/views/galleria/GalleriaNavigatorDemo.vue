@@ -8,49 +8,57 @@
         </div>
 
         <div class="content-section implementation">
-            <h5>Item Navigators and Thumbnails</h5>
-            <Galleria :value="images" :responsiveOptions="responsiveOptions" :numVisible="5" :circular="true" style="max-width: 640px"
-                :showItemNavigators="true">
-                <template #item="slotProps">
-					<img :src="slotProps.item.itemImageSrc" :alt="slotProps.item.alt" style="width: 100%; display: block;" />
-				</template>
-				<template #thumbnail="slotProps">
-                    <img :src="slotProps.item.thumbnailImageSrc" :alt="slotProps.item.alt" style="display: block;" />
-				</template>
-            </Galleria>
+            <div class="card">
+                <h5>Item Navigators and Thumbnails</h5>
+                <Galleria :value="images" :responsiveOptions="responsiveOptions" :numVisible="5" :circular="true" style="max-width: 640px"
+                    :showItemNavigators="true">
+                    <template #item="slotProps">
+                        <img :src="slotProps.item.itemImageSrc" :alt="slotProps.item.alt" style="width: 100%; display: block;" />
+                    </template>
+                    <template #thumbnail="slotProps">
+                        <img :src="slotProps.item.thumbnailImageSrc" :alt="slotProps.item.alt" style="display: block;" />
+                    </template>
+                </Galleria>
+            </div>
 
-            <h5>Item Navigators without Thumbnails</h5>
-            <Galleria :value="images" :responsiveOptions="responsiveOptions" :numVisible="5" :circular="true" style="max-width: 640px"
-                :showItemNavigators="true" :showThumbnails="false">
-                <template #item="slotProps">
-					<img :src="slotProps.item.itemImageSrc" :alt="slotProps.item.alt" style="width: 100%; display: block;" />
-				</template>
-				<template #thumbnail="slotProps">
-                    <img :src="slotProps.item.thumbnailImageSrc" :alt="slotProps.item.alt" style="display: block;" />
-				</template>
-            </Galleria>
+            <div class="card">
+                <h5>Item Navigators without Thumbnails</h5>
+                <Galleria :value="images" :responsiveOptions="responsiveOptions" :numVisible="5" :circular="true" style="max-width: 640px"
+                    :showItemNavigators="true" :showThumbnails="false">
+                    <template #item="slotProps">
+                        <img :src="slotProps.item.itemImageSrc" :alt="slotProps.item.alt" style="width: 100%; display: block;" />
+                    </template>
+                    <template #thumbnail="slotProps">
+                        <img :src="slotProps.item.thumbnailImageSrc" :alt="slotProps.item.alt" style="display: block;" />
+                    </template>
+                </Galleria>
+            </div>
 
-            <h5>Item Navigators on Hover</h5>
-            <Galleria :value="images" :responsiveOptions="responsiveOptions" :numVisible="5" :circular="true" style="max-width: 640px;"
-                :showItemNavigators="true" :showItemNavigatorsOnHover="true">
-                <template #item="slotProps">
-					<img :src="slotProps.item.itemImageSrc" :alt="slotProps.item.alt" style="width: 100%; display: block;" />
-				</template>
-				<template #thumbnail="slotProps">
-                    <img :src="slotProps.item.thumbnailImageSrc" :alt="slotProps.item.alt" style="display: block;" />
-				</template>
-            </Galleria>
+            <div class="card">
+                <h5>Item Navigators on Hover</h5>
+                <Galleria :value="images" :responsiveOptions="responsiveOptions" :numVisible="5" :circular="true" style="max-width: 640px;"
+                    :showItemNavigators="true" :showItemNavigatorsOnHover="true">
+                    <template #item="slotProps">
+                        <img :src="slotProps.item.itemImageSrc" :alt="slotProps.item.alt" style="width: 100%; display: block;" />
+                    </template>
+                    <template #thumbnail="slotProps">
+                        <img :src="slotProps.item.thumbnailImageSrc" :alt="slotProps.item.alt" style="display: block;" />
+                    </template>
+                </Galleria>
+            </div>
 
-            <h5>Item Navigators and Indicators</h5>
-            <Galleria :value="images" :responsiveOptions="responsiveOptions" :numVisible="5" :circular="true" style="max-width: 640px;"
-                :showItemNavigators="true" :showThumbnails="false" :showItemNavigatorsOnHover="true" :showIndicators="true">
-                <template #item="slotProps">
-					<img :src="slotProps.item.itemImageSrc" :alt="slotProps.item.alt" style="width: 100%; display: block;" />
-				</template>
-				<template #thumbnail="slotProps">
-                     <img :src="slotProps.item.thumbnailImageSrc" :alt="slotProps.item.alt" style="display: block;" />
-				</template>
-            </Galleria>
+            <div class="card">
+                <h5>Item Navigators and Indicators</h5>
+                <Galleria :value="images" :responsiveOptions="responsiveOptions" :numVisible="5" :circular="true" style="max-width: 640px;"
+                    :showItemNavigators="true" :showThumbnails="false" :showItemNavigatorsOnHover="true" :showIndicators="true">
+                    <template #item="slotProps">
+                        <img :src="slotProps.item.itemImageSrc" :alt="slotProps.item.alt" style="width: 100%; display: block;" />
+                    </template>
+                    <template #thumbnail="slotProps">
+                        <img :src="slotProps.item.thumbnailImageSrc" :alt="slotProps.item.alt" style="display: block;" />
+                    </template>
+                </Galleria>
+            </div>
         </div>
 
         <div class="content-section documentation">

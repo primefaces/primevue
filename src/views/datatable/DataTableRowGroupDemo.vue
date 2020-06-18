@@ -8,56 +8,62 @@
 		</div>
 
 		<div class="content-section implementation">
-            <h5>Subheader Grouping</h5>
-			<DataTable :value="cars" rowGroupMode="subheader" groupRowsBy="brand"
-                sortMode="single" sortField="brand" :sortOrder="1">
-                <Column field="brand" header="Brand"></Column>
-                <Column field="vin" header="Vin"></Column>
-                <Column field="year" header="Year"></Column>
-                <Column field="color" header="Color"></Column>
-                <Column field="price" header="Price"></Column>
-                <template #groupheader="slotProps">
-                    <span>{{slotProps.data.brand}}</span>
-                </template>
-                <template #groupfooter="slotProps">
-                    <td colspan="3" style="text-align: right">Total Price</td>
-                    <td>{{calculateGroupTotal(slotProps.data.brand)}}</td>
-                </template>
-            </DataTable>
-
-            <h5>Expandable Row Groups</h5>
-			<DataTable :value="cars" rowGroupMode="subheader" groupRowsBy="brand"
-                sortMode="single" sortField="brand" :sortOrder="1"
-                :expandableRowGroups="true" :expandedRowGroups.sync="expandedRowGroups"
-                @rowgroup-expand="onRowGroupExpand" @rowgroup-collapse="onRowGroupCollapse">
-                <Column field="brand" header="Brand"></Column>
-                <Column field="vin" header="Vin"></Column>
-                <Column field="year" header="Year"></Column>
-                <Column field="color" header="Color"></Column>
-                <Column field="price" header="Price"></Column>
-                <template #groupheader="slotProps">
-                    <span>{{slotProps.data.brand}}</span>
-                </template>
-                <template #groupfooter="slotProps">
-                    <td colspan="3" style="text-align: right">Total Price</td>
-                    <td>{{calculateGroupTotal(slotProps.data.brand)}}</td>
-                </template>
-            </DataTable>
-
-            <h5>RowSpan Grouping</h5>
-			<DataTable :value="cars" rowGroupMode="rowspan" groupRowsBy="brand"
-                sortMode="single" sortField="brand" :sortOrder="1">
-                <Column header="#" headerStyle="width:3em">
-                    <template #body="slotProps">
-                        {{slotProps.index}}
+            <div class="card">
+                <h5>Subheader Grouping</h5>
+                <DataTable :value="cars" rowGroupMode="subheader" groupRowsBy="brand"
+                    sortMode="single" sortField="brand" :sortOrder="1">
+                    <Column field="brand" header="Brand"></Column>
+                    <Column field="vin" header="Vin"></Column>
+                    <Column field="year" header="Year"></Column>
+                    <Column field="color" header="Color"></Column>
+                    <Column field="price" header="Price"></Column>
+                    <template #groupheader="slotProps">
+                        <span>{{slotProps.data.brand}}</span>
                     </template>
-                </Column>
-                <Column field="brand" header="Brand"></Column>
-                <Column field="year" header="Year"></Column>
-                <Column field="vin" header="Vin"></Column>
-                <Column field="color" header="Color"></Column>
-                <Column field="price" header="Price"></Column>
-            </DataTable>
+                    <template #groupfooter="slotProps">
+                        <td colspan="3" style="text-align: right">Total Price</td>
+                        <td>{{calculateGroupTotal(slotProps.data.brand)}}</td>
+                    </template>
+                </DataTable>
+            </div>
+
+            <div class="card">
+                <h5>Expandable Row Groups</h5>
+                <DataTable :value="cars" rowGroupMode="subheader" groupRowsBy="brand"
+                    sortMode="single" sortField="brand" :sortOrder="1"
+                    :expandableRowGroups="true" :expandedRowGroups.sync="expandedRowGroups"
+                    @rowgroup-expand="onRowGroupExpand" @rowgroup-collapse="onRowGroupCollapse">
+                    <Column field="brand" header="Brand"></Column>
+                    <Column field="vin" header="Vin"></Column>
+                    <Column field="year" header="Year"></Column>
+                    <Column field="color" header="Color"></Column>
+                    <Column field="price" header="Price"></Column>
+                    <template #groupheader="slotProps">
+                        <span>{{slotProps.data.brand}}</span>
+                    </template>
+                    <template #groupfooter="slotProps">
+                        <td colspan="3" style="text-align: right">Total Price</td>
+                        <td>{{calculateGroupTotal(slotProps.data.brand)}}</td>
+                    </template>
+                </DataTable>
+            </div>
+
+            <div class="card">
+                <h5>RowSpan Grouping</h5>
+                <DataTable :value="cars" rowGroupMode="rowspan" groupRowsBy="brand"
+                    sortMode="single" sortField="brand" :sortOrder="1">
+                    <Column header="#" headerStyle="width:3em">
+                        <template #body="slotProps">
+                            {{slotProps.index}}
+                        </template>
+                    </Column>
+                    <Column field="brand" header="Brand"></Column>
+                    <Column field="year" header="Year"></Column>
+                    <Column field="vin" header="Vin"></Column>
+                    <Column field="color" header="Color"></Column>
+                    <Column field="price" header="Price"></Column>
+                </DataTable>
+            </div>
 		</div>
 
         <div class="content-section documentation">

@@ -8,18 +8,20 @@
 		</div>
 
 		<div class="content-section implementation">
-			<DataTable :value="cars" class="p-datatable-gridlines">
-                <template #header>
-                    Header
-                </template>
-                <Column field="vin" header="Vin"></Column>
-                <Column field="year" header="Year"></Column>
-                <Column field="brand" header="Brand"></Column>
-                <Column field="color" header="Color"></Column>
-                <template #footer>
-                    Footer
-                </template>
-            </DataTable>
+            <div class="card">
+                <DataTable :value="cars" class="p-datatable-gridlines">
+                    <template #header>
+                        Header
+                    </template>
+                    <Column field="vin" header="Vin"></Column>
+                    <Column field="year" header="Year"></Column>
+                    <Column field="brand" header="Brand"></Column>
+                    <Column field="color" header="Color"></Column>
+                    <template #footer>
+                        Footer
+                    </template>
+                </DataTable>
+            </div>
 		</div>
 
         <div class="content-section documentation">

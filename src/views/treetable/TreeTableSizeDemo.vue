@@ -8,32 +8,38 @@
         </div>
 
         <div class="content-section implementation">
-            <TreeTable :value="nodes" class="p-treetable-sm" style="margin-bottom: 2rem">
-                <template #header>
-                    Small Table
-                </template>
-                <Column field="name" header="Name" :expander="true"></Column>
-                <Column field="size" header="Size"></Column>
-                <Column field="type" header="Type"></Column>
-            </TreeTable>
+            <div class="card">
+                <TreeTable :value="nodes" class="p-treetable-sm" style="margin-bottom: 2rem">
+                    <template #header>
+                        Small Table
+                    </template>
+                    <Column field="name" header="Name" :expander="true"></Column>
+                    <Column field="size" header="Size"></Column>
+                    <Column field="type" header="Type"></Column>
+                </TreeTable>
+            </div>
 
-            <TreeTable :value="nodes" style="margin-bottom: 2rem">
-                <template #header>
-                    Normal Table
-                </template>
-                <Column field="name" header="Name" :expander="true"></Column>
-                <Column field="size" header="Size"></Column>
-                <Column field="type" header="Type"></Column>
-            </TreeTable>
+            <div class="card">
+                <TreeTable :value="nodes" style="margin-bottom: 2rem">
+                    <template #header>
+                        Normal Table
+                    </template>
+                    <Column field="name" header="Name" :expander="true"></Column>
+                    <Column field="size" header="Size"></Column>
+                    <Column field="type" header="Type"></Column>
+                </TreeTable>
+            </div>
 
-            <TreeTable :value="nodes" class="p-treetable-lg" >
-                <template #header>
-                    Large Table
-                </template>
-                <Column field="name" header="Name" :expander="true"></Column>
-                <Column field="size" header="Size"></Column>
-                <Column field="type" header="Type"></Column>
-            </TreeTable>
+            <div class="card">
+                <TreeTable :value="nodes" class="p-treetable-lg" >
+                    <template #header>
+                        Large Table
+                    </template>
+                    <Column field="name" header="Name" :expander="true"></Column>
+                    <Column field="size" header="Size"></Column>
+                    <Column field="type" header="Type"></Column>
+                </TreeTable>
+            </div>
         </div>
 
         <div class="content-section documentation">

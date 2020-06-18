@@ -8,14 +8,16 @@
         </div>
 
         <div class="content-section implementation">
-            <h5>Dynamic</h5>
-            <ProgressBar :value="value1" />
+            <div class="card">
+                <h5>Dynamic</h5>
+                <ProgressBar :value="value1" />
 
-            <h5>Static</h5>
-            <ProgressBar :value="value2" :showValue="false" />
+                <h5>Static</h5>
+                <ProgressBar :value="value2" :showValue="false" />
 
-            <h5>Indeterminate</h5>
-            <ProgressBar mode="indeterminate" style="height: .5em" />
+                <h5>Indeterminate</h5>
+                <ProgressBar mode="indeterminate" style="height: .5em" />
+            </div>
         </div>
 
         <ProgressBarDoc/>

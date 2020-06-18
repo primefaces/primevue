@@ -8,12 +8,14 @@
         </div>
 
         <div class="content-section implementation">
-            <h5>Inline</h5>
-            <TieredMenu :model="items" />
+            <div class="card">
+                <h5>Inline</h5>
+                <TieredMenu :model="items" />
 
-            <h5>Overlay</h5>
-            <Button type="button" label="Toggle" @click="toggle" aria-haspopup="true" aria-controls="overlay_tmenu"/>
-            <TieredMenu id="overlay_tmenu" ref="menu" :model="items" :popup="true" />
+                <h5>Overlay</h5>
+                <Button type="button" label="Toggle" @click="toggle" aria-haspopup="true" aria-controls="overlay_tmenu"/>
+                <TieredMenu id="overlay_tmenu" ref="menu" :model="items" :popup="true" />
+            </div>
         </div>
 
         <TieredMenuDoc />

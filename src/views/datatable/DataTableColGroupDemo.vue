@@ -8,52 +8,54 @@
 		</div>
 
 		<div class="content-section implementation">
-            <DataTable :value="sales">
-                <ColumnGroup type="header">
-                    <Row>
-                        <Column header="Brand" :rowspan="3" />
-                        <Column header="Sale Rate" :colspan="4" />
-                    </Row>
-                    <Row>
-                        <Column header="Sales" :colspan="2" />
-                        <Column header="Profits" :colspan="2" />
-                    </Row>
-                    <Row>
-                        <Column header="Last Year" :sortable="true" field="lastYearSale"/>
-                        <Column header="This Year" :sortable="true" field="thisYearSale"/>
-                        <Column header="Last Year" :sortable="true" field="lastYearProfit"/>
-                        <Column header="This Year" :sortable="true" field="thisYearProfit"/>
-                    </Row>
-                </ColumnGroup>
-                <Column field="brand" />
-                <Column field="lastYearSale">
-                    <template #body="slotProps">
-                        {{slotProps.data.lastYearSale}}%
-                    </template>
-                </Column>
-                <Column field="thisYearSale">
-                    <template #body="slotProps">
-                        {{slotProps.data.thisYearSale}}%
-                    </template>
-                </Column>
-                <Column field="lastYearProfit">
-                    <template #body="slotProps">
-                        ${{slotProps.data.lastYearProfit.toLocaleString()}}
-                    </template>
-                </Column>
-                <Column field="thisYearProfit">
-                    <template #body="slotProps">
-                        ${{slotProps.data.thisYearProfit.toLocaleString()}}
-                    </template>
-                </Column>
-                <ColumnGroup type="footer">
-                    <Row>
-                        <Column footer="Totals:" :colspan="3" footerStyle="text-align:right"/>
-                        <Column :footer="lastYearTotal" />
-                        <Column :footer="thisYearTotal" />
-                    </Row>
-                </ColumnGroup>
-            </DataTable>
+            <div class="card">
+                <DataTable :value="sales">
+                    <ColumnGroup type="header">
+                        <Row>
+                            <Column header="Brand" :rowspan="3" />
+                            <Column header="Sale Rate" :colspan="4" />
+                        </Row>
+                        <Row>
+                            <Column header="Sales" :colspan="2" />
+                            <Column header="Profits" :colspan="2" />
+                        </Row>
+                        <Row>
+                            <Column header="Last Year" :sortable="true" field="lastYearSale"/>
+                            <Column header="This Year" :sortable="true" field="thisYearSale"/>
+                            <Column header="Last Year" :sortable="true" field="lastYearProfit"/>
+                            <Column header="This Year" :sortable="true" field="thisYearProfit"/>
+                        </Row>
+                    </ColumnGroup>
+                    <Column field="brand" />
+                    <Column field="lastYearSale">
+                        <template #body="slotProps">
+                            {{slotProps.data.lastYearSale}}%
+                        </template>
+                    </Column>
+                    <Column field="thisYearSale">
+                        <template #body="slotProps">
+                            {{slotProps.data.thisYearSale}}%
+                        </template>
+                    </Column>
+                    <Column field="lastYearProfit">
+                        <template #body="slotProps">
+                            ${{slotProps.data.lastYearProfit.toLocaleString()}}
+                        </template>
+                    </Column>
+                    <Column field="thisYearProfit">
+                        <template #body="slotProps">
+                            ${{slotProps.data.thisYearProfit.toLocaleString()}}
+                        </template>
+                    </Column>
+                    <ColumnGroup type="footer">
+                        <Row>
+                            <Column footer="Totals:" :colspan="3" footerStyle="text-align:right"/>
+                            <Column :footer="lastYearTotal" />
+                            <Column :footer="thisYearTotal" />
+                        </Row>
+                    </ColumnGroup>
+                </DataTable>
+            </div>
 		</div>
 
         <div class="content-section documentation">

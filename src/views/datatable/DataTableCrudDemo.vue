@@ -8,21 +8,23 @@
 		</div>
 
 		<div class="content-section implementation">
-			<DataTable :value="cars" selectionMode="single" :selection.sync="selectedCar" @row-select="onRowSelect" dataKey="vin"
-                :paginator="true" :rows="15">
-                <template #header>
-                    CRUD for Cars
-                </template>
-                <Column field="vin" header="Vin" :sortable="true"></Column>
-                <Column field="year" header="Year" :sortable="true"></Column>
-                <Column field="brand" header="Brand" :sortable="true"></Column>
-                <Column field="color" header="Color" :sortable="true"></Column>
-                <template #footer>
-                    <div style="text-align:left">
-                        <Button abel="Add" icon="pi pi-plus" @click="addNewCar" />
-                    </div>
-                </template>
-            </DataTable>
+            <div class="card">
+                <DataTable :value="cars" selectionMode="single" :selection.sync="selectedCar" @row-select="onRowSelect" dataKey="vin"
+                    :paginator="true" :rows="15">
+                    <template #header>
+                        CRUD for Cars
+                    </template>
+                    <Column field="vin" header="Vin" :sortable="true"></Column>
+                    <Column field="year" header="Year" :sortable="true"></Column>
+                    <Column field="brand" header="Brand" :sortable="true"></Column>
+                    <Column field="color" header="Color" :sortable="true"></Column>
+                    <template #footer>
+                        <div style="text-align:left">
+                            <Button abel="Add" icon="pi pi-plus" @click="addNewCar" />
+                        </div>
+                    </template>
+                </DataTable>
+            </div>
 
             <Dialog :visible.sync="dialogVisible" :style="{width: '400px'}" header="Car Details" :modal="true">
                 <div class="p-cardialog-content">

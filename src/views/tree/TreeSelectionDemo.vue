@@ -8,21 +8,23 @@
         </div>
 
         <div class="content-section implementation">
-            <h5>Single Selection</h5>
-            <Tree :value="nodes" selectionMode="single" :selectionKeys.sync="selectedKey1"></Tree>
+            <div class="card">
+                <h5>Single Selection</h5>
+                <Tree :value="nodes" selectionMode="single" :selectionKeys.sync="selectedKey1"></Tree>
 
-            <h5>Multiple Selection with MetaKey</h5>
-            <Tree :value="nodes" selectionMode="multiple" :selectionKeys.sync="selectedKeys1"></Tree>
+                <h5>Multiple Selection with MetaKey</h5>
+                <Tree :value="nodes" selectionMode="multiple" :selectionKeys.sync="selectedKeys1"></Tree>
 
-            <h5>Multiple Selection without MetaKey</h5>
-            <Tree :value="nodes" selectionMode="multiple" :selectionKeys.sync="selectedKeys2" :metaKeySelection="false"></Tree>
+                <h5>Multiple Selection without MetaKey</h5>
+                <Tree :value="nodes" selectionMode="multiple" :selectionKeys.sync="selectedKeys2" :metaKeySelection="false"></Tree>
 
-            <h5>Checkbox Selection</h5>
-            <Tree :value="nodes" selectionMode="checkbox" :selectionKeys.sync="selectedKeys3"></Tree>
+                <h5>Checkbox Selection</h5>
+                <Tree :value="nodes" selectionMode="checkbox" :selectionKeys.sync="selectedKeys3"></Tree>
 
-            <h5>Events</h5>
-            <Tree :value="nodes" selectionMode="single" :selectionKeys.sync="selectedKey2" :metaKeySelection="false"
-                @node-select="onNodeSelect" @node-unselect="onNodeUnselect"></Tree>
+                <h5>Events</h5>
+                <Tree :value="nodes" selectionMode="single" :selectionKeys.sync="selectedKey2" :metaKeySelection="false"
+                    @node-select="onNodeSelect" @node-unselect="onNodeUnselect"></Tree>
+            </div>
         </div>
 
         <div class="content-section documentation">

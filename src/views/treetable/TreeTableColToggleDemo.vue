@@ -8,15 +8,17 @@
         </div>
 
         <div class="content-section implementation">
-            <TreeTable :value="nodes">
-                <template #header>
-                    <div style="text-align:left">
-                        <MultiSelect v-model="columns" :options="columnOptions" optionLabel="header" placeholder="Select Columns" style="width: 20em"/>
-                    </div>
-                </template>
-                <Column field="name" header="Name" :expander="true"></Column>
-                <Column v-for="col of columns" :field="col.field" :header="col.header" :key="col.field"></Column>
-            </TreeTable>
+            <div class="card">
+                <TreeTable :value="nodes">
+                    <template #header>
+                        <div style="text-align:left">
+                            <MultiSelect v-model="columns" :options="columnOptions" optionLabel="header" placeholder="Select Columns" style="width: 20em"/>
+                        </div>
+                    </template>
+                    <Column field="name" header="Name" :expander="true"></Column>
+                    <Column v-for="col of columns" :field="col.field" :header="col.header" :key="col.field"></Column>
+                </TreeTable>
+            </div>
         </div>
 
         <div class="content-section documentation">

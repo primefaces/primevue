@@ -8,35 +8,37 @@
 		</div>
 
 		<div class="content-section implementation">
-			<DataTable :value="cars" class="p-datatable-responsive-demo" :paginator="true" :rows="10" paginatorPosition="both">
-                <template #header>
-                    Responsive
-                </template>
-                <Column field="vin" header="Vin">
-                    <template #body="slotProps">
-                        <span class="p-column-title">Vin</span>
-                        {{slotProps.data.vin}}
+            <div class="card">
+                <DataTable :value="cars" class="p-datatable-responsive-demo" :paginator="true" :rows="10" paginatorPosition="both">
+                    <template #header>
+                        Responsive
                     </template>
-                </Column>
-                <Column field="year" header="Year">
-                    <template #body="slotProps">
-                        <span class="p-column-title">Year</span>
-                        {{slotProps.data.year}}
-                    </template>
-                </Column>
-                <Column field="brand" header="Brand">
-                    <template #body="slotProps">
-                        <span class="p-column-title">Brand</span>
-                        {{slotProps.data.brand}}
-                    </template>
-                </Column>
-                <Column field="color" header="Color">
-                    <template #body="slotProps">
-                        <span class="p-column-title">Color</span>
-                        {{slotProps.data.color}}
-                    </template>
-                </Column>
-            </DataTable>
+                    <Column field="vin" header="Vin">
+                        <template #body="slotProps">
+                            <span class="p-column-title">Vin</span>
+                            {{slotProps.data.vin}}
+                        </template>
+                    </Column>
+                    <Column field="year" header="Year">
+                        <template #body="slotProps">
+                            <span class="p-column-title">Year</span>
+                            {{slotProps.data.year}}
+                        </template>
+                    </Column>
+                    <Column field="brand" header="Brand">
+                        <template #body="slotProps">
+                            <span class="p-column-title">Brand</span>
+                            {{slotProps.data.brand}}
+                        </template>
+                    </Column>
+                    <Column field="color" header="Color">
+                        <template #body="slotProps">
+                            <span class="p-column-title">Color</span>
+                            {{slotProps.data.color}}
+                        </template>
+                    </Column>
+                </DataTable>
+            </div>
 		</div>
 
         <div class="content-section documentation">

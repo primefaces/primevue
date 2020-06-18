@@ -8,55 +8,59 @@
         </div>
 
         <div class="content-section implementation">
-            <h5>Lenient Filter</h5>
-            <TreeTable :value="nodes" :filters="filters" filterMode="lenient">
-                <template #header>
-                    <div style="text-align: right">
-                        <i class="pi pi-search" style="margin: 4px 4px 0px 0px;"></i>
-                        <InputText v-model="filters['global']" placeholder="Global Search" size="50" />
-                    </div>
-                </template>
-                <Column field="name" header="Name" :expander="true">
-                    <template #filter>
-                        <InputText type="text" v-model="filters['name']" class="p-column-filter" placeholder="Filter by name" />
+            <div class="card">
+                <h5>Lenient Filter</h5>
+                <TreeTable :value="nodes" :filters="filters" filterMode="lenient">
+                    <template #header>
+                        <div style="text-align: right">
+                            <i class="pi pi-search" style="margin: 4px 4px 0px 0px;"></i>
+                            <InputText v-model="filters['global']" placeholder="Global Search" size="50" />
+                        </div>
                     </template>
-                </Column>
-                <Column field="size" header="Size">
-                    <template #filter>
-                        <InputText type="text" v-model="filters['size']" class="p-column-filter" placeholder="Filter by size"/>
-                    </template>
-                </Column>
-                <Column field="type" header="Type">
-                    <template #filter>
-                        <InputText type="text" v-model="filters['type']" class="p-column-filter" placeholder="Filter by type"/>
-                    </template>
-                </Column>
-            </TreeTable>
+                    <Column field="name" header="Name" :expander="true">
+                        <template #filter>
+                            <InputText type="text" v-model="filters['name']" class="p-column-filter" placeholder="Filter by name" />
+                        </template>
+                    </Column>
+                    <Column field="size" header="Size">
+                        <template #filter>
+                            <InputText type="text" v-model="filters['size']" class="p-column-filter" placeholder="Filter by size"/>
+                        </template>
+                    </Column>
+                    <Column field="type" header="Type">
+                        <template #filter>
+                            <InputText type="text" v-model="filters['type']" class="p-column-filter" placeholder="Filter by type"/>
+                        </template>
+                    </Column>
+                </TreeTable>
+            </div>
 
-            <h5>Strict Filter</h5>
-            <TreeTable :value="nodes" :filters="filters" filterMode="strict">
-                <template #header>
-                    <div style="text-align: right">
-                        <i class="pi pi-search" style="margin: 4px 4px 0px 0px;"></i>
-                        <InputText v-model="filters['global']" placeholder="Global Search" size="50" />
-                    </div>
-                </template>
-                <Column field="name" header="Name" :expander="true">
-                    <template #filter>
-                        <InputText type="text" v-model="filters['name']" class="p-column-filter" placeholder="Filter by name" />
+            <div class="card">
+                <h5>Strict Filter</h5>
+                <TreeTable :value="nodes" :filters="filters" filterMode="strict">
+                    <template #header>
+                        <div style="text-align: right">
+                            <i class="pi pi-search" style="margin: 4px 4px 0px 0px;"></i>
+                            <InputText v-model="filters['global']" placeholder="Global Search" size="50" />
+                        </div>
                     </template>
-                </Column>
-                <Column field="size" header="Size">
-                    <template #filter>
-                        <InputText type="text" v-model="filters['size']" class="p-column-filter" placeholder="Filter by size" />
-                    </template>
-                </Column>
-                <Column field="type" header="Type">
-                    <template #filter>
-                        <InputText type="text" v-model="filters['type']" class="p-column-filter" placeholder="Filter by type" />
-                    </template>
-                </Column>
-            </TreeTable>
+                    <Column field="name" header="Name" :expander="true">
+                        <template #filter>
+                            <InputText type="text" v-model="filters['name']" class="p-column-filter" placeholder="Filter by name" />
+                        </template>
+                    </Column>
+                    <Column field="size" header="Size">
+                        <template #filter>
+                            <InputText type="text" v-model="filters['size']" class="p-column-filter" placeholder="Filter by size" />
+                        </template>
+                    </Column>
+                    <Column field="type" header="Type">
+                        <template #filter>
+                            <InputText type="text" v-model="filters['type']" class="p-column-filter" placeholder="Filter by type" />
+                        </template>
+                    </Column>
+                </TreeTable>
+            </div>
         </div>
 
         <div class="content-section documentation">

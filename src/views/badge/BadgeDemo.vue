@@ -8,53 +8,55 @@
         </div>
 
         <div class="content-section implementation">
-            <h5>Numbers</h5>
-            <div class="badges">
-                 <span class="p-badge">2</span>
-                <span class="p-badge p-badge-success">8</span>
-                <span class="p-badge p-badge-info">4</span>
-                <span class="p-badge p-badge-warning">12</span>
-                <span class="p-badge p-badge-danger">3</span>
-            </div>
+            <div class="card">
+                <h5>Numbers</h5>
+                <div class="badges">
+                    <span class="p-badge">2</span>
+                    <span class="p-badge p-badge-success">8</span>
+                    <span class="p-badge p-badge-info">4</span>
+                    <span class="p-badge p-badge-warning">12</span>
+                    <span class="p-badge p-badge-danger">3</span>
+                </div>
 
-            <h5>Tags</h5>
-            <div class="badges">
-                <span class="p-tag">Primary</span>
-                <span class="p-tag p-tag-success">Success</span>
-                <span class="p-tag p-tag-info">Info</span>
-                <span class="p-tag p-tag-warning">Warning</span>
-                <span class="p-tag p-tag-danger">Danger</span>
-            </div>
+                <h5>Tags</h5>
+                <div class="badges">
+                    <span class="p-tag">Primary</span>
+                    <span class="p-tag p-tag-success">Success</span>
+                    <span class="p-tag p-tag-info">Info</span>
+                    <span class="p-tag p-tag-warning">Warning</span>
+                    <span class="p-tag p-tag-danger">Danger</span>
+                </div>
 
-            <h5>Pills</h5>
-            <div class="badges">
-                <span class="p-tag p-tag-rounded">Primary</span>
-                <span class="p-tag p-tag-rounded p-tag-success">Success</span>
-                <span class="p-tag p-tag-rounded p-tag-info">Info</span>
-                <span class="p-tag p-tag-rounded p-tag-warning">Warning</span>
-                <span class="p-tag p-tag-rounded p-tag-danger">Danger</span>
-            </div>
+                <h5>Pills</h5>
+                <div class="badges">
+                    <span class="p-tag p-tag-rounded">Primary</span>
+                    <span class="p-tag p-tag-rounded p-tag-success">Success</span>
+                    <span class="p-tag p-tag-rounded p-tag-info">Info</span>
+                    <span class="p-tag p-tag-rounded p-tag-warning">Warning</span>
+                    <span class="p-tag p-tag-rounded p-tag-danger">Danger</span>
+                </div>
 
-            <h5>Positioned Badge</h5>
-            <span class="p-overlay-badge">
-                 <span class="p-badge">2</span>
-                <i class="pi pi-bell" style="font-size: 2em"></i>
-            </span>
+                <h5>Positioned Badge</h5>
+                <span class="p-overlay-badge">
+                    <span class="p-badge">2</span>
+                    <i class="pi pi-bell" style="font-size: 2em"></i>
+                </span>
 
-            <span class="p-overlay-badge">
-                <span class="p-badge p-badge-warning">5</span>
-                <Button type="button" label="New" />
-            </span>
+                <span class="p-overlay-badge">
+                    <span class="p-badge p-badge-warning">5</span>
+                    <Button type="button" label="New" />
+                </span>
 
-            <h5>Inline Button Badge</h5>
-            <Button type="button" label="Emails" badge="8" />
-            <Button type="button" label="Messages" icon="pi pi-users" class="p-button-warning" badge="8" badgeClass="p-badge-danger" />
+                <h5>Inline Button Badge</h5>
+                <Button type="button" label="Emails" badge="8" />
+                <Button type="button" label="Messages" icon="pi pi-users" class="p-button-warning" badge="8" badgeClass="p-badge-danger" />
 
-            <h5>Sizes</h5>
-            <div class="badges">
-                <span class="p-badge">2</span>
-                <span class="p-badge p-badge-lg p-badge-sucess">4</span>
-                <span class="p-badge p-badge-xl p-badge-warning">6</span>
+                <h5>Sizes</h5>
+                <div class="badges">
+                    <span class="p-badge">2</span>
+                    <span class="p-badge p-badge-lg p-badge-sucess">4</span>
+                    <span class="p-badge p-badge-xl p-badge-warning">6</span>
+                </div>
             </div>
         </div>
 

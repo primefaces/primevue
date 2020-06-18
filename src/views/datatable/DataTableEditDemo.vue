@@ -10,69 +10,75 @@
 		</div>
 
 		<div class="content-section implementation">
-            <h5>Basic Cell Editing</h5>
-            <p>Simple editors with v-model.</p>
-			<DataTable :value="cars1" editMode="cell">
-                <Column field="vin" header="Vin">
-                    <template #editor="slotProps">
-                        <InputText v-model="slotProps.data[slotProps.column.field]" />
-                    </template>
-                </Column>
-                <Column field="year" header="Year">
-                    <template #editor="slotProps">
-                        <InputText v-model="slotProps.data[slotProps.column.field]" />
-                    </template>
-                </Column>
-                <Column field="brand" header="Brand">
-                    <template #editor="slotProps">
-                        <Dropdown v-model="slotProps.data['brand']" :options="brands" optionLabel="brand" optionValue="value" placeholder="Select a Brand">
-                            <template #option="optionProps">
-                                <div class="p-dropdown-car-option">
-                                    <img :alt="optionProps.option.brand" :src="'demo/images/car/' + optionProps.option.brand + '.png'" />
-                                    <span>{{optionProps.option.brand}}</span>
-                                </div>
-                            </template>
-                        </Dropdown>
-                    </template>
-                </Column>
-                <Column field="color" header="Color">
-                    <template #editor="slotProps">
-                        <InputText v-model="slotProps.data[slotProps.column.field]" />
-                    </template>
-                </Column>
-            </DataTable>
+            <div class="card">
+                <h5>Basic Cell Editing</h5>
+                <p>Simple editors with v-model.</p>
+                <DataTable :value="cars1" editMode="cell">
+                    <Column field="vin" header="Vin">
+                        <template #editor="slotProps">
+                            <InputText v-model="slotProps.data[slotProps.column.field]" />
+                        </template>
+                    </Column>
+                    <Column field="year" header="Year">
+                        <template #editor="slotProps">
+                            <InputText v-model="slotProps.data[slotProps.column.field]" />
+                        </template>
+                    </Column>
+                    <Column field="brand" header="Brand">
+                        <template #editor="slotProps">
+                            <Dropdown v-model="slotProps.data['brand']" :options="brands" optionLabel="brand" optionValue="value" placeholder="Select a Brand">
+                                <template #option="optionProps">
+                                    <div class="p-dropdown-car-option">
+                                        <img :alt="optionProps.option.brand" :src="'demo/images/car/' + optionProps.option.brand + '.png'" />
+                                        <span>{{optionProps.option.brand}}</span>
+                                    </div>
+                                </template>
+                            </Dropdown>
+                        </template>
+                    </Column>
+                    <Column field="color" header="Color">
+                        <template #editor="slotProps">
+                            <InputText v-model="slotProps.data[slotProps.column.field]" />
+                        </template>
+                    </Column>
+                </DataTable>
+            </div>
 
-            <h5>Advanced Cell Editing</h5>
-            <p>Custom implementation with validations, dynamic columns and reverting values with the escape key.</p>
-			<DataTable :value="cars2" editMode="cell" @cell-edit-complete="onCellEditComplete">
-                <Column v-for="col of columns" :field="col.field" :header="col.header" :key="col.field">
-                    <template #editor="slotProps">
-                        <InputText :value="slotProps.data[slotProps.column.field]" @input="onCellEdit($event, slotProps)" />
-                    </template>
-                </Column>
-            </DataTable>
+            <div class="card">
+                <h5>Advanced Cell Editing</h5>
+                <p>Custom implementation with validations, dynamic columns and reverting values with the escape key.</p>
+                <DataTable :value="cars2" editMode="cell" @cell-edit-complete="onCellEditComplete">
+                    <Column v-for="col of columns" :field="col.field" :header="col.header" :key="col.field">
+                        <template #editor="slotProps">
+                            <InputText :value="slotProps.data[slotProps.column.field]" @input="onCellEdit($event, slotProps)" />
+                        </template>
+                    </Column>
+                </DataTable>
+            </div>
 
-            <h5>Row Editing</h5>
-            <DataTable :value="cars3" editMode="row" dataKey="vin" :editingRows.sync="editingRows"
-                @row-edit-init="onRowEditInit" @row-edit-cancel="onRowEditCancel">
-                <Column field="vin" header="Vin"></Column>
-                <Column field="year" header="Year">
-                    <template #editor="slotProps">
-                        <InputText v-model="slotProps.data[slotProps.column.field]" />
-                    </template>
-                </Column>
-                <Column field="brand" header="Brand">
-                    <template #editor="slotProps">
-                        <InputText v-model="slotProps.data[slotProps.column.field]" />
-                    </template>
-                </Column>
-                <Column field="color" header="Color">
-                    <template #editor="slotProps">
-                        <InputText v-model="slotProps.data[slotProps.column.field]" />
-                    </template>
-                </Column>
-                <Column :rowEditor="true" headerStyle="width:6em" bodyStyle="text-align:center"></Column>
-            </DataTable>
+            <div class="card">
+                <h5>Row Editing</h5>
+                <DataTable :value="cars3" editMode="row" dataKey="vin" :editingRows.sync="editingRows"
+                    @row-edit-init="onRowEditInit" @row-edit-cancel="onRowEditCancel">
+                    <Column field="vin" header="Vin"></Column>
+                    <Column field="year" header="Year">
+                        <template #editor="slotProps">
+                            <InputText v-model="slotProps.data[slotProps.column.field]" />
+                        </template>
+                    </Column>
+                    <Column field="brand" header="Brand">
+                        <template #editor="slotProps">
+                            <InputText v-model="slotProps.data[slotProps.column.field]" />
+                        </template>
+                    </Column>
+                    <Column field="color" header="Color">
+                        <template #editor="slotProps">
+                            <InputText v-model="slotProps.data[slotProps.column.field]" />
+                        </template>
+                    </Column>
+                    <Column :rowEditor="true" headerStyle="width:6em" bodyStyle="text-align:center"></Column>
+                </DataTable>
+            </div>
 		</div>
 
         <div class="content-section documentation">

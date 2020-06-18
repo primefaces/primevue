@@ -8,39 +8,41 @@
         </div>
 
         <div class="content-section implementation">
-            <h5>Basic</h5>
-            <InputText type="text" v-model="value1" />
-            <span :style="{marginLeft: '.5em'}">{{value1}}</span>
+            <div class="card">
+                <h5>Basic</h5>
+                <InputText type="text" v-model="value1" />
+                <span :style="{marginLeft: '.5em'}">{{value1}}</span>
 
-            <h5>Floating Label</h5>
-            <span class="p-float-label">
-                <InputText id="username" type="text" v-model="value2" />
-                <label for="username">Username</label>
-            </span>
+                <h5>Floating Label</h5>
+                <span class="p-float-label">
+                    <InputText id="username" type="text" v-model="value2" />
+                    <label for="username">Username</label>
+                </span>
 
-            <h5>Left Icon</h5>
-            <span class="p-input-icon-left">
-                <i class="pi pi-search" />
-                <InputText type="text" v-model="value3" placeholder="Search" />
-            </span>
+                <h5>Left Icon</h5>
+                <span class="p-input-icon-left">
+                    <i class="pi pi-search" />
+                    <InputText type="text" v-model="value3" placeholder="Search" />
+                </span>
 
-            <h5>Right Icon</h5>
-            <span class="p-input-icon-right">
-                <i class="pi pi-spin pi-spinner" />
-                <InputText type="text" v-model="value4" />
-            </span>
+                <h5>Right Icon</h5>
+                <span class="p-input-icon-right">
+                    <i class="pi pi-spin pi-spinner" />
+                    <InputText type="text" v-model="value4" />
+                </span>
 
-            <h5>Disabled</h5>
-            <InputText type="text" v-model="value5" disabled />
+                <h5>Disabled</h5>
+                <InputText type="text" v-model="value5" disabled />
 
-             <h5>Invalid</h5>
-            <InputText type="text" class="p-invalid" />
+                <h5>Invalid</h5>
+                <InputText type="text" class="p-invalid" />
 
-            <h5>Sizes</h5>
-            <div class="sizes">
-                <InputText type="text" class="p-inputtext-sm" placeholder="Small" />
-                <InputText type="text" placeholder="Normal" />
-                <InputText type="text" class="p-inputtext-lg"  placeholder="Large" />
+                <h5>Sizes</h5>
+                <div class="sizes">
+                    <InputText type="text" class="p-inputtext-sm" placeholder="Small" />
+                    <InputText type="text" placeholder="Normal" />
+                    <InputText type="text" class="p-inputtext-lg"  placeholder="Large" />
+                </div>
             </div>
         </div>
 

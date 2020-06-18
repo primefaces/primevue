@@ -8,23 +8,25 @@
         </div>
 
         <div class="content-section implementation">
-            <PickList v-model="cars" listStyle="height:342px" dataKey="vin">
-                <template #sourceHeader>
-                    Available
-                </template>
-                <template #targetHeader>
-                    Selected
-                </template>
-                <template #item="slotProps">
-                    <div class="p-caritem">
-                        <img :src="'demo/images/car/' + slotProps.item.brand + '.png'">
-                        <div>
-                            <span class="p-caritem-vin">{{slotProps.item.vin}}</span>
-                            <span>{{slotProps.item.year}} - {{slotProps.item.color}}</span>
+            <div class="card">
+                <PickList v-model="cars" listStyle="height:342px" dataKey="vin">
+                    <template #sourceHeader>
+                        Available
+                    </template>
+                    <template #targetHeader>
+                        Selected
+                    </template>
+                    <template #item="slotProps">
+                        <div class="p-caritem">
+                            <img :src="'demo/images/car/' + slotProps.item.brand + '.png'">
+                            <div>
+                                <span class="p-caritem-vin">{{slotProps.item.vin}}</span>
+                                <span>{{slotProps.item.year}} - {{slotProps.item.color}}</span>
+                            </div>
                         </div>
-                    </div>
-                </template>
-            </PickList>
+                    </template>
+                </PickList>
+            </div>
         </div>
 
         <PickListDoc />

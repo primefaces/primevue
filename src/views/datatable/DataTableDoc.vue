@@ -2426,99 +2426,95 @@ export default {
 
 <CodeHighlight>
 <template v-pre>
-&lt;div class="p-card"&gt;
-    &lt;div class="p-card-body" style="padding:0"&gt;
-        &lt;DataTable :value="customers" :paginator="true" class="p-datatable-responsive p-datatable-customers" :rows="10"
-            dataKey="id" :rowHover="true" :selection.sync="selectedCustomers" :filters="filters" :loading="loading"
-            paginatorTemplate="FirstPageLink PrevPageLink PageLinks NextPageLink LastPageLink CurrentPageReport RowsPerPageDropdown" :rowsPerPageOptions="[10,25,50]"
-            currentPageReportTemplate="Showing {first} to {last} of {totalRecords} entries"&gt;
-            &lt;template #header&gt;
-                &lt;div class="table-header"&gt;
-                    List of Customers
-                    &lt;span class="p-input-icon-left"&gt;
-                        &lt;i class="pi pi-search" /&gt;
-                        &lt;InputText v-model="filters['global']" placeholder="Global Search" /&gt;
-                    &lt;/span&gt;
-                &lt;/div&gt;
-            &lt;/template&gt;
-            &lt;template #empty&gt;
-                No customers found.
-            &lt;/template&gt;
-            &lt;template #loading&gt;
-                Loading customers data. Please wait.
-            &lt;/template&gt;
-            &lt;Column selectionMode="multiple" headerStyle="width: 3em"&gt;&lt;/Column&gt;
-            &lt;Column field="name" header="Name" :sortable="true"&gt;
-                &lt;template #body="slotProps"&gt;
-                    &lt;span class="p-column-title"&gt;Name&lt;/span&gt;
-                    &#123;&#123;slotProps.data.name&#125;&#125;
+&lt;DataTable :value="customers" :paginator="true" class="p-datatable-responsive p-datatable-customers" :rows="10"
+    dataKey="id" :rowHover="true" :selection.sync="selectedCustomers" :filters="filters" :loading="loading"
+    paginatorTemplate="FirstPageLink PrevPageLink PageLinks NextPageLink LastPageLink CurrentPageReport RowsPerPageDropdown" :rowsPerPageOptions="[10,25,50]"
+    currentPageReportTemplate="Showing {first} to {last} of {totalRecords} entries"&gt;
+    &lt;template #header&gt;
+        &lt;div class="table-header"&gt;
+            List of Customers
+            &lt;span class="p-input-icon-left"&gt;
+                &lt;i class="pi pi-search" /&gt;
+                &lt;InputText v-model="filters['global']" placeholder="Global Search" /&gt;
+            &lt;/span&gt;
+        &lt;/div&gt;
+    &lt;/template&gt;
+    &lt;template #empty&gt;
+        No customers found.
+    &lt;/template&gt;
+    &lt;template #loading&gt;
+        Loading customers data. Please wait.
+    &lt;/template&gt;
+    &lt;Column selectionMode="multiple" headerStyle="width: 3em"&gt;&lt;/Column&gt;
+    &lt;Column field="name" header="Name" :sortable="true"&gt;
+        &lt;template #body="slotProps"&gt;
+            &lt;span class="p-column-title"&gt;Name&lt;/span&gt;
+            &#123;&#123;slotProps.data.name&#125;&#125;
+        &lt;/template&gt;
+        &lt;template #filter&gt;
+            &lt;InputText type="text" v-model="filters['name']" class="p-column-filter" placeholder="Search by name"/&gt;
+        &lt;/template&gt;
+    &lt;/Column&gt;
+    &lt;Column header="Country" :sortable="true" sortField="country.name" filterField="country.name" filterMatchMode="contains"&gt;
+        &lt;template #body="slotProps"&gt;
+            &lt;span class="p-column-title"&gt;Country&lt;/span&gt;
+            &lt;img src="../../assets/images/flag_placeholder.png" :class="'flag flag-' + slotProps.data.country.code"  /&gt;
+            &lt;span style="vertical-align: middle; margin-left: .5em"&gt;&#123;&#123;slotProps.data.country.name&#125;&#125;&lt;/span&gt;
+        &lt;/template&gt;
+        &lt;template #filter&gt;
+            &lt;InputText type="text" v-model="filters['country.name']" class="p-column-filter" placeholder="Search by country"/&gt;
+        &lt;/template&gt;
+    &lt;/Column&gt;
+    &lt;Column header="Representative" :sortable="true" sortField="representative.name" filterField="representative.name" filterMatchMode="in"&gt;
+        &lt;template #body="slotProps"&gt;
+            &lt;span class="p-column-title"&gt;Representative&lt;/span&gt;
+            &lt;img :alt="slotProps.data.representative.name" :src="'demo/images/avatar/' + slotProps.data.representative.image" width="32" style="vertical-align: middle" /&gt;
+            &lt;span style="vertical-align: middle; margin-left: .5em"&gt;&#123;&#123;slotProps.data.representative.name&#125;&#125;&lt;/span&gt;
+        &lt;/template&gt;
+            &lt;template #filter&gt;
+            &lt;MultiSelect v-model="filters['representative.name']" :options="representatives" optionLabel="name" optionValue="name" placeholder="All" class="p-column-filter"&gt;
+                &lt;template #option="slotProps"&gt;
+                    &lt;div class="p-multiselect-representative-option"&gt;
+                        &lt;img :alt="slotProps.option.name" :src="'demo/images/avatar/' + slotProps.option.image" width="32" style="vertical-align: middle" /&gt;
+                        &lt;span style="vertical-align: middle; margin-left: .5em"&gt;&#123;&#123;slotProps.option.name&#125;&#125;&lt;/span&gt;
+                    &lt;/div&gt;
                 &lt;/template&gt;
-                &lt;template #filter&gt;
-                    &lt;InputText type="text" v-model="filters['name']" class="p-column-filter" placeholder="Search by name"/&gt;
+            &lt;/MultiSelect&gt;
+        &lt;/template&gt;
+    &lt;/Column&gt;
+    &lt;Column field="date" header="Date" :sortable="true" filterMatchMode="custom" :filterFunction="filterDate"&gt;
+        &lt;template #filter&gt;
+            &lt;Calendar v-model="filters['date']" dateFormat="yy-mm-dd" class="p-column-filter" placeholder="Registration Date"/&gt;
+        &lt;/template&gt;
+    &lt;/Column&gt;
+    &lt;Column field="status" header="Status" :sortable="true" filterMatchMode="equals"&gt;
+        &lt;template #body="slotProps"&gt;
+            &lt;span class="p-column-title"&gt;Status&lt;/span&gt;
+            &lt;span :class="'customer-badge status-' + slotProps.data.status"&gt;&#123;&#123;slotProps.data.status&#125;&#125;&lt;/span&gt;
+        &lt;/template&gt;
+        &lt;template #filter&gt;
+            &lt;Dropdown v-model="filters['status']" :options="statuses" placeholder="Select a Status" class="p-column-filter" :showClear="true"&gt;
+                &lt;template #option="slotProps"&gt;
+                    &lt;span :class="'customer-badge status-' + slotProps.option"&gt;&#123;&#123;slotProps.option&#125;&#125;&lt;/span&gt;
                 &lt;/template&gt;
-            &lt;/Column&gt;
-            &lt;Column header="Country" :sortable="true" sortField="country.name" filterField="country.name" filterMatchMode="contains"&gt;
-                &lt;template #body="slotProps"&gt;
-                    &lt;span class="p-column-title"&gt;Country&lt;/span&gt;
-                    &lt;img src="../../assets/images/flag_placeholder.png" :class="'flag flag-' + slotProps.data.country.code"  /&gt;
-                    &lt;span style="vertical-align: middle; margin-left: .5em"&gt;&#123;&#123;slotProps.data.country.name&#125;&#125;&lt;/span&gt;
-                &lt;/template&gt;
-                &lt;template #filter&gt;
-                    &lt;InputText type="text" v-model="filters['country.name']" class="p-column-filter" placeholder="Search by country"/&gt;
-                &lt;/template&gt;
-            &lt;/Column&gt;
-            &lt;Column header="Representative" :sortable="true" sortField="representative.name" filterField="representative.name" filterMatchMode="in"&gt;
-                &lt;template #body="slotProps"&gt;
-                    &lt;span class="p-column-title"&gt;Representative&lt;/span&gt;
-                    &lt;img :alt="slotProps.data.representative.name" :src="'demo/images/avatar/' + slotProps.data.representative.image" width="32" style="vertical-align: middle" /&gt;
-                    &lt;span style="vertical-align: middle; margin-left: .5em"&gt;&#123;&#123;slotProps.data.representative.name&#125;&#125;&lt;/span&gt;
-                &lt;/template&gt;
-                    &lt;template #filter&gt;
-                    &lt;MultiSelect v-model="filters['representative.name']" :options="representatives" optionLabel="name" optionValue="name" placeholder="All" class="p-column-filter"&gt;
-                        &lt;template #option="slotProps"&gt;
-                            &lt;div class="p-multiselect-representative-option"&gt;
-                                &lt;img :alt="slotProps.option.name" :src="'demo/images/avatar/' + slotProps.option.image" width="32" style="vertical-align: middle" /&gt;
-                                &lt;span style="vertical-align: middle; margin-left: .5em"&gt;&#123;&#123;slotProps.option.name&#125;&#125;&lt;/span&gt;
-                            &lt;/div&gt;
-                        &lt;/template&gt;
-                    &lt;/MultiSelect&gt;
-                &lt;/template&gt;
-            &lt;/Column&gt;
-            &lt;Column field="date" header="Date" :sortable="true" filterMatchMode="custom" :filterFunction="filterDate"&gt;
-                &lt;template #filter&gt;
-                    &lt;Calendar v-model="filters['date']" dateFormat="yy-mm-dd" class="p-column-filter" placeholder="Registration Date"/&gt;
-                &lt;/template&gt;
-            &lt;/Column&gt;
-            &lt;Column field="status" header="Status" :sortable="true" filterMatchMode="equals"&gt;
-                &lt;template #body="slotProps"&gt;
-                    &lt;span class="p-column-title"&gt;Status&lt;/span&gt;
-                    &lt;span :class="'customer-badge status-' + slotProps.data.status"&gt;&#123;&#123;slotProps.data.status&#125;&#125;&lt;/span&gt;
-                &lt;/template&gt;
-                &lt;template #filter&gt;
-                    &lt;Dropdown v-model="filters['status']" :options="statuses" placeholder="Select a Status" class="p-column-filter" :showClear="true"&gt;
-                        &lt;template #option="slotProps"&gt;
-                            &lt;span :class="'customer-badge status-' + slotProps.option"&gt;&#123;&#123;slotProps.option&#125;&#125;&lt;/span&gt;
-                        &lt;/template&gt;
-                    &lt;/Dropdown&gt;
-                &lt;/template&gt;
-            &lt;/Column&gt;
-            &lt;Column field="activity" header="Activity" :sortable="true" filterMatchMode="gte"&gt;
-                &lt;template #body="slotProps"&gt;
-                    &lt;span class="p-column-title"&gt;Activity&lt;/span&gt;
-                    &lt;ProgressBar :value="slotProps.data.activity" :showValue="false" /&gt;
-                &lt;/template&gt;
-                &lt;template #filter&gt;
-                    &lt;InputText type="text" v-model="filters['activity']" class="p-column-filter" placeholder="Minimum"/&gt;
-                &lt;/template&gt;
-            &lt;/Column&gt;
-            &lt;Column headerStyle="width: 8rem; text-align: center" bodyStyle="text-align: center; overflow: visible"&gt;
-                &lt;template #body&gt;
-                    &lt;Button type="button" icon="pi pi-cog" class="p-button-secondary"&gt;&lt;/Button&gt;
-                &lt;/template&gt;
-            &lt;/Column&gt;
-        &lt;/DataTable&gt;
-    &lt;/div&gt;
-&lt;/div&gt;
+            &lt;/Dropdown&gt;
+        &lt;/template&gt;
+    &lt;/Column&gt;
+    &lt;Column field="activity" header="Activity" :sortable="true" filterMatchMode="gte"&gt;
+        &lt;template #body="slotProps"&gt;
+            &lt;span class="p-column-title"&gt;Activity&lt;/span&gt;
+            &lt;ProgressBar :value="slotProps.data.activity" :showValue="false" /&gt;
+        &lt;/template&gt;
+        &lt;template #filter&gt;
+            &lt;InputText type="text" v-model="filters['activity']" class="p-column-filter" placeholder="Minimum"/&gt;
+        &lt;/template&gt;
+    &lt;/Column&gt;
+    &lt;Column headerStyle="width: 8rem; text-align: center" bodyStyle="text-align: center; overflow: visible"&gt;
+        &lt;template #body&gt;
+            &lt;Button type="button" icon="pi pi-cog" class="p-button-secondary"&gt;&lt;/Button&gt;
+        &lt;/template&gt;
+    &lt;/Column&gt;
+&lt;/DataTable&gt;
 </template>
 </CodeHighlight>
 

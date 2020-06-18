@@ -8,16 +8,18 @@
         </div>
 
         <div class="content-section implementation">
-            <h5>Basic</h5>
-            <SplitButton label="Save" icon="pi pi-plus" @click="save" :model="items"></SplitButton>
+            <div class="card">
+                <h5>Basic</h5>
+                <SplitButton label="Save" icon="pi pi-plus" @click="save" :model="items"></SplitButton>
 
-            <h5>Severities</h5>
-            <SplitButton label="Save" icon="pi pi-plus" :model="items"></SplitButton>
-            <SplitButton label="Save" icon="pi pi-plus" :model="items" class="p-button-secondary"></SplitButton>
-            <SplitButton label="Save" icon="pi pi-plus" :model="items" class="p-button-success"></SplitButton>
-            <SplitButton label="Save" icon="pi pi-plus" :model="items" class="p-button-info"></SplitButton>
-            <SplitButton label="Save" icon="pi pi-plus" :model="items" class="p-button-warning"></SplitButton>
-            <SplitButton label="Save" icon="pi pi-plus" :model="items" class="p-button-danger"></SplitButton>
+                <h5>Severities</h5>
+                <SplitButton label="Save" icon="pi pi-plus" :model="items"></SplitButton>
+                <SplitButton label="Save" icon="pi pi-plus" :model="items" class="p-button-secondary"></SplitButton>
+                <SplitButton label="Save" icon="pi pi-plus" :model="items" class="p-button-success"></SplitButton>
+                <SplitButton label="Save" icon="pi pi-plus" :model="items" class="p-button-info"></SplitButton>
+                <SplitButton label="Save" icon="pi pi-plus" :model="items" class="p-button-warning"></SplitButton>
+                <SplitButton label="Save" icon="pi pi-plus" :model="items" class="p-button-danger"></SplitButton>
+            </div>
         </div>
 
         <SplitButtonDoc/>

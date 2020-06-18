@@ -8,17 +8,19 @@
         </div>
 
         <div class="content-section implementation">
-            <h5>Basic {{val1}}</h5>
-            <Rating v-model="val1" />
+            <div class="card">
+                <h5>Basic {{val1}}</h5>
+                <Rating v-model="val1" />
 
-            <h5>No Cancel {{val2}}</h5>
-            <Rating v-model="val2" :cancel="false" />
+                <h5>No Cancel {{val2}}</h5>
+                <Rating v-model="val2" :cancel="false" />
 
-            <h5>ReadOnly</h5>
-            <Rating :value="5" :readonly="true" :stars="10" :cancel="false" />
+                <h5>ReadOnly</h5>
+                <Rating :value="5" :readonly="true" :stars="10" :cancel="false" />
 
-            <h5>Disabled</h5>
-            <Rating :value="8" :disabled="true" :stars="10" />
+                <h5>Disabled</h5>
+                <Rating :value="8" :disabled="true" :stars="10" />
+            </div>
         </div>
 
         <RatingDoc/>

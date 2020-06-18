@@ -8,27 +8,29 @@
         </div>
 
         <div class="content-section implementation">
-            <h5>Basic</h5>
-            <MultiSelect v-model="selectedCars1" :options="cars" optionLabel="brand" placeholder="Select Brands" />
+            <div class="card">
+                <h5>Basic</h5>
+                <MultiSelect v-model="selectedCars1" :options="cars" optionLabel="brand" placeholder="Select Brands" />
 
-            <h5>Advanced with Templating and Filtering</h5>
-            <MultiSelect v-model="selectedCars2" :options="cars" optionLabel="brand" placeholder="Select a Car" :filter="true" class="multiselect-custom">
-                <template #value="slotProps">
-                    <div class="p-multiselect-car-token" v-for="option of slotProps.value" :key="option.brand">
-                        <img :alt="option.brand" :src="'demo/images/car/' + option.brand + '.png'" />
-                        <span>{{option.brand}}</span>
-                    </div>
-                    <template v-if="!slotProps.value || slotProps.value.length === 0">
-                        Select Brands
+                <h5>Advanced with Templating and Filtering</h5>
+                <MultiSelect v-model="selectedCars2" :options="cars" optionLabel="brand" placeholder="Select a Car" :filter="true" class="multiselect-custom">
+                    <template #value="slotProps">
+                        <div class="p-multiselect-car-token" v-for="option of slotProps.value" :key="option.brand">
+                            <img :alt="option.brand" :src="'demo/images/car/' + option.brand + '.png'" />
+                            <span>{{option.brand}}</span>
+                        </div>
+                        <template v-if="!slotProps.value || slotProps.value.length === 0">
+                            Select Brands
+                        </template>
                     </template>
-                </template>
-                <template #option="slotProps">
-                    <div class="p-multiselect-car-option">
-                        <img :alt="slotProps.option.brand" :src="'demo/images/car/' + slotProps.option.brand + '.png'" />
-                        <span>{{slotProps.option.brand}}</span>
-                    </div>
-                </template>
-            </MultiSelect>
+                    <template #option="slotProps">
+                        <div class="p-multiselect-car-option">
+                            <img :alt="slotProps.option.brand" :src="'demo/images/car/' + slotProps.option.brand + '.png'" />
+                            <span>{{slotProps.option.brand}}</span>
+                        </div>
+                    </template>
+                </MultiSelect>
+            </div>
         </div>
 
         <MultiSelectDoc/>

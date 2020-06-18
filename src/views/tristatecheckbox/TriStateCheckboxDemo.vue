@@ -8,9 +8,11 @@
         </div>
 
         <div class="content-section implementation">
-            <div class="p-field-checkbox">
-                <TriStateCheckbox v-model="value" />
-                <label>{{value == null ? 'null' : value}}</label>
+            <div class="card">
+                <div class="p-field-checkbox">
+                    <TriStateCheckbox v-model="value" />
+                    <label>{{value == null ? 'null' : value}}</label>
+                </div>
             </div>
         </div>
 

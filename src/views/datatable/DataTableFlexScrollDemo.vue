@@ -1,11 +1,13 @@
 <template>
-	<div class="content-section implementation" style="height: calc(100vh - 143px)">
-		<DataTable :value="cars" :scrollable="true" scrollHeight="flex">
-            <Column field="vin" header="Vin"></Column>
-            <Column field="year" header="Year"></Column>
-            <Column field="brand" header="Brand"></Column>
-            <Column field="color" header="Color"></Column>
-        </DataTable>
+	<div class="content-section implementation">
+        <div class="card" style="height: calc(100vh - 143px)">
+            <DataTable :value="cars" :scrollable="true" scrollHeight="flex">
+                <Column field="vin" header="Vin"></Column>
+                <Column field="year" header="Year"></Column>
+                <Column field="brand" header="Brand"></Column>
+                <Column field="color" header="Color"></Column>
+            </DataTable>
+        </div>
 	</div>
 </template>
 

@@ -8,7 +8,9 @@
         </div>
 
         <div class="content-section implementation">
-            <Breadcrumb :home="home" :model="items" />
+            <div class="card">
+                <Breadcrumb :home="home" :model="items" />
+            </div>
         </div>
 
         <BreadcrumbDoc />

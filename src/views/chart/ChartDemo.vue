@@ -1,12 +1,5 @@
 <template>
     <div>
-        <div class="content-section introduction">
-            <div class="feature-intro">
-                <h1>ChartModel</h1>
-                <p>Chart components are based on <a href="https://www.chartjs.org/">Charts.js</a>, an open source HTML5 based charting library.</p>
-            </div>
-        </div>
-
         <ChartDoc/>
     </div>
 </template>

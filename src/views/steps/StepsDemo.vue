@@ -68,4 +68,8 @@ export default {
 /deep/ b {
     display: block
 }
+
+/deep/ .p-card-body {
+    padding: 2rem;
+}
 </style>

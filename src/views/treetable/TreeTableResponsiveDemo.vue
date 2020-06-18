@@ -8,20 +8,22 @@
         </div>
 
         <div class="content-section implementation">
-            <TreeTable :value="nodes" class="p-treetable-responsive">
-                <template #header>
-                    Responsive
-                </template>
-                <Column field="name" header="Name" :expander="true">
-                     <template #body="slotProps">
-                        {{slotProps.node.data.name}}
-                        <span class="sm-visible">{{slotProps.node.data.size}}</span>
-                        <span class="sm-visible">{{slotProps.node.data.type}}</span>
+            <div class="card">
+                <TreeTable :value="nodes" class="p-treetable-responsive">
+                    <template #header>
+                        Responsive
                     </template>
-                </Column>
-                <Column field="size" header="Size" headerClass="sm-invisible" bodyClass="sm-invisible"></Column>
-                <Column field="type" header="Type" headerClass="sm-invisible" bodyClass="sm-invisible"></Column>
-            </TreeTable>
+                    <Column field="name" header="Name" :expander="true">
+                        <template #body="slotProps">
+                            {{slotProps.node.data.name}}
+                            <span class="sm-visible">{{slotProps.node.data.size}}</span>
+                            <span class="sm-visible">{{slotProps.node.data.type}}</span>
+                        </template>
+                    </Column>
+                    <Column field="size" header="Size" headerClass="sm-invisible" bodyClass="sm-invisible"></Column>
+                    <Column field="type" header="Type" headerClass="sm-invisible" bodyClass="sm-invisible"></Column>
+                </TreeTable>
+            </div>
         </div>
 
         <div class="content-section documentation">

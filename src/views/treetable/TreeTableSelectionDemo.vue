@@ -8,41 +8,51 @@
         </div>
 
         <div class="content-section implementation">
-            <h5>Single Selection</h5>
-            <TreeTable :value="nodes" selectionMode="single" :selectionKeys.sync="selectedKey1">
-                <Column field="name" header="Name" :expander="true"></Column>
-                <Column field="size" header="Size"></Column>
-                <Column field="type" header="Type"></Column>
-            </TreeTable>
+            <div class="card">
+                <h5>Single Selection</h5>
+                <TreeTable :value="nodes" selectionMode="single" :selectionKeys.sync="selectedKey1">
+                    <Column field="name" header="Name" :expander="true"></Column>
+                    <Column field="size" header="Size"></Column>
+                    <Column field="type" header="Type"></Column>
+                </TreeTable>
+            </div>
 
-            <h5>Multiple Selection with MetaKey</h5>
-            <TreeTable :value="nodes" selectionMode="multiple" :selectionKeys.sync="selectedKeys1">
-                <Column field="name" header="Name" :expander="true"></Column>
-                <Column field="size" header="Size"></Column>
-                <Column field="type" header="Type"></Column>
-            </TreeTable>
+            <div class="card">
+                <h5>Multiple Selection with MetaKey</h5>
+                <TreeTable :value="nodes" selectionMode="multiple" :selectionKeys.sync="selectedKeys1">
+                    <Column field="name" header="Name" :expander="true"></Column>
+                    <Column field="size" header="Size"></Column>
+                    <Column field="type" header="Type"></Column>
+                </TreeTable>
+            </div>
 
-            <h5>Multiple Selection without MetaKey</h5>
-            <TreeTable :value="nodes" selectionMode="multiple" :selectionKeys.sync="selectedKeys2" :metaKeySelection="false">
-                <Column field="name" header="Name" :expander="true"></Column>
-                <Column field="size" header="Size"></Column>
-                <Column field="type" header="Type"></Column>
-            </TreeTable>
+            <div class="card">
+                <h5>Multiple Selection without MetaKey</h5>
+                <TreeTable :value="nodes" selectionMode="multiple" :selectionKeys.sync="selectedKeys2" :metaKeySelection="false">
+                    <Column field="name" header="Name" :expander="true"></Column>
+                    <Column field="size" header="Size"></Column>
+                    <Column field="type" header="Type"></Column>
+                </TreeTable>
+            </div>
 
-            <h5>Checkbox Selection</h5>
-            <TreeTable :value="nodes" selectionMode="checkbox" :selectionKeys.sync="selectedKeys3">
-                <Column field="name" header="Name" :expander="true"></Column>
-                <Column field="size" header="Size"></Column>
-                <Column field="type" header="Type"></Column>
-            </TreeTable>
+            <div class="card">
+                <h5>Checkbox Selection</h5>
+                <TreeTable :value="nodes" selectionMode="checkbox" :selectionKeys.sync="selectedKeys3">
+                    <Column field="name" header="Name" :expander="true"></Column>
+                    <Column field="size" header="Size"></Column>
+                    <Column field="type" header="Type"></Column>
+                </TreeTable>
+            </div>
 
-            <h5>Events</h5>
-            <TreeTable :value="nodes" selectionMode="single" :selectionKeys.sync="selectedKey2"
-                @node-select="onNodeSelect" @node-unselect="onNodeUnselect">
-                <Column field="name" header="Name" :expander="true"></Column>
-                <Column field="size" header="Size"></Column>
-                <Column field="type" header="Type"></Column>
-            </TreeTable>
+            <div class="card">
+                <h5>Events</h5>
+                <TreeTable :value="nodes" selectionMode="single" :selectionKeys.sync="selectedKey2"
+                    @node-select="onNodeSelect" @node-unselect="onNodeUnselect">
+                    <Column field="name" header="Name" :expander="true"></Column>
+                    <Column field="size" header="Size"></Column>
+                    <Column field="type" header="Type"></Column>
+                </TreeTable>
+            </div>
         </div>
 
         <div class="content-section documentation">

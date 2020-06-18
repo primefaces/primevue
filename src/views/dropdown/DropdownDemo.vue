@@ -8,30 +8,32 @@
         </div>
 
         <div class="content-section implementation">
-            <h5>Basic</h5>
-            <Dropdown v-model="selectedCity1" :options="cities" optionLabel="name" placeholder="Select a City" />
+            <div class="card">
+                <h5>Basic</h5>
+                <Dropdown v-model="selectedCity1" :options="cities" optionLabel="name" placeholder="Select a City" />
 
-            <h5>Editable</h5>
-            <Dropdown v-model="selectedCity2" :options="cities" optionLabel="name" :editable="true"/>
+                <h5>Editable</h5>
+                <Dropdown v-model="selectedCity2" :options="cities" optionLabel="name" :editable="true"/>
 
-            <h5>Advanced with Templating, Filtering and Clear Icon</h5>
-            <Dropdown v-model="selectedCar" :options="cars" optionLabel="brand" :filter="true" placeholder="Select a Car" :showClear="true">
-                <template #value="slotProps">
-                    <div class="p-dropdown-car-value" v-if="slotProps.value">
-                        <img :alt="slotProps.value.brand" :src="'demo/images/car/' + slotProps.value.brand + '.png'" />
-                        <span>{{slotProps.value.brand}}</span>
-                    </div>
-                    <span v-else>
-                        {{slotProps.placeholder}}
-                    </span>
-                </template>
-                <template #option="slotProps">
-                    <div class="p-dropdown-car-option">
-                        <img :alt="slotProps.option.brand" :src="'demo/images/car/' + slotProps.option.brand + '.png'" />
-                        <span>{{slotProps.option.brand}}</span>
-                    </div>
-                </template>
-            </Dropdown>
+                <h5>Advanced with Templating, Filtering and Clear Icon</h5>
+                <Dropdown v-model="selectedCar" :options="cars" optionLabel="brand" :filter="true" placeholder="Select a Car" :showClear="true">
+                    <template #value="slotProps">
+                        <div class="p-dropdown-car-value" v-if="slotProps.value">
+                            <img :alt="slotProps.value.brand" :src="'demo/images/car/' + slotProps.value.brand + '.png'" />
+                            <span>{{slotProps.value.brand}}</span>
+                        </div>
+                        <span v-else>
+                            {{slotProps.placeholder}}
+                        </span>
+                    </template>
+                    <template #option="slotProps">
+                        <div class="p-dropdown-car-option">
+                            <img :alt="slotProps.option.brand" :src="'demo/images/car/' + slotProps.option.brand + '.png'" />
+                            <span>{{slotProps.option.brand}}</span>
+                        </div>
+                    </template>
+                </Dropdown>
+            </div>
         </div>
 
         <DropdownDoc/>

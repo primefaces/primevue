@@ -8,19 +8,21 @@
         </div>
 
         <div class="content-section implementation">
-            <h5>Default</h5>
-            <Editor v-model="value1" editorStyle="height: 320px"/>
+            <div class="card">
+                <h5>Default</h5>
+                <Editor v-model="value1" editorStyle="height: 320px"/>
 
-            <h5>Customized</h5>
-            <Editor v-model="value2" editorStyle="height: 320px">
-                <template slot="toolbar">
-                    <span class="ql-formats">
-                        <button class="ql-bold" v-tooltip.bottom="'Bold'"></button>
-                        <button class="ql-italic" v-tooltip.bottom="'Italic'"></button>
-                        <button class="ql-underline" v-tooltip.bottom="'Underline'"></button>
-                    </span>
-                </template>
-            </Editor>
+                <h5>Customized</h5>
+                <Editor v-model="value2" editorStyle="height: 320px">
+                    <template slot="toolbar">
+                        <span class="ql-formats">
+                            <button class="ql-bold" v-tooltip.bottom="'Bold'"></button>
+                            <button class="ql-italic" v-tooltip.bottom="'Italic'"></button>
+                            <button class="ql-underline" v-tooltip.bottom="'Underline'"></button>
+                        </span>
+                    </template>
+                </Editor>
+            </div>
         </div>
 
         <EditorDoc />

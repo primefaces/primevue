@@ -8,20 +8,22 @@
         </div>
 
         <div class="content-section implementation">
-            <Galleria :value="images" :responsiveOptions="responsiveOptions" :numVisible="5" style="max-width: 640px">
-                <template #item="{item}">
-					<img :src="item.itemImageSrc" :alt="item.alt" style="width: 100%; display: block;" />
-				</template>
-				<template #thumbnail="{item}">
-                    <div class="p-grid p-nogutter p-justify-center">
-                        <img :src="item.thumbnailImageSrc" :alt="item.alt" style="display: block;" />
-                    </div>
-				</template>
-                <template #caption="{item}">
-                    <h4 style="margin-bottom: .5rem;">{{item.title}}</h4>
-                    <p>{{item.alt}}</p>
-                </template>
-            </Galleria>
+            <div class="card">
+                <Galleria :value="images" :responsiveOptions="responsiveOptions" :numVisible="5" style="max-width: 640px">
+                    <template #item="{item}">
+                        <img :src="item.itemImageSrc" :alt="item.alt" style="width: 100%; display: block;" />
+                    </template>
+                    <template #thumbnail="{item}">
+                        <div class="p-grid p-nogutter p-justify-center">
+                            <img :src="item.thumbnailImageSrc" :alt="item.alt" style="display: block;" />
+                        </div>
+                    </template>
+                    <template #caption="{item}">
+                        <h4 style="margin-bottom: .5rem;">{{item.title}}</h4>
+                        <p>{{item.alt}}</p>
+                    </template>
+                </Galleria>
+            </div>
         </div>
 
         <div class="content-section documentation">

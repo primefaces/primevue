@@ -8,11 +8,13 @@
         </div>
 
         <div class="content-section implementation">
-            <h5>Basic</h5>
-            <ProgressSpinner />
+            <div class="card">
+                <h5>Basic</h5>
+                <ProgressSpinner />
 
-            <h5>Custom</h5>
-            <ProgressSpinner style="width:50px;height:50px" strokeWidth="8" fill="#EEEEEE" animationDuration=".5s"/>
+                <h5>Custom</h5>
+                <ProgressSpinner style="width:50px;height:50px" strokeWidth="8" fill="#EEEEEE" animationDuration=".5s"/>
+            </div>
         </div>
 
         <ProgressSpinnerDoc />

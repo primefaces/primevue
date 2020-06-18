@@ -8,11 +8,13 @@
         </div>
 
         <div class="content-section implementation">
-            <TreeTable :value="nodes" :paginator="true" :rows="10">
-                <Column field="name" header="Name" :expander="true"></Column>
-                <Column field="size" header="Size"></Column>
-                <Column field="type" header="Type"></Column>
-            </TreeTable>
+            <div class="card">
+                <TreeTable :value="nodes" :paginator="true" :rows="10">
+                    <Column field="name" header="Name" :expander="true"></Column>
+                    <Column field="size" header="Size"></Column>
+                    <Column field="type" header="Type"></Column>
+                </TreeTable>
+            </div>
         </div>
 
         <div class="content-section documentation">

@@ -8,7 +8,9 @@
         </div>
 
         <div class="content-section implementation">
-            <Chart type="pie" :data="chartData" :options="chartOptions" />
+            <div class="card">
+                <Chart type="pie" :data="chartData" :options="chartOptions" />
+            </div>
         </div>
 
         <PieChartDoc/>

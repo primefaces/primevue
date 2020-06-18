@@ -8,18 +8,20 @@
         </div>
 
         <div class="content-section implementation">
-            <h5>Single</h5>
-            <Listbox v-model="selectedCity" :options="cities" optionLabel="name" style="width:15em" />
+            <div class="card">
+                <h5>Single</h5>
+                <Listbox v-model="selectedCity" :options="cities" optionLabel="name" style="width:15em" />
 
-            <h5>Advanced with Templating, Filtering and Multiple Selection</h5>
-            <Listbox v-model="selectedCars" :options="cars" :multiple="true" :filter="true" optionLabel="brand" listStyle="max-height:250px" style="width:15em">
-                <template #option="slotProps">
-                    <div class="car-item">
-                        <img :alt="slotProps.option.brand" :src="'demo/images/car/' + slotProps.option.brand + '.png'" />
-                        <span>{{slotProps.option.brand}}</span>
-                    </div>
-                </template>
-            </Listbox>
+                <h5>Advanced with Templating, Filtering and Multiple Selection</h5>
+                <Listbox v-model="selectedCars" :options="cars" :multiple="true" :filter="true" optionLabel="brand" listStyle="max-height:250px" style="width:15em">
+                    <template #option="slotProps">
+                        <div class="car-item">
+                            <img :alt="slotProps.option.brand" :src="'demo/images/car/' + slotProps.option.brand + '.png'" />
+                            <span>{{slotProps.option.brand}}</span>
+                        </div>
+                    </template>
+                </Listbox>
+            </div>
         </div>
 
         <ListboxDoc/>

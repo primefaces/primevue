@@ -8,19 +8,24 @@
 		</div>
 
 		<div class="content-section implementation">
-            <h5>Vertical</h5>
-			<DataTable :value="cars" :scrollable="true" scrollHeight="200px" :loading="loading">
-                <Column field="vin" header="Vin"></Column>
-                <Column field="year" header="Year"></Column>
-                <Column field="brand" header="Brand"></Column>
-                <Column field="color" header="Color"></Column>
-            </DataTable>
+            <div class="card">
+                <h5>Vertical</h5>
+                <DataTable :value="cars" :scrollable="true" scrollHeight="200px" :loading="loading">
+                    <Column field="vin" header="Vin"></Column>
+                    <Column field="year" header="Year"></Column>
+                    <Column field="brand" header="Brand"></Column>
+                    <Column field="color" header="Color"></Column>
+                </DataTable>
+            </div>
 
-            <h5>Flexible Scroll</h5>
-            <p>Flex scroll feature makes the scrollable viewport section dynamic so that it can grow or shrink relative to the parent size of the table.
-                Click the button below to display a maximizable Dialog where data viewport adjusts itself according to the size changes.</p>
+            <div class="card">
+                <h5>Flexible Scroll</h5>
+                <p>Flex scroll feature makes the scrollable viewport section dynamic so that it can grow or shrink relative to the parent size of the table.
+                    Click the button below to display a maximizable Dialog where data viewport adjusts itself according to the size changes.</p>
 
-            <Button label="Show" icon="pi pi-external-link" @click="openDialog" />
+                <Button label="Show" icon="pi pi-external-link" @click="openDialog" />
+            </div>
+
             <Dialog header="Flex Scroll" :visible.sync="dialogVisible" :style="{width: '50vw'}" :maximizable="true" :modal="true" :contentStyle="{height: '300px'}">
                 <DataTable :value="cars" :scrollable="true" scrollHeight="flex">
                     <Column field="vin" header="Vin"></Column>
@@ -34,68 +39,76 @@
                 </template>
             </Dialog>
 
-            <h5>Virtual Scroll</h5>
-			<DataTable :value="lazyCars" :scrollable="true" scrollHeight="200px" :lazy="true" :rows="20" :loading="loading"
-                :virtualScroll="true" :virtualRowHeight="30" @virtual-scroll="onVirtualScroll" :totalRecords="lazyTotalRecords">
-                <Column field="vin" header="Vin">
-                    <template #loading>
-                        <span class="loading-text"></span>
-                    </template>
-                </Column>
-                <Column field="year" header="Year">
-                    <template #loading>
-                        <span class="loading-text"></span>
-                    </template>
-                </Column>
-                <Column field="brand" header="Brand">
-                    <template #loading>
-                        <span class="loading-text"></span>
-                    </template>
-                </Column>
-                <Column field="color" header="Color">
-                    <template #loading>
-                        <span class="loading-text"></span>
-                    </template>
-                </Column>
-            </DataTable>
+            <div class="card">
+                <h5>Virtual Scroll</h5>
+                <DataTable :value="lazyCars" :scrollable="true" scrollHeight="200px" :lazy="true" :rows="20" :loading="loading"
+                    :virtualScroll="true" :virtualRowHeight="30" @virtual-scroll="onVirtualScroll" :totalRecords="lazyTotalRecords">
+                    <Column field="vin" header="Vin">
+                        <template #loading>
+                            <span class="loading-text"></span>
+                        </template>
+                    </Column>
+                    <Column field="year" header="Year">
+                        <template #loading>
+                            <span class="loading-text"></span>
+                        </template>
+                    </Column>
+                    <Column field="brand" header="Brand">
+                        <template #loading>
+                            <span class="loading-text"></span>
+                        </template>
+                    </Column>
+                    <Column field="color" header="Color">
+                        <template #loading>
+                            <span class="loading-text"></span>
+                        </template>
+                    </Column>
+                </DataTable>
+            </div>
 
-            <h5>Horizontal and Vertical</h5>
-            <DataTable :value="cars" :scrollable="true" scrollHeight="200px" style="width: 600px" :loading="loading">
-                <Column field="vin" header="Vin" headerStyle="width: 250px" columnKey="vin_1"></Column>
-                <Column field="year" header="Year" headerStyle="width: 250px" columnKey="year_1"></Column>
-                <Column field="brand" header="Brand" headerStyle="width: 250px" columnKey="brand_1"></Column>
-                <Column field="color" header="Color" headerStyle="width: 250px" columnKey="color_1"></Column>
-                <Column field="vin" header="Vin" headerStyle="width: 250px" columnKey="vin_2"></Column>
-                <Column field="year" header="Year" headerStyle="width: 250px" columnKey="year_2"></Column>
-                <Column field="brand" header="Brand" headerStyle="width: 250px" columnKey="brand_2"></Column>
-                <Column field="color" header="Color" headerStyle="width: 250px" columnKey="color_2"></Column>
-            </DataTable>
+            <div class="card">
+                <h5>Horizontal and Vertical</h5>
+                <DataTable :value="cars" :scrollable="true" scrollHeight="200px" style="width: 600px" :loading="loading">
+                    <Column field="vin" header="Vin" headerStyle="width: 250px" columnKey="vin_1"></Column>
+                    <Column field="year" header="Year" headerStyle="width: 250px" columnKey="year_1"></Column>
+                    <Column field="brand" header="Brand" headerStyle="width: 250px" columnKey="brand_1"></Column>
+                    <Column field="color" header="Color" headerStyle="width: 250px" columnKey="color_1"></Column>
+                    <Column field="vin" header="Vin" headerStyle="width: 250px" columnKey="vin_2"></Column>
+                    <Column field="year" header="Year" headerStyle="width: 250px" columnKey="year_2"></Column>
+                    <Column field="brand" header="Brand" headerStyle="width: 250px" columnKey="brand_2"></Column>
+                    <Column field="color" header="Color" headerStyle="width: 250px" columnKey="color_2"></Column>
+                </DataTable>
+            </div>
 
-            <h5>Frozen Rows</h5>
-            <DataTable :value="cars" :frozenValue="frozenCars" :scrollable="true" scrollHeight="200px" :loading="loading">
-                <Column field="vin" header="Vin"></Column>
-                <Column field="year" header="Year"></Column>
-                <Column field="brand" header="Brand"></Column>
-                <Column field="color" header="Color"></Column>
-            </DataTable>
+            <div class="card">
+                <h5>Frozen Rows</h5>
+                <DataTable :value="cars" :frozenValue="frozenCars" :scrollable="true" scrollHeight="200px" :loading="loading">
+                    <Column field="vin" header="Vin"></Column>
+                    <Column field="year" header="Year"></Column>
+                    <Column field="brand" header="Brand"></Column>
+                    <Column field="color" header="Color"></Column>
+                </DataTable>
+            </div>
 
-            <h5>Frozen Columns</h5>
-            <DataTable :value="cars" :scrollable="true" scrollHeight="200px" frozenWidth="300px" :loading="loading">
-                <Column field="vin" header="Vin" headerStyle="width: 300px" columnKey="vin_1" :frozen="true">
-                    <template #body="slotProps">
-                        <span style="font-weight: bold">{{slotProps.data.vin}}</span>
-                    </template>
-                </Column>
-                <Column field="year" header="Year" headerStyle="width: 300px" columnKey="year_1"></Column>
-                <Column field="brand" header="Brand" headerStyle="width: 300px" columnKey="brand_1"></Column>
-                <Column field="color" header="Color" headerStyle="width: 300px" columnKey="color_1"></Column>
-                <Column field="year" header="Year" headerStyle="width: 300px" columnKey="year_2"></Column>
-                <Column field="brand" header="Brand" headerStyle="width: 300px" columnKey="brand_2"></Column>
-                <Column field="color" header="Color" headerStyle="width: 300px" columnKey="color_2"></Column>
-                <Column field="year" header="Year" headerStyle="width: 300px" columnKey="year_3"></Column>
-                <Column field="brand" header="Brand" headerStyle="width: 300px" columnKey="brand_3"></Column>
-                <Column field="color" header="Color" headerStyle="width: 300px" columnKey="color_3"></Column>
-            </DataTable>
+            <div class="card">
+                <h5>Frozen Columns</h5>
+                <DataTable :value="cars" :scrollable="true" scrollHeight="200px" frozenWidth="300px" :loading="loading">
+                    <Column field="vin" header="Vin" headerStyle="width: 300px" columnKey="vin_1" :frozen="true">
+                        <template #body="slotProps">
+                            <span style="font-weight: bold">{{slotProps.data.vin}}</span>
+                        </template>
+                    </Column>
+                    <Column field="year" header="Year" headerStyle="width: 300px" columnKey="year_1"></Column>
+                    <Column field="brand" header="Brand" headerStyle="width: 300px" columnKey="brand_1"></Column>
+                    <Column field="color" header="Color" headerStyle="width: 300px" columnKey="color_1"></Column>
+                    <Column field="year" header="Year" headerStyle="width: 300px" columnKey="year_2"></Column>
+                    <Column field="brand" header="Brand" headerStyle="width: 300px" columnKey="brand_2"></Column>
+                    <Column field="color" header="Color" headerStyle="width: 300px" columnKey="color_2"></Column>
+                    <Column field="year" header="Year" headerStyle="width: 300px" columnKey="year_3"></Column>
+                    <Column field="brand" header="Brand" headerStyle="width: 300px" columnKey="brand_3"></Column>
+                    <Column field="color" header="Color" headerStyle="width: 300px" columnKey="color_3"></Column>
+                </DataTable>
+            </div>
 		</div>
 
         <div class="content-section documentation">

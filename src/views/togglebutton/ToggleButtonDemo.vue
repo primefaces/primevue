@@ -8,13 +8,15 @@
         </div>
 
         <div class="content-section implementation">
-            <h5>Basic</h5>
-            <ToggleButton v-model="checked1" onIcon="pi pi-check" offIcon="pi pi-times" />
-            <p>{{checked1}}</p>
+            <div class="card">
+                <h5>Basic</h5>
+                <ToggleButton v-model="checked1" onIcon="pi pi-check" offIcon="pi pi-times" />
+                <p>{{checked1}}</p>
 
-            <h5>Customized</h5>
-            <ToggleButton v-model="checked2" onLabel="I confirm" offLabel="I reject" onIcon="pi pi-check" offIcon="pi pi-times" style="width: 10em" />
-            <p>{{checked2}}</p>
+                <h5>Customized</h5>
+                <ToggleButton v-model="checked2" onLabel="I confirm" offLabel="I reject" onIcon="pi pi-check" offIcon="pi pi-times" style="width: 10em" />
+                <p>{{checked2}}</p>
+            </div>
         </div>
 
         <ToggleButtonDoc/>

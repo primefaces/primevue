@@ -8,7 +8,9 @@
         </div>
 
         <div class="content-section implementation">
-            <Chart type="doughnut" :data="chartData" :options="chartOptions" />
+            <div class="card">
+                <Chart type="doughnut" :data="chartData" :options="chartOptions" />
+            </div>
         </div>
 
         <DoughnutChartDoc/>

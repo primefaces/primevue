@@ -8,12 +8,14 @@
 		</div>
 
 		<div class="content-section implementation">
-			<DataTable :value="cars">
-                <Column field="vin" header="Vin"></Column>
-                <Column field="year" header="Year"></Column>
-                <Column field="brand" header="Brand"></Column>
-                <Column field="color" header="Color"></Column>
-            </DataTable>
+            <div class="card">
+                <DataTable :value="cars">
+                    <Column field="vin" header="Vin"></Column>
+                    <Column field="year" header="Year"></Column>
+                    <Column field="brand" header="Brand"></Column>
+                    <Column field="color" header="Color"></Column>
+                </DataTable>
+            </div>
 		</div>
 
         <div class="content-section documentation">

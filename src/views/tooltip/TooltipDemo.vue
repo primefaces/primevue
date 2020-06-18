@@ -8,27 +8,29 @@
         </div>
 
         <div class="content-section implementation">
-            <h5>Positions</h5>
-            <div class="p-grid p-fluid">
-                <div class="p-col-12 p-md-3">
-                    <InputText type="text" placeholder="Right" v-tooltip.right="'Enter your username'" />
+            <div class="card">
+                <h5>Positions</h5>
+                <div class="p-grid p-fluid">
+                    <div class="p-col-12 p-md-3">
+                        <InputText type="text" placeholder="Right" v-tooltip.right="'Enter your username'" />
+                    </div>
+                    <div class="p-col-12 p-md-3">
+                        <InputText type="text" placeholder="Top" v-tooltip.top="'Enter your username'" />
+                    </div>
+                    <div class="p-col-12 p-md-3">
+                        <InputText type="text" placeholder="Bottom" v-tooltip.bottom="'Enter your username'" />
+                    </div>
+                    <div class="p-col-12 p-md-3">
+                        <InputText type="text" placeholder="Left" v-tooltip.left="'Enter your username'" />
+                    </div>
                 </div>
-                <div class="p-col-12 p-md-3">
-                    <InputText type="text" placeholder="Top" v-tooltip.top="'Enter your username'" />
-                </div>
-                <div class="p-col-12 p-md-3">
-                    <InputText type="text" placeholder="Bottom" v-tooltip.bottom="'Enter your username'" />
-                </div>
-                <div class="p-col-12 p-md-3">
-                    <InputText type="text" placeholder="Left" v-tooltip.left="'Enter your username'" />
-                </div>
+
+                <h5>Focus and Blur</h5>
+                <InputText type="text" placeholder="Focus" v-tooltip.bottom.focus="'Enter your username'" />
+
+                <h5>Button</h5>
+                <Button type="button" label="Save" icon="pi pi-check" v-tooltip="'Click to proceed'" />
             </div>
-
-            <h5>Focus and Blur</h5>
-            <InputText type="text" placeholder="Focus" v-tooltip.bottom.focus="'Enter your username'" />
-
-            <h5>Button</h5>
-            <Button type="button" label="Save" icon="pi pi-check" v-tooltip="'Click to proceed'" />
         </div>
 
         <TooltipDoc />

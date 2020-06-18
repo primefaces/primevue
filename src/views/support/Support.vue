@@ -8,7 +8,7 @@
         </div>
 
         <div class="content-section documentation">
-            <h5">Community Support</h5>
+            <h5>Community Support</h5>
             <p><a href="https://forum.primefaces.org/viewforum.php?f=110">Forum</a> is where the community users gather to seek support, post topics and discuss the technology. PrimeTek does not
             guarantee response at forum although it is monitored and maintained by our staff. If you need to secure our response within 1 business day, you may consider PrimeVue PRO support.</p>
 

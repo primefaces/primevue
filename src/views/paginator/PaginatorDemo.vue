@@ -8,22 +8,24 @@
 		</div>
 
 		<div class="content-section implementation">
-			<h5>Basic</h5>
-			<Paginator :rows="10" :totalRecords="totalRecords" :rowsPerPageOptions="[10,20,30]"></Paginator>
+            <div class="card">
+                <h5>Basic</h5>
+                <Paginator :rows="10" :totalRecords="totalRecords" :rowsPerPageOptions="[10,20,30]"></Paginator>
 
-			<h5>Custom</h5>
-			<Paginator :first.sync="first" :rows="1" :totalRecords="totalRecords2"
-                template="FirstPageLink PrevPageLink CurrentPageReport NextPageLink LastPageLink">
-                <template #left>
-                    <Button type="button" icon="pi pi-refresh" @click="reset()"/>
-                </template>
-                <template #right>
-                    <Button type="button" icon="pi pi-search" />
-                </template>
-            </Paginator>
+                <h5>Custom</h5>
+                <Paginator :first.sync="first" :rows="1" :totalRecords="totalRecords2"
+                    template="FirstPageLink PrevPageLink CurrentPageReport NextPageLink LastPageLink">
+                    <template #left>
+                        <Button type="button" icon="pi pi-refresh" @click="reset()"/>
+                    </template>
+                    <template #right>
+                        <Button type="button" icon="pi pi-search" />
+                    </template>
+                </Paginator>
 
-            <div class="image-gallery">
-                <img :src="'demo/images/nature/' + image + '.jpg'" />
+                <div class="image-gallery">
+                    <img :src="'demo/images/nature/' + image + '.jpg'" />
+                </div>
             </div>
 		</div>
 

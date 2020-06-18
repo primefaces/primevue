@@ -8,81 +8,87 @@
 		</div>
 
 		<div class="content-section implementation">
-			<Carousel :value="cars" :numVisible="4" :numScroll="3" :responsiveOptions="responsiveOptions">
-				<template #header>
-					<h5>Basic</h5>
-				</template>
-				<template #item="slotProps">
-					<div class="car-item">
-						<div class="car-content">
-							<div>
-								<img :src="'demo/images/car/' + slotProps.data.brand + '.png'" :alt="slotProps.data.brand" />
-							</div>
-							<div>
-								<div class="car-title">{{slotProps.data.brand}}</div>
-								<div class="car-subtitle">{{slotProps.data.year}} | {{slotProps.data.color}}</div>
+            <div class="card">
+                <Carousel :value="cars" :numVisible="4" :numScroll="3" :responsiveOptions="responsiveOptions">
+                    <template #header>
+                        <h5>Basic</h5>
+                    </template>
+                    <template #item="slotProps">
+                        <div class="car-item">
+                            <div class="car-content">
+                                <div>
+                                    <img :src="'demo/images/car/' + slotProps.data.brand + '.png'" :alt="slotProps.data.brand" />
+                                </div>
+                                <div>
+                                    <div class="car-title">{{slotProps.data.brand}}</div>
+                                    <div class="car-subtitle">{{slotProps.data.year}} | {{slotProps.data.color}}</div>
 
-								<div class="car-buttons">
-									<Button icon="pi pi-search" class="p-button-secondary" />
-									<Button icon="pi pi-star" class="p-button-secondary" />
-									<Button icon="pi pi-cog" class="p-button-secondary" />
-								</div>
-							</div>
-						</div>
-					</div>
-				</template>
-			</Carousel>
+                                    <div class="car-buttons">
+                                        <Button icon="pi pi-search" class="p-button-secondary" />
+                                        <Button icon="pi pi-star" class="p-button-secondary" />
+                                        <Button icon="pi pi-cog" class="p-button-secondary" />
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </template>
+                </Carousel>
+            </div>
 
-			<Carousel :value="cars" :numVisible="3" :numScroll="1" :responsiveOptions="responsiveOptions" class="custom-carousel" :circular="true" :autoplayInterval="3000">
-				<template #header>
-					<h5>Circular, AutoPlay, 3 Items per Page and Scroll by 1</h5>
-				</template>
-				<template #item="slotProps">
-					<div class="car-item">
-						<div class="car-content">
-							<div>
-								<img :src="'demo/images/car/' + slotProps.data.brand + '.png'" :alt="slotProps.data.brand" />
-							</div>
-							<div>
-								<div class="car-title">{{slotProps.data.brand}}</div>
-								<div class="car-subtitle">{{slotProps.data.year}} | {{slotProps.data.color}}</div>
+            <div class="card">
+                <Carousel :value="cars" :numVisible="3" :numScroll="1" :responsiveOptions="responsiveOptions" class="custom-carousel" :circular="true" :autoplayInterval="3000">
+                    <template #header>
+                        <h5>Circular, AutoPlay, 3 Items per Page and Scroll by 1</h5>
+                    </template>
+                    <template #item="slotProps">
+                        <div class="car-item">
+                            <div class="car-content">
+                                <div>
+                                    <img :src="'demo/images/car/' + slotProps.data.brand + '.png'" :alt="slotProps.data.brand" />
+                                </div>
+                                <div>
+                                    <div class="car-title">{{slotProps.data.brand}}</div>
+                                    <div class="car-subtitle">{{slotProps.data.year}} | {{slotProps.data.color}}</div>
 
-								<div class="car-buttons">
-									<Button icon="pi pi-search" class="p-button-secondary" />
-									<Button icon="pi pi-star" class="p-button-secondary" />
-									<Button icon="pi pi-cog" class="p-button-secondary" />
-								</div>
-							</div>
-						</div>
-					</div>
-				</template>
-			</Carousel>
+                                    <div class="car-buttons">
+                                        <Button icon="pi pi-search" class="p-button-secondary" />
+                                        <Button icon="pi pi-star" class="p-button-secondary" />
+                                        <Button icon="pi pi-cog" class="p-button-secondary" />
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </template>
+                </Carousel>
+            </div>
 
-			<Carousel :value="cars" :numVisible="1" :numScroll="1" orientation="vertical" verticalViewPortHeight="325px"
-						style="max-width: 400px; margin-top: 2em">
-				<template #header>
-					<h5>Vertical</h5>
-				</template>
-				<template #item="slotProps">
-					<div class="car-item">
-						<div class="car-content">
-							<div>
-								<img :src="'demo/images/car/' + slotProps.data.brand + '.png'" :alt="slotProps.data.brand" />
-							</div>
-							<div>
-								<div class="car-title">{{slotProps.data.brand}}</div>
-								<div class="car-subtitle">{{slotProps.data.year}} | {{slotProps.data.color}}</div>
+            <div class="card">
+                <Carousel :value="cars" :numVisible="1" :numScroll="1" orientation="vertical" verticalViewPortHeight="325px"
+                            style="max-width: 400px; margin-top: 2em">
+                    <template #header>
+                        <h5>Vertical</h5>
+                    </template>
+                    <template #item="slotProps">
+                        <div class="car-item">
+                            <div class="car-content">
+                                <div>
+                                    <img :src="'demo/images/car/' + slotProps.data.brand + '.png'" :alt="slotProps.data.brand" />
+                                </div>
+                                <div>
+                                    <div class="car-title">{{slotProps.data.brand}}</div>
+                                    <div class="car-subtitle">{{slotProps.data.year}} | {{slotProps.data.color}}</div>
 
-								<div class="car-buttons">
-									<Button icon="pi pi-search" class="p-button-secondary" />
-									<Button icon="pi pi-star" class="p-button-secondary" />
-									<Button icon="pi pi-cog" class="p-button-secondary" />
-								</div>
-							</div>
-						</div>
-					</div>
-				</template>
-			</Carousel>
+                                    <div class="car-buttons">
+                                        <Button icon="pi pi-search" class="p-button-secondary" />
+                                        <Button icon="pi pi-star" class="p-button-secondary" />
+                                        <Button icon="pi pi-cog" class="p-button-secondary" />
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </template>
+                </Carousel>
+            </div>
 		</div>
 
 		<CarouselDoc/>
@@ -140,7 +146,7 @@ export default {
 
 .car-item {
     .car-content {
-        border: 1px solid var(--layer-2);
+        border: 1px solid var(--surface-d);
         border-radius: 3px;
         margin: .3rem;
         text-align: center;

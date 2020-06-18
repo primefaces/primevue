@@ -8,17 +8,25 @@
         </div>
 
         <div class="content-section implementation">
-            <h5>Vertical</h5>
-            <Chart type="bar" :data="basicData" :options="basicOptions" />
+            <div class="card">
+                <h5>Vertical</h5>
+                <Chart type="bar" :data="basicData" :options="basicOptions" />
+            </div>
 
-            <h5>Horizontal</h5>
-            <Chart type="horizontalBar" :data="basicData" :options="basicOptions" />
+            <div class="card">
+                <h5>Horizontal</h5>
+                <Chart type="horizontalBar" :data="basicData" :options="basicOptions" />
+            </div>
 
-            <h5>Multi Axis</h5>
-            <Chart type="bar" :data="multiAxisData" :options="multiAxisOptions "/>
+            <div class="card">
+                <h5>Multi Axis</h5>
+                <Chart type="bar" :data="multiAxisData" :options="multiAxisOptions "/>
+            </div>
 
-            <h5>Stacked</h5>
-            <Chart type="bar" :data="stackedData" :options="stackedOptions" />
+            <div class="card">
+                <h5>Stacked</h5>
+                <Chart type="bar" :data="stackedData" :options="stackedOptions" />
+            </div>
         </div>
 
         <BarChartDoc/>

@@ -8,7 +8,9 @@
         </div>
 
         <div class="content-section implementation">
-            <FullCalendar :events="events" :options="options" />
+            <div class="card">
+                <FullCalendar :events="events" :options="options" />
+            </div>
         </div>
 
         <FullCalendarDoc/>

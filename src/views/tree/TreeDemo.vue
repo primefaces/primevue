@@ -8,15 +8,17 @@
         </div>
 
         <div class="content-section implementation">
-            <h5>Basic</h5>
-            <Tree :value="nodes"></Tree>
+            <div class="card">
+                <h5>Basic</h5>
+                <Tree :value="nodes"></Tree>
 
-            <h5>Programmatic Control</h5>
-            <div style="margin-bottom: 1em">
-                <Button type="button" icon="pi pi-plus" label="Expand All" @click="expandAll" />
-                <Button type="button" icon="pi pi-minus" label="Collapse All" @click="collapseAll" />
+                <h5>Programmatic Control</h5>
+                <div style="margin-bottom: 1em">
+                    <Button type="button" icon="pi pi-plus" label="Expand All" @click="expandAll" />
+                    <Button type="button" icon="pi pi-minus" label="Collapse All" @click="collapseAll" />
+                </div>
+                <Tree :value="nodes" :expandedKeys="expandedKeys"></Tree>
             </div>
-            <Tree :value="nodes" :expandedKeys="expandedKeys"></Tree>
         </div>
 
         <TreeDoc />

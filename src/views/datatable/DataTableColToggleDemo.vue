@@ -8,16 +8,18 @@
 		</div>
 
 		<div class="content-section implementation">
-			<DataTable :value="cars">
-                <template #header>
-                    <div style="text-align:left">
-                        <MultiSelect :value="selectedColumns" :options="columns" optionLabel="header" @input="onToggle"
-                            placeholder="Select Columns" style="width: 20em"/>
-                    </div>
-                </template>
-                <Column field="vin" header="Vin" />
-                <Column v-for="(col, index) of selectedColumns" :field="col.field" :header="col.header" :key="col.field + '_' + index"></Column>
-            </DataTable>
+            <div class="card">
+                <DataTable :value="cars">
+                    <template #header>
+                        <div style="text-align:left">
+                            <MultiSelect :value="selectedColumns" :options="columns" optionLabel="header" @input="onToggle"
+                                placeholder="Select Columns" style="width: 20em"/>
+                        </div>
+                    </template>
+                    <Column field="vin" header="Vin" />
+                    <Column v-for="(col, index) of selectedColumns" :field="col.field" :header="col.header" :key="col.field + '_' + index"></Column>
+                </DataTable>
+            </div>
 		</div>
 
         <div class="content-section documentation">

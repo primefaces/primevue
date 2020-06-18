@@ -9,19 +9,23 @@
 		</div>
 
         <div class="content-section implementation">
-            <h5>Fit Mode</h5>
-            <TreeTable :value="nodes" :resizableColumns="true" columnResizeMode="fit">
-                <Column field="name" header="Name" :expander="true"></Column>
-                <Column field="size" header="Size"></Column>
-                <Column field="type" header="Type"></Column>
-            </TreeTable>
+            <div class="card">
+                <h5>Fit Mode</h5>
+                <TreeTable :value="nodes" :resizableColumns="true" columnResizeMode="fit">
+                    <Column field="name" header="Name" :expander="true"></Column>
+                    <Column field="size" header="Size"></Column>
+                    <Column field="type" header="Type"></Column>
+                </TreeTable>
+            </div>
 
-            <h5>Expand Mode</h5>
-            <TreeTable :value="nodes" :resizableColumns="true" columnResizeMode="expand">
-                <Column field="name" header="Name" :expander="true"></Column>
-                <Column field="size" header="Size"></Column>
-                <Column field="type" header="Type"></Column>
-            </TreeTable>
+            <div class="card">
+                <h5>Expand Mode</h5>
+                <TreeTable :value="nodes" :resizableColumns="true" columnResizeMode="expand">
+                    <Column field="name" header="Name" :expander="true"></Column>
+                    <Column field="size" header="Size"></Column>
+                    <Column field="type" header="Type"></Column>
+                </TreeTable>
+            </div>
         </div>
 
         <div class="content-section documentation">

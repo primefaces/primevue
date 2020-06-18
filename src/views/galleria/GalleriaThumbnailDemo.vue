@@ -8,49 +8,57 @@
         </div>
 
         <div class="content-section implementation">
-            <h5>Positioned at Bottom</h5>
-            <Galleria :value="images" :responsiveOptions="responsiveOptions" :numVisible="5" style="max-width: 640px">
-                <template #item="slotProps">
-					<img :src="slotProps.item.itemImageSrc" :alt="slotProps.item.alt" style="width: 100%; display: block;" />
-				</template>
-				<template #thumbnail="slotProps">
+            <div class="card">
+                <h5>Positioned at Bottom</h5>
+                <Galleria :value="images" :responsiveOptions="responsiveOptions" :numVisible="5" style="max-width: 640px">
+                    <template #item="slotProps">
+                        <img :src="slotProps.item.itemImageSrc" :alt="slotProps.item.alt" style="width: 100%; display: block;" />
+                    </template>
+                    <template #thumbnail="slotProps">
+                        <img :src="slotProps.item.thumbnailImageSrc" :alt="slotProps.item.alt" tyle="width: 100%; display: block;" />
+                    </template>
+                </Galleria>
+            </div>
+
+            <div class="card">
+                <h5>Positioned at Left</h5>
+                <Galleria :value="images" :responsiveOptions="responsiveOptions2" :numVisible="4" thumbnailsPosition="left" style="max-width: 640px">
+                    <template #item="slotProps">
+                        <img :src="slotProps.item.itemImageSrc" :alt="slotProps.item.alt" style="width: 100%; display: block;" />
+                    </template>
+                    <template #thumbnail="slotProps">
+                        <div class="p-grid p-nogutter p-justify-center">
+                            <img :src="slotProps.item.thumbnailImageSrc" :alt="slotProps.item.alt" tyle="width: 100%; display: block;" />
+                        </div>
+                    </template>
+                </Galleria>
+            </div>
+
+            <div class="card">
+                <h5>Positioned at Right</h5>
+                <Galleria :value="images" :responsiveOptions="responsiveOptions2" :numVisible="4" thumbnailsPosition="right" style="max-width: 640px">
+                    <template #item="slotProps">
+                        <img :src="slotProps.item.itemImageSrc" :alt="slotProps.item.alt" style="width: 100%; display: block;" />
+                    </template>
+                    <template #thumbnail="slotProps">
+                        <div class="p-grid p-nogutter p-justify-center">
+                            <img :src="slotProps.item.thumbnailImageSrc" :alt="slotProps.item.alt" tyle="width: 100%; display: block;" />
+                        </div>
+                    </template>
+                </Galleria>
+            </div>
+
+            <div class="card">
+                <h5>Positioned at Top</h5>
+                <Galleria :value="images" :responsiveOptions="responsiveOptions" :numVisible="5" thumbnailsPosition="top" style="max-width: 640px">
+                    <template #item="slotProps">
+                        <img :src="slotProps.item.itemImageSrc" :alt="slotProps.item.alt" style="width: 100%; display: block;" />
+                    </template>
+                    <template #thumbnail="slotProps">
                     <img :src="slotProps.item.thumbnailImageSrc" :alt="slotProps.item.alt" tyle="width: 100%; display: block;" />
-				</template>
-            </Galleria>
-
-            <h5>Positioned at Left</h5>
-            <Galleria :value="images" :responsiveOptions="responsiveOptions2" :numVisible="4" thumbnailsPosition="left" style="max-width: 640px">
-                <template #item="slotProps">
-					<img :src="slotProps.item.itemImageSrc" :alt="slotProps.item.alt" style="width: 100%; display: block;" />
-				</template>
-				<template #thumbnail="slotProps">
-                    <div class="p-grid p-nogutter p-justify-center">
-                        <img :src="slotProps.item.thumbnailImageSrc" :alt="slotProps.item.alt" tyle="width: 100%; display: block;" />
-                    </div>
-				</template>
-            </Galleria>
-
-            <h5>Positioned at Right</h5>
-            <Galleria :value="images" :responsiveOptions="responsiveOptions2" :numVisible="4" thumbnailsPosition="right" style="max-width: 640px">
-                <template #item="slotProps">
-					<img :src="slotProps.item.itemImageSrc" :alt="slotProps.item.alt" style="width: 100%; display: block;" />
-				</template>
-				<template #thumbnail="slotProps">
-                    <div class="p-grid p-nogutter p-justify-center">
-                        <img :src="slotProps.item.thumbnailImageSrc" :alt="slotProps.item.alt" tyle="width: 100%; display: block;" />
-                    </div>
-				</template>
-            </Galleria>
-
-            <h5>Positioned at Top</h5>
-            <Galleria :value="images" :responsiveOptions="responsiveOptions" :numVisible="5" thumbnailsPosition="top" style="max-width: 640px">
-                <template #item="slotProps">
-					<img :src="slotProps.item.itemImageSrc" :alt="slotProps.item.alt" style="width: 100%; display: block;" />
-				</template>
-				<template #thumbnail="slotProps">
-                   <img :src="slotProps.item.thumbnailImageSrc" :alt="slotProps.item.alt" tyle="width: 100%; display: block;" />
-				</template>
-            </Galleria>
+                    </template>
+                </Galleria>
+            </div>
         </div>
 
         <div class="content-section documentation">

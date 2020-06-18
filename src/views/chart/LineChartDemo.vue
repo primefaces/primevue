@@ -8,14 +8,20 @@
         </div>
 
         <div class="content-section implementation">
-            <h5>Basic</h5>
-            <Chart type="line" :data="basicData" :options="basicOptions" />
+            <div class="card">
+                <h5>Basic</h5>
+                <Chart type="line" :data="basicData" :options="basicOptions" />
+            </div>
 
-            <h5>Multi Axis</h5>
-            <Chart type="line" :data="multiAxisData" :options="multiAxisOptions" />
+            <div class="card">
+                <h5>Multi Axis</h5>
+                <Chart type="line" :data="multiAxisData" :options="multiAxisOptions" />
+            </div>
 
-            <h5>Line Styles</h5>
-            <Chart type="line" :data="lineStylesData" :options="basicOptions" />
+            <div class="card">
+                <h5>Line Styles</h5>
+                <Chart type="line" :data="lineStylesData" :options="basicOptions" />
+            </div>
         </div>
 
         <LineChartDoc/>

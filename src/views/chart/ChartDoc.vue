@@ -1,5 +1,8 @@
 <template>
 	<div class="content-section documentation">
+        <h1>ChartModel</h1>
+        <p>Chart components are based on <a href="https://www.chartjs.org/">Charts.js</a>, an open source HTML5 based charting library.</p>
+
         <h5>Getting Started</h5>
         <p>To begin with, charts.js package needs to be installed in your project.</p>
  <CodeHighlight lang="javascript">

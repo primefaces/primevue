@@ -8,7 +8,9 @@
         </div>
 
         <div class="content-section implementation">
-            <PanelMenu :model="items" />
+            <div class="card">
+                <PanelMenu :model="items" />
+            </div>
         </div>
 
         <PanelMenuDoc />

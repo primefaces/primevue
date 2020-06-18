@@ -8,11 +8,13 @@
         </div>
 
         <div class="content-section implementation">
-            <h5>Lenient Filter</h5>
-            <Tree :value="nodes" :filter="true" filterMode="lenient"></Tree>
+            <div class="card">
+                <h5>Lenient Filter</h5>
+                <Tree :value="nodes" :filter="true" filterMode="lenient"></Tree>
 
-            <h5>Strict Filter</h5>
-            <Tree :value="nodes" :filter="true" filterMode="strict"></Tree>
+                <h5>Strict Filter</h5>
+                <Tree :value="nodes" :filter="true" filterMode="strict"></Tree>
+            </div>
         </div>
 
         <div class="content-section documentation">

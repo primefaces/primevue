@@ -8,34 +8,36 @@
 		</div>
 
 		<div class="content-section implementation">
-			<DataTable :value="cars" :expandedRows.sync="expandedRows" dataKey="vin"
-                @row-expand="onRowExpand" @row-collapse="onRowCollapse">
-                <template #header>
-                    <div class="table-header-container">
-                        <Button icon="pi pi-plus" label="Expand All" @click="expandAll" />
-                        <Button icon="pi pi-minus" label="Collapse All" @click="collapseAll" />
-                    </div>
-                </template>
-                <Column :expander="true" headerStyle="width: 3em" />
-                <Column field="vin" header="Vin"></Column>
-                <Column field="year" header="Year"></Column>
-                <Column field="brand" header="Brand"></Column>
-                <Column field="color" header="Color"></Column>
-                <template #expansion="slotProps">
-                    <div class="car-details">
-                        <div>
-                            <img :src="'demo/images/car/' + slotProps.data.brand + '.png'" :alt="slotProps.data.brand"/>
-                            <div class="p-grid">
-                                <div class="p-col-12">Vin: <b>{{slotProps.data.vin}}</b></div>
-                                <div class="p-col-12">Year: <b>{{slotProps.data.year}}</b></div>
-                                <div class="p-col-12">Brand: <b>{{slotProps.data.brand}}</b></div>
-                                <div class="p-col-12">Color: <b>{{slotProps.data.color}}</b></div>
-                            </div>
+            <div class="card">
+                <DataTable :value="cars" :expandedRows.sync="expandedRows" dataKey="vin"
+                    @row-expand="onRowExpand" @row-collapse="onRowCollapse">
+                    <template #header>
+                        <div class="table-header-container">
+                            <Button icon="pi pi-plus" label="Expand All" @click="expandAll" />
+                            <Button icon="pi pi-minus" label="Collapse All" @click="collapseAll" />
                         </div>
-                        <Button icon="pi pi-search"></Button>
-                    </div>
-                </template>
-            </DataTable>
+                    </template>
+                    <Column :expander="true" headerStyle="width: 3em" />
+                    <Column field="vin" header="Vin"></Column>
+                    <Column field="year" header="Year"></Column>
+                    <Column field="brand" header="Brand"></Column>
+                    <Column field="color" header="Color"></Column>
+                    <template #expansion="slotProps">
+                        <div class="car-details">
+                            <div>
+                                <img :src="'demo/images/car/' + slotProps.data.brand + '.png'" :alt="slotProps.data.brand"/>
+                                <div class="p-grid">
+                                    <div class="p-col-12">Vin: <b>{{slotProps.data.vin}}</b></div>
+                                    <div class="p-col-12">Year: <b>{{slotProps.data.year}}</b></div>
+                                    <div class="p-col-12">Brand: <b>{{slotProps.data.brand}}</b></div>
+                                    <div class="p-col-12">Color: <b>{{slotProps.data.color}}</b></div>
+                                </div>
+                            </div>
+                            <Button icon="pi pi-search"></Button>
+                        </div>
+                    </template>
+                </DataTable>
+            </div>
 		</div>
 
         <div class="content-section documentation">

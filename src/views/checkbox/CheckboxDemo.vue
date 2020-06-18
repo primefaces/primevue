@@ -8,37 +8,39 @@
         </div>
 
         <div class="content-section implementation">
-            <h5>Basic</h5>
-            <div class="p-field-checkbox">
-                <Checkbox id="binary" v-model="checked" :binary="true" />
-                <label for="binary">{{checked}}</label>
-            </div>
+            <div class="card">
+                <h5>Basic</h5>
+                <div class="p-field-checkbox">
+                    <Checkbox id="binary" v-model="checked" :binary="true" />
+                    <label for="binary">{{checked}}</label>
+                </div>
 
-            <h5>Multiple</h5>
-            <div class="p-field-checkbox">
-                <Checkbox id="city1" name="city" value="Chicago" v-model="cities" />
-                <label for="city1">Chicago</label>
-            </div>
-            <div class="p-field-checkbox">
-                <Checkbox id="city2" name="city" value="Los Angeles" v-model="cities" />
-                <label for="city2">Los Angeles</label>
-            </div>
-            <div class="p-field-checkbox">
-                <Checkbox id="city3" name="city" value="New York" v-model="cities" />
-                <label for="city3">New York</label>
-            </div>
-            <div class="p-field-checkbox">
-                <Checkbox id="city4" name="city" value="San Francisco" v-model="cities" />
-                <label for="city4">San Francisco</label>
-            </div>
-            <p>Selected Cities : <span style="font-weight: bold">{{cities}}</span></p>
+                <h5>Multiple</h5>
+                <div class="p-field-checkbox">
+                    <Checkbox id="city1" name="city" value="Chicago" v-model="cities" />
+                    <label for="city1">Chicago</label>
+                </div>
+                <div class="p-field-checkbox">
+                    <Checkbox id="city2" name="city" value="Los Angeles" v-model="cities" />
+                    <label for="city2">Los Angeles</label>
+                </div>
+                <div class="p-field-checkbox">
+                    <Checkbox id="city3" name="city" value="New York" v-model="cities" />
+                    <label for="city3">New York</label>
+                </div>
+                <div class="p-field-checkbox">
+                    <Checkbox id="city4" name="city" value="San Francisco" v-model="cities" />
+                    <label for="city4">San Francisco</label>
+                </div>
+                <p>Selected Cities : <span style="font-weight: bold">{{cities}}</span></p>
 
-            <h5>Dynamic Values, Preselection, Value Binding and Disabled Option</h5>
-            <div v-for="theme of themes" :key="theme.key" class="p-field-checkbox">
-                <Checkbox :id="theme.key" name="theme" :value="theme" v-model="selectedThemes" :disabled="theme.key === 'U'"/>
-                <label :for="theme.key">{{theme.name}}</label>
+                <h5>Dynamic Values, Preselection, Value Binding and Disabled Option</h5>
+                <div v-for="theme of themes" :key="theme.key" class="p-field-checkbox">
+                    <Checkbox :id="theme.key" name="theme" :value="theme" v-model="selectedThemes" :disabled="theme.key === 'U'"/>
+                    <label :for="theme.key">{{theme.name}}</label>
+                </div>
+                <p>Selected Themes: <span style="font-weight: bold">{{this.selectedThemes}}</span></p>       
             </div>
-            <p>Selected Themes: <span style="font-weight: bold">{{this.selectedThemes}}</span></p>
         </div>
 
         <CheckboxDoc/>

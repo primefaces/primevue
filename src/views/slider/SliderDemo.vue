@@ -8,21 +8,23 @@
         </div>
 
         <div class="content-section implementation">
-            <h5>Basic: {{value1}}</h5>
-            <Slider v-model="value1" />
+            <div class="card">
+                <h5>Basic: {{value1}}</h5>
+                <Slider v-model="value1" />
 
-            <h5>Input: {{value2}}</h5>
-            <InputText v-model.number="value2" />
-            <Slider v-model="value2" />
+                <h5>Input: {{value2}}</h5>
+                <InputText v-model.number="value2" />
+                <Slider v-model="value2" />
 
-            <h5>Step: {{value3}}</h5>
-            <Slider v-model="value3" :step="20" />
+                <h5>Step: {{value3}}</h5>
+                <Slider v-model="value3" :step="20" />
 
-            <h5>Range: {{value4}}</h5>
-            <Slider v-model="value4" :range="true" />
+                <h5>Range: {{value4}}</h5>
+                <Slider v-model="value4" :range="true" />
 
-            <h5>Vertical: {{value5}}</h5>
-            <Slider v-model="value5" orientation="vertical" />
+                <h5>Vertical: {{value5}}</h5>
+                <Slider v-model="value5" orientation="vertical" />
+            </div>
         </div>
 
         <SliderDoc/>

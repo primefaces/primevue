@@ -8,68 +8,70 @@
         </div>
 
         <div class="content-section implementation">
-            <h5>Basic</h5>
-            <Button label="Submit" />
-            <Button label="Submit" disabled="disabled" />
+            <div class="card">
+                <h5>Basic</h5>
+                <Button label="Submit" />
+                <Button label="Submit" disabled="disabled" />
 
-            <h5>Icons</h5>
-            <Button icon="pi pi-check" />
-            <Button label="Submit" icon="pi pi-check" />
-            <Button label="Submit" icon="pi pi-check" iconPos="right" />
+                <h5>Icons</h5>
+                <Button icon="pi pi-check" />
+                <Button label="Submit" icon="pi pi-check" />
+                <Button label="Submit" icon="pi pi-check" iconPos="right" />
 
-            <h5>Severities</h5>
-            <Button label="Primary" />
-            <Button label="Secondary" class="p-button-secondary" />
-            <Button label="Success" class="p-button-success" />
-            <Button label="Info" class="p-button-info" />
-            <Button label="Warning" class="p-button-warning" />
-            <Button label="Help" class="p-button-help" />
-            <Button label="Danger" class="p-button-danger" />
-            <Button label="Link" class="p-button-link" />
+                <h5>Severities</h5>
+                <Button label="Primary" />
+                <Button label="Secondary" class="p-button-secondary" />
+                <Button label="Success" class="p-button-success" />
+                <Button label="Info" class="p-button-info" />
+                <Button label="Warning" class="p-button-warning" />
+                <Button label="Help" class="p-button-help" />
+                <Button label="Danger" class="p-button-danger" />
+                <Button label="Link" class="p-button-link" />
 
-            <h5>Raised Buttons</h5>
-            <Button label="Primary" class="p-button-raised" />
-            <Button label="Secondary" class="p-button-raised p-button-secondary" />
-            <Button label="Success" class="p-button-raised p-button-success" />
-            <Button label="Info" class="p-button-raised p-button-info" />
-            <Button label="Warning" class="p-button-raised p-button-warning" />
-            <Button label="Help" class="p-button-raised p-button-help" />
-            <Button label="Danger" class="p-button-raised p-button-danger" />
+                <h5>Raised Buttons</h5>
+                <Button label="Primary" class="p-button-raised" />
+                <Button label="Secondary" class="p-button-raised p-button-secondary" />
+                <Button label="Success" class="p-button-raised p-button-success" />
+                <Button label="Info" class="p-button-raised p-button-info" />
+                <Button label="Warning" class="p-button-raised p-button-warning" />
+                <Button label="Help" class="p-button-raised p-button-help" />
+                <Button label="Danger" class="p-button-raised p-button-danger" />
 
-            <h5>Rounded Buttons</h5>
-            <Button label="Primary" class="p-button-rounded" />
-            <Button label="Secondary" class="p-button-rounded p-button-secondary" />
-            <Button label="Success" class="p-button-rounded p-button-success" />
-            <Button label="Info" class="p-button-rounded p-button-info" />
-            <Button label="Warning" class="p-button-rounded p-button-warning" />
-            <Button label="Help" class="p-button-rounded p-button-help" />
-            <Button label="Danger" class="p-button-rounded p-button-danger" />
+                <h5>Rounded Buttons</h5>
+                <Button label="Primary" class="p-button-rounded" />
+                <Button label="Secondary" class="p-button-rounded p-button-secondary" />
+                <Button label="Success" class="p-button-rounded p-button-success" />
+                <Button label="Info" class="p-button-rounded p-button-info" />
+                <Button label="Warning" class="p-button-rounded p-button-warning" />
+                <Button label="Help" class="p-button-rounded p-button-help" />
+                <Button label="Danger" class="p-button-rounded p-button-danger" />
 
-            <h5>Rounded Icon Buttons</h5>
-            <Button icon="pi pi-check" class="p-button-rounded" />
-            <Button icon="pi pi-bookmark" class="p-button-rounded p-button-secondary" />
-            <Button icon="pi pi-search" class="p-button-rounded p-button-success" />
-            <Button icon="pi pi-user" class="p-button-rounded p-button-info" />
-            <Button icon="pi pi-lock" class="p-button-rounded p-button-warning" />
-            <Button icon="pi pi-lock" class="p-button-rounded p-button-help" />
-            <Button icon="pi pi-times" class="p-button-rounded p-button-danger" />
+                <h5>Rounded Icon Buttons</h5>
+                <Button icon="pi pi-check" class="p-button-rounded" />
+                <Button icon="pi pi-bookmark" class="p-button-rounded p-button-secondary" />
+                <Button icon="pi pi-search" class="p-button-rounded p-button-success" />
+                <Button icon="pi pi-user" class="p-button-rounded p-button-info" />
+                <Button icon="pi pi-lock" class="p-button-rounded p-button-warning" />
+                <Button icon="pi pi-lock" class="p-button-rounded p-button-help" />
+                <Button icon="pi pi-times" class="p-button-rounded p-button-danger" />
 
-            <h5>Badges</h5>
-            <Button type="button" label="Emails" badge="8" />
-            <Button type="button" label="Messages" icon="pi pi-users" class="p-button-warning" badge="8" badgeClass="p-badge-danger" />
+                <h5>Badges</h5>
+                <Button type="button" label="Emails" badge="8" />
+                <Button type="button" label="Messages" icon="pi pi-users" class="p-button-warning" badge="8" badgeClass="p-badge-danger" />
 
-            <h5>Button Set</h5>
-            <span class="p-buttonset">
-                <Button label="Save" icon="pi pi-check" />
-                <Button label="Delete" icon="pi pi-trash" />
-                <Button label="Cancel" icon="pi pi-times" />
-            </span>
+                <h5>Button Set</h5>
+                <span class="p-buttonset">
+                    <Button label="Save" icon="pi pi-check" />
+                    <Button label="Delete" icon="pi pi-trash" />
+                    <Button label="Cancel" icon="pi pi-times" />
+                </span>
 
-            <h5>Sizes</h5>
-            <div class="sizes">
-                <Button label="Small" icon="pi pi-check" class="p-button-sm"  />
-                <Button label="Normal" icon="pi pi-check" class="p-button"  />
-                <Button label="Large" icon="pi pi-check" class="p-button-lg" />
+                <h5>Sizes</h5>
+                <div class="sizes">
+                    <Button label="Small" icon="pi pi-check" class="p-button-sm"  />
+                    <Button label="Normal" icon="pi pi-check" class="p-button"  />
+                    <Button label="Large" icon="pi pi-check" class="p-button-lg" />
+                </div>
             </div>
         </div>
 

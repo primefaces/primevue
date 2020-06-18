@@ -9,12 +9,14 @@
         </div>
 
         <div class="content-section implementation">
-            <TreeTable :value="nodes" :lazy="true" :paginator="true" :rows="rows" :loading="loading"
-                @node-expand="onExpand" @page="onPage" :totalRecords="totalRecords">
-                <Column field="name" header="Name" :expander="true"></Column>
-                <Column field="size" header="Size"></Column>
-                <Column field="type" header="Type"></Column>
-            </TreeTable>
+            <div class="card">
+                <TreeTable :value="nodes" :lazy="true" :paginator="true" :rows="rows" :loading="loading"
+                    @node-expand="onExpand" @page="onPage" :totalRecords="totalRecords">
+                    <Column field="name" header="Name" :expander="true"></Column>
+                    <Column field="size" header="Size"></Column>
+                    <Column field="type" header="Type"></Column>
+                </TreeTable>
+            </div>
         </div>
 
         <div class="content-section documentation">

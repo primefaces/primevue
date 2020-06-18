@@ -8,11 +8,13 @@
         </div>
 
         <div class="content-section implementation">
-            <Button type="button" label="Toggle" @click="toggle" aria:haspopup="true" aria-controls="overlay_panel" />
+            <div class="card">
+                <Button type="button" label="Toggle" @click="toggle" aria:haspopup="true" aria-controls="overlay_panel" />
 
-            <OverlayPanel ref="op" appendTo="body" :showCloseIcon="true" id="overlay_panel">
-                <img src="demo/images/nature/nature1.jpg" alt="Nature Image">
-            </OverlayPanel>
+                <OverlayPanel ref="op" appendTo="body" :showCloseIcon="true" id="overlay_panel">
+                    <img src="demo/images/nature/nature1.jpg" alt="Nature Image">
+                </OverlayPanel>
+            </div>
         </div>
 
         <OverlayPanelDoc/>

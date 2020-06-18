@@ -8,7 +8,9 @@
         </div>
 
         <div class="content-section implementation">
-            <Tree :value="nodes" @node-expand="onNodeExpand" :loading="loading"></Tree>
+            <div class="card">
+                <Tree :value="nodes" @node-expand="onNodeExpand" :loading="loading"></Tree>
+            </div>
         </div>
 
         <div class="content-section documentation">

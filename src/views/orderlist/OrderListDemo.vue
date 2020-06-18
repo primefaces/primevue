@@ -8,20 +8,22 @@
         </div>
 
         <div class="content-section implementation">
-            <OrderList v-model="cars" listStyle="height:auto" dataKey="vin">
-                <template #header>
-                    List of Cars
-                </template>
-                <template #item="slotProps">
-                    <div class="p-caritem">
-                        <img :src="'demo/images/car/' + slotProps.item.brand + '.png'">
-                        <div>
-                            <span class="p-caritem-vin">{{slotProps.item.vin}}</span>
-                            <span>{{slotProps.item.year}} - {{slotProps.item.color}}</span>
+            <div class="card">
+                <OrderList v-model="cars" listStyle="height:auto" dataKey="vin">
+                    <template #header>
+                        List of Cars
+                    </template>
+                    <template #item="slotProps">
+                        <div class="p-caritem">
+                            <img :src="'demo/images/car/' + slotProps.item.brand + '.png'">
+                            <div>
+                                <span class="p-caritem-vin">{{slotProps.item.vin}}</span>
+                                <span>{{slotProps.item.year}} - {{slotProps.item.color}}</span>
+                            </div>
                         </div>
-                    </div>
-                </template>
-            </OrderList>
+                    </template>
+                </OrderList>
+            </div>
         </div>
 
         <OrderListDoc />

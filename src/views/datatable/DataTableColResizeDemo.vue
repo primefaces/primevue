@@ -9,13 +9,15 @@
 		</div>
 
 		<div class="content-section implementation">
-            <h5>Fit Mode</h5>
-			<DataTable :value="cars" :resizableColumns="true" columnResizeMode="fit">
-                <Column field="vin" header="Vin"></Column>
-                <Column field="year" header="Year"></Column>
-                <Column field="brand" header="Brand"></Column>
-                <Column field="color" header="Color"></Column>
-            </DataTable>
+            <div class="card">
+                <h5>Fit Mode</h5>
+                <DataTable :value="cars" :resizableColumns="true" columnResizeMode="fit">
+                    <Column field="vin" header="Vin"></Column>
+                    <Column field="year" header="Year"></Column>
+                    <Column field="brand" header="Brand"></Column>
+                    <Column field="color" header="Color"></Column>
+                </DataTable>
+            </div>
 
             <h5>Expand Mode</h5>
 			<DataTable :value="cars" :resizableColumns="true" columnResizeMode="expand">

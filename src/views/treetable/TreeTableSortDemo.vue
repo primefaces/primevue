@@ -8,26 +8,32 @@
         </div>
 
         <div class="content-section implementation">
-            <h5>Single Column Sorting</h5>
-            <TreeTable :value="nodes" sortMode="single">
-                <Column field="name" header="Name" :expander="true" :sortable="true"></Column>
-                <Column field="size" header="Size" :sortable="true"></Column>
-                <Column field="type" header="Type" :sortable="true"></Column>
-            </TreeTable>
+            <div class="card">
+                <h5>Single Column Sorting</h5>
+                <TreeTable :value="nodes" sortMode="single">
+                    <Column field="name" header="Name" :expander="true" :sortable="true"></Column>
+                    <Column field="size" header="Size" :sortable="true"></Column>
+                    <Column field="type" header="Type" :sortable="true"></Column>
+                </TreeTable>
+            </div>
 
-            <h5>Multiple Column Sorting</h5>
-            <TreeTable :value="nodes" sortMode="multiple">
-                <Column field="name" header="Name" :expander="true" :sortable="true"></Column>
-                <Column field="size" header="Size" :sortable="true"></Column>
-                <Column field="type" header="Type" :sortable="true"></Column>
-            </TreeTable>
+            <div class="card">
+                <h5>Multiple Column Sorting</h5>
+                <TreeTable :value="nodes" sortMode="multiple">
+                    <Column field="name" header="Name" :expander="true" :sortable="true"></Column>
+                    <Column field="size" header="Size" :sortable="true"></Column>
+                    <Column field="type" header="Type" :sortable="true"></Column>
+                </TreeTable>
+            </div>
 
-            <h5>Removable Sort</h5>
-            <TreeTable :value="nodes" sortMode="single" removableSort>
-                <Column field="name" header="Name" :expander="true" :sortable="true"></Column>
-                <Column field="size" header="Size" :sortable="true"></Column>
-                <Column field="type" header="Type" :sortable="true"></Column>
-            </TreeTable>
+            <div class="card">
+                <h5>Removable Sort</h5>
+                <TreeTable :value="nodes" sortMode="single" removableSort>
+                    <Column field="name" header="Name" :expander="true" :sortable="true"></Column>
+                    <Column field="size" header="Size" :sortable="true"></Column>
+                    <Column field="type" header="Type" :sortable="true"></Column>
+                </TreeTable>
+            </div>
         </div>
 
         <div class="content-section documentation">

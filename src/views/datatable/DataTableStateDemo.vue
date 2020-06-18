@@ -8,89 +8,93 @@
 		</div>
 
 		<div class="content-section implementation">
-            <h5>Session Storage</h5>
-			<DataTable :value="cars" :paginator="true" :rows="10" :filters.sync="filters"
-                :selection.sync="selectedCar1" selectionMode="single" dataKey="vin"
-                stateStorage="session" stateKey="dt-state-demo-session">
-                <template #header>
-                    <div style="text-align: right">
-                        <i class="pi pi-search" style="margin: 4px 4px 0px 0px;"></i>
-                        <InputText v-model="filters['global']" placeholder="Global Search" size="50" />
-                    </div>
-                </template>
-                <Column field="vin" header="Vin" filterMatchMode="startsWith" :sortable="true">
-                    <template #filter>
-                        <InputText type="text" v-model="filters['vin']" class="p-column-filter" placeholder="Starts with" />
+            <div class="card">
+                <h5>Session Storage</h5>
+                <DataTable :value="cars" :paginator="true" :rows="10" :filters.sync="filters"
+                    :selection.sync="selectedCar1" selectionMode="single" dataKey="vin"
+                    stateStorage="session" stateKey="dt-state-demo-session">
+                    <template #header>
+                        <div style="text-align: right">
+                            <i class="pi pi-search" style="margin: 4px 4px 0px 0px;"></i>
+                            <InputText v-model="filters['global']" placeholder="Global Search" size="50" />
+                        </div>
                     </template>
-                </Column>
-                <Column field="year" header="Year" filterMatchMode="contains" :sortable="true">
-                    <template #filter>
-                        <InputText type="text" v-model="filters['year']" class="p-column-filter" placeholder="Contains" />
+                    <Column field="vin" header="Vin" filterMatchMode="startsWith" :sortable="true">
+                        <template #filter>
+                            <InputText type="text" v-model="filters['vin']" class="p-column-filter" placeholder="Starts with" />
+                        </template>
+                    </Column>
+                    <Column field="year" header="Year" filterMatchMode="contains" :sortable="true">
+                        <template #filter>
+                            <InputText type="text" v-model="filters['year']" class="p-column-filter" placeholder="Contains" />
+                        </template>
+                    </Column>
+                    <Column field="brand" header="Brand" filterMatchMode="equals" :sortable="true">
+                        <template #filter>
+                            <Dropdown v-model="filters['brand']" :options="brands" optionLabel="brand" optionValue="value" placeholder="Select a Brand" class="p-column-filter" :showClear="true">
+                                <template #option="slotProps">
+                                    <div class="p-clearfix p-dropdown-car-option">
+                                        <img :alt="slotProps.option.brand" :src="'demo/images/car/' + slotProps.option.brand + '.png'" />
+                                        <span>{{slotProps.option.brand}}</span>
+                                    </div>
+                                </template>
+                            </Dropdown>
+                        </template>
+                    </Column>
+                    <Column field="color" header="Color" filterMatchMode="in" :sortable="true">
+                        <template #filter>
+                            <MultiSelect v-model="filters['color']" :options="colors" optionLabel="name" optionValue="value" placeholder="Select a Color" />
+                        </template>
+                    </Column>
+                    <template #empty>
+                        No records found.
                     </template>
-                </Column>
-                <Column field="brand" header="Brand" filterMatchMode="equals" :sortable="true">
-                    <template #filter>
-                        <Dropdown v-model="filters['brand']" :options="brands" optionLabel="brand" optionValue="value" placeholder="Select a Brand" class="p-column-filter" :showClear="true">
-                            <template #option="slotProps">
-                                <div class="p-clearfix p-dropdown-car-option">
-                                    <img :alt="slotProps.option.brand" :src="'demo/images/car/' + slotProps.option.brand + '.png'" />
-                                    <span>{{slotProps.option.brand}}</span>
-                                </div>
-                            </template>
-                        </Dropdown>
-                    </template>
-                </Column>
-                <Column field="color" header="Color" filterMatchMode="in" :sortable="true">
-                    <template #filter>
-                        <MultiSelect v-model="filters['color']" :options="colors" optionLabel="name" optionValue="value" placeholder="Select a Color" />
-                    </template>
-                </Column>
-                <template #empty>
-                    No records found.
-                </template>
-			</DataTable>
+                </DataTable>
+            </div>
 
-            <h5>Local Storage</h5>
-			<DataTable :value="cars" :paginator="true" :rows="10" :filters.sync="filters"
-                :selection.sync="selectedCar2" selectionMode="single" dataKey="vin"
-                stateStorage="local" stateKey="dt-state-demo-local">
-                <template #header>
-                    <div style="text-align: right">
-                        <i class="pi pi-search" style="margin: 4px 4px 0px 0px;"></i>
-                        <InputText v-model="filters['global']" placeholder="Global Search" size="50" />
-                    </div>
-                </template>
-                <Column field="vin" header="Vin" filterMatchMode="startsWith" :sortable="true">
-                    <template #filter>
-                        <InputText type="text" v-model="filters['vin']" class="p-column-filter" placeholder="Starts with" />
+            <div class="card">
+                <h5>Local Storage</h5>
+                <DataTable :value="cars" :paginator="true" :rows="10" :filters.sync="filters"
+                    :selection.sync="selectedCar2" selectionMode="single" dataKey="vin"
+                    stateStorage="local" stateKey="dt-state-demo-local">
+                    <template #header>
+                        <div style="text-align: right">
+                            <i class="pi pi-search" style="margin: 4px 4px 0px 0px;"></i>
+                            <InputText v-model="filters['global']" placeholder="Global Search" size="50" />
+                        </div>
                     </template>
-                </Column>
-                <Column field="year" header="Year" filterMatchMode="contains" :sortable="true">
-                    <template #filter>
-                        <InputText type="text" v-model="filters['year']" class="p-column-filter" placeholder="Contains" />
+                    <Column field="vin" header="Vin" filterMatchMode="startsWith" :sortable="true">
+                        <template #filter>
+                            <InputText type="text" v-model="filters['vin']" class="p-column-filter" placeholder="Starts with" />
+                        </template>
+                    </Column>
+                    <Column field="year" header="Year" filterMatchMode="contains" :sortable="true">
+                        <template #filter>
+                            <InputText type="text" v-model="filters['year']" class="p-column-filter" placeholder="Contains" />
+                        </template>
+                    </Column>
+                    <Column field="brand" header="Brand" filterMatchMode="equals" :sortable="true">
+                        <template #filter>
+                            <Dropdown v-model="filters['brand']" :options="brands" optionLabel="brand" optionValue="value" placeholder="Select a Brand" class="p-column-filter" :showClear="true">
+                                <template #option="slotProps">
+                                    <div class="p-clearfix p-dropdown-car-option">
+                                        <img :alt="slotProps.option.brand" :src="'demo/images/car/' + slotProps.option.brand + '.png'" />
+                                        <span>{{slotProps.option.brand}}</span>
+                                    </div>
+                                </template>
+                            </Dropdown>
+                        </template>
+                    </Column>
+                    <Column field="color" header="Color" filterMatchMode="in" :sortable="true">
+                        <template #filter>
+                            <MultiSelect v-model="filters['color']" :options="colors" optionLabel="name" optionValue="value" placeholder="Select a Color" />
+                        </template>
+                    </Column>
+                    <template #empty>
+                        No records found.
                     </template>
-                </Column>
-                <Column field="brand" header="Brand" filterMatchMode="equals" :sortable="true">
-                    <template #filter>
-                        <Dropdown v-model="filters['brand']" :options="brands" optionLabel="brand" optionValue="value" placeholder="Select a Brand" class="p-column-filter" :showClear="true">
-                            <template #option="slotProps">
-                                <div class="p-clearfix p-dropdown-car-option">
-                                    <img :alt="slotProps.option.brand" :src="'demo/images/car/' + slotProps.option.brand + '.png'" />
-                                    <span>{{slotProps.option.brand}}</span>
-                                </div>
-                            </template>
-                        </Dropdown>
-                    </template>
-                </Column>
-                <Column field="color" header="Color" filterMatchMode="in" :sortable="true">
-                    <template #filter>
-                        <MultiSelect v-model="filters['color']" :options="colors" optionLabel="name" optionValue="value" placeholder="Select a Color" />
-                    </template>
-                </Column>
-                <template #empty>
-                    No records found.
-                </template>
-			</DataTable>
+                </DataTable>
+            </div>
 		</div>
 
         <div class="content-section documentation">

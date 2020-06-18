@@ -8,46 +8,52 @@
         </div>
 
         <div class="content-section implementation">
-            <h5>With Thumbnails</h5>
-            <Galleria :value="images" :responsiveOptions="responsiveOptions2" :numVisible="9" containerStyle="max-width: 50%"
-                :circular="true" :fullScreen="true" :showItemNavigators="true" :visible.sync="displayBasic">
-                <template #item="slotProps">
-					<img :src="slotProps.item.itemImageSrc" :alt="slotProps.item.alt" style="width: 100%; display: block;" />
-				</template>
-				<template #thumbnail="slotProps">
-                    <img :src="slotProps.item.thumbnailImageSrc" :alt="slotProps.item.alt" style="display: block;" />
-				</template>
-            </Galleria>
+            <div class="card">
+                <h5>With Thumbnails</h5>
+                <Galleria :value="images" :responsiveOptions="responsiveOptions2" :numVisible="9" containerStyle="max-width: 50%"
+                    :circular="true" :fullScreen="true" :showItemNavigators="true" :visible.sync="displayBasic">
+                    <template #item="slotProps">
+                        <img :src="slotProps.item.itemImageSrc" :alt="slotProps.item.alt" style="width: 100%; display: block;" />
+                    </template>
+                    <template #thumbnail="slotProps">
+                        <img :src="slotProps.item.thumbnailImageSrc" :alt="slotProps.item.alt" style="display: block;" />
+                    </template>
+                </Galleria>
 
-            <Button label="Show" icon="pi pi-external-link" @click="displayBasic = true" />
+                <Button label="Show" icon="pi pi-external-link" @click="displayBasic = true" />
+            </div>
 
-            <h5>Without Thumbnails</h5>
-            <Galleria :value="images" :responsiveOptions="responsiveOptions" :numVisible="7" containerStyle="max-width: 850px"
-                :circular="true" :fullScreen="true" :showItemNavigators="true" :showThumbnails="false" :visible.sync="displayBasic2">
-                <template #item="slotProps">
-					<img :src="slotProps.item.itemImageSrc" :alt="slotProps.item.alt" style="width: 100%; display: block;" />
-				</template>
-				<template #thumbnail="slotProps">
-                    <img :src="slotProps.item.thumbnailImageSrc" :alt="slotProps.item.alt" style="display: block;" />
-				</template>
-            </Galleria>
+            <div class="card">
+                <h5>Without Thumbnails</h5>
+                <Galleria :value="images" :responsiveOptions="responsiveOptions" :numVisible="7" containerStyle="max-width: 850px"
+                    :circular="true" :fullScreen="true" :showItemNavigators="true" :showThumbnails="false" :visible.sync="displayBasic2">
+                    <template #item="slotProps">
+                        <img :src="slotProps.item.itemImageSrc" :alt="slotProps.item.alt" style="width: 100%; display: block;" />
+                    </template>
+                    <template #thumbnail="slotProps">
+                        <img :src="slotProps.item.thumbnailImageSrc" :alt="slotProps.item.alt" style="display: block;" />
+                    </template>
+                </Galleria>
 
-            <Button label="Show" icon="pi pi-external-link" @click="displayBasic2 = true" />
+                <Button label="Show" icon="pi pi-external-link" @click="displayBasic2 = true" />
+            </div>
 
-            <h5>Custom Content</h5>
-            <Galleria :value="images" :activeIndex.sync="activeIndex" :responsiveOptions="responsiveOptions" :numVisible="7" containerStyle="max-width: 850px"
-                :circular="true" :fullScreen="true" :showItemNavigators="true" :showThumbnails="false" :visible.sync="displayCustom">
-                <template #item="slotProps">
-					<img :src="slotProps.item.itemImageSrc" :alt="slotProps.item.alt" style="width: 100%; display: block;" />
-				</template>
-				<template #thumbnail="slotProps">
-                    <img :src="slotProps.item.thumbnailImageSrc" :alt="slotProps.item.alt" style="display: block;" />
-				</template>
-            </Galleria>
+            <div class="card">
+                <h5>Custom Content</h5>
+                <Galleria :value="images" :activeIndex.sync="activeIndex" :responsiveOptions="responsiveOptions" :numVisible="7" containerStyle="max-width: 850px"
+                    :circular="true" :fullScreen="true" :showItemNavigators="true" :showThumbnails="false" :visible.sync="displayCustom">
+                    <template #item="slotProps">
+                        <img :src="slotProps.item.itemImageSrc" :alt="slotProps.item.alt" style="width: 100%; display: block;" />
+                    </template>
+                    <template #thumbnail="slotProps">
+                        <img :src="slotProps.item.thumbnailImageSrc" :alt="slotProps.item.alt" style="display: block;" />
+                    </template>
+                </Galleria>
 
-            <div v-if="images" class="p-grid" style="max-width: 400px;">
-                <div v-for="(image, index) of images" class="p-col-3" :key="index">
-                    <img :src="image.thumbnailImageSrc" :alt="image.alt" style="cursor: pointer" @click="imageClick(index)"/>
+                <div v-if="images" class="p-grid" style="max-width: 400px;">
+                    <div v-for="(image, index) of images" class="p-col-3" :key="index">
+                        <img :src="image.thumbnailImageSrc" :alt="image.alt" style="cursor: pointer" @click="imageClick(index)"/>
+                    </div>
                 </div>
             </div>
         </div>

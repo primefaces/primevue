@@ -8,7 +8,9 @@
         </div>
 
         <div class="content-section implementation">
-            <Password v-model="value" />
+            <div class="card">
+                <Password v-model="value" />
+            </div>
         </div>
 
         <PasswordDoc/>

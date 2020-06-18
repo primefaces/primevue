@@ -8,21 +8,23 @@
         </div>
 
         <div class="content-section implementation p-fluid">
-            <h5>Basic</h5>
-            <Chips v-model="value1" />
+            <div class="card">
+                <h5>Basic</h5>
+                <Chips v-model="value1" />
 
-            <h5>Comma Separator</h5>
-            <Chips v-model="value2" separator="," />
+                <h5>Comma Separator</h5>
+                <Chips v-model="value2" separator="," />
 
-            <h5>Template</h5>
-            <Chips v-model="value3">
-                <template #chip="slotProps">
-                    <div>
-                        <span>{{slotProps.value}} - (active) </span>
-                        <i class="pi pi-user-plus" style="font-size: 14px"></i>
-                    </div>
-                </template>
-            </Chips>
+                <h5>Template</h5>
+                <Chips v-model="value3">
+                    <template #chip="slotProps">
+                        <div>
+                            <span>{{slotProps.value}} - (active) </span>
+                            <i class="pi pi-user-plus" style="font-size: 14px"></i>
+                        </div>
+                    </template>
+                </Chips>
+            </div>
         </div>
 
         <ChipsDoc />

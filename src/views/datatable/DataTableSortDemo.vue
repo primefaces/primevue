@@ -8,37 +8,45 @@
 		</div>
 
 		<div class="content-section implementation">
-            <h5>Single Column</h5>
-			<DataTable :value="cars">
-                <Column field="vin" header="Vin" :sortable="true"></Column>
-                <Column field="year" header="Year" :sortable="true"></Column>
-                <Column field="brand" header="Brand" :sortable="true"></Column>
-                <Column field="color" header="Color" :sortable="true"></Column>
-            </DataTable>
+            <div class="card">
+                <h5>Single Column</h5>
+                <DataTable :value="cars">
+                    <Column field="vin" header="Vin" :sortable="true"></Column>
+                    <Column field="year" header="Year" :sortable="true"></Column>
+                    <Column field="brand" header="Brand" :sortable="true"></Column>
+                    <Column field="color" header="Color" :sortable="true"></Column>
+                </DataTable>
+            </div>
 
-            <h5>Multiple Columns</h5>
-			<DataTable :value="cars" sortMode="multiple">
-                <Column field="vin" header="Vin" :sortable="true"></Column>
-                <Column field="year" header="Year" :sortable="true"></Column>
-                <Column field="brand" header="Brand" :sortable="true"></Column>
-                <Column field="color" header="Color" :sortable="true"></Column>
-            </DataTable>
+            <div class="card">
+                <h5>Multiple Columns</h5>
+                <DataTable :value="cars" sortMode="multiple">
+                    <Column field="vin" header="Vin" :sortable="true"></Column>
+                    <Column field="year" header="Year" :sortable="true"></Column>
+                    <Column field="brand" header="Brand" :sortable="true"></Column>
+                    <Column field="color" header="Color" :sortable="true"></Column>
+                </DataTable>
+            </div>
 
-            <h5>Presort</h5>
-            <DataTable :value="cars" sortField="year" :sortOrder="-1">
-                <Column field="vin" header="Vin" :sortable="true"></Column>
-                <Column field="year" header="Year" :sortable="true"></Column>
-                <Column field="brand" header="Brand" :sortable="true"></Column>
-                <Column field="color" header="Color" :sortable="true"></Column>
-            </DataTable>
+            <div class="card">
+                <h5>Presort</h5>
+                <DataTable :value="cars" sortField="year" :sortOrder="-1">
+                    <Column field="vin" header="Vin" :sortable="true"></Column>
+                    <Column field="year" header="Year" :sortable="true"></Column>
+                    <Column field="brand" header="Brand" :sortable="true"></Column>
+                    <Column field="color" header="Color" :sortable="true"></Column>
+                </DataTable>
+            </div>
 
-            <h5>Removable Sort</h5>
-			<DataTable :value="cars" removableSort>
-                <Column field="vin" header="Vin" :sortable="true"></Column>
-                <Column field="year" header="Year" :sortable="true"></Column>
-                <Column field="brand" header="Brand" :sortable="true"></Column>
-                <Column field="color" header="Color" :sortable="true"></Column>
-            </DataTable>
+            <div class="card">
+                <h5>Removable Sort</h5>
+                <DataTable :value="cars" removableSort>
+                    <Column field="vin" header="Vin" :sortable="true"></Column>
+                    <Column field="year" header="Year" :sortable="true"></Column>
+                    <Column field="brand" header="Brand" :sortable="true"></Column>
+                    <Column field="color" header="Color" :sortable="true"></Column>
+                </DataTable>
+            </div>
 		</div>
 
         <div class="content-section documentation">

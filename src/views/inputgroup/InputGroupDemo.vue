@@ -8,104 +8,107 @@
         </div>
 
         <div class="content-section implementation">
-            <h5>Addons</h5>
-            <div class="p-grid p-fluid">
-                <div class="p-col-12 p-md-4">
-                    <div class="p-inputgroup">
-                        <span class="p-inputgroup-addon">
-                            <i class="pi pi-user"></i>
-                        </span>
-                        <InputText placeholder="Username" />
+            <div class="card">
+
+                <h5>Addons</h5>
+                <div class="p-grid p-fluid">
+                    <div class="p-col-12 p-md-4">
+                        <div class="p-inputgroup">
+                            <span class="p-inputgroup-addon">
+                                <i class="pi pi-user"></i>
+                            </span>
+                            <InputText placeholder="Username" />
+                        </div>
+                    </div>
+
+                    <div class="p-col-12 p-md-4">
+                        <div class="p-inputgroup">
+                            <span class="p-inputgroup-addon">$</span>
+                            <InputText placeholder="Price" />
+                            <span class="p-inputgroup-addon">.00</span>
+                        </div>
+                    </div>
+
+                    <div class="p-col-12 p-md-4">
+                        <div class="p-inputgroup">
+                            <span class="p-inputgroup-addon">W</span>
+                            <InputText placeholder="Website" />
+                        </div>
                     </div>
                 </div>
 
-                <div class="p-col-12 p-md-4">
-                    <div class="p-inputgroup">
-                        <span class="p-inputgroup-addon">$</span>
-                        <InputText placeholder="Price" />
-                        <span class="p-inputgroup-addon">.00</span>
+                <h5>Multiple Addons</h5>
+                <div class="p-grid">
+                    <div class="p-col-12">
+                        <div class="p-inputgroup">
+                            <span class="p-inputgroup-addon">
+                                <i class="pi pi-clock"></i>
+                            </span>
+                            <span class="p-inputgroup-addon">
+                                <i class="pi pi-star"></i>
+                            </span>
+                            <InputText placeholder="Price" />
+                            <span class="p-inputgroup-addon">$</span>
+                            <span class="p-inputgroup-addon">.00</span>
+                        </div>
                     </div>
                 </div>
 
-                <div class="p-col-12 p-md-4">
-                    <div class="p-inputgroup">
-                        <span class="p-inputgroup-addon">W</span>
-                        <InputText placeholder="Website" />
+                <h5>Button Addons</h5>
+                <div class="p-grid p-fluid">
+                    <div class="p-col-12 p-md-4">
+                        <div class="p-inputgroup">
+                            <Button label="Search"/>
+                            <InputText placeholder="Keyword"/>
+                        </div>
                     </div>
-                </div>
-            </div>
 
-            <h5>Multiple Addons</h5>
-            <div class="p-grid">
-                <div class="p-col-12">
-                    <div class="p-inputgroup">
-                        <span class="p-inputgroup-addon">
-                            <i class="pi pi-clock"></i>
-                        </span>
-                        <span class="p-inputgroup-addon">
-                            <i class="pi pi-star"></i>
-                        </span>
-                        <InputText placeholder="Price" />
-                        <span class="p-inputgroup-addon">$</span>
-                        <span class="p-inputgroup-addon">.00</span>
+                    <div class="p-col-12 p-md-4">
+                        <div class="p-inputgroup">
+                            <InputText placeholder="Keyword"/>
+                            <Button icon="pi pi-search" class="p-button-warning"/>
+                        </div>
                     </div>
-                </div>
-            </div>
 
-            <h5>Button Addons</h5>
-            <div class="p-grid p-fluid">
-                <div class="p-col-12 p-md-4">
-                    <div class="p-inputgroup">
-                        <Button label="Search"/>
-                        <InputText placeholder="Keyword"/>
+                    <div class="p-col-12 p-md-4">
+                        <div class="p-inputgroup">
+                            <Button icon="pi pi-check" class="p-button-success"/>
+                            <InputText placeholder="Vote"/>
+                            <Button icon="pi pi-times" class="p-button-danger"/>
+                        </div>
                     </div>
                 </div>
 
-                <div class="p-col-12 p-md-4">
-                    <div class="p-inputgroup">
-                        <InputText placeholder="Keyword"/>
-                        <Button icon="pi pi-search" class="p-button-warning"/>
+                <h5>Checkbox and RadioButton</h5>
+                <div class="p-grid p-fluid">
+                    <div class="p-col-12 p-md-12">
+                        <div class="p-inputgroup">
+                            <span class="p-inputgroup-addon">
+                                <Checkbox v-model="checked1" :binary="true" />
+                            </span>
+                            <InputText placeholder="Username"/>
+                        </div>
                     </div>
-                </div>
 
-                <div class="p-col-12 p-md-4">
-                    <div class="p-inputgroup">
-                        <Button icon="pi pi-check" class="p-button-success"/>
-                        <InputText placeholder="Vote"/>
-                        <Button icon="pi pi-times" class="p-button-danger"/>
+                    <div class="p-col-12 p-md-12">
+                        <div class="p-inputgroup">
+                            <InputText placeholder="Price"/>
+                            <span class="p-inputgroup-addon">
+                                <RadioButton name="rb1" value="rb1" v-model="radioValue1" />
+                            </span>
+                        </div>
                     </div>
-                </div>
-            </div>
 
-            <h5>Checkbox and RadioButton</h5>
-            <div class="p-grid p-fluid">
-                <div class="p-col-12 p-md-12">
-                    <div class="p-inputgroup">
-                        <span class="p-inputgroup-addon">
-                            <Checkbox v-model="checked1" :binary="true" />
-                        </span>
-                        <InputText placeholder="Username"/>
-                    </div>
-                </div>
-
-                <div class="p-col-12 p-md-12">
-                    <div class="p-inputgroup">
-                        <InputText placeholder="Price"/>
-                        <span class="p-inputgroup-addon">
-                            <RadioButton name="rb1" value="rb1" v-model="radioValue1" />
-                        </span>
-                    </div>
-                </div>
-
-                <div class="p-col-12 p-md-12">
-                    <div class="p-inputgroup">
-                        <span class="p-inputgroup-addon">
-                            <Checkbox v-model="checked2" :binary="true" />
-                        </span>
-                        <InputText placeholder="Website"/>
-                        <span class="p-inputgroup-addon">
-                            <RadioButton name="rb2" value="rb2" v-model="radioValue2" />
-                        </span>
+                    <div class="p-col-12 p-md-12">
+                        <div class="p-inputgroup">
+                            <span class="p-inputgroup-addon">
+                                <Checkbox v-model="checked2" :binary="true" />
+                            </span>
+                            <InputText placeholder="Website"/>
+                            <span class="p-inputgroup-addon">
+                                <RadioButton name="rb2" value="rb2" v-model="radioValue2" />
+                            </span>
+                        </div>
                     </div>
                 </div>
             </div>

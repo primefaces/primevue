@@ -8,8 +8,10 @@
         </div>
 
         <div class="content-section implementation">
-            <TabMenu :model="items" />
-            <router-view/>
+            <div class="card">
+                <TabMenu :model="items" />
+                <router-view/>
+            </div>
         </div>
 
         <TabMenuDoc />
@@ -39,17 +41,6 @@ export default {
 
 <style scoped lang="scss">
 /deep/ .tabmenudemo-content  {
-    display: flex;
-    align-items: center;
-    padding: 1rem;
-
-    h1 {
-        font-weight: 400;
-        font-size: 16px;
-    }
-
-    i {
-        margin-right: .5rem;
-    }
+    padding: 2rem 1rem;
 }
 </style>

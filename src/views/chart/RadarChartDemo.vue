@@ -8,7 +8,9 @@
         </div>
 
         <div class="content-section implementation">
-            <Chart type="radar" :data="chartData" :options="chartOptions" />
+            <div class="card">
+                <Chart type="radar" :data="chartData" :options="chartOptions" />
+            </div>
         </div>
 
         <RadarChartDoc/>

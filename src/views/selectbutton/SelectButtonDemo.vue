@@ -8,24 +8,26 @@
         </div>
 
         <div class="content-section implementation">
-            <h5>Single</h5>
-            <SelectButton v-model="selectedCity" :options="cities" optionLabel="name" />
-            <p>Selected City: <span style="font-weight: bold">{{selectedCity}}</span></p>
+            <div class="card">
+                <h5>Single</h5>
+                <SelectButton v-model="selectedCity" :options="cities" optionLabel="name" />
+                <p>Selected City: <span style="font-weight: bold">{{selectedCity}}</span></p>
 
-            <h5>Multiple</h5>
-            <SelectButton v-model="selectedCars" :options="cars" optionLabel="brand" :multiple="true" />
-            <p>Selected Cars: <span style="font-weight: bold">{{selectedCars}}</span></p>
+                <h5>Multiple</h5>
+                <SelectButton v-model="selectedCars" :options="cars" optionLabel="brand" :multiple="true" />
+                <p>Selected Cars: <span style="font-weight: bold">{{selectedCars}}</span></p>
 
-            <h5>Custom Content</h5>
-            <SelectButton v-model="selectedCar" :options="cars" optionLabel="brand">
-                <template #option="slotProps">
-                    <div class="car-option">
-                        <img :alt="slotProps.option.brand" :src="'demo/images/car/' + slotProps.option.brand + '.png'" />
-                        <div>{{slotProps.option.brand}}</div>
-                    </div>
-                </template>
-            </SelectButton>
-            <p>Selected Car: <span style="font-weight: bold">{{selectedCar}}</span></p>
+                <h5>Custom Content</h5>
+                <SelectButton v-model="selectedCar" :options="cars" optionLabel="brand">
+                    <template #option="slotProps">
+                        <div class="car-option">
+                            <img :alt="slotProps.option.brand" :src="'demo/images/car/' + slotProps.option.brand + '.png'" />
+                            <div>{{slotProps.option.brand}}</div>
+                        </div>
+                    </template>
+                </SelectButton>
+                <p>Selected Car: <span style="font-weight: bold">{{selectedCar}}</span></p>
+            </div>
         </div>
 
         <SelectButtonDoc/>

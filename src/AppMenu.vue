@@ -14,6 +14,7 @@
             <div class="menu-items">
                 <router-link to="/icons">Icons</router-link>
                 <router-link to="/flexgrid">Grid System</router-link>
+                <router-link to="/formlayout">FormLayout</router-link>
                 <router-link to="/elevation">Elevation</router-link>
                 <router-link to="/spacing">Spacing</router-link>
             </div>
@@ -32,7 +33,6 @@
                 <router-link to="/inputnumber">InputNumber</router-link>
                 <router-link to="/inputswitch">InputSwitch</router-link>
                 <router-link to="/inputtext">InputText</router-link>
-                <router-link to="/formlayout">FormLayout</router-link>
                 <router-link to="/listbox">Listbox</router-link>
                 <router-link to="/multiselect">MultiSelect</router-link>
                 <router-link to="/password">Password</router-link>

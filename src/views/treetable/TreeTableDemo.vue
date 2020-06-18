@@ -8,29 +8,35 @@
         </div>
 
         <div class="content-section implementation">
-            <h5>Basic</h5>
-            <TreeTable :value="nodes">
-                <Column field="name" header="Name" :expander="true"></Column>
-                <Column field="size" header="Size"></Column>
-                <Column field="type" header="Type"></Column>
-            </TreeTable>
-
-            <h5>Dynamic Columns</h5>
-            <TreeTable :value="nodes">
-                <Column v-for="col of columns" :key="col.field"
-                    :field="col.field" :header="col.header" :expander="col.expander"></Column>
-            </TreeTable>
-
-            <h5>Programmatic Control</h5>
-            <div style="margin-bottom: 1em">
-                <Button type="button" icon="pi pi-plus" label="Expand All" @click="expandAll" />
-                <Button type="button" icon="pi pi-minus" label="Collapse All" @click="collapseAll" />
+            <div class="card">
+                <h5>Basic</h5>
+                <TreeTable :value="nodes">
+                    <Column field="name" header="Name" :expander="true"></Column>
+                    <Column field="size" header="Size"></Column>
+                    <Column field="type" header="Type"></Column>
+                </TreeTable>
             </div>
-            <TreeTable :value="nodes" :expandedKeys="expandedKeys">
-                <Column field="name" header="Name" :expander="true"></Column>
-                <Column field="size" header="Size"></Column>
-                <Column field="type" header="Type"></Column>
-            </TreeTable>
+
+            <div class="card">
+                <h5>Dynamic Columns</h5>
+                <TreeTable :value="nodes">
+                    <Column v-for="col of columns" :key="col.field"
+                        :field="col.field" :header="col.header" :expander="col.expander"></Column>
+                </TreeTable>
+            </div>
+
+            <div class="card">
+                <h5>Programmatic Control</h5>
+                <div style="margin-bottom: 1em">
+                    <Button type="button" icon="pi pi-plus" label="Expand All" @click="expandAll" />
+                    <Button type="button" icon="pi pi-minus" label="Collapse All" @click="collapseAll" />
+                </div>
+                <TreeTable :value="nodes" :expandedKeys="expandedKeys">
+                    <Column field="name" header="Name" :expander="true"></Column>
+                    <Column field="size" header="Size"></Column>
+                    <Column field="type" header="Type"></Column>
+                </TreeTable>
+            </div>
         </div>
 
         <TreeTableDoc />

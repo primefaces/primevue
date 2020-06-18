@@ -8,7 +8,9 @@
         </div>
 
         <div class="content-section implementation">
-            <Chart type="bar" :data="chartData" :options="chartOptions"/>
+            <div class="card">
+                <Chart type="bar" :data="chartData" :options="chartOptions"/>
+            </div>
         </div>
 
         <ComboChartDoc/>

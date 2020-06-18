@@ -1,14 +1,10 @@
 <template>
     <div>
-        <div class="content-section introduction">
-            <div class="feature-intro">
-                <h1>MenuModel</h1>
-                <p>PrimeVue menu components share a common api to specify the menuitems and submenus.</p>
-            </div>
-        </div>
-
         <div class="content-section documentation">
-            <h5">MenuItem</h5>
+            <h1>MenuModel</h1>
+            <p>PrimeVue menu components share a common api to specify the menuitems and submenus.</p>
+
+            <h5>MenuItem</h5>
                 <p>Core of the API is the MenuItem class that defines various options such as the label, icon and children of an item in a menu.</p>
 <CodeHighlight lang="js">
 const items: [

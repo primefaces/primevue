@@ -1,7 +1,6 @@
 <template>
     <div class="tabmenudemo-content">
-        <i class="pi pi-fw pi-pencil" />
-        <h1>Edit Component Content</h1>
+        <h5>Edit Component Content</h5>
     </div>
 </template>
 

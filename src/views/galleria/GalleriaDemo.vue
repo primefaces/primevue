@@ -8,14 +8,16 @@
         </div>
 
         <div class="content-section implementation">
-            <Galleria :value="images" :responsiveOptions="responsiveOptions" :numVisible="5" style="max-width: 640px">
-                <template #item="slotProps">
-					<img :src="slotProps.item.itemImageSrc" :alt="slotProps.item.alt" style="width: 100%" />
-				</template>
-				<template #thumbnail="slotProps">
-                    <img :src="slotProps.item.thumbnailImageSrc" :alt="slotProps.item.alt" />
-				</template>
-            </Galleria>
+            <div class="card">
+                <Galleria :value="images" :responsiveOptions="responsiveOptions" :numVisible="5" style="max-width: 640px">
+                    <template #item="slotProps">
+                        <img :src="slotProps.item.itemImageSrc" :alt="slotProps.item.alt" style="width: 100%" />
+                    </template>
+                    <template #thumbnail="slotProps">
+                        <img :src="slotProps.item.thumbnailImageSrc" :alt="slotProps.item.alt" />
+                    </template>
+                </Galleria>
+            </div>
         </div>
 
         <GalleriaDoc />

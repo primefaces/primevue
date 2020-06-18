@@ -8,8 +8,10 @@
         </div>
 
         <div class="content-section implementation">
-            <p>Enter "date" to display the current date, "greet {0}" for a message and "random" to get a random number.</p>
-            <Terminal welcomeMessage="Welcome to PrimeVue" prompt="primevue $" class="dark-demo-terminal" />
+            <div class="card">
+                <p>Enter "date" to display the current date, "greet {0}" for a message and "random" to get a random number.</p>
+                <Terminal welcomeMessage="Welcome to PrimeVue" prompt="primevue $" class="dark-demo-terminal" />
+            </div>
         </div>
 
         <TerminalDoc />

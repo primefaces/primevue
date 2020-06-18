@@ -8,14 +8,16 @@
         </div>
 
         <div class="content-section implementation">
-            <Tree :value="nodes">
-                <template #default="slotProps">
-                    <b>{{slotProps.node.label}}</b>
-                </template>
-                <template #url="slotProps">
-                    <a :href="slotProps.node.data">{{slotProps.node.label}}</a>
-                </template>
-            </Tree>
+            <div class="card">
+                <Tree :value="nodes">
+                    <template #default="slotProps">
+                        <b>{{slotProps.node.label}}</b>
+                    </template>
+                    <template #url="slotProps">
+                        <a :href="slotProps.node.data">{{slotProps.node.label}}</a>
+                    </template>
+                </Tree>
+            </div>
         </div>
 
         <div class="content-section documentation">

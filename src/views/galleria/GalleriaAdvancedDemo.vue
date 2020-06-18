@@ -8,29 +8,31 @@
         </div>
 
         <div class="content-section implementation">
-            <Galleria ref="galleria" :value="images" :activeIndex.sync="activeIndex" :numVisible="5" style="max-width: 640px;" :class="galleriaClass"
-                :showThumbnails="showThumbnails" :showItemNavigators="true" :showItemNavigatorsOnHover="true"
-                :circular="true" :autoPlay="true" :transitionInterval="3000">
-                <template #item="slotProps">
-					<img :src="slotProps.item.itemImageSrc" :alt="slotProps.item.alt" :style="[{'width': !fullScreen ? '100%' : '', 'display': !fullScreen ? 'block' : ''}]" />
-				</template>
-				<template #thumbnail="slotProps">
-                    <div class="p-grid p-nogutter p-justify-center">
-                        <img :src="slotProps.item.thumbnailImageSrc" :alt="slotProps.item.alt" style="display: block;" />
-                    </div>
-				</template>
-                <template #footer>
-                    <div class="custom-galleria-footer">
-                        <Button icon="pi pi-list" @click="onThumbnailButtonClick" />
-                        <span v-if="images" class="title-container">
-                            <span>{{activeIndex + 1}}/{{images.length}}</span>
-                            <span class="title">{{images[activeIndex].title}}</span>
-                            <span>{{images[activeIndex].alt}}</span>
-                        </span>
-                        <Button :icon="fullScreenIcon" @click="toggleFullScreen" class="fullscreen-button" />
-                    </div>
-                </template>
-            </Galleria>
+            <div class="card">
+                <Galleria ref="galleria" :value="images" :activeIndex.sync="activeIndex" :numVisible="5" style="max-width: 640px;" :class="galleriaClass"
+                    :showThumbnails="showThumbnails" :showItemNavigators="true" :showItemNavigatorsOnHover="true"
+                    :circular="true" :autoPlay="true" :transitionInterval="3000">
+                    <template #item="slotProps">
+                        <img :src="slotProps.item.itemImageSrc" :alt="slotProps.item.alt" :style="[{'width': !fullScreen ? '100%' : '', 'display': !fullScreen ? 'block' : ''}]" />
+                    </template>
+                    <template #thumbnail="slotProps">
+                        <div class="p-grid p-nogutter p-justify-center">
+                            <img :src="slotProps.item.thumbnailImageSrc" :alt="slotProps.item.alt" style="display: block;" />
+                        </div>
+                    </template>
+                    <template #footer>
+                        <div class="custom-galleria-footer">
+                            <Button icon="pi pi-list" @click="onThumbnailButtonClick" />
+                            <span v-if="images" class="title-container">
+                                <span>{{activeIndex + 1}}/{{images.length}}</span>
+                                <span class="title">{{images[activeIndex].title}}</span>
+                                <span>{{images[activeIndex].alt}}</span>
+                            </span>
+                            <Button :icon="fullScreenIcon" @click="toggleFullScreen" class="fullscreen-button" />
+                        </div>
+                    </template>
+                </Galleria>
+            </div>
         </div>
 
         <div class="content-section documentation">

@@ -8,18 +8,20 @@
 		</div>
 
 		<div class="content-section implementation">
-			<DataTable :value="cars" :paginator="true" :rows="10">
-                <Column field="vin" header="Vin"></Column>
-                <Column field="year" header="Year"></Column>
-                <Column field="brand" header="Brand"></Column>
-                <Column field="color" header="Color"></Column>
-                <template #paginatorLeft>
-                    <Button type="button" icon="pi pi-refresh" />
-                </template>
-                <template #paginatorRight>
-                    <Button type="button" icon="pi pi-cloud" />
-                </template>
-            </DataTable>
+            <div class="card">
+                <DataTable :value="cars" :paginator="true" :rows="10">
+                    <Column field="vin" header="Vin"></Column>
+                    <Column field="year" header="Year"></Column>
+                    <Column field="brand" header="Brand"></Column>
+                    <Column field="color" header="Color"></Column>
+                    <template #paginatorLeft>
+                        <Button type="button" icon="pi pi-refresh" />
+                    </template>
+                    <template #paginatorRight>
+                        <Button type="button" icon="pi pi-cloud" />
+                    </template>
+                </DataTable>
+            </div>
 		</div>
 
         <div class="content-section documentation">

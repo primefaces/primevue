@@ -411,7 +411,7 @@ export default {
 				</a>
 <CodeHighlight>
 <template v-pre>
-&lt;DataView :value="cars" :layout="layout" paginatorPosition="both" :paginator="true" :rows="20" :sortOrder="sortOrder" :sortField="sortField"&gt;
+&lt;DataView :value="cars" :layout="layout" paginatorPosition="bottom" :paginator="true" :rows="20" :sortOrder="sortOrder" :sortField="sortField"&gt;
     &lt;template #header&gt;
         &lt;div class="p-grid p-nogutter"&gt;
             &lt;div class="p-col-6" style="text-align: left"&gt;

@@ -8,43 +8,46 @@
 		</div>
 
 		<div class="content-section implementation">
-			<DataView :value="cars" :layout="layout" paginatorPosition="both" :paginator="true" :rows="20" :sortOrder="sortOrder" :sortField="sortField">
-				<template #header>
-					<div class="p-grid p-nogutter">
-						<div class="p-col-6" style="text-align: left">
-							<Dropdown v-model="sortKey" :options="sortOptions" optionLabel="label" placeholder="Sort By" @change="onSortChange($event)"/>
-						</div>
-						<div class="p-col-6" style="text-align: right">
-							<DataViewLayoutOptions v-model="layout" />
-						</div>
-					</div>
-				</template>
-				<template #list="slotProps" >
-					<div class="p-col-12">
-                        <div class="car-details">
-                            <div>
-                                <img :src="'demo/images/car/' + slotProps.data.brand + '.png'" :alt="slotProps.data.brand"/>
-                                <div class="p-grid">
-                                    <div class="p-col-12">Vin: <b>{{slotProps.data.vin}}</b></div>
-                                    <div class="p-col-12">Year: <b>{{slotProps.data.year}}</b></div>
-                                    <div class="p-col-12">Brand: <b>{{slotProps.data.brand}}</b></div>
-                                    <div class="p-col-12">Color: <b>{{slotProps.data.color}}</b></div>
-                                </div>
+            <div class="card">
+                <DataView :value="cars" :layout="layout" paginatorPosition="bottom" :paginator="true" :rows="20"
+                    :sortOrder="sortOrder" :sortField="sortField">
+                    <template #header>
+                        <div class="p-grid p-nogutter">
+                            <div class="p-col-6" style="text-align: left">
+                                <Dropdown v-model="sortKey" :options="sortOptions" optionLabel="label" placeholder="Sort By" @change="onSortChange($event)"/>
                             </div>
-                            <Button icon="pi pi-search"></Button>
+                            <div class="p-col-6" style="text-align: right">
+                                <DataViewLayoutOptions v-model="layout" />
+                            </div>
                         </div>
-                    </div>
-				</template>
-				<template #grid="slotProps">
-					<div style="padding: .5em" class="p-col-12 p-md-3">
-						<Panel :header="slotProps.data.vin" style="text-align: center">
-							<img :src="'demo/images/car/' + slotProps.data.brand + '.png'" :alt="slotProps.data.brand"/>
-							<div class="car-detail">{{slotProps.data.year}} - {{slotProps.data.color}}</div>
-							<Button icon="pi pi-search"></Button>
-						</Panel>
-					</div>
-				</template>
-			</DataView>
+                    </template>
+                    <template #list="slotProps" >
+                        <div class="p-col-12">
+                            <div class="car-details">
+                                <div>
+                                    <img :src="'demo/images/car/' + slotProps.data.brand + '.png'" :alt="slotProps.data.brand"/>
+                                    <div class="p-grid">
+                                        <div class="p-col-12">Vin: <b>{{slotProps.data.vin}}</b></div>
+                                        <div class="p-col-12">Year: <b>{{slotProps.data.year}}</b></div>
+                                        <div class="p-col-12">Brand: <b>{{slotProps.data.brand}}</b></div>
+                                        <div class="p-col-12">Color: <b>{{slotProps.data.color}}</b></div>
+                                    </div>
+                                </div>
+                                <Button icon="pi pi-search"></Button>
+                            </div>
+                        </div>
+                    </template>
+                    <template #grid="slotProps">
+                        <div style="padding: .5em" class="p-col-12 p-md-3">
+                            <Panel :header="slotProps.data.vin" style="text-align: center">
+                                <img :src="'demo/images/car/' + slotProps.data.brand + '.png'" :alt="slotProps.data.brand"/>
+                                <div class="car-detail">{{slotProps.data.year}} - {{slotProps.data.color}}</div>
+                                <Button icon="pi pi-search"></Button>
+                            </Panel>
+                        </div>
+                    </template>
+                </DataView>
+            </div>
 		</div>
 
 		<DataViewDoc />

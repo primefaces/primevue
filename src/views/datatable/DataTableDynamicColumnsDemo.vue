@@ -8,9 +8,11 @@
 		</div>
 
 		<div class="content-section implementation">
-			<DataTable :value="cars">
-                <Column v-for="col of columns" :field="col.field" :header="col.header" :key="col.field"></Column>
-            </DataTable>
+            <div class="card">
+                <DataTable :value="cars">
+                    <Column v-for="col of columns" :field="col.field" :header="col.header" :key="col.field"></Column>
+                </DataTable>
+            </div>
 		</div>
 
         <div class="content-section documentation">

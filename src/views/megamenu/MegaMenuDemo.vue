@@ -8,11 +8,13 @@
         </div>
 
         <div class="content-section implementation">
-            <h5>Horizontal</h5>
-            <MegaMenu :model="items" />
+            <div class="card">
+                <h5>Horizontal</h5>
+                <MegaMenu :model="items" />
 
-            <h5>Vertical</h5>
-            <MegaMenu :model="items" orientation="vertical"/>
+                <h5>Vertical</h5>
+                <MegaMenu :model="items" orientation="vertical"/>
+            </div>
         </div>
 
         <MegaMenuDoc />
