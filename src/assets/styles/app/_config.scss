@@ -10,6 +10,7 @@
     transition: transform .3s;
     transform: translate3d(550px,0,0);
     backface-visibility: hidden;
+    border-left: 1px solid var(--surface-d);
 
     &.layout-config-active {
         transform: translate3d(0,0,0);

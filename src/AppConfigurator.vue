@@ -82,28 +82,28 @@
                                 <img src="./assets/images/themes/vela-blue.png" alt="Arya Blue" @click="changeTheme($event, 'arya-blue', true)"/>
                                 <i class="pi pi-check" v-if="theme === 'arya-blue'" />
                             </button>
-                            <span>arya Blue</span>
+                            <span>Arya Blue</span>
                         </div>
                         <div class="p-col-3">
                             <button class="p-link">
                                 <img src="./assets/images/themes/vela-green.png" alt="Arya Green" @click="changeTheme($event, 'arya-green', true)"/>
                                 <i class="pi pi-check" v-if="theme === 'arya-green'" />
                             </button>
-                            <span>arya Green</span>
+                            <span>Arya Green</span>
                         </div>
                         <div class="p-col-3">
                             <button class="p-link">
                                 <img src="./assets/images/themes/vela-orange.png" alt="Arya Orange" @click="changeTheme($event, 'arya-orange', true)"/>
                                 <i class="pi pi-check" v-if="theme === 'arya-orange'" />
                             </button>
-                            <span>arya Orange</span>
+                            <span>Arya Orange</span>
                         </div>
                         <div class="p-col-3">
                             <button class="p-link">
                                 <img src="./assets/images/themes/vela-purple.png" alt="Arya Purple" @click="changeTheme($event, 'arya-purple', true)"/>
                                 <i class="pi pi-check" v-if="theme === 'arya-purple'" />
                             </button>
-                            <span>arya Purple</span>
+                            <span>Arya Purple</span>
                         </div>
                         <div class="p-col-3">
                             <button class="p-link">

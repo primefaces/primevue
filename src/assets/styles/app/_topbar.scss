@@ -24,7 +24,7 @@
         cursor: pointer;
 
         &:hover {
-            background-color: #e9ecef;
+            background-color: var(--surface-c);
         }
 
         i {
@@ -94,7 +94,7 @@
                     right: 0;
                     width: 275px;
                     max-height: 400px;
-                    background-color: var(--surface-a);
+                    background-color: var(--surface-e);
                     box-shadow: 0 0 10px 0 rgba(0, 0, 0, 0.3);
                     overflow: auto;
                     list-style-type: none;
