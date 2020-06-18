@@ -10,7 +10,6 @@
     transition: transform .3s;
     transform: translate3d(550px,0,0);
     backface-visibility: hidden;
-    border-left: 1px solid var(--surface-d);
 
     &.layout-config-active {
         transform: translate3d(0,0,0);
@@ -30,7 +29,7 @@
         padding: 0;
         box-shadow: 0 2px 10px 0 rgba(0, 0, 0, 0.24);
         color: var(--text-color);
-        background-color: var(--surface-a);
+        background-color: var(--surface-e);
 
         .layout-config-button {
             display: block;
@@ -65,7 +64,11 @@
 
     a {
         color: $linkColor;
-        font-weight: 500;
+        font-weight: 600;
+
+        &:hover {
+            text-decoration: underline;
+        }
     }
 
     .layout-config-content {
