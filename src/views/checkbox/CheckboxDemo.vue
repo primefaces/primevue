@@ -39,7 +39,7 @@
                     <Checkbox :id="theme.key" name="theme" :value="theme" v-model="selectedThemes" :disabled="theme.key === 'U'"/>
                     <label :for="theme.key">{{theme.name}}</label>
                 </div>
-                <p>Selected Themes: <span style="font-weight: bold">{{this.selectedThemes}}</span></p>       
+                <p>Selected Themes: <span style="font-weight: bold">{{this.selectedThemes}}</span></p>
             </div>
         </div>
 

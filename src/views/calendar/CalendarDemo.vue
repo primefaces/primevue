@@ -79,7 +79,7 @@
                 </div>
 
                 <h5>Inline</h5>
-                <Calendar v-model="date14" :inline="true" :showWeek="true" />      
+                <Calendar v-model="date14" :inline="true" :showWeek="true" />
             </div>
         </div>
 

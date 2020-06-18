@@ -9,8 +9,8 @@
 &lt;div class="p-mb-2"&gt;&lt;/i&gt;
 &lt;div class="p-mt-4"&gt;&lt;/i&gt;
 &lt;div class="p-m-1 p-m-lg-2"&gt;&lt;/i&gt;
-</CodeHighlight> 
-                    
+</CodeHighlight>
+
                 <h5>Position</h5>
                 <p>Position can either be either of the 4 sides, the x-y axis or blank for the shortand of all sides.</p>
                 <ul>
