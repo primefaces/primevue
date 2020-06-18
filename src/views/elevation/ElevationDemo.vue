@@ -3,7 +3,7 @@
         <div class="content-section introduction">
             <div class="feature-intro">
                 <h1>Elevation</h1>
-                <p>Elevation is used to specify the separation between surfaces and elements along the z-axis.</p>
+                <p>Elevation is an add-on utility of <a href="https://github.com/primefaces/primeflex">PrimeFlex</a> and used to specify the separation between surfaces and elements along the z-axis.</p>
             </div>
         </div>
 
