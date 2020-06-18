@@ -48,7 +48,7 @@
 </template>
 
 <script>
-import * as Quill from "quill";
+import Quill from "quill";
 
 export default {
     props: {
