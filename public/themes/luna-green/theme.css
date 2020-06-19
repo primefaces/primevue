@@ -158,7 +158,7 @@
   border: 0 none;
   background: transparent;
   border-radius: 3px;
-  transition: background-color 0.2s, color 0.2s, border-color 0.2s, box-shadow 0.2s;
+  transition: background-color 0.2s, color 0.2s, box-shadow 0.2s;
 }
 .p-datepicker .p-datepicker-header .p-datepicker-prev:hover,
 .p-datepicker .p-datepicker-header .p-datepicker-next:hover {
@@ -199,7 +199,7 @@
   width: 2.5rem;
   height: 2.5rem;
   border-radius: 3px;
-  transition: background-color 0.2s, color 0.2s, border-color 0.2s, box-shadow 0.2s;
+  transition: background-color 0.2s, box-shadow 0.2s;
 }
 .p-datepicker table td > span.p-highlight {
   color: #212529;
@@ -258,7 +258,7 @@
 }
 .p-datepicker .p-monthpicker .p-monthpicker-month {
   padding: 0.5rem;
-  transition: background-color 0.2s, color 0.2s, border-color 0.2s, box-shadow 0.2s;
+  transition: background-color 0.2s, box-shadow 0.2s;
   border-radius: 3px;
 }
 .p-datepicker .p-monthpicker .p-monthpicker-month.p-highlight {
@@ -473,7 +473,7 @@
   border: 0 none;
   color: #dedede;
   background: transparent;
-  transition: background-color 0.2s, color 0.2s, border-color 0.2s, box-shadow 0.2s;
+  transition: background-color 0.2s, box-shadow 0.2s;
   border-radius: 0;
 }
 .p-dropdown-panel .p-dropdown-items .p-dropdown-item.p-highlight {
@@ -747,7 +747,7 @@
   padding: 0.429rem 0.857rem;
   border: 0 none;
   color: #dedede;
-  transition: background-color 0.2s, color 0.2s, border-color 0.2s, box-shadow 0.2s;
+  transition: background-color 0.2s, box-shadow 0.2s;
   border-radius: 0;
 }
 .p-listbox .p-listbox-list .p-listbox-item.p-highlight {
@@ -830,7 +830,7 @@
   border: 0 none;
   background: transparent;
   border-radius: 3px;
-  transition: background-color 0.2s, color 0.2s, border-color 0.2s, box-shadow 0.2s;
+  transition: background-color 0.2s, color 0.2s, box-shadow 0.2s;
   margin-left: 0.5rem;
 }
 .p-multiselect-panel .p-multiselect-header .p-multiselect-close:hover {
@@ -847,7 +847,7 @@
   border: 0 none;
   color: #dedede;
   background: transparent;
-  transition: background-color 0.2s, color 0.2s, border-color 0.2s, box-shadow 0.2s;
+  transition: background-color 0.2s, box-shadow 0.2s;
   border-radius: 0;
 }
 .p-multiselect-panel .p-multiselect-items .p-multiselect-item.p-highlight {
@@ -877,6 +877,7 @@
   color: #dedede;
   border: 1px solid #191919;
   box-shadow: 0 0 6px 0 rgba(0, 0, 0, 0.16);
+  border-radius: 3px;
 }
 .p-password-panel .p-password-meter {
   margin-bottom: 0.5rem;
@@ -1305,7 +1306,7 @@
   border-radius: 50%;
   width: 2rem;
   height: 2rem;
-  transition: background-color 0.2s, color 0.2s, border-color 0.2s, box-shadow 0.2s;
+  transition: background-color 0.2s, color 0.2s, box-shadow 0.2s;
   margin: 0.5rem;
 }
 .p-carousel .p-carousel-content .p-carousel-prev:not(.p-disabled):hover,
@@ -1325,7 +1326,7 @@
   background-color: #585858;
   width: 2rem;
   height: 0.5rem;
-  transition: background-color 0.2s, color 0.2s, border-color 0.2s, box-shadow 0.2s;
+  transition: background-color 0.2s, color 0.2s, box-shadow 0.2s;
   border-radius: 0;
 }
 .p-carousel .p-carousel-indicators .p-carousel-indicator button:hover {
@@ -1372,7 +1373,7 @@
   font-weight: 700;
   color: #dedede;
   background: #252525;
-  transition: background-color 0.2s, color 0.2s, border-color 0.2s, box-shadow 0.2s;
+  transition: background-color 0.2s, box-shadow 0.2s;
 }
 .p-datatable .p-datatable-tfoot > tr > td {
   text-align: left;
@@ -1416,7 +1417,7 @@
 .p-datatable .p-datatable-tbody > tr {
   background: #323232;
   color: #dedede;
-  transition: background-color 0.2s, color 0.2s, border-color 0.2s, box-shadow 0.2s;
+  transition: background-color 0.2s, box-shadow 0.2s;
   outline-color: white;
 }
 .p-datatable .p-datatable-tbody > tr > td {
@@ -1427,7 +1428,7 @@
 }
 .p-datatable .p-datatable-tbody > tr > td .p-row-toggler {
   color: #888888;
-  transition: background-color 0.2s, color 0.2s, border-color 0.2s, box-shadow 0.2s;
+  transition: background-color 0.2s, color 0.2s, box-shadow 0.2s;
 }
 .p-datatable .p-datatable-tbody > tr > td .p-row-toggler:hover {
   color: #dedede;
@@ -1695,7 +1696,7 @@
   border: 0 none;
   color: #dedede;
   background: transparent;
-  transition: transform 0.2s, background-color 0.2s, color 0.2s, border-color 0.2s, box-shadow 0.2s;
+  transition: transform 0.2s, background-color 0.2s, box-shadow 0.2s;
 }
 .p-orderlist .p-orderlist-list .p-orderlist-item:not(.p-highlight):hover {
   background: #4c4c4c;
@@ -1760,7 +1761,7 @@
   margin-left: -0.46em;
   color: #888888;
   border-radius: 3px;
-  transition: background-color 0.2s, color 0.2s, border-color 0.2s, box-shadow 0.2s;
+  transition: background-color 0.2s, color 0.2s, box-shadow 0.2s;
 }
 .p-organizationchart .p-organizationchart-node-content .p-node-toggler:focus {
   outline: 0 none;
@@ -1789,7 +1790,7 @@
   min-width: 2.357rem;
   height: 2.357rem;
   margin: 0;
-  transition: background-color 0.2s, color 0.2s, border-color 0.2s, box-shadow 0.2s;
+  transition: background-color 0.2s, box-shadow 0.2s;
   border-radius: 0;
 }
 .p-paginator .p-paginator-first:not(.p-disabled):not(.p-highlight):hover,
@@ -1823,7 +1824,7 @@
   min-width: 2.357rem;
   height: 2.357rem;
   margin: 0;
-  transition: background-color 0.2s, color 0.2s, border-color 0.2s, box-shadow 0.2s;
+  transition: background-color 0.2s, box-shadow 0.2s;
   border-radius: 0;
 }
 .p-paginator .p-paginator-pages .p-paginator-page.p-highlight {
@@ -1867,7 +1868,7 @@
   border: 0 none;
   color: #dedede;
   background: transparent;
-  transition: transform 0.2s, background-color 0.2s, color 0.2s, border-color 0.2s, box-shadow 0.2s;
+  transition: transform 0.2s, background-color 0.2s, box-shadow 0.2s;
 }
 .p-picklist .p-picklist-list .p-picklist-item:not(.p-highlight):hover {
   background: #4c4c4c;
@@ -1923,13 +1924,13 @@
 }
 .p-tree .p-tree-container .p-treenode .p-treenode-content {
   border-radius: 3px;
-  transition: background-color 0.2s, color 0.2s, border-color 0.2s, box-shadow 0.2s;
+  transition: background-color 0.2s, box-shadow 0.2s;
   padding: 0.429rem;
 }
 .p-tree .p-tree-container .p-treenode .p-treenode-content .p-tree-toggler {
   margin-right: 0.5rem;
   color: #888888;
-  transition: background-color 0.2s, color 0.2s, border-color 0.2s, box-shadow 0.2s;
+  transition: background-color 0.2s, color 0.2s, box-shadow 0.2s;
 }
 .p-tree .p-tree-container .p-treenode .p-treenode-content .p-tree-toggler:hover {
   color: #dedede;
@@ -2015,7 +2016,7 @@
   font-weight: 700;
   color: #dedede;
   background: #252525;
-  transition: background-color 0.2s, color 0.2s, border-color 0.2s, box-shadow 0.2s;
+  transition: background-color 0.2s, box-shadow 0.2s;
 }
 .p-treetable .p-treetable-tfoot > tr > td {
   text-align: left;
@@ -2059,7 +2060,7 @@
 .p-treetable .p-treetable-tbody > tr {
   background: #323232;
   color: #dedede;
-  transition: background-color 0.2s, color 0.2s, border-color 0.2s, box-shadow 0.2s;
+  transition: background-color 0.2s, box-shadow 0.2s;
   outline-color: white;
 }
 .p-treetable .p-treetable-tbody > tr > td {
@@ -2071,7 +2072,7 @@
 .p-treetable .p-treetable-tbody > tr > td .p-treetable-toggler {
   color: #888888;
   margin-right: 0.5rem;
-  transition: background-color 0.2s, color 0.2s, border-color 0.2s, box-shadow 0.2s;
+  transition: background-color 0.2s, color 0.2s, box-shadow 0.2s;
 }
 .p-treetable .p-treetable-tbody > tr > td .p-treetable-toggler:hover {
   color: #dedede;
@@ -2168,7 +2169,7 @@
   background: #191919;
   font-weight: 700;
   border-radius: 3px;
-  transition: background-color 0.2s, color 0.2s, border-color 0.2s, box-shadow 0.2s;
+  transition: background-color 0.2s, box-shadow 0.2s;
 }
 .p-accordion .p-accordion-header .p-accordion-header-link .p-accordion-toggle-icon {
   margin-right: 0.5rem;
@@ -2252,13 +2253,13 @@
 }
 .p-fieldset.p-fieldset-toggleable .p-fieldset-legend {
   padding: 0;
-  transition: background-color 0.2s, color 0.2s, border-color 0.2s, box-shadow 0.2s;
+  transition: background-color 0.2s, box-shadow 0.2s;
 }
 .p-fieldset.p-fieldset-toggleable .p-fieldset-legend a {
   padding: 0.857rem 1rem;
   color: #dedede;
   border-radius: 3px;
-  transition: background-color 0.2s, color 0.2s, border-color 0.2s, box-shadow 0.2s;
+  transition: background-color 0.2s, box-shadow 0.2s;
 }
 .p-fieldset.p-fieldset-toggleable .p-fieldset-legend a .p-fieldset-toggler {
   margin-right: 0.5rem;
@@ -2292,7 +2293,7 @@
   background: transparent;
   border: 0 none;
   border-radius: 3px;
-  transition: background-color 0.2s, color 0.2s, border-color 0.2s, box-shadow 0.2s;
+  transition: background-color 0.2s, color 0.2s, box-shadow 0.2s;
 }
 .p-panel .p-panel-header .p-panel-header-icon:hover {
   color: #dedede;
@@ -2324,6 +2325,11 @@
   border-top: 0 none;
 }
 
+.p-scrollpanel .p-scrollpanel-bar {
+  background: #3f3f3f;
+  border: 0 none;
+}
+
 .p-tabview .p-tabview-nav {
   background: transparent;
   border: 0 none;
@@ -2341,7 +2347,7 @@
   font-weight: 700;
   border-top-right-radius: 3px;
   border-top-left-radius: 3px;
-  transition: background-color 0.2s, color 0.2s, border-color 0.2s, box-shadow 0.2s;
+  transition: background-color 0.2s, box-shadow 0.2s;
   margin: 0 0 -1px 0;
 }
 .p-tabview .p-tabview-nav li .p-tabview-nav-link:not(.p-disabled):focus {
@@ -2402,7 +2408,7 @@
   border: 0 none;
   background: transparent;
   border-radius: 3px;
-  transition: background-color 0.2s, color 0.2s, border-color 0.2s, box-shadow 0.2s;
+  transition: background-color 0.2s, color 0.2s, box-shadow 0.2s;
   margin-right: 0.5rem;
 }
 .p-dialog .p-dialog-header .p-dialog-header-icon:hover {
@@ -2461,7 +2467,7 @@
   top: -0.769rem;
   right: -0.769rem;
   border-radius: 50%;
-  transition: background-color 0.2s, color 0.2s, border-color 0.2s, box-shadow 0.2s;
+  transition: background-color 0.2s, color 0.2s, box-shadow 0.2s;
 }
 .p-overlaypanel .p-overlaypanel-close:hover {
   background: #9CCC65;
@@ -2499,7 +2505,7 @@
   width: 1.538rem;
   height: 1.538rem;
   border-radius: 50%;
-  transition: background-color 0.2s, color 0.2s, border-color 0.2s, box-shadow 0.2s;
+  transition: background-color 0.2s, color 0.2s, box-shadow 0.2s;
 }
 .p-sidebar .p-sidebar-close:hover {
   background: #9CCC65;
@@ -2581,7 +2587,7 @@
   padding: 0.571rem 1rem;
 }
 .p-breadcrumb ul li .p-menuitem-link {
-  transition: background-color 0.2s, color 0.2s, border-color 0.2s, box-shadow 0.2s;
+  transition: background-color 0.2s, box-shadow 0.2s;
   border-radius: 3px;
 }
 .p-breadcrumb ul li .p-menuitem-link:focus {
@@ -2618,7 +2624,7 @@
   padding: 0.857rem;
   color: #dedede;
   border-radius: 0;
-  transition: background-color 0.2s, color 0.2s, border-color 0.2s, box-shadow 0.2s;
+  transition: background-color 0.2s, box-shadow 0.2s;
   user-select: none;
 }
 .p-contextmenu .p-menuitem-link .p-menuitem-text {
@@ -2682,7 +2688,7 @@
   padding: 0.857rem;
   color: #dedede;
   border-radius: 3px;
-  transition: background-color 0.2s, color 0.2s, border-color 0.2s, box-shadow 0.2s;
+  transition: background-color 0.2s, box-shadow 0.2s;
   user-select: none;
 }
 .p-megamenu .p-megamenu-root-list > .p-menuitem > .p-menuitem-link .p-menuitem-text {
@@ -2733,7 +2739,7 @@
   padding: 0.857rem;
   color: #dedede;
   border-radius: 0;
-  transition: background-color 0.2s, color 0.2s, border-color 0.2s, box-shadow 0.2s;
+  transition: background-color 0.2s, box-shadow 0.2s;
   user-select: none;
 }
 .p-megamenu .p-menuitem-link .p-menuitem-text {
@@ -2812,7 +2818,7 @@
   padding: 0.857rem;
   color: #dedede;
   border-radius: 0;
-  transition: background-color 0.2s, color 0.2s, border-color 0.2s, box-shadow 0.2s;
+  transition: background-color 0.2s, box-shadow 0.2s;
   user-select: none;
 }
 .p-menu .p-menuitem-link .p-menuitem-text {
@@ -2871,7 +2877,7 @@
   padding: 0.857rem;
   color: #dedede;
   border-radius: 0;
-  transition: background-color 0.2s, color 0.2s, border-color 0.2s, box-shadow 0.2s;
+  transition: background-color 0.2s, box-shadow 0.2s;
   user-select: none;
 }
 .p-menubar .p-menuitem-link .p-menuitem-text {
@@ -2905,7 +2911,7 @@
   padding: 0.857rem;
   color: #dedede;
   border-radius: 3px;
-  transition: background-color 0.2s, color 0.2s, border-color 0.2s, box-shadow 0.2s;
+  transition: background-color 0.2s, box-shadow 0.2s;
   user-select: none;
 }
 .p-menubar .p-menubar-root-list > .p-menuitem > .p-menuitem-link .p-menuitem-text {
@@ -2988,7 +2994,7 @@
     width: 2rem;
     height: 2rem;
     border-radius: 3px;
-    transition: background-color 0.2s, color 0.2s, border-color 0.2s, box-shadow 0.2s;
+    transition: background-color 0.2s, box-shadow 0.2s;
   }
   .p-menubar .p-menubar-button i {
     font-size: 1rem;
@@ -3027,7 +3033,7 @@
     padding: 0.857rem;
     color: #dedede;
     border-radius: 0;
-    transition: background-color 0.2s, color 0.2s, border-color 0.2s, box-shadow 0.2s;
+    transition: background-color 0.2s, box-shadow 0.2s;
     user-select: none;
   }
   .p-menubar .p-menubar-root-list > .p-menuitem > .p-menuitem-link .p-menuitem-text {
@@ -3111,7 +3117,7 @@
   background: #191919;
   font-weight: 700;
   border-radius: 3px;
-  transition: background-color 0.2s, color 0.2s, border-color 0.2s, box-shadow 0.2s;
+  transition: background-color 0.2s, box-shadow 0.2s;
 }
 .p-panelmenu .p-panelmenu-header > a .p-panelmenu-icon {
   margin-right: 0.5rem;
@@ -3160,7 +3166,7 @@
   padding: 0.857rem;
   color: #dedede;
   border-radius: 0;
-  transition: background-color 0.2s, color 0.2s, border-color 0.2s, box-shadow 0.2s;
+  transition: background-color 0.2s, box-shadow 0.2s;
   user-select: none;
 }
 .p-panelmenu .p-panelmenu-content .p-menuitem .p-menuitem-link .p-menuitem-text {
@@ -3202,7 +3208,7 @@
 
 .p-steps .p-steps-item .p-menuitem-link {
   background: transparent;
-  transition: background-color 0.2s, color 0.2s, border-color 0.2s, box-shadow 0.2s;
+  transition: background-color 0.2s, box-shadow 0.2s;
   border-radius: 3px;
   background: #191919;
 }
@@ -3262,7 +3268,7 @@
   font-weight: 700;
   border-top-right-radius: 3px;
   border-top-left-radius: 3px;
-  transition: background-color 0.2s, color 0.2s, border-color 0.2s, box-shadow 0.2s;
+  transition: background-color 0.2s, box-shadow 0.2s;
   margin: 0 0 -1px 0;
 }
 .p-tabmenu .p-tabmenu-nav .p-tabmenuitem .p-menuitem-link .p-menuitem-icon {
@@ -3296,7 +3302,7 @@
   padding: 0.857rem;
   color: #dedede;
   border-radius: 0;
-  transition: background-color 0.2s, color 0.2s, border-color 0.2s, box-shadow 0.2s;
+  transition: background-color 0.2s, box-shadow 0.2s;
   user-select: none;
 }
 .p-tieredmenu .p-menuitem-link .p-menuitem-text {
@@ -3468,7 +3474,7 @@
   border-radius: 3px;
   width: auto;
   height: auto;
-  transition: background-color 0.2s, color 0.2s, border-color 0.2s, box-shadow 0.2s;
+  transition: background-color 0.2s, color 0.2s, box-shadow 0.2s;
 }
 .p-message .p-message-close:hover {
   background: transparent;
@@ -3515,7 +3521,7 @@
   border-radius: 3px;
   width: auto;
   height: auto;
-  transition: background-color 0.2s, color 0.2s, border-color 0.2s, box-shadow 0.2s;
+  transition: background-color 0.2s, color 0.2s, box-shadow 0.2s;
 }
 .p-toast .p-toast-item-container .p-toast-icon-close:hover {
   background: transparent;
@@ -3567,7 +3573,7 @@
   color: #ebedef;
   width: 4rem;
   height: 4rem;
-  transition: background-color 0.2s, color 0.2s, border-color 0.2s, box-shadow 0.2s;
+  transition: background-color 0.2s, color 0.2s, box-shadow 0.2s;
   border-radius: 50%;
 }
 .p-galleria .p-galleria-close .p-galleria-close-icon {
@@ -3582,7 +3588,7 @@
   color: #aeb6bf;
   width: 4rem;
   height: 4rem;
-  transition: background-color 0.2s, color 0.2s, border-color 0.2s, box-shadow 0.2s;
+  transition: background-color 0.2s, color 0.2s, box-shadow 0.2s;
 }
 .p-galleria .p-galleria-item-nav .p-galleria-item-prev-icon,
 .p-galleria .p-galleria-item-nav .p-galleria-item-next-icon {
@@ -3604,7 +3610,7 @@
   background-color: #585858;
   width: 1rem;
   height: 1rem;
-  transition: background-color 0.2s, color 0.2s, border-color 0.2s, box-shadow 0.2s;
+  transition: background-color 0.2s, color 0.2s, box-shadow 0.2s;
   border-radius: 50%;
 }
 .p-galleria .p-galleria-indicators .p-galleria-indicator button:hover {
@@ -3644,7 +3650,7 @@
   color: #aeb6bf;
   width: 2rem;
   height: 2rem;
-  transition: background-color 0.2s, color 0.2s, border-color 0.2s, box-shadow 0.2s;
+  transition: background-color 0.2s, color 0.2s, box-shadow 0.2s;
   border-radius: 50%;
 }
 .p-galleria .p-galleria-thumbnail-container .p-galleria-thumbnail-prev:hover,
@@ -3653,7 +3659,7 @@
   color: #aeb6bf;
 }
 .p-galleria .p-galleria-thumbnail-container .p-galleria-thumbnail-item-content {
-  transition: background-color 0.2s, color 0.2s, border-color 0.2s, box-shadow 0.2s;
+  transition: background-color 0.2s, box-shadow 0.2s;
 }
 .p-galleria .p-galleria-thumbnail-container .p-galleria-thumbnail-item-content:focus {
   outline: 0 none;

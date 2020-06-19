@@ -24,13 +24,13 @@
                     <div class="p-grid free-themes">
                          <div class="p-col-3">
                             <button class="p-link">
-                                <img src="./assets/images/themes/bootstrap-light.png" alt="Bootstrap Light" @click="changeTheme($event, 'bootstrap-light')"/>
+                                <img src="./assets/images/themes/bootstrap-light.png" alt="Bootstrap Light" @click="changeTheme($event, 'bootstrap4-light')"/>
                             </button>
                             <span>Light</span>
                         </div>
                         <div class="p-col-3">
                             <button class="p-link">
-                                <img src="./assets/images/themes/bootstrap-dark.png" alt="Bootstrap Dark" @click="changeTheme($event, 'bootstrap-dark')"/>
+                                <img src="./assets/images/themes/bootstrap-dark.png" alt="Bootstrap Dark" @click="changeTheme($event, 'bootstrap4-dark')"/>
                             </button>
                             <span>Dark</span>
                         </div>
@@ -104,25 +104,25 @@
                         </div>
                         <div class="p-col-3">
                             <button class="p-link">
-                                <img src="./assets/images/themes/vela-blue.png" alt="Arya Blue" @click="changeTheme($event, 'arya-blue', true)"/>
+                                <img src="./assets/images/themes/arya-blue.png" alt="Arya Blue" @click="changeTheme($event, 'arya-blue', true)"/>
                             </button>
                             <span>Arya Blue</span>
                         </div>
                         <div class="p-col-3">
                             <button class="p-link">
-                                <img src="./assets/images/themes/vela-green.png" alt="Arya Green" @click="changeTheme($event, 'arya-green', true)"/>
+                                <img src="./assets/images/themes/arya-green.png" alt="Arya Green" @click="changeTheme($event, 'arya-green', true)"/>
                             </button>
                             <span>Arya Green</span>
                         </div>
                         <div class="p-col-3">
                             <button class="p-link">
-                                <img src="./assets/images/themes/vela-orange.png" alt="Arya Orange" @click="changeTheme($event, 'arya-orange', true)"/>
+                                <img src="./assets/images/themes/arya-orange.png" alt="Arya Orange" @click="changeTheme($event, 'arya-orange', true)"/>
                             </button>
                             <span>Arya Orange</span>
                         </div>
                         <div class="p-col-3">
                             <button class="p-link">
-                                <img src="./assets/images/themes/vela-purple.png" alt="Arya Purple" @click="changeTheme($event, 'arya-purple', true)"/>
+                                <img src="./assets/images/themes/arya-purple.png" alt="Arya Purple" @click="changeTheme($event, 'arya-purple', true)"/>
                             </button>
                             <span>Arya Purple</span>
                         </div>

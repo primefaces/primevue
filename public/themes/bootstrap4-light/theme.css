@@ -60,7 +60,7 @@
   right: 3.375rem;
 }
 .p-autocomplete.p-autocomplete-multiple .p-autocomplete-multiple-container {
-  padding: 0.3125rem 0.75rem;
+  padding: 0.25rem 0.75rem;
 }
 .p-autocomplete.p-autocomplete-multiple .p-autocomplete-multiple-container:not(.p-disabled):hover {
   border-color: #ced4da;
@@ -72,7 +72,7 @@
   border-color: #007bff;
 }
 .p-autocomplete.p-autocomplete-multiple .p-autocomplete-multiple-container .p-autocomplete-input-token {
-  padding: 0.3125rem 0;
+  padding: 0.25rem 0;
 }
 .p-autocomplete.p-autocomplete-multiple .p-autocomplete-multiple-container .p-autocomplete-input-token input {
   font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif, "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol";
@@ -82,7 +82,7 @@
   margin: 0;
 }
 .p-autocomplete.p-autocomplete-multiple .p-autocomplete-multiple-container .p-autocomplete-token {
-  padding: 0.3125rem 0.75rem;
+  padding: 0.25rem 0.75rem;
   margin-right: 0.5rem;
   background: #007bff;
   color: #ffffff;
@@ -108,7 +108,7 @@
   border: 0 none;
   color: #212529;
   background: transparent;
-  transition: background-color 0.15s, color 0.15s, border-color 0.15s, box-shadow 0.15s;
+  transition: background-color 0.15s, border-color 0.15s, box-shadow 0.15s;
   border-radius: 0;
 }
 .p-autocomplete-panel .p-autocomplete-items .p-autocomplete-item:hover {
@@ -158,7 +158,7 @@
   border: 0 none;
   background: transparent;
   border-radius: 4px;
-  transition: background-color 0.15s, color 0.15s, border-color 0.15s, box-shadow 0.15s;
+  transition: color 0.15s, box-shadow 0.15s;
 }
 .p-datepicker .p-datepicker-header .p-datepicker-prev:hover,
 .p-datepicker .p-datepicker-header .p-datepicker-next:hover {
@@ -170,7 +170,7 @@
   line-height: 1;
 }
 .p-datepicker .p-datepicker-header .p-datepicker-title select {
-  transition: background-color 0.15s, color 0.15s, border-color 0.15s, box-shadow 0.15s;
+  transition: background-color 0.15s, border-color 0.15s, box-shadow 0.15s;
 }
 .p-datepicker .p-datepicker-header .p-datepicker-title select:focus {
   outline: 0 none;
@@ -199,7 +199,7 @@
   width: 2.5rem;
   height: 2.5rem;
   border-radius: 4px;
-  transition: background-color 0.15s, color 0.15s, border-color 0.15s, box-shadow 0.15s;
+  transition: box-shadow 0.15s;
 }
 .p-datepicker table td > span.p-highlight {
   color: #ffffff;
@@ -235,7 +235,7 @@
   color: #6c757d;
   background: transparent;
   border-radius: 4px;
-  transition: background-color 0.15s, color 0.15s, border-color 0.15s, box-shadow 0.15s;
+  transition: background-color 0.15s, border-color 0.15s, box-shadow 0.15s;
 }
 .p-datepicker .p-timepicker button:hover {
   color: #212529;
@@ -258,7 +258,7 @@
 }
 .p-datepicker .p-monthpicker .p-monthpicker-month {
   padding: 0.5rem;
-  transition: background-color 0.15s, color 0.15s, border-color 0.15s, box-shadow 0.15s;
+  transition: box-shadow 0.15s;
   border-radius: 4px;
 }
 .p-datepicker .p-monthpicker .p-monthpicker-month.p-highlight {
@@ -316,7 +316,7 @@
   height: 1.5rem;
   color: #212529;
   border-radius: 4px;
-  transition: background-color 0.15s, color 0.15s, border-color 0.15s, box-shadow 0.15s;
+  transition: background-color 0.15s, border-color 0.15s, box-shadow 0.15s;
 }
 .p-checkbox .p-checkbox-box .p-checkbox-icon {
   transition-duration: 0.15s;
@@ -349,7 +349,7 @@
 }
 
 .p-chips .p-chips-multiple-container {
-  padding: 0.3125rem 0.75rem;
+  padding: 0.25rem 0.75rem;
 }
 .p-chips .p-chips-multiple-container:not(.p-disabled):hover {
   border-color: #ced4da;
@@ -361,7 +361,7 @@
   border-color: #007bff;
 }
 .p-chips .p-chips-multiple-container .p-chips-token {
-  padding: 0.3125rem 0.75rem;
+  padding: 0.25rem 0.75rem;
   margin-right: 0.5rem;
   background: #007bff;
   color: #ffffff;
@@ -371,7 +371,7 @@
   margin-left: 0.5rem;
 }
 .p-chips .p-chips-multiple-container .p-chips-input-token {
-  padding: 0.3125rem 0;
+  padding: 0.25rem 0;
 }
 .p-chips .p-chips-multiple-container .p-chips-input-token input {
   font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif, "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol";
@@ -406,7 +406,7 @@
 .p-dropdown {
   background: #ffffff;
   border: 1px solid #ced4da;
-  transition: background-color 0.15s, color 0.15s, border-color 0.15s, box-shadow 0.15s;
+  transition: background-color 0.15s, border-color 0.15s, box-shadow 0.15s;
   border-radius: 4px;
 }
 .p-dropdown:not(.p-disabled):hover {
@@ -473,7 +473,7 @@
   border: 0 none;
   color: #212529;
   background: transparent;
-  transition: background-color 0.15s, color 0.15s, border-color 0.15s, box-shadow 0.15s;
+  transition: box-shadow 0.15s;
   border-radius: 0;
 }
 .p-dropdown-panel .p-dropdown-items .p-dropdown-item.p-highlight {
@@ -562,7 +562,7 @@
   border-top: 1px solid #ced4da;
   border-left: 1px solid #ced4da;
   border-bottom: 1px solid #ced4da;
-  padding: 0.625rem 0.75rem;
+  padding: 0.5rem 0.75rem;
   min-width: 2.357rem;
 }
 .p-inputgroup-addon:last-child {
@@ -607,7 +607,7 @@
 }
 .p-inputswitch .p-inputswitch-slider {
   background: #ced4da;
-  transition: background-color 0.15s, color 0.15s, border-color 0.15s, box-shadow 0.15s;
+  transition: background-color 0.15s, border-color 0.15s, box-shadow 0.15s;
   border-radius: 4px;
 }
 .p-inputswitch .p-inputswitch-slider:before {
@@ -628,7 +628,7 @@
   box-shadow: 0 0 0 0.2rem rgba(38, 143, 255, 0.5);
 }
 .p-inputswitch:not(.p-disabled):hover .p-inputswitch-slider {
-  background: #adb5bd;
+  background: #ced4da;
 }
 .p-inputswitch.p-inputswitch-checked .p-inputswitch-slider {
   background: #007bff;
@@ -637,7 +637,7 @@
   background: #ffffff;
 }
 .p-inputswitch.p-inputswitch-checked:not(.p-disabled):hover .p-inputswitch-slider {
-  background: #0069d9;
+  background: #007bff;
 }
 .p-inputswitch.p-error, .p-inputswitch.p-invalid {
   border-color: #dc3545;
@@ -648,10 +648,10 @@
   font-size: 1rem;
   color: #495057;
   background: #ffffff;
-  padding: 0.625rem 0.75rem;
+  padding: 0.5rem 0.75rem;
   border: 1px solid #ced4da;
   border-width: 1px;
-  transition: background-color 0.15s, color 0.15s, border-color 0.15s, box-shadow 0.15s;
+  transition: background-color 0.15s, border-color 0.15s, box-shadow 0.15s;
   appearance: none;
   border-radius: 4px;
 }
@@ -670,11 +670,11 @@
 }
 .p-inputtext.p-inputtext-sm {
   font-size: 0.875rem;
-  padding: 0.546875rem 0.65625rem;
+  padding: 0.4375rem 0.65625rem;
 }
 .p-inputtext.p-inputtext-lg {
   font-size: 1.25rem;
-  padding: 0.78125rem 0.9375rem;
+  padding: 0.625rem 0.9375rem;
 }
 
 .p-float-label label {
@@ -747,7 +747,7 @@
   padding: 0.5rem 1.5rem;
   border: 0 none;
   color: #212529;
-  transition: background-color 0.15s, color 0.15s, border-color 0.15s, box-shadow 0.15s;
+  transition: box-shadow 0.15s;
   border-radius: 0;
 }
 .p-listbox .p-listbox-list .p-listbox-item.p-highlight {
@@ -771,7 +771,7 @@
 .p-multiselect {
   background: #ffffff;
   border: 1px solid #ced4da;
-  transition: background-color 0.15s, color 0.15s, border-color 0.15s, box-shadow 0.15s;
+  transition: background-color 0.15s, border-color 0.15s, box-shadow 0.15s;
   border-radius: 4px;
 }
 .p-multiselect:not(.p-disabled):hover {
@@ -784,7 +784,7 @@
   border-color: #007bff;
 }
 .p-multiselect .p-multiselect-label {
-  padding: 0.625rem 0.75rem;
+  padding: 0.5rem 0.75rem;
 }
 .p-multiselect .p-multiselect-label.p-placeholder {
   color: #6c757d;
@@ -830,7 +830,7 @@
   border: 0 none;
   background: transparent;
   border-radius: 4px;
-  transition: background-color 0.15s, color 0.15s, border-color 0.15s, box-shadow 0.15s;
+  transition: color 0.15s, box-shadow 0.15s;
   margin-left: 0.5rem;
 }
 .p-multiselect-panel .p-multiselect-header .p-multiselect-close:hover {
@@ -847,7 +847,7 @@
   border: 0 none;
   color: #212529;
   background: transparent;
-  transition: background-color 0.15s, color 0.15s, border-color 0.15s, box-shadow 0.15s;
+  transition: box-shadow 0.15s;
   border-radius: 0;
 }
 .p-multiselect-panel .p-multiselect-items .p-multiselect-item.p-highlight {
@@ -877,6 +877,7 @@
   color: #212529;
   border: 1px solid rgba(0, 0, 0, 0.2);
   box-shadow: none;
+  border-radius: 4px;
 }
 .p-password-panel .p-password-meter {
   margin-bottom: 0.5rem;
@@ -893,7 +894,7 @@
   height: 1.5rem;
   color: #212529;
   border-radius: 50%;
-  transition: background-color 0.15s, color 0.15s, border-color 0.15s, box-shadow 0.15s;
+  transition: background-color 0.15s, border-color 0.15s, box-shadow 0.15s;
 }
 .p-radiobutton .p-radiobutton-box:not(.p-disabled):not(.p-highlight):hover {
   border-color: #ced4da;
@@ -929,7 +930,7 @@
 .p-rating .p-rating-icon {
   color: #212529;
   margin-left: 0.5rem;
-  transition: background-color 0.15s, color 0.15s, border-color 0.15s, box-shadow 0.15s;
+  transition: background-color 0.15s, border-color 0.15s, box-shadow 0.15s;
   font-size: 1.143rem;
 }
 .p-rating .p-rating-icon.p-rating-cancel {
@@ -954,7 +955,7 @@
   background: #6c757d;
   border: 1px solid #6c757d;
   color: #ffffff;
-  transition: background-color 0.15s, color 0.15s, border-color 0.15s, box-shadow 0.15s;
+  transition: background-color 0.15s, border-color 0.15s, box-shadow 0.15s;
 }
 .p-selectbutton .p-button .p-button-icon-left,
 .p-selectbutton .p-button .p-button-icon-right {
@@ -1017,7 +1018,7 @@
   background: #007bff;
   border: 2px solid #007bff;
   border-radius: 4px;
-  transition: background-color 0.15s, color 0.15s, border-color 0.15s, box-shadow 0.15s;
+  transition: background-color 0.15s, border-color 0.15s, box-shadow 0.15s;
 }
 .p-slider .p-slider-handle:focus {
   outline: 0 none;
@@ -1036,7 +1037,7 @@
   background: #6c757d;
   border: 1px solid #6c757d;
   color: #ffffff;
-  transition: background-color 0.15s, color 0.15s, border-color 0.15s, box-shadow 0.15s;
+  transition: background-color 0.15s, border-color 0.15s, box-shadow 0.15s;
 }
 .p-togglebutton.p-button .p-button-icon-left,
 .p-togglebutton.p-button .p-button-icon-right {
@@ -1078,9 +1079,9 @@
   color: #ffffff;
   background: #007bff;
   border: 1px solid #007bff;
-  padding: 0.625rem 0.75rem;
+  padding: 0.5rem 0.75rem;
   font-size: 1rem;
-  transition: background-color 0.15s, color 0.15s, border-color 0.15s, box-shadow 0.15s;
+  transition: background-color 0.15s, border-color 0.15s, box-shadow 0.15s;
   border-radius: 4px;
 }
 .p-button:enabled:hover {
@@ -1124,7 +1125,7 @@
 }
 .p-button.p-button-icon-only {
   width: 2.625rem;
-  padding: 0.625rem 0;
+  padding: 0.5rem 0;
 }
 .p-button.p-button-icon-only .p-button-icon-left,
 .p-button.p-button-icon-only .p-button-icon-right {
@@ -1135,14 +1136,14 @@
 }
 .p-button.p-button-sm {
   font-size: 0.875rem;
-  padding: 0.546875rem 0.65625rem;
+  padding: 0.4375rem 0.65625rem;
 }
 .p-button.p-button-sm .p-button-icon {
   font-size: 0.875rem;
 }
 .p-button.p-button-lg {
   font-size: 1.25rem;
-  padding: 0.78125rem 0.9375rem;
+  padding: 0.625rem 0.9375rem;
 }
 .p-button.p-button-lg .p-button-icon {
   font-size: 1.25rem;
@@ -1305,7 +1306,7 @@
   border-radius: 4px;
   width: 2rem;
   height: 2rem;
-  transition: background-color 0.15s, color 0.15s, border-color 0.15s, box-shadow 0.15s;
+  transition: color 0.15s, box-shadow 0.15s;
   margin: 0.5rem;
 }
 .p-carousel .p-carousel-content .p-carousel-prev:not(.p-disabled):hover,
@@ -1325,7 +1326,7 @@
   background-color: #e9ecef;
   width: 2rem;
   height: 0.5rem;
-  transition: background-color 0.15s, color 0.15s, border-color 0.15s, box-shadow 0.15s;
+  transition: color 0.15s, box-shadow 0.15s;
   border-radius: 0;
 }
 .p-carousel .p-carousel-indicators .p-carousel-indicator button:hover {
@@ -1372,7 +1373,7 @@
   font-weight: 600;
   color: #212529;
   background: #ffffff;
-  transition: background-color 0.15s, color 0.15s, border-color 0.15s, box-shadow 0.15s;
+  transition: box-shadow 0.15s;
 }
 .p-datatable .p-datatable-tfoot > tr > td {
   text-align: left;
@@ -1416,7 +1417,7 @@
 .p-datatable .p-datatable-tbody > tr {
   background: #ffffff;
   color: #212529;
-  transition: background-color 0.15s, color 0.15s, border-color 0.15s, box-shadow 0.15s;
+  transition: box-shadow 0.15s;
   outline-color: rgba(38, 143, 255, 0.5);
 }
 .p-datatable .p-datatable-tbody > tr > td {
@@ -1427,7 +1428,7 @@
 }
 .p-datatable .p-datatable-tbody > tr > td .p-row-toggler {
   color: #6c757d;
-  transition: background-color 0.15s, color 0.15s, border-color 0.15s, box-shadow 0.15s;
+  transition: color 0.15s, box-shadow 0.15s;
 }
 .p-datatable .p-datatable-tbody > tr > td .p-row-toggler:hover {
   color: #212529;
@@ -1595,7 +1596,7 @@
   background: #007bff;
   border: 1px solid #007bff;
   font-size: 1rem;
-  transition: background-color 0.15s, color 0.15s, border-color 0.15s, box-shadow 0.15s;
+  transition: background-color 0.15s, border-color 0.15s, box-shadow 0.15s;
   border-radius: 4px;
   display: flex;
   align-items: center;
@@ -1630,7 +1631,7 @@
   background: #6c757d;
   border: 1px solid #6c757d;
   color: #ffffff;
-  transition: background-color 0.15s, color 0.15s, border-color 0.15s, box-shadow 0.15s;
+  transition: background-color 0.15s, border-color 0.15s, box-shadow 0.15s;
 }
 .fc .fc-toolbar .fc-button.fc-dayGridMonth-button:hover, .fc .fc-toolbar .fc-button.fc-timeGridWeek-button:hover, .fc .fc-toolbar .fc-button.fc-timeGridDay-button:hover {
   background: #5a6268;
@@ -1695,7 +1696,7 @@
   border: 0 none;
   color: #212529;
   background: transparent;
-  transition: transform 0.15s, background-color 0.15s, color 0.15s, border-color 0.15s, box-shadow 0.15s;
+  transition: transform 0.15s, box-shadow 0.15s;
 }
 .p-orderlist .p-orderlist-list .p-orderlist-item:not(.p-highlight):hover {
   background: #e9ecef;
@@ -1760,7 +1761,7 @@
   margin-left: -0.46em;
   color: #6c757d;
   border-radius: 4px;
-  transition: background-color 0.15s, color 0.15s, border-color 0.15s, box-shadow 0.15s;
+  transition: color 0.15s, box-shadow 0.15s;
 }
 .p-organizationchart .p-organizationchart-node-content .p-node-toggler:focus {
   outline: 0 none;
@@ -1789,7 +1790,7 @@
   min-width: 2.625rem;
   height: 2.625rem;
   margin: 0;
-  transition: background-color 0.15s, color 0.15s, border-color 0.15s, box-shadow 0.15s;
+  transition: box-shadow 0.15s;
   border-radius: 0;
 }
 .p-paginator .p-paginator-first:not(.p-disabled):not(.p-highlight):hover,
@@ -1823,7 +1824,7 @@
   min-width: 2.625rem;
   height: 2.625rem;
   margin: 0;
-  transition: background-color 0.15s, color 0.15s, border-color 0.15s, box-shadow 0.15s;
+  transition: box-shadow 0.15s;
   border-radius: 0;
 }
 .p-paginator .p-paginator-pages .p-paginator-page.p-highlight {
@@ -1867,7 +1868,7 @@
   border: 0 none;
   color: #212529;
   background: transparent;
-  transition: transform 0.15s, background-color 0.15s, color 0.15s, border-color 0.15s, box-shadow 0.15s;
+  transition: transform 0.15s, box-shadow 0.15s;
 }
 .p-picklist .p-picklist-list .p-picklist-item:not(.p-highlight):hover {
   background: #e9ecef;
@@ -1923,13 +1924,13 @@
 }
 .p-tree .p-tree-container .p-treenode .p-treenode-content {
   border-radius: 4px;
-  transition: background-color 0.15s, color 0.15s, border-color 0.15s, box-shadow 0.15s;
+  transition: box-shadow 0.15s;
   padding: 0.5rem;
 }
 .p-tree .p-tree-container .p-treenode .p-treenode-content .p-tree-toggler {
   margin-right: 0.5rem;
   color: #6c757d;
-  transition: background-color 0.15s, color 0.15s, border-color 0.15s, box-shadow 0.15s;
+  transition: color 0.15s, box-shadow 0.15s;
 }
 .p-tree .p-tree-container .p-treenode .p-treenode-content .p-tree-toggler:hover {
   color: #212529;
@@ -2015,7 +2016,7 @@
   font-weight: 600;
   color: #212529;
   background: #ffffff;
-  transition: background-color 0.15s, color 0.15s, border-color 0.15s, box-shadow 0.15s;
+  transition: box-shadow 0.15s;
 }
 .p-treetable .p-treetable-tfoot > tr > td {
   text-align: left;
@@ -2059,7 +2060,7 @@
 .p-treetable .p-treetable-tbody > tr {
   background: #ffffff;
   color: #212529;
-  transition: background-color 0.15s, color 0.15s, border-color 0.15s, box-shadow 0.15s;
+  transition: box-shadow 0.15s;
   outline-color: rgba(38, 143, 255, 0.5);
 }
 .p-treetable .p-treetable-tbody > tr > td {
@@ -2071,7 +2072,7 @@
 .p-treetable .p-treetable-tbody > tr > td .p-treetable-toggler {
   color: #6c757d;
   margin-right: 0.5rem;
-  transition: background-color 0.15s, color 0.15s, border-color 0.15s, box-shadow 0.15s;
+  transition: color 0.15s, box-shadow 0.15s;
 }
 .p-treetable .p-treetable-tbody > tr > td .p-treetable-toggler:hover {
   color: #212529;
@@ -2168,7 +2169,7 @@
   background: rgba(0, 0, 0, 0.03);
   font-weight: 600;
   border-radius: 4px;
-  transition: background-color 0.15s, color 0.15s, border-color 0.15s, box-shadow 0.15s;
+  transition: box-shadow 0.15s;
 }
 .p-accordion .p-accordion-header .p-accordion-header-link .p-accordion-toggle-icon {
   margin-right: 0.5rem;
@@ -2269,13 +2270,13 @@
 }
 .p-fieldset.p-fieldset-toggleable .p-fieldset-legend {
   padding: 0;
-  transition: background-color 0.15s, color 0.15s, border-color 0.15s, box-shadow 0.15s;
+  transition: box-shadow 0.15s;
 }
 .p-fieldset.p-fieldset-toggleable .p-fieldset-legend a {
   padding: 1rem 1.25rem;
   color: #212529;
   border-radius: 4px;
-  transition: background-color 0.15s, color 0.15s, border-color 0.15s, box-shadow 0.15s;
+  transition: box-shadow 0.15s;
 }
 .p-fieldset.p-fieldset-toggleable .p-fieldset-legend a .p-fieldset-toggler {
   margin-right: 0.5rem;
@@ -2309,7 +2310,7 @@
   background: transparent;
   border: 0 none;
   border-radius: 4px;
-  transition: background-color 0.15s, color 0.15s, border-color 0.15s, box-shadow 0.15s;
+  transition: color 0.15s, box-shadow 0.15s;
 }
 .p-panel .p-panel-header .p-panel-header-icon:hover {
   color: #212529;
@@ -2341,6 +2342,11 @@
   border-top: 0 none;
 }
 
+.p-scrollpanel .p-scrollpanel-bar {
+  background: rgba(0, 0, 0, 0.03);
+  border: 0 none;
+}
+
 .p-tabview .p-tabview-nav {
   background: transparent;
   border: 1px solid #dee2e6;
@@ -2358,7 +2364,7 @@
   font-weight: 600;
   border-top-right-radius: 4px;
   border-top-left-radius: 4px;
-  transition: background-color 0.15s, color 0.15s, border-color 0.15s, box-shadow 0.15s;
+  transition: box-shadow 0.15s;
   margin: 0 0 -1px 0;
   border-color: #ffffff #ffffff #dee2e6 #ffffff;
 }
@@ -2420,7 +2426,7 @@
   border: 0 none;
   background: transparent;
   border-radius: 4px;
-  transition: background-color 0.15s, color 0.15s, border-color 0.15s, box-shadow 0.15s;
+  transition: color 0.15s, box-shadow 0.15s;
   margin-right: 0.5rem;
 }
 .p-dialog .p-dialog-header .p-dialog-header-icon:hover {
@@ -2479,7 +2485,7 @@
   top: -1rem;
   right: -1rem;
   border-radius: 50%;
-  transition: background-color 0.15s, color 0.15s, border-color 0.15s, box-shadow 0.15s;
+  transition: color 0.15s, box-shadow 0.15s;
 }
 .p-overlaypanel .p-overlaypanel-close:hover {
   background: #ffffff;
@@ -2517,7 +2523,7 @@
   width: 2rem;
   height: 2rem;
   border-radius: 4px;
-  transition: background-color 0.15s, color 0.15s, border-color 0.15s, box-shadow 0.15s;
+  transition: color 0.15s, box-shadow 0.15s;
 }
 .p-sidebar .p-sidebar-close:hover {
   background: transparent;
@@ -2532,7 +2538,7 @@
 .p-tooltip .p-tooltip-text {
   background: #212529;
   color: #ffffff;
-  padding: 0.625rem 0.75rem;
+  padding: 0.5rem 0.75rem;
   box-shadow: none;
   border-radius: 4px;
 }
@@ -2599,7 +2605,7 @@
   padding: 1rem;
 }
 .p-breadcrumb ul li .p-menuitem-link {
-  transition: background-color 0.15s, color 0.15s, border-color 0.15s, box-shadow 0.15s;
+  transition: box-shadow 0.15s;
   border-radius: 4px;
 }
 .p-breadcrumb ul li .p-menuitem-link:focus {
@@ -2636,7 +2642,7 @@
   padding: 0.75rem 1rem;
   color: #212529;
   border-radius: 0;
-  transition: background-color 0.15s, color 0.15s, border-color 0.15s, box-shadow 0.15s;
+  transition: box-shadow 0.15s;
   user-select: none;
 }
 .p-contextmenu .p-menuitem-link .p-menuitem-text {
@@ -2700,7 +2706,7 @@
   padding: 1rem;
   color: rgba(0, 0, 0, 0.5);
   border-radius: 4px;
-  transition: background-color 0.15s, color 0.15s, border-color 0.15s, box-shadow 0.15s;
+  transition: box-shadow 0.15s;
   user-select: none;
 }
 .p-megamenu .p-megamenu-root-list > .p-menuitem > .p-menuitem-link .p-menuitem-text {
@@ -2751,7 +2757,7 @@
   padding: 0.75rem 1rem;
   color: #212529;
   border-radius: 0;
-  transition: background-color 0.15s, color 0.15s, border-color 0.15s, box-shadow 0.15s;
+  transition: box-shadow 0.15s;
   user-select: none;
 }
 .p-megamenu .p-menuitem-link .p-menuitem-text {
@@ -2830,7 +2836,7 @@
   padding: 0.75rem 1rem;
   color: #212529;
   border-radius: 0;
-  transition: background-color 0.15s, color 0.15s, border-color 0.15s, box-shadow 0.15s;
+  transition: box-shadow 0.15s;
   user-select: none;
 }
 .p-menu .p-menuitem-link .p-menuitem-text {
@@ -2889,7 +2895,7 @@
   padding: 0.75rem 1rem;
   color: #212529;
   border-radius: 0;
-  transition: background-color 0.15s, color 0.15s, border-color 0.15s, box-shadow 0.15s;
+  transition: box-shadow 0.15s;
   user-select: none;
 }
 .p-menubar .p-menuitem-link .p-menuitem-text {
@@ -2923,7 +2929,7 @@
   padding: 1rem;
   color: rgba(0, 0, 0, 0.5);
   border-radius: 4px;
-  transition: background-color 0.15s, color 0.15s, border-color 0.15s, box-shadow 0.15s;
+  transition: box-shadow 0.15s;
   user-select: none;
 }
 .p-menubar .p-menubar-root-list > .p-menuitem > .p-menuitem-link .p-menuitem-text {
@@ -3006,7 +3012,7 @@
     width: 2.5rem;
     height: 2.5rem;
     border-radius: 4px;
-    transition: background-color 0.15s, color 0.15s, border-color 0.15s, box-shadow 0.15s;
+    transition: box-shadow 0.15s;
   }
   .p-menubar .p-menubar-button i {
     font-size: 1.25rem;
@@ -3014,7 +3020,7 @@
   .p-menubar .p-menubar-button:hover {
     color: rgba(0, 0, 0, 0.5);
     background: transparent;
-    border-color: gba(0, 0, 0, 0.1);
+    border-color: rgba(0, 0, 0, 0.1);
   }
   .p-menubar .p-menubar-button:focus {
     outline: 0 none;
@@ -3045,7 +3051,7 @@
     padding: 0.75rem 1rem;
     color: #212529;
     border-radius: 0;
-    transition: background-color 0.15s, color 0.15s, border-color 0.15s, box-shadow 0.15s;
+    transition: box-shadow 0.15s;
     user-select: none;
   }
   .p-menubar .p-menubar-root-list > .p-menuitem > .p-menuitem-link .p-menuitem-text {
@@ -3129,7 +3135,7 @@
   background: rgba(0, 0, 0, 0.03);
   font-weight: 600;
   border-radius: 4px;
-  transition: background-color 0.15s, color 0.15s, border-color 0.15s, box-shadow 0.15s;
+  transition: box-shadow 0.15s;
 }
 .p-panelmenu .p-panelmenu-header > a .p-panelmenu-icon {
   margin-right: 0.5rem;
@@ -3178,7 +3184,7 @@
   padding: 0.75rem 1rem;
   color: #212529;
   border-radius: 0;
-  transition: background-color 0.15s, color 0.15s, border-color 0.15s, box-shadow 0.15s;
+  transition: box-shadow 0.15s;
   user-select: none;
 }
 .p-panelmenu .p-panelmenu-content .p-menuitem .p-menuitem-link .p-menuitem-text {
@@ -3237,7 +3243,7 @@
 
 .p-steps .p-steps-item .p-menuitem-link {
   background: transparent;
-  transition: background-color 0.15s, color 0.15s, border-color 0.15s, box-shadow 0.15s;
+  transition: box-shadow 0.15s;
   border-radius: 4px;
   background: transparent;
 }
@@ -3297,7 +3303,7 @@
   font-weight: 600;
   border-top-right-radius: 4px;
   border-top-left-radius: 4px;
-  transition: background-color 0.15s, color 0.15s, border-color 0.15s, box-shadow 0.15s;
+  transition: box-shadow 0.15s;
   margin: 0 0 -1px 0;
   border-color: #ffffff #ffffff #dee2e6 #ffffff;
 }
@@ -3332,7 +3338,7 @@
   padding: 0.75rem 1rem;
   color: #212529;
   border-radius: 0;
-  transition: background-color 0.15s, color 0.15s, border-color 0.15s, box-shadow 0.15s;
+  transition: box-shadow 0.15s;
   user-select: none;
 }
 .p-tieredmenu .p-menuitem-link .p-menuitem-text {
@@ -3390,7 +3396,7 @@
 }
 
 .p-inline-message {
-  padding: 0.625rem 0.75rem;
+  padding: 0.5rem 0.75rem;
   margin: 0;
   border-radius: 4px;
 }
@@ -3504,7 +3510,7 @@
   border-radius: 4px;
   width: 2rem;
   height: 2rem;
-  transition: background-color 0.15s, color 0.15s, border-color 0.15s, box-shadow 0.15s;
+  transition: color 0.15s, box-shadow 0.15s;
 }
 .p-message .p-message-close:hover {
   background: rgba(255, 255, 255, 0.2);
@@ -3551,7 +3557,7 @@
   border-radius: 4px;
   width: 2rem;
   height: 2rem;
-  transition: background-color 0.15s, color 0.15s, border-color 0.15s, box-shadow 0.15s;
+  transition: color 0.15s, box-shadow 0.15s;
 }
 .p-toast .p-toast-item-container .p-toast-icon-close:hover {
   background: rgba(255, 255, 255, 0.2);
@@ -3603,7 +3609,7 @@
   color: rgba(0, 0, 0, 0.03);
   width: 4rem;
   height: 4rem;
-  transition: background-color 0.15s, color 0.15s, border-color 0.15s, box-shadow 0.15s;
+  transition: color 0.15s, box-shadow 0.15s;
   border-radius: 4px;
 }
 .p-galleria .p-galleria-close .p-galleria-close-icon {
@@ -3618,7 +3624,7 @@
   color: rgba(0, 0, 0, 0.03);
   width: 4rem;
   height: 4rem;
-  transition: background-color 0.15s, color 0.15s, border-color 0.15s, box-shadow 0.15s;
+  transition: color 0.15s, box-shadow 0.15s;
 }
 .p-galleria .p-galleria-item-nav .p-galleria-item-prev-icon,
 .p-galleria .p-galleria-item-nav .p-galleria-item-next-icon {
@@ -3640,7 +3646,7 @@
   background-color: #e9ecef;
   width: 1rem;
   height: 1rem;
-  transition: background-color 0.15s, color 0.15s, border-color 0.15s, box-shadow 0.15s;
+  transition: color 0.15s, box-shadow 0.15s;
   border-radius: 4px;
 }
 .p-galleria .p-galleria-indicators .p-galleria-indicator button:hover {
@@ -3680,7 +3686,7 @@
   color: rgba(0, 0, 0, 0.03);
   width: 2rem;
   height: 2rem;
-  transition: background-color 0.15s, color 0.15s, border-color 0.15s, box-shadow 0.15s;
+  transition: color 0.15s, box-shadow 0.15s;
   border-radius: 4px;
 }
 .p-galleria .p-galleria-thumbnail-container .p-galleria-thumbnail-prev:hover,
@@ -3689,7 +3695,7 @@
   color: rgba(0, 0, 0, 0.03);
 }
 .p-galleria .p-galleria-thumbnail-container .p-galleria-thumbnail-item-content {
-  transition: background-color 0.15s, color 0.15s, border-color 0.15s, box-shadow 0.15s;
+  transition: box-shadow 0.15s;
 }
 .p-galleria .p-galleria-thumbnail-container .p-galleria-thumbnail-item-content:focus {
   outline: 0 none;
@@ -3702,9 +3708,9 @@
 }
 
 .p-inplace .p-inplace-display {
-  padding: 0.625rem 0.75rem;
+  padding: 0.5rem 0.75rem;
   border-radius: 4px;
-  transition: background-color 0.15s, color 0.15s, border-color 0.15s, box-shadow 0.15s;
+  transition: background-color 0.15s, border-color 0.15s, box-shadow 0.15s;
 }
 .p-inplace .p-inplace-display:not(.p-disabled):hover {
   background: #e9ecef;
