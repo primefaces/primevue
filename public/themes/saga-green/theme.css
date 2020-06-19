@@ -2357,6 +2357,7 @@
 .p-tabview .p-tabview-nav li .p-tabview-nav-link {
   border: solid #dee2e6;
   border-width: 0 0 2px 0;
+  border-color: transparent transparent #dee2e6 transparent;
   background: #ffffff;
   color: #6c757d;
   padding: 1rem;
@@ -2365,7 +2366,6 @@
   border-top-left-radius: 3px;
   transition: background-color 0.2s, border-color 0.2s, box-shadow 0.2s;
   margin: 0 0 -2px 0;
-  border-color: transparent transparent #dee2e6 transparent;
 }
 .p-tabview .p-tabview-nav li .p-tabview-nav-link:not(.p-disabled):focus {
   outline: 0 none;
@@ -3296,6 +3296,7 @@
 .p-tabmenu .p-tabmenu-nav .p-tabmenuitem .p-menuitem-link {
   border: solid #dee2e6;
   border-width: 0 0 2px 0;
+  border-color: transparent transparent #dee2e6 transparent;
   background: #ffffff;
   color: #6c757d;
   padding: 1rem;
@@ -3304,7 +3305,6 @@
   border-top-left-radius: 3px;
   transition: background-color 0.2s, border-color 0.2s, box-shadow 0.2s;
   margin: 0 0 -2px 0;
-  border-color: transparent transparent #dee2e6 transparent;
 }
 .p-tabmenu .p-tabmenu-nav .p-tabmenuitem .p-menuitem-link .p-menuitem-icon {
   margin-right: 0.5rem;

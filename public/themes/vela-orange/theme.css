@@ -2357,6 +2357,7 @@
 .p-tabview .p-tabview-nav li .p-tabview-nav-link {
   border: solid #304562;
   border-width: 0 0 2px 0;
+  border-color: transparent transparent #304562 transparent;
   background: #1f2d40;
   color: rgba(255, 255, 255, 0.6);
   padding: 1rem;
@@ -3295,6 +3296,7 @@
 .p-tabmenu .p-tabmenu-nav .p-tabmenuitem .p-menuitem-link {
   border: solid #304562;
   border-width: 0 0 2px 0;
+  border-color: transparent transparent #304562 transparent;
   background: #1f2d40;
   color: rgba(255, 255, 255, 0.6);
   padding: 1rem;

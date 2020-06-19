@@ -2340,6 +2340,7 @@
 .p-tabview .p-tabview-nav li .p-tabview-nav-link {
   border: 1px solid #7B95A3;
   border-width: 1px;
+  border-color: #7B95A3;
   background: #7B95A3;
   color: #ffffff;
   padding: 0.857rem 1rem;
@@ -3261,6 +3262,7 @@
 .p-tabmenu .p-tabmenu-nav .p-tabmenuitem .p-menuitem-link {
   border: 1px solid #7B95A3;
   border-width: 1px;
+  border-color: #7B95A3;
   background: #7B95A3;
   color: #ffffff;
   padding: 0.857rem 1rem;
