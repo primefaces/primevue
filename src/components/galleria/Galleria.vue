@@ -1,6 +1,8 @@
 <template>
-    <div v-if="fullScreen && visible" ref="mask" :class="maskContentClass">
-        <GalleriaContent v-bind="$props" @maskHide="maskHide" :templates="$scopedSlots" @activeItemChange="onActiveItemChange" />
+    <div v-if="fullScreen && (maskVisible || visible)" ref="mask" :class="maskContentClass">
+        <transition name="p-galleria" @enter="onEnter" @before-leave="onBeforeLeave" @after-leave="onAfterLeave" @appear="onAppear">
+            <GalleriaContent v-if="visible" v-bind="$props" @maskHide="maskHide" :templates="$scopedSlots" @activeItemChange="onActiveItemChange" />
+        </transition>
     </div>
 
     <GalleriaContent v-else-if="!fullScreen" v-bind="$props" :templates="$scopedSlots" @activeItemChange="onActiveItemChange" />
@@ -110,20 +112,16 @@ export default {
             default: null
         }
     },
+    data() {
+        return {
+            maskVisible: this.visible
+        }
+    },
     updated() {
         this.removeStylesFromMask();
 
-        if (this.fullScreen) {
-            if (this.visible) {
-                DomHandler.addClass(document.body, 'p-overflow-hidden');
-
-                if (this.$refs.mask) {
-                    this.$refs.mask.style.zIndex = String(this.baseZIndex + DomHandler.generateZIndex());
-                }
-            }
-            else {
-                DomHandler.removeClass(document.body, 'p-overflow-hidden');
-            }
+        if (this.fullScreen && this.visible && !this.maskVisible) {
+            this.maskVisible = true;
         }
     },
     mounted() {
@@ -135,6 +133,26 @@ export default {
         }
     },
     methods: {
+        onEnter() {
+            this.$refs.mask.style.zIndex = String(this.baseZIndex + DomHandler.generateZIndex());
+            DomHandler.addClass(document.body, 'p-overflow-hidden');
+        },
+        onBeforeLeave() {
+            DomHandler.addClass(this.$refs.mask, 'p-galleria-mask-leave');
+        },
+        onAfterLeave() {
+            this.maskVisible = false;
+            DomHandler.removeClass(document.body, 'p-overflow-hidden');
+        },
+        onAppear() {
+            if (this.visible) {
+                this.onEnter();
+
+                setTimeout(() => {
+                    DomHandler.addClass(this.$refs.mask, 'p-component-overlay');
+                }, 1);
+            }
+        },
         onActiveItemChange(index) {
             if (this.activeIndex !== index) {
                 this.$emit('update:activeIndex', index);
@@ -154,14 +172,14 @@ export default {
 
                 this.galleriaClasses = this.$vnode.data.class || this.$vnode.data.staticClass;
                 if (this.galleriaClasses) {
-                    this.$refs.mask.classList = 'p-galleria-mask p-component-overlay' + (this.visible && ' p-galleria-visible');
+                    this.$refs.mask.classList = 'p-galleria-mask' + (this.visible && ' p-galleria-visible');
                 }
             }
         }
     },
     computed: {
         maskContentClass() {
-            return ['p-galleria-mask p-component-overlay', {
+            return ['p-galleria-mask', {
                 'p-galleria-visible': this.visible
             }, this.maskClass];
         }
@@ -285,10 +303,13 @@ export default {
     justify-content: center;
     cursor: pointer;
     opacity: .5;
+}
+
+.p-galleria-thumbnail-item:hover {
+    opacity: 1;
     transition: opacity .3s;
 }
 
-.p-galleria-thumbnail-item:hover,
 .p-galleria-thumbnail-item-current {
     opacity: 1;
 }
@@ -395,10 +416,16 @@ export default {
 
 /* FullScreen */
 .p-galleria-mask {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
     display: flex;
     align-items: center;
     justify-content: center;
-    position: fixed;
+    background-color: transparent;
+    transition-property: background-color;
 }
 
 .p-galleria-close {
@@ -414,6 +441,29 @@ export default {
     position: fixed;
     top: 50%;
     margin-top: -.5rem;
+}
+
+/* Animation */
+.p-galleria-enter-active {
+    transition: all 150ms cubic-bezier(0, 0, 0.2, 1);
+}
+
+.p-galleria-leave-active {
+    transition: all 150ms cubic-bezier(0.4, 0.0, 0.2, 1);
+}
+
+.p-galleria-enter,
+.p-galleria-leave-to {
+    opacity: 0;
+    transform: scale(0.7);
+}
+
+.p-galleria-enter-active .p-galleria-item-nav {
+    opacity: 0;
+}
+
+.p-galleria-mask.p-galleria-mask-leave {
+    background-color: transparent;
 }
 
 /* Keyboard Support */

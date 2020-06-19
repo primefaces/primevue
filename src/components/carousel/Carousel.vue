@@ -524,6 +524,7 @@ export default {
 
 .p-carousel-items-content {
 	overflow: hidden;
+    width: 100%;
 }
 
 .p-carousel-items-container {

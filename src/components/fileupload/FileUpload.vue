@@ -239,7 +239,6 @@ export default {
             return true;
         },
         onDragEnter(event) {
-            console.log('enter');
             if (!this.disabled) {
                 event.stopPropagation();
                 event.preventDefault();
