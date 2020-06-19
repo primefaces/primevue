@@ -1809,7 +1809,12 @@
   padding-right: 0;
 }
 .p-paginator .p-paginator-current {
+  background-color: transparent;
   border: 0 none;
+  color: #dedede;
+  min-width: 2.357rem;
+  height: 2.357rem;
+  margin: 0;
 }
 .p-paginator .p-paginator-pages .p-paginator-page {
   background-color: transparent;
@@ -2348,13 +2353,11 @@
   background: #191919;
   border-color: #191919;
   color: #FFE082;
-  border-width: 1px;
 }
 .p-tabview .p-tabview-nav li.p-highlight .p-tabview-nav-link {
   background: #FFE082;
   border-color: #FFE082;
   color: #212529;
-  border-width: 1px;
 }
 .p-tabview .p-tabview-panels {
   background: #323232;
@@ -2596,6 +2599,12 @@
   margin: 0 0.5rem 0 0.5rem;
   color: #dedede;
 }
+.p-breadcrumb ul li:last-child .p-menuitem-text {
+  color: #dedede;
+}
+.p-breadcrumb ul li:last-child .p-menuitem-icon {
+  color: #dedede;
+}
 
 .p-contextmenu {
   padding: 0;
@@ -2703,6 +2712,22 @@
   outline: 0 none;
   outline-offset: 0;
   box-shadow: inset 0 0 0 0.2rem white;
+}
+.p-megamenu .p-megamenu-root-list > .p-menuitem.p-menuitem-active > .p-menuitem-link,
+.p-megamenu .p-megamenu-root-list > .p-menuitem.p-menuitem-active > .p-menuitem-link:not(.p-disabled):hover {
+  background: #FFE082;
+}
+.p-megamenu .p-megamenu-root-list > .p-menuitem.p-menuitem-active > .p-menuitem-link .p-menuitem-text,
+.p-megamenu .p-megamenu-root-list > .p-menuitem.p-menuitem-active > .p-menuitem-link:not(.p-disabled):hover .p-menuitem-text {
+  color: #212529;
+}
+.p-megamenu .p-megamenu-root-list > .p-menuitem.p-menuitem-active > .p-menuitem-link .p-menuitem-icon,
+.p-megamenu .p-megamenu-root-list > .p-menuitem.p-menuitem-active > .p-menuitem-link:not(.p-disabled):hover .p-menuitem-icon {
+  color: #212529;
+}
+.p-megamenu .p-megamenu-root-list > .p-menuitem.p-menuitem-active > .p-menuitem-link .p-submenu-icon,
+.p-megamenu .p-megamenu-root-list > .p-menuitem.p-menuitem-active > .p-menuitem-link:not(.p-disabled):hover .p-submenu-icon {
+  color: #212529;
 }
 .p-megamenu .p-menuitem-link {
   padding: 0.857rem;
@@ -2910,6 +2935,22 @@
   outline: 0 none;
   outline-offset: 0;
   box-shadow: inset 0 0 0 0.2rem white;
+}
+.p-menubar .p-menubar-root-list > .p-menuitem.p-menuitem-active > .p-menuitem-link,
+.p-menubar .p-menubar-root-list > .p-menuitem.p-menuitem-active > .p-menuitem-link:not(.p-disabled):hover {
+  background: #FFE082;
+}
+.p-menubar .p-menubar-root-list > .p-menuitem.p-menuitem-active > .p-menuitem-link .p-menuitem-text,
+.p-menubar .p-menubar-root-list > .p-menuitem.p-menuitem-active > .p-menuitem-link:not(.p-disabled):hover .p-menuitem-text {
+  color: #212529;
+}
+.p-menubar .p-menubar-root-list > .p-menuitem.p-menuitem-active > .p-menuitem-link .p-menuitem-icon,
+.p-menubar .p-menubar-root-list > .p-menuitem.p-menuitem-active > .p-menuitem-link:not(.p-disabled):hover .p-menuitem-icon {
+  color: #212529;
+}
+.p-menubar .p-menubar-root-list > .p-menuitem.p-menuitem-active > .p-menuitem-link .p-submenu-icon,
+.p-menubar .p-menubar-root-list > .p-menuitem.p-menuitem-active > .p-menuitem-link:not(.p-disabled):hover .p-submenu-icon {
+  color: #212529;
 }
 .p-menubar .p-submenu-list {
   padding: 0;
@@ -3227,7 +3268,7 @@
 .p-tabmenu .p-tabmenu-nav .p-tabmenuitem .p-menuitem-link .p-menuitem-icon {
   margin-right: 0.5rem;
 }
-.p-tabmenu .p-tabmenu-nav .p-tabmenuitem .p-menuitem-link:focus {
+.p-tabmenu .p-tabmenu-nav .p-tabmenuitem .p-menuitem-link:not(.p-disabled):focus {
   outline: 0 none;
   outline-offset: 0;
   box-shadow: 0 0 0 0.2rem white;
@@ -3236,13 +3277,11 @@
   background: #191919;
   border-color: #191919;
   color: #FFE082;
-  border-width: 1px;
 }
 .p-tabmenu .p-tabmenu-nav .p-tabmenuitem.p-highlight .p-menuitem-link {
   background: #FFE082;
   border-color: #FFE082;
   color: #212529;
-  border-width: 1px;
 }
 
 .p-tieredmenu {
@@ -3454,6 +3493,7 @@
 .p-toast .p-toast-item-container {
   margin: 0 0 1rem 0;
   box-shadow: 0 3px 6px 0 rgba(0, 0, 0, 0.16);
+  border-radius: 3px;
 }
 .p-toast .p-toast-item-container .p-toast-item {
   padding: 1rem;
@@ -3621,8 +3661,8 @@
   box-shadow: 0 0 0 0.2rem white;
 }
 
-.p-galleria-mask {
-  background: rgba(0, 0, 0, 0.9);
+.p-galleria-mask.p-component-overlay {
+  background-color: rgba(0, 0, 0, 0.9);
 }
 
 .p-inplace .p-inplace-display {

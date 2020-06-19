@@ -20,159 +20,174 @@
                     <h4>Free Themes</h4>
                     <p>Built-in component themes created by the <a href="https://www.primefaces.org/designer/primevue">PrimeVue Theme Designer</a>.</p>
 
+                    <h5>Bootstrap</h5>
+                    <div class="p-grid">
+                         <div class="p-col-3">
+                            <button class="p-link">
+                                <img src="./assets/images/themes/bootstrap-light.png" alt="Bootstrap Light" @click="changeTheme($event, 'bootstrap-light')"/>
+                            </button>
+                            <span>Light</span>
+                        </div>
+                        <div class="p-col-3">
+                            <button class="p-link">
+                                <img src="./assets/images/themes/bootstrap-dark.png" alt="Bootstrap Dark" @click="changeTheme($event, 'bootstrap-dark')"/>
+                            </button>
+                            <span>Dark</span>
+                        </div>
+                    </div>
+
+                    <h5>Material</h5>
+                    <div class="p-grid">
+                         <div class="p-col-3">
+                            <button class="p-link">
+                                <img src="./assets/images/themes/material-light.png" alt="Material Light" @click="changeTheme($event, 'material-light')"/>
+                            </button>
+                            <span>Light</span>
+                        </div>
+                        <div class="p-col-3">
+                            <button class="p-link">
+                                <img src="./assets/images/themes/material-dark.png" alt="Material Dark" @click="changeTheme($event, 'material-dark')"/>
+                            </button>
+                            <span>Dark</span>
+                        </div>
+                    </div>
+
+                    <h5>PrimeOne Design</h5>
                     <div class="p-grid">
                         <div class="p-col-3">
                             <button class="p-link">
                                 <img src="./assets/images/themes/saga-blue.png" alt="Saga Blue" @click="changeTheme($event, 'saga-blue')"/>
-                                <i class="pi pi-check" v-if="theme === 'saga-blue'" />
                             </button>
                             <span>Saga Blue</span>
                         </div>
                         <div class="p-col-3">
                             <button class="p-link">
                                 <img src="./assets/images/themes/saga-green.png" alt="Saga Green" @click="changeTheme($event, 'saga-green')"/>
-                                <i class="pi pi-check" v-if="theme === 'saga-green'" />
                             </button>
                             <span>Saga Green</span>
                         </div>
                         <div class="p-col-3">
                             <button class="p-link">
                                 <img src="./assets/images/themes/saga-orange.png" alt="Saga Orange" @click="changeTheme($event, 'saga-orange')"/>
-                                <i class="pi pi-check" v-if="theme === 'saga-orange'" />
                             </button>
                             <span>Saga Orange</span>
                         </div>
                         <div class="p-col-3">
                             <button class="p-link">
                                 <img src="./assets/images/themes/saga-purple.png" alt="Saga Purple" @click="changeTheme($event, 'saga-purple')"/>
-                                <i class="pi pi-check" v-if="theme === 'saga-purple'" />
                             </button>
                             <span>Saga Purple</span>
                         </div>
                         <div class="p-col-3">
                             <button class="p-link">
                                 <img src="./assets/images/themes/vela-blue.png" alt="Vela Blue" @click="changeTheme($event, 'vela-blue', true)"/>
-                                <i class="pi pi-check" v-if="theme === 'vela-blue'" />
                             </button>
                             <span>Vela Blue</span>
                         </div>
                         <div class="p-col-3">
                             <button class="p-link">
                                 <img src="./assets/images/themes/vela-green.png" alt="Vela Green" @click="changeTheme($event, 'vela-green', true)"/>
-                                <i class="pi pi-check" v-if="theme === 'vela-green'" />
                             </button>
                             <span>Vela Green</span>
                         </div>
                         <div class="p-col-3">
                             <button class="p-link">
                                 <img src="./assets/images/themes/vela-orange.png" alt="Vela Orange" @click="changeTheme($event, 'vela-orange', true)"/>
-                                <i class="pi pi-check" v-if="theme === 'vela-orange'" />
                             </button>
                             <span>Vela Orange</span>
                         </div>
                         <div class="p-col-3">
                             <button class="p-link">
                                 <img src="./assets/images/themes/vela-purple.png" alt="Vela Purple" @click="changeTheme($event, 'vela-purple', true)"/>
-                                <i class="pi pi-check" v-if="theme === 'vela-purple'" />
                             </button>
                             <span>Vela Purple</span>
                         </div>
                         <div class="p-col-3">
                             <button class="p-link">
                                 <img src="./assets/images/themes/vela-blue.png" alt="Arya Blue" @click="changeTheme($event, 'arya-blue', true)"/>
-                                <i class="pi pi-check" v-if="theme === 'arya-blue'" />
                             </button>
                             <span>Arya Blue</span>
                         </div>
                         <div class="p-col-3">
                             <button class="p-link">
                                 <img src="./assets/images/themes/vela-green.png" alt="Arya Green" @click="changeTheme($event, 'arya-green', true)"/>
-                                <i class="pi pi-check" v-if="theme === 'arya-green'" />
                             </button>
                             <span>Arya Green</span>
                         </div>
                         <div class="p-col-3">
                             <button class="p-link">
                                 <img src="./assets/images/themes/vela-orange.png" alt="Arya Orange" @click="changeTheme($event, 'arya-orange', true)"/>
-                                <i class="pi pi-check" v-if="theme === 'arya-orange'" />
                             </button>
                             <span>Arya Orange</span>
                         </div>
                         <div class="p-col-3">
                             <button class="p-link">
                                 <img src="./assets/images/themes/vela-purple.png" alt="Arya Purple" @click="changeTheme($event, 'arya-purple', true)"/>
-                                <i class="pi pi-check" v-if="theme === 'arya-purple'" />
                             </button>
                             <span>Arya Purple</span>
                         </div>
+                    </div>
+
+                    <h5>Legacy</h5>
+                    <div class="p-grid">
                         <div class="p-col-3">
                             <button class="p-link">
                                 <img src="./assets/images/layouts/themeswitcher-nova.png" alt="Nova" @click="changeTheme($event, 'nova')"/>
-                                <i class="pi pi-check" v-if="theme === 'nova'" />
                             </button>
                             <span>Nova</span>
                         </div>
                         <div class="p-col-3">
                             <button class="p-link">
                                 <img src="./assets/images/layouts/themeswitcher-nova-alt.png" alt="Nova Alt" @click="changeTheme($event, 'nova-alt')"/>
-                                <i class="pi pi-check" v-if="theme === 'nova-alt'" />
                             </button>
                             <span>Nova Alt</span>
                         </div>
                         <div class="p-col-3">
                             <button class="p-link">
                                 <img src="./assets/images/layouts/themeswitcher-nova-accent.png" alt="Nova Accent" @click="changeTheme($event, 'nova-accent')"/>
-                                <i class="pi pi-check" v-if="theme === 'nova-accent'" />
                             </button>
                             <span>Nova Accent</span>
                         </div>
                         <div class="p-col-3">
                             <button class="p-link">
                                 <img src="./assets/images/layouts/themeswitcher-nova-vue.png" alt="Nova Colored" @click="changeTheme($event, 'nova-vue')"/>
-                                <i class="pi pi-check" v-if="theme === 'nova-vue'" />
                             </button>
                             <span>Nova Vue</span>
                         </div>
                         <div class="p-col-3">
                             <button class="p-link">
                                 <img src="./assets/images/layouts/themeswitcher-luna-blue.png" alt="Luna Blue" @click="changeTheme($event, 'luna-blue', true)"/>
-                                <i class="pi pi-check" v-if="theme === 'luna-blue'" />
                             </button>
                             <span>Luna Blue</span>
                         </div>
                         <div class="p-col-3">
                             <button class="p-link">
                                 <img src="./assets/images/layouts/themeswitcher-luna-green.png" alt="Luna Green" @click="changeTheme($event, 'luna-green', true)"/>
-                                <i class="pi pi-check" v-if="theme === 'luna-green'" />
                             </button>
                             <span>Luna Green</span>
                         </div>
                         <div class="p-col-3">
                             <button class="p-link">
                                 <img src="./assets/images/layouts/themeswitcher-luna-amber.png" alt="Luna Amber" @click="changeTheme($event, 'luna-amber', true)" target="_blank"/>
-                                <i class="pi pi-check" v-if="theme === 'luna-amber'" />
                             </button>
                             <span>Luna Amber</span>
                         </div>
                         <div class="p-col-3">
                             <button class="p-link">
                                 <img src="./assets/images/layouts/themeswitcher-luna-pink.png" alt="Luna Pink" @click="changeTheme($event, 'luna-pink', true)" target="_blank"/>
-                                <i class="pi pi-check" v-if="theme === 'luna-pink'" />
                             </button>
                             <span>Luna Pink</span>
                         </div>
                         <div class="p-col-3">
                             <button class="p-link">
                                 <img src="./assets/images/layouts/themeswitcher-rhea.png" alt="Rhea" @click="changeTheme($event, 'rhea', false)" target="_blank"/>
-                                <i class="pi pi-check" v-if="theme === 'rhea'" />
                             </button>
                             <span>Rhea</span>
                         </div>
                     </div>
                 </div>
-
                 <div class="premium-themes">
-                    <h4>Premium Vue-CLI Template</h4>
+                    <h4>Premium Vue-CLI Templates</h4>
                     <p>Beautifully crafted premium <a href="https://cli.vuejs.org">Vue CLI</a> application templates by the PrimeTek design team.</p>
                     <div class="p-grid">
                         <div class="p-col-12 p-md-6">

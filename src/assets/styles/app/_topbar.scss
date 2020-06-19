@@ -106,13 +106,17 @@
                         line-height: 1;
 
                         &.topbar-submenu-header {
-                            padding: .5rem;
-                            font-weight: bold;
-                            text-align: left;
-                            margin-top: 1rem;
-
+                            display: block;
+                            color: var(--text-color-secondary);
+                            font-weight: 600;
+                            user-select: none;
+                            padding: 1.5rem 0 1rem 0;
+                            font-size: 0.857rem;
+                            text-transform: uppercase;
+                
                             &:first-child {
-                                margin-top: 0;
+                                border-top: 0 none;
+                                padding-top: 1rem;
                             }
                         }
                     }
