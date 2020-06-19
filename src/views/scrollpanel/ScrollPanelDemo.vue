@@ -117,3 +117,9 @@ export default {
     }
 }
 </style>
+
+<style scoped>
+.p-col-12 {
+    padding: 2rem;
+}
+</style>

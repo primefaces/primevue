@@ -9,7 +9,7 @@
             </a>
 
             <div class="layout-config-content">
-                <div class="free-themes">
+                <div>
                     <h4>Component Scale</h4>
                     <div class="config-scale">
                         <Button icon="pi pi-minus" @click="decrementScale()" class="p-button-secondary" :disabled="scale === scales[0]"/>
@@ -21,7 +21,7 @@
                     <p>Built-in component themes created by the <a href="https://www.primefaces.org/designer/primevue">PrimeVue Theme Designer</a>.</p>
 
                     <h5>Bootstrap</h5>
-                    <div class="p-grid">
+                    <div class="p-grid free-themes">
                          <div class="p-col-3">
                             <button class="p-link">
                                 <img src="./assets/images/themes/bootstrap-light.png" alt="Bootstrap Light" @click="changeTheme($event, 'bootstrap-light')"/>
@@ -37,7 +37,7 @@
                     </div>
 
                     <h5>Material</h5>
-                    <div class="p-grid">
+                    <div class="p-grid free-themes">
                          <div class="p-col-3">
                             <button class="p-link">
                                 <img src="./assets/images/themes/material-light.png" alt="Material Light" @click="changeTheme($event, 'material-light')"/>
@@ -53,7 +53,7 @@
                     </div>
 
                     <h5>PrimeOne Design</h5>
-                    <div class="p-grid">
+                    <div class="p-grid free-themes">
                         <div class="p-col-3">
                             <button class="p-link">
                                 <img src="./assets/images/themes/saga-blue.png" alt="Saga Blue" @click="changeTheme($event, 'saga-blue')"/>
@@ -129,7 +129,7 @@
                     </div>
 
                     <h5>Legacy</h5>
-                    <div class="p-grid">
+                    <div class="p-grid free-themes">
                         <div class="p-col-3">
                             <button class="p-link">
                                 <img src="./assets/images/layouts/themeswitcher-nova.png" alt="Nova" @click="changeTheme($event, 'nova')"/>
@@ -185,11 +185,10 @@
                             <span>Rhea</span>
                         </div>
                     </div>
-                </div>
-                <div class="premium-themes">
+
                     <h4>Premium Vue-CLI Templates</h4>
                     <p>Beautifully crafted premium <a href="https://cli.vuejs.org">Vue CLI</a> application templates by the PrimeTek design team.</p>
-                    <div class="p-grid">
+                    <div class="p-grid premium-themes">
                         <div class="p-col-12 p-md-6">
                             <a href="https://www.primefaces.org/layouts/ultima-vue">
                                 <img alt="Ultima" src="./assets/images/layouts/ultima-vue.jpg">
@@ -227,7 +226,6 @@
                         </div>
                     </div>
                 </div>
-
             </div>
         </div>
     </div>
