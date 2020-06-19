@@ -199,7 +199,7 @@
   width: 2.5rem;
   height: 2.5rem;
   border-radius: 50%;
-  transition: background-color 0.2s, box-shadow 0.2s;
+  transition: background-color 0.2s, border-color 0.2s, box-shadow 0.2s;
 }
 .p-datepicker table td > span.p-highlight {
   color: #212529;
@@ -258,7 +258,7 @@
 }
 .p-datepicker .p-monthpicker .p-monthpicker-month {
   padding: 0.5rem;
-  transition: background-color 0.2s, box-shadow 0.2s;
+  transition: background-color 0.2s, border-color 0.2s, box-shadow 0.2s;
   border-radius: 3px;
 }
 .p-datepicker .p-monthpicker .p-monthpicker-month.p-highlight {
@@ -473,7 +473,7 @@
   border: 0 none;
   color: rgba(255, 255, 255, 0.87);
   background: transparent;
-  transition: background-color 0.2s, box-shadow 0.2s;
+  transition: background-color 0.2s, border-color 0.2s, box-shadow 0.2s;
   border-radius: 0;
 }
 .p-dropdown-panel .p-dropdown-items .p-dropdown-item.p-highlight {
@@ -747,7 +747,7 @@
   padding: 0.5rem 1rem;
   border: 0 none;
   color: rgba(255, 255, 255, 0.87);
-  transition: background-color 0.2s, box-shadow 0.2s;
+  transition: background-color 0.2s, border-color 0.2s, box-shadow 0.2s;
   border-radius: 0;
 }
 .p-listbox .p-listbox-list .p-listbox-item.p-highlight {
@@ -847,7 +847,7 @@
   border: 0 none;
   color: rgba(255, 255, 255, 0.87);
   background: transparent;
-  transition: background-color 0.2s, box-shadow 0.2s;
+  transition: background-color 0.2s, border-color 0.2s, box-shadow 0.2s;
   border-radius: 0;
 }
 .p-multiselect-panel .p-multiselect-items .p-multiselect-item.p-highlight {
@@ -1351,8 +1351,6 @@
   border: 1px solid #304562;
   border-width: 0 0 1px 0;
   padding: 1rem 1rem;
-  border-top-left-radius: 3px;
-  border-top-right-radius: 3px;
   font-weight: 600;
 }
 .p-datatable .p-datatable-footer {
@@ -1362,8 +1360,6 @@
   border-width: 0 0 1px 0;
   padding: 1rem 1rem;
   font-weight: 600;
-  border-bottom-left-radius: 3px;
-  border-bottom-right-radius: 3px;
 }
 .p-datatable .p-datatable-thead > tr > th {
   text-align: left;
@@ -1373,7 +1369,7 @@
   font-weight: 600;
   color: rgba(255, 255, 255, 0.87);
   background: #1f2d40;
-  transition: background-color 0.2s, box-shadow 0.2s;
+  transition: background-color 0.2s, border-color 0.2s, box-shadow 0.2s;
 }
 .p-datatable .p-datatable-tfoot > tr > td {
   text-align: left;
@@ -1417,7 +1413,7 @@
 .p-datatable .p-datatable-tbody > tr {
   background: #1f2d40;
   color: rgba(255, 255, 255, 0.87);
-  transition: background-color 0.2s, box-shadow 0.2s;
+  transition: background-color 0.2s, border-color 0.2s, box-shadow 0.2s;
   outline-color: #C8E6C9;
 }
 .p-datatable .p-datatable-tbody > tr > td {
@@ -1476,7 +1472,7 @@
   border-width: 0 1px 1px 1px;
 }
 .p-datatable.p-datatable-gridlines .p-datatable-thead > tr > th {
-  border-width: 1px;
+  border-width: 1px 1px 1px 1px;
 }
 .p-datatable.p-datatable-gridlines .p-datatable-tbody > tr > td {
   border-width: 1px;
@@ -1542,8 +1538,6 @@
   border: 1px solid #304562;
   border-width: 0 0 1px 0;
   padding: 1rem 1rem;
-  border-top-left-radius: 3px;
-  border-top-right-radius: 3px;
   font-weight: 600;
 }
 .p-dataview .p-dataview-content {
@@ -1553,7 +1547,8 @@
   padding: 0;
 }
 .p-dataview.p-dataview-list .p-dataview-content > .p-grid > div {
-  border-bottom: 1px solid #304562;
+  border: solid #304562;
+  border-width: 0 0 1px 0;
 }
 .p-dataview .p-dataview-footer {
   background: #1f2d40;
@@ -1696,7 +1691,7 @@
   border: 0 none;
   color: rgba(255, 255, 255, 0.87);
   background: transparent;
-  transition: transform 0.2s, background-color 0.2s, box-shadow 0.2s;
+  transition: transform 0.2s, background-color 0.2s, border-color 0.2s, box-shadow 0.2s;
 }
 .p-orderlist .p-orderlist-list .p-orderlist-item:not(.p-highlight):hover {
   background: #17212f;
@@ -1790,7 +1785,7 @@
   min-width: 2.286em;
   height: 2.286em;
   margin: 0.143rem;
-  transition: background-color 0.2s, box-shadow 0.2s;
+  transition: background-color 0.2s, border-color 0.2s, box-shadow 0.2s;
   border-radius: 3px;
 }
 .p-paginator .p-paginator-first:not(.p-disabled):not(.p-highlight):hover,
@@ -1801,8 +1796,15 @@
   border-color: transparent;
   color: rgba(255, 255, 255, 0.87);
 }
+.p-paginator .p-paginator-first {
+  border-top-left-radius: 3px;
+  border-bottom-left-radius: 3px;
+}
+.p-paginator .p-paginator-last {
+  border-top-right-radius: 3px;
+  border-bottom-right-radius: 3px;
+}
 .p-paginator .p-dropdown {
-  border: 0 none;
   margin-left: 0.5rem;
   height: 2.286em;
 }
@@ -1816,6 +1818,7 @@
   min-width: 2.286em;
   height: 2.286em;
   margin: 0.143rem;
+  padding: 0 0.5rem;
 }
 .p-paginator .p-paginator-pages .p-paginator-page {
   background-color: transparent;
@@ -1824,7 +1827,7 @@
   min-width: 2.286em;
   height: 2.286em;
   margin: 0.143rem;
-  transition: background-color 0.2s, box-shadow 0.2s;
+  transition: background-color 0.2s, border-color 0.2s, box-shadow 0.2s;
   border-radius: 3px;
 }
 .p-paginator .p-paginator-pages .p-paginator-page.p-highlight {
@@ -1868,7 +1871,7 @@
   border: 0 none;
   color: rgba(255, 255, 255, 0.87);
   background: transparent;
-  transition: transform 0.2s, background-color 0.2s, box-shadow 0.2s;
+  transition: transform 0.2s, background-color 0.2s, border-color 0.2s, box-shadow 0.2s;
 }
 .p-picklist .p-picklist-list .p-picklist-item:not(.p-highlight):hover {
   background: #17212f;
@@ -1924,7 +1927,7 @@
 }
 .p-tree .p-tree-container .p-treenode .p-treenode-content {
   border-radius: 3px;
-  transition: background-color 0.2s, box-shadow 0.2s;
+  transition: background-color 0.2s, border-color 0.2s, box-shadow 0.2s;
   padding: 0.5rem;
 }
 .p-tree .p-tree-container .p-treenode .p-treenode-content .p-tree-toggler {
@@ -1994,8 +1997,6 @@
   border: 1px solid #304562;
   border-width: 0 0 1px 0;
   padding: 1rem 1rem;
-  border-top-left-radius: 3px;
-  border-top-right-radius: 3px;
   font-weight: 600;
 }
 .p-treetable .p-treetable-footer {
@@ -2005,8 +2006,6 @@
   border-width: 0 0 1px 0;
   padding: 1rem 1rem;
   font-weight: 600;
-  border-bottom-left-radius: 3px;
-  border-bottom-right-radius: 3px;
 }
 .p-treetable .p-treetable-thead > tr > th {
   text-align: left;
@@ -2016,7 +2015,7 @@
   font-weight: 600;
   color: rgba(255, 255, 255, 0.87);
   background: #1f2d40;
-  transition: background-color 0.2s, box-shadow 0.2s;
+  transition: background-color 0.2s, border-color 0.2s, box-shadow 0.2s;
 }
 .p-treetable .p-treetable-tfoot > tr > td {
   text-align: left;
@@ -2060,7 +2059,7 @@
 .p-treetable .p-treetable-tbody > tr {
   background: #1f2d40;
   color: rgba(255, 255, 255, 0.87);
-  transition: background-color 0.2s, box-shadow 0.2s;
+  transition: background-color 0.2s, border-color 0.2s, box-shadow 0.2s;
   outline-color: #C8E6C9;
 }
 .p-treetable .p-treetable-tbody > tr > td {
@@ -2169,7 +2168,7 @@
   background: #1f2d40;
   font-weight: 600;
   border-radius: 3px;
-  transition: background-color 0.2s, box-shadow 0.2s;
+  transition: background-color 0.2s, border-color 0.2s, box-shadow 0.2s;
 }
 .p-accordion .p-accordion-header .p-accordion-header-link .p-accordion-toggle-icon {
   margin-right: 0.5rem;
@@ -2270,13 +2269,13 @@
 }
 .p-fieldset.p-fieldset-toggleable .p-fieldset-legend {
   padding: 0;
-  transition: background-color 0.2s, box-shadow 0.2s;
+  transition: background-color 0.2s, border-color 0.2s, box-shadow 0.2s;
 }
 .p-fieldset.p-fieldset-toggleable .p-fieldset-legend a {
   padding: 1rem;
   color: rgba(255, 255, 255, 0.87);
   border-radius: 3px;
-  transition: background-color 0.2s, box-shadow 0.2s;
+  transition: background-color 0.2s, border-color 0.2s, box-shadow 0.2s;
 }
 .p-fieldset.p-fieldset-toggleable .p-fieldset-legend a .p-fieldset-toggler {
   margin-right: 0.5rem;
@@ -2364,7 +2363,7 @@
   font-weight: 600;
   border-top-right-radius: 3px;
   border-top-left-radius: 3px;
-  transition: background-color 0.2s, box-shadow 0.2s;
+  transition: background-color 0.2s, border-color 0.2s, box-shadow 0.2s;
   margin: 0 0 -2px 0;
 }
 .p-tabview .p-tabview-nav li .p-tabview-nav-link:not(.p-disabled):focus {
@@ -2604,7 +2603,7 @@
   padding: 1rem;
 }
 .p-breadcrumb ul li .p-menuitem-link {
-  transition: background-color 0.2s, box-shadow 0.2s;
+  transition: background-color 0.2s, border-color 0.2s, box-shadow 0.2s;
   border-radius: 3px;
 }
 .p-breadcrumb ul li .p-menuitem-link:focus {
@@ -2641,7 +2640,7 @@
   padding: 0.75rem 1rem;
   color: rgba(255, 255, 255, 0.87);
   border-radius: 0;
-  transition: background-color 0.2s, box-shadow 0.2s;
+  transition: background-color 0.2s, border-color 0.2s, box-shadow 0.2s;
   user-select: none;
 }
 .p-contextmenu .p-menuitem-link .p-menuitem-text {
@@ -2705,7 +2704,7 @@
   padding: 0.75rem 1rem;
   color: rgba(255, 255, 255, 0.87);
   border-radius: 3px;
-  transition: background-color 0.2s, box-shadow 0.2s;
+  transition: background-color 0.2s, border-color 0.2s, box-shadow 0.2s;
   user-select: none;
 }
 .p-megamenu .p-megamenu-root-list > .p-menuitem > .p-menuitem-link .p-menuitem-text {
@@ -2756,7 +2755,7 @@
   padding: 0.75rem 1rem;
   color: rgba(255, 255, 255, 0.87);
   border-radius: 0;
-  transition: background-color 0.2s, box-shadow 0.2s;
+  transition: background-color 0.2s, border-color 0.2s, box-shadow 0.2s;
   user-select: none;
 }
 .p-megamenu .p-menuitem-link .p-menuitem-text {
@@ -2835,7 +2834,7 @@
   padding: 0.75rem 1rem;
   color: rgba(255, 255, 255, 0.87);
   border-radius: 0;
-  transition: background-color 0.2s, box-shadow 0.2s;
+  transition: background-color 0.2s, border-color 0.2s, box-shadow 0.2s;
   user-select: none;
 }
 .p-menu .p-menuitem-link .p-menuitem-text {
@@ -2894,7 +2893,7 @@
   padding: 0.75rem 1rem;
   color: rgba(255, 255, 255, 0.87);
   border-radius: 0;
-  transition: background-color 0.2s, box-shadow 0.2s;
+  transition: background-color 0.2s, border-color 0.2s, box-shadow 0.2s;
   user-select: none;
 }
 .p-menubar .p-menuitem-link .p-menuitem-text {
@@ -2928,7 +2927,7 @@
   padding: 0.75rem 1rem;
   color: rgba(255, 255, 255, 0.87);
   border-radius: 3px;
-  transition: background-color 0.2s, box-shadow 0.2s;
+  transition: background-color 0.2s, border-color 0.2s, box-shadow 0.2s;
   user-select: none;
 }
 .p-menubar .p-menubar-root-list > .p-menuitem > .p-menuitem-link .p-menuitem-text {
@@ -3011,7 +3010,7 @@
     width: 2.5rem;
     height: 2.5rem;
     border-radius: 3px;
-    transition: background-color 0.2s, box-shadow 0.2s;
+    transition: background-color 0.2s, border-color 0.2s, box-shadow 0.2s;
   }
   .p-menubar .p-menubar-button i {
     font-size: 1.5rem;
@@ -3050,7 +3049,7 @@
     padding: 0.75rem 1rem;
     color: rgba(255, 255, 255, 0.87);
     border-radius: 0;
-    transition: background-color 0.2s, box-shadow 0.2s;
+    transition: background-color 0.2s, border-color 0.2s, box-shadow 0.2s;
     user-select: none;
   }
   .p-menubar .p-menubar-root-list > .p-menuitem > .p-menuitem-link .p-menuitem-text {
@@ -3134,7 +3133,7 @@
   background: #1f2d40;
   font-weight: 600;
   border-radius: 3px;
-  transition: background-color 0.2s, box-shadow 0.2s;
+  transition: background-color 0.2s, border-color 0.2s, box-shadow 0.2s;
 }
 .p-panelmenu .p-panelmenu-header > a .p-panelmenu-icon {
   margin-right: 0.5rem;
@@ -3183,7 +3182,7 @@
   padding: 0.75rem 1rem;
   color: rgba(255, 255, 255, 0.87);
   border-radius: 0;
-  transition: background-color 0.2s, box-shadow 0.2s;
+  transition: background-color 0.2s, border-color 0.2s, box-shadow 0.2s;
   user-select: none;
 }
 .p-panelmenu .p-panelmenu-content .p-menuitem .p-menuitem-link .p-menuitem-text {
@@ -3242,7 +3241,7 @@
 
 .p-steps .p-steps-item .p-menuitem-link {
   background: transparent;
-  transition: background-color 0.2s, box-shadow 0.2s;
+  transition: background-color 0.2s, border-color 0.2s, box-shadow 0.2s;
   border-radius: 3px;
   background: transparent;
 }
@@ -3302,7 +3301,7 @@
   font-weight: 600;
   border-top-right-radius: 3px;
   border-top-left-radius: 3px;
-  transition: background-color 0.2s, box-shadow 0.2s;
+  transition: background-color 0.2s, border-color 0.2s, box-shadow 0.2s;
   margin: 0 0 -2px 0;
 }
 .p-tabmenu .p-tabmenu-nav .p-tabmenuitem .p-menuitem-link .p-menuitem-icon {
@@ -3336,7 +3335,7 @@
   padding: 0.75rem 1rem;
   color: rgba(255, 255, 255, 0.87);
   border-radius: 0;
-  transition: background-color 0.2s, box-shadow 0.2s;
+  transition: background-color 0.2s, border-color 0.2s, box-shadow 0.2s;
   user-select: none;
 }
 .p-tieredmenu .p-menuitem-link .p-menuitem-text {
@@ -3693,7 +3692,7 @@
   color: #f8f9fa;
 }
 .p-galleria .p-galleria-thumbnail-container .p-galleria-thumbnail-item-content {
-  transition: background-color 0.2s, box-shadow 0.2s;
+  transition: background-color 0.2s, border-color 0.2s, box-shadow 0.2s;
 }
 .p-galleria .p-galleria-thumbnail-container .p-galleria-thumbnail-item-content:focus {
   outline: 0 none;

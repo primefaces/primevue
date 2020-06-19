@@ -1,6 +1,6 @@
 <template>
 	<button :class="containerClass" v-on="$listeners" type="button">
-		<span class="p-paginator-icon pi pi-caret-left"></span>
+		<span class="p-paginator-icon pi pi-angle-left"></span>
 	</button>
 </template>
 <script>

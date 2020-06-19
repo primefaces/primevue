@@ -1338,11 +1338,11 @@
 }
 
 .p-datatable .p-paginator-top {
-  border-width: 1px 0 1px 0;
+  border-width: 1px 0 0 0;
   border-radius: 0;
 }
 .p-datatable .p-paginator-bottom {
-  border-width: 0 0 1px 0;
+  border-width: 1px 0 0 0;
   border-radius: 0;
 }
 .p-datatable .p-datatable-header {
@@ -1351,8 +1351,6 @@
   border: solid #dee2e6;
   border-width: 1px 0 0 0;
   padding: 1rem 1rem;
-  border-top-left-radius: 4px;
-  border-top-right-radius: 4px;
   font-weight: 600;
 }
 .p-datatable .p-datatable-footer {
@@ -1362,8 +1360,6 @@
   border-width: 1px 0 1px 0;
   padding: 1rem 1rem;
   font-weight: 600;
-  border-bottom-left-radius: 4px;
-  border-bottom-right-radius: 4px;
 }
 .p-datatable .p-datatable-thead > tr > th {
   text-align: left;
@@ -1476,7 +1472,7 @@
   border-width: 0 1px 1px 1px;
 }
 .p-datatable.p-datatable-gridlines .p-datatable-thead > tr > th {
-  border-width: 1px;
+  border-width: 1px 1px 2px 1px;
 }
 .p-datatable.p-datatable-gridlines .p-datatable-tbody > tr > td {
   border-width: 1px;
@@ -1529,11 +1525,11 @@
 }
 
 .p-dataview .p-paginator-top {
-  border-width: 1px 0 1px 0;
+  border-width: 1px 0 0 0;
   border-radius: 0;
 }
 .p-dataview .p-paginator-bottom {
-  border-width: 0 0 1px 0;
+  border-width: 1px 0 0 0;
   border-radius: 0;
 }
 .p-dataview .p-dataview-header {
@@ -1542,8 +1538,6 @@
   border: solid #dee2e6;
   border-width: 1px 0 0 0;
   padding: 1rem 1rem;
-  border-top-left-radius: 4px;
-  border-top-right-radius: 4px;
   font-weight: 600;
 }
 .p-dataview .p-dataview-content {
@@ -1553,7 +1547,8 @@
   padding: 0;
 }
 .p-dataview.p-dataview-list .p-dataview-content > .p-grid > div {
-  border-bottom: 1px solid rgba(0, 0, 0, 0.125);
+  border: 1px solid rgba(0, 0, 0, 0.125);
+  border-width: 1px 0 0 0;
 }
 .p-dataview .p-dataview-footer {
   background: rgba(0, 0, 0, 0.03);
@@ -1775,7 +1770,7 @@
 .p-paginator {
   background: #ffffff;
   color: #007bff;
-  border: none;
+  border: solid rgba(0, 0, 0, 0.125);
   border-width: 0;
   padding: 0.75rem;
   border-radius: 4px;
@@ -1789,7 +1784,7 @@
   color: #007bff;
   min-width: 2.625rem;
   height: 2.625rem;
-  margin: 0;
+  margin: 0 0 0 -1px;
   transition: box-shadow 0.15s;
   border-radius: 0;
 }
@@ -1801,8 +1796,15 @@
   border-color: #dee2e6;
   color: #007bff;
 }
+.p-paginator .p-paginator-first {
+  border-top-left-radius: 4px;
+  border-bottom-left-radius: 4px;
+}
+.p-paginator .p-paginator-last {
+  border-top-right-radius: 4px;
+  border-bottom-right-radius: 4px;
+}
 .p-paginator .p-dropdown {
-  border: 0 none;
   margin-left: 0.5rem;
   height: 2.625rem;
 }
@@ -1815,7 +1817,8 @@
   color: #007bff;
   min-width: 2.625rem;
   height: 2.625rem;
-  margin: 0;
+  margin: 0 0 0 -1px;
+  padding: 0 0.5rem;
 }
 .p-paginator .p-paginator-pages .p-paginator-page {
   background-color: #ffffff;
@@ -1823,7 +1826,7 @@
   color: #007bff;
   min-width: 2.625rem;
   height: 2.625rem;
-  margin: 0;
+  margin: 0 0 0 -1px;
   transition: box-shadow 0.15s;
   border-radius: 0;
 }
@@ -1981,11 +1984,11 @@
 }
 
 .p-treetable .p-paginator-top {
-  border-width: 1px 0 1px 0;
+  border-width: 1px 0 0 0;
   border-radius: 0;
 }
 .p-treetable .p-paginator-bottom {
-  border-width: 0 0 1px 0;
+  border-width: 1px 0 0 0;
   border-radius: 0;
 }
 .p-treetable .p-treetable-header {
@@ -1994,8 +1997,6 @@
   border: solid #dee2e6;
   border-width: 1px 0 0 0;
   padding: 1rem 1rem;
-  border-top-left-radius: 4px;
-  border-top-right-radius: 4px;
   font-weight: 600;
 }
 .p-treetable .p-treetable-footer {
@@ -2005,8 +2006,6 @@
   border-width: 1px 0 1px 0;
   padding: 1rem 1rem;
   font-weight: 600;
-  border-bottom-left-radius: 4px;
-  border-bottom-right-radius: 4px;
 }
 .p-treetable .p-treetable-thead > tr > th {
   text-align: left;
@@ -3822,44 +3821,6 @@
 }
 
 /* Vendor extensions to the designer enhanced bootstrap compatibility */
-.p-inputtext,
-.p-checkbox .p-checkbox-box,
-.p-radiobutton .p-radiobutton-box {
-  transition: border-color 0.15s ease-in-out, box-shadow 0.15s ease-in-out;
-}
-
-.p-button, .p-selectbutton .p-button, .p-togglebutton.p-button {
-  transition: color 0.15s ease-in-out, background-color 0.15s ease-in-out, border-color 0.15s ease-in-out, box-shadow 0.15s ease-in-out;
-}
-
-.p-inputswitch .p-inputswitch-slider:before {
-  transition: transform 0.15s;
-}
-
-.p-paginator .p-paginator-first {
-  border-top-left-radius: 4px;
-  border-bottom-left-radius: 4px;
-  margin-left: 0;
-}
-.p-paginator .p-paginator-last {
-  border-top-right-radius: 4px;
-  border-bottom-right-radius: 4px;
-}
-.p-paginator .p-paginator-current {
-  padding: 0 0.25rem;
-  margin-left: -1px;
-}
-.p-paginator .p-paginator-element, .p-paginator .p-paginator-pages .p-paginator-page {
-  margin-left: -1px;
-}
-
-.p-datatable.p-datatable-gridlines .p-datatable-thead > tr > th {
-  border-width: 1px 1px 2px 1px;
-}
-.p-datatable .p-datatable-header + .p-paginator-top {
-  border-top: 1px solid #dee2e6;
-}
-
 .p-breadcrumb .p-breadcrumb-chevron {
   font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif, "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol";
 }
