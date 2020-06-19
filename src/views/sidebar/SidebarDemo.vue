@@ -14,7 +14,7 @@
                 <Button icon="pi pi-arrow-down" @click="visibleTop = true" style="margin-right:.25em" />
                 <Button icon="pi pi-arrow-up" @click="visibleBottom = true" style="margin-right:.25em" />
                 <Button icon="pi pi-th-large" @click="visibleFull = true"  />
-            
+
                 <Sidebar :visible.sync="visibleLeft" :baseZIndex="1000">
                     <h1 style="fontWeight:normal">Left Sidebar</h1>
                     <Button type="button" @click="visibleLeft = false" label="Save" class="p-button-success" style="margin-right:.25em" />
