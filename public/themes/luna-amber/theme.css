@@ -343,9 +343,16 @@
 .p-checkbox.p-error > .p-checkbox-box, .p-checkbox.p-invalid > .p-checkbox-box {
   border-color: #e57373;
 }
+.p-checkbox.p-input-filled .p-checkbox-box:not(.p-highlight) {
+  background-color: #191919;
+}
 
 .p-highlight .p-checkbox .p-checkbox-box {
   border-color: #212529;
+}
+
+.p-input-filled .p-checkbox .p-checkbox-box:not(.p-highlight) {
+  background-color: #191919;
 }
 
 .p-chips .p-chips-multiple-container {
@@ -487,6 +494,10 @@
 .p-dropdown-panel.p-error, .p-dropdown-panel.p-invalid {
   border-color: #e57373;
   border-width: 1px;
+}
+
+.p-input-filled .p-dropdown-trigger {
+  background: #191919;
 }
 
 .p-editor-container .p-editor-toolbar {
@@ -792,6 +803,7 @@
 }
 .p-multiselect .p-multiselect-label {
   padding: 0.429rem 0.429rem;
+  transition: background-color 0.2s, color 0.2s, border-color 0.2s, box-shadow 0.2s;
 }
 .p-multiselect .p-multiselect-label.p-placeholder {
   color: #9b9b9b;
@@ -878,6 +890,11 @@
   border-width: 1px;
 }
 
+.p-input-filled .p-multiselect-label,
+.p-input-filled .p-multiselect-trigger {
+  background: #191919;
+}
+
 .p-password-panel {
   padding: 0.571rem 1rem;
   background: #323232;
@@ -929,9 +946,16 @@
 .p-radiobutton.p-error > .p-checkbox-box, .p-radiobutton.p-invalid > .p-checkbox-box {
   border-color: #e57373;
 }
+.p-radiobutton.p-input-filled .p-radiobutton-box:not(.p-highlight) {
+  background-color: #191919;
+}
 
 .p-highlight .p-radiobutton .p-radiobutton-box {
   border-color: #212529;
+}
+
+.p-input-filled .p-radiobutton .p-radiobutton-box:not(.p-highlight) {
+  background-color: #191919;
 }
 
 .p-rating .p-rating-icon {

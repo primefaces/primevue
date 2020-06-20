@@ -367,9 +367,16 @@
 .p-checkbox.p-error > .p-checkbox-box, .p-checkbox.p-invalid > .p-checkbox-box {
   border-color: #f44336;
 }
+.p-checkbox.p-input-filled .p-checkbox-box:not(.p-highlight) {
+  background-color: pink;
+}
 
 .p-highlight .p-checkbox .p-checkbox-box {
   border-color: #ffffff;
+}
+
+.p-input-filled .p-checkbox .p-checkbox-box:not(.p-highlight) {
+  background-color: pink;
 }
 
 .p-chips .p-chips-multiple-container {
@@ -511,6 +518,10 @@
 .p-dropdown-panel.p-error, .p-dropdown-panel.p-invalid {
   border-color: #f44336;
   border-width: 1px;
+}
+
+.p-input-filled .p-dropdown-trigger {
+  background: pink;
 }
 
 .p-editor-container .p-editor-toolbar {
@@ -816,6 +827,7 @@
 }
 .p-multiselect .p-multiselect-label {
   padding: 0.75rem 0.75rem;
+  transition: background-color 0.2s, color 0.2s, border-color 0.2s, box-shadow 0.2s;
 }
 .p-multiselect .p-multiselect-label.p-placeholder {
   color: #6c757d;
@@ -902,6 +914,11 @@
   border-width: 1px;
 }
 
+.p-input-filled .p-multiselect-label,
+.p-input-filled .p-multiselect-trigger {
+  background: pink;
+}
+
 .p-password-panel {
   padding: 1rem;
   background: #ffffff;
@@ -953,9 +970,16 @@
 .p-radiobutton.p-error > .p-checkbox-box, .p-radiobutton.p-invalid > .p-checkbox-box {
   border-color: #f44336;
 }
+.p-radiobutton.p-input-filled .p-radiobutton-box:not(.p-highlight) {
+  background-color: pink;
+}
 
 .p-highlight .p-radiobutton .p-radiobutton-box {
   border-color: #ffffff;
+}
+
+.p-input-filled .p-radiobutton .p-radiobutton-box:not(.p-highlight) {
+  background-color: pink;
 }
 
 .p-rating .p-rating-icon {
