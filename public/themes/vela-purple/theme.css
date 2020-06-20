@@ -343,9 +343,6 @@
 .p-checkbox.p-error > .p-checkbox-box, .p-checkbox.p-invalid > .p-checkbox-box {
   border-color: #ef9a9a;
 }
-.p-checkbox.p-input-filled .p-checkbox-box:not(.p-highlight) {
-  background-color: #304562;
-}
 
 .p-highlight .p-checkbox .p-checkbox-box {
   border-color: #ffffff;
@@ -687,9 +684,6 @@
   font-size: 1.25rem;
   padding: 0.625rem 0.625rem;
 }
-.p-inputtext.p-input-filled {
-  background: #304562;
-}
 
 .p-float-label label {
   left: 0.5rem;
@@ -945,9 +939,6 @@
 }
 .p-radiobutton.p-error > .p-checkbox-box, .p-radiobutton.p-invalid > .p-checkbox-box {
   border-color: #ef9a9a;
-}
-.p-radiobutton.p-input-filled .p-radiobutton-box:not(.p-highlight) {
-  background-color: #304562;
 }
 
 .p-highlight .p-radiobutton .p-radiobutton-box {

@@ -94,6 +94,9 @@ a {
     transform: none;
   }
 }
+pre[class*=language-]:before, pre[class*=language-]:after {
+  display: none !important;
+}
 pre[class*=language-] code {
   border-left: 10px solid var(--surface-d) !important;
   box-shadow: none !important;
@@ -414,6 +417,9 @@ p {
   background-color: var(--surface-b);
   color: var(--text-color);
   padding-bottom: 0;
+  display: flex;
+  align-items: top;
+  justify-content: space-between;
 }
 .layout-content .content-section.introduction .feature-intro h1 span {
   font-weight: 400;
@@ -666,7 +672,6 @@ p {
 .layout-config .layout-config-content-wrapper {
   position: relative;
   height: 100%;
-  padding: 0;
   box-shadow: 0 2px 10px 0 rgba(0, 0, 0, 0.24);
   color: var(--text-color);
   background-color: var(--surface-e);
@@ -707,6 +712,25 @@ p {
 .layout-config .layout-config-content {
   overflow: auto;
   height: 100%;
+  padding: 2rem;
+}
+.layout-config .config-scale {
+  display: flex;
+  align-items: center;
+  margin: 1rem 0 2rem 0;
+}
+.layout-config .config-scale .p-button {
+  margin-right: 0.5rem;
+  border: 0 none !important;
+}
+.layout-config .config-scale i {
+  margin-right: 0.5rem;
+  font-size: 0.75rem;
+  color: var(--text-color-secondary);
+}
+.layout-config .config-scale i.scale-active {
+  font-size: 1.25rem;
+  color: #2196f3;
 }
 .layout-config .layout-config-close {
   position: absolute;
@@ -733,89 +757,33 @@ p {
   outline: 0 none;
   box-shadow: 0 0 0 0.2rem #BBDEFB;
 }
-.layout-config h3 {
-  margin-top: 1.5rem;
-  margin-bottom: 0.75rem;
-  font-size: 1.5rem;
-  font-weight: 500;
-  color: var(--text-color);
-}
 .layout-config .p-grid > div {
-  padding: 1rem 0.5rem;
+  padding: 1rem;
   text-align: center;
 }
 .layout-config .p-grid > div span {
   display: block;
 }
-.layout-config p {
-  margin: 0 0 2rem 0;
-}
-.layout-config .config-scale {
-  display: flex;
-  align-items: center;
-  margin: 1rem 0 2rem 0;
-}
-.layout-config .config-scale .p-button {
-  margin-right: 0.5rem;
-  border: 0 none !important;
-}
-.layout-config .config-scale i {
-  margin-right: 0.5rem;
-  font-size: 0.75rem;
-  color: var(--text-color-secondary);
-}
-.layout-config .config-scale i.scale-active {
-  font-size: 1.25rem;
-  color: #2196f3;
-}
-.layout-config .free-themes {
-  padding: 2rem;
+.layout-config .p-grid > div button {
+  position: relative;
+  display: inline-flex;
+  justify-content: center;
 }
 .layout-config .free-themes img {
   width: 50px;
   border-radius: 4px;
-  box-shadow: 0 2px 1px -1px rgba(0, 0, 0, 0.2), 0 1px 1px 0 rgba(0, 0, 0, 0.14), 0 1px 3px 0 rgba(0, 0, 0, 0.12);
+  transition: transform 0.2s;
 }
-.layout-config .free-themes span {
-  font-size: 12px;
-}
-.layout-config .current-theme {
-  box-shadow: 0 0 0 0.2rem #BBDEFB;
-}
-.layout-config .p-grid button {
-  position: relative;
-  display: inline-flex;
-  justify-content: center;
-  transition: box-shadow 0.2s, transform 0.2s;
-}
-.layout-config .p-grid button i {
-  line-height: inherit;
-  font-size: 28px;
-  color: #41b783;
-  position: absolute;
-  top: 0;
-  left: 50%;
-  margin-left: -18px;
-  margin-top: -18px;
-  padding: 0.18rem;
-  box-shadow: 0 2px 6px 0 rgba(0, 0, 0, 0.25);
-  background-color: #ffffff;
-  border-radius: 50%;
-  width: 36px;
-  height: 36px;
-}
-.layout-config .p-grid button:focus {
-  box-shadow: 0 0 0 0.2rem #BBDEFB;
-}
-.layout-config .p-grid button:hover {
+.layout-config .free-themes img:hover {
   transform: scale(1.1);
 }
-.layout-config .premium-themes {
-  padding: 2rem;
+.layout-config .free-themes span {
+  font-size: 0.875rem;
+  margin-top: 0.25rem;
 }
 .layout-config .premium-themes img {
   width: 100%;
-  transition: box-shadow 0.2s, transform 0.2s;
+  transition: transform 0.2s;
 }
 .layout-config .premium-themes img:hover {
   transform: scale(1.1);
@@ -1076,6 +1044,12 @@ p {
   .layout-content .content-section.submenu ul li {
     width: 50%;
   }
+  .layout-content .content-section.introduction {
+    flex-direction: column;
+  }
+  .layout-content .content-section.introduction .app-inputstyleswitch {
+    margin-top: 1.5rem;
+  }
 
   .home .introduction > div {
     width: 100%;
@@ -1219,6 +1193,9 @@ a {
     opacity: 1;
     transform: none;
   }
+}
+pre[class*=language-]:before, pre[class*=language-]:after {
+  display: none !important;
 }
 pre[class*=language-] code {
   border-left: 10px solid var(--surface-d) !important;

@@ -9,6 +9,7 @@
   --text-color-secondary: #848484;
   --primary-color: #007ad9;
   --primary-color-text: #ffffff;
+  --font-family: -apple-system, BlinkMacSystemFont, Segoe UI, Roboto, Helvetica, Arial, sans-serif, Apple Color Emoji, Segoe UI Emoji, Segoe UI Symbol;
 }
 
 * {
@@ -342,9 +343,6 @@
 }
 .p-checkbox.p-error > .p-checkbox-box, .p-checkbox.p-invalid > .p-checkbox-box {
   border-color: #a80000;
-}
-.p-checkbox.p-input-filled .p-checkbox-box:not(.p-highlight) {
-  background-color: #f4f4f4;
 }
 
 .p-highlight .p-checkbox .p-checkbox-box {
@@ -687,9 +685,6 @@
   font-size: 1.25rem;
   padding: 0.53625rem 0.53625rem;
 }
-.p-inputtext.p-input-filled {
-  background: #f4f4f4;
-}
 
 .p-float-label label {
   left: 0.429rem;
@@ -945,9 +940,6 @@
 }
 .p-radiobutton.p-error > .p-checkbox-box, .p-radiobutton.p-invalid > .p-checkbox-box {
   border-color: #a80000;
-}
-.p-radiobutton.p-input-filled .p-radiobutton-box:not(.p-highlight) {
-  background-color: #f4f4f4;
 }
 
 .p-highlight .p-radiobutton .p-radiobutton-box {

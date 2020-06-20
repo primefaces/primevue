@@ -48,15 +48,13 @@ import InputText from 'primevue/inputtext';
 
                 <h5>Outlined vs Filled</h5>
                 <p>Input fields come in two styles, default is <i>outlined</i> with borders around the field whereas <i>filled</i> alternative adds a background color
-                to the field. Appling <i>p-input-filled</i> to an element or wrapping the container with <i>p-input-filled</i> enables the filled style. If you prefer 
-                to use filled inputs in the entire application, use a global container such as document body or the application container to apply the style class.</p>
-
-<CodeHighlight>
-&lt;InputText type="text" class="p-input-filled" /&gt;
-</CodeHighlight>
+                to the field. Appling <i>p-input-filled</i> to an ancestor of an input <i>p-input-filled</i> enables the filled style. If you prefer
+                to use filled inputs in the entire application, use a global container such as document body or the application element to apply the style class.</p>
 
 <CodeHighlight>
 &lt;div class="p-input-filled"&gt;
+    &lt;InputText type="text" /&gt;
+    &lt;InputText type="text" /&gt;
     &lt;InputText type="text" /&gt;
 &lt;/div&gt;
 </CodeHighlight>
