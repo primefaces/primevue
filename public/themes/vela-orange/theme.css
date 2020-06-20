@@ -311,7 +311,7 @@
 }
 .p-checkbox .p-checkbox-box {
   border: 2px solid #304562;
-  background: #304562;
+  background: #17212f;
   width: 1.5rem;
   height: 1.5rem;
   color: rgba(255, 255, 255, 0.87);
@@ -344,7 +344,7 @@
   border-color: #ef9a9a;
 }
 .p-checkbox.p-input-filled .p-checkbox-box:not(.p-highlight) {
-  background-color: #17212f;
+  background-color: #304562;
 }
 
 .p-highlight .p-checkbox .p-checkbox-box {
@@ -352,7 +352,7 @@
 }
 
 .p-input-filled .p-checkbox .p-checkbox-box:not(.p-highlight) {
-  background-color: #17212f;
+  background-color: #304562;
 }
 
 .p-chips .p-chips-multiple-container {
@@ -411,7 +411,7 @@
 }
 
 .p-dropdown {
-  background: #304562;
+  background: #17212f;
   border: 1px solid #304562;
   transition: background-color 0.2s, color 0.2s, border-color 0.2s, box-shadow 0.2s;
   border-radius: 3px;
@@ -437,7 +437,7 @@
   box-shadow: none;
 }
 .p-dropdown .p-dropdown-trigger {
-  background: #304562;
+  background: #17212f;
   color: rgba(255, 255, 255, 0.6);
   width: 2.357rem;
   border-top-right-radius: 3px;
@@ -497,7 +497,7 @@
 }
 
 .p-input-filled .p-dropdown-trigger {
-  background: #17212f;
+  background: #304562;
 }
 
 .p-editor-container .p-editor-toolbar {
@@ -512,7 +512,7 @@
   border-bottom-left-radius: 3px;
 }
 .p-editor-container .p-editor-content .ql-editor {
-  background: #304562;
+  background: #17212f;
   color: rgba(255, 255, 255, 0.87);
   border-bottom-right-radius: 3px;
   border-bottom-left-radius: 3px;
@@ -658,7 +658,7 @@
 .p-inputtext {
   font-size: 1rem;
   color: rgba(255, 255, 255, 0.87);
-  background: #304562;
+  background: #17212f;
   padding: 0.5rem 0.5rem;
   border: 1px solid #304562;
   border-width: 1px;
@@ -688,7 +688,7 @@
   padding: 0.625rem 0.625rem;
 }
 .p-inputtext.p-input-filled {
-  background: #17212f;
+  background: #304562;
 }
 
 .p-float-label label {
@@ -732,7 +732,7 @@
 }
 
 .p-input-filled .p-inputtext {
-  background: #17212f;
+  background: #304562;
 }
 
 .p-listbox {
@@ -787,7 +787,7 @@
 }
 
 .p-multiselect {
-  background: #304562;
+  background: #17212f;
   border: 1px solid #304562;
   transition: background-color 0.2s, color 0.2s, border-color 0.2s, box-shadow 0.2s;
   border-radius: 3px;
@@ -809,7 +809,7 @@
   color: rgba(255, 255, 255, 0.6);
 }
 .p-multiselect .p-multiselect-trigger {
-  background: #304562;
+  background: #17212f;
   color: rgba(255, 255, 255, 0.6);
   width: 2.357rem;
   border-top-right-radius: 3px;
@@ -892,7 +892,7 @@
 
 .p-input-filled .p-multiselect-label,
 .p-input-filled .p-multiselect-trigger {
-  background: #17212f;
+  background: #304562;
 }
 
 .p-password-panel {
@@ -913,7 +913,7 @@
 }
 .p-radiobutton .p-radiobutton-box {
   border: 2px solid #304562;
-  background: #304562;
+  background: #17212f;
   width: 1.5rem;
   height: 1.5rem;
   color: rgba(255, 255, 255, 0.87);
@@ -947,7 +947,7 @@
   border-color: #ef9a9a;
 }
 .p-radiobutton.p-input-filled .p-radiobutton-box:not(.p-highlight) {
-  background-color: #17212f;
+  background-color: #304562;
 }
 
 .p-highlight .p-radiobutton .p-radiobutton-box {
@@ -955,7 +955,7 @@
 }
 
 .p-input-filled .p-radiobutton .p-radiobutton-box:not(.p-highlight) {
-  background-color: #17212f;
+  background-color: #304562;
 }
 
 .p-rating .p-rating-icon {
