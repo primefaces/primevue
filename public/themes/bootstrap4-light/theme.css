@@ -676,6 +676,9 @@
   font-size: 1.25rem;
   padding: 0.625rem 0.9375rem;
 }
+.p-inputtext.p-input-filled {
+  background: rgba(0, 0, 0, 0.03);
+}
 
 .p-float-label label {
   left: 0.75rem;
@@ -715,6 +718,10 @@
 
 :-ms-input-placeholder {
   color: #6c757d;
+}
+
+.p-input-filled .p-inputtext {
+  background: rgba(0, 0, 0, 0.03);
 }
 
 .p-listbox {

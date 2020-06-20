@@ -3,8 +3,9 @@
         <div class="content-section introduction">
             <div class="feature-intro">
                 <h1>InputText</h1>
-                <p>InputText renders and input field where the user can enter data.</p>
+                <p>InputText renders a text field to enter data.</p>
             </div>
+            <AppInputStyleSwitch />
         </div>
 
         <div class="content-section implementation">

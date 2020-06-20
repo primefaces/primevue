@@ -5,6 +5,7 @@
                 <h1>InputNumber</h1>
                 <p>InputNumber is an input component to provide numerical input.</p>
             </div>
+            <AppInputStyleSwitch />
         </div>
 
         <div class="content-section implementation">

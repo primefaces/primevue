@@ -5,6 +5,7 @@
                 <h1>Dropdown</h1>
                 <p>Dropdown is used to select an item from a list of options.</p>
             </div>
+            <AppInputStyleSwitch />
         </div>
 
         <div class="content-section implementation">

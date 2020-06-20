@@ -75,6 +75,7 @@ import TriStateCheckbox from './components/tristatecheckbox/TriStateCheckbox';
 import Galleria from './components/galleria/Galleria';
 
 import CodeHighlight from './views/codehighlight/CodeHighlight';
+import AppInputStyleSwitch from './AppInputStyleSwitch';
 
 import './assets/styles/primevue.css';
 import 'primeflex/primeflex.css';
@@ -88,6 +89,8 @@ import Vuelidate from 'vuelidate';
 Vue.use(Vuelidate);
 Vue.use(ToastService);
 Vue.directive('tooltip', Tooltip);
+
+Vue.prototype.$appState = Vue.observable({ inputStyle: 'outlined', darkTheme: false })
 
 Vue.config.productionTip = false;
 
@@ -163,6 +166,7 @@ Vue.component('TriStateCheckbox', TriStateCheckbox);
 Vue.component('Galleria', Galleria);
 
 Vue.component('CodeHighlight', CodeHighlight);
+Vue.component('AppInputStyleSwitch', AppInputStyleSwitch);
 
 router.beforeEach(function (to, from, next) {
     window.scrollTo(0, 0);

@@ -5,6 +5,7 @@
                 <h1>Listbox</h1>
                 <p>Listbox is used to select one or more values from a list of items.</p>
             </div>
+            <AppInputStyleSwitch />
         </div>
 
         <div class="content-section implementation">

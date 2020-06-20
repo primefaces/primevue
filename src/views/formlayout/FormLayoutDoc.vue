@@ -333,11 +333,11 @@ import 'primeflex/primeflex.css';
 
 &lt;h3&gt;Horizontal RadioButton&lt;/h3&gt;
 &lt;div class="p-formgroup-inline"&gt;
-    &lt;div class="p-field-checkbox"&gt;
+    &lt;div class="p-field-radiobutton"&gt;
         &lt;RadioButton id="city7" name="city2" value="Chicago" v-model="city2" /&gt;
         &lt;label for="city7"&gt;Chicago&lt;/label&gt;
     &lt;/div&gt;
-    &lt;div class="p-field-checkbox"&gt;
+    &lt;div class="p-field-radiobutton"&gt;
         &lt;RadioButton id="city8" name="city2" value="Los Angeles" v-model="city2" /&gt;
         &lt;label for="city8"&gt;Los Angeles&lt;/label&gt;
     &lt;/div&gt;

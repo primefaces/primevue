@@ -9,6 +9,9 @@
             background-color: var(--surface-b);
             color: var(--text-color);
             padding-bottom: 0;
+            display: flex;
+            align-items: top;
+            justify-content: space-between;
 
             .feature-intro {
                 h1 {

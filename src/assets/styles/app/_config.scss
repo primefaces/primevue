@@ -26,7 +26,6 @@
     .layout-config-content-wrapper {
         position: relative;
         height: 100%;
-        padding: 2rem;
         box-shadow: 0 2px 10px 0 rgba(0, 0, 0, 0.24);
         color: var(--text-color);
         background-color: var(--surface-e);
@@ -74,6 +73,7 @@
     .layout-config-content {
         overflow: auto;
         height: 100%;
+        padding: 2rem;
     }
 
     .config-scale {
@@ -146,6 +146,11 @@
         img {
             width: 50px;
             border-radius: 4px;
+            transition: transform .2s;
+
+            &:hover {
+                transform: scale(1.1);
+            }
         }
 
         span {
@@ -157,6 +162,11 @@
     .premium-themes {
         img {
             width: 100%;
+            transition: transform .2s;
+
+            &:hover {
+                transform: scale(1.1);
+            }
         }
     }
 }

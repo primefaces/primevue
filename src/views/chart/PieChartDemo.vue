@@ -55,7 +55,7 @@ export default {
     },
     methods: {
         isDarkTheme() {
-            return document.body.getAttribute('data-darktheme') !== null;
+            return this.$appState.darkTheme === true;
         },
         getLightTheme() {
             return {

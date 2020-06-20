@@ -123,11 +123,11 @@
 
                 <h5>Horizontal RadioButton</h5>
                 <div class="p-formgroup-inline">
-                    <div class="p-field-checkbox">
+                    <div class="p-field-radiobutton">
                         <RadioButton id="city7" name="city2" value="Chicago" v-model="city2" />
                         <label for="city7">Chicago</label>
                     </div>
-                    <div class="p-field-checkbox">
+                    <div class="p-field-radiobutton">
                         <RadioButton id="city8" name="city2" value="Los Angeles" v-model="city2" />
                         <label for="city8">Los Angeles</label>
                     </div>

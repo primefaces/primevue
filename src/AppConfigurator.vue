@@ -17,6 +17,8 @@
                         <Button icon="pi pi-plus"  @click="incrementScale()" class="p-button-secondary" :disabled="scale === scales[scales.length - 1]" />
                     </div>
 
+                    <AppInputStyleSwitch />
+
                     <h4>Free Themes</h4>
                     <p>Built-in component themes created by the <a href="https://www.primefaces.org/designer/primevue">PrimeVue Theme Designer</a>.</p>
 
@@ -30,7 +32,7 @@
                         </div>
                         <div class="p-col-3">
                             <button class="p-link">
-                                <img src="./assets/images/themes/bootstrap-dark.png" alt="Bootstrap Dark" @click="changeTheme($event, 'bootstrap4-dark')"/>
+                                <img src="./assets/images/themes/bootstrap-dark.png" alt="Bootstrap Dark" @click="changeTheme($event, 'bootstrap4-dark', true)"/>
                             </button>
                             <span>Dark</span>
                         </div>
@@ -46,7 +48,7 @@
                         </div>
                         <div class="p-col-3">
                             <button class="p-link">
-                                <img src="./assets/images/themes/material-dark.png" alt="Material Dark" @click="changeTheme($event, 'material-dark')"/>
+                                <img src="./assets/images/themes/material-dark.png" alt="Material Dark" @click="changeTheme($event, 'material-dark', true)"/>
                             </button>
                             <span>Dark</span>
                         </div>
@@ -234,7 +236,8 @@
 <script>
 export default {
     props: {
-        theme: String
+        theme: String,
+        inputStyle: String
     },
     data() {
         return {

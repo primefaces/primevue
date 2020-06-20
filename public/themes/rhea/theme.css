@@ -311,7 +311,7 @@
 }
 .p-checkbox .p-checkbox-box {
   border: 1px solid #dadada;
-  background: #f4f4f4;
+  background: #ffffff;
   width: 1.5rem;
   height: 1.5rem;
   color: #666666;
@@ -404,7 +404,7 @@
 }
 
 .p-dropdown {
-  background: #f4f4f4;
+  background: #ffffff;
   border: 1px solid #dadada;
   transition: background-color 0.2s, color 0.2s, border-color 0.2s, box-shadow 0.2s;
   border-radius: 2px;
@@ -430,7 +430,7 @@
   box-shadow: none;
 }
 .p-dropdown .p-dropdown-trigger {
-  background: #f4f4f4;
+  background: #ffffff;
   color: #666666;
   width: 2.357rem;
   border-top-right-radius: 2px;
@@ -501,7 +501,7 @@
   border-bottom-left-radius: 2px;
 }
 .p-editor-container .p-editor-content .ql-editor {
-  background: #f4f4f4;
+  background: #ffffff;
   color: #666666;
   border-bottom-right-radius: 2px;
   border-bottom-left-radius: 2px;
@@ -606,7 +606,7 @@
   height: 1.75rem;
 }
 .p-inputswitch .p-inputswitch-slider {
-  background: #f4f4f4;
+  background: #ffffff;
   transition: background-color 0.2s, color 0.2s, border-color 0.2s, box-shadow 0.2s;
   border-radius: 30px;
 }
@@ -647,7 +647,7 @@
 .p-inputtext {
   font-size: 1rem;
   color: #666666;
-  background: #f4f4f4;
+  background: #ffffff;
   padding: 0.429rem 0.429rem;
   border: 1px solid #dadada;
   border-width: 1px;
@@ -675,6 +675,9 @@
 .p-inputtext.p-inputtext-lg {
   font-size: 1.25rem;
   padding: 0.53625rem 0.53625rem;
+}
+.p-inputtext.p-input-filled {
+  background: #f4f4f4;
 }
 
 .p-float-label label {
@@ -715,6 +718,10 @@
 
 :-ms-input-placeholder {
   color: #a6a6a6;
+}
+
+.p-input-filled .p-inputtext {
+  background: #f4f4f4;
 }
 
 .p-listbox {
@@ -769,7 +776,7 @@
 }
 
 .p-multiselect {
-  background: #f4f4f4;
+  background: #ffffff;
   border: 1px solid #dadada;
   transition: background-color 0.2s, color 0.2s, border-color 0.2s, box-shadow 0.2s;
   border-radius: 2px;
@@ -790,7 +797,7 @@
   color: #a6a6a6;
 }
 .p-multiselect .p-multiselect-trigger {
-  background: #f4f4f4;
+  background: #ffffff;
   color: #666666;
   width: 2.357rem;
   border-top-right-radius: 2px;
@@ -889,7 +896,7 @@
 }
 .p-radiobutton .p-radiobutton-box {
   border: 1px solid #dadada;
-  background: #f4f4f4;
+  background: #ffffff;
   width: 20px;
   height: 20px;
   color: #666666;

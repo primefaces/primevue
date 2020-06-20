@@ -1,5 +1,5 @@
 <template>
-    <div class="layout-wrapper" :class="[{'layout-news-active':newsActive}]">
+    <div class="layout-wrapper" :class="containerClass">
         <a class="layout-news" href="https://www.primefaces.org/store" target="_blank" tabindex="-1" v-if="newsActive">
             <div class="layout-news-container">
                 <img class="layouts-news-text-image" alt="easter" src="./assets/images/topbar-easter-2020-text.png">
@@ -79,11 +79,7 @@ export default {
             this.activeMenuIndex = null;
 
             EventBus.$emit('change-theme', event);
-
-            if (event.dark)
-                document.body.setAttribute('data-darktheme', 'true');
-            else
-                document.body.removeAttribute('data-darktheme')
+            this.$appState.darkTheme = event.dark;
 
         },
         addClass(element, className) {
@@ -115,12 +111,17 @@ export default {
             return false;
         }
     },
+    computed: {
+        containerClass() {
+            return [{'layout-news-active': this.newsActive, 'p-input-filled': this.$appState.inputStyle === 'filled'}];
+        }
+    },
     components: {
         'app-topbar': AppTopBar,
         'app-menu': AppMenu,
         'app-footer': AppFooter,
         'app-configurator': AppConfigurator
-    },
+    }
 }
 </script>
 
