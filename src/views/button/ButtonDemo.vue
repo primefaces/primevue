@@ -18,6 +18,12 @@
                 <Button label="Submit" icon="pi pi-check" />
                 <Button label="Submit" icon="pi pi-check" iconPos="right" />
 
+                <h5>Text Buttons</h5>
+                <Button label="Submit" class="p-button-text" />
+                <Button icon="pi pi-check" class="p-button-text" />
+                <Button label="Cancel" icon="pi pi-times" class="p-button-text" />
+                <Button label="Search" icon="pi pi-search" iconPos="right" class="p-button-text" />
+
                 <h5>Severities</h5>
                 <Button label="Primary" />
                 <Button label="Secondary" class="p-button-secondary" />
@@ -36,6 +42,7 @@
                 <Button label="Warning" class="p-button-raised p-button-warning" />
                 <Button label="Help" class="p-button-raised p-button-help" />
                 <Button label="Danger" class="p-button-raised p-button-danger" />
+                <Button label="Submit" class="p-button-raised p-button-text" />
 
                 <h5>Rounded Buttons</h5>
                 <Button label="Primary" class="p-button-rounded" />
@@ -45,6 +52,7 @@
                 <Button label="Warning" class="p-button-rounded p-button-warning" />
                 <Button label="Help" class="p-button-rounded p-button-help" />
                 <Button label="Danger" class="p-button-rounded p-button-danger" />
+                <Button label="Submit" class="p-button-rounded p-button-text" />
 
                 <h5>Outlined Buttons</h5>
                 <Button label="Primary" class="p-button-outlined" />
@@ -63,6 +71,7 @@
                 <Button icon="pi pi-lock" class="p-button-rounded p-button-warning" />
                 <Button icon="pi pi-lock" class="p-button-rounded p-button-help" />
                 <Button icon="pi pi-times" class="p-button-rounded p-button-danger" />
+                <Button icon="pi pi-check" class="p-button-rounded p-button-text" />
 
                 <h5>Rounded and Outlined Icon Buttons</h5>
                 <Button icon="pi pi-check" class="p-button-rounded p-button-outlined" />
