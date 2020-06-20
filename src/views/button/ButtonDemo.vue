@@ -46,6 +46,15 @@
                 <Button label="Help" class="p-button-rounded p-button-help" />
                 <Button label="Danger" class="p-button-rounded p-button-danger" />
 
+                <h5>Outlined Buttons</h5>
+                <Button label="Primary" class="p-button-outlined" />
+                <Button label="Secondary" class="p-button-outlined p-button-secondary" />
+                <Button label="Success" class="p-button-outlined p-button-success" />
+                <Button label="Info" class="p-button-outlined p-button-info" />
+                <Button label="Warning" class="p-button-outlined p-button-warning" />
+                <Button label="Help" class="p-button-outlined p-button-help" />
+                <Button label="Danger" class="p-button-outlined p-button-danger" />
+
                 <h5>Rounded Icon Buttons</h5>
                 <Button icon="pi pi-check" class="p-button-rounded" />
                 <Button icon="pi pi-bookmark" class="p-button-rounded p-button-secondary" />
@@ -54,6 +63,15 @@
                 <Button icon="pi pi-lock" class="p-button-rounded p-button-warning" />
                 <Button icon="pi pi-lock" class="p-button-rounded p-button-help" />
                 <Button icon="pi pi-times" class="p-button-rounded p-button-danger" />
+
+                <h5>Rounded and Outlined Icon Buttons</h5>
+                <Button icon="pi pi-check" class="p-button-rounded p-button-outlined" />
+                <Button icon="pi pi-bookmark" class="p-button-rounded p-button-secondary p-button-outlined" />
+                <Button icon="pi pi-search" class="p-button-rounded p-button-success p-button-outlined" />
+                <Button icon="pi pi-user" class="p-button-rounded p-button-info p-button-outlined" />
+                <Button icon="pi pi-lock" class="p-button-rounded p-button-warning p-button-outlined" />
+                <Button icon="pi pi-lock" class="p-button-rounded p-button-help p-button-outlined" />
+                <Button icon="pi pi-times" class="p-button-rounded p-button-danger p-button-outlined" />
 
                 <h5>Badges</h5>
                 <Button type="button" label="Emails" badge="8" />

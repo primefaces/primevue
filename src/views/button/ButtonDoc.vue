@@ -59,6 +59,12 @@ import Button from 'primevue/button';
 &lt;Button label="Primary" class="p-button-raised p-button-rounded" /&gt;
 </CodeHighlight>
 
+                <h5>Outlined Buttons</h5>
+                <p>An alternate styling for a button is the outlined option where background becomes transparent. Apply "p-button-outlined" to style a button as outlined.</p>
+<CodeHighlight>
+&lt;Button label="Primary" class="p-button-outlined" /&gt;
+</CodeHighlight>
+
                 <h5>Link Buttons</h5>
                 <p>Use "p-button-link" class to render the button as a link.</p>
 <CodeHighlight>
@@ -132,7 +138,7 @@ import Button from 'primevue/button';
                             <tr>
                                 <td>badgeClass</td>
                                 <td>string</td>
-                                <td>p-badge-secondary</td>
+                                <td>null</td>
                                 <td>Style class of the badge.</td>
                             </tr>
 						</tbody>
@@ -220,6 +226,15 @@ import Button from 'primevue/button';
 &lt;Button label="Warning" class="p-button-rounded p-button-warning" /&gt;
 &lt;Button label="Danger" class="p-button-rounded p-button-danger" /&gt;
 
+<h5>Outlined Buttons</h5>
+&lt;Button label="Primary" class="p-button-outlined" /&gt;
+&lt;Button label="Secondary" class="p-button-outlined p-button-secondary" /&gt;
+&lt;Button label="Success" class="p-button-outlined p-button-success" /&gt;
+&lt;Button label="Info" class="p-button-outlined p-button-info" /&gt;
+&lt;Button label="Warning" class="p-button-outlined p-button-warning" /&gt;
+&lt;Button label="Help" class="p-button-outlined p-button-help" /&gt;
+&lt;Button label="Danger" class="p-button-outlined p-button-danger" /&gt;
+
 &lt;h3&gt;Rounded Icon Buttons&lt;/h3&gt;
 &lt;Button icon="pi pi-check" class="p-button-rounded" /&gt;
 &lt;Button icon="pi pi-bookmark" class="p-button-rounded p-button-secondary" /&gt;
@@ -227,6 +242,15 @@ import Button from 'primevue/button';
 &lt;Button icon="pi pi-user" class="p-button-rounded p-button-info" /&gt;
 &lt;Button icon="pi pi-lock" class="p-button-rounded p-button-warning" /&gt;
 &lt;Button icon="pi pi-times" class="p-button-rounded p-button-danger" /&gt;
+
+&lt;h3&gt;Rounded and Outlined Icon Buttons&lt;/h3&gt;
+&lt;Button icon="pi pi-check" class="p-button-rounded" /&gt;
+&lt;Button icon="pi pi-bookmark" class="p-button-rounded p-button-secondary p-button-outlined" /&gt;
+&lt;Button icon="pi pi-search" class="p-button-rounded p-button-success p-button-outlined"" /&gt;
+&lt;Button icon="pi pi-user" class="p-button-rounded p-button-info p-button-outlined"" /&gt;
+&lt;Button icon="pi pi-lock" class="p-button-rounded p-button-warning p-button-outlined"" /&gt;
+&lt;Button icon="pi pi-times" class="p-button-rounded p-button-danger p-button-outlined"" /&gt;
+
 
 &lt;h3&gt;Badges&lt;/h3&gt;
 &lt;Button type="button" label="Emails" badge="8" /&gt;

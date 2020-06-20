@@ -2,7 +2,7 @@
     display: inline-flex;
     cursor: pointer;
     user-select: none;
-    vertical-align: top;
+    vertical-align: bottom;
 }
 
 .p-radiobutton-box {

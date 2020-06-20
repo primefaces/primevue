@@ -24,7 +24,7 @@ export default {
         },
         badgeClass: {
             type: String,
-            default: 'p-badge-secondary'
+            default: null
         }
     },
     computed: {

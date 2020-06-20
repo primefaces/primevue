@@ -469,7 +469,7 @@
 }
 .p-dropdown-panel .p-dropdown-header .p-dropdown-filter-icon {
   right: 0.429rem;
-  color: #252525;
+  color: #dedede;
 }
 .p-dropdown-panel .p-dropdown-items {
   padding: 0;
@@ -755,7 +755,7 @@
 }
 .p-listbox .p-listbox-header .p-listbox-filter-icon {
   right: 0.429rem;
-  color: #252525;
+  color: #dedede;
 }
 .p-listbox .p-listbox-list {
   padding: 0;
@@ -837,7 +837,7 @@
 }
 .p-multiselect-panel .p-multiselect-header .p-multiselect-filter-container .p-multiselect-filter-icon {
   right: 0.429rem;
-  color: #252525;
+  color: #dedede;
 }
 .p-multiselect-panel .p-multiselect-header .p-checkbox {
   margin-right: 0.5rem;
@@ -1115,20 +1115,25 @@
   transition: background-color 0.2s, color 0.2s, border-color 0.2s, box-shadow 0.2s;
   border-radius: 3px;
 }
+.p-button.p-button-outlined {
+  background-color: transparent;
+  color: #81D4FA;
+  border-color: #81D4FA;
+}
 .p-button:enabled:hover {
   background: #4FC3F7;
   color: #212529;
   border-color: #4FC3F7;
 }
-.p-button:focus {
-  outline: 0 none;
-  outline-offset: 0;
-  box-shadow: 0 0 0 0.2rem white;
-}
 .p-button:enabled:active {
   background: #29B6F6;
   color: #212529;
   border-color: #29B6F6;
+}
+.p-button:focus {
+  outline: 0 none;
+  outline-offset: 0;
+  box-shadow: 0 0 0 0.2rem white;
 }
 .p-button .p-button-icon-left {
   margin-right: 0.5rem;
@@ -1147,6 +1152,8 @@
   min-width: 1rem;
   height: 1rem;
   line-height: 1rem;
+  color: #81D4FA;
+  background-color: #212529;
 }
 .p-button.p-button-raised {
   box-shadow: 0px 3px 1px -2px rgba(0, 0, 0, 0.2), 0px 2px 2px 0px rgba(0, 0, 0, 0.14), 0px 1px 5px 0px rgba(0, 0, 0, 0.12);
@@ -1194,28 +1201,38 @@
 }
 
 .p-button.p-button-secondary, .p-buttonset.p-button-secondary > .p-button, .p-splitbutton.p-button-secondary > .p-button {
-  color: #333333;
-  background: #f4f4f4;
-  border: 1px solid #f4f4f4;
+  color: #81D4FA;
+  background: transparent;
+  border: 1px solid transparent;
+}
+.p-button.p-button-secondary.p-button-outlined, .p-buttonset.p-button-secondary > .p-button.p-button-outlined, .p-splitbutton.p-button-secondary > .p-button.p-button-outlined {
+  background-color: transparent;
+  color: #81D4FA;
+  border-color: #81D4FA;
 }
 .p-button.p-button-secondary:enabled:hover, .p-buttonset.p-button-secondary > .p-button:enabled:hover, .p-splitbutton.p-button-secondary > .p-button:enabled:hover {
-  background: #c8c8c8;
-  color: #333333;
-  border-color: #c8c8c8;
+  background: #4c4c4c;
+  color: #81D4FA;
+  border-color: #4c4c4c;
 }
 .p-button.p-button-secondary:enabled:focus, .p-buttonset.p-button-secondary > .p-button:enabled:focus, .p-splitbutton.p-button-secondary > .p-button:enabled:focus {
   box-shadow: 0 0 0 0.2rem white;
 }
 .p-button.p-button-secondary:enabled:active, .p-buttonset.p-button-secondary > .p-button:enabled:active, .p-splitbutton.p-button-secondary > .p-button:enabled:active {
   background: #a0a0a0;
-  color: #333333;
-  border-color: #a0a0a0;
+  color: #81D4FA;
+  border-color: #585858;
 }
 
 .p-button.p-button-info, .p-buttonset.p-button-info > .p-button, .p-splitbutton.p-button-info > .p-button {
   color: #212529;
   background: #4FC3F7;
   border: 1px solid #4FC3F7;
+}
+.p-button.p-button-info.p-button-outlined, .p-buttonset.p-button-info > .p-button.p-button-outlined, .p-splitbutton.p-button-info > .p-button.p-button-outlined {
+  background-color: transparent;
+  color: #4FC3F7;
+  border-color: #4FC3F7;
 }
 .p-button.p-button-info:enabled:hover, .p-buttonset.p-button-info > .p-button:enabled:hover, .p-splitbutton.p-button-info > .p-button:enabled:hover {
   background: #29B6F6;
@@ -1236,6 +1253,11 @@
   background: #AED581;
   border: 1px solid #AED581;
 }
+.p-button.p-button-success.p-button-outlined, .p-buttonset.p-button-success > .p-button.p-button-outlined, .p-splitbutton.p-button-success > .p-button.p-button-outlined {
+  background-color: transparent;
+  color: #AED581;
+  border-color: #AED581;
+}
 .p-button.p-button-success:enabled:hover, .p-buttonset.p-button-success > .p-button:enabled:hover, .p-splitbutton.p-button-success > .p-button:enabled:hover {
   background: #9CCC65;
   color: #212529;
@@ -1254,6 +1276,11 @@
   color: #212529;
   background: #FFB74D;
   border: 1px solid #FFB74D;
+}
+.p-button.p-button-warning.p-button-outlined, .p-buttonset.p-button-warning > .p-button.p-button-outlined, .p-splitbutton.p-button-warning > .p-button.p-button-outlined {
+  background-color: transparent;
+  color: #FFB74D;
+  border-color: #FFB74D;
 }
 .p-button.p-button-warning:enabled:hover, .p-buttonset.p-button-warning > .p-button:enabled:hover, .p-splitbutton.p-button-warning > .p-button:enabled:hover {
   background: #FFA726;
@@ -1274,6 +1301,11 @@
   background: #CE93D8;
   border: 1px solid #CE93D8;
 }
+.p-button.p-button-help.p-button-outlined, .p-buttonset.p-button-help > .p-button.p-button-outlined, .p-splitbutton.p-button-help > .p-button.p-button-outlined {
+  background-color: transparent;
+  color: #CE93D8;
+  border-color: #CE93D8;
+}
 .p-button.p-button-help:enabled:hover, .p-buttonset.p-button-help > .p-button:enabled:hover, .p-splitbutton.p-button-help > .p-button:enabled:hover {
   background: #BA68C8;
   color: #121212;
@@ -1292,6 +1324,11 @@
   color: #212529;
   background: #E57373;
   border: 1px solid #E57373;
+}
+.p-button.p-button-danger.p-button-outlined, .p-buttonset.p-button-danger > .p-button.p-button-outlined, .p-splitbutton.p-button-danger > .p-button.p-button-outlined {
+  background-color: transparent;
+  color: #E57373;
+  border-color: #E57373;
 }
 .p-button.p-button-danger:enabled:hover, .p-buttonset.p-button-danger > .p-button:enabled:hover, .p-splitbutton.p-button-danger > .p-button:enabled:hover {
   background: #EF5350;
@@ -2005,7 +2042,7 @@
 }
 .p-tree .p-tree-filter-container .p-tree-filter-icon {
   right: 0.429rem;
-  color: #252525;
+  color: #dedede;
 }
 .p-tree .p-treenode-children {
   padding: 0 0 0 1rem;
@@ -3760,8 +3797,8 @@
   line-height: 1.5rem;
 }
 .p-badge.p-badge-secondary {
-  background-color: #f4f4f4;
-  color: #333333;
+  background-color: transparent;
+  color: #81D4FA;
 }
 .p-badge.p-badge-success {
   background-color: #AED581;

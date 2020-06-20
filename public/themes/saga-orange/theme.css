@@ -1115,20 +1115,25 @@
   transition: background-color 0.2s, color 0.2s, border-color 0.2s, box-shadow 0.2s;
   border-radius: 3px;
 }
+.p-button.p-button-outlined {
+  background-color: transparent;
+  color: #FFC107;
+  border-color: #FFC107;
+}
 .p-button:enabled:hover {
   background: #FFB300;
   color: #212529;
   border-color: #FFB300;
 }
-.p-button:focus {
-  outline: 0 none;
-  outline-offset: 0;
-  box-shadow: 0 0 0 0.2rem #FFECB3;
-}
 .p-button:enabled:active {
   background: #FFA000;
   color: #212529;
   border-color: #FFA000;
+}
+.p-button:focus {
+  outline: 0 none;
+  outline-offset: 0;
+  box-shadow: 0 0 0 0.2rem #FFECB3;
 }
 .p-button .p-button-icon-left {
   margin-right: 0.5rem;
@@ -1147,6 +1152,8 @@
   min-width: 1rem;
   height: 1rem;
   line-height: 1rem;
+  color: #FFC107;
+  background-color: #212529;
 }
 .p-button.p-button-raised {
   box-shadow: 0 3px 1px -2px rgba(0, 0, 0, 0.2), 0 2px 2px 0 rgba(0, 0, 0, 0.14), 0 1px 5px 0 rgba(0, 0, 0, 0.12);
@@ -1198,6 +1205,11 @@
   background: transparent;
   border: 1px solid transparent;
 }
+.p-button.p-button-secondary.p-button-outlined, .p-buttonset.p-button-secondary > .p-button.p-button-outlined, .p-splitbutton.p-button-secondary > .p-button.p-button-outlined {
+  background-color: transparent;
+  color: #FFA000;
+  border-color: #FFA000;
+}
 .p-button.p-button-secondary:enabled:hover, .p-buttonset.p-button-secondary > .p-button:enabled:hover, .p-splitbutton.p-button-secondary > .p-button:enabled:hover {
   background: #e9ecef;
   color: #FFA000;
@@ -1216,6 +1228,11 @@
   color: #ffffff;
   background: #0288D1;
   border: 1px solid #0288D1;
+}
+.p-button.p-button-info.p-button-outlined, .p-buttonset.p-button-info > .p-button.p-button-outlined, .p-splitbutton.p-button-info > .p-button.p-button-outlined {
+  background-color: transparent;
+  color: #0288D1;
+  border-color: #0288D1;
 }
 .p-button.p-button-info:enabled:hover, .p-buttonset.p-button-info > .p-button:enabled:hover, .p-splitbutton.p-button-info > .p-button:enabled:hover {
   background: #0277BD;
@@ -1236,6 +1253,11 @@
   background: #689F38;
   border: 1px solid #689F38;
 }
+.p-button.p-button-success.p-button-outlined, .p-buttonset.p-button-success > .p-button.p-button-outlined, .p-splitbutton.p-button-success > .p-button.p-button-outlined {
+  background-color: transparent;
+  color: #689F38;
+  border-color: #689F38;
+}
 .p-button.p-button-success:enabled:hover, .p-buttonset.p-button-success > .p-button:enabled:hover, .p-splitbutton.p-button-success > .p-button:enabled:hover {
   background: #558B2F;
   color: #ffffff;
@@ -1254,6 +1276,11 @@
   color: #212529;
   background: #FBC02D;
   border: 1px solid #FBC02D;
+}
+.p-button.p-button-warning.p-button-outlined, .p-buttonset.p-button-warning > .p-button.p-button-outlined, .p-splitbutton.p-button-warning > .p-button.p-button-outlined {
+  background-color: transparent;
+  color: #FBC02D;
+  border-color: #FBC02D;
 }
 .p-button.p-button-warning:enabled:hover, .p-buttonset.p-button-warning > .p-button:enabled:hover, .p-splitbutton.p-button-warning > .p-button:enabled:hover {
   background: #F9A825;
@@ -1274,6 +1301,11 @@
   background: #9C27B0;
   border: 1px solid #9C27B0;
 }
+.p-button.p-button-help.p-button-outlined, .p-buttonset.p-button-help > .p-button.p-button-outlined, .p-splitbutton.p-button-help > .p-button.p-button-outlined {
+  background-color: transparent;
+  color: #9C27B0;
+  border-color: #9C27B0;
+}
 .p-button.p-button-help:enabled:hover, .p-buttonset.p-button-help > .p-button:enabled:hover, .p-splitbutton.p-button-help > .p-button:enabled:hover {
   background: #8E24AA;
   color: #ffffff;
@@ -1292,6 +1324,11 @@
   color: #ffffff;
   background: #D32F2F;
   border: 1px solid #D32F2F;
+}
+.p-button.p-button-danger.p-button-outlined, .p-buttonset.p-button-danger > .p-button.p-button-outlined, .p-splitbutton.p-button-danger > .p-button.p-button-outlined {
+  background-color: transparent;
+  color: #D32F2F;
+  border-color: #D32F2F;
 }
 .p-button.p-button-danger:enabled:hover, .p-buttonset.p-button-danger > .p-button:enabled:hover, .p-splitbutton.p-button-danger > .p-button:enabled:hover {
   background: #C62828;
