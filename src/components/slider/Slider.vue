@@ -143,6 +143,8 @@ export default {
                 return;
             }
 
+            DomHandler.addClass(this.$el, 'p-slider-sliding');
+
             this.dragging = true;
             this.updateDomData();
             this.handleIndex = index;
@@ -244,6 +246,7 @@ export default {
                 this.mouseupListener = (event) => {
                     if (this.dragging) {
                         this.dragging = false;
+                        DomHandler.removeClass(this.$el, 'p-slider-sliding');
                         this.$emit('slideend', {originalEvent: event, values: this.value});
                     }
                 };
@@ -343,7 +346,7 @@ export default {
 
 .p-slider .p-slider-handle {
 	position: absolute;
-	cursor: default;
+	cursor: grab;
     touch-action: none;
     display: block;
 }
