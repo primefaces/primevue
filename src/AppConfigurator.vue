@@ -24,21 +24,33 @@
 
                     <h5>Bootstrap</h5>
                     <div class="p-grid free-themes">
-                         <div class="p-col-3">
+                        <div class="p-col-3">
                             <button class="p-link">
-                                <img src="./assets/images/themes/bootstrap-light.png" alt="Bootstrap Light" @click="changeTheme($event, 'bootstrap4-light')"/>
+                                <img src="./assets/images/themes/bootstrap4-light-blue.svg" alt="Bootstrap Light Blue" @click="changeTheme($event, 'bootstrap4-light-blue')"/>
                             </button>
                             <span>Light</span>
                         </div>
                         <div class="p-col-3">
                             <button class="p-link">
-                                <img src="./assets/images/themes/bootstrap-dark.png" alt="Bootstrap Dark" @click="changeTheme($event, 'bootstrap4-dark', true)"/>
+                                <img src="./assets/images/themes/bootstrap4-light-purple.svg" alt="Bootstrap Light Blue" @click="changeTheme($event, 'bootstrap4-light-purple')"/>
                             </button>
-                            <span>Dark</span>
+                            <span>Light</span>
+                        </div>
+                        <div class="p-col-3">
+                            <button class="p-link">
+                                <img src="./assets/images/themes/bootstrap4-dark-blue.svg" alt="Bootstrap Dark Blue" @click="changeTheme($event, 'bootstrap4-light-purple', true)"/>
+                            </button>
+                            <span>Light</span>
+                        </div>
+                        <div class="p-col-3">
+                            <button class="p-link">
+                                <img src="./assets/images/themes/bootstrap4-dark-purple.svg" alt="Bootstrap Dark Blue" @click="changeTheme($event, 'bootstrap4-dark-purple', true)"/>
+                            </button>
+                            <span>Light</span>
                         </div>
                     </div>
 
-                    <h5>Material</h5>
+                    <h5>Material Design</h5>
                     <div class="p-grid free-themes">
                          <div class="p-col-3">
                             <button class="p-link">
@@ -54,19 +66,19 @@
                         </div>
                         <div class="p-col-3">
                             <button class="p-link">
-                                <img src="./assets/images/themes/md-dark-indigo-pink.svg" alt="Material Dark Indigo Pink" @click="changeTheme($event, 'md-dark-indigo-pink')"/>
+                                <img src="./assets/images/themes/md-dark-indigo-pink.svg" alt="Material Dark Indigo Pink" @click="changeTheme($event, 'md-dark-indigo-pink', true)"/>
                             </button>
                             <span>Indigo - Pink</span>
                         </div>
                         <div class="p-col-3">
                             <button class="p-link">
-                                <img src="./assets/images/themes/md-dark-deeppurple-green.svg" alt="Material Dark Deep Purple Green" @click="changeTheme($event, 'md-dark-deeppurple-green')"/>
+                                <img src="./assets/images/themes/md-dark-deeppurple-green.svg" alt="Material Dark Deep Purple Green" @click="changeTheme($event, 'md-dark-deeppurple-green', true)"/>
                             </button>
                             <span>Purple - Green</span>
                         </div>
                     </div>
 
-                    <h5>Material Compact</h5>
+                    <h5>Material Design Compact</h5>
                     <div class="p-grid free-themes">
                          <div class="p-col-3">
                             <button class="p-link">
@@ -82,18 +94,17 @@
                         </div>
                         <div class="p-col-3">
                             <button class="p-link">
-                                <img src="./assets/images/themes/md-dark-indigo-pink.svg" alt="Material Compact Dark Indigo Pink" @click="changeTheme($event, 'mdc-dark-indigo-pink')"/>
+                                <img src="./assets/images/themes/md-dark-indigo-pink.svg" alt="Material Compact Dark Indigo Pink" @click="changeTheme($event, 'mdc-dark-indigo-pink', true)"/>
                             </button>
                             <span>Indigo - Pink</span>
                         </div>
                         <div class="p-col-3">
                             <button class="p-link">
-                                <img src="./assets/images/themes/md-dark-deeppurple-green.svg" alt="Material Compact Dark Deep Purple Green" @click="changeTheme($event, 'mdc-dark-deeppurple-green')"/>
+                                <img src="./assets/images/themes/md-dark-deeppurple-green.svg" alt="Material Compact Dark Deep Purple Green" @click="changeTheme($event, 'mdc-dark-deeppurple-green', true)"/>
                             </button>
                             <span>Purple - Green</span>
                         </div>
                     </div>
-                    
 
                     <h5>PrimeOne Design</h5>
                     <div class="p-grid free-themes">
