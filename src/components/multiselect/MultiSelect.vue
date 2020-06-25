@@ -36,7 +36,7 @@
                 <div ref="itemsWrapper" class="p-multiselect-items-wrapper" :style="{'max-height': scrollHeight}">
                     <ul class="p-multiselect-items p-component" role="listbox" aria-multiselectable="true">
                         <li v-for="(option, i) of visibleOptions" :class="['p-multiselect-item', {'p-highlight': isSelected(option), 'p-disabled': isOptionDisabled(option)}]" role="option" :aria-selected="isSelected(option)"
-                            :aria-label="getOptionLabel(option)" :key="getOptionRenderKey(option)" @click="onOptionSelect($event, option)" @keydown="onOptionKeyDown($event, option)" :tabindex="tabindex||'0'">
+                            :aria-label="getOptionLabel(option)" :key="getOptionRenderKey(option)" @click="onOptionSelect($event, option)" @keydown="onOptionKeyDown($event, option)" :tabindex="tabindex||'0'" v-ripple>
                             <div class="p-checkbox p-component">
                                 <div :class="['p-checkbox-box p-component', {'p-highlight': isSelected(option)}]">
                                     <span :class="['p-checkbox-icon', {'pi pi-check': isSelected(option)}]"></span>
@@ -56,6 +56,7 @@
 <script>
 import ObjectUtils from '../utils/ObjectUtils';
 import DomHandler from '../utils/DomHandler';
+import Ripple from '../ripple/Ripple';
 
 export default {
     props: {
@@ -406,6 +407,9 @@ export default {
         equalityKey() {
             return this.optionValue ? null : this.dataKey;
         }
+    },
+    directives: {
+        'ripple': Ripple
     }
 }
 </script>
@@ -466,6 +470,8 @@ export default {
     align-items: center;
     font-weight: normal;
     white-space: nowrap;
+    position: relative;
+    overflow: hidden;
 }
 
 .p-multiselect-header {

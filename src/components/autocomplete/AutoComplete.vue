@@ -16,7 +16,7 @@
         <transition name="p-input-overlay" @enter="onOverlayEnter" @leave="onOverlayLeave">
             <div ref="overlay" class="p-autocomplete-panel p-component" :style="{'max-height': scrollHeight}" v-if="overlayVisible">
                 <ul :id="listId" class="p-autocomplete-items" role="listbox">
-                    <li v-for="(item, i) of suggestions" class="p-autocomplete-item" :key="i" @click="selectItem($event, item)" role="option">
+                    <li v-for="(item, i) of suggestions" class="p-autocomplete-item" :key="i" @click="selectItem($event, item)" role="option" v-ripple>
                         <slot name="item" :item="item" :index="i">
                             {{getItemContent(item)}}
                         </slot>
@@ -32,6 +32,7 @@ import ObjectUtils from '../utils/ObjectUtils';
 import DomHandler from '../utils/DomHandler';
 import Button from '../button/Button';
 import UniqueComponentId from '../utils/UniqueComponentId';
+import Ripple from '../ripple/Ripple';
 
 export default {
     inheritAttrs: false,
@@ -424,6 +425,9 @@ export default {
     },
     components: {
         'Button': Button
+    },
+    directives: {
+        'ripple': Ripple
     }
 }
 </script>
@@ -474,6 +478,8 @@ export default {
 .p-autocomplete-item {
     cursor: pointer;
     white-space: nowrap;
+    position: relative;
+    overflow: hidden;
 }
 
 .p-autocomplete-multiple-container {

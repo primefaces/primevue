@@ -151,4 +151,30 @@ button {
     position: absolute;
     width: 1px;
     word-wrap: normal !important;
-  }
+}
+
+.p-ink {
+    display: block;
+    position: absolute;
+    background: rgba(255, 255, 255, 0.5);
+    border-radius: 100%;
+    transform: scale(0);
+}
+  
+.p-ink-active {
+    animation: ripple 0.4s linear;
+}
+  
+@-webkit-keyframes ripple {  
+    100% {
+        opacity: 0;
+        -webkit-transform: scale(2.5);
+    }
+}
+  
+@keyframes ripple {  
+    100% {
+        opacity: 0;
+        transform: scale(2.5);
+    }
+}

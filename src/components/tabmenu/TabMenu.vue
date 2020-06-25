@@ -1,29 +1,39 @@
 <template>
     <div class="p-tabmenu p-component">
-        <ul class="p-tabmenu-nav p-reset" role="tablist">
+        <ul ref="nav" class="p-tabmenu-nav p-reset" role="tablist">
             <template v-for="(item,i) of model">
                 <li :key="item.label + '_' + i" :class="getItemClass(item)" :style="item.style" v-if="visible(item)" role="tab" :aria-selected="isActive(item)" :aria-expanded="isActive(item)">
-                    <router-link v-if="item.to && !item.disabled" :to="item.to" class="p-menuitem-link" @click.native="onItemClick($event, item)" role="presentation">
+                    <router-link v-if="item.to && !item.disabled" :to="item.to" class="p-menuitem-link" @click.native="onItemClick($event, item)" role="presentation" v-ripple>
                         <span :class="getItemIcon(item)" v-if="item.icon"></span>
                         <span class="p-menuitem-text">{{item.label}}</span>
                     </router-link>
-                    <a v-else :href="item.url" class="p-menuitem-link" :target="item.target" @click="onItemClick($event, item)" role="presentation" :tabindex="item.disabled ? null : '0'">
+                    <a v-else :href="item.url" class="p-menuitem-link" :target="item.target" @click="onItemClick($event, item)" role="presentation" :tabindex="item.disabled ? null : '0'" v-ripple>
                         <span :class="getItemIcon(item)" v-if="item.icon"></span>
                         <span class="p-menuitem-text">{{item.label}}</span>
                     </a>
                 </li>
             </template>
+            <li ref="inkbar" class="p-tabmenu-ink-bar"></li>
         </ul>
     </div>
 </template>
 
 <script>
+import DomHandler from '../utils/DomHandler';
+import Ripple from '../ripple/Ripple';
+
 export default {
     props: {
 		model: {
             type: Array,
             default: null
         }
+    },
+    mounted() {
+        this.updateInkBar();
+    },
+    updated() {
+        this.updateInkBar();
     },
     methods: {
         onItemClick(event, item) {
@@ -53,12 +63,32 @@ export default {
         },
         visible(item) {
             return (typeof item.visible === 'function' ? item.visible() : item.visible !== false);
+        },
+        findActiveTabIndex() {
+            if (this.model) {
+                for (let i = 0; i < this.model.length; i++) {
+                    let item = this.model[i];
+                    if (this.isActive(this.model[i])) {
+                        return i;
+                    }
+                }
+            }
+
+            return null;
+        },
+        updateInkBar() {
+            let tabHeader = this.$refs.nav.children[this.findActiveTabIndex()];
+            this.$refs.inkbar.style.width = DomHandler.getWidth(tabHeader) + 'px';
+            this.$refs.inkbar.style.left = tabHeader.offsetLeft + 'px';
         }
     },
     computed: {
         activeRoute() {
             return this.$route.path;
         }
+    },
+    directives: {
+        'ripple': Ripple
     }
 }
 </script>
@@ -79,6 +109,8 @@ export default {
     align-items: center;
     position: relative;
     text-decoration: none;
+    text-decoration: none;
+    overflow: hidden;
 }
 
 .p-tabmenu-nav a:focus {
@@ -87,5 +119,9 @@ export default {
 
 .p-tabmenu-nav .p-menuitem-text {
     line-height: 1;
+}
+
+.p-tabmenu-ink-bar {
+    display: none;
 }
 </style>

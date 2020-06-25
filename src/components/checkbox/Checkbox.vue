@@ -1,5 +1,5 @@
 <template>
-   <div class="p-checkbox p-component" @click="onClick($event)">
+   <div :class="containerClass" @click="onClick($event)">
        <div class="p-hidden-accessible">
            <input ref="input" type="checkbox" :checked="checked" :value="value" v-bind="$attrs" @focus="onFocus($event)" @blur="onBlur($event)">
         </div>
@@ -61,6 +61,9 @@ export default {
     computed: {
         checked() {
             return this.binary ? this.modelValue : ObjectUtils.contains(this.value, this.modelValue);
+        },
+        containerClass() {
+            return ['p-checkbox p-component', {'p-checkbox-checked': this.checked, 'p-checkbox-disabled': this.$attrs.disabled, 'p-checkbox-focused': this.focused}];
         }
     }
 }

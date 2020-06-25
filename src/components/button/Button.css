@@ -6,6 +6,8 @@
     align-items: center;
     vertical-align: bottom;
     text-align: center;
+    overflow: hidden;
+    position: relative;
 }
 
 .p-button-text {

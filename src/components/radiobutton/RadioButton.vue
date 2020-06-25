@@ -1,5 +1,5 @@
 <template>
-   <div class="p-radiobutton p-component" @click="onClick($event)">
+   <div :class="containerClass" @click="onClick($event)">
        <div class="p-hidden-accessible">
            <input ref="input" type="radio" :checked="checked" :value="value" v-bind="$attrs" @focus="onFocus($event)" @blur="onBlur($event)">
         </div>
@@ -51,6 +51,9 @@ export default {
     computed: {
         checked() {
             return this.modelValue != null && ObjectUtils.equals(this.modelValue, this.value);
+        },
+        containerClass() {
+            return ['p-radiobutton p-component', {'p-radiobutton-checked': this.checked, 'p-radiobutton-disabled': this.$attrs.disabled, 'p-radiobutton-focused': this.focused}];
         }
     }
 }

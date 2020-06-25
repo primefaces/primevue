@@ -1,0 +1,87 @@
+import DomHandler from '../utils/DomHandler';
+
+function bindEvents(el) {
+    el.addEventListener('mousedown', onMouseDown);
+    el.addEventListener('mouseleave', onMouseLeave);
+}
+
+function unbindEvents(el) {
+    el.removeEventListener('mousedown', onMouseDown);
+    el.removeEventListener('mouseleave', onMouseLeave);
+}
+
+function create(el) {
+    let ink = document.createElement('span');
+    ink.className = 'p-ink';
+    el.appendChild(ink);
+
+    ink.addEventListener('animationend', onAnimationEnd);
+}
+
+function remove(el) {
+    let ink = getInk(el);
+    if (ink) {
+        ink.removeEventListener('animationend', onAnimationEnd);
+        ink.remove();
+    }
+}
+
+function onMouseDown(event) {
+    let target = event.currentTarget;
+    let ink = getInk(target);
+
+    if (ink) {
+        DomHandler.removeClass(ink, 'p-ink-active');
+        if (!DomHandler.getHeight(ink) && !DomHandler.getWidth(ink)) {
+            let d = Math.max(DomHandler.getOuterWidth(target), DomHandler.getOuterHeight(target));
+            ink.style.height = d + 'px';
+            ink.style.width = d + 'px';
+        }
+
+        let offset = DomHandler.getOffset(target);
+        let x = event.pageX - offset.left + document.body.scrollTop - DomHandler.getWidth(ink) / 2;
+        let y = event.pageY - offset.top + document.body.scrollLeft - DomHandler.getHeight(ink) / 2;
+
+        ink.style.top = y + 'px';
+        ink.style.left = x + 'px';
+        DomHandler.addClass(ink, 'p-ink-active');
+    }
+}
+
+function onMouseLeave(event) {
+    resetInk(event);
+}
+
+function resetInk(event) {
+    let target = event.target;
+    let ink = getInk(target);
+    if (ink) {
+        DomHandler.removeClass(ink, 'p-ink-active');
+    }
+}
+
+function onAnimationEnd(event) {
+    DomHandler.removeClass(event.currentTarget, 'p-ink-active');
+}
+
+function getInk(el) {
+    for (let i = 0; i < el.children.length; i++) {
+        if (el.children[i].className.indexOf('p-ink') !== -1) {
+            return el.children[i];
+        }
+    }
+    return null;
+}
+
+const Ripple = {
+    inserted(el) {
+        create(el);
+        bindEvents(el);
+    },
+    unbind(el) {
+        remove(el);
+        unbindEvents(el);
+    }
+};
+
+export default Ripple;

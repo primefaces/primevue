@@ -25,7 +25,7 @@
                 </div>
                 <div ref="itemsWrapper" class="p-dropdown-items-wrapper" :style="{'max-height': scrollHeight}">
                     <ul class="p-dropdown-items" role="listbox">
-                        <li v-for="(option, i) of visibleOptions" :class="['p-dropdown-item', {'p-highlight': isSelected(option), 'p-disabled': isOptionDisabled(option)}]"
+                        <li v-for="(option, i) of visibleOptions" :class="['p-dropdown-item', {'p-highlight': isSelected(option), 'p-disabled': isOptionDisabled(option)}]" v-ripple
                             :aria-label="getOptionLabel(option)" :key="getOptionRenderKey(option)" @click="onOptionSelect($event, option)" role="option" :aria-selected="isSelected(option)">
                             <slot name="option" :option="option" :index="i">
                                 {{getOptionLabel(option)}}
@@ -41,6 +41,7 @@
 <script>
 import ObjectUtils from '../utils/ObjectUtils';
 import DomHandler from '../utils/DomHandler';
+import Ripple from '../ripple/Ripple';
 
 export default {
     props: {
@@ -451,6 +452,9 @@ export default {
         equalityKey() {
             return this.optionValue ? null : this.dataKey;
         }
+    },
+    directives: {
+        'ripple': Ripple
     }
 }
 </script>
@@ -510,6 +514,8 @@ input.p-dropdown-label  {
     cursor: pointer;
     font-weight: normal;
     white-space: nowrap;
+    position: relative;
+    overflow: hidden;
 }
 
 .p-dropdown-items {

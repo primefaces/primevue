@@ -1,12 +1,13 @@
 <template>
     <div class="p-tabview p-component">
-        <ul class="p-tabview-nav" role="tablist">
+        <ul ref="nav" class="p-tabview-nav" role="tablist">
             <li role="presentation" v-for="(tab, i) of tabs" :key="tab.header || i" :class="[{'p-highlight': (tab.d_active), 'p-disabled': tab.disabled}]">
-                <a role="tab" class="p-tabview-nav-link" @click="onTabClick($event, tab)" @keydown="onTabKeydown($event, tab)" :tabindex="tab.disabled ? null : '0'" :aria-selected="tab.d_active">
+                <a role="tab" class="p-tabview-nav-link" @click="onTabClick($event, tab)" @keydown="onTabKeydown($event, tab)" :tabindex="tab.disabled ? null : '0'" :aria-selected="tab.d_active" v-ripple>
                     <span class="p-tabview-title" v-if="tab.header">{{tab.header}}</span>
                     <TabPanelHeaderSlot :tab="tab" v-if="tab.$scopedSlots.header" />
                 </a>
             </li>
+            <li ref="inkbar" class="p-tabview-ink-bar"></li>
         </ul>
         <div class="p-tabview-panels">
             <slot></slot>
@@ -15,6 +16,9 @@
 </template>
 
 <script>
+import DomHandler from '../utils/DomHandler';
+import Ripple from '../ripple/Ripple';
+
 const TabPanelHeaderSlot = {
     functional: true,
     props: {
@@ -37,6 +41,13 @@ export default {
     mounted() {
         this.d_children = this.$children;
     },
+    updated() {
+        let activeTab = this.tabs[this.findActiveTabIndex()];
+        if (!activeTab && this.tabs.length) {
+            this.tabs[0].d_active = true;
+        }
+        this.updateInkBar();
+    },
     methods: {
         onTabClick(event, tab) {
             if (!tab.disabled && !tab.d_active) {
@@ -54,29 +65,28 @@ export default {
                 this.tabs[i].d_active = active;
                 this.tabs[i].$emit('update:active', active);
             }
+
+            this.updateInkBar();
         },
         onTabKeydown(event, tab) {
             if (event.which === 13) {
                 this.onTabClick(event, tab);
             }
         },
-        findActiveTab() {
-            let activeTab;
+        findActiveTabIndex() {
             for (let i = 0; i < this.tabs.length; i++) {
                 let tab = this.tabs[i];
                 if (tab.d_active) {
-                    activeTab = tab;
-                    break;
+                    return i;
                 }
             }
 
-            return activeTab;
-        }
-    },
-    updated() {
-        let activeTab = this.findActiveTab();
-        if (!activeTab && this.tabs.length) {
-            this.tabs[0].d_active = true;
+            return null;
+        },
+        updateInkBar() {
+            let tabHeader = this.$refs.nav.children[this.findActiveTabIndex()];
+            this.$refs.inkbar.style.width = DomHandler.getWidth(tabHeader) + 'px';
+            this.$refs.inkbar.style.left = tabHeader.offsetLeft + 'px';
         }
     },
     computed: {
@@ -86,6 +96,9 @@ export default {
     },
     components: {
         'TabPanelHeaderSlot': TabPanelHeaderSlot
+    },
+    directives: {
+        'ripple': Ripple
     }
 }
 </script>
@@ -106,6 +119,11 @@ export default {
     align-items: center;
     position: relative;
     text-decoration: none;
+    overflow: hidden;
+}
+
+.p-tabview-ink-bar {
+    display: none;
 }
 
 .p-tabview-nav-link:focus {

@@ -1,5 +1,5 @@
 <template>
-    <button :class="buttonClass" v-on="$listeners" type="button">
+    <button :class="buttonClass" v-on="$listeners" type="button" v-ripple>
         <span v-if="icon" :class="iconClass"></span>
         <span class="p-button-text">{{label||'&nbsp;'}}</span>
         <span class="p-badge" v-if="badge" :class="badgeClass">{{badge}}</span>
@@ -7,6 +7,8 @@
 </template>
 
 <script>
+import Ripple from '../ripple/Ripple';
+
 export default {
     props: {
         label: {
@@ -48,6 +50,9 @@ export default {
                 }
             ]
         }
+    },
+    directives: {
+        'ripple': Ripple
     }
 }
 </script>
