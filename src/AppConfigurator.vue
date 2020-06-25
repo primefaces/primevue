@@ -42,17 +42,58 @@
                     <div class="p-grid free-themes">
                          <div class="p-col-3">
                             <button class="p-link">
-                                <img src="./assets/images/themes/material-light.png" alt="Material Light" @click="changeTheme($event, 'material-light')"/>
+                                <img src="./assets/images/themes/md-light-indigo-pink.svg" alt="Material Light Indigo Pink" @click="changeTheme($event, 'md-light-indigo-pink')"/>
                             </button>
-                            <span>Light</span>
+                            <span>Indigo - Pink</span>
                         </div>
                         <div class="p-col-3">
                             <button class="p-link">
-                                <img src="./assets/images/themes/material-dark.png" alt="Material Dark" @click="changeTheme($event, 'material-dark', true)"/>
+                                <img src="./assets/images/themes/md-light-deeppurple-green.svg" alt="Material Light Deep Purple Green" @click="changeTheme($event, 'md-light-deeppurple-green')"/>
                             </button>
-                            <span>Dark</span>
+                            <span>Purple - Green</span>
+                        </div>
+                        <div class="p-col-3">
+                            <button class="p-link">
+                                <img src="./assets/images/themes/md-dark-indigo-pink.svg" alt="Material Dark Indigo Pink" @click="changeTheme($event, 'md-dark-indigo-pink')"/>
+                            </button>
+                            <span>Indigo - Pink</span>
+                        </div>
+                        <div class="p-col-3">
+                            <button class="p-link">
+                                <img src="./assets/images/themes/md-dark-deeppurple-green.svg" alt="Material Dark Deep Purple Green" @click="changeTheme($event, 'md-dark-deeppurple-green')"/>
+                            </button>
+                            <span>Purple - Green</span>
                         </div>
                     </div>
+
+                    <h5>Material Compact</h5>
+                    <div class="p-grid free-themes">
+                         <div class="p-col-3">
+                            <button class="p-link">
+                                <img src="./assets/images/themes/md-light-indigo-pink.svg" alt="Material Compact Light Indigo Pink" @click="changeTheme($event, 'mdc-light-indigo-pink')"/>
+                            </button>
+                            <span>Indigo - Pink</span>
+                        </div>
+                        <div class="p-col-3">
+                            <button class="p-link">
+                                <img src="./assets/images/themes/md-light-deeppurple-green.svg" alt="Material Compact Deep Purple Green" @click="changeTheme($event, 'mdc-light-deeppurple-green')"/>
+                            </button>
+                            <span>Purple - Green</span>
+                        </div>
+                        <div class="p-col-3">
+                            <button class="p-link">
+                                <img src="./assets/images/themes/md-dark-indigo-pink.svg" alt="Material Compact Dark Indigo Pink" @click="changeTheme($event, 'mdc-dark-indigo-pink')"/>
+                            </button>
+                            <span>Indigo - Pink</span>
+                        </div>
+                        <div class="p-col-3">
+                            <button class="p-link">
+                                <img src="./assets/images/themes/md-dark-deeppurple-green.svg" alt="Material Compact Dark Deep Purple Green" @click="changeTheme($event, 'mdc-dark-deeppurple-green')"/>
+                            </button>
+                            <span>Purple - Green</span>
+                        </div>
+                    </div>
+                    
 
                     <h5>PrimeOne Design</h5>
                     <div class="p-grid free-themes">
