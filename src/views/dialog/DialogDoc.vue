@@ -241,8 +241,8 @@ export default {
         laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur.
         Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.&lt;/p&gt;
     &lt;template #footer&gt;
-        &lt;Button label="Yes" icon="pi pi-check" @click="closeBasic" /&gt;
         &lt;Button label="No" icon="pi pi-times" @click="closeBasic" class="p-button-secondary"/&gt;
+        &lt;Button label="Yes" icon="pi pi-check" @click="closeBasic" /&gt;
     &lt;/template&gt;
 &lt;/Dialog&gt;
 
@@ -263,8 +263,8 @@ export default {
         cumque nihil impedit quo minus id quod maxime placeat facere possimus, omnis voluptas assumenda est, omnis dolor repellendus. Temporibus autem quibusdam et aut officiis debitis aut rerum necessitatibus saepe
         eveniet ut et voluptates repudiandae sint et molestiae non recusandae. Itaque earum rerum hic tenetur a sapiente delectus, ut aut reiciendis voluptatibus maiores alias consequatur aut perferendis doloribus asperiores repellat.&lt;/p&gt;
     &lt;template #footer&gt;
-        &lt;Button label="Yes" icon="pi pi-check" @click="closeBasic2" /&gt;
         &lt;Button label="No" icon="pi pi-times" @click="closeBasic2" class="p-button-secondary"/&gt;
+        &lt;Button label="Yes" icon="pi pi-check" @click="closeBasic2" /&gt;
     &lt;/template&gt;
 &lt;/Dialog&gt;
 
@@ -275,8 +275,8 @@ export default {
         laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur.
         Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.&lt;/p&gt;
     &lt;template #footer&gt;
-        &lt;Button label="Yes" icon="pi pi-check" @click="closeModal" /&gt;
         &lt;Button label="No" icon="pi pi-times" @click="closeModal" class="p-button-secondary"/&gt;
+        &lt;Button label="Yes" icon="pi pi-check" @click="closeModal" /&gt;
     &lt;/template&gt;
 &lt;/Dialog&gt;
 
@@ -287,8 +287,8 @@ export default {
         laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur.
         Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.&lt;/p&gt;
     &lt;template #footer&gt;
-        &lt;Button label="Yes" icon="pi pi-check" @click="closeMaximizable" /&gt;
         &lt;Button label="No" icon="pi pi-times" @click="closeMaximizable" class="p-button-secondary"/&gt;
+        &lt;Button label="Yes" icon="pi pi-check" @click="closeMaximizable" /&gt;
     &lt;/template&gt;
 &lt;/Dialog&gt;
 
@@ -315,8 +315,8 @@ export default {
         laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur.
         Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.&lt;/p&gt;
     &lt;template #footer&gt;
-        &lt;Button label="Yes" icon="pi pi-check" @click="closePosition" /&gt;
         &lt;Button label="No" icon="pi pi-times" @click="closePosition" class="p-button-secondary"/&gt;
+        &lt;Button label="Yes" icon="pi pi-check" @click="closePosition" /&gt;
     &lt;/template&gt;
 &lt;/Dialog&gt;
 </template>

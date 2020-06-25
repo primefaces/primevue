@@ -29,23 +29,24 @@ function remove(el) {
 function onMouseDown(event) {
     let target = event.currentTarget;
     let ink = getInk(target);
-
-    if (ink) {
-        DomHandler.removeClass(ink, 'p-ink-active');
-        if (!DomHandler.getHeight(ink) && !DomHandler.getWidth(ink)) {
-            let d = Math.max(DomHandler.getOuterWidth(target), DomHandler.getOuterHeight(target));
-            ink.style.height = d + 'px';
-            ink.style.width = d + 'px';
-        }
-
-        let offset = DomHandler.getOffset(target);
-        let x = event.pageX - offset.left + document.body.scrollTop - DomHandler.getWidth(ink) / 2;
-        let y = event.pageY - offset.top + document.body.scrollLeft - DomHandler.getHeight(ink) / 2;
-
-        ink.style.top = y + 'px';
-        ink.style.left = x + 'px';
-        DomHandler.addClass(ink, 'p-ink-active');
+    if (!ink || getComputedStyle(ink, null).display === 'none') {
+        return;
     }
+
+    DomHandler.removeClass(ink, 'p-ink-active');
+    if (!DomHandler.getHeight(ink) && !DomHandler.getWidth(ink)) {
+        let d = Math.max(DomHandler.getOuterWidth(target), DomHandler.getOuterHeight(target));
+        ink.style.height = d + 'px';
+        ink.style.width = d + 'px';
+    }
+
+    let offset = DomHandler.getOffset(target);
+    let x = event.pageX - offset.left + document.body.scrollTop - DomHandler.getWidth(ink) / 2;
+    let y = event.pageY - offset.top + document.body.scrollLeft - DomHandler.getHeight(ink) / 2;
+
+    ink.style.top = y + 'px';
+    ink.style.left = x + 'px';
+    DomHandler.addClass(ink, 'p-ink-active');
 }
 
 function onMouseLeave(event) {

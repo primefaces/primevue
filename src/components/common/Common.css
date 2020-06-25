@@ -164,6 +164,10 @@ button {
 .p-ink-active {
     animation: ripple 0.4s linear;
 }
+
+.p-ripple-disabled .p-ink {
+    display: none !important;
+}
   
 @-webkit-keyframes ripple {  
     100% {

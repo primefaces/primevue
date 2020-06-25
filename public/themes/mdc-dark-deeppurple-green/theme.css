@@ -1530,7 +1530,7 @@
   color: #303F9F;
   border-color: transparent;
 }
-.p-button.p-button-link:enabled:hover .p-button-text {
+.p-button.p-button-link:enabled:hover .p-button-label {
   text-decoration: underline;
 }
 .p-button.p-button-link:enabled:focus {

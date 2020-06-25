@@ -8,7 +8,10 @@
         </div>
 
         <div class="content-section implementation">
-            <Steps :model="items" :readonly="true" style="margin-bottom: 1rem"/>
+            <div class="card">
+                <Steps :model="items" :readonly="true" />
+            </div>
+
             <keep-alive>
                 <router-view :formData="formObject" @prevPage="prevPage($event)" @nextPage="nextPage($event)" @complete="complete" />
             </keep-alive>

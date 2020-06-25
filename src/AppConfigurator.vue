@@ -12,12 +12,15 @@
                 <div>
                     <h4>Component Scale</h4>
                     <div class="config-scale">
-                        <Button icon="pi pi-minus" @click="decrementScale()" class="p-button-secondary" :disabled="scale === scales[0]"/>
+                        <Button icon="pi pi-minus" @click="decrementScale()" class="p-button-text" :disabled="scale === scales[0]"/>
                         <i class="pi pi-circle-on" v-for="s of scales" :class="{'scale-active': s === scale}" :key="s"/>
-                        <Button icon="pi pi-plus"  @click="incrementScale()" class="p-button-secondary" :disabled="scale === scales[scales.length - 1]" />
+                        <Button icon="pi pi-plus"  @click="incrementScale()" class="p-button-text" :disabled="scale === scales[scales.length - 1]" />
                     </div>
 
                     <AppInputStyleSwitch />
+
+                    <h4>Ripple Effect</h4>
+                    <InputSwitch :value="rippleActive" @input="onRippleChange"  />
 
                     <h4>Free Themes</h4>
                     <p>Built-in component themes created by the <a href="https://www.primefaces.org/designer/primevue">PrimeVue Theme Designer</a>.</p>
@@ -38,7 +41,7 @@
                         </div>
                         <div class="p-col-3">
                             <button class="p-link">
-                                <img src="./assets/images/themes/bootstrap4-dark-blue.svg" alt="Bootstrap Dark Blue" @click="changeTheme($event, 'bootstrap4-light-purple', true)"/>
+                                <img src="./assets/images/themes/bootstrap4-dark-blue.svg" alt="Bootstrap Dark Blue" @click="changeTheme($event, 'bootstrap4-dark-blue', true)"/>
                             </button>
                             <span>Light</span>
                         </div>
@@ -310,6 +313,9 @@ export default {
     computed: {
         containerClass() {
             return ['layout-config', {'layout-config-active': this.active}];
+        },
+        rippleActive() {
+            return this.$appState.ripple;
         }
     },
     methods: {
@@ -357,6 +363,9 @@ export default {
         incrementScale() {
             this.scale++;
             document.documentElement.style.fontSize = this.scale + 'px';
+        },
+        onRippleChange(value) {
+            this.$appState.ripple = value;
         }
     }
 }

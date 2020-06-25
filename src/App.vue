@@ -81,6 +81,9 @@ export default {
             EventBus.$emit('change-theme', event);
             this.$appState.darkTheme = event.dark;
 
+            if (event.theme.startsWith('md')) {
+                this.$appState.ripple = true;
+            }
         },
         addClass(element, className) {
             if (!this.hasClass(element, className)) {
@@ -113,7 +116,11 @@ export default {
     },
     computed: {
         containerClass() {
-            return [{'layout-news-active': this.newsActive, 'p-input-filled': this.$appState.inputStyle === 'filled'}];
+            return [{
+                'layout-news-active': this.newsActive, 
+                'p-input-filled': this.$appState.inputStyle === 'filled',
+                'p-ripple-disabled': this.$appState.ripple === false
+            }];
         }
     },
     components: {

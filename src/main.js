@@ -90,7 +90,7 @@ Vue.use(Vuelidate);
 Vue.use(ToastService);
 Vue.directive('tooltip', Tooltip);
 
-Vue.prototype.$appState = Vue.observable({ inputStyle: 'outlined', darkTheme: false })
+Vue.prototype.$appState = Vue.observable({ inputStyle: 'outlined', darkTheme: false, ripple: false });
 
 Vue.config.productionTip = false;
 

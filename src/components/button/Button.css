@@ -10,7 +10,7 @@
     position: relative;
 }
 
-.p-button-text {
+.p-button-label {
     flex: 1 1 auto;
 }
 
@@ -26,7 +26,7 @@
     justify-content: center;
 }
 
-.p-button-icon-only .p-button-text {
+.p-button-icon-only .p-button-label {
     visibility: hidden;
     width: 0;
     flex: 0 0 auto;

@@ -16,8 +16,8 @@
                         laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur.
                         Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.</p>
                     <template #footer>
-                        <Button label="Yes" icon="pi pi-check" @click="closeBasic" />
                         <Button label="No" icon="pi pi-times" @click="closeBasic" class="p-button-secondary"/>
+                        <Button label="Yes" icon="pi pi-check" @click="closeBasic" />
                     </template>
                 </Dialog>
 
@@ -38,8 +38,8 @@
                         cumque nihil impedit quo minus id quod maxime placeat facere possimus, omnis voluptas assumenda est, omnis dolor repellendus. Temporibus autem quibusdam et aut officiis debitis aut rerum necessitatibus saepe
                         eveniet ut et voluptates repudiandae sint et molestiae non recusandae. Itaque earum rerum hic tenetur a sapiente delectus, ut aut reiciendis voluptatibus maiores alias consequatur aut perferendis doloribus asperiores repellat.</p>
                     <template #footer>
-                        <Button label="Yes" icon="pi pi-check" @click="closeBasic2" />
                         <Button label="No" icon="pi pi-times" @click="closeBasic2" class="p-button-secondary"/>
+                        <Button label="Yes" icon="pi pi-check" @click="closeBasic2" />
                     </template>
                 </Dialog>
 
@@ -50,8 +50,8 @@
                         laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur.
                         Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.</p>
                     <template #footer>
-                        <Button label="Yes" icon="pi pi-check" @click="closeModal" />
                         <Button label="No" icon="pi pi-times" @click="closeModal" class="p-button-secondary"/>
+                        <Button label="Yes" icon="pi pi-check" @click="closeModal" />
                     </template>
                 </Dialog>
 
@@ -62,8 +62,8 @@
                         laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur.
                         Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.</p>
                     <template #footer>
-                        <Button label="Yes" icon="pi pi-check" @click="closeMaximizable" />
                         <Button label="No" icon="pi pi-times" @click="closeMaximizable" class="p-button-secondary"/>
+                        <Button label="Yes" icon="pi pi-check" @click="closeMaximizable" />
                     </template>
                 </Dialog>
 
@@ -90,8 +90,8 @@
                         laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur.
                         Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.</p>
                     <template #footer>
+                        <Button label="No" icon="pi pi-times" @click="closePosition" class="p-button-secondary" />
                         <Button label="Yes" icon="pi pi-check" @click="closePosition" />
-                        <Button label="No" icon="pi pi-times" @click="closePosition" class="p-button-secondary"/>
                     </template>
                 </Dialog>
             </div>

@@ -11,18 +11,12 @@
             <div class="card">
                 <h5>Basic</h5>
                 <Button label="Submit" />
-                <Button label="Submit" disabled="disabled" />
+                <Button label="Disabled" disabled="disabled" />
 
                 <h5>Icons</h5>
                 <Button icon="pi pi-check" />
                 <Button label="Submit" icon="pi pi-check" />
                 <Button label="Submit" icon="pi pi-check" iconPos="right" />
-
-                <h5>Text Buttons</h5>
-                <Button label="Submit" class="p-button-text" />
-                <Button icon="pi pi-check" class="p-button-text" />
-                <Button label="Cancel" icon="pi pi-times" class="p-button-text" />
-                <Button label="Search" icon="pi pi-search" iconPos="right" class="p-button-text" />
 
                 <h5>Severities</h5>
                 <Button label="Primary" />
@@ -42,7 +36,6 @@
                 <Button label="Warning" class="p-button-raised p-button-warning" />
                 <Button label="Help" class="p-button-raised p-button-help" />
                 <Button label="Danger" class="p-button-raised p-button-danger" />
-                <Button label="Submit" class="p-button-raised p-button-text" />
 
                 <h5>Rounded Buttons</h5>
                 <Button label="Primary" class="p-button-rounded" />
@@ -52,7 +45,24 @@
                 <Button label="Warning" class="p-button-rounded p-button-warning" />
                 <Button label="Help" class="p-button-rounded p-button-help" />
                 <Button label="Danger" class="p-button-rounded p-button-danger" />
-                <Button label="Submit" class="p-button-rounded p-button-text" />
+
+                <h5>Text Buttons</h5>
+                <Button label="Primary" class="p-button-text" />
+                <Button label="Secondary" class="p-button-secondary p-button-text" />
+                <Button label="Success" class="p-button-success p-button-text" />
+                <Button label="Info" class="p-button-info p-button-text" />
+                <Button label="Warning" class="p-button-warning p-button-text" />
+                <Button label="Help" class="p-button-help p-button-text" />
+                <Button label="Danger" class="p-button-danger p-button-text" />
+
+                <h5>Raised Text Buttons</h5>
+                <Button label="Primary" class="p-button-raised p-button-text" />
+                <Button label="Secondary" class="p-button-raised p-button-secondary p-button-text" />
+                <Button label="Success" class="p-button-raised p-button-success p-button-text" />
+                <Button label="Info" class="p-button-raised p-button-info p-button-text" />
+                <Button label="Warning" class="p-button-raised p-button-warning p-button-text" />
+                <Button label="Help" class="p-button-raised p-button-help p-button-text" />
+                <Button label="Danger" class="p-button-raised p-button-danger p-button-text" />
 
                 <h5>Outlined Buttons</h5>
                 <Button label="Primary" class="p-button-outlined" />
@@ -68,18 +78,26 @@
                 <Button icon="pi pi-bookmark" class="p-button-rounded p-button-secondary" />
                 <Button icon="pi pi-search" class="p-button-rounded p-button-success" />
                 <Button icon="pi pi-user" class="p-button-rounded p-button-info" />
-                <Button icon="pi pi-lock" class="p-button-rounded p-button-warning" />
-                <Button icon="pi pi-lock" class="p-button-rounded p-button-help" />
+                <Button icon="pi pi-bell" class="p-button-rounded p-button-warning" />
+                <Button icon="pi pi-heart" class="p-button-rounded p-button-help" />
                 <Button icon="pi pi-times" class="p-button-rounded p-button-danger" />
+
+                <h5>Rounded Text Icon Buttons</h5>
                 <Button icon="pi pi-check" class="p-button-rounded p-button-text" />
+                <Button icon="pi pi-bookmark" class="p-button-rounded p-button-secondary p-button-text" />
+                <Button icon="pi pi-search" class="p-button-rounded p-button-success p-button-text" />
+                <Button icon="pi pi-user" class="p-button-rounded p-button-info p-button-text" />
+                <Button icon="pi pi-bell" class="p-button-rounded p-button-warning p-button-text" />
+                <Button icon="pi pi-heart" class="p-button-rounded p-button-help p-button-text" />
+                <Button icon="pi pi-times" class="p-button-rounded p-button-danger p-button-text" />
 
                 <h5>Rounded and Outlined Icon Buttons</h5>
                 <Button icon="pi pi-check" class="p-button-rounded p-button-outlined" />
                 <Button icon="pi pi-bookmark" class="p-button-rounded p-button-secondary p-button-outlined" />
                 <Button icon="pi pi-search" class="p-button-rounded p-button-success p-button-outlined" />
                 <Button icon="pi pi-user" class="p-button-rounded p-button-info p-button-outlined" />
-                <Button icon="pi pi-lock" class="p-button-rounded p-button-warning p-button-outlined" />
-                <Button icon="pi pi-lock" class="p-button-rounded p-button-help p-button-outlined" />
+                <Button icon="pi pi-bell" class="p-button-rounded p-button-warning p-button-outlined" />
+                <Button icon="pi pi-heart" class="p-button-rounded p-button-help p-button-outlined" />
                 <Button icon="pi pi-times" class="p-button-rounded p-button-danger p-button-outlined" />
 
                 <h5>Badges</h5>
