@@ -67,7 +67,6 @@ export default {
         findActiveTabIndex() {
             if (this.model) {
                 for (let i = 0; i < this.model.length; i++) {
-                    let item = this.model[i];
                     if (this.isActive(this.model[i])) {
                         return i;
                     }
