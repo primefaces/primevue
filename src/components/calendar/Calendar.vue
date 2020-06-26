@@ -8,7 +8,7 @@
                     <div class="p-datepicker-group" v-for="(month,groupIndex) of months" :key="month.month + month.year">
                         <div class="p-datepicker-header">
                             <slot name="header"></slot>
-                            <button class="p-datepicker-prev p-link" v-if="groupIndex === 0" @click="onPrevButtonClick" type="button" @keydown="onContainerButtonKeydown">
+                            <button class="p-datepicker-prev p-link" v-if="groupIndex === 0" @click="onPrevButtonClick" type="button" @keydown="onContainerButtonKeydown" v-ripple>
                                 <span class="p-datepicker-prev-icon pi pi-chevron-left"></span>
                             </button>
                             <div class="p-datepicker-title">
@@ -22,7 +22,7 @@
                                 </select>
                             </div>
                             <button class="p-datepicker-next p-link" v-if="numberOfMonths === 1 ? true : (groupIndex === numberOfMonths - 1)"
-                                @click="onNextButtonClick" type="button" @keydown="onContainerButtonKeydown">
+                                @click="onNextButtonClick" type="button" @keydown="onContainerButtonKeydown" v-ripple>
                                 <span class="p-datepicker-next-icon pi pi-chevron-right"></span>
                             </button>
                         </div>
@@ -47,7 +47,8 @@
                                             </span>
                                         </td>
                                         <td v-for="date of week" :key="date.day + '' + date.month" :class="{'p-datepicker-other-month': date.otherMonth, 'p-datepicker-today': date.today}">
-                                            <span :class="{'p-highlight': isSelected(date), 'p-disabled': !date.selectable}" @click="onDateSelect($event, date)" draggable="false" @keydown="onDateCellKeydown($event,date,groupIndex)">
+                                            <span :class="{'p-highlight': isSelected(date), 'p-disabled': !date.selectable}" @click="onDateSelect($event, date)" 
+                                                draggable="false" @keydown="onDateCellKeydown($event,date,groupIndex)" v-ripple>
                                                 <slot name="date" :date="date">{{date.day}}</slot>
                                             </span>
                                         </td>
@@ -57,19 +58,20 @@
                         </div>
                     </div>
                     <div class="p-monthpicker" v-if="view === 'month'">
-                        <span v-for="(m,i) of monthPickerValues" :key="m" @click="onMonthSelect($event, i)" @keydown="onMonthCellKeydown($event,i)" class="p-monthpicker-month" :class="{'p-highlight': isMonthSelected(i)}">
+                        <span v-for="(m,i) of monthPickerValues" :key="m" @click="onMonthSelect($event, i)" @keydown="onMonthCellKeydown($event,i)" 
+                                class="p-monthpicker-month" :class="{'p-highlight': isMonthSelected(i)}" v-ripple>
                             {{m}}
                         </span>
                     </div>
                 </template>
                 <div class="p-timepicker" v-if="showTime||timeOnly">
                     <div class="p-hour-picker">
-                        <button class="p-link" @mousedown="onTimePickerElementMouseDown($event, 0, 1)" @mouseup="onTimePickerElementMouseUp($event)" @keydown="onContainerButtonKeydown"
+                        <button class="p-link" @mousedown="onTimePickerElementMouseDown($event, 0, 1)" @mouseup="onTimePickerElementMouseUp($event)" @keydown="onContainerButtonKeydown" v-ripple
                             @mouseleave="onTimePickerElementMouseLeave()" @keydown.enter="onTimePickerElementMouseDown($event, 0, 1)" @keyup.enter="onTimePickerElementMouseUp($event)" type="button">
                             <span class="pi pi-chevron-up"></span>
                         </button>
                         <span>{{formattedCurrentHour}}</span>
-                        <button class="p-link" @mousedown="onTimePickerElementMouseDown($event, 0, -1)" @mouseup="onTimePickerElementMouseUp($event)" @keydown="onContainerButtonKeydown"
+                        <button class="p-link" @mousedown="onTimePickerElementMouseDown($event, 0, -1)" @mouseup="onTimePickerElementMouseUp($event)" @keydown="onContainerButtonKeydown" v-ripple
                             @mouseleave="onTimePickerElementMouseLeave()" @keydown.enter="onTimePickerElementMouseDown($event, 0, -1)" @keyup.enter="onTimePickerElementMouseUp($event)" type="button">
                             <span class="pi pi-chevron-down"></span>
                         </button>
@@ -78,12 +80,12 @@
                         <span>{{timeSeparator}}</span>
                     </div>
                     <div class="p-minute-picker">
-                        <button class="p-link" @mousedown="onTimePickerElementMouseDown($event, 1, 1)" @mouseup="onTimePickerElementMouseUp($event)" @keydown="onContainerButtonKeydown"
+                        <button class="p-link" @mousedown="onTimePickerElementMouseDown($event, 1, 1)" @mouseup="onTimePickerElementMouseUp($event)" @keydown="onContainerButtonKeydown" v-ripple
                             @mouseleave="onTimePickerElementMouseLeave()" @keydown.enter="onTimePickerElementMouseDown($event, 1, 1)" @keyup.enter="onTimePickerElementMouseUp($event)" type="button">
                             <span class="pi pi-chevron-up"></span>
                         </button>
                        <span>{{formattedCurrentMinute}}</span>
-                        <button class="p-link" @mousedown="onTimePickerElementMouseDown($event, 1, -1)" @mouseup="onTimePickerElementMouseUp($event)" @keydown="onContainerButtonKeydown"
+                        <button class="p-link" @mousedown="onTimePickerElementMouseDown($event, 1, -1)" @mouseup="onTimePickerElementMouseUp($event)" @keydown="onContainerButtonKeydown" v-ripple
                             @mouseleave="onTimePickerElementMouseLeave()" @keydown.enter="onTimePickerElementMouseDown($event, 1, -1)" @keyup.enter="onTimePickerElementMouseUp($event)" type="button">
                             <span class="pi pi-chevron-down"></span>
                         </button>
@@ -92,12 +94,12 @@
                         <span>{{timeSeparator}}</span>
                     </div>
                     <div class="p-second-picker" v-if="showSeconds">
-                        <button class="p-link" @mousedown="onTimePickerElementMouseDown($event, 2, 1)" @mouseup="onTimePickerElementMouseUp($event)" @keydown="onContainerButtonKeydown"
+                        <button class="p-link" @mousedown="onTimePickerElementMouseDown($event, 2, 1)" @mouseup="onTimePickerElementMouseUp($event)" @keydown="onContainerButtonKeydown" v-ripple
                             @mouseleave="onTimePickerElementMouseLeave()" @keydown.enter="onTimePickerElementMouseDown($event, 2, 1)" @keyup.enter="onTimePickerElementMouseUp($event)" type="button">
                             <span class="pi pi-chevron-up"></span>
                         </button>
                         <span>{{formattedCurrentSecond}}</span>
-                        <button class="p-link" @mousedown="onTimePickerElementMouseDown($event, 2, -1)" @mouseup="onTimePickerElementMouseUp($event)" @keydown="onContainerButtonKeydown"
+                        <button class="p-link" @mousedown="onTimePickerElementMouseDown($event, 2, -1)" @mouseup="onTimePickerElementMouseUp($event)" @keydown="onContainerButtonKeydown" v-ripple
                             @mouseleave="onTimePickerElementMouseLeave()" @keydown.enter="onTimePickerElementMouseDown($event, 2, -1)" @keyup.enter="onTimePickerElementMouseUp($event)" type="button">
                             <span class="pi pi-chevron-down"></span>
                         </button>
@@ -106,18 +108,18 @@
                         <span>{{timeSeparator}}</span>
                     </div>
                     <div class="p-ampm-picker" v-if="hourFormat=='12'">
-                        <button class="p-link" @click="toggleAMPM($event)" type="button">
+                        <button class="p-link" @click="toggleAMPM($event)" type="button" v-ripple>
                             <span class="pi pi-chevron-up"></span>
                         </button>
                         <span>{{pm ? 'PM' : 'AM'}}</span>
-                        <button class="p-link" @click="toggleAMPM($event)" type="button">
+                        <button class="p-link" @click="toggleAMPM($event)" type="button" v-ripple>
                             <span class="pi pi-chevron-down"></span>
                         </button>
                     </div>
                 </div>
                 <div class="p-datepicker-buttonbar" v-if="showButtonBar">
-                    <CalendarButton type="button" :label="locale['today']" @click="onTodayButtonClick($event)" class="p-button-secondary" @keydown="onContainerButtonKeydown"/>
-                    <CalendarButton type="button" :label="locale['clear']" @click="onClearButtonClick($event)" class="p-button-secondary" @keydown="onContainerButtonKeydown"/>
+                    <CalendarButton type="button" :label="locale['today']" @click="onTodayButtonClick($event)" class="p-button-text" @keydown="onContainerButtonKeydown"/>
+                    <CalendarButton type="button" :label="locale['clear']" @click="onClearButtonClick($event)" class="p-button-text" @keydown="onContainerButtonKeydown"/>
                 </div>
                 <slot name="footer"></slot>
             </div>
@@ -129,6 +131,7 @@
 import InputText from '../inputtext/InputText';
 import Button from '../button/Button';
 import DomHandler from '../utils/DomHandler';
+import Ripple from '../ripple/Ripple';
 
 export default {
     inheritAttrs: false,
@@ -2145,6 +2148,9 @@ export default {
     components: {
         'CalendarInputText': InputText,
         'CalendarButton': Button
+    },
+    directives: {
+        'ripple': Ripple
     }
 }
 </script>
@@ -2211,6 +2217,8 @@ export default {
     display: inline-flex;
     justify-content: center;
     align-items: center;
+    overflow: hidden;
+    position: relative;
 }
 
 /* Multiple Month DatePicker */
@@ -2230,6 +2238,8 @@ export default {
     align-items: center;
     cursor: pointer;
     margin: 0 auto;
+    overflow: hidden;
+    position: relative;
 }
 
 /* Month Picker */
@@ -2239,6 +2249,8 @@ export default {
     align-items: center;
     justify-content: center;
     cursor: pointer;
+    overflow: hidden;
+    position: relative;
 }
 
 /*  Button Bar */
@@ -2260,6 +2272,8 @@ export default {
     align-items: center;
     justify-content: center;
     cursor: pointer;
+    overflow: hidden;
+    position: relative;
 }
 
 .p-timepicker > div {
