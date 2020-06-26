@@ -96,8 +96,4 @@ export default {
 .p-field * {
     display: block;
 }
-
-small {
-    margin-top: .25rem;
-}
 </style>
