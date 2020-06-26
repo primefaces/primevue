@@ -117,7 +117,7 @@ export default {
     computed: {
         containerClass() {
             return [{
-                'layout-news-active': this.newsActive, 
+                'layout-news-active': this.newsActive,
                 'p-input-filled': this.$appState.inputStyle === 'filled',
                 'p-ripple-disabled': this.$appState.ripple === false
             }];

@@ -723,7 +723,13 @@
 }
 
 .p-input-filled .p-inputtext {
-  background: #4b4b4b;
+  background-color: #4b4b4b;
+}
+.p-input-filled .p-inputtext:enabled:hover {
+  background-color: #4b4b4b;
+}
+.p-input-filled .p-inputtext:enabled:focus {
+  background-color: #4b4b4b;
 }
 
 .p-listbox {

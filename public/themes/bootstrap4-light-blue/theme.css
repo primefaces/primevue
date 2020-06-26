@@ -723,7 +723,13 @@
 }
 
 .p-input-filled .p-inputtext {
-  background: rgba(0, 0, 0, 0.03);
+  background-color: rgba(0, 0, 0, 0.03);
+}
+.p-input-filled .p-inputtext:enabled:hover {
+  background-color: rgba(0, 0, 0, 0.03);
+}
+.p-input-filled .p-inputtext:enabled:focus {
+  background-color: rgba(0, 0, 0, 0.03);
 }
 
 .p-listbox {

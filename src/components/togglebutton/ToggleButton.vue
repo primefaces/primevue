@@ -1,7 +1,7 @@
 <template>
     <div :class="buttonClass" @click="onClick($event)" role="checkbox" :aria-labelledby="ariaLabelledBy" :aria-checked="value" :tabindex="$attrs.disabled ? null : '0'">
         <span v-if="hasIcon" :class="iconClass"></span>
-        <span class="p-button-text">{{label}}</span>
+        <span class="p-button-label">{{label}}</span>
     </div>
 </template>
 
