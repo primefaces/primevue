@@ -86,7 +86,7 @@ export default {
         updateInkBar() {
             let tabHeader = this.$refs.nav.children[this.findActiveTabIndex()];
             this.$refs.inkbar.style.width = DomHandler.getWidth(tabHeader) + 'px';
-            this.$refs.inkbar.style.left = tabHeader.offsetLeft + 'px';
+            this.$refs.inkbar.style.left =  DomHandler.getOffset(tabHeader).left - DomHandler.getOffset(this.$refs.nav).left + 'px';
         }
     },
     computed: {
@@ -124,6 +124,7 @@ export default {
 
 .p-tabview-ink-bar {
     display: none;
+    z-index: 1;
 }
 
 .p-tabview-nav-link:focus {
