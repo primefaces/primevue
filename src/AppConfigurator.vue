@@ -31,25 +31,25 @@
                             <button class="p-link">
                                 <img src="./assets/images/themes/bootstrap4-light-blue.svg" alt="Bootstrap Light Blue" @click="changeTheme($event, 'bootstrap4-light-blue')"/>
                             </button>
-                            <span>Light</span>
+                            <span>Blue</span>
                         </div>
                         <div class="p-col-3">
                             <button class="p-link">
                                 <img src="./assets/images/themes/bootstrap4-light-purple.svg" alt="Bootstrap Light Blue" @click="changeTheme($event, 'bootstrap4-light-purple')"/>
                             </button>
-                            <span>Light</span>
+                            <span>Purple</span>
                         </div>
                         <div class="p-col-3">
                             <button class="p-link">
                                 <img src="./assets/images/themes/bootstrap4-dark-blue.svg" alt="Bootstrap Dark Blue" @click="changeTheme($event, 'bootstrap4-dark-blue', true)"/>
                             </button>
-                            <span>Light</span>
+                            <span>Blue</span>
                         </div>
                         <div class="p-col-3">
                             <button class="p-link">
                                 <img src="./assets/images/themes/bootstrap4-dark-purple.svg" alt="Bootstrap Dark Blue" @click="changeTheme($event, 'bootstrap4-dark-purple', true)"/>
                             </button>
-                            <span>Light</span>
+                            <span>Purple</span>
                         </div>
                     </div>
 
