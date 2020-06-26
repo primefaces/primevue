@@ -47,7 +47,7 @@
                                             </span>
                                         </td>
                                         <td v-for="date of week" :key="date.day + '' + date.month" :class="{'p-datepicker-other-month': date.otherMonth, 'p-datepicker-today': date.today}">
-                                            <span :class="{'p-highlight': isSelected(date), 'p-disabled': !date.selectable}" @click="onDateSelect($event, date)" 
+                                            <span :class="{'p-highlight': isSelected(date), 'p-disabled': !date.selectable}" @click="onDateSelect($event, date)"
                                                 draggable="false" @keydown="onDateCellKeydown($event,date,groupIndex)" v-ripple>
                                                 <slot name="date" :date="date">{{date.day}}</slot>
                                             </span>
@@ -58,7 +58,7 @@
                         </div>
                     </div>
                     <div class="p-monthpicker" v-if="view === 'month'">
-                        <span v-for="(m,i) of monthPickerValues" :key="m" @click="onMonthSelect($event, i)" @keydown="onMonthCellKeydown($event,i)" 
+                        <span v-for="(m,i) of monthPickerValues" :key="m" @click="onMonthSelect($event, i)" @keydown="onMonthCellKeydown($event,i)"
                                 class="p-monthpicker-month" :class="{'p-highlight': isMonthSelected(i)}" v-ripple>
                             {{m}}
                         </span>
