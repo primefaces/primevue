@@ -275,7 +275,7 @@ export default {
 <template v-pre>
 &lt;h5&gt;Default&lt;/h5&gt;
 &lt;Accordion&gt;
-    &lt;AccordionTab header="Header I"&gt;
+    &lt;AccordionTab header="Header I" :active="true"&gt;
         &lt;p&gt;Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation
             ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur.
             Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.&lt;/p&gt;
@@ -294,7 +294,7 @@ export default {
 
 &lt;h5&gt;Multiple&lt;/h5&gt;
 &lt;Accordion :multiple="true"&gt;
-    &lt;AccordionTab header="Header I"&gt;
+    &lt;AccordionTab header="Header I" :active="true"&gt;
         &lt;p&gt;Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation
             ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur.
             Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.&lt;/p&gt;
@@ -340,7 +340,7 @@ export default {
 
 &lt;h5&gt;Custom Headers&lt;/h5&gt;
 &lt;Accordion class="accordion-custom"&gt;
-    &lt;AccordionTab&gt;
+    &lt;AccordionTab :active="true"&gt;
         &lt;template slot="header"&gt;
             &lt;i class="pi pi-calendar"&gt;&lt;/i&gt;
             &lt;span&gt;Header I&lt;/span&gt;
