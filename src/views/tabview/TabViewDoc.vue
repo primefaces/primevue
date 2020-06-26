@@ -95,9 +95,9 @@ import TabPanel from 'primevue/tabpanel';
                 <h5>Programmatic Control</h5>
 				<p>Tabs can be controlled programmatically using active property that defines the active tab.</p>
 <CodeHighlight>
-&lt;Button @click="activate(0)" class="p-button-secondary" label="Activate 1st" /&gt;
-&lt;Button @click="activate(1)" class="p-button-secondary" label="Activate 2st" /&gt;
-&lt;Button @click="activate(2)" class="p-button-secondary" label="Activate 3st" /&gt;
+&lt;Button @click="activate(0)" class="p-button-text" label="Activate 1st" /&gt;
+&lt;Button @click="activate(1)" class="p-button-text" label="Activate 2st" /&gt;
+&lt;Button @click="activate(2)" class="p-button-text" label="Activate 3st" /&gt;
 
 &lt;TabView&gt;
     &lt;TabPanel header="Header I" :active.sync="active[0]"&gt;
@@ -260,9 +260,9 @@ export default {
 &lt;div class="card"&gt;
     &lt;h5&gt;Programmatic&lt;/h5&gt;
     &lt;div style="padding: .5rem 0 1rem 0"&gt;
-        &lt;Button @click="activate(0)" class="p-button-secondary" label="Activate 1st" /&gt;
-        &lt;Button @click="activate(1)" class="p-button-secondary" label="Activate 2nd" /&gt;
-        &lt;Button @click="activate(2)" class="p-button-secondary" label="Activate 3rd" /&gt;
+        &lt;Button @click="activate(0)" class="p-button-text" label="Activate 1st" /&gt;
+        &lt;Button @click="activate(1)" class="p-button-text" label="Activate 2nd" /&gt;
+        &lt;Button @click="activate(2)" class="p-button-text" label="Activate 3rd" /&gt;
     &lt;/div&gt;
 
     &lt;TabView&gt;
