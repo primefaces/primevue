@@ -4,7 +4,7 @@
             <slot name="legend" v-if="!toggleable">
                 <span class="p-fieldset-legend-text" :id="ariaId + '_header'">{{legend}}</span>
             </slot>
-            <a tabindex="0" v-if="toggleable" @click="toggle" @keydown.enter="toggle"
+            <a tabindex="0" v-if="toggleable" @click="toggle" @keydown.enter="toggle" v-ripple
                 :id="ariaId +  '_header'" :aria-controls="ariaId + '_content'" :aria-expanded="!d_collapsed">
                 <span :class="iconClass"></span>
                 <slot name="legend">
@@ -25,6 +25,7 @@
 
 <script>
 import UniqueComponentId from '../utils/UniqueComponentId';
+import Ripple from '../ripple/Ripple';
 
 export default {
     props: {
@@ -57,7 +58,10 @@ export default {
         ariaId() {
             return UniqueComponentId();
         }
-	}
+    },
+    directives: {
+        'ripple': Ripple
+    }
 }
 </script>
 
@@ -72,6 +76,8 @@ export default {
 .p-fieldset-toggleable .p-fieldset-legend a {
     cursor: pointer;
     user-select: none;
+    overflow: hidden;
+    position: relative;
 }
 
 .p-fieldset-legend-text {

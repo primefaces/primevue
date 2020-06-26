@@ -12,7 +12,7 @@
             </div>
             <transition-group ref="list" name="p-orderlist-flip" tag="ul" class="p-orderlist-list" :style="listStyle" role="listbox" aria-multiselectable="multiple">
                 <template v-for="(item, i) of value">
-                    <li tabindex="0" :key="getItemKey(item, i)" :class="['p-orderlist-item', {'p-highlight': isSelected(item)}]"
+                    <li tabindex="0" :key="getItemKey(item, i)" :class="['p-orderlist-item', {'p-highlight': isSelected(item)}]" v-ripple
                         @click="onItemClick($event, item, i)" @keydown="onItemKeyDown($event, item, i)" @touchend="onItemTouchEnd"
                         role="option" :aria-selected="isSelected(item)">
                         <slot name="item" :item="item" :index="i"> </slot>
@@ -27,6 +27,7 @@
 import Button from '../button/Button';
 import ObjectUtils from '../utils/ObjectUtils';
 import DomHandler from '../utils/DomHandler';
+import Ripple from '../ripple/Ripple';
 
 export default {
     props: {
@@ -294,6 +295,9 @@ export default {
     },
     components: {
         'OLButton': Button
+    },
+    directives: {
+        'ripple': Ripple
     }
 }
 </script>
@@ -324,6 +328,8 @@ export default {
 
 .p-orderlist-item {
     cursor: pointer;
+    overflow: hidden;
+    position: relative;
 }
 
 .p-orderlist.p-state-disabled .p-orderlist-item,

@@ -12,7 +12,7 @@
             </div>
             <transition-group ref="sourceList" name="p-picklist-flip" tag="ul" class="p-picklist-list p-picklist-source" :style="listStyle" role="listbox" aria-multiselectable="multiple">
                 <template v-for="(item, i) of sourceList">
-                    <li tabindex="0" :key="getItemKey(item, i)" :class="['p-picklist-item', {'p-highlight': isSelected(item, 0)}]"
+                    <li tabindex="0" :key="getItemKey(item, i)" :class="['p-picklist-item', {'p-highlight': isSelected(item, 0)}]" v-ripple
                         @click="onItemClick($event, item, i, 0)" @keydown="onItemKeyDown($event, item, i, 0)" @touchend="onItemTouchEnd" role="option" :aria-selected="isSelected(item, 0)">
                         <slot name="item" :item="item" :index="i"> </slot>
                     </li>
@@ -31,7 +31,7 @@
             </div>
             <transition-group ref="targetList" name="p-picklist-flip" tag="ul" class="p-picklist-list p-picklist-target" :style="listStyle" role="listbox" aria-multiselectable="multiple">
                 <template v-for="(item, i) of targetList">
-                    <li tabindex="0" :key="getItemKey(item, i)" :class="['p-picklist-item', {'p-highlight': isSelected(item, 1)}]"
+                    <li tabindex="0" :key="getItemKey(item, i)" :class="['p-picklist-item', {'p-highlight': isSelected(item, 1)}]" v-ripple
                         @click="onItemClick($event, item, i, 1)" @keydown="onItemKeyDown($event, item, i, 1)" @touchend="onItemTouchEnd" role="option" :aria-selected="isSelected(item, 1)">
                         <slot name="item" :item="item" :index="i"> </slot>
                     </li>
@@ -51,6 +51,7 @@
 import Button from '../button/Button';
 import ObjectUtils from '../utils/ObjectUtils';
 import DomHandler from '../utils/DomHandler';
+import Ripple from '../ripple/Ripple';
 
 export default {
     props: {
@@ -471,6 +472,9 @@ export default {
     },
     components: {
         'PLButton': Button
+    },
+    directives: {
+        'ripple': Ripple
     }
 }
 </script>
@@ -501,6 +505,8 @@ export default {
 
 .p-picklist-item {
     cursor: pointer;
+    overflow: hidden;
+    position: relative;
 }
 
 .p-picklist-item.p-picklist-flip-enter-active.p-picklist-flip-enter-to,
