@@ -66,15 +66,15 @@ export default {
                 'arya-green': 'arya-green.png',
                 'arya-orange': 'arya-orange.png',
                 'arya-purple': 'arya-purple.png',
-                'nova': 'themeswitcher-nova.png',
-                'nova-alt': 'themeswitcher-nova-alt.png',
-                'nova-accent': 'themeswitcher-nova-accent.png',
-                'nova-vue': 'themeswitcher-nova-vue.png',
-                'luna-blue': 'themeswitcher-luna-blue.png',
-                'luna-green': 'themeswitcher-luna-green.png',
-                'luna-pink': 'themeswitcher-luna-pink.png',
-                'luna-amber': 'themeswitcher-luna-amber.png',
-                'rhea': 'themeswitcher-rhea.png'
+                'nova': 'nova.png',
+                'nova-alt': 'nova-alt.png',
+                'nova-accent': 'nova-accent.png',
+                'nova-vue': 'nova-vue.png',
+                'luna-blue': 'luna-blue.png',
+                'luna-green': 'luna-green.png',
+                'luna-pink': 'luna-pink.png',
+                'luna-amber': 'luna-amber.png',
+                'rhea': 'rhea.png'
             }
         }
     },

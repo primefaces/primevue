@@ -189,55 +189,55 @@
                     <div class="p-grid free-themes">
                         <div class="p-col-3">
                             <button class="p-link">
-                                <img src="./assets/images/layouts/themeswitcher-nova.png" alt="Nova" @click="changeTheme($event, 'nova')"/>
+                                <img src="demo/images/themes/nova.png" alt="Nova" @click="changeTheme($event, 'nova')"/>
                             </button>
                             <span>Nova</span>
                         </div>
                         <div class="p-col-3">
                             <button class="p-link">
-                                <img src="./assets/images/layouts/themeswitcher-nova-alt.png" alt="Nova Alt" @click="changeTheme($event, 'nova-alt')"/>
+                                <img src="demo/images/themes/nova-alt.png" alt="Nova Alt" @click="changeTheme($event, 'nova-alt')"/>
                             </button>
                             <span>Nova Alt</span>
                         </div>
                         <div class="p-col-3">
                             <button class="p-link">
-                                <img src="./assets/images/layouts/themeswitcher-nova-accent.png" alt="Nova Accent" @click="changeTheme($event, 'nova-accent')"/>
+                                <img src="demo/images/themes/nova-accent.png" alt="Nova Accent" @click="changeTheme($event, 'nova-accent')"/>
                             </button>
                             <span>Nova Accent</span>
                         </div>
                         <div class="p-col-3">
                             <button class="p-link">
-                                <img src="./assets/images/layouts/themeswitcher-nova-vue.png" alt="Nova Colored" @click="changeTheme($event, 'nova-vue')"/>
+                                <img src="demo/images/themes/nova-vue.png" alt="Nova Colored" @click="changeTheme($event, 'nova-vue')"/>
                             </button>
                             <span>Nova Vue</span>
                         </div>
                         <div class="p-col-3">
                             <button class="p-link">
-                                <img src="./assets/images/layouts/themeswitcher-luna-blue.png" alt="Luna Blue" @click="changeTheme($event, 'luna-blue', true)"/>
+                                <img src="demo/images/themes/luna-blue.png" alt="Luna Blue" @click="changeTheme($event, 'luna-blue', true)"/>
                             </button>
                             <span>Luna Blue</span>
                         </div>
                         <div class="p-col-3">
                             <button class="p-link">
-                                <img src="./assets/images/layouts/themeswitcher-luna-green.png" alt="Luna Green" @click="changeTheme($event, 'luna-green', true)"/>
+                                <img src="demo/images/themes/luna-green.png" alt="Luna Green" @click="changeTheme($event, 'luna-green', true)"/>
                             </button>
                             <span>Luna Green</span>
                         </div>
                         <div class="p-col-3">
                             <button class="p-link">
-                                <img src="./assets/images/layouts/themeswitcher-luna-amber.png" alt="Luna Amber" @click="changeTheme($event, 'luna-amber', true)" target="_blank"/>
+                                <img src="demo/images/themes/luna-amber.png" alt="Luna Amber" @click="changeTheme($event, 'luna-amber', true)" target="_blank"/>
                             </button>
                             <span>Luna Amber</span>
                         </div>
                         <div class="p-col-3">
                             <button class="p-link">
-                                <img src="./assets/images/layouts/themeswitcher-luna-pink.png" alt="Luna Pink" @click="changeTheme($event, 'luna-pink', true)" target="_blank"/>
+                                <img src="demo/images/themes/luna-pink.png" alt="Luna Pink" @click="changeTheme($event, 'luna-pink', true)" target="_blank"/>
                             </button>
                             <span>Luna Pink</span>
                         </div>
                         <div class="p-col-3">
                             <button class="p-link">
-                                <img src="./assets/images/layouts/themeswitcher-rhea.png" alt="Rhea" @click="changeTheme($event, 'rhea', false)" target="_blank"/>
+                                <img src="demo/images/themes/rhea.png" alt="Rhea" @click="changeTheme($event, 'rhea', false)" target="_blank"/>
                             </button>
                             <span>Rhea</span>
                         </div>
