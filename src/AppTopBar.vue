@@ -17,36 +17,36 @@
                         <li><a href="https://www.primefaces.org/designer/primevue"><i class="pi pi-fw pi-palette" /><span>Designer</span></a></li>
                         <li><router-link to="/icons"><i class="pi pi-fw pi-info-circle"/><span>Icons</span></router-link></li>
                         <li class="topbar-submenu-header">BOOTSTRAP</li>
-                        <li><a @click="changeTheme($event, 'bootstrap4-light-blue')"><img src="./assets/images/themes/bootstrap4-light-blue.svg" alt="Blue Light" /><span>Blue Light</span></a></li>
-                        <li><a @click="changeTheme($event, 'bootstrap4-light-purple')"><img src="./assets/images/themes/bootstrap4-light-purple.svg" alt="Purple Light" /><span>Purple Light</span></a></li>
-                        <li><a @click="changeTheme($event, 'bootstrap4-dark-blue')"><img src="./assets/images/themes/bootstrap4-dark-blue.svg" alt="Blue Dark" /><span>Blue Dark</span></a></li>
-                        <li><a @click="changeTheme($event, 'bootstrap4-dark-purple')"><img src="./assets/images/themes/bootstrap4-dark-purple.svg" alt="Purple Dark" /><span>Purple Dark</span></a></li>
+                        <li><a @click="changeTheme($event, 'bootstrap4-light-blue')"><img src="demo/images/themes/bootstrap4-light-blue.svg" alt="Blue Light" /><span>Blue Light</span></a></li>
+                        <li><a @click="changeTheme($event, 'bootstrap4-light-purple')"><img src="demo/images/themes/bootstrap4-light-purple.svg" alt="Purple Light" /><span>Purple Light</span></a></li>
+                        <li><a @click="changeTheme($event, 'bootstrap4-dark-blue')"><img src="demo/images/themes/bootstrap4-dark-blue.svg" alt="Blue Dark" /><span>Blue Dark</span></a></li>
+                        <li><a @click="changeTheme($event, 'bootstrap4-dark-purple')"><img src="demo/images/themes/bootstrap4-dark-purple.svg" alt="Purple Dark" /><span>Purple Dark</span></a></li>
 
                         <li class="topbar-submenu-header">MATERIAL DESIGN</li>
-                        <li><a @click="changeTheme($event, 'md-light-indigo')"><img src="./assets/images/themes/md-light-indigo.svg" alt="Indigo Light" /><span>Indigo Light</span></a></li>
-                        <li><a @click="changeTheme($event, 'md-light-deeppurple')"><img src="./assets/images/themes/md-light-deeppurple.svg" alt="Deep Purple Light" /><span>Deep Purple Light</span></a></li>
-                        <li><a @click="changeTheme($event, 'md-dark-indigo')"><img src="./assets/images/themes/md-dark-indigo.svg" alt="Indigo Dark" /><span>Indigo Dark</span></a></li>
-                        <li><a @click="changeTheme($event, 'md-dark-deeppurple')"><img src="./assets/images/themes/md-dark-deeppurple.svg" alt="Deep Purple Dark" /><span>Deep Purple Dark</span></a></li>
+                        <li><a @click="changeTheme($event, 'md-light-indigo')"><img src="demo/images/themes/md-light-indigo.svg" alt="Indigo Light" /><span>Indigo Light</span></a></li>
+                        <li><a @click="changeTheme($event, 'md-light-deeppurple')"><img src="demo/images/themes/md-light-deeppurple.svg" alt="Deep Purple Light" /><span>Deep Purple Light</span></a></li>
+                        <li><a @click="changeTheme($event, 'md-dark-indigo')"><img src="demo/images/themes/md-dark-indigo.svg" alt="Indigo Dark" /><span>Indigo Dark</span></a></li>
+                        <li><a @click="changeTheme($event, 'md-dark-deeppurple')"><img src="demo/images/themes/md-dark-deeppurple.svg" alt="Deep Purple Dark" /><span>Deep Purple Dark</span></a></li>
 
                         <li class="topbar-submenu-header">MATERIAL DESIGN COMPACT</li>
-                        <li><a @click="changeTheme($event, 'mdc-light-indigo')"><img src="./assets/images/themes/md-light-indigo.svg" alt="Indigo Light" /><span>Indigo Light</span></a></li>
-                        <li><a @click="changeTheme($event, 'mdc-light-deeppurple')"><img src="./assets/images/themes/md-light-deeppurple.svg" alt="Deep Purple Light" /><span>Deep Purple Light</span></a></li>
-                        <li><a @click="changeTheme($event, 'mdc-dark-indigo')"><img src="./assets/images/themes/md-dark-indigo.svg" alt="Indigo Dark" /><span>Indigo Dark</span></a></li>
-                        <li><a @click="changeTheme($event, 'mdc-dark-deeppurple')"><img src="./assets/images/themes/md-dark-deeppurple.svg" alt="Deep Purple Dark" /><span>Deep Purple Dark</span></a></li>
+                        <li><a @click="changeTheme($event, 'mdc-light-indigo')"><img src="demo/images/themes/md-light-indigo.svg" alt="Indigo Light" /><span>Indigo Light</span></a></li>
+                        <li><a @click="changeTheme($event, 'mdc-light-deeppurple')"><img src="demo/images/themes/md-light-deeppurple.svg" alt="Deep Purple Light" /><span>Deep Purple Light</span></a></li>
+                        <li><a @click="changeTheme($event, 'mdc-dark-indigo')"><img src="demo/images/themes/md-dark-indigo.svg" alt="Indigo Dark" /><span>Indigo Dark</span></a></li>
+                        <li><a @click="changeTheme($event, 'mdc-dark-deeppurple')"><img src="demo/images/themes/md-dark-deeppurple.svg" alt="Deep Purple Dark" /><span>Deep Purple Dark</span></a></li>
 
                         <li class="topbar-submenu-header">PRIMEONE</li>
-                        <li><a @click="changeTheme($event, 'saga-blue')"><img src="./assets/images/themes/saga-blue.png" alt="Saga Blue" /><span>Saga Blue</span></a></li>
-                        <li><a @click="changeTheme($event, 'saga-green')"><img src="./assets/images/themes/saga-green.png" alt="Saga Green" /><span>Saga Green</span></a></li>
-                        <li><a @click="changeTheme($event, 'saga-orange')"><img src="./assets/images/themes/saga-orange.png" alt="Saga Orange" /><span>Saga Orange</span></a></li>
-                        <li><a @click="changeTheme($event, 'saga-purple')"><img src="./assets/images/themes/saga-purple.png" alt="Saga Purple" /><span>Saga Purple</span></a></li>
-                        <li><a @click="changeTheme($event, 'vela-blue', true)"><img src="./assets/images/themes/vela-blue.png" alt="Vela Blue" /><span>Vela Blue</span></a></li>
-                        <li><a @click="changeTheme($event, 'vela-green', true)"><img src="./assets/images/themes/vela-green.png" alt="Vela Green" /><span>Vela Green</span></a></li>
-                        <li><a @click="changeTheme($event, 'vela-orange', true)"><img src="./assets/images/themes/vela-orange.png" alt="Vela Orange" /><span>Vela Orange</span></a></li>
-                        <li><a @click="changeTheme($event, 'vela-purple', true)"><img src="./assets/images/themes/vela-purple.png" alt="Vela Purple" /><span>Vela Purple</span></a></li>
-                        <li><a @click="changeTheme($event, 'arya-blue', true)"><img src="./assets/images/themes/arya-blue.png" alt="Arya Blue" /><span>Arya Blue</span></a></li>
-                        <li><a @click="changeTheme($event, 'arya-green', true)"><img src="./assets/images/themes/arya-green.png" alt="Arya Green" /><span>Arya Green</span></a></li>
-                        <li><a @click="changeTheme($event, 'arya-orange', true)"><img src="./assets/images/themes/arya-orange.png" alt="Arya Orange" /><span>Arya Orange</span></a></li>
-                        <li><a @click="changeTheme($event, 'arya-purple', true)"><img src="./assets/images/themes/arya-purple.png" alt="Arya Purple" /><span>Arya Purple</span></a></li>
+                        <li><a @click="changeTheme($event, 'saga-blue')"><img src="demo/images/themes/saga-blue.png" alt="Saga Blue" /><span>Saga Blue</span></a></li>
+                        <li><a @click="changeTheme($event, 'saga-green')"><img src="demo/images/themes/saga-green.png" alt="Saga Green" /><span>Saga Green</span></a></li>
+                        <li><a @click="changeTheme($event, 'saga-orange')"><img src="demo/images/themes/saga-orange.png" alt="Saga Orange" /><span>Saga Orange</span></a></li>
+                        <li><a @click="changeTheme($event, 'saga-purple')"><img src="demo/images/themes/saga-purple.png" alt="Saga Purple" /><span>Saga Purple</span></a></li>
+                        <li><a @click="changeTheme($event, 'vela-blue', true)"><img src="demo/images/themes/vela-blue.png" alt="Vela Blue" /><span>Vela Blue</span></a></li>
+                        <li><a @click="changeTheme($event, 'vela-green', true)"><img src="demo/images/themes/vela-green.png" alt="Vela Green" /><span>Vela Green</span></a></li>
+                        <li><a @click="changeTheme($event, 'vela-orange', true)"><img src="demo/images/themes/vela-orange.png" alt="Vela Orange" /><span>Vela Orange</span></a></li>
+                        <li><a @click="changeTheme($event, 'vela-purple', true)"><img src="demo/images/themes/vela-purple.png" alt="Vela Purple" /><span>Vela Purple</span></a></li>
+                        <li><a @click="changeTheme($event, 'arya-blue', true)"><img src="demo/images/themes/arya-blue.png" alt="Arya Blue" /><span>Arya Blue</span></a></li>
+                        <li><a @click="changeTheme($event, 'arya-green', true)"><img src="demo/images/themes/arya-green.png" alt="Arya Green" /><span>Arya Green</span></a></li>
+                        <li><a @click="changeTheme($event, 'arya-orange', true)"><img src="demo/images/themes/arya-orange.png" alt="Arya Orange" /><span>Arya Orange</span></a></li>
+                        <li><a @click="changeTheme($event, 'arya-purple', true)"><img src="demo/images/themes/arya-purple.png" alt="Arya Purple" /><span>Arya Purple</span></a></li>
 
                         <li class="topbar-submenu-header">LEGACY</li>
                         <li><a @click="changeTheme($event, 'nova')"><img src="./assets/images/layouts/themeswitcher-nova.png" alt="Nova" /><span>Nova</span></a></li>

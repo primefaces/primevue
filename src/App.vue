@@ -18,8 +18,8 @@
             <router-view/>
             <app-footer />
         </div>
-        <div class="app-theme">
-            <img :src="getLogo()" />
+        <div class="app-theme" v-tooltip.bottom="theme">
+            <img :src="'demo/images/themes/' + logoMap[theme]" />
         </div>
         <Toast />
         <Toast position="topleft" group="tl" />
@@ -46,15 +46,14 @@ export default {
                 'bootstrap4-light-purple': 'bootstrap4-light-purple.svg',
                 'bootstrap4-dark-blue': 'bootstrap4-dark-blue.svg',
                 'bootstrap4-dark-purple': 'bootstrap4-dark-purple.svg',
-                'bootstrap4-dark-purple': 'bootstrap4-dark-purple.svg',
                 'md-light-indigo': 'md-light-indigo.svg',
                 'md-light-purple': 'md-light-purple.svg',
                 'md-dark-indigo': 'md-dark-indigo.svg',
-                'md-dark-indigo': 'md-dark-purple.svg',
+                'md-dark-purple': 'md-dark-purple.svg',
                 'mdc-light-indigo': 'md-light-indigo.svg',
                 'mdc-light-purple': 'md-light-purple.svg',
                 'mdc-dark-indigo': 'md-dark-indigo.svg',
-                'mdc-dark-indigo': 'md-dark-purple.svg',
+                'mdc-dark-purple': 'md-dark-purple.svg',
                 'saga-blue': 'saga-blue.png',
                 'saga-green': 'saga-green.png',
                 'saga-orange': 'saga-orange.png',
@@ -152,11 +151,7 @@ export default {
             }
 
             return false;
-        },
-        getLogo() {
-            var images = require.context('./assets/images/themes', false);
-            return images('./' + this.logoMap[this.theme]);
-        },
+        }
     },
     computed: {
         containerClass() {
