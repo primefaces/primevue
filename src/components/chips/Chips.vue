@@ -4,7 +4,7 @@
             <li v-for="(val,i) of value" :key="`${i}_${val}`" class="p-chips-token p-highlight">
                 <slot name="chip" :value="val">
                     <span class="p-chips-token-label">{{val}}</span>
-                    <span class="p-chips-token-icon pi pi-times" @click="removeItem($event, i)"></span>
+                    <span class="p-chips-token-icon pi pi-times-circle" @click="removeItem($event, i)"></span>
                 </slot>
             </li>
             <li class="p-chips-input-token">

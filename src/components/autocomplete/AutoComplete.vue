@@ -5,7 +5,7 @@
         <ul ref="multiContainer" :class="multiContainerClass" v-if="multiple" @click="onMultiContainerClick">
             <li v-for="(item, i) of value" :key="i" class="p-autocomplete-token p-highlight">
                 <span class="p-autocomplete-token-label">{{getItemContent(item)}}</span>
-                <span class="p-autocomplete-token-icon pi pi-times" @click="removeItem($event, i)"></span>
+                <span class="p-autocomplete-token-icon pi pi-times-circle" @click="removeItem($event, i)"></span>
             </li>
             <li class="p-autocomplete-input-token">
                 <input ref="input" type="text" autoComplete="off" v-bind="$attrs" v-on="listeners" role="searchbox" aria-autocomplete="list" :aria-controls="listId" :aria-labelledby="ariaLabelledBy">
