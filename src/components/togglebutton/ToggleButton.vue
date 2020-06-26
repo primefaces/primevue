@@ -1,11 +1,13 @@
 <template>
-    <div :class="buttonClass" @click="onClick($event)" role="checkbox" :aria-labelledby="ariaLabelledBy" :aria-checked="value" :tabindex="$attrs.disabled ? null : '0'">
+    <div :class="buttonClass" @click="onClick($event)" role="checkbox" :aria-labelledby="ariaLabelledBy" :aria-checked="value" :tabindex="$attrs.disabled ? null : '0'" v-ripple>
         <span v-if="hasIcon" :class="iconClass"></span>
         <span class="p-button-label">{{label}}</span>
     </div>
 </template>
 
 <script>
+import Ripple from '../ripple/Ripple';
+
 export default {
     props: {
         value: Boolean,
@@ -56,6 +58,9 @@ export default {
         label() {
             return this.hasLabel ? (this.value ? this.onLabel : this.offLabel): '&nbsp;';
         }
+    },
+    directives: {
+        'ripple': Ripple
     }
 }
 </script>

@@ -2,7 +2,7 @@
     <div class="p-selectbutton p-buttonset p-component" role="group">
         <div v-for="(option, i) of options" :key="getOptionRenderKey(option)" :aria-label="getOptionLabel(option)" role="button" :aria-pressed="isSelected(option)"
             @click="onOptionSelect($event, option, i)" @keydown.enter.prevent="onOptionSelect($event, option, i)" @keydown.space.prevent="onOptionSelect($event, option)"
-            :tabindex="isOptionDisabled(option) ? null : '0'" @focus="onFocus($event, i)" @blur="onBlur($event)" :aria-labelledby="ariaLabelledBy"
+            :tabindex="isOptionDisabled(option) ? null : '0'" @focus="onFocus($event, i)" @blur="onBlur($event)" :aria-labelledby="ariaLabelledBy" v-ripple
             :class="['p-button p-component p-button-text-only', {'p-highlight': isSelected(option), 'p-disabled': isOptionDisabled(option), 'p-focus': (i === focusedIndex)}]">
             <slot name="option" :option="option" :index="i">
                 <span class="p-button-label">{{getOptionLabel(option)}}</span>
@@ -13,6 +13,7 @@
 
 <script>
 import ObjectUtils from '../utils/ObjectUtils';
+import Ripple from '../ripple/Ripple';
 
 export default {
     props: {
@@ -98,6 +99,9 @@ export default {
         equalityKey() {
             return this.optionValue ? null : this.dataKey;
         }
-	}
+    },
+    directives: {
+        'ripple': Ripple
+    }
 }
 </script>
