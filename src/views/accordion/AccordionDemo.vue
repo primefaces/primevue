@@ -50,9 +50,9 @@
 
             <h5>Programmatic</h5>
             <div style="padding: .5em 0 1em 0">
-                <Button :icon="active1 ? 'pi pi-minus' : 'pi pi-plus'" label="Toggle 1st" @click="active1 = !active1" class="p-button-secondary" />
-                <Button :icon="active2 ? 'pi pi-minus' : 'pi pi-plus'" label="Toggle 2nd" @click="active2 = !active2" class="p-button-secondary" style="margin-left: .5em" />
-                <Button :icon="active3 ? 'pi pi-minus' : 'pi pi-plus'" label="Toggle 3rd" @click="active3 = !active3" class="p-button-secondary" style="margin-left: .5em" />
+                <Button :icon="active1 ? 'pi pi-minus' : 'pi pi-plus'" label="Toggle 1st" @click="active1 = !active1" class="p-button-text" />
+                <Button :icon="active2 ? 'pi pi-minus' : 'pi pi-plus'" label="Toggle 2nd" @click="active2 = !active2" class="p-button-text" style="margin-left: .5em" />
+                <Button :icon="active3 ? 'pi pi-minus' : 'pi pi-plus'" label="Toggle 3rd" @click="active3 = !active3" class="p-button-text" style="margin-left: .5em" />
             </div>
 
             <Accordion :multiple="true">

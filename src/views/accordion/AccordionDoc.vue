@@ -120,9 +120,9 @@ import AccordionTab from 'primevue/accordiontab';
 				<p>Tabs can be controlled programmatically using active property.</p>
 <CodeHighlight>
 &lt;div&gt;
-	&lt;Button :icon="active1 ? 'pi pi-minus' : 'pi pi-plus'" label="Toggle 1st" @click="active1 = !active1" class="p-button-secondary" /&gt;
-	&lt;Button :icon="active2 ? 'pi pi-minus' : 'pi pi-plus'" label="Toggle 2nd" @click="active2 = !active2" class="p-button-secondary" style="margin-left: .5em" /&gt;
-	&lt;Button :icon="active3 ? 'pi pi-minus' : 'pi pi-plus'" label="Toggle 3rd" @click="active3 = !active3" class="p-button-secondary" style="margin-left: .5em" /&gt;
+	&lt;Button :icon="active1 ? 'pi pi-minus' : 'pi pi-plus'" label="Toggle 1st" @click="active1 = !active1" class="p-button-text" /&gt;
+	&lt;Button :icon="active2 ? 'pi pi-minus' : 'pi pi-plus'" label="Toggle 2nd" @click="active2 = !active2" class="p-button-text" style="margin-left: .5em" /&gt;
+	&lt;Button :icon="active3 ? 'pi pi-minus' : 'pi pi-plus'" label="Toggle 3rd" @click="active3 = !active3" class="p-button-text" style="margin-left: .5em" /&gt;
 &lt;/div&gt;
 
 &lt;Accordion :multiple="true"&gt;
@@ -315,9 +315,9 @@ export default {
 
 &lt;h5&gt;Programmatic&lt;/h5&gt;
 &lt;div style="padding: .5em 0 1em 0"&gt;
-    &lt;Button :icon="active1 ? 'pi pi-minus' : 'pi pi-plus'" label="Toggle 1st" @click="active1 = !active1" class="p-button-secondary" /&gt;
-    &lt;Button :icon="active2 ? 'pi pi-minus' : 'pi pi-plus'" label="Toggle 2nd" @click="active2 = !active2" class="p-button-secondary" style="margin-left: .5em" /&gt;
-    &lt;Button :icon="active3 ? 'pi pi-minus' : 'pi pi-plus'" label="Toggle 3rd" @click="active3 = !active3" class="p-button-secondary" style="margin-left: .5em" /&gt;
+    &lt;Button :icon="active1 ? 'pi pi-minus' : 'pi pi-plus'" label="Toggle 1st" @click="active1 = !active1" class="p-button-text" /&gt;
+    &lt;Button :icon="active2 ? 'pi pi-minus' : 'pi pi-plus'" label="Toggle 2nd" @click="active2 = !active2" class="p-button-text" style="margin-left: .5em" /&gt;
+    &lt;Button :icon="active3 ? 'pi pi-minus' : 'pi pi-plus'" label="Toggle 3rd" @click="active3 = !active3" class="p-button-text" style="margin-left: .5em" /&gt;
 &lt;/div&gt;
 
 &lt;Accordion :multiple="true"&gt;
