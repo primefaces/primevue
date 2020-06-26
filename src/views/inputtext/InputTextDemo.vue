@@ -32,11 +32,22 @@
                     <InputText type="text" v-model="value4" />
                 </span>
 
-                <h5>Disabled</h5>
-                <InputText type="text" v-model="value5" disabled />
+                <h5>Help Text</h5>
+                <div class="p-field">
+                    <label for="username1">Username</label>
+                    <InputText id="username1" type="username" aria-describedby="username1-help" />
+                    <small id="username1-help">Enter your username to reset your password.</small>
+                </div>
 
                 <h5>Invalid</h5>
-                <InputText type="text" class="p-invalid" />
+                <div class="p-field">
+                    <label for="username2">Username</label>
+                    <InputText id="username2" type="username" aria-describedby="username2-help" class="p-invalid" />
+                    <small id="username2-help" class="p-invalid">Username is not available.</small>
+                </div>
+
+                <h5>Disabled</h5>
+                <InputText type="text" v-model="value5" disabled />
 
                 <h5>Sizes</h5>
                 <div class="sizes">
@@ -80,5 +91,13 @@ export default {
             margin-bottom: 0;
         }
     }
+}
+
+.p-field * {
+    display: block;
+}
+
+small {
+    margin-top: .25rem;
 }
 </style>

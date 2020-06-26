@@ -106,39 +106,52 @@ import InputText from 'primevue/inputtext';
 				</a>
 <CodeHighlight>
 <template v-pre>
-&lt;h5&gt;Basic&lt;/h3&gt;
-&lt;InputText type="text" v-model="value1" /&gt;
-&lt;span :style="{marginLeft: '.5em'}"&gt;{{value1}}&lt;/span&gt;
+&lt;div class="card"&gt;
+    &lt;h5&gt;Basic&lt;/h5&gt;
+    &lt;InputText type="text" v-model="value1" /&gt;
+    &lt;span :style="{marginLeft: '.5em'}"&gt;{{value1}}&lt;/span&gt;
 
-&lt;h3&gt;Floating Label&lt;/h3&gt;
-&lt;span class="p-float-label"&gt;
-    &lt;InputText id="username" type="text" v-model="value2" /&gt;
-    &lt;label for="username"&gt;Username&lt;/label&gt;
-&lt;/span&gt;
+    &lt;h5&gt;Floating Label&lt;/h5&gt;
+    &lt;span class="p-float-label"&gt;
+        &lt;InputText id="username" type="text" v-model="value2" /&gt;
+        &lt;label for="username"&gt;Username&lt;/label&gt;
+    &lt;/span&gt;
 
-&lt;h3&gt;Left Icon&lt;/h3&gt;
-&lt;span class="p-input-icon-left"&gt;
-    &lt;i class="pi pi-search" /&gt;
-    &lt;InputText type="text" v-model="value3" placeholder="Search" /&gt;
-&lt;/span&gt;
+    &lt;h5&gt;Left Icon&lt;/h5&gt;
+    &lt;span class="p-input-icon-left"&gt;
+        &lt;i class="pi pi-search" /&gt;
+        &lt;InputText type="text" v-model="value3" placeholder="Search" /&gt;
+    &lt;/span&gt;
 
-&lt;h3&gt;Right Icon&lt;/h3&gt;
-&lt;span class="p-input-icon-right"&gt;
-    &lt;i class="pi pi-spin pi-spinner" /&gt;
-    &lt;InputText type="text" v-model="value4" /&gt;
-&lt;/span&gt;
+    &lt;h5&gt;Right Icon&lt;/h5&gt;
+    &lt;span class="p-input-icon-right"&gt;
+        &lt;i class="pi pi-spin pi-spinner" /&gt;
+        &lt;InputText type="text" v-model="value4" /&gt;
+    &lt;/span&gt;
 
-&lt;h3&gt;Disabled&lt;/h3&gt;
-&lt;InputText type="text" v-model="value5" disabled /&gt;
+    &lt;h5&gt;Help Text&lt;/h5&gt;
+    &lt;div class="p-field"&gt;
+        &lt;label for="username1"&gt;Username&lt;/label&gt;
+        &lt;InputText id="username1" type="username" aria-describedby="username1-help" /&gt;
+        &lt;small id="username1-help"&gt;Enter your username to reset your password.&lt;/small&gt;
+    &lt;/div&gt;
 
-&lt;h3&gt;Invalid&lt;/h3&gt;
-&lt;InputText type="text" class="p-invalid" /&gt;
+    &lt;h5&gt;Invalid&lt;/h5&gt;
+    &lt;div class="p-field"&gt;
+        &lt;label for="username2"&gt;Username&lt;/label&gt;
+        &lt;InputText id="username2" type="username" aria-describedby="username2-help" class="p-invalid" /&gt;
+        &lt;small id="username2-help" class="p-invalid"&gt;Username is not available.&lt;/small&gt;
+    &lt;/div&gt;
 
-&lt;h3&gt;Sizes&lt;/h3&gt;
-&lt;div class="sizes"&gt;
-    &lt;InputText type="text" class="p-inputtext-sm" placeholder="Small" /&gt;
-    &lt;InputText type="text" placeholder="Normal" /&gt;
-    &lt;InputText type="text" class="p-inputtext-lg"  placeholder="Large" /&gt;
+    &lt;h5&gt;Disabled&lt;/h5&gt;
+    &lt;InputText type="text" v-model="value5" disabled /&gt;
+
+    &lt;h5&gt;Sizes&lt;/h5&gt;
+    &lt;div class="sizes"&gt;
+        &lt;InputText type="text" class="p-inputtext-sm" placeholder="Small" /&gt;
+        &lt;InputText type="text" placeholder="Normal" /&gt;
+        &lt;InputText type="text" class="p-inputtext-lg"  placeholder="Large" /&gt;
+    &lt;/div&gt;
 &lt;/div&gt;
 </template>
 </CodeHighlight>

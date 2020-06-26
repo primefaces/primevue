@@ -1229,7 +1229,7 @@
   width: 100%;
 }
 .p-fluid .p-button-icon-only {
-  width: auto;
+  width: 3rem;
 }
 .p-fluid .p-buttonset {
   display: flex;

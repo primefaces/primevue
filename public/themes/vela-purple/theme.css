@@ -137,8 +137,12 @@
   border-radius: 3px;
 }
 .p-datepicker:not(.p-datepicker-inline) {
+  background: #1f2d40;
   border: 1px solid #304562;
   box-shadow: 0 2px 4px -1px rgba(0, 0, 0, 0.2), 0 4px 5px 0 rgba(0, 0, 0, 0.14), 0 1px 10px 0 rgba(0, 0, 0, 0.12);
+}
+.p-datepicker:not(.p-datepicker-inline) .p-datepicker-header {
+  background: #1f2d40;
 }
 .p-datepicker .p-datepicker-header {
   padding: 0.5rem;
@@ -200,6 +204,7 @@
   height: 2.5rem;
   border-radius: 50%;
   transition: background-color 0.2s, border-color 0.2s, box-shadow 0.2s;
+  border: 1px solid transparent;
 }
 .p-datepicker table td > span.p-highlight {
   color: #ffffff;
@@ -213,6 +218,7 @@
 .p-datepicker table td.p-datepicker-today > span {
   background: transparent;
   color: #BA68C8;
+  border-color: transparent;
 }
 .p-datepicker table td.p-datepicker-today > span.p-highlight {
   color: #ffffff;
@@ -1206,7 +1212,7 @@
   width: 100%;
 }
 .p-fluid .p-button-icon-only {
-  width: auto;
+  width: 2.357rem;
 }
 .p-fluid .p-buttonset {
   display: flex;
@@ -3101,6 +3107,7 @@
   box-shadow: inset 0 0 0 1px #E1BEE7;
 }
 .p-menu.p-menu-overlay {
+  background: #1f2d40;
   border: 1px solid #304562;
   box-shadow: 0 2px 4px -1px rgba(0, 0, 0, 0.2), 0 4px 5px 0 rgba(0, 0, 0, 0.14), 0 1px 10px 0 rgba(0, 0, 0, 0.12);
 }
@@ -3603,6 +3610,7 @@
   box-shadow: inset 0 0 0 1px #E1BEE7;
 }
 .p-tieredmenu.p-menu-overlay {
+  background: #1f2d40;
   border: 1px solid #304562;
   box-shadow: 0 2px 4px -1px rgba(0, 0, 0, 0.2), 0 4px 5px 0 rgba(0, 0, 0, 0.14), 0 1px 10px 0 rgba(0, 0, 0, 0.12);
 }
