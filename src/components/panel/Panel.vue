@@ -7,7 +7,7 @@
             <div class="p-panel-icons">
                  <slot name="icons"></slot>
                 <a v-if="toggleable" tabindex="0" class="p-panel-header-icon p-panel-toggler" @click="toggle" @keydown.enter="toggle"
-                    :id="ariaId +  '_header'" :aria-controls="ariaId + '_content'" :aria-expanded="!d_collapsed">
+                    :id="ariaId +  '_header'" :aria-controls="ariaId + '_content'" :aria-expanded="!d_collapsed" v-ripple>
                     <span :class="{'pi pi-minus': !d_collapsed, 'pi pi-plus': d_collapsed}"></span>
                 </a>
             </div>
@@ -24,6 +24,7 @@
 
 <script>
 import UniqueComponentId from '../utils/UniqueComponentId';
+import Ripple from '../ripple/Ripple';
 
 export default {
     props: {
@@ -58,6 +59,9 @@ export default {
                 value: this.d_collapsed
             });
         }
+    },
+    directives: {
+        'ripple': Ripple
     }
 }
 </script>
@@ -79,5 +83,7 @@ export default {
     align-items: center;
     cursor: pointer;
     text-decoration: none;
+    overflow: hidden;
+    position: relative;
 }
 </style>

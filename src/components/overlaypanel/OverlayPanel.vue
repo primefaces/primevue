@@ -4,7 +4,7 @@
             <div class="p-overlaypanel-content">
                 <slot></slot>
             </div>
-            <button class="p-overlaypanel-close p-link" @click="hide" v-if="showCloseIcon" :aria-label="ariaCloseLabel" type="button">
+            <button class="p-overlaypanel-close p-link" @click="hide" v-if="showCloseIcon" :aria-label="ariaCloseLabel" type="button" v-ripple>
                 <span class="p-overlaypanel-close-icon pi pi-times"></span>
             </button>
         </div>
@@ -13,6 +13,7 @@
 
 <script>
 import DomHandler from '../utils/DomHandler';
+import Ripple from '../ripple/Ripple';
 
 export default {
     props: {
@@ -146,6 +147,9 @@ export default {
                     document.getElementById(this.appendTo).removeChild(this.$refs.container);
             }
         }
+    },
+    directives: {
+        'ripple': Ripple
     }
 }
 </script>
@@ -165,6 +169,8 @@ export default {
     display: flex;
     justify-content: center;
     align-items: center;
+    overflow: hidden;
+    position: relative;
 }
 
 /* Animation */

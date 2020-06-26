@@ -7,10 +7,10 @@
                         <span :id="ariaLabelledById" class="p-dialog-title" v-if="header" >{{header}}</span>
                     </slot>
                     <div class="p-dialog-header-icons">
-                        <button class="p-dialog-header-icon p-dialog-header-maximize p-link" @click="maximize" v-if="maximizable" type="button" tabindex="-1">
+                        <button class="p-dialog-header-icon p-dialog-header-maximize p-link" @click="maximize" v-if="maximizable" type="button" tabindex="-1" v-ripple>
                             <span :class="maximizeIconClass"></span>
                         </button>
-                        <button class="p-dialog-header-icon p-dialog-header-close p-link" @click="close" v-if="closable" :aria-label="ariaCloseLabel" type="button" tabindex="-1">
+                        <button class="p-dialog-header-icon p-dialog-header-close p-link" @click="close" v-if="closable" :aria-label="ariaCloseLabel" type="button" tabindex="-1" v-ripple>
                             <span class="p-dialog-header-close-icon pi pi-times"></span>
                         </button>
                     </div>
@@ -28,6 +28,7 @@
 <script>
 import UniqueComponentId from '../utils/UniqueComponentId';
 import DomHandler from '../utils/DomHandler';
+import Ripple from '../ripple/Ripple';
 
 export default {
     inheritAttrs: false,
@@ -245,6 +246,9 @@ export default {
         ariaLabelledById() {
             return this.header != null ? this.ariaId + '_header' : null;
         }
+    },
+    directives: {
+        'ripple': Ripple
     }
 }
 </script>
@@ -298,6 +302,8 @@ export default {
     display: flex;
     align-items: center;
     justify-content: center;
+    overflow: hidden;
+    position: relative;
 }
 
 /* Fluid */

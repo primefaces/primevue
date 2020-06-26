@@ -29,7 +29,7 @@
                         <input type="text" v-model="filterValue" class="p-multiselect-filter p-inputtext p-component" :placeholder="filterPlaceholder">
                         <span class="p-multiselect-filter-icon pi pi-search"></span>
                     </div>
-                    <button class="p-multiselect-close p-link" @click="onCloseClick" type="button">
+                    <button class="p-multiselect-close p-link" @click="onCloseClick" type="button" v-ripple>
                         <span class="p-multiselect-close-icon pi pi-times" />
                     </button>
                 </div>
@@ -500,6 +500,8 @@ export default {
     align-items: center;
     justify-content: center;
     flex-shrink: 0;
+    overflow: hidden;
+    position: relative;
 }
 
 .p-fluid .p-multiselect {

@@ -2,7 +2,7 @@
     <transition name="p-sidebar" @enter="onEnter" @leave="onLeave">
         <div :class="containerClass" v-if="visible" ref="container" role="complementary" :aria-modal="modal">
             <div class="p-sidebar-content">
-                <button class="p-sidebar-close p-link" @click="hide" :aria-label="ariaCloseLabel" v-if="showCloseIcon" type="button">
+                <button class="p-sidebar-close p-link" @click="hide" :aria-label="ariaCloseLabel" v-if="showCloseIcon" type="button" v-ripple>
                     <span class="p-sidebar-close-icon pi pi-times" />
                 </button>
                 <slot></slot>
@@ -13,6 +13,7 @@
 
 <script>
 import DomHandler from '../utils/DomHandler';
+import Ripple from '../ripple/Ripple';
 
 export default {
     props: {
@@ -133,6 +134,9 @@ export default {
         fullScreen() {
             return this.position === 'full';
         }
+    },
+    directives: {
+        'ripple': Ripple
     }
 }
 </script>
@@ -154,6 +158,8 @@ export default {
     display: flex;
     align-items: center;
     justify-content: center;
+    overflow: hidden;
+    position: relative;
 }
 
 .p-sidebar-mask {
