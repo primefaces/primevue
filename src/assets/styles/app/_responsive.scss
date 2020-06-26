@@ -136,6 +136,11 @@
             transform: translate3d(0,0,0);
         }
     }
+
+    .app-theme {
+        right: 35px;
+        left: auto;
+    }
 }
 
 @media screen and (max-width: 640px) {

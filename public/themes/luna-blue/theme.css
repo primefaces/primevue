@@ -903,7 +903,7 @@
   background: #323232;
   color: #dedede;
   border: 1px solid #191919;
-  box-shadow: 0 0 6px 0 rgba(0, 0, 0, 0.16);
+  box-shadow: 0 3px 6px 0 rgba(0, 0, 0, 0.16);
   border-radius: 3px;
 }
 .p-password-panel .p-password-meter {
@@ -2763,7 +2763,7 @@
   background: #4c4c4c;
   color: #dedede;
   padding: 0.429rem 0.429rem;
-  box-shadow: 0 0 6px 0 rgba(0, 0, 0, 0.16);
+  box-shadow: 0 3px 6px 0 rgba(0, 0, 0, 0.16);
   border-radius: 3px;
 }
 .p-tooltip.p-tooltip-right .p-tooltip-arrow {

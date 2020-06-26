@@ -18,6 +18,9 @@
             <router-view/>
             <app-footer />
         </div>
+        <div class="app-theme">
+            <img :src="getLogo()" />
+        </div>
         <Toast />
         <Toast position="topleft" group="tl" />
         <Toast position="bottomleft" group="bl" />
@@ -37,9 +40,46 @@ export default {
         return {
             sidebarActive: false,
             newsActive: false,
-            theme: 'saga-blue'
+            theme: 'saga-blue',
+            logoMap: {
+                'bootstrap4-light-blue': 'bootstrap4-light-blue.svg',
+                'bootstrap4-light-purple': 'bootstrap4-light-purple.svg',
+                'bootstrap4-dark-blue': 'bootstrap4-dark-blue.svg',
+                'bootstrap4-dark-purple': 'bootstrap4-dark-purple.svg',
+                'bootstrap4-dark-purple': 'bootstrap4-dark-purple.svg',
+                'md-light-indigo': 'md-light-indigo.svg',
+                'md-light-purple': 'md-light-purple.svg',
+                'md-dark-indigo': 'md-dark-indigo.svg',
+                'md-dark-indigo': 'md-dark-purple.svg',
+                'mdc-light-indigo': 'md-light-indigo.svg',
+                'mdc-light-purple': 'md-light-purple.svg',
+                'mdc-dark-indigo': 'md-dark-indigo.svg',
+                'mdc-dark-indigo': 'md-dark-purple.svg',
+                'saga-blue': 'saga-blue.png',
+                'saga-green': 'saga-green.png',
+                'saga-orange': 'saga-orange.png',
+                'saga-purple': 'saga-purple.png',
+                'vela-blue': 'vela-blue.png',
+                'vela-green': 'vela-green.png',
+                'vela-orange': 'vela-orange.png',
+                'vela-purple': 'vela-purple.png',
+                'arya-blue': 'arya-blue.png',
+                'arya-green': 'arya-green.png',
+                'arya-orange': 'arya-orange.png',
+                'arya-purple': 'arya-purple.png',
+                'nova': 'themeswitcher-nova.png',
+                'nova-alt': 'themeswitcher-nova-alt.png',
+                'nova-accent': 'themeswitcher-nova-accent.png',
+                'nova-vue': 'themeswitcher-nova-vue.png',
+                'luna-blue': 'themeswitcher-luna-blue.png',
+                'luna-green': 'themeswitcher-luna-green.png',
+                'luna-pink': 'themeswitcher-luna-pink.png',
+                'luna-amber': 'themeswitcher-luna-amber.png',
+                'rhea': 'themeswitcher-rhea.png'
+            }
         }
     },
+
     mounted() {
         if (this.isOutdatedIE()) {
             this.$toast.add({severity: 'warn', summary: 'Limited Functionality', detail: 'Although PrimeVue supports IE11, ThemeSwitcher in this application cannot be not fully supported by your browser. Please use a modern browser for the best experience of the showcase.'});
@@ -112,7 +152,11 @@ export default {
             }
 
             return false;
-        }
+        },
+        getLogo() {
+            var images = require.context('./assets/images/themes', false);
+            return images('./' + this.logoMap[this.theme]);
+        },
     },
     computed: {
         containerClass() {

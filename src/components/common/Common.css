@@ -89,34 +89,40 @@ button {
     user-select: none;
 }
 
-/* Overlay Animations */
+/* Non vue overlay animations */
 .p-input-overlay {
-    transform: translateY(5%);
     opacity: 0;
-    transition: transform .3s, opacity .3s;
+    transform: scaleY(0.8);
+    transition: transform .12s cubic-bezier(0, 0, 0.2, 1), opacity .12s cubic-bezier(0, 0, 0.2, 1);
 }
 
 .p-input-overlay-visible {
-    transform: translateY(0);
     opacity: 1;
+    transform: scaleY(1);
 }
 
 .p-input-overlay-hidden {
     opacity: 0;
-    transform: translateY(5%);
-    transition: transform .3s, opacity .15s;
+    transform: scaleY(1);
+    transition: opacity .1s linear;
 }
 
-/* Overlay Animations */
-.p-input-overlay-enter,
+/* Vue based overlay animations */
+.p-input-overlay-enter {
+    opacity: 0;
+    transform: scaleY(0.8);
+}
+
 .p-input-overlay-leave-to {
     opacity: 0;
-    transform: translateY(5%);
 }
 
-.p-input-overlay-enter-active,
+.p-input-overlay-enter-active {
+    transition: transform .12s cubic-bezier(0, 0, 0.2, 1), opacity .12s cubic-bezier(0, 0, 0.2, 1);
+}
+
 .p-input-overlay-leave-active {
-    transition: transform .3s, opacity .15s;
+    transition: opacity .1s linear;
 }
 
 /* Toggleable Content */

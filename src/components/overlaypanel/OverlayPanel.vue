@@ -168,29 +168,21 @@ export default {
 }
 
 /* Animation */
-.p-overlaypanel-enter,
+.p-overlaypanel-enter {
+    opacity: 0;
+    transform: scaleY(0.8);
+}
+
 .p-overlaypanel-leave-to {
     opacity: 0;
-    transform: translate3d(-50%, -25%, 0) scale(0.9);
 }
 
-.p-overlaypanel-enter-active,
+.p-overlaypanel-enter-active {
+    transition: transform .12s cubic-bezier(0, 0, 0.2, 1), opacity .12s cubic-bezier(0, 0, 0.2, 1);
+}
+
 .p-overlaypanel-leave-active {
-    transition: all 400ms cubic-bezier(0.25, 0.8, 0.25, 1);
-}
-
-.p-overlaypanel-enter,
-.p-overlaypanel-leave-to {
-    opacity: 0;
-    -webkit-transform: translateY(5%);
-    -ms-transform: translateY(5%);
-    transform: translateY(5%);
-}
-
-.p-overlaypanel-enter-active,
-.p-overlaypanel-leave-active {
-    -webkit-transition: transform .3s, opacity .15s;
-    transition: transform .3s, opacity .15s;
+    transition: opacity .1s linear;
 }
 
 .p-overlaypanel:after, .p-overlaypanel:before {

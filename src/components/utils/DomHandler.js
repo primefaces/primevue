@@ -187,10 +187,14 @@ export default class DomHandler {
         let viewport = this.getViewport();
         let top, left;
 
-        if (targetOffset.top + targetOuterHeight + elementOuterHeight > viewport.height)
+        if (targetOffset.top + targetOuterHeight + elementOuterHeight > viewport.height) {
             top = targetOffset.top + windowScrollTop - elementOuterHeight;
-        else
+            element.style.transformOrigin = 'bottom';
+        }
+        else {
             top = targetOuterHeight + targetOffset.top + windowScrollTop;
+            element.style.transformOrigin = 'top';
+        }
 
         if (targetOffset.left + targetOuterWidth + elementOuterWidth > viewport.width)
             left = targetOffset.left + windowScrollLeft + targetOuterWidth - elementOuterWidth;
@@ -209,10 +213,14 @@ export default class DomHandler {
         var viewport = this.getViewport();
         var top, left;
 
-        if ((targetOffset.top + targetHeight + elementDimensions.height) > viewport.height)
+        if ((targetOffset.top + targetHeight + elementDimensions.height) > viewport.height) {
             top = -1 * (elementDimensions.height);
-        else
+            element.style.transformOrigin = 'bottom';
+        }
+        else {
             top = targetHeight;
+            element.style.transformOrigin = 'top';
+        }
 
         if ((targetOffset.left + elementDimensions.width) > viewport.width)
             left = targetWidth - elementDimensions.width;

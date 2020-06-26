@@ -21,7 +21,7 @@
                         <li><a @click="changeTheme($event, 'bootstrap4-light-purple')"><img src="./assets/images/themes/bootstrap4-light-purple.svg" alt="Purple Light" /><span>Purple Light</span></a></li>
                         <li><a @click="changeTheme($event, 'bootstrap4-dark-blue')"><img src="./assets/images/themes/bootstrap4-dark-blue.svg" alt="Blue Dark" /><span>Blue Dark</span></a></li>
                         <li><a @click="changeTheme($event, 'bootstrap4-dark-purple')"><img src="./assets/images/themes/bootstrap4-dark-purple.svg" alt="Purple Dark" /><span>Purple Dark</span></a></li>
-                        
+
                         <li class="topbar-submenu-header">MATERIAL DESIGN</li>
                         <li><a @click="changeTheme($event, 'md-light-indigo')"><img src="./assets/images/themes/md-light-indigo.svg" alt="Indigo Light" /><span>Indigo Light</span></a></li>
                         <li><a @click="changeTheme($event, 'md-light-deeppurple')"><img src="./assets/images/themes/md-light-deeppurple.svg" alt="Deep Purple Light" /><span>Deep Purple Light</span></a></li>
@@ -33,7 +33,7 @@
                         <li><a @click="changeTheme($event, 'mdc-light-deeppurple')"><img src="./assets/images/themes/md-light-deeppurple.svg" alt="Deep Purple Light" /><span>Deep Purple Light</span></a></li>
                         <li><a @click="changeTheme($event, 'mdc-dark-indigo')"><img src="./assets/images/themes/md-dark-indigo.svg" alt="Indigo Dark" /><span>Indigo Dark</span></a></li>
                         <li><a @click="changeTheme($event, 'mdc-dark-deeppurple')"><img src="./assets/images/themes/md-dark-deeppurple.svg" alt="Deep Purple Dark" /><span>Deep Purple Dark</span></a></li>
-                        
+
                         <li class="topbar-submenu-header">PRIMEONE</li>
                         <li><a @click="changeTheme($event, 'saga-blue')"><img src="./assets/images/themes/saga-blue.png" alt="Saga Blue" /><span>Saga Blue</span></a></li>
                         <li><a @click="changeTheme($event, 'saga-green')"><img src="./assets/images/themes/saga-green.png" alt="Saga Green" /><span>Saga Green</span></a></li>
