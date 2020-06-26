@@ -375,6 +375,19 @@
   border-color: #B00020;
 }
 
+.p-input-filled .p-checkbox .p-checkbox-box {
+  background-color: #f5f5f5;
+}
+.p-input-filled .p-checkbox .p-checkbox-box:not(.p-disabled):hover {
+  background-color: #ececec;
+}
+.p-input-filled .p-checkbox .p-checkbox-box.p-highlight {
+  background: #673AB7;
+}
+.p-input-filled .p-checkbox .p-checkbox-box.p-highlight:not(.p-disabled):hover {
+  background: #673AB7;
+}
+
 .p-chips .p-chips-multiple-container {
   padding: 0.5rem 1rem;
 }
@@ -953,9 +966,10 @@
   border-color: #673AB7;
 }
 .p-radiobutton .p-radiobutton-box .p-radiobutton-icon {
-  font-size: 0.75rem;
+  width: 10px;
+  height: 10px;
   transition-duration: 0.2s;
-  color: #673AB7;
+  background-color: #673AB7;
 }
 .p-radiobutton .p-radiobutton-box.p-highlight {
   border-color: #673AB7;
@@ -968,6 +982,19 @@
 }
 .p-radiobutton.p-error > .p-checkbox-box, .p-radiobutton.p-invalid > .p-checkbox-box {
   border-color: #B00020;
+}
+
+.p-input-filled .p-radiobutton .p-radiobutton-box {
+  background-color: #f5f5f5;
+}
+.p-input-filled .p-radiobutton .p-radiobutton-box:not(.p-disabled):hover {
+  background-color: #ececec;
+}
+.p-input-filled .p-radiobutton .p-radiobutton-box.p-highlight {
+  background: #ffffff;
+}
+.p-input-filled .p-radiobutton .p-radiobutton-box.p-highlight:not(.p-disabled):hover {
+  background: #ffffff;
 }
 
 .p-rating .p-rating-icon {
@@ -1196,7 +1223,7 @@
   box-shadow: 0 3px 1px -2px rgba(0, 0, 0, 0.2), 0 2px 2px 0 rgba(0, 0, 0, 0.14), 0 1px 5px 0 rgba(0, 0, 0, 0.12);
 }
 .p-button.p-button-rounded {
-  border-radius: 1rem;
+  border-radius: 2rem;
 }
 .p-button.p-button-icon-only {
   width: 3rem;
@@ -4410,6 +4437,13 @@
   box-shadow: 0 0 1px 10px rgba(103, 58, 183, 0.12);
 }
 
+.p-input-filled .p-checkbox .p-checkbox-box {
+  background-color: #ffffff;
+}
+.p-input-filled .p-checkbox .p-checkbox-box:not(.p-disabled):hover {
+  background-color: #ffffff;
+}
+
 @keyframes checkbox-check {
   0% {
     width: 0;
@@ -4439,24 +4473,8 @@
 .p-radiobutton .p-radiobutton-box:not(.p-disabled).p-focus {
   border: 2px solid #757575;
 }
-.p-radiobutton .p-radiobutton-box .p-radiobutton-icon {
-  transition: transform 0.2s;
-  -webkit-backface-visibility: hidden;
-  backface-visibility: hidden;
-  transform: translateZ(0) scale(0.1);
-  width: 0.75rem;
-  height: 0.75rem;
-  border-radius: 50%;
-}
-.p-radiobutton .p-radiobutton-box .p-radiobutton-icon:before {
-  display: none;
-}
 .p-radiobutton .p-radiobutton-box.p-highlight:not(.p-disabled).p-focus {
   border-color: #673AB7;
-}
-.p-radiobutton .p-radiobutton-box.p-highlight .p-radiobutton-icon {
-  background-color: #673AB7;
-  transform: translateZ(0) scale(1, 1);
 }
 .p-radiobutton:not(.p-radiobutton-disabled):hover {
   box-shadow: 0 0 1px 10px rgba(0, 0, 0, 0.04);
@@ -4469,6 +4487,13 @@
 }
 .p-radiobutton.p-radiobutton-checked:not(.p-radiobutton-disabled).p-radiobutton-focused {
   box-shadow: 0 0 1px 10px rgba(103, 58, 183, 0.12);
+}
+
+.p-input-filled .p-radiobutton .p-radiobutton-box {
+  background-color: #ffffff;
+}
+.p-input-filled .p-radiobutton .p-radiobutton-box:not(.p-disabled):hover {
+  background-color: #ffffff;
 }
 
 .p-chips .p-chips-multiple-container:not(.p-disabled).p-focus {
