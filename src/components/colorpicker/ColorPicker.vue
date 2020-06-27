@@ -2,7 +2,7 @@
     <div :class="containerClass">
         <input ref="input" type="text" :class="inputClass" readonly="readonly" :tabindex="tabindex" :disabled="disabled"
             @click="onInputClick" @keydown="onInputKeydown" v-if="!inline" :aria-labelledby="ariaLabelledBy"/>
-        <transition name="p-input-overlay" @enter="onOverlayEnter" @leave="onOverlayLeave">
+        <transition name="p-connected-overlay" @enter="onOverlayEnter" @leave="onOverlayLeave">
             <div ref="picker" :class="pickerClass" v-if="inline ? true : overlayVisible">
                 <div class="p-colorpicker-content">
                     <div ref="colorSelector" class="p-colorpicker-color-selector" @mousedown="onColorMousedown">

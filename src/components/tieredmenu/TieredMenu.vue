@@ -1,5 +1,5 @@
 <template>
-    <transition name="p-input-overlay" @enter="onEnter" @leave="onLeave">
+    <transition name="p-connected-overlay" @enter="onEnter" @leave="onLeave">
         <div ref="container" :class="containerClass" v-if="popup ? visible : true">
             <TieredMenuSub :model="model" :root="true" :popup="popup" @leaf-click="onLeafClick"/>
         </div>

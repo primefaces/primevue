@@ -14,7 +14,7 @@
         <div class="p-multiselect-trigger">
             <span class="p-multiselect-trigger-icon pi pi-chevron-down"></span>
         </div>
-        <transition name="p-input-overlay" @enter="onOverlayEnter" @leave="onOverlayLeave">
+        <transition name="p-connected-overlay" @enter="onOverlayEnter" @leave="onOverlayLeave">
             <div ref="overlay" class="p-multiselect-panel p-component" v-if="overlayVisible">
                 <div class="p-multiselect-header">
                     <div class="p-checkbox" @click="onToggleAll" role="checkbox" :aria-checked="allSelected">

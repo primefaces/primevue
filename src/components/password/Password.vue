@@ -63,7 +63,7 @@ export default {
         },
         createPanel() {
             this.panel = document.createElement('div');
-            this.panel.className = 'p-password-panel p-component p-password-panel-overlay p-input-overlay';
+            this.panel.className = 'p-password-panel p-component p-password-panel-overlay p-connected-overlay';
             this.meter = document.createElement('div');
             this.meter.className = 'p-password-meter';
             this.info = document.createElement('div');
@@ -92,8 +92,8 @@ export default {
                         vm.panel.style.zIndex = String(DomHandler.generateZIndex());
                         vm.panel.style.display = 'block';
                         setTimeout(() => {
-                            DomHandler.addClass(this.panel, 'p-input-overlay-visible');
-                            DomHandler.removeClass(this.panel, 'p-input-overlay-hidden');
+                            DomHandler.addClass(this.panel, 'p-connected-overlay-visible');
+                            DomHandler.removeClass(this.panel, 'p-connected-overlay-hidden');
                         }, 1);
                         DomHandler.absolutePosition(this.panel, this.$refs.input);
                     }
@@ -102,12 +102,12 @@ export default {
                 },
                 blur: event => {
                     if (this.panel) {
-                        DomHandler.addClass(this.panel, 'p-input-overlay-hidden');
-                        DomHandler.removeClass(this.panel, 'p-input-overlay-visible');
+                        DomHandler.addClass(this.panel, 'p-connected-overlay-hidden');
+                        DomHandler.removeClass(this.panel, 'p-connected-overlay-visible');
 
                         setTimeout(() => {
                             vm.panel.style.display = 'none';
-                            DomHandler.removeClass(this.panel, 'p-input-overlay-hidden');
+                            DomHandler.removeClass(this.panel, 'p-connected-overlay-hidden');
                         }, 150);
                     }
 

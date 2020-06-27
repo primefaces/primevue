@@ -1,5 +1,5 @@
 <template>
-    <transition name="p-input-overlay" @enter="onEnter" @leave="onLeave">
+    <transition name="p-connected-overlay" @enter="onEnter" @leave="onLeave">
         <div ref="container" :class="containerClass" v-if="popup ? visible : true">
             <ul class="p-menu-list p-reset" role="menu">
                 <template v-for="(item, i) of model">

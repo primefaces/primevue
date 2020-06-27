@@ -10,7 +10,7 @@
             <li><router-link to="/setup">Get Started</router-link></li>
             <li class="topbar-submenu">
                 <a tabindex="0" @click="toggleMenu($event, 0)">Themes</a>
-                <transition name="p-input-overlay" @enter="onMenuEnter">
+                <transition name="p-connected-overlay" @enter="onMenuEnter">
                     <ul v-show="activeMenuIndex === 0">
                         <li class="topbar-submenu-header">THEMING</li>
                         <li><router-link to="/theming"><i class="pi pi-fw pi-file"/><span>Guide</span></router-link></li>
@@ -63,7 +63,7 @@
             </li>
             <li class="topbar-submenu">
                 <a tabindex="0" @click="toggleMenu($event, 1)">Templates</a>
-                <transition name="p-input-overlay" @enter="onMenuEnter">
+                <transition name="p-connected-overlay" @enter="onMenuEnter">
                     <ul v-show="activeMenuIndex === 1">
                         <li class="topbar-submenu-header">FREE ADMIN TEMPLATE</li>
                         <li><a href="https://www.primefaces.org/sigma-vue"><img src="./assets/images/layouts/themeswitcher-sigma.png" alt="Sigma" /><span>Sigma</span></a></li>
@@ -81,7 +81,7 @@
             </li>
             <li class="topbar-submenu topbar-resources-submenu">
                 <a tabindex="0" @click="toggleMenu($event, 2)">Resources</a>
-                <transition name="p-input-overlay" @enter="onMenuEnter">
+                <transition name="p-connected-overlay" @enter="onMenuEnter">
                     <ul v-show="activeMenuIndex === 2">
                         <li><router-link to="/support"><span>Support</span></router-link></li>
                         <li><a href="https://forum.primefaces.org/viewforum.php?f=110"><span>Forum</span></a></li>

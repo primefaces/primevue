@@ -90,38 +90,38 @@ button {
 }
 
 /* Non vue overlay animations */
-.p-input-overlay {
+.p-connected-overlay {
     opacity: 0;
     transform: scaleY(0.8);
     transition: transform .12s cubic-bezier(0, 0, 0.2, 1), opacity .12s cubic-bezier(0, 0, 0.2, 1);
 }
 
-.p-input-overlay-visible {
+.p-connected-overlay-visible {
     opacity: 1;
     transform: scaleY(1);
 }
 
-.p-input-overlay-hidden {
+.p-connected-overlay-hidden {
     opacity: 0;
     transform: scaleY(1);
     transition: opacity .1s linear;
 }
 
 /* Vue based overlay animations */
-.p-input-overlay-enter {
+.p-connected-overlay-enter {
     opacity: 0;
     transform: scaleY(0.8);
 }
 
-.p-input-overlay-leave-to {
+.p-connected-overlay-leave-to {
     opacity: 0;
 }
 
-.p-input-overlay-enter-active {
+.p-connected-overlay-enter-active {
     transition: transform .12s cubic-bezier(0, 0, 0.2, 1), opacity .12s cubic-bezier(0, 0, 0.2, 1);
 }
 
-.p-input-overlay-leave-active {
+.p-connected-overlay-leave-active {
     transition: opacity .1s linear;
 }
 

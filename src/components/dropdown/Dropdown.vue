@@ -15,7 +15,7 @@
         <div class="p-dropdown-trigger" role="button" aria-haspopup="listbox" :aria-expanded="overlayVisible">
             <span class="p-dropdown-trigger-icon pi pi-chevron-down"></span>
         </div>
-        <transition name="p-input-overlay" @enter="onOverlayEnter" @leave="onOverlayLeave">
+        <transition name="p-connected-overlay" @enter="onOverlayEnter" @leave="onOverlayLeave">
             <div ref="overlay" class="p-dropdown-panel p-component" v-if="overlayVisible">
                 <div class="p-dropdown-header" v-if="filter">
                      <div  class="p-dropdown-filter-container">
