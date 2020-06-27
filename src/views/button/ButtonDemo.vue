@@ -12,6 +12,7 @@
                 <h5>Basic</h5>
                 <Button label="Submit" />
                 <Button label="Disabled" disabled="disabled" />
+                <Button label="Link" class="p-button-link" />
 
                 <h5>Icons</h5>
                 <Button icon="pi pi-check" />
@@ -26,7 +27,6 @@
                 <Button label="Warning" class="p-button-warning" />
                 <Button label="Help" class="p-button-help" />
                 <Button label="Danger" class="p-button-danger" />
-                <Button label="Link" class="p-button-link" />
 
                 <h5>Raised Buttons</h5>
                 <Button label="Primary" class="p-button-raised" />

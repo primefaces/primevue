@@ -202,6 +202,7 @@ import Button from 'primevue/button';
 &lt;h5&gt;Basic&lt;/h5&gt;
 &lt;Button label="Submit" /&gt;
 &lt;Button label="Submit" disabled="disabled" /&gt;
+&lt;Button label="Link" class="p-button-link" /&gt;
 
 &lt;h5&gt;Icons&lt;/h5&gt;
 &lt;Button icon="pi pi-check" /&gt;
@@ -216,7 +217,6 @@ import Button from 'primevue/button';
 &lt;Button label="Warning" class="p-button-warning" /&gt;
 &lt;Button label="Help" class="p-button-help" /&gt;
 &lt;Button label="Danger" class="p-button-danger" /&gt;
-&lt;Button label="Link" class="p-button-link" /&gt;
 
 &lt;h5&gt;Raised Buttons&lt;/h5&gt;
 &lt;Button label="Primary" class="p-button-raised" /&gt;
