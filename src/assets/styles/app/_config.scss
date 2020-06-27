@@ -46,6 +46,8 @@
             cursor: pointer;
             border-top-left-radius: 3px;
             border-top-right-radius: 3px;
+            border-bottom-left-radius: 3px;
+            border-bottom-right-radius: 3px;
             transition: background-color .2s, box-shadow .2s;
             box-shadow: 0 7px 8px -4px rgba(0, 0, 0, 0.2),
                         0 5px 22px 4px rgba(0, 0, 0, 0.12),
