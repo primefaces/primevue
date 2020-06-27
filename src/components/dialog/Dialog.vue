@@ -123,9 +123,9 @@ export default {
             }
         },
         focus() {
-            let focusable = DomHandler.getFocusableElements(this.$refs.dialog);
-            if (focusable && focusable.length) {
-                focusable[0].focus();
+            let focusTarget = this.$refs.dialog.querySelector('[autofocus]');
+            if (focusTarget) {
+                focusTarget.focus();
             }
         },
         maximize() {

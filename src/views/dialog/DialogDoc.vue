@@ -10,11 +10,8 @@ import Dialog from 'primevue/dialog';
 				<h5>Getting Started</h5>
 				<p>Dialog is used as a container and visibility is managed with <i>visible</i> property that requires the sync operator for two-way binding.</p>
 <CodeHighlight>
-&lt;Dialog header="Godfather I" :visible.sync="display" &gt;
-	The story begins as Don Vito Corleone, the head of a New York Mafia family, oversees his daughter's wedding.
-	His beloved son Michael has just come home from the war, but does not intend to become part of his father's business.
-	Through Michael's life the nature of the family business becomes clear. The business of the family is just like the head of the family,
-	kind and benevolent to those who give respect, but given to ruthless violence whenever anything stands against the good of the family.
+&lt;Dialog header="Header" :visible.sync="display" &gt;
+	Content
 &lt;/Dialog&gt;
 </CodeHighlight>
 
@@ -31,7 +28,7 @@ export default {
 				<h5>Header and Footer</h5>
 				<p>Header and Footer sections are defined using properties with the same name that accept simple strings or with the <i>header</i> and <i>footer</i> templates for custom content.</p>
 <CodeHighlight>
-&lt;Dialog header="Header Text" footer="Footer Text" :visible.sync="display"&gt;
+&lt;Dialog header="Header" footer="Footer" :visible.sync="display"&gt;
 	Content
 &lt;/Dialog&gt;
 </CodeHighlight>
@@ -43,9 +40,10 @@ export default {
 	&lt;/template&gt;
 
 	Content
+
 	&lt;template #footer&gt;
-		&lt;Button label="Yes" icon="pi pi-check" /&gt;
 		&lt;Button label="No" icon="pi pi-times" class="p-button-text"/&gt;
+        &lt;Button label="Yes" icon="pi pi-check" autofocus /&gt;
 	&lt;/template&gt;
 &lt;/Dialog&gt;
 </CodeHighlight>
@@ -63,6 +61,18 @@ export default {
 <CodeHighlight>
 &lt;Dialog :visible.sync="display" :contentStyle="{overflow: 'visible'}"&gt;
 	Content
+&lt;/Dialog&gt;
+</CodeHighlight>
+
+                <h5>Initial Focus</h5>
+                <p>Adding <i>autofocus</i> to an element in the dialog makes it the initial focus target when dialog gets shown.</p>
+<CodeHighlight>
+&lt;Dialog :visible.sync="display"&gt;
+    Content
+	&lt;template #footer&gt;
+        &lt;Button label="No" /&gt;
+        &lt;Button label="Yes" autofocus/&gt;
+    &lt;/template&gt;
 &lt;/Dialog&gt;
 </CodeHighlight>
 
@@ -242,7 +252,7 @@ export default {
         Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.&lt;/p&gt;
     &lt;template #footer&gt;
         &lt;Button label="No" icon="pi pi-times" @click="closeBasic" class="p-button-text"/&gt;
-        &lt;Button label="Yes" icon="pi pi-check" @click="closeBasic" /&gt;
+        &lt;Button label="Yes" icon="pi pi-check" @click="closeBasic" autofocus /&gt;
     &lt;/template&gt;
 &lt;/Dialog&gt;
 
@@ -264,7 +274,7 @@ export default {
         eveniet ut et voluptates repudiandae sint et molestiae non recusandae. Itaque earum rerum hic tenetur a sapiente delectus, ut aut reiciendis voluptatibus maiores alias consequatur aut perferendis doloribus asperiores repellat.&lt;/p&gt;
     &lt;template #footer&gt;
         &lt;Button label="No" icon="pi pi-times" @click="closeBasic2" class="p-button-text"/&gt;
-        &lt;Button label="Yes" icon="pi pi-check" @click="closeBasic2" /&gt;
+        &lt;Button label="Yes" icon="pi pi-check" @click="closeBasic2" autofocus /&gt;
     &lt;/template&gt;
 &lt;/Dialog&gt;
 
@@ -276,7 +286,7 @@ export default {
         Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.&lt;/p&gt;
     &lt;template #footer&gt;
         &lt;Button label="No" icon="pi pi-times" @click="closeModal" class="p-button-text"/&gt;
-        &lt;Button label="Yes" icon="pi pi-check" @click="closeModal" /&gt;
+        &lt;Button label="Yes" icon="pi pi-check" @click="closeModal" autofocus /&gt;
     &lt;/template&gt;
 &lt;/Dialog&gt;
 
@@ -288,7 +298,7 @@ export default {
         Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.&lt;/p&gt;
     &lt;template #footer&gt;
         &lt;Button label="No" icon="pi pi-times" @click="closeMaximizable" class="p-button-text"/&gt;
-        &lt;Button label="Yes" icon="pi pi-check" @click="closeMaximizable" /&gt;
+        &lt;Button label="Yes" icon="pi pi-check" @click="closeMaximizable" autofocus /&gt;
     &lt;/template&gt;
 &lt;/Dialog&gt;
 
@@ -316,7 +326,7 @@ export default {
         Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.&lt;/p&gt;
     &lt;template #footer&gt;
         &lt;Button label="No" icon="pi pi-times" @click="closePosition" class="p-button-text"/&gt;
-        &lt;Button label="Yes" icon="pi pi-check" @click="closePosition" /&gt;
+        &lt;Button label="Yes" icon="pi pi-check" @click="closePosition" autofocus /&gt;
     &lt;/template&gt;
 &lt;/Dialog&gt;
 </template>
