@@ -6,10 +6,10 @@
             </slot>
             <div class="p-panel-icons">
                  <slot name="icons"></slot>
-                <a v-if="toggleable" tabindex="0" class="p-panel-header-icon p-panel-toggler" @click="toggle" @keydown.enter="toggle"
+                <button v-if="toggleable" class="p-panel-header-icon p-panel-toggler p-link" @click="toggle"
                     :id="ariaId +  '_header'" :aria-controls="ariaId + '_content'" :aria-expanded="!d_collapsed" v-ripple>
                     <span :class="{'pi pi-minus': !d_collapsed, 'pi pi-plus': d_collapsed}"></span>
-                </a>
+                </button>
             </div>
         </div>
         <transition name="p-toggleable-content">
