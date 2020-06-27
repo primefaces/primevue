@@ -70,7 +70,6 @@
                 text-align: center;
                 user-select: none;
                 line-height: inherit;
-                transition: background-color .2s;
                 cursor: pointer;
 
                 &:hover {
@@ -128,7 +127,6 @@
                         padding: .5rem;
                         display: block;
                         user-select: none;
-                        transition: background-color .2s;
                         border-radius: 3px;
                         cursor: pointer;
 
