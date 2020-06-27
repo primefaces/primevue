@@ -6,7 +6,7 @@
                 <div class="p-message-text">
                     <slot></slot>
                 </div>
-                <button class="p-message-close p-link" @click="visible = false" v-if="closable" type="button">
+                <button class="p-message-close p-link" @click="visible = false" v-if="closable" type="button" v-ripple>
                     <i class="p-message-close-icon pi pi-times"></i>
                 </button>
             </div>
@@ -76,7 +76,9 @@ export default {
 }
 
 .p-message-close.p-link {
-    margin-left: auto
+    margin-left: auto;
+    overflow: hidden;
+    position: relative;
 }
 
 .p-message-enter {

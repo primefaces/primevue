@@ -160,4 +160,8 @@ export default {
     margin: .5em .5em .5em 0;
     width: 140px;
 }
+
+p {
+    margin: 0;
+}
 </style>

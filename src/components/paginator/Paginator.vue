@@ -226,6 +226,8 @@ export default {
     justify-content: center;
     line-height: 1;
     user-select: none;
+    overflow: hidden;
+    position: relative;
 }
 
 .p-paginator-element:focus {

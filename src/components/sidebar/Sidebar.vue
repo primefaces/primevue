@@ -159,7 +159,6 @@ export default {
     align-items: center;
     justify-content: center;
     overflow: hidden;
-    position: relative;
 }
 
 .p-sidebar-mask {

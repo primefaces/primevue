@@ -132,6 +132,8 @@ export default {
     display: flex;
     align-items: center;
     justify-content: center;
+    overflow: hidden;
+    position: relative;
 }
 
 .p-toast-icon-close.p-link {

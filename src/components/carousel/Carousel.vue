@@ -5,7 +5,7 @@
 		</div>
 		<div :class="contentClasses">
 			<div :class="containerClasses">
-				<button :class="['p-carousel-prev p-link', {'p-disabled': backwardIsDisabled}]" :disabled="backwardIsDisabled" @click="navBackward" type="button">
+				<button :class="['p-carousel-prev p-link', {'p-disabled': backwardIsDisabled}]" :disabled="backwardIsDisabled" @click="navBackward" type="button" v-ripple>
 					<span :class="['p-carousel-prev-icon pi', {'pi-chevron-left': !isVertical(),'pi-chevron-up': isVertical()}]"></span>
 				</button>
 
@@ -36,7 +36,7 @@
 					</div>
 				</div>
 
-				<button :class="['p-carousel-next p-link', {'p-disabled': forwardIsDisabled}]" :disabled="forwardIsDisabled" @click="navForward" type="button">
+				<button :class="['p-carousel-next p-link', {'p-disabled': forwardIsDisabled}]" :disabled="forwardIsDisabled" @click="navForward" type="button" v-ripple>
 					<span :class="['p-carousel-prev-icon pi', {'pi-chevron-right': !isVertical(),'pi-chevron-down': isVertical()}]"></span>
 				</button>
 			</div>
@@ -55,6 +55,7 @@
 <script>
 import UniqueComponentId from '../utils/UniqueComponentId';
 import DomHandler from '../utils/DomHandler';
+import Ripple from '../ripple/Ripple';
 
 export default {
 	props: {
@@ -490,7 +491,10 @@ export default {
 		indicatorsContentClasses() {
 			return ['p-carousel-indicators p-reset', this.indicatorsContentClass];
 		},
-	},
+    },
+    directives: {
+        'ripple': Ripple
+    },
 	name: "Carousel"
 }
 </script>
@@ -514,7 +518,9 @@ export default {
     flex-shrink: 0;
     display: flex;
     justify-content: center;
-	align-items: center;
+    align-items: center;
+    overflow: hidden;
+    position: relative;
 }
 
 .p-carousel-container {

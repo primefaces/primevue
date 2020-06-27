@@ -1,7 +1,7 @@
 <template>
     <div class="p-fileupload p-component" v-if="isAdvanced">
         <div class="p-fileupload-buttonbar">
-            <span icon="pi pi-plus" :class="advancedChooseButtonClass">
+            <span icon="pi pi-plus" :class="advancedChooseButtonClass" v-ripple>
                 <input ref="fileInput" type="file" @change="onFileSelect" @focus="onFocus" @blur="onBlur"
                     :multiple="multiple" :accept="accept" :disabled="disabled" />
                 <span class="p-button-icon p-button-icon-left pi pi-fw pi-plus"></span>
@@ -31,7 +31,7 @@
             </div>
         </div>
     </div>
-    <span :class="basicChooseButtonClass" @mouseup="onBasicUploaderClick" v-else-if="isBasic">
+    <span :class="basicChooseButtonClass" @mouseup="onBasicUploaderClick" v-else-if="isBasic" v-ripple>
         <span :class="basicChooseButtonIconClass"></span>
         <span class="p-button-text">{{basicChooseButtonLabel}}</span>
         <input ref="fileInput" type="file" :accept="accept" :disabled="disabled" @change="onFileSelect" @focus="onFocus" @blur="onBlur" v-if="!hasFiles" />
@@ -43,6 +43,7 @@ import Button from '../button/Button';
 import ProgressBar from '../progressbar/ProgressBar';
 import Message from '../message/Message';
 import DomHandler from '../utils/DomHandler';
+import Ripple from '../ripple/Ripple';
 
 export default {
     props: {
@@ -343,6 +344,9 @@ export default {
         'FileUploadProgressBar': ProgressBar,
         'FileUploadMessage': Message
     },
+    directives: {
+        'ripple': Ripple
+    }
 }
 </script>
 
@@ -380,6 +384,7 @@ export default {
     filter: alpha(opacity=0);
     direction: ltr;
     cursor: pointer;
+    display: none;
 }
 
 .p-fileupload-choose.p-fileupload-choose-selected input[type=file] {

@@ -4,11 +4,11 @@
             <template v-for="(item, i) of model">
                 <li role="none" :class="getItemClass(item)" :style="item.style" v-if="visible(item) && !item.separator" :key="item.label + i"
                     @mouseenter="onItemMouseEnter($event, item)">
-                    <router-link v-if="item.to && !item.disabled" :to="item.to" :class="getLinkClass(item)" @click.native="onItemClick($event, item)" role="menuitem">
+                    <router-link v-if="item.to && !item.disabled" :to="item.to" :class="getLinkClass(item)" @click.native="onItemClick($event, item)" role="menuitem" v-ripple>
                         <span :class="['p-menuitem-icon', item.icon]"></span>
                         <span class="p-menuitem-text">{{item.label}}</span>
                     </router-link>
-                    <a v-else :href="item.url" :class="getLinkClass(item)" :target="item.target" @click="onItemClick($event, item)"
+                    <a v-else :href="item.url" :class="getLinkClass(item)" :target="item.target" @click="onItemClick($event, item)" v-ripple
                          :aria-haspopup="item.items != null" :aria-expanded="item === activeItem" role="menuitem"  :tabindex="item.disabled ? null : '0'">
                         <span :class="['p-menuitem-icon', item.icon]"></span>
                         <span class="p-menuitem-text">{{item.label}}</span>
@@ -25,6 +25,7 @@
 
 <script>
 import DomHandler from '../utils/DomHandler';
+import Ripple from '../ripple/Ripple';
 
 export default {
     name: 'sub-menu',
@@ -125,6 +126,9 @@ export default {
         containerClass() {
             return {'p-submenu-list': !this.root};
         }
+    },
+    directives: {
+        'ripple': Ripple
     }
 }
 </script>

@@ -1,7 +1,7 @@
 <template>
     <div class="p-galleria-thumbnail-wrapper">
         <div class="p-galleria-thumbnail-container">
-            <button v-if="showThumbnailNavigators" :class="navBackwardClass" @click="navBackward($event)" :disabled="isNavBackwardDisabled()">
+            <button v-if="showThumbnailNavigators" :class="navBackwardClass" @click="navBackward($event)" :disabled="isNavBackwardDisabled()" v-ripple>
                 <span :class="navBackwardIconClass"></span>
             </button>
             <div class="p-galleria-thumbnail-items-container" :style="{'height': isVertical ? contentHeight : ''}">
@@ -18,7 +18,7 @@
                     </div>
                 </div>
             </div>
-            <button v-if="showThumbnailNavigators" :class="navForwardClass" @click="navForward($event)" :disabled="isNavForwardDisabled()">
+            <button v-if="showThumbnailNavigators" :class="navForwardClass" @click="navForward($event)" :disabled="isNavForwardDisabled()" v-ripple>
                 <span :class="navForwardIconClass"></span>
             </button>
         </div>
@@ -28,6 +28,7 @@
 <script>
 import GalleriaItemSlot from './GalleriaItemSlot';
 import DomHandler from '../utils/DomHandler';
+import Ripple from '../ripple/Ripple';
 
 export default {
     props: {
@@ -406,6 +407,9 @@ export default {
     },
     components: {
         'GalleriaItemSlot': GalleriaItemSlot
+    },
+    directives: {
+        'ripple': Ripple
     }
 }
 </script>

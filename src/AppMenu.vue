@@ -53,7 +53,6 @@
 
             <div class="menu-category">Data</div>
             <div class="menu-items">
-                <router-link to="/carousel">Carousel</router-link>
                 <router-link to="/datatable" v-slot="{ href, route, navigate, isActive }">
                     <div>
                         <a tabindex="0" @click="toggleSubmenu($event, 'datatable')">DataTable</a>
@@ -198,6 +197,7 @@
 
             <div class="menu-category">Media</div>
             <div class="menu-items">
+                <router-link to="/carousel">Carousel</router-link>
                 <router-link to="/galleria" v-slot="{ href, route, navigate, isActive }">
                     <div>
                         <a tabindex="0" @click="toggleSubmenu($event, 'galleria')">Galleria</a>

@@ -90,6 +90,8 @@ export default {
     display: flex;
     align-items: center;
     text-decoration: none;
+    overflow: hidden;
+    position: relative;
 }
 
 .p-menubar .p-menuitem-text {

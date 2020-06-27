@@ -6,7 +6,7 @@
                 <span class="p-toast-title">{{message.summary}}</span>
                 <div class="p-toast-detail">{{message.detail}}</div>
             </div>
-            <button class="p-toast-icon-close p-link" @click="onCloseClick" v-if="message.closable !== false" type="button">
+            <button class="p-toast-icon-close p-link" @click="onCloseClick" v-if="message.closable !== false" type="button" v-ripple>
                 <span class="p-toast-icon-close-icon pi pi-times"></span>
             </button>
         </div>
@@ -14,6 +14,8 @@
 </template>
 
 <script>
+import Ripple from '../ripple/Ripple';
+
 export default {
     props: {
         message: null
@@ -55,6 +57,9 @@ export default {
                 'pi-check': this.message.severity === 'success'
             }];
         }
+    },
+    directives: {
+        'ripple': Ripple
     }
 }
 </script>

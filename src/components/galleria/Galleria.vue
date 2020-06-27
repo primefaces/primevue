@@ -215,6 +215,7 @@ export default {
     display: inline-flex;
     justify-content: center;
     align-items: center;
+    overflow: hidden;
 }
 
 .p-galleria-item-prev {
@@ -273,7 +274,9 @@ export default {
     flex: 0 0 auto;
     display: flex;
     justify-content: center;
-	align-items: center;
+    align-items: center;
+    overflow: hidden;
+    position: relative;
 }
 
 .p-galleria-thumbnail-prev span,
@@ -435,6 +438,7 @@ export default {
     display: flex;
     justify-content: center;
     align-items: center;
+    overflow: hidden;
 }
 
 .p-galleria-mask .p-galleria-item-nav {

@@ -1,13 +1,13 @@
 <template>
   <div class="p-galleria-item-wrapper">
     <div class="p-galleria-item-container">
-        <button v-if="showItemNavigators" type="button" :class="navBackwardClass" @click="navBackward($event)" :disabled="isNavBackwardDisabled()">
+        <button v-if="showItemNavigators" type="button" :class="navBackwardClass" @click="navBackward($event)" :disabled="isNavBackwardDisabled()" v-ripple>
             <span class="p-galleria-item-prev-icon pi pi-chevron-left"></span>
         </button>
         <div class="p-galleria-item">
             <GalleriaItemSlot type="item" :item="activeItem" :templates="templates" />
         </div>
-        <button v-if="showItemNavigators" type="button" :class="navForwardClass" @click="navForward($event)" :disabled="isNavForwardDisabled()">
+        <button v-if="showItemNavigators" type="button" :class="navForwardClass" @click="navForward($event)" :disabled="isNavForwardDisabled()" v-ripple>
             <span class="p-galleria-item-next-icon pi pi-chevron-right"></span>
         </button>
         <div class="p-galleria-caption" v-if="templates['caption']">
@@ -27,6 +27,7 @@
 
 <script>
 import GalleriaItemSlot from './GalleriaItemSlot';
+import Ripple from '../ripple/Ripple';
 
 export default {
     props: {
@@ -153,6 +154,9 @@ export default {
     },
     components: {
         'GalleriaItemSlot': GalleriaItemSlot
+    },
+    directives: {
+        'ripple': Ripple
     }
 };
 </script>

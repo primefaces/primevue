@@ -3,13 +3,13 @@
         <template v-for="(item, i) of model">
             <li :class="getItemClass(item)" :style="item.style" v-if="visible(item) && !item.separator" :key="item.label + i"
                 @mouseenter="onItemMouseEnter($event, item)" role="none">
-                <router-link v-if="item.to && !item.disabled" :to="item.to" :class="getLinkClass(item)"
+                <router-link v-if="item.to && !item.disabled" :to="item.to" :class="getLinkClass(item)" v-ripple
                     @click.native="onItemClick($event, item)" @keydown.native="onItemKeyDown($event, item)" role="menuitem">
                     <span :class="['p-menuitem-icon', item.icon]"></span>
                     <span class="p-menuitem-text">{{item.label}}</span>
                 </router-link>
                 <a v-else :href="item.url" :class="getLinkClass(item)" :target="item.target" :aria-haspopup="item.items != null" :aria-expanded="item === activeItem"
-                    @click="onItemClick($event, item)" @keydown="onItemKeyDown($event, item)" role="menuitem" :tabindex="item.disabled ? null : '0'">
+                    @click="onItemClick($event, item)" @keydown="onItemKeyDown($event, item)" role="menuitem" :tabindex="item.disabled ? null : '0'" v-ripple>
                     <span :class="['p-menuitem-icon', item.icon]"></span>
                     <span class="p-menuitem-text">{{item.label}}</span>
                     <span class="p-submenu-icon pi pi-angle-right" v-if="item.items"></span>
@@ -24,6 +24,7 @@
 
 <script>
 import DomHandler from '../utils/DomHandler';
+import Ripple from '../ripple/Ripple';
 
 export default {
     name: 'sub-menu',
@@ -219,6 +220,9 @@ export default {
         containerClass() {
             return {'p-submenu-list': !this.root};
         }
+    },
+    directives: {
+        'ripple': Ripple
     }
 }
 </script>

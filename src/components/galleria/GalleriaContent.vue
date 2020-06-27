@@ -1,6 +1,6 @@
 <template>
     <div :id="id" v-if="$attrs.value && $attrs.value.length > 0" :class="galleriaClass" :style="$attrs.containerStyle">
-        <button v-if="$attrs.fullScreen" type="button" class="p-galleria-close p-link" @click="$emit('maskHide')">
+        <button v-if="$attrs.fullScreen" type="button" class="p-galleria-close p-link" @click="$emit('maskHide')" v-ripple>
             <span class="p-galleria-close-icon pi pi-times"></span>
         </button>
         <div v-if="$attrs.templates && $attrs.templates['header']" class="p-galleria-header">
@@ -28,6 +28,7 @@ import UniqueComponentId from '../utils/UniqueComponentId';
 import GalleriaItem from './GalleriaItem';
 import GalleriaThumbnails from './GalleriaThumbnails';
 import GalleriaItemSlot from './GalleriaItemSlot';
+import Ripple from '../ripple/Ripple';
 
 export default {
     inheritAttrs: false,
@@ -97,6 +98,9 @@ export default {
         'GalleriaItem': GalleriaItem,
         'GalleriaThumbnails': GalleriaThumbnails,
         'GalleriaItemSlot': GalleriaItemSlot
+    },
+    directives: {
+        'ripple': Ripple
     }
 }
 </script>

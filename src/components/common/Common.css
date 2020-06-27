@@ -175,13 +175,6 @@ button {
     display: none !important;
 }
   
-@-webkit-keyframes ripple {  
-    100% {
-        opacity: 0;
-        -webkit-transform: scale(2.5);
-    }
-}
-  
 @keyframes ripple {  
     100% {
         opacity: 0;
