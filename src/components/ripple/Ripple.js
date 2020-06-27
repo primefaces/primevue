@@ -21,6 +21,7 @@ function create(el) {
 function remove(el) {
     let ink = getInk(el);
     if (ink) {
+        unbindEvents(el);
         ink.removeEventListener('animationend', onAnimationEnd);
         ink.remove();
     }
@@ -75,13 +76,14 @@ function getInk(el) {
 }
 
 const Ripple = {
-    inserted(el) {
-        create(el);
-        bindEvents(el);
+    inserted(el, binding, vnode) {
+        if (vnode.context.$primevue && vnode.context.$primevue.ripple) {
+            create(el);
+            bindEvents(el);
+        }
     },
     unbind(el) {
         remove(el);
-        unbindEvents(el);
     }
 };
 

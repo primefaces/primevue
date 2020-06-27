@@ -310,14 +310,6 @@ export default {
             }
         }
     },
-    computed: {
-        containerClass() {
-            return ['layout-config', {'layout-config-active': this.active}];
-        },
-        rippleActive() {
-            return this.$appState.ripple;
-        }
-    },
     methods: {
         toggleConfigurator(event) {
             this.active = !this.active;
@@ -365,8 +357,16 @@ export default {
             document.documentElement.style.fontSize = this.scale + 'px';
         },
         onRippleChange(value) {
-            this.$appState.ripple = value;
+            this.$primevue.ripple = value;
         }
-    }
+    },
+    computed: {
+        containerClass() {
+            return ['layout-config', {'layout-config-active': this.active}];
+        },
+        rippleActive() {
+            return this.$primevue.ripple;
+        }
+    },
 }
 </script>

@@ -440,6 +440,7 @@
   border-color: #c298d8;
 }
 .p-dropdown .p-dropdown-label {
+  background: transparent;
   border: 0 none;
   padding-right: 1.75rem;
 }
@@ -451,7 +452,7 @@
   box-shadow: none;
 }
 .p-dropdown .p-dropdown-trigger {
-  background: #20262e;
+  background: transparent;
   color: rgba(255, 255, 255, 0.6);
   width: 2.357rem;
   border-top-right-radius: 4px;
@@ -510,8 +511,14 @@
   border-width: 1px;
 }
 
-.p-input-filled .p-dropdown-trigger {
+.p-input-filled .p-dropdown {
   background: #3f4b5b;
+}
+.p-input-filled .p-dropdown:not(.p-disabled):hover {
+  background-color: #3f4b5b;
+}
+.p-input-filled .p-dropdown:not(.p-disabled).p-focus {
+  background-color: #3f4b5b;
 }
 
 .p-editor-container .p-editor-toolbar {
@@ -826,7 +833,7 @@
   color: rgba(255, 255, 255, 0.6);
 }
 .p-multiselect .p-multiselect-trigger {
-  background: #20262e;
+  background: transparent;
   color: rgba(255, 255, 255, 0.6);
   width: 2.357rem;
   border-top-right-radius: 4px;
@@ -907,9 +914,14 @@
   border-width: 1px;
 }
 
-.p-input-filled .p-multiselect-label,
-.p-input-filled .p-multiselect-trigger {
+.p-input-filled .p-multiselect {
   background: #3f4b5b;
+}
+.p-input-filled .p-multiselect:not(.p-disabled):hover {
+  background-color: #3f4b5b;
+}
+.p-input-filled .p-multiselect:not(.p-disabled).p-focus {
+  background-color: #3f4b5b;
 }
 
 .p-password-panel {

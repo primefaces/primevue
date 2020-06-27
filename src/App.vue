@@ -121,7 +121,7 @@ export default {
             this.$appState.darkTheme = event.dark;
 
             if (event.theme.startsWith('md')) {
-                this.$appState.ripple = true;
+                this.$primevue.ripple = true;
             }
         },
         addClass(element, className) {
@@ -158,7 +158,7 @@ export default {
             return [{
                 'layout-news-active': this.newsActive,
                 'p-input-filled': this.$appState.inputStyle === 'filled',
-                'p-ripple-disabled': this.$appState.ripple === false
+                'p-ripple-disabled': this.$primevue.ripple === false
             }];
         }
     },

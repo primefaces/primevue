@@ -16,8 +16,10 @@
 
         .layout-config-content-wrapper {
             .layout-config-button {
+                opacity: .9;
+
                 i {
-                    transform: rotate(360deg);
+                    transform: rotate(0deg);
                 }
             }
         }
@@ -48,16 +50,13 @@
             border-top-right-radius: 3px;
             border-bottom-left-radius: 3px;
             border-bottom-right-radius: 3px;
-            transition: background-color .2s, box-shadow .2s;
-            box-shadow: 0 7px 8px -4px rgba(0, 0, 0, 0.2),
-                        0 5px 22px 4px rgba(0, 0, 0, 0.12),
-                        0 12px 17px 2px rgba(0, 0, 0, 0.14);
+            box-shadow: 0 5px 5px -3px rgba(0, 0, 0, 0.2), 0 8px 10px 1px rgba(0, 0, 0, 0.14), 0 3px 14px 2px rgba(0, 0, 0, 0.12);
 
             i {
                 font-size: 26px;
                 line-height: inherit;
                 cursor: pointer;
-                transform: rotate(0deg);
+                transform: rotate(360deg);
                 transition: transform 1s;
             }
         }
