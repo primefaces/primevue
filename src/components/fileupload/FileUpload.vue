@@ -1,9 +1,8 @@
 <template>
     <div class="p-fileupload p-component" v-if="isAdvanced">
         <div class="p-fileupload-buttonbar">
-            <span icon="pi pi-plus" :class="advancedChooseButtonClass" v-ripple>
-                <input ref="fileInput" type="file" @change="onFileSelect" @focus="onFocus" @blur="onBlur"
-                    :multiple="multiple" :accept="accept" :disabled="disabled" />
+            <span icon="pi pi-plus" :class="advancedChooseButtonClass" @click="choose" @keydown.enter="choose" @focus="onFocus" @blur="onBlur" v-ripple tabindex="0" >
+                <input ref="fileInput" type="file" @change="onFileSelect" :multiple="multiple" :accept="accept" :disabled="disabled" />
                 <span class="p-button-icon p-button-icon-left pi pi-fw pi-plus"></span>
                 <span class="p-button-text">{{chooseLabel}}</span>
             </span>
@@ -26,12 +25,11 @@
                 </div>
             </div>
             <div class="p-fileupload-empty" v-if="$scopedSlots.empty && !hasFiles">
-                <slot name="empty">
-                </slot>
+                <slot name="empty"></slot>
             </div>
         </div>
     </div>
-    <span :class="basicChooseButtonClass" @mouseup="onBasicUploaderClick" v-else-if="isBasic" v-ripple>
+    <span :class="basicChooseButtonClass" @mouseup="onBasicUploaderClick" v-else-if="isBasic" @keydown.enter="choose" @focus="onFocus" @blur="onBlur" v-ripple tabindex="0" >
         <span :class="basicChooseButtonIconClass"></span>
         <span class="p-button-text">{{basicChooseButtonLabel}}</span>
         <input ref="fileInput" type="file" :accept="accept" :disabled="disabled" @change="onFileSelect" @focus="onFocus" @blur="onBlur" v-if="!hasFiles" />
@@ -146,6 +144,9 @@ export default {
             else {
                 this.clearInputElement();
             }
+        },
+        choose() {
+            this.$refs.fileInput.click();
         },
         upload() {
             let xhr = new XMLHttpRequest();
@@ -272,9 +273,10 @@ export default {
             }
         },
         onBasicUploaderClick() {
-            if (this.hasFiles) {
+            if (this.hasFiles)
                 this.upload();
-            }
+            else
+                this.$refs.fileInput.click();
         },
         remove(index) {
             this.clearInputElement();
@@ -373,17 +375,6 @@ export default {
 }
 
 .p-button.p-fileupload-choose input[type=file] {
-    position: absolute;
-    top: 0;
-    right: 0;
-    margin: 0;
-    opacity: 0;
-    min-height: 100%;
-    font-size: 100px;
-    text-align: right;
-    filter: alpha(opacity=0);
-    direction: ltr;
-    cursor: pointer;
     display: none;
 }
 
