@@ -1,16 +1,16 @@
 @charset "UTF-8";
 :root {
-  --surface-a: #1f2d40;
-  --surface-b: #17212f;
-  --surface-c: #283951;
-  --surface-d: #304562;
-  --surface-e: #1f2d40;
-  --surface-f: #1f2d40;
-  --text-color: rgba(255, 255, 255, 0.87);
-  --text-color-secondary: rgba(255, 255, 255, 0.6);
-  --primary-color: #BA68C8;
-  --primary-color-text: #ffffff;
-  --font-family: -apple-system, BlinkMacSystemFont, Segoe UI, Roboto, Helvetica, Arial, sans-serif, Apple Color Emoji, Segoe UI Emoji, Segoe UI Symbol;
+  --surface-a:#1f2d40;
+  --surface-b:#17212f;
+  --surface-c:rgba(255, 255, 255, 0.03);
+  --surface-d:#304562;
+  --surface-e:#1f2d40;
+  --surface-f:#1f2d40;
+  --text-color:rgba(255, 255, 255, 0.87);
+  --text-color-secondary:rgba(255, 255, 255, 0.6);
+  --primary-color:#BA68C8;
+  --primary-color-text:#ffffff;
+  --font-family:-apple-system, BlinkMacSystemFont, Segoe UI, Roboto, Helvetica, Arial, sans-serif, Apple Color Emoji, Segoe UI Emoji, Segoe UI Symbol;
 }
 
 * {
@@ -115,7 +115,7 @@
 }
 .p-autocomplete-panel .p-autocomplete-items .p-autocomplete-item:hover {
   color: rgba(255, 255, 255, 0.87);
-  background: #17212f;
+  background: rgba(255, 255, 255, 0.03);
 }
 .p-autocomplete-panel .p-autocomplete-items .p-autocomplete-item.p-highlight {
   color: #ffffff;
@@ -170,7 +170,7 @@
 .p-datepicker .p-datepicker-header .p-datepicker-next:hover {
   color: rgba(255, 255, 255, 0.87);
   border-color: transparent;
-  background: #17212f;
+  background: rgba(255, 255, 255, 0.03);
 }
 .p-datepicker .p-datepicker-header .p-datepicker-title {
   line-height: 1;
@@ -247,7 +247,7 @@
 }
 .p-datepicker .p-timepicker button:hover {
   color: rgba(255, 255, 255, 0.87);
-  background: #17212f;
+  background: rgba(255, 255, 255, 0.03);
 }
 .p-datepicker .p-timepicker button:last-child {
   margin-top: 0.2em;
@@ -292,7 +292,7 @@
   color: rgba(255, 255, 255, 0.87);
 }
 .p-datepicker:not(.p-disabled) table td span:not(.p-highlight):not(.p-disabled):hover {
-  background: #17212f;
+  background: rgba(255, 255, 255, 0.03);
 }
 .p-datepicker:not(.p-disabled) table td span:not(.p-highlight):not(.p-disabled):focus {
   outline: 0 none;
@@ -300,7 +300,7 @@
   box-shadow: 0 0 0 1px #E1BEE7;
 }
 .p-datepicker:not(.p-disabled) .p-monthpicker .p-monthpicker-month:not(.p-highlight):not(.p-disabled):hover {
-  background: #17212f;
+  background: rgba(255, 255, 255, 0.03);
 }
 .p-datepicker:not(.p-disabled) .p-monthpicker .p-monthpicker-month:not(.p-highlight):not(.p-disabled):focus {
   outline: 0 none;
@@ -503,7 +503,7 @@
 }
 .p-dropdown-panel .p-dropdown-items .p-dropdown-item:not(.p-highlight):not(.p-disabled):hover {
   color: rgba(255, 255, 255, 0.87);
-  background: #17212f;
+  background: rgba(255, 255, 255, 0.03);
 }
 .p-dropdown-panel.p-error, .p-dropdown-panel.p-invalid {
   border-color: #ef9a9a;
@@ -653,7 +653,7 @@
   box-shadow: 0 0 0 1px #E1BEE7;
 }
 .p-inputswitch:not(.p-disabled):hover .p-inputswitch-slider {
-  background: #17212f;
+  background: rgba(255, 255, 255, 0.03);
 }
 .p-inputswitch.p-inputswitch-checked .p-inputswitch-slider {
   background: #BA68C8;
@@ -796,7 +796,7 @@
 }
 .p-listbox:not(.p-disabled) .p-listbox-item:not(.p-highlight):not(.p-disabled):hover {
   color: rgba(255, 255, 255, 0.87);
-  background: #17212f;
+  background: rgba(255, 255, 255, 0.03);
 }
 .p-listbox.p-error, .p-listbox.p-invalid {
   border-color: #ef9a9a;
@@ -872,7 +872,7 @@
 .p-multiselect-panel .p-multiselect-header .p-multiselect-close:hover {
   color: rgba(255, 255, 255, 0.87);
   border-color: transparent;
-  background: #17212f;
+  background: rgba(255, 255, 255, 0.03);
 }
 .p-multiselect-panel .p-multiselect-items {
   padding: 0.5rem 0;
@@ -892,7 +892,7 @@
 }
 .p-multiselect-panel .p-multiselect-items .p-multiselect-item:not(.p-highlight):not(.p-disabled):hover {
   color: rgba(255, 255, 255, 0.87);
-  background: #17212f;
+  background: rgba(255, 255, 255, 0.03);
 }
 .p-multiselect-panel .p-multiselect-items .p-multiselect-item:focus {
   outline: 0 none;
@@ -1017,7 +1017,7 @@
   color: rgba(255, 255, 255, 0.6);
 }
 .p-selectbutton .p-button:not(.p-disabled):not(.p-highlight):hover {
-  background: #17212f;
+  background: rgba(255, 255, 255, 0.03);
   border-color: #304562;
   color: rgba(255, 255, 255, 0.87);
 }
@@ -1099,7 +1099,7 @@
   color: rgba(255, 255, 255, 0.6);
 }
 .p-togglebutton.p-button:not(.p-disabled):not(.p-highlight):hover {
-  background: #17212f;
+  background: rgba(255, 255, 255, 0.03);
   border-color: #304562;
   color: rgba(255, 255, 255, 0.87);
 }
@@ -1581,7 +1581,7 @@
 }
 .p-carousel .p-carousel-content .p-carousel-prev:not(.p-disabled):hover,
 .p-carousel .p-carousel-content .p-carousel-next:not(.p-disabled):hover {
-  background: #17212f;
+  background: rgba(255, 255, 255, 0.03);
   border-color: transparent;
   color: rgba(255, 255, 255, 0.87);
 }
@@ -1600,7 +1600,7 @@
   border-radius: 0;
 }
 .p-carousel .p-carousel-indicators .p-carousel-indicator button:hover {
-  background: #17212f;
+  background: rgba(255, 255, 255, 0.03);
 }
 .p-carousel .p-carousel-indicators .p-carousel-indicator.p-highlight button {
   background: #BA68C8;
@@ -1667,7 +1667,7 @@
   margin-left: 0.5rem;
 }
 .p-datatable .p-sortable-column:not(.p-highlight):hover {
-  background: #17212f;
+  background: rgba(255, 255, 255, 0.03);
   color: rgba(255, 255, 255, 0.87);
 }
 .p-datatable .p-sortable-column:not(.p-highlight):hover .p-sortable-column-icon {
@@ -1716,7 +1716,7 @@
   box-shadow: inset 0 -2px 0 0 #BA68C8;
 }
 .p-datatable.p-datatable-hoverable-rows .p-datatable-tbody > tr:not(.p-highlight):hover {
-  background: #17212f;
+  background: rgba(255, 255, 255, 0.03);
   color: rgba(255, 255, 255, 0.87);
 }
 .p-datatable .p-column-resizer-helper {
@@ -1751,7 +1751,7 @@
   border-width: 1px;
 }
 .p-datatable.p-datatable-striped .p-datatable-tbody > tr:nth-child(even) {
-  background: #283951;
+  background: rgba(255, 255, 255, 0.01);
 }
 .p-datatable.p-datatable-striped .p-datatable-tbody > tr:nth-child(even).p-highlight {
   background: #BA68C8;
@@ -1899,7 +1899,7 @@
   transition: background-color 0.2s, color 0.2s, border-color 0.2s, box-shadow 0.2s;
 }
 .fc .fc-toolbar .fc-button.fc-dayGridMonth-button:hover, .fc .fc-toolbar .fc-button.fc-timeGridWeek-button:hover, .fc .fc-toolbar .fc-button.fc-timeGridDay-button:hover {
-  background: #17212f;
+  background: rgba(255, 255, 255, 0.03);
   border-color: #304562;
   color: rgba(255, 255, 255, 0.87);
 }
@@ -1964,7 +1964,7 @@
   transition: transform 0.2s, background-color 0.2s, border-color 0.2s, box-shadow 0.2s;
 }
 .p-orderlist .p-orderlist-list .p-orderlist-item:not(.p-highlight):hover {
-  background: #17212f;
+  background: rgba(255, 255, 255, 0.03);
   color: rgba(255, 255, 255, 0.87);
 }
 .p-orderlist .p-orderlist-list .p-orderlist-item:focus {
@@ -1994,7 +1994,7 @@
   }
 }
 .p-organizationchart .p-organizationchart-node-content.p-organizationchart-selectable-node:not(.p-highlight):hover {
-  background: #17212f;
+  background: rgba(255, 255, 255, 0.03);
   color: rgba(255, 255, 255, 0.87);
 }
 .p-organizationchart .p-organizationchart-node-content.p-highlight {
@@ -2062,7 +2062,7 @@
 .p-paginator .p-paginator-prev:not(.p-disabled):not(.p-highlight):hover,
 .p-paginator .p-paginator-next:not(.p-disabled):not(.p-highlight):hover,
 .p-paginator .p-paginator-last:not(.p-disabled):not(.p-highlight):hover {
-  background: #17212f;
+  background: rgba(255, 255, 255, 0.03);
   border-color: transparent;
   color: rgba(255, 255, 255, 0.87);
 }
@@ -2106,7 +2106,7 @@
   color: #ffffff;
 }
 .p-paginator .p-paginator-pages .p-paginator-page:not(.p-highlight):hover {
-  background: #17212f;
+  background: rgba(255, 255, 255, 0.03);
   border-color: transparent;
   color: rgba(255, 255, 255, 0.87);
 }
@@ -2144,7 +2144,7 @@
   transition: transform 0.2s, background-color 0.2s, border-color 0.2s, box-shadow 0.2s;
 }
 .p-picklist .p-picklist-list .p-picklist-item:not(.p-highlight):hover {
-  background: #17212f;
+  background: rgba(255, 255, 255, 0.03);
   color: rgba(255, 255, 255, 0.87);
 }
 .p-picklist .p-picklist-list .p-picklist-item:focus {
@@ -2232,7 +2232,7 @@
   color: #ffffff;
 }
 .p-tree .p-tree-container .p-treenode .p-treenode-content.p-treenode-selectable:not(.p-highlight):hover {
-  background: #17212f;
+  background: rgba(255, 255, 255, 0.03);
   color: rgba(255, 255, 255, 0.87);
 }
 .p-tree .p-tree-filter-container {
@@ -2313,7 +2313,7 @@
   margin-left: 0.5rem;
 }
 .p-treetable .p-sortable-column:not(.p-highlight):hover {
-  background: #17212f;
+  background: rgba(255, 255, 255, 0.03);
   color: rgba(255, 255, 255, 0.87);
 }
 .p-treetable .p-sortable-column:not(.p-highlight):hover .p-sortable-column-icon {
@@ -2363,7 +2363,7 @@
   color: #ffffff;
 }
 .p-treetable.p-treetable-hoverable-rows .p-treetable-tbody > tr:not(.p-highlight):hover {
-  background: #17212f;
+  background: rgba(255, 255, 255, 0.03);
   color: rgba(255, 255, 255, 0.87);
 }
 .p-treetable.p-treetable-hoverable-rows .p-treetable-tbody > tr:not(.p-highlight):hover .p-treetable-toggler {
@@ -2449,7 +2449,7 @@
   box-shadow: 0 0 0 1px #E1BEE7;
 }
 .p-accordion .p-accordion-header:not(.p-highlight):not(.p-disabled):hover .p-accordion-header-link {
-  background: #17212f;
+  background: rgba(255, 255, 255, 0.03);
   border-color: #304562;
   color: rgba(255, 255, 255, 0.87);
 }
@@ -2462,7 +2462,7 @@
 }
 .p-accordion .p-accordion-header:not(.p-disabled).p-highlight:hover .p-accordion-header-link {
   border-color: #304562;
-  background: #17212f;
+  background: rgba(255, 255, 255, 0.03);
   color: rgba(255, 255, 255, 0.87);
 }
 .p-accordion .p-accordion-content {
@@ -2556,7 +2556,7 @@
   box-shadow: 0 0 0 1px #E1BEE7;
 }
 .p-fieldset.p-fieldset-toggleable .p-fieldset-legend:hover {
-  background: #17212f;
+  background: rgba(255, 255, 255, 0.03);
   border-color: #304562;
   color: rgba(255, 255, 255, 0.87);
 }
@@ -2584,7 +2584,7 @@
 .p-panel .p-panel-header .p-panel-header-icon:hover {
   color: rgba(255, 255, 255, 0.87);
   border-color: transparent;
-  background: #17212f;
+  background: rgba(255, 255, 255, 0.03);
 }
 .p-panel .p-panel-header .p-panel-header-icon:focus {
   outline: 0 none;
@@ -2701,7 +2701,7 @@
 .p-dialog .p-dialog-header .p-dialog-header-icon:hover {
   color: rgba(255, 255, 255, 0.87);
   border-color: transparent;
-  background: #17212f;
+  background: rgba(255, 255, 255, 0.03);
 }
 .p-dialog .p-dialog-header .p-dialog-header-icon:focus {
   outline: 0 none;
@@ -2795,7 +2795,7 @@
   transition: background-color 0.2s, color 0.2s, box-shadow 0.2s;
 }
 .p-sidebar .p-sidebar-close:hover {
-  background: #17212f;
+  background: rgba(255, 255, 255, 0.03);
   border-color: transparent;
   color: rgba(255, 255, 255, 0.87);
 }
@@ -2925,7 +2925,7 @@
   color: rgba(255, 255, 255, 0.6);
 }
 .p-contextmenu .p-menuitem-link:not(.p-disabled):hover {
-  background: #17212f;
+  background: rgba(255, 255, 255, 0.03);
 }
 .p-contextmenu .p-menuitem-link:not(.p-disabled):hover .p-menuitem-text {
   color: rgba(255, 255, 255, 0.87);
@@ -2990,7 +2990,7 @@
   margin-left: 0.5rem;
 }
 .p-megamenu .p-megamenu-root-list > .p-menuitem > .p-menuitem-link:not(.p-disabled):hover {
-  background: #17212f;
+  background: rgba(255, 255, 255, 0.03);
 }
 .p-megamenu .p-megamenu-root-list > .p-menuitem > .p-menuitem-link:not(.p-disabled):hover .p-menuitem-text {
   color: rgba(255, 255, 255, 0.87);
@@ -3040,7 +3040,7 @@
   color: rgba(255, 255, 255, 0.6);
 }
 .p-megamenu .p-menuitem-link:not(.p-disabled):hover {
-  background: #17212f;
+  background: rgba(255, 255, 255, 0.03);
 }
 .p-megamenu .p-menuitem-link:not(.p-disabled):hover .p-menuitem-text {
   color: rgba(255, 255, 255, 0.87);
@@ -3119,7 +3119,7 @@
   color: rgba(255, 255, 255, 0.6);
 }
 .p-menu .p-menuitem-link:not(.p-disabled):hover {
-  background: #17212f;
+  background: rgba(255, 255, 255, 0.03);
 }
 .p-menu .p-menuitem-link:not(.p-disabled):hover .p-menuitem-text {
   color: rgba(255, 255, 255, 0.87);
@@ -3179,7 +3179,7 @@
   color: rgba(255, 255, 255, 0.6);
 }
 .p-menubar .p-menuitem-link:not(.p-disabled):hover {
-  background: #17212f;
+  background: rgba(255, 255, 255, 0.03);
 }
 .p-menubar .p-menuitem-link:not(.p-disabled):hover .p-menuitem-text {
   color: rgba(255, 255, 255, 0.87);
@@ -3214,7 +3214,7 @@
   margin-left: 0.5rem;
 }
 .p-menubar .p-menubar-root-list > .p-menuitem > .p-menuitem-link:not(.p-disabled):hover {
-  background: #17212f;
+  background: rgba(255, 255, 255, 0.03);
 }
 .p-menubar .p-menubar-root-list > .p-menuitem > .p-menuitem-link:not(.p-disabled):hover .p-menuitem-text {
   color: rgba(255, 255, 255, 0.87);
@@ -3289,7 +3289,7 @@
   }
   .p-menubar .p-menubar-button:hover {
     color: rgba(255, 255, 255, 0.87);
-    background: #17212f;
+    background: rgba(255, 255, 255, 0.03);
     border-color: transparent;
   }
   .p-menubar .p-menubar-button:focus {
@@ -3335,7 +3335,7 @@
     color: rgba(255, 255, 255, 0.6);
   }
   .p-menubar .p-menubar-root-list > .p-menuitem > .p-menuitem-link:not(.p-disabled):hover {
-    background: #17212f;
+    background: rgba(255, 255, 255, 0.03);
   }
   .p-menubar .p-menubar-root-list > .p-menuitem > .p-menuitem-link:not(.p-disabled):hover .p-menuitem-text {
     color: rgba(255, 255, 255, 0.87);
@@ -3419,7 +3419,7 @@
   box-shadow: 0 0 0 1px #E1BEE7;
 }
 .p-panelmenu .p-panelmenu-header:not(.p-highlight):not(.p-disabled) > a:hover {
-  background: #17212f;
+  background: rgba(255, 255, 255, 0.03);
   border-color: #304562;
   color: rgba(255, 255, 255, 0.87);
 }
@@ -3435,7 +3435,7 @@
 }
 .p-panelmenu .p-panelmenu-header.p-highlight:not(.p-disabled) > a:hover {
   border-color: #304562;
-  background: #17212f;
+  background: rgba(255, 255, 255, 0.03);
   color: rgba(255, 255, 255, 0.87);
 }
 .p-panelmenu .p-panelmenu-content {
@@ -3468,7 +3468,7 @@
   color: rgba(255, 255, 255, 0.6);
 }
 .p-panelmenu .p-panelmenu-content .p-menuitem .p-menuitem-link:not(.p-disabled):hover {
-  background: #17212f;
+  background: rgba(255, 255, 255, 0.03);
 }
 .p-panelmenu .p-panelmenu-content .p-menuitem .p-menuitem-link:not(.p-disabled):hover .p-menuitem-text {
   color: rgba(255, 255, 255, 0.87);
@@ -3622,7 +3622,7 @@
   color: rgba(255, 255, 255, 0.6);
 }
 .p-tieredmenu .p-menuitem-link:not(.p-disabled):hover {
-  background: #17212f;
+  background: rgba(255, 255, 255, 0.03);
 }
 .p-tieredmenu .p-menuitem-link:not(.p-disabled):hover .p-menuitem-text {
   color: rgba(255, 255, 255, 0.87);
@@ -3986,7 +3986,7 @@
   transition: background-color 0.2s, color 0.2s, border-color 0.2s, box-shadow 0.2s;
 }
 .p-inplace .p-inplace-display:not(.p-disabled):hover {
-  background: #17212f;
+  background: rgba(255, 255, 255, 0.03);
   color: rgba(255, 255, 255, 0.87);
 }
 .p-inplace .p-inplace-display:focus {
