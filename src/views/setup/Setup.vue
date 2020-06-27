@@ -146,7 +146,7 @@ primevue/resources/themes/rhea/theme.css
 </CodeHighlight>
 
             <h5>Ripple</h5>
-            <p>Ripple is an optional animation for the supported components such as buttons. It is disabled by default and needs to be enabled at 
+            <p>Ripple is an optional animation for the supported components such as buttons. It is disabled by default and needs to be enabled at
                 your app's entry file (e.g. main.js) using the <i>$primevue</i> instance variable.
             </p>
 <CodeHighlight class="language-javascript">
