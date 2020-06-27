@@ -1,16 +1,16 @@
 @charset "UTF-8";
 :root {
-  --surface-a: #20262e;
-  --surface-b: #20262e;
-  --surface-c: #343e4d;
-  --surface-d: #3f4b5b;
-  --surface-e: #2a323d;
-  --surface-f: #2a323d;
-  --text-color: rgba(255, 255, 255, 0.87);
-  --text-color-secondary: rgba(255, 255, 255, 0.6);
-  --primary-color: #8dd0ff;
-  --primary-color-text: #151515;
-  --font-family: -apple-system, BlinkMacSystemFont, Segoe UI, Roboto, Helvetica, Arial, sans-serif, Apple Color Emoji, Segoe UI Emoji, Segoe UI Symbol;
+  --surface-a:#2a323d;
+  --surface-b:#20262e;
+  --surface-c:rgba(255, 255, 255, 0.04);
+  --surface-d:#3f4b5b;
+  --surface-e:#2a323d;
+  --surface-f:#2a323d;
+  --text-color:rgba(255, 255, 255, 0.87);
+  --text-color-secondary:rgba(255, 255, 255, 0.6);
+  --primary-color:#8dd0ff;
+  --primary-color-text:#151515;
+  --font-family:-apple-system, BlinkMacSystemFont, Segoe UI, Roboto, Helvetica, Arial, sans-serif, Apple Color Emoji, Segoe UI Emoji, Segoe UI Symbol;
 }
 
 * {
@@ -115,7 +115,7 @@
 }
 .p-autocomplete-panel .p-autocomplete-items .p-autocomplete-item:hover {
   color: rgba(255, 255, 255, 0.87);
-  background: #20262e;
+  background: rgba(255, 255, 255, 0.04);
 }
 .p-autocomplete-panel .p-autocomplete-items .p-autocomplete-item.p-highlight {
   color: #151515;
@@ -292,7 +292,7 @@
   color: rgba(255, 255, 255, 0.87);
 }
 .p-datepicker:not(.p-disabled) table td span:not(.p-highlight):not(.p-disabled):hover {
-  background: #20262e;
+  background: rgba(255, 255, 255, 0.04);
 }
 .p-datepicker:not(.p-disabled) table td span:not(.p-highlight):not(.p-disabled):focus {
   outline: 0 none;
@@ -300,7 +300,7 @@
   box-shadow: 0 0 0 1px #e3f3fe;
 }
 .p-datepicker:not(.p-disabled) .p-monthpicker .p-monthpicker-month:not(.p-highlight):not(.p-disabled):hover {
-  background: #20262e;
+  background: rgba(255, 255, 255, 0.04);
 }
 .p-datepicker:not(.p-disabled) .p-monthpicker .p-monthpicker-month:not(.p-highlight):not(.p-disabled):focus {
   outline: 0 none;
@@ -503,7 +503,7 @@
 }
 .p-dropdown-panel .p-dropdown-items .p-dropdown-item:not(.p-highlight):not(.p-disabled):hover {
   color: rgba(255, 255, 255, 0.87);
-  background: #20262e;
+  background: rgba(255, 255, 255, 0.04);
 }
 .p-dropdown-panel.p-error, .p-dropdown-panel.p-invalid {
   border-color: #f19ea6;
@@ -796,7 +796,7 @@
 }
 .p-listbox:not(.p-disabled) .p-listbox-item:not(.p-highlight):not(.p-disabled):hover {
   color: rgba(255, 255, 255, 0.87);
-  background: #20262e;
+  background: rgba(255, 255, 255, 0.04);
 }
 .p-listbox.p-error, .p-listbox.p-invalid {
   border-color: #f19ea6;
@@ -892,7 +892,7 @@
 }
 .p-multiselect-panel .p-multiselect-items .p-multiselect-item:not(.p-highlight):not(.p-disabled):hover {
   color: rgba(255, 255, 255, 0.87);
-  background: #20262e;
+  background: rgba(255, 255, 255, 0.04);
 }
 .p-multiselect-panel .p-multiselect-items .p-multiselect-item:focus {
   outline: 0 none;
@@ -1600,7 +1600,7 @@
   border-radius: 0;
 }
 .p-carousel .p-carousel-indicators .p-carousel-indicator button:hover {
-  background: #20262e;
+  background: rgba(255, 255, 255, 0.04);
 }
 .p-carousel .p-carousel-indicators .p-carousel-indicator.p-highlight button {
   background: #8dd0ff;
@@ -1624,7 +1624,7 @@
   font-weight: 600;
 }
 .p-datatable .p-datatable-footer {
-  background: rgba(255, 255, 255, 0.6);
+  background: #2a323d;
   color: rgba(255, 255, 255, 0.87);
   border: 1px solid #3f4b5b;
   border-width: 1px 0 1px 0;
@@ -1667,7 +1667,7 @@
   margin-left: 0.5rem;
 }
 .p-datatable .p-sortable-column:not(.p-highlight):hover {
-  background: #20262e;
+  background: rgba(255, 255, 255, 0.04);
   color: rgba(255, 255, 255, 0.87);
 }
 .p-datatable .p-sortable-column:not(.p-highlight):hover .p-sortable-column-icon {
@@ -1716,7 +1716,7 @@
   box-shadow: inset 0 -2px 0 0 #8dd0ff;
 }
 .p-datatable.p-datatable-hoverable-rows .p-datatable-tbody > tr:not(.p-highlight):hover {
-  background: #20262e;
+  background: rgba(255, 255, 255, 0.04);
   color: rgba(255, 255, 255, 0.87);
 }
 .p-datatable .p-column-resizer-helper {
@@ -1751,7 +1751,7 @@
   border-width: 1px;
 }
 .p-datatable.p-datatable-striped .p-datatable-tbody > tr:nth-child(even) {
-  background: rgba(0, 0, 0, 0.05);
+  background: rgba(255, 255, 255, 0.02);
 }
 .p-datatable.p-datatable-striped .p-datatable-tbody > tr:nth-child(even).p-highlight {
   background: #8dd0ff;
@@ -1821,7 +1821,7 @@
   border-width: 1px 0 0 0;
 }
 .p-dataview .p-dataview-footer {
-  background: rgba(255, 255, 255, 0.6);
+  background: #2a323d;
   color: rgba(255, 255, 255, 0.87);
   border: 1px solid #3f4b5b;
   border-width: 1px 0 1px 0;
@@ -1964,7 +1964,7 @@
   transition: transform 0.15s, box-shadow 0.15s;
 }
 .p-orderlist .p-orderlist-list .p-orderlist-item:not(.p-highlight):hover {
-  background: #20262e;
+  background: rgba(255, 255, 255, 0.04);
   color: rgba(255, 255, 255, 0.87);
 }
 .p-orderlist .p-orderlist-list .p-orderlist-item:focus {
@@ -1994,7 +1994,7 @@
   }
 }
 .p-organizationchart .p-organizationchart-node-content.p-organizationchart-selectable-node:not(.p-highlight):hover {
-  background: #20262e;
+  background: rgba(255, 255, 255, 0.04);
   color: rgba(255, 255, 255, 0.87);
 }
 .p-organizationchart .p-organizationchart-node-content.p-highlight {
@@ -2062,7 +2062,7 @@
 .p-paginator .p-paginator-prev:not(.p-disabled):not(.p-highlight):hover,
 .p-paginator .p-paginator-next:not(.p-disabled):not(.p-highlight):hover,
 .p-paginator .p-paginator-last:not(.p-disabled):not(.p-highlight):hover {
-  background: #20262e;
+  background: rgba(255, 255, 255, 0.04);
   border-color: #3f4b5b;
   color: #8dd0ff;
 }
@@ -2106,7 +2106,7 @@
   color: #151515;
 }
 .p-paginator .p-paginator-pages .p-paginator-page:not(.p-highlight):hover {
-  background: #20262e;
+  background: rgba(255, 255, 255, 0.04);
   border-color: #3f4b5b;
   color: #8dd0ff;
 }
@@ -2144,7 +2144,7 @@
   transition: transform 0.15s, box-shadow 0.15s;
 }
 .p-picklist .p-picklist-list .p-picklist-item:not(.p-highlight):hover {
-  background: #20262e;
+  background: rgba(255, 255, 255, 0.04);
   color: rgba(255, 255, 255, 0.87);
 }
 .p-picklist .p-picklist-list .p-picklist-item:focus {
@@ -2232,7 +2232,7 @@
   color: #151515;
 }
 .p-tree .p-tree-container .p-treenode .p-treenode-content.p-treenode-selectable:not(.p-highlight):hover {
-  background: #20262e;
+  background: rgba(255, 255, 255, 0.04);
   color: rgba(255, 255, 255, 0.87);
 }
 .p-tree .p-tree-filter-container {
@@ -2270,7 +2270,7 @@
   font-weight: 600;
 }
 .p-treetable .p-treetable-footer {
-  background: rgba(255, 255, 255, 0.6);
+  background: #2a323d;
   color: rgba(255, 255, 255, 0.87);
   border: 1px solid #3f4b5b;
   border-width: 1px 0 1px 0;
@@ -2313,7 +2313,7 @@
   margin-left: 0.5rem;
 }
 .p-treetable .p-sortable-column:not(.p-highlight):hover {
-  background: #20262e;
+  background: rgba(255, 255, 255, 0.04);
   color: rgba(255, 255, 255, 0.87);
 }
 .p-treetable .p-sortable-column:not(.p-highlight):hover .p-sortable-column-icon {
@@ -2363,7 +2363,7 @@
   color: #151515;
 }
 .p-treetable.p-treetable-hoverable-rows .p-treetable-tbody > tr:not(.p-highlight):hover {
-  background: #20262e;
+  background: rgba(255, 255, 255, 0.04);
   color: rgba(255, 255, 255, 0.87);
 }
 .p-treetable.p-treetable-hoverable-rows .p-treetable-tbody > tr:not(.p-highlight):hover .p-treetable-toggler {
@@ -2449,7 +2449,7 @@
   box-shadow: 0 0 0 1px #e3f3fe;
 }
 .p-accordion .p-accordion-header:not(.p-highlight):not(.p-disabled):hover .p-accordion-header-link {
-  background: #20262e;
+  background: rgba(255, 255, 255, 0.04);
   border-color: #3f4b5b;
   color: rgba(255, 255, 255, 0.87);
 }
@@ -2462,7 +2462,7 @@
 }
 .p-accordion .p-accordion-header:not(.p-disabled).p-highlight:hover .p-accordion-header-link {
   border-color: #3f4b5b;
-  background: #20262e;
+  background: rgba(255, 255, 255, 0.04);
   color: rgba(255, 255, 255, 0.87);
 }
 .p-accordion .p-accordion-content {
@@ -2556,7 +2556,7 @@
   box-shadow: 0 0 0 1px #e3f3fe;
 }
 .p-fieldset.p-fieldset-toggleable .p-fieldset-legend:hover {
-  background: #20262e;
+  background: rgba(255, 255, 255, 0.04);
   border-color: #3f4b5b;
   color: rgba(255, 255, 255, 0.87);
 }
@@ -2925,7 +2925,7 @@
   color: rgba(255, 255, 255, 0.6);
 }
 .p-contextmenu .p-menuitem-link:not(.p-disabled):hover {
-  background: #20262e;
+  background: rgba(255, 255, 255, 0.04);
 }
 .p-contextmenu .p-menuitem-link:not(.p-disabled):hover .p-menuitem-text {
   color: rgba(255, 255, 255, 0.87);
@@ -3040,7 +3040,7 @@
   color: rgba(255, 255, 255, 0.6);
 }
 .p-megamenu .p-menuitem-link:not(.p-disabled):hover {
-  background: #20262e;
+  background: rgba(255, 255, 255, 0.04);
 }
 .p-megamenu .p-menuitem-link:not(.p-disabled):hover .p-menuitem-text {
   color: rgba(255, 255, 255, 0.87);
@@ -3119,7 +3119,7 @@
   color: rgba(255, 255, 255, 0.6);
 }
 .p-menu .p-menuitem-link:not(.p-disabled):hover {
-  background: #20262e;
+  background: rgba(255, 255, 255, 0.04);
 }
 .p-menu .p-menuitem-link:not(.p-disabled):hover .p-menuitem-text {
   color: rgba(255, 255, 255, 0.87);
@@ -3179,7 +3179,7 @@
   color: rgba(255, 255, 255, 0.6);
 }
 .p-menubar .p-menuitem-link:not(.p-disabled):hover {
-  background: #20262e;
+  background: rgba(255, 255, 255, 0.04);
 }
 .p-menubar .p-menuitem-link:not(.p-disabled):hover .p-menuitem-text {
   color: rgba(255, 255, 255, 0.87);
@@ -3335,7 +3335,7 @@
     color: rgba(255, 255, 255, 0.6);
   }
   .p-menubar .p-menubar-root-list > .p-menuitem > .p-menuitem-link:not(.p-disabled):hover {
-    background: #20262e;
+    background: rgba(255, 255, 255, 0.04);
   }
   .p-menubar .p-menubar-root-list > .p-menuitem > .p-menuitem-link:not(.p-disabled):hover .p-menuitem-text {
     color: rgba(255, 255, 255, 0.87);
@@ -3419,7 +3419,7 @@
   box-shadow: 0 0 0 1px #e3f3fe;
 }
 .p-panelmenu .p-panelmenu-header:not(.p-highlight):not(.p-disabled) > a:hover {
-  background: #20262e;
+  background: rgba(255, 255, 255, 0.04);
   border-color: #3f4b5b;
   color: rgba(255, 255, 255, 0.87);
 }
@@ -3435,7 +3435,7 @@
 }
 .p-panelmenu .p-panelmenu-header.p-highlight:not(.p-disabled) > a:hover {
   border-color: #3f4b5b;
-  background: #20262e;
+  background: rgba(255, 255, 255, 0.04);
   color: rgba(255, 255, 255, 0.87);
 }
 .p-panelmenu .p-panelmenu-content {
@@ -3468,7 +3468,7 @@
   color: rgba(255, 255, 255, 0.6);
 }
 .p-panelmenu .p-panelmenu-content .p-menuitem .p-menuitem-link:not(.p-disabled):hover {
-  background: #20262e;
+  background: rgba(255, 255, 255, 0.04);
 }
 .p-panelmenu .p-panelmenu-content .p-menuitem .p-menuitem-link:not(.p-disabled):hover .p-menuitem-text {
   color: rgba(255, 255, 255, 0.87);
@@ -3622,7 +3622,7 @@
   color: rgba(255, 255, 255, 0.6);
 }
 .p-tieredmenu .p-menuitem-link:not(.p-disabled):hover {
-  background: #20262e;
+  background: rgba(255, 255, 255, 0.04);
 }
 .p-tieredmenu .p-menuitem-link:not(.p-disabled):hover .p-menuitem-text {
   color: rgba(255, 255, 255, 0.87);
@@ -3986,7 +3986,7 @@
   transition: background-color 0.15s, border-color 0.15s, box-shadow 0.15s;
 }
 .p-inplace .p-inplace-display:not(.p-disabled):hover {
-  background: #20262e;
+  background: rgba(255, 255, 255, 0.04);
   color: rgba(255, 255, 255, 0.87);
 }
 .p-inplace .p-inplace-display:focus {
