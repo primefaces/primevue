@@ -2868,7 +2868,7 @@
   height: 4px;
 }
 .p-fileupload .p-fileupload-row > div {
-  margin-right: 0.5rem;
+  padding: 0.75rem 0.75rem;
 }
 
 .p-fileupload-choose:not(.p-disabled):hover {

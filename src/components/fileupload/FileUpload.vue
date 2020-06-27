@@ -362,6 +362,15 @@ export default {
     align-items: center;
 }
 
+.p-fileupload-row > div {
+    flex: 1 1 auto;
+    width: 25%;
+}
+
+.p-fileupload-row > div:last-child {
+    text-align: right;
+}
+
 .p-fileupload-content .p-progressbar {
     width: 100%;
     position: absolute;
