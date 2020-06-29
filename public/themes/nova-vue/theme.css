@@ -522,15 +522,62 @@
 }
 
 .p-editor-container .p-editor-toolbar {
-  border: 1px solid #c8c8c8;
   background: #f4f4f4;
   border-top-right-radius: 3px;
   border-top-left-radius: 3px;
 }
-.p-editor-container .p-editor-content {
+.p-editor-container .p-editor-toolbar.ql-snow {
   border: 1px solid #c8c8c8;
+}
+.p-editor-container .p-editor-toolbar.ql-snow .ql-stroke {
+  stroke: #848484;
+}
+.p-editor-container .p-editor-toolbar.ql-snow .ql-fill {
+  fill: #848484;
+}
+.p-editor-container .p-editor-toolbar.ql-snow .ql-picker .ql-picker-label {
+  border: 0 none;
+  color: #848484;
+}
+.p-editor-container .p-editor-toolbar.ql-snow .ql-picker .ql-picker-label:hover {
+  color: #333333;
+}
+.p-editor-container .p-editor-toolbar.ql-snow .ql-picker .ql-picker-label:hover .ql-stroke {
+  stroke: #333333;
+}
+.p-editor-container .p-editor-toolbar.ql-snow .ql-picker .ql-picker-label:hover .ql-fill {
+  fill: #333333;
+}
+.p-editor-container .p-editor-toolbar.ql-snow .ql-picker.ql-expanded .ql-picker-label {
+  color: #333333;
+}
+.p-editor-container .p-editor-toolbar.ql-snow .ql-picker.ql-expanded .ql-picker-label .ql-stroke {
+  stroke: #333333;
+}
+.p-editor-container .p-editor-toolbar.ql-snow .ql-picker.ql-expanded .ql-picker-label .ql-fill {
+  fill: #333333;
+}
+.p-editor-container .p-editor-toolbar.ql-snow .ql-picker.ql-expanded .ql-picker-options {
+  background: #ffffff;
+  border: 1px solid #c8c8c8;
+  box-shadow: 0 3px 6px 0 rgba(0, 0, 0, 0.16);
+  border-radius: 3px;
+}
+.p-editor-container .p-editor-toolbar.ql-snow .ql-picker.ql-expanded .ql-picker-options .ql-picker-item {
+  color: #333333;
+  padding: 0.429rem 0.857rem;
+  border-radius: 3px;
+}
+.p-editor-container .p-editor-toolbar.ql-snow .ql-picker.ql-expanded .ql-picker-options .ql-picker-item:hover {
+  color: #333333;
+  background: #eaeaea;
+}
+.p-editor-container .p-editor-content {
   border-bottom-right-radius: 3px;
   border-bottom-left-radius: 3px;
+}
+.p-editor-container .p-editor-content.ql-snow {
+  border: 1px solid #c8c8c8;
 }
 .p-editor-container .p-editor-content .ql-editor {
   background: #ffffff;
@@ -538,54 +585,37 @@
   border-bottom-right-radius: 3px;
   border-bottom-left-radius: 3px;
 }
-.p-editor-container .ql-picker.ql-expanded .ql-picker-label {
-  color: #333333;
-}
-.p-editor-container .ql-stroke {
-  stroke: #333333;
-}
-.p-editor-container .ql-picker-label {
-  color: #333333;
-}
 .p-editor-container .ql-snow.ql-toolbar button:hover,
-.p-editor-container .ql-snow .ql-toolbar button:hover,
-.p-editor-container .ql-snow.ql-toolbar button.ql-active,
-.p-editor-container .ql-snow .ql-toolbar button.ql-active,
-.p-editor-container .ql-snow.ql-toolbar .ql-picker-label:hover,
-.p-editor-container .ql-snow .ql-toolbar .ql-picker-label:hover,
-.p-editor-container .ql-snow.ql-toolbar .ql-picker-label.ql-active,
-.p-editor-container .ql-snow .ql-toolbar .ql-picker-label.ql-active,
-.p-editor-container .ql-snow.ql-toolbar .ql-picker-item:hover,
-.p-editor-container .ql-snow .ql-toolbar .ql-picker-item:hover,
-.p-editor-container .ql-snow.ql-toolbar .ql-picker-item.ql-selected,
-.p-editor-container .ql-snow .ql-toolbar .ql-picker-item.ql-selected {
-  color: #41b883;
+.p-editor-container .ql-snow.ql-toolbar button:focus {
+  color: #333333;
 }
 .p-editor-container .ql-snow.ql-toolbar button:hover .ql-stroke,
-.p-editor-container .ql-snow .ql-toolbar button:hover .ql-stroke,
+.p-editor-container .ql-snow.ql-toolbar button:focus .ql-stroke {
+  stroke: #333333;
+}
+.p-editor-container .ql-snow.ql-toolbar button:hover .ql-fill,
+.p-editor-container .ql-snow.ql-toolbar button:focus .ql-fill {
+  fill: #333333;
+}
+.p-editor-container .ql-snow.ql-toolbar button.ql-active,
+.p-editor-container .ql-snow.ql-toolbar .ql-picker-label.ql-active,
+.p-editor-container .ql-snow.ql-toolbar .ql-picker-item.ql-selected {
+  color: #41b883;
+}
 .p-editor-container .ql-snow.ql-toolbar button.ql-active .ql-stroke,
-.p-editor-container .ql-snow .ql-toolbar button.ql-active .ql-stroke,
-.p-editor-container .ql-snow.ql-toolbar .ql-picker-label:hover .ql-stroke,
-.p-editor-container .ql-snow .ql-toolbar .ql-picker-label:hover .ql-stroke,
 .p-editor-container .ql-snow.ql-toolbar .ql-picker-label.ql-active .ql-stroke,
-.p-editor-container .ql-snow .ql-toolbar .ql-picker-label.ql-active .ql-stroke,
-.p-editor-container .ql-snow.ql-toolbar .ql-picker-item:hover .ql-stroke,
-.p-editor-container .ql-snow .ql-toolbar .ql-picker-item:hover .ql-stroke,
-.p-editor-container .ql-snow.ql-toolbar .ql-picker-item.ql-selected .ql-stroke,
-.p-editor-container .ql-snow .ql-toolbar .ql-picker-item.ql-selected .ql-stroke,
-.p-editor-container .ql-snow.ql-toolbar button:hover .ql-stroke-miter,
-.p-editor-container .ql-snow .ql-toolbar button:hover .ql-stroke-miter,
-.p-editor-container .ql-snow.ql-toolbar button.ql-active .ql-stroke-miter,
-.p-editor-container .ql-snow .ql-toolbar button.ql-active .ql-stroke-miter,
-.p-editor-container .ql-snow.ql-toolbar .ql-picker-label:hover .ql-stroke-miter,
-.p-editor-container .ql-snow .ql-toolbar .ql-picker-label:hover .ql-stroke-miter,
-.p-editor-container .ql-snow.ql-toolbar .ql-picker-label.ql-active .ql-stroke-miter,
-.p-editor-container .ql-snow .ql-toolbar .ql-picker-label.ql-active .ql-stroke-miter,
-.p-editor-container .ql-snow.ql-toolbar .ql-picker-item:hover .ql-stroke-miter,
-.p-editor-container .ql-snow .ql-toolbar .ql-picker-item:hover .ql-stroke-miter,
-.p-editor-container .ql-snow.ql-toolbar .ql-picker-item.ql-selected .ql-stroke-miter,
-.p-editor-container .ql-snow .ql-toolbar .ql-picker-item.ql-selected .ql-stroke-miter {
+.p-editor-container .ql-snow.ql-toolbar .ql-picker-item.ql-selected .ql-stroke {
   stroke: #41b883;
+}
+.p-editor-container .ql-snow.ql-toolbar button.ql-active .ql-fill,
+.p-editor-container .ql-snow.ql-toolbar .ql-picker-label.ql-active .ql-fill,
+.p-editor-container .ql-snow.ql-toolbar .ql-picker-item.ql-selected .ql-fill {
+  fill: #41b883;
+}
+.p-editor-container .ql-snow.ql-toolbar button.ql-active .ql-picker-label,
+.p-editor-container .ql-snow.ql-toolbar .ql-picker-label.ql-active .ql-picker-label,
+.p-editor-container .ql-snow.ql-toolbar .ql-picker-item.ql-selected .ql-picker-label {
+  color: #41b883;
 }
 
 .p-inputgroup-addon {

@@ -33,7 +33,7 @@
 }
 
 .p-error, .p-invalid {
-  color: e7a3a3;
+  color: #e7a3a3;
 }
 
 .p-text-secondary {
@@ -122,12 +122,12 @@
   background: #AFD3C8;
 }
 .p-autocomplete-panel.p-error > .p-inputtext, .p-autocomplete-panel.p-invalid > .p-inputtext {
-  border-color: e7a3a3;
+  border-color: #e7a3a3;
   border-width: 1px;
 }
 
 .p-calendar.p-error > .p-inputtext, .p-calendar.p-invalid > .p-inputtext {
-  border-color: e7a3a3;
+  border-color: #e7a3a3;
   border-width: 1px;
 }
 
@@ -349,7 +349,7 @@
   color: #ffffff;
 }
 .p-checkbox.p-error > .p-checkbox-box, .p-checkbox.p-invalid > .p-checkbox-box {
-  border-color: e7a3a3;
+  border-color: #e7a3a3;
 }
 
 .p-input-filled .p-checkbox .p-checkbox-box {
@@ -398,7 +398,7 @@
   margin: 0;
 }
 .p-chips.p-error > .p-inputtext, .p-chips.p-invalid > .p-inputtext {
-  border-color: e7a3a3;
+  border-color: #e7a3a3;
   border-width: 1px;
 }
 
@@ -503,7 +503,7 @@
   background: #f4f4f4;
 }
 .p-dropdown-panel.p-error, .p-dropdown-panel.p-invalid {
-  border-color: e7a3a3;
+  border-color: #e7a3a3;
   border-width: 1px;
 }
 
@@ -518,15 +518,62 @@
 }
 
 .p-editor-container .p-editor-toolbar {
-  border: 1px solid #7B95A3;
   background: #7B95A3;
   border-top-right-radius: 2px;
   border-top-left-radius: 2px;
 }
+.p-editor-container .p-editor-toolbar.ql-snow {
+  border: 1px solid #7B95A3;
+}
+.p-editor-container .p-editor-toolbar.ql-snow .ql-stroke {
+  stroke: #a6a6a6;
+}
+.p-editor-container .p-editor-toolbar.ql-snow .ql-fill {
+  fill: #a6a6a6;
+}
+.p-editor-container .p-editor-toolbar.ql-snow .ql-picker .ql-picker-label {
+  border: 0 none;
+  color: #a6a6a6;
+}
+.p-editor-container .p-editor-toolbar.ql-snow .ql-picker .ql-picker-label:hover {
+  color: #666666;
+}
+.p-editor-container .p-editor-toolbar.ql-snow .ql-picker .ql-picker-label:hover .ql-stroke {
+  stroke: #666666;
+}
+.p-editor-container .p-editor-toolbar.ql-snow .ql-picker .ql-picker-label:hover .ql-fill {
+  fill: #666666;
+}
+.p-editor-container .p-editor-toolbar.ql-snow .ql-picker.ql-expanded .ql-picker-label {
+  color: #666666;
+}
+.p-editor-container .p-editor-toolbar.ql-snow .ql-picker.ql-expanded .ql-picker-label .ql-stroke {
+  stroke: #666666;
+}
+.p-editor-container .p-editor-toolbar.ql-snow .ql-picker.ql-expanded .ql-picker-label .ql-fill {
+  fill: #666666;
+}
+.p-editor-container .p-editor-toolbar.ql-snow .ql-picker.ql-expanded .ql-picker-options {
+  background: #ffffff;
+  border: 1px solid #eaeaea;
+  box-shadow: 0 0 6px 0 rgba(0, 0, 0, 0.16);
+  border-radius: 2px;
+}
+.p-editor-container .p-editor-toolbar.ql-snow .ql-picker.ql-expanded .ql-picker-options .ql-picker-item {
+  color: #666666;
+  padding: 0.429rem 0.857rem;
+  border-radius: 2px;
+}
+.p-editor-container .p-editor-toolbar.ql-snow .ql-picker.ql-expanded .ql-picker-options .ql-picker-item:hover {
+  color: #666666;
+  background: #f4f4f4;
+}
 .p-editor-container .p-editor-content {
-  border: 1px solid #dadada;
   border-bottom-right-radius: 2px;
   border-bottom-left-radius: 2px;
+}
+.p-editor-container .p-editor-content.ql-snow {
+  border: 1px solid #dadada;
 }
 .p-editor-container .p-editor-content .ql-editor {
   background: #ffffff;
@@ -534,54 +581,37 @@
   border-bottom-right-radius: 2px;
   border-bottom-left-radius: 2px;
 }
-.p-editor-container .ql-picker.ql-expanded .ql-picker-label {
-  color: #ffffff;
-}
-.p-editor-container .ql-stroke {
-  stroke: #ffffff;
-}
-.p-editor-container .ql-picker-label {
-  color: #ffffff;
-}
 .p-editor-container .ql-snow.ql-toolbar button:hover,
-.p-editor-container .ql-snow .ql-toolbar button:hover,
-.p-editor-container .ql-snow.ql-toolbar button.ql-active,
-.p-editor-container .ql-snow .ql-toolbar button.ql-active,
-.p-editor-container .ql-snow.ql-toolbar .ql-picker-label:hover,
-.p-editor-container .ql-snow .ql-toolbar .ql-picker-label:hover,
-.p-editor-container .ql-snow.ql-toolbar .ql-picker-label.ql-active,
-.p-editor-container .ql-snow .ql-toolbar .ql-picker-label.ql-active,
-.p-editor-container .ql-snow.ql-toolbar .ql-picker-item:hover,
-.p-editor-container .ql-snow .ql-toolbar .ql-picker-item:hover,
-.p-editor-container .ql-snow.ql-toolbar .ql-picker-item.ql-selected,
-.p-editor-container .ql-snow .ql-toolbar .ql-picker-item.ql-selected {
-  color: #AFD3C8;
+.p-editor-container .ql-snow.ql-toolbar button:focus {
+  color: #666666;
 }
 .p-editor-container .ql-snow.ql-toolbar button:hover .ql-stroke,
-.p-editor-container .ql-snow .ql-toolbar button:hover .ql-stroke,
+.p-editor-container .ql-snow.ql-toolbar button:focus .ql-stroke {
+  stroke: #666666;
+}
+.p-editor-container .ql-snow.ql-toolbar button:hover .ql-fill,
+.p-editor-container .ql-snow.ql-toolbar button:focus .ql-fill {
+  fill: #666666;
+}
+.p-editor-container .ql-snow.ql-toolbar button.ql-active,
+.p-editor-container .ql-snow.ql-toolbar .ql-picker-label.ql-active,
+.p-editor-container .ql-snow.ql-toolbar .ql-picker-item.ql-selected {
+  color: #7B95A3;
+}
 .p-editor-container .ql-snow.ql-toolbar button.ql-active .ql-stroke,
-.p-editor-container .ql-snow .ql-toolbar button.ql-active .ql-stroke,
-.p-editor-container .ql-snow.ql-toolbar .ql-picker-label:hover .ql-stroke,
-.p-editor-container .ql-snow .ql-toolbar .ql-picker-label:hover .ql-stroke,
 .p-editor-container .ql-snow.ql-toolbar .ql-picker-label.ql-active .ql-stroke,
-.p-editor-container .ql-snow .ql-toolbar .ql-picker-label.ql-active .ql-stroke,
-.p-editor-container .ql-snow.ql-toolbar .ql-picker-item:hover .ql-stroke,
-.p-editor-container .ql-snow .ql-toolbar .ql-picker-item:hover .ql-stroke,
-.p-editor-container .ql-snow.ql-toolbar .ql-picker-item.ql-selected .ql-stroke,
-.p-editor-container .ql-snow .ql-toolbar .ql-picker-item.ql-selected .ql-stroke,
-.p-editor-container .ql-snow.ql-toolbar button:hover .ql-stroke-miter,
-.p-editor-container .ql-snow .ql-toolbar button:hover .ql-stroke-miter,
-.p-editor-container .ql-snow.ql-toolbar button.ql-active .ql-stroke-miter,
-.p-editor-container .ql-snow .ql-toolbar button.ql-active .ql-stroke-miter,
-.p-editor-container .ql-snow.ql-toolbar .ql-picker-label:hover .ql-stroke-miter,
-.p-editor-container .ql-snow .ql-toolbar .ql-picker-label:hover .ql-stroke-miter,
-.p-editor-container .ql-snow.ql-toolbar .ql-picker-label.ql-active .ql-stroke-miter,
-.p-editor-container .ql-snow .ql-toolbar .ql-picker-label.ql-active .ql-stroke-miter,
-.p-editor-container .ql-snow.ql-toolbar .ql-picker-item:hover .ql-stroke-miter,
-.p-editor-container .ql-snow .ql-toolbar .ql-picker-item:hover .ql-stroke-miter,
-.p-editor-container .ql-snow.ql-toolbar .ql-picker-item.ql-selected .ql-stroke-miter,
-.p-editor-container .ql-snow .ql-toolbar .ql-picker-item.ql-selected .ql-stroke-miter {
-  stroke: #AFD3C8;
+.p-editor-container .ql-snow.ql-toolbar .ql-picker-item.ql-selected .ql-stroke {
+  stroke: #7B95A3;
+}
+.p-editor-container .ql-snow.ql-toolbar button.ql-active .ql-fill,
+.p-editor-container .ql-snow.ql-toolbar .ql-picker-label.ql-active .ql-fill,
+.p-editor-container .ql-snow.ql-toolbar .ql-picker-item.ql-selected .ql-fill {
+  fill: #7B95A3;
+}
+.p-editor-container .ql-snow.ql-toolbar button.ql-active .ql-picker-label,
+.p-editor-container .ql-snow.ql-toolbar .ql-picker-label.ql-active .ql-picker-label,
+.p-editor-container .ql-snow.ql-toolbar .ql-picker-item.ql-selected .ql-picker-label {
+  color: #7B95A3;
 }
 
 .p-inputgroup-addon {
@@ -668,7 +698,7 @@
   background: #AFD3C8;
 }
 .p-inputswitch.p-error, .p-inputswitch.p-invalid {
-  border-color: e7a3a3;
+  border-color: #e7a3a3;
   border-width: 1px;
 }
 
@@ -693,7 +723,7 @@
   border-color: #7B95A3;
 }
 .p-inputtext.p-error, .p-inputtext.p-invalid {
-  border-color: e7a3a3;
+  border-color: #e7a3a3;
   border-width: 1px;
 }
 .p-inputtext.p-inputtext-sm {
@@ -802,7 +832,7 @@
   background: #f4f4f4;
 }
 .p-listbox.p-error, .p-listbox.p-invalid {
-  border-color: e7a3a3;
+  border-color: #e7a3a3;
   border-width: 1px;
 }
 
@@ -906,7 +936,7 @@
   margin-right: 0.5rem;
 }
 .p-multiselect-panel.p-error, .p-multiselect-panel.p-invalid {
-  border-color: e7a3a3;
+  border-color: #e7a3a3;
   border-width: 1px;
 }
 
@@ -970,7 +1000,7 @@
   color: #ffffff;
 }
 .p-radiobutton.p-error > .p-checkbox-box, .p-radiobutton.p-invalid > .p-checkbox-box {
-  border-color: e7a3a3;
+  border-color: #e7a3a3;
 }
 
 .p-input-filled .p-radiobutton .p-radiobutton-box {
@@ -1048,7 +1078,7 @@
   color: #385048;
 }
 .p-selectbutton.p-error > .p-button, .p-selectbutton.p-invalid > .p-button {
-  border-color: e7a3a3;
+  border-color: #e7a3a3;
   border-width: 1px;
 }
 
@@ -1130,7 +1160,7 @@
   color: #385048;
 }
 .p-togglebutton.p-button.p-error > .p-button, .p-togglebutton.p-button.p-invalid > .p-button {
-  border-color: e7a3a3;
+  border-color: #e7a3a3;
   border-width: 1px;
 }
 
