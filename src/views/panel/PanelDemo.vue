@@ -19,9 +19,9 @@
             <h5>Advanced</h5>
             <Panel header="Header" :toggleable="true">
                 <template #icons>
-                    <a tabindex="0" class="p-panel-header-icon" @click="toggle">
+                    <button class="p-panel-header-icon p-link" @click="toggle">
                         <span class="pi pi-cog"></span>
-                    </a>
+                    </button>
                     <Menu id="config_menu" ref="menu" :model="items" :popup="true" />
                 </template>
                 <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.
