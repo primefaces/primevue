@@ -10,41 +10,62 @@
 		<div class="content-section implementation">
             <div class="card">
                 <h5>Single Column</h5>
-                <DataTable :value="cars">
-                    <Column field="vin" header="Vin" :sortable="true"></Column>
-                    <Column field="year" header="Year" :sortable="true"></Column>
-                    <Column field="brand" header="Brand" :sortable="true"></Column>
-                    <Column field="color" header="Color" :sortable="true"></Column>
+                <DataTable :value="products">
+                    <Column field="code" header="Code" sortable></Column>
+                    <Column field="name" header="Name" sortable></Column>
+                    <Column field="category" header="Category" sortable></Column>
+                    <Column field="quantity" header="Quantity" sortable></Column>
+                    <Column field="price" header="Price" sortable>
+                        <template #body="slotProps">
+                            {{formatCurrency(slotProps.data.price)}}
+                        </template>
+                    </Column>
                 </DataTable>
             </div>
 
             <div class="card">
                 <h5>Multiple Columns</h5>
-                <DataTable :value="cars" sortMode="multiple">
-                    <Column field="vin" header="Vin" :sortable="true"></Column>
-                    <Column field="year" header="Year" :sortable="true"></Column>
-                    <Column field="brand" header="Brand" :sortable="true"></Column>
-                    <Column field="color" header="Color" :sortable="true"></Column>
+                <p>Use metakey to add a column to the sort selection.</p>
+                <DataTable :value="products" sortMode="multiple">
+                    <Column field="code" header="Code" sortable></Column>
+                    <Column field="name" header="Name" sortable></Column>
+                    <Column field="category" header="Category" sortable></Column>
+                    <Column field="quantity" header="Quantity" sortable></Column>
+                    <Column field="price" header="Price" sortable>
+                        <template #body="slotProps">
+                            {{formatCurrency(slotProps.data.price)}}
+                        </template>
+                    </Column>
                 </DataTable>
             </div>
 
             <div class="card">
                 <h5>Presort</h5>
-                <DataTable :value="cars" sortField="year" :sortOrder="-1">
-                    <Column field="vin" header="Vin" :sortable="true"></Column>
-                    <Column field="year" header="Year" :sortable="true"></Column>
-                    <Column field="brand" header="Brand" :sortable="true"></Column>
-                    <Column field="color" header="Color" :sortable="true"></Column>
+                <DataTable :value="products" sortField="category" :sortOrder="-1">
+                    <Column field="code" header="Code" sortable></Column>
+                    <Column field="name" header="Name" sortable></Column>
+                    <Column field="category" header="Category" sortable></Column>
+                    <Column field="quantity" header="Quantity" sortable></Column>
+                    <Column field="price" header="Price" sortable>
+                        <template #body="slotProps">
+                            {{formatCurrency(slotProps.data.price)}}
+                        </template>
+                    </Column>
                 </DataTable>
             </div>
 
             <div class="card">
                 <h5>Removable Sort</h5>
-                <DataTable :value="cars" removableSort>
-                    <Column field="vin" header="Vin" :sortable="true"></Column>
-                    <Column field="year" header="Year" :sortable="true"></Column>
-                    <Column field="brand" header="Brand" :sortable="true"></Column>
-                    <Column field="color" header="Color" :sortable="true"></Column>
+                <DataTable :value="products" removableSort>
+                    <Column field="code" header="Code" sortable></Column>
+                    <Column field="name" header="Name" sortable></Column>
+                    <Column field="category" header="Category" sortable></Column>
+                    <Column field="quantity" header="Quantity" sortable></Column>
+                    <Column field="price" header="Price" sortable>
+                        <template #body="slotProps">
+                            {{formatCurrency(slotProps.data.price)}}
+                        </template>
+                    </Column>
                 </DataTable>
             </div>
 		</div>
@@ -54,55 +75,89 @@
                 <TabPanel header="Source">
 <CodeHighlight>
 <template v-pre>
-&lt;h5&gt;Single Column&lt;/h3&gt;
-&lt;DataTable :value="cars"&gt;
-    &lt;Column field="vin" header="Vin" :sortable="true"&gt;&lt;/Column&gt;
-    &lt;Column field="year" header="Year" :sortable="true"&gt;&lt;/Column&gt;
-    &lt;Column field="brand" header="Brand" :sortable="true"&gt;&lt;/Column&gt;
-    &lt;Column field="color" header="Color" :sortable="true"&gt;&lt;/Column&gt;
-&lt;/DataTable&gt;
+&lt;div class="card"&gt;
+    &lt;h5&gt;Single Column&lt;/h5&gt;
+    &lt;DataTable :value="products"&gt;
+        &lt;Column field="code" header="Code" sortable&gt;&lt;/Column&gt;
+        &lt;Column field="name" header="Name" sortable&gt;&lt;/Column&gt;
+        &lt;Column field="category" header="Category" sortable&gt;&lt;/Column&gt;
+        &lt;Column field="quantity" header="Quantity" sortable&gt;&lt;/Column&gt;
+        &lt;Column field="price" header="Price" sortable&gt;
+            &lt;template #body="slotProps"&gt;
+                {{formatCurrency(slotProps.data.price)}}
+            &lt;/template&gt;
+        &lt;/Column&gt;
+    &lt;/DataTable&gt;
+&lt;/div&gt;
 
-&lt;h3&gt;Multiple Columns&lt;/h3&gt;
-&lt;DataTable :value="cars" sortMode="multiple"&gt;
-    &lt;Column field="vin" header="Vin" :sortable="true"&gt;&lt;/Column&gt;
-    &lt;Column field="year" header="Year" :sortable="true"&gt;&lt;/Column&gt;
-    &lt;Column field="brand" header="Brand" :sortable="true"&gt;&lt;/Column&gt;
-    &lt;Column field="color" header="Color" :sortable="true"&gt;&lt;/Column&gt;
-&lt;/DataTable&gt;
+&lt;div class="card"&gt;
+    &lt;h5&gt;Multiple Columns&lt;/h5&gt;
+    &lt;p&gt;Use metakey to add a column to the sort selection.&lt;/p&gt;
+    &lt;DataTable :value="products" sortMode="multiple"&gt;
+        &lt;Column field="code" header="Code" sortable&gt;&lt;/Column&gt;
+        &lt;Column field="name" header="Name" sortable&gt;&lt;/Column&gt;
+        &lt;Column field="category" header="Category" sortable&gt;&lt;/Column&gt;
+        &lt;Column field="quantity" header="Quantity" sortable&gt;&lt;/Column&gt;
+        &lt;Column field="price" header="Price" sortable&gt;
+            &lt;template #body="slotProps"&gt;
+                {{formatCurrency(slotProps.data.price)}}
+            &lt;/template&gt;
+        &lt;/Column&gt;
+    &lt;/DataTable&gt;
+&lt;/div&gt;
 
-&lt;h3&gt;Presort&lt;/h3&gt;
-&lt;DataTable :value="cars" sortField="year" :sortOrder="-1"&gt;
-    &lt;Column field="vin" header="Vin" :sortable="true"&gt;&lt;/Column&gt;
-    &lt;Column field="year" header="Year" :sortable="true"&gt;&lt;/Column&gt;
-    &lt;Column field="brand" header="Brand" :sortable="true"&gt;&lt;/Column&gt;
-    &lt;Column field="color" header="Color" :sortable="true"&gt;&lt;/Column&gt;
-&lt;/DataTable&gt;
+&lt;div class="card"&gt;
+    &lt;h5&gt;Presort&lt;/h5&gt;
+    &lt;DataTable :value="products" sortField="category" :sortOrder="-1"&gt;
+        &lt;Column field="code" header="Code" sortable&gt;&lt;/Column&gt;
+        &lt;Column field="name" header="Name" sortable&gt;&lt;/Column&gt;
+        &lt;Column field="category" header="Category" sortable&gt;&lt;/Column&gt;
+        &lt;Column field="quantity" header="Quantity" sortable&gt;&lt;/Column&gt;
+        &lt;Column field="price" header="Price" sortable&gt;
+            &lt;template #body="slotProps"&gt;
+                {{formatCurrency(slotProps.data.price)}}
+            &lt;/template&gt;
+        &lt;/Column&gt;
+    &lt;/DataTable&gt;
+&lt;/div&gt;
 
-&lt;h3&gt;Removable Sort&lt;/h3&gt;
-&lt;DataTable :value="cars" removableSort&gt;
-    &lt;Column field="vin" header="Vin" :sortable="true"&gt;&lt;/Column&gt;
-    &lt;Column field="year" header="Year" :sortable="true"&gt;&lt;/Column&gt;
-    &lt;Column field="brand" header="Brand" :sortable="true"&gt;&lt;/Column&gt;
-    &lt;Column field="color" header="Color" :sortable="true"&gt;&lt;/Column&gt;
-&lt;/DataTable&gt;
+&lt;div class="card"&gt;
+    &lt;h5&gt;Removable Sort&lt;/h5&gt;
+    &lt;DataTable :value="products" removableSort&gt;
+        &lt;Column field="code" header="Code" sortable&gt;&lt;/Column&gt;
+        &lt;Column field="name" header="Name" sortable&gt;&lt;/Column&gt;
+        &lt;Column field="category" header="Category" sortable&gt;&lt;/Column&gt;
+        &lt;Column field="quantity" header="Quantity" sortable&gt;&lt;/Column&gt;
+        &lt;Column field="price" header="Price" sortable&gt;
+            &lt;template #body="slotProps"&gt;
+                {{formatCurrency(slotProps.data.price)}}
+            &lt;/template&gt;
+        &lt;/Column&gt;
+    &lt;/DataTable&gt;
+&lt;/div&gt;
 </template>
 </CodeHighlight>
 
 <CodeHighlight lang="javascript">
-import CarService from '../../service/CarService';
+import ProductService from '../../service/ProductService';
 
 export default {
     data() {
         return {
-            cars: null
+            products: null
         }
     },
-    carService: null,
+    productService: null,
     created() {
-        this.carService = new CarService();
+        this.productService = new ProductService();
     },
     mounted() {
-        this.carService.getCarsSmall().then(data => this.cars = data);
+        this.productService.getProductsSmall().then(data => this.products = data);
+    },
+    methods: {
+        formatCurrency(value) {
+            return value.toLocaleString('en-US', {style: 'currency', currency: 'USD'});
+        }
     }
 }
 </CodeHighlight>
@@ -113,20 +168,25 @@ export default {
 </template>
 
 <script>
-import CarService from '../../service/CarService';
+import ProductService from '../../service/ProductService';
 
 export default {
     data() {
         return {
-            cars: null
+            products: null
         }
     },
-    carService: null,
+    productService: null,
     created() {
-        this.carService = new CarService();
+        this.productService = new ProductService();
     },
     mounted() {
-        this.carService.getCarsSmall().then(data => this.cars = data);
+        this.productService.getProductsSmall().then(data => this.products = data);
+    },
+    methods: {
+        formatCurrency(value) {
+            return value.toLocaleString('en-US', {style: 'currency', currency: 'USD'});
+        }
     }
 }
 </script>
