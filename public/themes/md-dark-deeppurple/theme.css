@@ -182,8 +182,8 @@
 }
 .p-datepicker .p-datepicker-header .p-datepicker-prev,
 .p-datepicker .p-datepicker-header .p-datepicker-next {
-  width: 3rem;
-  height: 3rem;
+  width: 2.5rem;
+  height: 2.5rem;
   color: rgba(255, 255, 255, 0.6);
   border: 0 none;
   background: transparent;
@@ -268,8 +268,8 @@
   padding: 0.5rem;
 }
 .p-datepicker .p-timepicker button {
-  width: 3rem;
-  height: 3rem;
+  width: 2.5rem;
+  height: 2.5rem;
   color: rgba(255, 255, 255, 0.6);
   border: 0 none;
   background: transparent;
@@ -926,8 +926,8 @@
   margin-right: 0.5rem;
 }
 .p-multiselect-panel .p-multiselect-header .p-multiselect-close {
-  width: 3rem;
-  height: 3rem;
+  width: 2.5rem;
+  height: 2.5rem;
   color: rgba(255, 255, 255, 0.6);
   border: 0 none;
   background: transparent;
@@ -1641,8 +1641,8 @@
 
 .p-carousel .p-carousel-content .p-carousel-prev,
 .p-carousel .p-carousel-content .p-carousel-next {
-  width: 3rem;
-  height: 3rem;
+  width: 2.5rem;
+  height: 2.5rem;
   color: rgba(255, 255, 255, 0.6);
   border: 0 none;
   background: transparent;
@@ -1773,8 +1773,8 @@
 .p-datatable .p-datatable-tbody > tr > td .p-row-editor-init,
 .p-datatable .p-datatable-tbody > tr > td .p-row-editor-save,
 .p-datatable .p-datatable-tbody > tr > td .p-row-editor-cancel {
-  width: 3rem;
-  height: 3rem;
+  width: 2.5rem;
+  height: 2.5rem;
   color: rgba(255, 255, 255, 0.6);
   border: 0 none;
   background: transparent;
@@ -2292,8 +2292,8 @@
 }
 .p-tree .p-tree-container .p-treenode .p-treenode-content .p-tree-toggler {
   margin-right: 0.5rem;
-  width: 3rem;
-  height: 3rem;
+  width: 2.5rem;
+  height: 2.5rem;
   color: rgba(255, 255, 255, 0.6);
   border: 0 none;
   background: transparent;
@@ -2441,8 +2441,8 @@
   padding: 1rem 1rem;
 }
 .p-treetable .p-treetable-tbody > tr > td .p-treetable-toggler {
-  width: 3rem;
-  height: 3rem;
+  width: 2.5rem;
+  height: 2.5rem;
   color: rgba(255, 255, 255, 0.6);
   border: 0 none;
   background: transparent;
@@ -2687,8 +2687,8 @@
   font-weight: 500;
 }
 .p-panel .p-panel-header .p-panel-header-icon {
-  width: 3rem;
-  height: 3rem;
+  width: 2.5rem;
+  height: 2.5rem;
   color: rgba(255, 255, 255, 0.6);
   border: 0 none;
   background: transparent;
@@ -2803,8 +2803,8 @@
   font-size: 1.25rem;
 }
 .p-dialog .p-dialog-header .p-dialog-header-icon {
-  width: 3rem;
-  height: 3rem;
+  width: 2.5rem;
+  height: 2.5rem;
   color: rgba(255, 255, 255, 0.6);
   border: 0 none;
   background: transparent;
@@ -2861,13 +2861,13 @@
 .p-overlaypanel .p-overlaypanel-close {
   background: #CE93D8;
   color: #121212;
-  width: 3rem;
-  height: 3rem;
+  width: 2.5rem;
+  height: 2.5rem;
   transition: background-color 0.2s, color 0.2s, box-shadow 0.2s;
   border-radius: 50%;
   position: absolute;
-  top: -1.5rem;
-  right: -1.5rem;
+  top: -1.25rem;
+  right: -1.25rem;
 }
 .p-overlaypanel .p-overlaypanel-close:enabled:hover {
   background: rgba(206, 147, 216, 0.92);
@@ -2898,8 +2898,8 @@
   box-shadow: 0 11px 15px -7px rgba(0, 0, 0, 0.2), 0 24px 38px 3px rgba(0, 0, 0, 0.14), 0 9px 46px 8px rgba(0, 0, 0, 0.12);
 }
 .p-sidebar .p-sidebar-close {
-  width: 3rem;
-  height: 3rem;
+  width: 2.5rem;
+  height: 2.5rem;
   color: rgba(255, 255, 255, 0.6);
   border: 0 none;
   background: transparent;
@@ -3393,8 +3393,8 @@
   }
   .p-menubar .p-menubar-button {
     display: flex;
-    width: 3rem;
-    height: 3rem;
+    width: 2.5rem;
+    height: 2.5rem;
     color: rgba(255, 255, 255, 0.6);
     border-radius: 50%;
     transition: background-color 0.2s, color 0.2s, box-shadow 0.2s;
@@ -3837,8 +3837,8 @@
   padding: 1.25rem 1.5rem;
 }
 .p-message .p-message-close {
-  width: 3rem;
-  height: 3rem;
+  width: 2.5rem;
+  height: 2.5rem;
   border-radius: 50%;
   background: transparent;
   transition: background-color 0.2s, color 0.2s, box-shadow 0.2s;
@@ -3933,8 +3933,8 @@
   margin: 0.5rem 0 0 0;
 }
 .p-toast .p-toast-item-container .p-toast-icon-close {
-  width: 3rem;
-  height: 3rem;
+  width: 2.5rem;
+  height: 2.5rem;
   border-radius: 50%;
   background: transparent;
   transition: background-color 0.2s, color 0.2s, box-shadow 0.2s;
