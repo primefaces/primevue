@@ -171,27 +171,27 @@ export default {
 &lt;p&gt;Selected Cities : &lt;span style="font-weight: bold"&gt;{{cities}}&lt;/span&gt;&lt;/p&gt;
 
 &lt;h3&gt;Dynamic Values, Preselection, Value Binding and Disabled Option&lt;/h3&gt;
-&lt;div v-for="theme of themes" :key="theme.key" class="p-field-checkbox"&gt;
-    &lt;Checkbox :id="theme.key" name="theme" :value="theme" v-model="selectedThemes" :disabled="theme.key === 'U'"/&gt;
-    &lt;label :for="theme.key"&gt;{{theme.name}}&lt;/label&gt;
+&lt;div v-for="category of categories" :key="category.key" class="p-field-checkbox"&gt;
+    &lt;Checkbox :id="category.key" name="category" :value="category" v-model="selectedCategories" :disabled="category.key === 'R'"/&gt;
+    &lt;label :for="category.key"&gt;{{category.name}}&lt;/label&gt;
 &lt;/div&gt;
-&lt;p&gt;Selected Themes: &lt;span style="font-weight: bold"&gt;{{this.selectedThemes}}&lt;/span&gt;&lt;/p&gt;
+&lt;p&gt;Selected Categories: &lt;span style="font-weight: bold"&gt;{{this.selectedCategories}}&lt;/span&gt;&lt;/p&gt;
 </template>
 </CodeHighlight>
 
 <CodeHighlight lang="javascript">
 export default {
-	data() {
-		return {
-			checked: false,
-			cities: [],
-			themes: [{name: 'Apollo', key: 'A'}, {name: 'Babylon', key: 'B'}, {name: 'Serenity', key: 'S'}, {name: 'Ultima', key: 'U'}],
-			selectedThemes: []
-		}
-	},
-	created() {
-		this.selectedThemes = this.themes.slice(1,3);
-	}
+    data() {
+        return {
+            checked: false,
+            cities: [],
+            categories: [{name: 'Accounting', key: 'A'}, {name: 'Marketing', key: 'M'}, {name: 'Production', key: 'P'}, {name: 'Research', key: 'R'}],
+            selectedCategories: []
+        }
+    },
+    created() {
+        this.selectedCategories = this.categories.slice(1,3);
+    }
 }
 </CodeHighlight>
 			</TabPanel>

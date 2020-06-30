@@ -30,11 +30,11 @@
                 <p>Selected City: <span style="font-weight: bold">{{this.city}}</span></p>
 
                 <h5>Dynamic Values, Preselection, Value Binding and Disabled Option</h5>
-                <div v-for="theme of themes" :key="theme.key" class="p-field-radiobutton">
-                    <RadioButton :id="theme.key" name="theme" :value="theme" v-model="selectedTheme" :disabled="theme.key === 'U'" />
-                    <label :for="theme.key">{{theme.name}}</label>
+                <div v-for="category of categories" :key="category.key" class="p-field-radiobutton">
+                    <RadioButton :id="category.key" name="category" :value="category" v-model="selectedCategory" :disabled="category.key === 'R'" />
+                    <label :for="category.key">{{category.name}}</label>
                 </div>
-                <p>Selected Theme: <span style="font-weight: bold">{{this.selectedTheme}}</span></p>
+                <p>Selected Category: <span style="font-weight: bold">{{this.selectedCategory}}</span></p>
             </div>
         </div>
 
@@ -49,12 +49,12 @@ export default {
     data() {
         return {
             city: null,
-            themes: [{name: 'Apollo', key: 'A'}, {name: 'Babylon', key: 'B'}, {name: 'Serenity', key: 'S'}, {name: 'Ultima', key: 'U'}],
-            selectedTheme: null
+            categories: [{name: 'Accounting', key: 'A'}, {name: 'Marketing', key: 'M'}, {name: 'Production', key: 'P'}, {name: 'Research', key: 'R'}],
+            selectedCategory: null
         }
     },
     created() {
-        this.selectedTheme = this.themes[1];
+        this.selectedCategory = this.categories[1];
     },
     components: {
         'RadioButtonDoc': RadioButtonDoc

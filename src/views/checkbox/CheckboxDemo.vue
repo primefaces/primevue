@@ -36,11 +36,11 @@
                 <p>Selected Cities : <span style="font-weight: bold">{{cities}}</span></p>
 
                 <h5>Dynamic Values, Preselection, Value Binding and Disabled Option</h5>
-                <div v-for="theme of themes" :key="theme.key" class="p-field-checkbox">
-                    <Checkbox :id="theme.key" name="theme" :value="theme" v-model="selectedThemes" :disabled="theme.key === 'U'"/>
-                    <label :for="theme.key">{{theme.name}}</label>
+                <div v-for="category of categories" :key="category.key" class="p-field-checkbox">
+                    <Checkbox :id="category.key" name="category" :value="category" v-model="selectedCategories" :disabled="category.key === 'R'"/>
+                    <label :for="category.key">{{category.name}}</label>
                 </div>
-                <p>Selected Themes: <span style="font-weight: bold">{{this.selectedThemes}}</span></p>
+                <p>Selected Categories: <span style="font-weight: bold">{{this.selectedCategories}}</span></p>
             </div>
         </div>
 
@@ -56,12 +56,12 @@ export default {
         return {
             checked: false,
             cities: [],
-            themes: [{name: 'Apollo', key: 'A'}, {name: 'Babylon', key: 'B'}, {name: 'Serenity', key: 'S'}, {name: 'Ultima', key: 'U'}],
-            selectedThemes: []
+            categories: [{name: 'Accounting', key: 'A'}, {name: 'Marketing', key: 'M'}, {name: 'Production', key: 'P'}, {name: 'Research', key: 'R'}],
+            selectedCategories: []
         }
     },
     created() {
-        this.selectedThemes = this.themes.slice(1,3);
+        this.selectedCategories = this.categories.slice(1,3);
     },
     components: {
         'CheckboxDoc': CheckboxDoc

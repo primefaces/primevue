@@ -156,27 +156,27 @@ export default {
 &lt;/div&gt;
 &lt;p&gt;Selected City: &lt;span style="font-weight: bold"&gt;{{this.city}}&lt;/span&gt;&lt;/p&gt;
 
-&lt;h3&gt;Dynamic Values, Preselection, Value Binding and Disabled Option&lt;/h3&gt;
-&lt;div v-for="theme of themes" :key="theme.key" class="p-field-radiobutton"&gt;
-    &lt;RadioButton :id="theme.key" name="theme" :value="theme" v-model="selectedTheme" :disabled="theme.key === 'U'" /&gt;
-    &lt;label :for="theme.key"&gt;{{theme.name}}&lt;/label&gt;
+&lt;h5&gt;Dynamic Values, Preselection, Value Binding and Disabled Option&lt;/h5&gt;
+&lt;div v-for="category of categories" :key="category.key" class="p-field-radiobutton"&gt;
+    &lt;RadioButton :id="category.key" name="category" :value="category" v-model="selectedCategory" :disabled="category.key === 'R'" /&gt;
+    &lt;label :for="category.key"&gt;{{category.name}}&lt;/label&gt;
 &lt;/div&gt;
-&lt;p&gt;Selected Theme: &lt;span style="font-weight: bold"&gt;{{this.selectedTheme}}&lt;/span&gt;&lt;/p&gt;
+&lt;p&gt;Selected Category: &lt;span style="font-weight: bold"&gt;{{this.selectedCategory}}&lt;/span&gt;&lt;/p&gt;
 </template>
 </CodeHighlight>
 
 <CodeHighlight lang="javascript">
 export default {
-	data() {
-		return {
-			city: null,
-			themes: [{name: 'Apollo', key: 'A'}, {name: 'Babylon', key: 'B'}, {name: 'Serenity', key: 'S'}, {name: 'Ultima', key: 'U'}],
-			selectedTheme: null
-		}
-	},
-	created() {
-		this.selectedTheme = this.themes[1];
-	}
+    data() {
+        return {
+            city: null,
+            categories: [{name: 'Accounting', key: 'A'}, {name: 'Marketing', key: 'M'}, {name: 'Production', key: 'P'}, {name: 'Research', key: 'R'}],
+            selectedCategory: null
+        }
+    },
+    created() {
+        this.selectedCategory = this.categories[1];
+    }
 }
 </CodeHighlight>
 			</TabPanel>
