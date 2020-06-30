@@ -107,12 +107,19 @@ export default {
 
 .p-organizationchart-node-content .p-node-toggler {
     position: absolute;
-    bottom: -9px;
-    margin-left: -8px;
+    bottom: -.75rem;
+    margin-left: -.75rem;
     z-index: 2;
     left: 50%;
     user-select: none;
     cursor: pointer;
+    width: 1.5rem;
+    height: 1.5rem;
+}
+
+.p-organizationchart-node-content .p-node-toggler .p-node-toggler-icon {
+    position: relative;
+    top: .25rem;
 }
 
 .p-organizationchart-line-down {

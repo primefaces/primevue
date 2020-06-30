@@ -1,9 +1,9 @@
 <template>
     <tr :class="containerClass" @click="onClick" @keydown="onKeyDown" @touchend="onTouchEnd" :style="node.style" tabindex="0">
         <td v-for="(col,i) of columns" :key="col.columnKey||col.field||i" :style="col.bodyStyle" :class="col.bodyClass">
-            <span class="p-treetable-toggler" @click="toggle" v-if="col.expander" :style="togglerStyle">
+            <button class="p-treetable-toggler p-link" @click="toggle" v-if="col.expander" :style="togglerStyle" tabindex="-1">
                 <i :class="togglerIcon"></i>
-            </span>
+            </button>
             <div class="p-checkbox p-treetable-checkbox p-component" @click="toggleCheckbox" v-if="checkboxSelectionMode && col.expander" role="checkbox" :aria-checked="checked">
                 <div class="p-hidden-accessible">
                     <input type="checkbox" @focus="onCheckboxFocus" @blur="onCheckboxBlur" />
@@ -13,7 +13,7 @@
                 </div>
             </div>
             <TTColumnSlot :node="node" :column="col" type="body" v-if="col.$scopedSlots.body" />
-            <template>{{resolveFieldData(node.data, col.field)}}</template>
+            <template><span>{{resolveFieldData(node.data, col.field)}}</span></template>
         </td>
     </tr>
 </template>
@@ -218,7 +218,7 @@ export default {
             return (this.selectionMode && this.selectionKeys) ? this.selectionKeys[this.node.key] === true : false;
         },
         togglerIcon() {
-            return ['p-treetable-toggler-icon pi', {'pi-angle-right': !this.expanded, 'pi-angle-down': this.expanded}];
+            return ['p-treetable-toggler-icon pi', {'pi-chevron-right': !this.expanded, 'pi-chevron-down': this.expanded}];
         },
         togglerStyle() {
             return {

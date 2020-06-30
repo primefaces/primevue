@@ -928,6 +928,18 @@ export default {
 .p-treetable-toggler {
     cursor: pointer;
     user-select: none;
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    vertical-align: middle;
+}
+
+.p-treetable-toggler + .p-checkbox {
+    vertical-align: middle;
+}
+
+.p-treetable-toggler + .p-checkbox + span {
+    vertical-align: middle;
 }
 
 /* Resizable */

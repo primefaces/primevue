@@ -2,9 +2,9 @@
     <li :class="containerClass">
         <div :class="contentClass" tabindex="0" role="treeitem" :aria-expanded="expanded"
             @click="onClick" @keydown="onKeyDown" @touchend="onTouchEnd" :style="node.style">
-            <span class="p-tree-toggler" @click="toggle">
+            <button class="p-tree-toggler p-link" @click="toggle" tabindex="-1">
                 <span :class="toggleIcon"></span>
-            </span>
+            </button>
             <div class="p-checkbox p-component" v-if="checkboxMode">
                 <div :class="checkboxClass" role="checkbox" :aria-checked="checked">
                     <span :class="checkboxIcon"></span>
@@ -289,8 +289,8 @@ export default {
         },
         toggleIcon() {
             return ['p-tree-toggler-icon pi pi-fw', {
-                'pi-angle-down': this.expanded,
-                'pi-angle-right': !this.expanded
+                'pi-chevron-down': this.expanded,
+                'pi-chevron-right': !this.expanded
             }];
         },
         checkboxClass() {

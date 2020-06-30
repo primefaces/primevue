@@ -1966,6 +1966,21 @@ export default {
     width: 100%;
 }
 
+.p-datatable .p-row-editor-init,
+.p-datatable .p-row-editor-save,
+.p-datatable .p-row-editor-cancel {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+}
+
+/* Expand */
+.p-datatable .p-row-toggler {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+}
+
 /* Reorder */
 .p-datatable-reorder-indicator-up,
 .p-datatable-reorder-indicator-down {

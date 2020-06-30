@@ -220,13 +220,5 @@ export default {
         background-color: #e9286f;
         color: #ffffff;
     }
-
-    .p-person .p-node-toggler {
-        color: #495ebb !important;
-    }
-
-    .department-cto .p-node-toggler {
-        color: #8a0a39 !important;
-    }
 }
 </style>

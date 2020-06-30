@@ -1129,7 +1129,7 @@ export default {
             &lt;InputText v-model="slotProps.data[slotProps.column.field]" /&gt;
         &lt;/template&gt;
     &lt;/Column&gt;
-    &lt;Column :rowEditor="true" headerStyle="width:6em" bodyStyle="text-align:center"&gt;&lt;/Column&gt;
+    &lt;Column :rowEditor="true" headerStyle="width:7rem" bodyStyle="text-align:center"&gt;&lt;/Column&gt;
 &lt;/DataTable&gt;
 </template>
 </CodeHighlight>

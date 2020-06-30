@@ -45,7 +45,7 @@ a {
 }
 
 .layout-mask {
-    opacity: .1;
+    background-color: rgba(0, 0, 0, 0.1);
 }
 
 .layout-mask-active {
@@ -55,9 +55,8 @@ a {
     position: fixed;
     top: 70px;
     left: 0;
-    background-color: #4c5254;
-    opacity: .7;
-    transition: opacity .5s;
+    background-color: rgba(0, 0, 0, 0.4);
+    transition: background-color .5s;
 }
 
 .clearfix {

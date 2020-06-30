@@ -300,6 +300,9 @@ export default {
 .p-tree-toggler {
     cursor: pointer;
     user-select: none;
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
 }
 
 .p-treenode-leaf > .p-treenode-content .p-tree-toggler {
