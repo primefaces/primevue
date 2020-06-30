@@ -178,25 +178,6 @@ export default {
 </script>
 
 <style lang="scss" scoped>
-.image-text {
-    vertical-align: middle;
-    margin-left: .5rem;
-}
-
-.p-multiselect-representative-option {
-    display: inline-block;
-    vertical-align: middle;
-
-    img {
-        vertical-align: middle;
-        width: 24px;
-    }
-
-    span {
-        margin-top: .125rem;
-    }
-}
-
 /deep/ .p-paginator {
     .p-paginator-current {
         margin-left: auto;
@@ -210,10 +191,6 @@ export default {
     .p-progressbar-value {
         background-color: #607D8B;
     }
-}
-
-/deep/ .p-column-filter {
-    width: 100%;
 }
 
 .table-header {

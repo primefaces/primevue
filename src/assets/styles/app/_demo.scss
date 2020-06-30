@@ -60,3 +60,26 @@
         color: #8A5340;
     }
 }
+
+.image-text {
+    vertical-align: middle;
+    margin-left: .5rem;
+}
+
+.p-multiselect-representative-option {
+    display: inline-block;
+    vertical-align: middle;
+
+    img {
+        vertical-align: middle;
+        width: 24px;
+    }
+
+    span {
+        margin-top: .125rem;
+    }
+}
+
+.p-column-filter {
+    width: 100%;
+}
