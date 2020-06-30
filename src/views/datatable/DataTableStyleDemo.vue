@@ -9,17 +9,17 @@
 
 		<div class="content-section implementation">
             <div class="card">
-                <DataTable :value="cars" :rowClass="rowClass">
-                    <Column field="vin" header="Vin"></Column>
-                    <Column field="year" header="Year" bodyStyle="padding: 0">
+                <DataTable :value="products" :rowClass="rowClass">
+                    <Column field="code" header="Code"></Column>
+                    <Column field="name" header="Name"></Column>
+                    <Column field="category" header="Category"></Column>
+                    <Column field="quantity" header="Quantity">
                         <template #body="slotProps">
-                            <div :class="[{'old-car': slotProps.data.year < 2010}]">
-                                {{slotProps.data.year}}
+                            <div :class="stockClass(slotProps.data)">
+                                {{slotProps.data.quantity}}
                             </div>
                         </template>
                     </Column>
-                    <Column field="brand" header="Brand"></Column>
-                    <Column field="color" header="Color"></Column>
                 </DataTable>
             </div>
 		</div>
@@ -29,55 +29,72 @@
                 <TabPanel header="Source">
 <CodeHighlight>
 <template v-pre>
-&lt;DataTable :value="cars" :rowClass="rowClass"&gt;
-    &lt;Column field="vin" header="Vin"&gt;&lt;/Column&gt;
-    &lt;Column field="year" header="Year" bodyStyle="padding: 0"&gt;
-            &lt;template #body="slotProps"&gt;
-            &lt;div :class="[{'old-car': slotProps.data.year &lt; 2010}]"&gt;
-                &#123;&#123;slotProps.data.year&#125;&#125;
+&lt;DataTable :value="products" :rowClass="rowClass"&gt;
+    &lt;Column field="code" header="Code"&gt;&lt;/Column&gt;
+    &lt;Column field="name" header="Name"&gt;&lt;/Column&gt;
+    &lt;Column field="category" header="Category"&gt;&lt;/Column&gt;
+    &lt;Column field="quantity" header="Quantity"&gt;
+        &lt;template #body="slotProps"&gt;
+            &lt;div :class="stockClass(slotProps.data)"&gt;
+                {{slotProps.data.quantity}}
             &lt;/div&gt;
         &lt;/template&gt;
     &lt;/Column&gt;
-    &lt;Column field="brand" header="Brand"&gt;&lt;/Column&gt;
-    &lt;Column field="color" header="Color"&gt;&lt;/Column&gt;
 &lt;/DataTable&gt;
 </template>
 </CodeHighlight>
 
 <CodeHighlight lang="javascript">
-import CarService from '../../service/CarService';
+import ProductService from '../../service/ProductService';
 
 export default {
     data() {
         return {
-            columns: null,
-            cars: null
+            products: null
         }
     },
-    carService: null,
+    productService: null,
     created() {
-        this.carService = new CarService();
+        this.productService = new ProductService();
     },
     mounted() {
-        this.carService.getCarsSmall().then(data => this.cars = data);
+        this.productService.getProductsSmall().then(data => this.products = data);
     },
     methods: {
         rowClass(data) {
-            return data.color === 'Gray' ? 'gray-car': null;
+            return data.category === 'Accessories' ? 'row-accessories': null;
+        },
+        stockClass(data) {
+            return [
+                {'outofstock': data.quantity === 0,
+                 'lowstock': data.quantity > 0 && data.quantity < 10,
+                 'instock': data.quantity > 10}
+            ];
         }
     }
 }
 </CodeHighlight>
 
 <CodeHighlight lang="css">
-.old-car {
+.outofstock {
     font-weight: 700;
+    color: #FF5252;
     text-decoration: line-through;
 }
 
-/deep/ .gray-car {
-    background-color: #607D8B !important;
-    color: #ffffff !important;
+.lowstock {
+    font-weight: 700;
+    color: #FFA726;
+}
+
+.instock {
+    font-weight: 700;
+    color: #66BB6A;
+}
+
+/deep/ .row-accessories {
+    background-color: rgba(0,0,0,.15) !important;
+
 }
 </CodeHighlight>
                 </TabPanel>
@@ -87,38 +104,55 @@ export default {
 </template>
 
 <script>
-import CarService from '../../service/CarService';
+import ProductService from '../../service/ProductService';
 
 export default {
     data() {
         return {
-            columns: null,
-            cars: null
+            products: null
         }
     },
-    carService: null,
+    productService: null,
     created() {
-        this.carService = new CarService();
+        this.productService = new ProductService();
     },
     mounted() {
-        this.carService.getCarsSmall().then(data => this.cars = data);
+        this.productService.getProductsSmall().then(data => this.products = data);
     },
     methods: {
         rowClass(data) {
-            return data.color === 'Gray' ? 'gray-car': null;
+            return data.category === 'Accessories' ? 'row-accessories': null;
+        },
+        stockClass(data) {
+            return [
+                {'outofstock': data.quantity === 0,
+                 'lowstock': data.quantity > 0 && data.quantity < 10,
+                 'instock': data.quantity > 10}
+            ];
         }
     }
 }
 </script>
 
 <style scoped lang="scss">
-.old-car {
+.outofstock {
     font-weight: 700;
+    color: #FF5252;
     text-decoration: line-through;
 }
 
-/deep/ .gray-car {
-    background-color: #607D8B !important;
-    color: #ffffff !important;
+.lowstock {
+    font-weight: 700;
+    color: #FFA726;
+}
+
+.instock {
+    font-weight: 700;
+    color: #66BB6A;
+}
+
+/deep/ .row-accessories {
+    background-color: rgba(0,0,0,.15) !important;
+
 }
 </style>
