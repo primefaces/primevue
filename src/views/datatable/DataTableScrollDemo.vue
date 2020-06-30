@@ -41,7 +41,7 @@
             <div class="card">
                 <h5>Virtual Scroll</h5>
                 <DataTable :value="virtualCustomers" :scrollable="true" scrollHeight="200px" :lazy="true" :rows="20" :loading="loading"
-                    :virtualScroll="true" :virtualRowHeight="30" @virtual-scroll="onVirtualScroll" :totalRecords="lazyTotalRecords">
+                    :virtualScroll="true" :virtualRowHeight="45" @virtual-scroll="onVirtualScroll" :totalRecords="lazyTotalRecords">
                     <Column field="name" header="Name">
                         <template #loading>
                             <span class="loading-text"></span>
@@ -146,7 +146,7 @@
 &lt;div class="card"&gt;
     &lt;h5&gt;Virtual Scroll&lt;/h5&gt;
     &lt;DataTable :value="virtualCustomers" :scrollable="true" scrollHeight="200px" :lazy="true" :rows="20" :loading="loading"
-        :virtualScroll="true" :virtualRowHeight="30" @virtual-scroll="onVirtualScroll" :totalRecords="lazyTotalRecords"&gt;
+        :virtualScroll="true" :virtualRowHeight="45" @virtual-scroll="onVirtualScroll" :totalRecords="lazyTotalRecords"&gt;
         &lt;Column field="name" header="Name"&gt;
             &lt;template #loading&gt;
                 &lt;span class="loading-text"&gt;&lt;/span&gt;
