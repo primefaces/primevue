@@ -13,7 +13,7 @@
             <div class="card">
                 <h5>Basic Cell Editing</h5>
                 <p>Simple editors with v-model.</p>
-                <DataTable :value="products1" editMode="cell">
+                <DataTable :value="products1" editMode="cell" class="editable-cells-table">
                     <Column field="code" header="Code">
                         <template #editor="slotProps">
                             <InputText v-model="slotProps.data[slotProps.column.field]" />
@@ -47,7 +47,7 @@
             <div class="card">
                 <h5>Advanced Cell Editing</h5>
                 <p>Custom implementation with validations, dynamic columns and reverting values with the escape key.</p>
-                <DataTable :value="products2" editMode="cell" @cell-edit-complete="onCellEditComplete">
+                <DataTable :value="products2" editMode="cell" @cell-edit-complete="onCellEditComplete" class="editable-cells-table">
                     <Column v-for="col of columns" :field="col.field" :header="col.header" :key="col.field">
                         <template #editor="slotProps">
                             <InputText :value="slotProps.data[slotProps.column.field]" @input="onCellEdit($event, slotProps)" />
@@ -100,7 +100,7 @@
 &lt;div class="card"&gt;
     &lt;h5&gt;Basic Cell Editing&lt;/h5&gt;
     &lt;p&gt;Simple editors with v-model.&lt;/p&gt;
-    &lt;DataTable :value="products1" editMode="cell"&gt;
+    &lt;DataTable :value="products1" editMode="cell" class="editable-cells-table"&gt;
         &lt;Column field="code" header="Code"&gt;
             &lt;template #editor="slotProps"&gt;
                 &lt;InputText v-model="slotProps.data[slotProps.column.field]" /&gt;
@@ -134,7 +134,7 @@
 &lt;div class="card"&gt;
     &lt;h5&gt;Advanced Cell Editing&lt;/h5&gt;
     &lt;p&gt;Custom implementation with validations, dynamic columns and reverting values with the escape key.&lt;/p&gt;
-    &lt;DataTable :value="products2" editMode="cell" @cell-edit-complete="onCellEditComplete"&gt;
+    &lt;DataTable :value="products2" editMode="cell" @cell-edit-complete="onCellEditComplete" class="editable-cells-table"&gt;
         &lt;Column v-for="col of columns" :field="col.field" :header="col.header" :key="col.field"&gt;
             &lt;template #editor="slotProps"&gt;
                 &lt;InputText :value="slotProps.data[slotProps.column.field]" @input="onCellEdit($event, slotProps)" /&gt;
@@ -287,6 +287,13 @@ export default {
 	</div>
 </template>
 
+<CodeHighlight lang="css">
+.editable-cells-table td.p-cell-editing {
+    padding-top: 0;
+    padding-bottom: 0;
+}
+</CodeHighlight>
+
 <script>
 import ProductService from '../../service/ProductService';
 import Vue from 'vue';
@@ -390,8 +397,8 @@ export default {
 </script>
 
 <style lang="scss" scoped>
-/deep/ .p-datatable th,
-/deep/ .p-datatable td {
-    height: 5rem;
+/deep/ .editable-cells-table td.p-cell-editing {
+    padding-top: 0;
+    padding-bottom: 0;
 }
 </style>
