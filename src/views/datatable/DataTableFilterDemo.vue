@@ -93,11 +93,6 @@
                             <InputText type="text" v-model="filters['activity']" class="p-column-filter" placeholder="Minimum"/>
                         </template>
                     </Column>
-                    <Column headerStyle="width: 8rem; text-align: center" bodyStyle="text-align: center; overflow: visible">
-                        <template #body>
-                            <Button type="button" icon="pi pi-cog" class="p-button-secondary"></Button>
-                        </template>
-                    </Column>
                 </DataTable>
             </div>
 		</div>
@@ -189,11 +184,6 @@
         &lt;/template&gt;
         &lt;template #filter&gt;
             &lt;InputText type="text" v-model="filters['activity']" class="p-column-filter" placeholder="Minimum"/&gt;
-        &lt;/template&gt;
-    &lt;/Column&gt;
-    &lt;Column headerStyle="width: 8rem; text-align: center" bodyStyle="text-align: center; overflow: visible"&gt;
-        &lt;template #body&gt;
-            &lt;Button type="button" icon="pi pi-cog" class="p-button-secondary"&gt;&lt;/Button&gt;
         &lt;/template&gt;
     &lt;/Column&gt;
 &lt;/DataTable&gt;
