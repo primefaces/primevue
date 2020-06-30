@@ -9,32 +9,32 @@
 
 		<div class="content-section implementation">
             <div class="card">
-                <DataTable :value="cars" class="p-datatable-responsive-demo" :paginator="true" :rows="10" paginatorPosition="both">
+                <DataTable :value="products" class="p-datatable-responsive-demo" :paginator="true" :rows="10">
                     <template #header>
                         Responsive
                     </template>
-                    <Column field="vin" header="Vin">
+                    <Column field="code" header="Code">
                         <template #body="slotProps">
-                            <span class="p-column-title">Vin</span>
-                            {{slotProps.data.vin}}
+                            <span class="p-column-title">Code</span>
+                            {{slotProps.data.code}}
                         </template>
                     </Column>
-                    <Column field="year" header="Year">
+                    <Column field="name" header="Name">
                         <template #body="slotProps">
-                            <span class="p-column-title">Year</span>
-                            {{slotProps.data.year}}
+                            <span class="p-column-title">Name</span>
+                            {{slotProps.data.name}}
                         </template>
                     </Column>
-                    <Column field="brand" header="Brand">
+                    <Column field="category" header="Category">
                         <template #body="slotProps">
-                            <span class="p-column-title">Brand</span>
-                            {{slotProps.data.brand}}
+                            <span class="p-column-title">Category</span>
+                            {{slotProps.data.category}}
                         </template>
                     </Column>
-                    <Column field="color" header="Color">
+                    <Column field="quantity" header="Quantity">
                         <template #body="slotProps">
-                            <span class="p-column-title">Color</span>
-                            {{slotProps.data.color}}
+                            <span class="p-column-title">Quantity</span>
+                            {{slotProps.data.quantity}}
                         </template>
                     </Column>
                 </DataTable>
@@ -46,32 +46,32 @@
                 <TabPanel header="Source">
 <CodeHighlight>
 <template v-pre>
-&lt;DataTable :value="cars" class="p-datatable-responsive" :paginator="true" rows="10" paginatorPosition="both"&gt;
+&lt;DataTable :value="products" class="p-datatable-responsive-demo" :paginator="true" :rows="10"&gt;
     &lt;template #header&gt;
         Responsive
     &lt;/template&gt;
-    &lt;Column field="vin" header="Vin"&gt;
+    &lt;Column field="code" header="Code"&gt;
         &lt;template #body="slotProps"&gt;
-            &lt;span class="p-column-title"&gt;Vin&lt;/span&gt;
-            {{slotProps.data.vin}}
+            &lt;span class="p-column-title"&gt;Code&lt;/span&gt;
+            {{slotProps.data.code}}
         &lt;/template&gt;
     &lt;/Column&gt;
-    &lt;Column field="year" header="Year"&gt;
+    &lt;Column field="name" header="Name"&gt;
         &lt;template #body="slotProps"&gt;
-            &lt;span class="p-column-title"&gt;Year&lt;/span&gt;
-            {{slotProps.data.year}}
+            &lt;span class="p-column-title"&gt;Name&lt;/span&gt;
+            {{slotProps.data.name}}
         &lt;/template&gt;
     &lt;/Column&gt;
-    &lt;Column field="brand" header="Brand"&gt;
+    &lt;Column field="category" header="Category"&gt;
         &lt;template #body="slotProps"&gt;
-            &lt;span class="p-column-title"&gt;Brand&lt;/span&gt;
-            {{slotProps.data.brand}}
+            &lt;span class="p-column-title"&gt;Category&lt;/span&gt;
+            {{slotProps.data.category}}
         &lt;/template&gt;
     &lt;/Column&gt;
-    &lt;Column field="color" header="Color"&gt;
+    &lt;Column field="quantity" header="Quantity"&gt;
         &lt;template #body="slotProps"&gt;
-            &lt;span class="p-column-title"&gt;Color&lt;/span&gt;
-            {{slotProps.data.color}}
+            &lt;span class="p-column-title"&gt;Quantity&lt;/span&gt;
+            {{slotProps.data.quantity}}
         &lt;/template&gt;
     &lt;/Column&gt;
 &lt;/DataTable&gt;
@@ -79,20 +79,20 @@
 </CodeHighlight>
 
 <CodeHighlight lang="javascript">
-import CarService from '../../service/CarService';
+import ProductService from '../../service/ProductService';
 
 export default {
     data() {
         return {
-            cars: null
+            products: null
         }
     },
-    carService: null,
+    productService: null,
     created() {
-        this.carService = new CarService();
+        this.productService = new ProductService();
     },
     mounted() {
-        this.carService.getCarsSmall().then(data => this.cars = data);
+        this.productService.getProducts().then(data => this.products = data);
     }
 }
 </CodeHighlight>
@@ -113,10 +113,10 @@ export default {
             .p-datatable-tbody > tr > td {
                 text-align: left;
                 display: block;
-                border: 0 none !important;
-                width: 100% !important;
+                width: 100%;
                 float: left;
                 clear: left;
+                border: 0 none;
 
                 .p-column-title {
                     padding: .4rem;
@@ -124,6 +124,10 @@ export default {
                     display: inline-block;
                     margin: -.4em 1em -.4em -.4rem;
                     font-weight: bold;
+                }
+
+                &:last-child {
+                    border-bottom: 1px solid var(--surface-d);
                 }
             }
         }
@@ -137,20 +141,20 @@ export default {
 </template>
 
 <script>
-import CarService from '../../service/CarService';
+import ProductService from '../../service/ProductService';
 
 export default {
     data() {
         return {
-            cars: null
+            products: null
         }
     },
-    carService: null,
+    productService: null,
     created() {
-        this.carService = new CarService();
+        this.productService = new ProductService();
     },
     mounted() {
-        this.carService.getCarsMedium().then(data => this.cars = data);
+        this.productService.getProducts().then(data => this.products = data);
     }
 }
 </script>
@@ -171,8 +175,7 @@ export default {
             .p-datatable-tbody > tr > td {
                 text-align: left;
                 display: block;
-                border: 0 none !important;
-                width: 100% !important;
+                width: 100%;
                 float: left;
                 clear: left;
                 border: 0 none;
@@ -183,6 +186,10 @@ export default {
                     display: inline-block;
                     margin: -.4em 1em -.4em -.4rem;
                     font-weight: bold;
+                }
+
+                &:last-child {
+                    border-bottom: 1px solid var(--surface-d);
                 }
             }
         }

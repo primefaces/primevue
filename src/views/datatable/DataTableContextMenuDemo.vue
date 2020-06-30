@@ -9,11 +9,15 @@
 
 		<div class="content-section implementation">
             <div class="card">
-                <DataTable :value="cars" contextMenu :contextMenuSelection.sync="selectedCar" @row-contextmenu="onRowContextMenu">
-                    <Column field="vin" header="Vin"></Column>
-                    <Column field="year" header="Year"></Column>
-                    <Column field="brand" header="Brand"></Column>
-                    <Column field="color" header="Color"></Column>
+                <DataTable :value="products" contextMenu :contextMenuSelection.sync="selectedProduct" @row-contextmenu="onRowContextMenu">
+                    <Column field="code" header="Code"></Column>
+                    <Column field="name" header="Name"></Column>
+                    <Column field="category" header="Category"></Column>
+                    <Column field="price" header="Price">
+                        <template #body="slotProps">
+                            {{formatCurrency(slotProps.data.price)}}
+                        </template>
+                    </Column>
                 </DataTable>
             </div>
 
@@ -25,11 +29,15 @@
                 <TabPanel header="Source">
 <CodeHighlight>
 <template v-pre>
-&lt;DataTable :value="cars" contextMenu :contextMenuSelection.sync="selectedCar" @row-contextmenu="onRowContextMenu"&gt;
-    &lt;Column field="vin" header="Vin"&gt;&lt;/Column&gt;
-    &lt;Column field="year" header="Year"&gt;&lt;/Column&gt;
-    &lt;Column field="brand" header="Brand"&gt;&lt;/Column&gt;
-    &lt;Column field="color" header="Color"&gt;&lt;/Column&gt;
+&lt;DataTable :value="products" contextMenu :contextMenuSelection.sync="selectedProduct" @row-contextmenu="onRowContextMenu"&gt;
+    &lt;Column field="code" header="Code"&gt;&lt;/Column&gt;
+    &lt;Column field="name" header="Name"&gt;&lt;/Column&gt;
+    &lt;Column field="category" header="Category"&gt;&lt;/Column&gt;
+    &lt;Column field="price" header="Price"&gt;
+        &lt;template #body="slotProps"&gt;
+            {{formatCurrency(slotProps.data.price)}}
+        &lt;/template&gt;
+    &lt;/Column&gt;
 &lt;/DataTable&gt;
 
 &lt;ContextMenu :model="menuModel" ref="cm" /&gt;
@@ -37,37 +45,40 @@
 </CodeHighlight>
 
 <CodeHighlight lang="javascript">
-import CarService from '../../service/CarService';
+import ProductService from '../../service/ProductService';
 
 export default {
     data() {
         return {
-            cars: null,
-            selectedCar: null,
+            products: null,
+            selectedProduct: null,
             menuModel: [
-                {label: 'View', icon: 'pi pi-fw pi-search', command: () => this.viewCar(this.selectedCar)},
-                {label: 'Delete', icon: 'pi pi-fw pi-times', command: () => this.deleteCar(this.selectedCar)}
+                {label: 'View', icon: 'pi pi-fw pi-search', command: () => this.viewProduct(this.selectedProduct)},
+                {label: 'Delete', icon: 'pi pi-fw pi-times', command: () => this.deleteProduct(this.selectedProduct)}
             ]
         }
     },
-    carService: null,
+    productService: null,
     created() {
-        this.carService = new CarService();
+        this.productService = new ProductService();
     },
     mounted() {
-        this.carService.getCarsSmall().then(data => this.cars = data);
+        this.productService.getProductsSmall().then(data => this.products = data);
     },
     methods: {
         onRowContextMenu(event) {
             this.$refs.cm.show(event.originalEvent);
         },
-        viewCar(car) {
-            this.$toast.add({severity: 'info', summary: 'Car Selected', detail: car.vin + ' - ' + car.brand});
+        viewProduct(product) {
+            this.$toast.add({severity: 'info', summary: 'Product Selected', detail: product.name});
         },
-        deleteCar(car) {
-            this.cars = this.cars.filter((c) => c.vin !== car.vin);
-            this.$toast.add({severity: 'info', summary: 'Car Deleted', detail: car.vin + ' - ' + car.brand});
-            this.selectedCar = null;
+        deleteProduct(product) {
+            this.products = this.products.filter((p) => p.id !== product.id);
+            this.$toast.add({severity: 'info', summary: 'Product Deleted', detail: product.name});
+            this.selectedProduct = null;
+        },
+        formatCurrency(value) {
+            return value.toLocaleString('en-US', {style: 'currency', currency: 'USD'});
         }
     }
 }
@@ -79,37 +90,40 @@ export default {
 </template>
 
 <script>
-import CarService from '../../service/CarService';
+import ProductService from '../../service/ProductService';
 
 export default {
     data() {
         return {
-            cars: null,
-            selectedCar: null,
+            products: null,
+            selectedProduct: null,
             menuModel: [
-                {label: 'View', icon: 'pi pi-fw pi-search', command: () => this.viewCar(this.selectedCar)},
-                {label: 'Delete', icon: 'pi pi-fw pi-times', command: () => this.deleteCar(this.selectedCar)}
+                {label: 'View', icon: 'pi pi-fw pi-search', command: () => this.viewProduct(this.selectedProduct)},
+                {label: 'Delete', icon: 'pi pi-fw pi-times', command: () => this.deleteProduct(this.selectedProduct)}
             ]
         }
     },
-    carService: null,
+    productService: null,
     created() {
-        this.carService = new CarService();
+        this.productService = new ProductService();
     },
     mounted() {
-        this.carService.getCarsSmall().then(data => this.cars = data);
+        this.productService.getProductsSmall().then(data => this.products = data);
     },
     methods: {
         onRowContextMenu(event) {
             this.$refs.cm.show(event.originalEvent);
         },
-        viewCar(car) {
-            this.$toast.add({severity: 'info', summary: 'Car Selected', detail: car.vin + ' - ' + car.brand});
+        viewProduct(product) {
+            this.$toast.add({severity: 'info', summary: 'Product Selected', detail: product.name});
         },
-        deleteCar(car) {
-            this.cars = this.cars.filter((c) => c.vin !== car.vin);
-            this.$toast.add({severity: 'info', summary: 'Car Deleted', detail: car.vin + ' - ' + car.brand});
-            this.selectedCar = null;
+        deleteProduct(product) {
+            this.products = this.products.filter((p) => p.id !== product.id);
+            this.$toast.add({severity: 'info', summary: 'Product Deleted', detail: product.name});
+            this.selectedProduct = null;
+        },
+        formatCurrency(value) {
+            return value.toLocaleString('en-US', {style: 'currency', currency: 'USD'});
         }
     }
 }
