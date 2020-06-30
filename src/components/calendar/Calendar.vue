@@ -8,7 +8,7 @@
                     <div class="p-datepicker-group" v-for="(month,groupIndex) of months" :key="month.month + month.year">
                         <div class="p-datepicker-header">
                             <slot name="header"></slot>
-                            <button class="p-datepicker-prev p-link" v-if="groupIndex === 0" @click="onPrevButtonClick" type="button" @keydown="onContainerButtonKeydown" v-ripple>
+                            <button class="p-datepicker-prev p-link" v-if="groupIndex === 0" @click="onPrevButtonClick" type="button" @keydown="onContainerButtonKeydown" v-ripple :disabled="$attrs.disabled">
                                 <span class="p-datepicker-prev-icon pi pi-chevron-left"></span>
                             </button>
                             <div class="p-datepicker-title">
@@ -22,7 +22,7 @@
                                 </select>
                             </div>
                             <button class="p-datepicker-next p-link" v-if="numberOfMonths === 1 ? true : (groupIndex === numberOfMonths - 1)"
-                                @click="onNextButtonClick" type="button" @keydown="onContainerButtonKeydown" v-ripple>
+                                @click="onNextButtonClick" type="button" @keydown="onContainerButtonKeydown" v-ripple :disabled="$attrs.disabled">
                                 <span class="p-datepicker-next-icon pi pi-chevron-right"></span>
                             </button>
                         </div>
@@ -312,7 +312,7 @@ export default {
         this.updateCurrentMetaData();
     },
     mounted() {
-        if (this.inline) {
+        if (this.inline && !this.$attrs.disabled) {
             this.initFocusableCell();
         }
     },
