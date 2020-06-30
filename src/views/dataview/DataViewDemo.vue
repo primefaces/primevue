@@ -9,44 +9,61 @@
 
 		<div class="content-section implementation">
             <div class="card">
-                <DataView :value="cars" :layout="layout" paginatorPosition="bottom" :paginator="true" :rows="20"
-                    :sortOrder="sortOrder" :sortField="sortField">
-                    <template #header>
+                <DataView :value="products" :layout="layout" :paginator="true" :rows="9" :sortOrder="sortOrder" :sortField="sortField">
+					<template #header>
                         <div class="p-grid p-nogutter">
                             <div class="p-col-6" style="text-align: left">
-                                <Dropdown v-model="sortKey" :options="sortOptions" optionLabel="label" placeholder="Sort By" @change="onSortChange($event)"/>
+                                <Dropdown v-model="sortKey" :options="sortOptions" optionLabel="label" placeholder="Sort By Price" @change="onSortChange($event)"/>
                             </div>
                             <div class="p-col-6" style="text-align: right">
                                 <DataViewLayoutOptions v-model="layout" />
                             </div>
                         </div>
-                    </template>
-                    <template #list="slotProps" >
-                        <div class="p-col-12">
-                            <div class="car-details">
-                                <div>
-                                    <img :src="'demo/images/car/' + slotProps.data.brand + '.png'" :alt="slotProps.data.brand"/>
-                                    <div class="p-grid">
-                                        <div class="p-col-12">Vin: <b>{{slotProps.data.vin}}</b></div>
-                                        <div class="p-col-12">Year: <b>{{slotProps.data.year}}</b></div>
-                                        <div class="p-col-12">Brand: <b>{{slotProps.data.brand}}</b></div>
-                                        <div class="p-col-12">Color: <b>{{slotProps.data.color}}</b></div>
-                                    </div>
-                                </div>
-                                <Button icon="pi pi-search"></Button>
-                            </div>
-                        </div>
-                    </template>
-                    <template #grid="slotProps">
-                        <div style="padding: .5em" class="p-col-12 p-md-3">
-                            <Panel :header="slotProps.data.vin" style="text-align: center">
-                                <img :src="'demo/images/car/' + slotProps.data.brand + '.png'" :alt="slotProps.data.brand"/>
-                                <div class="car-detail">{{slotProps.data.year}} - {{slotProps.data.color}}</div>
-                                <Button icon="pi pi-search"></Button>
-                            </Panel>
-                        </div>
-                    </template>
-                </DataView>
+					</template>
+
+					<template #list="slotProps">
+						<div class="p-col-12">
+							<div class="product-list-item">
+								<img :src="'demo/images/product/' + slotProps.data.image" :alt="slotProps.data.name"/>
+								<div class="product-list-detail">
+									<div class="product-name">{{slotProps.data.name}}</div>
+									<div class="product-description">{{slotProps.data.description}}</div>
+									<Rating :value="slotProps.data.rating" :readonly="true" :cancel="false"></Rating>
+									<i class="pi pi-tag product-category-icon"></i><span class="product-category">{{slotProps.data.category}}</span>
+								</div>
+								<div class="product-list-action">
+									<span class="product-price">${{slotProps.data.price}}</span>
+									<Button icon="pi pi-shopping-cart" label="Add to Cart" :disabled="slotProps.data.inventoryStatus === 'OUTOFSTOCK'"></Button>
+									<span :class="'product-badge status-'+slotProps.data.inventoryStatus.toLowerCase()">{{slotProps.data.inventoryStatus}}</span>
+								</div>
+							</div>
+						</div>
+					</template>
+
+					<template #grid="slotProps">
+						<div class="p-col-12 p-md-4">
+							<div class="product-grid-item card">
+								<div class="product-grid-item-top">
+									<div>
+										<i class="pi pi-tag product-category-icon"></i>
+										<span class="product-category">{{slotProps.data.category}}</span>
+									</div>
+									<span :class="'product-badge status-'+slotProps.data.inventoryStatus.toLowerCase()">{{slotProps.data.inventoryStatus}}</span>
+								</div>
+								<div class="product-grid-item-content">
+									<img :src="'demo/images/product/' + slotProps.data.image" :alt="slotProps.data.name"/>
+									<div class="product-name">{{slotProps.data.name}}</div>
+									<div class="product-description">{{slotProps.data.description}}</div>
+									<Rating :value="slotProps.data.rating" :readonly="true" :cancel="false"></Rating>
+								</div>
+								<div class="product-grid-item-bottom">
+									<span class="product-price">${{slotProps.data.price}}</span>
+									<Button icon="pi pi-shopping-cart" :disabled="slotProps.data.inventoryStatus === 'OUTOFSTOCK'"></Button>
+								</div>
+							</div>
+						</div>
+					</template>
+				</DataView>
             </div>
 		</div>
 
@@ -55,30 +72,29 @@
 </template>
 
 <script>
-import CarService from '../../service/CarService';
+import ProductService from '../../service/ProductService';
 import DataViewDoc from './DataViewDoc';
 
 export default {
     data() {
         return {
-            cars: null,
-            layout: 'list',
+            products: null,
+            layout: 'grid',
             sortKey: null,
             sortOrder: null,
             sortField: null,
             sortOptions: [
-                {label: 'Newest First', value: '!year'},
-                {label: 'Oldest First', value: 'year'},
-                {label: 'Brand', value: 'brand'}
+                {label: 'Price High to Low', value: '!price'},
+                {label: 'Price Low to High', value: 'price'},
             ]
         }
     },
-    carService: null,
+    productService: null,
     created() {
-        this.carService = new CarService();
+        this.productService = new ProductService();
     },
     mounted() {
-        this.carService.getCarsLarge().then(data => this.cars = data);
+        this.productService.getProducts().then(data => this.products = data);
     },
     methods: {
         onSortChange(event){
@@ -105,54 +121,163 @@ export default {
 
 <style lang="scss" scoped>
 .p-dropdown {
-    width: 12rem;
+    width: 14rem;
     font-weight: normal;
 }
 
-.p-dataview {
-    .car-details {
-        display: flex;
-        justify-content: space-between;
-        align-items: center;
-        padding: 2rem;
-
-        & > div {
-            display: flex;
-            align-items: center;
-
-            img {
-                margin-right: 14px;
-            }
-        }
-    }
-
-    .car-detail {
-        padding: 0 1em 1em 1rem;
-        border-bottom: 1px solid #d9dad9;
-        margin: 1rem;
-    }
-
-    .p-panel-content {
-        padding: 1rem;
-    }
+.product-name {
+	font-size: 1.5rem;
+	font-weight: 700;
 }
 
-@media (max-width: 1024px) {
-	.p-dataview {
-        .car-details {
-            img {
-                width: 75px;
-            }
-        }
-    }
+.product-description {
+	margin: 0 0 1rem 0;
 }
 
-/* Dark Theme such as luna-amber, luna-blue, luna-green and luna-pink */
-.dark-theme {
-    .p-dataview {
-        .car-detail {
-            border-bottom: 1px solid #191919;
-        }
-    }
+.product-category-icon {
+	vertical-align: middle;
+	margin-right: .5rem;
+}
+
+.product-category {
+	font-weight: 600;
+	vertical-align: middle;
+}
+
+.product-list-item {
+	display: -ms-flexbox;
+	display: flex;
+	-ms-flex-align: center;
+	align-items: center;
+	padding: 1rem;
+	width: 100%;
+
+	img {
+		width: 150px;
+		box-shadow: 0 3px 6px rgba(0, 0, 0, 0.16), 0 3px 6px rgba(0, 0, 0, 0.23);
+		margin-right: 2rem;
+	}
+
+	.product-list-detail {
+		flex: 1 1 0;
+		-ms-flex: 1 1 0px;
+	}
+
+	.p-rating {
+		margin: 0 0 .5rem 0;
+	}
+
+	.product-price {
+		font-size: 1.5rem;
+		font-weight: 600;
+		margin-bottom: .5rem;
+		align-self: flex-end;
+	}
+
+	.product-list-action {
+		display: -ms-flexbox;
+		display: flex;
+		-ms-flex-direction: column;
+		flex-direction: column;
+	}
+
+	.p-button {
+		margin-bottom: .5rem;
+	}
+
+}
+
+.product-badge {
+	border-radius: 2px;
+	padding: .25em .5rem;
+	text-transform: uppercase;
+	font-weight: 700;
+	font-size: 12px;
+	letter-spacing: .3px;
+
+	&.status-instock {
+		background: #C8E6C9;
+		color: #256029;
+	}
+
+	&.status-outofstock {
+		background: #FFCDD2;
+		color: #C63737;
+	}
+
+	&.status-lowstock {
+		background: #FEEDAF;
+		color: #8A5340;
+	}
+}
+
+.product-grid-item {
+	margin: .5em;
+	border: 1px solid #dee2e6;
+
+	.product-grid-item-top,
+	.product-grid-item-bottom {
+		display: -ms-flexbox;
+		display: flex;
+		-ms-flex-align: center;
+		align-items: center;
+		-ms-flex-pack: justify;
+		justify-content: space-between;
+	}
+
+	img {
+		width: 75%;
+		box-shadow: 0 3px 6px rgba(0, 0, 0, 0.16), 0 3px 6px rgba(0, 0, 0, 0.23);
+		margin: 2rem 0;
+	}
+
+	.product-grid-item-content {
+		text-align: center;
+	}
+
+	.product-price {
+		font-size: 1.5rem;
+		font-weight: 600;
+	}
+}
+
+@media screen and (max-width: 576px) {
+	.product-list-item {
+		-ms-flex-direction: column;
+		flex-direction: column;
+		-ms-flex-align: center;
+		align-items: center;
+
+		img {
+			width: 75%;
+			margin: 2rem 0;
+		}
+
+		.product-list-detail {
+			text-align: center;
+		}
+
+		.product-price {
+			align-self: center;
+		}
+
+		.product-list-action {
+			display: -ms-flexbox;
+			display: flex;
+			-ms-flex-direction: column;
+			flex-direction: column;
+		}
+
+		.product-list-action {
+			margin-top: 2rem;
+			-ms-flex-direction: row;
+			flex-direction: row;
+			-ms-flex-pack: justify;
+			justify-content: space-between;
+			-ms-flex-align: center;
+			align-items: center;
+			width: 100%;
+		}
+	}
 }
 </style>

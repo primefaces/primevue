@@ -411,40 +411,58 @@ export default {
 				</a>
 <CodeHighlight>
 <template v-pre>
-&lt;DataView :value="cars" :layout="layout" paginatorPosition="bottom" :paginator="true" :rows="20" :sortOrder="sortOrder" :sortField="sortField"&gt;
+&lt;DataView :value="products" :layout="layout" :paginator="true" :rows="9" :sortOrder="sortOrder" :sortField="sortField"&gt;
     &lt;template #header&gt;
         &lt;div class="p-grid p-nogutter"&gt;
             &lt;div class="p-col-6" style="text-align: left"&gt;
-                &lt;Dropdown v-model="sortKey" :options="sortOptions" optionLabel="label" placeholder="Sort By" @change="onSortChange($event)"/&gt;
+                &lt;Dropdown v-model="sortKey" :options="sortOptions" optionLabel="label" placeholder="Sort By Price" @change="onSortChange($event)"/&gt;
             &lt;/div&gt;
             &lt;div class="p-col-6" style="text-align: right"&gt;
                 &lt;DataViewLayoutOptions v-model="layout" /&gt;
             &lt;/div&gt;
         &lt;/div&gt;
     &lt;/template&gt;
+
     &lt;template #list="slotProps"&gt;
         &lt;div class="p-col-12"&gt;
-            &lt;div class="car-details"&gt;
-                &lt;div&gt;
-                    &lt;img :src="'demo/images/car/' + slotProps.data.brand + '.png'" :alt="slotProps.data.brand"/&gt;
-                    &lt;div class="p-grid"&gt;
-                        &lt;div class="p-col-12"&gt;Vin: &lt;b&gt;&#123;&#123;slotProps.data.vin&#125;&#125;&lt;/b&gt;&lt;/div&gt;
-                        &lt;div class="p-col-12"&gt;Year: &lt;b&gt;&#123;&#123;slotProps.data.year&#125;&#125;&lt;/b&gt;&lt;/div&gt;
-                        &lt;div class="p-col-12"&gt;Brand: &lt;b&gt;&#123;&#123;slotProps.data.brand&#125;&#125;&lt;/b&gt;&lt;/div&gt;
-                        &lt;div class="p-col-12"&gt;Color: &lt;b&gt;&#123;&#123;slotProps.data.color&#125;&#125;&lt;/b&gt;&lt;/div&gt;
-                    &lt;/div&gt;
+            &lt;div class="product-list-item"&gt;
+                &lt;img :src="'demo/images/product/' + slotProps.data.image" :alt="slotProps.data.name"/&gt;
+                &lt;div class="product-list-detail"&gt;
+                    &lt;div class="product-name"&gt;{{slotProps.data.name}}&lt;/div&gt;
+                    &lt;div class="product-description"&gt;{{slotProps.data.description}}&lt;/div&gt;
+                    &lt;Rating :value="slotProps.data.rating" :readonly="true" :cancel="false"&gt;&lt;/Rating&gt;
+                    &lt;i class="pi pi-tag product-category-icon"&gt;&lt;/i&gt;&lt;span class="product-category"&gt;{{slotProps.data.category}}&lt;/span&gt;
                 &lt;/div&gt;
-                &lt;Button icon="pi pi-search"&gt;&lt;/Button&gt;
+                &lt;div class="product-list-action"&gt;
+                    &lt;span class="product-price"&gt;${{slotProps.data.price}}&lt;/span&gt;
+                    &lt;Button icon="pi pi-shopping-cart" label="Add to Cart" :disabled="slotProps.data.inventoryStatus === 'OUTOFSTOCK'"&gt;&lt;/Button&gt;
+                    &lt;span :class="'product-badge status-'+slotProps.data.inventoryStatus.toLowerCase()"&gt;{{slotProps.data.inventoryStatus}}&lt;/span&gt;
+                &lt;/div&gt;
             &lt;/div&gt;
         &lt;/div&gt;
     &lt;/template&gt;
+
     &lt;template #grid="slotProps"&gt;
-        &lt;div style="padding: .5em" class="p-col-12 p-md-3"&gt;
-            &lt;Panel :header="slotProps.data.vin" style="text-align: center"&gt;
-                &lt;img :src="'demo/images/car/' + slotProps.data.brand + '.png'" :alt="slotProps.data.brand"/&gt;
-                &lt;div class="car-detail"&gt;{{slotProps.data.year}} - {{slotProps.data.color}}&lt;/div&gt;
-                &lt;Button icon="pi pi-search"&gt;&lt;/Button&gt;
-            &lt;/Panel&gt;
+        &lt;div class="p-col-12 p-md-4"&gt;
+            &lt;div class="product-grid-item card"&gt;
+                &lt;div class="product-grid-item-top"&gt;
+                    &lt;div&gt;
+                        &lt;i class="pi pi-tag product-category-icon"&gt;&lt;/i&gt;
+                        &lt;span class="product-category"&gt;{{slotProps.data.category}}&lt;/span&gt;
+                    &lt;/div&gt;
+                    &lt;span :class="'product-badge status-'+slotProps.data.inventoryStatus.toLowerCase()"&gt;{{slotProps.data.inventoryStatus}}&lt;/span&gt;
+                &lt;/div&gt;
+                &lt;div class="product-grid-item-content"&gt;
+                    &lt;img :src="'demo/images/product/' + slotProps.data.image" :alt="slotProps.data.name"/&gt;
+                    &lt;div class="product-name"&gt;{{slotProps.data.name}}&lt;/div&gt;
+                    &lt;div class="product-description"&gt;{{slotProps.data.description}}&lt;/div&gt;
+                    &lt;Rating :value="slotProps.data.rating" :readonly="true" :cancel="false"&gt;&lt;/Rating&gt;
+                &lt;/div&gt;
+                &lt;div class="product-grid-item-bottom"&gt;
+                    &lt;span class="product-price"&gt;${{slotProps.data.price}}&lt;/span&gt;
+                    &lt;Button icon="pi pi-shopping-cart" :disabled="slotProps.data.inventoryStatus === 'OUTOFSTOCK'"&gt;&lt;/Button&gt;
+                &lt;/div&gt;
+            &lt;/div&gt;
         &lt;/div&gt;
     &lt;/template&gt;
 &lt;/DataView&gt;
@@ -452,29 +470,28 @@ export default {
 </CodeHighlight>
 
 <CodeHighlight lang="javascript">
-import CarService from '../../service/CarService';
+import ProductService from '../../service/ProductService';
 
 export default {
     data() {
         return {
-            cars: null,
-            layout: 'list',
+            products: null,
+            layout: 'grid',
             sortKey: null,
             sortOrder: null,
             sortField: null,
             sortOptions: [
-                {label: 'Newest First', value: '!year'},
-                {label: 'Oldest First', value: 'year'},
-                {label: 'Brand', value: 'brand'}
+                {label: 'Price High to Low', value: '!price'},
+                {label: 'Price Low to High', value: 'price'},
             ]
         }
     },
-    carService: null,
+    productService: null,
     created() {
-        this.carService = new CarService();
+        this.productService = new ProductService();
     },
     mounted() {
-        this.carService.getCarsLarge().then(data => this.cars = data);
+        this.productService.getProducts().then(data => this.products = data);
     },
     methods: {
         onSortChange(event){
@@ -491,65 +508,6 @@ export default {
                 this.sortField = value;
                 this.sortKey = sortValue;
             }
-        }
-    }
-}
-</CodeHighlight>
-
-<CodeHighlight lang="css">
-.p-dropdown {
-    width: 12rem;
-    font-weight: normal;
-}
-
-.p-dataview {
-    .car-details {
-        display: flex;
-        justify-content: space-between;
-        align-items: center;
-        padding: 2rem;
-        border-bottom: 1px solid #d9dad9;
-
-        &amp; > div {
-            display: flex;
-            align-items: center;
-
-            img {
-                margin-right: 14px;
-            }
-        }
-    }
-
-    .car-detail {
-        padding: 0 1em 1em 1rem;
-        border-bottom: 1px solid #d9dad9;
-        margin: 1rem;
-    }
-
-    .p-panel-content {
-        padding: 1rem;
-    }
-}
-
-@media (max-width: 1024px) {
-	.p-dataview {
-        .car-details {
-            img {
-                width: 75px;
-            }
-        }
-    }
-}
-
-/* Dark Theme such as luna-amber, luna-blue, luna-green and luna-pink */
-.dark-theme {
-    .p-dataview {
-        .car-details {
-            border-bottom-color: #191919;
-        }
-
-        .car-detail {
-            border-bottom: 1px solid #191919;
         }
     }
 }
