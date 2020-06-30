@@ -13,30 +13,30 @@
             <div class="card">
                 <h5>Basic Cell Editing</h5>
                 <p>Simple editors with v-model.</p>
-                <DataTable :value="cars1" editMode="cell">
-                    <Column field="vin" header="Vin">
+                <DataTable :value="products1" editMode="cell">
+                    <Column field="code" header="Code">
                         <template #editor="slotProps">
                             <InputText v-model="slotProps.data[slotProps.column.field]" />
                         </template>
                     </Column>
-                    <Column field="year" header="Year">
+                    <Column field="name" header="Name">
                         <template #editor="slotProps">
                             <InputText v-model="slotProps.data[slotProps.column.field]" />
                         </template>
                     </Column>
-                    <Column field="brand" header="Brand">
+                    <Column field="inventoryStatus" header="Status">
                         <template #editor="slotProps">
-                            <Dropdown v-model="slotProps.data['brand']" :options="brands" optionLabel="brand" optionValue="value" placeholder="Select a Brand">
-                                <template #option="optionProps">
-                                    <div class="p-dropdown-car-option">
-                                        <img :alt="optionProps.option.brand" :src="'demo/images/car/' + optionProps.option.brand + '.png'" />
-                                        <span>{{optionProps.option.brand}}</span>
-                                    </div>
+                            <Dropdown v-model="slotProps.data['inventoryStatus']" :options="statuses" optionLabel="label" optionValue="value" laceholder="Select a Status">
+                                <template #option="slotProps">
+                                    <span :class="'product-badge status-' + slotProps.option.value.toLowerCase()">{{slotProps.option.label}}</span>
                                 </template>
                             </Dropdown>
                         </template>
+                        <template #body="slotProps">
+                            {{getStatusLabel(slotProps.data.inventoryStatus)}}
+                        </template>
                     </Column>
-                    <Column field="color" header="Color">
+                    <Column field="price" header="Price">
                         <template #editor="slotProps">
                             <InputText v-model="slotProps.data[slotProps.column.field]" />
                         </template>
@@ -47,7 +47,7 @@
             <div class="card">
                 <h5>Advanced Cell Editing</h5>
                 <p>Custom implementation with validations, dynamic columns and reverting values with the escape key.</p>
-                <DataTable :value="cars2" editMode="cell" @cell-edit-complete="onCellEditComplete">
+                <DataTable :value="products2" editMode="cell" @cell-edit-complete="onCellEditComplete">
                     <Column v-for="col of columns" :field="col.field" :header="col.header" :key="col.field">
                         <template #editor="slotProps">
                             <InputText :value="slotProps.data[slotProps.column.field]" @input="onCellEdit($event, slotProps)" />
@@ -58,20 +58,31 @@
 
             <div class="card">
                 <h5>Row Editing</h5>
-                <DataTable :value="cars3" editMode="row" dataKey="vin" :editingRows.sync="editingRows"
+                <DataTable :value="products3" editMode="row" dataKey="id" :editingRows.sync="editingRows"
                     @row-edit-init="onRowEditInit" @row-edit-cancel="onRowEditCancel">
-                    <Column field="vin" header="Vin"></Column>
-                    <Column field="year" header="Year">
+                    <Column field="code" header="Code">
                         <template #editor="slotProps">
                             <InputText v-model="slotProps.data[slotProps.column.field]" />
                         </template>
                     </Column>
-                    <Column field="brand" header="Brand">
+                    <Column field="name" header="Name">
                         <template #editor="slotProps">
                             <InputText v-model="slotProps.data[slotProps.column.field]" />
                         </template>
                     </Column>
-                    <Column field="color" header="Color">
+                    <Column field="inventoryStatus" header="Status">
+                        <template #editor="slotProps">
+                            <Dropdown v-model="slotProps.data['inventoryStatus']" :options="statuses" optionLabel="label" optionValue="value" laceholder="Select a Status">
+                                <template #option="slotProps">
+                                    <span :class="'product-badge status-' + slotProps.option.value.toLowerCase()">{{slotProps.option.label}}</span>
+                                </template>
+                            </Dropdown>
+                        </template>
+                        <template #body="slotProps">
+                            {{getStatusLabel(slotProps.data.inventoryStatus)}}
+                        </template>
+                    </Column>
+                    <Column field="price" header="Price">
                         <template #editor="slotProps">
                             <InputText v-model="slotProps.data[slotProps.column.field]" />
                         </template>
@@ -86,108 +97,115 @@
                 <TabPanel header="Source">
 <CodeHighlight>
 <template v-pre>
-&lt;h3&gt;Basic Cell Editing&lt;/h3&gt;
-&lt;p&gt;Simple editors with v-model.&lt;/p&gt;
-&lt;DataTable :value="cars1" editMode="cell"&gt;
-    &lt;Column field="vin" header="Vin"&gt;
-        &lt;template #editor="slotProps"&gt;
-            &lt;InputText v-model="slotProps.data[slotProps.column.field]" /&gt;
-        &lt;/template&gt;
-    &lt;/Column&gt;
-    &lt;Column field="year" header="Year"&gt;
-        &lt;template #editor="slotProps"&gt;
-            &lt;InputText v-model="slotProps.data[slotProps.column.field]" /&gt;
-        &lt;/template&gt;
-    &lt;/Column&gt;
-    &lt;Column field="brand" header="Brand"&gt;
-        &lt;template #editor="slotProps"&gt;
-            &lt;Dropdown v-model="slotProps.data['brand']" :options="brands" optionLabel="brand" optionValue="value" placeholder="Select a Brand"&gt;
-                &lt;template #option="optionProps"&gt;
-                    &lt;div class="p-dropdown-car-option"&gt;
-                        &lt;img :alt="optionProps.option.brand" :src="'demo/images/car/' + optionProps.option.brand + '.png'" /&gt;
-                        &lt;span&gt;{{optionProps.option.brand}}&lt;/span&gt;
-                    &lt;/div&gt;
-                &lt;/template&gt;
-            &lt;/Dropdown&gt;
-        &lt;/template&gt;
-    &lt;/Column&gt;
-    &lt;Column field="color" header="Color"&gt;
-        &lt;template #editor="slotProps"&gt;
-            &lt;InputText v-model="slotProps.data[slotProps.column.field]" /&gt;
-        &lt;/template&gt;
-    &lt;/Column&gt;
-&lt;/DataTable&gt;
+&lt;div class="card"&gt;
+    &lt;h5&gt;Basic Cell Editing&lt;/h5&gt;
+    &lt;p&gt;Simple editors with v-model.&lt;/p&gt;
+    &lt;DataTable :value="products1" editMode="cell"&gt;
+        &lt;Column field="code" header="Code"&gt;
+            &lt;template #editor="slotProps"&gt;
+                &lt;InputText v-model="slotProps.data[slotProps.column.field]" /&gt;
+            &lt;/template&gt;
+        &lt;/Column&gt;
+        &lt;Column field="name" header="Name"&gt;
+            &lt;template #editor="slotProps"&gt;
+                &lt;InputText v-model="slotProps.data[slotProps.column.field]" /&gt;
+            &lt;/template&gt;
+        &lt;/Column&gt;
+        &lt;Column field="inventoryStatus" header="Status"&gt;
+            &lt;template #editor="slotProps"&gt;
+                &lt;Dropdown v-model="slotProps.data['inventoryStatus']" :options="statuses" optionLabel="label" optionValue="value" laceholder="Select a Status"&gt;
+                    &lt;template #option="slotProps"&gt;
+                        &lt;span :class="'product-badge status-' + slotProps.option.value.toLowerCase()"&gt;{{slotProps.option.label}}&lt;/span&gt;
+                    &lt;/template&gt;
+                &lt;/Dropdown&gt;
+            &lt;/template&gt;
+            &lt;template #body="slotProps"&gt;
+                {{getStatusLabel(slotProps.data.inventoryStatus)}}
+            &lt;/template&gt;
+        &lt;/Column&gt;
+        &lt;Column field="price" header="Price"&gt;
+            &lt;template #editor="slotProps"&gt;
+                &lt;InputText v-model="slotProps.data[slotProps.column.field]" /&gt;
+            &lt;/template&gt;
+        &lt;/Column&gt;
+    &lt;/DataTable&gt;
+&lt;/div&gt;
 
-&lt;h3&gt;Advanced Cell Editing&lt;/h3&gt;
-&lt;p&gt;Custom implementation with validations, dynamic columns and reverting values with the escape key.&lt;/p&gt;
-&lt;DataTable :value="cars2" editMode="cell" @cell-edit-complete="onCellEditComplete"&gt;
-    &lt;Column v-for="col of columns" :field="col.field" :header="col.header" :key="col.field"&gt;
-        &lt;template #editor="slotProps"&gt;
-            &lt;InputText :value="slotProps.data[slotProps.column.field]" @input="onCellEdit($event, slotProps)" /&gt;
-        &lt;/template&gt;
-    &lt;/Column&gt;
-&lt;/DataTable&gt;
+&lt;div class="card"&gt;
+    &lt;h5&gt;Advanced Cell Editing&lt;/h5&gt;
+    &lt;p&gt;Custom implementation with validations, dynamic columns and reverting values with the escape key.&lt;/p&gt;
+    &lt;DataTable :value="products2" editMode="cell" @cell-edit-complete="onCellEditComplete"&gt;
+        &lt;Column v-for="col of columns" :field="col.field" :header="col.header" :key="col.field"&gt;
+            &lt;template #editor="slotProps"&gt;
+                &lt;InputText :value="slotProps.data[slotProps.column.field]" @input="onCellEdit($event, slotProps)" /&gt;
+            &lt;/template&gt;
+        &lt;/Column&gt;
+    &lt;/DataTable&gt;
+&lt;/div&gt;
 
-&lt;h3&gt;Row Editing&lt;/h3&gt;
-&lt;DataTable :value="cars3" editMode="row" dataKey="vin" :editingRows.sync="editingRows"
-    @row-edit-init="onRowEditInit" @row-edit-cancel="onRowEditCancel"&gt;
-    &lt;Column field="vin" header="Vin"&gt;&lt;/Column&gt;
-    &lt;Column field="year" header="Year"&gt;
-        &lt;template #editor="slotProps"&gt;
-            &lt;InputText v-model="slotProps.data[slotProps.column.field]" /&gt;
-        &lt;/template&gt;
-    &lt;/Column&gt;
-    &lt;Column field="brand" header="Brand"&gt;
-        &lt;template #editor="slotProps"&gt;
-            &lt;InputText v-model="slotProps.data[slotProps.column.field]" /&gt;
-        &lt;/template&gt;
-    &lt;/Column&gt;
-    &lt;Column field="color" header="Color"&gt;
-        &lt;template #editor="slotProps"&gt;
-            &lt;InputText v-model="slotProps.data[slotProps.column.field]" /&gt;
-        &lt;/template&gt;
-    &lt;/Column&gt;
-    &lt;Column :rowEditor="true" headerStyle="width:7rem" bodyStyle="text-align:center"&gt;&lt;/Column&gt;
-&lt;/DataTable&gt;
+&lt;div class="card"&gt;
+    &lt;h5&gt;Row Editing&lt;/h5&gt;
+    &lt;DataTable :value="products3" editMode="row" dataKey="id" :editingRows.sync="editingRows"
+        @row-edit-init="onRowEditInit" @row-edit-cancel="onRowEditCancel"&gt;
+        &lt;Column field="code" header="Code"&gt;
+            &lt;template #editor="slotProps"&gt;
+                &lt;InputText v-model="slotProps.data[slotProps.column.field]" /&gt;
+            &lt;/template&gt;
+        &lt;/Column&gt;
+        &lt;Column field="name" header="Name"&gt;
+            &lt;template #editor="slotProps"&gt;
+                &lt;InputText v-model="slotProps.data[slotProps.column.field]" /&gt;
+            &lt;/template&gt;
+        &lt;/Column&gt;
+        &lt;Column field="inventoryStatus" header="Status"&gt;
+            &lt;template #editor="slotProps"&gt;
+                &lt;Dropdown v-model="slotProps.data['inventoryStatus']" :options="statuses" optionLabel="label" optionValue="value" laceholder="Select a Status"&gt;
+                    &lt;template #option="slotProps"&gt;
+                        &lt;span :class="'product-badge status-' + slotProps.option.value.toLowerCase()"&gt;{{slotProps.option.label}}&lt;/span&gt;
+                    &lt;/template&gt;
+                &lt;/Dropdown&gt;
+            &lt;/template&gt;
+            &lt;template #body="slotProps"&gt;
+                {{getStatusLabel(slotProps.data.inventoryStatus)}}
+            &lt;/template&gt;
+        &lt;/Column&gt;
+        &lt;Column field="price" header="Price"&gt;
+            &lt;template #editor="slotProps"&gt;
+                &lt;InputText v-model="slotProps.data[slotProps.column.field]" /&gt;
+            &lt;/template&gt;
+        &lt;/Column&gt;
+        &lt;Column :rowEditor="true" headerStyle="width:7rem" bodyStyle="text-align:center"&gt;&lt;/Column&gt;
+    &lt;/DataTable&gt;
+&lt;/div&gt;
 </template>
 </CodeHighlight>
 
 <CodeHighlight lang="javascript">
-import CarService from '../../service/CarService';
+import ProductService from '../../service/ProductService';
 import Vue from 'vue';
 
 export default {
     data() {
         return {
-            cars1: null,
-            cars2: null,
-            cars3: null,
             editingCellRows: {},
             editingRows: [],
             columns: null,
-            brands: [
-                {brand: 'Audi', value: 'Audi'},
-                {brand: 'BMW', value: 'BMW'},
-                {brand: 'Fiat', value: 'Fiat'},
-                {brand: 'Honda', value: 'Honda'},
-                {brand: 'Jaguar', value: 'Jaguar'},
-                {brand: 'Mercedes', value: 'Mercedes'},
-                {brand: 'Renault', value: 'Renault'},
-                {brand: 'Volkswagen', value: 'Volkswagen'},
-                {brand: 'Volvo', value: 'Volvo'}
-            ]
+            products1: null,
+            products2: null,
+            products3: null,
+            statuses: [{label: 'In Stock', value: 'INSTOCK'},{label: 'Low Stock', value: 'LOWSTOCK'},{label: 'Out of Stock', value: 'OUTOFSTOCK'}]
         }
     },
-    carService: null,
     originalRows: null,
+    productService: null,
     created() {
-        this.carService = new CarService();
+        this.productService = new ProductService();
 
         this.columns = [
-            {field: 'vin', header: 'Vin'},
-            {field: 'year', header: 'Year'},
-            {field: 'brand', header: 'Brand'},
-            {field: 'color', header: 'Color'}
+            {field: 'code', header: 'Code'},
+            {field: 'name', header: 'Name'},
+            {field: 'quantity', header: 'Quantity'},
+            {field: 'price', header: 'Price'}
         ];
 
         this.originalRows = {};
@@ -201,117 +219,17 @@ export default {
             const editingCellValue = this.editingCellRows[event.index][event.field];
 
             switch (event.field) {
-                case 'year':
+                case 'quantity':
+                case 'price':
                     if (this.isPositiveInteger(editingCellValue))
-                        Vue.set(this.cars2, event.index, this.editingCellRows[event.index]);
+                        Vue.set(this.products2, event.index, this.editingCellRows[event.index]);
                     else
                         event.preventDefault();
                 break;
 
                 default:
                     if (editingCellValue.trim().length > 0)
-                        Vue.set(this.cars2, event.index, this.editingCellRows[event.index]);
-                    else
-                        event.preventDefault();
-                break;
-            }
-        },
-        onCellEdit(newValue, props) {
-            if (!this.editingCellRows[props.index]) {
-                this.editingCellRows[props.index] = {...props.data};
-            }
-
-            this.editingCellRows[props.index][props.column.field] = newValue;
-        },
-        isPositiveInteger(val) {
-            let str = String(val);
-            str = str.trim();
-            if (!str) {
-                return false;
-            }
-            str = str.replace(/^0+/, "") || "0";
-            var n = Math.floor(Number(str));
-            return n !== Infinity &amp;&amp; String(n) === str &amp;&amp; n >= 0;
-        },
-        onRowEditInit(event) {
-            this.originalRows[event.index] = {...this.cars3[event.index]};
-        },
-        onRowEditCancel(event) {
-            Vue.set(this.cars3, event.index, this.originalRows[event.index]);
-        }
-    },
-    mounted() {
-        this.carService.getCarsSmall().then(data => this.cars1 = data);
-        this.carService.getCarsSmall().then(data => this.cars2 = data);
-        this.carService.getCarsSmall().then(data => this.cars3 = data);
-    }
-}
-</CodeHighlight>
-                </TabPanel>
-            </TabView>
-        </div>
-	</div>
-</template>
-
-<script>
-import CarService from '../../service/CarService';
-import Vue from 'vue';
-
-export default {
-    data() {
-        return {
-            cars1: null,
-            cars2: null,
-            cars3: null,
-            editingCellRows: {},
-            editingRows: [],
-            columns: null,
-            brands: [
-                {brand: 'Audi', value: 'Audi'},
-                {brand: 'BMW', value: 'BMW'},
-                {brand: 'Fiat', value: 'Fiat'},
-                {brand: 'Honda', value: 'Honda'},
-                {brand: 'Jaguar', value: 'Jaguar'},
-                {brand: 'Mercedes', value: 'Mercedes'},
-                {brand: 'Renault', value: 'Renault'},
-                {brand: 'Volkswagen', value: 'Volkswagen'},
-                {brand: 'Volvo', value: 'Volvo'}
-            ]
-        }
-    },
-    carService: null,
-    originalRows: null,
-    created() {
-        this.carService = new CarService();
-
-        this.columns = [
-            {field: 'vin', header: 'Vin'},
-            {field: 'year', header: 'Year'},
-            {field: 'brand', header: 'Brand'},
-            {field: 'color', header: 'Color'}
-        ];
-
-        this.originalRows = {};
-    },
-    methods: {
-        onCellEditComplete(event) {
-            if (!this.editingCellRows[event.index]) {
-                return;
-            }
-
-            const editingCellValue = this.editingCellRows[event.index][event.field];
-
-            switch (event.field) {
-                case 'year':
-                    if (this.isPositiveInteger(editingCellValue))
-                        Vue.set(this.cars2, event.index, this.editingCellRows[event.index]);
-                    else
-                        event.preventDefault();
-                break;
-
-                default:
-                    if (editingCellValue.trim().length > 0)
-                        Vue.set(this.cars2, event.index, this.editingCellRows[event.index]);
+                        Vue.set(this.products2, event.index, this.editingCellRows[event.index]);
                     else
                         event.preventDefault();
                 break;
@@ -335,16 +253,138 @@ export default {
             return n !== Infinity && String(n) === str && n >= 0;
         },
         onRowEditInit(event) {
-            this.originalRows[event.index] = {...this.cars3[event.index]};
+            this.originalRows[event.index] = {...this.products3[event.index]};
         },
         onRowEditCancel(event) {
-            Vue.set(this.cars3, event.index, this.originalRows[event.index]);
+            Vue.set(this.products3, event.index, this.originalRows[event.index]);
+        },
+        getStatusLabel(status) {
+            switch(status) {
+                case 'INSTOCK':
+                    return 'In Stock';
+
+                case 'LOWSTOCK':
+                    return 'Low Stock';
+                
+                case 'OUTOFSTOCK':
+                    return 'Out of Stock';
+
+                default:
+                    return 'NA';
+            }
         }
     },
     mounted() {
-        this.carService.getCarsSmall().then(data => this.cars1 = data);
-        this.carService.getCarsSmall().then(data => this.cars2 = data);
-        this.carService.getCarsSmall().then(data => this.cars3 = data);
+        this.productService.getProductsSmall().then(data => this.products1 = data);
+        this.productService.getProductsSmall().then(data => this.products2 = data);
+        this.productService.getProductsSmall().then(data => this.products3 = data);
+    }
+}
+</CodeHighlight>
+                </TabPanel>
+            </TabView>
+        </div>
+	</div>
+</template>
+
+<script>
+import ProductService from '../../service/ProductService';
+import Vue from 'vue';
+
+export default {
+    data() {
+        return {
+            editingCellRows: {},
+            editingRows: [],
+            columns: null,
+            products1: null,
+            products2: null,
+            products3: null,
+            statuses: [{label: 'In Stock', value: 'INSTOCK'},{label: 'Low Stock', value: 'LOWSTOCK'},{label: 'Out of Stock', value: 'OUTOFSTOCK'}]
+        }
+    },
+    originalRows: null,
+    productService: null,
+    created() {
+        this.productService = new ProductService();
+
+        this.columns = [
+            {field: 'code', header: 'Code'},
+            {field: 'name', header: 'Name'},
+            {field: 'quantity', header: 'Quantity'},
+            {field: 'price', header: 'Price'}
+        ];
+
+        this.originalRows = {};
+    },
+    methods: {
+        onCellEditComplete(event) {
+            if (!this.editingCellRows[event.index]) {
+                return;
+            }
+
+            const editingCellValue = this.editingCellRows[event.index][event.field];
+
+            switch (event.field) {
+                case 'quantity':
+                case 'price':
+                    if (this.isPositiveInteger(editingCellValue))
+                        Vue.set(this.products2, event.index, this.editingCellRows[event.index]);
+                    else
+                        event.preventDefault();
+                break;
+
+                default:
+                    if (editingCellValue.trim().length > 0)
+                        Vue.set(this.products2, event.index, this.editingCellRows[event.index]);
+                    else
+                        event.preventDefault();
+                break;
+            }
+        },
+        onCellEdit(newValue, props) {
+            if (!this.editingCellRows[props.index]) {
+                this.editingCellRows[props.index] = {...props.data};
+            }
+
+            this.editingCellRows[props.index][props.column.field] = newValue;
+        },
+        isPositiveInteger(val) {
+            let str = String(val);
+            str = str.trim();
+            if (!str) {
+                return false;
+            }
+            str = str.replace(/^0+/, "") || "0";
+            var n = Math.floor(Number(str));
+            return n !== Infinity && String(n) === str && n >= 0;
+        },
+        onRowEditInit(event) {
+            this.originalRows[event.index] = {...this.products3[event.index]};
+        },
+        onRowEditCancel(event) {
+            Vue.set(this.products3, event.index, this.originalRows[event.index]);
+        },
+        getStatusLabel(status) {
+            switch(status) {
+                case 'INSTOCK':
+                    return 'In Stock';
+
+                case 'LOWSTOCK':
+                    return 'Low Stock';
+                
+                case 'OUTOFSTOCK':
+                    return 'Out of Stock';
+
+                default:
+                    return 'NA';
+            }
+        }
+    },
+    mounted() {
+        this.productService.getProductsSmall().then(data => this.products1 = data);
+        this.productService.getProductsSmall().then(data => this.products2 = data);
+        this.productService.getProductsSmall().then(data => this.products3 = data);
     }
 }
 </script>
@@ -352,21 +392,6 @@ export default {
 <style lang="scss" scoped>
 /deep/ .p-datatable th,
 /deep/ .p-datatable td {
-    height: 3.5rem;
-}
-
-.p-dropdown-car-option {
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-
-    img {
-        margin-right: .5rem;
-        width: 24px;
-    }
-
-    span {
-        margin-top: .125rem;
-    }
+    height: 5rem;
 }
 </style>

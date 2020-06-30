@@ -296,11 +296,6 @@ export default {
 </script>
 
 <style lang="scss" scoped>
-.image-text {
-    vertical-align: middle;
-    margin-left: .5rem;
-}
-
 .p-rowgroup-footer td {
     font-weight: 700;
 }
