@@ -2426,7 +2426,7 @@ export default {
 
 <CodeHighlight>
 <template v-pre>
-&lt;DataTable :value="customers" :paginator="true" class="p-datatable-responsive p-datatable-customers" :rows="10"
+&lt;DataTable :value="customers" :paginator="true" class="p-datatable-customers" :rows="10"
     dataKey="id" :rowHover="true" :selection.sync="selectedCustomers" :filters="filters" :loading="loading"
     paginatorTemplate="FirstPageLink PrevPageLink PageLinks NextPageLink LastPageLink CurrentPageReport RowsPerPageDropdown" :rowsPerPageOptions="[10,25,50]"
     currentPageReportTemplate="Showing {first} to {last} of {totalRecords} entries"&gt;
@@ -2449,7 +2449,7 @@ export default {
     &lt;Column field="name" header="Name" :sortable="true"&gt;
         &lt;template #body="slotProps"&gt;
             &lt;span class="p-column-title"&gt;Name&lt;/span&gt;
-            &#123;&#123;slotProps.data.name&#125;&#125;
+            {{slotProps.data.name}}
         &lt;/template&gt;
         &lt;template #filter&gt;
             &lt;InputText type="text" v-model="filters['name']" class="p-column-filter" placeholder="Search by name"/&gt;
@@ -2458,8 +2458,8 @@ export default {
     &lt;Column header="Country" :sortable="true" sortField="country.name" filterField="country.name" filterMatchMode="contains"&gt;
         &lt;template #body="slotProps"&gt;
             &lt;span class="p-column-title"&gt;Country&lt;/span&gt;
-            &lt;img src="../../assets/images/flag_placeholder.png" :class="'flag flag-' + slotProps.data.country.code"  /&gt;
-            &lt;span style="vertical-align: middle; margin-left: .5em"&gt;&#123;&#123;slotProps.data.country.name&#125;&#125;&lt;/span&gt;
+            &lt;img src="../../assets/images/flag_placeholder.png" :class="'flag flag-' + slotProps.data.country.code" width="30" /&gt;
+            &lt;span class="image-text"&gt;{{slotProps.data.country.name}}&lt;/span&gt;
         &lt;/template&gt;
         &lt;template #filter&gt;
             &lt;InputText type="text" v-model="filters['country.name']" class="p-column-filter" placeholder="Search by country"/&gt;
@@ -2469,20 +2469,24 @@ export default {
         &lt;template #body="slotProps"&gt;
             &lt;span class="p-column-title"&gt;Representative&lt;/span&gt;
             &lt;img :alt="slotProps.data.representative.name" :src="'demo/images/avatar/' + slotProps.data.representative.image" width="32" style="vertical-align: middle" /&gt;
-            &lt;span style="vertical-align: middle; margin-left: .5em"&gt;&#123;&#123;slotProps.data.representative.name&#125;&#125;&lt;/span&gt;
+            &lt;span class="image-text"&gt;{{slotProps.data.representative.name}}&lt;/span&gt;
         &lt;/template&gt;
             &lt;template #filter&gt;
             &lt;MultiSelect v-model="filters['representative.name']" :options="representatives" optionLabel="name" optionValue="name" placeholder="All" class="p-column-filter"&gt;
                 &lt;template #option="slotProps"&gt;
                     &lt;div class="p-multiselect-representative-option"&gt;
                         &lt;img :alt="slotProps.option.name" :src="'demo/images/avatar/' + slotProps.option.image" width="32" style="vertical-align: middle" /&gt;
-                        &lt;span style="vertical-align: middle; margin-left: .5em"&gt;&#123;&#123;slotProps.option.name&#125;&#125;&lt;/span&gt;
+                        &lt;span class="image-text"&gt;{{slotProps.option.name}}&lt;/span&gt;
                     &lt;/div&gt;
                 &lt;/template&gt;
             &lt;/MultiSelect&gt;
         &lt;/template&gt;
     &lt;/Column&gt;
     &lt;Column field="date" header="Date" :sortable="true" filterMatchMode="custom" :filterFunction="filterDate"&gt;
+        &lt;template #body="slotProps"&gt;
+            &lt;span class="p-column-title"&gt;Date&lt;/span&gt;
+            &lt;span&gt;{{slotProps.data.date}}&lt;/span&gt;
+        &lt;/template&gt;
         &lt;template #filter&gt;
             &lt;Calendar v-model="filters['date']" dateFormat="yy-mm-dd" class="p-column-filter" placeholder="Registration Date"/&gt;
         &lt;/template&gt;
@@ -2490,12 +2494,12 @@ export default {
     &lt;Column field="status" header="Status" :sortable="true" filterMatchMode="equals"&gt;
         &lt;template #body="slotProps"&gt;
             &lt;span class="p-column-title"&gt;Status&lt;/span&gt;
-            &lt;span :class="'customer-badge status-' + slotProps.data.status"&gt;&#123;&#123;slotProps.data.status&#125;&#125;&lt;/span&gt;
+            &lt;span :class="'customer-badge status-' + slotProps.data.status"&gt;{{slotProps.data.status}}&lt;/span&gt;
         &lt;/template&gt;
         &lt;template #filter&gt;
             &lt;Dropdown v-model="filters['status']" :options="statuses" placeholder="Select a Status" class="p-column-filter" :showClear="true"&gt;
                 &lt;template #option="slotProps"&gt;
-                    &lt;span :class="'customer-badge status-' + slotProps.option"&gt;&#123;&#123;slotProps.option&#125;&#125;&lt;/span&gt;
+                    &lt;span :class="'customer-badge status-' + slotProps.option"&gt;{{slotProps.option}}&lt;/span&gt;
                 &lt;/template&gt;
             &lt;/Dropdown&gt;
         &lt;/template&gt;

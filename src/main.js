@@ -84,6 +84,7 @@ import 'prismjs/themes/prism-coy.css';
 import '@fullcalendar/core/main.min.css';
 import '@fullcalendar/daygrid/main.min.css';
 import '@fullcalendar/timegrid/main.min.css';
+import './assets/styles/flags.css';
 import Vuelidate from 'vuelidate';
 
 Vue.use(Vuelidate);

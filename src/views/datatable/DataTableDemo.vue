@@ -42,7 +42,7 @@
                         <template #body="slotProps">
                             <span class="p-column-title">Country</span>
                             <img src="../../assets/images/flag_placeholder.png" :class="'flag flag-' + slotProps.data.country.code" width="30" />
-                            <span style="vertical-align: middle; margin-left: .5em">{{slotProps.data.country.name}}</span>
+                            <span class="image-text">{{slotProps.data.country.name}}</span>
                         </template>
                         <template #filter>
                             <InputText type="text" v-model="filters['country.name']" class="p-column-filter" placeholder="Search by country"/>
@@ -52,14 +52,14 @@
                         <template #body="slotProps">
                             <span class="p-column-title">Representative</span>
                             <img :alt="slotProps.data.representative.name" :src="'demo/images/avatar/' + slotProps.data.representative.image" width="32" style="vertical-align: middle" />
-                            <span style="vertical-align: middle; margin-left: .5em">{{slotProps.data.representative.name}}</span>
+                            <span class="image-text">{{slotProps.data.representative.name}}</span>
                         </template>
                             <template #filter>
                             <MultiSelect v-model="filters['representative.name']" :options="representatives" optionLabel="name" optionValue="name" placeholder="All" class="p-column-filter">
                                 <template #option="slotProps">
                                     <div class="p-multiselect-representative-option">
                                         <img :alt="slotProps.option.name" :src="'demo/images/avatar/' + slotProps.option.image" width="32" style="vertical-align: middle" />
-                                        <span style="vertical-align: middle; margin-left: .5em">{{slotProps.option.name}}</span>
+                                        <span class="image-text">{{slotProps.option.name}}</span>
                                     </div>
                                 </template>
                             </MultiSelect>
@@ -68,7 +68,7 @@
                     <Column field="date" header="Date" :sortable="true" filterMatchMode="custom" :filterFunction="filterDate">
                         <template #body="slotProps">
                             <span class="p-column-title">Date</span>
-                            <span style="vertical-align: middle; margin-left: .5em">{{slotProps.data.date}}</span>
+                            <span>{{slotProps.data.date}}</span>
                         </template>
                         <template #filter>
                             <Calendar v-model="filters['date']" dateFormat="yy-mm-dd" class="p-column-filter" placeholder="Registration Date"/>
@@ -112,7 +112,6 @@
 <script>
 import CustomerService from '../../service/CustomerService';
 import DataTableDoc from './DataTableDoc';
-import '../../assets/styles/flags.css';
 
 export default {
     data() {
@@ -179,6 +178,11 @@ export default {
 </script>
 
 <style lang="scss" scoped>
+.image-text {
+    visibility: middle;
+    margin-left: 5rem;
+}
+
 .customer-badge {
     border-radius: 2px;
     padding: .25em .5rem;
