@@ -11,21 +11,23 @@
 		<div class="content-section implementation">
             <div class="card">
                 <h5>Fit Mode</h5>
-                <DataTable :value="cars" :resizableColumns="true" columnResizeMode="fit">
-                    <Column field="vin" header="Vin"></Column>
-                    <Column field="year" header="Year"></Column>
-                    <Column field="brand" header="Brand"></Column>
-                    <Column field="color" header="Color"></Column>
+                <DataTable :value="products" :resizableColumns="true" columnResizeMode="fit">
+                    <Column field="code" header="Code"></Column>
+                    <Column field="name" header="Name"></Column>
+                    <Column field="category" header="Category"></Column>
+                    <Column field="quantity" header="Quantity"></Column>
                 </DataTable>
             </div>
-
-            <h5>Expand Mode</h5>
-			<DataTable :value="cars" :resizableColumns="true" columnResizeMode="expand">
-                <Column field="vin" header="Vin"></Column>
-                <Column field="year" header="Year"></Column>
-                <Column field="brand" header="Brand"></Column>
-                <Column field="color" header="Color"></Column>
-            </DataTable>
+            
+            <div class="card">
+                <h5>Expand Mode</h5>
+                <DataTable :value="products" :resizableColumns="true" columnResizeMode="expand">
+                    <Column field="code" header="Code"></Column>
+                    <Column field="name" header="Name"></Column>
+                    <Column field="category" header="Category"></Column>
+                    <Column field="quantity" header="Quantity"></Column>
+                </DataTable>
+            </div>
 		</div>
 
         <div class="content-section documentation">
@@ -34,38 +36,38 @@
 <CodeHighlight>
 <template v-pre>
 &lt;h3&gt;Fit Mode&lt;/h3&gt;
-&lt;DataTable :value="cars" :resizableColumns="true" columnResizeMode="fit"&gt;
-    &lt;Column field="vin" header="Vin"&gt;&lt;/Column&gt;
-    &lt;Column field="year" header="Year"&gt;&lt;/Column&gt;
-    &lt;Column field="brand" header="Brand"&gt;&lt;/Column&gt;
-    &lt;Column field="color" header="Color"&gt;&lt;/Column&gt;
+&lt;DataTable :value="products" :resizableColumns="true" columnResizeMode="fit"&gt;
+    &lt;Column field="code" header="Code"&gt;&lt;/Column&gt;
+    &lt;Column field="name" header="Name"&gt;&lt;/Column&gt;
+    &lt;Column field="category" header="Category"&gt;&lt;/Column&gt;
+    &lt;Column field="quantity" header="Quantity"&gt;&lt;/Column&gt;
 &lt;/DataTable&gt;
 
 &lt;h3&gt;Expand Mode&lt;/h3&gt;
-&lt;DataTable :value="cars" :resizableColumns="true" columnResizeMode="expand"&gt;
-    &lt;Column field="vin" header="Vin"&gt;&lt;/Column&gt;
-    &lt;Column field="year" header="Year"&gt;&lt;/Column&gt;
-    &lt;Column field="brand" header="Brand"&gt;&lt;/Column&gt;
-    &lt;Column field="color" header="Color"&gt;&lt;/Column&gt;
+&lt;DataTable :value="products" :resizableColumns="true" columnResizeMode="expand"&gt;
+    &lt;Column field="code" header="Code"&gt;&lt;/Column&gt;
+    &lt;Column field="name" header="Name"&gt;&lt;/Column&gt;
+    &lt;Column field="category" header="Category"&gt;&lt;/Column&gt;
+    &lt;Column field="quantity" header="Quantity"&gt;&lt;/Column&gt;
 &lt;/DataTable&gt;
 </template>
 </CodeHighlight>
 
 <CodeHighlight lang="javascript">
-import CarService from '../../service/CarService';
+import ProductService from '../../service/ProductService';
 
 export default {
     data() {
         return {
-            cars: null
+            products: null
         }
     },
-    carService: null,
+    productService: null,
     created() {
-        this.carService = new CarService();
+        this.productService = new ProductService();
     },
     mounted() {
-        this.carService.getCarsSmall().then(data => this.cars = data);
+        this.productService.getProductsSmall().then(data => this.products = data);
     }
 }
 </CodeHighlight>
@@ -76,20 +78,20 @@ export default {
 </template>
 
 <script>
-import CarService from '../../service/CarService';
+import ProductService from '../../service/ProductService';
 
 export default {
     data() {
         return {
-            cars: null
+            products: null
         }
     },
-    carService: null,
+    productService: null,
     created() {
-        this.carService = new CarService();
+        this.productService = new ProductService();
     },
     mounted() {
-        this.carService.getCarsSmall().then(data => this.cars = data);
+        this.productService.getProductsSmall().then(data => this.products = data);
     }
 }
 </script>

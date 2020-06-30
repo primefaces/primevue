@@ -9,8 +9,8 @@
 
 		<div class="content-section implementation">
             <div class="card">
-                <DataTable :value="cars" :reorderableColumns="true" @column-reorder="onColReorder" @row-reorder="onRowReorder">
-                    <Column :rowReorder="true" headerStyle="width: 3em" :reorderableColumn="false" />
+                <DataTable :value="products" :reorderableColumns="true" @column-reorder="onColReorder" @row-reorder="onRowReorder">
+                    <Column :rowReorder="true" headerStyle="width: 3rem" :reorderableColumn="false" />
                     <Column v-for="col of columns" :field="col.field" :header="col.header" :key="col.field"></Column>
                 </DataTable>
             </div>
@@ -21,39 +21,39 @@
                 <TabPanel header="Source">
 <CodeHighlight>
 <template v-pre>
-&lt;DataTable :value="cars" :reorderableColumns="true" @column-reorder="onColReorder" @row-reorder="onRowReorder"&gt;
-    &lt;Column :rowReorder="true" headerStyle="width: 3em" :reorderableColumn="false" /&gt;
+&lt;DataTable :value="products" :reorderableColumns="true" @column-reorder="onColReorder" @row-reorder="onRowReorder"&gt;
+    &lt;Column :rowReorder="true" headerStyle="width: 3rem" :reorderableColumn="false" /&gt;
     &lt;Column v-for="col of columns" :field="col.field" :header="col.header" :key="col.field"&gt;&lt;/Column&gt;
 &lt;/DataTable&gt;
 </template>
 </CodeHighlight>
 
 <CodeHighlight lang="javascript">
-import CarService from '../../service/CarService';
+import ProductService from '../../service/ProductService';
 
 export default {
     data() {
         return {
             columns: null,
-            cars: null
+            products: null
         }
     },
-    carService: null,
+    productService: null,
     created() {
-        this.carService = new CarService();
+        this.productService = new ProductService();
 
         this.columns = [
-            {field: 'vin', header: 'Vin'},
-            {field: 'year', header: 'Year'},
-            {field: 'brand', header: 'Brand'},
-            {field: 'color', header: 'Color'}
+            {field: 'code', header: 'Code'},
+            {field: 'name', header: 'Name'},
+            {field: 'category', header: 'Category'},
+            {field: 'quantity', header: 'Quantity'}
         ];
     },
     mounted() {
-        this.carService.getCarsSmall().then(data => this.cars = data);
+        this.productService.getProductsSmall().then(data => this.products = data);
     },
     methods: {
-        onColReorder(event) {
+        onColReorder() {
             this.$toast.add({severity:'success', summary: 'Column Reordered', life: 3000});
         },
         onRowReorder(event) {
@@ -70,28 +70,28 @@ export default {
 </template>
 
 <script>
-import CarService from '../../service/CarService';
+import ProductService from '../../service/ProductService';
 
 export default {
     data() {
         return {
             columns: null,
-            cars: null
+            products: null
         }
     },
-    carService: null,
+    productService: null,
     created() {
-        this.carService = new CarService();
+        this.productService = new ProductService();
 
         this.columns = [
-            {field: 'vin', header: 'Vin'},
-            {field: 'year', header: 'Year'},
-            {field: 'brand', header: 'Brand'},
-            {field: 'color', header: 'Color'}
+            {field: 'code', header: 'Code'},
+            {field: 'name', header: 'Name'},
+            {field: 'category', header: 'Category'},
+            {field: 'quantity', header: 'Quantity'}
         ];
     },
     mounted() {
-        this.carService.getCarsSmall().then(data => this.cars = data);
+        this.productService.getProductsSmall().then(data => this.products = data);
     },
     methods: {
         onColReorder() {

@@ -9,14 +9,14 @@
 
 		<div class="content-section implementation">
             <div class="card">
-                <DataTable :value="cars">
+                <DataTable :value="products">
                     <template #header>
                         <div style="text-align:left">
                             <MultiSelect :value="selectedColumns" :options="columns" optionLabel="header" @input="onToggle"
                                 placeholder="Select Columns" style="width: 20em"/>
                         </div>
                     </template>
-                    <Column field="vin" header="Vin" />
+                    <Column field="code" header="Code" />
                     <Column v-for="(col, index) of selectedColumns" :field="col.field" :header="col.header" :key="col.field + '_' + index"></Column>
                 </DataTable>
             </div>
@@ -27,43 +27,43 @@
                 <TabPanel header="Source">
 <CodeHighlight>
 <template v-pre>
-&lt;DataTable :value="cars"&gt;
+&lt;DataTable :value="products"&gt;
     &lt;template #header&gt;
         &lt;div style="text-align:left"&gt;
             &lt;MultiSelect :value="selectedColumns" :options="columns" optionLabel="header" @input="onToggle"
                 placeholder="Select Columns" style="width: 20em"/&gt;
         &lt;/div&gt;
     &lt;/template&gt;
-    &lt;Column field="vin" header="Vin" /&gt;
+    &lt;Column field="code" header="Code" /&gt;
     &lt;Column v-for="(col, index) of selectedColumns" :field="col.field" :header="col.header" :key="col.field + '_' + index"&gt;&lt;/Column&gt;
 &lt;/DataTable&gt;
 </template>
 </CodeHighlight>
 
 <CodeHighlight lang="javascript">
-import CarService from '../../service/CarService';
+import ProductService from '../../service/ProductService';
 
 export default {
     data() {
         return {
             selectedColumns: null,
             columns: null,
-            cars: null
+            products: null
         }
     },
-    carService: null,
+    productService: null,
     created() {
-        this.carService = new CarService();
+        this.productService = new ProductService();
 
         this.columns = [
-            {field: 'year', header: 'Year'},
-            {field: 'brand', header: 'Brand'},
-            {field: 'color', header: 'Color'}
+            {field: 'name', header: 'Name'},
+            {field: 'category', header: 'Category'},
+            {field: 'quantity', header: 'Quantity'}
         ];
         this.selectedColumns = this.columns;
     },
     mounted() {
-        this.carService.getCarsSmall().then(data => this.cars = data);
+        this.productService.getProductsSmall().then(data => this.products = data);
     },
     methods: {
         onToggle(value) {
@@ -79,29 +79,29 @@ export default {
 </template>
 
 <script>
-import CarService from '../../service/CarService';
+import ProductService from '../../service/ProductService';
 
 export default {
     data() {
         return {
             selectedColumns: null,
             columns: null,
-            cars: null
+            products: null
         }
     },
-    carService: null,
+    productService: null,
     created() {
-        this.carService = new CarService();
+        this.productService = new ProductService();
 
         this.columns = [
-            {field: 'year', header: 'Year'},
-            {field: 'brand', header: 'Brand'},
-            {field: 'color', header: 'Color'}
+            {field: 'name', header: 'Name'},
+            {field: 'category', header: 'Category'},
+            {field: 'quantity', header: 'Quantity'}
         ];
         this.selectedColumns = this.columns;
     },
     mounted() {
-        this.carService.getCarsSmall().then(data => this.cars = data);
+        this.productService.getProductsSmall().then(data => this.products = data);
     },
     methods: {
         onToggle(value) {
