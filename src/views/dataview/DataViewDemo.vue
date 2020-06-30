@@ -184,31 +184,6 @@ export default {
 	.p-button {
 		margin-bottom: .5rem;
 	}
-
-}
-
-.product-badge {
-	border-radius: 2px;
-	padding: .25em .5rem;
-	text-transform: uppercase;
-	font-weight: 700;
-	font-size: 12px;
-	letter-spacing: .3px;
-
-	&.status-instock {
-		background: #C8E6C9;
-		color: #256029;
-	}
-
-	&.status-outofstock {
-		background: #FFCDD2;
-		color: #C63737;
-	}
-
-	&.status-lowstock {
-		background: #FEEDAF;
-		color: #8A5340;
-	}
 }
 
 .product-grid-item {

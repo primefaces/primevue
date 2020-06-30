@@ -296,45 +296,6 @@ export default {
 </script>
 
 <style lang="scss" scoped>
-.customer-badge {
-    border-radius: 2px;
-    padding: .25em .5rem;
-    text-transform: uppercase;
-    font-weight: 700;
-    font-size: 12px;
-    letter-spacing: .3px;
-
-    &.status-qualified {
-        background-color: #C8E6C9;
-        color: #256029;
-    }
-
-    &.status-unqualified {
-        background-color: #FFCDD2;
-        color: #C63737;
-    }
-
-    &.status-negotiation {
-        background-color: #FEEDAF;
-        color: #8A5340;
-    }
-
-    &.status-new {
-        background-color: #B3E5FC;
-        color: #23547B;
-    }
-
-    &.status-renewal {
-        background-color: #ECCFFF;
-        color: #694382;
-    }
-
-    &.status-proposal {
-        background-color: #FFD8B2;
-        color: #805B36;
-    }
-}
-
 .image-text {
     vertical-align: middle;
     margin-left: .5rem;
