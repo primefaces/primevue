@@ -1,31 +1,31 @@
 <template>
 	<div class="content-section implementation">
         <div class="card" style="height: calc(100vh - 143px)">
-            <DataTable :value="cars" :scrollable="true" scrollHeight="flex">
-                <Column field="vin" header="Vin"></Column>
-                <Column field="year" header="Year"></Column>
-                <Column field="brand" header="Brand"></Column>
-                <Column field="color" header="Color"></Column>
+            <DataTable :value="customers" :scrollable="true" scrollHeight="flex">
+                <Column field="name" header="Name"></Column>
+                <Column field="country.name" header="Country"></Column>
+                <Column field="representative.name" header="Representative"></Column>
+                <Column field="status" header="Status"></Column>
             </DataTable>
         </div>
 	</div>
 </template>
 
 <script>
-import CarService from '../../service/CarService';
+import CustomerService from '../../service/CustomerService';
 
 export default {
     data() {
         return {
-            cars: null
+            customers: null
         }
     },
-    carService: null,
+    customerService: null,
     created() {
-        this.carService = new CarService();
+        this.customerService = new CustomerService();
     },
     mounted() {
-        this.carService.getCarsLarge().then(data => this.cars = data);
+        this.customerService.getCustomersLarge().then(data => this.customers = data);
     }
 }
 </script>
