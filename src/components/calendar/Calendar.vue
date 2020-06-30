@@ -80,12 +80,12 @@
                         <span>{{timeSeparator}}</span>
                     </div>
                     <div class="p-minute-picker">
-                        <button class="p-link" @mousedown="onTimePickerElementMouseDown($event, 1, 1)" @mouseup="onTimePickerElementMouseUp($event)" @keydown="onContainerButtonKeydown" v-ripple
+                        <button class="p-link" @mousedown="onTimePickerElementMouseDown($event, 1, 1)" @mouseup="onTimePickerElementMouseUp($event)" @keydown="onContainerButtonKeydown" v-ripple :disabled="$attrs.disabled"
                             @mouseleave="onTimePickerElementMouseLeave()" @keydown.enter="onTimePickerElementMouseDown($event, 1, 1)" @keyup.enter="onTimePickerElementMouseUp($event)" type="button">
                             <span class="pi pi-chevron-up"></span>
                         </button>
                        <span>{{formattedCurrentMinute}}</span>
-                        <button class="p-link" @mousedown="onTimePickerElementMouseDown($event, 1, -1)" @mouseup="onTimePickerElementMouseUp($event)" @keydown="onContainerButtonKeydown" v-ripple
+                        <button class="p-link" @mousedown="onTimePickerElementMouseDown($event, 1, -1)" @mouseup="onTimePickerElementMouseUp($event)" @keydown="onContainerButtonKeydown" v-ripple :disabled="$attrs.disabled"
                             @mouseleave="onTimePickerElementMouseLeave()" @keydown.enter="onTimePickerElementMouseDown($event, 1, -1)" @keyup.enter="onTimePickerElementMouseUp($event)" type="button">
                             <span class="pi pi-chevron-down"></span>
                         </button>
@@ -94,12 +94,12 @@
                         <span>{{timeSeparator}}</span>
                     </div>
                     <div class="p-second-picker" v-if="showSeconds">
-                        <button class="p-link" @mousedown="onTimePickerElementMouseDown($event, 2, 1)" @mouseup="onTimePickerElementMouseUp($event)" @keydown="onContainerButtonKeydown" v-ripple
+                        <button class="p-link" @mousedown="onTimePickerElementMouseDown($event, 2, 1)" @mouseup="onTimePickerElementMouseUp($event)" @keydown="onContainerButtonKeydown" v-ripple  :disabled="$attrs.disabled"
                             @mouseleave="onTimePickerElementMouseLeave()" @keydown.enter="onTimePickerElementMouseDown($event, 2, 1)" @keyup.enter="onTimePickerElementMouseUp($event)" type="button">
                             <span class="pi pi-chevron-up"></span>
                         </button>
                         <span>{{formattedCurrentSecond}}</span>
-                        <button class="p-link" @mousedown="onTimePickerElementMouseDown($event, 2, -1)" @mouseup="onTimePickerElementMouseUp($event)" @keydown="onContainerButtonKeydown" v-ripple
+                        <button class="p-link" @mousedown="onTimePickerElementMouseDown($event, 2, -1)" @mouseup="onTimePickerElementMouseUp($event)" @keydown="onContainerButtonKeydown" v-ripple  :disabled="$attrs.disabled"
                             @mouseleave="onTimePickerElementMouseLeave()" @keydown.enter="onTimePickerElementMouseDown($event, 2, -1)" @keyup.enter="onTimePickerElementMouseUp($event)" type="button">
                             <span class="pi pi-chevron-down"></span>
                         </button>
@@ -108,11 +108,11 @@
                         <span>{{timeSeparator}}</span>
                     </div>
                     <div class="p-ampm-picker" v-if="hourFormat=='12'">
-                        <button class="p-link" @click="toggleAMPM($event)" type="button" v-ripple>
+                        <button class="p-link" @click="toggleAMPM($event)" type="button" v-ripple :disabled="$attrs.disabled">
                             <span class="pi pi-chevron-up"></span>
                         </button>
                         <span>{{pm ? 'PM' : 'AM'}}</span>
-                        <button class="p-link" @click="toggleAMPM($event)" type="button" v-ripple>
+                        <button class="p-link" @click="toggleAMPM($event)" type="button" v-ripple :disabled="$attrs.disabled">
                             <span class="pi pi-chevron-down"></span>
                         </button>
                     </div>
