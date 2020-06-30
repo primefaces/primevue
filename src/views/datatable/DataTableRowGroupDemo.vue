@@ -10,58 +10,97 @@
 		<div class="content-section implementation">
             <div class="card">
                 <h5>Subheader Grouping</h5>
-                <DataTable :value="cars" rowGroupMode="subheader" groupRowsBy="brand"
-                    sortMode="single" sortField="brand" :sortOrder="1">
-                    <Column field="brand" header="Brand"></Column>
-                    <Column field="vin" header="Vin"></Column>
-                    <Column field="year" header="Year"></Column>
-                    <Column field="color" header="Color"></Column>
-                    <Column field="price" header="Price"></Column>
+                <p>Group customers by their representative.</p>
+                <DataTable :value="customers" rowGroupMode="subheader" groupRowsBy="representative.name"
+                    sortMode="single" sortField="representative.name" :sortOrder="1">
+                    <Column field="representative.name" header="Representative"></Column>
+                    <Column field="name" header="Name"></Column>
+                    <Column field="country" header="Country">
+                        <template #body="slotProps">
+                            <img src="../../assets/images/flag_placeholder.png" :class="'flag flag-' + slotProps.data.country.code" width="30" />
+                            <span class="image-text">{{slotProps.data.country.name}}</span>
+                        </template>
+                    </Column>
+                    <Column field="company" header="Company"></Column>
+                    <Column field="status" header="Status">
+                        <template #body="slotProps">
+                            <span :class="'customer-badge status-' + slotProps.data.status">{{slotProps.data.status}}</span>
+                        </template>
+                    </Column>
+                    <Column field="date" header="date"></Column>
                     <template #groupheader="slotProps">
-                        <span>{{slotProps.data.brand}}</span>
+                        <img :alt="slotProps.data.representative.name" :src="'demo/images/avatar/' + slotProps.data.representative.image" width="32" style="vertical-align: middle" />
+                        <span class="image-text">{{slotProps.data.representative.name}}</span>
                     </template>
                     <template #groupfooter="slotProps">
-                        <td colspan="3" style="text-align: right">Total Price</td>
-                        <td>{{calculateGroupTotal(slotProps.data.brand)}}</td>
+                        <td colspan="4" style="text-align: right">Total Customers</td>
+                        <td>{{calculateCustomerTotal(slotProps.data.representative.name)}}</td>
                     </template>
                 </DataTable>
             </div>
 
             <div class="card">
                 <h5>Expandable Row Groups</h5>
-                <DataTable :value="cars" rowGroupMode="subheader" groupRowsBy="brand"
-                    sortMode="single" sortField="brand" :sortOrder="1"
+                <p>Group customers by their representative.</p>
+                <DataTable :value="customers" rowGroupMode="subheader" groupRowsBy="representative.name"
+                    sortMode="single" sortField="representative.name" :sortOrder="1"
                     :expandableRowGroups="true" :expandedRowGroups.sync="expandedRowGroups"
                     @rowgroup-expand="onRowGroupExpand" @rowgroup-collapse="onRowGroupCollapse">
-                    <Column field="brand" header="Brand"></Column>
-                    <Column field="vin" header="Vin"></Column>
-                    <Column field="year" header="Year"></Column>
-                    <Column field="color" header="Color"></Column>
-                    <Column field="price" header="Price"></Column>
+                    <Column field="representative.name" header="Representative"></Column>
+                    <Column field="name" header="Name"></Column>
+                    <Column field="country" header="Country">
+                        <template #body="slotProps">
+                            <img src="../../assets/images/flag_placeholder.png" :class="'flag flag-' + slotProps.data.country.code" width="30" />
+                            <span class="image-text">{{slotProps.data.country.name}}</span>
+                        </template>
+                    </Column>
+                    <Column field="company" header="Company"></Column>
+                    <Column field="status" header="Status">
+                        <template #body="slotProps">
+                            <span :class="'customer-badge status-' + slotProps.data.status">{{slotProps.data.status}}</span>
+                        </template>
+                    </Column>
+                    <Column field="date" header="date"></Column>
                     <template #groupheader="slotProps">
-                        <span>{{slotProps.data.brand}}</span>
+                        <img :alt="slotProps.data.representative.name" :src="'demo/images/avatar/' + slotProps.data.representative.image" width="32" style="vertical-align: middle" />
+                        <span class="image-text">{{slotProps.data.representative.name}}</span>
                     </template>
                     <template #groupfooter="slotProps">
-                        <td colspan="3" style="text-align: right">Total Price</td>
-                        <td>{{calculateGroupTotal(slotProps.data.brand)}}</td>
+                        <td colspan="4" style="text-align: right">Total Customers</td>
+                        <td>{{calculateCustomerTotal(slotProps.data.representative.name)}}</td>
                     </template>
                 </DataTable>
             </div>
 
             <div class="card">
                 <h5>RowSpan Grouping</h5>
-                <DataTable :value="cars" rowGroupMode="rowspan" groupRowsBy="brand"
-                    sortMode="single" sortField="brand" :sortOrder="1">
+                <DataTable :value="customers" rowGroupMode="rowspan"  groupRowsBy="representative.name"
+                    sortMode="single" sortField="representative.name" :sortOrder="1">
                     <Column header="#" headerStyle="width:3em">
                         <template #body="slotProps">
                             {{slotProps.index}}
                         </template>
                     </Column>
-                    <Column field="brand" header="Brand"></Column>
-                    <Column field="year" header="Year"></Column>
-                    <Column field="vin" header="Vin"></Column>
-                    <Column field="color" header="Color"></Column>
-                    <Column field="price" header="Price"></Column>
+                    <Column field="representative.name" header="Representative">
+                        <template #body="slotProps">
+                            <img :alt="slotProps.data.representative.name" :src="'demo/images/avatar/' + slotProps.data.representative.image" width="32" style="vertical-align: middle" />
+                            <span class="image-text">{{slotProps.data.representative.name}}</span>
+                        </template>
+                    </Column>
+                    <Column field="name" header="Name"></Column>
+                    <Column field="country" header="Country">
+                        <template #body="slotProps">
+                            <img src="../../assets/images/flag_placeholder.png" :class="'flag flag-' + slotProps.data.country.code" width="30" />
+                            <span class="image-text">{{slotProps.data.country.name}}</span>
+                        </template>
+                    </Column>
+                    <Column field="company" header="Company"></Column>
+                    <Column field="status" header="Status">
+                        <template #body="slotProps">
+                            <span :class="'customer-badge status-' + slotProps.data.status">{{slotProps.data.status}}</span>
+                        </template>
+                    </Column>
+                    <Column field="date" header="date"></Column>
                 </DataTable>
             </div>
 		</div>
@@ -71,75 +110,120 @@
                 <TabPanel header="Source">
 <CodeHighlight>
 <template v-pre>
-&lt;h3&gt;Subheader Grouping&lt;/h3&gt;
-&lt;DataTable :value="cars" rowGroupMode="subheader" groupRowsBy="brand"
-    sortMode="single" sortField="brand" :sortOrder="1"&gt;
-    &lt;Column field="brand" header="Brand"&gt;&lt;/Column&gt;
-    &lt;Column field="vin" header="Vin"&gt;&lt;/Column&gt;
-    &lt;Column field="year" header="Year"&gt;&lt;/Column&gt;
-    &lt;Column field="color" header="Color"&gt;&lt;/Column&gt;
-    &lt;Column field="price" header="Price"&gt;&lt;/Column&gt;
-    &lt;template #groupheader="slotProps"&gt;
-        &lt;span&gt;&#123;&#123;slotProps.data.brand&#125;&#125;&lt;/span&gt;
-    &lt;/template&gt;
-    &lt;template #groupfooter="slotProps"&gt;
-        &lt;td colspan="3" style="text-align: right"&gt;Total Price&lt;/td&gt;
-        &lt;td&gt;&#123;&#123;calculateGroupTotal(slotProps.data.brand)&#125;&#125;&lt;/td&gt;
-    &lt;/template&gt;
-&lt;/DataTable&gt;
-
-&lt;h3&gt;Expandable Row Groups&lt;/h3&gt;
-&lt;DataTable :value="cars" rowGroupMode="subheader" groupRowsBy="brand"
-    sortMode="single" sortField="brand" :sortOrder="1"
-    :expandableRowGroups="true" :expandedRowGroups.sync="expandedRowGroups"
-    @rowgroup-expand="onRowExpand" @rowgroup-collapse="onRowCollapse"&gt;
-    &lt;Column field="brand" header="Brand"&gt;&lt;/Column&gt;
-    &lt;Column field="vin" header="Vin"&gt;&lt;/Column&gt;
-    &lt;Column field="year" header="Year"&gt;&lt;/Column&gt;
-    &lt;Column field="color" header="Color"&gt;&lt;/Column&gt;
-    &lt;Column field="price" header="Price"&gt;&lt;/Column&gt;
-    &lt;template #groupheader="slotProps"&gt;
-        &lt;span&gt;&#123;&#123;slotProps.data.brand&#125;&#125;&lt;/span&gt;
-    &lt;/template&gt;
-    &lt;template #groupfooter="slotProps"&gt;
-        &lt;td colspan="3" style="text-align: right"&gt;Total Price&lt;/td&gt;
-        &lt;td&gt;&#123;&#123;calculateGroupTotal(slotProps.data.brand)&#125;&#125;&lt;/td&gt;
-    &lt;/template&gt;
-&lt;/DataTable&gt;
-
-&lt;h3&gt;RowSpan Grouping&lt;/h3&gt;
-&lt;DataTable :value="cars" rowGroupMode="rowspan" groupRowsBy="brand"
-    sortMode="single" sortField="brand" :sortOrder="1"&gt;
-    &lt;Column header="#" headerStyle="width:3em"&gt;
-        &lt;template #body="slotProps"&gt;
-            &#123;&#123;slotProps.index&#125;&#125;
+&lt;div class="card"&gt;
+    &lt;h5&gt;Subheader Grouping&lt;/h5&gt;
+    &lt;p&gt;Group customers by their representative.&lt;/p&gt;
+    &lt;DataTable :value="customers" rowGroupMode="subheader" groupRowsBy="representative.name"
+        sortMode="single" sortField="representative.name" :sortOrder="1"&gt;
+        &lt;Column field="representative.name" header="Representative"&gt;&lt;/Column&gt;
+        &lt;Column field="name" header="Name"&gt;&lt;/Column&gt;
+        &lt;Column field="country" header="Country"&gt;
+            &lt;template #body="slotProps"&gt;
+                &lt;img src="../../assets/images/flag_placeholder.png" :class="'flag flag-' + slotProps.data.country.code" width="30" /&gt;
+                &lt;span class="image-text"&gt;{{slotProps.data.country.name}}&lt;/span&gt;
+            &lt;/template&gt;
+        &lt;/Column&gt;
+        &lt;Column field="company" header="Company"&gt;&lt;/Column&gt;
+        &lt;Column field="status" header="Status"&gt;
+            &lt;template #body="slotProps"&gt;
+                &lt;span :class="'customer-badge status-' + slotProps.data.status"&gt;{{slotProps.data.status}}&lt;/span&gt;
+            &lt;/template&gt;
+        &lt;/Column&gt;
+        &lt;Column field="date" header="date"&gt;&lt;/Column&gt;
+        &lt;template #groupheader="slotProps"&gt;
+            &lt;img :alt="slotProps.data.representative.name" :src="'demo/images/avatar/' + slotProps.data.representative.image" width="32" style="vertical-align: middle" /&gt;
+            &lt;span class="image-text"&gt;{{slotProps.data.representative.name}}&lt;/span&gt;
         &lt;/template&gt;
-    &lt;/Column&gt;
-    &lt;Column field="brand" header="Brand"&gt;&lt;/Column&gt;
-    &lt;Column field="year" header="Year"&gt;&lt;/Column&gt;
-    &lt;Column field="vin" header="Vin"&gt;&lt;/Column&gt;
-    &lt;Column field="color" header="Color"&gt;&lt;/Column&gt;
-    &lt;Column field="price" header="Price"&gt;&lt;/Column&gt;
-&lt;/DataTable&gt;
+        &lt;template #groupfooter="slotProps"&gt;
+            &lt;td colspan="4" style="text-align: right"&gt;Total Customers&lt;/td&gt;
+            &lt;td&gt;{{calculateCustomerTotal(slotProps.data.representative.name)}}&lt;/td&gt;
+        &lt;/template&gt;
+    &lt;/DataTable&gt;
+&lt;/div&gt;
+
+&lt;div class="card"&gt;
+    &lt;h5&gt;Expandable Row Groups&lt;/h5&gt;
+    &lt;p&gt;Group customers by their representative.&lt;/p&gt;
+    &lt;DataTable :value="customers" rowGroupMode="subheader" groupRowsBy="representative.name"
+        sortMode="single" sortField="representative.name" :sortOrder="1"
+        :expandableRowGroups="true" :expandedRowGroups.sync="expandedRowGroups"
+        @rowgroup-expand="onRowGroupExpand" @rowgroup-collapse="onRowGroupCollapse"&gt;
+        &lt;Column field="representative.name" header="Representative"&gt;&lt;/Column&gt;
+        &lt;Column field="name" header="Name"&gt;&lt;/Column&gt;
+        &lt;Column field="country" header="Country"&gt;
+            &lt;template #body="slotProps"&gt;
+                &lt;img src="../../assets/images/flag_placeholder.png" :class="'flag flag-' + slotProps.data.country.code" width="30" /&gt;
+                &lt;span class="image-text"&gt;{{slotProps.data.country.name}}&lt;/span&gt;
+            &lt;/template&gt;
+        &lt;/Column&gt;
+        &lt;Column field="company" header="Company"&gt;&lt;/Column&gt;
+        &lt;Column field="status" header="Status"&gt;
+            &lt;template #body="slotProps"&gt;
+                &lt;span :class="'customer-badge status-' + slotProps.data.status"&gt;{{slotProps.data.status}}&lt;/span&gt;
+            &lt;/template&gt;
+        &lt;/Column&gt;
+        &lt;Column field="date" header="date"&gt;&lt;/Column&gt;
+        &lt;template #groupheader="slotProps"&gt;
+            &lt;img :alt="slotProps.data.representative.name" :src="'demo/images/avatar/' + slotProps.data.representative.image" width="32" style="vertical-align: middle" /&gt;
+            &lt;span class="image-text"&gt;{{slotProps.data.representative.name}}&lt;/span&gt;
+        &lt;/template&gt;
+        &lt;template #groupfooter="slotProps"&gt;
+            &lt;td colspan="4" style="text-align: right"&gt;Total Customers&lt;/td&gt;
+            &lt;td&gt;{{calculateCustomerTotal(slotProps.data.representative.name)}}&lt;/td&gt;
+        &lt;/template&gt;
+    &lt;/DataTable&gt;
+&lt;/div&gt;
+
+&lt;div class="card"&gt;
+    &lt;h5&gt;RowSpan Grouping&lt;/h5&gt;
+    &lt;DataTable :value="customers" rowGroupMode="rowspan"  groupRowsBy="representative.name"
+        sortMode="single" sortField="representative.name" :sortOrder="1"&gt;
+        &lt;Column header="#" headerStyle="width:3em"&gt;
+            &lt;template #body="slotProps"&gt;
+                {{slotProps.index}}
+            &lt;/template&gt;
+        &lt;/Column&gt;
+        &lt;Column field="representative.name" header="Representative"&gt;
+            &lt;template #body="slotProps"&gt;
+                &lt;img :alt="slotProps.data.representative.name" :src="'demo/images/avatar/' + slotProps.data.representative.image" width="32" style="vertical-align: middle" /&gt;
+                &lt;span class="image-text"&gt;{{slotProps.data.representative.name}}&lt;/span&gt;
+            &lt;/template&gt;
+        &lt;/Column&gt;
+        &lt;Column field="name" header="Name"&gt;&lt;/Column&gt;
+        &lt;Column field="country" header="Country"&gt;
+            &lt;template #body="slotProps"&gt;
+                &lt;img src="../../assets/images/flag_placeholder.png" :class="'flag flag-' + slotProps.data.country.code" width="30" /&gt;
+                &lt;span class="image-text"&gt;{{slotProps.data.country.name}}&lt;/span&gt;
+            &lt;/template&gt;
+        &lt;/Column&gt;
+        &lt;Column field="company" header="Company"&gt;&lt;/Column&gt;
+        &lt;Column field="status" header="Status"&gt;
+            &lt;template #body="slotProps"&gt;
+                &lt;span :class="'customer-badge status-' + slotProps.data.status"&gt;{{slotProps.data.status}}&lt;/span&gt;
+            &lt;/template&gt;
+        &lt;/Column&gt;
+        &lt;Column field="date" header="date"&gt;&lt;/Column&gt;
+    &lt;/DataTable&gt;
+&lt;/div&gt;
 </template>
 </CodeHighlight>
 
 <CodeHighlight lang="javascript">
-import CarService from '../../service/CarService';
+import CustomerService from '../../service/CustomerService';
 
 export default {
     data() {
         return {
-            cars: null,
+            customers: null,
             expandedRowGroups: null
         }
     },
-    carService: null,
+    customerService: null,
     created() {
-        this.carService = new CarService();
+        this.customerService = new CustomerService();
     },
     mounted() {
-        this.carService.getCarsMedium().then(data => this.cars = data);
+        this.customerService.getCustomersMedium().then(data => this.customers = data);
     },
     methods: {
         onRowGroupExpand(event) {
@@ -148,13 +232,13 @@ export default {
         onRowGroupCollapse(event) {
             this.$toast.add({severity: 'success', summary: 'Row Group Collapsed', detail: 'Value: ' + event.data, life: 3000});
         },
-        calculateGroupTotal(brand) {
+        calculateCustomerTotal(name) {
             let total = 0;
 
-            if (this.cars) {
-                for (let car of this.cars) {
-                    if (car.brand === brand) {
-                        total += car.price;
+            if (this.customers) {
+                for (let customer of this.customers) {
+                    if (customer.representative.name === name) {
+                        total++;
                     }
                 }
             }
@@ -171,21 +255,21 @@ export default {
 </template>
 
 <script>
-import CarService from '../../service/CarService';
+import CustomerService from '../../service/CustomerService';
 
 export default {
     data() {
         return {
-            cars: null,
+            customers: null,
             expandedRowGroups: null
         }
     },
-    carService: null,
+    customerService: null,
     created() {
-        this.carService = new CarService();
+        this.customerService = new CustomerService();
     },
     mounted() {
-        this.carService.getCarsMedium().then(data => this.cars = data);
+        this.customerService.getCustomersMedium().then(data => this.customers = data);
     },
     methods: {
         onRowGroupExpand(event) {
@@ -194,13 +278,13 @@ export default {
         onRowGroupCollapse(event) {
             this.$toast.add({severity: 'success', summary: 'Row Group Collapsed', detail: 'Value: ' + event.data, life: 3000});
         },
-        calculateGroupTotal(brand) {
+        calculateCustomerTotal(name) {
             let total = 0;
 
-            if (this.cars) {
-                for (let car of this.cars) {
-                    if (car.brand === brand) {
-                        total += car.price;
+            if (this.customers) {
+                for (let customer of this.customers) {
+                    if (customer.representative.name === name) {
+                        total++;
                     }
                 }
             }
@@ -212,6 +296,50 @@ export default {
 </script>
 
 <style lang="scss" scoped>
+.customer-badge {
+    border-radius: 2px;
+    padding: .25em .5rem;
+    text-transform: uppercase;
+    font-weight: 700;
+    font-size: 12px;
+    letter-spacing: .3px;
+
+    &.status-qualified {
+        background-color: #C8E6C9;
+        color: #256029;
+    }
+
+    &.status-unqualified {
+        background-color: #FFCDD2;
+        color: #C63737;
+    }
+
+    &.status-negotiation {
+        background-color: #FEEDAF;
+        color: #8A5340;
+    }
+
+    &.status-new {
+        background-color: #B3E5FC;
+        color: #23547B;
+    }
+
+    &.status-renewal {
+        background-color: #ECCFFF;
+        color: #694382;
+    }
+
+    &.status-proposal {
+        background-color: #FFD8B2;
+        color: #805B36;
+    }
+}
+
+.image-text {
+    vertical-align: middle;
+    margin-left: .5rem;
+}
+
 .p-rowgroup-footer td {
     font-weight: 700;
 }
@@ -226,6 +354,4 @@ export default {
         margin-right: .25rem;
     }
 }
-
-
 </style>

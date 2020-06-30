@@ -333,8 +333,8 @@ export default {
 
 <style lang="scss" scoped>
 .image-text {
-    visibility: middle;
-    margin-left: 5rem;
+    vertical-align: middle;
+    margin-left: .5rem;
 }
 
 .customer-badge {
