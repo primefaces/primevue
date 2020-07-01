@@ -9,31 +9,60 @@
 
 		<div class="content-section implementation">
             <div class="card">
-                <DataTable :value="cars" :expandedRows.sync="expandedRows" dataKey="vin"
+                <DataTable :value="products" :expandedRows.sync="expandedRows" dataKey="id"
                     @row-expand="onRowExpand" @row-collapse="onRowCollapse">
                     <template #header>
                         <div class="table-header-container">
-                            <Button icon="pi pi-plus" label="Expand All" @click="expandAll" />
+                            <Button icon="pi pi-plus" label="Expand All" @click="expandAll" class="p-mr-2" />
                             <Button icon="pi pi-minus" label="Collapse All" @click="collapseAll" />
                         </div>
                     </template>
-                    <Column :expander="true" headerStyle="width: 3em" />
-                    <Column field="vin" header="Vin"></Column>
-                    <Column field="year" header="Year"></Column>
-                    <Column field="brand" header="Brand"></Column>
-                    <Column field="color" header="Color"></Column>
+                     <Column :expander="true" headerStyle="width: 3rem" />
+                    <Column field="name" header="Name" sortable></Column>
+                    <Column header="Image">
+                         <template #body="slotProps">
+                            <img :src="'demo/images/product/' + slotProps.data.image" :alt="slotProps.data.image" class="product-image" />
+                        </template>
+                    </Column>
+                    <Column field="price" header="Price" sortable>
+                        <template #body="slotProps">
+                            {{formatCurrency(slotProps.data.price)}}
+                        </template>
+                    </Column>
+                    <Column field="category" header="Category" sortable></Column>
+                    <Column field="rating" header="Reviews" sortable>
+                        <template #body="slotProps">
+                           <Rating :value="slotProps.data.rating" :readonly="true" :cancel="false" />
+                        </template>
+                    </Column>
+                    <Column header="Status" sortable>
+                        <template #body="slotProps">
+                            <span :class="'product-badge status-' + slotProps.data.inventoryStatus.toLowerCase()">{{slotProps.data.inventoryStatus}}</span>
+                        </template>
+                    </Column>
                     <template #expansion="slotProps">
-                        <div class="car-details">
-                            <div>
-                                <img :src="'demo/images/car/' + slotProps.data.brand + '.png'" :alt="slotProps.data.brand"/>
-                                <div class="p-grid">
-                                    <div class="p-col-12">Vin: <b>{{slotProps.data.vin}}</b></div>
-                                    <div class="p-col-12">Year: <b>{{slotProps.data.year}}</b></div>
-                                    <div class="p-col-12">Brand: <b>{{slotProps.data.brand}}</b></div>
-                                    <div class="p-col-12">Color: <b>{{slotProps.data.color}}</b></div>
-                                </div>
-                            </div>
-                            <Button icon="pi pi-search"></Button>
+                        <div class="orders-subtable">
+                            <h5>Orders for {{slotProps.data.name}}</h5>
+                            <DataTable :value="slotProps.data.orders">
+                                <Column field="id" header="Id" sortable></Column>
+                                <Column field="customer" header="Customer" sortable></Column>
+                                <Column field="date" header="Date" sortable></Column>
+                                <Column field="amount" header="Amount" sortable>
+                                    <template #body="slotProps" sortable>
+                                        {{formatCurrency(slotProps.data.amount)}}
+                                    </template>
+                                </Column>
+                                <Column header="Status" sortable>
+                                    <template #body="slotProps">
+                                        <span :class="'order-badge order-' + slotProps.data.status.toLowerCase()">{{slotProps.data.status}}</span>
+                                    </template>
+                                </Column>
+                                <Column headerStyle="width:4rem">
+                                    <template #body>
+                                        <Button icon="pi pi-search" />
+                                    </template>
+                                </Column>
+                            </DataTable>
                         </div>
                     </template>
                 </DataTable>
@@ -45,31 +74,60 @@
                 <TabPanel header="Source">
 <CodeHighlight>
 <template v-pre>
-&lt;DataTable :value="cars" :expandedRows.sync="expandedRows" dataKey="vin"
+&lt;DataTable :value="products" :expandedRows.sync="expandedRows" dataKey="id"
     @row-expand="onRowExpand" @row-collapse="onRowCollapse"&gt;
     &lt;template #header&gt;
         &lt;div class="table-header-container"&gt;
-            &lt;Button icon="pi pi-plus" label="Expand All" @click="expandAll" /&gt;
+            &lt;Button icon="pi pi-plus" label="Expand All" @click="expandAll" class="p-mr-2" /&gt;
             &lt;Button icon="pi pi-minus" label="Collapse All" @click="collapseAll" /&gt;
         &lt;/div&gt;
     &lt;/template&gt;
-    &lt;Column :expander="true" headerStyle="width: 3em" /&gt;
-    &lt;Column field="vin" header="Vin"&gt;&lt;/Column&gt;
-    &lt;Column field="year" header="Year"&gt;&lt;/Column&gt;
-    &lt;Column field="brand" header="Brand"&gt;&lt;/Column&gt;
-    &lt;Column field="color" header="Color"&gt;&lt;/Column&gt;
+        &lt;Column :expander="true" headerStyle="width: 3rem" /&gt;
+    &lt;Column field="name" header="Name" sortable&gt;&lt;/Column&gt;
+    &lt;Column header="Image"&gt;
+            &lt;template #body="slotProps"&gt;
+            &lt;img :src="'demo/images/product/' + slotProps.data.image" :alt="slotProps.data.image" class="product-image" /&gt;
+        &lt;/template&gt;
+    &lt;/Column&gt;
+    &lt;Column field="price" header="Price" sortable&gt;
+        &lt;template #body="slotProps"&gt;
+            {{formatCurrency(slotProps.data.price)}}
+        &lt;/template&gt;
+    &lt;/Column&gt;
+    &lt;Column field="category" header="Category" sortable&gt;&lt;/Column&gt;
+    &lt;Column field="rating" header="Reviews" sortable&gt;
+        &lt;template #body="slotProps"&gt;
+            &lt;Rating :value="slotProps.data.rating" :readonly="true" :cancel="false" /&gt;
+        &lt;/template&gt;
+    &lt;/Column&gt;
+    &lt;Column header="Status" sortable&gt;
+        &lt;template #body="slotProps"&gt;
+            &lt;span :class="'product-badge status-' + slotProps.data.inventoryStatus.toLowerCase()"&gt;{{slotProps.data.inventoryStatus}}&lt;/span&gt;
+        &lt;/template&gt;
+    &lt;/Column&gt;
     &lt;template #expansion="slotProps"&gt;
-        &lt;div class="car-details"&gt;
-            &lt;div&gt;
-                &lt;img :src="'demo/images/car/' + slotProps.data.brand + '.png'" :alt="slotProps.data.brand"/&gt;
-                &lt;div class="p-grid"&gt;
-                    &lt;div class="p-col-12"&gt;Vin: &lt;b&gt;&#123;&#123;slotProps.data.vin&#125;&#125;&lt;/b&gt;&lt;/div&gt;
-                    &lt;div class="p-col-12"&gt;Year: &lt;b&gt;&#123;&#123;slotProps.data.year&#125;&#125;&lt;/b&gt;&lt;/div&gt;
-                    &lt;div class="p-col-12"&gt;Brand: &lt;b&gt;&#123;&#123;slotProps.data.brand&#125;&#125;&lt;/b&gt;&lt;/div&gt;
-                    &lt;div class="p-col-12"&gt;Color: &lt;b&gt;&#123;&#123;slotProps.data.color&#125;&#125;&lt;/b&gt;&lt;/div&gt;
-                &lt;/div&gt;
-            &lt;/div&gt;
-            &lt;Button icon="pi pi-search"&gt;&lt;/Button&gt;
+        &lt;div class="orders-subtable"&gt;
+            &lt;h5&gt;Orders for {{slotProps.data.name}}&lt;/h5&gt;
+            &lt;DataTable :value="slotProps.data.orders"&gt;
+                &lt;Column field="id" header="Id" sortable&gt;&lt;/Column&gt;
+                &lt;Column field="customer" header="Customer" sortable&gt;&lt;/Column&gt;
+                &lt;Column field="date" header="Date" sortable&gt;&lt;/Column&gt;
+                &lt;Column field="amount" header="Amount" sortable&gt;
+                    &lt;template #body="slotProps" sortable&gt;
+                        {{formatCurrency(slotProps.data.amount)}}
+                    &lt;/template&gt;
+                &lt;/Column&gt;
+                &lt;Column header="Status" sortable&gt;
+                    &lt;template #body="slotProps"&gt;
+                        &lt;span :class="'order-badge order-' + slotProps.data.status.toLowerCase()"&gt;{{slotProps.data.status}}&lt;/span&gt;
+                    &lt;/template&gt;
+                &lt;/Column&gt;
+                &lt;Column headerStyle="width:4rem"&gt;
+                    &lt;template #body&gt;
+                        &lt;Button icon="pi pi-search" /&gt;
+                    &lt;/template&gt;
+                &lt;/Column&gt;
+            &lt;/DataTable&gt;
         &lt;/div&gt;
     &lt;/template&gt;
 &lt;/DataTable&gt;
@@ -77,36 +135,39 @@
 </CodeHighlight>
 
 <CodeHighlight lang="javascript">
-import CarService from '../../service/CarService';
+import ProductService from '../../service/ProductService';
 
 export default {
     data() {
         return {
-            cars: null,
+            products: null,
             expandedRows: []
         }
     },
-    carService: null,
+    productService: null,
     created() {
-        this.carService = new CarService();
+        this.productService = new ProductService();
     },
     mounted() {
-        this.carService.getCarsSmall().then(data => this.cars = data);
+        this.productService.getProductsWithOrdersSmall().then(data => this.products = data);
     },
     methods: {
         onRowExpand(event) {
-            this.$toast.add({severity: 'info', summary: 'Row Expanded', detail: 'Vin: ' + event.data.vin, life: 3000});
+            this.$toast.add({severity: 'info', summary: 'Product Expanded', detail: event.data.name, life: 3000});
         },
         onRowCollapse(event) {
-            this.$toast.add({severity: 'success', summary: 'Row Collapsed', detail: 'Vin: ' + event.data.vin, life: 3000});
+            this.$toast.add({severity: 'success', summary: 'Product Collapsed', detail: event.data.name, life: 3000});
         },
         expandAll() {
-            this.expandedRows = this.cars.filter(car => car.vin);
+            this.expandedRows = this.products.filter(p => p.id);
             this.$toast.add({severity: 'success', summary: 'All Rows Expanded', life: 3000});
         },
         collapseAll() {
             this.expandedRows = null;
             this.$toast.add({severity: 'success', summary: 'All Rows Collapsed', life: 3000});
+        },
+        formatCurrency(value) {
+            return value.toLocaleString('en-US', {style: 'currency', currency: 'USD'});
         }
     }
 }
@@ -118,75 +179,51 @@ export default {
 </template>
 
 <script>
-import CarService from '../../service/CarService';
+import ProductService from '../../service/ProductService';
 
 export default {
     data() {
         return {
-            cars: null,
+            products: null,
             expandedRows: []
         }
     },
-    carService: null,
+    productService: null,
     created() {
-        this.carService = new CarService();
+        this.productService = new ProductService();
     },
     mounted() {
-        this.carService.getCarsSmall().then(data => this.cars = data);
+        this.productService.getProductsWithOrdersSmall().then(data => this.products = data);
     },
     methods: {
         onRowExpand(event) {
-            this.$toast.add({severity: 'info', summary: 'Row Expanded', detail: 'Vin: ' + event.data.vin, life: 3000});
+            this.$toast.add({severity: 'info', summary: 'Product Expanded', detail: event.data.name, life: 3000});
         },
         onRowCollapse(event) {
-            this.$toast.add({severity: 'success', summary: 'Row Collapsed', detail: 'Vin: ' + event.data.vin, life: 3000});
+            this.$toast.add({severity: 'success', summary: 'Product Collapsed', detail: event.data.name, life: 3000});
         },
         expandAll() {
-            this.expandedRows = this.cars.filter(car => car.vin);
+            this.expandedRows = this.products.filter(p => p.id);
             this.$toast.add({severity: 'success', summary: 'All Rows Expanded', life: 3000});
         },
         collapseAll() {
             this.expandedRows = null;
             this.$toast.add({severity: 'success', summary: 'All Rows Collapsed', life: 3000});
+        },
+        formatCurrency(value) {
+            return value.toLocaleString('en-US', {style: 'currency', currency: 'USD'});
         }
     }
 }
 </script>
 
 <style lang="scss" scoped>
-.table-header-container {
-    text-align: left;
-
-    button {
-        min-width: 10rem;
-
-        &:first-child {
-            margin-right: .5rem;
-        }
-    }
+.product-image {
+    width: 100px;
+    box-shadow: 0 3px 6px rgba(0, 0, 0, 0.16), 0 3px 6px rgba(0, 0, 0, 0.23)
 }
 
-.car-details {
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-    padding: 2rem;
-
-    & > div {
-        display: flex;
-        align-items: center;
-
-        img {
-            margin-right: 14px;
-        }
-    }
-}
-
-@media (max-width: 1024px) {
-	.car-details {
-        img {
-            width: 75px;
-        }
-    }
+.orders-subtable {
+    padding: 1rem;
 }
 </style>

@@ -285,7 +285,7 @@ export default {
     methods: {
           loadChunk(index, length) {
             let chunk = [];
-            for (let i = 0; i < length; i++) {
+            for (let i = 0; i &lt; length; i++) {
                 chunk[i] = {...this.inmemoryData[i]};
             }
 

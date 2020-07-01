@@ -66,9 +66,11 @@ export default {
         },
         stockClass(data) {
             return [
-                {'outofstock': data.quantity === 0,
-                 'lowstock': data.quantity > 0 && data.quantity < 10,
-                 'instock': data.quantity > 10}
+                {
+                    'outofstock': data.quantity === 0,
+                    'lowstock': data.quantity > 0 &amp;&amp; data.quantity &lt; 10,
+                    'instock': data.quantity > 10
+                 }
             ];
         }
     }
@@ -125,9 +127,11 @@ export default {
         },
         stockClass(data) {
             return [
-                {'outofstock': data.quantity === 0,
-                 'lowstock': data.quantity > 0 && data.quantity < 10,
-                 'instock': data.quantity > 10}
+                {
+                    'outofstock': data.quantity === 0,
+                    'lowstock': data.quantity > 0 && data.quantity<10,
+                    'instock': data.quantity > 10
+                 }
             ];
         }
     }

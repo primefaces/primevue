@@ -239,11 +239,11 @@ export default {
             let month = date.getMonth() + 1;
             let day = date.getDate();
 
-            if (month < 10) {
+            if (month &lt; 10) {
                 month = '0' + month;
             }
 
-            if (day < 10) {
+            if (day &lt; 10) {
                 day = '0' + day;
             }
 

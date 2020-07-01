@@ -265,7 +265,7 @@ export default {
 
                 case 'LOWSTOCK':
                     return 'Low Stock';
-                
+
                 case 'OUTOFSTOCK':
                     return 'Out of Stock';
 
@@ -379,7 +379,7 @@ export default {
 
                 case 'LOWSTOCK':
                     return 'Low Stock';
-                
+
                 case 'OUTOFSTOCK':
                     return 'Out of Stock';
 

@@ -18,7 +18,7 @@
                     <Column field="quantity" header="Quantity"></Column>
                 </DataTable>
             </div>
-            
+
             <div class="card">
                 <h5>Expand Mode</h5>
                 <DataTable :value="products" :resizableColumns="true" columnResizeMode="expand">

@@ -298,7 +298,6 @@ export default {
 
 <script>
 import CustomerService from '../../service/CustomerService';
-import DataTableDoc from './DataTableDoc';
 
 export default {
     data() {
