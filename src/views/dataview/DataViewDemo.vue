@@ -158,7 +158,6 @@ export default {
 
 	.product-list-detail {
 		flex: 1 1 0;
-		-ms-flex: 1 1 0px;
 	}
 
 	.p-rating {
@@ -173,9 +172,7 @@ export default {
 	}
 
 	.product-list-action {
-		display: -ms-flexbox;
 		display: flex;
-		-ms-flex-direction: column;
 		flex-direction: column;
 	}
 
@@ -190,11 +187,8 @@ export default {
 
 	.product-grid-item-top,
 	.product-grid-item-bottom {
-		display: -ms-flexbox;
 		display: flex;
-		-ms-flex-align: center;
 		align-items: center;
-		-ms-flex-pack: justify;
 		justify-content: space-between;
 	}
 
@@ -216,9 +210,7 @@ export default {
 
 @media screen and (max-width: 576px) {
 	.product-list-item {
-		-ms-flex-direction: column;
 		flex-direction: column;
-		-ms-flex-align: center;
 		align-items: center;
 
 		img {
@@ -235,19 +227,14 @@ export default {
 		}
 
 		.product-list-action {
-			display: -ms-flexbox;
 			display: flex;
-			-ms-flex-direction: column;
 			flex-direction: column;
 		}
 
 		.product-list-action {
 			margin-top: 2rem;
-			-ms-flex-direction: row;
 			flex-direction: row;
-			-ms-flex-pack: justify;
 			justify-content: space-between;
-			-ms-flex-align: center;
 			align-items: center;
 			width: 100%;
 		}
