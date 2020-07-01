@@ -85,7 +85,7 @@
                 border-bottom: 2px solid transparent;
                 transition: border-bottom-color .3s;
 
-                &:hover {
+                &:hover, &:focus {
                     border-bottom-color: var(--primary-color);
                 }
 
