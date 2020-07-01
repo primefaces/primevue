@@ -190,4 +190,8 @@ p {
     align-items: center;
     justify-content: center;
 }
+
+.p-dialog .p-button {
+    min-width: 6rem;
+}
 </style>
