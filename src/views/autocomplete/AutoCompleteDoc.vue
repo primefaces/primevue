@@ -254,28 +254,22 @@ export default {
 				</a>
 <CodeHighlight>
 <template v-pre>
-&lt;h3&gt;Basic&lt;/h3&gt;
-&lt;AutoComplete v-model="selectedCountry" :suggestions="filteredCountriesBasic" @complete="searchCountryBasic($event)" field="name" /&gt;
-&lt;span style="marginLeft: .5em"&gt;Country: {{selectedCountry || 'none'}}&lt;/span&gt;
-
-&lt;h3&gt;Dropdown and Templating&lt;/h3&gt;
-&lt;AutoComplete v-model="brand" :suggestions="filteredBrands" @complete="searchBrand($event)" placeholder="Hint: type 'v' or 'f'" :dropdown="true"&gt;
+&lt;h5&gt;Basic&lt;/h5&gt;
+&lt;AutoComplete v-model="selectedCountry1" :suggestions="filteredCountries" @complete="searchCountry($event)" field="name" /&gt;
+&lt;h5&gt;Dropdown and Templating&lt;/h5&gt;
+&lt;AutoComplete v-model="selectedCountry2" :suggestions="filteredCountries" @complete="searchCountry($event)" :dropdown="true" field="name"&gt;
     &lt;template #item="slotProps"&gt;
-        &lt;div class="p-autocomplete-brand-item"&gt;
-            &lt;img :alt="slotProps.item" :src="'demo/images/car/' + slotProps.item + '.png'" /&gt;
-            &lt;div&gt;{{slotProps.item}}&lt;/div&gt;
+        &lt;div class="country-item"&gt;
+            &lt;img src="../../assets/images/flag_placeholder.png" :class="'flag flag-' + slotProps.item.code.toLowerCase()" class="p-mr-2" /&gt;
+            &lt;div&gt;{{slotProps.item.name}}&lt;/div&gt;
         &lt;/div&gt;
     &lt;/template&gt;
 &lt;/AutoComplete&gt;
-&lt;span style="marginLeft: .5em"&gt;Brand: {{brand || 'none'}}&lt;/span&gt;
 
-&lt;h3&gt;Multiple&lt;/h3&gt;
+&lt;h5&gt;Multiple&lt;/h5&gt;
 &lt;span class="p-fluid"&gt;
-    &lt;AutoComplete :multiple="true" v-model="selectedCountries" :suggestions="filteredCountriesMultiple" @complete="searchCountryMultiple($event)" field="name" /&gt;
+    &lt;AutoComplete :multiple="true" v-model="selectedCountries" :suggestions="filteredCountries" @complete="searchCountry($event)" field="name" /&gt;
 &lt;/span&gt;
-&lt;ul&gt;
-    &lt;li v-for="(c,i) of selectedCountries" :key="i"&gt;{{c}}&lt;/li&gt;
-&lt;/ul&gt;
 </template>
 </CodeHighlight>
 
@@ -283,67 +277,43 @@ export default {
 import CountryService from '../../service/CountryService';
 
 export default {
-	data() {
-		return {
-			countries: null,
-			selectedCountry: null,
-			filteredCountriesBasic: null,
-			selectedCountries: [],
-			filteredCountriesMultiple: null,
-			brands: null,
-			brand: null,
-			filteredBrands: null
-		}
-	},
-	countryService: null,
-	created() {
-		this.countryService = new CountryService();
-	},
-	mounted() {
-		this.countryService.getCountries().then(data => this.countries = data);
-		this.brands = ['Audi', 'BMW', 'Fiat', 'Ford', 'Honda', 'Jaguar', 'Mercedes', 'Renault', 'Volvo'];
-	},
-	methods: {
-		searchCountry(query) {
-			return this.countries.filter((country) => {
-				return country.name.toLowerCase().startsWith(query.toLowerCase());
-			});
-		},
-		searchCountryBasic(event) {
-			setTimeout(() => {
-				this.filteredCountriesBasic = this.searchCountry(event.query);
-			}, 250);
-		},
-		searchCountryMultiple(event) {
-			setTimeout(() => {
-				this.filteredCountriesMultiple = this.searchCountry(event.query);
-			}, 250);
-		},
-		searchBrand(event) {
-			setTimeout(() => {
-				let results;
-
-				if (event.query.length === 0) {
-					results = [...this.brands];
-				}
-				else {
-					results = this.brands.filter((brand) => {
-						return brand.toLowerCase().startsWith(event.query.toLowerCase());
-					});
-				}
-
-				this.filteredBrands = results;
-			}, 250);
-		}
-	}
+    data() {
+        return {
+            countries: null,
+            selectedCountry1: null,
+            selectedCountry2: null,
+            filteredCountries: null,
+            selectedCountries: []
+        }
+    },
+    countryService: null,
+    created() {
+        this.countryService = new CountryService();
+    },
+    mounted() {
+        this.countryService.getCountries().then(data => this.countries = data);
+    },
+    methods: {
+        searchCountry(event) {
+            setTimeout(() => {
+                if (!event.query.trim().length) {
+                    this.filteredCountries = [...this.countries];
+                }
+                else {
+                    this.filteredCountries = this.countries.filter((country) => {
+                        return country.name.toLowerCase().startsWith(event.query.toLowerCase());
+                    });
+                }
+            }, 250);
+        }
+    }
 }
 </CodeHighlight>
 
 <CodeHighlight lang="css">
-.p-autocomplete-brand-item {
+.country-item {
     display: flex;
     align-items: center;
-    justify-content: space-between;
 
     img {
         width: 28px;

@@ -11,27 +11,21 @@
         <div class="content-section implementation">
             <div class="card">
                 <h5>Basic</h5>
-                <AutoComplete v-model="selectedCountry" :suggestions="filteredCountriesBasic" @complete="searchCountryBasic($event)" field="name" />
-                <span style="marginLeft: .5em">Country: {{selectedCountry || 'none'}}</span>
-
+                <AutoComplete v-model="selectedCountry1" :suggestions="filteredCountries" @complete="searchCountry($event)" field="name" />
                 <h5>Dropdown and Templating</h5>
-                <AutoComplete v-model="brand" :suggestions="filteredBrands" @complete="searchBrand($event)" placeholder="Search car brands" :dropdown="true">
+                <AutoComplete v-model="selectedCountry2" :suggestions="filteredCountries" @complete="searchCountry($event)" :dropdown="true" field="name">
                     <template #item="slotProps">
-                        <div class="p-autocomplete-brand-item">
-                            <img :alt="slotProps.item" :src="'demo/images/car/' + slotProps.item + '.png'" />
-                            <div>{{slotProps.item}}</div>
+                        <div class="country-item">
+                            <img src="../../assets/images/flag_placeholder.png" :class="'flag flag-' + slotProps.item.code.toLowerCase()" class="p-mr-2" />
+                            <div>{{slotProps.item.name}}</div>
                         </div>
                     </template>
                 </AutoComplete>
-                <span style="marginLeft: .5em">Brand: {{brand || 'none'}}</span>
 
                 <h5>Multiple</h5>
                 <span class="p-fluid">
-                    <AutoComplete :multiple="true" v-model="selectedCountries" :suggestions="filteredCountriesMultiple" @complete="searchCountryMultiple($event)" field="name" />
+                    <AutoComplete :multiple="true" v-model="selectedCountries" :suggestions="filteredCountries" @complete="searchCountry($event)" field="name" />
                 </span>
-                <ul>
-                    <li v-for="(c,i) of selectedCountries" :key="i">{{c}}</li>
-                </ul>
             </div>
         </div>
 
@@ -47,13 +41,10 @@ export default {
     data() {
         return {
             countries: null,
-            selectedCountry: null,
-            filteredCountriesBasic: null,
-            selectedCountries: [],
-            filteredCountriesMultiple: null,
-            brands: null,
-            brand: null,
-            filteredBrands: null
+            selectedCountry1: null,
+            selectedCountry2: null,
+            filteredCountries: null,
+            selectedCountries: []
         }
     },
     countryService: null,
@@ -62,38 +53,18 @@ export default {
     },
     mounted() {
         this.countryService.getCountries().then(data => this.countries = data);
-        this.brands = ['Audi', 'BMW', 'Fiat', 'Ford', 'Honda', 'Jaguar', 'Mercedes', 'Renault', 'Volvo'];
     },
     methods: {
-        searchCountry(query) {
-            return this.countries.filter((country) => {
-                return country.name.toLowerCase().startsWith(query.toLowerCase());
-            });
-        },
-        searchCountryBasic(event) {
+        searchCountry(event) {
             setTimeout(() => {
-                this.filteredCountriesBasic = this.searchCountry(event.query);
-            }, 250);
-        },
-        searchCountryMultiple(event) {
-            setTimeout(() => {
-               this.filteredCountriesMultiple = this.searchCountry(event.query);
-            }, 250);
-        },
-        searchBrand(event) {
-            setTimeout(() => {
-                let results;
-
-                if (event.query.length === 0) {
-                    results = [...this.brands];
+                if (!event.query.trim().length) {
+                    this.filteredCountries = [...this.countries];
                 }
                 else {
-                    results = this.brands.filter((brand) => {
-                        return brand.toLowerCase().startsWith(event.query.toLowerCase());
+                    this.filteredCountries = this.countries.filter((country) => {
+                        return country.name.toLowerCase().startsWith(event.query.toLowerCase());
                     });
                 }
-
-                this.filteredBrands = results;
             }, 250);
         }
     },
@@ -104,10 +75,9 @@ export default {
 </script>
 
 <style lang="scss">
-.p-autocomplete-brand-item {
+.country-item {
     display: flex;
     align-items: center;
-    justify-content: space-between;
 
     img {
         width: 28px;
