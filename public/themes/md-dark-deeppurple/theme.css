@@ -1742,8 +1742,8 @@
   height: 1.143rem;
   min-width: 1.143rem;
   line-height: 1.143rem;
-  color: rgba(206, 147, 216, 0.16);
-  background: #CE93D8;
+  color: #CE93D8;
+  background: rgba(206, 147, 216, 0.16);
   margin-left: 0.5rem;
 }
 .p-datatable .p-sortable-column:not(.p-highlight):hover {
@@ -2413,8 +2413,8 @@
   height: 1.143rem;
   min-width: 1.143rem;
   line-height: 1.143rem;
-  color: rgba(206, 147, 216, 0.16);
-  background: #CE93D8;
+  color: #CE93D8;
+  background: rgba(206, 147, 216, 0.16);
   margin-left: 0.5rem;
 }
 .p-treetable .p-sortable-column:not(.p-highlight):hover {

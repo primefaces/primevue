@@ -1849,7 +1849,9 @@ export default {
 }
 
 .p-datatable .p-sortable-column .p-sortable-column-badge {
-    display: inline-block;
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
 }
 
 .p-datatable-auto-layout > .p-datatable-wrapper {
