@@ -160,61 +160,40 @@ export default {
 				</a>
 <CodeHighlight>
 <template v-pre>
-&lt;h3&gt;Single&lt;/h3&gt;
-&lt;SelectButton v-model="selectedCity" :options="cities" optionLabel="name" /&gt;
-&lt;p&gt;Selected City: &lt;span style="font-weight: bold"&gt;{{selectedCity}}&lt;/span&gt;&lt;/p&gt;
+&lt;h5&gt;Single Selection&lt;/h5&gt;
+&lt;SelectButton v-model="value1" :options="options" /&gt;
 
-&lt;h3&gt;Multiple&lt;/h3&gt;
-&lt;SelectButton v-model="selectedCars" :options="cars" optionLabel="brand" :multiple="true" /&gt;
-&lt;p&gt;Selected Cars: &lt;span style="font-weight: bold"&gt;{{selectedCars}}&lt;/span&gt;&lt;/p&gt;
+&lt;h5&gt;Multiple Selection&lt;/h5&gt;
+&lt;SelectButton v-model="value2" :options="paymentOptions" optionLabel="name" multiple /&gt;
 
-&lt;h3&gt;Custom Content&lt;/h3&gt;
-&lt;SelectButton v-model="selectedCar" :options="cars" optionLabel="brand"&gt;
+&lt;h5&gt;Custom Content&lt;/h5&gt;
+&lt;SelectButton v-model="value3" :options="justifyOptions"&gt;
     &lt;template #option="slotProps"&gt;
-        &lt;div class="car-option"&gt;
-            &lt;img :alt="slotProps.option.brand" :src="'demo/images/car/' + slotProps.option.brand + '.png'" /&gt;
-            &lt;div&gt;{{slotProps.option.brand}}&lt;/div&gt;
-        &lt;/div&gt;
+        &lt;i :class="slotProps.option.icon"&gt;&lt;/i&gt;
     &lt;/template&gt;
 &lt;/SelectButton&gt;
-&lt;p&gt;Selected Car: &lt;span style="font-weight: bold"&gt;{{selectedCar}}&lt;/span&gt;&lt;/p&gt;
 </template>
 </CodeHighlight>
 
 <CodeHighlight lang="javascript">
 export default {
-	data() {
-		return {
-			selectedCity: null,
-			selectedCar: null,
-			selectedCars: null,
-			cities: [
-				{name: 'London', code: 'LND'},
-				{name: 'Paris', code: 'PRS'},
-				{name: 'Rome', code: 'RM'}
-			],
-			cars: [
-				{brand: 'Audi', key: 'A'},
-				{brand: 'BMW', key: 'B'},
-				{brand: 'Mercedes', key: 'M'}
-			]
-		}
-	},
-	created() {
-		this.selectedCar = this.cars[1];
-	}
-}
-</CodeHighlight>
-
-<CodeHighlight lang="css">
-/deep/ .car-option {
-    display: flex;
-    align-items: center;
-    justify-content: center;
-
-    img {
-        width: 24px;
-        margin-right: .5rem;
+    data() {
+        return {
+            value1: 'Off',
+            value2: null,   
+            value3: null,
+            options: ['Off', 'On'],
+            paymentOptions: [
+                {name: 'Option 1', value: 1},
+                {name: 'Option 2', value: 2},
+                {name: 'Option 3', value: 3}
+            ],
+            justifyOptions: [
+                {icon: 'pi pi-align-left', value: 'left'},
+                {icon: 'pi pi-align-right', value: 'Right'},
+                {icon: 'pi pi-align-center', value: 'Center'},
+                {icon: 'pi pi-align-justify', value: 'Justify'}]
+        }
     }
 }
 </CodeHighlight>

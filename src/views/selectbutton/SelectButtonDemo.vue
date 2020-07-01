@@ -9,24 +9,18 @@
 
         <div class="content-section implementation">
             <div class="card">
-                <h5>Single</h5>
-                <SelectButton v-model="selectedCity" :options="cities" optionLabel="name" />
-                <p>Selected City: <span style="font-weight: bold">{{selectedCity}}</span></p>
+                <h5>Single Selection</h5>
+                <SelectButton v-model="value1" :options="options" />
 
-                <h5>Multiple</h5>
-                <SelectButton v-model="selectedCars" :options="cars" optionLabel="brand" :multiple="true" />
-                <p>Selected Cars: <span style="font-weight: bold">{{selectedCars}}</span></p>
+                <h5>Multiple Selection</h5>
+                <SelectButton v-model="value2" :options="paymentOptions" optionLabel="name" multiple />
 
                 <h5>Custom Content</h5>
-                <SelectButton v-model="selectedCar" :options="cars" optionLabel="brand">
+                <SelectButton v-model="value3" :options="justifyOptions">
                     <template #option="slotProps">
-                        <div class="car-option">
-                            <img :alt="slotProps.option.brand" :src="'demo/images/car/' + slotProps.option.brand + '.png'" />
-                            <div>{{slotProps.option.brand}}</div>
-                        </div>
+                        <i :class="slotProps.option.icon"></i>
                     </template>
                 </SelectButton>
-                <p>Selected Car: <span style="font-weight: bold">{{selectedCar}}</span></p>
             </div>
         </div>
 
@@ -40,39 +34,24 @@ import SelectButtonDoc from './SelectButtonDoc';
 export default {
     data() {
         return {
-            selectedCity: null,
-            selectedCar: null,
-            selectedCars: null,
-            cities: [
-                {name: 'London', code: 'LND'},
-                {name: 'Paris', code: 'PRS'},
-                {name: 'Rome', code: 'RM'}
+            value1: 'Off',
+            value2: null,   
+            value3: null,
+            options: ['Off', 'On'],
+            paymentOptions: [
+                {name: 'Option 1', value: 1},
+                {name: 'Option 2', value: 2},
+                {name: 'Option 3', value: 3}
             ],
-            cars: [
-                {brand: 'Audi', key: 'A'},
-                {brand: 'BMW', key: 'B'},
-                {brand: 'Mercedes', key: 'M'}
-            ]
+            justifyOptions: [
+                {icon: 'pi pi-align-left', value: 'left'},
+                {icon: 'pi pi-align-right', value: 'Right'},
+                {icon: 'pi pi-align-center', value: 'Center'},
+                {icon: 'pi pi-align-justify', value: 'Justify'}]
         }
-    },
-    created() {
-        this.selectedCar = this.cars[1];
     },
     components: {
         'SelectButtonDoc': SelectButtonDoc
     }
 }
 </script>
-
-<style lang="scss" scoped>
-/deep/ .car-option {
-    display: flex;
-    align-items: center;
-    justify-content: center;
-
-    img {
-        width: 24px;
-        margin-right: .5rem;
-    }
-}
-</style>
