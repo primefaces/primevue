@@ -16,7 +16,7 @@
                 <SelectButton v-model="value2" :options="paymentOptions" optionLabel="name" multiple />
 
                 <h5>Custom Content</h5>
-                <SelectButton v-model="value3" :options="justifyOptions">
+                <SelectButton v-model="value3" :options="justifyOptions" dataKey="value">
                     <template #option="slotProps">
                         <i :class="slotProps.option.icon"></i>
                     </template>

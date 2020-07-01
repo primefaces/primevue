@@ -167,7 +167,7 @@ export default {
 &lt;SelectButton v-model="value2" :options="paymentOptions" optionLabel="name" multiple /&gt;
 
 &lt;h5&gt;Custom Content&lt;/h5&gt;
-&lt;SelectButton v-model="value3" :options="justifyOptions"&gt;
+&lt;SelectButton v-model="value3" :options="justifyOptions" dataKey="value"&gt;
     &lt;template #option="slotProps"&gt;
         &lt;i :class="slotProps.option.icon"&gt;&lt;/i&gt;
     &lt;/template&gt;

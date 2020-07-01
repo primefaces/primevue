@@ -3,7 +3,7 @@
         <div v-for="(option, i) of options" :key="getOptionRenderKey(option)" :aria-label="getOptionLabel(option)" role="button" :aria-pressed="isSelected(option)"
             @click="onOptionSelect($event, option, i)" @keydown.enter.prevent="onOptionSelect($event, option, i)" @keydown.space.prevent="onOptionSelect($event, option)"
             :tabindex="isOptionDisabled(option) ? null : '0'" @focus="onFocus($event, i)" @blur="onBlur($event)" :aria-labelledby="ariaLabelledBy" v-ripple
-            :class="['p-button p-component p-button-text-only', {'p-highlight': isSelected(option), 'p-disabled': isOptionDisabled(option), 'p-focus': (i === focusedIndex)}]">
+            :class="getButtonClass(option, i)">
             <slot name="option" :option="option" :index="i">
                 <span class="p-button-label">{{getOptionLabel(option)}}</span>
             </slot>
@@ -93,6 +93,13 @@ export default {
         onBlur(event) {
             this.focusedIndex = null
             this.$emit('blur', event);
+        },
+        getButtonClass(option, i) {
+            return ['p-button p-component', {
+                'p-highlight': this.isSelected(option), 
+                'p-disabled': this.isOptionDisabled(option), 
+                'p-focus': (i === this.focusedIndex)
+            }];
         }
     },
 	computed: {
