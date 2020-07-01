@@ -229,7 +229,7 @@ import PickList from 'primevue/picklist';
 				</a>
 <CodeHighlight>
 <template v-pre>
-&lt;PickList v-model="cars" listStyle="height:342px" dataKey="vin"&gt;
+&lt;PickList v-model="products" listStyle="height:342px" dataKey="id"&gt;
     &lt;template #sourceHeader&gt;
         Available
     &lt;/template&gt;
@@ -237,11 +237,18 @@ import PickList from 'primevue/picklist';
         Selected
     &lt;/template&gt;
     &lt;template #item="slotProps"&gt;
-        &lt;div class="p-caritem"&gt;
-            &lt;img :src="'demo/images/car/' + slotProps.item.brand + '.png'"&gt;
-            &lt;div&gt;
-                &lt;span class="p-caritem-vin"&gt;{{slotProps.item.vin}}&lt;/span&gt;
-                &lt;span&gt;{{slotProps.item.year}} - {{slotProps.item.color}}&lt;/span&gt;
+        &lt;div class="product-item"&gt;
+            &lt;div class="image-container"&gt;
+                &lt;img :src="'demo/images/product/' + slotProps.item.image" :alt="slotProps.item.name" /&gt;
+            &lt;/div&gt;
+            &lt;div class="product-list-detail"&gt;
+                &lt;h5 class="p-mb-2"&gt;{{slotProps.item.name}}&lt;/h5&gt;
+                &lt;i class="pi pi-tag product-category-icon"&gt;&lt;/i&gt;
+                &lt;span class="product-category"&gt;{{slotProps.item.category}}&lt;/span&gt;
+            &lt;/div&gt;
+            &lt;div class="product-list-action"&gt;
+                &lt;h6 class="p-mb-2"&gt;${{slotProps.item.price}}&lt;/h6&gt;
+                &lt;span :class="'product-badge status-'+slotProps.item.inventoryStatus.toLowerCase()"&gt;{{slotProps.item.inventoryStatus}}&lt;/span&gt;
             &lt;/div&gt;
         &lt;/div&gt;
     &lt;/template&gt;
@@ -250,44 +257,71 @@ import PickList from 'primevue/picklist';
 </CodeHighlight>
 
 <CodeHighlight lang="js">
-import CarService from '../../service/CarService';
+import ProductService from '../../service/ProductService';
 
 export default {
     data() {
         return {
-            cars: null
+            products: null
         }
     },
-    carService: null,
+    productService: null,
     created() {
-        this.carService = new CarService();
+        this.productService = new ProductService();
     },
     mounted() {
-        this.carService.getCarsSmall().then(data => this.cars = [data.slice(0,5),[]]);
+        this.productService.getProductsSmall().then(data => this.products = [data, []]);
     }
 }
 </CodeHighlight>
 
 <CodeHighlight lang="css">
-.p-caritem {
-    display: flex;
-    align-items: center;
+product-item {
+	display: flex;
+	align-items: center;
+	padding: .5rem;
+	width: 100%;
 
-    div {
-        display: flex;
+	img {
+		width: 75px;
+        box-shadow: 0 3px 6px rgba(0, 0, 0, 0.16), 0 3px 6px rgba(0, 0, 0, 0.23);
+        margin-right: 1rem;
+	}
+
+	.product-list-detail {
+		flex: 1 1 0;
+	}
+
+	.product-list-action {
+		display: flex;
         flex-direction: column;
+        align-items: flex-end;
     }
-
-    .p-caritem-vin {
-        font-weight: 600;
-        display: block;
-        margin-bottom: .25rem;
-    }
-
-    img {
-        width: 48px;
-        height: 48px;
+    
+    .product-category-icon {
+        vertical-align: middle;
         margin-right: .5rem;
+    }
+
+    .product-category {
+        vertical-align: middle;
+        line-height: 1;
+    }
+}
+
+@media screen and (max-width: 576px) {
+    .product-item {
+        flex-wrap: wrap;
+
+        .image-container {
+            width: 100%;
+            text-align: center;
+        }
+
+        img {
+            margin: 0 0 1rem 0;
+            width: 100px;
+        }
     }
 }
 </CodeHighlight>

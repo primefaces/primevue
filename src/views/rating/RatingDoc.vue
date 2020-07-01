@@ -142,7 +142,7 @@ import Rating from 'primevue/rating';
 &lt;h3&gt;Basic {{val1}}&lt;/h3&gt;
 &lt;Rating v-model="val1" /&gt;
 
-&lt;h3&gt;No Cancel {{val2}}&lt;/h3&gt;
+&lt;h3&gt;Without Cancel&lt;/h3&gt;
 &lt;Rating v-model="val2" :cancel="false" /&gt;
 
 &lt;h3&gt;ReadOnly&lt;/h3&gt;

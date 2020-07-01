@@ -31,7 +31,7 @@ import TextareaDoc from './TextareaDoc'
 export default {
     data() {
         return {
-            value1: 'Welcome to PrimeVue',
+            value1: '',
             value2: '',
             value3: ''
         }

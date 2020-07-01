@@ -9,16 +9,23 @@
 
         <div class="content-section implementation">
             <div class="card">
-                <OrderList v-model="cars" listStyle="height:auto" dataKey="vin">
+                <OrderList v-model="products" listStyle="height:auto" dataKey="id">
                     <template #header>
-                        List of Cars
+                        List of Products
                     </template>
                     <template #item="slotProps">
-                        <div class="p-caritem">
-                            <img :src="'demo/images/car/' + slotProps.item.brand + '.png'">
-                            <div>
-                                <span class="p-caritem-vin">{{slotProps.item.vin}}</span>
-                                <span>{{slotProps.item.year}} - {{slotProps.item.color}}</span>
+                        <div class="product-item">
+                            <div class="image-container">
+                                <img :src="'demo/images/product/' + slotProps.item.image" :alt="slotProps.item.name" />
+                            </div>
+                            <div class="product-list-detail">
+                                <h5 class="p-mb-2">{{slotProps.item.name}}</h5>
+                                <i class="pi pi-tag product-category-icon"></i>
+                                <span class="product-category">{{slotProps.item.category}}</span>
+                            </div>
+                            <div class="product-list-action">
+                                <h6 class="p-mb-2">${{slotProps.item.price}}</h6>
+                                <span :class="'product-badge status-'+slotProps.item.inventoryStatus.toLowerCase()">{{slotProps.item.inventoryStatus}}</span>
                             </div>
                         </div>
                     </template>
@@ -29,22 +36,23 @@
         <OrderListDoc />
     </div>
 </template>
+
 <script>
 import OrderListDoc from './OrderListDoc';
-import CarService from '../../service/CarService';
+import ProductService from '../../service/ProductService';
 
 export default {
     data() {
         return {
-            cars: null
+            products: null
         }
     },
-    carService: null,
+    productService: null,
     created() {
-        this.carService = new CarService();
+        this.productService = new ProductService();
     },
     mounted() {
-        this.carService.getCarsSmall().then(data => this.cars = data.slice(0,5));
+        this.productService.getProductsSmall().then(data => this.products = data);
     },
     components: {
         'OrderListDoc': OrderListDoc
@@ -53,25 +61,52 @@ export default {
 </script>
 
 <style lang="scss" scoped>
-.p-caritem {
-    display: flex;
-    align-items: center;
+.product-item {
+	display: flex;
+	align-items: center;
+	padding: .5rem;
+	width: 100%;
 
-    div {
-        display: flex;
+	img {
+		width: 75px;
+        box-shadow: 0 3px 6px rgba(0, 0, 0, 0.16), 0 3px 6px rgba(0, 0, 0, 0.23);
+        margin-right: 1rem;
+	}
+
+	.product-list-detail {
+		flex: 1 1 0;
+	}
+
+	.product-list-action {
+		display: flex;
         flex-direction: column;
+        align-items: flex-end;
     }
-
-    .p-caritem-vin {
-        font-weight: 600;
-        display: block;
-        margin-bottom: .25rem;
-    }
-
-    img {
-        width: 48px;
-        height: 48px;
+    
+    .product-category-icon {
+        vertical-align: middle;
         margin-right: .5rem;
+    }
+
+    .product-category {
+        vertical-align: middle;
+        line-height: 1;
+    }
+}
+
+@media screen and (max-width: 576px) {
+    .product-item {
+        flex-wrap: wrap;
+
+        .image-container {
+            width: 100%;
+            text-align: center;
+        }
+
+        img {
+            margin: 0 0 1rem 0;
+            width: 100px;
+        }
     }
 }
 </style>

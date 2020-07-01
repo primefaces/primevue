@@ -12,7 +12,7 @@
                 <h5>Basic {{val1}}</h5>
                 <Rating v-model="val1" />
 
-                <h5>No Cancel {{val2}}</h5>
+                <h5>Without Cancel</h5>
                 <Rating v-model="val2" :cancel="false" />
 
                 <h5>ReadOnly</h5>

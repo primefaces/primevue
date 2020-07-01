@@ -145,9 +145,7 @@ export default {
 }
 
 .product-list-item {
-	display: -ms-flexbox;
 	display: flex;
-	-ms-flex-align: center;
 	align-items: center;
 	padding: 1rem;
 	width: 100%;

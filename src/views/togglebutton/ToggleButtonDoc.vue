@@ -168,11 +168,9 @@ export default {
 <template v-pre>
 &lt;h3&gt;Basic&lt;/h3&gt;
 &lt;ToggleButton v-model="checked1" onIcon="pi pi-check" offIcon="pi pi-times" /&gt;
-&lt;p&gt;{{checked1}}&lt;/p&gt;
 
 &lt;h3&gt;Customized&lt;/h3&gt;
 &lt;ToggleButton v-model="checked2" onLabel="I confirm" offLabel="I reject" onIcon="pi pi-check" offIcon="pi pi-times" style="width: 10em" /&gt;
-&lt;p&gt;{{checked2}}&lt;/p&gt;
 </template>
 </CodeHighlight>
 
