@@ -1,19 +1,12 @@
 
 @media screen and (max-width: 960px) {
     .layout-wrapper.layout-news-active {
-        .layout-sidebar {
-            top: 140px;
-            height: calc(100% - 140px);
-        }
-        .layout-config {
-            top: 180px;
-            height: calc(100% - 180px);
-        }
         .layout-content {
             padding-top: 180px;
         }
-        .layout-mask {
-            top: 140px;
+        .layout-sidebar {
+            top: 0;
+            height: 100%;
         }
         .layout-news-container {
             background-image: linear-gradient(180deg, rgba(255,255,255,0.30) 0%, #FFFFFF 100%);
@@ -24,24 +17,28 @@
     }
 
     .layout-topbar {
-        text-align: center;
         height: 111px;
+        flex-wrap: wrap;
+        justify-content: space-between;
+        padding: 0;
 
         .menu-button {
             display: inline-block;
         }
 
         .logo {
-            margin: 7px 0 6px;
-
             img{
-                width: 180px;
+                width: 150px;
             }
+        }
+        
+        .app-theme {
+            margin-left: 0;
+            margin-right: 23px;
         }
 
         .topbar-menu {
             background-color: var(--surface-a);
-            float: none;
             width: 100%;
             height: 41px;
             margin: 0;
@@ -63,16 +60,16 @@
 
                 &.topbar-submenu > ul {
                     top: 40px;
-                    text-align: left;
                 }
             }
         }
     }
 
     .layout-sidebar {
-        top: 70px;
+        top: 0;
         left: -300px;
         z-index: 999;
+        height: 100%;
         transition: left .3s;
 
         &.active {
@@ -85,10 +82,6 @@
         padding-top: 111px;
 
         .content-section {
-            &.submenu ul li {
-                width: 50%;
-            }
-
             &.introduction { 
                 flex-direction: column;
                 
@@ -123,8 +116,7 @@
     }
 
     .layout-config {
-        top: 110px;
-        height: calc(100% - 110px);
+        height: 100%;
         transform: translate3d(100%,0,0);
 
         .layout-config-button {
@@ -137,18 +129,13 @@
             transform: translate3d(0,0,0);
         }
     }
-
-    .app-theme {
-        right: 35px;
-        left: auto;
-    }
 }
 
 @media screen and (max-width: 640px) {
     .layout-wrapper.layout-news-active {
         .topbar-menu {
-            >li.topbar-submenu {
-                >ul  {
+            > li.topbar-submenu {
+                > ul  {
                     top: 180px;
                 }
             }

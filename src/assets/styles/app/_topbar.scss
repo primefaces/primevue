@@ -9,13 +9,13 @@
     z-index: 997;
     box-shadow: 0 0 4px rgba(0,0,0,0.25);
     border-bottom: 1px solid var(--surface-d);
+    display: flex;
+    align-items: center;
+    padding: 0 35px;
 
     .menu-button {
         display: none;
         color: var(--text-color);
-        position: absolute;
-        left: 0;
-        top: 0;
         width: 70px;
         height: 70px;
         line-height: 70px;
@@ -34,10 +34,6 @@
     }
 
     .logo {
-        margin-left: 35px;
-        margin-top: 8px;
-        display: inline-block;
-
         img {
             width: 180px;
         }
@@ -49,12 +45,27 @@
         }
     }
 
+    .app-theme {
+        background-color: var(--primary-color);
+        color: var(--primary-color-text);
+        padding: .5rem;
+        border-radius: 4px;
+        box-shadow: 0 2px 4px -1px rgba(0,0,0,.2), 0 4px 5px 0 rgba(0,0,0,.14), 0 1px 10px 0 rgba(0,0,0,.12);
+        width: 39px;
+        height: 39px;
+        margin-left: 70px;
+    
+        img {
+            width: 25px;
+        }
+    }
+
     .topbar-menu {
         list-style-type: none;
-        float: right;
-        margin: 0 60px 0 0;
+        margin: 0;
         padding: 0;
         height: 100%;
+        margin-left: auto;
 
         > li {
             display: inline-block;

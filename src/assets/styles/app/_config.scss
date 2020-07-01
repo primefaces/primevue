@@ -1,12 +1,12 @@
 .layout-config {
     position: fixed;
     padding: 0;
-    top: 70px;
-    display: block;
+    top: 0;
     right: 0;
+    display: block;
     width: 550px;
-    z-index: 996;
-    height: calc(100% - 70px);
+    z-index: 998;
+    height: 100%;
     transition: transform .3s;
     transform: translate3d(550px,0,0);
     backface-visibility: hidden;
@@ -41,7 +41,7 @@
             background-color: var(--primary-color);
             text-align: center;
             color: var(--primary-color-text);
-            top: 200px;
+            top: 270px;
             left: -51px;
             z-index: -1;
             overflow: hidden;
