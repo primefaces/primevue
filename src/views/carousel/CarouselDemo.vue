@@ -9,24 +9,24 @@
 
 		<div class="content-section implementation">
             <div class="card">
-                <Carousel :value="cars" :numVisible="4" :numScroll="3" :responsiveOptions="responsiveOptions">
+                <Carousel :value="products" :numVisible="3" :numScroll="3" :responsiveOptions="responsiveOptions">
                     <template #header>
-                        <h5>Basic</h5>
+                        <h5 class="p-mb-0">Basic</h5>
                     </template>
                     <template #item="slotProps">
-                        <div class="car-item">
-                            <div class="car-content">
-                                <div>
-                                    <img :src="'demo/images/car/' + slotProps.data.brand + '.png'" :alt="slotProps.data.brand" />
+                        <div class="product-item">
+                            <div class="product-item-content">
+                                <div class="p-mb-3">
+                                    <img :src="'demo/images/product/' + slotProps.data.image" :alt="slotProps.data.name" class="product-image" />
                                 </div>
                                 <div>
-                                    <div class="car-title">{{slotProps.data.brand}}</div>
-                                    <div class="car-subtitle">{{slotProps.data.year}} | {{slotProps.data.color}}</div>
-
-                                    <div class="car-buttons">
-                                        <Button icon="pi pi-search" class="p-button-secondary" />
-                                        <Button icon="pi pi-star" class="p-button-secondary" />
-                                        <Button icon="pi pi-cog" class="p-button-secondary" />
+                                    <h4 class="p-mb-1">{{slotProps.data.name}}</h4>
+                                    <h6 class="p-mt-0 p-mb-3">${{slotProps.data.price}}</h6>
+                                    <span :class="'product-badge status-'+slotProps.data.inventoryStatus.toLowerCase()">{{slotProps.data.inventoryStatus}}</span>
+                                    <div class="car-buttons p-mt-3">
+                                        <Button icon="pi pi-search" class="p-button-text p-button-rounded" />
+                                        <Button icon="pi pi-star" class="p-button-text p-button-rounded" />
+                                        <Button icon="pi pi-cog" class="p-button-text p-button-rounded" />
                                     </div>
                                 </div>
                             </div>
@@ -36,24 +36,24 @@
             </div>
 
             <div class="card">
-                <Carousel :value="cars" :numVisible="3" :numScroll="1" :responsiveOptions="responsiveOptions" class="custom-carousel" :circular="true" :autoplayInterval="3000">
+                <Carousel :value="products" :numVisible="3" :numScroll="1" :responsiveOptions="responsiveOptions" class="custom-carousel" :circular="true" :autoplayInterval="3000">
                     <template #header>
                         <h5>Circular, AutoPlay, 3 Items per Page and Scroll by 1</h5>
                     </template>
                     <template #item="slotProps">
-                        <div class="car-item">
-                            <div class="car-content">
-                                <div>
-                                    <img :src="'demo/images/car/' + slotProps.data.brand + '.png'" :alt="slotProps.data.brand" />
+                        <div class="product-item">
+                            <div class="product-item-content">
+                                <div class="p-mb-3">
+                                    <img :src="'demo/images/product/' + slotProps.data.image" :alt="slotProps.data.name" class="product-image" />
                                 </div>
                                 <div>
-                                    <div class="car-title">{{slotProps.data.brand}}</div>
-                                    <div class="car-subtitle">{{slotProps.data.year}} | {{slotProps.data.color}}</div>
-
-                                    <div class="car-buttons">
-                                        <Button icon="pi pi-search" class="p-button-secondary" />
-                                        <Button icon="pi pi-star" class="p-button-secondary" />
-                                        <Button icon="pi pi-cog" class="p-button-secondary" />
+                                    <h4 class="p-mb-1">{{slotProps.data.name}}</h4>
+                                    <h6 class="p-mt-0 p-mb-3">${{slotProps.data.price}}</h6>
+                                    <span :class="'product-badge status-'+slotProps.data.inventoryStatus.toLowerCase()">{{slotProps.data.inventoryStatus}}</span>
+                                    <div class="car-buttons p-mt-3">
+                                        <Button icon="pi pi-search" class="p-button-text p-button-rounded" />
+                                        <Button icon="pi pi-star" class="p-button-text p-button-rounded" />
+                                        <Button icon="pi pi-cog" class="p-button-text p-button-rounded" />
                                     </div>
                                 </div>
                             </div>
@@ -63,25 +63,25 @@
             </div>
 
             <div class="card">
-                <Carousel :value="cars" :numVisible="1" :numScroll="1" orientation="vertical" verticalViewPortHeight="325px"
+                <Carousel :value="products" :numVisible="1" :numScroll="1" orientation="vertical" verticalViewPortHeight="325px"
                             style="max-width: 400px; margin-top: 2em">
                     <template #header>
                         <h5>Vertical</h5>
                     </template>
                     <template #item="slotProps">
-                        <div class="car-item">
-                            <div class="car-content">
-                                <div>
-                                    <img :src="'demo/images/car/' + slotProps.data.brand + '.png'" :alt="slotProps.data.brand" />
+                        <div class="product-item">
+                            <div class="product-item-content">
+                                <div class="p-mb-3">
+                                    <img :src="'demo/images/product/' + slotProps.data.image" :alt="slotProps.data.name" class="product-image" />
                                 </div>
                                 <div>
-                                    <div class="car-title">{{slotProps.data.brand}}</div>
-                                    <div class="car-subtitle">{{slotProps.data.year}} | {{slotProps.data.color}}</div>
-
-                                    <div class="car-buttons">
-                                        <Button icon="pi pi-search" class="p-button-secondary" />
-                                        <Button icon="pi pi-star" class="p-button-secondary" />
-                                        <Button icon="pi pi-cog" class="p-button-secondary" />
+                                    <h4 class="p-mb-1">{{slotProps.data.name}}</h4>
+                                    <h6 class="p-mt-0 p-mb-3">${{slotProps.data.price}}</h6>
+                                    <span :class="'product-badge status-'+slotProps.data.inventoryStatus.toLowerCase()">{{slotProps.data.inventoryStatus}}</span>
+                                    <div class="car-buttons p-mt-3">
+                                        <Button icon="pi pi-search" class="p-button-text p-button-rounded" />
+                                        <Button icon="pi pi-star" class="p-button-text p-button-rounded" />
+                                        <Button icon="pi pi-cog" class="p-button-text p-button-rounded" />
                                     </div>
                                 </div>
                             </div>
@@ -97,11 +97,13 @@
 
 <script>
 import CarService from "../../service/CarService";
+import ProductService from '../../service/ProductService';
 import CarouselDoc from "./CarouselDoc";
 
 export default {
 	data() {
 		return {
+            products: null,
 			cars: null,
 			responsiveOptions: [
 				{
@@ -122,12 +124,15 @@ export default {
 			]
 		}
 	},
-	carService: null,
+    carService: null,
+    productService: null,
 	created() {
-		this.carService = new CarService();
+        this.carService = new CarService();
+        this.productService = new ProductService();
 	},
 	mounted() {
-		this.carService.getCarsSmall().then(data => this.cars = data);
+        this.carService.getCarsSmall().then(data => this.cars = data);
+        this.productService.getProductsSmall().then(data => this.products = data.slice(0,9));
 	},
 	components: {
 		'CarouselDoc': CarouselDoc
@@ -136,39 +141,26 @@ export default {
 </script>
 
 <style lang="scss" scoped>
+.product-item {
+    .product-item-content {
+        border: 1px solid var(--surface-d);
+        border-radius: 3px;
+        margin: .3rem;
+        text-align: center;
+        padding: 2rem 0;
+    }
+
+    .product-image {
+        width: 150px;
+        box-shadow: 0 3px 6px rgba(0, 0, 0, 0.16), 0 3px 6px rgba(0, 0, 0, 0.23)
+    }
+}
+
 .p-carousel {
     margin-bottom: 1rem;
 
     &:last-child {
         margin-bottom: 0rem;
-    }
-}
-
-.car-item {
-    .car-content {
-        border: 1px solid var(--surface-d);
-        border-radius: 3px;
-        margin: .3rem;
-        text-align: center;
-        padding: 2em 0 2.25em 0;
-    }
-
-    .car-title {
-        font-weight: 600;
-        font-size: 20px;
-        margin-top: 24px;
-    }
-
-    .car-subtitle {
-        margin: .25em 0 2em 0;
-    }
-
-    button {
-        margin-left: .5rem;
-
-        &:first-child {
-            margin-left: 0;
-        }
     }
 }
 </style>
