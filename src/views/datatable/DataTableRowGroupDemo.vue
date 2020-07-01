@@ -27,7 +27,7 @@
                             <span :class="'customer-badge status-' + slotProps.data.status">{{slotProps.data.status}}</span>
                         </template>
                     </Column>
-                    <Column field="date" header="date"></Column>
+                    <Column field="date" header="Date"></Column>
                     <template #groupheader="slotProps">
                         <img :alt="slotProps.data.representative.name" :src="'demo/images/avatar/' + slotProps.data.representative.image" width="32" style="vertical-align: middle" />
                         <span class="image-text">{{slotProps.data.representative.name}}</span>
@@ -60,7 +60,7 @@
                             <span :class="'customer-badge status-' + slotProps.data.status">{{slotProps.data.status}}</span>
                         </template>
                     </Column>
-                    <Column field="date" header="date"></Column>
+                    <Column field="date" header="Date"></Column>
                     <template #groupheader="slotProps">
                         <img :alt="slotProps.data.representative.name" :src="'demo/images/avatar/' + slotProps.data.representative.image" width="32" style="vertical-align: middle" />
                         <span class="image-text">{{slotProps.data.representative.name}}</span>
@@ -100,7 +100,7 @@
                             <span :class="'customer-badge status-' + slotProps.data.status">{{slotProps.data.status}}</span>
                         </template>
                     </Column>
-                    <Column field="date" header="date"></Column>
+                    <Column field="date" header="Date"></Column>
                 </DataTable>
             </div>
 		</div>
@@ -129,7 +129,7 @@
                 &lt;span :class="'customer-badge status-' + slotProps.data.status"&gt;{{slotProps.data.status}}&lt;/span&gt;
             &lt;/template&gt;
         &lt;/Column&gt;
-        &lt;Column field="date" header="date"&gt;&lt;/Column&gt;
+        &lt;Column field="date" header="Date"&gt;&lt;/Column&gt;
         &lt;template #groupheader="slotProps"&gt;
             &lt;img :alt="slotProps.data.representative.name" :src="'demo/images/avatar/' + slotProps.data.representative.image" width="32" style="vertical-align: middle" /&gt;
             &lt;span class="image-text"&gt;{{slotProps.data.representative.name}}&lt;/span&gt;
@@ -162,7 +162,7 @@
                 &lt;span :class="'customer-badge status-' + slotProps.data.status"&gt;{{slotProps.data.status}}&lt;/span&gt;
             &lt;/template&gt;
         &lt;/Column&gt;
-        &lt;Column field="date" header="date"&gt;&lt;/Column&gt;
+        &lt;Column field="date" header="Date"&gt;&lt;/Column&gt;
         &lt;template #groupheader="slotProps"&gt;
             &lt;img :alt="slotProps.data.representative.name" :src="'demo/images/avatar/' + slotProps.data.representative.image" width="32" style="vertical-align: middle" /&gt;
             &lt;span class="image-text"&gt;{{slotProps.data.representative.name}}&lt;/span&gt;
@@ -202,7 +202,7 @@
                 &lt;span :class="'customer-badge status-' + slotProps.data.status"&gt;{{slotProps.data.status}}&lt;/span&gt;
             &lt;/template&gt;
         &lt;/Column&gt;
-        &lt;Column field="date" header="date"&gt;&lt;/Column&gt;
+        &lt;Column field="date" header="Date"&gt;&lt;/Column&gt;
     &lt;/DataTable&gt;
 &lt;/div&gt;
 </template>

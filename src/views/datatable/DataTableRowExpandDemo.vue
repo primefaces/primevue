@@ -35,7 +35,7 @@
                            <Rating :value="slotProps.data.rating" :readonly="true" :cancel="false" />
                         </template>
                     </Column>
-                    <Column header="Status" sortable>
+                    <Column field="inventoryStatus" header="Status" sortable>
                         <template #body="slotProps">
                             <span :class="'product-badge status-' + slotProps.data.inventoryStatus.toLowerCase()">{{slotProps.data.inventoryStatus}}</span>
                         </template>
@@ -52,7 +52,7 @@
                                         {{formatCurrency(slotProps.data.amount)}}
                                     </template>
                                 </Column>
-                                <Column header="Status" sortable>
+                                <Column field="status" header="Status" sortable>
                                     <template #body="slotProps">
                                         <span :class="'order-badge order-' + slotProps.data.status.toLowerCase()">{{slotProps.data.status}}</span>
                                     </template>
@@ -100,7 +100,7 @@
             &lt;Rating :value="slotProps.data.rating" :readonly="true" :cancel="false" /&gt;
         &lt;/template&gt;
     &lt;/Column&gt;
-    &lt;Column header="Status" sortable&gt;
+    &lt;Column field="inventoryStatus" header="Status" sortable&gt;
         &lt;template #body="slotProps"&gt;
             &lt;span :class="'product-badge status-' + slotProps.data.inventoryStatus.toLowerCase()"&gt;{{slotProps.data.inventoryStatus}}&lt;/span&gt;
         &lt;/template&gt;
@@ -117,7 +117,7 @@
                         {{formatCurrency(slotProps.data.amount)}}
                     &lt;/template&gt;
                 &lt;/Column&gt;
-                &lt;Column header="Status" sortable&gt;
+                &lt;Column field="status" header="Status" sortable&gt;
                     &lt;template #body="slotProps"&gt;
                         &lt;span :class="'order-badge order-' + slotProps.data.status.toLowerCase()"&gt;{{slotProps.data.status}}&lt;/span&gt;
                     &lt;/template&gt;
