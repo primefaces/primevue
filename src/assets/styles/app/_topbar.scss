@@ -69,11 +69,13 @@
                 display: inline-block;
                 text-align: center;
                 user-select: none;
-                line-height: inherit;
+                line-height: 68px;
                 cursor: pointer;
+                border-bottom: 2px solid transparent;
+                transition: border-bottom-color .3s;
 
                 &:hover {
-                    background-color: var(--surface-c);
+                    border-bottom-color: var(--primary-color);
                 }
 
                 &:focus {
