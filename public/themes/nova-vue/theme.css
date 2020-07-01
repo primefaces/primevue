@@ -110,7 +110,7 @@
   border: 0 none;
   color: #333333;
   background: transparent;
-  transition: background-color 0.2s, color 0.2s, border-color 0.2s, box-shadow 0.2s;
+  transition: background-color 0.2s, box-shadow 0.2s;
   border-radius: 0;
 }
 .p-autocomplete-panel .p-autocomplete-items .p-autocomplete-item:hover {
@@ -1054,11 +1054,18 @@
 .p-rating .p-rating-icon:first-child {
   margin-left: 0;
 }
+.p-rating .p-rating-icon.pi-star {
+  color: #41b883;
+}
 .p-rating:not(.p-disabled):not(.p-rating-readonly) .p-rating-icon:hover {
   color: #41b883;
 }
 .p-rating:not(.p-disabled):not(.p-rating-readonly) .p-rating-icon.p-rating-cancel:hover {
   color: #b5019f;
+}
+
+.p-highlight .p-rating .p-rating-icon {
+  color: #ffffff;
 }
 
 .p-selectbutton .p-button {

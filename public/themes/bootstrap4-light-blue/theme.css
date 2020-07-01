@@ -110,7 +110,7 @@
   border: 0 none;
   color: #212529;
   background: transparent;
-  transition: background-color 0.15s, border-color 0.15s, box-shadow 0.15s;
+  transition: box-shadow 0.15s;
   border-radius: 0;
 }
 .p-autocomplete-panel .p-autocomplete-items .p-autocomplete-item:hover {
@@ -1038,7 +1038,7 @@
 }
 
 .p-rating .p-rating-icon {
-  color: #212529;
+  color: #495057;
   margin-left: 0.5rem;
   transition: background-color 0.15s, border-color 0.15s, box-shadow 0.15s;
   font-size: 1.143rem;
@@ -1054,11 +1054,18 @@
 .p-rating .p-rating-icon:first-child {
   margin-left: 0;
 }
+.p-rating .p-rating-icon.pi-star {
+  color: #007bff;
+}
 .p-rating:not(.p-disabled):not(.p-rating-readonly) .p-rating-icon:hover {
   color: #007bff;
 }
 .p-rating:not(.p-disabled):not(.p-rating-readonly) .p-rating-icon.p-rating-cancel:hover {
   color: #dc3545;
+}
+
+.p-highlight .p-rating .p-rating-icon {
+  color: #ffffff;
 }
 
 .p-selectbutton .p-button {
