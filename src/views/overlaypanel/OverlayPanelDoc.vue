@@ -152,21 +152,55 @@ toggle(event) {
 				</a>
 <CodeHighlight>
 <template v-pre>
-&lt;Button type="button" label="Toggle" @click="toggle" aria:haspopup="true" aria-controls="overlay_panel"/&gt;
+&lt;Button type="button" icon="pi pi-search" :label="selectedProduct ? selectedProduct.name : 'Select a Product'" @click="toggle" aria:haspopup="true" aria-controls="overlay_panel" /&gt;
 
-&lt;OverlayPanel ref="op" id="overlay_panel"&gt;
-	&lt;img src="demo/images/nature/nature1.jpg" alt="Nature Image"&gt;
+&lt;OverlayPanel ref="op" appendTo="body" :showCloseIcon="true" id="overlay_panel" style="width: 450px"&gt;
+    &lt;DataTable :value="products" :selection.sync="selectedProduct" selectionMode="single" :paginator="true" :rows="5" @row-select="onProductSelect"&gt;
+        &lt;Column field="name" header="Name" sortable&gt;&lt;/Column&gt;
+        &lt;Column header="Image"&gt;
+            &lt;template #body="slotProps"&gt;
+                &lt;img :src="'demo/images/product/' + slotProps.data.image" :alt="slotProps.data.image" class="product-image" /&gt;
+            &lt;/template&gt;
+        &lt;/Column&gt;
+        &lt;Column field="price" header="Price" sortable&gt;
+            &lt;template #body="slotProps"&gt;
+                {{formatCurrency(slotProps.data.price)}}
+            &lt;/template&gt;
+        &lt;/Column&gt;
+    &lt;/DataTable&gt;
 &lt;/OverlayPanel&gt;
 </template>
 </CodeHighlight>
 
 <CodeHighlight lang="javascript">
+import ProductService from '../../service/ProductService';
+
 export default {
-	methods: {
-		toggle(event) {
-			this.$refs.op.toggle(event);
-		}
-	}
+    data() {
+        return {
+            products: null,
+            selectedProduct: null
+        }
+    },
+    productService: null,
+    created() {
+        this.productService = new ProductService();
+    },
+    mounted() {
+        this.productService.getProductsSmall().then(data => this.products = data);
+    },
+    methods: {
+        toggle(event) {
+            this.$refs.op.toggle(event);
+        },
+        formatCurrency(value) {
+            return value.toLocaleString('en-US', {style: 'currency', currency: 'USD'});
+        },
+        onProductSelect(event) {
+            this.$refs.op.hide();
+            this.$toast.add({severity:'info', summary: 'Product Select', detail: event.data.name, life: 3000});
+        }
+    }
 }
 </CodeHighlight>
 			</TabPanel>

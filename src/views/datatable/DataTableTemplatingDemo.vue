@@ -43,8 +43,6 @@
                     </template>
                 </DataTable>
             </div>
-
-
 		</div>
 
         <div class="content-section documentation">
