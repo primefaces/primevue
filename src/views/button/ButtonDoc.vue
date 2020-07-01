@@ -174,7 +174,7 @@ import Button from 'primevue/button';
                                 <td>Icon element</td>
                             </tr>
                             <tr>
-                                <td>p-button-text</td>
+                                <td>p-button-label</td>
                                 <td>Label element of the button</td>
                             </tr>
                             <tr>
