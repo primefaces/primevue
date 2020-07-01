@@ -1972,6 +1972,8 @@ export default {
     display: inline-flex;
     align-items: center;
     justify-content: center;
+    overflow: hidden;
+    position: relative;
 }
 
 /* Expand */
@@ -1979,6 +1981,8 @@ export default {
     display: inline-flex;
     align-items: center;
     justify-content: center;
+    overflow: hidden;
+    position: relative;
 }
 
 /* Reorder */

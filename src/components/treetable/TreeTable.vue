@@ -932,6 +932,8 @@ export default {
     align-items: center;
     justify-content: center;
     vertical-align: middle;
+    overflow: hidden;
+    position: relative;
 }
 
 .p-treetable-toggler + .p-checkbox {

@@ -1,7 +1,7 @@
 <template>
     <tr :class="containerClass" @click="onClick" @keydown="onKeyDown" @touchend="onTouchEnd" :style="node.style" tabindex="0">
         <td v-for="(col,i) of columns" :key="col.columnKey||col.field||i" :style="col.bodyStyle" :class="col.bodyClass">
-            <button class="p-treetable-toggler p-link" @click="toggle" v-if="col.expander" :style="togglerStyle" tabindex="-1">
+            <button class="p-treetable-toggler p-link" @click="toggle" v-if="col.expander" :style="togglerStyle" tabindex="-1" v-ripple>
                 <i :class="togglerIcon"></i>
             </button>
             <div class="p-checkbox p-treetable-checkbox p-component" @click="toggleCheckbox" v-if="checkboxSelectionMode && col.expander" role="checkbox" :aria-checked="checked">
@@ -22,6 +22,7 @@
 import ObjectUtils from '../utils/ObjectUtils';
 import DomHandler from '../utils/DomHandler';
 import TreeTableColumnSlot from './TreeTableColumnSlot';
+import Ripple from '../ripple/Ripple';
 
 export default {
     name: 'sub-ttnode',
@@ -247,6 +248,9 @@ export default {
     },
     components: {
         'TTColumnSlot': TreeTableColumnSlot
+    },
+    directives: {
+        'ripple': Ripple
     }
 }
 </script>

@@ -10,18 +10,18 @@
             <i :class="['p-datatable-reorderablerow-handle', column.rowReorderIcon]"></i>
         </template>
         <template v-else-if="column.expander">
-            <button class="p-row-toggler p-link" @click="toggleRow">
+            <button class="p-row-toggler p-link" @click="toggleRow" v-ripple>
                 <span :class="rowTogglerIcon"></span>
             </button>
         </template>
         <template v-else-if="editMode === 'row' && column.rowEditor">
-            <button class="p-row-editor-init p-link" v-if="!d_editing" @click="onRowEditInit" type="button">
+            <button class="p-row-editor-init p-link" v-if="!d_editing" @click="onRowEditInit" type="button" v-ripple>
                 <span class="p-row-editor-init-icon pi pi-fw pi-pencil"></span>
             </button>
-            <button class="p-row-editor-save p-link" v-if="d_editing" @click="onRowEditSave" type="button">
+            <button class="p-row-editor-save p-link" v-if="d_editing" @click="onRowEditSave" type="button" v-ripple>
                 <span class="p-row-editor-save-icon pi pi-fw pi-check"></span>
             </button>
-            <button class="p-row-editor-cancel p-link" v-if="d_editing" @click="onRowEditCancel" type="button">
+            <button class="p-row-editor-cancel p-link" v-if="d_editing" @click="onRowEditCancel" type="button" v-ripple>
                 <span class="p-row-editor-cancel-icon pi pi-fw pi-times"></span>
             </button>
         </template>
@@ -35,6 +35,7 @@ import ObjectUtils from '../utils/ObjectUtils';
 import ColumnSlot from './ColumnSlot.vue';
 import RowRadioButton from './RowRadioButton';
 import RowCheckbox from './RowCheckbox.vue';
+import Ripple from '../ripple/Ripple';
 
 export default {
     props: {
@@ -278,6 +279,9 @@ export default {
         'ColumnSlot': ColumnSlot,
         'DTRadioButton': RowRadioButton,
         'DTCheckbox': RowCheckbox
+    },
+    directives: {
+        'ripple': Ripple
     }
 }
 </script>

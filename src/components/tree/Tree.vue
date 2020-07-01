@@ -303,6 +303,8 @@ export default {
     display: inline-flex;
     align-items: center;
     justify-content: center;
+    overflow: hidden;
+    position: relative;
 }
 
 .p-treenode-leaf > .p-treenode-content .p-tree-toggler {

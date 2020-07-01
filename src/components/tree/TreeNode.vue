@@ -2,7 +2,7 @@
     <li :class="containerClass">
         <div :class="contentClass" tabindex="0" role="treeitem" :aria-expanded="expanded"
             @click="onClick" @keydown="onKeyDown" @touchend="onTouchEnd" :style="node.style">
-            <button class="p-tree-toggler p-link" @click="toggle" tabindex="-1">
+            <button class="p-tree-toggler p-link" @click="toggle" tabindex="-1" v-ripple>
                 <span :class="toggleIcon"></span>
             </button>
             <div class="p-checkbox p-component" v-if="checkboxMode">
@@ -26,6 +26,7 @@
 
 <script>
 import DomHandler from '../utils/DomHandler';
+import Ripple from '../ripple/Ripple';
 
 const TreeNodeTemplate = {
     functional: true,
@@ -311,6 +312,9 @@ export default {
     },
     components: {
         'TreeNodeTemplate': TreeNodeTemplate
+    },
+    directives: {
+        'ripple': Ripple
     }
 }
 </script>
