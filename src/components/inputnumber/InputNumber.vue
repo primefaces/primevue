@@ -626,8 +626,8 @@ export default {
     flex: 0 0 auto;
 }
 
-.p-inputnumber-buttons-stacked .p-inputnumber-button .p-button-text,
-.p-inputnumber-buttons-horizontal .p-inputnumber-button .p-button-text {
+.p-inputnumber-buttons-stacked .p-inputnumber-button .p-button-label,
+.p-inputnumber-buttons-horizontal .p-inputnumber-button .p-button-label {
     display: none;
 }
 

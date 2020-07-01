@@ -397,7 +397,7 @@ Vertical
     &lt;/div&gt;
 &lt;/div&gt;
 
-&lt;h3&gt;Buttons&lt;/h3&gt;
+&lt;h5&gt;Buttons&lt;/h5&gt;
 &lt;div class="p-grid p-fluid"&gt;
     &lt;div class="p-field p-col-12 p-md-3"&gt;
         &lt;label for="stacked"&gt;Stacked&lt;/label&gt;
@@ -409,14 +409,15 @@ Vertical
             decrementButtonClass="p-button-danger" incrementButtonClass="p-button-success" incrementButtonIcon="pi pi-plus" decrementButtonIcon="pi pi-minus" mode="currency" currency="EUR" /&gt;
     &lt;/div&gt;
     &lt;div class="p-field p-col-12 p-md-3"&gt;
-        &lt;label for="vertical"&gt;Vertical&lt;/label&gt;
-        &lt;InputNumber id="vertical" v-model="value19" mode="decimal" showButtons buttonLayout="vertical" spinnerMode="vertical"
-            decrementButtonClass="p-button-secondary" incrementButtonClass="p-button-secondary" incrementButtonIcon="pi pi-plus" decrementButtonIcon="pi pi-minus" /&gt;
-    &lt;/div&gt;
-    &lt;div class="p-field p-col-12 p-md-3"&gt;
         &lt;label for="minmax-buttons"&gt;Min-Max Boundaries&lt;/label&gt;
         &lt;InputNumber id="minmax-buttons" v-model="value20" mode="decimal" showButtons :min="0" :max="100" /&gt;
     &lt;/div&gt;
+&lt;/div&gt;
+
+&lt;div class="p-field p-col-12 p-md-3"&gt;
+    &lt;label for="vertical" style="display: block"&gt;Vertical&lt;/label&gt;
+    &lt;InputNumber id="vertical" v-model="value19" mode="decimal" showButtons buttonLayout="vertical" spinnerMode="vertical" style="width:4rem"
+        decrementButtonClass="p-button-secondary" incrementButtonClass="p-button-secondary" incrementButtonIcon="pi pi-plus" decrementButtonIcon="pi pi-minus" /&gt;
 &lt;/div&gt;
 </template>
 </CodeHighlight>

@@ -100,14 +100,15 @@
                             decrementButtonClass="p-button-danger" incrementButtonClass="p-button-success" incrementButtonIcon="pi pi-plus" decrementButtonIcon="pi pi-minus" mode="currency" currency="EUR" />
                     </div>
                     <div class="p-field p-col-12 p-md-3">
-                        <label for="vertical">Vertical</label>
-                        <InputNumber id="vertical" v-model="value19" mode="decimal" showButtons buttonLayout="vertical" spinnerMode="vertical"
-                            decrementButtonClass="p-button-secondary" incrementButtonClass="p-button-secondary" incrementButtonIcon="pi pi-plus" decrementButtonIcon="pi pi-minus" />
-                    </div>
-                    <div class="p-field p-col-12 p-md-3">
                         <label for="minmax-buttons">Min-Max Boundaries</label>
                         <InputNumber id="minmax-buttons" v-model="value20" mode="decimal" showButtons :min="0" :max="100" />
                     </div>
+                </div>
+
+                <div class="p-field p-col-12 p-md-3">
+                    <label for="vertical" style="display: block">Vertical</label>
+                    <InputNumber id="vertical" v-model="value19" mode="decimal" showButtons buttonLayout="vertical" spinnerMode="vertical" style="width:4rem"
+                        decrementButtonClass="p-button-secondary" incrementButtonClass="p-button-secondary" incrementButtonIcon="pi pi-plus" decrementButtonIcon="pi pi-minus" />
                 </div>
             </div>
         </div>
@@ -149,9 +150,3 @@ export default {
 	}
 }
 </script>
-
-<style scoped>
-.layout-content .content-section.implementation > h3 {
-    font-weight: 600;
-}
-</style>
