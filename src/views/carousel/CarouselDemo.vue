@@ -11,7 +11,7 @@
             <div class="card">
                 <Carousel :value="products" :numVisible="3" :numScroll="3" :responsiveOptions="responsiveOptions">
                     <template #header>
-                        <h5 class="p-mb-0">Basic</h5>
+                        <h5>Basic</h5>
                     </template>
                     <template #item="slotProps">
                         <div class="product-item">
@@ -23,10 +23,10 @@
                                     <h4 class="p-mb-1">{{slotProps.data.name}}</h4>
                                     <h6 class="p-mt-0 p-mb-3">${{slotProps.data.price}}</h6>
                                     <span :class="'product-badge status-'+slotProps.data.inventoryStatus.toLowerCase()">{{slotProps.data.inventoryStatus}}</span>
-                                    <div class="car-buttons p-mt-3">
-                                        <Button icon="pi pi-search" class="p-button-text p-button-rounded" />
-                                        <Button icon="pi pi-star" class="p-button-text p-button-rounded" />
-                                        <Button icon="pi pi-cog" class="p-button-text p-button-rounded" />
+                                    <div class="car-buttons p-mt-5">
+                                        <Button icon="pi pi-search" class="p-button p-button-rounded p-mr-2" />
+                                        <Button icon="pi pi-star" class="p-button-success p-button-rounded p-mr-2" />
+                                        <Button icon="pi pi-cog" class="p-button-help p-button-rounded" />
                                     </div>
                                 </div>
                             </div>
@@ -50,10 +50,10 @@
                                     <h4 class="p-mb-1">{{slotProps.data.name}}</h4>
                                     <h6 class="p-mt-0 p-mb-3">${{slotProps.data.price}}</h6>
                                     <span :class="'product-badge status-'+slotProps.data.inventoryStatus.toLowerCase()">{{slotProps.data.inventoryStatus}}</span>
-                                    <div class="car-buttons p-mt-3">
-                                        <Button icon="pi pi-search" class="p-button-text p-button-rounded" />
-                                        <Button icon="pi pi-star" class="p-button-text p-button-rounded" />
-                                        <Button icon="pi pi-cog" class="p-button-text p-button-rounded" />
+                                    <div class="car-buttons p-mt-5">
+                                        <Button icon="pi pi-search" class="p-button p-button-rounded p-mr-2" />
+                                        <Button icon="pi pi-star" class="p-button-success p-button-rounded p-mr-2" />
+                                        <Button icon="pi pi-cog" class="p-button-help p-button-rounded" />
                                     </div>
                                 </div>
                             </div>
@@ -78,10 +78,10 @@
                                     <h4 class="p-mb-1">{{slotProps.data.name}}</h4>
                                     <h6 class="p-mt-0 p-mb-3">${{slotProps.data.price}}</h6>
                                     <span :class="'product-badge status-'+slotProps.data.inventoryStatus.toLowerCase()">{{slotProps.data.inventoryStatus}}</span>
-                                    <div class="car-buttons p-mt-3">
-                                        <Button icon="pi pi-search" class="p-button-text p-button-rounded" />
-                                        <Button icon="pi pi-star" class="p-button-text p-button-rounded" />
-                                        <Button icon="pi pi-cog" class="p-button-text p-button-rounded" />
+                                    <div class="car-buttons p-mt-5">
+                                        <Button icon="pi pi-search" class="p-button p-button-rounded p-mr-2" />
+                                        <Button icon="pi pi-star" class="p-button-success p-button-rounded p-mr-2" />
+                                        <Button icon="pi pi-cog" class="p-button-help p-button-rounded" />
                                     </div>
                                 </div>
                             </div>
@@ -96,7 +96,6 @@
 </template>
 
 <script>
-import CarService from "../../service/CarService";
 import ProductService from '../../service/ProductService';
 import CarouselDoc from "./CarouselDoc";
 
@@ -104,7 +103,6 @@ export default {
 	data() {
 		return {
             products: null,
-			cars: null,
 			responsiveOptions: [
 				{
 					breakpoint: '1024px',
@@ -124,19 +122,16 @@ export default {
 			]
 		}
 	},
-    carService: null,
     productService: null,
 	created() {
-        this.carService = new CarService();
         this.productService = new ProductService();
 	},
 	mounted() {
-        this.carService.getCarsSmall().then(data => this.cars = data);
         this.productService.getProductsSmall().then(data => this.products = data.slice(0,9));
 	},
 	components: {
 		'CarouselDoc': CarouselDoc
-	},
+	}
 }
 </script>
 
@@ -151,16 +146,8 @@ export default {
     }
 
     .product-image {
-        width: 150px;
+        width: 50%;
         box-shadow: 0 3px 6px rgba(0, 0, 0, 0.16), 0 3px 6px rgba(0, 0, 0, 0.23)
-    }
-}
-
-.p-carousel {
-    margin-bottom: 1rem;
-
-    &:last-child {
-        margin-bottom: 0rem;
     }
 }
 </style>

@@ -265,90 +265,96 @@ data() {
 				</a>
 <CodeHighlight>
 <template v-pre>
-&lt;Carousel :value="cars" :numVisible="4" :numScroll="3" :responsiveOptions="responsiveOptions"&gt;
-	&lt;template #header&gt;
-		&lt;h2&gt;Basic&lt;/h2&gt;
-	&lt;/template&gt;
-	&lt;template #item="slotProps"&gt;
-		&lt;div class="car-item"&gt;
-            &lt;div class="car-content"&gt;
-                &lt;div&gt;
-                    &lt;img :src="'demo/images/car/' + slotProps.data.brand + '.png'" :alt="slotProps.data.brand" /&gt;
+&lt;div class="card"&gt;
+&lt;Carousel :value="products" :numVisible="3" :numScroll="3" :responsiveOptions="responsiveOptions"&gt;
+    &lt;template #header&gt;
+        &lt;h5&gt;Basic&lt;/h5&gt;
+    &lt;/template&gt;
+    &lt;template #item="slotProps"&gt;
+        &lt;div class="product-item"&gt;
+            &lt;div class="product-item-content"&gt;
+                &lt;div class="p-mb-3"&gt;
+                    &lt;img :src="'demo/images/product/' + slotProps.data.image" :alt="slotProps.data.name" class="product-image" /&gt;
                 &lt;/div&gt;
                 &lt;div&gt;
-                    &lt;div class="car-title"&gt;{{slotProps.data.brand}}&lt;/div&gt;
-                    &lt;div class="car-subtitle"&gt;{{slotProps.data.year}} | {{slotProps.data.color}}&lt;/div&gt;
-
-                    &lt;div class="car-buttons"&gt;
-                        &lt;Button icon="pi pi-search" class="p-button-secondary" /&gt;
-                        &lt;Button icon="pi pi-star" class="p-button-secondary" /&gt;
-                        &lt;Button icon="pi pi-cog" class="p-button-secondary" /&gt;
+                    &lt;h4 class="p-mb-1"&gt;{{slotProps.data.name}}&lt;/h4&gt;
+                    &lt;h6 class="p-mt-0 p-mb-3"&gt;${{slotProps.data.price}}&lt;/h6&gt;
+                    &lt;span :class="'product-badge status-'+slotProps.data.inventoryStatus.toLowerCase()"&gt;{{slotProps.data.inventoryStatus}}&lt;/span&gt;
+                    &lt;div class="car-buttons p-mt-5"&gt;
+                        &lt;Button icon="pi pi-search" class="p-button p-button-rounded p-mr-2" /&gt;
+                        &lt;Button icon="pi pi-star" class="p-button-success p-button-rounded p-mr-2" /&gt;
+                        &lt;Button icon="pi pi-cog" class="p-button-help p-button-rounded" /&gt;
                     &lt;/div&gt;
                 &lt;/div&gt;
             &lt;/div&gt;
         &lt;/div&gt;
-	&lt;/template&gt;
+    &lt;/template&gt;
 &lt;/Carousel&gt;
+&lt;/div&gt;
 
-&lt;Carousel :value="cars" :numVisible="3" :numScroll="1" :responsiveOptions="responsiveOptions" class="custom-carousel" :circular="true" :autoplayInterval="3000"&gt;
-	&lt;template #header&gt;
-		&lt;h2&gt;Circular, AutoPlay, 3 Items per Page and Scroll by 1&lt;/h2&gt;
-	&lt;/template&gt;
-	&lt;template #item="slotProps"&gt;
-		&lt;div class="car-item"&gt;
-            &lt;div class="car-content"&gt;
-                &lt;div&gt;
-                    &lt;img :src="'demo/images/car/' + slotProps.data.brand + '.png'" :alt="slotProps.data.brand" /&gt;
+&lt;div class="card"&gt;
+&lt;Carousel :value="products" :numVisible="3" :numScroll="1" :responsiveOptions="responsiveOptions" class="custom-carousel" :circular="true" :autoplayInterval="3000"&gt;
+    &lt;template #header&gt;
+        &lt;h5&gt;Circular, AutoPlay, 3 Items per Page and Scroll by 1&lt;/h5&gt;
+    &lt;/template&gt;
+    &lt;template #item="slotProps"&gt;
+        &lt;div class="product-item"&gt;
+            &lt;div class="product-item-content"&gt;
+                &lt;div class="p-mb-3"&gt;
+                    &lt;img :src="'demo/images/product/' + slotProps.data.image" :alt="slotProps.data.name" class="product-image" /&gt;
                 &lt;/div&gt;
                 &lt;div&gt;
-                    &lt;div class="car-title"&gt;{{slotProps.data.brand}}&lt;/div&gt;
-                    &lt;div class="car-subtitle"&gt;{{slotProps.data.year}} | {{slotProps.data.color}}&lt;/div&gt;
-
-                    &lt;div class="car-buttons"&gt;
-                        &lt;Button icon="pi pi-search" class="p-button-secondary" /&gt;
-                        &lt;Button icon="pi pi-star" class="p-button-secondary" /&gt;
-                        &lt;Button icon="pi pi-cog" class="p-button-secondary" /&gt;
+                    &lt;h4 class="p-mb-1"&gt;{{slotProps.data.name}}&lt;/h4&gt;
+                    &lt;h6 class="p-mt-0 p-mb-3"&gt;${{slotProps.data.price}}&lt;/h6&gt;
+                    &lt;span :class="'product-badge status-'+slotProps.data.inventoryStatus.toLowerCase()"&gt;{{slotProps.data.inventoryStatus}}&lt;/span&gt;
+                    &lt;div class="car-buttons p-mt-5"&gt;
+                        &lt;Button icon="pi pi-search" class="p-button p-button-rounded p-mr-2" /&gt;
+                        &lt;Button icon="pi pi-star" class="p-button-success p-button-rounded p-mr-2" /&gt;
+                        &lt;Button icon="pi pi-cog" class="p-button-help p-button-rounded" /&gt;
                     &lt;/div&gt;
                 &lt;/div&gt;
             &lt;/div&gt;
         &lt;/div&gt;
-	&lt;/template&gt;
+    &lt;/template&gt;
 &lt;/Carousel&gt;
+&lt;/div&gt;
 
-&lt;Carousel :value="cars" :numVisible="1" :numScroll="1" orientation="vertical" :responsiveOptions="responsiveOptions" verticalViewPortHeight="330px"
-			style="max-width: 400px; margin-top: 2em"&gt;
-	&lt;template #header&gt;
-		&lt;h2&gt;Vertical&lt;/h2&gt;
-	&lt;/template&gt;
-	&lt;template #item="slotProps"&gt;
-		&lt;div class="car-item"&gt;
-            &lt;div class="car-content"&gt;
-                &lt;div&gt;
-                    &lt;img :src="'demo/images/car/' + slotProps.data.brand + '.png'" :alt="slotProps.data.brand" /&gt;
+&lt;div class="card"&gt;
+&lt;Carousel :value="products" :numVisible="1" :numScroll="1" orientation="vertical" verticalViewPortHeight="325px"
+            style="max-width: 400px; margin-top: 2em"&gt;
+    &lt;template #header&gt;
+        &lt;h5&gt;Vertical&lt;/h5&gt;
+    &lt;/template&gt;
+    &lt;template #item="slotProps"&gt;
+        &lt;div class="product-item"&gt;
+            &lt;div class="product-item-content"&gt;
+                &lt;div class="p-mb-3"&gt;
+                    &lt;img :src="'demo/images/product/' + slotProps.data.image" :alt="slotProps.data.name" class="product-image" /&gt;
                 &lt;/div&gt;
                 &lt;div&gt;
-                    &lt;div class="car-title"&gt;{{slotProps.data.brand}}&lt;/div&gt;
-                    &lt;div class="car-subtitle"&gt;{{slotProps.data.year}} | {{slotProps.data.color}}&lt;/div&gt;
-
-                    &lt;div class="car-buttons"&gt;
-                        &lt;Button icon="pi pi-search" class="p-button-secondary" /&gt;
-                        &lt;Button icon="pi pi-star" class="p-button-secondary" /&gt;
-                        &lt;Button icon="pi pi-cog" class="p-button-secondary" /&gt;
+                    &lt;h4 class="p-mb-1"&gt;{{slotProps.data.name}}&lt;/h4&gt;
+                    &lt;h6 class="p-mt-0 p-mb-3"&gt;${{slotProps.data.price}}&lt;/h6&gt;
+                    &lt;span :class="'product-badge status-'+slotProps.data.inventoryStatus.toLowerCase()"&gt;{{slotProps.data.inventoryStatus}}&lt;/span&gt;
+                    &lt;div class="car-buttons p-mt-5"&gt;
+                        &lt;Button icon="pi pi-search" class="p-button p-button-rounded p-mr-2" /&gt;
+                        &lt;Button icon="pi pi-star" class="p-button-success p-button-rounded p-mr-2" /&gt;
+                        &lt;Button icon="pi pi-cog" class="p-button-help p-button-rounded" /&gt;
                     &lt;/div&gt;
                 &lt;/div&gt;
             &lt;/div&gt;
         &lt;/div&gt;
-	&lt;/template&gt;
+    &lt;/template&gt;
 &lt;/Carousel&gt;
 </template>
 </CodeHighlight>
+
 <CodeHighlight lang="javascript">
-import CarService from "../../service/CarService";
+import ProductService from '../../service/ProductService';
 
 export default {
 	data() {
 		return {
-			cars: null,
+            products: null,
 			responsiveOptions: [
 				{
 					breakpoint: '1024px',
@@ -368,42 +374,29 @@ export default {
 			]
 		}
 	},
-	carService: null,
+    productService: null,
 	created() {
-		this.carService = new CarService();
+        this.productService = new ProductService();
 	},
 	mounted() {
-		this.carService.getCarsSmall().then(data => this.cars = data);
-	},
+        this.productService.getProductsSmall().then(data => this.products = data.slice(0,9));
+	}
 }
 </CodeHighlight>
 
 <CodeHighlight lang="css">
-.car-item {
-    .car-content {
-        border: 1px solid var(--layer-2);
+.product-item {
+    .product-item-content {
+        border: 1px solid var(--surface-d);
         border-radius: 3px;
         margin: .3rem;
         text-align: center;
-        padding: 2em 0 2.25em 0;
+        padding: 2rem 0;
     }
 
-    .car-title {
-        font-weight: 600;
-        font-size: 20px;
-        margin-top: 24px;
-    }
-
-    .car-subtitle {
-        margin: .25em 0 2em 0;
-    }
-
-    button {
-        margin-left: .5rem;
-
-        &:first-child {
-            margin-left: 0;
-        }
+    .product-image {
+        width: 50%;
+        box-shadow: 0 3px 6px rgba(0, 0, 0, 0.16), 0 3px 6px rgba(0, 0, 0, 0.23)
     }
 }
 </CodeHighlight>
