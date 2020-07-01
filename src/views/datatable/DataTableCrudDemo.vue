@@ -338,7 +338,7 @@ export default {
         },
         findIndexById(id) {
             let index = -1;
-            for (let i = 0; i < this.products.length; i++) {
+            for (let i = 0; i &lt; this.products.length; i++) {
                 if (this.products[i].id === id) {
                     index = i;
                     break;
@@ -350,7 +350,7 @@ export default {
         createId() {
             let id = '';
             var chars = 'ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz0123456789';
-            for ( var i = 0; i < 5; i++ ) {
+            for ( var i = 0; i &lt; 5; i++ ) {
                 id += chars.charAt(Math.floor(Math.random() * chars.length));
             }
             return id;
