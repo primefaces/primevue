@@ -279,24 +279,24 @@ data() {
 				</a>
 <CodeHighlight>
 <template v-pre>
-&lt;h3&gt;Basic&lt;/h3&gt;
-&lt;MultiSelect v-model="selectedCars1" :options="cars" optionLabel="brand" placeholder="Select Brands" /&gt;
+&lt;h5&gt;Basic&lt;/h5&gt;
+&lt;MultiSelect v-model="selectedCities" :options="cities" optionLabel="name" placeholder="Select a City" /&gt;
 
-&lt;h3&gt;Advanced with Templating and Filtering&lt;/h3&gt;
-&lt;MultiSelect v-model="selectedCars2" :options="cars" optionLabel="brand" placeholder="Select a Car" :filter="true"&gt;
+&lt;h5&gt;Advanced with Templating and Filtering&lt;/h5&gt;
+&lt;MultiSelect v-model="selectedCountries" :options="countries" optionLabel="name" placeholder="Select Countries" :filter="true" class="multiselect-custom"&gt;
     &lt;template #value="slotProps"&gt;
-        &lt;div class="p-multiselect-car-token" v-for="option of slotProps.value" :key="option.brand"&gt;
-            &lt;img :alt="option.brand" :src="'demo/images/car/' + option.brand + '.png'" /&gt;
-            &lt;span&gt;{{option.brand}}&lt;/span&gt;
+        &lt;div class="country-item country-item-value" v-for="option of slotProps.value" :key="option.code"&gt;
+            &lt;img src="../../assets/images/flag_placeholder.png" :class="'flag flag-' + option.code.toLowerCase()" /&gt;
+            &lt;div&gt;{{option.name}}&lt;/div&gt;
         &lt;/div&gt;
-		&lt;template v-if="!slotProps.value || slotProps.value.length === 0"&gt;
-            Select Brands
-        &lt;template&gt;
+        &lt;template v-if="!slotProps.value || slotProps.value.length === 0"&gt;
+            Select Countries
+        &lt;/template&gt;
     &lt;/template&gt;
     &lt;template #option="slotProps"&gt;
-        &lt;div class="p-multiselect-car-option"&gt;
-            &lt;img :alt="slotProps.option.brand" :src="'demo/images/car/' + slotProps.option.brand + '.png'" /&gt;
-            &lt;span&gt;{{slotProps.option.brand}}&lt;/span&gt;
+        &lt;div class="country-item"&gt;
+            &lt;img src="../../assets/images/flag_placeholder.png" :class="'flag flag-' + slotProps.option.code.toLowerCase()" /&gt;
+            &lt;div&gt;{{slotProps.option.name}}&lt;/div&gt;
         &lt;/div&gt;
     &lt;/template&gt;
 &lt;/MultiSelect&gt;
@@ -305,23 +305,31 @@ data() {
 
 <CodeHighlight lang="javascript">
 export default {
-	data() {
-		return {
-			selectedCars1: null,
-			selectedCars2: null,
-			cars: [
-				{brand: 'Audi', value: 'Audi'},
-				{brand: 'BMW', value: 'BMW'},
-				{brand: 'Fiat', value: 'Fiat'},
-				{brand: 'Honda', value: 'Honda'},
-				{brand: 'Jaguar', value: 'Jaguar'},
-				{brand: 'Mercedes', value: 'Mercedes'},
-				{brand: 'Renault', value: 'Renault'},
-				{brand: 'Volkswagen', value: 'Volkswagen'},
-				{brand: 'Volvo', value: 'Volvo'}
-			]
-		}
-	}
+    data() {
+        return {
+            selectedCities: null,
+            selectedCountries: null,
+            cities: [
+                {name: 'New York', code: 'NY'},
+                {name: 'Rome', code: 'RM'},
+                {name: 'London', code: 'LDN'},
+                {name: 'Istanbul', code: 'IST'},
+                {name: 'Paris', code: 'PRS'}
+            ],
+            countries: [
+                {name: 'Australia', code: 'AU'},
+                {name: 'Brazil', code: 'BR'}, 
+                {name: 'China', code: 'CN'},
+                {name: 'Egypt', code: 'EG'}, 
+                {name: 'France', code: 'FR'}, 
+                {name: 'Germany', code: 'DE'},
+                {name: 'India', code: 'IN'},
+                {name: 'Japan', code: 'JP'},
+                {name: 'Spain', code: 'ES'},
+                {name: 'United States', code: 'US'}
+            ]
+        }
+    }
 }
 </CodeHighlight>
 
@@ -336,32 +344,17 @@ export default {
         padding-bottom: .25rem;
     }
 
-    .p-multiselect-car-option {
-        display: flex;
-        align-items: center;
-
-        img {
-            margin-right: .5rem;
-            width: 24px;
-        }
-    }
-
-    .p-multiselect-car-token {
+    .country-item-value {
         padding: .25rem .5rem;
-        margin: 0 0.286rem 0 0;
         border-radius: 3px;
         display: inline-flex;
-    }
-
-    .p-multiselect-car-token img {
-        width: 17px;
         margin-right: .5rem;
-        align-items: center;
-    }
+        background-color: var(--primary-color);
+        color: var(--primary-color-text);
 
-    .p-multiselect-car-token {
-        background: #2196f3;
-        color: #ffffff;
+        img.flag {
+            width: 17px;
+        }
     }
 }
 </CodeHighlight>
