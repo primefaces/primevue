@@ -68,12 +68,12 @@
                 </DataTable>
             </div>
 
-            <Dialog :visible.sync="dialogVisible" :style="{width: '450px'}" header="Product Details" :modal="true" class="p-fluid">
+            <Dialog :visible.sync="productDialog" :style="{width: '450px'}" header="Product Details" :modal="true" class="p-fluid">
                 <img :src="'demo/images/product/' + product.image" :alt="product.image" class="product-image" v-if="product.image" />
                 <div class="p-field">
                     <label for="name">Name</label>
-                    <InputText id="name" v-model.trim="product.name" required="true" autofocus />
-                    <small id="name-help" class="p-invalid" v-if="submitted && !product.name">Name is required.</small>
+                    <InputText id="name" v-model.trim="product.name" required="true" autofocus :class="{'p-invalid': submitted && !product.name}" />
+                    <small class="p-invalid" v-if="submitted && !product.name">Name is required.</small>
                 </div>
                 <div class="p-field">
                     <label for="description">Description</label>
@@ -118,18 +118,18 @@
                 </template>
             </Dialog>
 
-            <Dialog :visible.sync="deleteProductDialogVisible" :style="{width: '450px'}" header="Confirm" :modal="true">
+            <Dialog :visible.sync="deleteProductDialog" :style="{width: '450px'}" header="Confirm" :modal="true">
                 <p v-if="product">Are you sure you want to delete <b>{{product.name}}</b>?</p>
                 <template #footer>
-                    <Button label="No" icon="pi pi-times" class="p-button-text" @click="deleteProductDialogVisible = false"/>
+                    <Button label="No" icon="pi pi-times" class="p-button-text" @click="deleteProductDialog = false"/>
                     <Button label="Yes" icon="pi pi-check" class="p-button-text" @click="deleteProduct" />
                 </template>
             </Dialog>
 
-            <Dialog :visible.sync="deleteSelectedProductsDialogVisible" :style="{width: '450px'}" header="Confirm" :modal="true">
+            <Dialog :visible.sync="deleteProductsDialog" :style="{width: '450px'}" header="Confirm" :modal="true">
                 <p v-if="product">Are you sure you want to delete selected products?</p>
                 <template #footer>
-                    <Button label="No" icon="pi pi-times" class="p-button-text" @click="deleteSelectedProductsDialogVisible = false"/>
+                    <Button label="No" icon="pi pi-times" class="p-button-text" @click="deleteProductsDialog = false"/>
                     <Button label="Yes" icon="pi pi-check" class="p-button-text" @click="deleteSelectedProducts" />
                 </template>
             </Dialog>
@@ -199,12 +199,12 @@
 &lt;/DataTable&gt;
 &lt;/div&gt;
 
-&lt;Dialog :visible.sync="dialogVisible" :style="{width: '450px'}" header="Product Details" :modal="true" class="p-fluid"&gt;
+&lt;Dialog :visible.sync="productDialog" :style="{width: '450px'}" header="Product Details" :modal="true" class="p-fluid"&gt;
 &lt;img :src="'demo/images/product/' + product.image" :alt="product.image" class="product-image" v-if="product.image" /&gt;
 &lt;div class="p-field"&gt;
     &lt;label for="name"&gt;Name&lt;/label&gt;
-    &lt;InputText id="name" v-model.trim="product.name" required="true" autofocus /&gt;
-    &lt;small id="name-help" class="p-invalid" v-if="submitted && !product.name"&gt;Name is required.&lt;/small&gt;
+    &lt;InputText id="name" v-model.trim="product.name" required="true" autofocus :class="{'p-invalid': submitted &amp;&amp; !product.name}" /&gt;
+    &lt;small class="p-invalid" v-if="submitted &amp;&amp; !product.name"&gt;Name is required.&lt;/small&gt;
 &lt;/div&gt;
 &lt;div class="p-field"&gt;
     &lt;label for="description"&gt;Description&lt;/label&gt;
@@ -249,18 +249,18 @@
 &lt;/template&gt;
 &lt;/Dialog&gt;
 
-&lt;Dialog :visible.sync="deleteProductDialogVisible" :style="{width: '450px'}" header="Confirm" :modal="true"&gt;
+&lt;Dialog :visible.sync="deleteProductDialog" :style="{width: '450px'}" header="Confirm" :modal="true"&gt;
 &lt;p v-if="product"&gt;Are you sure you want to delete &lt;b&gt;{{product.name}}&lt;/b&gt;?&lt;/p&gt;
 &lt;template #footer&gt;
-    &lt;Button label="No" icon="pi pi-times" class="p-button-text" @click="deleteProductDialogVisible = false"/&gt;
+    &lt;Button label="No" icon="pi pi-times" class="p-button-text" @click="deleteProductDialog = false"/&gt;
     &lt;Button label="Yes" icon="pi pi-check" class="p-button-text" @click="deleteProduct" /&gt;
 &lt;/template&gt;
 &lt;/Dialog&gt;
 
-&lt;Dialog :visible.sync="deleteSelectedProductsDialogVisible" :style="{width: '450px'}" header="Confirm" :modal="true"&gt;
+&lt;Dialog :visible.sync="deleteProductsDialog" :style="{width: '450px'}" header="Confirm" :modal="true"&gt;
 &lt;p v-if="product"&gt;Are you sure you want to delete selected products?&lt;/p&gt;
 &lt;template #footer&gt;
-    &lt;Button label="No" icon="pi pi-times" class="p-button-text" @click="deleteSelectedProductsDialogVisible = false"/&gt;
+    &lt;Button label="No" icon="pi pi-times" class="p-button-text" @click="deleteProductsDialog = false"/&gt;
     &lt;Button label="Yes" icon="pi pi-check" class="p-button-text" @click="deleteSelectedProducts" /&gt;
 &lt;/template&gt;
 &lt;/Dialog&gt;
@@ -274,9 +274,9 @@ export default {
     data() {
         return {
             products: null,
-            dialogVisible: false,
-            deleteProductDialogVisible: false,
-            deleteSelectedProductsDialogVisible: false,
+            productDialog: false,
+            deleteProductDialog: false,
+            deleteProductsDialog: false,
             product: {},
             selectedProducts: null,
             filters: {},
@@ -296,146 +296,42 @@ export default {
         },
         openNew() {
             this.product = {};
-            this.dialogVisible = true;
+            this.submitted = false;
+            this.productDialog = true;
         },
         hideDialog() {
-            this.dialogVisible = false;
+            this.productDialog = false;
             this.submitted = false;
         },
         saveProduct() {
             this.submitted = true;
 
-            if (this.product.id) {
-                this.$set(this.products, this.findIndexById(this.product.id), this.product);
-                this.$toast.add({severity:'success', summary: 'Product Updated', life: 3000});
-            }
-            else {
-                this.product.id = this.createId();
-                this.products.push(this.product);
-                this.$toast.add({severity:'success', summary: 'Product Created', life: 3000});
-            }
-
-            this.dialogVisible = false;
-            this.product = {};
-
-        },
-        editProduct(product) {
-            this.product = {...product};
-            this.dialogVisible = true;
-        },
-        confirmDeleteProduct(product) {
-            this.product = product;
-            this.deleteProductDialogVisible = true;
-        },
-        deleteProduct() {
-            this.products = this.products.filter(val => val.id !== this.product.id);
-            this.deleteProductDialogVisible = false;
-            this.product = {};
-            this.$toast.add({severity:'success', summary: 'Product Deleted', life: 3000});
-        },
-        findIndexById(id) {
-            let index = -1;
-            for (let i = 0; i &lt; this.products.length; i++) {
-                if (this.products[i].id === id) {
-                    index = i;
-                    break;
+            if (this.product.name.trim()) {
+                if (this.product.id) {
+                    this.$set(this.products, this.findIndexById(this.product.id), this.product);
+                    this.$toast.add({severity:'success', summary: 'Product Updated', life: 3000});
                 }
+                else {
+                    this.product.id = this.createId();
+                    this.products.push(this.product);
+                    this.$toast.add({severity:'success', summary: 'Product Created', life: 3000});
+                }
+
+                this.productDialog = false;
+                this.product = {};
             }
-
-            return index;
-        },
-        createId() {
-            let id = '';
-            var chars = 'ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz0123456789';
-            for ( var i = 0; i &lt; 5; i++ ) {
-                id += chars.charAt(Math.floor(Math.random() * chars.length));
-            }
-            return id;
-        },
-        exportCSV() {
-            this.$refs.dt.exportCSV();
-        },
-        confirmDeleteSelected() {
-            this.deleteSelectedProductsDialogVisible = true;
-        },
-        deleteSelectedProducts() {
-            this.products = this.products.filter(val => !this.selectedProducts.includes(val));
-            this.deleteSelectedProductsDialogVisible = false;
-            this.selectedProducts = null;
-            this.$toast.add({severity:'success', summary: 'Completed', life: 3000});
-        }
-    }
-}
-</CodeHighlight>
-                </TabPanel>
-            </TabView>
-        </div>
-	</div>
-</template>
-
-<script>
-import ProductService from '../../service/ProductService';
-
-export default {
-    data() {
-        return {
-            products: null,
-            dialogVisible: false,
-            deleteProductDialogVisible: false,
-            deleteSelectedProductsDialogVisible: false,
-            product: {},
-            selectedProducts: null,
-            filters: {},
-            submitted: false
-        }
-    },
-    productService: null,
-    created() {
-        this.productService = new ProductService();
-    },
-    mounted() {
-        this.productService.getProducts().then(data => this.products = data);
-    },
-    methods: {
-        formatCurrency(value) {
-            return value.toLocaleString('en-US', {style: 'currency', currency: 'USD'});
-        },
-        openNew() {
-            this.product = {};
-            this.dialogVisible = true;
-        },
-        hideDialog() {
-            this.dialogVisible = false;
-            this.submitted = false;
-        },
-        saveProduct() {
-            this.submitted = true;
-
-            if (this.product.id) {
-                this.$set(this.products, this.findIndexById(this.product.id), this.product);
-                this.$toast.add({severity:'success', summary: 'Product Updated', life: 3000});
-            }
-            else {
-                this.product.id = this.createId();
-                this.products.push(this.product);
-                this.$toast.add({severity:'success', summary: 'Product Created', life: 3000});
-            }
-
-            this.dialogVisible = false;
-            this.product = {};
-
         },
         editProduct(product) {
             this.product = {...product};
-            this.dialogVisible = true;
+            this.productDialog = true;
         },
         confirmDeleteProduct(product) {
             this.product = product;
-            this.deleteProductDialogVisible = true;
+            this.deleteProductDialog = true;
         },
         deleteProduct() {
             this.products = this.products.filter(val => val.id !== this.product.id);
-            this.deleteProductDialogVisible = false;
+            this.deleteProductDialog = false;
             this.product = {};
             this.$toast.add({severity:'success', summary: 'Product Deleted', life: 3000});
         },
@@ -462,11 +358,119 @@ export default {
             this.$refs.dt.exportCSV();
         },
         confirmDeleteSelected() {
-            this.deleteSelectedProductsDialogVisible = true;
+            this.deleteProductsDialog = true;
         },
         deleteSelectedProducts() {
             this.products = this.products.filter(val => !this.selectedProducts.includes(val));
-            this.deleteSelectedProductsDialogVisible = false;
+            this.deleteProductsDialog = false;
+            this.selectedProducts = null;
+            this.$toast.add({severity:'success', summary: 'Completed', life: 3000});
+        }
+    }
+}
+</CodeHighlight>
+                </TabPanel>
+            </TabView>
+        </div>
+	</div>
+</template>
+
+<script>
+import ProductService from '../../service/ProductService';
+
+export default {
+    data() {
+        return {
+            products: null,
+            productDialog: false,
+            deleteProductDialog: false,
+            deleteProductsDialog: false,
+            product: {},
+            selectedProducts: null,
+            filters: {},
+            submitted: false
+        }
+    },
+    productService: null,
+    created() {
+        this.productService = new ProductService();
+    },
+    mounted() {
+        this.productService.getProducts().then(data => this.products = data);
+    },
+    methods: {
+        formatCurrency(value) {
+            return value.toLocaleString('en-US', {style: 'currency', currency: 'USD'});
+        },
+        openNew() {
+            this.product = {};
+            this.submitted = false;
+            this.productDialog = true;
+        },
+        hideDialog() {
+            this.productDialog = false;
+            this.submitted = false;
+        },
+        saveProduct() {
+            this.submitted = true;
+
+            if (this.product.name.trim()) {
+                if (this.product.id) {
+                    this.$set(this.products, this.findIndexById(this.product.id), this.product);
+                    this.$toast.add({severity:'success', summary: 'Product Updated', life: 3000});
+                }
+                else {
+                    this.product.id = this.createId();
+                    this.products.push(this.product);
+                    this.$toast.add({severity:'success', summary: 'Product Created', life: 3000});
+                }
+
+                this.productDialog = false;
+                this.product = {};
+            }
+        },
+        editProduct(product) {
+            this.product = {...product};
+            this.productDialog = true;
+        },
+        confirmDeleteProduct(product) {
+            this.product = product;
+            this.deleteProductDialog = true;
+        },
+        deleteProduct() {
+            this.products = this.products.filter(val => val.id !== this.product.id);
+            this.deleteProductDialog = false;
+            this.product = {};
+            this.$toast.add({severity:'success', summary: 'Product Deleted', life: 3000});
+        },
+        findIndexById(id) {
+            let index = -1;
+            for (let i = 0; i < this.products.length; i++) {
+                if (this.products[i].id === id) {
+                    index = i;
+                    break;
+                }
+            }
+
+            return index;
+        },
+        createId() {
+            let id = '';
+            var chars = 'ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz0123456789';
+            for ( var i = 0; i < 5; i++ ) {
+                id += chars.charAt(Math.floor(Math.random() * chars.length));
+            }
+            return id;
+        },
+        exportCSV() {
+            this.$refs.dt.exportCSV();
+        },
+        confirmDeleteSelected() {
+            this.deleteProductsDialog = true;
+        },
+        deleteSelectedProducts() {
+            this.products = this.products.filter(val => !this.selectedProducts.includes(val));
+            this.deleteProductsDialog = false;
             this.selectedProducts = null;
             this.$toast.add({severity:'success', summary: 'Completed', life: 3000});
         }
