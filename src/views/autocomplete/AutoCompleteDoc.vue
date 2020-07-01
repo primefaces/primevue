@@ -260,7 +260,7 @@ export default {
 &lt;AutoComplete v-model="selectedCountry2" :suggestions="filteredCountries" @complete="searchCountry($event)" :dropdown="true" field="name"&gt;
     &lt;template #item="slotProps"&gt;
         &lt;div class="country-item"&gt;
-            &lt;img src="../../assets/images/flag_placeholder.png" :class="'flag flag-' + slotProps.item.code.toLowerCase()" class="p-mr-2" /&gt;
+            &lt;img src="../../assets/images/flag_placeholder.png" :class="'flag flag-' + slotProps.item.code.toLowerCase()" /&gt;
             &lt;div&gt;{{slotProps.item.name}}&lt;/div&gt;
         &lt;/div&gt;
     &lt;/template&gt;
@@ -306,17 +306,6 @@ export default {
                 }
             }, 250);
         }
-    }
-}
-</CodeHighlight>
-
-<CodeHighlight lang="css">
-.country-item {
-    display: flex;
-    align-items: center;
-
-    img {
-        width: 28px;
     }
 }
 </CodeHighlight>

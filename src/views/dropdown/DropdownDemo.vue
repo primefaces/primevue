@@ -17,20 +17,20 @@
                 <Dropdown v-model="selectedCity2" :options="cities" optionLabel="name" :editable="true"/>
 
                 <h5>Advanced with Templating, Filtering and Clear Icon</h5>
-                <Dropdown v-model="selectedCar" :options="cars" optionLabel="brand" :filter="true" placeholder="Select a Car" :showClear="true">
+                <Dropdown v-model="selectedCountry" :options="countries" optionLabel="name" :filter="true" placeholder="Select a Country" :showClear="true">
                     <template #value="slotProps">
-                        <div class="p-dropdown-car-value" v-if="slotProps.value">
-                            <img :alt="slotProps.value.brand" :src="'demo/images/car/' + slotProps.value.brand + '.png'" />
-                            <span>{{slotProps.value.brand}}</span>
+                        <div class="country-item country-item-value" v-if="slotProps.value">
+                            <img src="../../assets/images/flag_placeholder.png" :class="'flag flag-' + slotProps.value.code.toLowerCase()" />
+                            <div>{{slotProps.value.name}}</div>
                         </div>
                         <span v-else>
                             {{slotProps.placeholder}}
                         </span>
                     </template>
                     <template #option="slotProps">
-                        <div class="p-dropdown-car-option">
-                            <img :alt="slotProps.option.brand" :src="'demo/images/car/' + slotProps.option.brand + '.png'" />
-                            <span>{{slotProps.option.brand}}</span>
+                        <div class="country-item">
+                            <img src="../../assets/images/flag_placeholder.png" :class="'flag flag-' + slotProps.option.code.toLowerCase()" />
+                            <div>{{slotProps.option.name}}</div>
                         </div>
                     </template>
                 </Dropdown>
@@ -49,7 +49,7 @@ export default {
         return {
             selectedCity1: null,
             selectedCity2: null,
-            selectedCar: null,
+            selectedCountry: null,
             cities: [
                 {name: 'New York', code: 'NY'},
                 {name: 'Rome', code: 'RM'},
@@ -57,16 +57,17 @@ export default {
                 {name: 'Istanbul', code: 'IST'},
                 {name: 'Paris', code: 'PRS'}
             ],
-            cars: [
-                {brand: 'Audi', value: 'Audi'},
-                {brand: 'BMW', value: 'BMW'},
-                {brand: 'Fiat', value: 'Fiat'},
-                {brand: 'Honda', value: 'Honda'},
-                {brand: 'Jaguar', value: 'Jaguar'},
-                {brand: 'Mercedes', value: 'Mercedes'},
-                {brand: 'Renault', value: 'Renault'},
-                {brand: 'Volkswagen', value: 'Volkswagen'},
-                {brand: 'Volvo', value: 'Volvo'}
+            countries: [
+                {name: 'Australia', code: 'AU'},
+                {name: 'Brazil', code: 'BR'}, 
+                {name: 'China', code: 'CN'},
+                {name: 'Egypt', code: 'EG'}, 
+                {name: 'France', code: 'FR'}, 
+                {name: 'Germany', code: 'DE'},
+                {name: 'India', code: 'IN'},
+                {name: 'Japan', code: 'JP'},
+                {name: 'Spain', code: 'ES'},
+                {name: 'United States', code: 'US'}
             ]
         }
     },
@@ -78,29 +79,11 @@ export default {
 
 <style lang="scss" scoped>
 .p-dropdown {
-    width: 12rem;
+    width: 14rem;
 }
 
-.p-dropdown-car-option,
-.p-dropdown-car-value {
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-
-    img {
-        margin-right: .5rem;
-        width: 24px;
-    }
-
-    span {
-        line-height: 1;
-    }
-}
-
-.p-dropdown-car-value {
-    justify-content: flex-start;
-
-    img {
+.country-item-value {
+    img.flag {
         width: 17px;
     }
 }

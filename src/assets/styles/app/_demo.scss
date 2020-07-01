@@ -112,3 +112,13 @@
 .p-column-filter {
     width: 100%;
 }
+
+.country-item {
+    display: flex;
+    align-items: center;
+
+    img.flag {
+        width: 28px;
+        margin-right: .5rem;
+    }
+}

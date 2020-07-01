@@ -299,25 +299,27 @@ data() {
 				</a>
 <CodeHighlight>
 <template v-pre>
-&lt;h3&gt;Basic&lt;/h3&gt;
+&lt;h5&gt;Basic&lt;/h5&gt;
 &lt;Dropdown v-model="selectedCity1" :options="cities" optionLabel="name" placeholder="Select a City" /&gt;
 
-&lt;h3&gt;Editable&lt;/h3&gt;
+&lt;h5&gt;Editable&lt;/h5&gt;
 &lt;Dropdown v-model="selectedCity2" :options="cities" optionLabel="name" :editable="true"/&gt;
 
-&lt;h3&gt;Advanced with Templating, Filtering and Clear Icon&lt;/h3&gt;
-&lt;Dropdown v-model="selectedCar" :options="cars" optionLabel="brand" :filter="true" placeholder="Select a Car" :showClear="true"&gt;
-    &lt;div class="p-dropdown-car-value" v-if="slotProps.value"&gt;
-        &lt;img :alt="slotProps.value.brand" :src="'demo/images/car/' + slotProps.value.brand + '.png'" /&gt;
-        &lt;span&gt;{{slotProps.value.brand}}&lt;/span&gt;
-    &lt;/div&gt;
-    &lt;span v-else&gt;
-        {{slotProps.placeholder}}
-    &lt;/span&gt;
+&lt;h5&gt;Advanced with Templating, Filtering and Clear Icon&lt;/h5&gt;
+&lt;Dropdown v-model="selectedCountry" :options="countries" optionLabel="name" :filter="true" placeholder="Select a Country" :showClear="true"&gt;
+    &lt;template #value="slotProps"&gt;
+        &lt;div class="country-item country-item-value" v-if="slotProps.value"&gt;
+            &lt;img src="../../assets/images/flag_placeholder.png" :class="'flag flag-' + slotProps.value.code.toLowerCase()" /&gt;
+            &lt;div&gt;{{slotProps.value.name}}&lt;/div&gt;
+        &lt;/div&gt;
+        &lt;span v-else&gt;
+            {{slotProps.placeholder}}
+        &lt;/span&gt;
+    &lt;/template&gt;
     &lt;template #option="slotProps"&gt;
-        &lt;div class="p-dropdown-car-option"&gt;
-            &lt;img :alt="slotProps.option.brand" :src="'demo/images/car/' + slotProps.option.brand + '.png'" /&gt;
-            &lt;span&gt;{{slotProps.option.brand}}&lt;/span&gt;
+        &lt;div class="country-item"&gt;
+            &lt;img src="../../assets/images/flag_placeholder.png" :class="'flag flag-' + slotProps.option.code.toLowerCase()" /&gt;
+            &lt;div&gt;{{slotProps.option.name}}&lt;/div&gt;
         &lt;/div&gt;
     &lt;/template&gt;
 &lt;/Dropdown&gt;
@@ -326,61 +328,32 @@ data() {
 
 <CodeHighlight lang="javascript">
 export default {
-	data() {
-		return {
-			selectedCity1: null,
-			selectedCity2: null,
-			selectedCar: null,
-			cities: [
-				{name: 'New York', code: 'NY'},
-				{name: 'Rome', code: 'RM'},
-				{name: 'London', code: 'LDN'},
-				{name: 'Istanbul', code: 'IST'},
-				{name: 'Paris', code: 'PRS'}
-			],
-			cars: [
-				{brand: 'Audi', value: 'Audi'},
-				{brand: 'BMW', value: 'BMW'},
-				{brand: 'Fiat', value: 'Fiat'},
-				{brand: 'Honda', value: 'Honda'},
-				{brand: 'Jaguar', value: 'Jaguar'},
-				{brand: 'Mercedes', value: 'Mercedes'},
-				{brand: 'Renault', value: 'Renault'},
-				{brand: 'Volkswagen', value: 'Volkswagen'},
-				{brand: 'Volvo', value: 'Volvo'}
-			]
-		}
-	}
-}
-</CodeHighlight>
-
-<CodeHighlight lang="css">
-.p-dropdown {
-    width: 12rem;
-}
-
-.p-dropdown-car-option,
-.p-dropdown-car-value {
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-
-    img {
-        margin-right: .5rem;
-        width: 24px;
-    }
-
-    span {
-        line-height: 1;
-    }
-}
-
-.p-dropdown-car-value {
-    justify-content: flex-start;
-
-    img {
-        width: 17px;
-    }
+    data() {
+        return {
+            selectedCity1: null,
+            selectedCity2: null,
+            selectedCountry: null,
+            cities: [
+                {name: 'New York', code: 'NY'},
+                {name: 'Rome', code: 'RM'},
+                {name: 'London', code: 'LDN'},
+                {name: 'Istanbul', code: 'IST'},
+                {name: 'Paris', code: 'PRS'}
+            ],
+            countries: [
+                {name: 'Australia', code: 'AU'},
+                {name: 'Brazil', code: 'BR'}, 
+                {name: 'China', code: 'CN'},
+                {name: 'Egypt', code: 'EG'}, 
+                {name: 'France', code: 'FR'}, 
+                {name: 'Germany', code: 'DE'},
+                {name: 'India', code: 'IN'},
+                {name: 'Japan', code: 'JP'},
+                {name: 'Spain', code: 'ES'},
+                {name: 'United States', code: 'US'}
+            ]
+        }
+    },
 }
 </CodeHighlight>
 			</TabPanel>

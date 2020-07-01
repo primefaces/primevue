@@ -16,7 +16,7 @@
                 <AutoComplete v-model="selectedCountry2" :suggestions="filteredCountries" @complete="searchCountry($event)" :dropdown="true" field="name">
                     <template #item="slotProps">
                         <div class="country-item">
-                            <img src="../../assets/images/flag_placeholder.png" :class="'flag flag-' + slotProps.item.code.toLowerCase()" class="p-mr-2" />
+                            <img src="../../assets/images/flag_placeholder.png" :class="'flag flag-' + slotProps.item.code.toLowerCase()" />
                             <div>{{slotProps.item.name}}</div>
                         </div>
                     </template>
@@ -73,14 +73,3 @@ export default {
     }
 }
 </script>
-
-<style lang="scss">
-.country-item {
-    display: flex;
-    align-items: center;
-
-    img {
-        width: 28px;
-    }
-}
-</style>

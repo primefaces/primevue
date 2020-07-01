@@ -224,15 +224,15 @@ data() {
 				</a>
 <CodeHighlight>
 <template v-pre>
-&lt;h3&gt;Single&lt;/h3&gt;
-&lt;Listbox v-model="selectedCity" :options="cities" optionLabel="name" style="width:15em" /&gt;
+&lt;h5&gt;Single&lt;/h5&gt;
+&lt;Listbox v-model="selectedCity" :options="cities" optionLabel="name" style="width:15rem" /&gt;
 
-&lt;h3&gt;Advanced with Templating, Filtering and Multiple Selection&lt;/h3&gt;
-&lt;Listbox v-model="selectedCars" :options="cars" :multiple="true" :filter="true" optionLabel="brand" listStyle="max-height:250px" style="width:15em"&gt;
+&lt;h5&gt;Advanced with Templating, Filtering and Multiple Selection&lt;/h5&gt;
+&lt;Listbox v-model="selectedCountries" :options="countries" :multiple="true" :filter="true" optionLabel="name" listStyle="max-height:250px" style="width:15rem"&gt;
     &lt;template #option="slotProps"&gt;
-        &lt;div class="car-item"&gt;
-            &lt;img :alt="slotProps.option.brand" :src="'demo/images/car/' + slotProps.option.brand + '.png'" /&gt;
-            &lt;span&gt;{{slotProps.option.brand}}&lt;/span&gt;
+        &lt;div class="country-item"&gt;
+            &lt;img src="../../assets/images/flag_placeholder.png" :class="'flag flag-' + slotProps.option.code.toLowerCase()" /&gt;
+            &lt;div&gt;{{slotProps.option.name}}&lt;/div&gt;
         &lt;/div&gt;
     &lt;/template&gt;
 &lt;/Listbox&gt;
@@ -241,41 +241,30 @@ data() {
 
 <CodeHighlight lang="javascript">
 export default {
-	data() {
-		return {
-			selectedCity: null,
-			selectedCars: null,
-			cities: [
-				{name: 'New York', code: 'NY'},
-				{name: 'Rome', code: 'RM'},
-				{name: 'London', code: 'LDN'},
-				{name: 'Istanbul', code: 'IST'},
-				{name: 'Paris', code: 'PRS'}
-			],
-			cars: [
-				{brand: 'Audi', value: 'Audi'},
-				{brand: 'BMW', value: 'BMW'},
-				{brand: 'Fiat', value: 'Fiat'},
-				{brand: 'Honda', value: 'Honda'},
-				{brand: 'Jaguar', value: 'Jaguar'},
-				{brand: 'Mercedes', value: 'Mercedes'},
-				{brand: 'Renault', value: 'Renault'},
-				{brand: 'Volkswagen', value: 'Volkswagen'},
-				{brand: 'Volvo', value: 'Volvo'}
-			]
-		}
-	}
-}
-</CodeHighlight>
-
-<CodeHighlight lang="css">
-/deep/ .car-item {
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-
-    img {
-        width:32px;
+    data() {
+        return {
+            selectedCity: null,
+            selectedCountries: null,
+            cities: [
+                {name: 'New York', code: 'NY'},
+                {name: 'Rome', code: 'RM'},
+                {name: 'London', code: 'LDN'},
+                {name: 'Istanbul', code: 'IST'},
+                {name: 'Paris', code: 'PRS'}
+            ],
+            countries: [
+                {name: 'Australia', code: 'AU'},
+                {name: 'Brazil', code: 'BR'}, 
+                {name: 'China', code: 'CN'},
+                {name: 'Egypt', code: 'EG'}, 
+                {name: 'France', code: 'FR'}, 
+                {name: 'Germany', code: 'DE'},
+                {name: 'India', code: 'IN'},
+                {name: 'Japan', code: 'JP'},
+                {name: 'Spain', code: 'ES'},
+                {name: 'United States', code: 'US'}
+            ]
+        }
     }
 }
 </CodeHighlight>

@@ -313,6 +313,7 @@ export default {
                 }
                 else {
                     this.product.id = this.createId();
+                    this.product.image = 'product-placeholder.svg';
                     this.products.push(this.product);
                     this.$toast.add({severity:'success', summary: 'Product Created', life: 3000});
                 }
@@ -421,6 +422,7 @@ export default {
                 }
                 else {
                     this.product.id = this.createId();
+                    this.product.image = 'product-placeholder.svg';
                     this.products.push(this.product);
                     this.$toast.add({severity:'success', summary: 'Product Created', life: 3000});
                 }
