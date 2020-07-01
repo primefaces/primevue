@@ -1,10 +1,10 @@
 <template>
     <div class="p-fileupload p-component" v-if="isAdvanced">
         <div class="p-fileupload-buttonbar">
-            <span icon="pi pi-plus" :class="advancedChooseButtonClass" @click="choose" @keydown.enter="choose" @focus="onFocus" @blur="onBlur" v-ripple tabindex="0" >
+            <span :class="advancedChooseButtonClass" @click="choose" @keydown.enter="choose" @focus="onFocus" @blur="onBlur" v-ripple tabindex="0" >
                 <input ref="fileInput" type="file" @change="onFileSelect" :multiple="multiple" :accept="accept" :disabled="disabled" />
                 <span class="p-button-icon p-button-icon-left pi pi-fw pi-plus"></span>
-                <span class="p-button-text">{{chooseLabel}}</span>
+                <span class="p-button-label">{{chooseLabel}}</span>
             </span>
             <FileUploadButton :label="uploadLabel" icon="pi pi-upload" @click="upload" :disabled="disabled || !hasFiles" />
             <FileUploadButton :label="cancelLabel" icon="pi pi-times" @click="clear" :disabled="disabled || !hasFiles" />
@@ -31,7 +31,7 @@
     </div>
     <span :class="basicChooseButtonClass" @mouseup="onBasicUploaderClick" v-else-if="isBasic" @keydown.enter="choose" @focus="onFocus" @blur="onBlur" v-ripple tabindex="0" >
         <span :class="basicChooseButtonIconClass"></span>
-        <span class="p-button-text">{{basicChooseButtonLabel}}</span>
+        <span class="p-button-label">{{basicChooseButtonLabel}}</span>
         <input ref="fileInput" type="file" :accept="accept" :disabled="disabled" @change="onFileSelect" @focus="onFocus" @blur="onBlur" v-if="!hasFiles" />
     </span>
 </template>
@@ -315,21 +315,21 @@ export default {
             return this.mode === 'basic';
         },
         advancedChooseButtonClass() {
-            return ['p-button p-fileupload-choose p-component p-button-text-icon-left', {
+            return ['p-button p-component p-fileupload-choose ', {
                     'p-disabled': this.disabled,
                     'p-focus': this.focused
                 }
             ];
         },
         basicChooseButtonClass() {
-            return ['p-button p-fileupload-choose p-component p-button-text-icon-left', {
+            return ['p-button p-component p-fileupload-choose ', {
                 'p-fileupload-choose-selected': this.hasFiles,
                 'p-disabled': this.disabled,
                 'p-focus': this.focused
             }];
         },
         basicChooseButtonIconClass() {
-            return ['p-button-icon-left pi', {
+            return ['p-button-icon p-button-icon-left pi', {
                 'pi-plus': !this.hasFiles || this.auto,
                 'pi-upload': this.hasFiles && !this.auto
             }];
