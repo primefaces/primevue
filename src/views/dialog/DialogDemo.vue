@@ -56,6 +56,19 @@
                     </template>
                 </Dialog>
 
+                <h5>Confirmation</h5>
+                <Button label="Confirm" icon="pi pi-external-link" @click="openConfirmation" />
+                <Dialog header="Confirmation" :visible.sync="displayConfirmation" :style="{width: '350px'}" :modal="true">
+                    <div class="confirmation-content">
+                        <i class="pi pi-exclamation-triangle p-mr-3" style="font-size: 2rem" /> 
+                        <span>Are you sure you want to proceed?</span>
+                    </div>
+                    <template #footer>
+                        <Button label="No" icon="pi pi-times" @click="closeConfirmation" class="p-button-text"/>
+                        <Button label="Yes" icon="pi pi-check" @click="closeConfirmation" class="p-button-text" autofocus />
+                    </template>
+                </Dialog>
+
                 <h5>Maximizable</h5>
                 <Button label="Show" icon="pi pi-external-link" @click="openMaximizable" />
                 <Dialog header="Header" :visible.sync="displayMaximizable" :style="{width: '50vw'}" :maximizable="true" :modal="true">
@@ -111,6 +124,7 @@ export default {
             displayBasic: false,
             displayBasic2: false,
             displayModal: false,
+            displayConfirmation: false,
             displayMaximizable: false,
             displayPosition: false,
             position: 'center'
@@ -135,6 +149,12 @@ export default {
         closeModal() {
             this.displayModal = false;
         },
+        openConfirmation() {
+            this.displayConfirmation = true;
+        },
+        closeConfirmation() {
+            this.displayConfirmation = false;
+        },
         openMaximizable() {
             this.displayMaximizable = true;
         },
@@ -157,11 +177,17 @@ export default {
 
 <style scoped lang="scss">
 .p-button {
-    margin: .5em .5em .5em 0;
-    width: 140px;
+    margin: 0 .5rem 0 0;
+    min-width: 10rem;
 }
 
 p {
     margin: 0;
+}
+
+.confirmation-content {
+    display: flex;
+    align-items: center;
+    justify-content: center;
 }
 </style>

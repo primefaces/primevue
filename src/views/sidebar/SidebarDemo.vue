@@ -9,40 +9,30 @@
 
         <div class="content-section implementation">
             <div class="card">
-                <Button icon="pi pi-arrow-right" @click="visibleLeft = true" style="margin-right:.25em" />
-                <Button icon="pi pi-arrow-left" @click="visibleRight = true" style="margin-right:.25em" />
-                <Button icon="pi pi-arrow-down" @click="visibleTop = true" style="margin-right:.25em" />
-                <Button icon="pi pi-arrow-up" @click="visibleBottom = true" style="margin-right:.25em" />
+                <Button icon="pi pi-arrow-right" @click="visibleLeft = true" class="p-mr-2" />
+                <Button icon="pi pi-arrow-left" @click="visibleRight = true" class="p-mr-2"  />
+                <Button icon="pi pi-arrow-down" @click="visibleTop = true" class="p-mr-2"  />
+                <Button icon="pi pi-arrow-up" @click="visibleBottom = true" class="p-mr-2"  />
                 <Button icon="pi pi-th-large" @click="visibleFull = true"  />
 
                 <Sidebar :visible.sync="visibleLeft" :baseZIndex="1000">
-                    <h1 style="fontWeight:normal">Left Sidebar</h1>
-                    <Button type="button" @click="visibleLeft = false" label="Save" class="p-button-success" style="margin-right:.25em" />
-                    <Button type="button" @click="visibleLeft = false" label="Cancel" class="p-button-secondary"/>
+                    <h3>Left Sidebar</h3>
                 </Sidebar>
 
                 <Sidebar :visible.sync="visibleRight" :baseZIndex="1000" position="right">
-                    <h1 style="fontWeight:normal">Right Sidebar</h1>
-                    <Button type="button" @click="visibleRight = false" label="Save" class="p-button-success" style="margin-right:.25em" />
-                    <Button type="button" @click="visibleRight = false" label="Cancel" class="p-button-secondary"/>
+                    <h3>Right Sidebar</h3>
                 </Sidebar>
 
                 <Sidebar :visible.sync="visibleTop" :baseZIndex="1000" position="top">
-                    <h1 style="fontWeight:normal">Top Sidebar</h1>
-                    <Button type="button" @click="visibleTop = false" label="Save" class="p-button-success" style="margin-right:.25em" />
-                    <Button type="button" @click="visibleTop = false" label="Cancel" class="p-button-secondary"/>
+                    <h3>Top Sidebar</h3>
                 </Sidebar>
 
                 <Sidebar :visible.sync="visibleBottom" :baseZIndex="1000" position="bottom">
-                    <h1 style="fontWeight:normal">Bottom Sidebar</h1>
-                    <Button type="button" @click="visibleBottom = false" label="Save" class="p-button-success" style="margin-right:.25em" />
-                    <Button type="button" @click="visibleBottom = false" label="Cancel" class="p-button-secondary"/>
+                    <h3>Bottom Sidebar</h3>
                 </Sidebar>
 
                 <Sidebar :visible.sync="visibleFull" :baseZIndex="1000" position="full">
-                    <h1 style="fontWeight:normal">Full Screen</h1>
-                    <Button type="button" @click="visibleFull = false" label="Save" class="p-button-success" style="margin-right:.25em" />
-                    <Button type="button" @click="visibleFull = false" label="Cancel" class="p-button-secondary"/>
+                    <h3>Full Screen</h3>
                 </Sidebar>
             </div>
         </div>
@@ -69,9 +59,3 @@ export default {
     }
 }
 </script>
-
-<style lang="scss" scoped>
-h1 {
-    margin-top: 0;
-}
-</style>

@@ -161,11 +161,9 @@ export default {
 <template v-pre>
 &lt;h3&gt;Basic&lt;/h3&gt;
 &lt;InputSwitch v-model="checked1" /&gt;
-&lt;p style="font-weight: bold"&gt;{{checked1}}&lt;/p&gt;
 
 &lt;h3&gt;Preselection&lt;/h3&gt;
 &lt;InputSwitch v-model="checked2" /&gt;
-&lt;p style="font-weight: bold"&gt;{{checked2}}&lt;/p&gt;
 </template>
 </CodeHighlight>
 

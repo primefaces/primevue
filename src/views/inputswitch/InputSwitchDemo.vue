@@ -11,11 +11,9 @@
             <div class="card">
                 <h5>Basic</h5>
                 <InputSwitch v-model="checked1" />
-                <p style="font-weight: bold">{{checked1}}</p>
 
                 <h5>Preselection</h5>
                 <InputSwitch v-model="checked2" />
-                <p style="font-weight: bold">{{checked2}}</p>
             </div>
         </div>
 

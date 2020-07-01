@@ -290,6 +290,19 @@ export default {
     &lt;/template&gt;
 &lt;/Dialog&gt;
 
+&lt;h5&gt;Confirmation&lt;/h5&gt;
+&lt;Button label="Confirm" icon="pi pi-external-link" @click="openConfirmation" /&gt;
+&lt;Dialog header="Confirmation" :visible.sync="displayConfirmation" :style="{width: '350px'}" :modal="true"&gt;
+    &lt;div class="confirmation-content"&gt;
+        &lt;i class="pi pi-exclamation-triangle p-mr-3" style="font-size: 2rem" /&gt; 
+        &lt;span&gt;Are you sure you want to proceed?&lt;/span&gt;
+    &lt;/div&gt;
+    &lt;template #footer&gt;
+        &lt;Button label="No" icon="pi pi-times" @click="closeConfirmation" class="p-button-text"/&gt;
+        &lt;Button label="Yes" icon="pi pi-check" @click="closeConfirmation" class="p-button-text" autofocus /&gt;
+    &lt;/template&gt;
+&lt;/Dialog&gt;
+
 &lt;h5&gt;Maximizable&lt;/h5&gt;
 &lt;Button label="Show" icon="pi pi-external-link" @click="openMaximizable" /&gt;
 &lt;Dialog header="Header" :visible.sync="displayMaximizable" :style="{width: '50vw'}" :maximizable="true" :modal="true"&gt;
@@ -339,6 +352,7 @@ export default {
             displayBasic: false,
             displayBasic2: false,
             displayModal: false,
+            displayConfirmation: false,
             displayMaximizable: false,
             displayPosition: false,
             position: 'center'
@@ -363,6 +377,12 @@ export default {
         closeModal() {
             this.displayModal = false;
         },
+        openConfirmation() {
+            this.displayConfirmation = true;
+        },
+        closeConfirmation() {
+            this.displayConfirmation = false;
+        },
         openMaximizable() {
             this.displayMaximizable = true;
         },
@@ -376,31 +396,24 @@ export default {
         closePosition() {
             this.displayPosition = false;
         }
-    },
-    components: {
-        'DialogDoc': DialogDoc
     }
 }
 </CodeHighlight>
 
 <CodeHighlight lang="css">
-//CSS
-body .p-button-dark {
-    background-color: #455b70;
-    border-color: #455b70;
+.p-button {
+    margin: 0 .5rem 0 0;
+    min-width: 10rem;
 }
-body .p-button-dark:enabled:hover {
-    background-color: #364758;
+
+p {
+    margin: 0;
 }
-body .p-button-dark:enabled:focus {
-    box-shadow: 0 0 0 0.2em #95a9bd;
-}
-body .{
-    margin: .5em .5em .5em 0;
-    width: 140px;
-}
-body .p-dialog .p-dialog-content {
-    line-height: 1.5;
+
+.confirmation-content {
+    display: flex;
+    align-items: center;
+    justify-content: center;
 }
 </CodeHighlight>
 			</TabPanel>

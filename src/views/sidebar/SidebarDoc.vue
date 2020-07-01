@@ -204,41 +204,31 @@ import Sidebar from 'primevue/sidebar';
 				</a>
 <CodeHighlight>
 <template v-pre>
+&lt;Button icon="pi pi-arrow-right" @click="visibleLeft = true" class="p-mr-2" /&gt;
+&lt;Button icon="pi pi-arrow-left" @click="visibleRight = true" class="p-mr-2"  /&gt;
+&lt;Button icon="pi pi-arrow-down" @click="visibleTop = true" class="p-mr-2"  /&gt;
+&lt;Button icon="pi pi-arrow-up" @click="visibleBottom = true" class="p-mr-2"  /&gt;
+&lt;Button icon="pi pi-th-large" @click="visibleFull = true"  /&gt;
+
 &lt;Sidebar :visible.sync="visibleLeft" :baseZIndex="1000"&gt;
-    &lt;h1 style="fontWeight:normal"&gt;Left Sidebar&lt;/h1&gt;
-    &lt;Button type="button" @click="visibleLeft = false" label="Save" class="p-button-success" style="margin-right:.25em" /&gt;
-    &lt;Button type="button" @click="visibleLeft = false" label="Cancel" class="p-button-secondary"/&gt;
+    &lt;h3&gt;Left Sidebar&lt;/h3&gt;
 &lt;/Sidebar&gt;
 
 &lt;Sidebar :visible.sync="visibleRight" :baseZIndex="1000" position="right"&gt;
-    &lt;h1 style="fontWeight:normal"&gt;Right Sidebar&lt;/h1&gt;
-    &lt;Button type="button" @click="visibleRight = false" label="Save" class="p-button-success" style="margin-right:.25em" /&gt;
-    &lt;Button type="button" @click="visibleRight = false" label="Cancel" class="p-button-secondary"/&gt;
+    &lt;h3&gt;Right Sidebar&lt;/h3&gt;
 &lt;/Sidebar&gt;
 
 &lt;Sidebar :visible.sync="visibleTop" :baseZIndex="1000" position="top"&gt;
-    &lt;h1 style="fontWeight:normal"&gt;Top Sidebar&lt;/h1&gt;
-    &lt;Button type="button" @click="visibleTop = false" label="Save" class="p-button-success" style="margin-right:.25em" /&gt;
-    &lt;Button type="button" @click="visibleTop = false" label="Cancel" class="p-button-secondary"/&gt;
+    &lt;h3&gt;Top Sidebar&lt;/h3&gt;
 &lt;/Sidebar&gt;
 
 &lt;Sidebar :visible.sync="visibleBottom" :baseZIndex="1000" position="bottom"&gt;
-    &lt;h1 style="fontWeight:normal"&gt;Bottom Sidebar&lt;/h1&gt;
-    &lt;Button type="button" @click="visibleBottom = false" label="Save" class="p-button-success" style="margin-right:.25em" /&gt;
-    &lt;Button type="button" @click="visibleBottom = false" label="Cancel" class="p-button-secondary"/&gt;
+    &lt;h3&gt;Bottom Sidebar&lt;/h3&gt;
 &lt;/Sidebar&gt;
 
 &lt;Sidebar :visible.sync="visibleFull" :baseZIndex="1000" position="full"&gt;
-    &lt;h1 style="fontWeight:normal"&gt;Full Screen&lt;/h1&gt;
-    &lt;Button type="button" @click="visibleFull = false" label="Save" class="p-button-success" style="margin-right:.25em" /&gt;
-    &lt;Button type="button" @click="visibleFull = false" label="Cancel" class="p-button-secondary"/&gt;
+    &lt;h3&gt;Full Screen&lt;/h3&gt;
 &lt;/Sidebar&gt;
-
-&lt;Button icon="pi pi-arrow-right" @click="visibleLeft = true" style="margin-right:.25em" /&gt;
-&lt;Button icon="pi pi-arrow-left" @click="visibleRight = true" style="margin-right:.25em" /&gt;
-&lt;Button icon="pi pi-arrow-down" @click="visibleTop = true" style="margin-right:.25em" /&gt;
-&lt;Button icon="pi pi-arrow-up" @click="visibleBottom = true" style="margin-right:.25em" /&gt;
-&lt;Button icon="pi pi-th-large" @click="visibleFull = true"  /&gt;
 </template>
 </CodeHighlight>
 
