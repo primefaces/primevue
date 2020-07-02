@@ -85,35 +85,35 @@ import DeferredContent from 'primevue/deferredcontent';
 &lt;/div&gt;
 
 &lt;DeferredContent @load="onDataLoad"&gt;
-    &lt;DataTable :value="cars"&gt;
-        &lt;Column field="vin" header="Vin"&gt;&lt;/Column&gt;
-        &lt;Column field="year" header="Year"&gt;&lt;/Column&gt;
-        &lt;Column field="brand" header="Brand"&gt;&lt;/Column&gt;
-        &lt;Column field="color" header="Color"&gt;&lt;/Column&gt;
+    &lt;DataTable :value="products"&gt;
+        &lt;Column field="code" header="Code"&gt;&lt;/Column&gt;
+        &lt;Column field="name" header="Name"&gt;&lt;/Column&gt;
+        &lt;Column field="category" header="Category"&gt;&lt;/Column&gt;
+        &lt;Column field="quantity" header="Quantity"&gt;&lt;/Column&gt;
     &lt;/DataTable&gt;
 &lt;/DeferredContent&gt;
 </template>
 </CodeHighlight>
 
 <CodeHighlight lang="javascript">
-import CarService from '../../service/CarService';
+import ProductService from '../../service/ProductService';
 
 export default {
     data() {
         return {
-            cars: null
+            products: null
         }
     },
-    carService: null,
+    productService: null,
     created() {
-        this.carService = new CarService();
+        this.productService = new ProductService();
     },
     methods: {
         onImageLoad() {
             this.$toast.add({severity: 'success', summary: 'Image Initialized', detail: 'Scroll down to load the datatable'});
         },
         onDataLoad() {
-            this.carService.getCarsSmall().then(data => this.cars = data);
+            this.productService.getProductsSmall().then(data => this.products = data);
             this.$toast.add({severity: 'success', summary: 'Data Initialized', detail: 'Render Completed'});
         }
     }

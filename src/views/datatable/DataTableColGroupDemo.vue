@@ -119,7 +119,6 @@ export default {
             sales: null
         }
     },
-    carService: null,
     created() {
         this.sales = [
             {product: 'Bamboo Watch', lastYearSale: 51, thisYearSale: 40, lastYearProfit: 54406, thisYearProfit: 43342},
@@ -172,7 +171,6 @@ export default {
             sales: null
         }
     },
-    carService: null,
     created() {
         this.sales = [
             {product: 'Bamboo Watch', lastYearSale: 51, thisYearSale: 40, lastYearProfit: 54406, thisYearProfit: 43342},

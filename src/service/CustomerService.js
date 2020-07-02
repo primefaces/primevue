@@ -1,6 +1,6 @@
 import axios from 'axios'
 
-export default class CarService {
+export default class CustomerService {
 
 	getCustomersSmall() {
 		return axios.get('demo/data/customers-small.json').then(res => res.data.data);
