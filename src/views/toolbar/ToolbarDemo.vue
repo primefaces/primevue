@@ -8,22 +8,20 @@
         </div>
 
         <div class="content-section implementation">
-            <div class="card">
-                <Toolbar>
-                    <template slot="left">
-                        <Button label="New" icon="pi pi-plus" style="margin-right: .5em" />
-                        <Button label="Upload" icon="pi pi-upload" class="p-button-success" />
-                        <i class="pi pi-bars p-toolbar-separator" style="margin-right: .5em" />
-                        <SplitButton label="Save" icon="pi pi-check" :model="items" class="p-button-warning"></SplitButton>
-                    </template>
+            <Toolbar>
+                <template slot="left">
+                    <Button label="New" icon="pi pi-plus" style="margin-right: .5em" />
+                    <Button label="Upload" icon="pi pi-upload" class="p-button-success" />
+                    <i class="pi pi-bars p-toolbar-separator" style="margin-right: .5em" />
+                    <SplitButton label="Save" icon="pi pi-check" :model="items" class="p-button-warning"></SplitButton>
+                </template>
 
-                    <template slot="right">
-                        <Button icon="pi pi-search" style="margin-right: .5em" />
-                        <Button icon="pi pi-calendar" class="p-button-success" style="margin-right: .5em" />
-                        <Button icon="pi pi-times" class="p-button-danger" />
-                    </template>
-                </Toolbar>
-            </div>
+                <template slot="right">
+                    <Button icon="pi pi-search" style="margin-right: .5em" />
+                    <Button icon="pi pi-calendar" class="p-button-success" style="margin-right: .5em" />
+                    <Button icon="pi pi-times" class="p-button-danger" />
+                </template>
+            </Toolbar>
         </div>
 
         <ToolbarDoc/>
