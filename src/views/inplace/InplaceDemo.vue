@@ -36,11 +36,11 @@
                         View Data
                     </template>
                     <template #content>
-                        <DataTable :value="cars">
-                            <Column field="vin" header="Vin"></Column>
-                            <Column field="year" header="Year"></Column>
-                            <Column field="brand" header="Brand"></Column>
-                            <Column field="color" header="Color"></Column>
+                        <DataTable :value="products">
+                            <Column field="code" header="Code"></Column>
+                            <Column field="name" header="Name"></Column>
+                            <Column field="category" header="Category"></Column>
+                            <Column field="quantity" header="Quantity"></Column>
                         </DataTable>
                     </template>
                 </Inplace>
@@ -52,23 +52,23 @@
 </template>
 
 <script>
-import CarService from '../../service/CarService';
+import ProductService from '../../service/ProductService';
 import InplaceDoc from './InplaceDoc';
 
 export default {
      data() {
         return {
             text: null,
-            cars: null
+            products: null
         }
     },
-    carService: null,
+    productService: null,
     created() {
-        this.carService = new CarService();
+        this.productService = new ProductService();
     },
     methods: {
         loadData() {
-             this.carService.getCarsSmall().then(data => this.cars = data);
+             this.productService.getProductsSmall().then(data => this.products = data);
         }
     },
     components: {

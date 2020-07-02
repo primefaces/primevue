@@ -198,11 +198,11 @@ export default {
         View Data
     &lt;/template&gt;
     &lt;template #content&gt;
-        &lt;DataTable :value="cars"&gt;
-            &lt;Column field="vin" header="Vin"&gt;&lt;/Column&gt;
-            &lt;Column field="year" header="Year"&gt;&lt;/Column&gt;
-            &lt;Column field="brand" header="Brand"&gt;&lt;/Column&gt;
-            &lt;Column field="color" header="Color"&gt;&lt;/Column&gt;
+        &lt;DataTable :value="products"&gt;
+            &lt;Column field="code" header="Code"&gt;&lt;/Column&gt;
+            &lt;Column field="name" header="Name"&gt;&lt;/Column&gt;
+            &lt;Column field="category" header="Category"&gt;&lt;/Column&gt;
+            &lt;Column field="quantity" header="Quantity"&gt;&lt;/Column&gt;
         &lt;/DataTable&gt;
     &lt;/template&gt;
 &lt;/Inplace&gt;
@@ -210,21 +210,22 @@ export default {
 </CodeHighlight>
 
 <CodeHighlight lang="javascript">
-import CarService from '../../service/CarService';
+import ProductService from '../../service/ProductService';
 
 export default {
      data() {
         return {
-            cars: null
+            text: null,
+            products: null
         }
     },
-    carService: null,
+    productService: null,
     created() {
-        this.carService = new CarService();
+        this.productService = new ProductService();
     },
     methods: {
         loadData() {
-             this.carService.getCarsSmall().then(data => this.cars = data);
+             this.productService.getProductsSmall().then(data => this.products = data);
         }
     }
 }
