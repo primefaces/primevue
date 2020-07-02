@@ -321,13 +321,13 @@ export default {
             if (this.product.name.trim()) {
                 if (this.product.id) {
                     this.$set(this.products, this.findIndexById(this.product.id), this.product);
-                    this.$toast.add({severity:'success', summary: 'Product Updated', life: 3000});
+                    this.$toast.add({severity:'success', summary: 'Successful', detail: 'Product Updated', life: 3000});
                 }
                 else {
                     this.product.id = this.createId();
                     this.product.image = 'product-placeholder.svg';
                     this.products.push(this.product);
-                    this.$toast.add({severity:'success', summary: 'Product Created', life: 3000});
+                    this.$toast.add({severity:'success', summary: 'Successful', detail: 'Product Created', life: 3000});
                 }
 
                 this.productDialog = false;
@@ -346,11 +346,11 @@ export default {
             this.products = this.products.filter(val => val.id !== this.product.id);
             this.deleteProductDialog = false;
             this.product = {};
-            this.$toast.add({severity:'success', summary: 'Product Deleted', life: 3000});
+            this.$toast.add({severity:'success', summary: 'Successful', detail: 'Product Deleted', life: 3000});
         },
         findIndexById(id) {
             let index = -1;
-            for (let i = 0; i &lt; this.products.length; i++) {
+            for (let i = 0; i < this.products.length; i++) {
                 if (this.products[i].id === id) {
                     index = i;
                     break;
@@ -362,7 +362,7 @@ export default {
         createId() {
             let id = '';
             var chars = 'ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz0123456789';
-            for ( var i = 0; i &lt; 5; i++ ) {
+            for ( var i = 0; i < 5; i++ ) {
                 id += chars.charAt(Math.floor(Math.random() * chars.length));
             }
             return id;
@@ -377,7 +377,7 @@ export default {
             this.products = this.products.filter(val => !this.selectedProducts.includes(val));
             this.deleteProductsDialog = false;
             this.selectedProducts = null;
-            this.$toast.add({severity:'success', summary: 'Completed', life: 3000});
+            this.$toast.add({severity:'success', summary: 'Successful', detail: 'Products Deleted', life: 3000});
         }
     }
 }
@@ -430,13 +430,13 @@ export default {
             if (this.product.name.trim()) {
                 if (this.product.id) {
                     this.$set(this.products, this.findIndexById(this.product.id), this.product);
-                    this.$toast.add({severity:'success', summary: 'Product Updated', life: 3000});
+                    this.$toast.add({severity:'success', summary: 'Successful', detail: 'Product Updated', life: 3000});
                 }
                 else {
                     this.product.id = this.createId();
                     this.product.image = 'product-placeholder.svg';
                     this.products.push(this.product);
-                    this.$toast.add({severity:'success', summary: 'Product Created', life: 3000});
+                    this.$toast.add({severity:'success', summary: 'Successful', detail: 'Product Created', life: 3000});
                 }
 
                 this.productDialog = false;
@@ -455,7 +455,7 @@ export default {
             this.products = this.products.filter(val => val.id !== this.product.id);
             this.deleteProductDialog = false;
             this.product = {};
-            this.$toast.add({severity:'success', summary: 'Product Deleted', life: 3000});
+            this.$toast.add({severity:'success', summary: 'Successful', detail: 'Product Deleted', life: 3000});
         },
         findIndexById(id) {
             let index = -1;
@@ -486,7 +486,7 @@ export default {
             this.products = this.products.filter(val => !this.selectedProducts.includes(val));
             this.deleteProductsDialog = false;
             this.selectedProducts = null;
-            this.$toast.add({severity:'success', summary: 'Completed', life: 3000});
+            this.$toast.add({severity:'success', summary: 'Successful', detail: 'Products Deleted', life: 3000});
         }
     }
 }
