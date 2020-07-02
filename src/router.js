@@ -317,9 +317,9 @@ export default new Router({
 			component: () => import('./views/fileupload/FileUploadDemo.vue')
 		},
 		{
-			path: '/flexgrid',
-			name: 'flexgrid',
-			component: () => import('./views/flexgrid/FlexGridDemo.vue')
+			path: '/grid',
+			name: 'grid',
+			component: () => import('./views/grid/GridDemo.vue')
         },
         {
 			path: '/formlayout',

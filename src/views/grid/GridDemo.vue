@@ -1,9 +1,8 @@
 <template>
     <div>
         <div class="content-section implementation flexgrid-demo">
-            <h1>FlexGrid</h1>
-            <p>Flex Grid CSS is a lightweight flex based responsive layout utility optimized for mobile phones, tablets and desktops.
-                Flex Grid CSS is not included in PrimeVue as it is provided by <a href="https://github.com/primefaces/primeflex">PrimeFlex</a>, a shared grid library between PrimeFaces, PrimeNG, PrimeReact and PrimeVue projects.</p>
+            <h1>Grid System</h1>
+            <p>Grid is a lightweight flex based responsive layout utility optimized for mobile phones, tablets and desktops.</p>
 
             <h5>Basic</h5>
             <div class="p-grid">
@@ -348,80 +347,38 @@
             <h5>Panels</h5>
             <div class="p-grid">
                 <div class="p-col">
-                    <Panel header="Godfather">
-                        The story begins as Don Vito Corleone, the head of a New York Mafia family, oversees his daughter's wedding.
-                        His beloved son Michael has just come home from the war, but does not intend to become part of his father's business.
-                        Through Michael's life the nature of the family business becomes clear. The business of the family is just like the head of the family,
-                        kind and benevolent to those who give respect, but given to ruthless violence whenever anything stands against the good of the family.
+                    <Panel header="Header">
+                        <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.
+                        Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.
+                        Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat
+                        cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.</p>
                     </Panel>
                 </div>
                 <div class="p-col">
-                    <Panel header="Godfather">
-                        The story begins as Don Vito Corleone, the head of a New York Mafia family, oversees his daughter's wedding.
-                        His beloved son Michael has just come home from the war, but does not intend to become part of his father's business.
-                        Through Michael's life the nature of the family business becomes clear. The business of the family is just like the head of the family,
-                        kind and benevolent to those who give respect, but given to ruthless violence whenever anything stands against the good of the family.
+                    <Panel header="Header">
+                        <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.
+                        Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.
+                        Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat
+                        cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.</p>
                     </Panel>
                 </div>
                 <div class="p-col">
-                    <Panel header="Godfather">
-                        The story begins as Don Vito Corleone, the head of a New York Mafia family, oversees his daughter's wedding.
-                        His beloved son Michael has just come home from the war, but does not intend to become part of his father's business.
-                        Through Michael's life the nature of the family business becomes clear. The business of the family is just like the head of the family,
-                        kind and benevolent to those who give respect, but given to ruthless violence whenever anything stands against the good of the family.
+                    <Panel header="Header">
+                        <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.
+                        Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.
+                        Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat
+                        cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.</p>
                     </Panel>
-                </div>
-            </div>
-
-            <h5>Sample Layout</h5>
-            <div class="p-grid sample-layout">
-                <div class="p-col-12 p-md-2">
-                    Menu
-                </div>
-                <div class="p-col-12 p-md-10 p-col-nogutter">
-                    <div class="p-col-12 p-col-nogutter">
-                        Top Bar
-                    </div>
-                    <div class="p-col-12">
-                        <div class="p-grid">
-                            <div class="p-col-12 p-md-4">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed imperdiet, orci nec
-                                dictum convallis, ligula mauris vestibulum turpis, nec varius tortor quam at diam. Nullam a viverra nibh.
-                                In tincidunt tempor lectus quis vulputate. Pellentesque nec dui aliquam, lobortis est in, lobortis ante</div>
-                            <div class="p-col-12 p-md-4">Maecenas vel nisi aliquet, vulputate tortor id, laoreet massa. Maecenas mattis
-                                tristique bibendum. Suspendisse vel mi dictum, vestibulum lacus quis, pulvinar quam. Proin vulputate, nibh
-                                at finibus varius, leo eros lacinia elit, nec blandit odio tellus a justo. Donec nec ex auctor, tristique
-                                nulla nec, rutrum sapien.</div>
-                            <div class="p-col-12 p-md-4">Proin efficitur in leo eget ornare. Nam vestibulum neque sed velit sagittis
-                                sodales. Sed scelerisque hendrerit magna a hendrerit. Cras tempor sem at justo pharetra convallis.
-                                Curabitur vel sodales purus. Vestibulum interdum facilisis nulla imperdiet suscipit. Quisque lectus felis,
-                                condimentum eget hendrerit sit amet.</div>
-
-                            <div class="p-col-6 p-md-3"><img alt="Galleria 1" src="demo/images/nature/nature1.jpg" style="width: 100%" /></div>
-                            <div class="p-col-6 p-md-3"><img alt="Galleria 2" src="demo/images/nature/nature2.jpg" style="width: 100%" /></div>
-                            <div class="p-col-6 p-md-3"><img alt="Galleria 3" src="demo/images/nature/nature3.jpg" style="width: 100%" /></div>
-                            <div class="p-col-6 p-md-3"><img alt="Galleria 4" src="demo/images/nature/nature4.jpg" style="width: 100%" /></div>
-
-                            <div class="p-col-12 p-md-6">Phasellus faucibus purus volutpat mauris lacinia sodales. Ut sit amet sapien
-                                facilisis, commodo dui non, fringilla tellus. Quisque tempus facilisis nisi sodales finibus. Pellentesque
-                                neque orci, ullamcorper vitae ligula quis, dignissim euismod augue.</div>
-                            <div class="p-col-12 p-md-6">Fusce ullamcorper congue massa, eget ullamcorper nunc lobortis egestas. Lorem
-                                ipsum dolor sit amet, consectetur adipiscing elit. Quisque ultrices dui eget dolor feugiat dapibus. Aliquam
-                                pretium leo et egestas luctus. Nunc facilisis gravida tellus.</div>
-                        </div>
-                    </div>
-                </div>
-                <div class="p-col-12">
-                    Footer
                 </div>
             </div>
         </div>
 
-        <FlexGridDoc/>
+        <GridDoc/>
     </div>
 </template>
 
 <script>
-import FlexGridDoc from './FlexGridDoc';
+import GridDoc from './GridDoc';
 
 export default {
     data() {
@@ -438,15 +395,14 @@ export default {
         }
     },
     components: {
-        'FlexGridDoc': FlexGridDoc
+        'GridDoc': GridDoc
     }
 }
 </script>
 
 <style lang="scss">
 .flexgrid-demo {
-    .box,
-    .sample-layout > div {
+    .box {
         background-color: var(--surface-e);
         text-align: center;
         padding-top: 1rem;
@@ -457,14 +413,6 @@ export default {
 
     .box-stretched {
         height: 100%;
-    }
-
-    .sample-layout {
-        margin: 0;
-    }
-
-    .sample-layout > div {
-        border: 1px solid var(--surface-d);
     }
 
     .vertical-container {
@@ -488,6 +436,10 @@ export default {
 
     .dynamic-box-enter, .dynamic-box-leave-to {
         transform: translateX(30px);
+    }
+
+    p {
+        margin: 0;
     }
 }
 </style>

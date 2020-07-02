@@ -950,70 +950,28 @@ import 'primeflex/primeflex.css';
 &lt;h3&gt;Panels&lt;/h3&gt;
 &lt;div class="p-grid"&gt;
     &lt;div class="p-col"&gt;
-        &lt;Panel header="Godfather"&gt;
-            The story begins as Don Vito Corleone, the head of a New York Mafia family, oversees his daughter's wedding.
-            His beloved son Michael has just come home from the war, but does not intend to become part of his father's business.
-            Through Michael's life the nature of the family business becomes clear. The business of the family is just like the head of the family,
-            kind and benevolent to those who give respect, but given to ruthless violence whenever anything stands against the good of the family.
+        &lt;Panel header="Header"&gt;
+            &lt;p&gt;Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.
+            Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.
+            Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat
+            cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.&lt;/p&gt;
         &lt;/Panel&gt;
     &lt;/div&gt;
     &lt;div class="p-col"&gt;
-        &lt;Panel header="Godfather"&gt;
-            The story begins as Don Vito Corleone, the head of a New York Mafia family, oversees his daughter's wedding.
-            His beloved son Michael has just come home from the war, but does not intend to become part of his father's business.
-            Through Michael's life the nature of the family business becomes clear. The business of the family is just like the head of the family,
-            kind and benevolent to those who give respect, but given to ruthless violence whenever anything stands against the good of the family.
+        &lt;Panel header="Header"&gt;
+            &lt;p&gt;Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.
+            Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.
+            Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat
+            cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.&lt;/p&gt;
         &lt;/Panel&gt;
     &lt;/div&gt;
     &lt;div class="p-col"&gt;
-        &lt;Panel header="Godfather"&gt;
-            The story begins as Don Vito Corleone, the head of a New York Mafia family, oversees his daughter's wedding.
-            His beloved son Michael has just come home from the war, but does not intend to become part of his father's business.
-            Through Michael's life the nature of the family business becomes clear. The business of the family is just like the head of the family,
-            kind and benevolent to those who give respect, but given to ruthless violence whenever anything stands against the good of the family.
+        &lt;Panel header="Header"&gt;
+            &lt;p&gt;Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.
+            Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.
+            Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat
+            cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.&lt;/p&gt;
         &lt;/Panel&gt;
-    &lt;/div&gt;
-&lt;/div&gt;
-
-&lt;h3&gt;Sample Layout&lt;/h3&gt;
-&lt;div class="p-grid sample-layout"&gt;
-    &lt;div class="p-col-12 p-md-2"&gt;
-        Menu
-    &lt;/div&gt;
-    &lt;div class="p-col-12 p-md-10 p-col-nogutter"&gt;
-        &lt;div class="p-col-12 p-col-nogutter"&gt;
-            Top Bar
-        &lt;/div&gt;
-        &lt;div class="p-col-12"&gt;
-            &lt;div class="p-grid"&gt;
-                &lt;div class="p-col-12 p-md-4"&gt;Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed imperdiet, orci nec
-                    dictum convallis, ligula mauris vestibulum turpis, nec varius tortor quam at diam. Nullam a viverra nibh.
-                    In tincidunt tempor lectus quis vulputate. Pellentesque nec dui aliquam, lobortis est in, lobortis ante&lt;/div&gt;
-                &lt;div class="p-col-12 p-md-4"&gt;Maecenas vel nisi aliquet, vulputate tortor id, laoreet massa. Maecenas mattis
-                    tristique bibendum. Suspendisse vel mi dictum, vestibulum lacus quis, pulvinar quam. Proin vulputate, nibh
-                    at finibus varius, leo eros lacinia elit, nec blandit odio tellus a justo. Donec nec ex auctor, tristique
-                    nulla nec, rutrum sapien.&lt;/div&gt;
-                &lt;div class="p-col-12 p-md-4"&gt;Proin efficitur in leo eget ornare. Nam vestibulum neque sed velit sagittis
-                    sodales. Sed scelerisque hendrerit magna a hendrerit. Cras tempor sem at justo pharetra convallis.
-                    Curabitur vel sodales purus. Vestibulum interdum facilisis nulla imperdiet suscipit. Quisque lectus felis,
-                    condimentum eget hendrerit sit amet.&lt;/div&gt;
-
-                &lt;div class="p-col-6 p-md-3"&gt;&lt;img alt="Galleria 1" src="demo/images/nature/nature1.jpg" style="width: 100%" /&gt;&lt;/div&gt;
-                &lt;div class="p-col-6 p-md-3"&gt;&lt;img alt="Galleria 2" src="demo/images/nature/nature2.jpg" style="width: 100%" /&gt;&lt;/div&gt;
-                &lt;div class="p-col-6 p-md-3"&gt;&lt;img alt="Galleria 3" src="demo/images/nature/nature3.jpg" style="width: 100%" /&gt;&lt;/div&gt;
-                &lt;div class="p-col-6 p-md-3"&gt;&lt;img alt="Galleria 4" src="demo/images/nature/nature4.jpg" style="width: 100%" /&gt;&lt;/div&gt;
-
-                &lt;div class="p-col-12 p-md-6"&gt;Phasellus faucibus purus volutpat mauris lacinia sodales. Ut sit amet sapien
-                    facilisis, commodo dui non, fringilla tellus. Quisque tempus facilisis nisi sodales finibus. Pellentesque
-                    neque orci, ullamcorper vitae ligula quis, dignissim euismod augue.&lt;/div&gt;
-                &lt;div class="p-col-12 p-md-6"&gt;Fusce ullamcorper congue massa, eget ullamcorper nunc lobortis egestas. Lorem
-                    ipsum dolor sit amet, consectetur adipiscing elit. Quisque ultrices dui eget dolor feugiat dapibus. Aliquam
-                    pretium leo et egestas luctus. Nunc facilisis gravida tellus.&lt;/div&gt;
-            &lt;/div&gt;
-        &lt;/div&gt;
-    &lt;/div&gt;
-    &lt;div class="p-col-12"&gt;
-        Footer
     &lt;/div&gt;
 &lt;/div&gt;
 </template>
@@ -1039,49 +997,45 @@ export default {
 
 <CodeHighlight lang="css">
 .flexgrid-demo {
-	.box,
-	.sample-layout > div {
-		background-color: #f1f1f1;
-		text-align: center;
-		padding-top: 1rem;
-		padding-bottom: 1rem;
-		border-radius: 4px;
-	}
+    .box {
+        background-color: var(--surface-e);
+        text-align: center;
+        padding-top: 1rem;
+        padding-bottom: 1rem;
+        border-radius: 4px;
+        box-shadow: 0 2px 1px -1px rgba(0,0,0,.2), 0 1px 1px 0 rgba(0,0,0,.14), 0 1px 3px 0 rgba(0,0,0,.12);
+    }
 
-	.box-stretched {
-		height: 100%;
-	}
+    .box-stretched {
+        height: 100%;
+    }
 
-	.sample-layout {
-		margin: 0;
-	}
+    .vertical-container {
+        margin: 0;
+        height: 200px;
+        background: var(--surface-d);
+        border-radius: 4px;
+    }
 
-	.sample-layout > div {
-		border: 1px solid #ffffff;
-	}
+    .nested-grid .p-col-4 {
+        padding-bottom: 1rem;
+    }
 
-	.vertical-container {
-		margin: 0;
-		height: 200px;
-		background: #c0c0c0;
-		border-radius: 4px;
-	}
+    .dynamic-box-enter-active, .dynamic-box-leave-active {
+        transition: all .5s;
+    }
 
-	.nested-grid .p-col-4 {
-		padding-bottom: 1rem;
-	}
+    .dynamic-box-enter, .dynamic-box-leave-to {
+        opacity: 0;
+    }
 
-	.dynamic-box-enter-active, .dynamic-box-leave-active {
-		transition: all .5s;
-	}
+    .dynamic-box-enter, .dynamic-box-leave-to {
+        transform: translateX(30px);
+    }
 
-	.dynamic-box-enter, .dynamic-box-leave-to {
-		opacity: 0;
-	}
-
-	.dynamic-box-enter, .dynamic-box-leave-to {
-		transform: translateX(30px);
-	}
+    p {
+        margin: 0;
+    }
 }
 </CodeHighlight>
 			</TabPanel>

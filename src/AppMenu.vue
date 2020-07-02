@@ -16,7 +16,7 @@
                 <router-link to="/elevation">Elevation</router-link>
                 <router-link to="/flexbox">FlexBox</router-link>
                 <router-link to="/formlayout">FormLayout</router-link>
-                <router-link to="/flexgrid">Grid System</router-link>
+                <router-link to="/grid">Grid System</router-link>
                 <router-link to="/spacing">Spacing</router-link>
                 <router-link to="/text">Text</router-link>
             </div>
