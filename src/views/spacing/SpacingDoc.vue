@@ -39,7 +39,8 @@
                 </ul>
 
                 <h5>Breakpoint</h5>
-                <p>Breakpoints define how the spacing should be depending on the screen size.</p>
+                <p>Breakpoints define how the spacing should be defined depending on the screen size. Design is mobile first so smaller values
+                    can also apply to larger values e.g. md also applies to lg or xl if they are not explicitly defined.</p>
                 <ul>
                     <li><b>sm</b>: small screens e.g. phones</li>
                     <li><b>md</b>: medium screens e.g. tablets</li>
@@ -49,14 +50,17 @@
 
                 <h5>Examples</h5>
 <CodeHighlight>
-&lt;div class="p-mb-2"&gt;Margin bottom with level 2&lt;/i&gt;    
-&lt;div class="p-mt-4"&gt;Margin top with level 2&lt;/i&gt;
-&lt;div class="p-m-2"&gt;Margin for all sides with level 2&lt;/i&gt;
-&lt;div class="p-mx-auto"&gt;Auto margins for left and right side&lt;/i&gt;
-&lt;div class="p-pb-4"&gt;Padding bottom with level 4&lt;/i&gt;
-&lt;div class="p-p-1"&gt;Padding for all sides with level 1&lt;/i&gt;
-&lt;div class="p-m-1 p-p-1 p-m-lg-3 p-b-lg-3"&gt;Level 3 spacing for lg screens and level 1 for smaller screens (xs).&lt;/i&gt;
+&lt;div class="p-mb-2"&gt;Margin bottom with level 2&lt;/div&gt;    
+&lt;div class="p-mt-4"&gt;Margin top with level 2&lt;/div&gt;
+&lt;div class="p-m-2"&gt;Margin for all sides with level 2&lt;/div&gt;
+&lt;div class="p-mx-auto"&gt;Auto margins for left and right side&lt;/div&gt;
+&lt;div class="p-pb-4"&gt;Padding bottom with level 4&lt;/div&gt;
+&lt;div class="p-p-1"&gt;Padding for all sides with level 1&lt;/div&gt;
+&lt;div class="p-m-1 p-p-1 p-m-lg-3 p-b-lg-3"&gt;Level 3 spacing for lg screens and level 1 for smaller screens (xs).&lt;/div&gt;
 </CodeHighlight>
+
+                <h5>Customization</h5>
+                <p>A custom build with different values can be obtained from <a href="https://github.com/primefaces/primeflex">PrimeFlex</a> using the _variables.scss file.</p>
 
 				<h5>Dependencies</h5>
 				<p>PrimeFlex.</p>

@@ -480,6 +480,21 @@ export default new Router({
 			path: '/spacing',
 			name: 'spacing',
 			component: () => import('./views/spacing/SpacingDemo.vue')
+        },
+        {
+			path: '/display',
+			name: 'display',
+			component: () => import('./views/display/DisplayDemo.vue')
+        },
+        {
+			path: '/flexbox',
+			name: 'flexbox',
+			component: () => import('./views/flexbox/FlexBoxDemo.vue')
+        },
+        {
+			path: '/text',
+			name: 'text',
+			component: () => import('./views/text/TextDemo.vue')
 		},
 		{
 			path: '/splitbutton',
