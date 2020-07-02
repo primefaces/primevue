@@ -1756,7 +1756,7 @@
 }
 .p-datatable .p-datatable-tbody > tr > td {
   text-align: left;
-  border: 1px solid rgba(0, 0, 0, 0.08);
+  border: 1px solid #e9ecef;
   border-width: 0 0 1px 0;
   padding: 1rem 1rem;
 }
@@ -2427,7 +2427,7 @@
 }
 .p-treetable .p-treetable-tbody > tr > td {
   text-align: left;
-  border: 1px solid rgba(0, 0, 0, 0.08);
+  border: 1px solid #e9ecef;
   border-width: 0 0 1px 0;
   padding: 1rem 1rem;
 }
