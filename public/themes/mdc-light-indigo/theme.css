@@ -4498,6 +4498,19 @@
   background: transparent;
 }
 
+.p-datatable .p-sortable-column {
+  outline: 0 none;
+}
+.p-datatable .p-sortable-column:focus {
+  background-color: rgba(0, 0, 0, 0.03);
+}
+.p-datatable .p-datatable-tbody > tr {
+  outline: 0 none;
+}
+.p-datatable .p-datatable-tbody > tr:not(.p-highlight):focus {
+  background-color: rgba(0, 0, 0, 0.03);
+}
+
 .p-checkbox {
   border-radius: 50%;
   transition: box-shadow 0.2s;
