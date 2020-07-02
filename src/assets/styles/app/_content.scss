@@ -50,6 +50,10 @@
             background-color: var(--surface-b);
             color: var(--text-color);
 
+            li {
+                line-height: 1.5;
+            }
+
             a {
                 text-decoration: none;
                 color: $linkColor;
@@ -93,6 +97,7 @@
                         margin-right: 0;
                         border: 0 none;
                         top: 1px;
+                        line-height: 1;
 
                         a, a:visited {
                             color: var(--text-color-secondary);
@@ -152,10 +157,6 @@
                         &:hover {
                             text-decoration: underline;
                         }
-                    }
-
-                    li {
-                        line-height: 1.5;
                     }
                 }
             }

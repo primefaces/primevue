@@ -31,9 +31,9 @@
                 <h5>Visible to Screen, Invisible for Print</h5>
                 <p class="p-d-block p-print-none">Not available for printing.</p>
             </div>
-            
-            <DisplayDoc />
         </div>
+
+        <DisplayDoc />
     </div>
 </template>
 

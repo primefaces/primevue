@@ -30,9 +30,9 @@
                 <div class="p-mb-3 p-text-light">Light</div>
                 <div class="p-mb-3 p-text-italic">Italic</div>
             </div>
-
-            <TextDoc />
         </div>
+        
+        <TextDoc />
     </div>
 </template>
 
