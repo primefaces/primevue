@@ -10,7 +10,7 @@
                 <router-link to="/accessibility">Accessibility</router-link>
             </div>
 
-            <div class="menu-category">Utilities</div>
+            <div class="menu-category">PrimeFlex Utilities</div>
             <div class="menu-items">
                 <router-link to="/display">Display</router-link>
                 <router-link to="/elevation">Elevation</router-link>
