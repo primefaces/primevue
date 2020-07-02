@@ -96,8 +96,8 @@ export default {
         },
         getButtonClass(option, i) {
             return ['p-button p-component', {
-                'p-highlight': this.isSelected(option), 
-                'p-disabled': this.isOptionDisabled(option), 
+                'p-highlight': this.isSelected(option),
+                'p-disabled': this.isOptionDisabled(option),
                 'p-focus': (i === this.focusedIndex)
             }];
         }

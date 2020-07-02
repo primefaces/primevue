@@ -180,7 +180,7 @@ export default {
     data() {
         return {
             value1: 'Off',
-            value2: null,   
+            value2: null,
             value3: null,
             options: ['Off', 'On'],
             paymentOptions: [

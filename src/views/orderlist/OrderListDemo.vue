@@ -82,7 +82,7 @@ export default {
         flex-direction: column;
         align-items: flex-end;
     }
-    
+
     .product-category-icon {
         vertical-align: middle;
         margin-right: .5rem;

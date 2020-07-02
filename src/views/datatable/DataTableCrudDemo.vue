@@ -120,7 +120,7 @@
 
             <Dialog :visible.sync="deleteProductDialog" :style="{width: '450px'}" header="Confirm" :modal="true">
                 <div class="confirmation-content">
-                    <i class="pi pi-exclamation-triangle p-mr-3" style="font-size: 2rem" /> 
+                    <i class="pi pi-exclamation-triangle p-mr-3" style="font-size: 2rem" />
                     <span v-if="product">Are you sure you want to delete <b>{{product.name}}</b>?</span>
                 </div>
                 <template #footer>
@@ -131,7 +131,7 @@
 
             <Dialog :visible.sync="deleteProductsDialog" :style="{width: '450px'}" header="Confirm" :modal="true">
                 <div class="confirmation-content">
-                    <i class="pi pi-exclamation-triangle p-mr-3" style="font-size: 2rem" /> 
+                    <i class="pi pi-exclamation-triangle p-mr-3" style="font-size: 2rem" />
                     <span v-if="product">Are you sure you want to delete the selected products?</span>
                 </div>
                 <template #footer>
@@ -257,7 +257,7 @@
 
 &lt;Dialog :visible.sync="deleteProductDialog" :style="{width: '450px'}" header="Confirm" :modal="true"&gt;
     &lt;div class="confirmation-content"&gt;
-        &lt;i class="pi pi-exclamation-triangle p-mr-3" style="font-size: 2rem" /&gt; 
+        &lt;i class="pi pi-exclamation-triangle p-mr-3" style="font-size: 2rem" /&gt;
         &lt;span v-if="product"&gt;Are you sure you want to delete &lt;b&gt;{{product.name}}&lt;/b&gt;?&lt;/span&gt;
     &lt;/div&gt;
     &lt;template #footer&gt;
@@ -268,7 +268,7 @@
 
     &lt;Dialog :visible.sync="deleteProductsDialog" :style="{width: '450px'}" header="Confirm" :modal="true"&gt;
     &lt;div class="confirmation-content"&gt;
-        &lt;i class="pi pi-exclamation-triangle p-mr-3" style="font-size: 2rem" /&gt; 
+        &lt;i class="pi pi-exclamation-triangle p-mr-3" style="font-size: 2rem" /&gt;
         &lt;span v-if="product"&gt;Are you sure you want to delete the selected products?&lt;/span&gt;
     &lt;/div&gt;
     &lt;template #footer&gt;

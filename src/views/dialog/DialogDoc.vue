@@ -294,7 +294,7 @@ export default {
 &lt;Button label="Confirm" icon="pi pi-external-link" @click="openConfirmation" /&gt;
 &lt;Dialog header="Confirmation" :visible.sync="displayConfirmation" :style="{width: '350px'}" :modal="true"&gt;
     &lt;div class="confirmation-content"&gt;
-        &lt;i class="pi pi-exclamation-triangle p-mr-3" style="font-size: 2rem" /&gt; 
+        &lt;i class="pi pi-exclamation-triangle p-mr-3" style="font-size: 2rem" /&gt;
         &lt;span&gt;Are you sure you want to proceed?&lt;/span&gt;
     &lt;/div&gt;
     &lt;template #footer&gt;

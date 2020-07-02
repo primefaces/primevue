@@ -60,7 +60,7 @@
                 <Button label="Confirm" icon="pi pi-external-link" @click="openConfirmation" />
                 <Dialog header="Confirmation" :visible.sync="displayConfirmation" :style="{width: '350px'}" :modal="true">
                     <div class="confirmation-content">
-                        <i class="pi pi-exclamation-triangle p-mr-3" style="font-size: 2rem" /> 
+                        <i class="pi pi-exclamation-triangle p-mr-3" style="font-size: 2rem" />
                         <span>Are you sure you want to proceed?</span>
                     </div>
                     <template #footer>
