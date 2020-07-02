@@ -10,16 +10,20 @@
                 <router-link to="/accessibility">Accessibility</router-link>
             </div>
 
-            <div class="menu-category">PrimeFlex Utilities</div>
+            <div class="menu-category">PrimeFlex</div>
             <div class="menu-items">
                 <router-link to="/display">Display</router-link>
                 <router-link to="/elevation">Elevation</router-link>
                 <router-link to="/flexbox">FlexBox</router-link>
                 <router-link to="/formlayout">FormLayout</router-link>
                 <router-link to="/flexgrid">Grid System</router-link>
-                <router-link to="/icons">Icons</router-link>
                 <router-link to="/spacing">Spacing</router-link>
                 <router-link to="/text">Text</router-link>
+            </div>
+
+            <div class="menu-category">PrimeIcons</div>
+            <div class="menu-items">
+                <router-link to="/icons">Icons v4.0</router-link>
             </div>
 
             <div class="menu-category">Form</div>
