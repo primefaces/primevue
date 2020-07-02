@@ -21,8 +21,8 @@
                 by changing a single variable e.g. $primaryColor. Visit the <a href="https://www.primefaces.org/designer/api/primevue/2.0.0">SASS API</a> for the documentation of available customization options.</p>
 
             <p><a href="https://www.primefaces.org/designer/primevue">Designer API</a> is the ultimate tool to create your own PrimeVue experience powered by a SASS based theme engine
-                with 500+ variables and a demo application. As mentioned before, PrimeVue only ships the generated CSS of <b>Saga</b>, <b>Vela</b>, <b>Nova</b>, <b>Luna</b> and <b>Rhea</b> themes whereas Designer provides
-                full access to the whole SASS structure and the variables of these pre-built themes.</p>
+                with 500+ variables and a demo application. As mentioned before, PrimeVue only ships the generated CSS of <b>Material</b>, <b>Bootstrap</b>, <b>Saga</b>, <b>Vela</b>, <b>Arya</b> and legacy themes whereas Designer provides
+                full access to the whole SASS structure and the variables of these pre-built themes for easiers customization.</p>
 
             <p>Whether you have your own style guide or just need a custom theme, Designer API is the right tool to design and bring them to existence.</p>
 
@@ -33,8 +33,8 @@
 
             <h5>Scaling</h5>
             <p>PrimeVue utilizes rem units to make sure the components blend in with the rest of your UI perfectly. This also enables scaling, for example changing the size of the components
-                is easy as configuring the font size of your document. Code below sets the scale of the components based on 16px. If you reqire bigger or smaller component, you may
-                change this variable and components will resize accordingly.</p>
+                is easy as configuring the font size of your document. Code below sets the scale of the components based on 16px. If you reqire bigger or smaller components, just
+                change this variable and components will scale accordingly.</p>
 
 <CodeHighlight lang="css">
 html {
@@ -51,7 +51,7 @@ html {
 
             <h5>Local Styling</h5>
             <p>Theming styles the components globally, in case you required to change the style of a certain component for a specific use case use the class property and override the defaults.
-                Example below changes the background of the panel. Note that this is only for local styling, if you require to change the background color of all the panel, a custom theme is a far better choice.</p>
+                Example below changes the background of the panel. Note that this is only for local styling, if you require to change the background color of all the panels, a custom theme is a far better choice.</p>
 <CodeHighlight>
 &lt;Panel header="Custom Header" class="dark-panel"/&gt;
 </CodeHighlight>
