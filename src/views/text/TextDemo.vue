@@ -31,7 +31,7 @@
                 <div class="p-mb-3 p-text-italic">Italic</div>
             </div>
         </div>
-        
+
         <TextDoc />
     </div>
 </template>

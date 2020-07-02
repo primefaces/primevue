@@ -50,7 +50,7 @@
 
                 <h5>Examples</h5>
 <CodeHighlight>
-&lt;div class="p-mb-2"&gt;Margin bottom with level 2&lt;/div&gt;    
+&lt;div class="p-mb-2"&gt;Margin bottom with level 2&lt;/div&gt;
 &lt;div class="p-mt-4"&gt;Margin top with level 2&lt;/div&gt;
 &lt;div class="p-m-2"&gt;Margin for all sides with level 2&lt;/div&gt;
 &lt;div class="p-mx-auto"&gt;Auto margins for left and right side&lt;/div&gt;

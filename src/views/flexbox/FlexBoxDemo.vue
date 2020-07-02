@@ -64,7 +64,7 @@
     &lt;div class="p-mb-2 p-mr-2"&gt;Item 3&lt;/div&gt;
 &lt;/div&gt;
 </CodeHighlight>
-            
+
             <div class="p-d-flex p-flex-column p-flex-md-row">
                 <div class="p-mb-2 p-mr-2">Item 1</div>
                 <div class="p-mb-2 p-mr-2">Item 2</div>
@@ -97,7 +97,7 @@
 
             <h5>Order</h5>
             <p>Order configures the way in which they appear in the flex container. <i>p-order-{value}</i> format is used where value can be a number from 0 to 6.</p>
-            
+
             <h6>Customized</h6>
 <CodeHighlight>
 &lt;div class="p-d-flex"&gt;
@@ -121,7 +121,7 @@
     &lt;div class="p-mr-2 p-order-2 p-order-md-1"&gt;Item 3&lt;/div&gt;
 &lt;/div&gt;
 </CodeHighlight>
-            
+
             <div class="p-d-flex">
                 <div class="p-mr-2 p-order-3 p-order-md-2">Item 1</div>
                 <div class="p-mr-2 p-order-1 p-order-md-3">Item 2</div>
@@ -176,7 +176,7 @@
                 <li>wrap</li>
                 <li>wrap-reverse</li>
             </ul>
-            
+
             <h6>No Wrap</h6>
 <CodeHighlight>
 &lt;div class="p-d-flex"&gt;
