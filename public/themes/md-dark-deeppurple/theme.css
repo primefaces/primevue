@@ -362,6 +362,7 @@
 .p-checkbox .p-checkbox-box .p-checkbox-icon {
   transition-duration: 0.2s;
   color: #121212;
+  font-size: 14px;
 }
 .p-checkbox .p-checkbox-box:not(.p-disabled):hover {
   border-color: rgba(255, 255, 255, 0.6);

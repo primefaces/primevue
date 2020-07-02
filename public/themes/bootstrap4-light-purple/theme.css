@@ -1,16 +1,16 @@
 @charset "UTF-8";
 :root {
-  --surface-a: #ffffff;
-  --surface-b: rgba(0, 0, 0, 0.03);
-  --surface-c: #e9ecef;
-  --surface-d: #dee2e6;
-  --surface-e: #ffffff;
-  --surface-f: #ffffff;
-  --text-color: #212529;
-  --text-color-secondary: $shade600;
-  --primary-color: #883cae;
-  --primary-color-text: #ffffff;
-  --font-family: -apple-system, BlinkMacSystemFont, Segoe UI, Roboto, Helvetica, Arial, sans-serif, Apple Color Emoji, Segoe UI Emoji, Segoe UI Symbol;
+  --surface-a:#ffffff;
+  --surface-b:rgba(0, 0, 0, 0.03);
+  --surface-c:#e9ecef;
+  --surface-d:#dee2e6;
+  --surface-e:#ffffff;
+  --surface-f:#ffffff;
+  --text-color:#212529;
+  --text-color-secondary:$shade600;
+  --primary-color:#883cae;
+  --primary-color-text:#ffffff;
+  --font-family:-apple-system, BlinkMacSystemFont, Segoe UI, Roboto, Helvetica, Arial, sans-serif, Apple Color Emoji, Segoe UI Emoji, Segoe UI Symbol;
 }
 
 * {
@@ -323,14 +323,14 @@
   }
 }
 .p-checkbox {
-  width: 1.5rem;
-  height: 1.5rem;
+  width: 20px;
+  height: 20px;
 }
 .p-checkbox .p-checkbox-box {
-  border: 1px solid #ced4da;
+  border: 2px solid #ced4da;
   background: #ffffff;
-  width: 1.5rem;
-  height: 1.5rem;
+  width: 20px;
+  height: 20px;
   color: #212529;
   border-radius: 4px;
   transition: background-color 0.15s, border-color 0.15s, box-shadow 0.15s;
@@ -338,6 +338,7 @@
 .p-checkbox .p-checkbox-box .p-checkbox-icon {
   transition-duration: 0.15s;
   color: #ffffff;
+  font-size: 14px;
 }
 .p-checkbox .p-checkbox-box:not(.p-disabled):hover {
   border-color: #ced4da;
@@ -980,14 +981,14 @@
 }
 
 .p-radiobutton {
-  width: 1.5rem;
-  height: 1.5rem;
+  width: 20px;
+  height: 20px;
 }
 .p-radiobutton .p-radiobutton-box {
-  border: 1px solid #ced4da;
+  border: 2px solid #ced4da;
   background: #ffffff;
-  width: 1.5rem;
-  height: 1.5rem;
+  width: 20px;
+  height: 20px;
   color: #212529;
   border-radius: 50%;
   transition: background-color 0.15s, border-color 0.15s, box-shadow 0.15s;
@@ -1002,8 +1003,8 @@
   border-color: #883cae;
 }
 .p-radiobutton .p-radiobutton-box .p-radiobutton-icon {
-  width: 0.75rem;
-  height: 0.75rem;
+  width: 12px;
+  height: 12px;
   transition-duration: 0.15s;
   background-color: #ffffff;
 }
