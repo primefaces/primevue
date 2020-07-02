@@ -251,12 +251,12 @@ import InlineMessage from 'primevue/inlinemessage';
 &lt;h3&gt;Validation Message&lt;/h3&gt;
 &lt;div class="p-formgroup-inline" style="margin-bottom:.5rem"&gt;
     &lt;Label for="username" class="p-sr-only"&gt;Username&lt;/Label&gt;
-    &lt;InputText placeholder="Username" class="p-invalid" /&gt;
+    &lt;InputText id="username" placeholder="Username" class="p-invalid" /&gt;
     &lt;InlineMessage&gt;Username is required&lt;/InlineMessage&gt;
 &lt;/div&gt;
 &lt;div class="p-formgroup-inline"&gt;
     &lt;Label for="email" class="p-sr-only"&gt;email&lt;/Label&gt;
-    &lt;InputText placeholder="email" class="p-invalid" /&gt;
+    &lt;InputText id="email" placeholder="Email" class="p-invalid" /&gt;
     &lt;InlineMessage /&gt;
 &lt;/div&gt;
 </template>

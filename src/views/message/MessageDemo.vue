@@ -28,12 +28,12 @@
                 <h5>Validation Message</h5>
                 <div class="p-formgroup-inline" style="margin-bottom:.5rem">
                     <Label for="username" class="p-sr-only">Username</Label>
-                    <InputText placeholder="Username" class="p-invalid" />
+                    <InputText id="username" placeholder="Username" class="p-invalid" />
                     <InlineMessage>Username is required</InlineMessage>
                 </div>
                 <div class="p-formgroup-inline">
                     <Label for="email" class="p-sr-only">email</Label>
-                    <InputText placeholder="email" class="p-invalid" />
+                    <InputText id="email" placeholder="Email" class="p-invalid" />
                     <InlineMessage />
                 </div>
             </div>
