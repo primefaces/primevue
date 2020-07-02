@@ -498,14 +498,12 @@
 <CodeHighlight>
 &lt;div class="p-d-flex p-p-3 card"&gt;
     &lt;Button type="Button" icon="pi pi-check" class="p-mr-2" /&gt;
-    &lt;Button type="Button" icon="pi pi-pencil" class="p-mr-2 pi p-button-success" /&gt;
     &lt;Button type="Button" icon="pi pi-trash" class="p-button-danger"/&gt;
     &lt;Button type="Button" icon="pi pi-search" class="p-ml-auto p-button-help"/&gt;
 &lt;/div&gt;
 </CodeHighlight>
             <div class="p-d-flex p-p-3 card">
                 <Button type="Button" icon="pi pi-check" class="p-mr-2" />
-                <Button type="Button" icon="pi pi-pencil" class="p-mr-2 pi p-button-success" />
                 <Button type="Button" icon="pi pi-trash" class="p-button-danger"/>
                 <Button type="Button" icon="pi pi-search" class="p-ml-auto p-button-help"/>
             </div>
