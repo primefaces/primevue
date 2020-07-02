@@ -10,10 +10,10 @@
         <div class="content-section implementation">
             <div class="card">
                 <h5>Severities</h5>
-                <Message severity="success">Order Submitted</Message>
-                <Message severity="info">PrimeVue Rocks</Message>
-                <Message severity="warn">There are unsaved changes</Message>
-                <Message severity="error">Validation Failed</Message>
+                <Message severity="success">Success Message Content</Message>
+                <Message severity="info">Info Message Content</Message>
+                <Message severity="warn">Warning Message Content</Message>
+                <Message severity="error">Error Message Content</Message>
 
                 <h5>Dynamic</h5>
                 <Button label="Show" @click="addMessages()" />

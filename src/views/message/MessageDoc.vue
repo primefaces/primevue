@@ -231,24 +231,23 @@ import InlineMessage from 'primevue/inlinemessage';
 				</a>
 <CodeHighlight>
 <template v-pre>
-&lt;h3&gt;Severities&lt;/h3&gt;
-&lt;Message severity="success"&gt;Order Submitted&lt;/Message&gt;
-&lt;Message severity="info"&gt;PrimeVue Rocks&lt;/Message&gt;
-&lt;Message severity="warn"&gt;There are unsaved changes&lt;/Message&gt;
-&lt;Message severity="error"&gt;Validation Failed&lt;/Message&gt;
+&lt;h5&gt;Severities&lt;/h5&gt;
+&lt;Message severity="success"&gt;Success Message Content&lt;/Message&gt;
+&lt;Message severity="info"&gt;Info Message Content&lt;/Message&gt;
+&lt;Message severity="warn"&gt;Warning Message Content&lt;/Message&gt;
+&lt;Message severity="error"&gt;Error Message Content&lt;/Message&gt;
 
-&lt;h3&gt;Dynamic&lt;/h3&gt;
+&lt;h5&gt;Dynamic&lt;/h5&gt;
 &lt;Button label="Show" @click="addMessages()" /&gt;
 &lt;Button label="Clear" @click="removeMessages()" class="p-button-secondary"/&gt;
-
 &lt;transition-group name="p-messages" tag="div"&gt;
     &lt;Message v-for="msg of messages" :severity="msg.severity" :key="msg.content"&gt;{{msg.content}}&lt;/Message&gt;
 &lt;/transition-group&gt;
 
-&lt;h3&gt;Auto Dismiss&lt;/h3&gt;
+&lt;h5&gt;Auto Dismiss&lt;/h5&gt;
 &lt;Message severity="warn" :life="10000" :sticky="false"&gt;This message will hide in 10 seconds.&lt;/Message&gt;
 
-&lt;h3&gt;Validation Message&lt;/h3&gt;
+&lt;h5&gt;Validation Message&lt;/h5&gt;
 &lt;div class="p-formgroup-inline" style="margin-bottom:.5rem"&gt;
     &lt;Label for="username" class="p-sr-only"&gt;Username&lt;/Label&gt;
     &lt;InputText id="username" placeholder="Username" class="p-invalid" /&gt;
