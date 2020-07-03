@@ -641,14 +641,21 @@
   border-right: 1px solid #3f4b5b;
 }
 
-.p-inputgroup > .p-component {
+.p-inputgroup > .p-component,
+.p-inputgroup > .p-float-label > .p-component {
   border-radius: 0;
   margin: 0;
 }
-.p-inputgroup > .p-component + .p-inputgroup-addon {
+.p-inputgroup > .p-component + .p-inputgroup-addon,
+.p-inputgroup > .p-float-label > .p-component + .p-inputgroup-addon {
   border-left: 0 none;
 }
-.p-inputgroup > .p-component:focus {
+.p-inputgroup > .p-component:focus,
+.p-inputgroup > .p-float-label > .p-component:focus {
+  z-index: 1;
+}
+.p-inputgroup > .p-component:focus ~ label,
+.p-inputgroup > .p-float-label > .p-component:focus ~ label {
   z-index: 1;
 }
 
