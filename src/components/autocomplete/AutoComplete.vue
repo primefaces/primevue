@@ -8,7 +8,8 @@
                 <span class="p-autocomplete-token-icon pi pi-times-circle" @click="removeItem($event, i)"></span>
             </li>
             <li class="p-autocomplete-input-token">
-                <input ref="input" type="text" autoComplete="off" v-bind="$attrs" v-on="listeners" role="searchbox" aria-autocomplete="list" :aria-controls="listId" :aria-labelledby="ariaLabelledBy">
+                <input ref="input" type="text" autoComplete="off" v-bind="$attrs" v-on="listeners"
+                role="searchbox" aria-autocomplete="list" :aria-controls="listId" :aria-labelledby="ariaLabelledBy">
             </li>
         </ul>
         <i class="p-autocomplete-loader pi pi-spinner pi-spin" v-if="searching"></i>
@@ -85,8 +86,8 @@ export default {
         return {
             searching: false,
             focused: false,
-            filled: false,
-            overlayVisible: false
+            overlayVisible: false,
+            inputTextValue: null
         };
     },
     watch: {
@@ -154,6 +155,8 @@ export default {
         selectItem(event, item) {
             if (this.multiple) {
                 this.$refs.input.value = '';
+                this.inputTextValue = '';
+
                 if (!this.isSelected(item)) {
                     let newValue = this.value ? [...this.value, item] : [item];
                     this.$emit('input', newValue);
@@ -227,6 +230,8 @@ export default {
             });
         },
         onInput(event) {
+            this.inputTextValue = event.target.value;
+
             if (this.timeout) {
                 clearTimeout(this.timeout);
             }
@@ -390,7 +395,7 @@ export default {
             return ['p-autocomplete p-component', {
                 'p-autocomplete-dd': this.dropdown,
                 'p-autocomplete-multiple': this.multiple,
-                'p-inputwrapper-filled': this.value,
+                'p-inputwrapper-filled': ((this.value && this.value.length) || (this.inputTextValue && this.inputTextValue.length)),
                 'p-inputwrapper-focus': this.focused
             }];
         },
