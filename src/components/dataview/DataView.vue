@@ -115,10 +115,10 @@ export default {
         rows(newValue) {
             this.d_rows = newValue;
         },
-        sortField(newValue) {
+        sortField() {
             this.resetPage();
         },
-        sortOrder(newValue) {
+        sortOrder() {
             this.resetPage();
         }
     },

@@ -23,7 +23,7 @@ import EventBus from '@/EventBus';
 
 export default {
      mounted() {
-        EventBus.$on('change-theme', event => {
+        EventBus.$on('change-theme', () => {
             if (event.dark)
                 this.applyDarkTheme();
             else

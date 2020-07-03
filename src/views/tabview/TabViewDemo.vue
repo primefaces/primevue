@@ -129,7 +129,7 @@ export default {
     },
     timeout: null,
     mounted() {
-        EventBus.$on('change-theme', event => {
+        EventBus.$on('change-theme', () => {
             this.timeout = setTimeout(() => {
                 this.$refs.tabview1.updateInkBar();
                 this.$refs.tabview2.updateInkBar();
