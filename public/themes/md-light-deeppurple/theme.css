@@ -469,10 +469,12 @@
   box-shadow: none;
   border-color: #673AB7;
 }
+.p-dropdown.p-dropdown-clearable .p-dropdown-label {
+  padding-right: 2rem;
+}
 .p-dropdown .p-dropdown-label {
   background: transparent;
   border: 0 none;
-  padding-right: 2rem;
 }
 .p-dropdown .p-dropdown-label.p-placeholder {
   color: rgba(0, 0, 0, 0.6);
@@ -754,6 +756,7 @@
 }
 
 .p-inputtext {
+  font-family: Roboto, Helvetica Neue Light, Helvetica Neue, Helvetica, Arial, Lucida Grande, sans-serif;
   font-size: 1rem;
   color: #000001;
   background: #ffffff;
@@ -4723,6 +4726,9 @@
 .p-input-filled .p-dropdown .p-inputtext:enabled:hover, .p-input-filled .p-dropdown .p-inputtext:enabled:focus {
   background-image: none;
   background: transparent;
+}
+.p-input-filled .p-dropdown .p-inputtext {
+  border: 0 none;
 }
 
 .p-galleria .p-galleria-indicators {

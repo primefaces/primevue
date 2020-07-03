@@ -445,10 +445,12 @@
   box-shadow: 0 0 0 0.2rem #e4e9ec;
   border-color: #7B95A3;
 }
+.p-dropdown.p-dropdown-clearable .p-dropdown-label {
+  padding-right: 1.429rem;
+}
 .p-dropdown .p-dropdown-label {
   background: transparent;
   border: 0 none;
-  padding-right: 1.429rem;
 }
 .p-dropdown .p-dropdown-label.p-placeholder {
   color: #a6a6a6;
@@ -730,6 +732,7 @@
 }
 
 .p-inputtext {
+  font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif, "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol";
   font-size: 1rem;
   color: #666666;
   background: #ffffff;
