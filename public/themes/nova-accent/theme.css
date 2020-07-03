@@ -662,9 +662,19 @@
   border-bottom-left-radius: 3px;
 }
 
+.p-inputgroup .p-float-label:first-child input {
+  border-top-left-radius: 3px;
+  border-bottom-left-radius: 3px;
+}
+
 .p-inputgroup-addon:last-child,
 .p-inputgroup button:last-child,
 .p-inputgroup input:last-child {
+  border-top-right-radius: 3px;
+  border-bottom-right-radius: 3px;
+}
+
+.p-inputgroup .p-float-label:last-child input {
   border-top-right-radius: 3px;
   border-bottom-right-radius: 3px;
 }
