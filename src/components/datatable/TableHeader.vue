@@ -32,7 +32,7 @@
                 <th v-for="(col,i) of row.columns" :key="col.columnKey||col.field||i" :style="col.headerStyle" :class="getColumnHeaderClass(col)" :tabindex="col.sortable ? '0' : null"
                     @click="onColumnHeaderClick($event, col)" @keydown="onColumnKeyDown($event, col)" @dragstart="onColumnHeaderDragStart($event)" @dragover="onColumnHeaderDragOver($event)" @dragleave="onColumnHeaderDragLeave($event)" @drop="onColumnHeaderDrop($event)"
                     :colspan="col.colspan" :rowspan="col.rowspan" :aria-sort="getAriaSort(col)">
-                    <ColumnSlot :column="col" type="header" v-if="col.$scopedSlots.header" />
+                    <DTColumnSlot :column="col" type="header" v-if="col.$scopedSlots.header" />
                     <span class="p-column-title" v-if="col.header">{{col.header}}</span>
                     <span v-if="col.sortable" :class="getSortableColumnIcon(col)"></span>
                     <span v-if="isMultiSorted(col)" class="p-sortable-column-badge">{{getMultiSortMetaIndex(col) + 1}}</span>
