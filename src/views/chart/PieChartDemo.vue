@@ -30,6 +30,9 @@ export default {
                 this.chartOptions = this.getLightTheme();
         });
     },
+    beforeDestroy() {
+        EventBus.$off('change-theme');
+    },
     data() {
         return {
             chartData: {

@@ -10,7 +10,7 @@
         <div class="content-section implementation">
             <div class="card">
                 <h5>Default</h5>
-                <TabView>
+                <TabView ref="tabview1">
                     <TabPanel header="Header I">
                         <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation
                             ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur.
@@ -37,7 +37,7 @@
                     <Button @click="activate(2)" class="p-button-text" label="Activate 3rd" />
                 </div>
 
-                <TabView>
+                <TabView ref="tabview2">
                     <TabPanel header="Header I" :active.sync="active[0]">
                         <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation
                             ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur.
@@ -58,7 +58,7 @@
 
             <div class="card">
                 <h5>Disabled</h5>
-                <TabView>
+                <TabView ref="tabview3">
                     <TabPanel header="Header I">
                         <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation
                             ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur.
@@ -80,7 +80,7 @@
 
             <div class="card">
                 <h5>Custom Headers</h5>
-                <TabView class="tabview-custom">
+                <TabView class="tabview-custom" ref="tabview4">
                     <TabPanel>
                         <template slot="header">
                             <i class="pi pi-calendar"></i>
@@ -119,12 +119,28 @@
 
 <script>
 import TabViewDoc from './TabViewDoc';
+import EventBus from '@/EventBus';
 
 export default {
     data() {
         return {
             active: [true, false, false]
         }
+    },
+    timeout: null,
+    mounted() {
+        EventBus.$on('change-theme', event => {
+            this.timeout = setTimeout(() => {
+                this.$refs.tabview1.updateInkBar();
+                this.$refs.tabview2.updateInkBar();
+                this.$refs.tabview3.updateInkBar();
+                this.$refs.tabview4.updateInkBar();
+            }, 50);
+        });
+    },
+    beforeDestroy() {
+        clearTimeout(this.timeout);
+        EventBus.$off('change-theme');
     },
     methods: {
         activate(index) {

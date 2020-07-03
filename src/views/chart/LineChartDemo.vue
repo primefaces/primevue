@@ -45,6 +45,9 @@ export default {
             this.applyDarkTheme();
         }
     },
+    beforeDestroy() {
+        EventBus.$off('change-theme');
+    },
     data() {
         return {
             basicData: {
