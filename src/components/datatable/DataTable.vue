@@ -628,7 +628,7 @@ export default {
                 filteredValue = data;
             }
 
-            let filterEvent = this.createLazyLoadEvent(event);
+            let filterEvent = this.createLazyLoadEvent();
             filterEvent.filteredValue = filteredValue;
             this.$emit('filter', filterEvent);
 
