@@ -26,6 +26,7 @@
 </template>
 
 <script>
+import DomHandler from '@/components/utils/DomHandler';
 import AppTopBar from '@/AppTopBar.vue';
 import AppMenu from '@/AppMenu.vue';
 import AppFooter from '@/AppFooter.vue';
@@ -40,7 +41,6 @@ export default {
             theme: 'saga-blue'
         }
     },
-
     mounted() {
         if (this.isOutdatedIE()) {
             this.$toast.add({severity: 'warn', summary: 'Limited Functionality', detail: 'Although PrimeVue supports IE11, ThemeSwitcher in this application cannot be not fully supported by your browser. Please use a modern browser for the best experience of the showcase.'});
@@ -58,16 +58,25 @@ export default {
                 }
 
                 this.sidebarActive = false;
+                DomHandler.removeClass(document.body, 'blocked-scroll');
                 this.$toast.removeAllGroups();
             }
         }
     },
     methods: {
         onMenuButtonClick() {
-            this.sidebarActive = !this.sidebarActive;
+            if (this.sidebarActive) {
+                this.sidebarActive = false;
+                DomHandler.removeClass(document.body, 'blocked-scroll');
+            }
+            else {
+                this.sidebarActive = true;
+                DomHandler.addClass(document.body, 'blocked-scroll');
+            }
         },
         onMaskClick() {
             this.sidebarActive = false;
+            DomHandler.removeClass(document.body, 'blocked-scroll');
         },
         hideNews() {
             this.newsActive = false;

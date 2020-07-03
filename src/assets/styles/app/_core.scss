@@ -1,15 +1,3 @@
-@keyframes pulse {
-    0% {
-        background-color: rgba(165, 165, 165, 0.1)
-    }
-    50% {
-        background-color: rgba(165, 165, 165, 0.3)
-    }
-    100% {
-        background-color: rgba(165, 165, 165, 0.1)
-    }
-}
-
 $linkColor: #2196f3;
 $focusBorderColor:#BBDEFB;
 
@@ -44,21 +32,6 @@ a {
     text-decoration: none;
 }
 
-.layout-mask {
-    background-color: rgba(0, 0, 0, 0.1);
-}
-
-.layout-mask-active {
-    z-index: 998;
-    width: 100%;
-    height: 100%;
-    position: fixed;
-    top: 0;
-    left: 0;
-    background-color: rgba(0, 0, 0, 0.4);
-    transition: background-color .5s;
-}
-
 .clearfix {
     display: inline-block;
 
@@ -79,28 +52,15 @@ a {
     display: block;
 }
 
-/* Animation */
-@-webkit-keyframes fadeInDown {
-    from {
-        opacity: 0;
-        transform: translate3d(0, -20px, 0);
+@keyframes pulse {
+    0% {
+        background-color: rgba(165, 165, 165, 0.1)
     }
-
-    to {
-        opacity: 1;
-        transform: none;
+    50% {
+        background-color: rgba(165, 165, 165, 0.3)
     }
-}
-
-@keyframes fadeInDown {
-    from {
-        opacity: 0;
-        transform: translate3d(0, -20px, 0);
-    }
-
-    to {
-        opacity: 1;
-        transform: none;
+    100% {
+        background-color: rgba(165, 165, 165, 0.1)
     }
 }
 
