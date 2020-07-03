@@ -1,5 +1,5 @@
 <template>
-    <div :class="['p-chips p-component', {'p-inputwrapper-filled': value, 'p-inputwrapper-focus': focused}]">
+    <div :class="containerClass">
         <ul :class="['p-inputtext p-chips-multiple-container', {'p-disabled': $attrs.disabled, 'p-focus': focused}]" @click="onWrapperClick()">
             <li v-for="(val,i) of value" :key="`${i}_${val}`" class="p-chips-token p-highlight">
                 <slot name="chip" :value="val">
@@ -8,7 +8,7 @@
                 </slot>
             </li>
             <li class="p-chips-input-token">
-                <input ref="input" type="text" @focus="onFocus($event)" @blur="onBlur($event)" :placeholder="placeholder"
+                <input ref="input" type="text" @focus="onFocus($event)" @blur="onBlur($event)" :placeholder="placeholder" @input="inputValue = $event.target.value"
                     @keydown="onKeyDown($event)" @paste="onPaste($event)" :disabled="$attrs.disabled || maxedOut" :aria-labelledby="ariaLabelledBy">
             </li>
         </ul>
@@ -49,6 +49,7 @@ export default {
     },
     data() {
         return {
+            inputValue: null,
             focused: false
         };
     },
@@ -113,6 +114,7 @@ export default {
                 value: value
             });
             this.$refs.input.value = '';
+            this.inputValue = '';
 
             if (preventDefault) {
                 event.preventDefault();
@@ -144,6 +146,12 @@ export default {
     computed: {
         maxedOut() {
             return this.max && this.value && this.max === this.value.length;
+        },
+        containerClass() {
+            return ['p-chips p-component', {
+                'p-inputwrapper-filled': ((this.value && this.value.length) || (this.inputValue && this.inputValue.length)),
+                'p-inputwrapper-focus': this.focused
+            }];
         }
     }
 }
