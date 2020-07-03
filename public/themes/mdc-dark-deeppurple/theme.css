@@ -4301,6 +4301,21 @@
   background: transparent;
 }
 
+.p-float-label .p-autocomplete-multiple-container .p-autocomplete-token {
+  padding: 0.25rem 1rem;
+}
+
+.p-input-filled .p-float-label .p-autocomplete .p-autocomplete-multiple-container .p-autocomplete-token {
+  padding-top: 0;
+  padding-bottom: 0;
+}
+.p-input-filled .p-float-label .p-autocomplete .p-autocomplete-multiple-container .p-autocomplete-token .p-autocomplete-token-icon {
+  font-size: 75%;
+}
+.p-input-filled .p-float-label .p-autocomplete .p-autocomplete-multiple-container .p-autocomplete-input-token {
+  padding: 0;
+}
+
 .p-button {
   font-weight: 500;
   min-width: 4rem;
@@ -4637,6 +4652,21 @@
   background: transparent;
 }
 
+.p-float-label .p-chips-multiple-container .p-chips-token {
+  padding: 0.25rem 1rem;
+}
+
+.p-input-filled .p-float-label .p-chips .p-chips-multiple-container .p-chips-token {
+  padding-top: 0;
+  padding-bottom: 0;
+}
+.p-input-filled .p-float-label .p-chips .p-chips-multiple-container .p-chips-token .p-chips-token-icon {
+  font-size: 75%;
+}
+.p-input-filled .p-float-label .p-chips .p-chips-multiple-container .p-chips-input-token {
+  padding: 0;
+}
+
 .p-datatable .p-sortable-column {
   outline: 0 none;
 }
@@ -4746,6 +4776,22 @@
 .p-input-filled .p-inputgroup .p-inputgroup-addon:last-child {
   border-right-color: transparent;
 }
+.p-input-filled .p-inputgroup-addon:first-child,
+.p-input-filled .p-inputgroup button:first-child,
+.p-input-filled .p-inputgroup input:first-child {
+  border-bottom-left-radius: 0;
+}
+.p-input-filled .p-inputgroup .p-float-label:first-child input {
+  border-bottom-left-radius: 0;
+}
+.p-input-filled .p-inputgroup-addon:last-child,
+.p-input-filled .p-inputgroup button:last-child,
+.p-input-filled .p-inputgroup input:last-child {
+  border-bottom-right-radius: 0;
+}
+.p-input-filled .p-inputgroup .p-float-label:last-child input {
+  border-bottom-right-radius: 0;
+}
 
 .p-inputswitch .p-inputswitch-slider:before {
   transition-property: box-shadow transform;
@@ -4770,6 +4816,8 @@
 
 .p-float-label input:focus ~ label,
 .p-float-label input.p-filled ~ label,
+.p-float-label textarea:focus ~ label,
+.p-float-label textarea.p-filled ~ label,
 .p-float-label .p-inputwrapper-focus ~ label,
 .p-float-label .p-inputwrapper-filled ~ label {
   top: -0.5rem !important;
@@ -4779,20 +4827,26 @@
   margin-top: 0;
 }
 
+.p-float-label textarea ~ label {
+  margin-top: 0;
+}
+
 .p-float-label input:focus ~ label,
 .p-float-label .p-inputwrapper-focus ~ label {
   color: #673AB7;
 }
 
 .p-input-filled .p-float-label .p-inputtext {
-  padding-top: 1.5rem;
-  padding-bottom: 0.5rem;
+  padding-top: 1.25rem;
+  padding-bottom: 0.25rem;
 }
 .p-input-filled .p-float-label input:focus ~ label,
 .p-input-filled .p-float-label input.p-filled ~ label,
+.p-input-filled .p-float-label textarea:focus ~ label,
+.p-input-filled .p-float-label textarea.p-filled ~ label,
 .p-input-filled .p-float-label .p-inputwrapper-focus ~ label,
 .p-input-filled .p-float-label .p-inputwrapper-filled ~ label {
-  top: 0.5rem !important;
+  top: 0.25rem !important;
   margin-top: 0;
   background: transparent;
 }
