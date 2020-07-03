@@ -113,6 +113,11 @@ export default {
     _index: null,
     isSpecialChar: null,
     timer: null,
+    data() {
+        return {
+            focused: false
+        } 
+    },
     created() {
         this.numberFormat = new Intl.NumberFormat(this.locale, this.getOptions());
         const numerals = [...new Intl.NumberFormat(this.locale, {useGrouping: false}).format(9876543210)].reverse();
