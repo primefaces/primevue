@@ -114,6 +114,12 @@ export default {
         },
         rows(newValue) {
             this.d_rows = newValue;
+        },
+        sortField(newValue) {
+            this.resetPage();
+        },
+        sortOrder(newValue) {
+            this.resetPage();
         }
     },
     methods: {
@@ -153,6 +159,10 @@ export default {
             else {
                 return null;
             }
+        },
+        resetPage() {
+            this.d_first = 0;
+            this.$emit('update:first', this.d_first);
         }
     },
     computed: {
