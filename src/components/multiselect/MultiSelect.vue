@@ -5,11 +5,11 @@
                 aria-haspopup="listbox" :aria-expanded="overlayVisible" :aria-labelledby="ariaLabelledBy"/>
         </div>
         <div class="p-multiselect-label-container">
-            <label :class="labelClass">
+            <div :class="labelClass">
                 <slot name="value" :value="value" :placeholder="placeholder">
                     {{label}}
                 </slot>
-            </label>
+            </div>
         </div>
         <div class="p-multiselect-trigger">
             <span class="p-multiselect-trigger-icon pi pi-chevron-down"></span>
@@ -353,7 +353,9 @@ export default {
                 'p-multiselect p-component',
                 {
                     'p-disabled': this.disabled,
-                    'p-focus': this.focused
+                    'p-focus': this.focused,
+                    'p-inputwrapper-filled': this.value && this.value.length,
+                    'p-inputwrapper-focus': this.focused
                 }
             ];
         },
@@ -373,7 +375,7 @@ export default {
                 label = '';
                 for(let i = 0; i < this.value.length; i++) {
                     if(i !== 0) {
-                        label += ',';
+                        label += ', ';
                     }
 
                     label += this.getLabelByValue(this.value[i]);

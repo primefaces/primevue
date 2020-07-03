@@ -422,7 +422,9 @@ export default {
                 {
                     'p-disabled': this.disabled,
                     'p-dropdown-clearable': this.showClear && !this.disabled,
-                    'p-focus': this.focused
+                    'p-focus': this.focused,
+                    'p-inputwrapper-filled': this.value,
+                    'p-inputwrapper-focus': this.focused
                 }
             ];
         },
