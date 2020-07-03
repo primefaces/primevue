@@ -324,7 +324,7 @@ export default {
 
                 this.$emit('move-all-to-source', {
                     originalEvent: event,
-                    items: sourceList
+                    items: targetList
                 });
 
                 sourceList = [...sourceList, ...targetList];
