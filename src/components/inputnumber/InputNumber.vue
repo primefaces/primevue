@@ -116,7 +116,7 @@ export default {
     data() {
         return {
             focused: false
-        } 
+        }
     },
     created() {
         this.numberFormat = new Intl.NumberFormat(this.locale, this.getOptions());

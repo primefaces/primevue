@@ -12,7 +12,7 @@
             <div class="card">
                 <h5>Basic</h5>
                 <AutoComplete v-model="selectedCountry1" :suggestions="filteredCountries" @complete="searchCountry($event)" field="name" />
-                
+
                 <h5>Dropdown and Templating</h5>
                 <AutoComplete v-model="selectedCountry2" :suggestions="filteredCountries" @complete="searchCountry($event)" :dropdown="true" field="name">
                     <template #item="slotProps">
