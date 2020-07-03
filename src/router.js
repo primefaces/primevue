@@ -492,6 +492,11 @@ export default new Router({
 			component: () => import('./views/flexbox/FlexBoxDemo.vue')
         },
         {
+			path: '/floatlabel',
+			name: 'floatlabel',
+			component: () => import('./views/floatlabel/FloatLabelDemo.vue')
+		},
+        {
 			path: '/text',
 			name: 'text',
 			component: () => import('./views/text/TextDemo.vue')

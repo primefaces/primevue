@@ -256,6 +256,7 @@ export default {
 <template v-pre>
 &lt;h5&gt;Basic&lt;/h5&gt;
 &lt;AutoComplete v-model="selectedCountry1" :suggestions="filteredCountries" @complete="searchCountry($event)" field="name" /&gt;
+
 &lt;h5&gt;Dropdown and Templating&lt;/h5&gt;
 &lt;AutoComplete v-model="selectedCountry2" :suggestions="filteredCountries" @complete="searchCountry($event)" :dropdown="true" field="name"&gt;
     &lt;template #item="slotProps"&gt;

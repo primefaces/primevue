@@ -40,6 +40,7 @@
                 <router-link to="/inputnumber">InputNumber</router-link>
                 <router-link to="/inputswitch">InputSwitch</router-link>
                 <router-link to="/inputtext">InputText</router-link>
+                <router-link to="/floatlabel">FloatLabel</router-link>
                 <router-link to="/listbox">Listbox</router-link>
                 <router-link to="/multiselect">MultiSelect</router-link>
                 <router-link to="/password">Password</router-link>
