@@ -428,6 +428,7 @@ export default {
     display: flex;
     align-items: center;
     justify-content: center;
+    flex-shrink: 0;
 }
 
 .p-multiselect-label-container {
@@ -439,8 +440,9 @@ export default {
 .p-multiselect-label  {
     display: block;
     white-space: nowrap;
-    text-overflow: ellipsis;
     cursor: pointer;
+    overflow: hidden;
+    text-overflow: ellipsis;
 }
 
 .p-multiselect-label-empty {
