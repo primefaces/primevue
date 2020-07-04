@@ -2996,6 +2996,9 @@
 .p-fileupload .p-fileupload-row > div {
   padding: 1rem 1rem;
 }
+.p-fileupload.p-fileupload-advanced .p-message {
+  margin-top: 0;
+}
 
 .p-fileupload-choose:not(.p-disabled):hover {
   background: rgba(206, 147, 216, 0.92);
