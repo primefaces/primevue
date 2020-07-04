@@ -41,7 +41,7 @@
         &:focus {
             outline: 0 none;
             transition: box-shadow .2s;
-            box-shadow: 0 0 0 0.2em $focusBorderColor;
+            box-shadow: 0 0 0 0.2rem $focusBorderColor;
         }
     }
 
@@ -77,13 +77,13 @@
                 color: var(--text-color);
                 min-width: 120px;
                 font-size: 16px;
-                display: inline-block;
+                display: block;
                 text-align: center;
                 user-select: none;
                 line-height: 68px;
-                cursor: pointer;
                 border-bottom: 2px solid transparent;
-                transition: border-bottom-color .3s;
+                transition: border-bottom-color .2s;
+                cursor: pointer;
 
                 &:hover, &:focus {
                     border-bottom-color: var(--primary-color);
@@ -128,7 +128,6 @@
                             text-transform: uppercase;
                 
                             &:first-child {
-                                border-top: 0 none;
                                 padding-top: 1rem;
                             }
                         }
@@ -138,30 +137,27 @@
                         text-decoration: none;
                         color: var(--text-color);
                         padding: .5rem;
-                        display: block;
+                        display: flex;
+                        align-items: center;
                         user-select: none;
                         border-radius: 3px;
                         cursor: pointer;
 
                         &:hover {
                             background-color: var(--surface-c);
-                            cursor: pointer;
                         }
 
                         span {
                             margin-left: .5rem;
-                            vertical-align: middle;
                         }
 
                         i {
-                            vertical-align: middle;
+                            font-size: 18px;
                             color: var(--text-color-secondary);
-                            vertical-align: middle;
                         }
 
                         img {
                             width: 32px;
-                            vertical-align: middle;
                             margin-right: .5rem;
                         }
                     }

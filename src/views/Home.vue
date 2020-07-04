@@ -14,7 +14,7 @@
 
         <div class="features">
             <h4>Features</h4>
-            <p class="features-tagline">Congratulations! <span role="img" aria-label="celebrate">🎉</span> Your quest to find the UI library for Vue.js is now complete.</p>
+            <p class="features-tagline">Congratulations! <span role="img" aria-label="celebrate" class="p-mx-2">🎉</span> Your quest to find the UI library for Vue.js is now complete.</p>
 
             <div class="p-grid">
                 <div class="p-col-12 p-md-4">

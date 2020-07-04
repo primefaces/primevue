@@ -57,7 +57,7 @@
                         <li><a @click="changeTheme($event, 'nova-accent')"><img src="demo/images/themes/nova-accent.png" alt="Nova Accent" /><span>Nova Accent</span></a></li>
                         <li><a @click="changeTheme($event, 'nova-vue')"><img src="demo/images/themes/nova-vue.png" alt="Nova Vue" /><span>Nova Vue</span></a></li>
                         <li><a @click="changeTheme($event, 'luna-amber', true)"><img src="demo/images/themes/luna-amber.png" alt="Luna Amber" /><span>Luna Amber</span></a></li>
-                        <li><a @click="changeTheme($event, 'luna-blue', true)"><img src="demo/images/themes/una-blue.png" alt="Luna Blue" /><span>Luna Blue</span></a></li>
+                        <li><a @click="changeTheme($event, 'luna-blue', true)"><img src="demo/images/themes/luna-blue.png" alt="Luna Blue" /><span>Luna Blue</span></a></li>
                         <li><a @click="changeTheme($event, 'luna-green', true)"><img src="demo/images/themes/luna-green.png" alt="Luna Green" /><span>Luna Green</span></a></li>
                         <li><a @click="changeTheme($event, 'luna-pink', true)"><img src="demo/images/themes/luna-pink.png" alt="Luna Pink" /><span>Luna Pink</span></a></li>
                         <li><a @click="changeTheme($event, 'rhea')"><img src="demo/images/themes/rhea.png" alt="Rhea" /><span>Rhea</span></a></li>
