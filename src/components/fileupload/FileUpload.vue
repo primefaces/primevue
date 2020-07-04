@@ -2,12 +2,12 @@
     <div class="p-fileupload p-fileupload-advanced p-component" v-if="isAdvanced">
         <div class="p-fileupload-buttonbar">
             <span :class="advancedChooseButtonClass" @click="choose" @keydown.enter="choose" @focus="onFocus" @blur="onBlur" v-ripple tabindex="0" >
-                <input ref="fileInput" type="file" @change="onFileSelect" :multiple="multiple" :accept="accept" :disabled="disabled" />
+                <input ref="fileInput" type="file" @change="onFileSelect" :multiple="multiple" :accept="accept" :disabled="chooseDisabled" />
                 <span class="p-button-icon p-button-icon-left pi pi-fw pi-plus"></span>
                 <span class="p-button-label">{{chooseLabel}}</span>
             </span>
-            <FileUploadButton :label="uploadLabel" icon="pi pi-upload" @click="upload" :disabled="disabled || !hasFiles" />
-            <FileUploadButton :label="cancelLabel" icon="pi pi-times" @click="clear" :disabled="disabled || !hasFiles" />
+            <FileUploadButton :label="uploadLabel" icon="pi pi-upload" @click="upload" :disabled="uploadDisabled" />
+            <FileUploadButton :label="cancelLabel" icon="pi pi-times" @click="clear" :disabled="cancelDisabled" />
         </div>
         <div ref="content" class="p-fileupload-content" @dragenter="onDragEnter" @dragover="onDragOver" @dragleave="onDragLeave" @drop="onDrop">
             <FileUploadProgressBar :value="progress" v-if="hasFiles" />
@@ -84,6 +84,14 @@ export default {
             type: String,
             default: '{0}: Invalid file size, file size should be smaller than {1}.'
         },
+        fileLimit: {
+            type: Number,
+            default: null
+        },
+        invalidFileLimitMessage: {
+            type: String,
+            default: 'Maximum number of files exceeded, limit is {0} at most.'
+        },
         withCredentials: {
             type: Boolean,
             default: false
@@ -103,9 +111,14 @@ export default {
         cancelLabel: {
             type: String,
             default: 'Cancel'
+        },
+        customUpload: {
+            type: Boolean,
+            default: false
         }
     },
     duplicateIEEvent: false,
+    uploadedFileCount: 0,
     data() {
         return {
             files: null,
@@ -137,7 +150,11 @@ export default {
 
             this.$emit('select', {originalEvent: event, files: files});
 
-            if (this.auto && this.hasFiles) {
+            if (this.fileLimit) {
+                this.checkFileLimit();
+            }
+
+            if (this.auto && this.hasFiles && !this.isFileLimitExceeded()) {
                 this.upload();
             }
 
@@ -152,60 +169,73 @@ export default {
             this.$refs.fileInput.click();
         },
         upload() {
-            let xhr = new XMLHttpRequest();
-            let formData = new FormData();
+            if (this.customUpload) {
+                if (this.fileLimit) {
+                    this.uploadedFileCount += this.files.length;
+                }
 
-            this.$emit('before-upload', {
-                'xhr': xhr,
-                'formData': formData
-            });
-
-            for (let file of this.files) {
-                formData.append(this.name, file, file.name);
+                this.$emit('uploader', {files: this.files});
             }
+            else {
+                let xhr = new XMLHttpRequest();
+                let formData = new FormData();
 
-            xhr.upload.addEventListener('progress', (event) => {
-                if (event.lengthComputable) {
-                    this.progress = Math.round((event.loaded * 100) / event.total);
-                }
-
-                this.$emit('progress', {
-                    originalEvent: event,
-                    progress: this.progress
+                this.$emit('before-upload', {
+                    'xhr': xhr,
+                    'formData': formData
                 });
-            });
 
-            xhr.onreadystatechange = () => {
-                if (xhr.readyState === 4) {
-                    this.progress = 0;
-
-                    if (xhr.status >= 200 && xhr.status < 300) {
-                        this.$emit('upload', {
-                            xhr: xhr,
-                            files: this.files
-                        });
-                    }
-                    else {
-                        this.$emit('error', {
-                            xhr: xhr,
-                            files: this.files
-                        });
-                    }
-
-                    this.clear();
+                for (let file of this.files) {
+                    formData.append(this.name, file, file.name);
                 }
-            };
 
-            xhr.open('POST', this.url, true);
+                xhr.upload.addEventListener('progress', (event) => {
+                    if (event.lengthComputable) {
+                        this.progress = Math.round((event.loaded * 100) / event.total);
+                    }
 
-            this.$emit('before-send', {
-                'xhr': xhr,
-                'formData': formData
-            });
+                    this.$emit('progress', {
+                        originalEvent: event,
+                        progress: this.progress
+                    });
+                });
 
-            xhr.withCredentials = this.withCredentials;
+                xhr.onreadystatechange = () => {
+                    if (xhr.readyState === 4) {
+                        this.progress = 0;
 
-            xhr.send(formData);
+                        if (xhr.status >= 200 && xhr.status < 300) {
+                            if (this.fileLimit) {
+                                this.uploadedFileCount += this.files.length;
+                            }
+
+                            this.$emit('upload', {
+                                xhr: xhr,
+                                files: this.files
+                            });
+                        }
+                        else {
+                            this.$emit('error', {
+                                xhr: xhr,
+                                files: this.files
+                            });
+                        }
+
+                        this.clear();
+                    }
+                };
+
+                xhr.open('POST', this.url, true);
+
+                this.$emit('before-send', {
+                    'xhr': xhr,
+                    'formData': formData
+                });
+
+                xhr.withCredentials = this.withCredentials;
+
+                xhr.send(formData);
+            }
         },
         clear() {
             this.files = null;
@@ -308,6 +338,22 @@ export default {
             i = Math.floor(Math.log(bytes) / Math.log(k));
 
             return parseFloat((bytes / Math.pow(k, i)).toFixed(dm)) + ' ' + sizes[i];
+        },
+        isFileLimitExceeded() {
+            if (this.fileLimit && this.fileLimit <= this.files.length + this.uploadedFileCount && this.focused) {
+                this.focused = false;
+            }
+
+            return this.fileLimit && this.fileLimit < this.files.length + this.uploadedFileCount;
+        },
+        checkFileLimit() {
+            if (this.isFileLimitExceeded()) {
+                this.msgs.push({
+                    severity: 'error',
+                    summary: this.invalidFileLimitMessageSummary.replace('{0}', this.fileLimit.toString()),
+                    detail: this.invalidFileLimitMessageDetail.replace('{0}', this.fileLimit.toString())
+                });
+            }
         }
     },
     computed: {
@@ -342,6 +388,15 @@ export default {
         },
         hasFiles() {
             return this.files && this.files.length > 0;
+        },
+        chooseDisabled() {
+            return this.disabled || (this.fileLimit && this.fileLimit <= this.files.length + this.uploadedFileCount);
+        },
+        uploadDisabled() {
+            return this.disabled || !this.hasFiles;
+        },
+        cancelDisabled() {
+            return this.disabled || !this.hasFiles;
         }
     },
     components: {

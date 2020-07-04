@@ -40,21 +40,36 @@ import FileUpload from 'primevue/fileupload';
 &lt;FileUpload mode="basic" name="demo[]" url="./upload" accept="image/*" /&gt;
 </CodeHighlight>
 
-				<h5>File Size</h5>
-				<p>Maximium file size can be restricted using <i>maxFileSize</i> property defined in bytes.</p>
+				<h5>File Size and File Linit</h5>
+				<p>Maximium file size can be restricted using <i>maxFileSize</i> property defined in bytes. Similarly <i>fileLimit</i> is available to restrict the number of files to be uploaded.</p>
 <CodeHighlight>
-&lt;FileUpload name="demo[]" url="./upload" :maxFileSize="1000000" /&gt;
+&lt;FileUpload name="demo[]" url="./upload" :maxFileSize="1000000" :fileLimit="3" /&gt;
 </CodeHighlight>
 
-				<p>In order to customize the default messages use <i>invalidFileSizeMessage</i> option. In messages, {0} placeholder refers to the filename and in detail message, the file size.</p>
+				<p>In order to customize the default messages use <i>invalidFileSizeMessage</i> and <i>invalidFileLimitMessage</i> options where &#123;0&#125; placeholder refers to the filename and &#123;1&#125; the file size.</p>
 				<ul>
 					<li>
-						invalidFileSizeMessage: '{0}: Invalid file size, file size should be smaller than {1}.'
+						invalidFileSizeMessage: '&#123;0&#125;: Invalid file size, file size should be smaller than &#123;1&#125;.'
+					</li>
+                    <li>
+						invalidFileLimitMessage: 'Maximum number of files exceeded, limit is &#123;0&#125; at most.'
 					</li>
 				</ul>
 
 				<h5>Request Customization</h5>
 				<p>XHR request to upload the files can be customized using the before-upload callback that passes the xhr instance and FormData object as event parameters.</p>
+
+                <h5>Custom Upload</h5>
+				<p>Uploading implementation can be overridden by enabling <i>customMode</i> property and defining a custom upload handler event.</p>
+<CodeHighlight>
+&lt;FileUpload name="demo[]" :customUpload="true" @uploader="myUploader" /&gt;
+</CodeHighlight>
+
+<CodeHighlight lang="javascript">
+myUploader(event) {
+    //event.files == files to upload
+}
+</CodeHighlight>
 
                 <h5>Empty Template</h5>
                 <p>When there is no file selected, you may use the empty slot to display content.</p>
@@ -130,7 +145,19 @@ import FileUpload from 'primevue/fileupload';
                                 <td>invalidFileSizeMessage</td>
                                 <td>string</td>
                                 <td>"&#123;0&#125;: Invalid file size, file size should be smaller than &#123;1&#125;."</td>
-                                <td>Summary message of the invalid fize size.</td>
+                                <td>Message of the invalid fize size.</td>
+                            </tr>
+                            <tr>
+                                <td>invalidFileLimitMessage</td>
+                                <td>string</td>
+                                <td>Maximum number of files exceeded, limit is &#123;0&#125; at most.</td>
+                                <td>Message to display when number of files to be uploaded exceeeds the limit.</td>
+                            </tr>
+                            <tr>
+                                <td>fileLimit</td>
+                                <td>number</td>
+                                <td>null</td>
+                                <td>Maximum number of files that can be uploaded.</td>
                             </tr>
                             <tr>
                                 <td>withCredentials</td>
@@ -161,6 +188,12 @@ import FileUpload from 'primevue/fileupload';
                                 <td>string</td>
                                 <td>Cancel</td>
                                 <td>Label of the cancel button.</td>
+                            </tr>
+                            <tr>
+                                <td>customUpload</td>
+                                <td>boolean</td>
+                                <td>false</td>
+                                <td>Whether to use the default upload or a manual implementation defined in uploadHandler callback.</td>
                             </tr>
 						</tbody>
 					</table>
@@ -219,6 +252,11 @@ import FileUpload from 'primevue/fileupload';
 							<td>event.originalEvent: Original browser event. <br />
 								event.progress: Calculated progress value.</td>
 							<td>Callback to invoke when files are selected.</td>
+						</tr>
+                        <tr>
+							<td>uploader</td>
+							<td>event.files: List of selected files.</td>
+							<td>Callback to invoke to implement a custom upload.</td>
 						</tr>
 						</tbody>
 					</table>
