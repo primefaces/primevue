@@ -5,8 +5,8 @@
                 <img alt="Gold Sponsor" src="../assets/images/home/vue-gold.png" />
                 <span>Vue.js Gold Sponsor</span>
             </span>
-            <h1>The Ultimate UI Component Library</h1>
-            <h2>for Vue</h2>
+            <div class="introduction-title">The Ultimate UI Component Library</div>
+            <div class="introduction-subtitle">for Vue</div>
 
             <router-link to="/setup" class="action-button">GET STARTED</router-link>
             <img alt="devices" class="introduction-devices" src="../assets/images/home/intro-devices.png" />
@@ -14,14 +14,14 @@
 
         <div class="features">
             <h4>Features</h4>
-            <p class="features-tagline">Congratulations! <span role="img" aria-label="celebrate" class="p-mx-2">🎉</span> Your quest to find the UI library for Vue.js is now complete.</p>
+            <p>Congratulations! <span role="img" aria-label="celebrate" class="p-mx-2">🎉</span> Your quest to find the UI library for Vue.js is now complete.</p>
 
             <div class="p-grid">
                 <div class="p-col-12 p-md-4">
                     <div class="feature-card">
                         <img alt="components" src="../assets/images/home/vue-components.png" />
                         <div class="feature-card-detail">
-                            <span class="feature-name">60+ COMPONENTS</span>
+                            <div class="feature-name">60+ COMPONENTS</div>
                             <p>The ultimate set of UI Components to assist you with 60+ impressive Vue Components.</p>
                         </div>
                     </div>
@@ -30,7 +30,7 @@
                     <div class="feature-card">
                         <img alt="opensource" src="../assets/images/home/vue-opensource.png" />
                         <div class="feature-card-detail">
-                            <span class="feature-name">OPEN SOURCE</span>
+                            <div class="feature-name">OPEN SOURCE</div>
                             <p>The complete UI Suite is free to based on the MIT license and the source code is available at GitHub.</p>
                         </div>
                     </div>
@@ -39,8 +39,8 @@
                     <div class="feature-card">
                         <img alt="themes" src="../assets/images/home/vue-themes.png" />
                         <div class="feature-card-detail">
-                            <span class="feature-name">THEMES</span>
-                            <p>Build on a design-agnostic infrastructure, choose from a vast amount of themes such as material, bootstrap, custom or develop your own.</p>
+                            <div class="feature-name">THEMES</div>
+                            <p>Build on a design-agnostic api, choose from a vast amount of themes such as material, bootstrap, custom or develop your own.</p>
                         </div>
                     </div>
                 </div>
@@ -48,7 +48,7 @@
                     <div class="feature-card">
                         <img alt="templates" src="../assets/images/home/vue-templates.png" />
                         <div class="feature-card-detail">
-                            <span class="feature-name">TEMPLATES</span>
+                            <div class="feature-name">TEMPLATES</div>
                             <p>Fascinating Vue-CLI application templates designed by professional designers and crafted by Vue Experts.</p>
                         </div>
                     </div>
@@ -57,7 +57,7 @@
                     <div class="feature-card">
                         <img alt="accesibility" src="../assets/images/home/vue-accesibility.png" />
                         <div class="feature-card-detail">
-                            <span class="feature-name">ACCESSIBILITY</span>
+                            <div class="feature-name">ACCESSIBILITY</div>
                             <p>UI Components for everyone with full support for Web Content Accessibility Guidelines (WCAG).</p>
                         </div>
                     </div>
@@ -66,7 +66,7 @@
                     <div class="feature-card">
                         <img alt="pro" src="../assets/images/home/vue-pro.png" />
                         <div class="feature-card-detail">
-                            <span class="feature-name">PRO SUPPORT</span>
+                            <div class="feature-name">PRO SUPPORT</div>
                             <p>Exceptional support service featuring response within 1 business day and option to request enhancements and new features for the library.</p>
                         </div>
                     </div>
@@ -75,7 +75,7 @@
                     <div class="feature-card">
                         <img alt="productivity" src="../assets/images/home/vue-productivity.png" />
                         <div class="feature-card-detail">
-                            <span class="feature-name">PRODUCTIVITY</span>
+                            <div class="feature-name">PRODUCTIVITY</div>
                             <p>Boost your productivity by achieving more in less time and accomplish amazing results.</p>
                         </div>
                     </div>
@@ -84,7 +84,7 @@
                     <div class="feature-card">
                         <img alt="community" src="../assets/images/home/vue-community.png" />
                         <div class="feature-card-detail">
-                            <span class="feature-name">COMMUNITY</span>
+                            <div class="feature-name">COMMUNITY</div>
                             <p>Connect with the other open source community members, collaborate and have a voice in the project roadmap.</p>
                         </div>
                     </div>
@@ -93,7 +93,7 @@
                     <div class="feature-card">
                         <img alt="mobile" src="../assets/images/home/vue-mobile.png" />
                         <div class="feature-card-detail">
-                            <span class="feature-name">MOBILE</span>
+                            <div class="feature-name">MOBILE</div>
                             <p>First class support for responsive design led by touch optimized elements.</p>
                         </div>
                     </div>
@@ -180,14 +180,15 @@
             </div>
         </div>
         <div class="primevue-designer">
-            <h4>PrimeVue Designer API</h4>
+            <h4>Theme Designer</h4>
+            <p>PrimeVue is a design-agnostic library and the theming system is based on the Theme Designer, the official tool to create themes for the components. Designer includes a SASS enabled infrastructure that has over 500 customizable variables, a live editor
+                and a Vue-CLI application to test your themes with ease along with built-in theme samples that are embedded in PrimeVue Core.</p>
+
+            <p>Visit <a href="https://www.primefaces.org/designer/primevue">Designer API HomePage</a> to learn more about the features and interact with the live editor.</p>
             <div class="p-grid">
                 <div class="p-col-12">
                     <img alt="PrimeVue Designer" src="../assets/images/primevue-designer.jpg" />
-                    <p>PrimeVue is a design-agnostic library and the theming system is based on the Theme Designer, the official tool to create themes for the components. Designer includes a SASS enabled infrastructure that has over 500 customizable variables, a live editor
-                            and a Vue-CLI application to test your themes with ease along with built-in theme samples that are embedded in PrimeVue Core.</p>
-
-                    <p>Visit <a href="https://www.primefaces.org/designer/primevue">Designer API HomePage</a> to learn more about the features and interact with the live editor.</p>
+                    
                 </div>
             </div>
         </div>

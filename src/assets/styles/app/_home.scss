@@ -1,14 +1,12 @@
 /* Home Component*/
 .home {
-    p {
-        line-height: 1.5;
-        margin-top: 0;
-        margin-bottom: 2rem;
-    }
-
     a {
         color: var(--primary-color);
         font-weight: 500;
+    }
+    
+    p {
+        margin-bottom: 2rem;
     }
 
     .introduction {
@@ -39,13 +37,13 @@
             }
         }
 
-        h1 {
+        .introduction-title {
             font-weight: 400;
             margin-bottom: 5px;
             font-size: 24px;
         }
 
-        h2 {
+        .introduction-subtitle {
             font-weight: 700;
             margin-bottom: 40px;
             margin-top: 0;
@@ -63,7 +61,7 @@
     .features {
         background-color: var(--surface-b);
         text-align: center;
-        padding: 30px;
+        padding: 2rem;
 
         .p-col-12 {
             padding: 1rem;
@@ -76,15 +74,12 @@
             border-radius: 3px;
 
             .feature-card-detail {
-                padding: 0 16px 16px 16px;
+                padding: 0 2rem 2rem 2rem;
             }
-        }
 
-        h3 {
-             font-size:24px;
-             color: var(--text-color);
-             padding: 30px 0 12px 0;
-             margin: 0;
+            p {
+                margin-bottom: 0;
+            }
         }
 
         img {
@@ -92,22 +87,9 @@
         }
 
         .feature-name {
-            display: block;
-            font-weight: bold;
+            font-weight: 700;
             font-size: 16px;
-            margin-top: 1rem;
-        }
-
-        p {
-            margin-top: 1rem;
-            margin-bottom: 2rem;
-
-            &.features-tagline {
-                color: var(--text-color);
-                margin-bottom: 0;
-                margin-top: -5px;
-                margin-bottom: 2rem;
-            }
+            margin: 1rem 0;
         }
     }
 
@@ -115,13 +97,7 @@
         background-color: #34495E;
         color: #EAECEE;
         text-align: center;
-        padding: 30px;
-
-        h3 {
-            font-size: 24px;
-            margin-top: 0;
-            margin-bottom: 12px;
-        }
+        padding: 2rem;
 
         img {
             height: 30px;
@@ -129,73 +105,42 @@
         }
 
         .p-grid > div {
-            padding: 2em .5rem;
-        }
-
-        p {
-            margin-bottom: 30px;
-
-            > a {
-                font-weight: bold;
-            }
+            padding: 2rem .5rem;
         }
     }
 
     .templates {
         background-color: var(--surface-b);
         text-align: center;
-        padding: 30px;
+        padding: 2rem;
         border-bottom: 1px solid var(--surface-d);
-
-        h3 {
-             font-size:24px;
-             color: var(--text-color);
-             margin-top: 0;
-             margin-bottom: 12px;
-        }
 
         img {
             width: 100%;
             box-shadow: 0 2px 1px -1px rgba(0,0,0,.2), 0 1px 1px 0 rgba(0,0,0,.14), 0 1px 3px 0 rgba(0,0,0,.12);
-        }
-
-        a {
-            font-weight: bold;
         }
     }
 
     .primevue-designer {
         background-color: var(--surface-a);
         color: var(--text-color);
-        padding: 30px;
-    
-        h3 {
-            margin: 10px 0 20px 0;
-            display: block;
-            text-align: center;
-            font-size: 24px;
-        }
-        
+        padding: 2rem;
+      
         img {
             width: 100%;
             margin-bottom: 30px;
+        }
+
+        h4 {
+            text-align: center;
         }
     }
 
     .prosupport {
         border-bottom: 1px solid var(--surface-d);
         background-color: var(--surface-b);
-        padding: 30px;
+        padding: 2rem;
         color: var(--text-color);
-
-        p {
-            line-height: 22px;
-            margin-bottom: 1rem;
-        }
-
-        h3 {
-            font-size: 24px;
-        }
 
         img {
             margin-top: 10px;

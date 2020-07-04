@@ -7,17 +7,15 @@
     width: 550px;
     z-index: 998;
     height: 100%;
-    transition: transform .3s;
-    transform: translate3d(550px,0,0);
+    transition: transform .4s cubic-bezier(.05,.74,.2,.99);
+    transform: translateX(100%);
     backface-visibility: hidden;
 
     &.layout-config-active {
-        transform: translate3d(0,0,0);
+        transform: translateX(0);
 
         .layout-config-content-wrapper {
             .layout-config-button {
-                opacity: .9;
-
                 i {
                     transform: rotate(0deg);
                 }
@@ -114,7 +112,7 @@
         i {
             color:  var(--primary-color-text);
             line-height: inherit;
-            font-size: 16px;
+            font-size: 14px;
         }
 
         &:hover {

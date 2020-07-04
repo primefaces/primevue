@@ -107,8 +107,7 @@
                             border: 0 none;
                             border-bottom: 1px solid transparent;
                             margin-bottom: -1px;
-                            transition: background-color .2s;
-                            font-weight: 500;
+                            transition: border-bottom-color .2s;
 
                             &:focus {
                                 outline: 0 none;
@@ -125,12 +124,13 @@
                         &.p-highlight a,
                         &.p-highlight:hover a {
                             background: transparent;
-                            color: $linkColor;
+                            color: var(--primary-color);
                             border-bottom: 1px solid $linkColor;
                         }
 
                         &:not(.p-highlight):not(.p-disabled):hover a {
-                            border-bottom: 1px solid  var(--primary-color);
+                            color: var(--text-color);
+                            border-bottom: 1px solid var(--primary-color);
                         }
                     }
 

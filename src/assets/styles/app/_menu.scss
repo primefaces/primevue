@@ -9,6 +9,7 @@
     border-right: 1px solid var(--surface-d);
     user-select: none;
     padding: 1rem;
+    transition: transform .4s cubic-bezier(.05,.74,.2,.99);
 
     .layout-menu {
         .menu-category {
