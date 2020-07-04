@@ -1,5 +1,5 @@
 <template>
-    <div class="p-fileupload p-component" v-if="isAdvanced">
+    <div class="p-fileupload p-fileupload-advanced p-component" v-if="isAdvanced">
         <div class="p-fileupload-buttonbar">
             <span :class="advancedChooseButtonClass" @click="choose" @keydown.enter="choose" @focus="onFocus" @blur="onBlur" v-ripple tabindex="0" >
                 <input ref="fileInput" type="file" @change="onFileSelect" :multiple="multiple" :accept="accept" :disabled="disabled" />
@@ -29,11 +29,14 @@
             </div>
         </div>
     </div>
-    <span :class="basicChooseButtonClass" @mouseup="onBasicUploaderClick" v-else-if="isBasic" @keydown.enter="choose" @focus="onFocus" @blur="onBlur" v-ripple tabindex="0" >
-        <span :class="basicChooseButtonIconClass"></span>
-        <span class="p-button-label">{{basicChooseButtonLabel}}</span>
-        <input ref="fileInput" type="file" :accept="accept" :disabled="disabled" @change="onFileSelect" @focus="onFocus" @blur="onBlur" v-if="!hasFiles" />
-    </span>
+    <div class="p-fileupload p-fileupload-advanced p-component" v-else-if="isBasic">
+        <FileUploadMessage v-for="msg of messages" severity="error" :key="msg">{{msg}}</FileUploadMessage>
+        <span :class="basicChooseButtonClass" @mouseup="onBasicUploaderClick"  @keydown.enter="choose" @focus="onFocus" @blur="onBlur" v-ripple tabindex="0" >
+            <span :class="basicChooseButtonIconClass"></span>
+            <span class="p-button-label">{{basicChooseButtonLabel}}</span>
+            <input ref="fileInput" type="file" :accept="accept" :disabled="disabled" @change="onFileSelect" @focus="onFocus" @blur="onBlur" v-if="!hasFiles" />
+        </span>
+    </div>
 </template>
 
 <script>
