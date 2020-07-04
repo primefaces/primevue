@@ -1,8 +1,8 @@
 <template>
     <div class="p-tabview p-component">
         <ul ref="nav" class="p-tabview-nav" role="tablist">
-            <li role="presentation" v-for="(tab, i) of tabs" :key="tab.header || i" :class="[{'p-highlight': (tab.d_active), 'p-disabled': tab.disabled}]">
-                <a role="tab" class="p-tabview-nav-link" @click="onTabClick($event, tab)" @keydown="onTabKeydown($event, tab)" :tabindex="tab.disabled ? null : '0'" :aria-selected="tab.d_active" v-ripple>
+            <li role="presentation" v-for="(tab, i) of tabs" :key="tab.header || i" :class="[{'p-highlight': (tab.c_visible), 'p-disabled': tab.disabled, 'p-hidden': tab.hidden}]">
+                <a role="tab" class="p-tabview-nav-link" @click="onTabClick($event, tab)" @keydown="onTabKeydown($event, tab)" :tabindex="tab.disabled ? null : '0'" :aria-selected="tab.c_visible" v-ripple>
                     <span class="p-tabview-title" v-if="tab.header">{{tab.header}}</span>
                     <TabPanelHeaderSlot :tab="tab" v-if="tab.$scopedSlots.header" />
                 </a>
@@ -40,17 +40,20 @@ export default {
     },
     mounted() {
         this.d_children = this.$children;
+        for (let i = 0; i < this.tabs.length; i++) {
+            this.tabs[i].$on("activated", this.onTabActivatedByProp);
+        }
     },
     updated() {
-        let activeTab = this.tabs[this.findActiveTabIndex()];
-        if (!activeTab && this.tabs.length) {
-            this.tabs[0].d_active = true;
+        let visibleTabs = this.findVisibleTabs();
+        if (visibleTabs.length == 0 && this.tabs.length) {
+            this.activateTab(this.tabs[0]);
         }
         this.updateInkBar();
     },
     methods: {
         onTabClick(event, tab) {
-            if (!tab.disabled && !tab.d_active) {
+            if (!tab.disabled && !tab.c_visible) {
                 this.activateTab(tab);
 
                 this.$emit('tab-change', {
@@ -58,6 +61,9 @@ export default {
                     tab: tab
                 });
             }
+        },
+        onTabActivatedByProp(tab) {
+            this.activateTab(tab);
         },
         activateTab(tab) {
             for (let i = 0; i < this.tabs.length; i++) {
@@ -73,15 +79,15 @@ export default {
                 this.onTabClick(event, tab);
             }
         },
-        findActiveTabIndex() {
+        findVisibleTabs() {
+            var visibleTabs = new Array();
             for (let i = 0; i < this.tabs.length; i++) {
                 let tab = this.tabs[i];
-                if (tab.d_active) {
-                    return i;
+                if (tab.c_visible) {
+                    visibleTabs[visibleTabs.length] = tab;
                 }
             }
-
-            return null;
+            return visibleTabs;
         },
         updateInkBar() {
             let tabHeader = this.$refs.nav.children[this.findActiveTabIndex()];
@@ -122,6 +128,10 @@ export default {
     overflow: hidden;
 }
 
+.p-tabview-nav li.p-hidden {
+    display: none;
+}
+
 .p-tabview-ink-bar {
     display: none;
     z-index: 1;
@@ -135,3 +145,4 @@ export default {
     line-height: 1;
 }
 </style>
+

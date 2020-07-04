@@ -1,5 +1,5 @@
 <template>
-    <div class="p-tabview-panel" role="tabpanel" v-show="d_active">
+    <div class="p-tabview-panel" role="tabpanel" v-show="c_visible">
         <slot></slot>
     </div>
 </template>
@@ -10,16 +10,23 @@ export default {
     props: {
         header: null,
         active: Boolean,
-        disabled: Boolean
+        disabled: Boolean,
+        hidden: Boolean
     },
     data() {
         return {
-            d_active: this.active
+            d_active: false
+        };
+    },
+    computed: {
+        c_visible: function() {
+            return this.d_active && !this.hidden;
         }
     },
     watch: {
         active(newValue) {
             this.d_active = newValue;
+            if (newValue) this.$emit("activated", this);
         }
     }
 }
