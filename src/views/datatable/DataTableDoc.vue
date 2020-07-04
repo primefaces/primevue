@@ -560,7 +560,7 @@ data() {
         &lt;template #filter&gt;
             &lt;Dropdown v-model="filters['brand']" :options="brands" optionLabel="brand" optionValue="value" placeholder="Select a Brand" class="p-column-filter"&gt;
                 &lt;template #option="slotProps"&gt;
-                    &lt;div class="p-clearfix p-dropdown-car-option"&gt;
+                    &lt;div class="p-dropdown-car-option"&gt;
                         &lt;img :alt="slotProps.option.brand" :src="'demo/images/car/' + slotProps.option.brand + '.png'" /&gt;
                         &lt;span&gt;&#123;&#123;slotProps.option.brand&#125;&#125;&lt;/span&gt;
                     &lt;/div&gt;
@@ -1420,7 +1420,7 @@ export default {
         &lt;template #filter&gt;
             &lt;Dropdown v-model="filters['brand']" :options="brands" optionLabel="brand" optionValue="value" placeholder="Select a Brand" class="p-column-filter" :showClear="true"&gt;
                 &lt;template #option="slotProps"&gt;
-                    &lt;div class="p-clearfix p-dropdown-car-option"&gt;
+                    &lt;div class="p-dropdown-car-option"&gt;
                         &lt;img :alt="slotProps.option.brand" :src="'demo/images/car/' + slotProps.option.brand + '.png'" /&gt;
                         &lt;span&gt;&#123;&#123;slotProps.option.brand&#125;&#125;&lt;/span&gt;
                     &lt;/div&gt;

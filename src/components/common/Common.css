@@ -56,12 +56,6 @@
     top: -9999px;
 }
 
-.p-clearfix:after {
-    content: "";
-    display: table;
-    clear: both;
-}
-
 @-webkit-keyframes p-fadein {
   0%   { opacity: 0; }
   100% { opacity: 1; }

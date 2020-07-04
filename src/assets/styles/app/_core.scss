@@ -18,6 +18,52 @@ body {
     -moz-osx-font-smoothing: grayscale;
 }
 
+a {
+    text-decoration: none;
+}
+
+h1, h2, h3, h4, h5, h6 {
+    margin: 1.5rem 0 1rem 0;
+    font-family: inherit;
+    font-weight: 600;
+    line-height: 1.2;
+    color: inherit;
+
+    &:first-child {
+        margin-top: 0;
+    }
+}
+
+h1 {
+    font-size: 2.5rem;
+}
+
+h2 {
+    font-size: 2rem;
+}
+
+h3 {
+    font-size: 1.75rem;
+}
+
+h4 {
+    font-size: 1.5rem;
+}
+
+h5 {
+    font-size: 1.25rem;
+}
+
+h6 {
+    font-size: 1rem;
+}
+
+p {
+    line-height: 1.5;
+    margin: 0 0 1rem 0;
+}
+
+
 input[type="number"] {
     -moz-appearance: textfield;
 
@@ -28,29 +74,6 @@ input[type="number"] {
     }
 }
 
-a {
-    text-decoration: none;
-}
-
-.clearfix {
-    display: inline-block;
-
-    &:after {
-        content: ".";
-        display: block;
-        height: 0;
-        clear: both;
-        visibility: hidden;
-    }
-}
-
-* html .clearfix {
-    height: 1%;
-}
-
-.clearfix {
-    display: block;
-}
 
 @keyframes pulse {
     0% {
@@ -122,45 +145,4 @@ pre[class*="language-"] {
         background-color: #708EA5;
         color: #ffffff;
     }
-}
-
-h1, h2, h3, h4, h5, h6 {
-    margin: 1.5rem 0 1rem 0;
-    font-family: inherit;
-    font-weight: 600;
-    line-height: 1.2;
-    color: inherit;
-
-    &:first-child {
-        margin-top: 0;
-    }
-}
-
-h1 {
-    font-size: 2.5rem;
-}
-
-h2 {
-    font-size: 2rem;
-}
-
-h3 {
-    font-size: 1.75rem;
-}
-
-h4 {
-    font-size: 1.5rem;
-}
-
-h5 {
-    font-size: 1.25rem;
-}
-
-h6 {
-    font-size: 1rem;
-}
-
-p {
-    line-height: 1.5;
-    margin: 0 0 1rem 0;
 }
