@@ -83,11 +83,10 @@ export default {
         this.children = this.$children;
     },
     updated() {
-        if (this.d_editing) {
-            let focusable = DomHandler.findSingle(this.$el, 'input');
-            if (focusable) {
-                focusable.focus();
-            }
+        let query = this.editMode === 'row' ? '[autofocus]' : 'input';
+        let focusable = DomHandler.findSingle(this.$el, query);
+        if (focusable && document.activeElement != focusable) {
+            focusable.focus();
         }
     },
     methods: {

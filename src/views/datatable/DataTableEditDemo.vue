@@ -9,7 +9,7 @@
 			</div>
 		</div>
 
-		<div class="content-section implementation">
+		<div class="content-section implementation p-fluid">
             <div class="card">
                 <h5>Basic Cell Editing</h5>
                 <p>Simple editors with v-model.</p>
@@ -62,7 +62,7 @@
                     @row-edit-init="onRowEditInit" @row-edit-cancel="onRowEditCancel">
                     <Column field="code" header="Code">
                         <template #editor="slotProps">
-                            <InputText v-model="slotProps.data[slotProps.column.field]" />
+                            <InputText v-model="slotProps.data[slotProps.column.field]" autofocus />
                         </template>
                     </Column>
                     <Column field="name" header="Name">
@@ -149,7 +149,7 @@
         @row-edit-init="onRowEditInit" @row-edit-cancel="onRowEditCancel"&gt;
         &lt;Column field="code" header="Code"&gt;
             &lt;template #editor="slotProps"&gt;
-                &lt;InputText v-model="slotProps.data[slotProps.column.field]" /&gt;
+                &lt;InputText v-model="slotProps.data[slotProps.column.field]" autofocus /&gt;
             &lt;/template&gt;
         &lt;/Column&gt;
         &lt;Column field="name" header="Name"&gt;

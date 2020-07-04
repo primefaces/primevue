@@ -1116,7 +1116,7 @@ export default {
     &lt;Column field="vin" header="Vin"&gt;&lt;/Column&gt;
     &lt;Column field="year" header="Year"&gt;
         &lt;template #editor="slotProps"&gt;
-            &lt;InputText v-model="slotProps.data[slotProps.column.field]" /&gt;
+            &lt;InputText v-model="slotProps.data[slotProps.column.field]" autofocus/&gt;
         &lt;/template&gt;
     &lt;/Column&gt;
     &lt;Column field="brand" header="Brand"&gt;

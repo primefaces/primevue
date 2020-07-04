@@ -1963,11 +1963,6 @@ export default {
     display: none;
 }
 
-/* Edit */
-.p-datatable .p-datatable-tbody > tr > td.p-cell-editing .p-component {
-    width: 100%;
-}
-
 .p-datatable .p-row-editor-init,
 .p-datatable .p-row-editor-save,
 .p-datatable .p-row-editor-cancel {
