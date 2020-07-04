@@ -109,13 +109,13 @@ export default {}
         margin-right: 1rem;
         user-select: none;
         padding: 0;
-    
+
         &.primary-box {
             background-color: var(--primary-color);
             padding: 0;
             color: var(--primary-color-text);
         }
-    
+
         &.styled-box-green {
             .p-ink {
                 background: rgba(#4baf50, 0.3);
