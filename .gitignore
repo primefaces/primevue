@@ -30,4 +30,5 @@ yarn-error.log*
 *.njsproj
 *.sln
 *.sw*
-
+.vs
+*.sqlite
