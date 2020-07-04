@@ -15,7 +15,7 @@ export default {
     },
     data() {
         return {
-            d_active: false
+            d_active: this.active
         };
     },
     computed: {
