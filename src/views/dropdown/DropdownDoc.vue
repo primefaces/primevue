@@ -230,6 +230,12 @@ data() {
                                 <td>-</td>
                                 <td>Callback to invoke when the overlay is hidden.</td>
                             </tr>
+                            <tr>
+                                <td>filter</td>
+                                <td>event.originalEvent: Original event <br />
+                                    event.value: Filter value </td>
+                                <td>Callback to invoke on filter input.</td>
+                            </tr>
 						</tbody>
 					</table>
 				</div>

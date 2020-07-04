@@ -2,7 +2,7 @@
     <div class="p-listbox p-component">
         <div class="p-listbox-header" v-if="filter">
             <div class="p-listbox-filter-container">
-                <input type="text" class="p-listbox-filter p-inputtext p-component" v-model="filterValue" :placeholder="filterPlaceholder">
+                <input type="text" class="p-listbox-filter p-inputtext p-component" v-model="filterValue" :placeholder="filterPlaceholder" @input="onFilterChange">
                 <span class="p-listbox-filter-icon pi pi-search"></span>
             </div>
         </div>
@@ -216,6 +216,9 @@ export default {
                 return DomHandler.hasClass(prevItem, 'p-disabled') ? this.findPrevItem(prevItem) : prevItem;
             else
                 return null;
+        },
+        onFilterChange(event) {
+            this.$emit('filter', {originalEvent: event, value: event.target.value});
         }
     },
     computed: {

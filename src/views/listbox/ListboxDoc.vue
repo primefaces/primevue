@@ -175,6 +175,12 @@ data() {
                                 <td>value: New value</td>
                                 <td>Callback to invoke on value change.</td>
                             </tr>
+                            <tr>
+                                <td>filter</td>
+                                <td>event.originalEvent: Original event <br />
+                                    event.value: Filter value </td>
+                                <td>Callback to invoke on filter input.</td>
+                            </tr>
 						</tbody>
 					</table>
 				</div>

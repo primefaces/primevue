@@ -23,6 +23,7 @@ export declare class MultiSelect extends Vue {
     $emit(eventName: 'before-leave'): this;
     $emit(eventName: 'show'): this;
     $emit(eventName: 'hide'): this;
+    $emit(eventName: 'filter', e: { originalEvent: Event, value: string }): this;
     $slots: {
         value: VNode[];
         option: VNode[];

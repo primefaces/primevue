@@ -26,7 +26,7 @@
                         </div>
                     </div>
                     <div v-if="filter" class="p-multiselect-filter-container">
-                        <input type="text" v-model="filterValue" class="p-multiselect-filter p-inputtext p-component" :placeholder="filterPlaceholder">
+                        <input type="text" v-model="filterValue" class="p-multiselect-filter p-inputtext p-component" :placeholder="filterPlaceholder" @input="onFilterChange">
                         <span class="p-multiselect-filter-icon pi pi-search"></span>
                     </div>
                     <button class="p-multiselect-close p-link" @click="onCloseClick" type="button" v-ripple>
@@ -339,6 +339,9 @@ export default {
                 else
                     document.getElementById(this.appendTo).removeChild(this.$refs.overlay);
             }
+        },
+        onFilterChange(event) {
+            this.$emit('filter', {originalEvent: event, value: event.target.value});
         }
     },
     computed: {

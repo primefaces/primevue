@@ -17,6 +17,7 @@ export declare class Listbox extends Vue {
     ariaLabelledBy?: string;
     $emit(eventName: 'input', value: any): this;
     $emit(eventName: 'change', e: { originalEvent: Event, value: any }): this;
+    $emit(eventName: 'filter', e: { originalEvent: Event, value: string }): this;
     $slots: {
         option: VNode[];
     }
