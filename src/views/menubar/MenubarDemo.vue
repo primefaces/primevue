@@ -10,6 +10,9 @@
         <div class="content-section implementation">
             <div class="card">
                 <Menubar :model="items">
+                    <template #start>
+                        <img alt="logo" src="../../assets/images/logo.svg" height="40" class="p-mr-2">
+                    </template>
                     <template #end>
                         <InputText placeholder="Search" type="text" />
                     </template>

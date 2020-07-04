@@ -245,6 +245,9 @@ export default {
 <CodeHighlight>
 <template v-pre>
 &lt;Menubar :model="items"&gt;
+    &lt;template #start&gt;
+        &lt;img alt="logo" src="../../assets/images/logo.svg" height="40" class="p-mr-2"&gt;
+    &lt;/template&gt;
     &lt;template #end&gt;
         &lt;InputText placeholder="Search" type="text" /&gt;
         &lt;Button label="Logout" icon="pi pi-power-off" :style="{'margin-left': '0 .5em'}"/&gt;
