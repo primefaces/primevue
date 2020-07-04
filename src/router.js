@@ -290,7 +290,12 @@ export default new Router({
 			path: '/dialog',
 			name: 'dialog',
 			component: () => import('./views/dialog/DialogDemo.vue')
-		},
+        },
+        {
+			path: '/display',
+			name: 'display',
+			component: () => import('./views/display/DisplayDemo.vue')
+        },
 		{
 			path: '/dropdown',
 			name: 'dropdown',
@@ -366,6 +371,16 @@ export default new Router({
 			name: 'listbox',
 			component: () => import('./views/listbox/ListboxDemo.vue')
         },
+        {
+			path: '/flexbox',
+			name: 'flexbox',
+			component: () => import('./views/flexbox/FlexBoxDemo.vue')
+        },
+        {
+			path: '/floatlabel',
+			name: 'floatlabel',
+			component: () => import('./views/floatlabel/FloatLabelDemo.vue')
+		},
         {
 			path: '/megamenu',
 			name: 'megamenu',
@@ -457,6 +472,11 @@ export default new Router({
 			component: () => import('./views/rating/RatingDemo.vue')
         },
         {
+			path: '/ripple',
+			name: 'ripple',
+			component: () => import('./views/ripple/RippleDemo.vue')
+		},
+        {
 			path: '/scrollpanel',
 			name: 'scrollpanel',
 			component: () => import('./views/scrollpanel/ScrollPanelDemo.vue')
@@ -481,26 +501,6 @@ export default new Router({
 			name: 'spacing',
 			component: () => import('./views/spacing/SpacingDemo.vue')
         },
-        {
-			path: '/display',
-			name: 'display',
-			component: () => import('./views/display/DisplayDemo.vue')
-        },
-        {
-			path: '/flexbox',
-			name: 'flexbox',
-			component: () => import('./views/flexbox/FlexBoxDemo.vue')
-        },
-        {
-			path: '/floatlabel',
-			name: 'floatlabel',
-			component: () => import('./views/floatlabel/FloatLabelDemo.vue')
-		},
-        {
-			path: '/text',
-			name: 'text',
-			component: () => import('./views/text/TextDemo.vue')
-		},
 		{
 			path: '/splitbutton',
 			name: 'splitbutton',
@@ -525,11 +525,6 @@ export default new Router({
                 path: '/steps/confirmation',
                 component: () => import('./views/steps/ConfirmationDemo.vue')
             }]
-        },
-		{
-			path: '/textarea',
-			name: 'textarea',
-			component: () => import('./views/textarea/TextareaDemo.vue')
         },
         {
 			path: '/tabmenu',
@@ -559,6 +554,16 @@ export default new Router({
 			path: '/tabview',
 			name: 'tabview',
 			component: () => import('./views/tabview/TabViewDemo.vue')
+        },
+        {
+			path: '/text',
+			name: 'text',
+			component: () => import('./views/text/TextDemo.vue')
+        },
+        {
+			path: '/textarea',
+			name: 'textarea',
+			component: () => import('./views/textarea/TextareaDemo.vue')
         },
         {
 			path: '/terminal',

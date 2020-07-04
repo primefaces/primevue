@@ -52,6 +52,7 @@ import ProgressSpinner from './components/progressspinner/ProgressSpinner';
 import Rating from './components/rating/Rating';
 import RadioButton from './components/radiobutton/RadioButton';
 import Row from './components/row/Row';
+import Ripple from './components/ripple/Ripple';
 import ScrollPanel from './components/scrollpanel/ScrollPanel';
 import SelectButton from './components/selectbutton/SelectButton';
 import Slider from './components/slider/Slider';
@@ -90,6 +91,7 @@ import Vuelidate from 'vuelidate';
 Vue.use(Vuelidate);
 Vue.use(ToastService);
 Vue.directive('tooltip', Tooltip);
+Vue.directive('ripple', Ripple);
 
 Vue.prototype.$appState = Vue.observable({inputStyle: 'outlined', darkTheme: false});
 Vue.prototype.$primevue = Vue.observable({ripple: true});

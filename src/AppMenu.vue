@@ -236,6 +236,7 @@
                 <router-link to="/inplace">Inplace</router-link>
                 <router-link to="/progressbar">ProgressBar</router-link>
                 <router-link to="/progressspinner">ProgressSpinner</router-link>
+                <router-link to="/ripple">Ripple</router-link>
                 <router-link to="/terminal">Terminal</router-link>
             </div>
         </div>

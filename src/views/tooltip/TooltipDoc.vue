@@ -13,7 +13,7 @@ Vue.directive('tooltip', Tooltip);
                 <p>Tooltip can also be configured locally using the directives property of your component.</p>
 <CodeHighlight lang="js">
 directives: {
-    tooltip: Tooltip
+    'tooltip': Tooltip
 }
 </CodeHighlight>
 
