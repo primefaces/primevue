@@ -188,7 +188,7 @@
             <div class="p-grid">
                 <div class="p-col-12">
                     <img alt="PrimeVue Designer" src="../assets/images/primevue-designer.jpg" />
-                    
+
                 </div>
             </div>
         </div>
