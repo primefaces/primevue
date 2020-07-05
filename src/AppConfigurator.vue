@@ -281,6 +281,11 @@
                                 <img alt="Roma" src="./assets/images/layouts/roma-vue.jpg">
                             </a>
                         </div>
+                        <div class="p-col-12 p-md-6">
+                            <a href="https://www.primefaces.org/layouts/prestige-vue">
+                                <img alt="Prestige" src="./assets/images/layouts/prestige-vue.jpg">
+                            </a>
+                        </div>
                     </div>
                 </div>
             </div>
