@@ -11,12 +11,16 @@
 
     .introduction {
         background-color: var(--surface-a);
-        background: url('./assets/images/home/intro-bg.jpg');
+        background-image: url('./assets/images/home/intro-bg.jpg');
         background-repeat: no-repeat;
         background-size: cover;
         padding: 115px 30px 135px 50px;
         color: #455C71;
         position: relative;
+
+        &.introduction-dark {
+            background-blend-mode: color-burn;
+        }
 
         .introduction-promo {
             display: inline-block;

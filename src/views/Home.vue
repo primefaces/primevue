@@ -1,6 +1,6 @@
 <template>
     <div class="home">
-        <div class="introduction">
+        <div :class="introductionClass">
             <span class="introduction-promo">
                 <img alt="Gold Sponsor" src="../assets/images/home/vue-gold.png" />
                 <span>Vue.js Gold Sponsor</span>
@@ -211,7 +211,14 @@
 </template>
 
 <script>
+import EventBus from '@/EventBus';
+
 export default {
+    data() {
+        return {
+            dark: false
+        }
+    },
     mounted() {
         let afId = this.$route.query['af_id'];
         if (afId) {
@@ -221,6 +228,21 @@ export default {
             document.cookie = 'primeaffiliateid=' + afId + ';expires=' + expire.toUTCString() + ';path=/; domain:primefaces.org';
         }
 
+        EventBus.$on('change-theme', event => {
+            if (event.dark)
+                this.dark = true;
+            else
+                this.dark = false;
+        });
+    },
+    beforeDestroy() {
+        EventBus.$off('change-theme');
+    },
+    computed: {
+        introductionClass() {
+            return ['introduction', {'introduction-dark': this.dark}];
+        }
     }
+
 }
 </script>
