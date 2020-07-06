@@ -20,6 +20,11 @@
 
         &.introduction-dark {
             background-image: url('./assets/images/home/intro-bg-d.jpg');
+            color: var(--text-color);
+
+            .introduction-promo {
+                background-image: linear-gradient(90deg, #445C72 0%, transparent 100%);
+            }
         }
 
         .introduction-promo {
@@ -28,7 +33,7 @@
             margin-bottom: 20px;
             padding: 10px 50px 10px 175px;
             font-size: 1.5rem;
-            background-image: linear-gradient(90deg, #445C72 0%, #DBDCDE 100%);
+            background-image: linear-gradient(90deg, #445C72 0%, transparent 100%);
             position: relative;
             color: #ffffff;
             font-weight: 700;
