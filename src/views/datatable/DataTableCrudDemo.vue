@@ -22,7 +22,7 @@
                 </Toolbar>
 
                 <DataTable ref="dt" :value="products" :selection.sync="selectedProducts" dataKey="id"
-                    :paginator="true" :rows="10" :filters="filters" 
+                    :paginator="true" :rows="10" :filters="filters"
                     paginatorTemplate="FirstPageLink PrevPageLink PageLinks NextPageLink LastPageLink CurrentPageReport RowsPerPageDropdown" :rowsPerPageOptions="[5,10,25]"
                     currentPageReportTemplate="Showing {first} to {last} of {totalRecords} products">
                     <template #header>
