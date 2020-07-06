@@ -103,13 +103,13 @@
 &lt;div class="p-d-flex"&gt;
     &lt;div class="p-mr-2 p-order-3"&gt;Item 1&lt;/div&gt;
     &lt;div class="p-mr-2 p-order-1"&gt;Item 2&lt;/div&gt;
-    &lt;div class="p-order-2"&gt;Item 3&lt;/div&gt;
+    &lt;div class="p-mr-2 p-order-2"&gt;Item 3&lt;/div&gt;
 &lt;/div&gt;
 </CodeHighlight>
             <div class="p-d-flex">
                 <div class="p-mr-2 p-order-3">Item 1</div>
                 <div class="p-mr-2 p-order-1">Item 2</div>
-                <div class="p-order-2">Item 3</div>
+                <div class="p-mr-2 p-order-2">Item 3</div>
             </div>
 
             <h6>Responsive</h6>
