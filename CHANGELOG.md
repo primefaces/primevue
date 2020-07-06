@@ -1,5 +1,67 @@
 # Changelog
 
+## [2.0.0](https://github.com/primefaces/primevue/tree/2.0.0) (2020-07-06)
+
+[Full Changelog](https://github.com/primefaces/primevue/compare/2.0.0-rc.3...2.0.0)
+
+## [2.0.0-rc.3](https://github.com/primefaces/primevue/tree/2.0.0-rc.3) (2020-07-04)
+
+[Full Changelog](https://github.com/primefaces/primevue/compare/2.0.0-rc.2...2.0.0-rc.3)
+
+**Implemented New Features and Enhancements:**
+
+- FileLimit for FileUpload [\#361](https://github.com/primefaces/primevue/issues/361)
+- Custom Upload for FileUpload [\#360](https://github.com/primefaces/primevue/issues/360)
+- Filter event for Listbox, Dropdown and MultiSelect [\#359](https://github.com/primefaces/primevue/issues/359)
+- DataView should reset paginator on sort [\#356](https://github.com/primefaces/primevue/issues/356)
+
+**Fixed bugs:**
+
+- Usage of header slot produces JavaScript error when beeing combined with ColumnGroups [\#349](https://github.com/primefaces/primevue/issues/349)
+- Messages are not visible in simple uploader [\#343](https://github.com/primefaces/primevue/issues/343)
+- Accordion breaks input components inside [\#342](https://github.com/primefaces/primevue/issues/342)
+- Picklist 'move-all-to-source' event  argument e.items is empty [\#341](https://github.com/primefaces/primevue/issues/341)
+- datatable filter not work in some firefox [\#325](https://github.com/primefaces/primevue/issues/325)
+- DataTable : \(row\) editing + selection column - focus issues [\#315](https://github.com/primefaces/primevue/issues/315)
+- Datatable scrollable mode doesn't load Loading Template [\#296](https://github.com/primefaces/primevue/issues/296)
+
+## [2.0.0-rc.2](https://github.com/primefaces/primevue/tree/2.0.0-rc.2) (2020-07-02)
+
+[Full Changelog](https://github.com/primefaces/primevue/compare/2.0.0-rc.1...2.0.0-rc.2)
+
+**Implemented New Features and Enhancements:**
+
+- Material Theme [\#363](https://github.com/primefaces/primevue/issues/363)
+- Bootstrap Theme [\#362](https://github.com/primefaces/primevue/issues/362)
+- Improve Galleria animation on FullScreen mode [\#346](https://github.com/primefaces/primevue/issues/346)
+
+**Fixed bugs:**
+
+- Item content in Carousel does not expand according to the wrapper element  [\#348](https://github.com/primefaces/primevue/issues/348)
+- InputNumber prevents min key number [\#337](https://github.com/primefaces/primevue/issues/337)
+
+## [2.0.0-rc.1](https://github.com/primefaces/primevue/tree/2.0.0-rc.1) (2020-05-28)
+
+[Full Changelog](https://github.com/primefaces/primevue/compare/2.0.0-beta.1...2.0.0-rc.1)
+
+**Implemented New Features and Enhancements:**
+
+- Disable virtual keyboard in calendar [\#334](https://github.com/primefaces/primevue/issues/334)
+- Rename dialog titlebar class to dialog header [\#333](https://github.com/primefaces/primevue/issues/333)
+- Flex Scroll height for DataTable [\#328](https://github.com/primefaces/primevue/issues/328)
+- New Component: ScrollPanel [\#322](https://github.com/primefaces/primevue/issues/322)
+- Refactor p-panel-titlebar to p-panel-header [\#321](https://github.com/primefaces/primevue/issues/321)
+- Terminal should scroll to bottom after command [\#319](https://github.com/primefaces/primevue/issues/319)
+- Rename Nova Themes [\#318](https://github.com/primefaces/primevue/issues/318)
+- Datatable coltoggle changes columns order. [\#311](https://github.com/primefaces/primevue/issues/311)
+
+**Fixed bugs:**
+
+- Table loader is not visible in scrollable table [\#332](https://github.com/primefaces/primevue/issues/332)
+- Alignment issue on Galleria with left and right thumbnail position [\#327](https://github.com/primefaces/primevue/issues/327)
+- InputNumber Up Down buttons send form on submit [\#313](https://github.com/primefaces/primevue/issues/313)
+- Slider handle moves on click [\#298](https://github.com/primefaces/primevue/issues/298)
+
 ## [2.0.0-beta.1](https://github.com/primefaces/primevue/tree/2.0.0-beta.1) (2020-05-15)
 
 [Full Changelog](https://github.com/primefaces/primevue/compare/1.3.2...2.0.0-beta.1)
