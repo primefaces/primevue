@@ -240,6 +240,31 @@ data() {
 					</table>
 				</div>
 
+                <h5>Methods</h5>
+				<div class="doc-tablewrapper">
+					<table class="doc-table">
+						<thead>
+                            <tr>
+                                <th>Name</th>
+                                <th>Parameters</th>
+                                <th>Description</th>
+                            </tr>
+						</thead>
+						<tbody>
+                            <tr>
+                                <td>show</td>
+                                <td>-</td>
+                                <td>Shows the overlay.</td>
+                            </tr>
+                            <tr>
+                                <td>Hide</td>
+                                <td>-</td>
+                                <td>Hides the overlay.</td>
+                            </tr>
+						</tbody>
+					</table>
+				</div>
+
 				<h5>Styling</h5>
 				<p>Following is the list of structural style classes, for theming classes visit <router-link to="/theming">theming</router-link> page.</p>
 				<div class="doc-tablewrapper">
