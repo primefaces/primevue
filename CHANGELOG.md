@@ -1,5 +1,23 @@
 # Changelog
 
+## [2.0.0-rc.1](https://github.com/primefaces/primevue/tree/2.0.1) (2020-07-10)
+
+[Full Changelog](https://github.com/primefaces/primevue/compare/2.0.0...2.0.1)
+
+**Implemented New Features and Enhancements:**
+
+- Ability to programmatically show or hide Dropdown/MultiSelect [\#368](https://github.com/primefaces/primevue/issues/368)
+- Ability to add scaling inputs by group [\#373](https://github.com/primefaces/primevue/issues/373)
+- Support for left and right icons for Input [\#379](https://github.com/primefaces/primevue/issues/379)
+
+**Fixed bugs:**
+
+- Datatable with RowGroup and Scroll scrollbar misplaced [\#380](https://github.com/primefaces/primevue/issues/380)
+- InlineMessage typescript declaration is not available at package root [\#366](https://github.com/primefaces/primevue/issues/366)
+- Editor readonly not working due to typo  [\#369](https://github.com/primefaces/primevue/issues/369)
+- Message error with Ripple [\#378](https://github.com/primefaces/primevue/issues/378)
+- Separator problem with Menu [\#377](https://github.com/primefaces/primevue/issues/377)
+
 ## [2.0.0](https://github.com/primefaces/primevue/tree/2.0.0) (2020-07-06)
 
 [Full Changelog](https://github.com/primefaces/primevue/compare/2.0.0-rc.3...2.0.0)
