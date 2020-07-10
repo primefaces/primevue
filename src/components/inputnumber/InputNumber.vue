@@ -631,12 +631,12 @@ export default {
     flex: 0 0 auto;
 }
 
-.p-inputnumber-buttons-stacked .p-inputnumber-button .p-button-label,
-.p-inputnumber-buttons-horizontal .p-inputnumber-button .p-button-label {
+.p-inputnumber-buttons-stacked .p-button.p-inputnumber-button .p-button-label,
+.p-inputnumber-buttons-horizontal .p-button.p-inputnumber-button .p-button-label {
     display: none;
 }
 
-.p-inputnumber-buttons-stacked .p-inputnumber-button-up {
+.p-inputnumber-buttons-stacked .p-button.p-inputnumber-button-up {
     border-top-left-radius: 0;
     border-bottom-left-radius: 0;
     border-bottom-right-radius: 0;
@@ -648,7 +648,7 @@ export default {
     border-bottom-right-radius: 0;
 }
 
-.p-inputnumber-buttons-stacked .p-inputnumber-button-down {
+.p-inputnumber-buttons-stacked .p-button.p-inputnumber-button-down {
     border-top-left-radius: 0;
     border-top-right-radius: 0;
     border-bottom-left-radius: 0;
@@ -660,11 +660,11 @@ export default {
     flex-direction: column;
 }
 
-.p-inputnumber-buttons-stacked .p-inputnumber-button-group .p-inputnumber-button {
+.p-inputnumber-buttons-stacked .p-inputnumber-button-group .p-button.p-inputnumber-button {
     flex: 1 1 auto;
 }
 
-.p-inputnumber-buttons-horizontal .p-inputnumber-button-up {
+.p-inputnumber-buttons-horizontal .p-button.p-inputnumber-button-up {
     order: 3;
     border-top-left-radius: 0;
     border-bottom-left-radius: 0;
@@ -675,7 +675,7 @@ export default {
     border-radius: 0;
 }
 
-.p-inputnumber-buttons-horizontal .p-inputnumber-button-down {
+.p-inputnumber-buttons-horizontal .p-button.p-inputnumber-button-down {
     order: 1;
     border-top-right-radius: 0;
     border-bottom-right-radius: 0;
@@ -685,7 +685,7 @@ export default {
     flex-direction: column;
 }
 
-.p-inputnumber-buttons-vertical .p-inputnumber-button-up.p-button-icon-only {
+.p-inputnumber-buttons-vertical .p-button.p-inputnumber-button-up {
     order: 1;
     border-bottom-left-radius: 0;
     border-bottom-right-radius: 0;
@@ -698,7 +698,7 @@ export default {
     text-align: center;
 }
 
-.p-inputnumber-buttons-vertical .p-inputnumber-button-down.p-button-icon-only {
+.p-inputnumber-buttons-vertical .p-button.p-inputnumber-button-down {
     order: 3;
     border-top-left-radius: 0;
     border-top-right-radius: 0;
