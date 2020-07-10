@@ -39,7 +39,8 @@
             </table>
         </div>
         <div class="p-datatable-scrollable-wrapper" v-else>
-            <DTScrollableView v-if="hasFrozenColumns" :scrollHeight="scrollHeight" :columns="frozenColumns" :frozenWidth="frozenWidth" :frozen="true">
+            <DTScrollableView v-if="hasFrozenColumns" :scrollHeight="scrollHeight" :columns="frozenColumns" :frozenWidth="frozenWidth" :frozen="true"
+                :rowGroupMode="rowGroupMode" :groupRowsBy="groupRowsBy">
                 <template #header>
                     <DTTableHeader :columnGroup="frozenHeaderColumnGroup" :columns="frozenColumns" :rowGroupMode="rowGroupMode"
                         :groupRowsBy="groupRowsBy" :resizableColumns="resizableColumns" :allRowsSelected="allRowsSelected" :empty="empty"
@@ -75,7 +76,8 @@
                 </template>
             </DTScrollableView>
             <DTScrollableView :scrollHeight="scrollHeight" :columns="scrollableColumns" :frozenWidth="frozenWidth" :rows="rows"
-                :virtualScroll="virtualScroll" :virtualRowHeight="virtualRowHeight" :totalRecords="totalRecordsLength" @virtual-scroll="onVirtualScroll">
+                :virtualScroll="virtualScroll" :virtualRowHeight="virtualRowHeight" :totalRecords="totalRecordsLength" @virtual-scroll="onVirtualScroll"
+                :rowGroupMode="rowGroupMode" :groupRowsBy="groupRowsBy">
                 <template #header>
                     <DTTableHeader :columnGroup="headerColumnGroup" :columns="scrollableColumns" :rowGroupMode="rowGroupMode"
                         :groupRowsBy="groupRowsBy" :resizableColumns="resizableColumns" :allRowsSelected="allRowsSelected" :empty="empty"
