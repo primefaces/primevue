@@ -197,7 +197,7 @@ export default {
             if (this.rowGroupMode && this.rowGroupMode === 'subheader') {
                 return this.groupRowsBy !== column.field;
             }
-            
+
             return true;
         }
     },

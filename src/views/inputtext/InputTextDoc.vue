@@ -52,7 +52,7 @@ import InputText from 'primevue/inputtext';
 &lt;InputText type="text" class="p-inputtext-lg"  placeholder="Large" /&gt;
 </CodeHighlight>
 
-                <p>Instead of repeating the scale classes for each input, sizing can also be applied to a group by adding the 
+                <p>Instead of repeating the scale classes for each input, sizing can also be applied to a group by adding the
                     class to a container element so that descendant inputs share the same style easier.</p>
 <CodeHighlight>
 &lt;div class="p-inputtext-sm"&gt;
