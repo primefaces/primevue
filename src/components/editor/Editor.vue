@@ -71,7 +71,7 @@ export default {
             modules: {
                 toolbar: this.$refs.toolbarElement
             },
-            readOnly: this.readOnly,
+            readOnly: this.readonly,
             theme: 'snow',
             formats: this.formats
         });
