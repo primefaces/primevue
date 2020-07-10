@@ -15,6 +15,8 @@
 </template>
 
 <script>
+import Ripple from '../ripple/Ripple';
+
 export default {
     props: {
         severity: {
@@ -59,6 +61,9 @@ export default {
                 'pi-times-circle': this.severity === 'error'
             }];
         }
+    },
+    directives: {
+        'ripple': Ripple
     }
 }
 </script>
