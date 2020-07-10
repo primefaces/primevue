@@ -372,6 +372,6 @@ export default {
         rippleActive() {
             return this.$primevue.ripple;
         }
-    },
+    }
 }
 </script>
