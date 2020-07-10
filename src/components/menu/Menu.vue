@@ -1,15 +1,17 @@
 <template>
     <transition name="p-connected-overlay" @enter="onEnter" @leave="onLeave">
-        <div ref="container" :class="containerClass" v-if="popup ? visible : true">
+        <div ref="container" :class="containerClass" v-if="popup ? overlayVisible : true">
             <ul class="p-menu-list p-reset" role="menu">
                 <template v-for="(item, i) of model">
-                    <template v-if="item.items && item.visible !== false">
+                    <template v-if="item.items && visible(item) && !item.separator">
                         <li class="p-submenu-header" :key="item.label+i" v-if="item.items">{{item.label}}</li>
-                        <Menuitem v-for="(child, j) of item.items" :key="child.label+i+j" :item="child" @click="itemClick" />
+                        <template v-for="(child, j) of item.items">
+                            <Menuitem v-if="visible(child) && !child.separator" :key="child.label + i + j" :item="child" @click="itemClick" />
+                            <li v-else-if="visible(child) && child.separator" class="p-menu-separator" :style="child.style" :key="'separator' + i + j" role="separator"></li>
+                        </template>
                     </template>
-                    <template v-else>
-                        <Menuitem :key="item.label+i" :item="item" @click="itemClick" />
-                    </template>
+                    <li v-else-if="visible(item) && item.separator" class="p-menu-separator" :style="item.style" :key="'separator' + i" role="separator"></li>
+                    <Menuitem v-else :key="item.label+i" :item="item" @click="itemClick" />
                 </template>
             </ul>
         </div>
@@ -45,7 +47,7 @@ export default {
     },
     data() {
         return {
-            visible: false
+            overlayVisible: false
         };
     },
     target: null,
@@ -72,18 +74,18 @@ export default {
             this.hide();
         },
         toggle(event) {
-            if (this.visible)
+            if (this.overlayVisible)
                 this.hide();
             else
                 this.show(event);
         },
         show(event) {
-            this.visible = true;
+            this.overlayVisible = true;
             this.relativeAlign = event.relativeAlign;
             this.target = event.currentTarget;
         },
         hide() {
-            this.visible = false;
+            this.overlayVisible = false;
             this.target = false;
             this.relativeAlign = false;
         },
@@ -111,7 +113,7 @@ export default {
         bindOutsideClickListener() {
             if (!this.outsideClickListener) {
                 this.outsideClickListener = (event) => {
-                    if (this.visible && this.$refs.container && !this.$refs.container.contains(event.target) && !this.isTargetClicked(event)) {
+                    if (this.overlayVisible && this.$refs.container && !this.$refs.container.contains(event.target) && !this.isTargetClicked(event)) {
                         this.hide();
                     }
                 };
@@ -127,7 +129,7 @@ export default {
         bindResizeListener() {
             if (!this.resizeListener) {
                 this.resizeListener = () => {
-                    if (this.visible) {
+                    if (this.overlayVisible) {
                         this.hide();
                     }
                 };
@@ -164,6 +166,9 @@ export default {
             this.unbindResizeListener();
             this.unbindOutsideClickListener();
             this.target = null;
+        },
+        visible(item) {
+            return (typeof item.visible === 'function' ? item.visible() : item.visible !== false);
         }
     },
     computed: {
