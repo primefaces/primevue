@@ -23,8 +23,8 @@ import InputText from 'primevue/inputtext';
 </CodeHighlight>
 
                 <h5>Icons</h5>
-                <p>An icon can be integrated within an input field by wrapping the input and the icon with an element having either <i>p-input-icon-right</i>
-                or <i>p-input-icon-left</i> class depending on the icon location.</p>
+                <p>An icon can be integrated within an input field by wrapping the input and the icon with an element having <i>p-input-icon-right</i>
+                and <i>p-input-icon-left</i> classes depending on the icon location.</p>
 <CodeHighlight>
 &lt;span class="p-input-icon-left"&gt;
     &lt;i class="pi pi-search" /&gt;
@@ -32,8 +32,14 @@ import InputText from 'primevue/inputtext';
 &lt;/span&gt;
 
 &lt;span class="p-input-icon-right"&gt;
-    &lt;i class="pi pi-spin pi-spinner" /&gt;
     &lt;InputText type="text" v-model="value2" /&gt;
+    &lt;i class="pi pi-spin pi-spinner" /&gt;
+&lt;/span&gt;
+
+&lt;span class="p-input-icon-left p-input-icon-right"&gt;
+    &lt;i class="pi pi-search" /&gt;
+    &lt;InputText type="text" v-model="value3" /&gt;
+    &lt;i class="pi pi-spin pi-spinner" /&gt;
 &lt;/span&gt;
 </CodeHighlight>
 

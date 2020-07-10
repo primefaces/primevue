@@ -765,13 +765,13 @@
   padding: 0.53625rem 0.53625rem;
 }
 
-.p-float-label label {
+.p-float-label > label {
   left: 0.429rem;
   color: #666666;
   transition-duration: 0.2s;
 }
 
-.p-input-icon-left > i {
+.p-input-icon-left > i:first-of-type {
   left: 0.429rem;
   color: #848484;
 }
@@ -780,7 +780,7 @@
   padding-left: 1.858rem;
 }
 
-.p-input-icon-right > i {
+.p-input-icon-right > i:last-of-type {
   right: 0.429rem;
   color: #848484;
 }
