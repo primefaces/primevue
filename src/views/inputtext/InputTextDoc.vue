@@ -45,11 +45,21 @@ import InputText from 'primevue/inputtext';
 
                 <h5>Sizes</h5>
                 <p>2 more sizes are available in addition to a regular input, for a smaller input add <i>p-inputtext-sm</i> and for a larger one, use <i>p-inputtext-lg</i>.
-                Note that these classes should be used to change the size of a particular field, for global scaling see the <router-link to="/theming">theming</router-link> page.</p>
+                Note that these classes are mainly be used to change the size of a particular field, for global scaling see the <router-link to="/theming">theming</router-link> page.</p>
 <CodeHighlight>
 &lt;InputText type="text" class="p-inputtext-sm" placeholder="Small" /&gt;
 &lt;InputText type="text" placeholder="Normal" /&gt;
 &lt;InputText type="text" class="p-inputtext-lg"  placeholder="Large" /&gt;
+</CodeHighlight>
+
+                <p>Instead of repeating the scale classes for each input, sizing can also be applied to a group by adding the 
+                    class to a container element so that descendant inputs share the same style easier.</p>
+<CodeHighlight>
+&lt;div class="p-inputtext-sm"&gt;
+    &lt;InputText /&gt;
+    &lt;InputNumber /&gt;
+    &lt;InputMask /&gt;
+&lt;/div&gt;
 </CodeHighlight>
 
                 <h5>Outlined vs Filled</h5>

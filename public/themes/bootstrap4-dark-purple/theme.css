@@ -819,6 +819,16 @@
   background-color: #3f4b5b;
 }
 
+.p-inputtext-sm .p-inputtext {
+  font-size: 0.875rem;
+  padding: 0.4375rem 0.65625rem;
+}
+
+.p-inputtext-lg .p-inputtext {
+  font-size: 1.25rem;
+  padding: 0.625rem 0.9375rem;
+}
+
 .p-listbox {
   background: #2a323d;
   color: rgba(255, 255, 255, 0.87);
