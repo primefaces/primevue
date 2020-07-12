@@ -3,9 +3,9 @@
         <div class="layout-menu">
             <div class="menu-category">General</div>
             <div class="menu-items">
-                <router-link to="/setup">Get Started</router-link>    
-                <a href="https://forum.primefaces.org/viewforum.php?f=110" target="_blank">Community Forum</a> 
-                <a href="https://github.com/primefaces/primevue" target="_blank">Source Code</a></li>
+                <router-link to="/setup">Get Started</router-link>
+                <a href="https://forum.primefaces.org/viewforum.php?f=110" target="_blank">Community Forum</a>
+                <a href="https://github.com/primefaces/primevue" target="_blank">Source Code</a>
                 <router-link to="/support">Support</router-link>
             </div>
 
