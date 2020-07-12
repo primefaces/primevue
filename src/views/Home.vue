@@ -184,7 +184,7 @@
             <p>PrimeVue is a design-agnostic library and the theming system is based on the Theme Designer, the official tool to create themes for the components. Designer includes a SASS enabled infrastructure that has over 500 customizable variables, a live editor
                 and a Vue-CLI application to test your themes with ease along with built-in theme samples that are embedded in PrimeVue Core.</p>
 
-            <p>Visit <a href="https://www.primefaces.org/designer/primevue">Designer API HomePage</a> to learn more about the features and interact with the live editor.</p>
+            <p>Visit <a href="https://www.primefaces.org/designer/primevue">Designer API HomePage</a> to learn more about the features and interact with the <a href="https://www.primefaces.org/designer-vue">live editor</a>.</p>
             <div class="p-grid">
                 <div class="p-col-12">
                     <img alt="PrimeVue Designer" src="../assets/images/primevue-designer.jpg" />

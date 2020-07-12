@@ -18,6 +18,7 @@
                         <li class="topbar-submenu-header">THEMING</li>
                         <li><router-link to="/theming"><i class="pi pi-fw pi-file"/><span>Guide</span></router-link></li>
                         <li><a href="https://www.primefaces.org/designer/primevue"><i class="pi pi-fw pi-palette" /><span>Designer</span></a></li>
+                        <li><a href="https://www.primefaces.org/designer-vue"><i class="pi pi-fw pi-desktop" /><span>Visual Editor</span></a></li>
                         <li><router-link to="/icons"><i class="pi pi-fw pi-info-circle"/><span>Icons</span></router-link></li>
                         <li class="topbar-submenu-header">BOOTSTRAP</li>
                         <li><a @click="changeTheme($event, 'bootstrap4-light-blue')"><img src="demo/images/themes/bootstrap4-light-blue.svg" alt="Blue Light" /><span>Blue Light</span></a></li>

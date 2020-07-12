@@ -3,11 +3,17 @@
         <div class="layout-menu">
             <div class="menu-category">General</div>
             <div class="menu-items">
-                <router-link to="/setup">Get Started</router-link>
-                <router-link to="/theming">Theming</router-link>
-                <a href="https://www.primefaces.org/designer/primevue">Designer</a>
-                <a href="https://www.primefaces.org/designer/api/primevue/2.0.0">Sass API</a>
-                <router-link to="/accessibility">Accessibility</router-link>
+                <router-link to="/setup">Get Started</router-link>    
+                <a href="https://forum.primefaces.org/viewforum.php?f=110" target="_blank">Community Forum</a> 
+                <a href="https://github.com/primefaces/primevue" target="_blank">Source Code</a></li>
+                <router-link to="/support">Support</router-link>
+            </div>
+
+            <div class="menu-category">Theming</div>
+            <div class="menu-items">
+                <a href="https://www.primefaces.org/designer/primevue">Theme Designer</a>
+                <a href="https://www.primefaces.org/designer-vue">Visual Editor</a>
+                <a href="https://www.primefaces.org/designer/api/primevue/2.0.0">SASS API</a>
             </div>
 
             <div class="menu-category">PrimeFlex</div>
@@ -231,6 +237,7 @@
 
             <div class="menu-category">Misc</div>
             <div class="menu-items">
+                <router-link to="/accessibility">Accessibility</router-link>
                 <router-link to="/badge">Badge</router-link>
                 <router-link to="/blockui">BlockUI</router-link>
                 <router-link to="/inplace">Inplace</router-link>
