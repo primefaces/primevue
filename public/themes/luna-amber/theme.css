@@ -465,13 +465,13 @@
 }
 .p-dropdown .p-dropdown-trigger {
   background: transparent;
-  color: #dedede;
+  color: #888888;
   width: 2.357rem;
   border-top-right-radius: 3px;
   border-bottom-right-radius: 3px;
 }
 .p-dropdown .p-dropdown-clear-icon {
-  color: #dedede;
+  color: #888888;
   right: 2.357rem;
 }
 
@@ -496,7 +496,7 @@
 }
 .p-dropdown-panel .p-dropdown-header .p-dropdown-filter-icon {
   right: 0.429rem;
-  color: #dedede;
+  color: #888888;
 }
 .p-dropdown-panel .p-dropdown-items {
   padding: 0;
@@ -849,7 +849,7 @@
 }
 .p-listbox .p-listbox-header .p-listbox-filter-icon {
   right: 0.429rem;
-  color: #dedede;
+  color: #888888;
 }
 .p-listbox .p-listbox-list {
   padding: 0;
@@ -904,7 +904,7 @@
 }
 .p-multiselect .p-multiselect-trigger {
   background: transparent;
-  color: #dedede;
+  color: #888888;
   width: 2.357rem;
   border-top-right-radius: 3px;
   border-bottom-right-radius: 3px;
@@ -931,7 +931,7 @@
 }
 .p-multiselect-panel .p-multiselect-header .p-multiselect-filter-container .p-multiselect-filter-icon {
   right: 0.429rem;
-  color: #dedede;
+  color: #888888;
 }
 .p-multiselect-panel .p-multiselect-header .p-checkbox {
   margin-right: 0.5rem;
@@ -2368,7 +2368,7 @@
 }
 .p-tree .p-tree-filter-container .p-tree-filter-icon {
   right: 0.429rem;
-  color: #dedede;
+  color: #888888;
 }
 .p-tree .p-treenode-children {
   padding: 0 0 0 1rem;
@@ -2861,7 +2861,7 @@
   box-shadow: 0 0 6px 0 rgba(0, 0, 0, 0.16);
 }
 .p-overlaypanel .p-overlaypanel-content {
-  padding: 1rem;
+  padding: 0.571rem 1rem;
 }
 .p-overlaypanel .p-overlaypanel-close {
   background: #FFE082;

@@ -496,7 +496,7 @@
 }
 .p-dropdown-panel .p-dropdown-header .p-dropdown-filter-icon {
   right: 0.429rem;
-  color: #41b883;
+  color: #848484;
 }
 .p-dropdown-panel .p-dropdown-items {
   padding: 0;
@@ -849,7 +849,7 @@
 }
 .p-listbox .p-listbox-header .p-listbox-filter-icon {
   right: 0.429rem;
-  color: #41b883;
+  color: #848484;
 }
 .p-listbox .p-listbox-list {
   padding: 0;
@@ -931,7 +931,7 @@
 }
 .p-multiselect-panel .p-multiselect-header .p-multiselect-filter-container .p-multiselect-filter-icon {
   right: 0.429rem;
-  color: #41b883;
+  color: #848484;
 }
 .p-multiselect-panel .p-multiselect-header .p-checkbox {
   margin-right: 0.5rem;
@@ -2368,7 +2368,7 @@
 }
 .p-tree .p-tree-filter-container .p-tree-filter-icon {
   right: 0.429rem;
-  color: #41b883;
+  color: #848484;
 }
 .p-tree .p-treenode-children {
   padding: 0 0 0 1rem;
@@ -2861,7 +2861,7 @@
   box-shadow: 0 0 6px 0 rgba(0, 0, 0, 0.16);
 }
 .p-overlaypanel .p-overlaypanel-content {
-  padding: 1rem;
+  padding: 0.571rem 1rem;
 }
 .p-overlaypanel .p-overlaypanel-close {
   background: #41b883;
