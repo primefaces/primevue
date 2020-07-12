@@ -1,6 +1,15 @@
 # Changelog
 
-## [2.0.0-rc.1](https://github.com/primefaces/primevue/tree/2.0.1) (2020-07-10)
+## [2.0.2](https://github.com/primefaces/primevue/tree/2.0.2) (2020-07-12)
+
+[Full Changelog](https://github.com/primefaces/primevue/compare/2.0.1...2.0.2)
+
+**Implemented New Features and Enhancements:**
+
+- OverlayPanel padding visual problem [\#382](https://github.com/primefaces/primevue/issues/382)
+- Improved active state for dark themes [\#383](https://github.com/primefaces/primevue/issues/383)
+
+## [2.0.1](https://github.com/primefaces/primevue/tree/2.0.1) (2020-07-10)
 
 [Full Changelog](https://github.com/primefaces/primevue/compare/2.0.0...2.0.1)
 
