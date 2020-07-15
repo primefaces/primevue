@@ -50,7 +50,7 @@ export default {
     },
 	computed: {
 		iconClass() {
-			return ['p-fieldset-toggler  pi ', {
+			return ['p-fieldset-toggler pi ', {
 				'pi-minus': !this.d_collapsed,
 				'pi-plus': this.d_collapsed
 			}]
