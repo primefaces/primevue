@@ -17,11 +17,11 @@
         <transition name="p-connected-overlay" @enter="onOverlayEnter" @leave="onOverlayLeave">
             <div ref="overlay" class="p-multiselect-panel p-component" v-if="overlayVisible">
                 <div class="p-multiselect-header">
-                    <div class="p-checkbox" @click="onToggleAll" role="checkbox" :aria-checked="allSelected">
+                    <div class="p-checkbox p-component" @click="onToggleAll" role="checkbox" :aria-checked="allSelected">
                         <div class="p-hidden-accessible">
                             <input type="checkbox" readonly @focus="onHeaderCheckboxFocus" @blur="onHeaderCheckboxBlur">
                         </div>
-                        <div :class="['p-checkbox-box p-component', {'p-highlight': allSelected, 'p-focus': headerCheckboxFocused}]" role="checkbox" :aria-checked="allSelected">
+                        <div :class="['p-checkbox-box', {'p-highlight': allSelected, 'p-focus': headerCheckboxFocused}]" role="checkbox" :aria-checked="allSelected">
                             <span :class="['p-checkbox-icon', {'pi pi-check': allSelected}]"></span>
                         </div>
                     </div>
@@ -38,7 +38,7 @@
                         <li v-for="(option, i) of visibleOptions" :class="['p-multiselect-item', {'p-highlight': isSelected(option), 'p-disabled': isOptionDisabled(option)}]" role="option" :aria-selected="isSelected(option)"
                             :aria-label="getOptionLabel(option)" :key="getOptionRenderKey(option)" @click="onOptionSelect($event, option)" @keydown="onOptionKeyDown($event, option)" :tabindex="tabindex||'0'" v-ripple>
                             <div class="p-checkbox p-component">
-                                <div :class="['p-checkbox-box p-component', {'p-highlight': isSelected(option)}]">
+                                <div :class="['p-checkbox-box', {'p-highlight': isSelected(option)}]">
                                     <span :class="['p-checkbox-icon', {'pi pi-check': isSelected(option)}]"></span>
                                 </div>
                             </div>
