@@ -1079,10 +1079,10 @@
 .p-rating .p-rating-icon.pi-star {
   color: #64B5F6;
 }
-.p-rating:not(.p-disabled):not(.p-rating-readonly) .p-rating-icon:hover {
+.p-rating:not(.p-disabled):not(.p-readonly) .p-rating-icon:hover {
   color: #64B5F6;
 }
-.p-rating:not(.p-disabled):not(.p-rating-readonly) .p-rating-icon.p-rating-cancel:hover {
+.p-rating:not(.p-disabled):not(.p-readonly) .p-rating-icon.p-rating-cancel:hover {
   color: #F48FB1;
 }
 

@@ -54,7 +54,7 @@ export default {
             return [
                 'p-rating',
                 {
-                    'p-rating-readonly': this.readonly,
+                    'p-readonly': this.readonly,
                     'p-disabled': this.disabled
                 }
             ];

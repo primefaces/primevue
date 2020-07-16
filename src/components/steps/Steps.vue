@@ -70,7 +70,7 @@ export default {
             return this.$route.path;
         },
         containerClass() {
-            return ['p-steps p-component', {'p-steps-readonly': this.readonly}];
+            return ['p-steps p-component', {'p-readonly': this.readonly}];
         }
     }
 }
