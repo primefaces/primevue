@@ -210,8 +210,7 @@ export default {
         },
         getCategoryClass(category) {
             return ['p-menuitem', {
-                'p-menuitem-active': category === this.activeItem,
-                'p-disabled': category.disabled
+                'p-menuitem-active': category === this.activeItem
             }, category.class];
         },
         getCategorySubMenuIcon() {
@@ -303,10 +302,6 @@ export default {
 </script>
 
 <style>
-.p-megamenu .p-grid {
-    flex-wrap: nowrap;
-}
-
 .p-megamenu-root-list {
     margin: 0;
     padding: 0;
