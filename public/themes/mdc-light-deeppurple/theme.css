@@ -729,7 +729,7 @@
 .p-inputswitch.p-inputswitch-checked .p-inputswitch-slider:before {
   transform: translateX(1.5rem);
 }
-.p-inputswitch.p-inputswitch-focus .p-inputswitch-slider {
+.p-inputswitch.p-focus .p-inputswitch-slider {
   outline: 0 none;
   outline-offset: 0;
   box-shadow: none;

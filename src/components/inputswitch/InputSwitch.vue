@@ -47,7 +47,7 @@ export default {
                 {
                     'p-inputswitch-checked': this.value,
 					'p-disabled': this.disabled,
-                    'p-inputswitch-focus': this.focused
+                    'p-focus': this.focused
                 }
             ];
         }
