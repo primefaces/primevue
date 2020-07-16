@@ -33,14 +33,12 @@
                     <Checkbox id="city4" name="city" value="San Francisco" v-model="cities" />
                     <label for="city4">San Francisco</label>
                 </div>
-                <p>Selected Cities : <span style="font-weight: bold">{{cities}}</span></p>
 
                 <h5>Dynamic Values, Preselection, Value Binding and Disabled Option</h5>
                 <div v-for="category of categories" :key="category.key" class="p-field-checkbox">
                     <Checkbox :id="category.key" name="category" :value="category" v-model="selectedCategories" :disabled="category.key === 'R'"/>
                     <label :for="category.key">{{category.name}}</label>
                 </div>
-                <p>Selected Categories: <span style="font-weight: bold">{{this.selectedCategories}}</span></p>
             </div>
         </div>
 
