@@ -252,7 +252,6 @@ export default {
 }
 
 .p-contextmenu-enter-active {
-    -webkit-transition: opacity 250ms;
     transition: opacity 250ms;
 }
 </style>
