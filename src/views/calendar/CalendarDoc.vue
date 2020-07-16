@@ -551,7 +551,7 @@ export default {
 				</a>
 <CodeHighlight>
 <template v-pre>
-&lt;h3&gt;Popup&lt;/h3&gt;
+&lt;h5&gt;Popup&lt;/h5&gt;
 &lt;div class=" p-fluid p-grid p-formgrid"&gt;
     &lt;div class="p-field p-col-12 p-md-4"&gt;
         &lt;label for="basic"&gt;Basic&lt;/label&gt;
@@ -620,7 +620,7 @@ export default {
     &lt;/div&gt;
 &lt;/div&gt;
 
-&lt;h3&gt;Inline&lt;/h3&gt;
+&lt;h5&gt;Inline&lt;/h5&gt;
 &lt;Calendar v-model="date14" :inline="true" :showWeek="true" /&gt;
 </template>
 </CodeHighlight>
