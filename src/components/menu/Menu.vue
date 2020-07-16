@@ -174,7 +174,7 @@ export default {
     computed: {
         containerClass() {
             return ['p-menu p-component', {
-                'p-menu-dynamic p-menu-overlay': this.popup
+                'p-menu-overlay': this.popup
             }]
         }
     },
@@ -185,7 +185,7 @@ export default {
 </script>
 
 <style>
-.p-menu-dynamic {
+.p-menu-overlay {
     position: absolute;
 }
 

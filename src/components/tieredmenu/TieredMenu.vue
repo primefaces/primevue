@@ -146,7 +146,7 @@ export default {
     computed: {
         containerClass() {
             return ['p-tieredmenu p-component', {
-                'p-tieredmenu-dynamic p-menu-overlay': this.popup
+                'p-tieredmenu-overlay': this.popup
             }];
         }
     },
@@ -157,7 +157,7 @@ export default {
 </script>
 
 <style>
-.p-tieredmenu-dynamic {
+.p-tieredmenu-overlay {
     position: absolute;
 }
 

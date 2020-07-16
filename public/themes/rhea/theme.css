@@ -3717,7 +3717,7 @@
   outline-offset: 0;
   box-shadow: inset 0 0 0 0.2rem #e4e9ec;
 }
-.p-tieredmenu.p-menu-overlay {
+.p-tieredmenu.p-tieredmenu-overlay {
   background: #ffffff;
   border: 1px solid #eaeaea;
   box-shadow: 0 0px 6px 0 rgba(0, 0, 0, 0.16);

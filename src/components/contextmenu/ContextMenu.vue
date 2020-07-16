@@ -196,13 +196,6 @@ export default {
             }
         }
     },
-    computed: {
-        containerClass() {
-            return ['p-tieredmenu p-component', {
-                'p-tieredmenu-dynamic p-menu-overlay': this.popup
-            }];
-        }
-    },
     components: {
         'ContextMenuSub': ContextMenuSub
     }
