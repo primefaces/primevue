@@ -1,8 +1,8 @@
 <template>
-    <div :class="containerClass">
-        <div class="p-toast-item" role="alert" aria-live="assertive" aria-atomic="true">
+    <div :class="containerClass" role="alert" aria-live="assertive" aria-atomic="true">
+        <div class="p-toast-message-content">
             <span :class="iconClass"></span>
-            <div class="p-toast-message">
+            <div class="p-toast-message-text">
                 <span class="p-toast-title">{{message.summary}}</span>
                 <div class="p-toast-detail">{{message.detail}}</div>
             </div>
@@ -42,7 +42,7 @@ export default {
     },
     computed: {
         containerClass() {
-            return ['p-toast-item-container p-highlight', {
+            return ['p-toast-message', {
                 'p-toast-message-info': this.message.severity === 'info',
                 'p-toast-message-warn': this.message.severity === 'warn',
                 'p-toast-message-error': this.message.severity === 'error',
@@ -50,7 +50,7 @@ export default {
             }];
         },
         iconClass() {
-            return ['p-toast-image pi', {
+            return ['p-toast-message-icon pi', {
                 'pi-info-circle': this.message.severity === 'info',
                 'pi-exclamation-triangle': this.message.severity === 'warn',
                 'pi-times': this.message.severity === 'error',

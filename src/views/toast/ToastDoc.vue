@@ -124,14 +124,18 @@ this.$toast.add({severity:'success', summary: 'Success Message', detail:'Order s
 				</ul>
 
 				<h5>Position</h5>
-				<p>There are four positions available for the toast container defined by the <i>position</i> property that defaults to "topright". Other
-					valid values are "topleft", "bottomleft" and "bottomright"
+				<p>There are four positions available for the toast container defined by the <i>position</i> property that defaults to "top-right". Other
+					valid values are "top-left", "top-center", "bottom-left", "botton-center", "bottom-right" and "center".
 				</p>
 <CodeHighlight>
 &lt;Toast /&gt;
-&lt;Toast position="topleft" /&gt;
-&lt;Toast position="bottomleft" /&gt;
-&lt;Toast position="bottomright" /&gt;
+&lt;Toast position="top-left" /&gt;
+&lt;Toast position="top-center" /&gt;
+&lt;Toast position="top-right" /&gt;
+&lt;Toast position="center" /&gt;
+&lt;Toast position="bottom-left" /&gt;
+&lt;Toast position="bottom-center" /&gt;
+&lt;Toast position="bottom-right" /&gt;
 </CodeHighlight>
 
                 <h5>Groups</h5>
@@ -176,8 +180,8 @@ this.$toast.removeAllGroups();
                             <tr>
                                 <td>position</td>
                                 <td>string</td>
-                                <td>topright</td>
-                                <td>Position of the toast in viewport, valid values are "topright", "topleft", "bottomleft" and "bottomright".</td>
+                                <td>top-right</td>
+                                <td>Position of the toast in viewport.</td>
                             </tr>
                             <tr>
                                 <td>autoZIndex</td>
@@ -211,28 +215,28 @@ this.$toast.removeAllGroups();
                                 <td>Main container element.</td>
                             </tr>
                             <tr>
-                                <td>p-toast-container</td>
+                                <td>p-toast-message</td>
                                 <td>Container of a message item.</td>
-                            </tr>
-                            <tr>
-                                <td>p-toast-item</td>
-                                <td>Message element.</td>
                             </tr>
                             <tr>
                                 <td>p-toast-icon-close</td>
                                 <td>Close icon of a message.</td>
                             </tr>
                             <tr>
-                                <td>p-toast-image</td>
+                                <td>p-toast-icon</td>
                                 <td>Severity icon.</td>
                             </tr>
                             <tr>
-                                <td>p-toast-message</td>
+                                <td>p-toast-message-content</td>
                                 <td>Container of message texts.</td>
                             </tr>
                             <tr>
                                 <td>p-toast-title</td>
                                 <td>Summary of the message.</td>
+                            </tr>
+                            <tr>
+                                <td>p-toast-title</td>
+                                <td>Detail of the message.</td>
                             </tr>
 						</tbody>
 					</table>

@@ -21,7 +21,7 @@ export default {
         },
         position: {
             type: String,
-            default: 'topright'
+            default: 'top-right'
         },
         autoZIndex: {
             type: Boolean,
@@ -99,33 +99,52 @@ export default {
     width: 25rem;
 }
 
-.p-toast-message {
+.p-toast-message-content {
+    display: flex;
+    align-items: flex-start;
+}
+
+.p-toast-message-text {
     flex: 1 1 auto;
 }
 
-.p-toast-topright {
+.p-toast-top-right {
 	top: 20px;
 	right: 20px;
 }
 
-.p-toast-topleft {
+.p-toast-top-left {
 	top: 20px;
 	left: 20px;
 }
 
-.p-toast-bottomleft {
+.p-toast-bottom-left {
 	bottom: 20px;
 	left: 20px;
 }
 
-.p-toast-bottomright {
+.p-toast-bottom-right {
 	bottom: 20px;
 	right: 20px;
 }
 
-.p-toast-item {
-    display: flex;
-    align-items: flex-start;
+.p-toast-top-center {
+	top: 20px;
+    left: 50%;
+    margin-left: -10em;
+}
+
+.p-toast-bottom-center {
+	bottom: 20px;
+	left: 50%;
+    margin-left: -10em;
+}
+
+.p-toast-center {
+	left: 50%;
+	top: 50%;
+    min-width: 20vw;
+    transform: translate(-50%, -50%);
 }
 
 .p-toast-icon-close {
@@ -152,7 +171,7 @@ export default {
     max-height: 1000px;
 }
 
-.p-toast .p-toast-item-container.p-toast-message-leave-to {
+.p-toast .p-toast-message.p-toast-message-leave-to {
     max-height: 0;
     opacity: 0;
     margin-bottom: 0;
