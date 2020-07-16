@@ -1,7 +1,7 @@
 <template>
     <div :class="containerClass">
         <ul :class="['p-inputtext p-chips-multiple-container', {'p-disabled': $attrs.disabled, 'p-focus': focused}]" @click="onWrapperClick()">
-            <li v-for="(val,i) of value" :key="`${i}_${val}`" class="p-chips-token p-highlight">
+            <li v-for="(val,i) of value" :key="`${i}_${val}`" class="p-chips-token">
                 <slot name="chip" :value="val">
                     <span class="p-chips-token-label">{{val}}</span>
                     <span class="p-chips-token-icon pi pi-times-circle" @click="removeItem($event, i)"></span>
