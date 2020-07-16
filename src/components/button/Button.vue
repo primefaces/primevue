@@ -1,8 +1,10 @@
 <template>
     <button :class="buttonClass" v-on="$listeners" type="button" v-ripple>
-        <span v-if="icon" :class="iconClass"></span>
-        <span class="p-button-label">{{label||'&nbsp;'}}</span>
-        <span class="p-badge" v-if="badge" :class="badgeClass">{{badge}}</span>
+        <slot>
+            <span v-if="icon" :class="iconClass"></span>
+            <span class="p-button-label">{{label||'&nbsp;'}}</span>
+            <span class="p-badge" v-if="badge" :class="badgeClass">{{badge}}</span>
+        </slot>
     </button>
 </template>
 
