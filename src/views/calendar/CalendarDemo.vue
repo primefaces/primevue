@@ -11,7 +11,7 @@
         <div class="content-section implementation">
             <div class="card">
                 <h5>Popup</h5>
-                <div class=" p-fluid p-grid p-formgrid">
+                <div class="p-fluid p-grid p-formgrid">
                     <div class="p-field p-col-12 p-md-4">
                         <label for="basic">Basic</label>
                         <Calendar id="basic" v-model="date1" />
