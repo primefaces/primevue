@@ -2,6 +2,10 @@
     box-sizing: border-box;
 }
 
+.p-hidden {
+    display: none;
+}
+
 .p-hidden-accessible {
     border: 0;
     clip: rect(0 0 0 0);
