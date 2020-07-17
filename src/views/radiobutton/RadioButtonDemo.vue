@@ -27,14 +27,12 @@
                     <RadioButton id="city4" name="city" value="San Francisco" v-model="city" />
                     <label for="city4">San Francisco</label>
                 </div>
-                <p>Selected City: <span style="font-weight: bold">{{this.city}}</span></p>
 
                 <h5>Dynamic Values, Preselection, Value Binding and Disabled Option</h5>
                 <div v-for="category of categories" :key="category.key" class="p-field-radiobutton">
                     <RadioButton :id="category.key" name="category" :value="category" v-model="selectedCategory" :disabled="category.key === 'R'" />
                     <label :for="category.key">{{category.name}}</label>
                 </div>
-                <p>Selected Category: <span style="font-weight: bold">{{this.selectedCategory}}</span></p>
             </div>
         </div>
 
