@@ -174,13 +174,13 @@ import Chips from 'primevue/chips';
 				</a>
 <CodeHighlight>
 <template v-pre>
-&lt;h3&gt;Basic&lt;/h3&gt;
+&lt;h5&gt;Basic&lt;/h5&gt;
 &lt;Chips v-model="value1" /&gt;
 
-&lt;h3&gt;Comma Separator&lt;/h3&gt;
+&lt;h5&gt;Comma Separator&lt;/h5&gt;
 &lt;Chips v-model="value2" separator="," /&gt;
 
-&lt;h3&gt;Template&lt;/h3&gt;
+&lt;h5&gt;Template&lt;/h5&gt;
 &lt;Chips v-model="value3"&gt;
     &lt;template #chip="slotProps"&gt;
         &lt;div&gt;
