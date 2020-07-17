@@ -21,6 +21,13 @@ npm install @fullcalendar/timegrid --save
 npm install @fullcalendar/interaction --save
 </CodeHighlight>
 
+                <p>Include the core style and the styles of the plugins that you use in your application.</p>
+<CodeHighlight>
+import '@fullcalendar/core/main.min.css';
+import '@fullcalendar/daygrid/main.min.css';
+import '@fullcalendar/timegrid/main.min.css';
+</CodeHighlight>
+
 				<p>Events should be an array and defined using the events property.</p>
 <CodeHighlight>
 &lt;FullCalendar :events="events" /&gt;
