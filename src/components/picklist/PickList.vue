@@ -1,5 +1,5 @@
 <template>
-    <div class="p-picklist p-component p-picklist-responsive">
+    <div class="p-picklist p-component">
         <div class="p-picklist-buttons p-picklist-source-controls">
             <PLButton type="button" icon="pi pi-angle-up" @click="moveUp($event, 0)"></PLButton>
             <PLButton type="button" icon="pi pi-angle-double-up" @click="moveTop($event, 0)"></PLButton>
