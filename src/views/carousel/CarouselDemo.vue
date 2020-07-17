@@ -63,7 +63,7 @@
             </div>
 
             <div class="card">
-                <Carousel :value="products" :numVisible="1" :numScroll="1" orientation="vertical" verticalViewPortHeight="325px"
+                <Carousel :value="products" :numVisible="1" :numScroll="1" orientation="vertical" verticalViewPortHeight="352px"
                             style="max-width: 400px; margin-top: 2em">
                     <template #header>
                         <h5>Vertical</h5>
