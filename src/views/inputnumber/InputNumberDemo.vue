@@ -43,8 +43,8 @@
                         <InputNumber id="locale-german" v-model="value7" mode="decimal" locale="de-DE" :minFractionDigits="2"/>
                     </div>
                     <div class="p-field p-col-12 p-md-3">
-                        <label for="locale-japan">Indian Locale</label>
-                        <InputNumber id="locale-japan" v-model="value8" mode="decimal" locale="en-IN" :minFractionDigits="2" />
+                        <label for="locale-indian">Indian Locale</label>
+                        <InputNumber id="locale-indian" v-model="value8" mode="decimal" locale="en-IN" :minFractionDigits="2" />
                     </div>
                 </div>
 
