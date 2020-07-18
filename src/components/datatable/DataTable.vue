@@ -125,7 +125,7 @@
         <div class="p-datatable-footer" v-if="$scopedSlots.footer">
             <slot name="footer"></slot>
         </div>
-        <div ref="resizeHelper" class="p-column-resizer-helper p-highlight" style="display: none"></div>
+        <div ref="resizeHelper" class="p-column-resizer-helper" style="display: none"></div>
         <span ref="reorderIndicatorUp" class="pi pi-arrow-down p-datatable-reorder-indicator-up" style="position: absolute; display: none" v-if="reorderableColumns" />
         <span ref="reorderIndicatorDown" class="pi pi-arrow-up p-datatable-reorder-indicator-down" style="position: absolute; display: none" v-if="reorderableColumns" />
     </div>
