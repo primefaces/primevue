@@ -58,7 +58,8 @@ npm install primeicons --save
                 </div>
             </div>
         </div>
-    </div></template>
+    </div>
+</template>
 
 <script>
 import axios from 'axios';
@@ -71,7 +72,19 @@ export default {
         }
     },
     mounted() {
-        axios.get('demo/data/icons.json').then(res => this.icons = res.data.icons);
+        axios.get('demo/data/icons.json').then(res => {
+            let icons = res.data.icons;
+            icons.sort((icon1, icon2) => {
+                if(icon1.properties.name < icon2.properties.name) 
+                    return -1;
+                else if(icon1.properties.name < icon2.properties.name) 
+                    return 1;
+                else
+                    return 0;
+            });
+
+            this.icons = icons;
+        });
     },
     computed: {
         filteredIcons() {
