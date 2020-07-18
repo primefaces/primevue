@@ -311,6 +311,11 @@ export default {
     visibility: hidden;
 }
 
+.p-treenode-content {
+    display: flex;
+    align-items: center;
+}
+
 .p-tree-filter {
     width: 100%;
 }
