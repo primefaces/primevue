@@ -205,7 +205,11 @@ export default {
             return this.dataKey ? ObjectUtils.resolveFieldData(rowData, this.dataKey): index;
         },
         getRowClass(rowData) {
-            let rowStyleClass = ['p-datatable-row'];
+            let rowStyleClass = [];
+            if (this.selectionMode) {
+                 rowStyleClass.push('p-selectable-row');
+            }
+
             if (this.selection) {
                 rowStyleClass.push({
                     'p-highlight': this.isSelected(rowData)

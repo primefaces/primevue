@@ -768,7 +768,7 @@ export default {
         findNextSelectableRow(row) {
             let nextRow = row.nextElementSibling;
             if (nextRow) {
-                if (DomHandler.hasClass(nextRow, 'p-datatable-row'))
+                if (DomHandler.hasClass(nextRow, 'p-selectable-row'))
                     return nextRow;
                 else
                     return this.findNextSelectableRow(nextRow);
@@ -780,7 +780,7 @@ export default {
         findPrevSelectableRow(row) {
             let prevRow = row.previousElementSibling;
             if (prevRow) {
-                if (DomHandler.hasClass(prevRow, 'p-datatable-row'))
+                if (DomHandler.hasClass(prevRow, 'p-selectable-row'))
                     return prevRow;
                 else
                     return this.findPrevSelectableRow(prevRow);
@@ -1862,7 +1862,7 @@ export default {
     table-layout: auto;
 }
 
-.p-datatable-hoverable-rows .p-datatable-row {
+.p-datatable-hoverable-rows .p-selectable-row {
     cursor: pointer;
 }
 
