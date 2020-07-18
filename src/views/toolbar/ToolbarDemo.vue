@@ -10,15 +10,15 @@
         <div class="content-section implementation">
             <Toolbar>
                 <template slot="left">
-                    <Button label="New" icon="pi pi-plus" style="margin-right: .5em" />
+                    <Button label="New" icon="pi pi-plus" class="p-mr-2" />
                     <Button label="Upload" icon="pi pi-upload" class="p-button-success" />
-                    <i class="pi pi-bars p-toolbar-separator" style="margin-right: .5em" />
+                    <i class="pi pi-bars p-toolbar-separator p-mr-2" />
                     <SplitButton label="Save" icon="pi pi-check" :model="items" class="p-button-warning"></SplitButton>
                 </template>
 
                 <template slot="right">
-                    <Button icon="pi pi-search" style="margin-right: .5em" />
-                    <Button icon="pi pi-calendar" class="p-button-success" style="margin-right: .5em" />
+                    <Button icon="pi pi-search" class="p-mr-2" />
+                    <Button icon="pi pi-calendar" class="p-button-success p-mr-2" />
                     <Button icon="pi pi-times" class="p-button-danger" />
                 </template>
             </Toolbar>
