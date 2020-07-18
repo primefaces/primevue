@@ -1659,7 +1659,7 @@
   background: transparent;
   border-radius: 50%;
   transition: color 0.15s, box-shadow 0.15s;
-  margin: 0 0.5rem;
+  margin: 0.5rem;
 }
 .p-carousel .p-carousel-content .p-carousel-prev:enabled:hover,
 .p-carousel .p-carousel-content .p-carousel-next:enabled:hover {
