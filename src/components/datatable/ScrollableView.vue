@@ -3,7 +3,7 @@
         <div class="p-datatable-scrollable-header" ref="scrollHeader" @scroll="onHeaderScroll">
             <div class="p-datatable-scrollable-header-box" ref="scrollHeaderBox">
                 <table class="p-datatable-scrollable-header-table">
-                    <colgroup class="p-datatable-scrollable-colgroup">
+                    <colgroup>
                         <template v-for="(col,i) of columns">
                             <col v-if="shouldRenderCol(col)" :key="col.columnKey||col.field||i" :style="col.headerStyle" />
                         </template>
@@ -15,7 +15,7 @@
         </div>
         <div class="p-datatable-scrollable-body" ref="scrollBody" @scroll="onBodyScroll" :style="{maxHeight: scrollHeight !== 'flex' ? scrollHeight: null}">
             <table ref="scrollTable" :class="bodyTableClass" :style="bodyTableStyle">
-                <colgroup class="p-datatable-scrollable-colgroup">
+                <colgroup>
                     <template v-for="(col,i) of columns">
                         <col v-if="shouldRenderCol(col)" :key="col.columnKey||col.field||i" :style="col.bodyStyle" />
                     </template>
@@ -23,7 +23,7 @@
                 <slot name="body"></slot>
             </table>
             <table ref="loadingTable" :style="{top:'0', display: 'none'}" class="p-datatable-scrollable-body-table p-datatable-loading-virtual-table p-datatable-virtual-table" v-if="virtualScroll">
-                <colgroup class="p-datatable-scrollable-colgroup">
+                <colgroup>
                     <col v-for="(col,i) of columns" :key="col.columnKey||col.field||i" :style="col.bodyStyle" />
                 </colgroup>
                 <DTTableLoadingBody :columns="columns" :rows="rows" />
@@ -33,7 +33,7 @@
         <div class="p-datatable-scrollable-footer" ref="scrollFooter">
             <div class="p-datatable-scrollable-footer-box" ref="scrollFooterBox">
                 <table class="p-datatable-scrollable-footer-table">
-                    <colgroup class="p-datatable-scrollable-colgroup">
+                    <colgroup>
                         <template v-for="(col,i) of columns">
                             <col v-if="shouldRenderCol(col)" :key="col.columnKey||col.field||i" :style="col.footerStyle" />
                         </template>
