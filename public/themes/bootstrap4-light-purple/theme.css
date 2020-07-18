@@ -1261,6 +1261,17 @@
   color: #883cae;
   border-color: transparent;
 }
+.p-button.p-button-text.p-button-plain {
+  color: #6c757d;
+}
+.p-button.p-button-text.p-button-plain:enabled:hover {
+  background: #e9ecef;
+  color: #6c757d;
+}
+.p-button.p-button-text.p-button-plain:enabled:active {
+  background: #dee2e6;
+  color: #6c757d;
+}
 .p-button:focus {
   outline: 0 none;
   outline-offset: 0;

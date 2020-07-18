@@ -1273,6 +1273,17 @@
   color: #9FA8DA;
   border-color: transparent;
 }
+.p-button.p-button-text.p-button-plain {
+  color: rgba(255, 255, 255, 0.6);
+}
+.p-button.p-button-text.p-button-plain:enabled:hover {
+  background: rgba(255, 255, 255, 0.04);
+  color: rgba(255, 255, 255, 0.6);
+}
+.p-button.p-button-text.p-button-plain:enabled:active {
+  background: rgba(255, 255, 255, 0.16);
+  color: rgba(255, 255, 255, 0.6);
+}
 .p-button:focus {
   outline: 0 none;
   outline-offset: 0;

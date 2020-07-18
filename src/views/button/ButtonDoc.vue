@@ -31,15 +31,6 @@ import Button from 'primevue/button';
 &lt;Button label="Submit" @click="handleClick($event)"/&gt;
 </CodeHighlight>
 
-                <h5>Text Buttons</h5>
-				<p>Text buttons have transparent background and borders, use <i>p-button-text</i> to apply text button styling.</p>
-<CodeHighlight>
-&lt;Button label="Submit" class="p-button-text" /&gt;
-&lt;Button icon="pi pi-check" class="p-button-text" /&gt;
-&lt;Button label="Cancel" icon="pi pi-times" class="p-button-text" /&gt;
-&lt;Button label="Search" icon="pi pi-search" iconPos="right" class="p-button-text" /&gt;
-</CodeHighlight>
-
 				<h5>Severity</h5>
 				<p>Different options are available as severity levels.</p>
 
@@ -60,6 +51,16 @@ import Button from 'primevue/button';
 &lt;Button label="Warning" class="p-button-warning" /&gt;
 &lt;Button label="Warning" class="p-button-help" /&gt;
 &lt;Button label="Danger" class="p-button-danger" /&gt;
+</CodeHighlight>
+
+                <h5>Text Buttons</h5>
+				<p>Text buttons have transparent background and borders, use <i>p-button-text</i> to apply text button styling. In addition when used with <i>.p-button-plain</i>
+                text buttons ignore severity levels and displayed as a regular text.</p>
+<CodeHighlight>
+&lt;Button label="Submit" class="p-button-text" /&gt;
+&lt;Button icon="pi pi-check" class="p-button-text" /&gt;
+&lt;Button label="Cancel" icon="pi pi-times" class="p-button-text" /&gt;
+&lt;Button label="Search" icon="pi pi-search" iconPos="right" class="p-button-text p-button-text" /&gt;
 </CodeHighlight>
 
 				<h5>Raised and Rounded Buttons</h5>
@@ -207,114 +208,117 @@ import Button from 'primevue/button';
 				</a>
 <CodeHighlight>
 <template v-pre>
-&lt;h5&gt;Basic&lt;/h5&gt;
-&lt;Button label="Submit" /&gt;
-&lt;Button label="Submit" disabled="disabled" /&gt;
-&lt;Button label="Link" class="p-button-link" /&gt;
+&gt;h5&lt;Basic&gt;/h5&lt;
+&gt;Button label="Submit" /&lt;
+&gt;Button label="Disabled" disabled="disabled" /&lt;
+&gt;Button label="Link" class="p-button-link" /&lt;
 
-&lt;h5&gt;Icons&lt;/h5&gt;
-&lt;Button icon="pi pi-check" /&gt;
-&lt;Button label="Submit" icon="pi pi-check" /&gt;
-&lt;Button label="Submit" icon="pi pi-check" iconPos="right" /&gt;
+&gt;h5&lt;Icons&gt;/h5&lt;
+&gt;Button icon="pi pi-check" /&lt;
+&gt;Button label="Submit" icon="pi pi-check" /&lt;
+&gt;Button label="Submit" icon="pi pi-check" iconPos="right" /&lt;
 
-&lt;h5&gt;Severities&lt;/h5&gt;
-&lt;Button label="Primary" /&gt;
-&lt;Button label="Secondary" class="p-button-secondary" /&gt;
-&lt;Button label="Success" class="p-button-success" /&gt;
-&lt;Button label="Info" class="p-button-info" /&gt;
-&lt;Button label="Warning" class="p-button-warning" /&gt;
-&lt;Button label="Help" class="p-button-help" /&gt;
-&lt;Button label="Danger" class="p-button-danger" /&gt;
+&gt;h5&lt;Severities&gt;/h5&lt;
+&gt;Button label="Primary" /&lt;
+&gt;Button label="Secondary" class="p-button-secondary" /&lt;
+&gt;Button label="Success" class="p-button-success" /&lt;
+&gt;Button label="Info" class="p-button-info" /&lt;
+&gt;Button label="Warning" class="p-button-warning" /&lt;
+&gt;Button label="Help" class="p-button-help" /&lt;
+&gt;Button label="Danger" class="p-button-danger" /&lt;
 
-&lt;h5&gt;Raised Buttons&lt;/h5&gt;
-&lt;Button label="Primary" class="p-button-raised" /&gt;
-&lt;Button label="Secondary" class="p-button-raised p-button-secondary" /&gt;
-&lt;Button label="Success" class="p-button-raised p-button-success" /&gt;
-&lt;Button label="Info" class="p-button-raised p-button-info" /&gt;
-&lt;Button label="Warning" class="p-button-raised p-button-warning" /&gt;
-&lt;Button label="Help" class="p-button-raised p-button-help" /&gt;
-&lt;Button label="Danger" class="p-button-raised p-button-danger" /&gt;
+&gt;h5&lt;Raised Buttons&gt;/h5&lt;
+&gt;Button label="Primary" class="p-button-raised" /&lt;
+&gt;Button label="Secondary" class="p-button-raised p-button-secondary" /&lt;
+&gt;Button label="Success" class="p-button-raised p-button-success" /&lt;
+&gt;Button label="Info" class="p-button-raised p-button-info" /&lt;
+&gt;Button label="Warning" class="p-button-raised p-button-warning" /&lt;
+&gt;Button label="Help" class="p-button-raised p-button-help" /&lt;
+&gt;Button label="Danger" class="p-button-raised p-button-danger" /&lt;
 
-&lt;h5&gt;Rounded Buttons&lt;/h5&gt;
-&lt;Button label="Primary" class="p-button-rounded" /&gt;
-&lt;Button label="Secondary" class="p-button-rounded p-button-secondary" /&gt;
-&lt;Button label="Success" class="p-button-rounded p-button-success" /&gt;
-&lt;Button label="Info" class="p-button-rounded p-button-info" /&gt;
-&lt;Button label="Warning" class="p-button-rounded p-button-warning" /&gt;
-&lt;Button label="Help" class="p-button-rounded p-button-help" /&gt;
-&lt;Button label="Danger" class="p-button-rounded p-button-danger" /&gt;
+&gt;h5&lt;Rounded Buttons&gt;/h5&lt;
+&gt;Button label="Primary" class="p-button-rounded" /&lt;
+&gt;Button label="Secondary" class="p-button-rounded p-button-secondary" /&lt;
+&gt;Button label="Success" class="p-button-rounded p-button-success" /&lt;
+&gt;Button label="Info" class="p-button-rounded p-button-info" /&lt;
+&gt;Button label="Warning" class="p-button-rounded p-button-warning" /&lt;
+&gt;Button label="Help" class="p-button-rounded p-button-help" /&lt;
+&gt;Button label="Danger" class="p-button-rounded p-button-danger" /&lt;
 
-&lt;h5&gt;Text Buttons&lt;/h5&gt;
-&lt;Button label="Primary" class="p-button-text" /&gt;
-&lt;Button label="Secondary" class="p-button-secondary p-button-text" /&gt;
-&lt;Button label="Success" class="p-button-success p-button-text" /&gt;
-&lt;Button label="Info" class="p-button-info p-button-text" /&gt;
-&lt;Button label="Warning" class="p-button-warning p-button-text" /&gt;
-&lt;Button label="Help" class="p-button-help p-button-text" /&gt;
-&lt;Button label="Danger" class="p-button-danger p-button-text" /&gt;
+&gt;h5&lt;Text Buttons&gt;/h5&lt;
+&gt;Button label="Primary" class="p-button-text" /&lt;
+&gt;Button label="Secondary" class="p-button-secondary p-button-text" /&lt;
+&gt;Button label="Success" class="p-button-success p-button-text" /&lt;
+&gt;Button label="Info" class="p-button-info p-button-text" /&lt;
+&gt;Button label="Warning" class="p-button-warning p-button-text" /&lt;
+&gt;Button label="Help" class="p-button-help p-button-text" /&lt;
+&gt;Button label="Danger" class="p-button-danger p-button-text" /&lt;
+&gt;Button label="Plain" class="p-button-text p-button-plain" /&lt;
 
-&lt;h5&gt;Raised Text Buttons&lt;/h5&gt;
-&lt;Button label="Primary" class="p-button-raised p-button-text" /&gt;
-&lt;Button label="Secondary" class="p-button-raised p-button-secondary p-button-text" /&gt;
-&lt;Button label="Success" class="p-button-raised p-button-success p-button-text" /&gt;
-&lt;Button label="Info" class="p-button-raised p-button-info p-button-text" /&gt;
-&lt;Button label="Warning" class="p-button-raised p-button-warning p-button-text" /&gt;
-&lt;Button label="Help" class="p-button-raised p-button-help p-button-text" /&gt;
-&lt;Button label="Danger" class="p-button-raised p-button-danger p-button-text" /&gt;
+&gt;h5&lt;Raised Text Buttons&gt;/h5&lt;
+&gt;Button label="Primary" class="p-button-raised p-button-text" /&lt;
+&gt;Button label="Secondary" class="p-button-raised p-button-secondary p-button-text" /&lt;
+&gt;Button label="Success" class="p-button-raised p-button-success p-button-text" /&lt;
+&gt;Button label="Info" class="p-button-raised p-button-info p-button-text" /&lt;
+&gt;Button label="Warning" class="p-button-raised p-button-warning p-button-text" /&lt;
+&gt;Button label="Help" class="p-button-raised p-button-help p-button-text" /&lt;
+&gt;Button label="Danger" class="p-button-raised p-button-danger p-button-text" /&lt;
+&gt;Button label="Plain" class="p-button-raised p-button-text p-button-plain" /&lt;
 
-&lt;h5&gt;Outlined Buttons&lt;/h5&gt;
-&lt;Button label="Primary" class="p-button-outlined" /&gt;
-&lt;Button label="Secondary" class="p-button-outlined p-button-secondary" /&gt;
-&lt;Button label="Success" class="p-button-outlined p-button-success" /&gt;
-&lt;Button label="Info" class="p-button-outlined p-button-info" /&gt;
-&lt;Button label="Warning" class="p-button-outlined p-button-warning" /&gt;
-&lt;Button label="Help" class="p-button-outlined p-button-help" /&gt;
-&lt;Button label="Danger" class="p-button-outlined p-button-danger" /&gt;
+&gt;h5&lt;Outlined Buttons&gt;/h5&lt;
+&gt;Button label="Primary" class="p-button-outlined" /&lt;
+&gt;Button label="Secondary" class="p-button-outlined p-button-secondary" /&lt;
+&gt;Button label="Success" class="p-button-outlined p-button-success" /&lt;
+&gt;Button label="Info" class="p-button-outlined p-button-info" /&lt;
+&gt;Button label="Warning" class="p-button-outlined p-button-warning" /&lt;
+&gt;Button label="Help" class="p-button-outlined p-button-help" /&lt;
+&gt;Button label="Danger" class="p-button-outlined p-button-danger" /&lt;
 
-&lt;h5&gt;Rounded Icon Buttons&lt;/h5&gt;
-&lt;Button icon="pi pi-check" class="p-button-rounded" /&gt;
-&lt;Button icon="pi pi-bookmark" class="p-button-rounded p-button-secondary" /&gt;
-&lt;Button icon="pi pi-search" class="p-button-rounded p-button-success" /&gt;
-&lt;Button icon="pi pi-user" class="p-button-rounded p-button-info" /&gt;
-&lt;Button icon="pi pi-bell" class="p-button-rounded p-button-warning" /&gt;
-&lt;Button icon="pi pi-heart" class="p-button-rounded p-button-help" /&gt;
-&lt;Button icon="pi pi-times" class="p-button-rounded p-button-danger" /&gt;
+&gt;h5&lt;Rounded Icon Buttons&gt;/h5&lt;
+&gt;Button icon="pi pi-bookmark" class="p-button-rounded p-button-secondary" /&lt;
+&gt;Button icon="pi pi-search" class="p-button-rounded p-button-success" /&lt;
+&gt;Button icon="pi pi-user" class="p-button-rounded p-button-info" /&lt;
+&gt;Button icon="pi pi-bell" class="p-button-rounded p-button-warning" /&lt;
+&gt;Button icon="pi pi-heart" class="p-button-rounded p-button-help" /&lt;
+&gt;Button icon="pi pi-times" class="p-button-rounded p-button-danger" /&lt;
+&gt;Button icon="pi pi-check" class="p-button-rounded" /&lt;
 
-&lt;h5&gt;Rounded Text Icon Buttons&lt;/h5&gt;
-&lt;Button icon="pi pi-check" class="p-button-rounded p-button-text" /&gt;
-&lt;Button icon="pi pi-bookmark" class="p-button-rounded p-button-secondary p-button-text" /&gt;
-&lt;Button icon="pi pi-search" class="p-button-rounded p-button-success p-button-text" /&gt;
-&lt;Button icon="pi pi-user" class="p-button-rounded p-button-info p-button-text" /&gt;
-&lt;Button icon="pi pi-bell" class="p-button-rounded p-button-warning p-button-text" /&gt;
-&lt;Button icon="pi pi-heart" class="p-button-rounded p-button-help p-button-text" /&gt;
-&lt;Button icon="pi pi-times" class="p-button-rounded p-button-danger p-button-text" /&gt;
+&gt;h5&lt;Rounded Text Icon Buttons&gt;/h5&lt;
+&gt;Button icon="pi pi-check" class="p-button-rounded p-button-text" /&lt;
+&gt;Button icon="pi pi-bookmark" class="p-button-rounded p-button-secondary p-button-text" /&lt;
+&gt;Button icon="pi pi-search" class="p-button-rounded p-button-success p-button-text" /&lt;
+&gt;Button icon="pi pi-user" class="p-button-rounded p-button-info p-button-text" /&lt;
+&gt;Button icon="pi pi-bell" class="p-button-rounded p-button-warning p-button-text" /&lt;
+&gt;Button icon="pi pi-heart" class="p-button-rounded p-button-help p-button-text" /&lt;
+&gt;Button icon="pi pi-times" class="p-button-rounded p-button-danger p-button-text" /&lt;
+&gt;Button icon="pi pi-filter" class="p-button-rounded p-button-text p-button-plain" /&lt;
 
-&lt;h5&gt;Rounded and Outlined Icon Buttons&lt;/h5&gt;
-&lt;Button icon="pi pi-check" class="p-button-rounded p-button-outlined" /&gt;
-&lt;Button icon="pi pi-bookmark" class="p-button-rounded p-button-secondary p-button-outlined" /&gt;
-&lt;Button icon="pi pi-search" class="p-button-rounded p-button-success p-button-outlined" /&gt;
-&lt;Button icon="pi pi-user" class="p-button-rounded p-button-info p-button-outlined" /&gt;
-&lt;Button icon="pi pi-bell" class="p-button-rounded p-button-warning p-button-outlined" /&gt;
-&lt;Button icon="pi pi-heart" class="p-button-rounded p-button-help p-button-outlined" /&gt;
-&lt;Button icon="pi pi-times" class="p-button-rounded p-button-danger p-button-outlined" /&gt;
+&gt;h5&lt;Rounded and Outlined Icon Buttons&gt;/h5&lt;
+&gt;Button icon="pi pi-check" class="p-button-rounded p-button-outlined" /&lt;
+&gt;Button icon="pi pi-bookmark" class="p-button-rounded p-button-secondary p-button-outlined" /&lt;
+&gt;Button icon="pi pi-search" class="p-button-rounded p-button-success p-button-outlined" /&lt;
+&gt;Button icon="pi pi-user" class="p-button-rounded p-button-info p-button-outlined" /&lt;
+&gt;Button icon="pi pi-bell" class="p-button-rounded p-button-warning p-button-outlined" /&lt;
+&gt;Button icon="pi pi-heart" class="p-button-rounded p-button-help p-button-outlined" /&lt;
+&gt;Button icon="pi pi-times" class="p-button-rounded p-button-danger p-button-outlined" /&lt;
 
-&lt;h5&gt;Badges&lt;/h5&gt;
-&lt;Button type="button" label="Emails" badge="8" /&gt;
-&lt;Button type="button" label="Messages" icon="pi pi-users" class="p-button-warning" badge="8" badgeClass="p-badge-danger" /&gt;
+&gt;h5&lt;Badges&gt;/h5&lt;
+&gt;Button type="button" label="Emails" badge="8" /&lt;
+&gt;Button type="button" label="Messages" icon="pi pi-users" class="p-button-warning" badge="8" badgeClass="p-badge-danger" /&lt;
 
-&lt;h5&gt;Button Set&lt;/h5&gt;
-&lt;span class="p-buttonset"&gt;
-    &lt;Button label="Save" icon="pi pi-check" /&gt;
-    &lt;Button label="Delete" icon="pi pi-trash" /&gt;
-    &lt;Button label="Cancel" icon="pi pi-times" /&gt;
-&lt;/span&gt;
+&gt;h5&lt;Button Set&gt;/h5&lt;
+&gt;span class="p-buttonset"&lt;
+    &gt;Button label="Save" icon="pi pi-check" /&lt;
+    &gt;Button label="Delete" icon="pi pi-trash" /&lt;
+    &gt;Button label="Cancel" icon="pi pi-times" /&lt;
+&gt;/span&lt;
 
-&lt;h5&gt;Sizes&lt;/h5&gt;
-&lt;div class="sizes"&gt;
-    &lt;Button label="Small" icon="pi pi-check" class="p-button-sm"  /&gt;
-    &lt;Button label="Normal" icon="pi pi-check" class="p-button"  /&gt;
-    &lt;Button label="Large" icon="pi pi-check" class="p-button-lg" /&gt;
-&lt;/div&gt;
+&gt;h5&lt;Sizes&gt;/h5&lt;
+&gt;div class="sizes"&lt;
+    &gt;Button label="Small" icon="pi pi-check" class="p-button-sm"  /&lt;
+    &gt;Button label="Normal" icon="pi pi-check" class="p-button"  /&lt;
+    &gt;Button label="Large" icon="pi pi-check" class="p-button-lg" /&lt;
+&gt;/div&lt;
 </template>
 </CodeHighlight>
 

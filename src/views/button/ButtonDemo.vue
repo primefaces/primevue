@@ -54,6 +54,7 @@
                 <Button label="Warning" class="p-button-warning p-button-text" />
                 <Button label="Help" class="p-button-help p-button-text" />
                 <Button label="Danger" class="p-button-danger p-button-text" />
+                <Button label="Plain" class="p-button-text p-button-plain" />
 
                 <h5>Raised Text Buttons</h5>
                 <Button label="Primary" class="p-button-raised p-button-text" />
@@ -63,6 +64,7 @@
                 <Button label="Warning" class="p-button-raised p-button-warning p-button-text" />
                 <Button label="Help" class="p-button-raised p-button-help p-button-text" />
                 <Button label="Danger" class="p-button-raised p-button-danger p-button-text" />
+                <Button label="Plain" class="p-button-raised p-button-text p-button-plain" />
 
                 <h5>Outlined Buttons</h5>
                 <Button label="Primary" class="p-button-outlined" />
@@ -74,13 +76,13 @@
                 <Button label="Danger" class="p-button-outlined p-button-danger" />
 
                 <h5>Rounded Icon Buttons</h5>
-                <Button icon="pi pi-check" class="p-button-rounded" />
                 <Button icon="pi pi-bookmark" class="p-button-rounded p-button-secondary" />
                 <Button icon="pi pi-search" class="p-button-rounded p-button-success" />
                 <Button icon="pi pi-user" class="p-button-rounded p-button-info" />
                 <Button icon="pi pi-bell" class="p-button-rounded p-button-warning" />
                 <Button icon="pi pi-heart" class="p-button-rounded p-button-help" />
                 <Button icon="pi pi-times" class="p-button-rounded p-button-danger" />
+                <Button icon="pi pi-check" class="p-button-rounded" />
 
                 <h5>Rounded Text Icon Buttons</h5>
                 <Button icon="pi pi-check" class="p-button-rounded p-button-text" />
@@ -90,6 +92,7 @@
                 <Button icon="pi pi-bell" class="p-button-rounded p-button-warning p-button-text" />
                 <Button icon="pi pi-heart" class="p-button-rounded p-button-help p-button-text" />
                 <Button icon="pi pi-times" class="p-button-rounded p-button-danger p-button-text" />
+                <Button icon="pi pi-filter" class="p-button-rounded p-button-text p-button-plain" />
 
                 <h5>Rounded and Outlined Icon Buttons</h5>
                 <Button icon="pi pi-check" class="p-button-rounded p-button-outlined" />
