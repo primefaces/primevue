@@ -37,18 +37,18 @@
                 </div>
 
                 <h5>Positioned Badge</h5>
-                <span class="p-overlay-badge">
-                    <span class="p-badge">2</span>
+                <span class="p-overlay-badge p-mr-5">
                     <i class="pi pi-bell" style="font-size: 2em"></i>
+                    <span class="p-badge">2</span>
                 </span>
 
                 <span class="p-overlay-badge">
-                    <span class="p-badge p-badge-warning">5</span>
                     <Button type="button" label="New" />
+                    <span class="p-badge p-badge-warning">5</span>
                 </span>
 
                 <h5>Inline Button Badge</h5>
-                <Button type="button" label="Emails" badge="8" />
+                <Button type="button" label="Emails" badge="8" class="p-mr-2" />
                 <Button type="button" label="Messages" icon="pi pi-users" class="p-button-warning" badge="8" badgeClass="p-badge-danger" />
 
                 <h5>Sizes</h5>
@@ -83,20 +83,6 @@ export default {
 .badges {
     .p-badge, .p-tag {
         margin-right: .5rem;
-    }
-}
-
-.p-button {
-    margin-right: .5rem;
-}
-
-.p-overlay-badge {
-    margin-right: 2rem;
-}
-
-/deep/ h1, h2 {
-    .p-badge {
-        vertical-align: middle;
     }
 }
 </style>

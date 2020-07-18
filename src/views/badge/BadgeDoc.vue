@@ -33,13 +33,13 @@
                 <p>A badge can easily be positioned relative to another element when both are wrapped inside an element with <i>p-overlay-badge</i> class.</p>
 <CodeHighlight>
 &lt;span class="p-overlay-badge"&gt;
-    &lt;span class="p-badge"&gt;2&lt;/span&gt;
     &lt;i class="pi pi-bell" style="font-size: 2em"&gt;&lt;/i&gt;
+    &lt;span class="p-badge"&gt;2&lt;/span&gt;
 &lt;/span&gt;
 
 &lt;span class="p-overlay-badge"&gt;
-    &lt;span class="p-badge p-badge-warning"&gt;5&lt;/span&gt;
     &lt;Button type="button" label="New" /&gt;
+    &lt;span class="p-badge p-badge-warning"&gt;5&lt;/span&gt;
 &lt;/span&gt;
 </CodeHighlight>
 
@@ -142,18 +142,18 @@
 &lt;/div&gt;
 
 &lt;h3&gt;Positioned Badge&lt;/h3&gt;
-&lt;span class="p-overlay-badge"&gt;
-    &lt;span class="p-badge"&gt;2&lt;/span&gt;
+&lt;span class="p-overlay-badge p-mr-5"&gt;
     &lt;i class="pi pi-bell" style="font-size: 2em"&gt;&lt;/i&gt;
+    &lt;span class="p-badge"&gt;2&lt;/span&gt;
 &lt;/span&gt;
 
 &lt;span class="p-overlay-badge"&gt;
-    &lt;span class="p-badge p-badge-warning"&gt;5&lt;/span&gt;
     &lt;Button type="button" label="New" /&gt;
+    &lt;span class="p-badge p-badge-warning"&gt;5&lt;/span&gt;
 &lt;/span&gt;
 
 &lt;h3&gt;Inline Button Badge&lt;/h3&gt;
-&lt;Button type="button" label="Emails" badge="8" /&gt;
+&lt;Button type="button" label="Emails" badge="8" class="p-mr-2" /&gt;
 &lt;Button type="button" label="Messages" icon="pi pi-users" class="p-button-warning" badge="8" badgeClass="p-badge-danger" /&gt;
 
 &lt;h3&gt;Sizes&lt;/h3&gt;
