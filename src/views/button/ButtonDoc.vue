@@ -107,6 +107,14 @@ import Button from 'primevue/button';
 &lt;Button label="Large" icon="pi pi-check" class="p-button-lg" /&gt;
 </CodeHighlight>
 
+                <h5>Slot</h5>
+                <p>Custom content can be placed inside the button via the default slot. Note that when slot is used, label, icon and badge properties are not included.</p>
+<CodeHighlight>
+&lt;Button&gt;
+    Custom Content
+&lt;/Button&gt;
+</CodeHighlight>          
+
 				<h5>Properties</h5>
                 <p>Any property such as style and class are passed to the underlying button element. Following are the additional properties to configure the component.</p>
 				<div class="doc-tablewrapper">
