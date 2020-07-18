@@ -154,14 +154,12 @@ export default {
     &lt;RadioButton id="city4" name="city" value="San Francisco" v-model="city" /&gt;
     &lt;label for="city4"&gt;San Francisco&lt;/label&gt;
 &lt;/div&gt;
-&lt;p&gt;Selected City: &lt;span style="font-weight: bold"&gt;{{this.city}}&lt;/span&gt;&lt;/p&gt;
 
 &lt;h5&gt;Dynamic Values, Preselection, Value Binding and Disabled Option&lt;/h5&gt;
 &lt;div v-for="category of categories" :key="category.key" class="p-field-radiobutton"&gt;
     &lt;RadioButton :id="category.key" name="category" :value="category" v-model="selectedCategory" :disabled="category.key === 'R'" /&gt;
     &lt;label :for="category.key"&gt;{{category.name}}&lt;/label&gt;
 &lt;/div&gt;
-&lt;p&gt;Selected Category: &lt;span style="font-weight: bold"&gt;{{this.selectedCategory}}&lt;/span&gt;&lt;/p&gt;
 </template>
 </CodeHighlight>
 
