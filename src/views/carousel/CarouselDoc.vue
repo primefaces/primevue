@@ -320,7 +320,7 @@ data() {
 &lt;/div&gt;
 
 &lt;div class="card"&gt;
-&lt;Carousel :value="products" :numVisible="1" :numScroll="1" orientation="vertical" verticalViewPortHeight="325px"
+&lt;Carousel :value="products" :numVisible="1" :numScroll="1" orientation="vertical" verticalViewPortHeight="352px"
             style="max-width: 400px; margin-top: 2em"&gt;
     &lt;template #header&gt;
         &lt;h5&gt;Vertical&lt;/h5&gt;
