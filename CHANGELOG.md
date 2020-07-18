@@ -1,5 +1,27 @@
 # Changelog
 
+## [2.0.3](https://github.com/primefaces/primevue/tree/2.0.3) (2020-07-18)
+
+[Full Changelog](https://github.com/primefaces/primevue/compare/2.0.2...2.0.3)
+
+**Breaking changes:**
+
+- Improve Toast CSS structure and Add new positions [\#391](https://github.com/primefaces/primevue/issues/391)
+
+**Implemented New Features and Enhancements:**
+
+- Add p-button-plain add-on for text button [\#398](https://github.com/primefaces/primevue/issues/398)
+- Sort the icons alphabetically in the documentation [\#385](https://github.com/primefaces/primevue/issues/385)
+- Button slot [\#388](https://github.com/primefaces/primevue/pull/388)
+- Rename p-datatable-row to p-selectable-row [\#397](https://github.com/primefaces/primevue/issues/397)
+- Cleanup FullCalendar CSS [\#392](https://github.com/primefaces/primevue/issues/392)
+
+**Fixed bugs:**
+
+- Alignment issue on tree [\#395](https://github.com/primefaces/primevue/issues/395)
+- Add type="button" to buttons to avoid form submission [\#394](https://github.com/primefaces/primevue/issues/394)
+- Wrong class name at FileUpload [\#390](https://github.com/primefaces/primevue/issues/390)
+
 ## [2.0.2](https://github.com/primefaces/primevue/tree/2.0.2) (2020-07-12)
 
 [Full Changelog](https://github.com/primefaces/primevue/compare/2.0.1...2.0.2)
