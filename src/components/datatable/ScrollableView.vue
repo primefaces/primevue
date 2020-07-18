@@ -17,14 +17,14 @@
             <table ref="scrollTable" :class="bodyTableClass" :style="bodyTableStyle">
                 <colgroup>
                     <template v-for="(col,i) of columns">
-                        <col v-if="shouldRenderCol(col)" :key="col.columnKey||col.field||i" :style="col.bodyStyle" />
+                        <col v-if="shouldRenderCol(col)" :key="col.columnKey||col.field||i" :style="col.bodyStyle || col.headerStyle" />
                     </template>
                 </colgroup>
                 <slot name="body"></slot>
             </table>
             <table ref="loadingTable" :style="{top:'0', display: 'none'}" class="p-datatable-scrollable-body-table p-datatable-loading-virtual-table p-datatable-virtual-table" v-if="virtualScroll">
                 <colgroup>
-                    <col v-for="(col,i) of columns" :key="col.columnKey||col.field||i" :style="col.bodyStyle" />
+                    <col v-for="(col,i) of columns" :key="col.columnKey||col.field||i" :style="col.bodyStyle || col.headerStyle" />
                 </colgroup>
                 <DTTableLoadingBody :columns="columns" :rows="rows" />
             </table>
@@ -35,7 +35,7 @@
                 <table class="p-datatable-scrollable-footer-table">
                     <colgroup>
                         <template v-for="(col,i) of columns">
-                            <col v-if="shouldRenderCol(col)" :key="col.columnKey||col.field||i" :style="col.footerStyle" />
+                            <col v-if="shouldRenderCol(col)" :key="col.columnKey||col.field||i" :style="col.footerStyle || col.headerStyle" />
                         </template>
                     </colgroup>
                     <slot name="footer"></slot>
