@@ -397,6 +397,10 @@ export default {
                                 <td>p-dataview-content</td>
                                 <td>Container of items.</td>
                             </tr>
+                             <tr>
+                                <td>p-dataview-emptymessage</td>
+                                <td>Empty message element.</td>
+                            </tr>
 						</tbody>
 					</table>
 
