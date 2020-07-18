@@ -2,7 +2,7 @@
     <li :class="containerClass">
         <div :class="contentClass" tabindex="0" role="treeitem" :aria-expanded="expanded"
             @click="onClick" @keydown="onKeyDown" @touchend="onTouchEnd" :style="node.style">
-            <button class="p-tree-toggler p-link" @click="toggle" tabindex="-1" v-ripple>
+            <button type="button" class="p-tree-toggler p-link" @click="toggle" tabindex="-1" v-ripple>
                 <span :class="toggleIcon"></span>
             </button>
             <div class="p-checkbox p-component" v-if="checkboxMode">
