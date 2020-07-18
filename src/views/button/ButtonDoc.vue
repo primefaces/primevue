@@ -114,7 +114,7 @@ import Button from 'primevue/button';
 &lt;Button&gt;
     Custom Content
 &lt;/Button&gt;
-</CodeHighlight>          
+</CodeHighlight>
 
 				<h5>Properties</h5>
                 <p>Any property such as style and class are passed to the underlying button element. Following are the additional properties to configure the component.</p>
