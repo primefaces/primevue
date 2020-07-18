@@ -39,7 +39,7 @@
                     <button class="ql-code-block" type="button"></button>
                 </span>
                 <span class="ql-formats">
-                    <button class="ql-clean"></button>
+                    <button class="ql-clean" type="button"></button>
                 </span>
             </slot>
         </div>

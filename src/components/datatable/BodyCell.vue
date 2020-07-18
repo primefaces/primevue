@@ -10,7 +10,7 @@
             <i :class="['p-datatable-reorderablerow-handle', column.rowReorderIcon]"></i>
         </template>
         <template v-else-if="column.expander">
-            <button class="p-row-toggler p-link" @click="toggleRow" v-ripple>
+            <button class="p-row-toggler p-link" @click="toggleRow" type="button" v-ripple>
                 <span :class="rowTogglerIcon"></span>
             </button>
         </template>

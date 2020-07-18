@@ -1,7 +1,7 @@
 <template>
     <div class="p-galleria-thumbnail-wrapper">
         <div class="p-galleria-thumbnail-container">
-            <button v-if="showThumbnailNavigators" :class="navBackwardClass" @click="navBackward($event)" :disabled="isNavBackwardDisabled()" v-ripple>
+            <button v-if="showThumbnailNavigators" :class="navBackwardClass" @click="navBackward($event)" :disabled="isNavBackwardDisabled()" type="button" v-ripple>
                 <span :class="navBackwardIconClass"></span>
             </button>
             <div class="p-galleria-thumbnail-items-container" :style="{'height': isVertical ? contentHeight : ''}">
@@ -18,7 +18,7 @@
                     </div>
                 </div>
             </div>
-            <button v-if="showThumbnailNavigators" :class="navForwardClass" @click="navForward($event)" :disabled="isNavForwardDisabled()" v-ripple>
+            <button v-if="showThumbnailNavigators" :class="navForwardClass" @click="navForward($event)" :disabled="isNavForwardDisabled()" type="button" v-ripple>
                 <span :class="navForwardIconClass"></span>
             </button>
         </div>
