@@ -1,10 +1,8 @@
 <template>
     <div :class="containerClass">
         <slot></slot>
-        <div class="p-datatable-loading" v-if="loading">
-            <div class="p-datatable-loading-overlay p-component-overlay">
-                <i :class="loadingIconClass"></i>
-            </div>
+        <div class="p-datatable-loading-overlay p-component-overlay" v-if="loading">
+            <i :class="loadingIconClass"></i>
         </div>
         <div class="p-datatable-header" v-if="$scopedSlots.header">
             <slot name="header"></slot>

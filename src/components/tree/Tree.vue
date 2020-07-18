@@ -1,7 +1,7 @@
 <template>
     <div :class="containerClass">
         <template v-if="loading">
-            <div class="p-tree-loading-mask p-component-overlay">
+            <div class="p-tree-loading-overlay p-component-overlay">
                 <i :class="loadingIconClass" />
             </div>
         </template>
@@ -337,7 +337,7 @@ export default {
     min-height: 4rem;
 }
 
-.p-tree .p-tree-loading-mask {
+.p-tree .p-tree-loading-overlay {
     position: absolute;
     z-index: 1;
     display: flex;
