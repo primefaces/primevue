@@ -78,6 +78,7 @@ export default {
     user-select: none;
     overflow: hidden;
     position: relative;
+    text-decoration: none;
 }
 
 .p-fieldset-legend-text {

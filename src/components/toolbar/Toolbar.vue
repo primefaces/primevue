@@ -21,4 +21,10 @@ export default {
     align-items: center;
     justify-content: space-between;
 }
+
+.p-toolbar-group-left,
+.p-toolbar-group-right {
+    display: flex;
+    align-items: center;
+}
 </style>
