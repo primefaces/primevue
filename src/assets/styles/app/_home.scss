@@ -1,8 +1,13 @@
 /* Home Component*/
 .home {
     a {
-        color: var(--primary-color);
-        font-weight: 500;
+        text-decoration: none;
+        color: $linkColor;
+        font-weight: 600;
+
+        &:hover {
+            text-decoration: underline;
+        }
     }
     
     p {

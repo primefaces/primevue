@@ -1,5 +1,5 @@
 <template>
-    <div class="content-section layout-footer">
+    <div class="layout-footer">
         <div class="layout-footer-left">
             <span>PrimeVue 2.0.4 by </span>
             <a href="https://www.primetek.com.tr">PrimeTek</a>

@@ -119,6 +119,7 @@
                 <div class="p-col-6 p-md-2"><img alt="viacom" src="../assets/images/home/viacom.svg"/></div>
             </div>
         </div>
+
         <div class="templates">
             <h4>Premium Application Templates</h4>
             <p>Gorgeous Vue-CLI application templates designed by professional designers and implemented by Vue Experts to help you reach your goals in no time.</p>
@@ -179,6 +180,7 @@
                 </div>
             </div>
         </div>
+        
         <div class="primevue-designer">
             <h4>Theme Designer</h4>
             <p>PrimeVue is a design-agnostic library and the theming system is based on the Theme Designer, the official tool to create themes for the components. Designer includes a SASS enabled infrastructure that has over 500 customizable variables, a live editor
