@@ -66,9 +66,9 @@
         padding: 0;
         height: 100%;
         margin-left: auto;
+        display: flex;
 
         > li {
-            display: inline-block;
             height: 70px;
             line-height: 70px;
 
