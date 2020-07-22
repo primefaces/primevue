@@ -18,6 +18,7 @@
                 <SplitButton label="Save" icon="pi pi-plus" :model="items" class="p-button-success"></SplitButton>
                 <SplitButton label="Save" icon="pi pi-plus" :model="items" class="p-button-info"></SplitButton>
                 <SplitButton label="Save" icon="pi pi-plus" :model="items" class="p-button-warning"></SplitButton>
+                <SplitButton label="Save" icon="pi pi-plus" :model="items" class="p-button-help"></SplitButton>
                 <SplitButton label="Save" icon="pi pi-plus" :model="items" class="p-button-danger"></SplitButton>
             </div>
         </div>
