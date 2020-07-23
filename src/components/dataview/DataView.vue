@@ -18,7 +18,11 @@
 					<slot v-if="$scopedSlots.list && layout === 'list'" name="list" :data="item" :index="index"></slot>
 					<slot v-if="$scopedSlots.grid && layout === 'grid'" name="grid" :data="item" :index="index"></slot>
 				</template>
-				<div v-if="empty" class="p-col-12 p-dataview-emptymessage"><slot name="empty"></slot></div>
+				<div v-if="empty" class="p-col">
+                    <div class="p-dataview-emptymessage">
+                        <slot name="empty"></slot>
+                    </div>
+			    </div>
 			</div>
 		</div>
 		<DVPaginator v-if="paginatorBottom" :rows="d_rows" :first="d_first" :totalRecords="getTotalRecords" :pageLinkSize="pageLinkSize" :template="paginatorTemplate" :rowsPerPageOptions="rowsPerPageOptions"

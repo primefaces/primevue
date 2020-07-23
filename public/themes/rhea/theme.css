@@ -925,6 +925,7 @@
   margin-right: 0.5rem;
 }
 .p-multiselect-panel .p-multiselect-header .p-multiselect-close {
+  margin-left: 0.5rem;
   width: 2rem;
   height: 2rem;
   color: #a6a6a6;
@@ -2042,7 +2043,7 @@
 .p-orderlist .p-orderlist-controls .p-button {
   margin-bottom: 0.5rem;
 }
-.p-orderlist .p-orderlist-caption {
+.p-orderlist .p-orderlist-header {
   background: #7B95A3;
   color: #ffffff;
   border: 1px solid #7B95A3;
@@ -2217,7 +2218,7 @@
 .p-picklist .p-picklist-buttons .p-button {
   margin-bottom: 0.5rem;
 }
-.p-picklist .p-picklist-caption {
+.p-picklist .p-picklist-header {
   background: #7B95A3;
   color: #ffffff;
   border: 1px solid #7B95A3;

@@ -929,6 +929,7 @@
   margin-right: 0.5rem;
 }
 .p-multiselect-panel .p-multiselect-header .p-multiselect-close {
+  margin-left: 0.5rem;
   width: 2rem;
   height: 2rem;
   color: #6c757d;
@@ -2054,7 +2055,7 @@
 .p-orderlist .p-orderlist-controls .p-button {
   margin-bottom: 0.5rem;
 }
-.p-orderlist .p-orderlist-caption {
+.p-orderlist .p-orderlist-header {
   background: #f8f9fa;
   color: #495057;
   border: 1px solid #dee2e6;
@@ -2229,7 +2230,7 @@
 .p-picklist .p-picklist-buttons .p-button {
   margin-bottom: 0.5rem;
 }
-.p-picklist .p-picklist-caption {
+.p-picklist .p-picklist-header {
   background: #f8f9fa;
   color: #495057;
   border: 1px solid #dee2e6;
@@ -2850,13 +2851,13 @@
 .p-dialog .p-dialog-content {
   background: #ffffff;
   color: #495057;
-  padding: 0 1.5rem;
+  padding: 0 1.5rem 2rem 1.5rem;
 }
 .p-dialog .p-dialog-footer {
   border-top: 0 none;
   background: #ffffff;
   color: #495057;
-  padding: 1.5rem;
+  padding: 0 1.5rem 1.5rem 1.5rem;
   text-align: right;
   border-bottom-right-radius: 3px;
   border-bottom-left-radius: 3px;

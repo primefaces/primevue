@@ -7,7 +7,7 @@
             <OLButton type="button" icon="pi pi-angle-double-down" @click="moveBottom"></OLButton>
         </div>
         <div class="p-orderlist-list-container">
-            <div class="p-orderlist-caption" v-if="$slots.header">
+            <div class="p-orderlist-header" v-if="$slots.header">
                 <slot name="header"></slot>
             </div>
             <transition-group ref="list" name="p-orderlist-flip" tag="ul" class="p-orderlist-list" :style="listStyle" role="listbox" aria-multiselectable="multiple">

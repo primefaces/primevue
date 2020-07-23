@@ -7,7 +7,7 @@
             <PLButton type="button" icon="pi pi-angle-double-down" @click="moveBottom($event, 0)"></PLButton>
         </div>
         <div class="p-picklist-list-wrapper p-picklist-source-wrapper">
-            <div class="p-picklist-caption" v-if="$slots.sourceHeader">
+            <div class="p-picklist-header" v-if="$slots.sourceHeader">
                 <slot name="sourceHeader"></slot>
             </div>
             <transition-group ref="sourceList" name="p-picklist-flip" tag="ul" class="p-picklist-list p-picklist-source" :style="listStyle" role="listbox" aria-multiselectable="multiple">
@@ -26,7 +26,7 @@
             <PLButton type="button" icon="pi pi-angle-double-left" @click="moveAllToSource"></PLButton>
         </div>
         <div class="p-picklist-list-wrapper p-picklist-target-wrapper">
-            <div class="p-picklist-caption" v-if="$slots.targetHeader">
+            <div class="p-picklist-header" v-if="$slots.targetHeader">
                 <slot name="targetHeader"></slot>
             </div>
             <transition-group ref="targetList" name="p-picklist-flip" tag="ul" class="p-picklist-list p-picklist-target" :style="listStyle" role="listbox" aria-multiselectable="multiple">
