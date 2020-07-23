@@ -5,7 +5,7 @@
             <p>PrimeVue is a rich set of open source native components for Vue.</p>
 
             <h5>Download</h5>
-            <p>PrimeVue is available at npm, if you have an existing application run the following commands to download PrimeVue and PrimeIcons to your project.</p>
+            <p>PrimeVue is available at <a href="https://www.npmjs.com/package/primevue">npm</a>, if you have an existing application run the following commands to download PrimeVue and PrimeIcons to your project.</p>
 
 <CodeHighlight lang="js">
 npm install primevue --save
@@ -14,7 +14,7 @@ npm install primeicons --save
 
             <h5>PrimeFlex</h5>
             <p>PrimeFlex is a CSS utility library featuring various helpers such as a grid system, flexbox, spacing, elevation and more. Although it is not required, it is highly
-                recommended to add PrimeFlex as it is likely to need such utilities when using PrimeVue components.</p>
+                recommended to add PrimeFlex as it is likely to need such utilities when developing applications.</p>
 <CodeHighlight lang="js">
 npm install primeflex --save
 </CodeHighlight>
@@ -115,7 +115,7 @@ primeicons/primeicons.css                           //icons
 </CodeHighlight>
 
             <h5>Free Themes</h5>
-            <p>PrimeVue ships with 32 free themes to choose from, import paths are as follows.</p>
+            <p>PrimeVue ships with 32 free themes to choose from.</p>
 <CodeHighlight lang="css">
 primevue/resources/themes/bootstrap4-light-blue/theme.css
 primevue/resources/themes/bootstrap4-light-purple/theme.css
