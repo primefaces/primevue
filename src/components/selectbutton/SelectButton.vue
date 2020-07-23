@@ -2,8 +2,8 @@
     <div class="p-selectbutton p-buttonset p-component" role="group">
         <div v-for="(option, i) of options" :key="getOptionRenderKey(option)" :aria-label="getOptionLabel(option)" role="button" :aria-pressed="isSelected(option)"
             @click="onOptionSelect($event, option, i)" @keydown.enter.prevent="onOptionSelect($event, option, i)" @keydown.space.prevent="onOptionSelect($event, option)"
-            :tabindex="isOptionDisabled(option) ? null : '0'" @focus="onFocus($event, i)" @blur="onBlur($event)" :aria-labelledby="ariaLabelledBy" v-ripple
-            :class="getButtonClass(option, i)">
+            :tabindex="isOptionDisabled(option) ? null : '0'" @focus="onFocus($event)" @blur="onBlur($event)" :aria-labelledby="ariaLabelledBy" v-ripple
+            :class="getButtonClass(option)">
             <slot name="option" :option="option" :index="i">
                 <span class="p-button-label">{{getOptionLabel(option)}}</span>
             </slot>
@@ -81,13 +81,13 @@ export default {
 
             return selected;
         },
-        onFocus(event, index) {
+        onFocus(event) {
             this.$emit('focus', event);
         },
         onBlur(event) {
             this.$emit('blur', event);
         },
-        getButtonClass(option, i) {
+        getButtonClass(option) {
             return ['p-button p-component', {
                 'p-highlight': this.isSelected(option),
                 'p-disabled': this.isOptionDisabled(option)

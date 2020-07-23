@@ -180,7 +180,7 @@
                 </div>
             </div>
         </div>
-        
+
         <div class="primevue-designer">
             <h4>Theme Designer</h4>
             <p>PrimeVue is a design-agnostic library and the theming system is based on the Theme Designer, the official tool to create themes for the components. Designer includes a SASS enabled infrastructure that has over 500 customizable variables, a live editor

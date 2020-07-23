@@ -22,7 +22,7 @@
                     <div class="p-dataview-emptymessage">
                         <slot name="empty"></slot>
                     </div>
-			    </div>
+                </div>
 			</div>
 		</div>
 		<DVPaginator v-if="paginatorBottom" :rows="d_rows" :first="d_first" :totalRecords="getTotalRecords" :pageLinkSize="pageLinkSize" :template="paginatorTemplate" :rowsPerPageOptions="rowsPerPageOptions"
