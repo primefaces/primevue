@@ -144,7 +144,7 @@ export default {
 	vertical-align: middle;
 }
 
-.product-list-item {
+/deep/ .product-list-item {
 	display: flex;
 	align-items: center;
 	padding: 1rem;
