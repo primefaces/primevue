@@ -27,11 +27,6 @@ export default {
         dataKey: null,
         ariaLabelledBy: null
     },
-    data() {
-        return {
-            focusedIndex: null
-        };
-    },
     methods: {
         getOptionLabel(option) {
             return this.optionLabel ? ObjectUtils.resolveFieldData(option, this.optionLabel) : option;
@@ -87,18 +82,15 @@ export default {
             return selected;
         },
         onFocus(event, index) {
-            this.focusedIndex = index;
             this.$emit('focus', event);
         },
         onBlur(event) {
-            this.focusedIndex = null
             this.$emit('blur', event);
         },
         getButtonClass(option, i) {
             return ['p-button p-component', {
                 'p-highlight': this.isSelected(option),
-                'p-disabled': this.isOptionDisabled(option),
-                'p-focus': (i === this.focusedIndex)
+                'p-disabled': this.isOptionDisabled(option)
             }];
         }
     },
