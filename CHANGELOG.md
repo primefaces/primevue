@@ -1,5 +1,21 @@
 # Changelog
 
+## [2.0.4](https://github.com/primefaces/primevue/tree/2.0.4) (2020-07-23)
+
+[Full Changelog](https://github.com/primefaces/primevue/compare/2.0.3...2.0.4)
+
+**Implemented New Features and Enhancements:**
+
+- MultiSelect close icon spacing issue [\#405](https://github.com/primefaces/primevue/issues/405)
+- Refactor OrderList and PickList header style classes [\#403](https://github.com/primefaces/primevue/issues/403)
+- Improve Dialog padding [\#404](https://github.com/primefaces/primevue/issues/404)
+- Refactor selectbutton focus visuals [\#406](https://github.com/primefaces/primevue/issues/406)
+
+**Fixed bugs:**
+
+- Alignment issue on left and right contents of Toolbar [\#400](https://github.com/primefaces/primevue/issues/400)
+- Remove default text-decoration style from the header links on Fieldset [\#399](https://github.com/primefaces/primevue/issues/399)
+
 ## [2.0.3](https://github.com/primefaces/primevue/tree/2.0.3) (2020-07-18)
 
 [Full Changelog](https://github.com/primefaces/primevue/compare/2.0.2...2.0.3)
