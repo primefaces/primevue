@@ -1,6 +1,6 @@
 {
   "name": "primevue",
-  "version": "2.0.4-SNAPSHOT",
+  "version": "2.0.4",
   "repository": {
     "type": "git",
     "url": "https://github.com/primefaces/primevue.git"
@@ -15,6 +15,16 @@
     "lint": "vue-cli-service lint",
     "test:unit": "vue-cli-service test:unit"
   },
+  "keywords": [
+    "primevue",
+    "vue",
+    "ui framework",
+    "component framework",
+    "ui library",
+    "component library",
+    "material",
+    "bootstrap"
+  ],
   "devDependencies": {
     "core-js": "^2.6.5",
     "vue": "^2.6.10",
