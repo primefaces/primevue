@@ -13,7 +13,7 @@ Vue.prototype.$primevue = {ripple: true};
                 <p><span class="p-text-bold">Note</span>: That would be it to enable ripple on PrimeVue components, next section describes how to use it with your own components and standard elements.</p>
 
                 <h5>Directive</h5>
-				<p>Ripple is directive that needs to be imported and configured with a name of your choice. Global configuration is done with the <i>Vue.directive</i> function.</p>
+				<p>Ripple is a directive that needs to be imported and configured with a name of your choice. Global configuration is done with the <i>Vue.directive</i> function.</p>
 <CodeHighlight lang="js">
 import Ripple from 'primevue/ripple';
 
