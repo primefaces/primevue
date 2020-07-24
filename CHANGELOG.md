@@ -1,5 +1,18 @@
 # Changelog
 
+## [2.0.4](https://github.com/primefaces/primevue/tree/2.0.5) (2020-07-24)
+
+[Full Changelog](https://github.com/primefaces/primevue/compare/2.0.4...2.0.5)
+
+**Implemented New Features and Enhancements:**
+
+- SideBar p-sidebar-mask div is not removed automatically [\#329](https://github.com/primefaces/primevue/issues/329)
+- Block UI mask remove automatically [\#409](https://github.com/primefaces/primevue/issues/409)
+
+**Fixed bugs:**
+
+- Calendar mask animation [\#408](https://github.com/primefaces/primevue/issues/408)
+
 ## [2.0.4](https://github.com/primefaces/primevue/tree/2.0.4) (2020-07-23)
 
 [Full Changelog](https://github.com/primefaces/primevue/compare/2.0.3...2.0.4)
