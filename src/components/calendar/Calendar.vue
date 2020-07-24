@@ -1258,7 +1258,7 @@ export default {
             if (!this.mask) {
                 this.mask = document.createElement('div');
                 this.mask.style.zIndex = String(parseInt(this.$refs.overlay.style.zIndex, 10) - 1);
-                DomHandler.addMultipleClasses(this.mask, 'p-component-overlay p-datepicker-mask p-datepicker-mask-scrollblocker');
+                DomHandler.addMultipleClasses(this.mask, 'p-datepicker-mask p-datepicker-mask-scrollblocker');
 
                 this.maskClickListener = () => {
                     this.disableModality();
@@ -1267,30 +1267,37 @@ export default {
 
                 document.body.appendChild(this.mask);
                 DomHandler.addClass(document.body, 'p-overflow-hidden');
+
+                setTimeout(() => {
+                    DomHandler.addClass(this.mask, 'p-component-overlay');
+                }, 1);
             }
         },
         disableModality() {
             if (this.mask) {
-                this.mask.removeEventListener('click', this.maskClickListener);
-                this.maskClickListener = null;
-                document.body.removeChild(this.mask);
-                this.mask = null;
-
-                let bodyChildren = document.body.children;
-                let hasBlockerMasks;
-                for (let i = 0; i < bodyChildren.length; i++) {
-                    let bodyChild = bodyChildren[i];
-                    if(DomHandler.hasClass(bodyChild, 'p-datepicker-mask-scrollblocker')) {
-                        hasBlockerMasks = true;
-                        break;
-                    }
-                }
-
-                if (!hasBlockerMasks) {
-                    DomHandler.removeClass(document.body, 'p-overflow-hidden');
-                }
-
                 this.overlayVisible = false;
+
+                DomHandler.addClass(this.mask, 'p-datepicker-mask-leave');
+                this.mask.addEventListener('transitionend', () => {
+                    this.mask.removeEventListener('click', this.maskClickListener);
+                    this.maskClickListener = null;
+                    document.body.removeChild(this.mask);
+                    this.mask = null;
+
+                    let bodyChildren = document.body.children;
+                    let hasBlockerMasks;
+                    for (let i = 0; i < bodyChildren.length; i++) {
+                        let bodyChild = bodyChildren[i];
+                        if(DomHandler.hasClass(bodyChild, 'p-datepicker-mask-scrollblocker')) {
+                            hasBlockerMasks = true;
+                            break;
+                        }
+                    }
+
+                    if (!hasBlockerMasks) {
+                        DomHandler.removeClass(document.body, 'p-overflow-hidden');
+                    }
+                });
             }
         },
         updateCurrentMetaData() {
@@ -2290,5 +2297,14 @@ export default {
     left: 50%;
     min-width: 80vw;
     transform: translate(-50%, -50%);
+}
+
+.p-datepicker-mask {
+    background-color: transparent;
+    transition-property: background-color;
+}
+
+.p-datepicker-mask.p-datepicker-mask-leave.p-component-overlay {
+    background-color: transparent;
 }
 </style>

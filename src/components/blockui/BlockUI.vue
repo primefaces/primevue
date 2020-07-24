@@ -111,7 +111,7 @@ export default {
     position: fixed;
 }
 
-.p-blockui-leave.p-component-overlay {
+.p-blockui.p-blockui-leave.p-component-overlay {
     background-color: transparent;
 }
 </style>
