@@ -166,7 +166,7 @@ export default {
     transition-property: background-color;
 }
 
-.p-sidebar-mask-leave.p-component-overlay {
+.p-sidebar-mask.p-sidebar-mask-leave.p-component-overlay {
     background-color: transparent;
 }
 
