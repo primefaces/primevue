@@ -315,6 +315,10 @@
   box-shadow: 0 0 0 0.2rem #8dcdff;
 }
 
+.p-datepicker-mask.p-component-overlay {
+  background: rgba(0, 0, 0, 0.4);
+}
+
 @media screen and (max-width: 769px) {
   .p-datepicker table th, .p-datepicker table td {
     padding: 0.25rem;
