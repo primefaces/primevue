@@ -20,9 +20,9 @@
                 are not simple. For instance even to change a primary color, since there is no variable a find and replace should be performed various times. On the other hand, this can be achieved
                 by changing a single variable e.g. $primaryColor. Visit the <a href="https://www.primefaces.org/designer/api/primevue/2.0.0">SASS API</a> for the documentation of available customization options.</p>
 
-            <p><a href="https://www.primefaces.org/designer/primevue">Designer API</a> is the ultimate tool to create your own PrimeVue experience powered by a SASS based theme engine
-                with 500+ variables and a demo application. As mentioned before, PrimeVue only ships the generated CSS of <b>Material</b>, <b>Bootstrap</b>, <b>Saga</b>, <b>Vela</b>, <b>Arya</b> and legacy themes whereas Designer provides
-                full access to the whole SASS structure and the variables of these pre-built themes for easiers customization.</p>
+            <p><a href="https://www.primefaces.org/designer/primevue">Designer</a> is the ultimate tool to create your own PrimeVue experience powered by a SASS based theme engine
+                with 500+ variables and a Visual Designer. PrimeVue only ships the generated CSS of <b>Material</b>, <b>Bootstrap</b>, <b>Saga</b>, <b>Vela</b>, <b>Arya</b> and legacy themes whereas Designer provides
+                full access to the whole SASS structure and the variables of these pre-built themes for easier customization.</p>
 
             <p>Whether you have your own style guide or just need a custom theme, Designer API is the right tool to design and bring them to existence.</p>
 
