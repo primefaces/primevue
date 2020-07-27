@@ -125,7 +125,7 @@
                         &.p-highlight:hover a {
                             background: transparent;
                             color: var(--primary-color);
-                            border-bottom: 1px solid $linkColor;
+                            border-bottom: 1px solid var(--primary-color);
                         }
 
                         &:not(.p-highlight):not(.p-disabled):hover a {
