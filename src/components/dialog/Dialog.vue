@@ -1,7 +1,7 @@
 <template>
-    <div ref="mask" :class="maskClass" v-if="maskVisible" @click.self="$emit('click:mask')">
+    <div ref="mask" :class="maskClass" v-if="maskVisible" @mouseup="onMaskMouseUp">
         <transition name="p-dialog" @before-enter="onBeforeEnter" @enter="onEnter" @before-leave="onBeforeLeave" @leave="onLeave" @after-leave="onAfterLeave" @appear="onAppear">
-            <div ref="dialog" :class="dialogClass" :style="dialogStyle" v-if="visible" v-bind="$attrs" v-on="listeners" role="dialog" :aria-labelledby="ariaLabelledById" :aria-modal="modal">
+            <div ref="dialog" :class="dialogClass" :style="dialogStyle" v-if="visible" v-bind="$attrs" v-on="listeners" role="dialog" :aria-labelledby="ariaLabelledById" :aria-modal="modal" @mousedown="onDialogMouseDown">
                 <div class="p-dialog-header" v-if="showHeader">
                     <slot name="header">
                         <span :id="ariaLabelledById" class="p-dialog-title" v-if="header" >{{header}}</span>
@@ -70,7 +70,8 @@ export default {
             dialogClasses: null,
             dialogStyles: null,
             maskVisible: this.visible,
-            maximized: false
+            maximized: false,
+            ignoreNextMouseUpOnMask: false
         }
     },
     documentKeydownListener: null,
@@ -214,6 +215,16 @@ export default {
                     this.$refs.mask.classList = 'p-dialog-mask' + (this.modal && ' p-component-overlay ') + this.getPositionClass();
                 }
             }
+        },
+        onMaskMouseUp(event) {
+            if (this.ignoreNextMouseUpOnMask) {
+                this.ignoreNextMouseUpOnMask = false;
+            } else {
+                this.$emit('click:mask', event);
+            }
+        },
+        onDialogMouseDown() {
+            this.ignoreNextMouseUpOnMask = true;
         }
     },
     computed: {
