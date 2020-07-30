@@ -53,7 +53,7 @@ data() {
                                 <td>showValue</td>
                                 <td>boolean</td>
                                 <td>true</td>
-                                <td>Whether to displau the progress bar value.</td>
+                                <td>Whether to display the progress bar value.</td>
                             </tr>
 						</tbody>
 					</table>
