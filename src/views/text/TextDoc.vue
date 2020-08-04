@@ -69,9 +69,6 @@
 </template>
 </CodeHighlight>
 
-
-
-
 				<h5>Dependencies</h5>
 				<p>PrimeFlex.</p>
 			</TabPanel>

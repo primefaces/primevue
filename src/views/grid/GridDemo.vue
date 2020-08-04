@@ -373,7 +373,7 @@
             </div>
         </div>
 
-        <GridDoc/>
+        <GridDoc />
     </div>
 </template>
 

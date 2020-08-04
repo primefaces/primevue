@@ -16,7 +16,7 @@
 </CodeHighlight>
 
 				<h5>Dependencies</h5>
-				<p>None.</p>
+				<p>PrimeFlex.</p>
 			</TabPanel>
 
 			<TabPanel header="Source">
