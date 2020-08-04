@@ -182,7 +182,7 @@ export default {
 }
 
 /deep/ .product-grid-item {
-	margin: .5em;
+	margin: .5rem;
 	border: 1px solid #dee2e6;
 
 	.product-grid-item-top,
