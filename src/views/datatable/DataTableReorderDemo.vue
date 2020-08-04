@@ -57,7 +57,7 @@ export default {
             this.$toast.add({severity:'success', summary: 'Column Reordered', life: 3000});
         },
         onRowReorder(event) {
-            this.cars = event.value;
+            this.products = event.value;
             this.$toast.add({severity:'success', summary: 'Rows Reordered', life: 3000});
         }
     }
@@ -98,7 +98,7 @@ export default {
             this.$toast.add({severity:'success', summary: 'Column Reordered', life: 3000});
         },
         onRowReorder(event) {
-            this.cars = event.value;
+            this.products = event.value;
             this.$toast.add({severity:'success', summary: 'Rows Reordered', life: 3000});
         }
     }
