@@ -1,10 +1,6 @@
 <template>
     <div class="home">
         <div :class="introductionClass">
-            <span class="introduction-promo">
-                <img alt="Gold Sponsor" src="../assets/images/home/vue-gold.png" />
-                <span>Vue.js Gold Sponsor</span>
-            </span>
             <div class="introduction-title">The Ultimate UI Component Library</div>
             <div class="introduction-subtitle">for Vue</div>
 
