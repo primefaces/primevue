@@ -1,6 +1,26 @@
 # Changelog
 
-## [2.0.4](https://github.com/primefaces/primevue/tree/2.0.5) (2020-07-24)
+## [2.0.6](https://github.com/primefaces/primevue/tree/2.0.6) (2020-08-04)
+
+[Full Changelog](https://github.com/primefaces/primevue/compare/2.0.5...2.0.6)
+
+**Implemented New Features and Enhancements:**
+
+- Improve connected overlay positioning [\#418](https://github.com/primefaces/primevue/issues/418)
+- TabMenu should include subpaths in active tab detection [\#417](https://github.com/primefaces/primevue/issues/417)
+- Rename toast message title class [\#420](https://github.com/primefaces/primevue/issues/420)
+
+**Fixed bugs:**
+
+- TabMenu error when no route matches one of the menu paths [\#416](https://github.com/primefaces/primevue/issues/416)
+- DataTable row reorder demo not working [\#419](https://github.com/primefaces/primevue/issues/419)
+- DataTable: Exporting an empty DataTable throws TypeError [\#413](https://github.com/primefaces/primevue/issues/413)
+- Duplicate keys in TreeTable [\#424](https://github.com/primefaces/primevue/issues/424)
+- Fixed typo in ProgressBarDoc.vue [\#414](https://github.com/primefaces/primevue/issues/414)
+- Paginator is displayed over table loading overlay [\#422](https://github.com/primefaces/primevue/issues/422)
+- p-error, p-invalid styling missing on some form elements [\#421](https://github.com/primefaces/primevue/issues/421)
+
+## [2.0.5](https://github.com/primefaces/primevue/tree/2.0.5) (2020-07-24)
 
 [Full Changelog](https://github.com/primefaces/primevue/compare/2.0.4...2.0.5)
 
