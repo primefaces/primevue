@@ -50,7 +50,7 @@ export default {
             }
         },
         isActive(item) {
-            return this.activeRoute === item.to || this.activeRoute === item.to + '/' ;
+            return this.activeRoute.startsWith(item.to);
         },
         getItemClass(item) {
             return ['p-tabmenuitem', item.class, {
