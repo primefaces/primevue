@@ -80,7 +80,7 @@
         &lt;/template&gt;
     &lt;/Column&gt;
     &lt;template #footer&gt;
-        In total there are {{products ? products.length : 0 }} products.
+        In total there are &#123;&#123;products ? products.length : 0 &#125;&#125; products.
     &lt;/template&gt;
 &lt;/DataTable&gt;
 </template>

@@ -3,7 +3,7 @@
 		<div class="content-section introduction">
 			<div class="feature-intro">
 				<h1>DataTable <span>Crud</span></h1>
-				<p>This samples demonstrates a CRUD implementation using various PrimeVue components.</p>
+				<p>This sample demonstrates a CRUD implementation using various PrimeVue components.</p>
 			</div>
 		</div>
 

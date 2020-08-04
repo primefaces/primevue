@@ -3,7 +3,7 @@
 		<div class="content-section introduction">
 			<div class="feature-intro">
 				<h1>DataTable <span>GridLines</span></h1>
-				<p>Adding <b>p-datatable-gridlines</b> displays borders between cells. Note: Some themes may always displays gridlines by design.</p>
+				<p>Adding <b>p-datatable-gridlines</b> displays borders between cells. Note: Some themes may always display gridlines by design.</p>
 			</div>
 		</div>
 

@@ -72,7 +72,7 @@
                     <Column field="name" header="Name" headerStyle="width: 250px" columnKey="name"></Column>
                     <Column field="country.name" header="Country" headerStyle="width: 250px" columnKey="country"></Column>
                     <Column field="date" header="Date" headerStyle="width: 250px" columnKey="date"></Column>
-                    <Column field="company" header="Country" headerStyle="width: 250px" columnKey="company"></Column>
+                    <Column field="company" header="Company" headerStyle="width: 250px" columnKey="company"></Column>
                     <Column field="status" header="Status" headerStyle="width: 250px" columnKey="status"></Column>
                     <Column field="activity" header="Activity" headerStyle="width: 250px" columnKey="activity"></Column>
                     <Column field="representative.name" header="Representative" headerStyle="width: 250px" columnKey="representative"></Column>
@@ -177,7 +177,7 @@
         &lt;Column field="name" header="Name" headerStyle="width: 250px" columnKey="name"&gt;&lt;/Column&gt;
         &lt;Column field="country.name" header="Country" headerStyle="width: 250px" columnKey="country"&gt;&lt;/Column&gt;
         &lt;Column field="date" header="Date" headerStyle="width: 250px" columnKey="date"&gt;&lt;/Column&gt;
-        &lt;Column field="company" header="Country" headerStyle="width: 250px" columnKey="company"&gt;&lt;/Column&gt;
+        &lt;Column field="company" header="Company" headerStyle="width: 250px" columnKey="company"&gt;&lt;/Column&gt;
         &lt;Column field="status" header="Status" headerStyle="width: 250px" columnKey="status"&gt;&lt;/Column&gt;
         &lt;Column field="activity" header="Activity" headerStyle="width: 250px" columnKey="activity"&gt;&lt;/Column&gt;
         &lt;Column field="representative.name" header="Representative" headerStyle="width: 250px" columnKey="representative"&gt;&lt;/Column&gt;

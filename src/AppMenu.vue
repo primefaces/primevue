@@ -4,8 +4,8 @@
             <div class="menu-category">General</div>
             <div class="menu-items">
                 <router-link to="/setup">Get Started</router-link>
-                <a href="https://forum.primefaces.org/viewforum.php?f=110" target="_blank">Community Forum</a>
-                <a href="https://github.com/primefaces/primevue" target="_blank">Source Code</a>
+                <a href="https://forum.primefaces.org/viewforum.php?f=110" target="_blank">Forum</a>
+                <a href="https://github.com/primefaces/primevue" target="_blank">Code</a>
                 <router-link to="/support">Support</router-link>
             </div>
 
@@ -21,7 +21,7 @@
                 <router-link to="/display">Display</router-link>
                 <router-link to="/elevation">Elevation</router-link>
                 <router-link to="/flexbox">FlexBox</router-link>
-                <router-link to="/formlayout">FormLayout</router-link>
+                <router-link to="/formlayout">Form Layout</router-link>
                 <router-link to="/grid">Grid System</router-link>
                 <router-link to="/spacing">Spacing</router-link>
                 <router-link to="/text">Text</router-link>

@@ -23,7 +23,7 @@ import 'primeflex/primeflex.css';
 </CodeHighlight>
 
                 <h5>Vertical Layout</h5>
-                <p>In its simplest form, a vertical layout is created when used within <i>.p-fluid</i> which makes the components use all available width.</p>
+                <p>In its simplest form, a vertical layout is created when used within <i>.p-fluid</i> that makes the components use all available width.</p>
 <CodeHighlight>
 &lt;div class="p-fluid"&gt;
     &lt;div class="p-field"&gt;
@@ -174,12 +174,12 @@ import 'primeflex/primeflex.css';
 <CodeHighlight>
 &lt;div class="p-fluid p-formgrid p-grid"&gt;
     &lt;div class="p-field p-col-12 p-md-6"&gt;
-        &lt;label for="firstname6"&gt;Firstname&lt;/label&gt;
-        &lt;InputText id="firstname6" type="text" /&gt;
+        &lt;label for="firstname"&gt;Firstname&lt;/label&gt;
+        &lt;InputText id="firstname" type="text" /&gt;
     &lt;/div&gt;
     &lt;div class="p-field p-col-12 p-md-6"&gt;
-        &lt;label for="lastname6"&gt;Lastname&lt;/label&gt;
-        &lt;InputText id="lastname6" type="text" /&gt;
+        &lt;label for="lastname"&gt;Lastname&lt;/label&gt;
+        &lt;InputText id="lastname" type="text" /&gt;
     &lt;/div&gt;
     &lt;div class="p-field p-col-12"&gt;
         &lt;label for="address"&gt;Address&lt;/label&gt;

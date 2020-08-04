@@ -552,7 +552,7 @@ import 'primeflex/primeflex.css';
 </div>
 
 				<h5>Gutter</h5>
-				<p>A .5 em padding is applied to each column along with negative margins on the container element, in case you'd like to remove these gutters, apply
+				<p>A .5rem padding is applied to each column along with negative margins on the container element, in case you'd like to remove these gutters, apply
 					<i>p-nogutter</i> class to the container. Gutters can also be removed on an ndividual columns with the same class name.
 				</p>
 <CodeHighlight>
@@ -594,6 +594,22 @@ import 'primeflex/primeflex.css';
                             <tr>
                                 <td>$gutter</td>
                                 <td>.5em</td>
+                            </tr>
+                            <tr>
+                                <td>$fieldMargin</td>
+                                <td>1rem</td>
+                            </tr>
+                            <tr>
+                                <td>$fieldLabelMargin</td>
+                                <td>.5rem</td>
+                            </tr>
+                            <tr>
+                                <td>$helperTextMargin</td>
+                                <td>.25rem</td>
+                            </tr>
+                            <tr>
+                                <td>$spacer</td>
+                                <td>1rem</td>
                             </tr>
 						</tbody>
 					</table>

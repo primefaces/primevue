@@ -1932,6 +1932,7 @@ export default {
 .p-datatable-resizable .p-datatable-tfoot > tr > td,
 .p-datatable-resizable .p-datatable-tbody > tr > td {
     overflow: hidden;
+    white-space: nowrap;
 }
 
 .p-datatable-resizable .p-resizable-column {

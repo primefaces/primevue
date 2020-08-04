@@ -70,7 +70,7 @@
 
             <div class="card">
                 <h5>Checkbox</h5>
-                <p>Multiple selection can also be handled using checkboxes by enabling the selectionMode property of column as "multiple".</p>
+                
                 <DataTable :value="products" :selection.sync="selectedProducts3" dataKey="id">
                     <Column selectionMode="multiple" headerStyle="width: 3em"></Column>
                     <Column field="code" header="Code"></Column>

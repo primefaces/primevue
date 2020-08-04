@@ -3,7 +3,7 @@
         <div class="content-section introduction">
             <div class="feature-intro">
                 <h1>DeferredContent</h1>
-                <p>DeferredContent postpones the loading the content that is initially not in the viewport until it becomes visible on scroll..</p>
+                <p>DeferredContent postpones the loading the content that is initially not in the viewport until it becomes visible on scroll.</p>
             </div>
         </div>
 
