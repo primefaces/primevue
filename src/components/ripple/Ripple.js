@@ -2,12 +2,10 @@ import DomHandler from '../utils/DomHandler';
 
 function bindEvents(el) {
     el.addEventListener('mousedown', onMouseDown);
-    el.addEventListener('mouseleave', onMouseLeave);
 }
 
 function unbindEvents(el) {
     el.removeEventListener('mousedown', onMouseDown);
-    el.removeEventListener('mouseleave', onMouseLeave);
 }
 
 function create(el) {
@@ -48,18 +46,6 @@ function onMouseDown(event) {
     ink.style.top = y + 'px';
     ink.style.left = x + 'px';
     DomHandler.addClass(ink, 'p-ink-active');
-}
-
-function onMouseLeave(event) {
-    resetInk(event);
-}
-
-function resetInk(event) {
-    let target = event.target;
-    let ink = getInk(target);
-    if (ink) {
-        DomHandler.removeClass(ink, 'p-ink-active');
-    }
 }
 
 function onAnimationEnd(event) {
