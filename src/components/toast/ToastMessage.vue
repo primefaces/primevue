@@ -3,7 +3,7 @@
         <div class="p-toast-message-content">
             <span :class="iconClass"></span>
             <div class="p-toast-message-text">
-                <span class="p-toast-title">{{message.summary}}</span>
+                <span class="p-toast-summary">{{message.summary}}</span>
                 <div class="p-toast-detail">{{message.detail}}</div>
             </div>
             <button class="p-toast-icon-close p-link" @click="onCloseClick" v-if="message.closable !== false" type="button" v-ripple>

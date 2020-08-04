@@ -3910,7 +3910,7 @@
 .p-toast .p-toast-message .p-toast-message-content .p-toast-message-icon {
   font-size: 2rem;
 }
-.p-toast .p-toast-message .p-toast-message-content .p-toast-title {
+.p-toast .p-toast-message .p-toast-message-content .p-toast-summary {
   font-weight: 700;
 }
 .p-toast .p-toast-message .p-toast-message-content .p-toast-detail {

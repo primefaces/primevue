@@ -231,11 +231,11 @@ this.$toast.removeAllGroups();
                                 <td>Container of message texts.</td>
                             </tr>
                             <tr>
-                                <td>p-toast-title</td>
+                                <td>p-toast-summary</td>
                                 <td>Summary of the message.</td>
                             </tr>
                             <tr>
-                                <td>p-toast-title</td>
+                                <td>p-toast-detail</td>
                                 <td>Detail of the message.</td>
                             </tr>
 						</tbody>
