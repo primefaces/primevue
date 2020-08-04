@@ -953,35 +953,37 @@ export default {
             }
 
             //body
-            data.forEach(record => {
-                csv += '\n';
-                for (let i = 0; i < this.columns.length; i++) {
-                    let column = this.columns[i];
-                    if (column.exportable !== false && column.field) {
-                        let cellData = ObjectUtils.resolveFieldData(record, column.field);
-
-                        if (cellData != null) {
-                            if (this.exportFunction) {
-                                cellData = this.exportFunction({
-                                    data: cellData,
-                                    field: column.field
-                                });
+            if (data) {
+                data.forEach(record => {
+                    csv += '\n';
+                    for (let i = 0; i < this.columns.length; i++) {
+                        let column = this.columns[i];
+                        if (column.exportable !== false && column.field) {
+                            let cellData = ObjectUtils.resolveFieldData(record, column.field);
+    
+                            if (cellData != null) {
+                                if (this.exportFunction) {
+                                    cellData = this.exportFunction({
+                                        data: cellData,
+                                        field: column.field
+                                    });
+                                }
+                                else
+                                    cellData = String(cellData).replace(/"/g, '""');
                             }
                             else
-                                cellData = String(cellData).replace(/"/g, '""');
-                        }
-                        else
-                            cellData = '';
-
-
-                        csv += '"' + cellData + '"';
-
-                        if (i < (this.columns.length - 1)) {
-                            csv += this.csvSeparator;
+                                cellData = '';
+    
+    
+                            csv += '"' + cellData + '"';
+    
+                            if (i < (this.columns.length - 1)) {
+                                csv += this.csvSeparator;
+                            }
                         }
                     }
-                }
-            });
+                });
+            }
 
             let blob = new Blob([csv], {
                 type: 'text/csv;charset=utf-8;'
