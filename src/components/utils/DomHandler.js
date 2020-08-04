@@ -194,7 +194,7 @@ export default class DomHandler {
             if (top < 0) {
                 top = windowScrollTop;
             }
-        } 
+        }
         else {
             top = targetOuterHeight + targetOffset.top + windowScrollTop;
             element.style.transformOrigin = 'top';

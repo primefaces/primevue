@@ -960,7 +960,7 @@ export default {
                         let column = this.columns[i];
                         if (column.exportable !== false && column.field) {
                             let cellData = ObjectUtils.resolveFieldData(record, column.field);
-    
+
                             if (cellData != null) {
                                 if (this.exportFunction) {
                                     cellData = this.exportFunction({
@@ -973,10 +973,10 @@ export default {
                             }
                             else
                                 cellData = '';
-    
-    
+
+
                             csv += '"' + cellData + '"';
-    
+
                             if (i < (this.columns.length - 1)) {
                                 csv += this.csvSeparator;
                             }
