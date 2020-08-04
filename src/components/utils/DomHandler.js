@@ -190,14 +190,18 @@ export default class DomHandler {
         if (targetOffset.top + targetOuterHeight + elementOuterHeight > viewport.height) {
             top = targetOffset.top + windowScrollTop - elementOuterHeight;
             element.style.transformOrigin = 'bottom';
-        }
+
+            if (top < 0) {
+                top = windowScrollTop;
+            }
+        } 
         else {
             top = targetOuterHeight + targetOffset.top + windowScrollTop;
             element.style.transformOrigin = 'top';
         }
 
-        if (targetOffset.left + targetOuterWidth + elementOuterWidth > viewport.width)
-            left = targetOffset.left + windowScrollLeft + targetOuterWidth - elementOuterWidth;
+        if (targetOffset.left + elementOuterWidth > viewport.width)
+            left = Math.max(0, targetOffset.left + windowScrollLeft + targetOuterWidth - elementOuterWidth);
         else
             left = targetOffset.left + windowScrollLeft;
 
@@ -206,26 +210,36 @@ export default class DomHandler {
     }
 
     static relativePosition(element, target) {
-        var elementDimensions = element.offsetParent ? { width: element.offsetWidth, height: element.offsetHeight } : this.getHiddenElementDimensions(element);
-        var targetHeight = target.offsetHeight;
-        var targetWidth = target.offsetWidth;
-        var targetOffset = target.getBoundingClientRect();
-        var viewport = this.getViewport();
-        var top, left;
+        let elementDimensions = element.offsetParent ? { width: element.offsetWidth, height: element.offsetHeight } : this.getHiddenElementDimensions(element);
+        const targetHeight = target.offsetHeight;
+        const targetOffset = target.getBoundingClientRect();
+        const viewport = this.getViewport();
+        let top, left;
 
         if ((targetOffset.top + targetHeight + elementDimensions.height) > viewport.height) {
             top = -1 * (elementDimensions.height);
             element.style.transformOrigin = 'bottom';
+            if (targetOffset.top + top < 0) {
+                top = -1 * targetOffset.top;
+            }
         }
         else {
             top = targetHeight;
             element.style.transformOrigin = 'top';
         }
 
-        if ((targetOffset.left + elementDimensions.width) > viewport.width)
-            left = targetWidth - elementDimensions.width;
-        else
+        if (elementDimensions.width > viewport.width) {
+            // element wider then viewport and cannot fit on screen (align at left side of viewport)
+            left = targetOffset.left * -1;
+        }
+        else if ((targetOffset.left + elementDimensions.width) > viewport.width) {
+            // element wider then viewport but can be fit on screen (align at right side of viewport)
+            left = (targetOffset.left + elementDimensions.width - viewport.width) * -1;
+        }
+        else {
+            // element fits on screen (align with target)
             left = 0;
+        }
 
         element.style.top = top + 'px';
         element.style.left = left + 'px';
