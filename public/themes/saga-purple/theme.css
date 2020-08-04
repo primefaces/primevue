@@ -530,7 +530,7 @@
   background-color: #f8f9fa;
 }
 .p-input-filled .p-dropdown:not(.p-disabled).p-focus {
-  background-color: #f8f9fa;
+  background-color: #ffffff;
 }
 
 .p-editor-container .p-editor-toolbar {
@@ -813,7 +813,7 @@
   background-color: #f8f9fa;
 }
 .p-input-filled .p-inputtext:enabled:focus {
-  background-color: #f8f9fa;
+  background-color: #ffffff;
 }
 
 .p-inputtext-sm .p-inputtext {
@@ -991,7 +991,7 @@
   background-color: #f8f9fa;
 }
 .p-input-filled .p-multiselect:not(.p-disabled).p-focus {
-  background-color: #f8f9fa;
+  background-color: #ffffff;
 }
 
 .p-password-panel {
