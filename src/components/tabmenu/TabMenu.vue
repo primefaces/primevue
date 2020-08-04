@@ -76,9 +76,17 @@ export default {
             return null;
         },
         updateInkBar() {
-            let tabHeader = this.$refs.nav.children[this.findActiveTabIndex()];
-            this.$refs.inkbar.style.width = DomHandler.getWidth(tabHeader) + 'px';
-            this.$refs.inkbar.style.left =  DomHandler.getOffset(tabHeader).left - DomHandler.getOffset(this.$refs.nav).left + 'px';
+            let activeTabIndex = this.findActiveTabIndex();
+            if (activeTabIndex !== null) {
+                let tabHeader = this.$refs.nav.children[activeTabIndex];
+                this.$refs.inkbar.style.width = DomHandler.getWidth(tabHeader) + 'px';
+                this.$refs.inkbar.style.left =  DomHandler.getOffset(tabHeader).left - DomHandler.getOffset(this.$refs.nav).left + 'px';
+            } 
+            else {
+                this.$refs.inkbar.style.width = '0px';
+                this.$refs.inkbar.style.left =  '0px';
+            }
+
         }
     },
     computed: {
