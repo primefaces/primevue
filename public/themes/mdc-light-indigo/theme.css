@@ -117,6 +117,9 @@
 .p-autocomplete.p-autocomplete-multiple .p-autocomplete-multiple-container .p-autocomplete-token .p-autocomplete-token-icon {
   margin-left: 0.5rem;
 }
+.p-autocomplete.p-error > .p-inputtext, .p-autocomplete.p-invalid > .p-inputtext {
+  border-color: #B00020;
+}
 
 .p-autocomplete-panel {
   background: #ffffff;
@@ -144,9 +147,6 @@
 .p-autocomplete-panel .p-autocomplete-items .p-autocomplete-item.p-highlight {
   color: #3F51B5;
   background: rgba(63, 81, 181, 0.12);
-}
-.p-autocomplete-panel.p-error > .p-inputtext, .p-autocomplete-panel.p-invalid > .p-inputtext {
-  border-color: #B00020;
 }
 
 .p-calendar.p-error > .p-inputtext, .p-calendar.p-invalid > .p-inputtext {
@@ -495,6 +495,9 @@
   color: rgba(0, 0, 0, 0.6);
   right: 2.357rem;
 }
+.p-dropdown.p-error, .p-dropdown.p-invalid {
+  border-color: #B00020;
+}
 
 .p-dropdown-panel {
   background: #ffffff;
@@ -538,9 +541,6 @@
 .p-dropdown-panel .p-dropdown-items .p-dropdown-item:not(.p-highlight):not(.p-disabled):hover {
   color: #000001;
   background: rgba(0, 0, 0, 0.04);
-}
-.p-dropdown-panel.p-error, .p-dropdown-panel.p-invalid {
-  border-color: #B00020;
 }
 
 .p-input-filled .p-dropdown {
@@ -710,6 +710,10 @@
 }
 .p-fluid .p-inputgroup .p-button.p-button-icon-only {
   width: 2.25rem;
+}
+
+.p-inputnumber.p-error > .p-inputtext, .p-inputnumber.p-invalid > .p-inputtext {
+  border-color: #B00020;
 }
 
 .p-inputswitch {
@@ -925,6 +929,9 @@
   border-top-right-radius: 4px;
   border-bottom-right-radius: 4px;
 }
+.p-multiselect.p-error, .p-multiselect.p-invalid {
+  border-color: #B00020;
+}
 
 .p-multiselect-panel {
   background: #ffffff;
@@ -1000,9 +1007,6 @@
 .p-multiselect-panel .p-multiselect-items .p-multiselect-item .p-checkbox {
   margin-right: 0.5rem;
 }
-.p-multiselect-panel.p-error, .p-multiselect-panel.p-invalid {
-  border-color: #B00020;
-}
 
 .p-input-filled .p-multiselect {
   background: #f5f5f5;
@@ -1063,7 +1067,7 @@
   background: #ffffff;
   color: #3F51B5;
 }
-.p-radiobutton.p-error > .p-checkbox-box, .p-radiobutton.p-invalid > .p-checkbox-box {
+.p-radiobutton.p-error > .p-radiobutton-box, .p-radiobutton.p-invalid > .p-radiobutton-box {
   border-color: #B00020;
 }
 

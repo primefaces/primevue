@@ -93,6 +93,9 @@
 .p-autocomplete.p-autocomplete-multiple .p-autocomplete-multiple-container .p-autocomplete-token .p-autocomplete-token-icon {
   margin-left: 0.5rem;
 }
+.p-autocomplete.p-error > .p-inputtext, .p-autocomplete.p-invalid > .p-inputtext {
+  border-color: #a80000;
+}
 
 .p-autocomplete-panel {
   background: #ffffff;
@@ -120,9 +123,6 @@
 .p-autocomplete-panel .p-autocomplete-items .p-autocomplete-item.p-highlight {
   color: #ffffff;
   background: #007ad9;
-}
-.p-autocomplete-panel.p-error > .p-inputtext, .p-autocomplete-panel.p-invalid > .p-inputtext {
-  border-color: #a80000;
 }
 
 .p-calendar.p-error > .p-inputtext, .p-calendar.p-invalid > .p-inputtext {
@@ -475,6 +475,9 @@
   color: #848484;
   right: 2.357rem;
 }
+.p-dropdown.p-error, .p-dropdown.p-invalid {
+  border-color: #a80000;
+}
 
 .p-dropdown-panel {
   background: #ffffff;
@@ -518,9 +521,6 @@
 .p-dropdown-panel .p-dropdown-items .p-dropdown-item:not(.p-highlight):not(.p-disabled):hover {
   color: #333333;
   background: #eaeaea;
-}
-.p-dropdown-panel.p-error, .p-dropdown-panel.p-invalid {
-  border-color: #a80000;
 }
 
 .p-input-filled .p-dropdown {
@@ -690,6 +690,10 @@
 }
 .p-fluid .p-inputgroup .p-button.p-button-icon-only {
   width: 2.357rem;
+}
+
+.p-inputnumber.p-error > .p-inputtext, .p-inputnumber.p-invalid > .p-inputtext {
+  border-color: #a80000;
 }
 
 .p-inputswitch {
@@ -905,6 +909,9 @@
   border-top-right-radius: 3px;
   border-bottom-right-radius: 3px;
 }
+.p-multiselect.p-error, .p-multiselect.p-invalid {
+  border-color: #a80000;
+}
 
 .p-multiselect-panel {
   background: #ffffff;
@@ -980,9 +987,6 @@
 .p-multiselect-panel .p-multiselect-items .p-multiselect-item .p-checkbox {
   margin-right: 0.5rem;
 }
-.p-multiselect-panel.p-error, .p-multiselect-panel.p-invalid {
-  border-color: #a80000;
-}
 
 .p-input-filled .p-multiselect {
   background: #f4f4f4;
@@ -1043,7 +1047,7 @@
   background: #005b9f;
   color: #ffffff;
 }
-.p-radiobutton.p-error > .p-checkbox-box, .p-radiobutton.p-invalid > .p-checkbox-box {
+.p-radiobutton.p-error > .p-radiobutton-box, .p-radiobutton.p-invalid > .p-radiobutton-box {
   border-color: #a80000;
 }
 
