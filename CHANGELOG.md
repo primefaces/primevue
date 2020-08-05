@@ -1,5 +1,15 @@
 # Changelog
 
+## [2.0.7](https://github.com/primefaces/primevue/tree/2.0.7) (2020-08-04)
+
+[Full Changelog](https://github.com/primefaces/primevue/compare/2.0.6...2.0.7)
+
+**Fixed bugs:**
+
+- Global filter is not working with invalid values on TreeTable [\#427](https://github.com/primefaces/primevue/issues/427)
+- Global filter throws error in TreeTable[\#425](https://github.com/primefaces/primevue/issues/425)
+- Duplicate keys in TreeTable [\#424](https://github.com/primefaces/primevue/issues/424)
+
 ## [2.0.6](https://github.com/primefaces/primevue/tree/2.0.6) (2020-08-04)
 
 [Full Changelog](https://github.com/primefaces/primevue/compare/2.0.5...2.0.6)
