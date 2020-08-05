@@ -1,6 +1,6 @@
 # Changelog
 
-## [2.0.7](https://github.com/primefaces/primevue/tree/2.0.7) (2020-08-04)
+## [2.0.7](https://github.com/primefaces/primevue/tree/2.0.7) (2020-08-05)
 
 [Full Changelog](https://github.com/primefaces/primevue/compare/2.0.6...2.0.7)
 
