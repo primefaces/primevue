@@ -1,6 +1,6 @@
 {
   "name": "primevue",
-  "version": "2.0.7-SNAPSHOT",
+  "version": "2.0.7",
   "repository": {
     "type": "git",
     "url": "https://github.com/primefaces/primevue.git"
