@@ -580,9 +580,9 @@ export default {
                     //global
                     if (this.hasGlobalFilter && !globalMatch) {
                         let copyNodeForGlobal = {...copyNode};
-                        let globalFilterValue = this.props.globalFilter;
-                        let globalFilterConstraint = FilterUtils['contains'];
-                        let globalFilterParamsWithoutNode = {filterField, globalFilterValue, globalFilterConstraint, strict};
+                        let filterValue = this.filters['global'];
+                        let filterConstraint = FilterUtils['contains'];
+                        let globalFilterParamsWithoutNode = {filterField, filterValue, filterConstraint, strict};
 
                         if ((strict && (this.findFilteredNodes(copyNodeForGlobal, globalFilterParamsWithoutNode) || this.isFilterMatched(copyNodeForGlobal, globalFilterParamsWithoutNode))) ||
                             (!strict && (this.isFilterMatched(copyNodeForGlobal, globalFilterParamsWithoutNode) || this.findFilteredNodes(copyNodeForGlobal, globalFilterParamsWithoutNode)))) {
