@@ -31,6 +31,7 @@ const TreeTableRowLoader = {
     },
     render(createElement, context) {
         const root = createElement(TreeTableRow, {
+            key: context.props.node.key,
             props: context.props,
             on: {
                 'node-toggle': context.listeners['node-toggle'],
@@ -51,6 +52,7 @@ const TreeTableRowLoader = {
                 childNodeProps.level = context.props.level + 1;
 
                 let childNodeElement = createElement(TreeTableRowLoader, {
+                    key: childNode.key,
                     props: childNodeProps,
                     on: {
                         'node-toggle': context.listeners['node-toggle'],
