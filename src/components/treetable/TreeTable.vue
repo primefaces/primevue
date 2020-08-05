@@ -549,7 +549,6 @@ export default {
         filter(value) {
             let filteredNodes = [];
             const strict = this.filterMode === 'strict';
-            let valueChanged = false;
 
             for (let node of value) {
                 let copyNode = {...node};
@@ -600,15 +599,13 @@ export default {
                 if (matches) {
                     filteredNodes.push(copyNode);
                 }
-
-                valueChanged = valueChanged || !localMatch || globalMatch;
             }
 
             let filterEvent = this.createLazyLoadEvent(event);
             filterEvent.filteredValue = filteredNodes;
             this.$emit('filter', filterEvent);
 
-            return valueChanged ? filteredNodes : value;
+            return filteredNodes;
         },
         findFilteredNodes(node, paramsWithoutNode) {
             if (node) {
