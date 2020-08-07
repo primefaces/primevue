@@ -75,6 +75,9 @@ export default {
                     }
                 },
                 scale: {
+                    pointLabels: {
+                        fontColor: '#495057'
+                    },
                     gridLines: {
                         color: '#ebedef'
                     }
@@ -89,6 +92,9 @@ export default {
                     }
                 },
                 scale: {
+                    pointLabels: {
+                        fontColor: '#ebedef'
+                    },
                     gridLines: {
                         color: 'rgba(255,255,255,0.2)'
                     }
