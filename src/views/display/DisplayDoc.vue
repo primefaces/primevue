@@ -3,6 +3,11 @@
 		<TabView>
 			<TabPanel header="Documentation">
                 <h5>Getting Started</h5>
+                After installing primeflex with npm or yarn, you need to import primeflex css in main.js:
+                <CodeHighlight>
+                  <p>import 'primeflex/primeflex.css'</p>
+                </CodeHighlight>
+                
                 <p>The display classes use the <i>p-d-{value}</i> format and <i>p-d-{breakpoint}-{value}</i> format for responsive design.</p>
 
                 <h5>Values</h5>
