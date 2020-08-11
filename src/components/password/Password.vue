@@ -12,6 +12,14 @@ export default {
             type: String,
             default: 'Enter a password'
         },
+        mediumCheckExpr: {
+            type: String,
+            default: '^(((?=.*[a-z])(?=.*[A-Z]))|((?=.*[a-z])(?=.*[0-9]))|((?=.*[A-Z])(?=.*[0-9])))(?=.{6,})' // eslint-disable-line
+        },
+        strongCheckExpr: {
+            type: String,
+            default: '^(?=.*[a-z])(?=.*[A-Z])(?=.*[0-9])(?=.{8,})' // eslint-disable-line
+        },
         weakLabel: {
             type: String,
             default: 'Weak'
@@ -32,34 +40,24 @@ export default {
     panel: null,
     meter: null,
     info: null,
+    mediumCheckRegExp: null,
+    strongCheckRegExp: null,
+    mounted() {
+        this.mediumCheckRegExp = new RegExp(this.mediumCheckExpr);
+        this.strongCheckRegExp = new RegExp(this.strongCheckExpr);
+    },
     methods: {
         testStrength(str) {
-            let grade = 0;
-            let val;
+            let level = 0;
 
-            val = str.match('[0-9]');
-            grade += this.normalize(val ? val.length : 1/4, 1) * 25;
+            if (this.strongCheckRegExp.test(str))
+                level = 3;
+            else if (this.mediumCheckRegExp.test(str))
+                level = 2;
+            else if (str.length)
+                level = 1;
 
-            val = str.match('[a-zA-Z]');
-            grade += this.normalize(val ? val.length : 1/2, 3) * 10;
-
-            val = str.match('[!@#$%^&*?_~.,;=]');
-            grade += this.normalize(val ? val.length : 1/6, 1) * 35;
-
-            val = str.match('[A-Z]');
-            grade += this.normalize(val ? val.length : 1/6, 1) * 30;
-
-            grade *= str.length / 8;
-
-            return grade > 100 ? 100 : grade;
-        },
-        normalize(x, y) {
-            let diff = x - y;
-
-            if(diff <= 0)
-                return x / y;
-            else
-                return 1 + 0.5 * (x / (x + y/4));
+            return level;
         },
         createPanel() {
             this.panel = document.createElement('div');
@@ -119,25 +117,26 @@ export default {
                         let label = null;
                         let meterPos = null;
 
-                        if (value.length === 0) {
-                            label = this.promptLabel;
-                            meterPos = '0px 0px';
-                        }
-                        else {
-                            let score = this.testStrength(value);
-
-                            if (score < 30) {
+                        switch (this.testStrength(value)) {
+                            case 1:
                                 label = this.weakLabel;
                                 meterPos = '0px -10px';
-                            }
-                            else if (score >= 30 && score < 80) {
+                                break;
+
+                            case 2:
                                 label = this.mediumLabel;
                                 meterPos = '0px -20px';
-                            }
-                            else if (score >= 80) {
+                                break;
+
+                            case 3:
                                 label = this.strongLabel;
                                 meterPos = '0px -30px';
-                            }
+                                break;
+
+                            default:
+                                label = this.promptLabel;
+                                meterPos = '0px 0px';
+                                break;
                         }
 
                         vm.meter.style.backgroundPosition = meterPos;
