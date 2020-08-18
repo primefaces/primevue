@@ -1,7 +1,7 @@
 <template>
-    <div ref="mask" :class="maskClass" v-if="maskVisible">
+    <div ref="mask" :class="maskClass" v-if="maskVisible" @click="onMaskClick">
         <transition name="p-dialog" @before-enter="onBeforeEnter" @enter="onEnter" @before-leave="onBeforeLeave" @leave="onLeave" @after-leave="onAfterLeave" @appear="onAppear">
-            <div ref="dialog" :class="dialogClass" :style="dialogStyle" v-if="visible" v-bind="$attrs" v-on="listeners" role="dialog" :aria-labelledby="ariaLabelledById" :aria-modal="modal">
+            <div ref="dialog" :class="dialogClass" :style="dialogStyle" v-if="visible" v-bind="$attrs" v-on="listeners" role="dialog" :aria-labelledby="ariaLabelledById" :aria-modal="modal" @click.stop>
                 <div class="p-dialog-header" v-if="showHeader">
                     <slot name="header">
                         <span :id="ariaLabelledById" class="p-dialog-title" v-if="header" >{{header}}</span>
@@ -40,7 +40,12 @@ export default {
         contentStyle: null,
         rtl: Boolean,
         maximizable: Boolean,
+        dismissableMask: Boolean,
         closable: {
+            type: Boolean,
+            default: true
+        },
+        closeOnEscape: {
             type: Boolean,
             default: true
         },
@@ -122,6 +127,11 @@ export default {
                 this.onEnter();
             }
         },
+        onMaskClick() {
+            if (this.modal && this.closable && this.dismissableMask) {
+                this.close();
+            }
+        },
         focus() {
             let focusTarget = this.$refs.dialog.querySelector('[autofocus]');
             if (focusTarget) {
@@ -180,6 +190,8 @@ export default {
                         }
                     }
                 }
+            } else if (event.which === 27 && this.closeOnEscape) {
+                this.close();
             }
         },
         bindDocumentKeydownListener() {

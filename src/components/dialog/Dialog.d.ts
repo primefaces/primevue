@@ -8,6 +8,8 @@ export declare class Dialog extends Vue {
     contentStyle?: string;
     rtl?: boolean;
     closable?: boolean;
+    dismissableMask?: boolean;
+    closeOnEscape?: boolean;
     showHeader?: boolean;
     baseZIndex?: number;
     autoZIndex?: boolean;
