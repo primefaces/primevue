@@ -54,7 +54,7 @@ function onAnimationEnd(event) {
 
 function getInk(el) {
     for (let i = 0; i < el.children.length; i++) {
-        if (el.children[i].className.indexOf('p-ink') !== -1) {
+        if (typeof el.children[i].className === 'string' && el.children[i].className.indexOf('p-ink') !== -1) {
             return el.children[i];
         }
     }
