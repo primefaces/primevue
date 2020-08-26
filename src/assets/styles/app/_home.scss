@@ -8,6 +8,10 @@
         &:hover {
             text-decoration: underline;
         }
+
+        &.action-button:hover {
+            text-decoration: none;
+        }
     }
     
     p {
