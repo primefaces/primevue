@@ -7,7 +7,7 @@
 .p-tag {
     display: inline-block;
     text-align: center;
-    line-height: 1;
+    line-height: 1.5;
 }
 
 .p-tag.p-tag-rounded {
