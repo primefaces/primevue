@@ -96,7 +96,7 @@
                     </div>
                     <div class="p-field p-col-12 p-md-3">
                         <label for="horizontal">Horizontal with Step</label>
-                        <InputNumber id="horizontal" v-model="value18" showButtons buttonLayout="horizontal" spinnerMode="horizontal" :step="0.25"
+                        <InputNumber id="horizontal" v-model="value18" showButtons buttonLayout="horizontal" :step="0.25"
                             decrementButtonClass="p-button-danger" incrementButtonClass="p-button-success" incrementButtonIcon="pi pi-plus" decrementButtonIcon="pi pi-minus" mode="currency" currency="EUR" />
                     </div>
                     <div class="p-field p-col-12 p-md-3">
@@ -107,7 +107,7 @@
 
                 <div class="p-field p-col-12 p-md-3">
                     <label for="vertical" style="display: block">Vertical</label>
-                    <InputNumber id="vertical" v-model="value19" mode="decimal" showButtons buttonLayout="vertical" spinnerMode="vertical" style="width:4rem"
+                    <InputNumber id="vertical" v-model="value19" mode="decimal" showButtons buttonLayout="vertical" style="width:4rem"
                         decrementButtonClass="p-button-secondary" incrementButtonClass="p-button-secondary" incrementButtonIcon="pi pi-plus" decrementButtonIcon="pi pi-minus" />
                 </div>
             </div>
