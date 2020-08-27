@@ -258,9 +258,9 @@ export default {
                 this.repeat(event, null, -1);
             }
         },
-        onInput(event) {
+        onInput(val) {
             if (this.isSpecialChar) {
-                event.target.value = this.lastValue;
+                this.$refs.input.$el.value = this.lastValue;
             }
             this.isSpecialChar = false;
         },
@@ -581,7 +581,7 @@ export default {
         listeners() {
             return {
                 ...this.$listeners,
-                input: event => this.onInput(event),
+                input: val => this.onInput(val),
                 keydown: event => this.onInputKeyDown(event),
                 keypress: event => this.onInputKeyPress(event),
                 paste: event => this.onPaste(event),
