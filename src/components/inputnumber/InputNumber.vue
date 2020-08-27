@@ -328,6 +328,10 @@ export default {
                             else if (decimalCharIndex > 0 && selectionStart > decimalCharIndex) {
                                 newValueStr = inputValue.slice(0, selectionStart - 1) + '0' + inputValue.slice(selectionStart);
                             }
+                            else if (decimalCharIndex > 0 && decimalCharIndex === 1) {
+                                newValueStr = inputValue.slice(0, selectionStart - 1) + '0' + inputValue.slice(selectionStart);
+                                newValueStr = this.parseValue(newValueStr) > 0 ? newValueStr : '';
+                            }
                             else {
                                 newValueStr = inputValue.slice(0, selectionStart - 1) + inputValue.slice(selectionStart);
                             }
@@ -389,9 +393,10 @@ export default {
             event.preventDefault();
             let code = event.which || event.keyCode;
             let char = String.fromCharCode(code);
+            const isDecimalSign = this.isDecimalSign(char);
 
-            if ((48 <= code && code <= 57) || this.isMinusSign(char)) {
-                this.insert(event, char);
+            if ((48 <= code && code <= 57) || this.isMinusSign(char) || isDecimalSign) {
+                this.insert(event, char, isDecimalSign);
             }
         },
         onPaste(event) {
@@ -412,24 +417,45 @@ export default {
 
             return false;
         },
-        insert(event, text) {
+        isDecimalSign(char) {
+            if (this._decimal.test(char)) {
+                this._decimal.lastIndex = 0;
+                return true;
+            }
+
+            return false;
+        },
+        insert(event, text, isDecimalSign = false) {
             let selectionStart = this.$refs.input.$el.selectionStart;
             let selectionEnd = this.$refs.input.$el.selectionEnd;
             let inputValue = this.$refs.input.$el.value.trim();
-            let maxFractionDigits = this.numberFormat.resolvedOptions().maximumFractionDigits;
-            let newValueStr;
-            let decimalCharIndex = inputValue.search(this._decimal);
+            const decimalCharIndex = inputValue.search(this._decimal);
             this._decimal.lastIndex = 0;
+            let newValueStr;
 
-            if (decimalCharIndex > 0 && selectionStart > decimalCharIndex) {
-                if ((selectionStart + text.length - (decimalCharIndex + 1)) <= maxFractionDigits) {
-                    newValueStr = inputValue.slice(0, selectionStart) + text + inputValue.slice(selectionStart + text.length);
+            if (isDecimalSign) {
+                if (decimalCharIndex > 0 && selectionStart === decimalCharIndex) {
+                    this.updateValue(event, inputValue, 'insert');
+                }
+                else if (decimalCharIndex > selectionStart && decimalCharIndex < selectionEnd) {
+                    newValueStr = this.insertText(inputValue, text, selectionStart, selectionEnd);
                     this.updateValue(event, newValueStr, 'insert');
                 }
             }
             else {
-                newValueStr = this.insertText(inputValue, text, selectionStart, selectionEnd);
-                this.updateValue(event, newValueStr, 'insert');
+                const maxFractionDigits = this.numberFormat.resolvedOptions().maximumFractionDigits;
+
+                if (decimalCharIndex > 0 && selectionStart > decimalCharIndex) {
+                    if ((selectionStart + text.length - (decimalCharIndex + 1)) <= maxFractionDigits) {
+                        newValueStr = inputValue.slice(0, selectionStart) + text + inputValue.slice(selectionStart + text.length);
+                        this.updateValue(event, newValueStr, 'insert');
+                    }
+                }
+                else {
+                    newValueStr = this.insertText(inputValue, text, selectionStart, selectionEnd);
+                    const operation = selectionStart !== selectionEnd ? 'range-insert' : 'insert';
+                    this.updateValue(event, newValueStr, operation);
+                }
             }
         },
         insertText(value, text, start, end) {
@@ -559,6 +585,8 @@ export default {
                 if (newLength === currentLength) {
                     if (operation === 'insert' || operation === 'delete-back-single')
                         this.$refs.input.$el.setSelectionRange(selectionEnd + 1, selectionEnd + 1);
+                    else if (operation === 'range-insert')
+                        this.$refs.input.$el.setSelectionRange(selectionEnd, selectionEnd);
                     else if (operation === 'delete-single')
                         this.$refs.input.$el.setSelectionRange(selectionEnd - 1, selectionEnd - 1);
                     else if (operation === 'delete-range')
