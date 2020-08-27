@@ -13,6 +13,28 @@ import Password from 'primevue/password';
 &lt;Password v-model="value" /&gt;
 </CodeHighlight>
 
+                <h5>Customization</h5>
+                <p>Password components uses regular expressions for middle and strong passwords with the following defaults.</p>
+
+                <h6>Medium</h6>
+                <p><i>^(((?=.*[a-z])(?=.*[A-Z]))|((?=.*[a-z])(?=.*[0-9]))|((?=.*[A-Z])(?=.*[0-9])))(?=.{6,}).</i></p>
+                <ul>
+                    <li>At least one lowercase</li>
+                    <li>At least one uppercase or one number</li>
+                    <li>Minimum 6 characters</li>
+                </ul>
+
+                <h6>Strong</h6>
+                <p><i>^(?=.*[a-z])(?=.*[A-Z])(?=.*[0-9])(?=.{8,})</i></p>
+                <ul>
+                    <li>At least one lowercase</li>
+                    <li>At least one uppercase</li>
+                    <li>At least one numeric</li>
+                    <li>Minimum 8 characters</li>
+                </ul>
+
+                <p>It is possible to define your own checks with the <i>mediumRegex</i> and <i>strongRegex</i> properties.</p>
+
 				<h5>Properties</h5>
 				<p>Any property such as name and placeholder are passed to the underlying input element. Following are the additional properties to configure the component.</p>
 				<div class="doc-tablewrapper">
@@ -31,6 +53,18 @@ import Password from 'primevue/password';
                                 <td>string</td>
                                 <td>Enter a password</td>
                                 <td>Text to prompt password entry.</td>
+                            </tr>
+                            <tr>
+                                <td>mediumRegex</td>
+                                <td>string</td>
+                                <td>Regex for a medium level password.</td>
+                                <td>^(((?=.*[a-z])(?=.*[A-Z]))|((?=.*[a-z])(?=.*[0-9]))|((?=.*[A-Z])(?=.*[0-9])))(?=.{6,}).</td>
+                            </tr>
+                            <tr>
+                                <td>strongRegex</td>
+                                <td>string</td>
+                                <td>Regex for a strong level password.</td>
+                                <td>^(?=.*[a-z])(?=.*[A-Z])(?=.*[0-9])(?=.{8,})</td>
                             </tr>
                             <tr>
                                 <td>weakLabel</td>

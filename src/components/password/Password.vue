@@ -12,11 +12,11 @@ export default {
             type: String,
             default: 'Enter a password'
         },
-        mediumCheckExpr: {
+        mediumRegex: {
             type: String,
             default: '^(((?=.*[a-z])(?=.*[A-Z]))|((?=.*[a-z])(?=.*[0-9]))|((?=.*[A-Z])(?=.*[0-9])))(?=.{6,})' // eslint-disable-line
         },
-        strongCheckExpr: {
+        strongRegex: {
             type: String,
             default: '^(?=.*[a-z])(?=.*[A-Z])(?=.*[0-9])(?=.{8,})' // eslint-disable-line
         },
@@ -43,8 +43,8 @@ export default {
     mediumCheckRegExp: null,
     strongCheckRegExp: null,
     mounted() {
-        this.mediumCheckRegExp = new RegExp(this.mediumCheckExpr);
-        this.strongCheckRegExp = new RegExp(this.strongCheckExpr);
+        this.mediumCheckRegExp = new RegExp(this.mediumRegex);
+        this.strongCheckRegExp = new RegExp(this.strongRegex);
     },
     methods: {
         testStrength(str) {

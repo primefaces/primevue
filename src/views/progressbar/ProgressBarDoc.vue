@@ -30,7 +30,7 @@ data() {
 <CodeHighlight>
 <template v-pre>
 &lt;ProgressBar :value="value"&gt;
-    Percent Complete: {{value}}%
+    Percent Complete: &#123;&#123;value&#125;&#125;%
 &lt;/ProgressBar&gt;
 </template>
 </CodeHighlight>

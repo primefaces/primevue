@@ -3,8 +3,8 @@ import Vue from 'vue';
 export declare class Password extends Vue {
     value?: string;
     promptLabel?: string;
-    mediumCheckExpr?: string;
-    strongCheckExpr?: string;
+    mediumRegex?: string;
+    strongRegex?: string;
     weakLabel?: string;
     mediumLabel?: string;
     strongLabel?: string;
