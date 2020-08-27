@@ -1,11 +1,11 @@
 <template>
     <div role="progressbar" :class="containerClass" aria-valuemin="0" :aria-valuenow="value" aria-valuemax="100">
         <div v-if="determinate" class="p-progressbar-value p-progressbar-value-animate" :style="progressStyle"></div>
-        <div v-if="determinate && value && showValue" class="p-progressbar-label">
-            <slot>{{value + '%'}}</slot>
-        </div>
-        <div v-if="indeterminate" class="p-progressbar-indeterminate-container">
+        <div v-else-if="indeterminate" class="p-progressbar-indeterminate-container">
             <div class="p-progressbar-value p-progressbar-value-animate"></div>
+        </div>
+        <div v-if="hasDefaultSlot || (determinate && value && showValue)" class="p-progressbar-label">
+          <slot>{{determinate ? value + '%' : ''}}</slot>
         </div>
     </div>
 </template>
@@ -44,6 +44,9 @@ export default {
         },
         determinate() {
             return this.mode === 'determinate';
+        },
+        hasDefaultSlot () {
+            return !!this.$slots.default
         }
     }
 }
