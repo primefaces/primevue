@@ -58,6 +58,14 @@ export default {
     overflow: hidden;
 }
 
+.p-progressbar .p-progressbar-label {
+    text-align: center;
+    height: 100%;
+    width: 100%;
+    position: absolute;
+    font-weight: bold;
+}
+
 .p-progressbar-determinate .p-progressbar-value {
     height: 100%;
     width: 0%;
@@ -68,14 +76,6 @@ export default {
 
 .p-progressbar-determinate .p-progressbar-value-animate {
     transition: width 1s ease-in-out;
-}
-
-.p-progressbar-determinate .p-progressbar-label {
-    text-align: center;
-    height: 100%;
-    width: 100%;
-    position: absolute;
-    font-weight: bold;
 }
 
 .p-progressbar-indeterminate .p-progressbar-value::before {
