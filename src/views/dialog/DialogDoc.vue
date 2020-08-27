@@ -116,13 +116,13 @@ export default {
                                 <td>closeOnEscape</td>
                                 <td>boolean</td>
                                 <td>true</td>
-                                <td>Specifices if pressing escape key should hide the dialog.</td>
+                                <td>Specifies if pressing escape key should hide the dialog.</td>
                             </tr>
                             <tr>
                                 <td>dismissableMask</td>
                                 <td>boolean</td>
                                 <td>false</td>
-                                <td>Specifices if clicking the modal background should hide the dialog.</td>
+                                <td>Specifies if clicking the modal background should hide the dialog.</td>
                             </tr>
                             <tr>
                                 <td>position</td>
