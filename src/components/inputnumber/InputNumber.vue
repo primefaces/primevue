@@ -2,8 +2,8 @@
     <span :class="containerClass">
         <INInputText ref="input" class="p-inputnumber-input" :value="formattedValue" v-bind="$attrs" v-on="listeners" :aria-valumin="min" :aria-valuemax="max" />
         <span class="p-inputnumber-button-group" v-if="showButtons && buttonLayout === 'stacked'">
-            <Button :class="upButtonClass" :icon="incrementButtonIcon" v-on="upButtonListeners" :disabled="$attrs.disabled" />
-            <Button :class="downButtonClass" :icon="decrementButtonIcon" v-on="downButtonListeners" :disabled="$attrs.disabled" />
+            <INButton :class="upButtonClass" :icon="incrementButtonIcon" v-on="upButtonListeners" :disabled="$attrs.disabled" />
+            <INButton :class="downButtonClass" :icon="decrementButtonIcon" v-on="downButtonListeners" :disabled="$attrs.disabled" />
         </span>
         <INButton :class="upButtonClass" :icon="incrementButtonIcon" v-on="upButtonListeners" v-if="showButtons && buttonLayout !== 'stacked'" :disabled="$attrs.disabled" />
         <INButton :class="downButtonClass" :icon="decrementButtonIcon" v-on="downButtonListeners" v-if="showButtons && buttonLayout !== 'stacked'" :disabled="$attrs.disabled" />
@@ -258,9 +258,9 @@ export default {
                 this.repeat(event, null, -1);
             }
         },
-        onInput(event) {
+        onInput(val) {
             if (this.isSpecialChar) {
-                event.target.value = this.lastValue;
+                this.$refs.input.$el.value = this.lastValue;
             }
             this.isSpecialChar = false;
         },
@@ -581,7 +581,7 @@ export default {
         listeners() {
             return {
                 ...this.$listeners,
-                input: event => this.onInput(event),
+                input: val => this.onInput(val),
                 keydown: event => this.onInputKeyDown(event),
                 keypress: event => this.onInputKeyPress(event),
                 paste: event => this.onPaste(event),
