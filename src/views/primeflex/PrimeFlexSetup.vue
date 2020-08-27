@@ -15,7 +15,7 @@
 import 'primeflex/primeflex.css';
 </CodeHighlight>
 
-            <p>PrimeFlex is a lightweight library still if you have an application such as one based on vue-cli 
+            <p>PrimeFlex is a lightweight library still if you have an application such as one based on vue-cli
                 that is able to import scss then you will be able to pick the utilities you need to make the app bundle even smaller.</p>
 <CodeHighlight lang="css">
 import 'primeflex/src/_variables.scss';
