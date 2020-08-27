@@ -258,7 +258,7 @@ export default {
                 this.repeat(event, null, -1);
             }
         },
-        onInput(val) {
+        onInput() {
             if (this.isSpecialChar) {
                 this.$refs.input.$el.value = this.lastValue;
             }
