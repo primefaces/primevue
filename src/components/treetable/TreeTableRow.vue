@@ -13,7 +13,7 @@
                 </div>
             </div>
             <TTColumnSlot :node="node" :column="col" type="body" v-if="col.$scopedSlots.body" />
-            <template><span>{{resolveFieldData(node.data, col.field)}}</span></template>
+            <template v-else><span>{{resolveFieldData(node.data, col.field)}}</span></template>
         </td>
     </tr>
 </template>
