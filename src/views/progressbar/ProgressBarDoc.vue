@@ -28,9 +28,11 @@ data() {
                 <h5>Slot</h5>
                 <p>A custom label can be placed inside the progress bar via the default slot.</p>
 <CodeHighlight>
+<template v-pre>
 &lt;ProgressBar :value="value"&gt;
-    Percent Complete
+    Percent Complete: {{value}}%
 &lt;/ProgressBar&gt;
+</template>
 </CodeHighlight>
 
 				<h5>Properties</h5>
