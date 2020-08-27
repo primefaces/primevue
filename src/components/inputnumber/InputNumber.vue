@@ -274,6 +274,7 @@ export default {
             let selectionStart = event.target.selectionStart;
             let selectionEnd = event.target.selectionEnd;
             let inputValue = event.target.value;
+            let newValueStr = null;
 
             if (event.altKey) {
                 event.preventDefault();
@@ -309,7 +310,6 @@ export default {
                 //backspace
                 case 8: {
                     event.preventDefault();
-                    let newValueStr = null;
 
                     if (selectionStart === selectionEnd) {
                         let deleteChar = inputValue.charAt(selectionStart - 1);
@@ -333,9 +333,7 @@ export default {
                             }
                         }
 
-                        if (newValueStr != null) {
-                            this.updateValue(event, newValueStr, 'delete-single');
-                        }
+                        this.updateValue(event, newValueStr, 'delete-single');
                     }
                     else {
                         newValueStr = this.deleteRange(inputValue, selectionStart, selectionEnd);
@@ -344,6 +342,44 @@ export default {
 
                     break;
                 }
+
+                // del
+                case 46:
+                    event.preventDefault();
+
+                    if (selectionStart === selectionEnd) {
+                        let deleteChar = inputValue.charAt(selectionStart);
+                        let decimalCharIndex = inputValue.search(this._decimal);
+                        this._decimal.lastIndex = 0;
+
+                        if (this.isNumeralChar(deleteChar)) {
+                            if (this._group.test(deleteChar)) {
+                                this._group.lastIndex = 0;
+                                newValueStr = inputValue.slice(0, selectionStart) + inputValue.slice(selectionStart + 2);
+                            }
+                            else if (this._decimal.test(deleteChar)) {
+                                this._decimal.lastIndex = 0;
+                                this.$refs.input.$el.setSelectionRange(selectionStart + 1, selectionStart + 1);
+                            }
+                            else if (decimalCharIndex > 0 && selectionStart > decimalCharIndex) {
+                                newValueStr = inputValue.slice(0, selectionStart) + '0' + inputValue.slice(selectionStart + 1);
+                            }
+                            else if (decimalCharIndex > 0 && decimalCharIndex === 1) {
+                                newValueStr = inputValue.slice(0, selectionStart) + '0' + inputValue.slice(selectionStart + 1);
+                                newValueStr = this.parseValue(newValueStr) > 0 ? newValueStr : '';
+                            }
+                            else {
+                                newValueStr = inputValue.slice(0, selectionStart) + inputValue.slice(selectionStart + 1);
+                            }
+                        }
+
+                        this.updateValue(event, newValueStr, 'delete-back-single');
+                    }
+                    else {
+                        newValueStr = this.deleteRange(inputValue, selectionStart, selectionEnd);
+                        this.updateValue(event, newValueStr, 'delete-range');
+                    }
+                break;
 
                 default:
                 break;
@@ -504,10 +540,12 @@ export default {
             return value;
         },
         updateInput(value, operation) {
-            let currentLength = this.$refs.input.$el.value.length;
+            let inputValue = this.$refs.input.$el.value;
+            let newValue = this.formatValue(value);
+            let currentLength = inputValue.length;
 
             if (currentLength === 0) {
-                this.$refs.input.$el.value = this.formatValue(value);
+                this.$refs.input.$el.value = newValue;
                 this.$refs.input.$el.setSelectionRange(0, 0);
                 this.initCursor();
                 this.$refs.input.$el.setSelectionRange(this.$refs.input.$el.selectionStart + 1, this.$refs.input.$el.selectionStart + 1);
@@ -515,11 +553,11 @@ export default {
             else {
                 let selectionStart = this.$refs.input.$el.selectionEnd;
                 let selectionEnd = this.$refs.input.$el.selectionEnd;
-                this.$refs.input.$el.value = this.formatValue(value);
-                let newLength = this.$refs.input.$el.value.length;
+                this.$refs.input.$el.value = newValue;
+                let newLength = newValue.length;
 
                 if (newLength === currentLength) {
-                    if (operation === 'insert')
+                    if (operation === 'insert' || operation === 'delete-back-single')
                         this.$refs.input.$el.setSelectionRange(selectionEnd + 1, selectionEnd + 1);
                     else if (operation === 'delete-single')
                         this.$refs.input.$el.setSelectionRange(selectionEnd - 1, selectionEnd - 1);
@@ -527,6 +565,22 @@ export default {
                         this.$refs.input.$el.setSelectionRange(selectionStart, selectionStart);
                     else if (operation === 'spin')
                         this.$refs.input.$el.setSelectionRange(selectionStart, selectionEnd);
+                }
+                else if (operation === 'delete-back-single') {
+                    let prevChar = inputValue.charAt(selectionStart - 1);
+                    let nextChar = inputValue.charAt(selectionStart);
+                    let diff = currentLength - newLength;
+                    let isGroupChar = this._group.test(nextChar);
+
+                    if (isGroupChar && diff === 1) {
+                        selectionEnd += 1;
+                    }
+                    else if (!isGroupChar && this.isNumeralChar(prevChar)) {
+                        selectionEnd += (-1 * diff) + 1;
+                    }
+
+                    this._group.lastIndex = 0;
+                    this.$refs.input.$el.setSelectionRange(selectionEnd, selectionEnd);
                 }
                 else {
                     selectionEnd = selectionEnd + (newLength - currentLength);
