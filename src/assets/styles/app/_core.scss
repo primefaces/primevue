@@ -143,6 +143,6 @@ pre[class*="language-"] {
     &:hover {
         background-color: #576c7f;
         color: #ffffff;
-        text-decoration: none;
+        text-decoration: none !important;
     }
 }
