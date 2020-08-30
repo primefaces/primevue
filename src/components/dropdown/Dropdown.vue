@@ -93,16 +93,16 @@ export default {
     },
     methods: {
         getOptionLabel(option) {
-            return this.optionLabel ? ObjectUtils.resolveFieldData(option, this.optionLabel) : option;
+            return this.optionLabel ? ObjectUtils.resolveGetter(option, this.optionLabel) : option;
         },
         getOptionValue(option) {
-            return this.optionValue ? ObjectUtils.resolveFieldData(option, this.optionValue) : option;
+            return this.optionValue ? ObjectUtils.resolveGetter(option, this.optionValue) : option;
         },
         getOptionRenderKey(option) {
-            return this.dataKey ? ObjectUtils.resolveFieldData(option, this.dataKey) : this.getOptionLabel(option);
+            return this.dataKey ? ObjectUtils.resolveGetter(option, this.dataKey) : this.getOptionLabel(option);
         },
         isOptionDisabled(option) {
-            return this.optionDisabled ? ObjectUtils.resolveFieldData(option, this.optionDisabled) : false;
+            return this.optionDisabled ? ObjectUtils.resolveGetter(option, this.optionDisabled) : false;
         },
         getSelectedOption() {
             let selectedOption;

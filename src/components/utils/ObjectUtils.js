@@ -57,6 +57,14 @@ export default class ObjectUtils {
         return a !== a && b !== b;
     }
 
+    static resolveGetter(data, getter) {
+        if (typeof getter === 'function') {
+            return getter(data);
+        } else {
+            return this.resolveFieldData(data, getter);
+        }
+    }
+
     static resolveFieldData(data, field) {
         if (data && field) {
             if (field.indexOf('.') === -1) {
