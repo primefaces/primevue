@@ -119,18 +119,40 @@ export default {
             focused: false
         }
     },
+    watch: {
+		locale(newValue, oldValue) {
+            this.updateConstructParser(newValue, oldValue);
+        },
+        localeMatcher(newValue, oldValue) {
+            this.updateConstructParser(newValue, oldValue);
+        },
+        mode(newValue, oldValue) {
+            this.updateConstructParser(newValue, oldValue);
+        },
+        currency(newValue, oldValue) {
+            this.updateConstructParser(newValue, oldValue);
+        },
+        currencyDisplay(newValue, oldValue) {
+            this.updateConstructParser(newValue, oldValue);
+        },
+        useGrouping(newValue, oldValue) {
+            this.updateConstructParser(newValue, oldValue);
+        },
+        minFractionDigits(newValue, oldValue) {
+            this.updateConstructParser(newValue, oldValue);
+        },
+        maxFractionDigits(newValue, oldValue) {
+            this.updateConstructParser(newValue, oldValue);
+        },
+        suffix(newValue, oldValue) {
+            this.updateConstructParser(newValue, oldValue);
+        },
+        prefix(newValue, oldValue) {
+            this.updateConstructParser(newValue, oldValue);
+        }
+    },
     created() {
-        this.numberFormat = new Intl.NumberFormat(this.locale, this.getOptions());
-        const numerals = [...new Intl.NumberFormat(this.locale, {useGrouping: false}).format(9876543210)].reverse();
-        const index = new Map(numerals.map((d, i) => [d, i]));
-        this._numeral = new RegExp(`[${numerals.join('')}]`, 'g');
-        this._decimal = this.getDecimalExpression();
-        this._group = this.getGroupingExpression();
-        this._minusSign = this.getMinusSignExpression();
-        this._currency = this.getCurrencyExpression();
-        this._suffix = new RegExp(`[${this.suffix||''}]`, 'g');
-        this._prefix = new RegExp(`[${this.prefix||''}]`, 'g');
-        this._index = d => index.get(d);
+        this.constructParser();
     },
     methods: {
         getOptions() {
@@ -143,6 +165,24 @@ export default {
                 minimumFractionDigits: this.minFractionDigits,
                 maximumFractionDigits: this.maxFractionDigits
             };
+        },
+        constructParser() {
+            this.numberFormat = new Intl.NumberFormat(this.locale, this.getOptions());
+            const numerals = [...new Intl.NumberFormat(this.locale, {useGrouping: false}).format(9876543210)].reverse();
+            const index = new Map(numerals.map((d, i) => [d, i]));
+            this._numeral = new RegExp(`[${numerals.join('')}]`, 'g');
+            this._decimal = this.getDecimalExpression();
+            this._group = this.getGroupingExpression();
+            this._minusSign = this.getMinusSignExpression();
+            this._currency = this.getCurrencyExpression();
+            this._suffix = new RegExp(`[${this.suffix||''}]`, 'g');
+            this._prefix = new RegExp(`[${this.prefix||''}]`, 'g');
+            this._index = d => index.get(d);
+        },
+        updateConstructParser(newValue, oldValue) {
+            if (newValue !== oldValue) {
+                this.constructParser();
+            }
         },
         getDecimalExpression() {
             const formatter = new Intl.NumberFormat(this.locale, {useGrouping: false});
