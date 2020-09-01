@@ -144,15 +144,11 @@ export default {
                 "p-sortable-column-icon pi pi-fw",
                 {
                     [this.sortIcon]: this.sortIcon && !sorted,
-                    [this.sortAscIcon]:
-                        this.sortAscIcon && sorted && sortOrder > 0,
-                    [this.sortDescIcon]:
-                        this.sortDescIcon && sorted && sortOrder < 0,
+                    [this.sortAscIcon]: this.sortAscIcon && sorted && sortOrder > 0,
+                    [this.sortDescIcon]: this.sortDescIcon && sorted && sortOrder < 0,
                     "pi-sort-alt": !sorted && !this.sortIcon,
-                    "pi-sort-amount-up-alt":
-                        sorted && sortOrder > 0 && !this.sortAscIcon,
-                    "pi-sort-amount-down":
-                        sorted && sortOrder < 0 && !this.sortDescIcon
+                    "pi-sort-amount-up-alt": sorted && sortOrder > 0 && !this.sortAscIcon,
+                    "pi-sort-amount-down": sorted && sortOrder < 0 && !this.sortDescIcon
                 }
             ];
         },
