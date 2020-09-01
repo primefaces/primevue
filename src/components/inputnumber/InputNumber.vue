@@ -443,9 +443,10 @@ export default {
             let code = event.which || event.keyCode;
             let char = String.fromCharCode(code);
             const isDecimalSign = this.isDecimalSign(char);
+            const isMinusSign = this.isMinusSign(char);
 
-            if ((48 <= code && code <= 57) || this.isMinusSign(char) || isDecimalSign) {
-                this.insert(event, char, isDecimalSign);
+            if ((48 <= code && code <= 57) || isMinusSign || isDecimalSign) {
+                this.insert(event, char, { isDecimalSign, isMinusSign });
             }
         },
         onPaste(event) {
@@ -474,15 +475,27 @@ export default {
 
             return false;
         },
-        insert(event, text, isDecimalSign = false) {
+        insert(event, text, sign = {}) {
             let selectionStart = this.$refs.input.$el.selectionStart;
             let selectionEnd = this.$refs.input.$el.selectionEnd;
             let inputValue = this.$refs.input.$el.value.trim();
             const decimalCharIndex = inputValue.search(this._decimal);
             this._decimal.lastIndex = 0;
+            const minusCharIndex = inputValue.search(this._minusSign);
+            this._minusSign.lastIndex = 0;
             let newValueStr;
 
-            if (isDecimalSign) {
+            if (sign.isMinusSign) {
+                if (selectionStart === 0) {
+                    newValueStr = inputValue;
+                    if (minusCharIndex === -1 || selectionEnd !== 0) {
+                        newValueStr = this.insertText(inputValue, text, 0, selectionEnd);
+                    }
+
+                    this.updateValue(event, newValueStr, text, 'insert');
+                }
+            }
+            else if (sign.isDecimalSign) {
                 if (decimalCharIndex > 0 && selectionStart === decimalCharIndex) {
                     this.updateValue(event, inputValue, text, 'insert');
                 }
@@ -610,6 +623,10 @@ export default {
 
             if (this.max != null && value > this.max) {
                 return this.max;
+            }
+
+            if (value === '-') { // Minus sign
+                return null;
             }
 
             return value;
