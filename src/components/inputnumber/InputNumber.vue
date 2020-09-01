@@ -111,6 +111,7 @@ export default {
     _suffix: null,
     _prefix: null,
     _index: null,
+    groupChar: '',
     isSpecialChar: null,
     timer: null,
     data() {
@@ -149,7 +150,8 @@ export default {
         },
         getGroupingExpression() {
             const formatter = new Intl.NumberFormat(this.locale, {useGrouping: true});
-            return new RegExp(`[${formatter.format(1000).trim().replace(this._numeral, '')}]`, 'g');
+            this.groupChar = formatter.format(1000).trim().replace(this._numeral, '');
+            return new RegExp(`[${this.groupChar}]`, 'g');
         },
         getMinusSignExpression() {
             const formatter = new Intl.NumberFormat(this.locale, {useGrouping: false});
@@ -344,11 +346,11 @@ export default {
                             }
                         }
 
-                        this.updateValue(event, newValueStr, 'delete-single');
+                        this.updateValue(event, newValueStr, null, 'delete-single');
                     }
                     else {
                         newValueStr = this.deleteRange(inputValue, selectionStart, selectionEnd);
-                        this.updateValue(event, newValueStr, 'delete-range');
+                        this.updateValue(event, newValueStr, null, 'delete-range');
                     }
 
                     break;
@@ -384,11 +386,11 @@ export default {
                             }
                         }
 
-                        this.updateValue(event, newValueStr, 'delete-back-single');
+                        this.updateValue(event, newValueStr, null, 'delete-back-single');
                     }
                     else {
                         newValueStr = this.deleteRange(inputValue, selectionStart, selectionEnd);
-                        this.updateValue(event, newValueStr, 'delete-range');
+                        this.updateValue(event, newValueStr, null, 'delete-range');
                     }
                 break;
 
@@ -442,11 +444,11 @@ export default {
 
             if (isDecimalSign) {
                 if (decimalCharIndex > 0 && selectionStart === decimalCharIndex) {
-                    this.updateValue(event, inputValue, 'insert');
+                    this.updateValue(event, inputValue, text, 'insert');
                 }
                 else if (decimalCharIndex > selectionStart && decimalCharIndex < selectionEnd) {
                     newValueStr = this.insertText(inputValue, text, selectionStart, selectionEnd);
-                    this.updateValue(event, newValueStr, 'insert');
+                    this.updateValue(event, newValueStr, text, 'insert');
                 }
             }
             else {
@@ -455,13 +457,13 @@ export default {
                 if (decimalCharIndex > 0 && selectionStart > decimalCharIndex) {
                     if ((selectionStart + text.length - (decimalCharIndex + 1)) <= maxFractionDigits) {
                         newValueStr = inputValue.slice(0, selectionStart) + text + inputValue.slice(selectionStart + text.length);
-                        this.updateValue(event, newValueStr, 'insert');
+                        this.updateValue(event, newValueStr, text, 'insert');
                     }
                 }
                 else {
                     newValueStr = this.insertText(inputValue, text, selectionStart, selectionEnd);
                     const operation = selectionStart !== selectionEnd ? 'range-insert' : 'insert';
-                    this.updateValue(event, newValueStr, operation);
+                    this.updateValue(event, newValueStr, text, operation);
                 }
             }
         },
@@ -555,10 +557,10 @@ export default {
             this._group.lastIndex =  0;
             this._minusSign.lastIndex =  0;
         },
-        updateValue(event, valueStr, operation) {
+        updateValue(event, valueStr, insertedValueStr, operation) {
             if (valueStr != null) {
                 let newValue = this.parseValue(valueStr);
-                this.updateInput(newValue, operation);
+                this.updateInput(newValue, insertedValueStr, operation);
             }
         },
         validateValue(value) {
@@ -572,7 +574,7 @@ export default {
 
             return value;
         },
-        updateInput(value, operation) {
+        updateInput(value, insertedValueStr, operation) {
             let inputValue = this.$refs.input.$el.value;
             let newValue = this.formatValue(value);
             let currentLength = inputValue.length;
@@ -584,26 +586,36 @@ export default {
                 this.$refs.input.$el.setSelectionRange(this.$refs.input.$el.selectionStart + 1, this.$refs.input.$el.selectionStart + 1);
             }
             else {
-                let selectionStart = this.$refs.input.$el.selectionEnd;
+                let selectionStart = this.$refs.input.$el.selectionStart;
                 let selectionEnd = this.$refs.input.$el.selectionEnd;
                 this.$refs.input.$el.value = newValue;
                 let newLength = newValue.length;
 
-                if (newLength === currentLength) {
+                if (operation === 'range-insert') {
+                    const startValue = this.parseValue((inputValue || '').slice(0, selectionStart));
+                    const startValueStr = startValue !== null ? startValue.toString() : '';
+                    const startExpr = startValueStr.split('').join(`(${this.groupChar})?`);
+                    const sRegex = new RegExp(startExpr, 'g');
+                    sRegex.test(newValue);
+
+                    const tExpr = insertedValueStr.split('').join(`(${this.groupChar})?`);
+                    const tRegex = new RegExp(tExpr, 'g');
+                    tRegex.test(newValue.slice(sRegex.lastIndex));
+
+                    selectionEnd = sRegex.lastIndex + tRegex.lastIndex;
+                    this.$refs.input.$el.setSelectionRange(selectionEnd, selectionEnd);
+                }
+                else if (newLength === currentLength) {
                     if (operation === 'insert' || operation === 'delete-back-single')
                         this.$refs.input.$el.setSelectionRange(selectionEnd + 1, selectionEnd + 1);
-                    else if (operation === 'range-insert')
-                        this.$refs.input.$el.setSelectionRange(selectionEnd, selectionEnd);
                     else if (operation === 'delete-single')
                         this.$refs.input.$el.setSelectionRange(selectionEnd - 1, selectionEnd - 1);
-                    else if (operation === 'delete-range')
-                        this.$refs.input.$el.setSelectionRange(selectionStart, selectionStart);
-                    else if (operation === 'spin')
-                        this.$refs.input.$el.setSelectionRange(selectionStart, selectionEnd);
+                    else if (operation === 'delete-range' || operation === 'spin')
+                        this.$refs.input.$el.setSelectionRange(selectionEnd, selectionEnd);
                 }
                 else if (operation === 'delete-back-single') {
-                    let prevChar = inputValue.charAt(selectionStart - 1);
-                    let nextChar = inputValue.charAt(selectionStart);
+                    let prevChar = inputValue.charAt(selectionEnd - 1);
+                    let nextChar = inputValue.charAt(selectionEnd);
                     let diff = currentLength - newLength;
                     let isGroupChar = this._group.test(nextChar);
 
