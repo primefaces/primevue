@@ -129,7 +129,7 @@ export default {
             let sorted = false;
             let sortOrder = null;
 
-           if (this.sortMode === 'single') {
+            if (this.sortMode === 'single') {
                 sorted = this.sortField && (this.sortField === column.field || this.sortField === column.sortField);
                 sortOrder = sorted ? this.sortOrder: 0;
             }
@@ -143,7 +143,7 @@ export default {
             return [
                 "p-sortable-column-icon pi pi-fw",
                 {
-                    [this.sortIcon]: this.sortIcon && !sorted && this.sortIcon,
+                    [this.sortIcon]: this.sortIcon && !sorted,
                     [this.sortAscIcon]:
                         this.sortAscIcon && sorted && sortOrder > 0,
                     [this.sortDescIcon]:
