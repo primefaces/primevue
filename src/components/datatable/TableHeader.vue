@@ -94,6 +94,18 @@ export default {
         multiSortMeta: {
             type: Array,
             default: null
+        },
+        sortIcon:{
+            type:String,
+            default:null
+        },
+        sortDescIcon:{
+            type:String,
+            default:null
+        },
+        sortAscIcon:{
+            type:String,
+            default:null
         }
     },
     methods: {
@@ -117,23 +129,32 @@ export default {
             let sorted = false;
             let sortOrder = null;
 
-            if (this.sortMode === 'single') {
-                sorted = this.sortField && (this.sortField === column.field || this.sortField === column.sortField);
-                sortOrder = sorted ? this.sortOrder: 0;
-            }
-            else if (this.sortMode === 'multiple') {
+            if (this.sortMode === "single") {
+                sorted =
+                    this.sortField &&
+                    (this.sortField === column.field ||
+                        this.sortField === column.sortField);
+                sortOrder = sorted ? this.sortOrder : 0;
+            } else if (this.sortMode === "multiple") {
                 let metaIndex = this.getMultiSortMetaIndex(column);
                 if (metaIndex > -1) {
                     sorted = true;
                     sortOrder = this.multiSortMeta[metaIndex].order;
                 }
             }
-
             return [
-                'p-sortable-column-icon pi pi-fw', {
-                    'pi-sort-alt': !sorted,
-                    'pi-sort-amount-up-alt': sorted && sortOrder > 0,
-                    'pi-sort-amount-down': sorted && sortOrder < 0
+                "p-sortable-column-icon pi pi-fw",
+                {
+                    [this.sortIcon]: this.sortIcon && !sorted && this.sortIcon,
+                    [this.sortAscIcon]:
+                        this.sortAscIcon && sorted && sortOrder > 0,
+                    [this.sortDescIcon]:
+                        this.sortDescIcon && sorted && sortOrder < 0,
+                    "pi-sort-alt": !sorted && !this.sortIcon,
+                    "pi-sort-amount-up-alt":
+                        sorted && sortOrder > 0 && !this.sortAscIcon,
+                    "pi-sort-amount-down":
+                        sorted && sortOrder < 0 && !this.sortDescIcon
                 }
             ];
         },
