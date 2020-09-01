@@ -190,7 +190,7 @@ export default {
         },
         getGroupingExpression() {
             const formatter = new Intl.NumberFormat(this.locale, {useGrouping: true});
-            this.groupChar = formatter.format(1000).trim().replace(this._numeral, '');
+            this.groupChar = formatter.format(1000000).trim().replace(this._numeral, '');
             return new RegExp(`[${this.groupChar}]`, 'g');
         },
         getMinusSignExpression() {
@@ -266,7 +266,7 @@ export default {
             let currentValue = this.parseValue(this.$refs.input.$el.value) || 0;
             let newValue = this.validateValue(currentValue + step);
 
-            this.updateInput(newValue, 'spin');
+            this.updateInput(newValue, null, 'spin');
             this.updateModel(event, newValue);
         },
         onUpButtonMouseDown(event) {
@@ -475,7 +475,7 @@ export default {
 
             return false;
         },
-        insert(event, text, sign = {}) {
+        insert(event, text, sign = { isDecimalSign: false, isMinusSign: false }) {
             let selectionStart = this.$refs.input.$el.selectionStart;
             let selectionEnd = this.$refs.input.$el.selectionEnd;
             let inputValue = this.$refs.input.$el.value.trim();
