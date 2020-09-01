@@ -129,13 +129,11 @@ export default {
             let sorted = false;
             let sortOrder = null;
 
-            if (this.sortMode === "single") {
-                sorted =
-                    this.sortField &&
-                    (this.sortField === column.field ||
-                        this.sortField === column.sortField);
-                sortOrder = sorted ? this.sortOrder : 0;
-            } else if (this.sortMode === "multiple") {
+           if (this.sortMode === 'single') {
+                sorted = this.sortField && (this.sortField === column.field || this.sortField === column.sortField);
+                sortOrder = sorted ? this.sortOrder: 0;
+            }
+            else if (this.sortMode === 'multiple') {
                 let metaIndex = this.getMultiSortMetaIndex(column);
                 if (metaIndex > -1) {
                     sorted = true;
