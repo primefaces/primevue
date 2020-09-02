@@ -8,6 +8,10 @@
             <h5>Download</h5>
             <p>PrimeFlex is available at <a href="https://www.npmjs.com/package/primeflex">npm</a>, if you have an existing application run the following commands to install it.</p>
 
+<CodeHighlight lang="js">
+npm install primeflex --save
+</CodeHighlight>
+
             <h5>Import</h5>
             <p>Next step is adding the primeflex.css to your application to include all utilities. If you prefer to pick the utilities, move to next step instead.</p>
 
@@ -29,8 +33,6 @@ import 'primeflex/src/_elevation.scss';
 </CodeHighlight>
 
             <h5>Variables</h5>
-            <p>PrimeFlex uses sensible defaults for the variables.</p>
-
             <div class="doc-tablewrapper">
                 <table class="doc-table">
                     <thead>
@@ -103,7 +105,7 @@ $xl:1080px;
 </CodeHighlight>
 
             <CodeHighlight lang="css">
-import './assets/myoverrides.scss';
+import './assets/_overrides.scss';
 import 'primeflex/src/_variables.css';
 import 'primeflex/src/_grid.css';
 import 'primeflex/src/_formlayour.css';
