@@ -1,5 +1,27 @@
 # Changelog
 
+## [2.0.8](https://github.com/primefaces/primevue/tree/2.0.8) (2020-08-27)
+
+[Full Changelog](https://github.com/primefaces/primevue/compare/2.0.7...2.0.8)
+
+**Implemented New Features and Enhancements:**
+
+- Add Del key support to InputNumber [\#452](https://github.com/primefaces/primevue/issues/452)
+- Documentation for primeflex setup [\#434](https://github.com/primefaces/primevue/issues/434)
+- InputNumber with decimals should support entering comma/decimal point [\#432](https://github.com/primefaces/primevue/issues/432)
+- dismissableMask and closeOnEscape for Dialog [\#372](https://github.com/primefaces/primevue/issues/372)
+
+**Fixed bugs:**
+
+- Can't type - as first symbol into an Inputnumber  [\#453](https://github.com/primefaces/primevue/issues/453)
+- When autocomplete is bound to an object, float label overlaps in some circumstances [\#450](https://github.com/primefaces/primevue/issues/450)
+- TreeTable template always render field value [\#445](https://github.com/primefaces/primevue/issues/445)
+- Setting placeholder text for Editor / Quill component doesn't work [\#433](https://github.com/primefaces/primevue/issues/433)
+- InputNumber with stacked Buttons is broken [\#431](https://github.com/primefaces/primevue/issues/431)
+- Doc error on InputNumber [\#430](https://github.com/primefaces/primevue/issues/430)
+- InputNumber throws error if emptied [\#429](https://github.com/primefaces/primevue/issues/429)
+- Pill Text not centered [\#428](https://github.com/primefaces/primevue/issues/428)
+
 ## [2.0.7](https://github.com/primefaces/primevue/tree/2.0.7) (2020-08-05)
 
 [Full Changelog](https://github.com/primefaces/primevue/compare/2.0.6...2.0.7)
