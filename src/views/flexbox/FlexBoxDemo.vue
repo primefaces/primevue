@@ -2,9 +2,8 @@
     <div>
         <div class="content-section documentation">
             <h1>FlexBox</h1>
-            <p>Easily manage the layout of your components with the responsive FlexBox utilities. If you require a utility to manage the layout of your application,
-                refer to the <router-link to="/grid">Grid System</router-link> instead.
-            </p>
+            <p>Easily manage the layout of your components with the responsive FlexBox utilities.
+</p>
 
             <h5>Flex Container</h5>
             <p>An element can configured as a flexbox container using the <i>p-d-flex</i> or <i>p-d-inline-flex</i> classes.</p>
