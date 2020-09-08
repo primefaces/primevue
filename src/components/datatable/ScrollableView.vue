@@ -104,10 +104,6 @@ export default {
         }
     },
     updated() {
-        if (!this.frozen) {
-            this.alignScrollBar();
-        }
-
         if (this.virtualScrollCallback) {
             this.virtualScrollCallback();
             this.virtualScrollCallback = null;
@@ -169,28 +165,12 @@ export default {
                 }
             }
         },
-        hasVerticalOverflow() {
-            return DomHandler.getOuterHeight(this.$refs.scrollTable) > DomHandler.getOuterHeight(this.$refs.scrollBody);
-        },
         alignScrollBar() {
-            let scrollBarWidth = this.hasVerticalOverflow() ? DomHandler.calculateScrollbarWidth() : 0;
+            let scrollBarWidth = DomHandler.calculateScrollbarWidth();
 
-            this.$refs.scrollHeaderBox.style.marginRight = scrollBarWidth + 'px';
+            this.$refs.scrollHeaderBox.style.paddingRight = scrollBarWidth + 'px';
             if (this.$refs.scrollFooterBox) {
-                this.$refs.scrollFooterBox.style.marginRight = scrollBarWidth + 'px';
-            }
-        },
-        findDataTableContainer(element) {
-            if (element) {
-                let el = element;
-                while (el && !DomHandler.hasClass(el, 'p-datatable')) {
-                    el = el.parentElement;
-                }
-
-                return el;
-            }
-            else {
-                return null;
+                this.$refs.scrollFooterBox.style.paddingRight = scrollBarWidth + 'px';
             }
         },
         shouldRenderCol(column) {
