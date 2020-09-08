@@ -10,7 +10,7 @@
             <template slot="content">
                 <div class="p-fluid p-formgrid p-grid">
                     <div class="p-field p-col-12">
-                        <label for="class">Class</label>
+                        <label for="class">Card Holder Name</label>
                         <InputText type="text" v-model="cardholderName" />
                     </div>
                     <div class="p-field p-col-8">

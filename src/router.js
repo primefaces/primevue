@@ -460,7 +460,12 @@ export default new Router({
 			path: '/progressspinner',
 			name: 'progressspinner',
 			component: () => import('./views/progressspinner/ProgressSpinnerDemo.vue')
-		},
+        },
+        {
+			path: '/primeflex',
+			name: 'primeflex',
+			component: () => import('./views/primeflex/PrimeFlexSetup.vue')
+        },
 		{
 			path: '/radiobutton',
 			name: 'radiobutton',

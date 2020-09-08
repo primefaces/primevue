@@ -2,17 +2,6 @@
 	<div class="content-section documentation">
 		<TabView>
 			<TabPanel header="Documentation">
-				<h5>Install</h5>
-                <p>PrimeFlex is available at npm, if you have an existing application run the following command to download it to your project.</p>
-<CodeHighlight lang="js">
-npm install primeflex --save
-</CodeHighlight>
-
-                <p>Then add the primeflex.css to your application</p>
-<CodeHighlight lang="js">
-import 'primeflex/primeflex.css';
-</CodeHighlight>
-
 				<h5>Getting Started</h5>
 				<p>Core member of the FormLayout is the <i>.p-field</i> class that wraps the input field and the associated label.</p>
 <CodeHighlight>

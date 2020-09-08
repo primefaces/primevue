@@ -25,6 +25,16 @@ data() {
 &lt;ProgressBar mode="indeterminate"/&gt;
 </CodeHighlight>
 
+                <h5>Slot</h5>
+                <p>A custom label can be placed inside the progress bar via the default slot.</p>
+<CodeHighlight>
+<template v-pre>
+&lt;ProgressBar :value="value"&gt;
+    Percent Complete: &#123;&#123;value&#125;&#125;%
+&lt;/ProgressBar&gt;
+</template>
+</CodeHighlight>
+
 				<h5>Properties</h5>
 				<div class="doc-tablewrapper">
 					<table class="doc-table">

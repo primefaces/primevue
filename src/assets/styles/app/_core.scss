@@ -141,7 +141,8 @@ pre[class*="language-"] {
     transition: background-color .2s;
 
     &:hover {
-        background-color: #708EA5;
+        background-color: #576c7f;
         color: #ffffff;
+        text-decoration: none !important;
     }
 }

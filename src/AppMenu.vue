@@ -20,6 +20,7 @@
 
             <div class="menu-category">PrimeFlex</div>
             <div class="menu-items">
+                <router-link to="/primeflex">Setup</router-link>
                 <router-link to="/display">Display</router-link>
                 <router-link to="/elevation">Elevation</router-link>
                 <router-link to="/flexbox">FlexBox</router-link>

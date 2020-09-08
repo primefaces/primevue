@@ -73,7 +73,8 @@ export default {
             },
             readOnly: this.readonly,
             theme: 'snow',
-            formats: this.formats
+            formats: this.formats,
+            placeholder: this.placeholder
         });
 
         this.renderValue(this.value);

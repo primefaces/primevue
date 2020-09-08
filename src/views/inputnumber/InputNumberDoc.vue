@@ -82,11 +82,11 @@ Stacked
 &lt;InputNumber v-model="value1" showButtons mode="currency" currency="USD" /&gt;
 
 Horizontal
-&lt;InputNumber v-model="value2" showButtons buttonLayout="horizontal" spinnerMode="horizontal"
+&lt;InputNumber v-model="value2" showButtons buttonLayout="horizontal"
     decrementButtonClass="p-button-danger" incrementButtonClass="p-button-success" incrementButtonIcon="pi pi-plus" decrementButtonIcon="pi pi-minus" mode="currency" currency="EUR" /&gt;
 
 Vertical
-&lt;InputNumber v-model="value3" mode="decimal" showButtons buttonLayout="vertical" spinnerMode="vertical"
+&lt;InputNumber v-model="value3" mode="decimal" showButtons buttonLayout="vertical"
     decrementButtonClass="p-button-secondary" incrementButtonClass="p-button-secondary" incrementButtonIcon="pi pi-plus" decrementButtonIcon="pi pi-minus" /&gt;
 </CodeHighlight>
 
@@ -405,7 +405,7 @@ Vertical
     &lt;/div&gt;
     &lt;div class="p-field p-col-12 p-md-3"&gt;
         &lt;label for="horizontal"&gt;Horizontal with Step&lt;/label&gt;
-        &lt;InputNumber id="horizontal" v-model="value18" showButtons buttonLayout="horizontal" spinnerMode="horizontal" :step="0.25"
+        &lt;InputNumber id="horizontal" v-model="value18" showButtons buttonLayout="horizontal" :step="0.25"
             decrementButtonClass="p-button-danger" incrementButtonClass="p-button-success" incrementButtonIcon="pi pi-plus" decrementButtonIcon="pi pi-minus" mode="currency" currency="EUR" /&gt;
     &lt;/div&gt;
     &lt;div class="p-field p-col-12 p-md-3"&gt;
@@ -416,7 +416,7 @@ Vertical
 
 &lt;div class="p-field p-col-12 p-md-3"&gt;
     &lt;label for="vertical" style="display: block"&gt;Vertical&lt;/label&gt;
-    &lt;InputNumber id="vertical" v-model="value19" mode="decimal" showButtons buttonLayout="vertical" spinnerMode="vertical" style="width:4rem"
+    &lt;InputNumber id="vertical" v-model="value19" mode="decimal" showButtons buttonLayout="vertical" style="width:4rem"
         decrementButtonClass="p-button-secondary" incrementButtonClass="p-button-secondary" incrementButtonIcon="pi pi-plus" decrementButtonIcon="pi pi-minus" /&gt;
 &lt;/div&gt;
 </template>
