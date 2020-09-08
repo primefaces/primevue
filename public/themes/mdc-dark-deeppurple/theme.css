@@ -5008,7 +5008,7 @@
   opacity: 0.38;
 }
 .p-panelmenu .p-panelmenu-panel .p-panelmenu-header:not(.p-highlight) .p-panelmenu-header-link:focus {
-  background: #f6f6f6;
+  background: rgba(255, 255, 255, 0.04);
 }
 
 .p-progressbar {
