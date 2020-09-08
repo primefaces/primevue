@@ -7,6 +7,7 @@ export declare class Dropdown extends Vue {
     optionValue?: any;
     optionDisabled?: boolean;
     scrollHeight?: string;
+    labelClass?: string;
     filter?: boolean;
     filterPlaceholder?: string;
     filterLocale?: string;
@@ -17,6 +18,7 @@ export declare class Dropdown extends Vue {
     showClear?: boolean;
     tabindex?: string;
     inputId?: string;
+    containerClass?: string;
     ariaLabelledBy?: string;
     appendTo?: string;
     $emit(eventName: 'input', value: string): this;

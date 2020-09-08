@@ -184,6 +184,18 @@ data() {
                                 <td>null</td>
                                 <td>Id of the element or "body" for document where the overlay should be appended to.</td>
                             </tr>
+                            <tr>
+                                <td>labelClass</td>
+                                <td>string</td>
+                                <td></td>
+                                <td>Additional class used by the container</td>
+                            </tr>
+                            <tr>
+                                <td>labelClass</td>
+                                <td>string</td>
+                                <td></td>
+                                <td>Additional class used by the dropdown label</td>
+                            </tr>
 						</tbody>
 					</table>
 				</div>

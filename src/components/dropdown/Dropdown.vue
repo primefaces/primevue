@@ -1,12 +1,12 @@
 <template>
-    <div ref="container" :class="containerClass" @click="onClick($event)">
+    <div ref="container" :class="rawContainerClass" @click="onClick($event)">
         <div class="p-hidden-accessible">
             <input ref="focusInput" type="text" :id="inputId" readonly :disabled="disabled" @focus="onFocus" @blur="onBlur" @keydown="onKeyDown" :tabindex="tabindex"
                 aria-haspopup="listbox" :aria-expanded="overlayVisible" :aria-labelledby="ariaLabelledBy"/>
         </div>
         <input v-if="editable" type="text" class="p-dropdown-label p-inputtext" :disabled="disabled" @focus="onFocus" @blur="onBlur" :placeholder="placeholder" :value="editableInputValue" @input="onEditableInput"
             aria-haspopup="listbox" :aria-expanded="overlayVisible">
-        <span v-if="!editable" :class="labelClass">
+        <span v-if="!editable" :class="rawLabelClass">
             <slot name="value" :value="value" :placeholder="placeholder">
                 {{label}}
             </slot>
@@ -53,7 +53,11 @@ export default {
 		scrollHeight: {
 			type: String,
 			default: '200px'
-		},
+        },
+        labelClass: {
+            type: String,
+            default: ''
+        },
 		filter: Boolean,
         filterPlaceholder: String,
         filterLocale: String,
@@ -64,11 +68,16 @@ export default {
         showClear: Boolean,
         inputId: String,
         tabindex: String,
+        containerClass: {
+            type: String,
+            default: ''
+        },
         ariaLabelledBy: null,
         appendTo: {
             type: String,
             default: null
-        }
+        },
+
     },
     data() {
         return {
@@ -419,7 +428,7 @@ export default {
             else
                 return this.options;
         },
-        containerClass() {
+        rawContainerClass() {
             return [
                 'p-dropdown p-component',
                 {
@@ -428,16 +437,18 @@ export default {
                     'p-focus': this.focused,
                     'p-inputwrapper-filled': this.value,
                     'p-inputwrapper-focus': this.focused
-                }
+                },
+                this.containerClass
             ];
         },
-        labelClass() {
+        rawLabelClass() {
             return [
                 'p-dropdown-label p-inputtext',
                 {
                     'p-placeholder': this.label === this.placeholder,
                     'p-dropdown-label-empty': !this.$scopedSlots['value'] && (this.label === 'p-emptylabel' || this.label.length === 0)
-                }
+                },
+                this.labelClass
             ];
         },
         label() {
