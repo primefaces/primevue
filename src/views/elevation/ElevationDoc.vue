@@ -14,9 +14,6 @@
 &lt;div class="p-shadow-1" /&gt;
 &lt;div class="p-shadow-24" /&gt;
 </CodeHighlight>
-
-				<h5>Dependencies</h5>
-				<p>PrimeFlex.</p>
 			</TabPanel>
 
 			<TabPanel header="Source">

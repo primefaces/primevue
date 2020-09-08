@@ -14,10 +14,7 @@ npm install primeicons --save
 
             <h5>PrimeFlex</h5>
             <p>PrimeFlex is a CSS utility library featuring various helpers such as a grid system, flexbox, spacing, elevation and more. Although it is not required, it is highly
-                recommended to add PrimeFlex as it is likely to need such utilities when developing applications.</p>
-<CodeHighlight lang="js">
-npm install primeflex --save
-</CodeHighlight>
+                recommended to add PrimeFlex as it is likely to need such utilities when developing applications. View the <router-link to="/primeflex">PrimeFlex</router-link> section for the installation.</p>
 
             <h5>Module Loader</h5>
             <p>This is the recommended way if your application uses <a href="https://cli.vuejs.org/">vue-cli</a> or has a webpack based build with <a href="https://github.com/vuejs/vue-loader">vue-loader</a> configured.
