@@ -13,7 +13,7 @@ import TabMenu from 'primevue/tabmenu';
 				<h5>Getting Started</h5>
 				<p>TabMenu is integrated with Vue Router and requires a collection of menuitems as its model.</p>
 <CodeHighlight>
-&lt;Menu :model="items" /&gt;
+&lt;TabMenu :model="items" /&gt;
 &lt;router-view /&gt;
 </CodeHighlight>
 
@@ -105,7 +105,7 @@ export default {
 				</a>
 <CodeHighlight>
 <template v-pre>
-&lt;Menu :model="items" /&gt;
+&lt;TabMenu :model="items" /&gt;
 &lt;router-view /&gt;
 </template>
 </CodeHighlight>
