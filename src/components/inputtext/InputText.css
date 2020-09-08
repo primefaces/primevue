@@ -26,7 +26,9 @@
 }
 
 .p-inputgroup .p-inputtext,
-.p-fluid .p-inputgroup .p-inputtext {
+.p-fluid .p-inputgroup .p-inputtext,
+.p-inputgroup .p-inputwrapper,
+.p-fluid .p-inputgroup .p-input {
     flex: 1 1 auto;
     width: 1%;
 }

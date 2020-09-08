@@ -148,7 +148,7 @@ export default {
             return this.max && this.value && this.max === this.value.length;
         },
         containerClass() {
-            return ['p-chips p-component', {
+            return ['p-chips p-component p-inputwrapper', {
                 'p-inputwrapper-filled': ((this.value && this.value.length) || (this.inputValue && this.inputValue.length)),
                 'p-inputwrapper-focus': this.focused
             }];

@@ -392,7 +392,7 @@ export default {
             };
         },
         containerClass() {
-            return ['p-autocomplete p-component', {
+            return ['p-autocomplete p-component p-inputwrapper', {
                 'p-autocomplete-dd': this.dropdown,
                 'p-autocomplete-multiple': this.multiple,
                 'p-inputwrapper-filled': ((this.value) || (this.inputTextValue && this.inputTextValue.length)),

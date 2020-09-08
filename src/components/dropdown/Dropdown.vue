@@ -426,7 +426,7 @@ export default {
         },
         containerClass() {
             return [
-                'p-dropdown p-component',
+                'p-dropdown p-component p-inputwrapper',
                 {
                     'p-disabled': this.disabled,
                     'p-dropdown-clearable': this.showClear && !this.disabled,

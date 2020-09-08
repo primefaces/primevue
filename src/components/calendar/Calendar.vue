@@ -2000,7 +2000,7 @@ export default {
         },
         containerClass() {
             return [
-                'p-calendar',
+                'p-calendar p-component p-inputwrapper',
                 {
                     'p-calendar-w-btn': this.showIcon,
                     'p-calendar-timeonly': this.timeOnly,

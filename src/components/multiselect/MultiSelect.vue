@@ -358,7 +358,7 @@ export default {
         },
         containerClass() {
             return [
-                'p-multiselect p-component',
+                'p-multiselect p-component p-inputwrapper',
                 {
                     'p-disabled': this.disabled,
                     'p-focus': this.focused,
