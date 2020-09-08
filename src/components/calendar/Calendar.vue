@@ -5,56 +5,58 @@
         <transition name="p-connected-overlay" @enter="onOverlayEnter" @after-enter="onOverlayEnterComplete" @leave="onOverlayLeave">
             <div ref="overlay" :class="panelStyleClass" v-if="inline ? true : overlayVisible" :role="inline ? null : 'dialog'" :aria-labelledby="ariaLabelledBy">
                 <template v-if="!timeOnly">
-                    <div class="p-datepicker-group" v-for="(month,groupIndex) of months" :key="month.month + month.year">
-                        <div class="p-datepicker-header">
-                            <slot name="header"></slot>
-                            <button class="p-datepicker-prev p-link" v-if="groupIndex === 0" @click="onPrevButtonClick" type="button" @keydown="onContainerButtonKeydown" v-ripple :disabled="$attrs.disabled">
-                                <span class="p-datepicker-prev-icon pi pi-chevron-left"></span>
-                            </button>
-                            <div class="p-datepicker-title">
-                                <span class="p-datepicker-month" v-if="!monthNavigator && (view !== 'month')">{{locale.monthNames[month.month]}}</span>
-                                <select class="p-datepicker-month" v-if="monthNavigator && (view !== 'month') && numberOfMonths === 1" @change="onMonthDropdownChange($event.target.value)">
-                                    <option :value="index" v-for="(monthName, index) of locale.monthNames" :key="monthName" :selected="index === month.month">{{monthName}}</option>
-                                </select>
-                                <span class="p-datepicker-year" v-if="!yearNavigator">{{view === 'month' ? currentYear : month.year}}</span>
-                                <select class="p-datepicker-year" v-if="yearNavigator && numberOfMonths === 1" @change="onYearDropdownChange($event.target.value)">
-                                    <option :value="year" v-for="year of yearOptions" :key="year" :selected="year === currentYear">{{year}}</option>
-                                </select>
+                    <div class="p-datepicker-group-container">
+                        <div class="p-datepicker-group" v-for="(month,groupIndex) of months" :key="month.month + month.year">
+                            <div class="p-datepicker-header">
+                                <slot name="header"></slot>
+                                <button class="p-datepicker-prev p-link" v-if="groupIndex === 0" @click="onPrevButtonClick" type="button" @keydown="onContainerButtonKeydown" v-ripple :disabled="$attrs.disabled">
+                                    <span class="p-datepicker-prev-icon pi pi-chevron-left"></span>
+                                </button>
+                                <div class="p-datepicker-title">
+                                    <span class="p-datepicker-month" v-if="!monthNavigator && (view !== 'month')">{{locale.monthNames[month.month]}}</span>
+                                    <select class="p-datepicker-month" v-if="monthNavigator && (view !== 'month') && numberOfMonths === 1" @change="onMonthDropdownChange($event.target.value)">
+                                        <option :value="index" v-for="(monthName, index) of locale.monthNames" :key="monthName" :selected="index === month.month">{{monthName}}</option>
+                                    </select>
+                                    <span class="p-datepicker-year" v-if="!yearNavigator">{{view === 'month' ? currentYear : month.year}}</span>
+                                    <select class="p-datepicker-year" v-if="yearNavigator && numberOfMonths === 1" @change="onYearDropdownChange($event.target.value)">
+                                        <option :value="year" v-for="year of yearOptions" :key="year" :selected="year === currentYear">{{year}}</option>
+                                    </select>
+                                </div>
+                                <button class="p-datepicker-next p-link" v-if="numberOfMonths === 1 ? true : (groupIndex === numberOfMonths - 1)"
+                                    @click="onNextButtonClick" type="button" @keydown="onContainerButtonKeydown" v-ripple :disabled="$attrs.disabled">
+                                    <span class="p-datepicker-next-icon pi pi-chevron-right"></span>
+                                </button>
                             </div>
-                            <button class="p-datepicker-next p-link" v-if="numberOfMonths === 1 ? true : (groupIndex === numberOfMonths - 1)"
-                                @click="onNextButtonClick" type="button" @keydown="onContainerButtonKeydown" v-ripple :disabled="$attrs.disabled">
-                                <span class="p-datepicker-next-icon pi pi-chevron-right"></span>
-                            </button>
-                        </div>
-                        <div class="p-datepicker-calendar-container" v-if="view ==='date'">
-                            <table class="p-datepicker-calendar">
-                                <thead>
-                                    <tr>
-                                        <th scope="col" v-if="showWeek" class="p-datepicker-weekheader p-disabled">
-                                            <span>{{locale['weekHeader']}}</span>
-                                        </th>
-                                        <th scope="col" v-for="weekDay of weekDays" :key="weekDay">
-                                            <span>{{weekDay}}</span>
-                                        </th>
-                                    </tr>
-                                </thead>
-                                <tbody>
-                                    <tr v-for="(week,i) of month.dates" :key="week[0].day + '' + week[0].month">
-                                        <td v-if="showWeek" class="p-datepicker-weeknumber">
-                                            <span class="p-disabled">
-                                                <span style="visibility:hidden" v-if="month.weekNumbers[i] < 10">0</span>
-                                                {{month.weekNumbers[i]}}
-                                            </span>
-                                        </td>
-                                        <td v-for="date of week" :key="date.day + '' + date.month" :class="{'p-datepicker-other-month': date.otherMonth, 'p-datepicker-today': date.today}">
-                                            <span :class="{'p-highlight': isSelected(date), 'p-disabled': !date.selectable}" @click="onDateSelect($event, date)"
-                                                draggable="false" @keydown="onDateCellKeydown($event,date,groupIndex)" v-ripple>
-                                                <slot name="date" :date="date">{{date.day}}</slot>
-                                            </span>
-                                        </td>
-                                    </tr>
-                                </tbody>
-                            </table>
+                            <div class="p-datepicker-calendar-container" v-if="view ==='date'">
+                                <table class="p-datepicker-calendar">
+                                    <thead>
+                                        <tr>
+                                            <th scope="col" v-if="showWeek" class="p-datepicker-weekheader p-disabled">
+                                                <span>{{locale['weekHeader']}}</span>
+                                            </th>
+                                            <th scope="col" v-for="weekDay of weekDays" :key="weekDay">
+                                                <span>{{weekDay}}</span>
+                                            </th>
+                                        </tr>
+                                    </thead>
+                                    <tbody>
+                                        <tr v-for="(week,i) of month.dates" :key="week[0].day + '' + week[0].month">
+                                            <td v-if="showWeek" class="p-datepicker-weeknumber">
+                                                <span class="p-disabled">
+                                                    <span style="visibility:hidden" v-if="month.weekNumbers[i] < 10">0</span>
+                                                    {{month.weekNumbers[i]}}
+                                                </span>
+                                            </td>
+                                            <td v-for="date of week" :key="date.day + '' + date.month" :class="{'p-datepicker-other-month': date.otherMonth, 'p-datepicker-today': date.today}">
+                                                <span :class="{'p-highlight': isSelected(date), 'p-disabled': !date.selectable}" @click="onDateSelect($event, date)"
+                                                    draggable="false" @keydown="onDateCellKeydown($event,date,groupIndex)" v-ripple>
+                                                    <slot name="date" :date="date">{{date.day}}</slot>
+                                                </span>
+                                            </td>
+                                        </tr>
+                                    </tbody>
+                                </table>
+                            </div>
                         </div>
                     </div>
                     <div class="p-monthpicker" v-if="view === 'month'">
@@ -2229,7 +2231,7 @@ export default {
 }
 
 /* Multiple Month DatePicker */
-.p-datepicker-multiple-month {
+.p-datepicker-multiple-month .p-datepicker-group-container {
     display: flex;
 }
 

@@ -177,7 +177,7 @@
   box-shadow: 0 0 0 0.2rem #a6d5fa;
 }
 .p-datepicker .p-datepicker-header .p-datepicker-title {
-  line-height: 1;
+  line-height: 2rem;
 }
 .p-datepicker .p-datepicker-header .p-datepicker-title select {
   transition: background-color 0.2s, color 0.2s, border-color 0.2s, box-shadow 0.2s;
