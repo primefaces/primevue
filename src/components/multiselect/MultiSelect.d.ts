@@ -17,6 +17,7 @@ export declare class MultiSelect extends Vue {
     filterLocale?: string;
     ariaLabelledBy?: string;
     appendTo?: string;
+    emptyFilterMessage?: string;
     $emit(eventName: 'input', value: any): this;
     $emit(eventName: 'change', e: {originalEvent: Event, value: any}): this;
     $emit(eventName: 'before-show'): this;

@@ -31,6 +31,7 @@
                                 {{getOptionLabel(option)}}
                             </slot>
                         </li>
+                        <li v-if="filterValue && (!visibleOptions || (visibleOptions && visibleOptions.length === 0))" class="p-dropdown-empty-message">{{emptyFilterMessage}}</li>
                     </ul>
                 </div>
             </div>
@@ -68,6 +69,10 @@ export default {
         appendTo: {
             type: String,
             default: null
+        },
+        emptyFilterMessage: {
+            type: String,
+            default: 'No results found'
         }
     },
     data() {

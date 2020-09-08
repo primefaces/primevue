@@ -14,6 +14,7 @@
                         {{getOptionLabel(option)}}
                     </slot>
                 </li>
+                <li v-if="filterValue && (!visibleOptions || (visibleOptions && visibleOptions.length === 0))" class="p-listbox-empty-message">{{emptyFilterMessage}}</li>
             </ul>
         </div>
     </div>
@@ -38,7 +39,11 @@ export default {
         metaKeySelection: Boolean,
         filter: Boolean,
         filterPlaceholder: String,
-        filterLocale: String
+        filterLocale: String,
+        emptyFilterMessage: {
+            type: String,
+            default: 'No results found'
+        }
     },
     optionTouched: false,
     data() {

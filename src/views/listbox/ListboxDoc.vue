@@ -149,6 +149,12 @@ data() {
                                 <td>undefined</td>
                                 <td>Locale to use in filtering. The default locale is the host environment's current locale.</td>
                             </tr>
+                            <tr>
+                                <td>emptyFilterMessage</td>
+                                <td>string</td>
+                                <td>No results found</td>
+                                <td>Text to display when filtering does not return any results.</td>
+                            </tr>
 						</tbody>
 					</table>
 				</div>

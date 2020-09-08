@@ -172,6 +172,12 @@ data() {
                                 <td>null</td>
                                 <td>Id of the element or "body" for document where the overlay should be appended to.</td>
                             </tr>
+                            <tr>
+                                <td>emptyFilterMessage</td>
+                                <td>string</td>
+                                <td>No results found</td>
+                                <td>Text to display when filtering does not return any results.</td>
+                            </tr>
 						</tbody>
 					</table>
 				</div>

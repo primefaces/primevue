@@ -15,6 +15,7 @@ export declare class Listbox extends Vue {
     filterPlaceholder?: string;
     filterLocale?: string;
     ariaLabelledBy?: string;
+    emptyFilterMessage?: string;
     $emit(eventName: 'input', value: any): this;
     $emit(eventName: 'change', e: { originalEvent: Event, value: any }): this;
     $emit(eventName: 'filter', e: { originalEvent: Event, value: string }): this;
