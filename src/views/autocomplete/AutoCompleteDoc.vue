@@ -98,7 +98,7 @@ export default {
                                 <td>field</td>
                                 <td>any</td>
                                 <td>null</td>
-                                <td>Field of a suggested object to resolve and display.</td>
+                                <td>Property name or getter function of a suggested object to resolve and display.</td>
                             </tr>
                             <tr>
                                 <td>scrollHeight</td>

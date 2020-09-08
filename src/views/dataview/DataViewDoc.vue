@@ -320,7 +320,7 @@ export default {
                                 <td>sortField</td>
                                 <td>string</td>
                                 <td>null</td>
-                                <td>Name of the field to sort data by default.</td>
+                                <td>Property name or a getter function of data to use in sorting by default.</td>
                             </tr>
                             <tr>
                                 <td>sortOrder</td>
