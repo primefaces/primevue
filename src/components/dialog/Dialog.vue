@@ -299,6 +299,11 @@ export default {
     display: flex;
     align-items: center;
     justify-content: space-between;
+    flex-shrink: 0;
+}
+
+.p-dialog-footer {
+    flex-shrink: 0;
 }
 
 .p-dialog .p-dialog-header-icons {
