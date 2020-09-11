@@ -4,7 +4,7 @@
             <li role="presentation" v-for="(tab, i) of tabs" :key="tab.header || i" :class="[{'p-highlight': (tab.d_active), 'p-disabled': tab.disabled}]">
                 <a role="tab" class="p-tabview-nav-link" @click="onTabClick($event, tab)" @keydown="onTabKeydown($event, tab)" :tabindex="tab.disabled ? null : '0'" :aria-selected="tab.d_active" v-ripple>
                     <span class="p-tabview-title" v-if="tab.header">{{tab.header}}</span>
-                    <TabPanelHeaderSlot :tab="tab" v-if="tab.$slots.header" />
+                    <component :is="tab.$slots.header"></component>
                 </a>
             </li>
             <li ref="inkbar" class="p-tabview-ink-bar"></li>
@@ -18,20 +18,12 @@
 <script>
 import DomHandler from '../utils/DomHandler';
 import Ripple from '../ripple/Ripple';
-import { h } from 'vue';
-
-const TabPanelHeaderSlot = (props) => {
-    return h(props.tab.$slots['header']);
-}
 
 export default {
     data() {
         return {
             tabs: []
         };
-    },
-    mounted() {
-        this.d_children = this.$children;
     },
     updated() {
         let activeTab = this.tabs[this.findActiveTabIndex()];
@@ -85,9 +77,6 @@ export default {
     },
     directives: {
         'ripple': Ripple
-    },
-    components: {
-        'TabPanelHeaderSlot': TabPanelHeaderSlot
     }
 }
 </script>
