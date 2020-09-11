@@ -21,6 +21,14 @@ export default {
         active(newValue) {
             this.d_active = newValue;
         }
+    },
+    mounted() {
+        if (!this.$parent.tabs.includes(this)) {
+            this.$parent.tabs.push(this);
+        }
+    },
+    beforeDestroy() {
+        this.$parent.tabs = this.$parent.tabs.filter(tab => tab !== this);
     }
 }
 </script>
