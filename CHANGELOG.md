@@ -1,5 +1,27 @@
 # Changelog
 
+## [2.0.9](https://github.com/primefaces/primevue/tree/2.0.9) (2020-09-09)
+
+[Full Changelog](https://github.com/primefaces/primevue/compare/2.0.8...2.0.9)
+
+**Implemented New Features and Enhancements:**
+
+- InputGroup support for input components with wrappers [\#471](https://github.com/primefaces/primevue/issues/471)
+- Update PrimeFlex documentation to 2.0.0 [\#464](https://github.com/primefaces/primevue/issues/464)
+- Scrollable Table alignment improvement [\#462](https://github.com/primefaces/primevue/issues/462)
+- emptyFilterMessage for Dropdown, MultiSelect and Listbox filter [\#459](https://github.com/primefaces/primevue/issues/459)
+- Negative sign with InputNumber [\#458](https://github.com/primefaces/primevue/issues/458)
+- InputNumber Currency not working as expected [\#330](https://github.com/primefaces/primevue/issues/330)
+
+**Fixed bugs:**
+
+- Dialog with Long Content does not scroll in IE11 [\#473](https://github.com/primefaces/primevue/issues/473)
+- Click on Dropdown's filter text box closes items list [\#465](https://github.com/primefaces/primevue/issues/465)
+- Calendar misplaced layout if more than one month is shown [\#461](https://github.com/primefaces/primevue/issues/461)
+- inputNumber cannot set value bigger than 99.999 for an ES locale [\#460](https://github.com/primefaces/primevue/issues/460)
+- Items in PanelMenu are highlighted wrongly with Material dark themes [\#456](https://github.com/primefaces/primevue/issues/456)
+- InputNumber with dynamic fraction digits doesn't work as expected [\#455](https://github.com/primefaces/primevue/issues/455)
+
 ## [2.0.8](https://github.com/primefaces/primevue/tree/2.0.8) (2020-08-27)
 
 [Full Changelog](https://github.com/primefaces/primevue/compare/2.0.7...2.0.8)
