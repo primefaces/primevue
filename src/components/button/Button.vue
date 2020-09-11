@@ -1,5 +1,5 @@
 <template>
-    <button :class="buttonClass" v-on="$listeners" type="button" v-ripple>
+    <button :class="buttonClass" type="button" v-ripple>
         <slot>
             <span v-if="icon" :class="iconClass"></span>
             <span class="p-button-label">{{label||'&nbsp;'}}</span>
@@ -28,6 +28,10 @@ export default {
         },
         badgeClass: {
             type: String,
+            default: null
+        },
+        disabled: {
+            type: Boolean,
             default: null
         }
     },
