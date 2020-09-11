@@ -20,7 +20,7 @@
                         <template #header>
                             <Button type="button" icon="pi pi-cog"></Button>
                         </template>
-                        <template #body="slotProps">
+                        <template>
                             <Button type="button" icon="pi pi-search" class="p-button-success" style="margin-right: .5em"></Button>
                             <Button type="button" icon="pi pi-pencil" class="p-button-warning"></Button>
                         </template>
@@ -50,7 +50,7 @@
         &lt;template #header&gt;
             &lt;Button type="button" icon="pi pi-cog"&gt;&lt;/Button&gt;
         &lt;/template&gt;
-        &lt;template #body="slotProps"&gt;
+        &lt;template&gt;
             &lt;Button type="button" icon="pi pi-search" class="p-button-success" style="margin-right: .5em"&gt;&lt;/Button&gt;
             &lt;Button type="button" icon="pi pi-pencil" class="p-button-warning"&gt;&lt;/Button&gt;
         &lt;/template&gt;

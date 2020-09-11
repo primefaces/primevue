@@ -197,5 +197,3 @@ plugins: [
         </div>
     </div>
 </template>
-
-<script>

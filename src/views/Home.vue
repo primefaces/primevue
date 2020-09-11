@@ -226,7 +226,7 @@ export default {
             document.cookie = 'primeaffiliateid=' + afId + ';expires=' + expire.toUTCString() + ';path=/; domain:primefaces.org';
         }
 
-        EventBus.$on('change-theme', event => {
+        EventBus.on('change-theme', event => {
             if (event.dark)
                 this.dark = true;
             else
@@ -234,7 +234,7 @@ export default {
         });
     },
     beforeDestroy() {
-        EventBus.$off('change-theme');
+        EventBus.off('change-theme');
     },
     computed: {
         introductionClass() {

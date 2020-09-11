@@ -27,20 +27,22 @@
     "bootstrap"
   ],
   "devDependencies": {
-    "core-js": "^2.6.5",
-    "vue": "^2.6.10",
-    "vue-router": "^3.0.1",
-    "vue-template-compiler": "^2.5.21",
-    "@babel/cli": "^7.4.4",
-    "@vue/cli-plugin-babel": "^3.2.0",
-    "@vue/cli-plugin-eslint": "^3.2.0",
-    "@vue/cli-service": "^3.2.0",
+    "core-js": "^3.6.5",
+    "vue": "^3.0.0-0",
+    "vue-router": "^4.0.0-0",
+    "@vue/cli-plugin-babel": "~4.5.0",
+    "@vue/cli-plugin-eslint": "~4.5.0",
+    "@vue/cli-plugin-router": "~4.5.0",
+    "@vue/cli-service": "~4.5.0",
+    "@vue/compiler-sfc": "^3.0.0-0",
+    "babel-eslint": "^10.1.0",
+    "eslint": "^6.7.2",
+    "eslint-plugin-vue": "^7.0.0-0",
+    "node-sass": "^4.12.0",
+    "sass-loader": "^8.0.2",
     "axios": "^0.19.0",
     "vuelidate": "^0.7.4",
-    "babel-eslint": "^10.0.1",
     "chart.js": "2.7.3",
-    "eslint": "^5.8.0",
-    "eslint-plugin-vue": "^5.0.0-0",
     "gulp": "^3.9.1",
     "gulp-concat": "^2.6.0",
     "gulp-flatten": "^0.2.0",
@@ -54,8 +56,9 @@
     "@fullcalendar/core": "4.0.2",
     "@fullcalendar/daygrid": "4.0.1",
     "@fullcalendar/interaction": "4.0.2",
-    "@fullcalendar/timegrid": "4.0.1",
-    "sass-loader": "^7.0.1",
-    "node-sass": "^4.9.0"
+    "@fullcalendar/timegrid": "4.0.1"
+  },
+  "dependencies": {
+    "mitt": "^2.1.0"
   }
 }

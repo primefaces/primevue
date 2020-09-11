@@ -1,6 +1,7 @@
-import Vue from 'vue';
-import App from './App.vue';
+import {createApp} from 'vue';
+import {reactive} from 'vue'
 import router from './router';
+import App from './App.vue';
 import AutoComplete from './components/autocomplete/AutoComplete';
 import Accordion from './components/accordion/Accordion';
 import AccordionTab from './components/accordiontab/AccordionTab';
@@ -86,98 +87,97 @@ import '@fullcalendar/core/main.min.css';
 import '@fullcalendar/daygrid/main.min.css';
 import '@fullcalendar/timegrid/main.min.css';
 import './assets/styles/flags.css';
-import Vuelidate from 'vuelidate';
+//import Vuelidate from 'vuelidate';
 
-Vue.use(Vuelidate);
-Vue.use(ToastService);
-Vue.directive('tooltip', Tooltip);
-Vue.directive('ripple', Ripple);
-
-Vue.prototype.$appState = Vue.observable({inputStyle: 'outlined', darkTheme: false});
-Vue.prototype.$primevue = Vue.observable({ripple: true});
-
-Vue.config.productionTip = false;
-
-Vue.component('Accordion', Accordion);
-Vue.component('AccordionTab', AccordionTab);
-Vue.component('AutoComplete', AutoComplete);
-Vue.component('BlockUI', BlockUI);
-Vue.component('Breadcrumb', Breadcrumb);
-Vue.component('Button', Button);
-Vue.component('Calendar', Calendar);
-Vue.component('Card', Card);
-Vue.component('Carousel', Carousel);
-Vue.component('Chart', Chart);
-Vue.component('Checkbox', Checkbox);
-Vue.component('Chips', Chips);
-Vue.component('ColorPicker', ColorPicker);
-Vue.component('Column', Column);
-Vue.component('ColumnGroup', ColumnGroup);
-Vue.component('ContextMenu', ContextMenu);
-Vue.component('DataTable', DataTable);
-Vue.component('DataView', DataView);
-Vue.component('DataViewLayoutOptions', DataViewLayoutOptions);
-Vue.component('DeferredContent', DeferredContent);
-Vue.component('Dialog', Dialog);
-Vue.component('Dropdown', Dropdown);
-Vue.component('Editor', Editor);
-Vue.component('Fieldset', Fieldset);
-Vue.component('FileUpload', FileUpload);
-Vue.component('FullCalendar', FullCalendar);
-Vue.component('InlineMessage', InlineMessage);
-Vue.component('Inplace', Inplace);
-Vue.component('InputMask', InputMask);
-Vue.component('InputNumber', InputNumber);
-Vue.component('InputSwitch', InputSwitch);
-Vue.component('InputText', InputText);
-Vue.component('Listbox', Listbox);
-Vue.component('MegaMenu', MegaMenu);
-Vue.component('Menu', Menu);
-Vue.component('Menubar', Menubar);
-Vue.component('Message', Message);
-Vue.component('MultiSelect', MultiSelect);
-Vue.component('OrderList', OrderList);
-Vue.component('OrganizationChart', OrganizationChart);
-Vue.component('OverlayPanel', OverlayPanel);
-Vue.component('Paginator', Paginator);
-Vue.component('Panel', Panel);
-Vue.component('PanelMenu', PanelMenu);
-Vue.component('Password', Password);
-Vue.component('PickList', PickList);
-Vue.component('ProgressBar', ProgressBar);
-Vue.component('ProgressSpinner', ProgressSpinner);
-Vue.component('RadioButton', RadioButton);
-Vue.component('Rating', Rating);
-Vue.component('Row', Row);
-Vue.component('ScrollPanel', ScrollPanel);
-Vue.component('SelectButton', SelectButton);
-Vue.component('Slider', Slider);
-Vue.component('Sidebar', Sidebar);
-Vue.component('SplitButton', SplitButton);
-Vue.component('Steps', Steps);
-Vue.component('TabView', TabView);
-Vue.component('TabPanel', TabPanel);
-Vue.component('TabMenu', TabMenu);
-Vue.component('Terminal', Terminal);
-Vue.component('Textarea', Textarea);
-Vue.component('TieredMenu', TieredMenu);
-Vue.component('Toast', Toast);
-Vue.component('Toolbar', Toolbar);
-Vue.component('ToggleButton', ToggleButton);
-Vue.component('Tree', Tree);
-Vue.component('TreeTable', TreeTable);
-Vue.component('TriStateCheckbox', TriStateCheckbox);
-Vue.component('Galleria', Galleria);
-
-Vue.component('CodeHighlight', CodeHighlight);
-Vue.component('AppInputStyleSwitch', AppInputStyleSwitch);
-
-router.beforeEach(function (to, from, next) {
+//Vue.use(Vuelidate);
+/*router.beforeEach(function (to, from, next) {
     window.scrollTo(0, 0);
     next();
-});
+});*/
 
-new Vue({
-  router,
-  render: h => h(App)
-}).$mount('#app');
+const app = createApp(App);
+
+app.config.globalProperties.$appState = reactive({inputStyle: 'outlined', darkTheme: false});
+app.config.globalProperties.$primevue = reactive({ripple: true});
+
+app.use(ToastService);
+app.use(router);
+
+app.directive('tooltip', Tooltip);
+app.directive('ripple', Ripple);
+
+app.component('Accordion', Accordion);
+app.component('AccordionTab', AccordionTab);
+app.component('AutoComplete', AutoComplete);
+app.component('BlockUI', BlockUI);
+app.component('Breadcrumb', Breadcrumb);
+app.component('Button', Button);
+app.component('Calendar', Calendar);
+app.component('Card', Card);
+app.component('Carousel', Carousel);
+app.component('Chart', Chart);
+app.component('Checkbox', Checkbox);
+app.component('Chips', Chips);
+app.component('ColorPicker', ColorPicker);
+app.component('Column', Column);
+app.component('ColumnGroup', ColumnGroup);
+app.component('ContextMenu', ContextMenu);
+app.component('DataTable', DataTable);
+app.component('DataView', DataView);
+app.component('DataViewLayoutOptions', DataViewLayoutOptions);
+app.component('DeferredContent', DeferredContent);
+app.component('Dialog', Dialog);
+app.component('Dropdown', Dropdown);
+app.component('Editor', Editor);
+app.component('Fieldset', Fieldset);
+app.component('FileUpload', FileUpload);
+app.component('FullCalendar', FullCalendar);
+app.component('InlineMessage', InlineMessage);
+app.component('Inplace', Inplace);
+app.component('InputMask', InputMask);
+app.component('InputNumber', InputNumber);
+app.component('InputSwitch', InputSwitch);
+app.component('InputText', InputText);
+app.component('Listbox', Listbox);
+app.component('MegaMenu', MegaMenu);
+app.component('Menu', Menu);
+app.component('Menubar', Menubar);
+app.component('Message', Message);
+app.component('MultiSelect', MultiSelect);
+app.component('OrderList', OrderList);
+app.component('OrganizationChart', OrganizationChart);
+app.component('OverlayPanel', OverlayPanel);
+app.component('Paginator', Paginator);
+app.component('Panel', Panel);
+app.component('PanelMenu', PanelMenu);
+app.component('Password', Password);
+app.component('PickList', PickList);
+app.component('ProgressBar', ProgressBar);
+app.component('ProgressSpinner', ProgressSpinner);
+app.component('RadioButton', RadioButton);
+app.component('Rating', Rating);
+app.component('Row', Row);
+app.component('ScrollPanel', ScrollPanel);
+app.component('SelectButton', SelectButton);
+app.component('Slider', Slider);
+app.component('Sidebar', Sidebar);
+app.component('SplitButton', SplitButton);
+app.component('Steps', Steps);
+app.component('TabView', TabView);
+app.component('TabPanel', TabPanel);
+app.component('TabMenu', TabMenu);
+app.component('Terminal', Terminal);
+app.component('Textarea', Textarea);
+app.component('TieredMenu', TieredMenu);
+app.component('Toast', Toast);
+app.component('Toolbar', Toolbar);
+app.component('ToggleButton', ToggleButton);
+app.component('Tree', Tree);
+app.component('TreeTable', TreeTable);
+app.component('TriStateCheckbox', TriStateCheckbox);
+app.component('Galleria', Galleria);
+
+app.component('CodeHighlight', CodeHighlight);
+app.component('AppInputStyleSwitch', AppInputStyleSwitch);
+
+app.mount('#app');

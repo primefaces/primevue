@@ -53,7 +53,7 @@ export default {
 </CodeHighlight>
 
                 <h5>MenuModel</h5>
-                <p>SplitButton uses the common MenuModel API to define the items, visit <router-link to="/menumodel">MenuModel API</router-link> for details.
+                <p>SplitButton uses the common MenuModel API to define the items, visit <router-link to="/menumodel">MenuModel API</router-link> for details.</p>
 
 				<h5>Severity</h5>
 				<p>Different color options are available as severity levels.</p>

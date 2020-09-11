@@ -1,4 +1,4 @@
-import Vue from 'vue';
-const TerminalService = new Vue();
+import mitt from 'mitt';
+const TerminalService = mitt();
 
 export default TerminalService;

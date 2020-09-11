@@ -54,10 +54,10 @@ export default {
     },
     methods: {
         nextPage() {
-            this.$emit('nextPage', {formData: {cardholderName: this.cardholderName, cardholderNumber: this.cardholderNumber, date: this.date, cvv: this.cvv}, pageIndex: 2});
+            this.$emit('next-page', {formData: {cardholderName: this.cardholderName, cardholderNumber: this.cardholderNumber, date: this.date, cvv: this.cvv}, pageIndex: 2});
         },
         prevPage() {
-            this.$emit('prevPage', {pageIndex: 2});
+            this.$emit('prev-page', {pageIndex: 2});
         }
     }
 }

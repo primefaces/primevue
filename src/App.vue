@@ -88,7 +88,7 @@ export default {
 
             this.activeMenuIndex = null;
 
-            EventBus.$emit('change-theme', event);
+            EventBus.emit('change-theme', event);
             this.$appState.darkTheme = event.dark;
 
             if (event.theme.startsWith('md')) {

@@ -49,7 +49,7 @@ export default {
 </CodeHighlight>
 
                 <h5>Positioning</h5>
-                <p>Dialog location is controlled with the <i>position</i> property whose default value is center. Other valid values are top", "bottom", "left", "right", "topleft", "topright", "bottomleft" and "bottomright"<div class=""></div>
+                <p>Dialog location is controlled with the <i>position</i> property whose default value is center. Other valid values are top", "bottom", "left", "right", "topleft", "topright", "bottomleft" and "bottomright".</p>
 <CodeHighlight>
 &lt;Dialog position="top" :visible.sync="display"&gt;
 	Content

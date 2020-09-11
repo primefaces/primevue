@@ -160,5 +160,3 @@ const items = [
         </div>
     </div>
 </template>
-
-<script>
