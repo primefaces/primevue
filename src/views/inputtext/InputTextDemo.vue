@@ -51,7 +51,7 @@
 
                 <h5>Sizes</h5>
                 <div class="sizes">
-                    <InputText type="text" class="p-inputtext-sm" placeholder="Small" />
+                    <InputText type="text" class="p-inputtext-sm p-mb-2" placeholder="Small" />
                     <InputText type="text" placeholder="Normal" />
                     <InputText type="text" class="p-inputtext-lg"  placeholder="Large" />
                 </div>
@@ -68,16 +68,16 @@ import InputTextDoc from './InputTextDoc';
 export default {
     data() {
         return {
-            value1: '',
-            value2: '',
-            value3: '',
-            value4: '',
+            value1: null,
+            value2: null,
+            value3: null,
+            value4: null,
             value5: 'PrimeVue'
         }
     },
 	components: {
 		'InputTextDoc': InputTextDoc
-	}
+    }
 }
 </script>
 

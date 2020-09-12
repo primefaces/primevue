@@ -176,10 +176,10 @@ import InputText from 'primevue/inputtext';
 export default {
 	data() {
 		return {
-            value1: '',
-            value2: '',
-            value3: '',
-            value4: '',
+            value1: null,
+            value2: null,
+            value3: null,
+            value4: null,
             value5: 'PrimeVue'
 		}
 	}
