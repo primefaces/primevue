@@ -39,7 +39,7 @@ import EventBus from '@/EventBus';
 
 export default {
     mounted() {
-        EventBus.$on('change-theme', event => {
+        EventBus.on('change-theme', event => {
             if (event.dark)
                 this.applyDarkTheme();
             else
@@ -51,7 +51,7 @@ export default {
         }
     },
     beforeDestroy() {
-        EventBus.$off('change-theme');
+        EventBus.off('change-theme');
     },
     data() {
         return {

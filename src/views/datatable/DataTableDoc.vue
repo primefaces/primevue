@@ -1484,7 +1484,7 @@ export default {
 </CodeHighlight>
 
                 <h5>ContextMenu</h5>
-                <p>DataTable provides exclusive integration with the ContextMenu component using, <i>contextMenu</i>, <i>contextMenuSelection</i> property along with the <i>row-contextmenu</i> event.
+                <p>DataTable provides exclusive integration with the ContextMenu component using, <i>contextMenu</i>, <i>contextMenuSelection</i> property along with the <i>row-contextmenu</i> event.</p>
 <CodeHighlight>
 <template v-pre>
 &lt;DataTable :value="cars" contextMenu :contextMenuSelection.sync="selectedCar" @row-contextmenu="onRowContextMenu"&gt;

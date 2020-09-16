@@ -36,14 +36,14 @@ export default {
         }
     },
     mounted() {
-        TerminalService.$on('response', this.responseListener);
+        TerminalService.on('response', this.responseListener);
         this.$refs.input.focus();
     },
     updated() {
         this.$el.scrollTop = this.$el.scrollHeight;
     },
     beforeDestroy() {
-        TerminalService.$off('response', this.responseListener);
+        TerminalService.off('response', this.responseListener);
     },
     methods: {
         onClick() {
@@ -52,7 +52,7 @@ export default {
         onKeydown(event) {
             if (event.keyCode === 13 && this.commandText) {
                 this.commands.push({text: this.commandText});
-                TerminalService.$emit('command', this.commandText);
+                TerminalService.emit('command', this.commandText);
                 this.commandText = '';
             }
         },

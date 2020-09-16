@@ -118,5 +118,3 @@ import 'primeflex/src/_elevation.css';
         </div>
     </div>
 </template>
-
-<script>

@@ -222,14 +222,14 @@ export default {
                 case 'quantity':
                 case 'price':
                     if (this.isPositiveInteger(editingCellValue))
-                        Vue.set(this.products2, event.index, this.editingCellRows[event.index]);
+                        this.products2[event.index] = this.editingCellRows[event.index];
                     else
                         event.preventDefault();
                 break;
 
                 default:
                     if (editingCellValue.trim().length > 0)
-                        Vue.set(this.products2, event.index, this.editingCellRows[event.index]);
+                        this.products2[event.index] = this.editingCellRows[event.index];
                     else
                         event.preventDefault();
                 break;
@@ -256,7 +256,7 @@ export default {
             this.originalRows[event.index] = {...this.products3[event.index]};
         },
         onRowEditCancel(event) {
-            Vue.set(this.products3, event.index, this.originalRows[event.index]);
+            this.products3[event.index] = this.originalRows[event.index];
         },
         getStatusLabel(status) {
             switch(status) {
@@ -296,7 +296,6 @@ export default {
 
 <script>
 import ProductService from '../../service/ProductService';
-import Vue from 'vue';
 
 export default {
     data() {
@@ -336,14 +335,14 @@ export default {
                 case 'quantity':
                 case 'price':
                     if (this.isPositiveInteger(editingCellValue))
-                        Vue.set(this.products2, event.index, this.editingCellRows[event.index]);
+                        this.products2[event.index] = this.editingCellRows[event.index];
                     else
                         event.preventDefault();
                 break;
 
                 default:
                     if (editingCellValue.trim().length > 0)
-                        Vue.set(this.products2, event.index, this.editingCellRows[event.index]);
+                        this.products2[event.index] = this.editingCellRows[event.index];
                     else
                         event.preventDefault();
                 break;
@@ -370,7 +369,7 @@ export default {
             this.originalRows[event.index] = {...this.products3[event.index]};
         },
         onRowEditCancel(event) {
-            Vue.set(this.products3, event.index, this.originalRows[event.index]);
+            this.products3[event.index] = this.originalRows[event.index];
         },
         getStatusLabel(status) {
             switch(status) {

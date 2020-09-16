@@ -68,10 +68,10 @@ export default {
             }
         },
         nextPage() {
-            this.$emit('nextPage', {formData: {class: this.selectedClass.name, vagon: this.selectedVagon.vagon, seat: this.selectedSeat.seat}, pageIndex: 1});
+            this.$emit('next-page', {formData: {class: this.selectedClass.name, vagon: this.selectedVagon.vagon, seat: this.selectedSeat.seat}, pageIndex: 1});
         },
         prevPage() {
-            this.$emit('prevPage', {pageIndex: 1});
+            this.$emit('prev-page', {pageIndex: 1});
         }
     }
 }

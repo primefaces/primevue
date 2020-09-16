@@ -82,7 +82,7 @@
                 <h5>Custom Headers</h5>
                 <TabView class="tabview-custom" ref="tabview4">
                     <TabPanel>
-                        <template slot="header">
+                        <template #header>
                             <i class="pi pi-calendar"></i>
                             <span>Header I</span>
                         </template>
@@ -91,7 +91,7 @@
                             Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.</p>
                     </TabPanel>
                     <TabPanel>
-                        <template slot="header">
+                        <template #header>
                             <span>Header II</span>
                             <i class="pi pi-user"></i>
                         </template>
@@ -100,7 +100,7 @@
                             voluptatem sequi nesciunt. Consectetur, adipisci velit, sed quia non numquam eius modi.</p>
                     </TabPanel>
                     <TabPanel>
-                        <template slot="header">
+                        <template #header>
                             <i class="pi pi-search"></i>
                             <span>Header III</span>
                             <i class="pi pi-cog"></i>
@@ -129,7 +129,7 @@ export default {
     },
     timeout: null,
     mounted() {
-        EventBus.$on('change-theme', () => {
+        EventBus.on('change-theme', () => {
             this.timeout = setTimeout(() => {
                 this.$refs.tabview1.updateInkBar();
                 this.$refs.tabview2.updateInkBar();
@@ -140,7 +140,7 @@ export default {
     },
     beforeDestroy() {
         clearTimeout(this.timeout);
-        EventBus.$off('change-theme');
+        EventBus.off('change-theme');
     },
     methods: {
         activate(index) {

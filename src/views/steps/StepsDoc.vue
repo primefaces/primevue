@@ -127,7 +127,7 @@ export default {
 <template v-pre>
 &lt;Steps :model="items" :readonly="true"  style="margin-bottom: 1rem" /&gt;
 &lt;keep-alive&gt;
-    &lt;router-view :formData="formObject" @prevPage="prevPage($event)" @nextPage="nextPage($event)" @complete="complete" /&gt;
+    &lt;router-view :formData="formObject" @prevPage="prev-page($event)" @next-page="nextPage($event)" @complete="complete" /&gt;
 &lt;/keep-alive&gt;
 </template>
 </CodeHighlight>
@@ -250,7 +250,7 @@ export default {
                 return;
             }
 
-            this.$emit('nextPage', {formData: {firstname: this.firstname, lastname: this.lastname, age: this.age}, pageIndex: 0});
+            this.$emit('next-page', {formData: {firstname: this.firstname, lastname: this.lastname, age: this.age}, pageIndex: 0});
         }
     }
 }
@@ -329,10 +329,10 @@ export default {
             }
         },
         nextPage() {
-            this.$emit('nextPage', {formData: {class: this.selectedClass.name, vagon: this.selectedVagon.vagon, seat: this.selectedSeat.seat}, pageIndex: 1});
+            this.$emit('next-page', {formData: {class: this.selectedClass.name, vagon: this.selectedVagon.vagon, seat: this.selectedSeat.seat}, pageIndex: 1});
         },
         prevPage() {
-            this.$emit('prevPage', {pageIndex: 1});
+            this.$emit('prev-page', {pageIndex: 1});
         }
     }
 }
@@ -397,10 +397,10 @@ export default {
     },
     methods: {
         nextPage() {
-            this.$emit('nextPage', {formData: {cardholderName: this.cardholderName, cardholderNumber: this.cardholderNumber, date: this.date, cvv: this.cvv}, pageIndex: 2});
+            this.$emit('next-page', {formData: {cardholderName: this.cardholderName, cardholderNumber: this.cardholderNumber, date: this.date, cvv: this.cvv}, pageIndex: 2});
         },
         prevPage() {
-            this.$emit('prevPage', {pageIndex: 2});
+            this.$emit('prev-page', {pageIndex: 2});
         }
     }
 }
@@ -470,7 +470,7 @@ export default {
     },
     methods: {
         prevPage() {
-            this.$emit('prevPage', {pageIndex: 3});
+            this.$emit('prev-page', {pageIndex: 3});
         },
         complete() {
             this.$emit('complete');

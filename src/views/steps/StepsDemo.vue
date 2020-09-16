@@ -13,7 +13,7 @@
             </div>
 
             <keep-alive>
-                <router-view :formData="formObject" @prevPage="prevPage($event)" @nextPage="nextPage($event)" @complete="complete" />
+                <router-view :formData="formObject" @prev-page="prevPage($event)" @next-page="nextPage($event)" @complete="complete" />
             </keep-alive>
         </div>
 

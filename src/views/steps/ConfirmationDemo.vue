@@ -59,7 +59,7 @@ export default {
     },
     methods: {
         prevPage() {
-            this.$emit('prevPage', {pageIndex: 3});
+            this.$emit('prev-page', {pageIndex: 3});
         },
         complete() {
             this.$emit('complete');
