@@ -23,7 +23,7 @@ import InputNumber from 'primevue/inputnumber';
             <p>Fractions are configured with the <i>minFractionDigits</i> property. Optionally <i>maxFractionDigits</i> can be used to defined a boundary for the maximum digits.</p>
 <CodeHighlight>
 &lt;InputNumber v-model="value1" mode="decimal" :minFractionDigits="2" /&gt;
-&lt;InputNumber v-model="value2" mode="decimal" :minFractionDigits="2" :maxFracionDigits="2" /&gt;
+&lt;InputNumber v-model="value2" mode="decimal" :minFractionDigits="2" :maxFractionDigits="2" /&gt;
 </CodeHighlight>
 
             <p><i>locale</i> option is available to set the localization information such as grouping and decimal symbols where default value is the browser locale. Locales are defined per <a href="https://tools.ietf.org/html/rfc5646">BCP Language Tag</a>.</p>
