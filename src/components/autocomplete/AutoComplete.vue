@@ -1,14 +1,14 @@
 <template>
     <span :class="containerClass" aria-haspopup="listbox" :aria-owns="listId" :aria-expanded="overlayVisible">
-        <input ref="input" :class="inputClass" v-bind="$attrs" v-on="listeners" :value="inputValue" type="text" autoComplete="off" v-if="!multiple"
+        <input ref="input" :class="inputClass" v-bind="$attrs" :value="inputValue" @input="onInput" @focus="onFocus" @blur="onBlur" @keydown="onKeyDown" type="text" autoComplete="off" v-if="!multiple"
             role="searchbox" aria-autocomplete="list" :aria-controls="listId" :aria-labelledby="ariaLabelledBy">
         <ul ref="multiContainer" :class="multiContainerClass" v-if="multiple" @click="onMultiContainerClick">
-            <li v-for="(item, i) of value" :key="i" class="p-autocomplete-token">
+            <li v-for="(item, i) of modelValue" :key="i" class="p-autocomplete-token">
                 <span class="p-autocomplete-token-label">{{getItemContent(item)}}</span>
                 <span class="p-autocomplete-token-icon pi pi-times-circle" @click="removeItem($event, i)"></span>
             </li>
             <li class="p-autocomplete-input-token">
-                <input ref="input" type="text" autoComplete="off" v-bind="$attrs" v-on="listeners"
+                <input ref="input" type="text" autoComplete="off" v-bind="$attrs" @input="onInput" @focus="onFocus" @blur="onBlur" @keydown="onKeyDown" 
                 role="searchbox" aria-autocomplete="list" :aria-controls="listId" :aria-labelledby="ariaLabelledBy">
             </li>
         </ul>
@@ -38,7 +38,7 @@ import Ripple from '../ripple/Ripple';
 export default {
     inheritAttrs: false,
     props: {
-        value: null,
+        modelValue: null,
         suggestions: {
             type: Array,
             default: null
@@ -158,12 +158,12 @@ export default {
                 this.inputTextValue = '';
 
                 if (!this.isSelected(item)) {
-                    let newValue = this.value ? [...this.value, item] : [item];
-                    this.$emit('input', newValue);
+                    let newValue = this.modelValue ? [...this.modelValue, item] : [item];
+                    this.$emit('update:modelValue', newValue);
                 }
             }
             else {
-                this.$emit('input', item);
+                this.$emit('update:modelValue', item);
             }
 
             this.$emit('item-select', {
@@ -178,9 +178,9 @@ export default {
             this.focus();
         },
         removeItem(event, index) {
-            let removedValue = this.value[index];
-            let newValue = this.value.filter((val, i) => (index !== i));
-            this.$emit('input', newValue);
+            let removedValue = this.modelValue[index];
+            let newValue = this.modelValue.filter((val, i) => (index !== i));
+            this.$emit('update:modelValue', newValue);
             this.$emit('item-unselect', {
                 originalEvent: event,
                 value: removedValue
@@ -238,7 +238,7 @@ export default {
 
             let query = event.target.value;
             if (!this.multiple) {
-                this.$emit('input', query);
+                this.$emit('update:modelValue', query);
             }
 
             if (query.length === 0) {
@@ -334,11 +334,11 @@ export default {
                 switch(event.which) {
                     //backspace
                     case 8:
-                        if (this.value && this.value.length && !this.$refs.input.value) {
-                            let removedValue = this.value[this.value.length - 1];
-                            let newValue = this.value.slice(0, -1);
+                        if (this.modelValue && this.modelValue.length && !this.$refs.input.value) {
+                            let removedValue = this.modelValue[this.modelValue.length - 1];
+                            let newValue = this.modelValue.slice(0, -1);
 
-                            this.$emit('input', newValue);
+                            this.$emit('update:modelValue', newValue);
                             this.$emit('item-unselect', {
                                 originalEvent: event,
                                 value: removedValue
@@ -353,9 +353,9 @@ export default {
         },
         isSelected(val) {
             let selected = false;
-            if (this.value && this.value.length) {
-                for (let i = 0; i < this.value.length; i++) {
-                    if (ObjectUtils.equals(this.value[i], val)) {
+            if (this.modelValue && this.modelValue.length) {
+                for (let i = 0; i < this.modelValue.length; i++) {
+                    if (ObjectUtils.equals(this.modelValue[i], val)) {
                         selected = true;
                         break;
                     }
@@ -382,20 +382,11 @@ export default {
         }
     },
     computed: {
-        listeners() {
-            return {
-                ...this.$listeners,
-                input: this.onInput,
-                focus: this.onFocus,
-                blur: this.onBlur,
-                keydown: this.onKeyDown
-            };
-        },
         containerClass() {
             return ['p-autocomplete p-component p-inputwrapper', {
                 'p-autocomplete-dd': this.dropdown,
                 'p-autocomplete-multiple': this.multiple,
-                'p-inputwrapper-filled': ((this.value) || (this.inputTextValue && this.inputTextValue.length)),
+                'p-inputwrapper-filled': ((this.modelValue) || (this.inputTextValue && this.inputTextValue.length)),
                 'p-inputwrapper-focus': this.focused
             }];
         },
@@ -412,13 +403,13 @@ export default {
             }];
         },
         inputValue() {
-            if (this.value) {
+            if (this.modelValue) {
                 if (this.field) {
-                    const resolvedFieldData = ObjectUtils.resolveFieldData(this.value, this.field);
-                    return resolvedFieldData != null ? resolvedFieldData : this.value;
+                    const resolvedFieldData = ObjectUtils.resolveFieldData(this.modelValue, this.field);
+                    return resolvedFieldData != null ? resolvedFieldData : this.modelValue;
                 }
                 else
-                    return this.value;
+                    return this.modelValue;
             }
             else {
                 return '';
