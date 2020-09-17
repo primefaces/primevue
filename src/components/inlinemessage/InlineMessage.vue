@@ -28,7 +28,7 @@ export default {
     },
     computed: {
         containerClass() {
-            return ['p-inline-message p-component p-inline-message-' + this.severity, {'p-inline-message-icon-only': !this.$scopedSlots.default}];
+            return ['p-inline-message p-component p-inline-message-' + this.severity, {'p-inline-message-icon-only': !this.$slots.default}];
         },
         iconClass() {
             return ['p-inline-message-icon pi', {

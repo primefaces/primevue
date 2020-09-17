@@ -10,7 +10,7 @@
         <div class="content-section implementation">
             <div class="card">
                 <h5>Single Selection</h5>
-                <TreeTable :value="nodes" selectionMode="single" :selectionKeys.sync="selectedKey1">
+                <TreeTable :value="nodes" selectionMode="single" v-model:selectionKeys="selectedKey1">
                     <Column field="name" header="Name" :expander="true"></Column>
                     <Column field="size" header="Size"></Column>
                     <Column field="type" header="Type"></Column>
@@ -19,7 +19,7 @@
 
             <div class="card">
                 <h5>Multiple Selection with MetaKey</h5>
-                <TreeTable :value="nodes" selectionMode="multiple" :selectionKeys.sync="selectedKeys1">
+                <TreeTable :value="nodes" selectionMode="multiple" v-model:selectionKeys="selectedKeys1">
                     <Column field="name" header="Name" :expander="true"></Column>
                     <Column field="size" header="Size"></Column>
                     <Column field="type" header="Type"></Column>
@@ -28,7 +28,7 @@
 
             <div class="card">
                 <h5>Multiple Selection without MetaKey</h5>
-                <TreeTable :value="nodes" selectionMode="multiple" :selectionKeys.sync="selectedKeys2" :metaKeySelection="false">
+                <TreeTable :value="nodes" selectionMode="multiple" v-model:selectionKeys="selectedKeys2" :metaKeySelection="false">
                     <Column field="name" header="Name" :expander="true"></Column>
                     <Column field="size" header="Size"></Column>
                     <Column field="type" header="Type"></Column>
@@ -37,7 +37,7 @@
 
             <div class="card">
                 <h5>Checkbox Selection</h5>
-                <TreeTable :value="nodes" selectionMode="checkbox" :selectionKeys.sync="selectedKeys3">
+                <TreeTable :value="nodes" selectionMode="checkbox" v-model:selectionKeys="selectedKeys3">
                     <Column field="name" header="Name" :expander="true"></Column>
                     <Column field="size" header="Size"></Column>
                     <Column field="type" header="Type"></Column>
@@ -46,7 +46,7 @@
 
             <div class="card">
                 <h5>Events</h5>
-                <TreeTable :value="nodes" selectionMode="single" :selectionKeys.sync="selectedKey2"
+                <TreeTable :value="nodes" selectionMode="single" v-model:selectionKeys="selectedKey2"
                     @node-select="onNodeSelect" @node-unselect="onNodeUnselect">
                     <Column field="name" header="Name" :expander="true"></Column>
                     <Column field="size" header="Size"></Column>

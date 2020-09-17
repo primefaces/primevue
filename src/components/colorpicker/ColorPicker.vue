@@ -73,7 +73,7 @@ export default {
     hueDragging: null,
     colorDragging: null,
     selfUpdate: null,
-    beforeDestroy() {
+    beforeUnmount() {
         this.unbindOutsideClickListener();
         this.unbindDocumentMouseMoveListener();
         this.unbindDocumentMouseUpListener();

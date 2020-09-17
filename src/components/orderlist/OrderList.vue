@@ -11,8 +11,8 @@
                 <slot name="header"></slot>
             </div>
             <transition-group ref="list" name="p-orderlist-flip" tag="ul" class="p-orderlist-list" :style="listStyle" role="listbox" aria-multiselectable="multiple">
-                <template v-for="(item, i) of value">
-                    <li tabindex="0" :key="getItemKey(item, i)" :class="['p-orderlist-item', {'p-highlight': isSelected(item)}]" v-ripple
+                <template v-for="(item, i) of value" :key="getItemKey(item, i)">
+                    <li tabindex="0" :class="['p-orderlist-item', {'p-highlight': isSelected(item)}]" v-ripple
                         @click="onItemClick($event, item, i)" @keydown="onItemKeyDown($event, item, i)" @touchend="onItemTouchEnd"
                         role="option" :aria-selected="isSelected(item)">
                         <slot name="item" :item="item" :index="i"> </slot>

@@ -1,11 +1,11 @@
 <template>
     <div v-if="fullScreen && (maskVisible || visible)" ref="mask" :class="maskContentClass">
         <transition name="p-galleria" @enter="onEnter" @before-leave="onBeforeLeave" @after-leave="onAfterLeave" @appear="onAppear">
-            <GalleriaContent v-if="visible" v-bind="$props" @mask-hide="maskHide" :templates="$scopedSlots" @activeitem-change="onActiveItemChange" />
+            <GalleriaContent v-if="visible" v-bind="$props" @mask-hide="maskHide" :templates="$slots" @activeitem-change="onActiveItemChange" />
         </transition>
     </div>
 
-    <GalleriaContent v-else-if="!fullScreen" v-bind="$props" :templates="$scopedSlots" @activeitem-change="onActiveItemChange" />
+    <GalleriaContent v-else-if="!fullScreen" v-bind="$props" :templates="$slots" @activeitem-change="onActiveItemChange" />
 </template>
 
 <script>
@@ -127,7 +127,7 @@ export default {
     mounted() {
         this.removeStylesFromMask();
     },
-    beforeDestroy() {
+    beforeUnmount() {
         if (this.fullScreen) {
             DomHandler.removeClass(document.body, 'p-overflow-hidden');
         }

@@ -1,13 +1,13 @@
 <template>
     <div class="stepsdemo-content">
         <Card>
-            <template slot="title">
+            <template v-slot:title>
                 Personal Information
             </template>
-            <template slot="subtitle">
+            <template v-slot:subtitle>
                 Enter your personal information
             </template>
-            <template slot="content">
+            <template v-slot:content>
                 <div class="p-fluid">
                     <div class="p-field">
                         <label for="firstname">Firstname</label>
@@ -26,7 +26,7 @@
                     </div>
                 </div>
             </template>
-            <template slot="footer">
+            <template v-slot:footer>
                 <div class="p-grid p-nogutter p-justify-between">
                     <i></i>
                     <Button label="Next" @click="nextPage(!$v.$invalid)" icon="pi pi-angle-right" iconPos="right" />

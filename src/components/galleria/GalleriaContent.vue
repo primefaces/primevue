@@ -7,15 +7,15 @@
             <GalleriaItemSlot type="header" :templates="$attrs.templates"/>
         </div>
         <div class="p-galleria-content">
-            <GalleriaItem :value="$attrs.value" :activeIndex.sync="activeIndex" :circular="$attrs.circular" :templates="$attrs.templates"
+            <GalleriaItem :value="$attrs.value" v-model:activeIndex="activeIndex" :circular="$attrs.circular" :templates="$attrs.templates"
                 :showIndicators="$attrs.showIndicators" :changeItemOnIndicatorHover="$attrs.changeItemOnIndicatorHover"
-                :showItemNavigators="$attrs.showItemNavigators" :autoPlay="$attrs.autoPlay" :slideShowActive.sync="slideShowActive"
+                :showItemNavigators="$attrs.showItemNavigators" :autoPlay="$attrs.autoPlay" v-model:slideShowActive="slideShowActive"
                 @start-slideshow="startSlideShow" @stop-slideshow="stopSlideShow" />
 
-            <GalleriaThumbnails v-if="$attrs.showThumbnails" :containerId="id" :value="$attrs.value" :activeIndex.sync="activeIndex" :templates="$attrs.templates"
+            <GalleriaThumbnails v-if="$attrs.showThumbnails" :containerId="id" :value="$attrs.value" v-model:activeIndex="activeIndex" :templates="$attrs.templates"
                 :numVisible="$attrs.numVisible" :responsiveOptions="$attrs.responsiveOptions" :circular="$attrs.circular"
                 :isVertical="isVertical()" :contentHeight="$attrs.verticalThumbnailViewPortHeight" :showThumbnailNavigators="$attrs.showThumbnailNavigators"
-                :slideShowActive.sync="slideShowActive" @stop-slideshow="stopSlideShow" />
+                v-model:slideShowActive="slideShowActive" @stop-slideshow="stopSlideShow" />
         </div>
         <div v-if="$attrs.templates && $attrs.templates['footer']" class="p-galleria-footer">
             <GalleriaItemSlot type="footer" :templates="$attrs.templates"/>
@@ -48,7 +48,7 @@ export default {
     updated() {
         this.$emit('activeitem-change', this.activeIndex);
     },
-    beforeDestroy() {
+    beforeUnmount() {
 		if (this.slideShowActive) {
 			this.stopSlideShow();
 		}

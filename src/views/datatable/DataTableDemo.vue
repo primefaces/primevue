@@ -10,7 +10,7 @@
 		<div class="content-section implementation">
             <div class="card">
                 <DataTable :value="customers" :paginator="true" class="p-datatable-customers" :rows="10"
-                    dataKey="id" :rowHover="true" :selection.sync="selectedCustomers" :filters="filters" :loading="loading"
+                    dataKey="id" :rowHover="true" v-model:selection="selectedCustomers" :filters="filters" :loading="loading"
                     paginatorTemplate="FirstPageLink PrevPageLink PageLinks NextPageLink LastPageLink CurrentPageReport RowsPerPageDropdown" :rowsPerPageOptions="[10,25,50]"
                     currentPageReportTemplate="Showing {first} to {last} of {totalRecords} entries">
                     <template #header>
@@ -178,13 +178,13 @@ export default {
 </script>
 
 <style lang="scss" scoped>
-/deep/ .p-paginator {
+::v-deep .p-paginator {
     .p-paginator-current {
         margin-left: auto;
     }
 }
 
-/deep/ .p-progressbar {
+::v-deep .p-progressbar {
     height: .5rem;
     background-color: #D8DADC;
 
@@ -198,7 +198,7 @@ export default {
     justify-content: space-between;
 }
 
-/deep/ .p-datepicker {
+::v-deep .p-datepicker {
     min-width: 25rem;
 
     td {
@@ -206,7 +206,7 @@ export default {
     }
 }
 
-/deep/ .p-datatable.p-datatable-customers {
+::v-deep .p-datatable.p-datatable-customers {
     .p-datatable-header {
         padding: 1rem;
         text-align: left;
@@ -236,7 +236,7 @@ export default {
 }
 
 @media screen and (max-width: 960px) {
-    /deep/ .p-datatable {
+    ::v-deep .p-datatable {
         &.p-datatable-customers {
             .p-datatable-thead > tr > th,
             .p-datatable-tfoot > tr > td {

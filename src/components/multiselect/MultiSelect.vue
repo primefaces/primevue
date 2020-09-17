@@ -97,7 +97,7 @@ export default {
         };
     },
     outsideClickListener: null,
-    beforeDestroy() {
+    beforeUnmount() {
         this.restoreAppend();
         this.unbindOutsideClickListener();
     },
@@ -372,7 +372,7 @@ export default {
                 'p-multiselect-label',
                 {
                     'p-placeholder': this.label === this.placeholder,
-                    'p-multiselect-label-empty': !this.$scopedSlots['value'] && !this.placeholder && (!this.value || this.value.length === 0)
+                    'p-multiselect-label-empty': !this.$slots['value'] && !this.placeholder && (!this.value || this.value.length === 0)
                 }
             ];
         },

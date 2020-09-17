@@ -58,7 +58,7 @@
 
             <div class="card">
                 <h5>Row Editing</h5>
-                <DataTable :value="products3" editMode="row" dataKey="id" :editingRows.sync="editingRows"
+                <DataTable :value="products3" editMode="row" dataKey="id" v-model:editingRows="editingRows"
                     @row-edit-init="onRowEditInit" @row-edit-cancel="onRowEditCancel">
                     <Column field="code" header="Code">
                         <template #editor="slotProps">
@@ -396,7 +396,7 @@ export default {
 </script>
 
 <style lang="scss" scoped>
-/deep/ .editable-cells-table td.p-cell-editing {
+::v-deep .editable-cells-table td.p-cell-editing {
     padding-top: 0;
     padding-bottom: 0;
 }

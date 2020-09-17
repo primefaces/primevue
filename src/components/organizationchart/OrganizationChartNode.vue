@@ -23,9 +23,9 @@
                     </td>
                 </template>
                 <template v-if="node.children && node.children.length > 1">
-                    <template v-for="(child,i) of node.children">
-                        <td :key="child.key + '_left'" class="p-organizationchart-line-left" :class="{'p-organizationchart-line-top': !(i === 0)}">&nbsp;</td>
-                        <td :key="child.key + '_right'" class="p-organizationchart-line-right" :class="{'p-organizationchart-line-top': !(i === (node.children.length - 1))}">&nbsp;</td>
+                    <template v-for="(child,i) of node.children" :key="child.key">
+                        <td class="p-organizationchart-line-left" :class="{'p-organizationchart-line-top': !(i === 0)}">&nbsp;</td>
+                        <td class="p-organizationchart-line-right" :class="{'p-organizationchart-line-top': !(i === (node.children.length - 1))}">&nbsp;</td>
                     </template>
                 </template>
             </tr>

@@ -99,7 +99,7 @@ export default {}
 </CodeHighlight>
 
 <CodeHighlight lang="css">
-/deep/ .card-container {
+::v-deep .card-container {
     .card {
         width: 75px;
         height: 75px;

@@ -35,7 +35,7 @@ export default {
             this.initialize();
         }
     },
-    beforeDestroy() {
+    beforeUnmount() {
         this.unbindDocumentResizeListener();
 
         if (this.frame) {

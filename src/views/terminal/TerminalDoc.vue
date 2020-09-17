@@ -49,7 +49,7 @@ export default {
     mounted() {
         TerminalService.$on('command', this.commandHandler);
     },
-    beforeDestroy() {
+    beforeUnmount() {
         TerminalService.$off('command', this.commandHandler);
     }
 }
@@ -165,7 +165,7 @@ export default {
     mounted() {
         TerminalService.$on('command', this.commandHandler);
     },
-    beforeDestroy() {
+    beforeUnmount() {
         TerminalService.$off('command', this.commandHandler);
     }
 }
@@ -176,7 +176,7 @@ p {
     margin-top: 0;
 }
 
-/deep/ .dark-demo-terminall {
+::v-deep .dark-demo-terminall {
     background-color: #212121;
     color: #ffffff;
 

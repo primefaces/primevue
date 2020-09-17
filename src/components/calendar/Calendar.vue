@@ -330,7 +330,7 @@ export default {
             this.selectionEnd = null;
         }
     },
-    beforeDestroy() {
+    beforeUnmount() {
         if (this.timePickerTimer) {
             clearTimeout(this.timePickerTimer);
         }

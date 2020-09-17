@@ -152,7 +152,7 @@ export default {
 	mounted() {
 		this.startProgress();
 	},
-	beforeDestroy() {
+	beforeUnmount() {
 		this.endProgress();
 	}
 }

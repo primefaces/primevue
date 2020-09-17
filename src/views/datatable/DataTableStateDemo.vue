@@ -10,8 +10,8 @@
 		<div class="content-section implementation">
             <div class="card">
                 <h5>Session Storage</h5>
-                <DataTable :value="customers" :paginator="true" :rows="10" :filters.sync="filters1"
-                    :selection.sync="selectedCustomer1" selectionMode="single" dataKey="id"
+                <DataTable :value="customers" :paginator="true" :rows="10" v-model:filters="filters1"
+                    v-model:selection="selectedCustomer1" selectionMode="single" dataKey="id"
                     stateStorage="session" stateKey="dt-state-demo-session">
                     <template #header>
                        <span class="p-input-icon-left">
@@ -69,8 +69,8 @@
 
             <div class="card">
                 <h5>Local Storage</h5>
-                <DataTable :value="customers" :paginator="true" :rows="10" :filters.sync="filters2"
-                    :selection.sync="selectedCustomer2" selectionMode="single" dataKey="id"
+                <DataTable :value="customers" :paginator="true" :rows="10" v-model:filters="filters2"
+                    v-model:selection="selectedCustomer2" selectionMode="single" dataKey="id"
                     stateStorage="session" stateKey="dt-state-demo-local">
                     <template #header>
                        <span class="p-input-icon-left">

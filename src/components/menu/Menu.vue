@@ -54,7 +54,7 @@ export default {
     outsideClickListener: null,
     resizeListener: null,
     relativeAlign: false,
-    beforeDestroy() {
+    beforeUnmount() {
         this.restoreAppend();
         this.unbindResizeListener();
         this.unbindOutsideClickListener();
@@ -161,7 +161,7 @@ export default {
                     document.getElementById(this.appendTo).removeChild(this.$refs.container);
             }
         },
-        beforeDestroy() {
+        beforeUnmount() {
             this.restoreAppend();
             this.unbindResizeListener();
             this.unbindOutsideClickListener();

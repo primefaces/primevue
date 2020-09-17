@@ -4,7 +4,7 @@
             <li role="none" :class="getItemClass(item)" :style="item.style" v-if="visible(item) && !item.separator" :key="item.label + i"
                 @mouseenter="onItemMouseEnter($event, item)">
                 <router-link v-if="item.to && !item.disabled" :to="item.to" :class="getLinkClass(item)" v-ripple
-                    @click.native="onItemClick($event, item)" @keydown.native="onItemKeyDown($event, item)" role="menuitem">
+                    @click="onItemClick($event, item)" @keydown="onItemKeyDown($event, item)" role="menuitem">
                     <span :class="['p-menuitem-icon', item.icon]"></span>
                     <span class="p-menuitem-text">{{item.label}}</span>
                 </router-link>
@@ -68,7 +68,7 @@ export default {
             this.bindDocumentClickListener();
         }
     },
-    beforeDestroy() {
+    beforeUnmount() {
         this.unbindDocumentClickListener();
     },
     methods: {

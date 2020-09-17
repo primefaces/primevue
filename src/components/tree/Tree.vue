@@ -11,7 +11,7 @@
             <span class="p-tree-filter-icon pi pi-search"></span>
         </div>
         <ul class="p-tree-container" role="tree">
-            <TreeNode v-for="node of valueToRender" :key="node.key" :node="node" :templates="$scopedSlots"
+            <TreeNode v-for="node of valueToRender" :key="node.key" :node="node" :templates="$slots"
                 :expandedKeys="d_expandedKeys" @node-toggle="onNodeToggle" @node-click="onNodeClick"
                 :selectionMode="selectionMode" :selectionKeys="selectionKeys" @checkbox-change="onCheckboxChange"></TreeNode>
         </ul>

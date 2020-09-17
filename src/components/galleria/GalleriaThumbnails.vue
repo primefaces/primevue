@@ -140,7 +140,7 @@ export default {
             this.d_oldNumVisible = this.d_numVisible;
         }
     },
-    beforeDestroy() {
+    beforeUnmount() {
 		if (this.responsiveOptions) {
 			this.unbindDocumentListeners();
         }

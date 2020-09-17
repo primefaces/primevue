@@ -93,7 +93,7 @@ export default {
     mounted() {
         this.removeStylesFromMask();
     },
-    beforeDestroy() {
+    beforeUnmount() {
         this.disableDocumentSettings();
     },
     methods: {

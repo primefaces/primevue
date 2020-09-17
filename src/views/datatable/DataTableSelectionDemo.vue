@@ -11,7 +11,7 @@
             <div class="card">
                 <h5>Single</h5>
                 <p>In single mode, a row is selected on click event of a row. If the row is already selected then the row gets unselected.</p>
-                <DataTable :value="products" :selection.sync="selectedProduct1" selectionMode="single" dataKey="id">
+                <DataTable :value="products" v-model:selection="selectedProduct1" selectionMode="single" dataKey="id">
                     <Column field="code" header="Code"></Column>
                     <Column field="name" header="Name"></Column>
                     <Column field="category" header="Category"></Column>
@@ -23,7 +23,7 @@
                 <h5>Multiple</h5>
                 <p>In multiple mode, selection binding should be an array. For touch enabled devices, selection is managed by tapping and for other devices metakey or shiftkey are required.
                         Setting metaKeySelection property as false enables multiple selection without meta key.</p>
-                <DataTable :value="products" :selection.sync="selectedProducts1" selectionMode="multiple" dataKey="id">
+                <DataTable :value="products" v-model:selection="selectedProducts1" selectionMode="multiple" dataKey="id">
                     <template #header>
                         Multiple Selection with MetaKey
                     </template>
@@ -33,7 +33,7 @@
                     <Column field="quantity" header="Quantity"></Column>
                 </DataTable>
 
-                <DataTable :value="products" :selection.sync="selectedProducts2" selectionMode="multiple" dataKey="id" :metaKeySelection="false" style="margin-top: 2em">
+                <DataTable :value="products" v-model:selection="selectedProducts2" selectionMode="multiple" dataKey="id" :metaKeySelection="false" style="margin-top: 2em">
                     <template #header>
                         Multiple Selection without MetaKey
                     </template>
@@ -47,7 +47,7 @@
             <div class="card">
                 <h5>Events</h5>
                 <p>row-select and row-unselects are available as selection events.</p>
-                <DataTable :value="products" :selection.sync="selectedProduct2" selectionMode="single" dataKey="id"
+                <DataTable :value="products" v-model:selection="selectedProduct2" selectionMode="single" dataKey="id"
                     @row-select="onRowSelect" @row-unselect="onRowUnselect">
                     <Column field="code" header="Code"></Column>
                     <Column field="name" header="Name"></Column>
@@ -59,7 +59,7 @@
             <div class="card">
                 <h5>RadioButton</h5>
                 <p>Single selection can also be handled using radio buttons by enabling the selectionMode property of column as "single".</p>
-                <DataTable :value="products" :selection.sync="selectedProduct3" dataKey="id">
+                <DataTable :value="products" v-model:selection="selectedProduct3" dataKey="id">
                     <Column selectionMode="single" headerStyle="width: 3em"></Column>
                     <Column field="code" header="Code"></Column>
                     <Column field="name" header="Name"></Column>
@@ -71,7 +71,7 @@
             <div class="card">
                 <h5>Checkbox</h5>
 
-                <DataTable :value="products" :selection.sync="selectedProducts3" dataKey="id">
+                <DataTable :value="products" v-model:selection="selectedProducts3" dataKey="id">
                     <Column selectionMode="multiple" headerStyle="width: 3em"></Column>
                     <Column field="code" header="Code"></Column>
                     <Column field="name" header="Name"></Column>

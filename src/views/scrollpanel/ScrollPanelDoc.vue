@@ -155,7 +155,7 @@ export default {
 </CodeHighlight>
 
 <CodeHighlight lang="css">
-/deep/ .p-scrollpanel {
+::v-deep .p-scrollpanel {
     p {
         padding: .5rem;
         line-height: 1.5;

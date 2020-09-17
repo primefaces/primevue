@@ -14,7 +14,7 @@
                     <Button icon="pi pi-plus" @click="next" class="p-button-secondary" style="margin-left: .5rem" />
                 </div>
 
-                <Galleria :value="images" :activeIndex.sync="activeIndex" :responsiveOptions="responsiveOptions" :numVisible="5" style="max-width: 640px">
+                <Galleria :value="images" v-model:activeIndex="activeIndex" :responsiveOptions="responsiveOptions" :numVisible="5" style="max-width: 640px">
                     <template #item="slotProps">
                         <img :src="slotProps.item.itemImageSrc" :alt="slotProps.item.alt" style="width: 100%" />
                     </template>

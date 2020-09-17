@@ -59,7 +59,7 @@
 </template>
 
 <style lang="scss" scoped>
-/deep/ .pro-section {
+::v-deep .pro-section {
     display: flex;
     margin-top: .75rem;
 

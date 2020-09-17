@@ -42,7 +42,7 @@ export default {
     updated() {
         this.$el.scrollTop = this.$el.scrollHeight;
     },
-    beforeDestroy() {
+    beforeUnmount() {
         TerminalService.off('response', this.responseListener);
     },
     methods: {

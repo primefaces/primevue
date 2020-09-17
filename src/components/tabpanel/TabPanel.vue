@@ -27,7 +27,7 @@ export default {
             this.$parent.tabs.push(this);
         }
     },
-    beforeDestroy() {
+    beforeUnmount() {
         this.$parent.tabs = this.$parent.tabs.filter(tab => tab !== this);
     }
 }

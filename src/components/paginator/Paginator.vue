@@ -1,6 +1,6 @@
 <template>
 	<div class="p-paginator p-component" v-if="alwaysShow ? true : (pageLinks && pageLinks.length > 1)">
-        <div class="p-paginator-left-content" v-if="$scopedSlots.left">
+        <div class="p-paginator-left-content" v-if="$slots.left">
             <slot name="left" :state="currentState"></slot>
         </div>
 		<template v-for="item of templateItems">
@@ -14,7 +14,7 @@
 			<RowsPerPageDropdown v-else-if="item === 'RowsPerPageDropdown' && rowsPerPageOptions" :key="item" :rows="d_rows"
                 :options="rowsPerPageOptions" @rows-change="onRowChange($event)" />
         </template>
-        <div class="p-paginator-right-content" v-if="$scopedSlots.right">
+        <div class="p-paginator-right-content" v-if="$slots.right">
             <slot name="right" :state="currentState"></slot>
         </div>
 	</div>

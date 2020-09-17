@@ -10,18 +10,18 @@
 		<div class="content-section implementation">
             <div class="card">
                 <Toolbar class="p-mb-4">
-                    <template slot="left">
+                    <template v-slot:left>
                         <Button label="New" icon="pi pi-plus" class="p-button-success p-mr-2" @click="openNew" />
                         <Button label="Delete" icon="pi pi-trash" class="p-button-danger" @click="confirmDeleteSelected" :disabled="!selectedProducts || !selectedProducts.length" />
                     </template>
 
-                    <template slot="right">
+                    <template v-slot:right>
                         <FileUpload mode="basic" accept="image/*" :maxFileSize="1000000" label="Import" chooseLabel="Import" class="p-mr-2 p-d-inline-block" />
                         <Button label="Export" icon="pi pi-upload" class="p-button-help" @click="exportCSV($event)"  />
                     </template>
                 </Toolbar>
 
-                <DataTable ref="dt" :value="products" :selection.sync="selectedProducts" dataKey="id"
+                <DataTable ref="dt" :value="products" v-model:selection="selectedProducts" dataKey="id"
                     :paginator="true" :rows="10" :filters="filters"
                     paginatorTemplate="FirstPageLink PrevPageLink PageLinks NextPageLink LastPageLink CurrentPageReport RowsPerPageDropdown" :rowsPerPageOptions="[5,10,25]"
                     currentPageReportTemplate="Showing {first} to {last} of {totalRecords} products">
@@ -68,7 +68,7 @@
                 </DataTable>
             </div>
 
-            <Dialog :visible.sync="productDialog" :style="{width: '450px'}" header="Product Details" :modal="true" class="p-fluid">
+            <Dialog v-model:visible="productDialog" :style="{width: '450px'}" header="Product Details" :modal="true" class="p-fluid">
                 <img :src="'demo/images/product/' + product.image" :alt="product.image" class="product-image" v-if="product.image" />
                 <div class="p-field">
                     <label for="name">Name</label>
@@ -118,7 +118,7 @@
                 </template>
             </Dialog>
 
-            <Dialog :visible.sync="deleteProductDialog" :style="{width: '450px'}" header="Confirm" :modal="true">
+            <Dialog v-model:visible="deleteProductDialog" :style="{width: '450px'}" header="Confirm" :modal="true">
                 <div class="confirmation-content">
                     <i class="pi pi-exclamation-triangle p-mr-3" style="font-size: 2rem" />
                     <span v-if="product">Are you sure you want to delete <b>{{product.name}}</b>?</span>
@@ -129,7 +129,7 @@
                 </template>
             </Dialog>
 
-            <Dialog :visible.sync="deleteProductsDialog" :style="{width: '450px'}" header="Confirm" :modal="true">
+            <Dialog v-model:visible="deleteProductsDialog" :style="{width: '450px'}" header="Confirm" :modal="true">
                 <div class="confirmation-content">
                     <i class="pi pi-exclamation-triangle p-mr-3" style="font-size: 2rem" />
                     <span v-if="product">Are you sure you want to delete the selected products?</span>

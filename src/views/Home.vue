@@ -233,7 +233,7 @@ export default {
                 this.dark = false;
         });
     },
-    beforeDestroy() {
+    beforeUnmount() {
         EventBus.off('change-theme');
     },
     computed: {

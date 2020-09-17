@@ -9,30 +9,30 @@
 
         <div class="content-section implementation">
             <Card style="width: 25rem; margin-bottom: 2em">
-                <template slot="title">
+                <template v-slot:title>
                     Simple Card
                 </template>
-                <template slot="content">
+                <template v-slot:content>
                     <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Inventore sed consequuntur error repudiandae numquam deserunt
                     quisquam repellat libero asperiores earum nam nobis, culpa ratione quam perferendis esse, cupiditate neque quas!</p>
                 </template>
             </Card>
 
             <Card style="width: 25em">
-                <template slot="header">
+                <template v-slot:header>
                     <img alt="user header" src="demo/images/usercard.png">
                 </template>
-                <template slot="title">
+                <template v-slot:title>
                     Advanced Card
                 </template>
-                <template slot="subtitle">
+                <template v-slot:subtitle>
                     Card subtitle
                 </template>
-                <template slot="content">
+                <template v-slot:content>
                     <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Inventore sed consequuntur error repudiandae numquam deserunt
                     quisquam repellat libero asperiores earum nam nobis, culpa ratione quam perferendis esse, cupiditate neque quas!</p>
                 </template>
-                <template slot="footer">
+                <template v-slot:footer>
                     <Button icon="pi pi-check" label="Save" />
                     <Button icon="pi pi-times" label="Cancel" class="p-button-secondary" style="margin-left: .5em" />
                 </template>

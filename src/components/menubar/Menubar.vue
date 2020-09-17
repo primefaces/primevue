@@ -30,7 +30,7 @@ export default {
             mobileActive: false
         }
     },
-    beforeDestroy() {
+    beforeUnmount() {
         this.mobileActive = false;
         this.unbindOutsideClickListener();
     },

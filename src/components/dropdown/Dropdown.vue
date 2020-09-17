@@ -87,7 +87,7 @@ export default {
     currentSearchChar: null,
     previousSearchChar: null,
     searchValue: null,
-    beforeDestroy() {
+    beforeUnmount() {
         this.restoreAppend();
         this.unbindOutsideClickListener();
     },
@@ -441,7 +441,7 @@ export default {
                 'p-dropdown-label p-inputtext',
                 {
                     'p-placeholder': this.label === this.placeholder,
-                    'p-dropdown-label-empty': !this.$scopedSlots['value'] && (this.label === 'p-emptylabel' || this.label.length === 0)
+                    'p-dropdown-label-empty': !this.$slots['value'] && (this.label === 'p-emptylabel' || this.label.length === 0)
                 }
             ];
         },

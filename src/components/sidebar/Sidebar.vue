@@ -52,7 +52,7 @@ export default {
     },
     mask: null,
     maskClickListener: null,
-    beforeDestroy() {
+    beforeUnmount() {
         this.unbindMaskClickListener();
     },
     methods: {

@@ -9,7 +9,7 @@
 
 		<div class="content-section implementation">
             <div class="card">
-                <DataTable :value="products" :expandedRows.sync="expandedRows" dataKey="id"
+                <DataTable :value="products" v-model:expandedRows="expandedRows" dataKey="id"
                     @row-expand="onRowExpand" @row-collapse="onRowCollapse">
                     <template #header>
                         <div class="table-header-container">

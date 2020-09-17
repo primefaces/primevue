@@ -34,7 +34,7 @@ export default {
             this.initialize();
         }
     },
-    beforeDestroy() {
+    beforeUnmount() {
         if (this.calendar) {
             this.calendar.destroy();
             this.calendar = null;

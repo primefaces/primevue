@@ -6,15 +6,15 @@
                 <i :class="loadingIconClass"></i>
             </div>
         </div>
-        <div class="p-treetable-header" v-if="$scopedSlots.header">
+        <div class="p-treetable-header" v-if="$slots.header">
             <slot name="header"></slot>
         </div>
          <TTPaginator v-if="paginatorTop" :rows="d_rows" :first="d_first" :totalRecords="totalRecordsLength" :pageLinkSize="pageLinkSize" :template="paginatorTemplate" :rowsPerPageOptions="rowsPerPageOptions"
                 :currentPageReportTemplate="currentPageReportTemplate" class="p-paginator-top" @page="onPage($event)" :alwaysShow="alwaysShowPaginator">
-            <template #left v-if="$scopedSlots.paginatorLeft">
+            <template #left v-if="$slots.paginatorLeft">
                 <slot name="paginatorLeft"></slot>
             </template>
-            <template #right v-if="$scopedSlots.paginatorRight">
+            <template #right v-if="$slots.paginatorRight">
                 <slot name="paginatorRight"></slot>
             </template>
         </TTPaginator>
@@ -32,8 +32,8 @@
                         </th>
                     </tr>
                     <tr v-if="hasColumnFilter()">
-                        <template v-for="(col,i) of columns">
-                            <th :key="col.columnKey||col.field||i" :class="getFilterColumnHeaderClass(col)" :style="col.filterHeaderStyle">
+                        <template v-for="(col,i) of columns" :key="col.columnKey||col.field||i">
+                            <th :class="getFilterColumnHeaderClass(col)" :style="col.filterHeaderStyle">
                                 <TTColumnSlot :column="col" type="filter" v-if="col.$scopedSlots.filter" />
                             </th>
                         </template>
@@ -63,14 +63,14 @@
         </div>
         <TTPaginator v-if="paginatorBottom" :rows="d_rows" :first="d_first" :totalRecords="totalRecordsLength" :pageLinkSize="pageLinkSize" :template="paginatorTemplate" :rowsPerPageOptions="rowsPerPageOptions"
                 :currentPageReportTemplate="currentPageReportTemplate" class="p-paginator-bottom" @page="onPage($event)" :alwaysShow="alwaysShowPaginator">
-            <template #left v-if="$scopedSlots.paginatorLeft">
+            <template #left v-if="$slots.paginatorLeft">
                 <slot name="paginatorLeft"></slot>
             </template>
-            <template #right v-if="$scopedSlots.paginatorRight">
+            <template #right v-if="$slots.paginatorRight">
                 <slot name="paginatorRight"></slot>
             </template>
         </TTPaginator>
-        <div class="p-treetable-footer" v-if="$scopedSlots.footer">
+        <div class="p-treetable-footer" v-if="$slots.footer">
             <slot name="footer"></slot>
         </div>
         <div ref="resizeHelper" class="p-column-resizer-helper p-highlight" style="display: none"></div>

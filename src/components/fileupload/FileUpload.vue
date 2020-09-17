@@ -24,7 +24,7 @@
                     </div>
                 </div>
             </div>
-            <div class="p-fileupload-empty" v-if="$scopedSlots.empty && !hasFiles">
+            <div class="p-fileupload-empty" v-if="$slots.empty && !hasFiles">
                 <slot name="empty"></slot>
             </div>
         </div>

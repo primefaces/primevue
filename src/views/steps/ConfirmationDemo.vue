@@ -1,10 +1,10 @@
 <template>
     <div class="stepsdemo-content">
         <Card>
-            <template slot="title">
+            <template v-slot:title>
                 Confirmation
             </template>
-            <template slot="content">
+            <template v-slot:content>
                 <div class="p-field p-col-12">
                     <label for="class">Name</label>
                     <b>{{formData.firstname ? formData.firstname : '-'}} {{formData.lastname ? formData.lastname : '-'}}</b>
@@ -42,7 +42,7 @@
                     <b>{{formData.cvv && formData.cvv.length === 3  ? '**' + formData.cvv[2] : '-'}}</b>
                 </div>
             </template>
-            <template slot="footer">
+            <template v-slot:footer>
                 <div class="p-grid p-nogutter p-justify-between">
                     <Button label="Back" @click="prevPage()" icon="pi pi-angle-left" />
                     <Button label="Complete" @click="complete()" icon="pi pi-check" iconPos="right" class="p-button-success"/>

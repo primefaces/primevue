@@ -50,7 +50,7 @@ export default {
     target: null,
     outsideClickListener: null,
     resizeListener: null,
-    beforeDestroy() {
+    beforeUnmount() {
         this.restoreAppend();
         this.unbindResizeListener();
         if (this.dismissable) {

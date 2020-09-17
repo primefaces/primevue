@@ -3,7 +3,7 @@
         <ul role="tablist">
             <template v-for="(item,index) of model">
                 <li v-if="visible(item)" :key="item.to" :class="getItemClass(item)" :style="item.style" role="tab" :aria-selected="isActive(item)" :aria-expanded="isActive(item)">
-                    <router-link :to="item.to" class="p-menuitem-link" @click.native="onItemClick($event, item)" v-if="!isItemDisabled(item)" role="presentation">
+                    <router-link :to="item.to" class="p-menuitem-link" @click="onItemClick($event, item)" v-if="!isItemDisabled(item)" role="presentation">
                         <span class="p-steps-number">{{index + 1}}</span>
                         <span class="p-steps-title">{{item.label}}</span>
                     </router-link>

@@ -10,19 +10,19 @@
         <div class="content-section implementation">
             <div class="card">
                 <h5>Single Selection</h5>
-                <Tree :value="nodes" selectionMode="single" :selectionKeys.sync="selectedKey1"></Tree>
+                <Tree :value="nodes" selectionMode="single" v-model:selectionKeys="selectedKey1"></Tree>
 
                 <h5>Multiple Selection with MetaKey</h5>
-                <Tree :value="nodes" selectionMode="multiple" :selectionKeys.sync="selectedKeys1"></Tree>
+                <Tree :value="nodes" selectionMode="multiple" v-model:selectionKeys="selectedKeys1"></Tree>
 
                 <h5>Multiple Selection without MetaKey</h5>
-                <Tree :value="nodes" selectionMode="multiple" :selectionKeys.sync="selectedKeys2" :metaKeySelection="false"></Tree>
+                <Tree :value="nodes" selectionMode="multiple" v-model:selectionKeys="selectedKeys2" :metaKeySelection="false"></Tree>
 
                 <h5>Checkbox Selection</h5>
-                <Tree :value="nodes" selectionMode="checkbox" :selectionKeys.sync="selectedKeys3"></Tree>
+                <Tree :value="nodes" selectionMode="checkbox" v-model:selectionKeys="selectedKeys3"></Tree>
 
                 <h5>Events</h5>
-                <Tree :value="nodes" selectionMode="single" :selectionKeys.sync="selectedKey2" :metaKeySelection="false"
+                <Tree :value="nodes" selectionMode="single" v-model:selectionKeys="selectedKey2" :metaKeySelection="false"
                     @node-select="onNodeSelect" @node-unselect="onNodeUnselect"></Tree>
             </div>
         </div>

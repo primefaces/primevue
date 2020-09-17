@@ -107,7 +107,7 @@ export default {
             }
         }
     },
-    beforeDestroy() {
+    beforeUnmount() {
         this.quill = null;
     }
 }

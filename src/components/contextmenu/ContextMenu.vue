@@ -44,7 +44,7 @@ export default {
             visible: false
         };
     },
-    beforeDestroy() {
+    beforeUnmount() {
         this.restoreAppend();
         this.unbindResizeListener();
         this.unbindOutsideClickListener();

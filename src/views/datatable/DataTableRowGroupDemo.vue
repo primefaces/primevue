@@ -44,7 +44,7 @@
                 <p>Group customers by their representative.</p>
                 <DataTable :value="customers" rowGroupMode="subheader" groupRowsBy="representative.name"
                     sortMode="single" sortField="representative.name" :sortOrder="1"
-                    :expandableRowGroups="true" :expandedRowGroups.sync="expandedRowGroups"
+                    :expandableRowGroups="true" v-model:expandedRowGroups="expandedRowGroups"
                     @rowgroup-expand="onRowGroupExpand" @rowgroup-collapse="onRowGroupCollapse">
                     <Column field="representative.name" header="Representative"></Column>
                     <Column field="name" header="Name"></Column>

@@ -103,7 +103,7 @@ export default {
             }
         }
     },
-    beforeDestroy() {
+    beforeUnmount() {
         this.restoreAppend();
         this.unbindOutsideClickListener();
     },

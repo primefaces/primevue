@@ -73,7 +73,7 @@ export default {
 }
 
 @media screen and (max-width: 40em) {
-    /deep/ {
+    ::v-deep {
         .sm-invisible {
             display: none;
         }
@@ -117,7 +117,7 @@ export default {
 }
 
 @media screen and (max-width: 40em) {
-    /deep/ {
+    ::v-deep {
         .sm-invisible {
             display: none;
         }

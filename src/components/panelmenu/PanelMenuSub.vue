@@ -2,7 +2,7 @@
     <ul class="p-submenu-list" role="tree">
         <template v-for="(item, i) of model">
             <li role="none" :class="getItemClass(item)" :style="item.style" v-if="visible(item) && !item.separator" :key="item.label + i">
-                <router-link v-if="item.to && !item.disabled" :to="item.to" :class="getLinkClass(item)" @click.native="onItemClick($event, item)"
+                <router-link v-if="item.to && !item.disabled" :to="item.to" :class="getLinkClass(item)" @click="onItemClick($event, item)"
                     role="treeitem" :aria-expanded="isActive(item)">
                     <span :class="['p-menuitem-icon', item.icon]"></span>
                     <span class="p-menuitem-text">{{item.label}}</span>

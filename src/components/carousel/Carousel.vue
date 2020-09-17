@@ -1,6 +1,6 @@
 <template>
 	<div :id="id" :class="['p-carousel p-component', {'p-carousel-vertical': isVertical(), 'p-carousel-horizontal': !isVertical()}]">
-		<div class="p-carousel-header" v-if="$scopedSlots.header">
+		<div class="p-carousel-header" v-if="$slots.header">
 			<slot name="header"></slot>
 		</div>
 		<div :class="contentClasses">
@@ -46,7 +46,7 @@
 				</li>
 			</ul>
 		</div>
-		<div class="p-carousel-footer" v-if="$scopedSlots.footer">
+		<div class="p-carousel-footer" v-if="$slots.footer">
 			<slot name="footer"></slot>
 		</div>
 	</div>
@@ -464,7 +464,7 @@ export default {
 			this.startAutoplay();
 		}
 	},
-	beforeDestroy() {
+	beforeUnmount() {
 		if (this.responsiveOptions) {
 			this.unbindDocumentListeners();
 		}

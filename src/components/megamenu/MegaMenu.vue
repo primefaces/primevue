@@ -17,7 +17,7 @@
                                     <li :class="getSubmenuHeaderClass(submenu)" :style="submenu.style" role="presentation">{{submenu.label}}</li>
                                     <template v-for="(item, i) of submenu.items">
                                         <li role="none" :class="getSubmenuItemClass(item)" :style="item.style" v-if="visible(item) && !item.separator" :key="item.label + i">
-                                            <router-link v-if="item.to && !item.disabled" :to="item.to" :class="getLinkClass(item)" @click.native="onLeafClick($event, item)" role="menuitem" v-ripple>
+                                            <router-link v-if="item.to && !item.disabled" :to="item.to" :class="getLinkClass(item)" @click="onLeafClick($event, item)" role="menuitem" v-ripple>
                                                 <span v-if="item.icon" :class="['p-menuitem-icon', item.icon]"></span>
                                                 <span class="p-menuitem-text">{{item.label}}</span>
                                             </router-link>
@@ -63,7 +63,7 @@ export default {
             activeItem: null
         }
     },
-    beforeDestroy() {
+    beforeUnmount() {
         this.unbindDocumentClickListener();
     },
     methods: {

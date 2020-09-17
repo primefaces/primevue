@@ -10,7 +10,7 @@
         <div class="content-section implementation">
             <div class="card">
                 <h5>Advanced</h5>
-                <OrganizationChart :value="data1" :collapsible="true" class="company" selectionMode="single" :selectionKeys.sync="selection"
+                <OrganizationChart :value="data1" :collapsible="true" class="company" selectionMode="single" v-model:selectionKeys="selection"
                     @node-select="onNodeSelect" @node-unselect="onNodeUnselect" @node-collapse="onNodeCollapse" @node-expand="onNodeExpand">
                     <template #person="slotProps">
                         <div class="node-header ui-corner-top">{{slotProps.node.data.label}}</div>
@@ -182,7 +182,7 @@ export default {
 </script>
 
 <style scoped lang="scss">
-/deep/ .p-organizationchart {
+::v-deep .p-organizationchart {
     .p-person {
         padding: 0;
         border: 0 none;

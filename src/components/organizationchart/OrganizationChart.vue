@@ -1,6 +1,6 @@
 <template>
     <div class="p-organizationchart p-component">
-        <OrganizationChartNode :node="value" :templates="$scopedSlots"
+        <OrganizationChartNode :node="value" :templates="$slots"
             @node-toggle="onNodeToggle" :collapsedKeys="d_collapsedKeys" :collapsible="collapsible"
             @node-click="onNodeClick" :selectionMode="selectionMode" :selectionKeys="selectionKeys" />
     </div>

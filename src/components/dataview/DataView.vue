@@ -1,22 +1,22 @@
 <template>
 	<div :class="containerClass">
-		<div class="p-dataview-header" v-if="$scopedSlots.header">
+		<div class="p-dataview-header" v-if="$slots.header">
 			<slot name="header"></slot>
 		</div>
 		<DVPaginator v-if="paginatorTop" :rows="d_rows" :first="d_first" :totalRecords="getTotalRecords" :pageLinkSize="pageLinkSize" :template="paginatorTemplate" :rowsPerPageOptions="rowsPerPageOptions"
 					:currentPageReportTemplate="currentPageReportTemplate" :class="{'p-paginator-top': paginatorTop}" :alwaysShow="alwaysShowPaginator" @page="onPage($event)">
-			<template #left v-if="$scopedSlots.paginatorLeft">
+			<template #left v-if="$slots.paginatorLeft">
 				<slot name="paginatorLeft"></slot>
 			</template>
-			<template #right v-if="$scopedSlots.paginatorRight">
+			<template #right v-if="$slots.paginatorRight">
 				<slot name="paginatorRight"></slot>
 			</template>
 		</DVPaginator>
 		<div class="p-dataview-content">
 			<div class="p-grid p-nogutter">
 				<template v-for="(item,index) of items">
-					<slot v-if="$scopedSlots.list && layout === 'list'" name="list" :data="item" :index="index"></slot>
-					<slot v-if="$scopedSlots.grid && layout === 'grid'" name="grid" :data="item" :index="index"></slot>
+					<slot v-if="$slots.list && layout === 'list'" name="list" :data="item" :index="index"></slot>
+					<slot v-if="$slots.grid && layout === 'grid'" name="grid" :data="item" :index="index"></slot>
 				</template>
 				<div v-if="empty" class="p-col">
                     <div class="p-dataview-emptymessage">
@@ -27,14 +27,14 @@
 		</div>
 		<DVPaginator v-if="paginatorBottom" :rows="d_rows" :first="d_first" :totalRecords="getTotalRecords" :pageLinkSize="pageLinkSize" :template="paginatorTemplate" :rowsPerPageOptions="rowsPerPageOptions"
 					:currentPageReportTemplate="currentPageReportTemplate" :class="{'p-paginator-bottom': paginatorBottom}" :alwaysShow="alwaysShowPaginator" @page="onPage($event)">
-			<template #left v-if="$scopedSlots.paginatorLeft">
+			<template #left v-if="$slots.paginatorLeft">
 				<slot name="paginatorLeft"></slot>
 			</template>
-			<template #right v-if="$scopedSlots.paginatorRight">
+			<template #right v-if="$slots.paginatorRight">
 				<slot name="paginatorRight"></slot>
 			</template>
 		</DVPaginator>
-		<div class="p-dataview-footer" v-if="$scopedSlots.footer">
+		<div class="p-dataview-footer" v-if="$slots.footer">
 			<slot name="footer"></slot>
 		</div>
 	</div>

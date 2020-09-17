@@ -53,7 +53,7 @@ export default {
     barHeight: null,
     dragListener: null,
     mouseupListener: null,
-    beforeDestroy() {
+    beforeUnmount() {
         this.unbindDragListeners();
     },
     methods: {

@@ -50,7 +50,7 @@ export default {
             this.applyDarkTheme();
         }
     },
-    beforeDestroy() {
+    beforeUnmount() {
         EventBus.off('change-theme');
     },
     data() {

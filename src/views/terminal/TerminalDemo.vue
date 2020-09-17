@@ -52,7 +52,7 @@ export default {
     mounted() {
         TerminalService.on('command', this.commandHandler);
     },
-    beforeDestroy() {
+    beforeUnmount() {
         TerminalService.off('command', this.commandHandler);
     },
     components: {
@@ -66,7 +66,7 @@ p {
     margin-top: 0;
 }
 
-/deep/ .dark-demo-terminal {
+::v-deep .dark-demo-terminal {
     background-color: #212121;
     color: #ffffff;
 
