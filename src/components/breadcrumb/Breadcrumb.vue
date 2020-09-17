@@ -2,9 +2,9 @@
     <nav class="p-breadcrumb p-component" aria-label="Breadcrumb">
         <ul>
             <BreadcrumbItem v-if="home" :item="home" class="p-breadcrumb-home" />
-            <template v-for="(item, i) of model">
-                <li class="p-breadcrumb-chevron pi pi-chevron-right" :key="'chevron' + i"></li>
-                <BreadcrumbItem :key="item.label + i" :item="item" />
+            <template v-for="item of model" :key="item.label" >
+                <li class="p-breadcrumb-chevron pi pi-chevron-right"></li>
+                <BreadcrumbItem :item="item" />
             </template>
         </ul>
     </nav>
