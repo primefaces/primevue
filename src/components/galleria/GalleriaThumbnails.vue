@@ -179,7 +179,7 @@ export default {
         },
         stopSlideShow() {
             if (this.slideShowActive && this.stopSlideShow) {
-                this.$emit('stopSlideShow');
+                this.$emit('stop-slideshow');
             }
         },
         getMedianItemIndex() {

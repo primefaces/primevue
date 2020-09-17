@@ -335,7 +335,8 @@ export default {
         `;
 
 			if (this.responsiveOptions) {
-				this.responsiveOptions.sort((data1, data2) => {
+				let _responsiveOptions = {...this.responsiveOptions};
+				_responsiveOptions.sort((data1, data2) => {
 					const value1 = data1.breakpoint;
 					const value2 = data2.breakpoint;
 					let result = null;
@@ -354,8 +355,8 @@ export default {
 					return -1 * result;
 				});
 
-				for (let i = 0; i < this.responsiveOptions.length; i++) {
-					let res = this.responsiveOptions[i];
+				for (let i = 0; i < _responsiveOptions.length; i++) {
+					let res = _responsiveOptions[i];
 
 					innerHTML += `
                     @media screen and (max-width: ${res.breakpoint}) {

@@ -1,11 +1,11 @@
 <template>
     <div v-if="fullScreen && (maskVisible || visible)" ref="mask" :class="maskContentClass">
         <transition name="p-galleria" @enter="onEnter" @before-leave="onBeforeLeave" @after-leave="onAfterLeave" @appear="onAppear">
-            <GalleriaContent v-if="visible" v-bind="$props" @maskHide="maskHide" :templates="$scopedSlots" @activeItemChange="onActiveItemChange" />
+            <GalleriaContent v-if="visible" v-bind="$props" @mask-hide="maskHide" :templates="$scopedSlots" @activeitem-change="onActiveItemChange" />
         </transition>
     </div>
 
-    <GalleriaContent v-else-if="!fullScreen" v-bind="$props" :templates="$scopedSlots" @activeItemChange="onActiveItemChange" />
+    <GalleriaContent v-else-if="!fullScreen" v-bind="$props" :templates="$scopedSlots" @activeitem-change="onActiveItemChange" />
 </template>
 
 <script>

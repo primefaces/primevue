@@ -1,6 +1,6 @@
 <template>
     <div :id="id" v-if="$attrs.value && $attrs.value.length > 0" :class="galleriaClass" :style="$attrs.containerStyle">
-        <button v-if="$attrs.fullScreen" type="button" class="p-galleria-close p-link" @click="$emit('maskHide')" v-ripple>
+        <button v-if="$attrs.fullScreen" type="button" class="p-galleria-close p-link" @click="$emit('mask-hide')" v-ripple>
             <span class="p-galleria-close-icon pi pi-times"></span>
         </button>
         <div v-if="$attrs.templates && $attrs.templates['header']" class="p-galleria-header">
@@ -10,12 +10,12 @@
             <GalleriaItem :value="$attrs.value" :activeIndex.sync="activeIndex" :circular="$attrs.circular" :templates="$attrs.templates"
                 :showIndicators="$attrs.showIndicators" :changeItemOnIndicatorHover="$attrs.changeItemOnIndicatorHover"
                 :showItemNavigators="$attrs.showItemNavigators" :autoPlay="$attrs.autoPlay" :slideShowActive.sync="slideShowActive"
-                @startSlideShow="startSlideShow" @stopSlideShow="stopSlideShow" />
+                @start-slideshow="startSlideShow" @stop-slideshow="stopSlideShow" />
 
             <GalleriaThumbnails v-if="$attrs.showThumbnails" :containerId="id" :value="$attrs.value" :activeIndex.sync="activeIndex" :templates="$attrs.templates"
                 :numVisible="$attrs.numVisible" :responsiveOptions="$attrs.responsiveOptions" :circular="$attrs.circular"
                 :isVertical="isVertical()" :contentHeight="$attrs.verticalThumbnailViewPortHeight" :showThumbnailNavigators="$attrs.showThumbnailNavigators"
-                :slideShowActive.sync="slideShowActive" @stopSlideShow="stopSlideShow" />
+                :slideShowActive.sync="slideShowActive" @stop-slideshow="stopSlideShow" />
         </div>
         <div v-if="$attrs.templates && $attrs.templates['footer']" class="p-galleria-footer">
             <GalleriaItemSlot type="footer" :templates="$attrs.templates"/>
@@ -46,7 +46,7 @@ export default {
         }
     },
     updated() {
-        this.$emit('activeItemChange', this.activeIndex);
+        this.$emit('activeitem-change', this.activeIndex);
     },
     beforeDestroy() {
 		if (this.slideShowActive) {

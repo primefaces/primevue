@@ -70,7 +70,7 @@ export default {
     },
     mounted() {
         if (this.autoPlay) {
-            this.$emit('startSlideShow');
+            this.$emit('start-slideshow');
         }
     },
     methods: {
@@ -92,7 +92,7 @@ export default {
         },
         stopSlideShow() {
             if (this.slideShowActive && this.stopSlideShow) {
-                this.$emit('stopSlideShow');
+                this.$emit('stop-slideshow');
             }
         },
         navBackward(e) {

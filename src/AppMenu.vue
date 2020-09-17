@@ -70,7 +70,7 @@
 
             <div class="menu-category">Data</div>
             <div class="menu-items">
-                <router-link to="/datatable" v-slot="{ href, route, navigate, isActive }">
+                <router-link to="/datatable" v-slot="{isActive}">
                     <div>
                         <a tabindex="0" @click="toggleSubmenu($event, 'datatable')">DataTable</a>
                         <transition name="p-toggleable-content">
@@ -115,7 +115,7 @@
                 <router-link to="/organizationchart">OrganizationChart</router-link>
                 <router-link to="/paginator">Paginator</router-link>
                 <router-link to="/picklist">PickList</router-link>
-                <router-link to="/tree" v-slot="{ href, route, navigate, isActive }">
+                <router-link to="/tree" v-slot="{isActive}">
                     <div>
                         <a tabindex="0" @click="toggleSubmenu($event, 'tree')">Tree</a>
                         <transition name="p-toggleable-content">
@@ -131,7 +131,7 @@
                         </transition>
                     </div>
                 </router-link>
-                <router-link to="/treetable" v-slot="{ href, route, navigate, isActive }">
+                <router-link to="/treetable" v-slot="{isActive}">
                     <div>
                         <a tabindex="0" @click="toggleSubmenu($event, 'treetable')">TreeTable</a>
                         <transition name="p-toggleable-content">
@@ -215,7 +215,7 @@
             <div class="menu-category">Media</div>
             <div class="menu-items">
                 <router-link to="/carousel">Carousel</router-link>
-                <router-link to="/galleria" v-slot="{ href, route, navigate, isActive }">
+                <router-link to="/galleria" v-slot="{isActive}">
                     <div>
                         <a tabindex="0" @click="toggleSubmenu($event, 'galleria')">Galleria</a>
                         <transition name="p-toggleable-content">
@@ -270,8 +270,8 @@ export default {
             event.preventDefault();
         },
         isSubmenuActive(name, routerIsActive) {
-            if (this.activeSubmenus.hasOwnProperty(name)) {
-                return this.activeSubmenus[name];
+            if (this.activeSubmenus[name]) {
+                return true;
             }
             else if (routerIsActive) {
                 this.activeSubmenus[name] = true;
