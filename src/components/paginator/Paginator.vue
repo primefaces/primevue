@@ -3,15 +3,15 @@
         <div class="p-paginator-left-content" v-if="$slots.left">
             <slot name="left" :state="currentState"></slot>
         </div>
-		<template v-for="item of templateItems">
-			<FirstPageLink v-if="item === 'FirstPageLink'" :key="item" @click="changePageToFirst($event)" :disabled="isFirstPage" />
-			<PrevPageLink v-else-if="item === 'PrevPageLink'" :key="item" @click="changePageToPrev($event)" :disabled="isFirstPage" />
-			<NextPageLink v-else-if="item === 'NextPageLink'" :key="item" @click="changePageToNext($event)" :disabled="isLastPage" />
-			<LastPageLink v-else-if="item === 'LastPageLink'" :key="item" @click="changePageToLast($event)" :disabled="isLastPage" />
-			<PageLinks v-else-if="item === 'PageLinks'" :key="item" :value="pageLinks" :page="page" @click="changePageLink($event)" />
-			<CurrentPageReport v-else-if="item === 'CurrentPageReport'" :key="item" :template="currentPageReportTemplate"
+		<template v-for="item of templateItems" :key="item">
+			<FirstPageLink v-if="item === 'FirstPageLink'"  @click="changePageToFirst($event)" :disabled="isFirstPage" />
+			<PrevPageLink v-else-if="item === 'PrevPageLink'" @click="changePageToPrev($event)" :disabled="isFirstPage" />
+			<NextPageLink v-else-if="item === 'NextPageLink'" @click="changePageToNext($event)" :disabled="isLastPage" />
+			<LastPageLink v-else-if="item === 'LastPageLink'" @click="changePageToLast($event)" :disabled="isLastPage" />
+			<PageLinks v-else-if="item === 'PageLinks'" :value="pageLinks" :page="page" @click="changePageLink($event)" />
+			<CurrentPageReport v-else-if="item === 'CurrentPageReport'" :template="currentPageReportTemplate"
                 :page="page" :pageCount="pageCount" :first="d_first" :rows="d_rows" :totalRecords="totalRecords" />
-			<RowsPerPageDropdown v-else-if="item === 'RowsPerPageDropdown' && rowsPerPageOptions" :key="item" :rows="d_rows"
+			<RowsPerPageDropdown v-else-if="item === 'RowsPerPageDropdown' && rowsPerPageOptions" :rows="d_rows"
                 :options="rowsPerPageOptions" @rows-change="onRowChange($event)" />
         </template>
         <div class="p-paginator-right-content" v-if="$slots.right">
