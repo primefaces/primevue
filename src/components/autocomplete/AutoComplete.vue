@@ -1,5 +1,5 @@
 <template>
-    <span :class="containerClass" aria-haspopup="listbox" :aria-owns="listId" :aria-expanded="overlayVisible">
+    <span :class="containerClass" aria-haspopup="listbox" :aria-owns="listId" :aria-expanded="overlayVisible" :style="style">
         <input ref="input" :class="inputClass" v-bind="$attrs" :value="inputValue" @input="onInput" @focus="onFocus" @blur="onBlur" @keydown="onKeyDown" type="text" autoComplete="off" v-if="!multiple"
             role="searchbox" aria-autocomplete="list" :aria-controls="listId" :aria-labelledby="ariaLabelledBy">
         <ul ref="multiContainer" :class="multiContainerClass" v-if="multiple" @click="onMultiContainerClick">
@@ -78,7 +78,9 @@ export default {
         appendTo: {
             type: String,
             default: null
-        }
+        },
+        class: null,
+        style: null
     },
     timeout: null,
     outsideClickListener: null,
@@ -383,7 +385,7 @@ export default {
     },
     computed: {
         containerClass() {
-            return ['p-autocomplete p-component p-inputwrapper', {
+            return ['p-autocomplete p-component p-inputwrapper', this.class, {
                 'p-autocomplete-dd': this.dropdown,
                 'p-autocomplete-multiple': this.multiple,
                 'p-inputwrapper-filled': ((this.modelValue) || (this.inputTextValue && this.inputTextValue.length)),
