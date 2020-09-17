@@ -190,17 +190,15 @@ export default {
 </CodeHighlight>
 
 <CodeHighlight lang="css">
-::v-deep {
-    .custom-indicator-galleria {
-        .indicator-text {
-            color: #e9ecef;
-            cursor: pointer;
-        }
+::v-deep(.custom-indicator-galleria) {
+    .indicator-text {
+        color: #e9ecef;
+        cursor: pointer;
+    }
 
-        .p-highlight {
-            .indicator-text {
-                color: var(--primary-color);
-            }
+    .p-highlight {
+        .indicator-text {
+            color: var(--primary-color);
         }
     }
 }
@@ -249,17 +247,15 @@ export default {
 </script>
 
 <style lang="scss" scoped>
-::v-deep {
-    .custom-indicator-galleria {
-        .indicator-text {
-            color: #e9ecef;
-            cursor: pointer;
-        }
+::v-deep(.custom-indicator-galleria) {
+    .indicator-text {
+        color: #e9ecef;
+        cursor: pointer;
+    }
 
-        .p-highlight {
-            .indicator-text {
-                color: var(--primary-color);
-            }
+    .p-highlight {
+        .indicator-text {
+            color: var(--primary-color);
         }
     }
 }

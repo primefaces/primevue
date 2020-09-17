@@ -103,7 +103,7 @@ export default {
 }
 
 @media screen and (max-width: 40em) {
-    ::v-deep .p-datatable {
+    ::v-deep(.p-datatable) {
         &.p-datatable-responsive-demo {
             .p-datatable-thead > tr > th,
             .p-datatable-tfoot > tr > td {
@@ -165,7 +165,7 @@ export default {
 }
 
 @media screen and (max-width: 40em) {
-    ::v-deep .p-datatable {
+    ::v-deep(.p-datatable) {
         &.p-datatable-responsive-demo {
             .p-datatable-thead > tr > th,
             .p-datatable-tfoot > tr > td {

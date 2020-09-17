@@ -59,7 +59,7 @@
 </template>
 
 <style lang="scss" scoped>
-::v-deep .pro-section {
+::v-deep(.pro-section) {
     display: flex;
     margin-top: .75rem;
 
@@ -79,8 +79,7 @@
     }
 }
 
- li {
-        line-height: 1.5;
-    }
-
+li {
+    line-height: 1.5;
+}
 </style>

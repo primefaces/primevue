@@ -94,9 +94,8 @@ export default {
     color: #66BB6A;
 }
 
-::v-deep .row-accessories {
+::v-deep(.row-accessories) {
     background-color: rgba(0,0,0,.15) !important;
-
 }
 </CodeHighlight>
                 </TabPanel>
@@ -155,8 +154,7 @@ export default {
     color: #66BB6A;
 }
 
-::v-deep .row-accessories {
+::v-deep(.row-accessories) {
     background-color: rgba(0,0,0,.15) !important;
-
 }
 </style>

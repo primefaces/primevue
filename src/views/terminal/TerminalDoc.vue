@@ -176,7 +176,7 @@ p {
     margin-top: 0;
 }
 
-::v-deep .dark-demo-terminall {
+::v-deep(.dark-demo-terminal) {
     background-color: #212121;
     color: #ffffff;
 

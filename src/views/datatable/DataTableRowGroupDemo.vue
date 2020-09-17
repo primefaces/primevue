@@ -300,7 +300,7 @@ export default {
     font-weight: 700;
 }
 
-::v-deep .p-rowgroup-header {
+::v-deep(.p-rowgroup-header) {
     span {
         font-weight: 700;
     }

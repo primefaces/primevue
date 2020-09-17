@@ -1655,7 +1655,7 @@ export default {
 }
 
 @media screen and (max-width: 40em) {
-    ::v-deep .p-datatable {
+    ::v-deep(.p-datatable) {
         &.p-datatable-responsive-demo {
             .p-datatable-thead > tr > th,
             .p-datatable-tfoot > tr > td {
@@ -1739,7 +1739,7 @@ export default {
     }
 }
 
-::v-deep .orange-car {
+.orange-car {
     background-color: #344b5f !important;
     color: #ffffff !important;
 }
@@ -2583,18 +2583,18 @@ export default {
 </CodeHighlight>
 
 <CodeHighlight lang="css">
-::v-deep .p-paginator {
+::v-deep(.p-paginator) {
     .p-paginator-current {
         margin-left: auto;
     }
 }
 
-::v-deep .p-progressbar {
+::v-deep(.p-progressbar) {
     height: .5rem;
     background-color: #D8DADC;
 
     .p-progressbar-value {
-        background-color: #00ACAD;
+        background-color: #607D8B;
     }
 }
 
@@ -2603,7 +2603,7 @@ export default {
     justify-content: space-between;
 }
 
-::v-deep .p-datepicker {
+::v-deep(.p-datepicker) {
     min-width: 25rem;
 
     td {
@@ -2611,7 +2611,7 @@ export default {
     }
 }
 
-::v-deep .p-datatable.p-datatable-customers {
+::v-deep(.p-datatable.p-datatable-customers) {
     .p-datatable-header {
         padding: 1rem;
         text-align: left;
@@ -2640,29 +2640,37 @@ export default {
     display: none;
 }
 
-@media screen and (max-width: 64em) {
-    ::v-deep .p-datatable {
+@media screen and (max-width: 960px) {
+    ::v-deep(.p-datatable) {
         &.p-datatable-customers {
             .p-datatable-thead > tr > th,
             .p-datatable-tfoot > tr > td {
                 display: none !important;
             }
 
-            .p-datatable-tbody > tr > td {
-                text-align: left;
-                display: block;
-                border: 0 none !important;
-                width: 100% !important;
-                float: left;
-                clear: left;
-                border: 0 none;
+            .p-datatable-tbody > tr {
+                border-bottom: 1px solid var(--layer-2);
 
-                .p-column-title {
-                    padding: .4rem;
-                    min-width: 30%;
-                    display: inline-block;
-                    margin: -.4rem 1rem -.4rem -.4rem;
-                    font-weight: bold;
+                > td {
+                    text-align: left;
+                    display: block;
+                    border: 0 none !important;
+                    width: 100% !important;
+                    float: left;
+                    clear: left;
+                    border: 0 none;
+
+                    .p-column-title {
+                        padding: .4rem;
+                        min-width: 30%;
+                        display: inline-block;
+                        margin: -.4rem 1rem -.4rem -.4rem;
+                        font-weight: bold;
+                    }
+
+                    .p-progressbar {
+                        margin-top: .5rem;
+                    }
                 }
             }
         }

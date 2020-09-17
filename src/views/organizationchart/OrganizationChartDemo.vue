@@ -182,7 +182,7 @@ export default {
 </script>
 
 <style scoped lang="scss">
-::v-deep .p-organizationchart {
+::v-deep(.p-organizationchart) {
     .p-person {
         padding: 0;
         border: 0 none;

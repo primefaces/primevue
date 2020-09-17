@@ -40,7 +40,7 @@ export default {
 </script>
 
 <style scoped lang="scss">
-::v-deep .tabmenudemo-content  {
+::v-deep(.tabmenudemo-content) {
     padding: 2rem 1rem;
 }
 </style>

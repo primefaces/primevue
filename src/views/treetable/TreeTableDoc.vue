@@ -1239,15 +1239,9 @@ export default {
 }
 
 @media screen and (max-width: 40em) {
-    ::v-deep {
-        .sm-invisible {
-            display: none;
-        }
-
-        .sm-visible {
-            display: inline;
-            margin-right: .5rem;
-        }
+    ::v-deep(.sm-visible) {
+        display: inline;
+        margin-right: .5rem;
     }
 }
 </CodeHighlight>

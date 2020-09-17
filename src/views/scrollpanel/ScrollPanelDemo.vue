@@ -79,7 +79,7 @@ export default {
 </script>
 
 <style lang="scss" scoped>
-::v-deep .p-scrollpanel {
+::v-deep(.p-scrollpanel) {
     p {
         padding: .5rem;
         line-height: 1.5;
