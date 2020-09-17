@@ -29,10 +29,6 @@ export default {
         badgeClass: {
             type: String,
             default: null
-        },
-        disabled: {
-            type: Boolean,
-            default: null
         }
     },
     computed: {
@@ -41,7 +37,7 @@ export default {
                 'p-button p-component': true,
                 'p-button-icon-only': this.icon && !this.label,
                 'p-button-vertical': (this.iconPos === 'top' || this.iconPos === 'bottom') && this.label,
-                'p-disabled': this.disabled
+                'p-disabled': this.$attrs.disabled
             }
         },
         iconClass() {
