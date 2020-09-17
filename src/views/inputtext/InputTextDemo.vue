@@ -51,7 +51,7 @@
 
                 <h5>Sizes</h5>
                 <div class="sizes">
-                    <InputText type="text" class="p-inputtext-sm p-mb-2" placeholder="Small" />
+                    <InputText type="text" class="p-inputtext-sm" placeholder="Small" />
                     <InputText type="text" placeholder="Normal" />
                     <InputText type="text" class="p-inputtext-lg"  placeholder="Large" />
                 </div>
