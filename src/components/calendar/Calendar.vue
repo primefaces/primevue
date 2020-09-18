@@ -1,6 +1,6 @@
 <template>
-    <span :class="containerClass">
-        <CalendarInputText ref="input" v-if="!inline" type="text" v-bind="$attrs" v-on="listeners" :value="inputFieldValue" :readonly="!manualInput" :aria-labelledby="ariaLabelledBy" inputmode="none" />
+    <span :class="containerClass" :style="style">
+        <CalendarInputText ref="input" v-if="!inline" type="text" v-bind="$attrs" :value="inputFieldValue" @input="onInput" @focus="onFocus" @blur="onBlur" @keydown="onKeyDown" :readonly="!manualInput" :aria-labelledby="ariaLabelledBy" inputmode="none" />
         <CalendarButton v-if="showIcon" :icon="icon" tabindex="-1" class="p-datepicker-trigger" :disabled="$attrs.disabled" @click="onButtonClick" type="button" :aria-label="inputFieldValue"/>
         <transition name="p-connected-overlay" @enter="onOverlayEnter" @after-enter="onOverlayEnterComplete" @leave="onOverlayLeave">
             <div ref="overlay" :class="panelStyleClass" v-if="inline ? true : overlayVisible" :role="inline ? null : 'dialog'" :aria-labelledby="ariaLabelledBy">
@@ -138,7 +138,7 @@ import Ripple from '../ripple/Ripple';
 export default {
     inheritAttrs: false,
     props: {
-        value: null,
+        modelValue: null,
         selectionMode: {
             type: String,
             default: 'single'
@@ -307,7 +307,9 @@ export default {
         appendTo: {
             type: String,
             default: null
-        }
+        },
+        class: null,
+        style: null
     },
     navigationState: null,
     created() {
@@ -367,20 +369,20 @@ export default {
     },
     methods: {
         isComparable() {
-            return this.value != null && typeof this.value !== 'string';
+            return this.modelValue != null && typeof this.modelValue !== 'string';
         },
         isSelected(dateMeta) {
             if (!this.isComparable()) {
                 return false;
             }
 
-            if (this.value) {
+            if (this.modelValue) {
                 if (this.isSingleSelection()) {
-                    return this.isDateEquals(this.value, dateMeta);
+                    return this.isDateEquals(this.modelValue, dateMeta);
                 }
                 else if (this.isMultipleSelection()) {
                     let selected = false;
-                    for (let date of this.value) {
+                    for (let date of this.modelValue) {
                         selected = this.isDateEquals(date, dateMeta);
                         if (selected) {
                             break;
@@ -390,10 +392,10 @@ export default {
                     return selected;
                 }
                 else if( this.isRangeSelection()) {
-                    if (this.value[1])
-                        return this.isDateEquals(this.value[0], dateMeta) || this.isDateEquals(this.value[1], dateMeta) || this.isDateBetween(this.value[0], this.value[1], dateMeta);
+                    if (this.modelValue[1])
+                        return this.isDateEquals(this.modelValue[0], dateMeta) || this.isDateEquals(this.modelValue[1], dateMeta) || this.isDateBetween(this.modelValue[0], this.modelValue[1], dateMeta);
                     else {
-                        return this.isDateEquals(this.value[0], dateMeta);
+                        return this.isDateEquals(this.modelValue[0], dateMeta);
                     }
 
                 }
@@ -402,7 +404,7 @@ export default {
             return false;
         },
         isMonthSelected(month) {
-            return this.isComparable() ? (this.value.getMonth() === month && this.value.getFullYear() === this.currentYear) : false;
+            return this.isComparable() ? (this.modelValue.getMonth() === month && this.modelValue.getFullYear() === this.currentYear) : false;
         },
         isDateEquals(value, dateMeta) {
             if (value)
@@ -706,7 +708,7 @@ export default {
             }
 
             if (this.isMultipleSelection() && this.isSelected(dateMeta)) {
-                let newValue = this.value.filter(date => !this.isDateEquals(date, dateMeta));
+                let newValue = this.modelValue.filter(date => !this.isDateEquals(date, dateMeta));
                 this.updateModel(newValue);
             }
             else {
@@ -765,12 +767,12 @@ export default {
                 modelVal = date;
             }
             else if (this.isMultipleSelection()) {
-                modelVal = this.value ? [...this.value, date] : [date];
+                modelVal = this.modelValue ? [...this.modelValue, date] : [date];
             }
             else if (this.isRangeSelection()) {
-                if (this.value && this.value.length) {
-                    let startDate = this.value[0];
-                    let endDate = this.value[1];
+                if (this.modelValue && this.modelValue.length) {
+                    let startDate = this.modelValue[0];
+                    let endDate = this.modelValue[1];
 
                     if (!endDate && date.getTime() >= startDate.getTime()) {
                         endDate = date;
@@ -792,11 +794,11 @@ export default {
             this.$emit('date-select', date);
         },
         updateModel(value) {
-            this.$emit('input', value);
+            this.$emit('update:modelValue', value);
         },
         shouldSelectDate() {
             if (this.isMultipleSelection())
-                return this.maxDateCount != null ? this.maxDateCount > (this.value ? this.value.length : 0) : true;
+                return this.maxDateCount != null ? this.maxDateCount > (this.modelValue ? this.modelValue.length : 0) : true;
             else
                 return true;
         },
@@ -1083,16 +1085,16 @@ export default {
         },
         validateHour(hour) {
             let valid = true;
-            let value = this.value;
+            let value = this.modelValue;
             if (!this.isComparable()) {
                 return valid;
             }
 
             if (this.isRangeSelection()) {
-                value = this.value[1] || this.value[0];
+                value = this.modelValue[1] || this.modelValue[0];
             }
             if (this.isMultipleSelection()) {
-                value = this.value[this.value.length - 1];
+                value = this.modelValue[this.modelValue.length - 1];
             }
             let valueDateString = value ? value.toDateString() : null;
 
@@ -1129,16 +1131,16 @@ export default {
         },
         validateMinute(minute) {
             let valid = true;
-            let value = this.value;
+            let value = this.modelValue;
             if (!this.isComparable()) {
                 return valid;
             }
 
             if (this.isRangeSelection()) {
-                value = this.value[1] || this.value[0];
+                value = this.modelValue[1] || this.modelValue[0];
             }
             if (this.isMultipleSelection()) {
-                value = this.value[this.value.length - 1];
+                value = this.modelValue[this.modelValue.length - 1];
             }
             let valueDateString = value ? value.toDateString() : null;
             if (this.minDate && valueDateString && this.minDate.toDateString() === valueDateString) {
@@ -1178,16 +1180,16 @@ export default {
         },
         validateSecond(second) {
             let valid = true;
-            let value = this.value;
+            let value = this.modelValue;
             if (!this.isComparable()) {
                 return valid;
             }
 
             if (this.isRangeSelection()) {
-                value = this.value[1] || this.value[0];
+                value = this.modelValue[1] || this.modelValue[0];
             }
             if (this.isMultipleSelection()) {
-                value = this.value[this.value.length - 1];
+                value = this.modelValue[this.modelValue.length - 1];
             }
             let valueDateString = value ? value.toDateString() : null;
 
@@ -1206,13 +1208,13 @@ export default {
             return valid;
         },
         updateModelTime() {
-            let value = this.isComparable() ? this.value : new Date();
+            let value = this.isComparable() ? this.modelValue : new Date();
 
             if (this.isRangeSelection()) {
-                value = this.value[1] || this.value[0];
+                value = this.modelValue[1] || this.modelValue[0];
             }
             if (this.isMultipleSelection()) {
-                value = this.value[this.value.length - 1];
+                value = this.modelValue[this.modelValue.length - 1];
             }
             value = value ? new Date(value.getTime()) : new Date();
 
@@ -1230,14 +1232,14 @@ export default {
             value.setSeconds(this.currentSecond);
 
             if (this.isRangeSelection()) {
-                if (this.value[1])
-                    value = [this.value[0], value];
+                if (this.modelValue[1])
+                    value = [this.modelValue[0], value];
                 else
                     value = [value, null];
             }
 
             if (this.isMultipleSelection()){
-                value = [...this.value.slice(0, -1), value];
+                value = [...this.modelValue.slice(0, -1), value];
             }
 
             this.updateModel(value);
@@ -1893,7 +1895,7 @@ export default {
                 break;
              }
         },
-        onInput(val) {
+        onInput(event) {
             // IE 11 Workaround for input placeholder : https://github.com/primefaces/primeng/issues/2026
             if (!this.isKeydown) {
                 return;
@@ -1904,13 +1906,13 @@ export default {
                 this.selectionStart = this.$refs.input.$el.selectionStart;
                 this.selectionEnd = this.$refs.input.$el.selectionEnd;
 
-                let value = this.parseValue(val);
+                let value = this.parseValue(event.target.value);
                 if (this.isValidSelection(value)) {
                     this.updateModel(value);
                 }
             }
             catch(err) {
-                this.updateModel(val);
+                this.updateModel(event.target.value);
             }
         },
         appendContainer() {
@@ -1928,63 +1930,48 @@ export default {
                 else
                     document.getElementById(this.appendTo).removeChild(this.$refs.overlay);
             }
+        },
+        onFocus() {
+            if (this.showOnFocus && this.isEnabled()) {
+                this.overlayVisible = true;
+            }
+            this.focused = true;
+        },
+        onBlur() {
+            this.focused = false;
+        },
+        onKeyDown(event) {
+            this.isKeydown = true;
+
+            switch (event.which) {
+                //escape
+                case 27: {
+                    this.overlayVisible = false;
+                    break;
+                }
+
+                //tab
+                case 9: {
+                    if (this.touchUI) {
+                        this.disableModality();
+                    }
+
+                    if (event.shiftKey) {
+                        this.overlayVisible = false;
+                    }
+
+                    break;
+                }
+
+                default:
+                    //no op
+                break;
+            }
         }
     },
     computed: {
-        listeners() {
-            let $vm = this;
-
-            return {
-                ...$vm.$listeners,
-                input: val => {
-                     this.onInput(val);
-                },
-                focus: event => {
-                    $vm.focus = true;
-                    if ($vm.showOnFocus && $vm.isEnabled()) {
-                        $vm.overlayVisible = true;
-                    }
-                    $vm.focused = true;
-                    $vm.$emit('focus', event)
-                },
-                blur: event => {
-                    $vm.focused = false;
-                    $vm.$emit('blur', event);
-                },
-                keydown: event => {
-                    $vm.isKeydown = true;
-
-                    switch (event.which) {
-                        //escape
-                        case 27: {
-                            $vm.overlayVisible = false;
-                            break;
-                        }
-
-                        //tab
-                        case 9: {
-                            if ($vm.touchUI) {
-                                $vm.disableModality();
-                            }
-
-                            if (event.shiftKey) {
-                                $vm.overlayVisible = false;
-                            }
-
-                            break;
-                        }
-
-                        default:
-                            //no op
-                        break;
-                    }
-
-                    $vm.$emit('keydown', event);
-                }
-            };
-        },
         viewDate() {
-            let propValue = this.value;
+            let propValue = this.modelValue;
             if (typeof propValue === 'string') {
                 return new Date();
             }
@@ -1996,15 +1983,15 @@ export default {
             return propValue || new Date();
         },
         inputFieldValue() {
-            return this.formatValue(this.value);
+            return this.formatValue(this.modelValue);
         },
         containerClass() {
             return [
-                'p-calendar p-component p-inputwrapper',
+                'p-calendar p-component p-inputwrapper', this.class,
                 {
                     'p-calendar-w-btn': this.showIcon,
                     'p-calendar-timeonly': this.timeOnly,
-                    'p-inputwrapper-filled': this.value,
+                    'p-inputwrapper-filled': this.modelValue,
                     'p-inputwrapper-focus': this.focused
                 }
             ];
