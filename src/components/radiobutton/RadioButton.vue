@@ -1,7 +1,7 @@
 <template>
-   <div :class="containerClass" @click="onClick($event)">
+   <div :class="containerClass" @click="onClick($event)" :style="style">
        <div class="p-hidden-accessible">
-           <input ref="input" type="radio" :checked="checked" :value="value" v-bind="$attrs" @focus="onFocus($event)" @blur="onBlur($event)">
+           <input ref="input" type="radio" :checked="checked" :value="value" v-bind="$attrs" @focus="onFocus" @blur="onBlur">
         </div>
         <div ref="box" :class="['p-radiobutton-box', {'p-highlight': checked, 'p-disabled': $attrs.disabled, 'p-focus': focused}]" role="radio" :aria-checked="checked">
             <div class="p-radiobutton-icon"></div>
@@ -16,11 +16,9 @@ export default {
     inheritAttrs: false,
     props: {
 		value: null,
-        modelValue: null
-    },
-    model: {
-        prop: 'modelValue',
-        event: 'input'
+        modelValue: null,
+        class: null,
+        style: null
     },
     data() {
         return {
@@ -31,7 +29,7 @@ export default {
         onClick(event) {
             if (!this.$attrs.disabled) {
                 this.$emit('click', event);
-                this.$emit('input', this.value);
+                this.$emit('update:modelValue', this.value);
                 this.$refs.input.focus();
 
                 if (!this.checked) {
@@ -39,13 +37,11 @@ export default {
                 }
             }
         },
-        onFocus(event) {
+        onFocus() {
             this.focused = true;
-            this.$emit('focus', event);
         },
-        onBlur(event) {
+        onBlur() {
             this.focused = false;
-            this.$emit('blur', event);
         }
     },
     computed: {
@@ -53,7 +49,7 @@ export default {
             return this.modelValue != null && ObjectUtils.equals(this.modelValue, this.value);
         },
         containerClass() {
-            return ['p-radiobutton p-component', {'p-radiobutton-checked': this.checked, 'p-radiobutton-disabled': this.$attrs.disabled, 'p-radiobutton-focused': this.focused}];
+            return ['p-radiobutton p-component', this.class, {'p-radiobutton-checked': this.checked, 'p-radiobutton-disabled': this.$attrs.disabled, 'p-radiobutton-focused': this.focused}];
         }
     }
 }
