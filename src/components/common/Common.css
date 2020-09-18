@@ -106,7 +106,7 @@ button {
 }
 
 /* Vue based overlay animations */
-.p-connected-overlay-enter {
+.p-connected-overlay-enter-from {
     opacity: 0;
     transform: scaleY(0.8);
 }
@@ -124,13 +124,13 @@ button {
 }
 
 /* Toggleable Content */
-.p-toggleable-content-enter,
+.p-toggleable-content-enter-from,
 .p-toggleable-content-leave-to {
     max-height: 0;
 }
 
 .p-toggleable-content-enter-to,
-.p-toggleable-content-leave {
+.p-toggleable-content-leave-from {
     max-height: 1000px;
 }
 
