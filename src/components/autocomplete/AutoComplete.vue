@@ -258,13 +258,11 @@ export default {
                 }
             }
         },
-        onFocus(event) {
+        onFocus() {
             this.focused = true;
-            this.$emit('focus', event);
         },
-        onBlur(event) {
+        onBlur() {
             this.focused = false;
-            this.$emit('blur', event);
         },
         onKeyDown(event) {
             if (this.overlayVisible) {
