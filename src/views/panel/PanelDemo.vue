@@ -19,7 +19,7 @@
             <h5>Advanced</h5>
             <Panel header="Header" :toggleable="true">
                 <template #icons>
-                    <button class="p-panel-header-icon p-link" @click="toggle">
+                    <button class="p-panel-header-icon p-link p-mr-2" @click="toggle">
                         <span class="pi pi-cog"></span>
                     </button>
                     <Menu id="config_menu" ref="menu" :model="items" :popup="true" />
@@ -40,6 +40,7 @@ import PanelDoc from './PanelDoc';
 export default {
     data() {
         return {
+            collapsed: true,
             items: [
                 {
                     label: 'Options',
