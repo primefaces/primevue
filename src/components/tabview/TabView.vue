@@ -4,7 +4,7 @@
             <li role="presentation" v-for="(tab, i) of tabs" :key="tab.header || i" :class="[{'p-highlight': (tab.d_active), 'p-disabled': tab.disabled}]">
                 <a role="tab" class="p-tabview-nav-link" @click="onTabClick($event, tab)" @keydown="onTabKeydown($event, tab)" :tabindex="tab.disabled ? null : '0'" :aria-selected="tab.d_active" v-ripple>
                     <span class="p-tabview-title" v-if="tab.header">{{tab.header}}</span>
-                    <component :is="tab.$slots.header"></component>
+                    <TabPanelHeaderSlot :tab="tab" v-if="tab.$scopedSlots.header" />
                 </a>
             </li>
             <li ref="inkbar" class="p-tabview-ink-bar"></li>
@@ -19,11 +19,27 @@
 import DomHandler from '../utils/DomHandler';
 import Ripple from '../ripple/Ripple';
 
+const TabPanelHeaderSlot = {
+    functional: true,
+    props: {
+        tab: {
+            type: null,
+            default: null
+        }
+    },
+    render(createElement, context) {
+        return [context.props.tab.$scopedSlots['header']()];
+    }
+};
+
 export default {
     data() {
         return {
-            tabs: []
+            d_children: []
         };
+    },
+    mounted() {
+        this.d_children = this.$children;
     },
     updated() {
         let activeTab = this.tabs[this.findActiveTabIndex()];
@@ -69,11 +85,17 @@ export default {
         },
         updateInkBar() {
             let tabHeader = this.$refs.nav.children[this.findActiveTabIndex()];
-            if (tabHeader) {
-                this.$refs.inkbar.style.width = DomHandler.getWidth(tabHeader) + 'px';
-                this.$refs.inkbar.style.left =  DomHandler.getOffset(tabHeader).left - DomHandler.getOffset(this.$refs.nav).left + 'px';
-            }
+            this.$refs.inkbar.style.width = DomHandler.getWidth(tabHeader) + 'px';
+            this.$refs.inkbar.style.left =  DomHandler.getOffset(tabHeader).left - DomHandler.getOffset(this.$refs.nav).left + 'px';
         }
+    },
+    computed: {
+        tabs() {
+            return this.d_children.filter(child => child.$vnode.tag.indexOf('tabpanel') !== -1);
+        }
+    },
+    components: {
+        'TabPanelHeaderSlot': TabPanelHeaderSlot
     },
     directives: {
         'ripple': Ripple
