@@ -85,35 +85,35 @@ export default {
         line-height: 1.5;
         margin: 0;
     }
-}
 
-::v-deep(.custombar1) {
-    .p-scrollpanel-wrapper {
-        border-right: 9px solid var(--surface-b);
-    }
+    &.custombar1 {
+        .p-scrollpanel-wrapper {
+            border-right: 9px solid var(--surface-b);
+        }
 
-    .p-scrollpanel-bar {
-        background-color: var(--primary-color);
-        opacity: 1;
-        transition: background-color .2s;
+        .p-scrollpanel-bar {
+            background-color: var(--primary-color);
+            opacity: 1;
+            transition: background-color .2s;
 
-        &:hover {
-            background-color: #007ad9;
+            &:hover {
+                background-color: #007ad9;
+            }
         }
     }
-}
 
-::v-deep(.custombar2) {
-    .p-scrollpanel-wrapper {
-        border-right: 9px solid var(--surface-b);
-        border-bottom: 9px solid var(--surface-b);
-    }
+    &.custombar2 {
+        .p-scrollpanel-wrapper {
+            border-right: 9px solid var(--surface-b);
+            border-bottom: 9px solid var(--surface-b);
+        }
 
-    .p-scrollpanel-bar {
-        background-color: var(--surface-d);
-        border-radius: 0;
-        opacity: 1;
-        transition: background-color .2s;
-    }
+        .p-scrollpanel-bar {
+            background-color: var(--surface-d);
+            border-radius: 0;
+            opacity: 1;
+            transition: background-color .2s;
+        }
+    }  
 }
 </style>
