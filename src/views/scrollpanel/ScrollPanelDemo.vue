@@ -10,7 +10,7 @@
         <div class="content-section implementation">
             <div class="card">
                 <div class="p-grid">
-                    <div class="p-col-12 p-md-4">
+                    <div class="p-col-12 p-md-4 p-p-5">
                         <ScrollPanel style="width: 100%; height: 200px">
                             <p>
                                 Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.
@@ -27,7 +27,7 @@
                             </p>
                         </ScrollPanel>
                     </div>
-                    <div class="p-col-12 p-md-4">
+                    <div class="p-col-12 p-md-4 p-p-5">
                         <ScrollPanel style="width: 100%; height: 200px" class="custombar1">
                             <p>
                                 Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.
@@ -44,7 +44,7 @@
                             </p>
                         </ScrollPanel>
                     </div>
-                    <div class="p-col-12 p-md-4">
+                    <div class="p-col-12 p-md-4 p-p-5">
                         <ScrollPanel style="width: 100%; height: 200px" class="custombar2">
                             <p style="width: 600px">
                                 Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.
@@ -85,41 +85,35 @@ export default {
         line-height: 1.5;
         margin: 0;
     }
+}
 
-    &.custombar1 {
-        .p-scrollpanel-wrapper {
-            border-right: 9px solid var(--layer-1);
-        }
-
-        .p-scrollpanel-bar {
-            background-color: var(--primary-color);
-            opacity: 1;
-            transition: background-color .2s;
-
-            &:hover {
-                background-color: #007ad9;
-            }
-        }
+::v-deep(.custombar1) {
+    .p-scrollpanel-wrapper {
+        border-right: 9px solid var(--surface-b);
     }
 
-    &.custombar2 {
-        .p-scrollpanel-wrapper {
-            border-right: 9px solid var(--layer-1);
-            border-bottom: 9px solid var(--layer-1);
-        }
+    .p-scrollpanel-bar {
+        background-color: var(--primary-color);
+        opacity: 1;
+        transition: background-color .2s;
 
-        .p-scrollpanel-bar {
-            background-color: var(--layer-2);
-            border-radius: 0;
-            opacity: 1;
-            transition: background-color .2s;
+        &:hover {
+            background-color: #007ad9;
         }
     }
 }
-</style>
 
-<style scoped>
-.p-col-12 {
-    padding: 2rem;
+::v-deep(.custombar2) {
+    .p-scrollpanel-wrapper {
+        border-right: 9px solid var(--surface-b);
+        border-bottom: 9px solid var(--surface-b);
+    }
+
+    .p-scrollpanel-bar {
+        background-color: var(--surface-d);
+        border-radius: 0;
+        opacity: 1;
+        transition: background-color .2s;
+    }
 }
 </style>
