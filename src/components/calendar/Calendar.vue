@@ -2,8 +2,8 @@
     <span :class="containerClass" :style="style">
         <CalendarInputText ref="input" v-if="!inline" type="text" v-bind="$attrs" :value="inputFieldValue" @input="onInput" @focus="onFocus" @blur="onBlur" @keydown="onKeyDown" :readonly="!manualInput" :aria-labelledby="ariaLabelledBy" inputmode="none" />
         <CalendarButton v-if="showIcon" :icon="icon" tabindex="-1" class="p-datepicker-trigger" :disabled="$attrs.disabled" @click="onButtonClick" type="button" :aria-label="inputFieldValue"/>
-        <transition name="p-connected-overlay" @enter="onOverlayEnter" @after-enter="onOverlayEnterComplete" @leave="onOverlayLeave">
-            <div ref="overlay" :class="panelStyleClass" v-if="inline ? true : overlayVisible" :role="inline ? null : 'dialog'" :aria-labelledby="ariaLabelledBy">
+        <transition name="p-connected-overlay" @enter="onOverlayEnter($event)" @after-enter="onOverlayEnterComplete" @leave="onOverlayLeave">
+            <div :ref="overlayRef" :class="panelStyleClass" v-if="inline ? true : overlayVisible" :role="inline ? null : 'dialog'" :aria-labelledby="ariaLabelledBy">
                 <template v-if="!timeOnly">
                     <div class="p-datepicker-group-container">
                         <div class="p-datepicker-group" v-for="(month,groupIndex) of months" :key="month.month + month.year">
@@ -321,7 +321,7 @@ export default {
         }
     },
     updated() {
-        if (this.$refs.overlay) {
+        if (this.overlay) {
             this.updateFocus();
         }
 
@@ -344,6 +344,7 @@ export default {
 
         this.restoreAppend();
         this.unbindOutsideClickListener();
+        this.overlay = null;
     },
     data() {
         return {
@@ -359,6 +360,7 @@ export default {
     },
     outsideClickListener: null,
     maskClickListener: null,
+    overlay: null,
     mask: null,
     timePickerTimer: null,
     isKeydown: false,
@@ -531,7 +533,7 @@ export default {
         },
         onOverlayEnter() {
             if (this.autoZIndex) {
-                this.$refs.overlay.style.zIndex = String(this.baseZIndex + DomHandler.generateZIndex());
+                this.overlay.style.zIndex = String(this.baseZIndex + DomHandler.generateZIndex());
             }
             this.appendContainer();
             this.alignOverlay();
@@ -543,6 +545,7 @@ export default {
         onOverlayLeave() {
             this.unbindOutsideClickListener();
             this.$emit('hide');
+            this.overlay = null;
         },
         onPrevButtonClick(event) {
             this.navigationState = {backward: true, button: true};
@@ -641,7 +644,7 @@ export default {
         },
         isOutsideClicked(event) {
             return !(this.$el.isSameNode(event.target) || this.isNavIconClicked(event) ||
-                    this.$el.contains(event.target) || (this.$refs.overlay && this.$refs.overlay.contains(event.target)));
+                    this.$el.contains(event.target) || (this.overlay && this.overlay.contains(event.target)));
         },
         isNavIconClicked(event) {
             return (DomHandler.hasClass(event.target, 'p-datepicker-prev') || DomHandler.hasClass(event.target, 'p-datepicker-prev-icon')
@@ -651,11 +654,11 @@ export default {
             if (this.touchUI) {
                 this.enableModality();
             }
-            else if (this.$refs.overlay) {
+            else if (this.overlay) {
                 if (this.appendTo)
-                    DomHandler.absolutePosition(this.$refs.overlay, this.$el);
+                    DomHandler.absolutePosition(this.overlay, this.$el);
                 else
-                    DomHandler.relativePosition(this.$refs.overlay, this.$el);
+                    DomHandler.relativePosition(this.overlay, this.$el);
             }
         },
         onButtonClick() {
@@ -701,7 +704,7 @@ export default {
                 return;
             }
 
-            DomHandler.find(this.$refs.overlay, '.p-datepicker-calendar td span:not(.p-disabled)').forEach(cell => cell.tabIndex = -1);
+            DomHandler.find(this.overlay, '.p-datepicker-calendar td span:not(.p-disabled)').forEach(cell => cell.tabIndex = -1);
 
             if (event) {
                 event.currentTarget.focus();
@@ -1261,7 +1264,7 @@ export default {
         enableModality() {
             if (!this.mask) {
                 this.mask = document.createElement('div');
-                this.mask.style.zIndex = String(parseInt(this.$refs.overlay.style.zIndex, 10) - 1);
+                this.mask.style.zIndex = String(parseInt(this.overlay.style.zIndex, 10) - 1);
                 DomHandler.addMultipleClasses(this.mask, 'p-datepicker-mask p-datepicker-mask-scrollblocker');
 
                 this.maskClickListener = () => {
@@ -1708,7 +1711,7 @@ export default {
                     this.navBackward(event);
                 }
                 else {
-                    let prevMonthContainer = this.$refs.overlay.children[groupIndex - 1];
+                    let prevMonthContainer = this.overlay.children[groupIndex - 1];
                     let cells = DomHandler.find(prevMonthContainer, '.p-datepicker-calendar td span:not(.p-disabled)');
                     let focusCell = cells[cells.length - 1];
                     focusCell.tabIndex = '0';
@@ -1721,7 +1724,7 @@ export default {
                     this.navForward(event);
                 }
                 else {
-                    let nextMonthContainer = this.$refs.overlay.children[groupIndex + 1];
+                    let nextMonthContainer = this.overlay.children[groupIndex + 1];
                     let focusCell = DomHandler.findSingle(nextMonthContainer, '.p-datepicker-calendar td span:not(.p-disabled)');
                     focusCell.tabIndex = '0';
                     focusCell.focus();
@@ -1803,17 +1806,17 @@ export default {
                     this.initFocusableCell();
 
                     if (this.navigationState.backward)
-                        DomHandler.findSingle(this.$refs.overlay, '.p-datepicker-prev').focus();
+                        DomHandler.findSingle(this.overlay, '.p-datepicker-prev').focus();
                     else
-                        DomHandler.findSingle(this.$refs.overlay, '.p-datepicker-next').focus();
+                        DomHandler.findSingle(this.overlay, '.p-datepicker-next').focus();
                 }
                 else {
                     if (this.navigationState.backward) {
-                        let cells = DomHandler.find(this.$refs.overlay, '.p-datepicker-calendar td span:not(.p-disabled)');
+                        let cells = DomHandler.find(this.overlay, '.p-datepicker-calendar td span:not(.p-disabled)');
                         cell = cells[cells.length - 1];
                     }
                     else {
-                        cell = DomHandler.findSingle(this.$refs.overlay, '.p-datepicker-calendar td span:not(.p-disabled)');
+                        cell = DomHandler.findSingle(this.overlay, '.p-datepicker-calendar td span:not(.p-disabled)');
                     }
 
                     if (cell) {
@@ -1830,20 +1833,21 @@ export default {
         },
         initFocusableCell() {
             let cell;
+
             if (this.view === 'month') {
-                let cells = DomHandler.find(this.$refs.overlay, '.p-monthpicker .p-monthpicker-month');
-                let selectedCell= DomHandler.findSingle(this.$refs.overlay, '.p-monthpicker .p-monthpicker-month.p-highlight');
+                let cells = DomHandler.find(this.overlay, '.p-monthpicker .p-monthpicker-month');
+                let selectedCell= DomHandler.findSingle(this.overlay, '.p-monthpicker .p-monthpicker-month.p-highlight');
                 cells.forEach(cell => cell.tabIndex = -1);
                 cell = selectedCell || cells[0];
             }
             else {
-                cell = DomHandler.findSingle(this.$refs.overlay, 'span.p-highlight');
+                cell = DomHandler.findSingle(this.overlay, 'span.p-highlight');
                 if (!cell) {
-                    let todayCell = DomHandler.findSingle(this.$refs.overlay, 'td.p-datepicker-today span:not(.p-disabled)');
+                    let todayCell = DomHandler.findSingle(this.overlay, 'td.p-datepicker-today span:not(.p-disabled)');
                     if (todayCell)
                         cell = todayCell;
                     else
-                        cell = DomHandler.findSingle(this.$refs.overlay, '.p-datepicker-calendar td span:not(.p-disabled)');
+                        cell = DomHandler.findSingle(this.overlay, '.p-datepicker-calendar td span:not(.p-disabled)');
                 }
             }
 
@@ -1853,7 +1857,7 @@ export default {
         },
         trapFocus(event) {
             event.preventDefault();
-            let focusableElements = DomHandler.getFocusableElements(this.$refs.overlay);
+            let focusableElements = DomHandler.getFocusableElements(this.getPicker());
 
             if (focusableElements && focusableElements.length > 0) {
                 if (!document.activeElement) {
@@ -1918,17 +1922,17 @@ export default {
         appendContainer() {
             if (this.appendTo) {
                 if (this.appendTo === 'body')
-                    document.body.appendChild(this.$refs.overlay);
+                    document.body.appendChild(this.overlay);
                 else
-                    document.getElementById(this.appendTo).appendChild(this.$refs.overlay);
+                    document.getElementById(this.appendTo).appendChild(this.overlay);
             }
         },
         restoreAppend() {
-            if (this.$refs.overlay && this.appendTo) {
+            if (this.overlay && this.appendTo) {
                 if (this.appendTo === 'body')
-                    document.body.removeChild(this.$refs.overlay);
+                    document.body.removeChild(this.overlay);
                 else
-                    document.getElementById(this.appendTo).removeChild(this.$refs.overlay);
+                    document.getElementById(this.appendTo).removeChild(this.overlay);
             }
         },
         onFocus() {
@@ -1967,6 +1971,9 @@ export default {
                     //no op
                 break;
             }
+        },
+        overlayRef(el) {
+            this.overlay = el;
         }
     },
     computed: {

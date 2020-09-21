@@ -17,7 +17,7 @@ import Ripple from '../ripple/Ripple';
 
 export default {
     props: {
-        value: null,
+        modelValue: null,
         options: Array,
         optionLabel: null,
         optionValue: null,
@@ -51,23 +51,23 @@ export default {
 
             if(this.multiple) {
                 if (selected)
-                    newValue = this.value.filter(val => !ObjectUtils.equals(val, optionValue, this.equalityKey));
+                    newValue = this.modelValue.filter(val => !ObjectUtils.equals(val, optionValue, this.equalityKey));
                 else
-                    newValue = this.value ? [...this.value, optionValue]: [optionValue];
+                    newValue = this.modelValue ? [...this.modelValue, optionValue]: [optionValue];
             }
             else {
                 newValue = selected ? null : optionValue;
             }
 
-            this.$emit('input', newValue);
+            this.$emit('update:modelValue', newValue);
         },
         isSelected(option) {
             let selected = false;
             let optionValue = this.getOptionValue(option);
 
             if (this.multiple) {
-                if (this.value) {
-                    for (let val of this.value) {
+                if (this.modelValue) {
+                    for (let val of this.modelValue) {
                         if (ObjectUtils.equals(val, optionValue, this.equalityKey)) {
                             selected = true;
                             break;
@@ -76,7 +76,7 @@ export default {
                 }
             }
             else {
-                selected = ObjectUtils.equals(this.value, optionValue, this.equalityKey);
+                selected = ObjectUtils.equals(this.modelValue, optionValue, this.equalityKey);
             }
 
             return selected;

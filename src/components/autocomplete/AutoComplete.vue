@@ -15,7 +15,7 @@
         <i class="p-autocomplete-loader pi pi-spinner pi-spin" v-if="searching"></i>
         <Button ref="dropdownButton" type="button" icon="pi pi-chevron-down" class="p-autocomplete-dropdown" :disabled="$attrs.disabled" @click="onDropdownClick" v-if="dropdown"/>
         <transition name="p-connected-overlay" @enter="onOverlayEnter" @leave="onOverlayLeave">
-            <div ref="overlay" class="p-autocomplete-panel p-component" :style="{'max-height': scrollHeight}" v-if="overlayVisible">
+            <div :ref="overlayRef" class="p-autocomplete-panel p-component" :style="{'max-height': scrollHeight}" v-if="overlayVisible">
                 <ul :id="listId" class="p-autocomplete-items" role="listbox">
                     <li v-for="(item, i) of suggestions" class="p-autocomplete-item" :key="i" @click="selectItem($event, item)" role="option" v-ripple>
                         <slot name="item" :item="item" :index="i">
@@ -84,6 +84,7 @@ export default {
     },
     timeout: null,
     outsideClickListener: null,
+    overlay: null,
     data() {
         return {
             searching: false,
@@ -108,28 +109,30 @@ export default {
     beforeUnmount() {
         this.restoreAppend();
         this.unbindOutsideClickListener();
+        this.overlay = null;
     },
     methods: {
         onOverlayEnter() {
-            this.$refs.overlay.style.zIndex = String(DomHandler.generateZIndex());
+            this.overlay.style.zIndex = String(DomHandler.generateZIndex());
             this.appendContainer();
             this.alignOverlay();
             this.bindOutsideClickListener();
         },
         onOverlayLeave() {
             this.unbindOutsideClickListener();
+            this.overlay = null;
         },
         alignOverlay() {
             let target = this.multiple ? this.$refs.multiContainer : this.$refs.input;
             if (this.appendTo)
-                DomHandler.absolutePosition(this.$refs.overlay, target);
+                DomHandler.absolutePosition(this.overlay, target);
             else
-                DomHandler.relativePosition(this.$refs.overlay, target);
+                DomHandler.relativePosition(this.overlay, target);
         },
         bindOutsideClickListener() {
             if (!this.outsideClickListener) {
                 this.outsideClickListener = (event) => {
-                    if (this.overlayVisible && this.$refs.overlay && this.isOutsideClicked(event)) {
+                    if (this.overlayVisible && this.overlay && this.isOutsideClicked(event)) {
                         this.hideOverlay();
                     }
                 };
@@ -137,7 +140,7 @@ export default {
             }
         },
         isOutsideClicked(event) {
-            return !this.$refs.overlay.contains(event.target) && !this.isInputClicked(event) && !this.isDropdownClicked(event);
+            return !this.overlay.contains(event.target) && !this.isInputClicked(event) && !this.isDropdownClicked(event);
         },
         isInputClicked(event) {
             if (this.multiple)
@@ -266,7 +269,7 @@ export default {
         },
         onKeyDown(event) {
             if (this.overlayVisible) {
-                let highlightItem = DomHandler.findSingle(this.$refs.overlay, 'li.p-highlight');
+                let highlightItem = DomHandler.findSingle(this.overlay, 'li.p-highlight');
 
                 switch(event.which) {
                     //down
@@ -276,11 +279,11 @@ export default {
                             if (nextElement) {
                                 DomHandler.addClass(nextElement, 'p-highlight');
                                 DomHandler.removeClass(highlightItem, 'p-highlight');
-                                DomHandler.scrollInView(this.$refs.overlay, nextElement);
+                                DomHandler.scrollInView(this.overlay, nextElement);
                             }
                         }
                         else {
-                            DomHandler.addClass(this.$refs.overlay.firstChild.firstChild, 'p-highlight');
+                            DomHandler.addClass(this.overlay.firstChild.firstChild, 'p-highlight');
                         }
 
                         event.preventDefault();
@@ -293,7 +296,7 @@ export default {
                             if (previousElement) {
                                 DomHandler.addClass(previousElement, 'p-highlight');
                                 DomHandler.removeClass(highlightItem, 'p-highlight');
-                                DomHandler.scrollInView(this.$refs.overlay, previousElement);
+                                DomHandler.scrollInView(this.overlay, previousElement);
                             }
                         }
 
@@ -367,18 +370,21 @@ export default {
         appendContainer() {
             if (this.appendTo) {
                 if (this.appendTo === 'body')
-                    document.body.appendChild(this.$refs.overlay);
+                    document.body.appendChild(this.overlay);
                 else
-                    document.getElementById(this.appendTo).appendChild(this.$refs.overlay);
+                    document.getElementById(this.appendTo).appendChild(this.overlay);
             }
         },
         restoreAppend() {
-            if (this.$refs.overlay && this.appendTo) {
+            if (this.overlay && this.appendTo) {
                 if (this.appendTo === 'body')
-                    document.body.removeChild(this.$refs.overlay);
+                    document.body.removeChild(this.overlay);
                 else
-                    document.getElementById(this.appendTo).removeChild(this.$refs.overlay);
+                    document.getElementById(this.appendTo).removeChild(this.overlay);
             }
+        },
+        overlayRef(el) {
+            this.overlay = el;
         }
     },
     computed: {

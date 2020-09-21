@@ -52,7 +52,7 @@ import Quill from "quill";
 
 export default {
     props: {
-        value: String,
+        modelValue: String,
         placeholder: String,
         readonly: Boolean,
         formats: Array,
@@ -60,10 +60,10 @@ export default {
     },
     quill: null,
     watch: {
-        value(newValue, oldValue) {
-          if (newValue !== oldValue && this.quill && !this.quill.hasFocus()) {
-            this.renderValue(newValue);
-          }
+        modelValue(newValue, oldValue) {
+            if (newValue !== oldValue && this.quill && !this.quill.hasFocus()) {
+                this.renderValue(newValue);
+            }
         }
     },
     mounted() {
@@ -77,7 +77,7 @@ export default {
             placeholder: this.placeholder
         });
 
-        this.renderValue(this.value);
+        this.renderValue(this.modelValue);
 
         this.quill.on('text-change', (delta, oldContents, source) => {
             if (source === 'user') {
@@ -87,7 +87,7 @@ export default {
                     html = '';
                 }
 
-                this.$emit('input', html);
+                this.$emit('update:modelValue', html);
                 this.$emit('text-change', {
                     htmlValue: html,
                     textValue: text,

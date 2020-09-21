@@ -1,5 +1,5 @@
 <template>
-    <div :class="buttonClass" @click="onClick($event)" role="checkbox" :aria-labelledby="ariaLabelledBy" :aria-checked="value" :tabindex="$attrs.disabled ? null : '0'" v-ripple>
+    <div :class="buttonClass" @click="onClick($event)" role="checkbox" :aria-labelledby="ariaLabelledBy" :aria-checked="modelValue" :tabindex="$attrs.disabled ? null : '0'" v-ripple>
         <span v-if="hasIcon" :class="iconClass"></span>
         <span class="p-button-label">{{label}}</span>
     </div>
@@ -10,7 +10,7 @@ import Ripple from '../ripple/Ripple';
 
 export default {
     props: {
-        value: Boolean,
+        modelValue: Boolean,
 		onIcon: String,
 		offIcon: String,
         onLabel: String,
@@ -24,8 +24,7 @@ export default {
     methods: {
         onClick(event) {
             if (!this.$attrs.disabled) {
-                this.$emit('click', event);
-                this.$emit('input', !this.value);
+                this.$emit('update:modelValue', !this.modelValue);
                 this.$emit('change', event);
             }
         }
@@ -36,12 +35,12 @@ export default {
                 'p-button p-togglebutton p-component': true,
                 'p-button-icon-only': this.hasIcon && !this.hasLabel,
                 'p-disabled': this.$attrs.disabled,
-                'p-highlight': this.value === true
+                'p-highlight': this.modelValue === true
             }
         },
         iconClass() {
             return [
-                this.value ? this.onIcon: this.offIcon,
+                this.modelValue ? this.onIcon: this.offIcon,
                 'p-button-icon',
                 {
                     'p-button-icon-left': this.iconPos === 'left' && this.label,
@@ -56,7 +55,7 @@ export default {
             return this.onIcon && this.onIcon.length > 0 && this.offIcon && this.offIcon.length > 0;
         },
         label() {
-            return this.hasLabel ? (this.value ? this.onLabel : this.offLabel): '&nbsp;';
+            return this.hasLabel ? (this.modelValue ? this.onLabel : this.offLabel): '&nbsp;';
         }
     },
     directives: {

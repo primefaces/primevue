@@ -8,8 +8,8 @@
                 </slot>
             </li>
             <li class="p-chips-input-token">
-                <input ref="input" type="text" v-bind="$attrs" @focus="onFocus" @blur="onBlur($event)" :placeholder="placeholder" @input="onInput"
-                    @keydown="onKeyDown($event)" @paste="onPaste($event)" :disabled="$attrs.disabled || maxedOut" :aria-labelledby="ariaLabelledBy">
+                <input ref="input" type="text" v-bind="$attrs" @focus="onFocus" @blur="onBlur($event)" @input="onInput" @keydown="onKeyDown($event)" @paste="onPaste($event)"
+                     :placeholder="placeholder"  :disabled="$attrs.disabled || maxedOut" :aria-labelledby="ariaLabelledBy">
             </li>
         </ul>
     </div>

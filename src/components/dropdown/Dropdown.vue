@@ -1,5 +1,5 @@
 <template>
-    <div ref="container" :class="containerClass" @click="onClick($event)">
+    <div :class="containerClass" @click="onClick($event)">
         <div class="p-hidden-accessible">
             <input ref="focusInput" type="text" :id="inputId" readonly :disabled="disabled" @focus="onFocus" @blur="onBlur" @keydown="onKeyDown" :tabindex="tabindex"
                 aria-haspopup="listbox" :aria-expanded="overlayVisible" :aria-labelledby="ariaLabelledBy"/>
@@ -7,23 +7,23 @@
         <input v-if="editable" type="text" class="p-dropdown-label p-inputtext" :disabled="disabled" @focus="onFocus" @blur="onBlur" :placeholder="placeholder" :value="editableInputValue" @input="onEditableInput"
             aria-haspopup="listbox" :aria-expanded="overlayVisible">
         <span v-if="!editable" :class="labelClass">
-            <slot name="value" :value="value" :placeholder="placeholder">
+            <slot name="value" :value="modelValue" :placeholder="placeholder">
                 {{label}}
             </slot>
         </span>
-        <i v-if="showClear && value != null" class="p-dropdown-clear-icon pi pi-times" @click="onClearClick($event)"></i>
+        <i v-if="showClear && modelValue != null" class="p-dropdown-clear-icon pi pi-times" @click="onClearClick($event)"></i>
         <div class="p-dropdown-trigger" role="button" aria-haspopup="listbox" :aria-expanded="overlayVisible">
             <span class="p-dropdown-trigger-icon pi pi-chevron-down"></span>
         </div>
         <transition name="p-connected-overlay" @enter="onOverlayEnter" @leave="onOverlayLeave">
-            <div ref="overlay" class="p-dropdown-panel p-component" v-if="overlayVisible">
+            <div :ref="overlayRef" class="p-dropdown-panel p-component" v-if="overlayVisible">
                 <div class="p-dropdown-header" v-if="filter">
                      <div  class="p-dropdown-filter-container">
                         <input type="text" ref="filterInput" v-model="filterValue" autoComplete="off" class="p-dropdown-filter p-inputtext p-component" :placeholder="filterPlaceholder" @keydown="onFilterKeyDown"  @input="onFilterChange"/>
                         <span class="p-dropdown-filter-icon pi pi-search"></span>
                     </div>
                 </div>
-                <div ref="itemsWrapper" class="p-dropdown-items-wrapper" :style="{'max-height': scrollHeight}">
+                <div class="p-dropdown-items-wrapper" :style="{'max-height': scrollHeight}">
                     <ul class="p-dropdown-items" role="listbox">
                         <li v-for="(option, i) of visibleOptions" :class="['p-dropdown-item', {'p-highlight': isSelected(option), 'p-disabled': isOptionDisabled(option)}]" v-ripple
                             :aria-label="getOptionLabel(option)" :key="getOptionRenderKey(option)" @click="onOptionSelect($event, option)" role="option" :aria-selected="isSelected(option)">
@@ -46,7 +46,7 @@ import Ripple from '../ripple/Ripple';
 
 export default {
     props: {
-        value: null,
+        modelValue: null,
         options: Array,
         optionLabel: null,
         optionValue: null,
@@ -87,9 +87,11 @@ export default {
     currentSearchChar: null,
     previousSearchChar: null,
     searchValue: null,
+    overlay: null,
     beforeUnmount() {
         this.restoreAppend();
         this.unbindOutsideClickListener();
+        this.overlay = null;
     },
     updated() {
         if (this.overlayVisible && this.filterValue) {
@@ -112,9 +114,9 @@ export default {
         getSelectedOption() {
             let selectedOption;
 
-            if (this.value != null && this.options) {
+            if (this.modelValue != null && this.options) {
                 for (let option of this.options) {
-                    if ((ObjectUtils.equals(this.value, this.getOptionValue(option), this.equalityKey))) {
+                    if ((ObjectUtils.equals(this.modelValue, this.getOptionValue(option), this.equalityKey))) {
                         selectedOption = option;
                         break;
                     }
@@ -124,14 +126,14 @@ export default {
             return selectedOption;
         },
         isSelected(option) {
-            return ObjectUtils.equals(this.value, this.getOptionValue(option), this.equalityKey);
+            return ObjectUtils.equals(this.modelValue, this.getOptionValue(option), this.equalityKey);
         },
         getSelectedOptionIndex() {
             let selectedOptionIndex = -1;
 
-            if (this.value != null && this.visibleOptions) {
+            if (this.modelValue != null && this.visibleOptions) {
                 for (let i = 0; i < this.visibleOptions.length; i++) {
-                    if ((ObjectUtils.equals(this.value, this.getOptionValue(this.visibleOptions[i]), this.equalityKey))) {
+                    if ((ObjectUtils.equals(this.modelValue, this.getOptionValue(this.visibleOptions[i]), this.equalityKey))) {
                         selectedOptionIndex = i;
                         break;
                     }
@@ -279,7 +281,7 @@ export default {
             if (DomHandler.hasClass(event.target, 'p-dropdown-clear-icon') || event.target.tagName === 'INPUT') {
                 return;
             }
-            else if (!this.$refs.overlay || !this.$refs.overlay.contains(event.target)) {
+            else if (!this.overlay || !this.overlay.contains(event.target)) {
                 if (this.overlayVisible)
                     this.hide();
                 else
@@ -298,10 +300,10 @@ export default {
             }, 200);
         },
         onEditableInput(event) {
-            this.$emit('input', event.target.value);
+            this.$emit('update:modelValue', event.target.value);
         },
         onOverlayEnter() {
-            this.$refs.overlay.style.zIndex = String(DomHandler.generateZIndex());
+            this.overlay.style.zIndex = String(DomHandler.generateZIndex());
             this.appendContainer();
             this.alignOverlay();
             this.bindOutsideClickListener();
@@ -315,23 +317,24 @@ export default {
         onOverlayLeave() {
             this.unbindOutsideClickListener();
             this.$emit('hide');
+            this.overlay = null;
         },
         alignOverlay() {
             if (this.appendTo) {
-                DomHandler.absolutePosition(this.$refs.overlay, this.$refs.container);
-                this.$refs.overlay.style.minWidth = DomHandler.getOuterWidth(this.$refs.container) + 'px';
+                DomHandler.absolutePosition(this.overlay, this.$el);
+                this.overlay.style.minWidth = DomHandler.getOuterWidth(this.$el) + 'px';
             } else {
-                DomHandler.relativePosition(this.$refs.overlay, this.$refs.container);
+                DomHandler.relativePosition(this.overlay, this.$el);
             }
         },
         updateModel(event, value) {
-            this.$emit('input', value);
+            this.$emit('update:modelValue', value);
             this.$emit('change', {originalEvent: event, value: value});
         },
         bindOutsideClickListener() {
             if (!this.outsideClickListener) {
                 this.outsideClickListener = (event) => {
-                    if (this.overlayVisible && this.$refs.overlay && !this.$refs.container.contains(event.target) && !this.$refs.overlay.contains(event.target)) {
+                    if (this.overlayVisible && this.overlay && !this.$el.contains(event.target) && !this.overlay.contains(event.target)) {
                         this.hide();
                     }
                 };
@@ -400,21 +403,24 @@ export default {
         appendContainer() {
             if (this.appendTo) {
                 if (this.appendTo === 'body')
-                    document.body.appendChild(this.$refs.overlay);
+                    document.body.appendChild(this.overlay);
                 else
-                    document.getElementById(this.appendTo).appendChild(this.$refs.overlay);
+                    document.getElementById(this.appendTo).appendChild(this.overlay);
             }
         },
         restoreAppend() {
-            if (this.$refs.overlay && this.appendTo) {
+            if (this.overlay && this.appendTo) {
                 if (this.appendTo === 'body')
-                    document.body.removeChild(this.$refs.overlay);
+                    document.body.removeChild(this.overlay);
                 else
-                    document.getElementById(this.appendTo).removeChild(this.$refs.overlay);
+                    document.getElementById(this.appendTo).removeChild(this.overlay);
             }
         },
         onFilterChange(event) {
             this.$emit('filter', {originalEvent: event, value: event.target.value});
+        },
+        overlayRef(el) {
+            this.overlay = el;
         }
     },
     computed: {
@@ -431,7 +437,7 @@ export default {
                     'p-disabled': this.disabled,
                     'p-dropdown-clearable': this.showClear && !this.disabled,
                     'p-focus': this.focused,
-                    'p-inputwrapper-filled': this.value,
+                    'p-inputwrapper-filled': this.modelValue,
                     'p-inputwrapper-focus': this.focused
                 }
             ];
@@ -457,7 +463,7 @@ export default {
             if (selectedOption)
                 return this.getOptionLabel(selectedOption);
             else
-                return this.value;
+                return this.modelValue;
         },
         equalityKey() {
             return this.optionValue ? null : this.dataKey;

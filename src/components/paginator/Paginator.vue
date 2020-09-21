@@ -4,7 +4,7 @@
             <slot name="left" :state="currentState"></slot>
         </div>
 		<template v-for="item of templateItems" :key="item">
-			<FirstPageLink v-if="item === 'FirstPageLink'"  @click="changePageToFirst($event)" :disabled="isFirstPage" />
+			<FirstPageLink v-if="item === 'FirstPageLink'" @click="changePageToFirst($event)" :disabled="isFirstPage" />
 			<PrevPageLink v-else-if="item === 'PrevPageLink'" @click="changePageToPrev($event)" :disabled="isFirstPage" />
 			<NextPageLink v-else-if="item === 'NextPageLink'" @click="changePageToNext($event)" :disabled="isLastPage" />
 			<LastPageLink v-else-if="item === 'LastPageLink'" @click="changePageToLast($event)" :disabled="isLastPage" />

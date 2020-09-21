@@ -1,11 +1,11 @@
 <template>
-    <textarea :class="['p-inputtextarea p-inputtext p-component', {'p-filled': filled, 'p-inputtextarea-resizable ': autoResize}]" v-on="listeners" :value="value"></textarea>
+    <textarea :class="['p-inputtextarea p-inputtext p-component', {'p-filled': filled, 'p-inputtextarea-resizable ': autoResize}]" v-bind="$attrs" :value="modelValue" @input="onInput"></textarea>
 </template>
 
 <script>
 export default {
     props: {
-        value: null,
+        modelValue: null,
         autoResize: Boolean
     },
     cachedScrollHeight: null,
@@ -40,21 +40,16 @@ export default {
 
                 this.cachedScrollHeight = this.$el.scrollHeight;
             }
+        },
+        onInput(event) {
+             if (this.autoResize) {
+                this.resize();
+            }
+
+            this.$emit('update:modelValue', event.target.value);
         }
     },
     computed: {
-        listeners() {
-            return {
-                ...this.$listeners,
-                input: event => {
-                    if (this.autoResize) {
-                        this.resize();
-                    }
-
-                    this.$emit('input', event.target.value);
-                }
-            };
-        },
         filled() {
             return (this.value != null && this.value.toString().length > 0)
         }

@@ -2,14 +2,14 @@
     <div :class="containerClass">
         <span class="p-rating-icon p-rating-cancel pi pi-ban" :tabindex="focusIndex" v-if="cancel" @click="onCancelClick"></span>
         <span :key="i" v-for="i in stars" @click="onStarClick($event,i)" :tabindex="focusIndex" @keydown.enter.prevent="onStarClick($event,i)"
-            :class="['p-rating-icon', {'pi pi-star-o': (i > value), 'pi pi-star': (i <= value)}]"></span>
+            :class="['p-rating-icon', {'pi pi-star-o': (i > modelValue), 'pi pi-star': (i <= modelValue)}]"></span>
     </div>
 </template>
 
 <script>
 export default {
     props: {
-        value: {
+        modelValue: {
             type: Number,
             default: null
         },
@@ -42,7 +42,7 @@ export default {
             }
         },
         updateModel(event, value) {
-            this.$emit('input', value);
+            this.$emit('update:modelValue', value);
             this.$emit('change', {
                 originalEvent: event,
                 value: value

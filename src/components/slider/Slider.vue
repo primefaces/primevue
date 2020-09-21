@@ -1,12 +1,12 @@
 <template>
-    <div :class="containerClass" @click="onBarClick" ref="container">
+    <div :class="containerClass" @click="onBarClick">
         <span class="p-slider-range" :style="rangeStyle"></span>
         <span v-if="!range" class="p-slider-handle" :style="handleStyle" @mousedown="onHandleMouseDown($event)" @keydown="onHandleKeyDown($event)" tabindex="0"
-             role="slider" :aria-valuemin="min" aria-valuenow="value" aria-valuemax="max" :aria-labelledby="ariaLabelledBy"></span>
+             role="slider" :aria-valuemin="min" aria-valuenow="modelValue" aria-valuemax="max" :aria-labelledby="ariaLabelledBy"></span>
         <span v-if="range" class="p-slider-handle" :style="rangeStartHandleStyle" @mousedown="onHandleMouseDown($event, 0)" @keydown="onHandleKeyDown($event, 0)" tabindex="0"
-            role="slider" :aria-valuemin="min" aria-valuenow="value ? value[0] : null" aria-valuemax="max" :aria-labelledby="ariaLabelledBy"></span>
+            role="slider" :aria-valuemin="min" aria-valuenow="modelValue ? modelValue[0] : null" aria-valuemax="max" :aria-labelledby="ariaLabelledBy"></span>
         <span v-if="range" class="p-slider-handle" :style="rangeEndHandleStyle" @mousedown="onHandleMouseDown($event, 1)" @keydown="onHandleKeyDown($event, 1)" tabindex="0"
-            role="slider" :aria-valuemin="min" aria-valuenow="value = value[1] : null" aria-valuemax="max" :aria-labelledby="ariaLabelledBy"></span>
+            role="slider" :aria-valuemin="min" aria-valuenow="modelValue = modelValue[1] : null" aria-valuemax="max" :aria-labelledby="ariaLabelledBy"></span>
     </div>
 </template>
 
@@ -15,7 +15,7 @@ import DomHandler from '../utils/DomHandler';
 
 export default {
     props: {
-        value: [Number,Array],
+        modelValue: [Number,Array],
 		min: {
 			type: Number,
 			default: 0
@@ -58,24 +58,24 @@ export default {
     },
     methods: {
         updateDomData() {
-            let rect = this.$refs.container.getBoundingClientRect();
+            let rect = this.$el.getBoundingClientRect();
             this.initX = rect.left + DomHandler.getWindowScrollLeft();
             this.initY = rect.top + DomHandler.getWindowScrollTop();
-            this.barWidth = this.$refs.container.offsetWidth;
-            this.barHeight = this.$refs.container.offsetHeight;
+            this.barWidth = this.$el.offsetWidth;
+            this.barHeight = this.$el.offsetHeight;
         },
         setValueFromHandlePosition(event, handlePosition) {
             let newValue = (this.max - this.min) * (handlePosition / 100) + this.min;
 
             if (this.range) {
                 if (this.step)
-                    this.handleStepChange(event, newValue, this.value[this.handleIndex]);
+                    this.handleStepChange(event, newValue, this.modelValue[this.handleIndex]);
                 else
                     this.updateModel(event, newValue);
             }
             else {
                 if (this.step)
-                    this.handleStepChange(event, newValue, this.value);
+                    this.handleStepChange(event, newValue, this.modelValue);
                 else
                     this.updateModel(event, newValue);
             }
@@ -103,17 +103,17 @@ export default {
                 if (this.handleIndex == 0) {
                     if (newValue < this.min)
                         newValue = this.min;
-                    else if (newValue >= this.value[1])
-                        newValue = this.value[1];
+                    else if (newValue >= this.modelValue[1])
+                        newValue = this.modelValue[1];
                 }
                 else {
                     if (newValue > this.max)
                         newValue = this.max;
-                    else if (newValue <= this.value[0])
-                        newValue = this.value[0];
+                    else if (newValue <= this.modelValue[0])
+                        newValue = this.modelValue[0];
                 }
 
-                modelValue = [...this.value];
+                modelValue = [...this.modelValue];
                 modelValue[this.handleIndex] = Math.floor(newValue);
             }
             else {
@@ -125,7 +125,7 @@ export default {
                 modelValue = Math.floor(newValue);
             }
 
-            this.$emit('input', modelValue);
+            this.$emit('update:modelValue', modelValue);
             this.$emit('change', modelValue);
         },
         onBarClick(event) {
@@ -196,15 +196,15 @@ export default {
 
             if (this.range) {
                 if (this.step)
-                    newValue = this.value[index] - this.step;
+                    newValue = this.modelValue[index] - this.step;
                 else
-                    newValue = this.value[index] - 1;
+                    newValue = this.modelValue[index] - 1;
             }
             else {
                 if (this.step)
-                    newValue = this.value - this.step;
+                    newValue = this.modelValue - this.step;
                 else
-                    newValue = this.value - 1;
+                    newValue = this.modelValue - 1;
             }
 
             this.updateModel(event, newValue);
@@ -216,15 +216,15 @@ export default {
 
             if (this.range) {
                 if (this.step)
-                    newValue = this.value[index] + this.step;
+                    newValue = this.modelValue[index] + this.step;
                 else
-                    newValue = this.value[index] + 1;
+                    newValue = this.modelValue[index] + 1;
             }
             else {
                 if (this.step)
-                    newValue = this.value + this.step;
+                    newValue = this.modelValue + this.step;
                 else
-                    newValue = this.value + 1;
+                    newValue = this.modelValue + 1;
             }
 
             this.updateModel(event, newValue);
@@ -247,7 +247,7 @@ export default {
                     if (this.dragging) {
                         this.dragging = false;
                         DomHandler.removeClass(this.$el, 'p-slider-sliding');
-                        this.$emit('slideend', {originalEvent: event, values: this.value});
+                        this.$emit('slideend', {originalEvent: event, values: this.modelValue});
                     }
                 };
 
@@ -302,24 +302,24 @@ export default {
 
         },
         handlePosition() {
-            if (this.value === 0)
+            if (this.modelValue === 0)
                 return 0;
-            else if (this.value < this.min)
+            else if (this.modelValue < this.min)
                 return 0;
-            else if (this.value > this.max)
+            else if (this.modelValue > this.max)
                 return 100;
             else
-                return (this.value - this.min) * 100 / (this.max - this.min);
+                return (this.modelValue - this.min) * 100 / (this.max - this.min);
         },
         rangeStartPosition() {
-            if (this.value)
-                return (this.value[0] < this.min ? 0 : this.value[0] - this.min) * 100 / (this.max - this.min);
+            if (this.modelValue)
+                return (this.modelValue[0] < this.min ? 0 : this.modelValue[0] - this.min) * 100 / (this.max - this.min);
             else
                 return 0;
         },
         rangeEndPosition() {
-            if (this.value)
-                return (this.value[1] > this.max ? 100 : this.value[1] - this.min) * 100 / (this.max - this.min);
+            if (this.modelValue)
+                return (this.modelValue[1] > this.max ? 100 : this.modelValue[1] - this.min) * 100 / (this.max - this.min);
             else
                 return 0;
         },

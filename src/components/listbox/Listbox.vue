@@ -27,7 +27,7 @@ import Ripple from '../ripple/Ripple';
 
 export default {
     props: {
-        value: null,
+        modelValue: null,
         options: Array,
         optionLabel: null,
         optionValue: null,
@@ -130,7 +130,7 @@ export default {
                     valueChanged = true;
                 }
                 else {
-                    value = (metaKey) ? this.value || [] : [];
+                    value = (metaKey) ? this.modelValue || [] : [];
                     value = [...value, this.getOptionValue(option)];
                     valueChanged = true;
                 }
@@ -139,7 +139,7 @@ export default {
                 if (selected)
                     value = this.removeOption(option);
                 else
-                    value = [...this.value || [], this.getOptionValue(option)];
+                    value = [...this.modelValue || [], this.getOptionValue(option)];
 
                 valueChanged = true;
             }
@@ -153,8 +153,8 @@ export default {
             let optionValue = this.getOptionValue(option);
 
             if (this.multiple) {
-                if (this.value) {
-                    for (let val of this.value) {
+                if (this.modelValue) {
+                    for (let val of this.modelValue) {
                         if (ObjectUtils.equals(val, optionValue, this.equalityKey)) {
                             selected = true;
                             break;
@@ -163,16 +163,16 @@ export default {
                 }
             }
             else {
-                selected = ObjectUtils.equals(this.value, optionValue, this.equalityKey);
+                selected = ObjectUtils.equals(this.modelValue, optionValue, this.equalityKey);
             }
 
             return selected;
         },
         removeOption(option) {
-            return this.value.filter(val => !ObjectUtils.equals(val, this.getOptionValue(option), this.equalityKey));
+            return this.modelValue.filter(val => !ObjectUtils.equals(val, this.getOptionValue(option), this.equalityKey));
         },
         updateModel(event, value) {
-            this.$emit('input', value);
+            this.$emit('update:modelValue', value);
             this.$emit('change', {originalEvent: event, value: value});
         },
         onOptionKeyDown(event, option) {

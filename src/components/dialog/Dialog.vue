@@ -1,7 +1,7 @@
 <template>
     <div ref="mask" :class="maskClass" v-if="maskVisible" @click="onMaskClick">
         <transition name="p-dialog" @before-enter="onBeforeEnter" @enter="onEnter" @before-leave="onBeforeLeave" @leave="onLeave" @after-leave="onAfterLeave" @appear="onAppear">
-            <div ref="dialog" :class="dialogClass" :style="dialogStyle" v-if="visible" v-bind="$attrs" v-on="listeners" role="dialog" :aria-labelledby="ariaLabelledById" :aria-modal="modal" @click.stop>
+            <div ref="dialog" :class="dialogClass" :style="dialogStyle" v-if="visible" v-bind="$attrs" role="dialog" :aria-labelledby="ariaLabelledById" :aria-modal="modal" @click.stop>
                 <div class="p-dialog-header" v-if="showHeader">
                     <slot name="header">
                         <span :id="ariaLabelledById" class="p-dialog-title" v-if="header" >{{header}}</span>
@@ -229,11 +229,6 @@ export default {
         }
     },
     computed: {
-        listeners() {
-            return {
-                ...this.$listeners
-            };
-        },
         maskClass() {
             return ['p-dialog-mask', this.getPositionClass()];
         },

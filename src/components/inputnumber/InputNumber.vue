@@ -1,6 +1,7 @@
 <template>
-    <span :class="containerClass">
-        <INInputText ref="input" class="p-inputnumber-input" :value="formattedValue" v-bind="$attrs" v-on="listeners" :aria-valumin="min" :aria-valuemax="max" />
+    <span :class="containerClass" :style="style">
+        <INInputText ref="input" class="p-inputnumber-input" :value="formattedValue" v-bind="$attrs" :aria-valumin="min" :aria-valuemax="max" 
+           @input="onInput" @keydown="onInputKeyDown" @keypress="onInputKeyPress" @paste="onPaste" @click="onInputClick" @focus="onInputFocus" @blur="onInputBlur"/>
         <span class="p-inputnumber-button-group" v-if="showButtons && buttonLayout === 'stacked'">
             <INButton :class="upButtonClass" :icon="incrementButtonIcon" v-on="upButtonListeners" :disabled="$attrs.disabled" />
             <INButton :class="downButtonClass" :icon="decrementButtonIcon" v-on="downButtonListeners" :disabled="$attrs.disabled" />
@@ -17,7 +18,7 @@ import Button from '../button/Button';
 export default {
     inheritAttrs: false,
     props: {
-        value: {
+        modelValue: {
             type: Number,
             default: null
         },
@@ -100,7 +101,9 @@ export default {
         step: {
             type: Number,
             default: 1
-        }
+        },
+        class: null,
+        style: null
     },
     numberFormat: null,
     _numeral: null,
@@ -695,21 +698,18 @@ export default {
             this.$refs.input.$el.setAttribute('aria-valuenow', value);
         },
         updateModel(event, value) {
-            this.$emit('input', value);
+            this.$emit('update:modelValue', value);
         },
-        onInputFocus(event) {
+        onInputFocus() {
             this.focused = true;
-            this.$emit('focus', event);
         },
-        onInputBlur(event) {
+        onInputBlur() {
             this.focused = false;
 
             let newValue = this.validateValue(this.parseValue(this.$refs.input.$el.value));
             this.$refs.input.$el.value = this.formatValue(newValue);
             this.$refs.input.$el.setAttribute('aria-valuenow', newValue);
             this.updateModel(event, newValue);
-
-            this.$emit('blur', event);
         },
         clearTimer() {
             if (this.timer) {
@@ -719,7 +719,7 @@ export default {
     },
     computed: {
         containerClass() {
-            return ['p-inputnumber p-component', {
+            return ['p-inputnumber p-component', this.class, {
                 'p-inputwrapper-filled': this.filled,
                 'p-inputwrapper-focus': this.focused,
                 'p-inputnumber-buttons-stacked': this.showButtons && this.buttonLayout === 'stacked',
@@ -734,19 +734,7 @@ export default {
             return ['p-inputnumber-button p-inputnumber-button-down', this.decrementButtonClass];
         },
         filled() {
-            return (this.value != null && this.value.toString().length > 0)
-        },
-        listeners() {
-            return {
-                ...this.$listeners,
-                input: val => this.onInput(val),
-                keydown: event => this.onInputKeyDown(event),
-                keypress: event => this.onInputKeyPress(event),
-                paste: event => this.onPaste(event),
-                click: event => this.onInputClick(event),
-                focus: event => this.onInputFocus(event),
-                blur: event => this.onInputBlur(event)
-            };
+            return (this.modelValue != null && this.modelValue.toString().length > 0)
         },
         upButtonListeners() {
             return {
@@ -767,7 +755,7 @@ export default {
             }
         },
         formattedValue() {
-            return this.formatValue(this.value);
+            return this.formatValue(this.modelValue);
         }
     },
     components: {

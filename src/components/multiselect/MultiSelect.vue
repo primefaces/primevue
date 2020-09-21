@@ -1,12 +1,12 @@
 <template>
-    <div ref="container" :class="containerClass" @click="onClick">
+    <div :class="containerClass" @click="onClick">
         <div class="p-hidden-accessible">
             <input ref="focusInput" type="text" role="listbox" :id="inputId" readonly :disabled="disabled" @focus="onFocus" @blur="onBlur" @keydown="onKeyDown" :tabindex="tabindex"
                 aria-haspopup="listbox" :aria-expanded="overlayVisible" :aria-labelledby="ariaLabelledBy"/>
         </div>
         <div class="p-multiselect-label-container">
             <div :class="labelClass">
-                <slot name="value" :value="value" :placeholder="placeholder">
+                <slot name="value" :value="modelValue" :placeholder="placeholder">
                     {{label}}
                 </slot>
             </div>
@@ -15,7 +15,7 @@
             <span class="p-multiselect-trigger-icon pi pi-chevron-down"></span>
         </div>
         <transition name="p-connected-overlay" @enter="onOverlayEnter" @leave="onOverlayLeave">
-            <div ref="overlay" class="p-multiselect-panel p-component" v-if="overlayVisible">
+            <div :ref="overlayRef" class="p-multiselect-panel p-component" v-if="overlayVisible">
                 <div class="p-multiselect-header">
                     <div class="p-checkbox p-component" @click="onToggleAll" role="checkbox" :aria-checked="allSelected">
                         <div class="p-hidden-accessible">
@@ -33,7 +33,7 @@
                         <span class="p-multiselect-close-icon pi pi-times" />
                     </button>
                 </div>
-                <div ref="itemsWrapper" class="p-multiselect-items-wrapper" :style="{'max-height': scrollHeight}">
+                <div class="p-multiselect-items-wrapper" :style="{'max-height': scrollHeight}">
                     <ul class="p-multiselect-items p-component" role="listbox" aria-multiselectable="true">
                         <li v-for="(option, i) of visibleOptions" :class="['p-multiselect-item', {'p-highlight': isSelected(option), 'p-disabled': isOptionDisabled(option)}]" role="option" :aria-selected="isSelected(option)"
                             :aria-label="getOptionLabel(option)" :key="getOptionRenderKey(option)" @click="onOptionSelect($event, option)" @keydown="onOptionKeyDown($event, option)" :tabindex="tabindex||'0'" v-ripple>
@@ -61,7 +61,7 @@ import Ripple from '../ripple/Ripple';
 
 export default {
     props: {
-        value: null,
+        modelValue: null,
         options: Array,
         optionLabel: null,
         optionValue: null,
@@ -97,9 +97,11 @@ export default {
         };
     },
     outsideClickListener: null,
+    overlay: null,
     beforeUnmount() {
         this.restoreAppend();
         this.unbindOutsideClickListener();
+        this.overlay = null;
     },
     updated() {
         if (this.overlayVisible && this.filterValue) {
@@ -123,8 +125,8 @@ export default {
             let selected = false;
             let optionValue = this.getOptionValue(option);
 
-            if (this.value) {
-                for (let val of this.value) {
+            if (this.modelValue) {
+                for (let val of this.modelValue) {
                     if (ObjectUtils.equals(val, optionValue, this.equalityKey)) {
                         selected = true;
                         break;
@@ -155,7 +157,7 @@ export default {
             this.headerCheckboxFocused = false;
         },
         onClick() {
-            if (!this.disabled && (!this.$refs.overlay || !this.$refs.overlay.contains(event.target))) {
+            if (!this.disabled && (!this.overlay || !this.overlay.contains(event.target))) {
                 if (this.overlayVisible)
                     this.hide();
                 else
@@ -211,11 +213,11 @@ export default {
             let value = null;
 
             if (selected)
-                value = this.value.filter(val => !ObjectUtils.equals(val, this.getOptionValue(option), this.equalityKey));
+                value = this.modelValue.filter(val => !ObjectUtils.equals(val, this.getOptionValue(option), this.equalityKey));
             else
-                value = [...this.value || [], this.getOptionValue(option)];
+                value = [...this.modelValue || [], this.getOptionValue(option)];
 
-            this.$emit('input', value);
+            this.$emit('update:modelValue', value);
             this.$emit('change', {originalEvent: event, value: value});
         },
         onOptionKeyDown(event, option) {
@@ -269,7 +271,7 @@ export default {
                 return null;
         },
         onOverlayEnter() {
-            this.$refs.overlay.style.zIndex = String(DomHandler.generateZIndex());
+            this.overlay.style.zIndex = String(DomHandler.generateZIndex());
             this.appendContainer();
             this.alignOverlay();
             this.bindOutsideClickListener();
@@ -278,14 +280,15 @@ export default {
         onOverlayLeave() {
             this.unbindOutsideClickListener();
             this.$emit('hide');
+            this.overlay = null;
         },
         alignOverlay() {
             if (this.appendTo) {
-                DomHandler.absolutePosition(this.$refs.overlay, this.$refs.container);
-                this.$refs.overlay.style.minWidth = DomHandler.getOuterWidth(this.$refs.container) + 'px';
+                DomHandler.absolutePosition(this.overlay, this.$el);
+                this.overlay.style.minWidth = DomHandler.getOuterWidth(this.$el) + 'px';
             }
             else {
-                DomHandler.relativePosition(this.$refs.overlay, this.$refs.container);
+                DomHandler.relativePosition(this.overlay, this.$el);
             }
         },
         bindOutsideClickListener() {
@@ -305,7 +308,7 @@ export default {
             }
         },
         isOutsideClicked(event) {
-            return !(this.$refs.container.isSameNode(event.target) || this.$refs.container.contains(event.target) || (this.$refs.overlay && this.$refs.overlay.contains(event.target)));
+            return !(this.$el.isSameNode(event.target) || this.$el.contains(event.target) || (this.overlay && this.overlay.contains(event.target)));
         },
         getLabelByValue(val) {
             let label = null;
@@ -326,27 +329,30 @@ export default {
         onToggleAll(event) {
             const value = this.allSelected ? [] : this.visibleOptions  && this.visibleOptions.map(option => this.getOptionValue(option));
 
-            this.$emit('input', value);
+            this.$emit('update:modelValue', value);
             this.$emit('change', {originalEvent: event, value: value});
         },
         appendContainer() {
             if (this.appendTo) {
                 if (this.appendTo === 'body')
-                    document.body.appendChild(this.$refs.overlay);
+                    document.body.appendChild(this.overlay);
                 else
-                    document.getElementById(this.appendTo).appendChild(this.$refs.overlay);
+                    document.getElementById(this.appendTo).appendChild(this.overlay);
             }
         },
         restoreAppend() {
-            if (this.$refs.overlay && this.appendTo) {
+            if (this.overlay && this.appendTo) {
                 if (this.appendTo === 'body')
-                    document.body.removeChild(this.$refs.overlay);
+                    document.body.removeChild(this.overlay);
                 else
-                    document.getElementById(this.appendTo).removeChild(this.$refs.overlay);
+                    document.getElementById(this.appendTo).removeChild(this.overlay);
             }
         },
         onFilterChange(event) {
             this.$emit('filter', {originalEvent: event, value: event.target.value});
+        },
+        overlayRef(el) {
+            this.overlay = el;
         }
     },
     computed: {
@@ -362,7 +368,7 @@ export default {
                 {
                     'p-disabled': this.disabled,
                     'p-focus': this.focused,
-                    'p-inputwrapper-filled': this.value && this.value.length,
+                    'p-inputwrapper-filled': this.modelValue && this.modelValue.length,
                     'p-inputwrapper-focus': this.focused
                 }
             ];
@@ -372,21 +378,21 @@ export default {
                 'p-multiselect-label',
                 {
                     'p-placeholder': this.label === this.placeholder,
-                    'p-multiselect-label-empty': !this.$slots['value'] && !this.placeholder && (!this.value || this.value.length === 0)
+                    'p-multiselect-label-empty': !this.$slots['value'] && !this.placeholder && (!this.modelValue || this.modelValue.length === 0)
                 }
             ];
         },
         label() {
             let label;
 
-            if (this.value && this.value.length) {
+            if (this.modelValue && this.modelValue.length) {
                 label = '';
-                for(let i = 0; i < this.value.length; i++) {
+                for(let i = 0; i < this.modelValue.length; i++) {
                     if(i !== 0) {
                         label += ', ';
                     }
 
-                    label += this.getLabelByValue(this.value[i]);
+                    label += this.getLabelByValue(this.modelValue[i]);
                 }
             }
             else {
@@ -411,7 +417,7 @@ export default {
                 return allSelected;
             }
             else {
-                return this.value && this.options && (this.value.length > 0 && this.value.length === this.options.length);
+                return this.modelValue && this.options && (this.modelValue.length > 0 && this.modelValue.length === this.options.length);
             }
         },
         equalityKey() {

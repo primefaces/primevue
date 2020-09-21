@@ -1,5 +1,6 @@
 <template>
-    <input ref="input" type="password" :class="['p-inputtext p-component', {'p-filled': filled}]" v-on="listeners" :value="value" />
+    <input type="password" :class="['p-inputtext p-component', {'p-filled': filled}]" :value="modelValue" 
+        @input="onInput" @focus="onFocus" @blur="onBlur" @keyup="onKeyUp" />
 </template>
 
 <script>
@@ -7,7 +8,7 @@ import DomHandler from '../utils/DomHandler';
 
 export default {
     props: {
-        value: String,
+        modelValue: String,
         promptLabel: {
             type: String,
             default: 'Enter a password'
@@ -68,87 +69,76 @@ export default {
             this.info.className = 'p-password-info';
             this.info.textContent = this.promptLabel;
 
-            this.panel.style.minWidth = DomHandler.getOuterWidth(this.$refs.input) + 'px';
+            this.panel.style.minWidth = DomHandler.getOuterWidth(this.$el) + 'px';
             this.panel.appendChild(this.meter);
             this.panel.appendChild(this.info);
             document.body.appendChild(this.panel);
+        },
+         onInput(event)  {
+             this.$emit('update:modelValue', event.target.value)
+        },
+        onFocus() {
+            if (this.feedback) {
+                if (!this.panel) {
+                    this.createPanel();
+                }
+
+                this.panel.style.zIndex = String(DomHandler.generateZIndex());
+                this.panel.style.display = 'block';
+                setTimeout(() => {
+                    DomHandler.addClass(this.panel, 'p-connected-overlay-visible');
+                    DomHandler.removeClass(this.panel, 'p-connected-overlay-hidden');
+                }, 1);
+                DomHandler.absolutePosition(this.panel, this.$el);
+            }
+        },
+        onBlur() {
+            if (this.panel) {
+                DomHandler.addClass(this.panel, 'p-connected-overlay-hidden');
+                DomHandler.removeClass(this.panel, 'p-connected-overlay-visible');
+
+                setTimeout(() => {
+                    this.panel.style.display = 'none';
+                    DomHandler.removeClass(this.panel, 'p-connected-overlay-hidden');
+                }, 150);
+            }
+        },
+        onKeyUp(event) {
+            if (this.panel) {
+                let value = event.target.value;
+                let label = null;
+                let meterPos = null;
+
+                switch (this.testStrength(value)) {
+                    case 1:
+                        label = this.weakLabel;
+                        meterPos = '0px -10px';
+                        break;
+
+                    case 2:
+                        label = this.mediumLabel;
+                        meterPos = '0px -20px';
+                        break;
+
+                    case 3:
+                        label = this.strongLabel;
+                        meterPos = '0px -30px';
+                        break;
+
+                    default:
+                        label = this.promptLabel;
+                        meterPos = '0px 0px';
+                        break;
+                }
+
+                this.meter.style.backgroundPosition = meterPos;
+                this.info.textContent = label;
+            }
         }
     },
     computed: {
-        listeners() {
-            let vm = this;
-
-            return {
-                ...this.$listeners,
-                input: event => this.$emit('input', event.target.value),
-                focus: event => {
-                    if (this.feedback) {
-                        if (!this.panel) {
-                            this.createPanel();
-                        }
-
-                        vm.panel.style.zIndex = String(DomHandler.generateZIndex());
-                        vm.panel.style.display = 'block';
-                        setTimeout(() => {
-                            DomHandler.addClass(this.panel, 'p-connected-overlay-visible');
-                            DomHandler.removeClass(this.panel, 'p-connected-overlay-hidden');
-                        }, 1);
-                        DomHandler.absolutePosition(this.panel, this.$refs.input);
-                    }
-
-                    this.$emit('focus', event);
-                },
-                blur: event => {
-                    if (this.panel) {
-                        DomHandler.addClass(this.panel, 'p-connected-overlay-hidden');
-                        DomHandler.removeClass(this.panel, 'p-connected-overlay-visible');
-
-                        setTimeout(() => {
-                            vm.panel.style.display = 'none';
-                            DomHandler.removeClass(this.panel, 'p-connected-overlay-hidden');
-                        }, 150);
-                    }
-
-                    this.$emit('blur', event);
-                },
-                keyup: event => {
-                    if(this.panel) {
-                        let value = event.target.value;
-                        let label = null;
-                        let meterPos = null;
-
-                        switch (this.testStrength(value)) {
-                            case 1:
-                                label = this.weakLabel;
-                                meterPos = '0px -10px';
-                                break;
-
-                            case 2:
-                                label = this.mediumLabel;
-                                meterPos = '0px -20px';
-                                break;
-
-                            case 3:
-                                label = this.strongLabel;
-                                meterPos = '0px -30px';
-                                break;
-
-                            default:
-                                label = this.promptLabel;
-                                meterPos = '0px 0px';
-                                break;
-                        }
-
-                        vm.meter.style.backgroundPosition = meterPos;
-                        vm.info.textContent = label;
-                    }
-
-                    this.$emit('keyup', event);
-                }
-            };
-        },
         filled() {
-            return (this.value != null && this.value.toString().length > 0)
+            return (this.modelValue != null && this.modelValue.toString().length > 0)
         }
     }
 }

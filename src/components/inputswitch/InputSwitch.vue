@@ -1,8 +1,8 @@
 <template>
-    <div :class="containerClass" @click="onClick($event)">
+    <div :class="containerClass" @click="onClick($event)" :style="style">
         <div class="p-hidden-accessible">
-            <input ref="input" type="checkbox" :id="inputId" :name="name" :checked="value" :disabled="disabled"
-                @focus="onFocus($event)" @blur="onBlur($event)" @keydown.enter.prevent="onClick($event)" role="switch" :aria-checked="value" :aria-labelledby="ariaLabelledBy">
+            <input ref="input" type="checkbox" :checked="modelValue" v-bind="$attrs" @focus="onFocus($event)" @blur="onBlur($event)" @keydown.enter.prevent="onClick($event)" 
+                role="switch" :aria-checked="modelValue">
         </div>
         <span class="p-inputswitch-slider"></span>
     </div>
@@ -10,12 +10,11 @@
 
 <script>
 export default {
+    inheritAttrs: false,
     props: {
-        value: Boolean,
-        inputId: String,
-        name: String,
-        disabled: Boolean,
-        ariaLabelledBy: null
+        modelValue: Boolean,
+        class: null,
+        style: null
     },
     data() {
         return {
@@ -24,29 +23,28 @@ export default {
     },
     methods: {
         onClick(event) {
-            if (!this.disabled) {
+            if (!this.$attrs.disabled) {
                 this.$emit('click', event);
-                this.$emit('input', !this.value);
+                this.$emit('update:modelValue', !this.modelValue);
                 this.$emit('change', event);
                 this.$refs.input.focus();
             }
+            event.preventDefault();
         },
-        onFocus(event) {
+        onFocus() {
             this.focused = true;
-            this.$emit('focus', event);
         },
-        onBlur(event) {
+        onBlur() {
             this.focused = false;
-            this.$emit('blur', event);
         }
     },
     computed: {
         containerClass() {
             return [
-                'p-inputswitch p-component',
+                'p-inputswitch p-component', this.class,
                 {
-                    'p-inputswitch-checked': this.value,
-					'p-disabled': this.disabled,
+                    'p-inputswitch-checked': this.modelValue,
+					'p-disabled': this.$attrs.disabled,
                     'p-focus': this.focused
                 }
             ];

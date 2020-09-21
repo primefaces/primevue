@@ -3,15 +3,15 @@
         <input ref="input" type="text" :class="inputClass" readonly="readonly" :tabindex="tabindex" :disabled="disabled"
             @click="onInputClick" @keydown="onInputKeydown" v-if="!inline" :aria-labelledby="ariaLabelledBy"/>
         <transition name="p-connected-overlay" @enter="onOverlayEnter" @leave="onOverlayLeave">
-            <div ref="picker" :class="pickerClass" v-if="inline ? true : overlayVisible">
+            <div :ref="pickerRef" :class="pickerClass" v-if="inline ? true : overlayVisible">
                 <div class="p-colorpicker-content">
-                    <div ref="colorSelector" class="p-colorpicker-color-selector" @mousedown="onColorMousedown">
+                    <div :ref="colorSelectorRef" class="p-colorpicker-color-selector" @mousedown="onColorMousedown">
                         <div class="p-colorpicker-color">
-                            <div ref="colorHandle" class="p-colorpicker-color-handle"></div>
+                            <div :ref="colorHandleRef" class="p-colorpicker-color-handle"></div>
                         </div>
                     </div>
-                    <div ref="hueView" class="p-colorpicker-hue" @mousedown="onHueMousedown">
-                        <div ref="hueHandle" class="p-colorpicker-hue-handle"></div>
+                    <div :ref="hueViewRef" class="p-colorpicker-hue" @mousedown="onHueMousedown">
+                        <div :ref="hueHandleRef" class="p-colorpicker-hue-handle"></div>
                     </div>
                 </div>
             </div>
@@ -24,7 +24,7 @@ import DomHandler from '../utils/DomHandler';
 
 export default {
     props: {
-        value: {
+        modelValue: {
             type: null,
             default: null
         },
@@ -73,10 +73,16 @@ export default {
     hueDragging: null,
     colorDragging: null,
     selfUpdate: null,
+    picker: null,
+    colorSelector: null,
+    colorHandle: null,
+    hueView: null,
+    hueHandle: null,
     beforeUnmount() {
         this.unbindOutsideClickListener();
         this.unbindDocumentMouseMoveListener();
         this.unbindDocumentMouseUpListener();
+        this.clearRefs();
     },
     mounted() {
         this.updateUI();
@@ -96,7 +102,7 @@ export default {
     },
     methods: {
         pickColor(event) {
-            let rect = this.$refs.colorSelector.getBoundingClientRect();
+            let rect = this.colorSelector.getBoundingClientRect();
             let top = rect.top + (window.pageYOffset || document.documentElement.scrollTop || document.body.scrollTop || 0);
             let left = rect.left + document.body.scrollLeft;
             let saturation = Math.floor(100 * (Math.max(0, Math.min(150, (event.pageX - left)))) / 150);
@@ -113,7 +119,7 @@ export default {
             this.updateModel();
         },
         pickHue(event) {
-            let top = this.$refs.hueView.getBoundingClientRect().top + (window.pageYOffset || document.documentElement.scrollTop || document.body.scrollTop || 0);
+            let top = this.hueView.getBoundingClientRect().top + (window.pageYOffset || document.documentElement.scrollTop || document.body.scrollTop || 0);
             this.hsbValue = this.validateHSB({
                 h: Math.floor(360 * (150 - Math.max(0, Math.min(150, (event.pageY - top)))) / 150),
                 s: 100,
@@ -128,15 +134,15 @@ export default {
         updateModel() {
             switch(this.format) {
                 case 'hex':
-                    this.$emit('input', this.HSBtoHEX(this.hsbValue));
+                    this.$emit('update:modelValue', this.HSBtoHEX(this.hsbValue));
                 break;
 
                 case 'rgb':
-                    this.$emit('input', this.HSBtoRGB(this.hsbValue));
+                    this.$emit('update:modelValue', this.HSBtoRGB(this.hsbValue));
                 break;
 
                 case 'hsb':
-                    this.$emit('input', this.hsbValue);
+                    this.$emit('update:modelValue', this.hsbValue);
                 break;
 
                 default:
@@ -145,24 +151,24 @@ export default {
             }
         },
         updateColorSelector() {
-            if (this.$refs.colorSelector) {
+            if (this.colorSelector) {
                 let hsbValue = this.validateHSB({
                     h: this.hsbValue.h,
                     s: 100,
                     b: 100
                 });
-                this.$refs.colorSelector.style.backgroundColor = '#' + this.HSBtoHEX(hsbValue);
+                this.colorSelector.style.backgroundColor = '#' + this.HSBtoHEX(hsbValue);
             }
         },
         updateColorHandle() {
-            if (this.$refs.colorHandle) {
-                this.$refs.colorHandle.style.left = Math.floor(150 * this.hsbValue.s / 100) + 'px';
-                this.$refs.colorHandle.style.top = Math.floor(150 * (100 - this.hsbValue.b) / 100) + 'px';
+            if (this.colorHandle) {
+                this.colorHandle.style.left = Math.floor(150 * this.hsbValue.s / 100) + 'px';
+                this.colorHandle.style.top = Math.floor(150 * (100 - this.hsbValue.b) / 100) + 'px';
             }
         },
         updateHue() {
-            if (this.$refs.hueHandle) {
-                this.$refs.hueHandle.style.top = Math.floor(150 - (150 * this.hsbValue.h / 360)) + 'px';
+            if (this.hueHandle) {
+                this.hueHandle.style.top = Math.floor(150 - (150 * this.hsbValue.h / 360)) + 'px';
             }
         },
         updateInput() {
@@ -319,14 +325,15 @@ export default {
             this.bindOutsideClickListener();
 
             if (this.autoZIndex) {
-                this.$refs.picker.style.zIndex = String(this.baseZIndex + DomHandler.generateZIndex());
+                this.picker.style.zIndex = String(this.baseZIndex + DomHandler.generateZIndex());
             }
         },
         onOverlayLeave() {
             this.unbindOutsideClickListener();
+            this.clearRefs();
         },
         alignOverlay() {
-            DomHandler.relativePosition(this.$refs.picker, this.$refs.input);
+            DomHandler.relativePosition(this.picker, this.$refs.input);
         },
         onInputClick() {
             if (this.disabled) {
@@ -382,7 +389,7 @@ export default {
         bindOutsideClickListener() {
             if (!this.outsideClickListener) {
                 this.outsideClickListener = (event) => {
-                    if (this.overlayVisible && this.$refs.picker && !this.$refs.picker.contains(event.target) && !this.isInputClicked(event)) {
+                    if (this.overlayVisible && this.picker && !this.picker.contains(event.target) && !this.isInputClicked(event)) {
                         this.overlayVisible = false;
                     }
                 };
@@ -432,6 +439,28 @@ export default {
                 document.removeEventListener('mouseup', this.documentMouseUpListener);
                 this.documentMouseUpListener = null;
             }
+        },
+        pickerRef(el) {
+            this.picker = el
+        },
+        colorSelectorRef(el) {
+            this.colorSelector = el;
+        },
+        colorHandleRef(el) {
+            this.colorHandle = el;
+        },
+        hueViewRef(el) {
+            this.hueView = el;
+        },
+        hueHandleRef(el) {
+            this.hueHandle = el;
+        },
+        clearRefs() {
+            this.picker = null;
+            this.colorSelector = null;
+            this.colorHandle = null;
+            this.hueView = null;
+            this.hueHandle = null;
         }
     },
     computed: {

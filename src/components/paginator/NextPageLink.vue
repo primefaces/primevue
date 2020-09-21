@@ -1,5 +1,5 @@
 <template>
-	<button :class="containerClass" v-on="$listeners" type="button" v-ripple>
+	<button :class="containerClass" type="button" v-ripple>
 		<span class="p-paginator-icon pi pi-angle-right"></span>
 	</button>
 </template>
