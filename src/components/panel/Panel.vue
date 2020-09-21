@@ -42,14 +42,6 @@ export default {
             this.d_collapsed = newValue;
         }
     },
-    computed: {
-        ariaId() {
-            return UniqueComponentId();
-        },
-        containerClass() {
-            return ['p-panel p-component', {'p-panel-toggleable': this.toggleable}];
-        }
-    },
     methods: {
         toggle(event) {
             this.d_collapsed = !this.d_collapsed;
@@ -58,6 +50,14 @@ export default {
                 originalEvent: event,
                 value: this.d_collapsed
             });
+        }
+    },
+    computed: {
+        ariaId() {
+            return UniqueComponentId();
+        },
+        containerClass() {
+            return ['p-panel p-component', {'p-panel-toggleable': this.toggleable}];
         }
     },
     directives: {
