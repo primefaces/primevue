@@ -30,7 +30,7 @@ export default {
 </CodeHighlight>
 
                 <h5>Properties</h5>
-                 <p>Any property as style and class are passed to the main container element. Following are the additional properties to configure the component.</p>
+                <p>Any property as style and class are passed to the main container element. Following are the additional properties to configure the component.</p>
                 <div class="doc-tablewrapper">
                     <table class="doc-table">
                         <thead>
@@ -43,7 +43,7 @@ export default {
                         </thead>
                         <tbody>
                             <tr>
-                                <td>value</td>
+                                <td>modelValue</td>
                                 <td>any</td>
                                 <td>null</td>
                                 <td>Value of the component.</td>
@@ -95,26 +95,6 @@ export default {
                                 <td>string</td>
                                 <td>null</td>
                                 <td>Establishes relationships between the component and label(s) where its value should be one or more element IDs.</td>
-                            </tr>
-                        </tbody>
-                    </table>
-                </div>
-
-                <h5>Events</h5>
-                <div class="doc-tablewrapper">
-                    <table class="doc-table">
-                        <thead>
-                            <tr>
-                                <th>Name</th>
-                                <th>Parameters</th>
-                                <th>Description</th>
-                            </tr>
-                        </thead>
-                        <tbody>
-                            <tr>
-                                <td>input</td>
-                                <td>value: New value</td>
-                                <td>Callback to invoke on value change.</td>
                             </tr>
                         </tbody>
                     </table>

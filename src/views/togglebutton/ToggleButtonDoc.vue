@@ -44,7 +44,7 @@ export default {
 						</thead>
 						<tbody>
                             <tr>
-                                <td>value</td>
+                                <td>modelValue</td>
                                 <td>any</td>
                                 <td>null</td>
                                 <td>Value of the component.</td>
@@ -79,12 +79,6 @@ export default {
                                 <td>left</td>
                                 <td>Position of the icon, valid values are "left" and "right".</td>
                             </tr>
-                            <tr>
-                                <td>ariaLabelledBy</td>
-                                <td>string</td>
-                                <td>null</td>
-                                <td>Establishes relationships between the component and label(s) where its value should be one or more element IDs.</td>
-                            </tr>
 						</tbody>
 					</table>
 				</div>
@@ -104,26 +98,6 @@ export default {
                                 <td>change</td>
                                 <td>event: Browser event</td>
                                 <td>Callback to invoke on value change.</td>
-                            </tr>
-                            <tr>
-                                <td>input</td>
-                                <td>event: Value as the checked state.</td>
-                                <td>Callback to invoke on value change.</td>
-                            </tr>
-                            <tr>
-                                <td>click</td>
-                                <td>event: Browser event</td>
-                                <td>Callback to invoke on click.</td>
-                            </tr>
-                            <tr>
-                                <td>focus</td>
-                                <td>event: Browser event</td>
-                                <td>Callback to invoke on focus.</td>
-                            </tr>
-                            <tr>
-                                <td>blur</td>
-                                <td>event: Browser event</td>
-                                <td>Callback to invoke on blur.</td>
                             </tr>
 						</tbody>
 					</table>

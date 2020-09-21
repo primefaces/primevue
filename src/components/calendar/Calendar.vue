@@ -1,9 +1,9 @@
 <template>
     <span :class="containerClass" :style="style">
-        <CalendarInputText ref="input" v-if="!inline" type="text" v-bind="$attrs" :value="inputFieldValue" @input="onInput" @focus="onFocus" @blur="onBlur" @keydown="onKeyDown" :readonly="!manualInput" :aria-labelledby="ariaLabelledBy" inputmode="none" />
+        <CalendarInputText ref="input" v-if="!inline" type="text" v-bind="$attrs" :value="inputFieldValue" @input="onInput" @focus="onFocus" @blur="onBlur" @keydown="onKeyDown" :readonly="!manualInput" inputmode="none" />
         <CalendarButton v-if="showIcon" :icon="icon" tabindex="-1" class="p-datepicker-trigger" :disabled="$attrs.disabled" @click="onButtonClick" type="button" :aria-label="inputFieldValue"/>
         <transition name="p-connected-overlay" @enter="onOverlayEnter($event)" @after-enter="onOverlayEnterComplete" @leave="onOverlayLeave">
-            <div :ref="overlayRef" :class="panelStyleClass" v-if="inline ? true : overlayVisible" :role="inline ? null : 'dialog'" :aria-labelledby="ariaLabelledBy">
+            <div :ref="overlayRef" :class="panelStyleClass" v-if="inline ? true : overlayVisible" :role="inline ? null : 'dialog'">
                 <template v-if="!timeOnly">
                     <div class="p-datepicker-group-container">
                         <div class="p-datepicker-group" v-for="(month,groupIndex) of months" :key="month.month + month.year">
@@ -299,10 +299,6 @@ export default {
                     weekHeader: 'Wk'
                 }
             }
-        },
-        ariaLabelledBy: {
-            type: String,
-            default: null
         },
         appendTo: {
             type: String,

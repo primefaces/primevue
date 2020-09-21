@@ -76,7 +76,27 @@ import InputText from 'primevue/inputtext';
 </CodeHighlight>
 
 				<h5>Properties</h5>
-				<p>InputText passes any valid attribute to the underlying input element.</p>
+				<p>InputText passes any valid attribute to the underlying input element, additional attribute is the following.</p>
+                <div class="doc-tablewrapper">
+					<table class="doc-table">
+						<thead>
+                            <tr>
+                                <th>Name</th>
+                                <th>Type</th>
+                                <th>Default</th>
+                                <th>Description</th>
+                            </tr>
+						</thead>
+						<tbody>
+                            <tr>
+                                <td>modelValue</td>
+                                <td>any</td>
+                                <td>null</td>
+                                <td>Value of the component.</td>
+                            </tr>
+						</tbody>
+					</table>
+				</div>
 
                 <h5>Events</h5>
                 <p>Any valid event such as focus, blur and input are passed to the underlying input element.</p>

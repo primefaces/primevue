@@ -1,7 +1,11 @@
 import Vue, { VNode } from 'vue';
 
 export declare class InputMask extends Vue {
-    value?: string;
+    modelValue?: string;
+    slotChar?: string;
+    mask?: string;
+    autoClear?: boolean;
+    unmask?: boolean;
     $emit(eventName: 'input', value: string): this;
     $emit(eventName: 'focus', event: Event): this;
     $emit(eventName: 'blur', event: Event): this;

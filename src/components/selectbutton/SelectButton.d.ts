@@ -1,7 +1,7 @@
 import Vue, { VNode } from 'vue';
 
 export declare class SelectButton extends Vue {
-    value?: any;
+    modelValue?: any;
     options?: any[];
     optionLabel?: string;
     optionValue?: any;
@@ -10,7 +10,6 @@ export declare class SelectButton extends Vue {
     disabled?: boolean;
     dataKey?: string;
     ariaLabelledBy?: string;
-    $emit(eventName: 'input', value: any): this;
     $emit(eventName: 'focus', event: Event): this;
     $emit(eventName: 'blur', event: Event): this;
     $slots: {

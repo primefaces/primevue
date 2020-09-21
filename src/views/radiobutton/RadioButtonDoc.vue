@@ -10,8 +10,8 @@ import RadioButton from 'primevue/radiobutton';
 				<h5>Getting Started</h5>
 				<p>Two-way value binding is defined using the standard v-model directive.</p>
 <CodeHighlight>
-&lt;RadioButton inputId="city1" name="city" value="Chicago" v-model="city" /&gt;
-&lt;RadioButton inputId="city2" name="city" value="Los Angeles" v-model="city" /&gt;
+&lt;RadioButton name="city" value="Chicago" v-model="city" /&gt;
+&lt;RadioButton name="city" value="Los Angeles" v-model="city" /&gt;
 </CodeHighlight>
 <CodeHighlight lang="js">
 export default {
@@ -48,53 +48,22 @@ export default {
 						<tbody>
                             <tr>
                                 <td>value</td>
-                                <td>boolean</td>
+                                <td>any</td>
                                 <td>null</td>
-                                <td>Value of the component.</td>
+                                <td>Value of the checkbox.</td>
+                            </tr>
+                            <tr>
+                                <td>modelValue</td>
+                                <td>any</td>
+                                <td>null</td>
+                                <td>Value binding of the checkbox.</td>
                             </tr>
 						</tbody>
 					</table>
 				</div>
 
 				<h5>Events</h5>
-				<div class="doc-tablewrapper">
-					<table class="doc-table">
-						<thead>
-                            <tr>
-                                <th>Name</th>
-                                <th>Parameters</th>
-                                <th>Description</th>
-                            </tr>
-						</thead>
-						<tbody>
-                            <tr>
-                                <td>change</td>
-                                <td>event: Browser event</td>
-                                <td>Callback to invoke on value change.</td>
-                            </tr>
-                            <tr>
-                                <td>input</td>
-                                <td>event: Value of checkbox</td>
-                                <td>Callback to invoke on click.</td>
-                            </tr>
-                            <tr>
-                                <td>click</td>
-                                <td>event: Browser event</td>
-                                <td>Callback to invoke click.</td>
-                            </tr>
-                            <tr>
-                                <td>focus</td>
-                                <td>event: Browser event</td>
-                                <td>Callback to invoke on focus.</td>
-                            </tr>
-                            <tr>
-                                <td>blur</td>
-                                <td>event: Browser event</td>
-                                <td>Callback to invoke on blur.</td>
-                            </tr>
-						</tbody>
-					</table>
-				</div>
+                <p>Any valid event such as focus and blur.</p>
 
 				<h5>Styling</h5>
 				<p>Following is the list of structural style classes, for theming classes visit <router-link to="/theming">theming</router-link> page.</p>

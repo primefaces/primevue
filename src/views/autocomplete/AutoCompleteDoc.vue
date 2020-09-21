@@ -83,7 +83,7 @@ export default {
 						</thead>
 						<tbody>
                             <tr>
-                                <td>value</td>
+                                <td>modelValue</td>
                                 <td>any</td>
                                 <td>null</td>
                                 <td>Value of the component.</td>
@@ -135,12 +135,6 @@ export default {
                                 <td>number</td>
                                 <td>300</td>
                                 <td>Delay between keystrokes to wait before sending a query.</td>
-                            </tr>
-                            <tr>
-                                <td>ariaLabelledBy</td>
-                                <td>string</td>
-                                <td>null</td>
-                                <td>Establishes relationships between the component and label(s) where its value should be one or more element IDs.</td>
                             </tr>
                             <tr>
                                 <td>appendTo</td>

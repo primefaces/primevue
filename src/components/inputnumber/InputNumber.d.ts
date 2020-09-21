@@ -1,7 +1,7 @@
 import Vue from 'vue';
 
 export declare class InputNumber extends Vue {
-    value?: number;
+    modelValue?: number;
     format?: boolean;
     showButtons?: boolean;
     buttonLayout?: string;

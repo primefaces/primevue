@@ -1,7 +1,7 @@
 import Vue, {VNode} from 'vue';
 
 export declare class MultiSelect extends Vue {
-    value?: any;
+    modelValue?: any;
     options?: any[];
     optionLabel?: string;
     optionValue?: any;

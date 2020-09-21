@@ -59,6 +59,12 @@ import InputMask from 'primevue/inputmask';
 						</thead>
 						<tbody>
                             <tr>
+                                <td>modelValue</td>
+                                <td>any</td>
+                                <td>null</td>
+                                <td>Value of the component.</td>
+                            </tr>
+                            <tr>
                                 <td>mask</td>
                                 <td>string</td>
                                 <td>null</td>

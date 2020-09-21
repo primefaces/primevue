@@ -7,6 +7,5 @@ export declare class ToggleButton extends Vue {
     onLabel?: string;
     offLabel?: string;
     iconPos?: string;
-    ariaLabelledBy?: string;
     $emit(eventName: string, event: Event): this;
 }

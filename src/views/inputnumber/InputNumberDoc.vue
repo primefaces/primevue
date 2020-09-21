@@ -118,7 +118,7 @@ Vertical
                         </thead>
                         <tbody>
                             <tr>
-                                <td>value</td>
+                                <td>modelValue</td>
                                 <td>number</td>
                                 <td>null</td>
                                 <td>Value of the component.</td>

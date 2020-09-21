@@ -16,10 +16,10 @@ import Checkbox from 'primevue/checkbox';
 				<h5>Multiple Values</h5>
 				<p>Multiple mode is enabled by default, v-model property refers to an array to bind the selected values.</p>
 <CodeHighlight>
-&lt;Checkbox id="city1" inputId="city1" name="city" value="Chicago" v-model="cities" /&gt;
-&lt;Checkbox id="city2" inputId="city2" name="city" value="Los Angeles" v-model="cities" /&gt;
-&lt;Checkbox id="city3" inputId="city3" name="city" value="New York" v-model="cities" /&gt;
-&lt;Checkbox id="city4" inputId="city4" name="city" value="San Francisco" v-model="cities" /&gt;
+&lt;Checkbox name="city" value="Chicago" v-model="cities" /&gt;
+&lt;Checkbox name="city" value="Los Angeles" v-model="cities" /&gt;
+&lt;Checkbox name="city" value="New York" v-model="cities" /&gt;
+&lt;Checkbox name="city" value="San Francisco" v-model="cities" /&gt;
 </CodeHighlight>
 
 <CodeHighlight lang="js">
@@ -55,6 +55,12 @@ export default {
                                 <td>Value of the checkbox.</td>
                             </tr>
                             <tr>
+                                <td>modelValue</td>
+                                <td>any</td>
+                                <td>null</td>
+                                <td>Value binding of the checkbox.</td>
+                            </tr>
+                            <tr>
                                 <td>binary</td>
                                 <td>boolean</td>
                                 <td>false</td>
@@ -65,44 +71,7 @@ export default {
 				</div>
 
 				<h5>Events</h5>
-				<div class="doc-tablewrapper">
-					<table class="doc-table">
-						<thead>
-                            <tr>
-                                <th>Name</th>
-                                <th>Parameters</th>
-                                <th>Description</th>
-                            </tr>
-						</thead>
-						<tbody>
-                            <tr>
-                                <td>change</td>
-                                <td>event: Browser event</td>
-                                <td>Callback to invoke on value change.</td>
-                            </tr>
-                            <tr>
-                                <td>input</td>
-                                <td>event: Value of checkbox</td>
-                                <td>Callback to invoke on click.</td>
-                            </tr>
-                            <tr>
-                                <td>click</td>
-                                <td>event: Browser event</td>
-                                <td>Callback to invoke click.</td>
-                            </tr>
-                            <tr>
-                                <td>focus</td>
-                                <td>event: Browser event</td>
-                                <td>Callback to invoke on focus.</td>
-                            </tr>
-                            <tr>
-                                <td>blur</td>
-                                <td>event: Browser event</td>
-                                <td>Callback to invoke on blur.</td>
-                            </tr>
-						</tbody>
-					</table>
-				</div>
+                <p>Any valid event such as focus and blur.</p>
 
 				<h5>Styling</h5>
 				<p>Following is the list of structural style classes, for theming classes visit <router-link to="/theming">theming</router-link> page.</p>
@@ -116,20 +85,16 @@ export default {
 						</thead>
 						<tbody>
                             <tr>
-                                <td>p-chkbox</td>
+                                <td>p-checkbox</td>
                                 <td>Container element</td>
                             </tr>
                             <tr>
-                                <td>p-chkbox-box</td>
+                                <td>p-checkbox-box</td>
                                 <td>Container of icon.</td>
                             </tr>
                             <tr>
-                                <td>p-chkbox-icon</td>
+                                <td>p-checkbox-icon</td>
                                 <td>Icon element.</td>
-                            </tr>
-                            <tr>
-                                <td>p-chkbox-label</td>
-                                <td>Label element.</td>
                             </tr>
 						</tbody>
 					</table>

@@ -29,7 +29,7 @@ import Chips from 'primevue/chips';
 </CodeHighlight>
 
 				<h5>Properties</h5>
-                <p>Any property as style and class are passed to the main container element. Following are the additional properties to configure the component.</p>
+                <p>Any property such as name and placeholder are passed to the underlying input element. Following are the additional properties to configure the component.</p>
 				<div class="doc-tablewrapper">
 					<table class="doc-table">
 						<thead>
@@ -42,6 +42,24 @@ import Chips from 'primevue/chips';
 						</thead>
 						<tbody>
                             <tr>
+                                <td>modelValue</td>
+                                <td>array</td>
+                                <td>null</td>
+                                <td>Value of the component.</td>
+                            </tr>
+                            <tr>
+                                <td>max</td>
+                                <td>number</td>
+                                <td>null</td>
+                                <td>Maximum number of entries allowed.</td>
+                            </tr>
+                            <tr>
+                                <td>separator</td>
+                                <td>string</td>
+                                <td>null</td>
+                                <td>Separator char to add an item when pressed in addition to the enter key. Currently only possible value is ","</td>
+                            </tr>
+                            <tr>
                                 <td>addOnBlur</td>
                                 <td>boolean</td>
                                 <td>false</td>
@@ -53,41 +71,12 @@ import Chips from 'primevue/chips';
                                 <td>true</td>
                                 <td>Whether to allow duplicate values or not.</td>
                             </tr>
-                            <tr>
-                                <td>ariaLabelledBy</td>
-                                <td>string</td>
-                                <td>null</td>
-                                <td>Establishes relationships between the component and label(s) where its value should be one or more element IDs.</td>
-                            </tr>
-                             <tr>
-                                <td>max</td>
-                                <td>number</td>
-                                <td>null</td>
-                                <td>Maximum number of entries allowed.</td>
-                            </tr>
-                            <tr>
-                                <td>value</td>
-                                <td>array</td>
-                                <td>null</td>
-                                <td>Value of the component.</td>
-                            </tr>
-                            <tr>
-                                <td>separator</td>
-                                <td>string</td>
-                                <td>null</td>
-                                <td>Separator char to add an item when pressed in addition to the enter key. Currently only possible value is ","</td>
-                            </tr>
-                            <tr>
-                                <td>placeholder</td>
-                                <td>string</td>
-                                <td>null</td>
-                                <td>Specifies a short hint that describes the expected value of the input field.</td>
-                            </tr>
 						</tbody>
 					</table>
 				</div>
 
 				<h5>Events</h5>
+                <p>Any valid event such as focus, blur and input are passed to the underlying input element. Following are the additional events to configure the component.</p>
 				<div class="doc-tablewrapper">
 					<table class="doc-table">
 						<thead>
@@ -98,21 +87,6 @@ import Chips from 'primevue/chips';
                             </tr>
 						</thead>
 						<tbody>
-                            <tr>
-                                <td>input</td>
-                                <td>value: New value</td>
-                                <td>Callback to invoke on value change.</td>
-                            </tr>
-                            <tr>
-                                <td>focus</td>
-                                <td>event: Browser event</td>
-                                <td>Callback to invoke when the input is focused.</td>
-                            </tr>
-                            <tr>
-                                <td>blur</td>
-                                <td>event: Browser event</td>
-                                <td>Callback to invoke when the input loses focus.</td>
-                            </tr>
                             <tr>
                                 <td>add</td>
                                 <td>originalEvent: Browser event <br/>

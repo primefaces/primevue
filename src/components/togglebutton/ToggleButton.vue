@@ -1,5 +1,5 @@
 <template>
-    <div :class="buttonClass" @click="onClick($event)" role="checkbox" :aria-labelledby="ariaLabelledBy" :aria-checked="modelValue" :tabindex="$attrs.disabled ? null : '0'" v-ripple>
+    <div :class="buttonClass" @click="onClick($event)" role="checkbox" :aria-checked="modelValue" :tabindex="$attrs.disabled ? null : '0'" v-ripple>
         <span v-if="hasIcon" :class="iconClass"></span>
         <span class="p-button-label">{{label}}</span>
     </div>
@@ -18,8 +18,7 @@ export default {
         iconPos: {
             type: String,
             default: 'left'
-        },
-        ariaLabelledBy: String
+        }
     },
     methods: {
         onClick(event) {

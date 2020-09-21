@@ -49,6 +49,12 @@ import Password from 'primevue/password';
 						</thead>
 						<tbody>
                             <tr>
+                                <td>modelValue</td>
+                                <td>any</td>
+                                <td>null</td>
+                                <td>Value of the component.</td>
+                            </tr>
+                            <tr>
                                 <td>promptLabel</td>
                                 <td>string</td>
                                 <td>Enter a password</td>

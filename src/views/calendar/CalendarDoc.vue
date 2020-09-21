@@ -186,7 +186,7 @@ export default {
                         </thead>
                         <tbody>
                             <tr>
-                                <td>value</td>
+                                <td>modelValue</td>
                                 <td>any</td>
                                 <td>null</td>
                                 <td>Value of the component.</td>
@@ -406,12 +406,6 @@ export default {
                                 <td>boolean</td>
                                 <td>true</td>
                                 <td>Wheter to allow prevents entering the date manually via typing.</td>
-                            </tr>
-                            <tr>
-                                <td>ariaLabelledBy</td>
-                                <td>string</td>
-                                <td>null</td>
-                                <td>Establishes relationships between the component and label(s) where its value should be one or more element IDs.</td>
                             </tr>
                             <tr>
                                 <td>appendTo</td>

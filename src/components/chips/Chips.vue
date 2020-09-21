@@ -9,7 +9,7 @@
             </li>
             <li class="p-chips-input-token">
                 <input ref="input" type="text" v-bind="$attrs" @focus="onFocus" @blur="onBlur($event)" @input="onInput" @keydown="onKeyDown($event)" @paste="onPaste($event)"
-                     :placeholder="placeholder"  :disabled="$attrs.disabled || maxedOut" :aria-labelledby="ariaLabelledBy">
+                     :disabled="$attrs.disabled || maxedOut">
             </li>
         </ul>
     </div>
@@ -31,10 +31,6 @@ export default {
             type: String,
             default: null
         },
-        ariaLabelledBy: {
-            type: String,
-            default: null
-        },
         addOnBlur: {
             type: Boolean,
             default: null
@@ -42,10 +38,6 @@ export default {
         allowDuplicate: {
             type: Boolean,
             default: true
-        },
-        placeholder: {
-            type: String,
-            default: null
         },
         class: null,
         style: null

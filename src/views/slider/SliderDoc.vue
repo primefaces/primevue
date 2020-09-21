@@ -62,7 +62,7 @@ export default {
 						</thead>
 						<tbody>
                             <tr>
-                                <td>value</td>
+                                <td>modelValue</td>
                                 <td>number</td>
                                 <td>0</td>
                                 <td>Value of the component.</td>
@@ -128,11 +128,6 @@ export default {
                                 <td>change</td>
                                 <td>event.originalEvent: Original event <br />
                                     event.value: Selected option value </td>
-                                <td>Callback to invoke on value change.</td>
-                            </tr>
-                            <tr>
-                                <td>input</td>
-                                <td>value: New value</td>
                                 <td>Callback to invoke on value change.</td>
                             </tr>
                             <tr>

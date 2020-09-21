@@ -63,7 +63,7 @@ export default {
 						</thead>
 						<tbody>
                             <tr>
-                                <td>value</td>
+                                <td>modelValue</td>
                                 <td>any</td>
                                 <td>null</td>
                                 <td>Value of the component.</td>
@@ -131,11 +131,6 @@ export default {
                             </tr>
 						</thead>
 						<tbody>
-                            <tr>
-                                <td>input</td>
-                                <td>event: Single value or an array of values that are selected.</td>
-                                <td>Callback to invoke on value change.</td>
-                            </tr>
                             <tr>
                                 <td>focus</td>
                                 <td>event: Browser event</td>

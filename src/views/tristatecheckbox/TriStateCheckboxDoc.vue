@@ -27,60 +27,17 @@ import TriStateCheckbox from 'primevue/tristatecheckbox';
 						</thead>
 						<tbody>
                             <tr>
-                                <td>value</td>
+                                <td>modelValue</td>
                                 <td>boolean</td>
                                 <td>null</td>
                                 <td>Value of the component.</td>
-                            </tr>
-                            <tr>
-                                <td>ariaLabelledBy</td>
-                                <td>string</td>
-                                <td>null</td>
-                                <td>Establishes relationships between the component and label(s) where its value should be one or more element IDs.</td>
                             </tr>
 						</tbody>
 					</table>
 				</div>
 
 				<h5>Events</h5>
-				<div class="doc-tablewrapper">
-					<table class="doc-table">
-						<thead>
-                            <tr>
-                                <th>Name</th>
-                                <th>Parameters</th>
-                                <th>Description</th>
-                            </tr>
-						</thead>
-						<tbody>
-                            <tr>
-                                <td>change</td>
-                                <td>event: Browser event</td>
-                                <td>Callback to invoke on value change.</td>
-                            </tr>
-                            <tr>
-                                <td>input</td>
-                                <td>event: Value of checkbox</td>
-                                <td>Callback to invoke on click.</td>
-                            </tr>
-                            <tr>
-                                <td>click</td>
-                                <td>event: Browser event</td>
-                                <td>Callback to invoke click.</td>
-                            </tr>
-                            <tr>
-                                <td>focus</td>
-                                <td>event: Browser event</td>
-                                <td>Callback to invoke on focus.</td>
-                            </tr>
-                            <tr>
-                                <td>blur</td>
-                                <td>event: Browser event</td>
-                                <td>Callback to invoke on blur.</td>
-                            </tr>
-						</tbody>
-					</table>
-				</div>
+                <p>Any valid event such as focus and blur.</p>
 
 				<h5>Styling</h5>
 				<p>Following is the list of structural style classes, for theming classes visit <router-link to="/theming">theming</router-link> page.</p>

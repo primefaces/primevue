@@ -14,7 +14,7 @@ export interface LocaleSettings {
 }
 
 export declare class Calendar extends Vue {
-    value?: Date | Date[];
+    modelValue?: Date | Date[];
     selectionMode?: string;
     dateFormat?: string;
     inline?: boolean;
@@ -52,19 +52,14 @@ export declare class Calendar extends Vue {
     showWeek?: boolean;
     manualInput?: boolean;
     locale?: LocaleSettings;
-    ariaLabelledBy?: string;
     appendTo?: string;
     $emit(eventName: 'show'): this;
     $emit(eventName: 'hide'): this;
     $emit(eventName: 'month-change', e: { month: number, year: number }): this;
     $emit(eventName: 'year-change', e: { month: number, year: number }): this;
     $emit(eventName: 'date-select', value: Date): this;
-    $emit(eventName: 'input', value: Date): this;
     $emit(eventName: 'today-click', value: Date): this;
     $emit(eventName: 'clear-click', event: Event): this;
-    $emit(eventName: 'focus', event: Event): this;
-    $emit(eventName: 'blur', event: Event): this;
-    $emit(eventName: 'keydown', event: Event): this;
     $slots: {
         header: VNode[];
         date: VNode[];

@@ -1,7 +1,7 @@
 <template>
     <span :class="containerClass" aria-haspopup="listbox" :aria-owns="listId" :aria-expanded="overlayVisible" :style="style">
         <input ref="input" :class="inputClass" v-bind="$attrs" :value="inputValue" @input="onInput" @focus="onFocus" @blur="onBlur" @keydown="onKeyDown" type="text" autoComplete="off" v-if="!multiple"
-            role="searchbox" aria-autocomplete="list" :aria-controls="listId" :aria-labelledby="ariaLabelledBy">
+            role="searchbox" aria-autocomplete="list" :aria-controls="listId">
         <ul ref="multiContainer" :class="multiContainerClass" v-if="multiple" @click="onMultiContainerClick">
             <li v-for="(item, i) of modelValue" :key="i" class="p-autocomplete-token">
                 <span class="p-autocomplete-token-label">{{getItemContent(item)}}</span>
@@ -9,7 +9,7 @@
             </li>
             <li class="p-autocomplete-input-token">
                 <input ref="input" type="text" autoComplete="off" v-bind="$attrs" @input="onInput" @focus="onFocus" @blur="onBlur" @keydown="onKeyDown" 
-                role="searchbox" aria-autocomplete="list" :aria-controls="listId" :aria-labelledby="ariaLabelledBy">
+                role="searchbox" aria-autocomplete="list" :aria-controls="listId">
             </li>
         </ul>
         <i class="p-autocomplete-loader pi pi-spinner pi-spin" v-if="searching"></i>
@@ -70,10 +70,6 @@ export default {
         delay: {
             type: Number,
             default: 300
-        },
-        ariaLabelledBy: {
-            type: String,
-            default: null
         },
         appendTo: {
             type: String,

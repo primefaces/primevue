@@ -39,7 +39,7 @@ import Rating from 'primevue/rating';
 						</thead>
 						<tbody>
                             <tr>
-                                <td>value</td>
+                                <td>modelValue</td>
                                 <td>number</td>
                                 <td>null</td>
                                 <td>Value of the rating.</td>
@@ -87,11 +87,6 @@ import Rating from 'primevue/rating';
                                 <td>change</td>
                                 <td>event.originalEvent: Original event <br />
                                 event.value: Selected option value </td>
-                                <td>Callback to invoke on value change.</td>
-                            </tr>
-                            <tr>
-                                <td>input</td>
-                                <td>value: New value</td>
                                 <td>Callback to invoke on value change.</td>
                             </tr>
 						</tbody>

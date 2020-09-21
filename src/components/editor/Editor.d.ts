@@ -1,7 +1,7 @@
 import Vue, { VNode } from 'vue';
 
 export declare class Editor extends Vue {
-    value?: string;
+    modelValue?: string;
     placeholder?: string;
     readonly?: boolean;
     formats?: any[];

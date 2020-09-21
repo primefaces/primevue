@@ -20,7 +20,7 @@ import Textarea from 'primevue/textarea';
 </CodeHighlight>
 
 				<h5>Properties</h5>
-				<p>InputTextarea passes any attribute to the underlying textarea element, additional attributes are the following.</p>
+				<p>Textarea passes any attribute to the underlying textarea element, additional attributes are the following.</p>
 				<div class="doc-tablewrapper">
 					<table class="doc-table">
 						<thead>
@@ -33,7 +33,7 @@ import Textarea from 'primevue/textarea';
 						</thead>
 						<tbody>
                             <tr>
-                                <td>value</td>
+                                <td>modelValue</td>
                                 <td>any</td>
                                 <td>null</td>
                                 <td>Value of the component.</td>

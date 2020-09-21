@@ -40,7 +40,7 @@ import Editor from 'primevue/editor';
 						</thead>
 						<tbody>
                             <tr>
-                                <td>value</td>
+                                <td>modelValue</td>
                                 <td>string</td>
                                 <td>null</td>
                                 <td>Value of the content.</td>
