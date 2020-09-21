@@ -15,6 +15,7 @@
 import Ripple from '../ripple/Ripple';
 
 export default {
+    inheritAttrs: false,
     props: {
         item: null
     },

@@ -78,6 +78,7 @@ export default {
 </CodeHighlight>
 
 				<h5>Properties</h5>
+				<p>Any property such as tabindex are passed to the underlying input element. Following are the additional properties to configure the component.</p>
 				<div class="doc-tablewrapper">
 					<table class="doc-table">
 						<thead>
@@ -108,18 +109,6 @@ export default {
                                 <td>MenuModel instance to define the overlay items.</td>
                             </tr>
                             <tr>
-                                <td>disabled</td>
-                                <td>boolean</td>
-                                <td>false</td>
-                                <td>When present, it specifies that the component should be disabled.</td>
-                            </tr>
-                            <tr>
-                                <td>tabindex</td>
-                                <td>string</td>
-                                <td>null</td>
-                                <td>Index of the element in tabbing order.</td>
-                            </tr>
-                            <tr>
                                 <td>autoZIndex</td>
                                 <td>boolean</td>
                                 <td>true</td>
@@ -142,6 +131,7 @@ export default {
 				</div>
 
 				<h5>Events</h5>
+				<p>Any valid event such as focus, blur and input are passed to the underlying button element. Following are the additional events to configure the component.</p>
 				<div class="doc-tablewrapper">
 					<table class="doc-table">
 						<thead>
@@ -152,11 +142,11 @@ export default {
 						</tr>
 						</thead>
 						<tbody>
-						<tr>
-							<td>click</td>
-							<td>event: Browser event</td>
-							<td>Callback to invoke when main button is clicked.</td>
-						</tr>
+							<tr>
+								<td>click</td>
+								<td>event: Browser event</td>
+								<td>Callback to invoke when main button is clicked.</td>
+							</tr>
 						</tbody>
 					</table>
 				</div>
@@ -202,13 +192,13 @@ export default {
 &lt;SplitButton label="Save" icon="pi pi-plus" @click="save" :model="items"&gt;&lt;/SplitButton&gt;
 
 &lt;h3&gt;Severities&lt;/h3&gt;
-&lt;SplitButton label="Save" icon="pi pi-plus" :model="items"&gt;&lt;/SplitButton&gt;
-&lt;SplitButton label="Save" icon="pi pi-plus" :model="items" class="p-button-secondary"&gt;&lt;/SplitButton&gt;
-&lt;SplitButton label="Save" icon="pi pi-plus" :model="items" class="p-button-success"&gt;&lt;/SplitButton&gt;
-&lt;SplitButton label="Save" icon="pi pi-plus" :model="items" class="p-button-info"&gt;&lt;/SplitButton&gt;
-&lt;SplitButton label="Save" icon="pi pi-plus" :model="items" class="p-button-warning"&gt;&lt;/SplitButton&gt;
-&lt;SplitButton label="Save" icon="pi pi-plus" :model="items" class="p-button-help"&gt;&lt;/SplitButton&gt;
-&lt;SplitButton label="Save" icon="pi pi-plus" :model="items" class="p-button-danger"&gt;&lt;/SplitButton&gt;
+&lt;SplitButton label="Save" icon="pi pi-plus" :model="items" class="p-mb-2"&gt;&lt;/SplitButton&gt;
+&lt;SplitButton label="Save" icon="pi pi-plus" :model="items" class="p-button-secondary p-mb-2"&gt;&lt;/SplitButton&gt;
+&lt;SplitButton label="Save" icon="pi pi-plus" :model="items" class="p-button-success p-mb-2"&gt;&lt;/SplitButton&gt;
+&lt;SplitButton label="Save" icon="pi pi-plus" :model="items" class="p-button-info p-mb-2"&gt;&lt;/SplitButton&gt;
+&lt;SplitButton label="Save" icon="pi pi-plus" :model="items" class="p-button-warning p-mb-2"&gt;&lt;/SplitButton&gt;
+&lt;SplitButton label="Save" icon="pi pi-plus" :model="items" class="p-button-help p-mb-2"&gt;&lt;/SplitButton&gt;
+&lt;SplitButton label="Save" icon="pi pi-plus" :model="items" class="p-button-danger p-mb-2"&gt;&lt;/SplitButton&gt;
 </template>
 </CodeHighlight>
 
