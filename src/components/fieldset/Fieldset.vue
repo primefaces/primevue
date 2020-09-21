@@ -38,6 +38,11 @@ export default {
            d_collapsed: this.collapsed
         }
     },
+    watch: {
+        collapsed(newValue) {
+            this.d_collapsed = newValue;
+        }
+    },
     methods: {
         toggle(event) {
             this.d_collapsed = !this.d_collapsed;
