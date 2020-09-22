@@ -1,6 +1,6 @@
 <template>
     <transition name="p-overlaypanel" @enter="onEnter" @leave="onLeave">
-        <div class="p-overlaypanel p-component" v-if="visible" ref="container">
+        <div class="p-overlaypanel p-component" v-if="visible" :ref="containerRef">
             <div class="p-overlaypanel-content">
                 <slot></slot>
             </div>
@@ -50,6 +50,7 @@ export default {
     target: null,
     outsideClickListener: null,
     resizeListener: null,
+    container: null,
     beforeUnmount() {
         this.restoreAppend();
         this.unbindResizeListener();
@@ -57,6 +58,7 @@ export default {
             this.unbindOutsideClickListener();
         }
         this.target = null;
+        this.container = null;
     },
     methods: {
         toggle(event) {
@@ -82,7 +84,7 @@ export default {
             this.bindResizeListener();
 
             if (this.autoZIndex) {
-                this.$refs.container.style.zIndex = String(this.baseZIndex + DomHandler.generateZIndex());
+                this.container.style.zIndex = String(this.baseZIndex + DomHandler.generateZIndex());
             }
         },
         onLeave() {
@@ -90,16 +92,16 @@ export default {
             this.unbindResizeListener();
         },
         alignOverlay() {
-            DomHandler.absolutePosition(this.$refs.container, this.target);
+            DomHandler.absolutePosition(this.container, this.target);
 
-            if (DomHandler.getOffset(this.$refs.container).top < DomHandler.getOffset(this.target).top) {
-                DomHandler.addClass(this.$refs.container, 'p-overlaypanel-flipped');
+            if (DomHandler.getOffset(this.container).top < DomHandler.getOffset(this.target).top) {
+                DomHandler.addClass(this.container, 'p-overlaypanel-flipped');
             }
         },
         bindOutsideClickListener() {
             if (!this.outsideClickListener) {
                 this.outsideClickListener = (event) => {
-                    if (this.visible && this.$refs.container && !this.$refs.container.contains(event.target) && !this.isTargetClicked(event)) {
+                    if (this.visible && this.container && !this.container.contains(event.target) && !this.isTargetClicked(event)) {
                         this.visible = false;
                     }
                 };
@@ -134,18 +136,21 @@ export default {
         appendContainer() {
             if (this.appendTo) {
                 if (this.appendTo === 'body')
-                    document.body.appendChild(this.$refs.container);
+                    document.body.appendChild(this.container);
                 else
-                    document.getElementById(this.appendTo).appendChild(this.$refs.container);
+                    document.getElementById(this.appendTo).appendChild(this.container);
             }
         },
         restoreAppend() {
-            if (this.$refs.container && this.appendTo) {
+            if (this.container && this.appendTo) {
                 if (this.appendTo === 'body')
-                    document.body.removeChild(this.$refs.container);
+                    document.body.removeChild(this.container);
                 else
-                    document.getElementById(this.appendTo).removeChild(this.$refs.container);
+                    document.getElementById(this.appendTo).removeChild(this.container);
             }
+        },
+        containerRef(el) {
+            this.container = el;
         }
     },
     directives: {
@@ -174,7 +179,7 @@ export default {
 }
 
 /* Animation */
-.p-overlaypanel-enter {
+.p-overlaypanel-enter-from {
     opacity: 0;
     transform: scaleY(0.8);
 }

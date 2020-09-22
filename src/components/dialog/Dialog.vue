@@ -84,6 +84,8 @@ export default {
     },
     beforeUnmount() {
         this.unbindDocumentState();
+        this.container = null;
+        this.mask = null;
     },
     methods: {
         close() {
