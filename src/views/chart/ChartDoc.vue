@@ -112,14 +112,14 @@ options: {
                     </tr>
                     <tr>
                         <td>width</td>
-                        <td>string</td>
-                        <td>null</td>
+                        <td>number</td>
+                        <td>300</td>
                         <td>Width of the chart in non-responsive mode.</td>
                     </tr>
                     <tr>
                         <td>height</td>
-                        <td>string</td>
-                        <td>null</td>
+                        <td>number</td>
+                        <td>150</td>
                         <td>Height of the chart in non-responsive mode.</td>
                     </tr>
 				</tbody>

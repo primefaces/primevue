@@ -12,8 +12,14 @@ export default {
         type: String,
         data: null,
         options: null,
-        width: Number,
-        height: Number
+        width: {
+            type: Number,
+            default: 300
+        },
+        height: {
+            type: Number,
+            default: 150
+        },
     },
     chart: null,
     mounted() {
