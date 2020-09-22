@@ -25,13 +25,13 @@ import TabPanel from 'primevue/tabpanel';
 </CodeHighlight>
 
                 <h5>Active</h5>
-				<p>Visibility of the content is specified with the active property that supports one or two-way binding.</p>
+				<p>Visibility of the content is specified with the <i>activeIndex</i> property that supports one or two-way binding.</p>
 <CodeHighlight>
-&lt;TabView&gt;
+&lt;TabView :activeIndex="activeIndex"&gt;
 	&lt;TabPanel header="Header I"&gt;
 		Content I
 	&lt;/TabPanel&gt;
-	&lt;TabPanel header="Header II" :active="true"&gt;
+	&lt;TabPanel header="Header II"&gt;
 		Content II
 	&lt;/TabPanel&gt;
 	&lt;TabPanel header="Header III"&gt;
@@ -40,16 +40,16 @@ import TabPanel from 'primevue/tabpanel';
 &lt;/TabView&gt;
 </CodeHighlight>
 
-                <p>Two-way binding requires the sync operator.</p>
+                <p>Two-way binding requires v-model.</p>
 <CodeHighlight>
-&lt;TabView&gt;
-	&lt;TabPanel header="Header I" :active.sync="active1"&gt;
+&lt;TabView v-model:activeIndex="activeIndex"&gt;
+	&lt;TabPanel header="Header I"&gt;
 		Content I
 	&lt;/TabPanel&gt;
-	&lt;TabPanel header="Header II" :active.sync="active2"&gt;
+	&lt;TabPanel header="Header II"&gt;
 		Content II
 	&lt;/TabPanel&gt;
-	&lt;TabPanel header="Header III" :active.sync="active3"&gt;
+	&lt;TabPanel header="Header III""&gt;
 		Content III
 	&lt;/TabPanel&gt;
 &lt;/TabView&gt;
@@ -74,7 +74,7 @@ import TabPanel from 'primevue/tabpanel';
 				<h5>Header Template</h5>
 				<p>Custom content for the title section of a panel is defined using the header template.</p>
 <CodeHighlight>
-&lt;TabView class="tabview-custom"&gt;
+&lt;TabView&gt;
 	&lt;TabPanel&gt;
 		&lt;template #header&gt;
 			&lt;i class="pi pi-calendar"&gt;&lt;/i&gt;
@@ -95,11 +95,11 @@ import TabPanel from 'primevue/tabpanel';
                 <h5>Programmatic Control</h5>
 				<p>Tabs can be controlled programmatically using active property that defines the active tab.</p>
 <CodeHighlight>
-&lt;Button @click="activate(0)" class="p-button-text" label="Activate 1st" /&gt;
-&lt;Button @click="activate(1)" class="p-button-text" label="Activate 2st" /&gt;
-&lt;Button @click="activate(2)" class="p-button-text" label="Activate 3st" /&gt;
+&lt;Button @click="active = 0" class="p-button-text" label="Activate 1st" /&gt;
+&lt;Button @click="active = 1" class="p-button-text" label="Activate 2nd" /&gt;
+&lt;Button @click="active = 2" class="p-button-text" label="Activate 3rd" /&gt;
 
-&lt;TabView&gt;
+&lt;TabView v-model:activeIndex="active"&gt;
     &lt;TabPanel header="Header I" :active.sync="active[0]"&gt;
         Content I
     &lt;/TabPanel&gt;
@@ -117,18 +117,9 @@ import TabPanel from 'primevue/tabpanel';
 export default {
     data() {
         return {
-            active: [true, false, false]
+            active: 0
         }
-    },
-    methods: {
-        activate(index) {
-            let activeArray = [...this.active];
-            for (let i = 0 ; i &lt; activeArray.length; i++) {
-                activeArray[i] = (i === index);
-            }
-            this.active = activeArray;
-        }
-    },
+    }
 }
 </CodeHighlight>
 
@@ -136,32 +127,26 @@ export default {
 				<div class="doc-tablewrapper">
 					<table class="doc-table">
 						<thead>
-						<tr>
-							<th>Name</th>
-							<th>Type</th>
-							<th>Default</th>
-							<th>Description</th>
-						</tr>
+                            <tr>
+                                <th>Name</th>
+                                <th>Type</th>
+                                <th>Default</th>
+                                <th>Description</th>
+                            </tr>
 						</thead>
 						<tbody>
-						<tr>
-							<td>header</td>
-							<td>string</td>
-							<td>null</td>
-							<td>Orientation of tab headers.</td>
-						</tr>
-						<tr>
-							<td>active</td>
-							<td>boolean</td>
-							<td>null</td>
-							<td>Visibility of the content.</td>
-						</tr>
-						<tr>
-							<td>disabled</td>
-							<td>boolean</td>
-							<td>null</td>
-							<td>Whether the tab is disabled.</td>
-						</tr>
+                            <tr>
+                                <td>header</td>
+                                <td>string</td>
+                                <td>null</td>
+                                <td>Orientation of tab headers.</td>
+                            </tr>
+                            <tr>
+                                <td>disabled</td>
+                                <td>boolean</td>
+                                <td>null</td>
+                                <td>Whether the tab is disabled.</td>
+                            </tr>
 						</tbody>
 					</table>
 				</div>
@@ -259,24 +244,24 @@ export default {
 
 &lt;div class="card"&gt;
     &lt;h5&gt;Programmatic&lt;/h5&gt;
-    &lt;div style="padding: .5rem 0 1rem 0"&gt;
-        &lt;Button @click="activate(0)" class="p-button-text" label="Activate 1st" /&gt;
-        &lt;Button @click="activate(1)" class="p-button-text" label="Activate 2nd" /&gt;
-        &lt;Button @click="activate(2)" class="p-button-text" label="Activate 3rd" /&gt;
+    &lt;div style="padding: .5rem 0 1rem 0" class="p-t-2 p-b-3"&gt;
+        &lt;Button @click="active = 0" class="p-button-text" label="Activate 1st" /&gt;
+        &lt;Button @click="active = 1" class="p-button-text" label="Activate 2nd" /&gt;
+        &lt;Button @click="active = 2" class="p-button-text" label="Activate 3rd" /&gt;
     &lt;/div&gt;
 
-    &lt;TabView&gt;
-        &lt;TabPanel header="Header I" :active.sync="active[0]"&gt;
+    &lt;TabView ref="tabview2" v-model:activeIndex="active"&gt;
+        &lt;TabPanel header="Header I"&gt;
             &lt;p&gt;Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation
                 ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur.
                 Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.&lt;/p&gt;
         &lt;/TabPanel&gt;
-        &lt;TabPanel header="Header II" :active.sync="active[1]"&gt;
+        &lt;TabPanel header="Header II"&gt;
             &lt;p&gt;Sed ut perspiciatis unde omnis iste natus error sit voluptatem accusantium doloremque laudantium, totam rem aperiam, eaque ipsa quae ab illo inventore veritatis et quasi
                 architecto beatae vitae dicta sunt explicabo. Nemo enim ipsam voluptatem quia voluptas sit aspernatur aut odit aut fugit, sed quia consequuntur magni dolores eos qui ratione
                 voluptatem sequi nesciunt. Consectetur, adipisci velit, sed quia non numquam eius modi.&lt;/p&gt;
         &lt;/TabPanel&gt;
-        &lt;TabPanel header="Header III" :active.sync="active[2]"&gt;
+        &lt;TabPanel header="Header III"&gt;
             &lt;p&gt;At vero eos et accusamus et iusto odio dignissimos ducimus qui blanditiis praesentium voluptatum deleniti atque corrupti quos dolores et quas molestias excepturi sint occaecati
                 cupiditate non provident, similique sunt in culpa qui officia deserunt mollitia animi, id est laborum et dolorum fuga. Et harum quidem rerum facilis est et expedita distinctio.
                 Nam libero tempore, cum soluta nobis est eligendi optio cumque nihil impedit quo minus.&lt;/p&gt;
@@ -346,18 +331,10 @@ export default {
 export default {
     data() {
         return {
-            active: [true, false, false]
-        }
-    },
-    methods: {
-        activate(index) {
-            let activeArray = [...this.active];
-            for (let i = 0 ; i &lt; activeArray.length; i++) {
-                activeArray[i] = (i === index);
-            }
-            this.active = activeArray;
+            active: 0
         }
     }
+}
 </CodeHighlight>
 
 <CodeHighlight lang="css">

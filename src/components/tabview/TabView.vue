@@ -1,16 +1,18 @@
 <template>
     <div class="p-tabview p-component">
         <ul ref="nav" class="p-tabview-nav" role="tablist">
-            <li role="presentation" v-for="(tab, i) of tabs" :key="tab.header || i" :class="[{'p-highlight': (tab.d_active), 'p-disabled': tab.disabled}]">
-                <a role="tab" class="p-tabview-nav-link" @click="onTabClick($event, tab)" @keydown="onTabKeydown($event, tab)" :tabindex="tab.disabled ? null : '0'" :aria-selected="tab.d_active" v-ripple>
-                    <span class="p-tabview-title" v-if="tab.header">{{tab.header}}</span>
-                    <TabPanelHeaderSlot :tab="tab" v-if="tab.$scopedSlots.header" />
+            <li role="presentation" v-for="(tab, i) of tabs" :key="getKey(tab,i)" :class="[{'p-highlight': (d_activeIndex === i), 'p-disabled': isTabDisabled(tab)}]">
+                <a role="tab" class="p-tabview-nav-link" @click="onTabClick($event, i)" @keydown="onTabKeydown($event, i)" :tabindex="isTabDisabled(tab) ? null : '0'" :aria-selected="d_activeIndex === i" v-ripple>
+                    <span class="p-tabview-title" v-if="tab.props && tab.props.header">{{tab.props.header}}</span>
+                    <component :is="tab.children.header" v-if="tab.children && tab.children.header"></component>
                 </a>
             </li>
             <li ref="inkbar" class="p-tabview-ink-bar"></li>
         </ul>
         <div class="p-tabview-panels">
-            <slot></slot>
+            <div v-for="(tab, i) of tabs" :key="getKey(tab,i)" class="p-tabview-panel" role="tabpanel" v-show="(d_activeIndex === i)">
+                <component :is="tab"></component>
+            </div>
         </div>
     </div>
 </template>
@@ -19,83 +21,62 @@
 import DomHandler from '../utils/DomHandler';
 import Ripple from '../ripple/Ripple';
 
-const TabPanelHeaderSlot = {
-    functional: true,
+export default {
     props: {
-        tab: {
-            type: null,
-            default: null
+        activeIndex: {
+            type: Number,
+            default: 0
         }
     },
-    render(createElement, context) {
-        return [context.props.tab.$scopedSlots['header']()];
-    }
-};
-
-export default {
     data() {
         return {
-            d_children: []
-        };
+            d_activeIndex: this.activeIndex
+        }
     },
-    mounted() {
-        this.d_children = this.$children;
+    watch: {
+        activeIndex(newValue) {
+            this.d_activeIndex = newValue;
+        }
     },
     updated() {
-        let activeTab = this.tabs[this.findActiveTabIndex()];
-        if (!activeTab && this.tabs.length) {
-            this.tabs[0].d_active = true;
-        }
+        this.updateInkBar();
+    },
+    mounted() {
         this.updateInkBar();
     },
     methods: {
-        onTabClick(event, tab) {
-            if (!tab.disabled && !tab.d_active) {
-                this.activateTab(tab);
+        onTabClick(event, i) {
+            if (!this.isTabDisabled(this.tabs[i]) && i !== this.d_activeIndex) {
+                this.d_activeIndex = i;
+                this.$emit('update:activeIndex', this.d_activeIndex);
 
                 this.$emit('tab-change', {
                     originalEvent: event,
-                    tab: tab
+                    index: i
                 });
             }
         },
-        activateTab(tab) {
-            for (let i = 0; i < this.tabs.length; i++) {
-                let active = this.tabs[i] === tab;
-                this.tabs[i].d_active = active;
-                this.tabs[i].$emit('update:active', active);
-            }
-
-            this.updateInkBar();
-        },
-        onTabKeydown(event, tab) {
+        onTabKeydown(event, i) {
             if (event.which === 13) {
-                this.onTabClick(event, tab);
+                this.onTabClick(event, i);
             }
-        },
-        findActiveTabIndex() {
-            for (let i = 0; i < this.tabs.length; i++) {
-                let tab = this.tabs[i];
-                if (tab.d_active) {
-                    return i;
-                }
-            }
-
-            return null;
         },
         updateInkBar() {
-            let tabHeader = this.$refs.nav.children[this.findActiveTabIndex()];
+            let tabHeader = this.$refs.nav.children[this.d_activeIndex];
             this.$refs.inkbar.style.width = DomHandler.getWidth(tabHeader) + 'px';
             this.$refs.inkbar.style.left =  DomHandler.getOffset(tabHeader).left - DomHandler.getOffset(this.$refs.nav).left + 'px';
+        },
+        getKey(tab, i) {
+            return tab.props && tab.props.header ? tab.props.header : i;
+        },
+        isTabDisabled(tab) {
+            return tab.props && tab.props.disabled;
         }
     },
     computed: {
         tabs() {
-            return this.d_children.filter(child => child.$vnode.tag.indexOf('tabpanel') !== -1);
+            return this.$slots.default().filter(child => child.type.name === 'tabpanel');
         }
-    },
-    components: {
-        'TabPanelHeaderSlot': TabPanelHeaderSlot
     },
     directives: {
         'ripple': Ripple
