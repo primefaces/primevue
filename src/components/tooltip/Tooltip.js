@@ -217,16 +217,16 @@ function isOutOfBounds(el) {
 }
 
 const Tooltip = {
-    bind(el, options) {
+    beforeMount(el, options) {
         el.$_ptooltipModifiers = options.modifiers;
         el.$_ptooltipValue = options.value;
         bindEvents(el);
     },
-    unbind(el) {
+    unmounted(el) {
         remove(el);
         unbindEvents(el);
     },
-    update(el, options) {
+    updated(el, options) {
         el.$_ptooltipModifiers = options.modifiers;
         el.$_ptooltipValue = options.value;
     }
