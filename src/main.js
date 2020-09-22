@@ -78,6 +78,7 @@ import Galleria from './components/galleria/Galleria';
 
 import CodeHighlight from './views/codehighlight/CodeHighlight';
 import AppInputStyleSwitch from './AppInputStyleSwitch';
+import CodeHighlight2 from './AppCodeHighlight';
 
 import './assets/styles/primevue.css';
 import 'primeflex/primeflex.css';
@@ -105,6 +106,7 @@ app.use(router);
 
 app.directive('tooltip', Tooltip);
 app.directive('ripple', Ripple);
+app.directive('code', CodeHighlight2);
 
 app.component('Accordion', Accordion);
 app.component('AccordionTab', AccordionTab);

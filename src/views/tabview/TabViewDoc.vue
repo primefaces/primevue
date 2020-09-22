@@ -3,14 +3,17 @@
 		<TabView>
 			<TabPanel header="Documentation">
 				<h5>Import</h5>
-<CodeHighlight lang="javascript">
+<pre v-code.script>
+<code>
 import TabView from 'primevue/tabview';
 import TabPanel from 'primevue/tabpanel';
-</CodeHighlight>
+
+</code></pre>
 
 				<h5>Getting Started</h5>
 				<p>Tabview element consists of one or more TabPanel elements. Header of the tab is defined using header attribute.</p>
-<CodeHighlight>
+<pre v-code>
+<code>
 &lt;TabView&gt;
 	&lt;TabPanel header="Header I"&gt;
 		Content I
@@ -22,11 +25,13 @@ import TabPanel from 'primevue/tabpanel';
 		Content III
 	&lt;/TabPanel&gt;
 &lt;/TabView&gt;
-</CodeHighlight>
+
+</code></pre>
 
                 <h5>Active</h5>
 				<p>Visibility of the content is specified with the <i>activeIndex</i> property that supports one or two-way binding.</p>
-<CodeHighlight>
+<pre v-code>
+<code>
 &lt;TabView :activeIndex="activeIndex"&gt;
 	&lt;TabPanel header="Header I"&gt;
 		Content I
@@ -38,10 +43,12 @@ import TabPanel from 'primevue/tabpanel';
 		Content III
 	&lt;/TabPanel&gt;
 &lt;/TabView&gt;
-</CodeHighlight>
+
+</code></pre>
 
                 <p>Two-way binding requires v-model.</p>
-<CodeHighlight>
+<pre v-code>
+<code>
 &lt;TabView v-model:activeIndex="activeIndex"&gt;
 	&lt;TabPanel header="Header I"&gt;
 		Content I
@@ -53,11 +60,13 @@ import TabPanel from 'primevue/tabpanel';
 		Content III
 	&lt;/TabPanel&gt;
 &lt;/TabView&gt;
-</CodeHighlight>
+
+</code></pre>
 
 				<h5>Disabled</h5>
 				<p>A tab can be disabled to prevent the content to be displayed by setting the disabled property on a panel.</p>
-<CodeHighlight>
+<pre v-code>
+<code>
 &lt;TabView&gt;
 	&lt;TabPanel header="Header I"&gt;
 		Content I
@@ -69,11 +78,13 @@ import TabPanel from 'primevue/tabpanel';
 		Content III
 	&lt;/TabPanel&gt;
 &lt;/TabView&gt;
-</CodeHighlight>
+
+</code></pre>
 
 				<h5>Header Template</h5>
 				<p>Custom content for the title section of a panel is defined using the header template.</p>
-<CodeHighlight>
+<pre v-code>
+<code>
 &lt;TabView&gt;
 	&lt;TabPanel&gt;
 		&lt;template #header&gt;
@@ -90,11 +101,13 @@ import TabPanel from 'primevue/tabpanel';
 		Content II
 	&lt;/TabPanel&gt;
 &lt;/TabView&gt;
-</CodeHighlight>
+
+</code></pre>
 
                 <h5>Programmatic Control</h5>
 				<p>Tabs can be controlled programmatically using active property that defines the active tab.</p>
-<CodeHighlight>
+<pre v-code>
+<code>
 &lt;Button @click="active = 0" class="p-button-text" label="Activate 1st" /&gt;
 &lt;Button @click="active = 1" class="p-button-text" label="Activate 2nd" /&gt;
 &lt;Button @click="active = 2" class="p-button-text" label="Activate 3rd" /&gt;
@@ -111,9 +124,10 @@ import TabPanel from 'primevue/tabpanel';
     &lt;/TabPanel&gt;
 &lt;/TabView&gt;
 
-</CodeHighlight>
+</code></pre>
 
-<CodeHighlight lang="js">
+<pre v-code.script>
+<code>
 export default {
     data() {
         return {
@@ -121,7 +135,8 @@ export default {
         }
     }
 }
-</CodeHighlight>
+
+</code></pre>
 
 				<h5>Properties of TabPanel</h5>
 				<div class="doc-tablewrapper">
@@ -219,8 +234,8 @@ export default {
 				<a href="https://github.com/primefaces/primevue/tree/master/src/views/tabview" class="btn-viewsource" target="_blank" rel="noopener noreferrer">
 					<span>View on GitHub</span>
 				</a>
-<CodeHighlight>
-<template v-pre>
+<pre v-code>
+<code><template v-pre>
 &lt;div class="card"&gt;
     &lt;h5&gt;Default&lt;/h5&gt;
     &lt;TabView&gt;
@@ -325,9 +340,10 @@ export default {
     &lt;/TabView&gt;
 &lt;/div&gt;
 </template>
-</CodeHighlight>
+</code></pre>
 
-<CodeHighlight lang="javascript">
+<pre v-code.script>
+<code>
 export default {
     data() {
         return {
@@ -335,9 +351,11 @@ export default {
         }
     }
 }
-</CodeHighlight>
 
-<CodeHighlight lang="css">
+</code></pre>
+
+<pre v-code.css>
+<code>
 .tabview-custom {
 	i, span {
 		vertical-align: middle;
@@ -347,7 +365,8 @@ export default {
 		margin: 0 .5rem;
 	}
 }
-</CodeHighlight>
+
+</code></pre>
 			</TabPanel>
 		</TabView>
 	</div>
