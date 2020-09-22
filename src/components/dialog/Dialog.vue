@@ -1,10 +1,10 @@
 <template>
-    <div ref="mask" :class="maskClass" v-if="maskVisible" @click="onMaskClick">
-        <transition name="p-dialog" @before-enter="onBeforeEnter" @enter="onEnter" @before-leave="onBeforeLeave" @leave="onLeave" @after-leave="onAfterLeave" @appear="onAppear">
-            <div ref="dialog" :class="dialogClass" :style="dialogStyle" v-if="visible" v-bind="$attrs" role="dialog" :aria-labelledby="ariaLabelledById" :aria-modal="modal" @click.stop>
+    <div :ref="maskRef" :class="maskClass" v-if="visible" @click="onMaskClick">
+        <transition name="p-dialog" @before-enter="onBeforeEnter" @enter="onEnter" @before-leave="onBeforeLeave" @leave="onLeave" @after-leave="onAfterLeave" appear>
+            <div :ref="containerRef" :class="dialogClass" v-if="containerVisible" v-bind="$attrs" role="dialog" :aria-labelledby="ariaLabelledById" :aria-modal="modal" @click.stop>
                 <div class="p-dialog-header" v-if="showHeader">
                     <slot name="header">
-                        <span :id="ariaLabelledById" class="p-dialog-title" v-if="header" >{{header}}</span>
+                        <span :id="ariaLabelledById" class="p-dialog-title" v-if="header">{{header}}</span>
                     </slot>
                     <div class="p-dialog-header-icons">
                         <button class="p-dialog-header-icon p-dialog-header-maximize p-link" @click="maximize" v-if="maximizable" type="button" tabindex="-1" v-ripple>
@@ -72,33 +72,22 @@ export default {
     },
     data() {
         return {
-            dialogClasses: null,
-            dialogStyles: null,
-            maskVisible: this.visible,
+            containerVisible: this.visible,
             maximized: false
         }
     },
     documentKeydownListener: null,
+    container: null,
+    mask: null,
     updated() {
-        this.removeStylesFromMask();
-
-        if (this.visible && !this.maskVisible) {
-            this.maskVisible = true;
-        }
-
-        if (this.modal && this.$refs.mask && !DomHandler.hasClass(this.$refs.mask, 'p-component-overlay')) {
-            DomHandler.addClass(this.$refs.mask, 'p-component-overlay');
-        }
-    },
-    mounted() {
-        this.removeStylesFromMask();
+        this.containerVisible = this.visible;
     },
     beforeUnmount() {
-        this.disableDocumentSettings();
+        this.unbindDocumentState();
     },
     methods: {
         close() {
-            this.$emit('update:visible', false);
+            this.containerVisible = false;
         },
         onBeforeEnter(el) {
             if (this.autoZIndex) {
@@ -106,26 +95,21 @@ export default {
             }
         },
         onEnter() {
-            this.$refs.mask.style.zIndex = String(parseInt(this.$refs.dialog.style.zIndex, 10) - 1);
+            this.mask.style.zIndex = String(parseInt(this.container.style.zIndex, 10) - 1);
 
             this.$emit('show');
             this.focus();
             this.enableDocumentSettings();
         },
         onBeforeLeave() {
-            DomHandler.addClass(this.$refs.mask, 'p-dialog-mask-leave');
+            DomHandler.addClass(this.mask, 'p-dialog-mask-leave');
         },
         onLeave() {
             this.$emit('hide');
         },
         onAfterLeave() {
-            this.maskVisible = false;
-            this.disableDocumentSettings();
-        },
-        onAppear() {
-            if (this.visible) {
-                this.onEnter();
-            }
+            this.$emit('update:visible', false);
+            this.unbindDocumentState();
         },
         onMaskClick() {
             if (this.modal && this.closable && this.dismissableMask) {
@@ -133,7 +117,7 @@ export default {
             }
         },
         focus() {
-            let focusTarget = this.$refs.dialog.querySelector('[autofocus]');
+            let focusTarget = this.container.querySelector('[autofocus]');
             if (focusTarget) {
                 focusTarget.focus();
             }
@@ -157,7 +141,7 @@ export default {
                 DomHandler.addClass(document.body, 'p-overflow-hidden');
             }
         },
-        disableDocumentSettings() {
+        unbindDocumentState() {
             if (this.modal) {
                 DomHandler.removeClass(document.body, 'p-overflow-hidden');
                 this.unbindDocumentKeydownListener();
@@ -169,7 +153,7 @@ export default {
         onKeyDown(event) {
             if (event.which === 9) {
                 event.preventDefault();
-                let focusableElements = DomHandler.getFocusableElements(this.$refs.dialog);
+                let focusableElements = DomHandler.getFocusableElements(this.container);
                 if (focusableElements && focusableElements.length > 0) {
                     if (!document.activeElement) {
                         focusableElements[0].focus();
@@ -212,40 +196,28 @@ export default {
 
             return pos ? `p-dialog-${pos}` : '';
         },
-        removeStylesFromMask() {
-            if (this.$refs.mask) {
-                this.dialogStyles = this.$vnode.data.style;
-                if (this.dialogStyles) {
-                    Object.keys(this.dialogStyles).forEach((key) => {
-                        this.$refs.mask.style[key] = '';
-                    });
-                }
-
-                this.dialogClasses = this.$vnode.data.class || this.$vnode.data.staticClass;
-                if (this.dialogClasses) {
-                    this.$refs.mask.classList = 'p-dialog-mask' + (this.modal && ' p-component-overlay ') + this.getPositionClass();
-                }
-            }
+        containerRef(el) {
+            this.container = el;
+        },
+        maskRef(el) {
+            this.mask = el;
         }
     },
     computed: {
         maskClass() {
-            return ['p-dialog-mask', this.getPositionClass()];
+            return ['p-dialog-mask', {'p-component-overlay': this.modal}, this.getPositionClass()];
         },
         dialogClass() {
             return ['p-dialog p-component', {
                 'p-dialog-rtl': this.rtl,
                 'p-dialog-maximized': this.maximizable && this.maximized
-            }, this.dialogClasses];
+            }];
         },
         maximizeIconClass() {
             return ['p-dialog-header-maximize-icon pi', {
                 'pi-window-maximize': !this.maximized,
                 'pi-window-minimize': this.maximized
             }];
-        },
-        dialogStyle() {
-            return this.dialogStyles;
         },
         ariaId() {
             return UniqueComponentId();
@@ -327,7 +299,7 @@ export default {
 .p-dialog-leave-active {
     transition: all 150ms cubic-bezier(0.4, 0.0, 0.2, 1);
 }
-.p-dialog-enter,
+.p-dialog-enter-from,
 .p-dialog-leave-to {
     opacity: 0;
     transform: scale(0.7);
@@ -367,27 +339,27 @@ export default {
 .p-dialog-bottomright .p-dialog-leave-active {
     transition: all .3s ease-out;
 }
-.p-dialog-top .p-dialog-enter,
+.p-dialog-top .p-dialog-enter-from,
 .p-dialog-top .p-dialog-leave-to {
     transform: translate3d(0px, -100%, 0px);
 }
-.p-dialog-bottom .p-dialog-enter,
+.p-dialog-bottom .p-dialog-enter-from,
 .p-dialog-bottom .p-dialog-leave-to {
     transform: translate3d(0px, 100%, 0px);
 }
-.p-dialog-left .p-dialog-enter,
+.p-dialog-left .p-dialog-enter-from,
 .p-dialog-left .p-dialog-leave-to,
-.p-dialog-topleft .p-dialog-enter,
+.p-dialog-topleft .p-dialog-enter-from,
 .p-dialog-topleft .p-dialog-leave-to,
-.p-dialog-bottomleft .p-dialog-enter,
+.p-dialog-bottomleft .p-dialog-enter-from,
 .p-dialog-bottomleft .p-dialog-leave-to {
     transform: translate3d(-100%, 0px, 0px);
 }
-.p-dialog-right .p-dialog-enter,
+.p-dialog-right .p-dialog-enter-from,
 .p-dialog-right .p-dialog-leave-to,
-.p-dialog-topright .p-dialog-enter,
+.p-dialog-topright .p-dialog-enter-from,
 .p-dialog-topright .p-dialog-leave-to,
-.p-dialog-bottomright .p-dialog-enter,
+.p-dialog-bottomright .p-dialog-enter-from,
 .p-dialog-bottomright .p-dialog-leave-to {
     transform: translate3d(100%, 0px, 0px);
 }

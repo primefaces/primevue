@@ -8,9 +8,9 @@ import Dialog from 'primevue/dialog';
 </CodeHighlight>
 
 				<h5>Getting Started</h5>
-				<p>Dialog is used as a container and visibility is managed with <i>visible</i> property that requires the sync operator for two-way binding.</p>
+				<p>Dialog is used as a container and visibility is managed with <i>visible</i> property that requires the v-model for two-way binding.</p>
 <CodeHighlight>
-&lt;Dialog header="Header" :visible.sync="display" &gt;
+&lt;Dialog header="Header" v-model:visible="display" &gt;
 	Content
 &lt;/Dialog&gt;
 </CodeHighlight>
@@ -28,13 +28,13 @@ export default {
 				<h5>Header and Footer</h5>
 				<p>Header and Footer sections are defined using properties with the same name that accept simple strings or with the <i>header</i> and <i>footer</i> templates for custom content.</p>
 <CodeHighlight>
-&lt;Dialog header="Header" footer="Footer" :visible.sync="display"&gt;
+&lt;Dialog header="Header" footer="Footer" v-model:visible="display"&gt;
 	Content
 &lt;/Dialog&gt;
 </CodeHighlight>
 
 <CodeHighlight>
-&lt;Dialog :visible.sync="display"&gt;
+&lt;Dialog v-model:visible="display"&gt;
     &lt;template #header&gt;
 		&lt;h3&gt;Header&lt;/h3&gt;
 	&lt;/template&gt;
@@ -51,7 +51,7 @@ export default {
                 <h5>Positioning</h5>
                 <p>Dialog location is controlled with the <i>position</i> property whose default value is center. Other valid values are top", "bottom", "left", "right", "topleft", "topright", "bottomleft" and "bottomright".</p>
 <CodeHighlight>
-&lt;Dialog position="top" :visible.sync="display"&gt;
+&lt;Dialog position="top" v-model:visible="display"&gt;
 	Content
 &lt;/Dialog&gt;
 </CodeHighlight>
@@ -59,7 +59,7 @@ export default {
                 <h5>Popup Content inside the Dialog</h5>
                 <p>If the dialog contains components with popup elements such as Dropdown or Calendar, set <i>contentStyle</i> to overflow:visible so that overlays can be displayed outside of the content area.</p>
 <CodeHighlight>
-&lt;Dialog :visible.sync="display" :contentStyle="{overflow: 'visible'}"&gt;
+&lt;Dialog v-model:visible="display" :contentStyle="{overflow: 'visible'}"&gt;
 	Content
 &lt;/Dialog&gt;
 </CodeHighlight>
@@ -67,7 +67,7 @@ export default {
                 <h5>Initial Focus</h5>
                 <p>Adding <i>autofocus</i> to an element in the dialog makes it the initial focus target when dialog gets shown.</p>
 <CodeHighlight>
-&lt;Dialog :visible.sync="display"&gt;
+&lt;Dialog v-model:visible="display"&gt;
     Content
 	&lt;template #footer&gt;
         &lt;Button label="No" /&gt;
@@ -258,10 +258,11 @@ export default {
 <template v-pre>
 &lt;h5&gt;Basic&lt;/h5&gt;
 &lt;Button label="Show" icon="pi pi-external-link" @click="openBasic" /&gt;
-&lt;Dialog header="Header " :visible.sync="displayBasic" :style="{width: '50vw'}"&gt;
-    &lt;p class="p-m-0"&gt;Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco
-        laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur.
-        Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.&lt;/p&gt;
+&lt;Dialog header="Header" v-model:visible="displayBasic" :style="{width: '50vw'}"&gt;
+    &lt;p&gt;Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.
+        Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.
+        Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat
+        cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.&lt;/p&gt;
     &lt;template #footer&gt;
         &lt;Button label="No" icon="pi pi-times" @click="closeBasic" class="p-button-text"/&gt;
         &lt;Button label="Yes" icon="pi pi-check" @click="closeBasic" autofocus /&gt;
@@ -269,7 +270,7 @@ export default {
 &lt;/Dialog&gt;
 
 &lt;Button label="Long Content" icon="pi pi-external-link" @click="openBasic2" /&gt;
-&lt;Dialog header="Header" :visible.sync="displayBasic2" :style="{width: '50vw'}"&gt;
+&lt;Dialog header="Header" v-model:visible="displayBasic2" :style="{width: '50vw'}"&gt;
     &lt;p&gt;Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi
         ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in
         culpa qui officia deserunt mollit anim id est laborum.&lt;/p&gt;
@@ -292,7 +293,7 @@ export default {
 
 &lt;h5&gt;Modal&lt;/h5&gt;
 &lt;Button label="Show" icon="pi pi-external-link" @click="openModal" /&gt;
-&lt;Dialog header="Header" :visible.sync="displayModal" :style="{width: '50vw'}" :modal="true"&gt;
+&lt;Dialog header="Header" v-model:visible="displayModal" :style="{width: '50vw'}" :modal="true"&gt;
     &lt;p class="p-m-0"&gt;Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco
         laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur.
         Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.&lt;/p&gt;
@@ -304,7 +305,7 @@ export default {
 
 &lt;h5&gt;Confirmation&lt;/h5&gt;
 &lt;Button label="Confirm" icon="pi pi-external-link" @click="openConfirmation" /&gt;
-&lt;Dialog header="Confirmation" :visible.sync="displayConfirmation" :style="{width: '350px'}" :modal="true"&gt;
+&lt;Dialog header="Confirmation" v-model:visible="displayConfirmation" :style="{width: '350px'}" :modal="true"&gt;
     &lt;div class="confirmation-content"&gt;
         &lt;i class="pi pi-exclamation-triangle p-mr-3" style="font-size: 2rem" /&gt;
         &lt;span&gt;Are you sure you want to proceed?&lt;/span&gt;
@@ -317,7 +318,7 @@ export default {
 
 &lt;h5&gt;Maximizable&lt;/h5&gt;
 &lt;Button label="Show" icon="pi pi-external-link" @click="openMaximizable" /&gt;
-&lt;Dialog header="Header" :visible.sync="displayMaximizable" :style="{width: '50vw'}" :maximizable="true" :modal="true"&gt;
+&lt;Dialog header="Header" v-model:visible="displayMaximizable" :style="{width: '50vw'}" :maximizable="true" :modal="true"&gt;
     &lt;p class="p-m-0"&gt;Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco
         laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur.
         Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.&lt;/p&gt;
@@ -345,12 +346,12 @@ export default {
     &lt;/div&gt;
 &lt;/div&gt;
 
-&lt;Dialog header="Header" :visible.sync="displayPosition" :style="{width: '50vw'}" :position="position" :modal="true"&gt;
+&lt;Dialog header="Header" v-model:visible="displayPosition" :style="{width: '50vw'}" :position="position" :modal="true"&gt;
     &lt;p class="p-m-0"&gt;Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco
         laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur.
         Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.&lt;/p&gt;
     &lt;template #footer&gt;
-        &lt;Button label="No" icon="pi pi-times" @click="closePosition" class="p-button-text"/&gt;
+        &lt;Button label="No" icon="pi pi-times" @click="closePosition" class="p-button-text" /&gt;
         &lt;Button label="Yes" icon="pi pi-check" @click="closePosition" autofocus /&gt;
     &lt;/template&gt;
 &lt;/Dialog&gt;
@@ -408,6 +409,9 @@ export default {
         closePosition() {
             this.displayPosition = false;
         }
+    },
+    components: {
+        'DialogDoc': DialogDoc
     }
 }
 </CodeHighlight>
@@ -426,6 +430,10 @@ p {
     display: flex;
     align-items: center;
     justify-content: center;
+}
+
+.p-dialog .p-button {
+    min-width: 6rem;
 }
 </CodeHighlight>
 			</TabPanel>
