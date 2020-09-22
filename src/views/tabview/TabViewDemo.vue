@@ -31,10 +31,10 @@
 
             <div class="card">
                 <h5>Programmatic</h5>
-                <div style="padding: .5rem 0 1rem 0" class="p-t-2 p-b-3">
+                <div class="p-py-2">
                     <Button @click="active = 0" class="p-button-text" label="Activate 1st" />
-                    <Button @click="active = 1" class="p-button-text" label="Activate 2nd" />
-                    <Button @click="active = 2" class="p-button-text" label="Activate 3rd" />
+                    <Button @click="active = 1" class="p-button-text p-mr-2" label="Activate 2nd" />
+                    <Button @click="active = 2" class="p-button-text p-mr-2" label="Activate 3rd" />
                 </div>
 
                 <TabView ref="tabview2" v-model:activeIndex="active">
@@ -157,10 +157,6 @@ export default {
     span {
         margin: 0 .5rem;
     }
-}
-
-.p-button {
-    margin-right: .25rem;
 }
 
 .p-tabview p {

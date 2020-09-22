@@ -167,7 +167,27 @@ export default {
 				</div>
 
                 <h5>Properties of TabView</h5>
-                <p>Any property as style and class are passed to the main container element.</p>
+                <p>Any additional properties like style and class are passed to the main container element.</p>
+                <div class="doc-tablewrapper">
+					<table class="doc-table">
+						<thead>
+                            <tr>
+                                <th>Name</th>
+                                <th>Type</th>
+                                <th>Default</th>
+                                <th>Description</th>
+                            </tr>
+						</thead>
+						<tbody>
+                            <tr>
+                                <td>activeIndex</td>
+                                <td>number</td>
+                                <td>0</td>
+                                <td>Index of the active tab.</td>
+                            </tr>
+						</tbody>
+					</table>
+				</div>
 
 				<h5>Events</h5>
 				<div class="doc-tablewrapper">
@@ -259,10 +279,10 @@ export default {
 
 &lt;div class="card"&gt;
     &lt;h5&gt;Programmatic&lt;/h5&gt;
-    &lt;div style="padding: .5rem 0 1rem 0" class="p-t-2 p-b-3"&gt;
+    &lt;div class="p-py-2"&gt;
         &lt;Button @click="active = 0" class="p-button-text" label="Activate 1st" /&gt;
-        &lt;Button @click="active = 1" class="p-button-text" label="Activate 2nd" /&gt;
-        &lt;Button @click="active = 2" class="p-button-text" label="Activate 3rd" /&gt;
+        &lt;Button @click="active = 1" class="p-button-text p-mr-2" label="Activate 2nd" /&gt;
+        &lt;Button @click="active = 2" class="p-button-text p-mr-2" label="Activate 3rd" /&gt;
     &lt;/div&gt;
 
     &lt;TabView ref="tabview2" v-model:activeIndex="active"&gt;
