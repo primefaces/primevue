@@ -207,27 +207,27 @@ export default {
     transition: none;
 }
 
-.p-sidebar-left.p-sidebar-enter,
+.p-sidebar-left.p-sidebar-enter-from,
 .p-sidebar-left.p-sidebar-leave-to {
     transform: translateX(-100%);
 }
 
-.p-sidebar-right.p-sidebar-enter,
+.p-sidebar-right.p-sidebar-enter-from,
 .p-sidebar-right.p-sidebar-leave-to {
     transform: translateX(100%);
 }
 
-.p-sidebar-top.p-sidebar-enter,
+.p-sidebar-top.p-sidebar-enter-from,
 .p-sidebar-top.p-sidebar-leave-to {
     transform: translateY(-100%);
 }
 
-.p-sidebar-bottom.p-sidebar-enter,
+.p-sidebar-bottom.p-sidebar-enter-from,
 .p-sidebar-bottom.p-sidebar-leave-to {
     transform: translateY(100%);
 }
 
-.p-sidebar-full.p-sidebar-enter,
+.p-sidebar-full.p-sidebar-enter-from,
 .p-sidebar-full.p-sidebar-leave-to {
     opacity: 0;
 }

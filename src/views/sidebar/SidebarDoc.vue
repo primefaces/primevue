@@ -8,9 +8,9 @@ import Sidebar from 'primevue/sidebar';
 </CodeHighlight>
 
 				<h5>Getting Started</h5>
-				<p>Sidebar is used as a container and visibility is controlled with <i>visible</i> property that requires the sync operator for two-way binding.</p>
+				<p>Sidebar is used as a container and visibility is controlled with the <i>visible</i> property that requires a v-model two-way binding.</p>
 <CodeHighlight>
-&lt;Sidebar :visible.sync="visibleLeft"&gt;
+&lt;Sidebar v-model:visible="visibleLeft"&gt;
 	Content
 &lt;/Sidebar&gt;
 
@@ -20,7 +20,7 @@ import Sidebar from 'primevue/sidebar';
 				<h5>Position</h5>
 				<p>Sidebar can either be located on the left (default), right, top or bottom of the screen depending on the <i>position</i> property.</p>
 <CodeHighlight>
-&lt;Sidebar :visible.sync="visibleRight" position="right"&gt;
+&lt;Sidebar v-model:visible="visibleRight" position="right"&gt;
 	Content
 &lt;/Sidebar&gt;
 </CodeHighlight>
@@ -28,15 +28,15 @@ import Sidebar from 'primevue/sidebar';
 				<h5>Size</h5>
 				<p>Sidebar size can be changed using a fixed value or using one of the three predefined ones.</p>
 <CodeHighlight>
-&lt;Sidebar :visible.sync="visibleLeft" class="p-sidebar-sm"&gt;&lt;/Sidebar&gt;
-&lt;Sidebar :visible.sync="visibleLeft" class="p-sidebar-md"&gt;&lt;/Sidebar&gt;
-&lt;Sidebar :visible.sync="visibleLeft" class="p-sidebar-lg"&gt;&lt;/Sidebar&gt;
+&lt;Sidebar v-model:visible="visibleLeft" class="p-sidebar-sm"&gt;&lt;/Sidebar&gt;
+&lt;Sidebar v-model:visible="visibleLeft" class="p-sidebar-md"&gt;&lt;/Sidebar&gt;
+&lt;Sidebar v-model:visible="visibleLeft" class="p-sidebar-lg"&gt;&lt;/Sidebar&gt;
 </CodeHighlight>
 
 				<h5>Full Screen</h5>
 				<p>Full screen mode allows the sidebar to cover whole screen.</p>
 <CodeHighlight>
-&lt;Sidebar :visible.sync="visibleFull" position="full"&gt;
+&lt;Sidebar v-model:visible="visibleFull" position="full"&gt;
 	Content
 &lt;/Sidebar&gt;
 </CodeHighlight>
@@ -210,23 +210,23 @@ import Sidebar from 'primevue/sidebar';
 &lt;Button icon="pi pi-arrow-up" @click="visibleBottom = true" class="p-mr-2"  /&gt;
 &lt;Button icon="pi pi-th-large" @click="visibleFull = true"  /&gt;
 
-&lt;Sidebar :visible.sync="visibleLeft" :baseZIndex="1000"&gt;
+&lt;Sidebar v-model:visible="visibleLeft" :baseZIndex="1000"&gt;
     &lt;h3&gt;Left Sidebar&lt;/h3&gt;
 &lt;/Sidebar&gt;
 
-&lt;Sidebar :visible.sync="visibleRight" :baseZIndex="1000" position="right"&gt;
+&lt;Sidebar v-model:visible="visibleRight" :baseZIndex="1000" position="right"&gt;
     &lt;h3&gt;Right Sidebar&lt;/h3&gt;
 &lt;/Sidebar&gt;
 
-&lt;Sidebar :visible.sync="visibleTop" :baseZIndex="1000" position="top"&gt;
+&lt;Sidebar v-model:visible="visibleTop" :baseZIndex="1000" position="top"&gt;
     &lt;h3&gt;Top Sidebar&lt;/h3&gt;
 &lt;/Sidebar&gt;
 
-&lt;Sidebar :visible.sync="visibleBottom" :baseZIndex="1000" position="bottom"&gt;
+&lt;Sidebar v-model:visible="visibleBottom" :baseZIndex="1000" position="bottom"&gt;
     &lt;h3&gt;Bottom Sidebar&lt;/h3&gt;
 &lt;/Sidebar&gt;
 
-&lt;Sidebar :visible.sync="visibleFull" :baseZIndex="1000" position="full"&gt;
+&lt;Sidebar v-model:visible="visibleFull" :baseZIndex="1000" position="full"&gt;
     &lt;h3&gt;Full Screen&lt;/h3&gt;
 &lt;/Sidebar&gt;
 </template>
