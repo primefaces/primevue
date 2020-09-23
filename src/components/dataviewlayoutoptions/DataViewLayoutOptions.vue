@@ -12,25 +12,25 @@
 <script>
 	export default {
 		props: {
-			value: String
+			modelValue: String
 		},
 		computed: {
 			buttonListClass(){
 				return [
 					'p-button p-button-icon-only',
-					{'p-highlight': this.value === 'list'}
+					{'p-highlight': this.modelValue === 'list'}
 				]
 			},
 			buttonGridClass() {
 				return [
 					'p-button p-button-icon-only',
-					{'p-highlight': this.value === 'grid'}
+					{'p-highlight': this.modelValue === 'grid'}
 				]
 			}
 		},
 		methods: {
 			changeLayout(layout){
-				this.$emit('input', layout);
+				this.$emit('update:modelValue', layout);
 			}
 		}
 	}
