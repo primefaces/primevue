@@ -597,7 +597,7 @@ export default {
                     if (Object.prototype.hasOwnProperty.call(this.filters, columnField)) {
                         let filterValue = this.filters[columnField];
                         let dataFieldValue = ObjectUtils.resolveFieldData(data[i], columnField);
-                        let filterConstraint = col.props.filterMatchMode === 'custom' ? col.props.filterFunction : FilterUtils[col.props.filterMatchMode];
+                        let filterConstraint = col.props.filterMatchMode === 'custom' ? col.props.filterFunction : FilterUtils[col.props.filterMatchMode||'startsWith'];
                         if (!filterConstraint(dataFieldValue, filterValue, this.filterLocale)) {
                             localMatch = false;
                         }
@@ -613,11 +613,11 @@ export default {
                 }
 
                 let matches = localMatch;
-                if(this.hasGlobalFilter) {
+                if (this.hasGlobalFilter) {
                     matches = localMatch && globalMatch;
                 }
 
-                if(matches) {
+                if (matches) {
                     filteredValue.push(data[i]);
                 }
             }
