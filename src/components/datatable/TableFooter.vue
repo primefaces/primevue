@@ -1,18 +1,18 @@
 <template>
     <tfoot class="p-datatable-tfoot" v-if="hasFooter">
         <tr v-if="!columnGroup">
-            <td v-for="(col,i) of columns" :key="col.columnKey||col.field||i" :style="col.footerStyle" :class="col.footerClass"
-                :colspan="col.colspan" :rowspan="col.rowspan">
-                <DTColumnSlot :column="col" type="footer" v-if="col.$scopedSlots.footer" />
-                {{col.footer}}
+            <td v-for="(col,i) of columns" :key="col.props.columnKey||col.props.field||i" :style="col.props.footerStyle" :class="col.props.footerClass"
+                :colspan="col.props.colspan" :rowspan="col.props.rowspan">
+                <component :is="col.children.footer" :column="col" v-if="col.children && col.children.footer"/>
+                {{col.props.footer}}
             </td>
         </tr>
         <template v-else>
-            <tr v-for="(row,i) of columnGroup.rows" :key="i">
-                <td v-for="(col,i) of row.columns" :key="col.columnKey||col.field||i" :style="col.footerStyle" :class="col.footerClass"
-                    :colspan="col.colspan" :rowspan="col.rowspan">
-                    <DTColumnSlot :column="col" type="footer" v-if="col.$scopedSlots.footer" />
-                    {{col.footer}}
+            <tr v-for="(row,i) of columnGroup.children.default()" :key="i">
+                <td v-for="(col,i) of row.children.default()" :key="col.props.columnKey||col.props.field||i" :style="col.props.footerStyle" :class="col.props.footerClass"
+                    :colspan="col.props.colspan" :rowspan="col.props.rowspan">
+                    <component :is="col.children.footer" :column="col" v-if="col.children && col.children.footer"/>
+                    {{col.props.footer}}
                 </td>
             </tr>
         </template>
@@ -20,8 +20,6 @@
 </template>
 
 <script>
-import ColumnSlot from './ColumnSlot.vue';
-
 export default {
     props: {
         columnGroup: {
@@ -42,7 +40,7 @@ export default {
             }
             else {
                 for (let col of this.columns) {
-                    if (col.footer || col.$scopedSlots.footer) {
+                    if (col.props.footer || (col.children && col.children.footer)) {
                         hasFooter = true;
                         break;
                     }
@@ -51,9 +49,6 @@ export default {
 
             return hasFooter;
         }
-    },
-    components: {
-        'DTColumnSlot': ColumnSlot
     }
 }
 </script>

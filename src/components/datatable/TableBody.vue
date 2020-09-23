@@ -7,7 +7,7 @@
                         <button class="p-row-toggler p-link" @click="onRowGroupToggle($event, rowData)" v-if="expandableRowGroups" type="button">
                             <span :class="rowGroupTogglerIcon(rowData)"></span>
                         </button>
-                        <DTRowExpansionTemplate :template="templates['groupheader']" :data="rowData" :index="index" />
+                        <component :is="templates['groupheader']" :data="rowData" :index="index" />
                     </td>
                 </tr>
                 <tr :class="getRowClass(rowData)" :key="getRowKey(rowData, index)"
@@ -15,8 +15,8 @@
                     @click="onRowClick($event, rowData, index)" @contextmenu="onRowRightClick($event, rowData, index)" @touchend="onRowTouchEnd($event)" @keydown="onRowKeyDown($event, rowData, index)" :tabindex="selectionMode || contextMenu ? '0' : null"
                     @mousedown="onRowMouseDown($event)" @dragstart="onRowDragStart($event, index)" @dragover="onRowDragOver($event,index)" @dragleave="onRowDragLeave($event)" @dragend="onRowDragEnd($event)" @drop="onRowDrop($event)">
                     <template v-for="(col,i) of columns">
-                        <DTBodyCell v-if="shouldRenderBodyCell(value, col, index)" :key="col.columnKey||col.field||i" :rowData="rowData" :column="col" :index="index" :selected="isSelected(rowData)"
-                            :rowTogglerIcon="col.expander ? rowTogglerIcon(rowData): null"
+                        <DTBodyCell v-if="shouldRenderBodyCell(value, col, index)" :key="col.props.columnKey||col.props.field||i" :rowData="rowData" :column="col" :index="index" :selected="isSelected(rowData)"
+                            :rowTogglerIcon="col.props.expander ? rowTogglerIcon(rowData): null"
                             :rowspan="rowGroupMode === 'rowspan' ? calculateRowGroupSize(value, col, index) : null"
                             :editMode="editMode" :editing="editMode === 'row' && isRowEditing(rowData)"
                             @radio-change="onRadioChange($event)" @checkbox-change="onCheckboxChange($event)" @row-toggle="onRowToggle($event)"
@@ -26,18 +26,18 @@
                 </tr>
                 <tr class="p-datatable-row-expansion" v-if="templates['expansion'] && expandedRows && isRowExpanded(rowData)" :key="getRowKey(rowData, index) + '_expansion'">
                     <td :colspan="columns.length">
-                        <DTRowExpansionTemplate :template="templates['expansion']" :data="rowData" :index="index" />
+                        <component :is="templates['expansion']" :data="rowData" :index="index" />
                     </td>
                 </tr>
                 <tr class="p-rowgroup-footer" v-if="templates['groupfooter'] && rowGroupMode === 'subheader' && shouldRenderRowGroupFooter(value, rowData, index)" :key="getRowKey(rowData, index) + '_subfooter'">
-                    <DTRowExpansionTemplate :template="templates['groupfooter']" :data="rowData" :index="index" />
+                    <component :is="templates['groupfooter']" :data="rowData" :index="index" />
                 </tr>
             </template>
         </template>
         <tr v-else class="p-datatable-emptymessage">
             <td :colspan="columns.length">
-                <DTSlotTemplate :template="templates.empty" v-if="templates.empty && !loading"/>
-                <DTSlotTemplate :template="templates.loading" v-if="templates.loading && loading"/>
+                <component :is="templates.empty" v-if="templates.empty && !loading" />
+                <component :is="templates.loading" v-if="templates.loading && loading" />
             </td>
         </tr>
     </tbody>
@@ -46,49 +46,6 @@
 <script>
 import ObjectUtils from '../utils/ObjectUtils';
 import BodyCell from './BodyCell.vue';
-
-const RowExpansionTemplate = {
-    functional: true,
-    props: {
-        name: {
-            type: String,
-            default: null
-        },
-        data: {
-            type: null,
-            default: null
-        },
-        index: {
-            type: Number,
-            default: null
-        },
-        template: {
-            type: null,
-            default: null
-        }
-    },
-    render(createElement, context) {
-        const content = context.props.template({
-            'data': context.props.data,
-            'index': context.props.index
-        });
-        return [content];
-    }
-}
-
-const SlotTemplate = {
-    functional: true,
-    props: {
-        template: {
-            type: null,
-            default: null
-        }
-    },
-    render(createElement, context) {
-        const content = context.props.template();
-        return [content];
-    }
-}
 
 export default {
     props: {
@@ -446,9 +403,7 @@ export default {
         }
     },
     components: {
-        'DTBodyCell': BodyCell,
-        'DTRowExpansionTemplate': RowExpansionTemplate,
-        'DTSlotTemplate': SlotTemplate
+        'DTBodyCell': BodyCell
     }
 }
 </script>

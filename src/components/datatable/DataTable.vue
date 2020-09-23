@@ -364,7 +364,6 @@ export default {
     },
     data() {
         return {
-            allChildren: null,
             d_first: this.first,
             d_rows: this.rows,
             d_sortField: this.sortField,
@@ -432,13 +431,12 @@ export default {
         }
     },
     mounted() {
-        this.allChildren = this.$children;
-
         if (this.reorderableColumns) {
             let columnOrder = [];
-            for (let child of this.allChildren) {
-                if (child.$options._propKeys.indexOf('columnKey') !== -1) {
-                    columnOrder.push(child.columnKey||child.field);
+            const children = this.$slots.default();
+            for (let child of children) {
+                if (child.type.name === 'column') {
+                    columnOrder.push(child.props.columnKey||child.props.field);
                 }
             }
             this.d_columnOrder = columnOrder;
@@ -474,9 +472,9 @@ export default {
             const event = e.originalEvent;
             const column = e.column;
 
-            if (column.sortable) {
+            if (column.props.sortable) {
                 const targetNode = event.target;
-                const columnField = column.sortField || column.field;
+                const columnField = column.props.sortField || column.props.field;
 
                 if (DomHandler.hasClass(targetNode, 'p-sortable-column') || DomHandler.hasClass(targetNode, 'p-column-title')
                     || DomHandler.hasClass(targetNode, 'p-sortable-column-icon') || DomHandler.hasClass(targetNode.parentElement, 'p-sortable-column-icon')) {
@@ -1636,7 +1634,7 @@ export default {
                 filters: this.filters,
                 filterMatchModes: filterMatchModes
             };
-        }
+        },
     },
     computed: {
         containerClass() {
@@ -1653,25 +1651,22 @@ export default {
             ];
         },
         columns() {
-            let columns = [];
+            let columns = this.$slots.default().filter(child => child.type.name === 'column');
 
-            if (this.allChildren) {
-                columns = this.allChildren.filter(child => child.$options._propKeys.indexOf('columnKey') !== -1);
-
-                if (this.reorderableColumns && this.d_columnOrder) {
-                    let orderedColumns = [];
-                    for (let columnKey of this.d_columnOrder) {
-                        let column = this.findColumnByKey(columns, columnKey);
-                        if (column) {
-                            orderedColumns.push(column);
-                        }
+            if (this.reorderableColumns && this.d_columnOrder) {
+                let orderedColumns = [];
+                for (let columnKey of this.d_columnOrder) {
+                    let column = this.findColumnByKey(columns, columnKey);
+                    if (column) {
+                        orderedColumns.push(column);
                     }
-
-                    return [...orderedColumns, ...columns.filter((item) => {
-                        return orderedColumns.indexOf(item) < 0;
-                    })];
                 }
+
+                return [...orderedColumns, ...columns.filter((item) => {
+                    return orderedColumns.indexOf(item) < 0;
+                })];
             }
+            
             return columns;
         },
         frozenColumns() {
@@ -1702,44 +1697,40 @@ export default {
             return this.frozenColumns.length > 0;
         },
         headerColumnGroup() {
-            if (this.allChildren) {
-                for (let child of this.allChildren) {
-                    if (child.$vnode.tag.indexOf('columngroup') !== -1 && child.type === 'header') {
-                        return child;
-                    }
+            const children = this.$slots.default();
+            for (let child of children) {
+                if (child.type.name === 'columngroup' && child.props.type === 'header') {
+                    return child;
                 }
             }
 
             return null;
         },
         frozenHeaderColumnGroup() {
-            if (this.allChildren) {
-                for (let child of this.allChildren) {
-                    if (child.$vnode.tag.indexOf('columngroup') !== -1 && child.type === 'frozenheader') {
-                        return child;
-                    }
+            const children = this.$slots.default();
+            for (let child of children) {
+                if (child.type.name === 'columngroup' && child.props.type === 'frozenheader') {
+                    return child;
                 }
             }
 
             return null;
         },
         footerColumnGroup() {
-            if (this.allChildren) {
-                for (let child of this.allChildren) {
-                    if (child.$vnode.tag.indexOf('columngroup') !== -1 && child.type === 'footer') {
-                        return child;
-                    }
+            const children = this.$slots.default();
+            for (let child of children) {
+                if (child.type.name === 'columngroup' && child.props.type === 'footer') {
+                    return child;
                 }
             }
 
             return null;
         },
         frozenFooterColumnGroup() {
-            if (this.allChildren) {
-                for (let child of this.allChildren) {
-                    if (child.$vnode.tag.indexOf('columngroup') !== -1 && child.type === 'frozenfooter') {
-                        return child;
-                    }
+           const children = this.$slots.default();
+            for (let child of children) {
+                if (child.type.name === 'columngroup' && child.props.type === 'frozenfooter') {
+                    return child;
                 }
             }
 

@@ -51,7 +51,7 @@
                             <img :alt="slotProps.data.representative.name" :src="'demo/images/avatar/' + slotProps.data.representative.image" width="32" style="vertical-align: middle" />
                             <span class="image-text">{{slotProps.data.representative.name}}</span>
                         </template>
-                            <template #filter>
+                        <template #filter>
                             <MultiSelect v-model="filters['representative.name']" :options="representatives" optionLabel="name" optionValue="name" placeholder="All" class="p-column-filter">
                                 <template #option="slotProps">
                                     <div class="p-multiselect-representative-option">

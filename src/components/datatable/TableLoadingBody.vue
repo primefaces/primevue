@@ -1,16 +1,14 @@
 <template>
     <tbody class="p-datatable-tbody">
         <tr v-for="n in rows" :key="n">
-            <td v-for="(col,i) of columns" :key="col.columnKey||col.field||i">
-                <DTColumnSlot :column="col" :index="i" type="loading" />
+            <td v-for="(col,i) of columns" :key="col.props.columnKey||col.props.field||i">
+                <component :is="col.children.loading" :column="col" :index="i" v-if="col.children && col.children.loading" />
             </td>
         </tr>
     </tbody>
 </template>
 
 <script>
-import ColumnSlot from './ColumnSlot';
-
 export default {
     props: {
         columns: {
@@ -21,9 +19,6 @@ export default {
             type: null,
             default: null
         }
-    },
-    components: {
-        'DTColumnSlot': ColumnSlot
     }
 }
 </script>
