@@ -11,7 +11,7 @@
                 <slot name="header"></slot>
             </div>
             <transition-group ref="list" name="p-orderlist-flip" tag="ul" class="p-orderlist-list" :style="listStyle" role="listbox" aria-multiselectable="multiple">
-                <template v-for="(item, i) of value" :key="getItemKey(item, i)">
+                <template v-for="(item, i) of modelValue" :key="getItemKey(item, i)">
                     <li tabindex="0" :class="['p-orderlist-item', {'p-highlight': isSelected(item)}]" v-ripple
                         @click="onItemClick($event, item, i)" @keydown="onItemKeyDown($event, item, i)" @touchend="onItemTouchEnd"
                         role="option" :aria-selected="isSelected(item)">
@@ -31,7 +31,7 @@ import Ripple from '../ripple/Ripple';
 
 export default {
     props: {
-        value: {
+        modelValue: {
             type: Array,
             default: null
         },
@@ -74,7 +74,7 @@ export default {
         },
         moveUp() {
             if (this.d_selection) {
-                let value = [...this.value];
+                let value = [...this.modelValue];
 
                 for (let i = 0; i < this.d_selection.length; i++) {
                     let selectedItem = this.d_selection[i];
@@ -92,7 +92,7 @@ export default {
                 }
 
                 this.reorderDirection = 'up';
-                this.$emit('input', value);
+                this.$emit('update:modelValue', value);
                 this.$emit('reorder', {
                     originalEvent: event,
                     value: value,
@@ -102,7 +102,7 @@ export default {
         },
         moveTop() {
             if(this.d_selection) {
-                let value = [...this.value];
+                let value = [...this.modelValue];
 
                 for (let i = 0; i < this.d_selection.length; i++) {
                     let selectedItem = this.d_selection[i];
@@ -118,7 +118,7 @@ export default {
                 }
 
                 this.reorderDirection = 'top';
-                this.$emit('input', value);
+                this.$emit('update:modelValue', value);
                 this.$emit('reorder', {
                     originalEvent: event,
                     value: value,
@@ -128,7 +128,7 @@ export default {
         },
         moveDown() {
             if(this.d_selection) {
-                let value = [...this.value];
+                let value = [...this.modelValue];
 
                 for (let i = this.d_selection.length - 1; i >= 0; i--) {
                     let selectedItem = this.d_selection[i];
@@ -146,7 +146,7 @@ export default {
                 }
 
                 this.reorderDirection = 'down';
-                this.$emit('input', value);
+                this.$emit('update:modelValue', value);
                 this.$emit('reorder', {
                     originalEvent: event,
                     value: value,
@@ -156,7 +156,7 @@ export default {
         },
         moveBottom() {
             if (this.d_selection) {
-                let value = [...this.value];
+                let value = [...this.modelValue];
 
                 for (let i = this.d_selection.length - 1; i >= 0; i--) {
                     let selectedItem = this.d_selection[i];
@@ -172,7 +172,7 @@ export default {
                 }
 
                 this.reorderDirection = 'bottom';
-                this.$emit('input', value);
+                this.$emit('update:modelValue', value);
                 this.$emit('reorder', {
                     originalEvent: event,
                     value: value,
@@ -194,7 +194,7 @@ export default {
                 }
                 else {
                     this.d_selection = (metaKey) ? this.d_selection ? [...this.d_selection] : [] : [];
-                    ObjectUtils.insertIntoOrderedArray(item, index, this.d_selection, this.value);
+                    ObjectUtils.insertIntoOrderedArray(item, index, this.d_selection, this.modelValue);
                 }
             }
             else {
@@ -203,7 +203,7 @@ export default {
                 }
                 else {
                     this.d_selection = this.d_selection ? [...this.d_selection] : [];
-                    ObjectUtils.insertIntoOrderedArray(item, index, this.d_selection, this.value);
+                    ObjectUtils.insertIntoOrderedArray(item, index, this.d_selection, this.modelValue);
                 }
             }
 

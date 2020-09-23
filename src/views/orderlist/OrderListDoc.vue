@@ -32,15 +32,15 @@ import OrderList from 'primevue/orderlist';
 </CodeHighlight>
 
                 <h5>Selection</h5>
-                <p>In case you'd need to access the selected items in the list, define a binding to the <i>selection</i> property with the sync operator so that
+                <p>In case you'd need to access the selected items in the list, define a binding to the <i>selection</i> property with the v-model directive so that
                 it gets updated when the user makes a selection. Since it is two-way binding enabled, your changes to the selection will be reflected as well.  Note that
                 this is optional and only necessary when you need to access the selection.</p>
 
-                <p>Use the sync operator to enable two-way binding.</p>
+                <p>Use the v-model directive to enable two-way binding.</p>
 
 <CodeHighlight>
 <template v-pre>
-&lt;OrderList v-model="cars" dataKey="vin" :selection.sync="selection"&gt;
+&lt;OrderList v-model="cars" dataKey="vin" v-model:selection="selection"&gt;
     &lt;template #header&gt;
         List of Cars
     &lt;/template&gt;
@@ -74,7 +74,7 @@ import OrderList from 'primevue/orderlist';
 						</thead>
 						<tbody>
                             <tr>
-                                <td>value</td>
+                                <td>modelValue</td>
                                 <td>array</td>
                                 <td>null</td>
                                 <td>Value of the component.</td>
