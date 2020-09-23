@@ -1,7 +1,7 @@
 import Vue, {VNode} from 'vue';
 
 export declare class PickList extends Vue {
-    value?: any[][];
+    modelValue?: any[][];
     selection?: any[][];
     dataKey?: string;
     metaKeySelection?: boolean;

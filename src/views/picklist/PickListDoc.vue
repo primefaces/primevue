@@ -51,13 +51,13 @@ import PickList from 'primevue/picklist';
 </CodeHighlight>
 
                 <h5>Selection</h5>
-                <p>In case you need to access the selected items in the list, define a binding to the <i>selection</i> property with the sync operator so that
+                <p>In case you need to access the selected items in the list, define a binding to the <i>selection</i> property with the v-model directive so that
                 it gets updated when the user makes a selection. Since it is two-way binding enabled, your changes to the selection will be reflected as well.  Note that
                 this is optional and only necessary when you need to access the selection.</p>
 
 <CodeHighlight>
 <template v-pre>
-&lt;PickList v-model="cars" dataKey="vin" :selection.sync="selection"&gt;
+&lt;PickList v-model="cars" dataKey="vin" v-model:selection="selection"&gt;
     &lt;template #item="slotProps"&gt;
         &lt;div class="p-caritem"&gt;
             &lt;img :src="'demo/images/car/' + slotProps.item.brand + '.png'"&gt;
@@ -88,7 +88,7 @@ import PickList from 'primevue/picklist';
 						</thead>
 						<tbody>
                             <tr>
-                                <td>value</td>
+                                <td>modelValue</td>
                                 <td>array</td>
                                 <td>null</td>
                                 <td>Value of the component as a multidimensional array.</td>

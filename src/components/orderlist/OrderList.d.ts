@@ -1,7 +1,7 @@
 import Vue, {VNode} from 'vue';
 
 export declare class OrderList extends Vue {
-    value?: any[];
+    modelValue?: any[];
     dataKey?: string;
     selection?: any[];
     metaKeySelection?: boolean;

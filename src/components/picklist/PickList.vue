@@ -55,7 +55,7 @@ import Ripple from '../ripple/Ripple';
 
 export default {
     props: {
-        value: {
+        modelValue: {
             type: Array,
             default: () => [[],[]]
         },
@@ -104,7 +104,7 @@ export default {
         },
         moveUp(event, listIndex) {
             if (this.d_selection && this.d_selection[listIndex]) {
-                let valueList = [...this.value[listIndex]];
+                let valueList = [...this.modelValue[listIndex]];
                 let selectionList = this.d_selection[listIndex];
 
                 for (let i = 0; i < selectionList.length; i++) {
@@ -122,11 +122,11 @@ export default {
                     }
                 }
 
-                let value = [...this.value];
+                let value = [...this.modelValue];
                 value[listIndex] = valueList;
 
                 this.reorderDirection = 'up';
-                this.$emit('input', value);
+                this.$emit('update:modelValue', value);
                 this.$emit('reorder', {
                     originalEvent: event,
                     value: value,
@@ -137,7 +137,7 @@ export default {
         },
         moveTop(event, listIndex) {
             if(this.d_selection) {
-                let valueList = [...this.value[listIndex]];
+                let valueList = [...this.modelValue[listIndex]];
                 let selectionList = this.d_selection[listIndex];
 
                 for (let i = 0; i < selectionList.length; i++) {
@@ -153,11 +153,11 @@ export default {
                     }
                 }
 
-                let value = [...this.value];
+                let value = [...this.modelValue];
                 value[listIndex] = valueList;
 
                 this.reorderDirection = 'top';
-                this.$emit('input', value);
+                this.$emit('update:modelValue', value);
                 this.$emit('reorder', {
                     originalEvent: event,
                     value: value,
@@ -167,7 +167,7 @@ export default {
         },
         moveDown(event, listIndex) {
             if(this.d_selection) {
-                let valueList = [...this.value[listIndex]];
+                let valueList = [...this.modelValue[listIndex]];
                 let selectionList = this.d_selection[listIndex];
 
                 for (let i = selectionList.length - 1; i >= 0; i--) {
@@ -185,11 +185,11 @@ export default {
                     }
                 }
 
-                let value = [...this.value];
+                let value = [...this.modelValue];
                 value[listIndex] = valueList;
 
                 this.reorderDirection = 'down';
-                this.$emit('input', value);
+                this.$emit('update:modelValue', value);
                 this.$emit('reorder', {
                     originalEvent: event,
                     value: value,
@@ -199,7 +199,7 @@ export default {
         },
         moveBottom(event, listIndex) {
             if (this.d_selection) {
-                let valueList = [...this.value[listIndex]];
+                let valueList = [...this.modelValue[listIndex]];
                 let selectionList = this.d_selection[listIndex];
 
                 for (let i = selectionList.length - 1; i >= 0; i--) {
@@ -215,11 +215,11 @@ export default {
                     }
                 }
 
-                let value = [...this.value];
+                let value = [...this.modelValue];
                 value[listIndex] = valueList;
 
                 this.reorderDirection = 'bottom';
-                this.$emit('input', value);
+                this.$emit('update:modelValue', value);
                 this.$emit('reorder', {
                     originalEvent: event,
                     value: value,
@@ -229,8 +229,8 @@ export default {
         },
         moveToTarget(event) {
             let selection = this.d_selection && this.d_selection[0] ? this.d_selection[0] : null;
-            let sourceList = [...this.value[0]];
-            let targetList = [...this.value[1]];
+            let sourceList = [...this.modelValue[0]];
+            let targetList = [...this.modelValue[1]];
 
             if (selection) {
                 for (let i = 0; i < selection.length; i++) {
@@ -241,10 +241,10 @@ export default {
                     }
                 }
 
-                let value = [...this.value];
+                let value = [...this.modelValue];
                 value[0] = sourceList;
                 value[1] = targetList;
-                this.$emit('input', value);
+                this.$emit('update:modelValue', value);
 
                 this.$emit('move-to-target', {
                     originalEvent: event,
@@ -260,9 +260,9 @@ export default {
             }
         },
         moveAllToTarget(event) {
-            if (this.value[0]) {
-                let sourceList = [...this.value[0]];
-                let targetList = [...this.value[1]];
+            if (this.modelValue[0]) {
+                let sourceList = [...this.modelValue[0]];
+                let targetList = [...this.modelValue[1]];
 
                 this.$emit('move-all-to-target', {
                     originalEvent: event,
@@ -272,10 +272,10 @@ export default {
                 targetList = [...targetList, ...sourceList];
                 sourceList = [];
 
-                let value = [...this.value];
+                let value = [...this.modelValue];
                 value[0] = sourceList;
                 value[1] = targetList;
-                this.$emit('input', value);
+                this.$emit('update:modelValue', value);
 
                 this.d_selection[0] = [];
                 this.$emit('update:selection', this.d_selection);
@@ -287,8 +287,8 @@ export default {
         },
         moveToSource(event) {
             let selection = this.d_selection && this.d_selection[1] ? this.d_selection[1] : null;
-            let sourceList = [...this.value[0]];
-            let targetList = [...this.value[1]];
+            let sourceList = [...this.modelValue[0]];
+            let targetList = [...this.modelValue[1]];
 
             if (selection) {
                 for (let i = 0; i < selection.length; i++) {
@@ -299,10 +299,10 @@ export default {
                     }
                 }
 
-                let value = [...this.value];
+                let value = [...this.modelValue];
                 value[0] = sourceList;
                 value[1] = targetList;
-                this.$emit('input', value);
+                this.$emit('update:modelValue', value);
 
                 this.$emit('move-to-source', {
                     originalEvent: event,
@@ -318,9 +318,9 @@ export default {
             }
         },
         moveAllToSource(event) {
-            if (this.value[1]) {
-                let sourceList = [...this.value[0]];
-                let targetList = [...this.value[1]];
+            if (this.modelValue[1]) {
+                let sourceList = [...this.modelValue[0]];
+                let targetList = [...this.modelValue[1]];
 
                 this.$emit('move-all-to-source', {
                     originalEvent: event,
@@ -330,10 +330,10 @@ export default {
                 sourceList = [...sourceList, ...targetList];
                 targetList = [];
 
-                let value = [...this.value];
+                let value = [...this.modelValue];
                 value[0] = sourceList;
                 value[1] = targetList;
-                this.$emit('input', value);
+                this.$emit('update:modelValue', value);
 
                 this.d_selection[1] = [];
                 this.$emit('update:selection', this.d_selection);
@@ -464,10 +464,10 @@ export default {
     },
     computed: {
         sourceList() {
-            return this.value && this.value[0] ? this.value[0] : null;
+            return this.modelValue && this.modelValue[0] ? this.modelValue[0] : null;
         },
         targetList() {
-            return this.value && this.value[1] ? this.value[1] : null;
+            return this.modelValue && this.modelValue[1] ? this.modelValue[1] : null;
         }
     },
     components: {
