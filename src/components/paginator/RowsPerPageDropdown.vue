@@ -1,6 +1,6 @@
 <template>
-	<RPPDropdown :value="rows" :options="rowsOptions" optionLabel="label" optionValue="value"
-        @input="onChange($event)"></RPPDropdown>
+	<RPPDropdown :modelValue="rows" :options="rowsOptions" optionLabel="label" optionValue="value"
+        @update:modelValue="onChange($event)"></RPPDropdown>
 </template>
 
 <script>
