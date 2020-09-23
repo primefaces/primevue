@@ -1,6 +1,6 @@
 <template>
     <transition name="p-contextmenu" @enter="onEnter" @leave="onLeave">
-        <div ref="container" class="p-contextmenu p-component" v-if="visible">
+        <div :ref="containerRef" class="p-contextmenu p-component" v-if="visible">
             <ContextMenuSub :model="model" :root="true" @leaf-click="onLeafClick" />
         </div>
     </transition>
@@ -39,6 +39,7 @@ export default {
     documentContextMenuListener: null,
     pageX: null,
     pageY: null,
+    container: null,
     data() {
         return {
             visible: false
@@ -49,6 +50,7 @@ export default {
         this.unbindResizeListener();
         this.unbindOutsideClickListener();
         this.unbindDocumentContextMenuListener();
+        this.container = null;
     },
     mounted() {
         if (this.global) {
@@ -95,7 +97,7 @@ export default {
             this.bindResizeListener();
 
             if (this.autoZIndex) {
-                this.$refs.container.style.zIndex = String(this.baseZIndex + DomHandler.generateZIndex());
+                this.container.style.zIndex = String(this.baseZIndex + DomHandler.generateZIndex());
             }
         },
         onLeave() {
@@ -105,8 +107,8 @@ export default {
         position() {
             let left = this.pageX + 1;
             let top = this.pageY + 1;
-            let width = this.$refs.container.offsetParent ? this.$refs.container.offsetWidth : DomHandler.getHiddenElementOuterWidth(this.$refs.container);
-            let height = this.$refs.container.offsetParent ? this.$refs.container.offsetHeight : DomHandler.getHiddenElementOuterHeight(this.$refs.container);
+            let width = this.container.offsetParent ? this.container.offsetWidth : DomHandler.getHiddenElementOuterWidth(this.container);
+            let height = this.container.offsetParent ? this.container.offsetHeight : DomHandler.getHiddenElementOuterHeight(this.container);
             let viewport = DomHandler.getViewport();
 
             //flip
@@ -129,13 +131,13 @@ export default {
                 top = document.body.scrollTop;
             }
 
-            this.$refs.container.style.left = left + 'px';
-            this.$refs.container.style.top = top + 'px';
+            this.container.style.left = left + 'px';
+            this.container.style.top = top + 'px';
         },
         bindOutsideClickListener() {
             if (!this.outsideClickListener) {
                 this.outsideClickListener = (event) => {
-                    if (this.visible && this.$refs.container && !this.$refs.container.contains(event.target)) {
+                    if (this.visible && this.container && !this.container.contains(event.target)) {
                         this.hide();
                     }
                 };
@@ -167,17 +169,17 @@ export default {
         appendContainer() {
             if (this.appendTo) {
                 if (this.appendTo === 'body')
-                    document.body.appendChild(this.$refs.container);
+                    document.body.appendChild(this.container);
                 else
-                    document.getElementById(this.appendTo).appendChild(this.$refs.container);
+                    document.getElementById(this.appendTo).appendChild(this.container);
             }
         },
         restoreAppend() {
-            if (this.$refs.container && this.appendTo) {
+            if (this.container && this.appendTo) {
                 if (this.appendTo === 'body')
-                    document.body.removeChild(this.$refs.container);
+                    document.body.removeChild(this.container);
                 else
-                    document.getElementById(this.appendTo).removeChild(this.$refs.container);
+                    document.getElementById(this.appendTo).removeChild(this.container);
             }
         },
         bindDocumentContextMenuListener() {
@@ -194,6 +196,9 @@ export default {
                 document.removeEventListener('contextmenu', this.documentContextMenuListener);
                 this.documentContextMenuListener = null;
             }
+        },
+        containerRef(el) {
+            this.container = el;
         }
     },
     components: {
@@ -240,7 +245,7 @@ export default {
     margin-left: auto;
 }
 
-.p-contextmenu-enter {
+.p-contextmenu-enter-from {
     opacity: 0;
 }
 

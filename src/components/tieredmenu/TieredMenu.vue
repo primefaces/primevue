@@ -1,6 +1,6 @@
 <template>
     <transition name="p-connected-overlay" @enter="onEnter" @leave="onLeave">
-        <div ref="container" :class="containerClass" v-if="popup ? visible : true">
+        <div :ref="containerRef" :class="containerClass" v-if="popup ? visible : true">
             <TieredMenuSub :model="model" :root="true" :popup="popup" @leaf-click="onLeafClick"/>
         </div>
     </transition>
@@ -34,6 +34,7 @@ export default {
         }
     },
     target: null,
+    container: null,
     outsideClickListener: null,
     resizeListener: null,
     data() {
@@ -46,6 +47,7 @@ export default {
         this.unbindResizeListener();
         this.unbindOutsideClickListener();
         this.target = null;
+        this.container = null;
     },
     methods: {
         itemClick(event) {
@@ -76,7 +78,7 @@ export default {
             this.bindResizeListener();
 
             if (this.autoZIndex) {
-                this.$refs.container.style.zIndex = String(this.baseZIndex + DomHandler.generateZIndex());
+                this.container.style.zIndex = String(this.baseZIndex + DomHandler.generateZIndex());
             }
         },
         onLeave() {
@@ -84,12 +86,12 @@ export default {
             this.unbindResizeListener();
         },
         alignOverlay() {
-            DomHandler.absolutePosition(this.$refs.container, this.target);
+            DomHandler.absolutePosition(this.container, this.target);
         },
         bindOutsideClickListener() {
             if (!this.outsideClickListener) {
                 this.outsideClickListener = (event) => {
-                    if (this.visible && this.$refs.container && !this.$refs.container.contains(event.target) && !this.isTargetClicked(event)) {
+                    if (this.visible && this.container && !this.container.contains(event.target) && !this.isTargetClicked(event)) {
                         this.hide();
                     }
                 };
@@ -124,23 +126,26 @@ export default {
         appendContainer() {
             if (this.appendTo) {
                 if (this.appendTo === 'body')
-                    document.body.appendChild(this.$refs.container);
+                    document.body.appendChild(this.container);
                 else
-                    document.getElementById(this.appendTo).appendChild(this.$refs.container);
+                    document.getElementById(this.appendTo).appendChild(this.container);
             }
         },
         restoreAppend() {
-            if (this.$refs.container && this.appendTo) {
+            if (this.container && this.appendTo) {
                 if (this.appendTo === 'body')
-                    document.body.removeChild(this.$refs.container);
+                    document.body.removeChild(this.container);
                 else
-                    document.getElementById(this.appendTo).removeChild(this.$refs.container);
+                    document.getElementById(this.appendTo).removeChild(this.container);
             }
         },
         onLeafClick() {
             if (this.popup) {
                 this.hide();
             }
+        },
+        containerRef(el) {
+            this.container = el;
         }
     },
     computed: {

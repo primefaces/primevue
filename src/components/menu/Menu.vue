@@ -1,6 +1,6 @@
 <template>
     <transition name="p-connected-overlay" @enter="onEnter" @leave="onLeave">
-        <div ref="container" :class="containerClass" v-if="popup ? overlayVisible : true">
+        <div :ref="containerRef" :class="containerClass" v-if="popup ? overlayVisible : true">
             <ul class="p-menu-list p-reset" role="menu">
                 <template v-for="(item, i) of model">
                     <template v-if="item.items && visible(item) && !item.separator">
@@ -54,6 +54,7 @@ export default {
     outsideClickListener: null,
     resizeListener: null,
     relativeAlign: false,
+    container: null,
     beforeUnmount() {
         this.restoreAppend();
         this.unbindResizeListener();
@@ -96,7 +97,7 @@ export default {
             this.bindResizeListener();
 
             if (this.autoZIndex) {
-                this.$refs.container.style.zIndex = String(this.baseZIndex + DomHandler.generateZIndex());
+                this.container.style.zIndex = String(this.baseZIndex + DomHandler.generateZIndex());
             }
         },
         onLeave() {
@@ -105,15 +106,15 @@ export default {
         },
         alignOverlay() {
             if (this.relativeAlign)
-                DomHandler.relativePosition(this.$refs.container, this.target);
+                DomHandler.relativePosition(this.container, this.target);
             else
-                DomHandler.absolutePosition(this.$refs.container, this.target);
+                DomHandler.absolutePosition(this.container, this.target);
 
         },
         bindOutsideClickListener() {
             if (!this.outsideClickListener) {
                 this.outsideClickListener = (event) => {
-                    if (this.overlayVisible && this.$refs.container && !this.$refs.container.contains(event.target) && !this.isTargetClicked(event)) {
+                    if (this.overlayVisible && this.container && !this.container.contains(event.target) && !this.isTargetClicked(event)) {
                         this.hide();
                     }
                 };
@@ -148,17 +149,17 @@ export default {
         appendContainer() {
             if (this.appendTo) {
                 if (this.appendTo === 'body')
-                    document.body.appendChild(this.$refs.container);
+                    document.body.appendChild(this.container);
                 else
-                    document.getElementById(this.appendTo).appendChild(this.$refs.container);
+                    document.getElementById(this.appendTo).appendChild(this.container);
             }
         },
         restoreAppend() {
-            if (this.$refs.container && this.appendTo) {
+            if (this.container && this.appendTo) {
                 if (this.appendTo === 'body')
-                    document.body.removeChild(this.$refs.container);
+                    document.body.removeChild(this.container);
                 else
-                    document.getElementById(this.appendTo).removeChild(this.$refs.container);
+                    document.getElementById(this.appendTo).removeChild(this.container);
             }
         },
         beforeUnmount() {
@@ -166,9 +167,13 @@ export default {
             this.unbindResizeListener();
             this.unbindOutsideClickListener();
             this.target = null;
+            this.container = null;
         },
         visible(item) {
             return (typeof item.visible === 'function' ? item.visible() : item.visible !== false);
+        },
+        containerRef(el) {
+            this.container = el;
         }
     },
     computed: {
