@@ -335,7 +335,7 @@ export default {
         `;
 
 			if (this.responsiveOptions) {
-				let _responsiveOptions = {...this.responsiveOptions};
+				let _responsiveOptions = [...this.responsiveOptions];
 				_responsiveOptions.sort((data1, data2) => {
 					const value1 = data1.breakpoint;
 					const value2 = data2.breakpoint;
