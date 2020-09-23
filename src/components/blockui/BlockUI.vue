@@ -1,5 +1,5 @@
 <template>
-    <div class="p-blockui-container">
+    <div ref="container" class="p-blockui-container">
         <slot></slot>
     </div>
 </template>
@@ -50,13 +50,10 @@ export default {
                 document.activeElement.blur();
             }
             else {
-                const target = this.$children ? this.$children[0]: null;
-                if (target) {
-                    this.mask = document.createElement('div');
-                    this.mask.setAttribute('class', 'p-blockui');
-                    target.$el.appendChild(this.mask);
-                    target.$el.style.position = 'relative';
-                }
+                debugger;
+                this.mask = document.createElement('div');
+                this.mask.setAttribute('class', 'p-blockui');
+                this.$refs.container.appendChild(this.mask);
             }
 
             if (this.mask) {
@@ -83,7 +80,7 @@ export default {
                 DomHandler.removeClass(document.body, 'p-overflow-hidden');
             }
             else {
-                this.$children[0].$el.removeChild(this.mask);
+                this.$refs.container.removeChild(this.mask);
             }
 
             this.$emit('unblock');
@@ -93,6 +90,10 @@ export default {
 </script>
 
 <style>
+.p-blockui-container {
+    position: relative;
+}
+
 .p-blockui {
     position: absolute;
     top: 0;
