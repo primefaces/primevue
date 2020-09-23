@@ -2,24 +2,28 @@
 	<div class="content-section documentation">
 		<TabView>
 			<TabPanel header="Documentation">
+                <h5>Mitt EventBus</h5>
+                <p>Toast requires <a href="https://www.npmjs.com/package/mitt">Mitt</a>, a tiny 200b EventBus implementation.</p>
+<CodeHighlight>
+npm install mitt --save
+</CodeHighlight>
+
                 <h5>ToastService</h5>
                 <p>Toast messages are dynamically created using a <i>ToastService</i> that needs to be installed globally before the application
                     instance is created.</p>
 <CodeHighlight lang="javascript">
+import {createApp} from 'vue';
 import ToastService from 'primevue/toastservice';
-Vue.use(ToastService);
 
-//example application instance
-new Vue({
-  router,
-  render: h => h(App)
-}).$mount('#app');
+const app = createApp(App);
+app.use(ToastService);
 </CodeHighlight>
 
 				<h5>Import</h5>
 <CodeHighlight lang="javascript">
 import Toast from 'primevue/toast';
 </CodeHighlight>
+
 
 				<h5>Getting Started</h5>
                 <p>Ideal location of a Toast is the main application template so that it can be used by any component within the application.</p>
@@ -243,7 +247,7 @@ this.$toast.removeAllGroups();
 				</div>
 
 				<h5>Dependencies</h5>
-				<p>None.</p>
+				<p>Mitt.</p>
 			</TabPanel>
 
 			<TabPanel header="Source">
