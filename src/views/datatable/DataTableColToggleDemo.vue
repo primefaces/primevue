@@ -12,7 +12,7 @@
                 <DataTable :value="products">
                     <template #header>
                         <div style="text-align:left">
-                            <MultiSelect :value="selectedColumns" :options="columns" optionLabel="header" @input="onToggle"
+                            <MultiSelect :modelValue="selectedColumns" :options="columns" optionLabel="header" @update:modelValue="onToggle"
                                 placeholder="Select Columns" style="width: 20em"/>
                         </div>
                     </template>
@@ -30,7 +30,7 @@
 &lt;DataTable :value="products"&gt;
     &lt;template #header&gt;
         &lt;div style="text-align:left"&gt;
-            &lt;MultiSelect :value="selectedColumns" :options="columns" optionLabel="header" @input="onToggle"
+            &lt;MultiSelect :modelValue="selectedColumns" :options="columns" optionLabel="header" @update:modelValue="onToggle"
                 placeholder="Select Columns" style="width: 20em"/&gt;
         &lt;/div&gt;
     &lt;/template&gt;

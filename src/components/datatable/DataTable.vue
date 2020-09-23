@@ -1246,11 +1246,11 @@ export default {
             }
         },
         findColumnByKey(columns, key) {
-            if(columns && columns.length) {
-                for(let i = 0; i < columns.length; i++) {
-                    let child = columns[i];
-                    if(child.columnKey === key || child.field === key) {
-                        return child;
+            if (columns && columns.length) {
+                for (let i = 0; i < columns.length; i++) {
+                    let column = columns[i];
+                    if (column.props.columnKey === key || column.props.field === key) {
+                        return column;
                     }
                 }
             }
@@ -1651,23 +1651,31 @@ export default {
             ];
         },
         columns() {
-            let columns = this.$slots.default().filter(child => child.type.name === 'column');
+            let cols = [];
+            let children = this.$slots.default();
+            
+            children.forEach(child => {
+                if (child.dynamicChildren)
+                    cols = [...cols, ...child.children];
+                else if (child.type.name === 'column')
+                    cols.push(child);
+            });
 
             if (this.reorderableColumns && this.d_columnOrder) {
                 let orderedColumns = [];
                 for (let columnKey of this.d_columnOrder) {
-                    let column = this.findColumnByKey(columns, columnKey);
+                    let column = this.findColumnByKey(cols, columnKey);
                     if (column) {
                         orderedColumns.push(column);
                     }
                 }
 
-                return [...orderedColumns, ...columns.filter((item) => {
+                return [...orderedColumns, ...cols.filter((item) => {
                     return orderedColumns.indexOf(item) < 0;
                 })];
             }
             
-            return columns;
+            return cols;
         },
         frozenColumns() {
             let frozenColumns = [];
