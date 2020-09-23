@@ -12,9 +12,11 @@
                 <Steps :model="items" :readonly="true" />
             </div>
 
-            <keep-alive>
-                <router-view :formData="formObject" @prev-page="prevPage($event)" @next-page="nextPage($event)" @complete="complete" />
-            </keep-alive>
+            <router-view v-slot="{Component}" :formData="formObject" @prev-page="prevPage($event)" @next-page="nextPage($event)" @complete="complete">
+                <keep-alive>
+                    <component :is="Component" />
+                </keep-alive>
+            </router-view>
         </div>
 
         <StepsDoc />

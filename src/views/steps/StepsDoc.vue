@@ -125,10 +125,15 @@ export default {
 				</a>
 <CodeHighlight>
 <template v-pre>
-&lt;Steps :model="items" :readonly="true"  style="margin-bottom: 1rem" /&gt;
-&lt;keep-alive&gt;
-    &lt;router-view :formData="formObject" @prevPage="prev-page($event)" @next-page="nextPage($event)" @complete="complete" /&gt;
-&lt;/keep-alive&gt;
+&lt;div class="card"&gt;
+    &lt;Steps :model="items" :readonly="true" /&gt;
+&lt;/div&gt;
+
+&lt;router-view v-slot="{Component}" :formData="formObject" @prev-page="prevPage($event)" @next-page="nextPage($event)" @complete="complete"&gt;
+    &lt;keep-alive&gt;
+        &lt;component :is="Component" /&gt;
+    &lt;/keep-alive&gt;
+&lt;/router-view&gt;
 </template>
 </CodeHighlight>
 
@@ -182,36 +187,34 @@ export default {
 <template v-pre>
 &lt;div class="stepsdemo-content"&gt;
     &lt;Card&gt;
-        &lt;template slot="title"&gt;
+        &lt;template v-slot:title&gt;
             Personal Information
         &lt;/template&gt;
-        &lt;template slot="subtitle"&gt;
-            Enter your information
+        &lt;template v-slot:subtitle&gt;
+            Enter your personal information
         &lt;/template&gt;
-        &lt;template slot="content"&gt;
-            &lt;p class="p-text-secondary"&gt;Enter your information&lt;/p&gt;
+        &lt;template v-slot:content&gt;
             &lt;div class="p-fluid"&gt;
                 &lt;div class="p-field"&gt;
                     &lt;label for="firstname"&gt;Firstname&lt;/label&gt;
-                    &lt;InputText id="firstname" v-model="$v.firstname.$model" :class="{'p-invalid':$v.firstname.$invalid && submitted}" /&gt;
-                    &lt;small v-show="$v.firstname.$invalid && submitted" class="p-error"&gt;Firstname is required.&lt;/small&gt;
+                    &lt;InputText id="firstname" v-model="firstname" :class="{'p-invalid': validationErrors.firstname && submitted}" /&gt;
+                    &lt;small v-show="validationErrors.firstname && submitted" class="p-error"&gt;Firstname is required.&lt;/small&gt;
                 &lt;/div&gt;
                 &lt;div class="p-field"&gt;
                     &lt;label for="lastname"&gt;Lastname&lt;/label&gt;
-                    &lt;InputText v-model="$v.lastname.$model" :class="{'p-invalid':$v.lastname.$invalid && submitted}" /&gt;
-                    &lt;small v-show="$v.lastname.$invalid && submitted" class="p-error"&gt;Lastname is required.&lt;/small&gt;
+                    &lt;InputText id="lastname" v-model="lastname" :class="{'p-invalid': validationErrors.lastname && submitted}" /&gt;
+                    &lt;small v-show="validationErrors.lastname && submitted" class="p-error"&gt;Lastname is required.&lt;/small&gt;
                 &lt;/div&gt;
                 &lt;div class="p-field"&gt;
                     &lt;label for="age"&gt;Age&lt;/label&gt;
-                    &lt;InputText id="age" v-model="$v.age.$model" :class="{'p-invalid':$v.age.$error && submitted}" /&gt;
-                    &lt;small v-show="$v.age.$invalid && submitted" class="p-error"&gt;Age should be a number.&lt;/small&gt;
+                    &lt;InputNumber id="age" v-model="age" /&gt;
                 &lt;/div&gt;
             &lt;/div&gt;
         &lt;/template&gt;
-        &lt;template slot="footer"&gt;
+        &lt;template v-slot:footer&gt;
             &lt;div class="p-grid p-nogutter p-justify-between"&gt;
                 &lt;i&gt;&lt;/i&gt;
-                &lt;Button label="Next" @click="nextPage(!$v.$invalid)" icon="pi pi-angle-right" iconPos="right" /&gt;
+                &lt;Button label="Next" @click="nextPage()" icon="pi pi-angle-right" iconPos="right" /&gt;
             &lt;/div&gt;
         &lt;/template&gt;
     &lt;/Card&gt;
@@ -220,77 +223,76 @@ export default {
 </CodeHighlight>
 
 <CodeHighlight lang="javascript">
-import {required, integer} from 'vuelidate/lib/validators';
-
 export default {
     data () {
         return {
             firstname: '',
             lastname: '',
-            age: '',
-            submitted: false
-        }
-    },
-    validations: {
-        firstname: {
-            required
-        },
-        lastname: {
-            required
-        },
-        age: {
-            integer
+            age: null,
+            submitted: false,
+            validationErrors: {}
         }
     },
     methods: {
-        nextPage(isFormValid) {
+        nextPage() {
             this.submitted = true;
-
-            if (!isFormValid) {
-                return;
+            if (this.validateForm() ) {
+                this.$emit('next-page', {formData: {firstname: this.firstname, lastname: this.lastname, age: this.age}, pageIndex: 0});
             }
+        },
+        validateForm() {
+            if (!this.firstname.trim())
+                this.validationErrors['firstname'] = true;
+            else
+                delete this.validationErrors['firstname'];
 
-            this.$emit('next-page', {formData: {firstname: this.firstname, lastname: this.lastname, age: this.age}, pageIndex: 0});
+            if (!this.lastname.trim())
+                this.validationErrors['lastname'] = true;
+            else
+                delete this.validationErrors['lastname'];
+
+            return !Object.keys(this.validationErrors).length;
         }
     }
 }
 </CodeHighlight>
 			</TabPanel>
+
             <TabPanel header="Seat">
 <CodeHighlight>
 <template v-pre>
-    &lt;div class="stepsdemo-content"&gt;
-        &lt;Card&gt;
-            &lt;template slot="title"&gt;
-                Seat Information
-            &lt;/template&gt;
-            &lt;template slot="subtitle"&gt;
-                Choose your seat
-            &lt;/template&gt;
-            &lt;template slot="content"&gt;
-                &lt;div class="p-fluid p-formgrid p-grid"&gt;
-                    &lt;div class="p-field p-col-12 p-md-6"&gt;
-                        &lt;label for="class"&gt;Class&lt;/label&gt;
-                        &lt;Dropdown inputId="class" v-model="selectedClass" :options="classes" @change="setVagons($event)" optionLabel="name" placeholder="Select a Class" /&gt;
-                    &lt;/div&gt;
-                    &lt;div class="p-field p-col-12 p-md-6"&gt;
-                        &lt;label for="lastname"&gt;Wagon&lt;/label&gt;
-                        &lt;Dropdown inputId="wagon" v-model="selectedVagon" :options="vagons" @change="setSeats($event)" optionLabel="vagon" placeholder="Select a Vagon" /&gt;
-                    &lt;/div&gt;
-                    &lt;div class="p-field p-col-12"&gt;
-                        &lt;label for="seat"&gt;Seat&lt;/label&gt;
-                        &lt;Dropdown inputId="seat" v-model="selectedSeat" :options="seats" optionLabel="seat" placeholder="Select a Seat" /&gt;
-                    &lt;/div&gt;
+&lt;div class="stepsdemo-content"&gt;
+    &lt;Card&gt;
+        &lt;template slot="title"&gt;
+            Seat Information
+        &lt;/template&gt;
+        &lt;template slot="subtitle"&gt;
+            Choose your seat
+        &lt;/template&gt;
+        &lt;template slot="content"&gt;
+            &lt;div class="p-fluid p-formgrid p-grid"&gt;
+                &lt;div class="p-field p-col-12 p-md-6"&gt;
+                    &lt;label for="class"&gt;Class&lt;/label&gt;
+                    &lt;Dropdown inputId="class" v-model="selectedClass" :options="classes" @change="setVagons($event)" optionLabel="name" placeholder="Select a Class" /&gt;
                 &lt;/div&gt;
-            &lt;/template&gt;
-            &lt;template slot="footer"&gt;
-                &lt;div class="p-grid p-nogutter p-justify-between"&gt;
-                    &lt;Button label="Back" @click="prevPage()" icon="pi pi-angle-left" /&gt;
-                    &lt;Button label="Next" @click="nextPage()" icon="pi pi-angle-right" iconPos="right" /&gt;
+                &lt;div class="p-field p-col-12 p-md-6"&gt;
+                    &lt;label for="lastname"&gt;Wagon&lt;/label&gt;
+                    &lt;Dropdown inputId="wagon" v-model="selectedVagon" :options="vagons" @change="setSeats($event)" optionLabel="vagon" placeholder="Select a Vagon" /&gt;
                 &lt;/div&gt;
-            &lt;/template&gt;
-        &lt;/Card&gt;
-    &lt;/div&gt;
+                &lt;div class="p-field p-col-12"&gt;
+                    &lt;label for="seat"&gt;Seat&lt;/label&gt;
+                    &lt;Dropdown inputId="seat" v-model="selectedSeat" :options="seats" optionLabel="seat" placeholder="Select a Seat" /&gt;
+                &lt;/div&gt;
+            &lt;/div&gt;
+        &lt;/template&gt;
+        &lt;template slot="footer"&gt;
+            &lt;div class="p-grid p-nogutter p-justify-between"&gt;
+                &lt;Button label="Back" @click="prevPage()" icon="pi pi-angle-left" /&gt;
+                &lt;Button label="Next" @click="nextPage()" icon="pi pi-angle-right" iconPos="right" /&gt;
+            &lt;/div&gt;
+        &lt;/template&gt;
+    &lt;/Card&gt;
+&lt;/div&gt;
 </template>
 </CodeHighlight>
 
@@ -406,6 +408,7 @@ export default {
 }
 </CodeHighlight>
 			</TabPanel>
+            
             <TabPanel header="Confirmation">
 <CodeHighlight>
 <template v-pre>

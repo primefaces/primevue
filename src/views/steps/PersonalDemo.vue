@@ -11,25 +11,24 @@
                 <div class="p-fluid">
                     <div class="p-field">
                         <label for="firstname">Firstname</label>
-                        <InputText id="firstname" v-model="$v.firstname.$model" :class="{'p-invalid':$v.firstname.$invalid && submitted}" />
-                        <small v-show="$v.firstname.$invalid && submitted" class="p-error">Firstname is required.</small>
+                        <InputText id="firstname" v-model="firstname" :class="{'p-invalid': validationErrors.firstname && submitted}" />
+                        <small v-show="validationErrors.firstname && submitted" class="p-error">Firstname is required.</small>
                     </div>
                     <div class="p-field">
                         <label for="lastname">Lastname</label>
-                        <InputText v-model="$v.lastname.$model" :class="{'p-invalid':$v.lastname.$invalid && submitted}" />
-                        <small v-show="$v.lastname.$invalid && submitted" class="p-error">Lastname is required.</small>
+                        <InputText id="lastname" v-model="lastname" :class="{'p-invalid': validationErrors.lastname && submitted}" />
+                        <small v-show="validationErrors.lastname && submitted" class="p-error">Lastname is required.</small>
                     </div>
                     <div class="p-field">
                         <label for="age">Age</label>
-                        <InputText id="age" v-model="$v.age.$model" :class="{'p-invalid':$v.age.$error && submitted}" />
-                        <small v-show="$v.age.$invalid && submitted" class="p-error">Age should be a number.</small>
+                        <InputNumber id="age" v-model="age" />
                     </div>
                 </div>
             </template>
             <template v-slot:footer>
                 <div class="p-grid p-nogutter p-justify-between">
                     <i></i>
-                    <Button label="Next" @click="nextPage(!$v.$invalid)" icon="pi pi-angle-right" iconPos="right" />
+                    <Button label="Next" @click="nextPage()" icon="pi pi-angle-right" iconPos="right" />
                 </div>
             </template>
         </Card>
@@ -37,37 +36,35 @@
 </template>
 
 <script>
-import {required, integer} from 'vuelidate/lib/validators';
-
 export default {
     data () {
         return {
             firstname: '',
             lastname: '',
-            age: '',
-            submitted: false
-        }
-    },
-    validations: {
-        firstname: {
-            required
-        },
-        lastname: {
-            required
-        },
-        age: {
-            integer
+            age: null,
+            submitted: false,
+            validationErrors: {}
         }
     },
     methods: {
-        nextPage(isFormValid) {
+        nextPage() {
             this.submitted = true;
-
-            if (!isFormValid) {
-                return;
+            if (this.validateForm() ) {
+                this.$emit('next-page', {formData: {firstname: this.firstname, lastname: this.lastname, age: this.age}, pageIndex: 0});
             }
+        },
+        validateForm() {
+            if (!this.firstname.trim())
+                this.validationErrors['firstname'] = true;
+            else
+                delete this.validationErrors['firstname'];
 
-            this.$emit('next-page', {formData: {firstname: this.firstname, lastname: this.lastname, age: this.age}, pageIndex: 0});
+            if (!this.lastname.trim())
+                this.validationErrors['lastname'] = true;
+            else
+                delete this.validationErrors['lastname'];
+
+            return !Object.keys(this.validationErrors).length;
         }
     }
 }

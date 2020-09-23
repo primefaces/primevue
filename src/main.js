@@ -88,9 +88,7 @@ import '@fullcalendar/core/main.min.css';
 import '@fullcalendar/daygrid/main.min.css';
 import '@fullcalendar/timegrid/main.min.css';
 import './assets/styles/flags.css';
-//import Vuelidate from 'vuelidate';
 
-//Vue.use(Vuelidate);
 /*router.beforeEach(function (to, from, next) {
     window.scrollTo(0, 0);
     next();
