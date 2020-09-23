@@ -1,5 +1,5 @@
 <template>
-    <transition name="p-message">
+    <transition name="p-message" appear>
         <div :class="containerClass" v-if="visible" role="alert">
             <div class="p-message-wrapper">
                 <span :class="iconClass"></span>
@@ -86,16 +86,15 @@ export default {
     position: relative;
 }
 
-.p-message-enter {
+.p-message-enter-from {
     opacity: 0;
 }
 
 .p-message-enter-active {
-    -webkit-transition: opacity .3s;
     transition: opacity .3s;
 }
 
-.p-message.p-message-leave {
+.p-message.p-message-leave-from {
     max-height: 1000px;
 }
 
@@ -107,8 +106,7 @@ export default {
 
 .p-message-leave-active {
     overflow: hidden;
-    -webkit-transition: max-height .3s cubic-bezier(0, 1, 0, 1), opacity .3s, margin .3s;
-    transition: max-height .3 cubic-bezier(0, 1, 0, 1), opacity .3s, margin .3s;
+    transition: max-height .3s cubic-bezier(0, 1, 0, 1), opacity .3s, margin .15s;
 }
 
 .p-message-leave-active .p-message-close {

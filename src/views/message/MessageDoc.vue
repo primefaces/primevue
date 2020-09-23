@@ -239,22 +239,21 @@ import InlineMessage from 'primevue/inlinemessage';
 
 &lt;h5&gt;Dynamic&lt;/h5&gt;
 &lt;Button label="Show" @click="addMessages()" /&gt;
-&lt;Button label="Clear" @click="removeMessages()" class="p-button-secondary"/&gt;
-&lt;transition-group name="p-messages" tag="div"&gt;
+&lt;transition-group name="p-message" tag="div"&gt;
     &lt;Message v-for="msg of messages" :severity="msg.severity" :key="msg.content"&gt;{{msg.content}}&lt;/Message&gt;
 &lt;/transition-group&gt;
 
 &lt;h5&gt;Auto Dismiss&lt;/h5&gt;
-&lt;Message severity="warn" :life="10000" :sticky="false"&gt;This message will hide in 10 seconds.&lt;/Message&gt;
+&lt;Message severity="warn" :life="3000" :sticky="false"&gt;This message will hide in 3 seconds.&lt;/Message&gt;
 
 &lt;h5&gt;Validation Message&lt;/h5&gt;
 &lt;div class="p-formgroup-inline" style="margin-bottom:.5rem"&gt;
-    &lt;Label for="username" class="p-sr-only"&gt;Username&lt;/Label&gt;
+    &lt;label for="username" class="p-sr-only"&gt;Username&lt;/label&gt;
     &lt;InputText id="username" placeholder="Username" class="p-invalid" /&gt;
     &lt;InlineMessage&gt;Username is required&lt;/InlineMessage&gt;
 &lt;/div&gt;
 &lt;div class="p-formgroup-inline"&gt;
-    &lt;Label for="email" class="p-sr-only"&gt;email&lt;/Label&gt;
+    &lt;label for="email" class="p-sr-only"&gt;email&lt;/label&gt;
     &lt;InputText id="email" placeholder="Email" class="p-invalid" /&gt;
     &lt;InlineMessage /&gt;
 &lt;/div&gt;
@@ -276,9 +275,6 @@ export default {
 				{severity: 'success', content: 'Dynamic Success Message'},
 				{severity: 'warn', content: 'Dynamic Warning Message'}
 			]
-		},
-		removeMessages() {
-			this.messages = null;
 		}
 	}
 }

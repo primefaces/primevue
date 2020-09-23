@@ -17,22 +17,21 @@
 
                 <h5>Dynamic</h5>
                 <Button label="Show" @click="addMessages()" />
-                <Button label="Clear" @click="removeMessages()" class="p-button-secondary"/>
-                <transition-group name="p-messages" tag="div">
+                <transition-group name="p-message" tag="div">
                     <Message v-for="msg of messages" :severity="msg.severity" :key="msg.content">{{msg.content}}</Message>
                 </transition-group>
 
                 <h5>Auto Dismiss</h5>
-                <Message severity="warn" :life="10000" :sticky="false">This message will hide in 10 seconds.</Message>
+                <Message severity="warn" :life="3000" :sticky="false">This message will hide in 3 seconds.</Message>
 
                 <h5>Validation Message</h5>
                 <div class="p-formgroup-inline" style="margin-bottom:.5rem">
-                    <Label for="username" class="p-sr-only">Username</Label>
+                    <label for="username" class="p-sr-only">Username</label>
                     <InputText id="username" placeholder="Username" class="p-invalid" />
                     <InlineMessage>Username is required</InlineMessage>
                 </div>
                 <div class="p-formgroup-inline">
-                    <Label for="email" class="p-sr-only">email</Label>
+                    <label for="email" class="p-sr-only">email</label>
                     <InputText id="email" placeholder="Email" class="p-invalid" />
                     <InlineMessage />
                 </div>
@@ -60,9 +59,6 @@ export default {
                 {severity: 'success', content: 'Dynamic Success Message'},
                 {severity: 'warn', content: 'Dynamic Warning Message'}
             ]
-        },
-        removeMessages() {
-            this.messages = null;
         }
     },
     components: {
