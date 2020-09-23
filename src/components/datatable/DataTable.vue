@@ -38,17 +38,17 @@
         </div>
         <div class="p-datatable-scrollable-wrapper" v-else>
             <DTScrollableView v-if="hasFrozenColumns" :scrollHeight="scrollHeight" :columns="frozenColumns" :frozenWidth="frozenWidth" :frozen="true"
-                :rowGroupMode="rowGroupMode" :groupRowsBy="groupRowsBy">
-                <template #header>
-                    <DTTableHeader :columnGroup="frozenHeaderColumnGroup" :columns="frozenColumns" :rowGroupMode="rowGroupMode"
+                :rowGroupMode="rowGroupMode" :groupRowsBy="groupRowsBy" :headerColumnGroup="frozenHeaderColumnGroup" :footerColumnGroup="frozenFooterColumnGroup">
+                <template #header="slotProps">
+                    <DTTableHeader :columnGroup="slotProps.columnGroup" :columns="slotProps.columns" :rowGroupMode="rowGroupMode"
                         :groupRowsBy="groupRowsBy" :resizableColumns="resizableColumns" :allRowsSelected="allRowsSelected" :empty="empty"
                         :sortMode="sortMode" :sortField="d_sortField" :sortOrder="d_sortOrder" :multiSortMeta="d_multiSortMeta"
                         @column-click="onColumnHeaderClick($event)" @column-mousedown="onColumnHeaderMouseDown($event)"
                         @column-dragstart="onColumnHeaderDragStart($event)" @column-dragover="onColumnHeaderDragOver($event)" @column-dragleave="onColumnHeaderDragLeave($event)" @column-drop="onColumnHeaderDrop($event)"
                         @column-resizestart="onColumnResizeStart($event)" @checkbox-change="toggleRowsWithCheckbox($event)" />
                 </template>
-                <template #body>
-                    <DTTableBody :value="dataToRender" :columns="frozenColumns" :empty="empty" :dataKey="dataKey" :selection="selection" :selectionKeys="d_selectionKeys" :selectionMode="selectionMode" :contextMenu="contextMenu" :contextMenuSelection="contextMenuSelection"
+                <template #body="slotProps">
+                    <DTTableBody :value="dataToRender" :columns="slotProps.columns" :empty="empty" :dataKey="dataKey" :selection="selection" :selectionKeys="d_selectionKeys" :selectionMode="selectionMode" :contextMenu="contextMenu" :contextMenuSelection="contextMenuSelection"
                         :rowGroupMode="rowGroupMode" :groupRowsBy="groupRowsBy" :expandableRowGroups="expandableRowGroups" :rowClass="rowClass" :editMode="editMode" :compareSelectionBy="compareSelectionBy"
                         :expandedRowIcon="expandedRowIcon" :collapsedRowIcon="collapsedRowIcon" :expandedRows="expandedRows" :expandedRowKeys="d_expandedRowKeys" :expandedRowGroups="expandedRowGroups"
                         :editingRows="editingRows" :editingRowKeys="d_editingRowKeys" :templates="$slots" :loading="loading"
@@ -58,8 +58,8 @@
                         @cell-edit-init="onCellEditInit($event)" @cell-edit-complete="onCellEditComplete($event)" @cell-edit-cancel="onCellEditCancel($event)"
                         @row-edit-init="onRowEditInit($event)" @row-edit-save="onRowEditSave($event)" @row-edit-cancel="onRowEditCancel($event)"/>
                 </template>
-                <template #frozenbody>
-                    <DTTableBody v-if="frozenValue" :value="frozenValue" :columns="frozenColumns" :dataKey="dataKey" :selection="selection" :selectionKeys="d_selectionKeys" :selectionMode="selectionMode" :contextMenu="contextMenu" :contextMenuSelection="contextMenuSelection"
+                <template #frozenbody="slotProps">
+                    <DTTableBody v-if="frozenValue" :value="frozenValue" :columns="slotProps.columns" :dataKey="dataKey" :selection="selection" :selectionKeys="d_selectionKeys" :selectionMode="selectionMode" :contextMenu="contextMenu" :contextMenuSelection="contextMenuSelection"
                         :rowGroupMode="rowGroupMode" :groupRowsBy="groupRowsBy" :expandableRowGroups="expandableRowGroups" :rowClass="rowClass" :editMode="editMode" :compareSelectionBy="compareSelectionBy"
                         :expandedRowIcon="expandedRowIcon" :collapsedRowIcon="collapsedRowIcon" :expandedRows="expandedRows" :expandedRowKeys="d_expandedRowKeys" :expandedRowGroups="expandedRowGroups"
                         :editingRows="editingRows" :editingRowKeys="d_editingRowKeys" :templates="$slots" :loading="loading"
@@ -69,23 +69,23 @@
                         @cell-edit-init="onCellEditInit($event)" @cell-edit-complete="onCellEditComplete($event)" @cell-edit-cancel="onCellEditCancel($event)"
                         @row-edit-init="onRowEditInit($event)" @row-edit-save="onRowEditSave($event)" @row-edit-cancel="onRowEditCancel($event)"/>
                 </template>
-                <template #footer>
-                    <DTTableFooter :columnGroup="frozenFooterColumnGroup" :columns="frozenColumns" />
+                <template #footer="slotProps">
+                    <DTTableFooter :columnGroup="slotProps.columnGroup" :columns="slotProps.columns" />
                 </template>
             </DTScrollableView>
             <DTScrollableView :scrollHeight="scrollHeight" :columns="scrollableColumns" :frozenWidth="frozenWidth" :rows="rows"
                 :virtualScroll="virtualScroll" :virtualRowHeight="virtualRowHeight" :totalRecords="totalRecordsLength" @virtual-scroll="onVirtualScroll"
-                :rowGroupMode="rowGroupMode" :groupRowsBy="groupRowsBy">
-                <template #header>
-                    <DTTableHeader :columnGroup="headerColumnGroup" :columns="scrollableColumns" :rowGroupMode="rowGroupMode"
+                :rowGroupMode="rowGroupMode" :groupRowsBy="groupRowsBy" :headerColumnGroup="headerColumnGroup" :footerColumnGroup="footerColumnGroup">
+                <template #header="slotProps">
+                    <DTTableHeader :columnGroup="slotProps.columnGroup" :columns="slotProps.columns" :rowGroupMode="rowGroupMode"
                         :groupRowsBy="groupRowsBy" :resizableColumns="resizableColumns" :allRowsSelected="allRowsSelected" :empty="empty"
                         :sortMode="sortMode" :sortField="d_sortField" :sortOrder="d_sortOrder" :multiSortMeta="d_multiSortMeta"
                         @column-click="onColumnHeaderClick($event)" @column-mousedown="onColumnHeaderMouseDown($event)"
                         @column-dragstart="onColumnHeaderDragStart($event)" @column-dragover="onColumnHeaderDragOver($event)" @column-dragleave="onColumnHeaderDragLeave($event)" @column-drop="onColumnHeaderDrop($event)"
                         @column-resizestart="onColumnResizeStart($event)" @checkbox-change="toggleRowsWithCheckbox($event)" />
                 </template>
-                <template #body>
-                    <DTTableBody :value="dataToRender" :columns="scrollableColumns" :empty="empty" :dataKey="dataKey" :selection="selection" :selectionKeys="d_selectionKeys" :selectionMode="selectionMode" :contextMenu="contextMenu" :contextMenuSelection="contextMenuSelection"
+                <template #body="slotProps">
+                    <DTTableBody :value="dataToRender" :columns="slotProps.columns" :empty="empty" :dataKey="dataKey" :selection="selection" :selectionKeys="d_selectionKeys" :selectionMode="selectionMode" :contextMenu="contextMenu" :contextMenuSelection="contextMenuSelection"
                         :rowGroupMode="rowGroupMode" :groupRowsBy="groupRowsBy" :expandableRowGroups="expandableRowGroups" :rowClass="rowClass" :editMode="editMode" :compareSelectionBy="compareSelectionBy"
                         :expandedRowIcon="expandedRowIcon" :collapsedRowIcon="collapsedRowIcon" :expandedRows="expandedRows" :expandedRowKeys="d_expandedRowKeys" :expandedRowGroups="expandedRowGroups"
                         :editingRows="editingRows" :editingRowKeys="d_editingRowKeys" :templates="$slots" :loading="loading"
@@ -95,8 +95,8 @@
                         @cell-edit-init="onCellEditInit($event)" @cell-edit-complete="onCellEditComplete($event)" @cell-edit-cancel="onCellEditCancel($event)"
                         @row-edit-init="onRowEditInit($event)" @row-edit-save="onRowEditSave($event)" @row-edit-cancel="onRowEditCancel($event)"/>
                 </template>
-                <template #frozenbody>
-                    <DTTableBody  v-if="frozenValue" :value="frozenValue" :columns="scrollableColumns" :dataKey="dataKey" :selection="selection" :selectionKeys="d_selectionKeys" :selectionMode="selectionMode" :contextMenu="contextMenu" :contextMenuSelection="contextMenuSelection"
+                <template #frozenbody="slotProps">
+                    <DTTableBody  v-if="frozenValue" :value="frozenValue" :columns="slotProps.columns" :dataKey="dataKey" :selection="selection" :selectionKeys="d_selectionKeys" :selectionMode="selectionMode" :contextMenu="contextMenu" :contextMenuSelection="contextMenuSelection"
                         :rowGroupMode="rowGroupMode" :groupRowsBy="groupRowsBy" :expandableRowGroups="expandableRowGroups" :rowClass="rowClass" :editMode="editMode" :compareSelectionBy="compareSelectionBy"
                         :expandedRowIcon="expandedRowIcon" :collapsedRowIcon="collapsedRowIcon" :expandedRows="expandedRows" :expandedRowKeys="d_expandedRowKeys" :expandedRowGroups="expandedRowGroups"
                         :editingRows="editingRows" :editingRowKeys="d_editingRowKeys" :templates="$slots" :loading="loading"
@@ -106,8 +106,8 @@
                         @cell-edit-init="onCellEditInit($event)" @cell-edit-complete="onCellEditComplete($event)" @cell-edit-cancel="onCellEditCancel($event)"
                         @row-edit-init="onRowEditInit($event)" @row-edit-save="onRowEditSave($event)" @row-edit-cancel="onRowEditCancel($event)"/>
                 </template>
-                <template #footer>
-                    <DTTableFooter :columnGroup="footerColumnGroup" :columns="scrollableColumns" />
+                <template #footer="slotProps">
+                    <DTTableFooter :columnGroup="slotProps.columnGroup" :columns="slotProps.columns" />
                 </template>
             </DTScrollableView>
         </div>
@@ -591,13 +591,13 @@ export default {
 
                 for(let j = 0; j < this.columns.length; j++) {
                     let col = this.columns[j];
-                    let columnField = col.filterField || col.field;
+                    let columnField = col.props.filterField || col.props.field;
 
                     //local
                     if (Object.prototype.hasOwnProperty.call(this.filters, columnField)) {
                         let filterValue = this.filters[columnField];
                         let dataFieldValue = ObjectUtils.resolveFieldData(data[i], columnField);
-                        let filterConstraint = col.filterMatchMode === 'custom' ? col.filterFunction : FilterUtils[col.filterMatchMode];
+                        let filterConstraint = col.props.filterMatchMode === 'custom' ? col.props.filterFunction : FilterUtils[col.props.filterMatchMode];
                         if (!filterConstraint(dataFieldValue, filterValue, this.filterLocale)) {
                             localMatch = false;
                         }
@@ -607,7 +607,7 @@ export default {
                         }
                     }
 
-                    if (!col.excludeGlobalFilter && this.hasGlobalFilter && !globalMatch) {
+                    if (!col.props.excludeGlobalFilter && this.hasGlobalFilter && !globalMatch) {
                         globalMatch = FilterUtils.contains(ObjectUtils.resolveFieldData(data[i], columnField), this.filters['global'], this.filterLocale);
                     }
                 }
@@ -1673,7 +1673,7 @@ export default {
             let frozenColumns = [];
 
             for(let col of this.columns) {
-                if(col.frozen) {
+                if(col.props.frozen) {
                     frozenColumns = frozenColumns||[];
                     frozenColumns.push(col);
                 }
@@ -1685,7 +1685,7 @@ export default {
             let scrollableColumns = [];
 
             for(let col of this.columns) {
-                if(!col.frozen) {
+                if(!col.props.frozen) {
                     scrollableColumns = scrollableColumns||[];
                     scrollableColumns.push(col);
                 }

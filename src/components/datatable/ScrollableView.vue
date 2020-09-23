@@ -8,8 +8,8 @@
                             <col v-if="shouldRenderCol(col)" :key="col.props.columnKey||col.props.field||i" :style="col.props.headerStyle" />
                         </template>
                     </colgroup>
-                    <slot name="header"></slot>
-                    <slot name="frozenbody"></slot>
+                    <slot name="header" :columns="columns" :columnGroup="headerColumnGroup"></slot>
+                    <slot name="frozenbody" :columns="columns"></slot>
                 </table>
             </div>
         </div>
@@ -20,7 +20,7 @@
                         <col v-if="shouldRenderCol(col)" :key="col.props.columnKey||col.props.field||i" :style="col.props.bodyStyle || col.props.headerStyle" />
                     </template>
                 </colgroup>
-                <slot name="body"></slot>
+                <slot name="body" :columns="columns"></slot>
             </table>
             <table ref="loadingTable" :style="{top:'0', display: 'none'}" class="p-datatable-scrollable-body-table p-datatable-loading-virtual-table p-datatable-virtual-table" v-if="virtualScroll">
                 <colgroup>
@@ -38,7 +38,7 @@
                             <col v-if="shouldRenderCol(col)" :key="col.props.columnKey||col.props.field||i" :style="col.props.footerStyle || col.props.headerStyle" />
                         </template>
                     </colgroup>
-                    <slot name="footer"></slot>
+                    <slot name="footer" :columns="columns" :columnGroup="footerColumnGroup"></slot>
                 </table>
             </div>
         </div>
@@ -60,6 +60,14 @@ export default {
             default: null
         },
         columns: {
+            type: null,
+            default: null
+        },
+        headerColumnGroup: {
+            type: null,
+            default: null
+        },
+        footerColumnGroup: {
             type: null,
             default: null
         },
