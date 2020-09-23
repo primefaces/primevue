@@ -4,7 +4,7 @@
             <tr v-if="node">
                 <td :colspan="colspan">
                     <div :class="nodeContentClass" @click="onNodeClick">
-                        <OrganizationChartNodeTemplate :node="node" :template="templates[node.type]||templates['default']" />
+                        <component :is="templates[node.type]||templates['default']" :node="node" />
                         <a v-if="toggleable" tabindex="0" class="p-node-toggler" @click="toggleNode" @keydown.enter="toggleNode">
                             <i class="p-node-toggler-icon pi" :class="{'pi-chevron-down': expanded, 'pi-chevron-up': !expanded}"></i>
                         </a>
@@ -41,26 +41,6 @@
 
 <script>
 import DomHandler from '../utils/DomHandler';
-
-const OrganizationChartNodeTemplate = {
-    functional: true,
-    props: {
-        node: {
-            type: null,
-            default: null
-        },
-        template: {
-            type: null,
-            default: null
-        }
-    },
-    render(createElement, context) {
-        const content = context.props.template({
-            'node': context.props.node
-        });
-        return [content];
-    }
-};
 
 export default {
     name: 'sub-node',
@@ -137,9 +117,6 @@ export default {
         toggleable() {
             return this.collapsible && this.node.collapsible !== false && !this.leaf;
         }
-    },
-    components: {
-        'OrganizationChartNodeTemplate': OrganizationChartNodeTemplate
     }
 }
 </script>
