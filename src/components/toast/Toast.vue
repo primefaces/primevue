@@ -160,14 +160,14 @@ export default {
 }
 
 /* Animations */
-.p-toast-message-enter {
+.p-toast-message-enter-from {
     opacity: 0;
     -webkit-transform: translateY(50%);
     -ms-transform: translateY(50%);
     transform: translateY(50%);
 }
 
-.p-toast-message-leave {
+.p-toast-message-leave-from {
     max-height: 1000px;
 }
 
