@@ -12,7 +12,8 @@
             </div>
             <span :class="icon"></span>
             <span class="p-treenode-label">
-                <TreeNodeTemplate :node="node" :template="templates[node.type]||templates['default']" />
+                <component :is="templates[node.type]||templates['default']" :node="node" v-if="templates[node.type]||templates['default']"/>
+                <template v-else>{{node.label}}</template>
             </span>
         </div>
         <ul class="p-treenode-children" role="group" v-if="hasChildren && expanded">
@@ -27,27 +28,6 @@
 <script>
 import DomHandler from '../utils/DomHandler';
 import Ripple from '../ripple/Ripple';
-
-const TreeNodeTemplate = {
-    functional: true,
-    props: {
-        node: {
-            type: null,
-            default: null
-        },
-        template: {
-            type: null,
-            default: null
-        }
-    },
-    render(createElement, context) {
-        const content = context.props.template ? context.props.template({
-            'node': context.props.node
-        }): context.props.node.label;
-
-        return [content];
-    }
-};
 
 export default {
     name: 'sub-treenode',
@@ -309,9 +289,6 @@ export default {
         partialChecked() {
             return this.selectionKeys ? this.selectionKeys[this.node.key] && this.selectionKeys[this.node.key].partialChecked: false;
         }
-    },
-    components: {
-        'TreeNodeTemplate': TreeNodeTemplate
     },
     directives: {
         'ripple': Ripple
