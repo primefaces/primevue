@@ -8,6 +8,7 @@
                 <a href="https://github.com/primefaces/primevue" target="_blank">Source Code</a>
                 <router-link to="/support">Support</router-link>
                 <a href="https://www.primefaces.org/store" target="_blank">Store</a>
+                <a href="https://www.primefaces.org/primevue/showcase-v2" target="_blank">Vue 2</a>
             </div>
 
             <div class="menu-category">Theming</div>
