@@ -2001,7 +2001,7 @@ export default {
         },
         panelStyleClass() {
             return [
-                'p-datepicker p-component',
+                'p-datepicker p-component', this.panelClass,
                 {
                     'p-datepicker-inline': this.inline,
                     'p-disabled': this.$attrs.disabled,
