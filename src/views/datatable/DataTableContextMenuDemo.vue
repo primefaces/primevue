@@ -29,7 +29,7 @@
                 <TabPanel header="Source">
 <CodeHighlight>
 <template v-pre>
-&lt;DataTable :value="products" contextMenu :contextMenuSelection.sync="selectedProduct" @row-contextmenu="onRowContextMenu"&gt;
+&lt;DataTable :value="products" contextMenu v-model:contextMenuSelection="selectedProduct" @row-contextmenu="onRowContextMenu"&gt;
     &lt;Column field="code" header="Code"&gt;&lt;/Column&gt;
     &lt;Column field="name" header="Name"&gt;&lt;/Column&gt;
     &lt;Column field="category" header="Category"&gt;&lt;/Column&gt;
