@@ -937,8 +937,8 @@ export default {
             //headers
             for (let i = 0; i < this.columns.length; i++) {
                 let column = this.columns[i];
-                if (column.exportable !== false && column.field) {
-                    csv += '"' + (column.header || column.field) + '"';
+                if (column.props.exportable !== false && column.props.field) {
+                    csv += '"' + (column.props.header || column.props.field) + '"';
 
                     if (i < (this.columns.length - 1)) {
                         csv += this.csvSeparator;
@@ -952,14 +952,14 @@ export default {
                     csv += '\n';
                     for (let i = 0; i < this.columns.length; i++) {
                         let column = this.columns[i];
-                        if (column.exportable !== false && column.field) {
-                            let cellData = ObjectUtils.resolveFieldData(record, column.field);
+                        if (column.props.exportable !== false && column.props.field) {
+                            let cellData = ObjectUtils.resolveFieldData(record, column.props.field);
 
                             if (cellData != null) {
                                 if (this.exportFunction) {
                                     cellData = this.exportFunction({
                                         data: cellData,
-                                        field: column.field
+                                        field: column.props.field
                                     });
                                 }
                                 else
