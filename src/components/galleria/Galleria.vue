@@ -1,7 +1,7 @@
 <template>
-    <div v-if="fullScreen && (maskVisible || visible)" ref="mask" :class="maskContentClass">
-        <transition name="p-galleria" @enter="onEnter" @before-leave="onBeforeLeave" @after-leave="onAfterLeave" @appear="onAppear">
-            <GalleriaContent v-if="visible" v-bind="$props" @mask-hide="maskHide" :templates="$slots" @activeitem-change="onActiveItemChange" />
+    <div v-if="fullScreen && containerVisible" :ref="maskRef" :class="maskContentClass">
+        <transition name="p-galleria" @before-enter="onBeforeEnter" @enter="onEnter" @before-leave="onBeforeLeave" @after-leave="onAfterLeave" appear>
+            <GalleriaContent :ref="containerRef" v-if="visible" v-bind="$props" @mask-hide="maskHide" :templates="$slots" @activeitem-change="onActiveItemChange" />
         </transition>
     </div>
 
@@ -112,46 +112,40 @@ export default {
             default: null
         }
     },
+    container: null,
+    mask: null,
     data() {
         return {
-            maskVisible: this.visible
+            containerVisible: this.visible
         }
     },
     updated() {
-        this.removeStylesFromMask();
-
-        if (this.fullScreen && this.visible && !this.maskVisible) {
-            this.maskVisible = true;
+        if (this.fullScreen && this.visible) {
+            this.containerVisible = this.visible;
         }
-    },
-    mounted() {
-        this.removeStylesFromMask();
     },
     beforeUnmount() {
         if (this.fullScreen) {
             DomHandler.removeClass(document.body, 'p-overflow-hidden');
         }
+
+        this.container = null;
+        this.mask = null;
     },
     methods: {
+        onBeforeEnter(el) {
+            el.style.zIndex = String(this.baseZIndex + DomHandler.generateZIndex());
+        },
         onEnter() {
-            this.$refs.mask.style.zIndex = String(this.baseZIndex + DomHandler.generateZIndex());
+            this.mask.style.zIndex = String(this.baseZIndex + DomHandler.generateZIndex());
             DomHandler.addClass(document.body, 'p-overflow-hidden');
         },
         onBeforeLeave() {
-            DomHandler.addClass(this.$refs.mask, 'p-galleria-mask-leave');
+            DomHandler.addClass(this.mask, 'p-galleria-mask-leave');
         },
         onAfterLeave() {
-            this.maskVisible = false;
+            this.containerVisible = false;
             DomHandler.removeClass(document.body, 'p-overflow-hidden');
-        },
-        onAppear() {
-            if (this.visible) {
-                this.onEnter();
-
-                setTimeout(() => {
-                    DomHandler.addClass(this.$refs.mask, 'p-component-overlay');
-                }, 1);
-            }
         },
         onActiveItemChange(index) {
             if (this.activeIndex !== index) {
@@ -161,27 +155,16 @@ export default {
         maskHide() {
             this.$emit('update:visible', false);
         },
-        removeStylesFromMask() {
-            if (this.$refs.mask) {
-                this.galleriaStyles = this.$vnode.data.style || this.$vnode.data.staticStyle;
-                if (this.galleriaStyles) {
-                    Object.keys(this.galleriaStyles).forEach((key) => {
-                        this.$refs.mask.style[key] = '';
-                    });
-                }
-
-                this.galleriaClasses = this.$vnode.data.class || this.$vnode.data.staticClass;
-                if (this.galleriaClasses) {
-                    this.$refs.mask.classList = 'p-galleria-mask' + (this.visible && ' p-galleria-visible');
-                }
-            }
+        containerRef(el) {
+            this.container = el;
+        },
+        maskRef(el) {
+            this.mask = el;
         }
     },
     computed: {
         maskContentClass() {
-            return ['p-galleria-mask', {
-                'p-galleria-visible': this.visible
-            }, this.maskClass];
+            return ['p-galleria-mask p-component-overlay', this.maskClass];
         }
     },
     components: {
@@ -456,7 +439,7 @@ export default {
     transition: all 150ms cubic-bezier(0.4, 0.0, 0.2, 1);
 }
 
-.p-galleria-enter,
+.p-galleria-enter-from,
 .p-galleria-leave-to {
     opacity: 0;
     transform: scale(0.7);

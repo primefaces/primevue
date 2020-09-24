@@ -4,7 +4,7 @@
             <span class="p-galleria-close-icon pi pi-times"></span>
         </button>
         <div v-if="$attrs.templates && $attrs.templates['header']" class="p-galleria-header">
-            <GalleriaItemSlot type="header" :templates="$attrs.templates"/>
+            <component :is="$attrs.templates['header']" />
         </div>
         <div class="p-galleria-content">
             <GalleriaItem :value="$attrs.value" v-model:activeIndex="activeIndex" :circular="$attrs.circular" :templates="$attrs.templates"
@@ -18,7 +18,7 @@
                 v-model:slideShowActive="slideShowActive" @stop-slideshow="stopSlideShow" />
         </div>
         <div v-if="$attrs.templates && $attrs.templates['footer']" class="p-galleria-footer">
-            <GalleriaItemSlot type="footer" :templates="$attrs.templates"/>
+            <component :is="$attrs.templates['footer']" />
         </div>
     </div>
 </template>

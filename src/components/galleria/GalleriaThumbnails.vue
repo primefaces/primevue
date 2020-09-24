@@ -13,7 +13,7 @@
                         'p-galleria-thumbnail-item-start': firstItemAciveIndex() === index,
                         'p-galleria-thumbnail-item-end': lastItemActiveIndex() === index }]">
                         <div class="p-galleria-thumbnail-item-content" :tabindex="isItemActive(index) ? 0 : null" @click="onItemClick(index)" @keydown.enter="onItemClick(index)">
-                            <GalleriaItemSlot type="thumbnail" :item="item" :templates="templates" />
+                             <component :is="templates.thumbnail" :item="item" v-if="templates.thumbnail" />
                         </div>
                     </div>
                 </div>
@@ -26,7 +26,6 @@
 </template>
 
 <script>
-import GalleriaItemSlot from './GalleriaItemSlot';
 import DomHandler from '../utils/DomHandler';
 import Ripple from '../ripple/Ripple';
 
@@ -404,9 +403,6 @@ export default {
                 'pi-chevron-down': this.isVertical
             }];
         }
-    },
-    components: {
-        'GalleriaItemSlot': GalleriaItemSlot
     },
     directives: {
         'ripple': Ripple
