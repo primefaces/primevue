@@ -208,14 +208,14 @@ export default {
         shouldRenderBodyCell(value, column, i) {
             if (this.rowGroupMode) {
                 if (this.rowGroupMode === 'subheader') {
-                    return this.groupRowsBy !== column.field;
+                    return this.groupRowsBy !== column.props.field;
                 }
                 else if (this.rowGroupMode === 'rowspan') {
                     if (this.isGrouped(column)) {
                         let prevRowData = value[i - 1];
                         if (prevRowData) {
-                            let currentRowFieldData = ObjectUtils.resolveFieldData(value[i], column.field);
-                            let previousRowFieldData = ObjectUtils.resolveFieldData(prevRowData, column.field);
+                            let currentRowFieldData = ObjectUtils.resolveFieldData(value[i], column.props.field);
+                            let previousRowFieldData = ObjectUtils.resolveFieldData(prevRowData, column.props.field);
                             return currentRowFieldData !== previousRowFieldData;
                         }
                         else {
@@ -233,7 +233,7 @@ export default {
         },
         calculateRowGroupSize(value, column, index) {
             if (this.isGrouped(column)) {
-                let currentRowFieldData = ObjectUtils.resolveFieldData(value[index], column.field);
+                let currentRowFieldData = ObjectUtils.resolveFieldData(value[index], column.props.field);
                 let nextRowFieldData = currentRowFieldData;
                 let groupRowSpan = 0;
 
@@ -241,7 +241,7 @@ export default {
                     groupRowSpan++;
                     let nextRowData = value[++index];
                     if (nextRowData) {
-                        nextRowFieldData = ObjectUtils.resolveFieldData(nextRowData, column.field);
+                        nextRowFieldData = ObjectUtils.resolveFieldData(nextRowData, column.props.field);
                     }
                     else {
                         break;
@@ -265,9 +265,9 @@ export default {
         isGrouped(column) {
             if (this.groupRowsBy) {
                 if (Array.isArray(this.groupRowsBy))
-                    return this.groupRowsBy.indexOf(column.field) > -1;
+                    return this.groupRowsBy.indexOf(column.props.field) > -1;
                 else
-                    return this.groupRowsBy === column.field;
+                    return this.groupRowsBy === column.props.field;
             }
             else {
                 return false;
