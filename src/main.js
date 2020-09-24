@@ -89,10 +89,10 @@ import '@fullcalendar/daygrid/main.min.css';
 import '@fullcalendar/timegrid/main.min.css';
 import './assets/styles/flags.css';
 
-/*router.beforeEach(function (to, from, next) {
+router.beforeEach(function (to, from, next) {
     window.scrollTo(0, 0);
     next();
-});*/
+});
 
 const app = createApp(App);
 
