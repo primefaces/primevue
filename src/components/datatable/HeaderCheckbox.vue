@@ -13,7 +13,6 @@
 export default {
     inheritAttrs: false,
     props: {
-        disabled: null,
         checked: null
     },
     data() {
@@ -23,7 +22,7 @@ export default {
     },
     methods: {
         onClick(event) {
-            if (!this.disabled) {
+            if (!this.$attrs.disabled) {
                 this.$emit('change', event);
                 this.$refs.input.focus();
             }

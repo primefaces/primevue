@@ -14,7 +14,6 @@ export default {
     inheritAttrs: false,
     props: {
 		value: null,
-        disabled: null,
         checked: null
     },
     data() {
@@ -24,7 +23,7 @@ export default {
     },
     methods: {
         onClick(event) {
-            if (!this.disabled) {
+            if (!this.$attrs.disabled) {
                 this.$emit('change', {
                     originalEvent: event,
                     data: this.value
