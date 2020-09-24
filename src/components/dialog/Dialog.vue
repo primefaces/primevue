@@ -1,7 +1,7 @@
 <template>
-    <div :ref="maskRef" :class="maskClass" v-if="visible" @click="onMaskClick">
+    <div :ref="maskRef" :class="maskClass" v-if="containerVisible" @click="onMaskClick">
         <transition name="p-dialog" @before-enter="onBeforeEnter" @enter="onEnter" @before-leave="onBeforeLeave" @leave="onLeave" @after-leave="onAfterLeave" appear>
-            <div :ref="containerRef" :class="dialogClass" v-if="containerVisible" v-bind="$attrs" role="dialog" :aria-labelledby="ariaLabelledById" :aria-modal="modal" @click.stop>
+            <div :ref="containerRef" :class="dialogClass" v-if="visible" v-bind="$attrs" role="dialog" :aria-labelledby="ariaLabelledById" :aria-modal="modal" @click.stop>
                 <div class="p-dialog-header" v-if="showHeader">
                     <slot name="header">
                         <span :id="ariaLabelledById" class="p-dialog-title" v-if="header">{{header}}</span>
@@ -80,7 +80,9 @@ export default {
     container: null,
     mask: null,
     updated() {
-        this.containerVisible = this.visible;
+        if (this.visible) {
+            this.containerVisible = this.visible;
+        }
     },
     beforeUnmount() {
         this.unbindDocumentState();
@@ -89,7 +91,7 @@ export default {
     },
     methods: {
         close() {
-            this.containerVisible = false;
+            this.$emit('update:visible', false);
         },
         onBeforeEnter(el) {
             if (this.autoZIndex) {
@@ -110,7 +112,7 @@ export default {
             this.$emit('hide');
         },
         onAfterLeave() {
-            this.$emit('update:visible', false);
+            this.containerVisible = false;
             this.unbindDocumentState();
         },
         onMaskClick() {
