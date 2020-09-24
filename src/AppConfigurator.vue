@@ -20,7 +20,7 @@
                     <AppInputStyleSwitch />
 
                     <h4>Ripple Effect</h4>
-                    <InputSwitch :value="rippleActive" @input="onRippleChange"  />
+                    <InputSwitch :modelValue="rippleActive" @update:modelValue="onRippleChange"  />
 
                     <h4>Free Themes</h4>
                     <p>Built-in component themes created by the <a href="https://www.primefaces.org/designer/primevue">PrimeVue Theme Designer</a>.</p>
