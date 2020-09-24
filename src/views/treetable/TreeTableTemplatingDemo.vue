@@ -16,11 +16,11 @@
                     <Column field="name" header="Name" :expander="true"></Column>
                     <Column field="size" header="Size"></Column>
                     <Column field="type" header="Type"></Column>
-                    <Column headerStyle="width: 8em" bodyStyle="text-align: center">
+                    <Column headerStyle="width: 8em" headerClass="p-text-center" bodyClass="p-text-center">
                         <template #header>
                             <Button type="button" icon="pi pi-cog"></Button>
                         </template>
-                        <template>
+                        <template #body>
                             <Button type="button" icon="pi pi-search" class="p-button-success" style="margin-right: .5em"></Button>
                             <Button type="button" icon="pi pi-pencil" class="p-button-warning"></Button>
                         </template>
@@ -46,11 +46,11 @@
     &lt;Column field="name" header="Name" :expander="true"&gt;&lt;/Column&gt;
     &lt;Column field="size" header="Size"&gt;&lt;/Column&gt;
     &lt;Column field="type" header="Type"&gt;&lt;/Column&gt;
-    &lt;Column headerStyle="width: 8em" bodyStyle="text-align: center"&gt;
+    &lt;Column headerStyle="width: 8em" headerClass="p-text-center" bodyClass="p-text-center"&gt;
         &lt;template #header&gt;
             &lt;Button type="button" icon="pi pi-cog"&gt;&lt;/Button&gt;
         &lt;/template&gt;
-        &lt;template&gt;
+        &lt;template #body&gt;
             &lt;Button type="button" icon="pi pi-search" class="p-button-success" style="margin-right: .5em"&gt;&lt;/Button&gt;
             &lt;Button type="button" icon="pi pi-pencil" class="p-button-warning"&gt;&lt;/Button&gt;
         &lt;/template&gt;

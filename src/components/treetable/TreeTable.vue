@@ -1,6 +1,5 @@
 <template>
     <div :class="containerClass">
-        <slot></slot>
         <div class="p-treetable-loading" v-if="loading">
             <div class="p-treetable-loading-overlay p-component-overlay">
                 <i :class="loadingIconClass"></i>
@@ -22,28 +21,26 @@
             <table ref="table">
                 <thead class="p-treetable-thead">
                     <tr>
-                        <th v-for="(col,i) of columns" :key="col.columnKey||col.field||i" :style="col.headerStyle" :class="getColumnHeaderClass(col)" @click="onColumnHeaderClick($event, col)"
-                            :tabindex="col.sortable ? '0' : null"  :aria-sort="getAriaSort(col)" @keydown="onColumnKeyDown($event, col)">
+                        <th v-for="(col,i) of columns" :key="col.props?.columnKey||col.props?.field||i" :style="col.props?.headerStyle" :class="getColumnHeaderClass(col)" @click="onColumnHeaderClick($event, col)"
+                            :tabindex="col.props?.sortable ? '0' : null"  :aria-sort="getAriaSort(col)" @keydown="onColumnKeyDown($event, col)">
                             <span class="p-column-resizer" @mousedown="onColumnResizeStart" v-if="resizableColumns"></span>
-                            <TTColumnSlot :column="col" type="header" v-if="col.$scopedSlots.header" />
-                            <span class="p-column-title" v-if="col.header">{{col.header}}</span>
-                            <span v-if="col.sortable" :class="getSortableColumnIcon(col)"></span>
+                            <component :is="col.children?.header" :column="col" />
+                            <span class="p-column-title" v-if="col.props?.header">{{col.props?.header}}</span>
+                            <span v-if="col.props?.sortable" :class="getSortableColumnIcon(col)"></span>
                             <span v-if="isMultiSorted(col)" class="p-sortable-column-badge">{{getMultiSortMetaIndex(col) + 1}}</span>
                         </th>
                     </tr>
                     <tr v-if="hasColumnFilter()">
-                        <template v-for="(col,i) of columns" :key="col.columnKey||col.field||i">
-                            <th :class="getFilterColumnHeaderClass(col)" :style="col.filterHeaderStyle">
-                                <TTColumnSlot :column="col" type="filter" v-if="col.$scopedSlots.filter" />
-                            </th>
-                        </template>
+                        <th  v-for="(col,i) of columns" :key="col.props?.columnKey||col.props?.field||i" :class="getFilterColumnHeaderClass(col)" :style="col.props?.filterHeaderStyle">
+                            <component :is="col.children?.filter" :column="col" v-if="col.children?.filter"/>
+                        </th>
                     </tr>
                 </thead>
                 <tfoot class="p-treetable-tfoot" v-if="hasFooter">
                     <tr>
-                        <td v-for="(col,i) of columns" :key="col.columnKey||col.field||i" :style="col.footerStyle" :class="col.footerClass">
-                            <TTColumnSlot :column="col" type="footer" v-if="col.$scopedSlots.footer" />
-                            {{col.footer}}
+                        <td v-for="(col,i) of columns" :key="col.props?.columnKey||col.props?.field||i" :style="col.props?.footerStyle" :class="col.props?.footerClass">
+                            <component :is="col.children?.footer" :column="col" />
+                            {{col.props?.footer}}
                         </td>
                     </tr>
                 </tfoot>
@@ -81,8 +78,7 @@
 import ObjectUtils from '../utils/ObjectUtils';
 import FilterUtils from '../utils/FilterUtils';
 import DomHandler from '../utils/DomHandler';
-import TreeTableColumnSlot from './TreeTableColumnSlot';
-import TreeTableRowLoader from './TreeTableRowLoader';
+import TreeTableRow from './TreeTableRow';
 import Paginator from '../paginator/Paginator';
 
 export default {
@@ -218,7 +214,6 @@ export default {
     resizeColumnElement: null,
     data() {
         return {
-            allChildren: null,
             d_expandedKeys: this.expandedKeys || {},
             d_first: this.first,
             d_rows: this.rows,
@@ -246,9 +241,6 @@ export default {
         multiSortMeta(newValue) {
             this.d_multiSortMeta = newValue;
         }
-    },
-    mounted() {
-        this.allChildren = this.$children;
     },
     methods: {
         onNodeToggle(node) {
@@ -370,31 +362,31 @@ export default {
             this.$emit('update:first', this.d_first);
         },
         isMultiSorted(column) {
-            return column.sortable && this.getMultiSortMetaIndex(column) > -1
+            return column.props?.sortable && this.getMultiSortMetaIndex(column) > -1
         },
         isColumnSorted(column) {
-            if (column.sortable) {
-                return this.sortMode === 'single' ? (this.d_sortField === (column.field || column.sortField)) : this.getMultiSortMetaIndex(column) > -1;
+            if (column.props?.sortable) {
+                return this.sortMode === 'single' ? (this.d_sortField === (column.props?.field || column.props?.sortField)) : this.getMultiSortMetaIndex(column) > -1;
             }
 
             return false;
         },
         getColumnHeaderClass(column) {
-            return [column.headerClass,
-                    {'p-sortable-column': column.sortable},
+            return [column.props?.headerClass,
+                    {'p-sortable-column': column.props?.sortable},
                     {'p-resizable-column': this.resizableColumns},
                     {'p-highlight': this.isColumnSorted(column)}
             ];
         },
         getFilterColumnHeaderClass(column) {
-            return ['p-filter-column', column.filterHeaderClass];
+            return ['p-filter-column', column.props?.filterHeaderClass];
         },
         getSortableColumnIcon(column) {
             let sorted = false;
             let sortOrder = null;
 
             if (this.sortMode === 'single') {
-                sorted =  this.d_sortField === (column.field || column.sortField);
+                sorted =  this.d_sortField === (column.props?.field || column.props?.sortField);
                 sortOrder = sorted ? this.d_sortOrder: 0;
             }
             else if (this.sortMode === 'multiple') {
@@ -418,7 +410,7 @@ export default {
 
             for (let i = 0; i < this.d_multiSortMeta.length; i++) {
                 let meta = this.d_multiSortMeta[i];
-                if (meta.field === (column.field || column.sortField)) {
+                if (meta.field === (column.props?.field || column.props?.sortField)) {
                     index = i;
                     break;
                 }
@@ -427,9 +419,9 @@ export default {
             return index;
         },
         onColumnHeaderClick(event, column) {
-            if (column.sortable) {
+            if (column.props?.sortable) {
                 const targetNode = event.target;
-                const columnField = column.sortField || column.field;
+                const columnField = column.props?.sortField || column.props?.field;
 
                 if (DomHandler.hasClass(targetNode, 'p-sortable-column') || DomHandler.hasClass(targetNode, 'p-column-title')
                     || DomHandler.hasClass(targetNode, 'p-sortable-column-icon') || DomHandler.hasClass(targetNode.parentElement, 'p-sortable-column-icon')) {
@@ -557,12 +549,12 @@ export default {
 
                 for (let j = 0; j < this.columns.length; j++) {
                     let col = this.columns[j];
-                    let filterField = col.field;
+                    let filterField = col.props?.field;
 
                     //local
-                    if (Object.prototype.hasOwnProperty.call(this.filters, col.field)) {
-                        let filterMatchMode = col.filterMatchMode;
-                        let filterValue = this.filters[col.field];
+                    if (Object.prototype.hasOwnProperty.call(this.filters, col.props?.field)) {
+                        let filterMatchMode = col.props?.filterMatchMode || 'startsWith';
+                        let filterValue = this.filters[col.props?.field];
                         let filterConstraint = FilterUtils[filterMatchMode];
                         let paramsWithoutNode = {filterField, filterValue, filterConstraint, strict};
 
@@ -651,8 +643,8 @@ export default {
             if (this.hasFilters) {
                 filterMatchModes = {};
                 this.columns.forEach(col => {
-                    if (col.field) {
-                        filterMatchModes[col.field] = col.filterMatchMode;
+                    if (col.props?.field) {
+                        filterMatchModes[col.props?.field] = col.props?.filterMatchMode;
                     }
                 });
             }
@@ -756,7 +748,7 @@ export default {
             }
         },
         getAriaSort(column) {
-            if (column.sortable) {
+            if (column.props?.sortable) {
                 const sortIcon = this.getSortableColumnIcon(column);
                 if (sortIcon[1]['pi-sort-amount-down'])
                     return 'descending';
@@ -772,7 +764,7 @@ export default {
         hasColumnFilter() {
             if (this.columns) {
                 for (let col of this.columns) {
-                    if (col.$scopedSlots.filter) {
+                    if (col.children?.filter) {
                         return true;
                     }
                 }
@@ -791,10 +783,17 @@ export default {
             }];
         },
         columns() {
-            if (this.allChildren) {
-                return this.allChildren.filter(child =>  child.$options._propKeys.indexOf('columnKey') !== -1);
-            }
-            return [];
+            let cols = [];
+            let children = this.$slots.default();
+            
+            children.forEach(child => {
+                if (child.dynamicChildren)
+                    cols = [...cols, ...child.children];
+                else if (child.type.name === 'column')
+                    cols.push(child);
+            });
+
+            return cols;
         },
         processedData() {
             if (this.lazy) {
@@ -844,7 +843,7 @@ export default {
             let hasFooter = false;
 
             for (let col of this.columns) {
-                if (col.footer || col.$scopedSlots.footer) {
+                if (col.props?.footer || col.children?.footer) {
                     hasFooter = true;
                     break;
                 }
@@ -887,8 +886,7 @@ export default {
         }
     },
     components: {
-        'TTColumnSlot': TreeTableColumnSlot,
-        'TTRow': TreeTableRowLoader,
+        'TTRow': TreeTableRow,
         'TTPaginator': Paginator,
     }
 }
