@@ -3,8 +3,8 @@
         <ul ref="nav" class="p-tabview-nav" role="tablist">
             <li role="presentation" v-for="(tab, i) of tabs" :key="getKey(tab,i)" :class="[{'p-highlight': (d_activeIndex === i), 'p-disabled': isTabDisabled(tab)}]">
                 <a role="tab" class="p-tabview-nav-link" @click="onTabClick($event, i)" @keydown="onTabKeydown($event, i)" :tabindex="isTabDisabled(tab) ? null : '0'" :aria-selected="d_activeIndex === i" v-ripple>
-                    <span class="p-tabview-title" v-if="tab.props && tab.props.header">{{tab.props.header}}</span>
-                    <component :is="tab.children.header" v-if="tab.children && tab.children.header"></component>
+                    <span class="p-tabview-title" v-if="tab.props?.header">{{tab.props?.header}}</span>
+                    <component :is="tab.children.header" v-if="tab.children?.header"></component>
                 </a>
             </li>
             <li ref="inkbar" class="p-tabview-ink-bar"></li>
@@ -67,10 +67,10 @@ export default {
             this.$refs.inkbar.style.left =  DomHandler.getOffset(tabHeader).left - DomHandler.getOffset(this.$refs.nav).left + 'px';
         },
         getKey(tab, i) {
-            return tab.props && tab.props.header ? tab.props.header : i;
+            return tab.props?.header ? tab.props.header : i;
         },
         isTabDisabled(tab) {
-            return tab.props && tab.props.disabled;
+            return tab.props?.disabled;
         }
     },
     computed: {
