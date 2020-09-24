@@ -3,17 +3,22 @@
 		<TabView>
 			<TabPanel header="Documentation">
 				<h5>Import</h5>
-<CodeHighlight lang="javascript">
+<pre v-code.script>
+<code>
 import Dropdown from 'primevue/dropdown';
-</CodeHighlight>
+
+</code></pre>
 
 				<h5>Getting Started</h5>
 				<p>Dropdown requires a value to bind and a collection of arbitrary objects along with the <i>optionLabel</i> property to specify the label property of the option.</p>
-<CodeHighlight>
+<pre v-code>
+<code>
 &lt;Dropdown v-model="selectedCity" :options="cities" optionLabel="name" placeholder="Select a City" /&gt;
-</CodeHighlight>
 
-<CodeHighlight lang="js">
+</code></pre>
+
+<pre v-code.script>
+<code>
 data() {
 	return {
 		selectedCity: null,
@@ -26,7 +31,8 @@ data() {
 		]
 	}
 }
-</CodeHighlight>
+
+</code></pre>
 
 				<h5>Placeholder</h5>
 				<p>Common pattern is providing an empty option as the placeholder when using native selects, however Dropdown has built-in support using the placeholder option so it is suggested to use it instead of creating an empty option.</p>
@@ -34,15 +40,17 @@ data() {
 				<h5>Filtering</h5>
 				<p>Options can be filtered using an input field in the overlay by enabling the <i>filter</i> property.</p>
 
-<CodeHighlight>
+<pre v-code>
+<code>
 &lt;Dropdown v-model="selectedCar" :options="cars" optionLabel="brand" placeholder="Select a Car" :filter="true" filterPlaceholder="Find Car"/&gt;
-</CodeHighlight>
+
+</code></pre>
 
 				<h5>Custom Content</h5>
 				<p>Label of an option is used as the display text of an item by default, for custom content support define an <i>option</i> template that gets the option instance as a parameter.</p>
                 <p>In addition the <i>value</i> template can be used to customize the selected value.</p>
-<CodeHighlight>
-<template v-pre>
+<pre v-code>
+<code><template v-pre>
 &lt;Dropdown v-model="selectedCar" :options="cars" optionLabel="brand" :filter="true" placeholder="Select a Car" :showClear="true"&gt;
 	&lt;template #value="slotProps"&gt;
         &lt;div class="p-dropdown-car-value" v-if="slotProps.value"&gt;
@@ -61,7 +69,7 @@ data() {
 	&lt;/template&gt;
 &lt;/Dropdown&gt;
 </template>
-</CodeHighlight>
+</code></pre>
 
 				<h5>Properties</h5>
                 <p>Any property as style and class are passed to the main container element. Following are the additional properties to configure the component.</p>
@@ -334,8 +342,8 @@ data() {
 				<a href="https://github.com/primefaces/primevue/tree/master/src/views/dropdown" class="btn-viewsource" target="_blank" rel="noopener noreferrer">
 					<span>View on GitHub</span>
 				</a>
-<CodeHighlight>
-<template v-pre>
+<pre v-code>
+<code><template v-pre>
 &lt;h5&gt;Basic&lt;/h5&gt;
 &lt;Dropdown v-model="selectedCity1" :options="cities" optionLabel="name" placeholder="Select a City" /&gt;
 
@@ -361,9 +369,10 @@ data() {
     &lt;/template&gt;
 &lt;/Dropdown&gt;
 </template>
-</CodeHighlight>
+</code></pre>
 
-<CodeHighlight lang="javascript">
+<pre v-code.script>
+<code>
 export default {
     data() {
         return {
@@ -392,7 +401,8 @@ export default {
         }
     },
 }
-</CodeHighlight>
+
+</code></pre>
 			</TabPanel>
 		</TabView>
 	</div>

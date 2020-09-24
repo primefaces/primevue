@@ -49,7 +49,8 @@
                 </ul>
 
                 <h5>Examples</h5>
-<CodeHighlight>
+<pre v-code>
+<code>
 &lt;div class="p-mb-2"&gt;Margin bottom with level 2&lt;/div&gt;
 &lt;div class="p-mt-4"&gt;Margin top with level 2&lt;/div&gt;
 &lt;div class="p-m-2"&gt;Margin for all sides with level 2&lt;/div&gt;
@@ -57,7 +58,8 @@
 &lt;div class="p-pb-4"&gt;Padding bottom with level 4&lt;/div&gt;
 &lt;div class="p-p-1"&gt;Padding for all sides with level 1&lt;/div&gt;
 &lt;div class="p-m-1 p-p-1 p-m-lg-3 p-b-lg-3"&gt;Level 3 spacing for lg screens and level 1 for smaller screens (xs).&lt;/div&gt;
-</CodeHighlight>
+
+</code></pre>
 
                 <h5>Customization</h5>
                 <p>A custom build with different values can be obtained from <a href="https://github.com/primefaces/primeflex">PrimeFlex</a> using the _variables.scss file.</p>
@@ -67,8 +69,8 @@
 				<a href="https://github.com/primefaces/primevue/tree/master/src/views/spacing" class="btn-viewsource" target="_blank" rel="noopener noreferrer">
 					<span>View on GitHub</span>
 				</a>
-<CodeHighlight>
-<template v-pre>
+<pre v-code>
+<code><template v-pre>
 &lt;div class="card"&gt;
     &lt;h5&gt;Margin&lt;/h5&gt;
     &lt;h6&gt;Without Spacing&lt;/h6&gt;
@@ -129,7 +131,7 @@
     &lt;/div&gt;
 &lt;/div&gt;
 </template>
-</CodeHighlight>
+</code></pre>
 			</TabPanel>
 		</TabView>
 	</div>

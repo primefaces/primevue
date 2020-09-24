@@ -5,25 +5,32 @@
 
         <h5>Getting Started</h5>
         <p>To begin with, charts.js package needs to be installed in your project.</p>
- <CodeHighlight lang="javascript">
+ <pre v-code.script>
+<code>
 npm install chart.js --save
-</CodeHighlight>
+
+</code></pre>
 
 		<h5>Import</h5>
-<CodeHighlight lang="javascript">
+<pre v-code.script>
+<code>
 import Chart from 'primevue/chart';
-</CodeHighlight>
+
+</code></pre>
 
 		<h5>Chart Types</h5>
 		<p>Chart type is defined using the <i>type</i> property. Currently there are 6 options available; <b>pie</b>, <b>doughtnut</b>, <b>line</b>, <b>bar</b>, <b>radar</b> and <b>polarArea</b>.</p>
 
 		<h5>Data</h5>
 		<p>Data of a chart is provided using a binding to the <i>data</i> property, each type has its own format of data. Here is an example of a line chart.  For more information refer to the <a href="https://www.chartjs.org/">charts.js</a> documentation.</p>
-<CodeHighlight>
+<pre v-code>
+<code>
 &lt;Chart type="bar" :data="basicData" /&gt;
-</CodeHighlight>
 
-<CodeHighlight lang="js">
+</code></pre>
+
+<pre v-code.script>
+<code>
 export default {
 	data() {
 		return {
@@ -45,16 +52,20 @@ export default {
 		}
 	}
 }
-</CodeHighlight>
+
+</code></pre>
 
 		<h5>Options</h5>
 		<p>While a series can be customized per dataset, general chart options are defined with options property.
 			Example below adds a title and customizes the legend position of the chart. For all available options refer to the <a href="https://www.chartjs.org/">charts.js</a> documentation.</p>
-<CodeHighlight>
+<pre v-code>
+<code>
 &lt;Chart type="line" :data="data" :options="options" /&gt;
-</CodeHighlight>
 
-<CodeHighlight lang="js">
+</code></pre>
+
+<pre v-code.script>
+<code>
 options: {
 	responsive: true,
 	hoverMode: 'index',
@@ -77,7 +88,8 @@ options: {
         }]
 	}
 }
-</CodeHighlight>
+
+</code></pre>
 
 		<h5>Properties</h5>
         <p>Any property as style and class are passed to the main container element. Following is the additional property to configure the component.</p>

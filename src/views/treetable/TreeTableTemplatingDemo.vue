@@ -37,8 +37,8 @@
         <div class="content-section documentation">
             <TabView>
                 <TabPanel header="Source">
-<CodeHighlight>
-<template v-pre>
+<pre v-code>
+<code><template v-pre>
 &lt;TreeTable :value="nodes"&gt;
     &lt;template #header&gt;
         FileSystem
@@ -62,9 +62,10 @@
     &lt;/template&gt;
 &lt;/TreeTable&gt;
 </template>
-</CodeHighlight>
+</code></pre>
 
-<CodeHighlight lang="javascript">
+<pre v-code.script>
+<code>
 import NodeService from '../../service/NodeService';
 
 export default {
@@ -81,7 +82,8 @@ export default {
         this.nodeService.getTreeTableNodes().then(data => this.nodes = data);
     }
 }
-</CodeHighlight>
+
+</code></pre>
                 </TabPanel>
             </TabView>
         </div>

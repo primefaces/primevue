@@ -36,27 +36,34 @@
                 is easy as configuring the font size of your document. Code below sets the scale of the components based on 16px. If you reqire bigger or smaller components, just
                 change this variable and components will scale accordingly.</p>
 
-<CodeHighlight lang="css">
+<pre v-code.css>
+<code>
 html {
     font-size: 16px;
 }
-</CodeHighlight>
+
+</code></pre>
 
             <p>Some commonly used components such as inputs, buttons and datatable also provide per component scaling with special classes. Components with specific scaling options
                 are documented in their own documentation.</p>
-<CodeHighlight>
+<pre v-code>
+<code>
 &lt;InputText type="text" class="p-inputtext-sm" /&gt;
 &lt;Button label="Button" class="p-button-lg" /&gt;
-</CodeHighlight>
+
+</code></pre>
 
             <h5>Local Styling</h5>
             <p>Theming styles the components globally, in case you required to change the style of a certain component for a specific use case use the class property and override the defaults.
                 Example below changes the background of the panel. Note that this is only for local styling, if you require to change the background color of all the panels, a custom theme is a far better choice.</p>
-<CodeHighlight>
+<pre v-code>
+<code>
 &lt;Panel header="Custom Header" class="dark-panel"/&gt;
-</CodeHighlight>
 
-<CodeHighlight>
+</code></pre>
+
+<pre v-code>
+<code>
 &lt;style lang="scss" scoped&gt;
 ::v-deep(.dark-panel.p-panel) {
     .p-panel-titlebar {
@@ -65,7 +72,8 @@ html {
 
 }
 &lt;/style&gt;
-</CodeHighlight>
+
+</code></pre>
 
             <h5>Utility Classes</h5>
             <p>A couple of utility classes are provided as a solution to common requirements.</p>

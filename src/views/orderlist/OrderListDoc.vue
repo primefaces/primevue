@@ -3,17 +3,19 @@
 		<TabView>
 			<TabPanel header="Documentation">
 				<h5>Import</h5>
-<CodeHighlight lang="javascript">
+<pre v-code.script>
+<code>
 import OrderList from 'primevue/orderlist';
-</CodeHighlight>
+
+</code></pre>
 
 				<h5>Getting Started</h5>
                 <p>OrderList requires an array as its value bound with the v-model directive and a template for its content.</p>
                 <p>Header of the component is defined with the "header" template and to define the content of an item in the list a named template called "item" needs to be defined which gets the
                     <i>item</i> and the <i>index</i> via slotProps.
                 </p>
-<CodeHighlight>
-<template v-pre>
+<pre v-code>
+<code><template v-pre>
 &lt;OrderList v-model="cars" listStyle="height:auto" dataKey="vin"&gt;
     &lt;template #header&gt;
         List of Cars
@@ -29,7 +31,7 @@ import OrderList from 'primevue/orderlist';
     &lt;/template&gt;
 &lt;/OrderList&gt;
 </template>
-</CodeHighlight>
+</code></pre>
 
                 <h5>Selection</h5>
                 <p>In case you'd need to access the selected items in the list, define a binding to the <i>selection</i> property with the v-model directive so that
@@ -38,8 +40,8 @@ import OrderList from 'primevue/orderlist';
 
                 <p>Use the v-model directive to enable two-way binding.</p>
 
-<CodeHighlight>
-<template v-pre>
+<pre v-code>
+<code><template v-pre>
 &lt;OrderList v-model="cars" dataKey="vin" v-model:selection="selection"&gt;
     &lt;template #header&gt;
         List of Cars
@@ -55,7 +57,7 @@ import OrderList from 'primevue/orderlist';
     &lt;/template&gt;
 &lt;/OrderList&gt;
 </template>
-</CodeHighlight>
+</code></pre>
 
                 <h5>DataKey</h5>
                 <p>It is recommended to provide the name of the field that uniquely identifies the a record in the data via the <i>dataKey</i> property for better performance.</p>
@@ -168,8 +170,8 @@ import OrderList from 'primevue/orderlist';
 				<a href="https://github.com/primefaces/primevue/tree/master/src/views/orderlist" class="btn-viewsource" target="_blank" rel="noopener noreferrer">
 					<span>View on GitHub</span>
 				</a>
-<CodeHighlight>
-<template v-pre>
+<pre v-code>
+<code><template v-pre>
 &lt;OrderList v-model="products" listStyle="height:auto" dataKey="id"&gt;
     &lt;template #header&gt;
         List of Products
@@ -192,9 +194,10 @@ import OrderList from 'primevue/orderlist';
     &lt;/template&gt;
 &lt;/OrderList&gt;
 </template>
-</CodeHighlight>
+</code></pre>
 
-<CodeHighlight lang="js">
+<pre v-code.script>
+<code>
 import ProductService from '../../service/ProductService';
 
 export default {
@@ -211,9 +214,11 @@ export default {
         this.productService.getProductsSmall().then(data => this.products = data);
     }
 }
-</CodeHighlight>
 
-<CodeHighlight lang="css">
+</code></pre>
+
+<pre v-code.css>
+<code>
 .product-item {
 	display: flex;
 	align-items: center;
@@ -262,7 +267,8 @@ export default {
         }
     }
 }
-</CodeHighlight>
+
+</code></pre>
 			</TabPanel>
 		</TabView>
 	</div>

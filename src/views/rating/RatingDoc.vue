@@ -3,27 +3,35 @@
 		<TabView>
 			<TabPanel header="Documentation">
 				<h5>Import</h5>
-<CodeHighlight lang="javascript">
+<pre v-code.script>
+<code>
 import Rating from 'primevue/rating';
-</CodeHighlight>
+
+</code></pre>
 
 				<h5>Getting Started</h5>
 				<p>Two-way value binding is defined using v-model.</p>
-<CodeHighlight>
+<pre v-code>
+<code>
 &lt;Rating v-model="val" /&gt;
-</CodeHighlight>
+
+</code></pre>
 
 				<h5>Number of Stars</h5>
 				<p>Number of stars to display is defined with <i>stars</i> property, default is 5.</p>
-<CodeHighlight>
+<pre v-code>
+<code>
 &lt;Rating v-model="val" :stars="7"/&gt;
-</CodeHighlight>
+
+</code></pre>
 
 				<h5>Cancel</h5>
 				<p>A cancel icon is displayed to reset the value by default, set <i>cancel</i> as false to remove this option.</p>
-<CodeHighlight>
+<pre v-code>
+<code>
 &lt;Rating v-model="val" :cancel="false" /&gt;
-</CodeHighlight>
+
+</code></pre>
 
 				<h5>Properties</h5>
                 <p>Any property as style and class are passed to the main container element. Following are the additional properties to configure the component.</p>
@@ -132,8 +140,8 @@ import Rating from 'primevue/rating';
 				<a href="https://github.com/primefaces/primevue/tree/master/src/views/rating" class="btn-viewsource" target="_blank" rel="noopener noreferrer">
 					<span>View on GitHub</span>
 				</a>
-<CodeHighlight>
-<template v-pre>
+<pre v-code>
+<code><template v-pre>
 &lt;h3&gt;Basic {{val1}}&lt;/h3&gt;
 &lt;Rating v-model="val1" /&gt;
 
@@ -146,9 +154,10 @@ import Rating from 'primevue/rating';
 &lt;h3&gt;Disabled&lt;/h3&gt;
 &lt;Rating :value="8" :disabled="true" :stars="10" /&gt;
 </template>
-</CodeHighlight>
+</code></pre>
 
-<CodeHighlight lang="javascript">
+<pre v-code.script>
+<code>
 export default {
 	data() {
 		return {
@@ -157,7 +166,8 @@ export default {
 		}
 	}
 }
-</CodeHighlight>
+
+</code></pre>
 			</TabPanel>
 		</TabView>
 	</div>

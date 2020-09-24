@@ -3,37 +3,45 @@
 		<TabView>
 			<TabPanel header="Documentation">
 				<h5>Import</h5>
-<CodeHighlight lang="javascript">
+<pre v-code.script>
+<code>
 import ProgressBar from 'primevue/progressbar';
-</CodeHighlight>
+
+</code></pre>
 
 				<h5>Getting Started</h5>
 				<p>ProgressBar has two modes; "determinate" (default) and "indeterminate". In determinate mode, a value between 0 and 100 is required to display the progress.</p>
-<CodeHighlight>
+<pre v-code>
+<code>
 &lt;ProgressBar :value="value" /&gt;
-</CodeHighlight>
-<CodeHighlight lang="js">
+
+</code></pre>
+<pre v-code.script>
+<code>
 data() {
 	return {
 		value: 0
 	}
 }
-</CodeHighlight>
+
+</code></pre>
 
 				<p>Indeterminate is simplly enabled using <i>mode</i> property.</p>
-<CodeHighlight>
+<pre v-code>
+<code>
 &lt;ProgressBar mode="indeterminate"/&gt;
-</CodeHighlight>
+
+</code></pre>
 
                 <h5>Slot</h5>
                 <p>A custom label can be placed inside the progress bar via the default slot.</p>
-<CodeHighlight>
-<template v-pre>
+<pre v-code>
+<code><template v-pre>
 &lt;ProgressBar :value="value"&gt;
     Percent Complete: &#123;&#123;value&#125;&#125;%
 &lt;/ProgressBar&gt;
 </template>
-</CodeHighlight>
+</code></pre>
 
 				<h5>Properties</h5>
 				<div class="doc-tablewrapper">
@@ -112,8 +120,8 @@ data() {
 				<a href="https://github.com/primefaces/primevue/tree/master/src/views/prograssbar" class="btn-viewsource" target="_blank" rel="noopener noreferrer">
 					<span>View on GitHub</span>
 				</a>
-<CodeHighlight>
-<template v-pre>
+<pre v-code>
+<code><template v-pre>
 &lt;h3&gt;Dynamic&lt;/h3&gt;
 &lt;ProgressBar :value="value1" /&gt;
 
@@ -123,9 +131,10 @@ data() {
 &lt;h3&gt;Indeterminate&lt;/h3&gt;
 &lt;ProgressBar mode="indeterminate" style="height: .5em" /&gt;
 </template>
-</CodeHighlight>
+</code></pre>
 
-<CodeHighlight lang="javascript">
+<pre v-code.script>
+<code>
 export default {
 	data() {
 		return {
@@ -156,7 +165,8 @@ export default {
 		this.endProgress();
 	}
 }
-</CodeHighlight>
+
+</code></pre>
 			</TabPanel>
 		</TabView>
 	</div>

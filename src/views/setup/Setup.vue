@@ -7,10 +7,12 @@
             <h5>Download</h5>
             <p>PrimeVue is available at <a href="https://www.npmjs.com/package/primevue">npm</a>, if you have an existing application run the following commands to download PrimeVue and PrimeIcons to your project.</p>
 
-<CodeHighlight lang="js">
+<pre v-code.script>
+<code>
 npm install primevue --save
 npm install primeicons --save
-</CodeHighlight>
+
+</code></pre>
 
             <h5>PrimeFlex</h5>
             <p>PrimeFlex is a CSS utility library featuring various helpers such as a grid system, flexbox, spacing, elevation and more. Although it is not required, it is highly
@@ -20,25 +22,32 @@ npm install primeicons --save
             <p>This is the recommended way if your application uses <a href="https://cli.vuejs.org/">vue-cli</a> or has a webpack based build with <a href="https://github.com/vuejs/vue-loader">vue-loader</a> configured.
             Import the components as .vue files for seamless integration within your project where path of each component is available at the "import" section of a component documentation.</p>
 
-<CodeHighlight lang="js">
+<pre v-code.script>
+<code>
 //import ComponentName from 'primevue/componentname';
 
 import Dialog from 'primevue/dialog';
-</CodeHighlight>
+
+</code></pre>
 
             <p>In the next step, register the component with the tag name you'd like to use.</p>
-<CodeHighlight lang="js">
+<pre v-code.script>
+<code>
 Vue.component('Dialog', Dialog);
-</CodeHighlight>
+
+</code></pre>
 
             <p>Then you'll be able to utilize the component in your application.</p>
-<CodeHighlight>
+<pre v-code>
+<code>
 &lt;Dialog&gt;&lt;/Dialog&gt;
-</CodeHighlight>
+
+</code></pre>
 
             <h5>Script Tag</h5>
             <p>Other alternative is utilizing the components directly within the browser with UMD packages.</p>
-<CodeHighlight>
+<pre v-code>
+<code>
 &lt;meta charset="utf-8"&gt;
 &lt;title&gt;calendar demo&lt;/title&gt;
 &lt;link href="https://unpkg.com/primevue/resources/themes/saga-blue/theme.css " rel="stylesheet"&gt;
@@ -58,18 +67,21 @@ new Vue({
   }
 }).$mount('#app')
 &lt;/script&gt;
-</CodeHighlight>
+
+</code></pre>
 
             <h5>Dependencies</h5>
             <p>Majority of PrimeVue components (95%) are native and there are some exceptions having 3rd party dependencies such as Quill for Editor.</p>
             <p>In addition, components require PrimeIcons library for icons.</p>
 
-<CodeHighlight lang="js">
+<pre v-code.script>
+<code>
 dependencies: {
     "vue": "^2.6.10",
     "primeicons": "^4.0.0"
 }
-</CodeHighlight>
+
+</code></pre>
 
             <p>Here is the list of components with 3rd party dependencies.</p>
             <div class="doc-tablewrapper">
@@ -109,15 +121,18 @@ dependencies: {
             <p>The css dependencies are as follows, note that you may change the theme with another one of your choice. If you are using a bundler such as webpack with a css loader you
                 may import them to your main application component.</p>
 
-<CodeHighlight lang="js">
+<pre v-code.script>
+<code>
 primevue/resources/themes/saga-blue/theme.css       //theme
 primevue/resources/primevue.min.css                 //core css
 primeicons/primeicons.css                           //icons
-</CodeHighlight>
+
+</code></pre>
 
             <h5>Free Themes</h5>
             <p>PrimeVue ships with 32 free themes to choose from.</p>
-<CodeHighlight lang="css">
+<pre v-code.css>
+<code>
 primevue/resources/themes/bootstrap4-light-blue/theme.css
 primevue/resources/themes/bootstrap4-light-purple/theme.css
 primevue/resources/themes/bootstrap4-dark-blue/theme.css
@@ -151,15 +166,18 @@ primevue/resources/themes/luna-blue/theme.css
 primevue/resources/themes/luna-green/theme.css
 primevue/resources/themes/luna-pink/theme.css
 primevue/resources/themes/rhea/theme.css
-</CodeHighlight>
+
+</code></pre>
 
             <h5>Ripple</h5>
             <p>Ripple is an optional animation for the supported components such as buttons. It is disabled by default and needs to be enabled at
                 your app's entry file (e.g. main.js) using the <i>$primevue</i> instance variable.
             </p>
-<CodeHighlight class="language-javascript">
+<pre v-code.script>
+<code>
 Vue.prototype.$primevue = {ripple: true};
-</CodeHighlight>
+
+</code></pre>
 
             <h5>Quickstart</h5>
             <p>An <a href="https://github.com/primefaces/primevue-quickstart">example application</a> based on vue-cli is available at github.</p>
@@ -170,7 +188,8 @@ Vue.prototype.$primevue = {ripple: true};
             <h5>Nuxt.js Integration</h5>
             <p>PrimeVue can easily be added to a Nuxt.js with the following steps.</p>
             <p><strong>1)</strong> Add primevue.js to the plugins folder with the components you'd like to use.</p>
-<CodeHighlight class="language-javascript">
+<pre v-code.script>
+<code>
 import Vue from 'vue';
 import InputText from 'primevue/inputtext';
 import Button from 'primevue/button';
@@ -182,10 +201,12 @@ Vue.use(ToastService);
 Vue.component('InputText', InputText);
 Vue.component('Button', Button);
 Vue.component('Toast', Toast);
-</CodeHighlight>
+
+</code></pre>
 
             <p><strong>2)</strong> Add requires CSS dependencies and the plugin configuration in nuxt.config.js.</p>
-<CodeHighlight class="language-javascript">
+<pre v-code.script>
+<code>
 css: [
     {src: 'primevue/resources/primevue.min.css'},
     {src: 'primevue/resources/themes/saga-blue/theme.css'},
@@ -194,7 +215,8 @@ css: [
 plugins: [
     {src:'~/plugins/primevue.js', mode: 'client'}
 ]
-</CodeHighlight>
+
+</code></pre>
 
             <p>That is all, for a complete example please refer to the <a href="https://github.com/primefaces/primevue-nuxtjs-quickstart">primevue-nuxtjs-quickstart</a> sample.</p>
 

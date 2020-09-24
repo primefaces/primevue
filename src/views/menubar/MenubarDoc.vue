@@ -3,20 +3,25 @@
 		<TabView>
 			<TabPanel header="Documentation">
 				<h5>Import</h5>
-<CodeHighlight lang="javascript">
+<pre v-code.script>
+<code>
 import Menubar from 'primevue/menubar';
-</CodeHighlight>
+
+</code></pre>
 
                 <h5>MenuModel</h5>
                 <p>Menubar uses the common MenuModel API to define the items, visit <router-link to="/menumodel">MenuModel API</router-link> for details.</p>
 
 				<h5>Getting Started</h5>
 				<p>Menubar requires a collection of menuitems as its model.</p>
-<CodeHighlight>
+<pre v-code>
+<code>
 &lt;Menubar :model="items" /&gt;
-</CodeHighlight>
 
-<CodeHighlight lang="js">
+</code></pre>
+
+<pre v-code.script>
+<code>
 export default {
     data() {
         return {
@@ -151,12 +156,13 @@ export default {
         }
     }
 }
-</CodeHighlight>
+
+</code></pre>
 
                 <h5>Custom Content</h5>
                 <p>Two slots named "start" and "end" are provided to embed content before or after the menubar.</p>
-<CodeHighlight>
-<template v-pre>
+<pre v-code>
+<code><template v-pre>
 &lt;Menubar :model="items"&gt;
     &lt;template #start&gt;
         Before
@@ -166,7 +172,7 @@ export default {
     &lt;/template&gt;
 &lt;/Menubar&gt;
 </template>
-</CodeHighlight>
+</code></pre>
 
                 <h5>Properties</h5>
                 <p>Any property as style and class are passed to the main container element. Following are the additional properties to configure the component.</p>
@@ -242,8 +248,8 @@ export default {
 				<a href="https://github.com/primefaces/primevue/tree/master/src/views/menubar" class="btn-viewsource" target="_blank" rel="noopener noreferrer">
 					<span>View on GitHub</span>
 				</a>
-<CodeHighlight>
-<template v-pre>
+<pre v-code>
+<code><template v-pre>
 &lt;Menubar :model="items"&gt;
     &lt;template #start&gt;
         &lt;img alt="logo" src="../../assets/images/logo.svg" height="40" class="p-mr-2"&gt;
@@ -254,9 +260,10 @@ export default {
     &lt;/template&gt;
 &lt;/Menubar&gt;
 </template>
-</CodeHighlight>
+</code></pre>
 
-<CodeHighlight lang="javascript">
+<pre v-code.script>
+<code>
 export default {
     data() {
         return {
@@ -391,7 +398,8 @@ export default {
         }
     }
 }
-</CodeHighlight>
+
+</code></pre>
 			</TabPanel>
 		</TabView>
 	</div>

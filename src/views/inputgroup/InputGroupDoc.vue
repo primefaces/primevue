@@ -5,8 +5,8 @@
 				<a href="https://github.com/primefaces/primevue/tree/master/src/views/inputgroup" class="btn-viewsource" target="_blank" rel="noopener noreferrer">
 					<span>View on GitHub</span>
 				</a>
-<CodeHighlight>
-<template v-pre>
+<pre v-code>
+<code><template v-pre>
 &lt;h3&gt;Addons&lt;/h3&gt;
 &lt;div class="p-grid p-fluid"&gt;
     &lt;div class="p-col-12 p-md-4"&gt;
@@ -109,9 +109,10 @@
     &lt;/div&gt;
 &lt;/div&gt;
 </template>
-</CodeHighlight>
+</code></pre>
 
-<CodeHighlight lang="javascript">
+<pre v-code.script>
+<code>
 export default {
 	data() {
 		return {
@@ -122,7 +123,8 @@ export default {
 		}
 	}
 }
-</CodeHighlight>
+
+</code></pre>
 			</TabPanel>
 		</TabView>
 	</div>

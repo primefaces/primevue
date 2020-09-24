@@ -95,8 +95,8 @@
         <div class="content-section documentation">
             <TabView>
                 <TabPanel header="Source">
-<CodeHighlight>
-<template v-pre>
+<pre v-code>
+<code><template v-pre>
 &lt;h5&gt;Basic Cell Editing&lt;/h5&gt;
 &lt;p&gt;Simple editors with v-model.&lt;/p&gt;
 &lt;DataTable :value="products1" editMode="cell" class="editable-cells-table"&gt;
@@ -176,9 +176,10 @@
     &lt;Column :rowEditor="true" headerStyle="width:7rem" bodyStyle="text-align:center"&gt;&lt;/Column&gt;
 &lt;/DataTable&gt;
 </template>
-</CodeHighlight>
+</code></pre>
 
-<CodeHighlight lang="javascript">
+<pre v-code.script>
+<code>
 import ProductService from '../../service/ProductService';
 
 export default {
@@ -277,19 +278,22 @@ export default {
         this.productService.getProductsSmall().then(data => this.products3 = data);
     }
 }
-</CodeHighlight>
+
+</code></pre>
                 </TabPanel>
             </TabView>
         </div>
 	</div>
 </template>
 
-<CodeHighlight lang="css">
+<pre v-code.css>
+<code>
 ::v-deep(.editable-cells-table td.p-cell-editing) {
     padding-top: 0;
     padding-bottom: 0;
 }
-</CodeHighlight>
+
+</code></pre>
 
 <script>
 import ProductService from '../../service/ProductService';

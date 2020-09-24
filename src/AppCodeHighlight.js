@@ -1,6 +1,6 @@
 import Prism from 'prismjs';
 
-const CodeHighlight2 = {
+const CodeHighlight = {
     beforeMount(el, binding) {
         if (binding.modifiers.script)
             el.className = 'language-javascript';
@@ -13,4 +13,4 @@ const CodeHighlight2 = {
     }
 };
 
-export default CodeHighlight2;
+export default CodeHighlight;

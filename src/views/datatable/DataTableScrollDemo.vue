@@ -111,8 +111,8 @@
         <div class="content-section documentation">
             <TabView>
                 <TabPanel header="Source">
-<CodeHighlight>
-<template v-pre>
+<pre v-code>
+<code><template v-pre>
 &lt;div class="card"&gt;
     &lt;h5&gt;Vertical&lt;/h5&gt;
     &lt;DataTable :value="customers" :scrollable="true" scrollHeight="200px" :loading="loading"&gt;
@@ -212,9 +212,10 @@
     &lt;/DataTable&gt;
 &lt;/div&gt;
 </template>
-</CodeHighlight>
+</code></pre>
 
-<CodeHighlight lang="javascript">
+<pre v-code.script>
+<code>
 import CustomerService from '../../service/CustomerService';
 
 export default {
@@ -308,7 +309,8 @@ export default {
         }
     }
 }
-</CodeHighlight>
+
+</code></pre>
                 </TabPanel>
             </TabView>
         </div>

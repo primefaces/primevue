@@ -2,13 +2,14 @@
 	<div class="content-section documentation">
 		<TabView>
 			<TabPanel header="Source">
-<CodeHighlight>
-<template v-pre>
+<pre v-code>
+<code><template v-pre>
 &lt;Chart type="doughnut" :data="chartData" /&gt;
 </template>
-</CodeHighlight>
+</code></pre>
 
-<CodeHighlight lang="javascript">
+<pre v-code.script>
+<code>
 export default {
 	data() {
 		return {
@@ -33,7 +34,8 @@ export default {
 		}
 	}
 }
-</CodeHighlight>
+
+</code></pre>
 			</TabPanel>
 		</TabView>
 	</div>

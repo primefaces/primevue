@@ -3,17 +3,22 @@
 		<TabView>
 			<TabPanel header="Documentation">
 				<h5>Import</h5>
-<CodeHighlight lang="javascript">
+<pre v-code.script>
+<code>
 import InputSwitch from 'primevue/inputswitch';
-</CodeHighlight>
+
+</code></pre>
 
 				<h5>Getting Started</h5>
 				<p>Two-way binding to a boolean property is defined using the standard v-model directive.</p>
-<CodeHighlight>
+<pre v-code>
+<code>
 &lt;InputSwitch v-model="checked" /&gt;
-</CodeHighlight>
 
-<CodeHighlight lang="js">
+</code></pre>
+
+<pre v-code.script>
+<code>
 export default {
 	data() {
 		return {
@@ -21,11 +26,13 @@ export default {
 		}
 	}
 }
-</CodeHighlight>
+
+</code></pre>
 
 				<p>As model is two-way binding enabled, setting the bound value as true displays the state as checked by default.</p>
 
-<CodeHighlight lang="js">
+<pre v-code.script>
+<code>
 export default {
 	data() {
 		return {
@@ -33,7 +40,8 @@ export default {
 		}
 	}
 }
-</CodeHighlight>
+
+</code></pre>
 
 				<h5>Properties</h5>
                 <p>Any property such as name and placeholder are passed to the underlying input element. Following are the additional properties to configure the component.</p>
@@ -96,17 +104,18 @@ export default {
 				<a href="https://github.com/primefaces/primevue/tree/master/src/views/inputswitch" class="btn-viewsource" target="_blank" rel="noopener noreferrer">
 					<span>View on GitHub</span>
 				</a>
-<CodeHighlight>
-<template v-pre>
+<pre v-code>
+<code><template v-pre>
 &lt;h3&gt;Basic&lt;/h3&gt;
 &lt;InputSwitch v-model="checked1" /&gt;
 
 &lt;h3&gt;Preselection&lt;/h3&gt;
 &lt;InputSwitch v-model="checked2" /&gt;
 </template>
-</CodeHighlight>
+</code></pre>
 
-<CodeHighlight lang="javascript">
+<pre v-code.script>
+<code>
 export default {
 	data() {
 		return {
@@ -115,7 +124,8 @@ export default {
 		}
 	}
 }
-</CodeHighlight>
+
+</code></pre>
 			</TabPanel>
 		</TabView>
 	</div>

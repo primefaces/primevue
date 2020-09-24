@@ -3,21 +3,24 @@
 		<TabView>
 			<TabPanel header="Documentation">
 				<h5>Import</h5>
-<CodeHighlight lang="javascript">
+<pre v-code.script>
+<code>
 import ProgressSpinner from 'primevue/progressspinner';
-</CodeHighlight>
+
+</code></pre>
 
 				<h5>Getting Started</h5>
 				<p>ProgressSpinner is defined using ProgressSpinner element.</p>
-<CodeHighlight>
-<template v-pre>
+<pre v-code>
+<code><template v-pre>
 &lt;ProgressSpinner /&gt;
 </template>
-</CodeHighlight>
+</code></pre>
 
                 <h5>Colors</h5>
                 <p>Colors of the spinner can be changed by overriding the keyframes animation.</p>
-<CodeHighlight lang="css">
+<pre v-code.css>
+<code>
 @keyframes ui-progress-spinner-color {
     100%,
     0% {
@@ -34,7 +37,8 @@ import ProgressSpinner from 'primevue/progressspinner';
         stroke: #ffa700;
     }
 }
-</CodeHighlight>
+
+</code></pre>
 
 				<h5>Properties</h5>
                 <p>Any property as style and class are passed to the main container element. Following are the additional properties to configure the component.</p>
@@ -106,15 +110,15 @@ import ProgressSpinner from 'primevue/progressspinner';
 				<a href="https://github.com/primefaces/primevue/tree/master/src/views/progressspinner" class="btn-viewsource" target="_blank" rel="noopener noreferrer">
 					<span>View on GitHub</span>
 				</a>
-<CodeHighlight>
-<template v-pre>
+<pre v-code>
+<code><template v-pre>
 &lt;h3&gt;Basic&lt;/h3&gt;
 &lt;ProgressSpinner /&gt;
 
 &lt;h3&gt;Custom&lt;/h3&gt;
 &lt;ProgressSpinner style="width:50px;height:50px" strokeWidth="8" fill="#EEEEEE" animationDuration=".5s"/&gt;
 </template>
-</CodeHighlight>
+</code></pre>
 			</TabPanel>
 		</TabView>
 	</div>

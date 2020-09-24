@@ -20,17 +20,18 @@
         <div class="content-section documentation">
             <TabView>
                 <TabPanel header="Source">
-<CodeHighlight>
-<template v-pre>
+<pre v-code>
+<code><template v-pre>
 &lt;h3&gt;Lenient Filter&lt;/h3&gt;
 &lt;Tree :value="nodes" :filter="true" filterMode="lenient"&gt;&lt;/Tree&gt;
 
 &lt;h3&gt;Strict Filter&lt;/h3&gt;
 &lt;Tree :value="nodes" :filter="true" filterMode="strict"&gt;&lt;/Tree&gt;
 </template>
-</CodeHighlight>
+</code></pre>
 
-<CodeHighlight lang="javascript">
+<pre v-code.script>
+<code>
 import NodeService from '../../service/NodeService';
 
 export default {
@@ -68,7 +69,8 @@ export default {
         }
     }
 }
-</CodeHighlight>
+
+</code></pre>
                 </TabPanel>
             </TabView>
         </div>

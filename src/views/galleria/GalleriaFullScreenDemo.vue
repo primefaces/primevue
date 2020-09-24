@@ -61,8 +61,8 @@
         <div class="content-section documentation">
             <TabView>
                 <TabPanel header="Source">
-<CodeHighlight>
-<template v-pre>
+<pre v-code>
+<code><template v-pre>
 &lt;h3&gt;With Thumbnails&lt;/h3&gt;
 &lt;Galleria :value="images" :responsiveOptions="responsiveOptions2" :numVisible="9" containerStyle="max-width: 50%"
     :circular="true" :fullScreen="true" :showItemNavigators="true" :visible.sync="displayBasic"&gt;
@@ -106,9 +106,10 @@
     &lt;/div&gt;
 &lt;/div&gt;
 </template>
-</CodeHighlight>
+</code></pre>
 
-<CodeHighlight lang="javascript">
+<pre v-code.script>
+<code>
 import PhotoService from '../../service/PhotoService';
 
 export default {
@@ -167,7 +168,8 @@ export default {
         }
     }
 }
-</CodeHighlight>
+
+</code></pre>
                 </TabPanel>
             </TabView>
         </div>

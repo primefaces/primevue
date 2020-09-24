@@ -3,43 +3,53 @@
 		<TabView>
 			<TabPanel header="Documentation">
 				<h5>Import</h5>
-<CodeHighlight lang="javascript">
+<pre v-code.script>
+<code>
 import Sidebar from 'primevue/sidebar';
-</CodeHighlight>
+
+</code></pre>
 
 				<h5>Getting Started</h5>
 				<p>Sidebar is used as a container and visibility is controlled with the <i>visible</i> property that requires a v-model two-way binding.</p>
-<CodeHighlight>
+<pre v-code>
+<code>
 &lt;Sidebar v-model:visible="visibleLeft"&gt;
 	Content
 &lt;/Sidebar&gt;
 
 &lt;Button icon="pi pi-arrow-right" @click="visibleLeft = true" /&gt;
-</CodeHighlight>
+
+</code></pre>
 
 				<h5>Position</h5>
 				<p>Sidebar can either be located on the left (default), right, top or bottom of the screen depending on the <i>position</i> property.</p>
-<CodeHighlight>
+<pre v-code>
+<code>
 &lt;Sidebar v-model:visible="visibleRight" position="right"&gt;
 	Content
 &lt;/Sidebar&gt;
-</CodeHighlight>
+
+</code></pre>
 
 				<h5>Size</h5>
 				<p>Sidebar size can be changed using a fixed value or using one of the three predefined ones.</p>
-<CodeHighlight>
+<pre v-code>
+<code>
 &lt;Sidebar v-model:visible="visibleLeft" class="p-sidebar-sm"&gt;&lt;/Sidebar&gt;
 &lt;Sidebar v-model:visible="visibleLeft" class="p-sidebar-md"&gt;&lt;/Sidebar&gt;
 &lt;Sidebar v-model:visible="visibleLeft" class="p-sidebar-lg"&gt;&lt;/Sidebar&gt;
-</CodeHighlight>
+
+</code></pre>
 
 				<h5>Full Screen</h5>
 				<p>Full screen mode allows the sidebar to cover whole screen.</p>
-<CodeHighlight>
+<pre v-code>
+<code>
 &lt;Sidebar v-model:visible="visibleFull" position="full"&gt;
 	Content
 &lt;/Sidebar&gt;
-</CodeHighlight>
+
+</code></pre>
 
 
 				<h5>Properties</h5>
@@ -202,8 +212,8 @@ import Sidebar from 'primevue/sidebar';
 				<a href="https://github.com/primefaces/primevue/tree/master/src/views/sidebar" class="btn-viewsource" target="_blank" rel="noopener noreferrer">
 					<span>View on GitHub</span>
 				</a>
-<CodeHighlight>
-<template v-pre>
+<pre v-code>
+<code><template v-pre>
 &lt;Button icon="pi pi-arrow-right" @click="visibleLeft = true" class="p-mr-2" /&gt;
 &lt;Button icon="pi pi-arrow-left" @click="visibleRight = true" class="p-mr-2"  /&gt;
 &lt;Button icon="pi pi-arrow-down" @click="visibleTop = true" class="p-mr-2"  /&gt;
@@ -230,9 +240,10 @@ import Sidebar from 'primevue/sidebar';
     &lt;h3&gt;Full Screen&lt;/h3&gt;
 &lt;/Sidebar&gt;
 </template>
-</CodeHighlight>
+</code></pre>
 
-<CodeHighlight lang="javascript">
+<pre v-code.script>
+<code>
 export default {
 	data() {
 		return {
@@ -244,7 +255,8 @@ export default {
 		}
 	}
 }
-</CodeHighlight>
+
+</code></pre>
 			</TabPanel>
 		</TabView>
 	</div>

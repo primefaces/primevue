@@ -3,14 +3,16 @@
 		<TabView>
 			<TabPanel header="Documentation">
 				<h5>Import</h5>
-<CodeHighlight lang="javascript">
+<pre v-code.script>
+<code>
 import DeferredContent from 'primevue/deferredcontent';
-</CodeHighlight>
+
+</code></pre>
 
 				<h5>Getting Started</h5>
 				<p>DeferredContent is used as a wrapper element of its content..</p>
-<CodeHighlight>
-<template v-pre>
+<pre v-code>
+<code><template v-pre>
 &lt;DeferredContent&gt;
     &lt;DataTable :value="cars"&gt;
         &lt;Column field="vin" header="Vin"&gt;&lt;/Column&gt;
@@ -20,12 +22,12 @@ import DeferredContent from 'primevue/deferredcontent';
     &lt;/DataTable&gt;
 &lt;/DeferredContent&gt;
 </template>
-</CodeHighlight>
+</code></pre>
 
                 <h5>Load Event</h5>
                 <p>onLoad callback is useful to initialize the content when it becomes visible on scroll such as loading data.</p>
-<CodeHighlight>
-<template v-pre>
+<pre v-code>
+<code><template v-pre>
 &lt;DeferredContent @load="onDataLoad"&gt;
     &lt;DataTable :value="cars"&gt;
         &lt;Column field="vin" header="Vin"&gt;&lt;/Column&gt;
@@ -35,7 +37,7 @@ import DeferredContent from 'primevue/deferredcontent';
     &lt;/DataTable&gt;
 &lt;/DeferredContent&gt;
 </template>
-</CodeHighlight>
+</code></pre>
 
 				<h5>Properties</h5>
 				<p>Component has no properties.</p>
@@ -71,8 +73,8 @@ import DeferredContent from 'primevue/deferredcontent';
 				<a href="https://github.com/primefaces/primevue/tree/master/src/views/deferredcontent" class="btn-viewsource" target="_blank" rel="noopener noreferrer">
 					<span>View on GitHub</span>
 				</a>
-<CodeHighlight>
-<template v-pre>
+<pre v-code>
+<code><template v-pre>
 &lt;div style="height: 800px"&gt;
     Scroll down to lazy load an image and the DataTable which initiates a query that is not executed on initial page load to speed up load performance.
 &lt;/div&gt;
@@ -93,9 +95,10 @@ import DeferredContent from 'primevue/deferredcontent';
     &lt;/DataTable&gt;
 &lt;/DeferredContent&gt;
 </template>
-</CodeHighlight>
+</code></pre>
 
-<CodeHighlight lang="javascript">
+<pre v-code.script>
+<code>
 import ProductService from '../../service/ProductService';
 
 export default {
@@ -118,7 +121,8 @@ export default {
         }
     }
 }
-</CodeHighlight>
+
+</code></pre>
 			</TabPanel>
 		</TabView>
 	</div>

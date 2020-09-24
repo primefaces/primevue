@@ -44,8 +44,8 @@
         <div class="content-section documentation">
             <TabView>
                 <TabPanel header="Source">
-<CodeHighlight>
-<template v-pre>
+<pre v-code>
+<code><template v-pre>
 &lt;DataTable :value="products" class="p-datatable-responsive-demo" :paginator="true" :rows="10"&gt;
     &lt;template #header&gt;
         Responsive
@@ -76,9 +76,10 @@
     &lt;/Column&gt;
 &lt;/DataTable&gt;
 </template>
-</CodeHighlight>
+</code></pre>
 
-<CodeHighlight lang="javascript">
+<pre v-code.script>
+<code>
 import ProductService from '../../service/ProductService';
 
 export default {
@@ -95,9 +96,11 @@ export default {
         this.productService.getProducts().then(data => this.products = data);
     }
 }
-</CodeHighlight>
 
-<CodeHighlight lang="css">
+</code></pre>
+
+<pre v-code.css>
+<code>
 .p-datatable-responsive-demo .p-datatable-tbody > tr > td .p-column-title {
     display: none;
 }
@@ -133,7 +136,8 @@ export default {
         }
     }
 }
-</CodeHighlight>
+
+</code></pre>
                 </TabPanel>
             </TabView>
         </div>

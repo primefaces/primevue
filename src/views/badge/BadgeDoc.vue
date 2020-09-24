@@ -7,16 +7,20 @@
 
 				<h5>Numbers</h5>
 				<p>Use <i>.p-badge</i> class to display numbers inside badges.</p>
-<CodeHighlight>
+<pre v-code>
+<code>
 &lt;span class="p-badge"&gt;2&lt;/span&gt;
-</CodeHighlight>
+
+</code></pre>
 
                 <h5>Tags</h5>
 				<p>Tags are optimized for text rather than number and used with the <i>.p-tag</i> class. For more rounded styling like pills, add the <i>.p-tag-rounded</i> class</p>
-<CodeHighlight>
+<pre v-code>
+<code>
 &lt;span class="p-tag"&gt;New&lt;/span&gt;
 &lt;span class="p-tag p-tag-rounded"&gt;New&lt;/span&gt;
-</CodeHighlight>
+
+</code></pre>
 
                 <h5>Severities</h5>
                 <p>Different options are available as severity levels with.</p>
@@ -31,7 +35,8 @@
 
                 <h5>Positoning</h5>
                 <p>A badge can easily be positioned relative to another element when both are wrapped inside an element with <i>p-overlay-badge</i> class.</p>
-<CodeHighlight>
+<pre v-code>
+<code>
 &lt;span class="p-overlay-badge"&gt;
     &lt;i class="pi pi-bell" style="font-size: 2em"&gt;&lt;/i&gt;
     &lt;span class="p-badge"&gt;2&lt;/span&gt;
@@ -41,29 +46,36 @@
     &lt;Button type="button" label="New" /&gt;
     &lt;span class="p-badge p-badge-warning"&gt;5&lt;/span&gt;
 &lt;/span&gt;
-</CodeHighlight>
+
+</code></pre>
 
                 <h5>Inline Button Badges</h5>
                 <p>Buttons provide integrated badge support with the <i>badge</i> and <i>badgeClass</i> properties.</p>
 
-<CodeHighlight>
+<pre v-code>
+<code>
 &lt;Button type="button" label="Emails" badge="8" /&gt;
 &lt;Button type="button" label="Messages" icon="pi pi-users" class="p-button-warning" badge="8" badgeClass="p-badge-danger" /&gt;
-</CodeHighlight>
+
+</code></pre>
 
                 <h5>Sizes</h5>
                 <p>Badge sizes are adjusted with additional classes.</p>
-<CodeHighlight>
+<pre v-code>
+<code>
 &lt;span class="p-badge"&gt;2&lt;/span&gt;
 &lt;span class="p-badge p-badge-l p-badge-sucess"&gt;4&lt;/span&gt;
 &lt;span class="p-badge p-badge-xl p-badge-warning"&gt;6&lt;/span&gt;
-</CodeHighlight>
+
+</code></pre>
 
                 <p>In addition, when placed inside another element, badge sizes can also derive their size from their parent.</p>
-<CodeHighlight>
+<pre v-code>
+<code>
 &lt;h1&gt;Heading 1 &lt;span class="p-tag p-tag-success"&gt;New&lt;/span&gt;&lt;/h1&gt;
 &lt;h2&gt;Heading 2 &lt;span class="p-tag p-tag-success"&gt;New&lt;/span&gt;&lt;/h2&gt;
-</CodeHighlight>
+
+</code></pre>
 
 				<h5>Styling</h5>
 				<p>Following is the list of structural style classes, for theming classes visit <router-link to="/theming">theming</router-link> page.</p>
@@ -112,8 +124,8 @@
 				<a href="https://github.com/primefaces/primevue/tree/master/src/views/badge" class="btn-viewsource" target="_blank" rel="noopener noreferrer">
 					<span>View on GitHub</span>
 				</a>
-<CodeHighlight>
-<template v-pre>
+<pre v-code>
+<code><template v-pre>
 &lt;h3&gt;Numbers&lt;/h3&gt;
 &lt;div class="badges"&gt;
     &lt;span class="p-badge"&gt;2&lt;/span&gt;
@@ -163,7 +175,7 @@
     &lt;span class="p-badge p-badge-xl p-badge-warning"&gt;6&lt;/span&gt;
 &lt;/div&gt;
 </template>
-</CodeHighlight>
+</code></pre>
 			</TabPanel>
 		</TabView>
 	</div>

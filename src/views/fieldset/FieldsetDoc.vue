@@ -3,58 +3,70 @@
 		<TabView>
 			<TabPanel header="Documentation">
 				<h5>Import</h5>
-<CodeHighlight lang="javascript">
+<pre v-code.script>
+<code>
 import Fieldset from 'primevue/fieldset';
-</CodeHighlight>
+
+</code></pre>
 
 				<h5>Getting Started</h5>
 				<p>Fieldset is a container component that accepts content as its children.</p>
-<CodeHighlight>
+<pre v-code>
+<code>
 &lt;Fieldset legend="Godfather I"&gt;
 	The story begins as Don Vito Corleone, the head of a New York Mafia family, oversees his daughter's wedding.
 	His beloved son Michael has just come home from the war, but does not intend to become part of his father's business.
 	Through Michael's life the nature of the family business becomes clear. The business of the family is just like the head of the family,
 	kind and benevolent to those who give respect, but given to ruthless violence whenever anything stands against the good of the family.
 &lt;/Fieldset&gt;
-</CodeHighlight>
+
+</code></pre>
 
                 <h5>Custom Header</h5>
                 <p>Header of the panel is either defined with the <i>legend</i> property or the legend template.</p>
-<CodeHighlight>
+<pre v-code>
+<code>
 &lt;Fieldset&gt;
     &lt;template #legend&gt;
         Header Content
     &lt;/template&gt;
 	Content
 &lt;/Fieldset&gt;
-</CodeHighlight>
+
+</code></pre>
 
 
 				<h5>Toggleable</h5>
 				<p>Content of the fieldset can be expanded and collapsed using <i>toggleable</i> option..</p>
-<CodeHighlight>
+<pre v-code>
+<code>
 &lt;Fieldset legend="Godfather I" :toggleable="true"&gt;
 	The story begins as Don Vito Corleone, the head of a New York Mafia family, oversees his daughter's wedding.
 	His beloved son Michael has just come home from the war, but does not intend to become part of his father's business.
 	Through Michael's life the nature of the family business becomes clear. The business of the family is just like the head of the family,
 	kind and benevolent to those who give respect, but given to ruthless violence whenever anything stands against the good of the family.
 &lt;/Fieldset&gt;
-</CodeHighlight>
+
+</code></pre>
 
 <p>To control the initial state of the toggleable panel, use the <i>collapsed</i> property.</p>
-<CodeHighlight>
+<pre v-code>
+<code>
 &lt;Fieldset legend="Header Text" :toggleable="true" :collapsed="true"&gt;
 	Content
 &lt;/Fieldset&gt;
-</CodeHighlight>
+
+</code></pre>
 
                 <p>Use the sync operator to enable two-way binding.</p>
-<CodeHighlight>
+<pre v-code>
+<code>
 &lt;button type="button" @click="isCollapsed = !isCollapsed">Toggle Programmatically&lt;/button&gt;
 &lt;Fieldset legend="Header Text" :toggleable="true" :collapsed.sync="isCollapsed"&gt;
 	Content
 &lt;/Fieldset&gt;
-</CodeHighlight>
+
+</code></pre>
 
 				<h5>Properties</h5>
                 <p>Any property as style and class are passed to the main container element. Following are the additional properties to configure the component.</p>
@@ -152,8 +164,8 @@ import Fieldset from 'primevue/fieldset';
 				<a href="https://github.com/primefaces/primevue/tree/master/src/views/fieldset" class="btn-viewsource" target="_blank" rel="noopener noreferrer">
 					<span>View on GitHub</span>
 				</a>
-<CodeHighlight>
-<template v-pre>
+<pre v-code>
+<code><template v-pre>
 &lt;h5&gt;Regular&lt;/h5&gt;
 &lt;Fieldset legend="Header"&gt;
     &lt;p&gt;Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.
@@ -170,9 +182,10 @@ import Fieldset from 'primevue/fieldset';
         cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.&lt;/p&gt;
 &lt;/Fieldset&gt;
 </template>
-</CodeHighlight>
+</code></pre>
 
-<CodeHighlight lang="javascript">
+<pre v-code.script>
+<code>
 export default {
 	data() {
 		return {
@@ -182,7 +195,8 @@ export default {
 		}
 	}
 }
-</CodeHighlight>
+
+</code></pre>
 			</TabPanel>
 		</TabView>
 	</div>

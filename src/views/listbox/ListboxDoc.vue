@@ -3,17 +3,22 @@
 		<TabView>
 			<TabPanel header="Documentation">
 				<h5>Import</h5>
-<CodeHighlight lang="javascript">
+<pre v-code.script>
+<code>
 import Listbox from 'primevue/listbox';
-</CodeHighlight>
+
+</code></pre>
 
 				<h5>Getting Started</h5>
 				<p>Listbox requires a value to bind and a collection of arbitrary objects along with the <i>optionLabel</i> property to specify the label property of the option.</p>
-<CodeHighlight>
+<pre v-code>
+<code>
 &lt;Listbox v-model="selectedCity" :options="cities" optionLabel="name" /&gt;
-</CodeHighlight>
 
-<CodeHighlight lang="js">
+</code></pre>
+
+<pre v-code.script>
+<code>
 data() {
 	return {
 		selectedCity: null,
@@ -26,20 +31,23 @@ data() {
 		]
 	}
 }
-</CodeHighlight>
+
+</code></pre>
 
 				<h5>Selection</h5>
 				<p>Listbox allows selection of either single or multiple items. In single case, model should be a single object reference whereas in multiple case should be an array. Multiple items can either be selected
 					using metaKey or toggled individually depending on the value of <i>metaKeySelection</i> property value which is true by default. On touch enabled
 					devices metaKeySelection is turned off automatically.</p>
-<CodeHighlight>
+<pre v-code>
+<code>
 &lt;Listbox v-model="selectedCity" :options="cities" optionLabel="name" :multiple="true"/&gt;
-</CodeHighlight>
+
+</code></pre>
 
 				<h5>Custom Content</h5>
 				<p>Label of an option is used as the display text of an item by default, for custom content support define an <i>option</i> template that gets the option instance as a parameter.</p>
-<CodeHighlight>
-<template v-pre>
+<pre v-code>
+<code><template v-pre>
 &lt;Listbox v-model="selectedCars" :options="cars" :multiple="true" :filter="true" optionLabel="brand" listStyle="max-height:250px" style="width:15em"&gt;
 	&lt;template #option="slotProps"&gt;
 		&lt;div&gt;
@@ -49,13 +57,15 @@ data() {
 	&lt;/template&gt;
 &lt;/Listbox&gt;
 </template>
-</CodeHighlight>
+</code></pre>
 
 				<h5>Filter</h5>
 				<p>Filtering allows searching items in the list using an input field at the header. In order to use filtering, enable <i>filter</i> property.</p>
-<CodeHighlight>
+<pre v-code>
+<code>
 &lt;Listbox v-model="selectedCity" :options="cities" optionLabel="name" :filter="true"/&gt;
-</CodeHighlight>
+
+</code></pre>
 
 				<h5>Properties</h5>
                 <p>Any property as style and class are passed to the main container element. Following are the additional properties to configure the component.</p>
@@ -229,8 +239,8 @@ data() {
 				<a href="https://github.com/primefaces/primevue/tree/master/src/views/listbox" class="btn-viewsource" target="_blank" rel="noopener noreferrer">
 					<span>View on GitHub</span>
 				</a>
-<CodeHighlight>
-<template v-pre>
+<pre v-code>
+<code><template v-pre>
 &lt;h5&gt;Single&lt;/h5&gt;
 &lt;Listbox v-model="selectedCity" :options="cities" optionLabel="name" style="width:15rem" /&gt;
 
@@ -244,9 +254,10 @@ data() {
     &lt;/template&gt;
 &lt;/Listbox&gt;
 </template>
-</CodeHighlight>
+</code></pre>
 
-<CodeHighlight lang="javascript">
+<pre v-code.script>
+<code>
 export default {
     data() {
         return {
@@ -274,7 +285,8 @@ export default {
         }
     }
 }
-</CodeHighlight>
+
+</code></pre>
 			</TabPanel>
 		</TabView>
 	</div>

@@ -3,21 +3,27 @@
 		<TabView>
 			<TabPanel header="Documentation">
 				<h5>Import</h5>
-<CodeHighlight lang="javascript">
+<pre v-code.script>
+<code>
 import Textarea from 'primevue/textarea';
-</CodeHighlight>
+
+</code></pre>
 
 				<h5>Getting Started</h5>
 				<p>A model can be bound using the standard v-model directive.</p>
-<CodeHighlight>
+<pre v-code>
+<code>
 &lt;Textarea v-model="value" rows="5" cols="30" /&gt;
-</CodeHighlight>
+
+</code></pre>
 
 				<h5>AutoResize</h5>
 				<p>In auto resize mode, textarea grows instead of displaying a scrollbar.</p>
-<CodeHighlight>
+<pre v-code>
+<code>
 &lt;Textarea v-model="value" :autoResize="true" rows="5" cols="30" /&gt;
-</CodeHighlight>
+
+</code></pre>
 
 				<h5>Properties</h5>
 				<p>Textarea passes any attribute to the underlying textarea element, additional attributes are the following.</p>
@@ -78,8 +84,8 @@ import Textarea from 'primevue/textarea';
 				<a href="https://github.com/primefaces/primevue/tree/master/src/views/textarea" class="btn-viewsource" target="_blank" rel="noopener noreferrer">
 					<span>View on GitHub</span>
 				</a>
-<CodeHighlight>
-<template v-pre>
+<pre v-code>
+<code><template v-pre>
 &lt;h3&gt;Basic&lt;/h3&gt;
 &lt;Textarea v-model="value1" rows="5" cols="30" /&gt;
 
@@ -89,9 +95,10 @@ import Textarea from 'primevue/textarea';
 &lt;h3&gt;Disabled&lt;/h3&gt;
 &lt;Textarea v-model="value3" disabled rows="5" cols="30" /&gt;
 </template>
-</CodeHighlight>
+</code></pre>
 
-<CodeHighlight lang="javascript">
+<pre v-code.script>
+<code>
 export default {
 	data() {
 		return {
@@ -101,7 +108,8 @@ export default {
 		}
 	}
 }
-</CodeHighlight>
+
+</code></pre>
 			</TabPanel>
 		</TabView>
 	</div>

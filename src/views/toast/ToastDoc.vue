@@ -4,25 +4,31 @@
 			<TabPanel header="Documentation">
                 <h5>Mitt EventBus</h5>
                 <p>Toast requires <a href="https://www.npmjs.com/package/mitt">Mitt</a>, a tiny 200b EventBus implementation.</p>
-<CodeHighlight>
+<pre v-code>
+<code>
 npm install mitt --save
-</CodeHighlight>
+
+</code></pre>
 
                 <h5>ToastService</h5>
                 <p>Toast messages are dynamically created using a <i>ToastService</i> that needs to be installed globally before the application
                     instance is created.</p>
-<CodeHighlight lang="javascript">
+<pre v-code.script>
+<code>
 import {createApp} from 'vue';
 import ToastService from 'primevue/toastservice';
 
 const app = createApp(App);
 app.use(ToastService);
-</CodeHighlight>
+
+</code></pre>
 
 				<h5>Import</h5>
-<CodeHighlight lang="javascript">
+<pre v-code.script>
+<code>
 import Toast from 'primevue/toast';
-</CodeHighlight>
+
+</code></pre>
 
 
 				<h5>Getting Started</h5>
@@ -30,9 +36,11 @@ import Toast from 'primevue/toast';
 
 				<p>A single message is represented by the Message interface in PrimeVue that defines various properties such as severity,
 					summary and detail. Messages are displayed by using the <i>add</i> method of the <b>$toast</b> property of the application.</p>
-<CodeHighlight lang="js">
+<pre v-code.script>
+<code>
 this.$toast.add({severity:'success', summary: 'Success Message', detail:'Order submitted', life: 3000});
-</CodeHighlight>
+
+</code></pre>
 
 				<h5>Message API</h5>
 				<div class="doc-tablewrapper">
@@ -131,7 +139,8 @@ this.$toast.add({severity:'success', summary: 'Success Message', detail:'Order s
 				<p>There are four positions available for the toast container defined by the <i>position</i> property that defaults to "top-right". Other
 					valid values are "top-left", "top-center", "bottom-left", "botton-center", "bottom-right" and "center".
 				</p>
-<CodeHighlight>
+<pre v-code>
+<code>
 &lt;Toast /&gt;
 &lt;Toast position="top-left" /&gt;
 &lt;Toast position="top-center" /&gt;
@@ -140,28 +149,35 @@ this.$toast.add({severity:'success', summary: 'Success Message', detail:'Order s
 &lt;Toast position="bottom-left" /&gt;
 &lt;Toast position="bottom-center" /&gt;
 &lt;Toast position="bottom-right" /&gt;
-</CodeHighlight>
+
+</code></pre>
 
                 <h5>Groups</h5>
                 <p>A message can be targeted to a specific Toast component if their group properties match. Messages without a group
                     are forwarded to the default Toast component that does not have a group defined.
                 </p>
 
-<CodeHighlight>
+<pre v-code>
+<code>
 &lt;Toast /&gt;
 &lt;Toast position="mykey" /&gt;
-</CodeHighlight>
 
-<CodeHighlight lang="js">
+</code></pre>
+
+<pre v-code.script>
+<code>
 this.$toast.add({severity:'success', summary: 'Default Message'});
 this.$toast.add({severity:'success', summary: 'Specific Message', group: 'mykey'});
-</CodeHighlight>
+
+</code></pre>
 
 				<h5>Clearing Messages</h5>
 				<p><i>removeGroup(group)</i> clears the messages for a specific Toast whereas <i>removeAllGroups()</i> method clears all messages.</p>
-<CodeHighlight lang="js">
+<pre v-code.script>
+<code>
 this.$toast.removeAllGroups();
-</CodeHighlight>
+
+</code></pre>
 
 				<h5>Properties</h5>
 				<div class="doc-tablewrapper">
@@ -254,8 +270,8 @@ this.$toast.removeAllGroups();
 				<a href="https://github.com/primefaces/primevue/tree/master/src/views/toast" class="btn-viewsource" target="_blank" rel="noopener noreferrer">
 					<span>View on GitHub</span>
 				</a>
-<CodeHighlight>
-<template v-pre>
+<pre v-code>
+<code><template v-pre>
 &lt;h5&gt;Severities&lt;/h5&gt;
 &lt;Button label="Success" class="p-button-success" @click="showSuccess" /&gt;
 &lt;Button label="Info" class="p-button-info" @click="showInfo" /&gt;
@@ -274,9 +290,10 @@ this.$toast.removeAllGroups();
 &lt;h5&gt;Remove All&lt;/h5&gt;
 &lt;Button @click="clear" label="Clear" /&gt;
 </template>
-</CodeHighlight>
+</code></pre>
 
-<CodeHighlight lang="javascript">
+<pre v-code.script>
+<code>
 export default {
 	data() {
 		return {
@@ -318,7 +335,8 @@ export default {
         }
 	}
 }
-</CodeHighlight>
+
+</code></pre>
 			</TabPanel>
 		</TabView>
 	</div>

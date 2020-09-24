@@ -3,15 +3,19 @@
 		<TabView>
 			<TabPanel header="Documentation">
 				<h5>Import</h5>
-<CodeHighlight lang="javascript">
+<pre v-code.script>
+<code>
 import InputMask from 'primevue/inputmask';
-</CodeHighlight>
+
+</code></pre>
 
 				<h5>Getting Started</h5>
 				<p>A model can be bound using the standard v-model directive.</p>
-<CodeHighlight>
+<pre v-code>
+<code>
 &lt;InputMask v-model="value" mask="99-999999" /&gt;
-</CodeHighlight>
+
+</code></pre>
 
 				<h5>Mask</h5>
                 <p>Mask format can be a combination of the the following built-in definitions.</p>
@@ -27,23 +31,29 @@ import InputMask from 'primevue/inputmask';
                         * - Alpha numberic character (A-Z,a-z,0-9)
                     </li>
                 </ul>
-<CodeHighlight>
+<pre v-code>
+<code>
 &lt;InputMask v-model="value" mask="a*-999-a999" /&gt;
-</CodeHighlight>
+
+</code></pre>
 
                 <h5>SlotChar</h5>
                 <p>Underscore is the default placeholder for a mask and this can be customized using <i>slotChart</i> option.</p>
-<CodeHighlight>
+<pre v-code>
+<code>
 &lt;InputMask v-model="value" mask="99/99/9999" slotChar="mm/dd/yyyy" /&gt;
-</CodeHighlight>
+
+</code></pre>
                 <h5>Optional Values</h5>
                 <p>If the input does not complete the mask definition, it is cleared by default.
                     Use <i>autoClear</i> property to control this behavior. In addition, certain part of
                     a mask can be made optional by using ? symbol where anything after the question
                     mark becomes optional.</p>
-<CodeHighlight>
+<pre v-code>
+<code>
 &lt;InputMask v-model="value" mask="(999) 999-9999? x99999" /&gt;
-</CodeHighlight>
+
+</code></pre>
 
 				<h5>Properties</h5>
 				<p>InputText passes any valid attribute to the underlying input element. In addition;</p>
@@ -122,8 +132,8 @@ import InputMask from 'primevue/inputmask';
 				<a href="https://github.com/primefaces/primevue/tree/master/src/views/inputtext" class="btn-viewsource" target="_blank" rel="noopener noreferrer">
 					<span>View on GitHub</span>
 				</a>
-<CodeHighlight>
-<template v-pre>
+<pre v-code>
+<code><template v-pre>
 &lt;div class="p-fluid p-formgrid p-grid"&gt;
     &lt;div class="p-field p-col-12 p-md-4"&gt;
         &lt;label for="basic"&gt;Basic&lt;/label&gt;
@@ -156,9 +166,10 @@ import InputMask from 'primevue/inputmask';
     &lt;/div&gt;
 &lt;/div&gt;
 </template>
-</CodeHighlight>
+</code></pre>
 
-<CodeHighlight lang="javascript">
+<pre v-code.script>
+<code>
 export default {
     data() {
         return {
@@ -171,7 +182,8 @@ export default {
         }
     }
 }
-</CodeHighlight>
+
+</code></pre>
 			</TabPanel>
 		</TabView>
 	</div>

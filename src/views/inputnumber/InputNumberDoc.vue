@@ -3,31 +3,40 @@
 		<TabView>
 			<TabPanel header="Documentation">
 				<h5>Import</h5>
-<CodeHighlight lang="javascript">
+<pre v-code.script>
+<code>
 import InputNumber from 'primevue/inputnumber';
-</CodeHighlight>
+
+</code></pre>
 
 <h5>Getting Started</h5>
             <p>InputNumber is used with the standard v-model directive. Component always provides a number type although formatting on the input is a string.</p>
 
-<CodeHighlight>
+<pre v-code>
+<code>
 &lt;InputNumber v-model="value" /&gt;
-</CodeHighlight>
+
+</code></pre>
 
             <h5>Decimal Mode</h5>
             <p>Format is defined using the <i>mode</i> property, "decimal" is the default value allowing only integers when there is no other configuration.</p>
-<CodeHighlight>
+<pre v-code>
+<code>
 &lt;InputNumber v-model="value" mode="decimal" /&gt;
-</CodeHighlight>
+
+</code></pre>
 
             <p>Fractions are configured with the <i>minFractionDigits</i> property. Optionally <i>maxFractionDigits</i> can be used to defined a boundary for the maximum digits.</p>
-<CodeHighlight>
+<pre v-code>
+<code>
 &lt;InputNumber v-model="value1" mode="decimal" :minFractionDigits="2" /&gt;
 &lt;InputNumber v-model="value2" mode="decimal" :minFractionDigits="2" :maxFractionDigits="2" /&gt;
-</CodeHighlight>
+
+</code></pre>
 
             <p><i>locale</i> option is available to set the localization information such as grouping and decimal symbols where default value is the browser locale. Locales are defined per <a href="https://tools.ietf.org/html/rfc5646">BCP Language Tag</a>.</p>
-<CodeHighlight>
+<pre v-code>
+<code>
 User Locale
 &lt;InputNumber v-model="value1" mode="decimal" :minFractionDigits="2" /&gt;
 
@@ -39,12 +48,14 @@ German Locale
 
 Indian Locale
 &lt;InputNumber v-model="value4" mode="decimal" locale="en-IN" :minFractionDigits="2" /&gt;
-</CodeHighlight>
+
+</code></pre>
 
             <h5>Currency</h5>
             <p>Currency formatting is specified by setting the <i>mode</i> option to currency and <i>currency</i> property. In addition <i>currencyDisplay</i> option
             allows how the currency is displayed, valid values are "symbol" (default) or "code".</p>
-<CodeHighlight>
+<pre v-code>
+<code>
 United States
 &lt;InputNumber v-model="value1" mode="currency" currency="USD" locale="en-US" /&gt;
 
@@ -56,11 +67,13 @@ India
 
 Japan
 &lt;InputNumber v-model="value4" mode="currency" currency="JPY" locale="jp-JP" /&gt;
-</CodeHighlight>
+
+</code></pre>
 
             <h5>Prefix and Suffix</h5>
             <p>Custom texts e.g. units can be placed before or after the input section with the <i>prefix</i> and <i>suffix</i> properties.</p>
-<CodeHighlight>
+<pre v-code>
+<code>
 Mile
 &lt;InputNumber v-model="value1" suffix=" mi" /&gt;
 
@@ -72,12 +85,14 @@ Expiry
 
 Temperature
 &lt;InputNumber v-model="value4" prefix="&uarr; " suffix="℃" :min="0" :max="40" /&gt;
-</CodeHighlight>
+
+</code></pre>
 
             <h5>Buttons</h5>
             <p>Spinner buttons is enabled using the <i>showButtons</i> options and layout is defined with the <i>buttonLayout</i>. Default value is "stacked" whereas
             "horizontal" and "stacked" are alternatives. Note that even there are no buttons, up and down arrow keys can be used to spin the values with keyboard.</p>
-<CodeHighlight>
+<pre v-code>
+<code>
 Stacked
 &lt;InputNumber v-model="value1" showButtons mode="currency" currency="USD" /&gt;
 
@@ -88,20 +103,25 @@ Horizontal
 Vertical
 &lt;InputNumber v-model="value3" mode="decimal" showButtons buttonLayout="vertical"
     decrementButtonClass="p-button-secondary" incrementButtonClass="p-button-secondary" incrementButtonIcon="pi pi-plus" decrementButtonIcon="pi pi-minus" /&gt;
-</CodeHighlight>
+
+</code></pre>
 
             <h5>Step</h5>
             <p>Step factor is 1 by default and can be customized with <i>step</i> option.</p>
-<CodeHighlight>
+<pre v-code>
+<code>
 &lt;InputNumber v-model="value" :step="0.25" /&gt;
-</CodeHighlight>
+
+</code></pre>
 
 
             <h5>Min and Max Boundaries</h5>
             <p>Value to be entered can be restricted by configuring the <i>min</i> and <i>max</i> options.</p>
-<CodeHighlight>
+<pre v-code>
+<code>
 &lt;InputNumber v-model="value" :min="0" :max="100" /&gt;
-</CodeHighlight>
+
+</code></pre>
 
 
 				<h5>Properties</h5>
@@ -318,8 +338,8 @@ Vertical
 				<a href="https://github.com/primefaces/primevue/tree/master/src/views/inputtext" class="btn-viewsource" target="_blank" rel="noopener noreferrer">
 					<span>View on GitHub</span>
 				</a>
-<CodeHighlight>
-<template v-pre>
+<pre v-code>
+<code><template v-pre>
 &lt;h3&gt;Numerals&lt;/h3&gt;
 &lt;div class="p-fluid p-grid p-formgrid"&gt;
     &lt;div class="p-field p-col-12 p-md-3"&gt;
@@ -420,9 +440,10 @@ Vertical
         decrementButtonClass="p-button-secondary" incrementButtonClass="p-button-secondary" incrementButtonIcon="pi pi-plus" decrementButtonIcon="pi pi-minus" /&gt;
 &lt;/div&gt;
 </template>
-</CodeHighlight>
+</code></pre>
 
-<CodeHighlight lang="javascript">
+<pre v-code.script>
+<code>
 export default {
     data() {
         return {
@@ -449,7 +470,8 @@ export default {
         }
     }
 }
-</CodeHighlight>
+
+</code></pre>
 			</TabPanel>
 		</TabView>
 	</div>

@@ -3,15 +3,19 @@
 		<TabView>
 			<TabPanel header="Documentation">
 				<h5>Import</h5>
-<CodeHighlight lang="javascript">
+<pre v-code.script>
+<code>
 import TriStateCheckbox from 'primevue/tristatecheckbox';
-</CodeHighlight>
+
+</code></pre>
 
 				<h5>Getting Started</h5>
 				<p>A model can be bound using the standard v-model directive.</p>
-<CodeHighlight>
+<pre v-code>
+<code>
 &lt;TriStateCheckbox v-model="value" /&gt;
-</CodeHighlight>
+
+</code></pre>
 
 				<h5>Properties</h5>
                 <p>Any property such as name and autofocus are passed to the underlying input element. Following is the additional property to configure the component.</p>
@@ -78,16 +82,17 @@ import TriStateCheckbox from 'primevue/tristatecheckbox';
 				<a href="https://github.com/primefaces/primevue/tree/master/src/views/tristatecheckbox" class="btn-viewsource" target="_blank" rel="noopener noreferrer">
 					<span>View on GitHub</span>
 				</a>
-<CodeHighlight>
-<template v-pre>
+<pre v-code>
+<code><template v-pre>
 &lt;div class="p-field-checkbox p-m-0"&gt;
     &lt;TriStateCheckbox v-model="value" /&gt;
     &lt;label&gt;{{value == null ? 'null' : value}}&lt;/label&gt;
 &lt;/div&gt;
 </template>
-</CodeHighlight>
+</code></pre>
 
-<CodeHighlight lang="javascript">
+<pre v-code.script>
+<code>
 export default {
 	data() {
 		return {
@@ -95,7 +100,8 @@ export default {
 		}
 	}
 }
-</CodeHighlight>
+
+</code></pre>
 			</TabPanel>
 		</TabView>
 	</div>

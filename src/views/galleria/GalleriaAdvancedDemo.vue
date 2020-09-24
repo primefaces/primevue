@@ -38,8 +38,8 @@
         <div class="content-section documentation">
             <TabView>
                 <TabPanel header="Source">
-<CodeHighlight>
-<template v-pre>
+<pre v-code>
+<code><template v-pre>
 &lt;Galleria ref="galleria" :value="images" :activeIndex.sync="activeIndex" :numVisible="5" style="max-width: 640px;" :class="galleriaClass"
     :showThumbnails="showThumbnails" :showItemNavigators="true" :showItemNavigatorsOnHover="true"
     :circular="true" :autoPlay="true" :transitionInterval="3000"&gt;
@@ -64,9 +64,10 @@
     &lt;/template&gt;
 &lt;/Galleria&gt;
 </template>
-</CodeHighlight>
+</code></pre>
 
-<CodeHighlight lang="javascript">
+<pre v-code.script>
+<code>
 import PhotoService from '../../service/PhotoService';
 
 export default {
@@ -97,9 +98,11 @@ export default {
 		this.galleriaService.getImages().then(data => this.images = data);
     }
 }
-</CodeHighlight>
 
-<CodeHighlight lang="css">
+</code></pre>
+
+<pre v-code.css>
+<code>
 ::v-deep(.custom-galleria) {
     &.fullscreen {
         display: flex;
@@ -160,7 +163,8 @@ export default {
         }
     }
 }
-</CodeHighlight>
+
+</code></pre>
                 </TabPanel>
             </TabView>
         </div>

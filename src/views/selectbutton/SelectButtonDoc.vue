@@ -3,17 +3,22 @@
 		<TabView>
 			<TabPanel header="Documentation">
 				<h5>Import</h5>
-<CodeHighlight lang="javascript">
+<pre v-code.script>
+<code>
 import SelectButton from 'primevue/selectbutton';
-</CodeHighlight>
+
+</code></pre>
 
 				<h5>Getting Started</h5>
 				<p>SelectButton requires a value to bind and a collection of arbitrary objects along with the <i>optionLabel</i> property to specify the label property of the option.</p>
-<CodeHighlight>
+<pre v-code>
+<code>
 &lt;SelectButton v-model="selectedCity" :options="cities" optionLabel="name" /&gt;
-</CodeHighlight>
 
-<CodeHighlight lang="js">
+</code></pre>
+
+<pre v-code.script>
+<code>
 export default {
 	data() {
 		return {
@@ -26,18 +31,21 @@ export default {
 		}
 	}
 }
-</CodeHighlight>
+
+</code></pre>
 
 				<h5>Multiple</h5>
 				<p>SelectButton allows selecting only one item by default and setting <i>multiple</i> option enables choosing more than one item. In multiple case, model property should be an array.</p>
-<CodeHighlight>
+<pre v-code>
+<code>
 &lt;SelectButton v-model="selectedCity" :options="cities" optionLabel="brand" :multiple="true" /&gt;
-</CodeHighlight>
+
+</code></pre>
 
 				<h5>Templating</h5>
 				<p>Label of an option is used as the display text of an item by default, for custom content support define an <i>option</i> template that gets the option instance as a parameter.</p>
-<CodeHighlight>
-<template v-pre>
+<pre v-code>
+<code><template v-pre>
 &lt;SelectButton v-model="selectedCar" :options="cars" optionLabel="brand"&gt;
 	&lt;template #option="slotProps"&gt;
         &lt;div class="car-option"&gt;
@@ -47,7 +55,7 @@ export default {
 	&lt;/template&gt;
 &lt;/SelectButton&gt;
 </template>
-</CodeHighlight>
+</code></pre>
 
 				<h5>Properties</h5>
                 <p>Any property as style and class are passed to the main container element. Following are the additional properties to configure the component.</p>
@@ -153,8 +161,8 @@ export default {
 				<a href="https://github.com/primefaces/primevue/tree/master/src/views/selectbutton" class="btn-viewsource" target="_blank" rel="noopener noreferrer">
 					<span>View on GitHub</span>
 				</a>
-<CodeHighlight>
-<template v-pre>
+<pre v-code>
+<code><template v-pre>
 &lt;h5&gt;Single Selection&lt;/h5&gt;
 &lt;SelectButton v-model="value1" :options="options" /&gt;
 
@@ -168,9 +176,10 @@ export default {
     &lt;/template&gt;
 &lt;/SelectButton&gt;
 </template>
-</CodeHighlight>
+</code></pre>
 
-<CodeHighlight lang="javascript">
+<pre v-code.script>
+<code>
 export default {
     data() {
         return {
@@ -191,7 +200,8 @@ export default {
         }
     }
 }
-</CodeHighlight>
+
+</code></pre>
 			</TabPanel>
 		</TabView>
 	</div>

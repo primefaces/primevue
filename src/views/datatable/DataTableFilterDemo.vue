@@ -100,8 +100,8 @@
         <div class="content-section documentation">
             <TabView>
                 <TabPanel header="Source">
-<CodeHighlight>
-<template v-pre>
+<pre v-code>
+<code><template v-pre>
 &lt;DataTable :value="customers" :paginator="true" class="p-datatable-customers" :rows="10"
     dataKey="id" :filters="filters" :loading="loading"&gt;
     &lt;template #header&gt;
@@ -188,9 +188,10 @@
     &lt;/Column&gt;
 &lt;/DataTable&gt;
 </template>
-</CodeHighlight>
+</code></pre>
 
-<CodeHighlight lang="javascript">
+<pre v-code.script>
+<code>
 import CustomerService from '../../service/CustomerService';
 
 export default {
@@ -251,7 +252,8 @@ export default {
         }
     }
 }
-</CodeHighlight>
+
+</code></pre>
                 </TabPanel>
             </TabView>
         </div>

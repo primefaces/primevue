@@ -3,20 +3,25 @@
 		<TabView>
 			<TabPanel header="Documentation">
 				<h5>Import</h5>
-<CodeHighlight lang="javascript">
+<pre v-code.script>
+<code>
 import TieredMenu from 'primevue/tieredmenu';
-</CodeHighlight>
+
+</code></pre>
 
                 <h5>MenuModel</h5>
                 <p>TieredMenu uses the common MenuModel API to define the items, visit <router-link to="/menumodel">MenuModel API</router-link> for details.</p>
 
 				<h5>Getting Started</h5>
 				<p>TieredMenu requires a collection of menuitems as its model.</p>
-<CodeHighlight>
+<pre v-code>
+<code>
 &lt;TieredMenu :model="items" /&gt;
-</CodeHighlight>
 
-<CodeHighlight lang="js">
+</code></pre>
+
+<pre v-code.script>
+<code>
 export default {
     data() {
         return {
@@ -154,21 +159,26 @@ export default {
         }
     }
 }
-</CodeHighlight>
+
+</code></pre>
 
                 <h5>Popup Mode</h5>
                 <p>TieredMenu is inline by default whereas popup mode is supported by enabling popup property and calling toggle method with an event of the target.</p>
 
-<CodeHighlight>
+<pre v-code>
+<code>
 &lt;Button type="button" label="Toggle" @click="toggle" /&gt;
 &lt;TieredMenu ref="menu" :model="items" :popup="true" /&gt;
-</CodeHighlight>
 
-<CodeHighlight lang="js">
+</code></pre>
+
+<pre v-code.script>
+<code>
 toggle(event) {
     this.$refs.menu.toggle(event);
 }
-</CodeHighlight>
+
+</code></pre>
 
                 <h5>Properties</h5>
                 <p>Any property as style and class are passed to the main container element. Following are the additional properties to configure the component.</p>
@@ -295,8 +305,8 @@ toggle(event) {
 				<a href="https://github.com/primefaces/primevue/tree/master/src/views/tieredmenu" class="btn-viewsource" target="_blank" rel="noopener noreferrer">
 					<span>View on GitHub</span>
 				</a>
-<CodeHighlight>
-<template v-pre>
+<pre v-code>
+<code><template v-pre>
 &lt;h3&gt;Inline&lt;/h3&gt;
 &lt;TieredMenu :model="items" /&gt;
 
@@ -304,9 +314,10 @@ toggle(event) {
 &lt;Button type="button" label="Toggle" @click="toggle" aria-haspopup="true" aria-controls="overlay_tmenu" /&gt;
 &lt;TieredMenu id="overlay_tmenu" ref="menu" :model="items" :popup="true" /&gt;
 </template>
-</CodeHighlight>
+</code></pre>
 
-<CodeHighlight lang="javascript">
+<pre v-code.script>
+<code>
 export default {
     data() {
         return {
@@ -449,7 +460,8 @@ export default {
         }
     }
 }
-</CodeHighlight>
+
+</code></pre>
 			</TabPanel>
 		</TabView>
 	</div>

@@ -3,37 +3,48 @@
 		<TabView>
 			<TabPanel header="Documentation">
 				<h5>Import</h5>
-<CodeHighlight lang="javascript">
+<pre v-code.script>
+<code>
 import FullCalendar from 'primevue/fullcalendar';
-</CodeHighlight>
+
+</code></pre>
 
 				<h5>Getting Started</h5>
 				<p>FullCalendar is a wrapper around on <a href="https://fullcalendar.io/docs/v4">FullCalendar 4.0.0+</a> so fullcalendar needs to be included in your project.
                 For a complete documentation and samples please refer to the <a href="https://fullcalendar.io/">fullcalendar website</a>.</p>
-<CodeHighlight>
+<pre v-code>
+<code>
 npm install @fullcalendar/core --save
-</CodeHighlight>
+
+</code></pre>
 
                 <p>FullCalendar is plugin based so install the plugins you require and define them with the options property.</p>
-<CodeHighlight>
+<pre v-code>
+<code>
 npm install @fullcalendar/daygrid --save
 npm install @fullcalendar/timegrid --save
 npm install @fullcalendar/interaction --save
-</CodeHighlight>
+
+</code></pre>
 
                 <p>Include the core style and the styles of the plugins that you use in your application.</p>
-<CodeHighlight>
+<pre v-code>
+<code>
 import '@fullcalendar/core/main.min.css';
 import '@fullcalendar/daygrid/main.min.css';
 import '@fullcalendar/timegrid/main.min.css';
-</CodeHighlight>
+
+</code></pre>
 
 				<p>Events should be an array and defined using the events property.</p>
-<CodeHighlight>
+<pre v-code>
+<code>
 &lt;FullCalendar :events="events" /&gt;
-</CodeHighlight>
 
-<CodeHighlight lang="js">
+</code></pre>
+
+<pre v-code.script>
+<code>
 export default {
 	data() {
 		return {
@@ -75,10 +86,12 @@ export default {
 		};
 	}
 }
-</CodeHighlight>
+
+</code></pre>
 
 				<p>In a real application, it is likely to populate the events by making a remote call, when the events are updated, the component will detect the change and render them.</p>
-<CodeHighlight lang="js">
+<pre v-code.script>
+<code>
 import axios from 'axios';
 
 export default class EventService {
@@ -87,9 +100,11 @@ export default class EventService {
 		return axios.get('demo/data/events.json').then(res => res.data.data);
 	}
 }
-</CodeHighlight>
 
-<CodeHighlight lang="js">
+</code></pre>
+
+<pre v-code.script>
+<code>
 import EventService from '../../service/EventService';
 
 export default {
@@ -106,15 +121,19 @@ export default {
 		this.eventService.getEvents().then(data => this.events = data);
 	}
 }
-</CodeHighlight>
+
+</code></pre>
 
 				<h5>Options</h5>
 				<p>FullCalendar has a long list of customization parameters that can be defined with the options property. Example below customizes the plugins, header and editable properties.</p>
-<CodeHighlight>
+<pre v-code>
+<code>
 &lt;FullCalendar :events="events" :options="options" /&gt;
-</CodeHighlight>
 
-<CodeHighlight lang="js">
+</code></pre>
+
+<pre v-code.script>
+<code>
 import EventService from '../../service/EventService';
 import dayGridPlugin from '@fullcalendar/daygrid';
 import timeGridPlugin from '@fullcalendar/timegrid';
@@ -144,11 +163,13 @@ export default {
         this.eventService.getEvents().then(data => this.events = data);
     }
 }
-</CodeHighlight>
+
+</code></pre>
 
 				<h5>Callbacks</h5>
 				<p>Callbacks of the FullCalendar such as dateClick are also defined with the options property.</p>
-<CodeHighlight lang="js">
+<pre v-code.script>
+<code>
 export default {
      data() {
         return {
@@ -168,7 +189,8 @@ export default {
         };
     }
 }
-</CodeHighlight>
+
+</code></pre>
 
 				<h5>Properties</h5>
 				<div class="doc-tablewrapper">
@@ -204,13 +226,14 @@ export default {
 				<a href="https://github.com/primefaces/primevue/tree/master/src/views/fullcalendar" class="btn-viewsource" target="_blank" rel="noopener noreferrer">
 					<span>View on GitHub</span>
 				</a>
-<CodeHighlight>
-<template v-pre>
+<pre v-code>
+<code><template v-pre>
 &lt;FullCalendar :events="events" :options="options" /&gt;
 </template>
-</CodeHighlight>
+</code></pre>
 
-<CodeHighlight lang="javascript">
+<pre v-code.script>
+<code>
 import EventService from '../../service/EventService';
 import dayGridPlugin from '@fullcalendar/daygrid';
 import timeGridPlugin from '@fullcalendar/timegrid';
@@ -240,7 +263,8 @@ export default {
         this.eventService.getEvents().then(data => this.events = data);
     }
 }
-</CodeHighlight>
+
+</code></pre>
 			</TabPanel>
 		</TabView>
 	</div>

@@ -8,20 +8,25 @@
             <h5>Download</h5>
             <p>PrimeFlex is available at <a href="https://www.npmjs.com/package/primeflex">npm</a>, if you have an existing application run the following commands to install it.</p>
 
-<CodeHighlight lang="js">
+<pre v-code.script>
+<code>
 npm install primeflex --save
-</CodeHighlight>
+
+</code></pre>
 
             <h5>Import</h5>
             <p>Next step is adding the primeflex.css to your application to include all utilities. If you prefer to pick the utilities, move to next step instead.</p>
 
-<CodeHighlight lang="css">
+<pre v-code.css>
+<code>
 import 'primeflex/primeflex.css';
-</CodeHighlight>
+
+</code></pre>
 
             <p>PrimeFlex is a lightweight library still if you have an application such as one based on vue-cli
                 that is able to import scss then you will be able to pick the utilities you need to make the app bundle even smaller.</p>
-<CodeHighlight lang="css">
+<pre v-code.css>
+<code>
 import 'primeflex/src/_variables.scss';
 import 'primeflex/src/_grid.scss';
 import 'primeflex/src/_formlayout.scss';
@@ -30,7 +35,8 @@ import 'primeflex/src/_text.scss';
 import 'primeflex/src/flexbox/_flexbox.scss';
 import 'primeflex/src/_spacing.scss';
 import 'primeflex/src/_elevation.scss';
-</CodeHighlight>
+
+</code></pre>
 
             <h5>Variables</h5>
             <div class="doc-tablewrapper">
@@ -97,14 +103,17 @@ import 'primeflex/src/_elevation.scss';
             </p>
 
             <p><b>_overrides.scss</b></p>
-<CodeHighlight lang="css">
+<pre v-code.css>
+<code>
 $sm:640px;
 $md:720px;
 $lg:960px;
 $xl:1080px;
-</CodeHighlight>
 
-            <CodeHighlight lang="css">
+</code></pre>
+
+            <pre v-code.css>
+<code>
 import './assets/_overrides.scss';
 import 'primeflex/src/_variables.css';
 import 'primeflex/src/_grid.css';
@@ -114,7 +123,8 @@ import 'primeflex/src/_text.css';
 import 'primeflex/src/flexbox/_flexbox.css';
 import 'primeflex/src/_spacing.css';
 import 'primeflex/src/_elevation.css';
-</CodeHighlight>
+
+</code></pre>
         </div>
     </div>
 </template>

@@ -3,9 +3,11 @@
 		<TabView>
 			<TabPanel header="Documentation">
 				<h5>Import</h5>
-<CodeHighlight lang="javascript">
+<pre v-code.script>
+<code>
 import ContextMenu from 'primevue/contextmenu';
-</CodeHighlight>
+
+</code></pre>
 
                 <h5>MenuModel</h5>
                 <p>ContextMenu uses the common MenuModel API to define the items, visit <router-link to="/menumodel">MenuModel API</router-link> for details.</p>
@@ -13,7 +15,8 @@ import ContextMenu from 'primevue/contextmenu';
 				<h5>Getting Started</h5>
 				<p>ContextMenu requires a collection of menuitems as its model.</p>
 
-<CodeHighlight lang="js">
+<pre v-code.script>
+<code>
 export default {
     data() {
         return {
@@ -151,23 +154,29 @@ export default {
         }
     }
 }
-</CodeHighlight>
+
+</code></pre>
 
                 <h5>Document Menu</h5>
                 <p>Setting global property attaches the context menu to the document.</p>
-<CodeHighlight>
+<pre v-code>
+<code>
 &lt;ContextMenu :global="true" :model="items" /&gt;
-</CodeHighlight>
+
+</code></pre>
 
                 <h5>Element Menu</h5>
                 <p>ContextMenu is attached to a custom element manually using the reference and calling the <i>show(event)</i> method.</p>
 
-<CodeHighlight>
+<pre v-code>
+<code>
 &lt;img alt="logo" src="demo/images/nature/nature3.jpg" @contextmenu="onImageRightClick"&gt;
 &lt;ContextMenu ref="menu" :model="items" /&gt;
-</CodeHighlight>
 
-<CodeHighlight lang="js">
+</code></pre>
+
+<pre v-code.script>
+<code>
 export default {
     data() {
         return {
@@ -180,7 +189,8 @@ export default {
         }
     }
 }
-</CodeHighlight>
+
+</code></pre>
 
                 <h5>Properties</h5>
                 <p>Any property as style and class are passed to the main container element. Following are the additional properties to configure the component.</p>
@@ -306,14 +316,15 @@ export default {
 				<a href="https://github.com/primefaces/primevue/tree/master/src/views/contextmenu" class="btn-viewsource" target="_blank" rel="noopener noreferrer">
 					<span>View on GitHub</span>
 				</a>
-<CodeHighlight>
-<template v-pre>
+<pre v-code>
+<code><template v-pre>
 &lt;img alt="logo" src="demo/images/nature/nature3.jpg" @contextmenu="onImageRightClick" aria-haspopup="true"&gt;
 &lt;ContextMenu ref="menu" :model="items" /&gt;
 </template>
-</CodeHighlight>
+</code></pre>
 
-<CodeHighlight lang="javascript">
+<pre v-code.script>
+<code>
 export default {
     data() {
         return {
@@ -456,7 +467,8 @@ export default {
         }
     }
 }
-</CodeHighlight>
+
+</code></pre>
 			</TabPanel>
 		</TabView>
 	</div>

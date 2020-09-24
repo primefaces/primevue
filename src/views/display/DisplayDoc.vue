@@ -27,7 +27,8 @@
                 </ul>
 
                 <h5>Examples</h5>
-<CodeHighlight>
+<pre v-code>
+<code>
 &lt;div class="p-d-inline"&gt;Displayed as inline.&lt;/div&gt;
 &lt;div class="p-d-flex"&gt;Displayed as a flexbox container.&lt;/div&gt;
 &lt;div class="p-d-block p-d-lg-inline"&gt;Inline for larger screens and block for others.&lt;/div&gt;
@@ -35,7 +36,8 @@
 &lt;div class="p-d-none p-d-md-inline-flex"&gt;Hidden on a Small Screen&lt;/div&gt;
 &lt;div class="p-d-none p-print-block"&gt;Only visible when printed.&lt;/div&gt;
 &lt;div class="p-d-block p-print-none"&gt;Not available for printing.&lt;/div&gt;
-</CodeHighlight>
+
+</code></pre>
 
                 <h5>Customization</h5>
                 <p>A custom build with different values can be obtained from <a href="https://github.com/primefaces/primeflex">PrimeFlex</a> using the _variables.scss file.</p>
@@ -45,8 +47,8 @@
 				<a href="https://github.com/primefaces/primevue/tree/master/src/views/display" class="btn-viewsource" target="_blank" rel="noopener noreferrer">
 					<span>View on GitHub</span>
 				</a>
-<CodeHighlight>
-<template v-pre>
+<pre v-code>
+<code><template v-pre>
 &lt;div class="card"&gt;
     &lt;h5&gt;Inline&lt;/h5&gt;
     &lt;InputText class="p-mr-2 p-d-inline" /&gt;
@@ -71,7 +73,7 @@
     &lt;p class="p-d-block p-print-none"&gt;Not available for printing.&lt;/p&gt;
 &lt;/div&gt;
 </template>
-</CodeHighlight>
+</code></pre>
 			</TabPanel>
 		</TabView>
 	</div>

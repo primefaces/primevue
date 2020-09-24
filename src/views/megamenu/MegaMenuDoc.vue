@@ -3,17 +3,22 @@
 		<TabView>
 			<TabPanel header="Documentation">
 				<h5>Import</h5>
-<CodeHighlight lang="javascript">
+<pre v-code.script>
+<code>
 import MegaMenu from 'primevue/megamenu';
-</CodeHighlight>
+
+</code></pre>
 
                 <h5>MenuModel</h5>
                 <p>MegaMenu uses the common MenuModel API to define the items of the model, visit <router-link to="/menumodel">MenuModel API</router-link> for details.</p>
-<CodeHighlight>
+<pre v-code>
+<code>
 &lt;MegaMenu :model="items" /&gt;
-</CodeHighlight>
 
-<CodeHighlight lang="javascript">
+</code></pre>
+
+<pre v-code.script>
+<code>
 export default {
     data() {
         return {
@@ -132,24 +137,27 @@ export default {
         }
     }
 }
-</CodeHighlight>
+
+</code></pre>
 
                 <h5>Orientation</h5>
                 <p>Default orientation is "horizontal" with "vertical" as the alternative.</p>
-<CodeHighlight>
+<pre v-code>
+<code>
 &lt;MegaMenu :model="items" orientation="vertical" /&gt;
-</CodeHighlight>
+
+</code></pre>
 
                 <h5>Custom Content</h5>
                 <p>Any content inside the megamenu will be displayed on the right side by default. You may use ".p-megamenu-custom" style class to change the location of the content.</p>
-<CodeHighlight>
-<template v-pre>
+<pre v-code>
+<code><template v-pre>
 &lt;MegaMenu :model="items"&gt;
     &lt;InputText placeholder="Search" type="text" /&gt;
     &lt;Button label="Logout" icon="pi pi-power-off" /&gt;
 &lt;/MegaMenu&gt;
 </template>
-</CodeHighlight>
+</code></pre>
 
                 <h5>Properties</h5>
                 <p>Any property as style and class are passed to the main container element. Following are the additional properties to configure the component.</p>
@@ -247,17 +255,18 @@ export default {
 				<a href="https://github.com/primefaces/primevue/tree/master/src/views/megamenu" class="btn-viewsource" target="_blank" rel="noopener noreferrer">
 					<span>View on GitHub</span>
 				</a>
-<CodeHighlight>
-<template v-pre>
+<pre v-code>
+<code><template v-pre>
 &lt;h3&gt;Horizontal&lt;/h3&gt;
 &lt;MegaMenu :model="items" /&gt;
 
 &lt;h3&gt;Vertical&lt;/h3&gt;
 &lt;MegaMenu :model="items" orientation="vertical"/&gt;
 </template>
-</CodeHighlight>
+</code></pre>
 
-<CodeHighlight lang="javascript">
+<pre v-code.script>
+<code>
 export default {
     data() {
         return {
@@ -376,7 +385,8 @@ export default {
         }
     }
 }
-</CodeHighlight>
+
+</code></pre>
 			</TabPanel>
 		</TabView>
 	</div>

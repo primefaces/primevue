@@ -3,20 +3,24 @@
 		<TabView>
 			<TabPanel header="Documentation">
 				<h5>Import</h5>
-<CodeHighlight lang="javascript">
+<pre v-code.script>
+<code>
 import Chips from 'primevue/chips';
-</CodeHighlight>
+
+</code></pre>
 
 				<h5>Getting Started</h5>
 				<p>An array as the value can be bound using the standard v-model directive.</p>
-<CodeHighlight>
+<pre v-code>
+<code>
 &lt;Chips v-model="value" /&gt;
-</CodeHighlight>
+
+</code></pre>
 
 				<h5>Custom Content</h5>
 				<p>A chip is customized using the <i>chip</i> template where the chip value is passed to the slotProps with the value property.</p>
-<CodeHighlight>
-<template v-pre>
+<pre v-code>
+<code><template v-pre>
 &lt;Chips v-model="value"&gt;
 	&lt;template #chip="slotProps"&gt;
 		&lt;div&gt;
@@ -26,7 +30,7 @@ import Chips from 'primevue/chips';
 	&lt;/template&gt;
 &lt;/Chips&gt;
 </template>
-</CodeHighlight>
+</code></pre>
 
 				<h5>Properties</h5>
                 <p>Any property such as name and placeholder are passed to the underlying input element. Following are the additional properties to configure the component.</p>
@@ -146,8 +150,8 @@ import Chips from 'primevue/chips';
 				<a href="https://github.com/primefaces/primevue/tree/master/src/views/chips" class="btn-viewsource" target="_blank" rel="noopener noreferrer">
 					<span>View on GitHub</span>
 				</a>
-<CodeHighlight>
-<template v-pre>
+<pre v-code>
+<code><template v-pre>
 &lt;h5&gt;Basic&lt;/h5&gt;
 &lt;Chips v-model="value1" /&gt;
 
@@ -164,9 +168,10 @@ import Chips from 'primevue/chips';
     &lt;/template&gt;
 &lt;/Chips&gt;
 </template>
-</CodeHighlight>
+</code></pre>
 
-<CodeHighlight lang="javascript">
+<pre v-code.script>
+<code>
 export default {
 	data() {
 		return {
@@ -176,7 +181,8 @@ export default {
 		}
 	}
 }
-</CodeHighlight>
+
+</code></pre>
 			</TabPanel>
 		</TabView>
 	</div>

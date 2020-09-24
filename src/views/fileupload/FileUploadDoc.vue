@@ -3,48 +3,62 @@
 		<TabView>
 			<TabPanel header="Documentation">
 				<h5>Import</h5>
-<CodeHighlight lang="javascript">
+<pre v-code.script>
+<code>
 import FileUpload from 'primevue/fileupload';
-</CodeHighlight>
+
+</code></pre>
 
 				<h5>Getting Started</h5>
 				<p>FileUpload requires a <i>url</i> property as the upload target and a <i>name</i> to identify the files at backend.</p>
-<CodeHighlight>
+<pre v-code>
+<code>
 &lt;FileUpload name="demo[]" url="./upload" /&gt;
-</CodeHighlight>
+
+</code></pre>
 
 				<h5>Multiple Uploads</h5>
 				<p>Only one file can be selected at a time by default, to allow selecting multiple files at once enable <i>multiple</i> option.</p>
-<CodeHighlight>
+<pre v-code>
+<code>
 &lt;FileUpload name="demo[]" url="./upload" :multiple="true" /&gt;
-</CodeHighlight>
+
+</code></pre>
 
 				<h5>Basic UI</h5>
 				<p>FileUpload basic mode provides a simpler UI as an alternative to advanced mode.</p>
-<CodeHighlight>
+<pre v-code>
+<code>
 &lt;FileUpload mode="basic" name="demo[]" url="./upload" /&gt;
-</CodeHighlight>
+
+</code></pre>
 
 				<h5>DragDrop</h5>
 				<p>File selection can also be done by dragging and dropping from the filesystem to the content section of the component.</p>
 
 				<h5>Auto Uploads</h5>
 				<p>When <i>auto</i> property is enabled, upload begins as soon as file selection is completed or a file is dropped on the drop area.</p>
-<CodeHighlight>
+<pre v-code>
+<code>
 &lt;FileUpload mode="basic" name="demo[]" url="./upload" :auto="true" /&gt;
-</CodeHighlight>
+
+</code></pre>
 
 				<h5>File Types</h5>
 				<p>Selectable file types can be restricted with <i>accept</i> property, example below only allows images to be uploaded. Read more about other possible values <a href="https://www.w3schools.com/tags/att_input_accept.asp"> here</a>.</p>
-<CodeHighlight>
+<pre v-code>
+<code>
 &lt;FileUpload mode="basic" name="demo[]" url="./upload" accept="image/*" /&gt;
-</CodeHighlight>
+
+</code></pre>
 
 				<h5>File Size and File Linit</h5>
 				<p>Maximium file size can be restricted using <i>maxFileSize</i> property defined in bytes. Similarly <i>fileLimit</i> is available to restrict the number of files to be uploaded.</p>
-<CodeHighlight>
+<pre v-code>
+<code>
 &lt;FileUpload name="demo[]" url="./upload" :maxFileSize="1000000" :fileLimit="3" /&gt;
-</CodeHighlight>
+
+</code></pre>
 
 				<p>In order to customize the default messages use <i>invalidFileSizeMessage</i> and <i>invalidFileLimitMessage</i> options where &#123;0&#125; placeholder refers to the filename and &#123;1&#125; the file size.</p>
 				<ul>
@@ -61,25 +75,31 @@ import FileUpload from 'primevue/fileupload';
 
                 <h5>Custom Upload</h5>
 				<p>Uploading implementation can be overridden by enabling <i>customMode</i> property and defining a custom upload handler event.</p>
-<CodeHighlight>
+<pre v-code>
+<code>
 &lt;FileUpload name="demo[]" :customUpload="true" @uploader="myUploader" /&gt;
-</CodeHighlight>
 
-<CodeHighlight lang="javascript">
+</code></pre>
+
+<pre v-code.script>
+<code>
 myUploader(event) {
     //event.files == files to upload
 }
-</CodeHighlight>
+
+</code></pre>
 
                 <h5>Empty Template</h5>
                 <p>When there is no file selected, you may use the empty slot to display content.</p>
-<CodeHighlight>
+<pre v-code>
+<code>
 &lt;FileUpload name="demo[]" url="./upload" /&gt;
     &lt;template #empty&gt;
         &lt;p&gt;Drag and drop files to here to upload.&lt;/p&gt;
     &lt;/template&gt;
 &lt;/FileUpload&gt;
-</CodeHighlight>
+
+</code></pre>
 
 				<h5>Properties</h5>
 				<div class="doc-tablewrapper">
@@ -297,8 +317,8 @@ myUploader(event) {
 				<a href="https://github.com/primefaces/primevue/tree/master/src/views/fileupload" class="btn-viewsource" target="_blank" rel="noopener noreferrer">
 					<span>View on GitHub</span>
 				</a>
-<CodeHighlight>
-<template v-pre>
+<pre v-code>
+<code><template v-pre>
 &lt;h3&gt;Advanced&lt;/h3&gt;
 &lt;FileUpload name="demo[]" url="./upload.php" @upload="onUpload" :multiple="true" accept="image/*" :maxFileSize="1000000"&gt;
     &lt;template #empty&gt;
@@ -312,9 +332,10 @@ myUploader(event) {
 &lt;h3&gt;Basic with Auto&lt;/h3&gt;
 &lt;FileUpload mode="basic" name="demo[]" url="./upload.php" accept="image/*" :maxFileSize="1000000" @upload="onUpload" :auto="true" chooseLabel="Browse" /&gt;
 </template>
-</CodeHighlight>
+</code></pre>
 
-<CodeHighlight lang="javascript">
+<pre v-code.script>
+<code>
 export default {
 	methods: {
 		onUpload() {
@@ -322,7 +343,8 @@ export default {
 		}
 	}
 }
-</CodeHighlight>
+
+</code></pre>
 			</TabPanel>
 		</TabView>
 	</div>

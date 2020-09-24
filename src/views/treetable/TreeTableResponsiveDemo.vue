@@ -29,8 +29,8 @@
         <div class="content-section documentation">
             <TabView>
                 <TabPanel header="Source">
-<CodeHighlight>
-<template v-pre>
+<pre v-code>
+<code><template v-pre>
 &lt;TreeTable :value="nodes" class="p-treetable-responsive"&gt;
     &lt;template #header&gt;
         Responsive
@@ -46,9 +46,10 @@
     &lt;Column field="type" header="Type" headerClass="sm-invisible" bodyClass="sm-invisible"&gt;&lt;/Column&gt;
 &lt;/TreeTable&gt;
 </template>
-</CodeHighlight>
+</code></pre>
 
-<CodeHighlight lang="javascript">
+<pre v-code.script>
+<code>
 import NodeService from '../../service/NodeService';
 
 export default {
@@ -65,9 +66,11 @@ export default {
         this.nodeService.getTreeTableNodes().then(data => this.nodes = data);
     }
 }
-</CodeHighlight>
 
-<CodeHighlight lang="css">
+</code></pre>
+
+<pre v-code.css>
+<code>
 .sm-visible {
     display: none;
 }
@@ -78,7 +81,8 @@ export default {
         margin-right: .5rem;
     }
 }
-</CodeHighlight>
+
+</code></pre>
 
                 </TabPanel>
             </TabView>

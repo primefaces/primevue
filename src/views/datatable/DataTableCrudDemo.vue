@@ -144,8 +144,8 @@
         <div class="content-section documentation">
             <TabView>
                 <TabPanel header="Source">
-<CodeHighlight>
-<template v-pre>
+<pre v-code>
+<code><template v-pre>
 &lt;Toolbar class="p-mb-4"&gt;
     &lt;template slot="left"&gt;
         &lt;Button label="New" icon="pi pi-plus" class="p-button-success p-mr-2" @click="openNew" /&gt;
@@ -277,9 +277,10 @@
     &lt;/template&gt;
 &lt;/Dialog&gt;
 </template>
-</CodeHighlight>
+</code></pre>
 
-<CodeHighlight lang="javascript">
+<pre v-code.script>
+<code>
 import ProductService from '../../service/ProductService';
 
 export default {
@@ -381,7 +382,8 @@ export default {
         }
     }
 }
-</CodeHighlight>
+
+</code></pre>
                 </TabPanel>
             </TabView>
         </div>

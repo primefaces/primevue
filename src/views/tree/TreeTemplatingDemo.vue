@@ -23,8 +23,8 @@
         <div class="content-section documentation">
             <TabView>
                 <TabPanel header="Source">
-<CodeHighlight>
-<template v-pre>
+<pre v-code>
+<code><template v-pre>
 &lt;Tree :value="nodes"&gt;
     &lt;template #default="slotProps"&gt;
         &lt;b&gt;&#123;&#123;slotProps.node.label&#125;&#125;&lt;/b&gt;
@@ -34,9 +34,10 @@
     &lt;/template&gt;
 &lt;/Tree&gt;
 </template>
-</CodeHighlight>
+</code></pre>
 
-<CodeHighlight lang="javascript">
+<pre v-code.script>
+<code>
 export default {
     data() {
         return {
@@ -65,7 +66,8 @@ export default {
         }
     }
 }
-</CodeHighlight>
+
+</code></pre>
                 </TabPanel>
             </TabView>
         </div>

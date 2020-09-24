@@ -22,8 +22,8 @@
         <div class="content-section documentation">
             <TabView>
                 <TabPanel header="Source">
-<CodeHighlight>
-<template v-pre>
+<pre v-code>
+<code><template v-pre>
 &lt;TreeTable :value="nodes" :lazy="true" :paginator="true" :rows="rows" :loading="loading"
     @node-expand="onExpand" @page="onPage" :totalRecords="totalRecords"&gt;
     &lt;Column field="name" header="Name" :expander="true"&gt;&lt;/Column&gt;
@@ -31,9 +31,10 @@
     &lt;Column field="type" header="Type"&gt;&lt;/Column&gt;
 &lt;/TreeTable&gt;
 </template>
-</CodeHighlight>
+</code></pre>
 
-<CodeHighlight lang="javascript">
+<pre v-code.script>
+<code>
 export default {
     data() {
         return {
@@ -120,7 +121,8 @@ export default {
         }
     }
 }
-</CodeHighlight>
+
+</code></pre>
 
                 </TabPanel>
             </TabView>

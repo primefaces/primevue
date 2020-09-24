@@ -3,21 +3,26 @@
 		<TabView>
 			<TabPanel header="Documentation">
 				<h5>Import</h5>
-<CodeHighlight lang="javascript">
+<pre v-code.script>
+<code>
 import Card from 'primevue/card';
-</CodeHighlight>
+
+</code></pre>
 
 				<h5>Getting Started</h5>
 				<p>Card is used as a container.</p>
-<CodeHighlight>
+<pre v-code>
+<code>
 &lt;Card&gt;
 	Content
 &lt;/Card&gt;
-</CodeHighlight>
+
+</code></pre>
 
                 <h5>Templates</h5>
                 <p>Card provides <i>header</i>, <i>title</i>, <i>content</i> and <i>footer</i> as the named templates to place content.</p>
-<CodeHighlight>
+<pre v-code>
+<code>
 &lt;Card&gt;
     &lt;template slot="header"&gt;
         &lt;img alt="user header" src="demo/images/usercard.png"&gt;
@@ -34,7 +39,8 @@ import Card from 'primevue/card';
         &lt;Button icon="pi pi-times" label="Cancel" class="p-button-secondary" style="margin-left: .5em" /&gt;
     &lt;/template&gt;
 &lt;/Card&gt;
-</CodeHighlight>
+
+</code></pre>
 
 				<h5>Styling</h5>
 				<p>Following is the list of structural style classes, for theming classes visit <router-link to="/theming">theming</router-link> page.</p>
@@ -79,8 +85,8 @@ import Card from 'primevue/card';
 				<a href="https://github.com/primefaces/primevue/tree/master/src/views/card" class="btn-viewsource" target="_blank" rel="noopener noreferrer">
 					<span>View on GitHub</span>
 				</a>
-<CodeHighlight>
-<template v-pre>
+<pre v-code>
+<code><template v-pre>
 &lt;Card style="width: 25rem; margin-bottom: 2em"&gt;
     &lt;template slot="title"&gt;
         Simple Card
@@ -111,7 +117,7 @@ import Card from 'primevue/card';
     &lt;/template&gt;
 &lt;/Card&gt;
 </template>
-</CodeHighlight>
+</code></pre>
 			</TabPanel>
 		</TabView>
 	</div>

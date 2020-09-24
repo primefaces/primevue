@@ -3,24 +3,31 @@
 		<TabView>
 			<TabPanel header="Documentation">
 				<h5>Import</h5>
-<CodeHighlight lang="javascript">
+<pre v-code.script>
+<code>
 import Slider from 'primevue/slider';
-</CodeHighlight>
+
+</code></pre>
 
 				<h5>Getting Started</h5>
 				<p>Two-way binding is defined using the standard v-model directive.</p>
-<CodeHighlight>
+<pre v-code>
+<code>
 &lt;Slider v-model="value" /&gt;
-</CodeHighlight>
+
+</code></pre>
 
 				<h5>Range</h5>
 				<p>Range slider provides two handles to define two values. Enable <i>range</i> property and bind an array to implement a range slider.</p>
 
-<CodeHighlight>
+<pre v-code>
+<code>
 &lt;Slider v-model="value" :range="true" /&gt;
-</CodeHighlight>
 
-<CodeHighlight lang="js">
+</code></pre>
+
+<pre v-code.script>
+<code>
 export default {
 	data() {
 		return {
@@ -28,25 +35,32 @@ export default {
 		}
 	}
 }
-</CodeHighlight>
+
+</code></pre>
 
 				<h5>Orientation</h5>
 				<p>Default layout of slider is horizontal, use <i>orientation</i> property for the alternative vertical mode.</p>
-<CodeHighlight>
+<pre v-code>
+<code>
 &lt;Slider v-model="value" orientation="vertical" /&gt;
-</CodeHighlight>
+
+</code></pre>
 
 				<h5>Step</h5>
 				<p>Step factor is 1 by default and can be customized with <i>step</i> option.</p>
-<CodeHighlight>
+<pre v-code>
+<code>
 &lt;Slider v-model="value" :step="20" /&gt;
-</CodeHighlight>
+
+</code></pre>
 
 				<h5>Min-Max</h5>
 				<p>Boundaries are specified with min and max attributes.</p>
-<CodeHighlight>
+<pre v-code>
+<code>
 &lt;Slider v-model="value" :step="20" :min="50" :max="200" /&gt;
-</CodeHighlight>
+
+</code></pre>
 
 				<h5>Properties</h5>
                 <p>Any property as style and class are passed to the main container element. Following are the additional properties to configure the component.</p>
@@ -172,8 +186,8 @@ export default {
 				<a href="https://github.com/primefaces/primevue/tree/master/src/views/slider" class="btn-viewsource" target="_blank" rel="noopener noreferrer">
 					<span>View on GitHub</span>
 				</a>
-<CodeHighlight>
-<template v-pre>
+<pre v-code>
+<code><template v-pre>
 &lt;h3&gt;Basic: {{value1}}&lt;/h3&gt;
 &lt;Slider v-model="value1" /&gt;
 
@@ -190,9 +204,10 @@ export default {
 &lt;h3&gt;Vertical: {{value5}}&lt;/h3&gt;
 &lt;Slider v-model="value5" orientation="vertical" /&gt;
 </template>
-</CodeHighlight>
+</code></pre>
 
-<CodeHighlight lang="javascript">
+<pre v-code.script>
+<code>
 export default {
 	data() {
 		return {
@@ -204,9 +219,11 @@ export default {
 		}
 	}
 }
-</CodeHighlight>
 
-<CodeHighlight lang="css">
+</code></pre>
+
+<pre v-code.css>
+<code>
 .p-slider-horizontal, .p-inputtext {
 	width: 14rem;
 }
@@ -214,7 +231,8 @@ export default {
 .p-slider-vertical {
 	height: 14rem;
 }
-</CodeHighlight>
+
+</code></pre>
 			</TabPanel>
 		</TabView>
 	</div>

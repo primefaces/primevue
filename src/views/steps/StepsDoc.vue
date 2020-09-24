@@ -3,21 +3,26 @@
 		<TabView>
 			<TabPanel header="Documentation">
 				<h5>Import</h5>
-<CodeHighlight lang="javascript">
+<pre v-code.script>
+<code>
 import Steps from 'primevue/steps';
-</CodeHighlight>
+
+</code></pre>
 
                 <h5>MenuModel</h5>
                 <p>Steps uses the common MenuModel API to define the items, visit <router-link to="/menumodel">MenuModel API</router-link> for details.</p>
 
 				<h5>Getting Started</h5>
 				<p>Steps is integrated with Vue Router and requires a collection of menuitems as its model.</p>
-<CodeHighlight>
+<pre v-code>
+<code>
 &lt;Steps :model="items" /&gt;
 &lt;router-view /&gt;
-</CodeHighlight>
 
-<CodeHighlight lang="js">
+</code></pre>
+
+<pre v-code.script>
+<code>
 export default {
 	data() {
 		return {
@@ -40,14 +45,17 @@ export default {
 		}
 	}
 }
-</CodeHighlight>
+
+</code></pre>
 
                 <h5>Interactive</h5>
                 <p>Items are readonly by default, if you'd like to make them interactive then disable <i>readonly</i> property.</p>
-<CodeHighlight>
+<pre v-code>
+<code>
 &lt;Steps :model="items" :readonly="false" /&gt;
 &lt;router-view /&gt;
-</CodeHighlight>
+
+</code></pre>
 
                 <h5>Properties</h5>
                 <p>Any property as style and class are passed to the main container element. Following are the additional properties to configure the component.</p>
@@ -123,8 +131,8 @@ export default {
 				<a href="https://github.com/primefaces/primevue/tree/master/src/views/tabmenu" class="btn-viewsource" target="_blank" rel="noopener noreferrer">
 					<span>View on GitHub</span>
 				</a>
-<CodeHighlight>
-<template v-pre>
+<pre v-code>
+<code><template v-pre>
 &lt;div class="card"&gt;
     &lt;Steps :model="items" :readonly="true" /&gt;
 &lt;/div&gt;
@@ -135,9 +143,10 @@ export default {
     &lt;/keep-alive&gt;
 &lt;/router-view&gt;
 </template>
-</CodeHighlight>
+</code></pre>
 
-<CodeHighlight lang="javascript">
+<pre v-code.script>
+<code>
 export default {
     data() {
         return {
@@ -179,12 +188,13 @@ export default {
         }
     }
 }
-</CodeHighlight>
+
+</code></pre>
 
 			</TabPanel>
             <TabPanel header="Personal">
-<CodeHighlight>
-<template v-pre>
+<pre v-code>
+<code><template v-pre>
 &lt;div class="stepsdemo-content"&gt;
     &lt;Card&gt;
         &lt;template v-slot:title&gt;
@@ -220,9 +230,10 @@ export default {
     &lt;/Card&gt;
 &lt;/div&gt;
 </template>
-</CodeHighlight>
+</code></pre>
 
-<CodeHighlight lang="javascript">
+<pre v-code.script>
+<code>
 export default {
     data () {
         return {
@@ -255,12 +266,13 @@ export default {
         }
     }
 }
-</CodeHighlight>
+
+</code></pre>
 			</TabPanel>
 
             <TabPanel header="Seat">
-<CodeHighlight>
-<template v-pre>
+<pre v-code>
+<code><template v-pre>
 &lt;div class="stepsdemo-content"&gt;
     &lt;Card&gt;
         &lt;template slot="title"&gt;
@@ -294,9 +306,10 @@ export default {
     &lt;/Card&gt;
 &lt;/div&gt;
 </template>
-</CodeHighlight>
+</code></pre>
 
-<CodeHighlight lang="javascript">
+<pre v-code.script>
+<code>
 export default {
     data () {
         return {
@@ -338,11 +351,12 @@ export default {
         }
     }
 }
-</CodeHighlight>
+
+</code></pre>
 			</TabPanel>
             <TabPanel header="Payment">
-<CodeHighlight>
-<template v-pre>
+<pre v-code>
+<code><template v-pre>
 &lt;div class="stepsdemo-content"&gt;
     &lt;Card&gt;
         &lt;template slot="title"&gt;
@@ -384,9 +398,10 @@ export default {
     &lt;/Card&gt;
 &lt;/div&gt;
 </template>
-</CodeHighlight>
+</code></pre>
 
-<CodeHighlight lang="javascript">
+<pre v-code.script>
+<code>
 export default {
     data () {
         return {
@@ -406,12 +421,13 @@ export default {
         }
     }
 }
-</CodeHighlight>
+
+</code></pre>
 			</TabPanel>
             
             <TabPanel header="Confirmation">
-<CodeHighlight>
-<template v-pre>
+<pre v-code>
+<code><template v-pre>
 &lt;div class="stepsdemo-content"&gt;
     &lt;Card&gt;
         &lt;template slot="title"&gt;
@@ -464,9 +480,10 @@ export default {
     &lt;/Card&gt;
 &lt;/div&gt;
 </template>
-</CodeHighlight>
+</code></pre>
 
-<CodeHighlight lang="javascript">
+<pre v-code.script>
+<code>
 export default {
     props: {
         formData: Object
@@ -480,7 +497,8 @@ export default {
         }
     },
 }
-</CodeHighlight>
+
+</code></pre>
 			</TabPanel>
 		</TabView>
 	</div>

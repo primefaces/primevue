@@ -3,23 +3,28 @@
 		<TabView>
 			<TabPanel header="Documentation">
 				<h5>Import</h5>
-<CodeHighlight lang="javascript">
+<pre v-code.script>
+<code>
 import BlockUI from 'primevue/blockui';
-</CodeHighlight>
+
+</code></pre>
 
 				<h5>Getting Started</h5>
 				<p>BlockUI is controlled using the <i>blocked</i> property, by default target element to block is the child component. In example below, panel gets blocked
                     with a mask when blockedPanel is enabled and gets unblock when the bound variable is set to false.
                 </p>
-<CodeHighlight>
+<pre v-code>
+<code>
 &lt;BlockUI :blocked="blockedPanel"&gt;
     &lt;Panel header="Header"&gt;
         Panel Content
     &lt;/Panel&gt;
 &lt;/BlockUI&gt;
-</CodeHighlight>
 
-<CodeHighlight lang="js">
+</code></pre>
+
+<pre v-code.script>
+<code>
 export default {
     data() {
         return {
@@ -35,14 +40,17 @@ export default {
         }
     }
 }
-</CodeHighlight>
+
+</code></pre>
 
                 <h5>Full Screen</h5>
                 <p>In full screen mode, instead of a particular element, the whole document gets blocked. Set <i>fullScreen</i> as true in order to enable this functionality.</p>
 
-<CodeHighlight>
+<pre v-code>
+<code>
 &lt;BlockUI :blocked="blockedDocument" :fullScreen="true"&gt;&lt;/BlockUI&gt;
-</CodeHighlight>
+
+</code></pre>
 
                 <h5>Properties</h5>
                 <p>Any property as style and class are passed to the main container element. Following are the additional properties to configure the component.</p>
@@ -141,7 +149,8 @@ export default {
 				<a href="https://github.com/primefaces/primevue/tree/master/src/views/blockui" class="btn-viewsource" target="_blank" rel="noopener noreferrer">
 					<span>View on GitHub</span>
 				</a>
-<CodeHighlight>
+<pre v-code>
+<code>
 &lt;h3&gt;Document&lt;/h3&gt;
 &lt;BlockUI :blocked="blockedDocument" :fullScreen="true"&gt;&lt;/BlockUI&gt;
 
@@ -159,9 +168,11 @@ export default {
         kind and benevolent to those who give respect, but given to ruthless violence whenever anything stands against the good of the family.&lt;/p&gt;
     &lt;/Panel&gt;
 &lt;/BlockUI&gt;
-</CodeHighlight>
 
-<CodeHighlight lang="javascript">
+</code></pre>
+
+<pre v-code.script>
+<code>
 export default {
     data() {
         return {
@@ -185,7 +196,8 @@ export default {
         }
     }
 }
-</CodeHighlight>
+
+</code></pre>
 			</TabPanel>
 		</TabView>
 	</div>

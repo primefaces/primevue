@@ -3,13 +3,16 @@
 		<TabView>
 			<TabPanel header="Documentation">
 				<h5>Import</h5>
-<CodeHighlight lang="javascript">
+<pre v-code.script>
+<code>
 import SplitButton from 'primevue/splitbutton';
-</CodeHighlight>
+
+</code></pre>
 
 				<h5>Getting Started</h5>
 				<p>SplitButton has a default command button and a collection of additional options defined by the <i>model</i> property.</p>
-<CodeHighlight lang="js">
+<pre v-code.script>
+<code>
 export default {
 	data() {
 		return {
@@ -44,11 +47,14 @@ export default {
 		}
 	}
 }
-</CodeHighlight>
 
-<CodeHighlight>
+</code></pre>
+
+<pre v-code>
+<code>
 &lt;SplitButton label="Save" icon="pi pi-plus" :model="items"&gt;&lt;/SplitButton&gt;
-</CodeHighlight>
+
+</code></pre>
 
                 <h5>MenuModel</h5>
                 <p>SplitButton uses the common MenuModel API to define the items, visit <router-link to="/menumodel">MenuModel API</router-link> for details.</p>
@@ -65,7 +71,8 @@ export default {
 					<li>.p-button-danger</li>
 				</ul>
 
-<CodeHighlight>
+<pre v-code>
+<code>
 &lt;SplitButton label="Save" icon="pi pi-plus" :model="items"&gt;&lt;/SplitButton&gt;
 &lt;SplitButton label="Save" icon="pi pi-plus" :model="items" class="p-button-secondary"&gt;&lt;/SplitButton&gt;
 &lt;SplitButton label="Save" icon="pi pi-plus" :model="items" class="p-button-success"&gt;&lt;/SplitButton&gt;
@@ -73,7 +80,8 @@ export default {
 &lt;SplitButton label="Save" icon="pi pi-plus" :model="items" class="p-button-warning"&gt;&lt;/SplitButton&gt;
 &lt;SplitButton label="Save" icon="pi pi-plus" :model="items" class="p-button-help"&gt;&lt;/SplitButton&gt;
 &lt;SplitButton label="Save" icon="pi pi-plus" :model="items" class="p-button-danger"&gt;&lt;/SplitButton&gt;
-</CodeHighlight>
+
+</code></pre>
 
 				<h5>Properties</h5>
 				<p>Any property such as tabindex are passed to the underlying input element. Following are the additional properties to configure the component.</p>
@@ -184,8 +192,8 @@ export default {
 				<a href="https://github.com/primefaces/primevue/tree/master/src/views/splitbutton" class="btn-viewsource" target="_blank" rel="noopener noreferrer">
 					<span>View on GitHub</span>
 				</a>
-<CodeHighlight>
-<template v-pre>
+<pre v-code>
+<code><template v-pre>
 &lt;h3&gt;Basic&lt;/h3&gt;
 &lt;SplitButton label="Save" icon="pi pi-plus" @click="save" :model="items"&gt;&lt;/SplitButton&gt;
 
@@ -198,9 +206,10 @@ export default {
 &lt;SplitButton label="Save" icon="pi pi-plus" :model="items" class="p-button-help p-mb-2"&gt;&lt;/SplitButton&gt;
 &lt;SplitButton label="Save" icon="pi pi-plus" :model="items" class="p-button-danger p-mb-2"&gt;&lt;/SplitButton&gt;
 </template>
-</CodeHighlight>
+</code></pre>
 
-<CodeHighlight lang="javascript">
+<pre v-code.script>
+<code>
 export default {
 	data() {
 		return {
@@ -240,13 +249,16 @@ export default {
 		}
 	}
 }
-</CodeHighlight>
 
-<CodeHighlight lang="css">
+</code></pre>
+
+<pre v-code.css>
+<code>
 .p-splitbutton {
 	margin-right: .5rem;
 }
-</CodeHighlight>
+
+</code></pre>
 			</TabPanel>
 		</TabView>
 	</div>

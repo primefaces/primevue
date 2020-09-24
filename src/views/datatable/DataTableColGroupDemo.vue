@@ -61,8 +61,8 @@
         <div class="content-section documentation">
             <TabView>
                 <TabPanel header="Source">
-<CodeHighlight>
-<template v-pre>
+<pre v-code>
+<code><template v-pre>
 &lt;DataTable :value="sales"&gt;
     &lt;ColumnGroup type="header"&gt;
         &lt;Row&gt;
@@ -110,9 +110,10 @@
     &lt;/ColumnGroup&gt;
 &lt;/DataTable&gt;
 </template>
-</CodeHighlight>
+</code></pre>
 
-<CodeHighlight lang="javascript">
+<pre v-code.script>
+<code>
 export default {
     data() {
         return {
@@ -157,7 +158,8 @@ export default {
         }
     }
 }
-</CodeHighlight>
+
+</code></pre>
                 </TabPanel>
             </TabView>
         </div>

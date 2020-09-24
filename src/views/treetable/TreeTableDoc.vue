@@ -3,10 +3,12 @@
 		<TabView>
 			<TabPanel header="Documentation">
 				<h5>Import</h5>
-<CodeHighlight lang="javascript">
+<pre v-code.script>
+<code>
 import TreeTable from 'primevue/treetable';
 import Column from 'primevue/column';
-</CodeHighlight>
+
+</code></pre>
 
 				<h5>Getting Started</h5>
 				<p>Tree component requires an array of TreeNode objects as its <i>value</i> and columns defined with Column component.</p>
@@ -64,17 +66,18 @@ import Column from 'primevue/column';
                 </div>
 
                 <p>Example below loads the nodes from a remote datasource via a service called NodeService.</p>
-<CodeHighlight>
-<template v-pre>
+<pre v-code>
+<code><template v-pre>
 &lt;TreeTable :value="nodes"&gt;
     &lt;Column field="name" header="Name" :expander="true"&gt;&lt;/Column&gt;
     &lt;Column field="size" header="Size"&gt;&lt;/Column&gt;
     &lt;Column field="type" header="Type"&gt;&lt;/Column&gt;
 &lt;/TreeTable&gt;
 </template>
-</CodeHighlight>
+</code></pre>
 
-<CodeHighlight lang="javascript">
+<pre v-code.script>
+<code>
 import NodeService from '../../service/NodeService';
 
 export default {
@@ -91,9 +94,11 @@ export default {
         this.nodeService.getTreeTableNodes().then(data => this.nodes = data);
     }
 }
-</CodeHighlight>
 
-<CodeHighlight lang="javascript">
+</code></pre>
+
+<pre v-code.script>
+<code>
 import axios from 'axios';
 
 export default class NodeService {
@@ -103,12 +108,14 @@ export default class NodeService {
     }
 
 }
-</CodeHighlight>
+
+</code></pre>
 
                 <p>The json response sample would be as following.</p>
 
 <div style="height: 400px; overflow: auto">
-<CodeHighlight lang="javascript">
+<pre v-code.script>
+<code>
 {
     "root":
     [
@@ -462,22 +469,24 @@ export default class NodeService {
         }
     ]
 }
-</CodeHighlight>
+
+</code></pre>
 </div>
 
                 <h5>Dynamic Columns</h5>
                 <p>Column components can be dynamically generated using a v-for as well.</p>
 
-<CodeHighlight>
-<template v-pre>
+<pre v-code>
+<code><template v-pre>
 &lt;TreeTable :value="nodes"&gt;
     &lt;Column v-for="col of columns" :key="col.field"
         :field="col.field" :header="col.header" :expander="col.expander"&gt;&lt;/Column&gt;
 &lt;/TreeTable&gt;
 </template>
-</CodeHighlight>
+</code></pre>
 
-<CodeHighlight lang="javascript">
+<pre v-code.script>
+<code>
 import NodeService from '../../service/NodeService';
 
 export default {
@@ -501,7 +510,8 @@ export default {
         this.nodeService.getTreeTableNodes().then(data => this.nodes = data);
     }
 }
-</CodeHighlight>
+
+</code></pre>
 
                 <h5>Column Component Properties utilized by the TreeTable</h5>
                 <div class="doc-tablewrapper">
@@ -627,8 +637,8 @@ export default {
                 </p>
 
                 <p>Example below expands and collapses all nodes with buttons.</p>
-<CodeHighlight>
-<template v-pre>
+<pre v-code>
+<code><template v-pre>
 &lt;div style="margin-bottom: 1em"&gt;
     &lt;Button type="button" icon="pi pi-plus" label="Expand All" @click="expandAll" /&gt;
     &lt;Button type="button" icon="pi pi-minus" label="Collapse All" @click="collapseAll" /&gt;
@@ -639,9 +649,10 @@ export default {
     &lt;Column field="type" header="Type"&gt;&lt;/Column&gt;
 &lt;/TreeTable&gt;
 </template>
-</CodeHighlight>
+</code></pre>
 
-<CodeHighlight lang="javascript">
+<pre v-code.script>
+<code>
 import NodeService from '../../service/NodeService';
 
 export default {
@@ -680,10 +691,12 @@ export default {
         }
     }
 }
-</CodeHighlight>
+
+</code></pre>
 
                 <p>To display some nodes as expanded by default, simply add their keys to the map.</p>
-<CodeHighlight lang="javascript">
+<pre v-code.script>
+<code>
 import NodeService from '../../service/NodeService';
 
 export default {
@@ -705,14 +718,15 @@ export default {
         });
     }
 }
-</CodeHighlight>
+
+</code></pre>
 
                 <h5>Templating</h5>
                 <p>Field data of a corresponding node is displayed as the cell content by default, this can be customized using a <i>body</i> template where current node data and column properties are passed via the slot props.
                     On the other hand, <i>header</i> and <i>footer</i> sections of a column can either be defined with the properties or the templates. Similarly TreeTable itself also provides header and footer properties along with the templates for the main header and footer of the table.</p>
 
-                <CodeHighlight>
-<template v-pre>
+                <pre v-code>
+<code><template v-pre>
 &lt;TreeTable :value="nodes"&gt;
     &lt;template #header&gt;
         FileSystem
@@ -736,14 +750,14 @@ export default {
     &lt;/template&gt;
 &lt;/TreeTable&gt;
 </template>
-</CodeHighlight>
+</code></pre>
 
                 <h5>Sizes</h5>
                 <p>In addition to the regular table, a smal and a large version are available with different paddings. For a table
                 with smaller paddings use <i>p-treetable-sm</i> class and for a larger one use <i>p-treetable-lg</i>.</p>
 
-<CodeHighlight>
-<template v-pre>
+<pre v-code>
+<code><template v-pre>
 &lt;TreeTable :value="nodes" class="p-treetable-sm"&gt;
     &lt;template #header&gt;
         Small Table
@@ -771,26 +785,26 @@ export default {
     &lt;Column field="type" header="Type"&gt;&lt;/Column&gt;
 &lt;/TreeTable&gt;
 </template>
-</CodeHighlight>
+</code></pre>
 
                 <h5>Pagination</h5>
                 <p>Pagination is enabled by setting <i>paginator</i> property to true and defining the <i>rows</i> property defines the number of rows per page.
                     See the <router-link to="/paginator">Paginator</router-link> for the available customization options such as paginator templates, page links,
                     rows per page options and more which can be passed through the TreeTable.</p>
 
-<CodeHighlight>
-<template v-pre>
+<pre v-code>
+<code><template v-pre>
 &lt;TreeTable :value="nodes" :paginator="true" :rows="10"&gt;
     &lt;Column field="name" header="Name" :expander="true"&gt;&lt;/Column&gt;
     &lt;Column field="size" header="Size"&gt;&lt;/Column&gt;
     &lt;Column field="type" header="Type"&gt;&lt;/Column&gt;
 &lt;/TreeTable&gt;
 </template>
-</CodeHighlight>
+</code></pre>
 
                 <p>paginatorLeft and paginatorLeft templates are available to specify custom content at the left and right side.</p>
-<CodeHighlight>
-<template v-pre>
+<pre v-code>
+<code><template v-pre>
 &lt;TreeTable :value="nodes" :paginator="true" :rows="10"&gt;
     &lt;Column field="name" header="Name" :expander="true"&gt;&lt;/Column&gt;
     &lt;Column field="size" header="Size"&gt;&lt;/Column&gt;
@@ -803,50 +817,50 @@ export default {
     &lt;/template&gt;
 &lt;/TreeTable&gt;
 </template>
-</CodeHighlight>
+</code></pre>
 
                 <p>Paginator can also be programmed programmatically using a binding to the <i>first</i> property that defines the index of the
                 first element to display. For example setting first to zero will reset the paginator to the very first page. This property
                 also supports "sync" keyword in case you'd like your binding to be updated whenever the user changes the page.</p>
-<CodeHighlight>
-<template v-pre>
+<pre v-code>
+<code><template v-pre>
 &lt;TreeTable :value="nodes" :paginator="true" :rows="10" :first="firstRecordIndex"&gt;
     &lt;Column field="name" header="Name" :expander="true"&gt;&lt;/Column&gt;
     &lt;Column field="size" header="Size"&gt;&lt;/Column&gt;
     &lt;Column field="type" header="Type"&gt;&lt;/Column&gt;
 &lt;/TreeTable&gt;
 </template>
-</CodeHighlight>
+</code></pre>
 
                 <h5>Sorting</h5>
                 <p>Enabling <i>sortable</i> property at column component would be enough to make a column sortable.
                 The property to use when sorting is the <i>field</i> by default and can be customized using the <i>sortField</i>.</p>
 
-<CodeHighlight>
-<template v-pre>
+<pre v-code>
+<code><template v-pre>
 &lt;TreeTable :value="nodes" sortMode="single"&gt;
     &lt;Column field="name" header="Name" :expander="true" :sortable="true"&gt;&lt;/Column&gt;
     &lt;Column field="size" header="Size" :sortable="true"&gt;&lt;/Column&gt;
     &lt;Column field="type" header="Type" :sortable="true"&gt;&lt;/Column&gt;
 &lt;/TreeTable&gt;
 </template>
-</CodeHighlight>
+</code></pre>
 
                 <p>By default sorting is executed on the clicked column only. To enable multiple field sorting, set <i>sortMode</i> property to "multiple" and use metakey when clicking on another column.</p>
-<CodeHighlight>
-<template v-pre>
+<pre v-code>
+<code><template v-pre>
 &lt;TreeTable :value="nodes" sortMode="multiple"&gt;
     &lt;Column field="name" header="Name" :expander="true" :sortable="true"&gt;&lt;/Column&gt;
     &lt;Column field="size" header="Size" :sortable="true"&gt;&lt;/Column&gt;
     &lt;Column field="type" header="Type" :sortable="true"&gt;&lt;/Column&gt;
 &lt;/TreeTable&gt;
 </template>
-</CodeHighlight>
+</code></pre>
 
                 <p>In case you'd like to display the table as sorted per a single column by default on mount or programmatically apply sort, use <i>sortField</i> and <i>sortOrder</i> properties. These
                 two properties also support the "sync" keyword to get updated when the user applies sort a column.</p>
-<CodeHighlight>
-<template v-pre>
+<pre v-code>
+<code><template v-pre>
 &lt;TreeTable :value="nodes" sortField="size" :sortOrder="1""&gt;
     &lt;Column field="name" header="Name" :expander="true" :sortable="true"&gt;&lt;/Column&gt;
     &lt;Column field="size" header="Size" :sortable="true"&gt;&lt;/Column&gt;
@@ -859,20 +873,21 @@ export default {
     &lt;Column field="type" header="Type" :sortable="true"&gt;&lt;/Column&gt;
 &lt;/TreeTable&gt;
 </template>
-</CodeHighlight>
+</code></pre>
 
                 <p>In multiple mode, use the <i>multiSortMeta</i> property and bind an array of SortMeta objects instead.</p>
-<CodeHighlight>
-<template v-pre>
+<pre v-code>
+<code><template v-pre>
 &lt;TreeTable :value="nodes" sortMode="multiple" :multiSortMeta="multiSortMeta"&gt;
     &lt;Column field="name" header="Name" :expander="true" :sortable="true"&gt;&lt;/Column&gt;
     &lt;Column field="size" header="Size" :sortable="true"&gt;&lt;/Column&gt;
     &lt;Column field="type" header="Type" :sortable="true"&gt;&lt;/Column&gt;
 &lt;/TreeTable&gt;
 </template>
-</CodeHighlight>
+</code></pre>
 
-<CodeHighlight lang="javascript">
+<pre v-code.script>
+<code>
 data() {
     return {
         multiSortMeta: [
@@ -881,7 +896,8 @@ data() {
         ]
     }
 }
-</CodeHighlight>
+
+</code></pre>
 
                 <h5>Filtering</h5>
                 <p>Filtering is enabled by defining a filter template per column to populate the <i>filters</i> property of the TreeTable. The <i>filters</i>
@@ -892,8 +908,8 @@ data() {
 
                 <p>In addition <i>filterMode</i> specifies the filtering strategy. In <b>lenient</b> mode when the query matches a node, children of the node are not searched further as all descendants of the node are included. On the other hand,
                  in <b>strict</b> mode when the query matches a node, filtering continues on all descendants.</p>
-<CodeHighlight>
-<template v-pre>
+<pre v-code>
+<code><template v-pre>
 &lt;TreeTable :value="nodes" :filters="filters" filterMode="lenient"&gt;
     &lt;template #header&gt;
         &lt;div style="text-align: right"&gt;
@@ -918,9 +934,10 @@ data() {
     &lt;/Column&gt;
 &lt;/TreeTable&gt;
 </template>
-</CodeHighlight>
+</code></pre>
 
-<CodeHighlight lang="javascript">
+<pre v-code.script>
+<code>
 import NodeService from '../../service/NodeService';
 
 export default {
@@ -938,7 +955,8 @@ export default {
         this.nodeService.getTreeTableNodes().then(data => this.nodes = data);
     }
 }
-</CodeHighlight>
+
+</code></pre>
 
                 <h5>Selection</h5>
                 <p>Tree supports <b>single</b>, <b>multiple</b> and <b>checkbox</b> selection modes. Define the <i>selectionKeys</i> with the sync operator and the <i>selectionMode</i> properties to enable the selection.
@@ -947,8 +965,8 @@ export default {
 
                 <p>Similarly to the <i>expandedKeys</i>, <i>selectionKeys</i> is a Map instance whose key is the key of a node and value is a boolean in "single" and "multiple" cases. On the other hand
                 in "checkbox" mode, instead of a boolean, value should be an object that has "checked" and "partialChecked" properties to represent the checked state of a node.</p>
-<CodeHighlight>
-<template v-pre>
+<pre v-code>
+<code><template v-pre>
 &lt;TreeTable :value="nodes" selectionMode="multiple" :selectionKeys.sync="selectedKeys1"&gt;
     &lt;Column field="name" header="Name" :expander="true"&gt;&lt;/Column&gt;
     &lt;Column field="size" header="Size"&gt;&lt;/Column&gt;
@@ -977,9 +995,10 @@ export default {
     &lt;Column field="type" header="Type"&gt;&lt;/Column&gt;
 &lt;/TreeTable&gt;
 </template>
-</CodeHighlight>
+</code></pre>
 
-<CodeHighlight lang="javascript">
+<pre v-code.script>
+<code>
 import NodeService from '../../service/NodeService';
 
 export default {
@@ -1009,10 +1028,12 @@ export default {
         }
     }
 }
-</CodeHighlight>
+
+</code></pre>
 
                 <p>To display some nodes as selected by default, simply add their keys to the map.</p>
-<CodeHighlight lang="javascript">
+<pre v-code.script>
+<code>
 import NodeService from '../../service/NodeService';
 
 export default {
@@ -1046,7 +1067,8 @@ export default {
         });
     }
 }
-</CodeHighlight>
+
+</code></pre>
 
                 <h5>Lazy</h5>
                 <p>Lazy Loading is handy to deal with huge datasets. Idea is instead of loading the whole tree, load nodes on demand when necessary.
@@ -1061,8 +1083,8 @@ export default {
 
                 <p> Example below uses an in memory collection to mimic a lazy loading scenario with timeouts.</p>
 
-<CodeHighlight>
-<template v-pre>
+<pre v-code>
+<code><template v-pre>
 &lt;TreeTable :value="nodes" :lazy="true" :paginator="true" :rows="rows" :loading="loading"
     @node-expand="onExpand" @page="onPage" :totalRecords="totalRecords"&gt;
     &lt;Column field="name" header="Name" :expander="true"&gt;&lt;/Column&gt;
@@ -1070,9 +1092,10 @@ export default {
     &lt;Column field="type" header="Type"&gt;&lt;/Column&gt;
 &lt;/TreeTable&gt;
 </template>
-</CodeHighlight>
+</code></pre>
 
-<CodeHighlight lang="javascript">
+<pre v-code.script>
+<code>
 export default {
     data() {
         return {
@@ -1159,13 +1182,14 @@ export default {
         }
     }
 }
-</CodeHighlight>
+
+</code></pre>
 
                 <h5>Column Resize</h5>
                 <p>Columns can be resized using drag drop by setting the <i>resizableColumns</i> to true. There are two resize modes; "fit" and "expand". Fit is the default one and the overall table width does not change when a column is resized.
                     In "expand" mode, table width also changes along with the column width. <i>column-resize-end</i> is a callback that passes the resized column header and delta change as a parameter.</p>
-<CodeHighlight>
-<template v-pre>
+<pre v-code>
+<code><template v-pre>
 &lt;h3&gt;Fit Mode&lt;/h3&gt;
 &lt;TreeTable :value="nodes" :resizableColumns="true" columnResizeMode="fit"&gt;
     &lt;Column field="name" header="Name" :expander="true"&gt;&lt;/Column&gt;
@@ -1180,23 +1204,23 @@ export default {
     &lt;Column field="type" header="Type"&gt;&lt;/Column&gt;
 &lt;/TreeTable&gt;
 </template>
-</CodeHighlight>
+</code></pre>
 
             <p>It is important to note that when you need to change column widths, since table width is 100%, giving fixed pixel widths does not work well as browsers scale them, instead give percentage widths.</p>
-<CodeHighlight>
-<template v-pre>
+<pre v-code>
+<code><template v-pre>
 &lt;TreeTable :value="nodes" :resizableColumns="true"&gt;
     &lt;Column field="name" header="Name" :expander="true"&gt;&lt;/Column headerStyle="width: 20%"&gt;
     &lt;Column field="size" header="Size" headerStyle="width: 40%"&gt;&lt;/Column&gt;
     &lt;Column field="type" header="Type headerStyle="width: 40%""&gt;&lt;/Column&gt;
 &lt;/TreeTable&gt;
 </template>
-</CodeHighlight>
+</code></pre>
 
                 <h5>Responsive</h5>
                 <p>TreeTable display can be optimized according to screen sizes, this example demonstrates a demo where columns are stacked on small screens.</p>
-<CodeHighlight>
-<template v-pre>
+<pre v-code>
+<code><template v-pre>
 &lt;TreeTable :value="nodes" class="p-treetable-responsive"&gt;
     &lt;template #header&gt;
         Responsive
@@ -1212,9 +1236,10 @@ export default {
     &lt;Column field="type" header="Type" headerClass="sm-invisible" bodyClass="sm-invisible"&gt;&lt;/Column&gt;
 &lt;/TreeTable&gt;
 </template>
-</CodeHighlight>
+</code></pre>
 
-<CodeHighlight lang="javascript">
+<pre v-code.script>
+<code>
 import NodeService from '../../service/NodeService';
 
 export default {
@@ -1231,9 +1256,11 @@ export default {
         this.nodeService.getTreeTableNodes().then(data => this.nodes = data);
     }
 }
-</CodeHighlight>
 
-<CodeHighlight lang="css">
+</code></pre>
+
+<pre v-code.css>
+<code>
 .sm-visible {
     display: none;
 }
@@ -1244,7 +1271,8 @@ export default {
         margin-right: .5rem;
     }
 }
-</CodeHighlight>
+
+</code></pre>
 
 				<h5>Properties</h5>
                 <p>Any property such as style and class are passed to the underlying root element. Following is the additional property to configure the component.</p>
@@ -1608,8 +1636,8 @@ export default {
 				<a href="https://github.com/primefaces/primevue/tree/master/src/views/treetable" class="btn-viewsource" target="_blank" rel="noopener noreferrer">
 					<span>View on GitHub</span>
 				</a>
-<CodeHighlight>
-<template v-pre>
+<pre v-code>
+<code><template v-pre>
 &lt;h3&gt;Basic&lt;/h3&gt;
 &lt;TreeTable :value="nodes"&gt;
     &lt;Column field="name" header="Name" :expander="true"&gt;&lt;/Column&gt;
@@ -1634,9 +1662,10 @@ export default {
     &lt;Column field="type" header="Type"&gt;&lt;/Column&gt;
 &lt;/TreeTable&gt;
 </template>
-</CodeHighlight>
+</code></pre>
 
-<CodeHighlight lang="javascript">
+<pre v-code.script>
+<code>
 import NodeService from '../../service/NodeService';
 
 export default {
@@ -1682,7 +1711,8 @@ export default {
         }
     }
 }
-</CodeHighlight>
+
+</code></pre>
 			</TabPanel>
 		</TabView>
 	</div>

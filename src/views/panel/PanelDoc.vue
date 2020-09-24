@@ -3,63 +3,76 @@
 		<TabView>
 			<TabPanel header="Documentation">
 				<h5>Import</h5>
-<CodeHighlight lang="javascript">
+<pre v-code.script>
+<code>
 import Panel from 'primevue/panel';
-</CodeHighlight>
+
+</code></pre>
 
 				<h5>Getting Started</h5>
 				<p>Panel is a container component that accepts content as its children.</p>
-<CodeHighlight>
+<pre v-code>
+<code>
 &lt;Panel header="Header"&gt;
 	Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.
     Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.
     Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat
     cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.
 &lt;/Panel&gt;
-</CodeHighlight>
+
+</code></pre>
 
                 <h5>Custom Header</h5>
                 <p>Header of the panel is either defined with the <i>header</i> property or the header template.</p>
-<CodeHighlight>
+<pre v-code>
+<code>
 &lt;Panel&gt;
     &lt;template #header&gt;
         Header Content
     &lt;/template&gt;
 	Content
 &lt;/Panel&gt;
-</CodeHighlight>
+
+</code></pre>
 
 				<h5>Toggleable</h5>
 				<p>Content of the panel can be expanded and collapsed using <i>toggleable</i> option.</p>
-<CodeHighlight>
+<pre v-code>
+<code>
 &lt;Panel header="Header" :toggleable="true"&gt;
 	Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.
     Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.
     Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat
     cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.
 &lt;/Panel&gt;
-</CodeHighlight>
+
+</code></pre>
 
                 <p>To control the initial state of the toggleable panel, use the <i>collapsed</i> property.</p>
-<CodeHighlight>
+<pre v-code>
+<code>
 &lt;Panel header="Header Text" :toggleable="true" :collapsed="true"&gt;
 	Content
 &lt;/Panel&gt;
-</CodeHighlight>
+
+</code></pre>
 
                 <p>Use the sync operator to enable two-way binding.</p>
 
-<CodeHighlight>
+<pre v-code>
+<code>
 &lt;button type="button" @click="isCollapsed = !isCollapsed">Toggle Programmatically&lt;/button&gt;
 &lt;Panel header="Header Text" :toggleable="true" :collapsed.sync="isCollapsed"&gt;
 	Content
 &lt;/Panel&gt;
-</CodeHighlight>
+
+</code></pre>
 
                 <h5>Custom Icons</h5>
                 <p>Additional icons can be placed at the header section of the panel using the special <i>icons</i> slot. For a unified look, it is suggest to add <i>.p-panel-header-icon</i>
                 class to your icons.</p>
-<CodeHighlight>
+<pre v-code>
+<code>
 &lt;h5&gt;Advanced&lt;/h5&gt;
 &lt;Panel header="Header"&gt;
     &lt;template #icons&gt;
@@ -69,7 +82,8 @@ import Panel from 'primevue/panel';
         &lt;Menu id="config_menu" ref="menu" :model="items" :popup="true" /&gt;
     &lt;/template&gt;
 &lt;/Panel&gt;
-</CodeHighlight>
+
+</code></pre>
 
 				<h5>Properties</h5>
                 <p>Any property as style and class are passed to the main container element. Following are the additional properties to configure the component.</p>
@@ -176,8 +190,8 @@ import Panel from 'primevue/panel';
 					<span>View on GitHub</span>
 				</a>
 
-<CodeHighlight>
-<template v-pre>
+<pre v-code>
+<code><template v-pre>
 &lt;h5&gt;Regular&lt;/h5&gt;
 &lt;Panel header="Header"&gt;
     &lt;p&gt;Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.
@@ -200,9 +214,10 @@ import Panel from 'primevue/panel';
         cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.&lt;/p&gt;
 &lt;/Panel&gt;
 </template>
-</CodeHighlight>
+</code></pre>
 
-<CodeHighlight lang="js">
+<pre v-code.script>
+<code>
 export default {
     data() {
         return {
@@ -249,7 +264,8 @@ export default {
         }
     }
 }
-</CodeHighlight>
+
+</code></pre>
 			</TabPanel>
 		</TabView>
 	</div>

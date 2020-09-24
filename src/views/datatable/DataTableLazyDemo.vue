@@ -25,8 +25,8 @@
         <div class="content-section documentation">
             <TabView>
                 <TabPanel header="Source">
-<CodeHighlight>
-<template v-pre>
+<pre v-code>
+<code><template v-pre>
 &lt;DataTable :value="customers" :lazy="true" :paginator="true" :rows="10"
     :totalRecords="totalRecords" :loading="loading" @page="onPage($event)"&gt;
     &lt;Column field="name" header="Name"&gt;&lt;/Column&gt;
@@ -35,9 +35,10 @@
     &lt;Column field="representative.name" header="Representative"&gt;&lt;/Column&gt;
 &lt;/DataTable&gt;
 </template>
-</CodeHighlight>
+</code></pre>
 
-<CodeHighlight lang="javascript">
+<pre v-code.script>
+<code>
 import CustomerService from '../../service/CustomerService';
 
 export default {
@@ -76,7 +77,8 @@ export default {
         }
     }
 }
-</CodeHighlight>
+
+</code></pre>
                 </TabPanel>
             </TabView>
         </div>

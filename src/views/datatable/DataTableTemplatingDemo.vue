@@ -48,8 +48,8 @@
         <div class="content-section documentation">
             <TabView>
                 <TabPanel header="Source">
-<CodeHighlight>
-<template v-pre>
+<pre v-code>
+<code><template v-pre>
 &lt;DataTable :value="products"&gt;
     &lt;template #header&gt;
         &lt;div class="table-header"&gt;
@@ -84,9 +84,10 @@
     &lt;/template&gt;
 &lt;/DataTable&gt;
 </template>
-</CodeHighlight>
+</code></pre>
 
-<CodeHighlight lang="javascript">
+<pre v-code.script>
+<code>
 import ProductService from '../../service/ProductService';
 
 export default {
@@ -108,9 +109,11 @@ export default {
         }
     }
 }
-</CodeHighlight>
 
-<CodeHighlight lang="css">
+</code></pre>
+
+<pre v-code.css>
+<code>
 .table-header {
     display: flex;
     align-items: center;
@@ -121,7 +124,8 @@ export default {
     width: 100px;
     box-shadow: 0 3px 6px rgba(0, 0, 0, 0.16), 0 3px 6px rgba(0, 0, 0, 0.23)
 }
-</CodeHighlight>
+
+</code></pre>
 
                 </TabPanel>
             </TabView>

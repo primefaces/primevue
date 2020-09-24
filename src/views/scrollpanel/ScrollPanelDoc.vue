@@ -3,27 +3,34 @@
 		<TabView>
 			<TabPanel header="Documentation">
 				<h5>Import</h5>
-<CodeHighlight lang="javascript">
+<pre v-code.script>
+<code>
 import ScrollPanel from 'primevue/scrollpanel';
-</CodeHighlight>
+
+</code></pre>
 
 				<h5>Getting Started</h5>
 				<p>ScrollPanel usage is similar to any container element.</p>
-<CodeHighlight>
+<pre v-code>
+<code>
 &lt;ScrollPanel style="width: 100%; height: 200px"&gt;
     content
 &lt;/ScrollPanel&gt;
-</CodeHighlight>
+
+</code></pre>
 
                 <h5>Customization</h5>
                 <p>Look and feel can easily be customized, here is an example with custom scrollbars.</p>
-<CodeHighlight>
+<pre v-code>
+<code>
 &lt;ScrollPanel style="width: 100%; height: 200px" class="custom"&gt;
     content
 &lt;/ScrollPanel&gt;
-</CodeHighlight>
 
-<CodeHighlight lang="css">
+</code></pre>
+
+<pre v-code.css>
+<code>
 .custom .p-scrollpanel-wrapper {
     border-right: 9px solid #f4f4f4;
 }
@@ -37,7 +44,8 @@ import ScrollPanel from 'primevue/scrollpanel';
 .custom .p-scrollpanel-bar:hover {
     background-color: #135ba1;
 }
-</CodeHighlight>
+
+</code></pre>
 
 				<h5>Properties</h5>
                 <p>Any property such as style and class are passed to the main container element. There are no component specific properties.</p>
@@ -90,8 +98,8 @@ import ScrollPanel from 'primevue/scrollpanel';
 					<span>View on GitHub</span>
 				</a>
 
-<CodeHighlight>
-<template v-pre>
+<pre v-code>
+<code><template v-pre>
 &lt;div class="p-grid"&gt;
     &lt;div class="p-col-12 p-md-4 p-p-5"&gt;
         &lt;ScrollPanel style="width: 100%; height: 200px"&gt;
@@ -146,15 +154,18 @@ import ScrollPanel from 'primevue/scrollpanel';
     &lt;/div&gt;
 &lt;/div&gt;
 </template>
-</CodeHighlight>
+</code></pre>
 
-<CodeHighlight lang="js">
+<pre v-code.script>
+<code>
 export default {
 
 }
-</CodeHighlight>
 
-<CodeHighlight lang="css">
+</code></pre>
+
+<pre v-code.css>
+<code>
 ::v-deep(.p-scrollpanel) {
     p {
         padding: .5rem;
@@ -192,7 +203,8 @@ export default {
         }
     }  
 }
-</CodeHighlight>
+
+</code></pre>
 			</TabPanel>
 		</TabView>
 	</div>

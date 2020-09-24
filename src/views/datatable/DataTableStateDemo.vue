@@ -130,8 +130,8 @@
         <div class="content-section documentation">
             <TabView>
                 <TabPanel header="Source">
-<CodeHighlight>
-<template v-pre>
+<pre v-code>
+<code><template v-pre>
 &lt;div class="card"&gt;
     &lt;h5&gt;Session Storage&lt;/h5&gt;
     &lt;DataTable :value="customers" :paginator="true" :rows="10" :filters.sync="filters1"
@@ -250,9 +250,10 @@
     &lt;/DataTable&gt;
     &lt;/div&gt;
 </template>
-</CodeHighlight>
+</code></pre>
 
-<CodeHighlight lang="javascript">
+<pre v-code.script>
+<code>
 import CustomerService from '../../service/CustomerService';
 import DataTableDoc from './DataTableDoc';
 
@@ -289,7 +290,8 @@ export default {
         this.customerService.getCustomersMedium().then(data => this.customers = data);
     }
 }
-</CodeHighlight>
+
+</code></pre>
                 </TabPanel>
             </TabView>
         </div>

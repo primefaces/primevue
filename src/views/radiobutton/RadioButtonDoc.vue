@@ -3,17 +3,22 @@
 		<TabView>
 			<TabPanel header="Documentation">
 				<h5>Import</h5>
-<CodeHighlight lang="javascript">
+<pre v-code.script>
+<code>
 import RadioButton from 'primevue/radiobutton';
-</CodeHighlight>
+
+</code></pre>
 
 				<h5>Getting Started</h5>
 				<p>Two-way value binding is defined using the standard v-model directive.</p>
-<CodeHighlight>
+<pre v-code>
+<code>
 &lt;RadioButton name="city" value="Chicago" v-model="city" /&gt;
 &lt;RadioButton name="city" value="Los Angeles" v-model="city" /&gt;
-</CodeHighlight>
-<CodeHighlight lang="js">
+
+</code></pre>
+<pre v-code.script>
+<code>
 export default {
 	data() {
 		return {
@@ -21,9 +26,11 @@ export default {
 		}
 	}
 }
-</CodeHighlight>
+
+</code></pre>
 				<p>As model is two-way binding enabled, giving a default value to the model is enough to display a radio button as checked by default.</p>
-<CodeHighlight lang="js">
+<pre v-code.script>
+<code>
 export default {
 	data() {
 		return {
@@ -31,7 +38,8 @@ export default {
 		}
 	}
 }
-</CodeHighlight>
+
+</code></pre>
 
 				<h5>Properties</h5>
                 <p>Any property such as name and autofocus are passed to the underlying input element. Following is the additional property to configure the component.</p>
@@ -104,8 +112,8 @@ export default {
 				<a href="https://github.com/primefaces/primevue/tree/master/src/views/radiobutton" class="btn-viewsource" target="_blank" rel="noopener noreferrer">
 					<span>View on GitHub</span>
 				</a>
-<CodeHighlight>
-<template v-pre>
+<pre v-code>
+<code><template v-pre>
 &lt;h3&gt;Basic&lt;/h3&gt;
     &lt;div class="p-field-radiobutton"&gt;
     &lt;RadioButton id="city1" name="city" value="Chicago" v-model="city" /&gt;
@@ -130,9 +138,10 @@ export default {
     &lt;label :for="category.key"&gt;{{category.name}}&lt;/label&gt;
 &lt;/div&gt;
 </template>
-</CodeHighlight>
+</code></pre>
 
-<CodeHighlight lang="javascript">
+<pre v-code.script>
+<code>
 export default {
     data() {
         return {
@@ -145,7 +154,8 @@ export default {
         this.selectedCategory = this.categories[1];
     }
 }
-</CodeHighlight>
+
+</code></pre>
 			</TabPanel>
 		</TabView>
 	</div>

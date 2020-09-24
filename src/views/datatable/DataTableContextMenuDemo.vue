@@ -27,8 +27,8 @@
         <div class="content-section documentation">
             <TabView>
                 <TabPanel header="Source">
-<CodeHighlight>
-<template v-pre>
+<pre v-code>
+<code><template v-pre>
 &lt;DataTable :value="products" contextMenu v-model:contextMenuSelection="selectedProduct" @row-contextmenu="onRowContextMenu"&gt;
     &lt;Column field="code" header="Code"&gt;&lt;/Column&gt;
     &lt;Column field="name" header="Name"&gt;&lt;/Column&gt;
@@ -42,9 +42,10 @@
 
 &lt;ContextMenu :model="menuModel" ref="cm" /&gt;
 </template>
-</CodeHighlight>
+</code></pre>
 
-<CodeHighlight lang="javascript">
+<pre v-code.script>
+<code>
 import ProductService from '../../service/ProductService';
 
 export default {
@@ -82,7 +83,8 @@ export default {
         }
     }
 }
-</CodeHighlight>
+
+</code></pre>
                 </TabPanel>
             </TabView>
         </div>

@@ -2,8 +2,8 @@
 	<div class="content-section documentation">
 		<TabView>
 			<TabPanel header="Source">
-<CodeHighlight>
-<template v-pre>
+<pre v-code>
+<code><template v-pre>
 &lt;h3&gt;Basic&lt;/h3&gt;
 &lt;Chart type="line" :data="basicData" /&gt;
 
@@ -13,9 +13,10 @@
 &lt;h3&gt;Line Styles&lt;/h3&gt;
 &lt;Chart type="line" :data="lineStylesData" /&gt;
 </template>
-</CodeHighlight>
+</code></pre>
 
-<CodeHighlight lang="javascript">
+<pre v-code.script>
+<code>
 export default {
 	data() {
 		return {
@@ -108,7 +109,8 @@ export default {
 		}
 	}
 }
-</CodeHighlight>
+
+</code></pre>
 			</TabPanel>
 		</TabView>
 	</div>

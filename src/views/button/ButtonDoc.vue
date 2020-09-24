@@ -3,33 +3,43 @@
 		<TabView>
 			<TabPanel header="Documentation">
 				<h5>Import</h5>
-<CodeHighlight lang="javascript">
+<pre v-code.script>
+<code>
 import Button from 'primevue/button';
-</CodeHighlight>
+
+</code></pre>
 
 				<h5>Getting Started</h5>
 				<p>Button is created using the Button element.</p>
-<CodeHighlight>
+<pre v-code>
+<code>
 &lt;Button /&gt;
-</CodeHighlight>
+
+</code></pre>
 
 				<h5>Label</h5>
 				<p>Text of the button is defined using the <i>label</i> property.</p>
-<CodeHighlight>
+<pre v-code>
+<code>
 &lt;Button label="Submit" /&gt;
-</CodeHighlight>
+
+</code></pre>
 				<h5>Icons</h5>
 				<p>Icon on a button is specified with <i>icon</i> property and position is configured using <i>iconPos</i> attribute. Default
 					icon position is "left" and alternative is "right". To display only an icon, leave the label as undefined.</p>
-<CodeHighlight>
+<pre v-code>
+<code>
 &lt;Button label="Submit" icon="pi pi-check" iconPos="right" /&gt;
-</CodeHighlight>
+
+</code></pre>
 
 				<h5>Events</h5>
 				<p>Events are defined with the standard notation.</p>
-<CodeHighlight>
+<pre v-code>
+<code>
 &lt;Button label="Submit" @click="handleClick($event)"/&gt;
-</CodeHighlight>
+
+</code></pre>
 
 				<h5>Severity</h5>
 				<p>Different options are available as severity levels.</p>
@@ -43,7 +53,8 @@ import Button from 'primevue/button';
 					<li>.p-button-danger</li>
 				</ul>
 
-<CodeHighlight>
+<pre v-code>
+<code>
 &lt;Button label="Primary" /&gt;
 &lt;Button label="Secondary" class="p-button-secondary" /&gt;
 &lt;Button label="Success" class="p-button-success" /&gt;
@@ -51,70 +62,87 @@ import Button from 'primevue/button';
 &lt;Button label="Warning" class="p-button-warning" /&gt;
 &lt;Button label="Warning" class="p-button-help" /&gt;
 &lt;Button label="Danger" class="p-button-danger" /&gt;
-</CodeHighlight>
+
+</code></pre>
 
                 <h5>Text Buttons</h5>
 				<p>Text buttons have transparent background and borders, use <i>p-button-text</i> to apply text button styling. In addition when used with <i>.p-button-plain</i>
                 text buttons ignore severity levels and displayed as a regular text.</p>
-<CodeHighlight>
+<pre v-code>
+<code>
 &lt;Button label="Submit" class="p-button-text" /&gt;
 &lt;Button icon="pi pi-check" class="p-button-text" /&gt;
 &lt;Button label="Cancel" icon="pi pi-times" class="p-button-text" /&gt;
 &lt;Button label="Search" icon="pi pi-search" iconPos="right" class="p-button-text p-button-text" /&gt;
-</CodeHighlight>
+
+</code></pre>
 
 				<h5>Raised and Rounded Buttons</h5>
 				<p>A button can be raised by having "p-button-raised" style class and similarly borders can be made rounded using "p-button-rounded" class.</p>
-<CodeHighlight>
+<pre v-code>
+<code>
 &lt;Button label="Primary" class="p-button-raised p-button-rounded" /&gt;
-</CodeHighlight>
+
+</code></pre>
 
                 <h5>Outlined Buttons</h5>
                 <p>An alternate styling for a button is the outlined option where background becomes transparent. Apply "p-button-outlined" to style a button as outlined.</p>
-<CodeHighlight>
+<pre v-code>
+<code>
 &lt;Button label="Primary" class="p-button-outlined" /&gt;
-</CodeHighlight>
+
+</code></pre>
 
                 <h5>Link Buttons</h5>
                 <p>Use "p-button-link" class to render the button as a link.</p>
-<CodeHighlight>
+<pre v-code>
+<code>
 &lt;Button label="Link" class="p-button-link" /&gt;
-</CodeHighlight>
+
+</code></pre>
 
                 <h5>Badges</h5>
                 <p>Badge is a small status indicator for a button. Refer to the <router-link to="/badge">badge</router-link> documentation for available styling options.</p>
 
-<CodeHighlight>
+<pre v-code>
+<code>
 &lt;Button type="button" label="Emails" badge="8" /&gt;
 &lt;Button type="button" label="Messages" icon="pi pi-users" class="p-button-warning" badge="8" badgeClass="p-badge-info" /&gt;
-</CodeHighlight>
+
+</code></pre>
 
                 <h5>ButtonSet</h5>
                 <p>Wrapping the buttons in a container having a <i>.p-buttonset</i> class, groups the buttons side to side.</p>
-<CodeHighlight>
+<pre v-code>
+<code>
 &lt;span class="p-buttonset"&gt;
     &lt;Button label="Save" icon="pi pi-check" /&gt;
     &lt;Button label="Delete" icon="pi pi-trash" /&gt;
     &lt;Button label="Cancel" icon="pi pi-times" /&gt;
 &lt;/span&gt;
-</CodeHighlight>
+
+</code></pre>
 
                 <h5>Sizes</h5>
                 <p>2 more sizes are available in addition to a regular button, for a smaller input add <i>p-button-sm</i> and for a larger one, use <i>p-button-lg</i>.
                 Note that these classes available to change the size of a particular button, for global scaling see the <router-link to="/theming">theming</router-link> page.</p>
-<CodeHighlight>
+<pre v-code>
+<code>
 &lt;Button label="Small" icon="pi pi-check" class="p-button-sm"  /&gt;
 &lt;Button label="Normal" icon="pi pi-check" class="p-button"  /&gt;
 &lt;Button label="Large" icon="pi pi-check" class="p-button-lg" /&gt;
-</CodeHighlight>
+
+</code></pre>
 
                 <h5>Slot</h5>
                 <p>Custom content can be placed inside the button via the default slot. Note that when slot is used, label, icon and badge properties are not included.</p>
-<CodeHighlight>
+<pre v-code>
+<code>
 &lt;Button&gt;
     Custom Content
 &lt;/Button&gt;
-</CodeHighlight>
+
+</code></pre>
 
 				<h5>Properties</h5>
                 <p>Any property such as style and class are passed to the underlying button element. Following are the additional properties to configure the component.</p>
@@ -206,8 +234,8 @@ import Button from 'primevue/button';
 				<a href="https://github.com/primefaces/primevue/tree/master/src/views/button" class="btn-viewsource" target="_blank" rel="noopener noreferrer">
 					<span>View on GitHub</span>
 				</a>
-<CodeHighlight>
-<template v-pre>
+<pre v-code>
+<code><template v-pre>
 &lt;h5&gt;Basic&lt;/h5&gt;
 &lt;Button label="Submit" /&gt;
 &lt;Button label="Disabled" disabled="disabled" /&gt;
@@ -320,13 +348,15 @@ import Button from 'primevue/button';
     &lt;Button label="Large" icon="pi pi-check" class="p-button-lg" /&gt;
 &lt;/div&gt;
 </template>
-</CodeHighlight>
+</code></pre>
 
-<CodeHighlight lang="css">
+<pre v-code.css>
+<code>
 button {
 	margin-right: .5rem;
 }
-</CodeHighlight>
+
+</code></pre>
 			</TabPanel>
 		</TabView>
 	</div>

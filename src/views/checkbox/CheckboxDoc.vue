@@ -3,26 +3,33 @@
 		<TabView>
 			<TabPanel header="Documentation">
 				<h5>Import</h5>
-<CodeHighlight lang="javascript">
+<pre v-code.script>
+<code>
 import Checkbox from 'primevue/checkbox';
-</CodeHighlight>
+
+</code></pre>
 
 				<h5>Getting Started</h5>
 				<p>Checkbox can either be used in multiple selection with other checkboxes or as a single checkbox to provide a boolean value.</p>
-<CodeHighlight>
+<pre v-code>
+<code>
 &lt;Checkbox v-model="checked" :binary="true" /&gt;
-</CodeHighlight>
+
+</code></pre>
 
 				<h5>Multiple Values</h5>
 				<p>Multiple mode is enabled by default, v-model property refers to an array to bind the selected values.</p>
-<CodeHighlight>
+<pre v-code>
+<code>
 &lt;Checkbox name="city" value="Chicago" v-model="cities" /&gt;
 &lt;Checkbox name="city" value="Los Angeles" v-model="cities" /&gt;
 &lt;Checkbox name="city" value="New York" v-model="cities" /&gt;
 &lt;Checkbox name="city" value="San Francisco" v-model="cities" /&gt;
-</CodeHighlight>
 
-<CodeHighlight lang="js">
+</code></pre>
+
+<pre v-code.script>
+<code>
 export default {
 	data() {
 		return {
@@ -30,7 +37,8 @@ export default {
 		}
 	}
 }
-</CodeHighlight>
+
+</code></pre>
 
 				<p>As v-model is two-way binding enabled, prepopulating the model array with values is enough to display the related
 					checkboxes as checked by default.</p>
@@ -108,8 +116,8 @@ export default {
 				<a href="https://github.com/primefaces/primevue/tree/master/src/views/inputtext" class="btn-viewsource" target="_blank" rel="noopener noreferrer">
 					<span>View on GitHub</span>
 				</a>
-<CodeHighlight>
-<template v-pre>
+<pre v-code>
+<code><template v-pre>
 &lt;h3&gt;Basic&lt;/h3&gt;
 &lt;div class="p-field-checkbox"&gt;
     &lt;Checkbox id="binary" v-model="checked" :binary="true" /&gt;
@@ -140,9 +148,10 @@ export default {
     &lt;label :for="category.key"&gt;{{category.name}}&lt;/label&gt;
 &lt;/div&gt;
 </template>
-</CodeHighlight>
+</code></pre>
 
-<CodeHighlight lang="javascript">
+<pre v-code.script>
+<code>
 export default {
     data() {
         return {
@@ -156,7 +165,8 @@ export default {
         this.selectedCategories = this.categories.slice(1,3);
     }
 }
-</CodeHighlight>
+
+</code></pre>
 			</TabPanel>
 		</TabView>
 	</div>

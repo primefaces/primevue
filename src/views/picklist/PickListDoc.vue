@@ -3,15 +3,17 @@
 		<TabView>
 			<TabPanel header="Documentation">
 				<h5>Import</h5>
-<CodeHighlight lang="javascript">
+<pre v-code.script>
+<code>
 import PickList from 'primevue/picklist';
-</CodeHighlight>
+
+</code></pre>
 
 				<h5>Getting Started</h5>
                 <p>PickList requires a multidimensional array as its value bound with the v-model directive and a template for its content
                     that gets the <i>item</i> instance and the <i>index</i> via slotProps.</p>
-<CodeHighlight>
-<template v-pre>
+<pre v-code>
+<code><template v-pre>
 &lt;PickList v-model="cars" dataKey="vin"&gt;
     &lt;template #item="slotProps"&gt;
         &lt;div class="p-caritem"&gt;
@@ -24,12 +26,12 @@ import PickList from 'primevue/picklist';
     &lt;/template&gt;
 &lt;/PickList&gt;
 </template>
-</CodeHighlight>
+</code></pre>
 
                 <h5>Templates</h5>
                 <p>In addition to the mandatory "item" template, picklist provides "sourceHeader" and "targetHeader" slots as optional templates.</p>
-<CodeHighlight>
-<template v-pre>
+<pre v-code>
+<code><template v-pre>
 &lt;PickList v-model="cars" dataKey="vin"&gt;
     &lt;template #sourceHeader&gt;
         Available
@@ -48,15 +50,15 @@ import PickList from 'primevue/picklist';
     &lt;/template&gt;
 &lt;/PickList&gt;
 </template>
-</CodeHighlight>
+</code></pre>
 
                 <h5>Selection</h5>
                 <p>In case you need to access the selected items in the list, define a binding to the <i>selection</i> property with the v-model directive so that
                 it gets updated when the user makes a selection. Since it is two-way binding enabled, your changes to the selection will be reflected as well.  Note that
                 this is optional and only necessary when you need to access the selection.</p>
 
-<CodeHighlight>
-<template v-pre>
+<pre v-code>
+<code><template v-pre>
 &lt;PickList v-model="cars" dataKey="vin" v-model:selection="selection"&gt;
     &lt;template #item="slotProps"&gt;
         &lt;div class="p-caritem"&gt;
@@ -69,7 +71,7 @@ import PickList from 'primevue/picklist';
     &lt;/template&gt;
 &lt;/PickList&gt;
 </template>
-</CodeHighlight>
+</code></pre>
 
                 <h5>DataKey</h5>
                 <p>It is recommended to provide the name of the field that uniquely identifies the a record in the data via the <i>dataKey</i> property for better performance.</p>
@@ -227,8 +229,8 @@ import PickList from 'primevue/picklist';
 				<a href="https://github.com/primefaces/primevue/tree/master/src/views/picklist" class="btn-viewsource" target="_blank" rel="noopener noreferrer">
 					<span>View on GitHub</span>
 				</a>
-<CodeHighlight>
-<template v-pre>
+<pre v-code>
+<code><template v-pre>
 &lt;PickList v-model="products" listStyle="height:342px" dataKey="id"&gt;
     &lt;template #sourceHeader&gt;
         Available
@@ -254,9 +256,10 @@ import PickList from 'primevue/picklist';
     &lt;/template&gt;
 &lt;/PickList&gt;
 </template>
-</CodeHighlight>
+</code></pre>
 
-<CodeHighlight lang="js">
+<pre v-code.script>
+<code>
 import ProductService from '../../service/ProductService';
 
 export default {
@@ -273,9 +276,11 @@ export default {
         this.productService.getProductsSmall().then(data => this.products = [data, []]);
     }
 }
-</CodeHighlight>
 
-<CodeHighlight lang="css">
+</code></pre>
+
+<pre v-code.css>
+<code>
 product-item {
 	display: flex;
 	align-items: center;
@@ -324,7 +329,8 @@ product-item {
         }
     }
 }
-</CodeHighlight>
+
+</code></pre>
 			</TabPanel>
 		</TabView>
 	</div>

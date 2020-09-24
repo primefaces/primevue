@@ -3,9 +3,11 @@
 		<TabView>
 			<TabPanel header="Documentation">
 				<h5>Import</h5>
-<CodeHighlight lang="javascript">
+<pre v-code.script>
+<code>
 import Tree from 'primevue/tree';
-</CodeHighlight>
+
+</code></pre>
 
 				<h5>Getting Started</h5>
 				<p>Tree component requires an array of TreeNode objects as its <i>value</i>.</p>
@@ -87,13 +89,14 @@ import Tree from 'primevue/tree';
                 </div>
 
                 <p>Example below loads the tree nodes from a remote datasource via a service called NodeService.</p>
-<CodeHighlight>
-<template v-pre>
+<pre v-code>
+<code><template v-pre>
 &lt;Tree :value="nodes"&gt;&lt;/Tree&gt;
 </template>
-</CodeHighlight>
+</code></pre>
 
-<CodeHighlight lang="javascript">
+<pre v-code.script>
+<code>
 import NodeService from '../../service/NodeService';
 
 export default {
@@ -110,9 +113,11 @@ export default {
         this.nodeService.getTreeNodes().then(data => this.nodes = data);
     }
 }
-</CodeHighlight>
 
-<CodeHighlight lang="javascript">
+</code></pre>
+
+<pre v-code.script>
+<code>
 import axios from 'axios';
 
 export default class NodeService {
@@ -122,10 +127,12 @@ export default class NodeService {
     }
 
 }
-</CodeHighlight>
+
+</code></pre>
 
                 <p>The json response sample would be as following.</p>
-<CodeHighlight lang="javascript">
+<pre v-code.script>
+<code>
 {
     "root": [
         {
@@ -180,7 +187,8 @@ export default class NodeService {
         }
     ]
 }
-</CodeHighlight>
+
+</code></pre>
 
                 <h5>Programmatic Control</h5>
                 <p>Tree state can be controlled programmatically with the <i>expandedKeys</i> property that defines the keys
@@ -188,17 +196,18 @@ export default class NodeService {
                 </p>
 
                 <p>Example below expands and collapses all nodes with buttons.</p>
-<CodeHighlight>
-<template v-pre>
+<pre v-code>
+<code><template v-pre>
 &lt;div&gt;
     &lt;Button type="button" icon="pi pi-plus" label="Expand All" @click="expandAll" /&gt;
     &lt;Button type="button" icon="pi pi-minus" label="Collapse All" @click="collapseAll" /&gt;
 &lt;/div&gt;
 &lt;Tree :value="nodes" :expandedKeys="expandedKeys"&gt;&lt;/Tree&gt;
 </template>
-</CodeHighlight>
+</code></pre>
 
-<CodeHighlight lang="javascript">
+<pre v-code.script>
+<code>
 import NodeService from '../../service/NodeService';
 
 export default {
@@ -236,10 +245,12 @@ export default {
         }
     }
 }
-</CodeHighlight>
+
+</code></pre>
 
                 <p>To display some nodes as expanded by default, simply add their keys to the map.</p>
-<CodeHighlight lang="javascript">
+<pre v-code.script>
+<code>
 import NodeService from '../../service/NodeService';
 
 export default {
@@ -261,7 +272,8 @@ export default {
         });
     }
 }
-</CodeHighlight>
+
+</code></pre>
 
                 <h5>Selection</h5>
                 <p>Tree supports <b>single</b>, <b>multiple</b> and <b>checkbox</b> selection modes. Define the <i>selectionKeys</i> with the sync operator and the <i>selectionMode</i> properties to enable the selection.
@@ -270,8 +282,8 @@ export default {
 
                 <p>Similarly to the <i>expandedKeys</i>, <i>selectionKeys</i> is a Map instance whose key is the key of a node and value is a boolean in "single" and "multiple" cases. On the other hand
                 in "checkbox" mode, instead of a boolean, value should be an object that has "checked" and "partialChecked" properties to represent the checked state of a node.</p>
-<CodeHighlight>
-<template v-pre>
+<pre v-code>
+<code><template v-pre>
 &lt;h3&gt;Single Selection&lt;/h3&gt;
 &lt;Tree :value="nodes" selectionMode="single" :selectionKeys.sync="selectedKey1"&gt;&lt;/Tree&gt;
 
@@ -288,9 +300,10 @@ export default {
 &lt;Tree :value="nodes" selectionMode="single" :selectionKeys.sync="selectedKey2" :metaKeySelection="false"
     @node-select="onNodeSelect" @node-unselect="onNodeUnselect"&gt;&lt;/Tree&gt;
 </template>
-</CodeHighlight>
+</code></pre>
 
-<CodeHighlight lang="javascript">
+<pre v-code.script>
+<code>
 import NodeService from '../../service/NodeService';
 
 export default {
@@ -320,10 +333,12 @@ export default {
         }
     }
 }
-</CodeHighlight>
+
+</code></pre>
 
                 <p>To display some nodes as selected by default, simply add their keys to the map.</p>
-<CodeHighlight lang="javascript">
+<pre v-code.script>
+<code>
 import NodeService from '../../service/NodeService';
 
 export default {
@@ -357,7 +372,8 @@ export default {
         });
     }
 }
-</CodeHighlight>
+
+</code></pre>
 
                 <h5>Lazy</h5>
                 <p>Lazy Loading is handy to deal with huge datasets. Idea is instead of loading the whole tree, load child nodes on demand
@@ -365,13 +381,14 @@ export default {
                     tree would render an expand icon. Example below uses an in memory collection to mimic a lazy loading scenario with timeouts.
                 </p>
 
-<CodeHighlight>
-<template v-pre>
+<pre v-code>
+<code><template v-pre>
 &lt;Tree :value="nodes" @node-expand="onNodeExpand" :loading="loading"&gt;&lt;/Tree&gt;
 </template>
-</CodeHighlight>
+</code></pre>
 
-<CodeHighlight lang="javascript">
+<pre v-code.script>
+<code>
 import NodeService from '../../service/NodeService';
 
 export default {
@@ -436,13 +453,14 @@ export default {
         }
     }
 }
-</CodeHighlight>
+
+</code></pre>
 
                 <h5>Templating</h5>
                 <p>The <i>type</i> property of a TreeNode is used to map a template to a node to create the node label. If it is undefined and no default template is available,
                 label of the node is used.</p>
-<CodeHighlight>
-<template v-pre>
+<pre v-code>
+<code><template v-pre>
 &lt;Tree :value="nodes"&gt;
     &lt;template #default="slotProps"&gt;
         &lt;b&gt;&#123;&#123;slotProps.node.label&#125;&#125;&lt;/b&gt;
@@ -452,9 +470,10 @@ export default {
     &lt;/template&gt;
 &lt;/Tree&gt;
 </template>
-</CodeHighlight>
+</code></pre>
 
-<CodeHighlight lang="javascript">
+<pre v-code.script>
+<code>
 export default {
     data() {
         return {
@@ -483,7 +502,8 @@ export default {
         }
     }
 }
-</CodeHighlight>
+
+</code></pre>
 
                 <h5>Filtering</h5>
                 <p>Filtering is enabled by setting the <i>filter</i> property to true, by default label property of a node
@@ -492,17 +512,18 @@ export default {
                 <p>In addition <i>filterMode</i> specifies the filtering strategy. In <b>lenient</b> mode when the query matches a node, children of the node are not searched further as all descendants of the node are included. On the other hand,
                  in <b>strict</b> mode when the query matches a node, filtering continues on all descendants.</p>
 
-<CodeHighlight>
-<template v-pre>
+<pre v-code>
+<code><template v-pre>
 &lt;h3&gt;Lenient Filter&lt;/h3&gt;
 &lt;Tree :value="nodes" :filter="true" filterMode="lenient"&gt;&lt;/Tree&gt;
 
 &lt;h3&gt;Strict Filter&lt;/h3&gt;
 &lt;Tree :value="nodes" :filter="true" filterMode="strict"&gt;&lt;/Tree&gt;
 </template>
-</CodeHighlight>
+</code></pre>
 
-<CodeHighlight lang="javascript">
+<pre v-code.script>
+<code>
 import NodeService from '../../service/NodeService';
 
 export default {
@@ -541,7 +562,8 @@ export default {
         }
     }
 }
-</CodeHighlight>
+
+</code></pre>
 
 				<h5>Properties</h5>
                 <p>Any property such as style and class are passed to the underlying root element. Following is the additional property to configure the component.</p>
@@ -731,8 +753,8 @@ export default {
 				<a href="https://github.com/primefaces/primevue/tree/master/src/views/tree" class="btn-viewsource" target="_blank" rel="noopener noreferrer">
 					<span>View on GitHub</span>
 				</a>
-<CodeHighlight>
-<template v-pre>
+<pre v-code>
+<code><template v-pre>
 &lt;h3&gt;Basic&lt;/h3&gt;
 &lt;Tree :value="nodes"&gt;&lt;/Tree&gt;
 
@@ -743,9 +765,10 @@ export default {
 &lt;/div&gt;
 &lt;Tree :value="nodes" :expandedKeys="expandedKeys"&gt;&lt;/Tree&gt;
 </template>
-</CodeHighlight>
+</code></pre>
 
-<CodeHighlight lang="javascript">
+<pre v-code.script>
+<code>
 import NodeService from '../../service/NodeService';
 
 export default {
@@ -784,7 +807,8 @@ export default {
         }
     }
 }
-</CodeHighlight>
+
+</code></pre>
 			</TabPanel>
 		</TabView>
 	</div>

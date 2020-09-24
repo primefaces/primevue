@@ -3,18 +3,23 @@
 		<TabView>
 			<TabPanel header="Documentation">
 				<h5>Import</h5>
-<CodeHighlight lang="javascript">
+<pre v-code.script>
+<code>
 import ToggleButton from 'primevue/togglebutton';
-</CodeHighlight>
+
+</code></pre>
 
 				<h5>Getting Started</h5>
 				<p>Two-way binding to a boolean property is defined using the standard v-model directive.</p>
-<CodeHighlight>
+<pre v-code>
+<code>
 &lt;ToggleButton v-model="checked" /&gt;
-</CodeHighlight>
+
+</code></pre>
 
 				<p>As model is two-way binding enabled, setting the bound value as true displays the state as checked.</p>
-<CodeHighlight lang="js">
+<pre v-code.script>
+<code>
 export default {
 	data() {
 		return {
@@ -22,13 +27,16 @@ export default {
 		}
 	}
 }
-</CodeHighlight>
+
+</code></pre>
 
 				<h5>Labels and Icons</h5>
 				<p>Icons and Labels can be customized using <i>onLabel</i>, <i>offLabel</i>, <i>onIcon</i> and <i>offIcon</i> properties.</p>
-<CodeHighlight>
+<pre v-code>
+<code>
 &lt;ToggleButton v-model="checked" onLabel="I confirm" offLabel="I reject" onIcon="pi pi-check" offIcon="pi pi-times" /&gt;
-</CodeHighlight>
+
+</code></pre>
 
 				<h5>Properties</h5>
                 <p>Any property as style and class are passed to the main container element. Following are the additional properties to configure the component.</p>
@@ -138,17 +146,18 @@ export default {
 				<a href="https://github.com/primefaces/primevue/tree/master/src/views/togglebutton" class="btn-viewsource" target="_blank" rel="noopener noreferrer">
 					<span>View on GitHub</span>
 				</a>
-<CodeHighlight>
-<template v-pre>
+<pre v-code>
+<code><template v-pre>
 &lt;h3&gt;Basic&lt;/h3&gt;
 &lt;ToggleButton v-model="checked1" onIcon="pi pi-check" offIcon="pi pi-times" /&gt;
 
 &lt;h3&gt;Customized&lt;/h3&gt;
 &lt;ToggleButton v-model="checked2" onLabel="I confirm" offLabel="I reject" onIcon="pi pi-check" offIcon="pi pi-times" style="width: 10em" /&gt;
 </template>
-</CodeHighlight>
+</code></pre>
 
-<CodeHighlight lang="javascript">
+<pre v-code.script>
+<code>
 export default {
 	data() {
 		return {
@@ -157,7 +166,8 @@ export default {
 		}
 	}
 }
-</CodeHighlight>
+
+</code></pre>
 			</TabPanel>
 		</TabView>
 	</div>

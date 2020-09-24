@@ -6,47 +6,55 @@
                 <p>Ripple is an optional animation for the supported components such as buttons. It is disabled by default and needs to be enabled at
                 your app's entry file (e.g. main.js) using the <i>$primevue</i> instance variable.
             </p>
-<CodeHighlight class="language-javascript">
+<pre v-code.script>
+<code>
 Vue.prototype.$primevue = {ripple: true};
-</CodeHighlight>
+
+</code></pre>
 
                 <p><span class="p-text-bold">Note</span>: That would be it to enable ripple on PrimeVue components, next section describes how to use it with your own components and standard elements.</p>
 
                 <h5>Directive</h5>
 				<p>Ripple is a directive that needs to be imported and configured with a name of your choice. Global configuration is done with the <i>Vue.directive</i> function.</p>
-<CodeHighlight lang="js">
+<pre v-code.script>
+<code>
 import Ripple from 'primevue/ripple';
 
 Vue.directive('ripple', Ripple);
-</CodeHighlight>
+
+</code></pre>
 
                 <p>Ripple can also be configured locally using the directives property of your component.</p>
-<CodeHighlight lang="js">
+<pre v-code.script>
+<code>
 directives: {
     'ripple': Ripple
 }
-</CodeHighlight>
+
+</code></pre>
 
                 <p>Once the ripple is configured, add <i>.p-ripple</i> class to the target and attach the directive with the v- prefix.</p>
-<CodeHighlight>
-<template v-pre>
+<pre v-code>
+<code><template v-pre>
 &lt;div class="p-ripple" v-ripple&gt;&lt;/div&gt;
 </template>
-</CodeHighlight>
+</code></pre>
 
 				<h5>Styling</h5>
 				<p>Default styling of the animation adds a shade of white. This can easily be customized using css that changes the color of <i>.p-ink</i> element.</p>
-<CodeHighlight>
-<template v-pre>
+<pre v-code>
+<code><template v-pre>
 &lt;div class="p-ripple purple" v-ripple&gt;&lt;/div&gt;
 </template>
-</CodeHighlight>
+</code></pre>
 
-<CodeHighlight lang="css">
+<pre v-code.css>
+<code>
 .p-ripple.purple .p-ink {
     background: rgba(256,39,176,.3);
 }
-</CodeHighlight>
+
+</code></pre>
 
 
 				<h5>Styling</h5>
@@ -83,8 +91,8 @@ directives: {
 				<a href="https://github.com/primefaces/primevue/tree/master/src/views/ripple" class="btn-viewsource" target="_blank" rel="noopener noreferrer">
 					<span>View on GitHub</span>
 				</a>
-<CodeHighlight>
-<template v-pre>
+<pre v-code>
+<code><template v-pre>
 &lt;div class="card-container p-d-flex"&gt;
     &lt;div class="card primary-box p-ripple" v-ripple&gt;Default&lt;/div&gt;
     &lt;div class="card styled-box-green p-ripple" v-ripple&gt;Green&lt;/div&gt;
@@ -92,13 +100,16 @@ directives: {
     &lt;div class="card styled-box-purple p-ripple" v-ripple&gt;Purple&lt;/div&gt;
 &lt;/div&gt;
 </template>
-</CodeHighlight>
+</code></pre>
 
-<CodeHighlight lang="javascript">
+<pre v-code.script>
+<code>
 export default {}
-</CodeHighlight>
 
-<CodeHighlight lang="css">
+</code></pre>
+
+<pre v-code.css>
+<code>
 ::v-deep(.card-container) {
     .card {
         width: 75px;
@@ -139,7 +150,8 @@ export default {}
         }
     }
 }
-</CodeHighlight>
+
+</code></pre>
 			</TabPanel>
 		</TabView>
 	</div>

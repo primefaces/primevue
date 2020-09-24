@@ -3,17 +3,22 @@
 		<TabView>
 			<TabPanel header="Documentation">
 				<h5>Import</h5>
-<CodeHighlight lang="javascript">
+<pre v-code.script>
+<code>
 import ColorPicker from 'primevue/colorpicker';
-</CodeHighlight>
+
+</code></pre>
 
 				<h5>Getting Started</h5>
 				<p>A model can be bound using the standard v-model directive. Default color format to use in value binding is "hex" and other possible values are "rgb" and "hsb".</p>
-<CodeHighlight>
+<pre v-code>
+<code>
 &lt;ColorPicker v-model="color" /&gt;
-</CodeHighlight>
 
-<CodeHighlight lang="javascript">
+</code></pre>
+
+<pre v-code.script>
+<code>
 export default {
     data() {
         return {
@@ -21,13 +26,16 @@ export default {
         }
     }
 }
-</CodeHighlight>
+
+</code></pre>
 
                 <h5>Inline and Overlay</h5>
                 <p>ColorPicker is displayed as an overlay with a preview option by default where second alternative is the inline mode.</p>
-<CodeHighlight>
+<pre v-code>
+<code>
 &lt;ColorPicker v-model="color" :inline="true" /&gt;
-</CodeHighlight>
+
+</code></pre>
 
                 <h5>Properties</h5>
                 <p>Any property as style and class are passed to the main container element. Following are the additional properties to configure the component.</p>
@@ -163,17 +171,18 @@ export default {
 				<a href="https://github.com/primefaces/primevue/tree/master/src/views/inputtext" class="btn-viewsource" target="_blank" rel="noopener noreferrer">
 					<span>View on GitHub</span>
 				</a>
-<CodeHighlight>
-<template v-pre>
+<pre v-code>
+<code><template v-pre>
 &lt;h3&gt;Inline&lt;/h3&gt;
 &lt;ColorPicker v-model="color1" :inline="true" /&gt;
 
 &lt;h3&gt;Overlay&lt;/h3&gt;
 &lt;ColorPicker v-model="color2" /&gt;
 </template>
-</CodeHighlight>
+</code></pre>
 
-<CodeHighlight lang="javascript">
+<pre v-code.script>
+<code>
 export default {
     data() {
         return {
@@ -182,7 +191,8 @@ export default {
         }
     }
 }
-</CodeHighlight>
+
+</code></pre>
 			</TabPanel>
 		</TabView>
 	</div>

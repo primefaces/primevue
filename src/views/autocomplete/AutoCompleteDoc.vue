@@ -3,17 +3,22 @@
 		<TabView>
 			<TabPanel header="Documentation">
 				<h5>Import</h5>
-<CodeHighlight lang="javascript">
+<pre v-code.script>
+<code>
 import AutoComplete from 'primevue/autocomplete';
-</CodeHighlight>
+
+</code></pre>
 
 				<h5>Getting Started</h5>
 				<p>AutoComplete uses v-model for two-way binding, requires a list of suggestions and a complete method to query for the results. The complete method
 					gets the query text as event.query property and should update the suggestions with the search results. Example below connects to a remote datasource to fetch the results;</p>
-<CodeHighlight>
+<pre v-code>
+<code>
 &lt;AutoComplete v-model="selectedCountry" :suggestions="filteredCountriesBasic" @complete="searchCountry($event)" field="name" /&gt;
-</CodeHighlight>
-<CodeHighlight lang="js">
+
+</code></pre>
+<pre v-code.script>
+<code>
 export default {
 	data() {
 		return {
@@ -31,35 +36,42 @@ export default {
 		}
 	}
 }
-</CodeHighlight>
+
+</code></pre>
 
 				<h5>Dropdown</h5>
 				<p>Enabling <i>dropdown</i> property displays a button next to the input field where click behavior of the button is defined using
 					dropdownMode property that takes "blank" or "current" as possible values.
 					"blank" is the default mode to send a query with an empty string whereas
 					"current" setting sends a query with the current value of the input.</p>
-<CodeHighlight>
+<pre v-code>
+<code>
 &lt;AutoComplete v-model="brand" :dropdown="true" :suggestions="filteredBrands" @complete="searchBrand($event)" placeholder="Hint: type 'v' or 'f'" /&gt;
-</CodeHighlight>
+
+</code></pre>
 
 				<h5>Multiple Mode</h5>
 				<p>Multiple mode is enabled using <i>multiple</i> property to select more than one value from the autocomplete. In this case, value reference should be an array.</p>
-<CodeHighlight>
+<pre v-code>
+<code>
 &lt;AutoComplete :multiple="true" v-model="selectedCountries" :suggestions="filteredCountriesMultiple" @complete="searchCountryMultiple($event)" field="name" /&gt;
-</CodeHighlight>
+
+</code></pre>
 
 				<h5>Objects</h5>
 				<p>AutoComplete can also work with objects using the  <i>field</i> property that defines the label to display
 					as a suggestion. The value passed to the model would still be the object instance of a suggestion.
 					Here is an example with a Country object that has name and code fields such as &#123;name:"United States",code:"USA"&#125;.</p>
-<CodeHighlight>
+<pre v-code>
+<code>
 &lt;AutoComplete field="label" v-model="selectedCountry" :suggestions="filteredCountriesBasic" @complete="searchCountryBasic($event)" /&gt;
-</CodeHighlight>
+
+</code></pre>
 
 				<h5>Templating</h5>
 				<p>Item template allows displaying custom content inside the suggestions panel. The slotProps variable passed to the template provides an item property to represent an item in the suggestions collection.</p>
-<CodeHighlight>
-<template v-pre>
+<pre v-code>
+<code><template v-pre>
 &lt;AutoComplete v-model="brand" :suggestions="filteredBrands" @complete="searchBrand($event)" placeholder="Hint: type 'v' or 'f'" :dropdown="true"&gt;
 	&lt;template #item="slotProps"&gt;
 		&lt;img :alt="slotProps.item" :src="'demo/images/car/' + slotProps.item + '.png'" /&gt;
@@ -67,7 +79,7 @@ export default {
 	&lt;/template&gt;
 &lt;/AutoComplete&gt;
 </template>
-</CodeHighlight>
+</code></pre>
 
 				<h5>Properties</h5>
                 <p>Any property such as name and placeholder are passed to the underlying input element. Following are the additional properties to configure the component.</p>
@@ -246,8 +258,8 @@ export default {
 				<a href="https://github.com/primefaces/primevue/tree/master/src/views/autocomplete" class="btn-viewsource" target="_blank" rel="noopener noreferrer">
 					<span>View on GitHub</span>
 				</a>
-<CodeHighlight>
-<template v-pre>
+<pre v-code>
+<code><template v-pre>
 &lt;h5&gt;Basic&lt;/h5&gt;
 &lt;AutoComplete v-model="selectedCountry1" :suggestions="filteredCountries" @complete="searchCountry($event)" field="name" /&gt;
 
@@ -266,9 +278,10 @@ export default {
     &lt;AutoComplete :multiple="true" v-model="selectedCountries" :suggestions="filteredCountries" @complete="searchCountry($event)" field="name" /&gt;
 &lt;/span&gt;
 </template>
-</CodeHighlight>
+</code></pre>
 
-<CodeHighlight lang="javascript">
+<pre v-code.script>
+<code>
 import CountryService from '../../service/CountryService';
 
 export default {
@@ -303,7 +316,8 @@ export default {
         }
     }
 }
-</CodeHighlight>
+
+</code></pre>
 			</TabPanel>
 		</TabView>
 	</div>

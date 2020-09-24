@@ -3,19 +3,24 @@
 		<TabView>
 			<TabPanel header="Documentation">
 				<h5>Import</h5>
-<CodeHighlight lang="javascript">
+<pre v-code.script>
+<code>
 import Editor from 'primevue/editor';
-</CodeHighlight>
+
+</code></pre>
 
 				<h5>Getting Started</h5>
 				<p>A model can be bound using the standard v-model directive.</p>
-<CodeHighlight>
+<pre v-code>
+<code>
 &lt;Editor v-model="value" editorStyle="height: 320px"/&gt;
-</CodeHighlight>
+
+</code></pre>
 
 				<h5>Toolbar</h5>
 				<p>Editor provides a default toolbar with common options, to customize it define your elements inside the header element. Refer to <a href="http://quilljs.com/docs/modules/toolbar/">Quill documentation</a> for available controls.</p>
-<CodeHighlight>
+<pre v-code>
+<code>
 &lt;Editor v-model="value" editorStyle="height: 320px"&gt;
 	&lt;template slot="toolbar"&gt;
 		&lt;span class="ql-formats"&gt;
@@ -25,7 +30,8 @@ import Editor from 'primevue/editor';
 		&lt;/span&gt;
 	&lt;/template&gt;
 &lt;/Editor&gt;
-</CodeHighlight>
+
+</code></pre>
 
 				<h5>Properties</h5>
 				<div class="doc-tablewrapper">
@@ -133,17 +139,19 @@ import Editor from 'primevue/editor';
 				<h5>Dependencies</h5>
 				<p><a href="http://quilljs.com">Quill</a> Editor 1.3+.</p>
 				<p>Resources of quill needs to be added to your application.</p>
-<CodeHighlight>
+<pre v-code>
+<code>
 npm install quill --save
-</CodeHighlight>
+
+</code></pre>
 			</TabPanel>
 
 			<TabPanel header="Source">
 				<a href="https://github.com/primefaces/primevue/tree/master/src/views/inputtext" class="btn-viewsource" target="_blank" rel="noopener noreferrer">
 					<span>View on GitHub</span>
 				</a>
-<CodeHighlight>
-<template v-pre>
+<pre v-code>
+<code><template v-pre>
 &lt;h3&gt;Default&lt;/h3&gt;
 &lt;Editor v-model="value1" editorStyle="height: 320px"/&gt;
 
@@ -158,9 +166,10 @@ npm install quill --save
     &lt;/template&gt;
 &lt;/Editor&gt;
 </template>
-</CodeHighlight>
+</code></pre>
 
-<CodeHighlight lang="javascript">
+<pre v-code.script>
+<code>
 export default {
 	data() {
 		return {
@@ -169,7 +178,8 @@ export default {
 		}
 	}
 }
-</CodeHighlight>
+
+</code></pre>
 			</TabPanel>
 		</TabView>
 	</div>

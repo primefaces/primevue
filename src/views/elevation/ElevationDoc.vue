@@ -4,24 +4,28 @@
 			<TabPanel header="Documentation">
 				<h5>Getting Started</h5>
 				<p>Elevation is added to an element using the <i>.p-shadow-{level}</i> class.</p>
-<CodeHighlight>
+<pre v-code>
+<code>
 &lt;div class="p-shadow-1" /&gt;
-</CodeHighlight>
+
+</code></pre>
 
                 <h5>Levels</h5>
                 <p>There are 24 depths available varying from 1 to 24.</p>
-<CodeHighlight>
+<pre v-code>
+<code>
 &lt;div class="p-shadow-1" /&gt;
 &lt;div class="p-shadow-24" /&gt;
-</CodeHighlight>
+
+</code></pre>
 			</TabPanel>
 
 			<TabPanel header="Source">
 				<a href="https://github.com/primefaces/primevue/tree/master/src/views/elevation" class="btn-viewsource" target="_blank" rel="noopener noreferrer">
 					<span>View on GitHub</span>
 				</a>
-<CodeHighlight>
-<template v-pre>
+<pre v-code>
+<code><template v-pre>
 &lt;div class="p-grid"&gt;
     &lt;div class="p-col" v-for="index in 24" :key="index"&gt;
         &lt;div :class="['box', 'p-shadow-' + index]"&gt;
@@ -30,7 +34,7 @@
     &lt;/div&gt;
 &lt;/div&gt;
 </template>
-</CodeHighlight>
+</code></pre>
 			</TabPanel>
 		</TabView>
 	</div>

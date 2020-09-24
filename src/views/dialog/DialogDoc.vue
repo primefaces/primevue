@@ -3,19 +3,24 @@
 		<TabView>
 			<TabPanel header="Documentation">
 				<h5>Import</h5>
-<CodeHighlight lang="javascript">
+<pre v-code.script>
+<code>
 import Dialog from 'primevue/dialog';
-</CodeHighlight>
+
+</code></pre>
 
 				<h5>Getting Started</h5>
 				<p>Dialog is used as a container and visibility is managed with <i>visible</i> property that requires the v-model for two-way binding.</p>
-<CodeHighlight>
+<pre v-code>
+<code>
 &lt;Dialog header="Header" v-model:visible="display" &gt;
 	Content
 &lt;/Dialog&gt;
-</CodeHighlight>
 
-<CodeHighlight lang="js">
+</code></pre>
+
+<pre v-code.script>
+<code>
 export default {
 	data() {
 		return {
@@ -23,17 +28,21 @@ export default {
 		}
 	}
 }
-</CodeHighlight>
+
+</code></pre>
 
 				<h5>Header and Footer</h5>
 				<p>Header and Footer sections are defined using properties with the same name that accept simple strings or with the <i>header</i> and <i>footer</i> templates for custom content.</p>
-<CodeHighlight>
+<pre v-code>
+<code>
 &lt;Dialog header="Header" footer="Footer" v-model:visible="display"&gt;
 	Content
 &lt;/Dialog&gt;
-</CodeHighlight>
 
-<CodeHighlight>
+</code></pre>
+
+<pre v-code>
+<code>
 &lt;Dialog v-model:visible="display"&gt;
     &lt;template #header&gt;
 		&lt;h3&gt;Header&lt;/h3&gt;
@@ -46,27 +55,33 @@ export default {
         &lt;Button label="Yes" icon="pi pi-check" autofocus /&gt;
 	&lt;/template&gt;
 &lt;/Dialog&gt;
-</CodeHighlight>
+
+</code></pre>
 
                 <h5>Positioning</h5>
                 <p>Dialog location is controlled with the <i>position</i> property whose default value is center. Other valid values are top", "bottom", "left", "right", "topleft", "topright", "bottomleft" and "bottomright".</p>
-<CodeHighlight>
+<pre v-code>
+<code>
 &lt;Dialog position="top" v-model:visible="display"&gt;
 	Content
 &lt;/Dialog&gt;
-</CodeHighlight>
+
+</code></pre>
 
                 <h5>Popup Content inside the Dialog</h5>
                 <p>If the dialog contains components with popup elements such as Dropdown or Calendar, set <i>contentStyle</i> to overflow:visible so that overlays can be displayed outside of the content area.</p>
-<CodeHighlight>
+<pre v-code>
+<code>
 &lt;Dialog v-model:visible="display" :contentStyle="{overflow: 'visible'}"&gt;
 	Content
 &lt;/Dialog&gt;
-</CodeHighlight>
+
+</code></pre>
 
                 <h5>Initial Focus</h5>
                 <p>Adding <i>autofocus</i> to an element in the dialog makes it the initial focus target when dialog gets shown.</p>
-<CodeHighlight>
+<pre v-code>
+<code>
 &lt;Dialog v-model:visible="display"&gt;
     Content
 	&lt;template #footer&gt;
@@ -74,7 +89,8 @@ export default {
         &lt;Button label="Yes" autofocus/&gt;
     &lt;/template&gt;
 &lt;/Dialog&gt;
-</CodeHighlight>
+
+</code></pre>
 
 				<h5>Properties</h5>
 				<div class="doc-tablewrapper">
@@ -254,8 +270,8 @@ export default {
 				<a href="https://github.com/primefaces/primevue/tree/master/src/views/dialog" class="btn-viewsource" target="_blank" rel="noopener noreferrer">
 					<span>View on GitHub</span>
 				</a>
-<CodeHighlight>
-<template v-pre>
+<pre v-code>
+<code><template v-pre>
 &lt;h5&gt;Basic&lt;/h5&gt;
 &lt;Button label="Show" icon="pi pi-external-link" @click="openBasic" /&gt;
 &lt;Dialog header="Header" v-model:visible="displayBasic" :style="{width: '50vw'}"&gt;
@@ -356,9 +372,10 @@ export default {
     &lt;/template&gt;
 &lt;/Dialog&gt;
 </template>
-</CodeHighlight>
+</code></pre>
 
-<CodeHighlight lang="javascript">
+<pre v-code.script>
+<code>
 export default {
     data() {
         return {
@@ -414,9 +431,11 @@ export default {
         'DialogDoc': DialogDoc
     }
 }
-</CodeHighlight>
 
-<CodeHighlight lang="css">
+</code></pre>
+
+<pre v-code.css>
+<code>
 .p-button {
     margin: 0 .5rem 0 0;
     min-width: 10rem;
@@ -435,7 +454,8 @@ p {
 .p-dialog .p-button {
     min-width: 6rem;
 }
-</CodeHighlight>
+
+</code></pre>
 			</TabPanel>
 		</TabView>
 	</div>

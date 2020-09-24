@@ -76,9 +76,8 @@ import ToggleButton from './components/togglebutton/ToggleButton';
 import TriStateCheckbox from './components/tristatecheckbox/TriStateCheckbox';
 import Galleria from './components/galleria/Galleria';
 
-import CodeHighlight from './views/codehighlight/CodeHighlight';
 import AppInputStyleSwitch from './AppInputStyleSwitch';
-import CodeHighlight2 from './AppCodeHighlight';
+import CodeHighlight from './AppCodeHighlight';
 
 import './assets/styles/primevue.css';
 import 'primeflex/primeflex.css';
@@ -104,7 +103,6 @@ app.use(router);
 
 app.directive('tooltip', Tooltip);
 app.directive('ripple', Ripple);
-app.directive('code', CodeHighlight2);
 
 app.component('Accordion', Accordion);
 app.component('AccordionTab', AccordionTab);
@@ -177,7 +175,7 @@ app.component('TreeTable', TreeTable);
 app.component('TriStateCheckbox', TriStateCheckbox);
 app.component('Galleria', Galleria);
 
-app.component('CodeHighlight', CodeHighlight);
 app.component('AppInputStyleSwitch', AppInputStyleSwitch);
+app.directive('code', CodeHighlight);
 
 app.mount('#app');

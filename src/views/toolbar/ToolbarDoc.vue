@@ -3,13 +3,16 @@
 		<TabView>
 			<TabPanel header="Documentation">
 				<h5>Import</h5>
-<CodeHighlight lang="javascript">
+<pre v-code.script>
+<code>
 import Toolbar from 'primevue/toolbar';
-</CodeHighlight>
+
+</code></pre>
 
 				<h5>Getting Started</h5>
 				<p>Toolbar provides <i>left</i> and <i>right</i> templates to place content at these sections.</p>
-<CodeHighlight>
+<pre v-code>
+<code>
 &lt;Toolbar&gt;
     &lt;template slot="left"&gt;
         &lt;Button label="New" icon="pi pi-plus" class="p-mr-2" /&gt;
@@ -24,7 +27,8 @@ import Toolbar from 'primevue/toolbar';
         &lt;Button icon="pi pi-times" class="p-button-danger" /&gt;
     &lt;/template&gt;
 &lt;/Toolbar&gt;
-</CodeHighlight>
+
+</code></pre>
 
 				<h5>Styling</h5>
 				<p>Following is the list of structural style classes, for theming classes visit <router-link to="/theming">theming</router-link> page.</p>
@@ -61,8 +65,8 @@ import Toolbar from 'primevue/toolbar';
 				<a href="https://github.com/primefaces/primevue/tree/master/src/views/toolbar" class="btn-viewsource" target="_blank" rel="noopener noreferrer">
 					<span>View on GitHub</span>
 				</a>
-<CodeHighlight>
-<template v-pre>
+<pre v-code>
+<code><template v-pre>
 &lt;Toolbar&gt;
     &lt;template slot="left"&gt;
         &lt;Button label="New" icon="pi pi-plus" class="p-mr-2" /&gt;
@@ -78,9 +82,10 @@ import Toolbar from 'primevue/toolbar';
     &lt;/template&gt;
 &lt;/Toolbar&gt;
 </template>
-</CodeHighlight>
+</code></pre>
 
-<CodeHighlight lang="javascript">
+<pre v-code.script>
+<code>
 export default {
     data() {
         return {
@@ -110,7 +115,8 @@ export default {
         }
     }
 }
-</CodeHighlight>
+
+</code></pre>
 			</TabPanel>
 		</TabView>
 	</div>

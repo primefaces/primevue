@@ -3,34 +3,42 @@
 		<TabView>
 			<TabPanel header="Documentation">
 				<h5>Import</h5>
-<CodeHighlight lang="javascript">
+<pre v-code.script>
+<code>
 import OverlayPanel from 'primevue/overlaypanel';
-</CodeHighlight>
+
+</code></pre>
 
 				<h5>Getting Started</h5>
 				<p>OverlayPanel is accessed via its reference where visibility is controlled using toggle, show and hide methods.</p>
-<CodeHighlight>
+<pre v-code>
+<code>
 &lt;Button type="button" label="Toggle" @click="toggle" /&gt;
 
 &lt;OverlayPanel ref="op"&gt;
 	&lt;img src="demo/images/nature/nature1.jpg" alt="Nature Image"&gt;
 &lt;/OverlayPanel&gt;
-</CodeHighlight>
 
-<CodeHighlight lang="js">
+</code></pre>
+
+<pre v-code.script>
+<code>
 toggle(event) {
     this.$refs.op.toggle(event);
 }
-</CodeHighlight>
+
+</code></pre>
 
 				<h5>Dismissable and CloseIcon</h5>
 				<p>Clicking outside the overlay hides the panel, setting <i>dismissable</i> to false disables this behavior.
 					Additionally enabling <i>showCloseIcon</i> property displays a close icon at the top right corner to close the panel.</p>
-<CodeHighlight>
+<pre v-code>
+<code>
 &lt;OverlayPanel ref="op" :showCloseIcon="true" :dismissable="true"&gt;
 	&lt;img src="demo/images/nature/nature1.jpg" alt="Nature Image"&gt;
 &lt;/OverlayPanel&gt;
-</CodeHighlight>
+
+</code></pre>
 
 				<h5>Properties</h5>
 				<div class="doc-tablewrapper">
@@ -150,8 +158,8 @@ toggle(event) {
 				<a href="https://github.com/primefaces/primevue/tree/master/src/views/overlaypanel" class="btn-viewsource" target="_blank" rel="noopener noreferrer">
 					<span>View on GitHub</span>
 				</a>
-<CodeHighlight>
-<template v-pre>
+<pre v-code>
+<code><template v-pre>
 &lt;Button type="button" icon="pi pi-search" :label="selectedProduct ? selectedProduct.name : 'Select a Product'" @click="toggle" aria:haspopup="true" aria-controls="overlay_panel" /&gt;
 
 &lt;OverlayPanel ref="op" appendTo="body" :showCloseIcon="true" id="overlay_panel" style="width: 450px"&gt;
@@ -170,9 +178,10 @@ toggle(event) {
     &lt;/DataTable&gt;
 &lt;/OverlayPanel&gt;
 </template>
-</CodeHighlight>
+</code></pre>
 
-<CodeHighlight lang="javascript">
+<pre v-code.script>
+<code>
 import ProductService from '../../service/ProductService';
 
 export default {
@@ -202,7 +211,8 @@ export default {
         }
     }
 }
-</CodeHighlight>
+
+</code></pre>
 			</TabPanel>
 		</TabView>
 	</div>

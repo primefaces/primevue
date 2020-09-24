@@ -29,8 +29,8 @@
         <div class="content-section documentation">
             <TabView>
                 <TabPanel header="Source">
-<CodeHighlight>
-<template v-pre>
+<pre v-code>
+<code><template v-pre>
 &lt;Galleria :value="images" :responsiveOptions="responsiveOptions" :numVisible="5" style="max-width: 640px"&gt;
     &lt;template #item="{item}"&gt;
         &lt;img :src="item.itemImageSrc" :alt="item.alt" style="width: 100%; display: block;" /&gt;
@@ -46,9 +46,10 @@
     &lt;/template&gt;
 &lt;/Galleria&gt;
 </template>
-</CodeHighlight>
+</code></pre>
 
-<CodeHighlight lang="javascript">
+<pre v-code.script>
+<code>
 import PhotoService from '../../service/PhotoService';
 
 export default {
@@ -79,7 +80,8 @@ export default {
 		this.galleriaService.getImages().then(data => this.images = data);
     }
 }
-</CodeHighlight>
+
+</code></pre>
                 </TabPanel>
             </TabView>
         </div>

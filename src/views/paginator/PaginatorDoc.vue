@@ -3,39 +3,51 @@
         <TabView>
             <TabPanel header="Documentation">
                 <h5>Import</h5>
-<CodeHighlight lang="javascript">
+<pre v-code.script>
+<code>
 import Paginator from 'primevue/paginator';
-</CodeHighlight>
+
+</code></pre>
 
                 <h5>Getting Started</h5>
                 <p><i>rows</i> and <i>totalRecords</i> are the required properties of the Paginator.</p>
-<CodeHighlight>
+<pre v-code>
+<code>
 &lt;Paginator :rows="10" :totalRecords="totalItemsCount"&gt;&lt;/Paginator&gt;
-</CodeHighlight>
+
+</code></pre>
 
                 <h5>Start Index</h5>
                 <p><i>first</i> property defines the index of the first item displayed by the paginator.</p>
 
-<CodeHighlight>
+<pre v-code>
+<code>
 &lt;Paginator :first="offset" :rows="10" :totalRecords="totalItemsCount"&gt;&lt;/Paginator&gt;
-</CodeHighlight>
+
+</code></pre>
 
                 <p>Use the sync operator to enable two-way binding, this is useful in cases where you need to programmatically control the paginator.</p>
-<CodeHighlight>
+<pre v-code>
+<code>
 &lt;Paginator :first.sync="offset" :rows="10" :totalRecords="totalItemsCount"&gt;&lt;/Paginator&gt;
-</CodeHighlight>
+
+</code></pre>
 
                 <h5>Rows Per Page</h5>
                 <p>Number of items per page can be changed by the user using a dropdown with the <i>rowsPerPageOptions</i> property which accepts an array of possible values.</p>
-<CodeHighlight>
+<pre v-code>
+<code>
 &lt;Paginator :first.sync="offset" :rows="rows" :totalRecords="totalItemsCount" :rowsPerPageOptions="[10,20,30]"&gt;&lt;/Paginator&gt;
-</CodeHighlight>
+
+</code></pre>
 
                 <p>As <i>rows</i> also change when the dropdown changes, use the optional sync operator if you need two-way binding.</p>
 
-<CodeHighlight>
+<pre v-code>
+<code>
 &lt;Paginator :first.sync="offset" :rows.sync="rows" :totalRecords="totalItemsCount" :rowsPerPageOptions="[10,20,30]"&gt;&lt;/Paginator&gt;
-</CodeHighlight>
+
+</code></pre>
 
                 <h5>Template</h5>
                 <p>Paginator elements can be customized using the template property using the predefined keys, default value is
@@ -69,8 +81,8 @@ import Paginator from 'primevue/paginator';
                 <p>There are two templates available named "left" and "right" to add custom content to these locations. Both templates get
                     a state object as a slot property to provide the current page, first index and the rows.
                 </p>
-<CodeHighlight>
-<template v-pre>
+<pre v-code>
+<code><template v-pre>
 &lt;Paginator :first.sync="offset" :rows="10" :totalRecords="totalItemsCount"&gt;
     &lt;template #left="slotProps"&gt;
         Page: &#123;&#123;slotProps.state.page&#125;&#125;
@@ -82,22 +94,26 @@ import Paginator from 'primevue/paginator';
     &lt;/template&gt;
 &lt;/Paginator&gt;
 </template>
-</CodeHighlight>
+</code></pre>
 
                 <h5>Page Change Event</h5>
                 <p>Paginator provides only one event called <i>page</i> that passes all the information about the change event.</p>
-<CodeHighlight>
+<pre v-code>
+<code>
 &lt;Paginator :rows="10" :totalRecords="totalItemsCount" @page="onPage($event)"&gt;&lt;/Paginator&gt;
-</CodeHighlight>
 
-<CodeHighlight lang="javascript">
+</code></pre>
+
+<pre v-code.script>
+<code>
 onPage(event) {
     //event.page: New page number
     //event.first: Index of first record
     //event.rows: Number of rows to display in new page
     //event.pageCount: Total number of pages
 }
-</CodeHighlight>
+
+</code></pre>
 
                 <h5>Properties</h5>
                 <div class="doc-tablewrapper">
@@ -244,7 +260,8 @@ onPage(event) {
                 <a href="https://github.com/primefaces/primevue/tree/master/src/showcase/paginator" class="btn-viewsource" target="_blank" rel="noopener noreferrer">
                     <span>View on GitHub</span>
                 </a>
-<CodeHighlight>
+<pre v-code>
+<code>
 &lt;h3&gt;Basic&lt;/h3&gt;
 &lt;Paginator :rows="10" :totalRecords="totalRecords" :rowsPerPageOptions="[10,20,30]"&gt;&lt;/Paginator&gt;
 
@@ -262,9 +279,11 @@ onPage(event) {
 &lt;div class="image-gallery"&gt;
     &lt;img :src="'demo/images/nature/' + image + '.jpg'" /&gt;
 &lt;/div&gt;
-</CodeHighlight>
 
-<CodeHighlight lang="javascript">
+</code></pre>
+
+<pre v-code.script>
+<code>
 export default {
     data() {
         return {
@@ -284,9 +303,11 @@ export default {
         }
     }
 }
-</CodeHighlight>
 
-<CodeHighlight lang="css">
+</code></pre>
+
+<pre v-code.css>
+<code>
 .p-button.p-button-icon-only {
     border-radius: 0;
 }
@@ -295,7 +316,8 @@ export default {
     text-align: center;
     padding: 1rem;
 }
-</CodeHighlight>
+
+</code></pre>
             </TabPanel>
         </TabView>
     </div>

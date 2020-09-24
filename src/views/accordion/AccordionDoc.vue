@@ -390,7 +390,6 @@ export default {
 	&lt;/AccordionTab&gt;
 &lt;/Accordion&gt;
 </template>
-
 </code></pre>
 
 <pre v-code.script>

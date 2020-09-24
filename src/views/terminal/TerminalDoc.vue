@@ -4,25 +4,32 @@
 			<TabPanel header="Documentation">
                 <h5>Mitt EventBus</h5>
                 <p>Terminal requires <a href="https://www.npmjs.com/package/mitt">Mitt</a>, a tiny 200b EventBus implementation.</p>
-<CodeHighlight>
+<pre v-code>
+<code>
 npm install mitt --save
-</CodeHighlight>
+
+</code></pre>
 
 				<h5>Import</h5>
-<CodeHighlight lang="javascript">
+<pre v-code.script>
+<code>
 import Terminal from 'primevue/terminal';
 import TerminalService from 'primevue/terminalservice';
-</CodeHighlight>
+
+</code></pre>
 
 				<h5>Getting Started</h5>
 				<p>Commands are processed using an EventBus implementation called TerminalService.
                     Import this service into your component and subscribe to the <i>command</i> event to process the commands by
                         sending replies with the <i>response</i> event.</p>
-<CodeHighlight>
+<pre v-code>
+<code>
 &lt;Terminal welcomeMessage="Welcome to PrimeVue" prompt="primevue $" /&gt;
-</CodeHighlight>
 
-<CodeHighlight lang="js">
+</code></pre>
+
+<pre v-code.script>
+<code>
 import TerminalService from 'primevue/terminalservice';
 
 export default {
@@ -59,7 +66,8 @@ export default {
         TerminalService.$off('command', this.commandHandler);
     }
 }
-</CodeHighlight>
+
+</code></pre>
 
                 <h5>Properties</h5>
                 <p>Any property as style and class are passed to the main container element. Following are the additional properties to configure the component.</p>
@@ -133,12 +141,15 @@ export default {
 				<a href="https://github.com/primefaces/primevue/tree/master/src/views/terminal" class="btn-viewsource" target="_blank" rel="noopener noreferrer">
 					<span>View on GitHub</span>
 				</a>
-<CodeHighlight>
+<pre v-code>
+<code>
 &lt;p&gt;Enter "date" to display the current date, "greet &#123;0&#125;" for a message and "random" to get a random number.&lt;/p&gt;
 &lt;Terminal welcomeMessage="Welcome to PrimeVue" prompt="primevue $" class="dark-demo-terminal" /&gt;
-</CodeHighlight>
 
-<CodeHighlight lang="js">
+</code></pre>
+
+<pre v-code.script>
+<code>
 import TerminalService from 'primevue/terminalservice';
 
 export default {
@@ -175,9 +186,11 @@ export default {
         TerminalService.$off('command', this.commandHandler);
     }
 }
-</CodeHighlight>
 
-<CodeHighlight lang="css">
+</code></pre>
+
+<pre v-code.css>
+<code>
 p {
     margin-top: 0;
 }
@@ -198,7 +211,8 @@ p {
         color: #9FA8DA;
     }
 }
-</CodeHighlight>
+
+</code></pre>
 			</TabPanel>
 		</TabView>
 	</div>

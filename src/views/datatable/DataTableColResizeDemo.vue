@@ -33,8 +33,8 @@
         <div class="content-section documentation">
             <TabView>
                 <TabPanel header="Source">
-<CodeHighlight>
-<template v-pre>
+<pre v-code>
+<code><template v-pre>
 &lt;h3&gt;Fit Mode&lt;/h3&gt;
 &lt;DataTable :value="products" :resizableColumns="true" columnResizeMode="fit"&gt;
     &lt;Column field="code" header="Code"&gt;&lt;/Column&gt;
@@ -51,9 +51,10 @@
     &lt;Column field="quantity" header="Quantity"&gt;&lt;/Column&gt;
 &lt;/DataTable&gt;
 </template>
-</CodeHighlight>
+</code></pre>
 
-<CodeHighlight lang="javascript">
+<pre v-code.script>
+<code>
 import ProductService from '../../service/ProductService';
 
 export default {
@@ -70,7 +71,8 @@ export default {
         this.productService.getProductsSmall().then(data => this.products = data);
     }
 }
-</CodeHighlight>
+
+</code></pre>
                 </TabPanel>
             </TabView>
         </div>

@@ -3,23 +3,26 @@
 		<TabView>
 			<TabPanel header="Documentation">
 				<h5>Import</h5>
-<CodeHighlight lang="javascript">
+<pre v-code.script>
+<code>
 import OrganizationChart from 'primevue/organizationchart';
-</CodeHighlight>
+
+</code></pre>
 
 				<h5>Getting Started</h5>
 				<p>OrganizationChart requires an OrganizationChartNode instance as its root value and at least one template to display node content where node instance is passed via slotProps.</p>
-<CodeHighlight>
-<template v-pre>
+<pre v-code>
+<code><template v-pre>
  &lt;OrganizationChart :value="data"&gt;
     &lt;template #default="slotProps"&gt;
         &lt;span&gt;&#123;&#123;slotProps.node.data.label&#125;&#125;&lt;/span&gt;
     &lt;/template&gt;
 &lt;/OrganizationChart&gt;
 </template>
-</CodeHighlight>
+</code></pre>
 
-<CodeHighlight lang="javascript">
+<pre v-code.script>
+<code>
 export default {
     data() {
         return {
@@ -60,7 +63,8 @@ export default {
         }
     }
 }
-</CodeHighlight>
+
+</code></pre>
 
                 <h5>OrganizationChartNode</h5>
                 <p>API of the OrganizationChartNode has the properties below.</p>
@@ -128,17 +132,18 @@ export default {
                 <p>Example below displays the root of chart in previous example as collapsed. Notice that the collapsedKeys is a map whose key is the
                     key of the node and value is true.
                 </p>
-<CodeHighlight>
-<template v-pre>
+<pre v-code>
+<code><template v-pre>
  &lt;OrganizationChart :value="data" :collapsible="true" :collapsedKeys="collapsedKeys"&gt;
     &lt;template #default="slotProps"&gt;
         &lt;span&gt;&#123;&#123;slotProps.node.data.label&#125;&#125;&lt;/span&gt;
     &lt;/template&gt;
 &lt;/OrganizationChart&gt;
 </template>
-</CodeHighlight>
+</code></pre>
 
-<CodeHighlight lang="javascript">
+<pre v-code.script>
+<code>
 export default {
     data() {
         return {
@@ -182,22 +187,24 @@ export default {
         }
     }
 }
-</CodeHighlight>
+
+</code></pre>
 
 				<h5>Selection</h5>
 				<p>Selection is enabled by defining the <i>selectionMode</i> to either "single" or "multiple" and specifying the <i>selectionKeys</i> with the sync operator. Note that
                 selection on a particular node can be disabled if the <i>selectable</i> is false on the node instance.</p>
-<CodeHighlight>
-<template v-pre>
+<pre v-code>
+<code><template v-pre>
  &lt;OrganizationChart :value="data" selecionMode="single" :selectionKeys.sync="selectionKeys"&gt;
     &lt;template #default="slotProps"&gt;
         &lt;span&gt;&#123;&#123;slotProps.node.data.label&#125;&#125;&lt;/span&gt;
     &lt;/template&gt;
 &lt;/OrganizationChart&gt;
 </template>
-</CodeHighlight>
+</code></pre>
 
-<CodeHighlight lang="javascript">
+<pre v-code.script>
+<code>
 export default {
     data() {
         return {
@@ -239,13 +246,14 @@ export default {
         }
     }
 }
-</CodeHighlight>
+
+</code></pre>
 
                 <h5>Templating</h5>
                 <p>The <i>type</i> property of an OrganizationChartNode is used to map a template to a node. If it is undefined, the default template is used.</p>
 
-<CodeHighlight>
-<template v-pre>
+<pre v-code>
+<code><template v-pre>
 &lt;OrganizationChart :value="data"&gt;
     &lt;template #person="slotProps"&gt;
         &lt;div class="node-header ui-corner-top"&gt;&#123;&#123;slotProps.node.data.label&#125;&#125;&lt;/div&gt;
@@ -259,9 +267,10 @@ export default {
     &lt;/template&gt;
 &lt;/OrganizationChart&gt;
 </template>
-</CodeHighlight>
+</code></pre>
 
-<CodeHighlight lang="javascript">
+<pre v-code.script>
+<code>
 export default {
     data() {
         return {
@@ -348,7 +357,8 @@ export default {
         }
     }
 }
-</CodeHighlight>
+
+</code></pre>
 
 				<h5>Properties</h5>
                 <p>Any property as style and class are passed to the main container element. Following are the additional properties to configure the component.</p>
@@ -483,8 +493,8 @@ export default {
 				<a href="https://github.com/primefaces/primevue/tree/master/src/views/organizationchart" class="btn-viewsource" target="_blank" rel="noopener noreferrer">
 					<span>View on GitHub</span>
 				</a>
-<CodeHighlight>
-<template v-pre>
+<pre v-code>
+<code><template v-pre>
 &lt;h3&gt;Advanced&lt;/h3&gt;
 &lt;OrganizationChart :value="data1" :collapsible="true" class="company" selectionMode="single" :selectionKeys.sync="selection"
     @node-select="onNodeSelect" @node-unselect="onNodeUnselect" @node-collapse="onNodeCollapse" @node-expand="onNodeExpand"&gt;
@@ -507,9 +517,10 @@ export default {
     &lt;/template&gt;
 &lt;/OrganizationChart&gt;
 </template>
-</CodeHighlight>
+</code></pre>
 
-<CodeHighlight lang="javascript">
+<pre v-code.script>
+<code>
 export default {
     data() {
         return {
@@ -645,9 +656,11 @@ export default {
         }
     }
 }
-</CodeHighlight>
 
-<CodeHighlight lang="css">
+</code></pre>
+
+<pre v-code.css>
+<code>
 ::v-deep(.p-organizationchart) {
     .p-person {
         padding: 0;
@@ -687,7 +700,8 @@ export default {
         color: #ffffff;
     }
 }
-</CodeHighlight>
+
+</code></pre>
 			</TabPanel>
 		</TabView>
 	</div>

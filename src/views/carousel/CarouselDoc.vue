@@ -3,33 +3,39 @@
 		<TabView>
 			<TabPanel header="Documentation">
 				<h5>Import</h5>
-<CodeHighlight lang="javascript">
+<pre v-code.script>
+<code>
 import Carousel from 'primevue/carousel';
-</CodeHighlight>
+
+</code></pre>
 
 				<h5>Getting Started</h5>
 				<p>Carousel requires a collection of items as its value along with a template to render each item.</p>
-<CodeHighlight>
+<pre v-code>
+<code>
 &lt;Carousel :value="cars"&gt;
     &lt;template #item="slotProps"&gt;
 	&lt;/template&gt;
 &lt;/Carousel&gt;
-</CodeHighlight>
+
+</code></pre>
 
 				<h5>Items per page and Scroll Items</h5>
 				<p>Number of items per page is defined using the <i>numVisible</i> property whereas number of items to scroll is defined with the <i>numScroll</i> property.</p>
-<CodeHighlight>
+<pre v-code>
+<code>
 &lt;Carousel :value="cars" :numVisible="3" :numScroll="1"&gt;
 	&lt;template #item="slotProps"&gt;
 	&lt;/template&gt;
 &lt;/Carousel&gt;
-</CodeHighlight>
+
+</code></pre>
 
 				<h5>Responsive</h5>
 				<p>For responsive design, <i>numVisible</i> and <i>numScroll</i> can be defined using the <i>responsiveOptions</i> property that should be an array of
 					objects whose breakpoint defines the max-width to apply the settings.</p>
-<CodeHighlight>
-<template v-pre>
+<pre v-code>
+<code><template v-pre>
 &lt;Carousel :value="cars" :numVisible="4" :numScroll="3" :responsiveOptions="responsiveOptions"&gt;
 	&lt;template #header&gt;
 		&lt;h2&gt;Basic&lt;/h2&gt;
@@ -55,8 +61,9 @@ import Carousel from 'primevue/carousel';
 	&lt;/template&gt;
 &lt;/Carousel&gt;
 </template>
-</CodeHighlight>
-<CodeHighlight lang="js">
+</code></pre>
+<pre v-code.script>
+<code>
 data() {
 	return {
 		responsiveOptions: [
@@ -78,12 +85,14 @@ data() {
 		]
 	}
 },
-</CodeHighlight>
+
+</code></pre>
 
 				<h5>Header and Footer</h5>
 				<p>Custom content projection is available using the <i>header</i> and <i>footer</i> templates.</p>
 
-<CodeHighlight>
+<pre v-code>
+<code>
 &lt;Carousel :value="cars" :numVisible="3" :numScroll="1" :responsiveOptions="responsiveOptions"&gt;
 	&lt;template #header&gt;
 		&lt;h2&gt;Custom Header&lt;/h2&gt;
@@ -95,21 +104,25 @@ data() {
 		&lt;h2&gt;Custom Footer&lt;/h2&gt;
 	&lt;/template&gt;
 &lt;/Carousel&gt;
-</CodeHighlight>
+
+</code></pre>
 
 				<h5>Orientation</h5>
 				<p>Default layout of the Carousel is horizontal, other possible option is the vertical mode that is configured with the <i>orientation</i> property.</p>
-<CodeHighlight>
+<pre v-code>
+<code>
 &lt;Carousel :value="cars" :numVisible="1" :numScroll="1" orientation="vertical" verticalViewPortHeight="330px" :responsiveOptions="responsiveOptions"&gt;
 	&lt;template #item="slotProps"&gt;
 		Content
 	&lt;/template&gt;
 &lt;/Carousel&gt;
-</CodeHighlight>
+
+</code></pre>
 
 				<h5>AutoPlay and Circular</h5>
 				<p>When <i>autoplayInterval</i> is defined in milliseconds, items are scrolled automatically. In addition, for infinite scrolling <i>circular</i> property needs to be enabled. Note that in autoplay mode, circular is enabled by default.</p>
-<CodeHighlight>
+<pre v-code>
+<code>
 &lt;Carousel :value="cars" :numVisible="3" :numScroll="1" :circular="true" :autoplayInterval="3000"&gt;
 	&lt;template #header&gt;
 		&lt;h2&gt;Circular, AutoPlay&lt;/h2&gt;
@@ -118,7 +131,8 @@ data() {
 		Content
 	&lt;/template&gt;
 &lt;/Carousel&gt;
-</CodeHighlight>
+
+</code></pre>
 
 				<h5>Properties</h5>
 				<div class="doc-tablewrapper">
@@ -263,8 +277,8 @@ data() {
 				<a href="https://github.com/primefaces/primevue/tree/master/src/views/carousel" class="btn-viewsource" target="_blank" rel="noopener noreferrer">
 					<span>View on GitHub</span>
 				</a>
-<CodeHighlight>
-<template v-pre>
+<pre v-code>
+<code><template v-pre>
 &lt;div class="card"&gt;
 &lt;Carousel :value="products" :numVisible="3" :numScroll="3" :responsiveOptions="responsiveOptions"&gt;
     &lt;template #header&gt;
@@ -346,9 +360,10 @@ data() {
     &lt;/template&gt;
 &lt;/Carousel&gt;
 </template>
-</CodeHighlight>
+</code></pre>
 
-<CodeHighlight lang="javascript">
+<pre v-code.script>
+<code>
 import ProductService from '../../service/ProductService';
 
 export default {
@@ -382,9 +397,11 @@ export default {
         this.productService.getProductsSmall().then(data => this.products = data.slice(0,9));
 	}
 }
-</CodeHighlight>
 
-<CodeHighlight lang="css">
+</code></pre>
+
+<pre v-code.css>
+<code>
 .product-item {
     .product-item-content {
         border: 1px solid var(--surface-d);
@@ -399,7 +416,8 @@ export default {
         box-shadow: 0 3px 6px rgba(0, 0, 0, 0.16), 0 3px 6px rgba(0, 0, 0, 0.23)
     }
 }
-</CodeHighlight>
+
+</code></pre>
 			</TabPanel>
 		</TabView>
 	</div>

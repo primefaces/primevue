@@ -3,15 +3,17 @@
 		<TabView>
 			<TabPanel header="Documentation">
 				<h5>Import</h5>
-<CodeHighlight lang="javascript">
+<pre v-code.script>
+<code>
 import Inplace from 'primevue/inplace';
-</CodeHighlight>
+
+</code></pre>
 
 				<h5>Getting Started</h5>
 				<p>Inplace requires <i>display</i> and <i>content</i> templates to define the content of each state.</p>
 
-<CodeHighlight>
-<template v-pre>
+<pre v-code>
+<code><template v-pre>
 &lt;Inplace&gt;
     &lt;template #display&gt;
         &lt;span class="pi pi-search" style="vertical-align: middle"&gt;&lt;/span&gt;
@@ -22,12 +24,12 @@ import Inplace from 'primevue/inplace';
     &lt;/template&gt;
 &lt;/Inplace&gt;
 </template>
-</CodeHighlight>
+</code></pre>
 
                 <h5>Closable</h5>
                 <p><i>closable</i> property is handy within forms as it enables to switch back to output mode after editing is completed using a button displayed next to the form field.</p>
-<CodeHighlight>
-<template v-pre>
+<pre v-code>
+<code><template v-pre>
 &lt;Inplace :closable="true"&gt;
     &lt;template #display&gt;
         &#123;&#123;text || 'Click to Edit'&#125;&#125;
@@ -37,12 +39,12 @@ import Inplace from 'primevue/inplace';
     &lt;/template&gt;
 &lt;/Inplace&gt;
 </template>
-</CodeHighlight>
+</code></pre>
 
 				<h5>Lazy Data</h5>
 				<p>Inplace allows lazy loading content so that the content gets initialized after getting opened instead of on load. Here is an example that loads, data of a table if the user decides to open the inplace.</p>
-<CodeHighlight>
-<template v-pre>
+<pre v-code>
+<code><template v-pre>
 &lt;Inplace @open="loadData"&gt;
     &lt;template #display&gt;
         View Data
@@ -57,9 +59,10 @@ import Inplace from 'primevue/inplace';
     &lt;/template&gt;
 &lt;/Inplace&gt;
 </template>
-</CodeHighlight>
+</code></pre>
 
-<CodeHighlight lang="javascript">
+<pre v-code.script>
+<code>
 import CarService from '../../service/CarService';
 
 export default {
@@ -78,7 +81,8 @@ export default {
         }
     }
 }
-</CodeHighlight>
+
+</code></pre>
 
 				<h5>Properties</h5>
                 <p>Any property as style and class are passed to the main container element. Following are the additional properties to configure the component.</p>
@@ -169,8 +173,8 @@ export default {
 				<a href="https://github.com/primefaces/primevue/tree/master/src/views/inplace" class="btn-viewsource" target="_blank" rel="noopener noreferrer">
 					<span>View on GitHub</span>
 				</a>
-<CodeHighlight>
-<template v-pre>
+<pre v-code>
+<code><template v-pre>
 &lt;h3&gt;Input&lt;/h3&gt;
 &lt;Inplace :closable="true"&gt;
     &lt;template #display&gt;
@@ -207,9 +211,10 @@ export default {
     &lt;/template&gt;
 &lt;/Inplace&gt;
 </template>
-</CodeHighlight>
+</code></pre>
 
-<CodeHighlight lang="javascript">
+<pre v-code.script>
+<code>
 import ProductService from '../../service/ProductService';
 
 export default {
@@ -229,7 +234,8 @@ export default {
         }
     }
 }
-</CodeHighlight>
+
+</code></pre>
 			</TabPanel>
 		</TabView>
 	</div>
