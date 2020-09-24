@@ -361,7 +361,7 @@ export default {
     timePickerTimer: null,
     isKeydown: false,
     watch: {
-        value() {
+        modelValue() {
             this.updateCurrentMetaData();
         }
     },
