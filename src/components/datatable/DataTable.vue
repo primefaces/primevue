@@ -435,7 +435,6 @@ export default {
             let columnOrder = [];
             this.columns.forEach(col => columnOrder.push(col.props?.columnKey||col.props?.field));
             this.d_columnOrder = columnOrder;
-            console.log()
         }
     },
     beforeUnmount() {
@@ -935,14 +934,17 @@ export default {
             }
 
             //headers
+            let headerInitiated = false;
             for (let i = 0; i < this.columns.length; i++) {
                 let column = this.columns[i];
+                
                 if (column.props?.exportable !== false && column.props?.field) {
-                    csv += '"' + (column.props?.header || column.props?.field) + '"';
-
-                    if (i < (this.columns.length - 1)) {
+                    if (headerInitiated) 
                         csv += this.csvSeparator;
-                    }
+                    else
+                        headerInitiated = true;
+
+                    csv += '"' + (column.props?.header || column.props?.field) + '"';
                 }
             }
 
@@ -950,9 +952,15 @@ export default {
             if (data) {
                 data.forEach(record => {
                     csv += '\n';
+                    let rowInitiated = false;
                     for (let i = 0; i < this.columns.length; i++) {
                         let column = this.columns[i];
                         if (column.props?.exportable !== false && column.props?.field) {
+                            if (rowInitiated) 
+                                csv += this.csvSeparator;
+                            else
+                                rowInitiated = true;
+
                             let cellData = ObjectUtils.resolveFieldData(record, column.props?.field);
 
                             if (cellData != null) {
@@ -968,12 +976,7 @@ export default {
                             else
                                 cellData = '';
 
-
                             csv += '"' + cellData + '"';
-
-                            if (i < (this.columns.length - 1)) {
-                                csv += this.csvSeparator;
-                            }
                         }
                     }
                 });

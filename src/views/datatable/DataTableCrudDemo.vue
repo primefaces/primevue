@@ -35,7 +35,7 @@
                         </div>
                     </template>
 
-                    <Column selectionMode="multiple" headerStyle="width: 3rem"></Column>
+                    <Column selectionMode="multiple" headerStyle="width: 3rem" :exportable="false"></Column>
                     <Column field="code" header="Code" :sortable="true"></Column>
                     <Column field="name" header="Name" :sortable="true"></Column>
                     <Column header="Image">
@@ -59,7 +59,7 @@
                             <span :class="'product-badge status-' + slotProps.data.inventoryStatus.toLowerCase()">{{slotProps.data.inventoryStatus}}</span>
                         </template>
                     </Column>
-                    <Column>
+                    <Column :exportable="false">
                         <template #body="slotProps">
                             <Button icon="pi pi-pencil" class="p-button-rounded p-button-success p-mr-2" @click="editProduct(slotProps.data)" />
                             <Button icon="pi pi-trash" class="p-button-rounded p-button-warning" @click="confirmDeleteProduct(slotProps.data)" />
@@ -172,7 +172,7 @@
         &lt;/div&gt;
     &lt;/template&gt;
 
-    &lt;Column selectionMode="multiple" headerStyle="width: 3rem"&gt;&lt;/Column&gt;
+    &lt;Column selectionMode="multiple" headerStyle="width: 3rem" :exportable="false"&gt;&lt;/Column&gt;
     &lt;Column field="code" header="Code" :sortable="true"&gt;&lt;/Column&gt;
     &lt;Column field="name" header="Name" :sortable="true"&gt;&lt;/Column&gt;
     &lt;Column header="Image"&gt;
@@ -196,7 +196,7 @@
             &lt;span :class="'product-badge status-' + slotProps.data.inventoryStatus.toLowerCase()"&gt;{{slotProps.data.inventoryStatus}}&lt;/span&gt;
         &lt;/template&gt;
     &lt;/Column&gt;
-    &lt;Column&gt;
+    &lt;Column :exportable="false"&gt;
         &lt;template #body="slotProps"&gt;
             &lt;Button icon="pi pi-pencil" class="p-button-rounded p-button-success p-mr-2" @click="editProduct(slotProps.data)" /&gt;
             &lt;Button icon="pi pi-trash" class="p-button-rounded p-button-warning" @click="confirmDeleteProduct(slotProps.data)" /&gt;
