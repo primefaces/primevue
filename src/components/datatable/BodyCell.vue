@@ -1,20 +1,20 @@
 <template>
-    <td :style="column.props.bodyStyle" :class="containerClass" @click="onClick" @keydown="onKeyDown">
+    <td :style="column.props?.bodyStyle" :class="containerClass" @click="onClick" @keydown="onKeyDown">
         <component :is="column.children.body" :data="rowData" :column="column" :index="index" v-if="column.children && column.children.body && !d_editing" />
         <component :is="column.children.editor" :data="rowData" :column="column" :index="index" v-else-if="column.children && column.children.editor && d_editing" />
-        <template v-else-if="column.props.selectionMode">
-            <DTRadioButton :value="rowData" :checked="selected" @change="toggleRowWithRadio" v-if="column.props.selectionMode === 'single'" />
-            <DTCheckbox :value="rowData" :checked="selected" @change="toggleRowWithCheckbox" v-else-if="column.props.selectionMode ==='multiple'" />
+        <template v-else-if="column.props?.selectionMode">
+            <DTRadioButton :value="rowData" :checked="selected" @change="toggleRowWithRadio" v-if="column.props?.selectionMode === 'single'" />
+            <DTCheckbox :value="rowData" :checked="selected" @change="toggleRowWithCheckbox" v-else-if="column.props?.selectionMode ==='multiple'" />
         </template>
-        <template v-else-if="column.props.rowReorder">
-            <i :class="['p-datatable-reorderablerow-handle', (column.props.rowReorderIcon || 'pi pi-bars')]"></i>
+        <template v-else-if="column.props?.rowReorder">
+            <i :class="['p-datatable-reorderablerow-handle', (column.props?.rowReorderIcon || 'pi pi-bars')]"></i>
         </template>
-        <template v-else-if="column.props.expander">
+        <template v-else-if="column.props?.expander">
             <button class="p-row-toggler p-link" @click="toggleRow" type="button" v-ripple>
                 <span :class="rowTogglerIcon"></span>
             </button>
         </template>
-        <template v-else-if="editMode === 'row' && column.props.rowEditor">
+        <template v-else-if="editMode === 'row' && column.props?.rowEditor">
             <button class="p-row-editor-init p-link" v-if="!d_editing" @click="onRowEditInit" type="button" v-ripple>
                 <span class="p-row-editor-init-icon pi pi-fw pi-pencil"></span>
             </button>
@@ -90,7 +90,7 @@ export default {
     },
     methods: {
         resolveFieldData() {
-            return ObjectUtils.resolveFieldData(this.rowData, this.column.props.field);
+            return ObjectUtils.resolveFieldData(this.rowData, this.column.props?.field);
         },
         toggleRow(event) {
             this.$emit('row-toggle', {
@@ -135,14 +135,14 @@ export default {
             if (this.editMode === 'cell' && this.isEditable() && !this.d_editing) {
                 this.d_editing = true;
                 this.bindDocumentEditListener();
-                this.$emit('cell-edit-init', {originalEvent: event, data: this.rowData, field: this.column.props.field, index: this.index});
+                this.$emit('cell-edit-init', {originalEvent: event, data: this.rowData, field: this.column.props?.field, index: this.index});
             }
         },
         completeEdit(event, type) {
             let completeEvent = {
                 originalEvent: event,
                 data: this.rowData,
-                field: this.column.props.field,
+                field: this.column.props?.field,
                 index: this.index,
                 type: type,
                 defaultPrevented: false,
@@ -166,7 +166,7 @@ export default {
 
                     case 27:
                         this.switchCellToViewMode();
-                        this.$emit('cell-edit-cancel', {originalEvent: event, data: this.rowData, field: this.column.props.field, index: this.index});
+                        this.$emit('cell-edit-cancel', {originalEvent: event, data: this.rowData, field: this.column.props?.field, index: this.index});
                     break;
 
                     case 9:
@@ -255,19 +255,19 @@ export default {
             return (DomHandler.find(this.$el, '.p-invalid').length === 0);
         },
         onRowEditInit(event) {
-            this.$emit('row-edit-init', {originalEvent: event, data: this.rowData, field: this.column.props.field, index: this.index});
+            this.$emit('row-edit-init', {originalEvent: event, data: this.rowData, field: this.column.props?.field, index: this.index});
         },
         onRowEditSave(event) {
-            this.$emit('row-edit-save', {originalEvent: event, data: this.rowData, field: this.column.props.field, index: this.index});
+            this.$emit('row-edit-save', {originalEvent: event, data: this.rowData, field: this.column.props?.field, index: this.index});
         },
         onRowEditCancel(event) {
-            this.$emit('row-edit-cancel', {originalEvent: event, data: this.rowData, field: this.column.props.field, index: this.index});
+            this.$emit('row-edit-cancel', {originalEvent: event, data: this.rowData, field: this.column.props?.field, index: this.index});
         }
     },
     computed: {
         containerClass() {
-            return [this.column.props.bodyClass, {
-                'p-selection-column': this.column.props.selectionMode != null,
+            return [this.column.props?.bodyClass, {
+                'p-selection-column': this.column.props?.selectionMode != null,
                 'p-editable-column': this.isEditable(),
                 'p-cell-editing': this.d_editing
             }];

@@ -433,7 +433,7 @@ export default {
     mounted() {
         if (this.reorderableColumns) {
             let columnOrder = [];
-            this.columns.forEach(col => columnOrder.push(col.props.columnKey||col.props.field));
+            this.columns.forEach(col => columnOrder.push(col.props?.columnKey||col.props?.field));
             this.d_columnOrder = columnOrder;
             console.log()
         }
@@ -468,9 +468,9 @@ export default {
             const event = e.originalEvent;
             const column = e.column;
 
-            if (column.props.sortable) {
+            if (column.props?.sortable) {
                 const targetNode = event.target;
-                const columnField = column.props.sortField || column.props.field;
+                const columnField = column.props?.sortField || column.props?.field;
 
                 if (DomHandler.hasClass(targetNode, 'p-sortable-column') || DomHandler.hasClass(targetNode, 'p-column-title')
                     || DomHandler.hasClass(targetNode, 'p-sortable-column-icon') || DomHandler.hasClass(targetNode.parentElement, 'p-sortable-column-icon')) {
@@ -587,13 +587,13 @@ export default {
 
                 for(let j = 0; j < this.columns.length; j++) {
                     let col = this.columns[j];
-                    let columnField = col.props.filterField || col.props.field;
+                    let columnField = col.props?.filterField || col.props?.field;
 
                     //local
                     if (Object.prototype.hasOwnProperty.call(this.filters, columnField)) {
                         let filterValue = this.filters[columnField];
                         let dataFieldValue = ObjectUtils.resolveFieldData(data[i], columnField);
-                        let filterConstraint = col.props.filterMatchMode === 'custom' ? col.props.filterFunction : FilterUtils[col.props.filterMatchMode||'startsWith'];
+                        let filterConstraint = col.props?.filterMatchMode === 'custom' ? col.props?.filterFunction : FilterUtils[col.props?.filterMatchMode||'startsWith'];
                         if (!filterConstraint(dataFieldValue, filterValue, this.filterLocale)) {
                             localMatch = false;
                         }
@@ -603,7 +603,7 @@ export default {
                         }
                     }
 
-                    if (!col.props.excludeGlobalFilter && this.hasGlobalFilter && !globalMatch) {
+                    if (!col.props?.excludeGlobalFilter && this.hasGlobalFilter && !globalMatch) {
                         globalMatch = FilterUtils.contains(ObjectUtils.resolveFieldData(data[i], columnField), this.filters['global'], this.filterLocale);
                     }
                 }
@@ -937,8 +937,8 @@ export default {
             //headers
             for (let i = 0; i < this.columns.length; i++) {
                 let column = this.columns[i];
-                if (column.props.exportable !== false && column.props.field) {
-                    csv += '"' + (column.props.header || column.props.field) + '"';
+                if (column.props?.exportable !== false && column.props?.field) {
+                    csv += '"' + (column.props?.header || column.props?.field) + '"';
 
                     if (i < (this.columns.length - 1)) {
                         csv += this.csvSeparator;
@@ -952,14 +952,14 @@ export default {
                     csv += '\n';
                     for (let i = 0; i < this.columns.length; i++) {
                         let column = this.columns[i];
-                        if (column.props.exportable !== false && column.props.field) {
-                            let cellData = ObjectUtils.resolveFieldData(record, column.props.field);
+                        if (column.props?.exportable !== false && column.props?.field) {
+                            let cellData = ObjectUtils.resolveFieldData(record, column.props?.field);
 
                             if (cellData != null) {
                                 if (this.exportFunction) {
                                     cellData = this.exportFunction({
                                         data: cellData,
-                                        field: column.props.field
+                                        field: column.props?.field
                                     });
                                 }
                                 else
@@ -1132,7 +1132,7 @@ export default {
             const event = e.originalEvent;
             const column = e.column;
 
-            if (this.reorderableColumns && column.props.reorderableColumn !== false) {
+            if (this.reorderableColumns && column.props?.reorderableColumn !== false) {
                 if (event.target.nodeName === 'INPUT' || event.target.nodeName === 'TEXTAREA' || DomHandler.hasClass(event.target, 'p-column-resizer'))
                     event.currentTarget.draggable = false;
                 else
@@ -1245,7 +1245,7 @@ export default {
             if (columns && columns.length) {
                 for (let i = 0; i < columns.length; i++) {
                     let column = columns[i];
-                    if (column.props.columnKey === key || column.props.field === key) {
+                    if (column.props?.columnKey === key || column.props?.field === key) {
                         return column;
                     }
                 }
@@ -1675,7 +1675,7 @@ export default {
             let frozenColumns = [];
 
             for(let col of this.columns) {
-                if(col.props.frozen) {
+                if(col.props?.frozen) {
                     frozenColumns = frozenColumns||[];
                     frozenColumns.push(col);
                 }
@@ -1687,7 +1687,7 @@ export default {
             let scrollableColumns = [];
 
             for(let col of this.columns) {
-                if(!col.props.frozen) {
+                if(!col.props?.frozen) {
                     scrollableColumns = scrollableColumns||[];
                     scrollableColumns.push(col);
                 }
@@ -1701,7 +1701,7 @@ export default {
         headerColumnGroup() {
             const children = this.$slots.default();
             for (let child of children) {
-                if (child.type.name === 'columngroup' && child.props.type === 'header') {
+                if (child.type.name === 'columngroup' && child.props?.type === 'header') {
                     return child;
                 }
             }
@@ -1711,7 +1711,7 @@ export default {
         frozenHeaderColumnGroup() {
             const children = this.$slots.default();
             for (let child of children) {
-                if (child.type.name === 'columngroup' && child.props.type === 'frozenheader') {
+                if (child.type.name === 'columngroup' && child.props?.type === 'frozenheader') {
                     return child;
                 }
             }
@@ -1721,7 +1721,7 @@ export default {
         footerColumnGroup() {
             const children = this.$slots.default();
             for (let child of children) {
-                if (child.type.name === 'columngroup' && child.props.type === 'footer') {
+                if (child.type.name === 'columngroup' && child.props?.type === 'footer') {
                     return child;
                 }
             }
@@ -1731,7 +1731,7 @@ export default {
         frozenFooterColumnGroup() {
            const children = this.$slots.default();
             for (let child of children) {
-                if (child.type.name === 'columngroup' && child.props.type === 'frozenfooter') {
+                if (child.type.name === 'columngroup' && child.props?.type === 'frozenfooter') {
                     return child;
                 }
             }
