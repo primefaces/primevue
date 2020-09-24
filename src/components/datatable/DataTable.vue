@@ -433,13 +433,9 @@ export default {
     mounted() {
         if (this.reorderableColumns) {
             let columnOrder = [];
-            const children = this.$slots.default();
-            for (let child of children) {
-                if (child.type.name === 'column') {
-                    columnOrder.push(child.props.columnKey||child.props.field);
-                }
-            }
+            this.columns.forEach(col => columnOrder.push(col.props.columnKey||col.props.field));
             this.d_columnOrder = columnOrder;
+            console.log()
         }
     },
     beforeUnmount() {
@@ -1136,7 +1132,7 @@ export default {
             const event = e.originalEvent;
             const column = e.column;
 
-            if (this.reorderableColumns && column.reorderableColumn) {
+            if (this.reorderableColumns && column.props.reorderableColumn !== false) {
                 if (event.target.nodeName === 'INPUT' || event.target.nodeName === 'TEXTAREA' || DomHandler.hasClass(event.target, 'p-column-resizer'))
                     event.currentTarget.draggable = false;
                 else
@@ -1670,9 +1666,7 @@ export default {
                     }
                 }
 
-                return [...orderedColumns, ...cols.filter((item) => {
-                    return orderedColumns.indexOf(item) < 0;
-                })];
+                return [...orderedColumns, ...cols.filter((item) => orderedColumns.indexOf(item) < 0)];
             }
             
             return cols;

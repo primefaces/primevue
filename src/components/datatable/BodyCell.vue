@@ -7,7 +7,7 @@
             <DTCheckbox :value="rowData" :checked="selected" @change="toggleRowWithCheckbox" v-else-if="column.props.selectionMode ==='multiple'" />
         </template>
         <template v-else-if="column.props.rowReorder">
-            <i :class="['p-datatable-reorderablerow-handle', column.props.rowReorderIcon]"></i>
+            <i :class="['p-datatable-reorderablerow-handle', (column.props.rowReorderIcon || 'pi pi-bars')]"></i>
         </template>
         <template v-else-if="column.props.expander">
             <button class="p-row-toggler p-link" @click="toggleRow" type="button" v-ripple>
