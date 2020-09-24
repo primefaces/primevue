@@ -16,12 +16,12 @@
                 <DataTable :value="products1" editMode="cell" class="editable-cells-table">
                     <Column field="code" header="Code">
                         <template #editor="slotProps">
-                            <InputText v-model="slotProps.data[slotProps.column.field]" />
+                            <InputText v-model="slotProps.data[slotProps.column.props.field]" />
                         </template>
                     </Column>
                     <Column field="name" header="Name">
                         <template #editor="slotProps">
-                            <InputText v-model="slotProps.data[slotProps.column.field]" />
+                            <InputText v-model="slotProps.data[slotProps.column.props.field]" />
                         </template>
                     </Column>
                     <Column field="inventoryStatus" header="Status">
@@ -38,7 +38,7 @@
                     </Column>
                     <Column field="price" header="Price">
                         <template #editor="slotProps">
-                            <InputText v-model="slotProps.data[slotProps.column.field]" />
+                            <InputText v-model="slotProps.data[slotProps.column.props.field]" />
                         </template>
                     </Column>
                 </DataTable>
@@ -47,10 +47,10 @@
             <div class="card">
                 <h5>Advanced Cell Editing</h5>
                 <p>Custom implementation with validations, dynamic columns and reverting values with the escape key.</p>
-                <DataTable :value="products2" editMode="cell" @cell-edit-complete="onCellEditComplete" class="editable-cells-table">
+                <DataTable :value="products2" editMode="cell" @cell-edit-complete="onCellEditComplete" class="editable-cells-table" >
                     <Column v-for="col of columns" :field="col.field" :header="col.header" :key="col.field">
                         <template #editor="slotProps">
-                            <InputText :value="slotProps.data[slotProps.column.field]" @input="onCellEdit($event, slotProps)" />
+                            <InputText :modelValue="slotProps.data[slotProps.column.props.field]" @update:modelValue="onCellEdit($event, slotProps)" />
                         </template>
                     </Column>
                 </DataTable>
@@ -62,12 +62,12 @@
                     @row-edit-init="onRowEditInit" @row-edit-cancel="onRowEditCancel">
                     <Column field="code" header="Code">
                         <template #editor="slotProps">
-                            <InputText v-model="slotProps.data[slotProps.column.field]" autofocus />
+                            <InputText v-model="slotProps.data[slotProps.column.props.field]" autofocus />
                         </template>
                     </Column>
                     <Column field="name" header="Name">
                         <template #editor="slotProps">
-                            <InputText v-model="slotProps.data[slotProps.column.field]" />
+                            <InputText v-model="slotProps.data[slotProps.column.props.field]" />
                         </template>
                     </Column>
                     <Column field="inventoryStatus" header="Status">
@@ -84,7 +84,7 @@
                     </Column>
                     <Column field="price" header="Price">
                         <template #editor="slotProps">
-                            <InputText v-model="slotProps.data[slotProps.column.field]" />
+                            <InputText v-model="slotProps.data[slotProps.column.props.field]" />
                         </template>
                     </Column>
                     <Column :rowEditor="true" headerStyle="width:7rem" bodyStyle="text-align:center"></Column>
@@ -97,92 +97,89 @@
                 <TabPanel header="Source">
 <CodeHighlight>
 <template v-pre>
-&lt;div class="card"&gt;
-    &lt;h5&gt;Basic Cell Editing&lt;/h5&gt;
-    &lt;p&gt;Simple editors with v-model.&lt;/p&gt;
-    &lt;DataTable :value="products1" editMode="cell" class="editable-cells-table"&gt;
-        &lt;Column field="code" header="Code"&gt;
-            &lt;template #editor="slotProps"&gt;
-                &lt;InputText v-model="slotProps.data[slotProps.column.field]" /&gt;
-            &lt;/template&gt;
-        &lt;/Column&gt;
-        &lt;Column field="name" header="Name"&gt;
-            &lt;template #editor="slotProps"&gt;
-                &lt;InputText v-model="slotProps.data[slotProps.column.field]" /&gt;
-            &lt;/template&gt;
-        &lt;/Column&gt;
-        &lt;Column field="inventoryStatus" header="Status"&gt;
-            &lt;template #editor="slotProps"&gt;
-                &lt;Dropdown v-model="slotProps.data['inventoryStatus']" :options="statuses" optionLabel="label" optionValue="value" laceholder="Select a Status"&gt;
-                    &lt;template #option="slotProps"&gt;
-                        &lt;span :class="'product-badge status-' + slotProps.option.value.toLowerCase()"&gt;{{slotProps.option.label}}&lt;/span&gt;
-                    &lt;/template&gt;
-                &lt;/Dropdown&gt;
-            &lt;/template&gt;
-            &lt;template #body="slotProps"&gt;
-                {{getStatusLabel(slotProps.data.inventoryStatus)}}
-            &lt;/template&gt;
-        &lt;/Column&gt;
-        &lt;Column field="price" header="Price"&gt;
-            &lt;template #editor="slotProps"&gt;
-                &lt;InputText v-model="slotProps.data[slotProps.column.field]" /&gt;
-            &lt;/template&gt;
-        &lt;/Column&gt;
-    &lt;/DataTable&gt;
+&lt;h5&gt;Basic Cell Editing&lt;/h5&gt;
+&lt;p&gt;Simple editors with v-model.&lt;/p&gt;
+&lt;DataTable :value="products1" editMode="cell" class="editable-cells-table"&gt;
+    &lt;Column field="code" header="Code"&gt;
+        &lt;template #editor="slotProps"&gt;
+            &lt;InputText v-model="slotProps.data[slotProps.column.props.field]" /&gt;
+        &lt;/template&gt;
+    &lt;/Column&gt;
+    &lt;Column field="name" header="Name"&gt;
+        &lt;template #editor="slotProps"&gt;
+            &lt;InputText v-model="slotProps.data[slotProps.column.props.field]" /&gt;
+        &lt;/template&gt;
+    &lt;/Column&gt;
+    &lt;Column field="inventoryStatus" header="Status"&gt;
+        &lt;template #editor="slotProps"&gt;
+            &lt;Dropdown v-model="slotProps.data['inventoryStatus']" :options="statuses" optionLabel="label" optionValue="value" laceholder="Select a Status"&gt;
+                &lt;template #option="slotProps"&gt;
+                    &lt;span :class="'product-badge status-' + slotProps.option.value.toLowerCase()"&gt;{{slotProps.option.label}}&lt;/span&gt;
+                &lt;/template&gt;
+            &lt;/Dropdown&gt;
+        &lt;/template&gt;
+        &lt;template #body="slotProps"&gt;
+            {{getStatusLabel(slotProps.data.inventoryStatus)}}
+        &lt;/template&gt;
+    &lt;/Column&gt;
+    &lt;Column field="price" header="Price"&gt;
+        &lt;template #editor="slotProps"&gt;
+            &lt;InputText v-model="slotProps.data[slotProps.column.props.field]" /&gt;
+        &lt;/template&gt;
+    &lt;/Column&gt;
+&lt;/DataTable&gt;
 &lt;/div&gt;
 
 &lt;div class="card"&gt;
-    &lt;h5&gt;Advanced Cell Editing&lt;/h5&gt;
-    &lt;p&gt;Custom implementation with validations, dynamic columns and reverting values with the escape key.&lt;/p&gt;
-    &lt;DataTable :value="products2" editMode="cell" @cell-edit-complete="onCellEditComplete" class="editable-cells-table"&gt;
-        &lt;Column v-for="col of columns" :field="col.field" :header="col.header" :key="col.field"&gt;
-            &lt;template #editor="slotProps"&gt;
-                &lt;InputText :value="slotProps.data[slotProps.column.field]" @input="onCellEdit($event, slotProps)" /&gt;
-            &lt;/template&gt;
-        &lt;/Column&gt;
-    &lt;/DataTable&gt;
+&lt;h5&gt;Advanced Cell Editing&lt;/h5&gt;
+&lt;p&gt;Custom implementation with validations, dynamic columns and reverting values with the escape key.&lt;/p&gt;
+&lt;DataTable :value="products2" editMode="cell" @cell-edit-complete="onCellEditComplete" class="editable-cells-table" &gt;
+    &lt;Column v-for="col of columns" :field="col.field" :header="col.header" :key="col.field"&gt;
+        &lt;template #editor="slotProps"&gt;
+            &lt;InputText :modelValue="slotProps.data[slotProps.column.props.field]" @update:modelValue="onCellEdit($event, slotProps)" /&gt;
+        &lt;/template&gt;
+    &lt;/Column&gt;
+&lt;/DataTable&gt;
 &lt;/div&gt;
 
 &lt;div class="card"&gt;
-    &lt;h5&gt;Row Editing&lt;/h5&gt;
-    &lt;DataTable :value="products3" editMode="row" dataKey="id" :editingRows.sync="editingRows"
-        @row-edit-init="onRowEditInit" @row-edit-cancel="onRowEditCancel"&gt;
-        &lt;Column field="code" header="Code"&gt;
-            &lt;template #editor="slotProps"&gt;
-                &lt;InputText v-model="slotProps.data[slotProps.column.field]" autofocus /&gt;
-            &lt;/template&gt;
-        &lt;/Column&gt;
-        &lt;Column field="name" header="Name"&gt;
-            &lt;template #editor="slotProps"&gt;
-                &lt;InputText v-model="slotProps.data[slotProps.column.field]" /&gt;
-            &lt;/template&gt;
-        &lt;/Column&gt;
-        &lt;Column field="inventoryStatus" header="Status"&gt;
-            &lt;template #editor="slotProps"&gt;
-                &lt;Dropdown v-model="slotProps.data['inventoryStatus']" :options="statuses" optionLabel="label" optionValue="value" laceholder="Select a Status"&gt;
-                    &lt;template #option="slotProps"&gt;
-                        &lt;span :class="'product-badge status-' + slotProps.option.value.toLowerCase()"&gt;{{slotProps.option.label}}&lt;/span&gt;
-                    &lt;/template&gt;
-                &lt;/Dropdown&gt;
-            &lt;/template&gt;
-            &lt;template #body="slotProps"&gt;
-                {{getStatusLabel(slotProps.data.inventoryStatus)}}
-            &lt;/template&gt;
-        &lt;/Column&gt;
-        &lt;Column field="price" header="Price"&gt;
-            &lt;template #editor="slotProps"&gt;
-                &lt;InputText v-model="slotProps.data[slotProps.column.field]" /&gt;
-            &lt;/template&gt;
-        &lt;/Column&gt;
-        &lt;Column :rowEditor="true" headerStyle="width:7rem" bodyStyle="text-align:center"&gt;&lt;/Column&gt;
-    &lt;/DataTable&gt;
-&lt;/div&gt;
+&lt;h5&gt;Row Editing&lt;/h5&gt;
+&lt;DataTable :value="products3" editMode="row" dataKey="id" v-model:editingRows="editingRows"
+    @row-edit-init="onRowEditInit" @row-edit-cancel="onRowEditCancel"&gt;
+    &lt;Column field="code" header="Code"&gt;
+        &lt;template #editor="slotProps"&gt;
+            &lt;InputText v-model="slotProps.data[slotProps.column.props.field]" autofocus /&gt;
+        &lt;/template&gt;
+    &lt;/Column&gt;
+    &lt;Column field="name" header="Name"&gt;
+        &lt;template #editor="slotProps"&gt;
+            &lt;InputText v-model="slotProps.data[slotProps.column.props.field]" /&gt;
+        &lt;/template&gt;
+    &lt;/Column&gt;
+    &lt;Column field="inventoryStatus" header="Status"&gt;
+        &lt;template #editor="slotProps"&gt;
+            &lt;Dropdown v-model="slotProps.data['inventoryStatus']" :options="statuses" optionLabel="label" optionValue="value" laceholder="Select a Status"&gt;
+                &lt;template #option="slotProps"&gt;
+                    &lt;span :class="'product-badge status-' + slotProps.option.value.toLowerCase()"&gt;{{slotProps.option.label}}&lt;/span&gt;
+                &lt;/template&gt;
+            &lt;/Dropdown&gt;
+        &lt;/template&gt;
+        &lt;template #body="slotProps"&gt;
+            {{getStatusLabel(slotProps.data.inventoryStatus)}}
+        &lt;/template&gt;
+    &lt;/Column&gt;
+    &lt;Column field="price" header="Price"&gt;
+        &lt;template #editor="slotProps"&gt;
+            &lt;InputText v-model="slotProps.data[slotProps.column.props.field]" /&gt;
+        &lt;/template&gt;
+    &lt;/Column&gt;
+    &lt;Column :rowEditor="true" headerStyle="width:7rem" bodyStyle="text-align:center"&gt;&lt;/Column&gt;
+&lt;/DataTable&gt;
 </template>
 </CodeHighlight>
 
 <CodeHighlight lang="javascript">
 import ProductService from '../../service/ProductService';
-import Vue from 'vue';
 
 export default {
     data() {
@@ -240,7 +237,7 @@ export default {
                 this.editingCellRows[props.index] = {...props.data};
             }
 
-            this.editingCellRows[props.index][props.column.field] = newValue;
+            this.editingCellRows[props.index][props.column.props.field] = newValue;
         },
         isPositiveInteger(val) {
             let str = String(val);
@@ -353,7 +350,7 @@ export default {
                 this.editingCellRows[props.index] = {...props.data};
             }
 
-            this.editingCellRows[props.index][props.column.field] = newValue;
+            this.editingCellRows[props.index][props.column.props.field] = newValue;
         },
         isPositiveInteger(val) {
             let str = String(val);
