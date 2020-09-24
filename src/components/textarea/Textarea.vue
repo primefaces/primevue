@@ -51,7 +51,7 @@ export default {
     },
     computed: {
         filled() {
-            return (this.value != null && this.value.toString().length > 0)
+            return (this.modelValue != null && this.modelValue.toString().length > 0)
         }
     }
 }
