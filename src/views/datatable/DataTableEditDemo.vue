@@ -215,18 +215,18 @@ export default {
 
             const editingCellValue = this.editingCellRows[event.index][event.field];
 
-            switch (event.field) {
+             switch (event.field) {
                 case 'quantity':
                 case 'price':
                     if (this.isPositiveInteger(editingCellValue))
-                        this.products2[event.index] = this.editingCellRows[event.index];
+                        this.products2[event.index] = {...this.editingCellRows[event.index]};
                     else
                         event.preventDefault();
                 break;
 
                 default:
                     if (editingCellValue.trim().length > 0)
-                        this.products2[event.index] = this.editingCellRows[event.index];
+                        this.products2[event.index] = {...this.editingCellRows[event.index]};
                     else
                         event.preventDefault();
                 break;
@@ -332,14 +332,14 @@ export default {
                 case 'quantity':
                 case 'price':
                     if (this.isPositiveInteger(editingCellValue))
-                        this.products2[event.index] = this.editingCellRows[event.index];
+                        this.products2[event.index] = {...this.editingCellRows[event.index]};
                     else
                         event.preventDefault();
                 break;
 
                 default:
                     if (editingCellValue.trim().length > 0)
-                        this.products2[event.index] = this.editingCellRows[event.index];
+                        this.products2[event.index] = {...this.editingCellRows[event.index]};
                     else
                         event.preventDefault();
                 break;
