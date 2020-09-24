@@ -12,11 +12,11 @@
                 <TreeTable :value="nodes">
                     <template #header>
                         <div style="text-align:left">
-                            <MultiSelect v-model="columns" :options="columnOptions" optionLabel="header" placeholder="Select Columns" style="width: 20em"/>
+                            <MultiSelect :modelValue="selectedColumns" @update:modelValue="onToggle" :options="columns" optionLabel="header" placeholder="Select Columns" style="width: 20em"/>
                         </div>
                     </template>
                     <Column field="name" header="Name" :expander="true"></Column>
-                    <Column v-for="col of columns" :field="col.field" :header="col.header" :key="col.field"></Column>
+                    <Column v-for="col of selectedColumns" :field="col.field" :header="col.header" :key="col.field"></Column>
                 </TreeTable>
             </div>
         </div>
@@ -29,11 +29,11 @@
 &lt;TreeTable :value="nodes"&gt;
     &lt;template #header&gt;
         &lt;div style="text-align:left"&gt;
-            &lt;MultiSelect v-model="columns" :options="columnOptions" optionLabel="header" placeholder="Select Columns" style="width: 20em"/&gt;
+            &lt;MultiSelect :modelValue="selectedColumns" @update:modelValue="onToggle" :options="columns" optionLabel="header" placeholder="Select Columns" style="width: 20em"/&gt;
         &lt;/div&gt;
     &lt;/template&gt;
     &lt;Column field="name" header="Name" :expander="true"&gt;&lt;/Column&gt;
-    &lt;Column v-for="col of columns" :field="col.field" :header="col.header" :key="col.field"&gt;&lt;/Column&gt;
+    &lt;Column v-for="col of selectedColumns" :field="col.field" :header="col.header" :key="col.field"&gt;&lt;/Column&gt;
 &lt;/TreeTable&gt;
 </template>
 </CodeHighlight>
@@ -44,9 +44,9 @@ import NodeService from '../../service/NodeService';
 export default {
     data() {
         return {
+            selectedColumns: null,
+            columns: null,
             nodes: null,
-            columnOptions: null,
-            columns: null
         }
     },
     nodeService: null,
@@ -58,10 +58,15 @@ export default {
             {field: 'type', header: 'Type'}
         ];
 
-        this.columnOptions = [...this.columns];
+        this.selectedColumns = this.columns;
     },
     mounted() {
         this.nodeService.getTreeTableNodes().then(data => this.nodes = data);
+    },
+    methods: {
+        onToggle(value) {
+            this.selectedColumns = this.columns.filter(col => value.includes(col));
+        }
     }
 }
 </CodeHighlight>
@@ -78,9 +83,9 @@ import NodeService from '../../service/NodeService';
 export default {
     data() {
         return {
+            selectedColumns: null,
+            columns: null,
             nodes: null,
-            columnOptions: null,
-            columns: null
         }
     },
     nodeService: null,
@@ -92,10 +97,15 @@ export default {
             {field: 'type', header: 'Type'}
         ];
 
-        this.columnOptions = [...this.columns];
+        this.selectedColumns = this.columns;
     },
     mounted() {
         this.nodeService.getTreeTableNodes().then(data => this.nodes = data);
+    },
+    methods: {
+        onToggle(value) {
+            this.selectedColumns = this.columns.filter(col => value.includes(col));
+        }
     }
 }
 </script>
