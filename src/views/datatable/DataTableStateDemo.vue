@@ -134,8 +134,8 @@
 <code><template v-pre>
 &lt;div class="card"&gt;
     &lt;h5&gt;Session Storage&lt;/h5&gt;
-    &lt;DataTable :value="customers" :paginator="true" :rows="10" :filters.sync="filters1"
-        :selection.sync="selectedCustomer1" selectionMode="single" dataKey="id"
+    &lt;DataTable :value="customers" :paginator="true" :rows="10" v-model:filters="filters1"
+        v-model:selection="selectedCustomer1" selectionMode="single" dataKey="id"
         stateStorage="session" stateKey="dt-state-demo-session"&gt;
         &lt;template #header&gt;
             &lt;span class="p-input-icon-left"&gt;
@@ -193,8 +193,8 @@
 
     &lt;div class="card"&gt;
     &lt;h5&gt;Local Storage&lt;/h5&gt;
-    &lt;DataTable :value="customers" :paginator="true" :rows="10" :filters.sync="filters2"
-        :selection.sync="selectedCustomer2" selectionMode="single" dataKey="id"
+    &lt;DataTable :value="customers" :paginator="true" :rows="10" v-model:filters="filters2"
+        v-model:selection="selectedCustomer2" selectionMode="single" dataKey="id"
         stateStorage="session" stateKey="dt-state-demo-local"&gt;
         &lt;template #header&gt;
             &lt;span class="p-input-icon-left"&gt;

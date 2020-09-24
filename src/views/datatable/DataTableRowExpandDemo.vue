@@ -74,7 +74,7 @@
                 <TabPanel header="Source">
 <pre v-code>
 <code><template v-pre>
-&lt;DataTable :value="products" :expandedRows.sync="expandedRows" dataKey="id"
+&lt;DataTable :value="products" v-model:expandedRows="expandedRows" dataKey="id"
     @row-expand="onRowExpand" @row-collapse="onRowCollapse"&gt;
     &lt;template #header&gt;
         &lt;div class="table-header-container"&gt;

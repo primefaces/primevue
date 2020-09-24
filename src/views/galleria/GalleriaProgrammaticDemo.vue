@@ -35,7 +35,7 @@
     &lt;Button icon="pi pi-plus" @click="next" class="p-button-secondary" style="margin-left: .5rem" /&gt;
 &lt;/div&gt;
 
-&lt;Galleria :value="images" :activeIndex.sync="activeIndex" :responsiveOptions="responsiveOptions" :numVisible="5" style="max-width: 640px"&gt;
+&lt;Galleria :value="images" v-model:activeIndex="activeIndex" :responsiveOptions="responsiveOptions" :numVisible="5" style="max-width: 640px"&gt;
     &lt;template #item="slotProps"&gt;
         &lt;img :src="slotProps.item.itemImageSrc" :alt="slotProps.item.alt" style="width: 100%" /&gt;
     &lt;/template&gt;

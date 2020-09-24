@@ -40,7 +40,7 @@
                 <TabPanel header="Source">
 <pre v-code>
 <code><template v-pre>
-&lt;Galleria ref="galleria" :value="images" :activeIndex.sync="activeIndex" :numVisible="5" style="max-width: 640px;" :class="galleriaClass"
+&lt;Galleria ref="galleria" :value="images" v-model:activeIndex="activeIndex" :numVisible="5" style="max-width: 640px;" :class="galleriaClass"
     :showThumbnails="showThumbnails" :showItemNavigators="true" :showItemNavigatorsOnHover="true"
     :circular="true" :autoPlay="true" :transitionInterval="3000"&gt;
     &lt;template #item="slotProps"&gt;

@@ -57,12 +57,12 @@ import Panel from 'primevue/panel';
 
 </code></pre>
 
-                <p>Use the sync operator to enable two-way binding.</p>
+                <p>Use the v-model directive to enable two-way binding.</p>
 
 <pre v-code>
 <code>
 &lt;button type="button" @click="isCollapsed = !isCollapsed">Toggle Programmatically&lt;/button&gt;
-&lt;Panel header="Header Text" :toggleable="true" :collapsed.sync="isCollapsed"&gt;
+&lt;Panel header="Header Text" :toggleable="true" v-model:collapsed="isCollapsed"&gt;
 	Content
 &lt;/Panel&gt;
 

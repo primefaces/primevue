@@ -58,11 +58,11 @@ import Fieldset from 'primevue/fieldset';
 
 </code></pre>
 
-                <p>Use the sync operator to enable two-way binding.</p>
+                <p>Use the v-model directive to enable two-way binding.</p>
 <pre v-code>
 <code>
 &lt;button type="button" @click="isCollapsed = !isCollapsed">Toggle Programmatically&lt;/button&gt;
-&lt;Fieldset legend="Header Text" :toggleable="true" :collapsed.sync="isCollapsed"&gt;
+&lt;Fieldset legend="Header Text" :toggleable="true" v-model:collapsed="isCollapsed"&gt;
 	Content
 &lt;/Fieldset&gt;
 

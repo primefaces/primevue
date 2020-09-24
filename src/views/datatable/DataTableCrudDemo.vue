@@ -158,7 +158,7 @@
     &lt;/template&gt;
 &lt;/Toolbar&gt;
 
-&lt;DataTable ref="dt" :value="products" :selection.sync="selectedProducts" dataKey="id"
+&lt;DataTable ref="dt" :value="products" v-model:selection="selectedProducts" dataKey="id"
     :paginator="true" :rows="10" :filters="filters"
     paginatorTemplate="FirstPageLink PrevPageLink PageLinks NextPageLink LastPageLink CurrentPageReport RowsPerPageDropdown" :rowsPerPageOptions="[5,10,25]"
     currentPageReportTemplate="Showing {first} to {last} of {totalRecords} products"&gt;
@@ -205,7 +205,7 @@
 &lt;/DataTable&gt;
 &lt;/div&gt;
 
-&lt;Dialog :visible.sync="productDialog" :style="{width: '450px'}" header="Product Details" :modal="true" class="p-fluid"&gt;
+&lt;Dialog v-model:visible="productDialog" :style="{width: '450px'}" header="Product Details" :modal="true" class="p-fluid"&gt;
 &lt;img :src="'demo/images/product/' + product.image" :alt="product.image" class="product-image" v-if="product.image" /&gt;
 &lt;div class="p-field"&gt;
     &lt;label for="name"&gt;Name&lt;/label&gt;
@@ -255,7 +255,7 @@
 &lt;/template&gt;
 &lt;/Dialog&gt;
 
-&lt;Dialog :visible.sync="deleteProductDialog" :style="{width: '450px'}" header="Confirm" :modal="true"&gt;
+&lt;Dialog v-model:visible="deleteProductDialog" :style="{width: '450px'}" header="Confirm" :modal="true"&gt;
     &lt;div class="confirmation-content"&gt;
         &lt;i class="pi pi-exclamation-triangle p-mr-3" style="font-size: 2rem" /&gt;
         &lt;span v-if="product"&gt;Are you sure you want to delete &lt;b&gt;{{product.name}}&lt;/b&gt;?&lt;/span&gt;
@@ -266,7 +266,7 @@
     &lt;/template&gt;
     &lt;/Dialog&gt;
 
-    &lt;Dialog :visible.sync="deleteProductsDialog" :style="{width: '450px'}" header="Confirm" :modal="true"&gt;
+    &lt;Dialog v-model:visible="deleteProductsDialog" :style="{width: '450px'}" header="Confirm" :modal="true"&gt;
     &lt;div class="confirmation-content"&gt;
         &lt;i class="pi pi-exclamation-triangle p-mr-3" style="font-size: 2rem" /&gt;
         &lt;span v-if="product"&gt;Are you sure you want to delete the selected products?&lt;/span&gt;

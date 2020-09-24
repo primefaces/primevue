@@ -131,7 +131,7 @@
     &lt;Button label="Show" icon="pi pi-external-link" @click="openDialog" /&gt;
 &lt;/div&gt;
 
-&lt;Dialog header="Flex Scroll" :visible.sync="dialogVisible" :style="{width: '75vw'}" :maximizable="true" :modal="true" :contentStyle="{height: '300px'}"&gt;
+&lt;Dialog header="Flex Scroll" v-model:visible="dialogVisible" :style="{width: '75vw'}" :maximizable="true" :modal="true" :contentStyle="{height: '300px'}"&gt;
     &lt;DataTable :value="customers" :scrollable="true" scrollHeight="flex"&gt;
         &lt;Column field="name" header="Name"&gt;&lt;/Column&gt;
         &lt;Column field="country.name" header="Country"&gt;&lt;/Column&gt;

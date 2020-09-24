@@ -26,10 +26,10 @@ import Paginator from 'primevue/paginator';
 
 </code></pre>
 
-                <p>Use the sync operator to enable two-way binding, this is useful in cases where you need to programmatically control the paginator.</p>
+                <p>Use the v-model directive to enable two-way binding, this is useful in cases where you need to programmatically control the paginator.</p>
 <pre v-code>
 <code>
-&lt;Paginator :first.sync="offset" :rows="10" :totalRecords="totalItemsCount"&gt;&lt;/Paginator&gt;
+&lt;Paginator v-model:first="offset" :rows="10" :totalRecords="totalItemsCount"&gt;&lt;/Paginator&gt;
 
 </code></pre>
 
@@ -37,15 +37,15 @@ import Paginator from 'primevue/paginator';
                 <p>Number of items per page can be changed by the user using a dropdown with the <i>rowsPerPageOptions</i> property which accepts an array of possible values.</p>
 <pre v-code>
 <code>
-&lt;Paginator :first.sync="offset" :rows="rows" :totalRecords="totalItemsCount" :rowsPerPageOptions="[10,20,30]"&gt;&lt;/Paginator&gt;
+&lt;Paginator v-model:first="offset" :rows="rows" :totalRecords="totalItemsCount" :rowsPerPageOptions="[10,20,30]"&gt;&lt;/Paginator&gt;
 
 </code></pre>
 
-                <p>As <i>rows</i> also change when the dropdown changes, use the optional sync operator if you need two-way binding.</p>
+                <p>As <i>rows</i> also change when the dropdown changes, use the optional v-model directive if you need two-way binding.</p>
 
 <pre v-code>
 <code>
-&lt;Paginator :first.sync="offset" :rows.sync="rows" :totalRecords="totalItemsCount" :rowsPerPageOptions="[10,20,30]"&gt;&lt;/Paginator&gt;
+&lt;Paginator v-model:first="offset" v-model:rows="rows" :totalRecords="totalItemsCount" :rowsPerPageOptions="[10,20,30]"&gt;&lt;/Paginator&gt;
 
 </code></pre>
 
@@ -83,7 +83,7 @@ import Paginator from 'primevue/paginator';
                 </p>
 <pre v-code>
 <code><template v-pre>
-&lt;Paginator :first.sync="offset" :rows="10" :totalRecords="totalItemsCount"&gt;
+&lt;Paginator v-model:first="offset" :rows="10" :totalRecords="totalItemsCount"&gt;
     &lt;template #left="slotProps"&gt;
         Page: &#123;&#123;slotProps.state.page&#125;&#125;
         First: &#123;&#123;slotProps.state.first&#125;&#125;
@@ -266,7 +266,7 @@ onPage(event) {
 &lt;Paginator :rows="10" :totalRecords="totalRecords" :rowsPerPageOptions="[10,20,30]"&gt;&lt;/Paginator&gt;
 
 &lt;h3&gt;Custom&lt;/h3&gt;
-&lt;Paginator :first.sync="first" :rows="1" :totalRecords="totalRecords2"
+&lt;Paginator v-model:first="first" :rows="1" :totalRecords="totalRecords2"
     template="FirstPageLink PrevPageLink CurrentPageReport NextPageLink LastPageLink"&gt;
     &lt;template #left&gt;
         &lt;Button type="button" icon="pi pi-refresh" @click="reset()"/&gt;

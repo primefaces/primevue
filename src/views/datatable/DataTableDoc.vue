@@ -459,7 +459,7 @@ export default {
 
                 <p>Paginator can also be programmed programmatically using a binding to the <i>first</i> property that defines the index of the
                 first element to display. For example setting first to zero will reset the paginator to the very first page. This property
-                also supports "sync" keyword in case you'd like your binding to be updated whenever the user changes the page.</p>
+                also supports v-model in case you'd like your binding to be updated whenever the user changes the page.</p>
 <pre v-code>
 <code><template v-pre>
 &lt;DataTable :value="cars" :paginator="true" :rows="10" :first="firstRecordIndex"&gt;
@@ -499,7 +499,7 @@ export default {
 </code></pre>
 
                 <p>In case you'd like to display the table as sorted per a single column by default on mount or programmatically apply sort, use <i>sortField</i> and <i>sortOrder</i> properties. These
-                two properties also support the "sync" keyword to get updated when the user applies sort a column.</p>
+                two properties also support the v-model directive to get updated when the user applies sort a column.</p>
 <pre v-code>
 <code><template v-pre>
 &lt;DataTable :value="cars" sortField="year" :sortOrder="1"&gt;
@@ -619,7 +619,7 @@ methods: {
 </code></pre>
 
                 <h5>Selection</h5>
-                <p>DataTable provides single and multiple selection modes on click of a row. Selected rows are bound to the <i>selection</i> property and updated using the sync keyword.
+                <p>DataTable provides single and multiple selection modes on click of a row. Selected rows are bound to the <i>selection</i> property and updated using the v-model directive.
                     Alternatively column based selection can be done using radio buttons or checkboxes using <i>selectionMode</i> of a particular column. In addition row-select and row-unselect
                      events are provided as optional callbacks.</p>
 
@@ -629,7 +629,7 @@ methods: {
 
 <pre v-code>
 <code><template v-pre>
-&lt;DataTable :value="cars" :selection.sync="selectedCar" selectionMode="single" dataKey="vin"&gt;
+&lt;DataTable :value="cars" v-model:selection="selectedCar" selectionMode="single" dataKey="vin"&gt;
     &lt;Column field="vin" header="Vin"&gt;&lt;/Column&gt;
     &lt;Column field="year" header="Year"&gt;&lt;/Column&gt;
     &lt;Column field="brand" header="Brand"&gt;&lt;/Column&gt;
@@ -641,7 +641,7 @@ methods: {
                 <p>In multiple mode, selection binding should be an array and multiple items can either be selected using metaKey or toggled individually depending on the value of <i>metaKeySelection</i> property value which is true by default. On touch enabled devices metaKeySelection is turned off automatically. Additionally ShiftKey is supported for range selection.</p>
 <pre v-code>
 <code><template v-pre>
-&lt;DataTable :value="cars" :selection.sync="selectedCars" selectionMode="multiple" dataKey="vin"&gt;
+&lt;DataTable :value="cars" v-model:selection="selectedCars" selectionMode="multiple" dataKey="vin"&gt;
     &lt;Column field="vin" header="Vin"&gt;&lt;/Column&gt;
     &lt;Column field="year" header="Year"&gt;&lt;/Column&gt;
     &lt;Column field="brand" header="Brand"&gt;&lt;/Column&gt;
@@ -653,7 +653,7 @@ methods: {
                 <p>If you prefer a radioButton or a checkbox instead of a row click, use the <i>selectionMode</i> of a column instead. Following datatable displays a checkbox at the first column of each row and automatically adds a header checkbox to toggle selection of all rows.</p>
 <pre v-code>
 <code><template v-pre>
-&lt;DataTable :value="cars" :selection.sync="selectedCars" selectionMode="multiple" dataKey="vin"&gt;
+&lt;DataTable :value="cars" v-model:selection="selectedCars" selectionMode="multiple" dataKey="vin"&gt;
     &lt;Column selectionMode="multiple"&gt;&lt;/Column&gt;
     &lt;Column field="vin" header="Vin"&gt;&lt;/Column&gt;
     &lt;Column field="year" header="Year"&gt;&lt;/Column&gt;
@@ -681,7 +681,7 @@ methods: {
 <pre v-code>
 <code><template v-pre>
 &lt;Button label="Show" icon="pi pi-external-link" @click="openDialog" /&gt;
-&lt;Dialog header="Flex Scroll" :visible.sync="dialogVisible" :style="{width: '50vw'}" :maximizable="true" :modal="true" :contentStyle="{height: '300px'}"&gt;
+&lt;Dialog header="Flex Scroll" v-model:visible="dialogVisible" :style="{width: '50vw'}" :maximizable="true" :modal="true" :contentStyle="{height: '300px'}"&gt;
     &lt;DataTable :value="cars" :scrollable="true" scrollHeight="flex"&gt;
         &lt;Column field="vin" header="Vin"&gt;&lt;/Column&gt;
         &lt;Column field="year" header="Year"&gt;&lt;/Column&gt;
@@ -913,12 +913,12 @@ export default {
 </code></pre>
 
                 <h5>Row Expansion</h5>
-                <p>Rows can be expanded to display additional content using the <i>expandedRows</i> property with the sync operator accompanied by a template named "expansion". <i>row-expand</i> and <i>row-collapse</i> are optional callbacks that are invoked when a row is expanded or toggled.</p>
+                <p>Rows can be expanded to display additional content using the <i>expandedRows</i> property with the v-model directive accompanied by a template named "expansion". <i>row-expand</i> and <i>row-collapse</i> are optional callbacks that are invoked when a row is expanded or toggled.</p>
 
                 <p>The <i>dataKey</i> property identifies a unique value of a row in the dataset, it is not mandatory in row expansion functionality however being able to define it increases the performance of the table signifantly.</p>
 <pre v-code>
 <code><template v-pre>
-&lt;DataTable :value="cars" :expandedRows.sync="expandedRows" dataKey="vin"
+&lt;DataTable :value="cars" v-model:expandedRows="expandedRows" dataKey="vin"
     @row-expand="onRowExpand" @row-collapse="onRowCollapse"&gt;
     &lt;template #header&gt;
         &lt;div class="table-header-container"&gt;
@@ -1128,12 +1128,12 @@ export default {
 
 </code></pre>
 
-                <p>Row Editing is defined by setting <i>cellEdit</i> as "row", defining <i>editingRows</i> with the sync operator to hold the reference to the editing rows and adding a row editor column to provide the editing controls. Note that
+                <p>Row Editing is defined by setting <i>cellEdit</i> as "row", defining <i>editingRows</i> with the v-model directive to hold the reference to the editing rows and adding a row editor column to provide the editing controls. Note that
                 since <i>editingRows</i> is two-way binding enabled, you may use it to initially display one or more rows in editing more or programmatically toggle row editing.</p>
 <pre v-code>
 <code><template v-pre>
 &lt;h3&gt;Row Editing&lt;/h3&gt;
-&lt;DataTable :value="cars" editMode="row" dataKey="vin" :editingRows.sync="editingRows"
+&lt;DataTable :value="cars" editMode="row" dataKey="vin" v-model:editingRows="editingRows"
     @row-edit-init="onRowEditInit" @row-edit-cancel="onRowEditCancel"&gt;
     &lt;Column field="vin" header="Vin"&gt;&lt;/Column&gt;
     &lt;Column field="year" header="Year"&gt;
@@ -1300,7 +1300,7 @@ export default {
 &lt;h3&gt;Expandable Row Groups&lt;/h3&gt;
 &lt;DataTable :value="cars" rowGroupMode="subheader" groupRowsBy="brand"
     sortMode="single" sortField="brand" :sortOrder="1"
-    :expandableRowGroups="true" :expandedRowGroups.sync="expandedRowGroups"
+    :expandableRowGroups="true" v-model:expandedRowGroups="expandedRowGroups"
     @rowgroup-expand="onRowExpand" @rowgroup-collapse="onRowCollapse"&gt;
     &lt;Column field="brand" header="Brand"&gt;&lt;/Column&gt;
     &lt;Column field="vin" header="Vin"&gt;&lt;/Column&gt;
@@ -1427,9 +1427,9 @@ export default {
                 </p>
 <pre v-code>
 <code><template v-pre>
-&lt;DataTable :value="cars" :paginator="true" :rows="10" :filters.sync="filters"
+&lt;DataTable :value="cars" :paginator="true" :rows="10" v-model:filters="filters"
     stateStorage="session" stateKey="dt-state-demo-session"
-    :selection.sync="selectedCar" selectionMode="single" dataKey="vin"&gt;
+    v-model:selection="selectedCar" selectionMode="single" dataKey="vin"&gt;
     &lt;template #header&gt;
         &lt;div style="text-align: right"&gt;
             &lt;i class="pi pi-search" style="margin: 4px 4px 0px 0px;"&gt;&lt;/i&gt;
@@ -1519,7 +1519,7 @@ export default {
                 <p>DataTable provides exclusive integration with the ContextMenu component using, <i>contextMenu</i>, <i>contextMenuSelection</i> property along with the <i>row-contextmenu</i> event.</p>
 <pre v-code>
 <code><template v-pre>
-&lt;DataTable :value="cars" contextMenu :contextMenuSelection.sync="selectedCar" @row-contextmenu="onRowContextMenu"&gt;
+&lt;DataTable :value="cars" contextMenu v-model:contextMenuSelection="selectedCar" @row-contextmenu="onRowContextMenu"&gt;
     &lt;Column field="vin" header="Vin"&gt;&lt;/Column&gt;
     &lt;Column field="year" header="Year"&gt;&lt;/Column&gt;
     &lt;Column field="brand" header="Brand"&gt;&lt;/Column&gt;
@@ -2467,7 +2467,7 @@ export default {
 <pre v-code>
 <code><template v-pre>
 &lt;DataTable :value="customers" :paginator="true" class="p-datatable-customers" :rows="10"
-    dataKey="id" :rowHover="true" :selection.sync="selectedCustomers" :filters="filters" :loading="loading"
+    dataKey="id" :rowHover="true" v-model:selection="selectedCustomers" :filters="filters" :loading="loading"
     paginatorTemplate="FirstPageLink PrevPageLink PageLinks NextPageLink LastPageLink CurrentPageReport RowsPerPageDropdown" :rowsPerPageOptions="[10,25,50]"
     currentPageReportTemplate="Showing {first} to {last} of {totalRecords} entries"&gt;
     &lt;template #header&gt;

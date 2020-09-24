@@ -105,7 +105,7 @@ import TabPanel from 'primevue/tabpanel';
 </code></pre>
 
                 <h5>Programmatic Control</h5>
-				<p>Tabs can be controlled programmatically using active property that defines the active tab.</p>
+				<p>Tabs can be controlled programmatically using <i>activeIndex</i> property.</p>
 <pre v-code>
 <code>
 &lt;Button @click="active = 0" class="p-button-text" label="Activate 1st" /&gt;
@@ -113,13 +113,13 @@ import TabPanel from 'primevue/tabpanel';
 &lt;Button @click="active = 2" class="p-button-text" label="Activate 3rd" /&gt;
 
 &lt;TabView v-model:activeIndex="active"&gt;
-    &lt;TabPanel header="Header I" :active.sync="active[0]"&gt;
+    &lt;TabPanel header="Header I"&gt;
         Content I
     &lt;/TabPanel&gt;
-    &lt;TabPanel header="Header II" :active.sync="active[1]"&gt;
+    &lt;TabPanel header="Header II"&gt;
         Content II
     &lt;/TabPanel&gt;
-    &lt;TabPanel header="Header III" :active.sync="active[2]"&gt;
+    &lt;TabPanel header="Header III"&gt;
        Content III
     &lt;/TabPanel&gt;
 &lt;/TabView&gt;

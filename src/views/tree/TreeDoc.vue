@@ -192,7 +192,7 @@ export default class NodeService {
 
                 <h5>Programmatic Control</h5>
                 <p>Tree state can be controlled programmatically with the <i>expandedKeys</i> property that defines the keys
-                    that are expanded. This property is a Map instance whose key is the key of a node and value is a boolean. Note that <i>expandedKeys</i> also supports two-way binding with the sync modifier.
+                    that are expanded. This property is a Map instance whose key is the key of a node and value is a boolean. Note that <i>expandedKeys</i> also supports two-way binding with the v-model directive.
                 </p>
 
                 <p>Example below expands and collapses all nodes with buttons.</p>
@@ -276,7 +276,7 @@ export default {
 </code></pre>
 
                 <h5>Selection</h5>
-                <p>Tree supports <b>single</b>, <b>multiple</b> and <b>checkbox</b> selection modes. Define the <i>selectionKeys</i> with the sync operator and the <i>selectionMode</i> properties to enable the selection.
+                <p>Tree supports <b>single</b>, <b>multiple</b> and <b>checkbox</b> selection modes. Define the <i>selectionKeys</i> with the v-model directive and the <i>selectionMode</i> properties to enable the selection.
                 By default in multiple selection mode, metaKey is necessary to add to existing selections however this can be configured with <i>metaKeySelection</i> property. Note that
                 in touch enabled devices, Tree does not require metaKey. In addition selection on a particular node can be disabled if the <i>selectable</i> is false on the node instance.</p>
 
@@ -285,19 +285,19 @@ export default {
 <pre v-code>
 <code><template v-pre>
 &lt;h3&gt;Single Selection&lt;/h3&gt;
-&lt;Tree :value="nodes" selectionMode="single" :selectionKeys.sync="selectedKey1"&gt;&lt;/Tree&gt;
+&lt;Tree :value="nodes" selectionMode="single" v-model:selectionKeys="selectedKey1"&gt;&lt;/Tree&gt;
 
 &lt;h3&gt;Multiple Selection with MetaKey&lt;/h3&gt;
-&lt;Tree :value="nodes" selectionMode="multiple" :selectionKeys.sync="selectedKeys1"&gt;&lt;/Tree&gt;
+&lt;Tree :value="nodes" selectionMode="multiple" v-model:selectionKeys="selectedKeys1"&gt;&lt;/Tree&gt;
 
 &lt;h3&gt;Multiple Selection without MetaKey&lt;/h3&gt;
-&lt;Tree :value="nodes" selectionMode="multiple" :selectionKeys.sync="selectedKeys2" :metaKeySelection="false"&gt;&lt;/Tree&gt;
+&lt;Tree :value="nodes" selectionMode="multiple" v-model:selectionKeys="selectedKeys2" :metaKeySelection="false"&gt;&lt;/Tree&gt;
 
 &lt;h3&gt;Checkbox Selection&lt;/h3&gt;
-&lt;Tree :value="nodes" selectionMode="checkbox" :selectionKeys.sync="selectedKeys3"&gt;&lt;/Tree&gt;
+&lt;Tree :value="nodes" selectionMode="checkbox" v-model:selectionKeys="selectedKeys3"&gt;&lt;/Tree&gt;
 
 &lt;h3&gt;Events&lt;/h3&gt;
-&lt;Tree :value="nodes" selectionMode="single" :selectionKeys.sync="selectedKey2" :metaKeySelection="false"
+&lt;Tree :value="nodes" selectionMode="single" v-model:selectionKeys="selectedKey2" :metaKeySelection="false"
     @node-select="onNodeSelect" @node-unselect="onNodeUnselect"&gt;&lt;/Tree&gt;
 </template>
 </code></pre>

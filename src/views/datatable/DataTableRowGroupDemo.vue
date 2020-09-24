@@ -146,7 +146,7 @@
     &lt;p&gt;Group customers by their representative.&lt;/p&gt;
     &lt;DataTable :value="customers" rowGroupMode="subheader" groupRowsBy="representative.name"
         sortMode="single" sortField="representative.name" :sortOrder="1"
-        :expandableRowGroups="true" :expandedRowGroups.sync="expandedRowGroups"
+        :expandableRowGroups="true" v-model:expandedRowGroups="expandedRowGroups"
         @rowgroup-expand="onRowGroupExpand" @rowgroup-collapse="onRowGroupCollapse"&gt;
         &lt;Column field="representative.name" header="Representative"&gt;&lt;/Column&gt;
         &lt;Column field="name" header="Name"&gt;&lt;/Column&gt;

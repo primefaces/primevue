@@ -61,35 +61,35 @@
 <pre v-code>
 <code><template v-pre>
 &lt;h3&gt;Single Selection&lt;/h3&gt;
-&lt;TreeTable :value="nodes" selectionMode="single" :selectionKeys.sync="selectedKey1"&gt;
+&lt;TreeTable :value="nodes" selectionMode="single" v-model:selectionKeys="selectedKey1"&gt;
     &lt;Column field="name" header="Name" :expander="true"&gt;&lt;/Column&gt;
     &lt;Column field="size" header="Size"&gt;&lt;/Column&gt;
     &lt;Column field="type" header="Type"&gt;&lt;/Column&gt;
 &lt;/TreeTable&gt;
 
 &lt;h3&gt;Multiple Selection with MetaKey&lt;/h3&gt;
-&lt;TreeTable :value="nodes" selectionMode="multiple" :selectionKeys.sync="selectedKeys1"&gt;
+&lt;TreeTable :value="nodes" selectionMode="multiple" v-model:selectionKeys="selectedKeys1"&gt;
     &lt;Column field="name" header="Name" :expander="true"&gt;&lt;/Column&gt;
     &lt;Column field="size" header="Size"&gt;&lt;/Column&gt;
     &lt;Column field="type" header="Type"&gt;&lt;/Column&gt;
 &lt;/TreeTable&gt;
 
 &lt;h3&gt;Multiple Selection without MetaKey&lt;/h3&gt;
-&lt;TreeTable :value="nodes" selectionMode="multiple" :selectionKeys.sync="selectedKeys2" :metaKeySelection="false"&gt;
+&lt;TreeTable :value="nodes" selectionMode="multiple" v-model:selectionKeys="selectedKeys2" :metaKeySelection="false"&gt;
     &lt;Column field="name" header="Name" :expander="true"&gt;&lt;/Column&gt;
     &lt;Column field="size" header="Size"&gt;&lt;/Column&gt;
     &lt;Column field="type" header="Type"&gt;&lt;/Column&gt;
 &lt;/TreeTable&gt;
 
 &lt;h3&gt;Checkbox Selection&lt;/h3&gt;
-&lt;TreeTable :value="nodes" selectionMode="checkbox" :selectionKeys.sync="selectedKeys3"&gt;
+&lt;TreeTable :value="nodes" selectionMode="checkbox" v-model:selectionKeys="selectedKeys3"&gt;
     &lt;Column field="name" header="Name" :expander="true"&gt;&lt;/Column&gt;
     &lt;Column field="size" header="Size"&gt;&lt;/Column&gt;
     &lt;Column field="type" header="Type"&gt;&lt;/Column&gt;
 &lt;/TreeTable&gt;
 
 &lt;h3&gt;Events&lt;/h3&gt;
-&lt;TreeTable :value="nodes" selectionMode="single" :selectionKeys.sync="selectedKey2"
+&lt;TreeTable :value="nodes" selectionMode="single" v-model:selectionKeys="selectedKey2"
     @node-select="onNodeSelect" @node-unselect="onNodeUnselect"&gt;
     &lt;Column field="name" header="Name" :expander="true"&gt;&lt;/Column&gt;
     &lt;Column field="size" header="Size"&gt;&lt;/Column&gt;

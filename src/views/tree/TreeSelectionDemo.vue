@@ -33,19 +33,19 @@
 <pre v-code>
 <code><template v-pre>
 &lt;h3&gt;Single Selection&lt;/h3&gt;
-&lt;Tree :value="nodes" selectionMode="single" :selectionKeys.sync="selectedKey1"&gt;&lt;/Tree&gt;
+&lt;Tree :value="nodes" selectionMode="single" v-model:selectionKeys="selectedKey1"&gt;&lt;/Tree&gt;
 
 &lt;h3&gt;Multiple Selection with MetaKey&lt;/h3&gt;
-&lt;Tree :value="nodes" selectionMode="multiple" :selectionKeys.sync="selectedKeys1"&gt;&lt;/Tree&gt;
+&lt;Tree :value="nodes" selectionMode="multiple" v-model:selectionKeys="selectedKeys1"&gt;&lt;/Tree&gt;
 
 &lt;h3&gt;Multiple Selection without MetaKey&lt;/h3&gt;
-&lt;Tree :value="nodes" selectionMode="multiple" :selectionKeys.sync="selectedKeys2" :metaKeySelection="false"&gt;&lt;/Tree&gt;
+&lt;Tree :value="nodes" selectionMode="multiple" v-model:selectionKeys="selectedKeys2" :metaKeySelection="false"&gt;&lt;/Tree&gt;
 
 &lt;h3&gt;Checkbox Selection&lt;/h3&gt;
-&lt;Tree :value="nodes" selectionMode="checkbox" :selectionKeys.sync="selectedKeys3"&gt;&lt;/Tree&gt;
+&lt;Tree :value="nodes" selectionMode="checkbox" v-model:selectionKeys="selectedKeys3"&gt;&lt;/Tree&gt;
 
 &lt;h3&gt;Events&lt;/h3&gt;
-&lt;Tree :value="nodes" selectionMode="single" :selectionKeys.sync="selectedKey2" :metaKeySelection="false"
+&lt;Tree :value="nodes" selectionMode="single" v-model:selectionKeys="selectedKey2" :metaKeySelection="false"
     @node-select="onNodeSelect" @node-unselect="onNodeUnselect"&gt;&lt;/Tree&gt;
 </template>
 </code></pre>

@@ -191,11 +191,11 @@ export default {
 </code></pre>
 
 				<h5>Selection</h5>
-				<p>Selection is enabled by defining the <i>selectionMode</i> to either "single" or "multiple" and specifying the <i>selectionKeys</i> with the sync operator. Note that
+				<p>Selection is enabled by defining the <i>selectionMode</i> to either "single" or "multiple" and specifying the <i>selectionKeys</i> with the v-model directive. Note that
                 selection on a particular node can be disabled if the <i>selectable</i> is false on the node instance.</p>
 <pre v-code>
 <code><template v-pre>
- &lt;OrganizationChart :value="data" selecionMode="single" :selectionKeys.sync="selectionKeys"&gt;
+ &lt;OrganizationChart :value="data" selecionMode="single" v-model:selectionKeys="selectionKeys"&gt;
     &lt;template #default="slotProps"&gt;
         &lt;span&gt;&#123;&#123;slotProps.node.data.label&#125;&#125;&lt;/span&gt;
     &lt;/template&gt;
@@ -496,7 +496,7 @@ export default {
 <pre v-code>
 <code><template v-pre>
 &lt;h3&gt;Advanced&lt;/h3&gt;
-&lt;OrganizationChart :value="data1" :collapsible="true" class="company" selectionMode="single" :selectionKeys.sync="selection"
+&lt;OrganizationChart :value="data1" :collapsible="true" class="company" selectionMode="single" v-model:selectionKeys="selection"
     @node-select="onNodeSelect" @node-unselect="onNodeUnselect" @node-collapse="onNodeCollapse" @node-expand="onNodeExpand"&gt;
     &lt;template #person="slotProps"&gt;
         &lt;div class="node-header ui-corner-top"&gt;&#123;&#123;slotProps.node.data.label&#125;&#125;&lt;/div&gt;
