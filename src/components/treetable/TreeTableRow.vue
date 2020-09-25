@@ -18,7 +18,7 @@
     </tr>
     <template v-if="expanded && node.children && node.children.length">
         <sub-ttnode v-for="childNode of node.children" :key="childNode.key" :columns="columns" :node="childNode" :parentNode="node"  :level="level + 1"
-                        :expandedKeys="expandedKeys" :selectionMode="selectionMode" :selectionKeys="selectionKeys" 
+                        :expandedKeys="expandedKeys" :selectionMode="selectionMode" :selectionKeys="selectionKeys" :togglerStyleMarginLeft="togglerStyleMarginLeft"
                         @node-toggle="$emit('node-toggle', $event)" @node-click="$emit('node-click', $event)" @checkbox-change="onCheckboxChange"></sub-ttnode>
     </template>
 </template>
@@ -59,6 +59,10 @@ export default {
         level: {
             type: Number,
             default: 0
+        },
+        togglerStyleMarginLeft: {
+            type: Number,
+            default: 16
         }
     },
     data() {
@@ -261,7 +265,7 @@ export default {
         },
         togglerStyle() {
             return {
-                marginLeft: this.level * 16 + 'px',
+                marginLeft: this.level * this.togglerStyleMarginLeft + 'px',
                 visibility: this.leaf ? 'hidden' : 'visible'
             };
         },

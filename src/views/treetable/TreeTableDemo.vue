@@ -10,7 +10,7 @@
         <div class="content-section implementation">
             <div class="card">
                 <h5>Basic</h5>
-                <TreeTable :value="nodes">
+                <TreeTable :value="nodes" :togglerStyleMarginLeft="24">
                     <Column field="name" header="Name" :expander="true"></Column>
                     <Column field="size" header="Size"></Column>
                     <Column field="type" header="Type"></Column>

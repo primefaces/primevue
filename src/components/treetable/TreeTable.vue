@@ -48,7 +48,7 @@
                     <template v-if="!empty">
                         <TTRow v-for="node of dataToRender" :key="node.key" :columns="columns" :node="node" :level="0"
                         :expandedKeys="d_expandedKeys" @node-toggle="onNodeToggle"
-                        :selectionMode="selectionMode" :selectionKeys="selectionKeys" @node-click="onNodeClick" @checkbox-change="onCheckboxChange"></TTRow>
+                        :selectionMode="selectionMode" :selectionKeys="selectionKeys" :togglerStyleMarginLeft="togglerStyleMarginLeft" @node-click="onNodeClick" @checkbox-change="onCheckboxChange"></TTRow>
                     </template>
                     <tr v-else class="p-treetable-emptymessage">
                         <td :colspan="columns.length">
@@ -206,6 +206,10 @@ export default {
         columnResizeMode: {
             type: String,
             default: 'fit'
+        },
+        togglerStyleMarginLeft: {
+            type: Number,
+            default: 16
         }
     },
     documentColumnResizeListener: null,
