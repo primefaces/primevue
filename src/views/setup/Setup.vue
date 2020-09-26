@@ -1,6 +1,8 @@
 <template>
     <div>
         <div class="content-section documentation">
+            <Message severity="info">This guide is for Vue 3 and PrimeVue 3, visit <a href="https://www.primefaces.org/primevue/showcase-v2">PrimeVue 2.x website</a> if you are using Vue 2.</Message>
+
             <h1>Setup</h1>
             <p>PrimeVue is a rich set of open source native components for Vue.</p>
 
@@ -33,7 +35,10 @@ import Dialog from 'primevue/dialog';
             <p>In the next step, register the component with the tag name you'd like to use.</p>
 <pre v-code.script>
 <code>
-Vue.component('Dialog', Dialog);
+import {createApp} from 'vue';
+const app = createApp(App);
+
+app.component('Dialog', Dialog);
 
 </code></pre>
 
@@ -74,15 +79,17 @@ new Vue({
             <p>Majority of PrimeVue components (95%) are native and there are some exceptions having 3rd party dependencies such as Quill for Editor.</p>
             <p>In addition, components require PrimeIcons library for icons.</p>
 
+            <h6>Mandatory</h6>
 <pre v-code.script>
 <code>
 dependencies: {
-    "vue": "^2.6.10",
+    "vue": "^3.0.0",
     "primeicons": "^4.0.0"
 }
 
 </code></pre>
 
+            <h6>Optional</h6>
             <p>Here is the list of components with 3rd party dependencies.</p>
             <div class="doc-tablewrapper">
                 <table class="doc-table">
@@ -171,11 +178,14 @@ primevue/resources/themes/rhea/theme.css
 
             <h5>Ripple</h5>
             <p>Ripple is an optional animation for the supported components such as buttons. It is disabled by default and needs to be enabled at
-                your app's entry file (e.g. main.js) using the <i>$primevue</i> instance variable.
+                your app's entry file (e.g. main.js) using the <i>$primevue</i> global variable.
             </p>
 <pre v-code.script>
 <code>
-Vue.prototype.$primevue = {ripple: true};
+import {createApp} from 'vue';
+const app = createApp(App);
+
+app.config.globalProperties.$primevue = {ripple: true};
 
 </code></pre>
 
@@ -184,42 +194,6 @@ Vue.prototype.$primevue = {ripple: true};
 
             <h5>Typescript</h5>
             <p>Typescript is fully supported as type definition files are provided in the npm package of PrimeVue. A sample <a href="https://github.com/primefaces/primevue-typescript-quickstart">typescript-primevue</a> application is available as well at github.</p>
-
-            <h5>Nuxt.js Integration</h5>
-            <p>PrimeVue can easily be added to a Nuxt.js with the following steps.</p>
-            <p><strong>1)</strong> Add primevue.js to the plugins folder with the components you'd like to use.</p>
-<pre v-code.script>
-<code>
-import Vue from 'vue';
-import InputText from 'primevue/inputtext';
-import Button from 'primevue/button';
-import Toast from 'primevue/toast';
-import ToastService from 'primevue/toastservice';
-
-Vue.use(ToastService);
-
-Vue.component('InputText', InputText);
-Vue.component('Button', Button);
-Vue.component('Toast', Toast);
-
-</code></pre>
-
-            <p><strong>2)</strong> Add requires CSS dependencies and the plugin configuration in nuxt.config.js.</p>
-<pre v-code.script>
-<code>
-css: [
-    {src: 'primevue/resources/primevue.min.css'},
-    {src: 'primevue/resources/themes/saga-blue/theme.css'},
-    {src: 'primeicons/primeicons.css'},
-  ],
-plugins: [
-    {src:'~/plugins/primevue.js', mode: 'client'}
-]
-
-</code></pre>
-
-            <p>That is all, for a complete example please refer to the <a href="https://github.com/primefaces/primevue-nuxtjs-quickstart">primevue-nuxtjs-quickstart</a> sample.</p>
-
         </div>
     </div>
 </template>
