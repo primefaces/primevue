@@ -1,6 +1,7 @@
 <template>
     <div class="home">
         <div :class="introductionClass">
+            <div class="introduction-promo">Now with Vue 3 Support</div>
             <div class="introduction-title">The Ultimate UI Component Library</div>
             <div class="introduction-subtitle">for Vue</div>
 
