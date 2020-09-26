@@ -20,7 +20,7 @@
                     <div>{{file.name}}</div>
                     <div>{{formatSize(file.size)}}</div>
                     <div>
-                        <Button type="button" icon="pi pi-times" @click="remove(index)" />
+                        <FileUploadButton type="button" icon="pi pi-times" @click="remove(index)" />
                     </div>
                 </div>
             </div>
