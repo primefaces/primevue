@@ -1,6 +1,10 @@
 <template>
     <div :class="['layout-sidebar', {'active': active}]">
         <div class="layout-menu">
+            <div class="menu-category">Vue 2</div>
+            <div class="menu-items">
+                <a href="https://www.primefaces.org/primevue/showcase-v2" target="_blank">PrimeVue v2</a>
+            </div>
             <div class="menu-category">General</div>
             <div class="menu-items">
                 <router-link to="/setup">Get Started</router-link>
@@ -8,7 +12,6 @@
                 <a href="https://github.com/primefaces/primevue" target="_blank">Source Code</a>
                 <router-link to="/support">Support</router-link>
                 <a href="https://www.primefaces.org/store" target="_blank">Store</a>
-                <a href="https://www.primefaces.org/primevue/showcase-v2" target="_blank">Vue 2</a>
             </div>
 
             <div class="menu-category">Theming</div>
