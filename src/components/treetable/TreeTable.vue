@@ -1,5 +1,5 @@
 <template>
-    <div :class="containerClass">
+    <div :class="containerClass" data-scrollselectors=".p-treetable-scrollable-body">
         <div class="p-treetable-loading" v-if="loading">
             <div class="p-treetable-loading-overlay p-component-overlay">
                 <i :class="loadingIconClass"></i>
@@ -785,7 +785,7 @@ export default {
         columns() {
             let cols = [];
             let children = this.$slots.default();
-            
+
             children.forEach(child => {
                 if (child.dynamicChildren)
                     cols = [...cols, ...child.children];

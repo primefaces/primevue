@@ -1,5 +1,5 @@
 <template>
-    <div :class="containerClass">
+    <div :class="containerClass" data-scrollselectors=".p-datatable-scrollable-body, .p-datatable-unfrozen-view .p-datatable-scrollable-body">
         <slot></slot>
         <div class="p-datatable-loading-overlay p-component-overlay" v-if="loading">
             <i :class="loadingIconClass"></i>
@@ -937,9 +937,9 @@ export default {
             let headerInitiated = false;
             for (let i = 0; i < this.columns.length; i++) {
                 let column = this.columns[i];
-                
+
                 if (column.props?.exportable !== false && column.props?.field) {
-                    if (headerInitiated) 
+                    if (headerInitiated)
                         csv += this.csvSeparator;
                     else
                         headerInitiated = true;
@@ -956,7 +956,7 @@ export default {
                     for (let i = 0; i < this.columns.length; i++) {
                         let column = this.columns[i];
                         if (column.props?.exportable !== false && column.props?.field) {
-                            if (rowInitiated) 
+                            if (rowInitiated)
                                 csv += this.csvSeparator;
                             else
                                 rowInitiated = true;
@@ -1652,7 +1652,7 @@ export default {
         columns() {
             let cols = [];
             let children = this.$slots.default();
-            
+
             children.forEach(child => {
                 if (child.dynamicChildren)
                     cols = [...cols, ...child.children];
@@ -1671,7 +1671,7 @@ export default {
 
                 return [...orderedColumns, ...cols.filter((item) => orderedColumns.indexOf(item) < 0)];
             }
-            
+
             return cols;
         },
         frozenColumns() {
