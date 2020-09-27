@@ -50,7 +50,6 @@ export default {
                 document.activeElement.blur();
             }
             else {
-                debugger;
                 this.mask = document.createElement('div');
                 this.mask.setAttribute('class', 'p-blockui');
                 this.$refs.container.appendChild(this.mask);
