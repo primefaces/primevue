@@ -1,7 +1,6 @@
 import Vue, { VNode } from 'vue';
 
 export declare class AutoComplete extends Vue {
-    id?: string;
     modelValue?: any;
     suggestions?: any[];
     field?: string;

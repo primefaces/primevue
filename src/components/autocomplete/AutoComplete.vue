@@ -1,5 +1,5 @@
 <template>
-    <span ref="container" :id="containerId" :class="containerClass" aria-haspopup="listbox" :aria-owns="listId" :aria-expanded="overlayVisible" :style="style">
+    <span ref="container" :class="containerClass" aria-haspopup="listbox" :aria-owns="listId" :aria-expanded="overlayVisible" :style="style">
         <input ref="input" :class="inputClass" v-bind="$attrs" :value="inputValue" @input="onInput" @focus="onFocus" @blur="onBlur" @keydown="onKeyDown" type="text" autoComplete="off" v-if="!multiple"
             role="searchbox" aria-autocomplete="list" :aria-controls="listId">
         <ul ref="multiContainer" :class="multiContainerClass" v-if="multiple" @click="onMultiContainerClick">
@@ -39,7 +39,6 @@ import Ripple from '../ripple/Ripple';
 export default {
     inheritAttrs: false,
     props: {
-        id: null,
         modelValue: null,
         suggestions: {
             type: Array,
@@ -144,7 +143,8 @@ export default {
         },
         bindScrollListener() {
             if (!this.scrollHandler) {
-                this.scrollHandler = new ConnectedOverlayScrollHandler(this.$refs.container, this.containerId, () => {
+                const { id } = this.$attrs;
+                this.scrollHandler = new ConnectedOverlayScrollHandler(this.$refs.container, id, () => {
                     if (this.overlayVisible) {
                         this.hideOverlay();
                     }
@@ -407,12 +407,6 @@ export default {
         }
     },
     computed: {
-        containerId() {
-            return this.id || UniqueComponentId();
-        },
-        listId() {
-            return this.containerId + '_list';
-        },
         containerClass() {
             return ['p-autocomplete p-component p-inputwrapper', this.class, {
                 'p-autocomplete-dd': this.dropdown,
@@ -445,6 +439,9 @@ export default {
             else {
                 return '';
             }
+        },
+        listId() {
+            return UniqueComponentId() + '_list';
         }
     },
     components: {
