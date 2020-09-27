@@ -1,7 +1,7 @@
 <template>
     <span :class="containerClass" :style="style">
-        <INInputText ref="input" class="p-inputnumber-input" :value="formattedValue" v-bind="$attrs" :aria-valumin="min" :aria-valuemax="max" 
-           @input="onInput" @keydown="onInputKeyDown" @keypress="onInputKeyPress" @paste="onPaste" @click="onInputClick" @focus="onInputFocus" @blur="onInputBlur"/>
+        <INInputText ref="input" class="p-inputnumber-input" :value="formattedValue" v-bind="$attrs" :aria-valumin="min" :aria-valuemax="max"
+           @input="onUserInput" @keydown="onInputKeyDown" @keypress="onInputKeyPress" @paste="onPaste" @click="onInputClick" @focus="onInputFocus" @blur="onInputBlur"/>
         <span class="p-inputnumber-button-group" v-if="showButtons && buttonLayout === 'stacked'">
             <INButton :class="upButtonClass" :icon="incrementButtonIcon" v-on="upButtonListeners" :disabled="$attrs.disabled" />
             <INButton :class="downButtonClass" :icon="decrementButtonIcon" v-on="downButtonListeners" :disabled="$attrs.disabled" />
@@ -271,6 +271,8 @@ export default {
 
             this.updateInput(newValue, null, 'spin');
             this.updateModel(event, newValue);
+
+            this.handleOnInput(event, currentValue, newValue);
         },
         onUpButtonMouseDown(event) {
             this.$refs.input.$el.focus();
@@ -310,7 +312,7 @@ export default {
                 this.repeat(event, null, -1);
             }
         },
-        onInput() {
+        onUserInput() {
             if (this.isSpecialChar) {
                 this.$refs.input.$el.value = this.lastValue;
             }
@@ -614,10 +616,32 @@ export default {
             this._minusSign.lastIndex =  0;
         },
         updateValue(event, valueStr, insertedValueStr, operation) {
+            let currentValue = this.$refs.input.$el.value;
+            let newValue = null;
+
             if (valueStr != null) {
-                let newValue = this.parseValue(valueStr);
+                newValue = this.parseValue(valueStr);
                 this.updateInput(newValue, insertedValueStr, operation);
             }
+
+            this.handleOnInput(event, currentValue, newValue);
+        },
+        handleOnInput(event, currentValue, newValue) {
+            if (this.isValueChanged(currentValue, newValue)) {
+                this.$emit('input', { originalEvent: event, value: newValue });
+            }
+        },
+        isValueChanged(currentValue, newValue) {
+            if (newValue === null && currentValue !== null) {
+                return true;
+            }
+
+            if (newValue != null) {
+                let parsedCurrentValue = (typeof currentValue === 'string') ? this.parseValue(currentValue) : currentValue;
+                return newValue !== parsedCurrentValue;
+            }
+
+            return false;
         },
         validateValue(value) {
             if (this.min != null && value < this.min) {
