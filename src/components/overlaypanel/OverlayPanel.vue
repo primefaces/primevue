@@ -1,6 +1,6 @@
 <template>
     <transition name="p-overlaypanel" @enter="onEnter" @leave="onLeave">
-        <div class="p-overlaypanel p-component" v-if="visible" :ref="containerRef">
+        <div class="p-overlaypanel p-component" v-if="visible" :id="containerId" :ref="containerRef">
             <div class="p-overlaypanel-content">
                 <slot></slot>
             </div>
@@ -12,11 +12,14 @@
 </template>
 
 <script>
+import ConnectedOverlayScrollHandler from '../utils/ConnectedOverlayScrollHandler';
+import UniqueComponentId from '../utils/UniqueComponentId';
 import DomHandler from '../utils/DomHandler';
 import Ripple from '../ripple/Ripple';
 
 export default {
     props: {
+        id: null,
 		dismissable: {
 			type: Boolean,
 			default: true
@@ -49,6 +52,7 @@ export default {
     },
     target: null,
     outsideClickListener: null,
+    scrollHandler: null,
     resizeListener: null,
     container: null,
     beforeUnmount() {
@@ -57,6 +61,8 @@ export default {
         if (this.dismissable) {
             this.unbindOutsideClickListener();
         }
+        this.unbindScrollListener();
+        this.scrollHandler = null;
         this.target = null;
         this.container = null;
     },
@@ -82,6 +88,7 @@ export default {
             }
 
             this.bindResizeListener();
+            this.bindScrollListener();
 
             if (this.autoZIndex) {
                 this.container.style.zIndex = String(this.baseZIndex + DomHandler.generateZIndex());
@@ -90,6 +97,7 @@ export default {
         onLeave() {
             this.unbindOutsideClickListener();
             this.unbindResizeListener();
+            this.unbindScrollListener();
         },
         alignOverlay() {
             DomHandler.absolutePosition(this.container, this.target);
@@ -112,6 +120,22 @@ export default {
             if (this.outsideClickListener) {
                 document.removeEventListener('click', this.outsideClickListener);
                 this.outsideClickListener = null;
+            }
+        },
+        bindScrollListener() {
+            if (!this.scrollHandler) {
+                this.scrollHandler = new ConnectedOverlayScrollHandler(this.target, this.containerId, () => {
+                    if (this.visible) {
+                        this.visible = false;
+                    }
+                });
+            }
+
+            this.scrollHandler.bindScrollListener();
+        },
+        unbindScrollListener() {
+            if (this.scrollHandler) {
+                this.scrollHandler.unbindScrollListener();
             }
         },
         bindResizeListener() {
@@ -151,6 +175,11 @@ export default {
         },
         containerRef(el) {
             this.container = el;
+        }
+    },
+    computed: {
+        containerId() {
+            return this.id || UniqueComponentId();
         }
     },
     directives: {
