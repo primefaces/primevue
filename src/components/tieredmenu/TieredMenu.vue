@@ -1,17 +1,20 @@
 <template>
     <transition name="p-connected-overlay" @enter="onEnter" @leave="onLeave">
-        <div :ref="containerRef" :class="containerClass" v-if="popup ? visible : true">
+        <div :ref="containerRef" :id="containerId" :class="containerClass" v-if="popup ? visible : true">
             <TieredMenuSub :model="model" :root="true" :popup="popup" @leaf-click="onLeafClick"/>
         </div>
     </transition>
 </template>
 
 <script>
+import ConnectedOverlayScrollHandler from '../utils/ConnectedOverlayScrollHandler';
+import UniqueComponentId from '../utils/UniqueComponentId';
 import DomHandler from '../utils/DomHandler';
 import TieredMenuSub from './TieredMenuSub';
 
 export default {
     props: {
+        id: null,
         popup: {
             type: Boolean,
             default: false
@@ -36,6 +39,7 @@ export default {
     target: null,
     container: null,
     outsideClickListener: null,
+    scrollHandler: null,
     resizeListener: null,
     data() {
         return {
@@ -46,6 +50,8 @@ export default {
         this.restoreAppend();
         this.unbindResizeListener();
         this.unbindOutsideClickListener();
+        this.unbindScrollListener();
+        this.scrollHandler = null;
         this.target = null;
         this.container = null;
     },
@@ -76,6 +82,7 @@ export default {
             this.alignOverlay();
             this.bindOutsideClickListener();
             this.bindResizeListener();
+            this.bindScrollListener();
 
             if (this.autoZIndex) {
                 this.container.style.zIndex = String(this.baseZIndex + DomHandler.generateZIndex());
@@ -84,6 +91,7 @@ export default {
         onLeave() {
             this.unbindOutsideClickListener();
             this.unbindResizeListener();
+            this.unbindScrollListener();
         },
         alignOverlay() {
             DomHandler.absolutePosition(this.container, this.target);
@@ -102,6 +110,22 @@ export default {
             if (this.outsideClickListener) {
                 document.removeEventListener('click', this.outsideClickListener);
                 this.outsideClickListener = null;
+            }
+        },
+        bindScrollListener() {
+            if (!this.scrollHandler) {
+                this.scrollHandler = new ConnectedOverlayScrollHandler(this.target, this.containerId, () => {
+                    if (this.visible) {
+                        this.hide();
+                    }
+                });
+            }
+
+            this.scrollHandler.bindScrollListener();
+        },
+        unbindScrollListener() {
+            if (this.scrollHandler) {
+                this.scrollHandler.unbindScrollListener();
             }
         },
         bindResizeListener() {
@@ -149,6 +173,9 @@ export default {
         }
     },
     computed: {
+        containerId() {
+            return this.id || UniqueComponentId();
+        },
         containerClass() {
             return ['p-tieredmenu p-component', {
                 'p-tieredmenu-overlay': this.popup
