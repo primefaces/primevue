@@ -1,6 +1,7 @@
 import Vue from 'vue';
 
 export declare class Menu extends Vue {
+    id?: string;
     popup?: boolean;
     model?: any[];
     appendTo?: string;
