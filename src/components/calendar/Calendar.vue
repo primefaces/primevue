@@ -1,5 +1,5 @@
 <template>
-    <span :class="containerClass" :style="style">
+    <span ref="container" :class="containerClass" :style="style">
         <CalendarInputText ref="input" v-if="!inline" type="text" v-bind="$attrs" :value="inputFieldValue" @input="onInput" @focus="onFocus" @blur="onBlur" @keydown="onKeyDown" :readonly="!manualInput" inputmode="none" />
         <CalendarButton v-if="showIcon" :icon="icon" tabindex="-1" class="p-datepicker-trigger" :disabled="$attrs.disabled" @click="onButtonClick" type="button" :aria-label="inputFieldValue"/>
         <transition name="p-connected-overlay" @enter="onOverlayEnter($event)" @after-enter="onOverlayEnterComplete" @leave="onOverlayLeave">
@@ -130,6 +130,7 @@
 </template>
 
 <script>
+import ConnectedOverlayScrollHandler from '../utils/ConnectedOverlayScrollHandler';
 import InputText from '../inputtext/InputText';
 import Button from '../button/Button';
 import DomHandler from '../utils/DomHandler';
@@ -308,6 +309,7 @@ export default {
         style: null
     },
     navigationState: null,
+    scrollHandler: null,
     created() {
         this.updateCurrentMetaData();
     },
@@ -340,6 +342,8 @@ export default {
 
         this.restoreAppend();
         this.unbindOutsideClickListener();
+        this.unbindScrollListener();
+        this.scrollHandler = null;
         this.overlay = null;
     },
     data() {
@@ -537,9 +541,11 @@ export default {
         },
         onOverlayEnterComplete() {
             this.bindOutsideClickListener();
+            this.bindScrollListener();
         },
         onOverlayLeave() {
             this.unbindOutsideClickListener();
+            this.unbindScrollListener();
             this.$emit('hide');
             this.overlay = null;
         },
@@ -636,6 +642,23 @@ export default {
             if (this.outsideClickListener) {
                 document.removeEventListener('mousedown', this.outsideClickListener);
                 this.outsideClickListener = null;
+            }
+        },
+        bindScrollListener() {
+            if (!this.scrollHandler) {
+                const { id } = this.$attrs;
+                this.scrollHandler = new ConnectedOverlayScrollHandler(this.$refs.container, id, () => {
+                    if (this.overlayVisible) {
+                        this.overlayVisible = false;
+                    }
+                });
+            }
+
+            this.scrollHandler.bindScrollListener();
+        },
+        unbindScrollListener() {
+            if (this.scrollHandler) {
+                this.scrollHandler.unbindScrollListener();
             }
         },
         isOutsideClicked(event) {
