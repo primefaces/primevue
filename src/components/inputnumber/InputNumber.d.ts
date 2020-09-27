@@ -23,4 +23,5 @@ export declare class InputNumber extends Vue {
     max?: number;
     step?: number;
     $emit(eventName: string, value: number | Event): this;
+    $emit(eventName: 'input', e: {originalEvent: Event, value: any}): this;
 }
