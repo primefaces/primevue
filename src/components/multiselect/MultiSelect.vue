@@ -1,5 +1,5 @@
 <template>
-    <div ref="container" :id="containerId" :class="containerClass" @click="onClick">
+    <div ref="container" :class="containerClass" @click="onClick">
         <div class="p-hidden-accessible">
             <input ref="focusInput" type="text" role="listbox" :id="inputId" readonly :disabled="disabled" @focus="onFocus" @blur="onBlur" @keydown="onKeyDown" :tabindex="tabindex"
                 aria-haspopup="listbox" :aria-expanded="overlayVisible" :aria-labelledby="ariaLabelledBy"/>
@@ -56,14 +56,12 @@
 
 <script>
 import ConnectedOverlayScrollHandler from '../utils/ConnectedOverlayScrollHandler';
-import UniqueComponentId from '../utils/UniqueComponentId';
 import ObjectUtils from '../utils/ObjectUtils';
 import DomHandler from '../utils/DomHandler';
 import Ripple from '../ripple/Ripple';
 
 export default {
     props: {
-        id: null,
         modelValue: null,
         options: Array,
         optionLabel: null,
@@ -317,7 +315,8 @@ export default {
         },
         bindScrollListener() {
             if (!this.scrollHandler) {
-                this.scrollHandler = new ConnectedOverlayScrollHandler(this.$refs.container, this.containerId, () => {
+                const { id } = this.$attrs;
+                this.scrollHandler = new ConnectedOverlayScrollHandler(this.$refs.container, id, () => {
                     if (this.overlayVisible) {
                         this.hide();
                     }
@@ -380,9 +379,6 @@ export default {
         }
     },
     computed: {
-        containerId() {
-            return this.id || UniqueComponentId();
-        },
         visibleOptions() {
             if (this.filterValue && this.filterValue.trim().length > 0)
                 return this.options.filter(option => this.getOptionLabel(option).toLocaleLowerCase(this.filterLocale).indexOf(this.filterValue.toLocaleLowerCase(this.filterLocale)) > -1);
