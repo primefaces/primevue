@@ -1,5 +1,5 @@
 <template>
-    <div :class="containerClass" @click="onClick">
+    <div ref="container" :id="containerId" :class="containerClass" @click="onClick">
         <div class="p-hidden-accessible">
             <input ref="focusInput" type="text" role="listbox" :id="inputId" readonly :disabled="disabled" @focus="onFocus" @blur="onBlur" @keydown="onKeyDown" :tabindex="tabindex"
                 aria-haspopup="listbox" :aria-expanded="overlayVisible" :aria-labelledby="ariaLabelledBy"/>
@@ -55,12 +55,15 @@
 </template>
 
 <script>
+import ConnectedOverlayScrollHandler from '../utils/ConnectedOverlayScrollHandler';
+import UniqueComponentId from '../utils/UniqueComponentId';
 import ObjectUtils from '../utils/ObjectUtils';
 import DomHandler from '../utils/DomHandler';
 import Ripple from '../ripple/Ripple';
 
 export default {
     props: {
+        id: null,
         modelValue: null,
         options: Array,
         optionLabel: null,
@@ -97,10 +100,13 @@ export default {
         };
     },
     outsideClickListener: null,
+    scrollHandler: null,
     overlay: null,
     beforeUnmount() {
         this.restoreAppend();
         this.unbindOutsideClickListener();
+        this.unbindScrollListener();
+        this.scrollHandler = null;
         this.overlay = null;
     },
     updated() {
@@ -275,10 +281,12 @@ export default {
             this.appendContainer();
             this.alignOverlay();
             this.bindOutsideClickListener();
+            this.bindScrollListener();
             this.$emit('show');
         },
         onOverlayLeave() {
             this.unbindOutsideClickListener();
+            this.unbindScrollListener();
             this.$emit('hide');
             this.overlay = null;
         },
@@ -305,6 +313,22 @@ export default {
             if (this.outsideClickListener) {
                 document.removeEventListener('click', this.outsideClickListener);
                 this.outsideClickListener = null;
+            }
+        },
+        bindScrollListener() {
+            if (!this.scrollHandler) {
+                this.scrollHandler = new ConnectedOverlayScrollHandler(this.$refs.container, this.containerId, () => {
+                    if (this.overlayVisible) {
+                        this.hide();
+                    }
+                });
+            }
+
+            this.scrollHandler.bindScrollListener();
+        },
+        unbindScrollListener() {
+            if (this.scrollHandler) {
+                this.scrollHandler.unbindScrollListener();
             }
         },
         isOutsideClicked(event) {
@@ -356,6 +380,9 @@ export default {
         }
     },
     computed: {
+        containerId() {
+            return this.id || UniqueComponentId();
+        },
         visibleOptions() {
             if (this.filterValue && this.filterValue.trim().length > 0)
                 return this.options.filter(option => this.getOptionLabel(option).toLocaleLowerCase(this.filterLocale).indexOf(this.filterValue.toLocaleLowerCase(this.filterLocale)) > -1);
