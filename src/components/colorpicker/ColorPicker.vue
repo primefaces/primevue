@@ -1,5 +1,5 @@
 <template>
-    <div :class="containerClass">
+    <div ref="container" :class="containerClass">
         <input ref="input" type="text" :class="inputClass" readonly="readonly" :tabindex="tabindex" :disabled="disabled"
             @click="onInputClick" @keydown="onInputKeydown" v-if="!inline" :aria-labelledby="ariaLabelledBy"/>
         <transition name="p-connected-overlay" @enter="onOverlayEnter" @leave="onOverlayLeave">
@@ -20,6 +20,7 @@
 </template>
 
 <script>
+import ConnectedOverlayScrollHandler from '../utils/ConnectedOverlayScrollHandler';
 import DomHandler from '../utils/DomHandler';
 
 export default {
@@ -70,6 +71,7 @@ export default {
     outsideClickListener: null,
     documentMouseMoveListener: null,
     documentMouseUpListener: null,
+    scrollHandler: null,
     hueDragging: null,
     colorDragging: null,
     selfUpdate: null,
@@ -82,6 +84,8 @@ export default {
         this.unbindOutsideClickListener();
         this.unbindDocumentMouseMoveListener();
         this.unbindDocumentMouseUpListener();
+        this.unbindScrollListener();
+        this.scrollHandler = null;
         this.clearRefs();
     },
     mounted() {
@@ -323,6 +327,7 @@ export default {
             this.updateUI();
             this.alignOverlay();
             this.bindOutsideClickListener();
+            this.bindScrollListener();
 
             if (this.autoZIndex) {
                 this.picker.style.zIndex = String(this.baseZIndex + DomHandler.generateZIndex());
@@ -330,6 +335,7 @@ export default {
         },
         onOverlayLeave() {
             this.unbindOutsideClickListener();
+            this.unbindScrollListener();
             this.clearRefs();
         },
         alignOverlay() {
@@ -400,6 +406,23 @@ export default {
             if (this.outsideClickListener) {
                 document.removeEventListener('click', this.outsideClickListener);
                 this.outsideClickListener = null;
+            }
+        },
+        bindScrollListener() {
+            if (!this.scrollHandler) {
+                const { id } = this.$attrs;
+                this.scrollHandler = new ConnectedOverlayScrollHandler(this.$refs.container, id, () => {
+                    if (this.overlayVisible) {
+                        this.overlayVisible = false;
+                    }
+                });
+            }
+
+            this.scrollHandler.bindScrollListener();
+        },
+        unbindScrollListener() {
+            if (this.scrollHandler) {
+                this.scrollHandler.unbindScrollListener();
             }
         },
         bindDocumentMouseMoveListener() {
