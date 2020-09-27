@@ -1,5 +1,5 @@
 <template>
-    <span :class="containerClass" aria-haspopup="listbox" :aria-owns="listId" :aria-expanded="overlayVisible" :style="style">
+    <span ref="container" :id="containerId" :class="containerClass" aria-haspopup="listbox" :aria-owns="listId" :aria-expanded="overlayVisible" :style="style">
         <input ref="input" :class="inputClass" v-bind="$attrs" :value="inputValue" @input="onInput" @focus="onFocus" @blur="onBlur" @keydown="onKeyDown" type="text" autoComplete="off" v-if="!multiple"
             role="searchbox" aria-autocomplete="list" :aria-controls="listId">
         <ul ref="multiContainer" :class="multiContainerClass" v-if="multiple" @click="onMultiContainerClick">
@@ -8,8 +8,8 @@
                 <span class="p-autocomplete-token-icon pi pi-times-circle" @click="removeItem($event, i)"></span>
             </li>
             <li class="p-autocomplete-input-token">
-                <input ref="input" type="text" autoComplete="off" v-bind="$attrs" @input="onInput" @focus="onFocus" @blur="onBlur" @keydown="onKeyDown" 
-                role="searchbox" aria-autocomplete="list" :aria-controls="listId">
+                <input ref="input" type="text" autoComplete="off" v-bind="$attrs" @input="onInput" @focus="onFocus" @blur="onBlur" @keydown="onKeyDown"
+                    role="searchbox" aria-autocomplete="list" :aria-controls="listId">
             </li>
         </ul>
         <i class="p-autocomplete-loader pi pi-spinner pi-spin" v-if="searching"></i>
@@ -29,15 +29,17 @@
 </template>
 
 <script>
+import ConnectedOverlayScrollHandler from '../utils/ConnectedOverlayScrollHandler';
+import UniqueComponentId from '../utils/UniqueComponentId';
 import ObjectUtils from '../utils/ObjectUtils';
 import DomHandler from '../utils/DomHandler';
 import Button from '../button/Button';
-import UniqueComponentId from '../utils/UniqueComponentId';
 import Ripple from '../ripple/Ripple';
 
 export default {
     inheritAttrs: false,
     props: {
+        id: null,
         modelValue: null,
         suggestions: {
             type: Array,
@@ -80,6 +82,7 @@ export default {
     },
     timeout: null,
     outsideClickListener: null,
+    scrollHandler: null,
     overlay: null,
     data() {
         return {
@@ -105,6 +108,8 @@ export default {
     beforeUnmount() {
         this.restoreAppend();
         this.unbindOutsideClickListener();
+        this.unbindScrollListener();
+        this.scrollHandler = null;
         this.overlay = null;
     },
     methods: {
@@ -113,9 +118,11 @@ export default {
             this.appendContainer();
             this.alignOverlay();
             this.bindOutsideClickListener();
+            this.bindScrollListener();
         },
         onOverlayLeave() {
             this.unbindOutsideClickListener();
+            this.unbindScrollListener();
             this.overlay = null;
         },
         alignOverlay() {
@@ -133,6 +140,22 @@ export default {
                     }
                 };
                 document.addEventListener('click', this.outsideClickListener);
+            }
+        },
+        bindScrollListener() {
+            if (!this.scrollHandler) {
+                this.scrollHandler = new ConnectedOverlayScrollHandler(this.$refs.container, this.containerId, () => {
+                    if (this.overlayVisible) {
+                        this.hideOverlay();
+                    }
+                });
+            }
+
+            this.scrollHandler.bindScrollListener();
+        },
+        unbindScrollListener() {
+            if (this.scrollHandler) {
+                this.scrollHandler.unbindScrollListener();
             }
         },
         isOutsideClicked(event) {
@@ -384,6 +407,12 @@ export default {
         }
     },
     computed: {
+        containerId() {
+            return this.id || UniqueComponentId();
+        },
+        listId() {
+            return this.containerId + '_list';
+        },
         containerClass() {
             return ['p-autocomplete p-component p-inputwrapper', this.class, {
                 'p-autocomplete-dd': this.dropdown,
@@ -416,9 +445,6 @@ export default {
             else {
                 return '';
             }
-        },
-        listId() {
-            return UniqueComponentId() + '_list';
         }
     },
     components: {
