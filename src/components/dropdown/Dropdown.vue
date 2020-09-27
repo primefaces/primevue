@@ -1,5 +1,5 @@
 <template>
-    <div :class="containerClass" @click="onClick($event)">
+    <div ref="container" :class="containerClass" @click="onClick($event)">
         <div class="p-hidden-accessible">
             <input ref="focusInput" type="text" :id="inputId" readonly :disabled="disabled" @focus="onFocus" @blur="onBlur" @keydown="onKeyDown" :tabindex="tabindex"
                 aria-haspopup="listbox" :aria-expanded="overlayVisible" :aria-labelledby="ariaLabelledBy"/>
@@ -40,6 +40,7 @@
 </template>
 
 <script>
+import ConnectedOverlayScrollHandler from '../utils/ConnectedOverlayScrollHandler';
 import ObjectUtils from '../utils/ObjectUtils';
 import DomHandler from '../utils/DomHandler';
 import Ripple from '../ripple/Ripple';
@@ -83,6 +84,7 @@ export default {
         };
     },
     outsideClickListener: null,
+    scrollHandler: null,
     searchTimeout: null,
     currentSearchChar: null,
     previousSearchChar: null,
@@ -91,6 +93,8 @@ export default {
     beforeUnmount() {
         this.restoreAppend();
         this.unbindOutsideClickListener();
+        this.unbindScrollListener();
+        this.scrollHandler = null;
         this.overlay = null;
     },
     updated() {
@@ -307,6 +311,7 @@ export default {
             this.appendContainer();
             this.alignOverlay();
             this.bindOutsideClickListener();
+            this.bindScrollListener();
 
             if (this.filter) {
                 this.$refs.filterInput.focus();
@@ -316,6 +321,7 @@ export default {
         },
         onOverlayLeave() {
             this.unbindOutsideClickListener();
+            this.unbindScrollListener();
             this.$emit('hide');
             this.overlay = null;
         },
@@ -345,6 +351,23 @@ export default {
             if (this.outsideClickListener) {
                 document.removeEventListener('click', this.outsideClickListener);
                 this.outsideClickListener = null;
+            }
+        },
+        bindScrollListener() {
+            if (!this.scrollHandler) {
+                const { id } = this.$attrs;
+                this.scrollHandler = new ConnectedOverlayScrollHandler(this.$refs.container, id, () => {
+                    if (this.overlayVisible) {
+                        this.hide();
+                    }
+                });
+            }
+
+            this.scrollHandler.bindScrollListener();
+        },
+        unbindScrollListener() {
+            if (this.scrollHandler) {
+                this.scrollHandler.unbindScrollListener();
             }
         },
         search(event) {
