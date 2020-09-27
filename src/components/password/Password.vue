@@ -1,9 +1,10 @@
 <template>
-    <input type="password" :class="['p-inputtext p-component', {'p-filled': filled}]" :value="modelValue" 
+    <input ref="input" type="password" :class="['p-inputtext p-component', {'p-filled': filled}]" :value="modelValue"
         @input="onInput" @focus="onFocus" @blur="onBlur" @keyup="onKeyUp" />
 </template>
 
 <script>
+import ConnectedOverlayScrollHandler from '../utils/ConnectedOverlayScrollHandler';
 import DomHandler from '../utils/DomHandler';
 
 export default {
@@ -43,9 +44,14 @@ export default {
     info: null,
     mediumCheckRegExp: null,
     strongCheckRegExp: null,
+    scrollHandler: null,
     mounted() {
         this.mediumCheckRegExp = new RegExp(this.mediumRegex);
         this.strongCheckRegExp = new RegExp(this.strongRegex);
+    },
+    beforeUnmount() {
+        this.unbindScrollListener();
+        this.scrollHandler = null;
     },
     methods: {
         testStrength(str) {
@@ -74,10 +80,10 @@ export default {
             this.panel.appendChild(this.info);
             document.body.appendChild(this.panel);
         },
-         onInput(event)  {
-             this.$emit('update:modelValue', event.target.value)
+        onInput(event)  {
+            this.$emit('update:modelValue', event.target.value)
         },
-        onFocus() {
+        showOverlay() {
             if (this.feedback) {
                 if (!this.panel) {
                     this.createPanel();
@@ -88,20 +94,28 @@ export default {
                 setTimeout(() => {
                     DomHandler.addClass(this.panel, 'p-connected-overlay-visible');
                     DomHandler.removeClass(this.panel, 'p-connected-overlay-hidden');
+                    this.bindScrollListener();
                 }, 1);
                 DomHandler.absolutePosition(this.panel, this.$el);
             }
         },
-        onBlur() {
+        hideOverlay() {
             if (this.panel) {
                 DomHandler.addClass(this.panel, 'p-connected-overlay-hidden');
                 DomHandler.removeClass(this.panel, 'p-connected-overlay-visible');
+                 this.unbindScrollListener();
 
                 setTimeout(() => {
                     this.panel.style.display = 'none';
                     DomHandler.removeClass(this.panel, 'p-connected-overlay-hidden');
                 }, 150);
             }
+        },
+        onFocus() {
+            this.showOverlay();
+        },
+        onBlur() {
+            this.hideOverlay();
         },
         onKeyUp(event) {
             if (this.panel) {
@@ -133,6 +147,27 @@ export default {
 
                 this.meter.style.backgroundPosition = meterPos;
                 this.info.textContent = label;
+
+                if (!DomHandler.hasClass(this.panel, 'p-connected-overlay-visible')) {
+                    this.showOverlay();
+                }
+            }
+        },
+        bindScrollListener() {
+            if (!this.scrollHandler) {
+                const { id } = this.$attrs;
+                this.scrollHandler = new ConnectedOverlayScrollHandler(this.$refs.input, id, () => {
+                    if (DomHandler.hasClass(this.panel, 'p-connected-overlay-visible')) {
+                        this.hideOverlay();
+                    }
+                });
+            }
+
+            this.scrollHandler.bindScrollListener();
+        },
+        unbindScrollListener() {
+            if (this.scrollHandler) {
+                this.scrollHandler.unbindScrollListener();
             }
         }
     },
