@@ -85,6 +85,12 @@ data() {
 						</thead>
 						<tbody>
                             <tr>
+                                <td>id</td>
+                                <td>string</td>
+                                <td>null</td>
+                                <td>Unique identifier of the element.</td>
+                            </tr>
+                            <tr>
                                 <td>modelValue</td>
                                 <td>any</td>
                                 <td>null</td>
