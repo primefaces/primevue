@@ -1,6 +1,14 @@
 <template>
     <input ref="input" type="password" :class="['p-inputtext p-component', {'p-filled': filled}]" :value="modelValue"
         @input="onInput" @focus="onFocus" @blur="onBlur" @keyup="onKeyUp" />
+    <transition name="p-connected-overlay" @enter="onOverlayEnter" @leave="onOverlayLeave">
+        <div :ref="overlayRef" class="p-password-panel p-component" v-if="overlayVisible">
+            <div class="p-password-meter" :style="{'background-position': meterPosition}"></div>
+            <div class="p-password-info">
+                {{infoText}}
+            </div>
+        </div>
+    </transition>
 </template>
 
 <script>
@@ -39,12 +47,17 @@ export default {
             default: true
         }
     },
-    panel: null,
-    meter: null,
-    info: null,
+    data() {
+        return {
+            overlayVisible: false,
+            meterPosition: '',
+            infoText: this.promptLabel
+        };
+    },
     mediumCheckRegExp: null,
     strongCheckRegExp: null,
     scrollHandler: null,
+    overlay: null,
     mounted() {
         this.mediumCheckRegExp = new RegExp(this.mediumRegex);
         this.strongCheckRegExp = new RegExp(this.strongRegex);
@@ -56,6 +69,16 @@ export default {
         }
     },
     methods: {
+        onOverlayEnter() {
+            this.overlay.style.zIndex = String(DomHandler.generateZIndex());
+            this.overlay.style.minWidth = DomHandler.getOuterWidth(this.$refs.input) + 'px';
+            DomHandler.absolutePosition(this.overlay, this.$refs.input);
+            this.bindScrollListener();
+        },
+        onOverlayLeave() {
+            this.unbindScrollListener();
+            this.overlay = null;
+        },
         testStrength(str) {
             let level = 0;
 
@@ -68,59 +91,21 @@ export default {
 
             return level;
         },
-        createPanel() {
-            this.panel = document.createElement('div');
-            this.panel.className = 'p-password-panel p-component p-password-panel-overlay p-connected-overlay';
-            this.meter = document.createElement('div');
-            this.meter.className = 'p-password-meter';
-            this.info = document.createElement('div');
-            this.info.className = 'p-password-info';
-            this.info.textContent = this.promptLabel;
-
-            this.panel.style.minWidth = DomHandler.getOuterWidth(this.$el) + 'px';
-            this.panel.appendChild(this.meter);
-            this.panel.appendChild(this.info);
-            document.body.appendChild(this.panel);
-        },
         onInput(event)  {
-            this.$emit('update:modelValue', event.target.value)
-        },
-        showOverlay() {
-            if (this.feedback) {
-                if (!this.panel) {
-                    this.createPanel();
-                }
-
-                this.panel.style.zIndex = String(DomHandler.generateZIndex());
-                this.panel.style.display = 'block';
-                setTimeout(() => {
-                    DomHandler.addClass(this.panel, 'p-connected-overlay-visible');
-                    DomHandler.removeClass(this.panel, 'p-connected-overlay-hidden');
-                    this.bindScrollListener();
-                }, 1);
-                DomHandler.absolutePosition(this.panel, this.$el);
-            }
-        },
-        hideOverlay() {
-            if (this.panel) {
-                DomHandler.addClass(this.panel, 'p-connected-overlay-hidden');
-                DomHandler.removeClass(this.panel, 'p-connected-overlay-visible');
-                 this.unbindScrollListener();
-
-                setTimeout(() => {
-                    this.panel.style.display = 'none';
-                    DomHandler.removeClass(this.panel, 'p-connected-overlay-hidden');
-                }, 150);
-            }
+             this.$emit('update:modelValue', event.target.value)
         },
         onFocus() {
-            this.showOverlay();
+            if (this.feedback) {
+                this.overlayVisible = true;
+            }
         },
         onBlur() {
-            this.hideOverlay();
+            if (this.feedback) {
+                this.overlayVisible = false;
+            }
         },
         onKeyUp(event) {
-            if (this.panel) {
+            if (this.feedback) {
                 let value = event.target.value;
                 let label = null;
                 let meterPos = null;
@@ -147,19 +132,19 @@ export default {
                         break;
                 }
 
-                this.meter.style.backgroundPosition = meterPos;
-                this.info.textContent = label;
+                this.meterPosition = meterPos;
+                this.infoText = label;
 
-                if (!DomHandler.hasClass(this.panel, 'p-connected-overlay-visible')) {
-                    this.showOverlay();
+                if (!this.overlayVisible) {
+                    this.overlayVisible = true;
                 }
             }
         },
         bindScrollListener() {
             if (!this.scrollHandler) {
                 this.scrollHandler = new ConnectedOverlayScrollHandler(this.$refs.input, () => {
-                    if (DomHandler.hasClass(this.panel, 'p-connected-overlay-visible')) {
-                        this.hideOverlay();
+                    if (this.overlayVisible) {
+                        this.overlayVisible = false;
                     }
                 });
             }
@@ -170,6 +155,9 @@ export default {
             if (this.scrollHandler) {
                 this.scrollHandler.unbindScrollListener();
             }
+        },
+        overlayRef(el) {
+            this.overlay = el;
         }
     },
     computed: {
