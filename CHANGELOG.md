@@ -1,5 +1,27 @@
 # Changelog
 
+## [3.0.0-rc.1](https://github.com/primefaces/primevue/tree/3.0.0-rc.1) (2020-09-28)
+
+[Full Changelog](https://github.com/primefaces/primevue/compare/2.0.9...3.0.0-rc.1)
+
+**Breaking Changes:**
+
+- Accessing column props in Slots [\#498](https://github.com/primefaces/primevue/issues/498)
+- activeIndex for TabView and Accordion [\#497](https://github.com/primefaces/primevue/issues/497)
+
+**Implemented New Features and Enhancements:**
+
+- Vue 3 Compatibility [\#491](https://github.com/primefaces/primevue/issues/491)
+- Improvement in behavior of components that have overlay panels in scrollable containers [\#500](https://github.com/primefaces/primevue/issues/500)
+- Improve calendar tabbing behavior [\#507](https://github.com/primefaces/primevue/issues/507)
+- Add input event to InputNumber [\#506](https://github.com/primefaces/primevue/issues/506)
+
+**Fixed bugs:**
+
+- Scrollable Table alignment improvement [\#482](https://github.com/primefaces/primevue/issues/482)
+- Button not registered in FileUpload [\#478](https://github.com/primefaces/primevue/issues/478)
+- BlockUI documentation indicates "show" event whereas the actual event is "unblock" [\#485](https://github.com/primefaces/primevue/issues/485)
+
 ## [2.0.9](https://github.com/primefaces/primevue/tree/2.0.9) (2020-09-09)
 
 [Full Changelog](https://github.com/primefaces/primevue/compare/2.0.8...2.0.9)
