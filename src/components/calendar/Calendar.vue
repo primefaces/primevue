@@ -1736,7 +1736,9 @@ export default {
 
                 //tab
                 case 9: {
-                    this.trapFocus(event);
+                    if (!this.inline) {
+                        this.trapFocus(event);
+                    }
                     break;
                 }
 
@@ -1898,7 +1900,7 @@ export default {
         },
         trapFocus(event) {
             event.preventDefault();
-            let focusableElements = DomHandler.getFocusableElements(this.getPicker());
+            let focusableElements = DomHandler.getFocusableElements(this.overlay);
 
             if (focusableElements && focusableElements.length > 0) {
                 if (!document.activeElement) {
@@ -1987,30 +1989,20 @@ export default {
         },
         onKeyDown(event) {
             this.isKeydown = true;
-
-            switch (event.which) {
-                //escape
-                case 27: {
+            if (event.keyCode === 40 && this.overlay) {
+                this.trapFocus(event);
+            }
+            else if (event.keyCode === 27) {
+                if (this.overlayVisible) {
                     this.overlayVisible = false;
-                    break;
+                    event.preventDefault();
                 }
-
-                //tab
-                case 9: {
-                    if (this.touchUI) {
-                        this.disableModality();
-                    }
-
-                    if (event.shiftKey) {
-                        this.overlayVisible = false;
-                    }
-
-                    break;
+            }
+            else if (event.keyCode === 9) {
+                DomHandler.getFocusableElements(this.overlay).forEach(el => el.tabIndex = '-1');
+                if (this.overlayVisible) {
+                    this.overlayVisible = false;
                 }
-
-                default:
-                    //no op
-                break;
             }
         },
         overlayRef(el) {
