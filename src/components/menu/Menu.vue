@@ -1,6 +1,6 @@
 <template>
     <transition name="p-connected-overlay" @enter="onEnter" @leave="onLeave">
-        <div :ref="containerRef" :id="containerId" :class="containerClass" v-if="popup ? overlayVisible : true">
+        <div :ref="containerRef" :class="containerClass" v-if="popup ? overlayVisible : true">
             <ul class="p-menu-list p-reset" role="menu">
                 <template v-for="(item, i) of model">
                     <template v-if="item.items && visible(item) && !item.separator">
@@ -20,13 +20,11 @@
 
 <script>
 import ConnectedOverlayScrollHandler from '../utils/ConnectedOverlayScrollHandler';
-import UniqueComponentId from '../utils/UniqueComponentId';
 import DomHandler from '../utils/DomHandler';
 import Menuitem from './Menuitem';
 
 export default {
     props: {
-        id: null,
         popup: {
             type: Boolean,
             default: false
@@ -63,8 +61,11 @@ export default {
         this.restoreAppend();
         this.unbindResizeListener();
         this.unbindOutsideClickListener();
-        this.unbindScrollListener();
-        this.scrollHandler = null;
+
+        if (this.scrollHandler) {
+            this.scrollHandler.destroy();
+            this.scrollHandler = null;
+        }
         this.target = null;
     },
     methods: {
@@ -137,7 +138,7 @@ export default {
         },
         bindScrollListener() {
             if (!this.scrollHandler) {
-                this.scrollHandler = new ConnectedOverlayScrollHandler(this.target, this.containerId, () => {
+                this.scrollHandler = new ConnectedOverlayScrollHandler(this.target, () => {
                     if (this.overlayVisible) {
                         this.hide();
                     }
@@ -203,9 +204,6 @@ export default {
         }
     },
     computed: {
-        containerId() {
-            return this.id || UniqueComponentId();
-        },
         containerClass() {
             return ['p-menu p-component', {
                 'p-menu-overlay': this.popup
