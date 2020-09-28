@@ -55,7 +55,6 @@ export default {
     container: null,
     beforeUnmount() {
         this.restoreAppend();
-        this.unbindResizeListener();
         if (this.dismissable) {
             this.unbindOutsideClickListener();
         }
@@ -64,6 +63,7 @@ export default {
             this.scrollHandler.destroy();
             this.scrollHandler = null;
         }
+        this.unbindResizeListener();
         this.target = null;
         this.container = null;
     },
@@ -88,8 +88,8 @@ export default {
                 this.bindOutsideClickListener();
             }
 
-            this.bindResizeListener();
             this.bindScrollListener();
+            this.bindResizeListener();
 
             if (this.autoZIndex) {
                 this.container.style.zIndex = String(this.baseZIndex + DomHandler.generateZIndex());
@@ -97,8 +97,8 @@ export default {
         },
         onLeave() {
             this.unbindOutsideClickListener();
-            this.unbindResizeListener();
             this.unbindScrollListener();
+            this.unbindResizeListener();
         },
         alignOverlay() {
             DomHandler.absolutePosition(this.container, this.target);

@@ -72,6 +72,7 @@ export default {
     documentMouseMoveListener: null,
     documentMouseUpListener: null,
     scrollHandler: null,
+    resizeListener: null,
     hueDragging: null,
     colorDragging: null,
     selfUpdate: null,
@@ -84,6 +85,7 @@ export default {
         this.unbindOutsideClickListener();
         this.unbindDocumentMouseMoveListener();
         this.unbindDocumentMouseUpListener();
+        this.unbindResizeListener();
 
         if (this.scrollHandler) {
             this.scrollHandler.destroy();
@@ -331,6 +333,7 @@ export default {
             this.alignOverlay();
             this.bindOutsideClickListener();
             this.bindScrollListener();
+            this.bindResizeListener();
 
             if (this.autoZIndex) {
                 this.picker.style.zIndex = String(this.baseZIndex + DomHandler.generateZIndex());
@@ -339,6 +342,7 @@ export default {
         onOverlayLeave() {
             this.unbindOutsideClickListener();
             this.unbindScrollListener();
+            this.unbindResizeListener();
             this.clearRefs();
         },
         alignOverlay() {
@@ -425,6 +429,22 @@ export default {
         unbindScrollListener() {
             if (this.scrollHandler) {
                 this.scrollHandler.unbindScrollListener();
+            }
+        },
+        bindResizeListener() {
+            if (!this.resizeListener) {
+                this.resizeListener = () => {
+                    if (this.overlayVisible) {
+                        this.overlayVisible = false;
+                    }
+                };
+                window.addEventListener('resize', this.resizeListener);
+            }
+        },
+        unbindResizeListener() {
+            if (this.resizeListener) {
+                window.removeEventListener('resize', this.resizeListener);
+                this.resizeListener = null;
             }
         },
         bindDocumentMouseMoveListener() {

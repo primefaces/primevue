@@ -85,6 +85,7 @@ export default {
     },
     outsideClickListener: null,
     scrollHandler: null,
+    resizeListener: null,
     searchTimeout: null,
     currentSearchChar: null,
     previousSearchChar: null,
@@ -93,6 +94,7 @@ export default {
     beforeUnmount() {
         this.restoreAppend();
         this.unbindOutsideClickListener();
+        this.unbindResizeListener();
 
         if (this.scrollHandler) {
             this.scrollHandler.destroy();
@@ -315,6 +317,7 @@ export default {
             this.alignOverlay();
             this.bindOutsideClickListener();
             this.bindScrollListener();
+            this.bindResizeListener();
 
             if (this.filter) {
                 this.$refs.filterInput.focus();
@@ -325,6 +328,7 @@ export default {
         onOverlayLeave() {
             this.unbindOutsideClickListener();
             this.unbindScrollListener();
+            this.unbindResizeListener();
             this.$emit('hide');
             this.overlay = null;
         },
@@ -370,6 +374,22 @@ export default {
         unbindScrollListener() {
             if (this.scrollHandler) {
                 this.scrollHandler.unbindScrollListener();
+            }
+        },
+        bindResizeListener() {
+            if (!this.resizeListener) {
+                this.resizeListener = () => {
+                    if (this.overlayVisible) {
+                        this.hide();
+                    }
+                };
+                window.addEventListener('resize', this.resizeListener);
+            }
+        },
+        unbindResizeListener() {
+            if (this.resizeListener) {
+                window.removeEventListener('resize', this.resizeListener);
+                this.resizeListener = null;
             }
         },
         search(event) {

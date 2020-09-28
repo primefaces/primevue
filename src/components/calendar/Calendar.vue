@@ -310,6 +310,13 @@ export default {
     },
     navigationState: null,
     scrollHandler: null,
+    outsideClickListener: null,
+    maskClickListener: null,
+    resizeListener: null,
+    overlay: null,
+    mask: null,
+    timePickerTimer: null,
+    isKeydown: false,
     created() {
         this.updateCurrentMetaData();
     },
@@ -342,6 +349,7 @@ export default {
 
         this.restoreAppend();
         this.unbindOutsideClickListener();
+        this.unbindResizeListener();
 
         if (this.scrollHandler) {
             this.scrollHandler.destroy();
@@ -361,12 +369,6 @@ export default {
             overlayVisible: false
         }
     },
-    outsideClickListener: null,
-    maskClickListener: null,
-    overlay: null,
-    mask: null,
-    timePickerTimer: null,
-    isKeydown: false,
     watch: {
         modelValue() {
             this.updateCurrentMetaData();
@@ -545,10 +547,12 @@ export default {
         onOverlayEnterComplete() {
             this.bindOutsideClickListener();
             this.bindScrollListener();
+            this.bindResizeListener();
         },
         onOverlayLeave() {
             this.unbindOutsideClickListener();
             this.unbindScrollListener();
+            this.unbindResizeListener();
             this.$emit('hide');
             this.overlay = null;
         },
@@ -661,6 +665,22 @@ export default {
         unbindScrollListener() {
             if (this.scrollHandler) {
                 this.scrollHandler.unbindScrollListener();
+            }
+        },
+        bindResizeListener() {
+            if (!this.resizeListener) {
+                this.resizeListener = () => {
+                    if (this.overlayVisible) {
+                        this.overlayVisible = false;
+                    }
+                };
+                window.addEventListener('resize', this.resizeListener);
+            }
+        },
+        unbindResizeListener() {
+            if (this.resizeListener) {
+                window.removeEventListener('resize', this.resizeListener);
+                this.resizeListener = null;
             }
         },
         isOutsideClicked(event) {
