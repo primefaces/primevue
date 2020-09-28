@@ -107,8 +107,11 @@ export default {
     beforeUnmount() {
         this.restoreAppend();
         this.unbindOutsideClickListener();
-        this.unbindScrollListener();
-        this.scrollHandler = null;
+
+        if (this.scrollHandler) {
+            this.scrollHandler.destroy();
+            this.scrollHandler = null;
+        }
         this.overlay = null;
     },
     methods: {
@@ -143,8 +146,7 @@ export default {
         },
         bindScrollListener() {
             if (!this.scrollHandler) {
-                const { id } = this.$attrs;
-                this.scrollHandler = new ConnectedOverlayScrollHandler(this.$refs.container, id, () => {
+                this.scrollHandler = new ConnectedOverlayScrollHandler(this.$refs.container, () => {
                     if (this.overlayVisible) {
                         this.hideOverlay();
                     }

@@ -84,8 +84,11 @@ export default {
         this.unbindOutsideClickListener();
         this.unbindDocumentMouseMoveListener();
         this.unbindDocumentMouseUpListener();
-        this.unbindScrollListener();
-        this.scrollHandler = null;
+
+        if (this.scrollHandler) {
+            this.scrollHandler.destroy();
+            this.scrollHandler = null;
+        }
         this.clearRefs();
     },
     mounted() {
@@ -410,8 +413,7 @@ export default {
         },
         bindScrollListener() {
             if (!this.scrollHandler) {
-                const { id } = this.$attrs;
-                this.scrollHandler = new ConnectedOverlayScrollHandler(this.$refs.container, id, () => {
+                this.scrollHandler = new ConnectedOverlayScrollHandler(this.$refs.container, () => {
                     if (this.overlayVisible) {
                         this.overlayVisible = false;
                     }

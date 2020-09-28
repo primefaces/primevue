@@ -1,6 +1,6 @@
 <template>
     <transition name="p-overlaypanel" @enter="onEnter" @leave="onLeave">
-        <div class="p-overlaypanel p-component" v-if="visible" :id="containerId" :ref="containerRef">
+        <div class="p-overlaypanel p-component" v-if="visible" :ref="containerRef">
             <div class="p-overlaypanel-content">
                 <slot></slot>
             </div>
@@ -13,13 +13,11 @@
 
 <script>
 import ConnectedOverlayScrollHandler from '../utils/ConnectedOverlayScrollHandler';
-import UniqueComponentId from '../utils/UniqueComponentId';
 import DomHandler from '../utils/DomHandler';
 import Ripple from '../ripple/Ripple';
 
 export default {
     props: {
-        id: null,
 		dismissable: {
 			type: Boolean,
 			default: true
@@ -61,8 +59,11 @@ export default {
         if (this.dismissable) {
             this.unbindOutsideClickListener();
         }
-        this.unbindScrollListener();
-        this.scrollHandler = null;
+
+        if (this.scrollHandler) {
+            this.scrollHandler.destroy();
+            this.scrollHandler = null;
+        }
         this.target = null;
         this.container = null;
     },
@@ -124,7 +125,7 @@ export default {
         },
         bindScrollListener() {
             if (!this.scrollHandler) {
-                this.scrollHandler = new ConnectedOverlayScrollHandler(this.target, this.containerId, () => {
+                this.scrollHandler = new ConnectedOverlayScrollHandler(this.target, () => {
                     if (this.visible) {
                         this.visible = false;
                     }
@@ -175,11 +176,6 @@ export default {
         },
         containerRef(el) {
             this.container = el;
-        }
-    },
-    computed: {
-        containerId() {
-            return this.id || UniqueComponentId();
         }
     },
     directives: {

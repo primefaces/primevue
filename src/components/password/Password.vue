@@ -50,8 +50,10 @@ export default {
         this.strongCheckRegExp = new RegExp(this.strongRegex);
     },
     beforeUnmount() {
-        this.unbindScrollListener();
-        this.scrollHandler = null;
+        if (this.scrollHandler) {
+            this.scrollHandler.destroy();
+            this.scrollHandler = null;
+        }
     },
     methods: {
         testStrength(str) {
@@ -155,8 +157,7 @@ export default {
         },
         bindScrollListener() {
             if (!this.scrollHandler) {
-                const { id } = this.$attrs;
-                this.scrollHandler = new ConnectedOverlayScrollHandler(this.$refs.input, id, () => {
+                this.scrollHandler = new ConnectedOverlayScrollHandler(this.$refs.input, () => {
                     if (DomHandler.hasClass(this.panel, 'p-connected-overlay-visible')) {
                         this.hideOverlay();
                     }
