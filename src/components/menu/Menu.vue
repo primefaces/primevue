@@ -67,6 +67,7 @@ export default {
             this.scrollHandler = null;
         }
         this.target = null;
+        this.container = null;
     },
     methods: {
         itemClick(event) {
@@ -186,15 +187,6 @@ export default {
                 else
                     document.getElementById(this.appendTo).removeChild(this.container);
             }
-        },
-        beforeUnmount() {
-            this.restoreAppend();
-            this.unbindResizeListener();
-            this.unbindOutsideClickListener();
-            this.unbindScrollListener();
-            this.scrollHandler = null;
-            this.target = null;
-            this.container = null;
         },
         visible(item) {
             return (typeof item.visible === 'function' ? item.visible() : item.visible !== false);
