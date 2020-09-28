@@ -56,6 +56,7 @@ export default {
     },
     mediumCheckRegExp: null,
     strongCheckRegExp: null,
+    resizeListener: null,
     scrollHandler: null,
     overlay: null,
     mounted() {
@@ -63,6 +64,7 @@ export default {
         this.strongCheckRegExp = new RegExp(this.strongRegex);
     },
     beforeUnmount() {
+        this.unbindResizeListener();
         if (this.scrollHandler) {
             this.scrollHandler.destroy();
             this.scrollHandler = null;
@@ -74,9 +76,11 @@ export default {
             this.overlay.style.minWidth = DomHandler.getOuterWidth(this.$refs.input) + 'px';
             DomHandler.absolutePosition(this.overlay, this.$refs.input);
             this.bindScrollListener();
+            this.bindResizeListener();
         },
         onOverlayLeave() {
             this.unbindScrollListener();
+            this.unbindResizeListener();
             this.overlay = null;
         },
         testStrength(str) {
@@ -154,6 +158,22 @@ export default {
         unbindScrollListener() {
             if (this.scrollHandler) {
                 this.scrollHandler.unbindScrollListener();
+            }
+        },
+        bindResizeListener() {
+            if (!this.resizeListener) {
+                this.resizeListener = () => {
+                    if (this.overlayVisible) {
+                        this.overlayVisible = false;
+                    }
+                };
+                window.addEventListener('resize', this.resizeListener);
+            }
+        },
+        unbindResizeListener() {
+            if (this.resizeListener) {
+                window.removeEventListener('resize', this.resizeListener);
+                this.resizeListener = null;
             }
         },
         overlayRef(el) {
