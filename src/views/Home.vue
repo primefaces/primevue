@@ -98,6 +98,14 @@
             </div>
         </div>
 
+        <div class="video">
+            <h4>Vue.js Global 2020</h4>
+            <p>PrimeVue session from Vue.js Global 2020 Conference where we had a remarkable experience of presenting PrimeVue after Evan You announced Vue 3.</p>
+            <div>
+                <iframe width="560" height="315" src="https://www.youtube.com/embed/3YP6Ob0-jkI" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+            </div>
+        </div>
+
         <div class="whouses">
             <h4>Key Users</h4>
             <p>The creator of PrimeVue is PrimeTek Informatics, the distinguished component library vendor who built popular open source projects such as PrimeFaces, PrimeNG and PrimeReact over the past years.</p>

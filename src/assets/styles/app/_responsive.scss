@@ -122,6 +122,10 @@
         .prosupport > div {
             width: 100%;
         }
+
+        .video iframe {
+            width: 100% !important;
+        }
     }
 
     .layout-config {
