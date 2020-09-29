@@ -102,7 +102,7 @@ export default {
 							<td>Fired when the element gets blocked.</td>
 						</tr>
 						<tr>
-							<td>show</td>
+							<td>unblock</td>
 							<td>-</td>
 							<td>Fired when the element gets unblocked.</td>
 						</tr>
