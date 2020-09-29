@@ -540,6 +540,9 @@ export default {
         },
         onOverlayLeave() {
             this.unbindOutsideClickListener();
+            if (this.mask) {
+                this.disableModality();
+            }
             this.$emit('hide');
         },
         onPrevButtonClick(event) {
@@ -1690,7 +1693,9 @@ export default {
 
                 //tab
                 case 9: {
-                    this.trapFocus(event);
+                    if (!this.inline) {
+                        this.trapFocus(event);
+                    }
                     break;
                 }
 
@@ -1785,7 +1790,9 @@ export default {
 
                 //tab
                 case 9: {
-                    this.trapFocus(event);
+                    if (!this.inline) {
+                         this.trapFocus(event);
+                    }
                     break;
                 }
 
@@ -1879,7 +1886,9 @@ export default {
              switch (event.which) {
                 //tab
                 case 9:
-                    this.trapFocus(event);
+                    if (!this.inline) {
+                        this.trapFocus(event);
+                    }
                 break;
 
                 //escape
@@ -1938,7 +1947,7 @@ export default {
                 ...$vm.$listeners,
                 input: val => {
                      this.onInput(val);
-                },
+        },
                 focus: event => {
                     $vm.focus = true;
                     if ($vm.showOnFocus && $vm.isEnabled()) {
@@ -1954,29 +1963,20 @@ export default {
                 keydown: event => {
                     $vm.isKeydown = true;
 
-                    switch (event.which) {
-                        //escape
-                        case 27: {
+                    if (event.keyCode === 40 && $vm.$refs.overlay) {
+                        $vm.trapFocus(event);
+                    }
+                    else if (event.keyCode === 27) {
+                        if ($vm.overlayVisible) {
                             $vm.overlayVisible = false;
-                            break;
+                            event.preventDefault();
                         }
-
-                        //tab
-                        case 9: {
-                            if ($vm.touchUI) {
-                                $vm.disableModality();
-                            }
-
-                            if (event.shiftKey) {
-                                $vm.overlayVisible = false;
-                            }
-
-                            break;
+                    }
+                    else if (event.keyCode === 9) {
+                        DomHandler.getFocusableElements($vm.$refs.overlay).forEach(el => el.tabIndex = '-1');
+                        if ($vm.overlayVisible) {
+                            $vm.overlayVisible = false;
                         }
-
-                        default:
-                            //no op
-                        break;
                     }
 
                     $vm.$emit('keydown', event);
