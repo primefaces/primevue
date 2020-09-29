@@ -1,5 +1,5 @@
 module.exports = {
-    publicPath: process.env.NODE_ENV === 'production' ? '/primevue/showcase/' : '/',
+    publicPath: process.env.NODE_ENV === 'production' ? '/primevue/showcase-v2/' : '/',
     productionSourceMap: false,
     configureWebpack: {
         output: {
