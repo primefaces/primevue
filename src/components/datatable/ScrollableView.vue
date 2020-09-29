@@ -13,7 +13,7 @@
                 </table>
             </div>
         </div>
-        <div class="p-datatable-scrollable-body" ref="scrollBody" @scroll="onBodyScroll" :style="{maxHeight: scrollHeight !== 'flex' ? scrollHeight: null}">
+        <div class="p-datatable-scrollable-body" ref="scrollBody" @scroll="onBodyScroll" :style="bodyStyle">
             <table ref="scrollTable" :class="bodyTableClass" :style="bodyTableStyle">
                 <colgroup>
                     <template v-for="(col,i) of columns">
@@ -208,7 +208,13 @@ export default {
         },
         bodyTableStyle() {
             return this.virtualScroll ? {top: '0'} : null;
-        }
+        },
+        bodyStyle() {
+            return {
+                 maxHeight: this.scrollHeight !== 'flex' ? this.scrollHeight: null,
+                 overflowY: !this.frozen && this.scrollHeight ? 'scroll': null
+            }
+         }
     },
     components: {
         'DTTableLoadingBody': TableLoadingBody
