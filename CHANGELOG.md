@@ -1,5 +1,14 @@
 # Changelog
 
+## [3.0.0-rc.2](https://github.com/primefaces/primevue/tree/3.0.0-rc.2) (2020-09-29)
+
+[Full Changelog](https://github.com/primefaces/primevue/compare/3.0.0-rc1...3.0.0-rc.2)
+
+**Fixed bugs:**
+
+- 3.0.0-rc.1 npm package includes a node_modules [\#511](https://github.com/primefaces/primevue/issues/511)
+- Dialog component VNode [\#510](https://github.com/primefaces/primevue/issues/510)
+
 ## [3.0.0-rc.1](https://github.com/primefaces/primevue/tree/3.0.0-rc.1) (2020-09-28)
 
 [Full Changelog](https://github.com/primefaces/primevue/compare/2.0.9...3.0.0-rc.1)
