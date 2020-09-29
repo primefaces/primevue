@@ -31,6 +31,22 @@
 - Button not registered in FileUpload [\#478](https://github.com/primefaces/primevue/issues/478)
 - BlockUI documentation indicates "show" event whereas the actual event is "unblock" [\#485](https://github.com/primefaces/primevue/issues/485)
 
+## [2.1.0](https://github.com/primefaces/primevue/tree/2.1.0) (2020-09-29)
+
+[Full Changelog](https://github.com/primefaces/primevue/compare/2.0.9...2.1.0)
+
+**Implemented New Features and Enhancements:**
+
+- Improvement in behavior of components that have overlay panels in scrollable containers [\#514](https://github.com/primefaces/primevue/issues/514)
+- Scrollable Table alignment improvement [\#513](https://github.com/primefaces/primevue/issues/513)
+- Improve calendar tabbing behavior [\#512](https://github.com/primefaces/primevue/issues/512)
+
+**Fixed bugs:**
+
+- TouchUI modal gets stuck if input tabs out [\#518](https://github.com/primefaces/primevue/issues/518)
+- Button not registered in FileUpload [\#516](https://github.com/primefaces/primevue/issues/516)
+- BlockUI documentation indicates "show" event whereas the actual event is "unblock" [\#515](https://github.com/primefaces/primevue/issues/515)
+
 ## [2.0.9](https://github.com/primefaces/primevue/tree/2.0.9) (2020-09-09)
 
 [Full Changelog](https://github.com/primefaces/primevue/compare/2.0.8...2.0.9)
