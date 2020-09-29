@@ -20,6 +20,7 @@
 </template>
 
 <script>
+import ConnectedOverlayScrollHandler from '../utils/ConnectedOverlayScrollHandler';
 import DomHandler from '../utils/DomHandler';
 
 export default {
@@ -70,6 +71,8 @@ export default {
     outsideClickListener: null,
     documentMouseMoveListener: null,
     documentMouseUpListener: null,
+    scrollHandler: null,
+    resizeListener: null,
     hueDragging: null,
     colorDragging: null,
     selfUpdate: null,
@@ -77,6 +80,13 @@ export default {
         this.unbindOutsideClickListener();
         this.unbindDocumentMouseMoveListener();
         this.unbindDocumentMouseUpListener();
+
+        this.unbindResizeListener();
+
+        if (this.scrollHandler) {
+            this.scrollHandler.destroy();
+            this.scrollHandler = null;
+        }
     },
     mounted() {
         this.updateUI();
@@ -317,6 +327,8 @@ export default {
             this.updateUI();
             this.alignOverlay();
             this.bindOutsideClickListener();
+            this.bindScrollListener();
+            this.bindResizeListener();
 
             if (this.autoZIndex) {
                 this.$refs.picker.style.zIndex = String(this.baseZIndex + DomHandler.generateZIndex());
@@ -324,6 +336,8 @@ export default {
         },
         onOverlayLeave() {
             this.unbindOutsideClickListener();
+            this.unbindScrollListener();
+            this.unbindResizeListener();
         },
         alignOverlay() {
             DomHandler.relativePosition(this.$refs.picker, this.$refs.input);
@@ -393,6 +407,38 @@ export default {
             if (this.outsideClickListener) {
                 document.removeEventListener('click', this.outsideClickListener);
                 this.outsideClickListener = null;
+            }
+        },
+        bindScrollListener() {
+            if (!this.scrollHandler) {
+                this.scrollHandler = new ConnectedOverlayScrollHandler(this.$el, () => {
+                    if (this.overlayVisible) {
+                        this.overlayVisible = false;
+                    }
+                });
+            }
+
+            this.scrollHandler.bindScrollListener();
+        },
+        unbindScrollListener() {
+            if (this.scrollHandler) {
+                this.scrollHandler.unbindScrollListener();
+            }
+        },
+        bindResizeListener() {
+            if (!this.resizeListener) {
+                this.resizeListener = () => {
+                    if (this.overlayVisible) {
+                        this.overlayVisible = false;
+                    }
+                };
+                window.addEventListener('resize', this.resizeListener);
+            }
+        },
+        unbindResizeListener() {
+            if (this.resizeListener) {
+                window.removeEventListener('resize', this.resizeListener);
+                this.resizeListener = null;
             }
         },
         bindDocumentMouseMoveListener() {

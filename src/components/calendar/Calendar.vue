@@ -130,6 +130,7 @@
 </template>
 
 <script>
+import ConnectedOverlayScrollHandler from '../utils/ConnectedOverlayScrollHandler';
 import InputText from '../inputtext/InputText';
 import Button from '../button/Button';
 import DomHandler from '../utils/DomHandler';
@@ -310,6 +311,13 @@ export default {
         }
     },
     navigationState: null,
+    scrollHandler: null,
+    outsideClickListener: null,
+    maskClickListener: null,
+    resizeListener: null,
+    mask: null,
+    timePickerTimer: null,
+    isKeydown: false,
     created() {
         this.updateCurrentMetaData();
     },
@@ -342,6 +350,12 @@ export default {
 
         this.restoreAppend();
         this.unbindOutsideClickListener();
+        this.unbindResizeListener();
+
+        if (this.scrollHandler) {
+            this.scrollHandler.destroy();
+            this.scrollHandler = null;
+        }
     },
     data() {
         return {
@@ -355,11 +369,6 @@ export default {
             overlayVisible: false
         }
     },
-    outsideClickListener: null,
-    maskClickListener: null,
-    mask: null,
-    timePickerTimer: null,
-    isKeydown: false,
     watch: {
         value() {
             this.updateCurrentMetaData();
@@ -537,9 +546,13 @@ export default {
         },
         onOverlayEnterComplete() {
             this.bindOutsideClickListener();
+            this.bindScrollListener();
+            this.bindResizeListener();
         },
         onOverlayLeave() {
             this.unbindOutsideClickListener();
+            this.unbindScrollListener();
+            this.unbindResizeListener();
             if (this.mask) {
                 this.disableModality();
             }
@@ -638,6 +651,38 @@ export default {
             if (this.outsideClickListener) {
                 document.removeEventListener('mousedown', this.outsideClickListener);
                 this.outsideClickListener = null;
+            }
+        },
+        bindScrollListener() {
+            if (!this.scrollHandler) {
+                this.scrollHandler = new ConnectedOverlayScrollHandler(this.$el, () => {
+                    if (this.overlayVisible) {
+                        this.overlayVisible = false;
+                    }
+                });
+            }
+
+            this.scrollHandler.bindScrollListener();
+        },
+        unbindScrollListener() {
+            if (this.scrollHandler) {
+                this.scrollHandler.unbindScrollListener();
+            }
+        },
+        bindResizeListener() {
+            if (!this.resizeListener) {
+                this.resizeListener = () => {
+                    if (this.overlayVisible) {
+                        this.overlayVisible = false;
+                    }
+                };
+                window.addEventListener('resize', this.resizeListener);
+            }
+        },
+        unbindResizeListener() {
+            if (this.resizeListener) {
+                window.removeEventListener('resize', this.resizeListener);
+                this.resizeListener = null;
             }
         },
         isOutsideClicked(event) {

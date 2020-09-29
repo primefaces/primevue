@@ -3,6 +3,7 @@
 </template>
 
 <script>
+import ConnectedOverlayScrollHandler from '../utils/ConnectedOverlayScrollHandler';
 import DomHandler from '../utils/DomHandler';
 
 export default {
@@ -42,9 +43,19 @@ export default {
     info: null,
     mediumCheckRegExp: null,
     strongCheckRegExp: null,
+    resizeListener: null,
+    scrollHandler: null,
     mounted() {
         this.mediumCheckRegExp = new RegExp(this.mediumRegex);
         this.strongCheckRegExp = new RegExp(this.strongRegex);
+    },
+    beforeDestroy() {
+        this.unbindResizeListener();
+        if (this.scrollHandler) {
+            this.scrollHandler.destroy();
+            this.scrollHandler = null;
+        }
+        this.panel = null;
     },
     methods: {
         testStrength(str) {
@@ -72,6 +83,54 @@ export default {
             this.panel.appendChild(this.meter);
             this.panel.appendChild(this.info);
             document.body.appendChild(this.panel);
+        },
+        bindScrollListener() {
+            if (!this.scrollHandler) {
+                this.scrollHandler = new ConnectedOverlayScrollHandler(this.$refs.input, () => {
+                    if (this.panel && this.panel.offsetParent) {
+                        this.hide();
+                    }
+                });
+            }
+
+            this.scrollHandler.bindScrollListener();
+        },
+        unbindScrollListener() {
+            if (this.scrollHandler) {
+                this.scrollHandler.unbindScrollListener();
+            }
+        },
+        bindResizeListener() {
+            if (!this.resizeListener) {
+                this.resizeListener = () => {
+                    if (this.panel && this.panel.offsetParent) {
+                        this.hide();
+                    }
+                };
+                window.addEventListener('resize', this.resizeListener);
+            }
+        },
+        unbindResizeListener() {
+            if (this.resizeListener) {
+                window.removeEventListener('resize', this.resizeListener);
+                this.resizeListener = null;
+            }
+        },
+        hide() {
+            if (this.panel) {
+                DomHandler.addClass(this.panel, 'p-connected-overlay-hidden');
+                DomHandler.removeClass(this.panel, 'p-connected-overlay-visible');
+
+                setTimeout(() => {
+                    if (this.panel) {
+                        this.panel.style.display = 'none';
+                        DomHandler.removeClass(this.panel, 'p-connected-overlay-hidden');
+                    }
+                }, 150);
+
+                this.unbindScrollListener();
+                this.unbindResizeListener();
+            }
         }
     },
     computed: {
@@ -94,20 +153,14 @@ export default {
                             DomHandler.removeClass(this.panel, 'p-connected-overlay-hidden');
                         }, 1);
                         DomHandler.absolutePosition(this.panel, this.$refs.input);
+                        this.bindScrollListener();
+                        this.bindResizeListener();
                     }
 
                     this.$emit('focus', event);
                 },
                 blur: event => {
-                    if (this.panel) {
-                        DomHandler.addClass(this.panel, 'p-connected-overlay-hidden');
-                        DomHandler.removeClass(this.panel, 'p-connected-overlay-visible');
-
-                        setTimeout(() => {
-                            vm.panel.style.display = 'none';
-                            DomHandler.removeClass(this.panel, 'p-connected-overlay-hidden');
-                        }, 150);
-                    }
+                    vm.hide();
 
                     this.$emit('blur', event);
                 },

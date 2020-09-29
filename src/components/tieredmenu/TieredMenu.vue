@@ -7,6 +7,7 @@
 </template>
 
 <script>
+import ConnectedOverlayScrollHandler from '../utils/ConnectedOverlayScrollHandler';
 import DomHandler from '../utils/DomHandler';
 import TieredMenuSub from './TieredMenuSub';
 
@@ -35,6 +36,7 @@ export default {
     },
     target: null,
     outsideClickListener: null,
+    scrollHandler: null,
     resizeListener: null,
     data() {
         return {
@@ -45,6 +47,12 @@ export default {
         this.restoreAppend();
         this.unbindResizeListener();
         this.unbindOutsideClickListener();
+
+        if (this.scrollHandler) {
+            this.scrollHandler.destroy();
+            this.scrollHandler = null;
+        }
+
         this.target = null;
     },
     methods: {
@@ -74,6 +82,7 @@ export default {
             this.alignOverlay();
             this.bindOutsideClickListener();
             this.bindResizeListener();
+            this.bindScrollListener();
 
             if (this.autoZIndex) {
                 this.$refs.container.style.zIndex = String(this.baseZIndex + DomHandler.generateZIndex());
@@ -82,6 +91,7 @@ export default {
         onLeave() {
             this.unbindOutsideClickListener();
             this.unbindResizeListener();
+            this.unbindScrollListener();
         },
         alignOverlay() {
             DomHandler.absolutePosition(this.$refs.container, this.target);
@@ -100,6 +110,22 @@ export default {
             if (this.outsideClickListener) {
                 document.removeEventListener('click', this.outsideClickListener);
                 this.outsideClickListener = null;
+            }
+        },
+        bindScrollListener() {
+            if (!this.scrollHandler) {
+                this.scrollHandler = new ConnectedOverlayScrollHandler(this.target, () => {
+                    if (this.visible) {
+                        this.hide();
+                    }
+                });
+            }
+
+            this.scrollHandler.bindScrollListener();
+        },
+        unbindScrollListener() {
+            if (this.scrollHandler) {
+                this.scrollHandler.unbindScrollListener();
             }
         },
         bindResizeListener() {

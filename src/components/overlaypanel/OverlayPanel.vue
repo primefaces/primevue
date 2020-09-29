@@ -12,6 +12,7 @@
 </template>
 
 <script>
+import ConnectedOverlayScrollHandler from '../utils/ConnectedOverlayScrollHandler';
 import DomHandler from '../utils/DomHandler';
 import Ripple from '../ripple/Ripple';
 
@@ -49,13 +50,18 @@ export default {
     },
     target: null,
     outsideClickListener: null,
+    scrollHandler: null,
     resizeListener: null,
     beforeDestroy() {
         this.restoreAppend();
-        this.unbindResizeListener();
         if (this.dismissable) {
             this.unbindOutsideClickListener();
         }
+        if (this.scrollHandler) {
+            this.scrollHandler.destroy();
+            this.scrollHandler = null;
+        }
+        this.unbindResizeListener();
         this.target = null;
     },
     methods: {
@@ -79,6 +85,7 @@ export default {
                 this.bindOutsideClickListener();
             }
 
+            this.bindScrollListener();
             this.bindResizeListener();
 
             if (this.autoZIndex) {
@@ -87,6 +94,7 @@ export default {
         },
         onLeave() {
             this.unbindOutsideClickListener();
+            this.unbindScrollListener();
             this.unbindResizeListener();
         },
         alignOverlay() {
@@ -110,6 +118,22 @@ export default {
             if (this.outsideClickListener) {
                 document.removeEventListener('click', this.outsideClickListener);
                 this.outsideClickListener = null;
+            }
+        },
+        bindScrollListener() {
+            if (!this.scrollHandler) {
+                this.scrollHandler = new ConnectedOverlayScrollHandler(this.target, () => {
+                    if (this.visible) {
+                        this.visible = false;
+                    }
+                });
+            }
+
+            this.scrollHandler.bindScrollListener();
+        },
+        unbindScrollListener() {
+            if (this.scrollHandler) {
+                this.scrollHandler.unbindScrollListener();
             }
         },
         bindResizeListener() {

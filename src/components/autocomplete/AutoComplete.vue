@@ -29,6 +29,7 @@
 </template>
 
 <script>
+import ConnectedOverlayScrollHandler from '../utils/ConnectedOverlayScrollHandler';
 import ObjectUtils from '../utils/ObjectUtils';
 import DomHandler from '../utils/DomHandler';
 import Button from '../button/Button';
@@ -82,6 +83,8 @@ export default {
     },
     timeout: null,
     outsideClickListener: null,
+    resizeListener: null,
+    scrollHandler: null,
     data() {
         return {
             searching: false,
@@ -106,6 +109,12 @@ export default {
     beforeDestroy() {
         this.restoreAppend();
         this.unbindOutsideClickListener();
+        this.unbindResizeListener();
+
+        if (this.scrollHandler) {
+            this.scrollHandler.destroy();
+            this.scrollHandler = null;
+        }
     },
     methods: {
         onOverlayEnter() {
@@ -113,9 +122,13 @@ export default {
             this.appendContainer();
             this.alignOverlay();
             this.bindOutsideClickListener();
+            this.bindScrollListener();
+            this.bindResizeListener();
         },
         onOverlayLeave() {
             this.unbindOutsideClickListener();
+            this.unbindScrollListener();
+            this.unbindResizeListener();
         },
         alignOverlay() {
             let target = this.multiple ? this.$refs.multiContainer : this.$refs.input;
@@ -132,6 +145,38 @@ export default {
                     }
                 };
                 document.addEventListener('click', this.outsideClickListener);
+            }
+        },
+        bindScrollListener() {
+            if (!this.scrollHandler) {
+                this.scrollHandler = new ConnectedOverlayScrollHandler(this.$el, () => {
+                    if (this.overlayVisible) {
+                        this.hideOverlay();
+                    }
+                });
+            }
+
+            this.scrollHandler.bindScrollListener();
+        },
+        unbindScrollListener() {
+            if (this.scrollHandler) {
+                this.scrollHandler.unbindScrollListener();
+            }
+        },
+        bindResizeListener() {
+            if (!this.resizeListener) {
+                this.resizeListener = () => {
+                    if (this.overlayVisible) {
+                        this.hideOverlay();
+                    }
+                };
+                window.addEventListener('resize', this.resizeListener);
+            }
+        },
+        unbindResizeListener() {
+            if (this.resizeListener) {
+                window.removeEventListener('resize', this.resizeListener);
+                this.resizeListener = null;
             }
         },
         isOutsideClicked(event) {
