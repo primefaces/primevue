@@ -97,7 +97,7 @@ export default {
         this.updateUI();
     },
     watch: {
-        value: {
+        modelValue: {
             immediate: true,
             handler(newValue) {
                 this.hsbValue = this.toHSB(newValue);
