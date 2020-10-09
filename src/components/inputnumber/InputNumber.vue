@@ -116,6 +116,8 @@ export default {
     _index: null,
     groupChar: '',
     isSpecialChar: null,
+    prefixChar: null,
+    suffixChar: null,
     timer: null,
     data() {
         return {
@@ -178,8 +180,8 @@ export default {
             this._group = this.getGroupingExpression();
             this._minusSign = this.getMinusSignExpression();
             this._currency = this.getCurrencyExpression();
-            this._suffix = new RegExp(`[${this.suffix||''}]`, 'g');
-            this._prefix = new RegExp(`[${this.prefix||''}]`, 'g');
+            this._suffix = this.getSuffixExpression();
+            this._prefix = this.getPrefixExpression();
             this._index = d => index.get(d);
         },
         updateConstructParser(newValue, oldValue) {
@@ -207,6 +209,29 @@ export default {
             }
 
             return new RegExp(`[]`,'g');
+        },
+        getPrefixExpression() {
+            if (this.prefix) {
+                this.prefixChar = this.prefix;
+            }
+            else {
+                const formatter = new Intl.NumberFormat(this.props.locale, {style: this.mode, currency: this.currency, currencyDisplay: this.currencyDisplay});
+                this.prefixChar = formatter.format(1).split('1')[0];
+            }
+
+            return new RegExp(`${this.prefixChar||''}`, 'g');
+        },
+        getSuffixExpression() {
+            if (this.props.suffix) {
+                this.suffixChar = this.suffix;
+            }
+            else {
+                const formatter = new Intl.NumberFormat(this.props.locale, {style: this.mode, currency: this.currency, currencyDisplay: this.currencyDisplay,
+                    minimumFractionDigits: 0, maximumFractionDigits: 0});
+                this.suffixChar = formatter.format(1).split('1')[1];
+            }
+
+            return new RegExp(`${this.suffixChar||''}`, 'g');
         },
         formatValue(value) {
             if (value != null) {
@@ -511,33 +536,40 @@ export default {
             }
             else {
                 const maxFractionDigits = this.numberFormat.resolvedOptions().maximumFractionDigits;
+                const operation = selectionStart !== selectionEnd ? 'range-insert' : 'insert';
 
                 if (decimalCharIndex > 0 && selectionStart > decimalCharIndex) {
                     if ((selectionStart + text.length - (decimalCharIndex + 1)) <= maxFractionDigits) {
                         newValueStr = inputValue.slice(0, selectionStart) + text + inputValue.slice(selectionStart + text.length);
-                        this.updateValue(event, newValueStr, text, 'insert');
+                        this.updateValue(event, newValueStr, text, operation);
                     }
                 }
                 else {
                     newValueStr = this.insertText(inputValue, text, selectionStart, selectionEnd);
-                    const operation = selectionStart !== selectionEnd ? 'range-insert' : 'insert';
                     this.updateValue(event, newValueStr, text, operation);
                 }
             }
         },
         insertText(value, text, start, end) {
-            let newValueStr;
+            let textSplit = text.split('.');
 
-            if ((end - start) === value.length)
-                newValueStr = text;
-            else if (start === 0)
-                newValueStr = text + value.slice(end);
-            else if (end === value.length)
-                newValueStr = value.slice(0, start) + text;
-            else
-                newValueStr = value.slice(0, start) + text + value.slice(end);
-
-            return newValueStr;
+            if (textSplit.length === 2) {
+                const decimalCharIndex = value.slice(start, end).search(this._decimal);
+                this._decimal.lastIndex = 0;
+                return (decimalCharIndex > 0) ? value.slice(0, start) + this.formatValue(text) + value.slice(end) : (value || this.formatValue(text));
+            }
+            else if ((end - start) === value.length) {
+                return this.formatValue(text);
+            }
+            else if (start === 0) {
+                return text + value.slice(end);
+            }
+            else if (end === value.length) {
+                return value.slice(0, start) + text;
+            }
+            else {
+                return value.slice(0, start) + text + value.slice(end);
+            }
         },
         deleteRange(value, start, end) {
             let newValueStr;
