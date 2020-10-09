@@ -659,6 +659,8 @@ export default {
             return value;
         },
         updateInput(value, insertedValueStr, operation) {
+            insertedValueStr = insertedValueStr || '';
+
             let inputValue = this.$refs.input.$el.value;
             let newValue = this.formatValue(value);
             let currentLength = inputValue.length;
