@@ -304,18 +304,26 @@ export default {
             this.handleOnInput(event, currentValue, newValue);
         },
         onUpButtonMouseDown(event) {
-            this.$refs.input.$el.focus();
-            this.repeat(event, null, 1);
-            event.preventDefault();
+            if (!this.$attrs.disabled) {
+                this.$refs.input.$el.focus();
+                this.repeat(event, null, 1);
+                event.preventDefault();
+            }
         },
         onUpButtonMouseUp() {
-            this.clearTimer();
+            if (!this.$attrs.disabled) {
+                this.clearTimer();
+            }
         },
         onUpButtonMouseLeave() {
-            this.clearTimer();
+            if (!this.$attrs.disabled) {
+                this.clearTimer();
+            }
         },
         onUpButtonKeyUp() {
-            this.clearTimer();
+            if (!this.$attrs.disabled) {
+                this.clearTimer();
+            }
         },
         onUpButtonKeyDown(event) {
             if (event.keyCode === 32 || event.keyCode === 13) {
@@ -323,18 +331,26 @@ export default {
             }
         },
         onDownButtonMouseDown(event) {
-            this.$refs.input.$el.focus();
-            this.repeat(event, null, -1);
-            event.preventDefault();
+            if (!this.$attrs.disabled) {
+                this.$refs.input.$el.focus();
+                this.repeat(event, null, -1);
+                event.preventDefault();
+            }
         },
         onDownButtonMouseUp() {
-            this.clearTimer();
+            if (!this.$attrs.disabled) {
+                this.clearTimer();
+            }
         },
         onDownButtonMouseLeave() {
-            this.clearTimer();
+            if (!this.$attrs.disabled) {
+                this.clearTimer();
+            }
         },
         onDownButtonKeyUp() {
-            this.clearTimer();
+            if (!this.$attrs.disabled) {
+                this.clearTimer();
+            }
         },
         onDownButtonKeyDown(event) {
             if (event.keyCode === 32 || event.keyCode === 13) {
