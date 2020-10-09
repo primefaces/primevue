@@ -189,6 +189,9 @@ export default {
                 this.constructParser();
             }
         },
+        escapeRegExp(text) {
+            return text.replace(/[-[\]{}()*+?.,\\^$|#\s]/g, '\\$&');
+        },
         getDecimalExpression() {
             const formatter = new Intl.NumberFormat(this.locale, {useGrouping: false});
             return new RegExp(`[${formatter.format(1.1).trim().replace(this._numeral, '')}]`, 'g');
@@ -219,7 +222,7 @@ export default {
                 this.prefixChar = formatter.format(1).split('1')[0];
             }
 
-            return new RegExp(`${this.prefixChar||''}`, 'g');
+            return new RegExp(`${this.escapeRegExp(this.prefixChar||'')}`, 'g');
         },
         getSuffixExpression() {
             if (this.props.suffix) {
@@ -231,7 +234,7 @@ export default {
                 this.suffixChar = formatter.format(1).split('1')[1];
             }
 
-            return new RegExp(`${this.suffixChar||''}`, 'g');
+            return new RegExp(`${this.escapeRegExp(this.suffixChar||'')}`, 'g');
         },
         formatValue(value) {
             if (value != null) {
