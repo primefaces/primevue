@@ -2668,6 +2668,10 @@
 .p-accordion .p-accordion-tab .p-accordion-header .p-accordion-header-link {
   border-radius: 0;
 }
+.p-accordion .p-accordion-tab .p-accordion-content {
+  border-bottom-right-radius: 0;
+  border-bottom-left-radius: 0;
+}
 .p-accordion .p-accordion-tab:not(:first-child) .p-accordion-header .p-accordion-header-link {
   border-top: 0 none;
 }
@@ -2679,6 +2683,10 @@
   border-top-left-radius: 3px;
 }
 .p-accordion .p-accordion-tab:last-child .p-accordion-header:not(.p-highlight) .p-accordion-header-link {
+  border-bottom-right-radius: 3px;
+  border-bottom-left-radius: 3px;
+}
+.p-accordion .p-accordion-tab:last-child .p-accordion-content {
   border-bottom-right-radius: 3px;
   border-bottom-left-radius: 3px;
 }
