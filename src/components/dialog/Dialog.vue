@@ -1,7 +1,7 @@
 <template>
     <div :ref="maskRef" :class="maskClass" v-if="containerVisible" @click="onMaskClick">
         <transition name="p-dialog" @before-enter="onBeforeEnter" @enter="onEnter" @before-leave="onBeforeLeave" @leave="onLeave" @after-leave="onAfterLeave" appear>
-            <div :ref="containerRef" :class="dialogClass" v-if="visible" v-bind="$attrs" role="dialog" :aria-labelledby="ariaLabelledById" :aria-modal="modal" @click.stop>
+            <div :ref="containerRef" :class="dialogClass" v-if="visible" v-bind="$attrs" role="dialog" :aria-labelledby="ariaLabelledById" :aria-modal="modal">
                 <div class="p-dialog-header" v-if="showHeader">
                     <slot name="header">
                         <span :id="ariaLabelledById" class="p-dialog-title" v-if="header">{{header}}</span>
@@ -115,8 +115,8 @@ export default {
             this.containerVisible = false;
             this.unbindDocumentState();
         },
-        onMaskClick() {
-            if (this.modal && this.closable && this.dismissableMask) {
+        onMaskClick(event) {
+            if (this.dismissableMask && this.closable && this.modal && this.mask === event.target) {
                 this.close();
             }
         },

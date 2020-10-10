@@ -165,8 +165,9 @@ export default {
         onHeaderCheckboxBlur() {
             this.headerCheckboxFocused = false;
         },
-        onClick() {
-            if (!this.disabled && (!this.overlay || !this.overlay.contains(event.target))) {
+        onClick(event) {
+            if (!this.disabled && (!this.overlay || !this.overlay.contains(event.target)) && !DomHandler.hasClass(event.target, 'p-multiselect-close')) {
+                DomHandler.hasClass(event.target, 'p-multiselect-close');
                 if (this.overlayVisible)
                     this.hide();
                 else
