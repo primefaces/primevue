@@ -4656,7 +4656,7 @@
 .p-checkbox .p-checkbox-box.p-highlight:not(.p-disabled).p-focus {
   border-color: #3F51B5;
 }
-.p-checkbox .p-checkbox-box.p-highlight .p-checkbox-icon:before {
+.p-checkbox .p-checkbox-box.p-highlight .p-checkbox-icon.pi-check:before {
   content: "";
   position: absolute;
   top: 6px;
@@ -4666,6 +4666,9 @@
   transform: rotate(45deg);
   transform-origin: 0% 100%;
   animation: checkbox-check 125ms 50ms linear forwards;
+}
+.p-checkbox .p-checkbox-box .pi-times {
+  font-size: 12px;
 }
 .p-checkbox:not(.p-checkbox-disabled):hover {
   box-shadow: 0 0 1px 10px rgba(255, 255, 255, 0.04);
