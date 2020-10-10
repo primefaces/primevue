@@ -109,6 +109,16 @@
                         </div>
                     </div>
 
+                    <h5>Fluent UI</h5>
+                    <div class="p-grid free-themes">
+                         <div class="p-col-3">
+                            <button class="p-link" type="button" @click="changeTheme($event, 'fluent-light')">
+                                <img src="demo/images/themes/fluent-light.png" alt="Fluent Light"/>
+                            </button>
+                            <span>Fluent Light</span>
+                        </div>
+                    </div>
+
                     <h5>PrimeOne Design</h5>
                     <div class="p-grid free-themes">
                         <div class="p-col-3">
