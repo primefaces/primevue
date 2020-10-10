@@ -11,7 +11,7 @@
 
 <pre v-code.script>
 <code>
-npm install primevue --save
+npm install primevue@^3.0.0 --save
 npm install primeicons --save
 
 </code></pre>
@@ -137,7 +137,7 @@ primeicons/primeicons.css                           //icons
 </code></pre>
 
             <h5>Free Themes</h5>
-            <p>PrimeVue ships with 32 free themes to choose from.</p>
+            <p>PrimeVue ships with various free themes to choose from.</p>
 <pre v-code.css>
 <code>
 primevue/resources/themes/bootstrap4-light-blue/theme.css
@@ -152,6 +152,7 @@ primevue/resources/themes/mdc-light-indigo/theme.css
 primevue/resources/themes/mdc-light-deeppurple/theme.css
 primevue/resources/themes/mdc-dark-indigo/theme.css
 primevue/resources/themes/mdc-dark-deeppurple/theme.css
+primevue/resources/themes/fluent-light/theme.css
 primevue/resources/themes/saga-blue/theme.css
 primevue/resources/themes/saga-green/theme.css
 primevue/resources/themes/saga-orange/theme.css
