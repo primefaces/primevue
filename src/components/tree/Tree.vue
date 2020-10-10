@@ -104,7 +104,7 @@ export default {
             if (this.selectionMode != null && event.node.selectable !== false) {
                 const metaSelection = event.nodeTouched ? false : this.metaKeySelection;
                 const _selectionKeys = metaSelection ? this.handleSelectionWithMetaKey(event) : this.handleSelectionWithoutMetaKey(event);
-
+                
                 this.$emit('update:selectionKeys', _selectionKeys);
             }
         },
