@@ -1,8 +1,9 @@
 import ToastEventBus from './ToastEventBus';
+import {PrimeVueToastSymbol} from './useToast';
 
 export default {
     install: (app) => {
-        app.config.globalProperties.$toast = {
+        const ToastService = {
             add: (message) => {
                 ToastEventBus.emit('add', message);
             },
@@ -13,5 +14,7 @@ export default {
                 ToastEventBus.emit('remove-all-groups');
             }
         };
+        app.config.globalProperties.$toast = ToastService;
+        app.provide(PrimeVueToastSymbol, ToastService);
     }
 };
