@@ -1,7 +1,7 @@
 <template>
     <div>
         <div class="content-section documentation">
-            <Message severity="info">This guide is for Vue 3 and PrimeVue 3, visit <a href="https://www.primefaces.org/primevue/showcase-v2">PrimeVue 2.x website</a> if you are using Vue 2.</Message>
+            <Message severity="warn">This guide is for Vue 3 and PrimeVue 3, visit <a href="https://www.primefaces.org/primevue/showcase-v2">PrimeVue 2.x website</a> if you are using Vue 2.</Message>
 
             <h1>Setup</h1>
             <p>PrimeVue is a rich set of open source native components for Vue.</p>
