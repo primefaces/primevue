@@ -9,7 +9,7 @@
 
         <div class="content-section implementation">
             <div class="card">
-                <Galleria :value="images" :responsiveOptions="responsiveOptions" :numVisible="5" style="max-width: 640px">
+                <Galleria :value="images" :responsiveOptions="responsiveOptions" :numVisible="5" containerStyle="max-width: 640px">
                     <template #item="slotProps">
                         <img :src="slotProps.item.itemImageSrc" :alt="slotProps.item.alt" style="width: 100%" />
                     </template>

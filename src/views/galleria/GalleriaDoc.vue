@@ -211,7 +211,7 @@ responsiveOptions: [
                 <p>Custom content projection is available using the <i>header</i> and <i>footer</i> properties.</p>
 <pre v-code>
 <code>
-&lt;Galleria :value="images" :responsiveOptions="responsiveOptions" :numVisible="5" style="max-width: 640px"&gt;
+&lt;Galleria :value="images" :responsiveOptions="responsiveOptions" :numVisible="5" containerStyle="max-width: 640px"&gt;
     &lt;template #header&gt;
         &lt;h1&gt;Header&lt;/h1&gt;
     &lt;/template&gt;
@@ -460,7 +460,7 @@ responsiveOptions: [
 				</a>
 <pre v-code>
 <code><template v-pre>
-&lt;Galleria :value="images" :responsiveOptions="responsiveOptions" :numVisible="5" style="max-width: 640px"&gt;
+&lt;Galleria :value="images" :responsiveOptions="responsiveOptions" :numVisible="5" containerStyle="max-width: 640px"&gt;
     &lt;template #item="slotProps"&gt;
         &lt;img :src="slotProps.item.itemImageSrc" :alt="slotProps.item.alt" style="width: 100%" /&gt;
     &lt;/template&gt;
