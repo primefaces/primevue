@@ -1731,7 +1731,7 @@
   border-radius: 0;
 }
 .p-carousel .p-carousel-indicators .p-carousel-indicator button:hover {
-  background: rgba(255, 255, 255, 0.03);
+  background: #3c567a;
 }
 .p-carousel .p-carousel-indicators .p-carousel-indicator.p-highlight button {
   background: rgba(129, 199, 132, 0.16);
@@ -4134,7 +4134,7 @@
   border-radius: 50%;
 }
 .p-galleria .p-galleria-indicators .p-galleria-indicator button:hover {
-  background: rgba(255, 255, 255, 0.1);
+  background: #3c567a;
 }
 .p-galleria .p-galleria-indicators .p-galleria-indicator.p-highlight button {
   background: rgba(129, 199, 132, 0.16);
@@ -4305,3 +4305,13 @@
 }
 
 /* Customizations to the designer theme should be defined here */
+.p-carousel .p-carousel-indicators .p-carousel-indicator.p-highlight button {
+  background-color: #81C784;
+}
+
+.p-galleria .p-galleria-indicators .p-galleria-indicator.p-highlight button {
+  background-color: #81C784;
+}
+.p-galleria.p-galleria-indicator-onitem .p-galleria-indicators .p-galleria-indicator.p-highlight button {
+  background: #81C784;
+}
