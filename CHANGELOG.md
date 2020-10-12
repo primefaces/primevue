@@ -1,5 +1,33 @@
 # Changelog
 
+## [3.0.0](https://github.com/primefaces/primevue/tree/3.0.0) (2020-10-11)
+
+[Full Changelog](https://github.com/primefaces/primevue/compare/2.1.0...3.0.0)
+
+**Implemented New Features and Enhancements:**
+
+- Galleria and Carousel highlight item visual improvement on PrimeOne Themes [\#545](https://github.com/primefaces/primevue/issues/545)
+- Soho Theme [\#539](https://github.com/primefaces/primevue/issues/539)
+- Fluent UI Theme [\#538](https://github.com/primefaces/primevue/issues/538)
+- ToastService $toast is not accessible using Composition API [\#535](https://github.com/primefaces/primevue/issues/535)
+- Tooltip doesn't close in scrollable containers [\#523](https://github.com/primefaces/primevue/issues/523)
+- Lighter Highlight Color for PrimeOne Themes [\#520](https://github.com/primefaces/primevue/issues/520)
+- Add indentation property to TreeTable [\#495](https://github.com/primefaces/primevue/issues/495)
+- Accordion rounded border minor visual issue [\#384](https://github.com/primefaces/primevue/issues/384)
+
+**Fixed bugs:**
+
+- Tree selection is broken when ripple is enabled [\#543](https://github.com/primefaces/primevue/issues/543)
+- Tree toggler icon hover color is wrong in bootstrap theme [\#542](https://github.com/primefaces/primevue/issues/542)
+- The 'disabled' option has no effect on InputNumber [\#537](https://github.com/primefaces/primevue/issues/537)
+- InputNumber cannot set value when format property is false [\#533](https://github.com/primefaces/primevue/issues/533)
+- InputNumber with spinner mode throws a JS exception [\#532](https://github.com/primefaces/primevue/issues/532)
+- inputNumber with numeric prefix is not working as expected [\#531](https://github.com/primefaces/primevue/issues/531)
+- Problems when typing or pasting numbers into InputNumber [\#530](https://github.com/primefaces/primevue/issues/530)
+- Can't close MultiSelect or Select when inside Dialog component [\#524](https://github.com/primefaces/primevue/issues/524)
+- TouchUI modal gets stuck if input tabs out [\#519](https://github.com/primefaces/primevue/issues/519)
+- TriStateCheckbox doesn't show correct icon when value is false when using material themes [\#517](https://github.com/primefaces/primevue/issues/517)
+
 ## [3.0.0-rc.2](https://github.com/primefaces/primevue/tree/3.0.0-rc.2) (2020-09-29)
 
 [Full Changelog](https://github.com/primefaces/primevue/compare/3.0.0-rc1...3.0.0-rc.2)
