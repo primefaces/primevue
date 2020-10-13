@@ -1,6 +1,6 @@
 <template>
     <span :class="containerClass" :style="style">
-        <INInputText ref="input" class="p-inputnumber-input" :value="formattedValue" v-bind="$attrs" :aria-valumin="min" :aria-valuemax="max"
+        <INInputText ref="input" :class="['p-inputnumber-input', inputClass]" :style="inputStyle" :value="formattedValue" v-bind="$attrs" :aria-valumin="min" :aria-valuemax="max"
            @input="onUserInput" @keydown="onInputKeyDown" @keypress="onInputKeyPress" @paste="onPaste" @click="onInputClick" @focus="onInputFocus" @blur="onInputBlur"/>
         <span class="p-inputnumber-button-group" v-if="showButtons && buttonLayout === 'stacked'">
             <INButton :class="upButtonClass" :icon="incrementButtonIcon" v-on="upButtonListeners" :disabled="$attrs.disabled" />
@@ -102,8 +102,10 @@ export default {
             type: Number,
             default: 1
         },
+        style: null,
         class: null,
-        style: null
+        inputStyle: null,
+        inputClass: null
     },
     numberFormat: null,
     _numeral: null,
