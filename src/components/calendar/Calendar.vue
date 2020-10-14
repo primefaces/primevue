@@ -344,8 +344,7 @@ export default {
         }
 
         if (this.mask) {
-            this.disableModality();
-            this.mask = null;
+            this.destroyMask();
         }
 
         this.restoreAppend();
@@ -553,10 +552,11 @@ export default {
             this.unbindOutsideClickListener();
             this.unbindScrollListener();
             this.unbindResizeListener();
+            this.$emit('hide');
+            
             if (this.mask) {
                 this.disableModality();
             }
-            this.$emit('hide');
         },
         onPrevButtonClick(event) {
             this.navigationState = {backward: true, button: true};
@@ -773,10 +773,6 @@ export default {
             if (this.isSingleSelection() && (!this.showTime || this.hideOnDateTimeSelect)) {
                 setTimeout(() => {
                     this.overlayVisible = false;
-
-                    if (this.mask) {
-                        this.disableModality();
-                    }
                 }, 150);
             }
         },
@@ -1311,7 +1307,7 @@ export default {
                 DomHandler.addMultipleClasses(this.mask, 'p-datepicker-mask p-datepicker-mask-scrollblocker');
 
                 this.maskClickListener = () => {
-                    this.disableModality();
+                    this.overlayVisible = false;
                 };
                 this.mask.addEventListener('click', this.maskClickListener);
 
@@ -1329,25 +1325,28 @@ export default {
 
                 DomHandler.addClass(this.mask, 'p-datepicker-mask-leave');
                 this.mask.addEventListener('transitionend', () => {
-                    this.mask.removeEventListener('click', this.maskClickListener);
-                    this.maskClickListener = null;
-                    document.body.removeChild(this.mask);
-                    this.mask = null;
-
-                    let bodyChildren = document.body.children;
-                    let hasBlockerMasks;
-                    for (let i = 0; i < bodyChildren.length; i++) {
-                        let bodyChild = bodyChildren[i];
-                        if(DomHandler.hasClass(bodyChild, 'p-datepicker-mask-scrollblocker')) {
-                            hasBlockerMasks = true;
-                            break;
-                        }
-                    }
-
-                    if (!hasBlockerMasks) {
-                        DomHandler.removeClass(document.body, 'p-overflow-hidden');
-                    }
+                    this.destroyMask();
                 });
+            }
+        },
+        destroyMask() {
+            this.mask.removeEventListener('click', this.maskClickListener);
+            this.maskClickListener = null;
+            document.body.removeChild(this.mask);
+            this.mask = null;
+
+            let bodyChildren = document.body.children;
+            let hasBlockerMasks;
+            for (let i = 0; i < bodyChildren.length; i++) {
+                let bodyChild = bodyChildren[i];
+                if(DomHandler.hasClass(bodyChild, 'p-datepicker-mask-scrollblocker')) {
+                    hasBlockerMasks = true;
+                    break;
+                }
+            }
+
+            if (!hasBlockerMasks) {
+                DomHandler.removeClass(document.body, 'p-overflow-hidden');
             }
         },
         updateCurrentMetaData() {
