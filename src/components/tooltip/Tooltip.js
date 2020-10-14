@@ -1,5 +1,6 @@
 import UniqueComponentId from '../utils/UniqueComponentId';
 import DomHandler from '../utils/DomHandler';
+import ConnectedOverlayScrollHandler from '../utils/ConnectedOverlayScrollHandler';
 
 function bindEvents(el) {
     const modifiers = el.$_ptooltipModifiers;
@@ -24,6 +25,22 @@ function unbindEvents(el) {
         el.removeEventListener('mouseenter', onMouseEnter);
         el.removeEventListener('mouseleave', onMouseLeave);
         el.removeEventListener('click', onClick);
+    }
+}
+
+function bindScrollListener(el) {
+    if (!el.$_ptooltipScrollHandler) {
+        el.$_ptooltipScrollHandler = new ConnectedOverlayScrollHandler(el, function() {
+            hide(el);
+        });
+    }
+
+    el.$_ptooltipScrollHandler.bindScrollListener();
+}
+
+function unbindScrollListener(el) {
+    if (el.$_ptooltipScrollHandler) {
+        el.$_ptooltipScrollHandler.unbindScrollListener();
     }
 }
 
@@ -61,10 +78,13 @@ function show(el) {
         hide(el);
         this.removeEventListener('resize', onWindowResize);
     });
+
+    bindScrollListener(el);
 }
 
 function hide(el) {
     remove(el);
+    unbindScrollListener(el);
 }
 
 function getTooltipElement(el) {
@@ -225,6 +245,11 @@ const Tooltip = {
     unbind(el) {
         remove(el);
         unbindEvents(el);
+
+        if (el.$_ptooltipScrollHandler) {
+            el.$_ptooltipScrollHandler.destroy();
+            el.$_ptooltipScrollHandler = null;
+        }
     },
     update(el, options) {
         el.$_ptooltipModifiers = options.modifiers;
