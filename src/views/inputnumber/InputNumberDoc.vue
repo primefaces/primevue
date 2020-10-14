@@ -252,6 +252,18 @@ Vertical
                                 <td>1</td>
                                 <td>Step factor to increment/decrement the value.</td>
                             </tr>
+                            <tr>
+                                <td>inputStyle</td>
+                                <td>any</td>
+                                <td>null</td>
+                                <td>Inline style of the input field.</td>
+                            </tr>
+                            <tr>
+                                <td>inputClass</td>
+                                <td>string</td>
+                                <td>null</td>
+                                <td>Style class of the input field.</td>
+                            </tr>
                         </tbody>
                     </table>
                 </div>

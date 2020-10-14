@@ -1,6 +1,6 @@
 <template>
     <span :class="containerClass">
-        <INInputText ref="input" class="p-inputnumber-input" :value="formattedValue" v-bind="$attrs" v-on="listeners" :aria-valumin="min" :aria-valuemax="max" />
+        <INInputText ref="input" :class="['p-inputnumber-input', inputClass]" :style="inputStyle" :value="formattedValue" v-bind="$attrs" v-on="listeners" :aria-valumin="min" :aria-valuemax="max" />
         <span class="p-inputnumber-button-group" v-if="showButtons && buttonLayout === 'stacked'">
             <INButton :class="upButtonClass" :icon="incrementButtonIcon" v-on="upButtonListeners" :disabled="$attrs.disabled" />
             <INButton :class="downButtonClass" :icon="decrementButtonIcon" v-on="downButtonListeners" :disabled="$attrs.disabled" />
@@ -100,7 +100,9 @@ export default {
         step: {
             type: Number,
             default: 1
-        }
+        },
+        inputStyle: null,
+        inputClass: null
     },
     numberFormat: null,
     _numeral: null,
