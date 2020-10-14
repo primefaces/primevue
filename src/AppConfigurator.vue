@@ -109,6 +109,16 @@
                         </div>
                     </div>
 
+                    <h5>Fluent UI</h5>
+                    <div class="p-grid free-themes">
+                         <div class="p-col-3">
+                            <button class="p-link" type="button" @click="changeTheme($event, 'fluent-light')">
+                                <img src="demo/images/themes/fluent-light.png" alt="Fluent Light"/>
+                            </button>
+                            <span>Fluent Light</span>
+                        </div>
+                    </div>
+
                     <h5>PrimeOne Design</h5>
                     <div class="p-grid free-themes">
                         <div class="p-col-3">
@@ -185,7 +195,24 @@
                         </div>
                     </div>
 
-                    <h5>Legacy</h5>
+                    <h4>Premium Themes</h4>
+                    <p>Premium themes are only available exclusively for <a href="https://www.primefaces.org/designer/primevue">PrimeVue Theme Designer</a> subscribers and therefore not included in PrimeNG core.</p>
+                    <div class="p-grid free-themes">
+                        <div class="p-col-3">
+                            <button class="p-link" type="button" @click="changeTheme($event, 'soho-light')">
+                                <img src="demo/images/themes/soho-light.png" alt="Soho Light" />
+                            </button>
+                            <span>Soho Light</span>
+                        </div>
+                        <div class="p-col-3">
+                            <button class="p-link" type="button" @click="changeTheme($event, 'soho-dark', true)">
+                                <img src="demo/images/themes/soho-dark.png" alt="Soho Dark" />
+                            </button>
+                            <span>Soho Dark</span>
+                        </div>
+                    </div>
+
+                    <h4>Legacy Free Themes</h4>
                     <div class="p-grid free-themes">
                         <div class="p-col-3">
                             <button class="p-link" type="button" @click="changeTheme($event, 'nova')">

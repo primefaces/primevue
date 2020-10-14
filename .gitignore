@@ -31,3 +31,6 @@ yarn-error.log*
 *.sln
 *.sw*
 
+# Themes
+public/themes/soho-light/
+public/themes/soho-dark/
