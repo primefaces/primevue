@@ -553,7 +553,7 @@ export default {
             this.unbindScrollListener();
             this.unbindResizeListener();
             this.$emit('hide');
-            
+
             if (this.mask) {
                 this.disableModality();
             }
