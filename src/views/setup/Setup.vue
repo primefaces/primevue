@@ -1,6 +1,8 @@
 <template>
     <div>
         <div class="content-section documentation">
+            <Message severity="warn">This guide is for Vue 2 and PrimeVue 2, visit <a href="https://www.primefaces.org/primevue/showcase/">PrimeVue 3.x website</a> if you are using Vue 3.</Message>
+
             <h1>Setup</h1>
             <p>PrimeVue is a rich set of open source native components for Vue.</p>
 
@@ -8,7 +10,7 @@
             <p>PrimeVue is available at <a href="https://www.npmjs.com/package/primevue">npm</a>, if you have an existing application run the following commands to download PrimeVue and PrimeIcons to your project.</p>
 
 <CodeHighlight lang="js">
-npm install primevue --save
+npm install primevue@^2.0.0 --save
 npm install primeicons --save
 </CodeHighlight>
 
