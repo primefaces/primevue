@@ -82,7 +82,7 @@ export default {
             this.$emit('node-toggle', node);
         },
         onClick(event) {
-            if (DomHandler.hasClass(event.target, 'p-tree-toggler') || DomHandler.hasClass(event.target, 'p-tree-toggler-icon')) {
+            if (DomHandler.hasClass(event.target, 'p-tree-toggler') || DomHandler.hasClass(event.target.parentElement, 'p-tree-toggler')) {
                 return;
             }
 
