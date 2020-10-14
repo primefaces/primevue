@@ -227,7 +227,7 @@ export default {
                     return formattedValue;
                 }
 
-                return value;
+                return value.toString();
             }
 
             return '';
