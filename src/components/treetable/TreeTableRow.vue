@@ -54,6 +54,10 @@ export default {
         level: {
             type: Number,
             default: 0
+        },
+        indentation: {
+            type: Number,
+            default: 1
         }
     },
     data() {
@@ -223,7 +227,7 @@ export default {
         },
         togglerStyle() {
             return {
-                marginLeft: this.level * 16 + 'px',
+                marginLeft: this.level * this.indentation + 'rem',
                 visibility: this.leaf ? 'hidden' : 'visible'
             };
         },

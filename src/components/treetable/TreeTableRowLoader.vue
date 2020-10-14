@@ -27,6 +27,10 @@ const TreeTableRowLoader = {
         level: {
             type: Number,
             default: 0
+        },
+        indentation: {
+            type: Number,
+            default: 1
         }
     },
     render(createElement, context) {
@@ -50,6 +54,7 @@ const TreeTableRowLoader = {
                 childNodeProps.node = childNode;
                 childNodeProps.parentNode = node;
                 childNodeProps.level = context.props.level + 1;
+                childNodeProps.indentation = context.props.indentation;
 
                 let childNodeElement = createElement(TreeTableRowLoader, {
                     key: childNode.key,
