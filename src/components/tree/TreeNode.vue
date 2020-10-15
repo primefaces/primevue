@@ -2,7 +2,7 @@
     <li :class="containerClass">
         <div :class="contentClass" tabindex="0" role="treeitem" :aria-expanded="expanded"
             @click="onClick" @keydown="onKeyDown" @touchend="onTouchEnd" :style="node.style">
-            <button type="button" class="p-tree-toggler p-link" @click="toggle" tabindex="-1" v-ripple>
+            <button type="button" class="p-tree-toggler p-link" @click="toggle" :style="togglerStyle" tabindex="-1" v-ripple>
                 <span :class="toggleIcon"></span>
             </button>
             <div class="p-checkbox p-component" v-if="checkboxMode">
@@ -273,6 +273,11 @@ export default {
                 'pi-chevron-down': this.expanded,
                 'pi-chevron-right': !this.expanded
             }];
+        },
+		togglerStyle() {
+            return {
+                visibility: this.leaf ? 'hidden' : 'visible'
+            };
         },
         checkboxClass() {
             return ['p-checkbox-box', {'p-highlight': this.checked, 'p-indeterminate': this.partialChecked}];
