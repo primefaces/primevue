@@ -191,7 +191,7 @@
     &lt;/div&gt;
     &lt;div class="p-field p-col-12"&gt;
         &lt;label for="address"&gt;Address&lt;/label&gt;
-        &lt;Textarea id="address" type="text" rows="4" /&gt;
+        &lt;Textarea id="address" rows="4" /&gt;
     &lt;/div&gt;
     &lt;div class="p-field p-col-12 p-md-6"&gt;
         &lt;label for="city"&gt;City&lt;/label&gt;
@@ -371,7 +371,7 @@
     &lt;/div&gt;
     &lt;div class="p-field p-col-12"&gt;
         &lt;label for="address"&gt;Address&lt;/label&gt;
-        &lt;Textarea id="address" type="text" rows="4" /&gt;
+        &lt;Textarea id="address" rows="4" /&gt;
     &lt;/div&gt;
     &lt;div class="p-field p-col-12 p-md-6"&gt;
         &lt;label for="city"&gt;City&lt;/label&gt;
