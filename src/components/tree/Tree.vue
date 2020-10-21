@@ -23,6 +23,7 @@ import TreeNode from './TreeNode';
 import ObjectUtils from '../utils/ObjectUtils';
 
 export default {
+    emits: ['node-expand', 'node-collapse', 'update:expandedKeys', 'update:selectionKeys', 'node-select', 'node-unselect'],
     props: {
         value: {
             type: null,

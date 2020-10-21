@@ -9,6 +9,7 @@
 import Ripple from '../ripple/Ripple';
 
 export default {
+    emits: ['update:modelValue', 'change'],
     props: {
         modelValue: Boolean,
 		onIcon: String,

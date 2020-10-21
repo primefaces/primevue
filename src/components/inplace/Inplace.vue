@@ -14,6 +14,7 @@
 import Button from '../button/Button';
 
 export default {
+    emits: ['open', 'close', 'update:active'],
     props: {
         closable: {
             type: Boolean,

@@ -28,6 +28,7 @@ import UniqueComponentId from '../utils/UniqueComponentId';
 import Ripple from '../ripple/Ripple';
 
 export default {
+    emits: ['update:collapsed', 'toggle'],
     props: {
         legend: String,
         toggleable: Boolean,

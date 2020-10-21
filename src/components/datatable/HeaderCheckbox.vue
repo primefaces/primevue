@@ -12,6 +12,7 @@
 <script>
 export default {
     inheritAttrs: false,
+    emits: ['change'],
     props: {
         checked: null
     },

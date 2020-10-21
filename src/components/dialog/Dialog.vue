@@ -32,6 +32,7 @@ import Ripple from '../ripple/Ripple';
 
 export default {
     inheritAttrs: false,
+    emits: ['update:visible', 'show', 'hide'],
     props: {
         header: null,
         footer: null,

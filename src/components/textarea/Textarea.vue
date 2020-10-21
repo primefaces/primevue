@@ -4,6 +4,7 @@
 
 <script>
 export default {
+    emits: ['update:modelValue'],
     props: {
         modelValue: null,
         autoResize: Boolean

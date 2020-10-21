@@ -8,6 +8,7 @@
 import * as Chart from 'chart.js';
 
 export default {
+    emits: ['select'],
     props: {
         type: String,
         data: null,

@@ -82,6 +82,8 @@ import TreeTableRow from './TreeTableRow';
 import Paginator from '../paginator/Paginator';
 
 export default {
+    emits: ['node-expand', 'node-collapse', 'update:expandedKeys', 'update:selectionKeys', 'node-select', 'node-unselect', 
+        'update:first', 'update:rows', 'page', 'update:sortField', 'update:sortOrder', 'update:multiSortMeta', 'sort', 'filter', 'column-resize-end'],
     props: {
         value: {
             type: null,

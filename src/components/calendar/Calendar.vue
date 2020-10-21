@@ -138,6 +138,7 @@ import Ripple from '../ripple/Ripple';
 
 export default {
     inheritAttrs: false,
+    emits: ['show', 'hide', 'month-change', 'year-change', 'date-select', 'update:modelValue', 'today-click', 'clear-click'],
     props: {
         modelValue: null,
         selectionMode: {

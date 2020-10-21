@@ -30,6 +30,7 @@ import DomHandler from '../utils/DomHandler';
 import Ripple from '../ripple/Ripple';
 
 export default {
+    emits: ['node-toggle', 'node-click', 'checkbox-change'],
     name: 'sub-treenode',
     props: {
         node: {

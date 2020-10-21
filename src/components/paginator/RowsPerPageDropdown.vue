@@ -8,6 +8,7 @@ import Dropdown from '../dropdown/Dropdown';
 
 export default {
     inheritAttrs: false,
+    emits: ['rows-change'],
     props: {
         options: Array,
         rows: Number

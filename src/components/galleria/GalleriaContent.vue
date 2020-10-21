@@ -33,6 +33,7 @@ import Ripple from '../ripple/Ripple';
 export default {
     inheritAttrs: false,
     interval: null,
+    emits: ['activeitem-change', 'mask-hide'],
     data() {
         return {
             id: this.$attrs.id || UniqueComponentId(),

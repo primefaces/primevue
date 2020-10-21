@@ -28,6 +28,7 @@ import DomHandler from '../utils/DomHandler';
 import Ripple from '../ripple/Ripple';
 
 export default {
+    emits: ['leaf-click'],
     name: 'sub-menu',
     props: {
         model: {

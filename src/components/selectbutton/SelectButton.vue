@@ -16,6 +16,7 @@ import ObjectUtils from '../utils/ObjectUtils';
 import Ripple from '../ripple/Ripple';
 
 export default {
+    emits: ['update:modelValue', 'focus', 'blur'],
     props: {
         modelValue: null,
         options: Array,

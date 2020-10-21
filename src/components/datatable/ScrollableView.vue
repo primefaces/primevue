@@ -50,6 +50,7 @@ import DomHandler from '../utils/DomHandler';
 import TableLoadingBody from './TableLoadingBody';
 
 export default {
+    emits: ['virtual-scroll'],
     props: {
         frozen: {
             type: Boolean,

@@ -37,6 +37,8 @@ import RowCheckbox from './RowCheckbox.vue';
 import Ripple from '../ripple/Ripple';
 
 export default {
+    emits: ['cell-edit-init', 'cell-edit-complete', 'cell-edit-cancel', 'row-edit-init', 'row-edit-complete', 'row-edit-cancel',
+            'row-toggle', 'radio-change', 'checkbox-change'],
     props: {
         rowData: {
             type: Object,

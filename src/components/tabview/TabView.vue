@@ -22,6 +22,7 @@ import DomHandler from '../utils/DomHandler';
 import Ripple from '../ripple/Ripple';
 
 export default {
+    emits: ['update:activeIndex', 'tab-change'],
     props: {
         activeIndex: {
             type: Number,

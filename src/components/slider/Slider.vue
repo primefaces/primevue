@@ -14,6 +14,7 @@
 import DomHandler from '../utils/DomHandler';
 
 export default {
+    emits: ['update:modelValue', 'change', 'slideend'],
     props: {
         modelValue: [Number,Array],
 		min: {

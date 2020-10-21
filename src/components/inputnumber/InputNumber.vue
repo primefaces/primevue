@@ -17,6 +17,7 @@ import Button from '../button/Button';
 
 export default {
     inheritAttrs: false,
+    emits: ['start-slideshow', 'input'],
     props: {
         modelValue: {
             type: Number,
