@@ -274,6 +274,11 @@
                     <p>Beautifully crafted premium <a href="https://cli.vuejs.org">Vue CLI</a> application templates by the PrimeTek design team.</p>
                     <div class="p-grid premium-themes">
                         <div class="p-col-12 p-md-6">
+                            <a href="https://www.primefaces.org/layouts/dimond-vue">
+                                <img alt="Diamond" src="./assets/images/layouts/diamond-vue.jpg">
+                            </a>
+                        </div>
+                        <div class="p-col-12 p-md-6">
                             <a href="https://www.primefaces.org/layouts/ultima-vue">
                                 <img alt="Ultima" src="./assets/images/layouts/ultima-vue.jpg">
                             </a>

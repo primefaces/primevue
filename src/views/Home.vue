@@ -131,6 +131,11 @@
 
             <div class="p-grid">
                 <div class="p-col-12 p-md-3">
+                    <a href="https://www.primefaces.org/layouts/diamond-vue">
+                        <img alt="Diamond" src="../assets/images/layouts/diamond-vue.jpg">
+                    </a>
+                </div>
+                <div class="p-col-12 p-md-3">
                     <a href="https://www.primefaces.org/layouts/sapphire-vue">
                         <img alt="Sapphire" src="../assets/images/layouts/sapphire-vue.jpg">
                     </a>
