@@ -117,8 +117,8 @@ dependencies: {
                             <td>DataView</td>
                         </tr>
                         <tr>
-                            <td>Mitt</td>
                             <td>Toast and Terminal</td>
+                            <td>Mitt</td>
                         </tr>
                     </tbody>
                 </table>
