@@ -8,7 +8,7 @@
     display: flex;
     justify-content: center;
     align-items: center;
-    background-image: url("assets/images/topbar-easter-2020-bg.jpg");
+    background-image: url("assets/images/topbar-diamond-bg.png");
 
     .layout-news-container {
         width: 100%;
@@ -40,18 +40,34 @@
             }
         }
 
-        img.layouts-news-text-image {
-            height: 60px;
-        }
-
         img.layouts-news-mockup-image {
             height: 70px;
-            position: absolute;
-            right: 52px;
+        }
+
+        .layout-news-button {
+            border: 1px solid #ffffff;
+            color: #ffffff;
+            font-size: 15px;
+            padding: .3em .3em .5em 1em;
+            font-weight: bold;
+            border-radius: 3px;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            flex-shrink: 0;
+            transition: background-color 0.15s;
+            margin-left: 2em;
+            position: relative;
+            z-index: 1;
+
+            &:hover {
+                background-color: rgba(255, 255, 255, 0.25);
+            }
         }
     }
 
     .layout-news-close {
+        cursor: pointer;
         color: #fff;
         position: absolute;
         z-index: 2;
