@@ -2,10 +2,11 @@
     <ul class="p-submenu-list" role="tree">
         <template v-for="(item, i) of model">
             <li role="none" :class="getItemClass(item)" :style="item.style" v-if="visible(item) && !item.separator" :key="item.label + i">
-                <router-link v-if="item.to && !item.disabled" :to="item.to" :class="getLinkClass(item)" @click="onItemClick($event, item)"
-                    role="treeitem" :aria-expanded="isActive(item)">
-                    <span :class="['p-menuitem-icon', item.icon]"></span>
-                    <span class="p-menuitem-text">{{item.label}}</span>
+                <router-link v-if="item.to && !item.disabled" :to="item.to" custom v-slot="{navigate, href}">
+                    <a :href="href" :class="getLinkClass(item)" @click="onItemClick($event, item, navigate)" role="treeitem" :aria-expanded="isActive(item)"> 
+                        <span :class="['p-menuitem-icon', item.icon]"></span>
+                        <span class="p-menuitem-text">{{item.label}}</span>
+                    </a>
                 </router-link>
                 <a v-else :href="item.url" :class="getLinkClass(item)" :target="item.target" @click="onItemClick($event, item)"
                     role="treeitem" :aria-expanded="isActive(item)" :tabindex="item.disabled ? null : '0'">
@@ -39,14 +40,10 @@ export default {
         }
     },
     methods: {
-        onItemClick($event, item) {
+        onItemClick($event, item, navigate) {
             if (item.disabled) {
                 event.preventDefault();
                 return;
-            }
-
-            if (!item.url && !item.to) {
-                event.preventDefault();
             }
 
             if (item.command) {
@@ -60,6 +57,10 @@ export default {
                 this.activeItem = null;
             else
                 this.activeItem = item;
+
+            if (item.to && navigate) {
+                navigate(event);
+            }
         },
         getItemClass(item) {
             return ['p-menuitem', item.className];

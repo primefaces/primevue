@@ -3,9 +3,11 @@
         <ul ref="nav" class="p-tabmenu-nav p-reset" role="tablist">
             <template v-for="(item,i) of model">
                 <li :key="item.label + '_' + i" :class="getItemClass(item)" :style="item.style" v-if="visible(item)" role="tab" :aria-selected="isActive(item)" :aria-expanded="isActive(item)">
-                    <router-link v-if="item.to && !item.disabled" :to="item.to" class="p-menuitem-link" @click="onItemClick($event, item)" role="presentation" v-ripple>
-                        <span :class="getItemIcon(item)" v-if="item.icon"></span>
-                        <span class="p-menuitem-text">{{item.label}}</span>
+                    <router-link v-if="item.to && !item.disabled" :to="item.to" custom v-slot="{navigate, href}">
+                        <a :href="href" class="p-menuitem-link" @click="onItemClick($event, item, navigate)" role="presentation" v-ripple>
+                            <span :class="getItemIcon(item)" v-if="item.icon"></span>
+                            <span class="p-menuitem-text">{{item.label}}</span>
+                        </a>
                     </router-link>
                     <a v-else :href="item.url" class="p-menuitem-link" :target="item.target" @click="onItemClick($event, item)" role="presentation" :tabindex="item.disabled ? null : '0'" v-ripple>
                         <span :class="getItemIcon(item)" v-if="item.icon"></span>
@@ -36,7 +38,7 @@ export default {
         this.updateInkBar();
     },
     methods: {
-        onItemClick(event, item) {
+        onItemClick(event, item, navigate) {
             if (item.disabled) {
                 event.preventDefault();
                 return;
@@ -48,9 +50,13 @@ export default {
                     item: item
                 });
             }
+
+            if (item.to && navigate) {
+                navigate(event);
+            }
         },
         isActive(item) {
-            return this.activeRoute.startsWith(item.to);
+            return this.activeRoute === item.to;
         },
         getItemClass(item) {
             return ['p-tabmenuitem', item.class, {

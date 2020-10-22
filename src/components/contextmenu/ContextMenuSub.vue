@@ -4,12 +4,14 @@
             <template v-for="(item, i) of model">
                 <li role="none" :class="getItemClass(item)" :style="item.style" v-if="visible(item) && !item.separator" :key="item.label + i"
                     @mouseenter="onItemMouseEnter($event, item)">
-                    <router-link v-if="item.to && !item.disabled" :to="item.to" :class="getLinkClass(item)" @click="onItemClick($event, item)" role="menuitem" v-ripple>
-                        <span :class="['p-menuitem-icon', item.icon]"></span>
-                        <span class="p-menuitem-text">{{item.label}}</span>
+                    <router-link v-if="item.to && !item.disabled" :to="item.to" custom v-slot="{navigate, href}">
+                        <a :href="href" @click="onItemClick($event, item, navigate)" :class="getLinkClass(item)" v-ripple role="menuitem">
+                            <span :class="['p-menuitem-icon', item.icon]"></span>
+                            <span class="p-menuitem-text">{{item.label}}</span>
+                        </a>
                     </router-link>
                     <a v-else :href="item.url" :class="getLinkClass(item)" :target="item.target" @click="onItemClick($event, item)" v-ripple
-                         :aria-haspopup="item.items != null" :aria-expanded="item === activeItem" role="menuitem"  :tabindex="item.disabled ? null : '0'">
+                         :aria-haspopup="item.items != null" :aria-expanded="item === activeItem" role="menuitem" :tabindex="item.disabled ? null : '0'">
                         <span :class="['p-menuitem-icon', item.icon]"></span>
                         <span class="p-menuitem-text">{{item.label}}</span>
                         <span class="p-submenu-icon pi pi-angle-right" v-if="item.items"></span>
@@ -65,14 +67,10 @@ export default {
 
             this.activeItem = item;
         },
-        onItemClick(event, item) {
+        onItemClick(event, item, navigate) {
             if (item.disabled) {
                 event.preventDefault();
                 return;
-            }
-
-            if (!item.url && !item.to) {
-                event.preventDefault();
             }
 
             if (item.command) {
@@ -82,8 +80,19 @@ export default {
                 });
             }
 
+            if (item.items) {
+                if (this.activeItem && item === this.activeItem)
+                    this.activeItem = null;
+                else
+                   this.activeItem = item;
+            }
+
             if (!item.items) {
                 this.onLeafClick();
+            }
+
+            if (item.to && navigate) {
+                navigate(event);
             }
         },
         onLeafClick() {
