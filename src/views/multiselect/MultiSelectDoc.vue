@@ -51,7 +51,7 @@ data() {
 		&lt;/div&gt;
 		&lt;template v-if="!slotProps.value || slotProps.value.length === 0"&gt;
             Select Brands
-        &lt;template&gt;
+        &lt;/template&gt;
 	&lt;/template&gt;
 	&lt;template #option="slotProps"&gt;
 		&lt;div class="p-multiselect-car-option"&gt;
