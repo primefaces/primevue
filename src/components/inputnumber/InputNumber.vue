@@ -674,10 +674,28 @@ export default {
             this._minusSign.lastIndex =  0;
         },
         updateValue(event, valueStr, insertedValueStr, operation) {
+            let currentValue = this.$refs.input.$el.value;
+            let newValue = null;
             if (valueStr != null) {
-                let newValue = this.parseValue(valueStr);
+                newValue = this.parseValue(valueStr);
                 this.updateInput(newValue, insertedValueStr, operation);
             }
+            this.handleOnInput(event, currentValue, newValue);
+        },
+        handleOnInput (event, currentValue, newValue) {
+            if (this.isValueChanged(currentValue, newValue)) {
+              this.updateModel(event, newValue);
+            }
+        },
+        isValueChanged (currentValue, newValue) {
+            if (newValue === null && currentValue !== null) {
+                return true
+            }
+            if (newValue != null) {
+                let parsedCurrentValue = (typeof currentValue === 'string') ? this.parseValue(currentValue) : currentValue
+                return newValue !== parsedCurrentValue
+            }
+            return false
         },
         validateValue(value) {
             if (this.min != null && value < this.min) {
