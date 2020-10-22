@@ -1,5 +1,25 @@
 # Changelog
 
+## [3.0.1](https://github.com/primefaces/primevue/tree/3.0.1) (2020-10-22)
+
+[Full Changelog](https://github.com/primefaces/primevue/compare/2.2.0...3.0.1)
+
+**Implemented New Features and Enhancements:**
+
+- Do not hide overlays on body scroll [\#591](https://github.com/primefaces/primevue/issues/591)
+- Add inputStyle and inputClass properties to InputNumber [\#551](https://github.com/primefaces/primevue/issues/551)
+- Declare events in "emits" section of every component [\#549](https://github.com/primefaces/primevue/issues/549)
+
+**Fixed bugs:**
+
+- Overriding ProgressSpinner colors doc error [\#589](https://github.com/primefaces/primevue/issues/589)
+- Property "disabled" was accessed during render but is not defined on instance. [\#587](https://github.com/primefaces/primevue/issues/587)
+- Dropdown inside datable using showClear causing: Cannot read property 'classList' of null [\#586](https://github.com/primefaces/primevue/issues/586)
+- DataTable crashes with a "Cannot read property 'xxx' of null" for nested objects [\#555](https://github.com/primefaces/primevue/issues/555)
+- pRipple works even when disabled\(etc menuitem\) [\#550](https://github.com/primefaces/primevue/issues/550)
+- Website / Documentation - Fix third-party dependencies documentation [\#546](https://github.com/primefaces/primevue/issues/546)
+- Menu components with web router refresh the whole page [\#536](https://github.com/primefaces/primevue/issues/536)
+
 ## [3.0.0](https://github.com/primefaces/primevue/tree/3.0.0) (2020-10-11)
 
 [Full Changelog](https://github.com/primefaces/primevue/compare/2.1.0...3.0.0)
