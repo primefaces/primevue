@@ -10,7 +10,7 @@ import FullCalendar from 'primevue/fullcalendar';
 </code></pre>
 
 				<h5>Getting Started</h5>
-				<p>FullCalendar is a wrapper around on <a href="https://fullcalendar.io/docs/v4">FullCalendar 4.0.0+</a> so fullcalendar needs to be included in your project.
+				<p>FullCalendar is a wrapper around on <a href="https://fullcalendar.io/docs">FullCalendar 5.0.0+</a> so fullcalendar needs to be included in your project.
                 For a complete documentation and samples please refer to the <a href="https://fullcalendar.io/">fullcalendar website</a>.</p>
 <pre v-code>
 <code>
@@ -30,7 +30,7 @@ npm install @fullcalendar/interaction --save
                 <p>Include the core style and the styles of the plugins that you use in your application.</p>
 <pre v-code>
 <code>
-import '@fullcalendar/core/main.min.css';
+import '@fullcalendar/common/main.min.css';
 import '@fullcalendar/daygrid/main.min.css';
 import '@fullcalendar/timegrid/main.min.css';
 
@@ -144,8 +144,9 @@ export default {
         return {
             options: {
                 plugins:[dayGridPlugin, timeGridPlugin, interactionPlugin],
-                defaultDate: '2019-01-01',
-                header: {
+                initialView: 'dayGridMonth',
+				initialDate: '2019-01-01',
+                headerToolbar: {
                     left: 'prev,next',
                     center: 'title',
                     right: 'dayGridMonth,timeGridWeek,timeGridDay'
@@ -175,8 +176,9 @@ export default {
         return {
             options: {
                 plugins:[dayGridPlugin, timeGridPlugin, interactionPlugin],
-                defaultDate: '2019-01-01',
-                header: {
+				initialView: 'dayGridMonth',
+				initialDate: '2019-01-01',
+                headerToolbar: {
                     left: 'prev,next',
                     center: 'title',
                     right: 'dayGridMonth,timeGridWeek,timeGridDay'
@@ -218,7 +220,7 @@ export default {
 				</div>
 
 				<h5>Dependencies</h5>
-                <p><a href="https://fullcalendar.io/docs/v4">FullCalendar 4.0.0+</a></p>
+                <p><a href="https://fullcalendar.io/docs">FullCalendar 5.0.0+</a></p>
 
 			</TabPanel>
 
@@ -244,8 +246,9 @@ export default {
         return {
             options: {
                 plugins:[dayGridPlugin, timeGridPlugin, interactionPlugin],
-                defaultDate: '2019-01-01',
-                header: {
+                initialView: 'dayGridMonth',
+				initialDate: '2019-01-01',
+                headerToolbar: {
                     left: 'prev,next',
                     center: 'title',
                     right: 'dayGridMonth,timeGridWeek,timeGridDay'

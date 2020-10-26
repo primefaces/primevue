@@ -29,8 +29,9 @@ export default {
         return {
             options: {
                 plugins:[dayGridPlugin, timeGridPlugin, interactionPlugin],
-                defaultDate: '2019-01-01',
-                header: {
+                initialView: 'dayGridMonth', 
+                initialDate: '2019-01-01',
+                headerToolbar: {
                     left: 'prev,next',
                     center: 'title',
                     right: 'dayGridMonth,timeGridWeek,timeGridDay'
