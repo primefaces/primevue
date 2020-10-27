@@ -20,21 +20,24 @@ import Card from 'primevue/card';
 </code></pre>
 
                 <h5>Templates</h5>
-                <p>Card provides <i>header</i>, <i>title</i>, <i>content</i> and <i>footer</i> as the named templates to place content.</p>
+                <p>Card provides <i>header</i>, <i>title</i>, <i>subtitle</i>, <i>content</i> and <i>footer</i> as the named templates to place content.</p>
 <pre v-code>
 <code>
 &lt;Card&gt;
-    &lt;template slot="header"&gt;
+    &lt;template v-slot:header&gt;
         &lt;img alt="user header" src="demo/images/usercard.png"&gt;
     &lt;/template&gt;
-    &lt;template slot="title"&gt;
+    &lt;template v-slot:title&gt;
         Advanced Card
     &lt;/template&gt;
-    &lt;template slot="content"&gt;
+	&lt;template v-slot:subtitle&gt;
+        Card subtitle
+    &lt;/template&gt;
+    &lt;template v-slot:content&gt;
         Lorem ipsum dolor sit amet, consectetur adipisicing elit. Inventore sed consequuntur error repudiandae numquam deserunt
         quisquam repellat libero asperiores earum nam nobis, culpa ratione quam perferendis esse, cupiditate neque quas!
     &lt;/template&gt;
-    &lt;template slot="footer"&gt;
+    &lt;template v-slot:footer&gt;
         &lt;Button icon="pi pi-check" label="Save" /&gt;
         &lt;Button icon="pi pi-times" label="Cancel" class="p-button-secondary" style="margin-left: .5em" /&gt;
     &lt;/template&gt;
@@ -88,30 +91,30 @@ import Card from 'primevue/card';
 <pre v-code>
 <code><template v-pre>
 &lt;Card style="width: 25rem; margin-bottom: 2em"&gt;
-    &lt;template slot="title"&gt;
+    &lt;template v-slot:title&gt;
         Simple Card
     &lt;/template&gt;
-    &lt;template slot="content"&gt;
+    &lt;template v-slot:content&gt;
         &lt;p&gt;Lorem ipsum dolor sit amet, consectetur adipisicing elit. Inventore sed consequuntur error repudiandae numquam deserunt
         quisquam repellat libero asperiores earum nam nobis, culpa ratione quam perferendis esse, cupiditate neque quas!&lt;/p&gt;
     &lt;/template&gt;
 &lt;/Card&gt;
 
 &lt;Card style="width: 25em"&gt;
-    &lt;template slot="header"&gt;
+    &lt;template v-slot:header&gt;
         &lt;img alt="user header" src="demo/images/usercard.png"&gt;
     &lt;/template&gt;
-    &lt;template slot="title"&gt;
+    &lt;template v-slot:title&gt;
         Advanced Card
     &lt;/template&gt;
-    &lt;template slot="subtitle"&gt;
+    &lt;template v-slot:subtitle&gt;
         Card subtitle
     &lt;/template&gt;
-    &lt;template slot="content"&gt;
+    &lt;template v-slot:content&gt;
         &lt;p&gt;Lorem ipsum dolor sit amet, consectetur adipisicing elit. Inventore sed consequuntur error repudiandae numquam deserunt
         quisquam repellat libero asperiores earum nam nobis, culpa ratione quam perferendis esse, cupiditate neque quas!&lt;/p&gt;
     &lt;/template&gt;
-    &lt;template slot="footer"&gt;
+    &lt;template v-slot:footer&gt;
         &lt;Button icon="pi pi-check" label="Save" /&gt;
         &lt;Button icon="pi pi-times" label="Cancel" class="p-button-secondary" style="margin-left: .5em" /&gt;
     &lt;/template&gt;
