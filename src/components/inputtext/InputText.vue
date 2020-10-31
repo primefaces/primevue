@@ -1,5 +1,5 @@
 <template>
-    <input :class="['p-inputtext p-component', {'p-filled': filled}]" :value="modelValue" @input="onInput" />
+    <input :class="['p-inputtext p-component', {'p-filled': filled}]" :value="modelValue" @input="onInput" ref="input"/>
 </template>
 
 <script>
@@ -11,6 +11,9 @@ export default {
     methods: {
         onInput(event) {
             this.$emit('update:modelValue', event.target.value);
+        },
+        focus() {
+          this.$refs.input.focus();
         }
     },
     computed: {
