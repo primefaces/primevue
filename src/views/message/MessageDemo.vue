@@ -21,6 +21,23 @@
                     <Message v-for="msg of messages" :severity="msg.severity" :key="msg.content">{{msg.content}}</Message>
                 </transition-group>
 
+                <h5>Inline Messages</h5>
+                <p>Message component is used to display inline messages mostly within forms.</p>
+                <div class="p-grid">
+                    <div class="p-col-12 p-md-3">
+                        <InlineMessage severity="info">Message Content</InlineMessage>
+                    </div>
+                    <div class="p-col-12 p-md-3">
+                        <InlineMessage severity="success">Message Content</InlineMessage>
+                    </div>
+                    <div class="p-col-12 p-md-3">
+                        <InlineMessage severity="warn">Message Content</InlineMessage>
+                    </div>
+                    <div class="p-col-12 p-md-3">
+                        <InlineMessage severity="error">Message Content</InlineMessage>
+                    </div>
+                </div>
+
                 <h5>Auto Dismiss</h5>
                 <Message severity="warn" :life="3000" :sticky="false">This message will hide in 3 seconds.</Message>
 
