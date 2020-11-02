@@ -11,7 +11,7 @@
 		<div class="content-section implementation">
             <div class="card">
                 <h5>Fit Mode</h5>
-                <DataTable :value="products" :resizableColumns="true" columnResizeMode="fit">
+                <DataTable :value="products" :resizableColumns="true" columnResizeMode="fit" class="p-datatable-gridlines">
                     <Column field="code" header="Code"></Column>
                     <Column field="name" header="Name"></Column>
                     <Column field="category" header="Category"></Column>
@@ -21,7 +21,7 @@
 
             <div class="card">
                 <h5>Expand Mode</h5>
-                <DataTable :value="products" :resizableColumns="true" columnResizeMode="expand">
+                <DataTable :value="products" :resizableColumns="true" columnResizeMode="expand" class="p-datatable-gridlines">
                     <Column field="code" header="Code"></Column>
                     <Column field="name" header="Name"></Column>
                     <Column field="category" header="Category"></Column>
@@ -36,7 +36,7 @@
 <pre v-code>
 <code><template v-pre>
 &lt;h3&gt;Fit Mode&lt;/h3&gt;
-&lt;DataTable :value="products" :resizableColumns="true" columnResizeMode="fit"&gt;
+&lt;DataTable :value="products" :resizableColumns="true" columnResizeMode="fit" class="p-datatable-gridlines"&gt;
     &lt;Column field="code" header="Code"&gt;&lt;/Column&gt;
     &lt;Column field="name" header="Name"&gt;&lt;/Column&gt;
     &lt;Column field="category" header="Category"&gt;&lt;/Column&gt;
@@ -44,7 +44,7 @@
 &lt;/DataTable&gt;
 
 &lt;h3&gt;Expand Mode&lt;/h3&gt;
-&lt;DataTable :value="products" :resizableColumns="true" columnResizeMode="expand"&gt;
+&lt;DataTable :value="products" :resizableColumns="true" columnResizeMode="expand" class="p-datatable-gridlines"&gt;
     &lt;Column field="code" header="Code"&gt;&lt;/Column&gt;
     &lt;Column field="name" header="Name"&gt;&lt;/Column&gt;
     &lt;Column field="category" header="Category"&gt;&lt;/Column&gt;
