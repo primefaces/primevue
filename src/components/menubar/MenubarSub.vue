@@ -29,6 +29,7 @@ import Ripple from '../ripple/Ripple';
 
 export default {
     name: 'sub-menu',
+    emits: ['keydown-item', 'leaf-click'],
     props: {
         model: {
             type: Array,
