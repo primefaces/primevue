@@ -1,5 +1,5 @@
 <template>
-    <input ref="input" type="password" :class="['p-inputtext p-component', {'p-filled': filled}]" :value="modelValue"
+    <input ref="input" type="password" v-bind="$attrs" :class="['p-inputtext p-component', {'p-filled': filled}]" :value="modelValue"
         @input="onInput" @focus="onFocus" @blur="onBlur" @keyup="onKeyUp" />
     <transition name="p-connected-overlay" @enter="onOverlayEnter" @leave="onOverlayLeave">
         <div :ref="overlayRef" class="p-password-panel p-component" v-if="overlayVisible">
