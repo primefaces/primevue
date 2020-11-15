@@ -16,6 +16,7 @@ import DomHandler from '../utils/DomHandler';
 import Ripple from '../ripple/Ripple';
 
 export default {
+    emits: ['update:visible', 'show', 'hide'],
     props: {
         visible: {
             type: Boolean,

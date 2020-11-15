@@ -12,6 +12,7 @@
 <script>
 export default {
     inheritAttrs: false,
+    emits: ['click', 'update:modelValue', 'change'],
     props: {
         modelValue: null,
         class: null,

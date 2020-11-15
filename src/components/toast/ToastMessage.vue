@@ -17,6 +17,7 @@
 import Ripple from '../ripple/Ripple';
 
 export default {
+    emits: ['close'],
     props: {
         message: null
     },

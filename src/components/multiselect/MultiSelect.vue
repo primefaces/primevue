@@ -61,6 +61,7 @@ import DomHandler from '../utils/DomHandler';
 import Ripple from '../ripple/Ripple';
 
 export default {
+    emits: ['update:modelValue', 'before-show', 'before-hide', 'change', 'show', 'hide', 'filter'],
     props: {
         modelValue: null,
         options: Array,
@@ -165,8 +166,9 @@ export default {
         onHeaderCheckboxBlur() {
             this.headerCheckboxFocused = false;
         },
-        onClick() {
-            if (!this.disabled && (!this.overlay || !this.overlay.contains(event.target))) {
+        onClick(event) {
+            if (!this.disabled && (!this.overlay || !this.overlay.contains(event.target)) && !DomHandler.hasClass(event.target, 'p-multiselect-close')) {
+                DomHandler.hasClass(event.target, 'p-multiselect-close');
                 if (this.overlayVisible)
                     this.hide();
                 else

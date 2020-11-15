@@ -8,6 +8,7 @@
 
 <script>
 export default {
+    emits: ['update:modelValue', 'change'],
     props: {
         modelValue: {
             type: Number,

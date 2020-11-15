@@ -78,8 +78,12 @@ export default {
 
             if (item.command) {
                 item.command(event);
-                event.originalEvent.preventDefault();
             }
+
+            if (item.to && event.navigate) {
+                event.navigate(event.originalEvent);
+            }
+
             this.hide();
         },
         toggle(event) {

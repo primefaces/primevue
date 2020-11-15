@@ -9,6 +9,7 @@ import Ripple from '../ripple/Ripple';
 
 export default {
     inheritAttrs: false,
+    emits: ['click'],
     props: {
         value: Array,
         page: Number

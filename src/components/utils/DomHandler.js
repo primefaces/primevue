@@ -143,10 +143,14 @@ export default class DomHandler {
     }
 
     static hasClass(element, className) {
-        if (element.classList)
-            return element.classList.contains(className);
-        else
-            return new RegExp('(^| )' + className + '( |$)', 'gi').test(element.className);
+        if (element) {
+            if (element.classList)
+                return element.classList.contains(className);
+            else
+                return new RegExp('(^| )' + className + '( |$)', 'gi').test(element.className);
+        }
+        
+        return false;
     }
 
     static find(element, selector) {
@@ -270,10 +274,6 @@ export default class DomHandler {
                             scrollableParents.push(el);
                         }
                     }
-                }
-
-                if (parent.nodeType === 9 || overflowCheck(parent)) {
-                    scrollableParents.push(parent);
                 }
             }
         }

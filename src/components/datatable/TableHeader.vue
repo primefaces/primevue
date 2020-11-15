@@ -49,6 +49,8 @@ import DomHandler from '../utils/DomHandler';
 import HeaderCheckbox from './HeaderCheckbox.vue';
 
 export default {
+    emits: ['column-click', 'column-mousedown', 'column-dragstart', 'column-dragover', 'column-dragleave', 'column-drop',
+            'column-resizestart', 'checkbox-change', 'column-click'],
     props: {
 		columnGroup: {
             type: null,

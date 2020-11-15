@@ -10,6 +10,7 @@
 import OrganizationChartNode from './OrganizationChartNode';
 
 export default {
+    emits: ['node-unselect', 'node-select', 'update:selectionKeys', 'node-expand', 'node-collapse', 'update:collapsedKeys'],
     props: {
         value: {
             type: null,

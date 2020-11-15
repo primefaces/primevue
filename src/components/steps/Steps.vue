@@ -3,9 +3,11 @@
         <ul role="tablist">
             <template v-for="(item,index) of model">
                 <li v-if="visible(item)" :key="item.to" :class="getItemClass(item)" :style="item.style" role="tab" :aria-selected="isActive(item)" :aria-expanded="isActive(item)">
-                    <router-link :to="item.to" class="p-menuitem-link" @click="onItemClick($event, item)" v-if="!isItemDisabled(item)" role="presentation">
-                        <span class="p-steps-number">{{index + 1}}</span>
-                        <span class="p-steps-title">{{item.label}}</span>
+                    <router-link :to="item.to" v-if="!isItemDisabled(item)" custom v-slot="{navigate, href}">
+                        <a :href="href" class="p-menuitem-link" @click="onItemClick($event, item, navigate)" role="presentation">
+                            <span class="p-steps-number">{{index + 1}}</span>
+                            <span class="p-steps-title">{{item.label}}</span>
+                        </a>
                     </router-link>
                     <span v-else class="p-menuitem-link" role="presentation">
                         <span class="p-steps-number">{{index + 1}}</span>
@@ -36,7 +38,7 @@ export default {
         }
     },
     methods: {
-        onItemClick(event, item) {
+        onItemClick(event, item, navigate) {
             if (item.disabled || this.readonly) {
                 event.preventDefault();
                 return;
@@ -47,6 +49,10 @@ export default {
                     originalEvent: event,
                     item: item
                 });
+            }
+
+            if (item.to && navigate) {
+                navigate(event);
             }
         },
         isActive(item) {

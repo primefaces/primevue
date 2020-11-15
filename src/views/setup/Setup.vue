@@ -1,7 +1,7 @@
 <template>
     <div>
         <div class="content-section documentation">
-            <Message severity="info">This guide is for Vue 3 and PrimeVue 3, visit <a href="https://www.primefaces.org/primevue/showcase-v2">PrimeVue 2.x website</a> if you are using Vue 2.</Message>
+            <Message severity="warn">This guide is for Vue 3 and PrimeVue 3, visit <a href="https://www.primefaces.org/primevue/showcase-v2">PrimeVue 2.x website</a> if you are using Vue 2.</Message>
 
             <h1>Setup</h1>
             <p>PrimeVue is a rich set of open source native components for Vue.</p>
@@ -11,7 +11,7 @@
 
 <pre v-code.script>
 <code>
-npm install primevue --save
+npm install primevue@^3.0.0 --save
 npm install primeicons --save
 
 </code></pre>
@@ -117,8 +117,8 @@ dependencies: {
                             <td>DataView</td>
                         </tr>
                         <tr>
-                            <td>Mitt</td>
                             <td>Toast and Terminal</td>
+                            <td>Mitt</td>
                         </tr>
                     </tbody>
                 </table>
@@ -137,7 +137,7 @@ primeicons/primeicons.css                           //icons
 </code></pre>
 
             <h5>Free Themes</h5>
-            <p>PrimeVue ships with 32 free themes to choose from.</p>
+            <p>PrimeVue ships with various free themes to choose from.</p>
 <pre v-code.css>
 <code>
 primevue/resources/themes/bootstrap4-light-blue/theme.css
@@ -152,6 +152,7 @@ primevue/resources/themes/mdc-light-indigo/theme.css
 primevue/resources/themes/mdc-light-deeppurple/theme.css
 primevue/resources/themes/mdc-dark-indigo/theme.css
 primevue/resources/themes/mdc-dark-deeppurple/theme.css
+primevue/resources/themes/fluent-light/theme.css
 primevue/resources/themes/saga-blue/theme.css
 primevue/resources/themes/saga-green/theme.css
 primevue/resources/themes/saga-orange/theme.css

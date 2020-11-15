@@ -14,6 +14,7 @@ import ObjectUtils from '../utils/ObjectUtils';
 
 export default {
     inheritAttrs: false,
+    emits: ['click', 'update:modelValue', 'change'],
     props: {
 		value: null,
         modelValue: null,

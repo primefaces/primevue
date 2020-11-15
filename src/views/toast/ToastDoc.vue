@@ -30,15 +30,35 @@ import Toast from 'primevue/toast';
 
 </code></pre>
 
-
 				<h5>Getting Started</h5>
-                <p>Ideal location of a Toast is the main application template so that it can be used by any component within the application.</p>
+                <p>Ideal location of a Toast is the main application template so that it can be used by any component within the application. A single message is represented by the Message interface in PrimeVue that defines various properties such as severity,
+					summary and detail.</p>
 
-				<p>A single message is represented by the Message interface in PrimeVue that defines various properties such as severity,
-					summary and detail. Messages are displayed by using the <i>add</i> method of the <b>$toast</b> property of the application.</p>
+                <h5>Options API</h5>
+                <p><i>$toast</i> is available as a property in the application instance.</p>
 <pre v-code.script>
 <code>
-this.$toast.add({severity:'success', summary: 'Success Message', detail:'Order submitted', life: 3000});
+export default {
+    mounted() {
+        this.$toast.add({severity:'success', summary: 'Success Message', detail:'Order submitted', life: 3000});
+    }
+}
+
+</code></pre>
+
+                <h5>Composition API</h5>
+                <p>The toast instance can be injected with the <i>useToast</i> function.</p>
+<pre v-code.script>
+<code>
+import { defineComponent } from "vue";
+import { useToast } from "primevue/useToast";
+
+export default defineComponent({
+    setup() {
+        const toast = useToast();
+        toast.add({severity:'info', summary: 'Info Message', detail:'Message Content', life: 3000});
+    }
+})
 
 </code></pre>
 
@@ -173,11 +193,6 @@ this.$toast.add({severity:'success', summary: 'Specific Message', group: 'mykey'
 
 				<h5>Clearing Messages</h5>
 				<p><i>removeGroup(group)</i> clears the messages for a specific Toast whereas <i>removeAllGroups()</i> method clears all messages.</p>
-<pre v-code.script>
-<code>
-this.$toast.removeAllGroups();
-
-</code></pre>
 
 				<h5>Properties</h5>
 				<div class="doc-tablewrapper">

@@ -38,6 +38,7 @@ import Ripple from '../ripple/Ripple';
 
 export default {
     inheritAttrs: false,
+    emits: ['update:modelValue', 'item-select', 'item-select', 'dropdown-click', 'clear', 'complete'],
     props: {
         modelValue: null,
         suggestions: {

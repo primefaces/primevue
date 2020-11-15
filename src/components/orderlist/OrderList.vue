@@ -30,6 +30,7 @@ import DomHandler from '../utils/DomHandler';
 import Ripple from '../ripple/Ripple';
 
 export default {
+    emits: ['update:modelValue', 'reorder', 'update:selection', 'selection-change'],
     props: {
         modelValue: {
             type: Array,

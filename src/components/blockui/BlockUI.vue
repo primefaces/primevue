@@ -8,6 +8,7 @@
 import DomHandler from '../utils/DomHandler';
 
 export default {
+    emits: ['block', 'unblock'],
     props: {
         blocked: {
             type: Boolean,

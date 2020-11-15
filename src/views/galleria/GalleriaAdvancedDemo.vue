@@ -9,7 +9,7 @@
 
         <div class="content-section implementation">
             <div class="card">
-                <Galleria ref="galleria" :value="images" v-model:activeIndex="activeIndex" :numVisible="5" style="max-width: 640px;" :containerClass="galleriaClass"
+                <Galleria ref="galleria" :value="images" v-model:activeIndex="activeIndex" :numVisible="5" containerStyle="max-width: 640px" :containerClass="galleriaClass"
                     :showThumbnails="showThumbnails" :showItemNavigators="true" :showItemNavigatorsOnHover="true"
                     :circular="true" :autoPlay="true" :transitionInterval="3000">
                     <template #item="slotProps">
@@ -40,7 +40,7 @@
                 <TabPanel header="Source">
 <pre v-code>
 <code><template v-pre>
-&lt;Galleria ref="galleria" :value="images" v-model:activeIndex="activeIndex" :numVisible="5" style="max-width: 640px;" :containerClass="galleriaClass"
+&lt;Galleria ref="galleria" :value="images" v-model:activeIndex="activeIndex" :numVisible="5" containerStyle="max-width: 640px" :containerClass="galleriaClass"
     :showThumbnails="showThumbnails" :showItemNavigators="true" :showItemNavigatorsOnHover="true"
     :circular="true" :autoPlay="true" :transitionInterval="3000"&gt;
     &lt;template #item="slotProps"&gt;

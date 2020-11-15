@@ -7,6 +7,7 @@
 import DomHandler from '../utils/DomHandler';
 
 export default {
+    emits: ['update:modelValue', 'focus', 'blur', 'keydown', 'complete', 'keypress', 'paste'],
     props: {
         modelValue: null,
         slotChar: {

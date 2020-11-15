@@ -24,6 +24,7 @@ import ConnectedOverlayScrollHandler from '../utils/ConnectedOverlayScrollHandle
 import DomHandler from '../utils/DomHandler';
 
 export default {
+    emits: ['update:modelValue'],
     props: {
         modelValue: {
             type: null,
@@ -97,7 +98,7 @@ export default {
         this.updateUI();
     },
     watch: {
-        value: {
+        modelValue: {
             immediate: true,
             handler(newValue) {
                 this.hsbValue = this.toHSB(newValue);

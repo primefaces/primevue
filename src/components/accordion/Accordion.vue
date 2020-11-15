@@ -25,6 +25,7 @@
 import UniqueComponentId from '../utils/UniqueComponentId';
 
 export default {
+    emits: ['tab-close', 'tab-open', 'update:activeIndex'],
     props: {
         multiple: Boolean,
         activeIndex: [Number,Array]

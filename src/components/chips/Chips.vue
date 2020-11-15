@@ -18,6 +18,7 @@
 <script>
 export default {
     inheritAttrs: false,
+    emits: ['update:modelValue', 'add', 'remove'],
     props: {
         modelValue: {
             type: Array,

@@ -30,6 +30,7 @@ import DomHandler from '../utils/DomHandler';
 import Ripple from '../ripple/Ripple';
 
 export default {
+    emits: ['node-toggle', 'node-click', 'checkbox-change'],
     name: 'sub-treenode',
     props: {
         node: {
@@ -62,7 +63,7 @@ export default {
             this.$emit('node-toggle', node);
         },
         onClick(event) {
-            if (DomHandler.hasClass(event.target, 'p-tree-toggler') || DomHandler.hasClass(event.target, 'p-tree-toggler-icon')) {
+            if (DomHandler.hasClass(event.target, 'p-tree-toggler') || DomHandler.hasClass(event.target.parentElement, 'p-tree-toggler')) {
                 return;
             }
 

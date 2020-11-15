@@ -29,6 +29,7 @@
 import Ripple from '../ripple/Ripple';
 
 export default {
+    emits: ['start-slideshow', 'stop-slideshow', 'update:activeIndex'],
     props: {
         circular: {
             type: Boolean,

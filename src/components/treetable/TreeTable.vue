@@ -47,7 +47,7 @@
                 <tbody class="p-treetable-tbody">
                     <template v-if="!empty">
                         <TTRow v-for="node of dataToRender" :key="node.key" :columns="columns" :node="node" :level="0"
-                        :expandedKeys="d_expandedKeys" @node-toggle="onNodeToggle"
+                        :expandedKeys="d_expandedKeys" @node-toggle="onNodeToggle" :indentation="indentation"
                         :selectionMode="selectionMode" :selectionKeys="selectionKeys" @node-click="onNodeClick" @checkbox-change="onCheckboxChange"></TTRow>
                     </template>
                     <tr v-else class="p-treetable-emptymessage">
@@ -82,6 +82,8 @@ import TreeTableRow from './TreeTableRow';
 import Paginator from '../paginator/Paginator';
 
 export default {
+    emits: ['node-expand', 'node-collapse', 'update:expandedKeys', 'update:selectionKeys', 'node-select', 'node-unselect', 
+        'update:first', 'update:rows', 'page', 'update:sortField', 'update:sortOrder', 'update:multiSortMeta', 'sort', 'filter', 'column-resize-end'],
     props: {
         value: {
             type: null,
@@ -206,6 +208,10 @@ export default {
         columnResizeMode: {
             type: String,
             default: 'fit'
+        },
+        indentation: {
+            type: Number,
+            default: 1
         }
     },
     documentColumnResizeListener: null,

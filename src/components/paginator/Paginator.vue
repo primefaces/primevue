@@ -30,6 +30,7 @@ import PrevPageLink from './PrevPageLink';
 import RowsPerPageDropdown from './RowsPerPageDropdown';
 
 export default {
+    emits: ['update:first', 'update:rows', 'page'],
     props: {
         totalRecords: {
             type: Number,

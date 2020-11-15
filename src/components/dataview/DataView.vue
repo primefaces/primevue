@@ -44,6 +44,7 @@ import ObjectUtils from '../utils/ObjectUtils';
 import Paginator from '../paginator/Paginator';
 
 export default {
+    emits: ['update:first', 'update:rows', 'page'],
     props: {
         value: {
             type: Array,

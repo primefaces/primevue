@@ -1486,6 +1486,12 @@ export default {
                                 <td>fit</td>
                                 <td>Defines whether the overall table width should change on column resize, <br/> valid values are "fit" and "expand".</td>
                             </tr>
+                            <tr>
+                                <td>indentation</td>
+                                <td>number</td>
+                                <td>1</td>
+                                <td>Indentation factor as rem value for children nodes. Defaults to 1rem.</td>
+                            </tr>
 						</tbody>
 					</table>
 				</div>

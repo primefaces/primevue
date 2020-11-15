@@ -9,7 +9,7 @@
 
         <div class="content-section implementation">
             <div class="card">
-                <Galleria :value="images" :responsiveOptions="responsiveOptions" :numVisible="5" style="max-width: 640px">
+                <Galleria :value="images" :responsiveOptions="responsiveOptions" :numVisible="5" containerStyle="max-width: 640px">
                     <template #item="{item}">
                         <img :src="item.itemImageSrc" :alt="item.alt" style="width: 100%; display: block;" />
                     </template>
@@ -31,7 +31,7 @@
                 <TabPanel header="Source">
 <pre v-code>
 <code><template v-pre>
-&lt;Galleria :value="images" :responsiveOptions="responsiveOptions" :numVisible="5" style="max-width: 640px"&gt;
+&lt;Galleria :value="images" :responsiveOptions="responsiveOptions" :numVisible="5" containerStyle="max-width: 640px"&gt;
     &lt;template #item="{item}"&gt;
         &lt;img :src="item.itemImageSrc" :alt="item.alt" style="width: 100%; display: block;" /&gt;
     &lt;/template&gt;

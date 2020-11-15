@@ -16,6 +16,7 @@ import ConnectedOverlayScrollHandler from '../utils/ConnectedOverlayScrollHandle
 import DomHandler from '../utils/DomHandler';
 
 export default {
+    emits: ['update:modelValue'],
     props: {
         modelValue: String,
         promptLabel: {

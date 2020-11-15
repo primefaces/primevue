@@ -176,14 +176,14 @@ export default {
                     response = "Unknown command: " + command;
             }
 
-            TerminalService.$emit('response', response);
+            TerminalService.emit('response', response);
         }
     },
     mounted() {
-        TerminalService.$on('command', this.commandHandler);
+        TerminalService.on('command', this.commandHandler);
     },
     beforeUnmount() {
-        TerminalService.$off('command', this.commandHandler);
+        TerminalService.off('command', this.commandHandler);
     }
 }
 

@@ -1,5 +1,53 @@
 # Changelog
 
+## [3.0.1](https://github.com/primefaces/primevue/tree/3.0.1) (2020-10-22)
+
+[Full Changelog](https://github.com/primefaces/primevue/compare/2.2.0...3.0.1)
+
+**Implemented New Features and Enhancements:**
+
+- Do not hide overlays on body scroll [\#591](https://github.com/primefaces/primevue/issues/591)
+- Add inputStyle and inputClass properties to InputNumber [\#551](https://github.com/primefaces/primevue/issues/551)
+- Declare events in "emits" section of every component [\#549](https://github.com/primefaces/primevue/issues/549)
+
+**Fixed bugs:**
+
+- Overriding ProgressSpinner colors doc error [\#589](https://github.com/primefaces/primevue/issues/589)
+- Property "disabled" was accessed during render but is not defined on instance. [\#587](https://github.com/primefaces/primevue/issues/587)
+- Dropdown inside datable using showClear causing: Cannot read property 'classList' of null [\#586](https://github.com/primefaces/primevue/issues/586)
+- DataTable crashes with a "Cannot read property 'xxx' of null" for nested objects [\#555](https://github.com/primefaces/primevue/issues/555)
+- pRipple works even when disabled\(etc menuitem\) [\#550](https://github.com/primefaces/primevue/issues/550)
+- Website / Documentation - Fix third-party dependencies documentation [\#546](https://github.com/primefaces/primevue/issues/546)
+- Menu components with web router refresh the whole page [\#536](https://github.com/primefaces/primevue/issues/536)
+
+## [3.0.0](https://github.com/primefaces/primevue/tree/3.0.0) (2020-10-11)
+
+[Full Changelog](https://github.com/primefaces/primevue/compare/2.1.0...3.0.0)
+
+**Implemented New Features and Enhancements:**
+
+- Galleria and Carousel highlight item visual improvement on PrimeOne Themes [\#545](https://github.com/primefaces/primevue/issues/545)
+- Soho Theme [\#539](https://github.com/primefaces/primevue/issues/539)
+- Fluent UI Theme [\#538](https://github.com/primefaces/primevue/issues/538)
+- ToastService $toast is not accessible using Composition API [\#535](https://github.com/primefaces/primevue/issues/535)
+- Tooltip doesn't close in scrollable containers [\#523](https://github.com/primefaces/primevue/issues/523)
+- Lighter Highlight Color for PrimeOne Themes [\#520](https://github.com/primefaces/primevue/issues/520)
+- Add indentation property to TreeTable [\#495](https://github.com/primefaces/primevue/issues/495)
+- Accordion rounded border minor visual issue [\#384](https://github.com/primefaces/primevue/issues/384)
+
+**Fixed bugs:**
+
+- Tree selection is broken when ripple is enabled [\#543](https://github.com/primefaces/primevue/issues/543)
+- Tree toggler icon hover color is wrong in bootstrap theme [\#542](https://github.com/primefaces/primevue/issues/542)
+- The 'disabled' option has no effect on InputNumber [\#537](https://github.com/primefaces/primevue/issues/537)
+- InputNumber cannot set value when format property is false [\#533](https://github.com/primefaces/primevue/issues/533)
+- InputNumber with spinner mode throws a JS exception [\#532](https://github.com/primefaces/primevue/issues/532)
+- inputNumber with numeric prefix is not working as expected [\#531](https://github.com/primefaces/primevue/issues/531)
+- Problems when typing or pasting numbers into InputNumber [\#530](https://github.com/primefaces/primevue/issues/530)
+- Can't close MultiSelect or Select when inside Dialog component [\#524](https://github.com/primefaces/primevue/issues/524)
+- TouchUI modal gets stuck if input tabs out [\#519](https://github.com/primefaces/primevue/issues/519)
+- TriStateCheckbox doesn't show correct icon when value is false when using material themes [\#517](https://github.com/primefaces/primevue/issues/517)
+
 ## [3.0.0-rc.2](https://github.com/primefaces/primevue/tree/3.0.0-rc.2) (2020-09-29)
 
 [Full Changelog](https://github.com/primefaces/primevue/compare/3.0.0-rc1...3.0.0-rc.2)
@@ -30,6 +78,33 @@
 - Scrollable Table alignment improvement [\#482](https://github.com/primefaces/primevue/issues/482)
 - Button not registered in FileUpload [\#478](https://github.com/primefaces/primevue/issues/478)
 - BlockUI documentation indicates "show" event whereas the actual event is "unblock" [\#485](https://github.com/primefaces/primevue/issues/485)
+
+##  [2.2.0](https://github.com/primefaces/primevue/tree/2.2.0) (2020-10-14)
+
+**Implemented New Features and Enhancements:**
+
+- Add inputStyle and inputClass properties to InputNumber [\#573](https://github.com/primefaces/primevue/issues/573)
+- Accordion rounded border minor visual issue [\#572](https://github.com/primefaces/primevue/issues/572)
+- Add indentation property to TreeTable  [\#571](https://github.com/primefaces/primevue/issues/571)
+- Lighter Highlight Color for PrimeOne Themes  [\#568](https://github.com/primefaces/primevue/issues/568)
+- Fluent UI Theme [\#561](https://github.com/primefaces/primevue/issues/561)
+- Soho Theme  [\#560](https://github.com/primefaces/primevue/issues/560)
+- Galleria and Carousel highlight item visual improvement on PrimeOne Themes  [\#557](https://github.com/primefaces/primevue/issues/557)
+- Tooltip doesn't close in scrollable containers  [\#526](https://github.com/primefaces/primevue/issues/526)
+
+**Fixed bugs:**
+
+- pRipple working when disabled\(etc menuitem\) [\#574](https://github.com/primefaces/primevue/issues/574)
+- TriStateCheckbox doesn't show correct icon when value is false when using material themes [\#570](https://github.com/primefaces/primevue/issues/570)
+- TouchUI modal gets stuck if input tabs out [\#569](https://github.com/primefaces/primevue/issues/569)
+- Can't close MultiSelect or Select when inside Dialog component [\#567](https://github.com/primefaces/primevue/issues/567)
+- Problems when typing or pasting numbers into InputNumber [\#566](https://github.com/primefaces/primevue/issues/566)
+- inputNumber with numeric prefix is not working as expected [\#565](https://github.com/primefaces/primevue/issues/565)
+- InputNumber with spinner mode throws a JS exception [\#564](https://github.com/primefaces/primevue/issues/564)
+- InputNumber cannot set value when format property is false [\#563](https://github.com/primefaces/primevue/issues/563)
+- The 'disabled' option has no effect on InputNumber [\#562](https://github.com/primefaces/primevue/issues/562)
+- Tree toggler icon hover color is wrong in bootstrap theme [\#559](https://github.com/primefaces/primevue/issues/559)
+- Tree selection is broken when ripple is enabled [\#558](https://github.com/primefaces/primevue/issues/558)
 
 ## [2.1.0](https://github.com/primefaces/primevue/tree/2.1.0) (2020-09-29)
 

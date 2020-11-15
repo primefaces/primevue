@@ -21,7 +21,7 @@ import ProgressSpinner from 'primevue/progressspinner';
                 <p>Colors of the spinner can be changed by overriding the keyframes animation.</p>
 <pre v-code.css>
 <code>
-@keyframes ui-progress-spinner-color {
+@keyframes p-progress-spinner-color {
     100%,
     0% {
         stroke: #d62d20;

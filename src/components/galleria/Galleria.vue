@@ -14,6 +14,7 @@ import DomHandler from '../utils/DomHandler';
 
 export default {
     inheritAttrs: false,
+    emits: ['update:activeIndex', 'update:visible'],
     props: {
         id: {
             type: String,

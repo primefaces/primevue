@@ -6,6 +6,7 @@
 
 <script>
 export default {
+    emits: ['load'],
     data() {
         return {
            loaded: false

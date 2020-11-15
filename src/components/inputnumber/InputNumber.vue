@@ -1,6 +1,6 @@
 <template>
     <span :class="containerClass" :style="style">
-        <INInputText ref="input" class="p-inputnumber-input" :value="formattedValue" v-bind="$attrs" :aria-valumin="min" :aria-valuemax="max"
+        <INInputText ref="input" :class="['p-inputnumber-input', inputClass]" :style="inputStyle" :value="formattedValue" v-bind="$attrs" :aria-valumin="min" :aria-valuemax="max"
            @input="onUserInput" @keydown="onInputKeyDown" @keypress="onInputKeyPress" @paste="onPaste" @click="onInputClick" @focus="onInputFocus" @blur="onInputBlur"/>
         <span class="p-inputnumber-button-group" v-if="showButtons && buttonLayout === 'stacked'">
             <INButton :class="upButtonClass" :icon="incrementButtonIcon" v-on="upButtonListeners" :disabled="$attrs.disabled" />
@@ -17,6 +17,7 @@ import Button from '../button/Button';
 
 export default {
     inheritAttrs: false,
+    emits: ['start-slideshow', 'input'],
     props: {
         modelValue: {
             type: Number,
@@ -102,8 +103,10 @@ export default {
             type: Number,
             default: 1
         },
+        style: null,
         class: null,
-        style: null
+        inputStyle: null,
+        inputClass: null
     },
     numberFormat: null,
     _numeral: null,
@@ -116,6 +119,8 @@ export default {
     _index: null,
     groupChar: '',
     isSpecialChar: null,
+    prefixChar: null,
+    suffixChar: null,
     timer: null,
     data() {
         return {
@@ -178,8 +183,8 @@ export default {
             this._group = this.getGroupingExpression();
             this._minusSign = this.getMinusSignExpression();
             this._currency = this.getCurrencyExpression();
-            this._suffix = new RegExp(`[${this.suffix||''}]`, 'g');
-            this._prefix = new RegExp(`[${this.prefix||''}]`, 'g');
+            this._suffix = this.getSuffixExpression();
+            this._prefix = this.getPrefixExpression();
             this._index = d => index.get(d);
         },
         updateConstructParser(newValue, oldValue) {
@@ -187,13 +192,16 @@ export default {
                 this.constructParser();
             }
         },
+        escapeRegExp(text) {
+            return text.replace(/[-[\]{}()*+?.,\\^$|#\s]/g, '\\$&');
+        },
         getDecimalExpression() {
             const formatter = new Intl.NumberFormat(this.locale, {useGrouping: false});
             return new RegExp(`[${formatter.format(1.1).trim().replace(this._numeral, '')}]`, 'g');
         },
         getGroupingExpression() {
             const formatter = new Intl.NumberFormat(this.locale, {useGrouping: true});
-            this.groupChar = formatter.format(1000000).trim().replace(this._numeral, '');
+            this.groupChar = formatter.format(1000000).trim().replace(this._numeral, '').charAt(0);
             return new RegExp(`[${this.groupChar}]`, 'g');
         },
         getMinusSignExpression() {
@@ -207,6 +215,29 @@ export default {
             }
 
             return new RegExp(`[]`,'g');
+        },
+        getPrefixExpression() {
+            if (this.prefix) {
+                this.prefixChar = this.prefix;
+            }
+            else {
+                const formatter = new Intl.NumberFormat(this.locale, {style: this.mode, currency: this.currency, currencyDisplay: this.currencyDisplay});
+                this.prefixChar = formatter.format(1).split('1')[0];
+            }
+
+            return new RegExp(`${this.escapeRegExp(this.prefixChar||'')}`, 'g');
+        },
+        getSuffixExpression() {
+            if (this.suffix) {
+                this.suffixChar = this.suffix;
+            }
+            else {
+                const formatter = new Intl.NumberFormat(this.locale, {style: this.mode, currency: this.currency, currencyDisplay: this.currencyDisplay,
+                    minimumFractionDigits: 0, maximumFractionDigits: 0});
+                this.suffixChar = formatter.format(1).split('1')[1];
+            }
+
+            return new RegExp(`${this.escapeRegExp(this.suffixChar||'')}`, 'g');
         },
         formatValue(value) {
             if (value != null) {
@@ -228,18 +259,19 @@ export default {
                     return formattedValue;
                 }
 
-                return value;
+                return value.toString();
             }
 
             return '';
         },
         parseValue(text) {
-            let filteredText = text.trim()
+            let filteredText = text
+                                .replace(this._suffix, '')
+                                .replace(this._prefix, '')
+                                .trim()
                                 .replace(/\s/g, '')
                                 .replace(this._currency, '')
                                 .replace(this._group, '')
-                                .replace(this._suffix, '')
-                                .replace(this._prefix, '')
                                 .replace(this._minusSign, '-')
                                 .replace(this._decimal, '.')
                                 .replace(this._numeral, this._index);
@@ -275,18 +307,26 @@ export default {
             this.handleOnInput(event, currentValue, newValue);
         },
         onUpButtonMouseDown(event) {
-            this.$refs.input.$el.focus();
-            this.repeat(event, null, 1);
-            event.preventDefault();
+            if (!this.$attrs.disabled) {
+                this.$refs.input.$el.focus();
+                this.repeat(event, null, 1);
+                event.preventDefault();
+            }
         },
         onUpButtonMouseUp() {
-            this.clearTimer();
+            if (!this.$attrs.disabled) {
+                this.clearTimer();
+            }
         },
         onUpButtonMouseLeave() {
-            this.clearTimer();
+            if (!this.$attrs.disabled) {
+                this.clearTimer();
+            }
         },
         onUpButtonKeyUp() {
-            this.clearTimer();
+            if (!this.$attrs.disabled) {
+                this.clearTimer();
+            }
         },
         onUpButtonKeyDown(event) {
             if (event.keyCode === 32 || event.keyCode === 13) {
@@ -294,18 +334,26 @@ export default {
             }
         },
         onDownButtonMouseDown(event) {
-            this.$refs.input.$el.focus();
-            this.repeat(event, null, -1);
-            event.preventDefault();
+            if (!this.$attrs.disabled) {
+                this.$refs.input.$el.focus();
+                this.repeat(event, null, -1);
+                event.preventDefault();
+            }
         },
         onDownButtonMouseUp() {
-            this.clearTimer();
+            if (!this.$attrs.disabled) {
+                this.clearTimer();
+            }
         },
         onDownButtonMouseLeave() {
-            this.clearTimer();
+            if (!this.$attrs.disabled) {
+                this.clearTimer();
+            }
         },
         onDownButtonKeyUp() {
-            this.clearTimer();
+            if (!this.$attrs.disabled) {
+                this.clearTimer();
+            }
         },
         onDownButtonKeyDown(event) {
             if (event.keyCode === 32 || event.keyCode === 13) {
@@ -464,6 +512,9 @@ export default {
                 }
             }
         },
+        allowMinusSign() {
+            return this.min === null || this.min < 0;
+        },
         isMinusSign(char) {
             if (this._minusSign.test(char)) {
                 this._minusSign.lastIndex = 0;
@@ -481,8 +532,14 @@ export default {
             return false;
         },
         insert(event, text, sign = { isDecimalSign: false, isMinusSign: false }) {
-            let selectionStart = this.$refs.input.$el.selectionStart;
-            let selectionEnd = this.$refs.input.$el.selectionEnd;
+            const minusCharIndexOnText = text.search(this._minusSign);
+            this._minusSign.lastIndex = 0;
+            if (!this.allowMinusSign() && minusCharIndexOnText !== -1) {
+                return;
+            }
+
+            const selectionStart = this.$refs.input.$el.selectionStart;
+            const selectionEnd = this.$refs.input.$el.selectionEnd;
             let inputValue = this.$refs.input.$el.value.trim();
             const decimalCharIndex = inputValue.search(this._decimal);
             this._decimal.lastIndex = 0;
@@ -511,33 +568,40 @@ export default {
             }
             else {
                 const maxFractionDigits = this.numberFormat.resolvedOptions().maximumFractionDigits;
+                const operation = selectionStart !== selectionEnd ? 'range-insert' : 'insert';
 
                 if (decimalCharIndex > 0 && selectionStart > decimalCharIndex) {
                     if ((selectionStart + text.length - (decimalCharIndex + 1)) <= maxFractionDigits) {
                         newValueStr = inputValue.slice(0, selectionStart) + text + inputValue.slice(selectionStart + text.length);
-                        this.updateValue(event, newValueStr, text, 'insert');
+                        this.updateValue(event, newValueStr, text, operation);
                     }
                 }
                 else {
                     newValueStr = this.insertText(inputValue, text, selectionStart, selectionEnd);
-                    const operation = selectionStart !== selectionEnd ? 'range-insert' : 'insert';
                     this.updateValue(event, newValueStr, text, operation);
                 }
             }
         },
         insertText(value, text, start, end) {
-            let newValueStr;
+            let textSplit = text.split('.');
 
-            if ((end - start) === value.length)
-                newValueStr = text;
-            else if (start === 0)
-                newValueStr = text + value.slice(end);
-            else if (end === value.length)
-                newValueStr = value.slice(0, start) + text;
-            else
-                newValueStr = value.slice(0, start) + text + value.slice(end);
-
-            return newValueStr;
+            if (textSplit.length === 2) {
+                const decimalCharIndex = value.slice(start, end).search(this._decimal);
+                this._decimal.lastIndex = 0;
+                return (decimalCharIndex > 0) ? value.slice(0, start) + this.formatValue(text) + value.slice(end) : (value || this.formatValue(text));
+            }
+            else if ((end - start) === value.length) {
+                return this.formatValue(text);
+            }
+            else if (start === 0) {
+                return text + value.slice(end);
+            }
+            else if (end === value.length) {
+                return value.slice(0, start) + text;
+            }
+            else {
+                return value.slice(0, start) + text + value.slice(end);
+            }
         },
         deleteRange(value, start, end) {
             let newValueStr;
@@ -659,6 +723,8 @@ export default {
             return value;
         },
         updateInput(value, insertedValueStr, operation) {
+            insertedValueStr = insertedValueStr || '';
+
             let inputValue = this.$refs.input.$el.value;
             let newValue = this.formatValue(value);
             let currentLength = inputValue.length;
@@ -667,7 +733,9 @@ export default {
                 this.$refs.input.$el.value = newValue;
                 this.$refs.input.$el.setSelectionRange(0, 0);
                 this.initCursor();
-                this.$refs.input.$el.setSelectionRange(this.$refs.input.$el.selectionStart + 1, this.$refs.input.$el.selectionStart + 1);
+                const prefixLength = (this.prefixChar || '').length;
+                const selectionEnd = prefixLength + insertedValueStr.length;
+                this.$refs.input.$el.setSelectionRange(selectionEnd, selectionEnd);
             }
             else {
                 let selectionStart = this.$refs.input.$el.selectionStart;

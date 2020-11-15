@@ -43,6 +43,7 @@
 import DomHandler from '../utils/DomHandler';
 
 export default {
+    emits: ['node-click', 'node-toggle'],
     name: 'sub-node',
     props: {
         node: {

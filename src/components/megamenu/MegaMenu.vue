@@ -4,7 +4,13 @@
             <template v-for="(category,index) of model">
                 <li v-if="visible(category)" :key="category.label + '_' + index" :class="getCategoryClass(category)" :style="category.style"
                     @mouseenter="onCategoryMouseEnter($event, category)" role="none">
-                    <a :href="category.url" :class="getLinkClass(category)" :target="category.target" @click="onCategoryClick($event, category)" @keydown="onCategoryKeydown($event, category)"
+                    <router-link v-if="category.to && !category.disabled" :to="category.to" custom v-slot="{navigate, href}">
+                        <a :href="href" :class="getLinkClass(category)" @click="onCategoryClick($event, category, navigate)" @keydown="onCategoryKeydown($event, category)" role="menuitem" v-ripple>
+                            <span v-if="category.icon" :class="getCategoryIcon(category)"></span>
+                            <span class="p-menuitem-text">{{category.label}}</span>
+                        </a>
+                    </router-link>
+                    <a v-else :href="category.url" :class="getLinkClass(category)" :target="category.target" @click="onCategoryClick($event, category)" @keydown="onCategoryKeydown($event, category)"
                         role="menuitem" :aria-haspopup="category.items != null" :aria-expanded="category === activeItem" :tabindex="category.disabled ? null : '0'" v-ripple>
                         <span v-if="category.icon" :class="getCategoryIcon(category)"></span>
                         <span class="p-menuitem-text">{{category.label}}</span>
@@ -17,9 +23,11 @@
                                     <li :class="getSubmenuHeaderClass(submenu)" :style="submenu.style" role="presentation">{{submenu.label}}</li>
                                     <template v-for="(item, i) of submenu.items">
                                         <li role="none" :class="getSubmenuItemClass(item)" :style="item.style" v-if="visible(item) && !item.separator" :key="item.label + i">
-                                            <router-link v-if="item.to && !item.disabled" :to="item.to" :class="getLinkClass(item)" @click="onLeafClick($event, item)" role="menuitem" v-ripple>
-                                                <span v-if="item.icon" :class="['p-menuitem-icon', item.icon]"></span>
-                                                <span class="p-menuitem-text">{{item.label}}</span>
+                                            <router-link v-if="item.to && !item.disabled" :to="item.to" custom v-slot="{navigate, href}">
+                                                <a :href="href" :class="getLinkClass(item)" @click="onLeafClick($event, item, navigate)" role="menuitem" v-ripple>
+                                                    <span v-if="item.icon" :class="['p-menuitem-icon', item.icon]"></span>
+                                                    <span class="p-menuitem-text">{{item.label}}</span>
+                                                </a>
                                             </router-link>
                                             <a v-else :href="item.url" :class="getLinkClass(item)" :target="item.target" @click="onLeafClick($event, item)" role="menuitem" :tabindex="item.disabled ? null : '0'" v-ripple>
                                                 <span v-if="item.icon" :class="['p-menuitem-icon', item.icon]"></span>
@@ -67,14 +75,10 @@ export default {
         this.unbindDocumentClickListener();
     },
     methods: {
-        onLeafClick(event, item) {
+        onLeafClick(event, item, navigate) {
             if (item.disabled) {
                 event.preventDefault();
                 return;
-            }
-
-            if (!item.url && !item.to) {
-                event.preventDefault();
             }
 
             if (item.command) {
@@ -85,6 +89,10 @@ export default {
             }
 
             this.activeItem = null;
+
+            if (item.to && navigate) {
+                navigate(event);
+            }
         },
         onCategoryMouseEnter(event, category) {
             if (category.disabled) {
@@ -96,14 +104,10 @@ export default {
                 this.activeItem = category;
             }
         },
-        onCategoryClick(event, category) {
+        onCategoryClick(event, category, navigate) {
             if (category.disabled) {
                 event.preventDefault();
                 return;
-            }
-
-            if (!category.url && !category.to) {
-                event.preventDefault();
             }
 
             if (category.command) {
@@ -122,6 +126,10 @@ export default {
                     this.activeItem = category;
                     this.bindDocumentClickListener();
                 }
+            }
+
+            if (category.to && navigate) {
+                navigate(event);
             }
         },
         onCategoryKeydown(event, category) {

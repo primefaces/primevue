@@ -46,6 +46,7 @@ import DomHandler from '../utils/DomHandler';
 import Ripple from '../ripple/Ripple';
 
 export default {
+    emits: ['update:modelValue', 'before-show', 'before-hide', 'show', 'hide', 'change', 'filter'],
     props: {
         modelValue: null,
         options: Array,
