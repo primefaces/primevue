@@ -98,11 +98,24 @@ export default {
         getHeaderIcon(i) {
             const active = this.isTabActive(i);
             return ['p-accordion-toggle-icon pi', {'pi-chevron-right': !active, 'pi-chevron-down': active}];
+        },
+        childIsAccordionTab(child) {
+            return child.type.name === 'accordiontab'
         }
+
     },
     computed: {
         tabs() {
-            return this.$slots.default().filter(child => child.type.name === 'accordiontab');
+            const tabs = []
+            this.$slots.default().forEach(child => {
+                    if (this.childIsAccordionTab(child)) tabs.push(child)
+                    else if (child.children.length > 0)
+                        child.children.forEach(nestedChild => {
+                            if (this.childIsAccordionTab(nestedChild)) tabs.push(nestedChild)
+                        })
+                }
+            )
+            return tabs
         },
         ariaId() {
             return UniqueComponentId();
