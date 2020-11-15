@@ -72,11 +72,23 @@ export default {
         },
         isTabDisabled(tab) {
             return tab.props?.disabled;
+        },
+        childIsTabPanel(child) {
+            return child.type.name === 'tabpanel'
         }
     },
     computed: {
         tabs() {
-            return this.$slots.default().filter(child => child.type.name === 'tabpanel');
+            const tabs = []
+            this.$slots.default().forEach(child => {
+                    if (this.childIsTabPanel(child)) tabs.push(child)
+                    else if (child.children.length > 0)
+                        child.children.forEach(nestedChild => {
+                            if (this.childIsTabPanel(nestedChild)) tabs.push(nestedChild)
+                        })
+                }
+            )
+            return tabs
         }
     },
     directives: {
