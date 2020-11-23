@@ -79,7 +79,7 @@
 - Button not registered in FileUpload [\#478](https://github.com/primefaces/primevue/issues/478)
 - BlockUI documentation indicates "show" event whereas the actual event is "unblock" [\#485](https://github.com/primefaces/primevue/issues/485)
 
-##  [2.2.0](https://github.com/primefaces/primevue/tree/2.2.1) (2020-11-23)
+##  [2.2.1](https://github.com/primefaces/primevue/tree/2.2.1) (2020-11-23)
 
 **Implemented New Features and Enhancements:**
 
