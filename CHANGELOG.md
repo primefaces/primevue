@@ -79,6 +79,18 @@
 - Button not registered in FileUpload [\#478](https://github.com/primefaces/primevue/issues/478)
 - BlockUI documentation indicates "show" event whereas the actual event is "unblock" [\#485](https://github.com/primefaces/primevue/issues/485)
 
+##  [2.2.0](https://github.com/primefaces/primevue/tree/2.2.1) (2020-11-23)
+
+**Implemented New Features and Enhancements:**
+
+- Do not hide overlays on body scroll [\#661](https://github.com/primefaces/primevue/issues/661)
+
+**Fixed bugs:**
+
+- Overriding ProgressSpinner colors doc error [\#662](https://github.com/primefaces/primevue/issues/662)
+- Dropdown inside datable using showClear causing: Cannot read property 'classList' of null [\#664](https://github.com/primefaces/primevue/issues/664)
+- DataTable crashes with a "Cannot read property 'xxx' of null" for nested objects [\#665](https://github.com/primefaces/primevue/issues/665)
+
 ##  [2.2.0](https://github.com/primefaces/primevue/tree/2.2.0) (2020-10-14)
 
 **Implemented New Features and Enhancements:**
