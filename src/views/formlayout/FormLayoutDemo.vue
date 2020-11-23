@@ -157,7 +157,7 @@
                     </div>
                     <div class="p-field p-col-12">
                         <label for="address">Address</label>
-                        <Textarea id="address" type="text" rows="4" />
+                        <Textarea id="address" rows="4" />
                     </div>
                     <div class="p-field p-col-12 p-md-6">
                         <label for="city">City</label>
