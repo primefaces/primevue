@@ -82,6 +82,10 @@ export default class ObjectUtils {
         }
     }
 
+    static isFunction(obj) {
+        return !!(obj && obj.constructor && obj.call && obj.apply);
+    }
+
     static filter(value, fields, filterValue) {
         var filteredItems = [];
 
