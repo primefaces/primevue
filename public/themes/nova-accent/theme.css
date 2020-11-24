@@ -2347,6 +2347,31 @@
     content: "";
   }
 }
+.p-timeline .p-timeline-event-marker {
+  border: 0 none;
+  border-radius: 50%;
+  width: 1rem;
+  height: 1rem;
+  background-color: #e02365;
+}
+.p-timeline .p-timeline-event-connector {
+  background-color: #c8c8c8;
+}
+.p-timeline.p-timeline-vertical .p-timeline-event-opposite,
+.p-timeline.p-timeline-vertical .p-timeline-event-content {
+  padding: 0 1rem;
+}
+.p-timeline.p-timeline-vertical .p-timeline-event-connector {
+  width: 2px;
+}
+.p-timeline.p-timeline-horizontal .p-timeline-event-opposite,
+.p-timeline.p-timeline-horizontal .p-timeline-event-content {
+  padding: 1rem 0;
+}
+.p-timeline.p-timeline-horizontal .p-timeline-event-connector {
+  height: 2px;
+}
+
 .p-tree {
   border: 1px solid #c8c8c8;
   background: #ffffff;

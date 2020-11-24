@@ -577,6 +577,11 @@ const routes = [
         component: () => import('../views/tieredmenu/TieredMenuDemo.vue')
     },
     {
+        path: '/timeline',
+        name: 'timeline',
+        component: () => import('../views/timeline/TimelineDemo.vue')
+    },
+    {
         path: '/toast',
         name: 'toast',
         component: () => import('../views/toast/ToastDemo.vue')

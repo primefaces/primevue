@@ -119,6 +119,7 @@
                 <router-link to="/organizationchart">OrganizationChart</router-link>
                 <router-link to="/paginator">Paginator</router-link>
                 <router-link to="/picklist">PickList</router-link>
+                <router-link to="/timeline">Timeline <span class="p-tag">New</span></router-link>
                 <router-link to="/tree" v-slot="{isActive}" custom>
                     <div>
                         <a tabindex="0" @click="toggleSubmenu($event, 'tree')">Tree</a>
