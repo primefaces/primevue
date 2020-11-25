@@ -32,7 +32,7 @@
                     <Column field="category" header="Category" sortable></Column>
                     <Column field="rating" header="Reviews" sortable>
                         <template #body="slotProps">
-                           <Rating :value="slotProps.data.rating" :readonly="true" :cancel="false" />
+                           <Rating :modelValue="slotProps.data.rating" :readonly="true" :cancel="false" />
                         </template>
                     </Column>
                     <Column field="inventoryStatus" header="Status" sortable>
@@ -97,7 +97,7 @@
     &lt;Column field="category" header="Category" sortable&gt;&lt;/Column&gt;
     &lt;Column field="rating" header="Reviews" sortable&gt;
         &lt;template #body="slotProps"&gt;
-            &lt;Rating :value="slotProps.data.rating" :readonly="true" :cancel="false" /&gt;
+            &lt;Rating :modelValue="slotProps.data.rating" :readonly="true" :cancel="false" /&gt;
         &lt;/template&gt;
     &lt;/Column&gt;
     &lt;Column field="inventoryStatus" header="Status" sortable&gt;

@@ -440,7 +440,7 @@ export default {
                 &lt;div class="product-list-detail"&gt;
                     &lt;div class="product-name"&gt;{{slotProps.data.name}}&lt;/div&gt;
                     &lt;div class="product-description"&gt;{{slotProps.data.description}}&lt;/div&gt;
-                    &lt;Rating :value="slotProps.data.rating" :readonly="true" :cancel="false"&gt;&lt;/Rating&gt;
+                    &lt;Rating :modelValue="slotProps.data.rating" :readonly="true" :cancel="false"&gt;&lt;/Rating&gt;
                     &lt;i class="pi pi-tag product-category-icon"&gt;&lt;/i&gt;&lt;span class="product-category"&gt;{{slotProps.data.category}}&lt;/span&gt;
                 &lt;/div&gt;
                 &lt;div class="product-list-action"&gt;
@@ -466,7 +466,7 @@ export default {
                     &lt;img :src="'demo/images/product/' + slotProps.data.image" :alt="slotProps.data.name"/&gt;
                     &lt;div class="product-name"&gt;{{slotProps.data.name}}&lt;/div&gt;
                     &lt;div class="product-description"&gt;{{slotProps.data.description}}&lt;/div&gt;
-                    &lt;Rating :value="slotProps.data.rating" :readonly="true" :cancel="false"&gt;&lt;/Rating&gt;
+                    &lt;Rating :modelValue="slotProps.data.rating" :readonly="true" :cancel="false"&gt;&lt;/Rating&gt;
                 &lt;/div&gt;
                 &lt;div class="product-grid-item-bottom"&gt;
                     &lt;span class="product-price"&gt;${{slotProps.data.price}}&lt;/span&gt;
