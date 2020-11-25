@@ -58,7 +58,7 @@ app.component('Dialog', Dialog);
 &lt;link href="https://unpkg.com/primevue/resources/themes/saga-blue/theme.css " rel="stylesheet"&gt;
 &lt;link href="https://unpkg.com/primevue/resources/primevue.min.css " rel="stylesheet"&gt;
 &lt;link href="https://unpkg.com/primeicons/primeicons.css " rel="stylesheet"&gt;
-&lt;script src="https://unpkg.com/vue"&gt;&lt;/script&gt;
+&lt;script src="https://unpkg.com/vue@next"&gt;&lt;/script&gt;
 &lt;script src="https://unpkg.com/primevue/components/calendar/calendar.umd.min.js"&gt;&lt;/script&gt;
 
 &lt;div id="app"&gt;
@@ -66,11 +66,11 @@ app.component('Dialog', Dialog);
 &lt;/div&gt;
 
 &lt;script&gt;
-new Vue({
+Vue.createApp({
   components: {
     'p-calendar': calendar
   }
-}).$mount('#app')
+}).mount('#app')
 &lt;/script&gt;
 
 </code></pre>
