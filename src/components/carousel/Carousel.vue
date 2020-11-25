@@ -58,7 +58,7 @@ import DomHandler from '../utils/DomHandler';
 import Ripple from '../ripple/Ripple';
 
 export default {
-	emits: ['update-page'],
+	emits: ['update:page'],
 	props: {
 		value: null,
 		page: {

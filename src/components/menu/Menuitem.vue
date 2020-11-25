@@ -18,6 +18,7 @@ import Ripple from '../ripple/Ripple';
 
 export default {
     inheritAttrs: false,
+    emits: ['click'],
     props: {
         item: null
     },
