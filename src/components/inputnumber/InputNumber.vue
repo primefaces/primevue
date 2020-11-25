@@ -798,10 +798,12 @@ export default {
         onInputBlur() {
             this.focused = false;
 
-            let newValue = this.validateValue(this.parseValue(this.$refs.input.$el.value));
-            this.$refs.input.$el.value = this.formatValue(newValue);
-            this.$refs.input.$el.setAttribute('aria-valuenow', newValue);
-            this.updateModel(event, newValue);
+            if (this.$refs && this.$refs.input) {
+                let newValue = this.validateValue(this.parseValue(this.$refs.input.$el.value));
+                this.$refs.input.$el.value = this.formatValue(newValue);
+                this.$refs.input.$el.setAttribute('aria-valuenow', newValue);
+                this.updateModel(event, newValue);
+            }
         },
         clearTimer() {
             if (this.timer) {
