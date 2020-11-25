@@ -126,11 +126,6 @@ export default {
         }
         this.overlay = null;
     },
-    updated() {
-        if (this.overlayVisible && this.filterValue) {
-            this.alignOverlay();
-        }
-    },
     methods: {
         getOptionLabel(option) {
             return this.optionLabel ? ObjectUtils.resolveFieldData(option, this.optionLabel) : option;
@@ -410,6 +405,9 @@ export default {
         },
         onFilterChange(event) {
             this.$emit('filter', {originalEvent: event, value: event.target.value});
+            if (this.overlayVisible) {
+                this.alignOverlay();
+            }
         },
         overlayRef(el) {
             this.overlay = el;
