@@ -4,6 +4,9 @@
             <h1>MenuModel</h1>
             <p>PrimeVue menu components share a common api to specify the menuitems and submenus.</p>
 
+            <h1>Router</h1>
+            <p>Menu components require <a href="https://router.vuejs.org">Vue-Router</a> as a dependency so make sure the router is installed in your application.</p>
+
             <h5>MenuItem</h5>
                 <p>Core of the API is the MenuItem class that defines various options such as the label, icon and children of an item in a menu.</p>
 <pre v-code.script>
