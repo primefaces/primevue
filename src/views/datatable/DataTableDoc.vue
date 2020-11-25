@@ -150,13 +150,19 @@ export default {
                                 <td>field</td>
                                 <td>string</td>
                                 <td>null</td>
-                                <td>Property name or a getter function of a row data.</td>
+                                <td>Property represented by the column.</td>
                             </tr>
                             <tr>
                                 <td>sortField</td>
                                 <td>string</td>
                                 <td>null</td>
-                                <td>Property name or a getter function a row data used for sorting, defaults to field.</td>
+                                <td>Property name to use in sorting, defaults to field.</td>
+                            </tr>
+                            <tr>
+                                <td>filterField</td>
+                                <td>string</td>
+                                <td>null</td>
+                                <td>Property name to use in filtering, defaults to field.</td>
                             </tr>
                             <tr>
                                 <td>sortable</td>
