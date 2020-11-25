@@ -58,7 +58,7 @@ export default class ObjectUtils {
     }
 
     static resolveFieldData(data, field) {
-        if (data && field) {
+        if (data && Object.keys(data).length && field) {
             if (this.isFunction(field)) {
                 return field(data);
             }
