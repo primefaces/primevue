@@ -18,7 +18,7 @@
                 <h5>Dynamic</h5>
                 <Button label="Show" @click="addMessages()" />
                 <transition-group name="p-message" tag="div">
-                    <Message v-for="msg of messages" :severity="msg.severity" :key="msg.content">{{msg.content}}</Message>
+                    <Message v-for="msg of messages" :severity="msg.severity" :key="msg.id">{{msg.content}}</Message>
                 </transition-group>
 
                 <h5>Auto Dismiss</h5>
@@ -55,9 +55,9 @@ export default {
     methods: {
         addMessages() {
             this.messages = [
-                {severity: 'info', content: 'Dynamic Info Message'},
-                {severity: 'success', content: 'Dynamic Success Message'},
-                {severity: 'warn', content: 'Dynamic Warning Message'}
+                {severity: 'info', content: 'Dynamic Info Message', id: this.count++},
+                {severity: 'success', content: 'Dynamic Success Message', id: this.count++},
+                {severity: 'warn', content: 'Dynamic Warning Message', id: this.count++}
             ]
         }
     },
