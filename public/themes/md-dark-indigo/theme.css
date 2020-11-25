@@ -1107,6 +1107,9 @@
 .p-radiobutton.p-error > .p-radiobutton-box, .p-radiobutton.p-invalid > .p-radiobutton-box {
   border-color: #f44435;
 }
+.p-radiobutton:focus {
+  outline: 0 none;
+}
 
 .p-input-filled .p-radiobutton .p-radiobutton-box {
   background-color: rgba(255, 255, 255, 0.06);

@@ -1083,6 +1083,9 @@
 .p-radiobutton.p-error > .p-radiobutton-box, .p-radiobutton.p-invalid > .p-radiobutton-box {
   border-color: #ef9a9a;
 }
+.p-radiobutton:focus {
+  outline: 0 none;
+}
 
 .p-input-filled .p-radiobutton .p-radiobutton-box {
   background-color: #304562;
