@@ -117,6 +117,11 @@ export default {
         }
         this.overlay = null;
     },
+    updated() {
+        if (this.overlayVisible) {
+            this.alignOverlay();
+        }
+    },
     methods: {
         onOverlayEnter() {
             this.overlay.style.zIndex = String(DomHandler.generateZIndex());
