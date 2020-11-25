@@ -260,6 +260,23 @@ import InlineMessage from 'primevue/inlinemessage';
 &lt;h5&gt;Auto Dismiss&lt;/h5&gt;
 &lt;Message severity="warn" :life="3000" :sticky="false"&gt;This message will hide in 3 seconds.&lt;/Message&gt;
 
+&lt;h5&gt;Inline Messages&lt;/h5&gt;
+&lt;p&gt;Message component is used to display inline messages mostly within forms.&lt;/p&gt;
+&lt;div class="p-grid"&gt;
+    &lt;div class="p-col-12 p-md-3"&gt;
+        &lt;InlineMessage severity="info"&gt;Message Content&lt;/InlineMessage&gt;
+    &lt;/div&gt;
+    &lt;div class="p-col-12 p-md-3"&gt;
+        &lt;InlineMessage severity="success"&gt;Message Content&lt;/InlineMessage&gt;
+    &lt;/div&gt;
+    &lt;div class="p-col-12 p-md-3"&gt;
+        &lt;InlineMessage severity="warn"&gt;Message Content&lt;/InlineMessage&gt;
+    &lt;/div&gt;
+    &lt;div class="p-col-12 p-md-3"&gt;
+        &lt;InlineMessage severity="error"&gt;Message Content&lt;/InlineMessage&gt;
+    &lt;/div&gt;
+&lt;/div&gt;
+
 &lt;h5&gt;Validation Message&lt;/h5&gt;
 &lt;div class="p-formgroup-inline" style="margin-bottom:.5rem"&gt;
     &lt;label for="username" class="p-sr-only"&gt;Username&lt;/label&gt;
