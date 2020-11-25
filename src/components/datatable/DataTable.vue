@@ -607,13 +607,13 @@ export default {
                         }
                     }
 
-                    if (!col.props?.excludeGlobalFilter && this.hasGlobalFilter && !globalMatch) {
+                    if (!col.props?.excludeGlobalFilter && this.hasGlobalFilter() && !globalMatch) {
                         globalMatch = FilterUtils.contains(ObjectUtils.resolveFieldData(data[i], columnField), this.filters['global'], this.filterLocale);
                     }
                 }
 
                 let matches = localMatch;
-                if (this.hasGlobalFilter) {
+                if (this.hasGlobalFilter()) {
                     matches = localMatch && globalMatch;
                 }
 
@@ -1459,7 +1459,7 @@ export default {
                 state.multiSortMeta = this.d_multiSortMeta;
             }
 
-            if (this.hasFilters) {
+            if (this.hasFilters()) {
                 state.filters = this.filters;
             }
 
@@ -1619,7 +1619,7 @@ export default {
         },
         createLazyLoadEvent(event) {
             let filterMatchModes;
-            if (this.hasFilters) {
+            if (this.hasFilters()) {
                 filterMatchModes = {};
                 this.columns.forEach(col => {
                     if (col.field) {
@@ -1639,6 +1639,12 @@ export default {
                 filterMatchModes: filterMatchModes
             };
         },
+        hasFilters() {
+            return this.filters && Object.keys(this.filters).length > 0 && this.filters.constructor === Object;
+        },
+        hasGlobalFilter() {
+            return this.filters && Object.prototype.hasOwnProperty.call(this.filters, 'global');
+        }
     },
     computed: {
         containerClass() {
@@ -1761,7 +1767,7 @@ export default {
                             data = this.sortMultiple(data);
                     }
 
-                    if (this.hasFilters) {
+                    if (this.hasFilters()) {
                         data = this.filter(data);
                     }
 
@@ -1804,12 +1810,6 @@ export default {
         },
         sorted() {
             return this.d_sortField || (this.d_multiSortMeta && this.d_multiSortMeta.length > 0);
-        },
-        hasFilters() {
-            return this.filters && Object.keys(this.filters).length > 0 && this.filters.constructor === Object;
-        },
-        hasGlobalFilter() {
-            return this.filters && Object.prototype.hasOwnProperty.call(this.filters, 'global');
         },
         loadingIconClass() {
             return ['p-datatable-loading-icon pi-spin', this.loadingIcon];
