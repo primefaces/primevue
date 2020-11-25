@@ -99,23 +99,27 @@ export default {
             const active = this.isTabActive(i);
             return ['p-accordion-toggle-icon pi', {'pi-chevron-right': !active, 'pi-chevron-down': active}];
         },
-        childIsAccordionTab(child) {
+        isAccordionTab(child) {
             return child.type.name === 'accordiontab'
         }
-
     },
     computed: {
         tabs() {
             const tabs = []
             this.$slots.default().forEach(child => {
-                    if (this.childIsAccordionTab(child)) tabs.push(child)
-                    else if (child.children.length > 0)
+                    if (this.isAccordionTab(child)) {
+                        tabs.push(child);
+                    }
+                    else if (child.children.length > 0) {
                         child.children.forEach(nestedChild => {
-                            if (this.childIsAccordionTab(nestedChild)) tabs.push(nestedChild)
-                        })
+                            if (this.childIsAccordionTab(nestedChild)) {
+                                tabs.push(nestedChild)
+                            }
+                        });
+                    }
                 }
             )
-            return tabs
+            return tabs;
         },
         ariaId() {
             return UniqueComponentId();
