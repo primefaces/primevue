@@ -108,6 +108,7 @@
         &lt;/div&gt;
     &lt;/div&gt;
 
+    &lt;h6&gt;Center&lt;/h6&gt;
     &lt;div class="demo-container p-p-4"&gt;
         &lt;Button type="button" label="Button" class="p-d-block p-mx-auto" /&gt;
     &lt;/div&gt;
