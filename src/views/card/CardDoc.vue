@@ -10,7 +10,7 @@ import Card from 'primevue/card';
 </code></pre>
 
 				<h5>Getting Started</h5>
-                <p>Card provides <i>header</i>, <i>title</i>, <i>content</i> and <i>footer</i> as the named templates to place content.</p>
+                <p>Card provides <i>header</i>, <i>title</i>, <i>subtitle</i>, <i>content</i> and <i>footer</i> as the named templates to place content.</p>
 <pre v-code>
 <code>
 &lt;Card&gt;
