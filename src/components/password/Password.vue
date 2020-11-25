@@ -1,6 +1,6 @@
 <template>
     <input ref="input" type="password" :class="['p-inputtext p-component', {'p-filled': filled}]" :value="modelValue"
-        @input="onInput" @focus="onFocus" @blur="onBlur" @keyup="onKeyUp" />
+        @input="onInput" @focus="onFocus" @blur="onBlur" @keyup="onKeyUp" v-bind="$attrs" />
     <transition name="p-connected-overlay" @enter="onOverlayEnter" @leave="onOverlayLeave">
         <div :ref="overlayRef" class="p-password-panel p-component" v-if="overlayVisible">
             <div class="p-password-meter" :style="{'background-position': meterPosition}"></div>
@@ -17,6 +17,7 @@ import DomHandler from '../utils/DomHandler';
 
 export default {
     emits: ['update:modelValue'],
+    inheritAttrs: false,
     props: {
         modelValue: String,
         promptLabel: {
