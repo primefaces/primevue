@@ -207,7 +207,7 @@ export default {
             default: 'pi pi-spinner'
         },
         sortField: {
-            type: String,
+            type: [String, Function],
             default: null
         },
         sortOrder: {

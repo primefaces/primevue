@@ -16,7 +16,7 @@ export declare class DataTable extends Vue {
     lazy?: boolean;
     loading?: boolean;
     loadingIcon?: string;
-    sortField?: string;
+    sortField?: string | Function;
     sortOrder?: number;
     defaultSortOrder?: number;
     multiSortMeta?: any[];

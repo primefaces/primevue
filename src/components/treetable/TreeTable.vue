@@ -166,7 +166,7 @@ export default {
             default: false
         },
         sortField: {
-            type: String,
+            type: [String, Function],
             default: null
         },
         sortOrder: {
