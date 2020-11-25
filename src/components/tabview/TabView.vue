@@ -72,12 +72,29 @@ export default {
         },
         isTabDisabled(tab) {
             return tab.props?.disabled;
+        },
+        isTabPanel(child) {
+            return child.type.name === 'tabpanel'
         }
     },
     computed: {
         tabs() {
-            return this.$slots.default().filter(child => child.type.name === 'tabpanel');
-        }
+            const tabs = []
+            this.$slots.default().forEach(child => {
+                    if (this.isTabPanel(child)) {
+                        tabs.push(child);
+                    }
+                    else if (child.children.length > 0) {
+                        child.children.forEach(nestedChild => {
+                            if (this.isTabPanel(nestedChild)) {
+                                tabs.push(nestedChild)
+                            }
+                        });
+                    }
+                }
+            )
+            return tabs;
+        },
     },
     directives: {
         'ripple': Ripple
