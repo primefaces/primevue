@@ -940,6 +940,16 @@
 .p-multiselect .p-multiselect-label.p-placeholder {
   color: rgba(0, 0, 0, 0.6);
 }
+.p-multiselect.p-multiselect-chip .p-multiselect-token {
+  padding: 0.375rem 0.75rem;
+  margin-right: 0.5rem;
+  background: rgba(63, 81, 181, 0.12);
+  color: #3F51B5;
+  border-radius: 4px;
+}
+.p-multiselect.p-multiselect-chip .p-multiselect-token .p-multiselect-token-icon {
+  margin-left: 0.5rem;
+}
 .p-multiselect .p-multiselect-trigger {
   background: transparent;
   color: rgba(0, 0, 0, 0.6);
@@ -949,6 +959,10 @@
 }
 .p-multiselect.p-error, .p-multiselect.p-invalid {
   border-color: #B00020;
+}
+
+.p-inputwrapper-filled.p-multiselect.p-multiselect-chip .p-multiselect-label {
+  padding: 0.375rem 0.75rem;
 }
 
 .p-multiselect-panel {
@@ -5030,6 +5044,30 @@
 .p-input-filled .p-multiselect .p-multiselect-label:hover {
   background-image: none;
   background: transparent;
+}
+
+.p-float-label .p-multiselect-label .p-multiselect-token {
+  padding: 0.25rem 1rem;
+  margin-top: 0.25rem;
+  margin-bottom: 0.25rem;
+}
+
+.p-input-filled .p-float-label .p-multiselect .p-multiselect-label {
+  padding-top: 1.25rem;
+  padding-bottom: 0.25rem;
+}
+.p-input-filled .p-float-label .p-inputwrapper-filled.p-multiselect .p-multiselect-label {
+  padding-top: 1.25rem;
+  padding-bottom: 0.25rem;
+}
+.p-input-filled .p-float-label .p-inputwrapper-filled.p-multiselect.p-multiselect-chip .p-multiselect-token {
+  padding-top: 0;
+  padding-bottom: 0;
+  margin-top: 0;
+  margin-bottom: 0;
+}
+.p-input-filled .p-float-label .p-inputwrapper-filled.p-multiselect.p-multiselect-chip .p-multiselect-token .p-multiselect-token-icon {
+  font-size: 75%;
 }
 
 .p-overlaypanel .p-overlaypanel-content {

@@ -38,6 +38,14 @@ data() {
 
 </code></pre>
 
+                <h5>Chips Display</h5>
+                <p>A comma separated list is used by default to display selected items whereas alternative chip mode is provided using the <i>display</i> property to visualize the items as tokens.</p>
+<pre v-code>
+<code>
+&lt;MultiSelect v-model="selectedCars" :options="cars" optionLabel="brand" placeholder="Select Brands" display="chip"/&gt;
+
+</code></pre>
+
 				<h5>Custom Content</h5>
 				<p>Label of an option is used as the display text of an item by default, for custom content support define an <i>option</i> template that gets the option instance as a parameter.</p>
 				<p>In addition the <i>value</i> template can be used to customize the selected values display instead of the default comma separated list.</p>
@@ -320,7 +328,10 @@ data() {
 <pre v-code>
 <code><template v-pre>
 &lt;h5&gt;Basic&lt;/h5&gt;
-&lt;MultiSelect v-model="selectedCities" :options="cities" optionLabel="name" placeholder="Select a City" /&gt;
+&lt;MultiSelect v-model="selectedCities1" :options="cities" optionLabel="name" placeholder="Select a City" /&gt;
+
+&lt;h5&gt;Chips&lt;/h5&gt;
+&lt;MultiSelect v-model="selectedCities2" :options="cities" optionLabel="name" placeholder="Select a City" display="chip"/&gt;
 
 &lt;h5&gt;Advanced with Templating and Filtering&lt;/h5&gt;
 &lt;MultiSelect v-model="selectedCountries" :options="countries" optionLabel="name" placeholder="Select Countries" :filter="true" class="multiselect-custom"&gt;
@@ -348,7 +359,8 @@ data() {
 export default {
     data() {
         return {
-            selectedCities: null,
+            selectedCities1: null,
+            selectedCities2: null,
             selectedCountries: null,
             cities: [
                 {name: 'New York', code: 'NY'},

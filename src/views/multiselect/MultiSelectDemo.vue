@@ -11,7 +11,10 @@
         <div class="content-section implementation">
             <div class="card">
                 <h5>Basic</h5>
-                <MultiSelect v-model="selectedCities" :options="cities" optionLabel="name" placeholder="Select a City" />
+                <MultiSelect v-model="selectedCities1" :options="cities" optionLabel="name" placeholder="Select a City" />
+
+                <h5>Chips</h5>
+                <MultiSelect v-model="selectedCities2" :options="cities" optionLabel="name" placeholder="Select a City" display="chip" />
 
                 <h5>Advanced with Templating and Filtering</h5>
                 <MultiSelect v-model="selectedCountries" :options="countries" optionLabel="name" placeholder="Select Countries" :filter="true" class="multiselect-custom">
@@ -44,7 +47,8 @@ import MultiSelectDoc from './MultiSelectDoc';
 export default {
     data() {
         return {
-            selectedCities: null,
+            selectedCities1: null,
+            selectedCities2: null,
             selectedCountries: null,
             cities: [
                 {name: 'New York', code: 'NY'},

@@ -916,6 +916,16 @@
 .p-multiselect .p-multiselect-label.p-placeholder {
   color: #6c757d;
 }
+.p-multiselect.p-multiselect-chip .p-multiselect-token {
+  padding: 0.25rem 0.5rem;
+  margin-right: 0.5rem;
+  background: #E3F2FD;
+  color: #495057;
+  border-radius: 3px;
+}
+.p-multiselect.p-multiselect-chip .p-multiselect-token .p-multiselect-token-icon {
+  margin-left: 0.5rem;
+}
 .p-multiselect .p-multiselect-trigger {
   background: transparent;
   color: #6c757d;
@@ -925,6 +935,10 @@
 }
 .p-multiselect.p-error, .p-multiselect.p-invalid {
   border-color: #f44336;
+}
+
+.p-inputwrapper-filled.p-multiselect.p-multiselect-chip .p-multiselect-label {
+  padding: 0.25rem 0.5rem;
 }
 
 .p-multiselect-panel {
