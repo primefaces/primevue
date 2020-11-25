@@ -112,7 +112,7 @@ export default {
                     }
                     else if (child.children.length > 0) {
                         child.children.forEach(nestedChild => {
-                            if (this.childIsAccordionTab(nestedChild)) {
+                            if (this.isAccordionTab(nestedChild)) {
                                 tabs.push(nestedChild)
                             }
                         });
