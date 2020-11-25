@@ -149,10 +149,10 @@ import Rating from 'primevue/rating';
 &lt;Rating v-model="val2" :cancel="false" /&gt;
 
 &lt;h3&gt;ReadOnly&lt;/h3&gt;
-&lt;Rating :value="5" :readonly="true" :stars="10" :cancel="false" /&gt;
+&lt;Rating :modelValue="5" :readonly="true" :stars="10" :cancel="false" /&gt;
 
 &lt;h3&gt;Disabled&lt;/h3&gt;
-&lt;Rating :value="8" :disabled="true" :stars="10" /&gt;
+&lt;Rating :modelValue="8" :disabled="true" :stars="10" /&gt;
 </template>
 </code></pre>
 
