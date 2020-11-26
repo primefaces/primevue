@@ -1,7 +1,7 @@
 <template>
     <div class="layout-footer">
         <div class="layout-footer-left">
-            <span>PrimeVue 3.0.2 on Vue 3.0.2 by </span>
+            <span>PrimeVue 3.0.3 on Vue 3.0.2 by </span>
             <a href="https://www.primetek.com.tr">PrimeTek</a>
         </div>
 
