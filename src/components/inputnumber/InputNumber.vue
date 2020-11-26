@@ -803,15 +803,14 @@ export default {
         onInputFocus() {
             this.focused = true;
         },
-        onInputBlur() {
+        onInputBlur(event) {
             this.focused = false;
 
-            if (this.$refs && this.$refs.input) {
-                let newValue = this.validateValue(this.parseValue(this.$refs.input.$el.value));
-                this.$refs.input.$el.value = this.formatValue(newValue);
-                this.$refs.input.$el.setAttribute('aria-valuenow', newValue);
-                this.updateModel(event, newValue);
-            }
+            let input = event.target;
+            let newValue = this.validateValue(this.parseValue(input.value));
+            input.value = this.formatValue(newValue);
+            input.setAttribute('aria-valuenow', newValue);
+            this.updateModel(event, newValue);
         },
         clearTimer() {
             if (this.timer) {
