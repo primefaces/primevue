@@ -409,6 +409,14 @@ export default {
                     }
                 break;
 
+                //enter
+                case 13:
+                    let newValue = this.validateValue(this.parseValue(this.$refs.input.$el.value));
+                    this.$refs.input.$el.value = this.formatValue(newValue);
+                    this.$refs.input.$el.setAttribute('aria-valuenow', newValue);
+                    this.updateModel(event, newValue);
+                break;
+
                 //backspace
                 case 8: {
                     event.preventDefault();
