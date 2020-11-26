@@ -17,6 +17,8 @@ import Chips from './components/chips/Chips';
 import ColorPicker from './components/colorpicker/ColorPicker';
 import Column from './components/column/Column';
 import ColumnGroup from './components/columngroup/ColumnGroup';
+import ConfirmDialog from './components/confirmdialog/ConfirmDialog';
+import ConfirmationService from './components/confirmation/ConfirmationService';
 import ContextMenu from './components/contextmenu/ContextMenu';
 import DataTable from './components/datatable/DataTable';
 import DataView from './components/dataview/DataView';
@@ -52,8 +54,8 @@ import ProgressBar from './components/progressbar/ProgressBar';
 import ProgressSpinner from './components/progressspinner/ProgressSpinner';
 import Rating from './components/rating/Rating';
 import RadioButton from './components/radiobutton/RadioButton';
-import Row from './components/row/Row';
 import Ripple from './components/ripple/Ripple';
+import Row from './components/row/Row';
 import ScrollPanel from './components/scrollpanel/ScrollPanel';
 import SelectButton from './components/selectbutton/SelectButton';
 import Slider from './components/slider/Slider';
@@ -71,9 +73,9 @@ import Tree from './components/tree/Tree';
 import TreeTable from './components/treetable/TreeTable';
 import Toast from './components/toast/Toast';
 import ToastService from './components/toast/ToastService';
+import ToggleButton from './components/togglebutton/ToggleButton';
 import Toolbar from './components/toolbar/Toolbar';
 import Tooltip from './components/tooltip/Tooltip';
-import ToggleButton from './components/togglebutton/ToggleButton';
 import TriStateCheckbox from './components/tristatecheckbox/TriStateCheckbox';
 import Galleria from './components/galleria/Galleria';
 
@@ -100,6 +102,7 @@ app.config.globalProperties.$appState = reactive({inputStyle: 'outlined', darkTh
 app.config.globalProperties.$primevue = reactive({ripple: true});
 
 app.use(ToastService);
+app.use(ConfirmationService);
 app.use(router);
 
 app.directive('tooltip', Tooltip);
@@ -120,6 +123,7 @@ app.component('Chips', Chips);
 app.component('ColorPicker', ColorPicker);
 app.component('Column', Column);
 app.component('ColumnGroup', ColumnGroup);
+app.component('ConfirmDialog', ConfirmDialog);
 app.component('ContextMenu', ContextMenu);
 app.component('DataTable', DataTable);
 app.component('DataView', DataView);
