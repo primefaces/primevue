@@ -1,5 +1,38 @@
 # Changelog
 
+## [3.0.2](https://github.com/primefaces/primevue/tree/3.0.2) (2020-11-26)
+
+[Full Changelog](https://github.com/primefaces/primevue/compare/3.0.1...3.0.2)
+
+**Implemented New Features and Enhancements:**
+
+- Add the 'enter' key support to InputNumber [\#675](https://github.com/primefaces/primevue/issues/675)
+- Chips mode for MultiSelect [\#673](https://github.com/primefaces/primevue/issues/673)
+- New Timeline Component [\#672](https://github.com/primefaces/primevue/issues/672)
+- Toolbar requires slot attribute which is deprecated in Vue.js 3 [\#639](https://github.com/primefaces/primevue/issues/639)
+- SelectButton should allow a mode to ensure an options is always selected [\#494](https://github.com/primefaces/primevue/issues/494)
+
+**Fixed bugs:**
+
+- SplitButton: after selecting the default command, the command menu does not close. [\#660](https://github.com/primefaces/primevue/issues/660)
+- Multiselect/Dropdown: when the menu open upwards style broken [\#659](https://github.com/primefaces/primevue/issues/659)
+- Autocomplete: when the menu open upwards style broken [\#658](https://github.com/primefaces/primevue/issues/658)
+- DataTable global filter bug [\#655](https://github.com/primefaces/primevue/issues/655)
+- Closing message and reopening it does not work [\#653](https://github.com/primefaces/primevue/issues/653)
+- Password element does not inherit attributes [\#651](https://github.com/primefaces/primevue/issues/651)
+- DataTable sortField allows a function, but the prop type is only a string [\#647](https://github.com/primefaces/primevue/issues/647)
+- Missing .d.ts file for usetoast [\#645](https://github.com/primefaces/primevue/issues/645)
+- InputNumber's onInputBlur fails when component gets destroyed [\#633](https://github.com/primefaces/primevue/issues/633)
+- missing type definition for toast/useToast.js [\#630](https://github.com/primefaces/primevue/issues/630)
+- Sidebar not visible on mount [\#627](https://github.com/primefaces/primevue/issues/627)
+- Accordion does not support dynamic tabs [\#622](https://github.com/primefaces/primevue/issues/622)
+- TabView does not support dynamic tabs [\#616](https://github.com/primefaces/primevue/issues/616)
+- PrimeVue FileUpload FileLimit [\#610](https://github.com/primefaces/primevue/issues/610)
+- DataTable multiple click RadioButton focus previous row [\#606](https://github.com/primefaces/primevue/issues/606)
+- FileUpload Preview columns become misaligned when both image and non-image files are uploaded [\#585](https://github.com/primefaces/primevue/issues/585)
+- Error with empty objects [\#556](https://github.com/primefaces/primevue/issues/556)
+- OverlayPanel :before "indicator" needs dynamic placement [\#490](https://github.com/primefaces/primevue/issues/490)
+
 ## [3.0.1](https://github.com/primefaces/primevue/tree/3.0.1) (2020-10-22)
 
 [Full Changelog](https://github.com/primefaces/primevue/compare/2.2.0...3.0.1)
