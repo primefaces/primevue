@@ -1,5 +1,7 @@
 import Vue from 'vue';
 
-export declare class InputSwitch extends Vue {
+declare class InputSwitch extends Vue {
     modelValue?: boolean;
 }
+
+export default InputSwitch;

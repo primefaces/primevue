@@ -13,3 +13,4 @@ declare module 'vue/types/vue' {
         $toast: ToastServiceMethods;
     }
 }
+

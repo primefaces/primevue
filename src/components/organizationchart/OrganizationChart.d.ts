@@ -1,6 +1,6 @@
 import Vue, {VNode} from 'vue';
 
-export declare class OrganizationChart extends Vue {
+declare class OrganizationChart extends Vue {
     value?: any;
     selectionKeys?: any;
     selectionMode?: string;
@@ -14,3 +14,5 @@ export declare class OrganizationChart extends Vue {
         [key: string]: VNode[];
     }
 }
+
+export default OrganizationChart;

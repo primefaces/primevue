@@ -7,7 +7,7 @@ export interface PageState {
     pageCount: number
 }
 
-export declare class Paginator extends Vue {
+declare class Paginator extends Vue {
     totalRecords?: number;
     rows?: number;
     first?: number;
@@ -22,3 +22,5 @@ export declare class Paginator extends Vue {
         right: VNode[];
     }
 }
+
+export default Paginator;

@@ -1,6 +1,6 @@
 import Vue from 'vue';
 
-export declare class SplitButton extends Vue {
+declare class SplitButton extends Vue {
     label?: string;
     icon?: string;
     model?: any[];
@@ -11,3 +11,5 @@ export declare class SplitButton extends Vue {
     appendTo?: string;
     $emit(eventName: 'click', event: Event): this;
 }
+
+export default SplitButton;

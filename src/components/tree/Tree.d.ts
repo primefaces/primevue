@@ -1,6 +1,6 @@
 import Vue, {VNode} from 'vue';
 
-export declare class Tree extends Vue {
+declare class Tree extends Vue {
     value?: any;
     expandedKeys?: any;
     selectionKeys?: any;
@@ -21,3 +21,5 @@ export declare class Tree extends Vue {
         [key: string]: VNode[];
     }
 }
+
+export default Tree;

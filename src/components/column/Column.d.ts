@@ -1,6 +1,6 @@
 import Vue from 'vue';
 
-export declare class Column extends Vue {
+declare class Column extends Vue {
     columnKey?: any;
     field?: string;
     sortField?: string;
@@ -29,3 +29,5 @@ export declare class Column extends Vue {
     rowEditor?: boolean;
     frozen?: boolean;
 }
+
+export default Column;

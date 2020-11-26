@@ -1,6 +1,6 @@
 import Vue, { VNode } from 'vue';
 
-export declare class Sidebar extends Vue {
+declare class Sidebar extends Vue {
     visible?: boolean;
     position?: string;
     baseZIndex?: number;
@@ -15,3 +15,5 @@ export declare class Sidebar extends Vue {
         '': VNode[];
     }
 }
+
+export default Sidebar;

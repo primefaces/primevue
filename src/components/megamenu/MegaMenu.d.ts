@@ -1,6 +1,8 @@
 import Vue from 'vue';
 
-export declare class MegaMenu extends Vue {
+declare class MegaMenu extends Vue {
     model?: any[];
     orientation?: string;
 }
+
+export default MegaMenu;

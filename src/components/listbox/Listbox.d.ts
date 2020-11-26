@@ -1,6 +1,6 @@
 import Vue, { VNode } from 'vue';
 
-export declare class Listbox extends Vue {
+declare class Listbox extends Vue {
     modelValue?: any;
     options?: any[];
     optionLabel?: string;
@@ -23,3 +23,5 @@ export declare class Listbox extends Vue {
         option: VNode[];
     }
 }
+
+export default Listbox;

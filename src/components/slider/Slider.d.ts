@@ -1,6 +1,6 @@
 import Vue from 'vue';
 
-export declare class Slider extends Vue {
+declare class Slider extends Vue {
     modelValue?: number | any[];
     min?: number;
     max?: number;
@@ -12,3 +12,5 @@ export declare class Slider extends Vue {
     $emit(eventName: 'change', value: any): this;
     $emit(eventName: 'slideend', e: {originalEvent: Event, values: any}): this;
 }
+
+export default Slider;

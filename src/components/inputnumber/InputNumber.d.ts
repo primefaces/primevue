@@ -1,6 +1,6 @@
 import Vue from 'vue';
 
-export declare class InputNumber extends Vue {
+declare class InputNumber extends Vue {
     modelValue?: number;
     format?: boolean;
     showButtons?: boolean;
@@ -27,3 +27,5 @@ export declare class InputNumber extends Vue {
     $emit(eventName: string, value: number | Event): this;
     $emit(eventName: 'input', e: {originalEvent: Event, value: any}): this;
 }
+
+export default InputNumber;

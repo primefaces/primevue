@@ -1,6 +1,6 @@
 import Vue, {VNode} from 'vue';
 
-export declare class Galleria extends Vue {
+declare class Galleria extends Vue {
     id?: string;
     value?: any;
     activeIndex?: number;
@@ -34,3 +34,5 @@ export declare class Galleria extends Vue {
         thumbnail: VNode[];
 	}
 }
+
+export default Galleria;

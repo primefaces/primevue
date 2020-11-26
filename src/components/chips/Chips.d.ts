@@ -1,6 +1,6 @@
 import Vue, { VNode } from 'vue';
 
-export declare class Chips extends Vue {
+declare class Chips extends Vue {
     modelValue?: any[];
     max?: number;
     addOnBlur?: boolean;
@@ -12,3 +12,5 @@ export declare class Chips extends Vue {
         chip: VNode[];
     }
 }
+
+export default Chips;

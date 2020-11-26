@@ -1,6 +1,6 @@
 import Vue from 'vue';
 
-export declare class FileUpload extends Vue {
+declare class FileUpload extends Vue {
     name?: string;
     url?: string;
     mode?: string;
@@ -26,3 +26,5 @@ export declare class FileUpload extends Vue {
     $emit(eventName: 'before-send', e: { xhr: XMLHttpRequest, formData: any }): this;
     $emit(eventName: 'clear'): this;
 }
+
+export default FileUpload;

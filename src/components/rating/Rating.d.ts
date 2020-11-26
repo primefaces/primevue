@@ -1,6 +1,6 @@
 import Vue from 'vue';
 
-export declare class Rating extends Vue {
+declare class Rating extends Vue {
     modelValue?: number;
     disabled?: boolean;
     readonly?: boolean;
@@ -8,3 +8,5 @@ export declare class Rating extends Vue {
     cancel?: boolean;
     $emit(eventName: 'change', e: { originalEvent: Event, value: any }): this;
 }
+
+export default Rating;

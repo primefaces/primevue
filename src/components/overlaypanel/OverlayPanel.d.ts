@@ -1,6 +1,6 @@
 import Vue, { VNode } from 'vue';
 
-export declare class OverlayPanel extends Vue {
+declare class OverlayPanel extends Vue {
     ismissable?: boolean;
     showCloseIcon?: boolean;
     appendTo?: string;
@@ -14,3 +14,5 @@ export declare class OverlayPanel extends Vue {
         '': VNode[];
     }
 }
+
+export default OverlayPanel;

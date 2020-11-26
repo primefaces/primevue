@@ -1,6 +1,6 @@
 import Vue from 'vue';
 
-export declare class ToggleButton extends Vue {
+declare class ToggleButton extends Vue {
     value?: boolean;
     onIcon?: string;
     offIcon?: string;
@@ -9,3 +9,5 @@ export declare class ToggleButton extends Vue {
     iconPos?: string;
     $emit(eventName: string, event: Event): this;
 }
+
+export default ToggleButton;

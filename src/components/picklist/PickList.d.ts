@@ -1,6 +1,6 @@
 import Vue, {VNode} from 'vue';
 
-export declare class PickList extends Vue {
+declare class PickList extends Vue {
     modelValue?: any[][];
     selection?: any[][];
     dataKey?: string;
@@ -16,3 +16,5 @@ export declare class PickList extends Vue {
         item: VNode[];
     }
 }
+
+export default PickList;

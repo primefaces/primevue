@@ -1,3 +1,5 @@
 import Vue from 'vue';
 
-export declare class Row extends Vue {}
+declare class Row extends Vue {}
+
+export default Row;

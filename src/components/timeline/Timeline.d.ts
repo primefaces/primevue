@@ -1,6 +1,6 @@
 import Vue, { VNode } from 'vue';
 
-export declare class Timeline extends Vue {
+declare class Timeline extends Vue {
     value?: any[];
     align?: string;
     layout?: string;
@@ -11,3 +11,5 @@ export declare class Timeline extends Vue {
         marker: VNode[];
     }
 }
+
+export default Timeline;
