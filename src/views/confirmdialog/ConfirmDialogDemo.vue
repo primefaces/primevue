@@ -51,10 +51,10 @@ export default {
                 header: 'Confirmation',
                 icon: 'pi pi-exclamation-triangle',
                 accept: () => {
-                    this.$toast.add({severity:'info', summary:'Confirmed', detail:'You have accepted'});
+                    this.$toast.add({severity:'info', summary:'Confirmed', detail:'You have accepted', life: 3000});
                 },
                 reject: () => {
-                    this.$toast.add({severity:'info', summary:'Rejected', detail:'You have rejected'});
+                    this.$toast.add({severity:'info', summary:'Rejected', detail:'You have rejected', life: 3000});
                 }
             });
         },
@@ -65,10 +65,10 @@ export default {
                 icon: 'pi pi-info-circle',
                 acceptClass: 'p-button-danger',
                 accept: () => {
-                    this.$toast.add({severity:'info', summary:'Confirmed', detail:'Record deleted'});
+                    this.$toast.add({severity:'info', summary:'Confirmed', detail:'Record deleted', life: 3000});
                 },
                 reject: () => {
-                    this.$toast.add({severity:'info', summary:'Rejected', detail:'You have rejected'});
+                    this.$toast.add({severity:'info', summary:'Rejected', detail:'You have rejected', life: 3000});
                 }
             });
         },
@@ -80,10 +80,10 @@ export default {
                 icon: 'pi pi-info-circle',
                 position: position,
                 accept: () => {
-                    this.$toast.add({severity:'info', summary:'Confirmed', detail:'Record deleted'});
+                    this.$toast.add({severity:'info', summary:'Confirmed', detail:'Record deleted', life: 3000});
                 },
                 reject: () => {
-                    this.$toast.add({severity:'info', summary:'Rejected', detail:'You have rejected'});
+                    this.$toast.add({severity:'info', summary:'Rejected', detail:'You have rejected', life: 3000});
                 }
             });
         }
