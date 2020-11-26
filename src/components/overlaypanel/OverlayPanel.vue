@@ -103,7 +103,16 @@ export default {
         alignOverlay() {
             DomHandler.absolutePosition(this.container, this.target);
 
-            if (DomHandler.getOffset(this.container).top < DomHandler.getOffset(this.target).top) {
+            const containerOffset = DomHandler.getOffset(this.container);
+            const targetOffset = DomHandler.getOffset(this.target);
+            let arrowLeft = 0;
+
+            if (containerOffset.left < targetOffset.left) {
+                arrowLeft = targetOffset.left - containerOffset.left;
+            }
+            this.container.style.setProperty('--overlayArrowLeft', `${arrowLeft}px`);
+
+            if (containerOffset.top < targetOffset.top) {
                 DomHandler.addClass(this.container, 'p-overlaypanel-flipped');
             }
         },
@@ -223,7 +232,7 @@ export default {
 
 .p-overlaypanel:after, .p-overlaypanel:before {
 	bottom: 100%;
-	left: 1.25rem;
+	left: calc(var(--overlayArrowLeft, 0) + 1.25rem);
 	content: " ";
 	height: 0;
 	width: 0;
