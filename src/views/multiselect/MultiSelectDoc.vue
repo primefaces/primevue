@@ -184,7 +184,7 @@ data() {
                                 <td>No results found</td>
                                 <td>Text to display when filtering does not return any results.</td>
                             </tr>
-                            ü<tr>
+                            <tr>
                                 <td>display</td>
                                 <td>string</td>
                                 <td>comma</td>
