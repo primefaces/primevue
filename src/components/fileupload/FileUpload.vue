@@ -14,8 +14,8 @@
             <FileUploadMessage v-for="msg of messages" severity="error" :key="msg">{{msg}}</FileUploadMessage>
             <div class="p-fileupload-files" v-if="hasFiles">
                 <div class="p-fileupload-row" v-for="(file, index) of files" :key="file.name + file.type + file.size">
-                    <div v-if="isImage(file)">
-                        <img role="presentation" :alt="file.name" :src="file.objectURL" :width="previewWidth" />
+                    <div>
+                        <img v-if="isImage(file)" role="presentation" :alt="file.name" :src="file.objectURL" :width="previewWidth" />
                     </div>
                     <div>{{file.name}}</div>
                     <div>{{formatSize(file.size)}}</div>
