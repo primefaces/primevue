@@ -1,6 +1,6 @@
 <template>
     <div class="p-splitbutton p-component">
-        <PVSButton type="button" class="p-splitbutton-defaultbutton" :icon="icon" :label="label" @click="onClick" :disabled="disabled" :tabindex="tabindex" />
+        <PVSButton type="button" class="p-splitbutton-defaultbutton" :icon="icon" :label="label" @click="onDefaultButtonClick" :disabled="disabled" :tabindex="tabindex" />
         <PVSButton type="button" class="p-splitbutton-menubutton" icon="pi pi-chevron-down" @click="onDropdownButtonClick" :disabled="disabled"
             aria-haspopup="true" :aria-controls="ariaId + '_overlay'"/>
         <PVSMenu :id="ariaId + '_overlay'" ref="menu" :model="model" :popup="true" :autoZIndex="autoZIndex"
@@ -49,8 +49,9 @@ export default {
         }
     },
     methods: {
-        onClick(event) {
+        onDefaultButtonClick(event) {
             this.$emit('click', event);
+             this.$refs.menu.hide();
         },
         onDropdownButtonClick() {
             this.$refs.menu.toggle({currentTarget: this.$el, relativeAlign: this.appendTo == null});
