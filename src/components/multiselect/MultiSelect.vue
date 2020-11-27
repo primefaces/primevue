@@ -7,7 +7,16 @@
         <div class="p-multiselect-label-container">
             <div :class="labelClass">
                 <slot name="value" :value="value" :placeholder="placeholder">
-                    {{label}}
+                    <template v-if="display === 'comma'">
+                        {{label || 'empty'}}
+                    </template>
+                    <template v-else-if="display === 'chip'">
+                        <div v-for="item of value" class="p-multiselect-token" :key="getLabelByValue(item)">
+                            <span class="p-multiselect-token-label">{{getLabelByValue(item)}}</span>
+                            <span v-if="!disabled" class="p-multiselect-token-icon pi pi-times-circle" @click="removeChip(item)"></span>
+                        </div>
+                        <template v-if="!value || value.length === 0">{{placeholder || 'empty'}}</template>
+                    </template>
                 </slot>
             </div>
         </div>
@@ -87,6 +96,10 @@ export default {
         emptyFilterMessage: {
             type: String,
             default: 'No results found'
+        },
+        display: {
+            type: String,
+            default: 'comma'
         }
     },
     data() {
@@ -392,6 +405,12 @@ export default {
         },
         onFilterChange(event) {
             this.$emit('filter', {originalEvent: event, value: event.target.value});
+        },
+        removeChip(item) {
+            let value = this.value.filter(val => !ObjectUtils.equals(val, item, this.equalityKey));
+
+            this.$emit('input', value);
+            this.$emit('change', {originalEvent: event, value: value});
         }
     },
     computed: {
@@ -405,6 +424,7 @@ export default {
             return [
                 'p-multiselect p-component p-inputwrapper',
                 {
+                    'p-multiselect-chip': this.display === 'chip',
                     'p-disabled': this.disabled,
                     'p-focus': this.focused,
                     'p-inputwrapper-filled': this.value && this.value.length,
@@ -417,7 +437,7 @@ export default {
                 'p-multiselect-label',
                 {
                     'p-placeholder': this.label === this.placeholder,
-                    'p-multiselect-label-empty': !this.$scopedSlots['value'] && !this.placeholder && (!this.value || this.value.length === 0)
+                    'p-multiselect-label-empty': !this.placeholder && (!this.modelValue || this.modelValue.length === 0)
                 }
             ];
         },
@@ -435,7 +455,7 @@ export default {
                 }
             }
             else {
-                label = this.placeholder || 'p-multiselect';
+                label = this.placeholder;
             }
 
             return label;
@@ -501,6 +521,17 @@ export default {
 .p-multiselect-label-empty {
     overflow: hidden;
     visibility: hidden;
+}
+
+.p-multiselect-token {
+    cursor: default;
+    display: inline-flex;
+    align-items: center;
+    flex: 0 0 auto;
+}
+
+.p-multiselect-token-icon {
+    cursor: pointer;
 }
 
 .p-multiselect .p-multiselect-panel {
