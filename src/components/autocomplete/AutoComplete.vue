@@ -116,6 +116,11 @@ export default {
             this.scrollHandler = null;
         }
     },
+    updated() {
+         if (this.overlayVisible) {
+             this.alignOverlay();
+         }
+    },
     methods: {
         onOverlayEnter() {
             this.$refs.overlay.style.zIndex = String(DomHandler.generateZIndex());
