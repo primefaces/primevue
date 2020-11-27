@@ -118,9 +118,9 @@ export default {
         }
     },
     duplicateIEEvent: false,
-    uploadedFileCount: 0,
     data() {
         return {
+            uploadedFileCount: 0,
             files: null,
             messages: null,
             focused: false,
@@ -238,7 +238,7 @@ export default {
             }
         },
         clear() {
-            this.files = null;
+            this.files = [];
             this.messages = null;
             this.$emit('clear');
 
@@ -348,11 +348,7 @@ export default {
         },
         checkFileLimit() {
             if (this.isFileLimitExceeded()) {
-                this.msgs.push({
-                    severity: 'error',
-                    summary: this.invalidFileLimitMessageSummary.replace('{0}', this.fileLimit.toString()),
-                    detail: this.invalidFileLimitMessageDetail.replace('{0}', this.fileLimit.toString())
-                });
+                this.msgs.push(this.invalidFileLimitMessage.replace('{0}', this.fileLimit.toString()));
             }
         }
     },
