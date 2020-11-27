@@ -2946,11 +2946,11 @@
   box-shadow: 0 11px 15px -7px rgba(0, 0, 0, 0.2), 0 24px 38px 3px rgba(0, 0, 0, 0.14), 0 9px 46px 8px rgba(0, 0, 0, 0.12);
 }
 .p-confirm-popup .p-confirm-popup-content {
-  padding: 0.75rem;
+  padding: 1.25rem;
 }
 .p-confirm-popup .p-confirm-popup-footer {
   text-align: right;
-  padding: 0.75rem 0.75rem;
+  padding: 0 1.25rem 0.75rem 1.25rem;
 }
 .p-confirm-popup .p-confirm-popup-footer button {
   margin: 0 0.5rem 0 0;

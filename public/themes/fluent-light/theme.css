@@ -2901,7 +2901,7 @@
 }
 .p-confirm-popup .p-confirm-popup-footer {
   text-align: right;
-  padding: 0.5rem 1rem;
+  padding: 0 1rem 1rem 1rem;
 }
 .p-confirm-popup .p-confirm-popup-footer button {
   margin: 0 0.5rem 0 0;
