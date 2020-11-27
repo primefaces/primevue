@@ -47,7 +47,7 @@ export default {
     methods: {
         confirm1() {
             this.$confirm.require({
-                message: 'Are you sure that you want to proceed?',
+                message: 'Are you sure you want to proceed?',
                 header: 'Confirmation',
                 icon: 'pi pi-exclamation-triangle',
                 accept: () => {

@@ -2889,6 +2889,50 @@
   margin: 0 0.5rem;
 }
 
+.p-confirm-popup {
+  background: #ffffff;
+  color: #333333;
+  border: 1px solid #c8c8c8;
+  border-radius: 3px;
+  box-shadow: 0 0 6px 0 rgba(0, 0, 0, 0.16);
+}
+.p-confirm-popup .p-confirm-popup-content {
+  padding: 0.571rem 1rem;
+}
+.p-confirm-popup .p-confirm-popup-footer {
+  text-align: right;
+  padding: 0.571rem 1rem;
+}
+.p-confirm-popup .p-confirm-popup-footer button {
+  margin: 0 0.5rem 0 0;
+  width: auto;
+}
+.p-confirm-popup .p-confirm-popup-footer button:last-child {
+  margin: 0;
+}
+.p-confirm-popup:after {
+  border: solid transparent;
+  border-color: rgba(255, 255, 255, 0);
+  border-bottom-color: #ffffff;
+}
+.p-confirm-popup:before {
+  border: solid transparent;
+  border-color: rgba(200, 200, 200, 0);
+  border-bottom-color: #c8c8c8;
+}
+.p-confirm-popup.p-confirm-popup-flipped:after {
+  border-top-color: #ffffff;
+}
+.p-confirm-popup.p-confirm-popup-flipped:before {
+  border-top-color: #c8c8c8;
+}
+.p-confirm-popup .p-confirm-popup-icon {
+  font-size: 1.5rem;
+}
+.p-confirm-popup .p-confirm-popup-message {
+  margin-left: 1rem;
+}
+
 .p-dialog {
   border-radius: 3px;
   box-shadow: 0 0 6px 0 rgba(0, 0, 0, 0.16);

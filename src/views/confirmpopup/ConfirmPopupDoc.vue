@@ -3,7 +3,7 @@
 		<TabView>
 			<TabPanel header="Documentation">
                 <h5>Mitt EventBus</h5>
-                <p>ConfirmDialog requires <a href="https://www.npmjs.com/package/mitt">Mitt</a>, a tiny 200b EventBus implementation.</p>
+                <p>ConfirmPopup requires <a href="https://www.npmjs.com/package/mitt">Mitt</a>, a tiny 200b EventBus implementation.</p>
 <pre v-code>
 <code>
 npm install mitt --save
@@ -11,7 +11,7 @@ npm install mitt --save
 </code></pre>
 
                 <h5>ConfirmationService</h5>
-                <p>ConfirmDialog is controlled via the <i>ConfirmationService</i> that needs to be installed globally before the application
+                <p>ConfirmPopup is controlled via the <i>ConfirmationService</i> that needs to be installed globally before the application
                     instance is created.</p>
 <pre v-code.script>
 <code>
@@ -26,16 +26,15 @@ app.use(ConfirmationService);
 				<h5>Import</h5>
 <pre v-code.script>
 <code>
-import ConfirmDialog from 'primevue/confirmdialog';
+import ConfirmPopup from 'primevue/confirmpopup';
 
 </code></pre>
 
 				<h5>Getting Started</h5>
-				<p>ConfirmDialog is displayed by calling the <i>require</i> method of the <i>$confirm</i> instance by passing the options to customize the Dialog. Suggested location of the Dialog is the main application component
-                where it can be shared by any component within the application.</p>
+				<p>ConfirmPopup is displayed by calling the <i>require</i> method of the <i>$confirm</i> instance by passing the options to customize the Popup.</p>
 <pre v-code>
 <code>
-&lt;ConfirmDialog&gt;&lt;/ConfirmDialog&gt;
+&lt;ConfirmPopup&gt;&lt;/ConfirmPopup&gt;
 
 &lt;Button @click="delete()" icon="pi pi-check" label="Confirm"&gt;&lt;/Button&gt;
 </code></pre>
@@ -47,7 +46,6 @@ export default {
         delete() {
             this.$confirm.require({
                 message: 'Are you sure you want to proceed?',
-                header: 'Confirmation',
                 icon: 'pi pi-exclamation-triangle',
                 accept: () => {
                     //callback to execute when user confirms the action
@@ -74,7 +72,6 @@ export default defineComponent({
         const confirm = useConfirm();
         confirm.require({
             message: 'Are you sure you want to proceed?',
-            header: 'Confirmation',
             icon: 'pi pi-exclamation-triangle',
             accept: () => {
                 //callback to execute when user confirms the action
@@ -89,7 +86,7 @@ export default defineComponent({
 </code></pre>
 
                 <h5>Close Confirmation</h5>
-                <p>The dialog can also be hidden programmatically using the <i>close</i> method.</p>
+                <p>The popup can also be hidden programmatically using the <i>close</i> method.</p>
 <pre v-code.script>
 <code>
 export default {
@@ -132,12 +129,6 @@ export default {
                                 <td>string</td>
                                 <td>null</td>
                                 <td>Icon to display next to the message.</td>
-                            </tr>
-                            <tr>
-                                <td>header</td>
-                                <td>string</td>
-                                <td>null</td>
-                                <td>Header text of the dialog.</td>
                             </tr>
                             <tr>
                                 <td>accept</td>
@@ -187,12 +178,6 @@ export default {
                                 <td>null</td>
                                 <td>Style class of the reject button.</td>
                             </tr>
-                            <tr>
-                                <td>blockScroll</td>
-                                <td>boolean</td>
-                                <td>true</td>
-                                <td>Whether background scroll should be blocked when dialog is visible.</td>
-                            </tr>
                         </tbody>
                     </table>
                 </div>
@@ -231,8 +216,24 @@ export default {
 						</thead>
 						<tbody>
                             <tr>
-                                <td>p-confirm-dialog</td>
+                                <td>p-confirm-popup</td>
                                 <td>Container element.</td>
+                            </tr>
+                            <tr>
+                                <td>p-confirm-content</td>
+                                <td>Content element.</td>
+                            </tr>
+                            <tr>
+                                <td>p-confirm-popup-icon</td>
+                                <td>Message icon.</td>
+                            </tr>
+                            <tr>
+                                <td>p-confirm-popup-message</td>
+                                <td>Message text.</td>
+                            </tr>
+                            <tr>
+                                <td>p-confirm-popup-footer</td>
+                                <td>Footer element for buttons.</td>
                             </tr>
 						</tbody>
 					</table>
@@ -248,31 +249,11 @@ export default {
 				</a>
 <pre v-code>
 <code><template v-pre>
-&lt;ConfirmDialog&gt;&lt;/ConfirmDialog&gt;
-&lt;ConfirmDialog group="positionDialog"&gt;&lt;/ConfirmDialog&gt;
+&lt;ConfirmPopup&gt;&lt;/ConfirmPopup&gt;
 
 &lt;div class="card"&gt;
-    &lt;h5&gt;Basic&lt;/h5&gt;
-    &lt;Button @click="confirm1()" icon="pi pi-check" label="Confirm" class="p-mr-2"&gt;&lt;/Button&gt;
-    &lt;Button @click="confirm2()" icon="pi pi-times" label="Delete"&gt;&lt;/Button&gt;
-
-    &lt;h5&gt;Position&lt;/h5&gt;
-    &lt;div class="p-grid p-dir-col"&gt;
-        &lt;div class="p-col"&gt;
-            &lt;Button @click="confirmPosition('left')" icon="pi pi-arrow-right" label="Left" class="p-button-help p-mr-2"&gt;&lt;/Button&gt;
-            &lt;Button @click="confirmPosition('right')" icon="pi pi-arrow-left" label="Right" class="p-button-help"&gt;&lt;/Button&gt;
-        &lt;/div&gt;
-        &lt;div class="p-col"&gt;
-            &lt;Button @click="confirmPosition('topleft')" icon="pi pi-arrow-down" label="TopLeft" class="p-button-warning p-mr-2"&gt;&lt;/Button&gt;
-            &lt;Button @click="confirmPosition('top')" icon="pi pi-arrow-down" label="Top" class="p-button-warning p-mr-2"&gt;&lt;/Button&gt;
-            &lt;Button @click="confirmPosition('topright')" icon="pi pi-arrow-down" label="TopRight" class="p-button-warning"&gt;&lt;/Button&gt;
-        &lt;/div&gt;
-        &lt;div class="p-col"&gt;
-            &lt;Button @click="confirmPosition('bottomleft')" icon="pi pi-arrow-up" label="BottomLeft" class="p-button-success p-mr-2"&gt;&lt;/Button&gt;
-            &lt;Button @click="confirmPosition('bottom')" icon="pi pi-arrow-up" label="Bottom" class="p-button-success p-mr-2"&gt;&lt;/Button&gt;
-            &lt;Button @click="confirmPosition('bottomright')" icon="pi pi-arrow-up" label="BottomRight" class="p-button-success"&gt;&lt;/Button&gt;
-        &lt;/div&gt;
-    &lt;/div&gt;
+    &lt;Button @click="confirm1($event)" icon="pi pi-check" label="Confirm" class="p-mr-2"&gt;&lt;/Button&gt;
+    &lt;Button @click="confirm2($event)" icon="pi pi-times" label="Delete" class="p-button-danger p-button-outlined"&gt;&lt;/Button&gt;
 &lt;/div&gt;
 </template>
 </code></pre>
@@ -284,7 +265,6 @@ export default {
         confirm1() {
             this.$confirm.require({
                 message: 'Are you sure you want to proceed?',
-                header: 'Confirmation',
                 icon: 'pi pi-exclamation-triangle',
                 accept: () => {
                     this.$toast.add({severity:'info', summary:'Confirmed', detail:'You have accepted', life: 3000});
@@ -297,24 +277,8 @@ export default {
         confirm2() {
             this.$confirm.require({
                 message: 'Do you want to delete this record?',
-                header: 'Delete Confirmation',
                 icon: 'pi pi-info-circle',
                 acceptClass: 'p-button-danger',
-                accept: () => {
-                    this.$toast.add({severity:'info', summary:'Confirmed', detail:'Record deleted', life: 3000});
-                },
-                reject: () => {
-                    this.$toast.add({severity:'info', summary:'Rejected', detail:'You have rejected', life: 3000});
-                }
-            });
-        },
-        confirmPosition(position) {
-            this.$confirm.require({
-                key: 'positionDialog',
-                message: 'Do you want to delete this record?',
-                header: 'Delete Confirmation',
-                icon: 'pi pi-info-circle',
-                position: position,
                 accept: () => {
                     this.$toast.add({severity:'info', summary:'Confirmed', detail:'Record deleted', life: 3000});
                 },

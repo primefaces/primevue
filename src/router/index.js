@@ -138,6 +138,11 @@ const routes = [
         component: () => import('../views/confirmdialog/ConfirmDialogDemo.vue')
     },
     {
+        path: '/confirmpopup',
+        name: 'confirmpopup',
+        component: () => import('../views/confirmpopup/ConfirmPopupDemo.vue')
+    },
+    {
         path: '/contextmenu',
         name: 'contextmenu',
         component: () => import('../views/contextmenu/ContextMenuDemo.vue')
