@@ -182,13 +182,13 @@ export default {
 <template v-pre>
 &lt;div class="stepsdemo-content"&gt;
     &lt;Card&gt;
-        &lt;template slot="title"&gt;
+        &lt;template #title&gt;
             Personal Information
         &lt;/template&gt;
-        &lt;template slot="subtitle"&gt;
+        &lt;template #subtitle&gt;
             Enter your information
         &lt;/template&gt;
-        &lt;template slot="content"&gt;
+        &lt;template #content&gt;
             &lt;p class="p-text-secondary"&gt;Enter your information&lt;/p&gt;
             &lt;div class="p-fluid"&gt;
                 &lt;div class="p-field"&gt;
@@ -208,7 +208,7 @@ export default {
                 &lt;/div&gt;
             &lt;/div&gt;
         &lt;/template&gt;
-        &lt;template slot="footer"&gt;
+        &lt;template #footer&gt;
             &lt;div class="p-grid p-nogutter p-justify-between"&gt;
                 &lt;i&gt;&lt;/i&gt;
                 &lt;Button label="Next" @click="nextPage(!$v.$invalid)" icon="pi pi-angle-right" iconPos="right" /&gt;
@@ -261,13 +261,13 @@ export default {
 <template v-pre>
     &lt;div class="stepsdemo-content"&gt;
         &lt;Card&gt;
-            &lt;template slot="title"&gt;
+            &lt;template #title&gt;
                 Seat Information
             &lt;/template&gt;
-            &lt;template slot="subtitle"&gt;
+            &lt;template #subtitle&gt;
                 Choose your seat
             &lt;/template&gt;
-            &lt;template slot="content"&gt;
+            &lt;template #content&gt;
                 &lt;div class="p-fluid p-formgrid p-grid"&gt;
                     &lt;div class="p-field p-col-12 p-md-6"&gt;
                         &lt;label for="class"&gt;Class&lt;/label&gt;
@@ -283,7 +283,7 @@ export default {
                     &lt;/div&gt;
                 &lt;/div&gt;
             &lt;/template&gt;
-            &lt;template slot="footer"&gt;
+            &lt;template #footer&gt;
                 &lt;div class="p-grid p-nogutter p-justify-between"&gt;
                     &lt;Button label="Back" @click="prevPage()" icon="pi pi-angle-left" /&gt;
                     &lt;Button label="Next" @click="nextPage()" icon="pi pi-angle-right" iconPos="right" /&gt;
@@ -343,13 +343,13 @@ export default {
 <template v-pre>
 &lt;div class="stepsdemo-content"&gt;
     &lt;Card&gt;
-        &lt;template slot="title"&gt;
+        &lt;template #title&gt;
             Payment Information
         &lt;/template&gt;
-        &lt;template slot="subtitle"&gt;
+        &lt;template #subtitle&gt;
             Enter your card details
         &lt;/template&gt;
-        &lt;template slot="content"&gt;
+        &lt;template #content&gt;
             &lt;div class="p-fluid p-formgrid p-grid"&gt;
                 &lt;div class="p-field p-col-12"&gt;
                     &lt;label for="class"&gt;Class&lt;/label&gt;
@@ -373,7 +373,7 @@ export default {
                 &lt;/div&gt;
             &lt;/div&gt;
         &lt;/template&gt;
-        &lt;template slot="footer"&gt;
+        &lt;template #footer&gt;
             &lt;div class="p-grid p-nogutter p-justify-between"&gt;
                 &lt;Button label="Back" @click="prevPage()" icon="pi pi-angle-left" /&gt;
                 &lt;Button label="Next" @click="nextPage()" icon="pi pi-angle-right" iconPos="right" /&gt;
@@ -411,10 +411,10 @@ export default {
 <template v-pre>
 &lt;div class="stepsdemo-content"&gt;
     &lt;Card&gt;
-        &lt;template slot="title"&gt;
+        &lt;template #title&gt;
             Confirmation
         &lt;/template&gt;
-        &lt;template slot="content"&gt;
+        &lt;template #content&gt;
             &lt;div class="p-field p-col-12"&gt;
                 &lt;label for="class"&gt;Name&lt;/label&gt;
                 &lt;b&gt;{{formData.firstname ? formData.firstname : '-'}} {{formData.lastname ? formData.lastname : '-'}}&lt;/b&gt;
@@ -452,7 +452,7 @@ export default {
                 &lt;b&gt;{{formData.cvv && formData.cvv.length === 3  ? '**' + formData.cvv[2] : '-'}}&lt;/b&gt;
             &lt;/div&gt;
         &lt;/template&gt;
-        &lt;template slot="footer"&gt;
+        &lt;template #footer&gt;
             &lt;div class="p-grid p-nogutter p-justify-between"&gt;
                 &lt;Button label="Back" @click="prevPage()"  icon="pi pi-angle-left" /&gt;
                 &lt;Button label="Complete" @click="complete()" icon="pi pi-check" iconPos="right" class="p-button-success"/&gt;

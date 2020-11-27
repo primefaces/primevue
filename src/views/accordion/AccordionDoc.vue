@@ -93,21 +93,21 @@ import AccordionTab from 'primevue/accordiontab';
 <CodeHighlight>
 &lt;Accordion&gt;
 	&lt;AccordionTab&gt;
-		&lt;template slot="header"&gt;
+		&lt;template #header&gt;
 			&lt;i class="pi pi-calendar"&gt;&lt;/i&gt;
 			&lt;span&gt;Header I&lt;/span&gt;
 		&lt;/template&gt;
 		Content
 	&lt;/AccordionTab&gt;
 	&lt;AccordionTab&gt;
-		&lt;template slot="header"&gt;
+		&lt;template #header&gt;
 			&lt;i class="pi pi-calendar"&gt;&lt;/i&gt;
 			&lt;span&gt;Header II&lt;/span&gt;
 		&lt;/template&gt;
 		Content
 	&lt;/AccordionTab&gt;
 	&lt;AccordionTab&gt;
-		&lt;template slot="header"&gt;
+		&lt;template #header&gt;
 			&lt;i class="pi pi-calendar"&gt;&lt;/i&gt;
 			&lt;span&gt;Header III&lt;/span&gt;
 		&lt;/template&gt;
@@ -341,7 +341,7 @@ export default {
 &lt;h5&gt;Custom Headers&lt;/h5&gt;
 &lt;Accordion class="accordion-custom"&gt;
     &lt;AccordionTab :active="true"&gt;
-        &lt;template slot="header"&gt;
+        &lt;template #header&gt;
             &lt;i class="pi pi-calendar"&gt;&lt;/i&gt;
             &lt;span&gt;Header I&lt;/span&gt;
         &lt;/template&gt;
@@ -350,7 +350,7 @@ export default {
             Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.&lt;/p&gt;
     &lt;/AccordionTab&gt;
     &lt;AccordionTab&gt;
-        &lt;template slot="header"&gt;
+        &lt;template #header&gt;
             &lt;i class="pi pi-user"&gt;&lt;/i&gt;
             &lt;span&gt;Header II&lt;/span&gt;
         &lt;/template&gt;
@@ -359,7 +359,7 @@ export default {
             voluptatem sequi nesciunt. Consectetur, adipisci velit, sed quia non numquam eius modi.&lt;/p&gt;
     &lt;/AccordionTab&gt;
     &lt;AccordionTab&gt;
-        &lt;template slot="header"&gt;
+        &lt;template #header&gt;
             &lt;i class="pi pi-search"&gt;&lt;/i&gt;
             &lt;span&gt;Header III&lt;/span&gt;
             &lt;i class="pi pi-cog"&gt;&lt;/i&gt;

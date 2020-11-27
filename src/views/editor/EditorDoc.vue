@@ -17,7 +17,7 @@ import Editor from 'primevue/editor';
 				<p>Editor provides a default toolbar with common options, to customize it define your elements inside the header element. Refer to <a href="http://quilljs.com/docs/modules/toolbar/">Quill documentation</a> for available controls.</p>
 <CodeHighlight>
 &lt;Editor v-model="value" editorStyle="height: 320px"&gt;
-	&lt;template slot="toolbar"&gt;
+	&lt;template #toolbar&gt;
 		&lt;span class="ql-formats"&gt;
 			&lt;button class="ql-bold"&gt;&lt;/button&gt;
 			&lt;button class="ql-italic"&gt;&lt;/button&gt;
@@ -149,7 +149,7 @@ npm install quill --save
 
 &lt;h3&gt;Customized&lt;/h3&gt;
 &lt;Editor v-model="value2" editorStyle="height: 320px"&gt;
-    &lt;template slot="toolbar"&gt;
+    &lt;template #toolbar&gt;
     &lt;span class="ql-formats"&gt;
         &lt;button class="ql-bold" v-tooltip.bottom="'Bold'"&gt;&lt;/button&gt;
         &lt;button class="ql-italic" v-tooltip.bottom="'Italic'"&gt;&lt;/button&gt;
