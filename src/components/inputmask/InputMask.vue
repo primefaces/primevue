@@ -1,5 +1,5 @@
 <template>
-    <input :class="inputClass" v-on="listeners" :value="value" />
+    <input :class="inputClass" v-on="listeners" />
 </template>
 
 <script>
@@ -262,6 +262,11 @@ export default {
 
                 this.focusText = this.$el.value;
             }
+        },
+        isValueUpdated() {
+            return this.unmask ?
+                            (this.value != this.getUnmaskedValue()) :
+                            (this.defaultBuffer !== this.$el.value && this.$el.value !== this.value);
         }
     },
     mounted() {
@@ -312,11 +317,9 @@ export default {
         this.defaultBuffer = this.buffer.join('');
         this.updateValue();
     },
-    watch: {
-        value(newValue, oldValue) {
-            if (oldValue && oldValue !== newValue && this.$el.value !== newValue) {
-                this.updateValue();
-            }
+    updated() {
+        if (this.isValueUpdated()) {
+            this.updateValue();
         }
     },
     computed: {
