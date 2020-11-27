@@ -58,6 +58,8 @@
                         <li class="topbar-submenu-header">PREMIUM</li>
                         <li><a @click="changeTheme($event, 'soho-light')"><img src="demo/images/themes/soho-light.png" alt="Soho Light" /><span>Soho Light</span></a></li>
                         <li><a @click="changeTheme($event, 'soho-dark', true)"><img src="demo/images/themes/soho-dark.png" alt="Soho Dark" /><span>Soho Dark</span></a></li>
+                        <li><a @click="changeTheme($event, 'mira')"><img src="demo/images/themes/mira.jpg" alt="Mira" /><span>Mira</span></a></li>
+                        <li><a @click="changeTheme($event, 'nano')"><img src="demo/images/themes/nano.jpg" alt="Nano" /><span>Nano</span></a></li>
 
                         <li class="topbar-submenu-header">LEGACY</li>
                         <li><a @click="changeTheme($event, 'nova')"><img src="demo/images/themes/nova.png" alt="Nova" /><span>Nova</span></a></li>

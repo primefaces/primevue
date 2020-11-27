@@ -34,3 +34,5 @@ yarn-error.log*
 # Themes
 public/themes/soho-light/
 public/themes/soho-dark/
+public/themes/mira/
+public/themes/nano/
