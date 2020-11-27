@@ -1,5 +1,5 @@
 <template>
-    <input :class="inputClass" v-bind="$attrs" :value="modelValue" @input="onInput" @focus="onFocus" @blur="onBlur"
+    <input :class="inputClass" v-bind="$attrs" @input="onInput" @focus="onFocus" @blur="onBlur"
         @keydown="onKeyDown" @keypress="onKeyPress" @paste="onPaste" />
 </template>
 
