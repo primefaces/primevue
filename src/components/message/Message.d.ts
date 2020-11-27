@@ -1,6 +1,6 @@
 import Vue, { VNode } from 'vue';
 
-export declare class Message extends Vue {
+declare class Message extends Vue {
     severity?: string;
     closable?: boolean;
     sticky?: boolean;
@@ -9,3 +9,5 @@ export declare class Message extends Vue {
         '': VNode[];
     }
 }
+
+export default Message;

@@ -1,6 +1,6 @@
 import Vue, {VNode} from 'vue';
 
-export declare class Carousel extends Vue {
+declare class Carousel extends Vue {
 	value?: any;
 	page?: number;
 	numVisible?: number;
@@ -19,3 +19,5 @@ export declare class Carousel extends Vue {
 		footer: VNode[];
 	}
 }
+
+export default Carousel;

@@ -1,3 +1,5 @@
 import Directive from 'vue';
 
-export declare interface Tooltip extends Directive {}
+declare interface Tooltip extends Directive {}
+
+export default Tooltip;

@@ -1,6 +1,6 @@
 import Vue, { VNode } from 'vue';
 
-export declare class AccordionTab extends Vue {
+declare class AccordionTab extends Vue {
     header?: string;
     active?: boolean;
     disabled?: boolean;
@@ -9,3 +9,5 @@ export declare class AccordionTab extends Vue {
         header: VNode[];
     }
 }
+
+export default AccordionTab;

@@ -1,6 +1,6 @@
 import Vue, {VNode} from 'vue';
 
-export declare class MultiSelect extends Vue {
+declare class MultiSelect extends Vue {
     value?: any;
     options?: any[];
     optionLabel?: string;
@@ -31,3 +31,5 @@ export declare class MultiSelect extends Vue {
         option: VNode[];
     }
 }
+
+export default MultiSelect;

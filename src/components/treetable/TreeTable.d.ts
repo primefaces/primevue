@@ -1,6 +1,6 @@
 import Vue, {VNode} from 'vue';
 
-export declare class TreeTable extends Vue {
+declare class TreeTable extends Vue {
     value?: any;
     expandedKeys?: any;
     selectionKeys?: any;
@@ -51,3 +51,5 @@ export declare class TreeTable extends Vue {
         footer: VNode[];
     }
 }
+
+export default TreeTable;

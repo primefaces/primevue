@@ -1,6 +1,6 @@
 import Vue from 'vue';
 
-export declare class Checkbox extends Vue {
+declare class Checkbox extends Vue {
     value?: null;
     modelValue?: null;
     binary?: boolean;
@@ -10,3 +10,5 @@ export declare class Checkbox extends Vue {
     $emit(eventName: 'focus', event: Event): this;
     $emit(eventName: 'blur', event: Event): this;
 }
+
+export default Checkbox;

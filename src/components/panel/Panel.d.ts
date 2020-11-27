@@ -1,6 +1,6 @@
 import Vue, {VNode} from 'vue';
 
-export declare class Panel extends Vue {
+declare class Panel extends Vue {
     header?: string;
     toggleable?: boolean;
     collapsed?: boolean;
@@ -10,3 +10,5 @@ export declare class Panel extends Vue {
         header: VNode[];
     }
 }
+
+export default Panel;

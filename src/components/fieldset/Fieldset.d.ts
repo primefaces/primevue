@@ -1,6 +1,6 @@
 import Vue, { VNode } from 'vue';
 
-export declare class Fieldset extends Vue {
+declare class Fieldset extends Vue {
     legend?: string;
     toggleable?: boolean;
     collapsed?: boolean;
@@ -10,3 +10,5 @@ export declare class Fieldset extends Vue {
         legend: VNode[];   
     }
 }
+
+export default Fieldset;

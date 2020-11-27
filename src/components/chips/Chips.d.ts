@@ -1,6 +1,6 @@
 import Vue, { VNode } from 'vue';
 
-export declare class Chips extends Vue {
+declare class Chips extends Vue {
     value?: any[];
     max?: number;
     ariaLabelledBy?: string;
@@ -17,3 +17,5 @@ export declare class Chips extends Vue {
         chip: VNode[];
     }
 }
+
+export default Chips;

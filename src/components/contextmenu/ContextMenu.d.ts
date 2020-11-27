@@ -1,6 +1,6 @@
 import Vue from 'vue';
 
-export declare class ContextMenu extends Vue {
+declare class ContextMenu extends Vue {
     model?: any[];
     appendTo?: string;
     autoZIndex?: boolean;
@@ -10,3 +10,5 @@ export declare class ContextMenu extends Vue {
     show(event: Event, target?: any): void;
     hide(): void;
 }
+
+export default ContextMenu;

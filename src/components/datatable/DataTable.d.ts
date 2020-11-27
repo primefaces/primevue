@@ -1,6 +1,6 @@
 import Vue, { VNode } from 'vue';
 
-export declare class DataTable extends Vue {
+declare class DataTable extends Vue {
     value?: any[];
     dataKey?: string;
     rows?: number;
@@ -86,3 +86,5 @@ export declare class DataTable extends Vue {
         footer: VNode[];
     }
 }
+
+export default DataTable;

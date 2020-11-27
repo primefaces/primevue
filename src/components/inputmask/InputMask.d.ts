@@ -1,6 +1,6 @@
 import Vue, { VNode } from 'vue';
 
-export declare class InputMask extends Vue {
+declare class InputMask extends Vue {
     value?: string;
     $emit(eventName: 'input', value: string): this;
     $emit(eventName: 'focus', event: Event): this;
@@ -10,3 +10,5 @@ export declare class InputMask extends Vue {
     $emit(eventName: 'paste', event: Event): this;
     $emit(eventName: 'complete', event: Event): this;
 }
+
+export default InputMask;

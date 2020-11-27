@@ -1,6 +1,6 @@
 import Vue, { VNode } from 'vue';
 
-export declare class Card extends Vue {
+declare class Card extends Vue {
     $slots: {
         header: VNode[];
         title: VNode[];
@@ -9,3 +9,5 @@ export declare class Card extends Vue {
         footer: VNode[];
     }
 }
+
+export default Card;

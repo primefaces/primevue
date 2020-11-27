@@ -1,6 +1,6 @@
 import Vue, { VNode } from 'vue';
 
-export declare class BlockUI extends Vue {
+declare class BlockUI extends Vue {
     blocked?: boolean;
     fullScreen?: boolean;
     baseZIndex?: number;
@@ -11,3 +11,5 @@ export declare class BlockUI extends Vue {
         '': VNode[];
     }
 }
+
+export default BlockUI;

@@ -1,5 +1,7 @@
 import Vue from 'vue';
 
-export declare class TabMenu extends Vue {
+declare class TabMenu extends Vue {
     model?: any[];
 }
+
+export default TabMenu;

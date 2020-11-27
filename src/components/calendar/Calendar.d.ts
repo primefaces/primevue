@@ -13,7 +13,7 @@ export interface LocaleSettings {
     weekHeader?: string;
 }
 
-export declare class Calendar extends Vue {
+declare class Calendar extends Vue {
     value?: Date | Date[];
     selectionMode?: string;
     dateFormat?: string;
@@ -71,3 +71,5 @@ export declare class Calendar extends Vue {
         footer: VNode[];
     };
 }
+
+export default Calendar;

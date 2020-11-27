@@ -1,6 +1,6 @@
 import Vue, {VNode} from 'vue';
 
-export declare class OrderList extends Vue {
+declare class OrderList extends Vue {
     value?: any[];
     dataKey?: string;
     selection?: any[];
@@ -12,3 +12,5 @@ export declare class OrderList extends Vue {
         item: VNode[];
     }
 }
+
+export default OrderList;

@@ -1,6 +1,6 @@
 import Vue, { VNode } from 'vue';
 
-export declare class Editor extends Vue {
+declare class Editor extends Vue {
     value?: string;
     placeholder?: string;
     readonly?: boolean;
@@ -12,3 +12,5 @@ export declare class Editor extends Vue {
         toolbar: VNode[];
     }
 }
+
+export default Editor;

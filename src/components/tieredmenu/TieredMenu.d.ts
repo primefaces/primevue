@@ -1,6 +1,6 @@
 import Vue from 'vue';
 
-export declare class TieredMenu extends Vue {
+declare class TieredMenu extends Vue {
     popup?: boolean;
     model?: any[];
     appendTo?: string;
@@ -10,3 +10,5 @@ export declare class TieredMenu extends Vue {
     show(event: Event, target?: any): void;
     hide(): void;
 }
+
+export default TieredMenu;
