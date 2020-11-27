@@ -194,6 +194,12 @@ data() {
                                 <td>No results found</td>
                                 <td>Text to display when filtering does not return any results.</td>
                             </tr>
+                            <tr>
+                                <td>display</td>
+                                <td>string</td>
+                                <td>comma</td>
+                                <td>Defines how the selected items are displayed, valid values are "comma" and "chip".</td>
+                            </tr>
 						</tbody>
 					</table>
 				</div>
