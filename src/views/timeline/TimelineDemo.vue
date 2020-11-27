@@ -92,6 +92,9 @@
 
                 <h6>Alternate Align</h6>
                 <Timeline :value="events2" layout="horizontal" align="alternate">
+                    <template #opposite>
+                        &nbsp;
+                    </template>
                     <template #content="slotProps">
                         {{slotProps.item}}
                     </template>

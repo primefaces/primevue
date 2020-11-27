@@ -323,6 +323,9 @@ export default {
 
 	&lt;h6&gt;Alternate Align&lt;/h6&gt;
 	&lt;Timeline :value="events2" layout="horizontal" align="alternate"&gt;
+		&lt;template #opposite&gt;
+			&nbsp;
+		&lt;/template&gt;
 		&lt;template #content="slotProps"&gt;
 			&#123;&#123;slotProps.item&#125;&#125;
 		&lt;/template&gt;
