@@ -56,7 +56,7 @@ export default {
                     newValue = this.value ? [...this.value, optionValue]: [optionValue];
             }
             else {
-                newValue = selected ? null : optionValue;
+                newValue = optionValue;
             }
 
             this.$emit('input', newValue);
