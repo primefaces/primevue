@@ -2,7 +2,7 @@
     <div :class="containerClass">
         <slot>
             <span class="p-avatar-letter" v-if="letter">{{letter}}</span>
-            <span :class="getIconClass()" v-else-if="icon"></span>
+            <span :class="iconClass" v-else-if="icon"></span>
             <img :src="image" v-else-if="image">
         </slot>
     </div>
@@ -32,11 +32,6 @@ export default {
             default: "square"
         }
     },
-    methods: {
-        getIconClass() {
-            return ['p-avatar-icon', this.icon];
-        }
-    },
     computed: {
         containerClass() {
             return ['p-avatar p-component', {
@@ -46,6 +41,9 @@ export default {
                 'p-avatar-lg': this.size === 'large',
                 'p-avatar-xl': this.size === 'xlarge'
             }];
+        },
+        iconClass() {
+            return ['p-avatar-icon', this.icon];
         }
     }
 }
