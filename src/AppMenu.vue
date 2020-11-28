@@ -248,6 +248,7 @@
 
             <div class="menu-category">Misc</div>
             <div class="menu-items">
+                <router-link to="/avatar">Avatar <span class="p-tag">New</span></router-link>
                 <router-link to="/badge">Badge</router-link>
                 <router-link to="/blockui">BlockUI</router-link>
                 <router-link to="/divider">Divider <span class="p-tag">New</span></router-link>

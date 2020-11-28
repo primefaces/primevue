@@ -4283,6 +4283,15 @@
   background-color: rgba(0, 0, 0, 0.9);
 }
 
+.p-avatar {
+  background-color: #dee2e6;
+  border-radius: 3px;
+}
+
+.p-avatar-group .p-avatar {
+  border: 2px solid #ffffff;
+}
+
 .p-inplace .p-inplace-display {
   padding: 0.5rem 0.5rem;
   border-radius: 3px;

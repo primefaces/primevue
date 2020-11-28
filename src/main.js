@@ -5,6 +5,8 @@ import App from './App.vue';
 import AutoComplete from './components/autocomplete/AutoComplete';
 import Accordion from './components/accordion/Accordion';
 import AccordionTab from './components/accordiontab/AccordionTab';
+import Avatar from './components/avatar/Avatar';
+import AvatarGroup from './components/avatargroup/AvatarGroup';
 import BlockUI from './components/blockui/BlockUI';
 import Breadcrumb from './components/breadcrumb/Breadcrumb';
 import Button from './components/button/Button';
@@ -112,6 +114,8 @@ app.directive('ripple', Ripple);
 
 app.component('Accordion', Accordion);
 app.component('AccordionTab', AccordionTab);
+app.component('Avatar', Avatar);
+app.component('AvatarGroup', AvatarGroup);
 app.component('AutoComplete', AutoComplete);
 app.component('BlockUI', BlockUI);
 app.component('Breadcrumb', Breadcrumb);

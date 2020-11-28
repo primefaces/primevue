@@ -10,15 +10,15 @@
 export default {
     props: {
         align: {
-            mode: String,
+            type: String,
             default: null
         },
         layout: {
-            mode: String,
+            type: String,
             default: 'horizontal'
         },
         type: {
-            mode: String,
+            type: String,
             default: 'solid'
         }
     },
