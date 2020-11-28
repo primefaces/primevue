@@ -577,6 +577,11 @@ const routes = [
         component: () => import('../views/tabview/TabViewDemo.vue')
     },
     {
+        path: '/tag',
+        name: 'tag',
+        component: () => import('../views/tag/TagDemo.vue')
+    },
+    {
         path: '/text',
         name: 'text',
         component: () => import('../views/text/TextDemo.vue')

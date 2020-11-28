@@ -249,13 +249,14 @@
             <div class="menu-category">Misc</div>
             <div class="menu-items">
                 <router-link to="/avatar">Avatar <span class="p-tag">New</span></router-link>
-                <router-link to="/badge">Badge</router-link>
+                <router-link to="/badge">Badge <span class="p-tag">New</span></router-link>
                 <router-link to="/blockui">BlockUI</router-link>
                 <router-link to="/divider">Divider <span class="p-tag">New</span></router-link>
                 <router-link to="/inplace">Inplace</router-link>
                 <router-link to="/progressbar">ProgressBar</router-link>
                 <router-link to="/progressspinner">ProgressSpinner</router-link>
                 <router-link to="/ripple">Ripple</router-link>
+                <router-link to="/tag">Tag <span class="p-tag">tag</span></router-link>
                 <router-link to="/terminal">Terminal</router-link>
             </div>
         </div>
