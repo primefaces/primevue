@@ -18,10 +18,10 @@ export default {
     },
     computed: {
         containerClass() {
-            return this.$slots.default ? 'p-overlay-badge p-component': this.badgeClass;
+            return this.$slots.default ? 'p-overlay-badge': this.badgeClass;
         },
         badgeClass() {
-            return ['p-badge', {
+            return ['p-badge p-component', {
                 'p-badge-lg': this.size === 'large',
                 'p-badge-xl': this.size === 'xlarge',
                 'p-badge-info': this.severity === 'info',
