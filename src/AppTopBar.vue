@@ -166,7 +166,9 @@ export default {
                 'rhea': 'rhea.png',
                 'fluent-light': 'fluent-light.png',
                 'soho-light': 'soho-light.png',
-                'soho-dark': 'soho-dark.png'
+                'soho-dark': 'soho-dark.png',
+                'mira': 'mira.jpg',
+                'nano': 'nano.jpg',
             }
         }
     },
