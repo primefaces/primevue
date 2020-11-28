@@ -64,7 +64,7 @@
 <pre v-code>
 <code>
 &lt;span class="p-badge"&gt;2&lt;/span&gt;
-&lt;span class="p-badge p-badge-l p-badge-sucess"&gt;4&lt;/span&gt;
+&lt;span class="p-badge p-badge-l p-badge-success"&gt;4&lt;/span&gt;
 &lt;span class="p-badge p-badge-xl p-badge-warning"&gt;6&lt;/span&gt;
 
 </code></pre>
@@ -171,7 +171,7 @@
 &lt;h3&gt;Sizes&lt;/h3&gt;
 &lt;div class="badges"&gt;
     &lt;span class="p-badge"&gt;2&lt;/span&gt;
-    &lt;span class="p-badge p-badge-lg p-badge-sucess"&gt;4&lt;/span&gt;
+    &lt;span class="p-badge p-badge-lg p-badge-success"&gt;4&lt;/span&gt;
     &lt;span class="p-badge p-badge-xl p-badge-warning"&gt;6&lt;/span&gt;
 &lt;/div&gt;
 </template>

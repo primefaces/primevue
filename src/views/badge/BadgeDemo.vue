@@ -54,7 +54,7 @@
                 <h5>Sizes</h5>
                 <div class="badges">
                     <span class="p-badge">2</span>
-                    <span class="p-badge p-badge-lg p-badge-sucess">4</span>
+                    <span class="p-badge p-badge-lg p-badge-success">4</span>
                     <span class="p-badge p-badge-xl p-badge-warning">6</span>
                 </div>
             </div>
