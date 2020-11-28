@@ -2,54 +2,43 @@
 	<div class="content-section documentation">
 		<TabView>
 			<TabPanel header="Documentation">
+                <h5>Import</h5>
+<pre v-code.script>
+<code>
+import Badge from 'primevue/badge';
+
+</code></pre>
+
 				<h5>Getting Started</h5>
-				<p>A badge is offered as pure css rather than a component.</p>
-
-				<h5>Numbers</h5>
-				<p>Use <i>.p-badge</i> class to display numbers inside badges.</p>
+				<p>Content of the badge is specified using the <i>value</i> property.</p>
 <pre v-code>
 <code>
-&lt;span class="p-badge"&gt;2&lt;/span&gt;
+&lt;Badge value="2"&gt;&lt;/Badge&gt;
 
 </code></pre>
-
-                <h5>Tags</h5>
-				<p>Tags are optimized for text rather than number and used with the <i>.p-tag</i> class. For more rounded styling like pills, add the <i>.p-tag-rounded</i> class</p>
-<pre v-code>
-<code>
-&lt;span class="p-tag"&gt;New&lt;/span&gt;
-&lt;span class="p-tag p-tag-rounded"&gt;New&lt;/span&gt;
-
-</code></pre>
-
-                <h5>Severities</h5>
-                <p>Different options are available as severity levels with.</p>
-
-				<ul>
-					<li>.p-badge-secondary</li>
-					<li>.p-badge-success</li>
-					<li>.p-badge-info</li>
-					<li>.p-badge-warning</li>
-					<li>.p-badge-danger</li>
-				</ul>
 
                 <h5>Positoning</h5>
-                <p>A badge can easily be positioned relative to another element when both are wrapped inside an element with <i>p-overlay-badge</i> class.</p>
+                <p>A badge can easily be positioned relative to another element by wrapping it.</p>
 <pre v-code>
 <code>
-&lt;span class="p-overlay-badge"&gt;
-    &lt;i class="pi pi-bell" style="font-size: 2em"&gt;&lt;/i&gt;
-    &lt;span class="p-badge"&gt;2&lt;/span&gt;
-&lt;/span&gt;
-
-&lt;span class="p-overlay-badge"&gt;
-    &lt;Button type="button" label="New" /&gt;
-    &lt;span class="p-badge p-badge-warning"&gt;5&lt;/span&gt;
-&lt;/span&gt;
+&lt;Badge value="2"&gt;
+    &lt;i class="pi pi-bell" style="font-size: 2rem"&gt;&lt;/i&gt;
+&lt;/Badge&gt;
 
 </code></pre>
+                <h5>Severities</h5>
+                <p>Different color options are available as severity levels.</p>
 
-                <h5>Inline Button Badges</h5>
+				<ul>
+					<li>secondary</li>
+					<li>success</li>
+					<li>info</li>
+					<li>warning</li>
+					<li>danger</li>
+				</ul>
+
+
+                <h5>Button Badges</h5>
                 <p>Buttons provide integrated badge support with the <i>badge</i> and <i>badgeClass</i> properties.</p>
 
 <pre v-code>
@@ -60,20 +49,20 @@
 </code></pre>
 
                 <h5>Sizes</h5>
-                <p>Badge sizes are adjusted with additional classes.</p>
+                <p>Badge sizes are adjusted with the <i>size</i> property that accepts "large" and "xlarge" as the possible alternatives to the default size.</p>
 <pre v-code>
 <code>
-&lt;span class="p-badge"&gt;2&lt;/span&gt;
-&lt;span class="p-badge p-badge-l p-badge-success"&gt;4&lt;/span&gt;
-&lt;span class="p-badge p-badge-xl p-badge-warning"&gt;6&lt;/span&gt;
+&lt;Badge value="2"&gt;&lt;/Badge&gt;
+&lt;Badge value="4" size="large" severity="warning"&gt;&lt;/Badge&gt;
+&lt;Badge value="6" size="xlarge" severity="success"&gt;&lt;/Badge&gt;
 
 </code></pre>
 
                 <p>In addition, when placed inside another element, badge sizes can also derive their size from their parent.</p>
 <pre v-code>
 <code>
-&lt;h1&gt;Heading 1 &lt;span class="p-tag p-tag-success"&gt;New&lt;/span&gt;&lt;/h1&gt;
-&lt;h2&gt;Heading 2 &lt;span class="p-tag p-tag-success"&gt;New&lt;/span&gt;&lt;/h2&gt;
+&lt;h1&gt;Heading 1 &lt;Badge value="New"&gt;&lt;/Badge&gt;&lt;/h1&gt;
+&lt;h2&gt;Heading 2 &lt;Badge value="New"&gt;&lt;/Badge&gt;&lt;/h2&gt;
 
 </code></pre>
 
@@ -93,23 +82,15 @@
                                 <td>Badge element</td>
                             </tr>
                             <tr>
-                                <td>p-tag</td>
-                                <td>Tag element</td>
-                            </tr>
-                            <tr>
-                                <td>p-tag-rounded</td>
-                                <td>Rounded tag element</td>
-                            </tr>
-                            <tr>
                                 <td>p-overlay-badge</td>
                                 <td>Wrapper of a badge and its target.</td>
                             </tr>
                             <tr>
-                                <td>p-badge-l</td>
+                                <td>p-badge-lg</td>
                                 <td>Large badge element</td>
                             </tr>
                             <tr>
-                                <td>p-badge-l</td>
+                                <td>p-badge-xl</td>
                                 <td>Extra large badge element</td>
                             </tr>
 						</tbody>
@@ -126,54 +107,26 @@
 				</a>
 <pre v-code>
 <code><template v-pre>
-&lt;h3&gt;Numbers&lt;/h3&gt;
-&lt;div class="badges"&gt;
-    &lt;span class="p-badge"&gt;2&lt;/span&gt;
-    &lt;span class="p-badge p-badge-success"&gt;8&lt;/span&gt;
-    &lt;span class="p-badge p-badge-info"&gt;4&lt;/span&gt;
-    &lt;span class="p-badge p-badge-warning"&gt;12&lt;/span&gt;
-    &lt;span class="p-badge p-badge-danger"&gt;3&lt;/span&gt;
-&lt;/div&gt;
+<h5>Numbers</h5>
+&lt;Badge value="2" class="p-mr-2"&gt;&lt;/Badge&gt;
+&lt;Badge value="8" severity="success" class="p-mr-2"&gt;&lt;/Badge&gt;
+&lt;Badge value="4" severity="info" class="p-mr-2"&gt;&lt;/Badge&gt;
+&lt;Badge value="12" severity="warning" class="p-mr-2"&gt;&lt;/Badge&gt;
+&lt;Badge value="3" severity="danger"&gt;&lt;/Badge&gt;
 
-&lt;h3&gt;Tags&lt;/h3&gt;
-&lt;div class="badges"&gt;
-    &lt;span class="p-tag"&gt;Primary&lt;/span&gt;
-    &lt;span class="p-tag p-tag-success"&gt;Success&lt;/span&gt;
-    &lt;span class="p-tag p-tag-info"&gt;Info&lt;/span&gt;
-    &lt;span class="p-tag p-tag-warning"&gt;Warning&lt;/span&gt;
-    &lt;span class="p-tag p-tag-danger"&gt;Danger&lt;/span&gt;
-&lt;/div&gt;
+&lt;h5&gt;Positioned Badge&lt;/h5&gt;
+&lt;Badge value="2"&gt;
+    &lt;i class="pi pi-bell" style="font-size: 2rem"&gt;&lt;/i&gt;
+&lt;/Badge&gt;
 
-&lt;h3&gt;Pills&lt;/h3&gt;
-&lt;div class="badges"&gt;
-    &lt;span class="p-tag p-tag-rounded"&gt;Primary&lt;/span&gt;
-    &lt;span class="p-tag p-tag-rounded p-tag-success"&gt;Success&lt;/span&gt;
-    &lt;span class="p-tag p-tag-rounded p-tag-info"&gt;Info&lt;/span&gt;
-    &lt;span class="p-tag p-tag-rounded p-tag-warning"&gt;Warning&lt;/span&gt;
-    &lt;span class="p-tag p-tag-rounded p-tag-danger"&gt;Danger&lt;/span&gt;
-&lt;/div&gt;
-
-&lt;h3&gt;Positioned Badge&lt;/h3&gt;
-&lt;span class="p-overlay-badge p-mr-5"&gt;
-    &lt;i class="pi pi-bell" style="font-size: 2em"&gt;&lt;/i&gt;
-    &lt;span class="p-badge"&gt;2&lt;/span&gt;
-&lt;/span&gt;
-
-&lt;span class="p-overlay-badge"&gt;
-    &lt;Button type="button" label="New" /&gt;
-    &lt;span class="p-badge p-badge-warning"&gt;5&lt;/span&gt;
-&lt;/span&gt;
-
-&lt;h3&gt;Inline Button Badge&lt;/h3&gt;
+&lt;h5&gt;Button Badge&lt;/h5&gt;
 &lt;Button type="button" label="Emails" badge="8" class="p-mr-2" /&gt;
 &lt;Button type="button" label="Messages" icon="pi pi-users" class="p-button-warning" badge="8" badgeClass="p-badge-danger" /&gt;
 
-&lt;h3&gt;Sizes&lt;/h3&gt;
-&lt;div class="badges"&gt;
-    &lt;span class="p-badge"&gt;2&lt;/span&gt;
-    &lt;span class="p-badge p-badge-lg p-badge-success"&gt;4&lt;/span&gt;
-    &lt;span class="p-badge p-badge-xl p-badge-warning"&gt;6&lt;/span&gt;
-&lt;/div&gt;
+&lt;h5&gt;Sizes&lt;/h5&gt;
+&lt;Badge value="2" class="p-mr-2"&gt;&lt;/Badge&gt;
+&lt;Badge value="4" class="p-mr-2" size="large" severity="warning"&gt;&lt;/Badge&gt;
+&lt;Badge value="6" size="xlarge" severity="success"&gt;&lt;/Badge&gt;
 </template>
 </code></pre>
 			</TabPanel>
