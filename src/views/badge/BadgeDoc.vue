@@ -17,7 +17,7 @@ import Badge from 'primevue/badge';
 
 </code></pre>
 
-                <h5>Positoning</h5>
+                <h5>Positioning</h5>
                 <p>A badge can easily be positioned relative to another element by wrapping it.</p>
 <pre v-code>
 <code>
@@ -30,7 +30,6 @@ import Badge from 'primevue/badge';
                 <p>Different color options are available as severity levels.</p>
 
 				<ul>
-					<li>secondary</li>
 					<li>success</li>
 					<li>info</li>
 					<li>warning</li>
