@@ -303,6 +303,11 @@ const routes = [
         component: () => import('../views/display/DisplayDemo.vue')
     },
     {
+        path: '/divider',
+        name: 'divider',
+        component: () => import('../views/divider/DividerDemo.vue')
+    },
+    {
         path: '/dropdown',
         name: 'dropdown',
         component: () => import('../views/dropdown/DropdownDemo.vue')

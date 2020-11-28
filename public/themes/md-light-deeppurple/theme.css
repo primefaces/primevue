@@ -4420,6 +4420,30 @@
   color: #ffffff;
 }
 
+.p-divider .p-divider-content {
+  background-color: #ffffff;
+}
+.p-divider.p-divider-horizontal {
+  margin: 1.25rem 0;
+  padding: 0 1.25rem;
+}
+.p-divider.p-divider-horizontal:before {
+  border-top: 1px rgba(0, 0, 0, 0.12);
+}
+.p-divider.p-divider-horizontal .p-divider-content {
+  padding: 0 0.5rem;
+}
+.p-divider.p-divider-vertical {
+  margin: 0 1.25rem;
+  padding: 1.25rem 0;
+}
+.p-divider.p-divider-vertical:before {
+  border-left: 1px rgba(0, 0, 0, 0.12);
+}
+.p-divider.p-divider-vertical .p-divider-content {
+  padding: 0.5rem 0;
+}
+
 .p-accordion .p-accordion-tab {
   box-shadow: 0 3px 1px -2px rgba(0, 0, 0, 0.2), 0 2px 2px 0 rgba(0, 0, 0, 0.14), 0 1px 5px 0 rgba(0, 0, 0, 0.12);
   margin-bottom: 0;

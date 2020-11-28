@@ -12,6 +12,7 @@
                 <a href="https://github.com/primefaces/primevue" target="_blank">Source Code</a>
                 <router-link to="/support">Support</router-link>
                 <a href="https://www.primefaces.org/store" target="_blank">Store</a>
+                <router-link to="/accessibility">Accessibility</router-link>
             </div>
 
             <div class="menu-category">Theming</div>
@@ -247,9 +248,9 @@
 
             <div class="menu-category">Misc</div>
             <div class="menu-items">
-                <router-link to="/accessibility">Accessibility</router-link>
                 <router-link to="/badge">Badge</router-link>
                 <router-link to="/blockui">BlockUI</router-link>
+                <router-link to="/divider">Divider <span class="p-tag">New</span></router-link>
                 <router-link to="/inplace">Inplace</router-link>
                 <router-link to="/progressbar">ProgressBar</router-link>
                 <router-link to="/progressspinner">ProgressSpinner</router-link>

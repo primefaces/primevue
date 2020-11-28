@@ -35,7 +35,8 @@
 
             a {
                 color: var(--text-color);
-                display: block;
+                display: flex;
+                align-items: center;
                 padding: .5rem;
                 border-radius: 3px;
                 cursor: pointer;
@@ -58,6 +59,7 @@
                 .p-tag {
                     padding-top:.125rem;
                     padding-bottom: .125rem;
+                    margin-left: .5rem;
                 }
             }
 
