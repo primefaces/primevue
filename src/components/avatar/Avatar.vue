@@ -1,7 +1,7 @@
 <template>
     <div :class="containerClass">
         <slot>
-            <span class="p-avatar-letter" v-if="letter">{{letter}}</span>
+            <span class="p-avatar-text" v-if="label">{{label}}</span>
             <span :class="iconClass" v-else-if="icon"></span>
             <img :src="image" v-else-if="image">
         </slot>
@@ -11,7 +11,7 @@
 <script>
 export default {
     props: {
-        letter: {
+        label: {
             type: String,
             default: null
         },
@@ -37,7 +37,6 @@ export default {
             return ['p-avatar p-component', {
                 'p-avatar-image': this.image != null,
                 'p-avatar-circle': this.shape === 'circle',
-                'p-avatar-sm': this.size === 'small',
                 'p-avatar-lg': this.size === 'large',
                 'p-avatar-xl': this.size === 'xlarge'
             }];

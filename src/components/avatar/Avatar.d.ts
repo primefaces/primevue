@@ -1,7 +1,7 @@
 import Vue from 'vue';
 
 declare class Avatar extends Vue {
-    letter?: string;
+    label?: string;
     icon?: string;
     image?: string;
 }
