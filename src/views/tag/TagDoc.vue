@@ -35,6 +35,16 @@ import Tag from 'primevue/tag';
 					<li>danger</li>
 				</ul>
 
+				<h5>Templating</h5>
+				<p>Content can easily be customized with the default slot instead of using the built-in display.</p>
+<pre v-code>
+<code>
+&lt;Tag&gt;
+   Content
+&lt;/Tag&gt;
+
+</code></pre>
+
 				<h5>Styling</h5>
 				<p>Following is the list of structural style classes, for theming classes visit <router-link to="/theming">theming</router-link> page.</p>
 				<div class="doc-tablewrapper">
