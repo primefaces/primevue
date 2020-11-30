@@ -112,6 +112,44 @@
 - Button not registered in FileUpload [\#478](https://github.com/primefaces/primevue/issues/478)
 - BlockUI documentation indicates "show" event whereas the actual event is "unblock" [\#485](https://github.com/primefaces/primevue/issues/485)
 
+## [2.2.2](https://github.com/primefaces/primevue/tree/2.2.2) (2020-11-30)
+
+[Full Changelog](https://github.com/primefaces/primevue/compare/2.2.1...2.2.2)
+
+**Implemented New Features and Enhancements:**
+
+- Component for Tag [\#717](https://github.com/primefaces/primevue/issues/717)
+- Component for Badge [\#715](https://github.com/primefaces/primevue/issues/715)
+- ScrollTop Component [\#691](https://github.com/primefaces/primevue/issues/691)
+- \[FEATURE REQUEST\] - Divider/Separator Component [\#690](https://github.com/primefaces/primevue/issues/690)
+- \[FEATURE REQUEST\] - Avatar Component [\#684](https://github.com/primefaces/primevue/issues/684)
+- New ConfirmPopup Component [\#679](https://github.com/primefaces/primevue/issues/679)
+- New ConfirmDialog Component [\#678](https://github.com/primefaces/primevue/issues/678)
+- New Timeline Component [\#712](https://github.com/primefaces/primevue/issues/712)
+- Chips mode for MultiSelect [\#711](https://github.com/primefaces/primevue/issues/711)
+- SelectButton should allow a mode to ensure an options is always selected [\#698](https://github.com/primefaces/primevue/issues/698)
+- OverlayPanel :before "indicator" needs dynamic placement [\#697](https://github.com/primefaces/primevue/issues/697)
+- Improve typescript definitions [\#696](https://github.com/primefaces/primevue/issues/696)
+- Add the 'enter' key support to InputNumber [\#676](https://github.com/primefaces/primevue/issues/676)
+
+**Fixed bugs:**
+
+- InputMask with unmask doesn't work as expected [\#714](https://github.com/primefaces/primevue/issues/714)
+- display prop of MultiSelect is not documented [\#713](https://github.com/primefaces/primevue/issues/713)
+- SplitButton: after selecting the default command, the command menu does not close. [\#710](https://github.com/primefaces/primevue/issues/710)
+- Autocomplete: when the menu open upwards style broken [\#709](https://github.com/primefaces/primevue/issues/709)
+- Multiselect/Dropdown: when the menu open upwards style broken [\#708](https://github.com/primefaces/primevue/issues/708)
+- DataTable global filter bug [\#707](https://github.com/primefaces/primevue/issues/707)
+- InputNumber's onInputBlur fails when component gets destroyed [\#705](https://github.com/primefaces/primevue/issues/705)
+- Sidebar not visible on mount [\#704](https://github.com/primefaces/primevue/issues/704)
+- PrimeVue FileUpload FileLimit [\#703](https://github.com/primefaces/primevue/issues/703)
+- DataTable multiple click RadioButton focus previous row [\#702](https://github.com/primefaces/primevue/issues/702)
+- FileUpload Preview columns become misaligned when both image and non-image files are uploaded  [\#701](https://github.com/primefaces/primevue/issues/701)
+- Error with empty objects [\#700](https://github.com/primefaces/primevue/issues/700)
+- ColorPicker overlay input does not reflect to hue section changes [\#699](https://github.com/primefaces/primevue/issues/699)
+- Multiselect dropdown closes after selecting one option [\#602](https://github.com/primefaces/primevue/issues/602)
+- PrimeVue 2 InputMask with unmask problem [\#577](https://github.com/primefaces/primevue/issues/577)
+
 ##  [2.2.1](https://github.com/primefaces/primevue/tree/2.2.1) (2020-11-23)
 
 **Implemented New Features and Enhancements:**
