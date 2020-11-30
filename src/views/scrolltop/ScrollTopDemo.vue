@@ -28,7 +28,7 @@
                         Eget egestas purus viverra accumsan in nisl nisi. Suscipit adipiscing bibendum est ultricies integer.
                         Mattis aliquam faucibus purus in massa tempor nec.
                     </p>
-                    <ScrollTop target="parent" :visiblePosition="100" class="custom-scrolltop" icon="pi pi-arrow-up" />
+                    <ScrollTop target="parent" :threshold="100" class="custom-scrolltop" icon="pi pi-arrow-up" />
                 </ScrollPanel>
             </div>
         </div>

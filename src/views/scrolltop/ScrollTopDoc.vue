@@ -18,11 +18,11 @@ import ScrollTop from 'primevue/scrolltop';
 </code></pre>
 
 				<h5>Threshold</h5>
-				<p>When the vertical scroll position reaches a certain threshold, ScrollTop gets displays. This value is
-					defined with the <i>visiblePosition</i> property that defaults to 400.</p>
+				<p>When the vertical scroll position reaches a certain value, ScrollTop gets displayed. This value is
+					defined with the <i>threshold</i> property that defaults to 400.</p>
 <pre v-code>
 <code>
-&lt;ScrollTop :visiblePosition="400" /&gt;
+&lt;ScrollTop :threshold="200" /&gt;
 
 </code></pre>
 
@@ -56,7 +56,7 @@ import ScrollTop from 'primevue/scrolltop';
                                 <td>Target of the ScrollTop, valid values are "window" and "parent".</td>
                             </tr>
                             <tr>
-                                <td>visiblePosition</td>
+                                <td>threshold</td>
                                 <td>number</td>
                                 <td>400</td>
                                 <td>Defines the threshold value of the vertical scroll position of the target to toggle the visibility.</td>
@@ -66,6 +66,12 @@ import ScrollTop from 'primevue/scrolltop';
                                 <td>string</td>
                                 <td>pi pi-chevron-up</td>
                                 <td>Icon to display.</td>
+                            </tr>
+							<tr>
+                                <td>behavior</td>
+                                <td>string</td>
+                                <td>smooth</td>
+                                <td>Defines the scrolling behavi, "smooth" adds an animation and "auto" scrolls with a jump.</td>
                             </tr>
 						</tbody>
 					</table>
@@ -123,7 +129,7 @@ import ScrollTop from 'primevue/scrolltop';
 		Eget egestas purus viverra accumsan in nisl nisi. Suscipit adipiscing bibendum est ultricies integer.
 		Mattis aliquam faucibus purus in massa tempor nec.
 	&lt;/p&gt;
-	&lt;ScrollTop target="parent" :visiblePosition="100" class="custom-scrolltop" icon="pi pi-arrow-up"/&gt;
+	&lt;ScrollTop target="parent" :threshold="100" class="custom-scrolltop" icon="pi pi-arrow-up" /&gt;
 &lt;/ScrollPanel&gt;
 </template>
 </code></pre>

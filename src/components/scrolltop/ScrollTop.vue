@@ -21,13 +21,17 @@ export default {
             type: String,
             default: 'window'
         },
-        visiblePosition: {
+        threshold: {
             type: Number,
             default: 400
         },
         icon: {
             type: String,
             default: 'pi pi-chevron-up'
+        },
+        behavior: {
+            type: String,
+            default: 'smooth'
         }
     },
     mounted() {
@@ -47,11 +51,11 @@ export default {
             let scrollElement = this.target === 'window' ? window : this.$el.parentElement;
              scrollElement.scroll({
                 top: 0, 
-                behavior: 'smooth'
+                behavior: this.behavior
             });
         },
         checkVisibility(scrollY) {
-            if (scrollY > this.visiblePosition)
+            if (scrollY > this.threshold)
                 this.visible = true;
             else
                 this.visible = false;
