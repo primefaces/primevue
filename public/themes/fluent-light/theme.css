@@ -4234,52 +4234,6 @@
   background-color: rgba(0, 0, 0, 0.9);
 }
 
-.p-inplace .p-inplace-display {
-  padding: 0.5rem 0.5rem;
-  border-radius: 2px;
-  transition: background-color 0.2s, color 0.2s, border-color 0.2s, box-shadow 0.2s;
-}
-.p-inplace .p-inplace-display:not(.p-disabled):hover {
-  background: #f3f2f1;
-  color: #323130;
-}
-.p-inplace .p-inplace-display:focus {
-  outline: 0 none;
-  outline-offset: 0;
-  box-shadow: inset 0 0 0 1px #605e5c;
-}
-
-.p-progressbar {
-  border: 0 none;
-  height: 2px;
-  background: #edebe9;
-  border-radius: 2px;
-}
-.p-progressbar .p-progressbar-value {
-  border: 0 none;
-  margin: 0;
-  background: #0078d4;
-}
-.p-progressbar .p-progressbar-label {
-  color: #323130;
-  line-height: 2px;
-}
-
-.p-terminal {
-  background: #ffffff;
-  color: #323130;
-  border: 1px solid #a19f9d;
-  padding: 1rem;
-}
-.p-terminal .p-terminal-input {
-  font-size: 1rem;
-  font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif, "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol";
-}
-
-.p-blockui.p-component-overlay {
-  background: rgba(0, 0, 0, 0.4);
-}
-
 .p-avatar {
   background-color: #edebe9;
   border-radius: 2px;
@@ -4331,6 +4285,10 @@
   line-height: 3rem;
 }
 
+.p-blockui.p-component-overlay {
+  background: rgba(0, 0, 0, 0.4);
+}
+
 .p-divider .p-divider-content {
   background-color: #ffffff;
 }
@@ -4353,6 +4311,55 @@
 }
 .p-divider.p-divider-vertical .p-divider-content {
   padding: 0.5rem 0;
+}
+
+.p-inplace .p-inplace-display {
+  padding: 0.5rem 0.5rem;
+  border-radius: 2px;
+  transition: background-color 0.2s, color 0.2s, border-color 0.2s, box-shadow 0.2s;
+}
+.p-inplace .p-inplace-display:not(.p-disabled):hover {
+  background: #f3f2f1;
+  color: #323130;
+}
+.p-inplace .p-inplace-display:focus {
+  outline: 0 none;
+  outline-offset: 0;
+  box-shadow: inset 0 0 0 1px #605e5c;
+}
+
+.p-progressbar {
+  border: 0 none;
+  height: 2px;
+  background: #edebe9;
+  border-radius: 2px;
+}
+.p-progressbar .p-progressbar-value {
+  border: 0 none;
+  margin: 0;
+  background: #0078d4;
+}
+.p-progressbar .p-progressbar-label {
+  color: #323130;
+  line-height: 2px;
+}
+
+.p-scrolltop {
+  width: 3rem;
+  height: 3rem;
+  border-radius: 2px;
+  box-shadow: rgba(0, 0, 0, 0.133) 0px 3.2px 7.2px 0px, rgba(0, 0, 0, 0.11) 0px 0.6px 1.8px 0px;
+  transition: background-color 0.2s, color 0.2s, box-shadow 0.2s;
+}
+.p-scrolltop.p-link {
+  background: rgba(0, 0, 0, 0.7);
+}
+.p-scrolltop.p-link:hover {
+  background: rgba(0, 0, 0, 0.8);
+}
+.p-scrolltop .p-scrolltop-icon {
+  font-size: 1.5rem;
+  color: #faf9f8;
 }
 
 .p-tag {
@@ -4382,6 +4389,17 @@
 .p-tag .p-tag-icon {
   margin-right: 0.25rem;
   font-size: 0.75rem;
+}
+
+.p-terminal {
+  background: #ffffff;
+  color: #323130;
+  border: 1px solid #a19f9d;
+  padding: 1rem;
+}
+.p-terminal .p-terminal-input {
+  font-size: 1rem;
+  font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif, "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol";
 }
 
 /* Customizations to the designer theme should be defined here */

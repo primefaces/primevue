@@ -120,7 +120,7 @@
                 <router-link to="/organizationchart">OrganizationChart</router-link>
                 <router-link to="/paginator">Paginator</router-link>
                 <router-link to="/picklist">PickList</router-link>
-                <router-link to="/timeline">Timeline <span class="p-tag">New</span></router-link>
+                <router-link to="/timeline">Timeline <Tag value="New"></Tag></router-link>
                 <router-link to="/tree" v-slot="{isActive}" custom>
                     <div>
                         <a tabindex="0" @click="toggleSubmenu($event, 'tree')">Tree</a>
@@ -175,8 +175,8 @@
 
             <div class="menu-category">Overlay</div>
             <div class="menu-items">
-                <router-link to="/confirmdialog">ConfirmDialog <span class="p-tag">New</span></router-link>
-                <router-link to="/confirmpopup">ConfirmPopup <span class="p-tag">New</span></router-link>
+                <router-link to="/confirmdialog">ConfirmDialog <Tag value="New"></Tag></router-link>
+                <router-link to="/confirmpopup">ConfirmPopup <Tag value="New"></Tag></router-link>
                 <router-link to="/dialog">Dialog</router-link>
                 <router-link to="/overlaypanel">OverlayPanel</router-link>
                 <router-link to="/sidebar">Sidebar</router-link>
@@ -248,11 +248,12 @@
 
             <div class="menu-category">Misc</div>
             <div class="menu-items">
-                <router-link to="/avatar">Avatar <span class="p-tag">New</span></router-link>
-                <router-link to="/badge">Badge <span class="p-tag">New</span></router-link>
+                <router-link to="/avatar">Avatar <Tag value="New"></Tag></router-link>
+                <router-link to="/badge">Badge <Tag value="New"></Tag></router-link>
                 <router-link to="/blockui">BlockUI</router-link>
-                <router-link to="/divider">Divider <span class="p-tag">New</span></router-link>
+                <router-link to="/divider">Divider <Tag value="New"></Tag></router-link>
                 <router-link to="/inplace">Inplace</router-link>
+                <router-link to="/scrolltop">ScrollTop <Tag value="New"></Tag></router-link>
                 <router-link to="/progressbar">ProgressBar</router-link>
                 <router-link to="/progressspinner">ProgressSpinner</router-link>
                 <router-link to="/ripple">Ripple</router-link>
