@@ -64,7 +64,14 @@ export default {
     },
     directives: {
         'ripple': Ripple
-    }
+    },
+    watch: {
+        visible(newValue) {
+            if (newValue === false) {
+                this.$emit('close');
+            }
+        },
+    },
 }
 </script>
 
