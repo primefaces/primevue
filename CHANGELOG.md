@@ -118,13 +118,6 @@
 
 **Implemented New Features and Enhancements:**
 
-- Component for Tag [\#717](https://github.com/primefaces/primevue/issues/717)
-- Component for Badge [\#715](https://github.com/primefaces/primevue/issues/715)
-- ScrollTop Component [\#691](https://github.com/primefaces/primevue/issues/691)
-- \[FEATURE REQUEST\] - Divider/Separator Component [\#690](https://github.com/primefaces/primevue/issues/690)
-- \[FEATURE REQUEST\] - Avatar Component [\#684](https://github.com/primefaces/primevue/issues/684)
-- New ConfirmPopup Component [\#679](https://github.com/primefaces/primevue/issues/679)
-- New ConfirmDialog Component [\#678](https://github.com/primefaces/primevue/issues/678)
 - New Timeline Component [\#712](https://github.com/primefaces/primevue/issues/712)
 - Chips mode for MultiSelect [\#711](https://github.com/primefaces/primevue/issues/711)
 - SelectButton should allow a mode to ensure an options is always selected [\#698](https://github.com/primefaces/primevue/issues/698)
@@ -134,8 +127,6 @@
 
 **Fixed bugs:**
 
-- InputMask with unmask doesn't work as expected [\#714](https://github.com/primefaces/primevue/issues/714)
-- display prop of MultiSelect is not documented [\#713](https://github.com/primefaces/primevue/issues/713)
 - SplitButton: after selecting the default command, the command menu does not close. [\#710](https://github.com/primefaces/primevue/issues/710)
 - Autocomplete: when the menu open upwards style broken [\#709](https://github.com/primefaces/primevue/issues/709)
 - Multiselect/Dropdown: when the menu open upwards style broken [\#708](https://github.com/primefaces/primevue/issues/708)
