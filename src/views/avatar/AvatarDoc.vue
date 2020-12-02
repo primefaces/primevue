@@ -115,7 +115,7 @@ import AvatarGroup from 'primevue/avatargroup';
 					</table>
 				</div>
 
-				<h5>Properties of AvatarGrouo</h5>
+				<h5>Properties of AvatarGroup</h5>
 				<p>Any property as style and class are passed to the main container element. There are no additional properties.</p>
 				
 				<h5>Styling of Avatar</h5>
