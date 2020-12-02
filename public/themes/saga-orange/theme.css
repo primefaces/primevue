@@ -4411,6 +4411,14 @@
   color: #f8f9fa;
 }
 
+.p-skeleton {
+  background-color: #e9ecef;
+  border-radius: 3px;
+}
+.p-skeleton:after {
+  background: linear-gradient(90deg, transparent, rgba(255, 255, 255, 0.4), transparent);
+}
+
 .p-tag {
   background: #FFC107;
   color: #212529;

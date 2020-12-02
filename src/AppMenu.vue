@@ -254,6 +254,7 @@
                 <router-link to="/divider">Divider <Tag value="New"></Tag></router-link>
                 <router-link to="/inplace">Inplace</router-link>
                 <router-link to="/scrolltop">ScrollTop <Tag value="New"></Tag></router-link>
+                <router-link to="/skeleton">Skeleton <Tag value="New"></Tag></router-link>
                 <router-link to="/progressbar">ProgressBar</router-link>
                 <router-link to="/progressspinner">ProgressSpinner</router-link>
                 <router-link to="/ripple">Ripple</router-link>

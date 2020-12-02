@@ -388,6 +388,11 @@ const routes = [
         component: () => import('../views/scrolltop/ScrollTopDemo.vue')
     },
     {
+        path: '/skeleton',
+        name: 'skeleton',
+        component: () => import('../views/skeleton/SkeletonDemo.vue')
+    },
+    {
         path: '/listbox',
         name: 'listbox',
         component: () => import('../views/listbox/ListboxDemo.vue')

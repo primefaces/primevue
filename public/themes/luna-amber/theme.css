@@ -4374,6 +4374,14 @@
   color: #212529;
 }
 
+.p-skeleton {
+  background-color: rgba(255, 255, 255, 0.06);
+  border-radius: 3px;
+}
+.p-skeleton:after {
+  background: linear-gradient(90deg, transparent, rgba(255, 255, 255, 0.04), transparent);
+}
+
 .p-tag {
   background: #FFE082;
   color: #212529;

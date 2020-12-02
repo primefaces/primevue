@@ -4423,6 +4423,14 @@
   color: #efefef;
 }
 
+.p-skeleton {
+  background-color: #e9ecef;
+  border-radius: 4px;
+}
+.p-skeleton:after {
+  background: linear-gradient(90deg, transparent, rgba(255, 255, 255, 0.4), transparent);
+}
+
 .p-tag {
   background: #007bff;
   color: #ffffff;
