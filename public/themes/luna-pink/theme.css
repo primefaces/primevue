@@ -2791,6 +2791,30 @@
   padding: 0.571rem 1rem;
 }
 
+.p-divider .p-divider-content {
+  background-color: #323232;
+}
+.p-divider.p-divider-horizontal {
+  margin: 1rem 0;
+  padding: 0 1rem;
+}
+.p-divider.p-divider-horizontal:before {
+  border-top: 1px #4b4b4b;
+}
+.p-divider.p-divider-horizontal .p-divider-content {
+  padding: 0 0.5rem;
+}
+.p-divider.p-divider-vertical {
+  margin: 0 1rem;
+  padding: 1rem 0;
+}
+.p-divider.p-divider-vertical:before {
+  border-left: 1px #4b4b4b;
+}
+.p-divider.p-divider-vertical .p-divider-content {
+  padding: 0.5rem 0;
+}
+
 .p-panel .p-panel-header {
   border: 1px solid #191919;
   padding: 0.857rem 1rem;
@@ -2844,6 +2868,23 @@
 .p-scrollpanel .p-scrollpanel-bar {
   background: #3f3f3f;
   border: 0 none;
+}
+
+.p-splitter {
+  border: 1px solid #191919;
+  background: #323232;
+  border-radius: 3px;
+  color: #dedede;
+}
+.p-splitter .p-splitter-gutter {
+  transition: background-color 0.2s, color 0.2s, box-shadow 0.2s;
+  background: #191919;
+}
+.p-splitter .p-splitter-gutter .p-splitter-gutter-handle {
+  background: #4b4b4b;
+}
+.p-splitter.p-splitter-resizing .p-splitter-gutter {
+  background: #4b4b4b;
 }
 
 .p-tabview .p-tabview-nav {
@@ -4299,30 +4340,6 @@
 
 .p-blockui.p-component-overlay {
   background: rgba(0, 0, 0, 0.4);
-}
-
-.p-divider .p-divider-content {
-  background-color: #323232;
-}
-.p-divider.p-divider-horizontal {
-  margin: 1rem 0;
-  padding: 0 1rem;
-}
-.p-divider.p-divider-horizontal:before {
-  border-top: 1px #4b4b4b;
-}
-.p-divider.p-divider-horizontal .p-divider-content {
-  padding: 0 0.5rem;
-}
-.p-divider.p-divider-vertical {
-  margin: 0 1rem;
-  padding: 1rem 0;
-}
-.p-divider.p-divider-vertical:before {
-  border-left: 1px #4b4b4b;
-}
-.p-divider.p-divider-vertical .p-divider-content {
-  padding: 0.5rem 0;
 }
 
 .p-inplace .p-inplace-display {

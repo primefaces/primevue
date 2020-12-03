@@ -166,8 +166,10 @@
                 <router-link to="/accordion">Accordion</router-link>
                 <router-link to="/card">Card</router-link>
                 <router-link to="/deferredcontent">Deferred</router-link>
+                <router-link to="/divider">Divider <Tag value="New"></Tag></router-link>
                 <router-link to="/fieldset">Fieldset</router-link>
                 <router-link to="/panel">Panel</router-link>
+                <router-link to="/splitter">Splitter <Tag value="New"></Tag></router-link>
                 <router-link to="/scrollpanel">ScrollPanel</router-link>
                 <router-link to="/tabview">TabView</router-link>
                 <router-link to="/toolbar">Toolbar</router-link>
@@ -251,7 +253,6 @@
                 <router-link to="/avatar">Avatar <Tag value="New"></Tag></router-link>
                 <router-link to="/badge">Badge <Tag value="New"></Tag></router-link>
                 <router-link to="/blockui">BlockUI</router-link>
-                <router-link to="/divider">Divider <Tag value="New"></Tag></router-link>
                 <router-link to="/inplace">Inplace</router-link>
                 <router-link to="/scrolltop">ScrollTop <Tag value="New"></Tag></router-link>
                 <router-link to="/skeleton">Skeleton <Tag value="New"></Tag></router-link>

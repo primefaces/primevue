@@ -2816,6 +2816,30 @@
   padding: 1.25rem;
 }
 
+.p-divider .p-divider-content {
+  background-color: #2a323d;
+}
+.p-divider.p-divider-horizontal {
+  margin: 1rem 0;
+  padding: 0 1rem;
+}
+.p-divider.p-divider-horizontal:before {
+  border-top: 1px #3f4b5b;
+}
+.p-divider.p-divider-horizontal .p-divider-content {
+  padding: 0 0.5rem;
+}
+.p-divider.p-divider-vertical {
+  margin: 0 1rem;
+  padding: 1rem 0;
+}
+.p-divider.p-divider-vertical:before {
+  border-left: 1px #3f4b5b;
+}
+.p-divider.p-divider-vertical .p-divider-content {
+  padding: 0.5rem 0;
+}
+
 .p-panel .p-panel-header {
   border: 1px solid #3f4b5b;
   padding: 1rem 1.25rem;
@@ -2869,6 +2893,23 @@
 .p-scrollpanel .p-scrollpanel-bar {
   background: #3f4b5b;
   border: 0 none;
+}
+
+.p-splitter {
+  border: 1px solid #3f4b5b;
+  background: #2a323d;
+  border-radius: 4px;
+  color: rgba(255, 255, 255, 0.87);
+}
+.p-splitter .p-splitter-gutter {
+  transition: color 0.15s, box-shadow 0.15s;
+  background: rgba(255, 255, 255, 0.04);
+}
+.p-splitter .p-splitter-gutter .p-splitter-gutter-handle {
+  background: #3f4b5b;
+}
+.p-splitter.p-splitter-resizing .p-splitter-gutter {
+  background: #3f4b5b;
 }
 
 .p-tabview .p-tabview-nav {
@@ -4348,30 +4389,6 @@
 
 .p-blockui.p-component-overlay {
   background: rgba(0, 0, 0, 0.4);
-}
-
-.p-divider .p-divider-content {
-  background-color: #2a323d;
-}
-.p-divider.p-divider-horizontal {
-  margin: 1rem 0;
-  padding: 0 1rem;
-}
-.p-divider.p-divider-horizontal:before {
-  border-top: 1px #3f4b5b;
-}
-.p-divider.p-divider-horizontal .p-divider-content {
-  padding: 0 0.5rem;
-}
-.p-divider.p-divider-vertical {
-  margin: 0 1rem;
-  padding: 1rem 0;
-}
-.p-divider.p-divider-vertical:before {
-  border-left: 1px #3f4b5b;
-}
-.p-divider.p-divider-vertical .p-divider-content {
-  padding: 0.5rem 0;
 }
 
 .p-inplace .p-inplace-display {

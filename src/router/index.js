@@ -393,6 +393,11 @@ const routes = [
         component: () => import('../views/skeleton/SkeletonDemo.vue')
     },
     {
+        path: '/splitter',
+        name: 'splitter',
+        component: () => import('../views/splitter/SplitterDemo.vue')
+    },
+    {
         path: '/listbox',
         name: 'listbox',
         component: () => import('../views/listbox/ListboxDemo.vue')
