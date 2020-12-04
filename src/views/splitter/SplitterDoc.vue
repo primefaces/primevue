@@ -186,6 +186,27 @@ import SplitterPanel from 'primevue/splitterpanel';
 					</table>
 				</div>
 
+				<h5>Events of Splitter</h5>
+				<div class="doc-tablewrapper">
+					<table class="doc-table">
+						<thead>
+                            <tr>
+                                <th>Name</th>
+                                <th>Parameters</th>
+                                <th>Description</th>
+                            </tr>
+						</thead>
+						<tbody>
+                            <tr>
+                                <td>resizeend</td>
+                                <td>event.originalEvent: Original event <br />
+                                    event.sizes: Sizes of the panels as an array </td>
+                                <td>Callback to invoke when resize ends.</td>
+                            </tr>
+						</tbody>
+					</table>
+				</div>
+
 				<h5>Styling</h5>
 				<p>Following is the list of structural style classes, for theming classes visit <router-link to="/theming">theming</router-link> page.</p>
 				<div class="doc-tablewrapper">
