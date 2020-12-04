@@ -18,18 +18,6 @@
                         Panel 2
                     </SplitterPanel>
                 </Splitter>
-
-                <Splitter style="height: 300px">
-                    <SplitterPanel class="p-d-flex p-ai-center p-jc-center">
-                        Panel 1
-                    </SplitterPanel>
-                    <SplitterPanel class="p-d-flex p-ai-center p-jc-center">
-                        Panel 2
-                    </SplitterPanel>
-                    <SplitterPanel class="p-d-flex p-ai-center p-jc-center">
-                        Panel 3
-                    </SplitterPanel>
-                </Splitter>
             </div>
 
             <div class="card">

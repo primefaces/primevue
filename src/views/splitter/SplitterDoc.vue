@@ -25,6 +25,18 @@ import SplitterPanel from 'primevue/splitterpanel';
 
 </code></pre>
 
+				<h5>Multiple Panels</h5>
+				<p>Any number of panels can be nested inside a Splitter.</p>
+<pre v-code>
+<code><template v-pre>
+&lt;Splitter style="height: 300px"&gt;
+	&lt;SplitterPanel v-for="item of items" :key="item.key"&gt;
+		{{item.content}}
+	&lt;/SplitterPanel&gt;	
+&lt;/Splitter&gt;
+</template>
+</code></pre>
+
 				<h5>Layout</h5>
 				<p>Default orientation is configured with the <i>layout</i> property and default is the "horizontal" whereas other alternative is the "vertical".</p>
 <pre v-code>
