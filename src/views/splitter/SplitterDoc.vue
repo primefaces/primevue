@@ -99,6 +99,23 @@ import SplitterPanel from 'primevue/splitterpanel';
 
 </code></pre>
 
+				<h5>Stateful</h5>
+				<p>Splitters can be configured as stateful so that when the user visits the page again, the adjusts sizes
+					can be restored. Define a <i>stateKey</i> to enable this feature. Default location of the state is
+					session storage and other option is the local storage which can be configured using the <i>stateStorage</i> property.</p>
+<pre v-code>
+<code>
+&lt;Splitter stateKey="mykey" stateStorage="local"&gt;
+	&lt;SplitterPanel&gt;
+		Panel 1
+	&lt;/SplitterPanel&gt;
+	&lt;SplitterPanel&gt;
+		Panel 2
+	&lt;/SplitterPanel&gt;
+&lt;/Splitter&gt;
+
+</code></pre>
+
 				<h5>Properties of SplitterPanel</h5>
 				<p>Any property as style and class are passed to the main container element. Following are the additional properties to configure the component.</p>
 				<div class="doc-tablewrapper">
@@ -152,6 +169,18 @@ import SplitterPanel from 'primevue/splitterpanel';
                                 <td>number</td>
                                 <td>4</td>
                                 <td>Size of the divider in pixels.</td>
+                            </tr>
+							<tr>
+                                <td>stateKey</td>
+                                <td>string</td>
+                                <td>null</td>
+                                <td>Storage identifier of a stateful Splitter.</td>
+                            </tr>
+							<tr>
+                                <td>stateStorage</td>
+                                <td>string</td>
+                                <td>session</td>
+                                <td>Defines where a stateful splitter keeps its state, valid values are "session" for sessionStorage and "local" for localStorage.</td>
                             </tr>
 						</tbody>
 					</table>
@@ -218,6 +247,18 @@ import SplitterPanel from 'primevue/splitterpanel';
 		&lt;/SplitterPanel&gt;
 		&lt;SplitterPanel class="p-d-flex p-ai-center p-jc-center"&gt;
 			Panel 2
+		&lt;/SplitterPanel&gt;
+	&lt;/Splitter&gt;
+
+	&lt;Splitter style="height: 300px"&gt;
+		&lt;SplitterPanel class="p-d-flex p-ai-center p-jc-center"&gt;
+			Panel 1
+		&lt;/SplitterPanel&gt;
+		&lt;SplitterPanel class="p-d-flex p-ai-center p-jc-center"&gt;
+			Panel 2
+		&lt;/SplitterPanel&gt;
+		&lt;SplitterPanel class="p-d-flex p-ai-center p-jc-center"&gt;
+			Panel 3
 		&lt;/SplitterPanel&gt;
 	&lt;/Splitter&gt;
 &lt;/div&gt;

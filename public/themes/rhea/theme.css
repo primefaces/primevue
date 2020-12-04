@@ -2871,7 +2871,7 @@
 .p-splitter .p-splitter-gutter .p-splitter-gutter-handle {
   background: #dadada;
 }
-.p-splitter.p-splitter-resizing .p-splitter-gutter {
+.p-splitter .p-splitter-gutter-resizing {
   background: #dadada;
 }
 

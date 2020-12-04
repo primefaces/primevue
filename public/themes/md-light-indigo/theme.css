@@ -2920,7 +2920,7 @@
 .p-splitter .p-splitter-gutter .p-splitter-gutter-handle {
   background: rgba(0, 0, 0, 0.12);
 }
-.p-splitter.p-splitter-resizing .p-splitter-gutter {
+.p-splitter .p-splitter-gutter-resizing {
   background: rgba(0, 0, 0, 0.12);
 }
 

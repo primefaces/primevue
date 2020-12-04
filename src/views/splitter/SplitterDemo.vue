@@ -10,12 +10,24 @@
         <div class="content-section implementation">
             <div class="card">
                 <h5>Horizontal</h5>
+                <Splitter style="height: 300px" class="p-mb-5">
+                    <SplitterPanel class="p-d-flex p-ai-center p-jc-center">
+                        Panel 1
+                    </SplitterPanel>
+                    <SplitterPanel class="p-d-flex p-ai-center p-jc-center">
+                        Panel 2
+                    </SplitterPanel>
+                </Splitter>
+
                 <Splitter style="height: 300px">
                     <SplitterPanel class="p-d-flex p-ai-center p-jc-center">
                         Panel 1
                     </SplitterPanel>
                     <SplitterPanel class="p-d-flex p-ai-center p-jc-center">
                         Panel 2
+                    </SplitterPanel>
+                    <SplitterPanel class="p-d-flex p-ai-center p-jc-center">
+                        Panel 3
                     </SplitterPanel>
                 </Splitter>
             </div>

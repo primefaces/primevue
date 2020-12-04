@@ -2883,7 +2883,7 @@
 .p-splitter .p-splitter-gutter .p-splitter-gutter-handle {
   background: #d8dae2;
 }
-.p-splitter.p-splitter-resizing .p-splitter-gutter {
+.p-splitter .p-splitter-gutter-resizing {
   background: #d8dae2;
 }
 
