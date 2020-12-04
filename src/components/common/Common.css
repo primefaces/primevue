@@ -35,6 +35,7 @@
 .p-disabled, .p-disabled * {
     cursor: default !important;
     pointer-events: none;
+    user-select: none;
 }
 
 .p-component-overlay {

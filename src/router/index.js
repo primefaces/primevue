@@ -398,6 +398,11 @@ const routes = [
         component: () => import('../views/splitter/SplitterDemo.vue')
     },
     {
+        path: '/knob',
+        name: 'knob',
+        component: () => import('../views/knob/KnobDemo.vue')
+    },
+    {
         path: '/listbox',
         name: 'listbox',
         component: () => import('../views/listbox/ListboxDemo.vue')
