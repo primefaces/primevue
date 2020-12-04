@@ -282,18 +282,6 @@ import SplitterPanel from 'primevue/splitterpanel';
 			Panel 2
 		&lt;/SplitterPanel&gt;
 	&lt;/Splitter&gt;
-
-	&lt;Splitter style="height: 300px"&gt;
-		&lt;SplitterPanel class="p-d-flex p-ai-center p-jc-center"&gt;
-			Panel 1
-		&lt;/SplitterPanel&gt;
-		&lt;SplitterPanel class="p-d-flex p-ai-center p-jc-center"&gt;
-			Panel 2
-		&lt;/SplitterPanel&gt;
-		&lt;SplitterPanel class="p-d-flex p-ai-center p-jc-center"&gt;
-			Panel 3
-		&lt;/SplitterPanel&gt;
-	&lt;/Splitter&gt;
 &lt;/div&gt;
 
 &lt;div class="card"&gt;
