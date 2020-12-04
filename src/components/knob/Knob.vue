@@ -156,14 +156,6 @@ export default {
                 }
             ];
         },
-        style () {
-            return {
-                height: this.responsive ? this.size + '%' : this.size - 5 + 'px'
-            };
-        },
-        computedSize() {
-            return this.responsive ? this.size + '%' : this.size;
-        },
         rangePath() {
             return `M ${this.minX} ${this.minY} A ${this.radius} ${this.radius} 0 1 1 ${this.maxX} ${this.maxY}`;
         },

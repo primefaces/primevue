@@ -78,6 +78,12 @@ data() {
                                 <td>null</td>
                                 <td>Value of the component.</td>
                             </tr>
+                            <tr>
+                                <td>size</td>
+                                <td>number</td>
+                                <td>100</td>
+                                <td>Size of the component in pixels.</td>
+                            </tr>
 							<tr>
                                 <td>disabled</td>
                                 <td>boolean</td>
