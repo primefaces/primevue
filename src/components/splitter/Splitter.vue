@@ -2,7 +2,11 @@
     <div :class="containerClass">
         <template v-for="(panel,i) of panels" :key="i" class="p-splitter-panel">
              <component :is="panel"></component>
-             <div class="p-splitter-gutter" v-if="i !== (panels.length -1)" :style="gutterStyle" @mousedown="onGutterMouseDown($event, i)">
+             <div class="p-splitter-gutter" v-if="i !== (panels.length -1)" :style="gutterStyle" 
+                @mousedown="onGutterMouseDown($event, i)" 
+                @touchstart="onGutterTouchStart($event, i)"
+                @touchmove="onGutterTouchMove($event, i)"
+                @touchend="onGutterTouchEnd($event, i)">
                  <div class="p-splitter-gutter-handle"></div>
              </div>
         </template>
@@ -69,13 +73,13 @@ export default {
     },
     beforeUnmount() {
         this.clear();
-        this.unbindListeners();
+        this.unbindMouseListeners();
     },
     methods: {
         isSplitterPanel(child) {
             return child.type.name === 'splitterpanel';
         },
-        onGutterMouseDown(event, index) {
+        onResizeStart(event, index) {
             this.gutterElement = event.currentTarget;
             this.size = this.horizontal ? DomHandler.getWidth(this.$el) : DomHandler.getHeight(this.$el);
             this.dragging = true;
@@ -87,42 +91,61 @@ export default {
             this.prevPanelIndex = index;
             DomHandler.addClass(this.gutterElement, 'p-splitter-gutter-resizing');
             DomHandler.addClass(this.$el, 'p-splitter-resizing');
-            this.bindListeners();
         },
-        bindListeners() {
-            if (!this.mouseMoveListener) {
-                this.mouseMoveListener = event => {
-                    let newPos;
-                    if (this.horizontal)
-                        newPos = (event.pageX * 100 / this.size) - (this.startPos * 100 / this.size);
-                    else
-                        newPos = (event.pageY * 100 / this.size) - (this.startPos * 100 / this.size);
+        onResize(event) {
+            let newPos;
+            if (this.horizontal)
+                newPos = (event.pageX * 100 / this.size) - (this.startPos * 100 / this.size);
+            else
+                newPos = (event.pageY * 100 / this.size) - (this.startPos * 100 / this.size);
 
-                    let newPrevPanelSize = this.prevPanelSize + newPos;
-                    let newNextPanelSize = this.nextPanelSize - newPos;
-                    
-                    if (this.validateResize(newPrevPanelSize, newNextPanelSize)) {
-                        this.prevPanelElement.style.flexBasis = 'calc(' + newPrevPanelSize + '% - ' + ((this.panels.length - 1) * this.gutterSize) + 'px)';
-                        this.nextPanelElement.style.flexBasis = 'calc(' + newNextPanelSize + '% - ' + ((this.panels.length - 1) * this.gutterSize) + 'px)';
-                        this.panelSizes[this.prevPanelIndex] = newPrevPanelSize;
-                        this.panelSizes[this.prevPanelIndex + 1] = newNextPanelSize;
-                    }
-                };
+            let newPrevPanelSize = this.prevPanelSize + newPos;
+            let newNextPanelSize = this.nextPanelSize - newPos;
+            
+            if (this.validateResize(newPrevPanelSize, newNextPanelSize)) {
+                this.prevPanelElement.style.flexBasis = 'calc(' + newPrevPanelSize + '% - ' + ((this.panels.length - 1) * this.gutterSize) + 'px)';
+                this.nextPanelElement.style.flexBasis = 'calc(' + newNextPanelSize + '% - ' + ((this.panels.length - 1) * this.gutterSize) + 'px)';
+                this.panelSizes[this.prevPanelIndex] = newPrevPanelSize;
+                this.panelSizes[this.prevPanelIndex + 1] = newNextPanelSize;
+            }
+        },
+        onResizeEnd(event) {
+            if (this.isStateful()) {
+                this.saveState();
+            }
+
+            this.$emit('resizeend', {originalEvent: event, sizes: this.panelSizes});
+            DomHandler.removeClass(this.gutterElement, 'p-splitter-gutter-resizing');
+            DomHandler.removeClass(this.$el, 'p-splitter-resizing');
+            this.clear();
+        },
+        onGutterMouseDown(event, index) {
+            this.onResizeStart(event, index);
+            this.bindMouseListeners();
+        },
+        onGutterTouchStart(event, index) {
+            this.onResizeStart(event, index);
+            event.preventDefault();
+        },
+        onGutterTouchMove(event) {
+            this.onResize(event);
+            event.preventDefault();
+        },
+        onGutterTouchEnd(event) {
+            this.onResizeEnd(event);
+            event.preventDefault();
+        },
+        bindMouseListeners() {
+            if (!this.mouseMoveListener) {
+                this.mouseMoveListener = event => this.onResize(event)
                 document.addEventListener('mousemove', this.mouseMoveListener);
             }
 
             if (!this.mouseUpListener) {
-                this.mouseUpListener = (event) => {
-                    if (this.isStateful()) {
-                        this.saveState();
-                    }
-
-                    this.$emit('resizeend', {originalEvent: event, sizes: this.panelSizes});
-                    DomHandler.removeClass(this.gutterElement, 'p-splitter-gutter-resizing');
-                    DomHandler.removeClass(this.$el, 'p-splitter-resizing');
-                    this.clear();
-                    this.unbindListeners();
-                };
+                this.mouseUpListener = event => {
+                    this.onResizeEnd(event);
+                    this.unbindMouseListeners();
+                }
                 document.addEventListener('mouseup', this.mouseUpListener);
             }
         },
@@ -137,7 +160,7 @@ export default {
 
             return true;
         },
-        unbindListeners() {
+        unbindMouseListeners() {
             if (this.mouseMoveListener) {
                 document.removeEventListener('mousemove', this.mouseMoveListener);
                 this.mouseMoveListener = null;
