@@ -74,34 +74,4 @@ export default {
     width: 100%;
     height: 100%;
 }
-
-.p-avatar.p-avatar-sm {
-    width: 1rem;
-    height: 1rem;
-    font-size: .75rem;
-}
-
-.p-avatar-sm .p-avatar-icon {
-    font-size: .75rem;
-}
-
-.p-avatar.p-avatar-lg {
-    width: 3rem;
-    height: 3rem;
-    font-size: 1.5rem;
-}
-
-.p-avatar-lg .p-avatar-icon {
-    font-size: 1.5rem;
-}
-
-.p-avatar.p-avatar-xl {
-    width: 4rem;
-    height: 4rem;
-    font-size: 2rem;
-}
-
-.p-avatar-xl .p-avatar-icon {
-    font-size: 2rem;
-}
 </style>

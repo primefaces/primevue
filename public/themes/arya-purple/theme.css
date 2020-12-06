@@ -4328,6 +4328,22 @@
   background-color: #383838;
   border-radius: 3px;
 }
+.p-avatar.p-avatar-lg {
+  width: 3rem;
+  height: 3rem;
+  font-size: 1.5rem;
+}
+.p-avatar.p-avatar-lg .p-avatar-icon {
+  font-size: 1.5rem;
+}
+.p-avatar.p-avatar-xl {
+  width: 4rem;
+  height: 4rem;
+  font-size: 2rem;
+}
+.p-avatar.p-avatar-xl .p-avatar-icon {
+  font-size: 2rem;
+}
 
 .p-avatar-group .p-avatar {
   border: 2px solid #1e1e1e;
@@ -4377,6 +4393,39 @@
 
 .p-blockui.p-component-overlay {
   background: rgba(0, 0, 0, 0.4);
+}
+
+.p-chip {
+  background-color: #383838;
+  color: rgba(255, 255, 255, 0.87);
+  border-radius: 16px;
+  padding: 0 0.5rem;
+}
+.p-chip .p-chip-text {
+  line-height: 1.5;
+  margin-top: 0.25rem;
+  margin-bottom: 0.25rem;
+}
+.p-chip .p-chip-icon {
+  margin-right: 0.5rem;
+}
+.p-chip .pi-chip-remove-icon {
+  margin-left: 0.5rem;
+}
+.p-chip img {
+  width: 2rem;
+  height: 2rem;
+  margin-left: -0.5rem;
+  margin-right: 0.5rem;
+}
+.p-chip .pi-chip-remove-icon {
+  border-radius: 3px;
+  transition: background-color 0.2s, color 0.2s, box-shadow 0.2s;
+}
+.p-chip .pi-chip-remove-icon:focus {
+  outline: 0 none;
+  outline-offset: 0;
+  box-shadow: 0 0 0 1px #cf95d9;
 }
 
 .p-inplace .p-inplace-display {

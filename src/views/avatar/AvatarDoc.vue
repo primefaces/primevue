@@ -271,7 +271,7 @@ import AvatarGroup from 'primevue/avatargroup';
 		&lt;/div&gt;
 	&lt;/div&gt;
 
-		&lt;div class="p-col-12 p-md-4"&gt;
+	&lt;div class="p-col-12 p-md-4"&gt;
 		&lt;div class="card"&gt;
 			&lt;h5&gt;Image - Badge&lt;/h5&gt;
 			&lt;Badge value="4" severity="danger"&gt;
@@ -279,7 +279,6 @@ import AvatarGroup from 'primevue/avatargroup';
 			&lt;/Badge&gt;
 		&lt;/div&gt;
 	&lt;/div&gt;
-&lt;/div&gt;
 &lt;/div&gt;
 </template>
 </code></pre>
