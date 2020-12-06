@@ -3,7 +3,7 @@
         <div class="content-section introduction">
             <div class="feature-intro">
                 <h1>Chip</h1>
-                <p>Chip represents objects using icons, labels and images.</p>
+                <p>Chip represents entities using icons, labels and images.</p>
             </div>
         </div>
 

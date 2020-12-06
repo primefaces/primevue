@@ -88,7 +88,7 @@
   margin-right: 0.5rem;
   background: #edebe9;
   color: #323130;
-  border-radius: 2px;
+  border-radius: 16px;
 }
 .p-autocomplete.p-autocomplete-multiple .p-autocomplete-multiple-container .p-autocomplete-token .p-autocomplete-token-icon {
   margin-left: 0.5rem;
@@ -394,7 +394,7 @@
   margin-right: 0.5rem;
   background: #edebe9;
   color: #323130;
-  border-radius: 2px;
+  border-radius: 16px;
 }
 .p-chips .p-chips-multiple-container .p-chips-token .p-chips-token-icon {
   margin-left: 0.5rem;
@@ -921,7 +921,7 @@
   margin-right: 0.5rem;
   background: #edebe9;
   color: #323130;
-  border-radius: 2px;
+  border-radius: 16px;
 }
 .p-multiselect.p-multiselect-chip .p-multiselect-token .p-multiselect-token-icon {
   margin-left: 0.5rem;

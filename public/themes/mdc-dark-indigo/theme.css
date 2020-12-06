@@ -110,9 +110,9 @@
 .p-autocomplete.p-autocomplete-multiple .p-autocomplete-multiple-container .p-autocomplete-token {
   padding: 0.375rem 0.75rem;
   margin-right: 0.5rem;
-  background: rgba(63, 81, 181, 0.16);
-  color: #3F51B5;
-  border-radius: 4px;
+  background: rgba(255, 255, 255, 0.12);
+  color: rgba(255, 255, 255, 0.87);
+  border-radius: 16px;
 }
 .p-autocomplete.p-autocomplete-multiple .p-autocomplete-multiple-container .p-autocomplete-token .p-autocomplete-token-icon {
   margin-left: 0.5rem;
@@ -416,9 +416,9 @@
 .p-chips .p-chips-multiple-container .p-chips-token {
   padding: 0.375rem 0.75rem;
   margin-right: 0.5rem;
-  background: rgba(63, 81, 181, 0.16);
-  color: #3F51B5;
-  border-radius: 4px;
+  background: rgba(255, 255, 255, 0.12);
+  color: rgba(255, 255, 255, 0.87);
+  border-radius: 16px;
 }
 .p-chips .p-chips-multiple-container .p-chips-token .p-chips-token-icon {
   margin-left: 0.5rem;
@@ -943,9 +943,9 @@
 .p-multiselect.p-multiselect-chip .p-multiselect-token {
   padding: 0.375rem 0.75rem;
   margin-right: 0.5rem;
-  background: rgba(63, 81, 181, 0.16);
-  color: #3F51B5;
-  border-radius: 4px;
+  background: rgba(255, 255, 255, 0.12);
+  color: rgba(255, 255, 255, 0.87);
+  border-radius: 16px;
 }
 .p-multiselect.p-multiselect-chip .p-multiselect-token .p-multiselect-token-icon {
   margin-left: 0.5rem;
@@ -4437,9 +4437,9 @@
   margin-left: 0.5rem;
 }
 .p-chip img {
-  width: 2rem;
-  height: 2rem;
-  margin-left: -0.5rem;
+  width: 2.25rem;
+  height: 2.25rem;
+  margin-left: -0.75rem;
   margin-right: 0.5rem;
 }
 .p-chip .pi-chip-remove-icon {

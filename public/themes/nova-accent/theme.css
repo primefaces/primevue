@@ -86,9 +86,9 @@
 .p-autocomplete.p-autocomplete-multiple .p-autocomplete-multiple-container .p-autocomplete-token {
   padding: 0.2145rem 0.429rem;
   margin-right: 0.5rem;
-  background: #e02365;
-  color: #ffffff;
-  border-radius: 3px;
+  background: #c8c8c8;
+  color: #333333;
+  border-radius: 16px;
 }
 .p-autocomplete.p-autocomplete-multiple .p-autocomplete-multiple-container .p-autocomplete-token .p-autocomplete-token-icon {
   margin-left: 0.5rem;
@@ -392,9 +392,9 @@
 .p-chips .p-chips-multiple-container .p-chips-token {
   padding: 0.2145rem 0.429rem;
   margin-right: 0.5rem;
-  background: #e02365;
-  color: #ffffff;
-  border-radius: 3px;
+  background: #c8c8c8;
+  color: #333333;
+  border-radius: 16px;
 }
 .p-chips .p-chips-multiple-container .p-chips-token .p-chips-token-icon {
   margin-left: 0.5rem;
@@ -919,9 +919,9 @@
 .p-multiselect.p-multiselect-chip .p-multiselect-token {
   padding: 0.2145rem 0.429rem;
   margin-right: 0.5rem;
-  background: #e02365;
-  color: #ffffff;
-  border-radius: 3px;
+  background: #c8c8c8;
+  color: #333333;
+  border-radius: 16px;
 }
 .p-multiselect.p-multiselect-chip .p-multiselect-token .p-multiselect-token-icon {
   margin-left: 0.5rem;
@@ -4364,9 +4364,9 @@
   margin-left: 0.5rem;
 }
 .p-chip img {
-  width: 2rem;
-  height: 2rem;
-  margin-left: -0.5rem;
+  width: 1.929rem;
+  height: 1.929rem;
+  margin-left: -0.429rem;
   margin-right: 0.5rem;
 }
 .p-chip .pi-chip-remove-icon {
