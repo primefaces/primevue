@@ -88,6 +88,11 @@ const routes = [
         component: () => import('../views/carousel/CarouselDemo.vue')
     },
     {
+        path: '/cascadeselect',
+        name: 'cascadeselect',
+        component: () => import('../views/cascadeselect/CascadeSelectDemo.vue')
+    },
+    {
         path: '/chart',
         name: 'chart',
         component: () => import('../views/chart/ChartDemo.vue')
