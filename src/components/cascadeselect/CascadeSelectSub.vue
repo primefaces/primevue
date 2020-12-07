@@ -19,6 +19,7 @@
 
 <script>
 import ObjectUtils from '../utils/ObjectUtils';
+import DomHandler from '../utils/DomHandler';
 import Ripple from '../ripple/Ripple';
 
 export default {
@@ -34,7 +35,8 @@ export default {
         optionGroupChildren: Array,
         parentActive: Boolean,
         dirty: Boolean,
-        templates: null
+        templates: null,
+        root: Boolean
     },
     data() {
         return {
@@ -49,6 +51,10 @@ export default {
                     break;
                 }
             }
+        }
+
+        if (!this.root) {
+            this.position();
         }
     },
     watch: {
@@ -156,6 +162,17 @@ export default {
             }
 
             event.preventDefault();
+        },
+        position() {
+            const parentItem = this.$el.parentElement;
+            const containerOffset = DomHandler.getOffset(parentItem);
+            const viewport = DomHandler.getViewport();
+            const sublistWidth = this.$el.offsetParent ? this.$el.offsetWidth : DomHandler.getHiddenElementOuterWidth(this.$el);
+            const itemOuterWidth = DomHandler.getOuterWidth(parentItem.children[0]);
+
+            if ((parseInt(containerOffset.left, 10) + itemOuterWidth + sublistWidth) > (viewport.width - DomHandler.calculateScrollbarWidth())) {
+                this.$el.style.left = '-100%';
+            }
         }
     },
     directives: {
