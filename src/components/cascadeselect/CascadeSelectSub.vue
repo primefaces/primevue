@@ -2,7 +2,7 @@
     <ul class="p-cascadeselect-panel p-cascadeselect-items" role="listbox" aria-orientation="horizontal">
         <template v-for="(option,i) of options" :key="getOptionLabelToRender(option)">
             <li :class="getItemClass(option)" role="none">
-                <div class="p-cascadeselect-item-content" @click="onOptionClick($event, option)" tabindex="0" @keydown="onKeyDown($event, option, i)">
+                <div class="p-cascadeselect-item-content" @click="onOptionClick($event, option)" tabindex="0" @keydown="onKeyDown($event, option, i)" v-ripple>
                     <component :is="templates['option']" :option="option" v-if="templates['option']"/>
                     <template v-else>
                         <span class="p-cascadeselect-item-text">{{getOptionLabelToRender(option)}}</span>

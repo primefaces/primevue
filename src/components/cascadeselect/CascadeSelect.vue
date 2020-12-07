@@ -362,6 +362,8 @@ export default {
 .p-cascadeselect-item-content {
     display: flex;
     align-items: center;
+    overflow: hidden;
+    position: relative;
 }
 
 .p-cascadeselect-group-icon {
