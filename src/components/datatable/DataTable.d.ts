@@ -1,4 +1,4 @@
-import Vue, { VNode } from 'vue';
+import Vue, {VNode} from 'vue';
 
 declare class DataTable extends Vue {
     value?: any[];
@@ -16,7 +16,7 @@ declare class DataTable extends Vue {
     lazy?: boolean;
     loading?: boolean;
     loadingIcon?: string;
-    sortField?: string | Function;
+    sortField?: string | ((item: any) => any);
     sortOrder?: number;
     defaultSortOrder?: number;
     multiSortMeta?: any[];
@@ -26,7 +26,7 @@ declare class DataTable extends Vue {
         [s: string]: any;
     };
     filterLocale?: string;
-    selection?: any[]|any;
+    selection?: any[] | any;
     selectionMode?: string;
     compareSelectionBy?: string;
     metaKeySelection?: boolean;
@@ -43,7 +43,7 @@ declare class DataTable extends Vue {
     expandedRowIcon?: string;
     collapsedRowIcon?: string;
     rowGroupMode?: string;
-    groupRowsBy?: string[]|string;
+    groupRowsBy?: string[] | string;
     expandableRowGroups?: boolean;
     expandedRowGroups?: any[];
     stateStorage?: string;
@@ -58,6 +58,7 @@ declare class DataTable extends Vue {
     virtualScroll?: boolean;
     virtualRowHeight?: string;
     virtualScrollDelay?: number;
+
     $emit(eventName: 'page', event: Event): this;
     $emit(eventName: 'sort', event: Event): this;
     $emit(eventName: 'filter', event: Event): this;
@@ -78,13 +79,14 @@ declare class DataTable extends Vue {
     $emit(eventName: 'row-edit-init', event: Event): this;
     $emit(eventName: 'row-edit-save', event: Event): this;
     $emit(eventName: 'row-edit-cancel', event: Event): this;
+
     $slots: {
         header: VNode[];
         paginatorLeft: VNode[];
         paginatorRight: VNode[];
         empty: VNode[];
         footer: VNode[];
-    }
+    };
 }
 
 export default DataTable;

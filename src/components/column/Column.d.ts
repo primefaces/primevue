@@ -3,7 +3,7 @@ import Vue from 'vue';
 declare class Column extends Vue {
     columnKey?: any;
     field?: string;
-    sortField?: string;
+    sortField?: string | ((item: any) => any);
     filterField?: string;
     sortable?: boolean;
     header?: any;

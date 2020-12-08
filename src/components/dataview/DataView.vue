@@ -95,7 +95,7 @@ export default {
             default: '({currentPage} of {totalPages})'
         },
         sortField: {
-            type: String,
+            type: [String, Function],
             default: null
         },
         sortOrder: {
