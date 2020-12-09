@@ -141,7 +141,7 @@ import Badge from 'primevue/badge';
 				</a>
 <pre v-code>
 <code><template v-pre>
-<h5>Numbers</h5>
+&lt;h5&gt;Numbers&lt;/h5&gt;
 &lt;Badge value="2" class="p-mr-2"&gt;&lt;/Badge&gt;
 &lt;Badge value="8" severity="success" class="p-mr-2"&gt;&lt;/Badge&gt;
 &lt;Badge value="4" severity="info" class="p-mr-2"&gt;&lt;/Badge&gt;
