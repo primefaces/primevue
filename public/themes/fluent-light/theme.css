@@ -2091,30 +2091,41 @@
   border-bottom-right-radius: 2px;
 }
 
-.fc .fc-view-container th {
+.fc .fc-view-harness th {
   background: #faf9f8;
   border: 1px solid #a19f9d;
   color: #323130;
 }
-.fc .fc-view-container td.fc-widget-content {
+.fc .fc-view-harness td {
   background: #ffffff;
   border: 1px solid #a19f9d;
   color: #323130;
+  border-top-width: 0;
+  border-left-width: 0;
 }
-.fc .fc-view-container td.fc-head-container {
-  border: 1px solid #a19f9d;
+.fc .fc-view-harness .fc-daygrid-event-dot {
+  border-color: #ffffff;
 }
-.fc .fc-view-container .fc-row {
+.fc .fc-view-harness .fc-row {
   border-right: 1px solid #a19f9d;
+  display: none !important;
 }
-.fc .fc-view-container .fc-event {
+.fc .fc-view-harness .fc-event, .fc .fc-view-harness .fc-event-main {
   background: #0078d4;
   border: 1px solid #0078d4;
   color: #ffffff;
 }
-.fc .fc-view-container .fc-divider {
+.fc .fc-view-harness .fc-divider {
   background: #faf9f8;
   border: 1px solid #a19f9d;
+  display: none !important;
+}
+.fc .fc-view-harness .fc-scrollgrid {
+  border: 1px solid #a19f9d;
+}
+.fc .fc-view-harness .fc-scrollgrid-section-header > *,
+.fc .fc-view-harness .fc-scrollgrid-section-footer > * {
+  border-bottom-width: 0;
 }
 .fc .fc-toolbar .fc-button {
   color: #ffffff;

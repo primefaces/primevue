@@ -10,7 +10,7 @@ import FullCalendar from 'primevue/fullcalendar';
 </code></pre>
 
 				<h5>Getting Started</h5>
-				<p>FullCalendar is a wrapper around on <a href="https://fullcalendar.io/docs/v4">FullCalendar 4.0.0+</a> so fullcalendar needs to be included in your project.
+				<p>FullCalendar is a wrapper around on <a href="https://fullcalendar.io/docs/v4">FullCalendar 5.4.0+</a> so fullcalendar needs to be included in your project.
                 For a complete documentation and samples please refer to the <a href="https://fullcalendar.io/">fullcalendar website</a>.</p>
 <pre v-code>
 <code>
@@ -24,15 +24,6 @@ npm install @fullcalendar/core --save
 npm install @fullcalendar/daygrid --save
 npm install @fullcalendar/timegrid --save
 npm install @fullcalendar/interaction --save
-
-</code></pre>
-
-                <p>Include the core style and the styles of the plugins that you use in your application.</p>
-<pre v-code>
-<code>
-import '@fullcalendar/core/main.min.css';
-import '@fullcalendar/daygrid/main.min.css';
-import '@fullcalendar/timegrid/main.min.css';
 
 </code></pre>
 
@@ -99,6 +90,7 @@ export default class EventService {
 	getEvents() {
 		return axios.get('demo/data/events.json').then(res => res.data.data);
 	}
+
 }
 
 </code></pre>
@@ -144,8 +136,8 @@ export default {
         return {
             options: {
                 plugins:[dayGridPlugin, timeGridPlugin, interactionPlugin],
-                defaultDate: '2019-01-01',
-                header: {
+                initialDate: '2019-01-01',
+                headerToolbar: {
                     left: 'prev,next',
                     center: 'title',
                     right: 'dayGridMonth,timeGridWeek,timeGridDay'
@@ -175,8 +167,8 @@ export default {
         return {
             options: {
                 plugins:[dayGridPlugin, timeGridPlugin, interactionPlugin],
-                defaultDate: '2019-01-01',
-                header: {
+                initialDate: '2019-01-01',
+                headerToolbar: {
                     left: 'prev,next',
                     center: 'title',
                     right: 'dayGridMonth,timeGridWeek,timeGridDay'
@@ -244,8 +236,8 @@ export default {
         return {
             options: {
                 plugins:[dayGridPlugin, timeGridPlugin, interactionPlugin],
-                defaultDate: '2019-01-01',
-                header: {
+                initialDate: '2019-01-01',
+                headerToolbar: {
                     left: 'prev,next',
                     center: 'title',
                     right: 'dayGridMonth,timeGridWeek,timeGridDay'

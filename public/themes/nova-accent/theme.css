@@ -2091,30 +2091,41 @@
   border-bottom-right-radius: 3px;
 }
 
-.fc .fc-view-container th {
+.fc .fc-view-harness th {
   background: #007ad9;
   border: 1px solid #007ad9;
   color: #ffffff;
 }
-.fc .fc-view-container td.fc-widget-content {
+.fc .fc-view-harness td {
   background: #ffffff;
   border: 1px solid #c8c8c8;
   color: #333333;
+  border-top-width: 0;
+  border-left-width: 0;
 }
-.fc .fc-view-container td.fc-head-container {
-  border: 1px solid #007ad9;
+.fc .fc-view-harness .fc-daygrid-event-dot {
+  border-color: #ffffff;
 }
-.fc .fc-view-container .fc-row {
+.fc .fc-view-harness .fc-row {
   border-right: 1px solid #007ad9;
+  display: none !important;
 }
-.fc .fc-view-container .fc-event {
+.fc .fc-view-harness .fc-event, .fc .fc-view-harness .fc-event-main {
   background: #116fbf;
   border: 1px solid #116fbf;
   color: #ffffff;
 }
-.fc .fc-view-container .fc-divider {
+.fc .fc-view-harness .fc-divider {
   background: #007ad9;
   border: 1px solid #007ad9;
+  display: none !important;
+}
+.fc .fc-view-harness .fc-scrollgrid {
+  border: 1px solid #c8c8c8;
+}
+.fc .fc-view-harness .fc-scrollgrid-section-header > *,
+.fc .fc-view-harness .fc-scrollgrid-section-footer > * {
+  border-bottom-width: 0;
 }
 .fc .fc-toolbar .fc-button {
   color: #ffffff;

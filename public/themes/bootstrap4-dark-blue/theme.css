@@ -2103,30 +2103,41 @@
   border-bottom-right-radius: 4px;
 }
 
-.fc .fc-view-container th {
+.fc .fc-view-harness th {
   background: #2a323d;
   border: 1px solid #3f4b5b;
   color: rgba(255, 255, 255, 0.87);
 }
-.fc .fc-view-container td.fc-widget-content {
+.fc .fc-view-harness td {
   background: #2a323d;
   border: 1px solid #3f4b5b;
   color: rgba(255, 255, 255, 0.87);
+  border-top-width: 0;
+  border-left-width: 0;
 }
-.fc .fc-view-container td.fc-head-container {
-  border: 1px solid #3f4b5b;
+.fc .fc-view-harness .fc-daygrid-event-dot {
+  border-color: #151515;
 }
-.fc .fc-view-container .fc-row {
+.fc .fc-view-harness .fc-row {
   border-right: 1px solid #3f4b5b;
+  display: none !important;
 }
-.fc .fc-view-container .fc-event {
+.fc .fc-view-harness .fc-event, .fc .fc-view-harness .fc-event-main {
   background: #56bdff;
   border: 1px solid #56bdff;
   color: #151515;
 }
-.fc .fc-view-container .fc-divider {
+.fc .fc-view-harness .fc-divider {
   background: #2a323d;
   border: 1px solid #3f4b5b;
+  display: none !important;
+}
+.fc .fc-view-harness .fc-scrollgrid {
+  border: 1px solid #3f4b5b;
+}
+.fc .fc-view-harness .fc-scrollgrid-section-header > *,
+.fc .fc-view-harness .fc-scrollgrid-section-footer > * {
+  border-bottom-width: 0;
 }
 .fc .fc-toolbar .fc-button {
   color: #151515;
