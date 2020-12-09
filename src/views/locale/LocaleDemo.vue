@@ -20,9 +20,11 @@ app.use(PrimeVue);
 <pre v-code.script>
 <code>
 app.use(PrimeVue, {
-    accept: 'Aceptar',
-    reject: 'Rechazar',
-    //...
+    locale: {
+        accept: 'Aceptar',
+        reject: 'Rechazar',
+        //...
+    }
 });
 
 </code></pre>
