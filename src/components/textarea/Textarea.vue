@@ -9,7 +9,6 @@ export default {
         modelValue: null,
         autoResize: Boolean
     },
-    cachedScrollHeight: null,
     mounted() {
         if (this.$el.offsetParent && this.autoResize) {
             this.resize();
@@ -22,24 +21,15 @@ export default {
     },
     methods: {
         resize() {
-            if (!this.cachedScrollHeight) {
-                this.cachedScrollHeight = this.$el.scrollHeight;
-                this.$el.style.overflow = "hidden";
+            this.$el.style.height = 'auto';
+            this.$el.style.height = this.$el.scrollHeight + 'px';
+            
+            if (parseFloat(this.$el.style.height) >= parseFloat(this.$el.style.maxHeight)) {
+                this.$el.style.overflowY = "scroll";
+                this.$el.style.height = this.$el.style.maxHeight;
             }
-
-            if (this.cachedScrollHeight !== this.$el.scrollHeight) {
-                this.$el.style.height = ''
-                this.$el.style.height = this.$el.scrollHeight + 'px';
-
-                if (parseFloat(this.$el.style.height) >= parseFloat(this.$el.style.maxHeight)) {
-                    this.$el.style.overflowY = "scroll";
-                    this.$el.style.height = this.$el.style.maxHeight;
-                }
-                else {
-                    this.$el.style.overflow = "hidden";
-                }
-
-                this.cachedScrollHeight = this.$el.scrollHeight;
+            else {
+                this.$el.style.overflow = "hidden";
             }
         },
         onInput(event) {
