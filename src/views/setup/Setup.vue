@@ -31,6 +31,7 @@ import PrimeVue from 'primevue/config';
 const app = createApp(App);
 
 app.use(PrimeVue);
+
 </code></pre>
 
             <p>Then import the component you need and registering it so that you'll be able to utilize the component in your application.</p>
@@ -44,6 +45,7 @@ const app = createApp(App);
 app.use(PrimeVue);
 
 app.component('Dialog', Dialog);
+
 </code></pre>
 
 <pre v-code>
