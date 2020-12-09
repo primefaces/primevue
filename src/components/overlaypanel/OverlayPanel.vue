@@ -1,7 +1,7 @@
 <template>
     <transition name="p-overlaypanel" @enter="onEnter" @leave="onLeave">
         <div class="p-overlaypanel p-component" v-if="visible" :ref="containerRef">
-            <div class="p-overlaypanel-content">
+            <div class="p-overlaypanel-content" @click="onContentClick">
                 <slot></slot>
             </div>
             <button class="p-overlaypanel-close p-link" @click="hide" v-if="showCloseIcon" :aria-label="ariaCloseLabel" type="button" v-ripple>
@@ -48,6 +48,7 @@ export default {
             visible: false
         }
     },
+    selfClick: false,
     target: null,
     outsideClickListener: null,
     scrollHandler: null,
@@ -80,6 +81,9 @@ export default {
         },
         hide() {
             this.visible = false;
+        },
+        onContentClick() {
+            this.selfClick = true;
         },
         onEnter() {
             this.appendContainer();
@@ -119,9 +123,10 @@ export default {
         bindOutsideClickListener() {
             if (!this.outsideClickListener) {
                 this.outsideClickListener = (event) => {
-                    if (this.visible && this.container && !this.container.contains(event.target) && !this.isTargetClicked(event)) {
+                    if (this.visible && !this.selfClick && !this.isTargetClicked(event)) {
                         this.visible = false;
                     }
+                    this.selfClick = false;
                 };
                 document.addEventListener('click', this.outsideClickListener);
             }
@@ -130,6 +135,7 @@ export default {
             if (this.outsideClickListener) {
                 document.removeEventListener('click', this.outsideClickListener);
                 this.outsideClickListener = null;
+                this.selfClick = false;
             }
         },
         bindScrollListener() {

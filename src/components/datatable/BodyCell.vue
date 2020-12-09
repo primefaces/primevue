@@ -70,6 +70,7 @@ export default {
         }
     },
     documentEditListener: null,
+    selfClick: false,
     data() {
         return {
             d_editing: this.editing
@@ -112,9 +113,10 @@ export default {
         bindDocumentEditListener() {
             if (!this.documentEditListener) {
                 this.documentEditListener = (event) => {
-                    if (this.isOutsideClicked(event)) {
+                    if (this.isOutsideClicked()) {
                         this.completeEdit(event, 'outside');
                     }
+                    this.selfClick = false;
                 };
 
                 document.addEventListener('click', this.documentEditListener);
@@ -124,20 +126,25 @@ export default {
             if (this.documentEditListener) {
                 document.removeEventListener('click', this.documentEditListener);
                 this.documentEditListener = null;
+                this.selfClick = false;
             }
         },
         switchCellToViewMode() {
             this.d_editing = false;
             this.unbindDocumentEditListener();
         },
-        isOutsideClicked(event) {
-            return !this.$el.contains(event.target) && !this.$el.isSameNode(event.target);
+        isOutsideClicked() {
+            return !this.selfClick;
         },
         onClick(event) {
-            if (this.editMode === 'cell' && this.isEditable() && !this.d_editing) {
-                this.d_editing = true;
-                this.bindDocumentEditListener();
-                this.$emit('cell-edit-init', {originalEvent: event, data: this.rowData, field: this.column.props?.field, index: this.index});
+            if (this.editMode === 'cell' && this.isEditable()) {
+                this.selfClick = true;
+
+                if (!this.d_editing) {
+                    this.d_editing = true;
+                    this.bindDocumentEditListener();
+                    this.$emit('cell-edit-init', {originalEvent: event, data: this.rowData, field: this.column.props?.field, index: this.index});
+                }
             }
         },
         completeEdit(event, type) {
