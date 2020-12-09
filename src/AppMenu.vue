@@ -12,6 +12,7 @@
                 <a href="https://github.com/primefaces/primevue" target="_blank">Source Code</a>
                 <router-link to="/support">Support</router-link>
                 <a href="https://www.primefaces.org/store" target="_blank">Store</a>
+                <router-link to="/locale">Locale <Tag value="New"></Tag></router-link>
                 <router-link to="/accessibility">Accessibility</router-link>
             </div>
 

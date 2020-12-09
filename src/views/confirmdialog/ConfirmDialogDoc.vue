@@ -155,13 +155,13 @@ export default {
                                 <td>acceptLabel</td>
                                 <td>string</td>
                                 <td>null</td>
-                                <td>Label of the accept button.</td>
+                                <td>Label of the accept button. Defaults to PrimeVue <router-link to="/locale">Locale</router-link> configuration.</td>
                             </tr>
                             <tr>
                                 <td>rejectLabel</td>
                                 <td>string</td>
                                 <td>null</td>
-                                <td>Label of the reject button.</td>
+                                <td>Label of the reject button. Defaults to PrimeVue <router-link to="/locale">Locale</router-link> configuration.</td>
                             </tr>
                             <tr>
                                 <td>acceptIcon</td>

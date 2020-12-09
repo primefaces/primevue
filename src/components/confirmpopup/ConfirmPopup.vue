@@ -182,10 +182,10 @@ export default {
             return ['p-confirm-popup-icon', this.confirmation ? this.confirmation.icon : null];
         },
         acceptLabel() {
-            return this.confirmation ? (this.confirmation.acceptLabel || 'Yes') : null;
+            return this.confirmation ? (this.confirmation.acceptLabel || this.$primevue.config.locale.accept) : null;
         },
         rejectLabel() {
-            return this.confirmation ? (this.confirmation.rejectLabel || 'No') : null;
+            return this.confirmation ? (this.confirmation.rejectLabel || this.$primevue.config.locale.reject) : null;
         },
         acceptIcon() {
             return this.confirmation ? this.confirmation.acceptIcon : null;

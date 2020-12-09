@@ -18,6 +18,11 @@ const routes = [
         component: () => import('../views/accessibility/AccessibilityDemo.vue')
     },
     {
+        path: '/locale',
+        name: 'locale',
+        component: () => import('../views/locale/LocaleDemo.vue')
+    },
+    {
         path: '/avatar',
         name: 'avatar',
         component: () => import('../views/avatar/AvatarDemo.vue')

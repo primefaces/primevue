@@ -63,7 +63,7 @@ function getInk(el) {
 
 const Ripple = {
     mounted(el, binding) {
-        if (binding.instance.$primevue && binding.instance.$primevue.ripple) {
+        if (binding.instance.$primevue && binding.instance.$primevue.config && binding.instance.$primevue.config.ripple) {
             create(el);
             bindEvents(el);
         }

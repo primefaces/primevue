@@ -1,7 +1,8 @@
 import {createApp} from 'vue';
-import {reactive} from 'vue'
+import {reactive} from 'vue';
 import router from './router';
 import App from './App.vue';
+import PrimeVue from './components/config/PrimeVue';
 import AutoComplete from './components/autocomplete/AutoComplete';
 import Accordion from './components/accordion/Accordion';
 import AccordionTab from './components/accordiontab/AccordionTab';
@@ -112,8 +113,8 @@ router.beforeEach(function (to, from, next) {
 const app = createApp(App);
 
 app.config.globalProperties.$appState = reactive({inputStyle: 'outlined', darkTheme: false});
-app.config.globalProperties.$primevue = reactive({ripple: true});
 
+app.use(PrimeVue, {ripple: true});
 app.use(ToastService);
 app.use(ConfirmationService);
 app.use(router);

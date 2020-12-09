@@ -17,12 +17,12 @@
                         <Calendar id="basic" v-model="date1" />
                     </div>
                     <div class="p-field p-col-12 p-md-4">
-                        <label for="icon">Icon</label>
-                        <Calendar id="icon" v-model="date3" :showIcon="true" />
+                        <label for="dateformat">DateFormat</label>
+                        <Calendar id="dateformat" v-model="date2"  dateFormat="mm-dd-yy" />
                     </div>
                     <div class="p-field p-col-12 p-md-4">
-                        <label for="spanish">Spanish</label>
-                        <Calendar id="spanish" v-model="date2" :locale="es" dateFormat="dd/mm/yy" />
+                        <label for="icon">Icon</label>
+                        <Calendar id="icon" v-model="date3" :showIcon="true" />
                     </div>
                     <div class="p-field p-col-12 p-md-4">
                         <label for="minmax">MinMax</label>
@@ -129,17 +129,6 @@ export default {
             date14: null,
             dates1: null,
             dates2: null,
-            es: {
-                firstDayOfWeek: 1,
-                dayNames: [ "Domingo","Lunes","Martes","Miércoles","Jueves","Viernes","Sábado" ],
-                dayNamesShort: [ "Dom","Lun","Mar","Mié","Jue","Vie","Sáb" ],
-                dayNamesMin: [ "D","L","M","X","J","V","S" ],
-                monthNames: [ "Enero","Febrero","Marzo","Abril","Mayo","Junio","Julio","Agosto","Septiembre","Octubre","Noviembre","Diciembre" ],
-                monthNamesShort: [ "Ene","Feb","Mar","Abr","May","Jun","Jul","Ago","Sep","Oct","Nov","Dic" ],
-                today: 'Hoy',
-                clear: 'Borrar',
-                weekHeader: 'Sm'
-            },
             minDate: null,
             maxDate: null,
             invalidDates: null

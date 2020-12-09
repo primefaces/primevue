@@ -13,9 +13,9 @@
                                     <span class="p-datepicker-prev-icon pi pi-chevron-left"></span>
                                 </button>
                                 <div class="p-datepicker-title">
-                                    <span class="p-datepicker-month" v-if="!monthNavigator && (view !== 'month')">{{locale.monthNames[month.month]}}</span>
+                                    <span class="p-datepicker-month" v-if="!monthNavigator && (view !== 'month')">{{getMonthName(month.month)}}</span>
                                     <select class="p-datepicker-month" v-if="monthNavigator && (view !== 'month') && numberOfMonths === 1" @change="onMonthDropdownChange($event.target.value)">
-                                        <option :value="index" v-for="(monthName, index) of locale.monthNames" :key="monthName" :selected="index === month.month">{{monthName}}</option>
+                                        <option :value="index" v-for="(monthName, index) of monthNames" :key="monthName" :selected="index === month.month">{{monthName}}</option>
                                     </select>
                                     <span class="p-datepicker-year" v-if="!yearNavigator">{{view === 'month' ? currentYear : month.year}}</span>
                                     <select class="p-datepicker-year" v-if="yearNavigator && numberOfMonths === 1" @change="onYearDropdownChange($event.target.value)">
@@ -32,7 +32,7 @@
                                     <thead>
                                         <tr>
                                             <th scope="col" v-if="showWeek" class="p-datepicker-weekheader p-disabled">
-                                                <span>{{locale['weekHeader']}}</span>
+                                                <span>{{weekHeaderLabel}}</span>
                                             </th>
                                             <th scope="col" v-for="weekDay of weekDays" :key="weekDay">
                                                 <span>{{weekDay}}</span>
@@ -120,8 +120,8 @@
                     </div>
                 </div>
                 <div class="p-datepicker-buttonbar" v-if="showButtonBar">
-                    <CalendarButton type="button" :label="locale['today']" @click="onTodayButtonClick($event)" class="p-button-text" @keydown="onContainerButtonKeydown"/>
-                    <CalendarButton type="button" :label="locale['clear']" @click="onClearButtonClick($event)" class="p-button-text" @keydown="onContainerButtonKeydown"/>
+                    <CalendarButton type="button" :label="todayLabel" @click="onTodayButtonClick($event)" class="p-button-text" @keydown="onContainerButtonKeydown"/>
+                    <CalendarButton type="button" :label="clearLabel" @click="onClearButtonClick($event)" class="p-button-text" @keydown="onContainerButtonKeydown"/>
                 </div>
                 <slot name="footer"></slot>
             </div>
@@ -147,7 +147,7 @@ export default {
         },
         dateFormat: {
             type: String,
-            default: 'mm/dd/yy'
+            default: null
         },
         inline: {
             type: Boolean,
@@ -284,23 +284,6 @@ export default {
         manualInput: {
             type: Boolean,
             default: true
-        },
-        locale: {
-            type: Object,
-            default: () => {
-                return {
-                    firstDayOfWeek: 0,
-                    dayNames: ["Sunday", "Monday", "Tuesday", "Wednesday", "Thursday", "Friday", "Saturday"],
-                    dayNamesShort: ["Sun", "Mon", "Tue", "Wed", "Thu", "Fri", "Sat"],
-                    dayNamesMin: ["Su","Mo","Tu","We","Th","Fr","Sa"],
-                    monthNames: [ "January","February","March","April","May","June","July","August","September","October","November","December" ],
-                    monthNamesShort: [ "Jan", "Feb", "Mar", "Apr", "May", "Jun","Jul", "Aug", "Sep", "Oct", "Nov", "Dec" ],
-                    today: 'Today',
-                    clear: 'Clear',
-                    dateFormat: 'mm/dd/yy',
-                    weekHeader: 'Wk'
-                }
-            }
         },
         appendTo: {
             type: String,
@@ -953,7 +936,7 @@ export default {
                                 output += formatNumber('d', date.getDate(), 2);
                                 break;
                             case 'D':
-                                output += formatName('D', date.getDay(), this.locale.dayNamesShort, this.locale.dayNames);
+                                output += formatName('D', date.getDay(), this.$primevue.config.locale.dayNamesShort, this.$primevue.config.locale.dayNames);
                                 break;
                             case 'o':
                                 output += formatNumber('o',
@@ -965,7 +948,7 @@ export default {
                                 output += formatNumber('m', date.getMonth() + 1, 2);
                                 break;
                             case 'M':
-                                output += formatName('M',date.getMonth(), this.locale.monthNamesShort, this.locale.monthNames);
+                                output += formatName('M',date.getMonth(), this.$primevue.config.locale.monthNamesShort, this.$primevue.config.locale.monthNames);
                                 break;
                             case 'y':
                                 output += lookAhead('y') ? date.getFullYear() : (date.getFullYear() % 100 < 10 ? '0' : '') + (date.getFullYear() % 100);
@@ -1545,7 +1528,7 @@ export default {
                             day = getNumber("d");
                             break;
                         case "D":
-                            getName("D", this.locale.dayNamesShort, this.locale.dayNames);
+                            getName("D", this.$primevue.config.locale.dayNamesShort, this.$primevue.config.locale.dayNames);
                             break;
                         case "o":
                             doy = getNumber("o");
@@ -1554,7 +1537,7 @@ export default {
                             month = getNumber("m");
                             break;
                         case "M":
-                            month = getName("M", this.locale.monthNamesShort, this.locale.monthNames);
+                            month = getName("M", this.$primevue.config.locale.monthNamesShort, this.$primevue.config.locale.monthNames);
                             break;
                         case "y":
                             year = getNumber("y");
@@ -2009,6 +1992,9 @@ export default {
         },
         overlayRef(el) {
             this.overlay = el;
+        },
+        getMonthName(index) {
+            return this.$primevue.config.locale.monthNames[index];
         }
     },
     computed: {
@@ -2123,9 +2109,9 @@ export default {
         },
         weekDays() {
             let weekDays = [];
-            let dayIndex = this.locale.firstDayOfWeek;
+            let dayIndex = this.$primevue.config.locale.firstDayOfWeek;
             for (let i = 0; i < 7; i++) {
-                weekDays.push(this.locale.dayNamesMin[dayIndex]);
+                weekDays.push(this.$primevue.config.locale.dayNamesMin[dayIndex]);
                 dayIndex = (dayIndex == 6) ? 0 : ++dayIndex;
             }
 
@@ -2135,10 +2121,10 @@ export default {
             return (((1970 - 1) * 365 + Math.floor(1970 / 4) - Math.floor(1970 / 100) + Math.floor(1970 / 400)) * 24 * 60 * 60 * 10000000);
         },
         sundayIndex() {
-            return this.locale.firstDayOfWeek > 0 ? 7 - this.locale.firstDayOfWeek : 0;
+            return this.$primevue.config.locale.firstDayOfWeek > 0 ? 7 - this.$primevue.config.locale.firstDayOfWeek : 0;
         },
         datePattern() {
-            return this.dateFormat || this.locale.dateFormat;
+            return this.dateFormat || this.$primevue.config.locale.dateFormat;
         },
         yearOptions() {
             if (this.yearRange) {
@@ -2168,7 +2154,7 @@ export default {
         monthPickerValues() {
             let monthPickerValues = [];
             for (let i = 0; i <= 11; i++) {
-                monthPickerValues.push(this.locale.monthNamesShort[i]);
+                monthPickerValues.push(this.$primevue.config.locale.monthNamesShort[i]);
             }
 
             return monthPickerValues;
@@ -2181,6 +2167,18 @@ export default {
         },
         formattedCurrentSecond() {
             return this.currentSecond < 10 ? '0' + this.currentSecond : this.currentSecond;
+        },
+        todayLabel() {
+            return this.$primevue.config.locale.today;
+        },
+        clearLabel() {
+            return this.$primevue.config.locale.clear;
+        },
+        weekHeaderLabel() {
+            return this.$primevue.config.locale.weekHeader;
+        },
+        monthsNames() {
+            return this.$primevue.config.locale.monthNames;
         }
     },
     components: {
