@@ -38,7 +38,7 @@ export default {
             if (this.columnGroup) {
                 hasFooter = true;
             }
-            else {
+            else if (this.columns) {
                 for (let col of this.columns) {
                     if (col.props?.footer || (col.children && col.children.footer)) {
                         hasFooter = true;

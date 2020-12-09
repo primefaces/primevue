@@ -1644,6 +1644,9 @@ export default {
         },
         hasGlobalFilter() {
             return this.filters && Object.prototype.hasOwnProperty.call(this.filters, 'global');
+        },
+        getChildren() {
+            return this.$slots.default ? this.$slots.default() : null;
         }
     },
     computed: {
@@ -1662,7 +1665,11 @@ export default {
         },
         columns() {
             let cols = [];
-            let children = this.$slots.default();
+            let children = this.getChildren();
+
+            if (!children) {
+                return;
+            }
 
             children.forEach(child => {
                 if (child.dynamicChildren)
@@ -1713,42 +1720,50 @@ export default {
             return this.frozenColumns.length > 0;
         },
         headerColumnGroup() {
-            const children = this.$slots.default();
-            for (let child of children) {
-                if (child.type.name === 'columngroup' && child.props?.type === 'header') {
-                    return child;
+            const children = this.getChildren();
+            if (children) {
+                for (let child of children) {
+                    if (child.type.name === 'columngroup' && child.props?.type === 'header') {
+                        return child;
+                    }
                 }
             }
 
             return null;
         },
         frozenHeaderColumnGroup() {
-            const children = this.$slots.default();
-            for (let child of children) {
-                if (child.type.name === 'columngroup' && child.props?.type === 'frozenheader') {
-                    return child;
+            const children = this.getChildren();
+            if (children) {
+                for (let child of children) {
+                    if (child.type.name === 'columngroup' && child.props?.type === 'frozenheader') {
+                        return child;
+                    }
                 }
             }
 
             return null;
         },
         footerColumnGroup() {
-            const children = this.$slots.default();
-            for (let child of children) {
-                if (child.type.name === 'columngroup' && child.props?.type === 'footer') {
-                    return child;
+            const children = this.getChildren();
+            if (children) {
+                for (let child of children) {
+                    if (child.type.name === 'columngroup' && child.props?.type === 'footer') {
+                        return child;
+                    }
                 }
             }
 
             return null;
         },
         frozenFooterColumnGroup() {
-           const children = this.$slots.default();
-            for (let child of children) {
-                if (child.type.name === 'columngroup' && child.props?.type === 'frozenfooter') {
-                    return child;
+           const children = this.getChildren();
+            if (children) {
+                for (let child of children) {
+                    if (child.type.name === 'columngroup' && child.props?.type === 'frozenfooter') {
+                        return child;
+                    }
                 }
-            }
+           }
 
             return null;
         },
