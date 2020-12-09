@@ -11,7 +11,7 @@
 
 <pre v-code.script>
 <code>
-npm install primevue@^3.0.0 --save
+npm install primevue@^3.1.0 --save
 npm install primeicons --save
 
 </code></pre>
@@ -21,33 +21,36 @@ npm install primeicons --save
                 recommended to add PrimeFlex as it is likely to need such utilities when developing applications. View the <router-link to="/primeflex">PrimeFlex</router-link> section for the installation.</p>
 
             <h5>Module Loader</h5>
-            <p>This is the recommended way if your application uses <a href="https://cli.vuejs.org/">vue-cli</a> or has a webpack based build with <a href="https://github.com/vuejs/vue-loader">vue-loader</a> configured.
-            Import the components as .vue files for seamless integration within your project where path of each component is available at the "import" section of a component documentation.</p>
+            <p>This is the recommended way if your application uses <a href="https://cli.vuejs.org/">vue-cli</a> or has a webpack based build with <a href="https://github.com/vuejs/vue-loader">vue-loader</a> configured.</p>
 
-<pre v-code.script>
-<code>
-//import ComponentName from 'primevue/componentname';
-
-import Dialog from 'primevue/dialog';
-
-</code></pre>
-
-            <p>In the next step, register the component with the tag name you'd like to use.</p>
+            <p>Begin with installing PrimeVue with the <i>use</i> function.</p>
 <pre v-code.script>
 <code>
 import {createApp} from 'vue';
+import PrimeVue from 'primevue/config';
 const app = createApp(App);
 
-app.component('Dialog', Dialog);
-
+app.use(PrimeVue);
 </code></pre>
 
-            <p>Then you'll be able to utilize the component in your application.</p>
+            <p>Then import the component you need and registering it so that you'll be able to utilize the component in your application.</p>
+<pre v-code.script>
+<code>
+import {createApp} from 'vue';
+import PrimeVue from 'primevue/config';
+import Dialog from 'primevue/dialog';
+const app = createApp(App);
+
+app.use(PrimeVue);
+
+app.component('Dialog', Dialog);
+</code></pre>
+
 <pre v-code>
 <code>
 &lt;Dialog&gt;&lt;/Dialog&gt;
 
-</code></pre>
+</code></pre>  
 
             <h5>Script Tag</h5>
             <p>Other alternative is utilizing the components directly within the browser with UMD packages.</p>
@@ -179,16 +182,20 @@ primevue/resources/themes/rhea/theme.css
 
             <h5>Ripple</h5>
             <p>Ripple is an optional animation for the supported components such as buttons. It is disabled by default and needs to be enabled at
-                your app's entry file (e.g. main.js) using the <i>$primevue</i> global variable.
+                your app's entry file (e.g. main.js) during the PrimeVue setup.
             </p>
 <pre v-code.script>
 <code>
 import {createApp} from 'vue';
+import PrimeVue from 'primevue/config';
 const app = createApp(App);
 
-app.config.globalProperties.$primevue = {ripple: true};
+app.use(PrimeVue, {ripple: true});
 
 </code></pre>
+
+            <h5>Locale</h5>
+            <p>PrimeVue provides a Locale API to support i18n and l7n, visit the <router-link to="/locale">Locale</router-link> documentation for more information.</p>
 
             <h5>Quickstart</h5>
             <p>An <a href="https://github.com/primefaces/primevue-quickstart">example application</a> based on vue-cli is available at github.</p>
