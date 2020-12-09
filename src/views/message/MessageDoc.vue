@@ -144,6 +144,26 @@ import InlineMessage from 'primevue/inlinemessage';
 					</table>
 				</div>
 
+                <h5>Events of Message</h5>
+				<div class="doc-tablewrapper">
+					<table class="doc-table">
+						<thead>
+                            <tr>
+                                <th>Name</th>
+                                <th>Parameters</th>
+                                <th>Description</th>
+                            </tr>
+						</thead>
+						<tbody>
+                            <tr>
+                                <td>close</td>
+                                <td>event: Browser event</td>
+                                <td>Callback to invoke when a message is closed.</td>
+                            </tr>
+                        </tbody>
+                    </table>
+                </div>
+
 				<h5>Styling</h5>
 				<p>Following is the list of structural style classes, for theming classes visit <router-link to="/theming">theming</router-link> page.</p>
 
