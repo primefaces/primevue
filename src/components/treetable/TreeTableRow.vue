@@ -30,7 +30,7 @@ import Ripple from '../ripple/Ripple';
 
 export default {
     name: 'sub-ttnode',
-    emits: ['node-click', 'node-toggle', 'checkbox-change'],
+    emits: ['node-click', 'node-toggle', 'checkbox-change','nodeClick', 'nodeToggle', 'checkboxChange'],
     props: {
         node: {
             type: null,
