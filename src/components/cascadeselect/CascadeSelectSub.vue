@@ -9,7 +9,7 @@
                     </template>
                     <span class="p-cascadeselect-group-icon pi pi-angle-right" v-if="isOptionGroup(option)"></span>
                 </div>
-                <cascade-select-sub v-if="isOptionGroup(option) && isOptionActive(option)" class="p-cascadeselect-sublist" :selectionPath="selectionPath" :options="getOptionGroupChildren(option)"
+                <cascadeselect-sub v-if="isOptionGroup(option) && isOptionActive(option)" class="p-cascadeselect-sublist" :selectionPath="selectionPath" :options="getOptionGroupChildren(option)"
                         :optionLabel="optionLabel" :optionValue="optionValue" :level="level + 1" @option-select="onOptionSelect" @optiongroup-select="onOptionGroupSelect"
                         :optionGroupLabel="optionGroupLabel" :optionGroupChildren="optionGroupChildren" :parentActive="isOptionActive(option)" :dirty="dirty" :templates="templates"/>
             </li>
@@ -24,7 +24,7 @@ import Ripple from '../ripple/Ripple';
 
 export default {
     emits: ['option-select','optiongroup-select'],
-    name: 'cascade-select-sub',
+    name: 'cascadeselect-sub',
     props: {
         selectionPath: Array,
         level: Number,
