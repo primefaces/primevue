@@ -1,5 +1,5 @@
 import {PrimeVueSymbol} from './usePrimeVue';
-import {reactive} from 'vue';
+import {reactive,inject} from 'vue';
 
 const defaultOptions = {
     ripple: false,
@@ -25,6 +25,17 @@ const defaultOptions = {
         passwordPrompt: 'Enter a password'
     }
 };
+
+const PrimeVueSymbol = Symbol();
+
+export function usePrimeVue() {
+    const PrimeVue = inject(PrimeVueSymbol);
+    if (!PrimeVue) {
+        throw new Error('PrimeVue is not installed!');
+    } 
+    
+    return PrimeVue;
+}
 
 export default {
     install: (app, options) => {
