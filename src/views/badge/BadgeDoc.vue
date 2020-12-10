@@ -2,17 +2,16 @@
 	<div class="content-section documentation">
 		<TabView>
 			<TabPanel header="Documentation">
-                <h5>Import</h5>
-<pre v-code.script>
-<code>
-import {Badge,BadgeDirective} from 'primevue/badge';
-
-</code></pre>
-
 				<h5>Getting Started</h5>
                 <p>Badge can either be used as a standalone component or as a directive.</p>
 
                 <h6>Component</h6>
+<pre v-code.script>
+<code>
+import Badge from 'primevue/badge';
+
+</code></pre>
+
 				<p>Content of the badge is specified using the <i>value</i> property.</p>
 <pre v-code>
 <code>
@@ -21,6 +20,12 @@ import {Badge,BadgeDirective} from 'primevue/badge';
 </code></pre>
 
                 <h6>Directive</h6>
+                <pre v-code.script>
+<code>
+import BadgeDirective from 'primevue/badgedirective';
+
+</code></pre>
+
 				<p>When used as a directive, badge needs to be configured at the application with a name of your choice.</p>
 <pre v-code.script>
 <code>
