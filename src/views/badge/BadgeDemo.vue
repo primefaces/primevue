@@ -16,10 +16,10 @@
                 <Badge value="12" severity="warning" class="p-mr-2"></Badge>
                 <Badge value="3" severity="danger"></Badge>
 
-                <h5>Positioned Badge</h5>
-                <Badge value="2">
-                    <i class="pi pi-bell" style="font-size: 2rem"></i>
-                </Badge>
+                <h5 class="p-mb-4">Positioned Badge</h5>
+                <i class="pi pi-bell p-mr-4 p-text-secondary" style="font-size: 2rem" v-badge="2"></i>
+                <i class="pi pi-calendar p-mr-4 p-text-secondary" style="font-size: 2rem" v-badge.danger="'10+'"></i>
+                <i class="pi pi-envelope p-text-secondary" style="font-size: 2rem" v-badge.danger></i>
 
                 <h5>Button Badge</h5>
                 <Button type="button" label="Emails" badge="8" class="p-mr-2" />
@@ -40,21 +40,8 @@
 import BadgeDoc from './BadgeDoc';
 
 export default {
-    data() {
-        return {
-
-        }
-    },
 	components: {
 		'BadgeDoc': BadgeDoc
 	}
 }
 </script>
-
-<style lang="scss" scoped>
-.badges {
-    .p-badge, .p-tag {
-        margin-right: .5rem;
-    }
-}
-</style>

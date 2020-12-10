@@ -5,11 +5,14 @@
                 <h5>Import</h5>
 <pre v-code.script>
 <code>
-import Badge from 'primevue/badge';
+import {Badge,BadgeDirective} from 'primevue/badge';
 
 </code></pre>
 
 				<h5>Getting Started</h5>
+                <p>Badge can either be used as a standalone component or as a directive.</p>
+
+                <h6>Component</h6>
 				<p>Content of the badge is specified using the <i>value</i> property.</p>
 <pre v-code>
 <code>
@@ -17,17 +20,26 @@ import Badge from 'primevue/badge';
 
 </code></pre>
 
-                <h5>Positioning</h5>
-                <p>A badge can easily be positioned relative to another element by wrapping it.</p>
-<pre v-code>
+                <h6>Directive</h6>
+				<p>When used as a directive, badge needs to be configured at the application with a name of your choice.</p>
+<pre v-code.script>
 <code>
-&lt;Badge value="2"&gt;
-    &lt;i class="pi pi-bell" style="font-size: 2rem"&gt;&lt;/i&gt;
-&lt;/Badge&gt;
+import {BadgeDirective} from 'primevue/badge';
+
+Vue.directive('badge', BadgeDirective);
 
 </code></pre>
+
+                <p>Next step is attaching it to an element.</p>
+<pre v-code>
+<code>
+&lt;i class="pi pi-bell" v-badge="2"&gt;&lt;/i&gt;
+
+</code></pre>
+
                 <h5>Severities</h5>
-                <p>Different color options are available as severity levels.</p>
+                <p>Different color options are available as severity levels. When used as a component use the <i>severity</i> property
+                to apply a severity and use a <i>modifier</i> as the severity value in directive mode.</p>
 
 				<ul>
 					<li>success</li>
@@ -36,6 +48,13 @@ import Badge from 'primevue/badge';
 					<li>danger</li>
 				</ul>
 
+<pre v-code>
+<code>
+&lt;Badge value="2" severity="success"&gt;&lt;/Badge&gt;
+
+&lt;i class="pi pi-bell" v-badge.success="2"&gt;&lt;/i&gt;
+
+</code></pre>
 
                 <h5>Button Badges</h5>
                 <p>Buttons provide integrated badge support with the <i>badge</i> and <i>badgeClass</i> properties.</p>
@@ -48,7 +67,8 @@ import Badge from 'primevue/badge';
 </code></pre>
 
                 <h5>Sizes</h5>
-                <p>Badge sizes are adjusted with the <i>size</i> property that accepts "large" and "xlarge" as the possible alternatives to the default size.</p>
+                <p>Badge sizes are adjusted with the <i>size</i> property that accepts "large" and "xlarge" as the possible alternatives to the default size. Currently
+                sizes only apply to component mode.</p>
 <pre v-code>
 <code>
 &lt;Badge value="2"&gt;&lt;/Badge&gt;
@@ -120,6 +140,26 @@ import Badge from 'primevue/badge';
                                 <td>Wrapper of a badge and its target.</td>
                             </tr>
                             <tr>
+                                <td>p-badge-dot</td>
+                                <td>Badge element with no value.</td>
+                            </tr>
+                            <tr>
+                                <td>p-badge-success</td>
+                                <td>Badge element with success severity.</td>
+                            </tr>
+                            <tr>
+                                <td>p-badge-info</td>
+                                <td>Badge element with info severity.</td>
+                            </tr>
+                            <tr>
+                                <td>p-badge-warning</td>
+                                <td>Badge element with warning severity.</td>
+                            </tr>
+                            <tr>
+                                <td>p-badge-danger</td>
+                                <td>Badge element with danger severity.</td>
+                            </tr>
+                            <tr>
                                 <td>p-badge-lg</td>
                                 <td>Large badge element</td>
                             </tr>
@@ -148,10 +188,10 @@ import Badge from 'primevue/badge';
 &lt;Badge value="12" severity="warning" class="p-mr-2"&gt;&lt;/Badge&gt;
 &lt;Badge value="3" severity="danger"&gt;&lt;/Badge&gt;
 
-&lt;h5&gt;Positioned Badge&lt;/h5&gt;
-&lt;Badge value="2"&gt;
-    &lt;i class="pi pi-bell" style="font-size: 2rem"&gt;&lt;/i&gt;
-&lt;/Badge&gt;
+&lt;h5 class="p-mb-4"&gt;Positioned Badge&lt;/h5&gt;
+&lt;i class="pi pi-bell p-mr-4 p-text-secondary" style="font-size: 2rem" v-badge="2"&gt;&lt;/i&gt;
+&lt;i class="pi pi-calendar p-mr-4 p-text-secondary" style="font-size: 2rem" v-badge.danger="'10+'"&gt;&lt;/i&gt;
+&lt;i class="pi pi-envelope p-text-secondary" style="font-size: 2rem" v-badge.danger&gt;&lt;/i&gt;
 
 &lt;h5&gt;Button Badge&lt;/h5&gt;
 &lt;Button type="button" label="Emails" badge="8" class="p-mr-2" /&gt;

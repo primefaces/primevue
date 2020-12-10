@@ -22,6 +22,8 @@ export default {
         },
         badgeClass() {
             return ['p-badge p-component', {
+                'p-badge-no-gutter': this.value && String(this.value).length === 1,
+                'p-badge-dot': !this.value,
                 'p-badge-lg': this.size === 'large',
                 'p-badge-xl': this.size === 'xlarge',
                 'p-badge-info': this.severity === 'info',
@@ -33,24 +35,3 @@ export default {
     }
 }
 </script>
-
-<style>
-.p-badge {
-    display: inline-block;
-    border-radius: 50%;
-    text-align: center;
-}
-
-.p-overlay-badge {
-    position: relative;
-    display: inline-block;
-}
-
-.p-overlay-badge .p-badge {
-    position: absolute;
-    top: 0;
-    right: 0;
-    transform: translate(1em, -1em);
-    margin: 0;
-}
-</style>
