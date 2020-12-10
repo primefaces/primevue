@@ -1,5 +1,46 @@
 # Changelog
 
+## [3.1.0](https://github.com/primefaces/primevue/tree/3.1.0) (2020-12-10)
+
+[Full Changelog](https://github.com/primefaces/primevue/compare/3.0.2...3.1.0)
+
+**Implemented New Features and Enhancements:**
+
+- Implement Badge as a directive alternative [\#753](https://github.com/primefaces/primevue/issues/753)
+- Chip Component [\#740](https://github.com/primefaces/primevue/issues/740)
+- Close event for Message component [\#739](https://github.com/primefaces/primevue/issues/739)
+- Splitter Component [\#737](https://github.com/primefaces/primevue/issues/737)
+- Component for Tag [\#717](https://github.com/primefaces/primevue/issues/717)
+- Locale API [\#716](https://github.com/primefaces/primevue/issues/716)
+- Component for Badge [\#715](https://github.com/primefaces/primevue/issues/715)
+- Dot mode for Badge [\#695](https://github.com/primefaces/primevue/issues/695)
+- Knob Component [\#693](https://github.com/primefaces/primevue/issues/693)
+- ScrollTop Component [\#691](https://github.com/primefaces/primevue/issues/691)
+- \[FEATURE REQUEST\] - Divider/Separator Component [\#690](https://github.com/primefaces/primevue/issues/690)
+- Skeleton Component [\#689](https://github.com/primefaces/primevue/issues/689)
+- CascadeSelect Component [\#686](https://github.com/primefaces/primevue/issues/686)
+- \[FEATURE REQUEST\] - Avatar Component [\#684](https://github.com/primefaces/primevue/issues/684)
+- New ConfirmPopup Component [\#679](https://github.com/primefaces/primevue/issues/679)
+- New ConfirmDialog Component [\#678](https://github.com/primefaces/primevue/issues/678)
+- Update to FullCalendar 5 [\#540](https://github.com/primefaces/primevue/issues/540)
+
+**Fixed bugs:**
+
+- DataTable throws error when there are no columns [\#749](https://github.com/primefaces/primevue/issues/749)
+- Textarea does not auto resize its height when created [\#733](https://github.com/primefaces/primevue/issues/733)
+- Calendar navigation \(next, prev month\) inside DataTable or OverlayPanel not working [\#729](https://github.com/primefaces/primevue/issues/729)
+- Keyboard support problem for AutoComplete  [\#723](https://github.com/primefaces/primevue/issues/723)
+- InputMask with unmask doesn't work as expected [\#714](https://github.com/primefaces/primevue/issues/714)
+- display prop of MultiSelect is not documented [\#713](https://github.com/primefaces/primevue/issues/713)
+- Invalid "sortField" property type in Vue and type definition files [\#681](https://github.com/primefaces/primevue/issues/681)
+- TreeTable emit warns [\#750](https://github.com/primefaces/primevue/issues/750)
+- Fixed use of MenuModel's "class" property in PanelMenuSub [\#746](https://github.com/primefaces/primevue/issues/746)
+
+**Breaking Changes:**
+
+- Setup Requirement [\#748](https://github.com/primefaces/primevue/issues/748)
+- Remove locale from Calendar [\#747](https://github.com/primefaces/primevue/issues/747)
+
 ## [3.0.2](https://github.com/primefaces/primevue/tree/3.0.2) (2020-11-26)
 
 [Full Changelog](https://github.com/primefaces/primevue/compare/3.0.1...3.0.2)
