@@ -4,6 +4,11 @@
 
 [Full Changelog](https://github.com/primefaces/primevue/compare/3.0.2...3.1.0)
 
+**Breaking Changes:**
+
+- Setup Requirement [\#748](https://github.com/primefaces/primevue/issues/748)
+- Remove locale from Calendar [\#747](https://github.com/primefaces/primevue/issues/747)
+
 **Implemented New Features and Enhancements:**
 
 - Implement Badge as a directive alternative [\#753](https://github.com/primefaces/primevue/issues/753)
@@ -35,11 +40,6 @@
 - Invalid "sortField" property type in Vue and type definition files [\#681](https://github.com/primefaces/primevue/issues/681)
 - TreeTable emit warns [\#750](https://github.com/primefaces/primevue/issues/750)
 - Fixed use of MenuModel's "class" property in PanelMenuSub [\#746](https://github.com/primefaces/primevue/issues/746)
-
-**Breaking Changes:**
-
-- Setup Requirement [\#748](https://github.com/primefaces/primevue/issues/748)
-- Remove locale from Calendar [\#747](https://github.com/primefaces/primevue/issues/747)
 
 ## [3.0.2](https://github.com/primefaces/primevue/tree/3.0.2) (2020-11-26)
 
