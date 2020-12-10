@@ -30,7 +30,7 @@
                 <div class="p-col-12 p-md-4">
                     <div class="card">
                         <h5>Label - Badge</h5>
-                        <Avatar label="U" class="p-mr-2" size="xlarge" style="background-color:#4caf4f; color: #ffffff" v-badge="4" />
+                        <Avatar label="U" size="xlarge" style="background-color:#4caf4f; color: #ffffff" v-badge="4" />
                     </div>
                 </div>
             </div>
@@ -57,7 +57,7 @@
                  <div class="p-col-12 p-md-4">
                     <div class="card">
                         <h5>Icon - Badge</h5>
-                        <Avatar icon="pi pi-user" class="p-mr-2" size="xlarge" v-badge="4"/>
+                        <Avatar icon="pi pi-user" size="xlarge" v-badge="4"/>
                     </div>
                 </div>
             </div>
@@ -89,7 +89,7 @@
                  <div class="p-col-12 p-md-4">
                     <div class="card">
                         <h5>Image - Badge</h5>
-                        <Avatar image="demo/images/organization/walter.jpg" class="p-mr-2" size="xlarge" v-badge.danger="4" />
+                        <Avatar image="demo/images/organization/walter.jpg" size="xlarge" v-badge.danger="4" />
                     </div>
                 </div>
             </div>
