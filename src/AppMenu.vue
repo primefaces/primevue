@@ -263,7 +263,7 @@
                 <router-link to="/progressbar">ProgressBar</router-link>
                 <router-link to="/progressspinner">ProgressSpinner</router-link>
                 <router-link to="/ripple">Ripple</router-link>
-                <router-link to="/tag">Tag <span class="p-tag">tag</span></router-link>
+                <router-link to="/tag">Tag <Tag value="New"></Tag></router-link>
                 <router-link to="/terminal">Terminal</router-link>
             </div>
         </div>
