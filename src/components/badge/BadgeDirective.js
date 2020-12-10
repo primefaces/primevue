@@ -35,8 +35,9 @@ const BadgeDirective = {
             let badge = document.getElementById(el.$_pbadgeId);
 
             if (options.value) {
-                if (DomHandler.hasClass(badge, 'p-badge-dot'))
-                        DomHandler.removeClass(badge, 'p-badge-dot');
+                if (DomHandler.hasClass(badge, 'p-badge-dot')) {
+                    DomHandler.removeClass(badge, 'p-badge-dot');
+                }
 
                 if (String(options.value).length === 1)
                     DomHandler.addClass(badge, 'p-badge-no-gutter');
