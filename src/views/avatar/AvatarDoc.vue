@@ -49,12 +49,10 @@ import AvatarGroup from 'primevue/avatargroup';
 </code></pre>
 
 				<h5>Badge</h5>
-				<p>A badge can be added by wrapping the Avatar within a <router-link to="/badge">Badge</router-link> component.</p>
+				<p>A badge can be added to an Avatar with the <router-link to="/badge">Badge</router-link> directive.</p>
 <pre v-code>
 <code>
-&lt;Badge value="4" severity="info"&gt;
-	&lt;Avatar image="user.png" size="xlarge" /&gt;
-&lt;/Badge&gt;
+&lt;Avatar image="user.png" size="xlarge" v-badge.danger="4" /&gt;
 
 </code></pre>
 
@@ -211,9 +209,7 @@ import AvatarGroup from 'primevue/avatargroup';
 	&lt;div class="p-col-12 p-md-4"&gt;
 		&lt;div class="card"&gt;
 			&lt;h5&gt;Label - Badge&lt;/h5&gt;
-			&lt;Badge value="4"&gt;
-				&lt;Avatar label="U" class="p-mr-2" size="xlarge" style="background-color:#4caf4f; color: #ffffff" /&gt;
-			&lt;/Badge&gt;
+			&lt;Avatar label="U" class="p-mr-2" size="xlarge" style="background-color:#4caf4f; color: #ffffff" v-badge="4" /&gt;
 		&lt;/div&gt;
 	&lt;/div&gt;
 &lt;/div&gt;
@@ -240,9 +236,7 @@ import AvatarGroup from 'primevue/avatargroup';
 		&lt;div class="p-col-12 p-md-4"&gt;
 		&lt;div class="card"&gt;
 			&lt;h5&gt;Icon - Badge&lt;/h5&gt;
-			&lt;Badge value="4" severity="success"&gt;
-				&lt;Avatar icon="pi pi-user" class="p-mr-2" size="xlarge" /&gt;
-			&lt;/Badge&gt;
+			&lt;Avatar icon="pi pi-user" class="p-mr-2" size="xlarge" v-badge="4"/&gt;
 		&lt;/div&gt;
 	&lt;/div&gt;
 &lt;/div&gt;
@@ -271,12 +265,10 @@ import AvatarGroup from 'primevue/avatargroup';
 		&lt;/div&gt;
 	&lt;/div&gt;
 
-	&lt;div class="p-col-12 p-md-4"&gt;
+		&lt;div class="p-col-12 p-md-4"&gt;
 		&lt;div class="card"&gt;
 			&lt;h5&gt;Image - Badge&lt;/h5&gt;
-			&lt;Badge value="4" severity="danger"&gt;
-				&lt;Avatar image="demo/images/organization/walter.jpg" class="p-mr-2" size="xlarge" /&gt;
-			&lt;/Badge&gt;
+			&lt;Avatar image="demo/images/organization/walter.jpg" class="p-mr-2" size="xlarge" v-badge.danger="4" /&gt;
 		&lt;/div&gt;
 	&lt;/div&gt;
 &lt;/div&gt;
