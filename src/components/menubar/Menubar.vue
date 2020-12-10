@@ -3,9 +3,9 @@
         <div class="p-menubar-start" v-if="$slots.start">
             <slot name="start"></slot>
         </div>
-        <a ref="menubutton" tabindex="0" class="p-menubar-button" @click="toggle($event)">
+        <div ref="menubutton" tabindex="0" class="p-menubar-button" @click="toggle($event)">
             <i class="pi pi-bars" />
-        </a>
+        </div>
         <MenubarSub ref="rootmenu" :model="model" :root="true" :mobileActive="mobileActive" @leaf-click="onLeafClick"/>
         <div class="p-menubar-end" v-if="$slots.end">
             <slot name="end"></slot>

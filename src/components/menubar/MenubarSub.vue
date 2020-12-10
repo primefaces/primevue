@@ -174,6 +174,16 @@ export default {
                     event.preventDefault();
                 break;
 
+                //enter
+                case 13:
+                    if (item.command) {
+                        item.command({
+                            originalEvent: event,
+                            item: item
+                        });
+                    }
+                break;
+
                 default:
                 break;
             }
