@@ -1,4 +1,3 @@
-import {PrimeVueSymbol} from './usePrimeVue';
 import {reactive,inject} from 'vue';
 
 const defaultOptions = {
