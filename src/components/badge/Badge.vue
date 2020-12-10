@@ -1,12 +1,5 @@
 <template>
-    <span :class="containerClass">
-        <template v-if="!$slots.default">{{value}}</template>
-        <template v-else>
-            <slot>
-            </slot>
-            <span :class="badgeClass">{{value}}</span>
-        </template>
-    </span>
+    <span :class="badgeClass">{{value}}</span>
 </template>
 
 <script>
