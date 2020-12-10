@@ -34,15 +34,16 @@ const BadgeDirective = {
         if (options.oldValue !== options.value) {
             let badge = document.getElementById(el.$_pbadgeId);
 
-            if (options.value && DomHandler.hasClass('p-badge-dot')) {
-                DomHandler.removeClass(badge, 'p-badge-dot');
+            if (options.value) {
+                if (DomHandler.hasClass(badge, 'p-badge-dot'))
+                        DomHandler.removeClass(badge, 'p-badge-dot');
 
                 if (String(options.value).length === 1)
                     DomHandler.addClass(badge, 'p-badge-no-gutter');
                 else
                     DomHandler.removeClass(badge, 'p-badge-no-gutter');
             }
-            else if (!options.value && !DomHandler.hasClass('p-badge-dot')) {
+            else if (!options.value && !DomHandler.hasClass(badge, 'p-badge-dot')) {
                 DomHandler.addClass(badge, 'p-badge-dot');
             }
 
