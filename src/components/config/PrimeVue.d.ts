@@ -33,6 +33,8 @@ export const install: PluginFunction<{}>;
 
 declare module 'vue/types/vue' {
     interface Vue {
-        $primevue: PrimeVueConfiguration;
+        $primevue: {
+            config: PrimeVueConfiguration;
+        }
     }
 }
