@@ -11,7 +11,7 @@
         <div class="content-section implementation">
             <div class="card">
                 <h5>Basic</h5>
-                <Dropdown v-model="selectedCity1" :options="cities" optionLabel="name" placeholder="Select a City" />
+                <Dropdown v-model="selectedCity1" :options="cities" optionLabel="name" optionValue="code" placeholder="Select a City" />
 
                 <h5>Editable</h5>
                 <Dropdown v-model="selectedCity2" :options="cities" optionLabel="name" :editable="true"/>
@@ -47,15 +47,15 @@ import DropdownDoc from './DropdownDoc';
 export default {
     data() {
         return {
-            selectedCity1: null,
+            selectedCity1: 0,
             selectedCity2: null,
             selectedCountry: null,
             cities: [
-                {name: 'New York', code: 'NY'},
-                {name: 'Rome', code: 'RM'},
-                {name: 'London', code: 'LDN'},
-                {name: 'Istanbul', code: 'IST'},
-                {name: 'Paris', code: 'PRS'}
+                {name: 'New York', code: 1},
+                {name: 'Rome', code: 2},
+                {name: 'London', code: 0},
+                {name: 'Istanbul', code: 4},
+                {name: 'Paris', code: 5}
             ],
             countries: [
                 {name: 'Australia', code: 'AU'},

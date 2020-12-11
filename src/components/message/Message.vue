@@ -6,7 +6,7 @@
                 <div class="p-message-text">
                     <slot></slot>
                 </div>
-                <button class="p-message-close p-link" @click="visible = false" v-if="closable" type="button" v-ripple>
+                <button class="p-message-close p-link" @click="close($event)" v-if="closable" type="button" v-ripple>
                     <i class="p-message-close-icon pi pi-times"></i>
                 </button>
             </div>
@@ -18,6 +18,7 @@
 import Ripple from '../ripple/Ripple';
 
 export default {
+    emits: ['close'],
     props: {
         severity: {
             type: String,
@@ -47,6 +48,12 @@ export default {
             setTimeout(() => {
                 this.visible = false;
             }, this.life);
+        }
+    },
+    methods: {
+        close(event) {
+            this.visible = false;
+            this.$emit('close', event);
         }
     },
     computed: {
