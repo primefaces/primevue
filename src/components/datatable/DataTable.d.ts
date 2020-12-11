@@ -26,7 +26,7 @@ declare class DataTable extends Vue {
         [s: string]: any;
     };
     filterLocale?: string;
-    selection?: any[]|any;
+    selection?: any[] | any;
     selectionMode?: string;
     compareSelectionBy?: string;
     metaKeySelection?: boolean;
@@ -43,7 +43,7 @@ declare class DataTable extends Vue {
     expandedRowIcon?: string;
     collapsedRowIcon?: string;
     rowGroupMode?: string;
-    groupRowsBy?: string[]|string;
+    groupRowsBy?: string[] | string;
     expandableRowGroups?: boolean;
     expandedRowGroups?: any[];
     stateStorage?: string;

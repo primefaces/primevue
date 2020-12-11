@@ -330,7 +330,7 @@ export default {
                             }
                         }
                         else {
-                            DomHandler.addClass(this.$refs.overlay.firstChild.firstChild, 'p-highlight');
+                            DomHandler.addClass(this.$refs.overlay.firstChild.firstElementChild, 'p-highlight');
                         }
 
                         event.preventDefault();

@@ -7,7 +7,7 @@ export default {
             default: null
         },
         field: {
-            type: String,
+            type: [String, Function],
             default: null
         },
         sortField: {

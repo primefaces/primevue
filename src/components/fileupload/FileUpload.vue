@@ -121,7 +121,7 @@ export default {
     data() {
         return {
             uploadedFileCount: 0,
-            files: null,
+            files: [],
             messages: null,
             focused: false,
             progress: null
@@ -239,7 +239,7 @@ export default {
         },
         clear() {
             this.files = [];
-            this.messages = null;
+            this.messages = [];
             this.$emit('clear');
 
             if (this.isAdvanced) {
@@ -315,6 +315,9 @@ export default {
             this.clearInputElement();
             this.files.splice(index, 1);
             this.files = [...this.files];
+            if(this.files.length <= this.fileLimit) {
+                this.messages = [];
+            }
         },
         isImage(file) {
             return /^image\//.test(file.type);
@@ -348,7 +351,7 @@ export default {
         },
         checkFileLimit() {
             if (this.isFileLimitExceeded()) {
-                this.msgs.push(this.invalidFileLimitMessage.replace('{0}', this.fileLimit.toString()));
+                this.messages.push(this.invalidFileLimitMessage.replace('{0}', this.fileLimit.toString()));
             }
         }
     },

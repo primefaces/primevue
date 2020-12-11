@@ -128,7 +128,7 @@ export default {
             }
         },
         onMaskClick(event) {
-            if (this.dismissableMask && this.closable && this.modal && this.mask === event.target) {
+            if (this.dismissableMask && this.closable && this.modal && this.$refs.mask === event.target) {
                 this.close();
             }
         },
