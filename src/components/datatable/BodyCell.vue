@@ -69,6 +69,7 @@ export default {
         }
     },
     documentEditListener: null,
+    selfClick: false,
     data() {
         return {
             d_editing: this.editing
@@ -114,6 +115,7 @@ export default {
                     if (this.isOutsideClicked(event)) {
                         this.completeEdit(event, 'outside');
                     }
+                    this.selfClick = false;
                 };
 
                 document.addEventListener('click', this.documentEditListener);
@@ -123,20 +125,24 @@ export default {
             if (this.documentEditListener) {
                 document.removeEventListener('click', this.documentEditListener);
                 this.documentEditListener = null;
+                this.selfClick = true;
             }
         },
         switchCellToViewMode() {
             this.d_editing = false;
             this.unbindDocumentEditListener();
         },
-        isOutsideClicked(event) {
-            return !this.$el.contains(event.target) && !this.$el.isSameNode(event.target);
+        isOutsideClicked() {
+            return !this.selfClick;
         },
         onClick(event) {
-            if (this.editMode === 'cell' && this.isEditable() && !this.d_editing) {
-                this.d_editing = true;
-                this.bindDocumentEditListener();
-                this.$emit('cell-edit-init', {originalEvent: event, data: this.rowData, field: this.column.field, index: this.index});
+            if (this.editMode === 'cell' && this.isEditable()) {
+                this.selfClick = true;
+                if (!this.d_editing) {
+                    this.d_editing = true;
+                    this.bindDocumentEditListener();
+                    this.$emit('cell-edit-init', {originalEvent: event, data: this.rowData, field: this.column.field, index: this.index});
+                }
             }
         },
         completeEdit(event, type) {
