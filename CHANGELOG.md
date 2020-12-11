@@ -1,5 +1,13 @@
 # Changelog
 
+## [3.1.1](https://github.com/primefaces/primevue/tree/3.1.1) (2020-12-10)
+
+[Full Changelog](https://github.com/primefaces/primevue/compare/3.10....3.1.1)
+
+**Fixed bugs:**
+
+- CascadeSelect fails with Vue 3.0.3 [\#753](https://github.com/primefaces/primevue/issues/753)
+
 ## [3.1.0](https://github.com/primefaces/primevue/tree/3.1.0) (2020-12-10)
 
 [Full Changelog](https://github.com/primefaces/primevue/compare/3.0.2...3.1.0)
