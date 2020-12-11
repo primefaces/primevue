@@ -18,7 +18,6 @@
 import Ripple from '../ripple/Ripple';
 
 export default {
-    emits: ['close'],
     props: {
         severity: {
             type: String,
