@@ -13,7 +13,7 @@ declare class Dropdown extends Vue {
     editable?: boolean;
     placeholder?: string;
     disabled?: boolean;
-    dataKey?: string;
+    dataKey?: string | ((item: any) => any);
     showClear?: boolean;
     tabindex?: string;
     inputId?: string;

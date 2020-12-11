@@ -24,7 +24,10 @@ export default {
         optionDisabled: null,
 		multiple: Boolean,
         disabled: Boolean,
-        dataKey: null,
+        dataKey: {
+            type: [String, Function],
+            default: null
+        },
         ariaLabelledBy: null
     },
     methods: {

@@ -12,7 +12,7 @@ declare class MultiSelect extends Vue {
     filter?: boolean;
     tabindex?: string;
     inputId?: string;
-    dataKey?: string;
+    dataKey?: string | ((item: any) => any);
     filterPlaceholder?: string;
     filterLocale?: string;
     ariaLabelledBy?: string;

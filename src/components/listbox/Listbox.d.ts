@@ -8,7 +8,7 @@ declare class Listbox extends Vue {
     optionDisabled?: boolean;
     listStyle?: string;
     disabled?: boolean;
-    dataKey?: string;
+    dataKey?: string | ((item: any) => any);
     multiple?: boolean;
     metaKeySelection?: boolean;
     filter?: boolean;

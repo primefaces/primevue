@@ -31,7 +31,10 @@ export default {
             mode: String,
             default: 'vertical'
         },
-        dataKey: null
+        dataKey: {
+            type: [String, Function],
+            default: null
+        }
     },
     methods: {
         getKey(item, index) {

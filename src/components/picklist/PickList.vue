@@ -64,7 +64,7 @@ export default {
             default: () => [[],[]]
         },
         dataKey: {
-            type: String,
+            type: [String, Function],
             default: null
         },
         listStyle: {

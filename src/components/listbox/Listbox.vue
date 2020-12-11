@@ -34,7 +34,10 @@ export default {
         optionDisabled: null,
 		listStyle: null,
         disabled: Boolean,
-        dataKey: null,
+        dataKey: {
+            type: [String, Function],
+            default: null
+        },
         multiple: Boolean,
         metaKeySelection: Boolean,
         filter: Boolean,

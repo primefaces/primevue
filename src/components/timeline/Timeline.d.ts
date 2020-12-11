@@ -4,7 +4,7 @@ declare class Timeline extends Vue {
     value?: any[];
     align?: string;
     layout?: string;
-    dataKey?: string;
+    dataKey?: string | ((item: any) => any);
     $slots: {
         content: VNode[];
         opposite: VNode[];

@@ -62,7 +62,10 @@ export default {
 		editable: Boolean,
 		placeholder: String,
 		disabled: Boolean,
-        dataKey: null,
+        dataKey: {
+            type: [String, Function],
+            default: null
+        },
         showClear: Boolean,
         inputId: String,
         tabindex: String,

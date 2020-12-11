@@ -85,7 +85,10 @@ export default {
 		filter: Boolean,
         tabindex: String,
         inputId: String,
-        dataKey: null,
+        dataKey: {
+            type: [String, Function],
+            default: null
+        },
         filterPlaceholder: String,
         filterLocale: String,
         ariaLabelledBy: null,
