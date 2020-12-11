@@ -21,7 +21,7 @@ declare class TreeTable extends Vue {
     loadingIcon?: string;
     rowHover?: boolean;
     autoLayout?: boolean;
-    sortField?: string;
+    sortField?: string | ((item: any) => any);
     sortOrder?: number;
     defaultSortOrder?: number;
     multiSortMeta?: any[];

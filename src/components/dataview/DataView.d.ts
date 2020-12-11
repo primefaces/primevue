@@ -13,7 +13,7 @@ declare class DataView extends Vue {
     pageLinkSize?: number;
     rowsPerPageOptions?: number[];
     currentPageReportTemplate?: string;
-    sortField?: string;
+    sortField?: string | ((item: any) => any);
     sortOrder?: number;
     lazy?: boolean;
     $emit(eventName: 'page', event: Event): this;
