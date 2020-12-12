@@ -6,12 +6,18 @@
             <h1>Setup</h1>
             <p>PrimeVue is a rich set of open source native components for Vue.</p>
 
+            <h5>Video Tutorial</h5>
+            <p>Watch the video tutorial that goes through the steps documented on this guide.</p>
+            <div class="video-container">
+                <iframe width="560" height="315" src="https://www.youtube.com/embed/cGTXuyqIwMA" frameborder="0" allowfullscreen></iframe>
+            </div>
+
             <h5>Download</h5>
             <p>PrimeVue is available at <a href="https://www.npmjs.com/package/primevue">npm</a>, if you have an existing application run the following commands to download PrimeVue and PrimeIcons to your project.</p>
 
 <pre v-code.script>
 <code>
-npm install primevue@^3.1.0 --save
+npm install primevue@^3.1.1 --save
 npm install primeicons --save
 
 </code></pre>
