@@ -86,9 +86,9 @@
 .p-autocomplete.p-autocomplete-multiple .p-autocomplete-multiple-container .p-autocomplete-token {
   padding: 0.2145rem 0.429rem;
   margin-right: 0.5rem;
-  background: #F48FB1;
-  color: #212529;
-  border-radius: 3px;
+  background: #4b4b4b;
+  color: #dedede;
+  border-radius: 16px;
 }
 .p-autocomplete.p-autocomplete-multiple .p-autocomplete-multiple-container .p-autocomplete-token .p-autocomplete-token-icon {
   margin-left: 0.5rem;
@@ -324,6 +324,92 @@
     padding: 0;
   }
 }
+.p-cascadeselect {
+  background: #191919;
+  border: 1px solid #4b4b4b;
+  transition: background-color 0.2s, color 0.2s, border-color 0.2s, box-shadow 0.2s;
+  border-radius: 3px;
+}
+.p-cascadeselect:not(.p-disabled):hover {
+  border-color: #F48FB1;
+}
+.p-cascadeselect:not(.p-disabled).p-focus {
+  outline: 0 none;
+  outline-offset: 0;
+  box-shadow: 0 0 0 0.1rem white;
+  border-color: #F48FB1;
+}
+.p-cascadeselect .p-cascadeselect-label {
+  background: transparent;
+  border: 0 none;
+  padding: 0.429rem 0.429rem;
+}
+.p-cascadeselect .p-cascadeselect-label.p-placeholder {
+  color: #9b9b9b;
+}
+.p-cascadeselect .p-cascadeselect-label:enabled:focus {
+  outline: 0 none;
+  box-shadow: none;
+}
+.p-cascadeselect .p-cascadeselect-trigger {
+  background: transparent;
+  color: #888888;
+  width: 2.357rem;
+  border-top-right-radius: 3px;
+  border-bottom-right-radius: 3px;
+}
+.p-cascadeselect.p-error, .p-cascadeselect.p-invalid {
+  border-color: #e57373;
+}
+
+.p-cascadeselect-panel {
+  background: #323232;
+  color: #dedede;
+  border: 1px solid #191919;
+  border-radius: 3px;
+  box-shadow: 0 3px 6px 0 rgba(0, 0, 0, 0.16);
+}
+.p-cascadeselect-panel .p-cascadeselect-items {
+  padding: 0;
+}
+.p-cascadeselect-panel .p-cascadeselect-items .p-cascadeselect-item {
+  margin: 0;
+  border: 0 none;
+  color: #dedede;
+  background: transparent;
+  transition: background-color 0.2s, border-color 0.2s, box-shadow 0.2s;
+  border-radius: 0;
+}
+.p-cascadeselect-panel .p-cascadeselect-items .p-cascadeselect-item .p-cascadeselect-item-content {
+  padding: 0.429rem 0.857rem;
+}
+.p-cascadeselect-panel .p-cascadeselect-items .p-cascadeselect-item .p-cascadeselect-item-content:focus {
+  outline: 0 none;
+  outline-offset: 0;
+  box-shadow: inset 0 0 0 0.2rem white;
+}
+.p-cascadeselect-panel .p-cascadeselect-items .p-cascadeselect-item.p-highlight {
+  color: #212529;
+  background: #F48FB1;
+}
+.p-cascadeselect-panel .p-cascadeselect-items .p-cascadeselect-item:not(.p-highlight):not(.p-disabled):hover {
+  color: #dedede;
+  background: #4c4c4c;
+}
+.p-cascadeselect-panel .p-cascadeselect-items .p-cascadeselect-item .p-cascadeselect-group-icon {
+  font-size: 0.875rem;
+}
+
+.p-input-filled .p-cascadeselect {
+  background: #4b4b4b;
+}
+.p-input-filled .p-cascadeselect:not(.p-disabled):hover {
+  background-color: #4b4b4b;
+}
+.p-input-filled .p-cascadeselect:not(.p-disabled).p-focus {
+  background-color: #4b4b4b;
+}
+
 .p-checkbox {
   width: 20px;
   height: 20px;
@@ -396,9 +482,9 @@
 .p-chips .p-chips-multiple-container .p-chips-token {
   padding: 0.2145rem 0.429rem;
   margin-right: 0.5rem;
-  background: #F48FB1;
-  color: #212529;
-  border-radius: 3px;
+  background: #4b4b4b;
+  color: #dedede;
+  border-radius: 16px;
 }
 .p-chips .p-chips-multiple-container .p-chips-token .p-chips-token-icon {
   margin-left: 0.5rem;
@@ -923,9 +1009,9 @@
 .p-multiselect.p-multiselect-chip .p-multiselect-token {
   padding: 0.2145rem 0.429rem;
   margin-right: 0.5rem;
-  background: #F48FB1;
-  color: #212529;
-  border-radius: 3px;
+  background: #4b4b4b;
+  color: #dedede;
+  border-radius: 16px;
 }
 .p-multiselect.p-multiselect-chip .p-multiselect-token .p-multiselect-token-icon {
   margin-left: 0.5rem;
@@ -2017,30 +2103,41 @@
   border-bottom-right-radius: 3px;
 }
 
-.fc .fc-view-container th {
+.fc .fc-view-harness th {
   background: #191919;
   border: 1px solid #191919;
   color: #dedede;
 }
-.fc .fc-view-container td.fc-widget-content {
+.fc .fc-view-harness td {
   background: #323232;
   border: 1px solid #191919;
   color: #dedede;
+  border-top-width: 0;
+  border-left-width: 0;
 }
-.fc .fc-view-container td.fc-head-container {
-  border: 1px solid #191919;
+.fc .fc-view-harness .fc-daygrid-event-dot {
+  border-color: #212529;
 }
-.fc .fc-view-container .fc-row {
+.fc .fc-view-harness .fc-row {
   border-right: 1px solid #191919;
+  display: none !important;
 }
-.fc .fc-view-container .fc-event {
+.fc .fc-view-harness .fc-event, .fc .fc-view-harness .fc-event-main {
   background: #F06292;
   border: 1px solid #F06292;
   color: #212529;
 }
-.fc .fc-view-container .fc-divider {
+.fc .fc-view-harness .fc-divider {
   background: #191919;
   border: 1px solid #191919;
+  display: none !important;
+}
+.fc .fc-view-harness .fc-scrollgrid {
+  border: 1px solid #191919;
+}
+.fc .fc-view-harness .fc-scrollgrid-section-header > *,
+.fc .fc-view-harness .fc-scrollgrid-section-footer > * {
+  border-bottom-width: 0;
 }
 .fc .fc-toolbar .fc-button {
   color: #212529;
@@ -2791,6 +2888,30 @@
   padding: 0.571rem 1rem;
 }
 
+.p-divider .p-divider-content {
+  background-color: #323232;
+}
+.p-divider.p-divider-horizontal {
+  margin: 1rem 0;
+  padding: 0 1rem;
+}
+.p-divider.p-divider-horizontal:before {
+  border-top: 1px #4b4b4b;
+}
+.p-divider.p-divider-horizontal .p-divider-content {
+  padding: 0 0.5rem;
+}
+.p-divider.p-divider-vertical {
+  margin: 0 1rem;
+  padding: 1rem 0;
+}
+.p-divider.p-divider-vertical:before {
+  border-left: 1px #4b4b4b;
+}
+.p-divider.p-divider-vertical .p-divider-content {
+  padding: 0.5rem 0;
+}
+
 .p-panel .p-panel-header {
   border: 1px solid #191919;
   padding: 0.857rem 1rem;
@@ -2844,6 +2965,23 @@
 .p-scrollpanel .p-scrollpanel-bar {
   background: #3f3f3f;
   border: 0 none;
+}
+
+.p-splitter {
+  border: 1px solid #191919;
+  background: #323232;
+  border-radius: 3px;
+  color: #dedede;
+}
+.p-splitter .p-splitter-gutter {
+  transition: background-color 0.2s, color 0.2s, box-shadow 0.2s;
+  background: #191919;
+}
+.p-splitter .p-splitter-gutter .p-splitter-gutter-handle {
+  background: #4b4b4b;
+}
+.p-splitter .p-splitter-gutter-resizing {
+  background: #4b4b4b;
 }
 
 .p-tabview .p-tabview-nav {
@@ -4246,50 +4384,29 @@
   background-color: rgba(0, 0, 0, 0.9);
 }
 
-.p-inplace .p-inplace-display {
-  padding: 0.429rem 0.429rem;
-  border-radius: 3px;
-  transition: background-color 0.2s, color 0.2s, border-color 0.2s, box-shadow 0.2s;
-}
-.p-inplace .p-inplace-display:not(.p-disabled):hover {
-  background: #4c4c4c;
-  color: #dedede;
-}
-.p-inplace .p-inplace-display:focus {
-  outline: 0 none;
-  outline-offset: 0;
-  box-shadow: 0 0 0 0.1rem white;
-}
-
-.p-progressbar {
-  border: 0 none;
-  height: 24px;
-  background: #eaeaea;
+.p-avatar {
+  background-color: #4b4b4b;
   border-radius: 3px;
 }
-.p-progressbar .p-progressbar-value {
-  border: 0 none;
-  margin: 0;
-  background: #F48FB1;
+.p-avatar.p-avatar-lg {
+  width: 3rem;
+  height: 3rem;
+  font-size: 1.5rem;
 }
-.p-progressbar .p-progressbar-label {
-  color: #dedede;
-  line-height: 24px;
+.p-avatar.p-avatar-lg .p-avatar-icon {
+  font-size: 1.5rem;
 }
-
-.p-terminal {
-  background: #323232;
-  color: #dedede;
-  border: 1px solid #191919;
-  padding: 0.571rem 1rem;
+.p-avatar.p-avatar-xl {
+  width: 4rem;
+  height: 4rem;
+  font-size: 2rem;
 }
-.p-terminal .p-terminal-input {
-  font-size: 1rem;
-  font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif, "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol";
+.p-avatar.p-avatar-xl .p-avatar-icon {
+  font-size: 2rem;
 }
 
-.p-blockui.p-component-overlay {
-  background: rgba(0, 0, 0, 0.4);
+.p-avatar-group .p-avatar {
+  border: 2px solid #323232;
 }
 
 .p-badge {
@@ -4334,6 +4451,100 @@
   line-height: 3rem;
 }
 
+.p-blockui.p-component-overlay {
+  background: rgba(0, 0, 0, 0.4);
+}
+
+.p-chip {
+  background-color: #4b4b4b;
+  color: #dedede;
+  border-radius: 16px;
+  padding: 0 0.429rem;
+}
+.p-chip .p-chip-text {
+  line-height: 1.5;
+  margin-top: 0.2145rem;
+  margin-bottom: 0.2145rem;
+}
+.p-chip .p-chip-icon {
+  margin-right: 0.5rem;
+}
+.p-chip .pi-chip-remove-icon {
+  margin-left: 0.5rem;
+}
+.p-chip img {
+  width: 1.929rem;
+  height: 1.929rem;
+  margin-left: -0.429rem;
+  margin-right: 0.5rem;
+}
+.p-chip .pi-chip-remove-icon {
+  border-radius: 3px;
+  transition: background-color 0.2s, color 0.2s, box-shadow 0.2s;
+}
+.p-chip .pi-chip-remove-icon:focus {
+  outline: 0 none;
+  outline-offset: 0;
+  box-shadow: 0 0 0 0.1rem white;
+}
+
+.p-inplace .p-inplace-display {
+  padding: 0.429rem 0.429rem;
+  border-radius: 3px;
+  transition: background-color 0.2s, color 0.2s, border-color 0.2s, box-shadow 0.2s;
+}
+.p-inplace .p-inplace-display:not(.p-disabled):hover {
+  background: #4c4c4c;
+  color: #dedede;
+}
+.p-inplace .p-inplace-display:focus {
+  outline: 0 none;
+  outline-offset: 0;
+  box-shadow: 0 0 0 0.1rem white;
+}
+
+.p-progressbar {
+  border: 0 none;
+  height: 24px;
+  background: #eaeaea;
+  border-radius: 3px;
+}
+.p-progressbar .p-progressbar-value {
+  border: 0 none;
+  margin: 0;
+  background: #F48FB1;
+}
+.p-progressbar .p-progressbar-label {
+  color: #dedede;
+  line-height: 24px;
+}
+
+.p-scrolltop {
+  width: 3rem;
+  height: 3rem;
+  border-radius: 50%;
+  box-shadow: 0 3px 6px 0 rgba(0, 0, 0, 0.16);
+  transition: background-color 0.2s, color 0.2s, box-shadow 0.2s;
+}
+.p-scrolltop.p-link {
+  background: #F48FB1;
+}
+.p-scrolltop.p-link:hover {
+  background: #F06292;
+}
+.p-scrolltop .p-scrolltop-icon {
+  font-size: 1.5rem;
+  color: #212529;
+}
+
+.p-skeleton {
+  background-color: rgba(255, 255, 255, 0.06);
+  border-radius: 3px;
+}
+.p-skeleton:after {
+  background: linear-gradient(90deg, transparent, rgba(255, 255, 255, 0.04), transparent);
+}
+
 .p-tag {
   background: #F48FB1;
   color: #212529;
@@ -4357,6 +4568,21 @@
 .p-tag.p-tag-danger {
   background-color: #E57373;
   color: #212529;
+}
+.p-tag .p-tag-icon {
+  margin-right: 0.25rem;
+  font-size: 0.75rem;
+}
+
+.p-terminal {
+  background: #323232;
+  color: #dedede;
+  border: 1px solid #191919;
+  padding: 0.571rem 1rem;
+}
+.p-terminal .p-terminal-input {
+  font-size: 1rem;
+  font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif, "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol";
 }
 
 /* Customizations to the designer theme should be defined here */
