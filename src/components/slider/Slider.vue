@@ -1,11 +1,11 @@
 <template>
     <div :class="containerClass" @click="onBarClick" ref="container">
         <span class="p-slider-range" :style="rangeStyle"></span>
-        <span v-if="!range" class="p-slider-handle" :style="handleStyle" @touchstart="onTouchStart($event)" @touchmove="onTouchMove($event)" @touchend="onTouchEnd($event)" @mousedown="onHandleMouseDown($event)" @keydown="onHandleKeyDown($event)" tabindex="0"
+        <span v-if="!range" class="p-slider-handle" :style="handleStyle" @touchstart="onDragStart($event)" @touchmove="onDrag($event)" @touchend="onDragEnd($event)" @mousedown="onMouseDown($event)" @keydown="onKeyDown($event)" tabindex="0"
              role="slider" :aria-valuemin="min" aria-valuenow="value" aria-valuemax="max" :aria-labelledby="ariaLabelledBy"></span>
-        <span v-if="range" class="p-slider-handle" :style="rangeStartHandleStyle" @touchstart="onTouchStart($event, 0)" @touchmove="onTouchMove($event)" @touchend="onTouchEnd($event)" @mousedown="onHandleMouseDown($event, 0)" @keydown="onHandleKeyDown($event)" tabindex="0"
+        <span v-if="range" class="p-slider-handle" :style="rangeStartHandleStyle" @touchstart="onDragStart($event, 0)" @touchmove="onDrag($event)" @touchend="onDragEnd($event)" @mousedown="onMouseDown($event, 0)" @keydown="onKeyDown($event)" tabindex="0"
             role="slider" :aria-valuemin="min" aria-valuenow="value ? value[0] : null" aria-valuemax="max" :aria-labelledby="ariaLabelledBy"></span>
-        <span v-if="range" class="p-slider-handle" :style="rangeEndHandleStyle" @touchstart="onTouchStart($event, 1)" @touchmove="onTouchMove($event)" @touchend="onTouchEnd($event)" @mousedown="onHandleMouseDown($event, 1)" @keydown="onHandleKeyDown($event, 1)" tabindex="0"
+        <span v-if="range" class="p-slider-handle" :style="rangeEndHandleStyle" @touchstart="onDragStart($event, 1)" @touchmove="onDrag($event)" @touchend="onDragEnd($event)" @mousedown="onMouseDown($event, 1)" @keydown="onKeyDown($event, 1)" tabindex="0"
             role="slider" :aria-valuemin="min" aria-valuenow="value = value[1] : null" aria-valuemax="max" :aria-labelledby="ariaLabelledBy"></span>
     </div>
 </template>
@@ -47,16 +47,12 @@ export default {
     },
     dragging: false,
     handleIndex: null,
-    handleValue: null,
     initX: null,
     initY: null,
     barWidth: null,
     barHeight: null,
-    startx: null,
-    starty: null,
-    startHandleValue: null,
     dragListener: null,
-    mouseupListener: null,
+    dragEndListener: null,
     beforeDestroy() {
         this.unbindDragListeners();
     },
@@ -68,36 +64,28 @@ export default {
             this.barWidth = this.$refs.container.offsetWidth;
             this.barHeight = this.$refs.container.offsetHeight;
         },
-        setValueFromHandlePosition(event, handlePosition) {
-            let newValue = (this.max - this.min) * (handlePosition / 100) + this.min;
+        setValue(event) {
+            let handleValue;
+            let pageX = event.touches ? event.touches[0].pageX : event.pageX;
 
-            if (this.range) {
-                if (this.step)
-                    this.handleStepChange(event, newValue, this.value[this.handleIndex]);
-                else
-                    this.updateModel(event, newValue);
+            if(this.orientation === 'horizontal')
+                handleValue = ((pageX - this.initX) * 100) / (this.barWidth);
+            else
+                handleValue = (((this.initY + this.barHeight) - event.pageY) * 100) / (this.barHeight);
+
+            let newValue = (this.max - this.min) * (handleValue / 100) + this.min;
+
+            if (this.step) {
+                const oldValue = this.range ? this.value[this.handleIndex] : this.value;
+                const diff = (newValue - oldValue);
+
+                if (diff < 0)
+                    newValue = oldValue + Math.ceil(newValue / this.step - oldValue / this.step) * this.step;
+                else if (diff > 0)
+                    newValue = oldValue + Math.floor(newValue / this.step - oldValue / this.step) * this.step;
             }
-            else {
-                if (this.step)
-                    this.handleStepChange(event, newValue, this.value);
-                else
-                    this.updateModel(event, newValue);
-            }
-        },
-        onSlide(event) {
-            let handlePosition = this.horizontal ? ((event.pageX - this.initX) * 100) / (this.barWidth) : (((this.initY + this.barHeight) - event.pageY) * 100) / (this.barHeight);
-            this.setValueFromHandlePosition(event, handlePosition);
-        },
-        handleStepChange(event, newValue, oldValue) {
-            let diff = (newValue - oldValue);
-            let val = oldValue;
 
-            if (diff < 0)
-                val = oldValue + Math.ceil(newValue / this.step - oldValue / this.step) * this.step;
-            else if (diff > 0)
-                val = oldValue + Math.floor(newValue / this.step - oldValue / this.step) * this.step;
-
-            this.updateModel(event, val);
+            this.updateModel(event, newValue);
         },
         updateModel(event, value) {
             let newValue = value;
@@ -132,17 +120,7 @@ export default {
             this.$emit('input', modelValue);
             this.$emit('change', modelValue);
         },
-        onBarClick(event) {
-            if (this.disabled) {
-                return;
-            }
-
-            if (!DomHandler.hasClass(event.target, 'p-slider-handle')) {
-                this.updateDomData();
-                this.onSlide(event);
-            }
-        },
-        onHandleMouseDown(event, index) {
+        onDragStart(event, index) {
             if (this.disabled) {
                 return;
             }
@@ -152,10 +130,37 @@ export default {
             this.dragging = true;
             this.updateDomData();
             this.handleIndex = index;
-            this.bindDragListeners();
             event.preventDefault();
         },
-        onHandleKeyDown(event, index) {
+        onDrag(event) {
+            if (this.dragging) {
+                this.setValue(event);
+                event.preventDefault();
+            }
+        },
+        onDragEnd(event) {
+            if (this.dragging) {
+                this.dragging = false;
+
+                DomHandler.removeClass(this.$el, 'p-slider-sliding');
+                this.$emit('slideend', {originalEvent: event, value: this.value});
+            }
+        },
+        onBarClick(event) {
+            if (this.disabled) {
+                return;
+            }
+
+            if (!DomHandler.hasClass(event.target, 'p-slider-handle')) {
+                this.updateDomData();
+                this.setValue(event);
+            }
+        },
+        onMouseDown(event, index) {
+            this.bindDragListeners();
+            this.onDragStart(event, index);
+        },
+        onKeyDown(event, index) {
             this.handleIndex = index;
 
             switch (event.which) {
@@ -194,62 +199,6 @@ export default {
                 default:
                 break;
             }
-        },
-        onTouchStart(event, index) {
-            if (this.disabled) {
-                return;
-            }
-
-            var touchobj = event.changedTouches[0];
-            this.startHandleValue = (this.range) ? this.value[index] : this.handlePosition;
-            this.dragging = true;
-            if (this.range && this.value && this.value[0] === this.max) {
-                this.handleIndex = 0;
-            }
-            else {
-                this.handleIndex = index;
-            }
-
-            if (this.orientation === 'horizontal') {
-                this.startx = parseInt(touchobj.clientX, 10);
-                this.barWidth = this.$el.offsetWidth;
-            }
-            else {
-                this.starty = parseInt(touchobj.clientY, 10);
-                this.barHeight = this.$el.offsetHeight;
-            }
-
-            event.preventDefault();
-        },
-        onTouchMove(event) {
-            if (this.disabled) {
-                return;
-            }
-
-            var touchobj = event.changedTouches[0];
-            this.handleValue = 0;
-
-            if (this.orientation === 'horizontal') {
-                this.handleValue = Math.floor(((parseInt(touchobj.clientX, 10) - this.startx) * 100) / (this.barWidth)) + this.startHandleValue;
-            }
-            else {
-                this.handleValue = Math.floor(((this.starty - parseInt(touchobj.clientY, 10)) * 100) / (this.barHeight))  + this.startHandleValue;
-            }
-
-            this.setValueFromHandlePosition(event, this.handleValue);
-
-            event.preventDefault();
-        },
-        onTouchEnd(event) {
-            if (this.disabled) {
-                return;
-            }
-
-            this.dragging = false;
-
-            this.$emit('slideend', {originalEvent: event, value: this.value});
-
-            event.preventDefault();
         },
         decrementValue(event, index) {
             let newValue;
@@ -292,26 +241,14 @@ export default {
             event.preventDefault();
         },
         bindDragListeners() {
-             if (!this.dragListener) {
-                this.dragListener = (event) => {
-                    if (this.dragging) {
-                        this.onSlide(event);
-                    }
-                };
-
+            if (!this.dragListener) {
+                this.dragListener = this.onDrag.bind(this);
                 document.addEventListener('mousemove', this.dragListener);
             }
 
-            if (!this.mouseupListener) {
-                this.mouseupListener = (event) => {
-                    if (this.dragging) {
-                        this.dragging = false;
-                        DomHandler.removeClass(this.$el, 'p-slider-sliding');
-                        this.$emit('slideend', {originalEvent: event, value: this.value});
-                    }
-                };
-
-                document.addEventListener('mouseup', this.mouseupListener);
+            if (!this.dragEndListener) {
+                this.dragEndListener = this.onDragEnd.bind(this);
+                document.addEventListener('mouseup', this.dragEndListener);
             }
         },
         unbindDragListeners() {
@@ -320,9 +257,9 @@ export default {
                 this.dragListener = null;
             }
 
-            if (this.mouseupListener) {
-                document.removeEventListener('mouseup', this.mouseupListener);
-                this.mouseupListener = null;
+            if (this.dragEndListener) {
+                document.removeEventListener('mouseup', this.dragEndListener);
+                this.dragEndListener = null;
             }
         }
     },
