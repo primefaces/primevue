@@ -1,6 +1,6 @@
 import Vue, {VNode} from 'vue';
 
-export declare class Inplace extends Vue {
+declare class Inplace extends Vue {
     closable?: boolean;
     active?: boolean;
     $slots: {
@@ -8,3 +8,5 @@ export declare class Inplace extends Vue {
         content: VNode[];
     }
 }
+
+export default Inplace;

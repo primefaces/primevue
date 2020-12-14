@@ -77,7 +77,7 @@
                 <h5>Custom Headers</h5>
                 <Accordion class="accordion-custom">
                     <AccordionTab :active="true">
-                        <template slot="header">
+                        <template #header>
                             <i class="pi pi-calendar"></i>
                             <span>Header I</span>
                         </template>
@@ -86,7 +86,7 @@
                             Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.</p>
                     </AccordionTab>
                     <AccordionTab>
-                        <template slot="header">
+                        <template #header>
                             <i class="pi pi-user"></i>
                             <span>Header II</span>
                         </template>
@@ -95,7 +95,7 @@
                             voluptatem sequi nesciunt. Consectetur, adipisci velit, sed quia non numquam eius modi.</p>
                     </AccordionTab>
                     <AccordionTab>
-                        <template slot="header">
+                        <template #header>
                             <i class="pi pi-search"></i>
                             <span>Header III</span>
                             <i class="pi pi-cog"></i>

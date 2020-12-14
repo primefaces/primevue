@@ -1,6 +1,6 @@
 import Vue, {VNode} from 'vue';
 
-export declare class Dialog extends Vue {
+declare class Dialog extends Vue {
     header?: any;
     footer?: any;
     visible?: boolean;
@@ -24,3 +24,5 @@ export declare class Dialog extends Vue {
         footer: VNode[];
     }
 }
+
+export default Dialog;

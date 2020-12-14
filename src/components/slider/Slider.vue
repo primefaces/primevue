@@ -1,11 +1,11 @@
 <template>
     <div :class="containerClass" @click="onBarClick" ref="container">
         <span class="p-slider-range" :style="rangeStyle"></span>
-        <span v-if="!range" class="p-slider-handle" :style="handleStyle" @mousedown="onHandleMouseDown($event)" @keydown="onHandleKeyDown($event)" tabindex="0"
+        <span v-if="!range" class="p-slider-handle" :style="handleStyle" @touchstart="onTouchStart($event)" @touchmove="onTouchMove($event)" @touchend="onTouchEnd($event)" @mousedown="onHandleMouseDown($event)" @keydown="onHandleKeyDown($event)" tabindex="0"
              role="slider" :aria-valuemin="min" aria-valuenow="value" aria-valuemax="max" :aria-labelledby="ariaLabelledBy"></span>
-        <span v-if="range" class="p-slider-handle" :style="rangeStartHandleStyle" @mousedown="onHandleMouseDown($event, 0)" @keydown="onHandleKeyDown($event, 0)" tabindex="0"
+        <span v-if="range" class="p-slider-handle" :style="rangeStartHandleStyle" @touchstart="onTouchStart($event, 0)" @touchmove="onTouchMove($event)" @touchend="onTouchEnd($event)" @mousedown="onHandleMouseDown($event, 0)" @keydown="onHandleKeyDown($event)" tabindex="0"
             role="slider" :aria-valuemin="min" aria-valuenow="value ? value[0] : null" aria-valuemax="max" :aria-labelledby="ariaLabelledBy"></span>
-        <span v-if="range" class="p-slider-handle" :style="rangeEndHandleStyle" @mousedown="onHandleMouseDown($event, 1)" @keydown="onHandleKeyDown($event, 1)" tabindex="0"
+        <span v-if="range" class="p-slider-handle" :style="rangeEndHandleStyle" @touchstart="onTouchStart($event, 1)" @touchmove="onTouchMove($event)" @touchend="onTouchEnd($event)" @mousedown="onHandleMouseDown($event, 1)" @keydown="onHandleKeyDown($event, 1)" tabindex="0"
             role="slider" :aria-valuemin="min" aria-valuenow="value = value[1] : null" aria-valuemax="max" :aria-labelledby="ariaLabelledBy"></span>
     </div>
 </template>
@@ -47,10 +47,14 @@ export default {
     },
     dragging: false,
     handleIndex: null,
+    handleValue: null,
     initX: null,
     initY: null,
     barWidth: null,
     barHeight: null,
+    startx: null,
+    starty: null,
+    startHandleValue: null,
     dragListener: null,
     mouseupListener: null,
     beforeDestroy() {
@@ -190,6 +194,69 @@ export default {
                 default:
                 break;
             }
+        },
+        onTouchStart(event, index) {
+            if (this.disabled) {
+                return;
+            }
+
+            var touchobj = event.changedTouches[0];
+            this.startHandleValue = (this.range) ? this.value[index] : this.handlePosition;
+            this.dragging = true;
+            if (this.range && this.value && this.value[0] === this.max) {
+                this.handleIndex = 0;
+            }
+            else {
+                this.handleIndex = index;
+            }
+
+            if (this.orientation === 'horizontal') {
+                this.startx = parseInt(touchobj.clientX, 10);
+                this.barWidth = this.$el.offsetWidth;
+            }
+            else {
+                this.starty = parseInt(touchobj.clientY, 10);
+                this.barHeight = this.$el.offsetHeight;
+            }
+
+            event.preventDefault();
+        },
+        onTouchMove(event) {
+            if (this.disabled) {
+                return;
+            }
+
+            var touchobj = event.changedTouches[0];
+            this.handleValue = 0;
+
+            if (this.orientation === 'horizontal') {
+                this.handleValue = Math.floor(((parseInt(touchobj.clientX, 10) - this.startx) * 100) / (this.barWidth)) + this.startHandleValue;
+            }
+            else {
+                this.handleValue = Math.floor(((this.starty - parseInt(touchobj.clientY, 10)) * 100) / (this.barHeight))  + this.startHandleValue;
+            }
+
+            this.setValueFromHandlePosition(event, this.handleValue);
+
+            event.preventDefault();
+        },
+        onTouchEnd(event) {
+            if (this.disabled) {
+                return;
+            }
+
+            this.dragging = false;
+
+            if (this.range)
+                this.$emit('slideend', {originalEvent: event, values: this.value});
+            else
+                this.$emit('slideend', {originalEvent: event, values: this.value});
+
+            if (this.animate) {
+                DomHandler.addClass(this.$el.nativeElement.children[0], 'p-slider-animate');
+            }
+
+            event.preventDefault();
         },
         decrementValue(event, index) {
             let newValue;

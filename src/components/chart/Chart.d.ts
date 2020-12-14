@@ -1,6 +1,6 @@
 import Vue from 'vue';
 
-export declare class Chart extends Vue {
+declare class Chart extends Vue {
     type?: string;
     data?: object;
     options?: object;
@@ -11,3 +11,5 @@ export declare class Chart extends Vue {
     reinit(): void;
     generateLegend(): void | any;
 }
+
+export default Chart;

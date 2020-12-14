@@ -1,6 +1,6 @@
 import Vue, { VNode } from 'vue';
 
-export declare class SelectButton extends Vue {
+declare class SelectButton extends Vue {
     value?: any;
     options?: any[];
     optionLabel?: string;
@@ -17,3 +17,5 @@ export declare class SelectButton extends Vue {
         option: VNode[];
     }
 }
+
+export default SelectButton;

@@ -1,5 +1,7 @@
 import Vue from 'vue';
 
-export declare class Menubar extends Vue {
+declare class Menubar extends Vue {
     model?: any[];
 }
+
+export default Menubar;

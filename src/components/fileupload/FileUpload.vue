@@ -14,8 +14,8 @@
             <FileUploadMessage v-for="msg of messages" severity="error" :key="msg">{{msg}}</FileUploadMessage>
             <div class="p-fileupload-files" v-if="hasFiles">
                 <div class="p-fileupload-row" v-for="(file, index) of files" :key="file.name + file.type + file.size">
-                    <div v-if="isImage(file)">
-                        <img role="presentation" :alt="file.name" :src="file.objectURL" :width="previewWidth" />
+                    <div>
+                        <img v-if="isImage(file)" role="presentation" :alt="file.name" :src="file.objectURL" :width="previewWidth" />
                     </div>
                     <div>{{file.name}}</div>
                     <div>{{formatSize(file.size)}}</div>
@@ -118,10 +118,10 @@ export default {
         }
     },
     duplicateIEEvent: false,
-    uploadedFileCount: 0,
     data() {
         return {
-            files: null,
+            uploadedFileCount: 0,
+            files: [],
             messages: null,
             focused: false,
             progress: null
@@ -238,8 +238,8 @@ export default {
             }
         },
         clear() {
-            this.files = null;
-            this.messages = null;
+            this.files = [];
+            this.messages = [];
             this.$emit('clear');
 
             if (this.isAdvanced) {
@@ -315,6 +315,9 @@ export default {
             this.clearInputElement();
             this.files.splice(index, 1);
             this.files = [...this.files];
+            if(this.files.length <= this.fileLimit) {
+                this.messages = [];
+            }
         },
         isImage(file) {
             return /^image\//.test(file.type);
@@ -348,11 +351,7 @@ export default {
         },
         checkFileLimit() {
             if (this.isFileLimitExceeded()) {
-                this.msgs.push({
-                    severity: 'error',
-                    summary: this.invalidFileLimitMessageSummary.replace('{0}', this.fileLimit.toString()),
-                    detail: this.invalidFileLimitMessageDetail.replace('{0}', this.fileLimit.toString())
-                });
+                this.messages.push(this.invalidFileLimitMessage.replace('{0}', this.fileLimit.toString()));
             }
         }
     },

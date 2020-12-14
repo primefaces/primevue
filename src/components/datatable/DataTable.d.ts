@@ -1,6 +1,6 @@
 import Vue, { VNode } from 'vue';
 
-export declare class DataTable extends Vue {
+declare class DataTable extends Vue {
     value?: any[];
     dataKey?: string;
     rows?: number;
@@ -16,7 +16,7 @@ export declare class DataTable extends Vue {
     lazy?: boolean;
     loading?: boolean;
     loadingIcon?: string;
-    sortField?: string;
+    sortField?: string | ((item: any) => any);
     sortOrder?: number;
     defaultSortOrder?: number;
     multiSortMeta?: any[];
@@ -26,7 +26,7 @@ export declare class DataTable extends Vue {
         [s: string]: any;
     };
     filterLocale?: string;
-    selection?: any[]|any;
+    selection?: any[] | any;
     selectionMode?: string;
     compareSelectionBy?: string;
     metaKeySelection?: boolean;
@@ -43,7 +43,7 @@ export declare class DataTable extends Vue {
     expandedRowIcon?: string;
     collapsedRowIcon?: string;
     rowGroupMode?: string;
-    groupRowsBy?: string[]|string;
+    groupRowsBy?: string[] | string;
     expandableRowGroups?: boolean;
     expandedRowGroups?: any[];
     stateStorage?: string;
@@ -86,3 +86,5 @@ export declare class DataTable extends Vue {
         footer: VNode[];
     }
 }
+
+export default DataTable;

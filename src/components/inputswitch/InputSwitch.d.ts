@@ -1,6 +1,6 @@
 import Vue from 'vue';
 
-export declare class InputSwitch extends Vue {
+declare class InputSwitch extends Vue {
     value?: boolean;
     inputId?: string;
     name?: string;
@@ -12,3 +12,5 @@ export declare class InputSwitch extends Vue {
     $emit(eventName: 'focus', event: Event): this;
     $emit(eventName: 'blur', event: Event): this;
 }
+
+export default InputSwitch;

@@ -1,8 +1,10 @@
 import Vue, {VNode} from 'vue';
 
-export declare class DeferredContent extends Vue {
+declare class DeferredContent extends Vue {
     $emit(eventName: 'load'): this;
     $slots: {
         '': VNode[];
     }
 }
+
+export default DeferredContent;

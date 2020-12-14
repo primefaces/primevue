@@ -1,13 +1,13 @@
 <template>
     <div class="stepsdemo-content">
         <Card>
-            <template slot="title">
+            <template #title>
                 Payment Information
             </template>
-            <template slot="subtitle">
+            <template #subtitle>
                 Enter your card details
             </template>
-            <template slot="content">
+            <template #content>
                 <div class="p-fluid p-formgrid p-grid">
                     <div class="p-field p-col-12">
                         <label for="class">Card Holder Name</label>
@@ -31,7 +31,7 @@
                     </div>
                 </div>
             </template>
-            <template slot="footer">
+            <template #footer>
                 <div class="p-grid p-nogutter p-justify-between">
                     <Button label="Back" @click="prevPage()" icon="pi pi-angle-left" />
                     <Button label="Next" @click="nextPage()" icon="pi pi-angle-right" iconPos="right" />

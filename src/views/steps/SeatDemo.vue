@@ -1,13 +1,13 @@
 <template>
     <div class="stepsdemo-content">
         <Card>
-           <template slot="title">
+           <template #title>
                 Seat Information
             </template>
-            <template slot="subtitle">
+            <template #subtitle>
                 Choose your seat
             </template>
-            <template slot="content">
+            <template #content>
                 <div class="p-fluid p-formgrid p-grid">
                     <div class="p-field p-col-12 p-md-6">
                         <label for="class">Class</label>
@@ -23,7 +23,7 @@
                     </div>
                 </div>
             </template>
-            <template slot="footer">
+            <template #footer>
                 <div class="p-grid p-nogutter p-justify-between">
                     <Button label="Back" @click="prevPage()" icon="pi pi-angle-left" />
                     <Button label="Next" @click="nextPage()" icon="pi pi-angle-right" iconPos="right" />

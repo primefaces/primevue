@@ -1,6 +1,6 @@
 import Vue from 'vue';
 
-export declare class RadioButton extends Vue {
+declare class RadioButton extends Vue {
     value?: any;
     modelValue?: any;
     $emit(eventName: 'click', event: Event): this;
@@ -9,3 +9,5 @@ export declare class RadioButton extends Vue {
     $emit(eventName: 'focus', event: Event): this;
     $emit(eventName: 'blur', event: Event): this;
 }
+
+export default RadioButton;

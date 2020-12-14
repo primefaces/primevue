@@ -1,5 +1,7 @@
 import Vue from 'vue';
 
-export declare class PanelMenu extends Vue {
+declare class PanelMenu extends Vue {
     model?: any[];
 }
+
+export default PanelMenu;

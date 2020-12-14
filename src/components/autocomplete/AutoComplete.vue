@@ -116,6 +116,11 @@ export default {
             this.scrollHandler = null;
         }
     },
+    updated() {
+         if (this.overlayVisible) {
+             this.alignOverlay();
+         }
+    },
     methods: {
         onOverlayEnter() {
             this.$refs.overlay.style.zIndex = String(DomHandler.generateZIndex());
@@ -325,7 +330,7 @@ export default {
                             }
                         }
                         else {
-                            DomHandler.addClass(this.$refs.overlay.firstChild.firstChild, 'p-highlight');
+                            DomHandler.addClass(this.$refs.overlay.firstChild.firstElementChild, 'p-highlight');
                         }
 
                         event.preventDefault();

@@ -1,6 +1,8 @@
 import Vue from 'vue';
 
-export declare class Terminal extends Vue {
+declare class Terminal extends Vue {
     welcomeMessage?: string;
     prompt?: string;
 }
+
+export default Terminal;

@@ -1,6 +1,6 @@
 import Vue from 'vue';
 
-export declare class Menu extends Vue {
+declare class Menu extends Vue {
     popup?: boolean;
     model?: any[];
     appendTo?: string;
@@ -10,3 +10,5 @@ export declare class Menu extends Vue {
     show(event: Event, target?: any): void;
     hide(): void;
 }
+
+export default Menu;

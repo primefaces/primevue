@@ -1,6 +1,6 @@
 import Vue, { VNode } from 'vue';
 
-export declare class DataView extends Vue {
+declare class DataView extends Vue {
     value?: any[];
     layout?: string;
     rows?: number;
@@ -13,7 +13,7 @@ export declare class DataView extends Vue {
     pageLinkSize?: number;
     rowsPerPageOptions?: number[];
     currentPageReportTemplate?: string;
-    sortField?: string;
+    sortField?: string | ((item: any) => any);
     sortOrder?: number;
     lazy?: boolean;
     $emit(eventName: 'page', event: Event): this;
@@ -26,3 +26,5 @@ export declare class DataView extends Vue {
         footer: VNode[];
     }
 }
+
+export default DataView;

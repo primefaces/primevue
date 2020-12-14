@@ -1,6 +1,6 @@
 import Vue, {VNode} from 'vue';
 
-export declare class MultiSelect extends Vue {
+declare class MultiSelect extends Vue {
     value?: any;
     options?: any[];
     optionLabel?: string;
@@ -18,6 +18,7 @@ export declare class MultiSelect extends Vue {
     ariaLabelledBy?: string;
     appendTo?: string;
     emptyFilterMessage?: string;
+    display?: string;
     $emit(eventName: 'input', value: any): this;
     $emit(eventName: 'change', e: {originalEvent: Event, value: any}): this;
     $emit(eventName: 'before-show'): this;
@@ -30,3 +31,5 @@ export declare class MultiSelect extends Vue {
         option: VNode[];
     }
 }
+
+export default MultiSelect;

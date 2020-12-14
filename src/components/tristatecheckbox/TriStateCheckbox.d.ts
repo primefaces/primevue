@@ -1,6 +1,6 @@
 import Vue from 'vue';
 
-export declare class TriStateCheckbox extends Vue {
+declare class TriStateCheckbox extends Vue {
     value?: any;
     ariaLabelledBy?: string;
     $emit(eventName: 'click', event: Event): this;
@@ -9,3 +9,5 @@ export declare class TriStateCheckbox extends Vue {
     $emit(eventName: 'focus', event: Event): this;
     $emit(eventName: 'blur', event: Event): this;
 }
+
+export default TriStateCheckbox;

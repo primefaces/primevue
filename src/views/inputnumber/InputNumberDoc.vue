@@ -210,7 +210,7 @@ Vertical
                                 <td>string</td>
                                 <td>symbol</td>
                                 <td>How to display the currency in currency formatting. Possible values are "symbol" to use a localized currency symbol such as €,
-                                    ü"code" to use the ISO currency code, "name" to use a localized currency name such as "dollar"; the default is "symbol".</td>
+                                    "code" to use the ISO currency code, "name" to use a localized currency name such as "dollar"; the default is "symbol".</td>
                             </tr>
                             <tr>
                                 <td>useGrouping</td>

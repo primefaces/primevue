@@ -84,7 +84,7 @@ export default {
             default: 'single'
         },
         sortField: {
-            type: String,
+            type: [String, Function],
             default: null
         },
         sortOrder: {

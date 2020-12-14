@@ -1,9 +1,11 @@
 import Vue from 'vue';
 
-export declare class Button extends Vue {
+declare class Button extends Vue {
     label?: string;
     icon?: string;
     iconPos?: string;
     badge?: string;
     badgeClass?: string;
 }
+
+export default Button;

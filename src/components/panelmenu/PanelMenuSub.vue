@@ -62,7 +62,7 @@ export default {
                 this.activeItem = item;
         },
         getItemClass(item) {
-            return ['p-menuitem', item.className];
+            return ['p-menuitem', item.class];
         },
         getLinkClass(item) {
             return ['p-menuitem-link', {'p-disabled': item.disabled}];

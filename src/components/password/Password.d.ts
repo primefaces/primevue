@@ -1,6 +1,6 @@
 import Vue from 'vue';
 
-export declare class Password extends Vue {
+declare class Password extends Vue {
     value?: string;
     promptLabel?: string;
     mediumRegex?: string;
@@ -14,3 +14,5 @@ export declare class Password extends Vue {
     $emit(eventName: 'blur', event: Event): this;
     $emit(eventName: 'keydown', event: Event): this;
 }
+
+export default Password;

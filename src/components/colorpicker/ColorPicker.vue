@@ -134,6 +134,7 @@ export default {
             this.updateColorSelector();
             this.updateHue();
             this.updateModel();
+            this.updateInput();
         },
         updateModel() {
             switch(this.format) {

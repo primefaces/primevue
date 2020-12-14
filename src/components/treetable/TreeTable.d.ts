@@ -1,6 +1,6 @@
 import Vue, {VNode} from 'vue';
 
-export declare class TreeTable extends Vue {
+declare class TreeTable extends Vue {
     value?: any;
     expandedKeys?: any;
     selectionKeys?: any;
@@ -21,7 +21,7 @@ export declare class TreeTable extends Vue {
     loadingIcon?: string;
     rowHover?: boolean;
     autoLayout?: boolean;
-    sortField?: string;
+    sortField?: string | ((item: any) => any);
     sortOrder?: number;
     defaultSortOrder?: number;
     multiSortMeta?: any[];
@@ -51,3 +51,5 @@ export declare class TreeTable extends Vue {
         footer: VNode[];
     }
 }
+
+export default TreeTable;

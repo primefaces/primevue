@@ -1,5 +1,5 @@
 <template>
-    <transition name="p-sidebar" @enter="onEnter" @leave="onLeave">
+    <transition name="p-sidebar" @enter="onEnter" @leave="onLeave" appear>
         <div :class="containerClass" v-if="visible" ref="container" role="complementary" :aria-modal="modal">
             <div class="p-sidebar-content">
                 <button class="p-sidebar-close p-link" @click="hide" :aria-label="ariaCloseLabel" v-if="showCloseIcon" type="button" v-ripple>
