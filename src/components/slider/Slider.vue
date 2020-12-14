@@ -67,11 +67,12 @@ export default {
         setValue(event) {
             let handleValue;
             let pageX = event.touches ? event.touches[0].pageX : event.pageX;
+            let pageY = event.touches ? event.touches[0].pageY : event.pageY;
 
             if(this.orientation === 'horizontal')
                 handleValue = ((pageX - this.initX) * 100) / (this.barWidth);
             else
-                handleValue = (((this.initY + this.barHeight) - event.pageY) * 100) / (this.barHeight);
+                handleValue = (((this.initY + this.barHeight) - pageY) * 100) / (this.barHeight);
 
             let newValue = (this.max - this.min) * (handleValue / 100) + this.min;
 
