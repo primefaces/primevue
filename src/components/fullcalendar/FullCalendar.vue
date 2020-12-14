@@ -42,7 +42,7 @@ export default {
     },
     methods: {
         initialize() {
-            let defaultConfig = {theme: false};
+            let defaultConfig = {themeSystem: false};
             let config = this.options ? {...this.options, ...defaultConfig} : defaultConfig;
             this.calendar = new Calendar(this.$el, config);
             this.calendar.render();

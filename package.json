@@ -51,10 +51,10 @@
     "primeicons": "4.0.0",
     "prismjs": "^1.15.0",
     "quill": "1.3.3",
-    "@fullcalendar/core": "4.0.2",
-    "@fullcalendar/daygrid": "4.0.1",
-    "@fullcalendar/interaction": "4.0.2",
-    "@fullcalendar/timegrid": "4.0.1",
+    "@fullcalendar/core": "5.4.0",
+    "@fullcalendar/daygrid": "5.4.0",
+    "@fullcalendar/interaction": "5.4.0",
+    "@fullcalendar/timegrid": "5.4.0",
     "sass-loader": "^7.0.1",
     "node-sass": "^4.9.0"
   }

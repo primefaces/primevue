@@ -83,9 +83,6 @@ import './assets/styles/primevue.css';
 import 'primeflex/primeflex.css';
 import 'primeicons/primeicons.css';
 import 'prismjs/themes/prism-coy.css';
-import '@fullcalendar/core/main.min.css';
-import '@fullcalendar/daygrid/main.min.css';
-import '@fullcalendar/timegrid/main.min.css';
 import './assets/styles/flags.css';
 import Vuelidate from 'vuelidate';
 
