@@ -559,7 +559,12 @@ export default new Router({
 			path: '/tabview',
 			name: 'tabview',
 			component: () => import('./views/tabview/TabViewDemo.vue')
-        },
+		},
+		{
+			path: '/tag',
+			name: 'tag',
+			component: () => import('./views/tag/TagDemo.vue')
+		},
         {
 			path: '/text',
 			name: 'text',
