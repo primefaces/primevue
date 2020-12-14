@@ -247,14 +247,7 @@ export default {
 
             this.dragging = false;
 
-            if (this.range)
-                this.$emit('slideend', {originalEvent: event, values: this.value});
-            else
-                this.$emit('slideend', {originalEvent: event, values: this.value});
-
-            if (this.animate) {
-                DomHandler.addClass(this.$el.nativeElement.children[0], 'p-slider-animate');
-            }
+            this.$emit('slideend', {originalEvent: event, value: this.value});
 
             event.preventDefault();
         },
@@ -314,7 +307,7 @@ export default {
                     if (this.dragging) {
                         this.dragging = false;
                         DomHandler.removeClass(this.$el, 'p-slider-sliding');
-                        this.$emit('slideend', {originalEvent: event, values: this.value});
+                        this.$emit('slideend', {originalEvent: event, value: this.value});
                     }
                 };
 
