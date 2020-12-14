@@ -2,11 +2,11 @@
     <div :class="containerClass" @click="onBarClick" ref="container">
         <span class="p-slider-range" :style="rangeStyle"></span>
         <span v-if="!range" class="p-slider-handle" :style="handleStyle" @touchstart="onDragStart($event)" @touchmove="onDrag($event)" @touchend="onDragEnd($event)" @mousedown="onMouseDown($event)" @keydown="onKeyDown($event)" tabindex="0"
-             role="slider" :aria-valuemin="min" aria-valuenow="value" aria-valuemax="max" :aria-labelledby="ariaLabelledBy"></span>
+             role="slider" :aria-valuemin="min" :aria-valuenow="value" :aria-valuemax="max" :aria-labelledby="ariaLabelledBy"></span>
         <span v-if="range" class="p-slider-handle" :style="rangeStartHandleStyle" @touchstart="onDragStart($event, 0)" @touchmove="onDrag($event)" @touchend="onDragEnd($event)" @mousedown="onMouseDown($event, 0)" @keydown="onKeyDown($event)" tabindex="0"
-            role="slider" :aria-valuemin="min" aria-valuenow="value ? value[0] : null" aria-valuemax="max" :aria-labelledby="ariaLabelledBy"></span>
+            role="slider" :aria-valuemin="min" :aria-valuenow="value ? value[0] : null" :aria-valuemax="max" :aria-labelledby="ariaLabelledBy"></span>
         <span v-if="range" class="p-slider-handle" :style="rangeEndHandleStyle" @touchstart="onDragStart($event, 1)" @touchmove="onDrag($event)" @touchend="onDragEnd($event)" @mousedown="onMouseDown($event, 1)" @keydown="onKeyDown($event, 1)" tabindex="0"
-            role="slider" :aria-valuemin="min" aria-valuenow="value = value[1] : null" aria-valuemax="max" :aria-labelledby="ariaLabelledBy"></span>
+            role="slider" :aria-valuemin="min" :aria-valuenow="value ? value[1] : null" :aria-valuemax="max" :aria-labelledby="ariaLabelledBy"></span>
     </div>
 </template>
 
