@@ -93,7 +93,7 @@ dependencies: {
                         </tr>
                         <tr>
                             <td>FullCalendar</td>
-                            <td>FullCalendar 4.0.2+.</td>
+                            <td>FullCalendar 5.4.0+.</td>
                         </tr>
                         <tr>
                             <td>PrimeFlex</td>
