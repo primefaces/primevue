@@ -161,6 +161,27 @@
 - Button not registered in FileUpload [\#478](https://github.com/primefaces/primevue/issues/478)
 - BlockUI documentation indicates "show" event whereas the actual event is "unblock" [\#485](https://github.com/primefaces/primevue/issues/485)
 
+## [2.2.3](https://github.com/primefaces/primevue/tree/2.2.3) (2020-12-14)
+
+[Full Changelog](https://github.com/primefaces/primevue/compare/2.2.2...2.2.3)
+
+**Implemented New Features and Enhancements:**
+
+- Chip component cosmetics [\#777](https://github.com/primefaces/primevue/issues/777)
+- Update to FullCalendar 5 [\#776](https://github.com/primefaces/primevue/issues/776)
+- Close event for Message component [\#761](https://github.com/primefaces/primevue/issues/761)
+- Touch support for Slider [\#758](https://github.com/primefaces/primevue/issues/758)
+
+**Fixed bugs:**
+
+- Slider has incorrect aria-\* variable values [\#774](https://github.com/primefaces/primevue/issues/774)
+- Invalid "sortField" property type in Vue and type definition files [\#764](https://github.com/primefaces/primevue/issues/764)
+- Keyboard support problem for AutoComplete [\#763](https://github.com/primefaces/primevue/issues/763)
+- Textarea does not auto resize its height when created [\#762](https://github.com/primefaces/primevue/issues/762)
+- Calendar navigation \(next, prev month\) inside DataTable or OverlayPanel not working [\#759](https://github.com/primefaces/primevue/issues/759)
+- Primevue 2 dismissableMask=true not working when clicking outside the modal [\#741](https://github.com/primefaces/primevue/issues/741)
+- FileUpload with fileLimit problem [\#677](https://github.com/primefaces/primevue/issues/677)
+
 ## [2.2.2](https://github.com/primefaces/primevue/tree/2.2.2) (2020-11-30)
 
 [Full Changelog](https://github.com/primefaces/primevue/compare/2.2.1...2.2.2)
