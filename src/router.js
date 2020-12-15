@@ -387,6 +387,11 @@ export default new Router({
 			component: () => import('./views/inputnumber/InputNumberDemo.vue')
 		},
 		{
+			path: '/scrolltop',
+			name: 'scrolltop',
+			component: () => import('./views/scrolltop/ScrollTopDemo.vue')
+		},
+		{
 			path: '/skeleton',
 			name: 'skeleton',
 			component: () => import('./views/skeleton/SkeletonDemo.vue')
