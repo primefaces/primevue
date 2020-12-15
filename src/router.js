@@ -310,7 +310,12 @@ export default new Router({
 			path: '/display',
 			name: 'display',
 			component: () => import('./views/display/DisplayDemo.vue')
-        },
+		},
+		{
+			path: '/divider',
+			name: 'divider',
+			component: () => import('./views/divider/DividerDemo.vue')
+		},
 		{
 			path: '/dropdown',
 			name: 'dropdown',
