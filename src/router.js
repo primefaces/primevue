@@ -20,7 +20,12 @@ export default new Router({
 			path: '/accessibility',
 			name: 'accessibility',
 			component: () => import('./views/accessibility/AccessibilityDemo.vue')
-        },
+		},
+		{
+			path: '/avatar',
+			name: 'avatar',
+			component: () => import('./views/avatar/AvatarDemo.vue')
+		},
 		{
 			path: '/support',
 			name: 'support',

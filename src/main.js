@@ -4,6 +4,8 @@ import router from './router';
 import AutoComplete from './components/autocomplete/AutoComplete';
 import Accordion from './components/accordion/Accordion';
 import AccordionTab from './components/accordiontab/AccordionTab';
+import Avatar from './components/avatar/Avatar';
+import AvatarGroup from './components/avatargroup/AvatarGroup';
 import Badge from './components/badge/Badge';
 import BadgeDirective from './components/badge/BadgeDirective';
 import BlockUI from './components/blockui/BlockUI';
@@ -104,6 +106,8 @@ Vue.config.productionTip = false;
 
 Vue.component('Accordion', Accordion);
 Vue.component('AccordionTab', AccordionTab);
+Vue.component('Avatar', Avatar);
+Vue.component('AvatarGroup', AvatarGroup);
 Vue.component('AutoComplete', AutoComplete);
 Vue.component('Badge', Badge);
 Vue.component('BlockUI', BlockUI);
