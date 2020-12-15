@@ -45,6 +45,7 @@
             <div class="menu-items">
                 <router-link to="/autocomplete">AutoComplete</router-link>
                 <router-link to="/calendar">Calendar</router-link>
+                <router-link to="/cascadeselect">CascadeSelect <Tag value="New"></Tag></router-link>
                 <router-link to="/checkbox">Checkbox</router-link>
                 <router-link to="/chips">Chips</router-link>
                 <router-link to="/colorpicker">ColorPicker</router-link>
