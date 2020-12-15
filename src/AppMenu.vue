@@ -248,7 +248,7 @@
             <div class="menu-category">Misc</div>
             <div class="menu-items">
                 <router-link to="/accessibility">Accessibility</router-link>
-                <router-link to="/badge">Badge</router-link>
+                <router-link to="/badge">Badge <Tag value="New"></Tag></router-link>
                 <router-link to="/chip">Chip <Tag value="New"></Tag></router-link>
                 <router-link to="/blockui">BlockUI</router-link>
                 <router-link to="/inplace">Inplace</router-link>

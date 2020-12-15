@@ -10,53 +10,25 @@
         <div class="content-section implementation">
             <div class="card">
                 <h5>Numbers</h5>
-                <div class="badges">
-                    <span class="p-badge">2</span>
-                    <span class="p-badge p-badge-success">8</span>
-                    <span class="p-badge p-badge-info">4</span>
-                    <span class="p-badge p-badge-warning">12</span>
-                    <span class="p-badge p-badge-danger">3</span>
-                </div>
+                <Badge value="2" class="p-mr-2"></Badge>
+                <Badge value="8" severity="success" class="p-mr-2"></Badge>
+                <Badge value="4" severity="info" class="p-mr-2"></Badge>
+                <Badge value="12" severity="warning" class="p-mr-2"></Badge>
+                <Badge value="3" severity="danger"></Badge>
 
-                <h5>Tags</h5>
-                <div class="badges">
-                    <span class="p-tag">Primary</span>
-                    <span class="p-tag p-tag-success">Success</span>
-                    <span class="p-tag p-tag-info">Info</span>
-                    <span class="p-tag p-tag-warning">Warning</span>
-                    <span class="p-tag p-tag-danger">Danger</span>
-                </div>
+                <h5 class="p-mb-4">Positioned Badge</h5>
+                <i class="pi pi-bell p-mr-4 p-text-secondary" style="font-size: 2rem" v-badge="2"></i>
+                <i class="pi pi-calendar p-mr-4 p-text-secondary" style="font-size: 2rem" v-badge.danger="'10+'"></i>
+                <i class="pi pi-envelope p-text-secondary" style="font-size: 2rem" v-badge.danger></i>
 
-                <h5>Pills</h5>
-                <div class="badges">
-                    <span class="p-tag p-tag-rounded">Primary</span>
-                    <span class="p-tag p-tag-rounded p-tag-success">Success</span>
-                    <span class="p-tag p-tag-rounded p-tag-info">Info</span>
-                    <span class="p-tag p-tag-rounded p-tag-warning">Warning</span>
-                    <span class="p-tag p-tag-rounded p-tag-danger">Danger</span>
-                </div>
-
-                <h5>Positioned Badge</h5>
-                <span class="p-overlay-badge p-mr-5">
-                    <i class="pi pi-bell" style="font-size: 2em"></i>
-                    <span class="p-badge">2</span>
-                </span>
-
-                <span class="p-overlay-badge">
-                    <Button type="button" label="New" />
-                    <span class="p-badge p-badge-warning">5</span>
-                </span>
-
-                <h5>Inline Button Badge</h5>
-                <Button type="button" label="Emails" badge="8" class="p-mr-2" />
+                <h5>Button Badge</h5>
+                <Button type="button" label="Emails" badge="8" class="p-mr-2" badgeClass="p-badge-success"/>
                 <Button type="button" label="Messages" icon="pi pi-users" class="p-button-warning" badge="8" badgeClass="p-badge-danger" />
 
                 <h5>Sizes</h5>
-                <div class="badges">
-                    <span class="p-badge">2</span>
-                    <span class="p-badge p-badge-lg p-badge-sucess">4</span>
-                    <span class="p-badge p-badge-xl p-badge-warning">6</span>
-                </div>
+                <Badge value="2" class="p-mr-2"></Badge>
+                <Badge value="4" class="p-mr-2" size="large" severity="warning"></Badge>
+                <Badge value="6" size="xlarge" severity="success"></Badge>
             </div>
         </div>
 
@@ -78,11 +50,3 @@ export default {
 	}
 }
 </script>
-
-<style lang="scss" scoped>
-.badges {
-    .p-badge, .p-tag {
-        margin-right: .5rem;
-    }
-}
-</style>

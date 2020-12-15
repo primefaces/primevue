@@ -3,7 +3,7 @@
         <slot>
             <span v-if="icon" :class="iconClass"></span>
             <span class="p-button-label">{{label||'&nbsp;'}}</span>
-            <span class="p-badge" v-if="badge" :class="badgeClass">{{badge}}</span>
+            <span class="p-badge" v-if="badge" :class="badgeStyleClass">{{badge}}</span>
         </slot>
     </button>
 </template>
@@ -51,6 +51,12 @@ export default {
                     'p-button-icon-bottom': this.iconPos === 'bottom' && this.label
                 }
             ]
+        },
+        badgeStyleClass() {
+            return [
+                'p-badge p-component', this.badgeClass, {
+                    'p-badge-no-gutter': this.badge && String(this.badge).length === 1
+            }]
         }
     },
     directives: {

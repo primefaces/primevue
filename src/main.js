@@ -4,6 +4,8 @@ import router from './router';
 import AutoComplete from './components/autocomplete/AutoComplete';
 import Accordion from './components/accordion/Accordion';
 import AccordionTab from './components/accordiontab/AccordionTab';
+import Badge from './components/badge/Badge';
+import BadgeDirective from './components/badge/BadgeDirective';
 import BlockUI from './components/blockui/BlockUI';
 import Breadcrumb from './components/breadcrumb/Breadcrumb';
 import Button from './components/button/Button';
@@ -90,6 +92,8 @@ import Vuelidate from 'vuelidate';
 
 Vue.use(Vuelidate);
 Vue.use(ToastService);
+
+Vue.directive('badge', BadgeDirective);
 Vue.directive('tooltip', Tooltip);
 Vue.directive('ripple', Ripple);
 
@@ -101,6 +105,7 @@ Vue.config.productionTip = false;
 Vue.component('Accordion', Accordion);
 Vue.component('AccordionTab', AccordionTab);
 Vue.component('AutoComplete', AutoComplete);
+Vue.component('Badge', Badge);
 Vue.component('BlockUI', BlockUI);
 Vue.component('Breadcrumb', Breadcrumb);
 Vue.component('Button', Button);
