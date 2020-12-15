@@ -387,6 +387,11 @@ export default new Router({
 			component: () => import('./views/inputnumber/InputNumberDemo.vue')
 		},
 		{
+			path: '/skeleton',
+			name: 'skeleton',
+			component: () => import('./views/skeleton/SkeletonDemo.vue')
+		},
+		{
 			path: '/knob',
 			name: 'knob',
 			component: () => import('./views/knob/KnobDemo.vue')
