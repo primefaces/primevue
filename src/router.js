@@ -382,6 +382,11 @@ export default new Router({
 			component: () => import('./views/inputnumber/InputNumberDemo.vue')
 		},
 		{
+			path: '/knob',
+			name: 'knob',
+			component: () => import('./views/knob/KnobDemo.vue')
+		},
+		{
 			path: '/listbox',
 			name: 'listbox',
 			component: () => import('./views/listbox/ListboxDemo.vue')
