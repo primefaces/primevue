@@ -179,6 +179,7 @@
 
             <div class="menu-category">Overlay</div>
             <div class="menu-items">
+                <router-link to="/confirmdialog">ConfirmDialog <Tag value="New"></Tag></router-link>
                 <router-link to="/dialog">Dialog</router-link>
                 <router-link to="/overlaypanel">OverlayPanel</router-link>
                 <router-link to="/sidebar">Sidebar</router-link>

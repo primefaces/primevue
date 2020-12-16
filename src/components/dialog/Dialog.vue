@@ -439,4 +439,9 @@ export default {
     justify-content: flex-end;
     align-items: flex-end;
 }
+
+.p-confirm-dialog .p-dialog-content {
+    display: flex;
+    align-items: center;
+}
 </style>

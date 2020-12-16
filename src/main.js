@@ -22,6 +22,8 @@ import Chips from './components/chips/Chips';
 import ColorPicker from './components/colorpicker/ColorPicker';
 import Column from './components/column/Column';
 import ColumnGroup from './components/columngroup/ColumnGroup';
+import ConfirmDialog from './components/confirmdialog/ConfirmDialog';
+import ConfirmationService from './components/confirmation/ConfirmationService';
 import ContextMenu from './components/contextmenu/ContextMenu';
 import DataTable from './components/datatable/DataTable';
 import DataView from './components/dataview/DataView';
@@ -99,6 +101,7 @@ import Vuelidate from 'vuelidate';
 
 Vue.use(Vuelidate);
 Vue.use(ToastService);
+Vue.use(ConfirmationService);
 
 Vue.directive('badge', BadgeDirective);
 Vue.directive('tooltip', Tooltip);
@@ -129,6 +132,7 @@ Vue.component('Chips', Chips);
 Vue.component('ColorPicker', ColorPicker);
 Vue.component('Column', Column);
 Vue.component('ColumnGroup', ColumnGroup);
+Vue.component('ConfirmDialog', ConfirmDialog);
 Vue.component('ContextMenu', ContextMenu);
 Vue.component('DataTable', DataTable);
 Vue.component('DataView', DataView);

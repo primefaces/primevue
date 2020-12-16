@@ -47,6 +47,7 @@
     "gulp-rename": "^1.2.2",
     "gulp-uglify": "^1.5.3",
     "gulp-uglifycss": "^1.0.6",
+    "mitt": "^2.1.0",
     "primeflex": "2.0.0",
     "primeicons": "4.0.0",
     "prismjs": "^1.15.0",
