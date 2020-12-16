@@ -156,6 +156,11 @@ export default new Router({
 			name: 'confirmdialog',
 			component: () => import('./views/confirmdialog/ConfirmDialogDemo.vue')
 		},
+		{
+			path: '/confirmpopup',
+			name: 'confirmpopup',
+			component: () => import('./views/confirmpopup/ConfirmPopupDemo.vue')
+		},
         {
 			path: '/contextmenu',
 			name: 'contextmenu',
