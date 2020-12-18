@@ -1,5 +1,6 @@
 <template>
-    <div :class="buttonClass" @click="onClick($event)" role="checkbox" :aria-labelledby="ariaLabelledBy" :aria-checked="value" :tabindex="$attrs.disabled ? null : '0'" v-ripple>
+<div :class="[buttonClass,value?onClass:offClass]" @click="onClick($event)" role="checkbox"
+     :aria-labelledby="ariaLabelledBy" :aria-checked="value" :tabindex="$attrs.disabled ? null : '0'" v-ripple>
         <span v-if="hasIcon" :class="iconClass"></span>
         <span class="p-button-label">{{label}}</span>
     </div>
@@ -19,6 +20,15 @@ export default {
             type: String,
             default: 'left'
         },
+	offClass: {
+	    type: String,
+	    default: "p-togglebutton"
+	},
+	onClass: {
+	    type: String,
+	    default: "p-togglebutton p-highlight"
+	},
+	
         ariaLabelledBy: String
     },
     methods: {
@@ -33,10 +43,9 @@ export default {
     computed: {
         buttonClass() {
             return {
-                'p-button p-togglebutton p-component': true,
+                'p-button p-component': true,
                 'p-button-icon-only': this.hasIcon && !this.hasLabel,
                 'p-disabled': this.$attrs.disabled,
-                'p-highlight': this.value === true
             }
         },
         iconClass() {
@@ -50,10 +59,16 @@ export default {
             ]
         },
         hasLabel() {
-            return this.onLabel && this.onLabel.length > 0 && this.offLabel && this.offLabel.length > 0;
+	    return (
+		(this.value && this.onLabel && this.onLabel.length > 0) ||
+		    (!this.value && this.offLabel && this.offLabel.length > 0)
+	    );
         },
         hasIcon() {
-            return this.onIcon && this.onIcon.length > 0 && this.offIcon && this.offIcon.length > 0;
+	    return (
+		(this.value && this.onIcon && this.onIcon.length > 0) ||
+		    (!this.value && this.offIcon && this.offIcon.length > 0)
+	    );
         },
         label() {
             return this.hasLabel ? (this.value ? this.onLabel : this.offLabel): '&nbsp;';
