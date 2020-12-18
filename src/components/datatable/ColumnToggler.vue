@@ -1,26 +1,21 @@
 <template>
-    <div>
-        <div :style="d_position" class="p-datatable-toggler">
-            <i
-                v-if="!panelProps.visible"
-                class="pi pi-plus p-toggler-icon"
-                @click="show($event)"
-            ></i>
-            <i
-                v-if="panelProps.visible"
-                class="pi pi-minus p-toggler-icon"
-                @click="hide()"
-            ></i>
-        </div>
+    <div ref="toggler" :style="buttonPosition" class="p-datatable-toggler">
+        <i
+            v-if="!panelProps.visible"
+            class="pi pi-plus p-toggler-icon"
+            @click="show($event)"
+        ></i>
+        <i
+            v-if="panelProps.visible"
+            class="pi pi-minus p-toggler-icon"
+            @click="hide()"
+        ></i>
         <div
             ref="togglePanel"
             tabindex="0"
             v-if="panelProps.visible"
             class="p-toggler-panel"
-            :style="{
-                top: '0px',
-                left: '0px'
-            }"
+            :style="panelPosition"
         >
             <div v-for="(column, index) in columns" :key="index">
                 <div class="p-field-checkbox">
@@ -59,35 +54,32 @@ export default {
         };
     },
     computed: {
-        d_position() {
-            return typeof this.position === "object"
-                ? this.position
-                : { top: "-1rem", left: "-1rem" };
+        buttonPosition() {
+            const position = { top: "-1rem", left: "-1rem" };
+            if (typeof this.position === "object")
+                Object.assign(position, this.position);
+            if ("right" in position) delete position.left;
+            if ("bottom" in position) delete position.top;
+            return position;
+        },
+        panelPosition() {
+            const pos = { ...this.buttonPosition };
+            const rect = this.$refs.toggler.getBoundingClientRect();
+
+            if ("top" in pos) pos.top = "0px";
+            if ("bottom" in pos) pos.bottom = "0px";
+            if ("left" in pos) pos.left = rect.width + 4 + "px";
+            if ("right" in pos) pos.right = rect.width + 4 + "px";
+            return pos;
         }
     },
     methods: {
-        show(event) {
-            console.log(this.panelProps.visible);
-            const rect = event.target.getBoundingClientRect();
-            console.log(rect);
-            this.panelProps.left = rect.left + rect.width + 4;
-            this.panelProps.top = rect.top;
+        show() {
             this.panelProps.visible = true;
             document.addEventListener("mouseup", this.hideOnMouseClickOutSide);
-            // this.addScrollListener(this.$refs.toggleButton);
-
-            /*setTimeout(() => {
-                this.panelProps.left -= this.$refs.togglePanel.offsetWidth + 6;
-                this.$refs.togglePanel.focus();
-                this.panelProps.opacity = 1;
-                document.addEventListener('mouseup', this.hideOnMouseClickOutSide);
-            }, 0);*/
         },
         hide() {
-            console.log(this.panelProps.visible);
             this.panelProps.visible = false;
-            // this.menuProps.opacity = 0;
-            // this.removeScrollListener(this.$refs.toggleButton);
             document.removeEventListener(
                 "mouseup",
                 this.hideOnMouseClickOutSide
@@ -105,9 +97,6 @@ export default {
         columns() {
             console.log(this.columns);
         }
-    },
-    created() {
-        console.log(this.columns);
     },
     components: {
         Checkbox: Checkbox
