@@ -28,6 +28,7 @@ declare class Column extends Vue {
     reorderableColumn?: boolean;
     rowEditor?: boolean;
     frozen?: boolean;
+    hidden?: boolean;
 }
 
 export default Column;

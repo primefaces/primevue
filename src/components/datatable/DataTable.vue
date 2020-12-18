@@ -7,6 +7,7 @@
         <div class="p-datatable-header" v-if="$slots.header">
             <slot name="header"></slot>
         </div>
+        <DTColumnToggler v-if="showToggler" :model-value="toggledColumns" @update:model-value="toggledColumns = $event" :columns="columns" :position="showToggler"/>
         <DTPaginator v-if="paginatorTop" :rows="d_rows" :first="d_first" :totalRecords="totalRecordsLength" :pageLinkSize="pageLinkSize" :template="paginatorTemplate" :rowsPerPageOptions="rowsPerPageOptions"
                 :currentPageReportTemplate="currentPageReportTemplate" class="p-paginator-top" @page="onPage($event)" :alwaysShow="alwaysShowPaginator">
             <template #left v-if="$slots.paginatorLeft">
@@ -138,6 +139,7 @@ import ScrollableView from './ScrollableView.vue';
 import TableHeader from './TableHeader.vue';
 import TableBody from './TableBody.vue';
 import TableFooter from './TableFooter.vue';
+import ColumnToggler from './ColumnToggler.vue';
 
 export default {
     emits: ['update:first', 'update:rows', 'page', 'update:sortField', 'update:sortOrder', 'update:multiSortMeta', 'sort', 'filter', 'row-click',
@@ -365,6 +367,10 @@ export default {
         virtualScrollDelay: {
             type: Number,
             default: 150
+        },
+        showToggler: {
+            type: [Boolean, Object],
+            default: false
         }
     },
     data() {
@@ -377,7 +383,8 @@ export default {
             d_selectionKeys: null,
             d_expandedRowKeys: null,
             d_columnOrder: null,
-            d_editingRowKeys: null
+            d_editingRowKeys: null,
+			toggledColumns: []
         };
     },
     rowTouched: false,
@@ -441,6 +448,9 @@ export default {
             this.columns.forEach(col => columnOrder.push(col.props?.columnKey||col.props?.field));
             this.d_columnOrder = columnOrder;
         }
+		let columns = this.getColumns();
+		if(!columns) return;
+		this.toggledColumns = columns.map(col => col.props?.columnKey||col.props?.field);
     },
     beforeUnmount() {
         this.unbindColumnResizeEvents();
@@ -1647,6 +1657,22 @@ export default {
         },
         getChildren() {
             return this.$slots.default ? this.$slots.default() : null;
+        },
+		getColumns() {
+			let cols = [];
+            let children = this.getChildren();
+
+            if (!children) {
+                return null;
+            }
+
+            children.forEach(child => {
+                if (child.dynamicChildren)
+                    cols = [...cols, ...child.children];
+                else if (child.type.name === 'column')
+                    cols.push(child);
+            });
+            return cols;
         }
     },
     computed: {
@@ -1664,19 +1690,9 @@ export default {
             ];
         },
         columns() {
-            let cols = [];
-            let children = this.getChildren();
-
-            if (!children) {
-                return;
-            }
-
-            children.forEach(child => {
-                if (child.dynamicChildren)
-                    cols = [...cols, ...child.children];
-                else if (child.type.name === 'column')
-                    cols.push(child);
-            });
+            let cols = this.getColumns();
+			if(!cols) return null;
+			cols = cols.filter(col => this.toggledColumns.includes(col.props?.columnKey || col.props?.field));
 
             if (this.reorderableColumns && this.d_columnOrder) {
                 let orderedColumns = [];
@@ -1840,6 +1856,7 @@ export default {
         'DTTableHeader': TableHeader,
         'DTTableBody': TableBody,
         'DTTableFooter': TableFooter,
+        'DTColumnToggler': ColumnToggler
     }
 }
 </script>

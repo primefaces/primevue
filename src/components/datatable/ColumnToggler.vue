@@ -12,20 +12,20 @@
         ></i>
         <div
             ref="togglePanel"
-            tabindex="0"
             v-if="visible"
             class="p-toggler-panel"
             :style="panelPosition"
         >
-            <div v-for="(column, index) in columns" :key="index">
+            <div
+                v-for="(col, index) in d_columns.filter(col => col.props.header)" :key="index">
                 <div class="p-field-checkbox">
                     <Checkbox
-                        :id="'chkBx' + column.props.field + index"
-                        :value="column.props.header"
-                        v-model="checkedColumns"
+                        :id="col.props.columnKey || col.props.field"
+                        :value="col.props.columnKey || col.props.field"
+                        v-model="toggledColumns"
                     />
-                    <label label :for="'chkBx' + column.props.field + index">
-                        {{ column.props.header }}
+                    <label :for="col.props.columnKey || col.props.field">
+                        {{ col.props.header }}
                     </label>
                 </div>
             </div>
@@ -38,6 +38,9 @@ import Checkbox from "../checkbox/Checkbox.vue";
 
 export default {
     props: {
+        modelValue: {
+            type: Array
+        },
         position: {
             type: [Boolean, Object],
             default: null
@@ -49,8 +52,9 @@ export default {
     },
     data() {
         return {
+            d_columns: [],
             visible: false,
-            checkedColumns: []
+            toggledColumns: []
         };
     },
     computed: {
@@ -81,10 +85,7 @@ export default {
         },
         hide() {
             this.visible = false;
-            document.removeEventListener(
-                "mouseup",
-                this.hideOnMouseClickOutSide
-            );
+            document.removeEventListener("mouseup", this.hideOnMouseClickOutSide);
         },
         hideOnMouseClickOutSide(e) {
             let el = e.target;
@@ -95,8 +96,18 @@ export default {
         }
     },
     watch: {
+        toggledColumns() {
+            this.$emit("update:modelValue", this.toggledColumns);
+        },
+        modelValue() {
+            this.toggledColumns = this.modelValue;
+        },
         columns() {
-            console.log(this.columns);
+            if (this.d_columns.length !== 0) return;
+            this.d_columns = this.columns;
+            this.toggledColumns = this.d_columns
+                .filter(col => !("hidden" in col.props))
+                .map(col => col.props?.columnKey || col.props?.field);
         }
     },
     components: {
@@ -105,7 +116,7 @@ export default {
 };
 </script>
 
-<style lang="scss">
+<style>
 .p-datatable-toggler {
     position: absolute;
     z-index: 996;

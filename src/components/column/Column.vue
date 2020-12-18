@@ -1,6 +1,6 @@
 <script>
 export default {
-    name: 'column',
+    name: "column",
     props: {
         columnKey: {
             type: null,
@@ -64,7 +64,7 @@ export default {
         },
         filterMatchMode: {
             type: String,
-            default: 'startsWith'
+            default: "startsWith"
         },
         filterFunction: {
             type: Function,
@@ -96,7 +96,7 @@ export default {
         },
         rowReorderIcon: {
             type: String,
-            default: 'pi pi-bars'
+            default: "pi pi-bars"
         },
         reorderableColumn: {
             type: Boolean,
@@ -109,10 +109,14 @@ export default {
         frozen: {
             type: Boolean,
             default: false
+        },
+        hidden: {
+            type: Boolean,
+            default: false
         }
     },
     render() {
         return null;
     }
-}
+};
 </script>

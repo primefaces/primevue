@@ -21,6 +21,24 @@
                 </DataTable>
             </div>
 		</div>
+		
+		<div class="content-section introduction">
+            <div class="feature-intro">
+                <h1>DataTable <span>Column Toggle</span></h1>
+                <p>
+                    Or use Column Toggler Button.
+                </p>
+            </div>
+        </div>
+
+        <div class="content-section implementation">
+            <div class="card">
+                <DataTable :value="products" showToggler>
+                    <Column field="code" header="Code" hidden />
+                    <Column v-for="(col, index) of selectedColumns" :field="col.field" :header="col.header" :key="col.field + '_' + index"></Column>
+                </DataTable>
+            </div>
+        </div>
 
         <div class="content-section documentation">
             <TabView>
@@ -36,6 +54,15 @@
     &lt;/template&gt;
     &lt;Column field="code" header="Code" /&gt;
     &lt;Column v-for="(col, index) of selectedColumns" :field="col.field" :header="col.header" :key="col.field + '_' + index"&gt;&lt;/Column&gt;
+&lt;/DataTable&gt;
+</template>
+</code></pre>
+
+<pre v-code>
+<code><template v-pre>
+&lt;DataTable :value="products" showToggler&gt;
+	&lt;Column field="code" header="Code" hidden /&gt;
+	&lt;Column v-for="(col, index) of selectedColumns" :field="col.field" :header="col.header" :key="col.field + '_' + index"&gt;&lt;/Column&gt;
 &lt;/DataTable&gt;
 </template>
 </code></pre>
