@@ -1,19 +1,19 @@
 <template>
     <div ref="toggler" :style="buttonPosition" class="p-datatable-toggler">
         <i
-            v-if="!panelProps.visible"
+            v-if="!visible"
             class="pi pi-plus p-toggler-icon"
             @click="show($event)"
         ></i>
         <i
-            v-if="panelProps.visible"
+            v-if="visible"
             class="pi pi-minus p-toggler-icon"
             @click="hide()"
         ></i>
         <div
             ref="togglePanel"
             tabindex="0"
-            v-if="panelProps.visible"
+            v-if="visible"
             class="p-toggler-panel"
             :style="panelPosition"
         >
@@ -49,18 +49,19 @@ export default {
     },
     data() {
         return {
-            panelProps: {},
+            visible: false,
             checkedColumns: []
         };
     },
     computed: {
         buttonPosition() {
-            const position = { top: "-1rem", left: "-1rem" };
+            const pos = { top: "-1rem", left: "-1rem" };
+
             if (typeof this.position === "object")
-                Object.assign(position, this.position);
-            if ("right" in position) delete position.left;
-            if ("bottom" in position) delete position.top;
-            return position;
+                Object.assign(pos, this.position);
+            if ("right" in pos) delete pos.left;
+            if ("bottom" in pos) delete pos.top;
+            return pos;
         },
         panelPosition() {
             const pos = { ...this.buttonPosition };
@@ -75,11 +76,11 @@ export default {
     },
     methods: {
         show() {
-            this.panelProps.visible = true;
+            this.visible = true;
             document.addEventListener("mouseup", this.hideOnMouseClickOutSide);
         },
         hide() {
-            this.panelProps.visible = false;
+            this.visible = false;
             document.removeEventListener(
                 "mouseup",
                 this.hideOnMouseClickOutSide
