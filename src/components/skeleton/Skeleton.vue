@@ -65,7 +65,7 @@ export default {
     z-index: 1;
 }
 
-.p-skeleton-circle {
+.p-skeleton.p-skeleton-circle {
     border-radius: 50%;
 }
 
