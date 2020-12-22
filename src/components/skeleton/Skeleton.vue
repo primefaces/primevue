@@ -63,7 +63,7 @@ export default {
     transform: translateX(-100%);
     z-index: 1;
 }
-.p-skeleton-circle {
+.p-skeleton.p-skeleton-circle {
     border-radius: 50%;
 }
 .p-skeleton-none::after {

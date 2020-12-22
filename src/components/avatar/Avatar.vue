@@ -60,7 +60,7 @@ export default {
 .p-avatar.p-avatar-image {
     background-color: transparent;
 }
-.p-avatar-circle {
+.p-avatar.p-avatar-circle {
     border-radius: 50%;
 }
 .p-avatar .p-avatar-icon {
