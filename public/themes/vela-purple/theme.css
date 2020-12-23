@@ -4506,20 +4506,18 @@
 .p-chip .p-chip-icon {
   margin-right: 0.5rem;
 }
-.p-chip .pi-chip-remove-icon {
-  margin-left: 0.5rem;
-}
 .p-chip img {
   width: 2rem;
   height: 2rem;
   margin-left: -0.5rem;
   margin-right: 0.5rem;
 }
-.p-chip .pi-chip-remove-icon {
+.p-chip .p-chip-remove-icon {
+  margin-left: 0.5rem;
   border-radius: 3px;
   transition: background-color 0.2s, color 0.2s, box-shadow 0.2s;
 }
-.p-chip .pi-chip-remove-icon:focus {
+.p-chip .p-chip-remove-icon:focus {
   outline: 0 none;
   outline-offset: 0;
   box-shadow: 0 0 0 1px #cf95d9;

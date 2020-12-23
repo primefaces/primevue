@@ -4530,20 +4530,18 @@
 .p-chip .p-chip-icon {
   margin-right: 0.5rem;
 }
-.p-chip .pi-chip-remove-icon {
-  margin-left: 0.5rem;
-}
 .p-chip img {
   width: 2.25rem;
   height: 2.25rem;
   margin-left: -0.75rem;
   margin-right: 0.5rem;
 }
-.p-chip .pi-chip-remove-icon {
+.p-chip .p-chip-remove-icon {
+  margin-left: 0.5rem;
   border-radius: 4px;
   transition: background-color 0.2s, color 0.2s, box-shadow 0.2s;
 }
-.p-chip .pi-chip-remove-icon:focus {
+.p-chip .p-chip-remove-icon:focus {
   outline: 0 none;
   outline-offset: 0;
   box-shadow: none;
