@@ -16,7 +16,7 @@
             <div ref="overlay" class="p-cascadeselect-panel p-component" v-if="overlayVisible">
                 <div class="p-cascadeselect-items-wrapper">
                     <CascadeSelectSub :options="options" :selectionPath="selectionPath" class="p-cascadeselect-items"
-                        :optionLabel="optionLabel" :optionValue="optionValue" :level="0" :templates="$slots"
+                        :optionLabel="optionLabel" :optionValue="optionValue" :level="0" :templates="$scopedSlots"
                         :optionGroupLabel="optionGroupLabel" :optionGroupChildren="optionGroupChildren"
                         @option-select="onOptionSelect" @optiongroup-select="onOptionGroupSelect" :dirty="dirty" :root="true" />
                 </div>

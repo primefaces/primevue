@@ -18,7 +18,7 @@ import CascadeSelect from 'primevue/cascadeselect';
 </CodeHighlight>
 
 <CodeHighlight lang="javascript">
-data() {
+exports default {
 	data() &#123;
         return &#123;
             selectedCity: null,
@@ -136,7 +136,7 @@ data() {
 						</thead>
 						<tbody>
                             <tr>
-                                <td>modelValue</td>
+                                <td>value</td>
                                 <td>any</td>
                                 <td>null</td>
                                 <td>Value of the component.</td>

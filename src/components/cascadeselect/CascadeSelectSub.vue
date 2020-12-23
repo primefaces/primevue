@@ -3,9 +3,10 @@
         <template v-for="(option,i) of options">
             <li :class="getItemClass(option)" role="none" :key="getOptionLabelToRender(option)">
                 <div class="p-cascadeselect-item-content" @click="onOptionClick($event, option)" tabindex="0" @keydown="onKeyDown($event, option, i)" v-ripple>
-                    <slot name="option" :option="option">
+                    <CascadeSelectOptionTemplate v-if="templates['option']" :option="option" :template="templates['option']" />
+                    <template v-else>
                         <span class="p-cascadeselect-item-text">{{getOptionLabelToRender(option)}}</span>
-                    </slot>
+                    </template>
                     <span class="p-cascadeselect-group-icon pi pi-angle-right" v-if="isOptionGroup(option)"></span>
                 </div>
                 <cascadeselect-sub v-if="isOptionGroup(option) && isOptionActive(option)" class="p-cascadeselect-sublist" :selectionPath="selectionPath" :options="getOptionGroupChildren(option)"
@@ -20,6 +21,27 @@
 import ObjectUtils from '../utils/ObjectUtils';
 import DomHandler from '../utils/DomHandler';
 import Ripple from '../ripple/Ripple';
+
+const CascadeSelectOptionTemplate = {
+    functional: true,
+    props: {
+        option: {
+            type: null,
+            default: null
+        },
+        template: {
+            type: null,
+            default: null
+        }
+    },
+    render(createElement, context) {
+        const content = context.props.template({
+            'option': context.props.option
+        });
+
+        return [content];
+    }
+};
 
 export default {
     name: 'cascadeselect-sub',
@@ -160,6 +182,9 @@ export default {
     },
     directives: {
         'ripple': Ripple
+    },
+    components: {
+        CascadeSelectOptionTemplate
     }
 }
 </script>
