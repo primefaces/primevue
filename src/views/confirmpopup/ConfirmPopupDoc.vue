@@ -31,20 +31,22 @@ import ConfirmPopup from 'primevue/confirmpopup';
 </code></pre>
 
 				<h5>Getting Started</h5>
-				<p>ConfirmPopup is displayed by calling the <i>require</i> method of the <i>$confirm</i> instance by passing the options to customize the Popup.</p>
+				<p>ConfirmPopup is displayed by calling the <i>require</i> method of the <i>$confirm</i> instance by passing the options to customize the Popup.
+                <i>target</i> attribute is mandatory to align the popup to its caller.</p>
 <pre v-code>
 <code>
 &lt;ConfirmPopup&gt;&lt;/ConfirmPopup&gt;
 
-&lt;Button @click="delete()" icon="pi pi-check" label="Confirm"&gt;&lt;/Button&gt;
+&lt;Button @click="delete($event)" icon="pi pi-check" label="Confirm"&gt;&lt;/Button&gt;
 </code></pre>
 
 <pre v-code.script>
 <code>
 export default {
 	methods: {
-        delete() {
+        delete(event) {
             this.$confirm.require({
+                target: event.currentTarget,
                 message: 'Are you sure you want to proceed?',
                 icon: 'pi pi-exclamation-triangle',
                 accept: () => {
@@ -70,16 +72,21 @@ import { useConfirm } from "primevue/useconfirm";
 export default defineComponent({
     setup() {
         const confirm = useConfirm();
-        confirm.require({
-            message: 'Are you sure you want to proceed?',
-            icon: 'pi pi-exclamation-triangle',
-            accept: () => {
-                //callback to execute when user confirms the action
-            },
-            reject: () => {
-                //callback to execute when user rejects the action
-            }
-        });
+
+        function delete(event) {
+            confirm.require({
+                message: 'Are you sure you want to proceed?',
+                icon: 'pi pi-exclamation-triangle',
+                accept: () => {
+                    //callback to execute when user confirms the action
+                },
+                reject: () => {
+                    //callback to execute when user rejects the action
+                }
+            });
+        } 
+        
+        return {delete};
     }
 })
 
@@ -112,6 +119,12 @@ export default {
                             </tr>
                         </thead>
                         <tbody>
+                            <tr>
+                                <td>target</td>
+                                <td>DomElement</td>
+                                <td>null</td>
+                                <td>Element to align the overlay.</td>
+                            </tr>
                             <tr>
                                 <td>message</td>
                                 <td>string</td>
@@ -263,8 +276,9 @@ export default {
 <code>
 export default {
     methods: {
-        confirm1() {
+        confirm1(event) {
             this.$confirm.require({
+                target: event.currentTarget,
                 message: 'Are you sure you want to proceed?',
                 icon: 'pi pi-exclamation-triangle',
                 accept: () => {
@@ -275,8 +289,9 @@ export default {
                 }
             });
         },
-        confirm2() {
+        confirm2(event) {
             this.$confirm.require({
+                target: event.currentTarget,
                 message: 'Do you want to delete this record?',
                 icon: 'pi pi-info-circle',
                 acceptClass: 'p-button-danger',
