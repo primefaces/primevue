@@ -16,7 +16,6 @@ const BadgeDirective = {
 
         if (binding.value != null) {
             badge.appendChild(document.createTextNode(binding.value));
-            console.log(String(binding.value).length)
 
             if (String(binding.value).length === 1) {
                 DomHandler.addClass(badge, 'p-badge-no-gutter');
