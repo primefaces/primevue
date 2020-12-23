@@ -22,7 +22,7 @@
                 <router-link to="/theming">Guide</router-link>
                 <a href="https://www.primefaces.org/designer/primevue">Theme Designer</a>
                 <a href="https://www.primefaces.org/designer-vue">Visual Editor</a>
-                <a href="https://www.primefaces.org/designer/api/primevue/2.0.1">SASS API</a>
+                <a href="https://www.primefaces.org/designer/api/primevue/3.0.0">SASS API</a>
             </div>
 
             <div class="menu-category">PrimeFlex</div>
