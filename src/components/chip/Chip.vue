@@ -54,7 +54,7 @@ export default {
             return ['p-chip-icon', this.icon];
         },
         removeIconClass() {
-            return ['pi-chip-remove-icon', this.removeIcon];
+            return ['p-chip-remove-icon', this.removeIcon];
         }
     }
 }
@@ -72,7 +72,7 @@ export default {
 .p-chip-icon.pi {
     line-height: 1.5;
 }
-.pi-chip-remove-icon {
+.p-chip-remove-icon {
     line-height: 1.5;
     cursor: pointer;
 }
