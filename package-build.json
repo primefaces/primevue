@@ -1,0 +1,23 @@
+{
+    "name": "primevue",
+    "version": "3.1.2-SNAPSHOT",
+    "homepage": "https://www.primefaces.org/primevue",
+    "repository": {
+      "type": "git",
+      "url": "https://github.com/primefaces/primevue.git"
+    },
+    "license": "MIT",
+    "bugs": {
+        "url": "https://github.com/primefaces/primevue/issues"
+    },
+    "keywords": [
+      "primevue",
+      "vue",
+      "ui framework",
+      "component framework",
+      "ui library",
+      "component library",
+      "material",
+      "bootstrap"
+    ]
+  }

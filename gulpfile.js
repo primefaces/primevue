@@ -6,11 +6,6 @@ var gulp = require('gulp'),
     rename = require('gulp-rename'),
     flatten = require('gulp-flatten');
 
-gulp.task('copy-components', function() {
-    return gulp.src(['src/components/**/!(*.js)*'])
-        .pipe(gulp.dest('./components'));
-});
-
 gulp.task('build-css', function() {
     return gulp.src([
         'src/components/common/Common.css',
@@ -20,7 +15,7 @@ gulp.task('build-css', function() {
 	.pipe(gulp.dest('resources'))
     .pipe(uglifycss({"uglyComments": true}))
     .pipe(rename('primevue.min.css'))
-	.pipe(gulp.dest('resources'));
+	.pipe(gulp.dest('dist/resources'));
 });
 
 gulp.task('build-themes', function() {
@@ -28,20 +23,15 @@ gulp.task('build-themes', function() {
         'public/themes/**/*','!public/themes/soho-*/**/*',
                         '!public/themes/mira/**/*', '!public/themes/nano/**/*'
     ])
-    .pipe(gulp.dest('resources/themes'));
+    .pipe(gulp.dest('dist/resources/themes'));
 })
 
 gulp.task('images', function() {
     return gulp.src(['src/components/**/images/*.png', 'src/components/**/images/*.gif'])
         .pipe(flatten())
-        .pipe(gulp.dest('resources/images'));
-});
-
-gulp.task('build-exports', function() {
-    return gulp.src(['exports/*.js','exports/*.d.ts'])
-        .pipe(gulp.dest('./'));
+        .pipe(gulp.dest('dist/resources/images'));
 });
 
 //Building project with run sequence
-gulp.task('build-resources', ['build-css','images', 'build-themes']);
+gulp.task('build-resources', ['build-css', 'images', 'build-themes']);
 

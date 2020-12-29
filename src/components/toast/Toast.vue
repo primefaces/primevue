@@ -7,7 +7,7 @@
 </template>
 
 <script>
-import ToastEventBus from './ToastEventBus';
+import ToastEventBus from '../toastservice/ToastEventBus';
 import ToastMessage from './ToastMessage';
 import DomHandler from '../utils/DomHandler';
 

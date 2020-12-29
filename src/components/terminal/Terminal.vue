@@ -16,7 +16,7 @@
 </template>
 
 <script>
-import TerminalService from './TerminalService';
+import TerminalService from '../terminalservice/TerminalService';
 
 export default {
     props: {
