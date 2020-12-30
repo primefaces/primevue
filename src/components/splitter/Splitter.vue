@@ -1,0 +1,361 @@
+<template>
+    <div :class="containerClass">
+        <template v-for="(panel,i) of panels">
+            <SplitterPanelSlot :panel="panel" :key="i+999999"><slot/></SplitterPanelSlot>
+            <div class="p-splitter-gutter" v-if="i !== (panels.length -1)" :style="gutterStyle" :key="i"
+                @mousedown="onGutterMouseDown($event, i)" @touchstart="onGutterTouchStart($event, i)"
+                @touchmove="onGutterTouchMove($event, i)" @touchend="onGutterTouchEnd($event, i)">
+                    <div class="p-splitter-gutter-handle"></div>
+            </div>
+        </template>
+    </div>
+</template>
+
+<script>
+import DomHandler from '../utils/DomHandler';
+
+export default {
+    name: 'splitter',
+    props: {
+        layout: {
+            type: String,
+            default: 'horizontal'
+        },
+        gutterSize: {
+            type: Number,
+            default: 4
+        },
+        stateKey: {
+            type: String,
+            default: null
+        },
+        stateStorage: {
+            type: String,
+            default: 'session'
+        },
+        size: {
+            type: Number,
+            default: null
+        },
+        minSize: {
+            type: Number,
+            default: null
+        }
+    },
+    dragging: false,
+    mouseMoveListener: null,
+    mouseUpListener: null,
+    size: null,
+    gutterElement: null,
+    startPos: null,
+    prevPanelElement: null,
+    nextPanelElement: null,
+    nextPanelSize: null,
+    prevPanelSize: null,
+    panelSizes: null,
+    prevPanelIndex: null,
+    allChildren: null,
+    mounted() {
+        this.allChildren = this.$children;
+
+        if (this.panels && this.panels.length) {
+            let initialized = false;
+            if (this.isStateful()) {
+                initialized = this.restoreState();
+            }
+
+            if (!initialized) {
+                let children = this.allChildren.filter(child => child.$vnode.tag.indexOf('splitterpanel' !== -1));
+                let _panelSizes = [];
+
+                this.panels.map((panel, i) => {
+                    let panelInitialSize = panel.componentOptions.propsData && panel.componentOptions.propsData.size ? panel.componentOptions.propsData.size : null;
+                    let panelSize = panelInitialSize || (100 / this.panels.length);
+                    _panelSizes[i] = panelSize;
+                    children[i].style.flexBasis = 'calc(' + panelSize + '% - ' + ((this.panels.length - 1) * this.gutterSize) + 'px)';
+                });
+
+                this.panelSizes = _panelSizes;
+            }
+        }
+    },
+    beforeDestroy() {
+        this.clear();
+        this.unbindMouseListeners();
+    },
+    methods: {
+        isSplitterPanel(child) {
+            return child.componentOptions.tag === 'SplitterPanel';
+        },
+        onResizeStart(event, index) {
+            this.gutterElement = event.currentTarget;
+            this.size = this.horizontal ? DomHandler.getWidth(this.$el) : DomHandler.getHeight(this.$el);
+            this.dragging = true;
+            this.startPos = this.layout === 'horizontal' ? event.pageX : event.pageY;
+            this.prevPanelElement = this.gutterElement.previousElementSibling;
+            this.nextPanelElement = this.gutterElement.nextElementSibling;
+            this.prevPanelSize = 100 * (this.horizontal ? DomHandler.getOuterWidth(this.prevPanelElement, true): DomHandler.getOuterHeight(this.prevPanelElement, true)) / this.size;
+            this.nextPanelSize = 100 * (this.horizontal ? DomHandler.getOuterWidth(this.nextPanelElement, true): DomHandler.getOuterHeight(this.nextPanelElement, true)) / this.size;
+            this.prevPanelIndex = index;
+            DomHandler.addClass(this.gutterElement, 'p-splitter-gutter-resizing');
+            DomHandler.addClass(this.$el, 'p-splitter-resizing');
+        },
+        onResize(event) {
+            let newPos;
+            if (this.horizontal)
+                newPos = (event.pageX * 100 / this.size) - (this.startPos * 100 / this.size);
+            else
+                newPos = (event.pageY * 100 / this.size) - (this.startPos * 100 / this.size);
+
+            let newPrevPanelSize = this.prevPanelSize + newPos;
+            let newNextPanelSize = this.nextPanelSize - newPos;
+
+            if (this.validateResize(newPrevPanelSize, newNextPanelSize)) {
+                this.prevPanelElement.style.flexBasis = 'calc(' + newPrevPanelSize + '% - ' + ((this.panels.length - 1) * this.gutterSize) + 'px)';
+                this.nextPanelElement.style.flexBasis = 'calc(' + newNextPanelSize + '% - ' + ((this.panels.length - 1) * this.gutterSize) + 'px)';
+                this.panelSizes[this.prevPanelIndex] = newPrevPanelSize;
+                this.panelSizes[this.prevPanelIndex + 1] = newNextPanelSize;
+            }
+        },
+        onResizeEnd(event) {
+            if (this.isStateful()) {
+                this.saveState();
+            }
+
+            this.$emit('resizeend', {originalEvent: event, sizes: this.panelSizes});
+            DomHandler.removeClass(this.gutterElement, 'p-splitter-gutter-resizing');
+            DomHandler.removeClass(this.$el, 'p-splitter-resizing');
+            this.clear();
+        },
+        onGutterMouseDown(event, index) {
+            this.onResizeStart(event, index);
+            this.bindMouseListeners();
+        },
+        onGutterTouchStart(event, index) {
+            this.onResizeStart(event, index);
+            event.preventDefault();
+        },
+        onGutterTouchMove(event) {
+            this.onResize(event);
+            event.preventDefault();
+        },
+        onGutterTouchEnd(event) {
+            this.onResizeEnd(event);
+            event.preventDefault();
+        },
+        bindMouseListeners() {
+            if (!this.mouseMoveListener) {
+                this.mouseMoveListener = event => this.onResize(event)
+                document.addEventListener('mousemove', this.mouseMoveListener);
+            }
+
+            if (!this.mouseUpListener) {
+                this.mouseUpListener = event => {
+                    this.onResizeEnd(event);
+                    this.unbindMouseListeners();
+                }
+                document.addEventListener('mouseup', this.mouseUpListener);
+            }
+        },
+        validateResize(newPrevPanelSize, newNextPanelSize) {
+            if (this.panels[0].props && this.panels[0].props.minSize && this.panels[0].props.minSize > newPrevPanelSize) {
+                return false;
+            }
+
+            if (this.panels[1].props && this.panels[1].props.minSize && this.panels[1].props.minSize > newNextPanelSize) {
+                return false;
+            }
+
+            return true;
+        },
+        unbindMouseListeners() {
+            if (this.mouseMoveListener) {
+                document.removeEventListener('mousemove', this.mouseMoveListener);
+                this.mouseMoveListener = null;
+            }
+
+            if (this.mouseUpListener) {
+                document.removeEventListener('mouseup', this.mouseUpListener);
+                this.mouseUpListener = null;
+            }
+        },
+        clear() {
+            this.dragging = false;
+            this.size = null;
+            this.startPos = null;
+            this.prevPanelElement = null;
+            this.nextPanelElement = null;
+            this.prevPanelSize = null;
+            this.nextPanelSize = null;
+            this.gutterElement = null;
+            this.prevPanelIndex = null;
+        },
+        isStateful() {
+            return this.stateKey != null;
+        },
+        getStorage() {
+            switch(this.stateStorage) {
+                case 'local':
+                    return window.localStorage;
+
+                case 'session':
+                    return window.sessionStorage;
+
+                default:
+                    throw new Error(this.stateStorage + ' is not a valid value for the state storage, supported values are "local" and "session".');
+            }
+        },
+        saveState() {
+            this.getStorage().setItem(this.stateKey, JSON.stringify(this.panelSizes));
+        },
+        restoreState() {
+            const storage = this.getStorage();
+            const stateString = storage.getItem(this.stateKey);
+
+            if (stateString) {
+                this.panelSizes = JSON.parse(stateString);
+                let children = [...this.$el.children].filter(child => DomHandler.hasClass(child, 'p-splitter-panel'));
+                children.forEach((child, i) => {
+                    child.style.flexBasis = 'calc(' + this.panelSizes[i] + '% - ' + ((this.panels.length - 1) * this.gutterSize) + 'px)';
+                });
+
+                return true;
+            }
+
+            return false;
+        }
+    },
+    computed: {
+        containerClass() {
+            return ['p-splitter p-component', 'p-splitter-' + this.layout];
+        },
+        panels() {
+            const panels = [];
+            this.$slots.default.forEach(child => {
+                if (this.isSplitterPanel(child)) {
+                    panels.push(child);
+                }
+                else if (child.children.length > 0) {
+                    child.children.forEach(nestedChild => {
+                        if (this.isSplitterPanel(nestedChild)) {
+                            panels.push(nestedChild)
+                        }
+                    });
+                }
+            });
+            return panels;
+        },
+        gutterStyle() {
+            if (this.horizontal)
+                return {width: this.gutterSize + 'px'};
+            else
+                return {height: this.gutterSize + 'px'};
+        },
+        horizontal() {
+            return this.layout === 'horizontal';
+        }
+    },
+    components: {
+        SplitterPanelSlot
+    }
+}
+
+const SplitterPanelSlot = {
+    functional: true,
+    props: {
+        panel: {
+            type: null,
+            default: null
+        }
+    },
+    render(createElement, context) {
+        return [context.props.panel.$scopedSlots['default']({
+            'panel': context.props.panel
+        })];
+    }
+
+    // render(createElement) {
+    //     const element = createElement('div', {
+    //         ref: 'container',
+    //         class: [this.containerClass],
+    //     }, [
+    //         createElement('template', {class: 'p-splitter-panel'}, this.panels.map((panel, i) => {
+    //             <slot></slot>
+    //             if(i !== this.panels.length-1) {
+    //                 return createElement('div', {class: 'p-splitter-gutter', style: this.gutterStyle, on: {
+    //                     'mousedown': this.onGutterMouseDown(event, i),
+    //                     'touchstart': this.onGutterTouchStart(event, i),
+    //                     'touchmove': this.onGutterTouchMove(event, i),
+    //                     'touchend': this.onGutterTouchEnd(event, i),
+    //                 }}, [
+    //                     createElement('div', {class: 'p-splitter-gutter-handle'})
+    //                 ])
+    //             }
+    //         }))
+    //     ], this.$slots.default);
+
+    //     return [element]
+    // }
+};
+</script>
+
+<style>
+.p-splitter {
+    display: flex;
+    flex-wrap: nowrap;
+}
+
+.p-splitter-vertical {
+    flex-direction: column;
+}
+
+.p-splitter-panel {
+    flex-grow: 1;
+}
+
+.p-splitter-panel-nested {
+    display: flex;
+}
+
+.p-splitter-panel .p-splitter {
+    flex-grow: 1;
+    border: 0 none;
+}
+
+.p-splitter-gutter {
+    flex-grow: 0;
+    flex-shrink: 0;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    cursor: col-resize;
+}
+
+.p-splitter-horizontal.p-splitter-resizing {
+    cursor: col-resize;
+    user-select: none;
+}
+
+.p-splitter-horizontal > .p-splitter-gutter > .p-splitter-gutter-handle {
+    height: 24px;
+    width: 100%;
+}
+
+.p-splitter-horizontal > .p-splitter-gutter {
+    cursor: col-resize;
+}
+
+.p-splitter-vertical.p-splitter-resizing {
+    cursor: row-resize;
+    user-select: none;
+}
+
+.p-splitter-vertical > .p-splitter-gutter {
+    cursor: row-resize;
+}
+
+.p-splitter-vertical > .p-splitter-gutter > .p-splitter-gutter-handle {
+    width: 24px;
+    height: 100%;
+}
+</style>

@@ -407,6 +407,11 @@ export default new Router({
 			component: () => import('./views/skeleton/SkeletonDemo.vue')
 		},
 		{
+			path: '/splitter',
+			name: 'splitter',
+			component: () => import('./views/splitter/SplitterDemo.vue')
+		},
+		{
 			path: '/knob',
 			name: 'knob',
 			component: () => import('./views/knob/KnobDemo.vue')
