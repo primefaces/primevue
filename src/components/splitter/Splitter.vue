@@ -196,7 +196,7 @@ export default {
             return false;
         },
         getPanelClass(panel) {
-            return ['p-splitter-panel', panel.$vnode.data.staticClass, 
+            return ['p-splitter-panel', panel.$vnode.data.staticClass,
                 {'p-splitter-panel-nested': panel.$parent.$vnode.tag.indexOf('splitter')}];
         }
     },
@@ -218,7 +218,7 @@ export default {
         horizontal() {
             return this.layout === 'horizontal';
         }
-        
+
     },
     render() {
         const gutterStyle = this.horizontal ? {width: this.gutterSize + 'px'} : {height: this.gutterSize + 'px'};
@@ -235,8 +235,8 @@ export default {
                                 {panel.$slots.default}
                             </div>,
                             i !== this.panels.length -1 && <div class="p-splitter-gutter" style={gutterStyle}
-                                on-mousedown={e => this.onGutterMouseDown(e, i)} on-touchstart={e => this. onGutterTouchStart(e, i)}
-                                on-touchmove={e => onGutterTouchMove(e, i)} on-touchend={e => onGutterTouchEnd(e, i)}>
+                                on-mousedown={e => this.onGutterMouseDown(e, i)} on-touchstart={e => this.onGutterTouchStart(e, i)}
+                                on-touchmove={e => this.onGutterTouchMove(e, i)} on-touchend={e => this.onGutterTouchEnd(e, i)}>
                                 <div class="p-splitter-gutter-handle"></div>
                             </div>
                         ])
