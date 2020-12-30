@@ -1,16 +1,3 @@
-<template>
-    <div :class="containerClass">
-        <template v-for="(panel,i) of panels">
-            <SplitterPanelSlot :panel="panel" :key="i+999999"><slot/></SplitterPanelSlot>
-            <div class="p-splitter-gutter" v-if="i !== (panels.length -1)" :style="gutterStyle" :key="i"
-                @mousedown="onGutterMouseDown($event, i)" @touchstart="onGutterTouchStart($event, i)"
-                @touchmove="onGutterTouchMove($event, i)" @touchend="onGutterTouchEnd($event, i)">
-                    <div class="p-splitter-gutter-handle"></div>
-            </div>
-        </template>
-    </div>
-</template>
-
 <script>
 import DomHandler from '../utils/DomHandler';
 
@@ -32,14 +19,6 @@ export default {
         stateStorage: {
             type: String,
             default: 'session'
-        },
-        size: {
-            type: Number,
-            default: null
-        },
-        minSize: {
-            type: Number,
-            default: null
         }
     },
     dragging: false,
@@ -54,10 +33,13 @@ export default {
     prevPanelSize: null,
     panelSizes: null,
     prevPanelIndex: null,
-    allChildren: null,
+    data() {
+        return {
+            allChildren: null
+        }
+    },
     mounted() {
         this.allChildren = this.$children;
-
         if (this.panels && this.panels.length) {
             let initialized = false;
             if (this.isStateful()) {
@@ -65,14 +47,11 @@ export default {
             }
 
             if (!initialized) {
-                let children = this.allChildren.filter(child => child.$vnode.tag.indexOf('splitterpanel' !== -1));
                 let _panelSizes = [];
 
                 this.panels.map((panel, i) => {
-                    let panelInitialSize = panel.componentOptions.propsData && panel.componentOptions.propsData.size ? panel.componentOptions.propsData.size : null;
-                    let panelSize = panelInitialSize || (100 / this.panels.length);
+                    let panelSize = panel.size || (100 / this.panels.length);
                     _panelSizes[i] = panelSize;
-                    children[i].style.flexBasis = 'calc(' + panelSize + '% - ' + ((this.panels.length - 1) * this.gutterSize) + 'px)';
                 });
 
                 this.panelSizes = _panelSizes;
@@ -84,9 +63,6 @@ export default {
         this.unbindMouseListeners();
     },
     methods: {
-        isSplitterPanel(child) {
-            return child.componentOptions.tag === 'SplitterPanel';
-        },
         onResizeStart(event, index) {
             this.gutterElement = event.currentTarget;
             this.size = this.horizontal ? DomHandler.getWidth(this.$el) : DomHandler.getHeight(this.$el);
@@ -214,35 +190,23 @@ export default {
 
             if (stateString) {
                 this.panelSizes = JSON.parse(stateString);
-                let children = [...this.$el.children].filter(child => DomHandler.hasClass(child, 'p-splitter-panel'));
-                children.forEach((child, i) => {
-                    child.style.flexBasis = 'calc(' + this.panelSizes[i] + '% - ' + ((this.panels.length - 1) * this.gutterSize) + 'px)';
-                });
-
                 return true;
             }
 
             return false;
+        },
+        getPanelClass(panel) {
+            return ['p-splitter-panel', panel.$vnode.data.staticClass, 
+                {'p-splitter-panel-nested': panel.$parent.$vnode.tag.indexOf('splitter')}];
         }
     },
     computed: {
-        containerClass() {
-            return ['p-splitter p-component', 'p-splitter-' + this.layout];
-        },
         panels() {
-            const panels = [];
-            this.$slots.default.forEach(child => {
-                if (this.isSplitterPanel(child)) {
-                    panels.push(child);
-                }
-                else if (child.children.length > 0) {
-                    child.children.forEach(nestedChild => {
-                        if (this.isSplitterPanel(nestedChild)) {
-                            panels.push(nestedChild)
-                        }
-                    });
-                }
-            });
+            let panels = [];
+
+            if (this.allChildren) {
+                panels = this.allChildren.filter(child => child.$vnode.tag.indexOf('splitterpanel') !== -1);
+            }
             return panels;
         },
         gutterStyle() {
@@ -254,49 +218,34 @@ export default {
         horizontal() {
             return this.layout === 'horizontal';
         }
+        
     },
-    components: {
-        SplitterPanelSlot
+    render() {
+        const gutterStyle = this.horizontal ? {width: this.gutterSize + 'px'} : {height: this.gutterSize + 'px'};
+
+        return (
+            <div class={['p-splitter p-component', 'p-splitter-' + this.layout]}>
+                {this.$slots.default}
+                {
+                    this.panels.map((panel, i) => {
+                        let panelStyle = {flexBasis: 'calc(' + this.panelSizes[i] + '% - ' + ((this.panels.length - 1) * this.gutterSize) + 'px)'};
+
+                        return ([
+                            <div key={i} class={this.getPanelClass(panel)} style={panelStyle}>
+                                {panel.$slots.default}
+                            </div>,
+                            i !== this.panels.length -1 && <div class="p-splitter-gutter" style={gutterStyle}
+                                on-mousedown={e => this.onGutterMouseDown(e, i)} on-touchstart={e => this. onGutterTouchStart(e, i)}
+                                on-touchmove={e => onGutterTouchMove(e, i)} on-touchend={e => onGutterTouchEnd(e, i)}>
+                                <div class="p-splitter-gutter-handle"></div>
+                            </div>
+                        ])
+                    })
+                }
+            </div>
+        );
     }
 }
-
-const SplitterPanelSlot = {
-    functional: true,
-    props: {
-        panel: {
-            type: null,
-            default: null
-        }
-    },
-    render(createElement, context) {
-        return [context.props.panel.$scopedSlots['default']({
-            'panel': context.props.panel
-        })];
-    }
-
-    // render(createElement) {
-    //     const element = createElement('div', {
-    //         ref: 'container',
-    //         class: [this.containerClass],
-    //     }, [
-    //         createElement('template', {class: 'p-splitter-panel'}, this.panels.map((panel, i) => {
-    //             <slot></slot>
-    //             if(i !== this.panels.length-1) {
-    //                 return createElement('div', {class: 'p-splitter-gutter', style: this.gutterStyle, on: {
-    //                     'mousedown': this.onGutterMouseDown(event, i),
-    //                     'touchstart': this.onGutterTouchStart(event, i),
-    //                     'touchmove': this.onGutterTouchMove(event, i),
-    //                     'touchend': this.onGutterTouchEnd(event, i),
-    //                 }}, [
-    //                     createElement('div', {class: 'p-splitter-gutter-handle'})
-    //                 ])
-    //             }
-    //         }))
-    //     ], this.$slots.default);
-
-    //     return [element]
-    // }
-};
 </script>
 
 <style>

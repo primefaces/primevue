@@ -10,7 +10,7 @@
         <div class="content-section implementation">
             <div class="card">
                 <h5>Horizontal</h5>
-                <Splitter style="height: 300px" class="p-mb-5">
+                <Splitter style="height: 300px" classs="p-mb-5">
                     <SplitterPanel class="p-d-flex p-ai-center p-jc-center">
                         Panel 1
                     </SplitterPanel>
