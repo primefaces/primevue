@@ -665,15 +665,17 @@
   border: 1px solid rgba(0, 0, 0, 0.15);
   box-shadow: none;
   border-radius: 4px;
+  padding: 0.5rem 0;
 }
 .p-editor-container .p-editor-toolbar.ql-snow .ql-picker.ql-expanded .ql-picker-options .ql-picker-item {
   color: #212529;
-  padding: 0.5rem 1.5rem;
-  border-radius: 4px;
 }
 .p-editor-container .p-editor-toolbar.ql-snow .ql-picker.ql-expanded .ql-picker-options .ql-picker-item:hover {
   color: #212529;
   background: #e9ecef;
+}
+.p-editor-container .p-editor-toolbar.ql-snow .ql-picker.ql-expanded:not(.ql-icon-picker) .ql-picker-item {
+  padding: 0.5rem 1.5rem;
 }
 .p-editor-container .p-editor-content {
   border-bottom-right-radius: 4px;
@@ -4589,7 +4591,7 @@
   border-radius: 4px;
 }
 .p-skeleton:after {
-  background: linear-gradient(90deg, transparent, rgba(255, 255, 255, 0.4), transparent);
+  background: linear-gradient(90deg, rgba(255, 255, 255, 0), rgba(255, 255, 255, 0.4), rgba(255, 255, 255, 0));
 }
 
 .p-tag {
