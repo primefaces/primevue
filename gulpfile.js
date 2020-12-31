@@ -12,7 +12,7 @@ gulp.task('build-css', function() {
 		'src/components/**/*.css'
     ])
 	.pipe(concat('primevue.css'))
-	.pipe(gulp.dest('resources'))
+	.pipe(gulp.dest('dist/resources'))
     .pipe(uglifycss({"uglyComments": true}))
     .pipe(rename('primevue.min.css'))
 	.pipe(gulp.dest('dist/resources'));
