@@ -77,7 +77,7 @@ function green(str) {
 
 fs.readdirSync(path.resolve(__dirname, './src/components/')).forEach(folder => {
     fs.readdirSync(path.resolve(__dirname, './src/components/' + folder)).forEach(file => {
-        if (!(/\.js$/.test(file)) || file === 'index.js') {
+        if (!(/\.js$/.test(file)) || file === 'index.js') {
             fs.copySync(path.resolve(__dirname, './src/components/' + folder) + '/' + file, 'dist/' + folder + '/' + file);
         }
     });

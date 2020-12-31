@@ -173,7 +173,7 @@ Vue.use(PrimeVue, {ripple: true});
             <h5>Nuxt.js Integration</h5>
             <p>PrimeVue can easily be added to a Nuxt.js with the following steps.</p>
             <p><strong>1)</strong> Add primevue.js to the plugins folder with the components you'd like to use.</p>
-            
+
 <CodeHighlight class="language-javascript">
 import Vue from 'vue';
 import InputText from 'primevue/inputtext';
