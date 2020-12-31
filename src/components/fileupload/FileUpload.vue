@@ -6,8 +6,8 @@
                 <span class="p-button-icon p-button-icon-left pi pi-fw pi-plus"></span>
                 <span class="p-button-label">{{chooseLabel}}</span>
             </span>
-            <FileUploadButton :label="uploadLabel" icon="pi pi-upload" @click="upload" :disabled="uploadDisabled" />
-            <FileUploadButton :label="cancelLabel" icon="pi pi-times" @click="clear" :disabled="cancelDisabled" />
+            <FileUploadButton :label="uploadLabel" icon="pi pi-upload" @click="upload" :disabled="uploadDisabled" v-if="uploadButton"/>
+            <FileUploadButton :label="cancelLabel" icon="pi pi-times" @click="clear" :disabled="cancelDisabled" v-if="cancelButton"/>
         </div>
         <div ref="content" class="p-fileupload-content" @dragenter="onDragEnter" @dragover="onDragOver" @dragleave="onDragLeave" @drop="onDrop">
             <FileUploadProgressBar :value="progress" v-if="hasFiles" />
@@ -69,6 +69,14 @@ export default {
             default: null
         },
         disabled: {
+            type: Boolean,
+            default: false
+        },
+        uploadButton: {
+            type: Boolean,
+            default: false
+        },
+        cancelButton: {
             type: Boolean,
             default: false
         },
