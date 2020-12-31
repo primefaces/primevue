@@ -20,7 +20,7 @@
 
 <script>
 import TerminalDoc from './TerminalDoc';
-import TerminalService from '../../components/terminal/TerminalService';
+import TerminalService from '../../components/terminalservice/TerminalService';
 
 export default {
     methods: {

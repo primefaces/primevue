@@ -10,9 +10,7 @@
   "scripts": {
     "serve": "vue-cli-service serve",
     "build-app": "vue-cli-service build",
-    "build-lib": "node build-lib && gulp copy-components",
-    "build-resources": "gulp build-resources",
-    "build-exports": "gulp build-exports",
+    "build-lib": "node build-lib && gulp build-resources",
     "lint": "vue-cli-service lint",
     "test:unit": "vue-cli-service test:unit"
   },
