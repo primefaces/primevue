@@ -77,27 +77,31 @@ function green(str) {
 
 fs.readdirSync(path.resolve(__dirname, './src/components/')).forEach(folder => {
     fs.readdirSync(path.resolve(__dirname, './src/components/' + folder)).forEach(file => {
-        if (!(/\.js$/.test(file)) || file === 'index.js') {
-            fs.copySync(path.resolve(__dirname, './src/components/' + folder) + '/' + file, 'dist/' + folder + '/' + file);
-        }
+        fs.copySync(path.resolve(__dirname, './src/components/' + folder) + '/' + file, 'dist/' + folder + '/' + file);
     });
 });
 
+const excludedFolders = ['nuxt'];
+const excludedFiles = ['index.js', 'index.d.ts', 'plugin.js', 'plugin-ripple.js'];
+
 fs.readdirSync(path.resolve(__dirname, './src/components/')).forEach(folder => {
-    fs.readdirSync(path.resolve(__dirname, './src/components/' + folder)).forEach(file => {
-        if (file !== 'index.js' && file !== 'index.d.ts') {
-            let name = file.split(/(.vue)$|(.js)$/)[0].toLowerCase();
-            if (/\.js$/.test(file)) {
-                console.log('Transpiling ' + blue(file));
-                buildComponent(folder, file, name);
-                transpileJS(folder, file);
+    if (!excludedFolders.includes(folder)) {
+        fs.readdirSync(path.resolve(__dirname, './src/components/' + folder)).forEach(file => {
+            if (!excludedFiles.includes(file)) {
+                let name = file.split(/(.vue)$|(.js)$/)[0].toLowerCase();
+                if (/\.js$/.test(file)) {
+                    console.log('Transpiling ' + blue(file));
+                    buildComponent(folder, file, name);
+                    transpileJS(folder, file);
+                }
+                else if (/\.vue$/.test(file)) {
+                    console.log('Building ' + green(name));
+                    buildComponent(folder, file, name);
+                }
             }
-            else if (/\.vue$/.test(file)) {
-                console.log('Building ' + green(name));
-                buildComponent(folder, file, name);
-            }
-        }
-    });
+        });
+    }
+
 });
 
 fs.copySync(path.resolve(__dirname, './package-build.json'), 'dist/package.json');

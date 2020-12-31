@@ -171,33 +171,66 @@ Vue.use(PrimeVue, {ripple: true});
             <p>Typescript is fully supported as type definition files are provided in the npm package of PrimeVue. A sample <a href="https://github.com/primefaces/primevue-typescript-quickstart">typescript-primevue</a> application is available as well at github.</p>
 
             <h5>Nuxt.js Integration</h5>
-            <p>PrimeVue can easily be added to a Nuxt.js with the following steps.</p>
-            <p><strong>1)</strong> Add primevue.js to the plugins folder with the components you'd like to use.</p>
+            <p>PrimeVue has a built-in nuxt module. Open <strong>nuxt.config.js</strong> and add <i>primevue/nuxt</i> to the modules section along with your configuration.</p>
 
 <CodeHighlight class="language-javascript">
-import Vue from 'vue';
-import InputText from 'primevue/inputtext';
-import Button from 'primevue/button';
-import Toast from 'primevue/toast';
-import ToastService from 'primevue/toastservice';
-
-Vue.use(ToastService);
-
-Vue.component('InputText', InputText);
-Vue.component('Button', Button);
-Vue.component('Toast', Toast);
+modules: [
+    [
+        'primevue/nuxt', {
+            theme: string,      //name of the theme, defaults to saga-blue
+            ripple: boolean,    //whether the ripple animation is enabled, defaults to false
+            components: [],     //an array of components to be registered
+            directives: []      //an array of directives to be registered
+        }
+    ]
+],
 </CodeHighlight>
 
-            <p><strong>2)</strong> Add requires CSS dependencies and the plugin configuration in nuxt.config.js.</p>
+            <p>Here is an example configuration.</p>
 <CodeHighlight class="language-javascript">
-css: [
-    {src: 'primevue/resources/primevue.min.css'},
-    {src: 'primevue/resources/themes/saga-blue/theme.css'},
-    {src: 'primeicons/primeicons.css'},
-  ],
-plugins: [
-    {src:'~/plugins/primevue.js', mode: 'client'}
-]
+modules: [
+    [
+        'primevue/nuxt', {
+            theme: 'md-light-indigo',
+            ripple: true,
+            components: ['InputText','Button','DataTable','Dialog'],
+            directives: ['Tooltip','Badge']
+        }
+    ]
+],
+</CodeHighlight>
+
+            <p>An alternative configuration is possible using the <i>primevue</i> property.</p>
+
+<CodeHighlight class="language-javascript">
+modules: ['primevue/nuxt'],
+primevue: {
+    theme: 'md-light-indigo',
+    ripple: true,
+    components: ['InputText','Button','DataTable','Dialog'],
+    directives: ['Tooltip','Badge']
+}
+</CodeHighlight>
+
+            <p>Component and Directive names are same as the default export names stated in the import section of each documentation section. For example, <router-link to="/datatable">DataTable</router-link> documentation
+            begins with the following statement which means the key to be used in the components configuration is <strong>DataTable</strong>. Refer to the import section of a corresponding component or directive for more information.</p>
+
+<CodeHighlight lang="javascript">
+import DataTable from 'primevue/datatable';
+import Column from 'primevue/column';
+</CodeHighlight>
+
+<CodeHighlight class="language-javascript">
+modules: ['primevue/nuxt'],
+primevue: {
+    theme: 'md-light-indigo',
+    ripple: true,
+    components: ['DataTable','Column']
+}
+</CodeHighlight>
+
+<CodeHighlight class="language-markup">
+&lt;DataTable&gt;&lt;/DataTable&gt;
 </CodeHighlight>
 
             <p>That is all, for a complete example please refer to the <a href="https://github.com/primefaces/primevue-nuxtjs-quickstart">primevue-nuxtjs-quickstart</a> sample.</p>

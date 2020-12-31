@@ -8,7 +8,7 @@ import AccordionTab from './components/accordiontab/AccordionTab';
 import Avatar from './components/avatar/Avatar';
 import AvatarGroup from './components/avatargroup/AvatarGroup';
 import Badge from './components/badge/Badge';
-import BadgeDirective from './components/badge/BadgeDirective';
+import BadgeDirective from './components/badgedirective/BadgeDirective';
 import BlockUI from './components/blockui/BlockUI';
 import Breadcrumb from './components/breadcrumb/Breadcrumb';
 import Button from './components/button/Button';
