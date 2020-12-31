@@ -22,14 +22,10 @@ npm install primeicons --save
 
 </code></pre>
 
-            <h5>PrimeFlex</h5>
-            <p>PrimeFlex is a CSS utility library featuring various helpers such as a grid system, flexbox, spacing, elevation and more. Although it is not required, it is highly
-                recommended to add PrimeFlex as it is likely to need such utilities when developing applications. View the <router-link to="/primeflex">PrimeFlex</router-link> section for the installation.</p>
-
             <h5>Module Loader</h5>
             <p>This is the recommended way if your application uses <a href="https://cli.vuejs.org/">vue-cli</a> or has a webpack based build with <a href="https://github.com/vuejs/vue-loader">vue-loader</a> configured.</p>
 
-            <p>Begin with installing PrimeVue with the <i>use</i> function.</p>
+            <p>Begin with installing PrimeVue. This command only sets up the core configuration like locale and does not register any component.</p>
 <pre v-code.script>
 <code>
 import {createApp} from 'vue';
@@ -40,7 +36,7 @@ app.use(PrimeVue);
 
 </code></pre>
 
-            <p>Then import the component you need and registering it so that you'll be able to utilize the component in your application.</p>
+            <p>Then import and register a component from the library. Import path is available in the documentation of the corresponding component.</p>
 <pre v-code.script>
 <code>
 import {createApp} from 'vue';
@@ -54,6 +50,7 @@ app.component('Dialog', Dialog);
 
 </code></pre>
 
+            <p>Finally you'll be able to utilize the component in your application.</p>
 <pre v-code>
 <code>
 &lt;Dialog&gt;&lt;/Dialog&gt;
@@ -187,6 +184,10 @@ primevue/resources/themes/luna-pink/theme.css
 primevue/resources/themes/rhea/theme.css
 
 </code></pre>
+
+            <h5>PrimeFlex</h5>
+            <p>PrimeFlex is a CSS utility library featuring various helpers such as a grid system, flexbox, spacing, elevation and more. Although it is not required, it is highly
+                recommended to add PrimeFlex as it is likely to need such utilities when developing applications. View the <router-link to="/primeflex">PrimeFlex</router-link> section for the installation.</p>
 
             <h5>Ripple</h5>
             <p>Ripple is an optional animation for the supported components such as buttons. It is disabled by default and needs to be enabled at
