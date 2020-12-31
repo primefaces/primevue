@@ -24,7 +24,7 @@ import PrimeVue from 'primevue/config';
 Vue.use(PrimeVue);
 </CodeHighlight>
 
-            <p>Then import and register the component from the library. Import path is available in the documentation of the corresponding component.</p>
+            <p>Then import and register a component from the library. Import path is available in the documentation of the corresponding component.</p>
 
 <CodeHighlight lang="js">
 import Dialog from 'primevue/dialog';
