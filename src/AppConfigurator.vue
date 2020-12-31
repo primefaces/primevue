@@ -416,7 +416,7 @@ export default {
             document.documentElement.style.fontSize = this.scale + 'px';
         },
         onRippleChange(value) {
-            this.$primevue.ripple = value;
+            this.$primevue.config.ripple = value;
         }
     },
     computed: {
@@ -424,7 +424,7 @@ export default {
             return ['layout-config', {'layout-config-active': this.active}];
         },
         rippleActive() {
-            return this.$primevue.ripple;
+            return this.$primevue.config.ripple;
         }
     }
 }

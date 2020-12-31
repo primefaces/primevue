@@ -4,10 +4,10 @@
             <span :class="advancedChooseButtonClass" @click="choose" @keydown.enter="choose" @focus="onFocus" @blur="onBlur" v-ripple tabindex="0">
                 <input ref="fileInput" type="file" @change="onFileSelect" :multiple="multiple" :accept="accept" :disabled="chooseDisabled" />
                 <span class="p-button-icon p-button-icon-left pi pi-fw pi-plus"></span>
-                <span class="p-button-label">{{chooseLabel}}</span>
+                <span class="p-button-label">{{chooseButtonLabel}}</span>
             </span>
-            <FileUploadButton :label="uploadLabel" icon="pi pi-upload" @click="upload" :disabled="uploadDisabled" />
-            <FileUploadButton :label="cancelLabel" icon="pi pi-times" @click="clear" :disabled="cancelDisabled" />
+            <FileUploadButton :label="uploadButtonLabel" icon="pi pi-upload" @click="upload" :disabled="uploadDisabled" />
+            <FileUploadButton :label="cancelButtonLabel" icon="pi pi-times" @click="clear" :disabled="cancelDisabled" />
         </div>
         <div ref="content" class="p-fileupload-content" @dragenter="onDragEnter" @dragover="onDragOver" @dragleave="onDragLeave" @drop="onDrop">
             <FileUploadProgressBar :value="progress" v-if="hasFiles" />
@@ -102,15 +102,15 @@ export default {
         },
         chooseLabel: {
             type: String,
-            default: 'Choose'
+            default: null
         },
         uploadLabel: {
             type: String,
-            default: 'Upload'
+            default: null
         },
         cancelLabel: {
             type: String,
-            default: 'Cancel'
+            default: null
         },
         customUpload: {
             type: Boolean,
@@ -383,7 +383,7 @@ export default {
             }];
         },
         basicChooseButtonLabel() {
-            return this.auto ? this.chooseLabel : (this.hasFiles ? this.files[0].name : this.chooseLabel);
+            return this.auto ? this.chooseButtonLabel : (this.hasFiles ? this.files[0].name : this.chooseButtonLabel);
         },
         hasFiles() {
             return this.files && this.files.length > 0;
@@ -396,6 +396,15 @@ export default {
         },
         cancelDisabled() {
             return this.disabled || !this.hasFiles;
+        },
+        chooseButtonLabel() {
+            return this.chooseLabel || this.$primevue.config.locale.choose;
+        },
+        uploadButtonLabel() {
+            return this.uploadLabel || this.$primevue.config.locale.upload;
+        },
+        cancelButtonLabel() {
+            return this.cancelLabel || this.$primevue.config.locale.cancel;
         }
     },
     components: {

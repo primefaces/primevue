@@ -51,8 +51,8 @@ import Password from 'primevue/password';
                             <tr>
                                 <td>promptLabel</td>
                                 <td>string</td>
-                                <td>Enter a password</td>
-                                <td>Text to prompt password entry.</td>
+                                <td>null</td>
+                                <td>Text to prompt password entry. Defaults to PrimeVue <router-link to="/locale">Locale</router-link> configuration.</td>
                             </tr>
                             <tr>
                                 <td>mediumRegex</td>
@@ -69,20 +69,20 @@ import Password from 'primevue/password';
                             <tr>
                                 <td>weakLabel</td>
                                 <td>string</td>
-                                <td>Weak</td>
-                                <td>Text for a weak password.</td>
+                                <td>null</td>
+                                <td>Text for a weak password. Defaults to PrimeVue <router-link to="/locale">Locale</router-link> configuration.</td>
                             </tr>
                             <tr>
                                 <td>mediumLabel</td>
                                 <td>string</td>
-                                <td>Medium</td>
-                                <td>Text for a medium password.</td>
+                                <td>null</td>
+                                <td>Text for a medium password. Defaults to PrimeVue <router-link to="/locale">Locale</router-link> configuration.</td>
                             </tr>
                             <tr>
                                 <td>strongLabel</td>
                                 <td>string</td>
-                                <td>Strong</td>
-                                <td>Text for a strong password.</td>
+                                <td>null</td>
+                                <td>Text for a strong password. Defaults to PrimeVue <router-link to="/locale">Locale</router-link> configuration.</td>
                             </tr>
                             <tr>
                                 <td>feedback</td>

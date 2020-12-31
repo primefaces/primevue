@@ -17,12 +17,12 @@
                         <Calendar id="basic" v-model="date1" />
                     </div>
                     <div class="p-field p-col-12 p-md-4">
-                        <label for="icon">Icon</label>
-                        <Calendar id="icon" v-model="date3" :showIcon="true" />
+                        <label for="dateformat">DateFormat</label>
+                        <Calendar id="dateformat" v-model="date2"  dateFormat="mm-dd-yy" />
                     </div>
                     <div class="p-field p-col-12 p-md-4">
-                        <label for="spanish">Spanish</label>
-                        <Calendar id="spanish" v-model="date2" :locale="es" dateFormat="dd/mm/yy" />
+                        <label for="icon">Icon</label>
+                        <Calendar id="icon" v-model="date3" :showIcon="true" />
                     </div>
                     <div class="p-field p-col-12 p-md-4">
                         <label for="minmax">MinMax</label>

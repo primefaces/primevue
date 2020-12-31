@@ -1,6 +1,7 @@
 import Vue from 'vue';
 import App from './App.vue';
 import router from './router';
+import PrimeVue from './components/config/PrimeVue';
 import AutoComplete from './components/autocomplete/AutoComplete';
 import Accordion from './components/accordion/Accordion';
 import AccordionTab from './components/accordiontab/AccordionTab';
@@ -92,16 +93,18 @@ import ToggleButton from './components/togglebutton/ToggleButton';
 import TriStateCheckbox from './components/tristatecheckbox/TriStateCheckbox';
 import Galleria from './components/galleria/Galleria';
 
-import CodeHighlight from './views/codehighlight/CodeHighlight';
 import AppInputStyleSwitch from './AppInputStyleSwitch';
+import CodeHighlight from './views/codehighlight/CodeHighlight';
 
 import './assets/styles/primevue.css';
 import 'primeflex/primeflex.css';
 import 'primeicons/primeicons.css';
 import 'prismjs/themes/prism-coy.css';
 import './assets/styles/flags.css';
+
 import Vuelidate from 'vuelidate';
 
+Vue.use(PrimeVue, {ripple: true});
 Vue.use(Vuelidate);
 Vue.use(ToastService);
 Vue.use(ConfirmationService);
@@ -111,7 +114,6 @@ Vue.directive('tooltip', Tooltip);
 Vue.directive('ripple', Ripple);
 
 Vue.prototype.$appState = Vue.observable({inputStyle: 'outlined', darkTheme: false});
-Vue.prototype.$primevue = Vue.observable({ripple: true});
 
 Vue.config.productionTip = false;
 

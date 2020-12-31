@@ -172,22 +172,22 @@ myUploader(event) {
                                 <td>Width of the image thumbnail in pixels.</td>
                             </tr>
                             <tr>
-                                <td>chooseLabel</td>
+                                 <td>chooseLabel</td>
                                 <td>string</td>
-                                <td>Choose</td>
-                                <td>Label of the choose button.</td>
+                                <td>null</td>
+                                <td>Label of the choose button. Defaults to PrimeVue <router-link to="/locale">Locale</router-link> configuration.</td>
                             </tr>
                             <tr>
                                 <td>uploadLabel</td>
                                 <td>string</td>
                                 <td>Upload</td>
-                                <td>Label of the upload button.</td>
+                                <td>Label of the upload button. Defaults to PrimeVue <router-link to="/locale">Locale</router-link> configuration.</td>
                             </tr>
                             <tr>
                                 <td>cancelLabel</td>
                                 <td>string</td>
                                 <td>Cancel</td>
-                                <td>Label of the cancel button.</td>
+                                <td>Label of the cancel button. Defaults to PrimeVue <router-link to="/locale">Locale</router-link> configuration.</td>
                             </tr>
                             <tr>
                                 <td>customUpload</td>

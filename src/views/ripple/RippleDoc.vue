@@ -4,10 +4,12 @@
 			<TabPanel header="Documentation">
 				<h5>Getting Started</h5>
                 <p>Ripple is an optional animation for the supported components such as buttons. It is disabled by default and needs to be enabled at
-                your app's entry file (e.g. main.js) using the <i>$primevue</i> instance variable.
-            </p>
-<CodeHighlight class="language-javascript">
-Vue.prototype.$primevue = {ripple: true};
+                    while installing PrimeVue.
+                </p>
+<CodeHighlight lang="js">
+import PrimeVue from 'primevue/config';
+
+Vue.use(PrimeVue, {ripple: true});
 </CodeHighlight>
 
                 <p><span class="p-text-bold">Note</span>: That would be it to enable ripple on PrimeVue components, next section describes how to use it with your own components and standard elements.</p>

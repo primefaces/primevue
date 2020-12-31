@@ -63,7 +63,7 @@ function getInk(el) {
 
 const Ripple = {
     inserted(el, binding, vnode) {
-        if (vnode.context.$primevue && vnode.context.$primevue.ripple) {
+        if (vnode.context.$primevue && vnode.context.$primevue.config.ripple) {
             create(el);
             bindEvents(el);
         }

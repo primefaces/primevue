@@ -14,26 +14,25 @@ npm install primevue@^2.0.0 --save
 npm install primeicons --save
 </CodeHighlight>
 
-            <h5>PrimeFlex</h5>
-            <p>PrimeFlex is a CSS utility library featuring various helpers such as a grid system, flexbox, spacing, elevation and more. Although it is not required, it is highly
-                recommended to add PrimeFlex as it is likely to need such utilities when developing applications. View the <router-link to="/primeflex">PrimeFlex</router-link> section for the installation.</p>
-
             <h5>Module Loader</h5>
-            <p>This is the recommended way if your application uses <a href="https://cli.vuejs.org/">vue-cli</a> or has a webpack based build with <a href="https://github.com/vuejs/vue-loader">vue-loader</a> configured.
-            Import the components as .vue files for seamless integration within your project where path of each component is available at the "import" section of a component documentation.</p>
+            <p>This is the recommended way if your application uses <a href="https://cli.vuejs.org/">vue-cli</a> or has a webpack based build with <a href="https://github.com/vuejs/vue-loader">vue-loader</a> configured.</p>
 
+            <p>Begin with installing PrimeVue. This command only sets up the core configuration like locale and does not register any component.</p>
 <CodeHighlight lang="js">
-//import ComponentName from 'primevue/componentname';
+import PrimeVue from 'primevue/config';
 
-import Dialog from 'primevue/dialog';
+Vue.use(PrimeVue);
 </CodeHighlight>
 
-            <p>In the next step, register the component with the tag name you'd like to use.</p>
+            <p>Then import and register the component from the library. Import path is available in the documentation of the corresponding component.</p>
+
 <CodeHighlight lang="js">
+import Dialog from 'primevue/dialog';
+
 Vue.component('Dialog', Dialog);
 </CodeHighlight>
 
-            <p>Then you'll be able to utilize the component in your application.</p>
+            <p>Finally you'll be able to utilize the component in your application.</p>
 <CodeHighlight>
 &lt;Dialog&gt;&lt;/Dialog&gt;
 </CodeHighlight>
@@ -107,7 +106,7 @@ dependencies: {
             <p>The css dependencies are as follows, note that you may change the theme with another one of your choice. If you are using a bundler such as webpack with a css loader you
                 may import them to your main application component.</p>
 
-<CodeHighlight lang="js">
+<CodeHighlight lang="css">
 primevue/resources/themes/saga-blue/theme.css       //theme
 primevue/resources/primevue.min.css                 //core css
 primeicons/primeicons.css                           //icons
@@ -151,12 +150,18 @@ primevue/resources/themes/luna-pink/theme.css
 primevue/resources/themes/rhea/theme.css
 </CodeHighlight>
 
+            <h5>PrimeFlex</h5>
+            <p>PrimeFlex is a CSS utility library featuring various helpers such as a grid system, flexbox, spacing, elevation and more. Although it is not required, it is highly
+                recommended to add PrimeFlex as it is likely to need such utilities when developing applications. View the <router-link to="/primeflex">PrimeFlex</router-link> section for the installation.</p>
+
             <h5>Ripple</h5>
             <p>Ripple is an optional animation for the supported components such as buttons. It is disabled by default and needs to be enabled at
-                your app's entry file (e.g. main.js) using the <i>$primevue</i> instance variable.
+                while installing PrimeVue.
             </p>
-<CodeHighlight class="language-javascript">
-Vue.prototype.$primevue = {ripple: true};
+<CodeHighlight lang="js">
+import PrimeVue from 'primevue/config';
+
+Vue.use(PrimeVue, {ripple: true});
 </CodeHighlight>
 
             <h5>Quickstart</h5>
@@ -168,6 +173,7 @@ Vue.prototype.$primevue = {ripple: true};
             <h5>Nuxt.js Integration</h5>
             <p>PrimeVue can easily be added to a Nuxt.js with the following steps.</p>
             <p><strong>1)</strong> Add primevue.js to the plugins folder with the components you'd like to use.</p>
+            
 <CodeHighlight class="language-javascript">
 import Vue from 'vue';
 import InputText from 'primevue/inputtext';

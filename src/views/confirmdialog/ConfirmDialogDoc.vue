@@ -117,7 +117,7 @@ export default {
                                 <td>null</td>
                                 <td>Callback to execute when action is rejected.</td>
                             </tr>
-                            <tr>
+                             <tr>
                                 <td>acceptLabel</td>
                                 <td>string</td>
                                 <td>null</td>

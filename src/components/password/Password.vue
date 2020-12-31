@@ -172,22 +172,22 @@ export default {
 
                         switch (this.testStrength(value)) {
                             case 1:
-                                label = this.weakLabel;
+                                label = this.weakText;
                                 meterPos = '0px -10px';
                                 break;
 
                             case 2:
-                                label = this.mediumLabel;
+                                label = this.mediumText;
                                 meterPos = '0px -20px';
                                 break;
 
                             case 3:
-                                label = this.strongLabel;
+                                label = this.strongText;
                                 meterPos = '0px -30px';
                                 break;
 
                             default:
-                                label = this.promptLabel;
+                                label = this.promptText;
                                 meterPos = '0px 0px';
                                 break;
                         }
@@ -202,6 +202,18 @@ export default {
         },
         filled() {
             return (this.value != null && this.value.toString().length > 0)
+        },
+        weakText() {
+            return this.weakLabel || this.$primevue.config.locale.weak;
+        },
+        mediumText() {
+            return this.mediumLabel || this.$primevue.config.locale.medium;
+        },
+        strongText() {
+            return this.strongLabel || this.$primevue.config.locale.strong;
+        },
+        promptText() {
+            return this.promptLabel || this.$primevue.config.locale.passwordPrompt;
         }
     }
 }
