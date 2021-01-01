@@ -275,9 +275,7 @@ export default {
                 return {'bottom': this.handlePosition + '%'};
         },
         handlePosition() {
-            if (this.modelValue === 0)
-                return 0;
-            else if (this.modelValue < this.min)
+            if (this.modelValue < this.min)
                 return 0;
             else if (this.modelValue > this.max)
                 return 100;
