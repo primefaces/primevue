@@ -215,7 +215,7 @@
                     </a>
                 </div>
                 <div class="p-col-12 p-md-6">
-                    <img alt="PRO" src="../assets/images/home/icon-pro.svg" />
+                    <img alt="PRO" src="../assets/images/home/asset-pro.png" />
                 </div>
             </div>
         </div>

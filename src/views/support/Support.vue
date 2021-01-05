@@ -22,7 +22,7 @@
                 </div>
 
                 <div class="pro-section-image p-col-12 p-md-4">
-                    <img alt="PRO" src="../../assets/images/home/icon-pro.svg" />
+                    <img alt="PRO" src="../../assets/images/home/asset-pro.png" />
                 </div>
             </div>
 
