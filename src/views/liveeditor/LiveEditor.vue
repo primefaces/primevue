@@ -123,6 +123,7 @@ export default {
             _files[`src/components/${name}${extension}`] = {       
                 content: `
                     ${content}
+                    </${scriptText}>
 `
             }
 
@@ -133,11 +134,11 @@ import "primevue/resources/themes/saga-blue/theme.css";
 import "primevue/resources/primevue.min.css";
 import "primeicons/primeicons.css";
 import App from "./App.vue";
-import Button from "primevue/button";
+import ${this.name.slice(0, -4)} from "primevue/${this.name.slice(0, -4).toLowerCase()}";
 import PrimeVue from "primevue/config";
 const app = createApp(App);
 app.use(PrimeVue, { ripple: true });
-app.component("Button", Button);
+app.component("${this.name.slice(0, -4)}", ${this.name.slice(0, -4)});
 
 app.mount("#app");
 `
@@ -416,16 +417,11 @@ img.flag {
             
 
             if (this.service) {
-                _files[`src/service/${this.service}${extension}`] = {
+                _files[`src/service/${this.service}.js`] = {
                     content: services[this.service]
                 }
 
                 extDependencies['axios'] =  "^0.19.0";
-                extDependencies['@babel/cli'] = "^7.4.4";
-                extDependencies['@vue/cli-plugin-babel'] = "~4.5.0";
-                extDependencies['@vue/cli-service'] = "~4.5.0";
-                extDependencies['@vue/compiler-sfc'] = "^3.0.0";
-                extDependencies['core-js'] = "^3.6.5";
             }
 
             if (this.data) {

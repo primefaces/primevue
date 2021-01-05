@@ -1,56 +1,50 @@
 const services = {
     'CountryService': `
-import axios from 'axios'
+import axios from 'axios';
 
-export class CountryService {
+export default class CountryService {
 
     getCountries() {
-        return axios.get('data/countries.json')
-            .then(res => res.data.data);
+        return axios.get('data/countries.json').then(res => res.data.data);
     }
 }
     `,
     'CustomerService': `
 import axios from 'axios';
 
-export class CustomerService {
+export default class CustomerService {
 
     getCustomersSmall() {
-        return axios.get('data/customers-small.json')
-                .then(res => res.data.data);
+        return axios.get('data/customers-small.json').then(res => res.data.data);
     }
 
     getCustomersMedium() {
-        return axios.get('data/customers-medium.json')
-                .then(res => res.data.data);
+        return axios.get('data/customers-medium.json').then(res => res.data.data);
     }
 
     getCustomersLarge() {
-        return axios.get('data/customers-large.json')
-                .then(res => res.data.data);
+        return axios.get('data/customers-large.json').then(res => res.data.data);
     }
 
     getCustomersXLarge() {
-        return axios.get('data/customers-xlarge.json')
-                .then(res => res.data.data);
+        return axios.get('data/customers-xlarge.json').then(res => res.data.data);
     }
 }
     `,
     'EventService': `
 import axios from 'axios';
 
-export class EventService {
+export default class EventService {
 
     getEvents() {
-        return axios.get('data/events.json')
-                .then(res => res.data.data);
+        return axios.get('data/events.json').then(res => res.data.data);
     }
 }
     `,
     'NodeService': `
 import axios from 'axios';
 
-export class NodeService {
+export default class NodeService {
 
     getTreeTableNodes() {
         return axios.get('data/treetablenodes.json')
@@ -61,18 +55,18 @@ export class NodeService {
         return axios.get('data/treenodes.json')
                 .then(res => res.data.root);
     }
+
 }
     `,
     'PhotoService': `
 import axios from 'axios';
 
-export class PhotoService {
+export default class PhotoService {
 
     getImages() {
-        return axios.get('data/photos.json')
-                .then(res => res.data.data);
+        return axios.get('data/photos.json').then(res => res.data.data);
     }
-}
+}  
     `,
     'ProductService': `
 import axios from 'axios';
