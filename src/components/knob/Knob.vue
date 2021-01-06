@@ -90,7 +90,9 @@ export default {
                 mappedValue = this.mapRange(angle + 2 * Math.PI, this.minRadians, this.maxRadians, this.min, this.max);
             else
                 return;
+            
             let newValue = Math.round((mappedValue - this.min) / this.step) * this.step + this.min;
+            this.$emit('input', newValue);
             this.$emit('change', newValue);
         },
         mapRange(x, inMin, inMax, outMin, outMax) {
