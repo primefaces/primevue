@@ -58,7 +58,7 @@ export default {
         this.loading = true;
 
         setTimeout(() => {
-            this.customerService.getCustomersLarge().then(data => {
+            this.customerService.getCustomers().then(data => {
                 this.datasource = data;
                 this.totalRecords = data.length,
                 this.customers = this.datasource.slice(0, 10);
@@ -105,7 +105,7 @@ export default {
         this.loading = true;
 
         setTimeout(() => {
-            this.customerService.getCustomersLarge().then(data => {
+            this.customerService.getCustomers().then(data => {
                 this.datasource = data;
                 this.totalRecords = data.length,
                 this.customers = this.datasource.slice(0, 10);

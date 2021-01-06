@@ -4,17 +4,21 @@ export default class CustomerService {
 
 	getCustomersSmall() {
 		return axios.get('demo/data/customers-small.json').then(res => res.data.data);
-    }
+  }
 
-    getCustomersMedium() {
+  getCustomersMedium() {
 		return axios.get('demo/data/customers-medium.json').then(res => res.data.data);
-    }
+  }
 
-    getCustomersLarge() {
+  getCustomersLarge() {
 		return axios.get('demo/data/customers-large.json').then(res => res.data.data);
-    }
+  }
 
-    getCustomersXLarge() {
+  getCustomersXLarge() {
 		return axios.get('demo/data/customers-xlarge.json').then(res => res.data.data);
-	}
+  }
+  
+  getCustomers() {
+    return axios.get('https://www.primefaces.org/data/customers').then(res => res.data.customers)
+  }
 }
