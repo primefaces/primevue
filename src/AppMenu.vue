@@ -11,7 +11,7 @@
                 <router-link to="/setup">Get Started</router-link>
                 <a href="https://forum.primefaces.org/viewforum.php?f=110" target="_blank">Forum</a>
                 <a href="https://discord.gg/gzKFYnpmCY" target="_blank">Discord Chat</a>
-                <a href="https://github.com/primefaces/primevue" target="_blank">Source Code</a>
+                <a href="https://github.com/primefaces/primevue/tree/2.x" target="_blank">Source Code</a>
                 <router-link to="/support">Support</router-link>
                 <a href="https://www.primefaces.org/store" target="_blank">Store</a>
                 <router-link to="/locale">Locale <Tag value="New"></Tag></router-link>

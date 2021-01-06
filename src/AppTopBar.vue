@@ -99,7 +99,7 @@
                         <li><router-link to="/support"><span>Support</span></router-link></li>
                         <li><a href="https://forum.primefaces.org/viewforum.php?f=110"><span>Forum</span></a></li>
                         <li><a href="https://discord.gg/gzKFYnpmCY" target="_blank"><span>Discord Chat</span></a></li>
-                        <li><a href="https://github.com/primefaces/primevue" target="_blank"><span>Source Code</span></a></li>
+                        <li><a href="https://github.com/primefaces/primevue/tree/2.x" target="_blank"><span>Source Code</span></a></li>
                         <li><a href="https://www.primefaces.org/store" target="_blank"><span>PrimeStore</span></a></li>
                         <li><a href="https://www.primefaces.org/category/primevue/" target="_blank"><span>Blog</span></a></li>
                         <li><a href="https://twitter.com/primevue?lang=en" target="_blank"><span>Twitter</span></a></li>
