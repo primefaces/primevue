@@ -67,7 +67,7 @@ export default {
 <pre v-code.script>
 <code>
 import { defineComponent } from "vue";
-import { useConfirm } from "primevue/useconfirm";
+import { useConfirm } from "primevue/useConfirm";
 
 export default defineComponent({
     setup() {
