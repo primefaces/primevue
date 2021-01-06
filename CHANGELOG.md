@@ -161,6 +161,37 @@
 - Button not registered in FileUpload [\#478](https://github.com/primefaces/primevue/issues/478)
 - BlockUI documentation indicates "show" event whereas the actual event is "unblock" [\#485](https://github.com/primefaces/primevue/issues/485)
 
+## [2.3.0](https://github.com/primefaces/primevue/tree/2.3.0) (2021-01-06)
+
+[Full Changelog](https://github.com/primefaces/primevue/compare/2.2.3...2.3.0)
+
+**Breaking Changes:**
+
+- Remove locale from Calendar [\#824](https://github.com/primefaces/primevue/issues/824)
+- Setup Requirement [\#823](https://github.com/primefaces/primevue/issues/823)
+
+**Implemented New Features and Enhancements:**
+
+- Touch support for Slider [\#757](https://github.com/primefaces/primevue/issues/757)
+- Nuxt Module [\#819](https://github.com/primefaces/primevue/issues/819)
+- Refactor Build [\#818](https://github.com/primefaces/primevue/issues/818)
+- Locale API [\#817](https://github.com/primefaces/primevue/issues/817)
+- ConfirmPopup Component [\#791](https://github.com/primefaces/primevue/issues/791)
+- ConfirmDialog Component [\#790](https://github.com/primefaces/primevue/issues/790)
+- Splitter Component [\#789](https://github.com/primefaces/primevue/issues/789)
+- ScrollTop Component [\#788](https://github.com/primefaces/primevue/issues/788)
+- Skeleton Component [\#787](https://github.com/primefaces/primevue/issues/787)
+- Divider Component [\#786](https://github.com/primefaces/primevue/issues/786)
+- Knob Component [\#785](https://github.com/primefaces/primevue/issues/785)
+- CascadeSelect Component [\#784](https://github.com/primefaces/primevue/issues/784)
+- Avatar Component [\#783](https://github.com/primefaces/primevue/issues/783)
+- Badge Component [\#782](https://github.com/primefaces/primevue/issues/782)
+- Tag Component [\#779](https://github.com/primefaces/primevue/issues/779)
+- Chip Component [\#778](https://github.com/primefaces/primevue/issues/778)
+
+**Fixed bugs:**
+- Vertical Slider [\#780](https://github.com/primefaces/primevue/issues/780)
+
 ## [2.2.3](https://github.com/primefaces/primevue/tree/2.2.3) (2020-12-14)
 
 [Full Changelog](https://github.com/primefaces/primevue/compare/2.2.2...2.2.3)
