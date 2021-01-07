@@ -109,9 +109,12 @@ export default {
 			</TabPanel>
 
 			<TabPanel header="Source">
-				<a href="https://github.com/primefaces/primevue/tree/master/src/views/radiobutton" class="btn-viewsource" target="_blank" rel="noopener noreferrer">
-					<span>View on GitHub</span>
-				</a>
+                <div class="p-d-flex p-jc-between">
+                    <a href="https://github.com/primefaces/primevue/tree/master/src/views/radiobutton" class="btn-viewsource" target="_blank" rel="noopener noreferrer">
+                        <span>View on GitHub</span>
+                    </a>
+                    <LiveEditor name="RadioButtonDemo" :sources="sources"/>
+                </div>
 <pre v-code>
 <code><template v-pre>
 &lt;h3&gt;Basic&lt;/h3&gt;
@@ -160,3 +163,65 @@ export default {
 		</TabView>
 	</div>
 </template>
+
+<script>
+import LiveEditor from '../liveeditor/LiveEditor';
+export default {
+    data() {
+        return {
+            sources: {
+                'template': {
+                    content: `<template>
+    <div class="layout-content">
+        <div class="content-section implementation">
+            <div class="card">
+                <h5>Basic</h5>
+                <div class="p-field-radiobutton">
+                    <RadioButton id="city1" name="city" value="Chicago" v-model="city" />
+                    <label for="city1">Chicago</label>
+                </div>
+                <div class="p-field-radiobutton">
+                    <RadioButton id="city2" name="city" value="Los Angeles" v-model="city" />
+                    <label for="city2">Los Angeles</label>
+                </div>
+                <div class="p-field-radiobutton">
+                    <RadioButton id="city3" name="city" value="New York" v-model="city" />
+                    <label for="city3">New York</label>
+                </div>
+                <div class="p-field-radiobutton">
+                    <RadioButton id="city4" name="city" value="San Francisco" v-model="city" />
+                    <label for="city4">San Francisco</label>
+                </div>
+
+                <h5>Dynamic Values, Preselection, Value Binding and Disabled Option</h5>
+                <div v-for="category of categories" :key="category.key" class="p-field-radiobutton">
+                    <RadioButton :id="category.key" name="category" :value="category" v-model="selectedCategory" :disabled="category.key === 'R'" />
+                    <label :for="category.key">{{category.name}}</label>
+                </div>
+            </div>
+        </div>
+    </div>
+</template>
+
+<script>
+export default {
+    data() {
+        return {
+            city: null,
+            categories: [{name: 'Accounting', key: 'A'}, {name: 'Marketing', key: 'M'}, {name: 'Production', key: 'P'}, {name: 'Research', key: 'R'}],
+            selectedCategory: null
+        }
+    },
+    created() {
+        this.selectedCategory = this.categories[1];
+    }
+}`
+                }
+            }
+        }
+    },
+    components: {
+        LiveEditor
+    }
+}
+</script>

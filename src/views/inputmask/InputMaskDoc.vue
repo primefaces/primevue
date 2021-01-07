@@ -129,9 +129,12 @@ import InputMask from 'primevue/inputmask';
 			</TabPanel>
 
 			<TabPanel header="Source">
-				<a href="https://github.com/primefaces/primevue/tree/master/src/views/inputtext" class="btn-viewsource" target="_blank" rel="noopener noreferrer">
-					<span>View on GitHub</span>
-				</a>
+                <div class="p-d-flex p-jc-between">
+                    <a href="https://github.com/primefaces/primevue/tree/master/src/views/inputtext" class="btn-viewsource" target="_blank" rel="noopener noreferrer">
+                        <span>View on GitHub</span>
+                    </a>
+                    <LiveEditor name="InputMaskDemo" :sources="sources"/>
+                </div>
 <pre v-code>
 <code><template v-pre>
 &lt;div class="p-fluid p-formgrid p-grid"&gt;
@@ -188,3 +191,74 @@ export default {
 		</TabView>
 	</div>
 </template>
+
+<script>
+import LiveEditor from '../liveeditor/LiveEditor';
+export default {
+    data() {
+        return {
+            sources: {
+                'template': {
+                    content: `<template>
+    <div class="layout-content">
+        <div class="content-section implementation">
+            <div class="card">
+                <div class="p-fluid p-formgrid p-grid">
+                    <div class="p-field p-col-12 p-md-4">
+                        <label for="basic">Basic</label>
+                        <InputMask mask="99-999999" v-model="val1" placeholder="99-999999" />
+                    </div>
+
+                    <div class="p-field p-col-12 p-md-4">
+                        <label for="ssn">SSN</label>
+                        <InputMask mask="999-99-9999" v-model="val2" placeholder="999-99-9999" />
+                    </div>
+
+                    <div class="p-field p-col-12 p-md-4">
+                        <label for="date">Date</label>
+                        <InputMask mask="99/99/9999" v-model="val3" placeholder="99/99/9999" slotChar="mm/dd/yyyy" />
+                    </div>
+
+                    <div class="p-field p-col-12 p-md-4">
+                        <label for="Phone">Phone</label>
+                        <InputMask mask="(999) 999-9999" v-model="val4" placeholder="(999) 999-9999" />
+                    </div>
+
+                    <div class="p-field p-col-12 p-md-4">
+                        <label for="phoneext">Phone Ext</label>
+                        <InputMask mask="(999) 999-9999? x99999" v-model="val5" placeholder="(999) 999-9999? x99999"/>
+                    </div>
+
+                    <div class="p-field p-col-12 p-md-4">
+                        <label for="serial">Serial</label>
+                        <InputMask mask="a*-999-a999" v-model="val6" placeholder="a*-999-a999" />
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</template>
+
+<script>
+export default {
+    data() {
+        return {
+            val1: null,
+            val2: null,
+            val3: null,
+            val4: null,
+            val5: null,
+            val6: null
+        }
+    }
+}
+`
+                }
+            }
+        }
+    },
+    components: {
+        LiveEditor
+    }
+}
+</script>

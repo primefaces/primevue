@@ -81,9 +81,12 @@ import Textarea from 'primevue/textarea';
 			</TabPanel>
 
 			<TabPanel header="Source">
-				<a href="https://github.com/primefaces/primevue/tree/master/src/views/textarea" class="btn-viewsource" target="_blank" rel="noopener noreferrer">
-					<span>View on GitHub</span>
-				</a>
+				<div class="p-d-flex p-jc-between">
+					<a href="https://github.com/primefaces/primevue/tree/master/src/views/textarea" class="btn-viewsource" target="_blank" rel="noopener noreferrer">
+						<span>View on GitHub</span>
+					</a>
+					<LiveEditor name="TextareaDemo" :sources="sources"/>
+                </div>
 <pre v-code>
 <code><template v-pre>
 &lt;h3&gt;Basic&lt;/h3&gt;
@@ -114,3 +117,47 @@ export default {
 		</TabView>
 	</div>
 </template>
+
+<script>
+import LiveEditor from '../liveeditor/LiveEditor';
+export default {
+    data() {
+		return {
+			sources: {
+				'template': {
+					content: `<template>
+    <div class="layout-content">
+        <div class="content-section implementation">
+            <div class="card">
+                <h5>Basic</h5>
+                <Textarea v-model="value1" rows="5" cols="30" />
+
+                <h5>Auto Resize</h5>
+                <Textarea v-model="value2" :autoResize="true" rows="5" cols="30" />
+
+                <h5>Disabled</h5>
+                <Textarea v-model="value3" disabled rows="5" cols="30" />
+            </div>
+        </div>
+    </div>
+</template>
+
+<script>
+export default {
+    data() {
+        return {
+            value1: '',
+            value2: '',
+            value3: ''
+        }
+    }
+}`
+				}
+			}
+		}
+	},
+	components: {
+		LiveEditor
+	}
+}
+</script>

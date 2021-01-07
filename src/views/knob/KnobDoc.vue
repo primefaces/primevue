@@ -210,9 +210,12 @@ data() {
 			</TabPanel>
 
 			<TabPanel header="Source">
-				<a href="https://github.com/primefaces/primevue/tree/master/src/views/knob" class="btn-viewsource" target="_blank" rel="noopener noreferrer">
-					<span>View on GitHub</span>
-				</a>
+                <div class="p-d-flex p-jc-between">
+                    <a href="https://github.com/primefaces/primevue/tree/master/src/views/knob" class="btn-viewsource" target="_blank" rel="noopener noreferrer">
+                        <span>View on GitHub</span>
+                    </a>
+                    <LiveEditor name="KnobDemo" :sources="sources"/>
+                </div>
 <pre v-code>
 <code><template v-pre>
 &lt;div class="p-grid p-formgrid p-text-center"&gt;
@@ -279,3 +282,83 @@ export default {
 		</TabView>
 	</div>
 </template>
+
+<script>
+import LiveEditor from '../liveeditor/LiveEditor';
+export default {
+    data() {
+        return {
+            sources: {
+                'template': {
+                    content: `<template>
+    <div class="layout-content">
+        <div class="content-section implementation">
+            <div class="card">
+                <div class="p-grid p-formgrid p-text-center">
+                    <div class="p-field p-col-12 p-md-4">
+                        <h5>Basic</h5>
+                        <Knob v-model="value1" />
+                    </div>
+                    <div class="p-field p-col-12 p-md-4">
+                        <h5>Readonly</h5>
+                        <Knob v-model="value2" readonly />
+                    </div>
+                     <div class="p-field p-col-12 p-md-4">
+                         <h5>Disabled</h5>
+                        <Knob v-model="value3" disabled />
+                    </div>
+                    <div class="p-field p-col-12 p-md-4">
+                        <h5 class="p-mt-3">Min/Max</h5>
+                        <Knob v-model="value4" :min="-50" :max="50" />
+                    </div>
+                    <div class="p-field p-col-12 p-md-4">
+                        <h5 class="p-mt-3">Step</h5>
+                        <Knob v-model="value5" :step="10" />
+                    </div>
+                    <div class="p-field p-col-12 p-md-4">
+                         <h5 class="p-mt-3">Template</h5>
+                        <Knob v-model="value6" valueTemplate="{value}%" />
+                    </div>
+                    <div class="p-field p-col-12 p-md-4">
+                        <h5 class="p-mt-3">Stroke</h5>
+                        <Knob v-model="value7" :strokeWidth="5" />
+                    </div>
+                    <div class="p-field p-col-12 p-md-4">
+                        <h5 class="p-mt-3">Size</h5>
+                        <Knob v-model="value8" :size="200"/>
+                    </div>
+                    <div class="p-field p-col-12 p-md-4">
+                        <h5 class="p-mt-3">Color</h5>
+                        <Knob v-model="value9" valueColor="SlateGray" rangeColor="MediumTurquoise"  />
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</template>
+
+<script>
+export default {
+    data() {
+        return {
+            value1: 0,
+            value2: 50,
+            value3: 75,
+            value4: 10,
+            value5: 40,
+            value6: 60,
+            value7: 40,
+            value8: 60,
+            value9: 50,
+        }
+    }
+}`
+                }
+            }
+        }
+    },
+    components: {
+        LiveEditor
+    }
+}
+</script>

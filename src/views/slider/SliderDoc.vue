@@ -183,9 +183,12 @@ export default {
 			</TabPanel>
 
 			<TabPanel header="Source">
-				<a href="https://github.com/primefaces/primevue/tree/master/src/views/slider" class="btn-viewsource" target="_blank" rel="noopener noreferrer">
-					<span>View on GitHub</span>
-				</a>
+                <div class="p-d-flex p-jc-between">
+                    <a href="https://github.com/primefaces/primevue/tree/master/src/views/slider" class="btn-viewsource" target="_blank" rel="noopener noreferrer">
+                        <span>View on GitHub</span>
+                    </a>
+                    <LiveEditor name="SliderDemo" :sources="sources"/>
+                </div>
 <pre v-code>
 <code><template v-pre>
 &lt;h3&gt;Basic: {{value1}}&lt;/h3&gt;
@@ -237,3 +240,60 @@ export default {
 		</TabView>
 	</div>
 </template>
+
+<script>
+import LiveEditor from '../liveeditor/LiveEditor';
+export default {
+    data() {
+        return {
+            sources: {
+                'template': {
+                    content: `<template>
+    <div class="layout-content">
+        <div class="content-section implementation">
+            <div class="card">
+                <h5>Basic: {{value1}}</h5>
+                <Slider v-model="value1" />
+
+                <h5>Step: {{value3}}</h5>
+                <Slider v-model="value3" :step="20" />
+
+                <h5>Range: {{value4}}</h5>
+                <Slider v-model="value4" :range="true" />
+
+                <h5>Vertical: {{value5}}</h5>
+                <Slider v-model="value5" orientation="vertical" />
+            </div>
+        </div>
+    </div>
+</template>
+
+<script>
+export default {
+    data() {
+        return {
+            value1: null,
+            value2: 50,
+            value3: 20,
+            value4: [20,80],
+            value5: 50
+        }
+    }
+}`,
+                    style: `<style scoped>
+.p-slider-horizontal, .p-inputtext {
+    width: 14rem;
+}
+.p-slider-vertical {
+     height: 14rem;
+}
+</style>`
+                }
+            }
+        }
+    },
+    components: {
+        LiveEditor
+    }
+}
+</script>

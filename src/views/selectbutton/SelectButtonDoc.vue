@@ -158,9 +158,12 @@ export default {
 			</TabPanel>
 
 			<TabPanel header="Source">
-				<a href="https://github.com/primefaces/primevue/tree/master/src/views/selectbutton" class="btn-viewsource" target="_blank" rel="noopener noreferrer">
-					<span>View on GitHub</span>
-				</a>
+                <div class="p-d-flex p-jc-between">
+                    <a href="https://github.com/primefaces/primevue/tree/master/src/views/selectbutton" class="btn-viewsource" target="_blank" rel="noopener noreferrer">
+                        <span>View on GitHub</span>
+                    </a>
+                    <LiveEditor name="SelectButtonDemo" :sources="sources"/>
+                </div>
 <pre v-code>
 <code><template v-pre>
 &lt;h5&gt;Single Selection&lt;/h5&gt;
@@ -206,3 +209,62 @@ export default {
 		</TabView>
 	</div>
 </template>
+
+<script>
+import LiveEditor from '../liveeditor/LiveEditor';
+export default {
+    data() {
+        return {
+            sources: {
+                'template': {
+                    content: `<template>
+    <div class="layout-content">
+        <div class="content-section implementation">
+            <div class="card">
+                <h5>Single Selection</h5>
+                <SelectButton v-model="value1" :options="options" />
+
+                <h5>Multiple Selection</h5>
+                <SelectButton v-model="value2" :options="paymentOptions" optionLabel="name" multiple />
+
+                <h5>Custom Content</h5>
+                <SelectButton v-model="value3" :options="justifyOptions" dataKey="value">
+                    <template #option="slotProps">
+                        <i :class="slotProps.option.icon"></i>
+                    </template>
+                </SelectButton>
+            </div>
+        </div>
+    </div>
+</template>
+
+<script>
+export default {
+    data() {
+        return {
+            value1: 'Off',
+            value2: null,
+            value3: null,
+            options: ['Off', 'On'],
+            paymentOptions: [
+                {name: 'Option 1', value: 1},
+                {name: 'Option 2', value: 2},
+                {name: 'Option 3', value: 3}
+            ],
+            justifyOptions: [
+                {icon: 'pi pi-align-left', value: 'left'},
+                {icon: 'pi pi-align-right', value: 'Right'},
+                {icon: 'pi pi-align-center', value: 'Center'},
+                {icon: 'pi pi-align-justify', value: 'Justify'}]
+        }
+    }
+}`
+                }
+            }
+        }
+    },
+    components: {
+        LiveEditor
+    }
+}
+</script>

@@ -151,9 +151,12 @@ import InputText from 'primevue/inputtext';
 			</TabPanel>
 
 			<TabPanel header="Source">
-				<a href="https://github.com/primefaces/primevue/tree/master/src/views/inputtext" class="btn-viewsource" target="_blank" rel="noopener noreferrer">
-					<span>View on GitHub</span>
-				</a>
+                <div class="p-d-flex p-jc-between">
+                    <a href="https://github.com/primefaces/primevue/tree/master/src/views/inputtext" class="btn-viewsource" target="_blank" rel="noopener noreferrer">
+                        <span>View on GitHub</span>
+                    </a>
+                    <LiveEditor name="InputTextDemo" :sources="sources" />
+                </div>
 <pre v-code>
 <code><template v-pre>
 &lt;div class="card"&gt;
@@ -225,3 +228,103 @@ export default {
 		</TabView>
 	</div>
 </template>
+
+<script>
+import LiveEditor from '../liveeditor/LiveEditor';
+export default {
+    data() {
+        return {
+            sources: {
+                'template': {
+                    content:`<template>
+    <div class="layout-content">
+        <div class="content-section implementation">
+            <div class="card">
+                <h5>Basic</h5>
+                <InputText type="text" v-model="value1" />
+                <span :style="{marginLeft: '.5em'}">{{value1}}</span>
+
+                <h5>Floating Label</h5>
+                <span class="p-float-label">
+                    <InputText id="username" type="text" v-model="value2" />
+                    <label for="username">Username</label>
+                </span>
+
+                <h5>Left Icon</h5>
+                <span class="p-input-icon-left">
+                    <i class="pi pi-search" />
+                    <InputText type="text" v-model="value3" placeholder="Search" />
+                </span>
+
+                <h5>Right Icon</h5>
+                <span class="p-input-icon-right">
+                    <i class="pi pi-spin pi-spinner" />
+                    <InputText type="text" v-model="value4" />
+                </span>
+
+                <h5>Help Text</h5>
+                <div class="p-field">
+                    <label for="username1">Username</label>
+                    <InputText id="username1" type="username" aria-describedby="username1-help" />
+                    <small id="username1-help">Enter your username to reset your password.</small>
+                </div>
+
+                <h5>Invalid</h5>
+                <div class="p-field">
+                    <label for="username2">Username</label>
+                    <InputText id="username2" type="username" aria-describedby="username2-help" class="p-invalid" />
+                    <small id="username2-help" class="p-invalid">Username is not available.</small>
+                </div>
+
+                <h5>Disabled</h5>
+                <InputText type="text" v-model="value5" disabled />
+
+                <h5>Sizes</h5>
+                <div class="sizes">
+                    <InputText type="text" class="p-inputtext-sm" placeholder="Small" />
+                    <InputText type="text" placeholder="Normal" />
+                    <InputText type="text" class="p-inputtext-lg"  placeholder="Large" />
+                </div>
+            </div>
+        </div>
+    </div>
+</template>
+
+<script>
+export default {
+    data() {
+        return {
+            value1: null,
+            value2: null,
+            value3: null,
+            value4: null,
+            value5: 'PrimeVue'
+        }
+    }
+}
+`,
+                    style: `<style lang="scss" scoped>
+.sizes {
+    .p-inputtext {
+        display: block;
+        margin-bottom: .5rem;
+
+        &:last-child {
+            margin-bottom: 0;
+        }
+    }
+}
+
+.p-field * {
+    display: block;
+}
+</style>`
+                }
+            }
+        }
+    },
+    components: {
+        LiveEditor
+    }
+}
+</script>
