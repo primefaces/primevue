@@ -491,15 +491,16 @@ export default {
         </div>
     </div>
 </template>
-<style>
+
+<script>
+export default{}
+                    `,
+                    style: `<style>
 .p-button {
     margin-right: .5rem;
     margin-bottom: .5rem;
 }
-</style>
-<script>
-export default{}
-                    `
+</style>`
                 }
             }
         }
