@@ -1,88 +1,98 @@
 const services = {
     'CountryService': `
 import axios from 'axios';
+import countriesData from '../../public/data/countries.json';
 
 export default class CountryService {
 
     getCountries() {
-        return axios.get('data/countries.json').then(res => res.data.data);
+        return axios.get(countriesData).then((res) => res.config.url.data);
     }
-}
+}    
     `,
     'CustomerService': `
 import axios from 'axios';
+import customersSmallData from '../../public/data/customers-large.json';
+import customersMediumData from '../../public/data/customers-large.json';
+import customersLargeData from '../../public/data/customers-large.json';
+import customersXLargeData from '../../public/data/customers-large.json';
 
 export default class CustomerService {
 
     getCustomersSmall() {
-        return axios.get('data/customers-small.json').then(res => res.data.data);
+        return axios.get(customersSmallData).then(res => res.config.url.data);
     }
 
     getCustomersMedium() {
-        return axios.get('data/customers-medium.json').then(res => res.data.data);
+        return axios.get(customersMediumData).then(res => res.config.url.data);
     }
 
     getCustomersLarge() {
-        return axios.get('data/customers-large.json').then(res => res.data.data);
+        return axios.get(customersLargeData).then(res => res.config.url.data);
     }
 
     getCustomersXLarge() {
-        return axios.get('data/customers-xlarge.json').then(res => res.data.data);
+        return axios.get(customersXLargeData).then(res => res.config.url.data);
     }
 }
     `,
     'EventService': `
 import axios from 'axios';
+import eventData from '../../public/data/events.json';
 
 export default class EventService {
 
     getEvents() {
-        return axios.get('data/events.json').then(res => res.data.data);
+        return axios.get(eventData).then(res => res.config.url.data);
     }
 }
     `,
     'NodeService': `
 import axios from 'axios';
+import treeTableNodeData from '../../public/data/treetablenodes.json';
+import treeNodeData from '../../public/data/treenodes.json';
 
 export default class NodeService {
 
     getTreeTableNodes() {
-        return axios.get('data/treetablenodes.json')
-                .then(res => res.data.root);
+        return axios.get(treeTableNodeData).then(res => res.config.url.root);
     }
 
     getTreeNodes() {
-        return axios.get('data/treenodes.json')
-                .then(res => res.data.root);
+        return axios.get(treeNodeData).then(res => res.config.url.root);
     }
 
 }
     `,
     'PhotoService': `
 import axios from 'axios';
+import photoData from '../../public/data/photos.json';
 
 export default class PhotoService {
 
     getImages() {
-        return axios.get('data/photos.json').then(res => res.data.data);
+        return axios.get(photoData).then(res => res.config.url.data);
     }
 }  
     `,
     'ProductService': `
 import axios from 'axios';
+import productsSmallData from '../../public/data/products-small.json';
+import productsData from '../../public/data/productsjson';
+import productsWithOrdersSmallData from '../../public/data/products-orders-small.json';
 
 export default class ProductService {
 
     getProductsSmall() {
-        return axios.get('data/products-small.json').then(res => res.data.data);
+        return axios.get(productsSmallData).then(res => res.config.url.data);
     }
 
     getProducts() {
-        return axios.get('data/products.json').then(res => res.data.data);
+        return axios.get(productsData).then(res => res.config.url.data);
     }
 
     getProductsWithOrdersSmall() {
-        return axios.get('data/products-orders-small.json').then(res => res.data.data);
+        return axios.get(productsWwithOrdersSmallData).then(res => res.config.url.data);
     }
 }
     `

@@ -30,7 +30,10 @@ export default {
             type: String,
             default: null
         },
-
+        components: {
+            type: Array,
+            default: null
+        },
         dependencies: {
             type: String,
             default: null
@@ -116,15 +119,29 @@ export default {
             let extension = '.vue';
             let extDependencies = this.dependencies || {};
             let content = this.sources.template.content;
+            let style = this.sources.template.style || '';
             let scriptText = 'script';
-
-            let _files = {};
+            let _files = {}, components = '', imports = '';
 
             _files[`src/components/${name}${extension}`] = {       
-                content: `
-                    ${content}
-                    </${scriptText}>
-`
+                content: `${content}
+</${scriptText}>
+
+${style}`   
+            }
+
+            if(this.components) {
+                this.components.forEach(comp => {
+                    imports += `import ${comp} from "primevue/${comp.toLowerCase()}";
+`;
+                    components += `app.component("${comp}", ${comp});
+`;
+                })
+            } else {
+                imports = `import ${this.name.slice(0, -4)} from "primevue/${this.name.slice(0, -4).toLowerCase()}";
+`;
+                components = `app.component("${this.name.slice(0, -4)}", ${this.name.slice(0, -4)});
+`;
             }
 
             _files['src/main.js'] = {
@@ -134,12 +151,11 @@ import "primevue/resources/themes/saga-blue/theme.css";
 import "primevue/resources/primevue.min.css";
 import "primeicons/primeicons.css";
 import App from "./App.vue";
-import ${this.name.slice(0, -4)} from "primevue/${this.name.slice(0, -4).toLowerCase()}";
 import PrimeVue from "primevue/config";
+${imports}
 const app = createApp(App);
 app.use(PrimeVue, { ripple: true });
-app.component("${this.name.slice(0, -4)}", ${this.name.slice(0, -4)});
-
+${components}
 app.mount("#app");
 `
             }
@@ -151,7 +167,6 @@ app.mount("#app");
     <meta charset="utf-8" />
     <meta http-equiv="X-UA-Compatible" content="IE=edge" />
     <meta name="viewport" content="width=device-width,initial-scale=1.0" />
-    <link href="https://unpkg.com/primevue/resources/themes/saga-blue/theme.css" rel="stylesheet" />
     <link href="https://unpkg.com/primeicons/primeicons.css" rel="stylesheet">
   </head>
   <body>
@@ -414,7 +429,6 @@ img.flag {
 }
                         `,
             }
-            
 
             if (this.service) {
                 _files[`src/service/${this.service}.js`] = {
@@ -431,6 +445,16 @@ img.flag {
                         content: data[el]
                     }
                 });
+            }
+
+            if(this.name === 'EditorDemo') {
+                extDependencies['quill'] =  "^1.3.7";
+            }
+            if(this.name === 'FullCalendarDemo') {
+                extDependencies['@fullcalendar/core'] = "5.4.0";
+                extDependencies['@fullcalendar/daygrid'] = "5.4.0";
+                extDependencies['@fullcalendar/interaction'] = "5.4.0";
+                extDependencies['@fullcalendar/timegrid'] = "5.4.0";
             }
 
             return this.createSandboxParameters(`${name}${extension}`, _files, extDependencies);
