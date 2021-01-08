@@ -15,6 +15,12 @@
                         <p>Drag and drop files to here to upload.</p>
                     </template>
                 </FileUpload>
+                <h5>Advanced with hidden Upload/Cancel buttons</h5>
+                <FileUpload name="demo[]" url="./upload.php" :multiple="true" accept="image/*" :maxFileSize="1000000" :auto="true" :uploadHidden="true" :cancelHidden="false">
+                <template #empty>
+                    <p>Drag and drop files to here to upload.</p>
+                </template>
+                </FileUpload>
 
                 <h5>Basic</h5>
                 <FileUpload mode="basic" name="demo[]" url="./upload.php" accept="image/*" :maxFileSize="1000000" @upload="onUpload" />

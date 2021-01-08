@@ -52,7 +52,7 @@ import FileUpload from 'primevue/fileupload';
 
 </code></pre>
 
-				<h5>File Size and File Linit</h5>
+				<h5>File Size and File Limit</h5>
 				<p>Maximium file size can be restricted using <i>maxFileSize</i> property defined in bytes. Similarly <i>fileLimit</i> is available to restrict the number of files to be uploaded.</p>
 <pre v-code>
 <code>
@@ -69,6 +69,18 @@ import FileUpload from 'primevue/fileupload';
 						invalidFileLimitMessage: 'Maximum number of files exceeded, limit is &#123;0&#125; at most.'
 					</li>
 				</ul>
+
+<h5>Hide Upload and/or Cancel buttons</h5>
+        <p>It's possible to hide the Upload button by enabling <i>uploadHidden</i> when it's not needed, for example when <i>auto</i>
+          property is enabled, upload begins as soon as file selection is completed or a file is dropped on the drop
+          area.</p>
+        <p>
+          Similarly, it's possible to hide the Cancel button by enabling <i>cancelHidden</i>.</p>
+        <pre v-code>
+<code>
+&lt;FileUpload name="demo[]" url="./upload" :auto="true" :uploadHidden="true" /&gt;
+
+</code></pre>
 
 				<h5>Request Customization</h5>
 				<p>XHR request to upload the files can be customized using the before-upload callback that passes the xhr instance and FormData object as event parameters.</p>
@@ -319,8 +331,15 @@ myUploader(event) {
 				</a>
 <pre v-code>
 <code><template v-pre>
-&lt;h3&gt;Advanced&lt;/h3&gt;
+&lt;h3&gt;Advanced&lt;/h3&gt;/Users/adil/Sites/laravel/primevue-PR/src/views/fileupload/FileUploadDemo.vue
 &lt;FileUpload name="demo[]" url="./upload.php" @upload="onUpload" :multiple="true" accept="image/*" :maxFileSize="1000000"&gt;
+    &lt;template #empty&gt;
+        &lt;p&gt;Drag and drop files to here to upload.&lt;/p&gt;
+    &lt;/template&gt;
+&lt;/FileUpload&gt;
+
+&lt;h3&gt;Advanced with hidden Upload/Cancel buttons&lt;/h3&gt;
+&lt;FileUpload name="demo[]" url="./upload.php" :auto="true" :uploadHidden="true" :multiple="true" accept="image/*" :maxFileSize="1000000"&gt;
     &lt;template #empty&gt;
         &lt;p&gt;Drag and drop files to here to upload.&lt;/p&gt;
     &lt;/template&gt;
