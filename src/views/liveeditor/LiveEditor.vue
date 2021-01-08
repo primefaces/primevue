@@ -137,6 +137,17 @@ ${style}`
 `;
             }
 
+            let directiveEl = ['EditorDemo'];
+
+            directiveEl.forEach(dir => {
+                if(name === dir) {
+                    imports += `import Tooltip from 'primevue/tooltip';
+`;
+                    directives += `app.directive('tooltip', Tooltip);
+`;
+                }
+            })
+
             if(this.components) {
                 this.components.forEach(comp => {
                     imports += `import ${comp} from "primevue/${comp.toLowerCase()}";
