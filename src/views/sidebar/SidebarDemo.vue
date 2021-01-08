@@ -17,7 +17,6 @@
 
                 <Sidebar v-model:visible="visibleLeft" :baseZIndex="1000">
                     <h3>Left Sidebar</h3>
-                    <Calendar id="basic" />
                 </Sidebar>
 
                 <Sidebar v-model:visible="visibleRight" :baseZIndex="1000" position="right">
