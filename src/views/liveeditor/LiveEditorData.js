@@ -78,7 +78,7 @@ export default class PhotoService {
     'ProductService': `
 import axios from 'axios';
 import productsSmallData from '../../public/data/products-small.json';
-import productsData from '../../public/data/productsjson';
+import productsData from '../../public/data/products.json';
 import productsWithOrdersSmallData from '../../public/data/products-orders-small.json';
 
 export default class ProductService {
@@ -92,7 +92,7 @@ export default class ProductService {
     }
 
     getProductsWithOrdersSmall() {
-        return axios.get(productsWwithOrdersSmallData).then(res => res.config.url.data);
+        return axios.get(productsWithOrdersSmallData).then(res => res.config.url.data);
     }
 }
     `

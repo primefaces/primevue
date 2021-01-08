@@ -453,9 +453,13 @@ img.flag {
                 extDependencies['@fullcalendar/timegrid'] = "5.4.0";
             }
 
-            if(this.name === 'OrganizationChartDemo') {
-                extDependencies['mitt'] = "^2.1.0";
-            }
+            let mittComponents = ['OrganizationChartDemo', 'ConfirmDialogDemo', 'ConfirmPopupDemo'];
+
+            mittComponents.forEach(cmp => {
+                if(this.name === cmp) {
+                    extDependencies['mitt'] = "^2.1.0";
+                }
+            });
 
             return this.createSandboxParameters(`${name}${extension}`, _files, extDependencies);
         }
