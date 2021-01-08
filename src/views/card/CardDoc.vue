@@ -72,9 +72,12 @@ import Card from 'primevue/card';
 			</TabPanel>
 
 			<TabPanel header="Source">
-				<a href="https://github.com/primefaces/primevue/tree/master/src/views/card" class="btn-viewsource" target="_blank" rel="noopener noreferrer">
-					<span>View on GitHub</span>
-				</a>
+				<div class="p-d-flex p-jc-between">
+					<a href="https://github.com/primefaces/primevue/tree/master/src/views/card" class="btn-viewsource" target="_blank" rel="noopener noreferrer">
+						<span>View on GitHub</span>
+					</a>
+					<LiveEditor name="CardDemo" :sources="sources" :components="['Card', 'Button']"/>
+                </div>
 <pre v-code>
 <code><template v-pre>
 &lt;Card style="width: 25rem; margin-bottom: 2em"&gt;
@@ -112,3 +115,65 @@ import Card from 'primevue/card';
 		</TabView>
 	</div>
 </template>
+
+<script>
+import LiveEditor from '../liveeditor/LiveEditor';
+export default {
+	data() {
+		return {
+			sources: {
+				'template': {
+					content: `<template>
+    <div class="layout-content">
+        <div class="content-section implementation">
+            <Card style="width: 25rem; margin-bottom: 2em">
+                <template #title>
+                    Simple Card
+                </template>
+                <template #content>
+                    <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Inventore sed consequuntur error repudiandae numquam deserunt
+                    quisquam repellat libero asperiores earum nam nobis, culpa ratione quam perferendis esse, cupiditate neque quas!</p>
+                </template>
+            </Card>
+
+            <Card style="width: 25em">
+                <template #header>
+                    <img src="https://www.primefaces.org/wp-content/uploads/2020/05/placeholder.png" />
+                </template>
+                <template #title>
+                    Advanced Card
+                </template>
+                <template #subtitle>
+                    Card subtitle
+                </template>
+                <template #content>
+                    <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Inventore sed consequuntur error repudiandae numquam deserunt
+                    quisquam repellat libero asperiores earum nam nobis, culpa ratione quam perferendis esse, cupiditate neque quas!</p>
+                </template>
+                <template #footer>
+                    <Button icon="pi pi-check" label="Save" />
+                    <Button icon="pi pi-times" label="Cancel" class="p-button-secondary" style="margin-left: .5em" />
+                </template>
+            </Card>
+		</div>
+	</div>
+</template>
+
+<script>
+export default {
+}`,
+					style: `<style lang="scss" scoped>
+p {
+    line-height: 1.5;
+    margin: 0;
+}
+</style>`
+				}
+			}
+		}
+	},
+	components: {
+		LiveEditor
+	}
+}
+</script>

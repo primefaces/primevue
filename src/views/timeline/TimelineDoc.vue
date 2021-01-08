@@ -238,9 +238,12 @@ export default {
 			</TabPanel>
 
 			<TabPanel header="Source">
-				<a href="https://github.com/primefaces/primevue/tree/master/src/views/timeline" class="btn-viewsource" target="_blank" rel="noopener noreferrer">
-					<span>View on GitHub</span>
-				</a>
+				<div class="p-d-flex p-jc-between">
+					<a href="https://github.com/primefaces/primevue/tree/master/src/views/timeline" class="btn-viewsource" target="_blank" rel="noopener noreferrer">
+						<span>View on GitHub</span>
+					</a>
+					<LiveEditor name="TimelineDemo" :sources="sources"/>
+                </div>
 <pre v-code>
 <code><template v-pre>
 &lt;div class="card"&gt;
@@ -361,3 +364,145 @@ export default {
 		</TabView>
 	</div>
 </template>
+
+<script>
+import LiveEditor from '../liveeditor/LiveEditor';
+export default {
+	data() {
+		return {
+			sources: {
+				'template': {
+					content: `<template>
+    <div class="layout-content">
+        <div class="content-section implementation">
+            <div class="card">
+                <h5>Left Align</h5>
+                <Timeline :value="events1">
+                    <template #content="slotProps">
+                        {{slotProps.item.status}}
+                    </template>
+                </Timeline>
+            </div>
+
+            <div class="card">
+                <h5>Right Align</h5>
+                <Timeline :value="events1" align="right">
+                    <template #content="slotProps">
+                        {{slotProps.item.status}}
+                    </template>
+                </Timeline>
+            </div>
+
+            <div class="card">
+                <h5>Alternate Align</h5>
+                <Timeline :value="events1" align="alternate">
+                    <template #content="slotProps">
+                        {{slotProps.item.status}}
+                    </template>
+                </Timeline>
+            </div>
+
+            <div class="card">
+                <h5>Opposite Content</h5>
+                <Timeline :value="events1">
+                    <template #opposite="slotProps">
+                        <small class="p-text-secondary">{{slotProps.item.date}}</small>
+                    </template>
+                    <template #content="slotProps">
+                        {{slotProps.item.status}}
+                    </template>
+                </Timeline>
+            </div>
+
+            <div class="card">
+                <h5>Horizontal</h5>
+                <h6>Top Align</h6>
+                <Timeline :value="events2" layout="horizontal" align="top">
+                    <template #content="slotProps">
+                        {{slotProps.item}}
+                    </template>
+                </Timeline>
+
+                <h6>Bottom Align</h6>
+                <Timeline :value="events2" layout="horizontal" align="bottom">
+                    <template #content="slotProps">
+                        {{slotProps.item}}
+                    </template>
+                </Timeline>
+
+                <h6>Alternate Align</h6>
+                <Timeline :value="events2" layout="horizontal" align="alternate">
+                    <template #opposite>
+                        &nbsp;
+                    </template>
+                    <template #content="slotProps">
+                        {{slotProps.item}}
+                    </template>
+                </Timeline>
+            </div>
+        </div>
+    </div>
+</template>
+
+<script>
+export default {
+    data() {
+        return {
+            events1: [
+                {status: 'Ordered', date: '15/10/2020 10:30', icon: 'pi pi-shopping-cart', color: '#9C27B0', image: 'game-controller.jpg'},
+                {status: 'Processing', date: '15/10/2020 14:00', icon: 'pi pi-cog', color: '#673AB7'},
+                {status: 'Shipped', date: '15/10/2020 16:15', icon: 'pi pi-shopping-cart', color: '#FF9800'},
+                {status: 'Delivered', date: '16/10/2020 10:00', icon: 'pi pi-check', color: '#607D8B'}
+            ],
+            events2: [
+                "2020", "2021", "2022", "2023"
+            ]
+        }
+    }
+}`,
+					style: `<style lang="scss" scoped>
+.custom-marker {
+    display: flex;
+    width: 2rem;
+    height: 2rem;
+    align-items: center;
+    justify-content: center;
+    color: #ffffff;
+    border-radius: 50%;
+    z-index: 1;
+}
+
+::v-deep(.p-timeline-event-content)
+::v-deep(.p-timeline-event-opposite) {
+    line-height: 1;
+}
+
+@media screen and (max-width: 960px) {
+    ::v-deep(.customized-timeline) {
+            .p-timeline-event:nth-child(even) {
+                flex-direction: row !important;
+                
+                .p-timeline-event-content {
+                    text-align: left !important;
+                }
+            }
+
+            .p-timeline-event-opposite {
+                flex: 0;
+            }
+
+            .p-card {
+                margin-top: 1rem;
+            }
+        }
+}
+</style>`
+				}
+			}
+		}
+	},
+	components: {
+		LiveEditor
+	}
+}
+</script>

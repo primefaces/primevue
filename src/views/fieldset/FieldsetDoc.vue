@@ -161,9 +161,12 @@ import Fieldset from 'primevue/fieldset';
 			</TabPanel>
 
 			<TabPanel header="Source">
-				<a href="https://github.com/primefaces/primevue/tree/master/src/views/fieldset" class="btn-viewsource" target="_blank" rel="noopener noreferrer">
-					<span>View on GitHub</span>
-				</a>
+                <div class="p-d-flex p-jc-between">
+                    <a href="https://github.com/primefaces/primevue/tree/master/src/views/fieldset" class="btn-viewsource" target="_blank" rel="noopener noreferrer">
+                        <span>View on GitHub</span>
+                    </a>
+                    <LiveEditor name="FieldsetDemo" :sources="sources"/>
+                </div>
 <pre v-code>
 <code><template v-pre>
 &lt;h5&gt;Regular&lt;/h5&gt;
@@ -201,3 +204,60 @@ export default {
 		</TabView>
 	</div>
 </template>
+
+<script>
+import LiveEditor from '../liveeditor/LiveEditor';
+export default {
+    data() {
+        return {
+            sources: {
+                'template': {
+                    content: `<template>
+    <div class="layout-content">
+        <div class="content-section implementation">
+            <div class="card">
+                <h5>Regular</h5>
+                <Fieldset legend="Header">
+                    <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.
+                        Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.
+                        Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat
+                        cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.</p>
+                </Fieldset>
+
+                <h5>Toggleable</h5>
+                <Fieldset legend="Header" :toggleable="true">
+                    <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.
+                        Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.
+                        Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat
+                        cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.</p>
+                </Fieldset>
+            </div>
+        </div>
+    </div>
+</template>
+
+<script>
+export default {
+    data() {
+        return {
+            value1: '',
+            value2: '',
+            value3: 'PrimeVue'
+        }
+    }
+}`,
+                    style: `<style lang="scss" scoped>
+.p-fieldset p {
+    line-height: 1.5;
+    margin: 0;
+}
+</style>`
+                }
+            }
+        }
+    },
+    components: {
+        LiveEditor
+    }
+}
+</script>

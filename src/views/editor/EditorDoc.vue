@@ -147,9 +147,12 @@ npm install quill --save
 			</TabPanel>
 
 			<TabPanel header="Source">
-				<a href="https://github.com/primefaces/primevue/tree/master/src/views/inputtext" class="btn-viewsource" target="_blank" rel="noopener noreferrer">
-					<span>View on GitHub</span>
-				</a>
+                <div class="p-d-flex p-jc-between">
+                    <a href="https://github.com/primefaces/primevue/tree/master/src/views/inputtext" class="btn-viewsource" target="_blank" rel="noopener noreferrer">
+                        <span>View on GitHub</span>
+                    </a>
+                    <LiveEditor name="EditorDemo" :sources="sources" :directives="['Tooltip']"/>
+                </div>
 <pre v-code>
 <code><template v-pre>
 &lt;h3&gt;Default&lt;/h3&gt;
@@ -184,3 +187,52 @@ export default {
 		</TabView>
 	</div>
 </template>
+
+<script>
+import LiveEditor from '../liveeditor/LiveEditor';
+export default {
+    data() {
+        return {
+            sources: {
+                'template': {
+                    content: `<template>
+    <div class="layout-content">
+        <div class="content-section implementation">
+            <div class="card">
+                <h5>Default</h5>
+                <Editor v-model="value1" editorStyle="height: 320px"/>
+
+                <h5>Customized</h5>
+                <Editor v-model="value2" editorStyle="height: 320px">
+                    <template v-slot:toolbar>
+                        <span class="ql-formats">
+                            <button class="ql-bold" v-tooltip.bottom="'Bold'"></button>
+                            <button class="ql-italic" v-tooltip.bottom="'Italic'"></button>
+                            <button class="ql-underline" v-tooltip.bottom="'Underline'"></button>
+                        </span>
+                    </template>
+                </Editor>
+            </div>
+        </div>
+    </div>
+</template>
+
+<script>
+export default {
+    data() {
+        return {
+            value1: '<div>Welcome to PrimeVue <b>Editor</b></div><div><br></div>',
+            value2: ''
+        }
+    }
+}
+`
+                }
+            }
+        }
+    },
+    components: {
+        LiveEditor
+    }
+}
+</script>

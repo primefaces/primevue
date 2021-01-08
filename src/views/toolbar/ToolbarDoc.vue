@@ -62,9 +62,12 @@ import Toolbar from 'primevue/toolbar';
 			</TabPanel>
 
 			<TabPanel header="Source">
-				<a href="https://github.com/primefaces/primevue/tree/master/src/views/toolbar" class="btn-viewsource" target="_blank" rel="noopener noreferrer">
-					<span>View on GitHub</span>
-				</a>
+                <div class="p-d-flex p-jc-between">
+                    <a href="https://github.com/primefaces/primevue/tree/master/src/views/toolbar" class="btn-viewsource" target="_blank" rel="noopener noreferrer">
+                        <span>View on GitHub</span>
+                    </a>
+                    <LiveEditor name="ToolbarDemo" :sources="sources" :components="['Button']"/>
+                </div>
 <pre v-code>
 <code><template v-pre>
 &lt;Toolbar&gt;
@@ -121,3 +124,43 @@ export default {
 		</TabView>
 	</div>
 </template>
+
+<script>
+import LiveEditor from '../liveeditor/LiveEditor';
+export default {
+    data() {
+        return {
+            sources: {
+                'template': {
+                    content: `<template>
+    <div class="layout-content">
+        <div class="content-section implementation">
+            <Toolbar>
+                <template #left>
+                    <Button label="New" icon="pi pi-plus" class="p-mr-2" />
+                    <Button label="Upload" icon="pi pi-upload" class="p-button-success" />
+                    <i class="pi pi-bars p-toolbar-separator p-mr-2" />
+                </template>
+
+                <template #right>
+                    <Button icon="pi pi-search" class="p-mr-2" />
+                    <Button icon="pi pi-calendar" class="p-button-success p-mr-2" />
+                    <Button icon="pi pi-times" class="p-button-danger" />
+                </template>
+            </Toolbar>
+        </div>
+    </div>
+</template>
+
+<script>
+export default {
+}`
+                }
+            }
+        }
+    },
+    components: {
+        LiveEditor
+    }
+}
+</script>
