@@ -331,7 +331,7 @@ myUploader(event) {
 				</a>
 <pre v-code>
 <code><template v-pre>
-&lt;h3&gt;Advanced&lt;/h3&gt;/Users/adil/Sites/laravel/primevue-PR/src/views/fileupload/FileUploadDemo.vue
+&lt;h3&gt;Advanced&lt;/h3&gt;
 &lt;FileUpload name="demo[]" url="./upload.php" @upload="onUpload" :multiple="true" accept="image/*" :maxFileSize="1000000"&gt;
     &lt;template #empty&gt;
         &lt;p&gt;Drag and drop files to here to upload.&lt;/p&gt;
