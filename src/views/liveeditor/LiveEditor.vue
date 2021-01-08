@@ -137,12 +137,7 @@ ${style}`
                     components += `app.component("${comp}", ${comp});
 `;
                 })
-            } else {
-                imports = `import ${this.name.slice(0, -4)} from "primevue/${this.name.slice(0, -4).toLowerCase()}";
-`;
-                components = `app.component("${this.name.slice(0, -4)}", ${this.name.slice(0, -4)});
-`;
-            }
+            } 
 
             _files['src/main.js'] = {
                 content: `import { createApp } from "vue";
@@ -152,9 +147,11 @@ import "primevue/resources/primevue.min.css";
 import "primeicons/primeicons.css";
 import App from "./App.vue";
 import PrimeVue from "primevue/config";
+import ${this.name.slice(0, -4)} from "primevue/${this.name.slice(0, -4).toLowerCase()}";
 ${imports}
 const app = createApp(App);
 app.use(PrimeVue, { ripple: true });
+app.component("${this.name.slice(0, -4)}", ${this.name.slice(0, -4)});
 ${components}
 app.mount("#app");
 `
@@ -191,8 +188,7 @@ export default {
 </${scriptText}>
 <style lang="scss">
 @import './App.scss';
-</style>
-                `
+</style>`
             }
 
             _files['src/App.scss'] = {
@@ -455,6 +451,10 @@ img.flag {
                 extDependencies['@fullcalendar/daygrid'] = "5.4.0";
                 extDependencies['@fullcalendar/interaction'] = "5.4.0";
                 extDependencies['@fullcalendar/timegrid'] = "5.4.0";
+            }
+
+            if(this.name === 'OrganizationChartDemo') {
+                extDependencies['mitt'] = "^2.1.0";
             }
 
             return this.createSandboxParameters(`${name}${extension}`, _files, extDependencies);
