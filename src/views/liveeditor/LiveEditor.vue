@@ -121,13 +121,20 @@ export default {
             let content = this.sources.template.content;
             let style = this.sources.template.style || '';
             let scriptText = 'script';
-            let _files = {}, components = '', imports = '';
+            let _files = {}, element = '', components = '', imports = '', directives = '';
 
             _files[`src/components/${name}${extension}`] = {       
                 content: `${content}
 </${scriptText}>
 
 ${style}`   
+            }
+
+            if(name === 'ToastDemo'){
+                imports += `import ToastService from 'primevue/toastservice';
+`;
+                directives += `app.use(ToastService);
+`;
             }
 
             if(this.components) {
@@ -139,6 +146,15 @@ ${style}`
                 })
             } 
 
+            if(name !== 'TooltipDemo') {
+                element += `app.component("${name.slice(0, -4)}", ${name.slice(0, -4)});`;
+            }
+
+            if(name === 'TooltipDemo' || name === 'BadgeDemo'){
+                directives += `app.directive('${name.slice(0, -4).toLowerCase()}', ${name.slice(0, -4)});
+`;
+            }
+
             _files['src/main.js'] = {
                 content: `import { createApp } from "vue";
 import "primeflex/primeflex.css";
@@ -147,11 +163,12 @@ import "primevue/resources/primevue.min.css";
 import "primeicons/primeicons.css";
 import App from "./App.vue";
 import PrimeVue from "primevue/config";
-import ${this.name.slice(0, -4)} from "primevue/${this.name.slice(0, -4).toLowerCase()}";
+import ${name.slice(0, -4)} from "primevue/${name.slice(0, -4).toLowerCase()}";
 ${imports}
 const app = createApp(App);
 app.use(PrimeVue, { ripple: true });
-app.component("${this.name.slice(0, -4)}", ${this.name.slice(0, -4)});
+${directives}
+${element}
 ${components}
 app.mount("#app");
 `
@@ -443,20 +460,23 @@ img.flag {
                 });
             }
 
-            if(this.name === 'EditorDemo') {
+            if(name === 'EditorDemo') {
                 extDependencies['quill'] =  "^1.3.7";
             }
-            if(this.name === 'FullCalendarDemo') {
+            if(name === 'FullCalendarDemo') {
                 extDependencies['@fullcalendar/core'] = "5.4.0";
                 extDependencies['@fullcalendar/daygrid'] = "5.4.0";
                 extDependencies['@fullcalendar/interaction'] = "5.4.0";
                 extDependencies['@fullcalendar/timegrid'] = "5.4.0";
             }
+            if(name === 'ChartDemo') {
+                extDependencies['chart.js'] = "2.7.3";
+            }
 
-            let mittComponents = ['OrganizationChartDemo', 'ConfirmDialogDemo', 'ConfirmPopupDemo'];
+            let mittComponents = ['ToastDemo', 'OrganizationChartDemo', 'ConfirmDialogDemo', 'ConfirmPopupDemo'];
 
             mittComponents.forEach(cmp => {
-                if(this.name === cmp) {
+                if(name === cmp) {
                     extDependencies['mitt'] = "^2.1.0";
                 }
             });

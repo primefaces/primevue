@@ -282,9 +282,12 @@ this.$toast.add({severity:'success', summary: 'Specific Message', group: 'mykey'
 			</TabPanel>
 
 			<TabPanel header="Source">
-				<a href="https://github.com/primefaces/primevue/tree/master/src/views/toast" class="btn-viewsource" target="_blank" rel="noopener noreferrer">
-					<span>View on GitHub</span>
-				</a>
+                <div class="p-d-flex p-jc-between">
+                    <a href="https://github.com/primefaces/primevue/tree/master/src/views/toast" class="btn-viewsource" target="_blank" rel="noopener noreferrer">
+                        <span>View on GitHub</span>
+                    </a>
+                    <LiveEditor name="ToastDemo" :sources="sources" :components="['Button']" />
+                </div>
 <pre v-code>
 <code><template v-pre>
 &lt;h5&gt;Severities&lt;/h5&gt;
@@ -356,3 +359,101 @@ export default {
 		</TabView>
 	</div>
 </template>
+
+<script>
+import LiveEditor from '../liveeditor/LiveEditor';
+export default {
+    data() {
+        return {
+            sources: {
+                'template': {
+                    content: ` <template>
+    <div class="layout-content">
+        <div class="content-section implementation">
+            <div class="card">
+                <h5>Severities</h5>
+                <Button label="Success" class="p-button-success" @click="showSuccess" />
+                <Button label="Info" class="p-button-info" @click="showInfo" />
+                <Button label="Warn" class="p-button-warning" @click="showWarn" />
+                <Button label="Error" class="p-button-danger" @click="showError" />
+
+                <h5>Positions</h5>
+                <Button label="Top Left" class="p-mr-2" @click="showTopLeft" />
+                <Button label="Bottom Left" class="p-button-warning" @click="showBottomLeft" />
+                <Button label="Bottom Right" class="p-button-success" @click="showBottomRight" />
+
+                <h5>Options</h5>
+                <Button @click="showMultiple" label="Multiple" class="p-button-warning" />
+                <Button @click="showSticky" label="Sticky" />
+
+                <h5>Remove All</h5>
+                <Button @click="clear" label="Clear" />
+            </div>
+        </div>
+    </div>
+</template>
+
+<script>
+export default {
+    data() {
+        return {
+            messages: [],
+        }
+    },
+    methods: {
+        showSuccess() {
+            this.$toast.add({severity:'success', summary: 'Success Message', detail:'Message Content', life: 3000});
+        },
+        showInfo() {
+            this.$toast.add({severity:'info', summary: 'Info Message', detail:'Message Content', life: 3000});
+        },
+        showWarn() {
+            this.$toast.add({severity:'warn', summary: 'Warn Message', detail:'Message Content', life: 3000});
+        },
+        showError() {
+            this.$toast.add({severity:'error', summary: 'Error Message', detail:'Message Content', life: 3000});
+        },
+        showTopLeft() {
+            this.$toast.add({severity: 'info', summary: 'Info Message', detail: 'Message Content', group: 'tl', life: 3000});
+        },
+        showBottomLeft() {
+            this.$toast.add({severity:'warn', summary: 'Warn Message', detail:'Message Content', group: 'bl', life: 3000});
+        },
+        showBottomRight() {
+            this.$toast.add({severity:'success', summary: 'Success Message', detail:'Message Content', group: 'br', life: 3000});
+        },
+        showSticky() {
+            this.$toast.add({severity: 'info', summary: 'Sticky Message', detail: 'Message Content'});
+        },
+        showMultiple() {
+            this.$toast.add({severity:'info', summary:'Message 1', detail:'Message 1 Content', life: 3000});
+            this.$toast.add({severity:'info', summary:'Message 2', detail:'Message 2 Content', life: 3000});
+            this.$toast.add({severity:'info', summary:'Message 3', detail:'Message 3 Content', life: 3000});
+        },
+        clear() {
+            this.$toast.removeAllGroups();
+        }
+    }
+}`
+                },
+                style: `<style lang="scss" scoped>
+button {
+    min-width: 10rem;
+    margin-right: .5rem;
+}
+
+@media screen and (max-width: 960px) {
+    button {
+        width: 100%;
+        margin-bottom: .5rem;
+    }
+}
+</style>`
+            }
+        }
+    },
+    components: {
+        LiveEditor
+    }
+}
+</script>

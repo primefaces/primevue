@@ -209,9 +209,12 @@ import Sidebar from 'primevue/sidebar';
 			</TabPanel>
 
 			<TabPanel header="Source">
-				<a href="https://github.com/primefaces/primevue/tree/master/src/views/sidebar" class="btn-viewsource" target="_blank" rel="noopener noreferrer">
-					<span>View on GitHub</span>
-				</a>
+				<div class="p-d-flex p-jc-between">
+					<a href="https://github.com/primefaces/primevue/tree/master/src/views/sidebar" class="btn-viewsource" target="_blank" rel="noopener noreferrer">
+						<span>View on GitHub</span>
+					</a>
+					<LiveEditor name="SidebarDemo" :sources="sources" :components="['Button', 'Calendar']"/>
+                </div>
 <pre v-code>
 <code><template v-pre>
 &lt;Button icon="pi pi-arrow-right" @click="visibleLeft = true" class="p-mr-2" /&gt;
@@ -261,3 +264,67 @@ export default {
 		</TabView>
 	</div>
 </template>
+
+<script>
+import LiveEditor from '../liveeditor/LiveEditor';
+export default {
+	data() {
+		return {
+			sources: {
+				'template': {
+					content: `<template>
+    <div class="layout-content">
+        <div class="content-section implementation">
+            <div class="card">
+                <Button icon="pi pi-arrow-right" @click="visibleLeft = true" class="p-mr-2" />
+                <Button icon="pi pi-arrow-left" @click="visibleRight = true" class="p-mr-2"  />
+                <Button icon="pi pi-arrow-down" @click="visibleTop = true" class="p-mr-2"  />
+                <Button icon="pi pi-arrow-up" @click="visibleBottom = true" class="p-mr-2"  />
+                <Button icon="pi pi-th-large" @click="visibleFull = true"  />
+
+                <Sidebar v-model:visible="visibleLeft" :baseZIndex="1000">
+                    <h3>Left Sidebar</h3>
+                    <Calendar id="basic" />
+                </Sidebar>
+
+                <Sidebar v-model:visible="visibleRight" :baseZIndex="1000" position="right">
+                    <h3>Right Sidebar</h3>
+                </Sidebar>
+
+                <Sidebar v-model:visible="visibleTop" :baseZIndex="1000" position="top">
+                    <h3>Top Sidebar</h3>
+                </Sidebar>
+
+                <Sidebar v-model:visible="visibleBottom" :baseZIndex="1000" position="bottom">
+                    <h3>Bottom Sidebar</h3>
+                </Sidebar>
+
+                <Sidebar v-model:visible="visibleFull" :baseZIndex="1000" position="full">
+                    <h3>Full Screen</h3>
+                </Sidebar>
+            </div>
+        </div>
+    </div>
+</template>
+
+<script>
+export default {
+    data() {
+        return {
+            visibleLeft: false,
+            visibleRight: false,
+            visibleTop: false,
+            visibleBottom: false,
+            visibleFull: false
+        }
+    }
+}`
+				}
+			}
+		}
+	},
+	components: {
+		LiveEditor
+	}
+}
+</script>

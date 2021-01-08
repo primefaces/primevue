@@ -89,9 +89,12 @@ directives: {
 			</TabPanel>
 
 			<TabPanel header="Source">
-				<a href="https://github.com/primefaces/primevue/tree/master/src/views/tooltip" class="btn-viewsource" target="_blank" rel="noopener noreferrer">
-					<span>View on GitHub</span>
-				</a>
+                <div class="p-d-flex p-jc-between">
+                <a href="https://github.com/primefaces/primevue/tree/master/src/views/tooltip" class="btn-viewsource" target="_blank" rel="noopener noreferrer">
+                    <span>View on GitHub</span>
+                </a>
+                <LiveEditor name="TooltipDemo" :sources="sources" :components="['InputText', 'Button']"/>
+                </div>
 <pre v-code>
 <code><template v-pre>
 &lt;h3&gt;Positions&lt;/h3&gt;
@@ -127,3 +130,53 @@ export default {}
 		</TabView>
 	</div>
 </template>
+
+<script>
+import LiveEditor from '../liveeditor/LiveEditor';
+export default {
+    data() {
+        return {
+            sources: {
+                'template': {
+                    content: `<template>
+    <div class="layout-content">
+        <div class="content-section implementation">
+            <div class="card">
+                <h5>Positions</h5>
+                <div class="p-grid p-fluid">
+                    <div class="p-col-12 p-md-3">
+                        <InputText type="text" placeholder="Right" v-tooltip.right="'Enter your username'" />
+                    </div>
+                    <div class="p-col-12 p-md-3">
+                        <InputText type="text" placeholder="Top" v-tooltip.top="'Enter your username'" />
+                    </div>
+                    <div class="p-col-12 p-md-3">
+                        <InputText type="text" placeholder="Bottom" v-tooltip.bottom="'Enter your username'" />
+                    </div>
+                    <div class="p-col-12 p-md-3">
+                        <InputText type="text" placeholder="Left" v-tooltip.left="'Enter your username'" />
+                    </div>
+                </div>
+
+                <h5>Focus and Blur</h5>
+                <InputText type="text" placeholder="Focus" v-tooltip.bottom.focus="'Enter your username'" />
+
+                <h5>Button</h5>
+                <Button type="button" label="Save" icon="pi pi-check" v-tooltip="'Click to proceed'" />
+            </div>
+        </div>
+    </div>
+</template>
+
+<script>
+export default {
+}`
+                }
+            }
+        }
+    },
+    components: {
+        LiveEditor
+    }
+}
+</script>
