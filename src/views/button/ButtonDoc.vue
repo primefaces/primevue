@@ -134,6 +134,20 @@ import Button from 'primevue/button';
 
 </code></pre>
 
+                <h5>Block Buttons</h5>
+                <p>Apply <i>.p-button-block</i> to make a button to be a full-width button, button will grow width as its parent's width. Useful when you want to make your desire button width or an equal-width button based on <router-link to="/grid">Grid System</router-link>.</p>
+<pre v-code>
+<code>
+&lt;div class=&quot;p-grid&quot;&gt;
+    &lt;div class=&quot;p-col-12 p-md-3 p-xl-2&quot;&gt;
+        &lt;Button class=&quot;p-button-block&quot; label=&quot;Submit Form&quot; /&gt;
+    &lt;/div&gt;
+    &lt;div class=&quot;p-col-12 p-md-3 p-xl-2&quot;&gt;
+        &lt;Button class=&quot;p-button-block p-button-secondary p-button-outlined&quot; label=&quot;Reset&quot; /&gt;
+    &lt;/div&gt;
+&lt;/div&gt;
+
+</code></pre>
                 <h5>Slot</h5>
                 <p>Custom content can be placed inside the button via the default slot. Note that when slot is used, label, icon and badge properties are not included.</p>
 <pre v-code>
@@ -350,6 +364,16 @@ import Button from 'primevue/button';
     &lt;Button label="Normal" icon="pi pi-check" class="p-button"  /&gt;
     &lt;Button label="Large" icon="pi pi-check" class="p-button-lg" /&gt;
 &lt;/div&gt;
+
+&lt;h5&gt;Block Buttons&lt;/h5&gt;
+&lt;div class=&quot;p-grid&quot;&gt;
+    &lt;div class=&quot;p-col-12 p-md-3 p-xl-2&quot;&gt;
+        &lt;Button class=&quot;p-button-block&quot; label=&quot;Submit Form&quot; /&gt;
+    &lt;/div&gt;
+    &lt;div class=&quot;p-col-12 p-md-3 p-xl-2&quot;&gt;
+        &lt;Button class=&quot;p-button-block p-button-secondary p-button-outlined&quot; label=&quot;Reset&quot; /&gt;
+    &lt;/div&gt;
+&lt;/div&gt;
 </template>
 </code></pre>
 
@@ -486,6 +510,16 @@ export default {
                     <Button label="Small" icon="pi pi-check" class="p-button-sm"  />
                     <Button label="Normal" icon="pi pi-check" class="p-button"  />
                     <Button label="Large" icon="pi pi-check" class="p-button-lg" />
+                </div>
+
+                <h5>Block Buttons</h5>
+                <div class="p-grid">
+                    <div class="p-col-12 p-md-3 p-xl-2">
+                        <Button class="p-button-block" label="Submit Form" />
+                    </div>
+                    <div class="p-col-12 p-md-3 p-xl-2">
+                        <Button class="p-button-block p-button-secondary p-button-outlined" label="Reset" />
+                    </div>
                 </div>
             </div>
         </div>

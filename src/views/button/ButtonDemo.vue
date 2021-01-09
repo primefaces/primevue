@@ -120,6 +120,15 @@
                     <Button label="Normal" icon="pi pi-check" class="p-button"  />
                     <Button label="Large" icon="pi pi-check" class="p-button-lg" />
                 </div>
+                <h5>Block Buttons</h5>
+                <div class="p-grid">
+                    <div class="p-col-12 p-md-3 p-xl-2">
+                        <Button class="p-button-block" label="Submit Form" />
+                    </div>
+                    <div class="p-col-12 p-md-3 p-xl-2">
+                        <Button class="p-button-block p-button-secondary p-button-outlined" label="Reset" />
+                    </div>
+                </div>
             </div>
         </div>
 
