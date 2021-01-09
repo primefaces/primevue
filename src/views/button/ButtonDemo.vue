@@ -19,6 +19,10 @@
                 <Button label="Submit" icon="pi pi-check" />
                 <Button label="Submit" icon="pi pi-check" iconPos="right" />
 
+                <h5>Compact Icon Buttons</h5>
+                <Button class="p-button-compact" label="Submit" icon="pi pi-check" />
+                <Button class="p-button-compact" label="Submit" icon="pi pi-check" iconPos="right" />
+
                 <h5>Severities</h5>
                 <Button label="Primary" />
                 <Button label="Secondary" class="p-button-secondary" />

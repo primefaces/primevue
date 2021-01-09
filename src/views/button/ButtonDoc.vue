@@ -33,6 +33,15 @@ import Button from 'primevue/button';
 
 </code></pre>
 
+                <h5>Compact Icon Buttons</h5>
+				<p>For more compact, apply <i>.p-button-compact</i> to align an icon's position to place next to the text. (Resize your desktop to tablet or mobile size see the changes)</p>
+<pre v-code>
+<code>
+&lt;Button class=&quot;p-button-compact&quot; label=&quot;Submit&quot; icon=&quot;pi pi-check&quot; /&gt;
+&lt;Button class=&quot;p-button-compact&quot; label=&quot;Submit&quot; icon=&quot;pi pi-check&quot; iconPos=&quot;right&quot; /&gt;
+
+</code></pre>
+
 				<h5>Events</h5>
 				<p>Events are defined with the standard notation.</p>
 <pre v-code>
@@ -263,6 +272,10 @@ import Button from 'primevue/button';
 &lt;Button label="Submit" icon="pi pi-check" /&gt;
 &lt;Button label="Submit" icon="pi pi-check" iconPos="right" /&gt;
 
+&lt;h5&gt;Compact Icon Buttons&lt;/h5&gt;
+&lt;Button class=&quot;p-button-compact&quot; label=&quot;Submit&quot; icon=&quot;pi pi-check&quot; /&gt;
+&lt;Button class=&quot;p-button-compact&quot; label=&quot;Submit&quot; icon=&quot;pi pi-check&quot; iconPos=&quot;right&quot; /&gt;
+
 &lt;h5&gt;Severities&lt;/h5&gt;
 &lt;Button label="Primary" /&gt;
 &lt;Button label="Secondary" class="p-button-secondary" /&gt;
@@ -409,6 +422,10 @@ export default {
                 <Button icon="pi pi-check" />
                 <Button label="Submit" icon="pi pi-check" />
                 <Button label="Submit" icon="pi pi-check" iconPos="right" />
+
+                <h5>Compact Icon Buttons</h5>
+                <Button class="p-button-compact" label="Submit" icon="pi pi-check" />
+                <Button class="p-button-compact" label="Submit" icon="pi pi-check" iconPos="right" />
 
                 <h5>Severities</h5>
                 <Button label="Primary" />
