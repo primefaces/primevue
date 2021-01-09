@@ -14,6 +14,20 @@
     flex: 1 1 auto;
 }
 
+.p-button-block {
+    display: flex;
+    flex: 1 0 auto;
+    min-width: 100% !important;
+}
+
+.p-button-compact {
+    justify-content: center;
+}
+
+.p-button-compact .p-button-label {
+    flex-grow: 0;
+}
+
 .p-button-icon-right {
     order: 1;
 }
