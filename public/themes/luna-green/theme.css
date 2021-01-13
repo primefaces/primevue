@@ -61,39 +61,39 @@
 .p-autocomplete.p-autocomplete-dd .p-autocomplete-loader {
   right: 2.786rem;
 }
-.p-autocomplete.p-autocomplete-multiple .p-autocomplete-multiple-container {
+.p-autocomplete .p-autocomplete-multiple-container {
   padding: 0.2145rem 0.429rem;
 }
-.p-autocomplete.p-autocomplete-multiple .p-autocomplete-multiple-container:not(.p-disabled):hover {
+.p-autocomplete .p-autocomplete-multiple-container:not(.p-disabled):hover {
   border-color: #C5E1A5;
 }
-.p-autocomplete.p-autocomplete-multiple .p-autocomplete-multiple-container:not(.p-disabled).p-focus {
+.p-autocomplete .p-autocomplete-multiple-container:not(.p-disabled).p-focus {
   outline: 0 none;
   outline-offset: 0;
   box-shadow: 0 0 0 0.1rem white;
   border-color: #C5E1A5;
 }
-.p-autocomplete.p-autocomplete-multiple .p-autocomplete-multiple-container .p-autocomplete-input-token {
+.p-autocomplete .p-autocomplete-multiple-container .p-autocomplete-input-token {
   padding: 0.2145rem 0;
 }
-.p-autocomplete.p-autocomplete-multiple .p-autocomplete-multiple-container .p-autocomplete-input-token input {
+.p-autocomplete .p-autocomplete-multiple-container .p-autocomplete-input-token input {
   font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif, "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol";
   font-size: 1rem;
   color: #dedede;
   padding: 0;
   margin: 0;
 }
-.p-autocomplete.p-autocomplete-multiple .p-autocomplete-multiple-container .p-autocomplete-token {
+.p-autocomplete .p-autocomplete-multiple-container .p-autocomplete-token {
   padding: 0.2145rem 0.429rem;
   margin-right: 0.5rem;
   background: #4b4b4b;
   color: #dedede;
   border-radius: 16px;
 }
-.p-autocomplete.p-autocomplete-multiple .p-autocomplete-multiple-container .p-autocomplete-token .p-autocomplete-token-icon {
+.p-autocomplete .p-autocomplete-multiple-container .p-autocomplete-token .p-autocomplete-token-icon {
   margin-left: 0.5rem;
 }
-.p-autocomplete.p-error > .p-inputtext, .p-autocomplete.p-invalid > .p-inputtext {
+.p-autocomplete.p-invalid.p-component > .p-inputtext {
   border-color: #e57373;
 }
 
@@ -125,7 +125,7 @@
   background: #C5E1A5;
 }
 
-.p-calendar.p-error > .p-inputtext, .p-calendar.p-invalid > .p-inputtext {
+.p-calendar.p-invalid.p-component > .p-inputtext {
   border-color: #e57373;
 }
 
@@ -499,7 +499,7 @@
   padding: 0;
   margin: 0;
 }
-.p-chips.p-error > .p-inputtext, .p-chips.p-invalid > .p-inputtext {
+.p-chips.p-invalid.p-component > .p-inputtext {
   border-color: #e57373;
 }
 
@@ -561,7 +561,7 @@
   color: #888888;
   right: 2.357rem;
 }
-.p-dropdown.p-error, .p-dropdown.p-invalid {
+.p-dropdown.p-invalid.p-component {
   border-color: #e57373;
 }
 
@@ -665,15 +665,17 @@
   border: 1px solid #191919;
   box-shadow: 0 3px 6px 0 rgba(0, 0, 0, 0.16);
   border-radius: 3px;
+  padding: 0;
 }
 .p-editor-container .p-editor-toolbar.ql-snow .ql-picker.ql-expanded .ql-picker-options .ql-picker-item {
   color: #dedede;
-  padding: 0.429rem 0.857rem;
-  border-radius: 3px;
 }
 .p-editor-container .p-editor-toolbar.ql-snow .ql-picker.ql-expanded .ql-picker-options .ql-picker-item:hover {
   color: #dedede;
   background: #4c4c4c;
+}
+.p-editor-container .p-editor-toolbar.ql-snow .ql-picker.ql-expanded:not(.ql-icon-picker) .ql-picker-item {
+  padding: 0.429rem 0.857rem;
 }
 .p-editor-container .p-editor-content {
   border-bottom-right-radius: 3px;
@@ -791,7 +793,7 @@
   width: 2.357rem;
 }
 
-.p-inputnumber.p-error > .p-inputtext, .p-inputnumber.p-invalid > .p-inputtext {
+.p-inputnumber.p-invalid.p-component > .p-inputtext {
   border-color: #e57373;
 }
 
@@ -857,7 +859,7 @@
   box-shadow: 0 0 0 0.1rem white;
   border-color: #C5E1A5;
 }
-.p-inputtext.p-error, .p-inputtext.p-invalid {
+.p-inputtext.p-invalid.p-component {
   border-color: #e57373;
 }
 .p-inputtext.p-inputtext-sm {
@@ -882,6 +884,10 @@
 
 .p-input-icon-left > .p-inputtext {
   padding-left: 1.858rem;
+}
+
+.p-input-icon-left.p-float-label > label {
+  left: 1.858rem;
 }
 
 .p-input-icon-right > i:last-of-type {
@@ -1023,7 +1029,7 @@
   border-top-right-radius: 3px;
   border-bottom-right-radius: 3px;
 }
-.p-multiselect.p-error, .p-multiselect.p-invalid {
+.p-multiselect.p-invalid.p-component {
   border-color: #e57373;
 }
 
@@ -4540,7 +4546,7 @@
   border-radius: 3px;
 }
 .p-skeleton:after {
-  background: linear-gradient(90deg, transparent, rgba(255, 255, 255, 0.04), transparent);
+  background: linear-gradient(90deg, rgba(255, 255, 255, 0), rgba(255, 255, 255, 0.04), rgba(255, 255, 255, 0));
 }
 
 .p-tag {

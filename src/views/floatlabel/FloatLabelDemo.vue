@@ -31,7 +31,7 @@
                     </div>
                     <div class="p-field p-col-12 p-md-4">
                         <span class="p-float-label">
-                            <chips id="chips" v-model="value4" />
+                            <Chips id="chips" v-model="value4" />
                             <label for="chips">Chips</label>
                         </span>
                     </div>
@@ -106,7 +106,7 @@
     &lt;/div&gt;
     &lt;div class="p-field p-col-12 p-md-4"&gt;
         &lt;span class="p-float-label"&gt;
-            &lt;chips id="chips" v-model="value4" /&gt;
+            &lt;Chips id="chips" v-model="value4" /&gt;
             &lt;label for="chips"&gt;Chips&lt;/label&gt;
         &lt;/span&gt;
     &lt;/div&gt;

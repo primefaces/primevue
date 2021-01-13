@@ -61,39 +61,39 @@
 .p-autocomplete.p-autocomplete-dd .p-autocomplete-loader {
   right: 2.857rem;
 }
-.p-autocomplete.p-autocomplete-multiple .p-autocomplete-multiple-container {
+.p-autocomplete .p-autocomplete-multiple-container {
   padding: 0.25rem 0.5rem;
 }
-.p-autocomplete.p-autocomplete-multiple .p-autocomplete-multiple-container:not(.p-disabled):hover {
+.p-autocomplete .p-autocomplete-multiple-container:not(.p-disabled):hover {
   border-color: #BA68C8;
 }
-.p-autocomplete.p-autocomplete-multiple .p-autocomplete-multiple-container:not(.p-disabled).p-focus {
+.p-autocomplete .p-autocomplete-multiple-container:not(.p-disabled).p-focus {
   outline: 0 none;
   outline-offset: 0;
   box-shadow: 0 0 0 1px #cf95d9;
   border-color: #BA68C8;
 }
-.p-autocomplete.p-autocomplete-multiple .p-autocomplete-multiple-container .p-autocomplete-input-token {
+.p-autocomplete .p-autocomplete-multiple-container .p-autocomplete-input-token {
   padding: 0.25rem 0;
 }
-.p-autocomplete.p-autocomplete-multiple .p-autocomplete-multiple-container .p-autocomplete-input-token input {
+.p-autocomplete .p-autocomplete-multiple-container .p-autocomplete-input-token input {
   font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif, "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol";
   font-size: 1rem;
   color: rgba(255, 255, 255, 0.87);
   padding: 0;
   margin: 0;
 }
-.p-autocomplete.p-autocomplete-multiple .p-autocomplete-multiple-container .p-autocomplete-token {
+.p-autocomplete .p-autocomplete-multiple-container .p-autocomplete-token {
   padding: 0.25rem 0.5rem;
   margin-right: 0.5rem;
   background: #304562;
   color: rgba(255, 255, 255, 0.87);
   border-radius: 16px;
 }
-.p-autocomplete.p-autocomplete-multiple .p-autocomplete-multiple-container .p-autocomplete-token .p-autocomplete-token-icon {
+.p-autocomplete .p-autocomplete-multiple-container .p-autocomplete-token .p-autocomplete-token-icon {
   margin-left: 0.5rem;
 }
-.p-autocomplete.p-error > .p-inputtext, .p-autocomplete.p-invalid > .p-inputtext {
+.p-autocomplete.p-invalid.p-component > .p-inputtext {
   border-color: #ef9a9a;
 }
 
@@ -125,7 +125,7 @@
   background: rgba(186, 104, 200, 0.16);
 }
 
-.p-calendar.p-error > .p-inputtext, .p-calendar.p-invalid > .p-inputtext {
+.p-calendar.p-invalid.p-component > .p-inputtext {
   border-color: #ef9a9a;
 }
 
@@ -495,7 +495,7 @@
   padding: 0;
   margin: 0;
 }
-.p-chips.p-error > .p-inputtext, .p-chips.p-invalid > .p-inputtext {
+.p-chips.p-invalid.p-component > .p-inputtext {
   border-color: #ef9a9a;
 }
 
@@ -557,7 +557,7 @@
   color: rgba(255, 255, 255, 0.6);
   right: 2.357rem;
 }
-.p-dropdown.p-error, .p-dropdown.p-invalid {
+.p-dropdown.p-invalid.p-component {
   border-color: #ef9a9a;
 }
 
@@ -661,15 +661,17 @@
   border: 1px solid #304562;
   box-shadow: 0 2px 4px -1px rgba(0, 0, 0, 0.2), 0 4px 5px 0 rgba(0, 0, 0, 0.14), 0 1px 10px 0 rgba(0, 0, 0, 0.12);
   border-radius: 3px;
+  padding: 0.5rem 0;
 }
 .p-editor-container .p-editor-toolbar.ql-snow .ql-picker.ql-expanded .ql-picker-options .ql-picker-item {
   color: rgba(255, 255, 255, 0.87);
-  padding: 0.5rem 1rem;
-  border-radius: 3px;
 }
 .p-editor-container .p-editor-toolbar.ql-snow .ql-picker.ql-expanded .ql-picker-options .ql-picker-item:hover {
   color: rgba(255, 255, 255, 0.87);
   background: rgba(255, 255, 255, 0.03);
+}
+.p-editor-container .p-editor-toolbar.ql-snow .ql-picker.ql-expanded:not(.ql-icon-picker) .ql-picker-item {
+  padding: 0.5rem 1rem;
 }
 .p-editor-container .p-editor-content {
   border-bottom-right-radius: 3px;
@@ -787,7 +789,7 @@
   width: 2.357rem;
 }
 
-.p-inputnumber.p-error > .p-inputtext, .p-inputnumber.p-invalid > .p-inputtext {
+.p-inputnumber.p-invalid.p-component > .p-inputtext {
   border-color: #ef9a9a;
 }
 
@@ -853,7 +855,7 @@
   box-shadow: 0 0 0 1px #cf95d9;
   border-color: #BA68C8;
 }
-.p-inputtext.p-error, .p-inputtext.p-invalid {
+.p-inputtext.p-invalid.p-component {
   border-color: #ef9a9a;
 }
 .p-inputtext.p-inputtext-sm {
@@ -878,6 +880,10 @@
 
 .p-input-icon-left > .p-inputtext {
   padding-left: 2rem;
+}
+
+.p-input-icon-left.p-float-label > label {
+  left: 2rem;
 }
 
 .p-input-icon-right > i:last-of-type {
@@ -1019,7 +1025,7 @@
   border-top-right-radius: 3px;
   border-bottom-right-radius: 3px;
 }
-.p-multiselect.p-error, .p-multiselect.p-invalid {
+.p-multiselect.p-invalid.p-component {
   border-color: #ef9a9a;
 }
 
@@ -4577,7 +4583,7 @@
   border-radius: 3px;
 }
 .p-skeleton:after {
-  background: linear-gradient(90deg, transparent, rgba(255, 255, 255, 0.04), transparent);
+  background: linear-gradient(90deg, rgba(255, 255, 255, 0), rgba(255, 255, 255, 0.04), rgba(255, 255, 255, 0));
 }
 
 .p-tag {

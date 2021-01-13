@@ -157,6 +157,10 @@
                     "to": "/editor"
                 },
                 {
+                    "name": "FloatLabel",
+                    "to": "/floatlabel"
+                },
+                {
                     "name": "InputGroup",
                     "to": "/inputgroup"
                 },
@@ -177,8 +181,9 @@
                     "to": "/inputtext"
                 },
                 {
-                    "name": "FloatLabel",
-                    "to": "/floatlabel"
+                    "name": "InvalidState",
+                    "to": "/invalid",
+                    "badge": "New"
                 },
                 {
                     "name": "Knob",

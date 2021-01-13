@@ -398,6 +398,11 @@ const routes = [
         component: () => import('../views/inputnumber/InputNumberDemo.vue')
     },
     {
+        path: '/invalid',
+        name: 'invalid',
+        component: () => import('../views/invalid/InvalidDemo.vue')
+    },
+    {
         path: '/scrolltop',
         name: 'scrolltop',
         component: () => import('../views/scrolltop/ScrollTopDemo.vue')
