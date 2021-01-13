@@ -107,9 +107,13 @@ html {
                                 <td>p-link</td>
                                 <td>Renders a button as a link.</td>
                             </tr>
+                             <tr>
+                                <td>p-error</td>
+                                <td>Indicates an error text.</td>
+                            </tr>
                             <tr>
                                 <td>p-invalid</td>
-                                <td>Applies the invalid theme color to a text or a form element.</td>
+                                <td>Styles an form element as invalid.</td>
                             </tr>
                             <tr>
                                 <td>p-text-secondary</td>

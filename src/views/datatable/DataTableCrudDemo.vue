@@ -73,7 +73,7 @@
                 <div class="p-field">
                     <label for="name">Name</label>
                     <InputText id="name" v-model.trim="product.name" required="true" autofocus :class="{'p-invalid': submitted && !product.name}" />
-                    <small class="p-invalid" v-if="submitted && !product.name">Name is required.</small>
+                    <small class="p-error" v-if="submitted && !product.name">Name is required.</small>
                 </div>
                 <div class="p-field">
                     <label for="description">Description</label>
@@ -211,7 +211,7 @@
     &lt;div class="p-field"&gt;
         &lt;label for="name"&gt;Name&lt;/label&gt;
         &lt;InputText id="name" v-model.trim="product.name" required="true" autofocus :class="{'p-invalid': submitted &amp;&amp; !product.name}" /&gt;
-        &lt;small class="p-invalid" v-if="submitted &amp;&amp; !product.name"&gt;Name is required.&lt;/small&gt;
+        &lt;small class="p-error" v-if="submitted &amp;&amp; !product.name"&gt;Name is required.&lt;/small&gt;
     &lt;/div&gt;
     &lt;div class="p-field"&gt;
         &lt;label for="description"&gt;Description&lt;/label&gt;

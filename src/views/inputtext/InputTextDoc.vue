@@ -193,7 +193,7 @@ import InputText from 'primevue/inputtext';
     &lt;div class="p-field"&gt;
         &lt;label for="username2"&gt;Username&lt;/label&gt;
         &lt;InputText id="username2" type="username" aria-describedby="username2-help" class="p-invalid" /&gt;
-        &lt;small id="username2-help" class="p-invalid"&gt;Username is not available.&lt;/small&gt;
+        &lt;small id="username2-help" class="p-error"&gt;Username is not available.&lt;/small&gt;
     &lt;/div&gt;
 
     &lt;h5&gt;Disabled&lt;/h5&gt;
@@ -273,7 +273,7 @@ export default {
                 <div class="p-field">
                     <label for="username2">Username</label>
                     <InputText id="username2" type="username" aria-describedby="username2-help" class="p-invalid" />
-                    <small id="username2-help" class="p-invalid">Username is not available.</small>
+                    <small id="username2-help" class="p-error">Username is not available.</small>
                 </div>
 
                 <h5>Disabled</h5>

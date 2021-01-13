@@ -43,7 +43,7 @@
                 <div class="p-field">
                     <label for="username2">Username</label>
                     <InputText id="username2" type="username" aria-describedby="username2-help" class="p-invalid" />
-                    <small id="username2-help" class="p-invalid">Username is not available.</small>
+                    <small id="username2-help" class="p-error">Username is not available.</small>
                 </div>
 
                 <h5>Disabled</h5>

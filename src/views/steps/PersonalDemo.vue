@@ -12,12 +12,12 @@
                     <div class="p-field">
                         <label for="firstname">Firstname</label>
                         <InputText id="firstname" v-model="firstname" :class="{'p-invalid': validationErrors.firstname && submitted}" />
-                        <small v-show="validationErrors.firstname && submitted" class="p-invalid">Firstname is required.</small>
+                        <small v-show="validationErrors.firstname && submitted" class="p-error">Firstname is required.</small>
                     </div>
                     <div class="p-field">
                         <label for="lastname">Lastname</label>
                         <InputText id="lastname" v-model="lastname" :class="{'p-invalid': validationErrors.lastname && submitted}" />
-                        <small v-show="validationErrors.lastname && submitted" class="p-invalid">Lastname is required.</small>
+                        <small v-show="validationErrors.lastname && submitted" class="p-error">Lastname is required.</small>
                     </div>
                     <div class="p-field">
                         <label for="age">Age</label>

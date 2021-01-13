@@ -8,7 +8,6 @@
 
 - New Viva Theme [\#856](https://github.com/primefaces/primevue/issues/856)
 - Improve invalid validation visuals on material themes [\#855](https://github.com/primefaces/primevue/issues/855)
-- Remove p-error in favor of p-invalid [\#854](https://github.com/primefaces/primevue/issues/854)
 - New Lazy DataTable Demo with Remote Source [\#841](https://github.com/primefaces/primevue/issues/841)
 - Touch support for Slider [\#757](https://github.com/primefaces/primevue/issues/757)
 
