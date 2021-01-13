@@ -11,7 +11,7 @@
         <div class="content-section implementation">
             <div class="card">
                 <h5>Basic</h5>
-                <CascadeSelect v-model="selectedCity1" :options="countries" optionLabel="cname" optionGroupLabel="name" 
+                <CascadeSelect v-model="selectedCity1" :options="countries" optionLabel="cname" optionGroupLabel="name" class="p-invalid"
                         :optionGroupChildren="['states', 'cities']" style="minWidth: 14rem" placeholder="Select a City" />
 
                 <h5>Templating</h5>

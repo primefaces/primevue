@@ -358,7 +358,7 @@
   border-top-right-radius: 2px;
   border-bottom-right-radius: 2px;
 }
-.p-cascadeselect.p-invalid {
+.p-cascadeselect.p-invalid.p-component {
   border-color: #e7a3a3;
 }
 
