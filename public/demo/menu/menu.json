@@ -19,33 +19,39 @@
                     "to": "/setup"
                 },
                 {
-                    "name": "Forum",
-                    "href": "https://forum.primefaces.org/viewforum.php?f=110"
-                },
-                {
-                    "name": "Discord Channel",
-                    "href": "https://discord.gg/gzKFYnpmCY"
+                    "name": "Locale",
+                    "to": "/locale",
+                    "badge": "New"
                 },
                 {
                     "name": "Source Code",
                     "href": "https://github.com/primefaces/primevue"
                 },
                 {
-                    "name": "Support",
-                    "to": "/support"
-                },
-                {
                     "name": "Store",
                     "href": "https://www.primefaces.org/store"
                 },
                 {
-                    "name": "Locale",
-                    "to": "/locale",
-                    "badge": "New"
-                },
-                {
                     "name": "Accessibility",
                     "to": "/accessibility"
+                }
+            ]
+        },
+        {
+            "name": "Support",
+            "meta": ["support"],
+            "children": [
+                {
+                    "name": "Forum",
+                    "href": "https://forum.primefaces.org/viewforum.php?f=110"
+                },
+                {
+                    "name": "Discord Chat",
+                    "href": "https://discord.gg/gzKFYnpmCY"
+                },
+                {
+                    "name": "PRO Support",
+                    "to": "/support"
                 }
             ]
         },
