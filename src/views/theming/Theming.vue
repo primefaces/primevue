@@ -22,7 +22,7 @@
 
             <p><a href="https://www.primefaces.org/designer/primevue">Designer</a> is the ultimate tool to create your own PrimeVue experience powered by a SASS based theme engine
                 with 500+ variables and a Visual Designer. PrimeVue only ships the generated CSS of <b>Material</b>, <b>Bootstrap</b>, <b>Saga</b>, <b>Vela</b>, <b>Arya</b> and legacy themes whereas Designer provides
-                full access to the whole SASS structure and the variables of these pre-built themes for easier customization.</p>
+                full access to the whole SASS structure and the variables of these pre-built themes for easier customization. In addition, designer provides exclusive premium themes to subscribers including Soho, Viva, Mira and Nano that are not available in core PrimeVue distribution.</p>
 
             <p>Whether you have your own style guide or just need a custom theme, Designer API is the right tool to design and bring them to existence.</p>
 

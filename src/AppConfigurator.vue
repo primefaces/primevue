@@ -211,6 +211,18 @@
                             <span>Soho Dark</span>
                         </div>
                         <div class="p-col-3">
+                            <button class="p-link" type="button" @click="changeTheme($event, 'viva-light')">
+                                <img src="demo/images/themes/viva-light.svg" alt="Viva Light" />
+                            </button>
+                            <span>Viva Light</span>
+                        </div>
+                        <div class="p-col-3">
+                            <button class="p-link" type="button" @click="changeTheme($event, 'viva-dark', true)">
+                                <img src="demo/images/themes/viva-dark.svg" alt="Viva Dark" />
+                            </button>
+                            <span>Viva Dark</span>
+                        </div>
+                        <div class="p-col-3">
                             <button class="p-link" type="button" @click="changeTheme($event, 'mira')">
                                 <img src="demo/images/themes/mira.jpg" alt="Mira" />
                             </button>

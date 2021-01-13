@@ -60,6 +60,8 @@
                         <li class="topbar-submenu-header">PREMIUM</li>
                         <li><a @click="changeTheme($event, 'soho-light')"><img src="demo/images/themes/soho-light.png" alt="Soho Light" /><span>Soho Light</span></a></li>
                         <li><a @click="changeTheme($event, 'soho-dark', true)"><img src="demo/images/themes/soho-dark.png" alt="Soho Dark" /><span>Soho Dark</span></a></li>
+                        <li><a @click="changeTheme($event, 'viva-light')"><img src="demo/images/themes/viva-light.svg" alt="Viva Light" /><span>Viva Light</span></a></li>
+                        <li><a @click="changeTheme($event, 'viva-dark', true)"><img src="demo/images/themes/viva-dark.svg" alt="Viva Dark" /><span>Viva Dark</span></a></li>
                         <li><a @click="changeTheme($event, 'mira')"><img src="demo/images/themes/mira.jpg" alt="Mira" /><span>Mira</span></a></li>
                         <li><a @click="changeTheme($event, 'nano')"><img src="demo/images/themes/nano.jpg" alt="Nano" /><span>Nano</span></a></li>
 
@@ -168,6 +170,8 @@ export default {
                 'fluent-light': 'fluent-light.png',
                 'soho-light': 'soho-light.png',
                 'soho-dark': 'soho-dark.png',
+                'viva-light': 'viva-light.svg',
+                'viva-dark': 'viva-dark.svg',
                 'mira': 'mira.jpg',
                 'nano': 'nano.jpg',
             }
