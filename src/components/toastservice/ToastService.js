@@ -1,5 +1,5 @@
 import ToastEventBus from './ToastEventBus';
-import {PrimeVueToastSymbol} from '../usetoast/useToast';
+import {PrimeVueToastSymbol} from '../usetoast';
 
 export default {
     install: (app) => {
