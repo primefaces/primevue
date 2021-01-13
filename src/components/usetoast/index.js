@@ -1,2 +1,2 @@
 'use strict';
-module.exports = require('./useToast.js');
+module.exports = require('./usetoast.js');

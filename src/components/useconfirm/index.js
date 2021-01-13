@@ -1,2 +1,2 @@
 'use strict';
-module.exports = require('./useConfirm.js');
+module.exports = require('./useconfirm.js');

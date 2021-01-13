@@ -1,1 +1,1 @@
-export * from './useConfirm';
+export * from './useconfirm';
