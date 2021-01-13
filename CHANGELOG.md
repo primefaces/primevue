@@ -1,5 +1,25 @@
 # Changelog
 
+## [3.1.2](https://github.com/primefaces/primevue/tree/3.1.2) (2021-01-13)
+
+[Full Changelog](https://github.com/primefaces/primevue/compare/3.1.1...3.1.2)
+
+**Implemented New Features and Enhancements:**
+
+- New Viva Theme [\#856](https://github.com/primefaces/primevue/issues/856)
+- Improve invalid validation visuals on material themes [\#855](https://github.com/primefaces/primevue/issues/855)
+- Remove p-error in favor of p-invalid [\#854](https://github.com/primefaces/primevue/issues/854)
+- New Lazy DataTable Demo with Remote Source [\#841](https://github.com/primefaces/primevue/issues/841)
+- Touch support for Slider [\#757](https://github.com/primefaces/primevue/issues/757)
+
+**Fixed bugs:**
+
+- primevue/useconfirm not found [\#839](https://github.com/primefaces/primevue/issues/839)
+- usetoast.d.ts casing issue [\#825](https://github.com/primefaces/primevue/issues/825)
+- exports files for Chip component [\#781](https://github.com/primefaces/primevue/issues/781)
+- Slider has incorrect aria-\* variable values [\#775](https://github.com/primefaces/primevue/issues/775)
+- Safari issue with Skeleton [\#755](https://github.com/primefaces/primevue/issues/755)
+
 ## [3.1.1](https://github.com/primefaces/primevue/tree/3.1.1) (2020-12-10)
 
 [Full Changelog](https://github.com/primefaces/primevue/compare/3.10....3.1.1)
