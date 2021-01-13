@@ -208,12 +208,12 @@ export default {
                 &lt;div class="p-field"&gt;
                     &lt;label for="firstname"&gt;Firstname&lt;/label&gt;
                     &lt;InputText id="firstname" v-model="firstname" :class="{'p-invalid': validationErrors.firstname && submitted}" /&gt;
-                    &lt;small v-show="validationErrors.firstname && submitted" class="p-error"&gt;Firstname is required.&lt;/small&gt;
+                    &lt;small v-show="validationErrors.firstname && submitted" class="p-invalid"&gt;Firstname is required.&lt;/small&gt;
                 &lt;/div&gt;
                 &lt;div class="p-field"&gt;
                     &lt;label for="lastname"&gt;Lastname&lt;/label&gt;
                     &lt;InputText id="lastname" v-model="lastname" :class="{'p-invalid': validationErrors.lastname && submitted}" /&gt;
-                    &lt;small v-show="validationErrors.lastname && submitted" class="p-error"&gt;Lastname is required.&lt;/small&gt;
+                    &lt;small v-show="validationErrors.lastname && submitted" class="p-invalid"&gt;Lastname is required.&lt;/small&gt;
                 &lt;/div&gt;
                 &lt;div class="p-field"&gt;
                     &lt;label for="age"&gt;Age&lt;/label&gt;

@@ -32,7 +32,7 @@
   opacity: 0.65;
 }
 
-.p-error, .p-invalid {
+.p-invalid {
   color: #dc3545;
 }
 
@@ -358,7 +358,7 @@
   border-top-right-radius: 4px;
   border-bottom-right-radius: 4px;
 }
-.p-cascadeselect.p-error, .p-cascadeselect.p-invalid {
+.p-cascadeselect.p-invalid {
   border-color: #dc3545;
 }
 
@@ -446,7 +446,7 @@
   background: #68329e;
   color: #ffffff;
 }
-.p-checkbox.p-error > .p-checkbox-box, .p-checkbox.p-invalid > .p-checkbox-box {
+.p-checkbox.p-invalid > .p-checkbox-box {
   border-color: #dc3545;
 }
 
@@ -835,7 +835,7 @@
 .p-inputswitch.p-inputswitch-checked:not(.p-disabled):hover .p-inputswitch-slider {
   background: #883cae;
 }
-.p-inputswitch.p-error, .p-inputswitch.p-invalid {
+.p-inputswitch.p-invalid {
   border-color: #dc3545;
 }
 
@@ -986,7 +986,7 @@
   color: #212529;
   background: #e9ecef;
 }
-.p-listbox.p-error, .p-listbox.p-invalid {
+.p-listbox.p-invalid {
   border-color: #dc3545;
 }
 
@@ -1176,7 +1176,7 @@
   background: #68329e;
   color: #ffffff;
 }
-.p-radiobutton.p-error > .p-radiobutton-box, .p-radiobutton.p-invalid > .p-radiobutton-box {
+.p-radiobutton.p-invalid > .p-radiobutton-box {
   border-color: #dc3545;
 }
 .p-radiobutton:focus {
@@ -1268,7 +1268,7 @@
 .p-selectbutton .p-button.p-highlight:hover .p-button-icon-right {
   color: #ffffff;
 }
-.p-selectbutton.p-error > .p-button, .p-selectbutton.p-invalid > .p-button {
+.p-selectbutton.p-invalid > .p-button {
   border-color: #dc3545;
 }
 
@@ -1349,7 +1349,7 @@
 .p-togglebutton.p-button.p-highlight:hover .p-button-icon-right {
   color: #ffffff;
 }
-.p-togglebutton.p-button.p-error > .p-button, .p-togglebutton.p-button.p-invalid > .p-button {
+.p-togglebutton.p-button.p-invalid > .p-button {
   border-color: #dc3545;
 }
 
