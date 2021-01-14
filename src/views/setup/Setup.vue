@@ -63,11 +63,11 @@ app.component('Dialog', Dialog);
 <code>
 &lt;meta charset="utf-8"&gt;
 &lt;title&gt;calendar demo&lt;/title&gt;
-&lt;link href="https://unpkg.com/primevue/resources/themes/saga-blue/theme.css " rel="stylesheet"&gt;
+&lt;link href="https://unpkg.com/primevue/resources/themes/saga-blue/theme.css" rel="stylesheet"&gt;
 &lt;link href="https://unpkg.com/primevue/resources/primevue.min.css " rel="stylesheet"&gt;
-&lt;link href="https://unpkg.com/primeicons/primeicons.css " rel="stylesheet"&gt;
+&lt;link href="https://unpkg.com/primeicons/primeicons.css" rel="stylesheet"&gt;
 &lt;script src="https://unpkg.com/vue@next"&gt;&lt;/script&gt;
-&lt;script src="https://unpkg.com/primevue/components/calendar/calendar.umd.min.js"&gt;&lt;/script&gt;
+&lt;script src="https://unpkg.com/primevue/calendar/calendar.umd.min.js"&gt;&lt;/script&gt;
 
 &lt;div id="app"&gt;
   &lt;p-calendar&gt;&lt;/p-calendar&gt;
