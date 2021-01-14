@@ -18,7 +18,7 @@ export default class CustomerService {
 		return axios.get('demo/data/customers-xlarge.json').then(res => res.data.data);
   }
   
-  getCustomers() {
-    return axios.get('https://www.primefaces.org/data/customers').then(res => res.data.customers)
+  getCustomers(params) {
+    return axios.get('https://www.primefaces.org/data/customers', { params }).then(res => res.data)
   }
 }
