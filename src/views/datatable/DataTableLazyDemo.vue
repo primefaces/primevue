@@ -12,12 +12,28 @@
 
 		<div class="content-section implementation">
             <div class="card">
-                <DataTable :value="customers" :lazy="true" :paginator="true" :rows="10"
-                    :totalRecords="totalRecords" :loading="loading" @page="onPage($event)">
-                    <Column field="name" header="Name"></Column>
-                    <Column field="country.name" header="Country"></Column>
-                    <Column field="company" header="Company"></Column>
-                    <Column field="representative.name" header="Representative"></Column>
+                <DataTable :value="customers" :lazy="true" :paginator="true" :rows="10" ref="dt"
+                    :totalRecords="totalRecords" :loading="loading" @page="onPage($event)" @sort="onSort($event)">
+                    <Column field="name" header="Name" filterMatchMode="startsWith" ref="name" :sortable="true">
+                        <template #filter>
+                            <InputText type="text" v-model="filters['name']" @keydown="onFilter($event)" class="p-column-filter" placeholder="Search by name"/>
+                        </template>
+                    </Column>
+                    <Column field="country.name" header="Country" filterField="country.name" filterMatchMode="contains" ref="country.name" :sortable="true">
+                        <template #filter>
+                            <InputText type="text" v-model="filters['country.name']" @keydown="onFilter($event)" class="p-column-filter" placeholder="Search by name"/>
+                        </template>
+                    </Column>
+                    <Column field="company" header="Company" filterMatchMode="contains" ref="company" :sortable="true">
+                        <template #filter>
+                            <InputText type="text" v-model="filters['company']" @keydown="onFilter($event)" class="p-column-filter" placeholder="Search by name"/>
+                        </template>
+                    </Column>
+                    <Column field="representative.name" header="Representative" filterField="representative.name" ref="representative.name" :sortable="true">
+                        <template #filter>
+                            <InputText type="text" v-model="filters['representative.name']" @keydown="onFilter($event)" class="p-column-filter" placeholder="Search by representative"/>
+                        </template>
+                    </Column>
                 </DataTable>
             </div>
 		</div>
@@ -27,12 +43,28 @@
                 <TabPanel header="Source">
 <CodeHighlight>
 <template v-pre>
-&lt;DataTable :value="customers" :lazy="true" :paginator="true" :rows="10"
-    :totalRecords="totalRecords" :loading="loading" @page="onPage($event)"&gt;
-    &lt;Column field="name" header="Name"&gt;&lt;/Column&gt;
-    &lt;Column field="country.name" header="Country"&gt;&lt;/Column&gt;
-    &lt;Column field="company" header="Company"&gt;&lt;/Column&gt;
-    &lt;Column field="representative.name" header="Representative"&gt;&lt;/Column&gt;
+&lt;DataTable :value="customers" :lazy="true" :paginator="true" :rows="10" ref="dt"
+    :totalRecords="totalRecords" :loading="loading" @page="onPage($event)" @sort="onSort($event)"&gt;
+    &lt;Column field="name" header="Name" filterMatchMode="startsWith" ref="name" :sortable="true"&gt;
+        &lt;template #filter&gt;
+            &lt;InputText type="text" v-model="filters['name']" @keydown="onFilter($event)" class="p-column-filter" placeholder="Search by name"/&gt;
+        &lt;/template&gt;
+    &lt;/Column&gt;
+    &lt;Column field="country.name" header="Country" filterField="country.name" filterMatchMode="contains" ref="country.name" :sortable="true"&gt;
+        &lt;template #filter&gt;
+            &lt;InputText type="text" v-model="filters['country.name']" @keydown="onFilter($event)" class="p-column-filter" placeholder="Search by name"/&gt;
+        &lt;/template&gt;
+    &lt;/Column&gt;
+    &lt;Column field="company" header="Company" filterMatchMode="contains" ref="company" :sortable="true"&gt;
+        &lt;template #filter&gt;
+            &lt;InputText type="text" v-model="filters['company']" @keydown="onFilter($event)" class="p-column-filter" placeholder="Search by name"/&gt;
+        &lt;/template&gt;
+    &lt;/Column&gt;
+    &lt;Column field="representative.name" header="Representative" filterField="representative.name" filterMatchMode="startsWith" ref="representative.name" :sortable="true"&gt;
+        &lt;template #filter&gt;
+            &lt;InputText type="text" v-model="filters['representative.name']" @keydown="onFilter($event)" class="p-column-filter" placeholder="Search by representative"/&gt;
+        &lt;/template&gt;
+    &lt;/Column&gt;
 &lt;/DataTable&gt;
 </template>
 </CodeHighlight>
@@ -45,10 +77,17 @@ export default {
         return {
             loading: false,
             totalRecords: 0,
-            customers: null
+            customers: null,
+            filters: {},
+            lazyFilters: {},
+            columns: [
+                {field: 'name', header: 'Name'},
+                {field: 'country.name', header: 'Country'},
+                {field: 'company', header: 'Company'},
+                {field: 'representative.name', header: 'Representative'}
+            ]
         }
     },
-    datasource: null,
     customerService: null,
     created() {
         this.customerService = new CustomerService();
@@ -56,23 +95,77 @@ export default {
     mounted() {
         this.loading = true;
 
-        setTimeout(() => {
-            this.customerService.getCustomersLarge().then(data => {
-                this.datasource = data;
-                this.totalRecords = data.length,
-                this.customers = this.datasource.slice(0, 10);
-                this.loading = false;
-            });
-        }, 500);
+        this.customerService.getCustomers({lazyEvent: JSON.stringify({first: 0, rows: this.$refs.dt.rows})}).then(data => {
+            this.customers = data.customers;
+            this.totalRecords = data.totalRecords;
+            this.loading = false;
+        });
+
+        const filters = {};
+        for(let i=0; i &lt; this.columns.length; i++) {
+            let obj = {};
+            obj["matchMode"] = this.$refs[this.columns[i].field].filterMatchMode || "startsWith";
+            obj["value"] = null;
+            filters[this.columns[i].field] = obj;
+        }
+
+        this.lazyFilters = filters;
     },
     methods: {
-        onPage(event) {
+        onLazyEvent(event) {
+            const proxyFilters = JSON.parse(JSON.stringify(this.filters));
+            for(let filter in proxyFilters) {
+                this.lazyFilters[filter].value = proxyFilters[filter] || null;
+            }
+
             this.loading = true;
 
+            let params = {
+                first: event.first,
+                rows: event.rows,
+                sortField: event.sortField,
+                sortOrder: event.sortOrder,
+                filters: this.lazyFilters
+            };
+
             setTimeout(() => {
-                this.customers = this.datasource.slice(event.first, event.first + event.rows);
-                this.loading = false;
-            }, 500);
+                this.customerService.getCustomers({lazyEvent: JSON.stringify( params )}).then(data => {
+                    this.customers = data.customers;
+                    this.totalRecords = data.totalRecords;
+                    this.loading = false;
+                });
+            }, 1000);
+        },
+        onPage(event) {
+            this.onLazyEvent(event);
+        },
+        onSort(event) {
+            this.onLazyEvent(event);
+        },
+        onFilter(event) {
+            if(event.keyCode === 13 || event.value) {
+                const proxyFilters = JSON.parse(JSON.stringify(this.filters));
+                for(let filter in proxyFilters) {
+                    this.lazyFilters[filter].value = proxyFilters[filter] || null;
+                }
+
+                this.loading = true;
+                let params = {
+                    first: 0,
+                    rows: this.$refs.dt.rows,
+                    sortField: null,
+                    sortOrder: null,
+                    filters: this.lazyFilters
+                };
+
+                setTimeout(() => {
+                    this.customerService.getCustomers({lazyEvent: JSON.stringify( params )}).then(data => {
+                        this.customers = data.customers;
+                        this.totalRecords = data.totalRecords;
+                        this.loading = false;
+                    });
+                }, 1000);
+            }
         }
     }
 }
@@ -91,10 +184,17 @@ export default {
         return {
             loading: false,
             totalRecords: 0,
-            customers: null
+            customers: null,
+            filters: {},
+            lazyFilters: {},
+            columns: [
+                {field: 'name', header: 'Name'},
+                {field: 'country.name', header: 'Country'},
+                {field: 'company', header: 'Company'},
+                {field: 'representative.name', header: 'Representative'}
+            ]
         }
     },
-    datasource: null,
     customerService: null,
     created() {
         this.customerService = new CustomerService();
@@ -102,23 +202,78 @@ export default {
     mounted() {
         this.loading = true;
 
-        setTimeout(() => {
-            this.customerService.getCustomersLarge().then(data => {
-                this.datasource = data;
-                this.totalRecords = data.length,
-                this.customers = this.datasource.slice(0, 10);
-                this.loading = false;
-            });
-        }, 500);
+        this.customerService.getCustomers({lazyEvent: JSON.stringify({first: 0, rows: this.$refs.dt.rows})}).then(data => {
+            this.customers = data.customers;
+            this.totalRecords = data.totalRecords;
+            this.loading = false;
+        });
+
+        const filters = {};
+        for(let i=0; i<this.columns.length; i++) {
+            let obj = {};
+            obj["matchMode"] = this.$refs[this.columns[i].field].filterMatchMode || "startsWith";
+            obj["value"] = null;
+            filters[this.columns[i].field] = obj;
+        }
+
+        this.lazyFilters = filters;
     },
     methods: {
-        onPage(event) {
+        onLazyEvent(event) {
+            const proxyFilters = JSON.parse(JSON.stringify(this.filters));
+            for(let filter in proxyFilters) {
+                this.lazyFilters[filter].value = proxyFilters[filter] || null;
+            }
+
             this.loading = true;
 
+            let params = {
+                first: event.first,
+                rows: event.rows,
+                sortField: event.sortField,
+                sortOrder: event.sortOrder,
+                filters: this.lazyFilters
+            };
+
             setTimeout(() => {
-                this.customers = this.datasource.slice(event.first, event.first + event.rows);
-                this.loading = false;
-            }, 500);
+                this.customerService.getCustomers({lazyEvent: JSON.stringify( params )}).then(data => {
+                    this.customers = data.customers;
+                    this.totalRecords = data.totalRecords;
+                    this.loading = false;
+                });
+            }, 1000);
+        },
+        onPage(event) {
+            this.onLazyEvent(event);
+        },
+        onSort(event) {
+            this.onLazyEvent(event);
+        },
+        onFilter(event) {
+            if(event.keyCode === 13 || event.value) {
+                // proxy to object
+                const proxyFilters = JSON.parse(JSON.stringify(this.filters));
+                for(let filter in proxyFilters) {
+                    this.lazyFilters[filter].value = proxyFilters[filter] || null;
+                }
+
+                this.loading = true;
+                let params = {
+                    first: 0,
+                    rows: this.$refs.dt.rows,
+                    sortField: null,
+                    sortOrder: null,
+                    filters: this.lazyFilters
+                };
+
+                setTimeout(() => {
+                    this.customerService.getCustomers({lazyEvent: JSON.stringify( params )}).then(data => {
+                        this.customers = data.customers;
+                        this.totalRecords = data.totalRecords;
+                        this.loading = false;
+                    });
+                }, 1000);
+            }
         }
     }
 }
