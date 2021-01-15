@@ -13,7 +13,7 @@
 		<div class="content-section implementation">
             <div class="card">
                 <DataTable :value="customers" :lazy="true" :paginator="true" :rows="10" :filters="filters" ref="dt"
-                    :totalRecords="totalRecords" :loading="loading" @page="onPage($event)" @sort="onSort">
+                    :totalRecords="totalRecords" :loading="loading" @page="onPage($event)" @sort="onSort($event)">
                     <Column field="name" header="Name" filterMatchMode="startsWith" ref="name" :sortable="true">  
                         <template #filter>
                             <InputText type="text" v-model="filters['name']" @keydown="onFilter($event)" class="p-column-filter" placeholder="Search by name"/>
@@ -29,16 +29,9 @@
                             <InputText type="text" v-model="filters['company']" @keydown="onFilter($event)" class="p-column-filter" placeholder="Search by company"/>
                         </template>
                     </Column>
-                    <Column field="representative.name" header="Representative" filterField="representative.name" filterMatchMode="contains" ref="representative.name" :sortable="true">
+                    <Column field="representative.name" header="Representative" filterField="representative.name" ref="representative.name" :sortable="true">
                         <template #filter>
-                            <MultiSelect v-model="filters['representative.name']" :options="representatives" optionLabel="name" optionValue="name" @change="onFilter($event)" placeholder="All" class="p-column-filter">
-                                <template #option="slotProps">
-                                    <div class="p-multiselect-representative-option">
-                                        <img :alt="slotProps.option.name" :src="'demo/images/avatar/' + slotProps.option.image" width="32" style="vertical-align: middle" />
-                                        <span class="image-text">{{slotProps.option.name}}</span>
-                                    </div>
-                                </template>
-                            </MultiSelect>
+                            <InputText type="text" v-model="filters['representative.name']" @keydown="onFilter($event)" class="p-column-filter" placeholder="Search by representative"/>
                         </template>
                     </Column>
                 </DataTable>
@@ -51,7 +44,7 @@
 <pre v-code>
 <code><template v-pre>
 &lt;DataTable :value="customers" :lazy="true" :paginator="true" :rows="10" :filters="filters" ref="dt"
-    :totalRecords="totalRecords" :loading="loading" @page="onPage($event)" @sort="onSort"&gt;
+    :totalRecords="totalRecords" :loading="loading" @page="onPage($event)" @sort="onSort($event)"&gt;
     &lt;Column field="name" header="Name" filterMatchMode="startsWith" ref="name" :sortable="true"&gt;
         &lt;template #filter&gt;
             &lt;InputText type="text" v-model="filters['name']" @keydown="onFilter($event)" class="p-column-filter" placeholder="Search by name"/&gt;
@@ -69,14 +62,7 @@
     &lt;/Column&gt;
     &lt;Column field="representative.name" header="Representative" filterField="representative.name" filterMatchMode="contains" ref="representative.name" :sortable="true"&gt;
         &lt;template #filter&gt;
-            &lt;MultiSelect v-model="filters['representative.name']" :options="representatives" optionLabel="name" optionValue="name" @change="onFilter($event)" placeholder="All" class="p-column-filter"&gt;
-                &lt;template #option="slotProps"&gt;
-                    &lt;div class="p-multiselect-representative-option"&gt;
-                        &lt;img :alt="slotProps.option.name" :src="'demo/images/avatar/' + slotProps.option.image" width="32" style="vertical-align: middle" /&gt;
-                        &lt;span class="image-text"&gt;{{slotProps.option.name}}&lt;/span&gt;
-                    &lt;/div&gt;
-                &lt;/template&gt;
-            &lt;/MultiSelect&gt;
+            &lt;InputText type="text" v-model="filters['representative.name']" @keydown="onFilter($event)" class="p-column-filter" placeholder="Search by representative"/&gt;
         &lt;/template&gt;
     &lt;/Column&gt;
 &lt;/DataTable&gt;
@@ -94,23 +80,12 @@ export default {
             totalRecords: 0,
             customers: null,
             filters: {},
-            representatives: [
-                {name: "Amy Elsner", image: 'amyelsner.png'},
-                {name: "Anna Fali", image: 'annafali.png'},
-                {name: "Asiya Javayant", image: 'asiyajavayant.png'},
-                {name: "Bernardo Dominic", image: 'bernardodominic.png'},
-                {name: "Elwin Sharvill", image: 'elwinsharvill.png'},
-                {name: "Ioni Bowcher", image: 'ionibowcher.png'},
-                {name: "Ivan Magalhaes",image: 'ivanmagalhaes.png'},
-                {name: "Onyama Limba", image: 'onyamalimba.png'},
-                {name: "Stephen Shaw", image: 'stephenshaw.png'},
-                {name: "XuXue Feng", image: 'xuxuefeng.png'}
-            ],
+            lazyFilters: {},
             columns: [
-                {field: 'name', header: 'Name', placeholder: 'name', ref: 'name'},
-                {field: 'country.name', header: 'Country', placeholder: 'country', ref: 'country.name'},
-                {field: 'company', header: 'Company', placeholder: 'company', ref: 'company'},
-                {field: 'representative.name', header: 'Representative', placeholder: 'representative', ref: 'representative'}
+                {field: 'name', header: 'Name'},
+                {field: 'country.name', header: 'Country'},
+                {field: 'company', header: 'Company'},
+                {field: 'representative.name', header: 'Representative'}
             ]
         }
     },
@@ -126,23 +101,22 @@ export default {
             this.totalRecords = data.totalRecords;
             this.loading = false;
         });
+
+        const filters = {};
+        for(let i=0; i &lt; this.columns.length; i++) {
+            let obj = {};
+            obj["matchMode"] = this.$refs[this.columns[i].field].filterMatchMode || "startsWith";
+            obj["value"] = null;
+            filters[this.columns[i].field] = obj;
+        }
+
+        this.lazyFilters = filters;
     },
     methods: {
         onLazyEvent(event) {
-            const filters = {};
-            const x = JSON.parse(JSON.stringify(this.filters));
-            const y = Object.keys(x);
-
-            for(let i=0; i &lt;this.columns.length; i++) {
-                let obj = {};
-                obj.matchMode = this.$refs[this.columns[i].field].filterMatchMode || "startsWith";
-                for(let j=0; j &lt; y.length; j++) {
-                    if(this.columns[i].field === y[j]) {
-                        obj.value = this.filters[this.columns[i].field];
-                    }
-                    else obj.value = null;
-                }
-                filters[this.columns[i].field] = obj;
+            const proxyFilters = JSON.parse(JSON.stringify(this.filters));
+            for(let filter in proxyFilters) {
+                this.lazyFilters[filter].value = proxyFilters[filter] || null;
             }
           
             this.loading = true;
@@ -151,7 +125,7 @@ export default {
                 rows: event.rows,
                 sortField: event.sortField,
                 sortOrder: event.sortOrder,
-                filters: filters
+                filters: this.lazyFilters
             };
 
             setTimeout(() => {
@@ -169,21 +143,10 @@ export default {
             this.onLazyEvent(event);
         },
         onFilter(event) {
-            if(event.keyCode === 13 || event.value) {
-                const filters = {}; 
-                const x = JSON.parse(JSON.stringify(this.filters));
-                const y = Object.keys(x);
-
-                for(let i=0; i &lt; this.columns.length; i++) {
-                    let obj = {};
-                    obj.matchMode = this.$refs[this.columns[i].field].filterMatchMode || "startsWith";
-                    for(let j=0; j &lt; y.length; j++) {
-                        if(this.columns[i].field === y[j]) {
-                            obj["value"] = this.filters[this.columns[i].field];
-                        }
-                        else obj["value"] = null;
-                    }
-                    filters[this.columns[i].field] = obj;
+            if(event.keyCode === 13) {
+                const proxyFilters = JSON.parse(JSON.stringify(this.filters));
+                for(let filter in proxyFilters) {
+                    this.lazyFilters[filter].value = proxyFilters[filter] || null;
                 }
 
                 this.loading = true;
@@ -192,7 +155,7 @@ export default {
                     rows: this.$refs.dt.rows,
                     sortField: null,
                     sortOrder: null,
-                    filters: filters
+                    filters: this.lazyFilters
                 };
 
                 setTimeout(() => {
@@ -224,23 +187,12 @@ export default {
             totalRecords: 0,
             customers: null,
             filters: {},
-            representatives: [
-                {name: "Amy Elsner", image: 'amyelsner.png'},
-                {name: "Anna Fali", image: 'annafali.png'},
-                {name: "Asiya Javayant", image: 'asiyajavayant.png'},
-                {name: "Bernardo Dominic", image: 'bernardodominic.png'},
-                {name: "Elwin Sharvill", image: 'elwinsharvill.png'},
-                {name: "Ioni Bowcher", image: 'ionibowcher.png'},
-                {name: "Ivan Magalhaes",image: 'ivanmagalhaes.png'},
-                {name: "Onyama Limba", image: 'onyamalimba.png'},
-                {name: "Stephen Shaw", image: 'stephenshaw.png'},
-                {name: "XuXue Feng", image: 'xuxuefeng.png'}
-            ],
+            lazyFilters: {},
             columns: [
-                {field: 'name', header: 'Name', placeholder: 'name', ref: 'name'},
-                {field: 'country.name', header: 'Country', placeholder: 'country', ref: 'country.name'},
-                {field: 'company', header: 'Company', placeholder: 'company', ref: 'company'},
-                {field: 'representative.name', header: 'Representative', placeholder: 'representative', ref: 'representative'}
+                {field: 'name', header: 'Name'},
+                {field: 'country.name', header: 'Country'},
+                {field: 'company', header: 'Company'},
+                {field: 'representative.name', header: 'Representative'}
             ]
         }
     },
@@ -256,24 +208,22 @@ export default {
             this.totalRecords = data.totalRecords;
             this.loading = false;
         });
+
+        const filters = {};
+        for(let i=0; i<this.columns.length; i++) {
+            let obj = {};
+            obj["matchMode"] = this.$refs[this.columns[i].field].filterMatchMode || "startsWith";
+            obj["value"] = null;
+            filters[this.columns[i].field] = obj;
+        }
+
+        this.lazyFilters = filters;
     },
     methods: {
         onLazyEvent(event) {
-            const filters = {};
-            // proxy to object
-            const x = JSON.parse(JSON.stringify(this.filters));
-            const y = Object.keys(x);
-
-            for(let i=0; i<this.columns.length; i++) {
-                let obj = {};
-                obj.matchMode = this.$refs[this.columns[i].field].filterMatchMode || "startsWith";
-                for(let j=0; j<y.length; j++) {
-                    if(this.columns[i].field === y[j]) {
-                        obj.value = this.filters[this.columns[i].field];
-                    }
-                    else obj.value = null;
-                }
-                filters[this.columns[i].field] = obj;
+            const proxyFilters = JSON.parse(JSON.stringify(this.filters));
+            for(let filter in proxyFilters) {
+                this.lazyFilters[filter].value = proxyFilters[filter] || null;
             }
           
             this.loading = true;
@@ -282,7 +232,7 @@ export default {
                 rows: event.rows,
                 sortField: event.sortField,
                 sortOrder: event.sortOrder,
-                filters: filters
+                filters: this.lazyFilters
             };
 
             setTimeout(() => {
@@ -300,22 +250,11 @@ export default {
             this.onLazyEvent(event);
         },
         onFilter(event) {
-            if(event.keyCode === 13 || event.value) {
-                const filters = {}; 
+            if(event.keyCode === 13) {
                 // proxy to object
-                const x = JSON.parse(JSON.stringify(this.filters));
-                const y = Object.keys(x);
-
-                for(let i=0; i<this.columns.length; i++) {
-                    let obj = {};
-                    obj.matchMode = this.$refs[this.columns[i].field].filterMatchMode || "startsWith";
-                    for(let j=0; j<y.length; j++) {
-                        if(this.columns[i].field === y[j]) {
-                            obj["value"] = this.filters[this.columns[i].field];
-                        }
-                        else obj["value"] = null;
-                    }
-                    filters[this.columns[i].field] = obj;
+                const proxyFilters = JSON.parse(JSON.stringify(this.filters));
+                for(let filter in proxyFilters) {
+                    this.lazyFilters[filter].value = proxyFilters[filter] || null;
                 }
 
                 this.loading = true;
@@ -324,7 +263,7 @@ export default {
                     rows: this.$refs.dt.rows,
                     sortField: null,
                     sortOrder: null,
-                    filters: filters
+                    filters: this.lazyFilters
                 };
 
                 setTimeout(() => {
