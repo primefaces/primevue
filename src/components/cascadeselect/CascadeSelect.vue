@@ -15,7 +15,7 @@
         <transition name="p-connected-overlay" @enter="onOverlayEnter" @leave="onOverlayLeave">
             <div :ref="overlayRef" class="p-cascadeselect-panel p-component" v-if="overlayVisible">
                 <div class="p-cascadeselect-items-wrapper">
-                    <CascadeSelectSub :options="options" :selectionPath="selectionPath" class="p-cascadeselect-items" 
+                    <CascadeSelectSub :options="options" :selectionPath="selectionPath" 
                         :optionLabel="optionLabel" :optionValue="optionValue" :level="0" :templates="$slots"
                         :optionGroupLabel="optionGroupLabel" :optionGroupChildren="optionGroupChildren" 
                         @option-select="onOptionSelect" @optiongroup-select="onOptionGroupSelect" :dirty="dirty" :root="true" />
