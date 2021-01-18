@@ -1,6 +1,6 @@
 {
-  "main": "./menu.cjs.js",
+  "main": "./menu.umd.js",
   "module": "./menu.esm.js",
-  "browser": "./menu.umd.js",
+  "unpkg": "./menu.min.js",
   "types": "./Menu.d.ts"
 }

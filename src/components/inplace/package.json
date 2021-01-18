@@ -1,6 +1,6 @@
 {
-  "main": "./inplace.cjs.js",
+  "main": "./inplace.umd.js",
   "module": "./inplace.esm.js",
-  "browser": "./inplace.umd.js",
+  "unpkg": "./inplace.min.js",
   "types": "./Inplace.d.ts"
 }

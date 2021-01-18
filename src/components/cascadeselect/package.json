@@ -1,6 +1,6 @@
 {
-  "main": "./cascadeselect.cjs.js",
+  "main": "./cascadeselect.umd.js",
   "module": "./cascadeselect.esm.js",
-  "browser": "./cascadeselect.umd.js",
+  "unpkg": "./cascadeselect.min.js",
   "types": "./CascadeSelect.d.ts"
 }

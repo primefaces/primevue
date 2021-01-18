@@ -1,6 +1,6 @@
 {
-  "main": "./button.cjs.js",
+  "main": "./button.umd.js",
   "module": "./button.esm.js",
-  "browser": "./button.umd.js",
+  "unpkg": "./button.min.js",
   "types": "./Button.d.ts"
 }

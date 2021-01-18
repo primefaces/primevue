@@ -1,6 +1,6 @@
 {
-  "main": "./overlaypanel.cjs.js",
+  "main": "./overlaypanel.umd.js",
   "module": "./overlaypanel.esm.js",
-  "browser": "./overlaypanel.umd.js",
+  "unpkg": "./overlaypanel.min.js",
   "types": "./OverlayPanel.d.ts"
 }

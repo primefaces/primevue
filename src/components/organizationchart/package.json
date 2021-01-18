@@ -1,6 +1,6 @@
 {
-  "main": "./organizationchart.cjs.js",
+  "main": "./organizationchart.umd.js",
   "module": "./organizationchart.esm.js",
-  "browser": "./organizationchart.umd.js",
+  "unpkg": "./organizationchart.min.js",
   "types": "./OrganizationChart.d.ts"
 }

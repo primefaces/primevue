@@ -1,5 +1,5 @@
 {
-    "main": "./confirmationeventbus.cjs.js",
+    "main": "./confirmationeventbus.umd.js",
     "module": "./confirmationeventbus.esm.js",
-    "browser": "./confirmationeventbus.umd.js"
+    "unpkg": "./confirmationeventbus.min.js"
   }

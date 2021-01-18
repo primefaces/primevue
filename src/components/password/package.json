@@ -1,6 +1,6 @@
 {
-  "main": "./password.cjs.js",
+  "main": "./password.umd.js",
   "module": "./password.esm.js",
-  "browser": "./password.umd.js",
+  "unpkg": "./password.min.js",
   "types": "./Password.d.ts"
 }

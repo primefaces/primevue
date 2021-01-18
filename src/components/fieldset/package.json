@@ -1,6 +1,6 @@
 {
-  "main": "./fieldset.cjs.js",
+  "main": "./fieldset.umd.js",
   "module": "./fieldset.esm.js",
-  "browser": "./fieldset.umd.js",
+  "unpkg": "./fieldset.min.js",
   "types": "./Fieldset.d.ts"
 }

@@ -1,6 +1,6 @@
 {
-  "main": "./slider.cjs.js",
+  "main": "./slider.umd.js",
   "module": "./slider.esm.js",
-  "browser": "./slider.umd.js",
+  "unpkg": "./slider.min.js",
   "types": "./Slider.d.ts"
 }

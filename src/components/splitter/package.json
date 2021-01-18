@@ -1,6 +1,6 @@
 {
-  "main": "./splitter.cjs.js",
+  "main": "./splitter.umd.js",
   "module": "./splitter.esm.js",
-  "browser": "./splitter.umd.js",
+  "unpkg": "./splitter.min.js",
   "types": "./Splitter.d.ts"
 }

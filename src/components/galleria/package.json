@@ -1,6 +1,6 @@
 {
-  "main": "./galleria.cjs.js",
+  "main": "./galleria.umd.js",
   "module": "./galleria.esm.js",
-  "browser": "./galleria.umd.js",
+  "unpkg": "./galleria.min.js",
   "types": "./Galleria.d.ts"
 }

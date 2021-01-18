@@ -1,6 +1,6 @@
 {
-  "main": "./togglebutton.cjs.js",
+  "main": "./togglebutton.umd.js",
   "module": "./togglebutton.esm.js",
-  "browser": "./togglebutton.umd.js",
+  "unpkg": "./togglebutton.min.js",
   "types": "./ToggleButton.d.ts"
 }

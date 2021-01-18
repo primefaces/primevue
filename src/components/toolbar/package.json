@@ -1,6 +1,6 @@
 {
-  "main": "./toolbar.cjs.js",
+  "main": "./toolbar.umd.js",
   "module": "./toolbar.esm.js",
-  "browser": "./toolbar.umd.js",
+  "unpkg": "./toolbar.min.js",
   "types": "./Toolbar.d.ts"
 }

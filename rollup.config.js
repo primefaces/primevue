@@ -1,5 +1,6 @@
 import vue from 'rollup-plugin-vue';
 import postcss from 'rollup-plugin-postcss';
+import { terser } from 'rollup-plugin-terser';
 
 const fs = require('fs-extra');
 const path = require('path');
@@ -11,22 +12,48 @@ function addEntry(folder, inFile, outFile) {
         input: 'src/components/' + folder + '/' + inFile,
         output: [
             {
+                format: 'umd',
+                name: 'primevue',
+                file: 'dist/' + folder + '/' + outFile + '.umd.js'
+            },
+            {
                 format: 'esm',
                 file: 'dist/' + folder + '/' + outFile + '.esm.js'
             },
             {
-                format: 'cjs',
-                file: 'dist/' + folder + '/' + outFile + '.cjs.js'
-            },
-            {
-                format: 'umd',
+                format: 'iife',
                 name: 'primevue',
-                file: 'dist/' + folder + '/' + outFile + '.umd.js'
+                file: 'dist/' + folder + '/' + outFile + '.js'
             }
         ],
         plugins: [
             vue(),
             postcss()
+        ]
+    });
+
+    entries.push({
+        input: 'src/components/' + folder + '/' + inFile,
+        output: [
+            {
+                format: 'umd',
+                name: 'primevue',
+                file: 'dist/' + folder + '/' + outFile + '.umd.min.js'
+            },
+            {
+                format: 'esm',
+                file: 'dist/' + folder + '/' + outFile + '.esm.min.js'
+            },
+            {
+                format: 'iife',
+                name: 'primevue',
+                file: 'dist/' + folder + '/' + outFile + '.min.js'
+            }
+        ],
+        plugins: [
+            vue(),
+            postcss(),
+            terser()
         ]
     });
 }

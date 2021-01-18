@@ -1,6 +1,6 @@
 {
-  "main": "./chips.cjs.js",
+  "main": "./chips.umd.js",
   "module": "./chips.esm.js",
-  "browser": "./chips.umd.js",
+  "unpkg": "./chips.min.js",
   "types": "./Chips.d.ts"
 }

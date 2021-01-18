@@ -1,6 +1,6 @@
 {
-  "main": "./confirmationservice.cjs.js",
+  "main": "./confirmationservice.umd.js",
   "module": "./confirmationservice.esm.js",
-  "browser": "./confirmationservice.umd.js",
+  "unpkg": "./confirmationservice.min.js",
   "types": "./ConfirmationService.d.ts"
 }

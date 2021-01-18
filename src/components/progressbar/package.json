@@ -1,6 +1,6 @@
 {
-  "main": "./progressbar.cjs.js",
+  "main": "./progressbar.umd.js",
   "module": "./progressbar.esm.js",
-  "browser": "./progressbar.umd.js",
+  "unpkg": "./progressbar.min.js",
   "types": "./ProgressBar.d.ts"
 }

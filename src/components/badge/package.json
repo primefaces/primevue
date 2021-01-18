@@ -1,6 +1,6 @@
 {
-  "main": "./badge.cjs.js",
+  "main": "./badge.umd.js",
   "module": "./badge.esm.js",
-  "browser": "./badge.umd.js",
+  "unpkg": "./badge.min.js",
   "types": "./Badge.d.ts"
 }

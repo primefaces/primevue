@@ -1,6 +1,6 @@
 {
-  "main": "./deferredcontent.cjs.js",
+  "main": "./deferredcontent.umd.js",
   "module": "./deferredcontent.esm.js",
-  "browser": "./deferredcontent.umd.js",
+  "unpkg": "./deferredcontent.min.js",
   "types": "./DeferredContent.d.ts"
 }

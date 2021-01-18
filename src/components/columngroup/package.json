@@ -1,6 +1,6 @@
 {
-  "main": "./columngroup.cjs.js",
+  "main": "./columngroup.umd.js",
   "module": "./columngroup.esm.js",
-  "browser": "./columngroup.umd.js",
+  "unpkg": "./columngroup.min.js",
   "types": "./ColumnGroup.d.ts"
 }

@@ -1,6 +1,6 @@
 {
-  "main": "./tabmenu.cjs.js",
+  "main": "./tabmenu.umd.js",
   "module": "./tabmenu.esm.js",
-  "browser": "./tabmenu.umd.js",
+  "unpkg": "./tabmenu.min.js",
   "types": "./TabMenu.d.ts"
 }

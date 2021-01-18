@@ -1,6 +1,6 @@
 {
-  "main": "./breadcrumb.cjs.js",
+  "main": "./breadcrumb.umd.js",
   "module": "./breadcrumb.esm.js",
-  "browser": "./breadcrumb.umd.js",
+  "unpkg": "./breadcrumb.min.js",
   "types": "./Breadcrumb.d.ts"
 }

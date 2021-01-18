@@ -1,6 +1,6 @@
 {
-  "main": "./avatar.cjs.js",
+  "main": "./avatar.umd.js",
   "module": "./avatar.esm.js",
-  "browser": "./avatar.umd.js",
+  "unpkg": "./avatar.min.js",
   "types": "./Avatar.d.ts"
 }

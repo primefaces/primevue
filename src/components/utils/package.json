@@ -1,5 +1,5 @@
 {
-  "main": "./utils.cjs.js",
+  "main": "./utils.umd.js",
   "module": "./utils.esm.js",
-  "browser": "./utils.umd.js"
+  "unpkg": "./utils.min.js"
 }

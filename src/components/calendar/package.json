@@ -1,6 +1,6 @@
 {
-  "main": "./calendar.cjs.js",
+  "main": "./calendar.umd.js",
   "module": "./calendar.esm.js",
-  "browser": "./calendar.umd.js",
+  "unpkg": "./calendar.min.js",
   "types": "./Calendar.d.ts"
 }

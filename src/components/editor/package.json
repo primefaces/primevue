@@ -1,6 +1,6 @@
 {
-  "main": "./editor.cjs.js",
+  "main": "./editor.umd.js",
   "module": "./editor.esm.js",
-  "browser": "./editor.umd.js",
+  "unpkg": "./editor.min.js",
   "types": "./Editor.d.ts"
 }

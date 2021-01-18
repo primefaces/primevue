@@ -1,6 +1,6 @@
 {
-  "main": "./tabpanel.cjs.js",
+  "main": "./tabpanel.umd.js",
   "module": "./tabpanel.esm.js",
-  "browser": "./tabpanel.umd.js",
+  "unpkg": "./tabpanel.min.js",
   "types": "./TabPanel.d.ts"
 }

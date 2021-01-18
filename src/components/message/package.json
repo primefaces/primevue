@@ -1,6 +1,6 @@
 {
-  "main": "./message.cjs.js",
+  "main": "./message.umd.js",
   "module": "./message.esm.js",
-  "browser": "./message.umd.js",
+  "unpkg": "./message.min.js",
   "types": "./Message.d.ts"
 }

@@ -1,6 +1,6 @@
 {
-  "main": "./dropdown.cjs.js",
+  "main": "./dropdown.umd.js",
   "module": "./dropdown.esm.js",
-  "browser": "./dropdown.umd.js",
+  "unpkg": "./dropdown.min.js",
   "types": "./Dropdown.d.ts"
 }

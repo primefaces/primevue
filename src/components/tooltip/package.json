@@ -1,6 +1,6 @@
 {
-  "main": "./tooltip.cjs.js",
+  "main": "./tooltip.umd.js",
   "module": "./tooltip.esm.js",
-  "browser": "./tooltip.umd.js",
+  "unpkg": "./tooltip.min.js",
   "types": "./Tooltip.d.ts"
 }

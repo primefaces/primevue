@@ -1,6 +1,6 @@
 {
-  "main": "./timeline.cjs.js",
+  "main": "./timeline.umd.js",
   "module": "./timeline.esm.js",
-  "browser": "./timeline.umd.js",
+  "unpkg": "./timeline.min.js",
   "types": "./Timeline.d.ts"
 }

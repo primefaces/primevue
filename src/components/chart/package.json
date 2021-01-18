@@ -1,6 +1,6 @@
 {
-  "main": "./chart.cjs.js",
+  "main": "./chart.umd.js",
   "module": "./chart.esm.js",
-  "browser": "./chart.umd.js",
+  "unpkg": "./chart.min.js",
   "types": "./Chart.d.ts"
 }

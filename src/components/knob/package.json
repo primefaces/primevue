@@ -1,6 +1,6 @@
 {
-  "main": "./knob.cjs.js",
+  "main": "./knob.umd.js",
   "module": "./knob.esm.js",
-  "browser": "./knob.umd.js",
+  "unpkg": "./knob.min.js",
   "types": "./Knob.d.ts"
 }

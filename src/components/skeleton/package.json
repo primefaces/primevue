@@ -1,6 +1,6 @@
 {
-  "main": "./skeleton.cjs.js",
+  "main": "./skeleton.umd.js",
   "module": "./skeleton.esm.js",
-  "browser": "./skeleton.umd.js",
+  "unpkg": "./skeleton.min.js",
   "types": "./Skeleton.d.ts"
 }

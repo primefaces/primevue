@@ -1,5 +1,5 @@
 {
-    "main": "./toasteventbus.cjs.js",
+    "main": "./toasteventbus.umd.js",
     "module": "./toasteventbus.esm.js",
-    "browser": "./toasteventbus.umd.js"
+    "unpkg": "./toasteventbus.min.js"
   }

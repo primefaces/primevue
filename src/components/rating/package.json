@@ -1,6 +1,6 @@
 {
-  "main": "./rating.cjs.js",
+  "main": "./rating.umd.js",
   "module": "./rating.esm.js",
-  "browser": "./rating.umd.js",
+  "unpkg": "./rating.min.js",
   "types": "./Rating.d.ts"
 }

@@ -1,6 +1,6 @@
 {
-  "main": "./common.cjs.js",
+  "main": "./common.umd.js",
   "module": "./common.esm.js",
-  "browser": "./common.umd.js",
+  "unpkg": "./common.min.js",
   "types": "./Common.d.ts"
 }

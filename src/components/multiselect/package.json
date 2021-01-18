@@ -1,6 +1,6 @@
 {
-  "main": "./multiselect.cjs.js",
+  "main": "./multiselect.umd.js",
   "module": "./multiselect.esm.js",
-  "browser": "./multiselect.umd.js",
+  "unpkg": "./multiselect.min.js",
   "types": "./MultiSelect.d.ts"
 }

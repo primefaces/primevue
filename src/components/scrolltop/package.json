@@ -1,6 +1,6 @@
 {
-  "main": "./scrolltop.cjs.js",
+  "main": "./scrolltop.umd.js",
   "module": "./scrolltop.esm.js",
-  "browser": "./scrolltop.umd.js",
+  "unpkg": "./scrolltop.min.js",
   "types": "./ScrollTop.d.ts"
 }

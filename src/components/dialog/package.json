@@ -1,6 +1,6 @@
 {
-  "main": "./dialog.cjs.js",
+  "main": "./dialog.umd.js",
   "module": "./dialog.esm.js",
-  "browser": "./dialog.umd.js",
+  "unpkg": "./dialog.min.js",
   "types": "./Dialog.d.ts"
 }

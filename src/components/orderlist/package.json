@@ -1,6 +1,6 @@
 {
-  "main": "./orderlist.cjs.js",
+  "main": "./orderlist.umd.js",
   "module": "./orderlist.esm.js",
-  "browser": "./orderlist.umd.js",
+  "unpkg": "./orderlist.min.js",
   "types": "./OrderList.d.ts"
 }

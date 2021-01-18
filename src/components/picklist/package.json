@@ -1,6 +1,6 @@
 {
-  "main": "./picklist.cjs.js",
+  "main": "./picklist.umd.js",
   "module": "./picklist.esm.js",
-  "browser": "./picklist.umd.js",
+  "unpkg": "./picklist.min.js",
   "types": "./PickList.d.ts"
 }

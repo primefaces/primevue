@@ -1,6 +1,6 @@
 {
-  "main": "./paginator.cjs.js",
+  "main": "./paginator.umd.js",
   "module": "./paginator.esm.js",
-  "browser": "./paginator.umd.js",
+  "unpkg": "./paginator.min.js",
   "types": "./Paginator.d.ts"
 }

@@ -1,6 +1,6 @@
 {
-  "main": "./blockui.cjs.js",
+  "main": "./blockui.umd.js",
   "module": "./blockui.esm.js",
-  "browser": "./blockui.umd.js",
+  "unpkg": "./blockui.min.js",
   "types": "./BlockUI.d.ts"
 }

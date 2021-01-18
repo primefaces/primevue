@@ -1,6 +1,6 @@
 {
-  "main": "./panel.cjs.js",
+  "main": "./panel.umd.js",
   "module": "./panel.esm.js",
-  "browser": "./panel.umd.js",
+  "unpkg": "./panel.min.js",
   "types": "./Panel.d.ts"
 }

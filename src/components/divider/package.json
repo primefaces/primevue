@@ -1,6 +1,6 @@
 {
-  "main": "./divider.cjs.js",
+  "main": "./divider.umd.js",
   "module": "./divider.esm.js",
-  "browser": "./divider.umd.js",
+  "unpkg": "./divider.min.js",
   "types": "./Divider.d.ts"
 }

@@ -1,6 +1,6 @@
 {
-  "main": "./usetoast.cjs.js",
+  "main": "./usetoast.umd.js",
   "module": "./usetoast.esm.js",
-  "browser": "./usetoast.umd.js",
+  "unpkg": "./usetoast.min.js",
   "types": "./usetoast.d.ts"
 }

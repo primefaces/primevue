@@ -1,6 +1,6 @@
 {
-  "main": "./confirmdialog.cjs.js",
+  "main": "./confirmdialog.umd.js",
   "module": "./confirmdialog.esm.js",
-  "browser": "./confirmdialog.umd.js",
+  "unpkg": "./confirmdialog.min.js",
   "types": "./ConfirmDialog.d.ts"
 }

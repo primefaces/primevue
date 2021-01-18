@@ -1,6 +1,6 @@
 {
-  "main": "./panelmenu.cjs.js",
+  "main": "./panelmenu.umd.js",
   "module": "./panelmenu.esm.js",
-  "browser": "./panelmenu.umd.js",
+  "unpkg": "./panelmenu.min.js",
   "types": "./PanelMenu.d.ts"
 }

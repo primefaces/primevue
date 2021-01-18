@@ -1,6 +1,6 @@
 {
-  "main": "./inputtext.cjs.js",
+  "main": "./inputtext.umd.js",
   "module": "./inputtext.esm.js",
-  "browser": "./inputtext.umd.js",
+  "unpkg": "./inputtext.min.js",
   "types": "./InputText.d.ts"
 }

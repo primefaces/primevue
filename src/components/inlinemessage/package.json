@@ -1,6 +1,6 @@
 {
-  "main": "./inlinemessage.cjs.js",
+  "main": "./inlinemessage.umd.js",
   "module": "./inlinemessage.esm.js",
-  "browser": "./inlinemessage.umd.js",
+  "unpkg": "./inlinemessage.min.js",
   "types": "./InlineMessage.d.ts"
 }

@@ -1,6 +1,6 @@
 {
-  "main": "./card.cjs.js",
+  "main": "./card.umd.js",
   "module": "./card.esm.js",
-  "browser": "./card.umd.js",
+  "unpkg": "./card.min.js",
   "types": "./Card.d.ts"
 }

@@ -1,6 +1,6 @@
 {
-  "main": "./fullcalendar.cjs.js",
+  "main": "./fullcalendar.umd.js",
   "module": "./fullcalendar.esm.js",
-  "browser": "./fullcalendar.umd.js",
+  "unpkg": "./fullcalendar.min.js",
   "types": "./FullCalendar.d.ts"
 }

@@ -1,6 +1,6 @@
 {
-  "main": "./toastservice.cjs.js",
+  "main": "./toastservice.umd.js",
   "module": "./toastservice.esm.js",
-  "browser": "./toastservice.umd.js",
+  "unpkg": "./toastservice.min.js",
   "types": "./ToastService.d.ts"
 }

@@ -1,6 +1,6 @@
 {
-  "main": "./dataviewlayoutoptions.cjs.js",
+  "main": "./dataviewlayoutoptions.umd.js",
   "module": "./dataviewlayoutoptions.esm.js",
-  "browser": "./dataviewlayoutoptions.umd.js",
+  "unpkg": "./dataviewlayoutoptions.min.js",
   "types": "./DataViewLayoutOptions.d.ts"
 }

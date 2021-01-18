@@ -1,6 +1,6 @@
 {
-  "main": "./accordiontab.cjs.js",
+  "main": "./accordiontab.umd.js",
   "module": "./accordiontab.esm.js",
-  "browser": "./accordiontab.umd.js",
+  "unpkg": "./accordiontab.min.js",
   "types": "./AccordionTab.d.ts"
 }

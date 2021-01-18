@@ -1,6 +1,6 @@
 {
-  "main": "./carousel.cjs.js",
+  "main": "./carousel.umd.js",
   "module": "./carousel.esm.js",
-  "browser": "./carousel.umd.js",
+  "unpkg": "./carousel.min.js",
   "types": "./Carousel.d.ts"
 }

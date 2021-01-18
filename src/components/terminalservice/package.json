@@ -1,6 +1,6 @@
 {
-  "main": "./terminalservice.cjs.js",
+  "main": "./terminalservice.umd.js",
   "module": "./terminalservice.esm.js",
-  "browser": "./terminalservice.umd.js",
+  "unpkg": "./terminalservice.min.js",
   "types": "./Terminalservice.d.ts"
 }

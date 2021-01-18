@@ -1,6 +1,6 @@
 {
-  "main": "./fileupload.cjs.js",
+  "main": "./fileupload.umd.js",
   "module": "./fileupload.esm.js",
-  "browser": "./fileupload.umd.js",
+  "unpkg": "./fileupload.min.js",
   "types": "./FileUpload.d.ts"
 }
