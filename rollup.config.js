@@ -15,7 +15,7 @@ function addEntry(folder, inFile, outFile) {
         output: [
             {
                 format: 'umd',
-                name: 'primevue.' + folder,
+                name: folder,
                 file: 'dist/' + folder + '/' + outFile + '.umd.js'
             },
             {
@@ -24,8 +24,9 @@ function addEntry(folder, inFile, outFile) {
             },
             {
                 format: 'iife',
-                name: 'PrimeVue.' + folder,
-                file: 'dist/' + folder + '/' + outFile + '.js'
+                name: folder,
+                file: 'dist/' + folder + '/' + outFile + '.js',
+                external: ['Ripple']
             }
         ],
         plugins: [
@@ -39,7 +40,7 @@ function addEntry(folder, inFile, outFile) {
         output: [
             {
                 format: 'umd',
-                name: 'primevue.' + folder,
+                name: folder,
                 file: 'dist/' + folder + '/' + outFile + '.umd.min.js'
             },
             {
@@ -48,7 +49,7 @@ function addEntry(folder, inFile, outFile) {
             },
             {
                 format: 'iife',
-                name: 'primevue.' + folder,
+                name: folder,
                 file: 'dist/' + folder + '/' + outFile + '.min.js'
             }
         ],
