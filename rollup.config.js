@@ -107,10 +107,10 @@ function addUtils() {
 function addServices() {
     addEntry('confirmationservice', 'ConfirmationService.js', 'confirmationservice');
     addEntry('confirmationeventbus', 'ConfirmationEventBus.js', 'confirmationeventbus');
-    addEntry('useconfirm', 'useconfirm.js', 'useconfirm');
+    addEntry('useconfirm', 'UseConfirm.js', 'useconfirm');
     addEntry('toastservice', 'ToastService.js', 'toastservice');
     addEntry('toasteventbus', 'ToastEventBus.js', 'toasteventbus');
-    addEntry('usetoast', 'usetoast.js', 'usetoast');
+    addEntry('usetoast', 'UseToast.js', 'usetoast');
     addEntry('terminalservice', 'TerminalService.js', 'terminalservice');
 }
 

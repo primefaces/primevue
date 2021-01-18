@@ -7,8 +7,8 @@ module.exports = {
         resolve: {
             alias: {
                 'primevue/ripple': path.resolve(__dirname, 'src/components/ripple/Ripple.js'),
-                'primevue/useconfirm': path.resolve(__dirname, 'src/components/useconfirm/useconfirm.js'),
-                'primevue/usetoast': path.resolve(__dirname, 'src/components/usetoast/usetoast.js'),
+                'primevue/useconfirm': path.resolve(__dirname, 'src/components/useconfirm/UseConfirm.js'),
+                'primevue/usetoast': path.resolve(__dirname, 'src/components/usetoast/UseToast.js'),
                 'primevue/utils': path.resolve(__dirname, 'src/components/utils/Utils.js'),
                 'primevue/button': path.resolve(__dirname, 'src/components/button/Button.vue'),
                 'primevue/inputtext': path.resolve(__dirname, 'src/components/inputtext/InputText.vue'),
