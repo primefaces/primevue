@@ -1,0 +1,6 @@
+{
+  "main": "./autocomplete.cjs.js",
+  "module": "./autocomplete.esm.js",
+  "browser": "./autocomplete.umd.js",
+  "types": "./AutoComplete.d.ts"
+}

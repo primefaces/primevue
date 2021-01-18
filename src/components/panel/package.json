@@ -1,0 +1,6 @@
+{
+  "main": "./panel.cjs.js",
+  "module": "./panel.esm.js",
+  "browser": "./panel.umd.js",
+  "types": "./Panel.d.ts"
+}

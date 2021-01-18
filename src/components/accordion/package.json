@@ -1,0 +1,6 @@
+{
+  "main": "./accordion.cjs.js",
+  "module": "./accordion.esm.js",
+  "browser": "./accordion.umd.js",
+  "types": "./Accordion.d.ts"
+}

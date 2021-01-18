@@ -1,0 +1,5 @@
+{
+    "main": "./toasteventbus.cjs.js",
+    "module": "./toasteventbus.esm.js",
+    "browser": "./toasteventbus.umd.js"
+  }

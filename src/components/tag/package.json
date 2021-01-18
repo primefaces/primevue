@@ -1,0 +1,6 @@
+{
+  "main": "./tag.cjs.js",
+  "module": "./tag.esm.js",
+  "browser": "./tag.umd.js",
+  "types": "./Tag.d.ts"
+}

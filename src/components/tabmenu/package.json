@@ -1,0 +1,6 @@
+{
+  "main": "./tabmenu.cjs.js",
+  "module": "./tabmenu.esm.js",
+  "browser": "./tabmenu.umd.js",
+  "types": "./TabMenu.d.ts"
+}

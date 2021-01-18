@@ -10,9 +10,9 @@
 </template>
 
 <script>
-import ConfirmationEventBus from '../confirmationservice/ConfirmationEventBus';
-import Dialog from '../dialog/Dialog';
-import Button from '../button/Button';
+import ConfirmationEventBus from 'primevue/confirmationeventbus';
+import Dialog from 'primevue/dialog';
+import Button from 'primevue/button';
 
 export default {
     props: {

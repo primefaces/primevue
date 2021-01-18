@@ -1,0 +1,6 @@
+{
+  "main": "./radiobutton.cjs.js",
+  "module": "./radiobutton.esm.js",
+  "browser": "./radiobutton.umd.js",
+  "types": "./RadioButton.d.ts"
+}

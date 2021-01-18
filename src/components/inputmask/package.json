@@ -1,0 +1,6 @@
+{
+  "main": "./inputmask.cjs.js",
+  "module": "./inputmask.esm.js",
+  "browser": "./inputmask.umd.js",
+  "types": "./InputMask.d.ts"
+}

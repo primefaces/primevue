@@ -1,0 +1,6 @@
+{
+  "main": "./badge.cjs.js",
+  "module": "./badge.esm.js",
+  "browser": "./badge.umd.js",
+  "types": "./Badge.d.ts"
+}

@@ -1,0 +1,6 @@
+{
+  "main": "./password.cjs.js",
+  "module": "./password.esm.js",
+  "browser": "./password.umd.js",
+  "types": "./Password.d.ts"
+}

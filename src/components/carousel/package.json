@@ -1,0 +1,6 @@
+{
+  "main": "./carousel.cjs.js",
+  "module": "./carousel.esm.js",
+  "browser": "./carousel.umd.js",
+  "types": "./Carousel.d.ts"
+}

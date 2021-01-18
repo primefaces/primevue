@@ -1,0 +1,6 @@
+{
+  "main": "./dataview.cjs.js",
+  "module": "./dataview.esm.js",
+  "browser": "./dataview.umd.js",
+  "types": "./DataView.d.ts"
+}

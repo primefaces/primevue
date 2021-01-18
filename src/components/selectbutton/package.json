@@ -1,0 +1,6 @@
+{
+  "main": "./selectbutton.cjs.js",
+  "module": "./selectbutton.esm.js",
+  "browser": "./selectbutton.umd.js",
+  "types": "./SelectButton.d.ts"
+}

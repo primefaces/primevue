@@ -1,0 +1,6 @@
+{
+  "main": "./inputtext.cjs.js",
+  "module": "./inputtext.esm.js",
+  "browser": "./inputtext.umd.js",
+  "types": "./InputText.d.ts"
+}

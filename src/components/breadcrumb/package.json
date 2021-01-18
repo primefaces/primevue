@@ -1,0 +1,6 @@
+{
+  "main": "./breadcrumb.cjs.js",
+  "module": "./breadcrumb.esm.js",
+  "browser": "./breadcrumb.umd.js",
+  "types": "./Breadcrumb.d.ts"
+}

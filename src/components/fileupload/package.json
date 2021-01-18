@@ -1,0 +1,6 @@
+{
+  "main": "./fileupload.cjs.js",
+  "module": "./fileupload.esm.js",
+  "browser": "./fileupload.umd.js",
+  "types": "./FileUpload.d.ts"
+}

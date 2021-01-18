@@ -1,0 +1,6 @@
+{
+  "main": "./scrolltop.cjs.js",
+  "module": "./scrolltop.esm.js",
+  "browser": "./scrolltop.umd.js",
+  "types": "./ScrollTop.d.ts"
+}

@@ -11,7 +11,7 @@
 </template>
 
 <script>
-import Button from '../button/Button';
+import Button from 'primevue/button';
 
 export default {
     emits: ['open', 'close', 'update:active'],

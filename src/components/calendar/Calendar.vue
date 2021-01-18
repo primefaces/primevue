@@ -130,11 +130,11 @@
 </template>
 
 <script>
-import ConnectedOverlayScrollHandler from '../utils/ConnectedOverlayScrollHandler';
-import InputText from '../inputtext/InputText';
-import Button from '../button/Button';
-import DomHandler from '../utils/DomHandler';
-import Ripple from '../ripple/Ripple';
+import {ConnectedOverlayScrollHandler} from 'primevue/utils';
+import InputText from 'primevue/inputtext';
+import Button from 'primevue/button';
+import {DomHandler} from 'primevue/utils';
+import Ripple from 'primevue/ripple';
 
 export default {
     inheritAttrs: false,

@@ -53,9 +53,9 @@
 </template>
 
 <script>
-import UniqueComponentId from '../utils/UniqueComponentId';
-import DomHandler from '../utils/DomHandler';
-import Ripple from '../ripple/Ripple';
+import {UniqueComponentId} from 'primevue/utils';
+import {DomHandler} from 'primevue/utils';
+import Ripple from 'primevue/ripple';
 
 export default {
 	emits: ['update:page'],

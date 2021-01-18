@@ -1,0 +1,6 @@
+{
+  "main": "./inputnumber.cjs.js",
+  "module": "./inputnumber.esm.js",
+  "browser": "./inputnumber.umd.js",
+  "types": "./InputNumber.d.ts"
+}

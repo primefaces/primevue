@@ -1,0 +1,6 @@
+{
+  "main": "./checkbox.cjs.js",
+  "module": "./checkbox.esm.js",
+  "browser": "./checkbox.umd.js",
+  "types": "./Checkbox.d.ts"
+}

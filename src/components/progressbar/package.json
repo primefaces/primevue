@@ -1,0 +1,6 @@
+{
+  "main": "./progressbar.cjs.js",
+  "module": "./progressbar.esm.js",
+  "browser": "./progressbar.umd.js",
+  "types": "./ProgressBar.d.ts"
+}

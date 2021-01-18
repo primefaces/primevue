@@ -1,0 +1,6 @@
+{
+  "main": "./row.cjs.js",
+  "module": "./row.esm.js",
+  "browser": "./row.umd.js",
+  "types": "./Row.d.ts"
+}

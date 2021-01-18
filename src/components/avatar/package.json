@@ -1,0 +1,6 @@
+{
+  "main": "./avatar.cjs.js",
+  "module": "./avatar.esm.js",
+  "browser": "./avatar.umd.js",
+  "types": "./Avatar.d.ts"
+}

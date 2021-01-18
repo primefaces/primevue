@@ -4,7 +4,7 @@
 </template>
 
 <script>
-import DomHandler from '../utils/DomHandler';
+import {DomHandler} from 'primevue/utils';
 
 export default {
     emits: ['update:modelValue', 'focus', 'blur', 'keydown', 'complete', 'keypress', 'paste'],

@@ -5,7 +5,7 @@
     </span>
 </template>
 <script>
-import Ripple from '../ripple/Ripple';
+import Ripple from 'primevue/ripple';
 
 export default {
     inheritAttrs: false,

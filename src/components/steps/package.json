@@ -1,0 +1,6 @@
+{
+  "main": "./steps.cjs.js",
+  "module": "./steps.esm.js",
+  "browser": "./steps.umd.js",
+  "types": "./Steps.d.ts"
+}

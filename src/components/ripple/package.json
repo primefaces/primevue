@@ -1,0 +1,6 @@
+{
+  "main": "./ripple.cjs.js",
+  "module": "./ripple.esm.js",
+  "browser": "./ripple.umd.js",
+  "types": "./Ripple.d.ts"
+}

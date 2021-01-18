@@ -1,0 +1,6 @@
+{
+  "main": "./treetable.cjs.js",
+  "module": "./treetable.esm.js",
+  "browser": "./treetable.umd.js",
+  "types": "./TreeTable.d.ts"
+}

@@ -29,7 +29,7 @@ import BadgeDirective from 'primevue/badgedirective';
 				<p>When used as a directive, badge needs to be configured at the application with a name of your choice.</p>
 <pre v-code.script>
 <code>
-import {BadgeDirective} from 'primevue/badge';
+import BadgeDirective from 'primevue/badgedirective';
 
 Vue.directive('badge', BadgeDirective);
 

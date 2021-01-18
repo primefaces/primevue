@@ -40,8 +40,8 @@
 	</div>
 </template>
 <script>
-import ObjectUtils from '../utils/ObjectUtils';
-import Paginator from '../paginator/Paginator';
+import {ObjectUtils} from 'primevue/utils';
+import Paginator from 'primevue/paginator';
 
 export default {
     emits: ['update:first', 'update:rows', 'page'],

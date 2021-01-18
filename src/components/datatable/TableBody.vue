@@ -44,7 +44,7 @@
 </template>
 
 <script>
-import ObjectUtils from '../utils/ObjectUtils';
+import {ObjectUtils} from 'primevue/utils';
 import BodyCell from './BodyCell.vue';
 
 export default {

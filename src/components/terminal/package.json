@@ -1,0 +1,6 @@
+{
+  "main": "./terminal.cjs.js",
+  "module": "./terminal.esm.js",
+  "browser": "./terminal.umd.js",
+  "types": "./Terminal.d.ts"
+}

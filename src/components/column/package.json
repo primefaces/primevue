@@ -1,0 +1,6 @@
+{
+  "main": "./column.cjs.js",
+  "module": "./column.esm.js",
+  "browser": "./column.umd.js",
+  "types": "./Column.d.ts"
+}

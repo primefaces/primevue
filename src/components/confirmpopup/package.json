@@ -1,0 +1,6 @@
+{
+  "main": "./confirmpopup.cjs.js",
+  "module": "./confirmpopup.esm.js",
+  "browser": "./confirmpopup.umd.js",
+  "types": "./ConfirmPopup.d.ts"
+}

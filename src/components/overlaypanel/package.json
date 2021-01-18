@@ -1,0 +1,6 @@
+{
+  "main": "./overlaypanel.cjs.js",
+  "module": "./overlaypanel.esm.js",
+  "browser": "./overlaypanel.umd.js",
+  "types": "./OverlayPanel.d.ts"
+}

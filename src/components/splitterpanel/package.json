@@ -1,0 +1,6 @@
+{
+  "main": "./splitterpanel.cjs.js",
+  "module": "./splitterpanel.esm.js",
+  "browser": "./splitterpanel.umd.js",
+  "types": "./SplitterPanel.d.ts"
+}

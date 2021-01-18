@@ -1,0 +1,6 @@
+{
+  "main": "./deferredcontent.cjs.js",
+  "module": "./deferredcontent.esm.js",
+  "browser": "./deferredcontent.umd.js",
+  "types": "./DeferredContent.d.ts"
+}

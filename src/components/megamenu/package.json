@@ -1,0 +1,6 @@
+{
+  "main": "./megamenu.cjs.js",
+  "module": "./megamenu.esm.js",
+  "browser": "./megamenu.umd.js",
+  "types": "./MegaMenu.d.ts"
+}

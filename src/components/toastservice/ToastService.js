@@ -1,5 +1,5 @@
-import ToastEventBus from './ToastEventBus';
-import {PrimeVueToastSymbol} from '../usetoast';
+import ToastEventBus from 'primevue/toasteventbus';
+import {PrimeVueToastSymbol} from 'primevue/usetoast';
 
 export default {
     install: (app) => {
@@ -17,4 +17,4 @@ export default {
         app.config.globalProperties.$toast = ToastService;
         app.provide(PrimeVueToastSymbol, ToastService);
     }
-};
+}

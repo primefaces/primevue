@@ -1,0 +1,6 @@
+{
+  "main": "./columngroup.cjs.js",
+  "module": "./columngroup.esm.js",
+  "browser": "./columngroup.umd.js",
+  "types": "./ColumnGroup.d.ts"
+}

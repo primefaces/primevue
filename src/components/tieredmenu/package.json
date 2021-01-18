@@ -1,0 +1,6 @@
+{
+  "main": "./tieredmenu.cjs.js",
+  "module": "./tieredmenu.esm.js",
+  "browser": "./tieredmenu.umd.js",
+  "types": "./TieredMenu.d.ts"
+}

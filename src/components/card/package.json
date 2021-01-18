@@ -1,0 +1,6 @@
+{
+  "main": "./card.cjs.js",
+  "module": "./card.esm.js",
+  "browser": "./card.umd.js",
+  "types": "./Card.d.ts"
+}

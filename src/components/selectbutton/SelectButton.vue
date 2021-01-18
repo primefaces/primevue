@@ -12,8 +12,8 @@
 </template>
 
 <script>
-import ObjectUtils from '../utils/ObjectUtils';
-import Ripple from '../ripple/Ripple';
+import {ObjectUtils} from 'primevue/utils';
+import Ripple from 'primevue/ripple';
 
 export default {
     emits: ['update:modelValue', 'focus', 'blur'],

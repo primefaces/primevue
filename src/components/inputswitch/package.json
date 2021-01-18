@@ -1,0 +1,6 @@
+{
+  "main": "./inputswitch.cjs.js",
+  "module": "./inputswitch.esm.js",
+  "browser": "./inputswitch.umd.js",
+  "types": "./InputSwitch.d.ts"
+}

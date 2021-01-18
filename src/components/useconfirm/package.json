@@ -1,0 +1,6 @@
+{
+  "main": "./useconfirm.cjs.js",
+  "module": "./useconfirm.esm.js",
+  "browser": "./useconfirm.umd.js",
+  "types": "./useconfirm.d.ts"
+}

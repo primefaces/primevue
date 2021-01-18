@@ -1,6 +1,6 @@
-import UniqueComponentId from '../utils/UniqueComponentId';
-import DomHandler from '../utils/DomHandler';
-import ConnectedOverlayScrollHandler from '../utils/ConnectedOverlayScrollHandler';
+import {UniqueComponentId} from 'primevue/utils';
+import {DomHandler} from 'primevue/utils';
+import {ConnectedOverlayScrollHandler} from 'primevue/utils';
 
 function bindEvents(el) {
     const modifiers = el.$_ptooltipModifiers;

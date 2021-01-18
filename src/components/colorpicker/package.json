@@ -1,0 +1,6 @@
+{
+  "main": "./colorpicker.cjs.js",
+  "module": "./colorpicker.esm.js",
+  "browser": "./colorpicker.umd.js",
+  "types": "./ColorPicker.d.ts"
+}

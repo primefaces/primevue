@@ -10,7 +10,7 @@
 
 <script>
 import GalleriaContent from './GalleriaContent.vue';
-import DomHandler from '../utils/DomHandler';
+import {DomHandler} from 'primevue/utils';
 
 export default {
     inheritAttrs: false,

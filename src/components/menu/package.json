@@ -1,0 +1,6 @@
+{
+  "main": "./menu.cjs.js",
+  "module": "./menu.esm.js",
+  "browser": "./menu.umd.js",
+  "types": "./Menu.d.ts"
+}

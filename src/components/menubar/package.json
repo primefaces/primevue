@@ -1,0 +1,6 @@
+{
+  "main": "./menubar.cjs.js",
+  "module": "./menubar.esm.js",
+  "browser": "./menubar.umd.js",
+  "types": "./Menubar.d.ts"
+}

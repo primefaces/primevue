@@ -1,0 +1,5 @@
+{
+  "main": "./utils.cjs.js",
+  "module": "./utils.esm.js",
+  "browser": "./utils.umd.js"
+}

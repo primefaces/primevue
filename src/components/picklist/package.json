@@ -1,0 +1,6 @@
+{
+  "main": "./picklist.cjs.js",
+  "module": "./picklist.esm.js",
+  "browser": "./picklist.umd.js",
+  "types": "./PickList.d.ts"
+}

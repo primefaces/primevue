@@ -18,7 +18,7 @@
 </template>
 
 <script>
-import ObjectUtils from '../utils/ObjectUtils';
+import {ObjectUtils} from 'primevue/utils';
 
 export default {
     props: {

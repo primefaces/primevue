@@ -1,0 +1,6 @@
+{
+  "main": "./progressspinner.cjs.js",
+  "module": "./progressspinner.esm.js",
+  "browser": "./progressspinner.umd.js",
+  "types": "./ProgressSpinner.d.ts"
+}

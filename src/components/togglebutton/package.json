@@ -1,0 +1,6 @@
+{
+  "main": "./togglebutton.cjs.js",
+  "module": "./togglebutton.esm.js",
+  "browser": "./togglebutton.umd.js",
+  "types": "./ToggleButton.d.ts"
+}

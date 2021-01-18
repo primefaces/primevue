@@ -1,0 +1,6 @@
+{
+  "main": "./message.cjs.js",
+  "module": "./message.esm.js",
+  "browser": "./message.umd.js",
+  "types": "./Message.d.ts"
+}

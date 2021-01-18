@@ -1,0 +1,6 @@
+{
+  "main": "./toolbar.cjs.js",
+  "module": "./toolbar.esm.js",
+  "browser": "./toolbar.umd.js",
+  "types": "./Toolbar.d.ts"
+}

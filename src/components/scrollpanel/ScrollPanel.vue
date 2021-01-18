@@ -11,7 +11,7 @@
 </template>
 
 <script>
-import DomHandler from '../utils/DomHandler';
+import {DomHandler} from 'primevue/utils';
 
 export default {
     initialized: false,

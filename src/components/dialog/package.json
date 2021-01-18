@@ -1,0 +1,6 @@
+{
+  "main": "./dialog.cjs.js",
+  "module": "./dialog.esm.js",
+  "browser": "./dialog.umd.js",
+  "types": "./Dialog.d.ts"
+}

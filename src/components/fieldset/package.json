@@ -1,0 +1,6 @@
+{
+  "main": "./fieldset.cjs.js",
+  "module": "./fieldset.esm.js",
+  "browser": "./fieldset.umd.js",
+  "types": "./Fieldset.d.ts"
+}

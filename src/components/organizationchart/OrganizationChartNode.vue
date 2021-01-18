@@ -40,7 +40,7 @@
 </template>
 
 <script>
-import DomHandler from '../utils/DomHandler';
+import {DomHandler} from 'primevue/utils';
 
 export default {
     emits: ['node-click', 'node-toggle'],

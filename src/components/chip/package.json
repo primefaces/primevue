@@ -1,0 +1,6 @@
+{
+  "main": "./chip.cjs.js",
+  "module": "./chip.esm.js",
+  "browser": "./chip.umd.js",
+  "types": "./Chip.d.ts"
+}

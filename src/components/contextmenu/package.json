@@ -1,0 +1,6 @@
+{
+  "main": "./contextmenu.cjs.js",
+  "module": "./contextmenu.esm.js",
+  "browser": "./contextmenu.umd.js",
+  "types": "./ContextMenu.d.ts"
+}

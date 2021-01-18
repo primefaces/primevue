@@ -1,0 +1,6 @@
+{
+  "main": "./rating.cjs.js",
+  "module": "./rating.esm.js",
+  "browser": "./rating.umd.js",
+  "types": "./Rating.d.ts"
+}

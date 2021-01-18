@@ -1,0 +1,6 @@
+{
+  "main": "./config.cjs.js",
+  "module": "./config.esm.js",
+  "browser": "./config.umd.js",
+  "types": "./PrimeVue.d.ts"
+}

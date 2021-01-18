@@ -1,0 +1,6 @@
+{
+  "main": "./tristatecheckbox.cjs.js",
+  "module": "./tristatecheckbox.esm.js",
+  "browser": "./tristatecheckbox.umd.js",
+  "types": "./TriStateCheckbox.d.ts"
+}

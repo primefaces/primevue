@@ -14,10 +14,10 @@
 </template>
 
 <script>
-import ConfirmationEventBus from '../confirmationservice/ConfirmationEventBus';
-import ConnectedOverlayScrollHandler from '../utils/ConnectedOverlayScrollHandler';
-import DomHandler from '../utils/DomHandler';
-import Button from '../button/Button';
+import ConfirmationEventBus from 'primevue/confirmationeventbus';
+import {ConnectedOverlayScrollHandler} from 'primevue/utils';
+import {DomHandler} from 'primevue/utils';
+import Button from 'primevue/button';
 
 export default {
     props: {

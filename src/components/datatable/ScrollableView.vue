@@ -46,7 +46,7 @@
 </template>
 
 <script>
-import DomHandler from '../utils/DomHandler';
+import {DomHandler} from 'primevue/utils';
 import TableLoadingBody from './TableLoadingBody.vue';
 
 export default {

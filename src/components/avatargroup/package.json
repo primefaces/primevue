@@ -1,0 +1,6 @@
+{
+  "main": "./avatargroup.cjs.js",
+  "module": "./avatargroup.esm.js",
+  "browser": "./avatargroup.umd.js",
+  "types": "./AvatarGroup.d.ts"
+}

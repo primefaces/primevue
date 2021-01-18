@@ -1,0 +1,6 @@
+{
+  "main": "./datatable.cjs.js",
+  "module": "./datatable.esm.js",
+  "browser": "./datatable.umd.js",
+  "types": "./DataTable.d.ts"
+}

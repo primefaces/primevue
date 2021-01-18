@@ -1,0 +1,6 @@
+{
+  "main": "./scrollpanel.cjs.js",
+  "module": "./scrollpanel.esm.js",
+  "browser": "./scrollpanel.umd.js",
+  "types": "./ScrollPanel.d.ts"
+}

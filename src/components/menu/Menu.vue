@@ -19,8 +19,8 @@
 </template>
 
 <script>
-import ConnectedOverlayScrollHandler from '../utils/ConnectedOverlayScrollHandler';
-import DomHandler from '../utils/DomHandler';
+import {ConnectedOverlayScrollHandler} from 'primevue/utils';
+import {DomHandler} from 'primevue/utils';
 import Menuitem from './Menuitem.vue';
 
 export default {

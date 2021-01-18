@@ -1,4 +1,4 @@
-import DomHandler from '../utils/DomHandler';
+import {DomHandler} from 'primevue/utils';
 
 function bindEvents(el) {
     el.addEventListener('mousedown', onMouseDown);

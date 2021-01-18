@@ -40,11 +40,11 @@
 </template>
 
 <script>
-import Button from '../button/Button';
-import ProgressBar from '../progressbar/ProgressBar';
-import Message from '../message/Message';
-import DomHandler from '../utils/DomHandler';
-import Ripple from '../ripple/Ripple';
+import Button from 'primevue/button';
+import ProgressBar from 'primevue/progressbar';
+import Message from 'primevue/message';
+import {DomHandler} from 'primevue/utils';
+import Ripple from 'primevue/ripple';
 
 export default {
     emits: ['select', 'uploader', 'before-upload', 'progress', 'upload', 'error', 'before-send', 'clear'],

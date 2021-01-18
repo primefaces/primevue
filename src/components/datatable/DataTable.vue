@@ -130,10 +130,10 @@
 </template>
 
 <script>
-import ObjectUtils from '../utils/ObjectUtils';
-import FilterUtils from '../utils/FilterUtils';
-import DomHandler from '../utils/DomHandler';
-import Paginator from '../paginator/Paginator';
+import {ObjectUtils} from 'primevue/utils';
+import {FilterUtils} from 'primevue/utils';
+import {DomHandler} from 'primevue/utils';
+import Paginator from 'primevue/paginator';
 import ScrollableView from './ScrollableView.vue';
 import TableHeader from './TableHeader.vue';
 import TableBody from './TableBody.vue';

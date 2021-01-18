@@ -1,0 +1,6 @@
+{
+  "main": "./tabview.cjs.js",
+  "module": "./tabview.esm.js",
+  "browser": "./tabview.umd.js",
+  "types": "./TabView.d.ts"
+}

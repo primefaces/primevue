@@ -1,0 +1,6 @@
+{
+  "main": "./chart.cjs.js",
+  "module": "./chart.esm.js",
+  "browser": "./chart.umd.js",
+  "types": "./Chart.d.ts"
+}

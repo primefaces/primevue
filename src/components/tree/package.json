@@ -1,0 +1,6 @@
+{
+  "main": "./tree.cjs.js",
+  "module": "./tree.esm.js",
+  "browser": "./tree.umd.js",
+  "types": "./Tree.d.ts"
+}

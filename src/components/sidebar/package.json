@@ -1,0 +1,6 @@
+{
+  "main": "./sidebar.cjs.js",
+  "module": "./sidebar.esm.js",
+  "browser": "./sidebar.umd.js",
+  "types": "./Sidebar.d.ts"
+}
