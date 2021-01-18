@@ -2,12 +2,29 @@ import vue from 'rollup-plugin-vue';
 import postcss from 'rollup-plugin-postcss';
 import { terser } from 'rollup-plugin-terser';
 
-console.log(process.env.NODE_ENV);
-
 const fs = require('fs-extra');
 const path = require('path');
 
 let entries = [];
+
+let globalDependencies = {
+    'vue': 'Vue',
+    'primevue/ripple': 'primevue.ripple',
+    'primevue/utils': 'primevue.utils',
+    'primevue/button': 'primevue.button',
+    'primevue/inputtext': 'primevue.inputtext',
+    'primevue/dialog': 'primevue.dialog',
+    'primevue/paginator': 'primevue.paginator',
+    'primevue/confirmationeventbus': 'primevue.confirmationeventbus',
+    'primevue/toasteventbus': 'primevue.toasteventbus',
+    'primevue/useconfirm': 'primevue.useconfirm',
+    'primevue/usetoast': 'primevue.usetoast',
+    'primevue/progressbar': 'primevue.progressbar',
+    'primevue/message': 'primevue.message',
+    'primevue/dropdown': 'primevue.dropdown',
+    'primevue/menu': 'primevue.menu',
+    '@fullcalendar/core': 'FullCalendar'
+}
 
 function addEntry(folder, inFile, outFile) {
     entries.push({
@@ -15,8 +32,8 @@ function addEntry(folder, inFile, outFile) {
         output: [
             {
                 format: 'umd',
-                name: folder,
-                file: 'dist/' + folder + '/' + outFile + '.umd.js'
+                name: 'primevue.' + folder,
+                file: 'dist/' + folder + '/' + outFile + '.umd.js',
             },
             {
                 format: 'esm',
@@ -24,9 +41,9 @@ function addEntry(folder, inFile, outFile) {
             },
             {
                 format: 'iife',
-                name: folder,
+                name: 'primevue.' + folder,
                 file: 'dist/' + folder + '/' + outFile + '.js',
-                external: ['Ripple']
+                globals: globalDependencies
             }
         ],
         plugins: [
@@ -35,7 +52,7 @@ function addEntry(folder, inFile, outFile) {
         ]
     });
 
-    entries.push({
+    /*entries.push({
         input: 'src/components/' + folder + '/' + inFile,
         output: [
             {
@@ -58,7 +75,7 @@ function addEntry(folder, inFile, outFile) {
             postcss(),
             terser()
         ]
-    });
+    });*/
 }
 
 function addSFC() {
@@ -93,6 +110,7 @@ function addServices() {
     addEntry('toastservice', 'ToastService.js', 'toastservice');
     addEntry('toasteventbus', 'ToastEventBus.js', 'toasteventbus');
     addEntry('usetoast', 'usetoast.js', 'usetoast');
+    addEntry('terminalservice', 'TerminalService.js', 'terminalservice');
 }
 
 addSFC();

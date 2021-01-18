@@ -20,6 +20,7 @@ module.exports = {
                 'primevue/message': path.resolve(__dirname, 'src/components/message/Message.vue'),
                 'primevue/confirmationeventbus': path.resolve(__dirname, 'src/components/confirmationeventbus/ConfirmationEventBus.js'),
                 'primevue/toasteventbus': path.resolve(__dirname, 'src/components/toasteventbus/ToastEventBus.js'),
+                'primevue/terminalservice': path.resolve(__dirname, 'src/components/terminalservice/TerminalService.js')
             },
         },
         output: {
