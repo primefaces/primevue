@@ -2,5 +2,5 @@
   "main": "./usetoast.cjs.js",
   "module": "./usetoast.esm.js",
   "browser": "./usetoast.umd.js",
-  "types": "./UseToast.d.ts"
+  "types": "./usetoast.d.ts"
 }
