@@ -1,5 +1,5 @@
 {
-  "main": "./badge.umd.js",
+  "main": "./badge.cjs.js",
   "module": "./badge.esm.js",
   "unpkg": "./badge.min.js",
   "types": "./Badge.d.ts"

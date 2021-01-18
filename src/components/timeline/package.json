@@ -1,5 +1,5 @@
 {
-  "main": "./timeline.umd.js",
+  "main": "./timeline.cjs.js",
   "module": "./timeline.esm.js",
   "unpkg": "./timeline.min.js",
   "types": "./Timeline.d.ts"

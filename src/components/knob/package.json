@@ -1,5 +1,5 @@
 {
-  "main": "./knob.umd.js",
+  "main": "./knob.cjs.js",
   "module": "./knob.esm.js",
   "unpkg": "./knob.min.js",
   "types": "./Knob.d.ts"

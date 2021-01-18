@@ -1,5 +1,5 @@
 {
-  "main": "./scrolltop.umd.js",
+  "main": "./scrolltop.cjs.js",
   "module": "./scrolltop.esm.js",
   "unpkg": "./scrolltop.min.js",
   "types": "./ScrollTop.d.ts"

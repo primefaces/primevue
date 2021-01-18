@@ -1,5 +1,5 @@
 {
-  "main": "./blockui.umd.js",
+  "main": "./blockui.cjs.js",
   "module": "./blockui.esm.js",
   "unpkg": "./blockui.min.js",
   "types": "./BlockUI.d.ts"

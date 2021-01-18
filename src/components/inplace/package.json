@@ -1,5 +1,5 @@
 {
-  "main": "./inplace.umd.js",
+  "main": "./inplace.cjs.js",
   "module": "./inplace.esm.js",
   "unpkg": "./inplace.min.js",
   "types": "./Inplace.d.ts"

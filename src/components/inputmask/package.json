@@ -1,5 +1,5 @@
 {
-  "main": "./inputmask.umd.js",
+  "main": "./inputmask.cjs.js",
   "module": "./inputmask.esm.js",
   "unpkg": "./inputmask.min.js",
   "types": "./InputMask.d.ts"

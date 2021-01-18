@@ -1,5 +1,5 @@
 {
-  "main": "./megamenu.umd.js",
+  "main": "./megamenu.cjs.js",
   "module": "./megamenu.esm.js",
   "unpkg": "./megamenu.min.js",
   "types": "./MegaMenu.d.ts"

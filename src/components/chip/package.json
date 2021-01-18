@@ -1,5 +1,5 @@
 {
-  "main": "./chip.umd.js",
+  "main": "./chip.cjs.js",
   "module": "./chip.esm.js",
   "unpkg": "./chip.min.js",
   "types": "./Chip.d.ts"

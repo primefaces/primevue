@@ -1,5 +1,5 @@
 {
-  "main": "./scrollpanel.umd.js",
+  "main": "./scrollpanel.cjs.js",
   "module": "./scrollpanel.esm.js",
   "unpkg": "./scrollpanel.min.js",
   "types": "./ScrollPanel.d.ts"

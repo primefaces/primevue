@@ -1,5 +1,5 @@
 {
-  "main": "./avatargroup.umd.js",
+  "main": "./avatargroup.cjs.js",
   "module": "./avatargroup.esm.js",
   "unpkg": "./avatargroup.min.js",
   "types": "./AvatarGroup.d.ts"

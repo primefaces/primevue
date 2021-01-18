@@ -1,5 +1,5 @@
 {
-  "main": "./progressbar.umd.js",
+  "main": "./progressbar.cjs.js",
   "module": "./progressbar.esm.js",
   "unpkg": "./progressbar.min.js",
   "types": "./ProgressBar.d.ts"

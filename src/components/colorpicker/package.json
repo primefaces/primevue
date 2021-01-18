@@ -1,5 +1,5 @@
 {
-  "main": "./colorpicker.umd.js",
+  "main": "./colorpicker.cjs.js",
   "module": "./colorpicker.esm.js",
   "unpkg": "./colorpicker.min.js",
   "types": "./ColorPicker.d.ts"

@@ -1,5 +1,5 @@
 {
-  "main": "./editor.umd.js",
+  "main": "./editor.cjs.js",
   "module": "./editor.esm.js",
   "unpkg": "./editor.min.js",
   "types": "./Editor.d.ts"

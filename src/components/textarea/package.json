@@ -1,5 +1,5 @@
 {
-  "main": "./textarea.umd.js",
+  "main": "./textarea.cjs.js",
   "module": "./textarea.esm.js",
   "unpkg": "./textarea.min.js",
   "types": "./Textarea.d.ts"

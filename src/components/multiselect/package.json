@@ -1,5 +1,5 @@
 {
-  "main": "./multiselect.umd.js",
+  "main": "./multiselect.cjs.js",
   "module": "./multiselect.esm.js",
   "unpkg": "./multiselect.min.js",
   "types": "./MultiSelect.d.ts"

@@ -1,5 +1,5 @@
 {
-  "main": "./picklist.umd.js",
+  "main": "./picklist.cjs.js",
   "module": "./picklist.esm.js",
   "unpkg": "./picklist.min.js",
   "types": "./PickList.d.ts"

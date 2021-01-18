@@ -1,5 +1,5 @@
 {
-  "main": "./tooltip.umd.js",
+  "main": "./tooltip.cjs.js",
   "module": "./tooltip.esm.js",
   "unpkg": "./tooltip.min.js",
   "types": "./Tooltip.d.ts"

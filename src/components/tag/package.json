@@ -1,5 +1,5 @@
 {
-  "main": "./tag.umd.js",
+  "main": "./tag.cjs.js",
   "module": "./tag.esm.js",
   "unpkg": "./tag.min.js",
   "types": "./Tag.d.ts"

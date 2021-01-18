@@ -1,5 +1,5 @@
 {
-  "main": "./progressspinner.umd.js",
+  "main": "./progressspinner.cjs.js",
   "module": "./progressspinner.esm.js",
   "unpkg": "./progressspinner.min.js",
   "types": "./ProgressSpinner.d.ts"

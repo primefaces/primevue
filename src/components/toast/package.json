@@ -1,5 +1,5 @@
 {
-  "main": "./toast.umd.js",
+  "main": "./toast.cjs.js",
   "module": "./toast.esm.js",
   "unpkg": "./toast.min.js",
   "types": "./Toast.d.ts"

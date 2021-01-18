@@ -31,9 +31,9 @@ function addEntry(folder, inFile, outFile) {
         input: 'src/components/' + folder + '/' + inFile,
         output: [
             {
-                format: 'umd',
+                format: 'cjs',
                 name: 'primevue.' + folder,
-                file: 'dist/' + folder + '/' + outFile + '.umd.js',
+                file: 'dist/' + folder + '/' + outFile + '.cjs.js',
             },
             {
                 format: 'esm',
@@ -52,13 +52,13 @@ function addEntry(folder, inFile, outFile) {
         ]
     });
 
-    /*entries.push({
+    entries.push({
         input: 'src/components/' + folder + '/' + inFile,
         output: [
             {
-                format: 'umd',
+                format: 'cjs',
                 name: folder,
-                file: 'dist/' + folder + '/' + outFile + '.umd.min.js'
+                file: 'dist/' + folder + '/' + outFile + '.cjs.min.js'
             },
             {
                 format: 'esm',
@@ -67,7 +67,8 @@ function addEntry(folder, inFile, outFile) {
             {
                 format: 'iife',
                 name: folder,
-                file: 'dist/' + folder + '/' + outFile + '.min.js'
+                file: 'dist/' + folder + '/' + outFile + '.min.js',
+                globals: globalDependencies
             }
         ],
         plugins: [
@@ -75,7 +76,7 @@ function addEntry(folder, inFile, outFile) {
             postcss(),
             terser()
         ]
-    });*/
+    });
 }
 
 function addSFC() {

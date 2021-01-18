@@ -1,5 +1,5 @@
 {
-  "main": "./galleria.umd.js",
+  "main": "./galleria.cjs.js",
   "module": "./galleria.esm.js",
   "unpkg": "./galleria.min.js",
   "types": "./Galleria.d.ts"

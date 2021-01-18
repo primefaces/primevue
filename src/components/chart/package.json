@@ -1,5 +1,5 @@
 {
-  "main": "./chart.umd.js",
+  "main": "./chart.cjs.js",
   "module": "./chart.esm.js",
   "unpkg": "./chart.min.js",
   "types": "./Chart.d.ts"

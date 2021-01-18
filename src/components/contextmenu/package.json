@@ -1,5 +1,5 @@
 {
-  "main": "./contextmenu.umd.js",
+  "main": "./contextmenu.cjs.js",
   "module": "./contextmenu.esm.js",
   "unpkg": "./contextmenu.min.js",
   "types": "./ContextMenu.d.ts"

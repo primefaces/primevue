@@ -1,5 +1,5 @@
 {
-  "main": "./password.umd.js",
+  "main": "./password.cjs.js",
   "module": "./password.esm.js",
   "unpkg": "./password.min.js",
   "types": "./Password.d.ts"

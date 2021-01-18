@@ -1,5 +1,5 @@
 {
-  "main": "./splitbutton.umd.js",
+  "main": "./splitbutton.cjs.js",
   "module": "./splitbutton.esm.js",
   "unpkg": "./splitbutton.min.js",
   "types": "./SplitButton.d.ts"

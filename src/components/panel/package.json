@@ -1,5 +1,5 @@
 {
-  "main": "./panel.umd.js",
+  "main": "./panel.cjs.js",
   "module": "./panel.esm.js",
   "unpkg": "./panel.min.js",
   "types": "./Panel.d.ts"

@@ -1,5 +1,5 @@
 {
-  "main": "./dropdown.umd.js",
+  "main": "./dropdown.cjs.js",
   "module": "./dropdown.esm.js",
   "unpkg": "./dropdown.min.js",
   "types": "./Dropdown.d.ts"

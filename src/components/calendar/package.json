@@ -1,5 +1,5 @@
 {
-  "main": "./calendar.umd.js",
+  "main": "./calendar.cjs.js",
   "module": "./calendar.esm.js",
   "unpkg": "./calendar.min.js",
   "types": "./Calendar.d.ts"

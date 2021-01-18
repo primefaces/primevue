@@ -1,5 +1,5 @@
 {
-  "main": "./common.umd.js",
+  "main": "./common.cjs.js",
   "module": "./common.esm.js",
   "unpkg": "./common.min.js",
   "types": "./Common.d.ts"

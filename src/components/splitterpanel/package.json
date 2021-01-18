@@ -1,5 +1,5 @@
 {
-  "main": "./splitterpanel.umd.js",
+  "main": "./splitterpanel.cjs.js",
   "module": "./splitterpanel.esm.js",
   "unpkg": "./splitterpanel.min.js",
   "types": "./SplitterPanel.d.ts"

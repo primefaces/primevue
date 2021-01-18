@@ -1,5 +1,5 @@
 {
-  "main": "./tristatecheckbox.umd.js",
+  "main": "./tristatecheckbox.cjs.js",
   "module": "./tristatecheckbox.esm.js",
   "unpkg": "./tristatecheckbox.min.js",
   "types": "./TriStateCheckbox.d.ts"

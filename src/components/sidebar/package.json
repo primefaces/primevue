@@ -1,5 +1,5 @@
 {
-  "main": "./sidebar.umd.js",
+  "main": "./sidebar.cjs.js",
   "module": "./sidebar.esm.js",
   "unpkg": "./sidebar.min.js",
   "types": "./Sidebar.d.ts"

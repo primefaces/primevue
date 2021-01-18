@@ -1,5 +1,5 @@
 {
-  "main": "./dataview.umd.js",
+  "main": "./dataview.cjs.js",
   "module": "./dataview.esm.js",
   "unpkg": "./dataview.min.js",
   "types": "./DataView.d.ts"

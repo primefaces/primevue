@@ -1,5 +1,5 @@
 {
-  "main": "./avatar.umd.js",
+  "main": "./avatar.cjs.js",
   "module": "./avatar.esm.js",
   "unpkg": "./avatar.min.js",
   "types": "./Avatar.d.ts"
