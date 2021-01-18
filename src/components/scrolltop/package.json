@@ -2,5 +2,8 @@
   "main": "./scrolltop.cjs.js",
   "module": "./scrolltop.esm.js",
   "unpkg": "./scrolltop.min.js",
-  "types": "./ScrollTop.d.ts"
+  "types": "./ScrollTop.d.ts",
+  "browser": {
+    "./sfc": "./ScrollTop.vue"
+  }
 }

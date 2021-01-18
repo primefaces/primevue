@@ -2,5 +2,8 @@
   "main": "./chart.cjs.js",
   "module": "./chart.esm.js",
   "unpkg": "./chart.min.js",
-  "types": "./Chart.d.ts"
+  "types": "./Chart.d.ts",
+  "browser": {
+    "./sfc": "./Chart.vue"
+  }
 }

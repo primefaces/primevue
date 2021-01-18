@@ -2,5 +2,8 @@
   "main": "./button.cjs.js",
   "module": "./button.esm.js",
   "unpkg": "./button.min.js",
-  "types": "./Button.d.ts"
+  "types": "./Button.d.ts",
+  "browser": {
+    "./sfc": "./Button.vue"
+  }
 }

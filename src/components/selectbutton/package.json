@@ -2,5 +2,8 @@
   "main": "./selectbutton.cjs.js",
   "module": "./selectbutton.esm.js",
   "unpkg": "./selectbutton.min.js",
-  "types": "./SelectButton.d.ts"
+  "types": "./SelectButton.d.ts",
+  "browser": {
+    "./sfc": "./SelectButton.vue"
+  }
 }

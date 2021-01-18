@@ -2,5 +2,8 @@
   "main": "./tag.cjs.js",
   "module": "./tag.esm.js",
   "unpkg": "./tag.min.js",
-  "types": "./Tag.d.ts"
+  "types": "./Tag.d.ts",
+  "browser": {
+    "./sfc": "./Tag.vue"
+  }
 }

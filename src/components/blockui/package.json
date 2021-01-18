@@ -2,5 +2,8 @@
   "main": "./blockui.cjs.js",
   "module": "./blockui.esm.js",
   "unpkg": "./blockui.min.js",
-  "types": "./BlockUI.d.ts"
+  "types": "./BlockUI.d.ts",
+  "browser": {
+    "./sfc": "./BlockUI.vue"
+  }
 }

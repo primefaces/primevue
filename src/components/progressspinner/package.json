@@ -2,5 +2,8 @@
   "main": "./progressspinner.cjs.js",
   "module": "./progressspinner.esm.js",
   "unpkg": "./progressspinner.min.js",
-  "types": "./ProgressSpinner.d.ts"
+  "types": "./ProgressSpinner.d.ts",
+  "browser": {
+    "./sfc": "./ProgressSpinner.vue"
+  }
 }

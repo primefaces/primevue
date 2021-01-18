@@ -2,5 +2,8 @@
   "main": "./splitterpanel.cjs.js",
   "module": "./splitterpanel.esm.js",
   "unpkg": "./splitterpanel.min.js",
-  "types": "./SplitterPanel.d.ts"
+  "types": "./SplitterPanel.d.ts",
+  "browser": {
+    "./sfc": "./SplitterPanel.vue"
+  }
 }
