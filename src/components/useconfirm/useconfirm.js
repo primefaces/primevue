@@ -7,6 +7,6 @@ export function useConfirm() {
     if (!PrimeVueConfirm) {
         throw new Error('No PrimeVue Confirmation provided!');
     } 
-    
+
     return PrimeVueConfirm;
 }

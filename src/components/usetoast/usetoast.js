@@ -7,6 +7,6 @@ export function useToast() {
     if (!PrimeVueToast) {
         throw new Error('No PrimeVue Toast provided!');
     } 
-    
+
     return PrimeVueToast;
 }
