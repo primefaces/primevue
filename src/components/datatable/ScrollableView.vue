@@ -47,7 +47,7 @@
 
 <script>
 import DomHandler from '../utils/DomHandler';
-import TableLoadingBody from './TableLoadingBody';
+import TableLoadingBody from './TableLoadingBody.vue';
 
 export default {
     emits: ['virtual-scroll'],

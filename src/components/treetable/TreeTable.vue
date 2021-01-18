@@ -78,7 +78,7 @@
 import ObjectUtils from '../utils/ObjectUtils';
 import FilterUtils from '../utils/FilterUtils';
 import DomHandler from '../utils/DomHandler';
-import TreeTableRow from './TreeTableRow';
+import TreeTableRow from './TreeTableRow.vue';
 import Paginator from '../paginator/Paginator';
 
 export default {

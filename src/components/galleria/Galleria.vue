@@ -9,7 +9,7 @@
 </template>
 
 <script>
-import GalleriaContent from './GalleriaContent';
+import GalleriaContent from './GalleriaContent.vue';
 import DomHandler from '../utils/DomHandler';
 
 export default {

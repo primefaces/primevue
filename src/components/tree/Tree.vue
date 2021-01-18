@@ -19,7 +19,7 @@
 </template>
 
 <script>
-import TreeNode from './TreeNode';
+import TreeNode from './TreeNode.vue';
 import ObjectUtils from '../utils/ObjectUtils';
 
 export default {

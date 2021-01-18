@@ -21,13 +21,13 @@
 </template>
 
 <script>
-import CurrrentPageReport from './CurrentPageReport';
-import FirstPageLink from './FirstPageLink';
-import LastPageLink from './LastPageLink';
-import NextPageLink from './NextPageLink';
-import PageLinks from './PageLinks';
-import PrevPageLink from './PrevPageLink';
-import RowsPerPageDropdown from './RowsPerPageDropdown';
+import CurrrentPageReport from './CurrentPageReport.vue';
+import FirstPageLink from './FirstPageLink.vue';
+import LastPageLink from './LastPageLink.vue';
+import NextPageLink from './NextPageLink.vue';
+import PageLinks from './PageLinks.vue';
+import PrevPageLink from './PrevPageLink.vue';
+import RowsPerPageDropdown from './RowsPerPageDropdown.vue';
 
 export default {
     emits: ['update:first', 'update:rows', 'page'],

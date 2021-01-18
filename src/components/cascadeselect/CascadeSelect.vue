@@ -29,7 +29,7 @@
 import ConnectedOverlayScrollHandler from '../utils/ConnectedOverlayScrollHandler';
 import ObjectUtils from '../utils/ObjectUtils';
 import DomHandler from '../utils/DomHandler';
-import CascadeSelectSub from './CascadeSelectSub';
+import CascadeSelectSub from './CascadeSelectSub.vue';
 
 export default {
     emits: ['update:modelValue','change','group-change', 'before-show','before-hide','hide','show'],

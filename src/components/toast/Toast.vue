@@ -8,7 +8,7 @@
 
 <script>
 import ToastEventBus from '../toastservice/ToastEventBus';
-import ToastMessage from './ToastMessage';
+import ToastMessage from './ToastMessage.vue';
 import DomHandler from '../utils/DomHandler';
 
 var messageIdx = 0;

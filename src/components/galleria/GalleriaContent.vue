@@ -25,9 +25,9 @@
 
 <script>
 import UniqueComponentId from '../utils/UniqueComponentId';
-import GalleriaItem from './GalleriaItem';
-import GalleriaThumbnails from './GalleriaThumbnails';
-import GalleriaItemSlot from './GalleriaItemSlot';
+import GalleriaItem from './GalleriaItem.vue';
+import GalleriaThumbnails from './GalleriaThumbnails.vue';
+import GalleriaItemSlot from './GalleriaItemSlot.vue';
 import Ripple from '../ripple/Ripple';
 
 export default {

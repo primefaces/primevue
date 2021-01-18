@@ -8,7 +8,7 @@
 
 <script>
 import DomHandler from '../utils/DomHandler';
-import ContextMenuSub from './ContextMenuSub';
+import ContextMenuSub from './ContextMenuSub.vue';
 
 export default {
     props: {

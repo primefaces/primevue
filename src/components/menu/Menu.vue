@@ -21,7 +21,7 @@
 <script>
 import ConnectedOverlayScrollHandler from '../utils/ConnectedOverlayScrollHandler';
 import DomHandler from '../utils/DomHandler';
-import Menuitem from './Menuitem';
+import Menuitem from './Menuitem.vue';
 
 export default {
     props: {
