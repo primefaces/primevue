@@ -99,6 +99,20 @@ export default {
     },
     directives: {
         'ripple': Ripple
+    },
+    watch: {
+        tabs: function (new_value) {
+            new_value.forEach(tab => {
+                this.$watch(
+                    () => tab.active,
+                    function (tab_active) {
+                        if (tab_active) {
+                            this.$nextTick(() => this.tabs.filter(tab2 => tab2.d_active && tab2 != tab).forEach(tab2 => (tab2.d_active = false)));
+                        }
+                    }
+                );
+            });
+        }
     }
 }
 </script>
