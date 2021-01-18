@@ -2,6 +2,8 @@ import vue from 'rollup-plugin-vue';
 import postcss from 'rollup-plugin-postcss';
 import { terser } from 'rollup-plugin-terser';
 
+console.log(process.env.NODE_ENV);
+
 const fs = require('fs-extra');
 const path = require('path');
 
