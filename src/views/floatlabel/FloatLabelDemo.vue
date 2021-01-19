@@ -203,7 +203,7 @@ export default {
                 }
             }, 250);
         }
-    },
+    }
 }
 
 </code></pre>
@@ -260,7 +260,7 @@ export default {
                 }
             }, 250);
         }
-    },
+    }
 }
 </script>
 

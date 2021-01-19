@@ -402,7 +402,7 @@ export default {
                 {name: 'United States', code: 'US'}
             ]
         }
-    },
+    }
 }
 
 </code></pre>

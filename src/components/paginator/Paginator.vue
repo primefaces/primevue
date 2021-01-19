@@ -195,7 +195,7 @@ export default {
         'PageLinks': PageLinks,
         'PrevPageLink': PrevPageLink,
         'RowsPerPageDropdown': RowsPerPageDropdown,
-    },
+    }
 }
 </script>
 
