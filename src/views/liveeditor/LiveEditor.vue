@@ -1,5 +1,5 @@
 <template>
-    <span style="margin-top: -0.2rem">
+    <span v-if="showEditor">
         <Button @click="postSandboxParameters()" label="Edit in CodeSandbox" class="liveEditorButton" />
     </span>
 </template>
@@ -45,7 +45,7 @@ export default {
         activeButtonIndex: {
             type: String,
             default: null
-        },
+        }
     },
     methods: {
         postSandboxParameters() {
@@ -493,6 +493,11 @@ img.flag {
             });
 
             return this.createSandboxParameters(`${name}${extension}`, _files, extDependencies);
+        }
+    },
+    computed: {
+        showEditor() {
+            return this.$appState.codeSandbox;
         }
     }
 }
