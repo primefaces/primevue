@@ -7,9 +7,9 @@
 </template>
 
 <script>
-import ConnectedOverlayScrollHandler from '../utils/ConnectedOverlayScrollHandler';
-import DomHandler from '../utils/DomHandler';
-import TieredMenuSub from './TieredMenuSub';
+import {ConnectedOverlayScrollHandler} from 'primevue/utils';
+import {DomHandler} from 'primevue/utils';
+import TieredMenuSub from './TieredMenuSub.vue';
 
 export default {
     props: {

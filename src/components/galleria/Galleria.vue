@@ -9,8 +9,8 @@
 </template>
 
 <script>
-import GalleriaContent from './GalleriaContent';
-import DomHandler from '../utils/DomHandler';
+import GalleriaContent from './GalleriaContent.vue';
+import {DomHandler} from 'primevue/utils';
 
 export default {
     inheritAttrs: false,

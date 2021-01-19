@@ -1,0 +1,9 @@
+{
+  "main": "./splitter.cjs.js",
+  "module": "./splitter.esm.js",
+  "unpkg": "./splitter.min.js",
+  "types": "./Splitter.d.ts",
+  "browser": {
+    "./sfc": "./Splitter.vue"
+  }
+}

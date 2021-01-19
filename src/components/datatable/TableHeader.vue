@@ -45,7 +45,7 @@
 </template>
 
 <script>
-import DomHandler from '../utils/DomHandler';
+import {DomHandler} from 'primevue/utils';
 import HeaderCheckbox from './HeaderCheckbox.vue';
 
 export default {

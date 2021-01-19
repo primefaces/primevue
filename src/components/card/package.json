@@ -1,0 +1,9 @@
+{
+  "main": "./card.cjs.js",
+  "module": "./card.esm.js",
+  "unpkg": "./card.min.js",
+  "types": "./Card.d.ts",
+  "browser": {
+    "./sfc": "./Card.vue"
+  }
+}

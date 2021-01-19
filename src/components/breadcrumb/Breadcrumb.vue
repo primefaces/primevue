@@ -11,7 +11,7 @@
 </template>
 
 <script>
-import BreadcrumbItem from './BreadcrumbItem';
+import BreadcrumbItem from './BreadcrumbItem.vue';
 
 export default {
     props: {

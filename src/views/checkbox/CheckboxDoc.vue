@@ -232,7 +232,7 @@ export default {
     },
     created() {
         this.selectedCategories = this.categories.slice(1,3);
-    },
+    }
 }
 `
 

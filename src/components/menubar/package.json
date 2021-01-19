@@ -1,0 +1,9 @@
+{
+  "main": "./menubar.cjs.js",
+  "module": "./menubar.esm.js",
+  "unpkg": "./menubar.min.js",
+  "types": "./Menubar.d.ts",
+  "browser": {
+    "./sfc": "./Menubar.vue"
+  }
+}

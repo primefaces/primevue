@@ -22,7 +22,7 @@
 </template>
 
 <script>
-import UniqueComponentId from '../utils/UniqueComponentId';
+import {UniqueComponentId} from 'primevue/utils';
 
 export default {
     emits: ['tab-close', 'tab-open', 'update:activeIndex'],

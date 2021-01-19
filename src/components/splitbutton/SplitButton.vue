@@ -9,9 +9,9 @@
 </template>
 
 <script>
-import Button from '../button/Button';
-import Menu from '../menu/Menu';
-import UniqueComponentId from '../utils/UniqueComponentId';
+import Button from 'primevue/button';
+import Menu from 'primevue/menu';
+import {UniqueComponentId} from 'primevue/utils';
 
 export default {
     inheritAttrs: false,

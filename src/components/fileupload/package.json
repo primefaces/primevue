@@ -1,0 +1,9 @@
+{
+  "main": "./fileupload.cjs.js",
+  "module": "./fileupload.esm.js",
+  "unpkg": "./fileupload.min.js",
+  "types": "./FileUpload.d.ts",
+  "browser": {
+    "./sfc": "./FileUpload.vue"
+  }
+}

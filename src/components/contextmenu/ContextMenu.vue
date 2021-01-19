@@ -7,8 +7,8 @@
 </template>
 
 <script>
-import DomHandler from '../utils/DomHandler';
-import ContextMenuSub from './ContextMenuSub';
+import {DomHandler} from 'primevue/utils';
+import ContextMenuSub from './ContextMenuSub.vue';
 
 export default {
     props: {

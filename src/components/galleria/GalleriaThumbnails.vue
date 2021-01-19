@@ -26,8 +26,8 @@
 </template>
 
 <script>
-import DomHandler from '../utils/DomHandler';
-import Ripple from '../ripple/Ripple';
+import {DomHandler} from 'primevue/utils';
+import Ripple from 'primevue/ripple';
 
 export default {
     emits: ['stop-slideshow', 'update:activeIndex'],

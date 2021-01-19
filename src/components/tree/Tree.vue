@@ -19,8 +19,8 @@
 </template>
 
 <script>
-import TreeNode from './TreeNode';
-import ObjectUtils from '../utils/ObjectUtils';
+import TreeNode from './TreeNode.vue';
+import {ObjectUtils} from 'primevue/utils';
 
 export default {
     emits: ['node-expand', 'node-collapse', 'update:expandedKeys', 'update:selectionKeys', 'node-select', 'node-unselect'],

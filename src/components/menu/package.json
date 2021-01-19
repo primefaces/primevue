@@ -1,0 +1,9 @@
+{
+  "main": "./menu.cjs.js",
+  "module": "./menu.esm.js",
+  "unpkg": "./menu.min.js",
+  "types": "./Menu.d.ts",
+  "browser": {
+    "./sfc": "./Menu.vue"
+  }
+}

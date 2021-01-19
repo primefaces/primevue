@@ -1,0 +1,9 @@
+{
+  "main": "./overlaypanel.cjs.js",
+  "module": "./overlaypanel.esm.js",
+  "unpkg": "./overlaypanel.min.js",
+  "types": "./OverlayPanel.d.ts",
+  "browser": {
+    "./sfc": "./OverlayPanel.vue"
+  }
+}

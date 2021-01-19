@@ -75,11 +75,11 @@
 </template>
 
 <script>
-import ObjectUtils from '../utils/ObjectUtils';
-import FilterUtils from '../utils/FilterUtils';
-import DomHandler from '../utils/DomHandler';
-import TreeTableRow from './TreeTableRow';
-import Paginator from '../paginator/Paginator';
+import {ObjectUtils} from 'primevue/utils';
+import {FilterUtils} from 'primevue/utils';
+import {DomHandler} from 'primevue/utils';
+import TreeTableRow from './TreeTableRow.vue';
+import Paginator from 'primevue/paginator';
 
 export default {
     emits: ['node-expand', 'node-collapse', 'update:expandedKeys', 'update:selectionKeys', 'node-select', 'node-unselect', 

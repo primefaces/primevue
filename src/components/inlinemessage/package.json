@@ -1,0 +1,9 @@
+{
+  "main": "./inlinemessage.cjs.js",
+  "module": "./inlinemessage.esm.js",
+  "unpkg": "./inlinemessage.min.js",
+  "types": "./InlineMessage.d.ts",
+  "browser": {
+    "./sfc": "./InlineMessage.vue"
+  }
+}

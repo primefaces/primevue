@@ -1,0 +1,9 @@
+{
+  "main": "./avatargroup.cjs.js",
+  "module": "./avatargroup.esm.js",
+  "unpkg": "./avatargroup.min.js",
+  "types": "./AvatarGroup.d.ts",
+  "browser": {
+    "./sfc": "./AvatarGroup.vue"
+  }
+}

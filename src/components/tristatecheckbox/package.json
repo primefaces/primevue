@@ -1,0 +1,9 @@
+{
+  "main": "./tristatecheckbox.cjs.js",
+  "module": "./tristatecheckbox.esm.js",
+  "unpkg": "./tristatecheckbox.min.js",
+  "types": "./TriStateCheckbox.d.ts",
+  "browser": {
+    "./sfc": "./TriStateCheckbox.vue"
+  }
+}

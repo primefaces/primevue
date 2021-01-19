@@ -495,7 +495,7 @@ export default {
         complete() {
             this.$emit('complete');
         }
-    },
+    }
 }
 
 </code></pre>

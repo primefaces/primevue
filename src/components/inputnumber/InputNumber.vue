@@ -12,8 +12,8 @@
 </template>
 
 <script>
-import InputText from '../inputtext/InputText';
-import Button from '../button/Button';
+import InputText from 'primevue/inputtext';
+import Button from 'primevue/button';
 
 export default {
     inheritAttrs: false,

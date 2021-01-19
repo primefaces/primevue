@@ -7,9 +7,9 @@
 </template>
 
 <script>
-import ToastEventBus from '../toastservice/ToastEventBus';
-import ToastMessage from './ToastMessage';
-import DomHandler from '../utils/DomHandler';
+import ToastEventBus from 'primevue/toasteventbus';
+import ToastMessage from './ToastMessage.vue';
+import {DomHandler} from 'primevue/utils';
 
 var messageIdx = 0;
 

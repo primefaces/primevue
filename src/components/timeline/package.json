@@ -1,0 +1,9 @@
+{
+  "main": "./timeline.cjs.js",
+  "module": "./timeline.esm.js",
+  "unpkg": "./timeline.min.js",
+  "types": "./Timeline.d.ts",
+  "browser": {
+    "./sfc": "./Timeline.vue"
+  }
+}

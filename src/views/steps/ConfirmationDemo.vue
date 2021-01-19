@@ -64,6 +64,6 @@ export default {
         complete() {
             this.$emit('complete');
         }
-    },
+    }
 }
 </script>

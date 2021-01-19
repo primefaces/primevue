@@ -14,8 +14,8 @@
 </template>
 
 <script>
-import MenubarSub from './MenubarSub';
-import DomHandler from '../utils/DomHandler';
+import MenubarSub from './MenubarSub.vue';
+import {DomHandler} from 'primevue/utils';
 
 export default {
     props: {

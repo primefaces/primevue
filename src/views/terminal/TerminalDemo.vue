@@ -20,7 +20,7 @@
 
 <script>
 import TerminalDoc from './TerminalDoc';
-import TerminalService from '../../components/terminalservice/TerminalService';
+import TerminalService from 'primevue/terminalservice';
 
 export default {
     methods: {

@@ -1,0 +1,9 @@
+{
+  "main": "./toast.cjs.js",
+  "module": "./toast.esm.js",
+  "unpkg": "./toast.min.js",
+  "types": "./Toast.d.ts",
+  "browser": {
+    "./sfc": "./Toast.vue"
+  }
+}

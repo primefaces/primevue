@@ -1,0 +1,9 @@
+{
+  "main": "./confirmdialog.cjs.js",
+  "module": "./confirmdialog.esm.js",
+  "unpkg": "./confirmdialog.min.js",
+  "types": "./ConfirmDialog.d.ts",
+  "browser": {
+    "./sfc": "./ConfirmDialog.vue"
+  }
+}

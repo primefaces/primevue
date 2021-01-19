@@ -1,0 +1,9 @@
+{
+  "main": "./checkbox.cjs.js",
+  "module": "./checkbox.esm.js",
+  "unpkg": "./checkbox.min.js",
+  "types": "./Checkbox.d.ts",
+  "browser": {
+    "./sfc": "./Checkbox.vue"
+  }
+}

@@ -24,8 +24,8 @@
 </template>
 
 <script>
-import PanelMenuSub from './PanelMenuSub';
-import UniqueComponentId from '../utils/UniqueComponentId';
+import PanelMenuSub from './PanelMenuSub.vue';
+import {UniqueComponentId} from 'primevue/utils';
 
 export default {
     props: {

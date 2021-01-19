@@ -1,0 +1,9 @@
+{
+  "main": "./datatable.cjs.js",
+  "module": "./datatable.esm.js",
+  "unpkg": "./datatable.min.js",
+  "types": "./DataTable.d.ts",
+  "browser": {
+    "./sfc": "./DataTable.vue"
+  }
+}

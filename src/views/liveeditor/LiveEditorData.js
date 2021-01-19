@@ -4274,7 +4274,7 @@ const data = {
         {"id": "1009","code": "cm230f032","name": "Gaming Set","description": "Product Description","image": "gaming-set.jpg","price": 299,"category": "Electronics","quantity": 63,"inventoryStatus": "INSTOCK","rating": 3,"orders": [{"id": "10000","productCode": "cm230f032","date": "2020-06-24","amount": 299,"quantity": 1,"customer": "Kadeem Mujtaba","status": "PENDING"},{"id": "10001","productCode": "cm230f032","date": "2020-05-11","amount": 299,"quantity": 1,"customer": "Ashley Wickens","status": "DELIVERED"},{"id": "10002","productCode": "cm230f032","date": "2019-02-07","amount": 299,"quantity": 1,"customer": "Julie Johnson","status": "DELIVERED"},{"id": "10003","productCode": "cm230f032","date": "2020-04-26","amount": 299,"quantity": 1,"customer": "Tony Costa","status": "CANCELLED"}]}
     ]
 }
-    `,
+    `
 }
 
 export { services, data };

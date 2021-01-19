@@ -1,0 +1,9 @@
+{
+  "main": "./fieldset.cjs.js",
+  "module": "./fieldset.esm.js",
+  "unpkg": "./fieldset.min.js",
+  "types": "./Fieldset.d.ts",
+  "browser": {
+    "./sfc": "./Fieldset.vue"
+  }
+}
