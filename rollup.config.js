@@ -32,7 +32,6 @@ function addEntry(folder, inFile, outFile) {
         output: [
             {
                 format: 'cjs',
-                name: 'primevue.' + folder,
                 file: 'dist/' + folder + '/' + outFile + '.cjs.js',
             },
             {
@@ -57,7 +56,6 @@ function addEntry(folder, inFile, outFile) {
         output: [
             {
                 format: 'cjs',
-                name: folder,
                 file: 'dist/' + folder + '/' + outFile + '.cjs.min.js'
             },
             {
