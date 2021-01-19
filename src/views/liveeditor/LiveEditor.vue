@@ -131,8 +131,7 @@ ${style}`
             }
 
             if(name !== 'FloatLabelDemo') {
-                element += `import ${name.slice(0, -4)} from "primevue/${name.slice(0, -4).toLowerCase()}";
-`;
+                importElement += `import ${name.slice(0, -4)} from "primevue/${name.slice(0, -4).toLowerCase()}";`;
             }
 
             if(name === 'ToastDemo'){
