@@ -1,98 +1,74 @@
 const services = {
     'CountryService': `
-import axios from 'axios';
-import countriesData from '../../public/data/countries.json';
-
 export default class CountryService {
 
     getCountries() {
-        return axios.get(countriesData).then((res) => res.config.url.data);
+        return axios.get(data).then((res) => res.config.url.data);
     }
 }    
     `,
     'CustomerService': `
-import axios from 'axios';
-import customersSmallData from '../../public/data/customers-large.json';
-import customersMediumData from '../../public/data/customers-large.json';
-import customersLargeData from '../../public/data/customers-large.json';
-import customersXLargeData from '../../public/data/customers-large.json';
-
 export default class CustomerService {
 
     getCustomersSmall() {
-        return axios.get(customersSmallData).then(res => res.config.url.data);
+        return axios.get(data).then(res => res.config.url.data);
     }
 
     getCustomersMedium() {
-        return axios.get(customersMediumData).then(res => res.config.url.data);
+        return axios.get(data).then(res => res.config.url.data);
     }
 
     getCustomersLarge() {
-        return axios.get(customersLargeData).then(res => res.config.url.data);
+        return axios.get(data).then(res => res.config.url.data);
     }
 
     getCustomersXLarge() {
-        return axios.get(customersXLargeData).then(res => res.config.url.data);
+        return axios.get(data).then(res => res.config.url.data);
     }
 }
     `,
     'EventService': `
-import axios from 'axios';
-import eventData from '../../public/data/events.json';
-
 export default class EventService {
 
     getEvents() {
-        return axios.get(eventData).then(res => res.config.url.data);
+        return axios.get(data).then(res => res.config.url.data);
     }
 }
     `,
     'NodeService': `
-import axios from 'axios';
-import treeTableNodeData from '../../public/data/treetablenodes.json';
-import treeNodeData from '../../public/data/treenodes.json';
-
 export default class NodeService {
 
     getTreeTableNodes() {
-        return axios.get(treeTableNodeData).then(res => res.config.url.root);
+        return axios.get(data).then(res => res.config.url.root);
     }
 
     getTreeNodes() {
-        return axios.get(treeNodeData).then(res => res.config.url.root);
+        return axios.get(data).then(res => res.config.url.root);
     }
 
 }
     `,
     'PhotoService': `
-import axios from 'axios';
-import photoData from '../../public/data/photos.json';
-
 export default class PhotoService {
 
     getImages() {
-        return axios.get(photoData).then(res => res.config.url.data);
+        return axios.get(data).then(res => res.config.url.data);
     }
 }  
     `,
     'ProductService': `
-import axios from 'axios';
-import productsSmallData from '../../public/data/products-small.json';
-import productsData from '../../public/data/products.json';
-import productsWithOrdersSmallData from '../../public/data/products-orders-small.json';
-
 export default class ProductService {
 
     getProductsSmall() {
-        return axios.get(productsSmallData).then(res => res.config.url.data);
+        return axios.get(data).then(res => res.config.url.data);
     }
 
     getProducts() {
-        return axios.get(productsData).then(res => res.config.url.data);
+        return axios.get(data).then(res => res.config.url.data);
     }
 
     getProductsWithOrdersSmall() {
-        return axios.get(productsWithOrdersSmallData).then(res => res.config.url.data);
+        return axios.get(data).then(res => res.config.url.data);
     }
 }
     `

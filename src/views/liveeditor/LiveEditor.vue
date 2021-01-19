@@ -75,9 +75,9 @@ export default {
                                 ...extDependencies,
                                 'vue': dependencies['vue'],
                                 'axios': dependencies['axios'],
-                                'primevue': '^3.1.1',
+                                'primevue': 'latest',
                                 'primeflex': dependencies['primeflex'],
-                                'primeicons': dependencies['primeicons'],
+                                'primeicons': 'latest',
                                 '@babel/cli': dependencies['@babel/cli'],
                                 '@vue/cli-plugin-babel': dependencies['@vue/cli-plugin-babel'],
                                 '@vue/cli-service': dependencies['@vue/cli-service'],
@@ -121,7 +121,7 @@ export default {
             let content = this.sources.template.content;
             let style = this.sources.template.style || '';
             let scriptText = 'script';
-            let _files = {}, element = '', components = '', imports = '', directives = '';
+            let _files = {}, importElement = '', element = '', components = '', imports = '', directives = '';
 
             _files[`src/components/${name}${extension}`] = {       
                 content: `${content}
@@ -130,8 +130,13 @@ export default {
 ${style}`   
             }
 
+            if(name !== 'FloatLabelDemo') {
+                element += `import ${name.slice(0, -4)} from "primevue/${name.slice(0, -4).toLowerCase()}";
+`;
+            }
+
             if(name === 'ToastDemo'){
-                imports += `import ToastService from 'primevue/toastservice';
+                imports += `import ToastService from "primevue/toastservice";
 `;
                 directives += `app.use(ToastService);
 `;
@@ -141,9 +146,9 @@ ${style}`
 
             directiveEl.forEach(dir => {
                 if(name === dir) {
-                    imports += `import Tooltip from 'primevue/tooltip';
+                    imports += `import Tooltip from "primevue/tooltip";
 `;
-                    directives += `app.directive('tooltip', Tooltip);
+                    directives += `app.directive("tooltip", Tooltip);
 `;
                 }
             })
@@ -157,12 +162,19 @@ ${style}`
                 })
             } 
 
-            if(name !== 'TooltipDemo') {
+            if(name !== 'TooltipDemo' && name !== 'RippleDemo' && name !== 'FloatLabelDemo') {
                 element += `app.component("${name.slice(0, -4)}", ${name.slice(0, -4)});`;
             }
 
-            if(name === 'TooltipDemo' || name === 'BadgeDemo'){
-                directives += `app.directive('${name.slice(0, -4).toLowerCase()}', ${name.slice(0, -4)});
+            if(name === 'TooltipDemo' || name === 'RippleDemo'){
+                directives += `app.directive("${name.slice(0, -4).toLowerCase()}", ${name.slice(0, -4)});
+`;
+            }
+
+            if(name === 'BadgeDemo' || name === 'AvatarDemo'){
+                imports += `import BadgeDirective from "primevue/badgedirective";
+`;
+                directives += `app.directive("badge", BadgeDirective);
 `;
             }
 
@@ -174,7 +186,7 @@ import "primevue/resources/primevue.min.css";
 import "primeicons/primeicons.css";
 import App from "./App.vue";
 import PrimeVue from "primevue/config";
-import ${name.slice(0, -4)} from "primevue/${name.slice(0, -4).toLowerCase()}";
+${importElement}
 ${imports}
 const app = createApp(App);
 app.use(PrimeVue, { ripple: true });
@@ -215,7 +227,7 @@ export default {
 }
 </${scriptText}>
 <style lang="scss">
-@import './App.scss';
+@import "./App.scss";
 </style>`
             }
 
@@ -454,21 +466,26 @@ img.flag {
                         `,
             }
 
-            if (this.service) {
-                _files[`src/service/${this.service}.js`] = {
-                    content: services[this.service]
-                }
-
-                extDependencies['axios'] =  "^0.19.0";
-            }
-
-            if (this.data) {
+            if (this.service && this.data) {
                 const dataArr = this.data.split(',');
+
                 dataArr.forEach(el => {
                     _files[`public/data/${el}.json`] = {
                         content: data[el]
-                    }
+                    };
+
+                    _files[`src/service/${this.service}.js`] = {
+                    // content: services[this.service]
+                    content: `import axios from 'axios';
+import data from '../../public/data/${el}.json';
+
+${services[this.service]}
+`
+                    };
                 });
+
+
+                extDependencies['axios'] =  "^0.19.0";
             }
 
             if(name === 'EditorDemo') {
@@ -484,7 +501,7 @@ img.flag {
                 extDependencies['chart.js'] = "2.7.3";
             }
 
-            let mittComponents = ['ToastDemo', 'OrganizationChartDemo', 'ConfirmDialogDemo', 'ConfirmPopupDemo'];
+            let mittComponents = ['ToastDemo', 'OrganizationChartDemo', 'ConfirmDialogDemo', 'ConfirmPopupDemo', 'TerminalDemo'];
 
             mittComponents.forEach(cmp => {
                 if(name === cmp) {
