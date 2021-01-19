@@ -141,9 +141,12 @@ import Chip from 'primevue/chip';
 			</TabPanel>
 
 			<TabPanel header="Source">
-				<a href="https://github.com/primefaces/primevue/tree/master/src/views/chip" class="btn-viewsource" target="_blank" rel="noopener noreferrer">
-					<span>View on GitHub</span>
-				</a>
+				<div class="p-d-flex p-jc-between">
+					<a href="https://github.com/primefaces/primevue/tree/master/src/views/chip" class="btn-viewsource" target="_blank" rel="noopener noreferrer">
+						<span>View on GitHub</span>
+					</a>
+					<LiveEditor name="ChipDemo" :sources="sources" />
+				</div>
 <pre v-code>
 <code><template v-pre>
 &lt;h5&gt;Basic&lt;/h5&gt;
@@ -184,3 +187,69 @@ import Chip from 'primevue/chip';
 		</TabView>
 	</div>
 </template>
+
+<script>
+import LiveEditor from '../liveeditor/LiveEditor';
+export default {
+	data() {
+		return {
+			sources: {
+				'template': {
+					content: `<template>
+    <div class="layout-content">
+        <div class="content-section implementation">
+            <div class="card">
+                <h5>Basic</h5>
+                <div class="p-d-flex p-ai-center">
+                    <Chip label="Action" class="p-mr-2" />
+                    <Chip label="Comedy" class="p-mr-2" />
+                    <Chip label="Mystery" class="p-mr-2" />
+                    <Chip label="Thriller" removable />
+                </div>
+
+                <h5>Icon</h5>
+                <div class="p-d-flex p-ai-center">
+                    <Chip label="Apple" icon="pi pi-apple" class="p-mr-2" />
+                    <Chip label="Facebook" icon="pi pi-facebook" class="p-mr-2" />
+                    <Chip label="Google" icon="pi pi-google" class="p-mr-2" />
+                    <Chip label="Microsoft" icon="pi pi-microsoft" removable />
+                </div>
+
+                <h5>Image</h5>
+                <div class="p-d-flex p-ai-center">
+                    <Chip label="Amy Elsner" image="https://www.primefaces.org/wp-content/uploads/2020/05/placeholder.png" class="p-mr-2" />
+                    <Chip label="Asiya Javayant" image="https://www.primefaces.org/wp-content/uploads/2020/05/placeholder.png" class="p-mr-2" />
+                    <Chip label="Onyama Limba" image="https://www.primefaces.org/wp-content/uploads/2020/05/placeholder.png" class="p-mr-2" />
+                    <Chip label="Xuxue Feng" image="https://www.primefaces.org/wp-content/uploads/2020/05/placeholder.png" removable />
+                </div>
+
+                <h5>Styling</h5>
+                <div class="p-d-flex p-ai-center">
+                    <Chip label="Action" class="p-mr-2 custom-chip" />
+                    <Chip label="Apple" icon="pi pi-apple" class="p-mr-2 custom-chip" />
+                    <Chip label="Onyama Limba" image="https://www.primefaces.org/wp-content/uploads/2020/05/placeholder.png" class="p-mr-2 custom-chip" />
+                    <Chip label="Xuxue Feng" image="https://www.primefaces.org/wp-content/uploads/2020/05/placeholder.png" class="custom-chip" removable />
+                </div>
+            </div>
+        </div>
+    </div>
+</template>
+
+<script>
+export default {
+}`,
+					style: `<style lang="scss" scoped>
+.p-chip.custom-chip {
+    background: var(--primary-color);
+    color: var(--primary-color-text);
+}
+</style>`
+				}
+			}
+		}
+	},
+	components: {
+		LiveEditor
+	}
+}
+</script>

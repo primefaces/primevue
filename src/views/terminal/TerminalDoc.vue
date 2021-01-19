@@ -138,9 +138,12 @@ export default {
 			</TabPanel>
 
 			<TabPanel header="Source">
-				<a href="https://github.com/primefaces/primevue/tree/master/src/views/terminal" class="btn-viewsource" target="_blank" rel="noopener noreferrer">
-					<span>View on GitHub</span>
-				</a>
+                <div class="p-d-flex p-jc-between">
+                    <a href="https://github.com/primefaces/primevue/tree/master/src/views/terminal" class="btn-viewsource" target="_blank" rel="noopener noreferrer">
+                        <span>View on GitHub</span>
+                    </a>
+                    <LiveEditor name="TerminalDemo" :sources="sources" />
+                </div>
 <pre v-code>
 <code>
 &lt;p&gt;Enter "date" to display the current date, "greet &#123;0&#125;" for a message and "random" to get a random number.&lt;/p&gt;
@@ -217,3 +220,89 @@ p {
 		</TabView>
 	</div>
 </template>
+
+<script>
+import LiveEditor from '../liveeditor/LiveEditor';
+export default {
+    data() {
+        return {
+            sources: {
+                'template': {
+                    content: `<template>
+    <div class="layout-content">
+        <div class="content-section implementation">
+            <div class="card">
+                <p>Enter "date" to display the current date, "greet {0}" for a message and "random" to get a random number.</p>
+                <Terminal welcomeMessage="Welcome to PrimeVue" prompt="primevue $" class="dark-demo-terminal" />
+            </div>
+        </div>
+    </div>
+</template>
+
+<script>
+import TerminalService from "primevue/terminalservice";
+export default {
+    methods: {
+        commandHandler(text) {
+            let response;
+            let argsIndex = text.indexOf(' ');
+            let command = argsIndex !== -1 ? text.substring(0, argsIndex) : text;
+
+            switch(command) {
+                case "date":
+                    response = 'Today is ' + new Date().toDateString();
+                    break;
+
+                case "greet":
+                    response = 'Hola ' + text.substring(argsIndex + 1);
+                    break;
+
+                case "random":
+                    response = Math.floor(Math.random() * 100);
+                    break;
+
+                default:
+                    response = "Unknown command: " + command;
+            }
+            
+            TerminalService.emit('response', response);
+        }
+    },
+    mounted() {
+        TerminalService.on('command', this.commandHandler);
+    },
+    beforeUnmount() {
+        TerminalService.off('command', this.commandHandler);
+    }
+}`,
+                    style: `<style lang="scss" scoped>
+p {
+    margin-top: 0;
+}
+
+::v-deep(.dark-demo-terminal) {
+    background-color: #212121;
+    color: #ffffff;
+
+    .p-terminal-command {
+        color: #80CBC4;
+    }
+
+    .p-terminal-prompt {
+        color: #FFD54F;
+    }
+
+    .p-terminal-response {
+        color: #9FA8DA;
+    }
+}
+</style>`
+                }
+            }
+        }
+    },
+    components: {
+        LiveEditor
+    }
+}
+</script>

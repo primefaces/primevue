@@ -92,9 +92,12 @@ directives: {
 			</TabPanel>
 
 			<TabPanel header="Source">
-				<a href="https://github.com/primefaces/primevue/tree/master/src/views/ripple" class="btn-viewsource" target="_blank" rel="noopener noreferrer">
-					<span>View on GitHub</span>
-				</a>
+                <div class="p-d-flex p-jc-between">
+                    <a href="https://github.com/primefaces/primevue/tree/master/src/views/ripple" class="btn-viewsource" target="_blank" rel="noopener noreferrer">
+                        <span>View on GitHub</span>
+                    </a>
+                    <LiveEditor name="RippleDemo" :sources="sources" />
+                </div>
 <pre v-code>
 <code><template v-pre>
 &lt;div class="card-container p-d-flex"&gt;
@@ -160,3 +163,78 @@ export default {}
 		</TabView>
 	</div>
 </template>
+
+<script>
+import LiveEditor from '../liveeditor/LiveEditor';
+export default {
+    data() {
+        return {
+            sources: {
+                'template': {
+                    content: `<template>
+    <div class="layout-content">
+        <div class="content-section implementation">
+            <div class="card-container p-d-flex">
+                <div class="card primary-box p-ripple" v-ripple>Default</div>
+                <div class="card styled-box-green p-ripple" v-ripple>Green</div>
+                <div class="card styled-box-orange p-ripple" v-ripple>Orange</div>
+                <div class="card styled-box-purple p-ripple" v-ripple>Purple</div>
+            </div>
+        </div>
+    </div>
+</template>
+
+<script>
+export default {
+}`,
+                    style: `<style lang="scss" scoped>
+::v-deep(.card-container) {
+    .card {
+        width: 75px;
+        height: 75px;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        margin-right: 1rem;
+        user-select: none;
+        padding: 0;
+
+        &.primary-box {
+            background-color: var(--primary-color);
+            padding: 0;
+            color: var(--primary-color-text);
+        }
+
+        &.styled-box-green {
+            .p-ink {
+                background: rgba(#4baf50, 0.3);
+            }
+        }
+
+        &.styled-box-orange {
+            .p-ink {
+                background: rgba(#ffc106, 0.3);
+            }
+        }
+
+        &.styled-box-purple {
+            .p-ink {
+                background: rgba(#9c27b0, 0.3);
+            }
+        }
+
+        &:last-child {
+            margin-right: 0;
+        }
+    }
+}
+</style>`
+                }
+            }
+        }
+    },
+    components: {
+        LiveEditor
+    }
+}
+</script>

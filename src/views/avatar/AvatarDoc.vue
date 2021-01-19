@@ -182,9 +182,12 @@ import AvatarGroup from 'primevue/avatargroup';
 			</TabPanel>
 
 			<TabPanel header="Source">
-				<a href="https://github.com/primefaces/primevue/tree/master/src/views/avatar" class="btn-viewsource" target="_blank" rel="noopener noreferrer">
-					<span>View on GitHub</span>
-				</a>
+				<div class="p-d-flex p-jc-between">
+					<a href="https://github.com/primefaces/primevue/tree/master/src/views/avatar" class="btn-viewsource" target="_blank" rel="noopener noreferrer">
+						<span>View on GitHub</span>
+					</a>
+					<LiveEditor name="AvatarDemo" :sources="sources" :components="['AvatarGroup']" />
+				</div>
 <pre v-code>
 <code><template v-pre>
 &lt;div class="p-grid"&gt;
@@ -279,3 +282,115 @@ import AvatarGroup from 'primevue/avatargroup';
 		</TabView>
 	</div>
 </template>
+
+<script>
+import LiveEditor from '../liveeditor/LiveEditor';
+export default {
+	data() {
+		return {
+			sources: {
+				'template': {
+					content: `<template>
+    <div class="layout-content">
+        <div class="content-section implementation">
+            <div class="p-grid">
+                <div class="p-col-12 p-md-4">
+                    <div class="card">
+                        <h5>Label</h5>
+                        <Avatar label="P" class="p-mr-2" size="xlarge" />
+                        <Avatar label="V" class="p-mr-2" size="large" style="background-color:#2196F3; color: #ffffff"/>
+                        <Avatar label="U" class="p-mr-2" style="background-color:#9c27b0; color: #ffffff" />
+                    </div>
+                </div>
+
+                <div class="p-col-12 p-md-4">
+                    <div class="card">
+                        <h5>Label - Circle</h5>
+                        <Avatar label="P" class="p-mr-2" size="xlarge" shape="circle" />
+                        <Avatar label="V" class="p-mr-2" size="large" style="background-color:#2196F3; color: #ffffff" shape="circle"  />
+                        <Avatar label="U" class="p-mr-2" style="background-color:#9c27b0; color: #ffffff" shape="circle"  />
+                    </div>
+                </div>
+
+                <div class="p-col-12 p-md-4">
+                    <div class="card">
+                        <h5>Label - Badge</h5>
+                        <Avatar label="U" size="xlarge" style="background-color:#4caf4f; color: #ffffff" v-badge="4" />
+                    </div>
+                </div>
+            </div>
+           
+            <div class="p-grid">
+                <div class="p-col-12 p-md-4">
+                    <div class="card">
+                        <h5>Icon</h5>
+                        <Avatar icon="pi pi-user" class="p-mr-2" size="xlarge" />
+                        <Avatar icon="pi pi-user" class="p-mr-2" size="large" style="background-color:#2196F3; color: #ffffff"/>
+                        <Avatar icon="pi pi-user" class="p-mr-2" style="background-color:#9c27b0; color: #ffffff" />
+                    </div>
+                </div>
+
+                <div class="p-col-12 p-md-4">
+                    <div class="card">
+                        <h5>Icon - Circle</h5>
+                        <Avatar icon="pi pi-user" class="p-mr-2" size="xlarge" shape="circle" />
+                        <Avatar icon="pi pi-user" class="p-mr-2" size="large" style="background-color:#2196F3; color: #ffffff" shape="circle" />
+                        <Avatar icon="pi pi-user" class="p-mr-2" style="background-color:#9c27b0; color: #ffffff" shape="circle" />
+                    </div>
+                </div>
+
+                 <div class="p-col-12 p-md-4">
+                    <div class="card">
+                        <h5>Icon - Badge</h5>
+                        <Avatar icon="pi pi-user" size="xlarge" v-badge="4"/>
+                    </div>
+                </div>
+            </div>
+
+            <div class="p-grid">
+                <div class="p-col-12 p-md-4">
+                    <div class="card">
+                        <h5>Image</h5>
+                        <Avatar image="https://www.primefaces.org/wp-content/uploads/2020/05/placeholder.png"  class="p-mr-2" size="xlarge" shape="circle" />
+                        <Avatar image="https://www.primefaces.org/wp-content/uploads/2020/05/placeholder.png" class="p-mr-2" size="large" shape="circle" />
+                        <Avatar image="https://www.primefaces.org/wp-content/uploads/2020/05/placeholder.png" class="p-mr-2" shape="circle" />
+                    </div>
+                </div>
+
+                <div class="p-col-12 p-md-4">
+                    <div class="card">
+                        <h5>Avatar Group</h5>
+                        <AvatarGroup class="p-mb-3">
+                            <Avatar image="https://www.primefaces.org/wp-content/uploads/2020/05/placeholder.png" size="large" shape="circle"/>
+                            <Avatar image="https://www.primefaces.org/wp-content/uploads/2020/05/placeholder.png" size="large" shape="circle"/>
+                            <Avatar image="https://www.primefaces.org/wp-content/uploads/2020/05/placeholder.png" size="large" shape="circle"/>
+                            <Avatar image="https://www.primefaces.org/wp-content/uploads/2020/05/placeholder.png" size="large" shape="circle"/>
+                            <Avatar image="https://www.primefaces.org/wp-content/uploads/2020/05/placeholder.png" size="large" shape="circle"/>
+                            <Avatar label="+2" shape="circle" size="large" style="background-color:#9c27b0; color: #ffffff" />
+                        </AvatarGroup>
+                    </div>
+                </div>
+
+                 <div class="p-col-12 p-md-4">
+                    <div class="card">
+                        <h5>Image - Badge</h5>
+                        <Avatar image="https://www.primefaces.org/wp-content/uploads/2020/05/placeholder.png" size="xlarge" v-badge.danger="4" />
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</template>
+
+<script>
+export default {
+}`
+				}
+			}
+		}
+	},
+	components: {
+		LiveEditor
+	}
+}
+</script>

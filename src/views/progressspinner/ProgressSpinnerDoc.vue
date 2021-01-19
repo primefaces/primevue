@@ -107,9 +107,12 @@ import ProgressSpinner from 'primevue/progressspinner';
 			</TabPanel>
 
 			<TabPanel header="Source">
-				<a href="https://github.com/primefaces/primevue/tree/master/src/views/progressspinner" class="btn-viewsource" target="_blank" rel="noopener noreferrer">
-					<span>View on GitHub</span>
-				</a>
+                <div class="p-d-flex p-jc-between">
+                    <a href="https://github.com/primefaces/primevue/tree/master/src/views/progressspinner" class="btn-viewsource" target="_blank" rel="noopener noreferrer">
+                        <span>View on GitHub</span>
+                    </a>
+                    <LiveEditor name="ProgressSpinnerDemo" :sources="sources" />
+                </div>
 <pre v-code>
 <code><template v-pre>
 &lt;h3&gt;Basic&lt;/h3&gt;
@@ -123,3 +126,37 @@ import ProgressSpinner from 'primevue/progressspinner';
 		</TabView>
 	</div>
 </template>
+
+<script>
+import LiveEditor from '../liveeditor/LiveEditor';
+export default {
+    data() {
+        return {
+            sources: {
+                'template': {
+                    content: `<template>
+    <div class="layout-content">
+        <div class="content-section implementation">
+            <div class="card">
+                <h5>Basic</h5>
+                <ProgressSpinner />
+
+                <h5>Custom</h5>
+                <ProgressSpinner style="width:50px;height:50px" strokeWidth="8" fill="#EEEEEE" animationDuration=".5s"/>
+            </div>
+        </div>
+    </div>
+</template>
+
+<script>
+export default {
+}`
+                }
+            }
+        }
+    },
+    components: {
+        LiveEditor
+    }
+}
+</script>

@@ -118,9 +118,12 @@ data() {
 			</TabPanel>
 
 			<TabPanel header="Source">
+				<div class="p-d-flex p-jc-between">
 				<a href="https://github.com/primefaces/primevue/tree/master/src/views/progressbar" class="btn-viewsource" target="_blank" rel="noopener noreferrer">
 					<span>View on GitHub</span>
 				</a>
+				<LiveEditor name="ProgressBarDemo" :sources="sources" />
+				</div>
 <pre v-code>
 <code><template v-pre>
 &lt;h3&gt;Dynamic&lt;/h3&gt;
@@ -172,3 +175,68 @@ export default {
 		</TabView>
 	</div>
 </template>
+
+<script>
+import LiveEditor from '../liveeditor/LiveEditor';
+export default {
+	data() {
+		return {
+			sources: {
+				'template': {
+					content: `<template>
+    <div class="layout-content">
+        <div class="content-section implementation">
+            <div class="card">
+                <h5>Dynamic</h5>
+                <ProgressBar :value="value1" />
+
+                <h5>Static</h5>
+                <ProgressBar :value="value2" :showValue="false" />
+
+                <h5>Indeterminate</h5>
+                <ProgressBar mode="indeterminate" style="height: .5em" />
+            </div>
+        </div>
+    </div>
+</template>
+
+<script>
+export default {
+    data() {
+        return {
+            value1: 0,
+            value2: 50
+        }
+    },
+    interval: null,
+    methods: {
+        startProgress() {
+            this.interval = setInterval(() => {
+                let newValue = this.value1 + Math.floor(Math.random() * 10) + 1;
+                if (newValue >= 100) {
+                    newValue = 100;
+                }
+                this.value1 = newValue;
+            }, 2000);
+        },
+        endProgress() {
+            clearInterval(this.interval);
+            this.interval = null;
+        }
+    },
+    mounted() {
+        this.startProgress();
+    },
+    beforeUnmount() {
+        this.endProgress();
+    }
+}`
+				}
+			}
+		}
+	},
+	components: {
+		LiveEditor
+	}
+}
+</script>
