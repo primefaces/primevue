@@ -1803,13 +1803,13 @@
 }
 
 .p-button.p-button-link {
-  color: transparent;
+  color: #CE93D8;
   background: transparent;
   border: transparent;
 }
 .p-button.p-button-link:enabled:hover {
   background: transparent;
-  color: transparent;
+  color: #CE93D8;
   border-color: transparent;
 }
 .p-button.p-button-link:enabled:hover .p-button-label {
@@ -1822,7 +1822,7 @@
 }
 .p-button.p-button-link:enabled:active {
   background: transparent;
-  color: transparent;
+  color: #CE93D8;
   border-color: transparent;
 }
 
