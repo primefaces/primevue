@@ -239,7 +239,7 @@ app.use(PrimeVue, {ripple: true});
             <p>An <a href="https://github.com/primefaces/primevue-quickstart">example application</a> based on Vue CLI is available at github.</p>
 
             <h5>Quickstart with Vite</h5>
-            <p>A <a href="https://github.com/primefaces/primevue-quickstart-vite">start application</a> is also provided for Vite users.</p>
+            <p>A <a href="https://github.com/primefaces/primevue-quickstart-vite">starter application</a> is also provided for Vite users.</p>
 
             <h5>Typescript</h5>
             <p>Typescript is fully supported as type definition files are provided in the npm package of PrimeVue. A sample <a href="https://github.com/primefaces/primevue-typescript-quickstart">typescript-primevue</a> application with Vue CLI is available as at github.</p>
