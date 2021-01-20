@@ -130,14 +130,22 @@ export default {
 ${style}`   
             }
 
-            if(name !== 'FloatLabelDemo') {
-                importElement += `import ${name.slice(0, -4)} from "primevue/${name.slice(0, -4).toLowerCase()}";`;
-            }
+            let mittComponents = ['ToastDemo', 'OrganizationChartDemo', 'ConfirmDialogDemo', 'ConfirmPopupDemo', 'TerminalDemo', 'SplitButton', 'DeferredContentDemo', 'OverlayPanelDemo', 'FileUploadDemo'];
 
-            if(name === 'ToastDemo'){
-                imports += `import ToastService from "primevue/toastservice";
+            mittComponents.forEach(cmp => {
+                if(name === cmp) {
+                    extDependencies['mitt'] = "^2.1.0";
+                    imports += `import ToastService from "primevue/toastservice";
 `;
-                directives += `app.use(ToastService);
+                    directives += `app.use(ToastService);
+`;
+                }
+            });
+
+            if(name === 'ConfirmDialogDemo' || name === 'ConfirmPopupDemo') {
+                imports += `import ConfirmationService from "primevue/confirmationservice";
+`;
+                directives += `app.use(ConfirmationService);
 `;
             }
 
@@ -161,8 +169,12 @@ ${style}`
                 })
             } 
 
-            if(name !== 'TooltipDemo' && name !== 'RippleDemo' && name !== 'FloatLabelDemo') {
+            if(name !== 'TooltipDemo' && name !== 'RippleDemo' && name !== 'FloatLabelDemo' && name !== 'InputGroupDemo' && name !== 'InvalidDemo' && name !== 'FormLayoutDemo') {
                 element += `app.component("${name.slice(0, -4)}", ${name.slice(0, -4)});`;
+            }
+
+            if(name !== 'FloatLabelDemo' && name !== 'InputGroupDemo' && name !== 'InvalidDemo' && name !== 'FormLayoutDemo') {
+                importElement += `import ${name.slice(0, -4)} from "primevue/${name.slice(0, -4).toLowerCase()}";`;
             }
 
             if(name === 'TooltipDemo' || name === 'RippleDemo'){
@@ -499,8 +511,6 @@ ${services[this.service]}
             if(name === 'ChartDemo') {
                 extDependencies['chart.js'] = "2.7.3";
             }
-
-            let mittComponents = ['ToastDemo', 'OrganizationChartDemo', 'ConfirmDialogDemo', 'ConfirmPopupDemo', 'TerminalDemo'];
 
             mittComponents.forEach(cmp => {
                 if(name === cmp) {
