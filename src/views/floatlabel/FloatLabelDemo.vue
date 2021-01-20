@@ -25,7 +25,7 @@
                         </span>
                     </div>
                     <div class="p-field p-col-12 p-md-4">
-                       <span class="p-float-label p-input-icon-left">
+                       <span class="p-float-label p-input-icon-right">
                             <i class="pi pi-search" />
                             <InputText id="inputtext-right" type="text" v-model="valueIconRight" />
                             <label for="inputtext-right">Right Icon</label>
@@ -358,6 +358,8 @@ export default {
             value8: null,
             value9: null,
             value10: null,
+            valueIconLeft: null,
+            valueIconRight: null,
             selectedCity: null,
             cascadeCountries: [
                 {
