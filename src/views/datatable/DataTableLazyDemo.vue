@@ -116,13 +116,11 @@ export default {
         loadLazyData() {
             this.loading = true;
 
-            setTimeout(() => {
-                this.customerService.getCustomers({lazyEvent: JSON.stringify( this.lazyParams )}).then(data => {
-                    this.customers = data.customers;
-                    this.totalRecords = data.totalRecords;
-                    this.loading = false;
-                });
-            }, 1000);
+            this.customerService.getCustomers({lazyEvent: JSON.stringify( this.lazyParams )}).then(data => {
+                this.customers = data.customers;
+                this.totalRecords = data.totalRecords;
+                this.loading = false;
+            });
         },
         onPage(event) {
             this.lazyParams = event;
@@ -194,13 +192,11 @@ export default {
         loadLazyData() {
             this.loading = true;
 
-            setTimeout(() => {
-                this.customerService.getCustomers({lazyEvent: JSON.stringify( this.lazyParams )}).then(data => {
-                    this.customers = data.customers;
-                    this.totalRecords = data.totalRecords;
-                    this.loading = false;
-                });
-            }, 1000);
+            this.customerService.getCustomers({lazyEvent: JSON.stringify( this.lazyParams )}).then(data => {
+                this.customers = data.customers;
+                this.totalRecords = data.totalRecords;
+                this.loading = false;
+            });
         },
         onPage(event) {
             this.lazyParams = event;
