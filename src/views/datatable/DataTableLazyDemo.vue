@@ -113,7 +113,7 @@ export default {
         this.lazyFilters = filters;
     },
     methods: {
-        onLazyEvent(event) {
+        loadLazyData(event) {
             const proxyFilters = JSON.parse(JSON.stringify(this.filters));
             for(let filter in proxyFilters) {
                 this.lazyFilters[filter].value = proxyFilters[filter] || null;
@@ -137,10 +137,10 @@ export default {
             }, 1000);
         },
         onPage(event) {
-            this.onLazyEvent(event);
+            this.loadLazyData(event);
         },
         onSort(event) {
-            this.onLazyEvent(event);
+            this.loadLazyData(event);
         },
         onFilter(event) {
             if(event.keyCode === 13) {
@@ -220,7 +220,7 @@ export default {
         this.lazyFilters = filters;
     },
     methods: {
-        onLazyEvent(event) {
+        loadLazyData(event) {
             const proxyFilters = JSON.parse(JSON.stringify(this.filters));
             for(let filter in proxyFilters) {
                 this.lazyFilters[filter].value = proxyFilters[filter] || null;
@@ -244,10 +244,10 @@ export default {
             }, 1000);
         },
         onPage(event) {
-            this.onLazyEvent(event);
+            this.loadLazyData(event);
         },
         onSort(event) {
-            this.onLazyEvent(event);
+            this.loadLazyData(event);
         },
         onFilter(event) {
             if(event.keyCode === 13) {
