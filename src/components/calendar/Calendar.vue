@@ -2176,6 +2176,9 @@ export default {
         },
         weekHeaderLabel() {
             return this.$primevue.config.locale.weekHeader;
+        },
+        monthNames() {
+            return this.$primevue.config.locale.monthNames;
         }
     },
     components: {
