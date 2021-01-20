@@ -1,6 +1,7 @@
 export declare function useConfirm(): { 
     require(args:{ 
         message?: string;
+        target?: EventTarget;
         group?: string;
         icon?: string;
         header?: string;
