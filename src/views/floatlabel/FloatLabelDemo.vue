@@ -18,6 +18,20 @@
                         </span>
                     </div>
                     <div class="p-field p-col-12 p-md-4">
+                        <span class="p-float-label p-input-icon-left">
+                            <i class="pi pi-search" />
+                            <InputText id="inputtext-left" type="text" v-model="valueIconLeft" />
+                            <label for="inputtext-left">Left Icon</label>
+                        </span>
+                    </div>
+                    <div class="p-field p-col-12 p-md-4">
+                       <span class="p-float-label p-input-icon-left">
+                            <i class="pi pi-search" />
+                            <InputText id="inputtext-right" type="text" v-model="valueIconRight" />
+                            <label for="inputtext-right">Right Icon</label>
+                        </span>
+                    </div>
+                    <div class="p-field p-col-12 p-md-4">
                         <span class="p-float-label">
                             <AutoComplete v-model="value2" :suggestions="filteredCountries" @complete="searchCountry($event)" field="name" />
                             <label for="autocomplete">AutoComplete</label>
@@ -58,6 +72,13 @@
                             </span>
                         </div>
                     </div>
+                     <div class="p-field p-col-12 p-md-4">
+                        <span class="p-float-label">
+                            <CascadeSelect id="cascadeSelect" v-model="selectedCity" :options="cascadeCountries" optionLabel="cname" optionGroupLabel="name"
+                                :optionGroupChildren="['states', 'cities']" />
+                            <label for="multiselect">CascadeSelect</label>
+                        </span>
+                    </div>
                     <div class="p-field p-col-12 p-md-4">
                         <span class="p-float-label">
                             <Dropdown id="dropdown" v-model="value8" :options="cities" optionLabel="name" />
@@ -70,7 +91,7 @@
                             <label for="multiselect">MultiSelect</label>
                         </span>
                     </div>
-                    <div class="p-field p-col-12 p-md-4">
+                    <div class="p-field p-col-12">
                         <span class="p-float-label">
                             <Textarea id="textarea" v-model="value10" rows="3" />
                             <label for="textarea">Textarea</label>
@@ -90,6 +111,20 @@
         &lt;span class="p-float-label"&gt;
             &lt;InputText id="inputtext" type="text" v-model="value1" /&gt;
             &lt;label for="inputtext"&gt;InputText&lt;/label&gt;
+        &lt;/span&gt;
+    &lt;/div&gt;
+    &lt;div class="p-field p-col-12 p-md-4"&gt;
+        &lt;span class="p-float-label p-input-icon-left"&gt;
+            &lt;i class="pi pi-search" /&gt;
+            &lt;InputText id="inputtext-left" type="text" v-model="valueIconLeft" /&gt;
+            &lt;label for="inputtext-left"&gt;Left Icon&lt;/label&gt;
+        &lt;/span&gt;
+    &lt;/div&gt;
+    &lt;div class="p-field p-col-12 p-md-4"&gt;
+        &lt;span class="p-float-label p-input-icon-left"&gt;
+            &lt;i class="pi pi-search" /&gt;
+            &lt;InputText id="inputtext-right" type="text" v-model="valueIconRight" /&gt;
+            &lt;label for="inputtext-right"&gt;Right Icon&lt;/label&gt;
         &lt;/span&gt;
     &lt;/div&gt;
     &lt;div class="p-field p-col-12 p-md-4"&gt;
@@ -133,6 +168,13 @@
             &lt;/span&gt;
         &lt;/div&gt;
     &lt;/div&gt;
+        &lt;div class="p-field p-col-12 p-md-4"&gt;
+        &lt;span class="p-float-label"&gt;
+            &lt;CascadeSelect id="cascadeSelect" v-model="selectedCity" :options="cascadeCountries" optionLabel="cname" optionGroupLabel="name"
+                :optionGroupChildren="['states', 'cities']" /&gt;
+            &lt;label for="multiselect"&gt;CascadeSelect&lt;/label&gt;
+        &lt;/span&gt;
+    &lt;/div&gt;
     &lt;div class="p-field p-col-12 p-md-4"&gt;
         &lt;span class="p-float-label"&gt;
             &lt;Dropdown id="dropdown" v-model="value8" :options="cities" optionLabel="name" /&gt;
@@ -145,12 +187,13 @@
             &lt;label for="multiselect"&gt;MultiSelect&lt;/label&gt;
         &lt;/span&gt;
     &lt;/div&gt;
-    &lt;div class="p-field p-col-12 p-md-4"&gt;
+    &lt;div class="p-field p-col-12"&gt;
         &lt;span class="p-float-label"&gt;
             &lt;Textarea id="textarea" v-model="value10" rows="3" /&gt;
             &lt;label for="textarea"&gt;Textarea&lt;/label&gt;
         &lt;/span&gt;
     &lt;/div&gt;
+&lt;/div&gt;
 &lt;/div&gt;
 </template>
 </code></pre>
@@ -180,7 +223,84 @@ export default {
             value7: null,
             value8: null,
             value9: null,
-            value10: null
+            value10: null,
+            selectedCity: null,
+            cascadeCountries: [
+                {
+                    name: 'Australia',
+                    code: 'AU',
+                    states: [
+                        {
+                            name: 'New South Wales',
+                            cities: [
+                                {cname: 'Sydney', code: 'A-SY'},
+                                {cname: 'Newcastle', code: 'A-NE'},
+                                {cname: 'Wollongong', code: 'A-WO'}
+                            ]
+                        },
+                        {
+                            name: 'Queensland',
+                            cities: [
+                                {cname: 'Brisbane', code: 'A-BR'},
+                                {cname: 'Townsville', code: 'A-TO'}
+                            ]
+                        },
+                        
+                    ]
+                },
+                {
+                    name: 'Canada', 
+                    code: 'CA',
+                    states: [
+                        {
+                            name: 'Quebec',
+                            cities: [
+                                {cname: 'Montreal', code: 'C-MO'},
+                                {cname: 'Quebec City', code: 'C-QU'}
+                            ]
+                        },
+                        {
+                            name: 'Ontario',
+                            cities: [
+                                {cname: 'Ottawa', code: 'C-OT'},
+                                {cname: 'Toronto', code: 'C-TO'}
+                            ]
+                        },
+                        
+                    ]
+                },
+                {
+                    name: 'United States',
+                    code: 'US',
+                    states: [
+                        {
+                            name: 'California',
+                            cities: [
+                                {cname: 'Los Angeles', code: 'US-LA'},
+                                {cname: 'San Diego', code: 'US-SD'},
+                                {cname: 'San Francisco', code: 'US-SF'}
+                            ]
+                        },
+                        {
+                            name: 'Florida',
+                            cities: [
+                                {cname: 'Jacksonville', code: 'US-JA'},
+                                {cname: 'Miami', code: 'US-MI'},
+                                {cname: 'Tampa', code: 'US-TA'},
+                                {cname: 'Orlando', code: 'US-OR'}
+                            ]
+                        },
+                        {
+                            name: 'Texas',
+                            cities: [
+                                {cname: 'Austin', code: 'US-AU'},
+                                {cname: 'Dallas', code: 'US-DA'},
+                                {cname: 'Houston', code: 'US-HO'}
+                            ]
+                        }
+                    ]
+                }
+            ]
         }
     },
     countryService: null,
@@ -237,7 +357,84 @@ export default {
             value7: null,
             value8: null,
             value9: null,
-            value10: null
+            value10: null,
+            selectedCity: null,
+            cascadeCountries: [
+                {
+                    name: 'Australia',
+                    code: 'AU',
+                    states: [
+                        {
+                            name: 'New South Wales',
+                            cities: [
+                                {cname: 'Sydney', code: 'A-SY'},
+                                {cname: 'Newcastle', code: 'A-NE'},
+                                {cname: 'Wollongong', code: 'A-WO'}
+                            ]
+                        },
+                        {
+                            name: 'Queensland',
+                            cities: [
+                                {cname: 'Brisbane', code: 'A-BR'},
+                                {cname: 'Townsville', code: 'A-TO'}
+                            ]
+                        },
+                        
+                    ]
+                },
+                {
+                    name: 'Canada', 
+                    code: 'CA',
+                    states: [
+                        {
+                            name: 'Quebec',
+                            cities: [
+                                {cname: 'Montreal', code: 'C-MO'},
+                                {cname: 'Quebec City', code: 'C-QU'}
+                            ]
+                        },
+                        {
+                            name: 'Ontario',
+                            cities: [
+                                {cname: 'Ottawa', code: 'C-OT'},
+                                {cname: 'Toronto', code: 'C-TO'}
+                            ]
+                        },
+                        
+                    ]
+                },
+                {
+                    name: 'United States',
+                    code: 'US',
+                    states: [
+                        {
+                            name: 'California',
+                            cities: [
+                                {cname: 'Los Angeles', code: 'US-LA'},
+                                {cname: 'San Diego', code: 'US-SD'},
+                                {cname: 'San Francisco', code: 'US-SF'}
+                            ]
+                        },
+                        {
+                            name: 'Florida',
+                            cities: [
+                                {cname: 'Jacksonville', code: 'US-JA'},
+                                {cname: 'Miami', code: 'US-MI'},
+                                {cname: 'Tampa', code: 'US-TA'},
+                                {cname: 'Orlando', code: 'US-OR'}
+                            ]
+                        },
+                        {
+                            name: 'Texas',
+                            cities: [
+                                {cname: 'Austin', code: 'US-AU'},
+                                {cname: 'Dallas', code: 'US-DA'},
+                                {cname: 'Houston', code: 'US-HO'}
+                            ]
+                        }
+                    ]
+                }
+            ]
         }
     },
     countryService: null,
