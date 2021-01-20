@@ -54,7 +54,7 @@ export default {
     mask: null,
     maskClickListener: null,
     beforeUnmount() {
-        this.unbindMaskClickListener();
+        this.destroyModal();
     },
     methods: {
         hide() {
@@ -104,10 +104,7 @@ export default {
             if (this.mask) {
                 DomHandler.addClass(this.mask, 'p-sidebar-mask-leave');
                 this.mask.addEventListener('transitionend', () => {
-                    this.unbindMaskClickListener();
-                    document.body.removeChild(this.mask);
-                    DomHandler.removeClass(document.body, 'p-overflow-hidden');
-                    this.mask = null;
+                    this.destroyModal();
                 });
             }
         },
@@ -123,6 +120,14 @@ export default {
             if (this.maskClickListener) {
                 this.mask.removeEventListener('click', this.maskClickListener);
                 this.maskClickListener = null;
+            }
+        },
+        destroyModal() {
+            if (this.mask) {
+                this.unbindMaskClickListener();
+                document.body.removeChild(this.mask);
+                DomHandler.removeClass(document.body, 'p-overflow-hidden');
+                this.mask = null;
             }
         }
     },
