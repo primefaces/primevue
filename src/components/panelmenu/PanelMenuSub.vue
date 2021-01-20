@@ -20,7 +20,7 @@
                     </div>
                 </transition>
             </li>
-            <li class="p-menu-separator" :style="item.style" v-if="visible(item) && item.separator" :key="'separator' + i"></li>
+            <li :class="['p-menu-separator', item.class]" :style="item.style" v-if="visible(item) && item.separator" :key="'separator' + i"></li>
         </template>
     </ul>
 </template>
