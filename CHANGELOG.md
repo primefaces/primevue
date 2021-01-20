@@ -1,5 +1,32 @@
 # Changelog
 
+## [3.2.0-rc.1](https://github.com/primefaces/primevue/tree/3.2.0-rc.1) (2021-01-20)
+
+[Full Changelog](https://github.com/primefaces/primevue/compare/3.1.2...3.2.0-rc.1)
+
+**Implemented New Features and Enhancements:**
+
+- New Lazy DataTable Demo with Remote Source [\#862](https://github.com/primefaces/primevue/issues/862)
+- state-save and state-restore events for Table [\#850](https://github.com/primefaces/primevue/issues/850)
+- File Upload cant disable and hide Upload & Cancel  [\#821](https://github.com/primefaces/primevue/issues/821)
+- Vite Compatibility [\#581](https://github.com/primefaces/primevue/issues/581)
+
+**Fixed bugs:**
+
+- Improve float label support in overlay selects [\#871](https://github.com/primefaces/primevue/issues/871)
+- Sidebar Mask not being removed from DOM on close [\#869](https://github.com/primefaces/primevue/issues/869)
+- "Clear" button in Calendar wrongly labeled [\#863](https://github.com/primefaces/primevue/issues/863)
+- ConfirmPopup : useConfirm define target is missing in ts [\#859](https://github.com/primefaces/primevue/issues/859)
+- Autocomplete crashes when "field" property is a function [\#858](https://github.com/primefaces/primevue/issues/858)
+- p-button-link not visible in Material Design themes [\#852](https://github.com/primefaces/primevue/issues/852)
+- Textarea autoresize does not respect its border [\#847](https://github.com/primefaces/primevue/issues/847)
+- Calender monthNavigator error monthNames [\#845](https://github.com/primefaces/primevue/issues/845)
+- Knob replaceAll causes issue with nuxt SSR [\#844](https://github.com/primefaces/primevue/issues/844)
+- Slider incorrectly positions handle when using mixed-sign min/max [\#826](https://github.com/primefaces/primevue/issues/826)
+- MenuItem: class does not apply to separator item [\#814](https://github.com/primefaces/primevue/issues/814)
+- \[Bug\] Error import ScrollTop component [\#799](https://github.com/primefaces/primevue/issues/799)
+- PrimeVue 3 getting started script tag example not working [\#732](https://github.com/primefaces/primevue/issues/732)
+
 ## [3.1.2](https://github.com/primefaces/primevue/tree/3.1.2) (2021-01-13)
 
 [Full Changelog](https://github.com/primefaces/primevue/compare/3.1.1...3.1.2)
