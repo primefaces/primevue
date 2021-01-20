@@ -120,7 +120,7 @@
             "meta": ["primeicons"],
             "children": [
                 {
-                    "name": "Icons v4.0",
+                    "name": "Icons v4.1",
                     "to": "/icons"
                 }
             ]
