@@ -434,7 +434,7 @@ export default {
                     'p-disabled': this.disabled,
                     'p-focus': this.focused,
                     'p-inputwrapper-filled': this.modelValue && this.modelValue.length,
-                    'p-inputwrapper-focus': this.focused
+                    'p-inputwrapper-focus': this.focused || this.overlayVisible
                 }
             ];
         },
