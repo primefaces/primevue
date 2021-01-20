@@ -130,14 +130,17 @@ export default {
 ${style}`   
             }
 
-            let mittComponents = ['ToastDemo', 'OrganizationChartDemo', 'ConfirmDialogDemo', 'ConfirmPopupDemo', 'TerminalDemo', 'SplitButton', 'DeferredContentDemo', 'OverlayPanelDemo', 'FileUploadDemo'];
+            let mittComponents = ['ToastDemo', 'OrganizationChartDemo', 'ConfirmDialogDemo', 'ConfirmPopupDemo', 'TerminalDemo', 'SplitButtonDemo', 'DeferredContentDemo', 'OverlayPanelDemo', 'FileUploadDemo'];
 
             mittComponents.forEach(cmp => {
                 if(name === cmp) {
                     extDependencies['mitt'] = "^2.1.0";
-                    imports += `import ToastService from "primevue/toastservice";
+                    imports += `import Toast from "primevue/toast";
+import ToastService from "primevue/toastservice";
 `;
                     directives += `app.use(ToastService);
+`;
+                    components += `app.component("Toast", Toast);
 `;
                 }
             });
@@ -169,11 +172,11 @@ ${style}`
                 })
             } 
 
-            if(name !== 'TooltipDemo' && name !== 'RippleDemo' && name !== 'FloatLabelDemo' && name !== 'InputGroupDemo' && name !== 'InvalidDemo' && name !== 'FormLayoutDemo') {
+            if(name !== 'ToastDemo' && name !== 'TooltipDemo' && name !== 'RippleDemo' && name !== 'FloatLabelDemo' && name !== 'InputGroupDemo' && name !== 'InvalidDemo' && name !== 'FormLayoutDemo') {
                 element += `app.component("${name.slice(0, -4)}", ${name.slice(0, -4)});`;
             }
 
-            if(name !== 'FloatLabelDemo' && name !== 'InputGroupDemo' && name !== 'InvalidDemo' && name !== 'FormLayoutDemo') {
+            if(name !== 'ToastDemo' && name !== 'FloatLabelDemo' && name !== 'InputGroupDemo' && name !== 'InvalidDemo' && name !== 'FormLayoutDemo') {
                 importElement += `import ${name.slice(0, -4)} from "primevue/${name.slice(0, -4).toLowerCase()}";`;
             }
 
