@@ -16,22 +16,22 @@
                     :totalRecords="totalRecords" :loading="loading" @page="onPage($event)" @sort="onSort($event)">
                     <Column field="name" header="Name" filterMatchMode="startsWith" ref="name" :sortable="true">  
                         <template #filter>
-                            <InputText type="text" v-model="filters['name']" @keydown="onFilter($event)" class="p-column-filter" placeholder="Search by name"/>
+                            <InputText type="text" v-model="filters['name']['value']" @keydown="onFilter($event)" class="p-column-filter" placeholder="Search by name"/>
                         </template>                    
                     </Column>
                     <Column field="country.name" header="Country" filterField="country.name" filterMatchMode="contains" ref="country.name" :sortable="true">
                         <template #filter>
-                            <InputText type="text" v-model="filters['country.name']" @keydown="onFilter($event)" class="p-column-filter" placeholder="Search by country"/>
+                            <InputText type="text" v-model="filters['country.name']['value']" @keydown="onFilter($event)" class="p-column-filter" placeholder="Search by country"/>
                         </template>
                     </Column>
                     <Column field="company" header="Company" filterMatchMode="contains" ref="company" :sortable="true">
                         <template #filter>
-                            <InputText type="text" v-model="filters['company']" @keydown="onFilter($event)" class="p-column-filter" placeholder="Search by company"/>
+                            <InputText type="text" v-model="filters['company']['value']" @keydown="onFilter($event)" class="p-column-filter" placeholder="Search by company"/>
                         </template>
                     </Column>
                     <Column field="representative.name" header="Representative" filterField="representative.name" ref="representative.name" :sortable="true">
                         <template #filter>
-                            <InputText type="text" v-model="filters['representative.name']" @keydown="onFilter($event)" class="p-column-filter" placeholder="Search by representative"/>
+                            <InputText type="text" v-model="filters['representative.name']['value']" @keydown="onFilter($event)" class="p-column-filter" placeholder="Search by representative"/>
                         </template>
                     </Column>
                 </DataTable>
@@ -44,25 +44,26 @@
 <pre v-code>
 <code><template v-pre>
 &lt;DataTable :value="customers" :lazy="true" :paginator="true" :rows="10" :filters="filters" ref="dt"
+&lt;DataTable :value="customers" :lazy="true" :paginator="true" :rows="10" :filters="filters" ref="dt"
     :totalRecords="totalRecords" :loading="loading" @page="onPage($event)" @sort="onSort($event)"&gt;
-    &lt;Column field="name" header="Name" filterMatchMode="startsWith" ref="name" :sortable="true"&gt;
+    &lt;Column field="name" header="Name" filterMatchMode="startsWith" ref="name" :sortable="true"&gt;  
         &lt;template #filter&gt;
-            &lt;InputText type="text" v-model="filters['name']" @keydown="onFilter($event)" class="p-column-filter" placeholder="Search by name"/&gt;
-        &lt;/template&gt;
+            &lt;InputText type="text" v-model="filters['name']['value']" @keydown="onFilter($event)" class="p-column-filter" placeholder="Search by name"/&gt;
+        &lt;/template&gt;                    
     &lt;/Column&gt;
     &lt;Column field="country.name" header="Country" filterField="country.name" filterMatchMode="contains" ref="country.name" :sortable="true"&gt;
         &lt;template #filter&gt;
-            &lt;InputText type="text" v-model="filters['country.name']" @keydown="onFilter($event)" class="p-column-filter" placeholder="Search by country"/&gt;
+            &lt;InputText type="text" v-model="filters['country.name']['value']" @keydown="onFilter($event)" class="p-column-filter" placeholder="Search by country"/&gt;
         &lt;/template&gt;
     &lt;/Column&gt;
     &lt;Column field="company" header="Company" filterMatchMode="contains" ref="company" :sortable="true"&gt;
         &lt;template #filter&gt;
-            &lt;InputText type="text" v-model="filters['company']" @keydown="onFilter($event)" class="p-column-filter" placeholder="Search by company"/&gt;
+            &lt;InputText type="text" v-model="filters['company']['value']" @keydown="onFilter($event)" class="p-column-filter" placeholder="Search by company"/&gt;
         &lt;/template&gt;
     &lt;/Column&gt;
-    &lt;Column field="representative.name" header="Representative" filterField="representative.name" filterMatchMode="contains" ref="representative.name" :sortable="true"&gt;
+    &lt;Column field="representative.name" header="Representative" filterField="representative.name" ref="representative.name" :sortable="true"&gt;
         &lt;template #filter&gt;
-            &lt;InputText type="text" v-model="filters['representative.name']" @keydown="onFilter($event)" class="p-column-filter" placeholder="Search by representative"/&gt;
+            &lt;InputText type="text" v-model="filters['representative.name']['value']" @keydown="onFilter($event)" class="p-column-filter" placeholder="Search by representative"/&gt;
         &lt;/template&gt;
     &lt;/Column&gt;
 &lt;/DataTable&gt;
@@ -79,8 +80,13 @@ export default {
             loading: false,
             totalRecords: 0,
             customers: null,
-            filters: {},
-            lazyFilters: {},
+            filters: {
+                'name': {value: '', matchMode: 'contains'},
+                'country.name': {value: '', matchMode: 'contains'},
+                'company': {value: '', matchMode: 'contains'},
+                'representative.name': {value: '', matchMode: 'contains'},
+            },
+            lazyParams: {},
             columns: [
                 {field: 'name', header: 'Name'},
                 {field: 'country.name', header: 'Country'},
@@ -95,41 +101,23 @@ export default {
     },
     mounted() {
         this.loading = true;
+        
+        this.lazyParams = {
+            first: 0,
+            rows: this.$refs.dt.rows,
+            sortField: null,
+            sortOrder: null,
+            filters: this.filters
+        };
 
-        this.customerService.getCustomers({lazyEvent: JSON.stringify({first: 0, rows: this.$refs.dt.rows})}).then(data => {
-            this.customers = data.customers;
-            this.totalRecords = data.totalRecords;
-            this.loading = false;
-        });
-
-        const filters = {};
-        for(let i=0; i &lt; this.columns.length; i++) {
-            let obj = {};
-            obj["matchMode"] = this.$refs[this.columns[i].field].filterMatchMode || "startsWith";
-            obj["value"] = null;
-            filters[this.columns[i].field] = obj;
-        }
-
-        this.lazyFilters = filters;
+        this.loadLazyData();
     },
     methods: {
-        loadLazyData(event) {
-            const proxyFilters = JSON.parse(JSON.stringify(this.filters));
-            for(let filter in proxyFilters) {
-                this.lazyFilters[filter].value = proxyFilters[filter] || null;
-            }
-          
+        loadLazyData() {
             this.loading = true;
-            let params = {
-                first: event.first,
-                rows: event.rows,
-                sortField: event.sortField,
-                sortOrder: event.sortOrder,
-                filters: this.lazyFilters
-            };
 
             setTimeout(() => {
-                this.customerService.getCustomers({lazyEvent: JSON.stringify( params )}).then(data => {
+                this.customerService.getCustomers({lazyEvent: JSON.stringify( this.lazyParams )}).then(data => {
                     this.customers = data.customers;
                     this.totalRecords = data.totalRecords;
                     this.loading = false;
@@ -137,34 +125,18 @@ export default {
             }, 1000);
         },
         onPage(event) {
-            this.loadLazyData(event);
+            this.lazyParams = event;
+            this.loadLazyData();
         },
         onSort(event) {
-            this.loadLazyData(event);
+            this.lazyParams = event;
+            this.loadLazyData();
         },
         onFilter(event) {
-            if(event.keyCode === 13) {
-                const proxyFilters = JSON.parse(JSON.stringify(this.filters));
-                for(let filter in proxyFilters) {
-                    this.lazyFilters[filter].value = proxyFilters[filter] || null;
-                }
-
+            if (event.keyCode === 13) {
                 this.loading = true;
-                let params = {
-                    first: 0,
-                    rows: this.$refs.dt.rows,
-                    sortField: null,
-                    sortOrder: null,
-                    filters: this.lazyFilters
-                };
-
-                setTimeout(() => {
-                    this.customerService.getCustomers({lazyEvent: JSON.stringify( params )}).then(data => {
-                        this.customers = data.customers;
-                        this.totalRecords = data.totalRecords;
-                        this.loading = false;
-                    });
-                }, 1000);
+                this.lazyParams.filters = this.filters;
+                this.loadLazyData();
             }
         }
     }
@@ -186,8 +158,13 @@ export default {
             loading: false,
             totalRecords: 0,
             customers: null,
-            filters: {},
-            lazyFilters: {},
+            filters: {
+                'name': {value: '', matchMode: 'contains'},
+                'country.name': {value: '', matchMode: 'contains'},
+                'company': {value: '', matchMode: 'contains'},
+                'representative.name': {value: '', matchMode: 'contains'},
+            },
+            lazyParams: {},
             columns: [
                 {field: 'name', header: 'Name'},
                 {field: 'country.name', header: 'Country'},
@@ -202,41 +179,23 @@ export default {
     },
     mounted() {
         this.loading = true;
+        
+        this.lazyParams = {
+            first: 0,
+            rows: this.$refs.dt.rows,
+            sortField: null,
+            sortOrder: null,
+            filters: this.filters
+        };
 
-        this.customerService.getCustomers({lazyEvent: JSON.stringify({first: 0, rows: this.$refs.dt.rows})}).then(data => {
-            this.customers = data.customers;
-            this.totalRecords = data.totalRecords;
-            this.loading = false;
-        });
-
-        const filters = {};
-        for(let i=0; i<this.columns.length; i++) {
-            let obj = {};
-            obj["matchMode"] = this.$refs[this.columns[i].field].filterMatchMode || "startsWith";
-            obj["value"] = null;
-            filters[this.columns[i].field] = obj;
-        }
-
-        this.lazyFilters = filters;
+        this.loadLazyData();
     },
     methods: {
-        loadLazyData(event) {
-            const proxyFilters = JSON.parse(JSON.stringify(this.filters));
-            for(let filter in proxyFilters) {
-                this.lazyFilters[filter].value = proxyFilters[filter] || null;
-            }
-          
+        loadLazyData() {
             this.loading = true;
-            let params = {
-                first: event.first,
-                rows: event.rows,
-                sortField: event.sortField,
-                sortOrder: event.sortOrder,
-                filters: this.lazyFilters
-            };
 
             setTimeout(() => {
-                this.customerService.getCustomers({lazyEvent: JSON.stringify( params )}).then(data => {
+                this.customerService.getCustomers({lazyEvent: JSON.stringify( this.lazyParams )}).then(data => {
                     this.customers = data.customers;
                     this.totalRecords = data.totalRecords;
                     this.loading = false;
@@ -244,35 +203,18 @@ export default {
             }, 1000);
         },
         onPage(event) {
-            this.loadLazyData(event);
+            this.lazyParams = event;
+            this.loadLazyData();
         },
         onSort(event) {
-            this.loadLazyData(event);
+            this.lazyParams = event;
+            this.loadLazyData();
         },
         onFilter(event) {
-            if(event.keyCode === 13) {
-                // proxy to object
-                const proxyFilters = JSON.parse(JSON.stringify(this.filters));
-                for(let filter in proxyFilters) {
-                    this.lazyFilters[filter].value = proxyFilters[filter] || null;
-                }
-
+            if (event.keyCode === 13) {
                 this.loading = true;
-                let params = {
-                    first: 0,
-                    rows: this.$refs.dt.rows,
-                    sortField: null,
-                    sortOrder: null,
-                    filters: this.lazyFilters
-                };
-
-                setTimeout(() => {
-                    this.customerService.getCustomers({lazyEvent: JSON.stringify( params )}).then(data => {
-                        this.customers = data.customers;
-                        this.totalRecords = data.totalRecords;
-                        this.loading = false;
-                    });
-                }, 1000);
+                this.lazyParams.filters = this.filters;
+                this.loadLazyData();
             }
         }
     }
