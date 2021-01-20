@@ -3,7 +3,7 @@ import Vue, { VNode } from 'vue';
 declare class AutoComplete extends Vue {
     modelValue?: any;
     suggestions?: any[];
-    field?: string;
+    field?: string|function;
     scrollHeight?: string;
     dropdown?: boolean;
     dropdownMode?: string;
