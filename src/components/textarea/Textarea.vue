@@ -21,8 +21,9 @@ export default {
     },
     methods: {
         resize() {
+            const style = window.getComputedStyle(this.$el);
             this.$el.style.height = 'auto';
-            this.$el.style.height = this.$el.scrollHeight + 'px';
+            this.$el.style.height = `calc(${style.borderTopWidth} + ${style.borderBottomWidth} + ${this.$el.scrollHeight}px)`;
             
             if (parseFloat(this.$el.style.height) >= parseFloat(this.$el.style.maxHeight)) {
                 this.$el.style.overflowY = "scroll";
