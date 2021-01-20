@@ -7,7 +7,7 @@
                         <li class="p-submenu-header" :key="item.label+i" v-if="item.items">{{item.label}}</li>
                         <template v-for="(child, j) of item.items">
                             <Menuitem v-if="visible(child) && !child.separator" :key="child.label + i + j" :item="child" @click="itemClick" />
-                            <li v-else-if="visible(child) && child.separator" :class="['p-menu-separator', item.class]" :style="child.style" :key="'separator' + i + j" role="separator"></li>
+                            <li v-else-if="visible(child) && child.separator" :class="['p-menu-separator', child.class]" :style="child.style" :key="'separator' + i + j" role="separator"></li>
                         </template>
                     </template>
                     <li v-else-if="visible(item) && item.separator" :class="['p-menu-separator', item.class]" :style="item.style" :key="'separator' + i" role="separator"></li>
