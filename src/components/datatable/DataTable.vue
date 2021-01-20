@@ -143,7 +143,7 @@ export default {
     emits: ['update:first', 'update:rows', 'page', 'update:sortField', 'update:sortOrder', 'update:multiSortMeta', 'sort', 'filter', 'row-click',
         'update:selection', 'row-select', 'row-unselect', 'update:contextMenuSelection', 'row-contextmenu', 'row-unselect-all', 'row-select-all',
         'column-resize-end', 'column-reorder', 'row-reorder', 'update:expandedRows', 'row-collapse', 'row-expand',
-        'update:expandedRowGroups', 'rowgroup-collapse', 'rowgroup-expand', 'update:filters', 'virtual-scroll',
+        'update:expandedRowGroups', 'rowgroup-collapse', 'rowgroup-expand', 'update:filters', 'virtual-scroll', 'state-restore', 'state-save',
         'cell-edit-init', 'cell-edit-complete', 'cell-edit-cancel', 'update:editingRows', 'row-edit-init', 'row-edit-save', 'row-edit-cancel'],
     props: {
         value: {
@@ -1488,6 +1488,8 @@ export default {
             if (Object.keys(state).length) {
                 storage.setItem(this.stateKey, JSON.stringify(state));
             }
+
+            this.$emit('state-save', state);
         },
         restoreState() {
             const storage = this.getStorage();
@@ -1536,6 +1538,8 @@ export default {
                     this.d_selectionKeys = restoredState.d_selectionKeys;
                     this.$emit('update:selection', restoredState.selection);
                 }
+
+                this.$emit('state-restore', restoredState);
             }
         },
         saveColumnWidths(state) {
