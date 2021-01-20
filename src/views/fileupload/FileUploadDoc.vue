@@ -215,6 +215,18 @@ myUploader(event) {
                                 <td>false</td>
                                 <td>Whether to use the default upload or a manual implementation defined in uploadHandler callback. Defaults to PrimeVue <router-link to="/locale">Locale</router-link> configuration.</td>
                             </tr>
+							<tr>
+								<td>showUploadButton</td>
+								<td>boolean</td>
+								<td>true</td>
+								<td>Whether to show the upload button.</td>
+							</tr>
+							<tr>
+								<td>showCancelButton</td>
+								<td>boolean</td>
+								<td>true</td>
+								<td>Whether to show the cancel button.</td>
+							</tr>
 						</tbody>
 					</table>
 				</div>
