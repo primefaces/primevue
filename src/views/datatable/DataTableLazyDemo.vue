@@ -207,7 +207,6 @@ export default {
             this.loadLazyData();
         },
         onSort(event) {
-            console.log(event)
             this.lazyParams = event;
             this.loadLazyData();
         },
