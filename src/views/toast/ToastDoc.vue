@@ -369,6 +369,7 @@ export default {
                 'template': {
                     content: ` <template>
     <div class="layout-content">
+        <Toast />
         <div class="content-section implementation">
             <div class="card">
                 <h5>Severities</h5>
