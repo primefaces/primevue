@@ -170,9 +170,12 @@ export default {
 			</TabPanel>
 
 			<TabPanel header="Source">
-				<a href="https://github.com/primefaces/primevue/tree/master/src/views/inplace" class="btn-viewsource" target="_blank" rel="noopener noreferrer">
-					<span>View on GitHub</span>
-				</a>
+                <div class="p-d-flex p-jc-between">
+                <a href="https://github.com/primefaces/primevue/tree/master/src/views/inplace" class="btn-viewsource" target="_blank" rel="noopener noreferrer">
+                    <span>View on GitHub</span>
+                </a>
+                <LiveEditor name="InplaceDemo" :sources="sources" service="ProductService" data="products-small" :components="['InputText', 'DataTable', 'Column']" />
+                </div>
 <pre v-code>
 <code><template v-pre>
 &lt;h3&gt;Input&lt;/h3&gt;
@@ -188,7 +191,7 @@ export default {
 &lt;h3&gt;Image&lt;/h3&gt;
 &lt;Inplace&gt;
     &lt;template #display&gt;
-        &lt;span className="pi pi-search" style="vertical-align: middle"&gt;&lt;/span&gt;
+        &lt;span class="pi pi-search" style="vertical-align: middle"&gt;&lt;/span&gt;
         &lt;span style="margin-left:.5rem; vertical-align: middle"&gt;View Picture&lt;/span&gt;
     &lt;/template&gt;
     &lt;template #content&gt;
@@ -240,3 +243,84 @@ export default {
 		</TabView>
 	</div>
 </template>
+
+<script>
+import LiveEditor from '../liveeditor/LiveEditor';
+export default {
+    data() {
+        return {
+            sources: {
+                'template': {
+                    content: `<template>
+    <div class="layout-content">
+        <div class="content-section implementation">
+            <div class="card">
+                <h5>Input</h5>
+                <Inplace :closable="true">
+                    <template #display>
+                        {{text || 'Click to Edit'}}
+                    </template>
+                    <template #content>
+                        <InputText v-model="text" autoFocus />
+                    </template>
+                </Inplace>
+
+                <h5>Image</h5>
+                <Inplace>
+                    <template #display>
+                        <span class="pi pi-search" style="vertical-align: middle"></span>
+                        <span style="margin-left:.5rem; vertical-align: middle">View Picture</span>
+                    </template>
+                    <template #content>
+                        <img src="https://www.primefaces.org/wp-content/uploads/2020/12/primevue-min.png" width="200" />
+                    </template>
+                </Inplace>
+
+                <h5>Lazy Data</h5>
+                <Inplace @open="loadData">
+                    <template #display>
+                        View Data
+                    </template>
+                    <template #content>
+                        <DataTable :value="products">
+                            <Column field="code" header="Code"></Column>
+                            <Column field="name" header="Name"></Column>
+                            <Column field="category" header="Category"></Column>
+                            <Column field="quantity" header="Quantity"></Column>
+                        </DataTable>
+                    </template>
+                </Inplace>
+            </div>
+        </div>
+    </div>
+</template>
+
+<script>
+import ProductService from '../service/ProductService';
+
+export default {
+     data() {
+        return {
+            text: null,
+            products: null
+        }
+    },
+    productService: null,
+    created() {
+        this.productService = new ProductService();
+    },
+    methods: {
+        loadData() {
+             this.productService.getProductsSmall().then(data => this.products = data);
+        }
+    }
+}`
+                }
+            }
+        }
+    },
+    components: {
+        LiveEditor
+    }
+}
+</script>

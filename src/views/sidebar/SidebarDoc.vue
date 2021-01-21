@@ -213,7 +213,7 @@ import Sidebar from 'primevue/sidebar';
 					<a href="https://github.com/primefaces/primevue/tree/master/src/views/sidebar" class="btn-viewsource" target="_blank" rel="noopener noreferrer">
 						<span>View on GitHub</span>
 					</a>
-					<LiveEditor name="SidebarDemo" :sources="sources" :components="['Button', 'Calendar']"/>
+					<LiveEditor name="SidebarDemo" :sources="sources" :components="['Button']"/>
                 </div>
 <pre v-code>
 <code><template v-pre>
@@ -284,7 +284,6 @@ export default {
 
                 <Sidebar v-model:visible="visibleLeft" :baseZIndex="1000">
                     <h3>Left Sidebar</h3>
-                    <Calendar id="basic" />
                 </Sidebar>
 
                 <Sidebar v-model:visible="visibleRight" :baseZIndex="1000" position="right">

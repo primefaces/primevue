@@ -242,7 +242,7 @@ export default {
 					<a href="https://github.com/primefaces/primevue/tree/master/src/views/timeline" class="btn-viewsource" target="_blank" rel="noopener noreferrer">
 						<span>View on GitHub</span>
 					</a>
-					<LiveEditor name="TimelineDemo" :sources="sources"/>
+					<LiveEditor name="TimelineDemo" :sources="sources" :components="['Card', 'Button']" />
                 </div>
 <pre v-code>
 <code><template v-pre>
@@ -410,6 +410,33 @@ export default {
                     </template>
                     <template #content="slotProps">
                         {{slotProps.item.status}}
+                    </template>
+                </Timeline>
+            </div>
+
+			<div class="card">
+                <h5>Customized</h5>
+                <Timeline :value="events1" align="alternate" class="customized-timeline">
+                     <template #marker="slotProps">
+                        <span class="custom-marker p-shadow-2" :style="{backgroundColor: slotProps.item.color}">
+                            <i :class="slotProps.item.icon"></i>
+                        </span>
+                    </template>
+                    <template #content="slotProps">
+                        <Card>
+                            <template #title>
+                                {{slotProps.item.status}}
+                            </template>
+                            <template #subtitle>
+                                {{slotProps.item.date}}
+                            </template>
+                            <template #content>
+                                <img v-if="slotProps.item.image" src="https://www.primefaces.org/wp-content/uploads/2020/05/placeholder.png" :alt="slotProps.item.name" width="200" class="p-shadow-2" />
+                                <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Inventore sed consequuntur error repudiandae numquam deserunt
+                                    quisquam repellat libero asperiores earum nam nobis, culpa ratione quam perferendis esse, cupiditate neque quas!</p>
+                                <Button label="Read more" class="p-button-text"></Button>
+                            </template>
+                        </Card>
                     </template>
                 </Timeline>
             </div>
