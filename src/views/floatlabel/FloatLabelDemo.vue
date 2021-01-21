@@ -25,7 +25,7 @@
                         </span>
                     </div>
                     <div class="p-field p-col-12 p-md-4">
-                       <span class="p-float-label p-input-icon-left">
+                       <span class="p-float-label p-input-icon-right">
                             <i class="pi pi-search" />
                             <InputText id="inputtext-right" type="text" v-model="valueIconRight" />
                             <label for="inputtext-right">Right Icon</label>
@@ -121,7 +121,7 @@
         &lt;/span&gt;
     &lt;/div&gt;
     &lt;div class="p-field p-col-12 p-md-4"&gt;
-        &lt;span class="p-float-label p-input-icon-left"&gt;
+        &lt;span class="p-float-label p-input-icon-right"&gt;
             &lt;i class="pi pi-search" /&gt;
             &lt;InputText id="inputtext-right" type="text" v-model="valueIconRight" /&gt;
             &lt;label for="inputtext-right"&gt;Right Icon&lt;/label&gt;
