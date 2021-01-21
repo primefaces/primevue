@@ -1,6 +1,11 @@
 <template>
     <span v-if="showEditor">
-        <Button @click="postSandboxParameters()" label="Edit in CodeSandbox" class="liveEditorButton" />
+        <template v-if="!editComposition">
+        <Button @click="postSandboxParameters('core')" label="Edit in CodeSandbox" class="liveEditorButton" />
+        </template>
+        <template v-else>
+            <SplitButton :model="items" label="Edit in CodeSandbox" class="liveEditorSplitButton" />
+        </template>
     </span>
 </template>
 
@@ -10,8 +15,17 @@ export default {
     data() {
         return {
             sandbox_id: null,
-            showCodeHighlight: false
+            showCodeHighlight: false,
+            items: [
+                {label: "Core", command: () => { this.postSandboxParameters('core') }},
+                {label: "Composition API", command: () => { this.postSandboxParameters('api') }}
+            ],
+            editComposition: false
         }
+    },
+    mounted() {
+        if(this.sources.api) this.editComposition = true;
+        else this.editComposition = false;
     },
     props: {
         name: {
@@ -48,14 +62,14 @@ export default {
         }
     },
     methods: {
-        postSandboxParameters() {
+        postSandboxParameters(sourceType) {
             fetch('https://codesandbox.io/api/v1/sandboxes/define?json=1', {
                 method: "POST",
                 headers: {
                     'Content-Type': 'application/json',
                     'Accept': 'application/json'
                 },
-                body: JSON.stringify(this.getSandboxParameters())
+                body: JSON.stringify(this.getSandboxParameters(sourceType))
             })
             .then(response => response.json())
             .then(data => window.open(`https://codesandbox.io/s/${data.sandbox_id}`, '_blank'))
@@ -79,11 +93,16 @@ export default {
                                 'primeflex': dependencies['primeflex'],
                                 'primeicons': 'latest',
                                 '@babel/cli': dependencies['@babel/cli'],
-                                '@vue/cli-plugin-babel': dependencies['@vue/cli-plugin-babel'],
-                                '@vue/cli-service': dependencies['@vue/cli-service'],
-                                '@vue/compiler-sfc': dependencies['@vue/compiler-sfc'],
                                 'core-js': dependencies['core-js']
                             },
+                            devDependencies: {
+                                '@vue/cli-plugin-babel': dependencies['@vue/cli-plugin-babel'],
+                                '@vue/cli-plugin-eslint': dependencies['@vue/cli-plugin-eslint'],
+                                '@vue/cli-service': dependencies['@vue/cli-service'],
+                                '@vue/compiler-sfc': dependencies['@vue/compiler-sfc'],
+                                'eslint': dependencies['eslint'],
+                                'eslint-plugin-vue': dependencies['eslint-plugin-vue']
+                            }
                         }
                     },
                     'babel.config.js': {
@@ -114,21 +133,33 @@ export default {
             }
         },
 
-        getSandboxParameters() {
+        getSandboxParameters(sourceType) {
             let name = this.name;
             let extension = '.vue';
             let extDependencies = this.dependencies || {};
             let content = this.sources.template.content;
             let style = this.sources.template.style || '';
+            let api = this.sources.api ?  this.sources.api.content : '';
             let scriptText = 'script';
             let _files = {}, importElement = '', element = '', components = '', imports = '', directives = '';
 
-            _files[`src/components/${name}${extension}`] = {       
+            if(sourceType === 'core') {
+                _files[`src/components/${name}${extension}`] = {       
                 content: `${content}
 </${scriptText}>
 
 ${style}`   
+                }
             }
+
+            else if(sourceType === 'api') {
+                _files[`src/components/${name}${extension}`] = {       
+                content: `${api}
+</${scriptText}>
+`   
+                }
+            }
+            
 
             let mittComponents = ['ToastDemo', 'OrganizationChartDemo', 'ConfirmDialogDemo', 'ConfirmPopupDemo', 'TerminalDemo', 'SplitButtonDemo', 'DeferredContentDemo', 'OverlayPanelDemo', 'FileUploadDemo'];
 
@@ -531,3 +562,12 @@ ${services[this.service]}
     }
 }
 </script>
+
+<style lang="scss" scoped>
+.liveEditorSplitButton {
+    color: red;
+    a:hover {
+        text-decoration: none;
+    }
+}
+</style>
