@@ -122,9 +122,12 @@ import Tag from 'primevue/tag';
 			</TabPanel>
 
 			<TabPanel header="Source">
-				<a href="https://github.com/primefaces/primevue/tree/master/src/views/tag" class="btn-viewsource" target="_blank" rel="noopener noreferrer">
-					<span>View on GitHub</span>
-				</a>
+				<div class="p-d-flex p-jc-between">
+					<a href="https://github.com/primefaces/primevue/tree/master/src/views/tag" class="btn-viewsource" target="_blank" rel="noopener noreferrer">
+						<span>View on GitHub</span>
+					</a>
+					<LiveEditor name="TagDemo" :sources="sources" />
+				</div>
 <pre v-code>
 <code><template v-pre>
 &lt;h5&gt;Tags&lt;/h5&gt;
@@ -153,3 +156,52 @@ import Tag from 'primevue/tag';
 		</TabView>
 	</div>
 </template>
+
+<script>
+import LiveEditor from '../liveeditor/LiveEditor';
+export default {
+	data() {
+		return {
+			sources: {
+				'template': {
+					content: `<template>
+    <div class="layout-content">
+        <div class="content-section implementation">
+            <div class="card">
+                <h5>Tags</h5>
+                <Tag class="p-mr-2" value="Primary"></Tag>
+                <Tag class="p-mr-2" severity="success" value="Success"></Tag>
+                <Tag class="p-mr-2" severity="info" value="Info"></Tag>
+                <Tag class="p-mr-2" severity="warning" value="Warning"></Tag>
+                <Tag severity="danger" value="Danger"></Tag>
+
+                <h5>Pills</h5>
+                <Tag class="p-mr-2" value="Primary" rounded></Tag>
+                <Tag class="p-mr-2" severity="success" value="Success" rounded></Tag>
+                <Tag class="p-mr-2" severity="info" value="Info" rounded></Tag>
+                <Tag class="p-mr-2" severity="warning" value="Warning" rounded></Tag>
+                <Tag severity="danger" value="Danger" rounded></Tag>
+
+                <h5>Icons</h5>
+                <Tag class="p-mr-2" icon="pi pi-user" value="Primary"></Tag>
+                <Tag class="p-mr-2" icon="pi pi-check" severity="success" value="Success"></Tag>
+                <Tag class="p-mr-2" icon="pi pi-info-circle" severity="info" value="Info"></Tag>
+                <Tag class="p-mr-2" icon="pi pi-exclamation-triangle" severity="warning" value="Warning"></Tag>
+                <Tag icon="pi pi-times" severity="danger" value="Danger"></Tag>
+            </div>
+        </div>
+    </div>
+</template>
+
+<script>
+export default {
+}`
+				}
+			}
+		}
+	},
+	components: {
+		LiveEditor
+	}
+}
+</script>

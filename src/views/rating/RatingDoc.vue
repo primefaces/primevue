@@ -137,9 +137,12 @@ import Rating from 'primevue/rating';
 			</TabPanel>
 
 			<TabPanel header="Source">
-				<a href="https://github.com/primefaces/primevue/tree/master/src/views/rating" class="btn-viewsource" target="_blank" rel="noopener noreferrer">
-					<span>View on GitHub</span>
-				</a>
+                <div class="p-d-flex p-jc-between">
+                    <a href="https://github.com/primefaces/primevue/tree/master/src/views/rating" class="btn-viewsource" target="_blank" rel="noopener noreferrer">
+                        <span>View on GitHub</span>
+                    </a>
+                    <LiveEditor name="RatingDemo" :sources="sources" />
+                </div>
 <pre v-code>
 <code><template v-pre>
 &lt;h3&gt;Basic {{val1}}&lt;/h3&gt;
@@ -172,3 +175,49 @@ export default {
 		</TabView>
 	</div>
 </template>
+
+<script>
+import LiveEditor from '../liveeditor/LiveEditor';
+export default {
+    data() {
+        return {
+            sources: {
+                'template': {
+                    content: `<template>
+    <div class="layout-content">
+        <div class="content-section implementation">
+            <div class="card">
+                <h5>Basic {{val1}}</h5>
+                <Rating v-model="val1" />
+
+                <h5>Without Cancel</h5>
+                <Rating v-model="val2" :cancel="false" />
+
+                <h5>ReadOnly</h5>
+                <Rating :modelValue="5" :readonly="true" :stars="10" :cancel="false" />
+
+                <h5>Disabled</h5>
+                <Rating :modelValue="8" :disabled="true" :stars="10" />
+            </div>
+        </div>
+    </div>
+</template>
+
+<script>
+export default {
+    data() {
+        return {
+            val1: null,
+            val2: 3,
+        }
+    }
+}`
+                }
+            }
+        }
+    },
+    components: {
+        LiveEditor
+    }
+}
+</script>

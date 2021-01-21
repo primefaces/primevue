@@ -260,9 +260,12 @@ import InlineMessage from 'primevue/inlinemessage';
 			</TabPanel>
 
 			<TabPanel header="Source">
-				<a href="https://github.com/primefaces/primevue/tree/master/src/views/message" class="btn-viewsource" target="_blank" rel="noopener noreferrer">
-					<span>View on GitHub</span>
-				</a>
+                <div class="p-d-flex p-jc-between">
+                    <a href="https://github.com/primefaces/primevue/tree/master/src/views/message" class="btn-viewsource" target="_blank" rel="noopener noreferrer">
+                        <span>View on GitHub</span>
+                    </a>
+                    <LiveEditor name="MessageDemo" :sources="sources" :components="['InlineMessage', 'Button']" />
+                </div>
 <pre v-code>
 <code><template v-pre>
 &lt;h5&gt;Severities&lt;/h5&gt;
@@ -348,3 +351,99 @@ button.p-button {
 		</TabView>
 	</div>
 </template>
+
+<script>
+import LiveEditor from '../liveeditor/LiveEditor';
+export default {
+    data() {
+        return {
+            sources: {
+                'template': {
+                    content: `<template>
+    <div class="layout-content">
+        <div class="content-section implementation">
+            <div class="card">
+                <h5>Severities</h5>
+                <Message severity="success">Success Message Content</Message>
+                <Message severity="info">Info Message Content</Message>
+                <Message severity="warn">Warning Message Content</Message>
+                <Message severity="error">Error Message Content</Message>
+
+                <h5>Dynamic</h5>
+                <Button label="Show" @click="addMessages()" />
+                <transition-group name="p-message" tag="div">
+                    <Message v-for="msg of messages" :severity="msg.severity" :key="msg.id">{{msg.content}}</Message>
+                </transition-group>
+
+                <h5>Inline Messages</h5>
+                <p>Message component is used to display inline messages mostly within forms.</p>
+                <div class="p-grid">
+                    <div class="p-col-12 p-md-3">
+                        <InlineMessage severity="info">Message Content</InlineMessage>
+                    </div>
+                    <div class="p-col-12 p-md-3">
+                        <InlineMessage severity="success">Message Content</InlineMessage>
+                    </div>
+                    <div class="p-col-12 p-md-3">
+                        <InlineMessage severity="warn">Message Content</InlineMessage>
+                    </div>
+                    <div class="p-col-12 p-md-3">
+                        <InlineMessage severity="error">Message Content</InlineMessage>
+                    </div>
+                </div>
+
+                <h5>Auto Dismiss</h5>
+                <Message severity="warn" :life="3000" :sticky="false">This message will hide in 3 seconds.</Message>
+
+                <h5>Validation Message</h5>
+                <div class="p-formgroup-inline" style="margin-bottom:.5rem">
+                    <label for="username" class="p-sr-only">Username</label>
+                    <InputText id="username" placeholder="Username" class="p-invalid" />
+                    <InlineMessage>Username is required</InlineMessage>
+                </div>
+                <div class="p-formgroup-inline">
+                    <label for="email" class="p-sr-only">email</label>
+                    <InputText id="email" placeholder="Email" class="p-invalid" />
+                    <InlineMessage />
+                </div>
+            </div>
+        </div>
+    </div>
+</template>
+
+<script>
+export default {
+    data() {
+        return {
+            messages: [],
+            count: 0
+        }
+    },
+    methods: {
+        addMessages() {
+            this.messages = [
+                {severity: 'info', content: 'Dynamic Info Message', id: this.count++},
+                {severity: 'success', content: 'Dynamic Success Message', id: this.count++},
+                {severity: 'warn', content: 'Dynamic Warning Message', id: this.count++}
+            ]
+        }
+    }
+}`,
+                    style: `<style scoped>
+button.p-button {
+    margin-right: .5rem;
+}
+
+.p-inputtext {
+    margin-right: .5rem;
+}
+</style>`
+                }
+            }
+        }
+    },
+    components: {
+        LiveEditor
+    }
+}
+</script>

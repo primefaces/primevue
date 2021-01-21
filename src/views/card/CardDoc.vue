@@ -76,7 +76,7 @@ import Card from 'primevue/card';
 					<a href="https://github.com/primefaces/primevue/tree/master/src/views/card" class="btn-viewsource" target="_blank" rel="noopener noreferrer">
 						<span>View on GitHub</span>
 					</a>
-					<LiveEditor name="CardDemo" :sources="sources" :components="['Card', 'Button']"/>
+					<LiveEditor name="CardDemo" :sources="sources" :components="['Button']"/>
                 </div>
 <pre v-code>
 <code><template v-pre>
@@ -138,7 +138,7 @@ export default {
 
             <Card style="width: 25em">
                 <template #header>
-                    <img src="https://www.primefaces.org/wp-content/uploads/2020/05/placeholder.png" />
+                    <img src="https://www.primefaces.org/wp-content/uploads/2020/02/primefacesorg-primevue-2020.png" style="height: 10rem" />
                 </template>
                 <template #title>
                     Advanced Card

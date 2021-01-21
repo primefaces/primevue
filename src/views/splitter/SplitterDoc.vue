@@ -267,9 +267,12 @@ import SplitterPanel from 'primevue/splitterpanel';
 			</TabPanel>
 
 			<TabPanel header="Source">
-				<a href="https://github.com/primefaces/primevue/tree/master/src/views/splitter" class="btn-viewsource" target="_blank" rel="noopener noreferrer">
-					<span>View on GitHub</span>
-				</a>
+				<div class="p-d-flex p-jc-between">
+					<a href="https://github.com/primefaces/primevue/tree/master/src/views/splitter" class="btn-viewsource" target="_blank" rel="noopener noreferrer">
+						<span>View on GitHub</span>
+					</a>
+					<LiveEditor name="SplitterDemo" :sources="sources" :components="['SplitterPanel']"/>
+				</div>
 <pre v-code>
 <code><template v-pre>
 &lt;div class="card"&gt;
@@ -328,3 +331,79 @@ import SplitterPanel from 'primevue/splitterpanel';
 		</TabView>
 	</div>
 </template>
+
+<script>
+import LiveEditor from '../liveeditor/LiveEditor';
+export default {
+	data() {
+		return {
+			sources: {
+				'template': {
+					content: `<template>
+    <div class="layout-content">
+        <div class="content-section implementation">
+            <div class="card">
+                <h5>Horizontal</h5>
+                <Splitter style="height: 300px" class="p-mb-5">
+                    <SplitterPanel class="p-d-flex p-ai-center p-jc-center">
+                        Panel 1
+                    </SplitterPanel>
+                    <SplitterPanel class="p-d-flex p-ai-center p-jc-center">
+                        Panel 2
+                    </SplitterPanel>
+                </Splitter>
+            </div>
+
+            <div class="card">
+                <h5>Vertical</h5>
+                <Splitter style="height: 300px" layout="vertical">
+                    <SplitterPanel class="p-d-flex p-ai-center p-jc-center">
+                        Panel 1
+                    </SplitterPanel>
+                    <SplitterPanel class="p-d-flex p-ai-center p-jc-center">
+                        Panel 2
+                    </SplitterPanel>
+                </Splitter>
+            </div>
+
+            <div class="card">
+                <h5>Nested</h5>
+                <Splitter style="height: 300px">
+                    <SplitterPanel class="p-d-flex p-ai-center p-jc-center" :size="20" :minSize="10">
+                        Panel 1
+                    </SplitterPanel>
+                    <SplitterPanel :size="80">
+                        <Splitter layout="vertical">
+                            <SplitterPanel class="p-d-flex p-ai-center p-jc-center" :size="15">
+                                Panel 2
+                            </SplitterPanel>
+                            <SplitterPanel :size="85">
+                                <Splitter>
+                                    <SplitterPanel class="p-d-flex p-ai-center p-jc-center" :size="20">
+                                        Panel 3
+                                    </SplitterPanel>
+                                    <SplitterPanel class="p-d-flex p-ai-center p-jc-center" :size="80">
+                                        Panel 4
+                                    </SplitterPanel>
+                                </Splitter>
+                            </SplitterPanel>
+                        </Splitter>
+                    </SplitterPanel>
+                </Splitter>
+            </div>
+        </div>
+    </div>
+</template>
+
+<script>
+export default {
+}`
+				}
+			}
+		}
+	},
+	components: {
+		LiveEditor
+	}
+}
+</script>

@@ -326,9 +326,12 @@ myUploader(event) {
 			</TabPanel>
 
 			<TabPanel header="Source">
-				<a href="https://github.com/primefaces/primevue/tree/master/src/views/fileupload" class="btn-viewsource" target="_blank" rel="noopener noreferrer">
-					<span>View on GitHub</span>
-				</a>
+				<div class="p-d-flex p-jc-between">
+					<a href="https://github.com/primefaces/primevue/tree/master/src/views/fileupload" class="btn-viewsource" target="_blank" rel="noopener noreferrer">
+						<span>View on GitHub</span>
+					</a>
+					<LiveEditor name="FileUploadDemo" :sources="sources" />
+				</div>
 <pre v-code>
 <code><template v-pre>
 &lt;h3&gt;Advanced&lt;/h3&gt;
@@ -361,3 +364,50 @@ export default {
 		</TabView>
 	</div>
 </template>
+
+<script>
+import LiveEditor from '../liveeditor/LiveEditor';
+export default {
+	data() {
+		return {
+			sources: {
+				'template': {
+					content: `<template>
+	<div class="layout-content">
+		<Toast />
+        <div class="content-section implementation">
+            <div class="card">
+                <h5>Advanced</h5>
+                <FileUpload name="demo[]" url="./upload.php" @upload="onUpload" :multiple="true" accept="image/*" :maxFileSize="1000000">
+                    <template #empty>
+                        <p>Drag and drop files to here to upload.</p>
+                    </template>
+                </FileUpload>
+
+                <h5>Basic</h5>
+                <FileUpload mode="basic" name="demo[]" url="./upload.php" accept="image/*" :maxFileSize="1000000" @upload="onUpload" />
+
+                <h5>Basic with Auto</h5>
+                <FileUpload mode="basic" name="demo[]" url="./upload.php" accept="image/*" :maxFileSize="1000000" @upload="onUpload" :auto="true" chooseLabel="Browse" />
+            </div>
+        </div>
+    </div>
+</template>
+
+<script>
+export default {
+    methods: {
+        onUpload() {
+            this.$toast.add({severity: 'info', summary: 'Success', detail: 'File Uploaded', life: 3000});
+        }
+    }
+}`
+				}
+			}
+		}
+	},
+	components: {
+		LiveEditor
+	}
+}
+</script>

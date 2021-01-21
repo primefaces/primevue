@@ -70,9 +70,12 @@ import DeferredContent from 'primevue/deferredcontent';
 			</TabPanel>
 
 			<TabPanel header="Source">
-				<a href="https://github.com/primefaces/primevue/tree/master/src/views/deferredcontent" class="btn-viewsource" target="_blank" rel="noopener noreferrer">
-					<span>View on GitHub</span>
-				</a>
+                <div class="p-d-flex p-jc-between">
+                    <a href="https://github.com/primefaces/primevue/tree/master/src/views/deferredcontent" class="btn-viewsource" target="_blank" rel="noopener noreferrer">
+                        <span>View on GitHub</span>
+                    </a>
+                    <LiveEditor name="DeferredContentDemo" :sources="sources" service="ProductService" data="products-small" :components="['DataTable', 'Column']" />
+                </div>
 <pre v-code>
 <code><template v-pre>
 &lt;div style="height: 800px"&gt;
@@ -127,3 +130,71 @@ export default {
 		</TabView>
 	</div>
 </template>
+
+<script>
+import LiveEditor from '../liveeditor/LiveEditor';
+export default {
+    data() {
+        return {
+            sources: {
+                'template': {
+                    content: `<template>
+    <div class="layout-content">
+        <Toast />
+        <div class="content-section implementation">
+            <div class="card">
+                <div style="height: 800px">
+                    Scroll down to lazy load an image and the DataTable which initiates a query that is not executed on initial page load to speed up load performance.
+                </div>
+
+                <DeferredContent @load="onImageLoad">
+                    <img src="https://www.primefaces.org/wp-content/uploads/2020/05/placeholder.png" alt="Nature"/>
+                </DeferredContent>
+
+                <div style="height: 500px">
+                </div>
+
+                <DeferredContent @load="onDataLoad">
+                    <DataTable :value="products">
+                        <Column field="code" header="Code"></Column>
+                        <Column field="name" header="Name"></Column>
+                        <Column field="category" header="Category"></Column>
+                        <Column field="quantity" header="Quantity"></Column>
+                    </DataTable>
+                </DeferredContent>
+            </div>
+        </div>
+    </div>
+</template>
+
+<script>
+import ProductService from '../service/ProductService';
+export default {
+    data() {
+        return {
+            products: null
+        }
+    },
+    productService: null,
+    created() {
+        this.productService = new ProductService();
+    },
+    methods: {
+        onImageLoad() {
+            this.$toast.add({severity: 'success', summary: 'Image Initialized', detail: 'Scroll down to load the datatable'});
+        },
+        onDataLoad() {
+            this.productService.getProductsSmall().then(data => this.products = data);
+            this.$toast.add({severity: 'success', summary: 'Data Initialized', detail: 'Render Completed'});
+        }
+    }
+}`
+                }
+            }
+        }
+    },
+    components: {
+        LiveEditor
+    }
+}
+</script>

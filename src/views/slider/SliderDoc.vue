@@ -187,7 +187,7 @@ export default {
                     <a href="https://github.com/primefaces/primevue/tree/master/src/views/slider" class="btn-viewsource" target="_blank" rel="noopener noreferrer">
                         <span>View on GitHub</span>
                     </a>
-                    <LiveEditor name="SliderDemo" :sources="sources"/>
+                    <LiveEditor name="SliderDemo" :sources="sources" :components="['InputText']" />
                 </div>
 <pre v-code>
 <code><template v-pre>
@@ -254,6 +254,10 @@ export default {
             <div class="card">
                 <h5>Basic: {{value1}}</h5>
                 <Slider v-model="value1" />
+
+                <h5>Input: {{value2}}</h5>
+                <InputText v-model.number="value2" />
+                <Slider v-model="value2" />
 
                 <h5>Step: {{value3}}</h5>
                 <Slider v-model="value3" :step="20" />

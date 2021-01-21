@@ -162,7 +162,7 @@ export default {
 <style lang="scss" scoped>
 .custom-skeleton {
     border: 1px solid var(--surface-d);
-    border-borderRadius: 4px;
+    border-radius: 4px;
 
     ul {
         list-style: none;

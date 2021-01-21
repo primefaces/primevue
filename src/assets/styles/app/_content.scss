@@ -158,6 +158,16 @@
                             text-decoration: underline;
                         }
                     }
+
+                    .liveEditorButton a,
+                    .liveEditorSplitButton a {
+                        padding: 0.75rem 0.5rem;
+                        font-weight: normal;
+
+                        &:hover {
+                            text-decoration: none;
+                        }
+                    }
                 }
             }
         }
