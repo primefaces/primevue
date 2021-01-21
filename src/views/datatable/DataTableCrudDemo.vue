@@ -56,7 +56,7 @@
                     </Column>
                     <Column field="inventoryStatus" header="Status" :sortable="true">
                         <template #body="slotProps">
-                            <span :class="'product-badge status-' + slotProps.data.inventoryStatus.toLowerCase()">{{slotProps.data.inventoryStatus}}</span>
+                            <span :class="'product-badge status-' + (slotProps.data.inventoryStatus ? slotProps.data.inventoryStatus.toLowerCase() : '')">{{slotProps.data.inventoryStatus}}</span>
                         </template>
                     </Column>
                     <Column :exportable="false">
@@ -79,6 +79,23 @@
                     <label for="description">Description</label>
                     <Textarea id="description" v-model="product.description" required="true" rows="3" cols="20" />
                 </div>
+
+                <div class="p-field">
+					<label for="inventoryStatus" class="p-mb-3">Inventory Status</label>
+					<Dropdown id="inventoryStatus" v-model="product.inventoryStatus" :options="statuses" optionLabel="label" placeholder="Select a Status">
+						<template #value="slotProps">
+							<div v-if="slotProps.value && slotProps.value.value">
+								<span :class="'product-badge status-' +slotProps.value.value">{{slotProps.value.label}}</span>
+							</div>
+							<div v-else-if="slotProps.value && !slotProps.value.value">
+								<span :class="'product-badge status-' +slotProps.value.toLowerCase()">{{slotProps.value}}</span>
+							</div>
+							<span v-else>
+								{{slotProps.placeholder}}
+							</span>
+						</template>
+					</Dropdown>
+				</div>
 
                 <div class="p-field">
                     <label class="p-mb-3">Category</label>
@@ -194,7 +211,7 @@
         &lt;/Column&gt;
         &lt;Column field="inventoryStatus" header="Status" :sortable="true"&gt;
             &lt;template #body="slotProps"&gt;
-                &lt;span :class="'product-badge status-' + slotProps.data.inventoryStatus.toLowerCase()"&gt;{{slotProps.data.inventoryStatus}}&lt;/span&gt;
+                &lt;span :class="'product-badge status-' + (slotProps.data.inventoryStatus ? slotProps.data.inventoryStatus.toLowerCase() : '')"&gt;{{slotProps.data.inventoryStatus}}&lt;/span&gt;
             &lt;/template&gt;
         &lt;/Column&gt;
         &lt;Column :exportable="false"&gt;
@@ -217,6 +234,20 @@
         &lt;label for="description"&gt;Description&lt;/label&gt;
         &lt;Textarea id="description" v-model="product.description" required="true" rows="3" cols="20" /&gt;
     &lt;/div&gt;
+
+    &lt;Dropdown id="inventoryStatus" v-model="product.inventoryStatus" :options="statuses" optionLabel="label" placeholder="Select a Status"&gt;
+		&lt;template #value="slotProps"&gt;
+			&lt;div v-if="slotProps.value && slotProps.value.value"&gt;
+				&lt;span :class="'product-badge status-' +slotProps.value.value"&gt;{{slotProps.value.label}}&lt;/span&gt;
+			&lt;/div&gt;
+			&lt;div v-else-if="slotProps.value && !slotProps.value.value"&gt;
+				&lt;span :class="'product-badge status-' +slotProps.value.toLowerCase()"&gt;{{slotProps.value}}&lt;/span&gt;
+			&lt;/div&gt;
+			&lt;span v-else&gt;
+				{{slotProps.placeholder}}
+			&lt;/span&gt;
+		&lt;/template&gt;
+	&lt;/Dropdown&gt;
 
     &lt;div class="p-field"&gt;
         &lt;label class="p-mb-3"&gt;Category&lt;/label&gt;
@@ -306,7 +337,9 @@ export default {
     },
     methods: {
         formatCurrency(value) {
-            return value.toLocaleString('en-US', {style: 'currency', currency: 'USD'});
+            if(value)
+				return value.toLocaleString('en-US', {style: 'currency', currency: 'USD'});
+			return;
         },
         openNew() {
             this.product = {};
@@ -320,21 +353,24 @@ export default {
         saveProduct() {
             this.submitted = true;
 
-            if (this.product.name.trim()) {
+			if (this.product.name.trim()) {
                 if (this.product.id) {
+                    this.product.inventoryStatus = this.product.inventoryStatus.value ? this.product.inventoryStatus.value: this.product.inventoryStatus;
                     this.products[this.findIndexById(this.product.id)] = this.product;
                     this.$toast.add({severity:'success', summary: 'Successful', detail: 'Product Updated', life: 3000});
                 }
                 else {
                     this.product.id = this.createId();
+                    this.product.code = this.createId();
                     this.product.image = 'product-placeholder.svg';
+                    this.product.inventoryStatus = this.product.inventoryStatus ? this.product.inventoryStatus.value : 'INSTOCK';
                     this.products.push(this.product);
                     this.$toast.add({severity:'success', summary: 'Successful', detail: 'Product Created', life: 3000});
                 }
 
                 this.productDialog = false;
                 this.product = {};
-            }
+			}
         },
         editProduct(product) {
             this.product = {...product};
@@ -404,7 +440,12 @@ export default {
             product: {},
             selectedProducts: null,
             filters: {},
-            submitted: false
+            submitted: false,
+            statuses: [
+				{label: 'INSTOCK', value: 'instock'},
+				{label: 'LOWSTOCK', value: 'lowstock'},
+				{label: 'OUTOFSTOCK', value: 'outofstock'}
+			]
         }
     },
     productService: null,
@@ -416,7 +457,9 @@ export default {
     },
     methods: {
         formatCurrency(value) {
-            return value.toLocaleString('en-US', {style: 'currency', currency: 'USD'});
+            if(value)
+				return value.toLocaleString('en-US', {style: 'currency', currency: 'USD'});
+			return;
         },
         openNew() {
             this.product = {};
@@ -430,14 +473,17 @@ export default {
         saveProduct() {
             this.submitted = true;
 
-            if (this.product.name.trim()) {
+			if (this.product.name.trim()) {
                 if (this.product.id) {
+                    this.product.inventoryStatus = this.product.inventoryStatus.value ? this.product.inventoryStatus.value: this.product.inventoryStatus;
                     this.products[this.findIndexById(this.product.id)] = this.product;
                     this.$toast.add({severity:'success', summary: 'Successful', detail: 'Product Updated', life: 3000});
                 }
                 else {
                     this.product.id = this.createId();
+                    this.product.code = this.createId();
                     this.product.image = 'product-placeholder.svg';
+                    this.product.inventoryStatus = this.product.inventoryStatus ? this.product.inventoryStatus.value : 'INSTOCK';
                     this.products.push(this.product);
                     this.$toast.add({severity:'success', summary: 'Successful', detail: 'Product Created', life: 3000});
                 }
