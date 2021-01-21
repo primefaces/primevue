@@ -84,6 +84,9 @@
         <div class="content-section documentation">
             <TabView>
                 <TabPanel header="Source">
+                    <div class="p-d-flex p-jc-end">
+                        <LiveEditor name="DataTableDemo" :sources="sources" service="ProductService" data="products-small" :components="['Column']" />
+                    </div>
 <pre v-code>
 <code><template v-pre>
 &lt;div class="card"&gt;
@@ -202,6 +205,101 @@ export default {
 
 <script>
 import ProductService from '../../service/ProductService';
+import LiveEditor from '../liveeditor/LiveEditor';
+
+export default {
+    data() {
+        return {
+            products: null,
+            selectedProduct1: null,
+            selectedProduct2: null,
+            selectedProduct3: null,
+            selectedProducts1: null,
+            selectedProducts2: null,
+            selectedProducts3: null,
+            sources: {
+                'template': {
+                    content: `<template>
+    <div class="layout-content">
+        <div class="content-section implementation">
+            <Toast />
+            <div class="card">
+                <h5>Single</h5>
+                <p>In single mode, a row is selected on click event of a row. If the row is already selected then the row gets unselected.</p>
+                <DataTable :value="products" v-model:selection="selectedProduct1" selectionMode="single" dataKey="id">
+                    <Column field="code" header="Code"></Column>
+                    <Column field="name" header="Name"></Column>
+                    <Column field="category" header="Category"></Column>
+                    <Column field="quantity" header="Quantity"></Column>
+                </DataTable>
+            </div>
+
+            <div class="card">
+                <h5>Multiple</h5>
+                <p>In multiple mode, selection binding should be an array. For touch enabled devices, selection is managed by tapping and for other devices metakey or shiftkey are required.
+                        Setting metaKeySelection property as false enables multiple selection without meta key.</p>
+                <DataTable :value="products" v-model:selection="selectedProducts1" selectionMode="multiple" dataKey="id">
+                    <template #header>
+                        Multiple Selection with MetaKey
+                    </template>
+                    <Column field="code" header="Code"></Column>
+                    <Column field="name" header="Name"></Column>
+                    <Column field="category" header="Category"></Column>
+                    <Column field="quantity" header="Quantity"></Column>
+                </DataTable>
+
+                <DataTable :value="products" v-model:selection="selectedProducts2" selectionMode="multiple" dataKey="id" :metaKeySelection="false" style="margin-top: 2em">
+                    <template #header>
+                        Multiple Selection without MetaKey
+                    </template>
+                    <Column field="code" header="Code"></Column>
+                    <Column field="name" header="Name"></Column>
+                    <Column field="category" header="Category"></Column>
+                    <Column field="quantity" header="Quantity"></Column>
+                </DataTable>
+            </div>
+
+            <div class="card">
+                <h5>Events</h5>
+                <p>row-select and row-unselects are available as selection events.</p>
+                <DataTable :value="products" v-model:selection="selectedProduct2" selectionMode="single" dataKey="id"
+                    @row-select="onRowSelect($event)" @row-unselect="onRowUnselect($event)">
+                    <Column field="code" header="Code"></Column>
+                    <Column field="name" header="Name"></Column>
+                    <Column field="category" header="Category"></Column>
+                    <Column field="quantity" header="Quantity"></Column>
+                </DataTable>
+            </div>
+
+            <div class="card">
+                <h5>RadioButton</h5>
+                <p>Single selection can also be handled using radio buttons by enabling the selectionMode property of column as "single".</p>
+                <DataTable :value="products" v-model:selection="selectedProduct3" dataKey="id">
+                    <Column selectionMode="single" headerStyle="width: 3em"></Column>
+                    <Column field="code" header="Code"></Column>
+                    <Column field="name" header="Name"></Column>
+                    <Column field="category" header="Category"></Column>
+                    <Column field="quantity" header="Quantity"></Column>
+                </DataTable>
+            </div>
+
+            <div class="card">
+                <h5>Checkbox</h5>
+
+                <DataTable :value="products" v-model:selection="selectedProducts3" dataKey="id">
+                    <Column selectionMode="multiple" headerStyle="width: 3em"></Column>
+                    <Column field="code" header="Code"></Column>
+                    <Column field="name" header="Name"></Column>
+                    <Column field="category" header="Category"></Column>
+                    <Column field="quantity" header="Quantity"></Column>
+                </DataTable>
+            </div>
+		</div>
+    </div>                    
+</template>
+
+<script>
+import ProductService from '../service/ProductService';
 
 export default {
     data() {
@@ -215,7 +313,7 @@ export default {
             selectedProducts3: null
         }
     },
-     productService: null,
+    productService: null,
     created() {
         this.productService = new ProductService();
     },
@@ -229,6 +327,30 @@ export default {
         onRowUnselect(event) {
             this.$toast.add({severity: 'warn', summary: 'Product Unselected', detail: 'Name: ' + event.data.name, life: 3000});
         }
+    }
+}`
+                }
+            }
+        }
+    },
+    productService: null,
+    created() {
+        this.productService = new ProductService();
+    },
+    mounted() {
+        this.productService.getProductsSmall().then(data => this.products = data);
+    },
+    methods: {
+        onRowSelect(event) {
+            console.log(event)
+            this.$toast.add({severity: 'info', summary: 'Product Selected', detail: 'Name: ' + event.data.name, life: 3000});
+        },
+        onRowUnselect(event) {
+            this.$toast.add({severity: 'warn', summary: 'Product Unselected', detail: 'Name: ' + event.data.name, life: 3000});
+        }
+    },
+    components: {
+        LiveEditor
     }
 }
 </script>

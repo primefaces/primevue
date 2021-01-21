@@ -27,6 +27,9 @@
         <div class="content-section documentation">
             <TabView>
                 <TabPanel header="Source">
+                    <div class="p-d-flex p-jc-end">
+                        <LiveEditor name="DataTableDemo" :sources="sources" service="ProductService" data="products-small" :components="['Column']" />
+                    </div>
 <pre v-code>
 <code><template v-pre>
 &lt;DataTable :value="products" :rowClass="rowClass"&gt;
@@ -110,6 +113,37 @@ export default {
 
 <script>
 import ProductService from '../../service/ProductService';
+import LiveEditor from '../liveeditor/LiveEditor';
+
+export default {
+    data() {
+        return {
+            products: null,
+            sources: {
+                'template': {
+                    content: `<template>
+    <div class="layout-content">
+        <div class="content-section implementation">
+            <div class="card">
+                <DataTable :value="products" :rowClass="rowClass">
+                    <Column field="code" header="Code"></Column>
+                    <Column field="name" header="Name"></Column>
+                    <Column field="category" header="Category"></Column>
+                    <Column field="quantity" header="Quantity">
+                        <template #body="slotProps">
+                            <div :class="stockClass(slotProps.data)">
+                                {{slotProps.data.quantity}}
+                            </div>
+                        </template>
+                    </Column>
+                </DataTable>
+            </div>
+		</div>
+    </div>                    
+</template>
+
+<script>
+import ProductService from '../service/ProductService';
 
 export default {
     data() {
@@ -137,6 +171,56 @@ export default {
                  }
             ];
         }
+    }
+}`,
+                    style: `<style scoped lang="scss">
+.outofstock {
+    font-weight: 700;
+    color: #FF5252;
+    text-decoration: line-through;
+}
+
+.lowstock {
+    font-weight: 700;
+    color: #FFA726;
+}
+
+.instock {
+    font-weight: 700;
+    color: #66BB6A;
+}
+
+::v-deep(.row-accessories) {
+    background-color: rgba(0,0,0,.15) !important;
+}
+</style>`
+                }
+            }
+        }
+    },
+    productService: null,
+    created() {
+        this.productService = new ProductService();
+    },
+    mounted() {
+        this.productService.getProductsSmall().then(data => this.products = data);
+    },
+    methods: {
+        rowClass(data) {
+            return data.category === 'Accessories' ? 'row-accessories': null;
+        },
+        stockClass(data) {
+            return [
+                {
+                    'outofstock': data.quantity === 0,
+                    'lowstock': data.quantity > 0 && data.quantity<10,
+                    'instock': data.quantity > 10
+                 }
+            ];
+        }
+    },
+    components: {
+        LiveEditor
     }
 }
 </script>

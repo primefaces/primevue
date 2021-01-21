@@ -25,6 +25,9 @@
         <div class="content-section documentation">
             <TabView>
                 <TabPanel header="Source">
+                    <div class="p-d-flex p-jc-end">
+                        <LiveEditor name="DataTableDemo" :sources="sources" service="ProductService" data="products-small" :components="['Column', 'MultiSelect']" />
+                    </div>
 <pre v-code>
 <code><template v-pre>
 &lt;DataTable :value="products"&gt;
@@ -82,6 +85,37 @@ export default {
 
 <script>
 import ProductService from '../../service/ProductService';
+import LiveEditor from '../liveeditor/LiveEditor';
+
+export default {
+    data() {
+        return {
+            selectedColumns: null,
+            columns: null,
+            products: null,
+            sources: {
+                'template': {
+                    content: `<template>
+    <div class="layout-content">
+        <div class="content-section implementation">
+            <div class="card">
+                <DataTable :value="products">
+                    <template #header>
+                        <div style="text-align:left">
+                            <MultiSelect :modelValue="selectedColumns" :options="columns" optionLabel="header" @update:modelValue="onToggle"
+                                placeholder="Select Columns" style="width: 20em"/>
+                        </div>
+                    </template>
+                    <Column field="code" header="Code" />
+                    <Column v-for="(col, index) of selectedColumns" :field="col.field" :header="col.header" :key="col.field + '_' + index"></Column>
+                </DataTable>
+            </div>
+		</div>
+    </div>
+</template>
+
+<script>
+import ProductService from '../service/ProductService';
 
 export default {
     data() {
@@ -109,6 +143,33 @@ export default {
         onToggle(value) {
             this.selectedColumns = this.columns.filter(col => value.includes(col));
         }
+    }
+}`
+                }
+            }
+        }
+    },
+    productService: null,
+    created() {
+        this.productService = new ProductService();
+
+        this.columns = [
+            {field: 'name', header: 'Name'},
+            {field: 'category', header: 'Category'},
+            {field: 'quantity', header: 'Quantity'}
+        ];
+        this.selectedColumns = this.columns;
+    },
+    mounted() {
+        this.productService.getProductsSmall().then(data => this.products = data);
+    },
+    methods: {
+        onToggle(value) {
+            this.selectedColumns = this.columns.filter(col => value.includes(col));
+        }
+    },
+    components: {
+        LiveEditor
     }
 }
 </script>

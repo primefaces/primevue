@@ -73,6 +73,9 @@
         <div class="content-section documentation">
             <TabView>
                 <TabPanel header="Source">
+                    <div class="p-d-flex p-jc-end">
+                        <LiveEditor name="DataTableDemo" :sources="sources" service="ProductService" data="products-small" :components="['Column']" />
+                    </div>
 <pre v-code>
 <code><template v-pre>
 &lt;div class="card"&gt;
@@ -171,6 +174,83 @@ export default {
 
 <script>
 import ProductService from '../../service/ProductService';
+import LiveEditor from '../liveeditor/LiveEditor';
+
+export default {
+    data() {
+        return {
+            products: null,
+            sources: {
+                'template': {
+                    content: `<template>
+    <div class="layout-content">
+        <div class="content-section implementation">
+            <div class="card">
+                <h5>Single Column</h5>
+                <DataTable :value="products">
+                    <Column field="code" header="Code" :sortable="true"></Column>
+                    <Column field="name" header="Name" :sortable="true"></Column>
+                    <Column field="category" header="Category" :sortable="true"></Column>
+                    <Column field="quantity" header="Quantity" :sortable="true"></Column>
+                    <Column field="price" header="Price" :sortable="true">
+                        <template #body="slotProps">
+                            {{formatCurrency(slotProps.data.price)}}
+                        </template>
+                    </Column>
+                </DataTable>
+            </div>
+
+            <div class="card">
+                <h5>Multiple Columns</h5>
+                <p>Use metakey to add a column to the sort selection.</p>
+                <DataTable :value="products" sortMode="multiple">
+                    <Column field="code" header="Code" :sortable="true"></Column>
+                    <Column field="name" header="Name" :sortable="true"></Column>
+                    <Column field="category" header="Category" :sortable="true"></Column>
+                    <Column field="quantity" header="Quantity" :sortable="true"></Column>
+                    <Column field="price" header="Price" :sortable="true">
+                        <template #body="slotProps">
+                            {{formatCurrency(slotProps.data.price)}}
+                        </template>
+                    </Column>
+                </DataTable>
+            </div>
+
+            <div class="card">
+                <h5>Presort</h5>
+                <DataTable :value="products" sortField="category" :sortOrder="-1">
+                    <Column field="code" header="Code" :sortable="true"></Column>
+                    <Column field="name" header="Name" :sortable="true"></Column>
+                    <Column field="category" header="Category" :sortable="true"></Column>
+                    <Column field="quantity" header="Quantity" :sortable="true"></Column>
+                    <Column field="price" header="Price" :sortable="true">
+                        <template #body="slotProps">
+                            {{formatCurrency(slotProps.data.price)}}
+                        </template>
+                    </Column>
+                </DataTable>
+            </div>
+
+            <div class="card">
+                <h5>Removable Sort</h5>
+                <DataTable :value="products" removableSort>
+                    <Column field="code" header="Code" :sortable="true"></Column>
+                    <Column field="name" header="Name" :sortable="true"></Column>
+                    <Column field="category" header="Category" :sortable="true"></Column>
+                    <Column field="quantity" header="Quantity" :sortable="true"></Column>
+                    <Column field="price" header="Price" :sortable="true">
+                        <template #body="slotProps">
+                            {{formatCurrency(slotProps.data.price)}}
+                        </template>
+                    </Column>
+                </DataTable>
+            </div>
+		</div>
+    </div>                    
+</template>
+
+<script>
+import ProductService from '../service/ProductService';
 
 export default {
     data() {
@@ -189,6 +269,26 @@ export default {
         formatCurrency(value) {
             return value.toLocaleString('en-US', {style: 'currency', currency: 'USD'});
         }
+    }
+}`
+                }
+            }
+        }
+    },
+    productService: null,
+    created() {
+        this.productService = new ProductService();
+    },
+    mounted() {
+        this.productService.getProductsSmall().then(data => this.products = data);
+    },
+    methods: {
+        formatCurrency(value) {
+            return value.toLocaleString('en-US', {style: 'currency', currency: 'USD'});
+        }
+    },
+    components: {
+        LiveEditor
     }
 }
 </script>
