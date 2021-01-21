@@ -511,23 +511,33 @@ img.flag {
                         `,
             }
 
-            if (this.service && this.data) {
-                const dataArr = this.data.split(',');
+            if (this.service) {
+                const dataArr = this.data ? this.data.split(',') : null;
 
-                dataArr.forEach(el => {
-                    _files[`public/data/${el}.json`] = {
-                        content: data[el]
-                    };
+                if(dataArr) {
+                    dataArr.forEach(el => {
+                        _files[`public/data/${el}.json`] = {
+                            content: data[el]
+                        };
 
-                    _files[`src/service/${this.service}.js`] = {
-                    // content: services[this.service]
-                    content: `import axios from 'axios';
+                        _files[`src/service/${this.service}.js`] = {
+                            content: `import axios from 'axios';
 import data from '../../public/data/${el}.json';
 
 ${services[this.service]}
 `
-                    };
-                });
+                        };
+                    });
+                }
+
+                else {
+                    _files[`src/service/${this.service}.js`] = {
+                            content: `import axios from 'axios';
+
+${services[this.service]}
+`
+                        };
+                }
 
 
                 extDependencies['axios'] =  "^0.19.0";
