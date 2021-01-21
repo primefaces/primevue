@@ -434,9 +434,8 @@ export default {
             this.$toast.removeAllGroups();
         }
     }
-}`
-                },
-                style: `<style lang="scss" scoped>
+}`,
+                    style: `<style lang="scss" scoped>
 button {
     min-width: 10rem;
     margin-right: .5rem;
@@ -449,6 +448,27 @@ button {
     }
 }
 </style>`
+                },
+                'api': {
+                    content: `<template>
+    <Toast />
+    <Button @click="set" icon="pi pi-check" label="Confirm"></Button>
+</template>
+
+<script>
+import { defineComponent } from "vue";
+import { useToast } from "primevue/usetoast";
+
+export default defineComponent({
+    setup() {
+        const toast = useToast();
+        const set = () => {
+            toast.add({ severity: "info", summary: "Info Message", detail: "Message Content", life: 3000 });
+        };
+    return { set };
+    }
+});`
+                }
             }
         }
     },

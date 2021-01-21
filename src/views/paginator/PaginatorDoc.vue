@@ -257,9 +257,12 @@ onPage(event) {
             </TabPanel>
 
             <TabPanel header="Source">
-                <a href="https://github.com/primefaces/primevue/tree/master/src/showcase/paginator" class="btn-viewsource" target="_blank" rel="noopener noreferrer">
-                    <span>View on GitHub</span>
-                </a>
+                <div class="p-d-flex p-jc-between">
+                    <a href="https://github.com/primefaces/primevue/tree/master/src/showcase/paginator" class="btn-viewsource" target="_blank" rel="noopener noreferrer">
+                        <span>View on GitHub</span>
+                    </a>
+                    <LiveEditor name="PaginatorDemo" :sources="sources" :components="['Button']" />
+                </div>
 <pre v-code>
 <code>
 &lt;h3&gt;Basic&lt;/h3&gt;
@@ -322,3 +325,76 @@ export default {
         </TabView>
     </div>
 </template>
+
+<script>
+import LiveEditor from '../liveeditor/LiveEditor';
+export default {
+    data() {
+        return {
+            sources: {
+                'template': {
+                    content: `<template>
+	<div class="layout-content">
+		<div class="content-section implementation">
+            <div class="card">
+                <h5>Basic</h5>
+                <Paginator :rows="10" :totalRecords="totalRecords" :rowsPerPageOptions="[10,20,30]"></Paginator>
+
+                <h5>Custom</h5>
+                <Paginator v-model:first="first" :rows="1" :totalRecords="totalRecords2"
+                    template="FirstPageLink PrevPageLink CurrentPageReport NextPageLink LastPageLink">
+                    <template #left>
+                        <Button type="button" icon="pi pi-refresh" @click="reset()"/>
+                    </template>
+                    <template #right>
+                        <Button type="button" icon="pi pi-search" />
+                    </template>
+                </Paginator>
+
+                <div class="image-gallery">
+                    <img src="https://www.primefaces.org/wp-content/uploads/2020/05/placeholder.png"  />
+                </div>
+            </div>
+		</div>
+	</div>
+</template>
+
+<script>
+export default {
+    data() {
+        return {
+			first: 0,
+            totalRecords: 120,
+            totalRecords2: 12
+        }
+    },
+    methods: {
+        reset() {
+            this.first = 0;
+        }
+    },
+    computed: {
+        image() {
+            return 'nature' + (this.first + 1);
+        }
+    }
+}`,
+                    style: `<style scoped>
+.p-button.p-button-icon-only {
+    border-radius: 0;
+}
+
+.image-gallery {
+    text-align: center;
+    padding: 1rem;
+}
+</style>`
+                }
+            }
+        }
+    },
+    components: {
+        LiveEditor
+    }
+}
+</script>

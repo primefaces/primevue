@@ -258,9 +258,12 @@ export default {
 			</TabPanel>
 
 			<TabPanel header="Source">
-				<a href="https://github.com/primefaces/primevue/tree/master/src/views/dialog" class="btn-viewsource" target="_blank" rel="noopener noreferrer">
-					<span>View on GitHub</span>
-				</a>
+                <div class="p-d-flex p-jc-between">
+                    <a href="https://github.com/primefaces/primevue/tree/master/src/views/dialog" class="btn-viewsource" target="_blank" rel="noopener noreferrer">
+                        <span>View on GitHub</span>
+                    </a>
+                    <LiveEditor name="ConfirmPopupDemo" :sources="sources" :components="['Button']" />
+                </div>
 <pre v-code>
 <code><template v-pre>
 &lt;ConfirmPopup&gt;&lt;/ConfirmPopup&gt;
@@ -311,3 +314,103 @@ export default {
 		</TabView>
 	</div>
 </template>
+
+<script>
+import LiveEditor from '../liveeditor/LiveEditor';
+export default {
+    data() {
+        return {
+            sources: {
+                'template': {
+                    content: `<template>
+    <div class="layout-content">
+        <Toast />
+        <div class="content-section implementation">
+            <ConfirmPopup></ConfirmPopup>
+
+            <div class="card">
+                <Button @click="confirm1($event)" icon="pi pi-check" label="Confirm" class="p-mr-2"></Button>
+                <Button @click="confirm2($event)" icon="pi pi-times" label="Delete" class="p-button-danger p-button-outlined"></Button>
+            </div>
+        </div>
+    </div>
+</template>
+
+<script>
+export default {
+    methods: {
+        confirm1(event) {
+            this.$confirm.require({
+                target: event.currentTarget,
+                message: 'Are you sure you want to proceed?',
+                icon: 'pi pi-exclamation-triangle',
+                accept: () => {
+                    this.$toast.add({severity:'info', summary:'Confirmed', detail:'You have accepted', life: 3000});
+                },
+                reject: () => {
+                    this.$toast.add({severity:'info', summary:'Rejected', detail:'You have rejected', life: 3000});
+                }
+            });
+        },
+        confirm2(event) {
+            this.$confirm.require({
+                target: event.currentTarget,
+                message: 'Do you want to delete this record?',
+                icon: 'pi pi-info-circle',
+                acceptClass: 'p-button-danger',
+                accept: () => {
+                    this.$toast.add({severity:'info', summary:'Confirmed', detail:'Record deleted', life: 3000});
+                },
+                reject: () => {
+                    this.$toast.add({severity:'info', summary:'Rejected', detail:'You have rejected', life: 3000});
+                }
+            });
+        }
+    }
+}`
+                },
+                'api': {
+                    content: `<template>
+  <ConfirmPopup></ConfirmPopup>
+
+  <Button @click="del($event)" icon="pi pi-check" label="Confirm"></Button>
+</template>
+
+<script>
+import { defineComponent } from "vue";
+import { useConfirm } from "primevue/useconfirm";
+import { useToast } from "primevue/usetoast";
+
+export default defineComponent({
+    setup() {
+        const confirm = useConfirm();
+        const toast = useToast();
+
+        const del = (event) => {
+            confirm.require({
+                message: "Are you sure you want to proceed?",
+                icon: "pi pi-exclamation-triangle",
+                accept: () => {
+                  //callback to execute when user confirms the action
+                  toast.add({severity:'info', summary:'Confirmed', detail:'You have accepted', life: 3000});
+                },
+                reject: () => {
+                  //callback to execute when user rejects the action
+                  toast.add({severity:'info', summary:'Confirmed', detail:'You have accepted', life: 3000});
+                },
+            });
+        };
+
+        return { del };
+    },
+})
+`
+                }
+            }
+        }
+    },
+    components: {
+        LiveEditor
+    }
+}
+</script>

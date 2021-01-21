@@ -155,9 +155,12 @@ toggle(event) {
 			</TabPanel>
 
 			<TabPanel header="Source">
-				<a href="https://github.com/primefaces/primevue/tree/master/src/views/overlaypanel" class="btn-viewsource" target="_blank" rel="noopener noreferrer">
-					<span>View on GitHub</span>
-				</a>
+				<div class="p-d-flex p-jc-between">
+					<a href="https://github.com/primefaces/primevue/tree/master/src/views/overlaypanel" class="btn-viewsource" target="_blank" rel="noopener noreferrer">
+						<span>View on GitHub</span>
+					</a>
+					<LiveEditor name="OverlayPanelDemo" :sources="sources" service="ProductService" data="products-small" :components="['Button', 'DataTable', 'Column']" />
+				</div>
 <pre v-code>
 <code><template v-pre>
 &lt;Button type="button" icon="pi pi-search" :label="selectedProduct ? selectedProduct.name : 'Select a Product'" @click="toggle" aria:haspopup="true" aria-controls="overlay_panel" /&gt;
@@ -217,3 +220,86 @@ export default {
 		</TabView>
 	</div>
 </template>
+
+<script>
+import LiveEditor from '../liveeditor/LiveEditor';
+export default {
+	data() {
+		return {
+			sources: {
+				'template': {
+					content: `<template>
+    <div class="layout-content">
+        <Toast />
+        <div class="content-section implementation">
+            <div class="card">
+                <Button type="button" icon="pi pi-search" :label="selectedProduct ? selectedProduct.name : 'Select a Product'" @click="toggle" aria:haspopup="true" aria-controls="overlay_panel" />
+
+                <OverlayPanel ref="op" appendTo="body" :showCloseIcon="true" id="overlay_panel" style="width: 450px">
+                    <DataTable :value="products" v-model:selection="selectedProduct" selectionMode="single" :paginator="true" :rows="5" @row-select="onProductSelect">
+                        <Column field="name" header="Name" sortable></Column>
+                        <Column header="Image">
+                            <template #body="slotProps">
+                                <img src="https://www.primefaces.org/wp-content/uploads/2020/05/placeholder.png" :alt="slotProps.data.image" class="product-image" />
+                            </template>
+                        </Column>
+                        <Column field="price" header="Price" sortable>
+                            <template #body="slotProps">
+                                {{formatCurrency(slotProps.data.price)}}
+                            </template>
+                        </Column>
+                    </DataTable>
+                </OverlayPanel>
+            </div>
+        </div>
+    </div>
+</template>
+
+<script>
+import ProductService from '../service/ProductService';
+export default {
+    data() {
+        return {
+            products: null,
+            selectedProduct: null
+        }
+    },
+    productService: null,
+    created() {
+        this.productService = new ProductService();
+    },
+    mounted() {
+        this.productService.getProductsSmall().then(data => this.products = data);
+    },
+    methods: {
+        toggle(event) {
+            this.$refs.op.toggle(event);
+        },
+        formatCurrency(value) {
+            return value.toLocaleString('en-US', {style: 'currency', currency: 'USD'});
+        },
+        onProductSelect(event) {
+            this.$refs.op.hide();
+            this.$toast.add({severity:'info', summary: 'Product Selected', detail: event.data.name, life: 3000});
+        }
+    }
+}`,
+style: `<style lang="scss" scoped>
+button {
+    min-width: 15rem;
+}
+
+.product-image {
+    width: 50px;
+    box-shadow: 0 3px 6px rgba(0, 0, 0, 0.16), 0 3px 6px rgba(0, 0, 0, 0.23)
+}
+</style>`
+				}
+			}
+		}
+	},
+	components: {
+		LiveEditor
+	}
+}
+</script>
