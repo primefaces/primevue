@@ -34,14 +34,14 @@
 <pre v-code>
 <code><template v-pre>
 &lt;h3&gt;Fit Mode&lt;/h3&gt;
-&lt;TreeTable :value="nodes" :resizableColumns="true" columnResizeMode="fit"&gt;
+&lt;TreeTable :value="nodes" :resizableColumns="true" columnResizeMode="fit" class="p-treetable-gridlines"&gt;
     &lt;Column field="name" header="Name" :expander="true"&gt;&lt;/Column&gt;
     &lt;Column field="size" header="Size"&gt;&lt;/Column&gt;
     &lt;Column field="type" header="Type"&gt;&lt;/Column&gt;
 &lt;/TreeTable&gt;
 
 &lt;h3&gt;Expand Mode&lt;/h3&gt;
-&lt;TreeTable :value="nodes" :resizableColumns="true" columnResizeMode="expand"&gt;
+&lt;TreeTable :value="nodes" :resizableColumns="true" columnResizeMode="expand" class="p-treetable-gridlines"&gt;
     &lt;Column field="name" header="Name" :expander="true"&gt;&lt;/Column&gt;
     &lt;Column field="size" header="Size"&gt;&lt;/Column&gt;
     &lt;Column field="type" header="Type"&gt;&lt;/Column&gt;
