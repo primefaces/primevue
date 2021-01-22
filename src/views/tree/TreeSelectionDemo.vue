@@ -30,6 +30,9 @@
         <div class="content-section documentation">
             <TabView>
                 <TabPanel header="Source">
+                    <div class="p-d-flex p-jc-end">
+                        <LiveEditor name="TreeDemo" :sources="sources" service="NodeService" data="treenodes" />
+                    </div>
 <pre v-code>
 <code><template v-pre>
 &lt;h3&gt;Single Selection&lt;/h3&gt;
@@ -91,6 +94,46 @@ export default {
 
 <script>
 import NodeService from '../../service/NodeService';
+import LiveEditor from '../liveeditor/LiveEditor';
+
+export default {
+    data() {
+        return {
+            selectedKey1: null,
+            selectedKey2: null,
+            selectedKeys1: null,
+            selectedKeys2: null,
+            selectedKeys3: null,
+            nodes: null,
+            sources: {
+                'template': {
+                    content: `<template>
+    <div class="layout-content">
+        <Toast />
+        <div class="content-section implementation">
+            <div class="card">
+                <h5>Single Selection</h5>
+                <Tree :value="nodes" selectionMode="single" v-model:selectionKeys="selectedKey1"></Tree>
+
+                <h5>Multiple Selection with MetaKey</h5>
+                <Tree :value="nodes" selectionMode="multiple" v-model:selectionKeys="selectedKeys1"></Tree>
+
+                <h5>Multiple Selection without MetaKey</h5>
+                <Tree :value="nodes" selectionMode="multiple" v-model:selectionKeys="selectedKeys2" :metaKeySelection="false"></Tree>
+
+                <h5>Checkbox Selection</h5>
+                <Tree :value="nodes" selectionMode="checkbox" v-model:selectionKeys="selectedKeys3"></Tree>
+
+                <h5>Events</h5>
+                <Tree :value="nodes" selectionMode="single" v-model:selectionKeys="selectedKey2" :metaKeySelection="false"
+                    @node-select="onNodeSelect" @node-unselect="onNodeUnselect"></Tree>
+            </div>
+        </div>
+    </div>
+</template>
+
+<script>
+import NodeService from '../service/NodeService';
 
 export default {
     data() {
@@ -117,6 +160,29 @@ export default {
         onNodeUnselect(node) {
             this.$toast.add({severity:'success', summary: 'Node Unselected', detail: node.label, life: 3000});
         }
+    }
+}`
+                }
+            }
+        }
+    },
+    nodeService: null,
+    created() {
+        this.nodeService = new NodeService();
+    },
+    mounted() {
+        this.nodeService.getTreeNodes().then(data => this.nodes = data);
+    },
+    methods: {
+        onNodeSelect(node) {
+            this.$toast.add({severity:'success', summary: 'Node Selected', detail: node.label, life: 3000});
+        },
+        onNodeUnselect(node) {
+            this.$toast.add({severity:'success', summary: 'Node Unselected', detail: node.label, life: 3000});
+        }
+    },
+    components: {
+        LiveEditor
     }
 }
 </script>

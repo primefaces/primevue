@@ -750,9 +750,12 @@ export default {
 			</TabPanel>
 
 			<TabPanel header="Source">
-				<a href="https://github.com/primefaces/primevue/tree/master/src/views/tree" class="btn-viewsource" target="_blank" rel="noopener noreferrer">
-					<span>View on GitHub</span>
-				</a>
+                <div class="p-d-flex p-jc-between">
+                    <a href="https://github.com/primefaces/primevue/tree/master/src/views/tree" class="btn-viewsource" target="_blank" rel="noopener noreferrer">
+                        <span>View on GitHub</span>
+                    </a>
+                    <LiveEditor name="TreeDemo" :sources="sources" service="NodeService" data="treenodes" :components="['Button']" />
+                </div>
 <pre v-code>
 <code><template v-pre>
 &lt;h3&gt;Basic&lt;/h3&gt;
@@ -813,3 +816,80 @@ export default {
 		</TabView>
 	</div>
 </template>
+
+<script>
+import LiveEditor from '../liveeditor/LiveEditor';
+export default {
+    data() {
+        return {
+            sources: {
+                'template': {
+                    content: `<template>
+    <div class="layout-content">
+        <div class="content-section implementation">
+            <div class="card">
+                <h5>Basic</h5>
+                <Tree :value="nodes"></Tree>
+
+                <h5>Programmatic Control</h5>
+                <div style="margin-bottom: 1em">
+                    <Button type="button" icon="pi pi-plus" label="Expand All" @click="expandAll" />
+                    <Button type="button" icon="pi pi-minus" label="Collapse All" @click="collapseAll" />
+                </div>
+                <Tree :value="nodes" :expandedKeys="expandedKeys"></Tree>
+            </div>
+        </div>
+    </div>
+</template>
+<script>
+import NodeService from '../service/NodeService';
+export default {
+    data() {
+        return {
+            nodes: null,
+            expandedKeys: {}
+        }
+    },
+    nodeService: null,
+    created() {
+        this.nodeService = new NodeService();
+    },
+    mounted() {
+        this.nodeService.getTreeNodes().then(data => this.nodes = data);
+    },
+    methods: {
+        expandAll() {
+            for (let node of this.nodes) {
+                this.expandNode(node);
+            }
+
+            this.expandedKeys = {...this.expandedKeys};
+        },
+        collapseAll() {
+            this.expandedKeys = {};
+        },
+        expandNode(node) {
+            if (node.children && node.children.length) {
+                this.expandedKeys[node.key] = true;
+
+                for (let child of node.children) {
+                    this.expandNode(child);
+                }
+            }
+        }
+    }
+}`,
+                    style: `<style scoped>
+button {
+    margin-right: .5rem;
+}
+</style>`
+                }
+            }
+        }
+    },
+    components: {
+        LiveEditor
+    }
+}
+</script>
