@@ -465,8 +465,8 @@
                             "to": "/treetable/coltoggle"
                         },
                         {
-                            "name": "Tempalting",
-                            "to": "/treetable/templating"
+                            "name": "ColResize",
+                            "to": "/treetable/colresize"
                         },
                         {
                             "name": "Filter",
