@@ -104,9 +104,12 @@ export default {
 			</TabPanel>
 
 			<TabPanel header="Source">
-				<a href="https://github.com/primefaces/primevue/tree/master/src/views/menu" class="btn-viewsource" target="_blank" rel="noopener noreferrer">
-					<span>View on GitHub</span>
-				</a>
+                <div class="p-d-flex p-jc-between">
+                    <a href="https://github.com/primefaces/primevue/tree/master/src/views/menu" class="btn-viewsource" target="_blank" rel="noopener noreferrer">
+                        <span>View on GitHub</span>
+                    </a>
+                    <LiveEditor name="BreadcrumbDemo" :sources="sources"/>
+                </div>
 <pre v-code>
 <code><template v-pre>
 &lt;Breadcrumb :home="home" :model="items" /&gt;
@@ -135,3 +138,50 @@ export default {
 		</TabView>
 	</div>
 </template>
+
+<script>
+import LiveEditor from '../liveeditor/LiveEditor';
+export default {
+    data() {
+        return {
+            sources: {
+                'template': {
+                    content: `<template>
+    <div class="layout-content">
+        <div class="content-section implementation">
+            <div class="card">
+                <Breadcrumb :home="home" :model="items" />
+            </div>
+        </div>
+    </div>
+</template>
+
+<script>
+export default {
+    data() {
+        return {
+            home: {
+                icon: 'pi pi-home', 
+                command: () => {
+                    window.location.hash = "/fileupload"
+                }
+            },
+            items: [
+                {label: 'Computer'},
+                {label: 'Notebook'},
+                {label: 'Accessories'},
+                {label: 'Backpacks'},
+                {label: 'Item'}
+            ]
+        }
+    }
+}`
+                }
+            }
+        }
+    },
+    components: {
+        LiveEditor
+    }
+}
+</script>

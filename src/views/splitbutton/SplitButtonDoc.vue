@@ -323,7 +323,9 @@ export default {
                 },
                 {   label: 'Upload',
                     icon: 'pi pi-upload',
-                    to: '/fileupload'
+                    command: () => {
+						window.location.hash = "/fileupload"
+					}
                 }
             ]
         }
