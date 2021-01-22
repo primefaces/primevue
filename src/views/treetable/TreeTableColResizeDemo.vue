@@ -31,6 +31,9 @@
         <div class="content-section documentation">
             <TabView>
                 <TabPanel header="Source">
+                    <div class="p-d-flex p-jc-end">
+                        <LiveEditor name="TreeTableDemo" :sources="sources" service="NodeService" data="treetablenodes" :components="['Column']" />
+                    </div>
 <pre v-code>
 <code><template v-pre>
 &lt;h3&gt;Fit Mode&lt;/h3&gt;
@@ -78,6 +81,40 @@ export default {
 
 <script>
 import NodeService from '../../service/NodeService';
+import LiveEditor from '../liveeditor/LiveEditor';
+
+export default {
+    data() {
+        return {
+            nodes: null,
+            sources: {
+                'template': {
+                    content: `<template>
+    <div class="layout-content">
+        <div class="content-section implementation">
+            <div class="card">
+                <h5>Fit Mode</h5>
+                <TreeTable :value="nodes" :resizableColumns="true" columnResizeMode="fit" class="p-treetable-gridlines">
+                    <Column field="name" header="Name" :expander="true"></Column>
+                    <Column field="size" header="Size"></Column>
+                    <Column field="type" header="Type"></Column>
+                </TreeTable>
+            </div>
+
+            <div class="card">
+                <h5>Expand Mode</h5>
+                <TreeTable :value="nodes" :resizableColumns="true" columnResizeMode="expand" class="p-treetable-gridlines">
+                    <Column field="name" header="Name" :expander="true"></Column>
+                    <Column field="size" header="Size"></Column>
+                    <Column field="type" header="Type"></Column>
+                </TreeTable>
+            </div>
+        </div>
+    </div>                    
+</template>
+
+<script>
+import NodeService from '../service/NodeService';
 
 export default {
     data() {
@@ -91,6 +128,22 @@ export default {
     },
     mounted() {
         this.nodeService.getTreeTableNodes().then(data => this.nodes = data);
+    }
+}
+`
+                }
+            }
+        }
+    },
+    nodeService: null,
+    created() {
+        this.nodeService = new NodeService();
+    },
+    mounted() {
+        this.nodeService.getTreeTableNodes().then(data => this.nodes = data);
+    },
+    components: {
+        LiveEditor
     }
 }
 </script>

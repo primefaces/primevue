@@ -1639,9 +1639,12 @@ export default {
 			</TabPanel>
 
 			<TabPanel header="Source">
-				<a href="https://github.com/primefaces/primevue/tree/master/src/views/treetable" class="btn-viewsource" target="_blank" rel="noopener noreferrer">
-					<span>View on GitHub</span>
-				</a>
+                <div class="p-d-flex p-jc-between">
+                    <a href="https://github.com/primefaces/primevue/tree/master/src/views/treetable" class="btn-viewsource" target="_blank" rel="noopener noreferrer">
+                        <span>View on GitHub</span>
+                    </a>
+                    <LiveEditor name="TreeTableDemo" :sources="sources" service="NodeService" data="treetablenodes" :components="['Column', 'Button']" />
+                </div>
 <pre v-code>
 <code><template v-pre>
 &lt;h3&gt;Basic&lt;/h3&gt;
@@ -1723,3 +1726,110 @@ export default {
 		</TabView>
 	</div>
 </template>
+
+<script>
+import LiveEditor from '../liveeditor/LiveEditor';
+export default {
+    data() {
+        return {
+            sources: {
+                'template': {
+                    content: `<template>
+    <div class="layout-content">
+        <div class="content-section implementation">
+            <div class="card">
+                <h5>Basic</h5>
+                <TreeTable :value="nodes">
+                    <Column field="name" header="Name" :expander="true"></Column>
+                    <Column field="size" header="Size"></Column>
+                    <Column field="type" header="Type"></Column>
+                </TreeTable>
+            </div>
+
+            <div class="card">
+                <h5>Dynamic Columns</h5>
+                <TreeTable :value="nodes">
+                    <Column v-for="col of columns" :key="col.field"
+                        :field="col.field" :header="col.header" :expander="col.expander"></Column>
+                </TreeTable>
+            </div>
+
+            <div class="card">
+                <h5>Programmatic Control</h5>
+                <div style="margin-bottom: 1em">
+                    <Button type="button" icon="pi pi-plus" label="Expand All" @click="expandAll" />
+                    <Button type="button" icon="pi pi-minus" label="Collapse All" @click="collapseAll" />
+                </div>
+                <TreeTable :value="nodes" :expandedKeys="expandedKeys">
+                    <Column field="name" header="Name" :expander="true"></Column>
+                    <Column field="size" header="Size"></Column>
+                    <Column field="type" header="Type"></Column>
+                </TreeTable>
+            </div>
+        </div>
+
+        <TreeTableDoc />
+    </div>
+</template>
+
+<script>
+import NodeService from '../service/NodeService';
+
+export default {
+    data() {
+        return {
+            nodes: null,
+            columns: null,
+            expandedKeys: {}
+        }
+    },
+    nodeService: null,
+    created() {
+        this.nodeService = new NodeService();
+
+        this.columns = [
+            {field: 'name', header: 'Vin', expander: true},
+            {field: 'size', header: 'Size'},
+            {field: 'type', header: 'Type'}
+        ];
+    },
+    mounted() {
+        this.nodeService.getTreeTableNodes().then(data => this.nodes = data);
+    },
+    methods: {
+        expandAll() {
+            for (let node of this.nodes) {
+                this.expandNode(node);
+            }
+
+            this.expandedKeys = {...this.expandedKeys};
+        },
+        collapseAll() {
+            this.expandedKeys = {};
+        },
+        expandNode(node) {
+            if (node.children && node.children.length) {
+                this.expandedKeys[node.key] = true;
+
+                for (let child of node.children) {
+                    this.expandNode(child);
+                }
+            }
+        }
+    }
+}
+`,
+                    style: `<style scoped>
+button {
+    margin-right: .5rem;
+}
+</style>`
+                }
+            }
+        }
+    },
+    components: {
+        LiveEditor
+    }
+}
+</script>
