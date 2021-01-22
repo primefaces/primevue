@@ -161,7 +161,7 @@ ${style}`
             }
             
 
-            let mittComponents = ['ToastDemo', 'OrganizationChartDemo', 'ConfirmDialogDemo', 'ConfirmPopupDemo', 'TerminalDemo', 'SplitButtonDemo', 'DeferredContentDemo', 'OverlayPanelDemo', 'FileUploadDemo', 'DataTableDemo'];
+            let mittComponents = ['ToastDemo', 'OrganizationChartDemo', 'ConfirmDialogDemo', 'ConfirmPopupDemo', 'TerminalDemo', 'SplitButtonDemo', 'DeferredContentDemo', 'OverlayPanelDemo', 'FileUploadDemo', 'DataTableDemo', 'TreeDemo', 'TreeTableDemo'];
 
             mittComponents.forEach(cmp => {
                 if(name === cmp) {
