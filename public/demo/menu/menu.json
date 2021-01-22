@@ -465,12 +465,12 @@
                             "to": "/treetable/coltoggle"
                         },
                         {
-                            "name": "ColResize",
+                            "name": "Resize",
                             "to": "/treetable/colresize"
                         },
                         {
-                            "name": "Filter",
-                            "to": "/treetable/filter"
+                            "name": "Responsive",
+                            "to": "/treetable/responsive"
                         }
                     ]
                 }
