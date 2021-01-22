@@ -159,7 +159,7 @@ toggle(event) {
 					<a href="https://github.com/primefaces/primevue/tree/master/src/views/overlaypanel" class="btn-viewsource" target="_blank" rel="noopener noreferrer">
 						<span>View on GitHub</span>
 					</a>
-					<LiveEditor name="OverlayPanelDemo" :sources="sources" service="ProductService" data="products-small" :components="['Button', 'DataTable', 'Column']" />
+					<LiveEditor name="OverlayPanelDemo" :sources="sources" service="ProductService" data="products-small" :toastService="true" :components="['Button', 'DataTable', 'Column']" />
 				</div>
 <pre v-code>
 <code><template v-pre>

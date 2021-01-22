@@ -189,9 +189,12 @@ export default {
 			</TabPanel>
 
 			<TabPanel header="Source">
-				<a href="https://github.com/primefaces/primevue/tree/master/src/views/splitbutton" class="btn-viewsource" target="_blank" rel="noopener noreferrer">
-					<span>View on GitHub</span>
-				</a>
+				<div class="p-d-flex p-jc-between">
+					<a href="https://github.com/primefaces/primevue/tree/master/src/views/splitbutton" class="btn-viewsource" target="_blank" rel="noopener noreferrer">
+						<span>View on GitHub</span>
+					</a>
+					<LiveEditor name="SplitButtonDemo" :sources="sources" :toastService="true" />
+				</div>
 <pre v-code>
 <code><template v-pre>
 &lt;h3&gt;Basic&lt;/h3&gt;
@@ -263,3 +266,84 @@ export default {
 		</TabView>
 	</div>
 </template>
+
+<script>
+import LiveEditor from '../liveeditor/LiveEditor';
+export default {
+	data() {
+		return {
+			sources:{
+				'template': {
+					content:`<template>
+	<div class="layout-content">
+		<Toast />
+        <div class="content-section implementation">
+            <div class="card">
+                <h5>Basic</h5>
+                <SplitButton label="Save" icon="pi pi-plus" @click="save" :model="items"></SplitButton>
+
+                <h5>Severities</h5>
+                <SplitButton label="Save" icon="pi pi-plus" :model="items" class="p-mb-2"></SplitButton>
+                <SplitButton label="Save" icon="pi pi-plus" :model="items" class="p-button-secondary p-mb-2"></SplitButton>
+                <SplitButton label="Save" icon="pi pi-plus" :model="items" class="p-button-success p-mb-2"></SplitButton>
+                <SplitButton label="Save" icon="pi pi-plus" :model="items" class="p-button-info p-mb-2"></SplitButton>
+                <SplitButton label="Save" icon="pi pi-plus" :model="items" class="p-button-warning p-mb-2"></SplitButton>
+                <SplitButton label="Save" icon="pi pi-plus" :model="items" class="p-button-help p-mb-2"></SplitButton>
+                <SplitButton label="Save" icon="pi pi-plus" :model="items" class="p-button-danger p-mb-2"></SplitButton>
+            </div>
+        </div>
+    </div>
+</template>
+
+<script>
+export default {
+    data() {
+        return {
+            items: [
+                {
+                    label: 'Update',
+                    icon: 'pi pi-refresh',
+                    command: () => {
+                        this.$toast.add({severity:'success', summary:'Updated', detail:'Data Updated', life: 3000});
+                    }
+                },
+                {
+                    label: 'Delete',
+                    icon: 'pi pi-times',
+                    command: () => {
+                        this.$toast.add({ severity: 'warn', summary: 'Delete', detail: 'Data Deleted', life: 3000});
+                    }
+                },
+                {
+                    label: 'Vue Website',
+                    icon: 'pi pi-external-link',
+                    command: () => {
+                        window.location.href = 'https://vuejs.org/'
+                    }
+                },
+                {   label: 'Upload',
+                    icon: 'pi pi-upload',
+                    to: '/fileupload'
+                }
+            ]
+        }
+    },
+    methods: {
+        save() {
+            this.$toast.add({severity: 'success', summary: 'Success', detail: 'Data Saved', life: 3000});
+        }
+    }
+}`,
+					style: `<style lang="scss" scoped>
+.p-splitbutton {
+    margin-right: .5rem;
+}
+</style>`			}
+			}
+		}
+	},
+	components: {
+		LiveEditor
+	}
+}
+</script>

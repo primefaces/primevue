@@ -262,7 +262,7 @@ export default {
                     <a href="https://github.com/primefaces/primevue/tree/master/src/views/dialog" class="btn-viewsource" target="_blank" rel="noopener noreferrer">
                         <span>View on GitHub</span>
                     </a>
-                    <LiveEditor name="ConfirmPopupDemo" :sources="sources" :components="['Button']" />
+                    <LiveEditor name="ConfirmPopupDemo" :sources="sources" :confirmationService="true" :toastService="true" :components="['Button']" />
                 </div>
 <pre v-code>
 <code><template v-pre>
@@ -371,9 +371,17 @@ export default {
                 },
                 'api': {
                     content: `<template>
-  <ConfirmPopup></ConfirmPopup>
+    <div class="layout-content">
+        <Toast />
+        <div class="content-section implementation">
+            <ConfirmPopup></ConfirmPopup>
 
-  <Button @click="del($event)" icon="pi pi-check" label="Confirm"></Button>
+            <div class="card">
+                <Button @click="confirm1($event)" icon="pi pi-check" label="Confirm" class="p-mr-2"></Button>
+                <Button @click="confirm2($event)" icon="pi pi-times" label="Delete" class="p-button-danger p-button-outlined"></Button>
+            </div>
+        </div>
+    </div>
 </template>
 
 <script>
@@ -386,22 +394,36 @@ export default defineComponent({
         const confirm = useConfirm();
         const toast = useToast();
 
-        const del = (event) => {
+        const confirm1 = (event) => {
             confirm.require({
-                message: "Are you sure you want to proceed?",
-                icon: "pi pi-exclamation-triangle",
+                target: event.currentTarget,
+                message: 'Are you sure you want to proceed?',
+                icon: 'pi pi-exclamation-triangle',
                 accept: () => {
-                  //callback to execute when user confirms the action
-                  toast.add({severity:'info', summary:'Confirmed', detail:'You have accepted', life: 3000});
+                    toast.add({severity:'info', summary:'Confirmed', detail:'You have accepted', life: 3000});
                 },
                 reject: () => {
-                  //callback to execute when user rejects the action
-                  toast.add({severity:'info', summary:'Confirmed', detail:'You have accepted', life: 3000});
-                },
+                    toast.add({severity:'info', summary:'Rejected', detail:'You have rejected', life: 3000});
+                }
             });
-        };
+        }
 
-        return { del };
+        const confirm2 = (event) => {
+            confirm.require({
+                target: event.currentTarget,
+                message: 'Do you want to delete this record?',
+                icon: 'pi pi-info-circle',
+                acceptClass: 'p-button-danger',
+                accept: () => {
+                    toast.add({severity:'info', summary:'Confirmed', detail:'Record deleted', life: 3000});
+                },
+                reject: () => {
+                    toast.add({severity:'info', summary:'Rejected', detail:'You have rejected', life: 3000});
+                }
+            });
+        }
+
+        return { confirm1, confirm2 };
     },
 })
 `

@@ -494,7 +494,7 @@ export default {
                     <a href="https://github.com/primefaces/primevue/tree/master/src/views/organizationchart" class="btn-viewsource" target="_blank" rel="noopener noreferrer">
                         <span>View on GitHub</span>
                     </a>
-                    <LiveEditor name="OrganizationChartDemo" :sources="sources" />
+                    <LiveEditor name="OrganizationChartDemo" :sources="sources" :toastService="true" />
                 </div>
 <pre v-code>
 <code><template v-pre>
@@ -728,7 +728,7 @@ export default {
                     <template #person="slotProps">
                         <div class="node-header ui-corner-top">{{slotProps.node.data.label}}</div>
                         <div class="node-content">
-                            <img :src="'demo/images/organization/' + slotProps.node.data.avatar" width="32">
+                            <img src="https://www.primefaces.org/wp-content/uploads/2020/05/placeholder.png" width="32">
                             <div>{{slotProps.node.data.name}}</div>
                         </div>
                     </template>
