@@ -12,3 +12,9 @@ declare module 'vue/types/vue' {
         $confirm: ConfirmationServiceMethods;
     }
 }
+
+declare module '@vue/runtime-core' {
+    interface ComponentCustomProperties {
+        $confirm: ConfirmationServiceMethods;
+    }
+}
