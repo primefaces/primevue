@@ -575,7 +575,7 @@
                 },
                 {
                     "name": "BreadCrumb",
-                    "to": "/breadCrumb"
+                    "to": "/breadcrumb"
                 },
                 {
                     "name": "ContextMenu",
