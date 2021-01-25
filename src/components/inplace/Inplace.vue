@@ -18,11 +18,11 @@ export default {
     props: {
         closable: {
             type: Boolean,
-            defaault: false
+            default: false
         },
         active: {
             type: Boolean,
-            defaault: false
+            default: false
         }
     },
     watch: {
