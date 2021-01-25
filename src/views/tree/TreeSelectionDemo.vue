@@ -31,7 +31,7 @@
             <TabView>
                 <TabPanel header="Source">
                     <div class="p-d-flex p-jc-end">
-                        <LiveEditor name="TreeDemo" :sources="sources" service="NodeService" data="treenodes" />
+                        <LiveEditor name="TreeDemo" :sources="sources" :toastService="true" service="NodeService" data="treenodes" />
                     </div>
 <pre v-code>
 <code><template v-pre>
