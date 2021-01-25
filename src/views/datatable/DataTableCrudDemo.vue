@@ -162,7 +162,7 @@
             <TabView>
                 <TabPanel header="Source">
                     <div class="p-d-flex p-jc-end">
-                        <LiveEditor name="DataTableDemo" :sources="sources" service="ProductService" data="products" :components="['Column', 'Toolbar', 'Button', 'FileUpload', 'InputText', 'Rating', 'Dialog', 'RadioButton', 'Textarea', 'InputNumber', 'Dropdown']" />
+                        <LiveEditor name="DataTableDemo" :sources="sources" :toastService="true" service="ProductService" data="products" :components="['Column', 'Toolbar', 'Button', 'FileUpload', 'InputText', 'Rating', 'Dialog', 'RadioButton', 'Textarea', 'InputNumber', 'Dropdown']" />
                     </div>
 <pre v-code>
 <code><template v-pre>

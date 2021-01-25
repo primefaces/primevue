@@ -109,7 +109,7 @@
             <TabView>
                 <TabPanel header="Source">
                     <div class="p-d-flex p-jc-end">
-                        <LiveEditor name="DataTableDemo" :sources="sources" service="CustomerService" data="customers-medium" :components="['Column']" />
+                        <LiveEditor name="DataTableDemo" :sources="sources" :toastService="true" service="CustomerService" data="customers-medium" :components="['Column']" />
                     </div>
 <pre v-code>
 <code><template v-pre>
