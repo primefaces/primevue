@@ -106,9 +106,12 @@ export default {
 			</TabPanel>
 
 			<TabPanel header="Source">
-				<a href="https://github.com/primefaces/primevue/tree/master/src/views/tabmenu" class="btn-viewsource" target="_blank" rel="noopener noreferrer">
-					<span>View on GitHub</span>
-				</a>
+                <div class="p-d-flex p-jc-between">
+                    <a href="https://github.com/primefaces/primevue/tree/master/src/views/tabmenu" class="btn-viewsource" target="_blank" rel="noopener noreferrer">
+                        <span>View on GitHub</span>
+                    </a>
+                    <LiveEditor name="TabMenuDemo" :sources="sources" :router="true" />
+                </div>
 <pre v-code>
 <code><template v-pre>
 &lt;TabMenu :model="items" /&gt;
@@ -137,3 +140,137 @@ export default {
 		</TabView>
 	</div>
 </template>
+
+<script>
+import LiveEditor from '../liveeditor/LiveEditor';
+export default {
+    data() {
+        return {
+            sources: {
+                'template': {
+                    content: `<template>
+    <div class="layout-content">
+        <div class="content-section implementation">
+            <div class="card">
+                <TabMenu :model="items" />
+                <router-view />
+            </div>
+        </div>
+    </div>
+</template>
+
+<script>
+export default {
+    data() {
+        return {
+            items: [
+                {
+                    label: 'Home', 
+                    icon: 'pi pi-fw pi-home', 
+                    to: '/'
+                },
+                {
+                    label: 'Calendar', 
+                    icon: 'pi pi-fw pi-calendar', 
+                    to: '/calendar'
+                },
+                {
+                    label: 'Edit', 
+                    icon: 'pi pi-fw pi-pencil', 
+                    to: '/edit'
+                },
+                {
+                    label: 'Documentation', 
+                    icon: 'pi pi-fw pi-file', 
+                    to: '/documentation'
+                },
+                {
+                    label: 'Settings', 
+                    icon: 'pi pi-fw pi-cog', 
+                    to: '/settings'
+                }
+            ]
+        }
+    }
+}`,
+                    style: `<style scoped lang="scss">
+::v-deep(.tabmenudemo-content) {
+    padding: 2rem 1rem;
+}
+</style>`
+                },
+                'pages': [
+                    {
+                        'name': 'HomeDemo',
+                        'template': `<template>
+    <div class="tabmenudemo-content">
+        <h5>Home Component Content</h5>
+    </div>
+</template>
+
+<script>
+export default {
+
+}`
+                    },
+                    {
+                        'name': 'CalendarDemo',
+                        'template': `<template>
+    <div class="tabmenudemo-content">
+        <h5>Calendar Component Content</h5>
+    </div>
+</template>
+
+<script>
+export default {
+
+}`
+                    },
+                    {
+                        'name': 'EditDemo',
+                        'template': `<template>
+    <div class="tabmenudemo-content">
+        <h5>Edit Component Content</h5>
+    </div>
+</template>
+
+<script>
+export default {
+
+}`
+                    },
+                    {
+                        'name': 'DocumentationDemo',
+                        'template': `<template>
+    <div class="tabmenudemo-content">
+        <h5>Documentation Component Content</h5>
+    </div>
+</template>
+
+<script>
+export default {
+
+}`
+                    },
+                    {
+                        'name': 'SettingsDemo',
+                        'template': `<template>
+    <div class="tabmenudemo-content">
+        <h5>Settings Component Content</h5>
+    </div>
+</template>
+
+<script>
+export default {
+
+}`
+                    }
+                ]
+            }
+        }
+    },
+    components: {
+        LiveEditor
+    }
+}
+</script>
