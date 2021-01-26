@@ -256,7 +256,7 @@ export default {
                     <a href="https://github.com/primefaces/primevue/tree/master/src/views/megamenu" class="btn-viewsource" target="_blank" rel="noopener noreferrer">
                         <span>View on GitHub</span>
                     </a>
-                    <LiveEditor name="MegaMenuDemo" :sources="sources" />
+                    <LiveEditor name="MegaMenuDemo" :sources="sources" :router="true" />
                 </div>
 
 <pre v-code>

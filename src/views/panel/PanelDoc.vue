@@ -283,6 +283,7 @@ export default {
                 'template': {
                     content: `<template>
     <div class="layout-content">
+        <Toast />
         <div class="content-section implementation">
             <h5>Regular</h5>
             <Panel header="Header">

@@ -216,7 +216,7 @@ toggle(event) {
                     <a href="https://github.com/primefaces/primevue/tree/master/src/views/menu" class="btn-viewsource" target="_blank" rel="noopener noreferrer">
                         <span>View on GitHub</span>
                     </a>
-                    <LiveEditor name="MenuDemo" :sources="sources" :toastService="true" :components="['Button']"/>
+                    <LiveEditor name="MenuDemo" :sources="sources" :toastService="true" :router="true" :components="['Button']"/>
                 </div>
 <pre v-code>
 <code><template v-pre>
@@ -293,6 +293,7 @@ export default {
                 'template': {
                     content: `<template>
     <div class="layout-content">
+        <Toast />
         <div class="content-section implementation">
             <div class="card">
                 <h5>Inline</h5>

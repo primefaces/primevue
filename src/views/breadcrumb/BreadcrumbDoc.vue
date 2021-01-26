@@ -108,7 +108,7 @@ export default {
                     <a href="https://github.com/primefaces/primevue/tree/master/src/views/menu" class="btn-viewsource" target="_blank" rel="noopener noreferrer">
                         <span>View on GitHub</span>
                     </a>
-                    <LiveEditor name="BreadcrumbDemo" :sources="sources"/>
+                    <LiveEditor name="BreadcrumbDemo" :sources="sources" :router="true" />
                 </div>
 <pre v-code>
 <code><template v-pre>
@@ -162,9 +162,7 @@ export default {
         return {
             home: {
                 icon: 'pi pi-home', 
-                command: () => {
-                    window.location.hash = "/fileupload"
-                }
+                to: '/fileupload',
             },
             items: [
                 {label: 'Computer'},
