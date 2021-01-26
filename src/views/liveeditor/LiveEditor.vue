@@ -596,7 +596,7 @@ img.flag {
 
                 pages.forEach((page, i) => {
                     _files[`src/components/${page.name}.vue`] = {
-                        'content': `${page.tag}
+                        'content': `${page.template}
 </${scriptText}>`
                     }
 
