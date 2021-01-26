@@ -724,7 +724,7 @@ export default {
             <div class="card">
                 <h5>Advanced</h5>
                 <OrganizationChart :value="data1" :collapsible="true" class="company" selectionMode="single" v-model:selectionKeys="selection"
-                    @node-select="onNodeSelect" @node-unselect="onNodeUnselect" @node-collapse="onNodeCollapse" @node-expand="onNodeExpand">
+                    @nodeSelect="onNodeSelect" @nodeUnselect="onNodeUnselect" @nodeCollapse="onNodeCollapse" @nodeExpand="onNodeExpand">
                     <template #person="slotProps">
                         <div class="node-header ui-corner-top">{{slotProps.node.data.label}}</div>
                         <div class="node-content">

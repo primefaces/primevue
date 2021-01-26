@@ -126,7 +126,7 @@ export default {
 
                 <h5>Events</h5>
                 <Tree :value="nodes" selectionMode="single" v-model:selectionKeys="selectedKey2" :metaKeySelection="false"
-                    @node-select="onNodeSelect" @node-unselect="onNodeUnselect"></Tree>
+                    @nodeSelect="onNodeSelect" @nodeUnselect="onNodeUnselect"></Tree>
             </div>
         </div>
     </div>

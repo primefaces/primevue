@@ -263,7 +263,7 @@ export default {
                 <h5>Events</h5>
                 <p>row-select and row-unselects are available as selection events.</p>
                 <DataTable :value="products" v-model:selection="selectedProduct2" selectionMode="single" dataKey="id"
-                    @row-select="onRowSelect($event)" @row-unselect="onRowUnselect($event)">
+                    @rowSelect="onRowSelect($event)" @rowUnselect="onRowUnselect($event)">
                     <Column field="code" header="Code"></Column>
                     <Column field="name" header="Name"></Column>
                     <Column field="category" header="Category"></Column>
@@ -342,7 +342,6 @@ export default {
     },
     methods: {
         onRowSelect(event) {
-            console.log(event)
             this.$toast.add({severity: 'info', summary: 'Product Selected', detail: 'Name: ' + event.data.name, life: 3000});
         },
         onRowUnselect(event) {

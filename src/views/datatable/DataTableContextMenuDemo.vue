@@ -114,7 +114,7 @@ export default {
         <Toast />
         <div class="content-section implementation">
             <div class="card">
-                <DataTable :value="products" contextMenu v-model:contextMenuSelection="selectedProduct" @row-contextmenu="onRowContextMenu">
+                <DataTable :value="products" contextMenu v-model:contextMenuSelection="selectedProduct" @rowContextmenu="onRowContextMenu">
                     <Column field="code" header="Code"></Column>
                     <Column field="name" header="Name"></Column>
                     <Column field="category" header="Category"></Column>

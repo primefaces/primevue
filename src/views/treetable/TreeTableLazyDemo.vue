@@ -150,7 +150,7 @@ export default {
         <div class="content-section implementation">
             <div class="card">
                 <TreeTable :value="nodes" :lazy="true" :paginator="true" :rows="rows" :loading="loading"
-                    @node-expand="onExpand" @page="onPage" :totalRecords="totalRecords">
+                    @nodeExpand="onExpand" @page="onPage" :totalRecords="totalRecords">
                     <Column field="name" header="Name" :expander="true"></Column>
                     <Column field="size" header="Size"></Column>
                     <Column field="type" header="Type"></Column>

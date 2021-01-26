@@ -311,7 +311,7 @@ export default {
                 <DataTable :value="customers" rowGroupMode="subheader" groupRowsBy="representative.name"
                     sortMode="single" sortField="representative.name" :sortOrder="1"
                     :expandableRowGroups="true" v-model:expandedRowGroups="expandedRowGroups"
-                    @rowgroup-expand="onRowGroupExpand" @rowgroup-collapse="onRowGroupCollapse">
+                    @rowgroupExpand="onRowGroupExpand" @rowgroupCollapse="onRowGroupCollapse">
                     <Column field="representative.name" header="Representative"></Column>
                     <Column field="name" header="Name"></Column>
                     <Column field="country" header="Country">

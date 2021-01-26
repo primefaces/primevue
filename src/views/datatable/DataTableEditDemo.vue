@@ -72,7 +72,7 @@
                     </Column>
                     <Column field="inventoryStatus" header="Status">
                         <template #editor="slotProps">
-                            <Dropdown v-model="slotProps.data['inventoryStatus']" :options="statuses" optionLabel="label" optionValue="value" laceholder="Select a Status">
+                            <Dropdown v-model="slotProps.data['inventoryStatus']" :options="statuses" optionLabel="label" optionValue="value" placeholder="Select a Status">
                                 <template #option="slotProps">
                                     <span :class="'product-badge status-' + slotProps.option.value.toLowerCase()">{{slotProps.option.label}}</span>
                                 </template>
@@ -337,7 +337,7 @@ export default {
                     </Column>
                     <Column field="inventoryStatus" header="Status">
                         <template #editor="slotProps">
-                            <Dropdown v-model="slotProps.data['inventoryStatus']" :options="statuses" optionLabel="label" optionValue="value" laceholder="Select a Status">
+                            <Dropdown v-model="slotProps.data['inventoryStatus']" :options="statuses" optionLabel="label" optionValue="value" placeholder="Select a Status">
                                 <template #option="slotProps">
                                     <span :class="'product-badge status-' + slotProps.option.value.toLowerCase()">{{slotProps.option.label}}</span>
                                 </template>
@@ -358,7 +358,7 @@ export default {
             <div class="card">
                 <h5>Advanced Cell Editing</h5>
                 <p>Custom implementation with validations, dynamic columns and reverting values with the escape key.</p>
-                <DataTable :value="products2" editMode="cell" @cell-edit-complete="onCellEditComplete" class="editable-cells-table" >
+                <DataTable :value="products2" editMode="cell" @cellEditComplete="onCellEditComplete" class="editable-cells-table" >
                     <Column v-for="col of columns" :field="col.field" :header="col.header" :key="col.field">
                         <template #editor="slotProps">
                             <InputText :modelValue="slotProps.data[slotProps.column.props.field]" @update:modelValue="onCellEdit($event, slotProps)" />
@@ -370,7 +370,7 @@ export default {
             <div class="card">
                 <h5>Row Editing</h5>
                 <DataTable :value="products3" editMode="row" dataKey="id" v-model:editingRows="editingRows"
-                    @row-edit-init="onRowEditInit" @row-edit-cancel="onRowEditCancel">
+                    @rowEditInit="onRowEditInit" @rowEditCancel="onRowEditCancel">
                     <Column field="code" header="Code">
                         <template #editor="slotProps">
                             <InputText v-model="slotProps.data[slotProps.column.props.field]" autofocus />

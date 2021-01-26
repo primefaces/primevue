@@ -90,7 +90,7 @@ export default {
         <Toast />
         <div class="content-section implementation">
             <div class="card">
-                <DataTable :value="products" :reorderableColumns="true" @column-reorder="onColReorder" @row-reorder="onRowReorder">
+                <DataTable :value="products" :reorderableColumns="true" @columnReorder="onColReorder" @rowReorder="onRowReorder">
                     <Column :rowReorder="true" headerStyle="width: 3rem" :reorderableColumn="false" />
                     <Column v-for="col of columns" :field="col.field" :header="col.header" :key="col.field"></Column>
                 </DataTable>

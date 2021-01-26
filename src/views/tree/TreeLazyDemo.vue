@@ -114,7 +114,7 @@ export default {
     <div class="layout-content">
         <div class="content-section implementation">
             <div class="card">
-                <Tree :value="nodes" @node-expand="onNodeExpand" :loading="loading"></Tree>
+                <Tree :value="nodes" @nodeExpand="onNodeExpand" :loading="loading"></Tree>
             </div>
         </div>
     </div>                    
