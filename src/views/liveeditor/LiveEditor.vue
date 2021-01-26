@@ -67,6 +67,10 @@ export default {
         terminalService: {
             type: Boolean,
             default: false
+        },
+        router: {
+            type: Boolean,
+            default: false
         }
     },
     methods: {
@@ -148,12 +152,13 @@ export default {
             let style = this.sources.template.style || '';
             let api = this.sources.api ?  this.sources.api.content : '';
             let apiStyle = this.sources.api && this.sources.api.style ? this.sources.api.style : '';
+            let pages = this.sources.pages ? this.sources.pages : ''; 
             let scriptText = 'script';
-            let _files = {}, importElement = '', element = '', components = '', imports = '', directives = '';
+            let _files = {}, importElement = '', element = '', components = '', imports = '', directives = '', router = '';
 
             if(sourceType === 'core') {
                 _files[`src/components/${name}${extension}`] = {       
-                content: `${content}
+                    content: `${content}
 </${scriptText}>
 
 ${style}`   
@@ -162,11 +167,30 @@ ${style}`
 
             else if(sourceType === 'api') {
                 _files[`src/components/${name}${extension}`] = {       
-                content: `${api}
+                    content: `${api}
 </${scriptText}>
 
 ${apiStyle}
 `   
+                }
+            }
+
+            if(this.router) {
+                extDependencies['vue-router'] = "^4.0.0-0";
+
+                imports += `import { router } from "./router";
+`;
+
+                router += `app.use(router);`;
+
+                _files[`src/router.js`] = {
+                    content: `import { createRouter, createWebHistory } from "vue-router";
+import App from "./App.vue";
+
+export const router = createRouter({
+  history: createWebHistory(),
+  routes: [{ path: "/", component: App }]
+});`
                 }
             }
 
@@ -279,16 +303,17 @@ ${services[this.service]}
 
             _files['src/main.js'] = {
                 content: `import { createApp } from "vue";
+import App from "./App.vue";
 import "primeflex/primeflex.css";
 import "primevue/resources/themes/saga-blue/theme.css";
 import "primevue/resources/primevue.min.css";
 import "primeicons/primeicons.css";
-import App from "./App.vue";
 import PrimeVue from "primevue/config";
 ${importElement}
 ${imports}
 const app = createApp(App);
 app.use(PrimeVue, { ripple: true });
+${router}
 ${directives}
 ${element}
 ${components}
@@ -563,6 +588,52 @@ img.flag {
     }
 }
                         `,
+            }
+
+            if(pages) {
+                extDependencies['vue-router'] = "^4.0.0-0";
+                const routes = [];
+
+                pages.forEach((page, i) => {
+                    _files[`src/components/${page.name}.vue`] = {
+                        'content': `${page.tag}
+</${scriptText}>`
+                    }
+
+                    let route = '';
+
+                    if(i === 0) {
+                        route += `{
+                            path: "",
+                            component: () => import("./components/${page.name}.vue")
+                        }`;
+                    }
+                    else {
+                        route += `{
+                            path: "/${page.name.slice(0, -4).toLowerCase()}",
+                            component: () => import("./components/${page.name}.vue")
+                        }`;
+                    }
+
+                    routes.push(route);
+                })
+
+                _files['src/router.js'] = {
+                    'content': `import { createRouter, createWebHistory } from "vue-router";
+
+export const router = createRouter({
+    history: createWebHistory(),
+    routes: [
+        {
+            path: "/",
+            component: () => import("./components/${name}.vue"),
+            children: [${routes}]
+        }
+    ]
+});
+`
+                }
+
             }
 
             return this.createSandboxParameters(`${name}${extension}`, _files, extDependencies);
