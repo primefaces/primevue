@@ -11,7 +11,7 @@
 		<div class="content-section implementation">
             <div class="card">
                 <h5>Fit Mode</h5>
-                <DataTable :value="products" :resizableColumns="true" columnResizeMode="fit">
+                <DataTable :value="products" :resizableColumns="true" columnResizeMode="fit" class="p-datatable-gridlines">
                     <Column field="code" header="Code"></Column>
                     <Column field="name" header="Name"></Column>
                     <Column field="category" header="Category"></Column>
@@ -21,7 +21,7 @@
 
             <div class="card">
                 <h5>Expand Mode</h5>
-                <DataTable :value="products" :resizableColumns="true" columnResizeMode="expand">
+                <DataTable :value="products" :resizableColumns="true" columnResizeMode="expand" class="p-datatable-gridlines">
                     <Column field="code" header="Code"></Column>
                     <Column field="name" header="Name"></Column>
                     <Column field="category" header="Category"></Column>
