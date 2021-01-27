@@ -15,7 +15,7 @@
                                 <div class="p-datepicker-title">
                                     <span class="p-datepicker-month" v-if="!monthNavigator && (view !== 'month')">{{getMonthName(month.month)}}</span>
                                     <select class="p-datepicker-month" v-if="monthNavigator && (view !== 'month') && numberOfMonths === 1" @change="onMonthDropdownChange($event.target.value)">
-                                        <option :value="index" v-for="(monthName, index) of locale.monthNames" :key="monthName" :selected="index === month.month">{{monthName}}</option>
+                                        <option :value="index" v-for="(monthName, index) of monthNames" :key="monthName" :selected="index === month.month">{{monthName}}</option>
                                     </select>
                                     <span class="p-datepicker-year" v-if="!yearNavigator">{{view === 'month' ? currentYear : month.year}}</span>
                                     <select class="p-datepicker-year" v-if="yearNavigator && numberOfMonths === 1" @change="onYearDropdownChange($event.target.value)">
@@ -2192,7 +2192,7 @@ export default {
         weekHeaderLabel() {
             return this.$primevue.config.locale.weekHeader;
         },
-        monthsNames() {
+        monthNames() {
             return this.$primevue.config.locale.monthNames;
         }
     },
