@@ -435,7 +435,7 @@ export default {
                 'p-multiselect-label',
                 {
                     'p-placeholder': this.label === this.placeholder,
-                    'p-multiselect-label-empty': !this.placeholder && (!this.modelValue || this.modelValue.length === 0)
+                    'p-multiselect-label-empty': !this.placeholder && (!this.value || this.value.length === 0)
                 }
             ];
         },
