@@ -26,7 +26,7 @@
                     </Column>
                     <Column field="inventoryStatus" header="Status">
                         <template #editor="slotProps">
-                            <Dropdown v-model="slotProps.data['inventoryStatus']" :options="statuses" optionLabel="label" optionValue="value" laceholder="Select a Status">
+                            <Dropdown v-model="slotProps.data['inventoryStatus']" :options="statuses" optionLabel="label" optionValue="value" placeholder="Select a Status">
                                 <template #option="slotProps">
                                     <span :class="'product-badge status-' + slotProps.option.value.toLowerCase()">{{slotProps.option.label}}</span>
                                 </template>
@@ -72,7 +72,7 @@
                     </Column>
                     <Column field="inventoryStatus" header="Status">
                         <template #editor="slotProps">
-                            <Dropdown v-model="slotProps.data['inventoryStatus']" :options="statuses" optionLabel="label" optionValue="value" laceholder="Select a Status">
+                            <Dropdown v-model="slotProps.data['inventoryStatus']" :options="statuses" optionLabel="label" optionValue="value" placeholder="Select a Status">
                                 <template #option="slotProps">
                                     <span :class="'product-badge status-' + slotProps.option.value.toLowerCase()">{{slotProps.option.label}}</span>
                                 </template>
@@ -113,7 +113,7 @@
         &lt;/Column&gt;
         &lt;Column field="inventoryStatus" header="Status"&gt;
             &lt;template #editor="slotProps"&gt;
-                &lt;Dropdown v-model="slotProps.data['inventoryStatus']" :options="statuses" optionLabel="label" optionValue="value" laceholder="Select a Status"&gt;
+                &lt;Dropdown v-model="slotProps.data['inventoryStatus']" :options="statuses" optionLabel="label" optionValue="value" placeholder="Select a Status"&gt;
                     &lt;template #option="slotProps"&gt;
                         &lt;span :class="'product-badge status-' + slotProps.option.value.toLowerCase()"&gt;{{slotProps.option.label}}&lt;/span&gt;
                     &lt;/template&gt;
@@ -159,7 +159,7 @@
         &lt;/Column&gt;
         &lt;Column field="inventoryStatus" header="Status"&gt;
             &lt;template #editor="slotProps"&gt;
-                &lt;Dropdown v-model="slotProps.data['inventoryStatus']" :options="statuses" optionLabel="label" optionValue="value" laceholder="Select a Status"&gt;
+                &lt;Dropdown v-model="slotProps.data['inventoryStatus']" :options="statuses" optionLabel="label" optionValue="value" placeholder="Select a Status"&gt;
                     &lt;template #option="slotProps"&gt;
                         &lt;span :class="'product-badge status-' + slotProps.option.value.toLowerCase()"&gt;{{slotProps.option.label}}&lt;/span&gt;
                     &lt;/template&gt;
