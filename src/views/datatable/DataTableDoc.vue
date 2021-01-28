@@ -2295,6 +2295,42 @@ export default {
                                     event.rows: Rows per page.</td>
                                 <td>Callback to invoke during virtual scrolling.</td>
                             </tr>
+                            <tr>
+                                <td>state-save</td>
+                                <td>event.first: Index of first record <br/>
+                                    event.rows: Number of rows to display in new page <br/>
+                                    event.sortField: Field to sort against <br />
+                                    event.sortOrder: Sort order as integer <br />
+                                    event.multiSortMeta: MultiSort metadata <br />
+                                    event.filters: Collection of active filters <br />
+                                    event.columWidths: Comma separated list of column widths <br />
+                                    event.columnOrder: Order of the columns <br />
+                                    event.expandedRows: Instances of rows in expanded state <br />
+                                    event.expandedRowKeys: Keys of rows in expanded state <br />
+                                    event.expandedRowGroups: Instances of row groups in expanded state <br />
+                                    event.selection: Selected rows <br />
+                                    event.selectionKeys: Keys of selected rows <br />
+                                </td>
+                                <td>Invoked when a stateful table saves the state.</td>
+                            </tr>
+                            <tr>
+                                <td>state-restore</td>
+                                <td>event.first: Index of first record <br/>
+                                    event.rows: Number of rows to display in new page <br/>
+                                    event.sortField: Field to sort against <br />
+                                    event.sortOrder: Sort order as integer <br />
+                                    event.multiSortMeta: MultiSort metadata <br />
+                                    event.filters: Collection of active filters <br />
+                                    event.columWidths: Comma separated list of column widths <br />
+                                    event.columnOrder: Order of the columns <br />
+                                    event.expandedRows: Instances of rows in expanded state <br />
+                                    event.expandedRowKeys: Keys of rows in expanded state <br />
+                                    event.expandedRowGroups: Instances of row groups in expanded state <br />
+                                    event.selection: Selected rows <br />
+                                    event.selectionKeys: Keys of selected rows <br />
+                                </td>
+                                <td>Invoked when a stateful table restores the state.</td>
+                            </tr>
                         </tbody>
                     </table>
                 </div>

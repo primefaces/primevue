@@ -1486,6 +1486,8 @@ export default {
             if (Object.keys(state).length) {
                 storage.setItem(this.stateKey, JSON.stringify(state));
             }
+
+            this.$emit('state-save', state);
         },
         restoreState() {
             const storage = this.getStorage();
@@ -1534,6 +1536,8 @@ export default {
                     this.d_selectionKeys = restoredState.d_selectionKeys;
                     this.$emit('update:selection', restoredState.selection);
                 }
+
+                this.$emit('state-restore', restoredState);
             }
         },
         saveColumnWidths(state) {
