@@ -201,7 +201,7 @@ export default {
             return this.valueRadians > this.zeroRadians ? 0 : 1;
         },
         valueToDisplay() {
-            return this.valueTemplate.replaceAll("{value}", this.value);
+            return this.valueTemplate.replace(/{value}/g, this.value);
         }
     }
 }
