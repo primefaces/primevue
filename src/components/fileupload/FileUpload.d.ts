@@ -18,6 +18,8 @@ declare class FileUpload extends Vue {
     uploadLabel?: string;
     cancelLabel?: string;
     customUpload?: boolean;
+    showUploadButton?: boolean;
+    showCancelButton?: boolean,
     $emit(eventName: 'select', e: { originalEvent: Event, files: any }): this;
     $emit(eventName: 'before-upload', e: { xhr: XMLHttpRequest, formData: any }): this;
     $emit(eventName: 'progress', e: { originalEvent: Event, progress: any }): this;
