@@ -300,9 +300,7 @@ export default {
 
         },
         handlePosition() {
-            if (this.value === 0)
-                return 0;
-            else if (this.value < this.min)
+            if (this.value < this.min)
                 return 0;
             else if (this.value > this.max)
                 return 100;
