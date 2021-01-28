@@ -45,7 +45,7 @@ export default {
             default: null
         },
         field: {
-            type: String,
+            type: [String, Function],
             default: null
         },
         scrollHeight: {
@@ -462,7 +462,7 @@ export default {
             }];
         },
         inputValue() {
-            if (this.value) {
+            if (this.value && typeof this.value === 'object') {
                 if (this.field) {
                     const resolvedFieldData = ObjectUtils.resolveFieldData(this.value, this.field);
                     return resolvedFieldData != null ? resolvedFieldData : this.value;
