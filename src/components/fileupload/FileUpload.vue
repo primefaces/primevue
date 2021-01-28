@@ -6,7 +6,6 @@
                 <span class="p-button-icon p-button-icon-left pi pi-fw pi-plus"></span>
                 <span class="p-button-label">{{chooseButtonLabel}}</span>
             </span>
-            <FileUploadButton :label="uploadButtonLabel" icon="pi pi-upload" @click="upload" :disabled="uploadDisabled" />
             <FileUploadButton :label="uploadButtonLabel" icon="pi pi-upload" @click="upload" :disabled="uploadDisabled" v-if="showUploadButton" />
             <FileUploadButton :label="cancelButtonLabel" icon="pi pi-times" @click="clear" :disabled="cancelDisabled" v-if="showCancelButton" />
         </div>
@@ -402,7 +401,6 @@ export default {
         },
         uploadDisabled() {
             return this.disabled || !this.hasFiles;
-            // return this.disabled || !this.hasFiles || (this.fileLimit && this.fileLimit < this.files.length);
         },
         cancelDisabled() {
             return this.disabled || !this.hasFiles;
