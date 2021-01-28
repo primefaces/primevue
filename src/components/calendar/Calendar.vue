@@ -144,10 +144,7 @@ export default {
             type: String,
             default: 'single'
         },
-        dateFormat: {
-            type: String,
-            default: 'mm/dd/yy'
-        },
+        dateFormat: String,
         inline: {
             type: Boolean,
             default: false
