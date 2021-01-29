@@ -40,7 +40,7 @@
 
             <div class="menu-category">PrimeIcons</div>
             <div class="menu-items">
-                <router-link to="/icons">Icons v4.0</router-link>
+                <router-link to="/icons">Icons v4.1</router-link>
             </div>
 
             <div class="menu-category">Form</div>
