@@ -906,6 +906,10 @@
   padding-left: 2.5rem;
 }
 
+.p-input-icon-left.p-float-label > label {
+  left: 2.5rem;
+}
+
 .p-input-icon-right > i:last-of-type {
   right: 0.75rem;
   color: rgba(255, 255, 255, 0.6);
