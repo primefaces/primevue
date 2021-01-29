@@ -9,8 +9,11 @@
             <a href="https://github.com/primefaces/primevue/tree/2.x" class="p-mr-3">
                 <i class="pi pi-github"></i>
             </a>
-            <a href="https://twitter.com/primevue">
+            <a href="https://twitter.com/primevue" class="p-mr-3">
                 <i class="pi pi-twitter"></i>
+            </a>
+            <a href="https://discord.com/invite/gzKFYnpmCY">
+                <i class="pi pi-discord"></i>
             </a>
         </div>
     </div>
