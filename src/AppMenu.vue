@@ -53,12 +53,13 @@
                 <router-link to="/colorpicker">ColorPicker</router-link>
                 <router-link to="/dropdown">Dropdown</router-link>
                 <router-link to="/editor">Editor</router-link>
+                <router-link to="/floatlabel">FloatLabel</router-link>
                 <router-link to="/inputgroup">InputGroup</router-link>
                 <router-link to="/inputmask">InputMask</router-link>
                 <router-link to="/inputnumber">InputNumber</router-link>
                 <router-link to="/inputswitch">InputSwitch</router-link>
                 <router-link to="/inputtext">InputText</router-link>
-                <router-link to="/floatlabel">FloatLabel</router-link>
+                <router-link to="/invalid">InvalidState <Tag value="New"></Tag></router-link>
                 <router-link to="/knob">Knob <Tag value="New"></Tag></router-link>
                 <router-link to="/listbox">Listbox</router-link>
                 <router-link to="/multiselect">MultiSelect</router-link>
