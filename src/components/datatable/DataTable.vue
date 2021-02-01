@@ -377,7 +377,8 @@ export default {
             d_selectionKeys: null,
             d_expandedRowKeys: null,
             d_columnOrder: null,
-            d_editingRowKeys: null
+            d_editingRowKeys: null,
+            d_selectedFilterKey:null
         };
     },
     rowTouched: false,
@@ -427,6 +428,13 @@ export default {
         editingRows(newValue) {
             if (this.dataKey) {
                 this.updateEditingRowKeys(newValue);
+            }
+        },
+        filters(newValue, oldValue){
+            for(const key of Object.keys(oldValue)) {
+                if (newValue[key] !== oldValue[key]) {
+                    this.data.d_selectedFilterKey = key;
+                }
             }
         }
     },
@@ -628,6 +636,7 @@ export default {
 
             let filterEvent = this.createLazyLoadEvent();
             filterEvent.filteredValue = filteredValue;
+            filterEvent.selectedFilterKey = this.data.d_selectedFilterKey;
             this.$emit('filter', filterEvent);
 
             return filteredValue;
