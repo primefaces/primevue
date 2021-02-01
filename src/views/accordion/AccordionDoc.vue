@@ -27,7 +27,7 @@ import AccordionTab from 'primevue/accordiontab';
 				<h5>Active</h5>
 				<p>Visibility of the content is specified with the active property that supports one or two-way binding.</p>
 <CodeHighlight>
-&lt;Accordion :activeIndex="0"&gt;
+&lt;Accordion :activeIndex="active"&gt;
 	&lt;AccordionTab header="Header I"&gt;
 		Content
 	&lt;/AccordionTab&gt;
@@ -42,7 +42,7 @@ import AccordionTab from 'primevue/accordiontab';
 
                 <p>Two-way binding requires the sync operator.</p>
 <CodeHighlight>
-&lt;Accordion :activeIndex="active"&gt;
+&lt;Accordion :activeIndex.sync="active"&gt;
 	&lt;AccordionTab header="Header I"&gt;
 		Content
 	&lt;/AccordionTab&gt;
