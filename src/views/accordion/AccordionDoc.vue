@@ -27,8 +27,8 @@ import AccordionTab from 'primevue/accordiontab';
 				<h5>Active</h5>
 				<p>Visibility of the content is specified with the active property that supports one or two-way binding.</p>
 <CodeHighlight>
-&lt;Accordion&gt;
-	&lt;AccordionTab header="Header I" :active="true"&gt;
+&lt;Accordion :activeIndex="0"&gt;
+	&lt;AccordionTab header="Header I"&gt;
 		Content
 	&lt;/AccordionTab&gt;
 	&lt;AccordionTab header="Header II"&gt;
@@ -42,14 +42,14 @@ import AccordionTab from 'primevue/accordiontab';
 
                 <p>Two-way binding requires the sync operator.</p>
 <CodeHighlight>
-&lt;Accordion&gt;
-	&lt;AccordionTab header="Header I" :active.sync="active1"&gt;
+&lt;Accordion :activeIndex="active"&gt;
+	&lt;AccordionTab header="Header I"&gt;
 		Content
 	&lt;/AccordionTab&gt;
-	&lt;AccordionTab header="Header II" :active.sync="active2"&gt;
+	&lt;AccordionTab header="Header II"&gt;
 		Content
 	&lt;/AccordionTab&gt;
-	&lt;AccordionTab header="Header III" :active.sync="active3"&gt;
+	&lt;AccordionTab header="Header III"&gt;
 		Content
 	&lt;/AccordionTab&gt;
 &lt;/Accordion&gt;
@@ -59,7 +59,7 @@ import AccordionTab from 'primevue/accordiontab';
 				<p>By default only one tab at a time can be active, enabling multiple property changes this behavior to allow multiple
 					tabs be active at the same time.</p>
 <CodeHighlight>
-&lt;Accordion :multiple="true" &gt;
+&lt;Accordion :multiple="true" :activeIndex="[0]" &gt;
 	&lt;AccordionTab header="Header I"&gt;
 		Content
 	&lt;/AccordionTab&gt;
@@ -120,31 +120,47 @@ import AccordionTab from 'primevue/accordiontab';
 				<p>Tabs can be controlled programmatically using active property.</p>
 <CodeHighlight>
 &lt;div&gt;
-	&lt;Button :icon="active1 ? 'pi pi-minus' : 'pi pi-plus'" label="Toggle 1st" @click="active1 = !active1" class="p-button-text" /&gt;
-	&lt;Button :icon="active2 ? 'pi pi-minus' : 'pi pi-plus'" label="Toggle 2nd" @click="active2 = !active2" class="p-button-text" style="margin-left: .5em" /&gt;
-	&lt;Button :icon="active3 ? 'pi pi-minus' : 'pi pi-plus'" label="Toggle 3rd" @click="active3 = !active3" class="p-button-text" style="margin-left: .5em" /&gt;
+	&lt;Button @click="active = 0" class="p-button-text" label="Activate 1st" /&gt;
+	&lt;Button @click="active = 1" class="p-button-text  p-mr-2" label="Activate 2nd" /&gt;
+	&lt;Button @click="active = 2" class="p-button-text  p-mr-2" label="Activate 3nd" /&gt;
 &lt;/div&gt;
 
-&lt;Accordion :multiple="true"&gt;
-	&lt;AccordionTab header="Header I" :active="active1"&gt;
+&lt;Accordion :activeIndex="active"&gt;
+	&lt;AccordionTab header="Header I"&gt;
 		Content
 	&lt;/AccordionTab&gt;
-	&lt;AccordionTab header="Header II" :active="active2"&gt;
+	&lt;AccordionTab header="Header II"&gt;
 		Content
 	&lt;/AccordionTab&gt;
-	&lt;AccordionTab header="Header III" :active="active3"&gt;
+	&lt;AccordionTab header="Header III"&gt;
 		Content
 	&lt;/AccordionTab&gt;
 &lt;/Accordion&gt;
+</CodeHighlight>
+
+				<h5>Dynamic Tabs</h5>
+				<p>Tabs can be generated dynamically using the standard <i>v-for</i> directive.</p>
+
+<CodeHighlight>
+<template v-pre>
+&lt;Accordion&gt;
+	&lt;AccordionTab v-for="tab in tabs" :key="tab.title" :header="tab.title"&gt;
+		&lt;p&gt;{{tab.content}}&lt;/p&gt;
+	&lt;/AccordionTab&gt;
+&lt;/Accordion&gt;
+</template>
 </CodeHighlight>
 
 <CodeHighlight lang="js">
 export default {
 	data() {
 		return {
-			active1: true,
-			active2: false,
-			active3: false
+			active: 0,
+			tabs: [
+				{title: 'Title 1', content: 'Content 1'},
+				{title: 'Title 3', content: 'Content 2'},
+				{title: 'Title 3', content: 'Content 3'}
+			]
 		}
 	}
 }
@@ -202,6 +218,12 @@ export default {
                                 <td>boolean</td>
                                 <td>false</td>
                                 <td>When enabled, multiple tabs can be activated at the same time.</td>
+                            </tr>
+							<tr>
+                                <td>activeIndex</td>
+                                <td>number|array</td>
+                                <td>null</td>
+                                <td>Index of the active tab or an array of indexes in multiple mode.</td>
                             </tr>
 						</tbody>
 					</table>
@@ -274,8 +296,8 @@ export default {
 <CodeHighlight>
 <template v-pre>
 &lt;h5&gt;Default&lt;/h5&gt;
-&lt;Accordion&gt;
-    &lt;AccordionTab header="Header I" :active="true"&gt;
+&lt;Accordion :activeIndex="0"&gt;
+    &lt;AccordionTab header="Header I"&gt;
         &lt;p&gt;Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation
             ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur.
             Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.&lt;/p&gt;
@@ -293,8 +315,8 @@ export default {
 &lt;/Accordion&gt;
 
 &lt;h5&gt;Multiple&lt;/h5&gt;
-&lt;Accordion :multiple="true"&gt;
-    &lt;AccordionTab header="Header I" :active="true"&gt;
+&lt;Accordion :multiple="true" :activeIndex="[0]"&gt;
+    &lt;AccordionTab header="Header I"&gt;
         &lt;p&gt;Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation
             ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur.
             Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.&lt;/p&gt;
@@ -315,23 +337,23 @@ export default {
 
 &lt;h5&gt;Programmatic&lt;/h5&gt;
 &lt;div style="padding: .5em 0 1em 0"&gt;
-    &lt;Button :icon="active1 ? 'pi pi-minus' : 'pi pi-plus'" label="Toggle 1st" @click="active1 = !active1" class="p-button-text" /&gt;
-    &lt;Button :icon="active2 ? 'pi pi-minus' : 'pi pi-plus'" label="Toggle 2nd" @click="active2 = !active2" class="p-button-text" style="margin-left: .5em" /&gt;
-    &lt;Button :icon="active3 ? 'pi pi-minus' : 'pi pi-plus'" label="Toggle 3rd" @click="active3 = !active3" class="p-button-text" style="margin-left: .5em" /&gt;
+    &lt;Button @click="active = 0" class="p-button-text" label="Activate 1st" /&gt;
+    &lt;Button @click="active = 1" class="p-button-text p-mr-2" label="Activate 2nd" /&gt;
+    &lt;Button @click="active = 2" class="p-button-text p-mr-2" label="Activate 3rd" /&gt;
 &lt;/div&gt;
 
-&lt;Accordion :multiple="true"&gt;
-    &lt;AccordionTab header="Header I" :active="active1"&gt;
+&lt;Accordion :activeIndex="active"&gt;
+    &lt;AccordionTab header="Header I"&gt;
         &lt;p&gt;Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation
             ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur.
             Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.&lt;/p&gt;
     &lt;/AccordionTab&gt;
-    &lt;AccordionTab header="Header II" :active="active2"&gt;
+    &lt;AccordionTab header="Header II"&gt;
         &lt;p&gt;Sed ut perspiciatis unde omnis iste natus error sit voluptatem accusantium doloremque laudantium, totam rem aperiam, eaque ipsa quae ab illo inventore veritatis et quasi
             architecto beatae vitae dicta sunt explicabo. Nemo enim ipsam voluptatem quia voluptas sit aspernatur aut odit aut fugit, sed quia consequuntur magni dolores eos qui ratione
             voluptatem sequi nesciunt. Consectetur, adipisci velit, sed quia non numquam eius modi.&lt;/p&gt;
     &lt;/AccordionTab&gt;
-    &lt;AccordionTab header="Header III" :active="active3"&gt;
+    &lt;AccordionTab header="Header III"&gt;
         &lt;p&gt;At vero eos et accusamus et iusto odio dignissimos ducimus qui blanditiis praesentium voluptatum deleniti atque corrupti quos dolores et quas molestias excepturi sint occaecati
             cupiditate non provident, similique sunt in culpa qui officia deserunt mollitia animi, id est laborum et dolorum fuga. Et harum quidem rerum facilis est et expedita distinctio.
             Nam libero tempore, cum soluta nobis est eligendi optio cumque nihil impedit quo minus.&lt;/p&gt;
@@ -339,8 +361,8 @@ export default {
 &lt;/Accordion&gt;
 
 &lt;h5&gt;Custom Headers&lt;/h5&gt;
-&lt;Accordion class="accordion-custom"&gt;
-    &lt;AccordionTab :active="true"&gt;
+&lt;Accordion class="accordion-custom" :activeIndex="0"&gt;
+    &lt;AccordionTab&gt;
         &lt;template #header&gt;
             &lt;i class="pi pi-calendar"&gt;&lt;/i&gt;
             &lt;span&gt;Header I&lt;/span&gt;
@@ -369,6 +391,13 @@ export default {
             Nam libero tempore, cum soluta nobis est eligendi optio cumque nihil impedit quo minus.&lt;/p&gt;
     &lt;/AccordionTab&gt;
 &lt;/Accordion&gt;
+
+&lt;h5&gt;Dynamic Tabs&lt;/h5&gt;
+&lt;Accordion&gt;
+	&lt;AccordionTab v-for="tab in tabs" :key="tab.title" :header="tab.title"&gt;
+		&lt;p&gt;{{tab.content}}&lt;/p&gt;
+    &lt;/AccordionTab&gt;
+&lt;/Accordion&gt;
 </template>
 </CodeHighlight>
 
@@ -376,9 +405,27 @@ export default {
 export default {
 	data() {
 		return {
-			active1: true,
-			active2: false,
-			active3: false
+			active: 0,
+            tabs: [
+                {
+                    title: 'Header I',
+                    content: `Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation
+                            ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur.
+                            Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.`
+                },
+                {
+                    title: 'Header II',
+                    content: `Sed ut perspiciatis unde omnis iste natus error sit voluptatem accusantium doloremque laudantium, totam rem aperiam, eaque ipsa quae ab illo inventore veritatis et quasi
+                            architecto beatae vitae dicta sunt explicabo. Nemo enim ipsam voluptatem quia voluptas sit aspernatur aut odit aut fugit, sed quia consequuntur magni dolores eos qui ratione
+                            voluptatem sequi nesciunt. Consectetur, adipisci velit, sed quia non numquam eius modi.`
+                },
+                {
+                    title: 'Header III',
+                    content: `At vero eos et accusamus et iusto odio dignissimos ducimus qui blanditiis praesentium voluptatum deleniti atque corrupti quos dolores et quas molestias excepturi sint occaecati
+                            cupiditate non provident, similique sunt in culpa qui officia deserunt mollitia animi, id est laborum et dolorum fuga. Et harum quidem rerum facilis est et expedita distinctio.
+                            Nam libero tempore, cum soluta nobis est eligendi optio cumque nihil impedit quo minus.`
+                }
+            ]
 		}
 	}
 }
