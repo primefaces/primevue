@@ -558,12 +558,12 @@ export default {
 
                 for (let j = 0; j < this.columns.length; j++) {
                     let col = this.columns[j];
-                    let filterField = this.columnProp(column, 'field');
+                    let filterField = this.columnProp(col, 'field');
 
                     //local
-                    if (Object.prototype.hasOwnProperty.call(this.filters, this.columnProp(column, 'field'))) {
-                        let filterMatchMode = this.columnProp(column, 'filterMatchMode') || 'startsWith';
-                        let filterValue = this.filters[this.columnProp(column, 'field')];
+                    if (Object.prototype.hasOwnProperty.call(this.filters, this.columnProp(col, 'field'))) {
+                        let filterMatchMode = this.columnProp(col, 'filterMatchMode') || 'startsWith';
+                        let filterValue = this.filters[this.columnProp(col, 'field')];
                         let filterConstraint = FilterUtils[filterMatchMode];
                         let paramsWithoutNode = {filterField, filterValue, filterConstraint, strict};
 
@@ -652,8 +652,8 @@ export default {
             if (this.hasFilters()) {
                 filterMatchModes = {};
                 this.columns.forEach(col => {
-                    if (this.columnProp(column, 'field')) {
-                        filterMatchModes[col.props.field] = this.columnProp(column, 'filterMatchMode');
+                    if (this.columnProp(col, 'field')) {
+                        filterMatchModes[col.props.field] = this.columnProp(col, 'filterMatchMode');
                     }
                 });
             }
@@ -858,7 +858,7 @@ export default {
             let hasFooter = false;
 
             for (let col of this.columns) {
-                if (this.columnProp(column, 'footer')|| col.children?.footer) {
+                if (this.columnProp(col, 'footer')|| col.children?.footer) {
                     hasFooter = true;
                     break;
                 }
