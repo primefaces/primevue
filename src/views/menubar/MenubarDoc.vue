@@ -249,7 +249,7 @@ export default {
                <a href="https://github.com/primefaces/primevue/tree/master/src/views/menubar" class="btn-viewsource" target="_blank" rel="noopener noreferrer">
                   <span>View on GitHub</span>
                </a>
-               <LiveEditor name="MenubarDemo" :sources="sources" :components="['InputText']"/>
+               <LiveEditor name="MenubarDemo" :sources="sources" :router="true" :components="['InputText']"/>
             </div>
 <pre v-code>
 <code><template v-pre>

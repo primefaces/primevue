@@ -303,7 +303,7 @@ export default {
                                 <span class="product-category">{{slotProps.item.category}}</span>
                             </div>
                             <div class="product-list-action">
-                                <h6 class="p-mb-2">{{slotProps.item.price}}</h6>
+                                <h6 class="p-mb-2">\${{slotProps.item.price}}</h6>
                                 <span :class="'product-badge status-'+slotProps.item.inventoryStatus.toLowerCase()">{{slotProps.item.inventoryStatus}}</span>
                             </div>
                         </div>

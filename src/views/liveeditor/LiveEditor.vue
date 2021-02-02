@@ -52,13 +52,25 @@ export default {
             type: String,
             default: null
         },
-        extFiles: {
-            type: String,
+        directives: {
+            type: Array,
             default: null
         },
-        activeButtonIndex: {
-            type: String,
-            default: null
+        toastService: {
+            type: Boolean,
+            default: false
+        },
+        confirmationService: {
+            type: Boolean,
+            default: false
+        },
+        terminalService: {
+            type: Boolean,
+            default: false
+        },
+        router: {
+            type: Boolean,
+            default: false
         }
     },
     methods: {
@@ -127,8 +139,7 @@ export default {
   }
 }`
                     },
-                    ...files,
-                    ...this.extFiles
+                    ...files
                 }
             }
         },
@@ -140,12 +151,14 @@ export default {
             let content = this.sources.template.content;
             let style = this.sources.template.style || '';
             let api = this.sources.api ?  this.sources.api.content : '';
+            let apiStyle = this.sources.api && this.sources.api.style ? this.sources.api.style : '';
+            let pages = this.sources.pages ? this.sources.pages : ''; 
             let scriptText = 'script';
-            let _files = {}, importElement = '', element = '', components = '', imports = '', directives = '';
+            let _files = {}, importElement = '', element = '', components = '', imports = '', directives = '', router = '';
 
             if(sourceType === 'core') {
                 _files[`src/components/${name}${extension}`] = {       
-                content: `${content}
+                    content: `${content}
 </${scriptText}>
 
 ${style}`   
@@ -154,45 +167,32 @@ ${style}`
 
             else if(sourceType === 'api') {
                 _files[`src/components/${name}${extension}`] = {       
-                content: `${api}
+                    content: `${api}
 </${scriptText}>
+
+${apiStyle}
 `   
                 }
             }
-            
 
-            let mittComponents = ['ToastDemo', 'OrganizationChartDemo', 'ConfirmDialogDemo', 'ConfirmPopupDemo', 'TerminalDemo', 'SplitButtonDemo', 'DeferredContentDemo', 'OverlayPanelDemo', 'FileUploadDemo'];
+            if(this.router) {
+                extDependencies['vue-router'] = "^4.0.0-0";
 
-            mittComponents.forEach(cmp => {
-                if(name === cmp) {
-                    extDependencies['mitt'] = "^2.1.0";
-                    imports += `import Toast from "primevue/toast";
-import ToastService from "primevue/toastservice";
+                imports += `import { router } from "./router";
 `;
-                    directives += `app.use(ToastService);
-`;
-                    components += `app.component("Toast", Toast);
-`;
+
+                router += `app.use(router);`;
+
+                _files[`src/router.js`] = {
+                    content: `import { createRouter, createWebHistory } from "vue-router";
+import App from "./App.vue";
+
+export const router = createRouter({
+  history: createWebHistory(),
+  routes: [{ path: "/", component: App }]
+});`
                 }
-            });
-
-            if(name === 'ConfirmDialogDemo' || name === 'ConfirmPopupDemo') {
-                imports += `import ConfirmationService from "primevue/confirmationservice";
-`;
-                directives += `app.use(ConfirmationService);
-`;
             }
-
-            let directiveEl = ['EditorDemo'];
-
-            directiveEl.forEach(dir => {
-                if(name === dir) {
-                    imports += `import Tooltip from "primevue/tooltip";
-`;
-                    directives += `app.directive("tooltip", Tooltip);
-`;
-                }
-            })
 
             if(this.components) {
                 this.components.forEach(comp => {
@@ -201,40 +201,119 @@ import ToastService from "primevue/toastservice";
                     components += `app.component("${comp}", ${comp});
 `;
                 })
-            } 
+            }
+
+            if(this.directives) {
+                this.directives.forEach(dir => {
+                    if(dir === 'Tooltip') {
+                        imports += `import Tooltip from "primevue/tooltip";
+`;
+                        directives += `app.directive("tooltip", Tooltip);
+`;
+                    }
+
+                    if(dir === 'Badge') {
+                        imports += `import BadgeDirective from "primevue/badgedirective";
+`;
+                        directives += `app.directive("badge", BadgeDirective);
+`;
+                    }
+                })
+            }
+
+            if(this.toastService) {
+                extDependencies['mitt'] = "^2.1.0";
+                        
+                imports += `import Toast from "primevue/toast";
+import ToastService from "primevue/toastservice";
+`;
+                directives += `app.use(ToastService);
+`;
+                components += `app.component("Toast", Toast);
+`;
+            }
+
+            if(this.confirmationService) {
+                imports += `import ConfirmationService from "primevue/confirmationservice";
+`;
+                directives += `app.use(ConfirmationService);
+`;
+            }
+
+            if(this.terminalService) {
+                extDependencies['mitt'] = "^2.1.0";
+            }
 
             if(name !== 'ToastDemo' && name !== 'TooltipDemo' && name !== 'RippleDemo' && name !== 'FloatLabelDemo' && name !== 'InputGroupDemo' && name !== 'InvalidDemo' && name !== 'FormLayoutDemo') {
                 element += `app.component("${name.slice(0, -4)}", ${name.slice(0, -4)});`;
             }
 
-            if(name !== 'ToastDemo' && name !== 'FloatLabelDemo' && name !== 'InputGroupDemo' && name !== 'InvalidDemo' && name !== 'FormLayoutDemo') {
+            if(name !== 'TooltipDemo' && name !== 'ToastDemo' && name !== 'FloatLabelDemo' && name !== 'InputGroupDemo' && name !== 'InvalidDemo' && name !== 'FormLayoutDemo') {
                 importElement += `import ${name.slice(0, -4)} from "primevue/${name.slice(0, -4).toLowerCase()}";`;
             }
 
-            if(name === 'TooltipDemo' || name === 'RippleDemo'){
+            if(name === 'RippleDemo'){
                 directives += `app.directive("${name.slice(0, -4).toLowerCase()}", ${name.slice(0, -4)});
 `;
             }
 
-            if(name === 'BadgeDemo' || name === 'AvatarDemo'){
-                imports += `import BadgeDirective from "primevue/badgedirective";
-`;
-                directives += `app.directive("badge", BadgeDirective);
-`;
+            if (this.service) {
+                const dataArr = this.data ? this.data.split(',') : null;
+
+                extDependencies['axios'] =  "^0.19.0";
+
+                if(dataArr) {
+                    dataArr.forEach(el => {
+                        _files[`public/data/${el}.json`] = {
+                            content: data[el]
+                        };
+
+                        _files[`src/service/${this.service}.js`] = {
+                            content: `import axios from 'axios';
+import data from '../../public/data/${el}.json';
+
+${services[this.service]}
+`
+                        };
+                    });
+                }
+
+                else {
+                    _files[`src/service/${this.service}.js`] = {
+                            content: `import axios from 'axios';
+
+${services[this.service]}
+`
+                        };
+                }
+            }
+
+            if(name === 'EditorDemo') {
+                extDependencies['quill'] =  "^1.3.7";
+            }
+            if(name === 'FullCalendarDemo') {
+                extDependencies['@fullcalendar/core'] = "5.4.0";
+                extDependencies['@fullcalendar/daygrid'] = "5.4.0";
+                extDependencies['@fullcalendar/interaction'] = "5.4.0";
+                extDependencies['@fullcalendar/timegrid'] = "5.4.0";
+            }
+            if(name === 'ChartDemo') {
+                extDependencies['chart.js'] = "2.7.3";
             }
 
             _files['src/main.js'] = {
                 content: `import { createApp } from "vue";
+import App from "./App.vue";
 import "primeflex/primeflex.css";
 import "primevue/resources/themes/saga-blue/theme.css";
 import "primevue/resources/primevue.min.css";
 import "primeicons/primeicons.css";
-import App from "./App.vue";
 import PrimeVue from "primevue/config";
 ${importElement}
 ${imports}
 const app = createApp(App);
 app.use(PrimeVue, { ripple: true });
+${router}
 ${directives}
 ${element}
 ${components}
@@ -511,46 +590,51 @@ img.flag {
                         `,
             }
 
-            if (this.service && this.data) {
-                const dataArr = this.data.split(',');
+            if(pages) {
+                extDependencies['vue-router'] = "^4.0.0-0";
+                const routes = [];
 
-                dataArr.forEach(el => {
-                    _files[`public/data/${el}.json`] = {
-                        content: data[el]
-                    };
+                pages.forEach((page, i) => {
+                    _files[`src/components/${page.name}.vue`] = {
+                        'content': `${page.template}
+</${scriptText}>`
+                    }
 
-                    _files[`src/service/${this.service}.js`] = {
-                    // content: services[this.service]
-                    content: `import axios from 'axios';
-import data from '../../public/data/${el}.json';
+                    let route = '';
 
-${services[this.service]}
+                    if(i === 0) {
+                        route += `{
+                            path: "",
+                            component: () => import("./components/${page.name}.vue")
+                        }`;
+                    }
+                    else {
+                        route += `{
+                            path: "/${page.name.slice(0, -4).toLowerCase()}",
+                            component: () => import("./components/${page.name}.vue")
+                        }`;
+                    }
+
+                    routes.push(route);
+                })
+
+                _files['src/router.js'] = {
+                    'content': `import { createRouter, createWebHistory } from "vue-router";
+
+export const router = createRouter({
+    history: createWebHistory(),
+    routes: [
+        {
+            path: "/",
+            component: () => import("./components/${name}.vue"),
+            children: [${routes}]
+        }
+    ]
+});
 `
-                    };
-                });
-
-
-                extDependencies['axios'] =  "^0.19.0";
-            }
-
-            if(name === 'EditorDemo') {
-                extDependencies['quill'] =  "^1.3.7";
-            }
-            if(name === 'FullCalendarDemo') {
-                extDependencies['@fullcalendar/core'] = "5.4.0";
-                extDependencies['@fullcalendar/daygrid'] = "5.4.0";
-                extDependencies['@fullcalendar/interaction'] = "5.4.0";
-                extDependencies['@fullcalendar/timegrid'] = "5.4.0";
-            }
-            if(name === 'ChartDemo') {
-                extDependencies['chart.js'] = "2.7.3";
-            }
-
-            mittComponents.forEach(cmp => {
-                if(name === cmp) {
-                    extDependencies['mitt'] = "^2.1.0";
                 }
-            });
+
+            }
 
             return this.createSandboxParameters(`${name}${extension}`, _files, extDependencies);
         }

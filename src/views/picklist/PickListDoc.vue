@@ -365,10 +365,10 @@ export default {
                             <div class="product-list-detail">
                                 <h5 class="p-mb-2">{{slotProps.item.name}}</h5>
                                 <i class="pi pi-tag product-category-icon"></i>
-                                <span class="product-category">{{slotProps.item.category}}</span>
+                                <span class="product-category">{slotProps.item.category}}</span>
                             </div>
                             <div class="product-list-action">
-                                <h6 class="p-mb-2">{{slotProps.item.price}}</h6>
+                                <h6 class="p-mb-2">\${{{slotProps.item.price}}</h6>
                                 <span :class="'product-badge status-'+slotProps.item.inventoryStatus.toLowerCase()">{{slotProps.item.inventoryStatus}}</span>
                             </div>
                         </div>

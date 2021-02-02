@@ -420,7 +420,7 @@ export default {
                     <a href="https://github.com/primefaces/primevue/tree/master/src/showcase/dataview" class="btn-viewsource" target="_blank" rel="noopener noreferrer">
                         <span>View on GitHub</span>
                     </a>
-                    <LiveEditor name="DataViewDemo" :sources="sources" service="ProductService" data="products" :components="['Button', 'Dropdown', 'Rating']" />
+                    <LiveEditor name="DataViewDemo" :sources="sources" service="ProductService" data="products" :components="['DataViewLayoutOptions', 'Button', 'Dropdown', 'Rating']" />
                 </div>
 
 <pre v-code>
@@ -559,7 +559,7 @@ export default {
 					<template #list="slotProps">
 						<div class="p-col-12">
 							<div class="product-list-item">
-								<img :src="'demo/images/product/' + slotProps.data.image" :alt="slotProps.data.name"/>
+								<img src="https://www.primefaces.org/wp-content/uploads/2020/05/placeholder.png" :alt="slotProps.data.name"/>
 								<div class="product-list-detail">
 									<div class="product-name">{{slotProps.data.name}}</div>
 									<div class="product-description">{{slotProps.data.description}}</div>
@@ -567,7 +567,7 @@ export default {
 									<i class="pi pi-tag product-category-icon"></i><span class="product-category">{{slotProps.data.category}}</span>
 								</div>
 								<div class="product-list-action">
-									<span class="product-price">{{slotProps.data.price}}</span>
+									<span class="product-price">\${{slotProps.data.price}}</span>
 									<Button icon="pi pi-shopping-cart" label="Add to Cart" :disabled="slotProps.data.inventoryStatus === 'OUTOFSTOCK'"></Button>
 									<span :class="'product-badge status-'+slotProps.data.inventoryStatus.toLowerCase()">{{slotProps.data.inventoryStatus}}</span>
 								</div>
@@ -592,7 +592,7 @@ export default {
 									<Rating :modelValue="slotProps.data.rating" :readonly="true" :cancel="false"></Rating>
 								</div>
 								<div class="product-grid-item-bottom">
-									<span class="product-price">{{slotProps.data.price}}</span>
+									<span class="product-price">\${{slotProps.data.price}}</span>
 									<Button icon="pi pi-shopping-cart" :disabled="slotProps.data.inventoryStatus === 'OUTOFSTOCK'"></Button>
 								</div>
 							</div>
@@ -677,7 +677,7 @@ export default {
 	width: 100%;
 
 	img {
-		width: 100px;
+		width: 50px;
 		box-shadow: 0 3px 6px rgba(0, 0, 0, 0.16), 0 3px 6px rgba(0, 0, 0, 0.23);
 		margin-right: 2rem;
 	}
@@ -719,7 +719,6 @@ export default {
 	}
 
 	img {
-		width: 75%;
 		box-shadow: 0 3px 6px rgba(0, 0, 0, 0.16), 0 3px 6px rgba(0, 0, 0, 0.23);
 		margin: 2rem 0;
 	}
@@ -740,7 +739,6 @@ export default {
 		align-items: center;
 
 		img {
-			width: 75%;
 			margin: 2rem 0;
 		}
 

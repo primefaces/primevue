@@ -186,9 +186,12 @@ import Panel from 'primevue/panel';
 			</TabPanel>
 
 			<TabPanel header="Source">
-				<a href="https://github.com/primefaces/primevue/tree/master/src/views/panel" class="btn-viewsource" target="_blank" rel="noopener noreferrer">
-					<span>View on GitHub</span>
-				</a>
+                <div class="p-d-flex p-jc-between">
+                    <a href="https://github.com/primefaces/primevue/tree/master/src/views/panel" class="btn-viewsource" target="_blank" rel="noopener noreferrer">
+                        <span>View on GitHub</span>
+                    </a>
+                    <LiveEditor name="PanelDemo" :sources="sources" :toastService="true" :components="['Menu']" />
+                </div>
 
 <pre v-code>
 <code><template v-pre>
@@ -270,3 +273,105 @@ export default {
 		</TabView>
 	</div>
 </template>
+
+<script>
+import LiveEditor from '../liveeditor/LiveEditor';
+export default {
+    data() {
+        return {
+            sources: {
+                'template': {
+                    content: `<template>
+    <div class="layout-content">
+        <Toast />
+        <div class="content-section implementation">
+            <h5>Regular</h5>
+            <Panel header="Header">
+                <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.
+                    Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.
+                    Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat
+                    cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.</p>
+            </Panel>
+
+            <h5>Advanced</h5>
+            <Panel header="Header" :toggleable="true">
+                <template #icons>
+                    <button class="p-panel-header-icon p-link p-mr-2" @click="toggle">
+                        <span class="pi pi-cog"></span>
+                    </button>
+                    <Menu id="config_menu" ref="menu" :model="items" :popup="true" />
+                </template>
+                <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.
+                    Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.
+                    Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat
+                    cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.</p>
+            </Panel>
+        </div>
+    </div>
+</template>
+
+<script>
+export default {
+    data() {
+        return {
+            collapsed: true,
+            items: [
+                {
+                    label: 'Options',
+                    items: [{
+                        label: 'Update',
+                        icon: 'pi pi-refresh',
+                        command: () => {
+                            this.$toast.add({severity:'success', summary:'Updated', detail:'Data Updated', life: 3000});
+                        }
+                    },
+                    {
+                        label: 'Delete',
+                        icon: 'pi pi-times',
+                        command: () => {
+                            this.$toast.add({ severity: 'warn', summary: 'Delete', detail: 'Data Deleted', life: 3000});
+                        }
+                    }
+                ]},
+                {
+                    label: 'Navigate',
+                    items: [{
+                        label: 'Vue Website',
+                        icon: 'pi pi-external-link',
+                        url: 'https://vuejs.org/'
+                    },
+                    {
+                        label: 'Router',
+                        icon: 'pi pi-upload',
+                        command: () => {
+                            window.location.hash = "/fileupload"
+                        }
+                    }
+                ]}
+            ]
+        }
+    },
+    methods: {
+        toggle(event) {
+            this.$refs.menu.toggle(event);
+        },
+        save() {
+            this.$toast.add({severity: 'success', summary: 'Success', detail: 'Data Saved', life: 3000});
+        }
+    }
+}`,
+                    style: `<style lang="scss" scoped>
+.p-panel p {
+    line-height: 1.5;
+    margin: 0;
+}
+</style>`
+                }
+            }
+        }
+    },
+    components: {
+        LiveEditor
+    }
+}
+</script>

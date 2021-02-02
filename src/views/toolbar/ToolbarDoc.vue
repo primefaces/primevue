@@ -176,7 +176,7 @@ export default {
                 {   label: 'Upload',
                     icon: 'pi pi-upload',
                     command: () => {
-                        this.$router.push('fileupload');
+                        window.location.hash = "/fileupload"
                     }
                 }
             ]

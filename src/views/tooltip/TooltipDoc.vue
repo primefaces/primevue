@@ -93,7 +93,7 @@ directives: {
                 <a href="https://github.com/primefaces/primevue/tree/master/src/views/tooltip" class="btn-viewsource" target="_blank" rel="noopener noreferrer">
                     <span>View on GitHub</span>
                 </a>
-                <LiveEditor name="TooltipDemo" :sources="sources" :components="['InputText', 'Button']"/>
+                <LiveEditor name="TooltipDemo" :sources="sources" :directives="['Tooltip']" :components="['InputText', 'Button']"/>
                 </div>
 <pre v-code>
 <code><template v-pre>

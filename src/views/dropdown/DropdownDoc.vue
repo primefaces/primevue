@@ -435,6 +435,9 @@ export default {
                             <img src="https://www.primefaces.org/wp-content/uploads/2020/05/placeholder.png" />
                             <div>{{ slotProps.value.name }}</div>
                         </div>
+                        <span v-else>
+                            {{slotProps.placeholder}}
+                        </span>
                     </template>
                     <template #option="slotProps">
                       <div class="country-item">
@@ -485,8 +488,7 @@ export default {
     width: 14rem;
 }
 
-.country-item,
-.country-item-value {
+.country-item {
     img {
         width: 17px;
         margin-right: 0.5rem;

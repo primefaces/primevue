@@ -465,12 +465,12 @@
                             "to": "/treetable/coltoggle"
                         },
                         {
-                            "name": "Tempalting",
-                            "to": "/treetable/templating"
+                            "name": "Resize",
+                            "to": "/treetable/colresize"
                         },
                         {
-                            "name": "Filter",
-                            "to": "/treetable/filter"
+                            "name": "Responsive",
+                            "to": "/treetable/responsive"
                         }
                     ]
                 }
@@ -575,7 +575,7 @@
                 },
                 {
                     "name": "BreadCrumb",
-                    "to": "/breadCrumb"
+                    "to": "/breadcrumb"
                 },
                 {
                     "name": "ContextMenu",

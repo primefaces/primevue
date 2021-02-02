@@ -449,7 +449,7 @@ export default {
                                 </div>
                                 <div>
                                     <h4 class="p-mb-1">{{slotProps.data.name}}</h4>
-                                    <h6 class="p-mt-0 p-mb-3">{{slotProps.data.price}}</h6>
+                                    <h6 class="p-mt-0 p-mb-3">\${{slotProps.data.price}}</h6>
                                     <span :class="'product-badge status-'+slotProps.data.inventoryStatus.toLowerCase()">{{slotProps.data.inventoryStatus}}</span>
                                     <div class="car-buttons p-mt-5">
                                         <Button icon="pi pi-search" class="p-button p-button-rounded p-mr-2" />
@@ -476,7 +476,7 @@ export default {
                                 </div>
                                 <div>
                                     <h4 class="p-mb-1">{{slotProps.data.name}}</h4>
-                                    <h6 class="p-mt-0 p-mb-3">{{slotProps.data.price}}</h6>
+                                    <h6 class="p-mt-0 p-mb-3">\${{slotProps.data.price}}</h6>
                                     <span :class="'product-badge status-'+slotProps.data.inventoryStatus.toLowerCase()">{{slotProps.data.inventoryStatus}}</span>
                                     <div class="car-buttons p-mt-5">
                                         <Button icon="pi pi-search" class="p-button p-button-rounded p-mr-2" />
@@ -504,7 +504,7 @@ export default {
                                 </div>
                                 <div>
                                     <h4 class="p-mb-1">{{slotProps.data.name}}</h4>
-                                    <h6 class="p-mt-0 p-mb-3">{{slotProps.data.price}}</h6>
+                                    <h6 class="p-mt-0 p-mb-3">\${{slotProps.data.price}}</h6>
                                     <span :class="'product-badge status-'+slotProps.data.inventoryStatus.toLowerCase()">{{slotProps.data.inventoryStatus}}</span>
                                     <div class="car-buttons p-mt-5">
                                         <Button icon="pi pi-search" class="p-button p-button-rounded p-mr-2" />

@@ -25,6 +25,10 @@ export default class CustomerService {
     getCustomersXLarge() {
         return axios.get(data).then(res => res.config.url.data);
     }
+
+    getCustomers(params) {
+        return axios.get('https://www.primefaces.org/data/customers', { params }).then(res => res.data)
+    }
 }
     `,
     'EventService': `

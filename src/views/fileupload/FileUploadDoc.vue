@@ -330,7 +330,7 @@ myUploader(event) {
 					<a href="https://github.com/primefaces/primevue/tree/master/src/views/fileupload" class="btn-viewsource" target="_blank" rel="noopener noreferrer">
 						<span>View on GitHub</span>
 					</a>
-					<LiveEditor name="FileUploadDemo" :sources="sources" />
+					<LiveEditor name="FileUploadDemo" :sources="sources" :toastService="true" />
 				</div>
 <pre v-code>
 <code><template v-pre>

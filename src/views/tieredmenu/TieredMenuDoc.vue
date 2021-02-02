@@ -306,7 +306,7 @@ toggle(event) {
                <a href="https://github.com/primefaces/primevue/tree/master/src/views/tieredmenu" class="btn-viewsource" target="_blank" rel="noopener noreferrer">
                     <span>View on GitHub</span>
                </a>
-               <LiveEditor name="TieredMenuDemo" :sources="sources" :components="['Button']" />
+               <LiveEditor name="TieredMenuDemo" :sources="sources" :router="true" :components="['Button']" />
             </div>
 <pre v-code>
 <code><template v-pre>

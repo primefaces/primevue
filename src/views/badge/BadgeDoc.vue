@@ -185,7 +185,7 @@ Vue.directive('badge', BadgeDirective);
                     <a href="https://github.com/primefaces/primevue/tree/master/src/views/badge" class="btn-viewsource" target="_blank" rel="noopener noreferrer">
                         <span>View on GitHub</span>
                     </a>
-                    <LiveEditor name="BadgeDemo" :sources="sources" :components="['Button']" />
+                    <LiveEditor name="BadgeDemo" :sources="sources" :directives="['Badge']" :components="['Button']" />
                 </div>
 <pre v-code>
 <code><template v-pre>

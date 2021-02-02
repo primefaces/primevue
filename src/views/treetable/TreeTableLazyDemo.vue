@@ -22,6 +22,9 @@
         <div class="content-section documentation">
             <TabView>
                 <TabPanel header="Source">
+                    <div class="p-d-flex p-jc-end">
+                        <LiveEditor name="TreeTableDemo" :sources="sources" :components="['Column']" />
+                    </div>
 <pre v-code>
 <code><template v-pre>
 &lt;TreeTable :value="nodes" :lazy="true" :paginator="true" :rows="rows" :loading="loading"
@@ -131,6 +134,33 @@ export default {
 </template>
 
 <script>
+import LiveEditor from '../liveeditor/LiveEditor';
+
+export default {
+    data() {
+        return {
+            nodes: null,
+            rows: 10,
+            loading: false,
+            totalRecords: 0,
+            sources: {
+                'template': {
+                    content: `<template>
+    <div class="layout-content">
+        <div class="content-section implementation">
+            <div class="card">
+                <TreeTable :value="nodes" :lazy="true" :paginator="true" :rows="rows" :loading="loading"
+                    @nodeExpand="onExpand" @page="onPage" :totalRecords="totalRecords">
+                    <Column field="name" header="Name" :expander="true"></Column>
+                    <Column field="size" header="Size"></Column>
+                    <Column field="type" header="Type"></Column>
+                </TreeTable>
+            </div>
+        </div>
+    </div>                    
+</template>
+
+<script>
 export default {
     data() {
         return {
@@ -215,6 +245,91 @@ export default {
 
             return nodes;
         }
+    }
+}
+`
+                }
+            }
+        }
+    },
+    mounted() {
+        this.loading = true;
+
+        setTimeout(() => {
+            this.loading = false;
+            this.nodes = this.loadNodes(0, this.rows);
+            this.totalRecords = 1000;
+        }, 1000);
+    },
+    methods: {
+        onExpand(node) {
+            if (!node.children) {
+                this.loading = true;
+
+                setTimeout(() => {
+                    let lazyNode = {...node};
+
+                    lazyNode.children = [
+                        {
+                            data: {
+                                name: lazyNode.data.name + ' - 0',
+                                size: Math.floor(Math.random() * 1000) + 1 + 'kb',
+                                type: 'File'
+                            },
+                        },
+                        {
+                            data: {
+                                name: lazyNode.data.name + ' - 1',
+                                size: Math.floor(Math.random() * 1000) + 1 + 'kb',
+                                type: 'File'
+                            }
+                        }
+                    ];
+
+                    let nodes = this.nodes.map(n => {
+                        if (n.key === node.key) {
+                            n = lazyNode;
+                        }
+
+                        return n;
+                    });
+
+                    this.loading = false;
+                    this.nodes = nodes;
+                }, 250);
+            }
+        },
+        onPage(event) {
+            this.loading = true;
+
+            //imitate delay of a backend call
+            setTimeout(() => {
+                this.loading = false;
+                this.nodes = this.loadNodes(event.first, this.rows);
+            }, 1000);
+        },
+        loadNodes(first, rows) {
+            let nodes = [];
+
+            for(let i = 0; i < rows; i++) {
+                let node = {
+                    key: (first + i),
+                    data: {
+                        name: 'Item ' + (first + i),
+                        size: Math.floor(Math.random() * 1000) + 1 + 'kb',
+                        type: 'Type ' + (first + i)
+                    },
+                    leaf: false
+                };
+
+                nodes.push(node);
+            }
+
+            return nodes;
+        }
+    },
+    components: {
+        LiveEditor
     }
 }
 </script>
