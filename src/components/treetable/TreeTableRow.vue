@@ -1,10 +1,10 @@
 <template>
     <tr :class="containerClass" @click="onClick" @keydown="onKeyDown" @touchend="onTouchEnd" :style="node.style" tabindex="0">
-        <td v-for="(col,i) of columns" :key="col.props?.columnKey||col.props?.field||i" :style="col.props?.bodyStyle" :class="col.props?.bodyClass">
-            <button type="button" class="p-treetable-toggler p-link" @click="toggle" v-if="col.props?.expander" :style="togglerStyle" tabindex="-1" v-ripple>
+        <td v-for="(col,i) of columns" :key="columnProp(col, 'columnKey')||columnProp(col, 'field')||i" :style="columnProp(col, 'bodyStyle')" :class="columnProp(col, 'bodyClass')">
+            <button type="button" class="p-treetable-toggler p-link" @click="toggle" v-if="columnProp(col, 'expander')" :style="togglerStyle" tabindex="-1" v-ripple>
                 <i :class="togglerIcon"></i>
             </button>
-            <div class="p-checkbox p-treetable-checkbox p-component" @click="toggleCheckbox" v-if="checkboxSelectionMode && col.props?.expander" role="checkbox" :aria-checked="checked">
+            <div class="p-checkbox p-treetable-checkbox p-component" @click="toggleCheckbox" v-if="checkboxSelectionMode && columnProp(col, 'expander')" role="checkbox" :aria-checked="checked">
                 <div class="p-hidden-accessible">
                     <input type="checkbox" @focus="onCheckboxFocus" @blur="onCheckboxBlur" />
                 </div>
@@ -13,7 +13,7 @@
                 </div>
             </div>
             <component :is="col.children?.body" :node="node" :column="col" v-if="col.children?.body" />
-            <template v-else><span>{{resolveFieldData(node.data, col.props?.field)}}</span></template>
+            <template v-else><span>{{resolveFieldData(node.data, columnProp(col, 'field'))}}</span></template>
         </td>
     </tr>
     <template v-if="expanded && node.children && node.children.length">
@@ -72,6 +72,9 @@ export default {
     },
     nodeTouched: false,
     methods: {
+        columnProp(col, prop) {
+            return col.props ? col.props[prop] : null;
+        },
         resolveFieldData(rowData, field) {
             return ObjectUtils.resolveFieldData(rowData, field);
         },

@@ -15,8 +15,8 @@
                     @click="onRowClick($event, rowData, index)" @contextmenu="onRowRightClick($event, rowData, index)" @touchend="onRowTouchEnd($event)" @keydown="onRowKeyDown($event, rowData, index)" :tabindex="selectionMode || contextMenu ? '0' : null"
                     @mousedown="onRowMouseDown($event)" @dragstart="onRowDragStart($event, index)" @dragover="onRowDragOver($event,index)" @dragleave="onRowDragLeave($event)" @dragend="onRowDragEnd($event)" @drop="onRowDrop($event)">
                     <template v-for="(col,i) of columns">
-                        <DTBodyCell v-if="shouldRenderBodyCell(value, col, index)" :key="col.props?.columnKey||col.props?.field||i" :rowData="rowData" :column="col" :index="index" :selected="isSelected(rowData)"
-                            :rowTogglerIcon="col.props?.expander ? rowTogglerIcon(rowData): null"
+                        <DTBodyCell v-if="shouldRenderBodyCell(value, col, index)" :key="columnProp(col,'columnKey')||columnProp(col,'field')||i" :rowData="rowData" :column="col" :index="index" :selected="isSelected(rowData)"
+                            :rowTogglerIcon="columnProp(col,'expanded') ? rowTogglerIcon(rowData): null"
                             :rowspan="rowGroupMode === 'rowspan' ? calculateRowGroupSize(value, col, index) : null"
                             :editMode="editMode" :editing="editMode === 'row' && isRowEditing(rowData)"
                             @radio-change="onRadioChange($event)" @checkbox-change="onCheckboxChange($event)" @row-toggle="onRowToggle($event)"
@@ -151,6 +151,9 @@ export default {
         }
     },
     methods: {
+        columnProp(col, prop) {
+            return col.props ? col.props[prop] : null;
+        },
         shouldRenderRowGroupHeader(value, rowData, i) {
             let currentRowFieldData = ObjectUtils.resolveFieldData(rowData, this.groupRowsBy);
             let prevRowData = value[i - 1];
@@ -212,14 +215,14 @@ export default {
         shouldRenderBodyCell(value, column, i) {
             if (this.rowGroupMode) {
                 if (this.rowGroupMode === 'subheader') {
-                    return this.groupRowsBy !== column.props?.field;
+                    return this.groupRowsBy !== this.columnProp(column, 'field');
                 }
                 else if (this.rowGroupMode === 'rowspan') {
                     if (this.isGrouped(column)) {
                         let prevRowData = value[i - 1];
                         if (prevRowData) {
-                            let currentRowFieldData = ObjectUtils.resolveFieldData(value[i], column.props?.field);
-                            let previousRowFieldData = ObjectUtils.resolveFieldData(prevRowData, column.props?.field);
+                            let currentRowFieldData = ObjectUtils.resolveFieldData(value[i], this.columnProp(column, 'field'));
+                            let previousRowFieldData = ObjectUtils.resolveFieldData(prevRowData, this.columnProp(column, 'field'));
                             return currentRowFieldData !== previousRowFieldData;
                         }
                         else {
@@ -237,7 +240,7 @@ export default {
         },
         calculateRowGroupSize(value, column, index) {
             if (this.isGrouped(column)) {
-                let currentRowFieldData = ObjectUtils.resolveFieldData(value[index], column.props?.field);
+                let currentRowFieldData = ObjectUtils.resolveFieldData(value[index], this.columnProp(column, 'field'));
                 let nextRowFieldData = currentRowFieldData;
                 let groupRowSpan = 0;
 
@@ -245,7 +248,7 @@ export default {
                     groupRowSpan++;
                     let nextRowData = value[++index];
                     if (nextRowData) {
-                        nextRowFieldData = ObjectUtils.resolveFieldData(nextRowData, column.props?.field);
+                        nextRowFieldData = ObjectUtils.resolveFieldData(nextRowData, this.columnProp(column, 'field'));
                     }
                     else {
                         break;
@@ -267,11 +270,11 @@ export default {
             return ['p-row-toggler-icon pi', icon];
         },
         isGrouped(column) {
-            if (this.groupRowsBy) {
+            if (this.groupRowsBy && this.columnProp(column, 'field')) {
                 if (Array.isArray(this.groupRowsBy))
-                    return this.groupRowsBy.indexOf(column.props?.field) > -1;
+                    return this.groupRowsBy.indexOf(column.props.field) > -1;
                 else
-                    return this.groupRowsBy === column.props?.field;
+                    return this.groupRowsBy === column.props.field;
             }
             else {
                 return false;

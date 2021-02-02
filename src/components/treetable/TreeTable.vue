@@ -21,26 +21,26 @@
             <table ref="table">
                 <thead class="p-treetable-thead">
                     <tr>
-                        <th v-for="(col,i) of columns" :key="col.props?.columnKey||col.props?.field||i" :style="col.props?.headerStyle" :class="getColumnHeaderClass(col)" @click="onColumnHeaderClick($event, col)"
-                            :tabindex="col.props?.sortable ? '0' : null"  :aria-sort="getAriaSort(col)" @keydown="onColumnKeyDown($event, col)">
+                        <th v-for="(col,i) of columns" :key="columnProp(col, 'columnKey')||columnProp(col, 'field')||i" :style="columnProp(col, 'headerStyle')" :class="getColumnHeaderClass(col)" @click="onColumnHeaderClick($event, col)"
+                            :tabindex="columnProp(col, 'sortable') ? '0' : null"  :aria-sort="getAriaSort(col)" @keydown="onColumnKeyDown($event, col)">
                             <span class="p-column-resizer" @mousedown="onColumnResizeStart" v-if="resizableColumns"></span>
                             <component :is="col.children?.header" :column="col" />
-                            <span class="p-column-title" v-if="col.props?.header">{{col.props?.header}}</span>
-                            <span v-if="col.props?.sortable" :class="getSortableColumnIcon(col)"></span>
+                            <span class="p-column-title" v-if="columnProp(col, 'header')">{{columnProp(col, 'header')}}</span>
+                            <span v-if="columnProp(col, 'sortable')" :class="getSortableColumnIcon(col)"></span>
                             <span v-if="isMultiSorted(col)" class="p-sortable-column-badge">{{getMultiSortMetaIndex(col) + 1}}</span>
                         </th>
                     </tr>
                     <tr v-if="hasColumnFilter()">
-                        <th  v-for="(col,i) of columns" :key="col.props?.columnKey||col.props?.field||i" :class="getFilterColumnHeaderClass(col)" :style="col.props?.filterHeaderStyle">
+                        <th  v-for="(col,i) of columns" :key="columnProp(col, 'columnKeuy')||columnProp(col, 'field')||i" :class="getFilterColumnHeaderClass(col)" :style="columnProp(col, 'filterHeaderStyle')">
                             <component :is="col.children?.filter" :column="col" v-if="col.children?.filter"/>
                         </th>
                     </tr>
                 </thead>
                 <tfoot class="p-treetable-tfoot" v-if="hasFooter">
                     <tr>
-                        <td v-for="(col,i) of columns" :key="col.props?.columnKey||col.props?.field||i" :style="col.props?.footerStyle" :class="col.props?.footerClass">
+                        <td v-for="(col,i) of columns" :key="columnProp(col, 'columnKey')||columnProp(col, 'field')||i" :style="columnProp(col, 'footerStyle')" :class="columnProp(col, 'footerClass')">
                             <component :is="col.children?.footer" :column="col" />
-                            {{col.props?.footer}}
+                            {{columnProp(col, 'footer')}}
                         </td>
                     </tr>
                 </tfoot>
@@ -249,6 +249,9 @@ export default {
         }
     },
     methods: {
+        columnProp(col, prop) {
+            return col.props ? col.props[prop] : null;
+        },
         onNodeToggle(node) {
             const key = node.key;
 
@@ -368,31 +371,31 @@ export default {
             this.$emit('update:first', this.d_first);
         },
         isMultiSorted(column) {
-            return column.props?.sortable && this.getMultiSortMetaIndex(column) > -1
+            return this.columnProp(column, 'sortable') && this.getMultiSortMetaIndex(column) > -1
         },
         isColumnSorted(column) {
-            if (column.props?.sortable) {
-                return this.sortMode === 'single' ? (this.d_sortField === (column.props?.field || column.props?.sortField)) : this.getMultiSortMetaIndex(column) > -1;
+            if (this.columnProp(column, 'sortable')) {
+                return this.sortMode === 'single' ? (this.d_sortField === (this.columnProp(column, 'field') || this.columnProp(column, 'sortField'))) : this.getMultiSortMetaIndex(column) > -1;
             }
 
             return false;
         },
         getColumnHeaderClass(column) {
-            return [column.props?.headerClass,
-                    {'p-sortable-column': column.props?.sortable},
+            return [this.columnProp(column, 'headerClass'),
+                    {'p-sortable-column': this.columnProp(column, 'sortable')},
                     {'p-resizable-column': this.resizableColumns},
                     {'p-highlight': this.isColumnSorted(column)}
             ];
         },
         getFilterColumnHeaderClass(column) {
-            return ['p-filter-column', column.props?.filterHeaderClass];
+            return ['p-filter-column', this.columnProp(column, 'filterHeaderClass')];
         },
         getSortableColumnIcon(column) {
             let sorted = false;
             let sortOrder = null;
 
             if (this.sortMode === 'single') {
-                sorted =  this.d_sortField === (column.props?.field || column.props?.sortField);
+                sorted =  this.d_sortField === (this.columnProp(column, 'field')|| this.columnProp(column, 'sortField'));
                 sortOrder = sorted ? this.d_sortOrder: 0;
             }
             else if (this.sortMode === 'multiple') {
@@ -416,7 +419,7 @@ export default {
 
             for (let i = 0; i < this.d_multiSortMeta.length; i++) {
                 let meta = this.d_multiSortMeta[i];
-                if (meta.field === (column.props?.field || column.props?.sortField)) {
+                if (meta.field === (this.columnProp(column, 'field')|| this.columnProp(column, 'sortField'))) {
                     index = i;
                     break;
                 }
@@ -425,9 +428,9 @@ export default {
             return index;
         },
         onColumnHeaderClick(event, column) {
-            if (column.props?.sortable) {
+            if (this.columnProp(column, 'sortable')) {
                 const targetNode = event.target;
-                const columnField = column.props?.sortField || column.props?.field;
+                const columnField = this.columnProp(column, 'sortField') || this.columnProp(column, 'field');
 
                 if (DomHandler.hasClass(targetNode, 'p-sortable-column') || DomHandler.hasClass(targetNode, 'p-column-title')
                     || DomHandler.hasClass(targetNode, 'p-sortable-column-icon') || DomHandler.hasClass(targetNode.parentElement, 'p-sortable-column-icon')) {
@@ -555,12 +558,12 @@ export default {
 
                 for (let j = 0; j < this.columns.length; j++) {
                     let col = this.columns[j];
-                    let filterField = col.props?.field;
+                    let filterField = this.columnProp(column, 'field');
 
                     //local
-                    if (Object.prototype.hasOwnProperty.call(this.filters, col.props?.field)) {
-                        let filterMatchMode = col.props?.filterMatchMode || 'startsWith';
-                        let filterValue = this.filters[col.props?.field];
+                    if (Object.prototype.hasOwnProperty.call(this.filters, this.columnProp(column, 'field'))) {
+                        let filterMatchMode = this.columnProp(column, 'filterMatchMode') || 'startsWith';
+                        let filterValue = this.filters[this.columnProp(column, 'field')];
                         let filterConstraint = FilterUtils[filterMatchMode];
                         let paramsWithoutNode = {filterField, filterValue, filterConstraint, strict};
 
@@ -649,8 +652,8 @@ export default {
             if (this.hasFilters()) {
                 filterMatchModes = {};
                 this.columns.forEach(col => {
-                    if (col.props?.field) {
-                        filterMatchModes[col.props?.field] = col.props?.filterMatchMode;
+                    if (this.columnProp(column, 'field')) {
+                        filterMatchModes[col.props.field] = this.columnProp(column, 'filterMatchMode');
                     }
                 });
             }
@@ -754,7 +757,7 @@ export default {
             }
         },
         getAriaSort(column) {
-            if (column.props?.sortable) {
+            if (this.columnProp(column, 'sortable')) {
                 const sortIcon = this.getSortableColumnIcon(column);
                 if (sortIcon[1]['pi-sort-amount-down'])
                     return 'descending';
@@ -855,7 +858,7 @@ export default {
             let hasFooter = false;
 
             for (let col of this.columns) {
-                if (col.props?.footer || col.children?.footer) {
+                if (this.columnProp(column, 'footer')|| col.children?.footer) {
                     hasFooter = true;
                     break;
                 }

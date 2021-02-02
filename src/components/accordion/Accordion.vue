@@ -5,8 +5,8 @@
                 <a role="tab" class="p-accordion-header-link" @click="onTabClick($event, tab, i)" @keydown="onTabKeydown($event, tab, i)" :tabindex="isTabDisabled(tab) ? null : '0'"
                     :aria-expanded="isTabActive(i)" :id="getTabAriaId(i) + '_header'" :aria-controls="getTabAriaId(i) + '_content'">
                     <span :class="getHeaderIcon(i)"></span>
-                    <span class="p-accordion-header-text" v-if="tab.props?.header">{{tab.props?.header}}</span>
-                    <component :is="tab.children.header" v-if="tab.children?.header"></component>
+                    <span class="p-accordion-header-text" v-if="tab.props && tab.props.header">{{tab.props.header}}</span>
+                    <component :is="tab.children.header" v-if="tab.children && tab.children.header"></component>
                 </a>
             </div>
             <transition name="p-toggleable-content">
@@ -81,10 +81,10 @@ export default {
                 return index === this.d_activeIndex;
         },
         getKey(tab, i) {
-            return tab.props?.header ? tab.props.header : i;
+            return (tab.props && tab.props.header) ? tab.props.header : i;
         },
         isTabDisabled(tab) {
-            return tab.props?.disabled;
+            return tab.props && tab.props.disabled;
         },
         getTabClass(i) {
             return ['p-accordion-tab', {'p-accordion-tab-active': this.isTabActive(i)}];

@@ -438,7 +438,7 @@ export default {
     mounted() {
         if (this.reorderableColumns) {
             let columnOrder = [];
-            this.columns.forEach(col => columnOrder.push(col.props?.columnKey||col.props?.field));
+            this.columns.forEach(col => columnOrder.push(this.columnProp(col, 'columnKey')||this.columnProp(col, 'field')));
             this.d_columnOrder = columnOrder;
         }
     },
@@ -456,6 +456,9 @@ export default {
         }
     },
     methods: {
+        columnProp(col, prop) {
+            return col.props ? col.props[prop] : null;
+        },
         onPage(event) {
             this.d_first = event.first;
             this.d_rows = event.rows;
@@ -472,9 +475,9 @@ export default {
             const event = e.originalEvent;
             const column = e.column;
 
-            if (column.props?.sortable) {
+            if (this.columnProp(column, 'sortable')) {
                 const targetNode = event.target;
-                const columnField = column.props?.sortField || column.props?.field;
+                const columnField = this.columnProp(column, 'sortField') || this.columnProp(column, 'field');
 
                 if (DomHandler.hasClass(targetNode, 'p-sortable-column') || DomHandler.hasClass(targetNode, 'p-column-title')
                     || DomHandler.hasClass(targetNode, 'p-sortable-column-icon') || DomHandler.hasClass(targetNode.parentElement, 'p-sortable-column-icon')) {
@@ -591,13 +594,13 @@ export default {
 
                 for(let j = 0; j < this.columns.length; j++) {
                     let col = this.columns[j];
-                    let columnField = col.props?.filterField || col.props?.field;
+                    let columnField = this.columnProp(col, 'filterField') || this.columnProp(col, 'field');
 
                     //local
                     if (Object.prototype.hasOwnProperty.call(this.filters, columnField)) {
                         let filterValue = this.filters[columnField];
                         let dataFieldValue = ObjectUtils.resolveFieldData(data[i], columnField);
-                        let filterConstraint = col.props?.filterMatchMode === 'custom' ? col.props?.filterFunction : FilterUtils[col.props?.filterMatchMode||'startsWith'];
+                        let filterConstraint = this.columnProp(col, 'filterMatchMode') === 'custom' ? (col.props && col.props.filterFunction) : FilterUtils[this.columnProp(col, 'filterMatchMode')||'startsWith'];
                         if (!filterConstraint(dataFieldValue, filterValue, this.filterLocale)) {
                             localMatch = false;
                         }
@@ -607,7 +610,7 @@ export default {
                         }
                     }
 
-                    if (!col.props?.excludeGlobalFilter && this.hasGlobalFilter() && !globalMatch) {
+                    if (!this.columnProp(col, 'excludeGlobalFilter') && this.hasGlobalFilter() && !globalMatch) {
                         globalMatch = FilterUtils.contains(ObjectUtils.resolveFieldData(data[i], columnField), this.filters['global'], this.filterLocale);
                     }
                 }
@@ -943,13 +946,13 @@ export default {
             for (let i = 0; i < this.columns.length; i++) {
                 let column = this.columns[i];
 
-                if (column.props?.exportable !== false && column.props?.field) {
+                if (this.columnProp(column, 'exportable') !== false && this.columnProp(column, 'field')) {
                     if (headerInitiated)
                         csv += this.csvSeparator;
                     else
                         headerInitiated = true;
 
-                    csv += '"' + (column.props?.header || column.props?.field) + '"';
+                    csv += '"' + (this.columnProp(column, 'header') || this.columnProp(column, 'field')) + '"';
                 }
             }
 
@@ -960,19 +963,19 @@ export default {
                     let rowInitiated = false;
                     for (let i = 0; i < this.columns.length; i++) {
                         let column = this.columns[i];
-                        if (column.props?.exportable !== false && column.props?.field) {
+                        if (this.columnProp(column, 'exportable') !== false && this.columnProp(column, 'field')) {
                             if (rowInitiated)
                                 csv += this.csvSeparator;
                             else
                                 rowInitiated = true;
 
-                            let cellData = ObjectUtils.resolveFieldData(record, column.props?.field);
+                            let cellData = ObjectUtils.resolveFieldData(record, this.columnProp(column, 'field'));
 
                             if (cellData != null) {
                                 if (this.exportFunction) {
                                     cellData = this.exportFunction({
                                         data: cellData,
-                                        field: column.props?.field
+                                        field: this.columnProp(column, 'field')
                                     });
                                 }
                                 else
@@ -1140,7 +1143,7 @@ export default {
             const event = e.originalEvent;
             const column = e.column;
 
-            if (this.reorderableColumns && column.props?.reorderableColumn !== false) {
+            if (this.reorderableColumns && this.columnProp(column, 'reorderableColumn') !== false) {
                 if (event.target.nodeName === 'INPUT' || event.target.nodeName === 'TEXTAREA' || DomHandler.hasClass(event.target, 'p-column-resizer'))
                     event.currentTarget.draggable = false;
                 else
@@ -1253,7 +1256,7 @@ export default {
             if (columns && columns.length) {
                 for (let i = 0; i < columns.length; i++) {
                     let column = columns[i];
-                    if (column.props?.columnKey === key || column.props?.field === key) {
+                    if (this.columnProp(column, 'columnKey') === key || this.columnProp(column, 'field') === key) {
                         return column;
                     }
                 }
@@ -1700,7 +1703,7 @@ export default {
             let frozenColumns = [];
 
             for(let col of this.columns) {
-                if(col.props?.frozen) {
+                if(this.columnProp(col, 'frozen')) {
                     frozenColumns = frozenColumns||[];
                     frozenColumns.push(col);
                 }
@@ -1712,7 +1715,7 @@ export default {
             let scrollableColumns = [];
 
             for(let col of this.columns) {
-                if(!col.props?.frozen) {
+                if(!this.columnProp(col, 'frozen')) {
                     scrollableColumns = scrollableColumns||[];
                     scrollableColumns.push(col);
                 }
@@ -1727,7 +1730,7 @@ export default {
             const children = this.getChildren();
             if (children) {
                 for (let child of children) {
-                    if (child.type.name === 'columngroup' && child.props?.type === 'header') {
+                    if (child.type.name === 'columngroup' && this.columnProp(child, 'type') === 'header') {
                         return child;
                     }
                 }
@@ -1739,7 +1742,7 @@ export default {
             const children = this.getChildren();
             if (children) {
                 for (let child of children) {
-                    if (child.type.name === 'columngroup' && child.props?.type === 'frozenheader') {
+                    if (child.type.name === 'columngroup' && this.columnProp(child, 'type') === 'frozenheader') {
                         return child;
                     }
                 }
@@ -1751,7 +1754,7 @@ export default {
             const children = this.getChildren();
             if (children) {
                 for (let child of children) {
-                    if (child.type.name === 'columngroup' && child.props?.type === 'footer') {
+                    if (child.type.name === 'columngroup' && this.columnProp(child, 'type') === 'footer') {
                         return child;
                     }
                 }
@@ -1763,7 +1766,7 @@ export default {
            const children = this.getChildren();
             if (children) {
                 for (let child of children) {
-                    if (child.type.name === 'columngroup' && child.props?.type === 'frozenfooter') {
+                    if (child.type.name === 'columngroup' && this.columnProp(child, 'type') === 'frozenfooter') {
                         return child;
                     }
                 }
