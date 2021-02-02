@@ -110,7 +110,7 @@ router.beforeEach(function (to, from, next) {
 
 const app = createApp(App);
 
-app.config.globalProperties.$appState = reactive({inputStyle: 'outlined', darkTheme: false, codeSandbox: false});
+app.config.globalProperties.$appState = reactive({inputStyle: 'outlined', darkTheme: false, codeSandbox: true});
 
 app.use(PrimeVue, {ripple: true});
 app.use(ToastService);
