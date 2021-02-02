@@ -47,7 +47,6 @@
 <pre v-code>
 <code><template v-pre>
 &lt;DataTable :value="customers" :lazy="true" :paginator="true" :rows="10" :filters="filters" ref="dt"
-&lt;DataTable :value="customers" :lazy="true" :paginator="true" :rows="10" :filters="filters" ref="dt"
     :totalRecords="totalRecords" :loading="loading" @page="onPage($event)" @sort="onSort($event)"&gt;
     &lt;Column field="name" header="Name" filterMatchMode="startsWith" ref="name" :sortable="true"&gt;  
         &lt;template #filter&gt;
@@ -119,11 +118,13 @@ export default {
         loadLazyData() {
             this.loading = true;
 
-            this.customerService.getCustomers({lazyEvent: JSON.stringify( this.lazyParams )}).then(data => {
-                this.customers = data.customers;
-                this.totalRecords = data.totalRecords;
-                this.loading = false;
-            });
+            setTimeout(() => {
+                this.customerService.getCustomers({lazyEvent: JSON.stringify( this.lazyParams )}).then(data => {
+                    this.customers = data.customers;
+                    this.totalRecords = data.totalRecords;
+                    this.loading = false;
+                });
+            }, Math.random() * 1000 + 250);
         },
         onPage(event) {
             this.lazyParams = event;
@@ -252,11 +253,13 @@ export default {
         loadLazyData() {
             this.loading = true;
 
-            this.customerService.getCustomers({lazyEvent: JSON.stringify( this.lazyParams )}).then(data => {
-                this.customers = data.customers;
-                this.totalRecords = data.totalRecords;
-                this.loading = false;
-            });
+            setTimeout(() => {
+                this.customerService.getCustomers({lazyEvent: JSON.stringify( this.lazyParams )}).then(data => {
+                    this.customers = data.customers;
+                    this.totalRecords = data.totalRecords;
+                    this.loading = false;
+                });
+            }, Math.random() * 1000 + 250);
         },
         onPage(event) {
             this.lazyParams = event;
@@ -298,11 +301,13 @@ export default {
         loadLazyData() {
             this.loading = true;
 
-            this.customerService.getCustomers({lazyEvent: JSON.stringify( this.lazyParams )}).then(data => {
-                this.customers = data.customers;
-                this.totalRecords = data.totalRecords;
-                this.loading = false;
-            });
+            setTimeout(() => {
+                this.customerService.getCustomers({lazyEvent: JSON.stringify( this.lazyParams )}).then(data => {
+                    this.customers = data.customers;
+                    this.totalRecords = data.totalRecords;
+                    this.loading = false;
+                });
+            }, Math.random() * 1000 + 250);
         },
         onPage(event) {
             this.lazyParams = event;
