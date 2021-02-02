@@ -93,7 +93,7 @@ export default {
     },
     methods: {
         columnProp(prop) {
-            return this.column.props ? this.column.props[prop] : null;
+            return this.column.props ? ((this.column.type.props[prop].type === Boolean && this.column.props[prop] === '') ? true : this.column.props[prop]) : null;
         },
         resolveFieldData() {
             return ObjectUtils.resolveFieldData(this.rowData, this.columnProp('field'));

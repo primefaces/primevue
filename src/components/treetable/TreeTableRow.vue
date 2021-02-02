@@ -73,7 +73,7 @@ export default {
     nodeTouched: false,
     methods: {
         columnProp(col, prop) {
-            return col.props ? col.props[prop] : null;
+            return col.props ? ((col.type.props[prop].type === Boolean && col.props[prop] === '') ? true : col.props[prop]) : null;
         },
         resolveFieldData(rowData, field) {
             return ObjectUtils.resolveFieldData(rowData, field);

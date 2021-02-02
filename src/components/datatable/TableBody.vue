@@ -16,7 +16,7 @@
                     @mousedown="onRowMouseDown($event)" @dragstart="onRowDragStart($event, index)" @dragover="onRowDragOver($event,index)" @dragleave="onRowDragLeave($event)" @dragend="onRowDragEnd($event)" @drop="onRowDrop($event)">
                     <template v-for="(col,i) of columns">
                         <DTBodyCell v-if="shouldRenderBodyCell(value, col, index)" :key="columnProp(col,'columnKey')||columnProp(col,'field')||i" :rowData="rowData" :column="col" :index="index" :selected="isSelected(rowData)"
-                            :rowTogglerIcon="columnProp(col,'expanded') ? rowTogglerIcon(rowData): null"
+                            :rowTogglerIcon="columnProp(col,'expander') ? rowTogglerIcon(rowData): null"
                             :rowspan="rowGroupMode === 'rowspan' ? calculateRowGroupSize(value, col, index) : null"
                             :editMode="editMode" :editing="editMode === 'row' && isRowEditing(rowData)"
                             @radio-change="onRadioChange($event)" @checkbox-change="onCheckboxChange($event)" @row-toggle="onRowToggle($event)"
@@ -152,7 +152,7 @@ export default {
     },
     methods: {
         columnProp(col, prop) {
-            return col.props ? col.props[prop] : null;
+            return col.props ? ((col.type.props[prop].type === Boolean && col.props[prop] === '') ? true : col.props[prop]) : null;
         },
         shouldRenderRowGroupHeader(value, rowData, i) {
             let currentRowFieldData = ObjectUtils.resolveFieldData(rowData, this.groupRowsBy);

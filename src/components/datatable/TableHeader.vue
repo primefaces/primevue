@@ -99,7 +99,7 @@ export default {
     },
     methods: {
         columnProp(col, prop) {
-            return col.props ? col.props[prop] : null;
+            return col.props ? ((col.type.props[prop].type === Boolean && col.props[prop] === '') ? true : col.props[prop]) : null;
         },
         isMultiSorted(column) {
             return this.columnProp(column, 'sortable') && this.getMultiSortMetaIndex(column) > -1
