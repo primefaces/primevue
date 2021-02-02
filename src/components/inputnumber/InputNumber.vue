@@ -820,7 +820,7 @@ export default {
     },
     computed: {
         containerClass() {
-            return ['p-inputnumber p-component', this.class, {
+            return ['p-inputnumber p-component p-inputwrapper', this.class, {
                 'p-inputwrapper-filled': this.filled,
                 'p-inputwrapper-focus': this.focused,
                 'p-inputnumber-buttons-stacked': this.showButtons && this.buttonLayout === 'stacked',

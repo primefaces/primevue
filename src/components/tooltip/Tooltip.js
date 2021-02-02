@@ -236,25 +236,33 @@ function isOutOfBounds(el) {
     return (targetLeft + width > viewport.width) || (targetLeft < 0) || (targetTop < 0) || (targetTop + height > viewport.height);
 }
 
+function getTarget(el) {
+    return DomHandler.hasClass(el, 'p-inputwrapper') ? DomHandler.findSingle(el, 'input'): el;
+}
+
 const Tooltip = {
     beforeMount(el, options) {
-        el.$_ptooltipModifiers = options.modifiers;
-        el.$_ptooltipValue = options.value;
-        bindEvents(el);
+        let target = getTarget(el);
+        target.$_ptooltipModifiers = options.modifiers;
+        target.$_ptooltipValue = options.value;
+        bindEvents(target);
     },
     unmounted(el) {
-        remove(el);
-        unbindEvents(el);
+        let target = getTarget(el);
+        remove(target);
+        unbindEvents(target);
 
-        if (el.$_ptooltipScrollHandler) {
-            el.$_ptooltipScrollHandler.destroy();
-            el.$_ptooltipScrollHandler = null;
+        if (target.$_ptooltipScrollHandler) {
+            target.$_ptooltipScrollHandler.destroy();
+            target.$_ptooltipScrollHandler = null;
         }
     },
     updated(el, options) {
-        el.$_ptooltipModifiers = options.modifiers;
-        el.$_ptooltipValue = options.value;
-    }
+        let target = getTarget(el);
+        target.$_ptooltipModifiers = options.modifiers;
+        target.$_ptooltipValue = options.value;
+    },
+
 };
 
 export default Tooltip;
