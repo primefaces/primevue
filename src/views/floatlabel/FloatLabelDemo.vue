@@ -91,10 +91,16 @@
                             <label for="multiselect">MultiSelect</label>
                         </span>
                     </div>
-                    <div class="p-field p-col-12">
+                    <div class="p-field p-col-12 p-md-4">
                         <span class="p-float-label">
                             <Textarea id="textarea" v-model="value10" rows="3" />
                             <label for="textarea">Textarea</label>
+                        </span>
+                    </div>
+                    <div class="p-field p-col-12 p-md-4">
+                        <span class="p-float-label">
+                            <Password id="password" v-model="value11" />
+                            <label for="password">Password</label>
                         </span>
                     </div>
                 </div>
@@ -190,10 +196,16 @@
             &lt;label for="multiselect"&gt;MultiSelect&lt;/label&gt;
         &lt;/span&gt;
     &lt;/div&gt;
-    &lt;div class="p-field p-col-12"&gt;
+    &lt;div class="p-field p-col-12 p-md-4"&gt;
         &lt;span class="p-float-label"&gt;
             &lt;Textarea id="textarea" v-model="value10" rows="3" /&gt;
             &lt;label for="textarea"&gt;Textarea&lt;/label&gt;
+        &lt;/span&gt;
+    &lt;/div&gt;
+    &lt;div class="p-field p-col-12 p-md-4"&gt;
+        &lt;span class="p-float-label"&gt;
+            &lt;Password id="password" v-model="value11" /&gt;
+            &lt;label for="password"&gt;Password&lt;/label&gt;
         &lt;/span&gt;
     &lt;/div&gt;
 &lt;/div&gt;
@@ -227,6 +239,7 @@ export default {
             value8: null,
             value9: null,
             value10: null,
+            value11: null,
             selectedCity: null,
             cascadeCountries: [
                 {
@@ -362,6 +375,7 @@ export default {
             value8: null,
             value9: null,
             value10: null,
+            value11: null,
             valueIconLeft: null,
             valueIconRight: null,
             selectedCity: null,
@@ -528,10 +542,16 @@ export default {
                             <label for="multiselect">MultiSelect</label>
                         </span>
                     </div>
-                    <div class="p-field p-col-12">
+                    <div class="p-field p-col-12 p-md-4">
                         <span class="p-float-label">
                             <Textarea id="textarea" v-model="value10" rows="3" />
                             <label for="textarea">Textarea</label>
+                        </span>
+                    </div>
+                    <div class="p-field p-col-12 p-md-4">
+                        <span class="p-float-label">
+                            <Password id="password" v-model="value11" />
+                            <label for="password">Password</label>
                         </span>
                     </div>
                 </div>
@@ -564,6 +584,7 @@ export default {
             value8: null,
             value9: null,
             value10: null,
+            value11: null,
             selectedCity: null,
             cascadeCountries: [
                 {
