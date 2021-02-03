@@ -18,7 +18,7 @@ import Password from 'primevue/password';
 </code></pre>
 
                 <h5>Customization</h5>
-                <p>Password components uses regular expressions for middle and strong passwords with the following defaults.</p>
+                <p>Password component uses regular expressions for middle and strong passwords with the following defaults.</p>
 
                 <h6>Medium</h6>
                 <p><i>^(((?=.*[a-z])(?=.*[A-Z]))|((?=.*[a-z])(?=.*[0-9]))|((?=.*[A-Z])(?=.*[0-9])))(?=.{6,}).</i></p>
