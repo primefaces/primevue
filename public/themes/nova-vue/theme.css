@@ -1141,6 +1141,16 @@
 }
 .p-password-panel .p-password-meter {
   margin-bottom: 0.5rem;
+  background: #eaeaea;
+}
+.p-password-panel .p-password-meter .p-password-strength.weak {
+  background: #e91224;
+}
+.p-password-panel .p-password-meter .p-password-strength.medium {
+  background: #ffba01;
+}
+.p-password-panel .p-password-meter .p-password-strength.strong {
+  background: #34A835;
 }
 
 .p-radiobutton {
