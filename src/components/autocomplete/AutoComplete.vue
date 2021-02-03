@@ -1,14 +1,14 @@
 <template>
     <span ref="container" :class="containerClass" aria-haspopup="listbox" :aria-owns="listId" :aria-expanded="overlayVisible" :style="style">
-        <input ref="input" :class="inputFieldClass" :style="inputStyle" v-bind="$attrs" :value="inputValue" @input="onInput" @focus="onFocus" @blur="onBlur" @keydown="onKeyDown" type="text" autoComplete="off" v-if="!multiple"
-            role="searchbox" aria-autocomplete="list" :aria-controls="listId">
+        <input ref="input" :class="inputFieldClass" :style="inputStyle" v-bind="$attrs" :value="inputValue" @input="onInput" @focus="onFocus" @blur="onBlur" @keydown="onKeyDown" @change="onChange" 
+            type="text" autoComplete="off" v-if="!multiple" role="searchbox" aria-autocomplete="list" :aria-controls="listId">
         <ul ref="multiContainer" :class="multiContainerClass" v-if="multiple" @click="onMultiContainerClick">
             <li v-for="(item, i) of modelValue" :key="i" class="p-autocomplete-token">
                 <span class="p-autocomplete-token-label">{{getItemContent(item)}}</span>
                 <span class="p-autocomplete-token-icon pi pi-times-circle" @click="removeItem($event, i)"></span>
             </li>
             <li class="p-autocomplete-input-token">
-                <input ref="input" type="text" autoComplete="off" v-bind="$attrs" @input="onInput" @focus="onFocus" @blur="onBlur" @keydown="onKeyDown"
+                <input ref="input" type="text" autoComplete="off" v-bind="$attrs" @input="onInput" @focus="onFocus" @blur="onBlur" @keydown="onKeyDown"  @change="onChange" 
                     role="searchbox" aria-autocomplete="list" :aria-controls="listId">
             </li>
         </ul>
@@ -76,6 +76,10 @@ export default {
         appendTo: {
             type: String,
             default: null
+        },
+        forceSelection: {
+            type: Boolean,
+            default: false
         },
         inputClass: null,
         inputStyle: null,
@@ -400,6 +404,30 @@ export default {
 
                     default:
                     break;
+                }
+            }
+        },
+        onChange(event) {
+            if (this.forceSelection) {
+                let valid = false;
+                let inputValue = event.target.value.trim();
+                
+                if (this.suggestions)  {
+                    for (let item of this.suggestions) {
+                        let itemValue = this.field ? ObjectUtils.resolveFieldData(item, this.field) : item;
+                        if (itemValue && inputValue === itemValue.trim()) {
+                            valid = true;
+                            this.selectItem(event, item);
+                            break;
+                        }
+                    }
+                }
+
+                if (!valid) {
+                    this.$refs.input.value = '';
+                    this.inputTextValue = '';
+                    this.$emit('clear');
+                    this.$emit('update:modelValue', null);
                 }
             }
         },

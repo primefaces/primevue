@@ -62,6 +62,14 @@ export default {
 
 </code></pre>
 
+                <h5>Force Selection</h5>
+                <p>ForceSelection mode validates the manual input to check whether it also exists in the suggestions list, if not the input value is cleared
+                to make sure the value passed to the model is always one of the suggestions. Simply enable <i>forceSelection</i> to enforce that input is always from the suggestion list.</p>
+<pre v-code><code>
+&lt;AutoComplete forceSelection v-model="brand" :suggestions="filteredBrands" @complete="searchBrand($event)" /&gt;
+
+</code></pre>
+
 				<h5>Templating</h5>
 				<p>Item template allows displaying custom content inside the suggestions panel. The slotProps variable passed to the template provides an item property to represent an item in the suggestions collection.</p>
 <pre v-code><code><template v-pre>
@@ -158,6 +166,13 @@ export default {
                                 <td>string</td>
                                 <td>null</td>
                                 <td>Style class of the input field.</td>
+                            </tr>
+                            <tr>
+                                <td>forceSelection</td>
+                                <td>boolean</td>
+                                <td>false</td>
+                                <td>When present, autocomplete clears the manual input if it does not match of the suggestions to force only
+                                accepting values from the suggestions.</td>
                             </tr>
 						</tbody>
 					</table>
@@ -270,8 +285,8 @@ export default {
 &lt;h5&gt;Basic&lt;/h5&gt;
 &lt;AutoComplete v-model="selectedCountry1" :suggestions="filteredCountries" @complete="searchCountry($event)" field="name" /&gt;
 
-&lt;h5&gt;Dropdown and Templating&lt;/h5&gt;
-&lt;AutoComplete v-model="selectedCountry2" :suggestions="filteredCountries" @complete="searchCountry($event)" :dropdown="true" field="name"&gt;
+&lt;h5&gt;Dropdown, Templating and Force Selection&lt;/h5&gt;
+&lt;AutoComplete v-model="selectedCountry2" :suggestions="filteredCountries" @complete="searchCountry($event)" :dropdown="true" field="name" forceSelection&gt;
     &lt;template #item="slotProps"&gt;
         &lt;div class="country-item"&gt;
             &lt;img src="../../assets/images/flag_placeholder.png" :class="'flag flag-' + slotProps.item.code.toLowerCase()" /&gt;
@@ -343,8 +358,8 @@ export default {
                 <h5>Basic</h5>
                 <AutoComplete v-model="selectedCountry1" :suggestions="filteredCountries" @complete="searchCountry($event)" field="name" />
 
-                <h5>Dropdown and Templating</h5>
-                <AutoComplete v-model="selectedCountry2" :suggestions="filteredCountries" @complete="searchCountry($event)" :dropdown="true" field="name">
+                <h5>Dropdown, Templating and Force Selection</h5>
+                <AutoComplete v-model="selectedCountry2" :suggestions="filteredCountries" @complete="searchCountry($event)" :dropdown="true" field="name" forceSelection>
                     <template #item="slotProps">
                         <div class="country-item">
                             <img src="https://www.primefaces.org/wp-content/uploads/2020/05/placeholder.png" />
