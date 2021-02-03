@@ -1,19 +1,24 @@
 <template>
-    <input ref="input" type="password" :class="['p-inputtext p-component', {'p-filled': filled}]" :value="modelValue"
-        @input="onInput" @focus="onFocus" @blur="onBlur" @keyup="onKeyUp" v-bind="$attrs" />
-    <transition name="p-connected-overlay" @enter="onOverlayEnter" @leave="onOverlayLeave">
-        <div :ref="overlayRef" class="p-password-panel p-component" v-if="overlayVisible">
-            <div class="p-password-meter" :style="{'background-position': meterPosition}"></div>
-            <div class="p-password-info">
-                {{infoText}}
+    <div :class="containerClass" :style="style">
+        <PInputText ref="input" :type="inputType" :value="modelValue" @input="onInput" @focus="onFocus" @blur="onBlur" @keyup="onKeyUp" v-bind="$attrs" autocomplete="fff"/>
+        <i v-if="toggleMask" :class="toggleIconClass" @click="onMaskToggle" />
+        <transition name="p-connected-overlay" @enter="onOverlayEnter" @leave="onOverlayLeave">
+            <div :ref="overlayRef" class="p-password-panel p-component" v-if="overlayVisible">
+                <slot name="header"></slot>
+                <slot name="content">
+                     <div class="p-password-meter" :style="{'background-position': meterPosition}"></div>
+                    <div class="p-password-info">{{infoText}}</div>
+                </slot>
+                <slot name="footer"></slot>
             </div>
-        </div>
-    </transition>
+        </transition>
+    </div>
 </template>
 
 <script>
 import {ConnectedOverlayScrollHandler} from 'primevue/utils';
 import {DomHandler} from 'primevue/utils';
+import InputText from 'primevue/inputtext';
 
 export default {
     emits: ['update:modelValue'],
@@ -47,13 +52,25 @@ export default {
         feedback: {
             type: Boolean,
             default: true
-        }
+        },
+        appendTo: {
+            type: String,
+            default: null
+        },
+        toggleMask: {
+            type: Boolean,
+            default: false
+        },
+        style: null,
+        class: null
     },
     data() {
         return {
             overlayVisible: false,
             meterPosition: '',
-            infoText: this.promptLabel
+            infoText: null,
+            focused: false,
+            unmasked: false
         };
     },
     mediumCheckRegExp: null,
@@ -62,10 +79,12 @@ export default {
     scrollHandler: null,
     overlay: null,
     mounted() {
+        this.infoText = this.promptText;
         this.mediumCheckRegExp = new RegExp(this.mediumRegex);
         this.strongCheckRegExp = new RegExp(this.strongRegex);
     },
     beforeUnmount() {
+        this.restoreAppend();
         this.unbindResizeListener();
         if (this.scrollHandler) {
             this.scrollHandler.destroy();
@@ -75,8 +94,8 @@ export default {
     methods: {
         onOverlayEnter() {
             this.overlay.style.zIndex = String(DomHandler.generateZIndex());
-            this.overlay.style.minWidth = DomHandler.getOuterWidth(this.$refs.input) + 'px';
-            DomHandler.absolutePosition(this.overlay, this.$refs.input);
+            this.appendContainer();
+            this.alignOverlay();
             this.bindScrollListener();
             this.bindResizeListener();
         },
@@ -84,6 +103,41 @@ export default {
             this.unbindScrollListener();
             this.unbindResizeListener();
             this.overlay = null;
+        },
+        alignOverlay() {
+            if (this.appendTo) {
+                this.overlay.style.minWidth = DomHandler.getOuterWidth(this.$refs.input.$el) + 'px';
+                DomHandler.absolutePosition(this.overlay, this.$refs.input.$el);
+            }
+            else {
+                DomHandler.relativePosition(this.overlay, this.$refs.input.$el);
+            }  
+        },
+        appendContainer() {
+            if (this.appendTo) {
+                if (this.appendTo === 'body')
+                    document.body.appendChild(this.overlay);
+                else
+                    document.getElementById(this.appendTo).appendChild(this.overlay);
+            }
+        },
+        restoreAppend() {
+            if (this.overlay && this.appendTo) {
+                if (this.appendTo === 'body')
+                    document.body.removeChild(this.overlay);
+                else
+                    document.getElementById(this.appendTo).removeChild(this.overlay);
+            }
+        },
+        bindOutsideClickListener() {
+            if (!this.outsideClickListener) {
+                this.outsideClickListener = (event) => {
+                    if (this.overlayVisible && this.overlay && this.isOutsideClicked(event)) {
+                        this.hideOverlay();
+                    }
+                };
+                document.addEventListener('click', this.outsideClickListener);
+            }
         },
         testStrength(str) {
             let level = 0;
@@ -101,11 +155,13 @@ export default {
              this.$emit('update:modelValue', event.target.value)
         },
         onFocus() {
+            this.focused = true;
             if (this.feedback) {
                 this.overlayVisible = true;
             }
         },
         onBlur() {
+            this.focused = false;
             if (this.feedback) {
                 this.overlayVisible = false;
             }
@@ -148,7 +204,7 @@ export default {
         },
         bindScrollListener() {
             if (!this.scrollHandler) {
-                this.scrollHandler = new ConnectedOverlayScrollHandler(this.$refs.input, () => {
+                this.scrollHandler = new ConnectedOverlayScrollHandler(this.$refs.input.$el, () => {
                     if (this.overlayVisible) {
                         this.overlayVisible = false;
                     }
@@ -180,9 +236,30 @@ export default {
         },
         overlayRef(el) {
             this.overlay = el;
+        },
+        onMaskToggle() {
+            this.unmasked = !this.unmasked;
         }
     },
     computed: {
+        containerClass() {
+            return ['p-password p-component p-inputwrapper', this.class, {
+                'p-inputwrapper-filled': this.filled,
+                'p-inputwrapper-focus': this.focused,
+                'p-input-icon-right': this.toggleMask
+            }];
+        },
+        inputClass() {
+            return ['p-password-input', {
+                'p-disabled': this.$attrs.disabled
+            }];
+        },
+        toggleIconClass() {
+            return this.unmasked ? 'pi pi-eye-slash' : 'pi pi-eye';
+        },
+        inputType() {
+            return this.unmasked ? 'text' : 'password';
+        },
         filled() {
             return (this.modelValue != null && this.modelValue.toString().length > 0)
         },
@@ -198,6 +275,28 @@ export default {
         promptText() {
             return this.promptLabel || this.$primevue.config.locale.passwordPrompt;
         }
+    },
+    components: {
+        'PInputText': InputText
     }
 }
 </script>
+
+<style>
+.p-password {
+    position: relative;
+    display: inline-flex;
+}
+
+.p-password-panel {
+    position: absolute;
+}
+
+.p-password .p-password-panel {
+    min-width: 100%;
+}
+
+.p-password-meter {
+    height: 10px;
+}
+</style>
