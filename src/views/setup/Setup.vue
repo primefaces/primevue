@@ -16,7 +16,7 @@
             <p>PrimeVue is available at <a href="https://www.npmjs.com/package/primevue">npm</a>, if you have an existing application run the following commands to download PrimeVue and PrimeIcons to your project.</p>
 
 <pre v-code.script><code>
-npm install primevue@^3.2.0-rc.1 --save
+npm install primevue@^3.2.0 --save
 npm install primeicons --save
 
 </code></pre>
