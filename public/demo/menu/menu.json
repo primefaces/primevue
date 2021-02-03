@@ -20,8 +20,7 @@
                 },
                 {
                     "name": "Locale",
-                    "to": "/locale",
-                    "badge": "New"
+                    "to": "/locale"
                 },
                 {
                     "name": "Source Code",
@@ -139,8 +138,7 @@
                 },
                 {
                     "name": "CascadeSelect",
-                    "to": "/cascadeselect",
-                    "badge": "New"
+                    "to": "/cascadeselect"
                 },
                 {
                     "name": "Checkbox",
@@ -188,13 +186,11 @@
                 },
                 {
                     "name": "InvalidState",
-                    "to": "/invalid",
-                    "badge": "New"
+                    "to": "/invalid"
                 },
                 {
                     "name": "Knob",
-                    "to": "/knob",
-                    "badge": "New"
+                    "to": "/knob"
                 },
                 {
                     "name": "Listbox",
@@ -506,8 +502,7 @@
                 },
                 {
                     "name": "Splitter",
-                    "to": "/splitter",
-                    "badge": "New"
+                    "to": "/splitter"
                 },
                 {
                     "name": "ScrollPanel",
@@ -529,13 +524,11 @@
             "children": [
                 {
                     "name": "ConfirmDialog",
-                    "to": "/confirmdialog",
-                    "badge": "New"
+                    "to": "/confirmdialog"
                 },
                 {
                     "name": "ConfirmPopup",
-                    "to": "/confirmpopup",
-                    "badge": "New"
+                    "to": "/confirmpopup"
                 },
                 {
                     "name": "Dialog",
@@ -726,18 +719,15 @@
             "children": [
                 {
                     "name": "Avatar",
-                    "to": "/avatar",
-                    "badge": "New"
+                    "to": "/avatar"
                 },
                 {
                     "name": "Badge",
-                    "to": "/badge",
-                    "badge": "New"
+                    "to": "/badge"
                 },
                 {
                     "name": "Chip",
-                    "to": "/chip",
-                    "badge": "New"
+                    "to": "/chip"
                 },
                 {
                     "name": "BlockUI",
@@ -749,13 +739,11 @@
                 },
                 {
                     "name": "ScrollTop",
-                    "to": "/scrolltop",
-                    "badge": "New"
+                    "to": "/scrolltop"
                 },
                 {
                     "name": "Skeleton",
-                    "to": "/skeleton",
-                    "badge": "New"
+                    "to": "/skeleton"
                 },
                 {
                     "name": "ProgressBar",
@@ -771,8 +759,7 @@
                 },
                 {
                     "name": "Tag",
-                    "to": "/tag",
-                    "badge": "New"
+                    "to": "/tag"
                 },
                 {
                     "name": "Terminal",
