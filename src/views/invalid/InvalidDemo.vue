@@ -15,7 +15,7 @@
                         <InputText id="inputtext" type="text" v-model="value1" placeholder="InputText" class="p-invalid" />
                     </div>
                     <div class="p-field p-col-12 p-md-4">
-                        <AutoComplete v-model="value2" :suggestions="filteredCountries" multiple @complete="searchCountry($event)" field="name" placeholder="AutoComplete" class="p-invalid" />
+                        <AutoComplete v-model="value2" :suggestions="filteredCountries" @complete="searchCountry($event)" field="name" placeholder="AutoComplete" class="p-invalid" />
                     </div>
                     <div class="p-field p-col-12 p-md-4">
                         <Calendar id="calendar" v-model="value3" placeholder="Calendar" class="p-invalid" :showIcon="true" />
@@ -62,7 +62,7 @@
         &lt;InputText id="inputtext" type="text" v-model="value1" placeholder="InputText" class="p-invalid" /&gt;
     &lt;/div&gt;
     &lt;div class="p-field p-col-12 p-md-4"&gt;
-        &lt;AutoComplete v-model="value2" :suggestions="filteredCountries" multiple @complete="searchCountry($event)" field="name" placeholder="AutoComplete" class="p-invalid" /&gt;
+        &lt;AutoComplete v-model="value2" :suggestions="filteredCountries" @complete="searchCountry($event)" field="name" placeholder="AutoComplete" class="p-invalid" /&gt;
     &lt;/div&gt;
     &lt;div class="p-field p-col-12 p-md-4"&gt;
         &lt;Calendar id="calendar" v-model="value3" placeholder="Calendar" class="p-invalid" :showIcon="true" /&gt;
@@ -345,7 +345,7 @@ export default {
                         <InputText id="inputtext" type="text" v-model="value1" placeholder="InputText" class="p-invalid" />
                     </div>
                     <div class="p-field p-col-12 p-md-4">
-                        <AutoComplete v-model="value2" :suggestions="filteredCountries" multiple @complete="searchCountry($event)" field="name" placeholder="AutoComplete" class="p-invalid" />
+                        <AutoComplete v-model="value2" :suggestions="filteredCountries" @complete="searchCountry($event)" field="name" placeholder="AutoComplete" class="p-invalid" />
                     </div>
                     <div class="p-field p-col-12 p-md-4">
                         <Calendar id="calendar" v-model="value3" placeholder="Calendar" class="p-invalid" :showIcon="true" />

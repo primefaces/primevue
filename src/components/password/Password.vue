@@ -1,6 +1,6 @@
 <template>
     <div :class="containerClass" :style="style">
-        <PInputText ref="input" :type="inputType" :value="modelValue" @input="onInput" @focus="onFocus" @blur="onBlur" @keyup="onKeyUp" v-bind="$attrs" autocomplete="fff"/>
+        <PInputText ref="input" class="p-password-input" :type="inputType" :value="modelValue" @input="onInput" @focus="onFocus" @blur="onBlur" @keyup="onKeyUp" v-bind="$attrs" />
         <i v-if="toggleMask" :class="toggleIconClass" @click="onMaskToggle" />
         <transition name="p-connected-overlay" @enter="onOverlayEnter" @leave="onOverlayLeave">
             <div :ref="overlayRef" class="p-password-panel p-component" v-if="overlayVisible">
@@ -298,5 +298,9 @@ export default {
 
 .p-password-meter {
     height: 10px;
+}
+
+.p-fluid .p-password {
+    display: flex;
 }
 </style>
