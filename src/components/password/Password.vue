@@ -6,8 +6,10 @@
             <div :ref="overlayRef" class="p-password-panel p-component" v-if="overlayVisible">
                 <slot name="header"></slot>
                 <slot name="content">
-                     <div class="p-password-meter" :style="{'background-position': meterPosition}"></div>
-                    <div class="p-password-info">{{infoText}}</div>
+                    <div class="p-password-meter">
+                        <div :class="strengthClass" :style="{'width': meter ? meter.width : ''}"></div>
+                    </div>
+                    <div className="p-password-info">{{infoText}}</div>
                 </slot>
                 <slot name="footer"></slot>
             </div>
@@ -67,7 +69,7 @@ export default {
     data() {
         return {
             overlayVisible: false,
-            meterPosition: '',
+            meter: null,
             infoText: null,
             focused: false,
             unmasked: false
@@ -111,7 +113,7 @@ export default {
             }
             else {
                 DomHandler.relativePosition(this.overlay, this.$refs.input.$el);
-            }  
+            }
         },
         appendContainer() {
             if (this.appendTo) {
@@ -170,31 +172,40 @@ export default {
             if (this.feedback) {
                 let value = event.target.value;
                 let label = null;
-                let meterPos = null;
+                let meter = null;
 
                 switch (this.testStrength(value)) {
                     case 1:
                         label = this.weakText;
-                        meterPos = '0px -10px';
+                        meter = {
+                            strength: 'weak',
+                            width: '33.33%'
+                        };
                         break;
 
                     case 2:
                         label = this.mediumText;
-                        meterPos = '0px -20px';
+                        meter = {
+                            strength: 'medium',
+                            width: '66.66%'
+                        };
                         break;
 
                     case 3:
                         label = this.strongText;
-                        meterPos = '0px -30px';
+                        meter = {
+                            strength: 'strong',
+                            width: '100%'
+                        };
                         break;
 
                     default:
                         label = this.promptText;
-                        meterPos = '0px 0px';
+                        meter = null;
                         break;
                 }
 
-                this.meterPosition = meterPos;
+                this.meter = meter;
                 this.infoText = label;
 
                 if (!this.overlayVisible) {
@@ -257,6 +268,9 @@ export default {
         toggleIconClass() {
             return this.unmasked ? 'pi pi-eye-slash' : 'pi pi-eye';
         },
+        strengthClass() {
+            return `p-password-strength ${this.meter ? this.meter.strength : ''}`;
+        },
         inputType() {
             return this.unmasked ? 'text' : 'password';
         },
@@ -298,6 +312,12 @@ export default {
 
 .p-password-meter {
     height: 10px;
+}
+
+.p-password-strength {
+    height: 100%;
+    width: 0%;
+    transition: width 1s ease-in-out;
 }
 
 .p-fluid .p-password {
