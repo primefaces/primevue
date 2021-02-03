@@ -1123,6 +1123,10 @@
   background-color: #faf9f8;
 }
 
+.p-password.p-invalid.p-component > .p-inputtext {
+  border-color: #a4252c;
+}
+
 .p-password-panel {
   padding: 1rem;
   background: #ffffff;
