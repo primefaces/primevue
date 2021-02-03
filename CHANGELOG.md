@@ -1,5 +1,27 @@
 # Changelog
 
+## [3.2.0](https://github.com/primefaces/primevue/tree/3.2.0) (2021-02-03)
+
+[Full Changelog](https://github.com/primefaces/primevue/compare/3.2.0-rc.1...3.2.0)
+
+**Implemented New Features and Enhancements:**
+
+- InputStyle and InputClass for AutoComplete, Calendar and Password [\#933](https://github.com/primefaces/primevue/issues/933)
+- Reimplement password strength ui [\#932](https://github.com/primefaces/primevue/issues/932)
+- Reset page on filter [\#928](https://github.com/primefaces/primevue/issues/928)
+- show password feature [\#892](https://github.com/primefaces/primevue/issues/892)
+- forceSelection for AutoComplete [\#872](https://github.com/primefaces/primevue/issues/872)
+
+**Fixed bugs:**
+
+- Vue 3 + TS: fix for config.globalProperties services [\#880](https://github.com/primefaces/primevue/issues/880)
+- Tooltip focus fails with some input components [\#915](https://github.com/primefaces/primevue/issues/915)
+- v3.2.0-rc.1 webpack babel errors with optional chaining operator [\#913](https://github.com/primefaces/primevue/issues/913)
+- DataTable sort not working with boolean shorthand [\#912](https://github.com/primefaces/primevue/issues/912)
+- datatable headerStyle is applied to body and footer colgroups. headerClass is not. [\#888](https://github.com/primefaces/primevue/issues/888)
+- \[Bug\] Selecting all elements results in scrolling to table bottom [\#887](https://github.com/primefaces/primevue/issues/887)
+- Strange behavior using context menu on Safari [\#885](https://github.com/primefaces/primevue/issues/885)
+
 ## [3.2.0-rc.1](https://github.com/primefaces/primevue/tree/3.2.0-rc.1) (2021-01-20)
 
 [Full Changelog](https://github.com/primefaces/primevue/compare/3.1.2...3.2.0-rc.1)
