@@ -49,8 +49,7 @@
                 </ul>
 
                 <h5>Examples</h5>
-<pre v-code>
-<code>
+<pre v-code><code>
 &lt;div class="p-mb-2"&gt;Margin bottom with level 2&lt;/div&gt;
 &lt;div class="p-mt-4"&gt;Margin top with level 2&lt;/div&gt;
 &lt;div class="p-m-2"&gt;Margin for all sides with level 2&lt;/div&gt;
@@ -69,8 +68,7 @@
 				<a href="https://github.com/primefaces/primevue/tree/master/src/views/spacing" class="btn-viewsource" target="_blank" rel="noopener noreferrer">
 					<span>View on GitHub</span>
 				</a>
-<pre v-code>
-<code><template v-pre>
+<pre v-code><code><template v-pre>
 &lt;div class="card"&gt;
     &lt;h5&gt;Margin&lt;/h5&gt;
     &lt;h6&gt;Without Spacing&lt;/h6&gt;

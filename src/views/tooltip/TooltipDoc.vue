@@ -4,8 +4,7 @@
 			<TabPanel header="Documentation">
 				<h5>Getting Started</h5>
 				<p>Tooltip is a directive that needs to be imported and configured with a name of your choice. Global configuration is done with the <i>Vue.directive</i> function.</p>
-<pre v-code.script>
-<code>
+<pre v-code.script><code>
 import Tooltip from 'primevue/tooltip';
 
 Vue.directive('tooltip', Tooltip);
@@ -13,8 +12,7 @@ Vue.directive('tooltip', Tooltip);
 </code></pre>
 
                 <p>Tooltip can also be configured locally using the directives property of your component.</p>
-<pre v-code.script>
-<code>
+<pre v-code.script><code>
 directives: {
     'tooltip': Tooltip
 }
@@ -22,16 +20,14 @@ directives: {
 </code></pre>
 
                 <p>Once the tooltip is configured, it can be attached to a target using the v- prefix.</p>
-<pre v-code>
-<code><template v-pre>
+<pre v-code><code><template v-pre>
 &lt;InputText type="text" v-tooltip="'Enter your username'" /&gt;
 </template>
 </code></pre>
 
 				<h5>Positions</h5>
 				<p>There are four choices to position the tooltip, default value is "right" and alternatives are "top", "bottom", "left". Position is specified using a modifier.</p>
-<pre v-code>
-<code><template v-pre>
+<pre v-code><code><template v-pre>
 &lt;InputText type="text" v-tooltip.right="'Enter your username'" /&gt;
 &lt;InputText type="text" v-tooltip.top="'Enter your username'" /&gt;
 &lt;InputText type="text" v-tooltip.bottom="'Enter your username'" /&gt;
@@ -41,8 +37,7 @@ directives: {
 
                 <h5>Events</h5>
                 <p>Tooltip gets displayed on hover event of its target by default, other option is the focus event to display and blur to hide.</p>
-<pre v-code>
-<code><template v-pre>
+<pre v-code><code><template v-pre>
 &lt;InputText type="text" v-tooltip.focus="'Enter your username'" /&gt;
 </template>
 </code></pre>
@@ -51,8 +46,7 @@ directives: {
                 <p>As seen in positions and event sections, tooltip is configured via modifiers that can be chained. Tooltip below,
                     gets displayed at the top of the input at focus event.
                 </p>
-<pre v-code>
-<code><template v-pre>
+<pre v-code><code><template v-pre>
 &lt;InputText type="text" v-tooltip.top.focus="'Enter your username'" /&gt;
 </template>
 </code></pre>
@@ -95,8 +89,7 @@ directives: {
                 </a>
                 <LiveEditor name="TooltipDemo" :sources="sources" :directives="['Tooltip']" :components="['InputText', 'Button']"/>
                 </div>
-<pre v-code>
-<code><template v-pre>
+<pre v-code><code><template v-pre>
 &lt;h3&gt;Positions&lt;/h3&gt;
 &lt;div class="p-grid p-fluid"&gt;
     &lt;div class="p-col-12 p-md-3"&gt;
@@ -121,8 +114,7 @@ directives: {
 </template>
 </code></pre>
 
-<pre v-code.script>
-<code>
+<pre v-code.script><code>
 export default {}
 
 </code></pre>

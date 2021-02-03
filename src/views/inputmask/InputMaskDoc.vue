@@ -3,16 +3,14 @@
 		<TabView>
 			<TabPanel header="Documentation">
 				<h5>Import</h5>
-<pre v-code.script>
-<code>
+<pre v-code.script><code>
 import InputMask from 'primevue/inputmask';
 
 </code></pre>
 
 				<h5>Getting Started</h5>
 				<p>A model can be bound using the standard v-model directive.</p>
-<pre v-code>
-<code>
+<pre v-code><code>
 &lt;InputMask v-model="value" mask="99-999999" /&gt;
 
 </code></pre>
@@ -31,16 +29,14 @@ import InputMask from 'primevue/inputmask';
                         * - Alpha numberic character (A-Z,a-z,0-9)
                     </li>
                 </ul>
-<pre v-code>
-<code>
+<pre v-code><code>
 &lt;InputMask v-model="value" mask="a*-999-a999" /&gt;
 
 </code></pre>
 
                 <h5>SlotChar</h5>
                 <p>Underscore is the default placeholder for a mask and this can be customized using <i>slotChart</i> option.</p>
-<pre v-code>
-<code>
+<pre v-code><code>
 &lt;InputMask v-model="value" mask="99/99/9999" slotChar="mm/dd/yyyy" /&gt;
 
 </code></pre>
@@ -49,8 +45,7 @@ import InputMask from 'primevue/inputmask';
                     Use <i>autoClear</i> property to control this behavior. In addition, certain part of
                     a mask can be made optional by using ? symbol where anything after the question
                     mark becomes optional.</p>
-<pre v-code>
-<code>
+<pre v-code><code>
 &lt;InputMask v-model="value" mask="(999) 999-9999? x99999" /&gt;
 
 </code></pre>
@@ -135,8 +130,7 @@ import InputMask from 'primevue/inputmask';
                     </a>
                     <LiveEditor name="InputMaskDemo" :sources="sources"/>
                 </div>
-<pre v-code>
-<code><template v-pre>
+<pre v-code><code><template v-pre>
 &lt;div class="p-fluid p-formgrid p-grid"&gt;
     &lt;div class="p-field p-col-12 p-md-4"&gt;
         &lt;label for="basic"&gt;Basic&lt;/label&gt;
@@ -171,8 +165,7 @@ import InputMask from 'primevue/inputmask';
 </template>
 </code></pre>
 
-<pre v-code.script>
-<code>
+<pre v-code.script><code>
 export default {
     data() {
         return {

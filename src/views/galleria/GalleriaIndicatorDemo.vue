@@ -87,8 +87,7 @@
         <div class="content-section documentation">
             <TabView>
                 <TabPanel header="Source">
-<pre v-code>
-<code><template v-pre>
+<pre v-code><code><template v-pre>
 &lt;h3&gt;Indicators with Click Event&lt;/h3&gt;
 &lt;Galleria :value="images" :responsiveOptions="responsiveOptions" :numVisible="5" containerStyle="max-width: 640px"
     :showThumbnails="false" :showIndicators="true"&gt;
@@ -152,8 +151,7 @@
 </template>
 </code></pre>
 
-<pre v-code.script>
-<code>
+<pre v-code.script><code>
 import PhotoService from '../../service/PhotoService';
 
 export default {
@@ -191,8 +189,7 @@ export default {
 
 </code></pre>
 
-<pre v-code.css>
-<code>
+<pre v-code.css><code>
 ::v-deep(.custom-indicator-galleria) {
     .indicator-text {
         color: #e9ecef;

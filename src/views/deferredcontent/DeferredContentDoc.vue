@@ -3,16 +3,14 @@
 		<TabView>
 			<TabPanel header="Documentation">
 				<h5>Import</h5>
-<pre v-code.script>
-<code>
+<pre v-code.script><code>
 import DeferredContent from 'primevue/deferredcontent';
 
 </code></pre>
 
 				<h5>Getting Started</h5>
 				<p>DeferredContent is used as a wrapper element of its content..</p>
-<pre v-code>
-<code><template v-pre>
+<pre v-code><code><template v-pre>
 &lt;DeferredContent&gt;
     &lt;DataTable :value="cars"&gt;
         &lt;Column field="vin" header="Vin"&gt;&lt;/Column&gt;
@@ -26,8 +24,7 @@ import DeferredContent from 'primevue/deferredcontent';
 
                 <h5>Load Event</h5>
                 <p>onLoad callback is useful to initialize the content when it becomes visible on scroll such as loading data.</p>
-<pre v-code>
-<code><template v-pre>
+<pre v-code><code><template v-pre>
 &lt;DeferredContent @load="onDataLoad"&gt;
     &lt;DataTable :value="cars"&gt;
         &lt;Column field="vin" header="Vin"&gt;&lt;/Column&gt;
@@ -76,8 +73,7 @@ import DeferredContent from 'primevue/deferredcontent';
                     </a>
                     <LiveEditor name="DeferredContentDemo" :sources="sources" service="ProductService" :toastService="true" data="products-small" :components="['DataTable', 'Column']" />
                 </div>
-<pre v-code>
-<code><template v-pre>
+<pre v-code><code><template v-pre>
 &lt;div style="height: 800px"&gt;
     Scroll down to lazy load an image and the DataTable which initiates a query that is not executed on initial page load to speed up load performance.
 &lt;/div&gt;
@@ -100,8 +96,7 @@ import DeferredContent from 'primevue/deferredcontent';
 </template>
 </code></pre>
 
-<pre v-code.script>
-<code>
+<pre v-code.script><code>
 import ProductService from '../../service/ProductService';
 
 export default {

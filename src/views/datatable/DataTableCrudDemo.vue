@@ -164,8 +164,7 @@
                     <div class="p-d-flex p-jc-end">
                         <LiveEditor name="DataTableDemo" :sources="sources" :toastService="true" service="ProductService" data="products" :components="['Column', 'Toolbar', 'Button', 'FileUpload', 'InputText', 'Rating', 'Dialog', 'RadioButton', 'Textarea', 'InputNumber', 'Dropdown']" />
                     </div>
-<pre v-code>
-<code><template v-pre>
+<pre v-code><code><template v-pre>
 &lt;div class="card"&gt;
     &lt;Toolbar class="p-mb-4"&gt;
         &lt;template #left&gt;
@@ -314,8 +313,7 @@
 </template>
 </code></pre>
 
-<pre v-code.script>
-<code>
+<pre v-code.script><code>
 import ProductService from '../../service/ProductService';
 
 export default {

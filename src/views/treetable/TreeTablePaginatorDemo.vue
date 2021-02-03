@@ -23,8 +23,7 @@
                     <div class="p-d-flex p-jc-end">
                         <LiveEditor name="TreeTableDemo" :sources="sources" :components="['Column']" />
                     </div>
-<pre v-code>
-<code><template v-pre>
+<pre v-code><code><template v-pre>
 &lt;TreeTable :value="nodes" :paginator="true" :rows="10"&gt;
     &lt;Column field="name" header="Name" :expander="true"&gt;&lt;/Column&gt;
     &lt;Column field="size" header="Size"&gt;&lt;/Column&gt;
@@ -33,8 +32,7 @@
 </template>
 </code></pre>
 
-<pre v-code.script>
-<code>
+<pre v-code.script><code>
 export default {
     data() {
         return {

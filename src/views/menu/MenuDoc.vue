@@ -3,8 +3,7 @@
 		<TabView>
 			<TabPanel header="Documentation">
 				<h5>Import</h5>
-<pre v-code.script>
-<code>
+<pre v-code.script><code>
 import Menu from 'primevue/menu';
 
 </code></pre>
@@ -14,14 +13,12 @@ import Menu from 'primevue/menu';
 
 				<h5>Getting Started</h5>
 				<p>Menu requires a collection of menuitems as its model.</p>
-<pre v-code>
-<code>
+<pre v-code><code>
 &lt;Menu :model="items" /&gt;
 
 </code></pre>
 
-<pre v-code.script>
-<code>
+<pre v-code.script><code>
 export default {
 	data() {
 		return {
@@ -59,8 +56,7 @@ export default {
 
                 <h5>SubMenus</h5>
                 <p>Menu supports one level of nesting via subitems of an item.</p>
-<pre v-code.script>
-<code>
+<pre v-code.script><code>
 const items: [
     {
         label: 'Options',
@@ -79,15 +75,13 @@ const items: [
                 <h5>Popup Mode</h5>
                 <p>Menu is inline by default whereas popup mode is supported by enabling popup property and calling toggle method with an event of the target.</p>
 
-<pre v-code>
-<code>
+<pre v-code><code>
 &lt;Button type="button" label="Toggle" @click="toggle" /&gt;
 &lt;Menu ref="menu" :model="items" :popup="true" /&gt;
 
 </code></pre>
 
-<pre v-code.script>
-<code>
+<pre v-code.script><code>
 toggle(event) {
     this.$refs.menu.toggle(event);
 }
@@ -218,8 +212,7 @@ toggle(event) {
                     </a>
                     <LiveEditor name="MenuDemo" :sources="sources" :toastService="true" :router="true" :components="['Button']"/>
                 </div>
-<pre v-code>
-<code><template v-pre>
+<pre v-code><code><template v-pre>
 &lt;h3&gt;Inline&lt;/h3&gt;
 &lt;Menu :model="items" /&gt;
 
@@ -229,8 +222,7 @@ toggle(event) {
 </template>
 </code></pre>
 
-<pre v-code.script>
-<code>
+<pre v-code.script><code>
 export default {
     data() {
         return {

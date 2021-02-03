@@ -3,8 +3,7 @@
 		<TabView>
 			<TabPanel header="Documentation">
 				<h5>Import</h5>
-				<pre v-code.script>
-<code>
+				<pre v-code.script><code>
 import DataTable from 'primevue/datatable';
 import Column from 'primevue/column';
 import ColumnGroup from 'primevue/columngroup';     //optional for column grouping
@@ -15,8 +14,7 @@ import ColumnGroup from 'primevue/columngroup';     //optional for column groupi
                 <p>DataTable requires a value as an array of objects and columns defined with Column component. Throughout the samples, a car interface having vin, brand, year and color properties is used to define an object to be displayed by the datatable.
                     Cars are loaded by a CarService that connects to a server to fetch the cars with a axios. Note that this is only for demo purposes, DataTable does not have any restrictions on how the data is provided.</p>
 
-                <pre v-code.script>
-<code>
+                <pre v-code.script><code>
 import axios from 'axios'
 
 export default class CarService {
@@ -37,8 +35,7 @@ export default class CarService {
 </code></pre>
 
                 <p>Example response;</p>
-                <pre v-code.script>
-<code>
+                <pre v-code.script><code>
 {
     "data": [
         {"brand": "Volkswagen", "year": 2012, "color": "Orange", "vin": "dsad231ff"},
@@ -57,8 +54,7 @@ export default class CarService {
 </code></pre>
 
                 <p>Following sample datatable has 4 columns and retrieves the data from a service on mount.</p>
-<pre v-code>
-<code><template v-pre>
+<pre v-code><code><template v-pre>
 &lt;DataTable :value="cars"&gt;
     &lt;Column field="vin" header="Vin"&gt;&lt;/Column&gt;
     &lt;Column field="year" header="Year"&gt;&lt;/Column&gt;
@@ -68,8 +64,7 @@ export default class CarService {
 </template>
 </code></pre>
 
-<pre v-code.script>
-<code>
+<pre v-code.script><code>
 import CarService from '../../service/CarService';
 
 export default {
@@ -91,16 +86,14 @@ export default {
 
                 <h5>Dynamic Columns</h5>
                 <p>Column components can be dynamically generated using a v-for as well.</p>
-<pre v-code>
-<code><template v-pre>
+<pre v-code><code><template v-pre>
 &lt;DataTable :value="cars"&gt;
     &lt;Column v-for="col of columns" :field="col.field" :header="col.header" :key="col.field"&gt;&lt;/Column&gt;
 &lt;/DataTable&gt;
 </template>
 </code></pre>
 
-<pre v-code.script>
-<code>
+<pre v-code.script><code>
 import CarService from '../../service/CarService';
 
 export default {
@@ -321,8 +314,7 @@ export default {
                 <p>Field data of a corresponding row is displayed as the cell content by default, this can be customized using a <i>body</i> template where current row data and column properties are passed via the slot props.
                     On the other hand, <i>header</i> and <i>footer</i> sections of a column can either be defined with the properties or the templates. Similarly DataTable itself also provides header and footer properties along with the templates for the main header and footer of the table.</p>
 
-                <pre v-code>
-<code><template v-pre>
+                <pre v-code><code><template v-pre>
 &lt;DataTable :value="cars"&gt;
     &lt;template #header&gt;
         &lt;div&gt;
@@ -358,8 +350,7 @@ export default {
                 <p>In addition to the regular table, a smal and a large version are available with different paddings. For a table
                 with smaller paddings use <i>p-datatable-sm</i> class and for a larger one use <i>p-datatable-lg</i>.</p>
 
-<pre v-code>
-<code><template v-pre>
+<pre v-code><code><template v-pre>
 &lt;DataTable :value="cars" class="p-datatable-sm"&gt;
     &lt;template #header&gt;
         Small Table
@@ -394,8 +385,7 @@ export default {
 
                 <h5>Column Grouping</h5>
                 <p>Columns can be grouped at header and footer sections by defining a ColumnGroup with nested rows and columns.</p>
-<pre v-code>
-<code><template v-pre>
+<pre v-code><code><template v-pre>
 &lt;DataTable :value="sales"&gt;
     &lt;ColumnGroup type="header"&gt;
         &lt;Row&gt;
@@ -434,8 +424,7 @@ export default {
                     See the <router-link to="/paginator">Paginator</router-link> for the available customization options such as paginator templates, page links,
                     rows per page options and more which can be passed through the DataTable.</p>
 
-<pre v-code>
-<code><template v-pre>
+<pre v-code><code><template v-pre>
 &lt;DataTable :value="cars" :paginator="true" :rows="10"&gt;
     &lt;Column field="vin" header="Vin"&gt;&lt;/Column&gt;
     &lt;Column field="year" header="Year"&gt;&lt;/Column&gt;
@@ -446,8 +435,7 @@ export default {
 </code></pre>
 
                 <p>paginatorLeft and paginatorLeft templates are available to specify custom content at the left and right side.</p>
-<pre v-code>
-<code><template v-pre>
+<pre v-code><code><template v-pre>
 &lt;DataTable :value="cars" :paginator="true" :rows="10"&gt;
     &lt;Column field="vin" header="Vin"&gt;&lt;/Column&gt;
     &lt;Column field="year" header="Year"&gt;&lt;/Column&gt;
@@ -466,8 +454,7 @@ export default {
                 <p>Paginator can also be programmed programmatically using a binding to the <i>first</i> property that defines the index of the
                 first element to display. For example setting first to zero will reset the paginator to the very first page. This property
                 also supports v-model in case you'd like your binding to be updated whenever the user changes the page.</p>
-<pre v-code>
-<code><template v-pre>
+<pre v-code><code><template v-pre>
 &lt;DataTable :value="cars" :paginator="true" :rows="10" :first="firstRecordIndex"&gt;
     &lt;Column field="vin" header="Vin"&gt;&lt;/Column&gt;
     &lt;Column field="year" header="Year"&gt;&lt;/Column&gt;
@@ -481,8 +468,7 @@ export default {
                 <p>Enabling <i>sortable</i> property at column component would be enough to make a column sortable.
                 The property to use when sorting is the <i>field</i> by default and can be customized using the <i>sortField</i>.</p>
 
-<pre v-code>
-<code><template v-pre>
+<pre v-code><code><template v-pre>
 &lt;DataTable :value="cars"&gt;
     &lt;Column field="vin" header="Vin" :sortable="true"&gt;&lt;/Column&gt;
     &lt;Column field="year" header="Year" :sortable="true"&gt;&lt;/Column&gt;
@@ -493,8 +479,7 @@ export default {
 </code></pre>
 
                 <p>By default sorting is executed on the clicked column only. To enable multiple field sorting, set <i>sortMode</i> property to "multiple" and use metakey when clicking on another column.</p>
-<pre v-code>
-<code><template v-pre>
+<pre v-code><code><template v-pre>
 &lt;DataTable :value="cars" sortMode="multiple"&gt;
     &lt;Column field="vin" header="Vin" :sortable="true"&gt;&lt;/Column&gt;
     &lt;Column field="year" header="Year" :sortable="true"&gt;&lt;/Column&gt;
@@ -506,8 +491,7 @@ export default {
 
                 <p>In case you'd like to display the table as sorted per a single column by default on mount or programmatically apply sort, use <i>sortField</i> and <i>sortOrder</i> properties. These
                 two properties also support the v-model directive to get updated when the user applies sort a column.</p>
-<pre v-code>
-<code><template v-pre>
+<pre v-code><code><template v-pre>
 &lt;DataTable :value="cars" sortField="year" :sortOrder="1"&gt;
     &lt;Column field="vin" header="Vin" :sortable="true"&gt;&lt;/Column&gt;
     &lt;Column field="year" header="Year" :sortable="true"&gt;&lt;/Column&gt;
@@ -525,8 +509,7 @@ export default {
 </code></pre>
 
                 <p>In multiple mode, use the <i>multiSortMeta</i> property and bind an array of SortMeta objects instead.</p>
-<pre v-code>
-<code><template v-pre>
+<pre v-code><code><template v-pre>
 &lt;DataTable :value="cars" sortMode="multiple" :multiSortMeta="multiSortMeta"&gt;
     &lt;Column field="vin" header="Vin" :sortable="true"&gt;&lt;/Column&gt;
     &lt;Column field="year" header="Year" :sortable="true"&gt;&lt;/Column&gt;
@@ -536,8 +519,7 @@ export default {
 </template>
 </code></pre>
 
-<pre v-code.script>
-<code>
+<pre v-code.script><code>
 data() {
     return {
         multiSortMeta: [
@@ -555,8 +537,7 @@ data() {
                 via the slotProps and accepts any form element as the filter element. Default match mode is "startsWith" and this can be configured per column using the <i>filterMatchMode</i> property that also accepts
                 "contains", "endsWith", "equals", "notEquals", "in", "lt", "lte", "gt", "gte" and "custom" as available modes.</p>
                 <p>Optionally a global filter is available to search against all the fields, in this case the special <i>global</i> keyword should be the property to be populated.</p>
-<pre v-code>
-<code><template v-pre>
+<pre v-code><code><template v-pre>
 &lt;DataTable :value="cars" :filters="filters" :paginator="true" :rows="10"&gt;
     &lt;template #header&gt;
         &lt;div style="text-align: right"&gt;
@@ -596,8 +577,7 @@ data() {
 </code></pre>
 
                 <p>Custom filtering is implemented by setting the filterMatchMode to "custom" and defining a filter function.</p>
-<pre v-code>
-<code><template v-pre>
+<pre v-code><code><template v-pre>
 &lt;Column field="vin" header="Vin" filterMatchMode="myOwnEquals"&gt;
         &lt;template #filter&gt;
             &lt;InputText type="text" v-model="filters['vin']" class="p-column-filter" /&gt;
@@ -606,8 +586,7 @@ data() {
 </template>
 </code></pre>
 
-<pre v-code.script>
-<code>
+<pre v-code.script><code>
 methods: {
     myOwnEquals(value, filter) {
         if (filter === undefined || filter === null || (typeof filter === 'string' &amp;&amp; filter.trim() === '')) {
@@ -633,8 +612,7 @@ methods: {
 
                 <p>In single mode, selection binding is an object reference.</p>
 
-<pre v-code>
-<code><template v-pre>
+<pre v-code><code><template v-pre>
 &lt;DataTable :value="cars" v-model:selection="selectedCar" selectionMode="single" dataKey="vin"&gt;
     &lt;Column field="vin" header="Vin"&gt;&lt;/Column&gt;
     &lt;Column field="year" header="Year"&gt;&lt;/Column&gt;
@@ -645,8 +623,7 @@ methods: {
 </code></pre>
 
                 <p>In multiple mode, selection binding should be an array and multiple items can either be selected using metaKey or toggled individually depending on the value of <i>metaKeySelection</i> property value which is true by default. On touch enabled devices metaKeySelection is turned off automatically. Additionally ShiftKey is supported for range selection.</p>
-<pre v-code>
-<code><template v-pre>
+<pre v-code><code><template v-pre>
 &lt;DataTable :value="cars" v-model:selection="selectedCars" selectionMode="multiple" dataKey="vin"&gt;
     &lt;Column field="vin" header="Vin"&gt;&lt;/Column&gt;
     &lt;Column field="year" header="Year"&gt;&lt;/Column&gt;
@@ -657,8 +634,7 @@ methods: {
 </code></pre>
 
                 <p>If you prefer a radioButton or a checkbox instead of a row click, use the <i>selectionMode</i> of a column instead. Following datatable displays a checkbox at the first column of each row and automatically adds a header checkbox to toggle selection of all rows.</p>
-<pre v-code>
-<code><template v-pre>
+<pre v-code><code><template v-pre>
 &lt;DataTable :value="cars" v-model:selection="selectedCars" selectionMode="multiple" dataKey="vin"&gt;
     &lt;Column selectionMode="multiple"&gt;&lt;/Column&gt;
     &lt;Column field="vin" header="Vin"&gt;&lt;/Column&gt;
@@ -671,8 +647,7 @@ methods: {
 
                 <h5>Scrolling</h5>
                 <p>DataTable supports both horizontal and vertical scrolling as well as frozen columns and rows. Scrollable DataTable is enabled using <i>scrollable</i> property and <i>scrollHeight</i> to define the viewport height.</p>
-<pre v-code>
-<code><template v-pre>
+<pre v-code><code><template v-pre>
 &lt;DataTable :value="cars" :scrollable="true" scrollHeight="200px"&gt;
     &lt;Column field="vin" header="Vin"&gt;&lt;/Column&gt;
     &lt;Column field="year" header="Year"&gt;&lt;/Column&gt;
@@ -684,8 +659,7 @@ methods: {
 
                 <h5>Flex Scroll</h5>
                 <p>In cases where viewport should adjust itself according to the table parent's height instead of a fixed viewport height, set scrollHeight option as flex. In example below, table is inside a Dialog where viewport size dynamically responds to the dialog size changes such as maximizing.</p>
-<pre v-code>
-<code><template v-pre>
+<pre v-code><code><template v-pre>
 &lt;Button label="Show" icon="pi pi-external-link" @click="openDialog" /&gt;
 &lt;Dialog header="Flex Scroll" v-model:visible="dialogVisible" :style="{width: '50vw'}" :maximizable="true" :modal="true" :contentStyle="{height: '300px'}"&gt;
     &lt;DataTable :value="cars" :scrollable="true" scrollHeight="flex"&gt;
@@ -704,8 +678,7 @@ methods: {
 
                 <h5>Full Page Scroll</h5>
                 <p>FlexScroll can also be used for cases where scrollable viewport should be responsive with respect to the window size. See the Full Page demo for an example.</p>
-<pre v-code>
-<code><template v-pre>
+<pre v-code><code><template v-pre>
 &lt;div style="height: calc(100vh - 143px)"&gt;
     &lt;DataTable :value="cars" :scrollable="true" scrollHeight="flex"&gt;
         &lt;Column field="vin" header="Vin"&gt;&lt;/Column&gt;
@@ -719,8 +692,7 @@ methods: {
 
                 <h5>Horizontal Scrolling</h5>
                 <p>In horizontal scrolling, it is required to give fixed widths to columns. In general when customizing the column widths of scrollable tables, use colgroup as below to avoid misalignment issues as it will apply both the header, body and footer sections which are different separate elements internally.</p>
-<pre v-code>
-<code><template v-pre>
+<pre v-code><code><template v-pre>
 &lt;DataTable :value="cars" :scrollable="true" scrollHeight="200px" style="width: 600px"&gt;
     &lt;Column field="vin" header="Vin" headerStyle="width: 250px" columnKey="vin_1"&gt;&lt;/Column&gt;
     &lt;Column field="year" header="Year" headerStyle="width: 250px" columnKey="year_1"&gt;&lt;/Column&gt;
@@ -736,8 +708,7 @@ methods: {
 
                 <h5>Frozen Rows and Columns</h5>
                 <p>Certain columns can be frozen by using the <i>frozen</i> property of the column component. Widths of the frozen section is specified by the <i>frozenWidth</i> property.</p>
-<pre v-code>
-<code><template v-pre>
+<pre v-code><code><template v-pre>
 &lt;DataTable :value="cars" :scrollable="true" scrollHeight="200px" frozenWidth="300px" :loading="loading"&gt;
     &lt;Column field="vin" header="Vin" headerStyle="width: 300px" columnKey="vin_1" :frozen="true"&gt;
         &lt;template #body="slotProps"&gt;
@@ -758,8 +729,7 @@ methods: {
 </code></pre>
 
             <p>Note that frozen columns are enabled, frozen and scrollable cells may have content with varying height which leads to misalignment. Provide fixed height to cells to avoid alignment issues.</p>
-<pre v-code>
-<code><template v-pre>
+<pre v-code><code><template v-pre>
 &lt;DataTable :value="cars" :scrollable="true" scrollHeight="200px" frozenWidth="300px" :loading="loading"&gt;
     &lt;Column field="vin" header="Vin" headerStyle="width: 300px" bodyStyle="height: 25px" columnKey="vin" :frozen="true"&gt;
         &lt;template #body="slotProps"&gt;
@@ -774,8 +744,7 @@ methods: {
 </code></pre>
 
             <p>One or more rows can be displayed as fixed using the <i>frozenValue</i> property.</p>
-<pre v-code>
-<code><template v-pre>
+<pre v-code><code><template v-pre>
 &lt;DataTable :value="cars" :frozenValue="frozenCars" :scrollable="true" scrollHeight="200px" :loading="loading"&gt;
     &lt;Column field="vin" header="Vin"&gt;&lt;/Column&gt;
     &lt;Column field="year" header="Year"&gt;&lt;/Column&gt;
@@ -792,8 +761,7 @@ methods: {
             For smooth scrolling twice the amount of rows property is loaded on a lazy load event. In addition, to avoid performance problems row height is not calculated automatically and
             should be provided using <i>virtualRowHeight</i> property which defaults to 28px. View the <router-link to="/datatable/scroll">scrolling demo</router-link> for a sample in-memory implementation.</p>
 
-<pre v-code>
-<code><template v-pre>
+<pre v-code><code><template v-pre>
 &lt;DataTable :value="lazyCars" :scrollable="true" scrollHeight="200px" :lazy="true" :rows="20"
     :virtualScroll="true" :virtualRowHeight="30" @virtual-scroll="onVirtualScroll" :totalRecords="lazyTotalRecords"&gt;
     &lt;Column field="vin" header="Vin"&gt;
@@ -820,8 +788,7 @@ methods: {
 </template>
 </code></pre>
 
-<pre v-code.script>
-<code>
+<pre v-code.script><code>
 import CarService from '../../service/CarService';
 
 export default {
@@ -863,8 +830,7 @@ export default {
                 in lazy filtering, totalRecords should also be updated to align the data with the paginator.</p>
 
                 <p>Here is a sample paging implementation with in memory data, a more enhanced example with a backend is being worked on and will be available at a github repository.</p>
-<pre v-code>
-<code><template v-pre>
+<pre v-code><code><template v-pre>
 &lt;DataTable :value="cars" :lazy="true" :paginator="true" :rows="10"
     :totalRecords="totalRecords" :loading="loading" @page="onPage($event)"&gt;
     &lt;Column field="vin" header="Vin"&gt;&lt;/Column&gt;
@@ -875,8 +841,7 @@ export default {
 </template>
 </code></pre>
 
-<pre v-code.script>
-<code>
+<pre v-code.script><code>
 import CarService from '../../service/CarService';
 
 export default {
@@ -922,8 +887,7 @@ export default {
                 <p>Rows can be expanded to display additional content using the <i>expandedRows</i> property with the v-model directive accompanied by a template named "expansion". <i>row-expand</i> and <i>row-collapse</i> are optional callbacks that are invoked when a row is expanded or toggled.</p>
 
                 <p>The <i>dataKey</i> property identifies a unique value of a row in the dataset, it is not mandatory in row expansion functionality however being able to define it increases the performance of the table signifantly.</p>
-<pre v-code>
-<code><template v-pre>
+<pre v-code><code><template v-pre>
 &lt;DataTable :value="cars" v-model:expandedRows="expandedRows" dataKey="vin"
     @row-expand="onRowExpand" @row-collapse="onRowCollapse"&gt;
     &lt;template #header&gt;
@@ -955,8 +919,7 @@ export default {
 </template>
 </code></pre>
 
-<pre v-code.script>
-<code>
+<pre v-code.script><code>
 import CarService from '../../service/CarService';
 
 export default {
@@ -1001,8 +964,7 @@ export default {
                 <p>Individuals cell editing is configured by setting the <i>editMode</i> to "cell" and defining editors with the "editor" template. The content of the
                 editor defines how the editing is implemented, below example demonstrates two cases. In the first example, simple v-model editors are utilized. This is pretty straightforward in most cases.
                 On the other hand, second example is more advanced to consider validations and ability to revert values with the escape key.</p>
-<pre v-code>
-<code><template v-pre>
+<pre v-code><code><template v-pre>
 &lt;h3&gt;Basic Cell Editing&lt;/h3&gt;
 &lt;p&gt;Simple editors with v-model.&lt;/p&gt;
 &lt;DataTable :value="cars1" editMode="cell"&gt;
@@ -1047,8 +1009,7 @@ export default {
 </template>
 </code></pre>
 
-<pre v-code.script>
-<code>
+<pre v-code.script><code>
 import CarService from '../../service/CarService';
 import Vue from 'vue';
 
@@ -1136,8 +1097,7 @@ export default {
 
                 <p>Row Editing is defined by setting <i>cellEdit</i> as "row", defining <i>editingRows</i> with the v-model directive to hold the reference to the editing rows and adding a row editor column to provide the editing controls. Note that
                 since <i>editingRows</i> is two-way binding enabled, you may use it to initially display one or more rows in editing more or programmatically toggle row editing.</p>
-<pre v-code>
-<code><template v-pre>
+<pre v-code><code><template v-pre>
 &lt;h3&gt;Row Editing&lt;/h3&gt;
 &lt;DataTable :value="cars" editMode="row" dataKey="vin" v-model:editingRows="editingRows"
     @row-edit-init="onRowEditInit" @row-edit-cancel="onRowEditCancel"&gt;
@@ -1162,8 +1122,7 @@ export default {
 </template>
 </code></pre>
 
-<pre v-code.script>
-<code>
+<pre v-code.script><code>
 import CarService from '../../service/CarService';
 import Vue from 'vue';
 
@@ -1199,8 +1158,7 @@ export default {
                 <h5>Column Resize</h5>
                 <p>Columns can be resized using drag drop by setting the <i>resizableColumns</i> to true. There are two resize modes; "fit" and "expand". Fit is the default one and the overall table width does not change when a column is resized.
                     In "expand" mode, table width also changes along with the column width. <i>column-resize-end</i> is a callback that passes the resized column header and delta change as a parameter.</p>
-<pre v-code>
-<code><template v-pre>
+<pre v-code><code><template v-pre>
 &lt;DataTable :value="cars" :resizableColumns="true" columnResizeMode="fit | expand"&gt;
     &lt;Column field="vin" header="Vin"&gt;&lt;/Column&gt;
     &lt;Column field="year" header="Year"&gt;&lt;/Column&gt;
@@ -1211,8 +1169,7 @@ export default {
 </code></pre>
 
             <p>It is important to note that when you need to change column widths, since table width is 100%, giving fixed pixel widths does not work well as browsers scale them, instead give percentage widths.</p>
-<pre v-code>
-<code><template v-pre>
+<pre v-code><code><template v-pre>
 &lt;DataTable :value="cars" :resizableColumns="true" columnResizeMode="fit | expand"&gt;
     &lt;Column field="vin" header="Vin" headerStyle="width: 20%"&gt;&lt;/Column&gt;
     &lt;Column field="year" header="Year" headerStyle="width: 40%"&gt;&lt;/Column&gt;
@@ -1225,8 +1182,7 @@ export default {
                 <h5>Column Reorder</h5>
                 <p>Columns can be reordered using drag drop by setting the <i>reorderableColumns</i> to true. <i>column-reorder</i> is a callback that is invoked when a column is reordered. DataTable keeps the column order state internally using keys that identifies a column using the field property. If the column has no field, use columnKey instead as
                 it is mandatory for columns to have unique keys when reordering is enabled.</p>
-<pre v-code>
-<code><template v-pre>
+<pre v-code><code><template v-pre>
 &lt;DataTable :value="cars" :reorderableColumns="true"&gt;
     &lt;Column field="vin" header="Vin"&gt;&lt;/Column&gt;
     &lt;Column field="year" header="Year"&gt;&lt;/Column&gt;
@@ -1238,8 +1194,7 @@ export default {
 
                 <h5>Row Reorder</h5>
                 <p>Data can be reordered using drag drop by adding a reorder column that will display an icon as a drag handle along with the <i>row-order</i> event which is <b>mandatory</b> to update the new order. Note that the reorder icon can be customized using <i>rowReorderIcon</i> of the column component.</p>
-<pre v-code>
-<code><template v-pre>
+<pre v-code><code><template v-pre>
 &lt;DataTable :value="cars" @row-reorder="onRowReorder"&gt;
     &lt;Column :rowReorder="true" headerStyle="width: 3em" /&gt;
     &lt;Column field="vin" header="Vin"&gt;&lt;/Column&gt;
@@ -1250,8 +1205,7 @@ export default {
 </template>
 </code></pre>
 
-<pre v-code.script>
-<code>
+<pre v-code.script><code>
 import CarService from '../../service/CarService';
 
 export default {
@@ -1284,8 +1238,7 @@ export default {
 
                 <p>Example below demonstrates the all grouping alternatives. Note that data needs to be sorted for grouping which can also be done by the table itself by speficying the sort properties.</p>
 
-<pre v-code>
-<code><template v-pre>
+<pre v-code><code><template v-pre>
 &lt;h3&gt;Subheader Grouping&lt;/h3&gt;
 &lt;DataTable :value="cars" rowGroupMode="subheader" groupRowsBy="brand"
     sortMode="single" sortField="brand" :sortOrder="1"&gt;
@@ -1339,8 +1292,7 @@ export default {
 </template>
 </code></pre>
 
-<pre v-code.script>
-<code>
+<pre v-code.script><code>
 import CarService from '../../service/CarService';
 
 export default {
@@ -1384,8 +1336,7 @@ export default {
 
                 <h5>Data Export</h5>
                 <p>DataTable can export its data in CSV format using <i>exportCSV()</i> method.</p>
-<pre v-code>
-<code><template v-pre>
+<pre v-code><code><template v-pre>
 &lt;DataTable :value="cars" ref="dt"&gt;
     &lt;template #header&gt;
         &lt;div style="text-align: left"&gt;
@@ -1400,8 +1351,7 @@ export default {
 </template>
 </code></pre>
 
-<pre v-code.script>
-<code>
+<pre v-code.script><code>
 import CarService from '../../service/CarService';
 
 export default {
@@ -1431,8 +1381,7 @@ export default {
                     Enabling state is easy as defining a unique <i>stateKey</i>, the storage to keep the state is defined with the <i>stateStorage</i> property that accepts session for sessionStorage and local for localStorage.
                     Currently following features are supported by TableState; paging, sorting, filtering, column resizing, column reordering, row expansion, row group expansion and row selection.
                 </p>
-<pre v-code>
-<code><template v-pre>
+<pre v-code><code><template v-pre>
 &lt;DataTable :value="cars" :paginator="true" :rows="10" v-model:filters="filters"
     stateStorage="session" stateKey="dt-state-demo-session"
     v-model:selection="selectedCar" selectionMode="single" dataKey="vin"&gt;
@@ -1476,8 +1425,7 @@ export default {
 </template>
 </code></pre>
 
-<pre v-code.script>
-<code>
+<pre v-code.script><code>
 import CarService from '../../service/CarService';
 
 export default {
@@ -1523,8 +1471,7 @@ export default {
 
                 <h5>ContextMenu</h5>
                 <p>DataTable provides exclusive integration with the ContextMenu component using, <i>contextMenu</i>, <i>contextMenuSelection</i> property along with the <i>row-contextmenu</i> event.</p>
-<pre v-code>
-<code><template v-pre>
+<pre v-code><code><template v-pre>
 &lt;DataTable :value="cars" contextMenu v-model:contextMenuSelection="selectedCar" @row-contextmenu="onRowContextMenu"&gt;
     &lt;Column field="vin" header="Vin"&gt;&lt;/Column&gt;
     &lt;Column field="year" header="Year"&gt;&lt;/Column&gt;
@@ -1536,8 +1483,7 @@ export default {
 </template>
 </code></pre>
 
-<pre v-code.script>
-<code>
+<pre v-code.script><code>
 import CarService from '../../service/CarService';
 
 export default {
@@ -1577,8 +1523,7 @@ export default {
 
                 <h5>Empty Message</h5>
                 <p>When there is no data, you may use the <i>empty</i> template to display a message.</p>
-<pre v-code>
-<code><template v-pre>
+<pre v-code><code><template v-pre>
 &lt;DataTable :value="cars"&gt;
     &lt;template #empty&gt;
         No records found
@@ -1594,8 +1539,7 @@ export default {
                 <h5>Loading</h5>
                 <p>A loading status indicator can be displayed when the <i>loading</i> property is enabled. The icon is customized through <i>loadingIcon</i> property. Additionally
                 an option loading template is available to render as the body until the data is loaded.</p>
-<pre v-code>
-<code><template v-pre>
+<pre v-code><code><template v-pre>
 &lt;DataTable :value="cars" :loading="loading"&gt;
      &lt;template #loading&gt;
         Loading records, please wait...
@@ -1608,8 +1552,7 @@ export default {
 </template>
 </code></pre>
 
-<pre v-code.script>
-<code>
+<pre v-code.script><code>
 import CarService from '../../service/CarService';
 
 export default {
@@ -1638,8 +1581,7 @@ export default {
 
                 <h5>Responsive</h5>
                 <p>DataTable display can be optimized according to screen sizes, this example demonstrates a sample demo where columns are stacked on small screens.</p>
-<pre v-code>
-<code><template v-pre>
+<pre v-code><code><template v-pre>
 &lt;DataTable :value="cars" class="p-datatable-responsive-demo"&gt;
     &lt;template #header&gt;
         Responsive
@@ -1672,8 +1614,7 @@ export default {
 </template>
 </code></pre>
 
-<pre v-code.script>
-<code>
+<pre v-code.script><code>
 import CarService from '../../service/CarService';
 
 export default {
@@ -1693,8 +1634,7 @@ export default {
 
 </code></pre>
 
-<pre v-code.css>
-<code>
+<pre v-code.css><code>
 .p-datatable-responsive-demo .p-datatable-tbody > tr > td .p-column-title {
     display: none;
 }
@@ -1732,8 +1672,7 @@ export default {
                 <h5>Row and Cell Styling</h5>
                 <p>Certain rows or cells can easily be styled based on conditions. Cell styling is implemented with templating whereas row styling utilizes the <i>rowClass</i> property which takes the
                 row data as a parameter and returns the style class as a string.</p>
-<pre v-code>
-<code><template v-pre>
+<pre v-code><code><template v-pre>
 &lt;DataTable :value="cars" :rowClass="rowClass"&gt;
     &lt;Column field="vin" header="Vin"&gt;&lt;/Column&gt;
     &lt;Column field="year" header="Year" bodyStyle="padding: 0"&gt;
@@ -1749,8 +1688,7 @@ export default {
 </template>
 </code></pre>
 
-<pre v-code.script>
-<code>
+<pre v-code.script><code>
 import CarService from '../../service/CarService';
 
 export default {
@@ -1776,8 +1714,7 @@ export default {
 
 </code></pre>
 
-<pre v-code.css>
-<code>
+<pre v-code.css><code>
 .year-cell {
     padding: 0.429em 0.857rem;
 
@@ -2485,8 +2422,7 @@ export default {
                     </a>
                     <LiveEditor name="DataTableDemo" :sources="sources" service="CustomerService" data="customers-large" :components="['Column', 'InputText', 'MultiSelect', 'Calendar', 'Dropdown', 'ProgressBar', 'Button']" />
                 </div>
-<pre v-code.script>
-<code>
+<pre v-code.script><code>
 &#123;
     "data": [
         &#123;
@@ -2509,8 +2445,7 @@ export default {
 
 </code></pre>
 
-<pre v-code>
-<code><template v-pre>
+<pre v-code><code><template v-pre>
 &lt;DataTable :value="customers" :paginator="true" class="p-datatable-customers" :rows="10"
     dataKey="id" :rowHover="true" v-model:selection="selectedCustomers" :filters="filters" :loading="loading"
     paginatorTemplate="FirstPageLink PrevPageLink PageLinks NextPageLink LastPageLink CurrentPageReport RowsPerPageDropdown" :rowsPerPageOptions="[10,25,50]"
@@ -2607,8 +2542,7 @@ export default {
 </template>
 </code></pre>
 
-<pre v-code.script>
-<code>
+<pre v-code.script><code>
 import CustomerService from '../../service/CustomerService';
 
 export default {
@@ -2675,8 +2609,7 @@ export default {
 
 </code></pre>
 
-<pre v-code.css>
-<code>
+<pre v-code.css><code>
 ::v-deep(.p-paginator) {
     .p-paginator-current {
         margin-left: auto;

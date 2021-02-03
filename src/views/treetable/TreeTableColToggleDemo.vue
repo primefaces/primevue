@@ -27,8 +27,7 @@
                     <div class="p-d-flex p-jc-end">
                         <LiveEditor name="TreeTableDemo" :sources="sources" service="NodeService" data="treetablenodes" :components="['Column', 'MultiSelect']" />
                     </div>
-<pre v-code>
-<code><template v-pre>
+<pre v-code><code><template v-pre>
 &lt;TreeTable :value="nodes"&gt;
     &lt;template #header&gt;
         &lt;div style="text-align:left"&gt;
@@ -41,8 +40,7 @@
 </template>
 </code></pre>
 
-<pre v-code.script>
-<code>
+<pre v-code.script><code>
 import NodeService from '../../service/NodeService';
 
 export default {

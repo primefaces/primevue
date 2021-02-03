@@ -3,16 +3,14 @@
 		<TabView>
 			<TabPanel header="Documentation">
 				<h5>Import</h5>
-<pre v-code.script>
-<code>
+<pre v-code.script><code>
 import Toolbar from 'primevue/toolbar';
 
 </code></pre>
 
 				<h5>Getting Started</h5>
 				<p>Toolbar provides <i>left</i> and <i>right</i> templates to place content at these sections.</p>
-<pre v-code>
-<code>
+<pre v-code><code>
 &lt;Toolbar&gt;
     &lt;template #left&gt;
         &lt;Button label="New" icon="pi pi-plus" class="p-mr-2" /&gt;
@@ -68,8 +66,7 @@ import Toolbar from 'primevue/toolbar';
                     </a>
                     <LiveEditor name="ToolbarDemo" :sources="sources" :components="['Button', 'SplitButton']"/>
                 </div>
-<pre v-code>
-<code><template v-pre>
+<pre v-code><code><template v-pre>
 &lt;Toolbar&gt;
     &lt;template #left&gt;
         &lt;Button label="New" icon="pi pi-plus" class="p-mr-2" /&gt;
@@ -87,8 +84,7 @@ import Toolbar from 'primevue/toolbar';
 </template>
 </code></pre>
 
-<pre v-code.script>
-<code>
+<pre v-code.script><code>
 export default {
     data() {
         return {

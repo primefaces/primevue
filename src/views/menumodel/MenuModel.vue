@@ -9,8 +9,7 @@
 
             <h5>MenuItem</h5>
                 <p>Core of the API is the MenuItem class that defines various options such as the label, icon and children of an item in a menu.</p>
-<pre v-code.script>
-<code>
+<pre v-code.script><code>
 const items: [
     {
         label: 'Options',
@@ -117,8 +116,7 @@ const items: [
 
                 <h5>Command</h5>
                 <p>The function to invoke when an item is clicked is defined using the command property.</p>
-<pre v-code.script>
-<code>
+<pre v-code.script><code>
 const items = [
     {
         label: 'New',
@@ -134,8 +132,7 @@ const items = [
 
                 <h5>Navigation</h5>
                 <p>Navigation is specified using <i>url</i> property for external links or using <i>to</i> property for internal routing.</p>
-<pre v-code.script>
-<code>
+<pre v-code.script><code>
 const items = [
     {
         label: 'Internal',
@@ -154,8 +151,7 @@ const items = [
             <h5>Visibility</h5>
             <p>It is a common case to hide certain items based on conditions such as user roles, <i>visible</i> property is available
             to implement such cases by supporting functions that returns booleans or simple booleans.</p>
-<pre v-code.script>
-<code>
+<pre v-code.script><code>
 const items = [
     {
         label: 'Remove',

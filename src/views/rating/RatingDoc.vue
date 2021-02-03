@@ -3,32 +3,28 @@
 		<TabView>
 			<TabPanel header="Documentation">
 				<h5>Import</h5>
-<pre v-code.script>
-<code>
+<pre v-code.script><code>
 import Rating from 'primevue/rating';
 
 </code></pre>
 
 				<h5>Getting Started</h5>
 				<p>Two-way value binding is defined using v-model.</p>
-<pre v-code>
-<code>
+<pre v-code><code>
 &lt;Rating v-model="val" /&gt;
 
 </code></pre>
 
 				<h5>Number of Stars</h5>
 				<p>Number of stars to display is defined with <i>stars</i> property, default is 5.</p>
-<pre v-code>
-<code>
+<pre v-code><code>
 &lt;Rating v-model="val" :stars="7"/&gt;
 
 </code></pre>
 
 				<h5>Cancel</h5>
 				<p>A cancel icon is displayed to reset the value by default, set <i>cancel</i> as false to remove this option.</p>
-<pre v-code>
-<code>
+<pre v-code><code>
 &lt;Rating v-model="val" :cancel="false" /&gt;
 
 </code></pre>
@@ -143,8 +139,7 @@ import Rating from 'primevue/rating';
                     </a>
                     <LiveEditor name="RatingDemo" :sources="sources" />
                 </div>
-<pre v-code>
-<code><template v-pre>
+<pre v-code><code><template v-pre>
 &lt;h3&gt;Basic {{val1}}&lt;/h3&gt;
 &lt;Rating v-model="val1" /&gt;
 
@@ -159,8 +154,7 @@ import Rating from 'primevue/rating';
 </template>
 </code></pre>
 
-<pre v-code.script>
-<code>
+<pre v-code.script><code>
 export default {
 	data() {
 		return {

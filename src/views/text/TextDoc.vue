@@ -13,8 +13,7 @@
                     <li>right</li>
                     <li>justify</li>
                 </ul>
-<pre v-code>
-<code><template v-pre>
+<pre v-code><code><template v-pre>
 &lt;div class="p-text-left"&gt;Left&lt;/div&gt;
 &lt;div class="p-text-center"&gt;Center&lt;/div&gt;
 &lt;div class="p-text-right"&gt;Right&lt;/div&gt;
@@ -29,8 +28,7 @@
                     <li>wrap</li>
                     <li>truncate</li>
                 </ul>
-<pre v-code>
-<code><template v-pre>
+<pre v-code><code><template v-pre>
 &lt;div style="width: 10rem"&gt;Long text wraps and does not overlow.&lt;/div&gt;
 &lt;div class="p-text-nowrap" style="width: 10rem"&gt;Long text does not wrap and overflows the parent.&lt;/div&gt;
 &lt;div class="p-text-nowrap p-text-truncate" style="width: 10rem"&gt;Long text does not wrap and overflows the parent.&lt;/div&gt;
@@ -44,8 +42,7 @@
                     <li>uppercase</li>
                     <li>capitalize</li>
                 </ul>
-<pre v-code>
-<code><template v-pre>
+<pre v-code><code><template v-pre>
 &lt;div class="p-text-lowercase"&gt;LOWERCASE&lt;/div&gt;
 &lt;div class="p-text-uppercase"&gt;uppercase&lt;/div&gt;
 &lt;div class="p-text-capitalize"&gt;capitalize&lt;/div&gt;
@@ -60,8 +57,7 @@
                     <li>light</li>
                     <li>italic</li>
                 </ul>
-<pre v-code>
-<code><template v-pre>
+<pre v-code><code><template v-pre>
 &lt;div class="p-text-bold"&gt;Bold&lt;/div&gt;
 &lt;div class="p-text-normal"&gt;Normal&lt;/div&gt;
 &lt;div class="p-text-light"&gt;Light&lt;/div&gt;
@@ -74,8 +70,7 @@
 				<a href="https://github.com/primefaces/primevue/tree/master/src/views/text" class="btn-viewsource" target="_blank" rel="noopener noreferrer">
 					<span>View on GitHub</span>
 				</a>
-<pre v-code>
-<code><template v-pre>
+<pre v-code><code><template v-pre>
 &lt;div class="card"&gt;
     &lt;h5&gt;Alignment&lt;/h5&gt;
     &lt;div class="p-mb-3 p-text-left"&gt;Left&lt;/div&gt;

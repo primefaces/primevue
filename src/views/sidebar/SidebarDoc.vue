@@ -3,16 +3,14 @@
 		<TabView>
 			<TabPanel header="Documentation">
 				<h5>Import</h5>
-<pre v-code.script>
-<code>
+<pre v-code.script><code>
 import Sidebar from 'primevue/sidebar';
 
 </code></pre>
 
 				<h5>Getting Started</h5>
 				<p>Sidebar is used as a container and visibility is controlled with the <i>visible</i> property that requires a v-model two-way binding.</p>
-<pre v-code>
-<code>
+<pre v-code><code>
 &lt;Sidebar v-model:visible="visibleLeft"&gt;
 	Content
 &lt;/Sidebar&gt;
@@ -23,8 +21,7 @@ import Sidebar from 'primevue/sidebar';
 
 				<h5>Position</h5>
 				<p>Sidebar can either be located on the left (default), right, top or bottom of the screen depending on the <i>position</i> property.</p>
-<pre v-code>
-<code>
+<pre v-code><code>
 &lt;Sidebar v-model:visible="visibleRight" position="right"&gt;
 	Content
 &lt;/Sidebar&gt;
@@ -33,8 +30,7 @@ import Sidebar from 'primevue/sidebar';
 
 				<h5>Size</h5>
 				<p>Sidebar size can be changed using a fixed value or using one of the three predefined ones.</p>
-<pre v-code>
-<code>
+<pre v-code><code>
 &lt;Sidebar v-model:visible="visibleLeft" class="p-sidebar-sm"&gt;&lt;/Sidebar&gt;
 &lt;Sidebar v-model:visible="visibleLeft" class="p-sidebar-md"&gt;&lt;/Sidebar&gt;
 &lt;Sidebar v-model:visible="visibleLeft" class="p-sidebar-lg"&gt;&lt;/Sidebar&gt;
@@ -43,8 +39,7 @@ import Sidebar from 'primevue/sidebar';
 
 				<h5>Full Screen</h5>
 				<p>Full screen mode allows the sidebar to cover whole screen.</p>
-<pre v-code>
-<code>
+<pre v-code><code>
 &lt;Sidebar v-model:visible="visibleFull" position="full"&gt;
 	Content
 &lt;/Sidebar&gt;
@@ -215,8 +210,7 @@ import Sidebar from 'primevue/sidebar';
 					</a>
 					<LiveEditor name="SidebarDemo" :sources="sources" :components="['Button']"/>
                 </div>
-<pre v-code>
-<code><template v-pre>
+<pre v-code><code><template v-pre>
 &lt;Button icon="pi pi-arrow-right" @click="visibleLeft = true" class="p-mr-2" /&gt;
 &lt;Button icon="pi pi-arrow-left" @click="visibleRight = true" class="p-mr-2"  /&gt;
 &lt;Button icon="pi pi-arrow-down" @click="visibleTop = true" class="p-mr-2"  /&gt;
@@ -245,8 +239,7 @@ import Sidebar from 'primevue/sidebar';
 </template>
 </code></pre>
 
-<pre v-code.script>
-<code>
+<pre v-code.script><code>
 export default {
 	data() {
 		return {

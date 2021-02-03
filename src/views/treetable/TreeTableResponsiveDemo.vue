@@ -32,8 +32,7 @@
                     <div class="p-d-flex p-jc-end">
                         <LiveEditor name="TreeTableDemo" :sources="sources" service="NodeService" data="treetablenodes" :components="['Column']" />
                     </div>
-<pre v-code>
-<code><template v-pre>
+<pre v-code><code><template v-pre>
 &lt;TreeTable :value="nodes" class="p-treetable-responsive"&gt;
     &lt;template #header&gt;
         Responsive
@@ -51,8 +50,7 @@
 </template>
 </code></pre>
 
-<pre v-code.script>
-<code>
+<pre v-code.script><code>
 import NodeService from '../../service/NodeService';
 
 export default {
@@ -72,8 +70,7 @@ export default {
 
 </code></pre>
 
-<pre v-code.css>
-<code>
+<pre v-code.css><code>
 .sm-visible {
     display: none;
 }

@@ -3,8 +3,7 @@
 		<TabView>
 			<TabPanel header="Documentation">
 				<h5>Import</h5>
-<pre v-code.script>
-<code>
+<pre v-code.script><code>
 import InputNumber from 'primevue/inputnumber';
 
 </code></pre>
@@ -12,31 +11,27 @@ import InputNumber from 'primevue/inputnumber';
 <h5>Getting Started</h5>
             <p>InputNumber is used with the standard v-model directive. Component always provides a number type although formatting on the input is a string.</p>
 
-<pre v-code>
-<code>
+<pre v-code><code>
 &lt;InputNumber v-model="value" /&gt;
 
 </code></pre>
 
             <h5>Decimal Mode</h5>
             <p>Format is defined using the <i>mode</i> property, "decimal" is the default value allowing only integers when there is no other configuration.</p>
-<pre v-code>
-<code>
+<pre v-code><code>
 &lt;InputNumber v-model="value" mode="decimal" /&gt;
 
 </code></pre>
 
             <p>Fractions are configured with the <i>minFractionDigits</i> property. Optionally <i>maxFractionDigits</i> can be used to defined a boundary for the maximum digits.</p>
-<pre v-code>
-<code>
+<pre v-code><code>
 &lt;InputNumber v-model="value1" mode="decimal" :minFractionDigits="2" /&gt;
 &lt;InputNumber v-model="value2" mode="decimal" :minFractionDigits="2" :maxFractionDigits="2" /&gt;
 
 </code></pre>
 
             <p><i>locale</i> option is available to set the localization information such as grouping and decimal symbols where default value is the browser locale. Locales are defined per <a href="https://tools.ietf.org/html/rfc5646">BCP Language Tag</a>.</p>
-<pre v-code>
-<code>
+<pre v-code><code>
 User Locale
 &lt;InputNumber v-model="value1" mode="decimal" :minFractionDigits="2" /&gt;
 
@@ -54,8 +49,7 @@ Indian Locale
             <h5>Currency</h5>
             <p>Currency formatting is specified by setting the <i>mode</i> option to currency and <i>currency</i> property. In addition <i>currencyDisplay</i> option
             allows how the currency is displayed, valid values are "symbol" (default) or "code".</p>
-<pre v-code>
-<code>
+<pre v-code><code>
 United States
 &lt;InputNumber v-model="value1" mode="currency" currency="USD" locale="en-US" /&gt;
 
@@ -72,8 +66,7 @@ Japan
 
             <h5>Prefix and Suffix</h5>
             <p>Custom texts e.g. units can be placed before or after the input section with the <i>prefix</i> and <i>suffix</i> properties.</p>
-<pre v-code>
-<code>
+<pre v-code><code>
 Mile
 &lt;InputNumber v-model="value1" suffix=" mi" /&gt;
 
@@ -91,8 +84,7 @@ Temperature
             <h5>Buttons</h5>
             <p>Spinner buttons is enabled using the <i>showButtons</i> options and layout is defined with the <i>buttonLayout</i>. Default value is "stacked" whereas
             "horizontal" and "stacked" are alternatives. Note that even there are no buttons, up and down arrow keys can be used to spin the values with keyboard.</p>
-<pre v-code>
-<code>
+<pre v-code><code>
 Stacked
 &lt;InputNumber v-model="value1" showButtons mode="currency" currency="USD" /&gt;
 
@@ -108,8 +100,7 @@ Vertical
 
             <h5>Step</h5>
             <p>Step factor is 1 by default and can be customized with <i>step</i> option.</p>
-<pre v-code>
-<code>
+<pre v-code><code>
 &lt;InputNumber v-model="value" :step="0.25" /&gt;
 
 </code></pre>
@@ -117,8 +108,7 @@ Vertical
 
             <h5>Min and Max Boundaries</h5>
             <p>Value to be entered can be restricted by configuring the <i>min</i> and <i>max</i> options.</p>
-<pre v-code>
-<code>
+<pre v-code><code>
 &lt;InputNumber v-model="value" :min="0" :max="100" /&gt;
 
 </code></pre>
@@ -372,8 +362,7 @@ Vertical
                     </a>
                     <LiveEditor name="InputNumberDemo" :sources="sources"/>
                 </div>
-<pre v-code>
-<code><template v-pre>
+<pre v-code><code><template v-pre>
 &lt;h3&gt;Numerals&lt;/h3&gt;
 &lt;div class="p-fluid p-grid p-formgrid"&gt;
     &lt;div class="p-field p-col-12 p-md-3"&gt;
@@ -476,8 +465,7 @@ Vertical
 </template>
 </code></pre>
 
-<pre v-code.script>
-<code>
+<pre v-code.script><code>
 export default {
     data() {
         return {

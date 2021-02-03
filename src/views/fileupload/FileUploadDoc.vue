@@ -3,32 +3,28 @@
 		<TabView>
 			<TabPanel header="Documentation">
 				<h5>Import</h5>
-<pre v-code.script>
-<code>
+<pre v-code.script><code>
 import FileUpload from 'primevue/fileupload';
 
 </code></pre>
 
 				<h5>Getting Started</h5>
 				<p>FileUpload requires a <i>url</i> property as the upload target and a <i>name</i> to identify the files at backend.</p>
-<pre v-code>
-<code>
+<pre v-code><code>
 &lt;FileUpload name="demo[]" url="./upload" /&gt;
 
 </code></pre>
 
 				<h5>Multiple Uploads</h5>
 				<p>Only one file can be selected at a time by default, to allow selecting multiple files at once enable <i>multiple</i> option.</p>
-<pre v-code>
-<code>
+<pre v-code><code>
 &lt;FileUpload name="demo[]" url="./upload" :multiple="true" /&gt;
 
 </code></pre>
 
 				<h5>Basic UI</h5>
 				<p>FileUpload basic mode provides a simpler UI as an alternative to advanced mode.</p>
-<pre v-code>
-<code>
+<pre v-code><code>
 &lt;FileUpload mode="basic" name="demo[]" url="./upload" /&gt;
 
 </code></pre>
@@ -38,24 +34,21 @@ import FileUpload from 'primevue/fileupload';
 
 				<h5>Auto Uploads</h5>
 				<p>When <i>auto</i> property is enabled, upload begins as soon as file selection is completed or a file is dropped on the drop area.</p>
-<pre v-code>
-<code>
+<pre v-code><code>
 &lt;FileUpload mode="basic" name="demo[]" url="./upload" :auto="true" /&gt;
 
 </code></pre>
 
 				<h5>File Types</h5>
 				<p>Selectable file types can be restricted with <i>accept</i> property, example below only allows images to be uploaded. Read more about other possible values <a href="https://www.w3schools.com/tags/att_input_accept.asp"> here</a>.</p>
-<pre v-code>
-<code>
+<pre v-code><code>
 &lt;FileUpload mode="basic" name="demo[]" url="./upload" accept="image/*" /&gt;
 
 </code></pre>
 
 				<h5>File Size and File Linit</h5>
 				<p>Maximium file size can be restricted using <i>maxFileSize</i> property defined in bytes. Similarly <i>fileLimit</i> is available to restrict the number of files to be uploaded.</p>
-<pre v-code>
-<code>
+<pre v-code><code>
 &lt;FileUpload name="demo[]" url="./upload" :maxFileSize="1000000" :fileLimit="3" /&gt;
 
 </code></pre>
@@ -75,14 +68,12 @@ import FileUpload from 'primevue/fileupload';
 
                 <h5>Custom Upload</h5>
 				<p>Uploading implementation can be overridden by enabling <i>customMode</i> property and defining a custom upload handler event.</p>
-<pre v-code>
-<code>
+<pre v-code><code>
 &lt;FileUpload name="demo[]" :customUpload="true" @uploader="myUploader" /&gt;
 
 </code></pre>
 
-<pre v-code.script>
-<code>
+<pre v-code.script><code>
 myUploader(event) {
     //event.files == files to upload
 }
@@ -91,8 +82,7 @@ myUploader(event) {
 
                 <h5>Empty Template</h5>
                 <p>When there is no file selected, you may use the empty slot to display content.</p>
-<pre v-code>
-<code>
+<pre v-code><code>
 &lt;FileUpload name="demo[]" url="./upload" /&gt;
     &lt;template #empty&gt;
         &lt;p&gt;Drag and drop files to here to upload.&lt;/p&gt;
@@ -332,8 +322,7 @@ myUploader(event) {
 					</a>
 					<LiveEditor name="FileUploadDemo" :sources="sources" :toastService="true" />
 				</div>
-<pre v-code>
-<code><template v-pre>
+<pre v-code><code><template v-pre>
 &lt;h3&gt;Advanced&lt;/h3&gt;
 &lt;FileUpload name="demo[]" url="./upload.php" @upload="onUpload" :multiple="true" accept="image/*" :maxFileSize="1000000"&gt;
     &lt;template #empty&gt;
@@ -349,8 +338,7 @@ myUploader(event) {
 </template>
 </code></pre>
 
-<pre v-code.script>
-<code>
+<pre v-code.script><code>
 export default {
 	methods: {
 		onUpload() {

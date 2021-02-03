@@ -3,16 +3,14 @@
 		<TabView>
 			<TabPanel header="Documentation">
 				<h5>Import</h5>
-<pre v-code.script>
-<code>
+<pre v-code.script><code>
 import Card from 'primevue/card';
 
 </code></pre>
 
 				<h5>Getting Started</h5>
                 <p>Card provides <i>header</i>, <i>title</i>, <i>subtitle</i>, <i>content</i> and <i>footer</i> as the named templates to place content.</p>
-<pre v-code>
-<code>
+<pre v-code><code>
 &lt;Card&gt;
     &lt;template #header&gt;
         &lt;img alt="user header" src="demo/images/usercard.png"&gt;
@@ -78,8 +76,7 @@ import Card from 'primevue/card';
 					</a>
 					<LiveEditor name="CardDemo" :sources="sources" :components="['Button']"/>
                 </div>
-<pre v-code>
-<code><template v-pre>
+<pre v-code><code><template v-pre>
 &lt;Card style="width: 25rem; margin-bottom: 2em"&gt;
     &lt;template #title&gt;
         Simple Card

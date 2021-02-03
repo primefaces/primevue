@@ -3,16 +3,14 @@
 		<TabView>
 			<TabPanel header="Documentation">
 				<h5>Import</h5>
-<pre v-code.script>
-<code>
+<pre v-code.script><code>
 import SplitButton from 'primevue/splitbutton';
 
 </code></pre>
 
 				<h5>Getting Started</h5>
 				<p>SplitButton has a default command button and a collection of additional options defined by the <i>model</i> property.</p>
-<pre v-code.script>
-<code>
+<pre v-code.script><code>
 export default {
 	data() {
 		return {
@@ -50,8 +48,7 @@ export default {
 
 </code></pre>
 
-<pre v-code>
-<code>
+<pre v-code><code>
 &lt;SplitButton label="Save" icon="pi pi-plus" :model="items"&gt;&lt;/SplitButton&gt;
 
 </code></pre>
@@ -71,8 +68,7 @@ export default {
 					<li>.p-button-danger</li>
 				</ul>
 
-<pre v-code>
-<code>
+<pre v-code><code>
 &lt;SplitButton label="Save" icon="pi pi-plus" :model="items"&gt;&lt;/SplitButton&gt;
 &lt;SplitButton label="Save" icon="pi pi-plus" :model="items" class="p-button-secondary"&gt;&lt;/SplitButton&gt;
 &lt;SplitButton label="Save" icon="pi pi-plus" :model="items" class="p-button-success"&gt;&lt;/SplitButton&gt;
@@ -195,8 +191,7 @@ export default {
 					</a>
 					<LiveEditor name="SplitButtonDemo" :sources="sources" :toastService="true" />
 				</div>
-<pre v-code>
-<code><template v-pre>
+<pre v-code><code><template v-pre>
 &lt;h3&gt;Basic&lt;/h3&gt;
 &lt;SplitButton label="Save" icon="pi pi-plus" @click="save" :model="items"&gt;&lt;/SplitButton&gt;
 
@@ -211,8 +206,7 @@ export default {
 </template>
 </code></pre>
 
-<pre v-code.script>
-<code>
+<pre v-code.script><code>
 export default {
 	data() {
 		return {
@@ -255,8 +249,7 @@ export default {
 
 </code></pre>
 
-<pre v-code.css>
-<code>
+<pre v-code.css><code>
 .p-splitbutton {
 	margin-right: .5rem;
 }

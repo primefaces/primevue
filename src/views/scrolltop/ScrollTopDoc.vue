@@ -3,16 +3,14 @@
 		<TabView>
 			<TabPanel header="Documentation">
 				<h5>Import</h5>
-<pre v-code.script>
-<code>
+<pre v-code.script><code>
 import ScrollTop from 'primevue/scrolltop';
 
 </code></pre>
 
 				<h5>Getting Started</h5>
 				<p>Without any configuration, ScrollTop listens window scroll.</p>
-<pre v-code>
-<code>
+<pre v-code><code>
 &lt;ScrollTop /&gt;
 
 </code></pre>
@@ -20,16 +18,14 @@ import ScrollTop from 'primevue/scrolltop';
 				<h5>Threshold</h5>
 				<p>When the vertical scroll position reaches a certain value, ScrollTop gets displayed. This value is
 					defined with the <i>threshold</i> property that defaults to 400.</p>
-<pre v-code>
-<code>
+<pre v-code><code>
 &lt;ScrollTop :threshold="200" /&gt;
 
 </code></pre>
 
 				<h5>Target Element</h5>
 				<p>ScrollTop can also be assigned to its parent element by setting <i>target</i> as "parent".</p>
-<pre v-code>
-<code>
+<pre v-code><code>
 &lt;div style="height: 400px; overflow: auto"&gt;
 	Content that overflows to container
 	&lt;ScrollTop /&gt;
@@ -112,8 +108,7 @@ import ScrollTop from 'primevue/scrolltop';
 					</a>
 					<LiveEditor name="ScrollTopDemo" :sources="sources" :components="['ScrollPanel']" />
 				</div>
-<pre v-code>
-<code><template v-pre>
+<pre v-code><code><template v-pre>
 &lt;h5&gt;Window&lt;/h5&gt;
 &lt;p&gt;Scroll down the page to display the ScrollTo component.&lt;/p&gt;
 &lt;ScrollTop /&gt;
@@ -138,8 +133,7 @@ import ScrollTop from 'primevue/scrolltop';
 </template>
 </code></pre>
 
-<pre v-code.css>
-<code>
+<pre v-code.css><code>
 ::v-deep(.custom-scrolltop) {
     width: 2rem;
     height: 2rem;

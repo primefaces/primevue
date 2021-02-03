@@ -3,8 +3,7 @@
 		<TabView>
 			<TabPanel header="Documentation">
 				<h5>Import</h5>
-<pre v-code.script>
-<code>
+<pre v-code.script><code>
 import Steps from 'primevue/steps';
 
 </code></pre>
@@ -14,15 +13,13 @@ import Steps from 'primevue/steps';
 
 				<h5>Getting Started</h5>
 				<p>Steps is integrated with Vue Router and requires a collection of menuitems as its model.</p>
-<pre v-code>
-<code>
+<pre v-code><code>
 &lt;Steps :model="items" /&gt;
 &lt;router-view /&gt;
 
 </code></pre>
 
-<pre v-code.script>
-<code>
+<pre v-code.script><code>
 export default {
 	data() {
 		return {
@@ -50,8 +47,7 @@ export default {
 
                 <h5>Interactive</h5>
                 <p>Items are readonly by default, if you'd like to make them interactive then disable <i>readonly</i> property.</p>
-<pre v-code>
-<code>
+<pre v-code><code>
 &lt;Steps :model="items" :readonly="false" /&gt;
 &lt;router-view /&gt;
 
@@ -134,8 +130,7 @@ export default {
                     </a>
                     <LiveEditor name="StepsDemo" :sources="sources" :toastService="true" :router="true" :components="['Card', 'InputText', 'InputNumber', 'Button', 'Dropdown', 'InputMask', 'Checkbox']" />
                 </div>
-<pre v-code>
-<code><template v-pre>
+<pre v-code><code><template v-pre>
 &lt;div class="card"&gt;
     &lt;Steps :model="items" :readonly="true" /&gt;
 &lt;/div&gt;
@@ -148,8 +143,7 @@ export default {
 </template>
 </code></pre>
 
-<pre v-code.script>
-<code>
+<pre v-code.script><code>
 export default {
     data() {
         return {
@@ -196,8 +190,7 @@ export default {
 
 			</TabPanel>
             <TabPanel header="Personal">
-<pre v-code>
-<code><template v-pre>
+<pre v-code><code><template v-pre>
 &lt;div class="stepsdemo-content"&gt;
     &lt;Card&gt;
         &lt;template v-slot:title&gt;
@@ -235,8 +228,7 @@ export default {
 </template>
 </code></pre>
 
-<pre v-code.script>
-<code>
+<pre v-code.script><code>
 export default {
     data () {
         return {
@@ -274,8 +266,7 @@ export default {
 			</TabPanel>
 
             <TabPanel header="Seat">
-<pre v-code>
-<code><template v-pre>
+<pre v-code><code><template v-pre>
 &lt;div class="stepsdemo-content"&gt;
     &lt;Card&gt;
         &lt;template #title&gt;
@@ -311,8 +302,7 @@ export default {
 </template>
 </code></pre>
 
-<pre v-code.script>
-<code>
+<pre v-code.script><code>
 export default {
     data () {
         return {
@@ -358,8 +348,7 @@ export default {
 </code></pre>
 			</TabPanel>
             <TabPanel header="Payment">
-<pre v-code>
-<code><template v-pre>
+<pre v-code><code><template v-pre>
 &lt;div class="stepsdemo-content"&gt;
     &lt;Card&gt;
         &lt;template #title&gt;
@@ -403,8 +392,7 @@ export default {
 </template>
 </code></pre>
 
-<pre v-code.script>
-<code>
+<pre v-code.script><code>
 export default {
     data () {
         return {
@@ -429,8 +417,7 @@ export default {
 			</TabPanel>
             
             <TabPanel header="Confirmation">
-<pre v-code>
-<code><template v-pre>
+<pre v-code><code><template v-pre>
 &lt;div class="stepsdemo-content"&gt;
     &lt;Card&gt;
         &lt;template #title&gt;
@@ -485,8 +472,7 @@ export default {
 </template>
 </code></pre>
 
-<pre v-code.script>
-<code>
+<pre v-code.script><code>
 export default {
     props: {
         formData: Object

@@ -3,22 +3,19 @@
 		<TabView>
 			<TabPanel header="Documentation">
 				<h5>Import</h5>
-<pre v-code.script>
-<code>
+<pre v-code.script><code>
 import Dropdown from 'primevue/dropdown';
 
 </code></pre>
 
 				<h5>Getting Started</h5>
 				<p>Dropdown requires a value to bind and a collection of arbitrary objects along with the <i>optionLabel</i> property to specify the label property of the option.</p>
-<pre v-code>
-<code>
+<pre v-code><code>
 &lt;Dropdown v-model="selectedCity" :options="cities" optionLabel="name" placeholder="Select a City" /&gt;
 
 </code></pre>
 
-<pre v-code.script>
-<code>
+<pre v-code.script><code>
 data() {
 	return {
 		selectedCity: null,
@@ -40,8 +37,7 @@ data() {
 				<h5>Filtering</h5>
 				<p>Options can be filtered using an input field in the overlay by enabling the <i>filter</i> property.</p>
 
-<pre v-code>
-<code>
+<pre v-code><code>
 &lt;Dropdown v-model="selectedCar" :options="cars" optionLabel="brand" placeholder="Select a Car" :filter="true" filterPlaceholder="Find Car"/&gt;
 
 </code></pre>
@@ -49,8 +45,7 @@ data() {
 				<h5>Custom Content</h5>
 				<p>Label of an option is used as the display text of an item by default, for custom content support define an <i>option</i> template that gets the option instance as a parameter.</p>
                 <p>In addition the <i>value</i> template can be used to customize the selected value.</p>
-<pre v-code>
-<code><template v-pre>
+<pre v-code><code><template v-pre>
 &lt;Dropdown v-model="selectedCar" :options="cars" optionLabel="brand" :filter="true" placeholder="Select a Car" :showClear="true"&gt;
 	&lt;template #value="slotProps"&gt;
         &lt;div class="p-dropdown-car-value" v-if="slotProps.value"&gt;
@@ -345,8 +340,7 @@ data() {
                     </a>
                     <LiveEditor name="DropdownDemo" :sources="sources"/>
                 </div>
-<pre v-code>
-<code><template v-pre>
+<pre v-code><code><template v-pre>
 &lt;h5&gt;Basic&lt;/h5&gt;
 &lt;Dropdown v-model="selectedCity1" :options="cities" optionLabel="name" placeholder="Select a City" /&gt;
 
@@ -374,8 +368,7 @@ data() {
 </template>
 </code></pre>
 
-<pre v-code.script>
-<code>
+<pre v-code.script><code>
 export default {
     data() {
         return {

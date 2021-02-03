@@ -5,14 +5,12 @@
 				<div class="p-d-flex">
 					<LiveEditor name="ChartDemo" :sources="sources" class="p-ml-auto"/>
 				</div>
-<pre v-code>
-<code><template v-pre>
+<pre v-code><code><template v-pre>
 &lt;Chart type="bar" :data="chartData" :options="chartOptions"/&gt;
 </template>
 </code></pre>
 
-<pre v-code.script>
-<code>
+<pre v-code.script><code>
 export default {
 	data() {
 		return {

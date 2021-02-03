@@ -64,8 +64,7 @@
                     <div class="p-d-flex p-jc-end">
                         <LiveEditor name="DataTableDemo" :sources="sources" :components="['ColumnGroup', 'Row', 'Column']" />
                     </div>
-<pre v-code>
-<code><template v-pre>
+<pre v-code><code><template v-pre>
 &lt;DataTable :value="sales"&gt;
     &lt;ColumnGroup type="header"&gt;
         &lt;Row&gt;
@@ -115,8 +114,7 @@
 </template>
 </code></pre>
 
-<pre v-code.script>
-<code>
+<pre v-code.script><code>
 export default {
     data() {
         return {

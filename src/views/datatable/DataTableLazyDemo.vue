@@ -44,8 +44,7 @@
                     <div class="p-d-flex p-jc-end">
                         <LiveEditor name="DataTableDemo" :sources="sources" service="CustomerService" :components="['Column', 'InputText']" />
                     </div>
-<pre v-code>
-<code><template v-pre>
+<pre v-code><code><template v-pre>
 &lt;DataTable :value="customers" :lazy="true" :paginator="true" :rows="10" :filters="filters" ref="dt"
     :totalRecords="totalRecords" :loading="loading" @page="onPage($event)" @sort="onSort($event)"&gt;
     &lt;Column field="name" header="Name" filterMatchMode="startsWith" ref="name" :sortable="true"&gt;  
@@ -72,8 +71,7 @@
 </template>
 </code></pre>
 
-<pre v-code.script>
-<code>
+<pre v-code.script><code>
 import CustomerService from '../../service/CustomerService';
 
 export default {

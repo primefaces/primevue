@@ -3,16 +3,14 @@
 		<TabView>
 			<TabPanel header="Documentation">
 				<h5>Import</h5>
-<pre v-code.script>
-<code>
+<pre v-code.script><code>
 import Password from 'primevue/password';
 
 </code></pre>
 
 				<h5>Getting Started</h5>
 				<p>A model can be bound using the standard v-model directive.</p>
-<pre v-code>
-<code>
+<pre v-code><code>
 &lt;Password v-model="value" /&gt;
 
 </code></pre>
@@ -41,8 +39,7 @@ import Password from 'primevue/password';
 
                 <h5>Templating</h5>
                 <p>3 slots are included to customize the overlay. These are <i>header</i>, <i>content</i> and <i>footer</i>. Note that content overrides the default meter.</p>
-<pre v-code>
-<code>
+<pre v-code><code>
 &lt;Password v-model="value4"&gt;
     &lt;template #header&gt;
         &lt;h6&gt;Pick a password&lt;/h6&gt;
@@ -179,8 +176,7 @@ import Password from 'primevue/password';
                     </a>
                     <LiveEditor name="PasswordDemo" :sources="sources"/>
                 </div>
-<pre v-code>
-<code>
+<pre v-code><code>
 <h5>Basic</h5>
 &lt;Password v-model="value1" :feedback="false" /&gt;
 
@@ -209,8 +205,7 @@ import Password from 'primevue/password';
 
 </code></pre>
 
-<pre v-code.script>
-<code>
+<pre v-code.script><code>
 export default {
 	data() {
 		return {

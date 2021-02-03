@@ -3,24 +3,21 @@
 		<TabView>
 			<TabPanel header="Documentation">
 				<h5>Import</h5>
-<pre v-code.script>
-<code>
+<pre v-code.script><code>
 import ProgressSpinner from 'primevue/progressspinner';
 
 </code></pre>
 
 				<h5>Getting Started</h5>
 				<p>ProgressSpinner is defined using ProgressSpinner element.</p>
-<pre v-code>
-<code><template v-pre>
+<pre v-code><code><template v-pre>
 &lt;ProgressSpinner /&gt;
 </template>
 </code></pre>
 
                 <h5>Colors</h5>
                 <p>Colors of the spinner can be changed by overriding the keyframes animation.</p>
-<pre v-code.css>
-<code>
+<pre v-code.css><code>
 @keyframes p-progress-spinner-color {
     100%,
     0% {
@@ -113,8 +110,7 @@ import ProgressSpinner from 'primevue/progressspinner';
                     </a>
                     <LiveEditor name="ProgressSpinnerDemo" :sources="sources" />
                 </div>
-<pre v-code>
-<code><template v-pre>
+<pre v-code><code><template v-pre>
 &lt;h3&gt;Basic&lt;/h3&gt;
 &lt;ProgressSpinner /&gt;
 

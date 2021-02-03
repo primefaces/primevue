@@ -3,24 +3,21 @@
 		<TabView>
 			<TabPanel header="Documentation">
 				<h5>Import</h5>
-<pre v-code.script>
-<code>
+<pre v-code.script><code>
 import Dialog from 'primevue/dialog';
 
 </code></pre>
 
 				<h5>Getting Started</h5>
 				<p>Dialog is used as a container and visibility is managed with <i>visible</i> property that requires the v-model for two-way binding.</p>
-<pre v-code>
-<code>
+<pre v-code><code>
 &lt;Dialog header="Header" v-model:visible="display" &gt;
 	Content
 &lt;/Dialog&gt;
 
 </code></pre>
 
-<pre v-code.script>
-<code>
+<pre v-code.script><code>
 export default {
 	data() {
 		return {
@@ -33,16 +30,14 @@ export default {
 
 				<h5>Header and Footer</h5>
 				<p>Header and Footer sections are defined using properties with the same name that accept simple strings or with the <i>header</i> and <i>footer</i> templates for custom content.</p>
-<pre v-code>
-<code>
+<pre v-code><code>
 &lt;Dialog header="Header" footer="Footer" v-model:visible="display"&gt;
 	Content
 &lt;/Dialog&gt;
 
 </code></pre>
 
-<pre v-code>
-<code>
+<pre v-code><code>
 &lt;Dialog v-model:visible="display"&gt;
     &lt;template #header&gt;
 		&lt;h3&gt;Header&lt;/h3&gt;
@@ -60,8 +55,7 @@ export default {
 
                 <h5>Positioning</h5>
                 <p>Dialog location is controlled with the <i>position</i> property whose default value is center. Other valid values are top", "bottom", "left", "right", "topleft", "topright", "bottomleft" and "bottomright".</p>
-<pre v-code>
-<code>
+<pre v-code><code>
 &lt;Dialog position="top" v-model:visible="display"&gt;
 	Content
 &lt;/Dialog&gt;
@@ -70,8 +64,7 @@ export default {
 
                 <h5>Popup Content inside the Dialog</h5>
                 <p>If the dialog contains components with popup elements such as Dropdown or Calendar, set <i>contentStyle</i> to overflow:visible so that overlays can be displayed outside of the content area.</p>
-<pre v-code>
-<code>
+<pre v-code><code>
 &lt;Dialog v-model:visible="display" :contentStyle="{overflow: 'visible'}"&gt;
 	Content
 &lt;/Dialog&gt;
@@ -80,8 +73,7 @@ export default {
 
                 <h5>Initial Focus</h5>
                 <p>Adding <i>autofocus</i> to an element in the dialog makes it the initial focus target when dialog gets shown.</p>
-<pre v-code>
-<code>
+<pre v-code><code>
 &lt;Dialog v-model:visible="display"&gt;
     Content
 	&lt;template #footer&gt;
@@ -273,8 +265,7 @@ export default {
                     </a>
                     <LiveEditor name="DialogDemo" :sources="sources" :components="['Button']" />
                 </div>
-<pre v-code>
-<code><template v-pre>
+<pre v-code><code><template v-pre>
 &lt;h5&gt;Basic&lt;/h5&gt;
 &lt;Button label="Show" icon="pi pi-external-link" @click="openBasic" /&gt;
 &lt;Dialog header="Header" v-model:visible="displayBasic" :style="{width: '50vw'}"&gt;
@@ -377,8 +368,7 @@ export default {
 </template>
 </code></pre>
 
-<pre v-code.script>
-<code>
+<pre v-code.script><code>
 export default {
     data() {
         return {
@@ -437,8 +427,7 @@ export default {
 
 </code></pre>
 
-<pre v-code.css>
-<code>
+<pre v-code.css><code>
 .p-button {
     margin: 0 .5rem 0 0;
     min-width: 10rem;

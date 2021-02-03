@@ -15,8 +15,7 @@
             <h5>Download</h5>
             <p>PrimeVue is available at <a href="https://www.npmjs.com/package/primevue">npm</a>, if you have an existing application run the following commands to download PrimeVue and PrimeIcons to your project.</p>
 
-<pre v-code.script>
-<code>
+<pre v-code.script><code>
 npm install primevue@^3.2.0-rc.1 --save
 npm install primeicons --save
 
@@ -26,8 +25,7 @@ npm install primeicons --save
             <p>This is the recommended way if your application uses <a href="https://cli.vuejs.org">Vue CLI</a>, <a href="https://vitejs.dev">Vite</a> or has a webpack based build with <a href="https://github.com/vuejs/vue-loader">vue-loader</a> configured.</p>
 
             <p>Begin with installing PrimeVue. This command only sets up the core configuration like locale and does not register any component.</p>
-<pre v-code.script>
-<code>
+<pre v-code.script><code>
 import {createApp} from 'vue';
 import App from './App.vue';
 import PrimeVue from 'primevue/config';
@@ -38,8 +36,7 @@ app.use(PrimeVue);
 </code></pre>
 
             <p>Then import and register a component from the library. Import path is available in the documentation of the corresponding component.</p>
-<pre v-code.script>
-<code>
+<pre v-code.script><code>
 import {createApp} from 'vue';
 import App from './App.vue';
 import PrimeVue from 'primevue/config';
@@ -53,8 +50,7 @@ app.component('Dialog', Dialog);
 </code></pre>
 
             <p>Finally you'll be able to utilize the component in your application.</p>
-<pre v-code>
-<code>
+<pre v-code><code>
 &lt;Dialog&gt;&lt;/Dialog&gt;
 
 </code></pre>
@@ -63,16 +59,14 @@ app.component('Dialog', Dialog);
             <p>SFC files are available in the npm distribution and if you'd like to use SFCs directly, add <i>/sfc</i> as a suffix when referencing an import path. This will instruct your bundler to process the *.vue files
                 in your local build instead of using the compiled output. One use case for this approach is optimizing for SSR by removing whitespaces.</p>
 
-<pre v-code.script>
-<code>
+<pre v-code.script><code>
 import Dialog from 'primevue/dialog/sfc';
 
 </code></pre>
 
             <h5>Script Tag</h5>
             <p>Other alternative is utilizing the components directly within the browser with the <i>iife</i> build. Note that PrimeVue does not provide a <i>umd</i> build.</p>
-<pre v-code>
-<code>
+<pre v-code><code>
 &lt;html&gt;
     &lt;head&gt;
         &lt;meta charset="utf-8"&gt;
@@ -119,8 +113,7 @@ import Dialog from 'primevue/dialog/sfc';
             <p>In addition, components require PrimeIcons library for icons.</p>
 
             <h6>Mandatory</h6>
-<pre v-code.script>
-<code>
+<pre v-code.script><code>
 dependencies: {
     "vue": "^3.0.0",
     "primeicons": "^4.0.0"
@@ -167,8 +160,7 @@ dependencies: {
             <p>The css dependencies are as follows, note that you may change the theme with another one of your choice. If you are using a bundler such as webpack with a css loader you
                 may import them to your main application component.</p>
 
-<pre v-code.script>
-<code>
+<pre v-code.script><code>
 primevue/resources/themes/saga-blue/theme.css       //theme
 primevue/resources/primevue.min.css                 //core css
 primeicons/primeicons.css                           //icons
@@ -177,8 +169,7 @@ primeicons/primeicons.css                           //icons
 
             <h5>Free Themes</h5>
             <p>PrimeVue ships with various free themes to choose from.</p>
-<pre v-code.css>
-<code>
+<pre v-code.css><code>
 primevue/resources/themes/bootstrap4-light-blue/theme.css
 primevue/resources/themes/bootstrap4-light-purple/theme.css
 primevue/resources/themes/bootstrap4-dark-blue/theme.css
@@ -224,8 +215,7 @@ primevue/resources/themes/rhea/theme.css
             <p>Ripple is an optional animation for the supported components such as buttons. It is disabled by default and needs to be enabled at
                 your app's entry file (e.g. main.js) during the PrimeVue setup.
             </p>
-<pre v-code.script>
-<code>
+<pre v-code.script><code>
 import {createApp} from 'vue';
 import PrimeVue from 'primevue/config';
 const app = createApp(App);

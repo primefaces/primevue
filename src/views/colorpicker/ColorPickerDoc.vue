@@ -3,22 +3,19 @@
 		<TabView>
 			<TabPanel header="Documentation">
 				<h5>Import</h5>
-<pre v-code.script>
-<code>
+<pre v-code.script><code>
 import ColorPicker from 'primevue/colorpicker';
 
 </code></pre>
 
 				<h5>Getting Started</h5>
 				<p>A model can be bound using the standard v-model directive. Default color format to use in value binding is "hex" and other possible values are "rgb" and "hsb".</p>
-<pre v-code>
-<code>
+<pre v-code><code>
 &lt;ColorPicker v-model="color" /&gt;
 
 </code></pre>
 
-<pre v-code.script>
-<code>
+<pre v-code.script><code>
 export default {
     data() {
         return {
@@ -31,8 +28,7 @@ export default {
 
                 <h5>Inline and Overlay</h5>
                 <p>ColorPicker is displayed as an overlay with a preview option by default where second alternative is the inline mode.</p>
-<pre v-code>
-<code>
+<pre v-code><code>
 &lt;ColorPicker v-model="color" :inline="true" /&gt;
 
 </code></pre>
@@ -174,8 +170,7 @@ export default {
                     </a>
                     <LiveEditor name="ColorPickerDemo" :sources="sources"/>
                 </div>
-<pre v-code>
-<code><template v-pre>
+<pre v-code><code><template v-pre>
 &lt;h3&gt;Inline&lt;/h3&gt;
 &lt;ColorPicker v-model="color1" :inline="true" /&gt;
 
@@ -184,8 +179,7 @@ export default {
 </template>
 </code></pre>
 
-<pre v-code.script>
-<code>
+<pre v-code.script><code>
 export default {
     data() {
         return {

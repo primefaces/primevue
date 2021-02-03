@@ -3,8 +3,7 @@
 		<TabView>
 			<TabPanel header="Documentation">
 				<h5>Import</h5>
-<pre v-code.script>
-<code>
+<pre v-code.script><code>
 import BlockUI from 'primevue/blockui';
 
 </code></pre>
@@ -13,8 +12,7 @@ import BlockUI from 'primevue/blockui';
 				<p>BlockUI is controlled using the <i>blocked</i> property, by default target element to block is the child component. In example below, panel gets blocked
                     with a mask when blockedPanel is enabled and gets unblock when the bound variable is set to false.
                 </p>
-<pre v-code>
-<code>
+<pre v-code><code>
 &lt;BlockUI :blocked="blockedPanel"&gt;
     &lt;Panel header="Header"&gt;
         Panel Content
@@ -23,8 +21,7 @@ import BlockUI from 'primevue/blockui';
 
 </code></pre>
 
-<pre v-code.script>
-<code>
+<pre v-code.script><code>
 export default {
     data() {
         return {
@@ -46,8 +43,7 @@ export default {
                 <h5>Full Screen</h5>
                 <p>In full screen mode, instead of a particular element, the whole document gets blocked. Set <i>fullScreen</i> as true in order to enable this functionality.</p>
 
-<pre v-code>
-<code>
+<pre v-code><code>
 &lt;BlockUI :blocked="blockedDocument" :fullScreen="true"&gt;&lt;/BlockUI&gt;
 
 </code></pre>
@@ -152,8 +148,7 @@ export default {
                     </a>
                     <LiveEditor name="BlockUIDemo" :sources="sources" :components="['Button', 'Panel']" />
                 </div>
-<pre v-code>
-<code>
+<pre v-code><code>
 &lt;h3&gt;Document&lt;/h3&gt;
 &lt;BlockUI :blocked="blockedDocument" :fullScreen="true"&gt;&lt;/BlockUI&gt;
 
@@ -174,8 +169,7 @@ export default {
 
 </code></pre>
 
-<pre v-code.script>
-<code>
+<pre v-code.script><code>
 export default {
     data() {
         return {

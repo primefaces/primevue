@@ -19,14 +19,12 @@
                     <div class="p-d-flex p-jc-end">
                         <LiveEditor name="TreeDemo" :sources="sources" service="NodeService" data="treenodes" />
                     </div>
-<pre v-code>
-<code><template v-pre>
+<pre v-code><code><template v-pre>
 &lt;Tree :value="nodes" @node-expand="onNodeExpand" :loading="loading"&gt;&lt;/Tree&gt;
 </template>
 </code></pre>
 
-<pre v-code.script>
-<code>
+<pre v-code.script><code>
 import NodeService from '../../service/NodeService';
 
 export default {

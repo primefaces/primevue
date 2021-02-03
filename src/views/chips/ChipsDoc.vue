@@ -3,24 +3,21 @@
 		<TabView>
 			<TabPanel header="Documentation">
 				<h5>Import</h5>
-<pre v-code.script>
-<code>
+<pre v-code.script><code>
 import Chips from 'primevue/chips';
 
 </code></pre>
 
 				<h5>Getting Started</h5>
 				<p>An array as the value can be bound using the standard v-model directive.</p>
-<pre v-code>
-<code>
+<pre v-code><code>
 &lt;Chips v-model="value" /&gt;
 
 </code></pre>
 
 				<h5>Custom Content</h5>
 				<p>A chip is customized using the <i>chip</i> template where the chip value is passed to the slotProps with the value property.</p>
-<pre v-code>
-<code><template v-pre>
+<pre v-code><code><template v-pre>
 &lt;Chips v-model="value"&gt;
 	&lt;template #chip="slotProps"&gt;
 		&lt;div&gt;
@@ -153,8 +150,7 @@ import Chips from 'primevue/chips';
                     </a>
                     <LiveEditor name="ChipsDemo" :sources="sources"/>
                 </div>
-<pre v-code>
-<code><template v-pre>
+<pre v-code><code><template v-pre>
 &lt;h5&gt;Basic&lt;/h5&gt;
 &lt;Chips v-model="value1" /&gt;
 
@@ -173,8 +169,7 @@ import Chips from 'primevue/chips';
 </template>
 </code></pre>
 
-<pre v-code.script>
-<code>
+<pre v-code.script><code>
 export default {
 	data() {
 		return {

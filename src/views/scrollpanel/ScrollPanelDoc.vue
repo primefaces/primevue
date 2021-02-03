@@ -3,16 +3,14 @@
 		<TabView>
 			<TabPanel header="Documentation">
 				<h5>Import</h5>
-<pre v-code.script>
-<code>
+<pre v-code.script><code>
 import ScrollPanel from 'primevue/scrollpanel';
 
 </code></pre>
 
 				<h5>Getting Started</h5>
 				<p>ScrollPanel usage is similar to any container element.</p>
-<pre v-code>
-<code>
+<pre v-code><code>
 &lt;ScrollPanel style="width: 100%; height: 200px"&gt;
     content
 &lt;/ScrollPanel&gt;
@@ -21,16 +19,14 @@ import ScrollPanel from 'primevue/scrollpanel';
 
                 <h5>Customization</h5>
                 <p>Look and feel can easily be customized, here is an example with custom scrollbars.</p>
-<pre v-code>
-<code>
+<pre v-code><code>
 &lt;ScrollPanel style="width: 100%; height: 200px" class="custom"&gt;
     content
 &lt;/ScrollPanel&gt;
 
 </code></pre>
 
-<pre v-code.css>
-<code>
+<pre v-code.css><code>
 .custom .p-scrollpanel-wrapper {
     border-right: 9px solid #f4f4f4;
 }
@@ -101,8 +97,7 @@ import ScrollPanel from 'primevue/scrollpanel';
                     <LiveEditor name="ScrollPanelDemo" :sources="sources"/>
                 </div>
 
-<pre v-code>
-<code><template v-pre>
+<pre v-code><code><template v-pre>
 &lt;div class="p-grid"&gt;
     &lt;div class="p-col-12 p-md-4 p-p-5"&gt;
         &lt;ScrollPanel style="width: 100%; height: 200px"&gt;
@@ -159,16 +154,14 @@ import ScrollPanel from 'primevue/scrollpanel';
 </template>
 </code></pre>
 
-<pre v-code.script>
-<code>
+<pre v-code.script><code>
 export default {
 
 }
 
 </code></pre>
 
-<pre v-code.css>
-<code>
+<pre v-code.css><code>
 ::v-deep(.p-scrollpanel) {
     p {
         padding: .5rem;

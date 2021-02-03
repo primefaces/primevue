@@ -3,24 +3,21 @@
 		<TabView>
 			<TabPanel header="Documentation">
 				<h5>Import</h5>
-<pre v-code.script>
-<code>
+<pre v-code.script><code>
 import Checkbox from 'primevue/checkbox';
 
 </code></pre>
 
 				<h5>Getting Started</h5>
 				<p>Checkbox can either be used in multiple selection with other checkboxes or as a single checkbox to provide a boolean value.</p>
-<pre v-code>
-<code>
+<pre v-code><code>
 &lt;Checkbox v-model="checked" :binary="true" /&gt;
 
 </code></pre>
 
 				<h5>Multiple Values</h5>
 				<p>Multiple mode is enabled by default, v-model property refers to an array to bind the selected values.</p>
-<pre v-code>
-<code>
+<pre v-code><code>
 &lt;Checkbox name="city" value="Chicago" v-model="cities" /&gt;
 &lt;Checkbox name="city" value="Los Angeles" v-model="cities" /&gt;
 &lt;Checkbox name="city" value="New York" v-model="cities" /&gt;
@@ -28,8 +25,7 @@ import Checkbox from 'primevue/checkbox';
 
 </code></pre>
 
-<pre v-code.script>
-<code>
+<pre v-code.script><code>
 export default {
 	data() {
 		return {
@@ -119,8 +115,7 @@ export default {
                     </a>
                     <LiveEditor name="CheckboxDemo" :sources="sources"/>
                 </div>
-<pre v-code>
-<code><template v-pre>
+<pre v-code><code><template v-pre>
 &lt;h3&gt;Basic&lt;/h3&gt;
 &lt;div class="p-field-checkbox"&gt;
     &lt;Checkbox id="binary" v-model="checked" :binary="true" /&gt;
@@ -153,8 +148,7 @@ export default {
 </template>
 </code></pre>
 
-<pre v-code.script>
-<code>
+<pre v-code.script><code>
 export default {
     data() {
         return {

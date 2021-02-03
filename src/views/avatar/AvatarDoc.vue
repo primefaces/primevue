@@ -3,8 +3,7 @@
 		<TabView>
 			<TabPanel header="Documentation">
 				<h5>Import</h5>
-<pre v-code.script>
-<code>
+<pre v-code.script><code>
 import Avatar from 'primevue/avatar';
 import AvatarGroup from 'primevue/avatargroup';
 
@@ -12,8 +11,7 @@ import AvatarGroup from 'primevue/avatargroup';
 
 				<h5>Getting Started</h5>
 				<p>Avatar has three built-in display modes; "label", "icon" and "image".</p>
-<pre v-code>
-<code>
+<pre v-code><code>
 &lt;Avatar label="P" /&gt;
 &lt;Avatar icon="pi pi-search" /&gt;
 &lt;Avatar image="user.png" /&gt;
@@ -22,16 +20,14 @@ import AvatarGroup from 'primevue/avatargroup';
 
 				<h5>Sizes</h5>
 				<p><i>size</i> property defines the size of the Avatar with "large" and "xlarge" as possible values.</p>
-<pre v-code>
-<code>
+<pre v-code><code>
 &lt;Avatar label="P" size="large"/&gt;
 
 </code></pre>
 
 				<h5>AvatarGroup</h5>
 				<p>A set of Avatars can be displayed together using the <i>AvatarGroup</i> component.</p>
-<pre v-code>
-<code>
+<pre v-code><code>
 &lt;AvatarGroup&gt;
 	&lt;Avatar label="P" /&gt;
 	&lt;Avatar icon="pi pi-search" /&gt;
@@ -42,24 +38,21 @@ import AvatarGroup from 'primevue/avatargroup';
 
 				<h5>Shape</h5>
 				<p>Avatar comes in two different styles specified with the <i>shape</i> property, "square" is the default and "circle" is the alternative.</p>
-<pre v-code>
-<code>
+<pre v-code><code>
 &lt;Avatar label="P" shape="circle"/&gt;
 
 </code></pre>
 
 				<h5>Badge</h5>
 				<p>A badge can be added to an Avatar with the <router-link to="/badge">Badge</router-link> directive.</p>
-<pre v-code>
-<code>
+<pre v-code><code>
 &lt;Avatar image="user.png" size="xlarge" v-badge.danger="4" /&gt;
 
 </code></pre>
 
 				<h5>Templating</h5>
 				<p>Content can easily be customized with the default slot instead of using the built-in modes.</p>
-<pre v-code>
-<code>
+<pre v-code><code>
 &lt;Avatar&gt;
    Content
 &lt;/Avatar&gt;
@@ -188,8 +181,7 @@ import AvatarGroup from 'primevue/avatargroup';
 					</a>
 					<LiveEditor name="AvatarDemo" :sources="sources" :directives="['Badge']" :components="['AvatarGroup']" />
 				</div>
-<pre v-code>
-<code><template v-pre>
+<pre v-code><code><template v-pre>
 &lt;div class="p-grid"&gt;
 	&lt;div class="p-col-12 p-md-4"&gt;
 		&lt;div class="card"&gt;

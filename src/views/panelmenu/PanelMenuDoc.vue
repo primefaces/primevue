@@ -3,8 +3,7 @@
 		<TabView>
 			<TabPanel header="Documentation">
 				<h5>Import</h5>
-<pre v-code.script>
-<code>
+<pre v-code.script><code>
 import PanelMenu from 'primevue/panelmenu';
 
 </code></pre>
@@ -14,14 +13,12 @@ import PanelMenu from 'primevue/panelmenu';
 
 				<h5>Getting Started</h5>
 				<p>PanelMenu requires a collection of menuitems as its model.</p>
-<pre v-code>
-<code>
+<pre v-code><code>
 &lt;PanelMenu :model="items" /&gt;
 
 </code></pre>
 
-<pre v-code.script>
-<code>
+<pre v-code.script><code>
 export default {
 	data() {
 		return {
@@ -229,14 +226,12 @@ export default {
                </a>
                <LiveEditor name="PanelMenuDemo" :sources="sources" :router="true" />
             </div>
-<pre v-code>
-<code><template v-pre>
+<pre v-code><code><template v-pre>
 &lt;PanelMenu :model="items" /&gt;
 </template>
 </code></pre>
 
-<pre v-code.script>
-<code>
+<pre v-code.script><code>
 export default {
     data() {
         return {

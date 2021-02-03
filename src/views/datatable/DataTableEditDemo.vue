@@ -98,8 +98,7 @@
                     <div class="p-d-flex p-jc-end">
                         <LiveEditor name="DataTableDemo" :sources="sources" service="ProductService" data="products-small" :components="['Column', 'InputText', 'Dropdown']" />
                     </div>
-<pre v-code>
-<code><template v-pre>
+<pre v-code><code><template v-pre>
 &lt;h5&gt;Basic Cell Editing&lt;/h5&gt;
 &lt;p&gt;Simple editors with v-model.&lt;/p&gt;
 &lt;DataTable :value="products1" editMode="cell" class="editable-cells-table"&gt;
@@ -181,8 +180,7 @@
 </template>
 </code></pre>
 
-<pre v-code.script>
-<code>
+<pre v-code.script><code>
 import ProductService from '../../service/ProductService';
 
 export default {
@@ -289,8 +287,7 @@ export default {
 	</div>
 </template>
 
-<pre v-code.css>
-<code>
+<pre v-code.css><code>
 ::v-deep(.editable-cells-table td.p-cell-editing) {
     padding-top: 0;
     padding-bottom: 0;

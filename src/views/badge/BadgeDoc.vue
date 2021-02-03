@@ -6,29 +6,25 @@
                 <p>Badge can either be used as a standalone component or as a directive.</p>
 
                 <h6>Component</h6>
-<pre v-code.script>
-<code>
+<pre v-code.script><code>
 import Badge from 'primevue/badge';
 
 </code></pre>
 
 				<p>Content of the badge is specified using the <i>value</i> property.</p>
-<pre v-code>
-<code>
+<pre v-code><code>
 &lt;Badge value="2"&gt;&lt;/Badge&gt;
 
 </code></pre>
 
                 <h6>Directive</h6>
-                <pre v-code.script>
-<code>
+                <pre v-code.script><code>
 import BadgeDirective from 'primevue/badgedirective';
 
 </code></pre>
 
 				<p>When used as a directive, badge needs to be configured at the application with a name of your choice.</p>
-<pre v-code.script>
-<code>
+<pre v-code.script><code>
 import BadgeDirective from 'primevue/badgedirective';
 
 Vue.directive('badge', BadgeDirective);
@@ -36,8 +32,7 @@ Vue.directive('badge', BadgeDirective);
 </code></pre>
 
                 <p>Next step is attaching it to an element.</p>
-<pre v-code>
-<code>
+<pre v-code><code>
 &lt;i class="pi pi-bell" v-badge="2"&gt;&lt;/i&gt;
 
 </code></pre>
@@ -53,8 +48,7 @@ Vue.directive('badge', BadgeDirective);
 					<li>danger</li>
 				</ul>
 
-<pre v-code>
-<code>
+<pre v-code><code>
 &lt;Badge value="2" severity="success"&gt;&lt;/Badge&gt;
 
 &lt;i class="pi pi-bell" v-badge.success="2"&gt;&lt;/i&gt;
@@ -64,8 +58,7 @@ Vue.directive('badge', BadgeDirective);
                 <h5>Button Badges</h5>
                 <p>Buttons provide integrated badge support with the <i>badge</i> and <i>badgeClass</i> properties.</p>
 
-<pre v-code>
-<code>
+<pre v-code><code>
 &lt;Button type="button" label="Emails" badge="8" /&gt;
 &lt;Button type="button" label="Messages" icon="pi pi-users" class="p-button-warning" badge="8" badgeClass="p-badge-danger" /&gt;
 
@@ -74,8 +67,7 @@ Vue.directive('badge', BadgeDirective);
                 <h5>Sizes</h5>
                 <p>Badge sizes are adjusted with the <i>size</i> property that accepts "large" and "xlarge" as the possible alternatives to the default size. Currently
                 sizes only apply to component mode.</p>
-<pre v-code>
-<code>
+<pre v-code><code>
 &lt;Badge value="2"&gt;&lt;/Badge&gt;
 &lt;Badge value="4" size="large" severity="warning"&gt;&lt;/Badge&gt;
 &lt;Badge value="6" size="xlarge" severity="success"&gt;&lt;/Badge&gt;
@@ -83,8 +75,7 @@ Vue.directive('badge', BadgeDirective);
 </code></pre>
 
                 <p>In addition, when placed inside another element, badge sizes can also derive their size from their parent.</p>
-<pre v-code>
-<code>
+<pre v-code><code>
 &lt;h1&gt;Heading 1 &lt;Badge value="New"&gt;&lt;/Badge&gt;&lt;/h1&gt;
 &lt;h2&gt;Heading 2 &lt;Badge value="New"&gt;&lt;/Badge&gt;&lt;/h2&gt;
 
@@ -187,8 +178,7 @@ Vue.directive('badge', BadgeDirective);
                     </a>
                     <LiveEditor name="BadgeDemo" :sources="sources" :directives="['Badge']" :components="['Button']" />
                 </div>
-<pre v-code>
-<code><template v-pre>
+<pre v-code><code><template v-pre>
 &lt;h5&gt;Numbers&lt;/h5&gt;
 &lt;Badge value="2" class="p-mr-2"&gt;&lt;/Badge&gt;
 &lt;Badge value="8" severity="success" class="p-mr-2"&gt;&lt;/Badge&gt;

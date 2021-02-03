@@ -3,22 +3,19 @@
 		<TabView>
 			<TabPanel header="Documentation">
 				<h5>Import</h5>
-<pre v-code.script>
-<code>
+<pre v-code.script><code>
 import Listbox from 'primevue/listbox';
 
 </code></pre>
 
 				<h5>Getting Started</h5>
 				<p>Listbox requires a value to bind and a collection of arbitrary objects along with the <i>optionLabel</i> property to specify the label property of the option.</p>
-<pre v-code>
-<code>
+<pre v-code><code>
 &lt;Listbox v-model="selectedCity" :options="cities" optionLabel="name" /&gt;
 
 </code></pre>
 
-<pre v-code.script>
-<code>
+<pre v-code.script><code>
 data() {
 	return {
 		selectedCity: null,
@@ -38,16 +35,14 @@ data() {
 				<p>Listbox allows selection of either single or multiple items. In single case, model should be a single object reference whereas in multiple case should be an array. Multiple items can either be selected
 					using metaKey or toggled individually depending on the value of <i>metaKeySelection</i> property value which is true by default. On touch enabled
 					devices metaKeySelection is turned off automatically.</p>
-<pre v-code>
-<code>
+<pre v-code><code>
 &lt;Listbox v-model="selectedCity" :options="cities" optionLabel="name" :multiple="true"/&gt;
 
 </code></pre>
 
 				<h5>Custom Content</h5>
 				<p>Label of an option is used as the display text of an item by default, for custom content support define an <i>option</i> template that gets the option instance as a parameter.</p>
-<pre v-code>
-<code><template v-pre>
+<pre v-code><code><template v-pre>
 &lt;Listbox v-model="selectedCars" :options="cars" :multiple="true" :filter="true" optionLabel="brand" listStyle="max-height:250px" style="width:15em"&gt;
 	&lt;template #option="slotProps"&gt;
 		&lt;div&gt;
@@ -61,8 +56,7 @@ data() {
 
 				<h5>Filter</h5>
 				<p>Filtering allows searching items in the list using an input field at the header. In order to use filtering, enable <i>filter</i> property.</p>
-<pre v-code>
-<code>
+<pre v-code><code>
 &lt;Listbox v-model="selectedCity" :options="cities" optionLabel="name" :filter="true"/&gt;
 
 </code></pre>
@@ -242,8 +236,7 @@ data() {
                     </a>
                     <LiveEditor name="ListboxDemo" :sources="sources"/>
                 </div>
-<pre v-code>
-<code><template v-pre>
+<pre v-code><code><template v-pre>
 &lt;h5&gt;Single&lt;/h5&gt;
 &lt;Listbox v-model="selectedCity" :options="cities" optionLabel="name" style="width:15rem" /&gt;
 
@@ -259,8 +252,7 @@ data() {
 </template>
 </code></pre>
 
-<pre v-code.script>
-<code>
+<pre v-code.script><code>
 export default {
     data() {
         return {

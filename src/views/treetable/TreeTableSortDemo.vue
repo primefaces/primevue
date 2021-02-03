@@ -42,8 +42,7 @@
                     <div class="p-d-flex p-jc-end">
                         <LiveEditor name="TreeTableDemo" :sources="sources" service="NodeService" data="treetablenodes" :components="['Column']" />
                     </div>
-<pre v-code>
-<code><template v-pre>
+<pre v-code><code><template v-pre>
 &lt;h3&gt;Single Column Sorting&lt;/h3&gt;
 &lt;TreeTable :value="nodes" sortMode="single"&gt;
     &lt;Column field="name" header="Name" :expander="true" :sortable="true"&gt;&lt;/Column&gt;
@@ -67,8 +66,7 @@
 </template>
 </code></pre>
 
-<pre v-code.script>
-<code>
+<pre v-code.script><code>
 import NodeService from '../../service/NodeService';
 
 export default {

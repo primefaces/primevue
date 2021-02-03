@@ -3,8 +3,7 @@
 		<TabView>
 			<TabPanel header="Documentation">
 				<h5>Import</h5>
-<pre v-code.script>
-<code>
+<pre v-code.script><code>
 import Inplace from 'primevue/inplace';
 
 </code></pre>
@@ -12,8 +11,7 @@ import Inplace from 'primevue/inplace';
 				<h5>Getting Started</h5>
 				<p>Inplace requires <i>display</i> and <i>content</i> templates to define the content of each state.</p>
 
-<pre v-code>
-<code><template v-pre>
+<pre v-code><code><template v-pre>
 &lt;Inplace&gt;
     &lt;template #display&gt;
         &lt;span class="pi pi-search" style="vertical-align: middle"&gt;&lt;/span&gt;
@@ -28,8 +26,7 @@ import Inplace from 'primevue/inplace';
 
                 <h5>Closable</h5>
                 <p><i>closable</i> property is handy within forms as it enables to switch back to output mode after editing is completed using a button displayed next to the form field.</p>
-<pre v-code>
-<code><template v-pre>
+<pre v-code><code><template v-pre>
 &lt;Inplace :closable="true"&gt;
     &lt;template #display&gt;
         &#123;&#123;text || 'Click to Edit'&#125;&#125;
@@ -43,8 +40,7 @@ import Inplace from 'primevue/inplace';
 
 				<h5>Lazy Data</h5>
 				<p>Inplace allows lazy loading content so that the content gets initialized after getting opened instead of on load. Here is an example that loads, data of a table if the user decides to open the inplace.</p>
-<pre v-code>
-<code><template v-pre>
+<pre v-code><code><template v-pre>
 &lt;Inplace @open="loadData"&gt;
     &lt;template #display&gt;
         View Data
@@ -61,8 +57,7 @@ import Inplace from 'primevue/inplace';
 </template>
 </code></pre>
 
-<pre v-code.script>
-<code>
+<pre v-code.script><code>
 import CarService from '../../service/CarService';
 
 export default {
@@ -176,8 +171,7 @@ export default {
                 </a>
                 <LiveEditor name="InplaceDemo" :sources="sources" service="ProductService" data="products-small" :components="['InputText', 'DataTable', 'Column']" />
                 </div>
-<pre v-code>
-<code><template v-pre>
+<pre v-code><code><template v-pre>
 &lt;h3&gt;Input&lt;/h3&gt;
 &lt;Inplace :closable="true"&gt;
     &lt;template #display&gt;
@@ -216,8 +210,7 @@ export default {
 </template>
 </code></pre>
 
-<pre v-code.script>
-<code>
+<pre v-code.script><code>
 import ProductService from '../../service/ProductService';
 
 export default {

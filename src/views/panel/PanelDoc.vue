@@ -3,16 +3,14 @@
 		<TabView>
 			<TabPanel header="Documentation">
 				<h5>Import</h5>
-<pre v-code.script>
-<code>
+<pre v-code.script><code>
 import Panel from 'primevue/panel';
 
 </code></pre>
 
 				<h5>Getting Started</h5>
 				<p>Panel is a container component that accepts content as its children.</p>
-<pre v-code>
-<code>
+<pre v-code><code>
 &lt;Panel header="Header"&gt;
 	Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.
     Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.
@@ -24,8 +22,7 @@ import Panel from 'primevue/panel';
 
                 <h5>Custom Header</h5>
                 <p>Header of the panel is either defined with the <i>header</i> property or the header template.</p>
-<pre v-code>
-<code>
+<pre v-code><code>
 &lt;Panel&gt;
     &lt;template #header&gt;
         Header Content
@@ -37,8 +34,7 @@ import Panel from 'primevue/panel';
 
 				<h5>Toggleable</h5>
 				<p>Content of the panel can be expanded and collapsed using <i>toggleable</i> option.</p>
-<pre v-code>
-<code>
+<pre v-code><code>
 &lt;Panel header="Header" :toggleable="true"&gt;
 	Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.
     Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.
@@ -49,8 +45,7 @@ import Panel from 'primevue/panel';
 </code></pre>
 
                 <p>To control the initial state of the toggleable panel, use the <i>collapsed</i> property.</p>
-<pre v-code>
-<code>
+<pre v-code><code>
 &lt;Panel header="Header Text" :toggleable="true" :collapsed="true"&gt;
 	Content
 &lt;/Panel&gt;
@@ -59,8 +54,7 @@ import Panel from 'primevue/panel';
 
                 <p>Use the v-model directive to enable two-way binding.</p>
 
-<pre v-code>
-<code>
+<pre v-code><code>
 &lt;button type="button" @click="isCollapsed = !isCollapsed">Toggle Programmatically&lt;/button&gt;
 &lt;Panel header="Header Text" :toggleable="true" v-model:collapsed="isCollapsed"&gt;
 	Content
@@ -71,8 +65,7 @@ import Panel from 'primevue/panel';
                 <h5>Custom Icons</h5>
                 <p>Additional icons can be placed at the header section of the panel using the special <i>icons</i> slot. For a unified look, it is suggest to add <i>.p-panel-header-icon</i>
                 class to your icons.</p>
-<pre v-code>
-<code>
+<pre v-code><code>
 &lt;h5&gt;Advanced&lt;/h5&gt;
 &lt;Panel header="Header"&gt;
     &lt;template #icons&gt;
@@ -193,8 +186,7 @@ import Panel from 'primevue/panel';
                     <LiveEditor name="PanelDemo" :sources="sources" :toastService="true" :components="['Menu']" />
                 </div>
 
-<pre v-code>
-<code><template v-pre>
+<pre v-code><code><template v-pre>
 &lt;h5&gt;Regular&lt;/h5&gt;
 &lt;Panel header="Header"&gt;
     &lt;p&gt;Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.
@@ -219,8 +211,7 @@ import Panel from 'primevue/panel';
 </template>
 </code></pre>
 
-<pre v-code.script>
-<code>
+<pre v-code.script><code>
 export default {
     data() {
         return {

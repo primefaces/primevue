@@ -51,8 +51,7 @@
                     <div class="p-d-flex p-jc-end">
                         <LiveEditor name="DataTableDemo" :sources="sources" service="ProductService" data="products-small" :components="['Column', 'Rating', 'Button']" />
                     </div>
-<pre v-code>
-<code><template v-pre>
+<pre v-code><code><template v-pre>
 &lt;DataTable :value="products"&gt;
     &lt;template #header&gt;
         &lt;div class="table-header"&gt;
@@ -89,8 +88,7 @@
 </template>
 </code></pre>
 
-<pre v-code.script>
-<code>
+<pre v-code.script><code>
 import ProductService from '../../service/ProductService';
 
 export default {
@@ -115,8 +113,7 @@ export default {
 
 </code></pre>
 
-<pre v-code.css>
-<code>
+<pre v-code.css><code>
 .table-header {
     display: flex;
     align-items: center;

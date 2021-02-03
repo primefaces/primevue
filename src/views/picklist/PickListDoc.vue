@@ -3,8 +3,7 @@
 		<TabView>
 			<TabPanel header="Documentation">
 				<h5>Import</h5>
-<pre v-code.script>
-<code>
+<pre v-code.script><code>
 import PickList from 'primevue/picklist';
 
 </code></pre>
@@ -12,8 +11,7 @@ import PickList from 'primevue/picklist';
 				<h5>Getting Started</h5>
                 <p>PickList requires a multidimensional array as its value bound with the v-model directive and a template for its content
                     that gets the <i>item</i> instance and the <i>index</i> via slotProps.</p>
-<pre v-code>
-<code><template v-pre>
+<pre v-code><code><template v-pre>
 &lt;PickList v-model="cars" dataKey="vin"&gt;
     &lt;template #item="slotProps"&gt;
         &lt;div class="p-caritem"&gt;
@@ -30,8 +28,7 @@ import PickList from 'primevue/picklist';
 
                 <h5>Templates</h5>
                 <p>In addition to the mandatory "item" template, picklist provides "sourceHeader" and "targetHeader" slots as optional templates.</p>
-<pre v-code>
-<code><template v-pre>
+<pre v-code><code><template v-pre>
 &lt;PickList v-model="cars" dataKey="vin"&gt;
     &lt;template #sourceHeader&gt;
         Available
@@ -57,8 +54,7 @@ import PickList from 'primevue/picklist';
                 it gets updated when the user makes a selection. Since it is two-way binding enabled, your changes to the selection will be reflected as well.  Note that
                 this is optional and only necessary when you need to access the selection.</p>
 
-<pre v-code>
-<code><template v-pre>
+<pre v-code><code><template v-pre>
 &lt;PickList v-model="cars" dataKey="vin" v-model:selection="selection"&gt;
     &lt;template #item="slotProps"&gt;
         &lt;div class="p-caritem"&gt;
@@ -232,8 +228,7 @@ import PickList from 'primevue/picklist';
                     </a>
                     <LiveEditor name="PickListDemo" :sources="sources" service="ProductService" data="products-small" />
                 </div>
-<pre v-code>
-<code><template v-pre>
+<pre v-code><code><template v-pre>
 &lt;PickList v-model="products" listStyle="height:342px" dataKey="id"&gt;
     &lt;template #sourceHeader&gt;
         Available
@@ -261,8 +256,7 @@ import PickList from 'primevue/picklist';
 </template>
 </code></pre>
 
-<pre v-code.script>
-<code>
+<pre v-code.script><code>
 import ProductService from '../../service/ProductService';
 
 export default {
@@ -282,8 +276,7 @@ export default {
 
 </code></pre>
 
-<pre v-code.css>
-<code>
+<pre v-code.css><code>
 product-item {
 	display: flex;
 	align-items: center;

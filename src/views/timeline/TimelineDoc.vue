@@ -3,8 +3,7 @@
 		<TabView>
 			<TabPanel header="Documentation">
 				<h5>Import</h5>
-<pre v-code.script>
-<code>
+<pre v-code.script><code>
 import Timeline from 'primevue/timeline';
 
 </code></pre>
@@ -12,8 +11,7 @@ import Timeline from 'primevue/timeline';
 				<h5>Getting Started</h5>
 				<p>Timeline receives the events with the <i>value</i> property as a collection of arbitrary objects. In addition, <i>content</i> template is required to display the representation of an event.
 					Example below is a sample events array that is used throughout the documentation.</p>
-<pre v-code.script>
-<code>
+<pre v-code.script><code>
 export default {
     data() {
         return {
@@ -32,8 +30,7 @@ export default {
 
 </code></pre>
 
-<pre v-code>
-<code><template v-pre>
+<pre v-code><code><template v-pre>
 &lt;Timeline :value="events"&gt;
 	&lt;template #content="slotProps"&gt;
 		&#123;&#123;slotProps.item.status&#125;&#125;
@@ -44,8 +41,7 @@ export default {
 
 				<h5>Layout</h5>
 				<p>Default layout of the timeline is vertical, setting <i>layout</i> to "horizontal" displays the items horizontally.</p>
-<pre v-code>
-<code><template v-pre>
+<pre v-code><code><template v-pre>
 &lt;Timeline :value="events"&gt;
 	&lt;template #content="slotProps"&gt;
 		&#123;&#123;slotProps.item.status&#125;&#125;
@@ -56,8 +52,7 @@ export default {
 
 				<h5>Alignment</h5>
 				<p>Location of the timeline bar is defined using the <i>align</i> property.</p>
-<pre v-code>
-<code><template v-pre>
+<pre v-code><code><template v-pre>
 &lt;Timeline :value="events" align="right"&gt;
 	&lt;template #content="slotProps"&gt;
 		&#123;&#123;slotProps.item.status&#125;&#125;
@@ -67,8 +62,7 @@ export default {
 </code></pre>
 
 				<p>In addition, the "alternate" alignment option make the contents take turns around the timeline bar.</p>
-<pre v-code>
-<code><template v-pre>
+<pre v-code><code><template v-pre>
 &lt;Timeline :value="events" align="alternate"&gt;
 	&lt;template #content="slotProps"&gt;
 		&#123;&#123;slotProps.item.status&#125;&#125;
@@ -79,8 +73,7 @@ export default {
 
 				<h5>Opposite</h5>
 				<p>Content to be placed at the other side of the bar is defined with the <i>opposite</i> template.</p>
-<pre v-code>
-<code><template v-pre>
+<pre v-code><code><template v-pre>
 &lt;Timeline :value="events"&gt;
 	&lt;template #opposite="slotProps"&gt;
 		&lt;small class="p-text-secondary"&gt;&#123;&#123;slotProps.item.date&#125;&#125;&lt;/small&gt;
@@ -94,8 +87,7 @@ export default {
 
 				<h5>Custom Markers</h5>
 				<p><i>marker</i> template allows placing a custom event marker instead of the default one. Below is an example with custom markers and content.</p>
-<pre v-code>
-<code><template v-pre>
+<pre v-code><code><template v-pre>
 &lt;Timeline :value="events" align="alternate" class="customized-timeline"&gt;
 	&lt;template #marker="slotProps"&gt;
 		&lt;span class="custom-marker p-shadow-2" :style="&#123;backgroundColor: slotProps.item.color&#125;"&gt;
@@ -244,8 +236,7 @@ export default {
 					</a>
 					<LiveEditor name="TimelineDemo" :sources="sources" :components="['Card', 'Button']" />
                 </div>
-<pre v-code>
-<code><template v-pre>
+<pre v-code><code><template v-pre>
 &lt;div class="card"&gt;
 	&lt;h5&gt;Left Align&lt;/h5&gt;
 	&lt;Timeline :value="events1"&gt;
@@ -341,8 +332,7 @@ export default {
 </template>
 </code></pre>
 
-<pre v-code.script>
-<code>
+<pre v-code.script><code>
 export default {
     data() {
         return {

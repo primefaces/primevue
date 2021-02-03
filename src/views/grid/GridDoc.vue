@@ -5,8 +5,7 @@
 				<h5>Getting Started</h5>
 				<p>FlexGrid is a CSS utility based on flexbox. For more information about Flex, visit <a href="https://css-tricks.com/snippets/css/a-guide-to-flexbox/">A Complete Guide to Flexbox</a>. A basic grid is defined by giving
 					a container <i>p-grid</i> class and children the <i>p-col</i> class. Children of the grid will have the same width and scale according to the width of the parent.</p>
-<pre v-code>
-<code>
+<pre v-code><code>
 &lt;div class="p-grid"&gt;
 	&lt;div class="p-col"&gt;1&lt;/div&gt;
 	&lt;div class="p-col"&gt;2&lt;/div&gt;
@@ -31,8 +30,7 @@
 				<p>FlexGrid includes a 12 column based layout utility where width of a column is defined with the <i>p-col-&#123;number&#125;</i> style class. Columns with prefined widths can be used with columns with auto width (p-col) as well.</p>
 
 				<p>In the first example below, first column covers the 4 units out of 12 and the rest of the columns share the remaining space whereas in the second example, all three columns have explicit units.</p>
-<pre v-code>
-<code>
+<pre v-code><code>
 &lt;div class="p-grid"&gt;
 	&lt;div class="p-col-4"&gt;4&lt;/div&gt;
 	&lt;div class="p-col"&gt;1&lt;/div&gt;
@@ -97,8 +95,7 @@
 
 				<h5>MultiLine</h5>
 				<p>When the number of columns exceed 12, columns wrap to a new line.</p>
-<pre v-code>
-<code>
+<pre v-code><code>
 &lt;div class="p-grid"&gt;
 	&lt;div class="p-col-6"&gt;6&lt;/div&gt;
 	&lt;div class="p-col-6"&gt;6&lt;/div&gt;
@@ -125,8 +122,7 @@
 
 				<h5>Fixed Width Column</h5>
 				<p>A column can have a fixed width while siblings having auto width. Apply <i>p-col-fixed</i> class to fix a column width.</p>
-<pre v-code>
-<code>
+<pre v-code><code>
 &lt;div class="p-grid"&gt;
 	&lt;div class="p-col-fixed" style="width:100px"&gt;Fixed&lt;/div&gt;
 	&lt;div class="p-col"&gt;Auto&lt;/div&gt;
@@ -184,8 +180,7 @@
 				</div>
 
 				<p>In example below, large screens display 4 columns, medium screens display 2 columns in 2 rows and finally on small devices, columns are stacked.</p>
-<pre v-code>
-<code>
+<pre v-code><code>
 &lt;div class="p-grid"&gt;
 	&lt;div class="p-col-12 p-md-6 p-lg-3"&gt;A&lt;/div&gt;
 	&lt;div class="p-col-12 p-md-6 p-lg-3"&gt;B&lt;/div&gt;
@@ -211,8 +206,7 @@
 </div>
 				<h5>Offset</h5>
 				<p>Offset classes allow defining a left margin on a column to avoid adding empty columns for spacing.</p>
-<pre v-code>
-<code>
+<pre v-code><code>
 &lt;div class="p-grid"&gt;
 	&lt;div class="p-col-6 p-offset-3"&gt;6&lt;/div&gt;
 &lt;/div&gt;
@@ -286,8 +280,7 @@
 
 				<h5>Nested</h5>
 				<p>Columns can be nested to create more complex layouts.</p>
-<pre v-code>
-<code>
+<pre v-code><code>
 &lt;div class="p-grid nested-grid"&gt;
 	&lt;div class="p-col-8"&gt;
 		&lt;div class="p-grid"&gt;
@@ -332,8 +325,7 @@
 				<p>A .5rem padding is applied to each column along with negative margins on the container element, in case you'd like to remove these gutters, apply
 					<i>p-nogutter</i> class to the container. Gutters can also be removed on an ndividual columns with the same class name.
 				</p>
-<pre v-code>
-<code>
+<pre v-code><code>
 &lt;div class="p-grid p-nogutter"&gt;
 	&lt;div class="p-col"&gt;1&lt;/div&gt;
 	&lt;div class="p-col p-nogutter"&gt;2&lt;/div&gt;
@@ -347,8 +339,7 @@
 				<a href="https://github.com/primefaces/primevue/tree/master/src/views/flexgrid" class="btn-viewsource" target="_blank" rel="noopener noreferrer">
 					<span>View on GitHub</span>
 				</a>
-<pre v-code>
-<code><template v-pre>
+<pre v-code><code><template v-pre>
 <h5>Basic</h5>
 &lt;div class="p-grid"&gt;
 	&lt;div class="p-col"&gt;
@@ -719,8 +710,7 @@
 </template>
 </code></pre>
 
-<pre v-code.script>
-<code>
+<pre v-code.script><code>
 export default {
 	data() {
 		return {
@@ -739,8 +729,7 @@ export default {
 
 </code></pre>
 
-<pre v-code.css>
-<code>
+<pre v-code.css><code>
 .flexgrid-demo {
     .box {
         background-color: var(--surface-e);
