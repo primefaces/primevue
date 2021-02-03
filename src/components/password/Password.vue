@@ -133,16 +133,6 @@ export default {
                     document.getElementById(this.appendTo).removeChild(this.overlay);
             }
         },
-        bindOutsideClickListener() {
-            if (!this.outsideClickListener) {
-                this.outsideClickListener = (event) => {
-                    if (this.overlayVisible && this.overlay && this.isOutsideClicked(event)) {
-                        this.hideOverlay();
-                    }
-                };
-                document.addEventListener('click', this.outsideClickListener);
-            }
-        },
         testStrength(str) {
             let level = 0;
 
