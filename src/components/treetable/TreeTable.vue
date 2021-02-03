@@ -31,7 +31,7 @@
                         </th>
                     </tr>
                     <tr v-if="hasColumnFilter()">
-                        <th  v-for="(col,i) of columns" :key="columnProp(col, 'columnKeuy')||columnProp(col, 'field')||i" :class="getFilterColumnHeaderClass(col)" :style="columnProp(col, 'filterHeaderStyle')">
+                        <th  v-for="(col,i) of columns" :key="columnProp(col, 'columnKey')||columnProp(col, 'field')||i" :class="getFilterColumnHeaderClass(col)" :style="columnProp(col, 'filterHeaderStyle')">
                             <component :is="col.children?.filter" :column="col" v-if="col.children?.filter"/>
                         </th>
                     </tr>

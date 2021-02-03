@@ -29,7 +29,7 @@
         </template>
         <template v-else>
             <tr v-for="(row,i) of columnGroup.children.default()" :key="i">
-                <th v-for="(col,i) of row.children.default()" :key="columnProp(col, 'columnKeuy')||columnProp(col, 'field')||i" :style="columnProp(col, 'headerStyle')" :class="getColumnHeaderClass(col)" :tabindex="columnProp(col, 'sortable') ? '0' : null"
+                <th v-for="(col,i) of row.children.default()" :key="columnProp(col, 'columnKey')||columnProp(col, 'field')||i" :style="columnProp(col, 'headerStyle')" :class="getColumnHeaderClass(col)" :tabindex="columnProp(col, 'sortable') ? '0' : null"
                     @click="onColumnHeaderClick($event, col)" @keydown="onColumnKeyDown($event, col)" @dragstart="onColumnHeaderDragStart($event)" @dragover="onColumnHeaderDragOver($event)" @dragleave="onColumnHeaderDragLeave($event)" @drop="onColumnHeaderDrop($event)"
                     :colspan="columnProp(col, 'colspan')" :rowspan="columnProp(col, 'rowspan')" :aria-sort="getAriaSort(col)">
                    <component :is="col.children.header" :column="col" v-if="col.children && col.children.header"/>
