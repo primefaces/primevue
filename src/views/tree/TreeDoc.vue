@@ -3,8 +3,7 @@
 		<TabView>
 			<TabPanel header="Documentation">
 				<h5>Import</h5>
-<pre v-code.script>
-<code>
+<pre v-code.script><code>
 import Tree from 'primevue/tree';
 
 </code></pre>
@@ -89,14 +88,12 @@ import Tree from 'primevue/tree';
                 </div>
 
                 <p>Example below loads the tree nodes from a remote datasource via a service called NodeService.</p>
-<pre v-code>
-<code><template v-pre>
+<pre v-code><code><template v-pre>
 &lt;Tree :value="nodes"&gt;&lt;/Tree&gt;
 </template>
 </code></pre>
 
-<pre v-code.script>
-<code>
+<pre v-code.script><code>
 import NodeService from '../../service/NodeService';
 
 export default {
@@ -116,8 +113,7 @@ export default {
 
 </code></pre>
 
-<pre v-code.script>
-<code>
+<pre v-code.script><code>
 import axios from 'axios';
 
 export default class NodeService {
@@ -131,8 +127,7 @@ export default class NodeService {
 </code></pre>
 
                 <p>The json response sample would be as following.</p>
-<pre v-code.script>
-<code>
+<pre v-code.script><code>
 {
     "root": [
         {
@@ -196,8 +191,7 @@ export default class NodeService {
                 </p>
 
                 <p>Example below expands and collapses all nodes with buttons.</p>
-<pre v-code>
-<code><template v-pre>
+<pre v-code><code><template v-pre>
 &lt;div&gt;
     &lt;Button type="button" icon="pi pi-plus" label="Expand All" @click="expandAll" /&gt;
     &lt;Button type="button" icon="pi pi-minus" label="Collapse All" @click="collapseAll" /&gt;
@@ -206,8 +200,7 @@ export default class NodeService {
 </template>
 </code></pre>
 
-<pre v-code.script>
-<code>
+<pre v-code.script><code>
 import NodeService from '../../service/NodeService';
 
 export default {
@@ -249,8 +242,7 @@ export default {
 </code></pre>
 
                 <p>To display some nodes as expanded by default, simply add their keys to the map.</p>
-<pre v-code.script>
-<code>
+<pre v-code.script><code>
 import NodeService from '../../service/NodeService';
 
 export default {
@@ -282,8 +274,7 @@ export default {
 
                 <p>Similarly to the <i>expandedKeys</i>, <i>selectionKeys</i> is a Map instance whose key is the key of a node and value is a boolean in "single" and "multiple" cases. On the other hand
                 in "checkbox" mode, instead of a boolean, value should be an object that has "checked" and "partialChecked" properties to represent the checked state of a node.</p>
-<pre v-code>
-<code><template v-pre>
+<pre v-code><code><template v-pre>
 &lt;h3&gt;Single Selection&lt;/h3&gt;
 &lt;Tree :value="nodes" selectionMode="single" v-model:selectionKeys="selectedKey1"&gt;&lt;/Tree&gt;
 
@@ -302,8 +293,7 @@ export default {
 </template>
 </code></pre>
 
-<pre v-code.script>
-<code>
+<pre v-code.script><code>
 import NodeService from '../../service/NodeService';
 
 export default {
@@ -337,8 +327,7 @@ export default {
 </code></pre>
 
                 <p>To display some nodes as selected by default, simply add their keys to the map.</p>
-<pre v-code.script>
-<code>
+<pre v-code.script><code>
 import NodeService from '../../service/NodeService';
 
 export default {
@@ -381,14 +370,12 @@ export default {
                     tree would render an expand icon. Example below uses an in memory collection to mimic a lazy loading scenario with timeouts.
                 </p>
 
-<pre v-code>
-<code><template v-pre>
+<pre v-code><code><template v-pre>
 &lt;Tree :value="nodes" @node-expand="onNodeExpand" :loading="loading"&gt;&lt;/Tree&gt;
 </template>
 </code></pre>
 
-<pre v-code.script>
-<code>
+<pre v-code.script><code>
 import NodeService from '../../service/NodeService';
 
 export default {
@@ -459,8 +446,7 @@ export default {
                 <h5>Templating</h5>
                 <p>The <i>type</i> property of a TreeNode is used to map a template to a node to create the node label. If it is undefined and no default template is available,
                 label of the node is used.</p>
-<pre v-code>
-<code><template v-pre>
+<pre v-code><code><template v-pre>
 &lt;Tree :value="nodes"&gt;
     &lt;template #default="slotProps"&gt;
         &lt;b&gt;&#123;&#123;slotProps.node.label&#125;&#125;&lt;/b&gt;
@@ -472,8 +458,7 @@ export default {
 </template>
 </code></pre>
 
-<pre v-code.script>
-<code>
+<pre v-code.script><code>
 export default {
     data() {
         return {
@@ -512,8 +497,7 @@ export default {
                 <p>In addition <i>filterMode</i> specifies the filtering strategy. In <b>lenient</b> mode when the query matches a node, children of the node are not searched further as all descendants of the node are included. On the other hand,
                  in <b>strict</b> mode when the query matches a node, filtering continues on all descendants.</p>
 
-<pre v-code>
-<code><template v-pre>
+<pre v-code><code><template v-pre>
 &lt;h3&gt;Lenient Filter&lt;/h3&gt;
 &lt;Tree :value="nodes" :filter="true" filterMode="lenient"&gt;&lt;/Tree&gt;
 
@@ -522,8 +506,7 @@ export default {
 </template>
 </code></pre>
 
-<pre v-code.script>
-<code>
+<pre v-code.script><code>
 import NodeService from '../../service/NodeService';
 
 export default {
@@ -756,8 +739,7 @@ export default {
                     </a>
                     <LiveEditor name="TreeDemo" :sources="sources" service="NodeService" data="treenodes" :components="['Button']" />
                 </div>
-<pre v-code>
-<code><template v-pre>
+<pre v-code><code><template v-pre>
 &lt;h3&gt;Basic&lt;/h3&gt;
 &lt;Tree :value="nodes"&gt;&lt;/Tree&gt;
 
@@ -770,8 +752,7 @@ export default {
 </template>
 </code></pre>
 
-<pre v-code.script>
-<code>
+<pre v-code.script><code>
 import NodeService from '../../service/NodeService';
 
 export default {

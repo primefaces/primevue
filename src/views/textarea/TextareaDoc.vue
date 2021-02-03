@@ -3,24 +3,21 @@
 		<TabView>
 			<TabPanel header="Documentation">
 				<h5>Import</h5>
-<pre v-code.script>
-<code>
+<pre v-code.script><code>
 import Textarea from 'primevue/textarea';
 
 </code></pre>
 
 				<h5>Getting Started</h5>
 				<p>A model can be bound using the standard v-model directive.</p>
-<pre v-code>
-<code>
+<pre v-code><code>
 &lt;Textarea v-model="value" rows="5" cols="30" /&gt;
 
 </code></pre>
 
 				<h5>AutoResize</h5>
 				<p>In auto resize mode, textarea grows instead of displaying a scrollbar.</p>
-<pre v-code>
-<code>
+<pre v-code><code>
 &lt;Textarea v-model="value" :autoResize="true" rows="5" cols="30" /&gt;
 
 </code></pre>
@@ -87,8 +84,7 @@ import Textarea from 'primevue/textarea';
 					</a>
 					<LiveEditor name="TextareaDemo" :sources="sources"/>
                 </div>
-<pre v-code>
-<code><template v-pre>
+<pre v-code><code><template v-pre>
 &lt;h3&gt;Basic&lt;/h3&gt;
 &lt;Textarea v-model="value1" rows="5" cols="30" /&gt;
 
@@ -100,8 +96,7 @@ import Textarea from 'primevue/textarea';
 </template>
 </code></pre>
 
-<pre v-code.script>
-<code>
+<pre v-code.script><code>
 export default {
 	data() {
 		return {

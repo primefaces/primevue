@@ -3,8 +3,7 @@
 		<TabView>
 			<TabPanel header="Documentation">
 				<h5>Import</h5>
-<pre v-code.script>
-<code>
+<pre v-code.script><code>
 import Calendar from 'primevue/calendar';
 
 </code></pre>
@@ -12,14 +11,12 @@ import Calendar from 'primevue/calendar';
                 <h5>Getting Started</h5>
                 <p>Two-way value binding is defined using the standard v-model directive referencing to a Date property.</p>
 
-<pre v-code>
-<code>
+<pre v-code><code>
 &lt;Calendar v-model="value" /&gt;
 
 </code></pre>
 
-<pre v-code.script>
-<code>
+<pre v-code.script><code>
 export default {
     data() {
         return {
@@ -32,8 +29,7 @@ export default {
 
                 <h5>Popup and Inline</h5>
                 <p>Calendar is displayed in a popup by default and <i>inline</i> property needs to be enabled for inline mode.</p>
-<pre v-code>
-<code>
+<pre v-code><code>
 &lt;Calendar v-model="value" :inline="true" /&gt;
 
 </code></pre>
@@ -44,8 +40,7 @@ export default {
                 Third alternative is the range mode that allows selecting a range based on an array of two values where first value is the start date and second value
                 is the end date.</p>
 
-<pre v-code>
-<code>
+<pre v-code><code>
 &lt;Calendar v-model="value" selectionMode="single || multiple || range" /&gt;
 
 </code></pre>
@@ -53,8 +48,7 @@ export default {
                 <h5>DateFormat</h5>
                 <p>Default date format is mm/dd/yy, to customize this use <i>dateFormat</i> property or define it at <router-link to="/locale">PrimeVue Locale</router-link> globally. Note that standalone property overrides the value in locale settings.</p>
 
-<pre v-code>
-<code>
+<pre v-code><code>
 &lt;Calendar v-model="value" dateFormat="dd.mm.yy" /&gt;
 
 </code></pre>
@@ -84,8 +78,7 @@ export default {
                 <p>TimePicker is enabled with <i>showTime</i> property and 24 (default) or 12 hour mode is configured using <i>hourFormat</i> option. If you
                     need to use the time picker as standalone, use the <i>timeOnly</i> property.
                 </p>
-<pre v-code>
-<code>
+<pre v-code><code>
 &lt;Calendar v-model="value" :showTime="true" /&gt;
 &lt;Calendar v-model="value" :showTime="true" hourFormat="12" /&gt;
 &lt;Calendar v-model="value" :showTime="true" :timeOnly="true" /&gt;
@@ -95,31 +88,27 @@ export default {
                 <h5>Date Restriction</h5>
                 <p>To disable entering dates manually, set <i>manualInput</i> to true and to restrict selectable dates with the <i>minDate</i>
                     and <i>maxDate</i> options.</p>
-<pre v-code>
-<code>
+<pre v-code><code>
 &lt;Calendar v-model="value" :minDate="minDateValue" maxDate="maxDateValue" /&gt;
 
 </code></pre>
 
             <p>To disable specific dates or days, restrict selectable dates use <i>disabledDates</i> and/or <i>disabledDays</i> options.</p>
-<pre v-code>
-<code>
+<pre v-code><code>
 &lt;Calendar v-model="value" :disabledDates="invalidDates" :disabledDays="[0,6]" /&gt;
 
 </code></pre>
 
                 <h5>Button Bar</h5>
                 <p>Button bar displays today and clear buttons and enabled using <i>showButtonBar</i> property.</p>
-<pre v-code>
-<code>
+<pre v-code><code>
 &lt;Calendar v-model="value" :showButtonBar="true" /&gt;
 
 </code></pre>
 
                 <h5>Multiple Months</h5>
                 <p>Displaying multiple months is enabled by setting <i>numberOfMonths</i> property to a value greater than 1.</p>
-<pre v-code>
-<code>
+<pre v-code><code>
 &lt;Calendar v-model="value" :numberOfMonths="3" /&gt;
 
 </code></pre>
@@ -130,8 +119,7 @@ export default {
             <h5>Custom Content</h5>
             <p>Calendar UI accepts custom content using header and footer templates.</p>
 
-<pre v-code>
-<code>
+<pre v-code><code>
 &lt;Calendar v-model="value"&gt;
     &lt;template #header&gt;Header Content&lt;/template&gt;
     &lt;template #footer&gt;Footer Content&lt;/template&gt;
@@ -143,8 +131,7 @@ export default {
             passed to the template is not a date instance but a metadata object to represent a Date with "day", "month" and "year" properties. Example below
             changes the background color of dates between 10th and 15th of each month.</p>
 
-<pre v-code>
-<code><template v-pre>
+<pre v-code><code><template v-pre>
 &lt;Calendar v-model="value"&gt;
     &lt;template #date="slotProps"&gt;
         &lt;strong v-if="slotProps.date.day &gt; 10 && slotProps.date.day &lt; 15" class="special-day"&gt;{{slotProps.date.day}}&lt;/strong&gt;
@@ -154,8 +141,7 @@ export default {
 </template>
 </code></pre>
 
-<pre v-code.css>
-<code>
+<pre v-code.css><code>
 .special-day {
     text-decoration: line-through;
 }
@@ -164,16 +150,14 @@ export default {
 
                 <h5>Month Picker</h5>
                 <p>Month picker is used to select month and year only without the date, set view mode as "month" to activate month picker.</p>
-<pre v-code>
-<code>
+<pre v-code><code>
 &lt;Calendar v-model="value" view="month" dateFormat="mm/yy" :yearNavigator="true" yearRange="2000:2030" /&gt;
 
 </code></pre>
 
                 <h5>Touch UI</h5>
                 <p>Touch UI mode displays the calendar overlay at the center of the screen as optimized for touch devices.</p>
-<pre v-code>
-<code>
+<pre v-code><code>
 &lt;Calendar v-model="value" :touchUI="true" /&gt;
 
 </code></pre>
@@ -552,8 +536,7 @@ export default {
                     </a>
                     <LiveEditor name="CalendarDemo" :sources="sources" />
                 </div>
-<pre v-code>
-<code><template v-pre>
+<pre v-code><code><template v-pre>
 &lt;h5&gt;Popup&lt;/h5&gt;
 &lt;div class=" p-fluid p-grid p-formgrid"&gt;
     &lt;div class="p-field p-col-12 p-md-4"&gt;
@@ -628,8 +611,7 @@ export default {
 </template>
 </code></pre>
 
-<pre v-code.script>
-<code>
+<pre v-code.script><code>
 export default {
     created() {
         let today = new Date();
@@ -677,8 +659,7 @@ export default {
 
 </code></pre>
 
-<pre v-code.css>
-<code>
+<pre v-code.css><code>
 .special-day {
     text-decoration: line-through;
 }

@@ -8,8 +8,7 @@
                     </a>
                     <LiveEditor name="InputGroupDemo" :sources="sources" :components="['InputText', 'Button', 'RadioButton', 'Checkbox']" />
                 </div>
-<pre v-code>
-<code><template v-pre>
+<pre v-code><code><template v-pre>
 &lt;h3&gt;Addons&lt;/h3&gt;
 &lt;div class="p-grid p-fluid"&gt;
     &lt;div class="p-col-12 p-md-4"&gt;
@@ -114,8 +113,7 @@
 </template>
 </code></pre>
 
-<pre v-code.script>
-<code>
+<pre v-code.script><code>
 export default {
 	data() {
 		return {

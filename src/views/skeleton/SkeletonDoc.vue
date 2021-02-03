@@ -3,32 +3,28 @@
 		<TabView>
 			<TabPanel header="Documentation">
 				<h5>Import</h5>
-<pre v-code.script>
-<code>
+<pre v-code.script><code>
 import Skeleton from 'primevue/skeleton';
 
 </code></pre>
 
 				<h5>Getting Started</h5>
 				<p>Skeleton displays a rectangle in its simplest form.</p>
-<pre v-code>
-<code>
+<pre v-code><code>
 &lt;Skeleton /&gt;
 
 </code></pre>
 
 				<h5>Circle</h5>
 				<p>The other option is the circle by setting <i>shape</i> property as "circle".</p>
-<pre v-code>
-<code>
+<pre v-code><code>
 &lt;Skeleton shape="circle"/&gt;
 
 </code></pre>
 
 				<h5>Size</h5>
 				<p>In order to customize the size, use <i>width</i> and <i>height</i> properties for rectangles and <i>size</i> for Circle and Square shapes.</p>
-<pre v-code>
-<code>
+<pre v-code><code>
 &lt;Skeleton width="100%" height="2rem" /&gt;
 &lt;Skeleton shape="circle" size="50px" /&gt;
 
@@ -36,16 +32,14 @@ import Skeleton from 'primevue/skeleton';
 
 				<h5>Border Radius</h5>
 				<p>The default border radius of a rectangle is specified by the theme and can be overriden using the <i>borderRadius</i> property.</p>
-<pre v-code>
-<code>
+<pre v-code><code>
 &lt;Skeleton borderRadius="16px" /&gt;
 
 </code></pre>
 
 				<h5>Animation</h5>
 				<p>Animation can be turned of by setting <i>animation</i> to "none".</p>
-<pre v-code>
-<code>
+<pre v-code><code>
 &lt;Skeleton animation="none" /&gt;
 
 </code></pre>
@@ -141,8 +135,7 @@ import Skeleton from 'primevue/skeleton';
 					</a>
 					<LiveEditor name="SkeletonDemo" :sources="sources" :components="['DataTable', 'Column']" />
 				</div>
-<pre v-code>
-<code><template v-pre>
+<pre v-code><code><template v-pre>
 &lt;div class="card"&gt;
 	&lt;div class="p-grid p-formgrid"&gt;
 		&lt;div class="p-field p-col-12 p-md-6"&gt;

@@ -3,16 +3,14 @@
 		<TabView>
 			<TabPanel header="Documentation">
 				<h5>Import</h5>
-<pre v-code.script>
-<code>
+<pre v-code.script><code>
 import Chip from 'primevue/chip';
 
 </code></pre>
 
 				<h5>Getting Started</h5>
 				<p>Chip can display labels, icons and images.</p>
-<pre v-code>
-<code>
+<pre v-code><code>
 &lt;Chip label="Text Only" /&gt;
 &lt;Chip label="Text with icon" icon="pi pi-check" /&gt;
 &lt;Chip label="Text with image" image="user.png" /&gt;
@@ -22,16 +20,14 @@ import Chip from 'primevue/chip';
 				<h5>Removable</h5>
 				<p>Setting <i>removable</i> property displays an icon to close the chip, the optional <i>remove</i>
 				event is available to get notified when a chip is hidden.</p>
-<pre v-code>
-<code>
+<pre v-code><code>
 &lt;Chip label="Text" removable /&gt;
 
 </code></pre>
 
 				<h5>Templating</h5>
 				<p>Content can easily be customized with the default slot instead of using the built-in modes.</p>
-<pre v-code>
-<code>
+<pre v-code><code>
 &lt;Chip&gt;
    Content
 &lt;/Chip&gt;
@@ -147,8 +143,7 @@ import Chip from 'primevue/chip';
 					</a>
 					<LiveEditor name="ChipDemo" :sources="sources" />
 				</div>
-<pre v-code>
-<code><template v-pre>
+<pre v-code><code><template v-pre>
 &lt;h5&gt;Basic&lt;/h5&gt;
 &lt;div class="p-d-flex p-ai-center"&gt;
 	&lt;Chip label="Action" class="p-mr-2" /&gt;

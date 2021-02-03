@@ -3,24 +3,21 @@
 		<TabView>
 			<TabPanel header="Documentation">
                 <h5>Import</h5>
-<pre v-code.script>
-<code>
+<pre v-code.script><code>
 import Tag from 'primevue/tag';
 
 </code></pre>
 
 				<h5>Getting Started</h5>
 				<p>Content of the tag is specified using the <i>value</i> property.</p>
-<pre v-code>
-<code>
+<pre v-code><code>
 &lt;Tag value="New"&gt;&lt;/Tag&gt;
 
 </code></pre>
 
 				<h5>Icon</h5>
 				<p>An icon can also be configured to be displayed next to the value with the <i>icon</i> property.</p>
-<pre v-code>
-<code>
+<pre v-code><code>
 &lt;Tag value="New" icon="pi pi-plus"&gt;&lt;/Tag&gt;
 
 </code></pre>
@@ -37,8 +34,7 @@ import Tag from 'primevue/tag';
 
 				<h5>Templating</h5>
 				<p>Content can easily be customized with the default slot instead of using the built-in display.</p>
-<pre v-code>
-<code>
+<pre v-code><code>
 &lt;Tag&gt;
    Content
 &lt;/Tag&gt;
@@ -128,8 +124,7 @@ import Tag from 'primevue/tag';
 					</a>
 					<LiveEditor name="TagDemo" :sources="sources" />
 				</div>
-<pre v-code>
-<code><template v-pre>
+<pre v-code><code><template v-pre>
 &lt;h5&gt;Tags&lt;/h5&gt;
 &lt;Tag class="p-mr-2" value="Primary"&gt;&lt;/Tag&gt;
 &lt;Tag class="p-mr-2" severity="success" value="Success"&gt;&lt;/Tag&gt;

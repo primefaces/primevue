@@ -4,8 +4,7 @@
 			<TabPanel header="Documentation">
                 <h5>Mitt EventBus</h5>
                 <p>Toast requires <a href="https://www.npmjs.com/package/mitt">Mitt</a>, a tiny 200b EventBus implementation.</p>
-<pre v-code>
-<code>
+<pre v-code><code>
 npm install mitt --save
 
 </code></pre>
@@ -13,8 +12,7 @@ npm install mitt --save
                 <h5>ToastService</h5>
                 <p>Toast messages are dynamically created using a <i>ToastService</i> that needs to be installed globally before the application
                     instance is created.</p>
-<pre v-code.script>
-<code>
+<pre v-code.script><code>
 import {createApp} from 'vue';
 import ToastService from 'primevue/toastservice';
 
@@ -24,8 +22,7 @@ app.use(ToastService);
 </code></pre>
 
 				<h5>Import</h5>
-<pre v-code.script>
-<code>
+<pre v-code.script><code>
 import Toast from 'primevue/toast';
 
 </code></pre>
@@ -36,8 +33,7 @@ import Toast from 'primevue/toast';
 
                 <h5>Options API</h5>
                 <p><i>$toast</i> is available as a property in the application instance.</p>
-<pre v-code.script>
-<code>
+<pre v-code.script><code>
 export default {
     mounted() {
         this.$toast.add({severity:'success', summary: 'Success Message', detail:'Order submitted', life: 3000});
@@ -48,8 +44,7 @@ export default {
 
                 <h5>Composition API</h5>
                 <p>The toast instance can be injected with the <i>useToast</i> function.</p>
-<pre v-code.script>
-<code>
+<pre v-code.script><code>
 import { defineComponent } from "vue";
 import { useToast } from "primevue/usetoast";
 
@@ -159,8 +154,7 @@ export default defineComponent({
 				<p>There are four positions available for the toast container defined by the <i>position</i> property that defaults to "top-right". Other
 					valid values are "top-left", "top-center", "bottom-left", "botton-center", "bottom-right" and "center".
 				</p>
-<pre v-code>
-<code>
+<pre v-code><code>
 &lt;Toast /&gt;
 &lt;Toast position="top-left" /&gt;
 &lt;Toast position="top-center" /&gt;
@@ -177,15 +171,13 @@ export default defineComponent({
                     are forwarded to the default Toast component that does not have a group defined.
                 </p>
 
-<pre v-code>
-<code>
+<pre v-code><code>
 &lt;Toast /&gt;
 &lt;Toast position="mykey" /&gt;
 
 </code></pre>
 
-<pre v-code.script>
-<code>
+<pre v-code.script><code>
 this.$toast.add({severity:'success', summary: 'Default Message'});
 this.$toast.add({severity:'success', summary: 'Specific Message', group: 'mykey'});
 
@@ -288,8 +280,7 @@ this.$toast.add({severity:'success', summary: 'Specific Message', group: 'mykey'
                     </a>
                     <LiveEditor name="ToastDemo" :sources="sources" :toastService="true" :components="['Button']" />
                 </div>
-<pre v-code>
-<code><template v-pre>
+<pre v-code><code><template v-pre>
 &lt;h5&gt;Severities&lt;/h5&gt;
 &lt;Button label="Success" class="p-button-success" @click="showSuccess" /&gt;
 &lt;Button label="Info" class="p-button-info" @click="showInfo" /&gt;
@@ -310,8 +301,7 @@ this.$toast.add({severity:'success', summary: 'Specific Message', group: 'mykey'
 </template>
 </code></pre>
 
-<pre v-code.script>
-<code>
+<pre v-code.script><code>
 export default {
 	data() {
 		return {

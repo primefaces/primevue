@@ -8,8 +8,7 @@
             <h5>Download</h5>
             <p>PrimeFlex is available at <a href="https://www.npmjs.com/package/primeflex">npm</a>, if you have an existing application run the following commands to install it.</p>
 
-<pre v-code.script>
-<code>
+<pre v-code.script><code>
 npm install primeflex --save
 
 </code></pre>
@@ -17,16 +16,14 @@ npm install primeflex --save
             <h5>Import</h5>
             <p>Next step is adding the primeflex.css to your application to include all utilities. If you prefer to pick the utilities, move to next step instead.</p>
 
-<pre v-code.css>
-<code>
+<pre v-code.css><code>
 import 'primeflex/primeflex.css';
 
 </code></pre>
 
             <p>PrimeFlex is a lightweight library still if you have an application such as one based on vue-cli
                 that is able to import scss then you will be able to pick the utilities you need to make the app bundle even smaller.</p>
-<pre v-code.css>
-<code>
+<pre v-code.css><code>
 import 'primeflex/src/_variables.scss';
 import 'primeflex/src/_grid.scss';
 import 'primeflex/src/_formlayout.scss';
@@ -103,8 +100,7 @@ import 'primeflex/src/_elevation.scss';
             </p>
 
             <p><b>_overrides.scss</b></p>
-<pre v-code.css>
-<code>
+<pre v-code.css><code>
 $sm:640px;
 $md:720px;
 $lg:960px;
@@ -112,8 +108,7 @@ $xl:1080px;
 
 </code></pre>
 
-            <pre v-code.css>
-<code>
+            <pre v-code.css><code>
 import './assets/_overrides.scss';
 import 'primeflex/src/_variables.css';
 import 'primeflex/src/_grid.css';

@@ -113,8 +113,7 @@
                     <div class="p-d-flex p-jc-end">
                         <LiveEditor name="FloatLabelDemo" :sources="sources" service="CountryService" data="countries" :components="['InputText', 'AutoComplete', 'Calendar', 'Chips', 'InputMask', 'InputNumber', 'CascadeSelect', 'Dropdown', 'MultiSelect', 'Textarea']" />
                     </div>
-<pre v-code>
-<code><template v-pre>
+<pre v-code><code><template v-pre>
 &lt;div class="p-fluid p-grid"&gt;
     &lt;div class="p-field p-col-12 p-md-4"&gt;
         &lt;span class="p-float-label"&gt;
@@ -213,8 +212,7 @@
 </template>
 </code></pre>
 
-<pre v-code.script>
-<code>
+<pre v-code.script><code>
 import CountryService from '../../service/CountryService';
 
 export default {

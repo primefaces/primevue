@@ -4,8 +4,7 @@
 			<TabPanel header="Documentation">
                 <h5>Mitt EventBus</h5>
                 <p>ConfirmDialog requires <a href="https://www.npmjs.com/package/mitt">Mitt</a>, a tiny 200b EventBus implementation.</p>
-<pre v-code>
-<code>
+<pre v-code><code>
 npm install mitt --save
 
 </code></pre>
@@ -13,8 +12,7 @@ npm install mitt --save
                 <h5>ConfirmationService</h5>
                 <p>ConfirmDialog is controlled via the <i>ConfirmationService</i> that needs to be installed globally before the application
                     instance is created.</p>
-<pre v-code.script>
-<code>
+<pre v-code.script><code>
 import {createApp} from 'vue';
 import ConfirmationService from 'primevue/confirmationservice';
 
@@ -24,8 +22,7 @@ app.use(ConfirmationService);
 </code></pre>
 
 				<h5>Import</h5>
-<pre v-code.script>
-<code>
+<pre v-code.script><code>
 import ConfirmDialog from 'primevue/confirmdialog';
 
 </code></pre>
@@ -33,15 +30,13 @@ import ConfirmDialog from 'primevue/confirmdialog';
 				<h5>Getting Started</h5>
 				<p>ConfirmDialog is displayed by calling the <i>require</i> method of the <i>$confirm</i> instance by passing the options to customize the Dialog. Suggested location of the Dialog is the main application component
                 where it can be shared by any component within the application.</p>
-<pre v-code>
-<code>
+<pre v-code><code>
 &lt;ConfirmDialog&gt;&lt;/ConfirmDialog&gt;
 
 &lt;Button @click="delete()" icon="pi pi-check" label="Confirm"&gt;&lt;/Button&gt;
 </code></pre>
 
-<pre v-code.script>
-<code>
+<pre v-code.script><code>
 export default {
 	methods: {
         delete() {
@@ -64,8 +59,7 @@ export default {
 
                 <h5>Composition API</h5>
                 <p>The service can be injected with the <i>useConfirm</i> function.</p>
-<pre v-code.script>
-<code>
+<pre v-code.script><code>
 import { defineComponent } from "vue";
 import { useConfirm } from "primevue/useconfirm";
 
@@ -90,8 +84,7 @@ export default defineComponent({
 
                 <h5>Close Confirmation</h5>
                 <p>The dialog can also be hidden programmatically using the <i>close</i> method.</p>
-<pre v-code.script>
-<code>
+<pre v-code.script><code>
 export default {
 	methods: {
         discard() {
@@ -250,8 +243,7 @@ export default {
                     </a>
                     <LiveEditor name="ConfirmDialogDemo" :sources="sources" :confirmationService="true" :toastService="true" :components="['Button']" />
                 </div>
-<pre v-code>
-<code><template v-pre>
+<pre v-code><code><template v-pre>
 &lt;ConfirmDialog&gt;&lt;/ConfirmDialog&gt;
 &lt;ConfirmDialog group="positionDialog"&gt;&lt;/ConfirmDialog&gt;
 
@@ -281,8 +273,7 @@ export default {
 </template>
 </code></pre>
 
-<pre v-code.script>
-<code>
+<pre v-code.script><code>
 export default {
     methods: {
         confirm1() {

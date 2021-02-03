@@ -3,23 +3,20 @@
 		<TabView>
 			<TabPanel header="Documentation">
 				<h5>Import</h5>
-<pre v-code.script>
-<code>
+<pre v-code.script><code>
 import ToggleButton from 'primevue/togglebutton';
 
 </code></pre>
 
 				<h5>Getting Started</h5>
 				<p>Two-way binding to a boolean property is defined using the standard v-model directive.</p>
-<pre v-code>
-<code>
+<pre v-code><code>
 &lt;ToggleButton v-model="checked" /&gt;
 
 </code></pre>
 
 				<p>As model is two-way binding enabled, setting the bound value as true displays the state as checked.</p>
-<pre v-code.script>
-<code>
+<pre v-code.script><code>
 export default {
 	data() {
 		return {
@@ -32,8 +29,7 @@ export default {
 
 				<h5>Labels and Icons</h5>
 				<p>Icons and Labels can be customized using <i>onLabel</i>, <i>offLabel</i>, <i>onIcon</i> and <i>offIcon</i> properties.</p>
-<pre v-code>
-<code>
+<pre v-code><code>
 &lt;ToggleButton v-model="checked" onLabel="I confirm" offLabel="I reject" onIcon="pi pi-check" offIcon="pi pi-times" /&gt;
 
 </code></pre>
@@ -149,8 +145,7 @@ export default {
                     </a>
                     <LiveEditor name="ToggleButtonDemo" :sources="sources"/>
                 </div>
-<pre v-code>
-<code><template v-pre>
+<pre v-code><code><template v-pre>
 &lt;h3&gt;Basic&lt;/h3&gt;
 &lt;ToggleButton v-model="checked1" onIcon="pi pi-check" offIcon="pi pi-times" /&gt;
 
@@ -159,8 +154,7 @@ export default {
 </template>
 </code></pre>
 
-<pre v-code.script>
-<code>
+<pre v-code.script><code>
 export default {
 	data() {
 		return {

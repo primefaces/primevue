@@ -3,8 +3,7 @@
 		<TabView>
 			<TabPanel header="Documentation">
 				<h5>Import</h5>
-<pre v-code.script>
-<code>
+<pre v-code.script><code>
 import OrderList from 'primevue/orderlist';
 
 </code></pre>
@@ -14,8 +13,7 @@ import OrderList from 'primevue/orderlist';
                 <p>Header of the component is defined with the "header" template and to define the content of an item in the list a named template called "item" needs to be defined which gets the
                     <i>item</i> and the <i>index</i> via slotProps.
                 </p>
-<pre v-code>
-<code><template v-pre>
+<pre v-code><code><template v-pre>
 &lt;OrderList v-model="cars" listStyle="height:auto" dataKey="vin"&gt;
     &lt;template #header&gt;
         List of Cars
@@ -40,8 +38,7 @@ import OrderList from 'primevue/orderlist';
 
                 <p>Use the v-model directive to enable two-way binding.</p>
 
-<pre v-code>
-<code><template v-pre>
+<pre v-code><code><template v-pre>
 &lt;OrderList v-model="cars" dataKey="vin" v-model:selection="selection"&gt;
     &lt;template #header&gt;
         List of Cars
@@ -173,8 +170,7 @@ import OrderList from 'primevue/orderlist';
                     </a>
                     <LiveEditor name="OrderListDemo" :sources="sources" service="ProductService" data="products-small" />
                 </div>
-<pre v-code>
-<code><template v-pre>
+<pre v-code><code><template v-pre>
 &lt;OrderList v-model="products" listStyle="height:auto" dataKey="id"&gt;
     &lt;template #header&gt;
         List of Products
@@ -199,8 +195,7 @@ import OrderList from 'primevue/orderlist';
 </template>
 </code></pre>
 
-<pre v-code.script>
-<code>
+<pre v-code.script><code>
 import ProductService from '../../service/ProductService';
 
 export default {
@@ -220,8 +215,7 @@ export default {
 
 </code></pre>
 
-<pre v-code.css>
-<code>
+<pre v-code.css><code>
 .product-item {
 	display: flex;
 	align-items: center;

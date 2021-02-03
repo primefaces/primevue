@@ -3,8 +3,7 @@
 		<TabView>
 			<TabPanel header="Documentation">
 				<h5>Import</h5>
-<pre v-code.script>
-<code>
+<pre v-code.script><code>
 import ContextMenu from 'primevue/contextmenu';
 
 </code></pre>
@@ -15,8 +14,7 @@ import ContextMenu from 'primevue/contextmenu';
 				<h5>Getting Started</h5>
 				<p>ContextMenu requires a collection of menuitems as its model.</p>
 
-<pre v-code.script>
-<code>
+<pre v-code.script><code>
 export default {
     data() {
         return {
@@ -159,8 +157,7 @@ export default {
 
                 <h5>Document Menu</h5>
                 <p>Setting global property attaches the context menu to the document.</p>
-<pre v-code>
-<code>
+<pre v-code><code>
 &lt;ContextMenu :global="true" :model="items" /&gt;
 
 </code></pre>
@@ -168,15 +165,13 @@ export default {
                 <h5>Element Menu</h5>
                 <p>ContextMenu is attached to a custom element manually using the reference and calling the <i>show(event)</i> method.</p>
 
-<pre v-code>
-<code>
+<pre v-code><code>
 &lt;img alt="logo" src="demo/images/nature/nature3.jpg" @contextmenu="onImageRightClick"&gt;
 &lt;ContextMenu ref="menu" :model="items" /&gt;
 
 </code></pre>
 
-<pre v-code.script>
-<code>
+<pre v-code.script><code>
 export default {
     data() {
         return {
@@ -319,15 +314,13 @@ export default {
                </a>
                <LiveEditor name="ContextMenuDemo" :sources="sources" />
             </div>
-<pre v-code>
-<code><template v-pre>
+<pre v-code><code><template v-pre>
 &lt;img alt="logo" src="demo/images/nature/nature3.jpg" @contextmenu="onImageRightClick" aria-haspopup="true"&gt;
 &lt;ContextMenu ref="menu" :model="items" /&gt;
 </template>
 </code></pre>
 
-<pre v-code.script>
-<code>
+<pre v-code.script><code>
 export default {
     data() {
         return {

@@ -3,22 +3,19 @@
 		<TabView>
 			<TabPanel header="Documentation">
 				<h5>Import</h5>
-<pre v-code.script>
-<code>
+<pre v-code.script><code>
 import SelectButton from 'primevue/selectbutton';
 
 </code></pre>
 
 				<h5>Getting Started</h5>
 				<p>SelectButton requires a value to bind and a collection of arbitrary objects along with the <i>optionLabel</i> property to specify the label property of the option.</p>
-<pre v-code>
-<code>
+<pre v-code><code>
 &lt;SelectButton v-model="selectedCity" :options="cities" optionLabel="name" /&gt;
 
 </code></pre>
 
-<pre v-code.script>
-<code>
+<pre v-code.script><code>
 export default {
 	data() {
 		return {
@@ -36,16 +33,14 @@ export default {
 
 				<h5>Multiple</h5>
 				<p>SelectButton allows selecting only one item by default and setting <i>multiple</i> option enables choosing more than one item. In multiple case, model property should be an array.</p>
-<pre v-code>
-<code>
+<pre v-code><code>
 &lt;SelectButton v-model="selectedCity" :options="cities" optionLabel="brand" :multiple="true" /&gt;
 
 </code></pre>
 
 				<h5>Templating</h5>
 				<p>Label of an option is used as the display text of an item by default, for custom content support define an <i>option</i> template that gets the option instance as a parameter.</p>
-<pre v-code>
-<code><template v-pre>
+<pre v-code><code><template v-pre>
 &lt;SelectButton v-model="selectedCar" :options="cars" optionLabel="brand"&gt;
 	&lt;template #option="slotProps"&gt;
         &lt;div class="car-option"&gt;
@@ -164,8 +159,7 @@ export default {
                     </a>
                     <LiveEditor name="SelectButtonDemo" :sources="sources"/>
                 </div>
-<pre v-code>
-<code><template v-pre>
+<pre v-code><code><template v-pre>
 &lt;h5&gt;Single Selection&lt;/h5&gt;
 &lt;SelectButton v-model="value1" :options="options" /&gt;
 
@@ -181,8 +175,7 @@ export default {
 </template>
 </code></pre>
 
-<pre v-code.script>
-<code>
+<pre v-code.script><code>
 export default {
     data() {
         return {

@@ -3,8 +3,7 @@
 		<TabView>
 			<TabPanel header="Documentation">
 				<h5>Import</h5>
-<pre v-code.script>
-<code>
+<pre v-code.script><code>
 import CascadeSelect from 'primevue/cascadeselect';
 
 </code></pre>
@@ -14,15 +13,13 @@ import CascadeSelect from 'primevue/cascadeselect';
                     is used for the text of a category and <i>optionGroupChildren</i> is to define the children of the category. Note that order of the <i>optionGroupChildren</i>
                     matters and it should correspond to the data hierarchy.</p>
                     
-<pre v-code>
-<code>
+<pre v-code><code>
 &lt;CascadeSelect v-model="selectedCity" :options="countries" optionLabel="cname" optionGroupLabel="name" 
                         :optionGroupChildren="['states', 'cities']" style="minWidth: 14rem" &gt;
 
 </code></pre>
 
-<pre v-code.script>
-<code>
+<pre v-code.script><code>
 data() {
 	data() &#123;
         return &#123;
@@ -112,8 +109,7 @@ data() {
                 <h5>Templating</h5>
                 <p>Content of an item can be customized with the <i>option</i> template.</p>
 
-<pre v-code>
-<code><template v-pre>
+<pre v-code><code><template v-pre>
 &lt;CascadeSelect v-model="selectedCity" :options="countries" optionLabel="cname" optionGroupLabel="name" 
         :optionGroupChildren="['states', 'cities']" style="minWidth: 14rem"&gt;
     &lt;template #option="slotProps"&gt;
@@ -324,8 +320,7 @@ data() {
                     </a>
                     <LiveEditor name="CascadeSelectDemo" :sources="sources" />
                 </div>
-<pre v-code>
-<code><template v-pre>
+<pre v-code><code><template v-pre>
 &lt;h5&gt;Basic&lt;/h5&gt;
 &lt;CascadeSelect v-model="selectedCity1" :options="countries" optionLabel="cname" optionGroupLabel="name" 
         :optionGroupChildren="['states', 'cities']" style="minWidth: 14rem" placeholder="Select a City" /&gt;
@@ -345,8 +340,7 @@ data() {
 </template>
 </code></pre>
 
-<pre v-code.script>
-<code>
+<pre v-code.script><code>
 export default &#123;
     data() &#123;
         return &#123;

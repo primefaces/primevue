@@ -3,21 +3,18 @@
 		<TabView>
 			<TabPanel header="Documentation">
 				<h5>Import</h5>
-<pre v-code.script>
-<code>
+<pre v-code.script><code>
 import Knob from 'primevue/knob';
 
 </code></pre>
 
 				<h5>Getting Started</h5>
 				<p>Knob is an input component and used with the standard <i>v-model</i> directive.</p>
-<pre v-code>
-<code>
+<pre v-code><code>
 &lt;Knob v-model="value" /&gt;
 
 </code></pre>
-<pre v-code.script>
-<code>
+<pre v-code.script><code>
 data() {
 	return {
 		value: 0
@@ -28,16 +25,14 @@ data() {
 
 				<h5>Minimum and Maximum</h5>
 				<p>Boundaries are configured with the <i>min</i> and <i>max</i> values whose defaults are 0 and 100 respectively.</p>
-<pre v-code>
-<code>
+<pre v-code><code>
 &lt;Knob v-model="value" :min="-50" :max="10" /&gt;
 
 </code></pre>
 
 				<h5>Step</h5>
 				<p>Step factor is 1 by default and can be customized with <i>step</i> option.</p>
-<pre v-code>
-<code>
+<pre v-code><code>
 &lt;Knob v-model="value" :step="10" /&gt;
 
 </code></pre>
@@ -45,16 +40,14 @@ data() {
 				<h5>Styling</h5>
 				<p><i>valueColor</i> defines the value color, <i>rangeColor</i> defines the range background and similarly <i>textColor</i> configures the color of the value text. 
 				In addition, <i>strokeWidth</i> is used to determine the width of the stroke of range and value sections.</p>
-<pre v-code>
-<code>
+<pre v-code><code>
 &lt;Knob v-model="value" valueColor="SlateGray" rangeColor="MediumTurquoise"  /&gt;
 
 </code></pre>
 
 				<h5>Size</h5>
 				<p>Default size of the Knob is 100 pixels for width and height, use the <i>size</i> property to customize it per your requirements.</p>
-<pre v-code>
-<code>
+<pre v-code><code>
 &lt;Knob v-model="value" :size="200" /&gt;
 
 </code></pre>
@@ -216,8 +209,7 @@ data() {
                     </a>
                     <LiveEditor name="KnobDemo" :sources="sources"/>
                 </div>
-<pre v-code>
-<code><template v-pre>
+<pre v-code><code><template v-pre>
 &lt;div class="p-grid p-formgrid p-text-center"&gt;
 	&lt;div class="p-field p-col-12 p-md-4"&gt;
 		&lt;h5&gt;Basic&lt;/h5&gt;
@@ -259,8 +251,7 @@ data() {
 </template>
 </code></pre>
 
-<pre v-code.script>
-<code>
+<pre v-code.script><code>
 export default {
     data() {
         return {

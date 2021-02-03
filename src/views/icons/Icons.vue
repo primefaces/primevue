@@ -7,8 +7,7 @@
             <h5>Download</h5>
             <p>PrimeIcons is available at npm, run the following command to download it to your project.</p>
 
-<pre v-code.script>
-<code>
+<pre v-code.script><code>
 npm install primeicons --save
 
 </code></pre>
@@ -17,8 +16,7 @@ npm install primeicons --save
             <p>PrimeIcons use the <strong>pi pi-&#123;icon&#125;</strong> syntax such as <strong>pi pi-check</strong>.
             A standalone icon can be displayed using an element like <i>i</i> or <i>span</i></p>
 
-<pre v-code>
-<code>
+<pre v-code><code>
 &lt;i class="pi pi-check"&gt;&lt;/i&gt;
 &lt;i class="pi pi-times"&gt;&lt;/i&gt;
 
@@ -30,16 +28,14 @@ npm install primeicons --save
             <h5>Size</h5>
             <p>Size of the icons can easily be changed using font-size property.</p>
 
-<pre v-code>
-<code>
+<pre v-code><code>
 &lt;i class="pi pi-check"&gt;&lt;/i&gt;
 
 </code></pre>
 
             <i class="pi pi-check"></i>
 
-<pre v-code>
-<code>
+<pre v-code><code>
 &lt;i class="pi pi-check" style="fontSize: 2rem"&gt;&lt;/i&gt;
 
 </code></pre>
@@ -48,8 +44,7 @@ npm install primeicons --save
 
             <h5>Spinning Animation</h5>
             <p>Special pi-spin class applies continuous rotation to an icon.</p>
-<pre v-code>
-<code>
+<pre v-code><code>
 &lt;i class="pi pi-spin pi-spinner" style="fontSize: 2rem"&gt;&lt;/i&gt;
 
 </code></pre>

@@ -30,8 +30,7 @@
                     <div class="p-d-flex p-jc-end">
                         <LiveEditor name="DataTableDemo" :sources="sources" :toastService="true" service="ProductService" data="products-small" :components="['Column', 'ContextMenu']" />
                     </div>
-<pre v-code>
-<code><template v-pre>
+<pre v-code><code><template v-pre>
 &lt;DataTable :value="products" contextMenu v-model:contextMenuSelection="selectedProduct" @row-contextmenu="onRowContextMenu"&gt;
     &lt;Column field="code" header="Code"&gt;&lt;/Column&gt;
     &lt;Column field="name" header="Name"&gt;&lt;/Column&gt;
@@ -47,8 +46,7 @@
 </template>
 </code></pre>
 
-<pre v-code.script>
-<code>
+<pre v-code.script><code>
 import ProductService from '../../service/ProductService';
 
 export default {

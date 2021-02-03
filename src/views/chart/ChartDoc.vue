@@ -5,15 +5,13 @@
 
         <h5>Getting Started</h5>
         <p>To begin with, charts.js package needs to be installed in your project.</p>
- <pre v-code.script>
-<code>
+ <pre v-code.script><code>
 npm install chart.js --save
 
 </code></pre>
 
 		<h5>Import</h5>
-<pre v-code.script>
-<code>
+<pre v-code.script><code>
 import Chart from 'primevue/chart';
 
 </code></pre>
@@ -23,14 +21,12 @@ import Chart from 'primevue/chart';
 
 		<h5>Data</h5>
 		<p>Data of a chart is provided using a binding to the <i>data</i> property, each type has its own format of data. Here is an example of a line chart.  For more information refer to the <a href="https://www.chartjs.org/">charts.js</a> documentation.</p>
-<pre v-code>
-<code>
+<pre v-code><code>
 &lt;Chart type="bar" :data="basicData" /&gt;
 
 </code></pre>
 
-<pre v-code.script>
-<code>
+<pre v-code.script><code>
 export default {
 	data() {
 		return {
@@ -58,14 +54,12 @@ export default {
 		<h5>Options</h5>
 		<p>While a series can be customized per dataset, general chart options are defined with options property.
 			Example below adds a title and customizes the legend position of the chart. For all available options refer to the <a href="https://www.chartjs.org/">charts.js</a> documentation.</p>
-<pre v-code>
-<code>
+<pre v-code><code>
 &lt;Chart type="line" :data="data" :options="options" /&gt;
 
 </code></pre>
 
-<pre v-code.script>
-<code>
+<pre v-code.script><code>
 options: {
 	responsive: true,
 	hoverMode: 'index',

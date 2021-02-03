@@ -3,16 +3,14 @@
 		<TabView>
 			<TabPanel header="Documentation">
 				<h5>Import</h5>
-<pre v-code.script>
-<code>
+<pre v-code.script><code>
 import Divider from 'primevue/divider';
 
 </code></pre>
 
 				<h5>Getting Started</h5>
 				<p>Divider has two orientations defined with the <i>layout</i> property, default is "horizontal" and the alternative is "vertical".</p>
-<pre v-code>
-<code>
+<pre v-code><code>
 &lt;div&gt;Content 1&lt;/div&gt;
 &lt;Divider /&gt;
 &lt;div&gt;Content 2&lt;/div&gt;
@@ -21,8 +19,7 @@ import Divider from 'primevue/divider';
 
                 <h5>Border Style</h5>
                 <p>Style of the border is configured with the <i>type</i> property and supports 3 values; default is "solid" and other possibilities are "dashed" and "dotted".</p>
-<pre v-code>
-<code>
+<pre v-code><code>
 &lt;div&gt;Content 1&lt;/div&gt;
 &lt;Divider type="dashed"/&gt;
 &lt;div&gt;Content 2&lt;/div&gt;
@@ -31,8 +28,7 @@ import Divider from 'primevue/divider';
 
                 <h5>Vertical Divider</h5>
                 <p>Vertical divider is enabled by setting the <i>layout</i> property as "vertical".</p>
-<pre v-code>
-<code>
+<pre v-code><code>
 &lt;div class="p-d-flex"&gt;
     &lt;div&gt;Content 1&lt;/div&gt;
     &lt;Divider layout="vertical" /&gt;
@@ -48,8 +44,7 @@ import Divider from 'primevue/divider';
                     of the content is configured with the <i>align</i> property. In horizontal layout, alignment options
                     are "left", "center" and "right" whereas vertical mode supports "top", "center" and "bottom".
                 </p>
-<pre v-code>
-<code>
+<pre v-code><code>
 &lt;div&gt;Content 1&lt;/div&gt;
 
 &lt;Divider align="left"&gt;
@@ -181,8 +176,7 @@ import Divider from 'primevue/divider';
                     </a>
                     <LiveEditor name="DividerDemo" :sources="sources" :components="['InputText', 'Button']" />
                 </div>
-<pre v-code>
-<code><template v-pre>
+<pre v-code><code><template v-pre>
 &lt;div class="card"&gt;
     &lt;h5&gt;Basic&lt;/h5&gt;
     &lt;p&gt;Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation

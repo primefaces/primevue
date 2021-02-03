@@ -3,24 +3,21 @@
 		<TabView>
 			<TabPanel header="Documentation">
 				<h5>Import</h5>
-<pre v-code.script>
-<code>
+<pre v-code.script><code>
 import InputText from 'primevue/inputtext';
 
 </code></pre>
 
 				<h5>Getting Started</h5>
 				<p>A model can be bound using the standard v-model directive.</p>
-<pre v-code>
-<code>
+<pre v-code><code>
 &lt;InputText type="text" v-model="value" /&gt;
 
 </code></pre>
 
 				<h5>Float Label</h5>
 				<p>A floating label is implemented by wrapping the input and the label inside a container having <i>.p-float-label</i> style class.</p>
-<pre v-code>
-<code>
+<pre v-code><code>
 &lt;span class="p-float-label"&gt;
 	&lt;InputText id="username" type="text" v-model="value" /&gt;
 	&lt;label for="username"&gt;Username&lt;/label&gt;
@@ -31,8 +28,7 @@ import InputText from 'primevue/inputtext';
                 <h5>Icons</h5>
                 <p>An icon can be integrated within an input field by wrapping the input and the icon with an element having <i>p-input-icon-right</i>
                 and <i>p-input-icon-left</i> classes depending on the icon location.</p>
-<pre v-code>
-<code>
+<pre v-code><code>
 &lt;span class="p-input-icon-left"&gt;
     &lt;i class="pi pi-search" /&gt;
     &lt;InputText type="text" v-model="value1" placeholder="Search" /&gt;
@@ -54,8 +50,7 @@ import InputText from 'primevue/inputtext';
                 <h5>Sizes</h5>
                 <p>2 more sizes are available in addition to a regular input, for a smaller input add <i>p-inputtext-sm</i> and for a larger one, use <i>p-inputtext-lg</i>.
                 Note that these classes are mainly be used to change the size of a particular field, for global scaling see the <router-link to="/theming">theming</router-link> page.</p>
-<pre v-code>
-<code>
+<pre v-code><code>
 &lt;InputText type="text" class="p-inputtext-sm" placeholder="Small" /&gt;
 &lt;InputText type="text" placeholder="Normal" /&gt;
 &lt;InputText type="text" class="p-inputtext-lg"  placeholder="Large" /&gt;
@@ -64,8 +59,7 @@ import InputText from 'primevue/inputtext';
 
                 <p>Instead of repeating the scale classes for each input, sizing can also be applied to a group by adding the
                     class to a container element so that descendant inputs share the same style easier.</p>
-<pre v-code>
-<code>
+<pre v-code><code>
 &lt;div class="p-inputtext-sm"&gt;
     &lt;InputText /&gt;
     &lt;InputNumber /&gt;
@@ -79,8 +73,7 @@ import InputText from 'primevue/inputtext';
                 to the field. Applying <i>p-input-filled</i> to an ancestor of an input enables the filled style. If you prefer
                 to use filled inputs in the entire application, use a global container such as document body or the application element to apply the style class.</p>
 
-<pre v-code>
-<code>
+<pre v-code><code>
 &lt;div class="p-input-filled"&gt;
     &lt;InputText type="text" /&gt;
     &lt;InputText type="text" /&gt;
@@ -157,8 +150,7 @@ import InputText from 'primevue/inputtext';
                     </a>
                     <LiveEditor name="InputTextDemo" :sources="sources" />
                 </div>
-<pre v-code>
-<code><template v-pre>
+<pre v-code><code><template v-pre>
 &lt;div class="card"&gt;
     &lt;h5&gt;Basic&lt;/h5&gt;
     &lt;InputText type="text" v-model="value1" /&gt;
@@ -209,8 +201,7 @@ import InputText from 'primevue/inputtext';
 </template>
 </code></pre>
 
-<pre v-code.script>
-<code>
+<pre v-code.script><code>
 export default {
 	data() {
 		return {

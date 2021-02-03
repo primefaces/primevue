@@ -3,8 +3,7 @@
 		<TabView>
 			<TabPanel header="Documentation">
 				<h5>Import</h5>
-<pre v-code.script>
-<code>
+<pre v-code.script><code>
 import Splitter from 'primevue/splitter';
 import SplitterPanel from 'primevue/splitterpanel';
 
@@ -12,8 +11,7 @@ import SplitterPanel from 'primevue/splitterpanel';
 
 				<h5>Getting Started</h5>
 				<p>Splitter requires two SplitterPanel components to wrap.</p>
-<pre v-code>
-<code>
+<pre v-code><code>
 &lt;Splitter style="height: 300px"&gt;
 	&lt;SplitterPanel&gt;
 		Panel 1
@@ -27,8 +25,7 @@ import SplitterPanel from 'primevue/splitterpanel';
 
 				<h5>Multiple Panels</h5>
 				<p>Any number of panels can be nested inside a Splitter.</p>
-<pre v-code>
-<code><template v-pre>
+<pre v-code><code><template v-pre>
 &lt;Splitter style="height: 300px"&gt;
 	&lt;SplitterPanel v-for="item of items" :key="item.key"&gt;
 		{{item.content}}
@@ -39,8 +36,7 @@ import SplitterPanel from 'primevue/splitterpanel';
 
 				<h5>Layout</h5>
 				<p>Default orientation is configured with the <i>layout</i> property and default is the "horizontal" whereas other alternative is the "vertical".</p>
-<pre v-code>
-<code>
+<pre v-code><code>
 &lt;Splitter style="height: 300px" layout="vertical"&gt;
 	&lt;SplitterPanel&gt;
 		Panel 1
@@ -54,8 +50,7 @@ import SplitterPanel from 'primevue/splitterpanel';
 
 				<h5>Initial Sizes</h5>
 				<p>When no size is defined, panels are split 50/50, use the <i>size</i> property to give relative widths e.g. 20/80.</p>
-<pre v-code>
-<code>
+<pre v-code><code>
 &lt;Splitter style="height: 300px"&gt;
 	&lt;SplitterPanel :size="20" &gt;
 		Panel 1
@@ -69,8 +64,7 @@ import SplitterPanel from 'primevue/splitterpanel';
 
 				<h5>Minimum Size</h5>
 				<p>Minimum size defines the lowest boundary for the size of a panel.</p>
-<pre v-code>
-<code>
+<pre v-code><code>
 &lt;Splitter style="height: 300px"&gt;
 	&lt;SplitterPanel :size="20" :minSize="10"&gt;
 		Panel 1
@@ -84,8 +78,7 @@ import SplitterPanel from 'primevue/splitterpanel';
 
 				<h5>Nested Panels</h5>
 				<p>Splitters can be combined to create advanced layouts.</p>
-<pre v-code>
-<code>
+<pre v-code><code>
 &lt;Splitter style="height: 300px"&gt;
 	&lt;SplitterPanel class="p-d-flex p-ai-center p-jc-center" :size="20" :minSize="10"&gt;
 		Panel 1
@@ -115,8 +108,7 @@ import SplitterPanel from 'primevue/splitterpanel';
 				<p>Splitters can be configured as stateful so that when the user visits the page again, the adjusts sizes
 					can be restored. Define a <i>stateKey</i> to enable this feature. Default location of the state is
 					session storage and other option is the local storage which can be configured using the <i>stateStorage</i> property.</p>
-<pre v-code>
-<code>
+<pre v-code><code>
 &lt;Splitter stateKey="mykey" stateStorage="local"&gt;
 	&lt;SplitterPanel&gt;
 		Panel 1
@@ -273,8 +265,7 @@ import SplitterPanel from 'primevue/splitterpanel';
 					</a>
 					<LiveEditor name="SplitterDemo" :sources="sources" :components="['SplitterPanel']"/>
 				</div>
-<pre v-code>
-<code><template v-pre>
+<pre v-code><code><template v-pre>
 &lt;div class="card"&gt;
 	&lt;h5&gt;Horizontal&lt;/h5&gt;
 	&lt;Splitter style="height: 300px"&gt;

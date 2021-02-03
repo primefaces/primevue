@@ -114,8 +114,7 @@
                     <div class="p-d-flex p-jc-end">
                         <LiveEditor name="DataTableDemo" :sources="sources" service="CustomerService" data="customers-large" :components="['Column', 'Dialog', 'Button']" />
                     </div>
-<pre v-code>
-<code><template v-pre>
+<pre v-code><code><template v-pre>
 &lt;div class="card"&gt;
     &lt;h5&gt;Vertical&lt;/h5&gt;
     &lt;DataTable :value="customers" :scrollable="true" scrollHeight="200px" :loading="loading"&gt;
@@ -217,8 +216,7 @@
 </template>
 </code></pre>
 
-<pre v-code.script>
-<code>
+<pre v-code.script><code>
 import CustomerService from '../../service/CustomerService';
 
 export default {

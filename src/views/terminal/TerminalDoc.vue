@@ -4,15 +4,13 @@
 			<TabPanel header="Documentation">
                 <h5>Mitt EventBus</h5>
                 <p>Terminal requires <a href="https://www.npmjs.com/package/mitt">Mitt</a>, a tiny 200b EventBus implementation.</p>
-<pre v-code>
-<code>
+<pre v-code><code>
 npm install mitt --save
 
 </code></pre>
 
 				<h5>Import</h5>
-<pre v-code.script>
-<code>
+<pre v-code.script><code>
 import Terminal from 'primevue/terminal';
 import TerminalService from 'primevue/terminalservice';
 
@@ -22,14 +20,12 @@ import TerminalService from 'primevue/terminalservice';
 				<p>Commands are processed using an EventBus implementation called TerminalService.
                     Import this service into your component and subscribe to the <i>command</i> event to process the commands by
                         sending replies with the <i>response</i> event.</p>
-<pre v-code>
-<code>
+<pre v-code><code>
 &lt;Terminal welcomeMessage="Welcome to PrimeVue" prompt="primevue $" /&gt;
 
 </code></pre>
 
-<pre v-code.script>
-<code>
+<pre v-code.script><code>
 import TerminalService from 'primevue/terminalservice';
 
 export default {
@@ -144,15 +140,13 @@ export default {
                     </a>
                     <LiveEditor name="TerminalDemo" :sources="sources" :terminalService="true" />
                 </div>
-<pre v-code>
-<code>
+<pre v-code><code>
 &lt;p&gt;Enter "date" to display the current date, "greet &#123;0&#125;" for a message and "random" to get a random number.&lt;/p&gt;
 &lt;Terminal welcomeMessage="Welcome to PrimeVue" prompt="primevue $" class="dark-demo-terminal" /&gt;
 
 </code></pre>
 
-<pre v-code.script>
-<code>
+<pre v-code.script><code>
 import TerminalService from 'primevue/terminalservice';
 
 export default {
@@ -192,8 +186,7 @@ export default {
 
 </code></pre>
 
-<pre v-code.css>
-<code>
+<pre v-code.css><code>
 p {
     margin-top: 0;
 }

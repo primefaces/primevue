@@ -3,30 +3,26 @@
 		<TabView>
 			<TabPanel header="Documentation">
 				<h5>Import</h5>
-<pre v-code.script>
-<code>
+<pre v-code.script><code>
 import Message from 'primevue/message';
 
 </code></pre>
 
 				<h5>Getting Started</h5>
 				<p>Message component requires a content to display.</p>
-<pre v-code>
-<code>
+<pre v-code><code>
 &lt;Message&gt;Welcome to PrimeVue&lt;/Message&gt;
 
 </code></pre>
 
                 <p>Multiple messages can be displayed using the standard v-for directive.</p>
 
-<pre v-code>
-<code><template v-pre>
+<pre v-code><code><template v-pre>
 &lt;Message v-for="msg of messages" :severity="msg.severity" :key="msg.content"&gt;{{msg.content}}&lt;/Message&gt;
 </template>
 </code></pre>
 
-<pre v-code.script>
-<code>
+<pre v-code.script><code>
 data() {
 	return {
 		messages: [
@@ -51,8 +47,7 @@ data() {
 
 				<h5>Closable</h5>
 				<p>Messages are closable by default resulting in a close icon being displayed on top right corner. In order to disable closable messages, set <i>closable</i> to false.</p>
-<pre v-code>
-<code>
+<pre v-code><code>
 &lt;Message severity="success" :closable="false"&gt;Order Submitted&lt;/Message&gt;
 
 </code></pre>
@@ -60,22 +55,19 @@ data() {
 				<h5>Sticky</h5>
 				<p>Messages are sticky by default, if you require them to be cleared automatically, disable <i>sticky</i> property and optionally configure the <i>life</i> property to specify how long the message
                 should be displayed which is 3000 ms by default.</p>
-<pre v-code>
-<code>
+<pre v-code><code>
 &lt;Message severity="warn" :life="5000" :sticky="false"&gt;This message will hide in 5 seconds.&lt;/Message&gt;
 
 </code></pre>
 
 				<h5>Inline Message Component</h5>
-<pre v-code.script>
-<code>
+<pre v-code.script><code>
 import InlineMessage from 'primevue/inlinemessage';
 
 </code></pre>
 
 				<p>InlineMessage component is useful in cases where a single message needs to be displayed related to an element such as forms. It has one property, <i>severity</i> of the message.</p>
-<pre v-code>
-<code>
+<pre v-code><code>
 &lt;InputText placeholder="Username" class="p-invalid" /&gt;
 &lt;InlineMessage&gt;Field is required&lt;/InlineMessage&gt;
 
@@ -266,8 +258,7 @@ import InlineMessage from 'primevue/inlinemessage';
                     </a>
                     <LiveEditor name="MessageDemo" :sources="sources" :components="['InlineMessage', 'Button']" />
                 </div>
-<pre v-code>
-<code><template v-pre>
+<pre v-code><code><template v-pre>
 &lt;h5&gt;Severities&lt;/h5&gt;
 &lt;Message severity="success"&gt;Success Message Content&lt;/Message&gt;
 &lt;Message severity="info"&gt;Info Message Content&lt;/Message&gt;
@@ -314,8 +305,7 @@ import InlineMessage from 'primevue/inlinemessage';
 </template>
 </code></pre>
 
-<pre v-code.script>
-<code>
+<pre v-code.script><code>
 export default {
 	data() {
 		return {
@@ -336,8 +326,7 @@ export default {
 
 </code></pre>
 
-<pre v-code.css>
-<code>
+<pre v-code.css><code>
 button.p-button {
 	margin-right: .5rem;
 }

@@ -3,16 +3,14 @@
 		<TabView>
 			<TabPanel header="Documentation">
 				<h5>Import</h5>
-<pre v-code.script>
-<code>
+<pre v-code.script><code>
 import Carousel from 'primevue/carousel';
 
 </code></pre>
 
 				<h5>Getting Started</h5>
 				<p>Carousel requires a collection of items as its value along with a template to render each item.</p>
-<pre v-code>
-<code>
+<pre v-code><code>
 &lt;Carousel :value="cars"&gt;
     &lt;template #item="slotProps"&gt;
 	&lt;/template&gt;
@@ -22,8 +20,7 @@ import Carousel from 'primevue/carousel';
 
 				<h5>Items per page and Scroll Items</h5>
 				<p>Number of items per page is defined using the <i>numVisible</i> property whereas number of items to scroll is defined with the <i>numScroll</i> property.</p>
-<pre v-code>
-<code>
+<pre v-code><code>
 &lt;Carousel :value="cars" :numVisible="3" :numScroll="1"&gt;
 	&lt;template #item="slotProps"&gt;
 	&lt;/template&gt;
@@ -34,8 +31,7 @@ import Carousel from 'primevue/carousel';
 				<h5>Responsive</h5>
 				<p>For responsive design, <i>numVisible</i> and <i>numScroll</i> can be defined using the <i>responsiveOptions</i> property that should be an array of
 					objects whose breakpoint defines the max-width to apply the settings.</p>
-<pre v-code>
-<code><template v-pre>
+<pre v-code><code><template v-pre>
 &lt;Carousel :value="cars" :numVisible="4" :numScroll="3" :responsiveOptions="responsiveOptions"&gt;
 	&lt;template #header&gt;
 		&lt;h2&gt;Basic&lt;/h2&gt;
@@ -62,8 +58,7 @@ import Carousel from 'primevue/carousel';
 &lt;/Carousel&gt;
 </template>
 </code></pre>
-<pre v-code.script>
-<code>
+<pre v-code.script><code>
 data() {
 	return {
 		responsiveOptions: [
@@ -91,8 +86,7 @@ data() {
 				<h5>Header and Footer</h5>
 				<p>Custom content projection is available using the <i>header</i> and <i>footer</i> templates.</p>
 
-<pre v-code>
-<code>
+<pre v-code><code>
 &lt;Carousel :value="cars" :numVisible="3" :numScroll="1" :responsiveOptions="responsiveOptions"&gt;
 	&lt;template #header&gt;
 		&lt;h2&gt;Custom Header&lt;/h2&gt;
@@ -109,8 +103,7 @@ data() {
 
 				<h5>Orientation</h5>
 				<p>Default layout of the Carousel is horizontal, other possible option is the vertical mode that is configured with the <i>orientation</i> property.</p>
-<pre v-code>
-<code>
+<pre v-code><code>
 &lt;Carousel :value="cars" :numVisible="1" :numScroll="1" orientation="vertical" verticalViewPortHeight="330px" :responsiveOptions="responsiveOptions"&gt;
 	&lt;template #item="slotProps"&gt;
 		Content
@@ -121,8 +114,7 @@ data() {
 
 				<h5>AutoPlay and Circular</h5>
 				<p>When <i>autoplayInterval</i> is defined in milliseconds, items are scrolled automatically. In addition, for infinite scrolling <i>circular</i> property needs to be enabled. Note that in autoplay mode, circular is enabled by default.</p>
-<pre v-code>
-<code>
+<pre v-code><code>
 &lt;Carousel :value="cars" :numVisible="3" :numScroll="1" :circular="true" :autoplayInterval="3000"&gt;
 	&lt;template #header&gt;
 		&lt;h2&gt;Circular, AutoPlay&lt;/h2&gt;
@@ -280,8 +272,7 @@ data() {
                     </a>
                     <LiveEditor name="CarouselDemo" :sources="sources" service="ProductService" data="products-small" :components="['Button']" />
                 </div>
-<pre v-code>
-<code><template v-pre>
+<pre v-code><code><template v-pre>
 &lt;div class="card"&gt;
 &lt;Carousel :value="products" :numVisible="3" :numScroll="3" :responsiveOptions="responsiveOptions"&gt;
     &lt;template #header&gt;
@@ -365,8 +356,7 @@ data() {
 </template>
 </code></pre>
 
-<pre v-code.script>
-<code>
+<pre v-code.script><code>
 import ProductService from '../../service/ProductService';
 
 export default {
@@ -403,8 +393,7 @@ export default {
 
 </code></pre>
 
-<pre v-code.css>
-<code>
+<pre v-code.css><code>
 .product-item {
     .product-item-content {
         border: 1px solid var(--surface-d);

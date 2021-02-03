@@ -3,8 +3,7 @@
 		<TabView>
 			<TabPanel header="Documentation">
 				<h5>Import</h5>
-<pre v-code.script>
-<code>
+<pre v-code.script><code>
 import TieredMenu from 'primevue/tieredmenu';
 
 </code></pre>
@@ -14,14 +13,12 @@ import TieredMenu from 'primevue/tieredmenu';
 
 				<h5>Getting Started</h5>
 				<p>TieredMenu requires a collection of menuitems as its model.</p>
-<pre v-code>
-<code>
+<pre v-code><code>
 &lt;TieredMenu :model="items" /&gt;
 
 </code></pre>
 
-<pre v-code.script>
-<code>
+<pre v-code.script><code>
 export default {
     data() {
         return {
@@ -165,15 +162,13 @@ export default {
                 <h5>Popup Mode</h5>
                 <p>TieredMenu is inline by default whereas popup mode is supported by enabling popup property and calling toggle method with an event of the target.</p>
 
-<pre v-code>
-<code>
+<pre v-code><code>
 &lt;Button type="button" label="Toggle" @click="toggle" /&gt;
 &lt;TieredMenu ref="menu" :model="items" :popup="true" /&gt;
 
 </code></pre>
 
-<pre v-code.script>
-<code>
+<pre v-code.script><code>
 toggle(event) {
     this.$refs.menu.toggle(event);
 }
@@ -308,8 +303,7 @@ toggle(event) {
                </a>
                <LiveEditor name="TieredMenuDemo" :sources="sources" :router="true" :components="['Button']" />
             </div>
-<pre v-code>
-<code><template v-pre>
+<pre v-code><code><template v-pre>
 &lt;h3&gt;Inline&lt;/h3&gt;
 &lt;TieredMenu :model="items" /&gt;
 
@@ -319,8 +313,7 @@ toggle(event) {
 </template>
 </code></pre>
 
-<pre v-code.script>
-<code>
+<pre v-code.script><code>
 export default {
     data() {
         return {

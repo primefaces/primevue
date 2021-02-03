@@ -3,8 +3,7 @@
 		<TabView>
 			<TabPanel header="Documentation">
 				<h5>Import</h5>
-<pre v-code.script>
-<code>
+<pre v-code.script><code>
 import Accordion from 'primevue/accordion';
 import AccordionTab from 'primevue/accordiontab';
 
@@ -12,8 +11,7 @@ import AccordionTab from 'primevue/accordiontab';
 
 				<h5>Getting Started</h5>
 				<p>Accordion element consists of one or more AccordionTab elements. Title of the tab is defined using header attribute.</p>
-<pre v-code>
-<code>
+<pre v-code><code>
 &lt;Accordion&gt;
 	&lt;AccordionTab header="Header I"&gt;
 		Content
@@ -30,8 +28,7 @@ import AccordionTab from 'primevue/accordiontab';
 
 				<h5>Active</h5>
 				<p>Visibility of the content is specified with the <i>activeIndex</i> property that supports one or two-way binding.</p>
-<pre v-code>
-<code>
+<pre v-code><code>
 &lt;Accordion :activeIndex="0"&gt;
 	&lt;AccordionTab header="Header I"&gt;
 		Content
@@ -47,8 +44,7 @@ import AccordionTab from 'primevue/accordiontab';
 </code></pre>
 
 				<p>Two-way binding requires v-model.</p>
-<pre v-code>
-<code>
+<pre v-code><code>
 &lt;Accordion v-model:activeIndex="activeIndex"&gt;
 	&lt;AccordionTab header="Header I"&gt;
 		Content
@@ -66,8 +62,7 @@ import AccordionTab from 'primevue/accordiontab';
 				<h5>Multiple</h5>
 				<p>By default only one tab at a time can be active, enabling multiple property changes this behavior to allow multiple
 					tabs be active at the same time.</p>
-<pre v-code>
-<code>
+<pre v-code><code>
 &lt;Accordion :multiple="true"&gt;
 	&lt;AccordionTab header="Header I"&gt;
 		Content
@@ -84,8 +79,7 @@ import AccordionTab from 'primevue/accordiontab';
 
 				<h5>Disabled</h5>
 				<p>A tab can be disabled by setting the <i>disabled</i> property to true.</p>
-<pre v-code>
-<code>
+<pre v-code><code>
 &lt;Accordion&gt;
 	&lt;AccordionTab header="Header I"&gt;
 		Content
@@ -102,8 +96,7 @@ import AccordionTab from 'primevue/accordiontab';
 
 				<h5>Custom Content at Headers</h5>
 				<p>Custom content for the title section of a panel is defined using the header template.</p>
-<pre v-code>
-<code>
+<pre v-code><code>
 &lt;Accordion&gt;
 	&lt;AccordionTab&gt;
 		&lt;template #header&gt;
@@ -132,8 +125,7 @@ import AccordionTab from 'primevue/accordiontab';
 
 				<h5>Programmatic Control</h5>
 				<p>Tabs can be controlled programmatically using <i>activeIndex</i> property.</p>
-<pre v-code>
-<code>
+<pre v-code><code>
 &lt;Button @click="active = 0" class="p-button-text" label="Activate 1st" /&gt;
 &lt;Button @click="active = 1" class="p-button-text" label="Activate 2nd" /&gt;
 &lt;Button @click="active = 2" class="p-button-text" label="Activate 3rd" /&gt;
@@ -152,8 +144,7 @@ import AccordionTab from 'primevue/accordiontab';
 
 </code></pre>
 
-<pre v-code.script>
-<code>
+<pre v-code.script><code>
 export default {
 	data() {
 		return {
@@ -166,8 +157,7 @@ export default {
 
 				<h5>Dynamic Tabs</h5>
 				<p>Tabs can be generated dynamically using the standard <i>v-for</i> directive.</p>
-<pre v-code>
-<code><template v-pre>
+<pre v-code><code><template v-pre>
 &lt;Accordion&gt;
 	&lt;AccordionTab v-for="tab in tabs" :key="tab.title" :header="tab.title"&gt;
 		&lt;p&gt;{{tab.content}}&lt;/p&gt;
@@ -176,8 +166,7 @@ export default {
 </template>
 </code></pre>
 
-<pre v-code.script>
-<code>
+<pre v-code.script><code>
 export default {
 	data() {
 		return {
@@ -322,8 +311,7 @@ export default {
 					</a>
 					<LiveEditor name="AccordionDemo" :sources="sources" :components="['AccordionTab', 'Button']" />
 				</div>
-<pre v-code>
-<code><template v-pre>
+<pre v-code><code><template v-pre>
 &lt;h5&gt;Default&lt;/h5&gt;
 &lt;Accordion :activeIndex="0"&gt;
 	&lt;AccordionTab header="Header I"&gt;
@@ -430,8 +418,7 @@ export default {
 </template>
 </code></pre>
 
-<pre v-code.script>
-<code>
+<pre v-code.script><code>
 export default {
     data() {
         return {
@@ -462,8 +449,7 @@ export default {
 
 </code></pre>
 
-<pre v-code.css>
-<code>
+<pre v-code.css><code>
 .accordion-custom {
 	i, span {
 		vertical-align: middle;

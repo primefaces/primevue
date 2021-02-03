@@ -3,16 +3,14 @@
 		<TabView>
 			<TabPanel header="Documentation">
 				<h5>Import</h5>
-<pre v-code.script>
-<code>
+<pre v-code.script><code>
 import TriStateCheckbox from 'primevue/tristatecheckbox';
 
 </code></pre>
 
 				<h5>Getting Started</h5>
 				<p>A model can be bound using the standard v-model directive.</p>
-<pre v-code>
-<code>
+<pre v-code><code>
 &lt;TriStateCheckbox v-model="value" /&gt;
 
 </code></pre>
@@ -85,8 +83,7 @@ import TriStateCheckbox from 'primevue/tristatecheckbox';
 					</a>
 					<LiveEditor name="TriStateCheckboxDemo" :sources="sources"/>
 				</div>
-<pre v-code>
-<code><template v-pre>
+<pre v-code><code><template v-pre>
 &lt;div class="p-field-checkbox p-m-0"&gt;
     &lt;TriStateCheckbox v-model="value" /&gt;
     &lt;label&gt;{{value == null ? 'null' : value}}&lt;/label&gt;
@@ -94,8 +91,7 @@ import TriStateCheckbox from 'primevue/tristatecheckbox';
 </template>
 </code></pre>
 
-<pre v-code.script>
-<code>
+<pre v-code.script><code>
 export default {
 	data() {
 		return {

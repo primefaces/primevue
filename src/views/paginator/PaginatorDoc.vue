@@ -3,16 +3,14 @@
         <TabView>
             <TabPanel header="Documentation">
                 <h5>Import</h5>
-<pre v-code.script>
-<code>
+<pre v-code.script><code>
 import Paginator from 'primevue/paginator';
 
 </code></pre>
 
                 <h5>Getting Started</h5>
                 <p><i>rows</i> and <i>totalRecords</i> are the required properties of the Paginator.</p>
-<pre v-code>
-<code>
+<pre v-code><code>
 &lt;Paginator :rows="10" :totalRecords="totalItemsCount"&gt;&lt;/Paginator&gt;
 
 </code></pre>
@@ -20,31 +18,27 @@ import Paginator from 'primevue/paginator';
                 <h5>Start Index</h5>
                 <p><i>first</i> property defines the index of the first item displayed by the paginator.</p>
 
-<pre v-code>
-<code>
+<pre v-code><code>
 &lt;Paginator :first="offset" :rows="10" :totalRecords="totalItemsCount"&gt;&lt;/Paginator&gt;
 
 </code></pre>
 
                 <p>Use the v-model directive to enable two-way binding, this is useful in cases where you need to programmatically control the paginator.</p>
-<pre v-code>
-<code>
+<pre v-code><code>
 &lt;Paginator v-model:first="offset" :rows="10" :totalRecords="totalItemsCount"&gt;&lt;/Paginator&gt;
 
 </code></pre>
 
                 <h5>Rows Per Page</h5>
                 <p>Number of items per page can be changed by the user using a dropdown with the <i>rowsPerPageOptions</i> property which accepts an array of possible values.</p>
-<pre v-code>
-<code>
+<pre v-code><code>
 &lt;Paginator v-model:first="offset" :rows="rows" :totalRecords="totalItemsCount" :rowsPerPageOptions="[10,20,30]"&gt;&lt;/Paginator&gt;
 
 </code></pre>
 
                 <p>As <i>rows</i> also change when the dropdown changes, use the optional v-model directive if you need two-way binding.</p>
 
-<pre v-code>
-<code>
+<pre v-code><code>
 &lt;Paginator v-model:first="offset" v-model:rows="rows" :totalRecords="totalItemsCount" :rowsPerPageOptions="[10,20,30]"&gt;&lt;/Paginator&gt;
 
 </code></pre>
@@ -81,8 +75,7 @@ import Paginator from 'primevue/paginator';
                 <p>There are two templates available named "left" and "right" to add custom content to these locations. Both templates get
                     a state object as a slot property to provide the current page, first index and the rows.
                 </p>
-<pre v-code>
-<code><template v-pre>
+<pre v-code><code><template v-pre>
 &lt;Paginator v-model:first="offset" :rows="10" :totalRecords="totalItemsCount"&gt;
     &lt;template #left="slotProps"&gt;
         Page: &#123;&#123;slotProps.state.page&#125;&#125;
@@ -98,14 +91,12 @@ import Paginator from 'primevue/paginator';
 
                 <h5>Page Change Event</h5>
                 <p>Paginator provides only one event called <i>page</i> that passes all the information about the change event.</p>
-<pre v-code>
-<code>
+<pre v-code><code>
 &lt;Paginator :rows="10" :totalRecords="totalItemsCount" @page="onPage($event)"&gt;&lt;/Paginator&gt;
 
 </code></pre>
 
-<pre v-code.script>
-<code>
+<pre v-code.script><code>
 onPage(event) {
     //event.page: New page number
     //event.first: Index of first record
@@ -263,8 +254,7 @@ onPage(event) {
                     </a>
                     <LiveEditor name="PaginatorDemo" :sources="sources" :components="['Button']" />
                 </div>
-<pre v-code>
-<code>
+<pre v-code><code>
 &lt;h3&gt;Basic&lt;/h3&gt;
 &lt;Paginator :rows="10" :totalRecords="totalRecords" :rowsPerPageOptions="[10,20,30]"&gt;&lt;/Paginator&gt;
 
@@ -285,8 +275,7 @@ onPage(event) {
 
 </code></pre>
 
-<pre v-code.script>
-<code>
+<pre v-code.script><code>
 export default {
     data() {
         return {
@@ -309,8 +298,7 @@ export default {
 
 </code></pre>
 
-<pre v-code.css>
-<code>
+<pre v-code.css><code>
 .p-button.p-button-icon-only {
     border-radius: 0;
 }

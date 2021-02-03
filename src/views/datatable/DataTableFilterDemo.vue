@@ -103,8 +103,7 @@
                     <div class="p-d-flex p-jc-end">
                         <LiveEditor name="DataTableDemo" :sources="sources" service="CustomerService" data="customers-large" :components="['Column', 'InputText', 'MultiSelect', 'Calendar', 'Dropdown', 'ProgressBar', 'Button']" />
                     </div>
-<pre v-code>
-<code><template v-pre>
+<pre v-code><code><template v-pre>
 &lt;DataTable :value="customers" :paginator="true" class="p-datatable-customers" :rows="10"
     dataKey="id" :filters="filters" :loading="loading"&gt;
     &lt;template #header&gt;
@@ -193,8 +192,7 @@
 </template>
 </code></pre>
 
-<pre v-code.script>
-<code>
+<pre v-code.script><code>
 import CustomerService from '../../service/CustomerService';
 
 export default {

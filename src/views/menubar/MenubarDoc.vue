@@ -3,8 +3,7 @@
 		<TabView>
 			<TabPanel header="Documentation">
 				<h5>Import</h5>
-<pre v-code.script>
-<code>
+<pre v-code.script><code>
 import Menubar from 'primevue/menubar';
 
 </code></pre>
@@ -14,14 +13,12 @@ import Menubar from 'primevue/menubar';
 
 				<h5>Getting Started</h5>
 				<p>Menubar requires a collection of menuitems as its model.</p>
-<pre v-code>
-<code>
+<pre v-code><code>
 &lt;Menubar :model="items" /&gt;
 
 </code></pre>
 
-<pre v-code.script>
-<code>
+<pre v-code.script><code>
 export default {
     data() {
         return {
@@ -161,8 +158,7 @@ export default {
 
                 <h5>Custom Content</h5>
                 <p>Two slots named "start" and "end" are provided to embed content before or after the menubar.</p>
-<pre v-code>
-<code><template v-pre>
+<pre v-code><code><template v-pre>
 &lt;Menubar :model="items"&gt;
     &lt;template #start&gt;
         Before
@@ -251,8 +247,7 @@ export default {
                </a>
                <LiveEditor name="MenubarDemo" :sources="sources" :router="true" :components="['InputText']"/>
             </div>
-<pre v-code>
-<code><template v-pre>
+<pre v-code><code><template v-pre>
 &lt;Menubar :model="items"&gt;
     &lt;template #start&gt;
         &lt;img alt="logo" src="../../assets/images/logo.svg" height="40" class="p-mr-2"&gt;
@@ -265,8 +260,7 @@ export default {
 </template>
 </code></pre>
 
-<pre v-code.script>
-<code>
+<pre v-code.script><code>
 export default {
     data() {
         return {

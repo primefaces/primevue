@@ -73,8 +73,7 @@
                     <div class="p-d-flex p-jc-end">
                         <LiveEditor name="TreeTableDemo" :sources="sources" service="NodeService" data="treetablenodes" :components="['Column', 'InputText']" />
                     </div>
-<pre v-code>
-<code><template v-pre>
+<pre v-code><code><template v-pre>
 &lt;div class="card"&gt;
 &lt;h5&gt;Lenient Filter&lt;/h5&gt;
 &lt;TreeTable :value="nodes" :filters="filters1" filterMode="lenient"&gt;
@@ -135,8 +134,7 @@
 </template>
 </code></pre>
 
-<pre v-code.script>
-<code>
+<pre v-code.script><code>
 import NodeService from '../../service/NodeService';
 
 export default {

@@ -3,22 +3,19 @@
 		<TabView>
 			<TabPanel header="Documentation">
 				<h5>Import</h5>
-<pre v-code.script>
-<code>
+<pre v-code.script><code>
 import MultiSelect from 'primevue/multiselect';
 
 </code></pre>
 
 				<h5>Getting Started</h5>
 				<p>MultiSelect requires a value to bind and a collection of arbitrary objects along with the <i>optionLabel</i> property to specify the label property of the option.</p>
-<pre v-code>
-<code>
+<pre v-code><code>
 &lt;MultiSelect v-model="selectedCars" :options="cars" optionLabel="brand" placeholder="Select Brands" /&gt;
 
 </code></pre>
 
-<pre v-code.script>
-<code>
+<pre v-code.script><code>
 data() {
 	return {
 		selectedCars: null,
@@ -40,8 +37,7 @@ data() {
 
                 <h5>Chips Display</h5>
                 <p>A comma separated list is used by default to display selected items whereas alternative chip mode is provided using the <i>display</i> property to visualize the items as tokens.</p>
-<pre v-code>
-<code>
+<pre v-code><code>
 &lt;MultiSelect v-model="selectedCars" :options="cars" optionLabel="brand" placeholder="Select Brands" display="chip"/&gt;
 
 </code></pre>
@@ -49,8 +45,7 @@ data() {
 				<h5>Custom Content</h5>
 				<p>Label of an option is used as the display text of an item by default, for custom content support define an <i>option</i> template that gets the option instance as a parameter.</p>
 				<p>In addition the <i>value</i> template can be used to customize the selected values display instead of the default comma separated list.</p>
-<pre v-code>
-<code><template v-pre>
+<pre v-code><code><template v-pre>
 &lt;MultiSelect v-model="selectedCars2" :options="cars" optionLabel="brand" placeholder="Select a Car"&gt;
 	&lt;template #value="slotProps"&gt;
 		&lt;div class="p-multiselect-car-token" v-for="option of slotProps.value" :key="option.brand"&gt;
@@ -73,8 +68,7 @@ data() {
 
 				<h5>Filter</h5>
 				<p>Filtering allows searching items in the list using an input field at the header. In order to use filtering, enable the <i>filter</i> property.</p>
-<pre v-code>
-<code>
+<pre v-code><code>
 &lt;MultiSelect v-model="selectedCars" :options="cars" :filter="true" optionLabel="brand" placeholder="Select Brands"/&gt;
 
 </code></pre>
@@ -335,8 +329,7 @@ data() {
                     <LiveEditor name="MultiSelectDemo" :sources="sources"/>
                 </div>
 
-<pre v-code>
-<code><template v-pre>
+<pre v-code><code><template v-pre>
 &lt;h5&gt;Basic&lt;/h5&gt;
 &lt;MultiSelect v-model="selectedCities1" :options="cities" optionLabel="name" placeholder="Select a City" /&gt;
 
@@ -364,8 +357,7 @@ data() {
 </template>
 </code></pre>
 
-<pre v-code.script>
-<code>
+<pre v-code.script><code>
 export default {
     data() {
         return {
@@ -397,8 +389,7 @@ export default {
 
 </code></pre>
 
-<pre v-code.css>
-<code>
+<pre v-code.css><code>
 .p-multiselect {
     min-width: 15rem;
 }

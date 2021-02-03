@@ -3,16 +3,14 @@
 		<TabView>
 			<TabPanel header="Documentation">
 				<h5>Import</h5>
-<pre v-code.script>
-<code>
+<pre v-code.script><code>
 import Slider from 'primevue/slider';
 
 </code></pre>
 
 				<h5>Getting Started</h5>
 				<p>Two-way binding is defined using the standard v-model directive.</p>
-<pre v-code>
-<code>
+<pre v-code><code>
 &lt;Slider v-model="value" /&gt;
 
 </code></pre>
@@ -20,14 +18,12 @@ import Slider from 'primevue/slider';
 				<h5>Range</h5>
 				<p>Range slider provides two handles to define two values. Enable <i>range</i> property and bind an array to implement a range slider.</p>
 
-<pre v-code>
-<code>
+<pre v-code><code>
 &lt;Slider v-model="value" :range="true" /&gt;
 
 </code></pre>
 
-<pre v-code.script>
-<code>
+<pre v-code.script><code>
 export default {
 	data() {
 		return {
@@ -40,24 +36,21 @@ export default {
 
 				<h5>Orientation</h5>
 				<p>Default layout of slider is horizontal, use <i>orientation</i> property for the alternative vertical mode.</p>
-<pre v-code>
-<code>
+<pre v-code><code>
 &lt;Slider v-model="value" orientation="vertical" /&gt;
 
 </code></pre>
 
 				<h5>Step</h5>
 				<p>Step factor is 1 by default and can be customized with <i>step</i> option.</p>
-<pre v-code>
-<code>
+<pre v-code><code>
 &lt;Slider v-model="value" :step="20" /&gt;
 
 </code></pre>
 
 				<h5>Min-Max</h5>
 				<p>Boundaries are specified with min and max attributes.</p>
-<pre v-code>
-<code>
+<pre v-code><code>
 &lt;Slider v-model="value" :step="20" :min="50" :max="200" /&gt;
 
 </code></pre>
@@ -189,8 +182,7 @@ export default {
                     </a>
                     <LiveEditor name="SliderDemo" :sources="sources" :components="['InputText']" />
                 </div>
-<pre v-code>
-<code><template v-pre>
+<pre v-code><code><template v-pre>
 &lt;h3&gt;Basic: {{value1}}&lt;/h3&gt;
 &lt;Slider v-model="value1" /&gt;
 
@@ -209,8 +201,7 @@ export default {
 </template>
 </code></pre>
 
-<pre v-code.script>
-<code>
+<pre v-code.script><code>
 export default {
 	data() {
 		return {
@@ -225,8 +216,7 @@ export default {
 
 </code></pre>
 
-<pre v-code.css>
-<code>
+<pre v-code.css><code>
 .p-slider-horizontal, .p-inputtext {
 	width: 14rem;
 }

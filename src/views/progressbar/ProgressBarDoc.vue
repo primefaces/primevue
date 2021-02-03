@@ -3,21 +3,18 @@
 		<TabView>
 			<TabPanel header="Documentation">
 				<h5>Import</h5>
-<pre v-code.script>
-<code>
+<pre v-code.script><code>
 import ProgressBar from 'primevue/progressbar';
 
 </code></pre>
 
 				<h5>Getting Started</h5>
 				<p>ProgressBar has two modes; "determinate" (default) and "indeterminate". In determinate mode, a value between 0 and 100 is required to display the progress.</p>
-<pre v-code>
-<code>
+<pre v-code><code>
 &lt;ProgressBar :value="value" /&gt;
 
 </code></pre>
-<pre v-code.script>
-<code>
+<pre v-code.script><code>
 data() {
 	return {
 		value: 0
@@ -27,16 +24,14 @@ data() {
 </code></pre>
 
 				<p>Indeterminate is simplly enabled using <i>mode</i> property.</p>
-<pre v-code>
-<code>
+<pre v-code><code>
 &lt;ProgressBar mode="indeterminate"/&gt;
 
 </code></pre>
 
                 <h5>Slot</h5>
                 <p>A custom label can be placed inside the progress bar via the default slot.</p>
-<pre v-code>
-<code><template v-pre>
+<pre v-code><code><template v-pre>
 &lt;ProgressBar :value="value"&gt;
     Percent Complete: &#123;&#123;value&#125;&#125;%
 &lt;/ProgressBar&gt;
@@ -124,8 +119,7 @@ data() {
 				</a>
 				<LiveEditor name="ProgressBarDemo" :sources="sources" />
 				</div>
-<pre v-code>
-<code><template v-pre>
+<pre v-code><code><template v-pre>
 &lt;h3&gt;Dynamic&lt;/h3&gt;
 &lt;ProgressBar :value="value1" /&gt;
 
@@ -137,8 +131,7 @@ data() {
 </template>
 </code></pre>
 
-<pre v-code.script>
-<code>
+<pre v-code.script><code>
 export default {
 	data() {
 		return {

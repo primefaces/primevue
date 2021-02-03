@@ -36,8 +36,7 @@
                     <div class="p-d-flex p-jc-end">
                         <LiveEditor name="DataTableDemo" :sources="sources" service="ProductService" data="products-small" :components="['Column']" />
                     </div>
-<pre v-code>
-<code><template v-pre>
+<pre v-code><code><template v-pre>
 &lt;h3&gt;Fit Mode&lt;/h3&gt;
 &lt;DataTable :value="products" :resizableColumns="true" columnResizeMode="fit" class="p-datatable-gridlines"&gt;
     &lt;Column field="code" header="Code"&gt;&lt;/Column&gt;
@@ -56,8 +55,7 @@
 </template>
 </code></pre>
 
-<pre v-code.script>
-<code>
+<pre v-code.script><code>
 import ProductService from '../../service/ProductService';
 
 export default {

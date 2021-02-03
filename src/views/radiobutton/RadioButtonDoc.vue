@@ -3,22 +3,19 @@
 		<TabView>
 			<TabPanel header="Documentation">
 				<h5>Import</h5>
-<pre v-code.script>
-<code>
+<pre v-code.script><code>
 import RadioButton from 'primevue/radiobutton';
 
 </code></pre>
 
 				<h5>Getting Started</h5>
 				<p>Two-way value binding is defined using the standard v-model directive.</p>
-<pre v-code>
-<code>
+<pre v-code><code>
 &lt;RadioButton name="city" value="Chicago" v-model="city" /&gt;
 &lt;RadioButton name="city" value="Los Angeles" v-model="city" /&gt;
 
 </code></pre>
-<pre v-code.script>
-<code>
+<pre v-code.script><code>
 export default {
 	data() {
 		return {
@@ -29,8 +26,7 @@ export default {
 
 </code></pre>
 				<p>As model is two-way binding enabled, giving a default value to the model is enough to display a radio button as checked by default.</p>
-<pre v-code.script>
-<code>
+<pre v-code.script><code>
 export default {
 	data() {
 		return {
@@ -115,8 +111,7 @@ export default {
                     </a>
                     <LiveEditor name="RadioButtonDemo" :sources="sources"/>
                 </div>
-<pre v-code>
-<code><template v-pre>
+<pre v-code><code><template v-pre>
 &lt;h3&gt;Basic&lt;/h3&gt;
     &lt;div class="p-field-radiobutton"&gt;
     &lt;RadioButton id="city1" name="city" value="Chicago" v-model="city" /&gt;
@@ -143,8 +138,7 @@ export default {
 </template>
 </code></pre>
 
-<pre v-code.script>
-<code>
+<pre v-code.script><code>
 export default {
     data() {
         return {

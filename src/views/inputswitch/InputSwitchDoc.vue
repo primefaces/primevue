@@ -3,22 +3,19 @@
 		<TabView>
 			<TabPanel header="Documentation">
 				<h5>Import</h5>
-<pre v-code.script>
-<code>
+<pre v-code.script><code>
 import InputSwitch from 'primevue/inputswitch';
 
 </code></pre>
 
 				<h5>Getting Started</h5>
 				<p>Two-way binding to a boolean property is defined using the standard v-model directive.</p>
-<pre v-code>
-<code>
+<pre v-code><code>
 &lt;InputSwitch v-model="checked" /&gt;
 
 </code></pre>
 
-<pre v-code.script>
-<code>
+<pre v-code.script><code>
 export default {
 	data() {
 		return {
@@ -31,8 +28,7 @@ export default {
 
 				<p>As model is two-way binding enabled, setting the bound value as true displays the state as checked by default.</p>
 
-<pre v-code.script>
-<code>
+<pre v-code.script><code>
 export default {
 	data() {
 		return {
@@ -107,8 +103,7 @@ export default {
 					</a>
 					<LiveEditor name="InputSwitchDemo" :sources="sources"/>
 				</div>
-<pre v-code>
-<code><template v-pre>
+<pre v-code><code><template v-pre>
 &lt;h3&gt;Basic&lt;/h3&gt;
 &lt;InputSwitch v-model="checked1" /&gt;
 
@@ -117,8 +112,7 @@ export default {
 </template>
 </code></pre>
 
-<pre v-code.script>
-<code>
+<pre v-code.script><code>
 export default {
 	data() {
 		return {

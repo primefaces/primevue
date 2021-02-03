@@ -47,8 +47,7 @@
                     <div class="p-d-flex p-jc-end">
                         <LiveEditor name="DataTableDemo" :sources="sources" service="ProductService" data="products" :components="['Column']" />
                     </div>
-<pre v-code>
-<code><template v-pre>
+<pre v-code><code><template v-pre>
 &lt;DataTable :value="products" class="p-datatable-responsive-demo" :paginator="true" :rows="10"&gt;
     &lt;template #header&gt;
         Responsive
@@ -81,8 +80,7 @@
 </template>
 </code></pre>
 
-<pre v-code.script>
-<code>
+<pre v-code.script><code>
 import ProductService from '../../service/ProductService';
 
 export default {
@@ -102,8 +100,7 @@ export default {
 
 </code></pre>
 
-<pre v-code.css>
-<code>
+<pre v-code.css><code>
 .p-datatable-responsive-demo .p-datatable-tbody > tr > td .p-column-title {
     display: none;
 }

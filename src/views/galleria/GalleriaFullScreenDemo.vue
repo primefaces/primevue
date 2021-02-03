@@ -61,8 +61,7 @@
         <div class="content-section documentation">
             <TabView>
                 <TabPanel header="Source">
-<pre v-code>
-<code><template v-pre>
+<pre v-code><code><template v-pre>
 &lt;h3&gt;With Thumbnails&lt;/h3&gt;
 &lt;Galleria :value="images" :responsiveOptions="responsiveOptions2" :numVisible="9" containerStyle="max-width: 50%"
     :circular="true" :fullScreen="true" :showItemNavigators="true" v-model:visible="displayBasic"&gt;
@@ -108,8 +107,7 @@
 </template>
 </code></pre>
 
-<pre v-code.script>
-<code>
+<pre v-code.script><code>
 import PhotoService from '../../service/PhotoService';
 
 export default {

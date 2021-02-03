@@ -111,8 +111,7 @@
                     <div class="p-d-flex p-jc-end">
                         <LiveEditor name="DataTableDemo" :sources="sources" :toastService="true" service="CustomerService" data="customers-medium" :components="['Column']" />
                     </div>
-<pre v-code>
-<code><template v-pre>
+<pre v-code><code><template v-pre>
 &lt;div class="card"&gt;
     &lt;h5&gt;Subheader Grouping&lt;/h5&gt;
     &lt;p&gt;Group customers by their representative.&lt;/p&gt;
@@ -211,8 +210,7 @@
 </template>
 </code></pre>
 
-<pre v-code.script>
-<code>
+<pre v-code.script><code>
 import CustomerService from '../../service/CustomerService';
 
 export default {

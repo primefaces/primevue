@@ -3,16 +3,14 @@
 		<TabView>
 			<TabPanel header="Documentation">
 				<h5>Import</h5>
-<pre v-code.script>
-<code>
+<pre v-code.script><code>
 import Fieldset from 'primevue/fieldset';
 
 </code></pre>
 
 				<h5>Getting Started</h5>
 				<p>Fieldset is a container component that accepts content as its children.</p>
-<pre v-code>
-<code>
+<pre v-code><code>
 &lt;Fieldset legend="Godfather I"&gt;
 	The story begins as Don Vito Corleone, the head of a New York Mafia family, oversees his daughter's wedding.
 	His beloved son Michael has just come home from the war, but does not intend to become part of his father's business.
@@ -24,8 +22,7 @@ import Fieldset from 'primevue/fieldset';
 
                 <h5>Custom Header</h5>
                 <p>Header of the panel is either defined with the <i>legend</i> property or the legend template.</p>
-<pre v-code>
-<code>
+<pre v-code><code>
 &lt;Fieldset&gt;
     &lt;template #legend&gt;
         Header Content
@@ -38,8 +35,7 @@ import Fieldset from 'primevue/fieldset';
 
 				<h5>Toggleable</h5>
 				<p>Content of the fieldset can be expanded and collapsed using <i>toggleable</i> option..</p>
-<pre v-code>
-<code>
+<pre v-code><code>
 &lt;Fieldset legend="Godfather I" :toggleable="true"&gt;
 	The story begins as Don Vito Corleone, the head of a New York Mafia family, oversees his daughter's wedding.
 	His beloved son Michael has just come home from the war, but does not intend to become part of his father's business.
@@ -50,8 +46,7 @@ import Fieldset from 'primevue/fieldset';
 </code></pre>
 
 <p>To control the initial state of the toggleable panel, use the <i>collapsed</i> property.</p>
-<pre v-code>
-<code>
+<pre v-code><code>
 &lt;Fieldset legend="Header Text" :toggleable="true" :collapsed="true"&gt;
 	Content
 &lt;/Fieldset&gt;
@@ -59,8 +54,7 @@ import Fieldset from 'primevue/fieldset';
 </code></pre>
 
                 <p>Use the v-model directive to enable two-way binding.</p>
-<pre v-code>
-<code>
+<pre v-code><code>
 &lt;button type="button" @click="isCollapsed = !isCollapsed">Toggle Programmatically&lt;/button&gt;
 &lt;Fieldset legend="Header Text" :toggleable="true" v-model:collapsed="isCollapsed"&gt;
 	Content
@@ -167,8 +161,7 @@ import Fieldset from 'primevue/fieldset';
                     </a>
                     <LiveEditor name="FieldsetDemo" :sources="sources"/>
                 </div>
-<pre v-code>
-<code><template v-pre>
+<pre v-code><code><template v-pre>
 &lt;h5&gt;Regular&lt;/h5&gt;
 &lt;Fieldset legend="Header"&gt;
     &lt;p&gt;Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.
@@ -187,8 +180,7 @@ import Fieldset from 'primevue/fieldset';
 </template>
 </code></pre>
 
-<pre v-code.script>
-<code>
+<pre v-code.script><code>
 export default {
 	data() {
 		return {

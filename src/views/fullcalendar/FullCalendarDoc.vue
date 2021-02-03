@@ -3,8 +3,7 @@
 		<TabView>
 			<TabPanel header="Documentation">
 				<h5>Import</h5>
-<pre v-code.script>
-<code>
+<pre v-code.script><code>
 import FullCalendar from 'primevue/fullcalendar';
 
 </code></pre>
@@ -12,15 +11,13 @@ import FullCalendar from 'primevue/fullcalendar';
 				<h5>Getting Started</h5>
 				<p>FullCalendar is a wrapper around on <a href="https://fullcalendar.io/docs/v4">FullCalendar 5.4.0+</a> so fullcalendar needs to be included in your project.
                 For a complete documentation and samples please refer to the <a href="https://fullcalendar.io/">fullcalendar website</a>.</p>
-<pre v-code>
-<code>
+<pre v-code><code>
 npm install @fullcalendar/core --save
 
 </code></pre>
 
                 <p>FullCalendar is plugin based so install the plugins you require and define them with the options property.</p>
-<pre v-code>
-<code>
+<pre v-code><code>
 npm install @fullcalendar/daygrid --save
 npm install @fullcalendar/timegrid --save
 npm install @fullcalendar/interaction --save
@@ -28,14 +25,12 @@ npm install @fullcalendar/interaction --save
 </code></pre>
 
 				<p>Events should be an array and defined using the events property.</p>
-<pre v-code>
-<code>
+<pre v-code><code>
 &lt;FullCalendar :events="events" /&gt;
 
 </code></pre>
 
-<pre v-code.script>
-<code>
+<pre v-code.script><code>
 export default {
 	data() {
 		return {
@@ -81,8 +76,7 @@ export default {
 </code></pre>
 
 				<p>In a real application, it is likely to populate the events by making a remote call, when the events are updated, the component will detect the change and render them.</p>
-<pre v-code.script>
-<code>
+<pre v-code.script><code>
 import axios from 'axios';
 
 export default class EventService {
@@ -95,8 +89,7 @@ export default class EventService {
 
 </code></pre>
 
-<pre v-code.script>
-<code>
+<pre v-code.script><code>
 import EventService from '../../service/EventService';
 
 export default {
@@ -118,14 +111,12 @@ export default {
 
 				<h5>Options</h5>
 				<p>FullCalendar has a long list of customization parameters that can be defined with the options property. Example below customizes the plugins, header and editable properties.</p>
-<pre v-code>
-<code>
+<pre v-code><code>
 &lt;FullCalendar :events="events" :options="options" /&gt;
 
 </code></pre>
 
-<pre v-code.script>
-<code>
+<pre v-code.script><code>
 import EventService from '../../service/EventService';
 import dayGridPlugin from '@fullcalendar/daygrid';
 import timeGridPlugin from '@fullcalendar/timegrid';
@@ -160,8 +151,7 @@ export default {
 
 				<h5>Callbacks</h5>
 				<p>Callbacks of the FullCalendar such as dateClick are also defined with the options property.</p>
-<pre v-code.script>
-<code>
+<pre v-code.script><code>
 export default {
      data() {
         return {
@@ -221,14 +211,12 @@ export default {
 					</a>
 					<LiveEditor name="FullCalendarDemo" :sources="sources" service="EventService" data="events"/>
                 </div>
-<pre v-code>
-<code><template v-pre>
+<pre v-code><code><template v-pre>
 &lt;FullCalendar :events="events" :options="options" /&gt;
 </template>
 </code></pre>
 
-<pre v-code.script>
-<code>
+<pre v-code.script><code>
 import EventService from '../../service/EventService';
 import dayGridPlugin from '@fullcalendar/daygrid';
 import timeGridPlugin from '@fullcalendar/timegrid';
