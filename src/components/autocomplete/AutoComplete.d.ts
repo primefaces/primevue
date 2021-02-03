@@ -3,7 +3,7 @@ import Vue, { VNode } from 'vue';
 declare class AutoComplete extends Vue {
     modelValue?: any;
     suggestions?: any[];
-    field?: string|function;
+    field?: string|Function;
     scrollHeight?: string;
     dropdown?: boolean;
     dropdownMode?: string;
@@ -11,6 +11,8 @@ declare class AutoComplete extends Vue {
     minLength?: number;
     delay?: number;
     appendTo?: string;
+    inputStyle?: any;
+    inputClass?: string;
     $emit(eventName: 'item-select', e: {originalEvent: Event, value: any}): this;
     $emit(eventName: 'item-unselect', e: {originalEvent: Event, value: any}): this;
     $emit(eventName: 'dropdown-click', e: {originalEvent: Event, query: string}): this;

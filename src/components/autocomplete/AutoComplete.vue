@@ -1,6 +1,6 @@
 <template>
     <span ref="container" :class="containerClass" aria-haspopup="listbox" :aria-owns="listId" :aria-expanded="overlayVisible" :style="style">
-        <input ref="input" :class="inputClass" v-bind="$attrs" :value="inputValue" @input="onInput" @focus="onFocus" @blur="onBlur" @keydown="onKeyDown" type="text" autoComplete="off" v-if="!multiple"
+        <input ref="input" :class="inputFieldClass" :style="inputStyle" v-bind="$attrs" :value="inputValue" @input="onInput" @focus="onFocus" @blur="onBlur" @keydown="onKeyDown" type="text" autoComplete="off" v-if="!multiple"
             role="searchbox" aria-autocomplete="list" :aria-controls="listId">
         <ul ref="multiContainer" :class="multiContainerClass" v-if="multiple" @click="onMultiContainerClick">
             <li v-for="(item, i) of modelValue" :key="i" class="p-autocomplete-token">
@@ -77,6 +77,8 @@ export default {
             type: String,
             default: null
         },
+        inputClass: null,
+        inputStyle: null,
         class: null,
         style: null
     },
@@ -443,8 +445,8 @@ export default {
                 'p-inputwrapper-focus': this.focused
             }];
         },
-        inputClass() {
-            return ['p-autocomplete-input p-inputtext p-component', {
+        inputFieldClass() {
+            return ['p-autocomplete-input p-inputtext p-component', this.inputClass, {
                 'p-autocomplete-dd-input': this.dropdown,
                 'p-disabled': this.$attrs.disabled
             }];

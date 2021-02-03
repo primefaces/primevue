@@ -403,6 +403,18 @@ export default {
                                 <td>null</td>
                                 <td>Id of the element or "body" for document where the overlay should be appended to.</td>
                             </tr>
+                            <tr>
+                                <td>inputStyle</td>
+                                <td>any</td>
+                                <td>null</td>
+                                <td>Inline style of the input field.</td>
+                            </tr>
+                            <tr>
+                                <td>inputClass</td>
+                                <td>string</td>
+                                <td>null</td>
+                                <td>Style class of the input field.</td>
+                            </tr>
                         </tbody>
                     </table>
                 </div>

@@ -11,6 +11,8 @@ declare class Password extends Vue {
     feedback?: boolean;
     appendTo?: string;
     toggleMask?: boolean;
+    inputStyle?: any;
+    inputClass?: string;
     $emit(eventName: string, event: Event): this;
 }
 
