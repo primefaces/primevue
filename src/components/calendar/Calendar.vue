@@ -1987,7 +1987,10 @@ export default {
                 }
             }
             else if (event.keyCode === 9) {
-                DomHandler.getFocusableElements(this.overlay).forEach(el => el.tabIndex = '-1');
+                if (this.overlay) {
+                    DomHandler.getFocusableElements(this.overlay).forEach(el => el.tabIndex = '-1');
+                }
+                
                 if (this.overlayVisible) {
                     this.overlayVisible = false;
                 }
