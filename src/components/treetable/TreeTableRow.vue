@@ -12,7 +12,7 @@
                     <span :class="checkboxIcon"></span>
                 </div>
             </div>
-            <component :is="col.children?.body" :node="node" :column="col" v-if="col.children?.body" />
+            <component :is="col.children.body" :node="node" :column="col" v-if="col.children && col.children.body" />
             <template v-else><span>{{resolveFieldData(node.data, columnProp(col, 'field'))}}</span></template>
         </td>
     </tr>

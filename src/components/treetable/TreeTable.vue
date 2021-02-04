@@ -24,7 +24,7 @@
                         <th v-for="(col,i) of columns" :key="columnProp(col, 'columnKey')||columnProp(col, 'field')||i" :style="columnProp(col, 'headerStyle')" :class="getColumnHeaderClass(col)" @click="onColumnHeaderClick($event, col)"
                             :tabindex="columnProp(col, 'sortable') ? '0' : null"  :aria-sort="getAriaSort(col)" @keydown="onColumnKeyDown($event, col)">
                             <span class="p-column-resizer" @mousedown="onColumnResizeStart" v-if="resizableColumns"></span>
-                            <component :is="col.children?.header" :column="col" />
+                            <component :is="col.children.header" :column="col" v-if="col.children && col.children.header" />
                             <span class="p-column-title" v-if="columnProp(col, 'header')">{{columnProp(col, 'header')}}</span>
                             <span v-if="columnProp(col, 'sortable')" :class="getSortableColumnIcon(col)"></span>
                             <span v-if="isMultiSorted(col)" class="p-sortable-column-badge">{{getMultiSortMetaIndex(col) + 1}}</span>
@@ -32,14 +32,14 @@
                     </tr>
                     <tr v-if="hasColumnFilter()">
                         <th  v-for="(col,i) of columns" :key="columnProp(col, 'columnKey')||columnProp(col, 'field')||i" :class="getFilterColumnHeaderClass(col)" :style="columnProp(col, 'filterHeaderStyle')">
-                            <component :is="col.children?.filter" :column="col" v-if="col.children?.filter"/>
+                            <component :is="col.children.filter" :column="col" v-if="col.children && col.children.filter"/>
                         </th>
                     </tr>
                 </thead>
                 <tfoot class="p-treetable-tfoot" v-if="hasFooter">
                     <tr>
                         <td v-for="(col,i) of columns" :key="columnProp(col, 'columnKey')||columnProp(col, 'field')||i" :style="columnProp(col, 'footerStyle')" :class="columnProp(col, 'footerClass')">
-                            <component :is="col.children?.footer" :column="col" />
+                            <component :is="col.children.footer" :column="col" v-if="col.children && col.children.footer" />
                             {{columnProp(col, 'footer')}}
                         </td>
                     </tr>
@@ -773,7 +773,7 @@ export default {
         hasColumnFilter() {
             if (this.columns) {
                 for (let col of this.columns) {
-                    if (col.children?.filter) {
+                    if (col.children && col.children.filter) {
                         return true;
                     }
                 }
@@ -858,7 +858,7 @@ export default {
             let hasFooter = false;
 
             for (let col of this.columns) {
-                if (this.columnProp(col, 'footer')|| col.children?.footer) {
+                if (this.columnProp(col, 'footer')|| (col.children && col.children.footer)) {
                     hasFooter = true;
                     break;
                 }
