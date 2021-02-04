@@ -1070,73 +1070,108 @@ export default {
                 break;
             }
         },
-        incrementHour(event) {
-            const prevHour = this.currentHour;
-            const newHour = this.currentHour + this.stepHour;
-
-            if (this.validateHour(newHour)) {
-                if (this.hourFormat == '24')
-                    this.currentHour = (newHour >= 24) ? (newHour - 24) : newHour;
-                else if (this.hourFormat == '12') {
-                    // Before the AM/PM break, now after
-                    if (prevHour < 12 && newHour > 11) {
-                        this.pm = !this.pm;
-                    }
-
-                    this.currentHour = (newHour >= 13) ? (newHour - 12) : newHour;
+        convertTo24Hour(hours, pm) {
+            if (this.hourFormat == '12') {
+                if (hours === 12) {
+                    return (pm ? 12 : 0);
+                } else {
+                    return (pm ? hours + 12 : hours);
                 }
             }
-            event.preventDefault();
+            return hours;
         },
-        decrementHour(event) {
-            const newHour = this.currentHour - this.stepHour;
-
-            if (this.validateHour(newHour)) {
-                if (this.hourFormat == '24')
-                    this.currentHour = (newHour < 0) ? (24 + newHour) : newHour;
-                else if (this.hourFormat == '12') {
-                    // If we were at noon/midnight, then switch
-                    if (this.currentHour === 12) {
-                        this.pm = !this.pm;
-                    }
-                    this.currentHour = (newHour <= 0) ? (12 + newHour) : newHour;
-                }
-            }
-
-            event.preventDefault();
-        },
-        validateHour(hour) {
-            let valid = true;
+        validateTime(hour, minute, second, pm) {
             let value = this.value;
+            const convertedHour = this.convertTo24Hour(hour, pm);
             if (!this.isComparable()) {
-                return valid;
+                return true;
             }
-
             if (this.isRangeSelection()) {
                 value = this.value[1] || this.value[0];
             }
             if (this.isMultipleSelection()) {
                 value = this.value[this.value.length - 1];
             }
-            let valueDateString = value ? value.toDateString() : null;
-
+            const valueDateString = value ? value.toDateString() : null;
             if (this.minDate && valueDateString && this.minDate.toDateString() === valueDateString) {
-                if (this.minDate.getHours() > hour) {
-                    valid = false;
+                if (this.minDate.getHours() > convertedHour) {
+                    return false;
+                }
+                if (this.minDate.getHours() === convertedHour) {
+                    if (this.minDate.getMinutes() > minute) {
+                        return false;
+                    }
+                    if (this.minDate.getMinutes() === minute) {
+                        if (this.minDate.getSeconds() > second) {
+                            return false;
+                        }
+                    }
                 }
             }
 
             if (this.maxDate && valueDateString && this.maxDate.toDateString() === valueDateString) {
-                if (this.maxDate.getHours() < hour) {
-                    valid = false;
+                if (this.maxDate.getHours() < convertedHour) {
+                    return false;
+                }
+                if (this.maxDate.getHours() === convertedHour) {
+                    if (this.maxDate.getMinutes() < minute) {
+                        return false;
+                    }
+                    if (this.maxDate.getMinutes() === minute) {
+                      if (this.maxDate.getSeconds() < second) {
+                          return false;
+                      }
+                    }
                 }
             }
+            return true;
+        },
+        incrementHour(event) {
+            let prevHour = this.currentHour;
+            let newHour = this.currentHour + this.stepHour;
+            let newPM = this.pm;
 
-            return valid;
+            if (this.hourFormat == '24')
+                newHour = (newHour >= 24) ? (newHour - 24) : newHour;
+            else if (this.hourFormat == '12') {
+                // Before the AM/PM break, now after
+                if (prevHour < 12 && newHour > 11) {
+                    newPM= !this.pm;
+                }
+                newHour = (newHour >= 13) ? (newHour - 12) : newHour;
+            }
+
+            if (this.validateTime(newHour, this.currentMinute, this.currentSecond, newPM)) {
+                this.currentHour = newHour;
+                this.pm = newPM;
+            }
+
+            event.preventDefault();
+        },
+        decrementHour(event) {
+            let newHour = this.currentHour - this.stepHour;
+            let newPM = this.pm;
+
+            if (this.hourFormat == '24')
+                newHour = (newHour < 0) ? (24 + newHour) : newHour;
+            else if (this.hourFormat == '12') {
+                // If we were at noon/midnight, then switch
+                if (this.currentHour === 12) {
+                    newPM = !this.pm;
+                }
+                newHour = (newHour <= 0) ? (12 + newHour) : newHour;
+            }
+
+            if (this.validateTime(newHour, this.currentMinute, this.currentSecond, newPM)) {
+                this.currentHour = newHour;
+                this.pm = newPM;
+            }
+
+            event.preventDefault();
         },
         incrementMinute(event) {
             let newMinute = this.currentMinute + this.stepMinute;
-            if (this.validateMinute(newMinute)) {
+            if (this.validateTime(this.currentHour, newMinute, this.currentSecond, true)) {
                 this.currentMinute = (newMinute > 59) ? newMinute - 60 : newMinute;
             }
 
@@ -1145,47 +1180,15 @@ export default {
         decrementMinute(event) {
             let newMinute = this.currentMinute - this.stepMinute;
             newMinute = (newMinute < 0) ? 60 + newMinute : newMinute;
-            if (this.validateMinute(newMinute)) {
+            if (this.validateTime(this.currentHour, newMinute, this.currentSecond, true)) {
                 this.currentMinute = newMinute;
             }
 
             event.preventDefault();
         },
-        validateMinute(minute) {
-            let valid = true;
-            let value = this.value;
-            if (!this.isComparable()) {
-                return valid;
-            }
-
-            if (this.isRangeSelection()) {
-                value = this.value[1] || this.value[0];
-            }
-            if (this.isMultipleSelection()) {
-                value = this.value[this.value.length - 1];
-            }
-            let valueDateString = value ? value.toDateString() : null;
-            if (this.minDate && valueDateString && this.minDate.toDateString() === valueDateString) {
-                if (value.getHours() == this.minDate.getHours()){
-                    if (this.minDate.getMinutes() > minute) {
-                        valid = false;
-                    }
-                }
-            }
-
-            if (this.maxDate && valueDateString && this.maxDate.toDateString() === valueDateString) {
-                if (value.getHours() == this.maxDate.getHours()){
-                    if (this.maxDate.getMinutes() < minute) {
-                        valid = false;
-                    }
-                }
-            }
-
-            return valid;
-        },
         incrementSecond(event) {
             let newSecond = this.currentSecond + this.stepSecond;
-            if (this.validateSecond(newSecond)) {
+            if (this.validateTime(this.currentHour, this.currentMinute, newSecond, true)) {
                 this.currentSecond = (newSecond > 59) ? newSecond - 60 : newSecond;
             }
 
@@ -1194,40 +1197,11 @@ export default {
         decrementSecond(event) {
             let newSecond = this.currentSecond - this.stepSecond;
             newSecond = (newSecond < 0) ? 60 + newSecond : newSecond;
-            if (this.validateSecond(newSecond)) {
+            if (this.validateTime(this.currentHour, this.currentMinute, newSecond, true)) {
                 this.currentSecond = newSecond;
             }
 
             event.preventDefault();
-        },
-        validateSecond(second) {
-            let valid = true;
-            let value = this.value;
-            if (!this.isComparable()) {
-                return valid;
-            }
-
-            if (this.isRangeSelection()) {
-                value = this.value[1] || this.value[0];
-            }
-            if (this.isMultipleSelection()) {
-                value = this.value[this.value.length - 1];
-            }
-            let valueDateString = value ? value.toDateString() : null;
-
-            if (this.minDate && valueDateString && this.minDate.toDateString() === valueDateString) {
-                if (this.minDate.getSeconds() > second) {
-                    valid = false;
-                }
-            }
-
-            if (this.maxDate && valueDateString && this.maxDate.toDateString() === valueDateString) {
-                if (this.maxDate.getSeconds() < second) {
-                    valid = false;
-                }
-            }
-
-            return valid;
         },
         updateModelTime() {
             let value = this.isComparable() ? this.value : new Date();
