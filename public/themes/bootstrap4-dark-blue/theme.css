@@ -1127,6 +1127,10 @@
   background-color: #3f4b5b;
 }
 
+.p-password.p-invalid.p-component > .p-inputtext {
+  border-color: #f19ea6;
+}
+
 .p-password-panel {
   padding: 1.25rem;
   background: #2a323d;
@@ -1137,6 +1141,16 @@
 }
 .p-password-panel .p-password-meter {
   margin-bottom: 0.5rem;
+  background: #3f4b5b;
+}
+.p-password-panel .p-password-meter .p-password-strength.weak {
+  background: #f19ea6;
+}
+.p-password-panel .p-password-meter .p-password-strength.medium {
+  background: #ffe082;
+}
+.p-password-panel .p-password-meter .p-password-strength.strong {
+  background: #9fdaa8;
 }
 
 .p-radiobutton {

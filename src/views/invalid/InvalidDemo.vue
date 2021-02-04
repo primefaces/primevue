@@ -42,6 +42,9 @@
                     <div class="p-field p-col-12 p-md-4">
                         <Textarea id="textarea" v-model="value9" rows="3" placeholder="Textarea" class="p-invalid" />
                     </div>
+                    <div class="p-field p-col-12 p-md-4">
+                        <Password id="password" v-model="value10" placeholder="Password" class="p-invalid" />
+                    </div>
                 </div>
             </div>
         </div>
@@ -82,6 +85,9 @@
     &lt;div class="p-field p-col-12 p-md-4"&gt;
         &lt;Textarea id="textarea" v-model="value9" rows="3" placeholder="Textarea" class="p-invalid" /&gt;
     &lt;/div&gt;
+    &lt;div class="p-field p-col-12 p-md-4"&gt;
+        &lt;Password id="password" v-model="value10" placeholder="Password" class="p-invalid" /&gt;
+    &lt;/div&gt;
 &lt;/div&gt;
 </CodeHighlight>
 
@@ -109,6 +115,7 @@ export default {
             value7: null,
             value8: null,
             value9: null,
+            value10: null,
             selectedCity: null,
             cascadeCountries: [
                 {
@@ -239,6 +246,7 @@ export default {
             value7: null,
             value8: null,
             value9: null,
+            value10: null,
             selectedCity: null,
             cascadeCountries: [
                 {

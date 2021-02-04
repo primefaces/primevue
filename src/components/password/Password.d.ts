@@ -9,6 +9,10 @@ declare class Password extends Vue {
     mediumLabel?: string;
     strongLabel?: string;
     feedback?: boolean;
+    appendTo?: string;
+    toggleMask?: boolean;
+    inputStyle?: any;
+    inputClass?: string;
     $emit(eventName: 'input', value: any): this;
     $emit(eventName: 'focus', event: Event): this;
     $emit(eventName: 'blur', event: Event): this;

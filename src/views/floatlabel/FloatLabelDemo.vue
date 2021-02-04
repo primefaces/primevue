@@ -91,10 +91,16 @@
                             <label for="multiselect">MultiSelect</label>
                         </span>
                     </div>
-                    <div class="p-field p-col-12">
+                    <div class="p-field p-col-12 p-md-4">
                         <span class="p-float-label">
                             <Textarea id="textarea" v-model="value10" rows="3" />
                             <label for="textarea">Textarea</label>
+                        </span>
+                    </div>
+                    <div class="p-field p-col-12 p-md-4">
+                        <span class="p-float-label">
+                            <Password id="password" v-model="value11" />
+                            <label for="password">Password</label>
                         </span>
                     </div>
                 </div>
@@ -187,12 +193,18 @@
             &lt;label for="multiselect"&gt;MultiSelect&lt;/label&gt;
         &lt;/span&gt;
     &lt;/div&gt;
-    &lt;div class="p-field p-col-12"&gt;
+    &lt;div class="p-field p-col-12 p-md-4"&gt;
         &lt;span class="p-float-label"&gt;
             &lt;Textarea id="textarea" v-model="value10" rows="3" /&gt;
             &lt;label for="textarea"&gt;Textarea&lt;/label&gt;
         &lt;/span&gt;
     &lt;/div&gt;
+    &lt;div class="p-field p-col-12 p-md-4"&gt;
+        &lt;span class="p-float-label"&gt;
+            &lt;Password id="password" v-model="value11" /&gt;
+            &lt;label for="password"&gt;Password&lt;/label&gt;
+        &lt;/span&gt;
+    &lt;/div>
 &lt;/div&gt;
 </template>
 </CodeHighlight>
@@ -221,7 +233,85 @@ export default {
             value7: null,
             value8: null,
             value9: null,
-            value10: null
+            value10: null,
+            value11: null,
+            valueIconLeft: null,
+            valueIconRight: null,
+            selectedCity: null,
+            cascadeCountries: [
+                {
+                    name: 'Australia',
+                    code: 'AU',
+                    states: [
+                        {
+                            name: 'New South Wales',
+                            cities: [
+                                {cname: 'Sydney', code: 'A-SY'},
+                                {cname: 'Newcastle', code: 'A-NE'},
+                                {cname: 'Wollongong', code: 'A-WO'}
+                            ]
+                        },
+                        {
+                            name: 'Queensland',
+                            cities: [
+                                {cname: 'Brisbane', code: 'A-BR'},
+                                {cname: 'Townsville', code: 'A-TO'}
+                            ]
+                        },
+                    ]
+                },
+                {
+                    name: 'Canada',
+                    code: 'CA',
+                    states: [
+                        {
+                            name: 'Quebec',
+                            cities: [
+                                {cname: 'Montreal', code: 'C-MO'},
+                                {cname: 'Quebec City', code: 'C-QU'}
+                            ]
+                        },
+                        {
+                            name: 'Ontario',
+                            cities: [
+                                {cname: 'Ottawa', code: 'C-OT'},
+                                {cname: 'Toronto', code: 'C-TO'}
+                            ]
+                        },
+                    ]
+                },
+                {
+                    name: 'United States',
+                    code: 'US',
+                    states: [
+                        {
+                            name: 'California',
+                            cities: [
+                                {cname: 'Los Angeles', code: 'US-LA'},
+                                {cname: 'San Diego', code: 'US-SD'},
+                                {cname: 'San Francisco', code: 'US-SF'}
+                            ]
+                        },
+                        {
+                            name: 'Florida',
+                            cities: [
+                                {cname: 'Jacksonville', code: 'US-JA'},
+                                {cname: 'Miami', code: 'US-MI'},
+                                {cname: 'Tampa', code: 'US-TA'},
+                                {cname: 'Orlando', code: 'US-OR'}
+                            ]
+                        },
+                        {
+                            name: 'Texas',
+                            cities: [
+                                {cname: 'Austin', code: 'US-AU'},
+                                {cname: 'Dallas', code: 'US-DA'},
+                                {cname: 'Houston', code: 'US-HO'}
+                            ]
+                        }
+                    ]
+                }
+            ]
         }
     },
     countryService: null,
@@ -278,6 +368,7 @@ export default {
             value8: null,
             value9: null,
             value10: null,
+            value11: null,
             valueIconLeft: null,
             valueIconRight: null,
             selectedCity: null,

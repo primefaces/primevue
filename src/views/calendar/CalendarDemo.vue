@@ -12,6 +12,7 @@
             <div class="card">
                 <h5>Popup</h5>
                 <div class="p-fluid p-grid p-formgrid">
+                    <Calendar v-model="value" :min-date="min" :max-date="max" :show-time="true" :show-seconds="true" :show-icon="true" />
                     <div class="p-field p-col-12 p-md-4">
                         <label for="basic">Basic</label>
                         <Calendar id="basic" v-model="date1" />
@@ -142,7 +143,10 @@ export default {
             },
             minDate: null,
             maxDate: null,
-            invalidDates: null
+            invalidDates: null,
+            value: new Date(2021, 2, 1, 5, 18, 28),
+    min: new Date(2021, 2, 1, 5, 18, 28),
+    max: new Date(2021, 2, 1, 5, 19, 7),
         }
     },
 	components: {
