@@ -1,5 +1,16 @@
 # Changelog
 
+## [3.2.2](https://github.com/primefaces/primevue/tree/3.2.2) (2021-02-04)
+
+[Full Changelog](https://github.com/primefaces/primevue/compare/3.2.1...3.2.2)
+
+**Fixed bugs:**
+
+- DataTable, exportCSV failed: TypeError: Cannot read property 'type' of undefined [\#935](https://github.com/primefaces/primevue/issues/935)
+- Calendar component throws error on blur if popup is not visible [\#940](https://github.com/primefaces/primevue/issues/940)
+- Optional chaining not working for TreeTable in version 3.2.1 [\#939](https://github.com/primefaces/primevue/issues/939)
+- Casing error in primevue/terminalservice/package.json [\#937](https://github.com/primefaces/primevue/issues/937)
+
 ## [3.2.1](https://github.com/primefaces/primevue/tree/3.2.1) (2021-02-03)
 
 [Full Changelog](https://github.com/primefaces/primevue/compare/3.2.0...3.2.1)
