@@ -303,6 +303,12 @@ export default {
                                 <td>false</td>
                                 <td>Whether the column is fixed in horizontal scrolling.</td>
                             </tr>
+                             <tr>
+                                <td>exportable</td>
+                                <td>boolean</td>
+                                <td>true</td>
+                                <td>Whether the column is included in data export.</td>
+                            </tr>
                         </tbody>
                     </table>
                 </div>

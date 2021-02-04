@@ -109,6 +109,10 @@ export default {
         frozen: {
             type: Boolean,
             default: false
+        },
+        exportable: {
+            type: Boolean,
+            default: true
         }
     },
     render() {
