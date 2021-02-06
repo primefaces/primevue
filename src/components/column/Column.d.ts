@@ -16,7 +16,6 @@ declare class Column extends Vue {
     footerClass?: string;
     filterHeaderStyle?: object;
     filterHeaderClass?: string;
-    filterMatchMode?: string;
     filterFunction?: Function;
     excludeGlobalFilter?: boolean;
     selectionMode?: string;

@@ -1,0 +1,5 @@
+{
+    "main": "./api.cjs.js",
+    "module": "./api.esm.js",
+    "unpkg": "./api.min.js"
+  }

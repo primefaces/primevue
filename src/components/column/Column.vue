@@ -18,6 +18,10 @@ export default {
             type: String,
             default: null
         },
+        dataType: {
+            type: String,
+            default: 'text'
+        },
         sortable: {
             type: Boolean,
             default: false
@@ -54,17 +58,41 @@ export default {
             type: String,
             default: null
         },
-        filterHeaderClass: {
+        showFilterMenu: {
+            type: Boolean,
+            default: true
+        },
+        filterOperator: {
             type: String,
+            default: 'and'
+        },
+        showFilterOperator: {
+            type: Boolean,
+            default: true
+        },
+        showClearButton: {
+            type: Boolean,
+            default: true
+        },
+        showApplyButton: {
+            type: Boolean,
+            default: true
+        },
+        showFilterMatchModes: {
+            type: Boolean,
+            default: true
+        },
+        showAddButton: {
+            type: Boolean,
+            default: true
+        },
+        filterMatchModeOptions: {
+            type: Array,
             default: null
         },
-        filterHeaderStyle: {
-            type: null,
-            default: false
-        },
-        filterMatchMode: {
-            type: String,
-            default: 'startsWith'
+        maxConstraints: {
+            type: Boolean,
+            default: true
         },
         filterFunction: {
             type: Function,
@@ -72,6 +100,14 @@ export default {
         },
         excludeGlobalFilter: {
             type: Boolean,
+            default: false
+        },
+        filterHeaderClass: {
+            type: String,
+            default: null
+        },
+        filterHeaderStyle: {
+            type: null,
             default: false
         },
         selectionMode: {

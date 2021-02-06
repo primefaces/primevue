@@ -20,8 +20,8 @@
             <table ref="table" role="grid">
                 <DTTableHeader :columnGroup="headerColumnGroup" :columns="columns" :rowGroupMode="rowGroupMode"
                         :groupRowsBy="groupRowsBy" :resizableColumns="resizableColumns" :allRowsSelected="allRowsSelected" :empty="empty"
-                        :sortMode="sortMode" :sortField="d_sortField" :sortOrder="d_sortOrder" :multiSortMeta="d_multiSortMeta"
-                        @column-click="onColumnHeaderClick($event)" @column-mousedown="onColumnHeaderMouseDown($event)"
+                        :sortMode="sortMode" :sortField="d_sortField" :sortOrder="d_sortOrder" :multiSortMeta="d_multiSortMeta" :filters="filters" :filterDisplay="filterDisplay"
+                        @column-click="onColumnHeaderClick($event)" @column-mousedown="onColumnHeaderMouseDown($event)" @filtermeta-change="onFilterMetaChange"
                         @column-dragstart="onColumnHeaderDragStart($event)" @column-dragover="onColumnHeaderDragOver($event)" @column-dragleave="onColumnHeaderDragLeave($event)" @column-drop="onColumnHeaderDrop($event)"
                         @column-resizestart="onColumnResizeStart($event)" @checkbox-change="toggleRowsWithCheckbox($event)" />
                 <DTTableBody :value="dataToRender" :columns="columns" :empty="empty" :dataKey="dataKey" :selection="selection" :selectionKeys="d_selectionKeys" :selectionMode="selectionMode" :contextMenu="contextMenu" :contextMenuSelection="contextMenuSelection"
@@ -130,9 +130,8 @@
 </template>
 
 <script>
-import {ObjectUtils} from 'primevue/utils';
-import {FilterUtils} from 'primevue/utils';
-import {DomHandler} from 'primevue/utils';
+import {ObjectUtils,FilterUtils,DomHandler} from 'primevue/utils';
+import {FilterMatchMode,FilterOperator} from 'primevue/api';
 import Paginator from 'primevue/paginator';
 import ScrollableView from './ScrollableView.vue';
 import TableHeader from './TableHeader.vue';
@@ -232,6 +231,14 @@ export default {
         },
         filters: {
             type: Object,
+            default: null
+        },
+        filterDisplay: {
+            type: String,
+            default: null
+        },
+        globalFilterFields: {
+            type: Array,
             default: null
         },
         filterLocale: {
@@ -365,6 +372,10 @@ export default {
         virtualScrollDelay: {
             type: Number,
             default: 150
+        },
+        filterLayout: {
+            type: String,
+            default: null
         }
     },
     data() {
@@ -589,46 +600,72 @@ export default {
             this.d_first = 0;
             this.$emit('update:first', this.d_first);
 
+            if (!data) {
+                return;
+            }
+
+            let globalFilterFieldsArray;
+            if (this.filters['global']) {
+                globalFilterFieldsArray = this.globalFilterFields|| this.columns.map(col => this.columnProp(col, 'filterField') || this.columnProp(col, 'field'));
+            }
+
             let filteredValue = [];
 
-            for(let i = 0; i < data.length; i++) {
+            for (let i = 0; i < data.length; i++) {
                 let localMatch = true;
                 let globalMatch = false;
+                let localFiltered = false;
 
-                for(let j = 0; j < this.columns.length; j++) {
-                    let col = this.columns[j];
-                    let columnField = this.columnProp(col, 'filterField') || this.columnProp(col, 'field');
+                for (let prop in this.filters) {
+                    if (Object.prototype.hasOwnProperty.call(this.filters, prop) && prop !== 'global') {
+                        localFiltered = true;
+                        let filterField = prop;
+                        let filterMeta = this.filters[filterField];
 
-                    //local
-                    if (Object.prototype.hasOwnProperty.call(this.filters, columnField)) {
-                        let filterValue = this.filters[columnField];
-                        let dataFieldValue = ObjectUtils.resolveFieldData(data[i], columnField);
-                        let filterConstraint = this.columnProp(col, 'filterMatchMode') === 'custom' ? (col.props && col.props.filterFunction) : FilterUtils[this.columnProp(col, 'filterMatchMode')||'startsWith'];
-                        if (!filterConstraint(dataFieldValue, filterValue, this.filterLocale)) {
-                            localMatch = false;
+                        if (Array.isArray(filterMeta)) {
+                            for (let meta of filterMeta) {
+                                localMatch = this.executeLocalFilter(filterField, data[i], meta);
+
+                                if ((meta.operator === FilterOperator.OR && localMatch) || (meta.operator === FilterOperator.AND && !localMatch)) {
+                                    break;
+                                }
+                            }
                         }
-
+                        else {
+                            localMatch = this.executeLocalFilter(filterField, data[i], filterMeta);
+                        }
+                        
                         if (!localMatch) {
                             break;
                         }
                     }
+                }
 
-                    if (!this.columnProp(col, 'excludeGlobalFilter') && this.hasGlobalFilter() && !globalMatch) {
-                        globalMatch = FilterUtils.contains(ObjectUtils.resolveFieldData(data[i], columnField), this.filters['global'], this.filterLocale);
+                if (this.filters['global'] && !globalMatch && globalFilterFieldsArray) {
+                    for(let j = 0; j < globalFilterFieldsArray.length; j++) {
+                        let globalFilterField = globalFilterFieldsArray[j];
+                        globalMatch = FilterUtils[this.filters['global'].matchMode || FilterMatchMode.CONTAINS](ObjectUtils.resolveFieldData(data[i], globalFilterField), this.filters['global'].value, this.filterLocale);
+
+                        if (globalMatch) {
+                            break;
+                        }
                     }
                 }
 
-                let matches = localMatch;
-                if (this.hasGlobalFilter()) {
-                    matches = localMatch && globalMatch;
+                let matches;
+                if (this.filters['global']) {
+                    matches = localFiltered ? (localFiltered && localMatch && globalMatch) : globalMatch;
+                }
+                else {
+                    matches = localFiltered && localMatch;
                 }
 
                 if (matches) {
-                    filteredValue.push(data[i]);
+                    filteredValue.push(this.value[i]);
                 }
             }
 
-            if (filteredValue.length === data.length) {
+            if (filteredValue.length === this.value.length) {
                 filteredValue = data;
             }
 
@@ -637,6 +674,14 @@ export default {
             this.$emit('filter', filterEvent);
 
             return filteredValue;
+        },
+        executeLocalFilter(field, rowData, filterMeta) {
+            let filterValue = filterMeta.value;
+            let filterMatchMode = filterMeta.matchMode || FilterMatchMode.STARTS_WITH;
+            let dataFieldValue = ObjectUtils.resolveFieldData(rowData, field);
+            let filterConstraint = FilterUtils[filterMatchMode];
+
+            return filterConstraint(dataFieldValue, filterValue, this.filterLocale);
         },
         onRowClick(e) {
             const event = e.originalEvent;
@@ -1657,6 +1702,9 @@ export default {
         },
         getChildren() {
             return this.$slots.default ? this.$slots.default() : null;
+        },
+        onFilterMetaChange(event) {
+            this.$emit('update:filters', event)
         }
     },
     computed: {
@@ -2025,5 +2073,66 @@ export default {
     align-items: center;
     justify-content: center;
     z-index: 2;
+}
+
+/* Filter */
+.p-column-filter-row {
+    display: flex;
+    align-items: center;
+    width: 100%;
+}
+
+.p-column-filter-menu {
+    display: inline-flex;
+}
+
+.p-column-filter-row p-columnfilterformelement {
+    flex: 1 1 auto;
+    width: 1%;
+}
+
+.p-column-filter-menu-button,
+.p-column-filter-clear-button {
+    display: inline-flex;
+    justify-content: center;
+    align-items: center;
+    cursor: pointer;
+    text-decoration: none;
+    overflow: hidden;
+    position: relative;
+}
+
+.p-column-filter-overlay {
+    position: absolute;
+}
+
+.p-column-filter-row-items {
+    margin: 0;
+    padding: 0;
+    list-style: none;
+}
+
+.p-column-filter-row-item {
+    cursor: pointer;
+}
+
+.p-column-filter-add-button,
+.p-column-filter-remove-button {
+    justify-content: center;
+}
+
+.p-column-filter-add-button .p-button-label, 
+.p-column-filter-remove-button .p-button-label {
+    flex-grow: 0;
+}
+
+.p-column-filter-buttonbar {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+}
+
+.p-column-filter-buttonbar .p-button {
+    width: auto;
 }
 </style>

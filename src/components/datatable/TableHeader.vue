@@ -13,15 +13,19 @@
                         <span class="p-column-title" v-if="columnProp(col, 'header')">{{columnProp(col, 'header')}}</span>
                         <span v-if="columnProp(col, 'sortable')" :class="getSortableColumnIcon(col)"></span>
                         <span v-if="isMultiSorted(col)" class="p-sortable-column-badge">{{getMultiSortMetaIndex(col) + 1}}</span>
-                        <DTHeaderCheckbox :checked="allRowsSelected" @change="onHeaderCheckboxChange($event)" :disabled="empty" v-if="columnProp(col, 'selectionMode') ==='multiple' && !hasColumnFilter()" />
+                        <DTHeaderCheckbox :checked="allRowsSelected" @change="onHeaderCheckboxChange($event)" :disabled="empty" v-if="columnProp(col, 'selectionMode') ==='multiple' && filterDisplay !== 'row'" />
                     </th>
                 </template>
             </tr>
-            <tr v-if="hasColumnFilter()">
+            <tr v-if="filters && filterDisplay === 'row'">
                 <template v-for="(col,i) of columns">
                     <th v-if="rowGroupMode !== 'subheader' || (groupRowsBy !== columnProp(col, 'field'))" :key="columnProp(col, 'columnKey')||columnProp(col, 'field')||i"
                         :class="getFilterColumnHeaderClass(col)" :style="columnProp(col, 'filterHeaderStyle')">
-                        <component :is="col.children.filter" :column="col" v-if="col.children && col.children.filter"/>
+                        <DTColumnFilter v-if="filters[columnProp(col, 'filterField')||columnProp(col, 'field')]" :field="columnProp(col, 'filterField')||columnProp(col, 'field')" :type="columnProp(col, 'dataType')" display="row"  
+                        :showMenu="columnProp(col, 'showFilterMenu')" :filterElement="col.children && col.children.filter" :filterHeader="col.children && col.children.filterHeader" :filterFooter="col.children && col.children.filterFooter" 
+                        :filters="filters" @filtermeta-change="$emit('filtermeta-change', $event)"
+                        :operator="columnProp(col, 'filterOperator')" :showFilterOperator="columnProp(col, 'showFilterOperator')" :showClearButton="columnProp(col, 'showClearButton')" :showApplyButton="columnProp(col, 'showApplyButton')"
+                        :showFilterMatchModes="columnProp(col, 'showFilterMatchModes')" :showAddButton="columnProp(col, 'showAddButton')" :matchModeOptions="columnProp(col, 'filterMatchModeOptions')" :maxConstraints="columnProp(col, 'maxConstraints')" />
                         <DTHeaderCheckbox :checked="allRowsSelected" @change="onHeaderCheckboxChange($event)" :disabled="empty" v-if="columnProp(col, 'selectionMode')==='multiple'" />
                     </th>
                 </template>
@@ -47,10 +51,11 @@
 <script>
 import {DomHandler} from 'primevue/utils';
 import HeaderCheckbox from './HeaderCheckbox.vue';
+import ColumnFilter from './ColumnFilter';
 
 export default {
     emits: ['column-click', 'column-mousedown', 'column-dragstart', 'column-dragover', 'column-dragleave', 'column-drop',
-            'column-resizestart', 'checkbox-change', 'column-click'],
+            'column-resizestart', 'checkbox-change', 'column-click','filtermeta-change'],
     props: {
 		columnGroup: {
             type: null,
@@ -94,6 +99,14 @@ export default {
         },
         multiSortMeta: {
             type: Array,
+            default: null
+        },
+        filters: {
+            type: Object,
+            default: null
+        },
+        filterDisplay: {
+            type: String,
             default: null
         }
     },
@@ -196,21 +209,11 @@ export default {
             else {
                 return null;
             }
-        },
-        hasColumnFilter() {
-            if (this.columns) {
-                for (let col of this.columns) {
-                    if (col.children && col.children.filter) {
-                        return true;
-                    }
-                }
-            }
-
-            return false;
         }
     },
     components: {
-        'DTHeaderCheckbox': HeaderCheckbox
+        'DTHeaderCheckbox': HeaderCheckbox,
+        'DTColumnFilter': ColumnFilter
     }
 }
 </script>
