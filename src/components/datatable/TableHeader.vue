@@ -15,7 +15,7 @@
                             <span v-if="columnProp(col, 'sortable')" :class="getSortableColumnIcon(col)"></span>
                             <span v-if="isMultiSorted(col)" class="p-sortable-column-badge">{{getMultiSortMetaIndex(col) + 1}}</span>
                             <DTHeaderCheckbox :checked="allRowsSelected" @change="onHeaderCheckboxChange($event)" :disabled="empty" v-if="columnProp(col, 'selectionMode') ==='multiple' && filterDisplay !== 'row'" />
-                            <DTColumnFilter v-if="filterDisplay === 'menu' && filters && filters[columnProp(col, 'filterField')||columnProp(col, 'field')]" :field="columnProp(col, 'filterField')||columnProp(col, 'field')" :type="columnProp(col, 'dataType')" display="menu"  
+                            <DTColumnFilter v-if="filterDisplay === 'menu' && col.children && col.children.filter" :field="columnProp(col, 'filterField')||columnProp(col, 'field')" :type="columnProp(col, 'dataType')" display="menu"  
                             :showMenu="columnProp(col, 'showFilterMenu')" :filterElement="col.children && col.children.filter" :filterHeader="col.children && col.children.filterHeader" :filterFooter="col.children && col.children.filterFooter" 
                             :filters="filters" @filter-change="$emit('filter-change', $event)" @filter-apply="$emit('filter-apply')"
                             :showOperator="columnProp(col, 'showFilterOperator')" :showClearButton="columnProp(col, 'showClearButton')" :showApplyButton="columnProp(col, 'showApplyButton')"
@@ -24,11 +24,11 @@
                     </th>
                 </template>
             </tr>
-            <tr v-if="filters && filterDisplay === 'row'">
+            <tr v-if="filterDisplay === 'row'">
                 <template v-for="(col,i) of columns">
                     <th v-if="rowGroupMode !== 'subheader' || (groupRowsBy !== columnProp(col, 'field'))" :key="columnProp(col, 'columnKey')||columnProp(col, 'field')||i"
                         :class="getFilterColumnHeaderClass(col)" :style="columnProp(col, 'filterHeaderStyle')">
-                        <DTColumnFilter v-if="filters && filters[columnProp(col, 'filterField')||columnProp(col, 'field')]" :field="columnProp(col, 'filterField')||columnProp(col, 'field')" :type="columnProp(col, 'dataType')" display="row"  
+                        <DTColumnFilter v-if="col.children && col.children.filter" :field="columnProp(col, 'filterField')||columnProp(col, 'field')" :type="columnProp(col, 'dataType')" display="row"  
                         :showMenu="columnProp(col, 'showFilterMenu')" :filterElement="col.children && col.children.filter" :filterHeader="col.children && col.children.filterHeader" :filterFooter="col.children && col.children.filterFooter" 
                         :filters="filters" @filter-change="$emit('filter-change', $event)" @filter-apply="$emit('filter-apply')"
                         :showOperator="columnProp(col, 'showFilterOperator')" :showClearButton="columnProp(col, 'showClearButton')" :showApplyButton="columnProp(col, 'showApplyButton')"
@@ -43,7 +43,7 @@
                 <th v-for="(col,i) of row.children.default()" :key="columnProp(col, 'columnKey')||columnProp(col, 'field')||i" :style="columnProp(col, 'headerStyle')" :class="getColumnHeaderClass(col)" :tabindex="columnProp(col, 'sortable') ? '0' : null"
                     @click="onColumnHeaderClick($event, col)" @keydown="onColumnKeyDown($event, col)" @dragstart="onColumnHeaderDragStart($event)" @dragover="onColumnHeaderDragOver($event)" @dragleave="onColumnHeaderDragLeave($event)" @drop="onColumnHeaderDrop($event)"
                     :colspan="columnProp(col, 'colspan')" :rowspan="columnProp(col, 'rowspan')" :aria-sort="getAriaSort(col)">
-                   <component :is="col.children.header" :column="col" v-if="col.children && col.children.header"/>
+                    <component :is="col.children.header" :column="col" v-if="col.children && col.children.header"/>
                     <span class="p-column-title" v-if="columnProp(col, 'header')">{{columnProp(col, 'header')}}</span>
                     <span v-if="columnProp(col, 'sortable')" :class="getSortableColumnIcon(col)"></span>
                     <span v-if="isMultiSorted(col)" class="p-sortable-column-badge">{{getMultiSortMetaIndex(col) + 1}}</span>

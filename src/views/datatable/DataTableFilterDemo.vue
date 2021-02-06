@@ -53,9 +53,9 @@
                             <img :alt="data.representative.name" :src="'demo/images/avatar/' + data.representative.image" width="32" style="vertical-align: middle" />
                             <span class="image-text">{{data.representative.name}}</span>
                         </template>
-                        <template #filter="{filterModel,filterCallback}">
+                        <template #filter="{filterModel}">
                             <div class="p-mb-3 p-text-bold">Agent Picker</div>
-                            <MultiSelect v-model="filterModel.value" @change="filterCallback()" :options="representatives" optionLabel="name" placeholder="Any" class="p-column-filter">
+                            <MultiSelect v-model="filterModel.value" :options="representatives" optionLabel="name" placeholder="Any" class="p-column-filter">
                                 <template #option="slotProps">
                                     <div class="p-multiselect-representative-option">
                                         <img :alt="slotProps.option.name" :src="'demo/images/avatar/' + slotProps.option.image" width="32" style="vertical-align: middle" />
@@ -101,8 +101,8 @@
                             <span class="p-column-title">Status</span>
                             <ProgressBar :value="data.activity" :showValue="false"></ProgressBar>
                         </template>
-                        <template #filter={filterModel,filterCallback}>
-                            <Slider v-model="filterModel.value" range @slideend="filterCallback()" class="p-m-3"></Slider>
+                        <template #filter={filterModel}>
+                            <Slider v-model="filterModel.value" range class="p-m-3"></Slider>
                             <div class="p-d-flex p-ai-center p-jc-between p-px-2">
                                 <span>{{filters1['activity'].value[0]}}</span>
                                 <span>{{filters1['activity'].value[1]}}</span>
@@ -114,8 +114,8 @@
                             <span class="p-column-title">Verified</span>
                             <i class="pi" :class="{'true-icon pi-check-circle': data.verified, 'false-icon pi-times-circle': !data.verified}"></i>
                         </template>
-                        <template #filter={filterModel,filterCallback}>
-                            <TriStateCheckbox v-model="filterModel.value" @change="filterCallback()" />
+                        <template #filter={filterModel}>
+                            <TriStateCheckbox v-model="filterModel.value" />
                         </template>
                     </Column>
                 </DataTable>
@@ -130,7 +130,7 @@
                         <div class="p-d-flex p-jc-end">
                             <span class="p-input-icon-left ">
                                 <i class="pi pi-search" />
-                                <InputText v-model="filters2['global'].value" placeholder="Keyword Search" />
+                                <InputText v-model="filters2['global'].value" placeholder="Keyword Search" v-if="false" />
                             </span>
                         </div>
                     </template>
@@ -274,12 +274,12 @@ export default {
         initFilters1() {
             this.filters1 = {
                 'global': {value: null, matchMode: FilterMatchMode.CONTAINS},
-                'name': [{value: null, matchMode: FilterMatchMode.STARTS_WITH, operator: FilterOperator.AND}],
-                'country.name': [{value: null, matchMode: FilterMatchMode.STARTS_WITH, operator: FilterOperator.AND}],
+                'name': {operator: FilterOperator.AND, constraints: [{value: null, matchMode: FilterMatchMode.STARTS_WITH}]},
+                'country.name': {operator: FilterOperator.AND, constraints: [{value: null, matchMode: FilterMatchMode.STARTS_WITH}]},
                 'representative': {value: null, matchMode: FilterMatchMode.IN},
-                'date': [{value: null, matchMode: FilterMatchMode.IS, operator: FilterOperator.AND}],
-                'balance': [{value: null, matchMode: FilterMatchMode.EQUALS, operator: FilterOperator.AND}],
-                'status': [{value: null, matchMode: FilterMatchMode.EQUALS, operator: FilterOperator.AND}],
+                'date': {operator: FilterOperator.AND, constraints: [{value: null, matchMode: FilterMatchMode.IS}]},
+                'balance': {operator: FilterOperator.AND, constraints: [{value: null, matchMode: FilterMatchMode.EQUALS}]},
+                'status': {operator: FilterOperator.OR, constraints: [{value: null, matchMode: FilterMatchMode.EQUALS}]},
                 'activity': {value: [0,100], matchMode: FilterMatchMode.BETWEEN},
                 'verified': {value: null, matchMode: FilterMatchMode.EQUALS}
             }

@@ -28,7 +28,7 @@
                             <CFDropdown v-if="showMatchModes && matchModes" :options="matchModes" :modelValue="fieldConstraint.matchMode" optionLabel="label" optionValue="value"
                                 @update:modelValue="onMenuMatchModeChange($event, i)" class="p-column-filter-matchmode-dropdown"></CFDropdown>
                             <component v-if="display === 'menu'" :is="filterElement" :field="field" :filterModel="fieldConstraint" :filterCallback="filterCallback" />
-                            <div v-if="i !== 0">
+                            <div>
                                 <CFButton v-if="showRemoveIcon" type="button" icon="pi pi-trash" class="p-column-filter-remove-button p-button-text p-button-danger p-button-sm" @click="removeConstraint(i)" :label="removeRuleButtonLabel"></CFButton>
                             </div>
                         </div>
@@ -129,9 +129,9 @@ export default {
     mounted() {
         if (this.filters && this.filters[this.field]) {
             let fieldFilters = this.filters[this.field];
-            if (Array.isArray(fieldFilters)) {
-                this.defaultMatchMode = this.filters[this.field][0].matchMode;
-                this.defaultOperator = this.filters[this.field][0].operator;
+            if (fieldFilters.operator) {
+                this.defaultMatchMode = this.filters[this.field].constraints[0].matchMode;
+                this.defaultOperator = this.filters[this.field].operator;
             }
             else {
                 this.defaultMatchMode = this.filters[this.field].matchMode;
@@ -141,9 +141,9 @@ export default {
     methods: {
         clearFilter() {
             let _filters = {...this.filters};
-             if (Array.isArray(_filters[this.field])) {
-                _filters[this.field].splice(1);
-                _filters[this.field][0] = {value: null, matchMode: this.defaultMatchMode, operator: this.defaultOperator};
+            if (_filters[this.field].operator) {
+                _filters[this.field].constraints.splice(1);
+                _filters[this.field].constraints[0] = {value: null, matchMode: this.defaultMatchMode, operator: this.defaultOperator};
             }
             else {
                 _filters[this.field].value = null;
@@ -161,8 +161,8 @@ export default {
         hasFilter() {
             let fieldFilter = this.filters[this.field];
             if (fieldFilter) {
-                if (Array.isArray(fieldFilter))
-                    return !this.isFilterBlank(fieldFilter[0].value); 
+                if (fieldFilter.operator)
+                    return !this.isFilterBlank(fieldFilter.constraints[0].value); 
                 else
                     return !this.isFilterBlank(fieldFilter.value);
             }
@@ -251,17 +251,17 @@ export default {
         },
         onOperatorChange(value) {
             let _filters = {...this.filters};
-            _filters[this.field].forEach(filterMeta => {
-                filterMeta.operator = value;
-            });
+            _filters[this.field].operator = value;
+            this.$emit('filter-change', _filters);
 
             if (!this.showApplyButton) {
-                this.$emit('filter-change', _filters);
+                this.$emit('filter-apply');
             }
+            
         },
         onMenuMatchModeChange(value, index) {
             let _filters = {...this.filters};
-            _filters[this.field][index].matchMode = value;
+            _filters[this.field].constraints[index].matchMode = value;
 
             if (!this.showApplyButton) {
                 this.$emit('filter-change', _filters);
@@ -269,12 +269,12 @@ export default {
         },
         addConstraint() {
             let _filters = {...this.filters};
-            _filters[this.field].push({value: null, matchMode: this.defaultMatchMode});
+            _filters[this.field].constraints.push({value: null, matchMode: this.defaultMatchMode});
             this.$emit('filter-change', _filters);
         },
         removeConstraint(index) {
             let _filters = {...this.filters};
-            _filters[this.field].splice(index, 1);
+            _filters[this.field].constraints.splice(index, 1);
             this.$emit('filter-change', _filters);
         },
         filterCallback() {
@@ -408,10 +408,10 @@ export default {
             return this.showOperator && this.type !== 'boolean';
         },
         operator() {
-            return this.filters[this.field][0].operator;
+            return this.filters[this.field].operator;
         },
         fieldConstraints() {
-            return Array.isArray(this.filters[this.field]) ? this.filters[this.field] : [this.filters[this.field]];
+            return this.filters[this.field].constraints || [this.filters[this.field]];
         },
         showRemoveIcon() {
             return this.fieldConstraints.length > 1;

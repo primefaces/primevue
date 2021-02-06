@@ -622,11 +622,11 @@ export default {
                         let filterField = prop;
                         let filterMeta = this.filters[filterField];
 
-                        if (Array.isArray(filterMeta)) {
-                            for (let meta of filterMeta) {
-                                localMatch = this.executeLocalFilter(filterField, data[i], meta);
+                        if (filterMeta.operator) {
+                            for (let filterConstraint of filterMeta.constraints) {
+                                localMatch = this.executeLocalFilter(filterField, data[i], filterConstraint);
 
-                                if ((meta.operator === FilterOperator.OR && localMatch) || (meta.operator === FilterOperator.AND && !localMatch)) {
+                                if ((filterMeta.operator === FilterOperator.OR && localMatch) || (filterMeta.operator === FilterOperator.AND && !localMatch)) {
                                     break;
                                 }
                             }
@@ -1712,11 +1712,7 @@ export default {
         cloneFilters() {
             let cloned = {};
             if (this.filters) {
-                for (let prop in this.filters) {
-                    if (Object.prototype.hasOwnProperty.call(this.filters, prop)) {
-                        cloned[prop] = {...this.filters[prop]};
-                    }
-                }
+                cloned = JSON.parse(JSON.stringify(this.filters));
             }
 
             return cloned;
