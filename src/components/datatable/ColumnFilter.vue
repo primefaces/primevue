@@ -17,8 +17,25 @@
                         <li class="p-column-filter-row-item" @click="onRowClearItemClick()" @keydown="onRowMatchModeKeyDown($event)" @keydown.enter="onRowClearItemClick()">{{noFilterLabel}}</li>
                     </ul>
                 </template>
-                <template>
-                    <div>TODO - Phase 2 Menu</div>
+                <template v-else>
+                    <div class="p-column-filter-operator" v-if="isShowOperator">
+                        <CFDropdown :options="operatorOptions" :modelValue="operator" @update:modelValue="onOperatorChange($event)" class="p-column-filter-operator-dropdown" optionLabel="label" optionValue="value"></CFDropdown>
+                    </div>
+                    <div class="p-column-filter-constraints">
+                        <div v-for="(fieldConstraint,i) of fieldConstraints" :key="fieldConstraint.matchMode + i" class="p-column-filter-constraint">
+                            <CFDropdown v-if="showMatchModes && matchModes" :options="matchModes" :modelValue="fieldConstraint.matchMode" optionLabel="label" optionValue="value"
+                                @update:modelValue="onMenuMatchModeChange($event, i)" class="p-column-filter-matchmode-dropdown"></CFDropdown>
+                            <component v-if="display === 'menu'" :is="filterElement" :field="field" />
+                            <CFButton v-if="showRemoveIcon" type="button" icon="pi pi-trash" class="p-column-filter-remove-button p-button-text p-button-danger p-button-sm" @click="removeConstraint(fieldConstraint)" :label="removeRuleButtonLabel"></CFButton>
+                        </div>
+                    </div>
+                    <div class="p-column-filter-add-rule" v-if="isShowAddConstraint">
+                        <CFButton type="button" :label="addRuleButtonLabel" icon="pi pi-plus" class="p-column-filter-add-button p-button-text p-button-sm" @click="addConstraint()"></CFButton>
+                    </div>
+                    <div class="p-column-filter-buttonbar">
+                        <CFButton type="button" class="p-button-outlined p-button-sm" @click="clearFilter()" :label="clearButtonLabel"></CFButton>
+                        <CFButton type="button" class="p-button-sm" @click="applyFilter()" :label="applyButtonLabel"></CFButton>
+                    </div>
                 </template>
                 <component :is="filterFooter" :field="field" />
             </div>
@@ -28,6 +45,9 @@
 
 <script>
 import {DomHandler,ConnectedOverlayScrollHandler} from 'primevue/utils';
+import {FilterOperator} from 'primevue/api';
+import Dropdown from 'primevue/dropdown';
+import Button from 'primevue/button';
 
 export default {
     emits: ['filtermeta-change'],
@@ -51,10 +71,6 @@ export default {
         matchMode: {
             type: String,
             default: null
-        },
-        operator: {
-            type: String,
-            default: 'and'
         },
         showOperator: {
             type: Boolean,
@@ -81,8 +97,8 @@ export default {
             default: null
         },
         maxConstraints: {
-            type: Boolean,
-            default: true
+            type: Number,
+            default: 2
         },
         filterElement: null,
         filterHeader: null,
@@ -95,7 +111,8 @@ export default {
     data() {
         return {
             overlayVisible: false,
-            defaultMatchMode: null
+            defaultMatchMode: null,
+            defaultOperator: null
         }
     },
     overlay: null,
@@ -107,7 +124,13 @@ export default {
     },
     mounted() {
         if (this.filters && this.filters[this.field]) {
-            this.defaultMatchMode = this.filters[this.field].matchMode;
+            if (this.display === 'row') {
+                this.defaultMatchMode = this.filters[this.field].matchMode;
+            }
+            else {
+                this.defaultMatchMode = this.filters[this.field][0].matchMode;
+                this.defaultOperator = this.filters[this.field][0].operator;
+            }
         }
     },
     methods: {
@@ -118,10 +141,15 @@ export default {
                 _filters[this.field].matchMode = this.defaultMatchMode;
             }
             else {
-                _filters[this.field] = {value: null, matchMode: this.defaultMatchMode, operator: this.operator};
+                _filters[this.field] = {value: null, matchMode: this.defaultMatchMode, operator: this.defaultOperator};
             }
             
             this.$emit('filtermeta-change', _filters);
+        },
+        applyFilter() {
+            let _filters = {...this.filters};
+            this.$emit('filtermeta-change', _filters);
+            this.hide();
         },
         hasFilter() {
             let fieldFilter = this.filters[this.field];
@@ -309,6 +337,34 @@ export default {
                 window.removeEventListener('resize', this.resizeListener);
                 this.resizeListener = null;
             }
+        },
+        onOperatorChange(value) {
+            let _filters = {...this.filters};
+            _filters[this.field].forEach(filterMeta => {
+                filterMeta.operator = value;
+            });
+
+            if (!this.showApplyButton) {
+                this.$emit('filtermeta-change', _filters);
+            }
+        },
+        onMenuMatchModeChange(value, index) {
+            let _filters = {...this.filters};
+            _filters[this.field][index].matchMode = value;
+
+            if (!this.showApplyButton) {
+                this.$emit('filtermeta-change', _filters);
+            }
+        },
+        addConstraint() {
+            let _filters = {...this.filters};
+            _filters[this.field].push({value: null, matchMode: this.defaultMatchMode()});
+            this.$emit('filtermeta-change', _filters);
+        },
+        removeConstraint(filterMeta) {
+            let _filters = {...this.filters};
+            _filters[this.field] = _filters[this.field].filter(meta => meta !== filterMeta);
+            this.$emit('filtermeta-change', _filters);
         }
     },
     computed: {
@@ -332,10 +388,46 @@ export default {
                     return {label: this.$primevue.config.locale[key], value: key}
                 });
         },
+        operatorOptions() {
+            return [
+                {label: this.$primevue.config.locale.matchAll, value: FilterOperator.AND},
+                {label: this.$primevue.config.locale.matchAny, value: FilterOperator.OR}
+            ];
+        },
         noFilterLabel() {
             return this.$primevue.config.locale.noFilter;
+        },
+        isShowOperator() {
+            return this.showOperator && this.type !== 'boolean';
+        },
+        operator() {
+            return this.filters[this.field][0].operator;
+        },
+        fieldConstraints() {
+            return this.filters[this.field];
+        },
+        showRemoveIcon() {
+            return this.fieldConstraints.length > 1;
+        },
+        removeRuleButtonLabel() {
+            return this.$primevue.config.locale.removeRule;
+        },
+        addRuleButtonLabel() {
+            return this.$primevue.config.locale.addRule;
+        },
+        isShowAddConstraint() {
+            return this.showAddButton && this.type !== 'boolean' && (this.fieldConstraints && this.fieldConstraints.length < this.maxConstraints);
+        },
+        clearButtonLabel() {
+            return this.$primevue.config.locale.clear;
+        },
+        applyButtonLabel() {
+            return this.$primevue.config.locale.apply;
         }
+    },
+    components: {
+        'CFDropdown': Dropdown,
+        'CFButton': Button
     }
-
 }
 </script>

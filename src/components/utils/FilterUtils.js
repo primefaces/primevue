@@ -182,7 +182,18 @@ export default class FilterUtils {
     }
 
     static is(value, filter, filterLocale) {
-        return this.filters.equals(value, filter, filterLocale);
+        if (filter === undefined || filter === null || (typeof filter === 'string' && filter.trim() === '')) {
+            return true;
+        }
+
+        if (value === undefined || value === null) {
+            return false;
+        }
+
+        if (value.getTime && filter.getTime)
+            return value.getTime() === filter.getTime();
+        else
+            return ObjectUtils.removeAccents(value.toString()).toLocaleLowerCase(filterLocale) == ObjectUtils.removeAccents(filter.toString()).toLocaleLowerCase(filterLocale);
     }
 
     static isNot(value, filter, filterLocale) {

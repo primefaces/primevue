@@ -527,10 +527,6 @@ input[type="number"]::-webkit-inner-spin-button {
     margin-top: .125rem;
 }
 
- .p-column-filter {
-    width: 100%;
-}
-
 .country-item {
     display: flex;
     align-items: center;

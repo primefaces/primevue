@@ -62,10 +62,6 @@ export default {
             type: Boolean,
             default: true
         },
-        filterOperator: {
-            type: String,
-            default: 'and'
-        },
         showFilterOperator: {
             type: Boolean,
             default: true
