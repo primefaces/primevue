@@ -16,7 +16,7 @@
                             @click="onRowMatchModeChange(matchMode.value)" @keydown="onRowMatchModeKeyDown($event)" @keydown.enter.prevent="onRowMatchModeChange(matchMode.value)"
                             :class="{'p-highlight': isRowMatchModeSelected(matchMode.value)}" :tabindex="i === 0 ? '0' : null">{{matchMode.label}}</li>
                         <li class="p-column-filter-separator"></li>
-                        <li class="p-column-filter-row-item" @click="onRowClearItemClick()" @keydown="onRowMatchModeKeyDown($event)" @keydown.enter="onRowClearItemClick()">{{noFilterLabel}}</li>
+                        <li class="p-column-filter-row-item" @click="clearFilter()" @keydown="onRowMatchModeKeyDown($event)" @keydown.enter="onRowClearItemClick()">{{noFilterLabel}}</li>
                     </ul>
                 </template>
                 <template v-else>
@@ -24,11 +24,13 @@
                         <CFDropdown :options="operatorOptions" :modelValue="operator" @update:modelValue="onOperatorChange($event)" class="p-column-filter-operator-dropdown" optionLabel="label" optionValue="value"></CFDropdown>
                     </div>
                     <div class="p-column-filter-constraints">
-                        <div v-for="(fieldConstraint,i) of fieldConstraints" :key="fieldConstraint.matchMode + i" class="p-column-filter-constraint">
+                        <div v-for="(fieldConstraint,i) of fieldConstraints" :key="i" class="p-column-filter-constraint">
                             <CFDropdown v-if="showMatchModes && matchModes" :options="matchModes" :modelValue="fieldConstraint.matchMode" optionLabel="label" optionValue="value"
                                 @update:modelValue="onMenuMatchModeChange($event, i)" class="p-column-filter-matchmode-dropdown"></CFDropdown>
-                            <component v-if="display === 'menu'" :is="filterElement" :field="field" />
-                            <CFButton v-if="showRemoveIcon" type="button" icon="pi pi-trash" class="p-column-filter-remove-button p-button-text p-button-danger p-button-sm" @click="removeConstraint(fieldConstraint)" :label="removeRuleButtonLabel"></CFButton>
+                            <component v-if="display === 'menu'" :is="filterElement" :field="field" :index="i"/>
+                            <div v-if="i !== 0">
+                                <CFButton v-if="showRemoveIcon" type="button" icon="pi pi-trash" class="p-column-filter-remove-button p-button-text p-button-danger p-button-sm" @click="removeConstraint(i)" :label="removeRuleButtonLabel"></CFButton>
+                            </div>
                         </div>
                     </div>
                     <div class="p-column-filter-add-rule" v-if="isShowAddConstraint">
@@ -147,6 +149,7 @@ export default {
             }
             
             this.$emit('filtermeta-change', _filters);
+            this.hide();
         },
         applyFilter() {
             let _filters = {...this.filters};
@@ -259,10 +262,6 @@ export default {
             else
                 return item.parentElement.lastElementChild;
         },
-        onRowClearItemClick() {
-            this.clearFilter();
-            this.hide();
-        },
         hide() {
             this.overlayVisible = false;
         },
@@ -360,12 +359,12 @@ export default {
         },
         addConstraint() {
             let _filters = {...this.filters};
-            _filters[this.field].push({value: null, matchMode: this.defaultMatchMode()});
+            _filters[this.field].push({value: null, matchMode: this.defaultMatchMode});
             this.$emit('filtermeta-change', _filters);
         },
-        removeConstraint(filterMeta) {
+        removeConstraint(index) {
             let _filters = {...this.filters};
-            _filters[this.field] = _filters[this.field].filter(meta => meta !== filterMeta);
+            _filters[this.field].splice(index, 1);
             this.$emit('filtermeta-change', _filters);
         }
     },

@@ -14,8 +14,9 @@
                 <DataTable :value="customers1" :paginator="true" class="p-datatable-customers p-datatable-gridlines" :rows="10"
                     dataKey="id" :filters="filters1" filterDisplay="menu" :loading="loading1">
                     <template #header>
-                        <div class="p-d-flex p-jc-end">
-                            <span class="p-input-icon-left ">
+                        <div class="p-d-flex p-jc-between">
+                            <Button type="button" icon="pi pi-filter-slash" label="Clear" class="p-button-outlined" @click="clearFilter1()"/>
+                            <span class="p-input-icon-left">
                                 <i class="pi pi-search" />
                                 <InputText v-model="filters1['global'].value" placeholder="Keyword Search" />
                             </span>
@@ -32,8 +33,8 @@
                             <span class="p-column-title">Name</span>
                             {{slotProps.data.name}}
                         </template>
-                        <template #filter>
-                            <InputText type="text" v-model="filters1['name'].value" class="p-column-filter" placeholder="Search by name"/>
+                        <template #filter="slotProps">
+                            <InputText type="text" v-model="filters1['name'][slotProps.index].value" class="p-column-filter" placeholder="Search by name"/>
                         </template>
                     </Column>
                     <Column header="Country" filterField="country.name">
@@ -42,8 +43,8 @@
                             <img src="../../assets/images/flag_placeholder.png" :class="'flag flag-' + slotProps.data.country.code" width="30" />
                             <span class="image-text">{{slotProps.data.country.name}}</span>
                         </template>
-                        <template #filter>
-                            <InputText type="text" v-model="filters1['country.name'].value" class="p-column-filter" placeholder="Search by country"/>
+                        <template #filter="slotProps">
+                            <InputText type="text" v-model="filters1['country.name'][slotProps.index].value" class="p-column-filter" placeholder="Search by country"/>
                         </template>
                     </Column>
                     <Column header="Agent" filterField="representative" :showFilterMatchModes="false" :showFilterOperator="false" :showAddButton="false">
@@ -227,17 +228,7 @@ export default {
         return {
             customers1: null,
             customers2: null,
-            filters1: {
-                'global': {value: null, matchMode: FilterMatchMode.CONTAINS},
-                'name': [{value: null, matchMode: FilterMatchMode.STARTS_WITH, operator: FilterOperator.AND}],
-                'country.name': [{value: null, matchMode: FilterMatchMode.STARTS_WITH, operator: FilterOperator.AND}],
-                'representative': [{value: null, matchMode: FilterMatchMode.IN}],
-                'date': [{value: null, matchMode: FilterMatchMode.IS, operator: FilterOperator.AND}],
-                'balance': [{value: null, matchMode: FilterMatchMode.EQUALS, operator: FilterOperator.AND}],
-                'status': [{value: null, matchMode: FilterMatchMode.EQUALS, operator: FilterOperator.AND}],
-                'activity': [{value: [0,100], matchMode: FilterMatchMode.BETWEEN}],
-                'verified': [{value: null, matchMode: FilterMatchMode.EQUALS, operator: FilterOperator.AND}]
-            },
+            filters1: null,
             filters2: {
                 'global': {value: null, matchMode: FilterMatchMode.CONTAINS},
                 'name': {value: null, matchMode: FilterMatchMode.STARTS_WITH},
@@ -267,6 +258,7 @@ export default {
     },
     created() {
         this.customerService = new CustomerService();
+        this.initFilters1();
     },
     mounted() {
         this.customerService.getCustomersLarge().then(data => {this.customers1 = data; this.loading1 = false;});
@@ -275,6 +267,22 @@ export default {
     methods: {
         formatCurrency(value) {
             return value.toLocaleString('en-US', {style: 'currency', currency: 'USD'});
+        },
+        clearFilter1() {
+            this.initFilters1();
+        },
+        initFilters1() {
+            this.filters1 = {
+                'global': {value: null, matchMode: FilterMatchMode.CONTAINS},
+                'name': [{value: null, matchMode: FilterMatchMode.STARTS_WITH, operator: FilterOperator.AND}],
+                'country.name': [{value: null, matchMode: FilterMatchMode.STARTS_WITH, operator: FilterOperator.AND}],
+                'representative': [{value: null, matchMode: FilterMatchMode.IN}],
+                'date': [{value: null, matchMode: FilterMatchMode.IS, operator: FilterOperator.AND}],
+                'balance': [{value: null, matchMode: FilterMatchMode.EQUALS, operator: FilterOperator.AND}],
+                'status': [{value: null, matchMode: FilterMatchMode.EQUALS, operator: FilterOperator.AND}],
+                'activity': [{value: [0,100], matchMode: FilterMatchMode.BETWEEN}],
+                'verified': [{value: null, matchMode: FilterMatchMode.EQUALS}]
+            }
         }
     }
 }
