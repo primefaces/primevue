@@ -128,24 +128,26 @@ export default {
     },
     mounted() {
         if (this.filters && this.filters[this.field]) {
-            if (this.display === 'row') {
-                this.defaultMatchMode = this.filters[this.field].matchMode;
-            }
-            else {
+            let fieldFilters = this.filters[this.field];
+            if (Array.isArray(fieldFilters)) {
                 this.defaultMatchMode = this.filters[this.field][0].matchMode;
                 this.defaultOperator = this.filters[this.field][0].operator;
+            }
+            else {
+                this.defaultMatchMode = this.filters[this.field].matchMode;
             }
         }
     },
     methods: {
         clearFilter() {
             let _filters = {...this.filters};
-            if (this.display === 'row') {
-                _filters[this.field].value = null;
-                _filters[this.field].matchMode = this.defaultMatchMode;
+             if (Array.isArray(_filters[this.field])) {
+                _filters[this.field].splice(1);
+                _filters[this.field][0] = {value: null, matchMode: this.defaultMatchMode, operator: this.defaultOperator};
             }
             else {
-                _filters[this.field] = {value: null, matchMode: this.defaultMatchMode, operator: this.defaultOperator};
+                _filters[this.field].value = null;
+                _filters[this.field].matchMode = this.defaultMatchMode;
             }
             
             this.$emit('filtermeta-change', _filters);
@@ -405,7 +407,7 @@ export default {
             return this.filters[this.field][0].operator;
         },
         fieldConstraints() {
-            return this.filters[this.field];
+            return Array.isArray(this.filters[this.field]) ? this.filters[this.field] : [this.filters[this.field]];
         },
         showRemoveIcon() {
             return this.fieldConstraints.length > 1;

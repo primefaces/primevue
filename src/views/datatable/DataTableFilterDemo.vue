@@ -33,8 +33,8 @@
                             <span class="p-column-title">Name</span>
                             {{slotProps.data.name}}
                         </template>
-                        <template #filter="slotProps">
-                            <InputText type="text" v-model="filters1['name'][slotProps.index].value" class="p-column-filter" placeholder="Search by name"/>
+                        <template #filter="{index}">
+                            <InputText type="text" v-model="filters1['name'][index].value" class="p-column-filter" placeholder="Search by name"/>
                         </template>
                     </Column>
                     <Column header="Country" filterField="country.name">
@@ -43,8 +43,8 @@
                             <img src="../../assets/images/flag_placeholder.png" :class="'flag flag-' + slotProps.data.country.code" width="30" />
                             <span class="image-text">{{slotProps.data.country.name}}</span>
                         </template>
-                        <template #filter="slotProps">
-                            <InputText type="text" v-model="filters1['country.name'][slotProps.index].value" class="p-column-filter" placeholder="Search by country"/>
+                        <template #filter="{index}">
+                            <InputText type="text" v-model="filters1['country.name'][index].value" class="p-column-filter" placeholder="Search by country"/>
                         </template>
                     </Column>
                     <Column header="Agent" filterField="representative" :showFilterMatchModes="false" :showFilterOperator="false" :showAddButton="false">
@@ -70,8 +70,8 @@
                             <span class="p-column-title">Date</span>
                             {{slotProps.data.date}}
                         </template>
-                        <template #filter>
-                            <Calendar v-model="filters1['date'].value" dateFormat="mm/dd/yy" />
+                        <template #filter="{index}">
+                            <Calendar v-model="filters1['date'][index].value" dateFormat="mm/dd/yy" />
                         </template>
                     </Column>
                     <Column header="Balance" filterField="balance" dataType="numeric">
@@ -79,8 +79,8 @@
                             <span class="p-column-title">Balance</span>
                             {{formatCurrency(slotProps.data.balance)}}
                         </template>
-                        <template #filter>
-                            <InputNumber v-model="filters1['balance'].value" mode="currency" currency="USD" locale="en-US" />
+                        <template #filter="{index}">
+                            <InputNumber v-model="filters1['balance'][index].value" mode="currency" currency="USD" locale="en-US" />
                         </template>
                     </Column>
                     <Column field="status" header="Status">
@@ -88,8 +88,8 @@
                             <span class="p-column-title">Status</span>
                             <span :class="'customer-badge status-' + slotProps.data.status">{{slotProps.data.status}}</span>
                         </template>
-                        <template #filter>
-                            <Dropdown v-model="filters1['status'].value" :options="statuses" placeholder="Any" class="p-column-filter" :showClear="true">
+                        <template #filter="{index}">
+                            <Dropdown v-model="filters1['status'][index].value" :options="statuses" placeholder="Any" class="p-column-filter" :showClear="true">
                                 <template #option="slotProps">
                                     <span :class="'customer-badge status-' + slotProps.option">{{slotProps.option}}</span>
                                 </template>
@@ -102,10 +102,10 @@
                             <ProgressBar :value="slotProps.data.activity" :showValue="false"></ProgressBar>
                         </template>
                         <template #filter>
-                            <Slider v-model="filters1['activity'][0].value" range class="p-m-3"></Slider>
+                            <Slider v-model="filters1['activity'].value" range class="p-m-3"></Slider>
                             <div class="p-d-flex p-ai-center p-jc-between p-px-2">
-                                <span>{{filters1['activity'][0].value[0]}}</span>
-                                <span>{{filters1['activity'][0].value[1]}}</span>
+                                <span>{{filters1['activity'].value[0]}}</span>
+                                <span>{{filters1['activity'].value[1]}}</span>
                             </div>
                         </template>
                     </Column>
@@ -276,12 +276,12 @@ export default {
                 'global': {value: null, matchMode: FilterMatchMode.CONTAINS},
                 'name': [{value: null, matchMode: FilterMatchMode.STARTS_WITH, operator: FilterOperator.AND}],
                 'country.name': [{value: null, matchMode: FilterMatchMode.STARTS_WITH, operator: FilterOperator.AND}],
-                'representative': [{value: null, matchMode: FilterMatchMode.IN}],
+                'representative': {value: null, matchMode: FilterMatchMode.IN},
                 'date': [{value: null, matchMode: FilterMatchMode.IS, operator: FilterOperator.AND}],
                 'balance': [{value: null, matchMode: FilterMatchMode.EQUALS, operator: FilterOperator.AND}],
                 'status': [{value: null, matchMode: FilterMatchMode.EQUALS, operator: FilterOperator.AND}],
-                'activity': [{value: [0,100], matchMode: FilterMatchMode.BETWEEN}],
-                'verified': [{value: null, matchMode: FilterMatchMode.EQUALS}]
+                'activity': {value: [0,100], matchMode: FilterMatchMode.BETWEEN},
+                'verified': {value: null, matchMode: FilterMatchMode.EQUALS}
             }
         }
     }
@@ -302,11 +302,6 @@ export default {
     .p-progressbar-value {
         background-color: #607D8B;
     }
-}
-
-.table-header {
-    display: flex;
-    justify-content: space-between;
 }
 
 ::v-deep(.p-datepicker) {
