@@ -108,7 +108,7 @@
                             </div>
                         </template>
                     </Column>
-                    <Column field="verified" header="Verified" dataType="boolean" headerStyle="width: 8rem" :showFilterMatchModes="false" :showFilterOperator="false" :showAddButton="false">
+                    <Column field="verified" header="Verified" dataType="boolean" headerStyle="width: 8rem" bodyClass="p-text-center" :showFilterMatchModes="false" :showFilterOperator="false" :showAddButton="false">
                         <template #body="slotProps">
                             <span class="p-column-title">Verified</span>
                             <i class="pi" :class="{'true-icon pi-check-circle': slotProps.data.verified, 'false-icon pi-times-circle': !slotProps.data.verified}"></i>

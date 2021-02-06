@@ -1,6 +1,8 @@
 <template>
     <div :class="containerClass">
-        <component v-if="display === 'row'" :is="filterElement" :field="field" />
+        <div class="p-fluid p-column-filter-element" v-if="display === 'row'" >
+            <component :is="filterElement" :field="field" />
+        </div>
         <button ref="icon" v-if="showMenuButton" type="button" class="p-column-filter-menu-button p-link" aria-haspopup="true" :aria-expanded="overlayVisible"
             :class="{'p-column-filter-menu-button-open': overlayVisible, 'p-column-filter-menu-button-active': hasFilter()}" 
             @click="toggleMenu()" @keydown="onToggleButtonKeyDown($event)"><span class="pi pi-filter-icon pi-filter"></span></button>
@@ -370,7 +372,7 @@ export default {
     computed: {
         containerClass() {
             return [
-                'p-column-filter', {
+                'p-column-filter p-fluid', {
                     'p-column-filter-row': this.display === 'row', 
                     'p-column-filter-menu': this.display === 'menu'
                 }

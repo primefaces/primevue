@@ -9,16 +9,18 @@
                         @dragstart="onColumnHeaderDragStart($event)" @dragover="onColumnHeaderDragOver($event)" @dragleave="onColumnHeaderDragLeave($event)" @drop="onColumnHeaderDrop($event)"
                         :colspan="columnProp(col, 'colspan')" :rowspan="columnProp(col, 'rowspan')" :aria-sort="getAriaSort(col)">
                         <span class="p-column-resizer" @mousedown="onColumnResizeStart($event)" v-if="resizableColumns"></span>
-                        <component :is="col.children.header" :column="col" v-if="col.children && col.children.header"/>
-                        <span class="p-column-title" v-if="columnProp(col, 'header')">{{columnProp(col, 'header')}}</span>
-                        <span v-if="columnProp(col, 'sortable')" :class="getSortableColumnIcon(col)"></span>
-                        <span v-if="isMultiSorted(col)" class="p-sortable-column-badge">{{getMultiSortMetaIndex(col) + 1}}</span>
-                        <DTHeaderCheckbox :checked="allRowsSelected" @change="onHeaderCheckboxChange($event)" :disabled="empty" v-if="columnProp(col, 'selectionMode') ==='multiple' && filterDisplay !== 'row'" />
-                        <DTColumnFilter v-if="filterDisplay === 'menu' && filters && filters[columnProp(col, 'filterField')||columnProp(col, 'field')]" :field="columnProp(col, 'filterField')||columnProp(col, 'field')" :type="columnProp(col, 'dataType')" display="menu"  
-                        :showMenu="columnProp(col, 'showFilterMenu')" :filterElement="col.children && col.children.filter" :filterHeader="col.children && col.children.filterHeader" :filterFooter="col.children && col.children.filterFooter" 
-                        :filters="filters" @filtermeta-change="$emit('filtermeta-change', $event)"
-                        :showOperator="columnProp(col, 'showFilterOperator')" :showClearButton="columnProp(col, 'showClearButton')" :showApplyButton="columnProp(col, 'showApplyButton')"
-                        :showMatchModes="columnProp(col, 'showFilterMatchModes')" :showAddButton="columnProp(col, 'showAddButton')" :matchModeOptions="columnProp(col, 'filterMatchModeOptions')" :maxConstraints="columnProp(col, 'maxConstraints')" />
+                        <div class="p-column-header-content">
+                            <component :is="col.children.header" :column="col" v-if="col.children && col.children.header"/>
+                            <span class="p-column-title" v-if="columnProp(col, 'header')">{{columnProp(col, 'header')}}</span>
+                            <span v-if="columnProp(col, 'sortable')" :class="getSortableColumnIcon(col)"></span>
+                            <span v-if="isMultiSorted(col)" class="p-sortable-column-badge">{{getMultiSortMetaIndex(col) + 1}}</span>
+                            <DTHeaderCheckbox :checked="allRowsSelected" @change="onHeaderCheckboxChange($event)" :disabled="empty" v-if="columnProp(col, 'selectionMode') ==='multiple' && filterDisplay !== 'row'" />
+                            <DTColumnFilter v-if="filterDisplay === 'menu' && filters && filters[columnProp(col, 'filterField')||columnProp(col, 'field')]" :field="columnProp(col, 'filterField')||columnProp(col, 'field')" :type="columnProp(col, 'dataType')" display="menu"  
+                            :showMenu="columnProp(col, 'showFilterMenu')" :filterElement="col.children && col.children.filter" :filterHeader="col.children && col.children.filterHeader" :filterFooter="col.children && col.children.filterFooter" 
+                            :filters="filters" @filtermeta-change="$emit('filtermeta-change', $event)"
+                            :showOperator="columnProp(col, 'showFilterOperator')" :showClearButton="columnProp(col, 'showClearButton')" :showApplyButton="columnProp(col, 'showApplyButton')"
+                            :showMatchModes="columnProp(col, 'showFilterMatchModes')" :showAddButton="columnProp(col, 'showAddButton')" :matchModeOptions="columnProp(col, 'filterMatchModeOptions')" :maxConstraints="columnProp(col, 'maxConstraints')" />
+                        </div>
                     </th>
                 </template>
             </tr>

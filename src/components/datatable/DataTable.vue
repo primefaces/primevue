@@ -2033,6 +2033,11 @@ export default {
     border: 1px solid transparent;
 }
 
+.p-column-header-content {
+    display: flex;
+    align-items: center;
+}
+
 .p-datatable .p-column-resizer-helper {
     width: 1px;
     position: absolute;
@@ -2084,9 +2089,10 @@ export default {
 
 .p-column-filter-menu {
     display: inline-flex;
+    margin-left: auto;
 }
 
-.p-column-filter-row p-columnfilterformelement {
+.p-column-filter-row .p-column-filter-element {
     flex: 1 1 auto;
     width: 1%;
 }
