@@ -10,9 +10,9 @@
 		<div class="content-section implementation">
             <div class="card">
                 <h5>Filter Menu</h5>
-                <p>Filters are displayed in an overlay..</p>
+                <p>Filters are displayed in an overlay.</p>
                 <DataTable :value="customers1" :paginator="true" class="p-datatable-customers p-datatable-gridlines" :rows="10"
-                    dataKey="id" :filters="filters1" filterDisplay="menu" :loading="loading1">
+                    dataKey="id" v-model:filters="filters1" filterDisplay="menu" :loading="loading1">
                     <template #header>
                         <div class="p-d-flex p-jc-between">
                             <Button type="button" icon="pi pi-filter-slash" label="Clear" class="p-button-outlined" @click="clearFilter1()"/>
@@ -29,33 +29,33 @@
                         Loading customers data. Please wait.
                     </template>
                     <Column field="name" header="Name">
-                        <template #body="slotProps">
+                        <template #body="{data}">
                             <span class="p-column-title">Name</span>
-                            {{slotProps.data.name}}
+                            {{data.name}}
                         </template>
-                        <template #filter="{index}">
-                            <InputText type="text" v-model="filters1['name'][index].value" class="p-column-filter" placeholder="Search by name"/>
+                        <template #filter="{filterModel}">
+                            <InputText type="text" v-model="filterModel.value" class="p-column-filter" placeholder="Search by name"/>
                         </template>
                     </Column>
                     <Column header="Country" filterField="country.name">
-                        <template #body="slotProps">
+                        <template #body="{data}">
                             <span class="p-column-title">Country</span>
-                            <img src="../../assets/images/flag_placeholder.png" :class="'flag flag-' + slotProps.data.country.code" width="30" />
-                            <span class="image-text">{{slotProps.data.country.name}}</span>
+                            <img src="../../assets/images/flag_placeholder.png" :class="'flag flag-' + data.country.code" width="30" />
+                            <span class="image-text">{{data.country.name}}</span>
                         </template>
-                        <template #filter="{index}">
-                            <InputText type="text" v-model="filters1['country.name'][index].value" class="p-column-filter" placeholder="Search by country"/>
+                        <template #filter="{filterModel}">
+                            <InputText type="text" v-model="filterModel.value" class="p-column-filter" placeholder="Search by country"/>
                         </template>
                     </Column>
                     <Column header="Agent" filterField="representative" :showFilterMatchModes="false" :showFilterOperator="false" :showAddButton="false">
-                        <template #body="slotProps">
+                        <template #body="{data}">
                             <span class="p-column-title">Agent</span>
-                            <img :alt="slotProps.data.representative.name" :src="'demo/images/avatar/' + slotProps.data.representative.image" width="32" style="vertical-align: middle" />
-                            <span class="image-text">{{slotProps.data.representative.name}}</span>
+                            <img :alt="data.representative.name" :src="'demo/images/avatar/' + data.representative.image" width="32" style="vertical-align: middle" />
+                            <span class="image-text">{{data.representative.name}}</span>
                         </template>
-                        <template #filter>
+                        <template #filter="{filterModel,filterCallback}">
                             <div class="p-mb-3 p-text-bold">Agent Picker</div>
-                            <MultiSelect v-model="filters1['representative'].value" :options="representatives" optionLabel="name" placeholder="Any" class="p-column-filter">
+                            <MultiSelect v-model="filterModel.value" @change="filterCallback()" :options="representatives" optionLabel="name" placeholder="Any" class="p-column-filter">
                                 <template #option="slotProps">
                                     <div class="p-multiselect-representative-option">
                                         <img :alt="slotProps.option.name" :src="'demo/images/avatar/' + slotProps.option.image" width="32" style="vertical-align: middle" />
@@ -66,30 +66,30 @@
                         </template>
                     </Column>
                     <Column header="Date" filterField="date" dataType="date">
-                        <template #body="slotProps">
+                        <template #body="{data}">
                             <span class="p-column-title">Date</span>
-                            {{slotProps.data.date}}
+                            {{data.date}}
                         </template>
-                        <template #filter="{index}">
-                            <Calendar v-model="filters1['date'][index].value" dateFormat="mm/dd/yy" />
+                        <template #filter="{filterModel}">
+                            <Calendar v-model="filterModel.value" dateFormat="mm/dd/yy" />
                         </template>
                     </Column>
                     <Column header="Balance" filterField="balance" dataType="numeric">
-                        <template #body="slotProps">
+                        <template #body="{data}">
                             <span class="p-column-title">Balance</span>
-                            {{formatCurrency(slotProps.data.balance)}}
+                            {{formatCurrency(data.balance)}}
                         </template>
-                        <template #filter="{index}">
-                            <InputNumber v-model="filters1['balance'][index].value" mode="currency" currency="USD" locale="en-US" />
+                        <template #filter="{filterModel}">
+                            <InputNumber v-model="filterModel.value" mode="currency" currency="USD" locale="en-US" />
                         </template>
                     </Column>
                     <Column field="status" header="Status">
-                        <template #body="slotProps">
+                        <template #body="{data}">
                             <span class="p-column-title">Status</span>
-                            <span :class="'customer-badge status-' + slotProps.data.status">{{slotProps.data.status}}</span>
+                            <span :class="'customer-badge status-' + data.status">{{data.status}}</span>
                         </template>
-                        <template #filter="{index}">
-                            <Dropdown v-model="filters1['status'][index].value" :options="statuses" placeholder="Any" class="p-column-filter" :showClear="true">
+                        <template #filter="{filterModel}">
+                            <Dropdown v-model="filterModel.value" :options="statuses" placeholder="Any" class="p-column-filter" :showClear="true">
                                 <template #option="slotProps">
                                     <span :class="'customer-badge status-' + slotProps.option">{{slotProps.option}}</span>
                                 </template>
@@ -97,12 +97,12 @@
                         </template>
                     </Column>
                     <Column field="activity" header="Activity" :showFilterMatchModes="false" :showFilterOperator="false" :showAddButton="false">
-                        <template #body="slotProps">
+                        <template #body="{data}">
                             <span class="p-column-title">Status</span>
-                            <ProgressBar :value="slotProps.data.activity" :showValue="false"></ProgressBar>
+                            <ProgressBar :value="data.activity" :showValue="false"></ProgressBar>
                         </template>
-                        <template #filter>
-                            <Slider v-model="filters1['activity'].value" range class="p-m-3"></Slider>
+                        <template #filter={filterModel,filterCallback}>
+                            <Slider v-model="filterModel.value" range @slideend="filterCallback()" class="p-m-3"></Slider>
                             <div class="p-d-flex p-ai-center p-jc-between p-px-2">
                                 <span>{{filters1['activity'].value[0]}}</span>
                                 <span>{{filters1['activity'].value[1]}}</span>
@@ -110,12 +110,12 @@
                         </template>
                     </Column>
                     <Column field="verified" header="Verified" dataType="boolean" headerStyle="width: 8rem" bodyClass="p-text-center" :showFilterMatchModes="false" :showFilterOperator="false" :showAddButton="false">
-                        <template #body="slotProps">
+                        <template #body="{data}">
                             <span class="p-column-title">Verified</span>
-                            <i class="pi" :class="{'true-icon pi-check-circle': slotProps.data.verified, 'false-icon pi-times-circle': !slotProps.data.verified}"></i>
+                            <i class="pi" :class="{'true-icon pi-check-circle': data.verified, 'false-icon pi-times-circle': !data.verified}"></i>
                         </template>
-                        <template #filter>
-                            <TriStateCheckbox v-model="filters1['verified'].value" />
+                        <template #filter={filterModel,filterCallback}>
+                            <TriStateCheckbox v-model="filterModel.value" @change="filterCallback()" />
                         </template>
                     </Column>
                 </DataTable>
@@ -125,7 +125,7 @@
                 <h5>Filter Row</h5>
                 <p>Filters are displayed inline within a separate row.</p>
                 <DataTable :value="customers2" :paginator="true" class="p-datatable-customers" :rows="10"
-                    dataKey="id" :filters="filters2" filterDisplay="row" :loading="loading2">
+                    dataKey="id" v-model:filters="filters2" filterDisplay="row" :loading="loading2">
                     <template #header>
                         <div class="p-d-flex p-jc-end">
                             <span class="p-input-icon-left ">
@@ -141,32 +141,32 @@
                         Loading customers data. Please wait.
                     </template>
                     <Column field="name" header="Name">
-                        <template #body="slotProps">
+                        <template #body="{data}">
                             <span class="p-column-title">Name</span>
-                            {{slotProps.data.name}}
+                            {{data.name}}
                         </template>
-                        <template #filter>
-                            <InputText type="text" v-model="filters2['name'].value" class="p-column-filter" placeholder="Search by name"/>
+                        <template #filter="{filterModel,filterCallback}">
+                            <InputText type="text" v-model="filterModel.value" @keydown.enter="filterCallback()" class="p-column-filter" placeholder="Search by name"/>
                         </template>
                     </Column>
                     <Column header="Country" filterField="country.name">
-                        <template #body="slotProps">
+                        <template #body="{data}">
                             <span class="p-column-title">Country</span>
-                            <img src="../../assets/images/flag_placeholder.png" :class="'flag flag-' + slotProps.data.country.code" width="30" />
-                            <span class="image-text">{{slotProps.data.country.name}}</span>
+                            <img src="../../assets/images/flag_placeholder.png" :class="'flag flag-' + data.country.code" width="30" />
+                            <span class="image-text">{{data.country.name}}</span>
                         </template>
-                        <template #filter>
-                            <InputText type="text" v-model="filters2['country.name'].value" class="p-column-filter" placeholder="Search by country"/>
+                        <template #filter="{filterModel,filterCallback}">
+                            <InputText type="text" v-model="filterModel.value" @keydown.enter="filterCallback()" class="p-column-filter" placeholder="Search by country"/>
                         </template>
                     </Column>
                     <Column header="Agent" filterField="representative" :showFilterMenu="false">
-                        <template #body="slotProps">
+                        <template #body="{data}">
                             <span class="p-column-title">Agent</span>
-                            <img :alt="slotProps.data.representative.name" :src="'demo/images/avatar/' + slotProps.data.representative.image" width="32" style="vertical-align: middle" />
-                            <span class="image-text">{{slotProps.data.representative.name}}</span>
+                            <img :alt="data.representative.name" :src="'demo/images/avatar/' + data.representative.image" width="32" style="vertical-align: middle" />
+                            <span class="image-text">{{data.representative.name}}</span>
                         </template>
-                        <template #filter>
-                            <MultiSelect v-model="filters2['representative'].value" :options="representatives" optionLabel="name" placeholder="Any" class="p-column-filter">
+                        <template #filter="{filterModel,filterCallback}">
+                            <MultiSelect v-model="filterModel.value" @change="filterCallback()" :options="representatives" optionLabel="name" placeholder="Any" class="p-column-filter">
                                 <template #option="slotProps">
                                     <div class="p-multiselect-representative-option">
                                         <img :alt="slotProps.option.name" :src="'demo/images/avatar/' + slotProps.option.image" width="32" style="vertical-align: middle" />
@@ -177,12 +177,12 @@
                         </template>
                     </Column>
                     <Column field="status" header="Status" :showFilterMenu="false">
-                        <template #body="slotProps">
+                        <template #body="{data}">
                             <span class="p-column-title">Status</span>
-                            <span :class="'customer-badge status-' + slotProps.data.status">{{slotProps.data.status}}</span>
+                            <span :class="'customer-badge status-' + data.status">{{data.status}}</span>
                         </template>
-                        <template #filter>
-                            <Dropdown v-model="filters2['status'].value" :options="statuses" placeholder="Any" class="p-column-filter" :showClear="true">
+                        <template #filter="{filterModel,filterCallback}">
+                            <Dropdown v-model="filterModel.value" @change="filterCallback()" :options="statuses" placeholder="Any" class="p-column-filter" :showClear="true">
                                 <template #option="slotProps">
                                     <span :class="'customer-badge status-' + slotProps.option">{{slotProps.option}}</span>
                                 </template>
@@ -190,12 +190,12 @@
                         </template>
                     </Column>
                     <Column field="verified" header="Verified" dataType="boolean" headerStyle="width: 6rem">
-                        <template #body="slotProps">
+                        <template #body="{data}">
                             <span class="p-column-title">Verified</span>
-                            <i class="pi" :class="{'true-icon pi-check-circle': slotProps.data.verified, 'false-icon pi-times-circle': !slotProps.data.verified}"></i>
+                            <i class="pi" :class="{'true-icon pi-check-circle': data.verified, 'false-icon pi-times-circle': !data.verified}"></i>
                         </template>
-                        <template #filter>
-                            <TriStateCheckbox v-model="filters2['verified'].value" />
+                        <template #filter="{filterModel,filterCallback}">
+                            <TriStateCheckbox v-model="filterModel.value" @change="filterCallback()"/>
                         </template>
                     </Column>
                 </DataTable>

@@ -20,8 +20,8 @@
             <table ref="table" role="grid">
                 <DTTableHeader :columnGroup="headerColumnGroup" :columns="columns" :rowGroupMode="rowGroupMode"
                         :groupRowsBy="groupRowsBy" :resizableColumns="resizableColumns" :allRowsSelected="allRowsSelected" :empty="empty"
-                        :sortMode="sortMode" :sortField="d_sortField" :sortOrder="d_sortOrder" :multiSortMeta="d_multiSortMeta" :filters="filters" :filterDisplay="filterDisplay"
-                        @column-click="onColumnHeaderClick($event)" @column-mousedown="onColumnHeaderMouseDown($event)" @filtermeta-change="onFilterMetaChange"
+                        :sortMode="sortMode" :sortField="d_sortField" :sortOrder="d_sortOrder" :multiSortMeta="d_multiSortMeta" :filters="d_filters" :filterDisplay="filterDisplay"
+                        @column-click="onColumnHeaderClick($event)" @column-mousedown="onColumnHeaderMouseDown($event)" @filter-change="onFilterChange" @filter-apply="onFilterApply"
                         @column-dragstart="onColumnHeaderDragStart($event)" @column-dragover="onColumnHeaderDragOver($event)" @column-dragleave="onColumnHeaderDragLeave($event)" @column-drop="onColumnHeaderDrop($event)"
                         @column-resizestart="onColumnResizeStart($event)" @checkbox-change="toggleRowsWithCheckbox($event)" />
                 <DTTableBody :value="dataToRender" :columns="columns" :empty="empty" :dataKey="dataKey" :selection="selection" :selectionKeys="d_selectionKeys" :selectionMode="selectionMode" :contextMenu="contextMenu" :contextMenuSelection="contextMenuSelection"
@@ -372,10 +372,6 @@ export default {
         virtualScrollDelay: {
             type: Number,
             default: 150
-        },
-        filterLayout: {
-            type: String,
-            default: null
         }
     },
     data() {
@@ -388,7 +384,8 @@ export default {
             d_selectionKeys: null,
             d_expandedRowKeys: null,
             d_columnOrder: null,
-            d_editingRowKeys: null
+            d_editingRowKeys: null,
+            d_filters: this.cloneFilters(this.filters)
         };
     },
     rowTouched: false,
@@ -439,6 +436,9 @@ export default {
             if (this.dataKey) {
                 this.updateEditingRowKeys(newValue);
             }
+        },
+        filters(newValue) {
+            this.d_filters = this.cloneFilters(newValue);
         }
     },
     beforeMount() {
@@ -1703,8 +1703,23 @@ export default {
         getChildren() {
             return this.$slots.default ? this.$slots.default() : null;
         },
-        onFilterMetaChange(event) {
-            this.$emit('update:filters', event)
+        onFilterChange(filters) {
+            this.d_filters = filters;
+        },
+        onFilterApply() {
+            this.$emit('update:filters', this.d_filters);
+        },
+        cloneFilters() {
+            let cloned = {};
+            if (this.filters) {
+                for (let prop in this.filters) {
+                    if (Object.prototype.hasOwnProperty.call(this.filters, prop)) {
+                        cloned[prop] = {...this.filters[prop]};
+                    }
+                }
+            }
+
+            return cloned;
         }
     },
     computed: {

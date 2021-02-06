@@ -1,7 +1,7 @@
 <template>
     <div :class="containerClass">
         <div class="p-fluid p-column-filter-element" v-if="display === 'row'" >
-            <component :is="filterElement" :field="field" />
+            <component :is="filterElement" :field="field" :filterModel="filters[field]" :filterCallback="filterCallback" />
         </div>
         <button ref="icon" v-if="showMenuButton" type="button" class="p-column-filter-menu-button p-link" aria-haspopup="true" :aria-expanded="overlayVisible"
             :class="{'p-column-filter-menu-button-open': overlayVisible, 'p-column-filter-menu-button-active': hasFilter()}" 
@@ -27,7 +27,7 @@
                         <div v-for="(fieldConstraint,i) of fieldConstraints" :key="i" class="p-column-filter-constraint">
                             <CFDropdown v-if="showMatchModes && matchModes" :options="matchModes" :modelValue="fieldConstraint.matchMode" optionLabel="label" optionValue="value"
                                 @update:modelValue="onMenuMatchModeChange($event, i)" class="p-column-filter-matchmode-dropdown"></CFDropdown>
-                            <component v-if="display === 'menu'" :is="filterElement" :field="field" :index="i"/>
+                            <component v-if="display === 'menu'" :is="filterElement" :field="field" :filterModel="fieldConstraint" :filterCallback="filterCallback" />
                             <div v-if="i !== 0">
                                 <CFButton v-if="showRemoveIcon" type="button" icon="pi pi-trash" class="p-column-filter-remove-button p-button-text p-button-danger p-button-sm" @click="removeConstraint(i)" :label="removeRuleButtonLabel"></CFButton>
                             </div>
@@ -54,7 +54,7 @@ import Dropdown from 'primevue/dropdown';
 import Button from 'primevue/button';
 
 export default {
-    emits: ['filtermeta-change'],
+    emits: ['filter-change', 'filter-apply'],
     props: {
         field: {
             type: String,
@@ -150,12 +150,12 @@ export default {
                 _filters[this.field].matchMode = this.defaultMatchMode;
             }
             
-            this.$emit('filtermeta-change', _filters);
+            this.$emit('filter-change', _filters);
+            this.$emit('filter-apply');
             this.hide();
         },
         applyFilter() {
-            let _filters = {...this.filters};
-            this.$emit('filtermeta-change', _filters);
+            this.$emit('filter-apply');
             this.hide();
         },
         hasFilter() {
@@ -215,7 +215,8 @@ export default {
         onRowMatchModeChange(matchMode) {
             let _filters = {...this.filters};
             _filters[this.field].matchMode = matchMode;
-            this.$emit('filtermeta-change', _filters);
+            this.$emit('filter-change', _filters);
+            this.$emit('filter-apply');
             this.hide();
         },
         onRowMatchModeKeyDown(event) {
@@ -247,6 +248,37 @@ export default {
         },
         isRowMatchModeSelected(matchMode) {
             return (this.filters[this.field]).matchMode === matchMode;
+        },
+        onOperatorChange(value) {
+            let _filters = {...this.filters};
+            _filters[this.field].forEach(filterMeta => {
+                filterMeta.operator = value;
+            });
+
+            if (!this.showApplyButton) {
+                this.$emit('filter-change', _filters);
+            }
+        },
+        onMenuMatchModeChange(value, index) {
+            let _filters = {...this.filters};
+            _filters[this.field][index].matchMode = value;
+
+            if (!this.showApplyButton) {
+                this.$emit('filter-change', _filters);
+            }
+        },
+        addConstraint() {
+            let _filters = {...this.filters};
+            _filters[this.field].push({value: null, matchMode: this.defaultMatchMode});
+            this.$emit('filter-change', _filters);
+        },
+        removeConstraint(index) {
+            let _filters = {...this.filters};
+            _filters[this.field].splice(index, 1);
+            this.$emit('filter-change', _filters);
+        },
+        filterCallback() {
+            this.$emit('filter-apply');
         },
         findNextItem(item) {
             let nextItem = item.nextElementSibling;
@@ -340,34 +372,6 @@ export default {
                 window.removeEventListener('resize', this.resizeListener);
                 this.resizeListener = null;
             }
-        },
-        onOperatorChange(value) {
-            let _filters = {...this.filters};
-            _filters[this.field].forEach(filterMeta => {
-                filterMeta.operator = value;
-            });
-
-            if (!this.showApplyButton) {
-                this.$emit('filtermeta-change', _filters);
-            }
-        },
-        onMenuMatchModeChange(value, index) {
-            let _filters = {...this.filters};
-            _filters[this.field][index].matchMode = value;
-
-            if (!this.showApplyButton) {
-                this.$emit('filtermeta-change', _filters);
-            }
-        },
-        addConstraint() {
-            let _filters = {...this.filters};
-            _filters[this.field].push({value: null, matchMode: this.defaultMatchMode});
-            this.$emit('filtermeta-change', _filters);
-        },
-        removeConstraint(index) {
-            let _filters = {...this.filters};
-            _filters[this.field].splice(index, 1);
-            this.$emit('filtermeta-change', _filters);
         }
     },
     computed: {
