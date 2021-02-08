@@ -160,7 +160,7 @@
                             {{data.name}}
                         </template>
                         <template #filter="{filterModel,filterCallback}">
-                            <InputText type="text" v-model="filterModel.value" @keydown.enter="filterCallback()" class="p-column-filter" placeholder="Search by name"/>
+                            <InputText type="text" v-model="filterModel.value" @keydown.enter="filterCallback()" class="p-column-filter" placeholder="Search by name" v-tooltip.top.focus="'Hit enter key to filter'"/>
                         </template>
                     </Column>
                     <Column header="Country" filterField="country.name">
@@ -170,7 +170,7 @@
                             <span class="image-text">{{data.country.name}}</span>
                         </template>
                         <template #filter="{filterModel,filterCallback}">
-                            <InputText type="text" v-model="filterModel.value" @keydown.enter="filterCallback()" class="p-column-filter" placeholder="Search by country"/>
+                            <InputText type="text" v-model="filterModel.value" @input="filterCallback()" class="p-column-filter" placeholder="Search by country" v-tooltip.top.focus="'Filter as you type'"/>
                         </template>
                     </Column>
                     <Column header="Agent" filterField="representative" :showFilterMenu="false">
