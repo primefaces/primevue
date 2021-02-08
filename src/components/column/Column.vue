@@ -104,7 +104,15 @@ export default {
         },
         filterHeaderStyle: {
             type: null,
-            default: false
+            default: null
+        },
+        filterMenuClass: {
+            type: String,
+            default: null
+        },
+        filterMenuStyle: {
+            type: null,
+            default: null
         },
         selectionMode: {
             type: String,

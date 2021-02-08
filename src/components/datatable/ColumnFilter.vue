@@ -8,7 +8,7 @@
             @click="toggleMenu()" @keydown="onToggleButtonKeyDown($event)"><span class="pi pi-filter-icon pi-filter"></span></button>
         <button v-if="showMenuButton && display === 'row'" :class="{'p-hidden-space': !hasRowFilter()}" type="button" class="p-column-filter-clear-button p-link" @click="clearFilter()"><span class="pi pi-filter-slash"></span></button>
         <transition name="p-connected-overlay" @enter="onOverlayEnter" @leave="onOverlayLeave">
-            <div :ref="overlayRef" :class="overlayClass" v-if="overlayVisible" @keydown.escape="onEscape" @click="onContentClick">
+            <div :ref="overlayRef" :class="overlayClass" v-if="overlayVisible" @keydown.escape="onEscape" @click="onContentClick" :style="filterMenuStyle">
                 <component :is="filterHeader" :field="field" />
                 <template v-if="display === 'row'">
                     <ul class="p-column-filter-row-items">
@@ -109,6 +109,14 @@ export default {
         filterFooter: null,
         filters: {
             type: Object,
+            default: null
+        },
+        filterMenuClass: {
+            type: String,
+            default: null
+        },
+        filterMenuStyle: {
+            type: null,
             default: null
         }
     },
@@ -265,18 +273,26 @@ export default {
             _filters[this.field].constraints[index].matchMode = value;
 
             if (!this.showApplyButton) {
-                this.$emit('filter-change', _filters);
+                this.$emit('filter-apply');
             }
         },
         addConstraint() {
             let _filters = {...this.filters};
             _filters[this.field].constraints.push({value: null, matchMode: this.defaultMatchMode});
             this.$emit('filter-change', _filters);
+
+            if (!this.showApplyButton) {
+                this.$emit('filter-apply');
+            }
         },
         removeConstraint(index) {
             let _filters = {...this.filters};
             _filters[this.field].constraints.splice(index, 1);
             this.$emit('filter-change', _filters);
+
+            if (!this.showApplyButton) {
+                this.$emit('filter-apply');
+            }
         },
         filterCallback() {
             this.$emit('filter-apply');
@@ -386,7 +402,7 @@ export default {
             ]
         },
         overlayClass() {
-            return {'p-column-filter-overlay p-component p-fluid': true, 'p-column-filter-overlay-menu': this.display === 'menu'};
+            return [this.filterMenuyClass, {'p-column-filter-overlay p-component p-fluid': true, 'p-column-filter-overlay-menu': this.display === 'menu'}];
         },
         showMenuButton() {
             return this.showMenu && (this.display === 'row' ? this.type !== 'boolean': true);

@@ -84,13 +84,16 @@
                             <InputNumber v-model="filterModel.value" mode="currency" currency="USD" locale="en-US" />
                         </template>
                     </Column>
-                    <Column field="status" header="Status">
+                    <Column field="status" header="Status" filterMenuStyle="min-width:14rem">
                         <template #body="{data}">
                             <span class="p-column-title">Status</span>
                             <span :class="'customer-badge status-' + data.status">{{data.status}}</span>
                         </template>
                         <template #filter="{filterModel}">
                             <Dropdown v-model="filterModel.value" :options="statuses" placeholder="Any" class="p-column-filter" :showClear="true">
+                                <template #value="slotProps">
+                                    <span :class="'customer-badge status-' + slotProps.value">{{slotProps.value}}</span>
+                                </template>
                                 <template #option="slotProps">
                                     <span :class="'customer-badge status-' + slotProps.option">{{slotProps.option}}</span>
                                 </template>
