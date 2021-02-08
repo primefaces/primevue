@@ -25,7 +25,7 @@
                     </div>
                     <div class="p-column-filter-constraints">
                         <div v-for="(fieldConstraint,i) of fieldConstraints" :key="i" class="p-column-filter-constraint">
-                            <CFDropdown v-if="showMatchModes && matchModes" :options="matchModes" :modelValue="fieldConstraint.matchMode" optionLabel="label" optionValue="value"
+                            <CFDropdown v-if="isShowMatchModes" :options="matchModes" :modelValue="fieldConstraint.matchMode" optionLabel="label" optionValue="value"
                                 @update:modelValue="onMenuMatchModeChange($event, i)" class="p-column-filter-matchmode-dropdown"></CFDropdown>
                             <component v-if="display === 'menu'" :is="filterElement" :field="field" :filterModel="fieldConstraint" :filterCallback="filterCallback" />
                             <div>
@@ -413,6 +413,9 @@ export default {
                     return {label: this.$primevue.config.locale[key], value: key}
                 });
         },
+        isShowMatchModes() {
+            return this.type !== 'boolean' && this.showMatchModes && this.matchModes;
+        },
         operatorOptions() {
             return [
                 {label: this.$primevue.config.locale.matchAll, value: FilterOperator.AND},
@@ -423,7 +426,7 @@ export default {
             return this.$primevue.config.locale.noFilter;
         },
         isShowOperator() {
-            return this.showOperator && this.type !== 'boolean';
+            return this.showOperator && this.filters[this.field].operator;
         },
         operator() {
             return this.filters[this.field].operator;
@@ -441,7 +444,7 @@ export default {
             return this.$primevue.config.locale.addRule;
         },
         isShowAddConstraint() {
-            return this.showAddButton && this.type !== 'boolean' && (this.fieldConstraints && this.fieldConstraints.length < this.maxConstraints);
+            return this.showAddButton && this.filters[this.field].operator && (this.fieldConstraints && this.fieldConstraints.length < this.maxConstraints);
         },
         clearButtonLabel() {
             return this.$primevue.config.locale.clear;

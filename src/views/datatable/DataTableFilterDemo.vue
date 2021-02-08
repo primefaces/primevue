@@ -48,7 +48,7 @@
                             <InputText type="text" v-model="filterModel.value" class="p-column-filter" placeholder="Search by country"/>
                         </template>
                     </Column>
-                    <Column header="Agent" filterField="representative" :showFilterMatchModes="false" :showFilterOperator="false" :showAddButton="false" filterMenuStyle="width:14rem">
+                    <Column header="Agent" filterField="representative" :showFilterMatchModes="false" filterMenuStyle="width:14rem">
                         <template #body="{data}">
                             <span class="p-column-title">Agent</span>
                             <img :alt="data.representative.name" :src="'demo/images/avatar/' + data.representative.image" width="32" style="vertical-align: middle" />
@@ -100,7 +100,7 @@
                             </Dropdown>
                         </template>
                     </Column>
-                    <Column field="activity" header="Activity" :showFilterMatchModes="false" :showFilterOperator="false" :showAddButton="false">
+                    <Column field="activity" header="Activity" :showFilterMatchModes="false">
                         <template #body="{data}">
                             <span class="p-column-title">Status</span>
                             <ProgressBar :value="data.activity" :showValue="false"></ProgressBar>
@@ -113,7 +113,7 @@
                             </div>
                         </template>
                     </Column>
-                    <Column field="verified" header="Verified" dataType="boolean" headerStyle="width: 8rem" bodyClass="p-text-center" :showFilterMatchModes="false" :showFilterOperator="false" :showAddButton="false">
+                    <Column field="verified" header="Verified" dataType="boolean" headerStyle="width: 8rem" bodyClass="p-text-center">
                         <template #body="{data}">
                             <span class="p-column-title">Verified</span>
                             <i class="pi" :class="{'true-icon pi-check-circle': data.verified, 'false-icon pi-times-circle': !data.verified}"></i>
