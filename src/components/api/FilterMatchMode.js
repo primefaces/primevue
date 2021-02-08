@@ -11,10 +11,10 @@ const FilterMatchMode = {
     GREATER_THAN : 'gt',
     GREATER_THAN_OR_EQUAL_TO : 'gte',
     BETWEEN : 'between',
-    IS : 'is',
-    IS_NOT : 'isNot',
-    BEFORE : 'before',
-    AFTER : 'after'
+    DATE_IS : 'dateIs',
+    DATE_IS_NOT : 'dateIsNot',
+    DATE_BEFORE : 'dateBefore',
+    DATE_AFTER : 'dateAfter'
 }
 
 export default FilterMatchMode;

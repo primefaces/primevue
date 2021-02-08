@@ -2,7 +2,7 @@ import {ObjectUtils} from 'primevue/utils';
 
 const FilterService = {
     filters: {
-            startsWith(value, filter, filterLocale)  {
+        startsWith(value, filter, filterLocale)  {
             if (filter === undefined || filter === null || filter.trim() === '') {
                 return true;
             }
@@ -169,31 +169,51 @@ const FilterService = {
             else
                 return value >= filter;
         },
-        is(value, filter, filterLocale) {
-            if (filter === undefined || filter === null || (typeof filter === 'string' && filter.trim() === '')) {
+        dateIs(value, filter) {
+            if (filter === undefined || filter === null) {
                 return true;
             }
     
             if (value === undefined || value === null) {
                 return false;
             }
+
+            return value.toDateString() === filter.toDateString();
+        },
+        dateIsNot(value, filter) {
+            if (filter === undefined || filter === null) {
+                return true;
+            }
     
-            if (value.getTime && filter.getTime)
-                return value.getTime() === filter.getTime();
-            else
-                return ObjectUtils.removeAccents(value.toString()).toLocaleLowerCase(filterLocale) == ObjectUtils.removeAccents(filter.toString()).toLocaleLowerCase(filterLocale);
+            if (value === undefined || value === null) {
+                return false;
+            }
+
+            return value.toDateString() !== filter.toDateString();
         },
-        isNot(value, filter, filterLocale) {
-            return this.filters.notEquals(value, filter, filterLocale);
+        dateBefore(value, filter) {
+            if (filter === undefined || filter === null) {
+                return true;
+            }
+    
+            if (value === undefined || value === null) {
+                return false;
+            }
+
+            return value.getTime() < filter.getTime();
         },
-        before(value, filter, filterLocale) {
-            return this.filters.lt(value, filter, filterLocale);
-        },
-        after(value, filter, filterLocale) {
-            return this.filters.gt(value, filter, filterLocale);
+        dateAfter(value, filter) {
+            if (filter === undefined || filter === null) {
+                return true;
+            }
+    
+            if (value === undefined || value === null) {
+                return false;
+            }
+
+            return value.getTime() > filter.getTime();
         }
     },
-
     register(rule, fn) {
         this.filters[rule] = fn;
     }

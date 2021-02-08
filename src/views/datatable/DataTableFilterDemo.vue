@@ -78,7 +78,7 @@
                     <Column header="Date" filterField="date" dataType="date">
                         <template #body="{data}">
                             <span class="p-column-title">Date</span>
-                            {{data.date}}
+                            {{formatDate(data.date)}}
                         </template>
                         <template #filter="{filterModel}">
                             <Calendar v-model="filterModel.value" dateFormat="mm/dd/yy" />
@@ -275,10 +275,26 @@ export default {
         this.initFilters1();
     },
     mounted() {
-        this.customerService.getCustomersLarge().then(data => {this.customers1 = data; this.loading1 = false;});
-        this.customerService.getCustomersLarge().then(data => {this.customers2 = data; this.loading2 = false;});
+        this.customerService.getCustomersLarge().then(data => {
+            this.customers1 = data; 
+            this.loading1 = false;
+            this.customers1.forEach(customer => customer.date = new Date(customer.date));
+        });
+        
+        this.customerService.getCustomersLarge().then(data => {
+            this.customers2 = data; 
+            this.loading2 = false;
+            this.customers2.forEach(customer => customer.date = new Date(customer.date));
+        });
     },
     methods: {
+        formatDate(value) {
+            return value.toLocaleDateString('en-US', {
+                day: '2-digit',
+                month: '2-digit',
+                year: 'numeric',
+            });
+        },
         formatCurrency(value) {
             return value.toLocaleString('en-US', {style: 'currency', currency: 'USD'});
         },
@@ -291,7 +307,7 @@ export default {
                 'name': {operator: FilterOperator.AND, constraints: [{value: null, matchMode: FilterMatchMode.STARTS_WITH}]},
                 'country.name': {operator: FilterOperator.AND, constraints: [{value: null, matchMode: FilterMatchMode.STARTS_WITH}]},
                 'representative': {value: null, matchMode: FilterMatchMode.IN},
-                'date': {operator: FilterOperator.AND, constraints: [{value: null, matchMode: FilterMatchMode.IS}]},
+                'date': {operator: FilterOperator.AND, constraints: [{value: null, matchMode: FilterMatchMode.DATE_IS}]},
                 'balance': {operator: FilterOperator.AND, constraints: [{value: null, matchMode: FilterMatchMode.EQUALS}]},
                 'status': {operator: FilterOperator.OR, constraints: [{value: null, matchMode: FilterMatchMode.EQUALS}]},
                 'activity': {value: null, matchMode: FilterMatchMode.BETWEEN},
