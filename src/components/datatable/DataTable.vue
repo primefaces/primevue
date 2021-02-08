@@ -132,8 +132,8 @@
 </template>
 
 <script>
-import {ObjectUtils,FilterUtils,DomHandler} from 'primevue/utils';
-import {FilterMatchMode,FilterOperator} from 'primevue/api';
+import {ObjectUtils,DomHandler} from 'primevue/utils';
+import {FilterMatchMode,FilterOperator,FilterService} from 'primevue/api';
 import Paginator from 'primevue/paginator';
 import ScrollableView from './ScrollableView.vue';
 import TableHeader from './TableHeader.vue';
@@ -647,7 +647,7 @@ export default {
                 if (this.filters['global'] && !globalMatch && globalFilterFieldsArray) {
                     for(let j = 0; j < globalFilterFieldsArray.length; j++) {
                         let globalFilterField = globalFilterFieldsArray[j];
-                        globalMatch = FilterUtils[this.filters['global'].matchMode || FilterMatchMode.CONTAINS](ObjectUtils.resolveFieldData(data[i], globalFilterField), this.filters['global'].value, this.filterLocale);
+                        globalMatch = FilterService.filters[this.filters['global'].matchMode || FilterMatchMode.CONTAINS](ObjectUtils.resolveFieldData(data[i], globalFilterField), this.filters['global'].value, this.filterLocale);
 
                         if (globalMatch) {
                             break;
@@ -682,7 +682,7 @@ export default {
             let filterValue = filterMeta.value;
             let filterMatchMode = filterMeta.matchMode || FilterMatchMode.STARTS_WITH;
             let dataFieldValue = ObjectUtils.resolveFieldData(rowData, field);
-            let filterConstraint = FilterUtils[filterMatchMode];
+            let filterConstraint = FilterService.filters[filterMatchMode];
 
             return filterConstraint(dataFieldValue, filterValue, this.filterLocale);
         },

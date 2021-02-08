@@ -75,9 +75,8 @@
 </template>
 
 <script>
-import {ObjectUtils} from 'primevue/utils';
-import {FilterUtils} from 'primevue/utils';
-import {DomHandler} from 'primevue/utils';
+import {ObjectUtils,DomHandler} from 'primevue/utils';
+import {FilterService} from 'primevue/api';
 import TreeTableRow from './TreeTableRow.vue';
 import Paginator from 'primevue/paginator';
 
@@ -564,7 +563,7 @@ export default {
                     if (Object.prototype.hasOwnProperty.call(this.filters, this.columnProp(col, 'field'))) {
                         let filterMatchMode = this.columnProp(col, 'filterMatchMode') || 'startsWith';
                         let filterValue = this.filters[this.columnProp(col, 'field')];
-                        let filterConstraint = FilterUtils[filterMatchMode];
+                        let filterConstraint = FilterService.filters[filterMatchMode];
                         let paramsWithoutNode = {filterField, filterValue, filterConstraint, strict};
 
                         if ((strict && !(this.findFilteredNodes(copyNode, paramsWithoutNode) || this.isFilterMatched(copyNode, paramsWithoutNode))) ||
@@ -581,7 +580,7 @@ export default {
                     if (this.hasGlobalFilter() && !globalMatch) {
                         let copyNodeForGlobal = {...copyNode};
                         let filterValue = this.filters['global'];
-                        let filterConstraint = FilterUtils['contains'];
+                        let filterConstraint = FilterService.filters['contains'];
                         let globalFilterParamsWithoutNode = {filterField, filterValue, filterConstraint, strict};
 
                         if ((strict && (this.findFilteredNodes(copyNodeForGlobal, globalFilterParamsWithoutNode) || this.isFilterMatched(copyNodeForGlobal, globalFilterParamsWithoutNode))) ||
