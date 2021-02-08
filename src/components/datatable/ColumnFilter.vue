@@ -9,7 +9,7 @@
         <button v-if="showMenuButton && display === 'row'" :class="{'p-hidden-space': !hasRowFilter()}" type="button" class="p-column-filter-clear-button p-link" @click="clearFilter()"><span class="pi pi-filter-slash"></span></button>
         <transition name="p-connected-overlay" @enter="onOverlayEnter" @leave="onOverlayLeave">
             <div :ref="overlayRef" :class="overlayClass" v-if="overlayVisible" @keydown.escape="onEscape" @click="onContentClick" :style="filterMenuStyle">
-                <component :is="filterHeader" :field="field" />
+                <component :is="filterHeader" :field="field" :filterModel="filters[field]" :filterCallback="filterCallback" />
                 <template v-if="display === 'row'">
                     <ul class="p-column-filter-row-items">
                         <li class="p-column-filter-row-item" v-for="(matchMode,i) of matchModes" :key="matchMode.label" 
@@ -41,7 +41,7 @@
                         <CFButton type="button" class="p-button-sm" @click="applyFilter()" :label="applyButtonLabel" v-if="showApplyButton"></CFButton>
                     </div>
                 </template>
-                <component :is="filterFooter" :field="field" />
+                <component :is="filterFooter" :field="field" :filterModel="filters[field]" :filterCallback="filterCallback" />
             </div>
         </transition>
     </div>
@@ -111,6 +111,10 @@ export default {
             type: Object,
             default: null
         },
+        filtersStore: {
+            type: Object,
+            default: null
+        },
         filterMenuClass: {
             type: String,
             default: null
@@ -168,12 +172,14 @@ export default {
             this.hide();
         },
         hasFilter() {
-            let fieldFilter = this.filters[this.field];
-            if (fieldFilter) {
-                if (fieldFilter.operator)
-                    return !this.isFilterBlank(fieldFilter.constraints[0].value); 
-                else
-                    return !this.isFilterBlank(fieldFilter.value);
+            if (this.filtersStore) {
+                let fieldFilter = this.filtersStore[this.field];
+                if (fieldFilter) {
+                    if (fieldFilter.operator)
+                        return !this.isFilterBlank(fieldFilter.constraints[0].value); 
+                    else
+                        return !this.isFilterBlank(fieldFilter.value);
+                }
             }
 
             return false;
