@@ -1,5 +1,5 @@
-import Directive from 'vue';
+import { ObjectDirective } from 'vue';
 
-declare interface Tooltip extends Directive {}
+declare const Tooltip: ObjectDirective;
 
 export default Tooltip;
