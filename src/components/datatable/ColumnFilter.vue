@@ -54,7 +54,7 @@ import Dropdown from 'primevue/dropdown';
 import Button from 'primevue/button';
 
 export default {
-    emits: ['filter-change', 'filter-apply'],
+    emits: ['filter-change','filter-apply','operator-change','matchmode-change','constraint-add','constraint-remove','filter-clear','apply-click'],
     props: {
         field: {
             type: String,
@@ -163,11 +163,13 @@ export default {
                 _filters[this.field].matchMode = this.defaultMatchMode;
             }
             
+            this.$emit('filter-clear');
             this.$emit('filter-change', _filters);
             this.$emit('filter-apply');
             this.hide();
         },
         applyFilter() {
+            this.$emit('apply-click', {field: this.field, constraints: this.filters[this.field]});
             this.$emit('filter-apply');
             this.hide();
         },
@@ -230,6 +232,7 @@ export default {
         onRowMatchModeChange(matchMode) {
             let _filters = {...this.filters};
             _filters[this.field].matchMode = matchMode;
+            this.$emit('matchmode-change', {field: this.field, matchMode: matchMode});
             this.$emit('filter-change', _filters);
             this.$emit('filter-apply');
             this.hide();
@@ -269,14 +272,15 @@ export default {
             _filters[this.field].operator = value;
             this.$emit('filter-change', _filters);
 
+            this.$emit('operator-change', {field: this.field, operator: value});
             if (!this.showApplyButton) {
                 this.$emit('filter-apply');
             }
-            
         },
         onMenuMatchModeChange(value, index) {
             let _filters = {...this.filters};
             _filters[this.field].constraints[index].matchMode = value;
+            this.$emit('matchmode-change', {field: this.field, matchMode: value, index: index});
 
             if (!this.showApplyButton) {
                 this.$emit('filter-apply');
@@ -284,7 +288,9 @@ export default {
         },
         addConstraint() {
             let _filters = {...this.filters};
-            _filters[this.field].constraints.push({value: null, matchMode: this.defaultMatchMode});
+            let newConstraint = {value: null, matchMode: this.defaultMatchMode};
+            _filters[this.field].constraints.push(newConstraint);
+            this.$emit('constraint-add', {field: this.field, constraing: newConstraint});
             this.$emit('filter-change', _filters);
 
             if (!this.showApplyButton) {
@@ -293,7 +299,8 @@ export default {
         },
         removeConstraint(index) {
             let _filters = {...this.filters};
-            _filters[this.field].constraints.splice(index, 1);
+            let removedConstraint = _filters[this.field].constraints.splice(index, 1);
+            this.$emit('constraint-remove', {field: this.field, constraing: removedConstraint});
             this.$emit('filter-change', _filters);
 
             if (!this.showApplyButton) {
