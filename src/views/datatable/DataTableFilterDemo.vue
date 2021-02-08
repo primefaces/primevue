@@ -108,8 +108,8 @@
                         <template #filter={filterModel}>
                             <Slider v-model="filterModel.value" range class="p-m-3"></Slider>
                             <div class="p-d-flex p-ai-center p-jc-between p-px-2">
-                                <span>{{filters1['activity'].value[0]}}</span>
-                                <span>{{filters1['activity'].value[1]}}</span>
+                                <span>{{filterModel.value ? filterModel.value[0] : 0}}</span>
+                                <span>{{filterModel.value ? filterModel.value[1] : 100}}</span>
                             </div>
                         </template>
                     </Column>
@@ -285,7 +285,7 @@ export default {
                 'date': {operator: FilterOperator.AND, constraints: [{value: null, matchMode: FilterMatchMode.IS}]},
                 'balance': {operator: FilterOperator.AND, constraints: [{value: null, matchMode: FilterMatchMode.EQUALS}]},
                 'status': {operator: FilterOperator.OR, constraints: [{value: null, matchMode: FilterMatchMode.EQUALS}]},
-                'activity': {value: [0,100], matchMode: FilterMatchMode.BETWEEN},
+                'activity': {value: null, matchMode: FilterMatchMode.BETWEEN},
                 'verified': {value: null, matchMode: FilterMatchMode.EQUALS}
             }
         }

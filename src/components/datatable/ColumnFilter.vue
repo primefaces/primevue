@@ -38,7 +38,7 @@
                     </div>
                     <div class="p-column-filter-buttonbar">
                         <CFButton type="button" class="p-button-outlined p-button-sm" @click="clearFilter()" :label="clearButtonLabel"></CFButton>
-                        <CFButton type="button" class="p-button-sm" @click="applyFilter()" :label="applyButtonLabel"></CFButton>
+                        <CFButton type="button" class="p-button-sm" @click="applyFilter()" :label="applyButtonLabel" v-if="showApplyButton"></CFButton>
                     </div>
                 </template>
                 <component :is="filterFooter" :field="field" />
@@ -345,7 +345,7 @@ export default {
         bindOutsideClickListener() {
             if (!this.outsideClickListener) {
                 this.outsideClickListener = (event) => {
-                     if (this.overlayVisible && !this.selfClick && !this.isTargetClicked(event)) {
+                    if (this.overlayVisible && !this.selfClick && !this.isTargetClicked(event)) {
                         this.overlayVisible = false;
                     }
                     this.selfClick = false;
@@ -402,7 +402,7 @@ export default {
             ]
         },
         overlayClass() {
-            return [this.filterMenuyClass, {'p-column-filter-overlay p-component p-fluid': true, 'p-column-filter-overlay-menu': this.display === 'menu'}];
+            return [this.filterMenuClass, {'p-column-filter-overlay p-component p-fluid': true, 'p-column-filter-overlay-menu': this.display === 'menu'}];
         },
         showMenuButton() {
             return this.showMenu && (this.display === 'row' ? this.type !== 'boolean': true);

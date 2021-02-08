@@ -87,27 +87,38 @@ export default {
         updateModel(event, value) {
             let newValue = value;
             let modelValue;
+
             if (this.range) {
+                modelValue = this.modelValue ? [...this.modelValue] : [];
+                
                 if (this.handleIndex == 0) {
+                    let maxValue = this.modelValue ? this.modelValue[1] : this.max;
+
                     if (newValue < this.min)
                         newValue = this.min;
-                    else if (newValue >= this.modelValue[1])
-                        newValue = this.modelValue[1];
+                    else if (newValue >= maxValue)
+                        newValue = maxValue;
+
+                    modelValue[0] = Math.floor(newValue);
+                    modelValue[1] = modelValue[1] || this.max;
                 }
                 else {
+                    let minValue = this.modelValue ? this.modelValue[0] : this.min;
                     if (newValue > this.max)
                         newValue = this.max;
-                    else if (newValue <= this.modelValue[0])
-                        newValue = this.modelValue[0];
+                    else if (newValue <= minValue)
+                        newValue = minValue;
+
+                    modelValue[0] = modelValue[0] || this.min;
+                    modelValue[1] = Math.floor(newValue);
                 }
-                modelValue = [...this.modelValue];
-                modelValue[this.handleIndex] = Math.floor(newValue);
             }
             else {
                 if (newValue < this.min)
                     newValue = this.min;
                 else if (newValue > this.max)
                     newValue = this.max;
+                    
                 modelValue = Math.floor(newValue);
             }
 
@@ -283,16 +294,16 @@ export default {
                 return (this.modelValue - this.min) * 100 / (this.max - this.min);
         },
         rangeStartPosition() {
-            if (this.modelValue)
+            if (this.modelValue && this.modelValue[0])
                 return (this.modelValue[0] < this.min ? 0 : this.modelValue[0] - this.min) * 100 / (this.max - this.min);
             else
                 return 0;
         },
         rangeEndPosition() {
-            if (this.modelValue)
+            if (this.modelValue && this.modelValue[1])
                 return (this.modelValue[1] > this.max ? 100 : this.modelValue[1] - this.min) * 100 / (this.max - this.min);
             else
-                return 0;
+                return 100;
         },
         rangeStartHandleStyle() {
             if (this.horizontal)
