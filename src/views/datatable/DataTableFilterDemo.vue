@@ -57,7 +57,7 @@
                             <div class="p-px-3 p-pt-0 p-pb-3 p-text-center p-text-bold">Customized Buttons</div>
                         </template>
                     </Column>
-                    <Column header="Agent" filterField="representative" :showFilterMatchModes="false" filterMenuStyle="width:14rem">
+                    <Column header="Agent" filterField="representative" :showFilterMatchModes="false" :filterMenuStyle="{'width':'14rem'}">
                         <template #body="{data}">
                             <span class="p-column-title">Agent</span>
                             <img :alt="data.representative.name" :src="'demo/images/avatar/' + data.representative.image" width="32" style="vertical-align: middle" />
@@ -93,7 +93,7 @@
                             <InputNumber v-model="filterModel.value" mode="currency" currency="USD" locale="en-US" />
                         </template>
                     </Column>
-                    <Column field="status" header="Status" filterMenuStyle="min-width:14rem">
+                    <Column field="status" header="Status" :filterMenuStyle="{'width':'14rem'}">
                         <template #body="{data}">
                             <span class="p-column-title">Status</span>
                             <span :class="'customer-badge status-' + data.status">{{data.status}}</span>

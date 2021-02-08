@@ -8,7 +8,7 @@
             @click="toggleMenu()" @keydown="onToggleButtonKeyDown($event)"><span class="pi pi-filter-icon pi-filter"></span></button>
         <button v-if="showMenuButton && display === 'row'" :class="{'p-hidden-space': !hasRowFilter()}" type="button" class="p-column-filter-clear-button p-link" @click="clearFilter()"><span class="pi pi-filter-slash"></span></button>
         <transition name="p-connected-overlay" @enter="onOverlayEnter" @leave="onOverlayLeave">
-            <div :ref="overlayRef" :class="overlayClass" v-if="overlayVisible" @keydown.escape="onEscape" @click="onContentClick" :style="filterMenuStyle">
+            <div :ref="overlayRef" :class="overlayClass" v-if="overlayVisible" @keydown.escape="onEscape" @click="onContentClick">
                 <component :is="filterHeaderTemplate" :field="field" :filterModel="filters[field]" :filterCallback="filterCallback" />
                 <template v-if="display === 'row'">
                     <ul class="p-column-filter-row-items">
@@ -342,6 +342,11 @@ export default {
             document.body.appendChild(this.overlay);
             this.overlay.style.zIndex = String(DomHandler.generateZIndex());
             DomHandler.absolutePosition(this.overlay, this.$refs.icon);
+            if (this.filterMenuStyle) {
+                for (let prop in this.filterMenuStyle) {
+                    this.overlay.style[prop] = this.filterMenuStyle[prop];
+                }
+            }
             this.bindOutsideClickListener();
             this.bindScrollListener();
             this.bindResizeListener();
