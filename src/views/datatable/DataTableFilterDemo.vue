@@ -12,7 +12,8 @@
                 <h5>Filter Menu</h5>
                 <p>Filters are displayed in an overlay.</p>
                 <DataTable :value="customers1" :paginator="true" class="p-datatable-customers p-datatable-gridlines" :rows="10"
-                    dataKey="id" v-model:filters="filters1" filterDisplay="menu" :loading="loading1">
+                    dataKey="id" v-model:filters="filters1" filterDisplay="menu" :loading="loading1"
+                    :globalFilterFields="['name','country.name','representative.name','balance','status']">
                     <template #header>
                         <div class="p-d-flex p-jc-between">
                             <Button type="button" icon="pi pi-filter-slash" label="Clear" class="p-button-outlined" @click="clearFilter1()"/>
@@ -125,12 +126,13 @@
                 <h5>Filter Row</h5>
                 <p>Filters are displayed inline within a separate row.</p>
                 <DataTable :value="customers2" :paginator="true" class="p-datatable-customers" :rows="10"
-                    dataKey="id" v-model:filters="filters2" filterDisplay="row" :loading="loading2">
+                    dataKey="id" v-model:filters="filters2" filterDisplay="row" :loading="loading2"
+                    :globalFilterFields="['name','country.name','representative.name','status']">
                     <template #header>
                         <div class="p-d-flex p-jc-end">
                             <span class="p-input-icon-left ">
                                 <i class="pi pi-search" />
-                                <InputText v-model="filters2['global'].value" placeholder="Keyword Search" v-if="false" />
+                                <InputText v-model="filters2['global'].value" placeholder="Keyword Search" />
                             </span>
                         </div>
                     </template>
