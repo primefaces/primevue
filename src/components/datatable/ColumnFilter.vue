@@ -8,7 +8,7 @@
             @click="toggleMenu()" @keydown="onToggleButtonKeyDown($event)"><span class="pi pi-filter-icon pi-filter"></span></button>
         <button v-if="showMenuButton && display === 'row'" :class="{'p-hidden-space': !hasRowFilter()}" type="button" class="p-column-filter-clear-button p-link" @click="clearFilter()"><span class="pi pi-filter-slash"></span></button>
         <transition name="p-connected-overlay" @enter="onOverlayEnter" @leave="onOverlayLeave">
-            <div :ref="overlayRef" :class="overlayClass" v-if="overlayVisible" @keydown.escape="onEscape">
+            <div :ref="overlayRef" :class="overlayClass" v-if="overlayVisible" @keydown.escape="onEscape" @click="onContentClick">
                 <component :is="filterHeader" :field="field" />
                 <template v-if="display === 'row'">
                     <ul class="p-column-filter-row-items">
@@ -120,6 +120,7 @@ export default {
         }
     },
     overlay: null,
+    selfClick: false,
     beforeUnmount() {
         if (this.overlay) {
             this.$el.appendChild(this.overlay);
@@ -299,6 +300,9 @@ export default {
         hide() {
             this.overlayVisible = false;
         },
+        onContentClick() {
+            this.selfClick = true;
+        },
         onOverlayEnter() {
             document.body.appendChild(this.overlay);
             this.overlay.style.zIndex = String(DomHandler.generateZIndex());
@@ -319,18 +323,16 @@ export default {
         overlayRef(el) {
             this.overlay = el;
         },
-        isOutsideClicked(event) {
-            return !(this.overlay.isSameNode(event.target) || this.overlay.contains(event.target) 
-                || this.$refs.icon.isSameNode(event.target) || this.$refs.icon.contains(event.target)
-                || DomHandler.hasClass(event.target, 'p-column-filter-add-button') || DomHandler.hasClass(event.target.parentElement, 'p-column-filter-add-button')
-                || DomHandler.hasClass(event.target, 'p-column-filter-remove-button') || DomHandler.hasClass(event.target.parentElement, 'p-column-filter-remove-button'));
+        isTargetClicked(event) {
+            return this.$refs.icon && (this.$refs.icon === event.target || this.$refs.icon.contains(event.target));
         },
         bindOutsideClickListener() {
             if (!this.outsideClickListener) {
                 this.outsideClickListener = (event) => {
-                    if (this.isOutsideClicked(event)) {
-                        this.hide();
+                     if (this.overlayVisible && !this.selfClick && !this.isTargetClicked(event)) {
+                        this.overlayVisible = false;
                     }
+                    this.selfClick = false;
                 };
                 document.addEventListener('click', this.outsideClickListener);
             }
