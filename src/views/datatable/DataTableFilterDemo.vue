@@ -47,6 +47,15 @@
                         <template #filter="{filterModel}">
                             <InputText type="text" v-model="filterModel.value" class="p-column-filter" placeholder="Search by country"/>
                         </template>
+                        <template #filterclear="{filterCallback}">
+                            <Button type="button" icon="pi pi-times" @click="filterCallback()" class="p-button-secondary"></Button>
+                        </template>
+                        <template #filterapply="{filterCallback}">
+                            <Button type="button" icon="pi pi-check" @click="filterCallback()" class="p-button-success"></Button>
+                        </template>
+                        <template #filterfooter>
+                            <div class="p-px-3 p-pt-0 p-pb-3 p-text-center p-text-bold">Customized Buttons</div>
+                        </template>
                     </Column>
                     <Column header="Agent" filterField="representative" :showFilterMatchModes="false" filterMenuStyle="width:14rem">
                         <template #body="{data}">

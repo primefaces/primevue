@@ -9,7 +9,7 @@
         <button v-if="showMenuButton && display === 'row'" :class="{'p-hidden-space': !hasRowFilter()}" type="button" class="p-column-filter-clear-button p-link" @click="clearFilter()"><span class="pi pi-filter-slash"></span></button>
         <transition name="p-connected-overlay" @enter="onOverlayEnter" @leave="onOverlayLeave">
             <div :ref="overlayRef" :class="overlayClass" v-if="overlayVisible" @keydown.escape="onEscape" @click="onContentClick" :style="filterMenuStyle">
-                <component :is="filterHeader" :field="field" :filterModel="filters[field]" :filterCallback="filterCallback" />
+                <component :is="filterHeaderTemplate" :field="field" :filterModel="filters[field]" :filterCallback="filterCallback" />
                 <template v-if="display === 'row'">
                     <ul class="p-column-filter-row-items">
                         <li class="p-column-filter-row-item" v-for="(matchMode,i) of matchModes" :key="matchMode.label" 
@@ -37,11 +37,15 @@
                         <CFButton type="button" :label="addRuleButtonLabel" icon="pi pi-plus" class="p-column-filter-add-button p-button-text p-button-sm" @click="addConstraint()"></CFButton>
                     </div>
                     <div class="p-column-filter-buttonbar">
-                        <CFButton type="button" class="p-button-outlined p-button-sm" @click="clearFilter()" :label="clearButtonLabel"></CFButton>
-                        <CFButton type="button" class="p-button-sm" @click="applyFilter()" :label="applyButtonLabel" v-if="showApplyButton"></CFButton>
+                        <CFButton v-if="!filterClearTemplate" type="button" class="p-button-outlined p-button-sm" @click="clearFilter()" :label="clearButtonLabel"></CFButton>
+                        <component v-else :is="filterClearTemplate" :field="field" :filterModel="filters[field]" :filterCallback="clearFilter" />
+                        <template v-if="showApplyButton">
+                            <CFButton v-if="!filterApplyTemplate" type="button" class="p-button-sm" @click="applyFilter()" :label="applyButtonLabel"></CFButton>
+                            <component v-else :is="filterApplyTemplate" :field="field" :filterModel="filters[field]" :filterCallback="clearFilter" />
+                        </template>
                     </div>
                 </template>
-                <component :is="filterFooter" :field="field" :filterModel="filters[field]" :filterCallback="filterCallback" />
+                <component :is="filterFooterTemplate" :field="field" :filterModel="filters[field]" :filterCallback="filterCallback" />
             </div>
         </transition>
     </div>
@@ -105,8 +109,10 @@ export default {
             default: 2
         },
         filterElement: null,
-        filterHeader: null,
-        filterFooter: null,
+        filterHeaderTemplate: null,
+        filterFooterTemplate: null,
+        filterClearTemplate: null,
+        filterApplyTemplate: null,
         filters: {
             type: Object,
             default: null

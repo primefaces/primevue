@@ -2152,7 +2152,7 @@ export default {
     justify-content: space-between;
 }
 
-.p-column-filter-buttonbar .p-button {
+.p-column-filter-buttonbar .p-button:not(.p-button-icon-only) {
     width: auto;
 }
 </style>

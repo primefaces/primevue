@@ -16,7 +16,9 @@
                             <span v-if="isMultiSorted(col)" class="p-sortable-column-badge">{{getMultiSortMetaIndex(col) + 1}}</span>
                             <DTHeaderCheckbox :checked="allRowsSelected" @change="onHeaderCheckboxChange($event)" :disabled="empty" v-if="columnProp(col, 'selectionMode') ==='multiple' && filterDisplay !== 'row'" />
                             <DTColumnFilter v-if="filterDisplay === 'menu' && col.children && col.children.filter" :field="columnProp(col, 'filterField')||columnProp(col, 'field')" :type="columnProp(col, 'dataType')" display="menu"  
-                            :showMenu="columnProp(col, 'showFilterMenu')" :filterElement="col.children && col.children.filter" :filterHeader="col.children && col.children.filterHeader" :filterFooter="col.children && col.children.filterFooter" 
+                            :showMenu="columnProp(col, 'showFilterMenu')" :filterElement="col.children && col.children.filter" 
+                            :filterHeaderTemplate="col.children && col.children.filterheader" :filterFooterTemplate="col.children && col.children.filterfooter" 
+                            :filterClearTemplate="col.children && col.children.filterclear" :filterApplyTemplate="col.children && col.children.filterapply" 
                             :filters="filters" :filtersStore="filtersStore" @filter-change="$emit('filter-change', $event)" @filter-apply="$emit('filter-apply')" :filterMenuStyle="columnProp(col, 'filterMenuStyle')" :filterMenuClass="columnProp(col, 'filterMenuClass')"
                             :showOperator="columnProp(col, 'showFilterOperator')" :showClearButton="columnProp(col, 'showClearButton')" :showApplyButton="columnProp(col, 'showApplyButton')"
                             :showMatchModes="columnProp(col, 'showFilterMatchModes')" :showAddButton="columnProp(col, 'showAddButton')" :matchModeOptions="columnProp(col, 'filterMatchModeOptions')" :maxConstraints="columnProp(col, 'maxConstraints')"
