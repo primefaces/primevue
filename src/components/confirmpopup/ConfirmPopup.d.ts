@@ -1,7 +1,9 @@
-import Vue from 'vue';
-
-declare class ConfirmPopup extends Vue {
+interface ConfirmPopupProps {
     group?: string;
+}
+
+declare class ConfirmPopup {
+    $props: ConfirmPopupProps;
 }
 
 export default ConfirmPopup;

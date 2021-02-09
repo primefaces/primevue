@@ -1,11 +1,15 @@
-import Vue, { VNode } from 'vue';
+import { VNode } from 'vue';
 
-declare class Editor extends Vue {
+interface EditorProps {
     modelValue?: string;
     placeholder?: string;
     readonly?: boolean;
     formats?: any[];
     editorStyle?: string;
+}
+
+declare class Editor {
+    $props: EditorProps;
     $emit(eventName: 'input', event: string): this;
     $emit(eventName: 'text-change', e: { htmlValue: string, textValue: any, delta: any, source: string}): this;
     $slot: {

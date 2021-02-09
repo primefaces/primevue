@@ -1,5 +1,7 @@
-import Vue from 'vue';
+interface AvatarGroupProps {}
 
-declare class AvatarGroup extends Vue {}
+declare class AvatarGroup {
+    $props: AvatarGroupProps;
+}
 
 export default AvatarGroup;

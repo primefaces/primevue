@@ -1,9 +1,11 @@
-import Vue from 'vue';
-
-declare class Avatar extends Vue {
+interface AvatarProps {
     label?: string;
     icon?: string;
     image?: string;
+}
+
+declare class Avatar {
+    $props: AvatarProps
 }
 
 export default Avatar;

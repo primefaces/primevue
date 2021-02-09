@@ -1,8 +1,10 @@
-import Vue from 'vue';
-
-declare class Breadcrumb extends Vue {
+interface BreadcrumbProps {
     home?: any;
     model?: any[];
+}
+
+declare class Breadcrumb {
+    $props: BreadcrumbProps;
 }
 
 export default Breadcrumb;

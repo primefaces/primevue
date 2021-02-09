@@ -1,6 +1,4 @@
-import Vue from 'vue';
-
-declare class Knob extends Vue {
+interface KnobProps {
     modelValue?: number;
     size?: number;
     disabled?: boolean;
@@ -14,6 +12,10 @@ declare class Knob extends Vue {
     strokeWidth?: number;
     showValue?: boolean;
     valueTemplate?: string;
+}
+
+declare class Knob {
+    $props: KnobProps;
     $emit(eventName: 'change', value: any): this;
 }
 

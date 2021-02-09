@@ -1,10 +1,12 @@
-import Vue from 'vue';
-
-declare class ScrollTo extends Vue {
+interface ScrollToProps {
     target?: string;
     threshold?: number;
     icon?: boolean;
     behavior?: boolean;
+}
+
+declare class ScrollTo {
+    $props: ScrollToProps;
 }
 
 export default ScrollTo;

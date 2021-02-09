@@ -1,6 +1,9 @@
-import Vue, { VNode } from 'vue';
+import { VNode } from 'vue';
 
-declare class Card extends Vue {
+interface CardProps {}
+
+declare class Card {
+    $props: CardProps;
     $slots: {
         header: VNode[];
         title: VNode[];

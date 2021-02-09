@@ -1,11 +1,15 @@
-import Vue, {VNode} from 'vue';
+import { VNode } from 'vue';
 
-declare class OrderList extends Vue {
+interface OrderListProps {
     modelValue?: any[];
     dataKey?: string;
     selection?: any[];
     metaKeySelection?: boolean;
     listStyle?: any;
+}
+
+declare class OrderList {
+    $props: OrderListProps;
     $emit(eventName: 'reorder', e: { originalEvent: Event, value: any[]; direction: string}): this;
     $slots: {
         header: VNode[];

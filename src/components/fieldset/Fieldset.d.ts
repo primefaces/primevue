@@ -1,13 +1,17 @@
-import Vue, { VNode } from 'vue';
+import { VNode } from 'vue';
 
-declare class Fieldset extends Vue {
+interface FieldsetProps {
     legend?: string;
     toggleable?: boolean;
     collapsed?: boolean;
+}
+
+declare class Fieldset {
+    $props: FieldsetProps;
     $emit(eventName: 'toggle', e: { originalEvent: Event, value: boolean }): this;
     $slots: {
         '': VNode[];
-        legend: VNode[];   
+        legend: VNode[];
     }
 }
 

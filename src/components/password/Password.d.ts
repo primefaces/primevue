@@ -1,6 +1,4 @@
-import Vue from 'vue';
-
-declare class Password extends Vue {
+interface PasswordProps {
     modelValue?: string;
     promptLabel?: string;
     mediumRegex?: string;
@@ -13,6 +11,10 @@ declare class Password extends Vue {
     toggleMask?: boolean;
     inputStyle?: any;
     inputClass?: string;
+}
+
+declare class Password {
+    $props: PasswordProps;
     $emit(eventName: string, event: Event): this;
 }
 

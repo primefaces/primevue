@@ -1,5 +1,7 @@
-import Vue from 'vue';
+interface RowProps {}
 
-declare class Row extends Vue {}
+declare class Row {
+    $props: RowProps;
+}
 
 export default Row;

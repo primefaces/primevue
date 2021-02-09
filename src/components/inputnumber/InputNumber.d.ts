@@ -1,6 +1,4 @@
-import Vue from 'vue';
-
-declare class InputNumber extends Vue {
+interface InputNumberProps {
     modelValue?: number;
     format?: boolean;
     showButtons?: boolean;
@@ -24,6 +22,10 @@ declare class InputNumber extends Vue {
     step?: number;
     inputStyle?: any;
     inputClass?: string;
+}
+
+declare class InputNumber {
+    $props: InputNumberProps;
     $emit(eventName: string, value: number | Event): this;
     $emit(eventName: 'input', e: {originalEvent: Event, value: any}): this;
 }

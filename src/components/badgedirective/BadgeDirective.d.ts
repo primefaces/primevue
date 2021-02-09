@@ -1,5 +1,5 @@
-import Directive from 'vue';
+import { ObjectDirective } from 'vue';
 
-declare interface BadgeDirective extends Directive {}
+declare const BadgeDirective: ObjectDirective;
 
 export default BadgeDirective;
