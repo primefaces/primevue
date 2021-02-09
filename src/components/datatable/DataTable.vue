@@ -1715,7 +1715,9 @@ export default {
         cloneFilters() {
             let cloned = {};
             if (this.filters) {
-                cloned = JSON.parse(JSON.stringify(this.filters));
+                Object.entries(this.filters).forEach(([prop,value]) => {
+                    cloned[prop] = value.operator ? {operator: value.operator, constraints: value.constraints.map(constraint => {return {...constraint}})} : {...value};
+                });
             }
 
             return cloned;

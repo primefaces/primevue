@@ -149,8 +149,8 @@ export default {
         if (this.filters && this.filters[this.field]) {
             let fieldFilters = this.filters[this.field];
             if (fieldFilters.operator) {
-                this.defaultMatchMode = this.filters[this.field].constraints[0].matchMode;
-                this.defaultOperator = this.filters[this.field].operator;
+                this.defaultMatchMode = fieldFilters.constraints[0].matchMode;
+                this.defaultOperator = fieldFilters.operator;
             }
             else {
                 this.defaultMatchMode = this.filters[this.field].matchMode;
@@ -162,7 +162,8 @@ export default {
             let _filters = {...this.filters};
             if (_filters[this.field].operator) {
                 _filters[this.field].constraints.splice(1);
-                _filters[this.field].constraints[0] = {value: null, matchMode: this.defaultMatchMode, operator: this.defaultOperator};
+                _filters[this.field].operator = this.defaultOperator;
+                _filters[this.field].constraints[0] = {value: null, matchMode: this.defaultMatchMode};
             }
             else {
                 _filters[this.field].value = null;

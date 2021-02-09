@@ -81,7 +81,7 @@
                             {{formatDate(data.date)}}
                         </template>
                         <template #filter="{filterModel}">
-                            <Calendar v-model="filterModel.value" dateFormat="mm/dd/yy" />
+                            <Calendar v-model="filterModel.value" dateFormat="mm/dd/yy" placeholder="mm/dd/yyyy" />
                         </template>
                     </Column>
                     <Column header="Balance" filterField="balance" dataType="numeric">
@@ -160,7 +160,7 @@
                             {{data.name}}
                         </template>
                         <template #filter="{filterModel,filterCallback}">
-                            <InputText type="text" v-model="filterModel.value" @keydown.enter="filterCallback()" class="p-column-filter" placeholder="Search by name" v-tooltip.top.focus="'Hit enter key to filter'"/>
+                            <InputText type="text" v-model="filterModel.value" @keydown.enter="filterCallback()" class="p-column-filter" :placeholder="`Search by name - ${filterModel.matchMode}`" v-tooltip.top.focus="'Hit enter key to filter'"/>
                         </template>
                     </Column>
                     <Column header="Country" filterField="country.name">
@@ -197,6 +197,9 @@
                         </template>
                         <template #filter="{filterModel,filterCallback}">
                             <Dropdown v-model="filterModel.value" @change="filterCallback()" :options="statuses" placeholder="Any" class="p-column-filter" :showClear="true">
+                                <template #value="slotProps">
+                                    <span :class="'customer-badge status-' + slotProps.value">{{slotProps.value}}</span>
+                                </template>
                                 <template #option="slotProps">
                                     <span :class="'customer-badge status-' + slotProps.option">{{slotProps.option}}</span>
                                 </template>
