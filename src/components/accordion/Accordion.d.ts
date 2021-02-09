@@ -4,6 +4,7 @@ interface AccordionProps {
     multiple?: boolean;
     activeIndex?: Number|[Number];
 }
+
 declare class Accordion {
     $props: AccordionProps;
     $emit(eventName: 'tab-open', e: {originalEvent: Event, tab: any}): this;
