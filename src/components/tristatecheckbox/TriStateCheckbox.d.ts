@@ -1,7 +1,9 @@
-import Vue from 'vue';
-
-declare class TriStateCheckbox extends Vue {
+interface TriStateCheckboxProps {
     modelValue?: any;
+}
+
+declare class TriStateCheckbox {
+    $props: TriStateCheckboxProps;
     $emit(eventName: string, event: Event): this;
 }
 

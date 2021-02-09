@@ -1,8 +1,10 @@
-import Vue from 'vue';
-
-declare class SplitterPanel extends Vue {
+interface SplitterPanelProps {
     size?: number;
     minSize?: number;
+}
+
+declare class SplitterPanel {
+    $props: SplitterPanelProps;
 }
 
 export default SplitterPanel;

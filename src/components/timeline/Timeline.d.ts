@@ -1,10 +1,14 @@
-import Vue, { VNode } from 'vue';
+import { VNode } from 'vue';
 
-declare class Timeline extends Vue {
+interface TimelineProps {
     value?: any[];
     align?: string;
     layout?: string;
     dataKey?: string;
+}
+
+declare class Timeline {
+    $props: TimelineProps;
     $slots: {
         content: VNode[];
         opposite: VNode[];

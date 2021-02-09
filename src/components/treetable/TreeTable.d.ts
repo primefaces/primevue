@@ -1,6 +1,6 @@
-import Vue, {VNode} from 'vue';
+import { VNode } from 'vue';
 
-declare class TreeTable extends Vue {
+interface TreeTableProps {
     value?: any;
     expandedKeys?: any;
     selectionKeys?: any;
@@ -35,6 +35,10 @@ declare class TreeTable extends Vue {
     resizableColumns?: boolean;
     columnResizeMode?: string;
     indentation?: number;
+}
+
+declare class TreeTable {
+    $props: TreeTableProps;
     $emit(eventName: 'page', event: Event): this;
     $emit(eventName: 'sort', event: Event): this;
     $emit(eventName: 'filter', event: Event): this;
