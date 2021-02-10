@@ -6,7 +6,7 @@
             </template>
         </tr>
         <template v-else>
-            <tr v-for="(row,i) of columnGroup.children.default()" :key="i">
+            <tr v-for="(row,i) of columnGroup.children.default()" :key="i" role="row">
                 <template v-for="(col,j) of row.children.default()" :key="columnProp(col,'columnKey')||columnProp(col,'field')||j">
                     <DTFooterCell :column="col" />
                 </template>
