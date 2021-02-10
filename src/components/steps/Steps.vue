@@ -1,8 +1,8 @@
 <template>
     <div :id="id" :class="containerClass">
         <ul role="tablist">
-            <template v-for="(item,index) of model">
-                <li v-if="visible(item)" :key="item.to" :class="getItemClass(item)" :style="item.style" role="tab" :aria-selected="isActive(item)" :aria-expanded="isActive(item)">
+            <template v-for="(item,index) of model" :key="item.to">
+                <li v-if="visible(item)" :class="getItemClass(item)" :style="item.style" role="tab" :aria-selected="isActive(item)" :aria-expanded="isActive(item)">
                     <router-link :to="item.to" v-if="!isItemDisabled(item)" custom v-slot="{navigate, href}">
                         <a :href="href" class="p-menuitem-link" @click="onItemClick($event, item, navigate)" role="presentation">
                             <span class="p-steps-number">{{index + 1}}</span>

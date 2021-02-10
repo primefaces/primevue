@@ -2,11 +2,11 @@
     <transition name="p-connected-overlay" @enter="onEnter" @leave="onLeave">
         <div :ref="containerRef" :class="containerClass" v-if="popup ? overlayVisible : true">
             <ul class="p-menu-list p-reset" role="menu">
-                <template v-for="(item, i) of model">
+                <template v-for="(item, i) of model" :key="item.label+i">
                     <template v-if="item.items && visible(item) && !item.separator">
-                        <li class="p-submenu-header" :key="item.label+i" v-if="item.items">{{item.label}}</li>
-                        <template v-for="(child, j) of item.items">
-                            <Menuitem v-if="visible(child) && !child.separator" :key="child.label + i + j" :item="child" @click="itemClick" />
+                        <li class="p-submenu-header" v-if="item.items">{{item.label}}</li>
+                        <template v-for="(child, j) of item.items" :key="child.label + i + j">
+                            <Menuitem v-if="visible(child) && !child.separator" :item="child" @click="itemClick" />
                             <li v-else-if="visible(child) && child.separator" :class="['p-menu-separator', child.class]" :style="child.style" :key="'separator' + i + j" role="separator"></li>
                         </template>
                     </template>

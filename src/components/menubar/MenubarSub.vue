@@ -1,7 +1,7 @@
 <template>
     <ul :class="containerClass" :role="root ? 'menubar' : 'menu'">
-        <template v-for="(item, i) of model">
-            <li role="none" :class="getItemClass(item)" :style="item.style" v-if="visible(item) && !item.separator" :key="item.label + i"
+        <template v-for="(item, i) of model" :key="item.label + i">
+            <li role="none" :class="getItemClass(item)" :style="item.style" v-if="visible(item) && !item.separator"
                 @mouseenter="onItemMouseEnter($event, item)">
                 <router-link v-if="item.to && !item.disabled" :to="item.to" custom v-slot="{navigate, href}">
                      <a :href="href" @click="onItemClick($event, item, navigate)" :class="getLinkClass(item)" v-ripple @keydown="onItemKeyDown($event, item)" role="menuitem">

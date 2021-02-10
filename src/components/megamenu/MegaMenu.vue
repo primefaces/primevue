@@ -1,8 +1,8 @@
 <template>
     <div :class="containerClass">
         <ul class="p-megamenu-root-list" role="menubar">
-            <template v-for="(category,index) of model">
-                <li v-if="visible(category)" :key="category.label + '_' + index" :class="getCategoryClass(category)" :style="category.style"
+            <template v-for="(category,index) of model" :key="category.label + '_' + index">
+                <li v-if="visible(category)"  :class="getCategoryClass(category)" :style="category.style"
                     @mouseenter="onCategoryMouseEnter($event, category)" role="none">
                     <router-link v-if="category.to && !category.disabled" :to="category.to" custom v-slot="{navigate, href}">
                         <a :href="href" :class="getLinkClass(category)" @click="onCategoryClick($event, category, navigate)" @keydown="onCategoryKeydown($event, category)" role="menuitem" v-ripple>
@@ -21,8 +21,8 @@
                             <div v-for="(column,columnIndex) of category.items" :key="category.label + '_column_' + columnIndex" :class="getColumnClassName(category)">
                                 <ul v-for="(submenu,submenuIndex) of column" class="p-megamenu-submenu" :key="submenu.label + '_submenu_' + submenuIndex" role="menu">
                                     <li :class="getSubmenuHeaderClass(submenu)" :style="submenu.style" role="presentation">{{submenu.label}}</li>
-                                    <template v-for="(item, i) of submenu.items">
-                                        <li role="none" :class="getSubmenuItemClass(item)" :style="item.style" v-if="visible(item) && !item.separator" :key="item.label + i">
+                                    <template v-for="(item, i) of submenu.items" :key="item.label + i">
+                                        <li role="none" :class="getSubmenuItemClass(item)" :style="item.style" v-if="visible(item) && !item.separator">
                                             <router-link v-if="item.to && !item.disabled" :to="item.to" custom v-slot="{navigate, href}">
                                                 <a :href="href" :class="getLinkClass(item)" @click="onLeafClick($event, item, navigate)" role="menuitem" v-ripple>
                                                     <span v-if="item.icon" :class="['p-menuitem-icon', item.icon]"></span>

@@ -1,8 +1,8 @@
 <template>
     <div class="p-tabmenu p-component">
         <ul ref="nav" class="p-tabmenu-nav p-reset" role="tablist">
-            <template v-for="(item,i) of model">
-                <li :key="item.label + '_' + i" :class="getItemClass(item)" :style="item.style" v-if="visible(item)" role="tab" :aria-selected="isActive(item)" :aria-expanded="isActive(item)">
+            <template v-for="(item,i) of model" :key="item.label + '_' + i">
+                <li :class="getItemClass(item)" :style="item.style" v-if="visible(item)" role="tab" :aria-selected="isActive(item)" :aria-expanded="isActive(item)">
                     <router-link v-if="item.to && !item.disabled" :to="item.to" custom v-slot="{navigate, href}">
                         <a :href="href" class="p-menuitem-link" @click="onItemClick($event, item, navigate)" role="presentation" v-ripple>
                             <span :class="getItemIcon(item)" v-if="item.icon"></span>
