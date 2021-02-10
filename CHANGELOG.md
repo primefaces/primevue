@@ -1,5 +1,13 @@
 # Changelog
 
+## [3.2.4](https://github.com/primefaces/primevue/tree/3.2.4) (2021-02-10)
+
+[Full Changelog](https://github.com/primefaces/primevue/compare/3.2.3...3.2.4)
+
+**Fixed bugs:**
+
+- Minified iife builds are broken [\#964](https://github.com/primefaces/primevue/issues/964)
+
 ## [3.2.3](https://github.com/primefaces/primevue/tree/3.2.3) (2021-02-10)
 
 [Full Changelog](https://github.com/primefaces/primevue/compare/3.2.2...3.2.3)
