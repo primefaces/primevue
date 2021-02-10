@@ -37,33 +37,6 @@
                     <Button label="Ok" icon="pi pi-check" @click="closeDialog" />
                 </template>
             </Dialog>
-<!--
-            <div class="card">
-                <h5>Virtual Scroll</h5>
-                <DataTable :value="virtualCustomers" :scrollable="true" scrollHeight="200px" :lazy="true" :rows="20" :loading="loading"
-                    :virtualScroll="true" :virtualRowHeight="45" @virtual-scroll="onVirtualScroll" :totalRecords="lazyTotalRecords">
-                    <Column field="name" header="Name">
-                        <template #loading>
-                            <span class="loading-text"></span>
-                        </template>
-                    </Column>
-                    <Column field="country.name" header="Country">
-                        <template #loading>
-                            <span class="loading-text"></span>
-                        </template>
-                    </Column>
-                    <Column field="representative.name" header="Representative">
-                        <template #loading>
-                            <span class="loading-text"></span>
-                        </template>
-                    </Column>
-                    <Column field="status" header="Status">
-                        <template #loading>
-                            <span class="loading-text"></span>
-                        </template>
-                    </Column>
-                </DataTable>
-            </div>-->
 
             <div class="card">
                 <h5>Horizontal and Vertical with Footer</h5>
@@ -83,15 +56,20 @@
                     <Column field="representative.name" header="Representative" footer="Representative" :style="{width:'200px'}"></Column>
                 </DataTable>
             </div>
-       
 
             <div class="card">
                 <h5>Frozen Rows</h5>
-                <DataTable :value="customers" :frozenValue="frozenValue" :scrollable="true" scrollHeight="400px" :loading="loading">
+                <DataTable :value="unlockedCustomers" :frozenValue="lockedCustomers" :scrollable="true" scrollHeight="400px" :loading="loading">
                     <Column field="name" header="Name"></Column>
                     <Column field="country.name" header="Country"></Column>
                     <Column field="representative.name" header="Representative"></Column>
                     <Column field="status" header="Status"></Column>
+                    <Column style="flex: 0 0 4rem">
+                        <template #body="{data,frozenRow,index}">
+                            <Button type="button" :icon="frozenRow ? 'pi pi-lock-open' : 'pi pi-lock'" :disabled="frozenRow ? false : lockedCustomers.length >= 2"
+                            class="p-button-sm p-button-text" @click="toggleLock(data,frozenRow,index)"/>
+                        </template>
+                    </Column>
                 </DataTable>
             </div>
 
@@ -162,7 +140,6 @@
 
 <pre v-code.script><code>
 
-
 </code></pre>
                 </TabPanel>
             </TabView>
@@ -177,17 +154,15 @@ import LiveEditor from '../liveeditor/LiveEditor';
 export default {
     data() {
         return {
-           customers: null,
-           customersGrouped: null,
-            virtualCustomers: null,
-            lazyTotalRecords: 0,
-            frozenValue: null,
+            customers: null,
+            customersGrouped: null,
+            lockedCustomers: [],
+            unlockedCustomers: null,
             loading: false,
             dialogVisible: false
         }
     },
     customerService: null,
-    inmemoryData: null,
     created() {
         this.customerService = new CustomerService();
     },
@@ -198,26 +173,10 @@ export default {
             this.customers = data;
             this.loading = false;
         });
+        this.customerService.getCustomersMedium().then(data => this.unlockedCustomers = data);
         this.customerService.getCustomersMedium().then(data => this.customersGrouped = data);
-        this.customerService.getCustomersXLarge().then(data => this.inmemoryData = data);
 
-        this.frozenValue = [
-            {
-                id: 1255,
-                name: "James McAdams",
-                country: {
-                    name: "United States",
-                   code: "us"
-                },
-                company: "McAdams Consulting Ltd",
-                date: "2014-02-13",
-                status: "qualified",
-                activity: 23,
-                representative: {
-                    name: "Ioni Bowcher",
-                    image: "ionibowcher.png"
-                }
-            },
+        this.lockedCustomers = [
             {
                 id: 5135,
                 name: "Geraldine Bisset",
@@ -235,30 +194,8 @@ export default {
                 }
             }
         ];
-
-        setTimeout(() => {
-            this.virtualCustomers = this.loadChunk(0, 40);
-            this.lazyTotalRecords = 500;
-        }, 250);
     },
     methods: {
-          loadChunk(index, length) {
-            let chunk = [];
-            for (let i = 0; i < length; i++) {
-               chunk[i] = {...this.inmemoryData[i]};
-            }
-
-            return chunk;
-        },
-        onVirtualScroll(event) {
-            setTimeout(() => {
-                //last chunk
-                if (event.first === 480)
-                    this.virtualCustomers = this.loadChunk(event.first, 20)
-                else
-                    this.virtualCustomers = this.loadChunk(event.first, event.rows)
-            }, 250);
-        },
         openDialog() {
             this.dialogVisible = true;
         },
@@ -280,6 +217,20 @@ export default {
             }
 
             return total;
+        },
+        toggleLock(data, frozen, index) {
+            if (frozen) {
+                this.lockedCustomers = this.lockedCustomers.filter((c, i) => i !== index);
+                this.unlockedCustomers.push(data);
+            }
+            else {
+                this.unlockedCustomers = this.unlockedCustomers.filter((c, i) => i !== index);
+                this.lockedCustomers.push(data);
+            }
+
+            this.unlockedCustomers.sort((val1, val2) => {
+                return val1.id < val2.id ? -1 : 1;
+            });
         }
     },
    components: {

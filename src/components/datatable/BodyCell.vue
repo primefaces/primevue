@@ -1,7 +1,7 @@
 <template>
     <td :style="containerStyle" :class="containerClass" @click="onClick" @keydown="onKeyDown" role="cell">
-        <component :is="column.children.body" :data="rowData" :column="column" :index="index" v-if="column.children && column.children.body && !d_editing" />
-        <component :is="column.children.editor" :data="rowData" :column="column" :index="index" v-else-if="column.children && column.children.editor && d_editing" />
+        <component :is="column.children.body" :data="rowData" :column="column" :index="index" :frozenRow="frozenRow" v-if="column.children && column.children.body && !d_editing" />
+        <component :is="column.children.editor" :data="rowData" :column="column" :index="index" :frozenRow="frozenRow" v-else-if="column.children && column.children.editor && d_editing" />
         <template v-else-if="columnProp('selectionMode')">
             <DTRadioButton :value="rowData" :checked="selected" @change="toggleRowWithRadio" v-if="column.props.selectionMode === 'single'" />
             <DTCheckbox :value="rowData" :checked="selected" @change="toggleRowWithCheckbox" v-else-if="column.props.selectionMode ==='multiple'" />
@@ -47,6 +47,10 @@ export default {
         column: {
             type: Object,
             default: null
+        },
+        frozenRow: {
+            type: Boolean,
+            default: false
         },
         index: {
             type: Number,

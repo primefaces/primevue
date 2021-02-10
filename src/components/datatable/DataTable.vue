@@ -1801,8 +1801,9 @@ export default {
 .p-datatable-scrollable .p-datatable-thead > tr > th,
 .p-datatable-scrollable .p-datatable-tbody > tr > td,
 .p-datatable-scrollable .p-datatable-tfoot > tr > td {
-    display: block;
+    display: flex;
     flex: 1 1 0;
+    align-items: center;
 }
 
 .p-datatable-scrollable .p-datatable-thead {
@@ -1813,6 +1814,7 @@ export default {
 
 .p-datatable-scrollable .p-datatable-frozen-tbody {
     position: sticky;
+    z-index: 1;
 }
 
 .p-datatable-scrollable .p-datatable-tfoot {
