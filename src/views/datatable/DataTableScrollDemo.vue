@@ -10,7 +10,7 @@
 		<div class="content-section implementation">
             <div class="card">
                 <h5>Vertical</h5>
-                <DataTable :value="customers" :scrollable="true" scrollHeight="400px" :loading="loading">
+                <DataTable :value="customers1" :scrollable="true" scrollHeight="400px" :loading="loading">
                     <Column field="name" header="Name"></Column>
                     <Column field="country.name" header="Country"></Column>
                     <Column field="representative.name" header="Representative"></Column>
@@ -27,7 +27,7 @@
             </div>
 
             <Dialog header="Flex Scroll" v-model:visible="dialogVisible" :style="{width: '75vw'}" :maximizable="true" :modal="true" :contentStyle="{height: '300px'}">
-                <DataTable :value="customers" :scrollable="true" scrollHeight="flex">
+                <DataTable :value="customers1" :scrollable="true" scrollHeight="flex">
                     <Column field="name" header="Name"></Column>
                     <Column field="country.name" header="Country"></Column>
                     <Column field="representative.name" header="Representative"></Column>
@@ -40,7 +40,7 @@
 
             <div class="card">
                 <h5>Horizontal and Vertical with Footer</h5>
-                <DataTable :value="customers" :scrollable="true" scrollHeight="400px" :loading="loading" scrollDirection="both">
+                <DataTable :value="customers2" :scrollable="true" scrollHeight="400px" :loading="loading" scrollDirection="both">
                     <Column field="id" header="Id" footer="Id" :style="{width:'200px'}"></Column>
                     <Column field="name" header="Name" footer="Name" :style="{width:'200px'}"></Column>
                     <Column field="country.name" header="Country" footer="Country" :style="{width:'200px'}"></Column>
@@ -75,13 +75,11 @@
 
             <div class="card">
                 <h5>Frozen Columns</h5>
-                <DataTable :value="customers" :scrollable="true" scrollHeight="400px" :loading="loading" scrollDirection="both">
-                    <Column field="name" header="Name" :style="{width:'200px'}" frozen>
-                        <template #body="slotProps">
-                            <span class="p-text-bold">{{slotProps.data.name}}</span>
-                        </template>
-                    </Column>
-                    <Column field="id" header="Id" :style="{width:'200px'}"></Column>
+                <ToggleButton v-model="idFrozen" onIcon="pi pi-lock" offIcon="pi pi-lock-open" onLabel="Unfreeze Id" offLabel="Freeze Id" style="width: 10rem" />
+
+                <DataTable :value="customers2" :scrollable="true" scrollHeight="400px" :loading="loading" scrollDirection="both" class="p-mt-3">
+                    <Column field="name" header="Name" :style="{width:'200px'}" frozen></Column>
+                    <Column field="id" header="Id" :style="{width:'100px'}" :frozen="idFrozen"></Column>
                     <Column field="name" header="Name" :style="{width:'200px'}"></Column>
                     <Column field="country.name" header="Country" :style="{width:'200px'}"></Column>
                     <Column field="date" header="Date" :style="{width:'200px'}"></Column>
@@ -154,12 +152,14 @@ import LiveEditor from '../liveeditor/LiveEditor';
 export default {
     data() {
         return {
-            customers: null,
+            customers1: null,
+            customers2: null,
             customersGrouped: null,
             lockedCustomers: [],
             unlockedCustomers: null,
             loading: false,
-            dialogVisible: false
+            dialogVisible: false,
+            idFrozen: false
         }
     },
     customerService: null,
@@ -170,9 +170,10 @@ export default {
         this.loading = true;
 
         this.customerService.getCustomersLarge().then(data => {
-            this.customers = data;
+            this.customers1 = data;
             this.loading = false;
         });
+        this.customerService.getCustomersMedium().then(data => this.customers2 = data);
         this.customerService.getCustomersMedium().then(data => this.unlockedCustomers = data);
         this.customerService.getCustomersMedium().then(data => this.customersGrouped = data);
 
@@ -241,6 +242,10 @@ export default {
 
 <style lang="scss" scoped>
 ::v-deep(.p-datatable-frozen-tbody) {
+    font-weight: bold;
+}
+
+::v-deep(.p-datatable-scrollable .p-frozen-column) {
     font-weight: bold;
 }
 </style>
