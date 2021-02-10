@@ -390,6 +390,10 @@ export default {
             this.columns.forEach(col => columnOrder.push(this.columnProp(col, 'columnKey')||this.columnProp(col, 'field')));
             this.d_columnOrder = columnOrder;
         }
+
+        if (this.scrollable && this.scrollDirection !== 'vertical') {
+            this.updateScrollWidth();
+        }
     },
     beforeUnmount() {
         this.unbindColumnResizeEvents();
@@ -402,6 +406,10 @@ export default {
                 this.restoreColumnWidths();
                 this.columnWidthsRestored = true;
             }
+        }
+
+        if (this.scrollable && this.scrollDirection !== 'vertical') {
+            this.updateScrollWidth();
         }
     },
     methods: {
@@ -1575,6 +1583,9 @@ export default {
             }
 
             return cloned;
+        },
+        updateScrollWidth() {
+            this.$refs.table.style.width = this.$refs.table.scrollWidth + 'px';
         }
     },
     computed: {
@@ -1790,6 +1801,7 @@ export default {
 .p-datatable-scrollable .p-datatable-thead > tr > th,
 .p-datatable-scrollable .p-datatable-tbody > tr > td,
 .p-datatable-scrollable .p-datatable-tfoot > tr > td {
+    display: block;
     flex: 1 1 0;
 }
 

@@ -24,8 +24,10 @@ export default {
         }
     },
     mounted() {
-        if(this.sources.api) this.editComposition = true;
-        else this.editComposition = false;
+        if (this.sources && this.sources.api) 
+            this.editComposition = true;
+        else 
+            this.editComposition = false;
     },
     props: {
         name: {
