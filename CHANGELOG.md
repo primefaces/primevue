@@ -1,5 +1,15 @@
 # Changelog
 
+## [3.2.3](https://github.com/primefaces/primevue/tree/3.2.3) (2021-02-10)
+
+[Full Changelog](https://github.com/primefaces/primevue/compare/3.2.2...3.2.3)
+
+**Fixed bugs:**
+
+- Improve TypeScript definitions [\#957](https://github.com/primefaces/primevue/issues/957)
+- useToast.d.ts missing api method definitions [\#958](https://github.com/primefaces/primevue/issues/958)
+- Compile Problem with Directives( Typescript and 3.2.0-rc.1) [\#877](https://github.com/primefaces/primevue/issues/877)
+
 ## [3.2.2](https://github.com/primefaces/primevue/tree/3.2.2) (2021-02-04)
 
 [Full Changelog](https://github.com/primefaces/primevue/compare/3.2.1...3.2.2)
