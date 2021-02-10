@@ -13,12 +13,18 @@
                         <template v-if="child.children">
                            <router-link :to="child.children[0].to" v-slot="{isActive}" custom>
                                 <div>
-                                    <a tabindex="0" @click="toggleSubmenu($event, child.meta[0])">{{child.name}}</a>
+                                    <a tabindex="0" @click="toggleSubmenu($event, child.meta[0])">
+                                        {{child.name}}
+                                        <Tag v-if="child.badge" :value="child.badge"></Tag>
+                                    </a>
                                     <transition name="p-toggleable-content">
                                         <div class="p-toggleable-content" v-show="isSubmenuActive(child.meta[0], isActive)">
                                             <ul>
                                                 <li v-for="(submenuitem, i) of child.children" :key="i">
-                                                    <router-link :to="submenuitem.to">{{submenuitem.name}}</router-link>
+                                                    <router-link :to="submenuitem.to">
+                                                        {{submenuitem.name}}
+                                                        <Tag v-if="submenuitem.badge" :value="submenuitem.badge"></Tag>
+                                                    </router-link>
                                                 </li>
                                             </ul>
                                         </div>

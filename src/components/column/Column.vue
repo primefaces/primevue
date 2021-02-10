@@ -158,6 +158,10 @@ export default {
             type: Boolean,
             default: false
         },
+        alignFrozen: {
+            type: String,
+            default: 'left'
+        },
         exportable: {
             type: Boolean,
             default: true

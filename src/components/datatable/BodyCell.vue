@@ -74,9 +74,7 @@ export default {
     data() {
         return {
             d_editing: this.editing,
-            styleObject: {
-                left: '0px'
-            }
+            styleObject: {}
         }
     },
     watch: {
@@ -280,13 +278,23 @@ export default {
         },
         updateStickyPosition() {
             if (this.columnProp('frozen')) {
-                let left = 0;
-                let prev = this.$el.previousElementSibling;
-                if (prev) {
-                    left = DomHandler.getOuterWidth(prev) + parseFloat(prev.style.left);
+                let align = this.columnProp('alignFrozen');
+                if (align === 'right') {
+                    let right = 0;
+                    let next = this.$el.nextElementSibling;
+                    if (next) {
+                        right = DomHandler.getOuterWidth(next) + parseFloat(next.style.left);
+                    }
+                    this.styleObject.right = right + 'px';
                 }
-
-                this.styleObject.left = left + 'px';
+                else {
+                    let left = 0;
+                    let prev = this.$el.previousElementSibling;
+                    if (prev) {
+                        left = DomHandler.getOuterWidth(prev) + parseFloat(prev.style.left);
+                    }
+                    this.styleObject.left = left + 'px';
+                }
             }
         }
     },

@@ -255,6 +255,7 @@
                 {
                     "name": "DataTable",
                     "meta": ["datatable"],
+                    "badge": "New",
                     "children": [
                         {
                             "name": "Documentation",
@@ -298,7 +299,8 @@
                         },
                         {
                             "name": "Filter",
-                            "to": "/datatable/filter"
+                            "to": "/datatable/filter",
+                            "badge": "New"
                         },
                         {
                             "name": "Selection",
@@ -310,7 +312,8 @@
                         },
                         {
                             "name": "Scroll",
-                            "to": "/datatable/scroll"
+                            "to": "/datatable/scroll",
+                            "badge": "New"
                         },
                         {
                             "name": "FlexScroll",

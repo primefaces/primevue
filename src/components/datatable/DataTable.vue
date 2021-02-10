@@ -24,7 +24,7 @@
                         @column-click="onColumnHeaderClick($event)" @column-mousedown="onColumnHeaderMouseDown($event)" @filter-change="onFilterChange" @filter-apply="onFilterApply"
                         @column-dragstart="onColumnHeaderDragStart($event)" @column-dragover="onColumnHeaderDragOver($event)" @column-dragleave="onColumnHeaderDragLeave($event)" @column-drop="onColumnHeaderDrop($event)"
                         @column-resizestart="onColumnResizeStart($event)" @checkbox-change="toggleRowsWithCheckbox($event)" />
-                <DTTableBody :value="frozenValue" :frozenRow="true" class="p-datatable-frozen-tbody" :columns="columns" :dataKey="dataKey" :selection="selection" :selectionKeys="d_selectionKeys" :selectionMode="selectionMode" :contextMenu="contextMenu" :contextMenuSelection="contextMenuSelection"
+                <DTTableBody v-if="frozenValue" :value="frozenValue" :frozenRow="true" class="p-datatable-frozen-tbody" :columns="columns" :dataKey="dataKey" :selection="selection" :selectionKeys="d_selectionKeys" :selectionMode="selectionMode" :contextMenu="contextMenu" :contextMenuSelection="contextMenuSelection"
                     :rowGroupMode="rowGroupMode" :groupRowsBy="groupRowsBy" :expandableRowGroups="expandableRowGroups" :rowClass="rowClass" :editMode="editMode" :compareSelectionBy="compareSelectionBy"
                     :expandedRowIcon="expandedRowIcon" :collapsedRowIcon="collapsedRowIcon" :expandedRows="expandedRows" :expandedRowKeys="d_expandedRowKeys" :expandedRowGroups="expandedRowGroups"
                     :editingRows="editingRows" :editingRowKeys="d_editingRowKeys" :templates="$slots" :loading="loading"

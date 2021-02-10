@@ -98,24 +98,24 @@
             <div class="card">
                 <h5>Frozen Columns</h5>
                 <DataTable :value="customers" :scrollable="true" scrollHeight="400px" :loading="loading" scrollDirection="both">
-                    <Column field="name" header="Name" :style="{width:'250px'}" frozen>
+                    <Column field="name" header="Name" :style="{width:'200px'}" frozen>
                         <template #body="slotProps">
-                            <span style="font-weight: 700">{{slotProps.data.name}}</span>
+                            <span class="p-text-bold">{{slotProps.data.name}}</span>
                         </template>
                     </Column>
-                    <Column field="id" header="Id" :style="{width:'250px'}"></Column>
-                    <Column field="name" header="Name" :style="{width:'250px'}"></Column>
-                    <Column field="country.name" header="Country" :style="{width:'250px'}"></Column>
-                    <Column field="date" header="Date" :style="{width:'250px'}"></Column>
-                    <Column field="balance" header="Balance" :style="{width:'250px'}">
+                    <Column field="id" header="Id" :style="{width:'200px'}"></Column>
+                    <Column field="name" header="Name" :style="{width:'200px'}"></Column>
+                    <Column field="country.name" header="Country" :style="{width:'200px'}"></Column>
+                    <Column field="date" header="Date" :style="{width:'200px'}"></Column>
+                    <Column field="company" header="Company" :style="{width:'200px'}"></Column>
+                    <Column field="status" header="Status" :style="{width:'200px'}"></Column>
+                    <Column field="activity" header="Activity" :style="{width:'200px'}"></Column>
+                    <Column field="representative.name" header="Representative" :style="{width:'200px'}"></Column>
+                    <Column field="balance" header="Balance" :style="{width:'200px'}" frozen alignFrozen="right">
                         <template #body="{data}">
-                            {{formatCurrency(data.balance)}}
+                             <span class="p-text-bold">{{formatCurrency(data.balance)}}</span>
                         </template>
                     </Column>
-                    <Column field="company" header="Company" :style="{width:'250px'}"></Column>
-                    <Column field="status" header="Status" :style="{width:'250px'}"></Column>
-                    <Column field="activity" header="Activity" :style="{width:'250px'}"></Column>
-                    <Column field="representative.name" header="Representative" :style="{width:'250px'}"></Column>
                 </DataTable>
             </div>
 		</div>
