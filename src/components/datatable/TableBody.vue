@@ -1,8 +1,8 @@
 <template>
-    <tbody class="p-datatable-tbody">
+    <tbody class="p-datatable-tbody" role="rowgroup">
         <template v-if="!empty">
-            <template v-for="(rowData, index) of value">
-                <tr class="p-rowgroup-header" v-if="templates['groupheader'] && rowGroupMode === 'subheader' && shouldRenderRowGroupHeader(value, rowData, index)" :key="getRowKey(rowData, index) + '_subheader'">
+            <template v-for="(rowData, index) of value" :key="getRowKey(rowData, index) + '_subheader'">
+                <tr class="p-rowgroup-header" v-if="templates['groupheader'] && rowGroupMode === 'subheader' && shouldRenderRowGroupHeader(value, rowData, index)"  role="row">
                     <td :colspan="columnsLength - 1">
                         <button class="p-row-toggler p-link" @click="onRowGroupToggle($event, rowData)" v-if="expandableRowGroups" type="button">
                             <span :class="rowGroupTogglerIcon(rowData)"></span>
@@ -13,9 +13,9 @@
                 <tr :class="getRowClass(rowData)" :key="getRowKey(rowData, index)"
                     v-if="expandableRowGroups ? isRowGroupExpanded(rowData): true"
                     @click="onRowClick($event, rowData, index)" @contextmenu="onRowRightClick($event, rowData, index)" @touchend="onRowTouchEnd($event)" @keydown="onRowKeyDown($event, rowData, index)" :tabindex="selectionMode || contextMenu ? '0' : null"
-                    @mousedown="onRowMouseDown($event)" @dragstart="onRowDragStart($event, index)" @dragover="onRowDragOver($event,index)" @dragleave="onRowDragLeave($event)" @dragend="onRowDragEnd($event)" @drop="onRowDrop($event)">
-                    <template v-for="(col,i) of columns">
-                        <DTBodyCell v-if="shouldRenderBodyCell(value, col, index)" :key="columnProp(col,'columnKey')||columnProp(col,'field')||i" :rowData="rowData" :column="col" :index="index" :selected="isSelected(rowData)"
+                    @mousedown="onRowMouseDown($event)" @dragstart="onRowDragStart($event, index)" @dragover="onRowDragOver($event,index)" @dragleave="onRowDragLeave($event)" @dragend="onRowDragEnd($event)" @drop="onRowDrop($event)" role="row">
+                    <template v-for="(col,i) of columns" :key="columnProp(col,'columnKey')||columnProp(col,'field')||i">
+                        <DTBodyCell v-if="shouldRenderBodyCell(value, col, index)"  :rowData="rowData" :column="col" :index="index" :selected="isSelected(rowData)"
                             :rowTogglerIcon="columnProp(col,'expander') ? rowTogglerIcon(rowData): null"
                             :rowspan="rowGroupMode === 'rowspan' ? calculateRowGroupSize(value, col, index) : null"
                             :editMode="editMode" :editing="editMode === 'row' && isRowEditing(rowData)"
@@ -24,17 +24,17 @@
                             @row-edit-init="onRowEditInit($event)" @row-edit-save="onRowEditSave($event)" @row-edit-cancel="onRowEditCancel($event)"/>
                     </template>
                 </tr>
-                <tr class="p-datatable-row-expansion" v-if="templates['expansion'] && expandedRows && isRowExpanded(rowData)" :key="getRowKey(rowData, index) + '_expansion'">
+                <tr class="p-datatable-row-expansion" v-if="templates['expansion'] && expandedRows && isRowExpanded(rowData)" :key="getRowKey(rowData, index) + '_expansion'" role="row">
                     <td :colspan="columnsLength">
                         <component :is="templates['expansion']" :data="rowData" :index="index" />
                     </td>
                 </tr>
-                <tr class="p-rowgroup-footer" v-if="templates['groupfooter'] && rowGroupMode === 'subheader' && shouldRenderRowGroupFooter(value, rowData, index)" :key="getRowKey(rowData, index) + '_subfooter'">
+                <tr class="p-rowgroup-footer" v-if="templates['groupfooter'] && rowGroupMode === 'subheader' && shouldRenderRowGroupFooter(value, rowData, index)" :key="getRowKey(rowData, index) + '_subfooter'" role="row">
                     <component :is="templates['groupfooter']" :data="rowData" :index="index" />
                 </tr>
             </template>
         </template>
-        <tr v-else class="p-datatable-emptymessage">
+        <tr v-else class="p-datatable-emptymessage" role="row">
             <td :colspan="columnsLength">
                 <component :is="templates.empty" v-if="templates.empty && !loading" />
                 <component :is="templates.loading" v-if="templates.loading && loading" />
@@ -44,7 +44,7 @@
 </template>
 
 <script>
-import {ObjectUtils} from 'primevue/utils';
+import {ObjectUtils,DomHandler} from 'primevue/utils';
 import BodyCell from './BodyCell.vue';
 
 export default {
@@ -60,6 +60,10 @@ export default {
         columns: {
             type: null,
             default: null
+        },
+        frozenRow: {
+            type: Boolean,
+            default: false
         },
         empty: {
             type: Boolean,
@@ -148,6 +152,16 @@ export default {
         templates: {
             type: null,
             default: null
+        }
+    },
+    mounted() {
+        if (this.frozenRow) {
+            this.updateStickyPosition();
+        }
+    },
+    updated() {
+        if (this.frozenRow) {
+            this.updateStickyPosition();
         }
     },
     methods: {
@@ -407,6 +421,9 @@ export default {
         },
         onRowEditCancel(event) {
             this.$emit('row-edit-cancel', event);
+        },
+        updateStickyPosition() {
+            this.$el.style.top = DomHandler.getOuterHeight(this.$el.previousElementSibling) + 'px';
         }
     },
     computed: {

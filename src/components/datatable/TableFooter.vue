@@ -1,25 +1,23 @@
 <template>
-    <tfoot class="p-datatable-tfoot" v-if="hasFooter">
-        <tr v-if="!columnGroup">
-            <td v-for="(col,i) of columns" :key="columnProp(col, 'columnKey')||columnProp(col, 'field')||i" :style="columnProp(col, 'footerStyle')" :class="columnProp(col, 'footerClass')"
-                :colspan="columnProp(col, 'colspan')" :rowspan="columnProp(col, 'rowspan')">
-                <component :is="col.children.footer" :column="col" v-if="col.children && col.children.footer"/>
-                {{columnProp(col, 'footer')}}
-            </td>
+    <tfoot class="p-datatable-tfoot" v-if="hasFooter" role="rowgroup">
+        <tr v-if="!columnGroup" role="row">
+            <template v-for="(col,i) of columns" :key="columnProp(col,'columnKey')||columnProp(col,'field')||i" >
+                <DTFooterCell :column="col" />
+            </template>
         </tr>
         <template v-else>
             <tr v-for="(row,i) of columnGroup.children.default()" :key="i">
-                <td v-for="(col,i) of row.children.default()" :key="columnProp(col, 'columnKey')||columnProp(col, 'field')||i" :style="columnProp(col, 'footerStyle')" :class="columnProp(col, 'footerClass')"
-                    :colspan="columnProp(col, 'colspan')" :rowspan="columnProp(col, 'rowspan')">
-                    <component :is="col.children.footer" :column="col" v-if="col.children && col.children.footer"/>
-                    {{columnProp(col, 'footer')}}
-                </td>
+                <template v-for="(col,j) of row.children.default()" :key="columnProp(col,'columnKey')||columnProp(col,'field')||j">
+                    <DTFooterCell :column="col" />
+                </template>
             </tr>
         </template>
     </tfoot>
 </template>
 
 <script>
+import FooterCell from './FooterCell';
+
 export default {
     props: {
         columnGroup: {
@@ -54,6 +52,9 @@ export default {
 
             return hasFooter;
         }
+    },
+    components: {
+        'DTFooterCell': FooterCell
     }
 }
 </script>

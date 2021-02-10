@@ -1,5 +1,5 @@
 <template>
-    <td :style="columnProp('bodyStyle')" :class="containerClass" @click="onClick" @keydown="onKeyDown">
+    <td :style="containerStyle" :class="containerClass" @click="onClick" @keydown="onKeyDown" role="cell">
         <component :is="column.children.body" :data="rowData" :column="column" :index="index" v-if="column.children && column.children.body && !d_editing" />
         <component :is="column.children.editor" :data="rowData" :column="column" :index="index" v-else-if="column.children && column.children.editor && d_editing" />
         <template v-else-if="columnProp('selectionMode')">
@@ -73,7 +73,10 @@ export default {
     selfClick: false,
     data() {
         return {
-            d_editing: this.editing
+            d_editing: this.editing,
+            styleObject: {
+                left: '0px'
+            }
         }
     },
     watch: {
@@ -82,13 +85,13 @@ export default {
         }
     },
     mounted() {
-        this.children = this.$children;
+        if (this.columnProp('frozen')) {
+            this.updateStickyPosition();
+        }
     },
     updated() {
-        let query = this.editMode === 'row' ? '[autofocus]' : 'input';
-        let focusable = DomHandler.findSingle(this.$el, query);
-        if (focusable && document.activeElement != focusable) {
-            focusable.focus();
+        if (this.columnProp('frozen')) {
+            this.updateStickyPosition();
         }
     },
     methods: {
@@ -274,15 +277,33 @@ export default {
         },
         onRowEditCancel(event) {
             this.$emit('row-edit-cancel', {originalEvent: event, data: this.rowData, field: this.columnProp('field'), index: this.index});
+        },
+        updateStickyPosition() {
+            if (this.columnProp('frozen')) {
+                let left = 0;
+                let prev = this.$el.previousElementSibling;
+                if (prev) {
+                    left = DomHandler.getOuterWidth(prev) + parseFloat(prev.style.left);
+                }
+
+                this.styleObject.left = left + 'px';
+            }
         }
     },
     computed: {
         containerClass() {
-            return [this.columnProp('bodyClass'), {
+            return [this.columnProp('bodyClass'), this.columnProp('class'), {
                 'p-selection-column': this.columnProp('selectionMode') != null,
                 'p-editable-column': this.isEditable(),
-                'p-cell-editing': this.d_editing
+                'p-cell-editing': this.d_editing,
+                'p-frozen-column': this.columnProp('frozen')
             }];
+        },
+        containerStyle() {
+            let bodyStyle = this.columnProp('bodyStyle');
+            let columnStyle = this.columnProp('style');
+
+            return this.columnProp('frozen') ? [columnStyle, bodyStyle, this.styleObject]: [columnStyle, bodyStyle];
         }
     },
     components: {

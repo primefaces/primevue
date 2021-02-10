@@ -34,6 +34,14 @@ export default {
             type: null,
             default: null
         },
+        style: {
+            type: null,
+            default: null
+        },
+        class: {
+            type: String,
+            default: null
+        },
         headerStyle: {
             type: null,
             default: null

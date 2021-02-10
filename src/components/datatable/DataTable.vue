@@ -16,14 +16,23 @@
                 <slot name="paginatorRight"></slot>
             </template>
         </DTPaginator>
-        <div class="p-datatable-wrapper" v-if="!scrollable">
-            <table ref="table" role="grid">
+        <div class="p-datatable-wrapper" :style="{maxHeight: scrollHeight}">
+            <table ref="table" role="table" class="p-datatable-table">
                 <DTTableHeader :columnGroup="headerColumnGroup" :columns="columns" :rowGroupMode="rowGroupMode"
                         :groupRowsBy="groupRowsBy" :resizableColumns="resizableColumns" :allRowsSelected="allRowsSelected" :empty="empty"
                         :sortMode="sortMode" :sortField="d_sortField" :sortOrder="d_sortOrder" :multiSortMeta="d_multiSortMeta" :filters="d_filters" :filtersStore="filters" :filterDisplay="filterDisplay"
                         @column-click="onColumnHeaderClick($event)" @column-mousedown="onColumnHeaderMouseDown($event)" @filter-change="onFilterChange" @filter-apply="onFilterApply"
                         @column-dragstart="onColumnHeaderDragStart($event)" @column-dragover="onColumnHeaderDragOver($event)" @column-dragleave="onColumnHeaderDragLeave($event)" @column-drop="onColumnHeaderDrop($event)"
                         @column-resizestart="onColumnResizeStart($event)" @checkbox-change="toggleRowsWithCheckbox($event)" />
+                <DTTableBody :value="frozenValue" :frozenRow="true" class="p-datatable-frozen-tbody" :columns="columns" :dataKey="dataKey" :selection="selection" :selectionKeys="d_selectionKeys" :selectionMode="selectionMode" :contextMenu="contextMenu" :contextMenuSelection="contextMenuSelection"
+                    :rowGroupMode="rowGroupMode" :groupRowsBy="groupRowsBy" :expandableRowGroups="expandableRowGroups" :rowClass="rowClass" :editMode="editMode" :compareSelectionBy="compareSelectionBy"
+                    :expandedRowIcon="expandedRowIcon" :collapsedRowIcon="collapsedRowIcon" :expandedRows="expandedRows" :expandedRowKeys="d_expandedRowKeys" :expandedRowGroups="expandedRowGroups"
+                    :editingRows="editingRows" :editingRowKeys="d_editingRowKeys" :templates="$slots" :loading="loading"
+                    @rowgroup-toggle="toggleRowGroup" @row-click="onRowClick($event)" @row-rightclick="onRowRightClick($event)" @row-touchend="onRowTouchEnd" @row-keydown="onRowKeyDown"
+                    @row-mousedown="onRowMouseDown" @row-dragstart="onRowDragStart($event)" @row-dragover="onRowDragOver($event)" @row-dragleave="onRowDragLeave($event)" @row-dragend="onRowDragEnd($event)" @row-drop="onRowDrop($event)"
+                    @row-toggle="toggleRow($event)" @radio-change="toggleRowWithRadio($event)" @checkbox-change="toggleRowWithCheckbox($event)"
+                    @cell-edit-init="onCellEditInit($event)" @cell-edit-complete="onCellEditComplete($event)" @cell-edit-cancel="onCellEditCancel($event)"
+                    @row-edit-init="onRowEditInit($event)" @row-edit-save="onRowEditSave($event)" @row-edit-cancel="onRowEditCancel($event)"/>
                 <DTTableBody :value="dataToRender" :columns="columns" :empty="empty" :dataKey="dataKey" :selection="selection" :selectionKeys="d_selectionKeys" :selectionMode="selectionMode" :contextMenu="contextMenu" :contextMenuSelection="contextMenuSelection"
                     :rowGroupMode="rowGroupMode" :groupRowsBy="groupRowsBy" :expandableRowGroups="expandableRowGroups" :rowClass="rowClass" :editMode="editMode" :compareSelectionBy="compareSelectionBy"
                     :expandedRowIcon="expandedRowIcon" :collapsedRowIcon="collapsedRowIcon" :expandedRows="expandedRows" :expandedRowKeys="d_expandedRowKeys" :expandedRowGroups="expandedRowGroups"
@@ -35,83 +44,6 @@
                     @row-edit-init="onRowEditInit($event)" @row-edit-save="onRowEditSave($event)" @row-edit-cancel="onRowEditCancel($event)"/>
                 <DTTableFooter :columnGroup="footerColumnGroup" :columns="columns" />
             </table>
-        </div>
-        <div class="p-datatable-scrollable-wrapper" v-else>
-            <DTScrollableView v-if="hasFrozenColumns" :scrollHeight="scrollHeight" :columns="frozenColumns" :frozenWidth="frozenWidth" :frozen="true"
-                :rowGroupMode="rowGroupMode" :groupRowsBy="groupRowsBy" :headerColumnGroup="frozenHeaderColumnGroup" :footerColumnGroup="frozenFooterColumnGroup">
-                <template #header="slotProps">
-                    <DTTableHeader :columnGroup="slotProps.columnGroup" :columns="slotProps.columns" :rowGroupMode="rowGroupMode"
-                        :groupRowsBy="groupRowsBy" :resizableColumns="resizableColumns" :allRowsSelected="allRowsSelected" :empty="empty"
-                        :sortMode="sortMode" :sortField="d_sortField" :sortOrder="d_sortOrder" :multiSortMeta="d_multiSortMeta"
-                        @column-click="onColumnHeaderClick($event)" @column-mousedown="onColumnHeaderMouseDown($event)"
-                        @column-dragstart="onColumnHeaderDragStart($event)" @column-dragover="onColumnHeaderDragOver($event)" @column-dragleave="onColumnHeaderDragLeave($event)" @column-drop="onColumnHeaderDrop($event)"
-                        @column-resizestart="onColumnResizeStart($event)" @checkbox-change="toggleRowsWithCheckbox($event)" />
-                </template>
-                <template #body="slotProps">
-                    <DTTableBody :value="dataToRender" :columns="slotProps.columns" :empty="empty" :dataKey="dataKey" :selection="selection" :selectionKeys="d_selectionKeys" :selectionMode="selectionMode" :contextMenu="contextMenu" :contextMenuSelection="contextMenuSelection"
-                        :rowGroupMode="rowGroupMode" :groupRowsBy="groupRowsBy" :expandableRowGroups="expandableRowGroups" :rowClass="rowClass" :editMode="editMode" :compareSelectionBy="compareSelectionBy"
-                        :expandedRowIcon="expandedRowIcon" :collapsedRowIcon="collapsedRowIcon" :expandedRows="expandedRows" :expandedRowKeys="d_expandedRowKeys" :expandedRowGroups="expandedRowGroups"
-                        :editingRows="editingRows" :editingRowKeys="d_editingRowKeys" :templates="$slots" :loading="loading"
-                        @rowgroup-toggle="toggleRowGroup" @row-click="onRowClick($event)" @row-rightclick="onRowRightClick($event)" @row-touchend="onRowTouchEnd" @row-keydown="onRowKeyDown"
-                        @row-mousedown="onRowMouseDown" @row-dragstart="onRowDragStart($event)" @row-dragover="onRowDragOver($event)" @row-dragleave="onRowDragLeave($event)" @row-dragend="onRowDragEnd($event)" @row-drop="onRowDrop($event)"
-                        @row-toggle="toggleRow($event)" @radio-change="toggleRowWithRadio($event)" @checkbox-change="toggleRowWithCheckbox($event)"
-                        @cell-edit-init="onCellEditInit($event)" @cell-edit-complete="onCellEditComplete($event)" @cell-edit-cancel="onCellEditCancel($event)"
-                        @row-edit-init="onRowEditInit($event)" @row-edit-save="onRowEditSave($event)" @row-edit-cancel="onRowEditCancel($event)"/>
-                </template>
-                <template #frozenbody="slotProps">
-                    <DTTableBody v-if="frozenValue" :value="frozenValue" :columns="slotProps.columns" :dataKey="dataKey" :selection="selection" :selectionKeys="d_selectionKeys" :selectionMode="selectionMode" :contextMenu="contextMenu" :contextMenuSelection="contextMenuSelection"
-                        :rowGroupMode="rowGroupMode" :groupRowsBy="groupRowsBy" :expandableRowGroups="expandableRowGroups" :rowClass="rowClass" :editMode="editMode" :compareSelectionBy="compareSelectionBy"
-                        :expandedRowIcon="expandedRowIcon" :collapsedRowIcon="collapsedRowIcon" :expandedRows="expandedRows" :expandedRowKeys="d_expandedRowKeys" :expandedRowGroups="expandedRowGroups"
-                        :editingRows="editingRows" :editingRowKeys="d_editingRowKeys" :templates="$slots" :loading="loading"
-                        @rowgroup-toggle="toggleRowGroup" @row-click="onRowClick($event)" @row-rightclick="onRowRightClick($event)" @row-touchend="onRowTouchEnd" @row-keydown="onRowKeyDown"
-                        @row-mousedown="onRowMouseDown" @row-dragstart="onRowDragStart($event)" @row-dragover="onRowDragOver($event)" @row-dragleave="onRowDragLeave($event)" @row-dragend="onRowDragEnd($event)" @row-drop="onRowDrop($event)"
-                        @row-toggle="toggleRow($event)" @radio-change="toggleRowWithRadio($event)" @checkbox-change="toggleRowWithCheckbox($event)"
-                        @cell-edit-init="onCellEditInit($event)" @cell-edit-complete="onCellEditComplete($event)" @cell-edit-cancel="onCellEditCancel($event)"
-                        @row-edit-init="onRowEditInit($event)" @row-edit-save="onRowEditSave($event)" @row-edit-cancel="onRowEditCancel($event)"/>
-                </template>
-                <template #footer="slotProps">
-                    <DTTableFooter :columnGroup="slotProps.columnGroup" :columns="slotProps.columns" />
-                </template>
-            </DTScrollableView>
-            <DTScrollableView :scrollHeight="scrollHeight" :columns="scrollableColumns" :frozenWidth="frozenWidth" :rows="rows"
-                :virtualScroll="virtualScroll" :virtualRowHeight="virtualRowHeight" :totalRecords="totalRecordsLength" @virtual-scroll="onVirtualScroll"
-                :rowGroupMode="rowGroupMode" :groupRowsBy="groupRowsBy" :headerColumnGroup="headerColumnGroup" :footerColumnGroup="footerColumnGroup">
-                <template #header="slotProps">
-                    <DTTableHeader :columnGroup="slotProps.columnGroup" :columns="slotProps.columns" :rowGroupMode="rowGroupMode"
-                        :groupRowsBy="groupRowsBy" :resizableColumns="resizableColumns" :allRowsSelected="allRowsSelected" :empty="empty"
-                        :sortMode="sortMode" :sortField="d_sortField" :sortOrder="d_sortOrder" :multiSortMeta="d_multiSortMeta"
-                        @column-click="onColumnHeaderClick($event)" @column-mousedown="onColumnHeaderMouseDown($event)"
-                        @column-dragstart="onColumnHeaderDragStart($event)" @column-dragover="onColumnHeaderDragOver($event)" @column-dragleave="onColumnHeaderDragLeave($event)" @column-drop="onColumnHeaderDrop($event)"
-                        @column-resizestart="onColumnResizeStart($event)" @checkbox-change="toggleRowsWithCheckbox($event)"
-                        @operator-change="$emit('operator-change',$event)" @matchmode-change="$emit('matchmode-change',$event)"
-                        @constraint-add="$emit('constraint-add',$event)" @constraint-remove="$emit('constraint-remove',$event)" @apply-click="$emit('apply-click',$event)" />
-                </template>
-                <template #body="slotProps">
-                    <DTTableBody :value="dataToRender" :columns="slotProps.columns" :empty="empty" :dataKey="dataKey" :selection="selection" :selectionKeys="d_selectionKeys" :selectionMode="selectionMode" :contextMenu="contextMenu" :contextMenuSelection="contextMenuSelection"
-                        :rowGroupMode="rowGroupMode" :groupRowsBy="groupRowsBy" :expandableRowGroups="expandableRowGroups" :rowClass="rowClass" :editMode="editMode" :compareSelectionBy="compareSelectionBy"
-                        :expandedRowIcon="expandedRowIcon" :collapsedRowIcon="collapsedRowIcon" :expandedRows="expandedRows" :expandedRowKeys="d_expandedRowKeys" :expandedRowGroups="expandedRowGroups"
-                        :editingRows="editingRows" :editingRowKeys="d_editingRowKeys" :templates="$slots" :loading="loading"
-                        @rowgroup-toggle="toggleRowGroup" @row-click="onRowClick($event)" @row-rightclick="onRowRightClick($event)" @row-touchend="onRowTouchEnd" @row-keydown="onRowKeyDown"
-                        @row-mousedown="onRowMouseDown" @row-dragstart="onRowDragStart($event)" @row-dragover="onRowDragOver($event)" @row-dragleave="onRowDragLeave($event)" @row-dragend="onRowDragEnd($event)" @row-drop="onRowDrop($event)"
-                        @row-toggle="toggleRow($event)" @radio-change="toggleRowWithRadio($event)" @checkbox-change="toggleRowWithCheckbox($event)"
-                        @cell-edit-init="onCellEditInit($event)" @cell-edit-complete="onCellEditComplete($event)" @cell-edit-cancel="onCellEditCancel($event)"
-                        @row-edit-init="onRowEditInit($event)" @row-edit-save="onRowEditSave($event)" @row-edit-cancel="onRowEditCancel($event)"/>
-                </template>
-                <template #frozenbody="slotProps">
-                    <DTTableBody  v-if="frozenValue" :value="frozenValue" :columns="slotProps.columns" :dataKey="dataKey" :selection="selection" :selectionKeys="d_selectionKeys" :selectionMode="selectionMode" :contextMenu="contextMenu" :contextMenuSelection="contextMenuSelection"
-                        :rowGroupMode="rowGroupMode" :groupRowsBy="groupRowsBy" :expandableRowGroups="expandableRowGroups" :rowClass="rowClass" :editMode="editMode" :compareSelectionBy="compareSelectionBy"
-                        :expandedRowIcon="expandedRowIcon" :collapsedRowIcon="collapsedRowIcon" :expandedRows="expandedRows" :expandedRowKeys="d_expandedRowKeys" :expandedRowGroups="expandedRowGroups"
-                        :editingRows="editingRows" :editingRowKeys="d_editingRowKeys" :templates="$slots" :loading="loading"
-                        @rowgroup-toggle="toggleRowGroup" @row-click="onRowClick($event)" @row-rightclick="onRowRightClick($event)" @row-touchend="onRowTouchEnd" @row-keydown="onRowKeyDown"
-                        @row-mousedown="onRowMouseDown" @row-dragstart="onRowDragStart($event)" @row-dragover="onRowDragOver($event)" @row-dragleave="onRowDragLeave($event)" @row-dragend="onRowDragEnd($event)" @row-drop="onRowDrop($event)"
-                        @row-toggle="toggleRow($event)" @radio-change="toggleRowWithRadio($event)" @checkbox-change="toggleRowWithCheckbox($event)"
-                        @cell-edit-init="onCellEditInit($event)" @cell-edit-complete="onCellEditComplete($event)" @cell-edit-cancel="onCellEditCancel($event)"
-                        @row-edit-init="onRowEditInit($event)" @row-edit-save="onRowEditSave($event)" @row-edit-cancel="onRowEditCancel($event)"/>
-                </template>
-                <template #footer="slotProps">
-                    <DTTableFooter :columnGroup="slotProps.columnGroup" :columns="slotProps.columns" />
-                </template>
-            </DTScrollableView>
         </div>
         <DTPaginator v-if="paginatorBottom" :rows="d_rows" :first="d_first" :totalRecords="totalRecordsLength" :pageLinkSize="pageLinkSize" :template="paginatorTemplate" :rowsPerPageOptions="rowsPerPageOptions"
                 :currentPageReportTemplate="currentPageReportTemplate" class="p-paginator-bottom" @page="onPage($event)" :alwaysShow="alwaysShowPaginator">
@@ -135,7 +67,6 @@
 import {ObjectUtils,DomHandler} from 'primevue/utils';
 import {FilterMatchMode,FilterOperator,FilterService} from 'primevue/api';
 import Paginator from 'primevue/paginator';
-import ScrollableView from './ScrollableView.vue';
 import TableHeader from './TableHeader.vue';
 import TableBody from './TableBody.vue';
 import TableFooter from './TableFooter.vue';
@@ -351,6 +282,10 @@ export default {
         scrollable: {
             type: Boolean,
             default: false
+        },
+        scrollDirection: {
+            type: String,
+            default: "vertical"
         },
         scrollHeight: {
             type: String,
@@ -1097,33 +1032,15 @@ export default {
                     let nextColumnWidth = nextColumn.offsetWidth - delta;
 
                     if (newColumnWidth > 15 && nextColumnWidth > 15) {
-                        if(this.scrollable) {
-                            const scrollableView = this.findParentScrollableView(this.resizeColumnElement);
-                            const scrollableBodyTable = DomHandler.findSingle(scrollableView, 'table.p-datatable-scrollable-body-table');
-                            const scrollableHeaderTable = DomHandler.findSingle(scrollableView, 'table.p-datatable-scrollable-header-table');
-                            const scrollableFooterTable = DomHandler.findSingle(scrollableView, 'table.p-datatable-scrollable-footer-table');
-                            const resizeColumnIndex = DomHandler.index(this.resizeColumnElement);
-
-                            this.resizeColGroup(scrollableHeaderTable, resizeColumnIndex, newColumnWidth, nextColumnWidth);
-                            this.resizeColGroup(scrollableBodyTable, resizeColumnIndex, newColumnWidth, nextColumnWidth);
-                            this.resizeColGroup(scrollableFooterTable, resizeColumnIndex, newColumnWidth, nextColumnWidth);
-                        }
-                        else {
-                            this.resizeColumnElement.style.width = newColumnWidth + 'px';
-                            if(nextColumn) {
-                                nextColumn.style.width = nextColumnWidth + 'px';
-                            }
+                        this.resizeColumnElement.style.width = newColumnWidth + 'px';
+                        if(nextColumn) {
+                            nextColumn.style.width = nextColumnWidth + 'px';
                         }
                     }
                 }
                 else if (this.columnResizeMode === 'expand') {
-                    if (this.scrollable) {
-                        this.resizeScrollableTable(this.resizeColumnElement, newColumnWidth, delta);
-                    }
-                    else {
-                        this.$refs.table.style.width = this.$refs.table.offsetWidth + delta + 'px';
-                        this.resizeColumnElement.style.width = newColumnWidth + 'px';
-                    }
+                    this.$refs.table.style.width = this.$refs.table.offsetWidth + delta + 'px';
+                    this.resizeColumnElement.style.width = newColumnWidth + 'px';
                 }
 
                 this.$emit('column-resize-end', {
@@ -1290,19 +1207,6 @@ export default {
                 return parent;
             }
         },
-        findParentScrollableView(column) {
-            if (column) {
-                let parent = column.parentElement;
-                while (parent && !DomHandler.hasClass(parent, 'p-datatable-scrollable-view')) {
-                    parent = parent.parentElement;
-                }
-
-                return parent;
-            }
-            else {
-                return null;
-            }
-        },
         findColumnByKey(columns, key) {
             if (columns && columns.length) {
                 for (let i = 0; i < columns.length; i++) {
@@ -1314,38 +1218,6 @@ export default {
             }
 
             return null;
-        },
-        resizeScrollableTable(column, newColumnWidth, delta) {
-            const scrollableView = column ? this.findParentScrollableView(column) : this.$el;
-            const scrollableBody = DomHandler.findSingle(scrollableView, '.p-datatable-scrollable-body');
-            const scrollableHeader = DomHandler.findSingle(scrollableView, '.p-datatable-scrollable-header');
-            const scrollableFooter = DomHandler.findSingle(scrollableView, '.p-datatable-scrollable-footer');
-            const scrollableBodyTable = DomHandler.findSingle(scrollableBody, 'table.p-datatable-scrollable-body-table');
-            const scrollableHeaderTable = DomHandler.findSingle(scrollableHeader, 'table.p-datatable-scrollable-header-table');
-            const scrollableFooterTable = DomHandler.findSingle(scrollableFooter, 'table.p-datatable-scrollable-footer-table');
-
-            const scrollableBodyTableWidth = column ? scrollableBodyTable.offsetWidth + delta : newColumnWidth;
-            const scrollableHeaderTableWidth = column ? scrollableHeaderTable.offsetWidth + delta : newColumnWidth;
-            const isContainerInViewport = this.$el.offsetWidth >= parseFloat(scrollableBodyTableWidth);
-
-            let setWidth = (container, table, width, isContainerInViewport) => {
-                if (container && table) {
-                    container.style.width = isContainerInViewport ? width + DomHandler.calculateScrollbarWidth(scrollableBody) + 'px' : 'auto'
-                    table.style.width = width + 'px';
-                }
-            };
-
-            setWidth(scrollableBody, scrollableBodyTable, scrollableBodyTableWidth, isContainerInViewport);
-            setWidth(scrollableHeader, scrollableHeaderTable, scrollableHeaderTableWidth, isContainerInViewport);
-            setWidth(scrollableFooter, scrollableFooterTable, scrollableHeaderTableWidth, isContainerInViewport);
-
-            if (column) {
-                let resizeColumnIndex = DomHandler.index(column);
-
-                this.resizeColGroup(scrollableHeaderTable, resizeColumnIndex, newColumnWidth, null);
-                this.resizeColGroup(scrollableBodyTable, resizeColumnIndex, newColumnWidth, null);
-                this.resizeColGroup(scrollableFooterTable, resizeColumnIndex, newColumnWidth, null);
-            }
         },
         onRowMouseDown(event) {
             if (DomHandler.hasClass(event.target, 'p-datatable-reorderablerow-handle'))
@@ -1603,8 +1475,7 @@ export default {
             state.columnWidths = widths.join(',');
 
             if (this.columnResizeMode === 'expand') {
-                state.tableWidth = this.scrollable ? DomHandler.findSingle(this.$el, '.p-datatable-scrollable-header-table').style.width :
-                                                    DomHandler.getOuterWidth(this.$refs.table) + 'px';
+                state.tableWidth =  DomHandler.getOuterWidth(this.$refs.table) + 'px';
             }
         },
         restoreColumnWidths() {
@@ -1612,28 +1483,11 @@ export default {
                 let widths = this.columnWidthsState.split(',');
 
                 if (this.columnResizeMode === 'expand' && this.tableWidthState) {
-                    if (this.scrollable) {
-                        this.resizeScrollableTable(null, this.tableWidthState, 0);
-                    }
-                    else {
-                        this.$refs.table.style.width = this.tableWidthState;
-                        this.$el.style.width = this.tableWidthState;
-                    }
+                    this.$refs.table.style.width = this.tableWidthState;
+                    this.$el.style.width = this.tableWidthState;
                 }
 
-                if (this.scrollable) {
-                    let headerCols = DomHandler.find(this.$el, '.p-datatable-scrollable-header-table > colgroup > col');
-                    let bodyCols = DomHandler.find(this.$el, '.p-datatable-scrollable-body-table > colgroup > col');
-
-                    headerCols.forEach((col, index) => col.style.width = widths[index] + 'px');
-                    bodyCols.forEach((col, index) => col.style.width = widths[index] + 'px');
-                }
-                else {
-                    let headers = DomHandler.find(this.$refs.table, '.p-datatable-thead > tr > th');
-                    headers.forEach((header, index) => header.style.width = widths[index] + 'px');
-                }
-
-
+                DomHandler.find(this.$refs.table, '.p-datatable-thead > tr > th').forEach((header, index) => header.style.width = widths[index] + 'px');
             }
         },
         onCellEditInit(event) {
@@ -1732,6 +1586,9 @@ export default {
                     'p-datatable-resizable': this.resizableColumns,
                     'p-datatable-resizable-fit': this.resizableColumns && this.columnResizeMode === 'fit',
                     'p-datatable-scrollable': this.scrollable,
+                    'p-datatable-scrollable-vertical': this.scrollDirection === 'vertical',
+                    'p-datatable-scrollable-horizontal': this.scrollDirection === 'horizontal',
+                    'p-datatable-scrollable-both': this.scrollDirection === 'both',
                     'p-datatable-virtual-scrollable': this.virtualScroll,
                     'p-datatable-flex-scrollable': (this.scrollable && this.scrollHeight === 'flex')
                 }
@@ -1766,50 +1623,11 @@ export default {
 
             return cols;
         },
-        frozenColumns() {
-            let frozenColumns = [];
-
-            for(let col of this.columns) {
-                if(this.columnProp(col, 'frozen')) {
-                    frozenColumns = frozenColumns||[];
-                    frozenColumns.push(col);
-                }
-            }
-
-            return frozenColumns;
-        },
-        scrollableColumns() {
-            let scrollableColumns = [];
-
-            for(let col of this.columns) {
-                if(!this.columnProp(col, 'frozen')) {
-                    scrollableColumns = scrollableColumns||[];
-                    scrollableColumns.push(col);
-                }
-            }
-
-            return scrollableColumns;
-        },
-        hasFrozenColumns() {
-            return this.frozenColumns.length > 0;
-        },
         headerColumnGroup() {
             const children = this.getChildren();
             if (children) {
                 for (let child of children) {
                     if (child.type.name === 'columngroup' && this.columnProp(child, 'type') === 'header') {
-                        return child;
-                    }
-                }
-            }
-
-            return null;
-        },
-        frozenHeaderColumnGroup() {
-            const children = this.getChildren();
-            if (children) {
-                for (let child of children) {
-                    if (child.type.name === 'columngroup' && this.columnProp(child, 'type') === 'frozenheader') {
                         return child;
                     }
                 }
@@ -1826,18 +1644,6 @@ export default {
                     }
                 }
             }
-
-            return null;
-        },
-        frozenFooterColumnGroup() {
-           const children = this.getChildren();
-            if (children) {
-                for (let child of children) {
-                    if (child.type.name === 'columngroup' && this.columnProp(child, 'type') === 'frozenfooter') {
-                        return child;
-                    }
-                }
-           }
 
             return null;
         },
@@ -1910,7 +1716,6 @@ export default {
     },
     components: {
         'DTPaginator': Paginator,
-        'DTScrollableView': ScrollableView,
         'DTTableHeader': TableHeader,
         'DTTableBody': TableBody,
         'DTTableFooter': TableFooter,
@@ -1946,9 +1751,9 @@ export default {
     justify-content: center;
 }
 
-.p-datatable-auto-layout > .p-datatable-wrapper {
+/*.p-datatable-auto-layout > .p-datatable-wrapper {
     overflow-x: auto;
-}
+}*/
 
 .p-datatable-auto-layout > .p-datatable-wrapper > table {
     table-layout: auto;
@@ -1959,43 +1764,65 @@ export default {
 }
 
 /* Scrollable */
-.p-datatable-scrollable-wrapper {
+.p-datatable-scrollable .p-datatable-wrapper {
     position: relative;
-}
-
-.p-datatable-scrollable-header,
-.p-datatable-scrollable-footer {
-    overflow: hidden;
-}
-
-.p-datatable-scrollable-body {
     overflow: auto;
-    position: relative;
 }
 
-.p-datatable-scrollable-body > table > .p-datatable-tbody > tr:first-child > td {
-    border-top: 0 none;
+.p-datatable-scrollable .p-datatable-table {
+    display: block;
 }
 
-.p-datatable-virtual-table {
-    position: absolute;
+.p-datatable-scrollable .p-datatable-thead,
+.p-datatable-scrollable .p-datatable-tbody,
+.p-datatable-scrollable .p-datatable-tfoot {
+    display: block;
 }
 
-/* Frozen Columns */
-.p-datatable-frozen-view .p-datatable-scrollable-body {
-    overflow: hidden;
+.p-datatable-scrollable .p-datatable-thead > tr,
+.p-datatable-scrollable .p-datatable-tbody > tr,
+.p-datatable-scrollable .p-datatable-tfoot > tr {
+    display: flex;
+    flex-wrap: nowrap;
+    width: 100%;
 }
 
-.p-datatable-frozen-view > .p-datatable-scrollable-body > table > .p-datatable-tbody > tr > td:last-child {
-    border-right: 0 none;
+.p-datatable-scrollable .p-datatable-thead > tr > th,
+.p-datatable-scrollable .p-datatable-tbody > tr > td,
+.p-datatable-scrollable .p-datatable-tfoot > tr > td {
+    flex: 1 1 0;
 }
 
-.p-datatable-unfrozen-view {
-    position: absolute;
+.p-datatable-scrollable .p-datatable-thead {
+    position: sticky;
     top: 0;
+    z-index: 1;
 }
 
-/* Flex Scrollable */
+.p-datatable-scrollable .p-datatable-frozen-tbody {
+    position: sticky;
+}
+
+.p-datatable-scrollable .p-datatable-tfoot {
+    position: sticky;
+    bottom: 0;
+    z-index: 1;
+}
+
+.p-datatable-scrollable .p-frozen-column {
+    position: sticky;
+    background: inherit;
+}
+
+.p-datatable-scrollable-both .p-datatable-thead > tr > th,
+.p-datatable-scrollable-both .p-datatable-tbody > tr > td,
+.p-datatable-scrollable-both .p-datatable-tfoot > tr > td,
+.p-datatable-scrollable-horizontal .p-datatable-thead > tr > th
+.p-datatable-scrollable-horizontal .p-datatable-tbody > tr > td,
+.p-datatable-scrollable-horizontal .p-datatable-tfoot > tr > td {
+    flex: 0 0 auto;
+}
+
 .p-datatable-flex-scrollable {
     display: flex;
     flex-direction: column;
@@ -2003,16 +1830,11 @@ export default {
     height: 100%;
 }
 
-.p-datatable-flex-scrollable .p-datatable-scrollable-wrapper,
-.p-datatable-flex-scrollable .p-datatable-scrollable-view {
+.p-datatable-flex-scrollable .p-datatable-wrapper {
     display: flex;
     flex-direction: column;
     flex: 1;
     height: 100%;
-}
-
-.p-datatable-flex-scrollable .p-datatable-scrollable-body {
-    flex: 1;
 }
 
 /* Resizable */

@@ -10,7 +10,7 @@
 		<div class="content-section implementation">
             <div class="card">
                 <h5>Vertical</h5>
-                <DataTable :value="customers" :scrollable="true" scrollHeight="200px" :loading="loading">
+                <DataTable :value="customers" :scrollable="true" scrollHeight="400px" :loading="loading">
                     <Column field="name" header="Name"></Column>
                     <Column field="country.name" header="Country"></Column>
                     <Column field="representative.name" header="Representative"></Column>
@@ -18,10 +18,10 @@
                 </DataTable>
             </div>
 
-            <div class="card">
+           <div class="card">
                 <h5>Flexible Scroll</h5>
-                <p>Flex scroll feature makes the scrollable viewport section dynamic so that it can grow or shrink relative to the parent size of the table.
-                    Click the button below to display a maximizable Dialog where data viewport adjusts itself according to the size changes.</p>
+                <p>Flex scroll feature makes the scrollable viewport section dynamic insteaf of a fixed value so that it can grow or shrink relative to the parent size of the table.
+                   Click the button below to display a maximizable Dialog where data viewport adjusts itself according to the size changes.</p>
 
                 <Button label="Show" icon="pi pi-external-link" @click="openDialog" />
             </div>
@@ -31,13 +31,13 @@
                     <Column field="name" header="Name"></Column>
                     <Column field="country.name" header="Country"></Column>
                     <Column field="representative.name" header="Representative"></Column>
-                    <Column field="status" header="Company"></Column>
+                    <Column field="status" header="Status"></Column>
                 </DataTable>
                 <template #footer>
                     <Button label="Ok" icon="pi pi-check" @click="closeDialog" />
                 </template>
             </Dialog>
-
+<!--
             <div class="card">
                 <h5>Virtual Scroll</h5>
                 <DataTable :value="virtualCustomers" :scrollable="true" scrollHeight="200px" :lazy="true" :rows="20" :loading="loading"
@@ -63,25 +63,31 @@
                         </template>
                     </Column>
                 </DataTable>
-            </div>
+            </div>-->
 
             <div class="card">
-                <h5>Horizontal and Vertical</h5>
-                <DataTable :value="customers" :scrollable="true" scrollHeight="200px" style="width: 600px" :loading="loading">
-                    <Column field="id" header="Id" headerStyle="width: 250px" columnKey="id"></Column>
-                    <Column field="name" header="Name" headerStyle="width: 250px" columnKey="name"></Column>
-                    <Column field="country.name" header="Country" headerStyle="width: 250px" columnKey="country"></Column>
-                    <Column field="date" header="Date" headerStyle="width: 250px" columnKey="date"></Column>
-                    <Column field="company" header="Company" headerStyle="width: 250px" columnKey="company"></Column>
-                    <Column field="status" header="Status" headerStyle="width: 250px" columnKey="status"></Column>
-                    <Column field="activity" header="Activity" headerStyle="width: 250px" columnKey="activity"></Column>
-                    <Column field="representative.name" header="Representative" headerStyle="width: 250px" columnKey="representative"></Column>
+                <h5>Horizontal and Vertical with Footer</h5>
+                <DataTable :value="customers" :scrollable="true" scrollHeight="400px" :loading="loading" scrollDirection="both">
+                    <Column field="id" header="Id" footer="Id" :style="{width:'250px'}"></Column>
+                    <Column field="name" header="Name" footer="Name" :style="{width:'250px'}"></Column>
+                    <Column field="country.name" header="Country" footer="Country" :style="{width:'250px'}"></Column>
+                    <Column field="date" header="Date" footer="Date" :style="{width:'250px'}"></Column>
+                    <Column field="balance" header="Balance" footer="Balance" :style="{width:'250px'}">
+                        <template #body="{data}">
+                            {{formatCurrency(data.balance)}}
+                        </template>
+                    </Column>
+                    <Column field="company" header="Company" footer="Company" :style="{width:'250px'}"></Column>
+                    <Column field="status" header="Status" footer="Status" :style="{width:'250px'}"></Column>
+                    <Column field="activity" header="Activity" footer="Activity" :style="{width:'250px'}"></Column>
+                    <Column field="representative.name" header="Representative" footer="Representative" :style="{width:'250px'}"></Column>
                 </DataTable>
             </div>
+       
 
             <div class="card">
                 <h5>Frozen Rows</h5>
-                <DataTable :value="customers" :frozenValue="frozenValue" :scrollable="true" scrollHeight="200px" :loading="loading">
+                <DataTable :value="customers" :frozenValue="frozenValue" :scrollable="true" scrollHeight="400px" :loading="loading">
                     <Column field="name" header="Name"></Column>
                     <Column field="country.name" header="Country"></Column>
                     <Column field="representative.name" header="Representative"></Column>
@@ -91,19 +97,25 @@
 
             <div class="card">
                 <h5>Frozen Columns</h5>
-                <DataTable :value="customers" :scrollable="true" scrollHeight="200px" frozenWidth="300px" :loading="loading">
-                    <Column field="name" header="Name" headerStyle="width: 300px" columnKey="name" :frozen="true">
+                <DataTable :value="customers" :scrollable="true" scrollHeight="400px" :loading="loading" scrollDirection="both">
+                    <Column field="name" header="Name" :style="{width:'250px'}" frozen>
                         <template #body="slotProps">
                             <span style="font-weight: 700">{{slotProps.data.name}}</span>
                         </template>
                     </Column>
-                    <Column field="id" header="Id" headerStyle="width: 300px" columnKey="id"></Column>
-                    <Column field="country.name" header="Country" headerStyle="width: 300px" columnKey="country"></Column>
-                    <Column field="date" header="Date" headerStyle="width: 300px" columnKey="date"></Column>
-                    <Column field="company" header="Country" headerStyle="width: 300px" columnKey="company"></Column>
-                    <Column field="status" header="Status" headerStyle="width: 300px" columnKey="status"></Column>
-                    <Column field="activity" header="Activity" headerStyle="width: 300px" columnKey="activity"></Column>
-                    <Column field="representative.name" header="Representative" headerStyle="width: 300px" columnKey="representative"></Column>
+                    <Column field="id" header="Id" :style="{width:'250px'}"></Column>
+                    <Column field="name" header="Name" :style="{width:'250px'}"></Column>
+                    <Column field="country.name" header="Country" :style="{width:'250px'}"></Column>
+                    <Column field="date" header="Date" :style="{width:'250px'}"></Column>
+                    <Column field="balance" header="Balance" :style="{width:'250px'}">
+                        <template #body="{data}">
+                            {{formatCurrency(data.balance)}}
+                        </template>
+                    </Column>
+                    <Column field="company" header="Company" :style="{width:'250px'}"></Column>
+                    <Column field="status" header="Status" :style="{width:'250px'}"></Column>
+                    <Column field="activity" header="Activity" :style="{width:'250px'}"></Column>
+                    <Column field="representative.name" header="Representative" :style="{width:'250px'}"></Column>
                 </DataTable>
             </div>
 		</div>
@@ -128,7 +140,7 @@
 &lt;div class="card"&gt;
     &lt;h5&gt;Flexible Scroll&lt;/h5&gt;
     &lt;p&gt;Flex scroll feature makes the scrollable viewport section dynamic so that it can grow or shrink relative to the parent size of the table.
-        Click the button below to display a maximizable Dialog where data viewport adjusts itself according to the size changes.&lt;/p&gt;
+       click the button below to display a maximizable Dialog where data viewport adjusts itself according to the size changes.&lt;/p&gt;
 
     &lt;Button label="Show" icon="pi pi-external-link" @click="openDialog" /&gt;
 &lt;/div&gt;
@@ -175,14 +187,14 @@
 &lt;div class="card"&gt;
     &lt;h5&gt;Horizontal and Vertical&lt;/h5&gt;
     &lt;DataTable :value="customers" :scrollable="true" scrollHeight="200px" style="width: 600px" :loading="loading"&gt;
-        &lt;Column field="id" header="Id" headerStyle="width: 250px" columnKey="id"&gt;&lt;/Column&gt;
-        &lt;Column field="name" header="Name" headerStyle="width: 250px" columnKey="name"&gt;&lt;/Column&gt;
-        &lt;Column field="country.name" header="Country" headerStyle="width: 250px" columnKey="country"&gt;&lt;/Column&gt;
-        &lt;Column field="date" header="Date" headerStyle="width: 250px" columnKey="date"&gt;&lt;/Column&gt;
-        &lt;Column field="company" header="Company" headerStyle="width: 250px" columnKey="company"&gt;&lt;/Column&gt;
-        &lt;Column field="status" header="Status" headerStyle="width: 250px" columnKey="status"&gt;&lt;/Column&gt;
-        &lt;Column field="activity" header="Activity" headerStyle="width: 250px" columnKey="activity"&gt;&lt;/Column&gt;
-        &lt;Column field="representative.name" header="Representative" headerStyle="width: 250px" columnKey="representative"&gt;&lt;/Column&gt;
+        &lt;Column field="id" header="Id" :headerStyle="{width:'250px'}" columnKey="id"&gt;&lt;/Column&gt;
+        &lt;Column field="name" header="Name" :headerStyle="{width:'250px'}" columnKey="name"&gt;&lt;/Column&gt;
+        &lt;Column field="country.name" header="Country" :headerStyle="{width:'250px'}" columnKey="country"&gt;&lt;/Column&gt;
+        &lt;Column field="date" header="Date" :headerStyle="{width:'250px'}" columnKey="date"&gt;&lt;/Column&gt;
+        &lt;Column field="company" header="Company" :headerStyle="{width:'250px'}" columnKey="company"&gt;&lt;/Column&gt;
+        &lt;Column field="status" header="Status" :headerStyle="{width:'250px'}" columnKey="status"&gt;&lt;/Column&gt;
+        &lt;Column field="activity" header="Activity" :headerStyle="{width:'250px'}" columnKey="activity"&gt;&lt;/Column&gt;
+        &lt;Column field="representative.name" header="Representative" :headerStyle="{width:'250px'}" columnKey="representative"&gt;&lt;/Column&gt;
     &lt;/DataTable&gt;
 &lt;/div&gt;
 
@@ -222,7 +234,7 @@ import CustomerService from '../../service/CustomerService';
 export default {
     data() {
         return {
-            customers: null,
+           customers: null,
             virtualCustomers: null,
             lazyTotalRecords: 0,
             frozenValue: null,
@@ -230,9 +242,9 @@ export default {
             dialogVisible: false
         }
     },
-    customerService: null,
+   customerService: null,
     inmemoryData: null,
-    created() {
+   created() {
         this.customerService = new CustomerService();
     },
     mounted() {
@@ -248,11 +260,11 @@ export default {
             {
                 id: 1255,
                 name: "James McAdams",
-                country: {
+               country: {
                     name: "United States",
-                    code: "us"
+                   code: "us"
                 },
-                company: "McAdams Consulting Ltd",
+               company: "McAdams Consulting Ltd",
                 date: "2014-02-13",
                 status: "qualified",
                 activity: 23,
@@ -264,11 +276,11 @@ export default {
             {
                 id: 5135,
                 name: "Geraldine Bisset",
-                country: {
+               country: {
                     name: "France",
-                    code: "fr"
+                   code: "fr"
                 },
-                company: "Bisset Group",
+               company: "Bisset Group",
                 status: "proposal",
                 date: "2019-05-05",
                 activity: 0,
@@ -288,7 +300,7 @@ export default {
           loadChunk(index, length) {
             let chunk = [];
             for (let i = 0; i &lt; length; i++) {
-                chunk[i] = {...this.inmemoryData[i]};
+               chunk[i] = {...this.inmemoryData[i]};
             }
 
             return chunk;
@@ -305,7 +317,7 @@ export default {
         openDialog() {
             this.dialogVisible = true;
         },
-        closeDialog() {
+       closeDialog() {
             this.dialogVisible = false;
         }
     }
@@ -325,7 +337,7 @@ import LiveEditor from '../liveeditor/LiveEditor';
 export default {
     data() {
         return {
-            customers: null,
+           customers: null,
             virtualCustomers: null,
             lazyTotalRecords: 0,
             frozenValue: null,
@@ -333,7 +345,7 @@ export default {
             dialogVisible: false,
             sources: {
                 'template': {
-                    content: `<template>
+                   content: `<template>
     <div class="layout-content">
         <div class="content-section implementation">
             <div class="card">
@@ -349,7 +361,7 @@ export default {
             <div class="card">
                 <h5>Flexible Scroll</h5>
                 <p>Flex scroll feature makes the scrollable viewport section dynamic so that it can grow or shrink relative to the parent size of the table.
-                    Click the button below to display a maximizable Dialog where data viewport adjusts itself according to the size changes.</p>
+                   click the button below to display a maximizable Dialog where data viewport adjusts itself according to the size changes.</p>
 
                 <Button label="Show" icon="pi pi-external-link" @click="openDialog" />
             </div>
@@ -396,14 +408,14 @@ export default {
             <div class="card">
                 <h5>Horizontal and Vertical</h5>
                 <DataTable :value="customers" :scrollable="true" scrollHeight="200px" style="width: 600px" :loading="loading">
-                    <Column field="id" header="Id" headerStyle="width: 250px" columnKey="id"></Column>
-                    <Column field="name" header="Name" headerStyle="width: 250px" columnKey="name"></Column>
-                    <Column field="country.name" header="Country" headerStyle="width: 250px" columnKey="country"></Column>
-                    <Column field="date" header="Date" headerStyle="width: 250px" columnKey="date"></Column>
-                    <Column field="company" header="Company" headerStyle="width: 250px" columnKey="company"></Column>
-                    <Column field="status" header="Status" headerStyle="width: 250px" columnKey="status"></Column>
-                    <Column field="activity" header="Activity" headerStyle="width: 250px" columnKey="activity"></Column>
-                    <Column field="representative.name" header="Representative" headerStyle="width: 250px" columnKey="representative"></Column>
+                    <Column field="id" header="Id" :headerStyle="{width:'250px'}" columnKey="id"></Column>
+                    <Column field="name" header="Name" :headerStyle="{width:'250px'}" columnKey="name"></Column>
+                    <Column field="country.name" header="Country" :headerStyle="{width:'250px'}" columnKey="country"></Column>
+                    <Column field="date" header="Date" :headerStyle="{width:'250px'}" columnKey="date"></Column>
+                    <Column field="company" header="Company" :headerStyle="{width:'250px'}" columnKey="company"></Column>
+                    <Column field="status" header="Status" :headerStyle="{width:'250px'}" columnKey="status"></Column>
+                    <Column field="activity" header="Activity" :headerStyle="{width:'250px'}" columnKey="activity"></Column>
+                    <Column field="representative.name" header="Representative" :headerStyle="{width:'250px'}" columnKey="representative"></Column>
                 </DataTable>
             </div>
 
@@ -444,7 +456,7 @@ import CustomerService from '../service/CustomerService';
 export default {
     data() {
         return {
-            customers: null,
+           customers: null,
             virtualCustomers: null,
             lazyTotalRecords: 0,
             frozenValue: null,
@@ -452,9 +464,9 @@ export default {
             dialogVisible: false
         }
     },
-    customerService: null,
+   customerService: null,
     inmemoryData: null,
-    created() {
+   created() {
         this.customerService = new CustomerService();
     },
     mounted() {
@@ -470,11 +482,11 @@ export default {
             {
                 id: 1255,
                 name: "James McAdams",
-                country: {
+               country: {
                     name: "United States",
-                    code: "us"
+                   code: "us"
                 },
-                company: "McAdams Consulting Ltd",
+               company: "McAdams Consulting Ltd",
                 date: "2014-02-13",
                 status: "qualified",
                 activity: 23,
@@ -486,11 +498,11 @@ export default {
             {
                 id: 5135,
                 name: "Geraldine Bisset",
-                country: {
+               country: {
                     name: "France",
-                    code: "fr"
+                   code: "fr"
                 },
-                company: "Bisset Group",
+               company: "Bisset Group",
                 status: "proposal",
                 date: "2019-05-05",
                 activity: 0,
@@ -510,7 +522,7 @@ export default {
           loadChunk(index, length) {
             let chunk = [];
             for (let i = 0; i < length; i++) {
-                chunk[i] = {...this.inmemoryData[i]};
+               chunk[i] = {...this.inmemoryData[i]};
             }
 
             return chunk;
@@ -527,7 +539,7 @@ export default {
         openDialog() {
             this.dialogVisible = true;
         },
-        closeDialog() {
+       closeDialog() {
             this.dialogVisible = false;
         }
     }
@@ -546,9 +558,9 @@ export default {
             }
         }
     },
-    customerService: null,
+   customerService: null,
     inmemoryData: null,
-    created() {
+   created() {
         this.customerService = new CustomerService();
     },
     mounted() {
@@ -564,11 +576,11 @@ export default {
             {
                 id: 1255,
                 name: "James McAdams",
-                country: {
+               country: {
                     name: "United States",
-                    code: "us"
+                   code: "us"
                 },
-                company: "McAdams Consulting Ltd",
+               company: "McAdams Consulting Ltd",
                 date: "2014-02-13",
                 status: "qualified",
                 activity: 23,
@@ -580,11 +592,11 @@ export default {
             {
                 id: 5135,
                 name: "Geraldine Bisset",
-                country: {
+               country: {
                     name: "France",
-                    code: "fr"
+                   code: "fr"
                 },
-                company: "Bisset Group",
+               company: "Bisset Group",
                 status: "proposal",
                 date: "2019-05-05",
                 activity: 0,
@@ -604,7 +616,7 @@ export default {
           loadChunk(index, length) {
             let chunk = [];
             for (let i = 0; i < length; i++) {
-                chunk[i] = {...this.inmemoryData[i]};
+               chunk[i] = {...this.inmemoryData[i]};
             }
 
             return chunk;
@@ -623,9 +635,12 @@ export default {
         },
         closeDialog() {
             this.dialogVisible = false;
+        },
+        formatCurrency(value) {
+            return value.toLocaleString('en-US', {style: 'currency', currency: 'USD'});
         }
     },
-    components: {
+   components: {
         LiveEditor
     }
 }

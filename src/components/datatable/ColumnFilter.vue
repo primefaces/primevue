@@ -340,14 +340,12 @@ export default {
             this.selfClick = true;
         },
         onOverlayEnter() {
+            if (this.filterMenuStyle) {
+                DomHandler.applyStyle(this.overlay, this.filterMenuStyle);
+            }
             document.body.appendChild(this.overlay);
             this.overlay.style.zIndex = String(DomHandler.generateZIndex());
             DomHandler.absolutePosition(this.overlay, this.$refs.icon);
-            if (this.filterMenuStyle) {
-                for (let prop in this.filterMenuStyle) {
-                    this.overlay.style[prop] = this.filterMenuStyle[prop];
-                }
-            }
             this.bindOutsideClickListener();
             this.bindScrollListener();
             this.bindResizeListener();
