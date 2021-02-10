@@ -68,14 +68,14 @@
             <div class="card">
                 <h5>Horizontal and Vertical</h5>
                 <DataTable :value="customers" :scrollable="true" scrollHeight="200px" style="width: 600px" :loading="loading">
-                    <Column field="id" header="Id" headerStyle="width: 250px" columnKey="id"></Column>
-                    <Column field="name" header="Name" headerStyle="width: 250px" columnKey="name"></Column>
-                    <Column field="country.name" header="Country" headerStyle="width: 250px" columnKey="country"></Column>
-                    <Column field="date" header="Date" headerStyle="width: 250px" columnKey="date"></Column>
-                    <Column field="company" header="Company" headerStyle="width: 250px" columnKey="company"></Column>
-                    <Column field="status" header="Status" headerStyle="width: 250px" columnKey="status"></Column>
-                    <Column field="activity" header="Activity" headerStyle="width: 250px" columnKey="activity"></Column>
-                    <Column field="representative.name" header="Representative" headerStyle="width: 250px" columnKey="representative"></Column>
+                    <Column field="id" header="Id" headerStyle="width: 250px" bodyStyle="width: 250px" columnKey="id"></Column>
+                    <Column field="name" header="Name" headerStyle="width: 250px" bodyStyle="width: 250px" columnKey="name"></Column>
+                    <Column field="country.name" header="Country" headerStyle="width: 250px" bodyStyle="width: 250px" columnKey="country"></Column>
+                    <Column field="date" header="Date" headerStyle="width: 250px" bodyStyle="width: 250px" columnKey="date"></Column>
+                    <Column field="company" header="Company" headerStyle="width: 250px" bodyStyle="width: 250px" columnKey="company"></Column>
+                    <Column field="status" header="Status" headerStyle="width: 250px" bodyStyle="width: 250px" columnKey="status"></Column>
+                    <Column field="activity" header="Activity" headerStyle="width: 250px" bodyStyle="width: 250px" columnKey="activity"></Column>
+                    <Column field="representative.name" header="Representative" headerStyle="width: 250px" bodyStyle="width: 250px" columnKey="representative"></Column>
                 </DataTable>
             </div>
 
@@ -92,18 +92,18 @@
             <div class="card">
                 <h5>Frozen Columns</h5>
                 <DataTable :value="customers" :scrollable="true" scrollHeight="200px" frozenWidth="300px" :loading="loading">
-                    <Column field="name" header="Name" headerStyle="width: 300px" columnKey="name" :frozen="true">
+                    <Column field="name" header="Name" headerStyle="width: 300px" bodyStyle="width: 300px" columnKey="name" :frozen="true">
                         <template #body="slotProps">
                             <span style="font-weight: 700">{{slotProps.data.name}}</span>
                         </template>
                     </Column>
-                    <Column field="id" header="Id" headerStyle="width: 300px" columnKey="id"></Column>
-                    <Column field="country.name" header="Country" headerStyle="width: 300px" columnKey="country"></Column>
-                    <Column field="date" header="Date" headerStyle="width: 300px" columnKey="date"></Column>
-                    <Column field="company" header="Country" headerStyle="width: 300px" columnKey="company"></Column>
-                    <Column field="status" header="Status" headerStyle="width: 300px" columnKey="status"></Column>
-                    <Column field="activity" header="Activity" headerStyle="width: 300px" columnKey="activity"></Column>
-                    <Column field="representative.name" header="Representative" headerStyle="width: 300px" columnKey="representative"></Column>
+                    <Column field="id" header="Id" headerStyle="width: 300px" bodyStyle="width: 300px" columnKey="id"></Column>
+                    <Column field="country.name" header="Country" headerStyle="width: 300px" bodyStyle="width: 300px" columnKey="country"></Column>
+                    <Column field="date" header="Date" headerStyle="width: 300px" bodyStyle="width: 300px" columnKey="date"></Column>
+                    <Column field="company" header="Country" headerStyle="width: 300px" bodyStyle="width: 300px" columnKey="company"></Column>
+                    <Column field="status" header="Status" headerStyle="width: 300px" bodyStyle="width: 300px" columnKey="status"></Column>
+                    <Column field="activity" header="Activity" headerStyle="width: 300px" bodyStyle="width: 300px" columnKey="activity"></Column>
+                    <Column field="representative.name" header="Representative" headerStyle="width: 300px" bodyStyle="width: 300px" columnKey="representative"></Column>
                 </DataTable>
             </div>
 		</div>
@@ -175,14 +175,14 @@
 &lt;div class="card"&gt;
     &lt;h5&gt;Horizontal and Vertical&lt;/h5&gt;
     &lt;DataTable :value="customers" :scrollable="true" scrollHeight="200px" style="width: 600px" :loading="loading"&gt;
-        &lt;Column field="id" header="Id" headerStyle="width: 250px" columnKey="id"&gt;&lt;/Column&gt;
-        &lt;Column field="name" header="Name" headerStyle="width: 250px" columnKey="name"&gt;&lt;/Column&gt;
-        &lt;Column field="country.name" header="Country" headerStyle="width: 250px" columnKey="country"&gt;&lt;/Column&gt;
-        &lt;Column field="date" header="Date" headerStyle="width: 250px" columnKey="date"&gt;&lt;/Column&gt;
-        &lt;Column field="company" header="Company" headerStyle="width: 250px" columnKey="company"&gt;&lt;/Column&gt;
-        &lt;Column field="status" header="Status" headerStyle="width: 250px" columnKey="status"&gt;&lt;/Column&gt;
-        &lt;Column field="activity" header="Activity" headerStyle="width: 250px" columnKey="activity"&gt;&lt;/Column&gt;
-        &lt;Column field="representative.name" header="Representative" headerStyle="width: 250px" columnKey="representative"&gt;&lt;/Column&gt;
+        &lt;Column field="id" header="Id" headerStyle="width: 250px" bodyStyle="width: 250px" columnKey="id"&gt;&lt;/Column&gt;
+        &lt;Column field="name" header="Name" headerStyle="width: 250px" bodyStyle="width: 250px" columnKey="name"&gt;&lt;/Column&gt;
+        &lt;Column field="country.name" header="Country" headerStyle="width: 250px" bodyStyle="width: 250px" columnKey="country"&gt;&lt;/Column&gt;
+        &lt;Column field="date" header="Date" headerStyle="width: 250px" bodyStyle="width: 250px" columnKey="date"&gt;&lt;/Column&gt;
+        &lt;Column field="company" header="Company" headerStyle="width: 250px" bodyStyle="width: 250px" columnKey="company"&gt;&lt;/Column&gt;
+        &lt;Column field="status" header="Status" headerStyle="width: 250px" bodyStyle="width: 250px" columnKey="status"&gt;&lt;/Column&gt;
+        &lt;Column field="activity" header="Activity" headerStyle="width: 250px" bodyStyle="width: 250px" columnKey="activity"&gt;&lt;/Column&gt;
+        &lt;Column field="representative.name" header="Representative" headerStyle="width: 250px" bodyStyle="width: 250px" columnKey="representative"&gt;&lt;/Column&gt;
     &lt;/DataTable&gt;
 &lt;/div&gt;
 
@@ -199,18 +199,18 @@
 &lt;div class="card"&gt;
     &lt;h5&gt;Frozen Columns&lt;/h5&gt;
     &lt;DataTable :value="customers" :scrollable="true" scrollHeight="200px" frozenWidth="300px" :loading="loading"&gt;
-        &lt;Column field="name" header="Name" headerStyle="width: 300px" columnKey="name" :frozen="true"&gt;
+        &lt;Column field="name" header="Name" headerStyle="width: 300px" bodyStyle="width: 300px" columnKey="name" :frozen="true"&gt;
             &lt;template #body="slotProps"&gt;
                 &lt;span style="font-weight: 700"&gt;{{slotProps.data.name}}&lt;/span&gt;
             &lt;/template&gt;
         &lt;/Column&gt;
-        &lt;Column field="id" header="Id" headerStyle="width: 300px" columnKey="id"&gt;&lt;/Column&gt;
-        &lt;Column field="country.name" header="Country" headerStyle="width: 300px" columnKey="country"&gt;&lt;/Column&gt;
-        &lt;Column field="date" header="Date" headerStyle="width: 300px" columnKey="date"&gt;&lt;/Column&gt;
-        &lt;Column field="company" header="Country" headerStyle="width: 300px" columnKey="company"&gt;&lt;/Column&gt;
-        &lt;Column field="status" header="Status" headerStyle="width: 300px" columnKey="status"&gt;&lt;/Column&gt;
-        &lt;Column field="activity" header="Activity" headerStyle="width: 300px" columnKey="activity"&gt;&lt;/Column&gt;
-        &lt;Column field="representative.name" header="Representative" headerStyle="width: 300px" columnKey="representative"&gt;&lt;/Column&gt;
+        &lt;Column field="id" header="Id" headerStyle="width: 300px" bodyStyle="width: 300px" columnKey="id"&gt;&lt;/Column&gt;
+        &lt;Column field="country.name" header="Country" headerStyle="width: 300px" bodyStyle="width: 300px" columnKey="country"&gt;&lt;/Column&gt;
+        &lt;Column field="date" header="Date" headerStyle="width: 300px" bodyStyle="width: 300px" columnKey="date"&gt;&lt;/Column&gt;
+        &lt;Column field="company" header="Country" headerStyle="width: 300px" bodyStyle="width: 300px" columnKey="company"&gt;&lt;/Column&gt;
+        &lt;Column field="status" header="Status" headerStyle="width: 300px" bodyStyle="width: 300px" columnKey="status"&gt;&lt;/Column&gt;
+        &lt;Column field="activity" header="Activity" headerStyle="width: 300px" bodyStyle="width: 300px" columnKey="activity"&gt;&lt;/Column&gt;
+        &lt;Column field="representative.name" header="Representative" headerStyle="width: 300px" bodyStyle="width: 300px" columnKey="representative"&gt;&lt;/Column&gt;
     &lt;/DataTable&gt;
 &lt;/div&gt;
 </template>
@@ -396,14 +396,14 @@ export default {
             <div class="card">
                 <h5>Horizontal and Vertical</h5>
                 <DataTable :value="customers" :scrollable="true" scrollHeight="200px" style="width: 600px" :loading="loading">
-                    <Column field="id" header="Id" headerStyle="width: 250px" columnKey="id"></Column>
-                    <Column field="name" header="Name" headerStyle="width: 250px" columnKey="name"></Column>
-                    <Column field="country.name" header="Country" headerStyle="width: 250px" columnKey="country"></Column>
-                    <Column field="date" header="Date" headerStyle="width: 250px" columnKey="date"></Column>
-                    <Column field="company" header="Company" headerStyle="width: 250px" columnKey="company"></Column>
-                    <Column field="status" header="Status" headerStyle="width: 250px" columnKey="status"></Column>
-                    <Column field="activity" header="Activity" headerStyle="width: 250px" columnKey="activity"></Column>
-                    <Column field="representative.name" header="Representative" headerStyle="width: 250px" columnKey="representative"></Column>
+                    <Column field="id" header="Id" headerStyle="width: 250px" bodyStyle="width: 250px" columnKey="id"></Column>
+                    <Column field="name" header="Name" headerStyle="width: 250px" bodyStyle="width: 250px" columnKey="name"></Column>
+                    <Column field="country.name" header="Country" headerStyle="width: 250px" bodyStyle="width: 250px" columnKey="country"></Column>
+                    <Column field="date" header="Date" headerStyle="width: 250px" bodyStyle="width: 250px" columnKey="date"></Column>
+                    <Column field="company" header="Company" headerStyle="width: 250px" bodyStyle="width: 250px" columnKey="company"></Column>
+                    <Column field="status" header="Status" headerStyle="width: 250px" bodyStyle="width: 250px" columnKey="status"></Column>
+                    <Column field="activity" header="Activity" headerStyle="width: 250px" bodyStyle="width: 250px" columnKey="activity"></Column>
+                    <Column field="representative.name" header="Representative" headerStyle="width: 250px" bodyStyle="width: 250px" columnKey="representative"></Column>
                 </DataTable>
             </div>
 
@@ -420,18 +420,18 @@ export default {
             <div class="card">
                 <h5>Frozen Columns</h5>
                 <DataTable :value="customers" :scrollable="true" scrollHeight="200px" frozenWidth="300px" :loading="loading">
-                    <Column field="name" header="Name" headerStyle="width: 300px" columnKey="name" :frozen="true">
+                    <Column field="name" header="Name" headerStyle="width: 300px" bodyStyle="width: 300px" columnKey="name" :frozen="true">
                         <template #body="slotProps">
                             <span style="font-weight: 700">{{slotProps.data.name}}</span>
                         </template>
                     </Column>
-                    <Column field="id" header="Id" headerStyle="width: 300px" columnKey="id"></Column>
-                    <Column field="country.name" header="Country" headerStyle="width: 300px" columnKey="country"></Column>
-                    <Column field="date" header="Date" headerStyle="width: 300px" columnKey="date"></Column>
-                    <Column field="company" header="Country" headerStyle="width: 300px" columnKey="company"></Column>
-                    <Column field="status" header="Status" headerStyle="width: 300px" columnKey="status"></Column>
-                    <Column field="activity" header="Activity" headerStyle="width: 300px" columnKey="activity"></Column>
-                    <Column field="representative.name" header="Representative" headerStyle="width: 300px" columnKey="representative"></Column>
+                    <Column field="id" header="Id" headerStyle="width: 300px" bodyStyle="width: 300px" columnKey="id"></Column>
+                    <Column field="country.name" header="Country" headerStyle="width: 300px" bodyStyle="width: 300px" columnKey="country"></Column>
+                    <Column field="date" header="Date" headerStyle="width: 300px" bodyStyle="width: 300px" columnKey="date"></Column>
+                    <Column field="company" header="Country" headerStyle="width: 300px" bodyStyle="width: 300px" columnKey="company"></Column>
+                    <Column field="status" header="Status" headerStyle="width: 300px" bodyStyle="width: 300px" columnKey="status"></Column>
+                    <Column field="activity" header="Activity" headerStyle="width: 300px" bodyStyle="width: 300px" columnKey="activity"></Column>
+                    <Column field="representative.name" header="Representative" headerStyle="width: 300px" bodyStyle="width: 300px" columnKey="representative"></Column>
                 </DataTable>
             </div>
 		</div>
