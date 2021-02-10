@@ -1,7 +1,9 @@
-import Vue from 'vue';
-
-declare class TabMenu extends Vue {
+interface TabMenuProps {
     model?: any[];
+}
+
+declare class TabMenu {
+    $props: TabMenuProps;
 }
 
 export default TabMenu;

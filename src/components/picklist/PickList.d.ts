@@ -1,11 +1,15 @@
-import Vue, {VNode} from 'vue';
+import { VNode } from 'vue';
 
-declare class PickList extends Vue {
+interface PickListProps {
     modelValue?: any[][];
     selection?: any[][];
     dataKey?: string;
     metaKeySelection?: boolean;
     listStyle?: any;
+}
+
+declare class PickList {
+    $props: PickListProps;
     $emit(eventName: 'reorder', e: { originalEvent: Event, value: any[]; direction: string}): this;
     $emit(eventName: 'move-to-target', e: { originalEvent: Event, items: [] }): this;
     $emit(eventName: 'move-all-to-target', e: { originalEvent: Event, items: [] }): this;

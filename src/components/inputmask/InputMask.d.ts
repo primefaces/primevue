@@ -1,11 +1,13 @@
-import Vue, { VNode } from 'vue';
-
-declare class InputMask extends Vue {
+interface InputMaskProps {
     modelValue?: string;
     slotChar?: string;
     mask?: string;
     autoClear?: boolean;
     unmask?: boolean;
+}
+
+declare class InputMask {
+    $props: InputMaskProps;
     $emit(eventName: 'input', value: string): this;
     $emit(eventName: 'focus', event: Event): this;
     $emit(eventName: 'blur', event: Event): this;

@@ -1,7 +1,9 @@
-import Vue from 'vue';
-
-declare class Menubar extends Vue {
+interface MenubarProps {
     model?: any[];
+}
+
+declare class Menubar {
+    $props: MenubarProps;
 }
 
 export default Menubar;

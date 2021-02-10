@@ -1,6 +1,6 @@
-import Vue, { VNode } from 'vue';
+import { VNode } from 'vue';
 
-declare class Dropdown extends Vue {
+interface DropdownProps {
     modelValue?: any;
     options?: any[];
     optionLabel?: string;
@@ -20,6 +20,10 @@ declare class Dropdown extends Vue {
     ariaLabelledBy?: string;
     appendTo?: string;
     emptyFilterMessage?: string;
+}
+
+declare class Dropdown {
+    $props: DropdownProps;
     $emit(eventName: 'input', value: string): this;
     $emit(eventName: 'change', e: { originalEvent: Event, value: string }): this;
     $emit(eventName: 'before-show'): this;

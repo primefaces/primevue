@@ -1,7 +1,9 @@
-import Vue from 'vue';
-
-declare class DataViewLayoutOptions extends Vue {
+interface DataViewLayoutOptionsProps {
     value?: string;
+}
+
+declare class DataViewLayoutOptions {
+    $props: DataViewLayoutOptionsProps;
     $emit(eventName: 'input', layout: string): this;
 }
 

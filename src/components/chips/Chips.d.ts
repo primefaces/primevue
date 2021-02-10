@@ -1,11 +1,15 @@
-import Vue, { VNode } from 'vue';
+import { VNode } from 'vue';
 
-declare class Chips extends Vue {
+interface ChipsProps {
     modelValue?: any[];
     max?: number;
     addOnBlur?: boolean;
     allowDuplicate?: boolean;
     separator?: string;
+}
+
+declare class Chips {
+    $props: ChipsProps;
     $emit(eventName: 'add', e: { originalEvent: Event, value: any }): this;
     $emit(eventName: 'remove', e: { originalEvent: Event, value: any }): this;
     $slots: {

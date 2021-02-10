@@ -1,6 +1,6 @@
-import Vue, { VNode } from 'vue';
+import { VNode } from 'vue';
 
-declare class AutoComplete extends Vue {
+interface AutoCompleteProps {
     modelValue?: any;
     suggestions?: any[];
     field?: string|Function;
@@ -14,6 +14,10 @@ declare class AutoComplete extends Vue {
     inputStyle?: any;
     inputClass?: string;
     forceSelection?: boolean;
+}
+
+declare class AutoComplete {
+    $props: AutoCompleteProps;
     $emit(eventName: 'item-select', e: {originalEvent: Event, value: any}): this;
     $emit(eventName: 'item-unselect', e: {originalEvent: Event, value: any}): this;
     $emit(eventName: 'dropdown-click', e: {originalEvent: Event, query: string}): this;

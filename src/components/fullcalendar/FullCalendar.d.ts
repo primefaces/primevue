@@ -1,8 +1,10 @@
-import Vue from 'vue';
-
-declare class FullCalendar extends Vue {
+interface FullCalendarProps {
     events?: any[];
     options?: object;
+}
+
+declare class FullCalendar {
+    $props: FullCalendarProps;
 }
 
 export default FullCalendar;

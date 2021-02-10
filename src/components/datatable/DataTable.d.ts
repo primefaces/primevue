@@ -1,6 +1,6 @@
-import Vue, {VNode} from 'vue';
+import { VNode } from 'vue';
 
-declare class DataTable extends Vue {
+interface DataTableProps {
     value?: any[];
     dataKey?: string;
     rows?: number;
@@ -58,6 +58,10 @@ declare class DataTable extends Vue {
     virtualScroll?: boolean;
     virtualRowHeight?: string;
     virtualScrollDelay?: number;
+}
+
+declare class DataTable {
+    $props: DataTableProps;
 
     $emit(eventName: 'page', event: Event): this;
     $emit(eventName: 'sort', event: Event): this;

@@ -1,7 +1,9 @@
-import Vue from 'vue';
-
-declare class ConfirmDialog extends Vue {
+interface ConfirmDialogProps {
     group?: string;
+}
+
+declare class ConfirmDialog {
+    $props: ConfirmDialogProps;
 }
 
 export default ConfirmDialog;

@@ -1,6 +1,4 @@
-import Vue from 'vue';
-
-declare class Column extends Vue {
+interface ColumnProps {
     columnKey?: any;
     field?: string;
     sortField?: string | ((item: any) => any);
@@ -16,7 +14,8 @@ declare class Column extends Vue {
     footerClass?: string;
     filterHeaderStyle?: object;
     filterHeaderClass?: string;
-    filterMatchMode?: string;
+    filterMenuStyle?: object;
+    filterMenuClass?: string;
     filterFunction?: Function;
     excludeGlobalFilter?: boolean;
     selectionMode?: string;
@@ -29,6 +28,10 @@ declare class Column extends Vue {
     rowEditor?: boolean;
     frozen?: boolean;
     exportable?: boolean;
+}
+
+declare class Column {
+    $props: ColumnProps;
 }
 
 export default Column;

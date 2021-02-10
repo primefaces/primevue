@@ -1,6 +1,6 @@
-import Vue, { VNode } from 'vue';
+import { VNode } from 'vue';
 
-declare class Calendar extends Vue {
+interface CalendarProps {
     modelValue?: Date | Date[];
     selectionMode?: string;
     dateFormat?: string;
@@ -41,6 +41,10 @@ declare class Calendar extends Vue {
     appendTo?: string;
     inputStyle?: any;
     inputClass?: string;
+}
+
+declare class Calendar {
+    $props: CalendarProps;
     $emit(eventName: 'show'): this;
     $emit(eventName: 'hide'): this;
     $emit(eventName: 'month-change', e: { month: number, year: number }): this;

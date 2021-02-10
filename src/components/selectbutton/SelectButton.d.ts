@@ -1,6 +1,6 @@
-import Vue, { VNode } from 'vue';
+import { VNode } from 'vue';
 
-declare class SelectButton extends Vue {
+interface SelectButtonProps {
     modelValue?: any;
     options?: any[];
     optionLabel?: string;
@@ -10,6 +10,10 @@ declare class SelectButton extends Vue {
     disabled?: boolean;
     dataKey?: string;
     ariaLabelledBy?: string;
+}
+
+declare class SelectButton {
+    $props: SelectButtonProps;
     $emit(eventName: 'focus', event: Event): this;
     $emit(eventName: 'blur', event: Event): this;
     $slots: {

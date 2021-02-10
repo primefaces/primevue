@@ -1,6 +1,6 @@
-import Vue, {VNode} from 'vue';
+import { VNode } from 'vue';
 
-declare class Dialog extends Vue {
+interface DialogProps {
     header?: any;
     footer?: any;
     visible?: boolean;
@@ -16,6 +16,10 @@ declare class Dialog extends Vue {
     ariaCloseLabel?: string;
     position?: string;
     maximizable?: boolean;
+}
+
+declare class Dialog {
+    $props: DialogProps;
     $emit(eventName: 'show'): this;
     $emit(eventName: 'hide'): this;
     $slots: {

@@ -1,7 +1,11 @@
-import Vue, { VNode } from 'vue';
+import { VNode } from 'vue';
 
-declare class TabView extends Vue {
+interface TabViewProps {
     activeIndex?: number;
+}
+
+declare class TabView {
+    $props: TabViewProps;
     $emit(eventName: 'tab-change', e: { originalEvent: Event, tab: any }): this;
     $slots: {
         '': VNode[];

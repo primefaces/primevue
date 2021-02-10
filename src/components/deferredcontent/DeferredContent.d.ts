@@ -1,6 +1,9 @@
-import Vue, {VNode} from 'vue';
+import { VNode } from 'vue';
 
-declare class DeferredContent extends Vue {
+interface DeferredContentProps {}
+
+declare class DeferredContent {
+    $props: DeferredContentProps;
     $emit(eventName: 'load'): this;
     $slots: {
         '': VNode[];

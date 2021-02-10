@@ -1,6 +1,6 @@
-import Vue, { VNode } from 'vue';
+import { VNode } from 'vue';
 
-declare class Listbox extends Vue {
+interface ListboxProps {
     modelValue?: any;
     options?: any[];
     optionLabel?: string;
@@ -16,6 +16,10 @@ declare class Listbox extends Vue {
     filterLocale?: string;
     ariaLabelledBy?: string;
     emptyFilterMessage?: string;
+}
+
+declare class Listbox {
+    $props: ListboxProps;
     $emit(eventName: 'input', value: any): this;
     $emit(eventName: 'change', e: { originalEvent: Event, value: any }): this;
     $emit(eventName: 'filter', e: { originalEvent: Event, value: string }): this;

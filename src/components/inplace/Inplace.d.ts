@@ -1,8 +1,12 @@
-import Vue, {VNode} from 'vue';
+import { VNode } from 'vue';
 
-declare class Inplace extends Vue {
+interface InplaceProps {
     closable?: boolean;
     active?: boolean;
+}
+
+declare class Inplace {
+    $props: InplaceProps;
     $slots: {
         display: VNode[];
         content: VNode[];

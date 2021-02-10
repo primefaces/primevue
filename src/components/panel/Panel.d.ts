@@ -1,9 +1,13 @@
-import Vue, {VNode} from 'vue';
+import { VNode } from 'vue';
 
-declare class Panel extends Vue {
+interface PanelProps {
     header?: string;
     toggleable?: boolean;
     collapsed?: boolean;
+}
+
+declare class Panel {
+    $props: PanelProps;
     $emit(eventName: 'toggle', e: { originalEvent: Event, value: boolean; }): this;
     $slots: {
         '': VNode[];

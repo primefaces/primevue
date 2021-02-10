@@ -1,8 +1,10 @@
-import Vue from 'vue';
-
-declare class Terminal extends Vue {
+interface TerminalProps {
     welcomeMessage?: string;
     prompt?: string;
+}
+
+declare class Terminal {
+    $props: TerminalProps;
 }
 
 export default Terminal;

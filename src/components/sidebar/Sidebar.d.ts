@@ -1,6 +1,6 @@
-import Vue, { VNode } from 'vue';
+import { VNode } from 'vue';
 
-declare class Sidebar extends Vue {
+interface SidebarProps {
     visible?: boolean;
     position?: string;
     baseZIndex?: number;
@@ -9,6 +9,10 @@ declare class Sidebar extends Vue {
     showCloseIcon?: boolean;
     modal?: boolean;
     ariaCloseLabel?: string;
+}
+
+declare class Sidebar {
+    $props: SidebarProps;
     $emit(eventName: 'show'): this;
     $emit(eventName: 'hide'): this;
     $slots: {

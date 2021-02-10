@@ -1,6 +1,6 @@
-import Vue, {VNode} from 'vue';
+import { VNode } from 'vue';
 
-declare class Galleria extends Vue {
+interface GalleriaProps {
     id?: string;
     value?: any;
     activeIndex?: number;
@@ -25,6 +25,10 @@ declare class Galleria extends Vue {
     maskClass?: string;
     containerStyle?: string;
     containerClass?: string;
+}
+
+declare class Galleria {
+    $props: GalleriaProps;
 	$slots: {
 		header: VNode[];
         footer: VNode[];

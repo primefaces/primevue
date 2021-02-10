@@ -1,8 +1,10 @@
-import Vue from 'vue';
-
-declare class Textarea extends Vue {
+interface TextareaProps {
     value?: string;
     autoResize?: boolean;
+}
+
+declare class Textarea {
+    $props: TextareaProps;
     $emit(eventName: 'input', value: string): this;
 }
 

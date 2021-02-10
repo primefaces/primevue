@@ -1,6 +1,6 @@
-import Vue, {VNode} from 'vue';
+import { VNode } from 'vue';
 
-declare class MultiSelect extends Vue {
+interface MultiSelectProps {
     modelValue?: any;
     options?: any[];
     optionLabel?: string;
@@ -19,6 +19,10 @@ declare class MultiSelect extends Vue {
     appendTo?: string;
     emptyFilterMessage?: string;
     display?: string;
+}
+
+declare class MultiSelect {
+    $props: MultiSelectProps;
     $emit(eventName: 'input', value: any): this;
     $emit(eventName: 'change', e: {originalEvent: Event, value: any}): this;
     $emit(eventName: 'before-show'): this;

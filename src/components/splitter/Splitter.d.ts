@@ -1,10 +1,12 @@
-import Vue from 'vue';
-
-declare class Splitter extends Vue {
+interface SplitterProps {
     layout?: string;
     gutterSize?: number;
     stateKey?: string;
     stateStorage?: string;
+}
+
+declare class Splitter {
+    $props: SplitterProps;
 }
 
 export default Splitter;

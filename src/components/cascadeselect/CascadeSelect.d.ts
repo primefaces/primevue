@@ -1,6 +1,6 @@
-import Vue, { VNode } from 'vue';
+import { VNode } from 'vue';
 
-declare class CascadeSelect extends Vue {
+interface CascadeSelectProps {
     modelValue?: any;
     options?: any[];
     optionLabel?: string;
@@ -14,6 +14,10 @@ declare class CascadeSelect extends Vue {
     inputId?: string;
     ariaLabelledBy?: string;
     appendTo?: string;
+}
+
+declare class CascadeSelect {
+    $props: CascadeSelectProps;
     $emit(eventName: 'update:modelValue', value: string): this;
     $emit(eventName: 'change', e: { originalEvent: Event, value: any }): this;
     $emit(eventName: 'change-group', e: { originalEvent: Event, value: any }): this;
