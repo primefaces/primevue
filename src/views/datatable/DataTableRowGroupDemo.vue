@@ -12,7 +12,7 @@
                 <h5>Subheader Grouping</h5>
                 <p>Group customers by their representative.</p>
                 <DataTable :value="customers" rowGroupMode="subheader" groupRowsBy="representative.name"
-                    sortMode="single" sortField="representative.name" :sortOrder="1">
+                    sortMode="single" sortField="representative.name" :sortOrder="1" scrollable scrollHeight="400px">
                     <Column field="representative.name" header="Representative"></Column>
                     <Column field="name" header="Name"></Column>
                     <Column field="country" header="Country">

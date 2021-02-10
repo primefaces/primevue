@@ -118,6 +118,35 @@
                     </Column>
                 </DataTable>
             </div>
+
+            <div class="card">
+                <h5>Subheader Grouping</h5>
+                <DataTable :value="customersGrouped" rowGroupMode="subheader" groupRowsBy="representative.name"
+                    sortMode="single" sortField="representative.name" :sortOrder="1" scrollable scrollHeight="400px">
+                    <Column field="representative.name" header="Representative"></Column>
+                    <Column field="name" header="Name"></Column>
+                    <Column field="country" header="Country">
+                        <template #body="slotProps">
+                            <img src="../../assets/images/flag_placeholder.png" :class="'flag flag-' + slotProps.data.country.code" width="30" />
+                            <span class="image-text">{{slotProps.data.country.name}}</span>
+                        </template>
+                    </Column>
+                    <Column field="company" header="Company"></Column>
+                    <Column field="status" header="Status">
+                        <template #body="slotProps">
+                            <span :class="'customer-badge status-' + slotProps.data.status">{{slotProps.data.status}}</span>
+                        </template>
+                    </Column>
+                    <Column field="date" header="Date"></Column>
+                    <template #groupheader="slotProps">
+                        <img :alt="slotProps.data.representative.name" :src="'demo/images/avatar/' + slotProps.data.representative.image" width="32" style="vertical-align: middle" />
+                        <span class="image-text">{{slotProps.data.representative.name}}</span>
+                    </template>
+                    <template #groupfooter="slotProps">
+                        <td style="text-align: right" class="p-text-bold p-pr-6">Total Customers: {{calculateCustomerTotal(slotProps.data.representative.name)}}</td>
+                    </template>
+                </DataTable>
+            </div>
 		</div>
 
         <div class="content-section documentation">
@@ -338,6 +367,7 @@ export default {
     data() {
         return {
            customers: null,
+           customersGrouped: null,
             virtualCustomers: null,
             lazyTotalRecords: 0,
             frozenValue: null,
@@ -570,6 +600,7 @@ export default {
             this.customers = data;
             this.loading = false;
         });
+        this.customerService.getCustomersMedium().then(data => this.customersGrouped = data);
         this.customerService.getCustomersXLarge().then(data => this.inmemoryData = data);
 
         this.frozenValue = [
@@ -638,6 +669,19 @@ export default {
         },
         formatCurrency(value) {
             return value.toLocaleString('en-US', {style: 'currency', currency: 'USD'});
+        },
+        calculateCustomerTotal(name) {
+            let total = 0;
+
+            if (this.customersGrouped) {
+                for (let customer of this.customersGrouped) {
+                    if (customer.representative.name === name) {
+                        total++;
+                    }
+                }
+            }
+
+            return total;
         }
     },
    components: {

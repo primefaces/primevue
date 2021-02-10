@@ -25,7 +25,7 @@
                         @column-dragstart="onColumnHeaderDragStart($event)" @column-dragover="onColumnHeaderDragOver($event)" @column-dragleave="onColumnHeaderDragLeave($event)" @column-drop="onColumnHeaderDrop($event)"
                         @column-resizestart="onColumnResizeStart($event)" @checkbox-change="toggleRowsWithCheckbox($event)" />
                 <DTTableBody v-if="frozenValue" :value="frozenValue" :frozenRow="true" class="p-datatable-frozen-tbody" :columns="columns" :dataKey="dataKey" :selection="selection" :selectionKeys="d_selectionKeys" :selectionMode="selectionMode" :contextMenu="contextMenu" :contextMenuSelection="contextMenuSelection"
-                    :rowGroupMode="rowGroupMode" :groupRowsBy="groupRowsBy" :expandableRowGroups="expandableRowGroups" :rowClass="rowClass" :editMode="editMode" :compareSelectionBy="compareSelectionBy"
+                    :rowGroupMode="rowGroupMode" :groupRowsBy="groupRowsBy" :expandableRowGroups="expandableRowGroups" :rowClass="rowClass" :editMode="editMode" :compareSelectionBy="compareSelectionBy" :scrollable="scrollable"
                     :expandedRowIcon="expandedRowIcon" :collapsedRowIcon="collapsedRowIcon" :expandedRows="expandedRows" :expandedRowKeys="d_expandedRowKeys" :expandedRowGroups="expandedRowGroups"
                     :editingRows="editingRows" :editingRowKeys="d_editingRowKeys" :templates="$slots" :loading="loading"
                     @rowgroup-toggle="toggleRowGroup" @row-click="onRowClick($event)" @row-rightclick="onRowRightClick($event)" @row-touchend="onRowTouchEnd" @row-keydown="onRowKeyDown"
@@ -34,7 +34,7 @@
                     @cell-edit-init="onCellEditInit($event)" @cell-edit-complete="onCellEditComplete($event)" @cell-edit-cancel="onCellEditCancel($event)"
                     @row-edit-init="onRowEditInit($event)" @row-edit-save="onRowEditSave($event)" @row-edit-cancel="onRowEditCancel($event)"/>
                 <DTTableBody :value="dataToRender" :columns="columns" :empty="empty" :dataKey="dataKey" :selection="selection" :selectionKeys="d_selectionKeys" :selectionMode="selectionMode" :contextMenu="contextMenu" :contextMenuSelection="contextMenuSelection"
-                    :rowGroupMode="rowGroupMode" :groupRowsBy="groupRowsBy" :expandableRowGroups="expandableRowGroups" :rowClass="rowClass" :editMode="editMode" :compareSelectionBy="compareSelectionBy"
+                    :rowGroupMode="rowGroupMode" :groupRowsBy="groupRowsBy" :expandableRowGroups="expandableRowGroups" :rowClass="rowClass" :editMode="editMode" :compareSelectionBy="compareSelectionBy" :scrollable="scrollable"
                     :expandedRowIcon="expandedRowIcon" :collapsedRowIcon="collapsedRowIcon" :expandedRows="expandedRows" :expandedRowKeys="d_expandedRowKeys" :expandedRowGroups="expandedRowGroups"
                     :editingRows="editingRows" :editingRowKeys="d_editingRowKeys" :templates="$slots" :loading="loading"
                     @rowgroup-toggle="toggleRowGroup" @row-click="onRowClick($event)" @row-rightclick="onRowRightClick($event)" @row-touchend="onRowTouchEnd" @row-keydown="onRowKeyDown"
@@ -1826,7 +1826,6 @@ export default {
 .p-datatable-flex-scrollable {
     display: flex;
     flex-direction: column;
-    flex: 1;
     height: 100%;
 }
 
@@ -1835,6 +1834,10 @@ export default {
     flex-direction: column;
     flex: 1;
     height: 100%;
+}
+
+.p-datatable-scrollable .p-rowgroup-header {
+    position: sticky;
 }
 
 /* Resizable */

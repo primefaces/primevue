@@ -2,7 +2,7 @@
     <tbody class="p-datatable-tbody" role="rowgroup">
         <template v-if="!empty">
             <template v-for="(rowData, index) of value" :key="getRowKey(rowData, index) + '_subheader'">
-                <tr class="p-rowgroup-header" v-if="templates['groupheader'] && rowGroupMode === 'subheader' && shouldRenderRowGroupHeader(value, rowData, index)"  role="row">
+                <tr class="p-rowgroup-header" :style="rowGroupHeaderStyle" v-if="templates['groupheader'] && rowGroupMode === 'subheader' && shouldRenderRowGroupHeader(value, rowData, index)" role="row">
                     <td :colspan="columnsLength - 1">
                         <button class="p-row-toggler p-link" @click="onRowGroupToggle($event, rowData)" v-if="expandableRowGroups" type="button">
                             <span :class="rowGroupTogglerIcon(rowData)"></span>
@@ -152,16 +152,33 @@ export default {
         templates: {
             type: null,
             default: null
+        },
+        scrollable: {
+            type: Boolean,
+            default: false
         }
     },
     mounted() {
         if (this.frozenRow) {
-            this.updateStickyPosition();
+            this.updateFrozenRowStickyPosition();
+        }
+
+        if (this.scrollable && this.rowGroupMode === 'subheader') {
+            this.updateFrozenRowGroupHeaderStickyPosition();
         }
     },
     updated() {
         if (this.frozenRow) {
-            this.updateStickyPosition();
+            this.updateFrozenRowStickyPosition();
+        }
+
+        if (this.scrollable && this.rowGroupMode === 'subheader') {
+            this.updateFrozenRowGroupHeaderStickyPosition();
+        }
+    },
+    data() {
+        return {
+            rowGroupHeaderStyleObject: {}
         }
     },
     methods: {
@@ -422,13 +439,24 @@ export default {
         onRowEditCancel(event) {
             this.$emit('row-edit-cancel', event);
         },
-        updateStickyPosition() {
+        updateFrozenRowStickyPosition() {
             this.$el.style.top = DomHandler.getOuterHeight(this.$el.previousElementSibling) + 'px';
+        },
+        updateFrozenRowGroupHeaderStickyPosition() {
+            let tableHeaderHeight = DomHandler.getOuterHeight(this.$el.previousElementSibling);
+            this.rowGroupHeaderStyleObject.top = tableHeaderHeight + 'px'
         }
     },
     computed: {
         columnsLength() {
             return this.columns ? this.columns.length : 0;
+        },
+        rowGroupHeaderStyle() {
+            if (this.scrollable) {
+                return {top: this.rowGroupHeaderStyleObject.top};
+            }
+            
+            return null;
         }
     },
     components: {
