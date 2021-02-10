@@ -64,7 +64,7 @@ function addEntry(folder, inFile, outFile) {
             },
             {
                 format: 'iife',
-                name: folder,
+                name: 'primevue.' + folder,
                 file: 'dist/' + folder + '/' + outFile + '.min.js',
                 globals: globalDependencies
             }
