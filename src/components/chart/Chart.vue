@@ -68,6 +68,8 @@ export default {
 
                 if (element && element[0] && dataset) {
                     this.$emit('select', {originalEvent: event, element: element[0], dataset: dataset});
+                } else {
+                    this.$emit('click', event);
                 }
             }
         },

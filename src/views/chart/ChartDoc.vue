@@ -176,7 +176,14 @@ options: {
                             event.element._datasetIndex = Index of the dataset in data<br>
                             event.element._index = Index of the data in dataset
                         </td>
-                        <td>Callback to invoke when a tab gets expanded.</td>
+                        <td>Callback to invoke when chart elemnts gets selected.</td>
+                    </tr>
+                    <tr>
+                        <td>click</td>
+                        <td>
+                            event: original event
+                        </td>
+                        <td>Callback to invoke when chart empty area gets clicked.</td>
                     </tr>
                 </tbody>
             </table>
