@@ -66,17 +66,17 @@ import Dialog from 'primevue/dialog/sfc';
 
             <h5>Script Tag</h5>
             <p>Other alternative is utilizing the components directly within the browser with the <i>iife</i> build. Note that PrimeVue does not provide a <i>umd</i> build.</p>
-<pre v-code><code>
+<pre v-code><code><template v-pre>
 &lt;html&gt;
     &lt;head&gt;
         &lt;meta charset="utf-8"&gt;
         &lt;title&gt;PrimeVue Demo&lt;/title&gt;
-        &lt;link href="https://unpkg.com/primevue/resources/themes/saga-blue/theme.cs " rel="stylesheet"&gt;
+        &lt;link href="https://unpkg.com/primevue/resources/themes/saga-blue/theme.css" rel="stylesheet"&gt;
         &lt;link href="https://unpkg.com/primevue/resources/primevue.min.css" rel="stylesheet"&gt;
         &lt;link href="https://unpkg.com/primeicons/primeicons.css" rel="stylesheet"&gt;
 
         &lt;script src="https://unpkg.com/vue@next"&gt;&lt;/script&gt;
-        &lt;script src="https://unpkg.com/primevue/inputtext"&gt;&lt;/script&gt;
+        &lt;script src="https://unpkg.com/primevue/inputtext/inputtext.min.js"&gt;&lt;/script&gt;
     &lt;/head&gt;
 
     &lt;body&gt;
@@ -105,7 +105,7 @@ import Dialog from 'primevue/dialog/sfc';
         &lt;/script&gt;
     &lt;/body&gt;
 &lt;/html&gt;
-
+</template>
 </code></pre>
 
             <h5>Dependencies</h5>
