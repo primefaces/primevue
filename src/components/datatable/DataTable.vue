@@ -64,6 +64,7 @@
 </template>
 
 <script>
+import {defineComponent} from 'vue';
 import {ObjectUtils,DomHandler} from 'primevue/utils';
 import {FilterMatchMode,FilterOperator,FilterService} from 'primevue/api';
 import Paginator from 'primevue/paginator';
@@ -71,7 +72,7 @@ import TableHeader from './TableHeader.vue';
 import TableBody from './TableBody.vue';
 import TableFooter from './TableFooter.vue';
 
-export default {
+export default defineComponent({
     emits: ['update:first', 'update:rows', 'page', 'update:sortField', 'update:sortOrder', 'update:multiSortMeta', 'sort', 'filter', 'row-click',
         'update:selection', 'row-select', 'row-unselect', 'update:contextMenuSelection', 'row-contextmenu', 'row-unselect-all', 'row-select-all',
         'column-resize-end', 'column-reorder', 'row-reorder', 'update:expandedRows', 'row-collapse', 'row-expand',
@@ -1731,7 +1732,7 @@ export default {
         'DTTableBody': TableBody,
         'DTTableFooter': TableFooter,
     }
-}
+});
 </script>
 
 <style>
