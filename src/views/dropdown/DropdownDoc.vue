@@ -95,7 +95,6 @@ export default {
                 In addition <i>value</i>, <i>optiongroup</i>, <i>header</i>, <i>footer</i>, <i>emptyfilter</i> and <i>empty</i> slots are provided for further customization.</p>
 <pre v-code><code><template v-pre>
 &lt;Dropdown v-model="selectedCar" :options="cars" optionLabel="brand" :filter="true" placeholder="Select a Car" :showClear="true"&gt;
-    &lt;template #header&gt;&lt;/template&gt;
     &lt;template #value="slotProps"&gt;
         &lt;div class="p-dropdown-car-value" v-if="slotProps.value"&gt;
             &lt;img :alt="slotProps.value.brand" :src="'demo/images/car/' + slotProps.value.brand + '.png'" /&gt;
@@ -111,7 +110,6 @@ export default {
 			&lt;span&gt;{{slotProps.option.brand}}&lt;/span&gt;
 		&lt;/div&gt;
 	&lt;/template&gt;
-    &lt;template #footer&gt;&lt;/template&gt;
 &lt;/Dropdown&gt;
 </template>
 </code></pre>

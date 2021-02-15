@@ -103,7 +103,6 @@ export default {
                 In addition <i>value</i>, <i>optiongroup</i>, <i>header</i>, <i>footer</i>, <i>emptyfilter</i> and <i>empty</i> slots are provided for further customization.</p>
 <pre v-code><code><template v-pre>
 &lt;MultiSelect v-model="selectedCars2" :options="cars" optionLabel="brand" placeholder="Select a Car"&gt;
-    &lt;template #header&gt;&lt;/template&gt;
 	&lt;template #value="slotProps"&gt;
 		&lt;div class="p-multiselect-car-token" v-for="option of slotProps.value" :key="option.brand"&gt;
 			&lt;img :alt="option.brand" :src="'demo/images/car/' + option.brand + '.png'" /&gt;
@@ -119,7 +118,6 @@ export default {
 			&lt;span&gt;{{slotProps.option.brand}}&lt;/span&gt;
 		&lt;/div&gt;
 	&lt;/template&gt;
-    &lt;template #footer&gt;&lt;/template&gt;
 &lt;/MultiSelect&gt;
 </template>
 </code></pre>
