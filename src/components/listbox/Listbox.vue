@@ -11,9 +11,9 @@
             <ul class="p-listbox-list" role="listbox" aria-multiselectable="multiple">
                 <template v-if="!optionGroupLabel">
                     <li v-for="(option, i) of visibleOptions" :tabindex="isOptionDisabled(option) ? null : '0'" :class="['p-listbox-item', {'p-highlight': isSelected(option), 'p-disabled': isOptionDisabled(option)}]" v-ripple
-                    :key="getOptionRenderKey(option)" @click="onOptionSelect($event, option)" @touchend="onOptionTouchEnd()" @keydown="onOptionKeyDown($event, option)" role="option" :aria-label="getOptionLabel(option)" :aria-selected="isSelected(option)" >
-                    <slot name="option" :option="option" :index="i">{{getOptionLabel(option)}} </slot>
-                </li>
+                        :key="getOptionRenderKey(option)" @click="onOptionSelect($event, option)" @touchend="onOptionTouchEnd()" @keydown="onOptionKeyDown($event, option)" role="option" :aria-label="getOptionLabel(option)" :aria-selected="isSelected(option)" >
+                        <slot name="option" :option="option" :index="i">{{getOptionLabel(option)}} </slot>
+                    </li>
                 </template>
                 <template v-else>
                     <template v-for="(optionGroup, i) of visibleOptions" :key="getOptionGroupRenderKey(optionGroup)">
@@ -288,7 +288,7 @@ export default {
             }
             else {
                 return this.options;
-            }                
+            }          
         },
         equalityKey() {
             return this.optionValue ? null : this.dataKey;
