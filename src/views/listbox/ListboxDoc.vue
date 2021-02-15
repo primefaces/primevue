@@ -40,22 +40,73 @@ data() {
 
 </code></pre>
 
-				<h5>Custom Content</h5>
-				<p>Label of an option is used as the display text of an item by default, for custom content support define an <i>option</i> template that gets the option instance as a parameter.</p>
+				<h5>Templating</h5>
+				<p>Label of an option is used as the display text of an item by default, for custom content support define an <i>option</i> template that gets the option instance as a parameter. When grouping is enabled, use <i>optiongroup</i> to customize the group content.
+                In addition <i>optiongroup</i>, <i>header</i>, <i>footer</i>, <i>emptyfilter</i> and <i>empty</i> slots are provided for further customization.</p>
 <pre v-code><code><template v-pre>
 &lt;Listbox v-model="selectedCars" :options="cars" :multiple="true" :filter="true" optionLabel="brand" listStyle="max-height:250px" style="width:15em"&gt;
-	&lt;template #option="slotProps"&gt;
+	&lt;template #header&gt;&lt;/template&gt;
+    &lt;template #option="slotProps"&gt;
 		&lt;div&gt;
 			&lt;img :alt="slotProps.option.brand" :src="'demo/images/car/' + slotProps.option.brand + '.png'" /&gt;
 			&lt;span&gt;{{slotProps.option.brand}}&lt;/span&gt;
 		&lt;/div&gt;
 	&lt;/template&gt;
+    &lt;template #footer&gt;&lt;/footer&gt;
 &lt;/Listbox&gt;
 </template>
 </code></pre>
 
+                <h5>Grouping</h5>
+				<p>Options groups are specified with the <i>optionGroupLabel</i> and <i>optionGroupChildren</i> properties.</p>
+<pre v-code.script><code>
+export default {
+    data() {
+        return {
+            selectedGroupedCity: null,
+            groupedCities: [{
+                label: 'Germany', code: 'DE', 
+                items: [
+                    {label: 'Berlin', value: 'Berlin'},
+                    {label: 'Frankfurt', value: 'Frankfurt'},
+                    {label: 'Hamburg', value: 'Hamburg'},
+                    {label: 'Munich', value: 'Munich'}
+                ]
+            },
+            {
+                label: 'USA', code: 'US', 
+                items: [
+                    {label: 'Chicago', value: 'Chicago'},
+                    {label: 'Los Angeles', value: 'Los Angeles'},
+                    {label: 'New York', value: 'New York'},
+                    {label: 'San Francisco', value: 'San Francisco'}
+                ]
+            },
+            {
+                label: 'Japan', code: 'JP', 
+                items: [
+                    {label: 'Kyoto', value: 'Kyoto'},
+                    {label: 'Osaka', value: 'Osaka'},
+                    {label: 'Tokyo', value: 'Tokyo'},
+                    {label: 'Yokohama', value: 'Yokohama'}
+                ]
+            }]
+        }
+    }
+}
+</code></pre>
+
+<pre v-code><code><template v-pre>
+<Listbox v-model="selectedGroupedCity" :options="groupedCities" 
+        optionLabel="label" optionGroupLabel="label" optionGroupChildren="items">
+</Listbox>
+</template>
+</code></pre>
+
 				<h5>Filter</h5>
-				<p>Filtering allows searching items in the list using an input field at the header. In order to use filtering, enable <i>filter</i> property.</p>
+				<p>Filtering allows searching items in the list using an input field at the header. In order to use filtering, enable <i>filter</i> property. By default,
+                optionLabel is used when searching and <i>filterFields</i> can be used to customize the fields being utilized. Furthermore, <i>filterMatchMode</i> is available
+                to define the search algorithm. Valid values are "contains" (default), "startsWith" and "endsWith".</p>
 <pre v-code><code>
 &lt;Listbox v-model="selectedCity" :options="cities" optionLabel="name" :filter="true"/&gt;
 
@@ -103,6 +154,18 @@ data() {
                                 <td>boolean</td>
                                 <td>null</td>
                                 <td>Property name or getter function to use as the disabled flag of an option, defaults to false when not defined.</td>
+                            </tr>
+                            <tr>
+                                <td>optionGroupLabel</td>
+                                <td>string</td>
+                                <td>null</td>
+                                <td>Property name or getter function to use as the label of an option group.</td>
+                            </tr>
+                            <tr>
+                                <td>optionGroupChildren</td>
+                                <td>string</td>
+                                <td>null</td>
+                                <td>Property name or getter function that refers to the children options of option group.</td>
                             </tr>
                             <tr>
                                 <td>listStyle</td>
@@ -154,10 +217,28 @@ data() {
                                 <td>Locale to use in filtering. The default locale is the host environment's current locale.</td>
                             </tr>
                             <tr>
+                                <td>filterMatchMode</td>
+                                <td>string</td>
+                                <td>contains</td>
+                                <td>Defines the filtering algorithm to use when searching the options. Valid values are "contains" (default), "startsWith" and "endsWith"</td>
+                            </tr>
+                            <tr>
+                                <td>filterFields</td>
+                                <td>array</td>
+                                <td>null</td>
+                                <td>Fields used when filtering the options, defaults to optionLabel.</td>
+                            </tr>
+                            <tr>
                                 <td>emptyFilterMessage</td>
                                 <td>string</td>
                                 <td>No results found</td>
-                                <td>Text to display when filtering does not return any results.</td>
+                                <td>Text to display when filtering does not return any results. Defaults to value from PrimeVue locale configuration.</td>
+                            </tr>
+                            <tr>
+                                <td>emptyMessage</td>
+                                <td>string</td>
+                                <td>No results found</td>
+                                <td>Text to display when there are no options available. Defaults to value from PrimeVue locale configuration.</td>
                             </tr>
 						</tbody>
 					</table>
@@ -189,6 +270,48 @@ data() {
 						</tbody>
 					</table>
 				</div>
+
+                <h5>Slots</h5>
+				<div class="doc-tablewrapper">
+                    <table class="doc-table">
+						<thead>
+                            <tr>
+                                <th>Name</th>
+                                <th>Parameters</th>
+                            </tr>
+						</thead>
+						<tbody>
+                            <tr>
+                                <td>option</td>
+                                <td>option: Option instance <br />
+                                    index: Index of the option</td>
+                            </tr>
+                            <tr>
+                                <td>optiongroup</td>
+                                <td>option: OptionGroup instance <br />
+                                    index: Index of the option group</td>
+                            </tr>
+                            <tr>
+                                <td>header</td>
+                                <td>value: Value of the component <br />
+                                    options: Displayed options</td>
+                            </tr>
+                            <tr>
+                                <td>footer</td>
+                                <td>value: Value of the component <br />
+                                    options: Displayed options</td>
+                            </tr>
+                            <tr>
+                                <td>emptyfilter</td>
+                                <td>-</td>
+                            </tr>
+                            <tr>
+                                <td>empty</td>
+                                <td>-</td>
+                            </tr>
+						</tbody>
+					</table>
+                </div>
 
 				<h5>Styling</h5>
 				<p>Following is the list of structural style classes, for theming classes visit <router-link to="/theming">theming</router-link> page.</p>
@@ -240,8 +363,18 @@ data() {
 &lt;h5&gt;Single&lt;/h5&gt;
 &lt;Listbox v-model="selectedCity" :options="cities" optionLabel="name" style="width:15rem" /&gt;
 
+&lt;h5&gt;Grouped&lt;/h5&gt;
+&lt;Listbox v-model="selectedGroupedCity" :options="groupedCities" optionLabel="label" style="width:15rem" optionGroupLabel="label" optionGroupChildren="items" listStyle="max-height:250px"&gt;
+    &lt;template #optiongroup="slotProps"&gt;
+        &lt;div class="p-d-flex p-ai-center country-item"&gt;
+            &lt;img src="../../assets/images/flag_placeholder.png" :class="'flag flag-' + slotProps.option.code.toLowerCase()" width="18" /&gt;
+            &lt;div&gt;{{slotProps.option.label}}&lt;/div&gt;
+        &lt;/div&gt;
+    &lt;/template&gt;
+&lt;/Listbox&gt;
+
 &lt;h5&gt;Advanced with Templating, Filtering and Multiple Selection&lt;/h5&gt;
-&lt;Listbox v-model="selectedCountries" :options="countries" :multiple="true" :filter="true" optionLabel="name" listStyle="max-height:250px" style="width:15rem"&gt;
+&lt;Listbox v-model="selectedCountries" :options="countries" :multiple="true" :filter="true" optionLabel="name" listStyle="max-height:250px" style="width:15rem" filterPlaceholder="Search"&gt;
     &lt;template #option="slotProps"&gt;
         &lt;div class="country-item"&gt;
             &lt;img src="../../assets/images/flag_placeholder.png" :class="'flag flag-' + slotProps.option.code.toLowerCase()" /&gt;
@@ -258,6 +391,7 @@ export default {
         return {
             selectedCity: null,
             selectedCountries: null,
+            selectedGroupedCity: null,
             cities: [
                 {name: 'New York', code: 'NY'},
                 {name: 'Rome', code: 'RM'},
@@ -276,7 +410,34 @@ export default {
                 {name: 'Japan', code: 'JP'},
                 {name: 'Spain', code: 'ES'},
                 {name: 'United States', code: 'US'}
-            ]
+            ],
+            groupedCities: [{
+                label: 'Germany', code: 'DE', 
+                items: [
+                    {label: 'Berlin', value: 'Berlin'},
+                    {label: 'Frankfurt', value: 'Frankfurt'},
+                    {label: 'Hamburg', value: 'Hamburg'},
+                    {label: 'Munich', value: 'Munich'}
+                ]
+            },
+            {
+                label: 'USA', code: 'US', 
+                items: [
+                    {label: 'Chicago', value: 'Chicago'},
+                    {label: 'Los Angeles', value: 'Los Angeles'},
+                    {label: 'New York', value: 'New York'},
+                    {label: 'San Francisco', value: 'San Francisco'}
+                ]
+            },
+            {
+                label: 'Japan', code: 'JP', 
+                items: [
+                    {label: 'Kyoto', value: 'Kyoto'},
+                    {label: 'Osaka', value: 'Osaka'},
+                    {label: 'Tokyo', value: 'Tokyo'},
+                    {label: 'Yokohama', value: 'Yokohama'}
+                ]
+            }]
         }
     }
 }
@@ -301,11 +462,21 @@ export default {
                 <h5>Single</h5>
                 <Listbox v-model="selectedCity" :options="cities" optionLabel="name" style="width:15rem" />
 
+                <h5>Grouped</h5>
+                <Listbox v-model="selectedGroupedCity" :options="groupedCities" optionLabel="label" style="width:15rem" optionGroupLabel="label" optionGroupChildren="items" listStyle="max-height:250px">
+                    <template #optiongroup="slotProps">
+                        <div class="p-d-flex p-ai-center country-item">
+                            <img src="../../assets/images/flag_placeholder.png" :class="'flag flag-' + slotProps.option.code.toLowerCase()" width="18" />
+                            <div>{{slotProps.option.label}}</div>
+                        </div>
+                    </template>
+                </Listbox>
+
                 <h5>Advanced with Templating, Filtering and Multiple Selection</h5>
-                <Listbox v-model="selectedCountries" :options="countries" :multiple="true" :filter="true" optionLabel="name" listStyle="max-height:250px" style="width:15rem">
+                <Listbox v-model="selectedCountries" :options="countries" :multiple="true" :filter="true" optionLabel="name" listStyle="max-height:250px" style="width:15rem" filterPlaceholder="Search">
                     <template #option="slotProps">
                         <div class="country-item">
-                            <img src="https://www.primefaces.org/wp-content/uploads/2020/05/placeholder.png" style="width: 18px; margin-right: .5rem;"/>
+                            <img src="../../assets/images/flag_placeholder.png" :class="'flag flag-' + slotProps.option.code.toLowerCase()" />
                             <div>{{slotProps.option.name}}</div>
                         </div>
                     </template>
@@ -321,6 +492,7 @@ export default {
         return {
             selectedCity: null,
             selectedCountries: null,
+            selectedGroupedCity: null,
             cities: [
                 {name: 'New York', code: 'NY'},
                 {name: 'Rome', code: 'RM'},
@@ -339,7 +511,34 @@ export default {
                 {name: 'Japan', code: 'JP'},
                 {name: 'Spain', code: 'ES'},
                 {name: 'United States', code: 'US'}
-            ]
+            ],
+            groupedCities: [{
+                label: 'Germany', code: 'DE', 
+                items: [
+                    {label: 'Berlin', value: 'Berlin'},
+                    {label: 'Frankfurt', value: 'Frankfurt'},
+                    {label: 'Hamburg', value: 'Hamburg'},
+                    {label: 'Munich', value: 'Munich'}
+                ]
+            },
+            {
+                label: 'USA', code: 'US', 
+                items: [
+                    {label: 'Chicago', value: 'Chicago'},
+                    {label: 'Los Angeles', value: 'Los Angeles'},
+                    {label: 'New York', value: 'New York'},
+                    {label: 'San Francisco', value: 'San Francisco'}
+                ]
+            },
+            {
+                label: 'Japan', code: 'JP', 
+                items: [
+                    {label: 'Kyoto', value: 'Kyoto'},
+                    {label: 'Osaka', value: 'Osaka'},
+                    {label: 'Tokyo', value: 'Tokyo'},
+                    {label: 'Yokohama', value: 'Yokohama'}
+                ]
+            }]
         }
     }
 }`

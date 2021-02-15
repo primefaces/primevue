@@ -130,7 +130,8 @@
             "children": [
                 {
                     "name": "AutoComplete",
-                    "to": "/autocomplete"
+                    "to": "/autocomplete",
+                    "badge": "New"
                 },
                 {
                     "name": "Calendar",
@@ -154,7 +155,8 @@
                 },
                 {
                     "name": "Dropdown",
-                    "to": "/dropdown"
+                    "to": "/dropdown",
+                    "badge": "New"
                 },
                 {
                     "name": "Editor",
@@ -194,11 +196,13 @@
                 },
                 {
                     "name": "Listbox",
-                    "to": "/listbox"
+                    "to": "/listbox",
+                    "badge": "New"
                 },
                 {
                     "name": "MultiSelect",
-                    "to": "/multiselect"
+                    "to": "/multiselect",
+                    "badge": "New"
                 },
                 {
                     "name": "Password",

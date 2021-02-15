@@ -13,8 +13,18 @@
                 <h5>Single</h5>
                 <Listbox v-model="selectedCity" :options="cities" optionLabel="name" style="width:15rem" />
 
+                <h5>Grouped</h5>
+                <Listbox v-model="selectedGroupedCity" :options="groupedCities" optionLabel="label" style="width:15rem" optionGroupLabel="label" optionGroupChildren="items" listStyle="max-height:250px">
+                    <template #optiongroup="slotProps">
+                        <div class="p-d-flex p-ai-center country-item">
+                            <img src="../../assets/images/flag_placeholder.png" :class="'flag flag-' + slotProps.option.code.toLowerCase()" width="18" />
+                            <div>{{slotProps.option.label}}</div>
+                        </div>
+                    </template>
+                </Listbox>
+
                 <h5>Advanced with Templating, Filtering and Multiple Selection</h5>
-                <Listbox v-model="selectedCountries" :options="countries" :multiple="true" :filter="true" optionLabel="name" listStyle="max-height:250px" style="width:15rem">
+                <Listbox v-model="selectedCountries" :options="countries" :multiple="true" :filter="true" optionLabel="name" listStyle="max-height:250px" style="width:15rem" filterPlaceholder="Search">
                     <template #option="slotProps">
                         <div class="country-item">
                             <img src="../../assets/images/flag_placeholder.png" :class="'flag flag-' + slotProps.option.code.toLowerCase()" />
@@ -37,6 +47,7 @@ export default {
         return {
             selectedCity: null,
             selectedCountries: null,
+            selectedGroupedCity: null,
             cities: [
                 {name: 'New York', code: 'NY'},
                 {name: 'Rome', code: 'RM'},
@@ -55,7 +66,34 @@ export default {
                 {name: 'Japan', code: 'JP'},
                 {name: 'Spain', code: 'ES'},
                 {name: 'United States', code: 'US'}
-            ]
+            ],
+            groupedCities: [{
+                label: 'Germany', code: 'DE', 
+                items: [
+                    {label: 'Berlin', value: 'Berlin'},
+                    {label: 'Frankfurt', value: 'Frankfurt'},
+                    {label: 'Hamburg', value: 'Hamburg'},
+                    {label: 'Munich', value: 'Munich'}
+                ]
+            },
+            {
+                label: 'USA', code: 'US', 
+                items: [
+                    {label: 'Chicago', value: 'Chicago'},
+                    {label: 'Los Angeles', value: 'Los Angeles'},
+                    {label: 'New York', value: 'New York'},
+                    {label: 'San Francisco', value: 'San Francisco'}
+                ]
+            },
+            {
+                label: 'Japan', code: 'JP', 
+                items: [
+                    {label: 'Kyoto', value: 'Kyoto'},
+                    {label: 'Osaka', value: 'Osaka'},
+                    {label: 'Tokyo', value: 'Tokyo'},
+                    {label: 'Yokohama', value: 'Yokohama'}
+                ]
+            }]
         }
     },
     components: {

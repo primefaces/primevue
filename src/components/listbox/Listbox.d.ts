@@ -6,6 +6,8 @@ interface ListboxProps {
     optionLabel?: string;
     optionValue?: any;
     optionDisabled?: boolean;
+    optionGroupLabel?: string;
+    optionGroupChildren?: string;
     listStyle?: string;
     disabled?: boolean;
     dataKey?: string;
@@ -14,8 +16,11 @@ interface ListboxProps {
     filter?: boolean;
     filterPlaceholder?: string;
     filterLocale?: string;
+    filterMatchMode?: string;
+    filterFields?: string[];
     ariaLabelledBy?: string;
     emptyFilterMessage?: string;
+    emptyMessage?: string;
 }
 
 declare class Listbox {
