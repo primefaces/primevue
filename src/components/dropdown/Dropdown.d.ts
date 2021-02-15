@@ -6,10 +6,14 @@ interface DropdownProps {
     optionLabel?: string;
     optionValue?: any;
     optionDisabled?: boolean;
+    optionGroupLabel?: string;
+    optionGroupChildren?: string;
     scrollHeight?: string;
     filter?: boolean;
     filterPlaceholder?: string;
     filterLocale?: string;
+    filterMatchMode?: string;
+    filterFields?: string[];
     editable?: boolean;
     placeholder?: string;
     disabled?: boolean;
@@ -20,6 +24,7 @@ interface DropdownProps {
     ariaLabelledBy?: string;
     appendTo?: string;
     emptyFilterMessage?: string;
+    emptyMessage?: string;
 }
 
 declare class Dropdown {
