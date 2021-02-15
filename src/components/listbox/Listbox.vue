@@ -253,7 +253,7 @@ export default {
             let nextItem = item.nextElementSibling;
 
             if (nextItem)
-                return DomHandler.hasClass(nextItem, 'p-disabled') ? this.findNextOption(nextItem) : nextItem;
+                return DomHandler.hasClass(nextItem, 'p-disabled') || DomHandler.hasClass(nextItem, 'p-listbox-item-group') ? this.findNextItem(nextItem) : nextItem;
             else
                 return null;
         },
@@ -261,7 +261,7 @@ export default {
             let prevItem = item.previousElementSibling;
 
             if (prevItem)
-                return DomHandler.hasClass(prevItem, 'p-disabled') ? this.findPrevItem(prevItem) : prevItem;
+                return DomHandler.hasClass(prevItem, 'p-disabled') || DomHandler.hasClass(prevItem, 'p-listbox-item-group') ? this.findPrevItem(prevItem) : prevItem;
             else
                 return null;
         },
