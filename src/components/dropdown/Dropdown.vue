@@ -706,6 +706,10 @@ input.p-dropdown-label  {
     overflow: hidden;
 }
 
+.p-dropdown-item-group {
+    cursor: auto;
+}
+
 .p-dropdown-items {
     margin: 0;
     padding: 0;

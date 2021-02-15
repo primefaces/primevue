@@ -42,11 +42,68 @@ data() {
 
 </code></pre>
 
-				<h5>Custom Content</h5>
-				<p>Label of an option is used as the display text of an item by default, for custom content support define an <i>option</i> template that gets the option instance as a parameter.</p>
-				<p>In addition the <i>value</i> template can be used to customize the selected values display instead of the default comma separated list.</p>
+                <h5>Grouping</h5>
+				<p>Options groups are specified with the <i>optionGroupLabel</i> and <i>optionGroupChildren</i> properties.</p>
+<pre v-code.script><code>
+export default {
+    data() {
+        return {
+            selectedGroupedCities: null,
+            groupedCities: [{
+                label: 'Germany', code: 'DE', 
+                items: [
+                    {label: 'Berlin', value: 'Berlin'},
+                    {label: 'Frankfurt', value: 'Frankfurt'},
+                    {label: 'Hamburg', value: 'Hamburg'},
+                    {label: 'Munich', value: 'Munich'}
+                ]
+            },
+            {
+                label: 'USA', code: 'US', 
+                items: [
+                    {label: 'Chicago', value: 'Chicago'},
+                    {label: 'Los Angeles', value: 'Los Angeles'},
+                    {label: 'New York', value: 'New York'},
+                    {label: 'San Francisco', value: 'San Francisco'}
+                ]
+            },
+            {
+                label: 'Japan', code: 'JP', 
+                items: [
+                    {label: 'Kyoto', value: 'Kyoto'},
+                    {label: 'Osaka', value: 'Osaka'},
+                    {label: 'Tokyo', value: 'Tokyo'},
+                    {label: 'Yokohama', value: 'Yokohama'}
+                ]
+            }]
+        }
+    }
+}
+</code></pre>
+
+<pre v-code><code><template v-pre>
+&lt;MultiSelect v-model="selectedGroupedCities" :options="groupedCities" 
+        optionLabel="label" optionGroupLabel="label" optionGroupChildren="items"&gt;
+&lt;/MultiSelect&gt;
+</template>
+</code></pre>
+
+				<h5>Filtering</h5>
+				<p>Filtering allows searching items in the list using an input field at the header. In order to use filtering, enable <i>filter</i> property. By default,
+                optionLabel is used when searching and <i>filterFields</i> can be used to customize the fields being utilized. Furthermore, <i>filterMatchMode</i> is available
+                to define the search algorithm. Valid values are "contains" (default), "startsWith" and "endsWith".</p>
+
+<pre v-code><code>
+&lt;MultiSelect v-model="selectedCars" :options="cars" :filter="true" optionLabel="brand" placeholder="Select Brands"/&gt;
+
+</code></pre>
+
+				<h5>Templating</h5>
+				<p>Label of an option is used as the display text of an item by default, for custom content support define an <i>option</i> template that gets the option instance as a parameter.
+                In addition <i>value</i>, <i>optiongroup</i>, <i>header</i>, <i>footer</i>, <i>emptyfilter</i> and <i>empty</i> slots are provided for further customization.</p>
 <pre v-code><code><template v-pre>
 &lt;MultiSelect v-model="selectedCars2" :options="cars" optionLabel="brand" placeholder="Select a Car"&gt;
+    &lt;template #header&gt;&lt;/template&gt;
 	&lt;template #value="slotProps"&gt;
 		&lt;div class="p-multiselect-car-token" v-for="option of slotProps.value" :key="option.brand"&gt;
 			&lt;img :alt="option.brand" :src="'demo/images/car/' + option.brand + '.png'" /&gt;
@@ -62,15 +119,9 @@ data() {
 			&lt;span&gt;{{slotProps.option.brand}}&lt;/span&gt;
 		&lt;/div&gt;
 	&lt;/template&gt;
+    &lt;template #footer&gt;&lt;/template&gt;
 &lt;/MultiSelect&gt;
 </template>
-</code></pre>
-
-				<h5>Filter</h5>
-				<p>Filtering allows searching items in the list using an input field at the header. In order to use filtering, enable the <i>filter</i> property.</p>
-<pre v-code><code>
-&lt;MultiSelect v-model="selectedCars" :options="cars" :filter="true" optionLabel="brand" placeholder="Select Brands"/&gt;
-
 </code></pre>
 
 				<h5>Properties</h5>
@@ -117,10 +168,52 @@ data() {
                                 <td>Property name or getter function to use as the disabled flag of an option, defaults to false when not defined.</td>
                             </tr>
                             <tr>
+                                <td>optionGroupLabel</td>
+                                <td>string</td>
+                                <td>null</td>
+                                <td>Property name or getter function to use as the label of an option group.</td>
+                            </tr>
+                            <tr>
+                                <td>optionGroupChildren</td>
+                                <td>string</td>
+                                <td>null</td>
+                                <td>Property name or getter function that refers to the children options of option group.</td>
+                            </tr>
+                            <tr>
                                 <td>scrollHeight</td>
                                 <td>string</td>
                                 <td>200px</td>
                                 <td>Height of the viewport in pixels, a scrollbar is defined if height of list exceeds this value.</td>
+                            </tr>
+                            <tr>
+                                <td>filter</td>
+                                <td>boolean</td>
+                                <td>false</td>
+                                <td>When specified, displays a filter input at header.</td>
+                            </tr>
+                            <tr>
+                                <td>filterPlaceholder</td>
+                                <td>string</td>
+                                <td>null</td>
+                                <td>Placeholder text to show when filter input is empty.</td>
+                            </tr>
+                            <tr>
+                                <td>filterLocale</td>
+                                <td>string</td>
+                                <td>undefined</td>
+                                <td>Locale to use in filtering. The default locale is the host environment's current locale.</td>
+                            </tr>
+                            <tr>
+                                <td>filterMatchMode</td>
+                                <td>string</td>
+                                <td>contains</td>
+                                <td>Defines the filtering algorithm to use when searching the options. Valid values are "contains" (default), "startsWith" and "endsWith"</td>
+                            </tr>
+                            <tr>
+                                <td>filterFields</td>
+                                <td>array</td>
+                                <td>null</td>
+                                <td>Fields used when filtering the options, defaults to optionLabel.</td>
                             </tr>
                             <tr>
                                 <td>placeholder</td>
@@ -133,12 +226,6 @@ data() {
                                 <td>boolean</td>
                                 <td>false</td>
                                 <td>When present, it specifies that the component should be disabled.</td>
-                            </tr>
-                            <tr>
-                                <td>filter</td>
-                                <td>boolean</td>
-                                <td>false</td>
-                                <td>When specified, displays an input field to filter the items on keyup.</td>
                             </tr>
                             <tr>
                                 <td>tabindex</td>
@@ -159,18 +246,6 @@ data() {
                                 <td>A property to uniquely identify an option.</td>
                             </tr>
                             <tr>
-                                <td>filterPlaceholder</td>
-                                <td>string</td>
-                                <td>null</td>
-                                <td>Placeholder text to show when filter input is empty.</td>
-                            </tr>
-                            <tr>
-                                <td>filterLocale</td>
-                                <td>string</td>
-                                <td>undefined</td>
-                                <td>Locale to use in filtering. The default locale is the host environment's current locale.</td>
-                            </tr>
-                            <tr>
                                 <td>ariaLabelledBy</td>
                                 <td>string</td>
                                 <td>null</td>
@@ -186,7 +261,13 @@ data() {
                                 <td>emptyFilterMessage</td>
                                 <td>string</td>
                                 <td>No results found</td>
-                                <td>Text to display when filtering does not return any results.</td>
+                                <td>Text to display when filtering does not return any results. Defaults to value from PrimeVue locale configuration.</td>
+                            </tr>
+                            <tr>
+                                <td>emptyMessage</td>
+                                <td>string</td>
+                                <td>No results found</td>
+                                <td>Text to display when there are no options available. Defaults to value from PrimeVue locale configuration.</td>
                             </tr>
                             <tr>
                                 <td>display</td>
@@ -270,6 +351,53 @@ data() {
 					</table>
 				</div>
 
+                <h5>Slots</h5>
+				<div class="doc-tablewrapper">
+                    <table class="doc-table">
+						<thead>
+                            <tr>
+                                <th>Name</th>
+                                <th>Parameters</th>
+                            </tr>
+						</thead>
+						<tbody>
+                            <tr>
+                                <td>option</td>
+                                <td>option: Option instance <br />
+                                    index: Index of the option</td>
+                            </tr>
+                            <tr>
+                                <td>optiongroup</td>
+                                <td>option: OptionGroup instance <br />
+                                    index: Index of the option group</td>
+                            </tr>
+                             <tr>
+                                <td>value</td>
+                                <td>value: Value of the component <br />
+                                    placeholder: Placeholder prop value</td>
+                            </tr>
+                            <tr>
+                                <td>header</td>
+                                <td>value: Value of the component <br />
+                                    options: Displayed options</td>
+                            </tr>
+                            <tr>
+                                <td>footer</td>
+                                <td>value: Value of the component <br />
+                                    options: Displayed options</td>
+                            </tr>
+                            <tr>
+                                <td>emptyfilter</td>
+                                <td>-</td>
+                            </tr>
+                            <tr>
+                                <td>empty</td>
+                                <td>-</td>
+                            </tr>
+						</tbody>
+					</table>
+                </div>
+
 				<h5>Styling</h5>
 				<p>Following is the list of structural style classes, for theming classes visit <router-link to="/theming">theming</router-link> page.</p>
 				<div class="doc-tablewrapper">
@@ -331,10 +459,20 @@ data() {
 
 <pre v-code><code><template v-pre>
 &lt;h5&gt;Basic&lt;/h5&gt;
-&lt;MultiSelect v-model="selectedCities1" :options="cities" optionLabel="name" placeholder="Select a City" /&gt;
+&lt;MultiSelect v-model="selectedCities1" :options="cities" optionLabel="name" placeholder="Select Cities" /&gt;
 
 &lt;h5&gt;Chips&lt;/h5&gt;
-&lt;MultiSelect v-model="selectedCities2" :options="cities" optionLabel="name" placeholder="Select a City" display="chip"/&gt;
+&lt;MultiSelect v-model="selectedCities2" :options="cities" optionLabel="name" placeholder="Select Cities" display="chip" /&gt;
+
+&lt;h5&gt;Grouped&lt;/h5&gt;
+&lt;MultiSelect v-model="selectedGroupedCities" :options="groupedCities" optionLabel="label"  optionGroupLabel="label" optionGroupChildren="items" placeholder="Select Cities"&gt;
+    &lt;template #optiongroup="slotProps"&gt;
+        &lt;div class="p-d-flex p-ai-center country-item"&gt;
+            &lt;img src="../../assets/images/flag_placeholder.png" :class="'flag flag-' + slotProps.option.code.toLowerCase()" width="18" /&gt;
+            &lt;div&gt;{{slotProps.option.label}}&lt;/div&gt;
+        &lt;/div&gt;
+    &lt;/template&gt;
+&lt;/MultiSelect&gt;
 
 &lt;h5&gt;Advanced with Templating and Filtering&lt;/h5&gt;
 &lt;MultiSelect v-model="selectedCountries" :options="countries" optionLabel="name" placeholder="Select Countries" :filter="true" class="multiselect-custom"&gt;
@@ -364,6 +502,7 @@ export default {
             selectedCities1: null,
             selectedCities2: null,
             selectedCountries: null,
+            selectedGroupedCities: null,
             cities: [
                 {name: 'New York', code: 'NY'},
                 {name: 'Rome', code: 'RM'},
@@ -382,7 +521,34 @@ export default {
                 {name: 'Japan', code: 'JP'},
                 {name: 'Spain', code: 'ES'},
                 {name: 'United States', code: 'US'}
-            ]
+            ],
+            groupedCities: [{
+                label: 'Germany', code: 'DE', 
+                items: [
+                    {label: 'Berlin', value: 'Berlin'},
+                    {label: 'Frankfurt', value: 'Frankfurt'},
+                    {label: 'Hamburg', value: 'Hamburg'},
+                    {label: 'Munich', value: 'Munich'}
+                ]
+            },
+            {
+                label: 'USA', code: 'US', 
+                items: [
+                    {label: 'Chicago', value: 'Chicago'},
+                    {label: 'Los Angeles', value: 'Los Angeles'},
+                    {label: 'New York', value: 'New York'},
+                    {label: 'San Francisco', value: 'San Francisco'}
+                ]
+            },
+            {
+                label: 'Japan', code: 'JP', 
+                items: [
+                    {label: 'Kyoto', value: 'Kyoto'},
+                    {label: 'Osaka', value: 'Osaka'},
+                    {label: 'Tokyo', value: 'Tokyo'},
+                    {label: 'Yokohama', value: 'Yokohama'}
+                ]
+            }]
         }
     }
 }
@@ -432,16 +598,26 @@ export default {
         <div class="content-section implementation">
             <div class="card">
                 <h5>Basic</h5>
-                <MultiSelect v-model="selectedCities1" :options="cities" optionLabel="name" placeholder="Select a City" />
+                <MultiSelect v-model="selectedCities1" :options="cities" optionLabel="name" placeholder="Select Cities" />
 
                 <h5>Chips</h5>
-                <MultiSelect v-model="selectedCities2" :options="cities" optionLabel="name" placeholder="Select a City" display="chip" />
+                <MultiSelect v-model="selectedCities2" :options="cities" optionLabel="name" placeholder="Select Cities" display="chip" />
+
+                <h5>Grouped</h5>
+                <MultiSelect v-model="selectedGroupedCities" :options="groupedCities" optionLabel="label"  optionGroupLabel="label" optionGroupChildren="items" placeholder="Select Cities">
+                    <template #optiongroup="slotProps">
+                        <div class="p-d-flex p-ai-center country-item">
+                            <img src="../../assets/images/flag_placeholder.png" :class="'flag flag-' + slotProps.option.code.toLowerCase()" width="18" />
+                            <div>{{slotProps.option.label}}</div>
+                        </div>
+                    </template>
+                </MultiSelect>
 
                 <h5>Advanced with Templating and Filtering</h5>
                 <MultiSelect v-model="selectedCountries" :options="countries" optionLabel="name" placeholder="Select Countries" :filter="true" class="multiselect-custom">
                     <template #value="slotProps">
                         <div class="country-item country-item-value" v-for="option of slotProps.value" :key="option.code">
-                            <img src="https://www.primefaces.org/wp-content/uploads/2020/05/placeholder.png" />
+                            <img src="../../assets/images/flag_placeholder.png" :class="'flag flag-' + option.code.toLowerCase()" />
                             <div>{{option.name}}</div>
                         </div>
                         <template v-if="!slotProps.value || slotProps.value.length === 0">
@@ -450,7 +626,7 @@ export default {
                     </template>
                     <template #option="slotProps">
                         <div class="country-item">
-                            <img src="https://www.primefaces.org/wp-content/uploads/2020/05/placeholder.png" />
+                            <img src="../../assets/images/flag_placeholder.png" :class="'flag flag-' + slotProps.option.code.toLowerCase()" />
                             <div>{{slotProps.option.name}}</div>
                         </div>
                     </template>
@@ -467,6 +643,7 @@ export default {
             selectedCities1: null,
             selectedCities2: null,
             selectedCountries: null,
+            selectedGroupedCities: null,
             cities: [
                 {name: 'New York', code: 'NY'},
                 {name: 'Rome', code: 'RM'},
@@ -485,13 +662,40 @@ export default {
                 {name: 'Japan', code: 'JP'},
                 {name: 'Spain', code: 'ES'},
                 {name: 'United States', code: 'US'}
-            ]
+            ],
+            groupedCities: [{
+                label: 'Germany', code: 'DE', 
+                items: [
+                    {label: 'Berlin', value: 'Berlin'},
+                    {label: 'Frankfurt', value: 'Frankfurt'},
+                    {label: 'Hamburg', value: 'Hamburg'},
+                    {label: 'Munich', value: 'Munich'}
+                ]
+            },
+            {
+                label: 'USA', code: 'US', 
+                items: [
+                    {label: 'Chicago', value: 'Chicago'},
+                    {label: 'Los Angeles', value: 'Los Angeles'},
+                    {label: 'New York', value: 'New York'},
+                    {label: 'San Francisco', value: 'San Francisco'}
+                ]
+            },
+            {
+                label: 'Japan', code: 'JP', 
+                items: [
+                    {label: 'Kyoto', value: 'Kyoto'},
+                    {label: 'Osaka', value: 'Osaka'},
+                    {label: 'Tokyo', value: 'Tokyo'},
+                    {label: 'Yokohama', value: 'Yokohama'}
+                ]
+            }]
         }
     }
 }`,
                     style: `<style lang="scss" scoped>
 .p-multiselect {
-    min-width: 15rem;
+    width: 18rem;
 }
 
 ::v-deep(.multiselect-custom) {
@@ -507,11 +711,16 @@ export default {
         margin-right: .5rem;
         background-color: var(--primary-color);
         color: var(--primary-color-text);
-    }
 
-    img {
-        width: 17px;
-        margin-right: 0.5rem;
+        img.flag {
+            width: 17px;
+        }
+    }
+}
+
+@media screen and (max-width: 640px) {
+    .p-multiselect {
+        width: 100%;
     }
 }
 </style>`

@@ -40,23 +40,6 @@ data() {
 
 </code></pre>
 
-				<h5>Templating</h5>
-				<p>Label of an option is used as the display text of an item by default, for custom content support define an <i>option</i> template that gets the option instance as a parameter.
-                In addition <i>optiongroup</i>, <i>header</i>, <i>footer</i>, <i>emptyfilter</i> and <i>empty</i> slots are provided for further customization.</p>
-<pre v-code><code><template v-pre>
-&lt;Listbox v-model="selectedCars" :options="cars" :multiple="true" :filter="true" optionLabel="brand" listStyle="max-height:250px" style="width:15em"&gt;
-	&lt;template #header&gt;&lt;/template&gt;
-    &lt;template #option="slotProps"&gt;
-		&lt;div&gt;
-			&lt;img :alt="slotProps.option.brand" :src="'demo/images/car/' + slotProps.option.brand + '.png'" /&gt;
-			&lt;span&gt;{{slotProps.option.brand}}&lt;/span&gt;
-		&lt;/div&gt;
-	&lt;/template&gt;
-    &lt;template #footer&gt;&lt;/footer&gt;
-&lt;/Listbox&gt;
-</template>
-</code></pre>
-
                 <h5>Grouping</h5>
 				<p>Options groups are specified with the <i>optionGroupLabel</i> and <i>optionGroupChildren</i> properties.</p>
 <pre v-code.script><code>
@@ -97,9 +80,9 @@ export default {
 </code></pre>
 
 <pre v-code><code><template v-pre>
-<Listbox v-model="selectedGroupedCity" :options="groupedCities" 
-        optionLabel="label" optionGroupLabel="label" optionGroupChildren="items">
-</Listbox>
+&lt;Listbox v-model="selectedGroupedCity" :options="groupedCities" 
+        optionLabel="label" optionGroupLabel="label" optionGroupChildren="items"&gt;
+&lt;/Listbox&gt;
 </template>
 </code></pre>
 
@@ -110,6 +93,23 @@ export default {
 <pre v-code><code>
 &lt;Listbox v-model="selectedCity" :options="cities" optionLabel="name" :filter="true"/&gt;
 
+</code></pre>
+
+                <h5>Templating</h5>
+				<p>Label of an option is used as the display text of an item by default, for custom content support define an <i>option</i> template that gets the option instance as a parameter.
+                In addition <i>optiongroup</i>, <i>header</i>, <i>footer</i>, <i>emptyfilter</i> and <i>empty</i> slots are provided for further customization.</p>
+<pre v-code><code><template v-pre>
+&lt;Listbox v-model="selectedCars" :options="cars" :multiple="true" :filter="true" optionLabel="brand" listStyle="max-height:250px" style="width:15em"&gt;
+	&lt;template #header&gt;&lt;/template&gt;
+    &lt;template #option="slotProps"&gt;
+		&lt;div&gt;
+			&lt;img :alt="slotProps.option.brand" :src="'demo/images/car/' + slotProps.option.brand + '.png'" /&gt;
+			&lt;span&gt;{{slotProps.option.brand}}&lt;/span&gt;
+		&lt;/div&gt;
+	&lt;/template&gt;
+    &lt;template #footer&gt;&lt;/footer&gt;
+&lt;/Listbox&gt;
+</template>
 </code></pre>
 
 				<h5>Properties</h5>

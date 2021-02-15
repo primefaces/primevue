@@ -6,18 +6,23 @@ interface MultiSelectProps {
     optionLabel?: string;
     optionValue?: any;
     optionDisabled?: boolean;
+    optionGroupLabel?: string;
+    optionGroupChildren?: string;
     scrollHeight?: string;
     placeholder?: string;
     disabled?: boolean;
-    filter?: boolean;
     tabindex?: string;
     inputId?: string;
     dataKey?: string;
+    filter?: boolean;
     filterPlaceholder?: string;
     filterLocale?: string;
+    filterMatchMode?: string;
+    filterFields?: string[];
     ariaLabelledBy?: string;
     appendTo?: string;
     emptyFilterMessage?: string;
+    emptyMessage?: string;
     display?: string;
 }
 

@@ -25,6 +25,7 @@
         </div>
         <transition name="p-connected-overlay" @enter="onOverlayEnter" @leave="onOverlayLeave">
             <div :ref="overlayRef" class="p-multiselect-panel p-component" v-if="overlayVisible">
+                <slot name="header" :value="modelValue" :options="visibleOptions"></slot>
                 <div class="p-multiselect-header">
                     <div class="p-checkbox p-component" @click="onToggleAll" role="checkbox" :aria-checked="allSelected">
                         <div class="p-hidden-accessible">
@@ -44,20 +45,46 @@
                 </div>
                 <div class="p-multiselect-items-wrapper" :style="{'max-height': scrollHeight}">
                     <ul class="p-multiselect-items p-component" role="listbox" aria-multiselectable="true">
-                        <li v-for="(option, i) of visibleOptions" :class="['p-multiselect-item', {'p-highlight': isSelected(option), 'p-disabled': isOptionDisabled(option)}]" role="option" :aria-selected="isSelected(option)"
-                            :aria-label="getOptionLabel(option)" :key="getOptionRenderKey(option)" @click="onOptionSelect($event, option)" @keydown="onOptionKeyDown($event, option)" :tabindex="tabindex||'0'" v-ripple>
-                            <div class="p-checkbox p-component">
-                                <div :class="['p-checkbox-box', {'p-highlight': isSelected(option)}]">
-                                    <span :class="['p-checkbox-icon', {'pi pi-check': isSelected(option)}]"></span>
+                        <template v-if="!optionGroupLabel">
+                            <li v-for="(option, i) of visibleOptions" :class="['p-multiselect-item', {'p-highlight': isSelected(option), 'p-disabled': isOptionDisabled(option)}]" role="option" :aria-selected="isSelected(option)"
+                                :key="getOptionRenderKey(option)" @click="onOptionSelect($event, option)" @keydown="onOptionKeyDown($event, option)" :tabindex="tabindex||'0'" :aria-label="getOptionLabel(option)"  v-ripple>
+                                <div class="p-checkbox p-component">
+                                    <div :class="['p-checkbox-box', {'p-highlight': isSelected(option)}]">
+                                        <span :class="['p-checkbox-icon', {'pi pi-check': isSelected(option)}]"></span>
+                                    </div>
                                 </div>
-                            </div>
-                            <slot name="option" :option="option" :index="i">
-                                <span>{{getOptionLabel(option)}}</span>
-                            </slot>
+                                <slot name="option" :option="option" :index="i">
+                                    <span>{{getOptionLabel(option)}}</span>
+                                </slot>
+                            </li>
+                        </template>
+                        <template v-else>
+                            <template v-for="(optionGroup, i) of visibleOptions" :key="getOptionGroupRenderKey(optionGroup)">
+                                <li  class="p-multiselect-item-group">
+                                    <slot name="optiongroup" :option="optionGroup" :index="i">{{getOptionGroupLabel(optionGroup)}}</slot>
+                                </li>
+                                <li v-for="(option, i) of getOptionGroupChildren(optionGroup)" :class="['p-multiselect-item', {'p-highlight': isSelected(option), 'p-disabled': isOptionDisabled(option)}]" role="option" :aria-selected="isSelected(option)"
+                                    :key="getOptionRenderKey(option)" @click="onOptionSelect($event, option)" @keydown="onOptionKeyDown($event, option)" :tabindex="tabindex||'0'" :aria-label="getOptionLabel(option)"  v-ripple>
+                                    <div class="p-checkbox p-component">
+                                        <div :class="['p-checkbox-box', {'p-highlight': isSelected(option)}]">
+                                            <span :class="['p-checkbox-icon', {'pi pi-check': isSelected(option)}]"></span>
+                                        </div>
+                                    </div>
+                                    <slot name="option" :option="option" :index="i">
+                                        <span>{{getOptionLabel(option)}}</span>
+                                    </slot>
+                                </li>
+                            </template>
+                        </template>
+                        <li v-if="filterValue && (!visibleOptions || (visibleOptions && visibleOptions.length === 0))" class="p-multiselect-empty-message">
+                            <slot name="emptyfilter">{{emptyFilterMessageText}}</slot>
                         </li>
-                        <li v-if="filterValue && (!visibleOptions || (visibleOptions && visibleOptions.length === 0))" class="p-multiselect-empty-message">{{emptyFilterMessage}}</li>
+                        <li v-else-if="(!options || (options && options.length === 0))" class="p-multiselect-empty-message">
+                            <slot name="empty">{{emptyMessageText}}</slot>
+                        </li>
                     </ul>
                 </div>
+                <slot name="footer" :value="modelValue" :options="visibleOptions"></slot>
             </div>
         </transition>
     </div>
@@ -67,6 +94,7 @@
 import {ConnectedOverlayScrollHandler} from 'primevue/utils';
 import {ObjectUtils} from 'primevue/utils';
 import {DomHandler} from 'primevue/utils';
+import {FilterService} from 'primevue/api';
 import Ripple from 'primevue/ripple';
 
 export default {
@@ -77,18 +105,28 @@ export default {
         optionLabel: null,
         optionValue: null,
         optionDisabled: null,
+        optionGroupLabel: null,
+        optionGroupChildren: null,
 		scrollHeight: {
 			type: String,
 			default: '200px'
 		},
 		placeholder: String,
 		disabled: Boolean,
-		filter: Boolean,
         tabindex: String,
         inputId: String,
         dataKey: null,
+        filter: Boolean,
         filterPlaceholder: String,
         filterLocale: String,
+        filterMatchMode: {
+            type: String,
+            default: 'contains'
+        },
+        filterFields: {
+            type: Array,
+            default: null
+        },
         ariaLabelledBy: null,
         appendTo: {
             type: String,
@@ -96,7 +134,11 @@ export default {
         },
         emptyFilterMessage: {
             type: String,
-            default: 'No results found'
+            default: null
+        },
+        emptyMessage: {
+            type: String,
+            default: null
         },
         display: {
             type: String,
@@ -135,6 +177,15 @@ export default {
         },
         getOptionRenderKey(option) {
             return this.dataKey ? ObjectUtils.resolveFieldData(option, this.dataKey) : this.getOptionLabel(option);
+        },
+        getOptionGroupRenderKey(optionGroup) {
+            return ObjectUtils.resolveFieldData(optionGroup, this.optionGroupLabel);
+        },
+        getOptionGroupLabel(optionGroup) {
+            return ObjectUtils.resolveFieldData(optionGroup, this.optionGroupLabel);
+        },
+        getOptionGroupChildren(optionGroup) {
+            return ObjectUtils.resolveFieldData(optionGroup, this.optionGroupChildren);
         },
         isOptionDisabled(option) {
             return this.optionDisabled ? ObjectUtils.resolveFieldData(option, this.optionDisabled) : false;
@@ -277,7 +328,7 @@ export default {
             let nextItem = item.nextElementSibling;
 
             if (nextItem)
-                return DomHandler.hasClass(nextItem, 'p-disabled') ? this.findNextItem(nextItem) : nextItem;
+                return DomHandler.hasClass(nextItem, 'p-disabled') || DomHandler.hasClass(nextItem, 'p-multiselect-item-group') ? this.findNextItem(nextItem) : nextItem;
             else
                 return null;
         },
@@ -285,7 +336,7 @@ export default {
             let prevItem = item.previousElementSibling;
 
             if (prevItem)
-                return DomHandler.hasClass(prevItem, 'p-disabled') ? this.findPrevItem(prevItem) : prevItem;
+                return DomHandler.hasClass(prevItem, 'p-disabled') || DomHandler.hasClass(prevItem, 'p-multiselect-item-group') ? this.findPrevItem(prevItem) : prevItem;
             else
                 return null;
         },
@@ -366,23 +417,49 @@ export default {
             return !(this.$el.isSameNode(event.target) || this.$el.contains(event.target) || (this.overlay && this.overlay.contains(event.target)));
         },
         getLabelByValue(val) {
-            let label = null;
-
+            let option;
             if (this.options) {
-                for (let option of this.options) {
-                    let optionValue = this.getOptionValue(option);
-
-                    if(ObjectUtils.equals(optionValue, val, this.equalityKey)) {
-                        label = this.getOptionLabel(option);
-                        break;
+                if (this.optionGroupLabel) {
+                    for (let optionGroup of this.options) {
+                        option = this.findOptionByValue(val, this.getOptionGroupChildren(optionGroup));
+                        if (option) {
+                            break;
+                        }
                     }
+                }
+                else {
+                    option = this.findOptionByValue(val, this.options);
                 }
             }
 
-            return label;
+            return option ? this.getOptionLabel(option): null;
+        },
+        findOptionByValue(val, list) {
+            for (let option of list) {
+                let optionValue = this.getOptionValue(option);
+
+                if(ObjectUtils.equals(optionValue, val, this.equalityKey)) {
+                    return option;
+                }
+            }
+
+            return null;
         },
         onToggleAll(event) {
-            const value = this.allSelected ? [] : this.visibleOptions  && this.visibleOptions.map(option => this.getOptionValue(option));
+            let value = null;
+
+            if (this.allSelected) {
+                value = [];
+            }
+            else if (this.visibleOptions) {
+                if (this.optionGroupLabel) {
+                    value = [];
+                    this.visibleOptions.forEach(optionGroup => value = [...value, ...this.getOptionGroupChildren(optionGroup)]);
+                }   
+                else  {
+                    value = this.visibleOptions.map(option => this.getOptionValue(option));
+                }
+            }
 
             this.$emit('update:modelValue', value);
             this.$emit('change', {originalEvent: event, value: value});
@@ -420,11 +497,25 @@ export default {
         }
     },
     computed: {
-        visibleOptions() {
-            if (this.filterValue && this.filterValue.trim().length > 0)
-                return this.options.filter(option => this.getOptionLabel(option).toLocaleLowerCase(this.filterLocale).indexOf(this.filterValue.toLocaleLowerCase(this.filterLocale)) > -1);
-            else
+         visibleOptions() {
+            if (this.filterValue) {
+                if (this.optionGroupLabel) {
+                    let filteredGroups = [];
+                    for (let optgroup of this.options) {
+                        let filteredSubOptions = FilterService.filter(this.getOptionGroupChildren(optgroup), this.searchFields, this.filterValue, this.filterMatchMode, this.filterLocale);
+                        if (filteredSubOptions && filteredSubOptions.length) {
+                            filteredGroups.push({...optgroup, ...{items: filteredSubOptions}});
+                        }
+                    }
+                    return filteredGroups
+                }
+                else {
+                    return FilterService.filter(this.options, this.searchFields, this.filterValue, 'contains', this.filterLocale);
+                }
+            }
+            else {
                 return this.options;
+            }
         },
         containerClass() {
             return [
@@ -468,25 +559,54 @@ export default {
         },
         allSelected() {
             if (this.filterValue && this.filterValue.trim().length > 0) {
-                let allSelected = true;
-				if(this.visibleOptions.length > 0) {
-					for (let option of this.visibleOptions) {
-						if (!this.isSelected(option)) {
-							allSelected = false;
-							break;
-						}
-					}
+                if (this.visibleOptions.length === 0) {
+                    return false;
                 }
-                else
-                    allSelected = false;
-                return allSelected;
+
+				if (this.optionGroupLabel) {
+                    for (let optionGroup of this.visibleOptions) {
+                        for (let option of this.getOptionGroupChildren(optionGroup)) {
+                            if (!this.isSelected(option)) {
+                                return false;
+                            }
+                        }
+                    }
+                }
+                else {
+                    for (let option of this.visibleOptions) {
+                        if (!this.isSelected(option)) {
+                            return false;
+                        }
+                    }
+                }
+
+                return true;
             }
             else {
-                return this.modelValue && this.options && (this.modelValue.length > 0 && this.modelValue.length === this.options.length);
+                if (this.modelValue && this.options) {
+                    let optionCount = 0;
+                    if (this.optionGroupLabel)
+                        this.options.forEach(optionGroup => optionCount += this.getOptionGroupChildren(optionGroup).length);
+                    else
+                        optionCount = this.options.length;
+
+                    return optionCount > 0 && optionCount === this.modelValue.length;
+                }
+                
+                return false;
             }
         },
         equalityKey() {
             return this.optionValue ? null : this.dataKey;
+        },
+        searchFields() {
+            return this.filterFields || [this.optionLabel];
+        },
+        emptyFilterMessageText() {
+            return this.emptyFilterMessage || this.$primevue.config.locale.emptyFilterMessage;
+        },
+        emptyMessageText() {
+            return this.emptyMessage || this.$primevue.config.locale.emptyMessage;
         }
     },
     directives: {
@@ -566,6 +686,10 @@ export default {
     white-space: nowrap;
     position: relative;
     overflow: hidden;
+}
+
+.p-multiselect-item-group {
+    cursor: auto;
 }
 
 .p-multiselect-header {

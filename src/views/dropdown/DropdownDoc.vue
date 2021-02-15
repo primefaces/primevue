@@ -34,6 +34,52 @@ data() {
 				<h5>Placeholder</h5>
 				<p>Common pattern is providing an empty option as the placeholder when using native selects, however Dropdown has built-in support using the placeholder option so it is suggested to use it instead of creating an empty option.</p>
 
+                <h5>Grouping</h5>
+				<p>Options groups are specified with the <i>optionGroupLabel</i> and <i>optionGroupChildren</i> properties.</p>
+<pre v-code.script><code>
+export default {
+    data() {
+        return {
+            selectedGroupedCity: null,
+            groupedCities: [{
+                label: 'Germany', code: 'DE', 
+                items: [
+                    {label: 'Berlin', value: 'Berlin'},
+                    {label: 'Frankfurt', value: 'Frankfurt'},
+                    {label: 'Hamburg', value: 'Hamburg'},
+                    {label: 'Munich', value: 'Munich'}
+                ]
+            },
+            {
+                label: 'USA', code: 'US', 
+                items: [
+                    {label: 'Chicago', value: 'Chicago'},
+                    {label: 'Los Angeles', value: 'Los Angeles'},
+                    {label: 'New York', value: 'New York'},
+                    {label: 'San Francisco', value: 'San Francisco'}
+                ]
+            },
+            {
+                label: 'Japan', code: 'JP', 
+                items: [
+                    {label: 'Kyoto', value: 'Kyoto'},
+                    {label: 'Osaka', value: 'Osaka'},
+                    {label: 'Tokyo', value: 'Tokyo'},
+                    {label: 'Yokohama', value: 'Yokohama'}
+                ]
+            }]
+        }
+    }
+}
+</code></pre>
+
+<pre v-code><code><template v-pre>
+&lt;Dropdown v-model="selectedGroupedCity" :options="groupedCities" 
+        optionLabel="label" optionGroupLabel="label" optionGroupChildren="items"&gt;
+&lt;/Dropdown&gt;
+</template>
+</code></pre>
+
 				<h5>Filtering</h5>
 				<p>Filtering allows searching items in the list using an input field at the header. In order to use filtering, enable <i>filter</i> property. By default,
                 optionLabel is used when searching and <i>filterFields</i> can be used to customize the fields being utilized. Furthermore, <i>filterMatchMode</i> is available

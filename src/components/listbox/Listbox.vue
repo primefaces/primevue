@@ -326,6 +326,10 @@ export default {
     overflow: hidden;
 }
 
+.p-listbox-item-group {
+    cursor: auto;
+}
+
 .p-listbox-filter-container {
     position: relative;
 }
