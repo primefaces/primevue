@@ -16,13 +16,25 @@
         <Button ref="dropdownButton" type="button" icon="pi pi-chevron-down" class="p-autocomplete-dropdown" :disabled="$attrs.disabled" @click="onDropdownClick" v-if="dropdown"/>
         <transition name="p-connected-overlay" @enter="onOverlayEnter" @leave="onOverlayLeave">
             <div :ref="overlayRef" class="p-autocomplete-panel p-component" :style="{'max-height': scrollHeight}" v-if="overlayVisible">
+                <slot name="header" :value="modelValue" :suggestions="suggestions"></slot>
                 <ul :id="listId" class="p-autocomplete-items" role="listbox">
-                    <li v-for="(item, i) of suggestions" class="p-autocomplete-item" :key="i" @click="selectItem($event, item)" role="option" v-ripple>
-                        <slot name="item" :item="item" :index="i">
-                            {{getItemContent(item)}}
-                        </slot>
-                    </li>
+                    <template v-if="!optionGroupLabel">
+                        <li v-for="(item, i) of suggestions" class="p-autocomplete-item" :key="i" @click="selectItem($event, item)" role="option" v-ripple>
+                            <slot name="item" :item="item" :index="i">{{getItemContent(item)}}</slot>
+                        </li>
+                    </template>
+                    <template v-else>
+                         <template v-for="(optionGroup, i) of suggestions" :key="getOptionGroupRenderKey(optionGroup)">
+                            <li  class="p-autocomplete-item-group" >
+                                <slot name="optiongroup" :item="optionGroup" :index="i">{{getOptionGroupLabel(optionGroup)}}</slot>
+                            </li>
+                            <li v-for="(item, i) of getOptionGroupChildren(optionGroup)" class="p-autocomplete-item" :key="i" @click="selectItem($event, item)" role="option" v-ripple>
+                                <slot name="item" :item="item" :index="i">{{getItemContent(item)}}</slot>
+                            </li>
+                        </template>
+                    </template>
                 </ul>
+                <slot name="footer" :value="modelValue" :suggestions="suggestions"></slot>
             </div>
         </transition>
     </span>
@@ -49,6 +61,8 @@ export default {
             type: [String,Function],
             default: null
         },
+        optionGroupLabel: null,
+        optionGroupChildren: null,
         scrollHeight: {
             type: String,
             default: '200px'
@@ -102,7 +116,6 @@ export default {
     watch: {
         suggestions() {
             if (this.searching) {
-
                 if (this.suggestions && this.suggestions.length)
                     this.showOverlay();
                 else
@@ -129,6 +142,15 @@ export default {
         }
     },
     methods: {
+        getOptionGroupRenderKey(optionGroup) {
+            return ObjectUtils.resolveFieldData(optionGroup, this.optionGroupLabel);
+        },
+        getOptionGroupLabel(optionGroup) {
+            return ObjectUtils.resolveFieldData(optionGroup, this.optionGroupLabel);
+        },
+        getOptionGroupChildren(optionGroup) {
+            return ObjectUtils.resolveFieldData(optionGroup, this.optionGroupChildren);
+        },
         onOverlayEnter() {
             this.overlay.style.zIndex = String(DomHandler.generateZIndex());
             this.appendContainer();
@@ -328,7 +350,7 @@ export default {
                     //down
                     case 40:
                         if (highlightItem) {
-                            let nextElement = highlightItem.nextElementSibling;
+                            let nextElement = this.findNextItem(highlightItem);
                             if (nextElement) {
                                 DomHandler.addClass(nextElement, 'p-highlight');
                                 DomHandler.removeClass(highlightItem, 'p-highlight');
@@ -336,7 +358,14 @@ export default {
                             }
                         }
                         else {
-                            DomHandler.addClass(this.overlay.firstChild.firstElementChild, 'p-highlight');
+                            highlightItem = this.overlay.firstElementChild.firstElementChild;
+                            if (DomHandler.hasClass(highlightItem, 'p-autocomplete-item-group')) {
+                                highlightItem = this.findNextItem(highlightItem);
+                            }
+
+                            if (highlightItem) {
+                                DomHandler.addClass(highlightItem, 'p-highlight');
+                            }
                         }
 
                         event.preventDefault();
@@ -345,7 +374,7 @@ export default {
                     //up
                     case 38:
                         if (highlightItem) {
-                            let previousElement = highlightItem.previousElementSibling;
+                            let previousElement = this.findPrevItem(highlightItem);
                             if (previousElement) {
                                 DomHandler.addClass(previousElement, 'p-highlight');
                                 DomHandler.removeClass(highlightItem, 'p-highlight');
@@ -406,6 +435,22 @@ export default {
                     break;
                 }
             }
+        },
+        findNextItem(item) {
+            let nextItem = item.nextElementSibling;
+
+            if (nextItem)
+                return DomHandler.hasClass(nextItem, 'p-autocomplete-item-group') ? this.findNextItem(nextItem) : nextItem;
+            else
+                return null;
+        },
+        findPrevItem(item) {
+            let prevItem = item.previousElementSibling;
+
+            if (prevItem)
+                return DomHandler.hasClass(prevItem, 'p-autocomplete-item-group') ? this.findPrevItem(prevItem) : prevItem;
+            else
+                return null;
         },
         onChange(event) {
             if (this.forceSelection) {

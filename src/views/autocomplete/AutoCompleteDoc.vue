@@ -62,6 +62,51 @@ export default {
 
 </code></pre>
 
+                <h5>Grouping</h5>
+				<p>Options groups are specified with the <i>optionGroupLabel</i> and <i>optionGroupChildren</i> properties.</p>
+<pre v-code.script><code>
+export default {
+    data() {
+        return {
+            selectedGroupedCity: null,
+            groupedCities: [{
+                label: 'Germany', code: 'DE', 
+                items: [
+                    {label: 'Berlin', value: 'Berlin'},
+                    {label: 'Frankfurt', value: 'Frankfurt'},
+                    {label: 'Hamburg', value: 'Hamburg'},
+                    {label: 'Munich', value: 'Munich'}
+                ]
+            },
+            {
+                label: 'USA', code: 'US', 
+                items: [
+                    {label: 'Chicago', value: 'Chicago'},
+                    {label: 'Los Angeles', value: 'Los Angeles'},
+                    {label: 'New York', value: 'New York'},
+                    {label: 'San Francisco', value: 'San Francisco'}
+                ]
+            },
+            {
+                label: 'Japan', code: 'JP', 
+                items: [
+                    {label: 'Kyoto', value: 'Kyoto'},
+                    {label: 'Osaka', value: 'Osaka'},
+                    {label: 'Tokyo', value: 'Tokyo'},
+                    {label: 'Yokohama', value: 'Yokohama'}
+                ]
+            }]
+        }
+    }
+}
+</code></pre>
+
+<pre v-code><code><template v-pre>
+&lt;AutoComplete v-model="selectedCity" :suggestions="filteredCities" @complete="searchCity($event)" 
+    field="label" optionGroupLabel="label" optionGroupChildren="items"&gt;&lt;/AutoComplete&gt;
+</template>
+</code></pre>
+
                 <h5>Force Selection</h5>
                 <p>ForceSelection mode validates the manual input to check whether it also exists in the suggestions list, if not the input value is cleared
                 to make sure the value passed to the model is always one of the suggestions. Simply enable <i>forceSelection</i> to enforce that input is always from the suggestion list.</p>
@@ -71,10 +116,11 @@ export default {
 </code></pre>
 
 				<h5>Templating</h5>
-				<p>Item template allows displaying custom content inside the suggestions panel. The slotProps variable passed to the template provides an item property to represent an item in the suggestions collection.</p>
+				<p>Item template allows displaying custom content inside the suggestions panel. The slotProps variable passed to the template provides an item property to represent an item in the suggestions collection. 
+                    In addition <i>optiongroup</i>, <i>header</i> and <i>footer</i> slots are provided for further customization</p>
 <pre v-code><code><template v-pre>
 &lt;AutoComplete v-model="brand" :suggestions="filteredBrands" @complete="searchBrand($event)" placeholder="Hint: type 'v' or 'f'" :dropdown="true"&gt;
-	&lt;template #item="slotProps"&gt;
+    &lt;template #item="slotProps"&gt;
 		&lt;img :alt="slotProps.item" :src="'demo/images/car/' + slotProps.item + '.png'" /&gt;
         &lt;div&gt;{{slotProps.item}}&lt;/div&gt;
 	&lt;/template&gt;
@@ -112,6 +158,18 @@ export default {
                                 <td>any</td>
                                 <td>null</td>
                                 <td>Property name or getter function of a suggested object to resolve and display.</td>
+                            </tr>
+                            <tr>
+                                <td>optionGroupLabel</td>
+                                <td>string</td>
+                                <td>null</td>
+                                <td>Property name or getter function to use as the label of an option group.</td>
+                            </tr>
+                            <tr>
+                                <td>optionGroupChildren</td>
+                                <td>string</td>
+                                <td>null</td>
+                                <td>Property name or getter function that refers to the children options of option group.</td>
                             </tr>
                             <tr>
                                 <td>scrollHeight</td>
@@ -227,6 +285,40 @@ export default {
 					</table>
 				</div>
 
+                <h5>Slots</h5>
+				<div class="doc-tablewrapper">
+                    <table class="doc-table">
+						<thead>
+                            <tr>
+                                <th>Name</th>
+                                <th>Parameters</th>
+                            </tr>
+						</thead>
+						<tbody>
+                            <tr>
+                                <td>item</td>
+                                <td>item: Option instance <br />
+                                    index: Index of the option</td>
+                            </tr>
+                            <tr>
+                                <td>optiongroup</td>
+                                <td>item: OptionGroup instance <br />
+                                    index: Index of the option group</td>
+                            </tr>
+                            <tr>
+                                <td>header</td>
+                                <td>value: Value of the component <br />
+                                    suggestions: Displayed options</td>
+                            </tr>
+                            <tr>
+                                <td>footer</td>
+                                <td>value: Value of the component <br />
+                                    suggestions: Displayed options</td>
+                            </tr>
+						</tbody>
+					</table>
+                </div>
+
 				<h5>Styling</h5>
 				<p>Following is the list of structural style classes</p>
 				<div class="doc-tablewrapper">
@@ -285,6 +377,16 @@ export default {
 &lt;h5&gt;Basic&lt;/h5&gt;
 &lt;AutoComplete v-model="selectedCountry1" :suggestions="filteredCountries" @complete="searchCountry($event)" field="name" /&gt;
 
+&lt;h5&gt;Grouped&lt;/h5&gt;
+&lt;AutoComplete v-model="selectedCity" :suggestions="filteredCities" @complete="searchCity($event)" field="label" optionGroupLabel="label" optionGroupChildren="items"&gt;
+    &lt;template #optiongroup="slotProps"&gt;
+        &lt;div class="p-d-flex p-ai-center country-item"&gt;
+            &lt;img src="../../assets/images/flag_placeholder.png" :class="'flag flag-' + slotProps.item.code.toLowerCase()" width="18" /&gt;
+            &lt;div&gt;{{slotProps.item.label}}&lt;/div&gt;
+        &lt;/div&gt;
+    &lt;/template&gt;
+&lt;/AutoComplete&gt;
+
 &lt;h5&gt;Dropdown, Templating and Force Selection&lt;/h5&gt;
 &lt;AutoComplete v-model="selectedCountry2" :suggestions="filteredCountries" @complete="searchCountry($event)" :dropdown="true" field="name" forceSelection&gt;
     &lt;template #item="slotProps"&gt;
@@ -304,6 +406,7 @@ export default {
 
 <pre v-code.script><code>
 import CountryService from '../../service/CountryService';
+import {FilterService,FilterMatchMode} from 'primevue/api';
 
 export default {
     data() {
@@ -311,8 +414,37 @@ export default {
             countries: null,
             selectedCountry1: null,
             selectedCountry2: null,
+            selectedCity: null,
+            filteredCities: null,
             filteredCountries: null,
-            selectedCountries: []
+            selectedCountries: [],
+            groupedCities: [{
+                label: 'Germany', code: 'DE', 
+                items: [
+                    {label: 'Berlin', value: 'Berlin'},
+                    {label: 'Frankfurt', value: 'Frankfurt'},
+                    {label: 'Hamburg', value: 'Hamburg'},
+                    {label: 'Munich', value: 'Munich'}
+                ]
+            },
+            {
+                label: 'USA', code: 'US', 
+                items: [
+                    {label: 'Chicago', value: 'Chicago'},
+                    {label: 'Los Angeles', value: 'Los Angeles'},
+                    {label: 'New York', value: 'New York'},
+                    {label: 'San Francisco', value: 'San Francisco'}
+                ]
+            },
+            {
+                label: 'Japan', code: 'JP', 
+                items: [
+                    {label: 'Kyoto', value: 'Kyoto'},
+                    {label: 'Osaka', value: 'Osaka'},
+                    {label: 'Tokyo', value: 'Tokyo'},
+                    {label: 'Yokohama', value: 'Yokohama'}
+                ]
+            }]
         }
     },
     countryService: null,
@@ -334,6 +466,19 @@ export default {
                     });
                 }
             }, 250);
+        },
+        searchCity(event) {
+            let query = event.query;
+            let filteredCities = [];
+
+            for (let country of this.groupedCities) {
+                let filteredItems = FilterService.filter(country.items, ['label'], query, FilterMatchMode.CONTAINS);
+                if (filteredItems && filteredItems.length) {
+                    filteredCities.push({...country, ...{items: filteredItems}});
+                }
+            }
+
+            this.filteredCities = filteredCities;
         }
     }
 }
@@ -358,11 +503,21 @@ export default {
                 <h5>Basic</h5>
                 <AutoComplete v-model="selectedCountry1" :suggestions="filteredCountries" @complete="searchCountry($event)" field="name" />
 
+                <h5>Grouped</h5>
+                <AutoComplete v-model="selectedCity" :suggestions="filteredCities" @complete="searchCity($event)" field="label" optionGroupLabel="label" optionGroupChildren="items">
+                    <template #optiongroup="slotProps">
+                        <div class="p-d-flex p-ai-center country-item">
+                            <img src="../../assets/images/flag_placeholder.png" :class="'flag flag-' + slotProps.item.code.toLowerCase()" width="18" />
+                            <div>{{slotProps.item.label}}</div>
+                        </div>
+                    </template>
+                </AutoComplete>
+
                 <h5>Dropdown, Templating and Force Selection</h5>
                 <AutoComplete v-model="selectedCountry2" :suggestions="filteredCountries" @complete="searchCountry($event)" :dropdown="true" field="name" forceSelection>
                     <template #item="slotProps">
                         <div class="country-item">
-                            <img src="https://www.primefaces.org/wp-content/uploads/2020/05/placeholder.png" />
+                            <img src="../../assets/images/flag_placeholder.png" :class="'flag flag-' + slotProps.item.code.toLowerCase()" />
                             <div>{{slotProps.item.name}}</div>
                         </div>
                     </template>
@@ -378,15 +533,46 @@ export default {
 </template>
 
 <script>
-import CountryService from '../service/CountryService';
+import CountryService from '../../service/CountryService';
+import {FilterService,FilterMatchMode} from 'primevue/api';
+
 export default {
     data() {
         return {
             countries: null,
             selectedCountry1: null,
             selectedCountry2: null,
+            selectedCity: null,
+            filteredCities: null,
             filteredCountries: null,
-            selectedCountries: []
+            selectedCountries: [],
+            groupedCities: [{
+                label: 'Germany', code: 'DE', 
+                items: [
+                    {label: 'Berlin', value: 'Berlin'},
+                    {label: 'Frankfurt', value: 'Frankfurt'},
+                    {label: 'Hamburg', value: 'Hamburg'},
+                    {label: 'Munich', value: 'Munich'}
+                ]
+            },
+            {
+                label: 'USA', code: 'US', 
+                items: [
+                    {label: 'Chicago', value: 'Chicago'},
+                    {label: 'Los Angeles', value: 'Los Angeles'},
+                    {label: 'New York', value: 'New York'},
+                    {label: 'San Francisco', value: 'San Francisco'}
+                ]
+            },
+            {
+                label: 'Japan', code: 'JP', 
+                items: [
+                    {label: 'Kyoto', value: 'Kyoto'},
+                    {label: 'Osaka', value: 'Osaka'},
+                    {label: 'Tokyo', value: 'Tokyo'},
+                    {label: 'Yokohama', value: 'Yokohama'}
+                ]
+            }]
         }
     },
     countryService: null,
@@ -408,6 +594,19 @@ export default {
                     });
                 }
             }, 250);
+        },
+        searchCity(event) {
+            let query = event.query;
+            let filteredCities = [];
+
+            for (let country of this.groupedCities) {
+                let filteredItems = FilterService.filter(country.items, ['label'], query, FilterMatchMode.CONTAINS);
+                if (filteredItems && filteredItems.length) {
+                    filteredCities.push({...country, ...{items: filteredItems}});
+                }
+            }
+
+            this.filteredCities = filteredCities;
         }
     }
 }`,

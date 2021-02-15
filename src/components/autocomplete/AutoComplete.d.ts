@@ -4,6 +4,8 @@ interface AutoCompleteProps {
     modelValue?: any;
     suggestions?: any[];
     field?: string|Function;
+    optionGroupLabel?: string;
+    optionGroupChildren?: string;
     scrollHeight?: string;
     dropdown?: boolean;
     dropdownMode?: string;
