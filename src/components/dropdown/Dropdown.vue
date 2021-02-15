@@ -22,7 +22,7 @@
                         <span class="p-dropdown-filter-icon pi pi-search"></span>
                     </div>
                 </div>
-                <div class="p-dropdown-items-wrapper" :style="{'max-height': scrollHeight}">
+                <div :ref="itemsWrapperRef" class="p-dropdown-items-wrapper" :style="{'max-height': scrollHeight}">
                     <ul class="p-dropdown-items" role="listbox">
                         <template v-if="!optionGroupLabel">
                              <li v-for="(option, i) of visibleOptions" :class="['p-dropdown-item', {'p-highlight': isSelected(option), 'p-disabled': isOptionDisabled(option)}]" v-ripple
@@ -123,6 +123,7 @@ export default {
     previousSearchChar: null,
     searchValue: null,
     overlay: null,
+    itemsWrapper: null,
     beforeUnmount() {
         this.restoreAppend();
         this.unbindOutsideClickListener();
@@ -132,7 +133,11 @@ export default {
             this.scrollHandler.destroy();
             this.scrollHandler = null;
         }
+        this.itemsWrapper = null;
         this.overlay = null;
+    },
+    updated() {
+        this.scrollValueInView();
     },
     methods: {
         getOptionLabel(option) {
@@ -403,6 +408,7 @@ export default {
             this.unbindScrollListener();
             this.unbindResizeListener();
             this.$emit('hide');
+            this.itemsWrapper = null;
             this.overlay = null;
         },
         alignOverlay() {
@@ -569,6 +575,17 @@ export default {
         },
         overlayRef(el) {
             this.overlay = el;
+        },
+        itemsWrapperRef(el) {
+            this.itemsWrapper = el;
+        },
+        scrollValueInView() {
+            if (this.overlay) {
+                let selectedItem = DomHandler.findSingle(this.overlay, 'li.p-highlight');
+                if (selectedItem) {
+                    DomHandler.scrollInView(this.itemsWrapper, DomHandler.findSingle(this.overlay, 'li.p-highlight'));
+                }
+            }
         }
     },
     computed: {
