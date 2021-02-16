@@ -59,7 +59,6 @@ export default {
     mounted() {
         this.menuService.getMenu().then(data => {
             this.menu = data;
-            this.filteredMenu = data;
         })
     },
     methods: {
