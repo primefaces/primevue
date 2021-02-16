@@ -570,6 +570,7 @@ export default {
 
 <script>
 import LiveEditor from '../liveeditor/LiveEditor';
+
 export default {
     data() {
         return {

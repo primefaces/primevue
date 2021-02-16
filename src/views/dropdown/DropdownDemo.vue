@@ -25,7 +25,6 @@
                         </div>
                     </template>
                 </Dropdown>
-                {{selectedGroupedCity}}
 
                 <h5>Advanced with Templating, Filtering and Clear Icon</h5>
                 <Dropdown v-model="selectedCountry" :options="countries" optionLabel="name" :filter="true" placeholder="Select a Country" :showClear="true">
