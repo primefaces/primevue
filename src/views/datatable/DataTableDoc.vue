@@ -175,73 +175,131 @@ export default {
                                 <td>null</td>
                                 <td>Footer content of the column.</td>
                             </tr>
-                        <tr>
+                            <tr>
+                                <td>style</td>
+                                <td>object</td>
+                                <td>null</td>
+                                <td>Inline style of header, body and footer cells.</td>
+                            </tr>
+                            <tr>
+                                <td>class</td>
+                                <td>string</td>
+                                <td>null</td>
+                                <td>Style class of header, body and footer cells.</td>
+                            </tr>
+                            <tr>
                                 <td>headerStyle</td>
                                 <td>object</td>
                                 <td>null</td>
-                                <td>Inline style of the column.</td>
+                                <td>Inline style of the column header.</td>
                             </tr>
                             <tr>
                                 <td>headerClass</td>
                                 <td>string</td>
                                 <td>null</td>
-                                <td>Style class of the column.</td>
+                                <td>Style class of the column header.</td>
                             </tr>
                             <tr>
                                 <td>bodyStyle</td>
                                 <td>object</td>
                                 <td>null</td>
-                                <td>Inline style of the column.</td>
+                                <td>Inline style of the column body.</td>
                             </tr>
                             <tr>
                                 <td>bodyClass</td>
                                 <td>string</td>
                                 <td>null</td>
-                                <td>Style class of the column.</td>
+                                <td>Style class of the column body.</td>
                             </tr>
                             <tr>
                                 <td>footerStyle</td>
                                 <td>object</td>
                                 <td>null</td>
-                                <td>Inline style of the column.</td>
+                                <td>Inline style of the column footer.</td>
                             </tr>
                             <tr>
                                 <td>footerClass</td>
                                 <td>string</td>
                                 <td>null</td>
-                                <td>Style class of the column.</td>
+                                <td>Style class of the column footer.</td>
                             </tr>
                             <tr>
-                                <td>filterHeaderStyle</td>
-                                <td>object</td>
+                                <td>showFilterMenu</td>
+                                <td>boolean</td>
+                                <td>true</td>
+                                <td>Whether to display the filter overlay.</td>
+                            </tr>
+                            <tr>
+                                <td>showFilterOperator</td>
+                                <td>boolean</td>
+                                <td>true</td>
+                                <td>When enabled, match all and match any operator selector is displayed.</td>
+                            </tr>
+                            <tr>
+                                <td>showClearButton</td>
+                                <td>boolean</td>
+                                <td>true</td>
+                                <td>Displays a button to clear the column filtering.</td>
+                            </tr>
+                            <tr>
+                                <td>showApplyButton</td>
+                                <td>boolean</td>
+                                <td>true</td>
+                                <td>Displays a button to apply the column filtering.</td>
+                            </tr>
+                            <tr>
+                                <td>showFilterMatchModes</td>
+                                <td>boolean</td>
+                                <td>true</td>
+                                <td>Whether to show the match modes selector.</td>
+                            </tr>
+                            <tr>
+                                <td>showAddButton</td>
+                                <td>boolean</td>
+                                <td>true</td>
+                                <td>When enabled, a button is displayed to add more rules.</td>
+                            </tr>
+                            <tr>
+                                <td>filterMatchModeOptions</td>
+                                <td>array</td>
                                 <td>null</td>
-                                <td>Inline style of the column filter header.</td>
+                                <td>An array of label-value pairs to override the global match mode options.</td>
                             </tr>
                             <tr>
-                                <td>filterHeaderClass</td>
-                                <td>string</td>
-                                <td>null</td>
-                                <td>Style class of the column filter header.</td>
-                            </tr>
-                            <tr>
-                                <td>filterMatchMode</td>
-                                <td>string</td>
-                                <td>startsWith</td>
-                                <td>Defines filterMatchMode; "startsWith", "contains", "endsWidth", "equals", "notEquals", "in", "lt", "lte", "gt", "gte" and "custom".</td>
-                            </tr>
-                            <tr>
-                                <td>filterFunction</td>
-                                <td>function</td>
-                                <td>null</td>
-                                <td>A function that takes a value and a filter to compare against by returning either true or false. filterMatchMode must be set
-                                    to "custom" for this function to be triggered.
-                                </td>
+                                <td>maxConstraints</td>
+                                <td>number</td>
+                                <td>2</td>
+                                <td>Maximum number of constraints for a column filter.</td>
                             </tr>
                             <tr>
                                 <td>excludeGlobalFilter</td>
                                 <td>boolean</td>
                                 <td>false</td>
                                 <td>Whether to exclude from global filtering or not.</td>
+                            </tr>
+                            <tr>
+                                <td>filterHeaderStyle</td>
+                                <td>object</td>
+                                <td>null</td>
+                                <td>Inline style of the column filter header in row filter display.</td>
+                            </tr>
+                            <tr>
+                                <td>filterHeaderClass</td>
+                                <td>string</td>
+                                <td>null</td>
+                                <td>Style class of the column filter header in row filter display.</td>
+                            </tr>
+                            <tr>
+                                <td>filterMenuStyle</td>
+                                <td>object</td>
+                                <td>null</td>
+                                <td>Inline style of the column filter overlay.</td>
+                            </tr>
+                            <tr>
+                                <td>filterMenuClass</td>
+                                <td>string</td>
+                                <td>null</td>
+                                <td>Style class of the column filter overlay.</td>
                             </tr>
                             <tr>
                                 <td>selectionMode</td>
@@ -303,7 +361,13 @@ export default {
                                 <td>false</td>
                                 <td>Whether the column is fixed in horizontal scrolling.</td>
                             </tr>
-                             <tr>
+                            <tr>
+                                <td>alignFrozen</td>
+                                <td>string</td>
+                                <td>left</td>
+                                <td>Position of a frozen column, valid values are left and right.</td>
+                            </tr>
+                            <tr>
                                 <td>exportable</td>
                                 <td>boolean</td>
                                 <td>true</td>
@@ -538,75 +602,166 @@ data() {
 </code></pre>
 
                 <h5>Filtering</h5>
-                <p>Filtering is enabled by defining a filter template per column to populate the <i>filters</i> property of the DataTable. The <i>filters</i>
-                property should be an key-value object where keys are the field name and the value is the filter value. The filter template receives the column properties
-                via the slotProps and accepts any form element as the filter element. Default match mode is "startsWith" and this can be configured per column using the <i>filterMatchMode</i> property that also accepts
-                "contains", "endsWith", "equals", "notEquals", "in", "lt", "lte", "gt", "gte" and "custom" as available modes.</p>
-                <p>Optionally a global filter is available to search against all the fields, in this case the special <i>global</i> keyword should be the property to be populated.</p>
+                <p>DataTable has advanced filtering capabilities that does the heavy lifting while providing flexible customization. Filtering has two layout alternatives defined with the <i>filterDisplay</i>. 
+                In <b>row</b> setting, filter elements are displayed in a separate row at the header section whereas
+                in <i>menu</i> mode filter elements are displayed inside an overlay. Filter metadata is specified using the <i>filters</i> as a v-model and UI elements for the filtering
+                are placed inside the filter template. The template filter gets a <i>filterModel</i> and <i>filterCallback</i>, 
+                use filterModel.value to populate the filter with your own form components and call the filterCallback with the event of your choice like @input, @change, @click.</p>
+
+<pre v-code.script><code>
+import CustomerService from '../../service/CustomerService';
+import {FilterMatchMode} from 'primevue/api';
+
+export default {
+    data() {
+        return {
+            customers: null,
+            filters: {
+                'name': {value: null, matchMode: FilterMatchMode.STARTS_WITH}
+            }
+        }
+    },
+    created() {
+        this.customerService = new CustomerService();
+    },
+    mounted() {
+        this.customerService.getCustomersLarge().then(data => this.customers = data);
+    }
+}
+</code></pre>
+
+                <h6>Filter Row</h6>
+                <p>Input field is displayed in a separate header row.</p>
+
 <pre v-code><code><template v-pre>
-&lt;DataTable :value="cars" :filters="filters" :paginator="true" :rows="10"&gt;
-    &lt;template #header&gt;
-        &lt;div style="text-align: right"&gt;
-            &lt;i class="pi pi-search" style="margin: 4px 4px 0px 0px;"&gt;&lt;/i&gt;
-            &lt;InputText v-model="filters['global']" placeholder="Global Search" size="50" /&gt;
-        &lt;/div&gt;
-    &lt;/template&gt;
-    &lt;Column field="vin" header="Vin" filterMatchMode="startsWith"&gt;
-        &lt;template #filter&gt;
-            &lt;InputText type="text" v-model="filters['vin']" class="p-column-filter" /&gt;
+&lt;DataTable :value="customers1"
+                    dataKey="id" v-model:filters="filters" filterDisplay="row" :loading="loading"&gt;
+    &lt;Column field="name" header="Name"&gt;
+        &lt;template #filter="{filterModel,filterCallback}"&gt;
+            &lt;InputText type="text" v-model="filterModel.value" @keydown.enter="filterCallback()" class="p-column-filter" :placeholder="`Search by name - ${filterModel.matchMode}`"/&gt;
         &lt;/template&gt;
     &lt;/Column&gt;
-    &lt;Column field="year" header="Year" filterMatchMode="contains"&gt;
-        &lt;template #filter&gt;
-            &lt;InputText type="text" v-model="filters['year']" class="p-column-filter" /&gt;
-        &lt;/template&gt;
-    &lt;/Column&gt;
-    &lt;Column field="brand" header="Brand" filterMatchMode="equals"&gt;
-        &lt;template #filter&gt;
-            &lt;Dropdown v-model="filters['brand']" :options="brands" optionLabel="brand" optionValue="value" placeholder="Select a Brand" class="p-column-filter"&gt;
-                &lt;template #option="slotProps"&gt;
-                    &lt;div class="p-dropdown-car-option"&gt;
-                        &lt;img :alt="slotProps.option.brand" :src="'demo/images/car/' + slotProps.option.brand + '.png'" /&gt;
-                        &lt;span&gt;&#123;&#123;slotProps.option.brand&#125;&#125;&lt;/span&gt;
-                    &lt;/div&gt;
-                &lt;/template&gt;
-            &lt;/Dropdown&gt;
-        &lt;/template&gt;
-    &lt;/Column&gt;
-    &lt;Column field="color" header="Color" filterMatchMode="in"&gt;
-        &lt;template #filter&gt;
-            &lt;MultiSelect v-model="filters['color']" :options="colors" optionLabel="name" optionValue="value" placeholder="Select a Color" /&gt;
-        &lt;/template&gt;
-    &lt;/Column&gt;
-&lt;/DataTable&gt;
+&lt;DataTable&gt;
+
 </template>
 </code></pre>
 
-                <p>Custom filtering is implemented by setting the filterMatchMode to "custom" and defining a filter function.</p>
+                <h6>Filter Row</h6>
+                <p>Input field is displayed in an overlay.</p>
+
 <pre v-code><code><template v-pre>
-&lt;Column field="vin" header="Vin" filterMatchMode="myOwnEquals"&gt;
-        &lt;template #filter&gt;
-            &lt;InputText type="text" v-model="filters['vin']" class="p-column-filter" /&gt;
+&lt;DataTable :value="customers1"
+                    dataKey="id" v-model:filters="filters" filterDisplay="menu" :loading="loading"&gt;
+    &lt;Column field="name" header="Name"&gt;
+        &lt;template #filter="{filterModel,filterCallback}"&gt;
+            &lt;InputText type="text" v-model="filterModel.value" @keydown.enter="filterCallback()" class="p-column-filter" :placeholder="`Search by name - ${filterModel.matchMode}`"/&gt;
         &lt;/template&gt;
     &lt;/Column&gt;
+&lt;DataTable&gt;
+
 </template>
+</code></pre>
+
+                <h6>Multiple Constraints</h6>
+                <p>In "menu" display, it is possible to add more constraints to a same filter. In this case, metadata could be an array of constraints. The operator
+                defines whether all or any of the constraints should match.</p>
+
+<pre v-code.script><code>
+data() {
+    return {
+        customers: null,
+        filters: {
+            'name': {operator: FilterOperator.AND, constraints: [{value: null, matchMode: FilterMatchMode.STARTS_WITH}]},
+        }
+    }
+}
+</code></pre>
+
+                <h6>Populate Filters</h6>
+                <p>Providing a filters with predefined values would be enough to display the table as filtered by default.</p>
+<pre v-code.script><code>
+data() {
+    return {
+        customers: null,
+        filters: {
+            'name': {operator: FilterOperator.AND, constraints: [
+                {value: 'Prime', matchMode: FilterMatchMode.STARTS_WITH},
+                {value: 'Vue', matchMode: FilterMatchMode.CONTAINS}
+            ]},
+        }
+    }
+}
+</code></pre>
+
+                <h6>Match Modes</h6>
+                <p>Depending on the <i>dataType</i> of the column, suitable match modes are displayed. Default configuration is available at <i>PrimeVue.filterMatchModeOptions</i> which can be used to customize the modes globally for all tables.</p>
+
+                <pre v-code.script><code>
+import {createApp} from 'vue';
+import PrimeVue from 'primevue/config';
+import FilterMatchMode from 'primevue/api',
+const app = createApp(App);
+
+app.use(PrimeVue, {
+    filterMatchModeOptions: {
+        text: [
+            FilterMatchMode.STARTS_WITH,
+            FilterMatchMode.CONTAINS,
+            FilterMatchMode.NOT_CONTAINS,
+            FilterMatchMode.ENDS_WITH,
+            FilterMatchMode.EQUALS,
+            FilterMatchMode.NOT_EQUALS
+        ],
+        numeric: [
+            FilterMatchMode.EQUALS,
+            FilterMatchMode.NOT_EQUALS,
+            FilterMatchMode.LESS_THAN,
+            FilterMatchMode.LESS_THAN_OR_EQUAL_TO,
+            FilterMatchMode.GREATER_THAN,
+            FilterMatchMode.GREATER_THAN_OR_EQUAL_TO
+        ],
+        date: [
+            FilterMatchMode.DATE_IS,
+            FilterMatchMode.DATE_IS_NOT,
+            FilterMatchMode.DATE_BEFORE,
+            FilterMatchMode.DATE_AFTER
+        ]
+    }
+});
+</code></pre>
+
+                <p>If you need to override the match modes for a particular column use the <i>filterMatchModeOptions</i> property and provide an array with label-value pairs.</p>
+<pre v-code><code><template v-pre>
+&lt;Column field="name" header="Name" :filterMatchModeOptions="matchModes"&gt;
+    &lt;template #filter="{filterModel,filterCallback}"&gt;
+        &lt;InputText type="text" v-model="filterModel.value" @keydown.enter="filterCallback()" class="p-column-filter" :placeholder="`Search by name - ${filterModel.matchMode}`"/&gt;
+    &lt;/template&gt;
+&lt;/Column&gt;
+
+</template>
+</code></pre>
+
+                <pre v-code.script><code>
+matchModes: [
+    {label: 'Starts With', FilterMatchMode.STARTS_WITH},
+    {label: 'Contains', FilterMatchMode.CONTAINS},
+]
+</code></pre>
+
+                <h6>Custom Filter</h6>
+                <p>Custom filtering is implemented using the <i>FilterService</i>, first register your filter and add it to your <i>filterMatchModeOptions</i>.</p>
+<pre v-code.script><code>
+import {FilterService} from 'primevue/api';
+
+FilterService.register('myfilter', (a,b) => a === b);
 </code></pre>
 
 <pre v-code.script><code>
-methods: {
-    myOwnEquals(value, filter) {
-        if (filter === undefined || filter === null || (typeof filter === 'string' &amp;&amp; filter.trim() === '')) {
-            return true;
-        }
-
-        if (value === undefined || value === null) {
-            return false;
-        }
-
-        return value.toString().toLowerCase() === filter.toString().toLowerCase();
-    }
-}
-
+matchModes: [
+    {label: 'My Filter', "myfilter"},
+    {label: 'Starts With', FilterMatchMode.STARTS_WITH},
+    {label: 'Contains', FilterMatchMode.CONTAINS},
+]
 </code></pre>
 
                 <h5>Selection</h5>
@@ -654,7 +809,7 @@ methods: {
                 <h5>Scrolling</h5>
                 <p>DataTable supports both horizontal and vertical scrolling as well as frozen columns and rows. Scrollable DataTable is enabled using <i>scrollable</i> property and <i>scrollHeight</i> to define the viewport height.</p>
 <pre v-code><code><template v-pre>
-&lt;DataTable :value="cars" :scrollable="true" scrollHeight="200px"&gt;
+&lt;DataTable :value="cars" :scrollable="true" scrollHeight="400px"&gt;
     &lt;Column field="vin" header="Vin"&gt;&lt;/Column&gt;
     &lt;Column field="year" header="Year"&gt;&lt;/Column&gt;
     &lt;Column field="brand" header="Brand"&gt;&lt;/Column&gt;
@@ -683,7 +838,7 @@ methods: {
 </code></pre>
 
                 <h5>Full Page Scroll</h5>
-                <p>FlexScroll can also be used for cases where scrollable viewport should be responsive with respect to the window size. See the Full Page demo for an example.</p>
+                <p>FlexScroll can also be used for cases where scrollable viewport should be responsive with respect to the window size. See the <router-link to="/datatable/flexscroll">full page</router> demo for an example.</p>
 <pre v-code><code><template v-pre>
 &lt;div style="height: calc(100vh - 143px)"&gt;
     &lt;DataTable :value="cars" :scrollable="true" scrollHeight="flex"&gt;
@@ -697,133 +852,75 @@ methods: {
 </code></pre>
 
                 <h5>Horizontal Scrolling</h5>
-                <p>In horizontal scrolling, it is required to give fixed widths to columns. In general when customizing the column widths of scrollable tables, use colgroup as below to avoid misalignment issues as it will apply both the header, body and footer sections which are different separate elements internally.</p>
+                <p>For horizontal scrolling only, it is required to set <i>scrollDirection</i> to "horizontal" and give widths to columns.</p>
 <pre v-code><code><template v-pre>
-&lt;DataTable :value="cars" :scrollable="true" scrollHeight="200px" style="width: 600px"&gt;
-    &lt;Column field="vin" header="Vin" headerStyle="width: 250px" columnKey="vin_1"&gt;&lt;/Column&gt;
-    &lt;Column field="year" header="Year" headerStyle="width: 250px" columnKey="year_1"&gt;&lt;/Column&gt;
-    &lt;Column field="brand" header="Brand" headerStyle="width: 250px" columnKey="brand_1"&gt;&lt;/Column&gt;
-    &lt;Column field="color" header="Color" headerStyle="width: 250px" columnKey="color_1"&gt;&lt;/Column&gt;
-    &lt;Column field="vin" header="Vin" headerStyle="width: 250px" columnKey="vin_2"&gt;&lt;/Column&gt;
-    &lt;Column field="year" header="Year" headerStyle="width: 250px" columnKey="year_2"&gt;&lt;/Column&gt;
-    &lt;Column field="brand" header="Brand" headerStyle="width: 250px" columnKey="brand_2"&gt;&lt;/Column&gt;
-    &lt;Column field="color" header="Color" headerStyle="width: 250px" columnKey="color_2"&gt;&lt;/Column&gt;
+&lt;DataTable :value="customers" :scrollable="true"  scrollDirection="horizontal"&gt;
+    &lt;Column field="id" header="Id" footer="Id" :style="{width:'200px'}"&gt;&lt;/Column&gt;
+    &lt;Column field="name" header="Name" footer="Name" :style="{width:'200px'}"&gt;&lt;/Column&gt;
+    &lt;Column field="country.name" header="Country" footer="Country" :style="{width:'200px'}"&gt;&lt;/Column&gt;
+    &lt;Column field="date" header="Date" footer="Date" :style="{width:'200px'}"&gt;&lt;/Column&gt;
+    &lt;Column field="balance" header="Balance" footer="Balance" :style="{width:'200px'}"&gt;&lt;/Column&gt;
+    &lt;Column field="company" header="Company" footer="Company" :style="{width:'200px'}"&gt;&lt;/Column&gt;
+    &lt;Column field="status" header="Status" footer="Status" :style="{width:'200px'}"&gt;&lt;/Column&gt;
+    &lt;Column field="activity" header="Activity" footer="Activity" :style="{width:'200px'}"&gt;&lt;/Column&gt;
+    &lt;Column field="representative.name" header="Representative" footer="Representative" :style="{width:'200px'}"&gt;&lt;/Column&gt;
 &lt;/DataTable&gt;
 </template>
 </code></pre>
 
-                <h5>Frozen Rows and Columns</h5>
-                <p>Certain columns can be frozen by using the <i>frozen</i> property of the column component. Widths of the frozen section is specified by the <i>frozenWidth</i> property.</p>
+                <h5>Horizontal and Vertical Scrolling</h5>
+                <p>Set <i>scrollDirection</i> to "both" and give widths to columns to scroll both ways.</p>
 <pre v-code><code><template v-pre>
-&lt;DataTable :value="cars" :scrollable="true" scrollHeight="200px" frozenWidth="300px" :loading="loading"&gt;
-    &lt;Column field="vin" header="Vin" headerStyle="width: 300px" columnKey="vin_1" :frozen="true"&gt;
-        &lt;template #body="slotProps"&gt;
-            &lt;span style="font-weight: bold"&gt;&#123;&#123;slotProps.data.vin&#125;&#125;&lt;/span&gt;
-        &lt;/template&gt;
-    &lt;/Column&gt;
-    &lt;Column field="year" header="Year" headerStyle="width: 300px" columnKey="year_1"&gt;&lt;/Column&gt;
-    &lt;Column field="brand" header="Brand" headerStyle="width: 300px" columnKey="brand_1"&gt;&lt;/Column&gt;
-    &lt;Column field="color" header="Color" headerStyle="width: 300px" columnKey="color_1"&gt;&lt;/Column&gt;
-    &lt;Column field="year" header="Year" headerStyle="width: 300px" columnKey="year_2"&gt;&lt;/Column&gt;
-    &lt;Column field="brand" header="Brand" headerStyle="width: 300px" columnKey="brand_2"&gt;&lt;/Column&gt;
-    &lt;Column field="color" header="Color" headerStyle="width: 300px" columnKey="color_2"&gt;&lt;/Column&gt;
-    &lt;Column field="year" header="Year" headerStyle="width: 300px" columnKey="year_3"&gt;&lt;/Column&gt;
-    &lt;Column field="brand" header="Brand" headerStyle="width: 300px" columnKey="brand_3"&gt;&lt;/Column&gt;
-    &lt;Column field="color" header="Color" headerStyle="width: 300px" columnKey="color_3"&gt;&lt;/Column&gt;
+&lt;DataTable :value="customers" :scrollable="true" scrollHeight="400px" scrollDirection="both"&gt;
+    &lt;Column field="id" header="Id" footer="Id" :style="{width:'200px'}"&gt;&lt;/Column&gt;
+    &lt;Column field="name" header="Name" footer="Name" :style="{width:'200px'}"&gt;&lt;/Column&gt;
+    &lt;Column field="country.name" header="Country" footer="Country" :style="{width:'200px'}"&gt;&lt;/Column&gt;
+    &lt;Column field="date" header="Date" footer="Date" :style="{width:'200px'}"&gt;&lt;/Column&gt;
+    &lt;Column field="balance" header="Balance" footer="Balance" :style="{width:'200px'}"&gt;&lt;/Column&gt;
+    &lt;Column field="company" header="Company" footer="Company" :style="{width:'200px'}"&gt;&lt;/Column&gt;
+    &lt;Column field="status" header="Status" footer="Status" :style="{width:'200px'}"&gt;&lt;/Column&gt;
+    &lt;Column field="activity" header="Activity" footer="Activity" :style="{width:'200px'}"&gt;&lt;/Column&gt;
+    &lt;Column field="representative.name" header="Representative" footer="Representative" :style="{width:'200px'}"&gt;&lt;/Column&gt;
 &lt;/DataTable&gt;
 </template>
 </code></pre>
 
-            <p>Note that frozen columns are enabled, frozen and scrollable cells may have content with varying height which leads to misalignment. Provide fixed height to cells to avoid alignment issues.</p>
+                <h5>Frozen Rows</h5>
+                <p>Frozen rows are used to fix certain rows while scrolling, this data is defined with the <i>frozenValue</i> property.</p>
+
 <pre v-code><code><template v-pre>
-&lt;DataTable :value="cars" :scrollable="true" scrollHeight="200px" frozenWidth="300px" :loading="loading"&gt;
-    &lt;Column field="vin" header="Vin" headerStyle="width: 300px" bodyStyle="height: 25px" columnKey="vin" :frozen="true"&gt;
-        &lt;template #body="slotProps"&gt;
-            &lt;span style="font-weight: bold"&gt;&#123;&#123;slotProps.data.vin&#125;&#125;&lt;/span&gt;
-        &lt;/template&gt;
-    &lt;/Column&gt;
-    &lt;Column field="year" header="Year" headerStyle="width: 300px" bodyStyle="height: 25px" columnKey="year"&gt;&lt;/Column&gt;
-    &lt;Column field="brand" header="Brand" headerStyle="width: 300px" bodyStyle="height: 25px" columnKey="brand"&gt;&lt;/Column&gt;
-    &lt;Column field="color" header="Color" headerStyle="width: 300px" bodyStyle="height: 25px" columnKey="color"&gt;&lt;/Column&gt;
+&lt;DataTable :value="customers" :frozenValue="lockedCustomers" :scrollable="true" scrollHeight="400px"&gt;
+    &lt;Column field="name" header="Name"&gt;&lt;/Column&gt;
+    &lt;Column field="country.name" header="Country"&gt;&lt;/Column&gt;
+    &lt;Column field="representative.name" header="Representative"&gt;&lt;/Column&gt;
+    &lt;Column field="status" header="Status"&gt;&lt;/Column&gt;
 &lt;/DataTable&gt;
 </template>
 </code></pre>
 
-            <p>One or more rows can be displayed as fixed using the <i>frozenValue</i> property.</p>
+                <h5>Frozen Columns</h5>
+                <p>Certain columns can be frozen by using the <i>frozen</i> property of the column component. In addition <i>alignFrozen</i> is available to define whether the column should
+                be fixed on the left or right.</p>
+
 <pre v-code><code><template v-pre>
-&lt;DataTable :value="cars" :frozenValue="frozenCars" :scrollable="true" scrollHeight="200px" :loading="loading"&gt;
-    &lt;Column field="vin" header="Vin"&gt;&lt;/Column&gt;
-    &lt;Column field="year" header="Year"&gt;&lt;/Column&gt;
-    &lt;Column field="brand" header="Brand"&gt;&lt;/Column&gt;
-    &lt;Column field="color" header="Color"&gt;&lt;/Column&gt;
+&lt;DataTable :value="customers" :scrollable="true" scrollHeight="400px" scrollDirection="both"&gt;
+    &lt;Column field="name" header="Name" :style="{width:'200px'}" frozen&gt;&lt;/Column&gt;
+    &lt;Column field="id" header="Id" :style="{width:'100px'}" :frozen="idFrozen"&gt;&lt;/Column&gt;
+    &lt;Column field="name" header="Name" :style="{width:'200px'}"&gt;&lt;/Column&gt;
+    &lt;Column field="country.name" header="Country" :style="{width:'200px'}"&gt;&lt;/Column&gt;
+    &lt;Column field="date" header="Date" :style="{width:'200px'}"&gt;&lt;/Column&gt;
+    &lt;Column field="company" header="Company" :style="{width:'200px'}"&gt;&lt;/Column&gt;
+    &lt;Column field="status" header="Status" :style="{width:'200px'}"&gt;&lt;/Column&gt;
+    &lt;Column field="activity" header="Activity" :style="{width:'200px'}"&gt;&lt;/Column&gt;
+    &lt;Column field="representative.name" header="Representative" :style="{width:'200px'}"&gt;&lt;/Column&gt;
+    &lt;Column field="balance" header="Balance" :style="{width:'200px'}" frozen alignFrozen="right"&gt;&lt;/Column&gt;
 &lt;/DataTable&gt;
 </template>
 </code></pre>
 
-            <p>When using frozen columns with column grouping, use <i>frozenheadergroup</i> and <i>frozenfootergroup</i> types to define grouping for the frozen section.</p>
-
-            <h5>Virtual Scrolling</h5>
-            <p>Virtual scrolling is enabled using <i>virtualScroll</i> and <i>onVirtualScroll</i> properties combined with lazy loading so that data is loaded on the fly during scrolling.
-            For smooth scrolling twice the amount of rows property is loaded on a lazy load event. In addition, to avoid performance problems row height is not calculated automatically and
-            should be provided using <i>virtualRowHeight</i> property which defaults to 28px. View the <router-link to="/datatable/scroll">scrolling demo</router-link> for a sample in-memory implementation.</p>
-
-<pre v-code><code><template v-pre>
-&lt;DataTable :value="lazyCars" :scrollable="true" scrollHeight="200px" :lazy="true" :rows="20"
-    :virtualScroll="true" :virtualRowHeight="30" @virtual-scroll="onVirtualScroll" :totalRecords="lazyTotalRecords"&gt;
-    &lt;Column field="vin" header="Vin"&gt;
-        &lt;template #loading&gt;
-            &lt;span class="loading-text"&gt;&lt;/span&gt;
-        &lt;/template&gt;
-    &lt;/Column&gt;
-    &lt;Column field="year" header="Year"&gt;
-        &lt;template #loading&gt;
-            &lt;span class="loading-text"&gt;&lt;/span&gt;
-        &lt;/template&gt;
-    &lt;/Column&gt;
-    &lt;Column field="brand" header="Brand"&gt;
-        &lt;template #loading&gt;
-            &lt;span class="loading-text"&gt;&lt;/span&gt;
-        &lt;/template&gt;
-    &lt;/Column&gt;
-    &lt;Column field="color" header="Color"&gt;
-        &lt;template #loading&gt;
-            &lt;span class="loading-text"&gt;&lt;/span&gt;
-        &lt;/template&gt;
-    &lt;/Column&gt;
-&lt;/DataTable&gt;
-</template>
-</code></pre>
-
-<pre v-code.script><code>
-import CarService from '../../service/CarService';
-
-export default {
-    data() {
-        return {
-            lazyCars: null,
-            lazyTotalRecords: 0
-        }
-    },
-    carService: null,
-    mounted() {
-        this.lazyCars = this.loadChunk(0, 40);
-        this.lazyTotalRecords = //retrieve logical number of rows from a datasource;
-    },
-    methods: {
-          loadChunk(index, length) {
-            //return data from a datasource between [index, index + length];
-        },
-        onVirtualScroll(event) {
-            //last chunk
-            if (event.first === (this.lazyTotalRecords - 20))
-                this.lazyCars = this.loadChunk(event.first, 20)
-            else
-                this.lazyCars = this.loadChunk(event.first, event.rows)
-        }
-    }
-}
-
-</code></pre>
+                <h6>Scrollable RowGroup</h6>
+                <p>Row groups with subheaders have exclusive support for filtering, when the table scrolls the subheaders stay fixed as long as their
+                data are still displayed. No additional configuration is required to enable this feature. View the <router-link to="/datatable/rowgroup">Row Grouğ</router-link> demo for an example.</p>
 
                 <h5>Lazy Loading</h5>
                 <p>Lazy mode is handy to deal with large datasets, instead of loading the entire data, small chunks of data is loaded by invoking corresponding callbacks such as paging and sorting. Sample belows imitates lazy paging by using an in memory list.
@@ -1805,18 +1902,6 @@ export default {
                                 <td>Template of the paginator.</td>
                             </tr>
                             <tr>
-                                <td>paginatorLeft</td>
-                                <td>Element</td>
-                                <td>null</td>
-                                <td>Content for the left side of the paginator.</td>
-                            </tr>
-                            <tr>
-                                <td>paginatorRight</td>
-                                <td>Element</td>
-                                <td>null</td>
-                                <td>Content for the right side of the paginator.</td>
-                            </tr>
-                            <tr>
                                 <td>pageLinkSize</td>
                                 <td>number</td>
                                 <td>5</td>
@@ -1895,6 +1980,12 @@ export default {
                                 <td>Filters object with key-value pairs to define the filters.</td>
                             </tr>
                             <tr>
+                                <td>filterDisplay</td>
+                                <td>string</td>
+                                <td>null</td>
+                                <td>Layout of the filter elements, valid values are "row" and "menu".</td>
+                            </tr>
+                            <tr>
                                 <td>filterLocale</td>
                                 <td>string</td>
                                 <td>undefined</td>
@@ -1961,7 +2052,7 @@ export default {
                                 <td>autoLayout</td>
                                 <td>boolean</td>
                                 <td>false</td>
-                                <td>Whether the cell widths scale according to their content or not.</td>
+                                <td>Whether the cell widths scale according to their content or not. Does not apply to scrollable tables.</td>
                             </tr>
                             <tr>
                                 <td>resizableColumns</td>
@@ -2060,34 +2151,16 @@ export default {
                                 <td>When specified, enables horizontal and/or vertical scrolling.</td>
                             </tr>
                             <tr>
+                                <td>scrollDirection</td>
+                                <td>string</td>
+                                <td>vertical</td>
+                                <td>Orientation of the scrolling, options are "vertical", "horizontal" and "both".</td>
+                            </tr>
+                            <tr>
                                 <td>scrollHeight</td>
                                 <td>string</td>
                                 <td>null</td>
                                 <td>Height of the scroll viewport in fixed pixels or the "flex" keyword for a dynamic size.</td>
-                            </tr>
-                            <tr>
-                                <td>virtualScroll</td>
-                                <td>boolean</td>
-                                <td>false</td>
-                                <td>Whether the data should be loaded on demand during scroll.</td>
-                            </tr>
-                            <tr>
-                                <td>virtualScrollDelay</td>
-                                <td>number</td>
-                                <td>150</td>
-                                <td>Delay in virtual scroll before doing a call to lazy load.</td>
-                            </tr>
-                            <tr>
-                                <td>virtualRowHeight</td>
-                                <td>number</td>
-                                <td>28</td>
-                                <td>Height of a row to use in calculations of virtual scrolling.</td>
-                            </tr>
-                            <tr>
-                                <td>frozenWidth</td>
-                                <td>string</td>
-                                <td>null</td>
-                                <td>Width of the frozen part in scrollable DataTable.</td>
                             </tr>
                             <tr>
                                 <td>frozenValue</td>
@@ -2281,12 +2354,6 @@ export default {
                                     event.field: Field name of the row data. <br />
                                     event.index: Index of the row data to edit. <br /></td>
                                 <td>Callback to invoke when row edit is cancelled.</td>
-                            </tr>
-                            <tr>
-                                <td>virtual-scroll</td>
-                                <td>event.first: Index of the first row. <br />
-                                    event.rows: Rows per page.</td>
-                                <td>Callback to invoke during virtual scrolling.</td>
                             </tr>
                             <tr>
                                 <td>state-save</td>

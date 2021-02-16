@@ -3,21 +3,31 @@ interface ColumnProps {
     field?: string;
     sortField?: string | ((item: any) => any);
     filterField?: string;
+    dataType?: string;
     sortable?: boolean;
     header?: any;
     footer?: any;
+    style?: object;
+    class?: string;
     headerStyle?: object;
     headerClass?: string;
     bodyStyle?: object;
     bodyClass?: string;
     footerStyle?: object;
     footerClass?: string;
+    showFilterMenu?: boolean;
+    showFilterOperator?: boolean;
+    showClearButton?: boolean;
+    showApplyButton?: boolean;
+    showFilterMatchModes?: boolean;
+    showAddButton?: boolean;
+    filterMatchModeOptions?: any[];
+    maxConstraints?: number;
+    excludeGlobalFilter?: boolean;
     filterHeaderStyle?: object;
     filterHeaderClass?: string;
     filterMenuStyle?: object;
     filterMenuClass?: string;
-    filterFunction?: Function;
-    excludeGlobalFilter?: boolean;
     selectionMode?: string;
     expander?: boolean;
     colspan?: number;
@@ -27,6 +37,7 @@ interface ColumnProps {
     reorderableColumn?: boolean;
     rowEditor?: boolean;
     frozen?: boolean;
+    alignFrozen?: string;
     exportable?: boolean;
 }
 

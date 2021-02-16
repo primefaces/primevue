@@ -116,7 +116,7 @@
     &lt;h5&gt;Subheader Grouping&lt;/h5&gt;
     &lt;p&gt;Group customers by their representative.&lt;/p&gt;
     &lt;DataTable :value="customers" rowGroupMode="subheader" groupRowsBy="representative.name"
-        sortMode="single" sortField="representative.name" :sortOrder="1"&gt;
+        sortMode="single" sortField="representative.name" :sortOrder="1" scrollable scrollHeight="400px"&gt;
         &lt;Column field="representative.name" header="Representative"&gt;&lt;/Column&gt;
         &lt;Column field="name" header="Name"&gt;&lt;/Column&gt;
         &lt;Column field="country" header="Country"&gt;
@@ -276,12 +276,12 @@ export default {
                 <h5>Subheader Grouping</h5>
                 <p>Group customers by their representative.</p>
                 <DataTable :value="customers" rowGroupMode="subheader" groupRowsBy="representative.name"
-                    sortMode="single" sortField="representative.name" :sortOrder="1">
+                    sortMode="single" sortField="representative.name" :sortOrder="1" scrollable scrollHeight="400px">
                     <Column field="representative.name" header="Representative"></Column>
                     <Column field="name" header="Name"></Column>
                     <Column field="country" header="Country">
                         <template #body="slotProps">
-                            <img src="https://www.primefaces.org/wp-content/uploads/2020/05/placeholder.png" width="20" />
+                            <img src="https://www.primefaces.org/wp-content/uploads/2020/05/placeholder.png" :class="'flag flag-' + slotProps.data.country.code" width="30" />
                             <span class="image-text">{{slotProps.data.country.name}}</span>
                         </template>
                     </Column>
@@ -293,7 +293,7 @@ export default {
                     </Column>
                     <Column field="date" header="Date"></Column>
                     <template #groupheader="slotProps">
-                        <img :alt="slotProps.data.representative.name" src="https://www.primefaces.org/wp-content/uploads/2020/05/placeholder.png" width="20" style="vertical-align: middle" />
+                        <img :alt="slotProps.data.representative.name" :src="'demo/images/avatar/' + slotProps.data.representative.image" width="32" style="vertical-align: middle" />
                         <span class="image-text">{{slotProps.data.representative.name}}</span>
                     </template>
                     <template #groupfooter="slotProps">
