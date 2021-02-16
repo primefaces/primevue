@@ -2746,7 +2746,7 @@ export default {
                     <Column field="country.name" header="Country" sortable filterMatchMode="contains">
                         <template #body="{data}">
                             <span class="p-column-title">Country</span>
-                            <img src="../../assets/images/flag_placeholder.png" :class="'flag flag-' + data.country.code" width="30" />
+                            <img src="https://www.primefaces.org/wp-content/uploads/2020/05/placeholder.png" :class="'flag flag-' + data.country.code" width="30" />
                             <span class="image-text">{{data.country.name}}</span>
                         </template>
                         <template #filter="{filterModel}">
