@@ -378,6 +378,11 @@
                     "to": "/dataview"
                 },
                 {
+                    "name": "FilterService",
+                    "to": "/filterservice",
+                    "badge": "New"
+                },
+                {
                     "name": "FullCalendar",
                     "to": "/fullcalendar"
                 },

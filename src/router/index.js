@@ -348,6 +348,11 @@ const routes = [
         component: () => import('../views/fieldset/FieldsetDemo.vue')
     },
     {
+        path: '/filterservice',
+        name: 'filterservice',
+        component: () => import('../views/filterservice/FilterServiceDemo.vue')
+    },
+    {
         path: '/fileupload',
         name: 'fileupload',
         component: () => import('../views/fileupload/FileUploadDemo.vue')
