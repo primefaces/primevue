@@ -678,7 +678,7 @@ data() {
 </code></pre>
 
                 <h6>Populate Filters</h6>
-                <p>Providing a filters with predefined values would be enough to display the table as filtered by default.</p>
+                <p>Providing a filters with predefined values would be enough to display the table as filtered by default. This approach can also be used to clear filters progammatically.</p>
 <pre v-code.script><code>
 data() {
     return {
@@ -687,7 +687,7 @@ data() {
             'name': {operator: FilterOperator.AND, constraints: [
                 {value: 'Prime', matchMode: FilterMatchMode.STARTS_WITH},
                 {value: 'Vue', matchMode: FilterMatchMode.CONTAINS}
-            ]},
+            ]}
         }
     }
 }
