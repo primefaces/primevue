@@ -45,15 +45,20 @@ export default {
 
             <h6>Composition API</h6>
 <pre v-code.script><code>
-import { defineComponent, reactive } from "vue";
+
 import { usePrimeVue } from "primevue/config";
+import { onMounted } from "vue";
 
 export default defineComponent({
     setup() {
         const changeToSpanish = () => {
             const primevue = usePrimeVue();
-            primevue.config.locale.accept: 'Aceptar';
-            primevue.config.locale.reject: 'Rechazar';
+            primevue.config.locale.accept = 'Aceptar';
+            primevue.config.locale.reject = 'Rechazar';
+        }
+
+        onMounted(async () => {
+            changeToSpanish()
         }
     }
 });
