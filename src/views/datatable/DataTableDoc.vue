@@ -838,7 +838,7 @@ matchModes: [
 </code></pre>
 
                 <h5>Full Page Scroll</h5>
-                <p>FlexScroll can also be used for cases where scrollable viewport should be responsive with respect to the window size. See the <router-link to="/datatable/flexscroll">full page</router> demo for an example.</p>
+                <p>FlexScroll can also be used for cases where scrollable viewport should be responsive with respect to the window size. See the <router-link to="/datatable/flexscroll">full page</router-link> demo for an example.</p>
 <pre v-code><code><template v-pre>
 &lt;div style="height: calc(100vh - 143px)"&gt;
     &lt;DataTable :value="cars" :scrollable="true" scrollHeight="flex"&gt;
