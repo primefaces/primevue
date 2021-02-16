@@ -1742,7 +1742,7 @@ export default {
     display: none;
 }
 
-@media screen and (max-width: 40em) {
+@media screen and (max-width: 40rem) {
     ::v-deep(.p-datatable) {
         &.p-datatable-responsive-demo {
             .p-datatable-thead > tr > th,
@@ -2559,7 +2559,7 @@ export default {
             &lt;InputText type="text" v-model="filterModel.value" class="p-column-filter" placeholder="Search by country"/&gt;
         &lt;/template&gt;
     &lt;/Column&gt;
-    &lt;Column header="Representative" sortable sortField="representative.name" :showFilterMatchModes="false" :filterMenuStyle="{'width':'14rem'}"&gt;
+    &lt;Column header="Agent" sortable sortField="representative.name" :showFilterMatchModes="false" :filterMenuStyle="{'width':'14rem'}"&gt;
             &lt;template #body="{data}"&gt;
             &lt;span class="p-column-title"&gt;Agent&lt;/span&gt;
             &lt;img :alt="data.representative.name" :src="'demo/images/avatar/' + data.representative.image" width="32" style="vertical-align: middle" /&gt;
@@ -2753,7 +2753,7 @@ export default {
                             <InputText type="text" v-model="filterModel.value" class="p-column-filter" placeholder="Search by country"/>
                         </template>
                     </Column>
-                    <Column header="Representative" sortable sortField="representative.name" :showFilterMatchModes="false" :filterMenuStyle="{'width':'14rem'}">
+                    <Column header="Agent" sortable sortField="representative.name" :showFilterMatchModes="false" :filterMenuStyle="{'width':'14rem'}">
                          <template #body="{data}">
                             <span class="p-column-title">Agent</span>
                             <img :alt="data.representative.name" :src="'demo/images/avatar/' + data.representative.image" width="32" style="vertical-align: middle" />
@@ -2943,7 +2943,7 @@ export default {
     display: none;
 }
 
-@media screen and (max-width: 960px) {
+@media screen and (max-width: 1200px) {
     ::v-deep(.p-datatable) {
         &.p-datatable-customers {
             .p-datatable-thead > tr > th,

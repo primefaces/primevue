@@ -8,7 +8,7 @@
                     @column-dragstart="$emit('column-dragstart', $event)" @column-dragover="$emit('column-dragover', $event)" @column-dragleave="$emit('column-dragleave', $event)" @column-drop="$emit('column-drop', $event)"
                     :resizableColumns="resizableColumns" @column-resizestart="$emit('column-resizestart', $event)"
                     :sortMode="sortMode" :sortField="sortField" :sortOrder="sortOrder" :multiSortMeta="multiSortMeta"
-                    :allRowsSelected="allRowsSelected" :empty="empty" @checkbox-change="$emit('column-change', $event)"
+                    :allRowsSelected="allRowsSelected" :empty="empty" @checkbox-change="$emit('checkbox-change', $event)"
                     :filters="filters" :filterDisplay="filterDisplay" :filtersStore="filtersStore" @filter-change="$emit('filter-change', $event)" @filter-apply="$emit('filter-apply')"
                     @operator-change="$emit('operator-change',$event)" @matchmode-change="$emit('matchmode-change', $event)" @constraint-add="$emit('constraint-add', $event)" 
                     @constraint-remove="$emit('constraint-remove', $event)" @apply-click="$emit('apply-click',$event)"/>
@@ -36,7 +36,7 @@
                     <DTHeaderCell v-if="rowGroupMode !== 'subheader' || (groupRowsBy !== columnProp(col, 'field'))" :column="col"  
                     @column-click="$emit('column-click', $event)" @column-mousedown="$emit('column-mousedown', $event)"
                     :sortMode="sortMode" :sortField="sortField" :sortOrder="sortOrder" :multiSortMeta="multiSortMeta"
-                    :allRowsSelected="allRowsSelected" :empty="empty" @checkbox-change="$emit('column-change', $event)"
+                    :allRowsSelected="allRowsSelected" :empty="empty" @checkbox-change="$emit('checkbox-change', $event)"
                     :filters="filters" :filterDisplay="filterDisplay" :filtersStore="filtersStore" @filter-change="$emit('filter-change', $event)" @filter-apply="$emit('filter-apply')"
                     @operator-change="$emit('operator-change',$event)" @matchmode-change="$emit('matchmode-change', $event)" @constraint-add="$emit('constraint-add', $event)" 
                     @constraint-remove="$emit('constraint-remove', $event)" @apply-click="$emit('apply-click',$event)"/>

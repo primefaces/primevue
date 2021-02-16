@@ -49,7 +49,7 @@
                             <InputText type="text" v-model="filterModel.value" class="p-column-filter" placeholder="Search by country"/>
                         </template>
                     </Column>
-                    <Column header="Representative" sortable sortField="representative.name" :showFilterMatchModes="false" :filterMenuStyle="{'width':'14rem'}">
+                    <Column header="Agent" sortable sortField="representative.name" :showFilterMatchModes="false" :filterMenuStyle="{'width':'14rem'}">
                          <template #body="{data}">
                             <span class="p-column-title">Agent</span>
                             <img :alt="data.representative.name" :src="'demo/images/avatar/' + data.representative.image" width="32" style="vertical-align: middle" />
@@ -247,7 +247,7 @@ export default {
     display: none;
 }
 
-@media screen and (max-width: 960px) {
+@media screen and (max-width: 1200px) {
     ::v-deep(.p-datatable) {
         &.p-datatable-customers {
             .p-datatable-thead > tr > th,
