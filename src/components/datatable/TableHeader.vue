@@ -9,18 +9,24 @@
                     :resizableColumns="resizableColumns" @column-resizestart="$emit('column-resizestart', $event)"
                     :sortMode="sortMode" :sortField="sortField" :sortOrder="sortOrder" :multiSortMeta="multiSortMeta"
                     :allRowsSelected="allRowsSelected" :empty="empty" @checkbox-change="$emit('column-change', $event)"
-                    :filters="filters" :filtersStore="filtersStore" @filter-change="$emit('filter-change', $event)" @filter-apply="$emit('filter-apply')"
+                    :filters="filters" :filterDisplay="filterDisplay" :filtersStore="filtersStore" @filter-change="$emit('filter-change', $event)" @filter-apply="$emit('filter-apply')"
                     @operator-change="$emit('operator-change',$event)" @matchmode-change="$emit('matchmode-change', $event)" @constraint-add="$emit('constraint-add', $event)" 
                     @constraint-remove="$emit('constraint-remove', $event)" @apply-click="$emit('apply-click',$event)"/>
                 </template>
             </tr>
             <tr v-if="filterDisplay === 'row'" role="row">
                 <template v-for="(col,i) of columns" :key="columnProp(col, 'columnKey')||columnProp(col, 'field')||i">
-                    <DTHeaderCell v-if="rowGroupMode !== 'subheader' || (groupRowsBy !== columnProp(col, 'field'))" :column="col"  :filterColumn="true"
-                    :allRowsSelected="allRowsSelected" :empty="empty" @checkbox-change="$emit('checkbox-change', $event)"
-                    :filters="filters" :filtersStore="filtersStore" @filter-change="$emit('filter-change', $event)" @filter-apply="$emit('filter-apply')"
-                    @operator-change="$emit('operator-change',$event)" @matchmode-change="$emit('matchmode-change', $event)" @constraint-add="$emit('constraint-add', $event)" 
-                    @constraint-remove="$emit('constraint-remove', $event)" @apply-click="$emit('apply-click',$event)"/>
+                    <th :style="getFilterColumnHeaderStyle(col)" :class="getFilterColumnHeaderClass(col)">
+                        <DTColumnFilter v-if="col.children && col.children.filter" :field="columnProp(col,'filterField')||columnProp(col,'field')" :type="columnProp(col,'dataType')" display="row"  
+                        :showMenu="columnProp(col,'showFilterMenu')" :filterElement="col.children && col.children.filter" 
+                        :filterHeaderTemplate="col.children && col.children.filterheader" :filterFooterTemplate="col.children && col.children.filterfooter" 
+                        :filterClearTemplate="col.children && col.children.filterclear" :filterApplyTemplate="col.children && col.children.filterapply" 
+                        :filters="filters" :filtersStore="filtersStore" @filter-change="$emit('filter-change', $event)" @filter-apply="$emit('filter-apply')" :filterMenuStyle="columnProp(col,'filterMenuStyle')" :filterMenuClass="columnProp(col,'filterMenuClass')"
+                        :showOperator="columnProp(col,'showFilterOperator')" :showClearButton="columnProp(col,'showClearButton')" :showApplyButton="columnProp(col,'showApplyButton')"
+                        :showMatchModes="columnProp(col,'showFilterMatchModes')" :showAddButton="columnProp(col,'showAddButton')" :matchModeOptions="columnProp(col,'filterMatchModeOptions')" :maxConstraints="columnProp(col,'maxConstraints')"
+                        @operator-change="$emit('operator-change',$event)" @matchmode-change="$emit('matchmode-change', $event)" 
+                        @constraint-add="$emit('constraint-add', $event)" @constraint-remove="$emit('constraint-remove', $event)" @apply-click="$emit('apply-click',$event)"/>
+                    </th>
                 </template>
             </tr>
         </template>
@@ -31,7 +37,7 @@
                     @column-click="$emit('column-click', $event)" @column-mousedown="$emit('column-mousedown', $event)"
                     :sortMode="sortMode" :sortField="sortField" :sortOrder="sortOrder" :multiSortMeta="multiSortMeta"
                     :allRowsSelected="allRowsSelected" :empty="empty" @checkbox-change="$emit('column-change', $event)"
-                    :filters="filters" :filtersStore="filtersStore" @filter-change="$emit('filter-change', $event)" @filter-apply="$emit('filter-apply')"
+                    :filters="filters" :filterDisplay="filterDisplay" :filtersStore="filtersStore" @filter-change="$emit('filter-change', $event)" @filter-apply="$emit('filter-apply')"
                     @operator-change="$emit('operator-change',$event)" @matchmode-change="$emit('matchmode-change', $event)" @constraint-add="$emit('constraint-add', $event)" 
                     @constraint-remove="$emit('constraint-remove', $event)" @apply-click="$emit('apply-click',$event)"/>
                 </template>
@@ -42,6 +48,7 @@
 
 <script>
 import HeaderCell from './HeaderCell';
+import ColumnFilter from './ColumnFilter';
 
 export default {
     emits: ['column-click', 'column-mousedown', 'column-dragstart', 'column-dragover', 'column-dragleave', 'column-drop',
@@ -110,11 +117,15 @@ export default {
             return col.props ? ((col.type.props[prop].type === Boolean && col.props[prop] === '') ? true : col.props[prop]) : null;
         },
         getFilterColumnHeaderClass(column) {
-            return ['p-filter-column', this.columnProp(column, 'filterHeaderClass')];
+            return ['p-filter-column', this.columnProp(column, 'filterHeaderClass'), this.columnProp(column, 'class')];
+        },
+        getFilterColumnHeaderStyle(column) {
+            return [this.columnProp(column, 'filterHeaderStyle'), this.columnProp(column, 'style')];
         }
     },
     components: {
-        'DTHeaderCell': HeaderCell
+        'DTHeaderCell': HeaderCell,
+        'DTColumnFilter': ColumnFilter
     }
 }
 </script>

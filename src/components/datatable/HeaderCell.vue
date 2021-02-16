@@ -212,7 +212,7 @@ export default {
         },
         ariaSort() {
             if (this.columnProp('sortable')) {
-                const sortIcon = this.getSortableColumnIcon();
+                const sortIcon = this.sortableColumnIcon;
                 if (sortIcon[1]['pi-sort-amount-down'])
                     return 'descending';
                 else if (sortIcon[1]['pi-sort-amount-up-alt'])

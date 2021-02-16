@@ -2520,17 +2520,18 @@ export default {
 
 <pre v-code><code><template v-pre>
 &lt;DataTable :value="customers" :paginator="true" class="p-datatable-customers" :rows="10"
-    dataKey="id" :rowHover="true" v-model:selection="selectedCustomers" :filters="filters" :loading="loading"
+    dataKey="id" :rowHover="true" v-model:selection="selectedCustomers" v-model:filters="filters" filterDisplay="menu" :loading="loading"
     paginatorTemplate="FirstPageLink PrevPageLink PageLinks NextPageLink LastPageLink CurrentPageReport RowsPerPageDropdown" :rowsPerPageOptions="[10,25,50]"
-    currentPageReportTemplate="Showing {first} to {last} of {totalRecords} entries"&gt;
+    currentPageReportTemplate="Showing {first} to {last} of {totalRecords} entries"
+    :globalFilterFields="['name','country.name','representative.name','status']"&gt;
     &lt;template #header&gt;
-        &lt;div class="table-header"&gt;
-            List of Customers
+            &lt;div class="p-d-flex p-jc-between"&gt;
+            &lt;h5 class="p-m-0"&gt;Customers&lt;/h5&gt;
             &lt;span class="p-input-icon-left"&gt;
                 &lt;i class="pi pi-search" /&gt;
-                &lt;InputText v-model="filters['global']" placeholder="Global Search" /&gt;
+                &lt;InputText v-model="filters['global'].value" placeholder="Keyword Search" /&gt;
             &lt;/span&gt;
-        &lt;/div&gt;
+            &lt;/div&gt;
     &lt;/template&gt;
     &lt;template #empty&gt;
         No customers found.
@@ -2538,34 +2539,35 @@ export default {
     &lt;template #loading&gt;
         Loading customers data. Please wait.
     &lt;/template&gt;
-    &lt;Column selectionMode="multiple" headerStyle="width: 3em"&gt;&lt;/Column&gt;
-    &lt;Column field="name" header="Name" :sortable="true"&gt;
-        &lt;template #body="slotProps"&gt;
+    &lt;Column selectionMode="multiple" headerStyle="width: 3rem"&gt;&lt;/Column&gt;
+    &lt;Column field="name" header="Name" sortable&gt;
+        &lt;template #body="{data}"&gt;
             &lt;span class="p-column-title"&gt;Name&lt;/span&gt;
-            {{slotProps.data.name}}
+            {{data.name}}
         &lt;/template&gt;
-        &lt;template #filter&gt;
-            &lt;InputText type="text" v-model="filters['name']" class="p-column-filter" placeholder="Search by name"/&gt;
+        &lt;template #filter="{filterModel}"&gt;
+            &lt;InputText type="text" v-model="filterModel.value" class="p-column-filter" placeholder="Search by name"/&gt;
         &lt;/template&gt;
     &lt;/Column&gt;
-    &lt;Column header="Country" :sortable="true" sortField="country.name" filterField="country.name" filterMatchMode="contains"&gt;
-        &lt;template #body="slotProps"&gt;
+    &lt;Column field="country.name" header="Country" sortable filterMatchMode="contains"&gt;
+        &lt;template #body="{data}"&gt;
             &lt;span class="p-column-title"&gt;Country&lt;/span&gt;
-            &lt;img src="../../assets/images/flag_placeholder.png" :class="'flag flag-' + slotProps.data.country.code" width="30" /&gt;
-            &lt;span class="image-text"&gt;{{slotProps.data.country.name}}&lt;/span&gt;
+            &lt;img src="../../assets/images/flag_placeholder.png" :class="'flag flag-' + data.country.code" width="30" /&gt;
+            &lt;span class="image-text"&gt;{{data.country.name}}&lt;/span&gt;
         &lt;/template&gt;
-        &lt;template #filter&gt;
-            &lt;InputText type="text" v-model="filters['country.name']" class="p-column-filter" placeholder="Search by country"/&gt;
+        &lt;template #filter="{filterModel}"&gt;
+            &lt;InputText type="text" v-model="filterModel.value" class="p-column-filter" placeholder="Search by country"/&gt;
         &lt;/template&gt;
     &lt;/Column&gt;
-    &lt;Column header="Representative" :sortable="true" sortField="representative.name" filterField="representative.name" filterMatchMode="in"&gt;
-        &lt;template #body="slotProps"&gt;
-            &lt;span class="p-column-title"&gt;Representative&lt;/span&gt;
-            &lt;img :alt="slotProps.data.representative.name" :src="'demo/images/avatar/' + slotProps.data.representative.image" width="32" style="vertical-align: middle" /&gt;
-            &lt;span class="image-text"&gt;{{slotProps.data.representative.name}}&lt;/span&gt;
+    &lt;Column header="Representative" sortable sortField="representative.name" :showFilterMatchModes="false" :filterMenuStyle="{'width':'14rem'}"&gt;
+            &lt;template #body="{data}"&gt;
+            &lt;span class="p-column-title"&gt;Agent&lt;/span&gt;
+            &lt;img :alt="data.representative.name" :src="'demo/images/avatar/' + data.representative.image" width="32" style="vertical-align: middle" /&gt;
+            &lt;span class="image-text"&gt;{{data.representative.name}}&lt;/span&gt;
         &lt;/template&gt;
-            &lt;template #filter&gt;
-            &lt;MultiSelect v-model="filters['representative.name']" :options="representatives" optionLabel="name" optionValue="name" placeholder="All" class="p-column-filter"&gt;
+        &lt;template #filter="{filterModel}"&gt;
+            &lt;div class="p-mb-3 p-text-bold"&gt;Agent Picker&lt;/div&gt;
+            &lt;MultiSelect v-model="filterModel.value" :options="representatives" optionLabel="name" placeholder="Any" class="p-column-filter"&gt;
                 &lt;template #option="slotProps"&gt;
                     &lt;div class="p-multiselect-representative-option"&gt;
                         &lt;img :alt="slotProps.option.name" :src="'demo/images/avatar/' + slotProps.option.image" width="32" style="vertical-align: middle" /&gt;
@@ -2575,40 +2577,56 @@ export default {
             &lt;/MultiSelect&gt;
         &lt;/template&gt;
     &lt;/Column&gt;
-    &lt;Column field="date" header="Date" :sortable="true" filterMatchMode="custom" :filterFunction="filterDate"&gt;
-        &lt;template #body="slotProps"&gt;
+    &lt;Column field="date" header="Date" sortable dataType="date"&gt;
+        &lt;template #body="{data}"&gt;
             &lt;span class="p-column-title"&gt;Date&lt;/span&gt;
-            &lt;span&gt;{{slotProps.data.date}}&lt;/span&gt;
+            {{formatDate(data.date)}}
         &lt;/template&gt;
-        &lt;template #filter&gt;
-            &lt;Calendar v-model="filters['date']" dateFormat="yy-mm-dd" class="p-column-filter" placeholder="Registration Date"/&gt;
+        &lt;template #filter="{filterModel}"&gt;
+            &lt;Calendar v-model="filterModel.value" dateFormat="mm/dd/yy" placeholder="mm/dd/yyyy" /&gt;
         &lt;/template&gt;
     &lt;/Column&gt;
-    &lt;Column field="status" header="Status" :sortable="true" filterMatchMode="equals"&gt;
-        &lt;template #body="slotProps"&gt;
-            &lt;span class="p-column-title"&gt;Status&lt;/span&gt;
-            &lt;span :class="'customer-badge status-' + slotProps.data.status"&gt;{{slotProps.data.status}}&lt;/span&gt;
+    &lt;Column field="balance" header="Balance" sortable dataType="numeric"&gt;
+        &lt;template #body="{data}"&gt;
+            &lt;span class="p-column-title"&gt;Balance&lt;/span&gt;
+            {{formatCurrency(data.balance)}}
         &lt;/template&gt;
-        &lt;template #filter&gt;
-            &lt;Dropdown v-model="filters['status']" :options="statuses" placeholder="Select a Status" class="p-column-filter" :showClear="true"&gt;
+        &lt;template #filter="{filterModel}"&gt;
+            &lt;InputNumber v-model="filterModel.value" mode="currency" currency="USD" locale="en-US" /&gt;
+        &lt;/template&gt;
+    &lt;/Column&gt;
+    &lt;Column field="status" header="Status" sortable :filterMenuStyle="{'width':'14rem'}"&gt;
+        &lt;template #body="{data}"&gt;
+            &lt;span class="p-column-title"&gt;Status&lt;/span&gt;
+            &lt;span :class="'customer-badge status-' + data.status"&gt;{{data.status}}&lt;/span&gt;
+        &lt;/template&gt;
+        &lt;template #filter="{filterModel}"&gt;
+            &lt;Dropdown v-model="filterModel.value" :options="statuses" placeholder="Any" class="p-column-filter" :showClear="true"&gt;
+                &lt;template #value="slotProps"&gt;
+                    &lt;span :class="'customer-badge status-' + slotProps.value"&gt;{{slotProps.value}}&lt;/span&gt;
+                &lt;/template&gt;
                 &lt;template #option="slotProps"&gt;
                     &lt;span :class="'customer-badge status-' + slotProps.option"&gt;{{slotProps.option}}&lt;/span&gt;
                 &lt;/template&gt;
             &lt;/Dropdown&gt;
         &lt;/template&gt;
     &lt;/Column&gt;
-    &lt;Column field="activity" header="Activity" :sortable="true" filterMatchMode="gte"&gt;
-        &lt;template #body="slotProps"&gt;
+    &lt;Column field="activity" header="Activity" sortable :showFilterMatchModes="false"&gt;
+        &lt;template #body="{data}"&gt;
             &lt;span class="p-column-title"&gt;Activity&lt;/span&gt;
-            &lt;ProgressBar :value="slotProps.data.activity" :showValue="false" /&gt;
+            &lt;ProgressBar :value="data.activity" :showValue="false" /&gt;
         &lt;/template&gt;
-        &lt;template #filter&gt;
-            &lt;InputText type="text" v-model="filters['activity']" class="p-column-filter" placeholder="Minimum"/&gt;
+        &lt;template #filter="{filterModel}"&gt;
+            &lt;Slider v-model="filterModel.value" range class="p-m-3"&gt;&lt;/Slider&gt;
+            &lt;div class="p-d-flex p-ai-center p-jc-between p-px-2"&gt;
+                &lt;span&gt;{{filterModel.value ? filterModel.value[0] : 0}}&lt;/span&gt;
+                &lt;span&gt;{{filterModel.value ? filterModel.value[1] : 100}}&lt;/span&gt;
+            &lt;/div&gt;
         &lt;/template&gt;
     &lt;/Column&gt;
     &lt;Column headerStyle="width: 8rem; text-align: center" bodyStyle="text-align: center; overflow: visible"&gt;
         &lt;template #body&gt;
-            &lt;Button type="button" icon="pi pi-cog" class="p-button-secondary"&gt;&lt;/Button&gt;
+            &lt;Button type="button" icon="pi pi-cog"&gt;&lt;/Button&gt;
         &lt;/template&gt;
     &lt;/Column&gt;
 &lt;/DataTable&gt;
@@ -2617,13 +2635,24 @@ export default {
 
 <pre v-code.script><code>
 import CustomerService from '../../service/CustomerService';
+import {FilterMatchMode,FilterOperator} from 'primevue/api';
 
 export default {
     data() {
         return {
             customers: null,
             selectedCustomers: null,
-            filters: {},
+            filters: {
+                'global': {value: null, matchMode: FilterMatchMode.CONTAINS},
+                'name': {operator: FilterOperator.AND, constraints: [{value: null, matchMode: FilterMatchMode.STARTS_WITH}]},
+                'country.name': {operator: FilterOperator.AND, constraints: [{value: null, matchMode: FilterMatchMode.STARTS_WITH}]},
+                'representative': {value: null, matchMode: FilterMatchMode.IN},
+                'date': {operator: FilterOperator.AND, constraints: [{value: null, matchMode: FilterMatchMode.DATE_IS}]},
+                'balance': {operator: FilterOperator.AND, constraints: [{value: null, matchMode: FilterMatchMode.EQUALS}]},
+                'status': {operator: FilterOperator.OR, constraints: [{value: null, matchMode: FilterMatchMode.EQUALS}]},
+                'activity': {value: null, matchMode: FilterMatchMode.BETWEEN},
+                'verified': {value: null, matchMode: FilterMatchMode.EQUALS}
+            },
             loading: true,
             representatives: [
                 {name: "Amy Elsner", image: 'amyelsner.png'},
@@ -2647,137 +2676,27 @@ export default {
     },
     mounted() {
         this.customerService.getCustomersLarge().then(data => {
-            this.customers = data;
+            this.customers = data; 
+            this.customers.forEach(customer => customer.date = new Date(customer.date));
             this.loading = false;
         });
     },
     methods: {
-        filterDate(value, filter) {
-            if (filter === undefined || filter === null || (typeof filter === 'string' &amp;&amp; filter.trim() === '')) {
-                return true;
-            }
-
-            if (value === undefined || value === null) {
-                return false;
-            }
-
-            return value === this.formatDate(filter);
+        formatDate(value) {
+            return value.toLocaleDateString('en-US', {
+                day: '2-digit',
+                month: '2-digit',
+                year: 'numeric',
+            });
         },
-        formatDate(date) {
-            let month = date.getMonth() + 1;
-            let day = date.getDate();
-
-            if (month &lt; 10) {
-                month = '0' + month;
-            }
-
-            if (day &lt; 10) {
-                day = '0' + day;
-            }
-
-            return date.getFullYear() + '-' + month + '-' + day;
+        formatCurrency(value) {
+            return value.toLocaleString('en-US', {style: 'currency', currency: 'USD'});
         }
     }
 }
 
 </code></pre>
 
-<pre v-code.css><code>
-::v-deep(.p-paginator) {
-    .p-paginator-current {
-        margin-left: auto;
-    }
-}
-
-::v-deep(.p-progressbar) {
-    height: .5rem;
-    background-color: #D8DADC;
-
-    .p-progressbar-value {
-        background-color: #607D8B;
-    }
-}
-
-.table-header {
-    display: flex;
-    justify-content: space-between;
-}
-
-::v-deep(.p-datepicker) {
-    min-width: 25rem;
-
-    td {
-        font-weight: 400;
-    }
-}
-
-::v-deep(.p-datatable.p-datatable-customers) {
-    .p-datatable-header {
-        padding: 1rem;
-        text-align: left;
-        font-size: 1.5rem;
-    }
-
-    .p-paginator {
-        padding: 1rem;
-    }
-
-    .p-datatable-thead > tr > th {
-        text-align: left;
-    }
-
-    .p-datatable-tbody > tr > td {
-        cursor: auto;
-    }
-
-    .p-dropdown-label:not(.p-placeholder) {
-        text-transform: uppercase;
-    }
-}
-
-/* Responsive */
-.p-datatable-customers .p-datatable-tbody > tr > td .p-column-title {
-    display: none;
-}
-
-@media screen and (max-width: 960px) {
-    ::v-deep(.p-datatable) {
-        &.p-datatable-customers {
-            .p-datatable-thead > tr > th,
-            .p-datatable-tfoot > tr > td {
-                display: none !important;
-            }
-
-            .p-datatable-tbody > tr {
-                border-bottom: 1px solid var(--layer-2);
-
-                > td {
-                    text-align: left;
-                    display: block;
-                    border: 0 none !important;
-                    width: 100% !important;
-                    float: left;
-                    clear: left;
-                    border: 0 none;
-
-                    .p-column-title {
-                        padding: .4rem;
-                        min-width: 30%;
-                        display: inline-block;
-                        margin: -.4rem 1rem -.4rem -.4rem;
-                        font-weight: bold;
-                    }
-
-                    .p-progressbar {
-                        margin-top: .5rem;
-                    }
-                }
-            }
-        }
-    }
-}
-
-</code></pre>
 			</TabPanel>
 		</TabView>
 	</div>
@@ -2795,17 +2714,18 @@ export default {
 		<div class="content-section implementation">
             <div class="card">
                 <DataTable :value="customers" :paginator="true" class="p-datatable-customers" :rows="10"
-                    dataKey="id" :rowHover="true" v-model:selection="selectedCustomers" :filters="filters" :loading="loading"
+                    dataKey="id" :rowHover="true" v-model:selection="selectedCustomers" v-model:filters="filters" filterDisplay="menu" :loading="loading"
                     paginatorTemplate="FirstPageLink PrevPageLink PageLinks NextPageLink LastPageLink CurrentPageReport RowsPerPageDropdown" :rowsPerPageOptions="[10,25,50]"
-                    currentPageReportTemplate="Showing {first} to {last} of {totalRecords} entries">
+                    currentPageReportTemplate="Showing {first} to {last} of {totalRecords} entries"
+                    :globalFilterFields="['name','country.name','representative.name','status']">
                     <template #header>
-                        <div class="table-header">
-                            List of Customers
+                         <div class="p-d-flex p-jc-between">
+                            <h5 class="p-m-0">Customers</h5>
                             <span class="p-input-icon-left">
                                 <i class="pi pi-search" />
-                                <InputText v-model="filters['global']" placeholder="Global Search" />
+                                <InputText v-model="filters['global'].value" placeholder="Keyword Search" />
                             </span>
-                        </div>
+                         </div>
                     </template>
                     <template #empty>
                         No customers found.
@@ -2813,77 +2733,94 @@ export default {
                     <template #loading>
                         Loading customers data. Please wait.
                     </template>
-                    <Column selectionMode="multiple" headerStyle="width: 3em"></Column>
-                    <Column field="name" header="Name" :sortable="true">
-                        <template #body="slotProps">
+                    <Column selectionMode="multiple" headerStyle="width: 3rem"></Column>
+                    <Column field="name" header="Name" sortable>
+                        <template #body="{data}">
                             <span class="p-column-title">Name</span>
-                            {{slotProps.data.name}}
+                            {{data.name}}
                         </template>
-                        <template #filter>
-                            <InputText type="text" v-model="filters['name']" class="p-column-filter" placeholder="Search by name"/>
+                        <template #filter="{filterModel}">
+                            <InputText type="text" v-model="filterModel.value" class="p-column-filter" placeholder="Search by name"/>
                         </template>
                     </Column>
-                    <Column header="Country" :sortable="true" sortField="country.name" filterField="country.name" filterMatchMode="contains">
-                        <template #body="slotProps">
+                    <Column field="country.name" header="Country" sortable filterMatchMode="contains">
+                        <template #body="{data}">
                             <span class="p-column-title">Country</span>
-                            <img src="https://www.primefaces.org/wp-content/uploads/2020/05/placeholder.png" width="30" />
-                            <span class="image-text">{{slotProps.data.country.name}}</span>
+                            <img src="../../assets/images/flag_placeholder.png" :class="'flag flag-' + data.country.code" width="30" />
+                            <span class="image-text">{{data.country.name}}</span>
                         </template>
-                        <template #filter>
-                            <InputText type="text" v-model="filters['country.name']" class="p-column-filter" placeholder="Search by country"/>
+                        <template #filter="{filterModel}">
+                            <InputText type="text" v-model="filterModel.value" class="p-column-filter" placeholder="Search by country"/>
                         </template>
                     </Column>
-                    <Column header="Representative" :sortable="true" sortField="representative.name" filterField="representative.name" filterMatchMode="in">
-                        <template #body="slotProps">
-                            <span class="p-column-title">Representative</span>
-                            <img src="https://www.primefaces.org/wp-content/uploads/2020/05/placeholder.png" width="32" style="vertical-align: middle" />
-                            <span class="image-text">{{slotProps.data.representative.name}}</span>
+                    <Column header="Representative" sortable sortField="representative.name" :showFilterMatchModes="false" :filterMenuStyle="{'width':'14rem'}">
+                         <template #body="{data}">
+                            <span class="p-column-title">Agent</span>
+                            <img :alt="data.representative.name" :src="'demo/images/avatar/' + data.representative.image" width="32" style="vertical-align: middle" />
+                            <span class="image-text">{{data.representative.name}}</span>
                         </template>
-                            <template #filter>
-                            <MultiSelect v-model="filters['representative.name']" :options="representatives" optionLabel="name" optionValue="name" placeholder="All" class="p-column-filter">
+                        <template #filter="{filterModel}">
+                            <div class="p-mb-3 p-text-bold">Agent Picker</div>
+                            <MultiSelect v-model="filterModel.value" :options="representatives" optionLabel="name" placeholder="Any" class="p-column-filter">
                                 <template #option="slotProps">
                                     <div class="p-multiselect-representative-option">
-                                        <img src="https://www.primefaces.org/wp-content/uploads/2020/05/placeholder.png" width="32" style="vertical-align: middle" />
+                                        <img :alt="slotProps.option.name" :src="'demo/images/avatar/' + slotProps.option.image" width="32" style="vertical-align: middle" />
                                         <span class="image-text">{{slotProps.option.name}}</span>
                                     </div>
                                 </template>
                             </MultiSelect>
                         </template>
                     </Column>
-                    <Column field="date" header="Date" :sortable="true" filterMatchMode="custom" :filterFunction="filterDate">
-                        <template #body="slotProps">
+                    <Column field="date" header="Date" sortable dataType="date">
+                        <template #body="{data}">
                             <span class="p-column-title">Date</span>
-                            <span>{{slotProps.data.date}}</span>
+                            {{formatDate(data.date)}}
                         </template>
-                        <template #filter>
-                            <Calendar v-model="filters['date']" dateFormat="yy-mm-dd" class="p-column-filter" placeholder="Registration Date"/>
+                        <template #filter="{filterModel}">
+                            <Calendar v-model="filterModel.value" dateFormat="mm/dd/yy" placeholder="mm/dd/yyyy" />
                         </template>
                     </Column>
-                    <Column field="status" header="Status" :sortable="true" filterMatchMode="equals">
-                        <template #body="slotProps">
-                            <span class="p-column-title">Status</span>
-                            <span :class="'customer-badge status-' + slotProps.data.status">{{slotProps.data.status}}</span>
+                    <Column field="balance" header="Balance" sortable dataType="numeric">
+                        <template #body="{data}">
+                            <span class="p-column-title">Balance</span>
+                            {{formatCurrency(data.balance)}}
                         </template>
-                        <template #filter>
-                            <Dropdown v-model="filters['status']" :options="statuses" placeholder="Select a Status" class="p-column-filter" :showClear="true">
+                        <template #filter="{filterModel}">
+                            <InputNumber v-model="filterModel.value" mode="currency" currency="USD" locale="en-US" />
+                        </template>
+                    </Column>
+                    <Column field="status" header="Status" sortable :filterMenuStyle="{'width':'14rem'}">
+                        <template #body="{data}">
+                            <span class="p-column-title">Status</span>
+                            <span :class="'customer-badge status-' + data.status">{{data.status}}</span>
+                        </template>
+                        <template #filter="{filterModel}">
+                            <Dropdown v-model="filterModel.value" :options="statuses" placeholder="Any" class="p-column-filter" :showClear="true">
+                                <template #value="slotProps">
+                                    <span :class="'customer-badge status-' + slotProps.value">{{slotProps.value}}</span>
+                                </template>
                                 <template #option="slotProps">
                                     <span :class="'customer-badge status-' + slotProps.option">{{slotProps.option}}</span>
                                 </template>
                             </Dropdown>
                         </template>
                     </Column>
-                    <Column field="activity" header="Activity" :sortable="true" filterMatchMode="gte">
-                        <template #body="slotProps">
+                    <Column field="activity" header="Activity" sortable :showFilterMatchModes="false">
+                        <template #body="{data}">
                             <span class="p-column-title">Activity</span>
-                            <ProgressBar :value="slotProps.data.activity" :showValue="false" />
+                            <ProgressBar :value="data.activity" :showValue="false" />
                         </template>
-                        <template #filter>
-                            <InputText type="text" v-model="filters['activity']" class="p-column-filter" placeholder="Minimum"/>
+                        <template #filter="{filterModel}">
+                            <Slider v-model="filterModel.value" range class="p-m-3"></Slider>
+                            <div class="p-d-flex p-ai-center p-jc-between p-px-2">
+                                <span>{{filterModel.value ? filterModel.value[0] : 0}}</span>
+                                <span>{{filterModel.value ? filterModel.value[1] : 100}}</span>
+                            </div>
                         </template>
                     </Column>
                     <Column headerStyle="width: 8rem; text-align: center" bodyStyle="text-align: center; overflow: visible">
                         <template #body>
-                            <Button type="button" icon="pi pi-cog" class="p-button-secondary"></Button>
+                            <Button type="button" icon="pi pi-cog"></Button>
                         </template>
                     </Column>
                 </DataTable>
@@ -2893,14 +2830,25 @@ export default {
 </template>
 
 <script>
-import CustomerService from '../service/CustomerService';
+import CustomerService from '../../service/CustomerService';
+import {FilterMatchMode,FilterOperator} from 'primevue/api';
 
 export default {
     data() {
         return {
             customers: null,
             selectedCustomers: null,
-            filters: {},
+            filters: {
+                'global': {value: null, matchMode: FilterMatchMode.CONTAINS},
+                'name': {operator: FilterOperator.AND, constraints: [{value: null, matchMode: FilterMatchMode.STARTS_WITH}]},
+                'country.name': {operator: FilterOperator.AND, constraints: [{value: null, matchMode: FilterMatchMode.STARTS_WITH}]},
+                'representative': {value: null, matchMode: FilterMatchMode.IN},
+                'date': {operator: FilterOperator.AND, constraints: [{value: null, matchMode: FilterMatchMode.DATE_IS}]},
+                'balance': {operator: FilterOperator.AND, constraints: [{value: null, matchMode: FilterMatchMode.EQUALS}]},
+                'status': {operator: FilterOperator.OR, constraints: [{value: null, matchMode: FilterMatchMode.EQUALS}]},
+                'activity': {value: null, matchMode: FilterMatchMode.BETWEEN},
+                'verified': {value: null, matchMode: FilterMatchMode.EQUALS}
+            },
             loading: true,
             representatives: [
                 {name: "Amy Elsner", image: 'amyelsner.png'},
@@ -2923,34 +2871,22 @@ export default {
         this.customerService = new CustomerService();
     },
     mounted() {
-        this.customerService.getCustomersLarge().then(data => this.customers = data);
-        this.loading = false;
+        this.customerService.getCustomersLarge().then(data => {
+            this.customers = data; 
+            this.customers.forEach(customer => customer.date = new Date(customer.date));
+            this.loading = false;
+        });
     },
     methods: {
-        filterDate(value, filter) {
-            if (filter === undefined || filter === null || (typeof filter === 'string' && filter.trim() === '')) {
-                return true;
-            }
-
-            if (value === undefined || value === null) {
-                return false;
-            }
-
-            return value === this.formatDate(filter);
+        formatDate(value) {
+            return value.toLocaleDateString('en-US', {
+                day: '2-digit',
+                month: '2-digit',
+                year: 'numeric',
+            });
         },
-        formatDate(date) {
-            let month = date.getMonth() + 1;
-            let day = date.getDate();
-
-            if (month < 10) {
-                month = '0' + month;
-            }
-
-            if (day < 10) {
-                day = '0' + day;
-            }
-
-            return date.getFullYear() + '-' + month + '-' + day;
+        formatCurrency(value) {
+            return value.toLocaleString('en-US', {style: 'currency', currency: 'USD'});
         }
     }
 }`,
@@ -2968,11 +2904,6 @@ export default {
     .p-progressbar-value {
         background-color: #607D8B;
     }
-}
-
-.table-header {
-    display: flex;
-    justify-content: space-between;
 }
 
 ::v-deep(.p-datepicker) {

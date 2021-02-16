@@ -101,7 +101,8 @@
                         <template #filter="{filterModel}">
                             <Dropdown v-model="filterModel.value" :options="statuses" placeholder="Any" class="p-column-filter" :showClear="true">
                                 <template #value="slotProps">
-                                    <span :class="'customer-badge status-' + slotProps.value">{{slotProps.value}}</span>
+                                    <span :class="'customer-badge status-' + slotProps.value" v-if="slotProps.value">{{slotProps.value}}</span>
+                                    <span v-else>{{slotProps.placeholder}}</span>
                                 </template>
                                 <template #option="slotProps">
                                     <span :class="'customer-badge status-' + slotProps.option">{{slotProps.option}}</span>
@@ -198,7 +199,8 @@
                         <template #filter="{filterModel,filterCallback}">
                             <Dropdown v-model="filterModel.value" @change="filterCallback()" :options="statuses" placeholder="Any" class="p-column-filter" :showClear="true">
                                 <template #value="slotProps">
-                                    <span :class="'customer-badge status-' + slotProps.value">{{slotProps.value}}</span>
+                                    <span :class="'customer-badge status-' + slotProps.value" v-if="slotProps.value">{{slotProps.value}}</span>
+                                    <span v-else>{{slotProps.placeholder}}</span>
                                 </template>
                                 <template #option="slotProps">
                                     <span :class="'customer-badge status-' + slotProps.option">{{slotProps.option}}</span>
@@ -316,7 +318,8 @@
             &lt;template #filter="{filterModel}"&gt;
                 &lt;Dropdown v-model="filterModel.value" :options="statuses" placeholder="Any" class="p-column-filter" :showClear="true"&gt;
                     &lt;template #value="slotProps"&gt;
-                        &lt;span :class="'customer-badge status-' + slotProps.value"&gt;{{slotProps.value}}&lt;/span&gt;
+                        &lt;span :class="'customer-badge status-' + slotProps.value" v-if="slotProps.value"&gt;{{slotProps.value}}&lt;/span&gt;
+                        &lt;span v-else&gt;{{slotProps.placeholder}}&lt;/span&gt;
                     &lt;/template&gt;
                     &lt;template #option="slotProps"&gt;
                         &lt;span :class="'customer-badge status-' + slotProps.option"&gt;{{slotProps.option}}&lt;/span&gt;
@@ -413,7 +416,8 @@
             &lt;template #filter="{filterModel,filterCallback}"&gt;
                 &lt;Dropdown v-model="filterModel.value" @change="filterCallback()" :options="statuses" placeholder="Any" class="p-column-filter" :showClear="true"&gt;
                     &lt;template #value="slotProps"&gt;
-                        &lt;span :class="'customer-badge status-' + slotProps.value"&gt;{{slotProps.value}}&lt;/span&gt;
+                        &lt;span :class="'customer-badge status-' + slotProps.value" v-if="slotProps.value"&gt;{{slotProps.value}}&lt;/span&gt;
+                        &lt;span v-else&gt;{{slotProps.placeholder}}&lt;/span&gt;
                     &lt;/template&gt;
                     &lt;template #option="slotProps"&gt;
                         &lt;span :class="'customer-badge status-' + slotProps.option"&gt;{{slotProps.option}}&lt;/span&gt;
