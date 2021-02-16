@@ -95,12 +95,8 @@ export default {
             default: null
         },
         maxConstraints: {
-            type: Boolean,
-            default: true
-        },
-        filterFunction: {
-            type: Function,
-            default: null
+            type: Number,
+            default: 2
         },
         excludeGlobalFilter: {
             type: Boolean,
