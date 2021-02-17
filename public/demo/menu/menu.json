@@ -33,6 +33,10 @@
                 {
                     "name": "Accessibility",
                     "to": "/accessibility"
+                },
+                {
+                    "name": "Responsive Design",
+                    "to": "/responsive"
                 }
             ]
         },

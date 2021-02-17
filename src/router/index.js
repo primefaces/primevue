@@ -538,6 +538,11 @@ const routes = [
         component: () => import('../views/rating/RatingDemo.vue')
     },
     {
+        path: '/responsive',
+        name: 'responsive',
+        component: () => import('../views/responsive/ResponsiveDemo.vue')
+    },
+    {
         path: '/ripple',
         name: 'ripple',
         component: () => import('../views/ripple/RippleDemo.vue')
