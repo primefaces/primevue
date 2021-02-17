@@ -428,7 +428,7 @@ export default {
                                     filterCallback: Callback function</td>
                             </tr>
                             <tr>
-                                <td>filterclear/td>
+                                <td>filterclear</td>
                                 <td>field: Column field <br />
                                     filterModel: {value,matchMode} Filter metadata <br />
                                     filterCallback: Callback function</td>
