@@ -293,18 +293,6 @@ export default {
         frozenValue: {
             type: Array,
             default: null
-        },
-        virtualScroll: {
-            type: Boolean,
-            default: false
-        },
-        virtualRowHeight: {
-            type: Number,
-            default: 28
-        },
-        virtualScrollDelay: {
-            type: Number,
-            default: 150
         }
     },
     data() {
@@ -338,7 +326,6 @@ export default {
     columnWidthsState: null,
     tableWidthState: null,
     columnWidthsRestored: false,
-    virtualScrollTimer: null,
     watch: {
         first(newValue) {
             this.d_first = newValue;
@@ -1520,18 +1507,6 @@ export default {
             this.$emit('update:editingRows', _editingRows);
             this.$emit('row-edit-cancel', event);
         },
-        onVirtualScroll(event) {
-            if(this.virtualScrollTimer) {
-                clearTimeout(this.virtualScrollTimer);
-            }
-
-            this.virtualScrollTimer = setTimeout(() => {
-                this.$emit('virtual-scroll', {
-                        first: (event.page - 1) * this.rows,
-                        rows: this.rows * 2
-                    });
-                }, this.virtualScrollDelay);
-        },
         createLazyLoadEvent(event) {
             let filterMatchModes;
             if (this.hasFilters()) {
@@ -1595,7 +1570,6 @@ export default {
                     'p-datatable-scrollable-vertical': this.scrollDirection === 'vertical',
                     'p-datatable-scrollable-horizontal': this.scrollDirection === 'horizontal',
                     'p-datatable-scrollable-both': this.scrollDirection === 'both',
-                    'p-datatable-virtual-scrollable': this.virtualScroll,
                     'p-datatable-flex-scrollable': (this.scrollable && this.scrollHeight === 'flex')
                 }
             ];
