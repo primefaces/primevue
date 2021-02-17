@@ -5,12 +5,14 @@
         <transition name="p-connected-overlay" @enter="onOverlayEnter" @leave="onOverlayLeave">
             <div :ref="pickerRef" :class="pickerClass" v-if="inline ? true : overlayVisible">
                 <div class="p-colorpicker-content">
-                    <div :ref="colorSelectorRef" class="p-colorpicker-color-selector" @mousedown="onColorMousedown">
+                    <div :ref="colorSelectorRef" class="p-colorpicker-color-selector" @mousedown="onColorMousedown($event)"
+                        @touchstart="onColorDragStart($event)" @touchmove="onDrag($event)" @touchend="onDragEnd()">
                         <div class="p-colorpicker-color">
                             <div :ref="colorHandleRef" class="p-colorpicker-color-handle"></div>
                         </div>
                     </div>
-                    <div :ref="hueViewRef" class="p-colorpicker-hue" @mousedown="onHueMousedown">
+                    <div :ref="hueViewRef" class="p-colorpicker-hue" @mousedown="onHueMousedown($event)"
+                        @touchstart="onHueDragStart($event)" @touchmove="onDrag($event)" @touchend="onDragEnd()">
                         <div :ref="hueHandleRef" class="p-colorpicker-hue-handle"></div>
                     </div>
                 </div>
@@ -84,8 +86,7 @@ export default {
     hueHandle: null,
     beforeUnmount() {
         this.unbindOutsideClickListener();
-        this.unbindDocumentMouseMoveListener();
-        this.unbindDocumentMouseUpListener();
+        this.unbindDragListeners();
         this.unbindResizeListener();
 
         if (this.scrollHandler) {
@@ -381,25 +382,63 @@ export default {
                 return;
             }
 
+            this.bindDragListeners();
+            this.onColorDragStart(event);
+        },
+        onColorDragStart(event) {
+            if (this.disabled) {
+                return;
+            }
+
             this.colorDragging = true;
-            this.bindDocumentMouseMoveListener();
-            this.bindDocumentMouseUpListener();
             this.pickColor(event);
             DomHandler.addClass(this.$el, 'p-colorpicker-dragging');
+            event.preventDefault();
+        },
+        onDrag(event) {
+            if (this.colorDragging) {
+                this.pickColor(event);
+                event.preventDefault();
+            }
+
+            if (this.hueDragging) {
+                this.pickHue(event);
+                event.preventDefault();
+            }
+        },
+        onDragEnd() {
+            this.colorDragging = false;
+            this.hueDragging = false;
+            DomHandler.removeClass(this.$el, 'p-colorpicker-dragging');
+            this.unbindDragListeners();
         },
         onHueMousedown(event) {
             if (this.disabled) {
                 return;
             }
 
+            this.bindDragListeners();
+            this.onHueDragStart(event);
+        },
+        onHueDragStart(event) {
+            if (this.disabled) {
+                return;
+            }
+
             this.hueDragging = true;
-            this.bindDocumentMouseMoveListener();
-            this.bindDocumentMouseUpListener();
             this.pickHue(event);
             DomHandler.addClass(this.$el, 'p-colorpicker-dragging');
         },
         isInputClicked(event) {
             return this.$refs.input && this.$refs.input.isSameNode(event.target);
+        },
+        bindDragListeners() {
+            this.bindDocumentMouseMoveListener();
+            this.bindDocumentMouseUpListener();
+        },
+        unbindDragListeners() {
+            this.unbindDocumentMouseMoveListener();
+            this.unbindDocumentMouseUpListener();
         },
         bindOutsideClickListener() {
             if (!this.outsideClickListener) {
@@ -451,15 +490,7 @@ export default {
         },
         bindDocumentMouseMoveListener() {
             if (!this.documentMouseMoveListener) {
-                this.documentMouseMoveListener = (event) => {
-                    if (this.colorDragging) {
-                        this.pickColor(event);
-                    }
-
-                    if (this.hueDragging) {
-                        this.pickHue(event);
-                    }
-                };
+                this.documentMouseMoveListener = this.onDrag.bind(this);
                 document.addEventListener('mousemove', this.documentMouseMoveListener);
             }
         },
@@ -471,13 +502,7 @@ export default {
         },
         bindDocumentMouseUpListener() {
             if (!this.documentMouseUpListener) {
-                this.documentMouseUpListener = () => {
-                    this.colorDragging = false;
-                    this.hueDragging = false;
-                    DomHandler.removeClass(this.$el, 'p-colorpicker-dragging');
-                    this.unbindDocumentMouseMoveListener();
-                    this.unbindDocumentMouseUpListener();
-                };
+                this.documentMouseUpListener = this.onDragEnd.bind(this);
                 document.addEventListener('mouseup', this.documentMouseUpListener);
             }
         },
