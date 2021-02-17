@@ -1,12 +1,12 @@
 interface ScrollToProps {
     target?: string;
     threshold?: number;
-    icon?: boolean;
-    behavior?: boolean;
+    icon?: string;
+    behavior?: string;
 }
 
-declare class ScrollTo {
+declare class ScrollTop {
     $props: ScrollToProps;
 }
 
-export default ScrollTo;
+export default ScrollTop;
