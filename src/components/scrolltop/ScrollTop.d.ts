@@ -1,4 +1,4 @@
-interface ScrollToProps {
+interface ScrollTopProps {
     target?: string;
     threshold?: number;
     icon?: string;
@@ -6,7 +6,7 @@ interface ScrollToProps {
 }
 
 declare class ScrollTop {
-    $props: ScrollToProps;
+    $props: ScrollTopProps;
 }
 
 export default ScrollTop;
