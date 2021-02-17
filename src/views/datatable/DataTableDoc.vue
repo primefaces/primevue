@@ -377,6 +377,72 @@ export default {
                     </table>
                 </div>
 
+                <h5>Column Slots</h5>
+				<div class="doc-tablewrapper">
+                    <table class="doc-table">
+						<thead>
+                            <tr>
+                                <th>Name</th>
+                                <th>Parameters</th>
+                            </tr>
+						</thead>
+						<tbody>
+                            <tr>
+                                <td>header</td>
+                                <td>column: Column node</td>
+                            </tr>
+                            <tr>
+                                <td>body</td>
+                                <td>data: Row data <br />
+                                    column: Column node <br />
+                                    index: Row index <br />
+                                    frozenRow: Is row frozen</td>
+                            </tr>
+                            <tr>
+                                <td>footer</td>
+                                <td>column: Column node</td>
+                            </tr>
+                            <tr>
+                                <td>editor</td>
+                                <td>data: Row data <br />
+                                    column: Column node <br />
+                                    index: Row index <br />
+                                    frozenRow: Is row frozen</td>
+                            </tr>
+                            <tr>
+                                <td>filter</td>
+                                <td>field: Column field <br />
+                                    filterModel: {value,matchMode} Filter metadata <br />
+                                    filterCallback: Callback function</td>
+                            </tr>
+                            <tr>
+                                <td>filterheader</td>
+                                <td>field: Column field <br />
+                                    filterModel: {value,matchMode} Filter metadata <br />
+                                    filterCallback: Callback function</td>
+                            </tr>
+                            <tr>
+                                <td>filterfooter</td>
+                                <td>field: Column field <br />
+                                    filterModel: {value,matchMode} Filter metadata <br />
+                                    filterCallback: Callback function</td>
+                            </tr>
+                            <tr>
+                                <td>filterclear/td>
+                                <td>field: Column field <br />
+                                    filterModel: {value,matchMode} Filter metadata <br />
+                                    filterCallback: Callback function</td>
+                            </tr>
+                            <tr>
+                                <td>filterapply</td>
+                                <td>field: Column field <br />
+                                    filterModel: {value,matchMode} Filter metadata <br />
+                                    filterCallback: Callback function</td>
+                            </tr>
+						</tbody>
+					</table>
+                </div>
+
                 <h5>Auto Layout</h5>
                 <p>Default table-layout is fixed meaning the cell widths do not depend on their content. If you require cells to scale based on their contents set <i>autoLayout</i> property to true. Note that Scrollable and/or Resizable tables do not support auto layout due to technical limitations.</p>
 
@@ -763,6 +829,29 @@ matchModes: [
     {label: 'Contains', FilterMatchMode.CONTAINS},
 ]
 </code></pre>
+
+                <h6>Filter Slots</h6>
+                <p>Filter menu overlay can be customized even further with various templates including <i>filterheader</i>, <i>filterfooter</i>, <i>filterclear</i>, <i>filterapply</i>. Example here changes the buttons and adds a footer.</p>
+
+<pre v-code><code><template v-pre>
+&lt;Column header="Country" filterField="country.name"&gt;
+    &lt;template #filter="{filterModel}"&gt;
+        &lt;InputText type="text" v-model="filterModel.value" class="p-column-filter" placeholder="Search by country"/&gt;
+    &lt;/template&gt;
+    &lt;template #filterclear="{filterCallback}"&gt;
+        &lt;Button type="button" icon="pi pi-times" @click="filterCallback()" class="p-button-secondary"&gt;&lt;/Button&gt;
+    &lt;/template&gt;
+    &lt;template #filterapply="{filterCallback}"&gt;
+        &lt;Button type="button" icon="pi pi-check" @click="filterCallback()" class="p-button-success"&gt;&lt;/Button&gt;
+    &lt;/template&gt;
+    &lt;template #filterfooter&gt;
+        &lt;div class="p-px-3 p-pt-0 p-pb-3 p-text-center p-text-bold"&gt;Customized Buttons&lt;/div&gt;
+    &lt;/template&gt;
+&lt;/Column&gt;
+
+</template>
+</code></pre>
+
 
                 <h5>Selection</h5>
                 <p>DataTable provides single and multiple selection modes on click of a row. Selected rows are bound to the <i>selection</i> property and updated using the v-model directive.
@@ -2413,6 +2502,51 @@ export default {
                             </tr>
                         </tbody>
                     </table>
+                </div>
+
+                <h5>Slots</h5>
+				<div class="doc-tablewrapper">
+                    <table class="doc-table">
+						<thead>
+                            <tr>
+                                <th>Name</th>
+                                <th>Parameters</th>
+                            </tr>
+						</thead>
+						<tbody>
+                            <tr>
+                                <td>header</td>
+                                <td>-</td>
+                            </tr>
+                            <tr>
+                                <td>paginatorLeft</td>
+                                <td>-</td>
+                            </tr>
+                            <tr>
+                                <td>paginatorRight</td>
+                                <td>-</td>
+                            </tr>
+                            <tr>
+                                <td>footer</td>
+                                <td>-</td>
+                            </tr>
+                            <tr>
+                                <td>groupheader</td>
+                                <td>data: Row data <br />
+                                index: Row index</td>
+                            </tr>
+                            <tr>
+                                <td>groupfooter</td>
+                                <td>data: Row data <br />
+                                index: Row index</td>
+                            </tr>
+                            <tr>
+                                <td>expansion</td>
+                                <td>data: Row data <br />
+                                index: Row index</td>
+                            </tr>
+						</tbody>
+					</table>
                 </div>
 
                 <h5>Styling</h5>
