@@ -297,14 +297,16 @@ export default {
             this.spin(event, dir);
         },
         spin(event, dir) {
-            let step = this.step * dir;
-            let currentValue = this.parseValue(this.$refs.input.$el.value) || 0;
-            let newValue = this.validateValue(currentValue + step);
-
-            this.updateInput(newValue, null, 'spin');
-            this.updateModel(event, newValue);
-
-            this.handleOnInput(event, currentValue, newValue);
+            if (this.$refs.input) {
+                let step = this.step * dir;
+                let currentValue = this.parseValue(this.$refs.input.$el.value) || 0;
+                let newValue = this.validateValue(currentValue + step);
+    
+                this.updateInput(newValue, null, 'spin');
+                this.updateModel(event, newValue);
+    
+                this.handleOnInput(event, currentValue, newValue);
+            }
         },
         onUpButtonMouseDown(event) {
             if (!this.$attrs.disabled) {
