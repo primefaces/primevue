@@ -589,7 +589,7 @@ export default {
                 }
 
                 if (matches) {
-                    filteredValue.push(this.value[i]);
+                    filteredValue.push(data[i]);
                 }
             }
 
@@ -1629,7 +1629,7 @@ export default {
         },
         processedData() {
             if (this.lazy) {
-                return this.value;
+                 return this.value;
             }
             else {
                 if (this.value && this.value.length) {
