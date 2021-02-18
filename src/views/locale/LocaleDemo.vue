@@ -45,7 +45,7 @@ export default {
 
             <h6>Composition API</h6>
 <pre v-code.script><code>
-import { defineComponent } from "vue";
+import { defineComponent, onMounted } from "vue";
 import { usePrimeVue } from "primevue/config";
 
 export default defineComponent({
@@ -55,6 +55,10 @@ export default defineComponent({
             primevue.config.locale.accept = 'Aceptar';
             primevue.config.locale.reject = 'Rechazar';
         }
+
+        onMounted(() => {
+             changeToSpanish();
+        })
     }
 });
 
