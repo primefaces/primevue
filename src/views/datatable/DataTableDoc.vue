@@ -907,7 +907,15 @@ matchModes: [
 </template>
 </code></pre>
 
-                <h5>Flex Scroll</h5>
+                <h5>Column Widths of a Scrollable Table</h5>
+                <p>Scrollable table uses flex layout in vertical scrolling with auto size. As a result use flex property when giving 
+                a width to a column. When horizontal scrolling is enabled, this is not a requirement as columns in horizontal scrolling do not have auto size.</p>
+<pre v-code><code><template v-pre>
+&lt;Column field="vin" header="Vin" style="flex: 0 0 4rem"&gt;&lt;/Column&gt;
+</template>
+</code></pre>
+
+                <h6>Flex Scroll</h6>
                 <p>In cases where viewport should adjust itself according to the table parent's height instead of a fixed viewport height, set scrollHeight option as flex. In example below, table is inside a Dialog where viewport size dynamically responds to the dialog size changes such as maximizing.</p>
 <pre v-code><code><template v-pre>
 &lt;Button label="Show" icon="pi pi-external-link" @click="openDialog" /&gt;
@@ -926,7 +934,7 @@ matchModes: [
 </template>
 </code></pre>
 
-                <h5>Full Page Scroll</h5>
+                <h6>Full Page Scroll</h6>
                 <p>FlexScroll can also be used for cases where scrollable viewport should be responsive with respect to the window size. See the <router-link to="/datatable/flexscroll">full page</router-link> demo for an example.</p>
 <pre v-code><code><template v-pre>
 &lt;div style="height: calc(100vh - 143px)"&gt;
@@ -940,7 +948,7 @@ matchModes: [
 </template>
 </code></pre>
 
-                <h5>Horizontal Scrolling</h5>
+                <h6>Horizontal Scrolling</h6>
                 <p>For horizontal scrolling only, it is required to set <i>scrollDirection</i> to "horizontal" and give widths to columns.</p>
 <pre v-code><code><template v-pre>
 &lt;DataTable :value="customers" :scrollable="true"  scrollDirection="horizontal"&gt;
@@ -957,7 +965,7 @@ matchModes: [
 </template>
 </code></pre>
 
-                <h5>Horizontal and Vertical Scrolling</h5>
+                <h6>Horizontal and Vertical Scrolling</h6>
                 <p>Set <i>scrollDirection</i> to "both" and give widths to columns to scroll both ways.</p>
 <pre v-code><code><template v-pre>
 &lt;DataTable :value="customers" :scrollable="true" scrollHeight="400px" scrollDirection="both"&gt;
@@ -974,7 +982,7 @@ matchModes: [
 </template>
 </code></pre>
 
-                <h5>Frozen Rows</h5>
+                <h6>Frozen Rows</h6>
                 <p>Frozen rows are used to fix certain rows while scrolling, this data is defined with the <i>frozenValue</i> property.</p>
 
 <pre v-code><code><template v-pre>
@@ -987,7 +995,7 @@ matchModes: [
 </template>
 </code></pre>
 
-                <h5>Frozen Columns</h5>
+                <h6>Frozen Columns</h6>
                 <p>Certain columns can be frozen by using the <i>frozen</i> property of the column component. In addition <i>alignFrozen</i> is available to define whether the column should
                 be fixed on the left or right.</p>
 
