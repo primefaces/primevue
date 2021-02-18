@@ -15,7 +15,7 @@
                     currentPageReportTemplate="Showing {first} to {last} of {totalRecords} entries"
                     :globalFilterFields="['name','country.name','representative.name','status']">
                     <template #header>
-                         <div class="p-d-flex p-jc-between">
+                         <div class="p-d-flex p-jc-between p-ai-center">
                             <h5 class="p-m-0">Customers</h5>
                             <span class="p-input-icon-left">
                                 <i class="pi pi-search" />

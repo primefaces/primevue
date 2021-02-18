@@ -2659,7 +2659,7 @@ export default {
     currentPageReportTemplate="Showing {first} to {last} of {totalRecords} entries"
     :globalFilterFields="['name','country.name','representative.name','status']"&gt;
     &lt;template #header&gt;
-            &lt;div class="p-d-flex p-jc-between"&gt;
+            &lt;div class="p-d-flex p-jc-between p-ai-center"&gt;
             &lt;h5 class="p-m-0"&gt;Customers&lt;/h5&gt;
             &lt;span class="p-input-icon-left"&gt;
                 &lt;i class="pi pi-search" /&gt;
@@ -2853,7 +2853,7 @@ export default {
                     currentPageReportTemplate="Showing {first} to {last} of {totalRecords} entries"
                     :globalFilterFields="['name','country.name','representative.name','status']">
                     <template #header>
-                         <div class="p-d-flex p-jc-between">
+                         <div class="p-d-flex p-jc-between p-ai-center">
                             <h5 class="p-m-0">Customers</h5>
                             <span class="p-input-icon-left">
                                 <i class="pi pi-search" />
