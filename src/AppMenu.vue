@@ -1,5 +1,10 @@
 <template>
     <div :class="['layout-sidebar', {'active': active}]">
+        <div class="layout-sidebar-filter p-fluid p-input-filled">
+            <AutoComplete v-model="selectedRoute" :suggestions="filteredRoutes" @complete="searchRoute($event)" @item-select="onItemSelect($event)" scrollHeight="300px" placeholder="Search by name..." 
+                field="name" optionGroupLabel="name" optionGroupChildren="children">
+            </AutoComplete>
+        </div>
         <div class="layout-menu">
             <template v-for="item of menu" :key="item.name">
                 <div class="menu-category">{{item.name}}</div>
@@ -41,6 +46,7 @@
 
 <script>
 import MenuService from './service/MenuService';
+import {FilterService,FilterMatchMode} from 'primevue/api';
 
 export default {
     props: {
@@ -49,7 +55,10 @@ export default {
     data() {
         return {
             activeSubmenus: {},
-            menu: null
+            menu: null,
+            filteredRoutes: null,
+            selectedRoute: null,
+            routes: []
         }
     },
     menuService: null,
@@ -59,6 +68,20 @@ export default {
     mounted() {
         this.menuService.getMenu().then(data => {
             this.menu = data;
+
+            this.routes = data.reduce((routeArray,route) => {
+                route.children = route.children.filter((childRoute) => {
+                    if (childRoute.meta) {
+                        routeArray.push(childRoute);
+                    }
+
+                    return !childRoute.meta;
+                })
+
+                routeArray.push(route);
+
+                return routeArray;                
+            }, []);
         })
     },
     methods: {
@@ -76,6 +99,27 @@ export default {
                 return true;
             }
             return false;
+        },
+        searchRoute(event) {
+            let query = event.query;
+            let filteredRoutes = [];
+
+            for (let route of this.routes) {
+                let filteredItems = FilterService.filter(route.children, ['to', 'href'], query, FilterMatchMode.CONTAINS);
+                if (filteredItems && filteredItems.length) {
+                    filteredRoutes.push({...route, ...{items: filteredItems}});
+                }
+            }
+
+            this.filteredRoutes = filteredRoutes;
+        },
+        onItemSelect(event) {
+            this.selectedRoute = null;
+            
+            if (event.value.to)
+                this.$router.push(event.value.to)
+            else if (event.value.href)
+                window.location.href = event.value.href;
         }
     }
 }
