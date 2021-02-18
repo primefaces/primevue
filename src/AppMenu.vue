@@ -70,16 +70,16 @@ export default {
             this.menu = data;
 
             data.forEach((route) => {
-                let childRoute = route;
-                childRoute = childRoute.children.filter((childRoute) => {
-                    if (childRoute.meta) {
-                        this.routes.push(childRoute);
+                let childRoute = {...route};
+                childRoute.children = childRoute.children.filter((child) => {
+                    if (child.meta) {
+                        this.routes.push(child);
                     }
 
-                    return !childRoute.meta;
+                    return !child.meta;
                 })
 
-                this.routes.push(route);            
+                this.routes.push(childRoute);            
             });
         })
     },
