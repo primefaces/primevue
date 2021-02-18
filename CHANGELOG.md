@@ -4,6 +4,10 @@
 
 [Full Changelog](https://github.com/primefaces/primevue/compare/3.2.4...3.3.0-rc.1)
 
+**Breaking Changes:**
+
+- Disable VirtualScroll Table [\#981](https://github.com/primefaces/primevue/issues/981)
+
 **Implemented New Features and Enhancements:**
 
 - Add Search to Showcase [\#985](https://github.com/primefaces/primevue/issues/985)
