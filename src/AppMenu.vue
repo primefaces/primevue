@@ -1,7 +1,7 @@
 <template>
     <div :class="['layout-sidebar', {'active': active}]">
         <div class="layout-sidebar-filter p-fluid p-input-filled">
-            <AutoComplete v-model="selectedRoute" :suggestions="filteredRoutes" @complete="searchRoute($event)" @item-select="onItemSelect($event)" scrollHeight="300px" placeholder="Search by name..." 
+            <AutoComplete v-model="selectedRoute" :suggestions="filteredRoutes" @complete="searchRoute($event)" @item-select="onItemSelect($event)" scrollHeight="300px" placeholder="Search" 
                 field="name" optionGroupLabel="name" optionGroupChildren="children">
             </AutoComplete>
         </div>
