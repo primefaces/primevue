@@ -25,11 +25,11 @@
                     </template>
                     <template v-else>
                          <template v-for="(optionGroup, i) of suggestions" :key="getOptionGroupRenderKey(optionGroup)">
-                            <li  class="p-autocomplete-item-group" >
+                            <li  class="p-autocomplete-item-group">
                                 <slot name="optiongroup" :item="optionGroup" :index="i">{{getOptionGroupLabel(optionGroup)}}</slot>
                             </li>
-                            <li v-for="(item, i) of getOptionGroupChildren(optionGroup)" class="p-autocomplete-item" :key="i" @click="selectItem($event, item)" role="option" v-ripple>
-                                <slot name="item" :item="item" :index="i">{{getItemContent(item)}}</slot>
+                            <li v-for="(item, j) of getOptionGroupChildren(optionGroup)" class="p-autocomplete-item" :key="j" @click="selectItem($event, item)" role="option" v-ripple :data-group="i" :data-index="j">
+                                <slot name="item" :item="item" :index="j">{{getItemContent(item)}}</slot>
                             </li>
                         </template>
                     </template>
@@ -110,7 +110,8 @@ export default {
             searching: false,
             focused: false,
             overlayVisible: false,
-            inputTextValue: null
+            inputTextValue: null,
+            highlightItem: null
         };
     },
     watch: {
@@ -385,10 +386,10 @@ export default {
                         event.preventDefault();
                     break;
 
-                    //enter,tab
+                    //enter
                     case 13:
                         if (highlightItem) {
-                            this.selectItem(event, this.suggestions[DomHandler.index(highlightItem)]);
+                            this.selectHighlightItem(event, highlightItem);
                             this.hideOverlay();
                         }
 
@@ -404,7 +405,7 @@ export default {
                     //tab
                     case 9:
                         if (highlightItem) {
-                            this.selectItem(event, this.suggestions[DomHandler.index(highlightItem)]);
+                            this.selectHighlightItem(event, highlightItem);
                         }
 
                         this.hideOverlay();
@@ -434,6 +435,15 @@ export default {
                     default:
                     break;
                 }
+            }
+        },
+        selectHighlightItem(event, item) {
+            if (this.optionGroupLabel) {
+                let optionGroup = this.suggestions[item.dataset.group];
+                this.selectItem(event, this.getOptionGroupChildren(optionGroup)[item.dataset.index]);
+            }
+            else {
+                this.selectItem(event, this.suggestions[DomHandler.indexOfType(item)]);
             }
         },
         findNextItem(item) {
