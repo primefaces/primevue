@@ -51,6 +51,7 @@ export default {
         }
 
         this.newsActive = this.newsActive && sessionStorage.getItem('primevue-news-hidden') == null;
+        this.initTheme();
     },
     watch: {
         $route: {
@@ -70,6 +71,22 @@ export default {
         }
     },
     methods: {
+        initTheme() {
+            let appTheme;
+            const queryString = window.location.search;
+            if (queryString)
+                appTheme = new URLSearchParams(queryString.substring(1)).get('theme');
+            else
+                appTheme = localStorage.getItem('theme');
+
+            if (appTheme) {
+                let darkTheme = this.isDarkTheme(appTheme);
+                this.changeTheme({
+                    theme: appTheme,
+                    dark: darkTheme
+                });
+            }
+        },
         onMenuButtonClick() {
             if (this.sidebarActive) {
                 this.sidebarActive = false;
@@ -101,6 +118,8 @@ export default {
             if (event.theme.startsWith('md')) {
                 this.$primevue.config.ripple = true;
             }
+            
+            localStorage.setItem('theme', this.theme);
         },
         addClass(element, className) {
             if (!this.hasClass(element, className)) {
@@ -129,6 +148,9 @@ export default {
             }
 
             return false;
+        },
+        isDarkTheme(theme) {
+            return theme.indexOf('dark') !== -1 || theme === 'vela' || theme === 'arya' || theme === 'luna';
         }
     },
     computed: {
