@@ -25,7 +25,7 @@
 <script>
 import {DomHandler} from 'primevue/utils';
 import HeaderCheckbox from './HeaderCheckbox.vue';
-import ColumnFilter from './ColumnFilter';
+import ColumnFilter from './ColumnFilter.vue';
 
 export default {
     emits: ['column-click', 'column-mousedown', 'column-dragstart', 'column-dragover', 'column-dragleave', 'column-drop',

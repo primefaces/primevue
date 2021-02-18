@@ -16,7 +16,7 @@
 </template>
 
 <script>
-import FooterCell from './FooterCell';
+import FooterCell from './FooterCell.vue';
 
 export default {
     props: {

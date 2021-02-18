@@ -47,8 +47,8 @@
 </template>
 
 <script>
-import HeaderCell from './HeaderCell';
-import ColumnFilter from './ColumnFilter';
+import HeaderCell from './HeaderCell.vue';
+import ColumnFilter from './ColumnFilter.vue';
 
 export default {
     emits: ['column-click', 'column-mousedown', 'column-dragstart', 'column-dragover', 'column-dragleave', 'column-drop',
