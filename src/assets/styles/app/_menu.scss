@@ -4,14 +4,18 @@
     top: 70px;
     height: calc(100% - 70px);
     background-color: var(--surface-a);
-    overflow: auto;
     width: 250px;
     border-right: 1px solid var(--surface-d);
     user-select: none;
-    padding: 1rem;
     transition: transform .4s cubic-bezier(.05,.74,.2,.99);
+    display: flex;
+    flex-direction: column;
 
     .layout-menu {
+        padding: 0 1rem;
+        overflow-y: auto;
+        flex-grow: 1;
+
         .menu-category {
             display: block;
             color: var(--text-color-secondary);
@@ -86,5 +90,11 @@
                 }
             }
         }
+    }
+
+    .layout-sidebar-filter {
+        padding: 1.25rem 1rem;
+        border-bottom: 1px solid var(--surface-d);
+        background-color: var(--surface-a);
     }
 }
