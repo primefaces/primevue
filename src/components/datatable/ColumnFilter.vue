@@ -41,7 +41,7 @@
                         <component v-else :is="filterClearTemplate" :field="field" :filterModel="filters[field]" :filterCallback="clearFilter" />
                         <template v-if="showApplyButton">
                             <CFButton v-if="!filterApplyTemplate" type="button" class="p-button-sm" @click="applyFilter()" :label="applyButtonLabel"></CFButton>
-                            <component v-else :is="filterApplyTemplate" :field="field" :filterModel="filters[field]" :filterCallback="clearFilter" />
+                            <component v-else :is="filterApplyTemplate" :field="field" :filterModel="filters[field]" :filterCallback="applyFilter" />
                         </template>
                     </div>
                 </template>
