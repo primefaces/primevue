@@ -1,5 +1,29 @@
 # Changelog
 
+## [3.3.0-rc.1](https://github.com/primefaces/primevue/tree/3.3.0-rc.1) (2021-02-18)
+
+[Full Changelog](https://github.com/primefaces/primevue/compare/3.2.4...3.3.0-rc.1)
+
+**Implemented New Features and Enhancements:**
+
+- Add Search to Showcase [\#985](https://github.com/primefaces/primevue/issues/985)
+- Constants for PrimeIcons [\#982](https://github.com/primefaces/primevue/issues/982)
+- Touch support for ColorPicker [\#980](https://github.com/primefaces/primevue/issues/980)
+- FilterService Utility [\#979](https://github.com/primefaces/primevue/issues/979)
+- AutoComplete Enhancements [\#976](https://github.com/primefaces/primevue/issues/976)
+- Dropdown Enhancements [\#974](https://github.com/primefaces/primevue/issues/974)
+- Listbox Enhancements [\#972](https://github.com/primefaces/primevue/issues/972)
+- Reimplement DataTable Scrolling [\#960](https://github.com/primefaces/primevue/issues/960)
+- Add keys to template v-for [\#959](https://github.com/primefaces/primevue/issues/959)
+- Advanced Filtering for DataTable [\#718](https://github.com/primefaces/primevue/issues/718)
+
+**Fixed bugs:**
+
+- Space key support for row radio and checkbox  [\#986](https://github.com/primefaces/primevue/issues/986)
+- PrimeVue DataTable bug [\#977](https://github.com/primefaces/primevue/issues/977)
+- ScrollTop props have wrong type definitions [\#963](https://github.com/primefaces/primevue/issues/963)
+- Error when removing InputNumbers from DOM tree [\#950](https://github.com/primefaces/primevue/issues/950)
+
 ## [3.2.4](https://github.com/primefaces/primevue/tree/3.2.4) (2021-02-10)
 
 [Full Changelog](https://github.com/primefaces/primevue/compare/3.2.3...3.2.4)
