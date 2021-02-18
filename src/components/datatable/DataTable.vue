@@ -1372,7 +1372,7 @@ export default {
                 state.multiSortMeta = this.d_multiSortMeta;
             }
 
-            if (this.hasFilters()) {
+            if (this.hasFilters) {
                 state.filters = this.filters;
             }
 
@@ -1506,7 +1506,7 @@ export default {
         },
         createLazyLoadEvent(event) {
             let filterMatchModes;
-            if (this.hasFilters()) {
+            if (this.hasFilters) {
                 filterMatchModes = {};
                 this.columns.forEach(col => {
                     if (col.field) {
@@ -1525,9 +1525,6 @@ export default {
                 filters: this.filters,
                 filterMatchModes: filterMatchModes
             };
-        },
-        hasFilters() {
-            return this.filters && Object.keys(this.filters).length > 0 && this.filters.constructor === Object;
         },
         hasGlobalFilter() {
             return this.filters && Object.prototype.hasOwnProperty.call(this.filters, 'global');
@@ -1626,6 +1623,9 @@ export default {
 
             return null;
         },
+        hasFilters() {
+            return this.filters && Object.keys(this.filters).length > 0 && this.filters.constructor === Object;
+        },
         processedData() {
             if (this.lazy) {
                  return this.value;
@@ -1641,7 +1641,7 @@ export default {
                             data = this.sortMultiple(data);
                     }
 
-                    if (this.hasFilters()) {
+                    if (this.hasFilters) {
                         data = this.filter(data);
                     }
 
