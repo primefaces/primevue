@@ -69,19 +69,18 @@ export default {
         this.menuService.getMenu().then(data => {
             this.menu = data;
 
-            this.routes = data.reduce((routeArray,route) => {
-                route.children = route.children.filter((childRoute) => {
+            data.forEach((route) => {
+                let childRoute = route;
+                childRoute = childRoute.children.filter((childRoute) => {
                     if (childRoute.meta) {
-                        routeArray.push(childRoute);
+                        this.routes.push(childRoute);
                     }
 
                     return !childRoute.meta;
                 })
 
-                routeArray.push(route);
-
-                return routeArray;                
-            }, []);
+                this.routes.push(route);            
+            });
         })
     },
     methods: {
@@ -107,7 +106,7 @@ export default {
             for (let route of this.routes) {
                 let filteredItems = FilterService.filter(route.children, ['to', 'href'], query, FilterMatchMode.CONTAINS);
                 if (filteredItems && filteredItems.length) {
-                    filteredRoutes.push({...route, ...{items: filteredItems}});
+                    filteredRoutes.push({name: route.name, children: filteredItems});
                 }
             }
 
