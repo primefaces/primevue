@@ -62,10 +62,18 @@ export default {
 
 </code></pre>
 
-                <h5>Popup Content inside the Dialog</h5>
-                <p>If the dialog contains components with popup elements such as Dropdown or Calendar, set <i>contentStyle</i> to overflow:visible so that overlays can be displayed outside of the content area.</p>
+                <h5>Responsive</h5>
+                <p>Dialog width can be adjusted per screen size with the <i>breakpoints</i> option. In example below, default width is set to 50vw and below 961px, width would be 75vw and finally below 641px width becomes
+                100%. The value of <i>breakpoints</i> should be an object literal whose keys are the maximum screen sizes and values are the widths per screen.</p>
 <pre v-code><code>
-&lt;Dialog v-model:visible="display" :contentStyle="{overflow: 'visible'}"&gt;
+&lt;Dialog position="top" v-model:visible="display"&gt;
+	Content
+&lt;/Dialog&gt;
+
+</code></pre>
+
+<pre v-code><code>
+&lt;Dialog v-model:visible="display" :breakpoints="{'960px': '75vw', '640px': '100vw'}" :style="{width: '50vw'}"&gt;
 	Content
 &lt;/Dialog&gt;
 
@@ -185,6 +193,12 @@ export default {
                                 <td>boolean</td>
                                 <td>false</td>
                                 <td>Whether the dialog can be displayed full screen.</td>
+                            </tr>
+                            <tr>
+                                <td>breakpoints</td>
+                                <td>object</td>
+                                <td>null</td>
+                                <td>Object literal to define widths per screen size.</td>
                             </tr>
 						</tbody>
 					</table>
@@ -313,6 +327,19 @@ export default {
     &lt;/template&gt;
 &lt;/Dialog&gt;
 
+&lt;h5&gt;Responsive&lt;/h5&gt;
+&lt;Button label="Show" icon="pi pi-external-link" @click="openResponsive" /&gt;
+&lt;Dialog header="Header" v-model:visible="displayResponsive" :breakpoints="{'960px': '75vw'}" :style="{width: '50vw'}"&gt;
+    &lt;p&gt;Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.
+        Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.
+        Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat
+        cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.&lt;/p&gt;
+    &lt;template #footer&gt;
+        &lt;Button label="No" icon="pi pi-times" @click="closeResponsive" class="p-button-text"/&gt;
+        &lt;Button label="Yes" icon="pi pi-check" @click="closeResponsive" autofocus /&gt;
+    &lt;/template&gt;
+&lt;/Dialog&gt;
+
 &lt;h5&gt;Confirmation&lt;/h5&gt;
 &lt;Button label="Confirm" icon="pi pi-external-link" @click="openConfirmation" /&gt;
 &lt;Dialog header="Confirmation" v-model:visible="displayConfirmation" :style="{width: '350px'}" :modal="true"&gt;
@@ -375,6 +402,7 @@ export default {
             displayBasic: false,
             displayBasic2: false,
             displayModal: false,
+            displayResponsive: false,
             displayConfirmation: false,
             displayMaximizable: false,
             displayPosition: false,
@@ -393,6 +421,12 @@ export default {
         },
         closeBasic2() {
             this.displayBasic2 = false;
+        },
+        openResponsive() {
+            this.displayResponsive = true;
+        },
+        closeResponsive() {
+            this.displayResponsive = false;
         },
         openModal() {
             this.displayModal = true;
@@ -511,6 +545,19 @@ export default {
                     </template>
                 </Dialog>
 
+                <h5>Responsive</h5>
+                <Button label="Show" icon="pi pi-external-link" @click="openResponsive" />
+                <Dialog header="Header" v-model:visible="displayResponsive" :breakpoints="{'960px': '75vw'}" :style="{width: '50vw'}">
+                    <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.
+                        Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.
+                        Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat
+                        cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.</p>
+                    <template #footer>
+                        <Button label="No" icon="pi pi-times" @click="closeResponsive" class="p-button-text"/>
+                        <Button label="Yes" icon="pi pi-check" @click="closeResponsive" autofocus />
+                    </template>
+                </Dialog>
+
                 <h5>Confirmation</h5>
                 <Button label="Confirm" icon="pi pi-external-link" @click="openConfirmation" />
                 <Dialog header="Confirmation" v-model:visible="displayConfirmation" :style="{width: '350px'}" :modal="true">
@@ -575,6 +622,7 @@ export default {
             displayBasic: false,
             displayBasic2: false,
             displayModal: false,
+            displayResponsive: false,
             displayConfirmation: false,
             displayMaximizable: false,
             displayPosition: false,
@@ -593,6 +641,12 @@ export default {
         },
         closeBasic2() {
             this.displayBasic2 = false;
+        },
+        openResponsive() {
+            this.displayResponsive = true;
+        },
+        closeResponsive() {
+            this.displayResponsive = false;
         },
         openModal() {
             this.displayModal = true;

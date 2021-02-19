@@ -68,6 +68,10 @@ export default {
         position: {
             type: String,
             default: 'center'
+        },
+        breakpoints: {
+            type: Object,
+            default: null
         }
     },
     data() {
@@ -79,6 +83,7 @@ export default {
     documentKeydownListener: null,
     container: null,
     mask: null,
+    styleElement: null,
     updated() {
         if (this.visible) {
             this.containerVisible = this.visible;
@@ -86,8 +91,14 @@ export default {
     },
     beforeUnmount() {
         this.unbindDocumentState();
+        this.destroyStyle();
         this.container = null;
         this.mask = null;
+    },
+    mounted() {
+        if (this.breakpoints) {
+            this.createStyle();
+        }
     },
     methods: {
         close() {
@@ -97,6 +108,8 @@ export default {
             if (this.autoZIndex) {
                 el.style.zIndex = String(this.baseZIndex + DomHandler.generateZIndex());
             }
+            
+            el.setAttribute(this.attributeSelector, '');
         },
         onEnter() {
             this.mask.style.zIndex = String(parseInt(this.container.style.zIndex, 10) - 1);
@@ -205,6 +218,32 @@ export default {
         },
         maskRef(el) {
             this.mask = el;
+        },
+        createStyle() {
+			if (!this.styleElement) {
+				this.styleElement = document.createElement('style');
+				this.styleElement.type = 'text/css';
+				document.body.appendChild(this.styleElement);
+
+                let innerHTML = '';
+                for (let breakpoint in this.breakpoints) {
+                    innerHTML += `
+                        @media screen and (max-width: ${breakpoint}) {
+                            .p-dialog[${this.attributeSelector}] {
+                                width: ${this.breakpoints[breakpoint]} !important;
+                            }
+                        }
+                    `
+                }
+                
+                this.styleElement.innerHTML = innerHTML;
+			}
+		},
+        destroyStyle() {
+            if (this.styleElement) {
+                document.body.removeChild(this.styleElement);
+                this.styleElement = null;
+            }
         }
     },
     computed: {
@@ -228,6 +267,9 @@ export default {
         },
         ariaLabelledById() {
             return this.header != null ? this.ariaId + '_header' : null;
+        },
+        attributeSelector() {
+            return UniqueComponentId();
         }
     },
     directives: {

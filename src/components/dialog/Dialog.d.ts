@@ -16,6 +16,7 @@ interface DialogProps {
     ariaCloseLabel?: string;
     position?: string;
     maximizable?: boolean;
+    breakpoints?: {[key: string]: string};
 }
 
 declare class Dialog {

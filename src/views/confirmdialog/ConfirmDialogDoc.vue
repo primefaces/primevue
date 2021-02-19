@@ -95,6 +95,14 @@ export default {
 
 </code></pre>
 
+                <h5>Responsive</h5>
+                <p>ConfirmDialog width can be adjusted per screen size with the <i>breakpoints</i> option. In example below, default width is set to 50vw and below 961px, width would be 75vw and finally below 641px width becomes
+                100%. The value of <i>breakpoints</i> should be an object literal whose keys are the maximum screen sizes and values are the widths per screen.</p>
+<pre v-code><code>
+&lt;ConfirmDialog :breakpoints="{'960px': '75vw', '640px': '100vw'}" :style="{width: '50vw'}"&gt;&lt;/ConfirmDialog&gt;
+
+</code></pre>
+
                 <h5>Confirmation Options</h5>
                 <p>ConfirmDialog can be customized with various options listed here.</p>
                 <div class="doc-tablewrapper">
@@ -208,6 +216,12 @@ export default {
                                 <td>string</td>
                                 <td>null</td>
                                 <td>Optional key to match the key of the confirmation, useful to target a specific confirm dialog instance.</td>
+                            </tr>
+                            <tr>
+                                <td>breakpoints</td>
+                                <td>object</td>
+                                <td>null</td>
+                                <td>Object literal to define widths per screen size.</td>
                             </tr>
 						</tbody>
 					</table>
