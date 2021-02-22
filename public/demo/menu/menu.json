@@ -67,12 +67,17 @@
                     "to": "/theming"
                 },
                 {
-                    "name": "Theme Design",
+                    "name": "Theme Designer",
                     "href": "https://www.primefaces.org/designer/primevue"
                 },
                 {
                     "name": "Visual Editor",
                     "href": "https://www.primefaces.org/designer-vue"
+                },
+                {
+                    "name": "Colors",
+                    "to": "/colors",
+                    "badge": "New"
                 },
                 {
                     "name": "SASS API",

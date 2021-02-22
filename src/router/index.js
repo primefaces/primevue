@@ -63,6 +63,11 @@ const routes = [
         component: () => import('../views/chip/ChipDemo.vue')
     },
     {
+        path: '/colors',
+        name: 'colors',
+        component: () => import('../views/colors/ColorsDemo.vue')
+    },
+    {
         path: '/blockui',
         name: 'blockui',
         component: () => import('../views/blockui/BlockUIDemo.vue')
