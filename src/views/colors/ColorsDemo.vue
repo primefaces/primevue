@@ -2,7 +2,7 @@
      <div>
         <div class="content-section documentation">
             <h1>Colors</h1>
-            <p>Each PrimeVue theme exports its own color palette as css variables.</p>
+            <p>Each PrimeVue theme exports its own color palette.</p>
         
             <h5>Getting Started</h5>
             <p>Colors are exported as CSS variables and used with the standard <i>var</i> syntax such as <i>var(--text-color)</i>.</p>
@@ -13,7 +13,7 @@
 </code></pre>
 
             <h5>General Colors</h5>
-            <p>These are common variables to used throughout the theme.</p>
+            <p>These are common variables used throughout the theme.</p>
 
             <div class="doc-tablewrapper">
                 <table class="doc-table">
@@ -49,7 +49,7 @@
             </div>
 
             <h5>Color Palette</h5>
-            <p>A palette consists of 9 colors where each color provide tints/shades from 50 to 900.</p>
+            <p>A palette consists of 9 colors where each color provides tints/shades from 50 to 900.</p>
 
             <pre v-code><code>
 &lt;div :style="{backgroundColor:var(--blue-500)}"&gt;&lt;/div&gt;
@@ -70,7 +70,7 @@
             </div>
 
             <h5>Surfaces</h5>
-            <p>In addition, a theme exports a special palette called surfaces that can be used as the base when designing the surface layers and separators.</p>
+            <p>In addition, a theme brings a special palette called surfaces that can be used as the base when designing the surface layers and separators.</p>
             <div class="card">
                 <div class="color-stack">
                     <div v-for="shade in shades" :key="shade" class="color-box" 
