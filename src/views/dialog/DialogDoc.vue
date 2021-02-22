@@ -65,12 +65,6 @@ export default {
                 <h5>Responsive</h5>
                 <p>Dialog width can be adjusted per screen size with the <i>breakpoints</i> option. In example below, default width is set to 50vw and below 961px, width would be 75vw and finally below 641px width becomes
                 100%. The value of <i>breakpoints</i> should be an object literal whose keys are the maximum screen sizes and values are the widths per screen.</p>
-<pre v-code><code>
-&lt;Dialog position="top" v-model:visible="display"&gt;
-	Content
-&lt;/Dialog&gt;
-
-</code></pre>
 
 <pre v-code><code>
 &lt;Dialog v-model:visible="display" :breakpoints="{'960px': '75vw', '640px': '100vw'}" :style="{width: '50vw'}"&gt;
