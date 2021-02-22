@@ -156,7 +156,7 @@ export default {
                 }
             }
 
-            this.$emit('select', {originalEvent: event, files: files});
+            this.$emit('select', {originalEvent: event, files: this.files});
 
             if (this.fileLimit) {
                 this.checkFileLimit();
