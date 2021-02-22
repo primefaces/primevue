@@ -464,7 +464,7 @@ export default {
                 <Listbox v-model="selectedGroupedCity" :options="groupedCities" optionLabel="label" style="width:15rem" optionGroupLabel="label" optionGroupChildren="items" listStyle="max-height:250px">
                     <template #optiongroup="slotProps">
                         <div class="p-d-flex p-ai-center country-item">
-                            <img src="../../assets/images/flag_placeholder.png" :class="'flag flag-' + slotProps.option.code.toLowerCase()" width="18" />
+                            <img src="https://www.primefaces.org/wp-content/uploads/2020/05/placeholder.png" width="18" />
                             <div>{{slotProps.option.label}}</div>
                         </div>
                     </template>
@@ -474,7 +474,7 @@ export default {
                 <Listbox v-model="selectedCountries" :options="countries" :multiple="true" :filter="true" optionLabel="name" listStyle="max-height:250px" style="width:15rem" filterPlaceholder="Search">
                     <template #option="slotProps">
                         <div class="country-item">
-                            <img src="../../assets/images/flag_placeholder.png" :class="'flag flag-' + slotProps.option.code.toLowerCase()" />
+                            <img src="https://www.primefaces.org/wp-content/uploads/2020/05/placeholder.png" />
                             <div>{{slotProps.option.name}}</div>
                         </div>
                     </template>

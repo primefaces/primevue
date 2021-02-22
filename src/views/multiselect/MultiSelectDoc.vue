@@ -605,7 +605,7 @@ export default {
                 <MultiSelect v-model="selectedGroupedCities" :options="groupedCities" optionLabel="label"  optionGroupLabel="label" optionGroupChildren="items" placeholder="Select Cities">
                     <template #optiongroup="slotProps">
                         <div class="p-d-flex p-ai-center country-item">
-                            <img src="../../assets/images/flag_placeholder.png" :class="'flag flag-' + slotProps.option.code.toLowerCase()" width="18" />
+                            <img src="https://www.primefaces.org/wp-content/uploads/2020/05/placeholder.png" width="18" />
                             <div>{{slotProps.option.label}}</div>
                         </div>
                     </template>
@@ -615,7 +615,7 @@ export default {
                 <MultiSelect v-model="selectedCountries" :options="countries" optionLabel="name" placeholder="Select Countries" :filter="true" class="multiselect-custom">
                     <template #value="slotProps">
                         <div class="country-item country-item-value" v-for="option of slotProps.value" :key="option.code">
-                            <img src="../../assets/images/flag_placeholder.png" :class="'flag flag-' + option.code.toLowerCase()" />
+                            <img src="https://www.primefaces.org/wp-content/uploads/2020/05/placeholder.png" />
                             <div>{{option.name}}</div>
                         </div>
                         <template v-if="!slotProps.value || slotProps.value.length === 0">
@@ -624,7 +624,7 @@ export default {
                     </template>
                     <template #option="slotProps">
                         <div class="country-item">
-                            <img src="../../assets/images/flag_placeholder.png" :class="'flag flag-' + slotProps.option.code.toLowerCase()" />
+                            <img src="https://www.primefaces.org/wp-content/uploads/2020/05/placeholder.png" />
                             <div>{{slotProps.option.name}}</div>
                         </div>
                     </template>

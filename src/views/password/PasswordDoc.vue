@@ -186,7 +186,7 @@ import Password from 'primevue/password';
                     <a href="https://github.com/primefaces/primevue/tree/master/src/views/password" class="btn-viewsource" target="_blank" rel="noopener noreferrer">
                         <span>View on GitHub</span>
                     </a>
-                    <LiveEditor name="PasswordDemo" :sources="sources"/>
+                    <LiveEditor name="PasswordDemo" :sources="sources" :components="['Divider']"/>
                 </div>
 <pre v-code><code>
 <h5>Basic</h5>

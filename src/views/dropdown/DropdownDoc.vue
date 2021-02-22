@@ -590,18 +590,17 @@ export default {
                 <Dropdown v-model="selectedGroupedCity" :options="groupedCities" optionLabel="label" optionGroupLabel="label" optionGroupChildren="items">
                     <template #optiongroup="slotProps">
                         <div class="p-d-flex p-ai-center country-item">
-                            <img src="../../assets/images/flag_placeholder.png" :class="'flag flag-' + slotProps.option.code.toLowerCase()" width="18" />
+                            <img src="https://www.primefaces.org/wp-content/uploads/2020/05/placeholder.png" width="18" />
                             <div>{{slotProps.option.label}}</div>
                         </div>
                     </template>
                 </Dropdown>
-                {{selectedGroupedCity}}
 
                 <h5>Advanced with Templating, Filtering and Clear Icon</h5>
                 <Dropdown v-model="selectedCountry" :options="countries" optionLabel="name" :filter="true" placeholder="Select a Country" :showClear="true">
                     <template #value="slotProps">
                         <div class="country-item country-item-value" v-if="slotProps.value">
-                            <img src="../../assets/images/flag_placeholder.png" :class="'flag flag-' + slotProps.value.code.toLowerCase()" />
+                            <img src="https://www.primefaces.org/wp-content/uploads/2020/05/placeholder.png" />
                             <div>{{slotProps.value.name}}</div>
                         </div>
                         <span v-else>
@@ -610,7 +609,7 @@ export default {
                     </template>
                     <template #option="slotProps">
                         <div class="country-item">
-                            <img src="../../assets/images/flag_placeholder.png" :class="'flag flag-' + slotProps.option.code.toLowerCase()" />
+                            <img src="https://www.primefaces.org/wp-content/uploads/2020/05/placeholder.png" />
                             <div>{{slotProps.option.name}}</div>
                         </div>
                     </template>
