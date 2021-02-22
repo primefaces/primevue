@@ -14,7 +14,7 @@
                 <a href="https://github.com/primefaces/primevue/tree/2.x" target="_blank">Source Code</a>
                 <router-link to="/support">Support</router-link>
                 <a href="https://www.primefaces.org/store" target="_blank">Store</a>
-                <router-link to="/locale">Locale <Tag value="New"></Tag></router-link>
+                <router-link to="/locale">Locale</router-link>
                 <router-link to="/accessibility">Accessibility</router-link>
             </div>
 
@@ -47,7 +47,7 @@
             <div class="menu-items">
                 <router-link to="/autocomplete">AutoComplete</router-link>
                 <router-link to="/calendar">Calendar</router-link>
-                <router-link to="/cascadeselect">CascadeSelect <Tag value="New"></Tag></router-link>
+                <router-link to="/cascadeselect">CascadeSelect</router-link>
                 <router-link to="/checkbox">Checkbox</router-link>
                 <router-link to="/chips">Chips</router-link>
                 <router-link to="/colorpicker">ColorPicker</router-link>
@@ -59,8 +59,8 @@
                 <router-link to="/inputnumber">InputNumber</router-link>
                 <router-link to="/inputswitch">InputSwitch</router-link>
                 <router-link to="/inputtext">InputText</router-link>
-                <router-link to="/invalid">InvalidState <Tag value="New"></Tag></router-link>
-                <router-link to="/knob">Knob <Tag value="New"></Tag></router-link>
+                <router-link to="/invalid">InvalidState</router-link>
+                <router-link to="/knob">Knob</router-link>
                 <router-link to="/listbox">Listbox</router-link>
                 <router-link to="/multiselect">MultiSelect</router-link>
                 <router-link to="/password">Password</router-link>
@@ -172,10 +172,10 @@
                 <router-link to="/accordion">Accordion</router-link>
                 <router-link to="/card">Card</router-link>
                 <router-link to="/deferredcontent">Deferred</router-link>
-                <router-link to="/divider">Divider <Tag value="New"></Tag></router-link>
+                <router-link to="/divider">Divider</router-link>
                 <router-link to="/fieldset">Fieldset</router-link>
                 <router-link to="/panel">Panel</router-link>
-                <router-link to="/splitter">Splitter <Tag value="New"></Tag></router-link>
+                <router-link to="/splitter">Splitter</router-link>
                 <router-link to="/scrollpanel">ScrollPanel</router-link>
                 <router-link to="/tabview">TabView</router-link>
                 <router-link to="/toolbar">Toolbar</router-link>
@@ -183,8 +183,8 @@
 
             <div class="menu-category">Overlay</div>
             <div class="menu-items">
-                <router-link to="/confirmdialog">ConfirmDialog <Tag value="New"></Tag></router-link>
-                <router-link to="/confirmpopup">ConfirmPopup <Tag value="New"></Tag></router-link>
+                <router-link to="/confirmdialog">ConfirmDialog</router-link>
+                <router-link to="/confirmpopup">ConfirmPopup</router-link>
                 <router-link to="/dialog">Dialog</router-link>
                 <router-link to="/overlaypanel">OverlayPanel</router-link>
                 <router-link to="/sidebar">Sidebar</router-link>
@@ -256,17 +256,17 @@
 
             <div class="menu-category">Misc</div>
             <div class="menu-items">
-                <router-link to="/avatar">Avatar <Tag value="New"></Tag></router-link>
-                <router-link to="/badge">Badge <Tag value="New"></Tag></router-link>
-                <router-link to="/chip">Chip <Tag value="New"></Tag></router-link>
+                <router-link to="/avatar">Avatar</router-link>
+                <router-link to="/badge">Badge</router-link>
+                <router-link to="/chip">Chip</router-link>
                 <router-link to="/blockui">BlockUI</router-link>
                 <router-link to="/inplace">Inplace</router-link>
-                <router-link to="/scrolltop">ScrollTop <Tag value="New"></Tag></router-link>
-                <router-link to="/skeleton">Skeleton <Tag value="New"></Tag></router-link>
+                <router-link to="/scrolltop">ScrollTop</router-link>
+                <router-link to="/skeleton">Skeleton</router-link>
                 <router-link to="/progressbar">ProgressBar</router-link>
                 <router-link to="/progressspinner">ProgressSpinner</router-link>
                 <router-link to="/ripple">Ripple</router-link>
-                <router-link to="/tag">Tag <Tag value="New"></Tag></router-link>
+                <router-link to="/tag">Tag</router-link>
                 <router-link to="/terminal">Terminal</router-link>
             </div>
         </div>
