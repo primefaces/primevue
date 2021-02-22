@@ -294,6 +294,44 @@
 - Button not registered in FileUpload [\#478](https://github.com/primefaces/primevue/issues/478)
 - BlockUI documentation indicates "show" event whereas the actual event is "unblock" [\#485](https://github.com/primefaces/primevue/issues/485)
 
+## [2.4.0](https://github.com/primefaces/primevue/tree/2.4.0) (2021-02-22)
+
+[Full Changelog](https://github.com/primefaces/primevue/compare/2.3.0...2.4.0)
+
+**Implemented New Features and Enhancements:**
+
+- Touch support for ColorPicker [\#1003](https://github.com/primefaces/primevue/issues/1003)
+- Error when removing InputNumbers from DOM tree [\#1001](https://github.com/primefaces/primevue/issues/1001)
+- FileUpload callback 'Select' little adjust. [\#1000](https://github.com/primefaces/primevue/issues/1000)
+- Add activeIndex to Tabview [\#927](https://github.com/primefaces/primevue/issues/927)
+- Add activeIndex to Accordion [\#924](https://github.com/primefaces/primevue/issues/924)
+- Update material theming and add invalid field demo [\#920](https://github.com/primefaces/primevue/issues/920)
+- Upgrade PrimeIcons 4.1.0 [\#914](https://github.com/primefaces/primevue/issues/914)
+- \[FileUpload\] when :fileLimit is exceeded, Upload button should not be active [\#909](https://github.com/primefaces/primevue/issues/909)
+- state-save and state-restore events for Table [\#901](https://github.com/primefaces/primevue/issues/901)
+- File Upload cant disable and hide Upload & Cancel [\#897](https://github.com/primefaces/primevue/issues/897)
+- New Lazy DataTable Demo with Remote Source [\#862](https://github.com/primefaces/primevue/issues/862)
+
+**Fixed bugs:**
+
+- Space key support for row radio [\#1002](https://github.com/primefaces/primevue/issues/1002)
+- Calendar seconds are locked when min/max set [\#923](https://github.com/primefaces/primevue/issues/923)
+- Improve float label support in overlay selects  [\#907](https://github.com/primefaces/primevue/issues/907)
+- Sidebar Mask not being removed from DOM on close [\#906](https://github.com/primefaces/primevue/issues/906)
+- "Clear" button in Calendar wrongly labeled [\#905](https://github.com/primefaces/primevue/issues/905)
+- Autocomplete crashes when "field" property is a function [\#903](https://github.com/primefaces/primevue/issues/903)
+- p-button-link not visible in Material Design themes [\#902](https://github.com/primefaces/primevue/issues/902)
+- Textarea autoresize does not respect its border [\#900](https://github.com/primefaces/primevue/issues/900)
+- Knob replaceAll causes issue with nuxt SSR [\#898](https://github.com/primefaces/primevue/issues/898)
+- \[Bug\] Error import ScrollTop component [\#896](https://github.com/primefaces/primevue/issues/896)
+- MenuItem: class does not apply to separator item [\#895](https://github.com/primefaces/primevue/issues/895)
+- Slider incorrectly positions handle when using mixed-sign min/max [\#893](https://github.com/primefaces/primevue/issues/893)
+- Strange behavior using context menu on Safari [\#886](https://github.com/primefaces/primevue/issues/886)
+- Calendar fails with prop monthNavigator = true [\#876](https://github.com/primefaces/primevue/issues/876)
+- Calendar component doesn't respect dateFormat config value [\#870](https://github.com/primefaces/primevue/issues/870)
+- Multiselect: selected values are not shown without placeholder [\#868](https://github.com/primefaces/primevue/issues/868)
+- primevue/fieldset not found [\#860](https://github.com/primefaces/primevue/issues/860)
+
 ## [2.3.0](https://github.com/primefaces/primevue/tree/2.3.0) (2021-01-06)
 
 [Full Changelog](https://github.com/primefaces/primevue/compare/2.2.3...2.3.0)
