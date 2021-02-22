@@ -507,7 +507,7 @@ export default {
                 <AutoComplete v-model="selectedCity" :suggestions="filteredCities" @complete="searchCity($event)" field="label" optionGroupLabel="label" optionGroupChildren="items">
                     <template #optiongroup="slotProps">
                         <div class="p-d-flex p-ai-center country-item">
-                            <img src="../../assets/images/flag_placeholder.png" :class="'flag flag-' + slotProps.item.code.toLowerCase()" width="18" />
+                            <img src="https://www.primefaces.org/wp-content/uploads/2020/05/placeholder.png" width="18" />
                             <div>{{slotProps.item.label}}</div>
                         </div>
                     </template>
@@ -517,7 +517,7 @@ export default {
                 <AutoComplete v-model="selectedCountry2" :suggestions="filteredCountries" @complete="searchCountry($event)" :dropdown="true" field="name" forceSelection>
                     <template #item="slotProps">
                         <div class="country-item">
-                            <img src="../../assets/images/flag_placeholder.png" :class="'flag flag-' + slotProps.item.code.toLowerCase()" />
+                            <img src="https://www.primefaces.org/wp-content/uploads/2020/05/placeholder.png" />
                             <div>{{slotProps.item.name}}</div>
                         </div>
                     </template>
@@ -533,7 +533,7 @@ export default {
 </template>
 
 <script>
-import CountryService from '../../service/CountryService';
+import CountryService from '../service/CountryService';
 import {FilterService,FilterMatchMode} from 'primevue/api';
 
 export default {
