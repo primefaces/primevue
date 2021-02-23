@@ -27,11 +27,11 @@ import TabPanel from 'primevue/tabpanel';
                 <h5>Active</h5>
 				<p>Visibility of the content is specified with the active property that supports one or two-way binding.</p>
 <CodeHighlight>
-&lt;TabView :activeIndex="active"&gt;
+&lt;TabView&gt;
 	&lt;TabPanel header="Header I"&gt;
 		Content I
 	&lt;/TabPanel&gt;
-	&lt;TabPanel header="Header II"&gt;
+	&lt;TabPanel header="Header II" :active="true"&gt;
 		Content II
 	&lt;/TabPanel&gt;
 	&lt;TabPanel header="Header III"&gt;
@@ -42,14 +42,14 @@ import TabPanel from 'primevue/tabpanel';
 
                 <p>Two-way binding requires the sync operator.</p>
 <CodeHighlight>
-&lt;TabView :activeIndex.sync="active"&gt;
-	&lt;TabPanel header="Header I"&gt;
+&lt;TabView&gt;
+	&lt;TabPanel header="Header I" :active.sync="active1"&gt;
 		Content I
 	&lt;/TabPanel&gt;
-	&lt;TabPanel header="Header II"&gt;
+	&lt;TabPanel header="Header II" :active.sync="active2"&gt;
 		Content II
 	&lt;/TabPanel&gt;
-	&lt;TabPanel header="Header III"&gt;
+	&lt;TabPanel header="Header III" :active.sync="active3"&gt;
 		Content III
 	&lt;/TabPanel&gt;
 &lt;/TabView&gt;
@@ -95,18 +95,18 @@ import TabPanel from 'primevue/tabpanel';
                 <h5>Programmatic Control</h5>
 				<p>Tabs can be controlled programmatically using active property that defines the active tab.</p>
 <CodeHighlight>
-&lt;Button @click="active = 0" class="p-button-text" label="Activate 1st" /&gt;
-&lt;Button @click="active = 1" class="p-button-text p-mr-2" label="Activate 2nd" /&gt;
-&lt;Button @click="active = 2" class="p-button-text p-mr-2" label="Activate 3rd" /&gt;
+&lt;Button @click="activate(0)" class="p-button-text" label="Activate 1st" /&gt;
+&lt;Button @click="activate(1)" class="p-button-text" label="Activate 2st" /&gt;
+&lt;Button @click="activate(2)" class="p-button-text" label="Activate 3st" /&gt;
 
-&lt;TabView :activeIndex="active"&gt;
-    &lt;TabPanel header="Header I"&gt;
+&lt;TabView&gt;
+    &lt;TabPanel header="Header I" :active.sync="active[0]"&gt;
         Content I
     &lt;/TabPanel&gt;
-    &lt;TabPanel header="Header II"&gt;
+    &lt;TabPanel header="Header II" :active.sync="active[1]"&gt;
         Content II
     &lt;/TabPanel&gt;
-    &lt;TabPanel header="Header III"&gt;
+    &lt;TabPanel header="Header III" :active.sync="active[2]"&gt;
        Content III
     &lt;/TabPanel&gt;
 &lt;/TabView&gt;
@@ -117,32 +117,18 @@ import TabPanel from 'primevue/tabpanel';
 export default {
     data() {
         return {
-            active: 0
+            active: [true, false, false]
         }
-    }
-}
-</CodeHighlight>
-
-                <h5>Dynamic Tabs</h5>
-<CodeHighlight>
-<template v-pre>
-&lt;TabView&gt;
-    &lt;TabPanel v-for="tab in tabs" :key="tab.title" :header="tab.title"&gt;
-        &lt;p&gt;{{tab.content}}&lt;/p&gt;
-    &lt;/TabPanel&gt;
-&lt;/TabView&gt;
-</template>
-</CodeHighlight>
-
-<CodeHighlight lang="js">
-export default {
-    data() {
-        return {
-            {title: 'Title 1', content: 'Content 1'},
-			{title: 'Title 3', content: 'Content 2'},
-			{title: 'Title 3', content: 'Content 3'}
+    },
+    methods: {
+        activate(index) {
+            let activeArray = [...this.active];
+            for (let i = 0 ; i &lt; activeArray.length; i++) {
+                activeArray[i] = (i === index);
+            }
+            this.active = activeArray;
         }
-    }
+    },
 }
 </CodeHighlight>
 
@@ -165,6 +151,12 @@ export default {
 							<td>Orientation of tab headers.</td>
 						</tr>
 						<tr>
+							<td>active</td>
+							<td>boolean</td>
+							<td>null</td>
+							<td>Visibility of the content.</td>
+						</tr>
+						<tr>
 							<td>disabled</td>
 							<td>boolean</td>
 							<td>null</td>
@@ -175,27 +167,7 @@ export default {
 				</div>
 
                 <h5>Properties of TabView</h5>
-                <p>Any additional properties like style and class are passed to the main container element.</p>
-                <div class="doc-tablewrapper">
-					<table class="doc-table">
-						<thead>
-                            <tr>
-                                <th>Name</th>
-                                <th>Type</th>
-                                <th>Default</th>
-                                <th>Description</th>
-                            </tr>
-						</thead>
-						<tbody>
-                            <tr>
-                                <td>activeIndex</td>
-                                <td>Number</td>
-                                <td>0</td>
-                                <td>Index of the active tab.</td>
-                            </tr>
-						</tbody>
-					</table>
-				</div>
+                <p>Any property as style and class are passed to the main container element.</p>
 
 				<h5>Events</h5>
 				<div class="doc-tablewrapper">

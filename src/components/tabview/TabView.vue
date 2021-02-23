@@ -1,103 +1,101 @@
+<template>
+    <div class="p-tabview p-component">
+        <ul ref="nav" class="p-tabview-nav" role="tablist">
+            <li role="presentation" v-for="(tab, i) of tabs" :key="tab.header || i" :class="[{'p-highlight': (tab.d_active), 'p-disabled': tab.disabled}]">
+                <a role="tab" class="p-tabview-nav-link" @click="onTabClick($event, tab)" @keydown="onTabKeydown($event, tab)" :tabindex="tab.disabled ? null : '0'" :aria-selected="tab.d_active" v-ripple>
+                    <span class="p-tabview-title" v-if="tab.header">{{tab.header}}</span>
+                    <TabPanelHeaderSlot :tab="tab" v-if="tab.$scopedSlots.header" />
+                </a>
+            </li>
+            <li ref="inkbar" class="p-tabview-ink-bar"></li>
+        </ul>
+        <div class="p-tabview-panels">
+            <slot></slot>
+        </div>
+    </div>
+</template>
+
 <script>
 import DomHandler from '../utils/DomHandler';
 import Ripple from '../ripple/Ripple';
 
+const TabPanelHeaderSlot = {
+    functional: true,
+    props: {
+        tab: {
+            type: null,
+            default: null
+        }
+    },
+    render(createElement, context) {
+        return [context.props.tab.$scopedSlots['header']()];
+    }
+};
+
 export default {
     data() {
         return {
-            allChildren: null,
-            d_activeIndex: this.activeIndex
+            d_children: []
         };
     },
-    props: {
-        activeIndex: {
-            type: Number,
-            default: 0
-        }
-    },
-    watch: {
-        activeIndex(newValue) {
-            this.d_activeIndex = newValue;
-        }
-    },
     mounted() {
-        this.allChildren = this.$children;
-        this.updateInkBar();
+        this.d_children = this.$children;
     },
     updated() {
+        let activeTab = this.tabs[this.findActiveTabIndex()];
+        if (!activeTab && this.tabs.length) {
+            this.tabs[0].d_active = true;
+        }
         this.updateInkBar();
     },
     methods: {
-        onTabClick(event, i) {
-            if (!this.isTabDisabled(this.tabs[i]) && i !== this.d_activeIndex) {
-                this.d_activeIndex = i;
-                this.$emit('update:activeIndex', this.d_activeIndex);
+        onTabClick(event, tab) {
+            if (!tab.disabled && !tab.d_active) {
+                this.activateTab(tab);
+
                 this.$emit('tab-change', {
                     originalEvent: event,
-                    index: i
+                    tab: tab
                 });
             }
         },
-        onTabKeydown(event, i) {
+        activateTab(tab) {
+            for (let i = 0; i < this.tabs.length; i++) {
+                let active = this.tabs[i] === tab;
+                this.tabs[i].d_active = active;
+                this.tabs[i].$emit('update:active', active);
+            }
+
+            this.updateInkBar();
+        },
+        onTabKeydown(event, tab) {
             if (event.which === 13) {
-                this.onTabClick(event, i);
+                this.onTabClick(event, tab);
             }
         },
+        findActiveTabIndex() {
+            for (let i = 0; i < this.tabs.length; i++) {
+                let tab = this.tabs[i];
+                if (tab.d_active) {
+                    return i;
+                }
+            }
+
+            return null;
+        },
         updateInkBar() {
-            let tabHeader = this.$refs.nav.children[this.d_activeIndex];
+            let tabHeader = this.$refs.nav.children[this.findActiveTabIndex()];
             this.$refs.inkbar.style.width = DomHandler.getWidth(tabHeader) + 'px';
             this.$refs.inkbar.style.left =  DomHandler.getOffset(tabHeader).left - DomHandler.getOffset(this.$refs.nav).left + 'px';
-        },
-        isTabDisabled(tab) {
-            return tab.disabled;
-        },
+        }
     },
     computed: {
         tabs() {
-            let tabs = [];
-
-            if (this.allChildren) {
-                tabs = this.allChildren.filter(child => child.$vnode.tag.indexOf('tabpanel') !== -1);
-            }
-            return tabs;
+            return this.d_children.filter(child => child.$vnode.tag.indexOf('tabpanel') !== -1);
         }
     },
-    render() {
-        return (
-            <div class="p-tabview p-component">
-                {this.$slots.default}
-                <ul ref="nav" class="p-tabview-nav" role="tablist">
-                    {
-                        this.tabs.map((tab, i) => {
-                            const headerContent = tab.header || [
-                                <span class="p-tabview-title">{tab.$slots.header}</span>,
-                                <span></span>
-                            ]
-                            return ([
-                                <li role="presentation" key={tab.header || i} class={[{'p-highlight': (this.d_activeIndex === i), 'p-disabled': tab.disabled}]}>
-                                    <a role="tab" class="p-tabview-nav-link" on-click={e => this.onTabClick(e, i)} on-keydown={e => this.onTabKeydown(e, tab)}
-                                            tabindex={tab.disabled ? null : '0'} aria-selected={tab.d_activeIndex} v-ripple>
-                                        {headerContent}
-                                    </a>
-                                </li>
-                            ])
-                        })
-                    }
-                    <li ref="inkbar" class="p-tabview-ink-bar"></li>
-                </ul>
-                <div class="p-tabview-panels">
-                {
-                    this.tabs.map((tab, i) => {
-                        return(
-                            <div class="p-tabview-panel" role="tabpanel" v-show={(this.d_activeIndex === i)}>
-                                {tab.$slots.default}
-                            </div>
-                        )
-                    })
-                }
-            </div>
-                </div>
-        );
+    components: {
+        'TabPanelHeaderSlot': TabPanelHeaderSlot
     },
     directives: {
         'ripple': Ripple
