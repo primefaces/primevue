@@ -1,5 +1,20 @@
 # Changelog
 
+## [3.3.0](https://github.com/primefaces/primevue/tree/3.3.0) (2021-02-23)
+
+[Full Changelog](https://github.com/primefaces/primevue/compare/3.3.0-rc.1...3.3.0)
+
+**Implemented New Features and Enhancements:**
+
+- Color Palettes for Each Theme [\#1004](https://github.com/primefaces/primevue/issues/1004)
+- breakpoints for Dialog and ConfirmDialog [\#992](https://github.com/primefaces/primevue/issues/992)
+
+**Fixed bugs:**
+
+- Calendar seconds are locked when min/max set [\#998](https://github.com/primefaces/primevue/issues/998)
+- FileUpload callback 'Select' little adjust. [\#990](https://github.com/primefaces/primevue/issues/990)
+- DataTable Column header slot does not work [\#987](https://github.com/primefaces/primevue/issues/987)
+
 ## [3.3.0-rc.1](https://github.com/primefaces/primevue/tree/3.3.0-rc.1) (2021-02-18)
 
 [Full Changelog](https://github.com/primefaces/primevue/compare/3.2.4...3.3.0-rc.1)
