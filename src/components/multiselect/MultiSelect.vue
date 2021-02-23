@@ -130,7 +130,7 @@ export default {
         ariaLabelledBy: null,
         appendTo: {
             type: String,
-            default: null
+            default: 'body'
         },
         emptyFilterMessage: {
             type: String,

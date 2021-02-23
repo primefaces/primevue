@@ -38,7 +38,7 @@ export default {
         },
         appendTo: {
             type: String,
-            default: null
+            default: 'body'
         },
         class: null,
         style: null

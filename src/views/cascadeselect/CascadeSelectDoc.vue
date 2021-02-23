@@ -212,7 +212,7 @@ data() {
                             <tr>
                                 <td>appendTo</td>
                                 <td>string</td>
-                                <td>null</td>
+                                <td>body</td>
                                 <td>Id of the element or "body" for document where the overlay should be appended to.</td>
                             </tr>
 						</tbody>

@@ -89,7 +89,7 @@ export default {
         },
         appendTo: {
             type: String,
-            default: null
+            default: 'body'
         },
         forceSelection: {
             type: Boolean,

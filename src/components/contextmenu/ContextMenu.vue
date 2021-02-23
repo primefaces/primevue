@@ -30,7 +30,7 @@ export default {
         },
         global: {
             type: Boolean,
-            default: false
+            default: 'body'
         }
     },
     target: null,
