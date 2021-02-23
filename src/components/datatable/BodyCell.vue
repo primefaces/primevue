@@ -33,7 +33,7 @@
 import DomHandler from '../utils/DomHandler';
 import ObjectUtils from '../utils/ObjectUtils';
 import ColumnSlot from './ColumnSlot.vue';
-import RowRadioButton from './RowRadioButton';
+import RowRadioButton from './RowRadioButton.vue';
 import RowCheckbox from './RowCheckbox.vue';
 import Ripple from '../ripple/Ripple';
 
