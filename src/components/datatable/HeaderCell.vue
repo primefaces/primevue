@@ -5,7 +5,7 @@
         :colspan="columnProp('colspan')" :rowspan="columnProp('rowspan')" :aria-sort="ariaSort">
         <span class="p-column-resizer" @mousedown="onResizeStart" v-if="resizableColumns"></span>
         <div class="p-column-header-content">
-            <component :is="col.children.header" :column="column" v-if="column.children && column.children.header"/>
+            <component :is="column.children.header" :column="column" v-if="column.children && column.children.header"/>
             <span class="p-column-title" v-if="columnProp('header')">{{columnProp('header')}}</span>
             <span v-if="columnProp('sortable')" :class="sortableColumnIcon"></span>
             <span v-if="isMultiSorted()" class="p-sortable-column-badge">{{getMultiSortMetaIndex() + 1}}</span>
@@ -172,7 +172,7 @@ export default {
     },
     computed: {
         containerClass() {
-            return [this.filterColumn ? this.columnProp('headerClass') : this.columnProp('filterHeaderClass'), this.columnProp('class'), {
+            return [this.filterColumn ? this.columnProp('filterHeaderClass') : this.columnProp('headerClass'), this.columnProp('class'), {
                     'p-sortable-column': this.columnProp('sortable'),
                     'p-resizable-column': this.resizableColumns,
                     'p-highlight': this.isColumnSorted(),
