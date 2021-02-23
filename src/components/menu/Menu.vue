@@ -35,7 +35,7 @@ export default {
         },
         appendTo: {
             type: String,
-            default: 'body'
+            default: null
         },
         autoZIndex: {
             type: Boolean,

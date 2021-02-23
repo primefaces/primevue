@@ -28,7 +28,7 @@ export default {
 		},
         appendTo: {
 			type: String,
-			default: 'body'
+			default: null
 		},
         baseZIndex: {
             type: Number,

@@ -57,7 +57,7 @@ export default {
         },
         appendTo: {
             type: String,
-            default: 'body'
+            default: null
         },
         toggleMask: {
             type: Boolean,

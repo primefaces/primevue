@@ -288,7 +288,7 @@ export default {
         },
         appendTo: {
             type: String,
-            default: 'body'
+            default: null
         },
         inputClass: null,
         inputStyle: null,

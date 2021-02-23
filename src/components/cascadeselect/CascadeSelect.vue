@@ -56,7 +56,7 @@ export default {
         ariaLabelledBy: null,
         appendTo: {
             type: String,
-            default: 'body'
+            default: null
         }
     },
     outsideClickListener: null,
