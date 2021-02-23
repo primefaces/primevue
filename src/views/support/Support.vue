@@ -12,19 +12,19 @@
                 <div class="card support-box">
                     <h5>Community Support</h5>
                     <p><a href="https://forum.primefaces.org/viewforum.php?f=35">Forum</a> is where the community users gather to seek support, post topics and discuss the technology. PrimeTek does not
-                    guarantee response at forum although it is monitored and maintained by our staff. If you need to secure our response within 1 business day, you may consider PrimeNG PRO support.</p>
+                    guarantee response at forum although it is monitored and maintained by our staff. If you need to secure our response within 1 business day, you may consider PrimeVue PRO support.</p>
                 </div>
             </div>
 
             <div class="p-col-12 p-md-6 p-lg-6">
                 <div class="p-d-flex p-flex-column p-jc-between card support-box pro">
                     <div>
-                        <h5>PrimeNG PRO Support</h5>
-                        <p>PrimeNG PRO is a term based commercial support service. With the exclusive services of Pro account,
+                        <h5>PrimeVue PRO Support</h5>
+                        <p>PrimeVue PRO is a term based commercial support service. With the exclusive services of Pro account,
                             you no longer need to post your questions in the community forum and your issues to community issue tracker.
-                        With PrimeNG PRO, it's easy to support, tune and add features to PrimeNG as if it were an in-house framework.</p>
+                        With PrimeVue PRO, it's easy to support, tune and add features to PrimeVue as if it were an in-house framework.</p>
                     </div>
-                    <a class="action-button" href="mailto:primeng@primetek.com.tr">GET A QUOTE</a>
+                    <a class="action-button" href="mailto:PrimeVue@primetek.com.tr">GET A QUOTE</a>
                 </div>
             </div>
         </div>
@@ -65,7 +65,7 @@
                         <div class="dot color-3">&nbsp;</div>
                         <div class="p-d-flex p-flex-column p-pl-3">
                             <h6>Theme Designer License</h6>
-                            <p>Designer is the ultimate tool to create your own PrimeNG experience powered by a SASS based theme engine with 500+ variables and a Visual Designer. </p>
+                            <p>Designer is the ultimate tool to create your own PrimeVue experience powered by a SASS based theme engine with 500+ variables and a Visual Designer. </p>
                         </div>
                     </div>     
                 </div>
@@ -127,7 +127,7 @@
                     <div class="p-d-flex">
                         <div class="dot color-10">&nbsp;</div>
                         <div class="p-d-flex p-flex-column p-pl-3">
-                            <h6>High Priority to Your Issues.</h6>
+                            <h6>High Priority to Your Issues</h6>
                             <p>PRO delivers the premium support and expertise you need. Resources are prioritized for an optimized response to critical issues.</p>
                         </div>
                     </div>     
