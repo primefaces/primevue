@@ -131,6 +131,11 @@
 
             <div class="p-grid">
                 <div class="p-col-12 p-md-3">
+                    <a href="https://www.primefaces.org/layouts/ultima-vue">
+                        <img alt="Ultima" src="../assets/images/layouts/ultima-vue.jpg">
+                    </a>
+                </div>
+                <div class="p-col-12 p-md-3">
                     <a href="https://www.primefaces.org/layouts/diamond-vue">
                         <img alt="Diamond" src="../assets/images/layouts/diamond-vue.jpg">
                     </a>
@@ -163,11 +168,6 @@
                 <div class="p-col-12 p-md-3">
                     <a href="https://www.primefaces.org/layouts/roma-vue">
                         <img alt="Roma" src="../assets/images/layouts/roma-vue.jpg">
-                    </a>
-                </div>
-                <div class="p-col-12 p-md-3">
-                    <a href="https://www.primefaces.org/layouts/ultima-vue">
-                        <img alt="Ultima" src="../assets/images/layouts/ultima-vue.jpg">
                     </a>
                 </div>
                 <div class="p-col-12 p-md-3">
