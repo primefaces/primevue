@@ -74,7 +74,7 @@
             <div class="card">
                 <div class="color-stack">
                     <div v-for="shade in shades" :key="shade" class="color-box" 
-                        :style="{backgroundColor:`var(--surface-${shade})`, color: $appState.darkTheme ? (shade > 500 ? '#000': '#fff'):  (shade > 500 ? '#fff': '#000')}">
+                        :style="{backgroundColor:`var(--surface-${shade})`, color: $appState.darkTheme ? '#fff':  (shade > 500 ? '#fff': '#000')}">
                         surface-{{shade}}
                     </div>
                 </div>

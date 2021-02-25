@@ -150,7 +150,7 @@ export default {
             return false;
         },
         isDarkTheme(theme) {
-            return theme.indexOf('dark') !== -1 || theme === 'vela' || theme === 'arya' || theme === 'luna';
+            return theme.indexOf('dark') !== -1 || theme.indexOf('vela') !== -1 || theme.indexOf('arya') !== -1 || theme.indexOf('luna') !== -1;
         }
     },
     computed: {
