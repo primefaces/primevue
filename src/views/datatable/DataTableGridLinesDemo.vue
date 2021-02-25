@@ -3,13 +3,13 @@
 		<div class="content-section introduction">
 			<div class="feature-intro">
 				<h1>DataTable <span>GridLines</span></h1>
-				<p>Adding <b>p-datatable-gridlines</b> displays borders between cells. Note: Some themes may always display gridlines by design.</p>
+				<p>Enabling <b>showGridlines</b> displays borders between cells. Note: Some themes may always display gridlines by design.</p>
 			</div>
 		</div>
 
 		<div class="content-section implementation">
             <div class="card">
-                <DataTable :value="products" class="p-datatable-gridlines">
+                <DataTable :value="products" showGridlines>
                     <template #header>
                         Header
                     </template>
@@ -31,7 +31,7 @@
                         <LiveEditor name="DataTableDemo" :sources="sources" service="ProductService" data="products-small" :components="['Column']" />
                     </div>
 <pre v-code><code><template v-pre>
-&lt;DataTable :value="products" class="p-datatable-gridlines"&gt;
+&lt;DataTable :value="products" showGridlines&gt;
     &lt;template #header&gt;
         Header
     &lt;/template&gt;
@@ -85,7 +85,7 @@ export default {
     <div class="layout-content">
         <div class="content-section implementation">
             <div class="card">
-                <DataTable :value="products" class="p-datatable-gridlines">
+                <DataTable :value="products" showGridlines>
                     <template #header>
                         Header
                     </template>

@@ -2211,6 +2211,18 @@ export default {
                                 <td>960px</td>
                                 <td>The breakpoint to define the maximum width boundary when using stack responsive layout.</td>
                             </tr>
+                            <tr>
+                                <td>showGridlines</td>
+                                <td>boolean</td>
+                                <td>false</td>
+                                <td>Whether to show grid lines between cells.</td>
+                            </tr>
+                            <tr>
+                                <td>stripedRows</td>
+                                <td>boolean</td>
+                                <td>false</td>
+                                <td>Whether to displays rows with alternating colors.</td>
+                            </tr>
                         </tbody>
                     </table>
                 </div>

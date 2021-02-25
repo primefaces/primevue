@@ -11,7 +11,7 @@
             <div class="card">
                 <h5>Filter Menu</h5>
                 <p>Filters are displayed in an overlay.</p>
-                <DataTable :value="customers1" :paginator="true" class="p-datatable-customers p-datatable-gridlines" :rows="10"
+                <DataTable :value="customers1" :paginator="true" class="p-datatable-customers" showGridlines :rows="10"
                     dataKey="id" v-model:filters="filters1" filterDisplay="menu" :loading="loading1" responsiveLayout="scroll"
                     :globalFilterFields="['name','country.name','representative.name','balance','status']">
                     <template #header>
@@ -215,7 +215,7 @@
 &lt;div class="card"&gt;
     &lt;h5&gt;Filter Menu&lt;/h5&gt;
     &lt;p&gt;Filters are displayed in an overlay.&lt;/p&gt;
-    &lt;DataTable :value="customers1" :paginator="true" class="p-datatable-customers p-datatable-gridlines" :rows="10"
+    &lt;DataTable :value="customers1" :paginator="true" class="p-datatable-customers" showGridlines :rows="10"
         dataKey="id" v-model:filters="filters1" filterDisplay="menu" :loading="loading1" responsiveLayout="scroll"
         :globalFilterFields="['name','country.name','representative.name','balance','status']"&gt;
         &lt;template #header&gt;

@@ -56,6 +56,8 @@ interface DataTableProps {
     frozenValue?: any[];
     responsiveLayout?: string;
     breakpoing?: string;
+    showGridlines?: boolean;
+    stripedRows?: boolean;
 }
 
 declare class DataTable {

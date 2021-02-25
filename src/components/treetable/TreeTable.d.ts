@@ -35,6 +35,7 @@ interface TreeTableProps {
     resizableColumns?: boolean;
     columnResizeMode?: string;
     indentation?: number;
+    showGridlines?: boolean;
 }
 
 declare class TreeTable {

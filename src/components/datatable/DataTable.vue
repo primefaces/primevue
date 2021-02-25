@@ -301,6 +301,14 @@ export default {
         breakpoint: {
             type: String,
             default: '960px'
+        },
+        showGridlines: {
+            type: Boolean,
+            default: false
+        },
+        stripedRows: {
+            type: Boolean,
+            default: false
         }
     },
     data() {
@@ -1627,7 +1635,9 @@ export default {
                     'p-datatable-scrollable-both': this.scrollable && this.scrollDirection === 'both',
                     'p-datatable-flex-scrollable': (this.scrollable && this.scrollHeight === 'flex'),
                     'p-datatable-responsive-stack': this.responsiveLayout === 'stack',
-                    'p-datatable-responsive-scroll': this.responsiveLayout === 'scroll'
+                    'p-datatable-responsive-scroll': this.responsiveLayout === 'scroll',
+                    'p-datatable-striped': this.stripedRows,
+                    'p-datatable-gridlines': this.showGridlines
                 }
             ];
         },

@@ -3,13 +3,13 @@
 		<div class="content-section introduction">
 			<div class="feature-intro">
 				<h1>DataTable <span>Striped Rows</span></h1>
-				<p>Adding <i>p-datatable-striped</i> displays striped rows.</p>
+				<p>Adding <i>stripedRows</i> displays rows with alternating colors.</p>
 			</div>
 		</div>
 
 		<div class="content-section implementation">
             <div class="card">
-                <DataTable :value="products" class="p-datatable-striped">
+                <DataTable :value="products" stripedRows>
                     <Column field="code" header="Code"></Column>
                     <Column field="name" header="Name"></Column>
                     <Column field="category" header="Category"></Column>
@@ -25,7 +25,7 @@
                         <LiveEditor name="DataTableDemo" :sources="sources" service="ProductService" data="products-small" :components="['Column']" />
                     </div>
 <pre v-code><code><template v-pre>
-&lt;DataTable :value="products" class="p-datatable-striped"&gt;
+&lt;DataTable :value="products" stripedRows&gt;
     &lt;Column field="code" header="Code"&gt;&lt;/Column&gt;
     &lt;Column field="name" header="Name"&gt;&lt;/Column&gt;
     &lt;Column field="category" header="Category"&gt;&lt;/Column&gt;
@@ -73,7 +73,7 @@ export default {
     <div class="layout-content">
         <div class="content-section implementation">
             <div class="card">
-                <DataTable :value="products" class="p-datatable-striped">
+                <DataTable :value="products" stripedRows>
                     <Column field="code" header="Code"></Column>
                     <Column field="name" header="Name"></Column>
                     <Column field="category" header="Category"></Column>

@@ -11,7 +11,7 @@
         <div class="content-section implementation">
             <div class="card">
                 <h5>Fit Mode</h5>
-                <TreeTable :value="nodes" :resizableColumns="true" columnResizeMode="fit" class="p-treetable-gridlines">
+                <TreeTable :value="nodes" :resizableColumns="true" columnResizeMode="fit" showGridlines>
                     <Column field="name" header="Name" :expander="true"></Column>
                     <Column field="size" header="Size"></Column>
                     <Column field="type" header="Type"></Column>
@@ -20,7 +20,7 @@
 
             <div class="card">
                 <h5>Expand Mode</h5>
-                <TreeTable :value="nodes" :resizableColumns="true" columnResizeMode="expand" class="p-treetable-gridlines">
+                <TreeTable :value="nodes" :resizableColumns="true" columnResizeMode="expand" showGridlines>
                     <Column field="name" header="Name" :expander="true"></Column>
                     <Column field="size" header="Size"></Column>
                     <Column field="type" header="Type"></Column>
@@ -36,14 +36,14 @@
                     </div>
 <pre v-code><code><template v-pre>
 &lt;h3&gt;Fit Mode&lt;/h3&gt;
-&lt;TreeTable :value="nodes" :resizableColumns="true" columnResizeMode="fit" class="p-treetable-gridlines"&gt;
+&lt;TreeTable :value="nodes" :resizableColumns="true" columnResizeMode="fit" showGridlines&gt;
     &lt;Column field="name" header="Name" :expander="true"&gt;&lt;/Column&gt;
     &lt;Column field="size" header="Size"&gt;&lt;/Column&gt;
     &lt;Column field="type" header="Type"&gt;&lt;/Column&gt;
 &lt;/TreeTable&gt;
 
 &lt;h3&gt;Expand Mode&lt;/h3&gt;
-&lt;TreeTable :value="nodes" :resizableColumns="true" columnResizeMode="expand" class="p-treetable-gridlines"&gt;
+&lt;TreeTable :value="nodes" :resizableColumns="true" columnResizeMode="expand" showGridlines&gt;
     &lt;Column field="name" header="Name" :expander="true"&gt;&lt;/Column&gt;
     &lt;Column field="size" header="Size"&gt;&lt;/Column&gt;
     &lt;Column field="type" header="Type"&gt;&lt;/Column&gt;
@@ -92,7 +92,7 @@ export default {
         <div class="content-section implementation">
             <div class="card">
                 <h5>Fit Mode</h5>
-                <TreeTable :value="nodes" :resizableColumns="true" columnResizeMode="fit" class="p-treetable-gridlines">
+                <TreeTable :value="nodes" :resizableColumns="true" columnResizeMode="fit" showGridlines>
                     <Column field="name" header="Name" :expander="true"></Column>
                     <Column field="size" header="Size"></Column>
                     <Column field="type" header="Type"></Column>
@@ -101,7 +101,7 @@ export default {
 
             <div class="card">
                 <h5>Expand Mode</h5>
-                <TreeTable :value="nodes" :resizableColumns="true" columnResizeMode="expand" class="p-treetable-gridlines">
+                <TreeTable :value="nodes" :resizableColumns="true" columnResizeMode="expand" showGridlines>
                     <Column field="name" header="Name" :expander="true"></Column>
                     <Column field="size" header="Size"></Column>
                     <Column field="type" header="Type"></Column>
