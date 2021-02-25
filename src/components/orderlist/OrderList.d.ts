@@ -6,6 +6,8 @@ interface OrderListProps {
     selection?: any[];
     metaKeySelection?: boolean;
     listStyle?: any;
+    responsive?: boolean;
+    breakpoint?: string;
 }
 
 declare class OrderList {

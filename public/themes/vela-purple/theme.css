@@ -12,16 +12,18 @@
   --primary-color-text:#ffffff;
   --font-family:-apple-system, BlinkMacSystemFont, Segoe UI, Roboto, Helvetica, Arial, sans-serif, Apple Color Emoji, Segoe UI Emoji, Segoe UI Symbol;
   --surface-0: #000000;
-  --surface-50: #030406;
-  --surface-100: #06090d;
-  --surface-200: #0c121a;
-  --surface-300: #131b26;
-  --surface-400: #192433;
-  --surface-500: #1f2d40;
-  --surface-600: #4c5766;
-  --surface-700: #79818c;
-  --surface-800: #a5abb3;
-  --surface-900: #d2d5d9;
+  --surface-50: #0c121a;
+  --surface-100: #111923;
+  --surface-200: #161f2d;
+  --surface-300: #1a2636;
+  --surface-400: #1f2d40;
+  --surface-500: #1a2636;
+  --surface-600: #414d5d;
+  --surface-700: #626c79;
+  --surface-800: #848c96;
+  --surface-900: #a5abb3;
+  --content-padding:1rem;
+  --inline-spacing:0.5rem;
 }
 
 * {
@@ -2543,22 +2545,6 @@
   background: rgba(186, 104, 200, 0.16);
 }
 
-@media screen and (max-width: 960px) {
-  .p-orderlist {
-    flex-direction: column;
-  }
-  .p-orderlist .p-orderlist-controls {
-    padding: 1rem;
-    flex-direction: row;
-  }
-  .p-orderlist .p-orderlist-controls .p-button {
-    margin-right: 0.5rem;
-    margin-bottom: 0;
-  }
-  .p-orderlist .p-orderlist-controls .p-button:last-child {
-    margin-right: 0;
-  }
-}
 .p-organizationchart .p-organizationchart-node-content.p-organizationchart-selectable-node:not(.p-highlight):hover {
   background: rgba(255, 255, 255, 0.03);
   color: rgba(255, 255, 255, 0.87);
@@ -2718,34 +2704,6 @@
   background: rgba(186, 104, 200, 0.16);
 }
 
-@media screen and (max-width: 960px) {
-  .p-picklist {
-    flex-direction: column;
-  }
-  .p-picklist .p-picklist-buttons {
-    padding: 1rem;
-    flex-direction: row;
-  }
-  .p-picklist .p-picklist-buttons .p-button {
-    margin-right: 0.5rem;
-    margin-bottom: 0;
-  }
-  .p-picklist .p-picklist-buttons .p-button:last-child {
-    margin-right: 0;
-  }
-  .p-picklist .p-picklist-transfer-buttons .pi-angle-right:before {
-    content: "";
-  }
-  .p-picklist .p-picklist-transfer-buttons .pi-angle-double-right:before {
-    content: "";
-  }
-  .p-picklist .p-picklist-transfer-buttons .pi-angle-left:before {
-    content: "";
-  }
-  .p-picklist .p-picklist-transfer-buttons .pi-angle-double-left:before {
-    content: "";
-  }
-}
 .p-timeline .p-timeline-event-marker {
   border: 2px solid #BA68C8;
   border-radius: 50%;

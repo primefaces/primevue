@@ -25,8 +25,7 @@
 
 <script>
 import Button from 'primevue/button';
-import {ObjectUtils} from 'primevue/utils';
-import {DomHandler} from 'primevue/utils';
+import {ObjectUtils,UniqueComponentId,DomHandler} from 'primevue/utils';
 import Ripple from 'primevue/ripple';
 
 export default {
@@ -51,19 +50,36 @@ export default {
         metaKeySelection: {
             type: Boolean,
             default: true
+        },
+        responsive: {
+            type: Boolean,
+            default: true
+        },
+        breakpoint: {
+            type: String,
+            default: '960px'
         }
     },
     itemTouched: false,
     reorderDirection: null,
+    styleElement: null,
     data() {
         return {
             d_selection: this.selection
         }
     },
+    beforeUnmount() {
+        this.destroyStyle();
+    },
     updated() {
         if (this.reorderDirection) {
             this.updateListScroll();
             this.reorderDirection = null;
+        }
+    },
+    mounted() {
+        if (this.responsive) {
+            this.createStyle();
         }
     },
     methods: {
@@ -292,6 +308,49 @@ export default {
                     break;
                 }
             }
+        },
+        createStyle() {
+			if (!this.styleElement) {
+                this.$el.setAttribute(this.attributeSelector, '');
+				this.styleElement = document.createElement('style');
+				this.styleElement.type = 'text/css';
+				document.head.appendChild(this.styleElement);
+
+                let innerHTML = `
+@media screen and (max-width: ${this.breakpoint}) {
+    .p-orderlist[${this.attributeSelector}] {
+        flex-direction: column;
+    }
+
+    .p-orderlist[${this.attributeSelector}] .p-orderlist-controls {
+        padding: var(--content-padding);
+        flex-direction: row;
+    }
+
+    .p-orderlist[${this.attributeSelector}] .p-orderlist-controls .p-button {
+        margin-right: var(--inline-spacing);
+        margin-bottom: 0;
+    }
+
+    .p-orderlist[${this.attributeSelector}] .p-orderlist-controls .p-button:last-child {
+        margin-right: 0;
+    }
+}
+`;
+                
+                this.styleElement.innerHTML = innerHTML;
+			}
+		},
+        destroyStyle() {
+            if (this.styleElement) {
+                document.head.removeChild(this.styleElement);
+                this.styleElement = null;
+            }
+        }
+    },
+    computed: {
+        attributeSelector() {
+            return UniqueComponentId();
         }
     },
     components: {

@@ -22,6 +22,8 @@
   --surface-700: #324249;
   --surface-800: #222c31;
   --surface-900: #111618;
+  --content-padding:0.571rem 1rem;
+  --inline-spacing:0.5rem;
 }
 
 * {
@@ -2555,22 +2557,6 @@
   background: #41b883;
 }
 
-@media screen and (max-width: 960px) {
-  .p-orderlist {
-    flex-direction: column;
-  }
-  .p-orderlist .p-orderlist-controls {
-    padding: 0.571rem 1rem;
-    flex-direction: row;
-  }
-  .p-orderlist .p-orderlist-controls .p-button {
-    margin-right: 0.5rem;
-    margin-bottom: 0;
-  }
-  .p-orderlist .p-orderlist-controls .p-button:last-child {
-    margin-right: 0;
-  }
-}
 .p-organizationchart .p-organizationchart-node-content.p-organizationchart-selectable-node:not(.p-highlight):hover {
   background: #eaeaea;
   color: #333333;
@@ -2730,34 +2716,6 @@
   background: #41b883;
 }
 
-@media screen and (max-width: 960px) {
-  .p-picklist {
-    flex-direction: column;
-  }
-  .p-picklist .p-picklist-buttons {
-    padding: 0.571rem 1rem;
-    flex-direction: row;
-  }
-  .p-picklist .p-picklist-buttons .p-button {
-    margin-right: 0.5rem;
-    margin-bottom: 0;
-  }
-  .p-picklist .p-picklist-buttons .p-button:last-child {
-    margin-right: 0;
-  }
-  .p-picklist .p-picklist-transfer-buttons .pi-angle-right:before {
-    content: "";
-  }
-  .p-picklist .p-picklist-transfer-buttons .pi-angle-double-right:before {
-    content: "";
-  }
-  .p-picklist .p-picklist-transfer-buttons .pi-angle-left:before {
-    content: "";
-  }
-  .p-picklist .p-picklist-transfer-buttons .pi-angle-double-left:before {
-    content: "";
-  }
-}
 .p-timeline .p-timeline-event-marker {
   border: 0 none;
   border-radius: 50%;

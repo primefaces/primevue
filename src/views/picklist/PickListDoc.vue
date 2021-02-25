@@ -118,6 +118,18 @@ import PickList from 'primevue/picklist';
                                 <td>null</td>
                                 <td>Inline style of the the list element.</td>
                             </tr>
+                            <tr>
+                                <td>responsive</td>
+                                <td>boolean</td>
+                                <td>true</td>
+                                <td>Whether the list optimizes layout based on screen size.</td>
+                            </tr>
+                            <tr>
+                                <td>breakpoint</td>
+                                <td>string</td>
+                                <td>960px</td>
+                                <td>The breakpoint to define the maximum width boundary when responsiveness is enabled.</td>
+                            </tr>
 						</tbody>
 					</table>
 				</div>

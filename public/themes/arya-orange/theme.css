@@ -12,16 +12,18 @@
   --primary-color-text:#212529;
   --font-family:-apple-system, BlinkMacSystemFont, Segoe UI, Roboto, Helvetica, Arial, sans-serif, Apple Color Emoji, Segoe UI Emoji, Segoe UI Symbol;
   --surface-0: #000000;
-  --surface-50: #030303;
-  --surface-100: #060606;
-  --surface-200: #0c0c0c;
-  --surface-300: #121212;
-  --surface-400: #181818;
-  --surface-500: #1e1e1e;
-  --surface-600: #4b4b4b;
-  --surface-700: #787878;
-  --surface-800: #a5a5a5;
-  --surface-900: #d2d2d2;
+  --surface-50: #080808;
+  --surface-100: #0c0c0c;
+  --surface-200: #111;
+  --surface-300: #1a1a1a;
+  --surface-400: #1e1e1e;
+  --surface-500: #151515;
+  --surface-600: #404040;
+  --surface-700: #626262;
+  --surface-800: #838383;
+  --surface-900: #a5a5a5;
+  --content-padding:1rem;
+  --inline-spacing:0.5rem;
 }
 
 * {
@@ -2543,22 +2545,6 @@
   background: rgba(255, 213, 79, 0.16);
 }
 
-@media screen and (max-width: 960px) {
-  .p-orderlist {
-    flex-direction: column;
-  }
-  .p-orderlist .p-orderlist-controls {
-    padding: 1rem;
-    flex-direction: row;
-  }
-  .p-orderlist .p-orderlist-controls .p-button {
-    margin-right: 0.5rem;
-    margin-bottom: 0;
-  }
-  .p-orderlist .p-orderlist-controls .p-button:last-child {
-    margin-right: 0;
-  }
-}
 .p-organizationchart .p-organizationchart-node-content.p-organizationchart-selectable-node:not(.p-highlight):hover {
   background: rgba(255, 255, 255, 0.03);
   color: rgba(255, 255, 255, 0.87);
@@ -2718,34 +2704,6 @@
   background: rgba(255, 213, 79, 0.16);
 }
 
-@media screen and (max-width: 960px) {
-  .p-picklist {
-    flex-direction: column;
-  }
-  .p-picklist .p-picklist-buttons {
-    padding: 1rem;
-    flex-direction: row;
-  }
-  .p-picklist .p-picklist-buttons .p-button {
-    margin-right: 0.5rem;
-    margin-bottom: 0;
-  }
-  .p-picklist .p-picklist-buttons .p-button:last-child {
-    margin-right: 0;
-  }
-  .p-picklist .p-picklist-transfer-buttons .pi-angle-right:before {
-    content: "";
-  }
-  .p-picklist .p-picklist-transfer-buttons .pi-angle-double-right:before {
-    content: "";
-  }
-  .p-picklist .p-picklist-transfer-buttons .pi-angle-left:before {
-    content: "";
-  }
-  .p-picklist .p-picklist-transfer-buttons .pi-angle-double-left:before {
-    content: "";
-  }
-}
 .p-timeline .p-timeline-event-marker {
   border: 2px solid #FFD54F;
   border-radius: 50%;

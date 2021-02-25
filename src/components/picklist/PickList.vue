@@ -49,8 +49,7 @@
 
 <script>
 import Button from 'primevue/button';
-import {ObjectUtils} from 'primevue/utils';
-import {DomHandler} from 'primevue/utils';
+import {ObjectUtils,UniqueComponentId,DomHandler} from 'primevue/utils';
 import Ripple from 'primevue/ripple';
 
 export default {
@@ -75,10 +74,19 @@ export default {
         metaKeySelection: {
             type: Boolean,
             default: true
+        },
+        responsive: {
+            type: Boolean,
+            default: true
+        },
+        breakpoint: {
+            type: String,
+            default: '960px'
         }
     },
     itemTouched: false,
     reorderDirection: null,
+    styleElement: null,
     data() {
         return {
             d_selection: this.selection
@@ -89,6 +97,14 @@ export default {
             this.updateListScroll(this.$refs.sourceList.$el);
             this.updateListScroll(this.$refs.targetList.$el);
             this.reorderDirection = null;
+        }
+    },
+    beforeUnmount() {
+        this.destroyStyle();
+    },
+    mounted() {
+        if (this.responsive) {
+            this.createStyle();
         }
     },
     watch: {
@@ -461,6 +477,60 @@ export default {
                     break;
                 }
             }
+        },
+        createStyle() {
+			if (!this.styleElement) {
+                this.$el.setAttribute(this.attributeSelector, '');
+				this.styleElement = document.createElement('style');
+				this.styleElement.type = 'text/css';
+				document.head.appendChild(this.styleElement);
+
+                let innerHTML = `
+@media screen and (max-width: ${this.breakpoint}) {
+    .p-picklist[${this.attributeSelector}] {
+        flex-direction: column;
+    }
+
+    .p-picklist[${this.attributeSelector}] .p-picklist-buttons {
+        padding: var(--content-padding);
+        flex-direction: row;
+    }
+
+    .p-picklist[${this.attributeSelector}] .p-picklist-buttons .p-button {
+        margin-right: var(--inline-spacing);
+        margin-bottom: 0;
+    }
+
+    .p-picklist[${this.attributeSelector}] .p-picklist-buttons .p-button:last-child {
+        margin-right: 0;
+    }
+
+    .p-picklist[${this.attributeSelector}] .pi-angle-right:before {
+        content: "e930"
+    }
+
+    .p-picklist[${this.attributeSelector}] .pi-angle-double-right:before {
+        content: "e92c"
+    }
+
+    .p-picklist[${this.attributeSelector}] .pi-angle-left:before {
+        content: "e933"
+    }
+
+    .p-picklist[${this.attributeSelector}] .pi-angle-double-left:before {
+        content: "e92f"
+    }
+}
+`;
+                
+                this.styleElement.innerHTML = innerHTML;
+			}
+		},
+        destroyStyle() {
+            if (this.styleElement) {
+                document.head.removeChild(this.styleElement);
+                this.styleElement = null;
+            }
         }
     },
     computed: {
@@ -469,6 +539,9 @@ export default {
         },
         targetList() {
             return this.modelValue && this.modelValue[1] ? this.modelValue[1] : null;
+        },
+        attributeSelector() {
+            return UniqueComponentId();
         }
     },
     components: {

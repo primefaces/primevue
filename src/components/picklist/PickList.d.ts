@@ -6,6 +6,8 @@ interface PickListProps {
     dataKey?: string;
     metaKeySelection?: boolean;
     listStyle?: any;
+    responsive?: boolean;
+    breakpoint?: string;
 }
 
 declare class PickList {

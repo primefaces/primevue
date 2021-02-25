@@ -12,16 +12,18 @@
   --primary-color-text:#121212;
   --font-family:Roboto, Helvetica Neue Light, Helvetica Neue, Helvetica, Arial, Lucida Grande, sans-serif;
   --surface-0: #000000;
-  --surface-50: #212121;
-  --surface-100: #424242;
-  --surface-200: #616161;
-  --surface-300: #757575;
-  --surface-400: #9E9E9E;
-  --surface-500: #BDBDBD;
-  --surface-600: #E0E0E0;
-  --surface-700: #EEEEEE;
-  --surface-800: #F5F5F5;
-  --surface-900: #FAFAFA;
+  --surface-50: #0c0c0c;
+  --surface-100: #111;
+  --surface-200: #151515;
+  --surface-300: #1a1a1a;
+  --surface-400: #1E1E1E;
+  --surface-500: #404040;
+  --surface-600: #626262;
+  --surface-700: #838383;
+  --surface-800: #a5a5a5;
+  --surface-900: #c7c7c7;
+  --content-padding:1rem;
+  --inline-spacing:0.5rem;
 }
 
 /* roboto-regular - latin-ext_latin */
@@ -2567,22 +2569,6 @@
   background: rgba(206, 147, 216, 0.16);
 }
 
-@media screen and (max-width: 769px) {
-  .p-orderlist {
-    flex-direction: column;
-  }
-  .p-orderlist .p-orderlist-controls {
-    padding: 1rem;
-    flex-direction: row;
-  }
-  .p-orderlist .p-orderlist-controls .p-button {
-    margin-right: 0.5rem;
-    margin-bottom: 0;
-  }
-  .p-orderlist .p-orderlist-controls .p-button:last-child {
-    margin-right: 0;
-  }
-}
 .p-organizationchart .p-organizationchart-node-content.p-organizationchart-selectable-node:not(.p-highlight):hover {
   background: rgba(255, 255, 255, 0.04);
   color: rgba(255, 255, 255, 0.87);
@@ -2742,34 +2728,6 @@
   background: rgba(206, 147, 216, 0.16);
 }
 
-@media screen and (max-width: 769px) {
-  .p-picklist {
-    flex-direction: column;
-  }
-  .p-picklist .p-picklist-buttons {
-    padding: 1rem;
-    flex-direction: row;
-  }
-  .p-picklist .p-picklist-buttons .p-button {
-    margin-right: 0.5rem;
-    margin-bottom: 0;
-  }
-  .p-picklist .p-picklist-buttons .p-button:last-child {
-    margin-right: 0;
-  }
-  .p-picklist .p-picklist-transfer-buttons .pi-angle-right:before {
-    content: "";
-  }
-  .p-picklist .p-picklist-transfer-buttons .pi-angle-double-right:before {
-    content: "";
-  }
-  .p-picklist .p-picklist-transfer-buttons .pi-angle-left:before {
-    content: "";
-  }
-  .p-picklist .p-picklist-transfer-buttons .pi-angle-double-left:before {
-    content: "";
-  }
-}
 .p-timeline .p-timeline-event-marker {
   border: 0 none;
   border-radius: 50%;
