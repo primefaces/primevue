@@ -223,7 +223,7 @@ export default {
 			if (!this.styleElement) {
 				this.styleElement = document.createElement('style');
 				this.styleElement.type = 'text/css';
-				document.body.appendChild(this.styleElement);
+				document.head.appendChild(this.styleElement);
 
                 let innerHTML = '';
                 for (let breakpoint in this.breakpoints) {
@@ -241,7 +241,7 @@ export default {
 		},
         destroyStyle() {
             if (this.styleElement) {
-                document.body.removeChild(this.styleElement);
+                document.head.removeChild(this.styleElement);
                 this.styleElement = null;
             }
         }
