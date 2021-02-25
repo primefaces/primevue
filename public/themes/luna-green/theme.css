@@ -2139,6 +2139,9 @@
 .p-datatable .p-datatable-tbody > tr > td .p-row-editor-save {
   margin-right: 0.5rem;
 }
+.p-datatable .p-datatable-tbody > tr > td > .p-column-title {
+  font-weight: 700;
+}
 .p-datatable .p-datatable-tbody > tr.p-highlight {
   background: #C5E1A5;
   color: #212529;

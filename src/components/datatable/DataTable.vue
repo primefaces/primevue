@@ -1580,8 +1580,12 @@ export default {
         display: none !important;
     }
 
-    .p-datatable[${this.attributeSelector}] .p-datatable-tbody > tr {
-        border-bottom: 1px solid var(--surface-d);
+    .p-datatable[${this.attributeSelector}] .p-datatable-tbody > tr > td {
+        display: flex;
+        width: 100%;
+        align-items: center;
+        justify-content: space-between;
+        border-width: 0 none;
     }
 
     .p-datatable[${this.attributeSelector}] .p-datatable-tbody > tr > td {
@@ -1589,6 +1593,9 @@ export default {
         width: 100%;
         align-items: center;
         justify-content: space-between;
+    }
+
+    .p-datatable[${this.attributeSelector}] .p-datatable-tbody > tr > td:not(:last-child) {
         border: 0 none;
     }
 
