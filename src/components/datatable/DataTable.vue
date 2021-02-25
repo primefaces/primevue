@@ -1585,14 +1585,6 @@ export default {
         width: 100%;
         align-items: center;
         justify-content: space-between;
-        border-width: 0 none;
-    }
-
-    .p-datatable[${this.attributeSelector}] .p-datatable-tbody > tr > td {
-        display: flex;
-        width: 100%;
-        align-items: center;
-        justify-content: space-between;
     }
 
     .p-datatable[${this.attributeSelector}] .p-datatable-tbody > tr > td:not(:last-child) {
