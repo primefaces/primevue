@@ -462,8 +462,8 @@ export default {
             }];
         },
         inputValue() {
-            if (this.value && typeof this.value === 'object') {
-                if (this.field) {
+            if (this.value) {
+                if (this.field && typeof this.value === 'object') {
                     const resolvedFieldData = ObjectUtils.resolveFieldData(this.value, this.field);
                     return resolvedFieldData != null ? resolvedFieldData : this.value;
                 }
