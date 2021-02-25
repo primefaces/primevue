@@ -1408,7 +1408,7 @@ export default {
             const storage = this.getStorage();
             const stateString = storage.getItem(this.stateKey);
 
-            const iso8601 = /(-?(?:[1-9][0-9]*)?[0-9]{4})-(1[0-2]|0[1-9])-(3[01]|0[1-9]|[12][0-9])T(2[0-3]|[01][0-9]):([0-5][0-9]):([0-5][0-9])(.[0-9]+)?(Z)?/;
+            const iso8601 = /^([-+]?(?:[0-9]{2})?[0-9]{4})-(0[1-9]|1[0-2])-(0[1-9]|[12][0-9]|3[01])T([01][0-9]|2[0-3]):([0-5][0-9]):([0-5][0-9])(.[0-9]+)?(Z)?$/;
             const dateParser = (key, value) => iso8601.test(value) ? new Date(value) : value;
 
             if (stateString) {
