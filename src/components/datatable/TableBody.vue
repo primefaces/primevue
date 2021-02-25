@@ -18,7 +18,7 @@
                         <DTBodyCell v-if="shouldRenderBodyCell(value, col, index)"  :rowData="rowData" :column="col" :index="index" :selected="isSelected(rowData)"
                             :rowTogglerIcon="columnProp(col,'expander') ? rowTogglerIcon(rowData): null" :frozenRow="frozenRow"
                             :rowspan="rowGroupMode === 'rowspan' ? calculateRowGroupSize(value, col, index) : null"
-                            :editMode="editMode" :editing="editMode === 'row' && isRowEditing(rowData)"
+                            :editMode="editMode" :editing="editMode === 'row' && isRowEditing(rowData)" :responsiveLayout="responsiveLayout"
                             @radio-change="onRadioChange($event)" @checkbox-change="onCheckboxChange($event)" @row-toggle="onRowToggle($event)"
                             @cell-edit-init="onCellEditInit($event)" @cell-edit-complete="onCellEditComplete($event)" @cell-edit-cancel="onCellEditCancel($event)"
                             @row-edit-init="onRowEditInit($event)" @row-edit-save="onRowEditSave($event)" @row-edit-cancel="onRowEditCancel($event)"/>
@@ -156,6 +156,10 @@ export default {
         scrollable: {
             type: Boolean,
             default: false
+        },
+        responsiveLayout: {
+            type: String,
+            default: 'stack'
         }
     },
     mounted() {

@@ -206,7 +206,7 @@ FilterService.filters['isPrimeNumber'](568985673);              //false
 					</a>
 				</div>
 <pre v-code><code><template v-pre>
-&lt;DataTable :value="customers" :paginator="true" class="p-datatable-customers" :rows="10"
+&lt;DataTable :value="customers" :paginator="true" :rows="10"
 	dataKey="id" v-model:filters="filters" filterDisplay="row" :loading="loading"&gt;
 	&lt;template #empty&gt;
 		No customers found.

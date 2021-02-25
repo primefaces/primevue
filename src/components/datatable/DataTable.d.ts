@@ -54,7 +54,8 @@ interface DataTableProps {
     scrollable?: boolean;
     scrollHeight?: string;
     frozenValue?: any[];
-    frozenWidth?: string;
+    responsiveLayout?: string;
+    breakpoing?: string;
 }
 
 declare class DataTable {

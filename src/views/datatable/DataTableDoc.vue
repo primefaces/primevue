@@ -1779,95 +1779,29 @@ export default {
 
 </code></pre>
 
-                <h5>Responsive</h5>
-                <p>DataTable display can be optimized according to screen sizes, this example demonstrates a sample demo where columns are stacked on small screens.</p>
+               <h5>Responsive</h5>
+               <p>DataTable responsive layout can be achieved in two ways; first approach is displaying a horizontal scrollbar for smaller screens 
+                    and second one is defining a breakpoint to display the cells of a row as stacked.</p>
+
+               <h6>Scroll Layout</h6>
+               <p>Set <i>responsiveLayout</i> to scroll to enabled this layout. Note that, when scroll mode is enabled table-layout automatically switches to auto from fixed
+               as a result table widths are likely to differ and resizable columns are not supported. Read more about <a href="https://www.w3schools.com/cssref/pr_tab_table-layout.asp">table-layout</a> for more details.</p> 
+
 <pre v-code><code><template v-pre>
-&lt;DataTable :value="cars" class="p-datatable-responsive-demo"&gt;
-    &lt;template #header&gt;
-        Responsive
-    &lt;/template&gt;
-    &lt;Column field="vin" header="Vin"&gt;
-        &lt;template #body="slotProps"&gt;
-            &lt;span class="p-column-title"&gt;Vin&lt;/span&gt;
-            &#123;&#123;slotProps.data.vin&#125;&#125;
-        &lt;/template&gt;
-    &lt;/Column&gt;
-    &lt;Column field="year" header="Year"&gt;
-        &lt;template #body="slotProps"&gt;
-            &lt;span class="p-column-title"&gt;Year&lt;/span&gt;
-            &#123;&#123;slotProps.data.year&#125;&#125;
-        &lt;/template&gt;
-    &lt;/Column&gt;
-    &lt;Column field="brand" header="Brand"&gt;
-        &lt;template #body="slotProps"&gt;
-            &lt;span class="p-column-title"&gt;Brand&lt;/span&gt;
-            &#123;&#123;slotProps.data.brand&#125;&#125;
-        &lt;/template&gt;
-    &lt;/Column&gt;
-    &lt;Column field="color" header="Color"&gt;
-        &lt;template #body="slotProps"&gt;
-            &lt;span class="p-column-title"&gt;Color&lt;/span&gt;
-            &#123;&#123;slotProps.data.color&#125;&#125;
-        &lt;/template&gt;
-    &lt;/Column&gt;
+&lt;DataTable :value="products" responsiveLayout="scroll"&gt;
+    
 &lt;/DataTable&gt;
 </template>
 </code></pre>
 
-<pre v-code.script><code>
-import CarService from '../../service/CarService';
-
-export default {
-    data() {
-        return {
-            cars: null
-        }
-    },
-    carService: null,
-    created() {
-        this.carService = new CarService();
-    },
-    mounted() {
-        this.carService.getCarsSmall().then(data => this.cars = data);
-    }
-}
-
-</code></pre>
-
-<pre v-code.css><code>
-.p-datatable-responsive-demo .p-datatable-tbody > tr > td .p-column-title {
-    display: none;
-}
-
-@media screen and (max-width: 40rem) {
-    ::v-deep(.p-datatable) {
-        &.p-datatable-responsive-demo {
-            .p-datatable-thead > tr > th,
-            .p-datatable-tfoot > tr > td {
-                display: none !important;
-            }
-
-            .p-datatable-tbody > tr > td {
-                text-align: left;
-                display: block;
-                border: 0 none !important;
-                width: 100% !important;
-                float: left;
-                clear: left;
-
-                .p-column-title {
-                    padding: .4rem;
-                    min-width: 30%;
-                    display: inline-block;
-                    margin: -.4em 1em -.4em -.4rem;
-                    font-weight: bold;
-                }
-            }
-        }
-    }
-}
-
-</code></pre>
+                <h6>Stack Layout</h6>
+                <p>In stack layout, columns are displayed as stacked after a certain breakpoint. Default is '960px'.</p>
+<pre v-code><code><template v-pre>
+&lt;DataTable :value="products" responsiveLayout="stack" breakpoint="640px"&gt;
+    
+&lt;/DataTable&gt;
+</template>
+</code></pre>         
 
                 <h5>Row and Cell Styling</h5>
                 <p>Certain rows or cells can easily be styled based on conditions. Cell styling is implemented with templating whereas row styling utilizes the <i>rowClass</i> property which takes the
@@ -2264,6 +2198,18 @@ export default {
                                 <td>array</td>
                                 <td>null</td>
                                 <td>Items of the frozen part in scrollable DataTable.</td>
+                            </tr>
+                            <tr>
+                                <td>responsiveLayout</td>
+                                <td>string</td>
+                                <td>stack</td>
+                                <td>Defines the responsive mode, valid options are "stack" and "scroll".</td>
+                            </tr>
+                            <tr>
+                                <td>breakpoint</td>
+                                <td>string</td>
+                                <td>960px</td>
+                                <td>The breakpoint to define the maximum width boundary when using stack responsive layout.</td>
                             </tr>
                         </tbody>
                     </table>
@@ -2684,7 +2630,6 @@ export default {
     &lt;Column selectionMode="multiple" headerStyle="width: 3rem"&gt;&lt;/Column&gt;
     &lt;Column field="name" header="Name" sortable&gt;
         &lt;template #body="{data}"&gt;
-            &lt;span class="p-column-title"&gt;Name&lt;/span&gt;
             {{data.name}}
         &lt;/template&gt;
         &lt;template #filter="{filterModel}"&gt;
@@ -2693,7 +2638,6 @@ export default {
     &lt;/Column&gt;
     &lt;Column field="country.name" header="Country" sortable filterMatchMode="contains"&gt;
         &lt;template #body="{data}"&gt;
-            &lt;span class="p-column-title"&gt;Country&lt;/span&gt;
             &lt;img src="../../assets/images/flag_placeholder.png" :class="'flag flag-' + data.country.code" width="30" /&gt;
             &lt;span class="image-text"&gt;{{data.country.name}}&lt;/span&gt;
         &lt;/template&gt;
@@ -2703,7 +2647,6 @@ export default {
     &lt;/Column&gt;
     &lt;Column header="Agent" sortable sortField="representative.name" :showFilterMatchModes="false" :filterMenuStyle="{'width':'14rem'}"&gt;
             &lt;template #body="{data}"&gt;
-            &lt;span class="p-column-title"&gt;Agent&lt;/span&gt;
             &lt;img :alt="data.representative.name" :src="'demo/images/avatar/' + data.representative.image" width="32" style="vertical-align: middle" /&gt;
             &lt;span class="image-text"&gt;{{data.representative.name}}&lt;/span&gt;
         &lt;/template&gt;
@@ -2721,7 +2664,6 @@ export default {
     &lt;/Column&gt;
     &lt;Column field="date" header="Date" sortable dataType="date"&gt;
         &lt;template #body="{data}"&gt;
-            &lt;span class="p-column-title"&gt;Date&lt;/span&gt;
             {{formatDate(data.date)}}
         &lt;/template&gt;
         &lt;template #filter="{filterModel}"&gt;
@@ -2730,7 +2672,6 @@ export default {
     &lt;/Column&gt;
     &lt;Column field="balance" header="Balance" sortable dataType="numeric"&gt;
         &lt;template #body="{data}"&gt;
-            &lt;span class="p-column-title"&gt;Balance&lt;/span&gt;
             {{formatCurrency(data.balance)}}
         &lt;/template&gt;
         &lt;template #filter="{filterModel}"&gt;
@@ -2739,7 +2680,6 @@ export default {
     &lt;/Column&gt;
     &lt;Column field="status" header="Status" sortable :filterMenuStyle="{'width':'14rem'}"&gt;
         &lt;template #body="{data}"&gt;
-            &lt;span class="p-column-title"&gt;Status&lt;/span&gt;
             &lt;span :class="'customer-badge status-' + data.status"&gt;{{data.status}}&lt;/span&gt;
         &lt;/template&gt;
         &lt;template #filter="{filterModel}"&gt;
@@ -2755,7 +2695,6 @@ export default {
     &lt;/Column&gt;
     &lt;Column field="activity" header="Activity" sortable :showFilterMatchModes="false"&gt;
         &lt;template #body="{data}"&gt;
-            &lt;span class="p-column-title"&gt;Activity&lt;/span&gt;
             &lt;ProgressBar :value="data.activity" :showValue="false" /&gt;
         &lt;/template&gt;
         &lt;template #filter="{filterModel}"&gt;
@@ -2878,7 +2817,6 @@ export default {
                     <Column selectionMode="multiple" headerStyle="width: 3rem"></Column>
                     <Column field="name" header="Name" sortable>
                         <template #body="{data}">
-                            <span class="p-column-title">Name</span>
                             {{data.name}}
                         </template>
                         <template #filter="{filterModel}">
@@ -2887,7 +2825,6 @@ export default {
                     </Column>
                     <Column field="country.name" header="Country" sortable filterMatchMode="contains">
                         <template #body="{data}">
-                            <span class="p-column-title">Country</span>
                             <img src="https://www.primefaces.org/wp-content/uploads/2020/05/placeholder.png" :class="'flag flag-' + data.country.code" width="30" />
                             <span class="image-text">{{data.country.name}}</span>
                         </template>
@@ -2897,7 +2834,6 @@ export default {
                     </Column>
                     <Column header="Agent" sortable sortField="representative.name" :showFilterMatchModes="false" :filterMenuStyle="{'width':'14rem'}">
                          <template #body="{data}">
-                            <span class="p-column-title">Agent</span>
                             <img :alt="data.representative.name" :src="'demo/images/avatar/' + data.representative.image" width="32" style="vertical-align: middle" />
                             <span class="image-text">{{data.representative.name}}</span>
                         </template>
@@ -2915,7 +2851,6 @@ export default {
                     </Column>
                     <Column field="date" header="Date" sortable dataType="date">
                         <template #body="{data}">
-                            <span class="p-column-title">Date</span>
                             {{formatDate(data.date)}}
                         </template>
                         <template #filter="{filterModel}">
@@ -2924,7 +2859,6 @@ export default {
                     </Column>
                     <Column field="balance" header="Balance" sortable dataType="numeric">
                         <template #body="{data}">
-                            <span class="p-column-title">Balance</span>
                             {{formatCurrency(data.balance)}}
                         </template>
                         <template #filter="{filterModel}">
@@ -2933,7 +2867,6 @@ export default {
                     </Column>
                     <Column field="status" header="Status" sortable :filterMenuStyle="{'width':'14rem'}">
                         <template #body="{data}">
-                            <span class="p-column-title">Status</span>
                             <span :class="'customer-badge status-' + data.status">{{data.status}}</span>
                         </template>
                         <template #filter="{filterModel}">
@@ -2949,7 +2882,6 @@ export default {
                     </Column>
                     <Column field="activity" header="Activity" sortable :showFilterMatchModes="false">
                         <template #body="{data}">
-                            <span class="p-column-title">Activity</span>
                             <ProgressBar :value="data.activity" :showValue="false" />
                         </template>
                         <template #filter="{filterModel}">
@@ -3077,48 +3009,6 @@ export default {
 
     .p-dropdown-label:not(.p-placeholder) {
         text-transform: uppercase;
-    }
-}
-
-/* Responsive */
-.p-datatable-customers .p-datatable-tbody > tr > td .p-column-title {
-    display: none;
-}
-
-@media screen and (max-width: 1200px) {
-    ::v-deep(.p-datatable) {
-        &.p-datatable-customers {
-            .p-datatable-thead > tr > th,
-            .p-datatable-tfoot > tr > td {
-                display: none !important;
-            }
-
-            .p-datatable-tbody > tr {
-                border-bottom: 1px solid var(--layer-2);
-
-                > td {
-                    text-align: left;
-                    display: block;
-                    border: 0 none !important;
-                    width: 100% !important;
-                    float: left;
-                    clear: left;
-                    border: 0 none;
-
-                    .p-column-title {
-                        padding: .4rem;
-                        min-width: 30%;
-                        display: inline-block;
-                        margin: -.4rem 1rem -.4rem -.4rem;
-                        font-weight: bold;
-                    }
-
-                    .p-progressbar {
-                        margin-top: .5rem;
-                    }
-                }
-            }
-        }
     }
 }
 </style>`

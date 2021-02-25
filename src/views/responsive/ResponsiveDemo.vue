@@ -260,7 +260,7 @@
 
                 <div class="p-col-12">
                     <div class="card">
-                        <DataTable :value="customers" :paginator="true" class="p-datatable-customers" :rows="10"
+                        <DataTable :value="customers" :paginator="true" :rows="10"
                             dataKey="id" :rowHover="true" v-model:selection="selectedCustomers" :filters="filters"
                             paginatorTemplate="FirstPageLink PrevPageLink PageLinks NextPageLink LastPageLink CurrentPageReport RowsPerPageDropdown" :rowsPerPageOptions="[10,25,50]"
                             currentPageReportTemplate="Showing {first} to {last} of {totalRecords} entries">
@@ -279,39 +279,33 @@
                             <Column selectionMode="multiple" headerStyle="width: 3em"></Column>
                             <Column field="name" header="Name" :sortable="true">
                                 <template #body="slotProps">
-                                    <span class="p-column-title">Name</span>
                                     {{slotProps.data.name}}
                                 </template>
                             </Column>
                             <Column header="Country" :sortable="true" sortField="country.name" filterField="country.name" filterMatchMode="contains">
                                 <template #body="slotProps">
-                                    <span class="p-column-title">Country</span>
                                     <img src="../../assets/images/flag_placeholder.png" :class="'flag flag-' + slotProps.data.country.code" width="30" class="p-mr-2" />
                                     <span class="image-text">{{slotProps.data.country.name}}</span>
                                 </template>
                             </Column>
                             <Column header="Representative" :sortable="true" sortField="representative.name" filterField="representative.name" filterMatchMode="in">
                                 <template #body="slotProps">
-                                    <span class="p-column-title">Representative</span>
                                     <img :alt="slotProps.data.representative.name" :src="'demo/images/avatar/' + slotProps.data.representative.image" width="32" style="vertical-align: middle" />
                                     <span class="image-text p-ml-2">{{slotProps.data.representative.name}}</span>
                                 </template>
                             </Column>
                             <Column field="date" header="Date" :sortable="true" filterMatchMode="equals">
                                 <template #body="slotProps">
-                                    <span class="p-column-title">Date</span>
                                     <span>{{slotProps.data.date}}</span>
                                 </template>
                             </Column>
                             <Column field="status" header="Status" :sortable="true" filterMatchMode="equals">
                                 <template #body="slotProps">
-                                    <span class="p-column-title">Status</span>
                                     <span :class="'customer-badge status-' + slotProps.data.status">{{slotProps.data.status}}</span>
                                 </template>
                             </Column>
                             <Column field="activity" header="Activity" :sortable="true" filterMatchMode="gte">
                                 <template #body="slotProps">
-                                    <span class="p-column-title">Activity</span>
                                     <ProgressBar :value="slotProps.data.activity" :showValue="false" />
                                 </template>
                             </Column>
@@ -794,7 +788,7 @@
 
     &lt;div class="p-col-12"&gt;
         &lt;div class="card"&gt;
-            &lt;DataTable :value="customers" :paginator="true" class="p-datatable-customers" :rows="10"
+            &lt;DataTable :value="customers" :paginator="true" :rows="10"
                 dataKey="id" :rowHover="true" v-model:selection="selectedCustomers" :filters="filters"
                 paginatorTemplate="FirstPageLink PrevPageLink PageLinks NextPageLink LastPageLink CurrentPageReport RowsPerPageDropdown" :rowsPerPageOptions="[10,25,50]"
                 currentPageReportTemplate="Showing {first} to {last} of {totalRecords} entries"&gt;
@@ -813,39 +807,33 @@
                 &lt;Column selectionMode="multiple" headerStyle="width: 3em"&gt;&lt;/Column&gt;
                 &lt;Column field="name" header="Name" :sortable="true"&gt;
                     &lt;template #body="slotProps"&gt;
-                        &lt;span class="p-column-title"&gt;Name&lt;/span&gt;
                         {{slotProps.data.name}}
                     &lt;/template&gt;
                 &lt;/Column&gt;
                 &lt;Column header="Country" :sortable="true" sortField="country.name" filterField="country.name" filterMatchMode="contains"&gt;
                     &lt;template #body="slotProps"&gt;
-                        &lt;span class="p-column-title"&gt;Country&lt;/span&gt;
                         &lt;img src="../../assets/images/flag_placeholder.png" :class="'flag flag-' + slotProps.data.country.code" width="30" class="p-mr-2" /&gt;
                         &lt;span class="image-text"&gt;{{slotProps.data.country.name}}&lt;/span&gt;
                     &lt;/template&gt;
                 &lt;/Column&gt;
                 &lt;Column header="Representative" :sortable="true" sortField="representative.name" filterField="representative.name" filterMatchMode="in"&gt;
                     &lt;template #body="slotProps"&gt;
-                        &lt;span class="p-column-title"&gt;Representative&lt;/span&gt;
                         &lt;img :alt="slotProps.data.representative.name" :src="'demo/images/avatar/' + slotProps.data.representative.image" width="32" style="vertical-align: middle" /&gt;
                         &lt;span class="image-text p-ml-2"&gt;{{slotProps.data.representative.name}}&lt;/span&gt;
                     &lt;/template&gt;
                 &lt;/Column&gt;
                 &lt;Column field="date" header="Date" :sortable="true" filterMatchMode="equals"&gt;
                     &lt;template #body="slotProps"&gt;
-                        &lt;span class="p-column-title"&gt;Date&lt;/span&gt;
                         &lt;span&gt;{{slotProps.data.date}}&lt;/span&gt;
                     &lt;/template&gt;
                 &lt;/Column&gt;
                 &lt;Column field="status" header="Status" :sortable="true" filterMatchMode="equals"&gt;
                     &lt;template #body="slotProps"&gt;
-                        &lt;span class="p-column-title"&gt;Status&lt;/span&gt;
                         &lt;span :class="'customer-badge status-' + slotProps.data.status"&gt;{{slotProps.data.status}}&lt;/span&gt;
                     &lt;/template&gt;
                 &lt;/Column&gt;
                 &lt;Column field="activity" header="Activity" :sortable="true" filterMatchMode="gte"&gt;
                     &lt;template #body="slotProps"&gt;
-                        &lt;span class="p-column-title"&gt;Activity&lt;/span&gt;
                         &lt;ProgressBar :value="slotProps.data.activity" :showValue="false" /&gt;
                     &lt;/template&gt;
                 &lt;/Column&gt;
@@ -1721,48 +1709,6 @@ export default {
     width: 50px;
     box-shadow: 0 3px 6px rgba(0,0,0,.16), 0 3px 6px rgba(0,0,0,.23);
 }    
-
-/* Responsive */
-.p-datatable-customers .p-datatable-tbody > tr > td .p-column-title {
-    display: none;
-}
-
-@media screen and (max-width: 960px) {
-    ::v-deep(.p-datatable) {
-        &.p-datatable-customers {
-            .p-datatable-thead > tr > th,
-            .p-datatable-tfoot > tr > td {
-                display: none !important;
-            }
-
-            .p-datatable-tbody > tr {
-                border-bottom: 1px solid var(--layer-2);
-
-                > td {
-                    text-align: left;
-                    display: block;
-                    border: 0 none !important;
-                    width: 100% !important;
-                    float: left;
-                    clear: left;
-                    border: 0 none;
-
-                    .p-column-title {
-                        padding: .4rem;
-                        min-width: 30%;
-                        display: inline-block;
-                        margin: -.4rem 1rem -.4rem -.4rem;
-                        font-weight: bold;
-                    }
-
-                    .p-progressbar {
-                        margin-top: .5rem;
-                    }
-                }
-            }
-        }
-    }
-}
 
 ::v-deep(.p-paginator) {
     .p-paginator-current {

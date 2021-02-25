@@ -31,7 +31,6 @@
                     </template>
                     <Column field="name" header="Name">
                         <template #body="{data}">
-                            <span class="p-column-title">Name</span>
                             {{data.name}}
                         </template>
                         <template #filter="{filterModel}">
@@ -40,7 +39,6 @@
                     </Column>
                     <Column header="Country" filterField="country.name">
                         <template #body="{data}">
-                            <span class="p-column-title">Country</span>
                             <img src="../../assets/images/flag_placeholder.png" :class="'flag flag-' + data.country.code" width="30" />
                             <span class="image-text">{{data.country.name}}</span>
                         </template>
@@ -59,7 +57,6 @@
                     </Column>
                     <Column header="Agent" filterField="representative" :showFilterMatchModes="false" :filterMenuStyle="{'width':'14rem'}">
                         <template #body="{data}">
-                            <span class="p-column-title">Agent</span>
                             <img :alt="data.representative.name" :src="'demo/images/avatar/' + data.representative.image" width="32" style="vertical-align: middle" />
                             <span class="image-text">{{data.representative.name}}</span>
                         </template>
@@ -77,7 +74,6 @@
                     </Column>
                     <Column header="Date" filterField="date" dataType="date">
                         <template #body="{data}">
-                            <span class="p-column-title">Date</span>
                             {{formatDate(data.date)}}
                         </template>
                         <template #filter="{filterModel}">
@@ -86,7 +82,6 @@
                     </Column>
                     <Column header="Balance" filterField="balance" dataType="numeric">
                         <template #body="{data}">
-                            <span class="p-column-title">Balance</span>
                             {{formatCurrency(data.balance)}}
                         </template>
                         <template #filter="{filterModel}">
@@ -95,7 +90,6 @@
                     </Column>
                     <Column field="status" header="Status" :filterMenuStyle="{'width':'14rem'}">
                         <template #body="{data}">
-                            <span class="p-column-title">Status</span>
                             <span :class="'customer-badge status-' + data.status">{{data.status}}</span>
                         </template>
                         <template #filter="{filterModel}">
@@ -112,7 +106,6 @@
                     </Column>
                     <Column field="activity" header="Activity" :showFilterMatchModes="false">
                         <template #body="{data}">
-                            <span class="p-column-title">Status</span>
                             <ProgressBar :value="data.activity" :showValue="false"></ProgressBar>
                         </template>
                         <template #filter={filterModel}>
@@ -125,7 +118,6 @@
                     </Column>
                     <Column field="verified" header="Verified" dataType="boolean" headerStyle="width: 8rem" bodyClass="p-text-center">
                         <template #body="{data}">
-                            <span class="p-column-title">Verified</span>
                             <i class="pi" :class="{'true-icon pi-check-circle': data.verified, 'false-icon pi-times-circle': !data.verified}"></i>
                         </template>
                         <template #filter={filterModel}>
@@ -157,7 +149,6 @@
                     </template>
                     <Column field="name" header="Name">
                         <template #body="{data}">
-                            <span class="p-column-title">Name</span>
                             {{data.name}}
                         </template>
                         <template #filter="{filterModel,filterCallback}">
@@ -166,7 +157,6 @@
                     </Column>
                     <Column header="Country" filterField="country.name">
                         <template #body="{data}">
-                            <span class="p-column-title">Country</span>
                             <img src="../../assets/images/flag_placeholder.png" :class="'flag flag-' + data.country.code" width="30" />
                             <span class="image-text">{{data.country.name}}</span>
                         </template>
@@ -176,7 +166,6 @@
                     </Column>
                     <Column header="Agent" filterField="representative" :showFilterMenu="false">
                         <template #body="{data}">
-                            <span class="p-column-title">Agent</span>
                             <img :alt="data.representative.name" :src="'demo/images/avatar/' + data.representative.image" width="32" style="vertical-align: middle" />
                             <span class="image-text">{{data.representative.name}}</span>
                         </template>
@@ -193,7 +182,6 @@
                     </Column>
                     <Column field="status" header="Status" :showFilterMenu="false">
                         <template #body="{data}">
-                            <span class="p-column-title">Status</span>
                             <span :class="'customer-badge status-' + data.status">{{data.status}}</span>
                         </template>
                         <template #filter="{filterModel,filterCallback}">
@@ -210,7 +198,6 @@
                     </Column>
                     <Column field="verified" header="Verified" dataType="boolean" headerStyle="width: 6rem">
                         <template #body="{data}">
-                            <span class="p-column-title">Verified</span>
                             <i class="pi" :class="{'true-icon pi-check-circle': data.verified, 'false-icon pi-times-circle': !data.verified}"></i>
                         </template>
                         <template #filter="{filterModel,filterCallback}">
@@ -248,7 +235,6 @@
         &lt;/template&gt;
         &lt;Column field="name" header="Name"&gt;
             &lt;template #body="{data}"&gt;
-                &lt;span class="p-column-title"&gt;Name&lt;/span&gt;
                 {{data.name}}
             &lt;/template&gt;
             &lt;template #filter="{filterModel}"&gt;
@@ -257,7 +243,6 @@
         &lt;/Column&gt;
         &lt;Column header="Country" filterField="country.name"&gt;
             &lt;template #body="{data}"&gt;
-                &lt;span class="p-column-title"&gt;Country&lt;/span&gt;
                 &lt;img src="../../assets/images/flag_placeholder.png" :class="'flag flag-' + data.country.code" width="30" /&gt;
                 &lt;span class="image-text"&gt;{{data.country.name}}&lt;/span&gt;
             &lt;/template&gt;
@@ -276,7 +261,6 @@
         &lt;/Column&gt;
         &lt;Column header="Agent" filterField="representative" :showFilterMatchModes="false" :filterMenuStyle="{'width':'14rem'}"&gt;
             &lt;template #body="{data}"&gt;
-                &lt;span class="p-column-title"&gt;Agent&lt;/span&gt;
                 &lt;img :alt="data.representative.name" :src="'demo/images/avatar/' + data.representative.image" width="32" style="vertical-align: middle" /&gt;
                 &lt;span class="image-text"&gt;{{data.representative.name}}&lt;/span&gt;
             &lt;/template&gt;
@@ -294,7 +278,6 @@
         &lt;/Column&gt;
         &lt;Column header="Date" filterField="date" dataType="date"&gt;
             &lt;template #body="{data}"&gt;
-                &lt;span class="p-column-title"&gt;Date&lt;/span&gt;
                 {{formatDate(data.date)}}
             &lt;/template&gt;
             &lt;template #filter="{filterModel}"&gt;
@@ -303,7 +286,6 @@
         &lt;/Column&gt;
         &lt;Column header="Balance" filterField="balance" dataType="numeric"&gt;
             &lt;template #body="{data}"&gt;
-                &lt;span class="p-column-title"&gt;Balance&lt;/span&gt;
                 {{formatCurrency(data.balance)}}
             &lt;/template&gt;
             &lt;template #filter="{filterModel}"&gt;
@@ -312,7 +294,6 @@
         &lt;/Column&gt;
         &lt;Column field="status" header="Status" :filterMenuStyle="{'width':'14rem'}"&gt;
             &lt;template #body="{data}"&gt;
-                &lt;span class="p-column-title"&gt;Status&lt;/span&gt;
                 &lt;span :class="'customer-badge status-' + data.status"&gt;{{data.status}}&lt;/span&gt;
             &lt;/template&gt;
             &lt;template #filter="{filterModel}"&gt;
@@ -329,7 +310,6 @@
         &lt;/Column&gt;
         &lt;Column field="activity" header="Activity" :showFilterMatchModes="false"&gt;
             &lt;template #body="{data}"&gt;
-                &lt;span class="p-column-title"&gt;Status&lt;/span&gt;
                 &lt;ProgressBar :value="data.activity" :showValue="false"&gt;&lt;/ProgressBar&gt;
             &lt;/template&gt;
             &lt;template #filter={filterModel}&gt;
@@ -342,7 +322,6 @@
         &lt;/Column&gt;
         &lt;Column field="verified" header="Verified" dataType="boolean" headerStyle="width: 8rem" bodyClass="p-text-center"&gt;
             &lt;template #body="{data}"&gt;
-                &lt;span class="p-column-title"&gt;Verified&lt;/span&gt;
                 &lt;i class="pi" :class="{'true-icon pi-check-circle': data.verified, 'false-icon pi-times-circle': !data.verified}"&gt;&lt;/i&gt;
             &lt;/template&gt;
             &lt;template #filter={filterModel}&gt;
@@ -374,7 +353,6 @@
         &lt;/template&gt;
         &lt;Column field="name" header="Name"&gt;
             &lt;template #body="{data}"&gt;
-                &lt;span class="p-column-title"&gt;Name&lt;/span&gt;
                 {{data.name}}
             &lt;/template&gt;
             &lt;template #filter="{filterModel,filterCallback}"&gt;
@@ -383,7 +361,6 @@
         &lt;/Column&gt;
         &lt;Column header="Country" filterField="country.name"&gt;
             &lt;template #body="{data}"&gt;
-                &lt;span class="p-column-title"&gt;Country&lt;/span&gt;
                 &lt;img src="../../assets/images/flag_placeholder.png" :class="'flag flag-' + data.country.code" width="30" /&gt;
                 &lt;span class="image-text"&gt;{{data.country.name}}&lt;/span&gt;
             &lt;/template&gt;
@@ -393,7 +370,6 @@
         &lt;/Column&gt;
         &lt;Column header="Agent" filterField="representative" :showFilterMenu="false"&gt;
             &lt;template #body="{data}"&gt;
-                &lt;span class="p-column-title"&gt;Agent&lt;/span&gt;
                 &lt;img :alt="data.representative.name" :src="'demo/images/avatar/' + data.representative.image" width="32" style="vertical-align: middle" /&gt;
                 &lt;span class="image-text"&gt;{{data.representative.name}}&lt;/span&gt;
             &lt;/template&gt;
@@ -410,7 +386,6 @@
         &lt;/Column&gt;
         &lt;Column field="status" header="Status" :showFilterMenu="false"&gt;
             &lt;template #body="{data}"&gt;
-                &lt;span class="p-column-title"&gt;Status&lt;/span&gt;
                 &lt;span :class="'customer-badge status-' + data.status"&gt;{{data.status}}&lt;/span&gt;
             &lt;/template&gt;
             &lt;template #filter="{filterModel,filterCallback}"&gt;
@@ -427,7 +402,6 @@
         &lt;/Column&gt;
         &lt;Column field="verified" header="Verified" dataType="boolean" headerStyle="width: 6rem"&gt;
             &lt;template #body="{data}"&gt;
-                &lt;span class="p-column-title"&gt;Verified&lt;/span&gt;
                 &lt;i class="pi" :class="{'true-icon pi-check-circle': data.verified, 'false-icon pi-times-circle': !data.verified}"&gt;&lt;/i&gt;
             &lt;/template&gt;
             &lt;template #filter="{filterModel,filterCallback}"&gt;
@@ -659,48 +633,6 @@ export default {
 
     .p-dropdown-label:not(.p-placeholder) {
         text-transform: uppercase;
-    }
-}
-
-/* Responsive */
-.p-datatable-customers .p-datatable-tbody > tr > td .p-column-title {
-    display: none;
-}
-
-@media screen and (max-width: 960px) {
-    ::v-deep(.p-datatable) {
-        &.p-datatable-customers {
-            .p-datatable-thead > tr > th,
-            .p-datatable-tfoot > tr > td {
-                display: none !important;
-            }
-
-            .p-datatable-tbody > tr {
-                border-bottom: 1px solid var(--layer-2);
-
-                > td {
-                    text-align: left;
-                    display: block;
-                    border: 0 none !important;
-                    width: 100% !important;
-                    float: left;
-                    clear: left;
-                    border: 0 none;
-
-                    .p-column-title {
-                        padding: .4rem;
-                        min-width: 30%;
-                        display: inline-block;
-                        margin: -.4rem 1rem -.4rem -.4rem;
-                        font-weight: bold;
-                    }
-
-                    .p-progressbar {
-                        margin-top: .5rem;
-                    }
-                }
-            }
-        }
     }
 }
 </style>

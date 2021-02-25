@@ -27,7 +27,7 @@
                 <DTTableBody v-if="frozenValue" :value="frozenValue" :frozenRow="true" class="p-datatable-frozen-tbody" :columns="columns" :dataKey="dataKey" :selection="selection" :selectionKeys="d_selectionKeys" :selectionMode="selectionMode" :contextMenu="contextMenu" :contextMenuSelection="contextMenuSelection"
                     :rowGroupMode="rowGroupMode" :groupRowsBy="groupRowsBy" :expandableRowGroups="expandableRowGroups" :rowClass="rowClass" :editMode="editMode" :compareSelectionBy="compareSelectionBy" :scrollable="scrollable"
                     :expandedRowIcon="expandedRowIcon" :collapsedRowIcon="collapsedRowIcon" :expandedRows="expandedRows" :expandedRowKeys="d_expandedRowKeys" :expandedRowGroups="expandedRowGroups"
-                    :editingRows="editingRows" :editingRowKeys="d_editingRowKeys" :templates="$slots" :loading="loading"
+                    :editingRows="editingRows" :editingRowKeys="d_editingRowKeys" :templates="$slots" :loading="loading" :responsiveLayout="responsiveLayout"
                     @rowgroup-toggle="toggleRowGroup" @row-click="onRowClick($event)" @row-rightclick="onRowRightClick($event)" @row-touchend="onRowTouchEnd" @row-keydown="onRowKeyDown"
                     @row-mousedown="onRowMouseDown" @row-dragstart="onRowDragStart($event)" @row-dragover="onRowDragOver($event)" @row-dragleave="onRowDragLeave($event)" @row-dragend="onRowDragEnd($event)" @row-drop="onRowDrop($event)"
                     @row-toggle="toggleRow($event)" @radio-change="toggleRowWithRadio($event)" @checkbox-change="toggleRowWithCheckbox($event)"
@@ -36,7 +36,7 @@
                 <DTTableBody :value="dataToRender" :columns="columns" :empty="empty" :dataKey="dataKey" :selection="selection" :selectionKeys="d_selectionKeys" :selectionMode="selectionMode" :contextMenu="contextMenu" :contextMenuSelection="contextMenuSelection"
                     :rowGroupMode="rowGroupMode" :groupRowsBy="groupRowsBy" :expandableRowGroups="expandableRowGroups" :rowClass="rowClass" :editMode="editMode" :compareSelectionBy="compareSelectionBy" :scrollable="scrollable"
                     :expandedRowIcon="expandedRowIcon" :collapsedRowIcon="collapsedRowIcon" :expandedRows="expandedRows" :expandedRowKeys="d_expandedRowKeys" :expandedRowGroups="expandedRowGroups"
-                    :editingRows="editingRows" :editingRowKeys="d_editingRowKeys" :templates="$slots" :loading="loading"
+                    :editingRows="editingRows" :editingRowKeys="d_editingRowKeys" :templates="$slots" :loading="loading" :responsiveLayout="responsiveLayout"
                     @rowgroup-toggle="toggleRowGroup" @row-click="onRowClick($event)" @row-rightclick="onRowRightClick($event)" @row-touchend="onRowTouchEnd" @row-keydown="onRowKeyDown"
                     @row-mousedown="onRowMouseDown" @row-dragstart="onRowDragStart($event)" @row-dragover="onRowDragOver($event)" @row-dragleave="onRowDragLeave($event)" @row-dragend="onRowDragEnd($event)" @row-drop="onRowDrop($event)"
                     @row-toggle="toggleRow($event)" @radio-change="toggleRowWithRadio($event)" @checkbox-change="toggleRowWithCheckbox($event)"
@@ -64,7 +64,7 @@
 </template>
 
 <script>
-import {ObjectUtils,DomHandler} from 'primevue/utils';
+import {ObjectUtils,DomHandler,UniqueComponentId} from 'primevue/utils';
 import {FilterMatchMode,FilterOperator,FilterService} from 'primevue/api';
 import Paginator from 'primevue/paginator';
 import TableHeader from './TableHeader.vue';
@@ -293,6 +293,14 @@ export default {
         frozenValue: {
             type: Array,
             default: null
+        },
+        responsiveLayout: {
+            type: String,
+            default: 'stack'
+        },
+        breakpoint: {
+            type: String,
+            default: '960px'
         }
     },
     data() {
@@ -376,9 +384,14 @@ export default {
         if (this.scrollable && this.scrollDirection !== 'vertical') {
             this.updateScrollWidth();
         }
+
+        if (this.responsiveLayout === 'stack') {
+            this.createResponsiveStyle();
+        }
     },
     beforeUnmount() {
         this.unbindColumnResizeEvents();
+        this.destroyResponsiveStyle();
     },
     updated() {
         if (this.isStateful()) {
@@ -1552,6 +1565,47 @@ export default {
         },
         updateScrollWidth() {
             this.$refs.table.style.width = this.$refs.table.scrollWidth + 'px';
+        },
+        createResponsiveStyle() {
+			if (!this.styleElement) {
+                this.$el.setAttribute(this.attributeSelector, '');
+				this.styleElement = document.createElement('style');
+				this.styleElement.type = 'text/css';
+				document.head.appendChild(this.styleElement);
+
+                let innerHTML = `
+@media screen and (max-width: ${this.breakpoint}) {
+    .p-datatable[${this.attributeSelector}] .p-datatable-thead > tr > th,
+    .p-datatable[${this.attributeSelector}] .p-datatable-tfoot > tr > td {
+        display: none !important;
+    }
+
+    .p-datatable[${this.attributeSelector}] .p-datatable-tbody > tr {
+        border-bottom: 1px solid var(--surface-d);
+    }
+
+    .p-datatable[${this.attributeSelector}] .p-datatable-tbody > tr > td {
+        display: flex;
+        width: 100%;
+        align-items: center;
+        justify-content: space-between;
+        border: 0 none;
+    }
+
+    .p-datatable[${this.attributeSelector}] .p-datatable-tbody > tr > td > .p-column-title {
+        display: block;
+    }
+}
+`;
+                
+                this.styleElement.innerHTML = innerHTML;
+			}
+		},
+        destroyResponsiveStyle() {
+            if (this.styleElement) {
+                document.head.removeChild(this.styleElement);
+                this.styleElement = null;
+            }
         }
     },
     computed: {
@@ -1563,10 +1617,12 @@ export default {
                     'p-datatable-resizable': this.resizableColumns,
                     'p-datatable-resizable-fit': this.resizableColumns && this.columnResizeMode === 'fit',
                     'p-datatable-scrollable': this.scrollable,
-                    'p-datatable-scrollable-vertical': this.scrollDirection === 'vertical',
-                    'p-datatable-scrollable-horizontal': this.scrollDirection === 'horizontal',
-                    'p-datatable-scrollable-both': this.scrollDirection === 'both',
-                    'p-datatable-flex-scrollable': (this.scrollable && this.scrollHeight === 'flex')
+                    'p-datatable-scrollable-vertical': this.scrollable && this.scrollDirection === 'vertical',
+                    'p-datatable-scrollable-horizontal': this.scrollable && this.scrollDirection === 'horizontal',
+                    'p-datatable-scrollable-both': this.scrollable && this.scrollDirection === 'both',
+                    'p-datatable-flex-scrollable': (this.scrollable && this.scrollHeight === 'flex'),
+                    'p-datatable-responsive-stack': this.responsiveLayout === 'stack',
+                    'p-datatable-responsive-scroll': this.responsiveLayout === 'scroll'
                 }
             ];
         },
@@ -1691,6 +1747,9 @@ export default {
         allRowsSelected() {
             const val = this.processedData;
             return (val && val.length > 0 && this.selection && this.selection.length > 0 && this.selection.length === val.length);
+        },
+        attributeSelector() {
+            return UniqueComponentId();
         }
     },
     components: {
@@ -1711,6 +1770,7 @@ export default {
     border-collapse: collapse;
     width: 100%;
     table-layout: fixed;
+    white-space: nowrap;
 }
 
 .p-datatable .p-sortable-column {
@@ -1730,10 +1790,11 @@ export default {
     justify-content: center;
 }
 
-/*.p-datatable-auto-layout > .p-datatable-wrapper {
+.p-datatable-responsive-scroll > .p-datatable-wrapper {
     overflow-x: auto;
-}*/
+}
 
+.p-datatable-responsive-scroll > .p-datatable-wrapper > table,
 .p-datatable-auto-layout > .p-datatable-wrapper > table {
     table-layout: auto;
 }
@@ -1963,5 +2024,10 @@ export default {
 
 .p-column-filter-buttonbar .p-button:not(.p-button-icon-only) {
     width: auto;
+}
+
+/* Responsive */
+.p-datatable .p-datatable-tbody .p-column-title {
+    display: none;
 }
 </style>

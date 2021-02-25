@@ -22,7 +22,7 @@
             <TabView>
                 <TabPanel header="Source">
                     <div class="p-d-flex p-jc-end">
-                        <LiveEditor name="DataTableDemo" :sources="sources" service="ProductService" data="products-small"/>
+                        <LiveEditor name="DataTableDemo" :sources="sources" service="ProductService" data="products-small" :components="['Column']" />
                     </div>
 <pre v-code><code><template v-pre>
 &lt;DataTable :value="products"&gt;
@@ -69,18 +69,18 @@ export default {
             sources: {
                 'template': {
                     content: `<template>
-    <div class="layout-content">
-        <div class="content-section implementation">
-            <div class="card">
-                <DataTable :value="products">
-                    <Column field="code" header="Code"></Column>
-                    <Column field="name" header="Name"></Column>
-                    <Column field="category" header="Category"></Column>
-                    <Column field="quantity" header="Quantity"></Column>
-                </DataTable>
-            </div>
-		</div>
+<div class="layout-content">
+    <div class="content-section implementation">
+        <div class="card">
+            <DataTable :value="products">
+                <Column field="code" header="Code"></Column>
+                <Column field="name" header="Name"></Column>
+                <Column field="category" header="Category"></Column>
+                <Column field="quantity" header="Quantity"></Column>
+            </DataTable>
+        </div>
     </div>
+</div>
 </template>
 <script>
 import ProductService from '../service/ProductService';

@@ -3,40 +3,37 @@
 		<div class="content-section introduction">
 			<div class="feature-intro">
 				<h1>DataTable <span>Responsive</span></h1>
-				<p>DataTable display can be optimized according for different screen sizes, this example demonstrates a demo where columns are stacked on a small screens.</p>
+				<p>DataTable responsive layout can be achieved in two ways; first approach is displaying a horizontal scrollbar for smaller screens 
+                    and second one is defining a breakpoint to display the cells of a row as stacked.</p>
 			</div>
 		</div>
 
 		<div class="content-section implementation">
             <div class="card">
-                <DataTable :value="products" class="p-datatable-responsive-demo" :paginator="true" :rows="10">
+                <DataTable :value="products" responsiveLayout="scroll">
                     <template #header>
-                        Responsive
+                        Scroll
                     </template>
-                    <Column field="code" header="Code">
-                        <template #body="slotProps">
-                            <span class="p-column-title">Code</span>
-                            {{slotProps.data.code}}
-                        </template>
-                    </Column>
-                    <Column field="name" header="Name">
-                        <template #body="slotProps">
-                            <span class="p-column-title">Name</span>
-                            {{slotProps.data.name}}
-                        </template>
-                    </Column>
-                    <Column field="category" header="Category">
-                        <template #body="slotProps">
-                            <span class="p-column-title">Category</span>
-                            {{slotProps.data.category}}
-                        </template>
-                    </Column>
-                    <Column field="quantity" header="Quantity">
-                        <template #body="slotProps">
-                            <span class="p-column-title">Quantity</span>
-                            {{slotProps.data.quantity}}
-                        </template>
-                    </Column>
+                    <Column field="code" header="Code"></Column>
+                    <Column field="name" header="Name"></Column>
+                    <Column field="category" header="Category"></Column>
+                    <Column field="quantity" header="Quantity"></Column>
+                    <Column field="inventoryStatus" header="Status"></Column>
+                    <Column field="rating" header="Rating"></Column>
+                </DataTable>
+            </div>
+
+            <div class="card">
+                <DataTable :value="products" responsiveLayout="stack" breakpoint="960px">
+                    <template #header>
+                        Stack
+                    </template>
+                    <Column field="code" header="Code"></Column>
+                    <Column field="name" header="Name"></Column>
+                    <Column field="category" header="Category"></Column>
+                    <Column field="quantity" header="Quantity"></Column>
+                    <Column field="inventoryStatus" header="Status"></Column>
+                    <Column field="rating" header="Rating"></Column>
                 </DataTable>
             </div>
 		</div>
@@ -45,38 +42,36 @@
             <TabView>
                 <TabPanel header="Source">
                     <div class="p-d-flex p-jc-end">
-                        <LiveEditor name="DataTableDemo" :sources="sources" service="ProductService" data="products" :components="['Column']" />
+                        <LiveEditor name="DataTableDemo" :sources="sources" service="ProductService" data="products-small" :components="['Column']" />
                     </div>
 <pre v-code><code><template v-pre>
-&lt;DataTable :value="products" class="p-datatable-responsive-demo" :paginator="true" :rows="10"&gt;
-    &lt;template #header&gt;
-        Responsive
-    &lt;/template&gt;
-    &lt;Column field="code" header="Code"&gt;
-        &lt;template #body="slotProps"&gt;
-            &lt;span class="p-column-title"&gt;Code&lt;/span&gt;
-            {{slotProps.data.code}}
+&lt;div class="card"&gt;
+    &lt;DataTable :value="products" responsiveLayout="scroll"&gt;
+        &lt;template #header&gt;
+            Scroll
         &lt;/template&gt;
-    &lt;/Column&gt;
-    &lt;Column field="name" header="Name"&gt;
-        &lt;template #body="slotProps"&gt;
-            &lt;span class="p-column-title"&gt;Name&lt;/span&gt;
-            {{slotProps.data.name}}
+        &lt;Column field="code" header="Code"&gt;&lt;/Column&gt;
+        &lt;Column field="name" header="Name"&gt;&lt;/Column&gt;
+        &lt;Column field="category" header="Category"&gt;&lt;/Column&gt;
+        &lt;Column field="quantity" header="Quantity"&gt;&lt;/Column&gt;
+        &lt;Column field="inventoryStatus" header="Status"&gt;&lt;/Column&gt;
+        &lt;Column field="rating" header="Rating"&gt;&lt;/Column&gt;
+    &lt;/DataTable&gt;
+&lt;/div&gt;
+
+&lt;div class="card"&gt;
+    &lt;DataTable :value="products" responsiveLayout="stack" breakpoint="960px"&gt;
+        &lt;template #header&gt;
+            Stack
         &lt;/template&gt;
-    &lt;/Column&gt;
-    &lt;Column field="category" header="Category"&gt;
-        &lt;template #body="slotProps"&gt;
-            &lt;span class="p-column-title"&gt;Category&lt;/span&gt;
-            {{slotProps.data.category}}
-        &lt;/template&gt;
-    &lt;/Column&gt;
-    &lt;Column field="quantity" header="Quantity"&gt;
-        &lt;template #body="slotProps"&gt;
-            &lt;span class="p-column-title"&gt;Quantity&lt;/span&gt;
-            {{slotProps.data.quantity}}
-        &lt;/template&gt;
-    &lt;/Column&gt;
-&lt;/DataTable&gt;
+        &lt;Column field="code" header="Code"&gt;&lt;/Column&gt;
+        &lt;Column field="name" header="Name"&gt;&lt;/Column&gt;
+        &lt;Column field="category" header="Category"&gt;&lt;/Column&gt;
+        &lt;Column field="quantity" header="Quantity"&gt;&lt;/Column&gt;
+        &lt;Column field="inventoryStatus" header="Status"&gt;&lt;/Column&gt;
+        &lt;Column field="rating" header="Rating"&gt;&lt;/Column&gt;
+    &lt;/DataTable&gt;
+&lt;/div&gt;
 </template>
 </code></pre>
 
@@ -94,49 +89,10 @@ export default {
         this.productService = new ProductService();
     },
     mounted() {
-        this.productService.getProducts().then(data => this.products = data);
+        this.productService.getProductsSmall().then(data => this.products = data);
     }
 }
-
-</code></pre>
-
-<pre v-code.css><code>
-.p-datatable-responsive-demo .p-datatable-tbody > tr > td .p-column-title {
-    display: none;
-}
-
-@media screen and (max-width: 40em) {
-    ::v-deep(.p-datatable) {
-        &.p-datatable-responsive-demo {
-            .p-datatable-thead > tr > th,
-            .p-datatable-tfoot > tr > td {
-                display: none !important;
-            }
-
-            .p-datatable-tbody > tr > td {
-                text-align: left;
-                display: block;
-                width: 100%;
-                float: left;
-                clear: left;
-                border: 0 none;
-
-                .p-column-title {
-                    padding: .4rem;
-                    min-width: 30%;
-                    display: inline-block;
-                    margin: -.4em 1em -.4em -.4rem;
-                    font-weight: bold;
-                }
-
-                &:last-child {
-                    border-bottom: 1px solid var(--surface-d);
-                }
-            }
-        }
-    }
-}
-
+        
 </code></pre>
                 </TabPanel>
             </TabView>
@@ -155,41 +111,37 @@ export default {
             sources: {
                 'template': {
                     content: `<template>
-    <div class="layout-content">
-        <div class="content-section implementation">
-            <div class="card">
-                <DataTable :value="products" class="p-datatable-responsive-demo" :paginator="true" :rows="10">
-                    <template #header>
-                        Responsive
-                    </template>
-                    <Column field="code" header="Code">
-                        <template #body="slotProps">
-                            <span class="p-column-title">Code</span>
-                            {{slotProps.data.code}}
-                        </template>
-                    </Column>
-                    <Column field="name" header="Name">
-                        <template #body="slotProps">
-                            <span class="p-column-title">Name</span>
-                            {{slotProps.data.name}}
-                        </template>
-                    </Column>
-                    <Column field="category" header="Category">
-                        <template #body="slotProps">
-                            <span class="p-column-title">Category</span>
-                            {{slotProps.data.category}}
-                        </template>
-                    </Column>
-                    <Column field="quantity" header="Quantity">
-                        <template #body="slotProps">
-                            <span class="p-column-title">Quantity</span>
-                            {{slotProps.data.quantity}}
-                        </template>
-                    </Column>
-                </DataTable>
-            </div>
-		</div>
+<div class="layout-content">
+    <div class="content-section implementation">
+        <div class="card">
+            <DataTable :value="products" responsiveLayout="scroll">
+                <template #header>
+                    Scroll
+                </template>
+                <Column field="code" header="Code"></Column>
+                <Column field="name" header="Name"></Column>
+                <Column field="category" header="Category"></Column>
+                <Column field="quantity" header="Quantity"></Column>
+                <Column field="inventoryStatus" header="Status"></Column>
+                <Column field="rating" header="Rating"></Column>
+            </DataTable>
+        </div>
+
+        <div class="card">
+            <DataTable :value="products" responsiveLayout="stack" breakpoint="960px">
+                <template #header>
+                    Stack
+                </template>
+                <Column field="code" header="Code"></Column>
+                <Column field="name" header="Name"></Column>
+                <Column field="category" header="Category"></Column>
+                <Column field="quantity" header="Quantity"></Column>
+                <Column field="inventoryStatus" header="Status"></Column>
+                <Column field="rating" header="Rating"></Column>
+            </DataTable>
+        </div>
     </div>
+</div>
 </template>
 
 <script>
@@ -206,46 +158,9 @@ export default {
         this.productService = new ProductService();
     },
     mounted() {
-        this.productService.getProducts().then(data => this.products = data);
+        this.productService.getProductsSmall().then(data => this.products = data);
     }
-}`,
-                    style: `<style lang="scss" scoped>
-.p-datatable-responsive-demo .p-datatable-tbody > tr > td .p-column-title {
-    display: none;
-}
-
-@media screen and (max-width: 40em) {
-    ::v-deep(.p-datatable) {
-        &.p-datatable-responsive-demo {
-            .p-datatable-thead > tr > th,
-            .p-datatable-tfoot > tr > td {
-                display: none !important;
-            }
-
-            .p-datatable-tbody > tr > td {
-                text-align: left;
-                display: block;
-                width: 100%;
-                float: left;
-                clear: left;
-                border: 0 none;
-
-                .p-column-title {
-                    padding: .4rem;
-                    min-width: 30%;
-                    display: inline-block;
-                    margin: -.4em 1em -.4em -.4rem;
-                    font-weight: bold;
-                }
-
-                &:last-child {
-                    border-bottom: 1px solid var(--surface-d);
-                }
-            }
-        }
-    }
-}
-</style>`
+}`
                 }
             }
         }
@@ -255,48 +170,10 @@ export default {
         this.productService = new ProductService();
     },
     mounted() {
-        this.productService.getProducts().then(data => this.products = data);
+        this.productService.getProductsSmall().then(data => this.products = data);
     },
     components: {
         LiveEditor
     }
 }
 </script>
-
-<style lang="scss" scoped>
-.p-datatable-responsive-demo .p-datatable-tbody > tr > td .p-column-title {
-    display: none;
-}
-
-@media screen and (max-width: 40em) {
-    ::v-deep(.p-datatable) {
-        &.p-datatable-responsive-demo {
-            .p-datatable-thead > tr > th,
-            .p-datatable-tfoot > tr > td {
-                display: none !important;
-            }
-
-            .p-datatable-tbody > tr > td {
-                text-align: left;
-                display: block;
-                width: 100%;
-                float: left;
-                clear: left;
-                border: 0 none;
-
-                .p-column-title {
-                    padding: .4rem;
-                    min-width: 30%;
-                    display: inline-block;
-                    margin: -.4em 1em -.4em -.4rem;
-                    font-weight: bold;
-                }
-
-                &:last-child {
-                    border-bottom: 1px solid var(--surface-d);
-                }
-            }
-        }
-    }
-}
-</style>

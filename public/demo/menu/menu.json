@@ -362,7 +362,8 @@
                         },
                         {
                             "name": "Responsive",
-                            "to": "/datatable/responsive"
+                            "to": "/datatable/responsive",
+                            "badge": "New"
                         },
                         {
                             "name": "Export",
