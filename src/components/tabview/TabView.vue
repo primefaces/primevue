@@ -22,7 +22,7 @@ import {DomHandler} from 'primevue/utils';
 import Ripple from 'primevue/ripple';
 
 export default {
-    emits: ['update:activeIndex', 'tab-change'],
+    emits: ['update:activeIndex', 'tab-change', 'tab-click'],
     props: {
         activeIndex: {
             type: Number,
@@ -56,6 +56,11 @@ export default {
                     index: i
                 });
             }
+
+            this.$emit('tab-click', {
+                originalEvent: event,
+                index: i
+            });
         },
         onTabKeydown(event, i) {
             if (event.which === 13) {

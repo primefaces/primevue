@@ -221,9 +221,16 @@ export default {
                             <tr>
                                 <td>tab-change</td>
                                 <td>event.originalEvent: Browser event  <br/>
-                                    event.tab: Selected tab
+                                    event.index: Index of the selected tab
                                 </td>
                                 <td>Callback to invoke when an active tab is changed.</td>
+                            </tr>
+                             <tr>
+                                <td>tab-click</td>
+                                <td>event.originalEvent: Browser event  <br/>
+                                    event.index: Index of the clicked tab
+                                </td>
+                                <td>Callback to invoke when an active tab is clicked.</td>
                             </tr>
 						</tbody>
 					</table>
