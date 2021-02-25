@@ -24,7 +24,7 @@
                 <DataTable ref="dt" :value="products" v-model:selection="selectedProducts" dataKey="id"
                     :paginator="true" :rows="10" :filters="filters"
                     paginatorTemplate="FirstPageLink PrevPageLink PageLinks NextPageLink LastPageLink CurrentPageReport RowsPerPageDropdown" :rowsPerPageOptions="[5,10,25]"
-                    currentPageReportTemplate="Showing {first} to {last} of {totalRecords} products">
+                    currentPageReportTemplate="Showing {first} to {last} of {totalRecords} products" responsiveLayout="scroll">
                     <template #header>
                         <div class="table-header">
                             <h5 class="p-m-0">Manage Products</h5>
@@ -35,26 +35,26 @@
                         </div>
                     </template>
 
-                    <Column selectionMode="multiple" headerStyle="width: 3rem" :exportable="false"></Column>
-                    <Column field="code" header="Code" :sortable="true"></Column>
-                    <Column field="name" header="Name" :sortable="true"></Column>
+                    <Column selectionMode="multiple" style="width: 3rem" :exportable="false"></Column>
+                    <Column field="code" header="Code" :sortable="true" style="min-width:12rem"></Column>
+                    <Column field="name" header="Name" :sortable="true" style="min-width:16rem"></Column>
                     <Column header="Image">
                          <template #body="slotProps">
                             <img :src="'demo/images/product/' + slotProps.data.image" :alt="slotProps.data.image" class="product-image" />
                         </template>
                     </Column>
-                    <Column field="price" header="Price" :sortable="true">
+                    <Column field="price" header="Price" :sortable="true" style="min-width:8rem">
                         <template #body="slotProps">
                             {{formatCurrency(slotProps.data.price)}}
                         </template>
                     </Column>
-                    <Column field="category" header="Category" :sortable="true"></Column>
-                    <Column field="rating" header="Reviews" :sortable="true">
+                    <Column field="category" header="Category" :sortable="true" style="min-width:10rem">></Column>
+                    <Column field="rating" header="Reviews" :sortable="true" style="min-width:12rem">>
                         <template #body="slotProps">
                            <Rating :modelValue="slotProps.data.rating" :readonly="true" :cancel="false" />
                         </template>
                     </Column>
-                    <Column field="inventoryStatus" header="Status" :sortable="true">
+                    <Column field="inventoryStatus" header="Status" :sortable="true" style="min-width:12rem">>
                         <template #body="slotProps">
                             <span :class="'product-badge status-' + (slotProps.data.inventoryStatus ? slotProps.data.inventoryStatus.toLowerCase() : '')">{{slotProps.data.inventoryStatus}}</span>
                         </template>
@@ -192,26 +192,26 @@
             &lt;/div&gt;
         &lt;/template&gt;
 
-        &lt;Column selectionMode="multiple" headerStyle="width: 3rem" :exportable="false"&gt;&lt;/Column&gt;
-        &lt;Column field="code" header="Code" :sortable="true"&gt;&lt;/Column&gt;
-        &lt;Column field="name" header="Name" :sortable="true"&gt;&lt;/Column&gt;
+        &lt;Column selectionMode="multiple" style="width: 3rem" :exportable="false"&gt;&lt;/Column&gt;
+        &lt;Column field="code" header="Code" :sortable="true" style="min-width:12rem"&gt;&lt;/Column&gt;
+        &lt;Column field="name" header="Name" :sortable="true" style="min-width:16rem"&gt;&lt;/Column&gt;
         &lt;Column header="Image"&gt;
                 &lt;template #body="slotProps"&gt;
                 &lt;img :src="'demo/images/product/' + slotProps.data.image" :alt="slotProps.data.image" class="product-image" /&gt;
             &lt;/template&gt;
         &lt;/Column&gt;
-        &lt;Column field="price" header="Price" :sortable="true"&gt;
+        &lt;Column field="price" header="Price" :sortable="true" style="min-width:8rem"&gt;
             &lt;template #body="slotProps"&gt;
                 {{formatCurrency(slotProps.data.price)}}
             &lt;/template&gt;
         &lt;/Column&gt;
-        &lt;Column field="category" header="Category" :sortable="true"&gt;&lt;/Column&gt;
-        &lt;Column field="rating" header="Reviews" :sortable="true"&gt;
+        &lt;Column field="category" header="Category" :sortable="true" style="min-width:10rem"&gt;&lt;/Column&gt;
+        &lt;Column field="rating" header="Reviews" :sortable="true" style="min-width:12rem"&gt;
             &lt;template #body="slotProps"&gt;
                 &lt;Rating :modelValue="slotProps.data.rating" :readonly="true" :cancel="false" /&gt;
             &lt;/template&gt;
         &lt;/Column&gt;
-        &lt;Column field="inventoryStatus" header="Status" :sortable="true"&gt;
+        &lt;Column field="inventoryStatus" header="Status" :sortable="true" style="min-width:12rem"&gt;
             &lt;template #body="slotProps"&gt;
                 &lt;span :class="'product-badge status-' + (slotProps.data.inventoryStatus ? slotProps.data.inventoryStatus.toLowerCase() : '')"&gt;{{slotProps.data.inventoryStatus}}&lt;/span&gt;
             &lt;/template&gt;
@@ -481,26 +481,26 @@ export default {
                         </div>
                     </template>
 
-                    <Column selectionMode="multiple" headerStyle="width: 3rem" :exportable="false"></Column>
-                    <Column field="code" header="Code" :sortable="true"></Column>
-                    <Column field="name" header="Name" :sortable="true"></Column>
+                    <Column selectionMode="multiple" style="width: 3rem" :exportable="false"></Column>
+                    <Column field="code" header="Code" :sortable="true" style="min-width:12rem"></Column>
+                    <Column field="name" header="Name" :sortable="true" style="min-width:16rem"></Column>
                     <Column header="Image">
                          <template #body="slotProps">
                             <img src="https://www.primefaces.org/wp-content/uploads/2020/05/placeholder.png" :alt="slotProps.data.image" class="product-image" />
                         </template>
                     </Column>
-                    <Column field="price" header="Price" :sortable="true">
+                    <Column field="price" header="Price" :sortable="true" style="min-width:8rem">
                         <template #body="slotProps">
                             {{formatCurrency(slotProps.data.price)}}
                         </template>
                     </Column>
-                    <Column field="category" header="Category" :sortable="true"></Column>
-                    <Column field="rating" header="Reviews" :sortable="true">
+                    <Column field="category" header="Category" :sortable="true" style="min-width:10rem"></Column>
+                    <Column field="rating" header="Reviews" :sortable="true" style="min-width:12rem">
                         <template #body="slotProps">
                            <Rating :modelValue="slotProps.data.rating" :readonly="true" :cancel="false" />
                         </template>
                     </Column>
-                    <Column field="inventoryStatus" header="Status" :sortable="true">
+                    <Column field="inventoryStatus" header="Status" :sortable="true" style="min-width:12rem">
                         <template #body="slotProps">
                             <span :class="'product-badge status-' + (slotProps.data.inventoryStatus ? slotProps.data.inventoryStatus.toLowerCase() : '')">{{slotProps.data.inventoryStatus}}</span>
                         </template>

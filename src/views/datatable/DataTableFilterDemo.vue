@@ -12,7 +12,7 @@
                 <h5>Filter Menu</h5>
                 <p>Filters are displayed in an overlay.</p>
                 <DataTable :value="customers1" :paginator="true" class="p-datatable-customers p-datatable-gridlines" :rows="10"
-                    dataKey="id" v-model:filters="filters1" filterDisplay="menu" :loading="loading1"
+                    dataKey="id" v-model:filters="filters1" filterDisplay="menu" :loading="loading1" responsiveLayout="scroll"
                     :globalFilterFields="['name','country.name','representative.name','balance','status']">
                     <template #header>
                         <div class="p-d-flex p-jc-between">
@@ -29,7 +29,7 @@
                     <template #loading>
                         Loading customers data. Please wait.
                     </template>
-                    <Column field="name" header="Name">
+                    <Column field="name" header="Name" style="min-width:12rem">
                         <template #body="{data}">
                             {{data.name}}
                         </template>
@@ -37,7 +37,7 @@
                             <InputText type="text" v-model="filterModel.value" class="p-column-filter" placeholder="Search by name"/>
                         </template>
                     </Column>
-                    <Column header="Country" filterField="country.name">
+                    <Column header="Country" filterField="country.name" style="min-width:12rem">
                         <template #body="{data}">
                             <img src="../../assets/images/flag_placeholder.png" :class="'flag flag-' + data.country.code" width="30" />
                             <span class="image-text">{{data.country.name}}</span>
@@ -55,7 +55,7 @@
                             <div class="p-px-3 p-pt-0 p-pb-3 p-text-center p-text-bold">Customized Buttons</div>
                         </template>
                     </Column>
-                    <Column header="Agent" filterField="representative" :showFilterMatchModes="false" :filterMenuStyle="{'width':'14rem'}">
+                    <Column header="Agent" filterField="representative" :showFilterMatchModes="false" :filterMenuStyle="{'width':'14rem'}" style="min-width:14rem">
                         <template #body="{data}">
                             <img :alt="data.representative.name" :src="'demo/images/avatar/' + data.representative.image" width="32" style="vertical-align: middle" />
                             <span class="image-text">{{data.representative.name}}</span>
@@ -72,7 +72,7 @@
                             </MultiSelect>
                         </template>
                     </Column>
-                    <Column header="Date" filterField="date" dataType="date">
+                    <Column header="Date" filterField="date" dataType="date" style="min-width:10rem">
                         <template #body="{data}">
                             {{formatDate(data.date)}}
                         </template>
@@ -80,7 +80,7 @@
                             <Calendar v-model="filterModel.value" dateFormat="mm/dd/yy" placeholder="mm/dd/yyyy" />
                         </template>
                     </Column>
-                    <Column header="Balance" filterField="balance" dataType="numeric">
+                    <Column header="Balance" filterField="balance" dataType="numeric" style="min-width:10rem">
                         <template #body="{data}">
                             {{formatCurrency(data.balance)}}
                         </template>
@@ -88,7 +88,7 @@
                             <InputNumber v-model="filterModel.value" mode="currency" currency="USD" locale="en-US" />
                         </template>
                     </Column>
-                    <Column field="status" header="Status" :filterMenuStyle="{'width':'14rem'}">
+                    <Column field="status" header="Status" :filterMenuStyle="{'width':'14rem'}" style="min-width:12rem">
                         <template #body="{data}">
                             <span :class="'customer-badge status-' + data.status">{{data.status}}</span>
                         </template>
@@ -104,7 +104,7 @@
                             </Dropdown>
                         </template>
                     </Column>
-                    <Column field="activity" header="Activity" :showFilterMatchModes="false">
+                    <Column field="activity" header="Activity" :showFilterMatchModes="false" style="min-width:12rem">
                         <template #body="{data}">
                             <ProgressBar :value="data.activity" :showValue="false"></ProgressBar>
                         </template>
@@ -116,7 +116,7 @@
                             </div>
                         </template>
                     </Column>
-                    <Column field="verified" header="Verified" dataType="boolean" headerStyle="width: 8rem" bodyClass="p-text-center">
+                    <Column field="verified" header="Verified" dataType="boolean" bodyClass="p-text-center" style="min-width:8rem">
                         <template #body="{data}">
                             <i class="pi" :class="{'true-icon pi-check-circle': data.verified, 'false-icon pi-times-circle': !data.verified}"></i>
                         </template>
@@ -131,7 +131,7 @@
                 <h5>Filter Row</h5>
                 <p>Filters are displayed inline within a separate row.</p>
                 <DataTable :value="customers2" :paginator="true" class="p-datatable-customers" :rows="10"
-                    dataKey="id" v-model:filters="filters2" filterDisplay="row" :loading="loading2"
+                    dataKey="id" v-model:filters="filters2" filterDisplay="row" :loading="loading2" responsiveLayout="scroll"
                     :globalFilterFields="['name','country.name','representative.name','status']">
                     <template #header>
                         <div class="p-d-flex p-jc-end">
@@ -147,7 +147,7 @@
                     <template #loading>
                         Loading customers data. Please wait.
                     </template>
-                    <Column field="name" header="Name">
+                    <Column field="name" header="Name" style="min-width:12rem">
                         <template #body="{data}">
                             {{data.name}}
                         </template>
@@ -155,7 +155,7 @@
                             <InputText type="text" v-model="filterModel.value" @keydown.enter="filterCallback()" class="p-column-filter" :placeholder="`Search by name - ${filterModel.matchMode}`" v-tooltip.top.focus="'Hit enter key to filter'"/>
                         </template>
                     </Column>
-                    <Column header="Country" filterField="country.name">
+                    <Column header="Country" filterField="country.name" style="min-width:12rem">
                         <template #body="{data}">
                             <img src="../../assets/images/flag_placeholder.png" :class="'flag flag-' + data.country.code" width="30" />
                             <span class="image-text">{{data.country.name}}</span>
@@ -164,7 +164,7 @@
                             <InputText type="text" v-model="filterModel.value" @input="filterCallback()" class="p-column-filter" placeholder="Search by country" v-tooltip.top.focus="'Filter as you type'"/>
                         </template>
                     </Column>
-                    <Column header="Agent" filterField="representative" :showFilterMenu="false">
+                    <Column header="Agent" filterField="representative" :showFilterMenu="false" style="min-width:14rem">
                         <template #body="{data}">
                             <img :alt="data.representative.name" :src="'demo/images/avatar/' + data.representative.image" width="32" style="vertical-align: middle" />
                             <span class="image-text">{{data.representative.name}}</span>
@@ -180,7 +180,7 @@
                             </MultiSelect>
                         </template>
                     </Column>
-                    <Column field="status" header="Status" :showFilterMenu="false">
+                    <Column field="status" header="Status" :showFilterMenu="false" style="min-width:12rem">
                         <template #body="{data}">
                             <span :class="'customer-badge status-' + data.status">{{data.status}}</span>
                         </template>
@@ -196,7 +196,7 @@
                             </Dropdown>
                         </template>
                     </Column>
-                    <Column field="verified" header="Verified" dataType="boolean" headerStyle="width: 6rem">
+                    <Column field="verified" header="Verified" dataType="boolean" style="min-width:6rem">
                         <template #body="{data}">
                             <i class="pi" :class="{'true-icon pi-check-circle': data.verified, 'false-icon pi-times-circle': !data.verified}"></i>
                         </template>
@@ -216,7 +216,7 @@
     &lt;h5&gt;Filter Menu&lt;/h5&gt;
     &lt;p&gt;Filters are displayed in an overlay.&lt;/p&gt;
     &lt;DataTable :value="customers1" :paginator="true" class="p-datatable-customers p-datatable-gridlines" :rows="10"
-        dataKey="id" v-model:filters="filters1" filterDisplay="menu" :loading="loading1"
+        dataKey="id" v-model:filters="filters1" filterDisplay="menu" :loading="loading1" responsiveLayout="scroll"
         :globalFilterFields="['name','country.name','representative.name','balance','status']"&gt;
         &lt;template #header&gt;
             &lt;div class="p-d-flex p-jc-between"&gt;
@@ -233,7 +233,7 @@
         &lt;template #loading&gt;
             Loading customers data. Please wait.
         &lt;/template&gt;
-        &lt;Column field="name" header="Name"&gt;
+        &lt;Column field="name" header="Name" style="min-width:12rem"&gt;
             &lt;template #body="{data}"&gt;
                 {{data.name}}
             &lt;/template&gt;
@@ -241,7 +241,7 @@
                 &lt;InputText type="text" v-model="filterModel.value" class="p-column-filter" placeholder="Search by name"/&gt;
             &lt;/template&gt;
         &lt;/Column&gt;
-        &lt;Column header="Country" filterField="country.name"&gt;
+        &lt;Column header="Country" filterField="country.name" style="min-width:12rem"&gt;
             &lt;template #body="{data}"&gt;
                 &lt;img src="../../assets/images/flag_placeholder.png" :class="'flag flag-' + data.country.code" width="30" /&gt;
                 &lt;span class="image-text"&gt;{{data.country.name}}&lt;/span&gt;
@@ -259,7 +259,7 @@
                 &lt;div class="p-px-3 p-pt-0 p-pb-3 p-text-center p-text-bold"&gt;Customized Buttons&lt;/div&gt;
             &lt;/template&gt;
         &lt;/Column&gt;
-        &lt;Column header="Agent" filterField="representative" :showFilterMatchModes="false" :filterMenuStyle="{'width':'14rem'}"&gt;
+        &lt;Column header="Agent" filterField="representative" :showFilterMatchModes="false" :filterMenuStyle="{'width':'14rem'}" style="min-width:14rem"&gt;
             &lt;template #body="{data}"&gt;
                 &lt;img :alt="data.representative.name" :src="'demo/images/avatar/' + data.representative.image" width="32" style="vertical-align: middle" /&gt;
                 &lt;span class="image-text"&gt;{{data.representative.name}}&lt;/span&gt;
@@ -276,7 +276,7 @@
                 &lt;/MultiSelect&gt;
             &lt;/template&gt;
         &lt;/Column&gt;
-        &lt;Column header="Date" filterField="date" dataType="date"&gt;
+        &lt;Column header="Date" filterField="date" dataType="date" style="min-width:10rem"&gt;
             &lt;template #body="{data}"&gt;
                 {{formatDate(data.date)}}
             &lt;/template&gt;
@@ -284,7 +284,7 @@
                 &lt;Calendar v-model="filterModel.value" dateFormat="mm/dd/yy" placeholder="mm/dd/yyyy" /&gt;
             &lt;/template&gt;
         &lt;/Column&gt;
-        &lt;Column header="Balance" filterField="balance" dataType="numeric"&gt;
+        &lt;Column header="Balance" filterField="balance" dataType="numeric" style="min-width:10rem"&gt;
             &lt;template #body="{data}"&gt;
                 {{formatCurrency(data.balance)}}
             &lt;/template&gt;
@@ -292,7 +292,7 @@
                 &lt;InputNumber v-model="filterModel.value" mode="currency" currency="USD" locale="en-US" /&gt;
             &lt;/template&gt;
         &lt;/Column&gt;
-        &lt;Column field="status" header="Status" :filterMenuStyle="{'width':'14rem'}"&gt;
+        &lt;Column field="status" header="Status" :filterMenuStyle="{'width':'14rem'}" style="min-width:12rem"&gt;
             &lt;template #body="{data}"&gt;
                 &lt;span :class="'customer-badge status-' + data.status"&gt;{{data.status}}&lt;/span&gt;
             &lt;/template&gt;
@@ -320,7 +320,7 @@
                 &lt;/div&gt;
             &lt;/template&gt;
         &lt;/Column&gt;
-        &lt;Column field="verified" header="Verified" dataType="boolean" headerStyle="width: 8rem" bodyClass="p-text-center"&gt;
+        &lt;Column field="verified" header="Verified" dataType="boolean" bodyClass="p-text-center" style="min-width:8rem"&gt;
             &lt;template #body="{data}"&gt;
                 &lt;i class="pi" :class="{'true-icon pi-check-circle': data.verified, 'false-icon pi-times-circle': !data.verified}"&gt;&lt;/i&gt;
             &lt;/template&gt;
@@ -335,7 +335,7 @@
     &lt;h5&gt;Filter Row&lt;/h5&gt;
     &lt;p&gt;Filters are displayed inline within a separate row.&lt;/p&gt;
     &lt;DataTable :value="customers2" :paginator="true" class="p-datatable-customers" :rows="10"
-        dataKey="id" v-model:filters="filters2" filterDisplay="row" :loading="loading2"
+        dataKey="id" v-model:filters="filters2" filterDisplay="row" :loading="loading2" responsiveLayout="scroll"
         :globalFilterFields="['name','country.name','representative.name','status']"&gt;
         &lt;template #header&gt;
             &lt;div class="p-d-flex p-jc-end"&gt;
@@ -351,7 +351,7 @@
         &lt;template #loading&gt;
             Loading customers data. Please wait.
         &lt;/template&gt;
-        &lt;Column field="name" header="Name"&gt;
+        &lt;Column field="name" header="Name" style="min-width:12rem"&gt;
             &lt;template #body="{data}"&gt;
                 {{data.name}}
             &lt;/template&gt;
@@ -359,7 +359,7 @@
                 &lt;InputText type="text" v-model="filterModel.value" @keydown.enter="filterCallback()" class="p-column-filter" :placeholder="`Search by name - ${filterModel.matchMode}`" v-tooltip.top.focus="'Hit enter key to filter'"/&gt;
             &lt;/template&gt;
         &lt;/Column&gt;
-        &lt;Column header="Country" filterField="country.name"&gt;
+        &lt;Column header="Country" filterField="country.name" style="min-width:12rem"&gt;
             &lt;template #body="{data}"&gt;
                 &lt;img src="../../assets/images/flag_placeholder.png" :class="'flag flag-' + data.country.code" width="30" /&gt;
                 &lt;span class="image-text"&gt;{{data.country.name}}&lt;/span&gt;
@@ -368,7 +368,7 @@
                 &lt;InputText type="text" v-model="filterModel.value" @input="filterCallback()" class="p-column-filter" placeholder="Search by country" v-tooltip.top.focus="'Filter as you type'"/&gt;
             &lt;/template&gt;
         &lt;/Column&gt;
-        &lt;Column header="Agent" filterField="representative" :showFilterMenu="false"&gt;
+        &lt;Column header="Agent" filterField="representative" :showFilterMenu="false" style="min-width:14rem"&gt;
             &lt;template #body="{data}"&gt;
                 &lt;img :alt="data.representative.name" :src="'demo/images/avatar/' + data.representative.image" width="32" style="vertical-align: middle" /&gt;
                 &lt;span class="image-text"&gt;{{data.representative.name}}&lt;/span&gt;
@@ -384,7 +384,7 @@
                 &lt;/MultiSelect&gt;
             &lt;/template&gt;
         &lt;/Column&gt;
-        &lt;Column field="status" header="Status" :showFilterMenu="false"&gt;
+        &lt;Column field="status" header="Status" :showFilterMenu="false" style="min-width:12rem"&gt;
             &lt;template #body="{data}"&gt;
                 &lt;span :class="'customer-badge status-' + data.status"&gt;{{data.status}}&lt;/span&gt;
             &lt;/template&gt;
@@ -400,7 +400,7 @@
                 &lt;/Dropdown&gt;
             &lt;/template&gt;
         &lt;/Column&gt;
-        &lt;Column field="verified" header="Verified" dataType="boolean" headerStyle="width: 6rem"&gt;
+        &lt;Column field="verified" header="Verified" dataType="boolean" style="min-width:6rem"&gt;
             &lt;template #body="{data}"&gt;
                 &lt;i class="pi" :class="{'true-icon pi-check-circle': data.verified, 'false-icon pi-times-circle': !data.verified}"&gt;&lt;/i&gt;
             &lt;/template&gt;

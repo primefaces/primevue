@@ -161,7 +161,7 @@ toggle(event) {
 &lt;Button type="button" icon="pi pi-search" :label="selectedProduct ? selectedProduct.name : 'Select a Product'" @click="toggle" aria:haspopup="true" aria-controls="overlay_panel" /&gt;
 
 &lt;OverlayPanel ref="op" appendTo="body" :showCloseIcon="true" id="overlay_panel" style="width: 450px"&gt;
-    &lt;DataTable :value="products" v-model:selection="selectedProduct" selectionMode="single" :paginator="true" :rows="5" @row-select="onProductSelect"&gt;
+    &lt;DataTable :value="products" v-model:selection="selectedProduct" selectionMode="single" :paginator="true" :rows="5" @row-select="onProductSelect" responsiveLayout="scroll"&gt;
         &lt;Column field="name" header="Name" sortable&gt;&lt;/Column&gt;
         &lt;Column header="Image"&gt;
             &lt;template #body="slotProps"&gt;

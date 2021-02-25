@@ -10,7 +10,7 @@
 		<div class="content-section implementation">
             <div class="card">
                 <DataTable :value="products" v-model:expandedRows="expandedRows" dataKey="id"
-                    @row-expand="onRowExpand" @row-collapse="onRowCollapse">
+                    @row-expand="onRowExpand" @row-collapse="onRowCollapse" responsiveLayout="scroll">
                     <template #header>
                         <div class="table-header-container">
                             <Button icon="pi pi-plus" label="Expand All" @click="expandAll" class="p-mr-2" />
@@ -43,7 +43,7 @@
                     <template #expansion="slotProps">
                         <div class="orders-subtable">
                             <h5>Orders for {{slotProps.data.name}}</h5>
-                            <DataTable :value="slotProps.data.orders">
+                            <DataTable :value="slotProps.data.orders" responsiveLayout="scroll">
                                 <Column field="id" header="Id" sortable></Column>
                                 <Column field="customer" header="Customer" sortable></Column>
                                 <Column field="date" header="Date" sortable></Column>
@@ -77,7 +77,7 @@
                     </div>
 <pre v-code><code><template v-pre>
 &lt;DataTable :value="products" v-model:expandedRows="expandedRows" dataKey="id"
-    @row-expand="onRowExpand" @row-collapse="onRowCollapse"&gt;
+    @row-expand="onRowExpand" @row-collapse="onRowCollapse" responsiveLayout="scroll"&gt;
     &lt;template #header&gt;
         &lt;div class="table-header-container"&gt;
             &lt;Button icon="pi pi-plus" label="Expand All" @click="expandAll" class="p-mr-2" /&gt;
@@ -110,7 +110,7 @@
     &lt;template #expansion="slotProps"&gt;
         &lt;div class="orders-subtable"&gt;
             &lt;h5&gt;Orders for {{slotProps.data.name}}&lt;/h5&gt;
-            &lt;DataTable :value="slotProps.data.orders"&gt;
+            &lt;DataTable :value="slotProps.data.orders" responsiveLayout="scroll"&gt;
                 &lt;Column field="id" header="Id" sortable&gt;&lt;/Column&gt;
                 &lt;Column field="customer" header="Customer" sortable&gt;&lt;/Column&gt;
                 &lt;Column field="date" header="Date" sortable&gt;&lt;/Column&gt;

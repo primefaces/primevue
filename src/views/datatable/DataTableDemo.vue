@@ -13,7 +13,7 @@
                     dataKey="id" :rowHover="true" v-model:selection="selectedCustomers" v-model:filters="filters" filterDisplay="menu" :loading="loading"
                     paginatorTemplate="FirstPageLink PrevPageLink PageLinks NextPageLink LastPageLink CurrentPageReport RowsPerPageDropdown" :rowsPerPageOptions="[10,25,50]"
                     currentPageReportTemplate="Showing {first} to {last} of {totalRecords} entries"
-                    :globalFilterFields="['name','country.name','representative.name','status']">
+                    :globalFilterFields="['name','country.name','representative.name','status']" responsiveLayout="scroll">
                     <template #header>
                          <div class="p-d-flex p-jc-between p-ai-center">
                             <h5 class="p-m-0">Customers</h5>
@@ -29,8 +29,8 @@
                     <template #loading>
                         Loading customers data. Please wait.
                     </template>
-                    <Column selectionMode="multiple" headerStyle="width: 3rem"></Column>
-                    <Column field="name" header="Name" sortable>
+                    <Column selectionMode="multiple" style="min-width: 3rem"></Column>
+                    <Column field="name" header="Name" sortable style="min-width: 14rem">
                         <template #body="{data}">
                             {{data.name}}
                         </template>
@@ -38,7 +38,7 @@
                             <InputText type="text" v-model="filterModel.value" class="p-column-filter" placeholder="Search by name"/>
                         </template>
                     </Column>
-                    <Column field="country.name" header="Country" sortable filterMatchMode="contains">
+                    <Column field="country.name" header="Country" sortable filterMatchMode="contains" style="min-width: 14rem">
                         <template #body="{data}">
                             <img src="../../assets/images/flag_placeholder.png" :class="'flag flag-' + data.country.code" width="30" />
                             <span class="image-text">{{data.country.name}}</span>
@@ -47,7 +47,7 @@
                             <InputText type="text" v-model="filterModel.value" class="p-column-filter" placeholder="Search by country"/>
                         </template>
                     </Column>
-                    <Column header="Agent" sortable filterField="representative" sortField="representative.name" :showFilterMatchModes="false" :filterMenuStyle="{'width':'14rem'}">
+                    <Column header="Agent" sortable filterField="representative" sortField="representative.name" :showFilterMatchModes="false" :filterMenuStyle="{'width':'14rem'}" style="min-width: 14rem">
                          <template #body="{data}">
                             <img :alt="data.representative.name" :src="'demo/images/avatar/' + data.representative.image" width="32" style="vertical-align: middle" />
                             <span class="image-text">{{data.representative.name}}</span>
@@ -64,7 +64,7 @@
                             </MultiSelect>
                         </template>
                     </Column>
-                    <Column field="date" header="Date" sortable dataType="date">
+                    <Column field="date" header="Date" sortable dataType="date" style="min-width: 8rem">
                         <template #body="{data}">
                             {{formatDate(data.date)}}
                         </template>
@@ -72,7 +72,7 @@
                             <Calendar v-model="filterModel.value" dateFormat="mm/dd/yy" placeholder="mm/dd/yyyy" />
                         </template>
                     </Column>
-                    <Column field="balance" header="Balance" sortable dataType="numeric">
+                    <Column field="balance" header="Balance" sortable dataType="numeric" style="min-width: 8rem">
                         <template #body="{data}">
                             {{formatCurrency(data.balance)}}
                         </template>
@@ -80,7 +80,7 @@
                             <InputNumber v-model="filterModel.value" mode="currency" currency="USD" locale="en-US" />
                         </template>
                     </Column>
-                    <Column field="status" header="Status" sortable :filterMenuStyle="{'width':'14rem'}">
+                    <Column field="status" header="Status" sortable :filterMenuStyle="{'width':'14rem'}" style="min-width: 10rem">
                         <template #body="{data}">
                             <span :class="'customer-badge status-' + data.status">{{data.status}}</span>
                         </template>
@@ -95,7 +95,7 @@
                             </Dropdown>
                         </template>
                     </Column>
-                    <Column field="activity" header="Activity" sortable :showFilterMatchModes="false">
+                    <Column field="activity" header="Activity" sortable :showFilterMatchModes="false" style="min-width: 10rem">
                         <template #body="{data}">
                             <ProgressBar :value="data.activity" :showValue="false" />
                         </template>
@@ -107,7 +107,7 @@
                             </div>
                         </template>
                     </Column>
-                    <Column headerStyle="width: 8rem; text-align: center" bodyStyle="text-align: center; overflow: visible">
+                    <Column headerStyle="min-width: 4rem; text-align: center" bodyStyle="text-align: center; overflow: visible">
                         <template #body>
                             <Button type="button" icon="pi pi-cog"></Button>
                         </template>

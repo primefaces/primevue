@@ -27,7 +27,6 @@
                             {{formatCurrency(slotProps.data.price)}}
                         </template>
                     </Column>
-                    <Column field="category" header="Category"></Column>
                     <Column field="rating" header="Reviews">
                         <template #body="slotProps">
                            <Rating :modelValue="slotProps.data.rating" :readonly="true" :cancel="false" />
@@ -70,7 +69,6 @@
             {{formatCurrency(slotProps.data.price)}}
         &lt;/template&gt;
     &lt;/Column&gt;
-    &lt;Column field="category" header="Category"&gt;&lt;/Column&gt;
     &lt;Column field="rating" header="Reviews"&gt;
         &lt;template #body="slotProps"&gt;
             &lt;Rating :modelValue="slotProps.data.rating" :readonly="true" :cancel="false" /&gt;
@@ -165,7 +163,6 @@ export default {
                             {{formatCurrency(slotProps.data.price)}}
                         </template>
                     </Column>
-                    <Column field="category" header="Category"></Column>
                     <Column field="rating" header="Reviews">
                         <template #body="slotProps">
                            <Rating :modelValue="slotProps.data.rating" :readonly="true" :cancel="false" />

@@ -263,7 +263,7 @@
                         <DataTable :value="customers" :paginator="true" :rows="10"
                             dataKey="id" :rowHover="true" v-model:selection="selectedCustomers" :filters="filters"
                             paginatorTemplate="FirstPageLink PrevPageLink PageLinks NextPageLink LastPageLink CurrentPageReport RowsPerPageDropdown" :rowsPerPageOptions="[10,25,50]"
-                            currentPageReportTemplate="Showing {first} to {last} of {totalRecords} entries">
+                            currentPageReportTemplate="Showing {first} to {last} of {totalRecords} entries" responsiveLayout="scroll">
                             <template #header>
                                 <div class="p-d-flex p-ai-center p-jc-between">
                                     DataTable
@@ -276,24 +276,24 @@
                             <template #empty>
                                 No customers found.
                             </template>
-                            <Column selectionMode="multiple" headerStyle="width: 3em"></Column>
-                            <Column field="name" header="Name" :sortable="true">
+                            <Column selectionMode="multiple" headerStyle="width: 3rem"></Column>
+                            <Column field="name" header="Name" :sortable="true" style="min-width:16rem">
                                 <template #body="slotProps">
                                     {{slotProps.data.name}}
                                 </template>
                             </Column>
-                            <Column header="Country" :sortable="true" sortField="country.name" filterField="country.name" filterMatchMode="contains">
+                            <Column header="Country" :sortable="true" sortField="country.name" filterField="country.name" filterMatchMode="contains" style="min-width:16rem">
                                 <template #body="slotProps">
                                     <img src="../../assets/images/flag_placeholder.png" :class="'flag flag-' + slotProps.data.country.code" width="30" class="p-mr-2" />
                                     <span class="image-text">{{slotProps.data.country.name}}</span>
                                 </template>
                             </Column>
-                            <Column field="status" header="Status" :sortable="true" filterMatchMode="equals">
+                            <Column field="status" header="Status" :sortable="true" filterMatchMode="equals" style="min-width:16rem">
                                 <template #body="slotProps">
                                     <span :class="'customer-badge status-' + slotProps.data.status">{{slotProps.data.status}}</span>
                                 </template>
                             </Column>
-                            <Column field="activity" header="Activity" :sortable="true" filterMatchMode="gte">
+                            <Column field="activity" header="Activity" :sortable="true" filterMatchMode="gte" style="min-width:16rem">
                                 <template #body="slotProps">
                                     <ProgressBar :value="slotProps.data.activity" :showValue="false" style="width: 100px"/>
                                 </template>

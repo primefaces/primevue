@@ -385,7 +385,7 @@ export default {
             this.updateScrollWidth();
         }
 
-        if (this.responsiveLayout === 'stack') {
+        if (this.responsiveLayout === 'stack' && !this.scrollable) {
             this.createResponsiveStyle();
         }
     },
@@ -1591,6 +1591,12 @@ export default {
         border: 0 none;
     }
 
+    .p-datatable[${this.attributeSelector}].p-datatable-gridlines .p-datatable-tbody > tr > td:last-child {
+        border-top: 0;
+        border-right: 0;
+        border-left: 0;
+    }
+
     .p-datatable[${this.attributeSelector}] .p-datatable-tbody > tr > td > .p-column-title {
         display: block;
     }
@@ -1769,7 +1775,6 @@ export default {
     border-collapse: collapse;
     width: 100%;
     table-layout: fixed;
-    white-space: nowrap;
 }
 
 .p-datatable .p-sortable-column {

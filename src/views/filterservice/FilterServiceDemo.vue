@@ -12,7 +12,7 @@
                 <h5>Table Integration</h5>
                 <p>A custom equals filter that checks for exact case sensitive value is registered and defined as a match mode of a column filter.</p>
 
-                <DataTable :value="customers" :paginator="true" :rows="10"
+                <DataTable :value="customers" :paginator="true" :rows="10" responsiveLayout="scroll"
                     dataKey="id" v-model:filters="filters" filterDisplay="row" :loading="loading">
                     <template #empty>
                         No customers found.

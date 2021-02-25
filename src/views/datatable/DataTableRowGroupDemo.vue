@@ -43,7 +43,7 @@
                 <h5>Expandable Row Groups</h5>
                 <p>Group customers by their representative.</p>
                 <DataTable :value="customers" rowGroupMode="subheader" groupRowsBy="representative.name"
-                    sortMode="single" sortField="representative.name" :sortOrder="1"
+                    sortMode="single" sortField="representative.name" :sortOrder="1" responsiveLayout="scroll"
                     :expandableRowGroups="true" v-model:expandedRowGroups="expandedRowGroups"
                     @rowgroup-expand="onRowGroupExpand" @rowgroup-collapse="onRowGroupCollapse">
                     <Column field="representative.name" header="Representative"></Column>
@@ -75,7 +75,7 @@
             <div class="card">
                 <h5>RowSpan Grouping</h5>
                 <DataTable :value="customers" rowGroupMode="rowspan"  groupRowsBy="representative.name"
-                    sortMode="single" sortField="representative.name" :sortOrder="1">
+                    sortMode="single" sortField="representative.name" :sortOrder="1" responsiveLayout="scroll">
                     <Column header="#" headerStyle="width:3em">
                         <template #body="slotProps">
                             {{slotProps.index}}
@@ -115,7 +115,7 @@
 &lt;div class="card"&gt;
     &lt;h5&gt;Subheader Grouping&lt;/h5&gt;
     &lt;p&gt;Group customers by their representative.&lt;/p&gt;
-    &lt;DataTable :value="customers" rowGroupMode="subheader" groupRowsBy="representative.name"
+    &lt;DataTable :value="customers" rowGroupMode="subheader" groupRowsBy="representative.name"  responsiveLayout="scroll"
         sortMode="single" sortField="representative.name" :sortOrder="1" scrollable scrollHeight="400px"&gt;
         &lt;Column field="representative.name" header="Representative"&gt;&lt;/Column&gt;
         &lt;Column field="name" header="Name"&gt;&lt;/Column&gt;
@@ -147,7 +147,7 @@
     &lt;h5&gt;Expandable Row Groups&lt;/h5&gt;
     &lt;p&gt;Group customers by their representative.&lt;/p&gt;
     &lt;DataTable :value="customers" rowGroupMode="subheader" groupRowsBy="representative.name"
-        sortMode="single" sortField="representative.name" :sortOrder="1"
+        sortMode="single" sortField="representative.name" :sortOrder="1" responsiveLayout="scroll"
         :expandableRowGroups="true" v-model:expandedRowGroups="expandedRowGroups"
         @rowgroup-expand="onRowGroupExpand" @rowgroup-collapse="onRowGroupCollapse"&gt;
         &lt;Column field="representative.name" header="Representative"&gt;&lt;/Column&gt;
@@ -179,7 +179,7 @@
 &lt;div class="card"&gt;
     &lt;h5&gt;RowSpan Grouping&lt;/h5&gt;
     &lt;DataTable :value="customers" rowGroupMode="rowspan"  groupRowsBy="representative.name"
-        sortMode="single" sortField="representative.name" :sortOrder="1"&gt;
+        sortMode="single" sortField="representative.name" :sortOrder="1" responsiveLayout="scroll"&gt;
         &lt;Column header="#" headerStyle="width:3em"&gt;
             &lt;template #body="slotProps"&gt;
                 {{slotProps.index}}

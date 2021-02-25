@@ -21,7 +21,7 @@
                 </div>
 
                 <DeferredContent @load="onDataLoad">
-                    <DataTable :value="products">
+                    <DataTable :value="products" responsiveLayout="scroll">
                         <Column field="code" header="Code"></Column>
                         <Column field="name" header="Name"></Column>
                         <Column field="category" header="Category"></Column>

@@ -389,7 +389,7 @@ export default {
                  </div>
 
                 <h5>DataTable</h5>
-                <DataTable :value="products">
+                <DataTable :value="products" responsiveLayout="scroll">
                     <Column field="code" header="Code">
                         <template #body>
                             <Skeleton></Skeleton>

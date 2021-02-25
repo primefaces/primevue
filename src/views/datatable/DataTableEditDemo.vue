@@ -13,7 +13,7 @@
             <div class="card">
                 <h5>Basic Cell Editing</h5>
                 <p>Simple editors with v-model.</p>
-                <DataTable :value="products1" editMode="cell" class="editable-cells-table">
+                <DataTable :value="products1" editMode="cell" class="editable-cells-table" responsiveLayout="scroll">
                     <Column field="code" header="Code">
                         <template #editor="slotProps">
                             <InputText v-model="slotProps.data[slotProps.column.props.field]" />
@@ -47,7 +47,7 @@
             <div class="card">
                 <h5>Advanced Cell Editing</h5>
                 <p>Custom implementation with validations, dynamic columns and reverting values with the escape key.</p>
-                <DataTable :value="products2" editMode="cell" @cell-edit-complete="onCellEditComplete" class="editable-cells-table" >
+                <DataTable :value="products2" editMode="cell" @cell-edit-complete="onCellEditComplete" class="editable-cells-table" responsiveLayout="scroll">
                     <Column v-for="col of columns" :field="col.field" :header="col.header" :key="col.field">
                         <template #editor="slotProps">
                             <InputText :modelValue="slotProps.data[slotProps.column.props.field]" @update:modelValue="onCellEdit($event, slotProps)" />
@@ -59,7 +59,7 @@
             <div class="card">
                 <h5>Row Editing</h5>
                 <DataTable :value="products3" editMode="row" dataKey="id" v-model:editingRows="editingRows"
-                    @row-edit-init="onRowEditInit" @row-edit-cancel="onRowEditCancel">
+                    @row-edit-init="onRowEditInit" @row-edit-cancel="onRowEditCancel" responsiveLayout="scroll">
                     <Column field="code" header="Code">
                         <template #editor="slotProps">
                             <InputText v-model="slotProps.data[slotProps.column.props.field]" autofocus />
@@ -101,7 +101,7 @@
 <pre v-code><code><template v-pre>
 &lt;h5&gt;Basic Cell Editing&lt;/h5&gt;
 &lt;p&gt;Simple editors with v-model.&lt;/p&gt;
-&lt;DataTable :value="products1" editMode="cell" class="editable-cells-table"&gt;
+&lt;DataTable :value="products1" editMode="cell" class="editable-cells-table" responsiveLayout="scroll"&gt;
     &lt;Column field="code" header="Code"&gt;
         &lt;template #editor="slotProps"&gt;
             &lt;InputText v-model="slotProps.data[slotProps.column.props.field]" /&gt;
@@ -135,7 +135,7 @@
 &lt;div class="card"&gt;
 &lt;h5&gt;Advanced Cell Editing&lt;/h5&gt;
 &lt;p&gt;Custom implementation with validations, dynamic columns and reverting values with the escape key.&lt;/p&gt;
-&lt;DataTable :value="products2" editMode="cell" @cell-edit-complete="onCellEditComplete" class="editable-cells-table" &gt;
+&lt;DataTable :value="products2" editMode="cell" @cell-edit-complete="onCellEditComplete" class="editable-cells-table" responsiveLayout="scroll"&gt;
     &lt;Column v-for="col of columns" :field="col.field" :header="col.header" :key="col.field"&gt;
         &lt;template #editor="slotProps"&gt;
             &lt;InputText :modelValue="slotProps.data[slotProps.column.props.field]" @update:modelValue="onCellEdit($event, slotProps)" /&gt;
@@ -147,7 +147,7 @@
 &lt;div class="card"&gt;
 &lt;h5&gt;Row Editing&lt;/h5&gt;
 &lt;DataTable :value="products3" editMode="row" dataKey="id" v-model:editingRows="editingRows"
-    @row-edit-init="onRowEditInit" @row-edit-cancel="onRowEditCancel"&gt;
+    @row-edit-init="onRowEditInit" @row-edit-cancel="onRowEditCancel" responsiveLayout="scroll"&gt;
     &lt;Column field="code" header="Code"&gt;
         &lt;template #editor="slotProps"&gt;
             &lt;InputText v-model="slotProps.data[slotProps.column.props.field]" autofocus /&gt;
@@ -321,7 +321,7 @@ export default {
             <div class="card">
                 <h5>Basic Cell Editing</h5>
                 <p>Simple editors with v-model.</p>
-                <DataTable :value="products1" editMode="cell" class="editable-cells-table">
+                <DataTable :value="products1" editMode="cell" class="editable-cells-table" responsiveLayout="scroll">
                     <Column field="code" header="Code">
                         <template #editor="slotProps">
                             <InputText v-model="slotProps.data[slotProps.column.props.field]" />
@@ -355,7 +355,7 @@ export default {
             <div class="card">
                 <h5>Advanced Cell Editing</h5>
                 <p>Custom implementation with validations, dynamic columns and reverting values with the escape key.</p>
-                <DataTable :value="products2" editMode="cell" @cellEditComplete="onCellEditComplete" class="editable-cells-table" >
+                <DataTable :value="products2" editMode="cell" @cellEditComplete="onCellEditComplete" class="editable-cells-table" responsiveLayout="scroll">
                     <Column v-for="col of columns" :field="col.field" :header="col.header" :key="col.field">
                         <template #editor="slotProps">
                             <InputText :modelValue="slotProps.data[slotProps.column.props.field]" @update:modelValue="onCellEdit($event, slotProps)" />
@@ -367,7 +367,7 @@ export default {
             <div class="card">
                 <h5>Row Editing</h5>
                 <DataTable :value="products3" editMode="row" dataKey="id" v-model:editingRows="editingRows"
-                    @rowEditInit="onRowEditInit" @rowEditCancel="onRowEditCancel">
+                    @rowEditInit="onRowEditInit" @rowEditCancel="onRowEditCancel" responsiveLayout="scroll">
                     <Column field="code" header="Code">
                         <template #editor="slotProps">
                             <InputText v-model="slotProps.data[slotProps.column.props.field]" autofocus />

@@ -9,7 +9,7 @@
 
 		<div class="content-section implementation">
             <div class="card">
-                <DataTable :value="sales">
+                <DataTable :value="sales" responsiveLayout="scroll">
                     <ColumnGroup type="header">
                         <Row>
                             <Column header="Product" :rowspan="3" />
