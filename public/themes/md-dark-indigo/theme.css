@@ -11,17 +11,17 @@
   --primary-color:#9FA8DA;
   --primary-color-text:#121212;
   --font-family:Roboto, Helvetica Neue Light, Helvetica Neue, Helvetica, Arial, Lucida Grande, sans-serif;
-  --surface-0: #000000;
-  --surface-50: #0c0c0c;
-  --surface-100: #111;
-  --surface-200: #151515;
-  --surface-300: #1a1a1a;
-  --surface-400: #1E1E1E;
-  --surface-500: #404040;
-  --surface-600: #626262;
-  --surface-700: #838383;
-  --surface-800: #a5a5a5;
-  --surface-900: #c7c7c7;
+  --surface-0: #121212;
+  --surface-50: #181818;
+  --surface-100: #1e1e1e;
+  --surface-200: #242424;
+  --surface-300: #2a2a2a;
+  --surface-400: #303030;
+  --surface-500: #363636;
+  --surface-600: #3b3b3b;
+  --surface-700: #414141;
+  --surface-800: #474747;
+  --surface-900: #4d4d4d;
   --content-padding:1rem;
   --inline-spacing:0.5rem;
 }
