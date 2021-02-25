@@ -288,17 +288,6 @@
                                     <span class="image-text">{{slotProps.data.country.name}}</span>
                                 </template>
                             </Column>
-                            <Column header="Representative" :sortable="true" sortField="representative.name" filterField="representative.name" filterMatchMode="in">
-                                <template #body="slotProps">
-                                    <img :alt="slotProps.data.representative.name" :src="'demo/images/avatar/' + slotProps.data.representative.image" width="32" style="vertical-align: middle" />
-                                    <span class="image-text p-ml-2">{{slotProps.data.representative.name}}</span>
-                                </template>
-                            </Column>
-                            <Column field="date" header="Date" :sortable="true" filterMatchMode="equals">
-                                <template #body="slotProps">
-                                    <span>{{slotProps.data.date}}</span>
-                                </template>
-                            </Column>
                             <Column field="status" header="Status" :sortable="true" filterMatchMode="equals">
                                 <template #body="slotProps">
                                     <span :class="'customer-badge status-' + slotProps.data.status">{{slotProps.data.status}}</span>
@@ -306,12 +295,7 @@
                             </Column>
                             <Column field="activity" header="Activity" :sortable="true" filterMatchMode="gte">
                                 <template #body="slotProps">
-                                    <ProgressBar :value="slotProps.data.activity" :showValue="false" />
-                                </template>
-                            </Column>
-                            <Column headerStyle="width: 8rem; text-align: center" bodyStyle="text-align: center; overflow: visible">
-                                <template #body>
-                                    <Button type="button" icon="pi pi-cog" class="p-button-secondary"></Button>
+                                    <ProgressBar :value="slotProps.data.activity" :showValue="false" style="width: 100px"/>
                                 </template>
                             </Column>
                         </DataTable>
@@ -408,7 +392,7 @@
                 <div class="p-col-12 p-md-3">
                     <div class="card p-fluid">
                         <h5>Dialog</h5>
-                        <Dialog header="Dialog" v-model:visible="display" :style="{width: '30vw'}" :modal="true">
+                        <Dialog header="Dialog" v-model:visible="display" :style="{width: '50vw'}" :breakpoints="{'960px':'75vw'}" :modal="true">
                             <p>
                                 Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam,
                                 quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit
@@ -816,17 +800,6 @@
                         &lt;span class="image-text"&gt;{{slotProps.data.country.name}}&lt;/span&gt;
                     &lt;/template&gt;
                 &lt;/Column&gt;
-                &lt;Column header="Representative" :sortable="true" sortField="representative.name" filterField="representative.name" filterMatchMode="in"&gt;
-                    &lt;template #body="slotProps"&gt;
-                        &lt;img :alt="slotProps.data.representative.name" :src="'demo/images/avatar/' + slotProps.data.representative.image" width="32" style="vertical-align: middle" /&gt;
-                        &lt;span class="image-text p-ml-2"&gt;{{slotProps.data.representative.name}}&lt;/span&gt;
-                    &lt;/template&gt;
-                &lt;/Column&gt;
-                &lt;Column field="date" header="Date" :sortable="true" filterMatchMode="equals"&gt;
-                    &lt;template #body="slotProps"&gt;
-                        &lt;span&gt;{{slotProps.data.date}}&lt;/span&gt;
-                    &lt;/template&gt;
-                &lt;/Column&gt;
                 &lt;Column field="status" header="Status" :sortable="true" filterMatchMode="equals"&gt;
                     &lt;template #body="slotProps"&gt;
                         &lt;span :class="'customer-badge status-' + slotProps.data.status"&gt;{{slotProps.data.status}}&lt;/span&gt;
@@ -835,11 +808,6 @@
                 &lt;Column field="activity" header="Activity" :sortable="true" filterMatchMode="gte"&gt;
                     &lt;template #body="slotProps"&gt;
                         &lt;ProgressBar :value="slotProps.data.activity" :showValue="false" /&gt;
-                    &lt;/template&gt;
-                &lt;/Column&gt;
-                &lt;Column headerStyle="width: 8rem; text-align: center" bodyStyle="text-align: center; overflow: visible"&gt;
-                    &lt;template #body&gt;
-                        &lt;Button type="button" icon="pi pi-cog" class="p-button-secondary"&gt;&lt;/Button&gt;
                     &lt;/template&gt;
                 &lt;/Column&gt;
             &lt;/DataTable&gt;
@@ -936,7 +904,7 @@
     &lt;div class="p-col-12 p-md-3"&gt;
         &lt;div class="card p-fluid"&gt;
             &lt;h5&gt;Dialog&lt;/h5&gt;
-            &lt;Dialog header="Dialog" v-model:visible="display" :style="{width: '30vw'}" :modal="true"&gt;
+            &lt;Dialog header="Dialog" v-model:visible="display" :style="{width: '50vw'}" :breakpoints="{'960px':'75vw'}" :modal="true"&gt;
                 &lt;p&gt;
                     Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam,
                     quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit
