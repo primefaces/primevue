@@ -910,9 +910,9 @@ matchModes: [
                 <h5>Column Widths of a Scrollable Table</h5>
                 <p>Scrollable table uses flex layout so there are a couple of rules to consider when adjusting the widths of columns.</p>
                 <ul>
-                    <li>Use min-width in vertical scrolling only so that when there is enough space columns may grow and for smaller screens a horizontal scrollbar is displayed to provide responsive design.</li>
-                    <li>When horizontal scrolling is enabled, prefer width instead of min-width.
-                    <li>In vertical scrolling only, use flex to disable grow and shrink while defining a initial width. When horizontal scrolling is enabled, this is not required as columns do not grow or shrink in horizontal scrolling.</li>
+                    <li>Use <i>min-width</i> in vertical scrolling only so that when there is enough space columns may grow and for smaller screens a horizontal scrollbar is displayed to provide responsive design.</li>
+                    <li>When horizontal scrolling is enabled, prefer <i>width</i> instead of <i>min-width</i>.</li>
+                    <li>In vertical scrolling only, use <i>flex</i> to disable grow and shrink while defining a initial width. When horizontal scrolling is enabled, this is not required as columns do not grow or shrink in horizontal scrolling.</li>
                 </ul>
 
 <pre v-code><code><template v-pre>
