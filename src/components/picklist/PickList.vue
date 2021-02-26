@@ -506,19 +506,19 @@ export default {
     }
 
     .p-picklist[${this.attributeSelector}] .pi-angle-right:before {
-        content: "e930"
+        content: "\\e930"
     }
 
     .p-picklist[${this.attributeSelector}] .pi-angle-double-right:before {
-        content: "e92c"
+        content: "\\e92c"
     }
 
     .p-picklist[${this.attributeSelector}] .pi-angle-left:before {
-        content: "e933"
+        content: "\\e933"
     }
 
     .p-picklist[${this.attributeSelector}] .pi-angle-double-left:before {
-        content: "e92f"
+        content: "\\e92f"
     }
 }
 `;
