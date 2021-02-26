@@ -136,9 +136,6 @@ export default {
         this.itemsWrapper = null;
         this.overlay = null;
     },
-    updated() {
-        this.scrollValueInView();
-    },
     methods: {
         getOptionLabel(option) {
             return this.optionLabel ? ObjectUtils.resolveFieldData(option, this.optionLabel) : option;
@@ -391,6 +388,7 @@ export default {
         },
         onOverlayEnter() {
             this.overlay.style.zIndex = String(DomHandler.generateZIndex());
+            this.scrollValueInView();
             this.appendContainer();
             this.alignOverlay();
             this.bindOutsideClickListener();
@@ -583,7 +581,7 @@ export default {
             if (this.overlay) {
                 let selectedItem = DomHandler.findSingle(this.overlay, 'li.p-highlight');
                 if (selectedItem) {
-                    DomHandler.scrollInView(this.itemsWrapper, DomHandler.findSingle(this.overlay, 'li.p-highlight'));
+                    this.itemsWrapper.scrollTop = selectedItem.offsetTop;
                 }
             }
         }
