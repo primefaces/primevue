@@ -23,14 +23,6 @@
                     "to": "/locale"
                 },
                 {
-                    "name": "Source Code",
-                    "href": "https://github.com/primefaces/primevue"
-                },
-                {
-                    "name": "Store",
-                    "href": "https://www.primefaces.org/store"
-                },
-                {
                     "name": "Accessibility",
                     "to": "/accessibility"
                 },
@@ -55,6 +47,28 @@
                 {
                     "name": "PRO Support",
                     "to": "/support"
+                }
+            ]
+        },
+        {
+            "name": "Resources",
+            "meta": ["resources"],
+            "children": [
+                {
+                    "name": "PrimeTV",
+                    "href": "https://www.youtube.com/channel/UCTgmp69aBOlLnPEqlUyetWw"
+                },
+                {
+                    "name": "Source Code",
+                    "href": "https://github.com/primefaces/primevue"
+                },
+                {
+                    "name": "Store",
+                    "href": "https://www.primefaces.org/store"
+                },
+                {
+                    "name": "Twitter",
+                    "href": "https://twitter.com/primevue?lang=en"
                 }
             ]
         },
