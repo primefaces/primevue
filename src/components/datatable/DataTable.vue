@@ -1,5 +1,5 @@
 <template>
-    <div :class="containerClass" data-scrollselectors=".p-datatable-scrollable-body, .p-datatable-unfrozen-view .p-datatable-scrollable-body">
+    <div :class="containerClass" data-scrollselectors=".p-datatable-wrapper">
         <slot></slot>
         <div class="p-datatable-loading-overlay p-component-overlay" v-if="loading">
             <i :class="loadingIconClass"></i>
