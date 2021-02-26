@@ -1428,9 +1428,17 @@ export default {
         restoreState() {
             const storage = this.getStorage();
             const stateString = storage.getItem(this.stateKey);
+            const dateFormat = /\d{4}-\d{2}-\d{2}T\d{2}:\d{2}:\d{2}.\d{3}Z/;
+            const reviver = function(key, value) {
+                if (typeof value === "string" && dateFormat.test(value)) {
+                    return new Date(value);
+                }
+
+                return value;
+            }
 
             if (stateString) {
-                let restoredState = JSON.parse(stateString);
+                let restoredState = JSON.parse(stateString, reviver);
 
                 if (this.paginator) {
                     this.d_first = restoredState.first;
