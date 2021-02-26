@@ -908,8 +908,13 @@ matchModes: [
 </code></pre>
 
                 <h5>Column Widths of a Scrollable Table</h5>
-                <p>Scrollable table uses flex layout in vertical scrolling with auto size. As a result use flex property when giving 
-                a width to a column. When horizontal scrolling is enabled, this is not a requirement as columns in horizontal scrolling do not have auto size.</p>
+                <p>Scrollable table uses flex layout so there are a couple of rules to consider when adjusting the widths of columns.</p>
+                <ul>
+                    <li>Use min-width in vertical scrolling only so that when there is enough space columns may grow and for smaller screens a horizontal scrollbar is displayed to provide responsive design.</li>
+                    <li>When horizontal scrolling is enabled, prefer width instead of min-width.
+                    <li>In vertical scrolling only, use flex to disable grow and shrink while defining a initial width. When horizontal scrolling is enabled, this is not required as columns do not grow or shrink in horizontal scrolling.</li>
+                </ul>
+
 <pre v-code><code><template v-pre>
 &lt;Column field="vin" header="Vin" style="flex: 0 0 4rem"&gt;&lt;/Column&gt;
 </template>
@@ -949,7 +954,7 @@ matchModes: [
 </code></pre>
 
                 <h6>Horizontal Scrolling</h6>
-                <p>For horizontal scrolling only, it is required to set <i>scrollDirection</i> to "horizontal" and give widths to columns.</p>
+                <p>For horizontal scrolling, it is required to set <i>scrollDirection</i> to "horizontal" and give fixed widths to columns.</p>
 <pre v-code><code><template v-pre>
 &lt;DataTable :value="customers" :scrollable="true"  scrollDirection="horizontal"&gt;
     &lt;Column field="id" header="Id" footer="Id" :style="{width:'200px'}"&gt;&lt;/Column&gt;
@@ -966,7 +971,7 @@ matchModes: [
 </code></pre>
 
                 <h6>Horizontal and Vertical Scrolling</h6>
-                <p>Set <i>scrollDirection</i> to "both" and give widths to columns to scroll both ways.</p>
+                <p>Set <i>scrollDirection</i> to "both" and give fixed widths to columns to scroll both ways.</p>
 <pre v-code><code><template v-pre>
 &lt;DataTable :value="customers" :scrollable="true" scrollHeight="400px" scrollDirection="both"&gt;
     &lt;Column field="id" header="Id" footer="Id" :style="{width:'200px'}"&gt;&lt;/Column&gt;
