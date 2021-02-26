@@ -1786,7 +1786,7 @@ export default {
 
                <h5>Responsive</h5>
                <p>DataTable responsive layout can be achieved in two ways; first approach is displaying a horizontal scrollbar for smaller screens 
-                    and second one is defining a breakpoint to display the cells of a row as stacked.</p>
+                    and second one is defining a breakpoint to display the cells of a row as stacked. Scrollable tables use the scroll layout approach internally and do not require additional configuration.</p>
 
                <h6>Scroll Layout</h6>
                <p>Set <i>responsiveLayout</i> to scroll to enabled this layout. Note that, when scroll mode is enabled table-layout automatically switches to auto from fixed
