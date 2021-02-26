@@ -1,5 +1,23 @@
 # Changelog
 
+## [3.3.1](https://github.com/primefaces/primevue/tree/3.3.1) (2021-02-26)
+
+[Full Changelog](https://github.com/primefaces/primevue/compare/3.3.0...3.3.1)
+
+**Implemented New Features and Enhancements:**
+
+- Add showGridlines and stripedRows props to DataTable [\#1024](https://github.com/primefaces/primevue/issues/1024)
+- Add responsive and breakpoint props to OrderList and PickList [\#1023](https://github.com/primefaces/primevue/issues/1023)
+- New Table Responsive layout [\#1022](https://github.com/primefaces/primevue/issues/1022)
+- Feature Request: Add "tab-click" to Event from TabView [\#1015](https://github.com/primefaces/primevue/issues/1015)
+- Refactor surface color[\#1008](https://github.com/primefaces/primevue/issues/1008)
+
+**Fixed bugs:**
+
+- \[BUG\]  PrimeVue 3.3.0: Dropdown's select item logic is broken [\#1026](https://github.com/primefaces/primevue/issues/1026)
+- DataTable error while using stateStorage with date filter [\#1020](https://github.com/primefaces/primevue/issues/1020)
+- DataTable Column's header text does not align in v.3.3.0 [\#1016](https://github.com/primefaces/primevue/issues/1016)
+
 ## [3.3.0](https://github.com/primefaces/primevue/tree/3.3.0) (2021-02-23)
 
 [Full Changelog](https://github.com/primefaces/primevue/compare/3.3.0-rc.1...3.3.0)
