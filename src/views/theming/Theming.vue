@@ -27,6 +27,11 @@
             <p>Whether you have your own style guide or just need a custom theme, Designer API is the right tool to design and bring them to existence.</p>
 
             <p>Visit <a href="https://www.primefaces.org/designer/primevue">Designer API HomePage</a> for more information and live demos.</p>
+
+            <div class="video-container p-text-center">
+                <iframe width="560" height="315" src="https://www.youtube.com/embed/7SqoSutntcE" frameborder="0" allowfullscreen></iframe>
+            </div>
+
             <a href="http://www.primefaces.org/designer/primevue" class="designer-image">
                 <img alt="PrimeVue Designer" src="../../assets/images/primevue-designer.jpg" style="width: 100%" />
             </a>
