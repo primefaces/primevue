@@ -11,7 +11,7 @@
                         </template>
                     </template>
                     <li v-else-if="visible(item) && item.separator" :class="['p-menu-separator', item.class]" :style="item.style" :key="'separator' + i.toString()" role="separator"></li>
-                    <Menuitem v-else :key="item.label+i" :item="item" @click="itemClick" />
+                    <Menuitem v-else :key="item.label + i.toString()" :item="item" @click="itemClick" />
                 </template>
             </ul>
         </div>
