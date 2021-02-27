@@ -41,7 +41,7 @@
 				</button>
 			</div>
 			<ul :class="indicatorsContentClasses">
-				<li v-for="(indicator, i) of totalIndicators" :key="'p-carousel-indicator-' + i" :class="['p-carousel-indicator', {'p-highlight': d_page === i}]">
+				<li v-for="(indicator, i) of totalIndicators" :key="'p-carousel-indicator-' + i.toString()" :class="['p-carousel-indicator', {'p-highlight': d_page === i}]">
 					<button class="p-link" @click="onIndicatorClick($event, i)" type="button" />
 				</li>
 			</ul>

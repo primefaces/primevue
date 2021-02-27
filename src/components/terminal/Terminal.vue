@@ -2,7 +2,7 @@
     <div class="p-terminal p-component" @click="onClick">
         <div v-if="welcomeMessage">{{welcomeMessage}}</div>
         <div class="p-terminal-content">
-            <div v-for="(command,i) of commands" :key="command.text + '_' + i">
+            <div v-for="(command,i) of commands" :key="command.text + i.toString()">
                 <span class="p-terminal-prompt">{{prompt}}</span>
                 <span class="p-terminal-command">{{command.text}}</span>
                 <div class="p-terminal-response">{{command.response}}</div>

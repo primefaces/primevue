@@ -1,6 +1,6 @@
 <template>
     <ul class="p-submenu-list" role="tree">
-        <template v-for="(item, i) of model" :key="item.label + i">
+        <template v-for="(item, i) of model" :key="item.label + i.toString()">
             <li role="none" :class="getItemClass(item)" :style="item.style" v-if="visible(item) && !item.separator">
                 <router-link v-if="item.to && !item.disabled" :to="item.to" custom v-slot="{navigate, href}">
                     <a :href="href" :class="getLinkClass(item)" @click="onItemClick($event, item, navigate)" role="treeitem" :aria-expanded="isActive(item)"> 
@@ -20,7 +20,7 @@
                     </div>
                 </transition>
             </li>
-            <li :class="['p-menu-separator', item.class]" :style="item.style" v-if="visible(item) && item.separator" :key="'separator' + i"></li>
+            <li :class="['p-menu-separator', item.class]" :style="item.style" v-if="visible(item) && item.separator" :key="'separator' + i.toString()"></li>
         </template>
     </ul>
 </template>

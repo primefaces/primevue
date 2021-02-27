@@ -1,7 +1,7 @@
 <template>
     <transition name="p-contextmenusub" @enter="onEnter">
         <ul ref="container" :class="containerClass" role="menu" v-if="root ? true : parentActive">
-            <template v-for="(item, i) of model" :key="item.label + i">
+            <template v-for="(item, i) of model" :key="item.label + i.toString()">
                 <li role="none" :class="getItemClass(item)" :style="item.style" v-if="visible(item) && !item.separator"
                     @mouseenter="onItemMouseEnter($event, item)">
                     <router-link v-if="item.to && !item.disabled" :to="item.to" custom v-slot="{navigate, href}">
@@ -19,7 +19,7 @@
                     <sub-menu :model="item.items" v-if="visible(item) && item.items" :key="item.label + '_sub_'"
                         @leaf-click="onLeafClick" :parentActive="item === activeItem" />
                 </li>
-                <li :class="['p-menu-separator', item.class]" :style="item.style" v-if="visible(item) && item.separator" :key="'separator' + i" role="separator"></li>
+                <li :class="['p-menu-separator', item.class]" :style="item.style" v-if="visible(item) && item.separator" :key="'separator' + i.toString()" role="separator"></li>
             </template>
         </ul>
     </transition>

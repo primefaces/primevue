@@ -93,7 +93,7 @@ export default {
             return ['p-accordion-header', {'p-highlight': this.isTabActive(i), 'p-disabled': this.isTabDisabled(tab)}];
         },
         getTabAriaId(i) {
-            return this.ariaId + + '_' + i;
+            return this.ariaId + '_' + i;
         },
         getHeaderIcon(i) {
             const active = this.isTabActive(i);

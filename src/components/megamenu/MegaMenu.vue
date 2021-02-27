@@ -21,7 +21,7 @@
                             <div v-for="(column,columnIndex) of category.items" :key="category.label + '_column_' + columnIndex" :class="getColumnClassName(category)">
                                 <ul v-for="(submenu,submenuIndex) of column" class="p-megamenu-submenu" :key="submenu.label + '_submenu_' + submenuIndex" role="menu">
                                     <li :class="getSubmenuHeaderClass(submenu)" :style="submenu.style" role="presentation">{{submenu.label}}</li>
-                                    <template v-for="(item, i) of submenu.items" :key="item.label + i">
+                                    <template v-for="(item, i) of submenu.items" :key="item.label + i.toString()">
                                         <li role="none" :class="getSubmenuItemClass(item)" :style="item.style" v-if="visible(item) && !item.separator">
                                             <router-link v-if="item.to && !item.disabled" :to="item.to" custom v-slot="{navigate, href}">
                                                 <a :href="href" :class="getLinkClass(item)" @click="onLeafClick($event, item, navigate)" role="menuitem" v-ripple>
@@ -35,7 +35,7 @@
                                                 <span :class="getSubmenuIcon()" v-if="item.items"></span>
                                             </a>
                                         </li>
-                                        <li :class="['p-menu-separator', item.class]" :style="item.style" v-if="visible(item) && item.separator" :key="'separator' + i" role="separator"></li>
+                                        <li :class="['p-menu-separator', item.class]" :style="item.style" v-if="visible(item) && item.separator" :key="'separator' + i.toString()" role="separator"></li>
                                     </template>
                                 </ul>
                             </div>

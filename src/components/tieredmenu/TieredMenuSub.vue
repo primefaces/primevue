@@ -1,6 +1,6 @@
 <template>
     <ul ref="element" :class="containerClass" role="'menubar' : 'menu'" aria-orientation="horizontal">
-        <template v-for="(item, i) of model" :key="item.label + i">
+        <template v-for="(item, i) of model" :key="item.label + i.toString()">
             <li :class="getItemClass(item)" :style="item.style" v-if="visible(item) && !item.separator" 
                 @mouseenter="onItemMouseEnter($event, item)" role="none">
                 <router-link v-if="item.to && !item.disabled" :to="item.to" custom v-slot="{navigate, href}">
@@ -18,7 +18,7 @@
                 <sub-menu :model="item.items" v-if="visible(item) && item.items" :key="item.label + '_sub_'"
                     @leaf-click="onLeafClick" @keydown-item="onChildItemKeyDown" :parentActive="item === activeItem" />
             </li>
-            <li :class="['p-menu-separator', item.class]" :style="item.style" v-if="visible(item) && item.separator" :key="'separator' + i" role="separator"></li>
+            <li :class="['p-menu-separator', item.class]" :style="item.style" v-if="visible(item) && item.separator" :key="'separator' + i.toString()" role="separator"></li>
         </template>
     </ul>
 </template>
