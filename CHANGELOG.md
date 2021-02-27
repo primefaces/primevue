@@ -6,7 +6,7 @@
 
 **Fixed bugs:**
 
-- Menubar, ContextMenu, TieredMenu warning [\#1016](https://github.com/primefaces/primevue/issues/1029)
+- Menubar, ContextMenu, TieredMenu warning [\#1029](https://github.com/primefaces/primevue/issues/1029)
 
 ## [3.3.1](https://github.com/primefaces/primevue/tree/3.3.1) (2021-02-26)
 
