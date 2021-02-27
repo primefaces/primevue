@@ -1,5 +1,13 @@
 # Changelog
 
+## [3.3.2](https://github.com/primefaces/primevue/tree/3.3.2) (2021-02-27)
+
+[Full Changelog](https://github.com/primefaces/primevue/compare/3.3.1...3.3.2)
+
+**Fixed bugs:**
+
+- Menubar, ContextMenu, TieredMenu warning [\#1016](https://github.com/primefaces/primevue/issues/1029)
+
 ## [3.3.1](https://github.com/primefaces/primevue/tree/3.3.1) (2021-02-26)
 
 [Full Changelog](https://github.com/primefaces/primevue/compare/3.3.0...3.3.1)
@@ -14,7 +22,7 @@
 
 **Fixed bugs:**
 
-- \[BUG\]  PrimeVue 3.3.0: Dropdown's select item logic is broken [\#1026](https://github.com/primefaces/primevue/issues/1026)
+- PrimeVue 3.3.0: Dropdown's select item logic is broken [\#1026](https://github.com/primefaces/primevue/issues/1026)
 - DataTable error while using stateStorage with date filter [\#1020](https://github.com/primefaces/primevue/issues/1020)
 - DataTable Column's header text does not align in v.3.3.0 [\#1016](https://github.com/primefaces/primevue/issues/1016)
 
