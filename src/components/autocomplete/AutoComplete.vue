@@ -443,7 +443,7 @@ export default {
                 this.selectItem(event, this.getOptionGroupChildren(optionGroup)[item.dataset.index]);
             }
             else {
-                this.selectItem(event, this.suggestions[DomHandler.indexOfType(item)]);
+                this.selectItem(event, this.suggestions[DomHandler.index(item)]);
             }
         },
         findNextItem(item) {
