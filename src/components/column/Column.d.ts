@@ -39,6 +39,7 @@ interface ColumnProps {
     frozen?: boolean;
     alignFrozen?: string;
     exportable?: boolean;
+    filterMatchMode?: string;
 }
 
 declare class Column {

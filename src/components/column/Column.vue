@@ -161,6 +161,10 @@ export default {
         exportable: {
             type: Boolean,
             default: true
+        },
+        filterMatchMode: {
+            type: String,
+            default: null
         }
     },
     render() {
