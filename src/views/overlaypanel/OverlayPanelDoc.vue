@@ -162,13 +162,13 @@ toggle(event) {
 
 &lt;OverlayPanel ref="op" appendTo="body" :showCloseIcon="true" id="overlay_panel" style="width: 450px"&gt;
     &lt;DataTable :value="products" v-model:selection="selectedProduct" selectionMode="single" :paginator="true" :rows="5" @row-select="onProductSelect" responsiveLayout="scroll"&gt;
-        &lt;Column field="name" header="Name" sortable&gt;&lt;/Column&gt;
-        &lt;Column header="Image"&gt;
+        &lt;Column field="name" header="Name" sortable style="width: 50%"&gt;&lt;/Column&gt;
+        &lt;Column header="Image" style="width: 20%"&gt;
             &lt;template #body="slotProps"&gt;
                 &lt;img :src="'demo/images/product/' + slotProps.data.image" :alt="slotProps.data.image" class="product-image" /&gt;
             &lt;/template&gt;
         &lt;/Column&gt;
-        &lt;Column field="price" header="Price" sortable&gt;
+        &lt;Column field="price" header="Price" sortable style="width: 30%"&gt;
             &lt;template #body="slotProps"&gt;
                 {{formatCurrency(slotProps.data.price)}}
             &lt;/template&gt;
@@ -231,13 +231,13 @@ export default {
 
                 <OverlayPanel ref="op" appendTo="body" :showCloseIcon="true" id="overlay_panel" style="width: 450px">
                     <DataTable :value="products" v-model:selection="selectedProduct" selectionMode="single" :paginator="true" :rows="5" @rowSelect="onProductSelect">
-                        <Column field="name" header="Name" sortable></Column>
-                        <Column header="Image">
+                        <Column field="name" header="Name" sortable style="width: 50%"></Column>
+                        <Column header="Image"style="width: 20%">
                             <template #body="slotProps">
                                 <img src="https://www.primefaces.org/wp-content/uploads/2020/05/placeholder.png" :alt="slotProps.data.image" class="product-image" />
                             </template>
                         </Column>
-                        <Column field="price" header="Price" sortable>
+                        <Column field="price" header="Price" sortable style="width: 30%">
                             <template #body="slotProps">
                                 {{formatCurrency(slotProps.data.price)}}
                             </template>
