@@ -38,14 +38,14 @@ export default {
         },
         appendTo: {
             type: String,
-            default: null
+            default: 'body'
         },
         class: null,
         style: null
     },
     methods: {
         onDropdownButtonClick() {
-            this.$refs.menu.toggle({currentTarget: this.$el, relativeAlign: this.appendTo == null});
+            this.$refs.menu.toggle({currentTarget: this.$el});
         },
         onDefaultButtonClick() {
             this.$refs.menu.hide();

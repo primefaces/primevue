@@ -2,22 +2,24 @@
     <div ref="container" :class="containerClass">
         <input ref="input" type="text" :class="inputClass" readonly="readonly" :tabindex="tabindex" :disabled="disabled"
             @click="onInputClick" @keydown="onInputKeydown" v-if="!inline" :aria-labelledby="ariaLabelledBy"/>
-        <transition name="p-connected-overlay" @enter="onOverlayEnter" @leave="onOverlayLeave">
-            <div :ref="pickerRef" :class="pickerClass" v-if="inline ? true : overlayVisible">
-                <div class="p-colorpicker-content">
-                    <div :ref="colorSelectorRef" class="p-colorpicker-color-selector" @mousedown="onColorMousedown($event)"
-                        @touchstart="onColorDragStart($event)" @touchmove="onDrag($event)" @touchend="onDragEnd()">
-                        <div class="p-colorpicker-color">
-                            <div :ref="colorHandleRef" class="p-colorpicker-color-handle"></div>
+        <Teleport to="body" :disabled="inline">
+            <transition name="p-connected-overlay" @enter="onOverlayEnter" @leave="onOverlayLeave">
+                <div :ref="pickerRef" :class="pickerClass" v-if="inline ? true : overlayVisible">
+                    <div class="p-colorpicker-content">
+                        <div :ref="colorSelectorRef" class="p-colorpicker-color-selector" @mousedown="onColorMousedown($event)"
+                            @touchstart="onColorDragStart($event)" @touchmove="onDrag($event)" @touchend="onDragEnd()">
+                            <div class="p-colorpicker-color">
+                                <div :ref="colorHandleRef" class="p-colorpicker-color-handle"></div>
+                            </div>
+                        </div>
+                        <div :ref="hueViewRef" class="p-colorpicker-hue" @mousedown="onHueMousedown($event)"
+                            @touchstart="onHueDragStart($event)" @touchmove="onDrag($event)" @touchend="onDragEnd()">
+                            <div :ref="hueHandleRef" class="p-colorpicker-hue-handle"></div>
                         </div>
                     </div>
-                    <div :ref="hueViewRef" class="p-colorpicker-hue" @mousedown="onHueMousedown($event)"
-                        @touchstart="onHueDragStart($event)" @touchmove="onDrag($event)" @touchend="onDragEnd()">
-                        <div :ref="hueHandleRef" class="p-colorpicker-hue-handle"></div>
-                    </div>
                 </div>
-            </div>
-        </transition>
+            </transition>
+        </Teleport>
     </div>
 </template>
 
@@ -349,7 +351,7 @@ export default {
             this.clearRefs();
         },
         alignOverlay() {
-            DomHandler.relativePosition(this.picker, this.$refs.input);
+            DomHandler.absolutePosition(this.picker, this.$refs.input);
         },
         onInputClick() {
             if (this.disabled) {

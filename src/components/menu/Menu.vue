@@ -1,21 +1,23 @@
 <template>
-    <transition name="p-connected-overlay" @enter="onEnter" @leave="onLeave">
-        <div :ref="containerRef" :class="containerClass" v-if="popup ? overlayVisible : true">
-            <ul class="p-menu-list p-reset" role="menu">
-                <template v-for="(item, i) of model" :key="item.label + i.toString()">
-                    <template v-if="item.items && visible(item) && !item.separator">
-                        <li class="p-submenu-header" v-if="item.items">{{item.label}}</li>
-                        <template v-for="(child, j) of item.items" :key="child.label + i + j">
-                            <Menuitem v-if="visible(child) && !child.separator" :item="child" @click="itemClick" />
-                            <li v-else-if="visible(child) && child.separator" :class="['p-menu-separator', child.class]" :style="child.style" :key="'separator' + i + j" role="separator"></li>
+    <Teleport :to="appendTo" :disabled="!popup">
+        <transition name="p-connected-overlay" @enter="onEnter" @leave="onLeave">
+            <div :ref="containerRef" :class="containerClass" v-if="popup ? overlayVisible : true" v-bind="$attrs">
+                <ul class="p-menu-list p-reset" role="menu">
+                    <template v-for="(item, i) of model" :key="item.label + i.toString()">
+                        <template v-if="item.items && visible(item) && !item.separator">
+                            <li class="p-submenu-header" v-if="item.items">{{item.label}}</li>
+                            <template v-for="(child, j) of item.items" :key="child.label + i + j">
+                                <Menuitem v-if="visible(child) && !child.separator" :item="child" @click="itemClick" />
+                                <li v-else-if="visible(child) && child.separator" :class="['p-menu-separator', child.class]" :style="child.style" :key="'separator' + i + j" role="separator"></li>
+                            </template>
                         </template>
+                        <li v-else-if="visible(item) && item.separator" :class="['p-menu-separator', item.class]" :style="item.style" :key="'separator' + i.toString()" role="separator"></li>
+                        <Menuitem v-else :key="item.label + i.toString()" :item="item" @click="itemClick" />
                     </template>
-                    <li v-else-if="visible(item) && item.separator" :class="['p-menu-separator', item.class]" :style="item.style" :key="'separator' + i.toString()" role="separator"></li>
-                    <Menuitem v-else :key="item.label + i.toString()" :item="item" @click="itemClick" />
-                </template>
-            </ul>
-        </div>
-    </transition>
+                </ul>
+            </div>
+        </transition>
+    </Teleport>
 </template>
 
 <script>
@@ -24,6 +26,7 @@ import {DomHandler} from 'primevue/utils';
 import Menuitem from './Menuitem.vue';
 
 export default {
+    inheritAttrs: false,
     props: {
         popup: {
             type: Boolean,
@@ -35,7 +38,7 @@ export default {
         },
         appendTo: {
             type: String,
-            default: null
+            default: 'body'
         },
         autoZIndex: {
             type: Boolean,
@@ -55,10 +58,8 @@ export default {
     outsideClickListener: null,
     scrollHandler: null,
     resizeListener: null,
-    relativeAlign: false,
     container: null,
     beforeUnmount() {
-        this.restoreAppend();
         this.unbindResizeListener();
         this.unbindOutsideClickListener();
 
@@ -94,16 +95,13 @@ export default {
         },
         show(event) {
             this.overlayVisible = true;
-            this.relativeAlign = event.relativeAlign;
             this.target = event.currentTarget;
         },
         hide() {
             this.overlayVisible = false;
             this.target = null;
-            this.relativeAlign = false;
         },
         onEnter() {
-            this.appendContainer();
             this.alignOverlay();
             this.bindOutsideClickListener();
             this.bindResizeListener();
@@ -119,11 +117,8 @@ export default {
             this.unbindScrollListener();
         },
         alignOverlay() {
-            if (this.relativeAlign)
-                DomHandler.relativePosition(this.container, this.target);
-            else
-                DomHandler.absolutePosition(this.container, this.target);
-
+            DomHandler.absolutePosition(this.container, this.target);
+            this.container.style.minWidth = DomHandler.getOuterWidth(this.target) + 'px';
         },
         bindOutsideClickListener() {
             if (!this.outsideClickListener) {
@@ -175,22 +170,6 @@ export default {
         },
         isTargetClicked() {
             return this.target && (this.target === event.target || this.target.contains(event.target));
-        },
-        appendContainer() {
-            if (this.appendTo) {
-                if (this.appendTo === 'body')
-                    document.body.appendChild(this.container);
-                else
-                    document.getElementById(this.appendTo).appendChild(this.container);
-            }
-        },
-        restoreAppend() {
-            if (this.container && this.appendTo) {
-                if (this.appendTo === 'body')
-                    document.body.removeChild(this.container);
-                else
-                    document.getElementById(this.appendTo).removeChild(this.container);
-            }
         },
         visible(item) {
             return (typeof item.visible === 'function' ? item.visible() : item.visible !== false);

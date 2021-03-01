@@ -12,16 +12,18 @@
         <div class="p-cascadeselect-trigger" role="button" aria-haspopup="listbox" :aria-expanded="overlayVisible">
             <span class="p-cascadeselect-trigger-icon pi pi-chevron-down"></span>
         </div>
-        <transition name="p-connected-overlay" @enter="onOverlayEnter" @leave="onOverlayLeave">
-            <div :ref="overlayRef" class="p-cascadeselect-panel p-component" v-if="overlayVisible">
-                <div class="p-cascadeselect-items-wrapper">
-                    <CascadeSelectSub :options="options" :selectionPath="selectionPath" 
-                        :optionLabel="optionLabel" :optionValue="optionValue" :level="0" :templates="$slots"
-                        :optionGroupLabel="optionGroupLabel" :optionGroupChildren="optionGroupChildren" 
-                        @option-select="onOptionSelect" @optiongroup-select="onOptionGroupSelect" :dirty="dirty" :root="true" />
+        <Teleport :to="appendTo">
+            <transition name="p-connected-overlay" @enter="onOverlayEnter" @leave="onOverlayLeave">
+                <div :ref="overlayRef" class="p-cascadeselect-panel p-component" v-if="overlayVisible">
+                    <div class="p-cascadeselect-items-wrapper">
+                        <CascadeSelectSub :options="options" :selectionPath="selectionPath" 
+                            :optionLabel="optionLabel" :optionValue="optionValue" :level="0" :templates="$slots"
+                            :optionGroupLabel="optionGroupLabel" :optionGroupChildren="optionGroupChildren" 
+                            @option-select="onOptionSelect" @optiongroup-select="onOptionGroupSelect" :dirty="dirty" :root="true" />
+                    </div>
                 </div>
-            </div>
-        </transition>
+            </transition>
+        </Teleport>
     </div>
 </template>
 
@@ -56,7 +58,7 @@ export default {
         ariaLabelledBy: null,
         appendTo: {
             type: String,
-            default: null
+            default: 'body'
         }
     },
     outsideClickListener: null,
@@ -64,7 +66,6 @@ export default {
     resizeListener: null,
     overlay: null,
     beforeUnmount() {
-        this.restoreAppend();
         this.unbindOutsideClickListener();
         this.unbindResizeListener();
 
@@ -165,7 +166,6 @@ export default {
         },
         onOverlayEnter() {
             this.overlay.style.zIndex = String(DomHandler.generateZIndex());
-            this.appendContainer();
             this.alignOverlay();
             this.bindOutsideClickListener();
             this.bindScrollListener();
@@ -181,12 +181,8 @@ export default {
             this.dirty = false;
         },
         alignOverlay() {
-            if (this.appendTo) {
-                DomHandler.absolutePosition(this.overlay, this.$el);
-                this.overlay.style.minWidth = DomHandler.getOuterWidth(this.$el) + 'px';
-            } else {
-                DomHandler.relativePosition(this.overlay, this.$el);
-            }
+            DomHandler.absolutePosition(this.overlay, this.$el);
+            this.overlay.style.minWidth = DomHandler.getOuterWidth(this.$el) + 'px';
         },
         bindOutsideClickListener() {
             if (!this.outsideClickListener) {
@@ -238,22 +234,6 @@ export default {
         },
         overlayRef(el) {
             this.overlay = el;
-        },
-        appendContainer() {
-            if (this.appendTo) {
-                if (this.appendTo === 'body')
-                    document.body.appendChild(this.overlay);
-                else
-                    document.getElementById(this.appendTo).appendChild(this.overlay);
-            }
-        },
-        restoreAppend() {
-            if (this.overlay && this.appendTo) {
-                if (this.appendTo === 'body')
-                    document.body.removeChild(this.overlay);
-                else
-                    document.getElementById(this.appendTo).removeChild(this.overlay);
-            }
         },
         onKeyDown(event) {
             switch(event.key) {
@@ -374,6 +354,7 @@ export default {
     margin: 0;
     padding: 0;
     list-style-type: none;
+    min-width: 100%;
 }
 
 .p-fluid .p-cascadeselect {

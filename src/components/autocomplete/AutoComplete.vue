@@ -14,29 +14,31 @@
         </ul>
         <i class="p-autocomplete-loader pi pi-spinner pi-spin" v-if="searching"></i>
         <Button ref="dropdownButton" type="button" icon="pi pi-chevron-down" class="p-autocomplete-dropdown" :disabled="$attrs.disabled" @click="onDropdownClick" v-if="dropdown"/>
-        <transition name="p-connected-overlay" @enter="onOverlayEnter" @leave="onOverlayLeave">
-            <div :ref="overlayRef" class="p-autocomplete-panel p-component" :style="{'max-height': scrollHeight}" v-if="overlayVisible">
-                <slot name="header" :value="modelValue" :suggestions="suggestions"></slot>
-                <ul :id="listId" class="p-autocomplete-items" role="listbox">
-                    <template v-if="!optionGroupLabel">
-                        <li v-for="(item, i) of suggestions" class="p-autocomplete-item" :key="i" @click="selectItem($event, item)" role="option" v-ripple>
-                            <slot name="item" :item="item" :index="i">{{getItemContent(item)}}</slot>
-                        </li>
-                    </template>
-                    <template v-else>
-                         <template v-for="(optionGroup, i) of suggestions" :key="getOptionGroupRenderKey(optionGroup)">
-                            <li  class="p-autocomplete-item-group">
-                                <slot name="optiongroup" :item="optionGroup" :index="i">{{getOptionGroupLabel(optionGroup)}}</slot>
-                            </li>
-                            <li v-for="(item, j) of getOptionGroupChildren(optionGroup)" class="p-autocomplete-item" :key="j" @click="selectItem($event, item)" role="option" v-ripple :data-group="i" :data-index="j">
-                                <slot name="item" :item="item" :index="j">{{getItemContent(item)}}</slot>
+        <Teleport :to="appendTo">
+            <transition name="p-connected-overlay" @enter="onOverlayEnter" @leave="onOverlayLeave">
+                <div :ref="overlayRef" class="p-autocomplete-panel p-component" :style="{'max-height': scrollHeight}" v-if="overlayVisible">
+                    <slot name="header" :value="modelValue" :suggestions="suggestions"></slot>
+                    <ul :id="listId" class="p-autocomplete-items" role="listbox">
+                        <template v-if="!optionGroupLabel">
+                            <li v-for="(item, i) of suggestions" class="p-autocomplete-item" :key="i" @click="selectItem($event, item)" role="option" v-ripple>
+                                <slot name="item" :item="item" :index="i">{{getItemContent(item)}}</slot>
                             </li>
                         </template>
-                    </template>
-                </ul>
-                <slot name="footer" :value="modelValue" :suggestions="suggestions"></slot>
-            </div>
-        </transition>
+                        <template v-else>
+                            <template v-for="(optionGroup, i) of suggestions" :key="getOptionGroupRenderKey(optionGroup)">
+                                <li  class="p-autocomplete-item-group">
+                                    <slot name="optiongroup" :item="optionGroup" :index="i">{{getOptionGroupLabel(optionGroup)}}</slot>
+                                </li>
+                                <li v-for="(item, j) of getOptionGroupChildren(optionGroup)" class="p-autocomplete-item" :key="j" @click="selectItem($event, item)" role="option" v-ripple :data-group="i" :data-index="j">
+                                    <slot name="item" :item="item" :index="j">{{getItemContent(item)}}</slot>
+                                </li>
+                            </template>
+                        </template>
+                    </ul>
+                    <slot name="footer" :value="modelValue" :suggestions="suggestions"></slot>
+                </div>
+            </transition>
+        </Teleport>
     </span>
 </template>
 
@@ -89,7 +91,7 @@ export default {
         },
         appendTo: {
             type: String,
-            default: null
+            default: 'body'
         },
         forceSelection: {
             type: Boolean,
@@ -127,7 +129,6 @@ export default {
         }
     },
     beforeUnmount() {
-        this.restoreAppend();
         this.unbindOutsideClickListener();
         this.unbindResizeListener();
 
@@ -154,7 +155,6 @@ export default {
         },
         onOverlayEnter() {
             this.overlay.style.zIndex = String(DomHandler.generateZIndex());
-            this.appendContainer();
             this.alignOverlay();
             this.bindOutsideClickListener();
             this.bindScrollListener();
@@ -168,10 +168,8 @@ export default {
         },
         alignOverlay() {
             let target = this.multiple ? this.$refs.multiContainer : this.$refs.input;
-            if (this.appendTo)
-                DomHandler.absolutePosition(this.overlay, target);
-            else
-                DomHandler.relativePosition(this.overlay, target);
+            this.overlay.style.minWidth = DomHandler.getOuterWidth(target) + 'px';
+            DomHandler.absolutePosition(this.overlay, target);
         },
         bindOutsideClickListener() {
             if (!this.outsideClickListener) {
@@ -498,22 +496,6 @@ export default {
             }
 
             return selected;
-        },
-        appendContainer() {
-            if (this.appendTo) {
-                if (this.appendTo === 'body')
-                    document.body.appendChild(this.overlay);
-                else
-                    document.getElementById(this.appendTo).appendChild(this.overlay);
-            }
-        },
-        restoreAppend() {
-            if (this.overlay && this.appendTo) {
-                if (this.appendTo === 'body')
-                    document.body.removeChild(this.overlay);
-                else
-                    document.getElementById(this.appendTo).removeChild(this.overlay);
-            }
         },
         overlayRef(el) {
             this.overlay = el;

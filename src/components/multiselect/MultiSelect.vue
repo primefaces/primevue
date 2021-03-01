@@ -23,47 +23,31 @@
         <div class="p-multiselect-trigger">
             <span class="p-multiselect-trigger-icon pi pi-chevron-down"></span>
         </div>
-        <transition name="p-connected-overlay" @enter="onOverlayEnter" @leave="onOverlayLeave">
-            <div :ref="overlayRef" class="p-multiselect-panel p-component" v-if="overlayVisible">
-                <slot name="header" :value="modelValue" :options="visibleOptions"></slot>
-                <div class="p-multiselect-header">
-                    <div class="p-checkbox p-component" @click="onToggleAll" role="checkbox" :aria-checked="allSelected">
-                        <div class="p-hidden-accessible">
-                            <input type="checkbox" readonly @focus="onHeaderCheckboxFocus" @blur="onHeaderCheckboxBlur">
+        <Teleport :to="appendTo">
+            <transition name="p-connected-overlay" @enter="onOverlayEnter" @leave="onOverlayLeave">
+                <div :ref="overlayRef" class="p-multiselect-panel p-component" v-if="overlayVisible">
+                    <slot name="header" :value="modelValue" :options="visibleOptions"></slot>
+                    <div class="p-multiselect-header">
+                        <div class="p-checkbox p-component" @click="onToggleAll" role="checkbox" :aria-checked="allSelected">
+                            <div class="p-hidden-accessible">
+                                <input type="checkbox" readonly @focus="onHeaderCheckboxFocus" @blur="onHeaderCheckboxBlur">
+                            </div>
+                            <div :class="['p-checkbox-box', {'p-highlight': allSelected, 'p-focus': headerCheckboxFocused}]" role="checkbox" :aria-checked="allSelected">
+                                <span :class="['p-checkbox-icon', {'pi pi-check': allSelected}]"></span>
+                            </div>
                         </div>
-                        <div :class="['p-checkbox-box', {'p-highlight': allSelected, 'p-focus': headerCheckboxFocused}]" role="checkbox" :aria-checked="allSelected">
-                            <span :class="['p-checkbox-icon', {'pi pi-check': allSelected}]"></span>
+                        <div v-if="filter" class="p-multiselect-filter-container">
+                            <input type="text" v-model="filterValue" class="p-multiselect-filter p-inputtext p-component" :placeholder="filterPlaceholder" @input="onFilterChange">
+                            <span class="p-multiselect-filter-icon pi pi-search"></span>
                         </div>
+                        <button class="p-multiselect-close p-link" @click="onCloseClick" type="button" v-ripple>
+                            <span class="p-multiselect-close-icon pi pi-times" />
+                        </button>
                     </div>
-                    <div v-if="filter" class="p-multiselect-filter-container">
-                        <input type="text" v-model="filterValue" class="p-multiselect-filter p-inputtext p-component" :placeholder="filterPlaceholder" @input="onFilterChange">
-                        <span class="p-multiselect-filter-icon pi pi-search"></span>
-                    </div>
-                    <button class="p-multiselect-close p-link" @click="onCloseClick" type="button" v-ripple>
-                        <span class="p-multiselect-close-icon pi pi-times" />
-                    </button>
-                </div>
-                <div class="p-multiselect-items-wrapper" :style="{'max-height': scrollHeight}">
-                    <ul class="p-multiselect-items p-component" role="listbox" aria-multiselectable="true">
-                        <template v-if="!optionGroupLabel">
-                            <li v-for="(option, i) of visibleOptions" :class="['p-multiselect-item', {'p-highlight': isSelected(option), 'p-disabled': isOptionDisabled(option)}]" role="option" :aria-selected="isSelected(option)"
-                                :key="getOptionRenderKey(option)" @click="onOptionSelect($event, option)" @keydown="onOptionKeyDown($event, option)" :tabindex="tabindex||'0'" :aria-label="getOptionLabel(option)"  v-ripple>
-                                <div class="p-checkbox p-component">
-                                    <div :class="['p-checkbox-box', {'p-highlight': isSelected(option)}]">
-                                        <span :class="['p-checkbox-icon', {'pi pi-check': isSelected(option)}]"></span>
-                                    </div>
-                                </div>
-                                <slot name="option" :option="option" :index="i">
-                                    <span>{{getOptionLabel(option)}}</span>
-                                </slot>
-                            </li>
-                        </template>
-                        <template v-else>
-                            <template v-for="(optionGroup, i) of visibleOptions" :key="getOptionGroupRenderKey(optionGroup)">
-                                <li  class="p-multiselect-item-group">
-                                    <slot name="optiongroup" :option="optionGroup" :index="i">{{getOptionGroupLabel(optionGroup)}}</slot>
-                                </li>
-                                <li v-for="(option, i) of getOptionGroupChildren(optionGroup)" :class="['p-multiselect-item', {'p-highlight': isSelected(option), 'p-disabled': isOptionDisabled(option)}]" role="option" :aria-selected="isSelected(option)"
+                    <div class="p-multiselect-items-wrapper" :style="{'max-height': scrollHeight}">
+                        <ul class="p-multiselect-items p-component" role="listbox" aria-multiselectable="true">
+                            <template v-if="!optionGroupLabel">
+                                <li v-for="(option, i) of visibleOptions" :class="['p-multiselect-item', {'p-highlight': isSelected(option), 'p-disabled': isOptionDisabled(option)}]" role="option" :aria-selected="isSelected(option)"
                                     :key="getOptionRenderKey(option)" @click="onOptionSelect($event, option)" @keydown="onOptionKeyDown($event, option)" :tabindex="tabindex||'0'" :aria-label="getOptionLabel(option)"  v-ripple>
                                     <div class="p-checkbox p-component">
                                         <div :class="['p-checkbox-box', {'p-highlight': isSelected(option)}]">
@@ -75,18 +59,36 @@
                                     </slot>
                                 </li>
                             </template>
-                        </template>
-                        <li v-if="filterValue && (!visibleOptions || (visibleOptions && visibleOptions.length === 0))" class="p-multiselect-empty-message">
-                            <slot name="emptyfilter">{{emptyFilterMessageText}}</slot>
-                        </li>
-                        <li v-else-if="(!options || (options && options.length === 0))" class="p-multiselect-empty-message">
-                            <slot name="empty">{{emptyMessageText}}</slot>
-                        </li>
-                    </ul>
+                            <template v-else>
+                                <template v-for="(optionGroup, i) of visibleOptions" :key="getOptionGroupRenderKey(optionGroup)">
+                                    <li  class="p-multiselect-item-group">
+                                        <slot name="optiongroup" :option="optionGroup" :index="i">{{getOptionGroupLabel(optionGroup)}}</slot>
+                                    </li>
+                                    <li v-for="(option, i) of getOptionGroupChildren(optionGroup)" :class="['p-multiselect-item', {'p-highlight': isSelected(option), 'p-disabled': isOptionDisabled(option)}]" role="option" :aria-selected="isSelected(option)"
+                                        :key="getOptionRenderKey(option)" @click="onOptionSelect($event, option)" @keydown="onOptionKeyDown($event, option)" :tabindex="tabindex||'0'" :aria-label="getOptionLabel(option)"  v-ripple>
+                                        <div class="p-checkbox p-component">
+                                            <div :class="['p-checkbox-box', {'p-highlight': isSelected(option)}]">
+                                                <span :class="['p-checkbox-icon', {'pi pi-check': isSelected(option)}]"></span>
+                                            </div>
+                                        </div>
+                                        <slot name="option" :option="option" :index="i">
+                                            <span>{{getOptionLabel(option)}}</span>
+                                        </slot>
+                                    </li>
+                                </template>
+                            </template>
+                            <li v-if="filterValue && (!visibleOptions || (visibleOptions && visibleOptions.length === 0))" class="p-multiselect-empty-message">
+                                <slot name="emptyfilter">{{emptyFilterMessageText}}</slot>
+                            </li>
+                            <li v-else-if="(!options || (options && options.length === 0))" class="p-multiselect-empty-message">
+                                <slot name="empty">{{emptyMessageText}}</slot>
+                            </li>
+                        </ul>
+                    </div>
+                    <slot name="footer" :value="modelValue" :options="visibleOptions"></slot>
                 </div>
-                <slot name="footer" :value="modelValue" :options="visibleOptions"></slot>
-            </div>
-        </transition>
+            </transition>
+        </Teleport>
     </div>
 </template>
 
@@ -130,7 +132,7 @@ export default {
         ariaLabelledBy: null,
         appendTo: {
             type: String,
-            default: null
+            default: 'body'
         },
         emptyFilterMessage: {
             type: String,
@@ -158,7 +160,6 @@ export default {
     scrollHandler: null,
     overlay: null,
     beforeUnmount() {
-        this.restoreAppend();
         this.unbindOutsideClickListener();
         this.unbindResizeListener();
 
@@ -342,7 +343,6 @@ export default {
         },
         onOverlayEnter() {
             this.overlay.style.zIndex = String(DomHandler.generateZIndex());
-            this.appendContainer();
             this.alignOverlay();
             this.bindOutsideClickListener();
             this.bindScrollListener();
@@ -357,13 +357,8 @@ export default {
             this.overlay = null;
         },
         alignOverlay() {
-            if (this.appendTo) {
-                DomHandler.absolutePosition(this.overlay, this.$el);
-                this.overlay.style.minWidth = DomHandler.getOuterWidth(this.$el) + 'px';
-            }
-            else {
-                DomHandler.relativePosition(this.overlay, this.$el);
-            }
+            this.overlay.style.minWidth = DomHandler.getOuterWidth(this.$el) + 'px';
+            DomHandler.absolutePosition(this.overlay, this.$el);
         },
         bindOutsideClickListener() {
             if (!this.outsideClickListener) {
@@ -463,22 +458,6 @@ export default {
 
             this.$emit('update:modelValue', value);
             this.$emit('change', {originalEvent: event, value: value});
-        },
-        appendContainer() {
-            if (this.appendTo) {
-                if (this.appendTo === 'body')
-                    document.body.appendChild(this.overlay);
-                else
-                    document.getElementById(this.appendTo).appendChild(this.overlay);
-            }
-        },
-        restoreAppend() {
-            if (this.overlay && this.appendTo) {
-                if (this.appendTo === 'body')
-                    document.body.removeChild(this.overlay);
-                else
-                    document.getElementById(this.appendTo).removeChild(this.overlay);
-            }
         },
         onFilterChange(event) {
             this.$emit('filter', {originalEvent: event, value: event.target.value});

@@ -1,9 +1,11 @@
 <template>
-    <transition name="p-contextmenu" @enter="onEnter" @leave="onLeave">
-        <div :ref="containerRef" class="p-contextmenu p-component" v-if="visible">
-            <ContextMenuSub :model="model" :root="true" @leaf-click="onLeafClick" />
-        </div>
-    </transition>
+    <Teleport :to="appendTo">
+        <transition name="p-contextmenu" @enter="onEnter" @leave="onLeave">
+            <div :ref="containerRef" class="p-contextmenu p-component" v-if="visible" v-bind="$attrs">
+                <ContextMenuSub :model="model" :root="true" @leaf-click="onLeafClick" />
+            </div>
+        </transition>
+    </Teleport>
 </template>
 
 <script>
@@ -11,6 +13,7 @@ import {DomHandler} from 'primevue/utils';
 import ContextMenuSub from './ContextMenuSub.vue';
 
 export default {
+    inheritAttrs: false,
     props: {
 		model: {
             type: Array,
@@ -18,7 +21,7 @@ export default {
         },
         appendTo: {
             type: String,
-            default: null
+            default: 'body'
         },
         autoZIndex: {
             type: Boolean,
@@ -46,7 +49,6 @@ export default {
         };
     },
     beforeUnmount() {
-        this.restoreAppend();
         this.unbindResizeListener();
         this.unbindOutsideClickListener();
         this.unbindDocumentContextMenuListener();
@@ -91,7 +93,6 @@ export default {
             this.visible = false;
         },
         onEnter() {
-            this.appendContainer();
             this.position();
             this.bindOutsideClickListener();
             this.bindResizeListener();
@@ -164,22 +165,6 @@ export default {
             if (this.resizeListener) {
                 window.removeEventListener('resize', this.resizeListener);
                 this.resizeListener = null;
-            }
-        },
-        appendContainer() {
-            if (this.appendTo) {
-                if (this.appendTo === 'body')
-                    document.body.appendChild(this.container);
-                else
-                    document.getElementById(this.appendTo).appendChild(this.container);
-            }
-        },
-        restoreAppend() {
-            if (this.container && this.appendTo) {
-                if (this.appendTo === 'body')
-                    document.body.removeChild(this.container);
-                else
-                    document.getElementById(this.appendTo).removeChild(this.container);
             }
         },
         bindDocumentContextMenuListener() {

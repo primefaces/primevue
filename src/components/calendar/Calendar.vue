@@ -3,130 +3,132 @@
         <CalendarInputText ref="input" v-if="!inline" type="text" v-bind="$attrs" :value="inputFieldValue" @input="onInput" @focus="onFocus" @blur="onBlur" @keydown="onKeyDown" :readonly="!manualInput" inputmode="none" 
             :class="inputClass" :style="inputStyle" />
         <CalendarButton v-if="showIcon" :icon="icon" tabindex="-1" class="p-datepicker-trigger" :disabled="$attrs.disabled" @click="onButtonClick" type="button" :aria-label="inputFieldValue"/>
-        <transition name="p-connected-overlay" @enter="onOverlayEnter($event)" @after-enter="onOverlayEnterComplete" @leave="onOverlayLeave">
-            <div :ref="overlayRef" :class="panelStyleClass" v-if="inline ? true : overlayVisible" :role="inline ? null : 'dialog'">
-                <template v-if="!timeOnly">
-                    <div class="p-datepicker-group-container">
-                        <div class="p-datepicker-group" v-for="(month,groupIndex) of months" :key="month.month + month.year">
-                            <div class="p-datepicker-header">
-                                <slot name="header"></slot>
-                                <button class="p-datepicker-prev p-link" v-if="groupIndex === 0" @click="onPrevButtonClick" type="button" @keydown="onContainerButtonKeydown" v-ripple :disabled="$attrs.disabled">
-                                    <span class="p-datepicker-prev-icon pi pi-chevron-left"></span>
-                                </button>
-                                <div class="p-datepicker-title">
-                                    <span class="p-datepicker-month" v-if="!monthNavigator && (view !== 'month')">{{getMonthName(month.month)}}</span>
-                                    <select class="p-datepicker-month" v-if="monthNavigator && (view !== 'month') && numberOfMonths === 1" @change="onMonthDropdownChange($event.target.value)">
-                                        <option :value="index" v-for="(monthName, index) of monthNames" :key="monthName" :selected="index === month.month">{{monthName}}</option>
-                                    </select>
-                                    <span class="p-datepicker-year" v-if="!yearNavigator">{{view === 'month' ? currentYear : month.year}}</span>
-                                    <select class="p-datepicker-year" v-if="yearNavigator && numberOfMonths === 1" @change="onYearDropdownChange($event.target.value)">
-                                        <option :value="year" v-for="year of yearOptions" :key="year" :selected="year === currentYear">{{year}}</option>
-                                    </select>
+        <Teleport :to="appendTo">
+            <transition name="p-connected-overlay" @enter="onOverlayEnter($event)" @after-enter="onOverlayEnterComplete" @leave="onOverlayLeave">
+                <div :ref="overlayRef" :class="panelStyleClass" v-if="inline ? true : overlayVisible" :role="inline ? null : 'dialog'">
+                    <template v-if="!timeOnly">
+                        <div class="p-datepicker-group-container">
+                            <div class="p-datepicker-group" v-for="(month,groupIndex) of months" :key="month.month + month.year">
+                                <div class="p-datepicker-header">
+                                    <slot name="header"></slot>
+                                    <button class="p-datepicker-prev p-link" v-if="groupIndex === 0" @click="onPrevButtonClick" type="button" @keydown="onContainerButtonKeydown" v-ripple :disabled="$attrs.disabled">
+                                        <span class="p-datepicker-prev-icon pi pi-chevron-left"></span>
+                                    </button>
+                                    <div class="p-datepicker-title">
+                                        <span class="p-datepicker-month" v-if="!monthNavigator && (view !== 'month')">{{getMonthName(month.month)}}</span>
+                                        <select class="p-datepicker-month" v-if="monthNavigator && (view !== 'month') && numberOfMonths === 1" @change="onMonthDropdownChange($event.target.value)">
+                                            <option :value="index" v-for="(monthName, index) of monthNames" :key="monthName" :selected="index === month.month">{{monthName}}</option>
+                                        </select>
+                                        <span class="p-datepicker-year" v-if="!yearNavigator">{{view === 'month' ? currentYear : month.year}}</span>
+                                        <select class="p-datepicker-year" v-if="yearNavigator && numberOfMonths === 1" @change="onYearDropdownChange($event.target.value)">
+                                            <option :value="year" v-for="year of yearOptions" :key="year" :selected="year === currentYear">{{year}}</option>
+                                        </select>
+                                    </div>
+                                    <button class="p-datepicker-next p-link" v-if="numberOfMonths === 1 ? true : (groupIndex === numberOfMonths - 1)"
+                                        @click="onNextButtonClick" type="button" @keydown="onContainerButtonKeydown" v-ripple :disabled="$attrs.disabled">
+                                        <span class="p-datepicker-next-icon pi pi-chevron-right"></span>
+                                    </button>
                                 </div>
-                                <button class="p-datepicker-next p-link" v-if="numberOfMonths === 1 ? true : (groupIndex === numberOfMonths - 1)"
-                                    @click="onNextButtonClick" type="button" @keydown="onContainerButtonKeydown" v-ripple :disabled="$attrs.disabled">
-                                    <span class="p-datepicker-next-icon pi pi-chevron-right"></span>
-                                </button>
-                            </div>
-                            <div class="p-datepicker-calendar-container" v-if="view ==='date'">
-                                <table class="p-datepicker-calendar">
-                                    <thead>
-                                        <tr>
-                                            <th scope="col" v-if="showWeek" class="p-datepicker-weekheader p-disabled">
-                                                <span>{{weekHeaderLabel}}</span>
-                                            </th>
-                                            <th scope="col" v-for="weekDay of weekDays" :key="weekDay">
-                                                <span>{{weekDay}}</span>
-                                            </th>
-                                        </tr>
-                                    </thead>
-                                    <tbody>
-                                        <tr v-for="(week,i) of month.dates" :key="week[0].day + '' + week[0].month">
-                                            <td v-if="showWeek" class="p-datepicker-weeknumber">
-                                                <span class="p-disabled">
-                                                    <span style="visibility:hidden" v-if="month.weekNumbers[i] < 10">0</span>
-                                                    {{month.weekNumbers[i]}}
-                                                </span>
-                                            </td>
-                                            <td v-for="date of week" :key="date.day + '' + date.month" :class="{'p-datepicker-other-month': date.otherMonth, 'p-datepicker-today': date.today}">
-                                                <span :class="{'p-highlight': isSelected(date), 'p-disabled': !date.selectable}" @click="onDateSelect($event, date)"
-                                                    draggable="false" @keydown="onDateCellKeydown($event,date,groupIndex)" v-ripple>
-                                                    <slot name="date" :date="date">{{date.day}}</slot>
-                                                </span>
-                                            </td>
-                                        </tr>
-                                    </tbody>
-                                </table>
+                                <div class="p-datepicker-calendar-container" v-if="view ==='date'">
+                                    <table class="p-datepicker-calendar">
+                                        <thead>
+                                            <tr>
+                                                <th scope="col" v-if="showWeek" class="p-datepicker-weekheader p-disabled">
+                                                    <span>{{weekHeaderLabel}}</span>
+                                                </th>
+                                                <th scope="col" v-for="weekDay of weekDays" :key="weekDay">
+                                                    <span>{{weekDay}}</span>
+                                                </th>
+                                            </tr>
+                                        </thead>
+                                        <tbody>
+                                            <tr v-for="(week,i) of month.dates" :key="week[0].day + '' + week[0].month">
+                                                <td v-if="showWeek" class="p-datepicker-weeknumber">
+                                                    <span class="p-disabled">
+                                                        <span style="visibility:hidden" v-if="month.weekNumbers[i] < 10">0</span>
+                                                        {{month.weekNumbers[i]}}
+                                                    </span>
+                                                </td>
+                                                <td v-for="date of week" :key="date.day + '' + date.month" :class="{'p-datepicker-other-month': date.otherMonth, 'p-datepicker-today': date.today}">
+                                                    <span :class="{'p-highlight': isSelected(date), 'p-disabled': !date.selectable}" @click="onDateSelect($event, date)"
+                                                        draggable="false" @keydown="onDateCellKeydown($event,date,groupIndex)" v-ripple>
+                                                        <slot name="date" :date="date">{{date.day}}</slot>
+                                                    </span>
+                                                </td>
+                                            </tr>
+                                        </tbody>
+                                    </table>
+                                </div>
                             </div>
                         </div>
+                        <div class="p-monthpicker" v-if="view === 'month'">
+                            <span v-for="(m,i) of monthPickerValues" :key="m" @click="onMonthSelect($event, i)" @keydown="onMonthCellKeydown($event,i)"
+                                    class="p-monthpicker-month" :class="{'p-highlight': isMonthSelected(i)}" v-ripple>
+                                {{m}}
+                            </span>
+                        </div>
+                    </template>
+                    <div class="p-timepicker" v-if="showTime||timeOnly">
+                        <div class="p-hour-picker">
+                            <button class="p-link" @mousedown="onTimePickerElementMouseDown($event, 0, 1)" @mouseup="onTimePickerElementMouseUp($event)" @keydown="onContainerButtonKeydown" v-ripple
+                                @mouseleave="onTimePickerElementMouseLeave()" @keydown.enter="onTimePickerElementMouseDown($event, 0, 1)" @keyup.enter="onTimePickerElementMouseUp($event)" type="button">
+                                <span class="pi pi-chevron-up"></span>
+                            </button>
+                            <span>{{formattedCurrentHour}}</span>
+                            <button class="p-link" @mousedown="onTimePickerElementMouseDown($event, 0, -1)" @mouseup="onTimePickerElementMouseUp($event)" @keydown="onContainerButtonKeydown" v-ripple
+                                @mouseleave="onTimePickerElementMouseLeave()" @keydown.enter="onTimePickerElementMouseDown($event, 0, -1)" @keyup.enter="onTimePickerElementMouseUp($event)" type="button">
+                                <span class="pi pi-chevron-down"></span>
+                            </button>
+                        </div>
+                        <div class="p-separator">
+                            <span>{{timeSeparator}}</span>
+                        </div>
+                        <div class="p-minute-picker">
+                            <button class="p-link" @mousedown="onTimePickerElementMouseDown($event, 1, 1)" @mouseup="onTimePickerElementMouseUp($event)" @keydown="onContainerButtonKeydown" v-ripple :disabled="$attrs.disabled"
+                                @mouseleave="onTimePickerElementMouseLeave()" @keydown.enter="onTimePickerElementMouseDown($event, 1, 1)" @keyup.enter="onTimePickerElementMouseUp($event)" type="button">
+                                <span class="pi pi-chevron-up"></span>
+                            </button>
+                        <span>{{formattedCurrentMinute}}</span>
+                            <button class="p-link" @mousedown="onTimePickerElementMouseDown($event, 1, -1)" @mouseup="onTimePickerElementMouseUp($event)" @keydown="onContainerButtonKeydown" v-ripple :disabled="$attrs.disabled"
+                                @mouseleave="onTimePickerElementMouseLeave()" @keydown.enter="onTimePickerElementMouseDown($event, 1, -1)" @keyup.enter="onTimePickerElementMouseUp($event)" type="button">
+                                <span class="pi pi-chevron-down"></span>
+                            </button>
+                        </div>
+                        <div class="p-separator" v-if="showSeconds">
+                            <span>{{timeSeparator}}</span>
+                        </div>
+                        <div class="p-second-picker" v-if="showSeconds">
+                            <button class="p-link" @mousedown="onTimePickerElementMouseDown($event, 2, 1)" @mouseup="onTimePickerElementMouseUp($event)" @keydown="onContainerButtonKeydown" v-ripple  :disabled="$attrs.disabled"
+                                @mouseleave="onTimePickerElementMouseLeave()" @keydown.enter="onTimePickerElementMouseDown($event, 2, 1)" @keyup.enter="onTimePickerElementMouseUp($event)" type="button">
+                                <span class="pi pi-chevron-up"></span>
+                            </button>
+                            <span>{{formattedCurrentSecond}}</span>
+                            <button class="p-link" @mousedown="onTimePickerElementMouseDown($event, 2, -1)" @mouseup="onTimePickerElementMouseUp($event)" @keydown="onContainerButtonKeydown" v-ripple  :disabled="$attrs.disabled"
+                                @mouseleave="onTimePickerElementMouseLeave()" @keydown.enter="onTimePickerElementMouseDown($event, 2, -1)" @keyup.enter="onTimePickerElementMouseUp($event)" type="button">
+                                <span class="pi pi-chevron-down"></span>
+                            </button>
+                        </div>
+                        <div class="p-separator" v-if="hourFormat=='12'">
+                            <span>{{timeSeparator}}</span>
+                        </div>
+                        <div class="p-ampm-picker" v-if="hourFormat=='12'">
+                            <button class="p-link" @click="toggleAMPM($event)" type="button" v-ripple :disabled="$attrs.disabled">
+                                <span class="pi pi-chevron-up"></span>
+                            </button>
+                            <span>{{pm ? 'PM' : 'AM'}}</span>
+                            <button class="p-link" @click="toggleAMPM($event)" type="button" v-ripple :disabled="$attrs.disabled">
+                                <span class="pi pi-chevron-down"></span>
+                            </button>
+                        </div>
                     </div>
-                    <div class="p-monthpicker" v-if="view === 'month'">
-                        <span v-for="(m,i) of monthPickerValues" :key="m" @click="onMonthSelect($event, i)" @keydown="onMonthCellKeydown($event,i)"
-                                class="p-monthpicker-month" :class="{'p-highlight': isMonthSelected(i)}" v-ripple>
-                            {{m}}
-                        </span>
+                    <div class="p-datepicker-buttonbar" v-if="showButtonBar">
+                        <CalendarButton type="button" :label="todayLabel" @click="onTodayButtonClick($event)" class="p-button-text" @keydown="onContainerButtonKeydown"/>
+                        <CalendarButton type="button" :label="clearLabel" @click="onClearButtonClick($event)" class="p-button-text" @keydown="onContainerButtonKeydown"/>
                     </div>
-                </template>
-                <div class="p-timepicker" v-if="showTime||timeOnly">
-                    <div class="p-hour-picker">
-                        <button class="p-link" @mousedown="onTimePickerElementMouseDown($event, 0, 1)" @mouseup="onTimePickerElementMouseUp($event)" @keydown="onContainerButtonKeydown" v-ripple
-                            @mouseleave="onTimePickerElementMouseLeave()" @keydown.enter="onTimePickerElementMouseDown($event, 0, 1)" @keyup.enter="onTimePickerElementMouseUp($event)" type="button">
-                            <span class="pi pi-chevron-up"></span>
-                        </button>
-                        <span>{{formattedCurrentHour}}</span>
-                        <button class="p-link" @mousedown="onTimePickerElementMouseDown($event, 0, -1)" @mouseup="onTimePickerElementMouseUp($event)" @keydown="onContainerButtonKeydown" v-ripple
-                            @mouseleave="onTimePickerElementMouseLeave()" @keydown.enter="onTimePickerElementMouseDown($event, 0, -1)" @keyup.enter="onTimePickerElementMouseUp($event)" type="button">
-                            <span class="pi pi-chevron-down"></span>
-                        </button>
-                    </div>
-                    <div class="p-separator">
-                        <span>{{timeSeparator}}</span>
-                    </div>
-                    <div class="p-minute-picker">
-                        <button class="p-link" @mousedown="onTimePickerElementMouseDown($event, 1, 1)" @mouseup="onTimePickerElementMouseUp($event)" @keydown="onContainerButtonKeydown" v-ripple :disabled="$attrs.disabled"
-                            @mouseleave="onTimePickerElementMouseLeave()" @keydown.enter="onTimePickerElementMouseDown($event, 1, 1)" @keyup.enter="onTimePickerElementMouseUp($event)" type="button">
-                            <span class="pi pi-chevron-up"></span>
-                        </button>
-                       <span>{{formattedCurrentMinute}}</span>
-                        <button class="p-link" @mousedown="onTimePickerElementMouseDown($event, 1, -1)" @mouseup="onTimePickerElementMouseUp($event)" @keydown="onContainerButtonKeydown" v-ripple :disabled="$attrs.disabled"
-                            @mouseleave="onTimePickerElementMouseLeave()" @keydown.enter="onTimePickerElementMouseDown($event, 1, -1)" @keyup.enter="onTimePickerElementMouseUp($event)" type="button">
-                            <span class="pi pi-chevron-down"></span>
-                        </button>
-                    </div>
-                    <div class="p-separator" v-if="showSeconds">
-                        <span>{{timeSeparator}}</span>
-                    </div>
-                    <div class="p-second-picker" v-if="showSeconds">
-                        <button class="p-link" @mousedown="onTimePickerElementMouseDown($event, 2, 1)" @mouseup="onTimePickerElementMouseUp($event)" @keydown="onContainerButtonKeydown" v-ripple  :disabled="$attrs.disabled"
-                            @mouseleave="onTimePickerElementMouseLeave()" @keydown.enter="onTimePickerElementMouseDown($event, 2, 1)" @keyup.enter="onTimePickerElementMouseUp($event)" type="button">
-                            <span class="pi pi-chevron-up"></span>
-                        </button>
-                        <span>{{formattedCurrentSecond}}</span>
-                        <button class="p-link" @mousedown="onTimePickerElementMouseDown($event, 2, -1)" @mouseup="onTimePickerElementMouseUp($event)" @keydown="onContainerButtonKeydown" v-ripple  :disabled="$attrs.disabled"
-                            @mouseleave="onTimePickerElementMouseLeave()" @keydown.enter="onTimePickerElementMouseDown($event, 2, -1)" @keyup.enter="onTimePickerElementMouseUp($event)" type="button">
-                            <span class="pi pi-chevron-down"></span>
-                        </button>
-                    </div>
-                    <div class="p-separator" v-if="hourFormat=='12'">
-                        <span>{{timeSeparator}}</span>
-                    </div>
-                    <div class="p-ampm-picker" v-if="hourFormat=='12'">
-                        <button class="p-link" @click="toggleAMPM($event)" type="button" v-ripple :disabled="$attrs.disabled">
-                            <span class="pi pi-chevron-up"></span>
-                        </button>
-                        <span>{{pm ? 'PM' : 'AM'}}</span>
-                        <button class="p-link" @click="toggleAMPM($event)" type="button" v-ripple :disabled="$attrs.disabled">
-                            <span class="pi pi-chevron-down"></span>
-                        </button>
-                    </div>
+                    <slot name="footer"></slot>
                 </div>
-                <div class="p-datepicker-buttonbar" v-if="showButtonBar">
-                    <CalendarButton type="button" :label="todayLabel" @click="onTodayButtonClick($event)" class="p-button-text" @keydown="onContainerButtonKeydown"/>
-                    <CalendarButton type="button" :label="clearLabel" @click="onClearButtonClick($event)" class="p-button-text" @keydown="onContainerButtonKeydown"/>
-                </div>
-                <slot name="footer"></slot>
-            </div>
-        </transition>
+            </transition>
+        </Teleport>
     </span>
 </template>
 
@@ -288,7 +290,7 @@ export default {
         },
         appendTo: {
             type: String,
-            default: null
+            default: 'body'
         },
         inputClass: null,
         inputStyle: null,
@@ -333,7 +335,6 @@ export default {
             this.destroyMask();
         }
 
-        this.restoreAppend();
         this.unbindOutsideClickListener();
         this.unbindResizeListener();
 
@@ -526,7 +527,6 @@ export default {
             if (this.autoZIndex) {
                 this.overlay.style.zIndex = String(this.baseZIndex + DomHandler.generateZIndex());
             }
-            this.appendContainer();
             this.alignOverlay();
             this.$emit('show');
         },
@@ -687,10 +687,8 @@ export default {
                 this.enableModality();
             }
             else if (this.overlay) {
-                if (this.appendTo)
-                    DomHandler.absolutePosition(this.overlay, this.$el);
-                else
-                    DomHandler.relativePosition(this.overlay, this.$el);
+                this.overlay.style.minWidth = DomHandler.getOuterWidth(this.$el) + 'px';
+                DomHandler.absolutePosition(this.overlay, this.$el);
             }
         },
         onButtonClick() {
@@ -1920,22 +1918,6 @@ export default {
             }
             catch(err) {
                 this.updateModel(event.target.value);
-            }
-        },
-        appendContainer() {
-            if (this.appendTo) {
-                if (this.appendTo === 'body')
-                    document.body.appendChild(this.overlay);
-                else
-                    document.getElementById(this.appendTo).appendChild(this.overlay);
-            }
-        },
-        restoreAppend() {
-            if (this.overlay && this.appendTo) {
-                if (this.appendTo === 'body')
-                    document.body.removeChild(this.overlay);
-                else
-                    document.getElementById(this.appendTo).removeChild(this.overlay);
             }
         },
         onFocus() {

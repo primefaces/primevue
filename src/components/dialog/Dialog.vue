@@ -1,30 +1,33 @@
 <template>
-    <div :ref="maskRef" :class="maskClass" v-if="containerVisible" @click="onMaskClick">
-        <transition name="p-dialog" @before-enter="onBeforeEnter" @enter="onEnter" @before-leave="onBeforeLeave" @leave="onLeave" @after-leave="onAfterLeave" appear>
-            <div :ref="containerRef" :class="dialogClass" v-if="visible" v-bind="$attrs" role="dialog" :aria-labelledby="ariaLabelledById" :aria-modal="modal">
-                <div class="p-dialog-header" v-if="showHeader">
-                    <slot name="header">
-                        <span :id="ariaLabelledById" class="p-dialog-title" v-if="header">{{header}}</span>
-                    </slot>
-                    <div class="p-dialog-header-icons">
-                        <button class="p-dialog-header-icon p-dialog-header-maximize p-link" @click="maximize" v-if="maximizable" type="button" tabindex="-1" v-ripple>
-                            <span :class="maximizeIconClass"></span>
-                        </button>
-                        <button class="p-dialog-header-icon p-dialog-header-close p-link" @click="close" v-if="closable" :aria-label="ariaCloseLabel" type="button" tabindex="-1" v-ripple>
-                            <span class="p-dialog-header-close-icon pi pi-times"></span>
-                        </button>
+    <Teleport to="body">
+        <div :ref="maskRef" :class="maskClass" v-if="containerVisible" @click="onMaskClick">
+            <transition name="p-dialog" @before-enter="onBeforeEnter" @enter="onEnter" @before-leave="onBeforeLeave" @leave="onLeave" @after-leave="onAfterLeave" appear>
+                <div :ref="containerRef" :class="dialogClass" v-if="visible" v-bind="$attrs" role="dialog" :aria-labelledby="ariaLabelledById" :aria-modal="modal">
+                    <div class="p-dialog-header" v-if="showHeader">
+                        <slot name="header">
+                            <span :id="ariaLabelledById" class="p-dialog-title" v-if="header">{{header}}</span>
+                        </slot>
+                        <div class="p-dialog-header-icons">
+                            <button class="p-dialog-header-icon p-dialog-header-maximize p-link" @click="maximize" v-if="maximizable" type="button" tabindex="-1" v-ripple>
+                                <span :class="maximizeIconClass"></span>
+                            </button>
+                            <button class="p-dialog-header-icon p-dialog-header-close p-link" @click="close" v-if="closable" :aria-label="ariaCloseLabel" type="button" tabindex="-1" v-ripple>
+                                <span class="p-dialog-header-close-icon pi pi-times"></span>
+                            </button>
+                        </div>
+                    </div>
+                    <div class="p-dialog-content" :style="contentStyle">
+                        <slot></slot>
+                    </div>
+                    <div class="p-dialog-footer" v-if="footer || $slots.footer">
+                        <slot name="footer">{{footer}}</slot>
                     </div>
                 </div>
-                <div class="p-dialog-content" :style="contentStyle">
-                    <slot></slot>
-                </div>
-                <div class="p-dialog-footer" v-if="footer || $slots.footer">
-                    <slot name="footer">{{footer}}</slot>
-                </div>
-            </div>
-        </transition>
-    </div>
+            </transition>
+        </div>
+    </Teleport>
 </template>
+
 <script>
 import {UniqueComponentId,DomHandler} from 'primevue/utils';
 import Ripple from 'primevue/ripple';

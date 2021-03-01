@@ -2,18 +2,20 @@
     <div :class="containerClass" :style="style">
         <PInputText ref="input" :class="inputFieldClass" :style="inputStyle" :type="inputType" :value="modelValue" @input="onInput" @focus="onFocus" @blur="onBlur" @keyup="onKeyUp" v-bind="$attrs" />
         <i v-if="toggleMask" :class="toggleIconClass" @click="onMaskToggle" />
-        <transition name="p-connected-overlay" @enter="onOverlayEnter" @leave="onOverlayLeave">
-            <div :ref="overlayRef" class="p-password-panel p-component" v-if="overlayVisible">
-                <slot name="header"></slot>
-                <slot name="content">
-                    <div class="p-password-meter">
-                        <div :class="strengthClass" :style="{'width': meter ? meter.width : ''}"></div>
-                    </div>
-                    <div className="p-password-info">{{infoText}}</div>
-                </slot>
-                <slot name="footer"></slot>
-            </div>
-        </transition>
+        <Teleport :to="appendTo">
+            <transition name="p-connected-overlay" @enter="onOverlayEnter" @leave="onOverlayLeave">
+                <div :ref="overlayRef" class="p-password-panel p-component" v-if="overlayVisible">
+                    <slot name="header"></slot>
+                    <slot name="content">
+                        <div class="p-password-meter">
+                            <div :class="strengthClass" :style="{'width': meter ? meter.width : ''}"></div>
+                        </div>
+                        <div className="p-password-info">{{infoText}}</div>
+                    </slot>
+                    <slot name="footer"></slot>
+                </div>
+            </transition>
+        </Teleport>
     </div>
 </template>
 
@@ -57,7 +59,7 @@ export default {
         },
         appendTo: {
             type: String,
-            default: null
+            default: 'body'
         },
         toggleMask: {
             type: Boolean,
@@ -88,7 +90,6 @@ export default {
         this.strongCheckRegExp = new RegExp(this.strongRegex);
     },
     beforeUnmount() {
-        this.restoreAppend();
         this.unbindResizeListener();
         if (this.scrollHandler) {
             this.scrollHandler.destroy();
@@ -98,7 +99,6 @@ export default {
     methods: {
         onOverlayEnter() {
             this.overlay.style.zIndex = String(DomHandler.generateZIndex());
-            this.appendContainer();
             this.alignOverlay();
             this.bindScrollListener();
             this.bindResizeListener();
@@ -109,29 +109,8 @@ export default {
             this.overlay = null;
         },
         alignOverlay() {
-            if (this.appendTo) {
-                this.overlay.style.minWidth = DomHandler.getOuterWidth(this.$refs.input.$el) + 'px';
-                DomHandler.absolutePosition(this.overlay, this.$refs.input.$el);
-            }
-            else {
-                DomHandler.relativePosition(this.overlay, this.$refs.input.$el);
-            }
-        },
-        appendContainer() {
-            if (this.appendTo) {
-                if (this.appendTo === 'body')
-                    document.body.appendChild(this.overlay);
-                else
-                    document.getElementById(this.appendTo).appendChild(this.overlay);
-            }
-        },
-        restoreAppend() {
-            if (this.overlay && this.appendTo) {
-                if (this.appendTo === 'body')
-                    document.body.removeChild(this.overlay);
-                else
-                    document.getElementById(this.appendTo).removeChild(this.overlay);
-            }
+            this.overlay.style.minWidth = DomHandler.getOuterWidth(this.$refs.input.$el) + 'px';
+            DomHandler.absolutePosition(this.overlay, this.$refs.input.$el);
         },
         testStrength(str) {
             let level = 0;

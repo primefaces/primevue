@@ -1,16 +1,18 @@
 <template>
-    <transition name="p-confirm-popup" @enter="onEnter" @leave="onLeave">
-        <div class="p-confirm-popup p-component" v-if="visible" :ref="containerRef">
-            <div class="p-confirm-popup-content">
-                <i :class="iconClass" /> 
-                <span class="p-confirm-popup-message">{{confirmation.message}}</span>
+    <Teleport to="body">
+        <transition name="p-confirm-popup" @enter="onEnter" @leave="onLeave">
+            <div class="p-confirm-popup p-component" v-if="visible" :ref="containerRef" v-bind="$attrs">
+                <div class="p-confirm-popup-content">
+                    <i :class="iconClass" /> 
+                    <span class="p-confirm-popup-message">{{confirmation.message}}</span>
+                </div>
+                <div class="p-confirm-popup-footer">
+                    <CPButton :label="rejectLabel" :icon="rejectIcon" :class="rejectClass" @click="reject()"/>
+                    <CPButton :label="acceptLabel" :icon="acceptIcon" :class="acceptClass" @click="accept()" autofocus />
+                </div>
             </div>
-            <div class="p-confirm-popup-footer">
-                <CPButton :label="rejectLabel" :icon="rejectIcon" :class="rejectClass" @click="reject()"/>
-                <CPButton :label="acceptLabel" :icon="acceptIcon" :class="acceptClass" @click="accept()" autofocus />
-            </div>
-        </div>
-    </transition>
+        </transition>
+    </Teleport>
 </template>
 
 <script>
@@ -20,6 +22,7 @@ import {DomHandler} from 'primevue/utils';
 import Button from 'primevue/button';
 
 export default {
+    inheritAttrs: false,
     props: {
         group: String
     },
@@ -56,7 +59,6 @@ export default {
         ConfirmationEventBus.off('confirm');
         ConfirmationEventBus.off('close');
 
-        this.restoreAppend();
         this.unbindOutsideClickListener();
         if (this.scrollHandler) {
             this.scrollHandler.destroy();
@@ -83,7 +85,6 @@ export default {
             this.visible = false;
         },
         onEnter() {
-            this.appendContainer();
             this.alignOverlay();
             this.bindOutsideClickListener();
             this.bindScrollListener();
@@ -161,14 +162,6 @@ export default {
         },
         isTargetClicked() {
             return this.target && (this.target === event.target || this.target.contains(event.target));
-        },
-        appendContainer() {
-            document.body.appendChild(this.container);
-        },
-        restoreAppend() {
-            if (this.container) {
-                document.body.removeChild(this.container);
-            }
         },
         containerRef(el) {
             this.container = el;

@@ -1,11 +1,12 @@
 <template>
-    <div v-if="fullScreen && containerVisible" :ref="maskRef" :class="maskContentClass">
-        <transition name="p-galleria" @before-enter="onBeforeEnter" @enter="onEnter" @before-leave="onBeforeLeave" @after-leave="onAfterLeave" appear>
-            <GalleriaContent :ref="containerRef" v-if="visible" v-bind="$props" @mask-hide="maskHide" :templates="$slots" @activeitem-change="onActiveItemChange" />
-        </transition>
-    </div>
-
-    <GalleriaContent v-else-if="!fullScreen" v-bind="$props" :templates="$slots" @activeitem-change="onActiveItemChange" />
+    <Teleport to="body" v-if="fullScreen">
+        <div v-if="containerVisible" :ref="maskRef" :class="maskContentClass">
+            <transition name="p-galleria" @before-enter="onBeforeEnter" @enter="onEnter" @before-leave="onBeforeLeave" @after-leave="onAfterLeave" appear>
+                <GalleriaContent :ref="containerRef" v-if="visible" v-bind="$props" @mask-hide="maskHide" :templates="$slots" @activeitem-change="onActiveItemChange" />
+            </transition>
+        </div>
+    </Teleport>
+    <GalleriaContent v-else v-bind="$props" :templates="$slots" @activeitem-change="onActiveItemChange" />
 </template>
 
 <script>

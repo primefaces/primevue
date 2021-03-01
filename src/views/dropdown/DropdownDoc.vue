@@ -256,8 +256,8 @@ export default {
                             <tr>
                                 <td>appendTo</td>
                                 <td>string</td>
-                                <td>null</td>
-                                <td>Id of the element or "body" for document where the overlay should be appended to.</td>
+                                <td>body</td>
+                                <td>A valid query selector or an HTMLElement to specify where the overlay gets attached.</td>
                             </tr>
                             <tr>
                                 <td>emptyFilterMessage</td>

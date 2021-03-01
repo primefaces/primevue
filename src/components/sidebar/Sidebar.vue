@@ -1,14 +1,16 @@
 <template>
-    <transition name="p-sidebar" @enter="onEnter" @leave="onLeave" appear>
-        <div :class="containerClass" v-if="visible" ref="container" role="complementary" :aria-modal="modal">
-            <div class="p-sidebar-content">
-                <button class="p-sidebar-close p-link" @click="hide" :aria-label="ariaCloseLabel" v-if="showCloseIcon" type="button" v-ripple>
-                    <span class="p-sidebar-close-icon pi pi-times" />
-                </button>
-                <slot></slot>
+    <Teleport to="body">
+        <transition name="p-sidebar" @enter="onEnter" @leave="onLeave" appear>
+            <div :class="containerClass" v-if="visible" ref="container" role="complementary" :aria-modal="modal" v-bind="$attrs">
+                <div class="p-sidebar-content">
+                    <button class="p-sidebar-close p-link" @click="hide" :aria-label="ariaCloseLabel" v-if="showCloseIcon" type="button" v-ripple>
+                        <span class="p-sidebar-close-icon pi pi-times" />
+                    </button>
+                    <slot></slot>
+                </div>
             </div>
-        </div>
-    </transition>
+        </transition>
+    </Teleport>
 </template>
 
 <script>
@@ -17,6 +19,7 @@ import Ripple from 'primevue/ripple';
 
 export default {
     emits: ['update:visible', 'show', 'hide'],
+    inheritAttrs: false,
     props: {
         visible: {
             type: Boolean,

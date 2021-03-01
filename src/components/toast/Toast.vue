@@ -1,9 +1,11 @@
 <template>
-    <div ref="container" :class="containerClass">
-        <transition-group name="p-toast-message" tag="div">
-            <ToastMessage v-for="msg of messages" :key="msg.id" :message="msg" @close="remove($event)"/>
-        </transition-group>
-    </div>
+    <Teleport to="body">
+        <div ref="container" :class="containerClass" v-bind="$attrs">
+            <transition-group name="p-toast-message" tag="div">
+                <ToastMessage v-for="msg of messages" :key="msg.id" :message="msg" @close="remove($event)"/>
+            </transition-group>
+        </div>
+    </Teleport>
 </template>
 
 <script>
@@ -14,6 +16,7 @@ import {DomHandler} from 'primevue/utils';
 var messageIdx = 0;
 
 export default {
+    inheritAttrs: false,
     props: {
         group: {
             type: String,

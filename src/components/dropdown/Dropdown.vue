@@ -13,45 +13,47 @@
         <div class="p-dropdown-trigger" role="button" aria-haspopup="listbox" :aria-expanded="overlayVisible">
             <span class="p-dropdown-trigger-icon pi pi-chevron-down"></span>
         </div>
-        <transition name="p-connected-overlay" @enter="onOverlayEnter" @leave="onOverlayLeave">
-            <div :ref="overlayRef" class="p-dropdown-panel p-component" v-if="overlayVisible">
-                <slot name="header" :value="modelValue" :options="visibleOptions"></slot>
-                <div class="p-dropdown-header" v-if="filter">
-                     <div  class="p-dropdown-filter-container">
-                        <input type="text" ref="filterInput" v-model="filterValue" autoComplete="off" class="p-dropdown-filter p-inputtext p-component" :placeholder="filterPlaceholder" @keydown="onFilterKeyDown"  @input="onFilterChange"/>
-                        <span class="p-dropdown-filter-icon pi pi-search"></span>
+        <Teleport :to="appendTo">
+            <transition name="p-connected-overlay" @enter="onOverlayEnter" @leave="onOverlayLeave">
+                <div :ref="overlayRef" class="p-dropdown-panel p-component" v-if="overlayVisible">
+                    <slot name="header" :value="modelValue" :options="visibleOptions"></slot>
+                    <div class="p-dropdown-header" v-if="filter">
+                        <div  class="p-dropdown-filter-container">
+                            <input type="text" ref="filterInput" v-model="filterValue" autoComplete="off" class="p-dropdown-filter p-inputtext p-component" :placeholder="filterPlaceholder" @keydown="onFilterKeyDown"  @input="onFilterChange"/>
+                            <span class="p-dropdown-filter-icon pi pi-search"></span>
+                        </div>
                     </div>
-                </div>
-                <div :ref="itemsWrapperRef" class="p-dropdown-items-wrapper" :style="{'max-height': scrollHeight}">
-                    <ul class="p-dropdown-items" role="listbox">
-                        <template v-if="!optionGroupLabel">
-                             <li v-for="(option, i) of visibleOptions" :class="['p-dropdown-item', {'p-highlight': isSelected(option), 'p-disabled': isOptionDisabled(option)}]" v-ripple
-                                :key="getOptionRenderKey(option)" @click="onOptionSelect($event, option)" role="option" :aria-label="getOptionLabel(option)" :aria-selected="isSelected(option)">
-                                <slot name="option" :option="option" :index="i">{{getOptionLabel(option)}}</slot>
-                            </li>
-                        </template>
-                        <template v-else>
-                            <template v-for="(optionGroup, i) of visibleOptions" :key="getOptionGroupRenderKey(optionGroup)">
-                                <li  class="p-dropdown-item-group" >
-                                    <slot name="optiongroup" :option="optionGroup" :index="i">{{getOptionGroupLabel(optionGroup)}}</slot>
-                                </li>
-                                <li v-for="(option, i) of getOptionGroupChildren(optionGroup)" :class="['p-dropdown-item', {'p-highlight': isSelected(option), 'p-disabled': isOptionDisabled(option)}]" v-ripple
+                    <div :ref="itemsWrapperRef" class="p-dropdown-items-wrapper" :style="{'max-height': scrollHeight}">
+                        <ul class="p-dropdown-items" role="listbox">
+                            <template v-if="!optionGroupLabel">
+                                <li v-for="(option, i) of visibleOptions" :class="['p-dropdown-item', {'p-highlight': isSelected(option), 'p-disabled': isOptionDisabled(option)}]" v-ripple
                                     :key="getOptionRenderKey(option)" @click="onOptionSelect($event, option)" role="option" :aria-label="getOptionLabel(option)" :aria-selected="isSelected(option)">
                                     <slot name="option" :option="option" :index="i">{{getOptionLabel(option)}}</slot>
                                 </li>
                             </template>
-                        </template>
-                        <li v-if="filterValue && (!visibleOptions || (visibleOptions && visibleOptions.length === 0))" class="p-dropdown-empty-message">
-                            <slot name="emptyfilter">{{emptyFilterMessageText}}</slot>
-                        </li>
-                        <li v-else-if="(!options || (options && options.length === 0))" class="p-dropdown-empty-message">
-                            <slot name="empty">{{emptyMessageText}}</slot>
-                        </li>
-                    </ul>
+                            <template v-else>
+                                <template v-for="(optionGroup, i) of visibleOptions" :key="getOptionGroupRenderKey(optionGroup)">
+                                    <li  class="p-dropdown-item-group" >
+                                        <slot name="optiongroup" :option="optionGroup" :index="i">{{getOptionGroupLabel(optionGroup)}}</slot>
+                                    </li>
+                                    <li v-for="(option, i) of getOptionGroupChildren(optionGroup)" :class="['p-dropdown-item', {'p-highlight': isSelected(option), 'p-disabled': isOptionDisabled(option)}]" v-ripple
+                                        :key="getOptionRenderKey(option)" @click="onOptionSelect($event, option)" role="option" :aria-label="getOptionLabel(option)" :aria-selected="isSelected(option)">
+                                        <slot name="option" :option="option" :index="i">{{getOptionLabel(option)}}</slot>
+                                    </li>
+                                </template>
+                            </template>
+                            <li v-if="filterValue && (!visibleOptions || (visibleOptions && visibleOptions.length === 0))" class="p-dropdown-empty-message">
+                                <slot name="emptyfilter">{{emptyFilterMessageText}}</slot>
+                            </li>
+                            <li v-else-if="(!options || (options && options.length === 0))" class="p-dropdown-empty-message">
+                                <slot name="empty">{{emptyMessageText}}</slot>
+                            </li>
+                        </ul>
+                    </div>
+                    <slot name="footer" :value="modelValue" :options="visibleOptions"></slot>
                 </div>
-                <slot name="footer" :value="modelValue" :options="visibleOptions"></slot>
-            </div>
-        </transition>
+            </transition>
+        </Teleport>
     </div>
 </template>
 
@@ -97,7 +99,7 @@ export default {
         ariaLabelledBy: null,
         appendTo: {
             type: String,
-            default: null
+            default: 'body'
         },
         emptyFilterMessage: {
             type: String,
@@ -125,7 +127,6 @@ export default {
     overlay: null,
     itemsWrapper: null,
     beforeUnmount() {
-        this.restoreAppend();
         this.unbindOutsideClickListener();
         this.unbindResizeListener();
 
@@ -389,7 +390,6 @@ export default {
         onOverlayEnter() {
             this.overlay.style.zIndex = String(DomHandler.generateZIndex());
             this.scrollValueInView();
-            this.appendContainer();
             this.alignOverlay();
             this.bindOutsideClickListener();
             this.bindScrollListener();
@@ -410,12 +410,8 @@ export default {
             this.overlay = null;
         },
         alignOverlay() {
-            if (this.appendTo) {
-                DomHandler.absolutePosition(this.overlay, this.$el);
-                this.overlay.style.minWidth = DomHandler.getOuterWidth(this.$el) + 'px';
-            } else {
-                DomHandler.relativePosition(this.overlay, this.$el);
-            }
+            this.overlay.style.minWidth = DomHandler.getOuterWidth(this.$el) + 'px';
+            DomHandler.absolutePosition(this.overlay, this.$el);
         },
         updateModel(event, value) {
             this.$emit('update:modelValue', value);
@@ -548,22 +544,6 @@ export default {
         matchesSearchValue(option) {
             let label = this.getOptionLabel(option).toLocaleLowerCase(this.filterLocale);
             return label.startsWith(this.searchValue.toLocaleLowerCase(this.filterLocale));
-        },
-        appendContainer() {
-            if (this.appendTo) {
-                if (this.appendTo === 'body')
-                    document.body.appendChild(this.overlay);
-                else
-                    document.getElementById(this.appendTo).appendChild(this.overlay);
-            }
-        },
-        restoreAppend() {
-            if (this.overlay && this.appendTo) {
-                if (this.appendTo === 'body')
-                    document.body.removeChild(this.overlay);
-                else
-                    document.getElementById(this.appendTo).removeChild(this.overlay);
-            }
         },
         onFilterChange(event) {
             this.$emit('filter', {originalEvent: event, value: event.target.value});

@@ -1,14 +1,16 @@
 <template>
-    <transition name="p-overlaypanel" @enter="onEnter" @leave="onLeave">
-        <div class="p-overlaypanel p-component" v-if="visible" :ref="containerRef">
-            <div class="p-overlaypanel-content" @click="onContentClick">
-                <slot></slot>
+    <Teleport :to="appendTo">
+        <transition name="p-overlaypanel" @enter="onEnter" @leave="onLeave">
+            <div class="p-overlaypanel p-component" v-if="visible" :ref="containerRef" v-bind="$attrs">
+                <div class="p-overlaypanel-content" @click="onContentClick">
+                    <slot></slot>
+                </div>
+                <button class="p-overlaypanel-close p-link" @click="hide" v-if="showCloseIcon" :aria-label="ariaCloseLabel" type="button" v-ripple>
+                    <span class="p-overlaypanel-close-icon pi pi-times"></span>
+                </button>
             </div>
-            <button class="p-overlaypanel-close p-link" @click="hide" v-if="showCloseIcon" :aria-label="ariaCloseLabel" type="button" v-ripple>
-                <span class="p-overlaypanel-close-icon pi pi-times"></span>
-            </button>
-        </div>
-    </transition>
+        </transition>
+    </Teleport>
 </template>
 
 <script>
@@ -17,6 +19,7 @@ import {DomHandler} from 'primevue/utils';
 import Ripple from 'primevue/ripple';
 
 export default {
+    inheritAttrs: false,
     props: {
 		dismissable: {
 			type: Boolean,
@@ -28,7 +31,7 @@ export default {
 		},
         appendTo: {
 			type: String,
-			default: null
+			default: 'body'
 		},
         baseZIndex: {
             type: Number,
@@ -55,7 +58,6 @@ export default {
     resizeListener: null,
     container: null,
     beforeUnmount() {
-        this.restoreAppend();
         if (this.dismissable) {
             this.unbindOutsideClickListener();
         }
@@ -86,7 +88,6 @@ export default {
             this.selfClick = true;
         },
         onEnter() {
-            this.appendContainer();
             this.alignOverlay();
             if (this.dismissable) {
                 this.bindOutsideClickListener();
@@ -172,22 +173,6 @@ export default {
         },
         isTargetClicked(event) {
             return this.target && (this.target === event.target || this.target.contains(event.target));
-        },
-        appendContainer() {
-            if (this.appendTo) {
-                if (this.appendTo === 'body')
-                    document.body.appendChild(this.container);
-                else
-                    document.getElementById(this.appendTo).appendChild(this.container);
-            }
-        },
-        restoreAppend() {
-            if (this.container && this.appendTo) {
-                if (this.appendTo === 'body')
-                    document.body.removeChild(this.container);
-                else
-                    document.getElementById(this.appendTo).removeChild(this.container);
-            }
         },
         containerRef(el) {
             this.container = el;
