@@ -3,9 +3,6 @@
         <a class="menu-button" @click="$emit('menubutton-click')">
             <i class="pi pi-bars"></i>
         </a>
-        <router-link to="/" class="logo">
-            <img alt="logo" src="./assets/images/primevue-logo.png">
-        </router-link>
         <div class="app-theme" v-tooltip.bottom="theme">
             <img :src="'demo/images/themes/' + logoMap[theme]" />
         </div>

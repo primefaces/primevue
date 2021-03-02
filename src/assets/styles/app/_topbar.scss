@@ -2,16 +2,13 @@
     background-color: var(--surface-a);
     padding: 0;
     height: 70px;
-    position: fixed;
-    top: 0;
-    left: 0;
     width: 100%;
-    z-index: 997;
     box-shadow: 0 0 4px rgba(0,0,0,0.25);
     border-bottom: 1px solid var(--surface-d);
     display: flex;
     align-items: center;
     padding: 0 35px;
+    padding-left: 285px;
 
     .menu-button {
         display: none;
@@ -33,18 +30,6 @@
         }
     }
 
-    .logo {
-        img {
-            width: 180px;
-        }
-
-        &:focus {
-            outline: 0 none;
-            transition: box-shadow .2s;
-            box-shadow: 0 0 0 0.2rem $focusBorderColor;
-        }
-    }
-
     .app-theme {
         background-color: var(--primary-color);
         color: var(--primary-color-text);
@@ -53,7 +38,6 @@
         box-shadow: 0 2px 4px -1px rgba(0,0,0,.2), 0 4px 5px 0 rgba(0,0,0,.14), 0 1px 10px 0 rgba(0,0,0,.12);
         width: 39px;
         height: 39px;
-        margin-left: 70px;
     
         img {
             width: 25px;

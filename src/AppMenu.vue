@@ -1,5 +1,8 @@
 <template>
     <div :class="['layout-sidebar', {'active': active}]">
+         <router-link to="/" class="logo">
+            <img alt="logo" src="./assets/images/primevue-logo.png">
+        </router-link>
         <div class="layout-sidebar-filter p-fluid p-input-filled">
             <AutoComplete v-model="selectedRoute" :suggestions="filteredRoutes" @complete="searchRoute($event)" @item-select="onItemSelect($event)" scrollHeight="300px" placeholder="Search" 
                 field="name" optionGroupLabel="name" optionGroupChildren="children">
