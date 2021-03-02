@@ -31,8 +31,7 @@
 </template>
 
 <script>
-import {DomHandler} from 'primevue/utils';
-import {ObjectUtils} from 'primevue/utils';
+import {DomHandler,ObjectUtils,OverlayEventBus} from 'primevue/utils';
 import RowRadioButton from './RowRadioButton.vue';
 import RowCheckbox from './RowCheckbox.vue';
 import Ripple from 'primevue/ripple';
@@ -126,7 +125,7 @@ export default {
         bindDocumentEditListener() {
             if (!this.documentEditListener) {
                 this.documentEditListener = (event) => {
-                    if (this.isOutsideClicked()) {
+                    if (!this.selfClick) {
                         this.completeEdit(event, 'outside');
                     }
                     this.selfClick = false;
@@ -145,9 +144,7 @@ export default {
         switchCellToViewMode() {
             this.d_editing = false;
             this.unbindDocumentEditListener();
-        },
-        isOutsideClicked() {
-            return !this.selfClick;
+            OverlayEventBus.off('overlay-click', this.eventBusKey);
         },
         onClick(event) {
             if (this.editMode === 'cell' && this.isEditable()) {
@@ -157,6 +154,12 @@ export default {
                     this.d_editing = true;
                     this.bindDocumentEditListener();
                     this.$emit('cell-edit-init', {originalEvent: event, data: this.rowData, field: this.columnProp('field'), index: this.index});
+
+                    OverlayEventBus.on('overlay-click', e => {
+                        if (this.$el && this.$el.contains(e.target)) {
+                            this.selfClick = true;
+                        }
+                    }, this.eventBusKey);
                 }
             }
         },
@@ -321,6 +324,9 @@ export default {
             let columnStyle = this.columnProp('style');
 
             return this.columnProp('frozen') ? [columnStyle, bodyStyle, this.styleObject]: [columnStyle, bodyStyle];
+        },
+        eventBusKey() {
+            return this.columnProp('field') + '_' + this.index;
         }
     },
     components: {
