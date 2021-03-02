@@ -3,8 +3,6 @@
         <div class="layout-news" v-if="newsActive">
             <div class="layout-news-container">
                 <img class="layouts-news-mockup-image" src="./assets/images/topbar-ultima-device.png">
-                <span class="layout-news-details">
-                </span>
                 <a href="https://www.primefaces.org/layouts/ultima-vue" target="_blank" tabindex="-1" style="text-decoration: none" class="layout-news-button">
                     LEARN MORE<i class="pi pi-angle-right"></i>
                 </a>

@@ -1,9 +1,9 @@
 .layout-news {
     height: 70px;
-    width: 100%;
     display: flex;
     justify-content: center;
     align-items: center;
+    margin-left: 250px;
     background-image: linear-gradient(to left, #1565c0, #0D47A1);
 
     .layout-news-container {
@@ -15,26 +15,6 @@
         color: #ffffff;
         font-weight: bold;
         font-size: 20px;
-
-        .layout-news-details {
-            display: flex;
-            align-items: center;
-            z-index: 1;
-
-            .rate {
-                color: #f2b837;
-                font-size: 25px;
-                font-weight: bold;
-                margin: 0 .25rem;
-            }
-
-            .helper-text {
-                background-color: #f2b837;
-                color: #212121;
-                padding: 0 0.2rem;
-                margin-right: 0.3rem;
-            }
-        }
 
         img.layouts-news-mockup-image {
             height: 70px;
@@ -52,7 +32,7 @@
             align-items: center;
             flex-shrink: 0;
             transition: background-color 0.15s;
-            margin-left: 2em;
+            margin-left: -1rem;
             position: relative;
             z-index: 1;
 

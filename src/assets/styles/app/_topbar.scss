@@ -2,13 +2,12 @@
     background-color: var(--surface-a);
     padding: 0;
     height: 70px;
-    width: 100%;
     box-shadow: 0 0 4px rgba(0,0,0,0.25);
     border-bottom: 1px solid var(--surface-d);
     display: flex;
     align-items: center;
     padding: 0 35px;
-    padding-left: 285px;
+    margin-left: 250px;
 
     .menu-button {
         display: none;
@@ -89,6 +88,7 @@
                     transform-origin: top;
                     top: 70px;
                     right: 0;
+                    z-index: 1;
                     width: 275px;
                     max-height: 400px;
                     background-color: var(--surface-f);

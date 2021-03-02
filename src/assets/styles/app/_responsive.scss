@@ -1,28 +1,17 @@
 
 @media screen and (max-width: 960px) {
-    .layout-wrapper.layout-news-active {
-        .layout-content {
-            padding-top: 180px;
-        }
+    .layout-wrapper {
+        .layout-news {
+            margin-left: 0;
 
-        .layout-sidebar {
-            top: 0;
-            height: 100%;
-        }
-
-        .layout-news-button {
-            opacity: 0;
-            position: absolute;
-            z-index: 1;
-            width: 100%;
-            height: 100%;
-            margin: 0;
-            top: 0;
-            left: 0;
+            .layout-news-button {
+                display: none;
+            }
         }
     }
 
     .layout-topbar {
+        margin-left: 0;
         height: 110px;
         flex-wrap: wrap;
         justify-content: space-between;
@@ -72,10 +61,8 @@
     }
 
     .layout-sidebar {
-        top: 0;
-        z-index: 999;
-        height: 100%;
         transform: translateX(-100%);
+        z-index: 999;
 
         &.active {
             transform: translateX(0);
@@ -84,7 +71,6 @@
 
     .layout-content {
         margin-left: 0;
-        padding-top: 110px;
 
         .content-section {
             &.introduction {
