@@ -4602,9 +4602,6 @@
   background: rgba(255, 255, 255, 0.1);
   color: #faf9f8;
 }
-.p-galleria .p-galleria-thumbnail-container .p-galleria-thumbnail-item-content {
-  transition: box-shadow 0.2s;
-}
 .p-galleria .p-galleria-thumbnail-container .p-galleria-thumbnail-item-content:focus {
   outline: 0 none;
   outline-offset: 0;

@@ -4675,9 +4675,6 @@
   background: rgba(255, 255, 255, 0.1);
   color: rgba(255, 255, 255, 0.87);
 }
-.p-galleria .p-galleria-thumbnail-container .p-galleria-thumbnail-item-content {
-  transition: none;
-}
 .p-galleria .p-galleria-thumbnail-container .p-galleria-thumbnail-item-content:focus {
   outline: 0 none;
   outline-offset: 0;
