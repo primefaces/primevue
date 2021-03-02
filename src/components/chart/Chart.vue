@@ -26,19 +26,15 @@ export default {
             this.chart = null;
         }
     },
-    watch: {
-        data() {
-            this.reinit();
-        },
-        type() {
-            this.reinit();
-        },
-        options() {
-            this.reinit();
-        }
-    },
     methods: {
         initChart() {
+
+			if (this.height)
+                this.$refs.canvas.height = this.height;
+                
+            if (this.width)
+				this.$refs.canvas.width = this.width;
+
             this.chart = new Chart(this.$refs.canvas, {
                 type: this.type,
                 data: this.data,
