@@ -9,6 +9,7 @@ let entries = [];
 
 let globalDependencies = {
     'vue': 'Vue',
+    'primevue/api': 'primevue.api',
     'primevue/ripple': 'primevue.ripple',
     'primevue/utils': 'primevue.utils',
     'primevue/button': 'primevue.button',
