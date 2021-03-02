@@ -1,7 +1,7 @@
 <template>
     <Teleport :to="appendTo" :disabled="!popup">
         <transition name="p-connected-overlay" @enter="onEnter" @leave="onLeave">
-            <div :ref="containerRef" :class="containerClass" v-if="popup ? visible : true" v-bind="$attrs">
+            <div :ref="containerRef" :class="containerClass" v-if="popup ? visible : true" v-bind="$attrs" @click="onOverlayClick">
                 <TieredMenuSub :model="model" :root="true" :popup="popup" @leaf-click="onLeafClick"/>
             </div>
         </transition>
@@ -9,8 +9,7 @@
 </template>
 
 <script>
-import {ConnectedOverlayScrollHandler} from 'primevue/utils';
-import {DomHandler} from 'primevue/utils';
+import {ConnectedOverlayScrollHandler,DomHandler,OverlayEventBus} from 'primevue/utils';
 import TieredMenuSub from './TieredMenuSub.vue';
 
 export default {
@@ -157,6 +156,12 @@ export default {
         },
         containerRef(el) {
             this.container = el;
+        },
+        onOverlayClick(event) {
+            OverlayEventBus.emit('overlay-click', {
+                originalEvent: event,
+                target: this.target
+            });
         }
     },
     computed: {

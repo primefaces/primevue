@@ -1,7 +1,7 @@
 <template>
     <Teleport :to="appendTo" :disabled="!popup">
         <transition name="p-connected-overlay" @enter="onEnter" @leave="onLeave">
-            <div :ref="containerRef" :class="containerClass" v-if="popup ? overlayVisible : true" v-bind="$attrs">
+            <div :ref="containerRef" :class="containerClass" v-if="popup ? overlayVisible : true" v-bind="$attrs" @click="onOverlayClick">
                 <ul class="p-menu-list p-reset" role="menu">
                     <template v-for="(item, i) of model" :key="item.label + i.toString()">
                         <template v-if="item.items && visible(item) && !item.separator">
@@ -21,8 +21,7 @@
 </template>
 
 <script>
-import {ConnectedOverlayScrollHandler} from 'primevue/utils';
-import {DomHandler} from 'primevue/utils';
+import {ConnectedOverlayScrollHandler,DomHandler,OverlayEventBus} from 'primevue/utils';
 import Menuitem from './Menuitem.vue';
 
 export default {
@@ -176,6 +175,12 @@ export default {
         },
         containerRef(el) {
             this.container = el;
+        },
+        onOverlayClick(event) {
+            OverlayEventBus.emit('overlay-click', {
+                originalEvent: event,
+                target: this.target
+            });
         }
     },
     computed: {

@@ -5,7 +5,7 @@
         <CalendarButton v-if="showIcon" :icon="icon" tabindex="-1" class="p-datepicker-trigger" :disabled="$attrs.disabled" @click="onButtonClick" type="button" :aria-label="inputFieldValue"/>
         <Teleport :to="appendTo">
             <transition name="p-connected-overlay" @enter="onOverlayEnter($event)" @after-enter="onOverlayEnterComplete" @leave="onOverlayLeave">
-                <div :ref="overlayRef" :class="panelStyleClass" v-if="inline ? true : overlayVisible" :role="inline ? null : 'dialog'">
+                <div :ref="overlayRef" :class="panelStyleClass" v-if="inline ? true : overlayVisible" :role="inline ? null : 'dialog'" @click="onOverlayClick">
                     <template v-if="!timeOnly">
                         <div class="p-datepicker-group-container">
                             <div class="p-datepicker-group" v-for="(month,groupIndex) of months" :key="month.month + month.year">
@@ -133,10 +133,9 @@
 </template>
 
 <script>
-import {ConnectedOverlayScrollHandler} from 'primevue/utils';
+import {ConnectedOverlayScrollHandler,DomHandler,OverlayEventBus} from 'primevue/utils';
 import InputText from 'primevue/inputtext';
 import Button from 'primevue/button';
-import {DomHandler} from 'primevue/utils';
 import Ripple from 'primevue/ripple';
 
 export default {
@@ -1955,6 +1954,14 @@ export default {
         },
         getMonthName(index) {
             return this.$primevue.config.locale.monthNames[index];
+        },
+        onOverlayClick(event) {
+            if (!this.inline) {
+                OverlayEventBus.emit('overlay-click', {
+                    originalEvent: event,
+                    target: this.$el
+                });
+            }
         }
     },
     computed: {

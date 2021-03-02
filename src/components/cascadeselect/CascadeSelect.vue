@@ -14,7 +14,7 @@
         </div>
         <Teleport :to="appendTo">
             <transition name="p-connected-overlay" @enter="onOverlayEnter" @leave="onOverlayLeave">
-                <div :ref="overlayRef" class="p-cascadeselect-panel p-component" v-if="overlayVisible">
+                <div :ref="overlayRef" class="p-cascadeselect-panel p-component" v-if="overlayVisible" @click="onOverlayClick">
                     <div class="p-cascadeselect-items-wrapper">
                         <CascadeSelectSub :options="options" :selectionPath="selectionPath" 
                             :optionLabel="optionLabel" :optionValue="optionValue" :level="0" :templates="$slots"
@@ -28,9 +28,7 @@
 </template>
 
 <script>
-import {ConnectedOverlayScrollHandler} from 'primevue/utils';
-import {ObjectUtils} from 'primevue/utils';
-import {DomHandler} from 'primevue/utils';
+import {ConnectedOverlayScrollHandler,ObjectUtils,DomHandler,OverlayEventBus} from 'primevue/utils';
 import CascadeSelectSub from './CascadeSelectSub.vue';
 
 export default {
@@ -259,6 +257,12 @@ export default {
                     this.hide();
                 break;
             }
+        },
+        onOverlayClick(event) {
+            OverlayEventBus.emit('overlay-click', {
+                originalEvent: event,
+                target: this.$el
+            });
         }
     },
     computed: {

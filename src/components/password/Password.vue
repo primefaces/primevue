@@ -4,7 +4,7 @@
         <i v-if="toggleMask" :class="toggleIconClass" @click="onMaskToggle" />
         <Teleport :to="appendTo">
             <transition name="p-connected-overlay" @enter="onOverlayEnter" @leave="onOverlayLeave">
-                <div :ref="overlayRef" class="p-password-panel p-component" v-if="overlayVisible">
+                <div :ref="overlayRef" class="p-password-panel p-component" v-if="overlayVisible" @click="onOverlayClick">
                     <slot name="header"></slot>
                     <slot name="content">
                         <div class="p-password-meter">
@@ -20,8 +20,7 @@
 </template>
 
 <script>
-import {ConnectedOverlayScrollHandler} from 'primevue/utils';
-import {DomHandler} from 'primevue/utils';
+import {ConnectedOverlayScrollHandler,DomHandler,OverlayEventBus} from 'primevue/utils';
 import InputText from 'primevue/inputtext';
 
 export default {
@@ -221,6 +220,12 @@ export default {
         },
         onMaskToggle() {
             this.unmasked = !this.unmasked;
+        },
+        onOverlayClick(event) {
+            OverlayEventBus.emit('overlay-click', {
+                originalEvent: event,
+                target: this.$el
+            });
         }
     },
     computed: {

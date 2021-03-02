@@ -1,7 +1,7 @@
 <template>
     <Teleport :to="appendTo">
         <transition name="p-overlaypanel" @enter="onEnter" @leave="onLeave">
-            <div class="p-overlaypanel p-component" v-if="visible" :ref="containerRef" v-bind="$attrs">
+            <div class="p-overlaypanel p-component" v-if="visible" :ref="containerRef" v-bind="$attrs" @click="onOverlayClick">
                 <div class="p-overlaypanel-content" @click="onContentClick">
                     <slot></slot>
                 </div>
@@ -14,7 +14,7 @@
 </template>
 
 <script>
-import {UniqueComponentId,DomHandler,ConnectedOverlayScrollHandler} from 'primevue/utils';
+import {UniqueComponentId,DomHandler,ConnectedOverlayScrollHandler,OverlayEventBus} from 'primevue/utils';
 import Ripple from 'primevue/ripple';
 
 export default {
@@ -110,11 +110,17 @@ export default {
             if (this.autoZIndex) {
                 this.container.style.zIndex = String(this.baseZIndex + DomHandler.generateZIndex());
             }
+            OverlayEventBus.on('overlay-click', e => {
+                if (this.container.contains(e.target)) {
+                    this.selfClick = true;
+                }
+            });
         },
         onLeave() {
             this.unbindOutsideClickListener();
             this.unbindScrollListener();
             this.unbindResizeListener();
+            OverlayEventBus.off('overlay-click');
         },
         alignOverlay() {
             DomHandler.absolutePosition(this.container, this.target);
@@ -213,6 +219,12 @@ export default {
                 document.head.removeChild(this.styleElement);
                 this.styleElement = null;
             }
+        },
+        onOverlayClick(event) {
+            OverlayEventBus.emit('overlay-click', {
+                originalEvent: event,
+                target: this.target
+            });
         }
     },
     computed: {

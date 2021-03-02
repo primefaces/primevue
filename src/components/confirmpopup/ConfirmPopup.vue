@@ -1,7 +1,7 @@
 <template>
     <Teleport to="body">
         <transition name="p-confirm-popup" @enter="onEnter" @leave="onLeave">
-            <div class="p-confirm-popup p-component" v-if="visible" :ref="containerRef" v-bind="$attrs">
+            <div class="p-confirm-popup p-component" v-if="visible" :ref="containerRef" v-bind="$attrs" @click="onOverlayClick">
                 <div class="p-confirm-popup-content">
                     <i :class="iconClass" /> 
                     <span class="p-confirm-popup-message">{{confirmation.message}}</span>
@@ -17,8 +17,7 @@
 
 <script>
 import ConfirmationEventBus from 'primevue/confirmationeventbus';
-import {ConnectedOverlayScrollHandler} from 'primevue/utils';
-import {DomHandler} from 'primevue/utils';
+import {ConnectedOverlayScrollHandler,DomHandler,OverlayEventBus} from 'primevue/utils';
 import Button from 'primevue/button';
 
 export default {
@@ -165,6 +164,12 @@ export default {
         },
         containerRef(el) {
             this.container = el;
+        },
+        onOverlayClick(event) {
+            OverlayEventBus.emit('overlay-click', {
+                originalEvent: event,
+                target: this.target
+            });
         }
     },
     computed: {

@@ -15,7 +15,7 @@
         </div>
         <Teleport :to="appendTo">
             <transition name="p-connected-overlay" @enter="onOverlayEnter" @leave="onOverlayLeave">
-                <div :ref="overlayRef" class="p-dropdown-panel p-component" v-if="overlayVisible">
+                <div :ref="overlayRef" class="p-dropdown-panel p-component" v-if="overlayVisible" @click="onOverlayClick">
                     <slot name="header" :value="modelValue" :options="visibleOptions"></slot>
                     <div class="p-dropdown-header" v-if="filter">
                         <div  class="p-dropdown-filter-container">
@@ -58,9 +58,7 @@
 </template>
 
 <script>
-import {ConnectedOverlayScrollHandler} from 'primevue/utils';
-import {ObjectUtils} from 'primevue/utils';
-import {DomHandler} from 'primevue/utils';
+import {ConnectedOverlayScrollHandler,ObjectUtils,DomHandler,OverlayEventBus} from 'primevue/utils';
 import {FilterService} from 'primevue/api';
 import Ripple from 'primevue/ripple';
 
@@ -564,6 +562,12 @@ export default {
                     this.itemsWrapper.scrollTop = selectedItem.offsetTop;
                 }
             }
+        },
+        onOverlayClick(event) {
+            OverlayEventBus.emit('overlay-click', {
+                originalEvent: event,
+                target: this.$el
+            });
         }
     },
     computed: {

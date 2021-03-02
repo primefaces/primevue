@@ -16,7 +16,7 @@
         <Button ref="dropdownButton" type="button" icon="pi pi-chevron-down" class="p-autocomplete-dropdown" :disabled="$attrs.disabled" @click="onDropdownClick" v-if="dropdown"/>
         <Teleport :to="appendTo">
             <transition name="p-connected-overlay" @enter="onOverlayEnter" @leave="onOverlayLeave">
-                <div :ref="overlayRef" class="p-autocomplete-panel p-component" :style="{'max-height': scrollHeight}" v-if="overlayVisible">
+                <div :ref="overlayRef" class="p-autocomplete-panel p-component" :style="{'max-height': scrollHeight}" v-if="overlayVisible" @click="onOverlayClick">
                     <slot name="header" :value="modelValue" :suggestions="suggestions"></slot>
                     <ul :id="listId" class="p-autocomplete-items" role="listbox">
                         <template v-if="!optionGroupLabel">
@@ -43,10 +43,7 @@
 </template>
 
 <script>
-import {ConnectedOverlayScrollHandler} from 'primevue/utils';
-import {UniqueComponentId} from 'primevue/utils';
-import {ObjectUtils} from 'primevue/utils';
-import {DomHandler} from 'primevue/utils';
+import {ConnectedOverlayScrollHandler,UniqueComponentId,ObjectUtils,DomHandler,OverlayEventBus} from 'primevue/utils';
 import Button from 'primevue/button';
 import Ripple from 'primevue/ripple';
 
@@ -499,6 +496,12 @@ export default {
         },
         overlayRef(el) {
             this.overlay = el;
+        },
+        onOverlayClick(event) {
+            OverlayEventBus.emit('overlay-click', {
+                originalEvent: event,
+                target: this.$el
+            });
         }
     },
     computed: {

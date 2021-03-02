@@ -25,7 +25,7 @@
         </div>
         <Teleport :to="appendTo">
             <transition name="p-connected-overlay" @enter="onOverlayEnter" @leave="onOverlayLeave">
-                <div :ref="overlayRef" class="p-multiselect-panel p-component" v-if="overlayVisible">
+                <div :ref="overlayRef" class="p-multiselect-panel p-component" v-if="overlayVisible" @click="onOverlayClick">
                     <slot name="header" :value="modelValue" :options="visibleOptions"></slot>
                     <div class="p-multiselect-header">
                         <div class="p-checkbox p-component" @click="onToggleAll" role="checkbox" :aria-checked="allSelected">
@@ -93,9 +93,7 @@
 </template>
 
 <script>
-import {ConnectedOverlayScrollHandler} from 'primevue/utils';
-import {ObjectUtils} from 'primevue/utils';
-import {DomHandler} from 'primevue/utils';
+import {ConnectedOverlayScrollHandler,ObjectUtils,DomHandler,OverlayEventBus} from 'primevue/utils';
 import {FilterService} from 'primevue/api';
 import Ripple from 'primevue/ripple';
 
@@ -473,6 +471,12 @@ export default {
 
             this.$emit('update:modelValue', value);
             this.$emit('change', {originalEvent: event, value: value});
+        },
+        onOverlayClick(event) {
+            OverlayEventBus.emit('overlay-click', {
+                originalEvent: event,
+                target: this.$el
+            });
         }
     },
     computed: {
