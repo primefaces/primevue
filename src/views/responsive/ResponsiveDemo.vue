@@ -372,7 +372,7 @@
                     <div class="card p-fluid">
                         <h5>Overlay Panel</h5>
                         <Button type="button" label="Choose" @click="toggle" icon="pi pi-search" />
-                        <OverlayPanel ref="op" appendTo="body" :showCloseIcon="true" style="width: 450px">
+                        <OverlayPanel ref="op" appendTo="body" :showCloseIcon="true" style="width: 450px" :breakpoints="{'960px':'75vw'}">
                             <DataTable :value="products" v-model:selection="selectedProduct" selectionMode="single" :paginator="true" :rows="5" @row-select="onProductSelect">
                                 <Column field="name" header="Name" sortable></Column>
                                 <Column header="Image">
@@ -884,7 +884,7 @@
         &lt;div class="card p-fluid"&gt;
             &lt;h5&gt;Overlay Panel&lt;/h5&gt;
             &lt;Button type="button" label="Choose" @click="toggle" icon="pi pi-search" /&gt;
-            &lt;OverlayPanel ref="op" appendTo="body" :showCloseIcon="true" style="width: 450px"&gt;
+            &lt;OverlayPanel ref="op" appendTo="body" :showCloseIcon="true" style="width: 450px" :breakpoints="{'960px':'75vw'}"&gt;
                 &lt;DataTable :value="products" v-model:selection="selectedProduct" selectionMode="single" :paginator="true" :rows="5" @row-select="onProductSelect"&gt;
                     &lt;Column field="name" header="Name" sortable&gt;&lt;/Column&gt;
                     &lt;Column header="Image"&gt;
