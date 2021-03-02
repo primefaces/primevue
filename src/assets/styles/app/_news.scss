@@ -1,8 +1,4 @@
 .layout-news {
-    position: fixed;
-    top: 0;
-    left: 0;
-    z-index: 997;
     height: 70px;
     width: 100%;
     display: flex;
@@ -79,20 +75,5 @@
         align-items: center;
         width: 23px;
         height: 23px;
-    }
-}
-
-.layout-wrapper.layout-news-active {
-    .layout-topbar {
-        top: 70px;
-    }
-
-    .layout-sidebar {
-        top: 140px;
-        height: calc(100% - 140px);
-    }
-
-    .layout-content {
-        padding-top: 140px;
     }
 }
