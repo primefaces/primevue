@@ -14,8 +14,7 @@
 </template>
 
 <script>
-import {ConnectedOverlayScrollHandler} from 'primevue/utils';
-import {DomHandler} from 'primevue/utils';
+import {UniqueComponentId,DomHandler,ConnectedOverlayScrollHandler} from 'primevue/utils';
 import Ripple from 'primevue/ripple';
 
 export default {
@@ -44,6 +43,10 @@ export default {
         ariaCloseLabel: {
             type: String,
             default: 'close'
+        },
+        breakpoints: {
+            type: Object,
+            default: null
         }
     },
     data() {
@@ -57,6 +60,7 @@ export default {
     scrollHandler: null,
     resizeListener: null,
     container: null,
+    styleElement: null,
     beforeUnmount() {
         if (this.dismissable) {
             this.unbindOutsideClickListener();
@@ -66,9 +70,15 @@ export default {
             this.scrollHandler.destroy();
             this.scrollHandler = null;
         }
+        this.destroyStyle();
         this.unbindResizeListener();
         this.target = null;
         this.container = null;
+    },
+    mounted() {
+        if (this.breakpoints) {
+            this.createStyle();
+        }
     },
     methods: {
         toggle(event) {
@@ -88,6 +98,7 @@ export default {
             this.selfClick = true;
         },
         onEnter() {
+            this.container.setAttribute(this.attributeSelector, '');
             this.alignOverlay();
             if (this.dismissable) {
                 this.bindOutsideClickListener();
@@ -176,6 +187,37 @@ export default {
         },
         containerRef(el) {
             this.container = el;
+        },
+        createStyle() {
+			if (!this.styleElement) {
+				this.styleElement = document.createElement('style');
+				this.styleElement.type = 'text/css';
+				document.head.appendChild(this.styleElement);
+
+                let innerHTML = '';
+                for (let breakpoint in this.breakpoints) {
+                    innerHTML += `
+                        @media screen and (max-width: ${breakpoint}) {
+                            .p-overlaypanel[${this.attributeSelector}] {
+                                width: ${this.breakpoints[breakpoint]} !important;
+                            }
+                        }
+                    `
+                }
+                
+                this.styleElement.innerHTML = innerHTML;
+			}
+		},
+        destroyStyle() {
+            if (this.styleElement) {
+                document.head.removeChild(this.styleElement);
+                this.styleElement = null;
+            }
+        }
+    },
+    computed: {
+        attributeSelector() {
+            return UniqueComponentId();
         }
     },
     directives: {

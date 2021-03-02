@@ -7,6 +7,7 @@ interface OverlayPanelProps {
     baseZIndex?: number;
     autoZIndex?: boolean;
     ariaCloseLabel?: string;
+    breakpoints?: {[key: string]: string};
 }
 
 declare class OverlayPanel {

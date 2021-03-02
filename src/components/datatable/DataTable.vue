@@ -1598,7 +1598,7 @@ export default {
 
     .p-datatable[${this.attributeSelector}] .p-datatable-tbody > tr > td {
         display: flex;
-        width: 100%;
+        width: 100% !important;
         align-items: center;
         justify-content: space-between;
     }
