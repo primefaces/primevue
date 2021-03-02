@@ -19,7 +19,7 @@
 
 <script>
 import RadarChartDoc from './RadarChartDoc';
-import EventBus from '@/EventBus';
+import EventBus from '@/AppEventBus';
 
 export default {
     mounted() {

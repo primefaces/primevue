@@ -223,9 +223,7 @@ export const router = createRouter({
                 })
             }
 
-            if(this.toastService) {
-                extDependencies['mitt'] = "^2.1.0";
-                        
+            if(this.toastService) {      
                 imports += `import Toast from "primevue/toast";
 import ToastService from "primevue/toastservice";
 `;
@@ -240,10 +238,6 @@ import ToastService from "primevue/toastservice";
 `;
                 directives += `app.use(ConfirmationService);
 `;
-            }
-
-            if(this.terminalService) {
-                extDependencies['mitt'] = "^2.1.0";
             }
 
             if(name !== 'ToastDemo' && name !== 'TooltipDemo' && name !== 'RippleDemo' && name !== 'FloatLabelDemo' && name !== 'InputGroupDemo' && name !== 'InvalidDemo' && name !== 'FormLayoutDemo') {

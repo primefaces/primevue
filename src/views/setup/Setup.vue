@@ -148,10 +148,6 @@ dependencies: {
                             <td>PrimeFlex</td>
                             <td>DataView</td>
                         </tr>
-                        <tr>
-                            <td>Toast and Terminal</td>
-                            <td>Mitt</td>
-                        </tr>
                     </tbody>
                 </table>
             </div>

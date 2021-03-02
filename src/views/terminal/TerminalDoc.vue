@@ -2,13 +2,6 @@
 	<div class="content-section documentation">
 		<TabView>
 			<TabPanel header="Documentation">
-                <h5>Mitt EventBus</h5>
-                <p>Terminal requires <a href="https://www.npmjs.com/package/mitt">Mitt</a>, a tiny 200b EventBus implementation.</p>
-<pre v-code><code>
-npm install mitt --save
-
-</code></pre>
-
 				<h5>Import</h5>
 <pre v-code.script><code>
 import Terminal from 'primevue/terminal';
@@ -130,7 +123,7 @@ export default {
 				</div>
 
 				<h5>Dependencies</h5>
-				<p>Mitt.</p>
+				<p>None.</p>
 			</TabPanel>
 
 			<TabPanel header="Source">

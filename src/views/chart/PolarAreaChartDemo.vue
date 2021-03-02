@@ -19,7 +19,7 @@
 
 <script>
 import PolarAreaChartDoc from './PolarAreaChartDoc';
-import EventBus from '@/EventBus';
+import EventBus from '@/AppEventBus';
 
 export default {
     mounted() {

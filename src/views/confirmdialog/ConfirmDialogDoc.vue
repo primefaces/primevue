@@ -2,13 +2,6 @@
 	<div class="content-section documentation">
 		<TabView>
 			<TabPanel header="Documentation">
-                <h5>Mitt EventBus</h5>
-                <p>ConfirmDialog requires <a href="https://www.npmjs.com/package/mitt">Mitt</a>, a tiny 200b EventBus implementation.</p>
-<pre v-code><code>
-npm install mitt --save
-
-</code></pre>
-
                 <h5>ConfirmationService</h5>
                 <p>ConfirmDialog is controlled via the <i>ConfirmationService</i> that needs to be installed globally before the application
                     instance is created.</p>
@@ -247,7 +240,7 @@ export default {
 				</div>
 
 				<h5>Dependencies</h5>
-				<p>Mitt.</p>
+				<p>None.</p>
 			</TabPanel>
 
 			<TabPanel header="Source">

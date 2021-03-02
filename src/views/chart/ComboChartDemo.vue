@@ -19,7 +19,7 @@
 
 <script>
 import ComboChartDoc from './ComboChartDoc';
-import EventBus from '@/EventBus';
+import EventBus from '@/AppEventBus';
 
 export default {
      mounted() {

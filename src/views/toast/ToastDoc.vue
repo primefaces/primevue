@@ -2,13 +2,6 @@
 	<div class="content-section documentation">
 		<TabView>
 			<TabPanel header="Documentation">
-                <h5>Mitt EventBus</h5>
-                <p>Toast requires <a href="https://www.npmjs.com/package/mitt">Mitt</a>, a tiny 200b EventBus implementation.</p>
-<pre v-code><code>
-npm install mitt --save
-
-</code></pre>
-
                 <h5>ToastService</h5>
                 <p>Toast messages are dynamically created using a <i>ToastService</i> that needs to be installed globally before the application
                     instance is created.</p>
@@ -270,7 +263,7 @@ this.$toast.add({severity:'success', summary: 'Specific Message', group: 'mykey'
 				</div>
 
 				<h5>Dependencies</h5>
-				<p>Mitt.</p>
+				<p>None.</p>
 			</TabPanel>
 
 			<TabPanel header="Source">

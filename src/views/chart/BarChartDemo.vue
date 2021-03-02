@@ -35,7 +35,7 @@
 
 <script>
 import BarChartDoc from './BarChartDoc';
-import EventBus from '@/EventBus';
+import EventBus from '@/AppEventBus';
 
 export default {
     mounted() {

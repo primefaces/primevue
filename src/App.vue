@@ -35,7 +35,7 @@ import AppTopBar from '@/AppTopBar.vue';
 import AppMenu from '@/AppMenu.vue';
 import AppFooter from '@/AppFooter.vue';
 import AppConfigurator from '@/AppConfigurator.vue';
-import EventBus from '@/EventBus';
+import EventBus from '@/AppEventBus';
 
 export default {
     data() {

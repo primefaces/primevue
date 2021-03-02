@@ -1,4 +1,3 @@
-import mitt from 'mitt';
-const TerminalService = mitt();
+import {EventBus} from 'primevue/utils';
 
-export default TerminalService;
+export default EventBus();

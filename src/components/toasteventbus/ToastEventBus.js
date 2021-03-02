@@ -1,4 +1,3 @@
-import mitt from 'mitt';
-const EventBus = mitt();
+import {EventBus} from 'primevue/utils';
 
-export default EventBus;
+export default EventBus();

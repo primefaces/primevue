@@ -19,7 +19,7 @@
 
 <script>
 import DoughnutChartDoc from './DoughnutChartDoc';
-import EventBus from '@/EventBus';
+import EventBus from '@/AppEventBus';
 
 export default {
     mounted() {

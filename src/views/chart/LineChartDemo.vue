@@ -30,7 +30,7 @@
 
 <script>
 import LineChartDoc from './LineChartDoc';
-import EventBus from '@/EventBus';
+import EventBus from '@/AppEventBus';
 
 export default {
     mounted() {

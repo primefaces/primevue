@@ -19,7 +19,7 @@
 
 <script>
 import PieChartDoc from './PieChartDoc';
-import EventBus from '@/EventBus';
+import EventBus from '@/AppEventBus';
 
 export default {
     mounted() {
