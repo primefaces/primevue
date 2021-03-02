@@ -1,5 +1,23 @@
 # Changelog
 
+## [3.3.3](https://github.com/primefaces/primevue/tree/3.3.3) (2021-03-02)
+
+[Full Changelog](https://github.com/primefaces/primevue/compare/3.3.2...3.3.3)
+
+**Implemented New Features and Enhancements:**
+
+- Improve the interaction of nested overlays [\#1041](https://github.com/primefaces/primevue/issues/1041)
+- Remove mitt event bus [\#1040](https://github.com/primefaces/primevue/issues/1040)
+- Breakpoints to OverlayPanel [\#1039](https://github.com/primefaces/primevue/issues/1039)
+- Migrate appendTo use Teleport [\#1028](https://github.com/primefaces/primevue/issues/1028)
+- Set appendTo as body by default [\#993](https://github.com/primefaces/primevue/issues/993)
+
+**Fixed bugs:**
+
+- Galleria thumbnail animation jumps [\#1038](https://github.com/primefaces/primevue/issues/1038)
+- TreeTable filter demo not working [\#1036](https://github.com/primefaces/primevue/issues/1036)
+- AutoComplete component is broken [\#1033](https://github.com/primefaces/primevue/issues/1033)
+
 ## [3.3.2](https://github.com/primefaces/primevue/tree/3.3.2) (2021-02-27)
 
 [Full Changelog](https://github.com/primefaces/primevue/compare/3.3.1...3.3.2)
