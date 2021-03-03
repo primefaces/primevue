@@ -29,6 +29,7 @@ declare class FileUpload {
     $emit(eventName: 'error', e: { originalEvent: Event, files: any }): this;
     $emit(eventName: 'before-send', e: { xhr: XMLHttpRequest, formData: any }): this;
     $emit(eventName: 'clear'): this;
+    $emit(eventName: 'remove', e: { originalEvent: Event, file: any }): this;
 }
 
 export default FileUpload;

@@ -47,7 +47,7 @@ import {DomHandler} from 'primevue/utils';
 import Ripple from 'primevue/ripple';
 
 export default {
-    emits: ['select', 'uploader', 'before-upload', 'progress', 'upload', 'error', 'before-send', 'clear'],
+    emits: ['select', 'uploader', 'before-upload', 'progress', 'upload', 'error', 'before-send', 'clear', 'remove'],
     props: {
         name: {
             type: String,
@@ -322,7 +322,7 @@ export default {
         },
         remove(index) {
             this.clearInputElement();
-            this.files.splice(index, 1);
+            this.$emit('remove', {originalEvent: event, file: this.files[index]});
             this.files = [...this.files];
         },
         isImage(file) {

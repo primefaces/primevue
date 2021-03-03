@@ -275,10 +275,16 @@ myUploader(event) {
 								event.progress: Calculated progress value.</td>
 							<td>Callback to invoke when files are selected.</td>
 						</tr>
-                        <tr>
+            <tr>
 							<td>uploader</td>
 							<td>event.files: List of selected files.</td>
 							<td>Callback to invoke to implement a custom upload.</td>
+						</tr>
+						<tr>
+							<td>remove</td>
+							<td>event.originalEvent: Original browser event. <br />
+								event.file: Selected file.</td>
+							<td>Callback to invoke when a file is removed without uploading using clear button of a file.</td>
 						</tr>
 						</tbody>
 					</table>
