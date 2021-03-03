@@ -323,6 +323,7 @@ export default {
         remove(index) {
             this.clearInputElement();
             this.$emit('remove', {originalEvent: event, file: this.files[index]});
+            this.files.splice(index, 1);
             this.files = [...this.files];
         },
         isImage(file) {
