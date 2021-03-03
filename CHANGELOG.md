@@ -1,5 +1,13 @@
 # Changelog
 
+## [3.3.4](https://github.com/primefaces/primevue/tree/3.3.4) (2021-03-03)
+
+[Full Changelog](https://github.com/primefaces/primevue/compare/3.3.3...3.3.4)
+
+**Fixed bugs:**
+
+- CDN builds are broken [\#1046](https://github.com/primefaces/primevue/issues/1046)
+
 ## [3.3.3](https://github.com/primefaces/primevue/tree/3.3.3) (2021-03-02)
 
 [Full Changelog](https://github.com/primefaces/primevue/compare/3.3.2...3.3.3)
