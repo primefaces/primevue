@@ -1,3 +1,3 @@
-import {EventBus} from 'primevue/utils';
+import EventBus from './EventBus.js';
 
 export default EventBus();
