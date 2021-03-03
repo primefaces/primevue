@@ -1,0 +1,5 @@
+{
+    "main": "./overlayeventbus.cjs.js",
+    "module": "./overlayeventbus.esm.js",
+    "unpkg": "./overlayeventbus.min.js"
+  }

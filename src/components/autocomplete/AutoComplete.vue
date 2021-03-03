@@ -43,7 +43,8 @@
 </template>
 
 <script>
-import {ConnectedOverlayScrollHandler,UniqueComponentId,ObjectUtils,DomHandler,OverlayEventBus} from 'primevue/utils';
+import {ConnectedOverlayScrollHandler,UniqueComponentId,ObjectUtils,DomHandler} from 'primevue/utils';
+import OverlayEventBus from 'primevue/overlayeventbus';
 import Button from 'primevue/button';
 import Ripple from 'primevue/ripple';
 

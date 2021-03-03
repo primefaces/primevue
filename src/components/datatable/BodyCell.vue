@@ -31,7 +31,8 @@
 </template>
 
 <script>
-import {DomHandler,ObjectUtils,OverlayEventBus} from 'primevue/utils';
+import {DomHandler,ObjectUtils} from 'primevue/utils';
+import OverlayEventBus from 'primevue/overlayeventbus';
 import RowRadioButton from './RowRadioButton.vue';
 import RowCheckbox from './RowCheckbox.vue';
 import Ripple from 'primevue/ripple';

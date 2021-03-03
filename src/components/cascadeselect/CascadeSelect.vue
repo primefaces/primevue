@@ -28,7 +28,8 @@
 </template>
 
 <script>
-import {ConnectedOverlayScrollHandler,ObjectUtils,DomHandler,OverlayEventBus} from 'primevue/utils';
+import {ConnectedOverlayScrollHandler,ObjectUtils,DomHandler} from 'primevue/utils';
+import OverlayEventBus from 'primevue/overlayeventbus';
 import CascadeSelectSub from './CascadeSelectSub.vue';
 
 export default {

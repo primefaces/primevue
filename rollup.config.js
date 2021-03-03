@@ -18,6 +18,7 @@ let globalDependencies = {
     'primevue/paginator': 'primevue.paginator',
     'primevue/confirmationeventbus': 'primevue.confirmationeventbus',
     'primevue/toasteventbus': 'primevue.toasteventbus',
+    'primevue/overlayeventbus': 'primevue.overlayeventbus',
     'primevue/useconfirm': 'primevue.useconfirm',
     'primevue/usetoast': 'primevue.usetoast',
     'primevue/progressbar': 'primevue.progressbar',
@@ -113,6 +114,7 @@ function addServices() {
     addEntry('useconfirm', 'UseConfirm.js', 'useconfirm');
     addEntry('toastservice', 'ToastService.js', 'toastservice');
     addEntry('toasteventbus', 'ToastEventBus.js', 'toasteventbus');
+    addEntry('overlayeventbus', 'OverlayEventBus.js', 'overlayeventbus');
     addEntry('usetoast', 'UseToast.js', 'usetoast');
     addEntry('terminalservice', 'TerminalService.js', 'terminalservice');
 }

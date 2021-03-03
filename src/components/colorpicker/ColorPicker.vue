@@ -24,7 +24,8 @@
 </template>
 
 <script>
-import {ConnectedOverlayScrollHandler,DomHandler,OverlayEventBus} from 'primevue/utils';
+import {ConnectedOverlayScrollHandler,DomHandler} from 'primevue/utils';
+import OverlayEventBus from 'primevue/overlayeventbus';
 
 export default {
     emits: ['update:modelValue'],

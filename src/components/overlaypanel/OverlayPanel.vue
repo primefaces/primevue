@@ -14,7 +14,8 @@
 </template>
 
 <script>
-import {UniqueComponentId,DomHandler,ConnectedOverlayScrollHandler,OverlayEventBus} from 'primevue/utils';
+import {UniqueComponentId,DomHandler,ConnectedOverlayScrollHandler} from 'primevue/utils';
+import OverlayEventBus from 'primevue/overlayeventbus';
 import Ripple from 'primevue/ripple';
 
 export default {

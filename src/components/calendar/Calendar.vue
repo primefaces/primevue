@@ -133,7 +133,8 @@
 </template>
 
 <script>
-import {ConnectedOverlayScrollHandler,DomHandler,OverlayEventBus} from 'primevue/utils';
+import {ConnectedOverlayScrollHandler,DomHandler} from 'primevue/utils';
+import OverlayEventBus from 'primevue/overlayeventbus';
 import InputText from 'primevue/inputtext';
 import Button from 'primevue/button';
 import Ripple from 'primevue/ripple';

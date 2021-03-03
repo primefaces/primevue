@@ -58,7 +58,8 @@
 </template>
 
 <script>
-import {ConnectedOverlayScrollHandler,ObjectUtils,DomHandler,OverlayEventBus} from 'primevue/utils';
+import {ConnectedOverlayScrollHandler,ObjectUtils,DomHandler} from 'primevue/utils';
+import OverlayEventBus from 'primevue/overlayeventbus';
 import {FilterService} from 'primevue/api';
 import Ripple from 'primevue/ripple';
 

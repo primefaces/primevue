@@ -17,7 +17,8 @@
 
 <script>
 import ConfirmationEventBus from 'primevue/confirmationeventbus';
-import {ConnectedOverlayScrollHandler,DomHandler,OverlayEventBus} from 'primevue/utils';
+import {ConnectedOverlayScrollHandler,DomHandler} from 'primevue/utils';
+import OverlayEventBus from 'primevue/overlayeventbus';
 import Button from 'primevue/button';
 
 export default {
