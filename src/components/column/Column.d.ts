@@ -39,6 +39,7 @@ interface ColumnProps {
     frozen?: boolean;
     alignFrozen?: string;
     exportable?: boolean;
+    exportFunction?: Function;
     filterMatchMode?: string;
 }
 

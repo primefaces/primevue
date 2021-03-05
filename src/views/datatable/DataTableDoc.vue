@@ -7,7 +7,7 @@
 import DataTable from 'primevue/datatable';
 import Column from 'primevue/column';
 import ColumnGroup from 'primevue/columngroup';     //optional for column grouping
-				
+
 </code></pre>
 
                 <h5>Getting Started</h5>
@@ -31,7 +31,7 @@ export default class CarService {
 		return axios.get('demo/data/cars-large.json').then(res => res.data.data);
 	}
 }
-				
+
 </code></pre>
 
                 <p>Example response;</p>
@@ -50,7 +50,7 @@ export default class CarService {
         {"brand": "Fiat", "year": 2013, "color": "Red", "vin": "245t2s"}
     ]
 }
-                
+
 </code></pre>
 
                 <p>Following sample datatable has 4 columns and retrieves the data from a service on mount.</p>
@@ -373,6 +373,12 @@ export default {
                                 <td>true</td>
                                 <td>Whether the column is included in data export.</td>
                             </tr>
+                            <tr>
+                                <td>exportFunction</td>
+                                <td>function</td>
+                                <td>null</td>
+                                <td>A function to be applied before data field export.</td>
+                            </tr>
                         </tbody>
                     </table>
                 </div>
@@ -668,10 +674,10 @@ data() {
 </code></pre>
 
                 <h5>Filtering</h5>
-                <p>DataTable has advanced filtering capabilities that does the heavy lifting while providing flexible customization. Filtering has two layout alternatives defined with the <i>filterDisplay</i>. 
+                <p>DataTable has advanced filtering capabilities that does the heavy lifting while providing flexible customization. Filtering has two layout alternatives defined with the <i>filterDisplay</i>.
                 In <b>row</b> setting, filter elements are displayed in a separate row at the header section whereas
                 in <i>menu</i> mode filter elements are displayed inside an overlay. Filter metadata is specified using the <i>filters</i> as a v-model and UI elements for the filtering
-                are placed inside the filter template. The template filter gets a <i>filterModel</i> and <i>filterCallback</i>, 
+                are placed inside the filter template. The template filter gets a <i>filterModel</i> and <i>filterCallback</i>,
                 use filterModel.value to populate the filter with your own form components and call the filterCallback with the event of your choice like @input, @change, @click.</p>
 
 <pre v-code.script><code>
@@ -1785,16 +1791,16 @@ export default {
 </code></pre>
 
                <h5>Responsive</h5>
-               <p>DataTable responsive layout can be achieved in two ways; first approach is displaying a horizontal scrollbar for smaller screens 
+               <p>DataTable responsive layout can be achieved in two ways; first approach is displaying a horizontal scrollbar for smaller screens
                     and second one is defining a breakpoint to display the cells of a row as stacked. Scrollable tables use the scroll layout approach internally and do not require additional configuration.</p>
 
                <h6>Scroll Layout</h6>
                <p>Set <i>responsiveLayout</i> to scroll to enabled this layout. Note that, when scroll mode is enabled table-layout automatically switches to auto from fixed
-               as a result table widths are likely to differ and resizable columns are not supported. Read more about <a href="https://www.w3schools.com/cssref/pr_tab_table-layout.asp">table-layout</a> for more details.</p> 
+               as a result table widths are likely to differ and resizable columns are not supported. Read more about <a href="https://www.w3schools.com/cssref/pr_tab_table-layout.asp">table-layout</a> for more details.</p>
 
 <pre v-code><code><template v-pre>
 &lt;DataTable :value="products" responsiveLayout="scroll"&gt;
-    
+
 &lt;/DataTable&gt;
 </template>
 </code></pre>
@@ -1803,10 +1809,10 @@ export default {
                 <p>In stack layout, columns are displayed as stacked after a certain breakpoint. Default is '960px'.</p>
 <pre v-code><code><template v-pre>
 &lt;DataTable :value="products" responsiveLayout="stack" breakpoint="640px"&gt;
-    
+
 &lt;/DataTable&gt;
 </template>
-</code></pre>         
+</code></pre>
 
                 <h5>Row and Cell Styling</h5>
                 <p>Certain rows or cells can easily be styled based on conditions. Cell styling is implemented with templating whereas row styling utilizes the <i>rowClass</i> property which takes the
@@ -2774,7 +2780,7 @@ export default {
     },
     mounted() {
         this.customerService.getCustomersLarge().then(data => {
-            this.customers = data; 
+            this.customers = data;
             this.customers.forEach(customer => customer.date = new Date(customer.date));
             this.loading = false;
         });
@@ -2963,7 +2969,7 @@ export default {
     },
     mounted() {
         this.customerService.getCustomersLarge().then(data => {
-            this.customers = data; 
+            this.customers = data;
             this.customers.forEach(customer => customer.date = new Date(customer.date));
             this.loading = false;
         });

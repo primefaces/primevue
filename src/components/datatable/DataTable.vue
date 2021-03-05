@@ -580,7 +580,7 @@ export default {
                         else {
                             localMatch = this.executeLocalFilter(filterField, data[i], filterMeta);
                         }
-                        
+
                         if (!localMatch) {
                             break;
                         }
@@ -966,6 +966,10 @@ export default {
                             let cellData = ObjectUtils.resolveFieldData(record, this.columnProp(column, 'field'));
 
                             if (cellData != null) {
+                                if (this.columnProp(column, "exportFunction")) {
+                                    let fn = this.columnProp(column, "exportFunction");
+                                    cellData = fn(cellData);
+                                }
                                 if (this.exportFunction) {
                                     cellData = this.exportFunction({
                                         data: cellData,
@@ -1618,7 +1622,7 @@ export default {
     }
 }
 `;
-                
+
                 this.styleElement.innerHTML = innerHTML;
 			}
 		},
@@ -2033,7 +2037,7 @@ export default {
     justify-content: center;
 }
 
-.p-column-filter-add-button .p-button-label, 
+.p-column-filter-add-button .p-button-label,
 .p-column-filter-remove-button .p-button-label {
     flex-grow: 0;
 }

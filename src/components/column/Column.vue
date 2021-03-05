@@ -162,6 +162,10 @@ export default {
             type: Boolean,
             default: true
         },
+        exportFunction: {
+            type: Function,
+            default: null
+        },
         filterMatchMode: {
             type: String,
             default: null
