@@ -580,7 +580,7 @@ export default {
                         else {
                             localMatch = this.executeLocalFilter(filterField, data[i], filterMeta);
                         }
-                        
+
                         if (!localMatch) {
                             break;
                         }
@@ -815,7 +815,7 @@ export default {
         toggleRowsWithCheckbox(event) {
             const processedData = this.processedData;
             const checked = this.allRowsSelected;
-            const _selection = checked ? [] : (processedData ? [...processedData] : [...this.value]);
+            const _selection = checked ? [] : [...this.frozenValue || [], ...(processedData ? this.processedData : this.value)];
             this.$emit('update:selection', _selection);
 
             if (checked)
@@ -928,7 +928,7 @@ export default {
             this.$emit('update:selection', _selection);
         },
         exportCSV(options) {
-            let data = this.processedData;
+            let data = [...this.frozenValue || [], ...this.processedData];
             let csv = '\ufeff';
 
             if (options && options.selectionOnly) {
@@ -1618,7 +1618,7 @@ export default {
     }
 }
 `;
-                
+
                 this.styleElement.innerHTML = innerHTML;
 			}
 		},
@@ -1768,7 +1768,7 @@ export default {
             return ['p-datatable-loading-icon pi-spin', this.loadingIcon];
         },
         allRowsSelected() {
-            const val = this.processedData;
+            const val = [...this.frozenValue || [], ...this.processedData];
             return (val && val.length > 0 && this.selection && this.selection.length > 0 && this.selection.length === val.length);
         },
         attributeSelector() {
@@ -2033,7 +2033,7 @@ export default {
     justify-content: center;
 }
 
-.p-column-filter-add-button .p-button-label, 
+.p-column-filter-add-button .p-button-label,
 .p-column-filter-remove-button .p-button-label {
     flex-grow: 0;
 }
