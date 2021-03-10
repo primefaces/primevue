@@ -48,8 +48,8 @@
 </template>
 
 <script>
-import MenuService from './service/MenuService';
 import {FilterService,FilterMatchMode} from 'primevue/api';
+import menudata from '@/assets/menu/menu.json';
 
 export default {
     props: {
@@ -58,33 +58,25 @@ export default {
     data() {
         return {
             activeSubmenus: {},
-            menu: null,
+            menu: menudata.data,
             filteredRoutes: null,
             selectedRoute: null,
             routes: []
         }
     },
-    menuService: null,
-    created() {
-        this.menuService = new MenuService();
-    },
     mounted() {
-        this.menuService.getMenu().then(data => {
-            this.menu = data;
+        this.menu.forEach((route) => {
+            let childRoute = {...route};
+            childRoute.children = childRoute.children.filter((child) => {
+                if (child.meta) {
+                    this.routes.push(child);
+                }
 
-            data.forEach((route) => {
-                let childRoute = {...route};
-                childRoute.children = childRoute.children.filter((child) => {
-                    if (child.meta) {
-                        this.routes.push(child);
-                    }
+                return !child.meta;
+            })
 
-                    return !child.meta;
-                })
-
-                this.routes.push(childRoute);            
-            });
-        })
+            this.routes.push(childRoute);            
+        });
     },
     methods: {
         toggleSubmenu(event, name) {
