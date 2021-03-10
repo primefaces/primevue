@@ -93,7 +93,8 @@ export default {
                     htmlValue: html,
                     textValue: text,
                     delta: delta,
-                    source: source
+                    source: source,
+                    instance: this.quill
                 });
             }
         });
