@@ -1939,7 +1939,7 @@ export default {
     border: 1px solid transparent;
 }
 
-.p-sortable-column .p-column-header-content {
+.p-datatable .p-column-header-content {
     display: flex;
     align-items: center;
 }
