@@ -105,6 +105,24 @@ import Editor from 'primevue/editor';
 					</table>
 				</div>
 
+                <h5>Slots</h5>
+				<div class="doc-tablewrapper">
+                    <table class="doc-table">
+						<thead>
+                            <tr>
+                                <th>Name</th>
+                                <th>Parameters</th>
+                            </tr>
+						</thead>
+						<tbody>
+                            <tr>
+                                <td>toolbar</td>
+                                <td>-</td>
+                            </tr>
+						</tbody>
+					</table>
+                </div>
+
 				<p>Refer to <a href="http://beta.quilljs.com/docs/api/#events">Quill documentation</a> for more information.</p>
 
 				<h5>Styling</h5>
