@@ -92,7 +92,8 @@ import Editor from 'primevue/editor';
                                 <td>event.delta: Representation of the change.<br/>
                                     event.source: Source of change. Will be either "user" or "api".<br/>
                                     event.htmlValue: Current value as html.<br/>
-                                    event.textValue: Current value as text.<br/></td>
+                                    event.textValue: Current value as text.<br/>
+                                    event.instance: Text editor instance.</td>
                                 <td>Callback to invoke when text of editor changes.</td>
                             </tr>
                             <tr>

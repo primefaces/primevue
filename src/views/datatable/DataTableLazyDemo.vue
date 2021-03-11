@@ -12,26 +12,27 @@
 
 		<div class="content-section implementation">
             <div class="card">
-                <DataTable :value="customers" :lazy="true" :paginator="true" :rows="10" :filters="filters" ref="dt"
-                    :totalRecords="totalRecords" :loading="loading" @page="onPage($event)" @sort="onSort($event)">
+                <DataTable :value="customers" :lazy="true" :paginator="true" :rows="10" v-model:filters="filters" ref="dt"
+                    :totalRecords="totalRecords" :loading="loading" @page="onPage($event)" @sort="onSort($event)" filterDisplay="row"
+                    :globalFilterFields="['name','country.name', 'company', 'representative.name']">
                     <Column field="name" header="Name" filterMatchMode="startsWith" ref="name" :sortable="true">  
-                        <template #filter>
-                            <InputText type="text" v-model="filters['name']['value']" @keydown.enter="onFilter($event)" class="p-column-filter" placeholder="Search by name"/>
+                        <template #filter="{filterModel,filterCallback}">
+                            <InputText type="text" v-model="filterModel.value" @keydown.enter="filterCallback()" class="p-column-filter" placeholder="Search by name"/>
                         </template>                    
                     </Column>
                     <Column field="country.name" header="Country" filterField="country.name" filterMatchMode="contains" ref="country.name" :sortable="true">
-                        <template #filter>
-                            <InputText type="text" v-model="filters['country.name']['value']" @keydown.enter="onFilter($event)" class="p-column-filter" placeholder="Search by country"/>
+                        <template #filter="{filterModel,filterCallback}">
+                            <InputText type="text" v-model="filterModel.value" @keydown.enter="filterCallback()" class="p-column-filter" placeholder="Search by country"/>
                         </template>
                     </Column>
                     <Column field="company" header="Company" filterMatchMode="contains" ref="company" :sortable="true">
-                        <template #filter>
-                            <InputText type="text" v-model="filters['company']['value']" @keydown.enter="onFilter($event)" class="p-column-filter" placeholder="Search by company"/>
+                        <template #filter="{filterModel,filterCallback}">
+                            <InputText type="text" v-model="filterModel.value" @keydown.enter="filterCallback()" class="p-column-filter" placeholder="Search by company"/>
                         </template>
                     </Column>
                     <Column field="representative.name" header="Representative" filterField="representative.name" ref="representative.name" :sortable="true">
-                        <template #filter>
-                            <InputText type="text" v-model="filters['representative.name']['value']" @keydown.enter="onFilter($event)" class="p-column-filter" placeholder="Search by representative"/>
+                        <template #filter="{filterModel,filterCallback}">
+                            <InputText type="text" v-model="filterModel.value" @keydown.enter="filterCallback()" class="p-column-filter" placeholder="Search by representative"/>
                         </template>
                     </Column>
                 </DataTable>
@@ -45,26 +46,27 @@
                         <LiveEditor name="DataTableDemo" :sources="sources" service="CustomerService" :components="['Column', 'InputText']" />
                     </div>
 <pre v-code><code><template v-pre>
-&lt;DataTable :value="customers" :lazy="true" :paginator="true" :rows="10" :filters="filters" ref="dt"
-    :totalRecords="totalRecords" :loading="loading" @page="onPage($event)" @sort="onSort($event)"&gt;
-    &lt;Column field="name" header="Name" filterMatchMode="startsWith" ref="name" :sortable="true"&gt;  
-        &lt;template #filter&gt;
-            &lt;InputText type="text" v-model="filters['name']['value']" @keydown.enter="onFilter($event)" class="p-column-filter" placeholder="Search by name"/&gt;
+&lt;DataTable :value="customers" :lazy="true" :paginator="true" :rows="10" v-model:filters="filters" ref="dt"
+    :totalRecords="totalRecords" :loading="loading" @page="onPage($event)" @sort="onSort($event)" filterDisplay="row"
+    :globalFilterFields="['name','country.name', 'company', 'representative.name']"&gt;
+    &lt;Column field="name" header="Name" filterMatchMode="startsWith" ref="name" :sortable="true"&gt;
+        &lt;template #filter="{filterModel,filterCallback}"&gt;
+            &lt;InputText type="text" v-model="filterModel.value" @keydown.enter="filterCallback()" class="p-column-filter" placeholder="Search by name"/&gt;
         &lt;/template&gt;                    
     &lt;/Column&gt;
     &lt;Column field="country.name" header="Country" filterField="country.name" filterMatchMode="contains" ref="country.name" :sortable="true"&gt;
-        &lt;template #filter&gt;
-            &lt;InputText type="text" v-model="filters['country.name']['value']" @keydown.enter="onFilter($event)" class="p-column-filter" placeholder="Search by country"/&gt;
+        &lt;template #filter="{filterModel,filterCallback}"&gt;
+            &lt;InputText type="text" v-model="filterModel.value" @keydown.enter="filterCallback()" class="p-column-filter" placeholder="Search by country"/&gt;
         &lt;/template&gt;
     &lt;/Column&gt;
     &lt;Column field="company" header="Company" filterMatchMode="contains" ref="company" :sortable="true"&gt;
-        &lt;template #filter&gt;
-            &lt;InputText type="text" v-model="filters['company']['value']" @keydown.enter="onFilter($event)" class="p-column-filter" placeholder="Search by company"/&gt;
+        &lt;template #filter="{filterModel,filterCallback}"&gt;
+            &lt;InputText type="text" v-model="filterModel.value" @keydown.enter="filterCallback()" class="p-column-filter" placeholder="Search by company"/&gt;
         &lt;/template&gt;
     &lt;/Column&gt;
     &lt;Column field="representative.name" header="Representative" filterField="representative.name" ref="representative.name" :sortable="true"&gt;
-        &lt;template #filter&gt;
-            &lt;InputText type="text" v-model="filters['representative.name']['value']" @keydown.enter="onFilter($event)" class="p-column-filter" placeholder="Search by representative"/&gt;
+        &lt;template #filter="{filterModel,filterCallback}"&gt;
+            &lt;InputText type="text" v-model="filterModel.value" @keydown.enter="filterCallback()" class="p-column-filter" placeholder="Search by representative"/&gt;
         &lt;/template&gt;
     &lt;/Column&gt;
 &lt;/DataTable&gt;
@@ -154,6 +156,11 @@ import CustomerService from '../../service/CustomerService';
 import LiveEditor from '../liveeditor/LiveEditor';
 
 export default {
+    watch: {
+        filters() {
+            this.onFilter();
+        }
+    },
     data() {
         return {
             loading: false,
@@ -178,26 +185,27 @@ export default {
     <div class="layout-content">
         <div class="content-section implementation">
             <div class="card">
-                <DataTable :value="customers" :lazy="true" :paginator="true" :rows="10" :filters="filters" ref="dt"
-                    :totalRecords="totalRecords" :loading="loading" @page="onPage($event)" @sort="onSort($event)">
+                <DataTable :value="customers" :lazy="true" :paginator="true" :rows="10" v-model:filters="filters" ref="dt"
+                    :totalRecords="totalRecords" :loading="loading" @page="onPage($event)" @sort="onSort($event)" filterDisplay="row"
+                    :globalFilterFields="['name','country.name', 'company', 'representative.name']">
                     <Column field="name" header="Name" filterMatchMode="startsWith" ref="name" :sortable="true">  
-                        <template #filter>
-                            <InputText type="text" v-model="filters['name']['value']" @keydown.enter="onFilter($event)" class="p-column-filter" placeholder="Search by name"/>
+                        <template #filter="{filterModel,filterCallback}">
+                            <InputText type="text" v-model="filterModel.value" @keydown.enter="filterCallback()" class="p-column-filter" placeholder="Search by name"/>
                         </template>                    
                     </Column>
                     <Column field="country.name" header="Country" filterField="country.name" filterMatchMode="contains" ref="country.name" :sortable="true">
-                        <template #filter>
-                            <InputText type="text" v-model="filters['country.name']['value']" @keydown.enter="onFilter($event)" class="p-column-filter" placeholder="Search by country"/>
+                        <template #filter="{filterModel,filterCallback}">
+                            <InputText type="text" v-model="filterModel.value" @keydown.enter="filterCallback()" class="p-column-filter" placeholder="Search by country"/>
                         </template>
                     </Column>
                     <Column field="company" header="Company" filterMatchMode="contains" ref="company" :sortable="true">
-                        <template #filter>
-                            <InputText type="text" v-model="filters['company']['value']" @keydown.enter="onFilter($event)" class="p-column-filter" placeholder="Search by company"/>
+                        <template #filter="{filterModel,filterCallback}">
+                            <InputText type="text" v-model="filterModel.value" @keydown.enter="filterCallback()" class="p-column-filter" placeholder="Search by company"/>
                         </template>
                     </Column>
                     <Column field="representative.name" header="Representative" filterField="representative.name" ref="representative.name" :sortable="true">
-                        <template #filter>
-                            <InputText type="text" v-model="filters['representative.name']['value']" @keydown.enter="onFilter($event)" class="p-column-filter" placeholder="Search by representative"/>
+                        <template #filter="{filterModel,filterCallback}">
+                            <InputText type="text" v-model="filterModel.value" @keydown.enter="filterCallback()" class="p-column-filter" placeholder="Search by representative"/>
                         </template>
                     </Column>
                 </DataTable>
@@ -210,6 +218,11 @@ export default {
 import CustomerService from '../service/CustomerService';
 
 export default {
+    watch: {
+        filters() {
+            this.onFilter();
+        }
+    },
     data() {
         return {
             loading: false,

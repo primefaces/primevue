@@ -1,5 +1,20 @@
 # Changelog
 
+## [3.3.5](https://github.com/primefaces/primevue/tree/3.3.5) (2021-03-10)
+
+[Full Changelog](https://github.com/primefaces/primevue/compare/3.3.4...3.3.5)
+
+**Implemented New Features and Enhancements:**
+
+- \[Enhancement\] - For editor component [\#1050](https://github.com/primefaces/primevue/issues/1050)
+
+**Fixed bugs:**
+
+- Inline Calendar Teleport defect [\#1060](https://github.com/primefaces/primevue/issues/1060)
+- Filter Popup window closes when clicking / choosing option in table filter menu [\#1049](https://github.com/primefaces/primevue/issues/1049)
+- Date Filter Error on DataTable [\#1048](https://github.com/primefaces/primevue/issues/1048)
+- DataTable "select all checkbox" and "export csv" exclude frozen rows [\#1042](https://github.com/primefaces/primevue/issues/1042)
+
 ## [3.3.4](https://github.com/primefaces/primevue/tree/3.3.4) (2021-03-03)
 
 [Full Changelog](https://github.com/primefaces/primevue/compare/3.3.3...3.3.4)

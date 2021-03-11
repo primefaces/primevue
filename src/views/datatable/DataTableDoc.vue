@@ -7,7 +7,7 @@
 import DataTable from 'primevue/datatable';
 import Column from 'primevue/column';
 import ColumnGroup from 'primevue/columngroup';     //optional for column grouping
-
+				
 </code></pre>
 
                 <h5>Getting Started</h5>
@@ -31,7 +31,7 @@ export default class CarService {
 		return axios.get('demo/data/cars-large.json').then(res => res.data.data);
 	}
 }
-
+				
 </code></pre>
 
                 <p>Example response;</p>
@@ -50,7 +50,7 @@ export default class CarService {
         {"brand": "Fiat", "year": 2013, "color": "Red", "vin": "245t2s"}
     ]
 }
-
+                
 </code></pre>
 
                 <p>Following sample datatable has 4 columns and retrieves the data from a service on mount.</p>
@@ -87,9 +87,9 @@ export default {
                 <h5>Dynamic Columns</h5>
                 <p>Column components can be dynamically generated using a v-for as well.</p>
 <pre v-code><code><template v-pre>
-&lt;DataTable :value="cars"&gt;
-    &lt;Column v-for="col of columns" :field="col.field" :header="col.header" :key="col.field"&gt;&lt;/Column&gt;
-&lt;/DataTable&gt;
+  &lt;DataTable :value="cars"&gt; &lt;Column v-for="col of columns"
+  :field="col.field" :header="col.header" :key="col.field"&gt;&lt;/Column&gt;
+  &lt;/DataTable&gt;
 </template>
 </code></pre>
 
@@ -373,12 +373,6 @@ export default {
                                 <td>true</td>
                                 <td>Whether the column is included in data export.</td>
                             </tr>
-                            <tr>
-                                <td>exportFunction</td>
-                                <td>function</td>
-                                <td>null</td>
-                                <td>A function to be applied before data field export.</td>
-                            </tr>
                         </tbody>
                     </table>
                 </div>
@@ -457,34 +451,23 @@ export default {
                     On the other hand, <i>header</i> and <i>footer</i> sections of a column can either be defined with the properties or the templates. Similarly DataTable itself also provides header and footer properties along with the templates for the main header and footer of the table.</p>
 
                 <pre v-code><code><template v-pre>
-&lt;DataTable :value="cars"&gt;
-    &lt;template #header&gt;
-        &lt;div&gt;
-            &lt;Button icon="pi pi-refresh" style="float: left"/&gt;
-            List of Cars
-        &lt;/div&gt;
-    &lt;/template&gt;
-    &lt;Column field="vin" header="Vin"&gt;&lt;/Column&gt;
-    &lt;Column field="year" header="Year"&gt;&lt;/Column&gt;
-    &lt;Column field="brand" header="Brand"&gt;
-        &lt;template #body="slotProps"&gt;
-            &lt;img :src="'demo/images/car/' + slotProps.data.brand + '.png'" :alt="slotProps.data.brand"  width="48px"/&gt;
-        &lt;/template&gt;
-    &lt;/Column&gt;
-    &lt;Column field="color" header="Color"&gt;&lt;/Column&gt;
-    &lt;Column headerStyle="width: 8em" bodyStyle="text-align: center"&gt;
-        &lt;template #header&gt;
-            &lt;Button type="button" icon="pi pi-cog"&gt;&lt;/Button&gt;
-        &lt;/template&gt;
-        &lt;template #body="slotProps"&gt;
-            &lt;Button type="button" icon="pi pi-search" class="p-button-success" style="margin-right: .5em"&gt;&lt;/Button&gt;
-            &lt;Button type="button" icon="pi pi-pencil" class="p-button-warning"&gt;&lt;/Button&gt;
-        &lt;/template&gt;
-    &lt;/Column&gt;
-    &lt;template #footer&gt;
-        In total there are &#123;&#123;cars ? cars.length : 0 &#125;&#125; cars.
-    &lt;/template&gt;
-&lt;/DataTable&gt;
+  &lt;DataTable :value="cars"&gt; &lt;template #header&gt; &lt;div&gt;
+  &lt;Button icon="pi pi-refresh" style="float: left"/&gt; List of Cars
+  &lt;/div&gt; &lt;/template&gt; &lt;Column field="vin"
+  header="Vin"&gt;&lt;/Column&gt; &lt;Column field="year"
+  header="Year"&gt;&lt;/Column&gt; &lt;Column field="brand" header="Brand"&gt;
+  &lt;template #body="slotProps"&gt; &lt;img :src="'demo/images/car/' +
+  slotProps.data.brand + '.png'" :alt="slotProps.data.brand" width="48px"/&gt;
+  &lt;/template&gt; &lt;/Column&gt; &lt;Column field="color"
+  header="Color"&gt;&lt;/Column&gt; &lt;Column headerStyle="width: 8em"
+  bodyStyle="text-align: center"&gt; &lt;template #header&gt; &lt;Button
+  type="button" icon="pi pi-cog"&gt;&lt;/Button&gt; &lt;/template&gt;
+  &lt;template #body="slotProps"&gt; &lt;Button type="button" icon="pi
+  pi-search" class="p-button-success" style="margin-right:
+  .5em"&gt;&lt;/Button&gt; &lt;Button type="button" icon="pi pi-pencil"
+  class="p-button-warning"&gt;&lt;/Button&gt; &lt;/template&gt; &lt;/Column&gt;
+  &lt;template #footer&gt; In total there are &#123;&#123;cars ? cars.length : 0
+  &#125;&#125; cars. &lt;/template&gt; &lt;/DataTable&gt;
 </template>
 </code></pre>
 
@@ -493,71 +476,40 @@ export default {
                 with smaller paddings use <i>p-datatable-sm</i> class and for a larger one use <i>p-datatable-lg</i>.</p>
 
 <pre v-code><code><template v-pre>
-&lt;DataTable :value="cars" class="p-datatable-sm"&gt;
-    &lt;template #header&gt;
-        Small Table
-    &lt;/template&gt;
-    &lt;Column field="vin" header="Vin"&gt;&lt;/Column&gt;
-    &lt;Column field="year" header="Year"&gt;&lt;/Column&gt;
-    &lt;Column field="brand" header="Brand"&gt;&lt;/Column&gt;
-    &lt;Column field="color" header="Color"&gt;&lt;/Column&gt;
-&lt;/DataTable&gt;
-
-&lt;DataTable :value="cars"&gt;
-    &lt;template #header&gt;
-        Normal Table
-    &lt;/template&gt;
-    &lt;Column field="vin" header="Vin"&gt;&lt;/Column&gt;
-    &lt;Column field="year" header="Year"&gt;&lt;/Column&gt;
-    &lt;Column field="brand" header="Brand"&gt;&lt;/Column&gt;
-    &lt;Column field="color" header="Color"&gt;&lt;/Column&gt;
-&lt;/DataTable&gt;
-
-&lt;DataTable :value="cars" class="p-datatable-lg"&gt;
-    &lt;template #header&gt;
-        Large Table
-    &lt;/template&gt;
-    &lt;Column field="vin" header="Vin"&gt;&lt;/Column&gt;
-    &lt;Column field="year" header="Year"&gt;&lt;/Column&gt;
-    &lt;Column field="brand" header="Brand"&gt;&lt;/Column&gt;
-    &lt;Column field="color" header="Color"&gt;&lt;/Column&gt;
-&lt;/DataTable&gt;
+  &lt;DataTable :value="cars" class="p-datatable-sm"&gt; &lt;template
+  #header&gt; Small Table &lt;/template&gt; &lt;Column field="vin"
+  header="Vin"&gt;&lt;/Column&gt; &lt;Column field="year"
+  header="Year"&gt;&lt;/Column&gt; &lt;Column field="brand"
+  header="Brand"&gt;&lt;/Column&gt; &lt;Column field="color"
+  header="Color"&gt;&lt;/Column&gt; &lt;/DataTable&gt; &lt;DataTable
+  :value="cars"&gt; &lt;template #header&gt; Normal Table &lt;/template&gt;
+  &lt;Column field="vin" header="Vin"&gt;&lt;/Column&gt; &lt;Column field="year"
+  header="Year"&gt;&lt;/Column&gt; &lt;Column field="brand"
+  header="Brand"&gt;&lt;/Column&gt; &lt;Column field="color"
+  header="Color"&gt;&lt;/Column&gt; &lt;/DataTable&gt; &lt;DataTable
+  :value="cars" class="p-datatable-lg"&gt; &lt;template #header&gt; Large Table
+  &lt;/template&gt; &lt;Column field="vin" header="Vin"&gt;&lt;/Column&gt;
+  &lt;Column field="year" header="Year"&gt;&lt;/Column&gt; &lt;Column
+  field="brand" header="Brand"&gt;&lt;/Column&gt; &lt;Column field="color"
+  header="Color"&gt;&lt;/Column&gt; &lt;/DataTable&gt;
 </template>
 </code></pre>
 
                 <h5>Column Grouping</h5>
                 <p>Columns can be grouped at header and footer sections by defining a ColumnGroup with nested rows and columns.</p>
 <pre v-code><code><template v-pre>
-&lt;DataTable :value="sales"&gt;
-    &lt;ColumnGroup type="header"&gt;
-        &lt;Row&gt;
-            &lt;Column header="Brand" :rowspan="3" /&gt;
-            &lt;Column header="Sale Rate" :colspan="4" /&gt;
-        &lt;/Row&gt;
-        &lt;Row&gt;
-            &lt;Column header="Sales" :colspan="2" /&gt;
-            &lt;Column header="Profits" :colspan="2" /&gt;
-        &lt;/Row&gt;
-        &lt;Row&gt;
-            &lt;Column header="Last Year" /&gt;
-            &lt;Column header="This Year" /&gt;
-            &lt;Column header="Last Year" /&gt;
-            &lt;Column header="This Year" /&gt;
-        &lt;/Row&gt;
-    &lt;/ColumnGroup&gt;
-    &lt;Column field="brand" /&gt;
-    &lt;Column field="lastYearSale" /&gt;
-    &lt;Column field="thisYearSale" /&gt;
-    &lt;Column field="lastYearProfit" /&gt;
-    &lt;Column field="thisYearProfit" /&gt;
-    &lt;ColumnGroup type="footer"&gt;
-        &lt;Row&gt;
-            &lt;Column footer="Totals:" :colspan="3" /&gt;
-            &lt;Column footer="$506,202" /&gt;
-            &lt;Column footer="$531,020" /&gt;
-        &lt;/Row&gt;
-    &lt;/ColumnGroup&gt;
-&lt;/DataTable&gt;
+  &lt;DataTable :value="sales"&gt; &lt;ColumnGroup type="header"&gt; &lt;Row&gt;
+  &lt;Column header="Brand" :rowspan="3" /&gt; &lt;Column header="Sale Rate"
+  :colspan="4" /&gt; &lt;/Row&gt; &lt;Row&gt; &lt;Column header="Sales"
+  :colspan="2" /&gt; &lt;Column header="Profits" :colspan="2" /&gt; &lt;/Row&gt;
+  &lt;Row&gt; &lt;Column header="Last Year" /&gt; &lt;Column header="This Year"
+  /&gt; &lt;Column header="Last Year" /&gt; &lt;Column header="This Year" /&gt;
+  &lt;/Row&gt; &lt;/ColumnGroup&gt; &lt;Column field="brand" /&gt; &lt;Column
+  field="lastYearSale" /&gt; &lt;Column field="thisYearSale" /&gt; &lt;Column
+  field="lastYearProfit" /&gt; &lt;Column field="thisYearProfit" /&gt;
+  &lt;ColumnGroup type="footer"&gt; &lt;Row&gt; &lt;Column footer="Totals:"
+  :colspan="3" /&gt; &lt;Column footer="$506,202" /&gt; &lt;Column
+  footer="$531,020" /&gt; &lt;/Row&gt; &lt;/ColumnGroup&gt; &lt;/DataTable&gt;
 </template>
 </code></pre>
 
@@ -567,29 +519,24 @@ export default {
                     rows per page options and more which can be passed through the DataTable.</p>
 
 <pre v-code><code><template v-pre>
-&lt;DataTable :value="cars" :paginator="true" :rows="10"&gt;
-    &lt;Column field="vin" header="Vin"&gt;&lt;/Column&gt;
-    &lt;Column field="year" header="Year"&gt;&lt;/Column&gt;
-    &lt;Column field="brand" header="Brand"&gt;&lt;/Column&gt;
-    &lt;Column field="color" header="Color"&gt;&lt;/Column&gt;
-&lt;/DataTable&gt;
+  &lt;DataTable :value="cars" :paginator="true" :rows="10"&gt; &lt;Column
+  field="vin" header="Vin"&gt;&lt;/Column&gt; &lt;Column field="year"
+  header="Year"&gt;&lt;/Column&gt; &lt;Column field="brand"
+  header="Brand"&gt;&lt;/Column&gt; &lt;Column field="color"
+  header="Color"&gt;&lt;/Column&gt; &lt;/DataTable&gt;
 </template>
 </code></pre>
 
                 <p>paginatorLeft and paginatorLeft templates are available to specify custom content at the left and right side.</p>
 <pre v-code><code><template v-pre>
-&lt;DataTable :value="cars" :paginator="true" :rows="10"&gt;
-    &lt;Column field="vin" header="Vin"&gt;&lt;/Column&gt;
-    &lt;Column field="year" header="Year"&gt;&lt;/Column&gt;
-    &lt;Column field="brand" header="Brand"&gt;&lt;/Column&gt;
-    &lt;Column field="color" header="Color"&gt;&lt;/Column&gt;
-    &lt;template #paginatorLeft&gt;
-        &lt;Button type="button" icon="pi pi-refresh" /&gt;
-    &lt;/template&gt;
-    &lt;template #paginatorRight&gt;
-        &lt;Button type="button" icon="pi pi-cloud" /&gt;
-    &lt;/template&gt;
-&lt;/DataTable&gt;
+  &lt;DataTable :value="cars" :paginator="true" :rows="10"&gt; &lt;Column
+  field="vin" header="Vin"&gt;&lt;/Column&gt; &lt;Column field="year"
+  header="Year"&gt;&lt;/Column&gt; &lt;Column field="brand"
+  header="Brand"&gt;&lt;/Column&gt; &lt;Column field="color"
+  header="Color"&gt;&lt;/Column&gt; &lt;template #paginatorLeft&gt; &lt;Button
+  type="button" icon="pi pi-refresh" /&gt; &lt;/template&gt; &lt;template
+  #paginatorRight&gt; &lt;Button type="button" icon="pi pi-cloud" /&gt;
+  &lt;/template&gt; &lt;/DataTable&gt;
 </template>
 </code></pre>
 
@@ -597,12 +544,12 @@ export default {
                 first element to display. For example setting first to zero will reset the paginator to the very first page. This property
                 also supports v-model in case you'd like your binding to be updated whenever the user changes the page.</p>
 <pre v-code><code><template v-pre>
-&lt;DataTable :value="cars" :paginator="true" :rows="10" :first="firstRecordIndex"&gt;
-    &lt;Column field="vin" header="Vin"&gt;&lt;/Column&gt;
-    &lt;Column field="year" header="Year"&gt;&lt;/Column&gt;
-    &lt;Column field="brand" header="Brand"&gt;&lt;/Column&gt;
-    &lt;Column field="color" header="Color"&gt;&lt;/Column&gt;
-&lt;/DataTable&gt;
+  &lt;DataTable :value="cars" :paginator="true" :rows="10"
+  :first="firstRecordIndex"&gt; &lt;Column field="vin"
+  header="Vin"&gt;&lt;/Column&gt; &lt;Column field="year"
+  header="Year"&gt;&lt;/Column&gt; &lt;Column field="brand"
+  header="Brand"&gt;&lt;/Column&gt; &lt;Column field="color"
+  header="Color"&gt;&lt;/Column&gt; &lt;/DataTable&gt;
 </template>
 </code></pre>
 
@@ -611,53 +558,49 @@ export default {
                 The property to use when sorting is the <i>field</i> by default and can be customized using the <i>sortField</i>.</p>
 
 <pre v-code><code><template v-pre>
-&lt;DataTable :value="cars"&gt;
-    &lt;Column field="vin" header="Vin" :sortable="true"&gt;&lt;/Column&gt;
-    &lt;Column field="year" header="Year" :sortable="true"&gt;&lt;/Column&gt;
-    &lt;Column field="brand" header="Brand" :sortable="true"&gt;&lt;/Column&gt;
-    &lt;Column field="color" header="Color" :sortable="true"&gt;&lt;/Column&gt;
-&lt;/DataTable&gt;
+  &lt;DataTable :value="cars"&gt; &lt;Column field="vin" header="Vin"
+  :sortable="true"&gt;&lt;/Column&gt; &lt;Column field="year" header="Year"
+  :sortable="true"&gt;&lt;/Column&gt; &lt;Column field="brand" header="Brand"
+  :sortable="true"&gt;&lt;/Column&gt; &lt;Column field="color" header="Color"
+  :sortable="true"&gt;&lt;/Column&gt; &lt;/DataTable&gt;
 </template>
 </code></pre>
 
                 <p>By default sorting is executed on the clicked column only. To enable multiple field sorting, set <i>sortMode</i> property to "multiple" and use metakey when clicking on another column.</p>
 <pre v-code><code><template v-pre>
-&lt;DataTable :value="cars" sortMode="multiple"&gt;
-    &lt;Column field="vin" header="Vin" :sortable="true"&gt;&lt;/Column&gt;
-    &lt;Column field="year" header="Year" :sortable="true"&gt;&lt;/Column&gt;
-    &lt;Column field="brand" header="Brand" :sortable="true"&gt;&lt;/Column&gt;
-    &lt;Column field="color" header="Color" :sortable="true"&gt;&lt;/Column&gt;
-&lt;/DataTable&gt;
+  &lt;DataTable :value="cars" sortMode="multiple"&gt; &lt;Column field="vin"
+  header="Vin" :sortable="true"&gt;&lt;/Column&gt; &lt;Column field="year"
+  header="Year" :sortable="true"&gt;&lt;/Column&gt; &lt;Column field="brand"
+  header="Brand" :sortable="true"&gt;&lt;/Column&gt; &lt;Column field="color"
+  header="Color" :sortable="true"&gt;&lt;/Column&gt; &lt;/DataTable&gt;
 </template>
 </code></pre>
 
                 <p>In case you'd like to display the table as sorted per a single column by default on mount or programmatically apply sort, use <i>sortField</i> and <i>sortOrder</i> properties. These
                 two properties also support the v-model directive to get updated when the user applies sort a column.</p>
 <pre v-code><code><template v-pre>
-&lt;DataTable :value="cars" sortField="year" :sortOrder="1"&gt;
-    &lt;Column field="vin" header="Vin" :sortable="true"&gt;&lt;/Column&gt;
-    &lt;Column field="year" header="Year" :sortable="true"&gt;&lt;/Column&gt;
-    &lt;Column field="brand" header="Brand" :sortable="true"&gt;&lt;/Column&gt;
-    &lt;Column field="color" header="Color" :sortable="true"&gt;&lt;/Column&gt;
-&lt;/DataTable&gt;
-
-&lt;DataTable :value="cars" sortField="dynamicSortField" :sortOrder="dynamicSortOrder"&gt;
-    &lt;Column field="vin" header="Vin" :sortable="true"&gt;&lt;/Column&gt;
-    &lt;Column field="year" header="Year" :sortable="true"&gt;&lt;/Column&gt;
-    &lt;Column field="brand" header="Brand" :sortable="true"&gt;&lt;/Column&gt;
-    &lt;Column field="color" header="Color" :sortable="true"&gt;&lt;/Column&gt;
-&lt;/DataTable&gt;
+  &lt;DataTable :value="cars" sortField="year" :sortOrder="1"&gt; &lt;Column
+  field="vin" header="Vin" :sortable="true"&gt;&lt;/Column&gt; &lt;Column
+  field="year" header="Year" :sortable="true"&gt;&lt;/Column&gt; &lt;Column
+  field="brand" header="Brand" :sortable="true"&gt;&lt;/Column&gt; &lt;Column
+  field="color" header="Color" :sortable="true"&gt;&lt;/Column&gt;
+  &lt;/DataTable&gt; &lt;DataTable :value="cars" sortField="dynamicSortField"
+  :sortOrder="dynamicSortOrder"&gt; &lt;Column field="vin" header="Vin"
+  :sortable="true"&gt;&lt;/Column&gt; &lt;Column field="year" header="Year"
+  :sortable="true"&gt;&lt;/Column&gt; &lt;Column field="brand" header="Brand"
+  :sortable="true"&gt;&lt;/Column&gt; &lt;Column field="color" header="Color"
+  :sortable="true"&gt;&lt;/Column&gt; &lt;/DataTable&gt;
 </template>
 </code></pre>
 
                 <p>In multiple mode, use the <i>multiSortMeta</i> property and bind an array of SortMeta objects instead.</p>
 <pre v-code><code><template v-pre>
-&lt;DataTable :value="cars" sortMode="multiple" :multiSortMeta="multiSortMeta"&gt;
-    &lt;Column field="vin" header="Vin" :sortable="true"&gt;&lt;/Column&gt;
-    &lt;Column field="year" header="Year" :sortable="true"&gt;&lt;/Column&gt;
-    &lt;Column field="brand" header="Brand" :sortable="true"&gt;&lt;/Column&gt;
-    &lt;Column field="color" header="Color" :sortable="true"&gt;&lt;/Column&gt;
-&lt;/DataTable&gt;
+  &lt;DataTable :value="cars" sortMode="multiple"
+  :multiSortMeta="multiSortMeta"&gt; &lt;Column field="vin" header="Vin"
+  :sortable="true"&gt;&lt;/Column&gt; &lt;Column field="year" header="Year"
+  :sortable="true"&gt;&lt;/Column&gt; &lt;Column field="brand" header="Brand"
+  :sortable="true"&gt;&lt;/Column&gt; &lt;Column field="color" header="Color"
+  :sortable="true"&gt;&lt;/Column&gt; &lt;/DataTable&gt;
 </template>
 </code></pre>
 
@@ -674,10 +617,10 @@ data() {
 </code></pre>
 
                 <h5>Filtering</h5>
-                <p>DataTable has advanced filtering capabilities that does the heavy lifting while providing flexible customization. Filtering has two layout alternatives defined with the <i>filterDisplay</i>.
+                <p>DataTable has advanced filtering capabilities that does the heavy lifting while providing flexible customization. Filtering has two layout alternatives defined with the <i>filterDisplay</i>. 
                 In <b>row</b> setting, filter elements are displayed in a separate row at the header section whereas
                 in <i>menu</i> mode filter elements are displayed inside an overlay. Filter metadata is specified using the <i>filters</i> as a v-model and UI elements for the filtering
-                are placed inside the filter template. The template filter gets a <i>filterModel</i> and <i>filterCallback</i>,
+                are placed inside the filter template. The template filter gets a <i>filterModel</i> and <i>filterCallback</i>, 
                 use filterModel.value to populate the filter with your own form components and call the filterCallback with the event of your choice like @input, @change, @click.</p>
 
 <pre v-code.script><code>
@@ -706,15 +649,13 @@ export default {
                 <p>Input field is displayed in a separate header row.</p>
 
 <pre v-code><code><template v-pre>
-&lt;DataTable :value="customers1"
-                    dataKey="id" v-model:filters="filters" filterDisplay="row" :loading="loading"&gt;
-    &lt;Column field="name" header="Name"&gt;
-        &lt;template #filter="{filterModel,filterCallback}"&gt;
-            &lt;InputText type="text" v-model="filterModel.value" @keydown.enter="filterCallback()" class="p-column-filter" :placeholder="`Search by name - ${filterModel.matchMode}`"/&gt;
-        &lt;/template&gt;
-    &lt;/Column&gt;
-&lt;DataTable&gt;
-
+  &lt;DataTable :value="customers1" dataKey="id" v-model:filters="filters"
+  filterDisplay="row" :loading="loading"&gt; &lt;Column field="name"
+  header="Name"&gt; &lt;template #filter="{filterModel,filterCallback}"&gt;
+  &lt;InputText type="text" v-model="filterModel.value"
+  @keydown.enter="filterCallback()" class="p-column-filter"
+  :placeholder="`Search by name - ${filterModel.matchMode}`"/&gt;
+  &lt;/template&gt; &lt;/Column&gt; &lt;DataTable&gt;
 </template>
 </code></pre>
 
@@ -722,15 +663,13 @@ export default {
                 <p>Input field is displayed in an overlay.</p>
 
 <pre v-code><code><template v-pre>
-&lt;DataTable :value="customers1"
-                    dataKey="id" v-model:filters="filters" filterDisplay="menu" :loading="loading"&gt;
-    &lt;Column field="name" header="Name"&gt;
-        &lt;template #filter="{filterModel,filterCallback}"&gt;
-            &lt;InputText type="text" v-model="filterModel.value" @keydown.enter="filterCallback()" class="p-column-filter" :placeholder="`Search by name - ${filterModel.matchMode}`"/&gt;
-        &lt;/template&gt;
-    &lt;/Column&gt;
-&lt;DataTable&gt;
-
+  &lt;DataTable :value="customers1" dataKey="id" v-model:filters="filters"
+  filterDisplay="menu" :loading="loading"&gt; &lt;Column field="name"
+  header="Name"&gt; &lt;template #filter="{filterModel,filterCallback}"&gt;
+  &lt;InputText type="text" v-model="filterModel.value"
+  @keydown.enter="filterCallback()" class="p-column-filter"
+  :placeholder="`Search by name - ${filterModel.matchMode}`"/&gt;
+  &lt;/template&gt; &lt;/Column&gt; &lt;DataTable&gt;
 </template>
 </code></pre>
 
@@ -804,12 +743,11 @@ app.use(PrimeVue, {
 
                 <p>If you need to override the match modes for a particular column use the <i>filterMatchModeOptions</i> property and provide an array with label-value pairs.</p>
 <pre v-code><code><template v-pre>
-&lt;Column field="name" header="Name" :filterMatchModeOptions="matchModes"&gt;
-    &lt;template #filter="{filterModel,filterCallback}"&gt;
-        &lt;InputText type="text" v-model="filterModel.value" @keydown.enter="filterCallback()" class="p-column-filter" :placeholder="`Search by name - ${filterModel.matchMode}`"/&gt;
-    &lt;/template&gt;
-&lt;/Column&gt;
-
+  &lt;Column field="name" header="Name" :filterMatchModeOptions="matchModes"&gt;
+  &lt;template #filter="{filterModel,filterCallback}"&gt; &lt;InputText
+  type="text" v-model="filterModel.value" @keydown.enter="filterCallback()"
+  class="p-column-filter" :placeholder="`Search by name -
+  ${filterModel.matchMode}`"/&gt; &lt;/template&gt; &lt;/Column&gt;
 </template>
 </code></pre>
 
@@ -840,21 +778,19 @@ matchModes: [
                 <p>Filter menu overlay can be customized even further with various templates including <i>filterheader</i>, <i>filterfooter</i>, <i>filterclear</i>, <i>filterapply</i>. Example here changes the buttons and adds a footer.</p>
 
 <pre v-code><code><template v-pre>
-&lt;Column header="Country" filterField="country.name"&gt;
-    &lt;template #filter="{filterModel}"&gt;
-        &lt;InputText type="text" v-model="filterModel.value" class="p-column-filter" placeholder="Search by country"/&gt;
-    &lt;/template&gt;
-    &lt;template #filterclear="{filterCallback}"&gt;
-        &lt;Button type="button" icon="pi pi-times" @click="filterCallback()" class="p-button-secondary"&gt;&lt;/Button&gt;
-    &lt;/template&gt;
-    &lt;template #filterapply="{filterCallback}"&gt;
-        &lt;Button type="button" icon="pi pi-check" @click="filterCallback()" class="p-button-success"&gt;&lt;/Button&gt;
-    &lt;/template&gt;
-    &lt;template #filterfooter&gt;
-        &lt;div class="p-px-3 p-pt-0 p-pb-3 p-text-center p-text-bold"&gt;Customized Buttons&lt;/div&gt;
-    &lt;/template&gt;
-&lt;/Column&gt;
-
+  &lt;Column header="Country" filterField="country.name"&gt; &lt;template
+  #filter="{filterModel}"&gt; &lt;InputText type="text"
+  v-model="filterModel.value" class="p-column-filter" placeholder="Search by
+  country"/&gt; &lt;/template&gt; &lt;template
+  #filterclear="{filterCallback}"&gt; &lt;Button type="button" icon="pi
+  pi-times" @click="filterCallback()"
+  class="p-button-secondary"&gt;&lt;/Button&gt; &lt;/template&gt; &lt;template
+  #filterapply="{filterCallback}"&gt; &lt;Button type="button" icon="pi
+  pi-check" @click="filterCallback()"
+  class="p-button-success"&gt;&lt;/Button&gt; &lt;/template&gt; &lt;template
+  #filterfooter&gt; &lt;div class="p-px-3 p-pt-0 p-pb-3 p-text-center
+  p-text-bold"&gt;Customized Buttons&lt;/div&gt; &lt;/template&gt;
+  &lt;/Column&gt;
 </template>
 </code></pre>
 
@@ -869,47 +805,46 @@ matchModes: [
                 <p>In single mode, selection binding is an object reference.</p>
 
 <pre v-code><code><template v-pre>
-&lt;DataTable :value="cars" v-model:selection="selectedCar" selectionMode="single" dataKey="vin"&gt;
-    &lt;Column field="vin" header="Vin"&gt;&lt;/Column&gt;
-    &lt;Column field="year" header="Year"&gt;&lt;/Column&gt;
-    &lt;Column field="brand" header="Brand"&gt;&lt;/Column&gt;
-    &lt;Column field="color" header="Color"&gt;&lt;/Column&gt;
-&lt;/DataTable&gt;
+  &lt;DataTable :value="cars" v-model:selection="selectedCar"
+  selectionMode="single" dataKey="vin"&gt; &lt;Column field="vin"
+  header="Vin"&gt;&lt;/Column&gt; &lt;Column field="year"
+  header="Year"&gt;&lt;/Column&gt; &lt;Column field="brand"
+  header="Brand"&gt;&lt;/Column&gt; &lt;Column field="color"
+  header="Color"&gt;&lt;/Column&gt; &lt;/DataTable&gt;
 </template>
 </code></pre>
 
                 <p>In multiple mode, selection binding should be an array and multiple items can either be selected using metaKey or toggled individually depending on the value of <i>metaKeySelection</i> property value which is true by default. On touch enabled devices metaKeySelection is turned off automatically. Additionally ShiftKey is supported for range selection.</p>
 <pre v-code><code><template v-pre>
-&lt;DataTable :value="cars" v-model:selection="selectedCars" selectionMode="multiple" dataKey="vin"&gt;
-    &lt;Column field="vin" header="Vin"&gt;&lt;/Column&gt;
-    &lt;Column field="year" header="Year"&gt;&lt;/Column&gt;
-    &lt;Column field="brand" header="Brand"&gt;&lt;/Column&gt;
-    &lt;Column field="color" header="Color"&gt;&lt;/Column&gt;
-&lt;/DataTable&gt;
+  &lt;DataTable :value="cars" v-model:selection="selectedCars"
+  selectionMode="multiple" dataKey="vin"&gt; &lt;Column field="vin"
+  header="Vin"&gt;&lt;/Column&gt; &lt;Column field="year"
+  header="Year"&gt;&lt;/Column&gt; &lt;Column field="brand"
+  header="Brand"&gt;&lt;/Column&gt; &lt;Column field="color"
+  header="Color"&gt;&lt;/Column&gt; &lt;/DataTable&gt;
 </template>
 </code></pre>
 
                 <p>If you prefer a radioButton or a checkbox instead of a row click, use the <i>selectionMode</i> of a column instead. Following datatable displays a checkbox at the first column of each row and automatically adds a header checkbox to toggle selection of all rows.</p>
 <pre v-code><code><template v-pre>
-&lt;DataTable :value="cars" v-model:selection="selectedCars" selectionMode="multiple" dataKey="vin"&gt;
-    &lt;Column selectionMode="multiple"&gt;&lt;/Column&gt;
-    &lt;Column field="vin" header="Vin"&gt;&lt;/Column&gt;
-    &lt;Column field="year" header="Year"&gt;&lt;/Column&gt;
-    &lt;Column field="brand" header="Brand"&gt;&lt;/Column&gt;
-    &lt;Column field="color" header="Color"&gt;&lt;/Column&gt;
-&lt;/DataTable&gt;
+  &lt;DataTable :value="cars" v-model:selection="selectedCars"
+  selectionMode="multiple" dataKey="vin"&gt; &lt;Column
+  selectionMode="multiple"&gt;&lt;/Column&gt; &lt;Column field="vin"
+  header="Vin"&gt;&lt;/Column&gt; &lt;Column field="year"
+  header="Year"&gt;&lt;/Column&gt; &lt;Column field="brand"
+  header="Brand"&gt;&lt;/Column&gt; &lt;Column field="color"
+  header="Color"&gt;&lt;/Column&gt; &lt;/DataTable&gt;
 </template>
 </code></pre>
 
                 <h5>Scrolling</h5>
                 <p>DataTable supports both horizontal and vertical scrolling as well as frozen columns and rows. Scrollable DataTable is enabled using <i>scrollable</i> property and <i>scrollHeight</i> to define the viewport height.</p>
 <pre v-code><code><template v-pre>
-&lt;DataTable :value="cars" :scrollable="true" scrollHeight="400px"&gt;
-    &lt;Column field="vin" header="Vin"&gt;&lt;/Column&gt;
-    &lt;Column field="year" header="Year"&gt;&lt;/Column&gt;
-    &lt;Column field="brand" header="Brand"&gt;&lt;/Column&gt;
-    &lt;Column field="color" header="Color"&gt;&lt;/Column&gt;
-&lt;/DataTable&gt;
+  &lt;DataTable :value="cars" :scrollable="true" scrollHeight="400px"&gt;
+  &lt;Column field="vin" header="Vin"&gt;&lt;/Column&gt; &lt;Column field="year"
+  header="Year"&gt;&lt;/Column&gt; &lt;Column field="brand"
+  header="Brand"&gt;&lt;/Column&gt; &lt;Column field="color"
+  header="Color"&gt;&lt;/Column&gt; &lt;/DataTable&gt;
 </template>
 </code></pre>
 
@@ -922,74 +857,81 @@ matchModes: [
                 </ul>
 
 <pre v-code><code><template v-pre>
-&lt;Column field="vin" header="Vin" style="flex: 0 0 4rem"&gt;&lt;/Column&gt;
+  &lt;Column field="vin" header="Vin" style="flex: 0 0 4rem"&gt;&lt;/Column&gt;
 </template>
 </code></pre>
 
                 <h6>Flex Scroll</h6>
                 <p>In cases where viewport should adjust itself according to the table parent's height instead of a fixed viewport height, set scrollHeight option as flex. In example below, table is inside a Dialog where viewport size dynamically responds to the dialog size changes such as maximizing.</p>
 <pre v-code><code><template v-pre>
-&lt;Button label="Show" icon="pi pi-external-link" @click="openDialog" /&gt;
-&lt;Dialog header="Flex Scroll" v-model:visible="dialogVisible" :style="{width: '50vw'}" :maximizable="true" :modal="true" :contentStyle="{height: '300px'}"&gt;
-    &lt;DataTable :value="cars" :scrollable="true" scrollHeight="flex"&gt;
-        &lt;Column field="vin" header="Vin"&gt;&lt;/Column&gt;
-        &lt;Column field="year" header="Year"&gt;&lt;/Column&gt;
-        &lt;Column field="brand" header="Brand"&gt;&lt;/Column&gt;
-        &lt;Column field="color" header="Color"&gt;&lt;/Column&gt;
-    &lt;/DataTable&gt;
-    &lt;template #footer&gt;
-        &lt;Button label="Yes" icon="pi pi-check" @click="closeDialog" /&gt;
-        &lt;Button label="No" icon="pi pi-times" @click="closeDialog" class="p-button-secondary"/&gt;
-    &lt;/template&gt;
-&lt;/Dialog&gt;
+  &lt;Button label="Show" icon="pi pi-external-link" @click="openDialog" /&gt;
+  &lt;Dialog header="Flex Scroll" v-model:visible="dialogVisible"
+  :style="{width: '50vw'}" :maximizable="true" :modal="true"
+  :contentStyle="{height: '300px'}"&gt; &lt;DataTable :value="cars"
+  :scrollable="true" scrollHeight="flex"&gt; &lt;Column field="vin"
+  header="Vin"&gt;&lt;/Column&gt; &lt;Column field="year"
+  header="Year"&gt;&lt;/Column&gt; &lt;Column field="brand"
+  header="Brand"&gt;&lt;/Column&gt; &lt;Column field="color"
+  header="Color"&gt;&lt;/Column&gt; &lt;/DataTable&gt; &lt;template #footer&gt;
+  &lt;Button label="Yes" icon="pi pi-check" @click="closeDialog" /&gt;
+  &lt;Button label="No" icon="pi pi-times" @click="closeDialog"
+  class="p-button-secondary"/&gt; &lt;/template&gt; &lt;/Dialog&gt;
 </template>
 </code></pre>
 
                 <h6>Full Page Scroll</h6>
                 <p>FlexScroll can also be used for cases where scrollable viewport should be responsive with respect to the window size. See the <router-link to="/datatable/flexscroll">full page</router-link> demo for an example.</p>
 <pre v-code><code><template v-pre>
-&lt;div style="height: calc(100vh - 143px)"&gt;
-    &lt;DataTable :value="cars" :scrollable="true" scrollHeight="flex"&gt;
-        &lt;Column field="vin" header="Vin"&gt;&lt;/Column&gt;
-        &lt;Column field="year" header="Year"&gt;&lt;/Column&gt;
-        &lt;Column field="brand" header="Brand"&gt;&lt;/Column&gt;
-        &lt;Column field="color" header="Color"&gt;&lt;/Column&gt;
-    &lt;/DataTable&gt;
-&lt;/div&gt;
+  &lt;div style="height: calc(100vh - 143px)"&gt; &lt;DataTable :value="cars"
+  :scrollable="true" scrollHeight="flex"&gt; &lt;Column field="vin"
+  header="Vin"&gt;&lt;/Column&gt; &lt;Column field="year"
+  header="Year"&gt;&lt;/Column&gt; &lt;Column field="brand"
+  header="Brand"&gt;&lt;/Column&gt; &lt;Column field="color"
+  header="Color"&gt;&lt;/Column&gt; &lt;/DataTable&gt; &lt;/div&gt;
 </template>
 </code></pre>
 
                 <h6>Horizontal Scrolling</h6>
                 <p>For horizontal scrolling, it is required to set <i>scrollDirection</i> to "horizontal" and give fixed widths to columns.</p>
 <pre v-code><code><template v-pre>
-&lt;DataTable :value="customers" :scrollable="true"  scrollDirection="horizontal"&gt;
-    &lt;Column field="id" header="Id" footer="Id" :style="{width:'200px'}"&gt;&lt;/Column&gt;
-    &lt;Column field="name" header="Name" footer="Name" :style="{width:'200px'}"&gt;&lt;/Column&gt;
-    &lt;Column field="country.name" header="Country" footer="Country" :style="{width:'200px'}"&gt;&lt;/Column&gt;
-    &lt;Column field="date" header="Date" footer="Date" :style="{width:'200px'}"&gt;&lt;/Column&gt;
-    &lt;Column field="balance" header="Balance" footer="Balance" :style="{width:'200px'}"&gt;&lt;/Column&gt;
-    &lt;Column field="company" header="Company" footer="Company" :style="{width:'200px'}"&gt;&lt;/Column&gt;
-    &lt;Column field="status" header="Status" footer="Status" :style="{width:'200px'}"&gt;&lt;/Column&gt;
-    &lt;Column field="activity" header="Activity" footer="Activity" :style="{width:'200px'}"&gt;&lt;/Column&gt;
-    &lt;Column field="representative.name" header="Representative" footer="Representative" :style="{width:'200px'}"&gt;&lt;/Column&gt;
-&lt;/DataTable&gt;
+  &lt;DataTable :value="customers" :scrollable="true"
+  scrollDirection="horizontal"&gt; &lt;Column field="id" header="Id" footer="Id"
+  :style="{width:'200px'}"&gt;&lt;/Column&gt; &lt;Column field="name"
+  header="Name" footer="Name" :style="{width:'200px'}"&gt;&lt;/Column&gt;
+  &lt;Column field="country.name" header="Country" footer="Country"
+  :style="{width:'200px'}"&gt;&lt;/Column&gt; &lt;Column field="date"
+  header="Date" footer="Date" :style="{width:'200px'}"&gt;&lt;/Column&gt;
+  &lt;Column field="balance" header="Balance" footer="Balance"
+  :style="{width:'200px'}"&gt;&lt;/Column&gt; &lt;Column field="company"
+  header="Company" footer="Company" :style="{width:'200px'}"&gt;&lt;/Column&gt;
+  &lt;Column field="status" header="Status" footer="Status"
+  :style="{width:'200px'}"&gt;&lt;/Column&gt; &lt;Column field="activity"
+  header="Activity" footer="Activity"
+  :style="{width:'200px'}"&gt;&lt;/Column&gt; &lt;Column
+  field="representative.name" header="Representative" footer="Representative"
+  :style="{width:'200px'}"&gt;&lt;/Column&gt; &lt;/DataTable&gt;
 </template>
 </code></pre>
 
                 <h6>Horizontal and Vertical Scrolling</h6>
                 <p>Set <i>scrollDirection</i> to "both" and give fixed widths to columns to scroll both ways.</p>
 <pre v-code><code><template v-pre>
-&lt;DataTable :value="customers" :scrollable="true" scrollHeight="400px" scrollDirection="both"&gt;
-    &lt;Column field="id" header="Id" footer="Id" :style="{width:'200px'}"&gt;&lt;/Column&gt;
-    &lt;Column field="name" header="Name" footer="Name" :style="{width:'200px'}"&gt;&lt;/Column&gt;
-    &lt;Column field="country.name" header="Country" footer="Country" :style="{width:'200px'}"&gt;&lt;/Column&gt;
-    &lt;Column field="date" header="Date" footer="Date" :style="{width:'200px'}"&gt;&lt;/Column&gt;
-    &lt;Column field="balance" header="Balance" footer="Balance" :style="{width:'200px'}"&gt;&lt;/Column&gt;
-    &lt;Column field="company" header="Company" footer="Company" :style="{width:'200px'}"&gt;&lt;/Column&gt;
-    &lt;Column field="status" header="Status" footer="Status" :style="{width:'200px'}"&gt;&lt;/Column&gt;
-    &lt;Column field="activity" header="Activity" footer="Activity" :style="{width:'200px'}"&gt;&lt;/Column&gt;
-    &lt;Column field="representative.name" header="Representative" footer="Representative" :style="{width:'200px'}"&gt;&lt;/Column&gt;
-&lt;/DataTable&gt;
+  &lt;DataTable :value="customers" :scrollable="true" scrollHeight="400px"
+  scrollDirection="both"&gt; &lt;Column field="id" header="Id" footer="Id"
+  :style="{width:'200px'}"&gt;&lt;/Column&gt; &lt;Column field="name"
+  header="Name" footer="Name" :style="{width:'200px'}"&gt;&lt;/Column&gt;
+  &lt;Column field="country.name" header="Country" footer="Country"
+  :style="{width:'200px'}"&gt;&lt;/Column&gt; &lt;Column field="date"
+  header="Date" footer="Date" :style="{width:'200px'}"&gt;&lt;/Column&gt;
+  &lt;Column field="balance" header="Balance" footer="Balance"
+  :style="{width:'200px'}"&gt;&lt;/Column&gt; &lt;Column field="company"
+  header="Company" footer="Company" :style="{width:'200px'}"&gt;&lt;/Column&gt;
+  &lt;Column field="status" header="Status" footer="Status"
+  :style="{width:'200px'}"&gt;&lt;/Column&gt; &lt;Column field="activity"
+  header="Activity" footer="Activity"
+  :style="{width:'200px'}"&gt;&lt;/Column&gt; &lt;Column
+  field="representative.name" header="Representative" footer="Representative"
+  :style="{width:'200px'}"&gt;&lt;/Column&gt; &lt;/DataTable&gt;
 </template>
 </code></pre>
 
@@ -997,12 +939,12 @@ matchModes: [
                 <p>Frozen rows are used to fix certain rows while scrolling, this data is defined with the <i>frozenValue</i> property.</p>
 
 <pre v-code><code><template v-pre>
-&lt;DataTable :value="customers" :frozenValue="lockedCustomers" :scrollable="true" scrollHeight="400px"&gt;
-    &lt;Column field="name" header="Name"&gt;&lt;/Column&gt;
-    &lt;Column field="country.name" header="Country"&gt;&lt;/Column&gt;
-    &lt;Column field="representative.name" header="Representative"&gt;&lt;/Column&gt;
-    &lt;Column field="status" header="Status"&gt;&lt;/Column&gt;
-&lt;/DataTable&gt;
+  &lt;DataTable :value="customers" :frozenValue="lockedCustomers"
+  :scrollable="true" scrollHeight="400px"&gt; &lt;Column field="name"
+  header="Name"&gt;&lt;/Column&gt; &lt;Column field="country.name"
+  header="Country"&gt;&lt;/Column&gt; &lt;Column field="representative.name"
+  header="Representative"&gt;&lt;/Column&gt; &lt;Column field="status"
+  header="Status"&gt;&lt;/Column&gt; &lt;/DataTable&gt;
 </template>
 </code></pre>
 
@@ -1011,18 +953,22 @@ matchModes: [
                 be fixed on the left or right.</p>
 
 <pre v-code><code><template v-pre>
-&lt;DataTable :value="customers" :scrollable="true" scrollHeight="400px" scrollDirection="both"&gt;
-    &lt;Column field="name" header="Name" :style="{width:'200px'}" frozen&gt;&lt;/Column&gt;
-    &lt;Column field="id" header="Id" :style="{width:'100px'}" :frozen="idFrozen"&gt;&lt;/Column&gt;
-    &lt;Column field="name" header="Name" :style="{width:'200px'}"&gt;&lt;/Column&gt;
-    &lt;Column field="country.name" header="Country" :style="{width:'200px'}"&gt;&lt;/Column&gt;
-    &lt;Column field="date" header="Date" :style="{width:'200px'}"&gt;&lt;/Column&gt;
-    &lt;Column field="company" header="Company" :style="{width:'200px'}"&gt;&lt;/Column&gt;
-    &lt;Column field="status" header="Status" :style="{width:'200px'}"&gt;&lt;/Column&gt;
-    &lt;Column field="activity" header="Activity" :style="{width:'200px'}"&gt;&lt;/Column&gt;
-    &lt;Column field="representative.name" header="Representative" :style="{width:'200px'}"&gt;&lt;/Column&gt;
-    &lt;Column field="balance" header="Balance" :style="{width:'200px'}" frozen alignFrozen="right"&gt;&lt;/Column&gt;
-&lt;/DataTable&gt;
+  &lt;DataTable :value="customers" :scrollable="true" scrollHeight="400px"
+  scrollDirection="both"&gt; &lt;Column field="name" header="Name"
+  :style="{width:'200px'}" frozen&gt;&lt;/Column&gt; &lt;Column field="id"
+  header="Id" :style="{width:'100px'}" :frozen="idFrozen"&gt;&lt;/Column&gt;
+  &lt;Column field="name" header="Name"
+  :style="{width:'200px'}"&gt;&lt;/Column&gt; &lt;Column field="country.name"
+  header="Country" :style="{width:'200px'}"&gt;&lt;/Column&gt; &lt;Column
+  field="date" header="Date" :style="{width:'200px'}"&gt;&lt;/Column&gt;
+  &lt;Column field="company" header="Company"
+  :style="{width:'200px'}"&gt;&lt;/Column&gt; &lt;Column field="status"
+  header="Status" :style="{width:'200px'}"&gt;&lt;/Column&gt; &lt;Column
+  field="activity" header="Activity" :style="{width:'200px'}"&gt;&lt;/Column&gt;
+  &lt;Column field="representative.name" header="Representative"
+  :style="{width:'200px'}"&gt;&lt;/Column&gt; &lt;Column field="balance"
+  header="Balance" :style="{width:'200px'}" frozen
+  alignFrozen="right"&gt;&lt;/Column&gt; &lt;/DataTable&gt;
 </template>
 </code></pre>
 
@@ -1042,13 +988,12 @@ matchModes: [
 
                 <p>Here is a sample paging implementation with in memory data, a more enhanced example with a backend is being worked on and will be available at a github repository.</p>
 <pre v-code><code><template v-pre>
-&lt;DataTable :value="cars" :lazy="true" :paginator="true" :rows="10"
-    :totalRecords="totalRecords" :loading="loading" @page="onPage($event)"&gt;
-    &lt;Column field="vin" header="Vin"&gt;&lt;/Column&gt;
-    &lt;Column field="year" header="Year"&gt;&lt;/Column&gt;
-    &lt;Column field="brand" header="Brand"&gt;&lt;/Column&gt;
-    &lt;Column field="color" header="Color"&gt;&lt;/Column&gt;
-&lt;/DataTable&gt;
+  &lt;DataTable :value="cars" :lazy="true" :paginator="true" :rows="10"
+  :totalRecords="totalRecords" :loading="loading" @page="onPage($event)"&gt;
+  &lt;Column field="vin" header="Vin"&gt;&lt;/Column&gt; &lt;Column field="year"
+  header="Year"&gt;&lt;/Column&gt; &lt;Column field="brand"
+  header="Brand"&gt;&lt;/Column&gt; &lt;Column field="color"
+  header="Color"&gt;&lt;/Column&gt; &lt;/DataTable&gt;
 </template>
 </code></pre>
 
@@ -1099,34 +1044,28 @@ export default {
 
                 <p>The <i>dataKey</i> property identifies a unique value of a row in the dataset, it is not mandatory in row expansion functionality however being able to define it increases the performance of the table signifantly.</p>
 <pre v-code><code><template v-pre>
-&lt;DataTable :value="cars" v-model:expandedRows="expandedRows" dataKey="vin"
-    @row-expand="onRowExpand" @row-collapse="onRowCollapse"&gt;
-    &lt;template #header&gt;
-        &lt;div class="table-header-container"&gt;
-            &lt;Button icon="pi pi-plus" label="Expand All" @click="expandAll" /&gt;
-            &lt;Button icon="pi pi-minus" label="Collapse All" @click="collapseAll" /&gt;
-        &lt;/div&gt;
-    &lt;/template&gt;
-    &lt;Column :expander="true" headerStyle="width: 3em" /&gt;
-    &lt;Column field="vin" header="Vin"&gt;&lt;/Column&gt;
-    &lt;Column field="year" header="Year"&gt;&lt;/Column&gt;
-    &lt;Column field="brand" header="Brand"&gt;&lt;/Column&gt;
-    &lt;Column field="color" header="Color"&gt;&lt;/Column&gt;
-    &lt;template #expansion="slotProps"&gt;
-        &lt;div class="car-details"&gt;
-            &lt;div&gt;
-                &lt;img :src="'demo/images/car/' + slotProps.data.brand + '.png'" :alt="slotProps.data.brand"/&gt;
-                &lt;div class="p-grid"&gt;
-                    &lt;div class="p-col-12"&gt;Vin: &lt;b&gt;&#123;&#123;slotProps.data.vin&#125;&#125;&lt;/b&gt;&lt;/div&gt;
-                    &lt;div class="p-col-12"&gt;Year: &lt;b&gt;&#123;&#123;slotProps.data.year&#125;&#125;&lt;/b&gt;&lt;/div&gt;
-                    &lt;div class="p-col-12"&gt;Brand: &lt;b&gt;&#123;&#123;slotProps.data.brand&#125;&#125;&lt;/b&gt;&lt;/div&gt;
-                    &lt;div class="p-col-12"&gt;Color: &lt;b&gt;&#123;&#123;slotProps.data.color&#125;&#125;&lt;/b&gt;&lt;/div&gt;
-                &lt;/div&gt;
-            &lt;/div&gt;
-            &lt;Button icon="pi pi-search"&gt;&lt;/Button&gt;
-        &lt;/div&gt;
-    &lt;/template&gt;
-&lt;/DataTable&gt;
+  &lt;DataTable :value="cars" v-model:expandedRows="expandedRows" dataKey="vin"
+  @row-expand="onRowExpand" @row-collapse="onRowCollapse"&gt; &lt;template
+  #header&gt; &lt;div class="table-header-container"&gt; &lt;Button icon="pi
+  pi-plus" label="Expand All" @click="expandAll" /&gt; &lt;Button icon="pi
+  pi-minus" label="Collapse All" @click="collapseAll" /&gt; &lt;/div&gt;
+  &lt;/template&gt; &lt;Column :expander="true" headerStyle="width: 3em" /&gt;
+  &lt;Column field="vin" header="Vin"&gt;&lt;/Column&gt; &lt;Column field="year"
+  header="Year"&gt;&lt;/Column&gt; &lt;Column field="brand"
+  header="Brand"&gt;&lt;/Column&gt; &lt;Column field="color"
+  header="Color"&gt;&lt;/Column&gt; &lt;template #expansion="slotProps"&gt;
+  &lt;div class="car-details"&gt; &lt;div&gt; &lt;img :src="'demo/images/car/' +
+  slotProps.data.brand + '.png'" :alt="slotProps.data.brand"/&gt; &lt;div
+  class="p-grid"&gt; &lt;div class="p-col-12"&gt;Vin:
+  &lt;b&gt;&#123;&#123;slotProps.data.vin&#125;&#125;&lt;/b&gt;&lt;/div&gt;
+  &lt;div class="p-col-12"&gt;Year:
+  &lt;b&gt;&#123;&#123;slotProps.data.year&#125;&#125;&lt;/b&gt;&lt;/div&gt;
+  &lt;div class="p-col-12"&gt;Brand:
+  &lt;b&gt;&#123;&#123;slotProps.data.brand&#125;&#125;&lt;/b&gt;&lt;/div&gt;
+  &lt;div class="p-col-12"&gt;Color:
+  &lt;b&gt;&#123;&#123;slotProps.data.color&#125;&#125;&lt;/b&gt;&lt;/div&gt;
+  &lt;/div&gt; &lt;/div&gt; &lt;Button icon="pi pi-search"&gt;&lt;/Button&gt;
+  &lt;/div&gt; &lt;/template&gt; &lt;/DataTable&gt;
 </template>
 </code></pre>
 
@@ -1176,47 +1115,32 @@ export default {
                 editor defines how the editing is implemented, below example demonstrates two cases. In the first example, simple v-model editors are utilized. This is pretty straightforward in most cases.
                 On the other hand, second example is more advanced to consider validations and ability to revert values with the escape key.</p>
 <pre v-code><code><template v-pre>
-&lt;h3&gt;Basic Cell Editing&lt;/h3&gt;
-&lt;p&gt;Simple editors with v-model.&lt;/p&gt;
-&lt;DataTable :value="cars1" editMode="cell"&gt;
-    &lt;Column field="vin" header="Vin"&gt;
-        &lt;template #editor="slotProps"&gt;
-            &lt;InputText v-model="slotProps.data[slotProps.column.field]" /&gt;
-        &lt;/template&gt;
-    &lt;/Column&gt;
-    &lt;Column field="year" header="Year"&gt;
-        &lt;template #editor="slotProps"&gt;
-            &lt;InputText v-model="slotProps.data[slotProps.column.field]" /&gt;
-        &lt;/template&gt;
-    &lt;/Column&gt;
-    &lt;Column field="brand" header="Brand"&gt;
-        &lt;template #editor="slotProps"&gt;
-            &lt;Dropdown v-model="slotProps.data['brand']" :options="brands" optionLabel="brand" optionValue="value" placeholder="Select a Brand"&gt;
-                &lt;template #option="optionProps"&gt;
-                    &lt;div class="p-dropdown-car-option"&gt;
-                        &lt;img :alt="optionProps.option.brand" :src="'demo/images/car/' + optionProps.option.brand + '.png'" /&gt;
-                        &lt;span&gt;{{optionProps.option.brand}}&lt;/span&gt;
-                    &lt;/div&gt;
-                &lt;/template&gt;
-            &lt;/Dropdown&gt;
-        &lt;/template&gt;
-    &lt;/Column&gt;
-    &lt;Column field="color" header="Color"&gt;
-        &lt;template #editor="slotProps"&gt;
-            &lt;InputText v-model="slotProps.data[slotProps.column.field]" /&gt;
-        &lt;/template&gt;
-    &lt;/Column&gt;
-&lt;/DataTable&gt;
-
-&lt;h3&gt;Advanced Cell Editing&lt;/h3&gt;
-&lt;p&gt;Custom implementation with validations, dynamic columns and reverting values with the escape key.&lt;/p&gt;
-&lt;DataTable :value="cars2" editMode="cell" @cell-edit-complete="onCellEditComplete"&gt;
-    &lt;Column v-for="col of columns" :field="col.field" :header="col.header" :key="col.field"&gt;
-        &lt;template #editor="slotProps"&gt;
-            &lt;InputText :value="slotProps.data[slotProps.column.field]" @input="onCellEdit($event, slotProps)" /&gt;
-        &lt;/template&gt;
-    &lt;/Column&gt;
-&lt;/DataTable&gt;
+  &lt;h3&gt;Basic Cell Editing&lt;/h3&gt; &lt;p&gt;Simple editors with
+  v-model.&lt;/p&gt; &lt;DataTable :value="cars1" editMode="cell"&gt; &lt;Column
+  field="vin" header="Vin"&gt; &lt;template #editor="slotProps"&gt;
+  &lt;InputText v-model="slotProps.data[slotProps.column.field]" /&gt;
+  &lt;/template&gt; &lt;/Column&gt; &lt;Column field="year" header="Year"&gt;
+  &lt;template #editor="slotProps"&gt; &lt;InputText
+  v-model="slotProps.data[slotProps.column.field]" /&gt; &lt;/template&gt;
+  &lt;/Column&gt; &lt;Column field="brand" header="Brand"&gt; &lt;template
+  #editor="slotProps"&gt; &lt;Dropdown v-model="slotProps.data['brand']"
+  :options="brands" optionLabel="brand" optionValue="value" placeholder="Select
+  a Brand"&gt; &lt;template #option="optionProps"&gt; &lt;div
+  class="p-dropdown-car-option"&gt; &lt;img :alt="optionProps.option.brand"
+  :src="'demo/images/car/' + optionProps.option.brand + '.png'" /&gt;
+  &lt;span&gt;{{ optionProps.option.brand }}&lt;/span&gt; &lt;/div&gt;
+  &lt;/template&gt; &lt;/Dropdown&gt; &lt;/template&gt; &lt;/Column&gt;
+  &lt;Column field="color" header="Color"&gt; &lt;template
+  #editor="slotProps"&gt; &lt;InputText
+  v-model="slotProps.data[slotProps.column.field]" /&gt; &lt;/template&gt;
+  &lt;/Column&gt; &lt;/DataTable&gt; &lt;h3&gt;Advanced Cell Editing&lt;/h3&gt;
+  &lt;p&gt;Custom implementation with validations, dynamic columns and reverting
+  values with the escape key.&lt;/p&gt; &lt;DataTable :value="cars2"
+  editMode="cell" @cell-edit-complete="onCellEditComplete"&gt; &lt;Column
+  v-for="col of columns" :field="col.field" :header="col.header"
+  :key="col.field"&gt; &lt;template #editor="slotProps"&gt; &lt;InputText
+  :value="slotProps.data[slotProps.column.field]" @input="onCellEdit($event,
+  slotProps)" /&gt; &lt;/template&gt; &lt;/Column&gt; &lt;/DataTable&gt;
 </template>
 </code></pre>
 
@@ -1309,27 +1233,20 @@ export default {
                 <p>Row Editing is defined by setting <i>cellEdit</i> as "row", defining <i>editingRows</i> with the v-model directive to hold the reference to the editing rows and adding a row editor column to provide the editing controls. Note that
                 since <i>editingRows</i> is two-way binding enabled, you may use it to initially display one or more rows in editing more or programmatically toggle row editing.</p>
 <pre v-code><code><template v-pre>
-&lt;h3&gt;Row Editing&lt;/h3&gt;
-&lt;DataTable :value="cars" editMode="row" dataKey="vin" v-model:editingRows="editingRows"
-    @row-edit-init="onRowEditInit" @row-edit-cancel="onRowEditCancel"&gt;
-    &lt;Column field="vin" header="Vin"&gt;&lt;/Column&gt;
-    &lt;Column field="year" header="Year"&gt;
-        &lt;template #editor="slotProps"&gt;
-            &lt;InputText v-model="slotProps.data[slotProps.column.field]" autofocus/&gt;
-        &lt;/template&gt;
-    &lt;/Column&gt;
-    &lt;Column field="brand" header="Brand"&gt;
-        &lt;template #editor="slotProps"&gt;
-            &lt;InputText v-model="slotProps.data[slotProps.column.field]" /&gt;
-        &lt;/template&gt;
-    &lt;/Column&gt;
-    &lt;Column field="color" header="Color"&gt;
-        &lt;template #editor="slotProps"&gt;
-            &lt;InputText v-model="slotProps.data[slotProps.column.field]" /&gt;
-        &lt;/template&gt;
-    &lt;/Column&gt;
-    &lt;Column :rowEditor="true" headerStyle="width:7rem" bodyStyle="text-align:center"&gt;&lt;/Column&gt;
-&lt;/DataTable&gt;
+  &lt;h3&gt;Row Editing&lt;/h3&gt; &lt;DataTable :value="cars" editMode="row"
+  dataKey="vin" v-model:editingRows="editingRows" @row-edit-init="onRowEditInit"
+  @row-edit-cancel="onRowEditCancel"&gt; &lt;Column field="vin"
+  header="Vin"&gt;&lt;/Column&gt; &lt;Column field="year" header="Year"&gt;
+  &lt;template #editor="slotProps"&gt; &lt;InputText
+  v-model="slotProps.data[slotProps.column.field]" autofocus/&gt;
+  &lt;/template&gt; &lt;/Column&gt; &lt;Column field="brand" header="Brand"&gt;
+  &lt;template #editor="slotProps"&gt; &lt;InputText
+  v-model="slotProps.data[slotProps.column.field]" /&gt; &lt;/template&gt;
+  &lt;/Column&gt; &lt;Column field="color" header="Color"&gt; &lt;template
+  #editor="slotProps"&gt; &lt;InputText
+  v-model="slotProps.data[slotProps.column.field]" /&gt; &lt;/template&gt;
+  &lt;/Column&gt; &lt;Column :rowEditor="true" headerStyle="width:7rem"
+  bodyStyle="text-align:center"&gt;&lt;/Column&gt; &lt;/DataTable&gt;
 </template>
 </code></pre>
 
@@ -1370,23 +1287,23 @@ export default {
                 <p>Columns can be resized using drag drop by setting the <i>resizableColumns</i> to true. There are two resize modes; "fit" and "expand". Fit is the default one and the overall table width does not change when a column is resized.
                     In "expand" mode, table width also changes along with the column width. <i>column-resize-end</i> is a callback that passes the resized column header and delta change as a parameter.</p>
 <pre v-code><code><template v-pre>
-&lt;DataTable :value="cars" :resizableColumns="true" columnResizeMode="fit | expand"&gt;
-    &lt;Column field="vin" header="Vin"&gt;&lt;/Column&gt;
-    &lt;Column field="year" header="Year"&gt;&lt;/Column&gt;
-    &lt;Column field="brand" header="Brand"&gt;&lt;/Column&gt;
-    &lt;Column field="color" header="Color"&gt;&lt;/Column&gt;
-&lt;/DataTable&gt;
+  &lt;DataTable :value="cars" :resizableColumns="true" columnResizeMode="fit |
+  expand"&gt; &lt;Column field="vin" header="Vin"&gt;&lt;/Column&gt; &lt;Column
+  field="year" header="Year"&gt;&lt;/Column&gt; &lt;Column field="brand"
+  header="Brand"&gt;&lt;/Column&gt; &lt;Column field="color"
+  header="Color"&gt;&lt;/Column&gt; &lt;/DataTable&gt;
 </template>
 </code></pre>
 
             <p>It is important to note that when you need to change column widths, since table width is 100%, giving fixed pixel widths does not work well as browsers scale them, instead give percentage widths.</p>
 <pre v-code><code><template v-pre>
-&lt;DataTable :value="cars" :resizableColumns="true" columnResizeMode="fit | expand"&gt;
-    &lt;Column field="vin" header="Vin" headerStyle="width: 20%"&gt;&lt;/Column&gt;
-    &lt;Column field="year" header="Year" headerStyle="width: 40%"&gt;&lt;/Column&gt;
-    &lt;Column field="brand" header="Brand" headerStyle="width: 20%"&gt;&lt;/Column&gt;
-    &lt;Column field="color" header="Color" headerStyle="width: 20%"&gt;&lt;/Column&gt;
-&lt;/DataTable&gt;
+  &lt;DataTable :value="cars" :resizableColumns="true" columnResizeMode="fit |
+  expand"&gt; &lt;Column field="vin" header="Vin" headerStyle="width:
+  20%"&gt;&lt;/Column&gt; &lt;Column field="year" header="Year"
+  headerStyle="width: 40%"&gt;&lt;/Column&gt; &lt;Column field="brand"
+  header="Brand" headerStyle="width: 20%"&gt;&lt;/Column&gt; &lt;Column
+  field="color" header="Color" headerStyle="width: 20%"&gt;&lt;/Column&gt;
+  &lt;/DataTable&gt;
 </template>
 </code></pre>
 
@@ -1394,25 +1311,23 @@ export default {
                 <p>Columns can be reordered using drag drop by setting the <i>reorderableColumns</i> to true. <i>column-reorder</i> is a callback that is invoked when a column is reordered. DataTable keeps the column order state internally using keys that identifies a column using the field property. If the column has no field, use columnKey instead as
                 it is mandatory for columns to have unique keys when reordering is enabled.</p>
 <pre v-code><code><template v-pre>
-&lt;DataTable :value="cars" :reorderableColumns="true"&gt;
-    &lt;Column field="vin" header="Vin"&gt;&lt;/Column&gt;
-    &lt;Column field="year" header="Year"&gt;&lt;/Column&gt;
-    &lt;Column field="brand" header="Brand"&gt;&lt;/Column&gt;
-    &lt;Column field="color" header="Color"&gt;&lt;/Column&gt;
-&lt;/DataTable&gt;
+  &lt;DataTable :value="cars" :reorderableColumns="true"&gt; &lt;Column
+  field="vin" header="Vin"&gt;&lt;/Column&gt; &lt;Column field="year"
+  header="Year"&gt;&lt;/Column&gt; &lt;Column field="brand"
+  header="Brand"&gt;&lt;/Column&gt; &lt;Column field="color"
+  header="Color"&gt;&lt;/Column&gt; &lt;/DataTable&gt;
 </template>
 </code></pre>
 
                 <h5>Row Reorder</h5>
                 <p>Data can be reordered using drag drop by adding a reorder column that will display an icon as a drag handle along with the <i>row-order</i> event which is <b>mandatory</b> to update the new order. Note that the reorder icon can be customized using <i>rowReorderIcon</i> of the column component.</p>
 <pre v-code><code><template v-pre>
-&lt;DataTable :value="cars" @row-reorder="onRowReorder"&gt;
-    &lt;Column :rowReorder="true" headerStyle="width: 3em" /&gt;
-    &lt;Column field="vin" header="Vin"&gt;&lt;/Column&gt;
-    &lt;Column field="year" header="Year"&gt;&lt;/Column&gt;
-    &lt;Column field="brand" header="Brand"&gt;&lt;/Column&gt;
-    &lt;Column field="color" header="Color"&gt;&lt;/Column&gt;
-&lt;/DataTable&gt;
+  &lt;DataTable :value="cars" @row-reorder="onRowReorder"&gt; &lt;Column
+  :rowReorder="true" headerStyle="width: 3em" /&gt; &lt;Column field="vin"
+  header="Vin"&gt;&lt;/Column&gt; &lt;Column field="year"
+  header="Year"&gt;&lt;/Column&gt; &lt;Column field="brand"
+  header="Brand"&gt;&lt;/Column&gt; &lt;Column field="color"
+  header="Color"&gt;&lt;/Column&gt; &lt;/DataTable&gt;
 </template>
 </code></pre>
 
@@ -1450,56 +1365,42 @@ export default {
                 <p>Example below demonstrates the all grouping alternatives. Note that data needs to be sorted for grouping which can also be done by the table itself by speficying the sort properties.</p>
 
 <pre v-code><code><template v-pre>
-&lt;h3&gt;Subheader Grouping&lt;/h3&gt;
-&lt;DataTable :value="cars" rowGroupMode="subheader" groupRowsBy="brand"
-    sortMode="single" sortField="brand" :sortOrder="1"&gt;
-    &lt;Column field="brand" header="Brand"&gt;&lt;/Column&gt;
-    &lt;Column field="vin" header="Vin"&gt;&lt;/Column&gt;
-    &lt;Column field="year" header="Year"&gt;&lt;/Column&gt;
-    &lt;Column field="color" header="Color"&gt;&lt;/Column&gt;
-    &lt;Column field="price" header="Price"&gt;&lt;/Column&gt;
-    &lt;template #groupheader="slotProps"&gt;
-        &lt;span&gt;&#123;&#123;slotProps.data.brand&#125;&#125;&lt;/span&gt;
-    &lt;/template&gt;
-    &lt;template #groupfooter="slotProps"&gt;
-        &lt;td colspan="3" style="text-align: right"&gt;Total Price&lt;/td&gt;
-        &lt;td&gt;&#123;&#123;calculateGroupTotal(slotProps.data.brand)&#125;&#125;&lt;/td&gt;
-    &lt;/template&gt;
-&lt;/DataTable&gt;
-
-&lt;h3&gt;Expandable Row Groups&lt;/h3&gt;
-&lt;DataTable :value="cars" rowGroupMode="subheader" groupRowsBy="brand"
-    sortMode="single" sortField="brand" :sortOrder="1"
-    :expandableRowGroups="true" v-model:expandedRowGroups="expandedRowGroups"
-    @rowgroup-expand="onRowExpand" @rowgroup-collapse="onRowCollapse"&gt;
-    &lt;Column field="brand" header="Brand"&gt;&lt;/Column&gt;
-    &lt;Column field="vin" header="Vin"&gt;&lt;/Column&gt;
-    &lt;Column field="year" header="Year"&gt;&lt;/Column&gt;
-    &lt;Column field="color" header="Color"&gt;&lt;/Column&gt;
-    &lt;Column field="price" header="Price"&gt;&lt;/Column&gt;
-    &lt;template #groupheader="slotProps"&gt;
-        &lt;span&gt;&#123;&#123;slotProps.data.brand&#125;&#125;&lt;/span&gt;
-    &lt;/template&gt;
-    &lt;template #groupfooter="slotProps"&gt;
-        &lt;td colspan="3" style="text-align: right"&gt;Total Price&lt;/td&gt;
-        &lt;td&gt;&#123;&#123;calculateGroupTotal(slotProps.data.brand)&#125;&#125;&lt;/td&gt;
-    &lt;/template&gt;
-&lt;/DataTable&gt;
-
-&lt;h3&gt;RowSpan Grouping&lt;/h3&gt;
-&lt;DataTable :value="cars" rowGroupMode="rowspan" groupRowsBy="brand"
-    sortMode="single" sortField="brand" :sortOrder="1"&gt;
-    &lt;Column header="#" headerStyle="width:3em"&gt;
-        &lt;template #body="slotProps"&gt;
-            &#123;&#123;slotProps.index&#125;&#125;
-        &lt;/template&gt;
-    &lt;/Column&gt;
-    &lt;Column field="brand" header="Brand"&gt;&lt;/Column&gt;
-    &lt;Column field="year" header="Year"&gt;&lt;/Column&gt;
-    &lt;Column field="vin" header="Vin"&gt;&lt;/Column&gt;
-    &lt;Column field="color" header="Color"&gt;&lt;/Column&gt;
-    &lt;Column field="price" header="Price"&gt;&lt;/Column&gt;
-&lt;/DataTable&gt;
+  &lt;h3&gt;Subheader Grouping&lt;/h3&gt; &lt;DataTable :value="cars"
+  rowGroupMode="subheader" groupRowsBy="brand" sortMode="single"
+  sortField="brand" :sortOrder="1"&gt; &lt;Column field="brand"
+  header="Brand"&gt;&lt;/Column&gt; &lt;Column field="vin"
+  header="Vin"&gt;&lt;/Column&gt; &lt;Column field="year"
+  header="Year"&gt;&lt;/Column&gt; &lt;Column field="color"
+  header="Color"&gt;&lt;/Column&gt; &lt;Column field="price"
+  header="Price"&gt;&lt;/Column&gt; &lt;template #groupheader="slotProps"&gt;
+  &lt;span&gt;&#123;&#123;slotProps.data.brand&#125;&#125;&lt;/span&gt;
+  &lt;/template&gt; &lt;template #groupfooter="slotProps"&gt; &lt;td colspan="3"
+  style="text-align: right"&gt;Total Price&lt;/td&gt;
+  &lt;td&gt;&#123;&#123;calculateGroupTotal(slotProps.data.brand)&#125;&#125;&lt;/td&gt;
+  &lt;/template&gt; &lt;/DataTable&gt; &lt;h3&gt;Expandable Row
+  Groups&lt;/h3&gt; &lt;DataTable :value="cars" rowGroupMode="subheader"
+  groupRowsBy="brand" sortMode="single" sortField="brand" :sortOrder="1"
+  :expandableRowGroups="true" v-model:expandedRowGroups="expandedRowGroups"
+  @rowgroup-expand="onRowExpand" @rowgroup-collapse="onRowCollapse"&gt;
+  &lt;Column field="brand" header="Brand"&gt;&lt;/Column&gt; &lt;Column
+  field="vin" header="Vin"&gt;&lt;/Column&gt; &lt;Column field="year"
+  header="Year"&gt;&lt;/Column&gt; &lt;Column field="color"
+  header="Color"&gt;&lt;/Column&gt; &lt;Column field="price"
+  header="Price"&gt;&lt;/Column&gt; &lt;template #groupheader="slotProps"&gt;
+  &lt;span&gt;&#123;&#123;slotProps.data.brand&#125;&#125;&lt;/span&gt;
+  &lt;/template&gt; &lt;template #groupfooter="slotProps"&gt; &lt;td colspan="3"
+  style="text-align: right"&gt;Total Price&lt;/td&gt;
+  &lt;td&gt;&#123;&#123;calculateGroupTotal(slotProps.data.brand)&#125;&#125;&lt;/td&gt;
+  &lt;/template&gt; &lt;/DataTable&gt; &lt;h3&gt;RowSpan Grouping&lt;/h3&gt;
+  &lt;DataTable :value="cars" rowGroupMode="rowspan" groupRowsBy="brand"
+  sortMode="single" sortField="brand" :sortOrder="1"&gt; &lt;Column header="#"
+  headerStyle="width:3em"&gt; &lt;template #body="slotProps"&gt;
+  &#123;&#123;slotProps.index&#125;&#125; &lt;/template&gt; &lt;/Column&gt;
+  &lt;Column field="brand" header="Brand"&gt;&lt;/Column&gt; &lt;Column
+  field="year" header="Year"&gt;&lt;/Column&gt; &lt;Column field="vin"
+  header="Vin"&gt;&lt;/Column&gt; &lt;Column field="color"
+  header="Color"&gt;&lt;/Column&gt; &lt;Column field="price"
+  header="Price"&gt;&lt;/Column&gt; &lt;/DataTable&gt;
 </template>
 </code></pre>
 
@@ -1548,17 +1449,13 @@ export default {
                 <h5>Data Export</h5>
                 <p>DataTable can export its data in CSV format using <i>exportCSV()</i> method.</p>
 <pre v-code><code><template v-pre>
-&lt;DataTable :value="cars" ref="dt"&gt;
-    &lt;template #header&gt;
-        &lt;div style="text-align: left"&gt;
-            &lt;Button icon="pi pi-external-link" label="Export" @click="exportCSV($event)" /&gt;
-        &lt;/div&gt;
-    &lt;/template&gt;
-    &lt;Column field="vin" header="Vin"&gt;&lt;/Column&gt;
-    &lt;Column field="year" header="Year"&gt;&lt;/Column&gt;
-    &lt;Column field="brand" header="Brand"&gt;&lt;/Column&gt;
-    &lt;Column field="color" header="Color"&gt;&lt;/Column&gt;
-&lt;/DataTable&gt;
+  &lt;DataTable :value="cars" ref="dt"&gt; &lt;template #header&gt; &lt;div
+  style="text-align: left"&gt; &lt;Button icon="pi pi-external-link"
+  label="Export" @click="exportCSV($event)" /&gt; &lt;/div&gt; &lt;/template&gt;
+  &lt;Column field="vin" header="Vin"&gt;&lt;/Column&gt; &lt;Column field="year"
+  header="Year"&gt;&lt;/Column&gt; &lt;Column field="brand"
+  header="Brand"&gt;&lt;/Column&gt; &lt;Column field="color"
+  header="Color"&gt;&lt;/Column&gt; &lt;/DataTable&gt;
 </template>
 </code></pre>
 
@@ -1593,46 +1490,35 @@ export default {
                     Currently following features are supported by TableState; paging, sorting, filtering, column resizing, column reordering, row expansion, row group expansion and row selection.
                 </p>
 <pre v-code><code><template v-pre>
-&lt;DataTable :value="cars" :paginator="true" :rows="10" v-model:filters="filters"
-    stateStorage="session" stateKey="dt-state-demo-session"
-    v-model:selection="selectedCar" selectionMode="single" dataKey="vin"&gt;
-    &lt;template #header&gt;
-        &lt;div style="text-align: right"&gt;
-            &lt;i class="pi pi-search" style="margin: 4px 4px 0px 0px;"&gt;&lt;/i&gt;
-            &lt;InputText v-model="filters['global']" placeholder="Global Search" size="50" /&gt;
-        &lt;/div&gt;
-    &lt;/template&gt;
-    &lt;Column field="vin" header="Vin" filterMatchMode="startsWith" :sortable="true"&gt;
-        &lt;template #filter&gt;
-            &lt;InputText type="text" v-model="filters['vin']" class="p-column-filter" placeholder="Starts with" /&gt;
-        &lt;/template&gt;
-    &lt;/Column&gt;
-    &lt;Column field="year" header="Year" filterMatchMode="contains" :sortable="true"&gt;
-        &lt;template #filter&gt;
-            &lt;InputText type="text" v-model="filters['year']" class="p-column-filter" placeholder="Contains" /&gt;
-        &lt;/template&gt;
-    &lt;/Column&gt;
-    &lt;Column field="brand" header="Brand" filterMatchMode="equals" :sortable="true"&gt;
-        &lt;template #filter&gt;
-            &lt;Dropdown v-model="filters['brand']" :options="brands" optionLabel="brand" optionValue="value" placeholder="Select a Brand" class="p-column-filter" :showClear="true"&gt;
-                &lt;template #option="slotProps"&gt;
-                    &lt;div class="p-dropdown-car-option"&gt;
-                        &lt;img :alt="slotProps.option.brand" :src="'demo/images/car/' + slotProps.option.brand + '.png'" /&gt;
-                        &lt;span&gt;&#123;&#123;slotProps.option.brand&#125;&#125;&lt;/span&gt;
-                    &lt;/div&gt;
-                &lt;/template&gt;
-            &lt;/Dropdown&gt;
-        &lt;/template&gt;
-    &lt;/Column&gt;
-    &lt;Column field="color" header="Color" filterMatchMode="in" :sortable="true"&gt;
-        &lt;template #filter&gt;
-            &lt;MultiSelect v-model="filters['color']" :options="colors" optionLabel="name" optionValue="value" placeholder="Select a Color" /&gt;
-        &lt;/template&gt;
-    &lt;/Column&gt;
-    &lt;template #empty&gt;
-        No records found.
-    &lt;/template&gt;
-&lt;/DataTable&gt;
+  &lt;DataTable :value="cars" :paginator="true" :rows="10"
+  v-model:filters="filters" stateStorage="session"
+  stateKey="dt-state-demo-session" v-model:selection="selectedCar"
+  selectionMode="single" dataKey="vin"&gt; &lt;template #header&gt; &lt;div
+  style="text-align: right"&gt; &lt;i class="pi pi-search" style="margin: 4px
+  4px 0px 0px;"&gt;&lt;/i&gt; &lt;InputText v-model="filters['global']"
+  placeholder="Global Search" size="50" /&gt; &lt;/div&gt; &lt;/template&gt;
+  &lt;Column field="vin" header="Vin" filterMatchMode="startsWith"
+  :sortable="true"&gt; &lt;template #filter&gt; &lt;InputText type="text"
+  v-model="filters['vin']" class="p-column-filter" placeholder="Starts with"
+  /&gt; &lt;/template&gt; &lt;/Column&gt; &lt;Column field="year" header="Year"
+  filterMatchMode="contains" :sortable="true"&gt; &lt;template #filter&gt;
+  &lt;InputText type="text" v-model="filters['year']" class="p-column-filter"
+  placeholder="Contains" /&gt; &lt;/template&gt; &lt;/Column&gt; &lt;Column
+  field="brand" header="Brand" filterMatchMode="equals" :sortable="true"&gt;
+  &lt;template #filter&gt; &lt;Dropdown v-model="filters['brand']"
+  :options="brands" optionLabel="brand" optionValue="value" placeholder="Select
+  a Brand" class="p-column-filter" :showClear="true"&gt; &lt;template
+  #option="slotProps"&gt; &lt;div class="p-dropdown-car-option"&gt; &lt;img
+  :alt="slotProps.option.brand" :src="'demo/images/car/' +
+  slotProps.option.brand + '.png'" /&gt;
+  &lt;span&gt;&#123;&#123;slotProps.option.brand&#125;&#125;&lt;/span&gt;
+  &lt;/div&gt; &lt;/template&gt; &lt;/Dropdown&gt; &lt;/template&gt;
+  &lt;/Column&gt; &lt;Column field="color" header="Color" filterMatchMode="in"
+  :sortable="true"&gt; &lt;template #filter&gt; &lt;MultiSelect
+  v-model="filters['color']" :options="colors" optionLabel="name"
+  optionValue="value" placeholder="Select a Color" /&gt; &lt;/template&gt;
+  &lt;/Column&gt; &lt;template #empty&gt; No records found. &lt;/template&gt;
+  &lt;/DataTable&gt;
 </template>
 </code></pre>
 
@@ -1683,14 +1569,14 @@ export default {
                 <h5>ContextMenu</h5>
                 <p>DataTable provides exclusive integration with the ContextMenu component using, <i>contextMenu</i>, <i>contextMenuSelection</i> property along with the <i>row-contextmenu</i> event.</p>
 <pre v-code><code><template v-pre>
-&lt;DataTable :value="cars" contextMenu v-model:contextMenuSelection="selectedCar" @row-contextmenu="onRowContextMenu"&gt;
-    &lt;Column field="vin" header="Vin"&gt;&lt;/Column&gt;
-    &lt;Column field="year" header="Year"&gt;&lt;/Column&gt;
-    &lt;Column field="brand" header="Brand"&gt;&lt;/Column&gt;
-    &lt;Column field="color" header="Color"&gt;&lt;/Column&gt;
-&lt;/DataTable&gt;
-
-&lt;ContextMenu :model="menuModel" ref="cm" /&gt;
+  &lt;DataTable :value="cars" contextMenu
+  v-model:contextMenuSelection="selectedCar"
+  @row-contextmenu="onRowContextMenu"&gt; &lt;Column field="vin"
+  header="Vin"&gt;&lt;/Column&gt; &lt;Column field="year"
+  header="Year"&gt;&lt;/Column&gt; &lt;Column field="brand"
+  header="Brand"&gt;&lt;/Column&gt; &lt;Column field="color"
+  header="Color"&gt;&lt;/Column&gt; &lt;/DataTable&gt; &lt;ContextMenu
+  :model="menuModel" ref="cm" /&gt;
 </template>
 </code></pre>
 
@@ -1735,15 +1621,11 @@ export default {
                 <h5>Empty Message</h5>
                 <p>When there is no data, you may use the <i>empty</i> template to display a message.</p>
 <pre v-code><code><template v-pre>
-&lt;DataTable :value="cars"&gt;
-    &lt;template #empty&gt;
-        No records found
-    &lt;/template&gt;
-    &lt;Column field="vin" header="Vin"&gt;&lt;/Column&gt;
-    &lt;Column field="year" header="Year"&gt;&lt;/Column&gt;
-    &lt;Column field="brand" header="Brand"&gt;&lt;/Column&gt;
-    &lt;Column field="color" header="Color"&gt;&lt;/Column&gt;
-&lt;/DataTable&gt;
+  &lt;DataTable :value="cars"&gt; &lt;template #empty&gt; No records found
+  &lt;/template&gt; &lt;Column field="vin" header="Vin"&gt;&lt;/Column&gt;
+  &lt;Column field="year" header="Year"&gt;&lt;/Column&gt; &lt;Column
+  field="brand" header="Brand"&gt;&lt;/Column&gt; &lt;Column field="color"
+  header="Color"&gt;&lt;/Column&gt; &lt;/DataTable&gt;
 </template>
 </code></pre>
 
@@ -1751,15 +1633,12 @@ export default {
                 <p>A loading status indicator can be displayed when the <i>loading</i> property is enabled. The icon is customized through <i>loadingIcon</i> property. Additionally
                 an option loading template is available to render as the body until the data is loaded.</p>
 <pre v-code><code><template v-pre>
-&lt;DataTable :value="cars" :loading="loading"&gt;
-     &lt;template #loading&gt;
-        Loading records, please wait...
-    &lt;/template&gt;
-    &lt;Column field="vin" header="Vin"&gt;&lt;/Column&gt;
-    &lt;Column field="year" header="Year"&gt;&lt;/Column&gt;
-    &lt;Column field="brand" header="Brand"&gt;&lt;/Column&gt;
-    &lt;Column field="color" header="Color"&gt;&lt;/Column&gt;
-&lt;/DataTable&gt;
+  &lt;DataTable :value="cars" :loading="loading"&gt; &lt;template #loading&gt;
+  Loading records, please wait... &lt;/template&gt; &lt;Column field="vin"
+  header="Vin"&gt;&lt;/Column&gt; &lt;Column field="year"
+  header="Year"&gt;&lt;/Column&gt; &lt;Column field="brand"
+  header="Brand"&gt;&lt;/Column&gt; &lt;Column field="color"
+  header="Color"&gt;&lt;/Column&gt; &lt;/DataTable&gt;
 </template>
 </code></pre>
 
@@ -1791,45 +1670,38 @@ export default {
 </code></pre>
 
                <h5>Responsive</h5>
-               <p>DataTable responsive layout can be achieved in two ways; first approach is displaying a horizontal scrollbar for smaller screens
+               <p>DataTable responsive layout can be achieved in two ways; first approach is displaying a horizontal scrollbar for smaller screens 
                     and second one is defining a breakpoint to display the cells of a row as stacked. Scrollable tables use the scroll layout approach internally and do not require additional configuration.</p>
 
                <h6>Scroll Layout</h6>
                <p>Set <i>responsiveLayout</i> to scroll to enabled this layout. Note that, when scroll mode is enabled table-layout automatically switches to auto from fixed
-               as a result table widths are likely to differ and resizable columns are not supported. Read more about <a href="https://www.w3schools.com/cssref/pr_tab_table-layout.asp">table-layout</a> for more details.</p>
+               as a result table widths are likely to differ and resizable columns are not supported. Read more about <a href="https://www.w3schools.com/cssref/pr_tab_table-layout.asp">table-layout</a> for more details.</p> 
 
 <pre v-code><code><template v-pre>
-&lt;DataTable :value="products" responsiveLayout="scroll"&gt;
-
-&lt;/DataTable&gt;
+  &lt;DataTable :value="products" responsiveLayout="scroll"&gt;
+  &lt;/DataTable&gt;
 </template>
 </code></pre>
 
                 <h6>Stack Layout</h6>
                 <p>In stack layout, columns are displayed as stacked after a certain breakpoint. Default is '960px'.</p>
 <pre v-code><code><template v-pre>
-&lt;DataTable :value="products" responsiveLayout="stack" breakpoint="640px"&gt;
-
-&lt;/DataTable&gt;
+  &lt;DataTable :value="products" responsiveLayout="stack"
+  breakpoint="640px"&gt; &lt;/DataTable&gt;
 </template>
-</code></pre>
+</code></pre>         
 
                 <h5>Row and Cell Styling</h5>
                 <p>Certain rows or cells can easily be styled based on conditions. Cell styling is implemented with templating whereas row styling utilizes the <i>rowClass</i> property which takes the
                 row data as a parameter and returns the style class as a string.</p>
 <pre v-code><code><template v-pre>
-&lt;DataTable :value="cars" :rowClass="rowClass"&gt;
-    &lt;Column field="vin" header="Vin"&gt;&lt;/Column&gt;
-    &lt;Column field="year" header="Year" bodyStyle="padding: 0"&gt;
-            &lt;template #body="slotProps"&gt;
-            &lt;div :class="['year-cell', {'old-car': slotProps.data.year &lt; 2010}]"&gt;
-                &#123;&#123;slotProps.data.year&#125;&#125;
-            &lt;/div&gt;
-        &lt;/template&gt;
-    &lt;/Column&gt;
-    &lt;Column field="brand" header="Brand"&gt;&lt;/Column&gt;
-    &lt;Column field="color" header="Color"&gt;&lt;/Column&gt;
-&lt;/DataTable&gt;
+  &lt;DataTable :value="cars" :rowClass="rowClass"&gt; &lt;Column field="vin"
+  header="Vin"&gt;&lt;/Column&gt; &lt;Column field="year" header="Year"
+  bodyStyle="padding: 0"&gt; &lt;template #body="slotProps"&gt; &lt;div
+  :class="['year-cell', {'old-car': slotProps.data.year &lt; 2010}]"&gt;
+  &#123;&#123;slotProps.data.year&#125;&#125; &lt;/div&gt; &lt;/template&gt;
+  &lt;/Column&gt; &lt;Column field="brand" header="Brand"&gt;&lt;/Column&gt;
+  &lt;Column field="color" header="Color"&gt;&lt;/Column&gt; &lt;/DataTable&gt;
 </template>
 </code></pre>
 
@@ -2780,7 +2652,7 @@ export default {
     },
     mounted() {
         this.customerService.getCustomersLarge().then(data => {
-            this.customers = data;
+            this.customers = data; 
             this.customers.forEach(customer => customer.date = new Date(customer.date));
             this.loading = false;
         });
@@ -2807,13 +2679,13 @@ export default {
 </template>
 
 <script>
-import LiveEditor from '../liveeditor/LiveEditor';
+import LiveEditor from "../liveeditor/LiveEditor";
 export default {
-    data() {
-        return {
-            sources: {
-                'template': {
-                    content: `<template>
+  data() {
+    return {
+      sources: {
+        template: {
+          content: `<template>
 	<div class="layout-content">
 		<div class="content-section implementation">
             <div class="card">
@@ -2969,7 +2841,7 @@ export default {
     },
     mounted() {
         this.customerService.getCustomersLarge().then(data => {
-            this.customers = data;
+            this.customers = data; 
             this.customers.forEach(customer => customer.date = new Date(customer.date));
             this.loading = false;
         });
@@ -2987,7 +2859,7 @@ export default {
         }
     }
 }`,
-                    style: `<style lang="scss" scoped>
+          style: `<style lang="scss" scoped>
 ::v-deep(.p-paginator) {
     .p-paginator-current {
         margin-left: auto;
@@ -3034,13 +2906,13 @@ export default {
         text-transform: uppercase;
     }
 }
-</style>`
-                }
-            }
-        }
-    },
-    components: {
-        LiveEditor
-    }
-}
+</style>`,
+        },
+      },
+    };
+  },
+  components: {
+    LiveEditor,
+  },
+};
 </script>

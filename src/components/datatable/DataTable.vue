@@ -815,7 +815,7 @@ export default {
         toggleRowsWithCheckbox(event) {
             const processedData = this.processedData;
             const checked = this.allRowsSelected;
-            const _selection = checked ? [] : (processedData ? [...processedData] : [...this.value]);
+            const _selection = checked ? [] : (this.frozenValue ? [...this.frozenValue, ...processedData]: processedData);
             this.$emit('update:selection', _selection);
 
             if (checked)
@@ -931,9 +931,10 @@ export default {
             let data = this.processedData;
             let csv = '\ufeff';
 
-            if (options && options.selectionOnly) {
+            if (options && options.selectionOnly)
                 data = this.selection || [];
-            }
+            else if (this.frozenValue)
+                data = data ? [...this.frozenValue, ...data] : this.frozenValue;
 
             //headers
             let headerInitiated = false;
@@ -1711,7 +1712,7 @@ export default {
         },
         processedData() {
             if (this.lazy) {
-                 return this.value;
+                 return this.value || [];
             }
             else {
                 if (this.value && this.value.length) {
@@ -1730,9 +1731,8 @@ export default {
 
                     return data;
                 }
-                else {
-                    return null;
-                }
+                
+                return [];
             }
         },
         dataToRender() {
@@ -1772,7 +1772,7 @@ export default {
             return ['p-datatable-loading-icon pi-spin', this.loadingIcon];
         },
         allRowsSelected() {
-            const val = this.processedData;
+            const val = this.frozenValue ? [...this.frozenValue, ...this.processedData]: this.processedData;
             return (val && val.length > 0 && this.selection && this.selection.length > 0 && this.selection.length === val.length);
         },
         attributeSelector() {
@@ -1943,7 +1943,7 @@ export default {
     border: 1px solid transparent;
 }
 
-.p-sortable-column .p-column-header-content {
+.p-datatable .p-column-header-content {
     display: flex;
     align-items: center;
 }
