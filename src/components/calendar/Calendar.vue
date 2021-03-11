@@ -548,12 +548,16 @@ export default {
             this.overlay = null;
         },
         onPrevButtonClick(event) {
-            this.navigationState = {backward: true, button: true};
-            this.navBackward(event);
+            if(this.showOtherMonths) {
+                this.navigationState = {backward: true, button: true};
+                this.navBackward(event);
+            }
         },
         onNextButtonClick(event) {
-            this.navigationState = {backward: false, button: true};
-            this.navForward(event);
+            if(this.showOtherMonths) {
+                this.navigationState = {backward: false, button: true};
+                this.navForward(event);
+            }
         },
         navBackward(event) {
             event.preventDefault();
