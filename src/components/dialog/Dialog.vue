@@ -32,6 +32,16 @@
 import {UniqueComponentId,DomHandler} from 'primevue/utils';
 import Ripple from 'primevue/ripple';
 
+function getLastDialog(classMask) {
+    let last = null;
+    for (const e of document.querySelectorAll(`.${classMask}`)) {
+        if (!last || e.style.zIndex > last.style.zIndex) {
+            last = e;
+        }
+    }
+    return last;
+}
+
 export default {
     inheritAttrs: false,
     emits: ['update:visible', 'show', 'hide'],
@@ -111,7 +121,7 @@ export default {
             if (this.autoZIndex) {
                 el.style.zIndex = String(this.baseZIndex + DomHandler.generateZIndex());
             }
-            
+
             el.setAttribute(this.attributeSelector, '');
         },
         onEnter() {
@@ -171,7 +181,15 @@ export default {
             }
         },
         onKeyDown(event) {
-            if (event.which === 9) {
+            const key = event.which;
+            if (key !== 9 && !(key === 27 && this.closeOnEscape)) {
+                return;
+            }
+            if (this.mask !== getLastDialog(this.maskClass[0])) {
+                return;
+            }
+
+            if (key === 9) {
                 event.preventDefault();
                 let focusableElements = DomHandler.getFocusableElements(this.container);
                 if (focusableElements && focusableElements.length > 0) {
@@ -194,7 +212,7 @@ export default {
                         }
                     }
                 }
-            } else if (event.which === 27 && this.closeOnEscape) {
+            } else {
                 this.close();
             }
         },
@@ -238,7 +256,7 @@ export default {
                         }
                     `
                 }
-                
+
                 this.styleElement.innerHTML = innerHTML;
 			}
 		},
