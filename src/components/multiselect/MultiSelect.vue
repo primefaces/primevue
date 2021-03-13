@@ -25,7 +25,7 @@
         </div>
         <Teleport :to="appendTo">
             <transition name="p-connected-overlay" @enter="onOverlayEnter" @leave="onOverlayLeave">
-                <div :ref="overlayRef" class="p-multiselect-panel p-component" v-if="overlayVisible" @click="onOverlayClick">
+                <div :ref="overlayRef" :class="panelStyleClass" v-if="overlayVisible" @click="onOverlayClick">
                     <slot name="header" :value="modelValue" :options="visibleOptions"></slot>
                     <div class="p-multiselect-header">
                         <div class="p-checkbox p-component" @click="onToggleAll" role="checkbox" :aria-checked="allSelected">
@@ -144,6 +144,10 @@ export default {
         display: {
             type: String,
             default: 'comma'
+        },
+        panelClass: {
+            type: String,
+            default: null
         }
     },
     data() {
@@ -511,6 +515,11 @@ export default {
                     'p-inputwrapper-filled': this.modelValue && this.modelValue.length,
                     'p-inputwrapper-focus': this.focused || this.overlayVisible
                 }
+            ];
+        },
+        panelStyleClass() {
+            return [
+                'p-multiselect-panel p-component', this.panelClass
             ];
         },
         labelClass() {
