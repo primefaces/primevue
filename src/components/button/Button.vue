@@ -1,5 +1,5 @@
 <template>
-    <button :class="buttonClass" type="button" v-ripple>
+    <button :class="buttonClass" :type="type" v-ripple>
         <slot>
             <span v-if="icon" :class="iconClass"></span>
             <span class="p-button-label">{{label||'&nbsp;'}}</span>
@@ -13,6 +13,13 @@ import Ripple from 'primevue/ripple';
 
 export default {
     props: {
+        type: {
+            type: String,
+            default: 'button',
+            validator: function (value) {
+                return ['button', 'submit', 'reset'].indexOf(value) !== -1
+            }
+        },
         label: {
             type: String
         },
