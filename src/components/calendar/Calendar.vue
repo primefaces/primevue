@@ -68,7 +68,7 @@
                             </span>
                         </div>
                     </template>
-                    <div class="p-timepicker" v-if="showTime||timeOnly">
+                    <div dir="ltr" class="p-timepicker" v-if="showTime||timeOnly">
                         <div class="p-hour-picker">
                             <button class="p-link" @mousedown="onTimePickerElementMouseDown($event, 0, 1)" @mouseup="onTimePickerElementMouseUp($event)" @keydown="onContainerButtonKeydown" v-ripple
                                 @mouseleave="onTimePickerElementMouseLeave()" @keydown.enter="onTimePickerElementMouseDown($event, 0, 1)" @keyup.enter="onTimePickerElementMouseUp($event)" type="button">
