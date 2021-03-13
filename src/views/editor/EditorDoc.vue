@@ -92,7 +92,8 @@ import Editor from 'primevue/editor';
                                 <td>event.delta: Representation of the change.<br/>
                                     event.source: Source of change. Will be either "user" or "api".<br/>
                                     event.htmlValue: Current value as html.<br/>
-                                    event.textValue: Current value as text.<br/></td>
+                                    event.textValue: Current value as text.<br/>
+                                    event.instance: Text editor instance.</td>
                                 <td>Callback to invoke when text of editor changes.</td>
                             </tr>
                             <tr>
@@ -103,6 +104,24 @@ import Editor from 'primevue/editor';
 						</tbody>
 					</table>
 				</div>
+
+                <h5>Slots</h5>
+				<div class="doc-tablewrapper">
+                    <table class="doc-table">
+						<thead>
+                            <tr>
+                                <th>Name</th>
+                                <th>Parameters</th>
+                            </tr>
+						</thead>
+						<tbody>
+                            <tr>
+                                <td>toolbar</td>
+                                <td>-</td>
+                            </tr>
+						</tbody>
+					</table>
+                </div>
 
 				<p>Refer to <a href="http://beta.quilljs.com/docs/api/#events">Quill documentation</a> for more information.</p>
 

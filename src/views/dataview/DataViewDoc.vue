@@ -357,6 +357,50 @@ export default {
                     </table>
                 </div>
 
+                <h5>Slots</h5>
+				<div class="doc-tablewrapper">
+                    <table class="doc-table">
+						<thead>
+                            <tr>
+                                <th>Name</th>
+                                <th>Parameters</th>
+                            </tr>
+						</thead>
+						<tbody>
+                            <tr>
+                                <td>header</td>
+                                <td>-</td>
+                            </tr>
+                            <tr>
+                                <td>paginatorLeft</td>
+                                <td>-</td>
+                            </tr>
+                            <tr>
+                                <td>paginatorRight</td>
+                                <td>-</td>
+                            </tr>
+                            <tr>
+                                <td>list</td>
+                                <td>data: Value of the component <br />
+                                    index: Index of the list</td>
+                            </tr>
+                            <tr>
+                                <td>grid</td>
+                                <td>data: Value of the component <br />
+                                    index: Index of the grid</td>
+                            </tr>
+                            <tr>
+                                <td>empty</td>
+                                <td>-</td>
+                            </tr>
+                            <tr>
+                                <td>footer</td>
+                                <td>-</td>
+                            </tr>
+						</tbody>
+					</table>
+                </div>
+
 				<h5>Styling</h5>
 				<p>Following is the list of structural style classes, for theming classes visit <router-link to="/theming">theming</router-link> page.</p>
 				<div class="doc-tablewrapper">
