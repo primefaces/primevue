@@ -1,4 +1,5 @@
 interface ButtonProps {
+    type?: string;
     label?: string;
     icon?: string;
     iconPos?: string;
