@@ -72,8 +72,6 @@ export default {
     },
     data() {
         return {
-            iconHide: 'pi pi-eye-slash',
-            iconShow: 'pi pi-eye',
             overlayVisible: false,
             meter: null,
             infoText: null,
@@ -245,7 +243,7 @@ export default {
             }];
         },
         toggleIconClass() {
-            return this.unmasked ? this.iconHide : this.iconShow;
+            return this.unmasked ? 'pi pi-eye-slash' : 'pi pi-eye';
         },
         strengthClass() {
             return `p-password-strength ${this.meter ? this.meter.strength : ''}`;
