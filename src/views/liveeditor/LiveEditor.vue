@@ -1,11 +1,6 @@
 <template>
     <span v-if="showEditor">
-        <template v-if="!editComposition">
-            <Button @click="postSandboxParameters('core')" label="Edit in CodeSandbox" class="liveEditorButton" />
-        </template>
-        <template v-else>
-            <SplitButton :model="items" label="Edit in CodeSandbox" class="liveEditorSplitButton" />
-        </template>
+        <SplitButton :model="items" label="Edit in CodeSandbox" class="liveEditorSplitButton" />
     </span>
 </template>
 
@@ -17,17 +12,10 @@ export default {
             sandbox_id: null,
             showCodeHighlight: false,
             items: [
-                {label: "Core", command: () => { this.postSandboxParameters('core') }},
-                {label: "Composition API", command: () => { this.postSandboxParameters('api') }}
-            ],
-            editComposition: false
+                {label: "Options API", command: () => { this.postSandboxParameters('options-api') }},
+                {label: "Composition API", command: () => { this.postSandboxParameters('composition-api') }}
+            ]
         }
-    },
-    mounted() {
-        if (this.sources && this.sources.api)
-            this.editComposition = true;
-        else
-            this.editComposition = false;
     },
     props: {
         name: {
@@ -107,7 +95,8 @@ export default {
                                 'primeflex': dependencies['primeflex'],
                                 'primeicons': 'latest',
                                 '@babel/cli': dependencies['@babel/cli'],
-                                'core-js': dependencies['core-js']
+                                'core-js': dependencies['core-js'],
+                                'vue-router': dependencies['vue-router']
                             },
                             devDependencies: {
                                 '@vue/cli-plugin-babel': dependencies['@vue/cli-plugin-babel'],
@@ -151,105 +140,9 @@ export default {
             let name = this.name;
             let extension = '.vue';
             let extDependencies = this.dependencies || {};
-            let content = this.sources.template.content.replace('<\\/script>', '<\/script>');
-            let style = this.sources.template.style || '';
-            let api = this.sources.api ?  this.sources.api.content : '';
-            let apiStyle = this.sources.api && this.sources.api.style ? this.sources.api.style : '';
+            let content = this.sources[sourceType].content.replace('<\\/script>', '<\/script>');
             let pages = this.sources.pages ? this.sources.pages : '';
-            let scriptText = 'script';
-            let _files = {}, importElement = '', element = '', components = '', imports = '', directives = '', router = '';
-
-            if(sourceType === 'core') {
-                _files[`src/components/${name}${extension}`] = {
-                    content: `${content}`
-                }
-            }
-
-            else if(sourceType === 'api') {
-                _files[`src/components/${name}${extension}`] = {
-                    content: `${api}
-</${scriptText}>
-
-${apiStyle}
-`
-                }
-            }
-
-            if(this.router) {
-                extDependencies['vue-router'] = "^4.0.0-0";
-
-                imports += `import { router } from "./router";
-`;
-
-                router += `app.use(router);`;
-
-                _files[`src/router.js`] = {
-                    content: `import { createRouter, createWebHistory } from "vue-router";
-import App from "./App.vue";
-
-export const router = createRouter({
-  history: createWebHistory(),
-  routes: [{ path: "/", component: App }]
-});`
-                }
-            }
-
-            if(this.components) {
-                this.components.forEach(comp => {
-                    imports += `import ${comp} from "primevue/${comp.toLowerCase()}";
-`;
-                    components += `app.component("${comp}", ${comp});
-`;
-                })
-            }
-
-            if(this.directives) {
-                this.directives.forEach(dir => {
-                    if(dir === 'Tooltip') {
-                        imports += `import Tooltip from "primevue/tooltip";
-`;
-                        directives += `app.directive("tooltip", Tooltip);
-`;
-                    }
-
-                    if(dir === 'Badge') {
-                        imports += `import BadgeDirective from "primevue/badgedirective";
-`;
-                        directives += `app.directive("badge", BadgeDirective);
-`;
-                    }
-                })
-            }
-
-            if(this.toastService) {
-                imports += `import Toast from "primevue/toast";
-import ToastService from "primevue/toastservice";
-`;
-                directives += `app.use(ToastService);
-`;
-                components += `app.component("Toast", Toast);
-`;
-            }
-
-            if(this.confirmationService) {
-                imports += `import ConfirmationService from "primevue/confirmationservice";
-`;
-                directives += `app.use(ConfirmationService);
-`;
-            }
-
-            if(name !== 'ToastDemo' && name !== 'TooltipDemo' && name !== 'RippleDemo' && name !== 'FloatLabelDemo' && name !== 'InputGroupDemo' && name !== 'InvalidDemo' && name !== 'FormLayoutDemo') {
-                element += `app.component("${name.slice(0, -4)}", ${name.slice(0, -4)});`;
-            }
-
-            if(name !== 'TooltipDemo' && name !== 'ToastDemo' && name !== 'FloatLabelDemo' && name !== 'InputGroupDemo' && name !== 'InvalidDemo' && name !== 'FormLayoutDemo') {
-                importElement += `import ${name.slice(0, -4)} from "primevue/${name.slice(0, -4).toLowerCase()}";`;
-            }
-
-            if(name === 'RippleDemo'){
-                directives += `app.directive("${name.slice(0, -4).toLowerCase()}", ${name.slice(0, -4)});
-`;
-            }
+            let _files = {}, element = '';
 
             if (this.service) {
                 const dataArr = this.data ? this.data.split(',') : null;
@@ -295,22 +188,189 @@ ${services[this.service]}
                 extDependencies['chart.js'] = "2.7.3";
             }
 
+            element += `import ${name} from "./${name}.vue"`;
+
             _files['src/main.js'] = {
                 content: `import { createApp } from "vue";
-import App from "./App.vue";
+${element}
+import router from "./router";
+import PrimeVue from "primevue/config";
+import AutoComplete from 'primevue/autocomplete';
+import Accordion from 'primevue/accordion';
+import AccordionTab from 'primevue/accordiontab';
+import Avatar from 'primevue/avatar';
+import AvatarGroup from 'primevue/avatargroup';
+import Badge from 'primevue/badge';
+import BadgeDirective from "primevue/badgedirective";
+import Button from 'primevue/button';
+import Breadcrumb from 'primevue/breadcrumb';
+import Calendar from 'primevue/calendar';
+import Card from 'primevue/card';
+import CascadeSelect from 'primevue/cascadeselect';
+import Carousel from 'primevue/carousel';
+import Checkbox from 'primevue/checkbox';
+import Chip from 'primevue/chip';
+import Chips from 'primevue/chips';
+import ColorPicker from 'primevue/colorpicker';
+import Column from 'primevue/column';
+import ConfirmDialog from 'primevue/confirmdialog';
+import ConfirmPopup from 'primevue/confirmpopup';
+import ConfirmationService from 'primevue/confirmationservice';
+import ContextMenu from 'primevue/contextmenu';
+import DataTable from 'primevue/datatable';
+import DataView from 'primevue/dataview';
+import DataViewLayoutOptions from 'primevue/dataviewlayoutoptions';
+import Dialog from 'primevue/dialog';
+import Divider from 'primevue/divider';
+import Dropdown from 'primevue/dropdown';
+import Fieldset from 'primevue/fieldset';
+import FileUpload from 'primevue/fileupload';
+import Galleria from 'primevue/galleria';
+import InlineMessage from 'primevue/inlinemessage';
+import Inplace from 'primevue/inplace';
+import InputSwitch from 'primevue/inputswitch';
+import InputText from 'primevue/inputtext';
+import InputMask from 'primevue/inputmask';
+import InputNumber from 'primevue/inputnumber';
+import Knob from 'primevue/knob';
+import Listbox from 'primevue/listbox';
+import MegaMenu from 'primevue/megamenu';
+import Menu from 'primevue/menu';
+import Menubar from 'primevue/menubar';
+import Message from 'primevue/message';
+import MultiSelect from 'primevue/multiselect';
+import OrderList from 'primevue/orderlist';
+import OrganizationChart from 'primevue/organizationchart';
+import OverlayPanel from 'primevue/overlaypanel';
+import Paginator from 'primevue/paginator';
+import Panel from 'primevue/panel';
+import PanelMenu from 'primevue/panelmenu';
+import Password from 'primevue/password';
+import PickList from 'primevue/picklist';
+import ProgressBar from 'primevue/progressbar';
+import Rating from 'primevue/rating';
+import RadioButton from 'primevue/radiobutton';
+import Ripple from 'primevue/ripple';
+import SelectButton from 'primevue/selectbutton';
+import ScrollPanel from 'primevue/scrollpanel';
+import ScrollTop from 'primevue/scrolltop';
+import Skeleton from 'primevue/skeleton';
+import Slider from 'primevue/slider';
+import Sidebar from 'primevue/sidebar';
+import SplitButton from 'primevue/splitbutton';
+import Splitter from 'primevue/splitter';
+import SplitterPanel from 'primevue/splitterpanel';
+import Steps from 'primevue/steps';
+import TabMenu from 'primevue/tabmenu';
+import TieredMenu from 'primevue/tieredmenu';
+import Textarea from 'primevue/textarea';
+import Toast from 'primevue/toast';
+import ToastService from 'primevue/toastservice';
+import Toolbar from 'primevue/toolbar';
+import TabView from 'primevue/tabview';
+import TabPanel from 'primevue/tabpanel';
+import Tag from 'primevue/tag';
+import Timeline from 'primevue/timeline';
+import ToggleButton from 'primevue/togglebutton';
+import Tooltip from 'primevue/tooltip';
+import Tree from 'primevue/tree';
+import TreeTable from 'primevue/treetable';
+import TriStateCheckbox from 'primevue/tristatecheckbox';
+
 import "primeflex/primeflex.css";
 import "primevue/resources/themes/saga-blue/theme.css";
 import "primevue/resources/primevue.min.css";
 import "primeicons/primeicons.css";
-import PrimeVue from "primevue/config";
-${importElement}
-${imports}
-const app = createApp(App);
+import "./index.css";
+
+const app = createApp(${name});
+
 app.use(PrimeVue, { ripple: true });
-${router}
-${directives}
-${element}
-${components}
+app.use(ConfirmationService);
+app.use(ToastService);
+app.use(router);
+
+app.directive('tooltip', Tooltip);
+app.directive('badge', BadgeDirective);
+app.directive('ripple', Ripple);
+
+app.component('Accordion', Accordion);
+app.component('AccordionTab', AccordionTab);
+app.component('AutoComplete', AutoComplete);
+app.component('Avatar', Avatar);
+app.component('AvatarGroup', AvatarGroup);
+app.component('Badge', Badge);
+app.component('Breadcrumb', Breadcrumb);
+app.component('Button', Button);
+app.component('Calendar', Calendar);
+app.component('Card', Card);
+app.component('Carousel', Carousel);
+app.component('CascadeSelect', CascadeSelect);
+app.component('Checkbox', Checkbox);
+app.component('Chip', Chip);
+app.component('Chips', Chips);
+app.component('ColorPicker', ColorPicker);
+app.component('Column', Column);
+app.component('ConfirmDialog', ConfirmDialog);
+app.component('ConfirmPopup', ConfirmPopup);
+app.component('ContextMenu', ContextMenu);
+app.component('DataTable', DataTable);
+app.component('DataView', DataView);
+app.component('DataViewLayoutOptions', DataViewLayoutOptions);
+app.component('Dialog', Dialog);
+app.component('Divider', Divider);
+app.component('Dropdown', Dropdown);
+app.component('Fieldset', Fieldset);
+app.component('FileUpload', FileUpload);
+app.component('InlineMessage', InlineMessage);
+app.component('Inplace', Inplace);
+app.component('InputMask', InputMask);
+app.component('InputNumber', InputNumber);
+app.component('InputSwitch', InputSwitch);
+app.component('InputText', InputText);
+app.component('Galleria', Galleria);
+app.component('Knob', Knob);
+app.component('Listbox', Listbox);
+app.component('MegaMenu', MegaMenu);
+app.component('Menu', Menu);
+app.component('Menubar', Menubar);
+app.component('Message', Message);
+app.component('MultiSelect', MultiSelect);
+app.component('OrderList', OrderList);
+app.component('OrganizationChart', OrganizationChart);
+app.component('OverlayPanel', OverlayPanel);
+app.component('Paginator', Paginator);
+app.component('Panel', Panel);
+app.component('PanelMenu', PanelMenu);
+app.component('Password', Password);
+app.component('PickList', PickList);
+app.component('ProgressBar', ProgressBar);
+app.component('RadioButton', RadioButton);
+app.component('Rating', Rating);
+app.component('SelectButton', SelectButton);
+app.component('ScrollPanel', ScrollPanel);
+app.component('ScrollTop', ScrollTop);
+app.component('Slider', Slider);
+app.component('Sidebar', Sidebar);
+app.component('Skeleton', Skeleton);
+app.component('SplitButton', SplitButton);
+app.component('Splitter', Splitter);
+app.component('SplitterPanel', SplitterPanel);
+app.component('Steps', Steps);
+app.component('TabMenu', TabMenu);
+app.component('TabView', TabView);
+app.component('TabPanel', TabPanel);
+app.component('Tag', Tag);
+app.component('Textarea', Textarea);
+app.component('TieredMenu', TieredMenu);
+app.component('Timeline', Timeline);
+app.component('Toast', Toast);
+app.component('Toolbar', Toolbar);
+app.component('ToggleButton', ToggleButton);
+app.component('Tree', Tree);
+app.component('TreeTable', TreeTable);
+app.component('TriStateCheckbox', TriStateCheckbox);
+
 app.mount("#app");
 `
             }
@@ -331,26 +391,13 @@ app.mount("#app");
 `
             }
 
-            _files['src/App.vue'] = {
-                content:
-`<template>
-    <${name}></${name}>
-</template>
-<${scriptText}>
-import ${name} from './components/${name}'
-export default {
-    components: {
-        ${name}
-    }
-}
-</${scriptText}>
-<style lang="scss">
-@import "./App.scss";
-</style>`
+            _files[`src/${name}${extension}`] = {       
+                    content: `${content}
+`
             }
 
-            _files['src/App.scss'] = {
-                        content: `html {
+            _files['src/index.css'] = {
+                content: `html {
     font-size: 14px;
 }
 
@@ -544,46 +591,22 @@ span.flag {
 img.flag {
     width:30px
 }
-
-.layout-content {
-
-    .content-section {
-        padding: 2rem;
-
-        &.introduction {
-            background-color: #f8f9fa;
-            color: #495057;
-            padding-bottom: 0;
-            display: flex;
-            align-items: top;
-            justify-content: space-between;
-        }
-
-        &.implementation {
-            background-color: #f8f9fa;;
-            color: #495057;
-
-            +.documentation {
-                padding-top: 0;
+`,
             }
-        }
-    }
 
-    .card {
-        background: #ffffff;
-        padding: 2rem;
-        box-shadow: 0 2px 1px -1px rgba(0,0,0,.2), 0 1px 1px 0 rgba(0,0,0,.14), 0 1px 3px 0 rgba(0,0,0,.12);
-        border-radius: 4px;
-        margin-bottom: 2rem;
-    }
-}
-                        `,
-            }
+            _files[`src/router.js`] = {
+                content: `import { createRouter, createWebHistory } from "vue-router";
+${element}
+
+export const router = createRouter({
+  history: createWebHistory(),
+  routes: [{ path: "/", component: ${name} }]
+});`
+                }
 
             if(pages) {
-                extDependencies['vue-router'] = "^4.0.0-0";
                 const routes = [];
-/* eslint-disable */
+
                 pages.forEach((page, i) => {
                     _files[`src/components/${page.name}.vue`] = {
                         'content': `${page.template.replace('<\\/script>', '<\/script>')}`
