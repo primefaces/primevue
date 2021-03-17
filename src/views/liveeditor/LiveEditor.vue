@@ -1,7 +1,7 @@
 <template>
     <span v-if="showEditor">
         <template v-if="!editComposition">
-        <Button @click="postSandboxParameters('core')" label="Edit in CodeSandbox" class="liveEditorButton" />
+            <Button @click="postSandboxParameters('core')" label="Edit in CodeSandbox" class="liveEditorButton" />
         </template>
         <template v-else>
             <SplitButton :model="items" label="Edit in CodeSandbox" class="liveEditorSplitButton" />
@@ -24,9 +24,9 @@ export default {
         }
     },
     mounted() {
-        if (this.sources && this.sources.api) 
+        if (this.sources && this.sources.api)
             this.editComposition = true;
-        else 
+        else
             this.editComposition = false;
     },
     props: {
@@ -124,7 +124,7 @@ export default {
     presets: [
         '@vue/cli-plugin-babel/preset'
     ]
-}`            
+}`
                     },
                     '.eslintrc.js': {
                         content: `module.exports = {
@@ -147,33 +147,31 @@ export default {
         },
 
         getSandboxParameters(sourceType) {
+            /* eslint-disable */
             let name = this.name;
             let extension = '.vue';
             let extDependencies = this.dependencies || {};
-            let content = this.sources.template.content;
+            let content = this.sources.template.content.replace('<\\/script>', '<\/script>');
             let style = this.sources.template.style || '';
             let api = this.sources.api ?  this.sources.api.content : '';
             let apiStyle = this.sources.api && this.sources.api.style ? this.sources.api.style : '';
-            let pages = this.sources.pages ? this.sources.pages : ''; 
+            let pages = this.sources.pages ? this.sources.pages : '';
             let scriptText = 'script';
             let _files = {}, importElement = '', element = '', components = '', imports = '', directives = '', router = '';
 
             if(sourceType === 'core') {
-                _files[`src/components/${name}${extension}`] = {       
-                    content: `${content}
-</${scriptText}>
-
-${style}`   
+                _files[`src/components/${name}${extension}`] = {
+                    content: `${content}`
                 }
             }
 
             else if(sourceType === 'api') {
-                _files[`src/components/${name}${extension}`] = {       
+                _files[`src/components/${name}${extension}`] = {
                     content: `${api}
 </${scriptText}>
 
 ${apiStyle}
-`   
+`
                 }
             }
 
@@ -223,7 +221,7 @@ export const router = createRouter({
                 })
             }
 
-            if(this.toastService) {      
+            if(this.toastService) {
                 imports += `import Toast from "primevue/toast";
 import ToastService from "primevue/toastservice";
 `;
@@ -585,11 +583,10 @@ img.flag {
             if(pages) {
                 extDependencies['vue-router'] = "^4.0.0-0";
                 const routes = [];
-
+/* eslint-disable */
                 pages.forEach((page, i) => {
                     _files[`src/components/${page.name}.vue`] = {
-                        'content': `${page.template}
-</${scriptText}>`
+                        'content': `${page.template.replace('<\\/script>', '<\/script>')}`
                     }
 
                     let route = '';
