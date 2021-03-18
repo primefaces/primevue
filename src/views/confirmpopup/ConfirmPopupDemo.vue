@@ -34,7 +34,7 @@ export default {
                     this.$toast.add({severity:'info', summary:'Confirmed', detail:'You have accepted', life: 3000});
                 },
                 reject: () => {
-                    this.$toast.add({severity:'info', summary:'Rejected', detail:'You have rejected', life: 3000});
+                    this.$toast.add({severity:'error', summary:'Rejected', detail:'You have rejected', life: 3000});
                 }
             });
         },
@@ -48,7 +48,7 @@ export default {
                     this.$toast.add({severity:'info', summary:'Confirmed', detail:'Record deleted', life: 3000});
                 },
                 reject: () => {
-                    this.$toast.add({severity:'info', summary:'Rejected', detail:'You have rejected', life: 3000});
+                    this.$toast.add({severity:'error', summary:'Rejected', detail:'You have rejected', life: 3000});
                 }
             });
         }
