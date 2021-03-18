@@ -96,7 +96,8 @@ export default {
                                 'primeicons': 'latest',
                                 '@babel/cli': dependencies['@babel/cli'],
                                 'core-js': dependencies['core-js'],
-                                'vue-router': dependencies['vue-router']
+                                'vue-router': dependencies['vue-router'],
+                                'quill': dependencies['quill']
                             },
                             devDependencies: {
                                 '@vue/cli-plugin-babel': dependencies['@vue/cli-plugin-babel'],
@@ -175,9 +176,6 @@ ${services[this.service]}
                 }
             }
 
-            if(name === 'EditorDemo') {
-                extDependencies['quill'] =  "^1.3.7";
-            }
             if(name === 'FullCalendarDemo') {
                 extDependencies['@fullcalendar/core'] = "5.4.0";
                 extDependencies['@fullcalendar/daygrid'] = "5.4.0";
@@ -223,6 +221,7 @@ import DataViewLayoutOptions from 'primevue/dataviewlayoutoptions';
 import Dialog from 'primevue/dialog';
 import Divider from 'primevue/divider';
 import Dropdown from 'primevue/dropdown';
+import Editor from 'primevue/editor';
 import Fieldset from 'primevue/fieldset';
 import FileUpload from 'primevue/fileupload';
 import Galleria from 'primevue/galleria';
@@ -320,6 +319,7 @@ app.component('DataViewLayoutOptions', DataViewLayoutOptions);
 app.component('Dialog', Dialog);
 app.component('Divider', Divider);
 app.component('Dropdown', Dropdown);
+app.component('Editor', Editor);
 app.component('Fieldset', Fieldset);
 app.component('FileUpload', FileUpload);
 app.component('InlineMessage', InlineMessage);
