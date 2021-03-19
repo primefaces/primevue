@@ -40,6 +40,7 @@ interface ColumnProps {
     alignFrozen?: string;
     exportable?: boolean;
     exportFunction?: Function;
+    isVisible?: boolean;
     filterMatchMode?: string;
 }
 

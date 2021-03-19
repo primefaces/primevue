@@ -394,6 +394,10 @@
                         {
                             "name": "Crud",
                             "to": "/datatable/crud"
+                        },
+                        {
+                            "name": "Column Visibility",
+                            "to": "/datatable/colvisibility"
                         }
                     ]
                 },
