@@ -1,61 +1,19 @@
 <template>
-	<div class="content-section documentation">
-		<TabView>
-			<TabPanel header="Source">
-				<div class="p-d-flex">
-					<LiveEditor name="ChartDemo" :sources="sources" class="p-ml-auto" />
-				</div>
-<pre v-code><code><template v-pre>
-&lt;Chart type="pie" :data="chartData" /&gt;
-</template>
-</code></pre>
-
-<pre v-code.script><code>
-export default {
-	data() {
-		return {
-			chartData: {
-				labels: ['A','B','C'],
-				datasets: [
-					{
-						data: [300, 50, 100],
-						backgroundColor: [
-                            "#42A5F5",
-                            "#66BB6A",
-                            "#FFA726"
-                        ],
-                        hoverBackgroundColor: [
-                            "#64B5F6",
-                            "#81C784",
-                            "#FFB74D"
-                        ]
-					}
-				]
-			}
-		}
-	}
-}
-
-</code></pre>
-			</TabPanel>
-		</TabView>
-	</div>
+	<AppDoc name="PieChartDemo" :sources="sources" />
 </template>
 
 <script>
-import LiveEditor from '../liveeditor/LiveEditor';
+
 export default {
 	data() {
 		return {
 			sources: {
-				'template': {
-					content: `<template>
-    <div class="layout-content">
-        <div class="content-section implementation">
-            <div class="card">
-                <Chart type="pie" :data="chartData" />
-            </div>
-        </div>
+				'options-api': {
+					tabName: 'Source',
+					content: `
+<template>
+    <div class="card">
+        <Chart type="pie" :data="chartData" />
     </div>
 </template>
 
@@ -75,13 +33,43 @@ export default {
             }
         }
     }
-}`
+}
+<\\/script>
+`
+				},
+				'composition-api': {
+					tabName: 'Composition API',
+					content: `
+<template>
+    <div class="card">
+        <Chart type="pie" :data="chartData" />
+    </div>
+</template>
+
+<script>
+import { ref } from 'vue';
+
+export default {
+    setup() {
+        const chartData = ref({
+            labels: ['A','B','C'],
+            datasets: [
+                {
+                    data: [300, 50, 100],
+                    backgroundColor: ["#42A5F5","#66BB6A","#FFA726"],
+                    hoverBackgroundColor: ["#64B5F6","#81C784","#FFB74D"]
+                }
+            ]
+        });
+
+		return { chartData }
+    }
+}
+<\\/script>
+`
 				}
 			}
 		}
-	},
-	components: {
-		LiveEditor
 	}
 }
 </script>

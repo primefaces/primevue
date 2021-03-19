@@ -95,6 +95,7 @@ import TriStateCheckbox from './components/tristatecheckbox/TriStateCheckbox';
 import Galleria from './components/galleria/Galleria';
 
 import AppInputStyleSwitch from './AppInputStyleSwitch';
+import AppDocumentation from './AppDocumentation';
 import CodeHighlight from './AppCodeHighlight';
 
 import './assets/styles/primevue.css';
@@ -110,7 +111,7 @@ router.beforeEach(function (to, from, next) {
 
 const app = createApp(App);
 
-app.config.globalProperties.$appState = reactive({inputStyle: 'outlined', darkTheme: false, codeSandbox: true});
+app.config.globalProperties.$appState = reactive({inputStyle: 'outlined', darkTheme: false, codeSandbox: true, sourceType: 'options-api'});
 
 app.use(PrimeVue, {ripple: true});
 app.use(ToastService);
@@ -208,6 +209,7 @@ app.component('TriStateCheckbox', TriStateCheckbox);
 app.component('Galleria', Galleria);
 
 app.component('AppInputStyleSwitch', AppInputStyleSwitch);
+app.component('AppDoc', AppDocumentation);
 app.directive('code', CodeHighlight);
 
 app.mount('#app');

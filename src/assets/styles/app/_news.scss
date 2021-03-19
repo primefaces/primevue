@@ -4,7 +4,7 @@
     justify-content: center;
     align-items: center;
     margin-left: 250px;
-    background-image: linear-gradient(to left, #1565c0, #0D47A1);
+    background-image: linear-gradient(to left, #e2821a, #e49e18);
 
     .layout-news-container {
         width: 100%;
@@ -17,22 +17,22 @@
         font-size: 20px;
 
         img.layouts-news-mockup-image {
-            height: 70px;
+            max-width: 350px;
         }
 
         .layout-news-button {
-            border: 1px solid #ffffff;
-            color: #ffffff;
+            border: 2px solid #212121;
+            color: #212121;
             font-size: 15px;
-            padding: .3em .3em .5em 1em;
-            font-weight: bold;
+            padding: 0.5em 1em;
+            font-weight: bolder;
             border-radius: 3px;
             display: flex;
             justify-content: center;
             align-items: center;
             flex-shrink: 0;
             transition: background-color 0.15s;
-            margin-left: -1rem;
+            margin-left: 1rem;
             position: relative;
             z-index: 1;
 

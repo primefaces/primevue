@@ -1,15 +1,13 @@
 <template>
-	<div class="content-section documentation">
-		<TabView>
-			<TabPanel header="Documentation">
-				<h5>Import</h5>
+	<AppDoc name="ScrollPanelDemo" :sources="sources">
+        <h5>Import</h5>
 <pre v-code.script><code>
 import ScrollPanel from 'primevue/scrollpanel';
 
 </code></pre>
 
-				<h5>Getting Started</h5>
-				<p>ScrollPanel usage is similar to any container element.</p>
+		<h5>Getting Started</h5>
+		<p>ScrollPanel usage is similar to any container element.</p>
 <pre v-code><code>
 &lt;ScrollPanel style="width: 100%; height: 200px"&gt;
     content
@@ -17,8 +15,8 @@ import ScrollPanel from 'primevue/scrollpanel';
 
 </code></pre>
 
-                <h5>Customization</h5>
-                <p>Look and feel can easily be customized, here is an example with custom scrollbars.</p>
+        <h5>Customization</h5>
+        <p>Look and feel can easily be customized, here is an example with custom scrollbars.</p>
 <pre v-code><code>
 &lt;ScrollPanel style="width: 100%; height: 200px" class="custom"&gt;
     content
@@ -43,125 +41,125 @@ import ScrollPanel from 'primevue/scrollpanel';
 
 </code></pre>
 
-				<h5>Properties</h5>
-                <p>Any property such as style and class are passed to the main container element. There are no component specific properties.</p>
+		<h5>Properties</h5>
+        <p>Any property such as style and class are passed to the main container element. There are no component specific properties.</p>
 
-				<h5>Styling</h5>
-				<p>Following is the list of structural style classes, for theming classes visit <router-link to="/theming">theming</router-link> page.</p>
-				<div class="doc-tablewrapper">
-					<table class="doc-table">
-						<thead>
-                            <tr>
-                                <th>Name</th>
-                                <th>Element</th>
-                            </tr>
-						</thead>
-						<tbody>
-                            <tr>
-                                <td>p-scrollpanel</td>
-                                <td>Container element.</td>
-                            </tr>
-                            <tr>
-                                <td>p-scrollpanel-wrapper</td>
-                                <td>Wrapper of content section.</td>
-                            </tr>
-                            <tr>
-                                <td>p-scrollpanel-content</td>
-                                <td>Content section.</td>
-                            </tr>
-                            <tr>
-                                <td>p-scrollpanel-bar</td>
-                                <td>Scrollbar handle.</td>
-                            </tr>
-                            <tr>
-                                <td>p-scrollpanel-bar-x</td>
-                                <td>Scrollbar handle of a horizontal bar.</td>
-                            </tr>
-                            <tr>
-                                <td>p-scrollpanel-bar-y</td>
-                                <td>Scrollbar handle of a vertical bar</td>
-                            </tr>
-                        </tbody>
-					</table>
-				</div>
+		<h5>Styling</h5>
+		<p>Following is the list of structural style classes, for theming classes visit <router-link to="/theming">theming</router-link> page.</p>
+		<div class="doc-tablewrapper">
+			<table class="doc-table">
+				<thead>
+                    <tr>
+                        <th>Name</th>
+                        <th>Element</th>
+                    </tr>
+				</thead>
+				<tbody>
+                    <tr>
+                        <td>p-scrollpanel</td>
+                        <td>Container element.</td>
+                    </tr>
+                    <tr>
+                        <td>p-scrollpanel-wrapper</td>
+                        <td>Wrapper of content section.</td>
+                    </tr>
+                    <tr>
+                        <td>p-scrollpanel-content</td>
+                        <td>Content section.</td>
+                    </tr>
+                    <tr>
+                        <td>p-scrollpanel-bar</td>
+                        <td>Scrollbar handle.</td>
+                    </tr>
+                    <tr>
+                        <td>p-scrollpanel-bar-x</td>
+                        <td>Scrollbar handle of a horizontal bar.</td>
+                    </tr>
+                    <tr>
+                        <td>p-scrollpanel-bar-y</td>
+                        <td>Scrollbar handle of a vertical bar</td>
+                    </tr>
+                </tbody>
+			</table>
+		</div>
 
-				<h5>Dependencies</h5>
-				<p>None.</p>
-			</TabPanel>
-
-			<TabPanel header="Source">
-                <div class="p-d-flex p-jc-between">
-                    <a href="https://github.com/primefaces/primevue/tree/master/src/views/scrollpanel" class="btn-viewsource" target="_blank" rel="noopener noreferrer">
-                        <span>View on GitHub</span>
-                    </a>
-                    <LiveEditor name="ScrollPanelDemo" :sources="sources"/>
-                </div>
-
-<pre v-code><code><template v-pre>
-&lt;div class="p-grid"&gt;
-    &lt;div class="p-col-12 p-md-4 p-p-5"&gt;
-        &lt;ScrollPanel style="width: 100%; height: 200px"&gt;
-            &lt;p&gt;
-                Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.
-                Vitae et leo duis ut diam.
-                Ultricies mi quis hendrerit dolor magna eget est lorem. Amet consectetur adipiscing elit ut.
-                Nam libero justo laoreet sit amet. Pharetra massa massa ultricies mi quis hendrerit dolor magna.
-                Est ultricies integer quis auctor elit sed vulputate. Consequat ac felis donec et. Tellus orci ac auctor augue mauris.
-                Semper feugiat nibh sed pulvinar proin gravida hendrerit lectus a. Tincidunt arcu non sodales neque sodales.
-                Metus aliquam eleifend mi in nulla posuere sollicitudin aliquam ultrices. Sodales ut etiam sit amet nisl purus.
-                Cursus sit amet dictum sit amet. Tristique senectus et netus et malesuada fames ac turpis egestas.
-                Et tortor consequat id porta nibh venenatis cras sed. Diam maecenas ultricies mi eget mauris.
-                Eget egestas purus viverra accumsan in nisl nisi. Suscipit adipiscing bibendum est ultricies integer.
-                Mattis aliquam faucibus purus in massa tempor nec.
-            &lt;/p&gt;
-        &lt;/ScrollPanel&gt;
-    &lt;/div&gt;
-    &lt;div class="p-col-12 p-md-4 p-p-5"&gt;
-        &lt;ScrollPanel style="width: 100%; height: 200px" class="custombar1"&gt;
-            &lt;p&gt;
-                Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.
-                Vitae et leo duis ut diam.
-                Ultricies mi quis hendrerit dolor magna eget est lorem. Amet consectetur adipiscing elit ut.
-                Nam libero justo laoreet sit amet. Pharetra massa massa ultricies mi quis hendrerit dolor magna.
-                Est ultricies integer quis auctor elit sed vulputate. Consequat ac felis donec et. Tellus orci ac auctor augue mauris.
-                Semper feugiat nibh sed pulvinar proin gravida hendrerit lectus a. Tincidunt arcu non sodales neque sodales.
-                Metus aliquam eleifend mi in nulla posuere sollicitudin aliquam ultrices. Sodales ut etiam sit amet nisl purus.
-                Cursus sit amet dictum sit amet. Tristique senectus et netus et malesuada fames ac turpis egestas.
-                Et tortor consequat id porta nibh venenatis cras sed. Diam maecenas ultricies mi eget mauris.
-                Eget egestas purus viverra accumsan in nisl nisi. Suscipit adipiscing bibendum est ultricies integer.
-                Mattis aliquam faucibus purus in massa tempor nec.
-            &lt;/p&gt;
-        &lt;/ScrollPanel&gt;
-    &lt;/div&gt;
-    &lt;div class="p-col-12 p-md-4 p-p-5"&gt;
-        &lt;ScrollPanel style="width: 100%; height: 200px" class="custombar2"&gt;
-            &lt;p style="width: 600px"&gt;
-                Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.
-                Vitae et leo duis ut diam.
-                Ultricies mi quis hendrerit dolor magna eget est lorem. Amet consectetur adipiscing elit ut.
-                Nam libero justo laoreet sit amet. Pharetra massa massa ultricies mi quis hendrerit dolor magna.
-                Est ultricies integer quis auctor elit sed vulputate. Consequat ac felis donec et. Tellus orci ac auctor augue mauris.
-                Semper feugiat nibh sed pulvinar proin gravida hendrerit lectus a. Tincidunt arcu non sodales neque sodales.
-                Metus aliquam eleifend mi in nulla posuere sollicitudin aliquam ultrices. Sodales ut etiam sit amet nisl purus.
-                Cursus sit amet dictum sit amet. Tristique senectus et netus et malesuada fames ac turpis egestas.
-                Et tortor consequat id porta nibh venenatis cras sed. Diam maecenas ultricies mi eget mauris.
-                Eget egestas purus viverra accumsan in nisl nisi. Suscipit adipiscing bibendum est ultricies integer.
-                Mattis aliquam faucibus purus in massa tempor nec.
-            &lt;/p&gt;
-        &lt;/ScrollPanel&gt;
-    &lt;/div&gt;
-&lt;/div&gt;
+		<h5>Dependencies</h5>
+		<p>None.</p>
+    </AppDoc>
 </template>
-</code></pre>
 
-<pre v-code.script><code>
+<script>
 export default {
+    data() {
+        return {
+           sources: {
+                'options-api': {
+                    tabName: 'Source',
+                    content: `
+<template>
+    <div class="card">
+        <div class="p-grid">
+            <div class="p-col-12 p-md-4 p-p-5">
+                <ScrollPanel style="width: 100%; height: 200px">
+                    <p>
+                        Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.
+                        Vitae et leo duis ut diam.
+                        Ultricies mi quis hendrerit dolor magna eget est lorem. Amet consectetur adipiscing elit ut.
+                        Nam libero justo laoreet sit amet. Pharetra massa massa ultricies mi quis hendrerit dolor magna.
+                        Est ultricies integer quis auctor elit sed vulputate. Consequat ac felis donec et. Tellus orci ac auctor augue mauris.
+                        Semper feugiat nibh sed pulvinar proin gravida hendrerit lectus a. Tincidunt arcu non sodales neque sodales.
+                        Metus aliquam eleifend mi in nulla posuere sollicitudin aliquam ultrices. Sodales ut etiam sit amet nisl purus.
+                        Cursus sit amet dictum sit amet. Tristique senectus et netus et malesuada fames ac turpis egestas.
+                        Et tortor consequat id porta nibh venenatis cras sed. Diam maecenas ultricies mi eget mauris.
+                        Eget egestas purus viverra accumsan in nisl nisi. Suscipit adipiscing bibendum est ultricies integer.
+                        Mattis aliquam faucibus purus in massa tempor nec.
+                    </p>
+                </ScrollPanel>
+            </div>
+            <div class="p-col-12 p-md-4 p-p-5">
+                <ScrollPanel style="width: 100%; height: 200px" class="custombar1">
+                    <p>
+                        Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.
+                        Vitae et leo duis ut diam.
+                        Ultricies mi quis hendrerit dolor magna eget est lorem. Amet consectetur adipiscing elit ut.
+                        Nam libero justo laoreet sit amet. Pharetra massa massa ultricies mi quis hendrerit dolor magna.
+                        Est ultricies integer quis auctor elit sed vulputate. Consequat ac felis donec et. Tellus orci ac auctor augue mauris.
+                        Semper feugiat nibh sed pulvinar proin gravida hendrerit lectus a. Tincidunt arcu non sodales neque sodales.
+                        Metus aliquam eleifend mi in nulla posuere sollicitudin aliquam ultrices. Sodales ut etiam sit amet nisl purus.
+                        Cursus sit amet dictum sit amet. Tristique senectus et netus et malesuada fames ac turpis egestas.
+                        Et tortor consequat id porta nibh venenatis cras sed. Diam maecenas ultricies mi eget mauris.
+                        Eget egestas purus viverra accumsan in nisl nisi. Suscipit adipiscing bibendum est ultricies integer.
+                        Mattis aliquam faucibus purus in massa tempor nec.
+                    </p>
+                </ScrollPanel>
+            </div>
+            <div class="p-col-12 p-md-4 p-p-5">
+                <ScrollPanel style="width: 100%; height: 200px" class="custombar2">
+                    <p style="width: 600px">
+                        Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.
+                        Vitae et leo duis ut diam.
+                        Ultricies mi quis hendrerit dolor magna eget est lorem. Amet consectetur adipiscing elit ut.
+                        Nam libero justo laoreet sit amet. Pharetra massa massa ultricies mi quis hendrerit dolor magna.
+                        Est ultricies integer quis auctor elit sed vulputate. Consequat ac felis donec et. Tellus orci ac auctor augue mauris.
+                        Semper feugiat nibh sed pulvinar proin gravida hendrerit lectus a. Tincidunt arcu non sodales neque sodales.
+                        Metus aliquam eleifend mi in nulla posuere sollicitudin aliquam ultrices. Sodales ut etiam sit amet nisl purus.
+                        Cursus sit amet dictum sit amet. Tristique senectus et netus et malesuada fames ac turpis egestas.
+                        Et tortor consequat id porta nibh venenatis cras sed. Diam maecenas ultricies mi eget mauris.
+                        Eget egestas purus viverra accumsan in nisl nisi. Suscipit adipiscing bibendum est ultricies integer.
+                        Mattis aliquam faucibus purus in massa tempor nec.
+                    </p>
+                </ScrollPanel>
+            </div>
+        </div>
+    </div>
+</template>
 
+<script>
+export default {
 }
+<\\/script>
 
-</code></pre>
-
-<pre v-code.css><code>
+<style lang="scss" scoped>
 ::v-deep(.p-scrollpanel) {
     p {
         padding: .5rem;
@@ -199,77 +197,64 @@ export default {
         }
     }  
 }
-
-</code></pre>
-			</TabPanel>
-		</TabView>
-	</div>
-</template>
-
-<script>
-import LiveEditor from '../liveeditor/LiveEditor';
-export default {
-    data() {
-        return {
-            sources: {
-                'template': {
-                    content: `<template>
-    <div class="layout-content">
-        <div class="content-section implementation">
-            <div class="card">
-                <div class="p-grid">
-                    <div class="p-col-12 p-md-4 p-p-5">
-                        <ScrollPanel style="width: 100%; height: 200px">
-                            <p>
-                                Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.
-                                Vitae et leo duis ut diam.
-                                Ultricies mi quis hendrerit dolor magna eget est lorem. Amet consectetur adipiscing elit ut.
-                                Nam libero justo laoreet sit amet. Pharetra massa massa ultricies mi quis hendrerit dolor magna.
-                                Est ultricies integer quis auctor elit sed vulputate. Consequat ac felis donec et. Tellus orci ac auctor augue mauris.
-                                Semper feugiat nibh sed pulvinar proin gravida hendrerit lectus a. Tincidunt arcu non sodales neque sodales.
-                                Metus aliquam eleifend mi in nulla posuere sollicitudin aliquam ultrices. Sodales ut etiam sit amet nisl purus.
-                                Cursus sit amet dictum sit amet. Tristique senectus et netus et malesuada fames ac turpis egestas.
-                                Et tortor consequat id porta nibh venenatis cras sed. Diam maecenas ultricies mi eget mauris.
-                                Eget egestas purus viverra accumsan in nisl nisi. Suscipit adipiscing bibendum est ultricies integer.
-                                Mattis aliquam faucibus purus in massa tempor nec.
-                            </p>
-                        </ScrollPanel>
-                    </div>
-                    <div class="p-col-12 p-md-4 p-p-5">
-                        <ScrollPanel style="width: 100%; height: 200px" class="custombar1">
-                            <p>
-                                Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.
-                                Vitae et leo duis ut diam.
-                                Ultricies mi quis hendrerit dolor magna eget est lorem. Amet consectetur adipiscing elit ut.
-                                Nam libero justo laoreet sit amet. Pharetra massa massa ultricies mi quis hendrerit dolor magna.
-                                Est ultricies integer quis auctor elit sed vulputate. Consequat ac felis donec et. Tellus orci ac auctor augue mauris.
-                                Semper feugiat nibh sed pulvinar proin gravida hendrerit lectus a. Tincidunt arcu non sodales neque sodales.
-                                Metus aliquam eleifend mi in nulla posuere sollicitudin aliquam ultrices. Sodales ut etiam sit amet nisl purus.
-                                Cursus sit amet dictum sit amet. Tristique senectus et netus et malesuada fames ac turpis egestas.
-                                Et tortor consequat id porta nibh venenatis cras sed. Diam maecenas ultricies mi eget mauris.
-                                Eget egestas purus viverra accumsan in nisl nisi. Suscipit adipiscing bibendum est ultricies integer.
-                                Mattis aliquam faucibus purus in massa tempor nec.
-                            </p>
-                        </ScrollPanel>
-                    </div>
-                    <div class="p-col-12 p-md-4 p-p-5">
-                        <ScrollPanel style="width: 100%; height: 200px" class="custombar2">
-                            <p style="width: 600px">
-                                Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.
-                                Vitae et leo duis ut diam.
-                                Ultricies mi quis hendrerit dolor magna eget est lorem. Amet consectetur adipiscing elit ut.
-                                Nam libero justo laoreet sit amet. Pharetra massa massa ultricies mi quis hendrerit dolor magna.
-                                Est ultricies integer quis auctor elit sed vulputate. Consequat ac felis donec et. Tellus orci ac auctor augue mauris.
-                                Semper feugiat nibh sed pulvinar proin gravida hendrerit lectus a. Tincidunt arcu non sodales neque sodales.
-                                Metus aliquam eleifend mi in nulla posuere sollicitudin aliquam ultrices. Sodales ut etiam sit amet nisl purus.
-                                Cursus sit amet dictum sit amet. Tristique senectus et netus et malesuada fames ac turpis egestas.
-                                Et tortor consequat id porta nibh venenatis cras sed. Diam maecenas ultricies mi eget mauris.
-                                Eget egestas purus viverra accumsan in nisl nisi. Suscipit adipiscing bibendum est ultricies integer.
-                                Mattis aliquam faucibus purus in massa tempor nec.
-                            </p>
-                        </ScrollPanel>
-                    </div>
-                </div>
+</style>`
+                },
+                'composition-api': {
+                    tabName: 'Composition API',
+                    content: `
+<template>
+    <div class="card">
+        <div class="p-grid">
+            <div class="p-col-12 p-md-4 p-p-5">
+                <ScrollPanel style="width: 100%; height: 200px">
+                    <p>
+                        Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.
+                        Vitae et leo duis ut diam.
+                        Ultricies mi quis hendrerit dolor magna eget est lorem. Amet consectetur adipiscing elit ut.
+                        Nam libero justo laoreet sit amet. Pharetra massa massa ultricies mi quis hendrerit dolor magna.
+                        Est ultricies integer quis auctor elit sed vulputate. Consequat ac felis donec et. Tellus orci ac auctor augue mauris.
+                        Semper feugiat nibh sed pulvinar proin gravida hendrerit lectus a. Tincidunt arcu non sodales neque sodales.
+                        Metus aliquam eleifend mi in nulla posuere sollicitudin aliquam ultrices. Sodales ut etiam sit amet nisl purus.
+                        Cursus sit amet dictum sit amet. Tristique senectus et netus et malesuada fames ac turpis egestas.
+                        Et tortor consequat id porta nibh venenatis cras sed. Diam maecenas ultricies mi eget mauris.
+                        Eget egestas purus viverra accumsan in nisl nisi. Suscipit adipiscing bibendum est ultricies integer.
+                        Mattis aliquam faucibus purus in massa tempor nec.
+                    </p>
+                </ScrollPanel>
+            </div>
+            <div class="p-col-12 p-md-4 p-p-5">
+                <ScrollPanel style="width: 100%; height: 200px" class="custombar1">
+                    <p>
+                        Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.
+                        Vitae et leo duis ut diam.
+                        Ultricies mi quis hendrerit dolor magna eget est lorem. Amet consectetur adipiscing elit ut.
+                        Nam libero justo laoreet sit amet. Pharetra massa massa ultricies mi quis hendrerit dolor magna.
+                        Est ultricies integer quis auctor elit sed vulputate. Consequat ac felis donec et. Tellus orci ac auctor augue mauris.
+                        Semper feugiat nibh sed pulvinar proin gravida hendrerit lectus a. Tincidunt arcu non sodales neque sodales.
+                        Metus aliquam eleifend mi in nulla posuere sollicitudin aliquam ultrices. Sodales ut etiam sit amet nisl purus.
+                        Cursus sit amet dictum sit amet. Tristique senectus et netus et malesuada fames ac turpis egestas.
+                        Et tortor consequat id porta nibh venenatis cras sed. Diam maecenas ultricies mi eget mauris.
+                        Eget egestas purus viverra accumsan in nisl nisi. Suscipit adipiscing bibendum est ultricies integer.
+                        Mattis aliquam faucibus purus in massa tempor nec.
+                    </p>
+                </ScrollPanel>
+            </div>
+            <div class="p-col-12 p-md-4 p-p-5">
+                <ScrollPanel style="width: 100%; height: 200px" class="custombar2">
+                    <p style="width: 600px">
+                        Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.
+                        Vitae et leo duis ut diam.
+                        Ultricies mi quis hendrerit dolor magna eget est lorem. Amet consectetur adipiscing elit ut.
+                        Nam libero justo laoreet sit amet. Pharetra massa massa ultricies mi quis hendrerit dolor magna.
+                        Est ultricies integer quis auctor elit sed vulputate. Consequat ac felis donec et. Tellus orci ac auctor augue mauris.
+                        Semper feugiat nibh sed pulvinar proin gravida hendrerit lectus a. Tincidunt arcu non sodales neque sodales.
+                        Metus aliquam eleifend mi in nulla posuere sollicitudin aliquam ultrices. Sodales ut etiam sit amet nisl purus.
+                        Cursus sit amet dictum sit amet. Tristique senectus et netus et malesuada fames ac turpis egestas.
+                        Et tortor consequat id porta nibh venenatis cras sed. Diam maecenas ultricies mi eget mauris.
+                        Eget egestas purus viverra accumsan in nisl nisi. Suscipit adipiscing bibendum est ultricies integer.
+                        Mattis aliquam faucibus purus in massa tempor nec.
+                    </p>
+                </ScrollPanel>
             </div>
         </div>
     </div>
@@ -277,8 +262,10 @@ export default {
 
 <script>
 export default {
-}`,
-                    style: `<style lang="scss" scoped>
+}
+<\\/script>
+
+<style lang="scss" scoped>
 ::v-deep(.p-scrollpanel) {
     p {
         padding: .5rem;
@@ -318,11 +305,8 @@ export default {
 }
 </style>`
                 }
-            }
+            } 
         }
-    },
-    components: {
-        LiveEditor
     }
 }
 </script>
