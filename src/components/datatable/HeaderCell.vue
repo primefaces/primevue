@@ -290,7 +290,6 @@ export default {
         : [columnStyle, headerStyle];
     },
     isVisible() {
-      console.log(this.columnProp("isVisible"));
       return this.columnProp("isVisible") !== undefined
         ? this.columnProp("isVisible")
         : true;
