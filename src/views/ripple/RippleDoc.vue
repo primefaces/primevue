@@ -1,11 +1,9 @@
 <template>
-	<div class="content-section documentation">
-		<TabView>
-			<TabPanel header="Documentation">
-				<h5>Getting Started</h5>
-                <h5>Ripple</h5>
-                <p>Ripple is an optional animation for the supported components such as buttons. It is disabled by default and needs to be enabled at
-                    your app's entry file (e.g. main.js) during the PrimeVue setup.</p>
+	<AppDoc name="RippleDemo" :sources="sources">
+        <h5>Getting Started</h5>
+        <h5>Ripple</h5>
+        <p>Ripple is an optional animation for the supported components such as buttons. It is disabled by default and needs to be enabled at
+            your app's entry file (e.g. main.js) during the PrimeVue setup.</p>
 <pre v-code.script><code>
 import {createApp} from 'vue';
 import PrimeVue from 'primevue/config';
@@ -15,10 +13,10 @@ app.use(PrimeVue, {ripple: true});
 
 </code></pre>
 
-                <p><span class="p-text-bold">Note</span>: That would be it to enable ripple on PrimeVue components, next section describes how to use it with your own components and standard elements.</p>
+        <p><span class="p-text-bold">Note</span>: That would be it to enable ripple on PrimeVue components, next section describes how to use it with your own components and standard elements.</p>
 
-                <h5>Directive</h5>
-				<p>Ripple is a directive that needs to be imported and configured with a name of your choice. Global configuration is done with the <i>Vue.directive</i> function.</p>
+        <h5>Directive</h5>
+		<p>Ripple is a directive that needs to be imported and configured with a name of your choice. Global configuration is done with the <i>Vue.directive</i> function.</p>
 <pre v-code.script><code>
 import Ripple from 'primevue/ripple';
 
@@ -26,7 +24,7 @@ Vue.directive('ripple', Ripple);
 
 </code></pre>
 
-                <p>Ripple can also be configured locally using the directives property of your component.</p>
+        <p>Ripple can also be configured locally using the directives property of your component.</p>
 <pre v-code.script><code>
 directives: {
     'ripple': Ripple
@@ -34,14 +32,14 @@ directives: {
 
 </code></pre>
 
-                <p>Once the ripple is configured, add <i>.p-ripple</i> class to the target and attach the directive with the v- prefix.</p>
+        <p>Once the ripple is configured, add <i>.p-ripple</i> class to the target and attach the directive with the v- prefix.</p>
 <pre v-code><code><template v-pre>
 &lt;div class="p-ripple" v-ripple&gt;&lt;/div&gt;
 </template>
 </code></pre>
 
-				<h5>Styling</h5>
-				<p>Default styling of the animation adds a shade of white. This can easily be customized using css that changes the color of <i>.p-ink</i> element.</p>
+		<h5>Styling</h5>
+		<p>Default styling of the animation adds a shade of white. This can easily be customized using css that changes the color of <i>.p-ink</i> element.</p>
 <pre v-code><code><template v-pre>
 &lt;div class="p-ripple purple" v-ripple&gt;&lt;/div&gt;
 </template>
@@ -55,59 +53,62 @@ directives: {
 </code></pre>
 
 
-				<h5>Styling</h5>
-				<div class="doc-tablewrapper">
-					<table class="doc-table">
-						<thead>
-                            <tr>
-                                <th>Name</th>
-                                <th>Element</th>
-                            </tr>
-						</thead>
-						<tbody>
-                            <tr>
-                                <td>p-ripple</td>
-                                <td>Host element.</td>
-                            </tr>
-                            <tr>
-                                <td>p-ink</td>
-                                <td>Ripple element.</td>
-                            </tr>
-                            <tr>
-                                <td>p-ink-active</td>
-                                <td>Ripple element during animating.</td>
-                            </tr>
-						</tbody>
-					</table>
-				</div>
+		<h5>Styling</h5>
+		<div class="doc-tablewrapper">
+			<table class="doc-table">
+				<thead>
+                    <tr>
+                        <th>Name</th>
+                        <th>Element</th>
+                    </tr>
+				</thead>
+				<tbody>
+                    <tr>
+                        <td>p-ripple</td>
+                        <td>Host element.</td>
+                    </tr>
+                    <tr>
+                        <td>p-ink</td>
+                        <td>Ripple element.</td>
+                    </tr>
+                    <tr>
+                        <td>p-ink-active</td>
+                        <td>Ripple element during animating.</td>
+                    </tr>
+				</tbody>
+			</table>
+		</div>
 
-				<h5>Dependencies</h5>
-				<p>None.</p>
-			</TabPanel>
-
-			<TabPanel header="Source">
-                <div class="p-d-flex p-jc-between">
-                    <a href="https://github.com/primefaces/primevue/tree/master/src/views/ripple" class="btn-viewsource" target="_blank" rel="noopener noreferrer">
-                        <span>View on GitHub</span>
-                    </a>
-                    <LiveEditor name="RippleDemo" :sources="sources" />
-                </div>
-<pre v-code><code><template v-pre>
-&lt;div class="card-container p-d-flex"&gt;
-    &lt;div class="card primary-box p-ripple" v-ripple&gt;Default&lt;/div&gt;
-    &lt;div class="card styled-box-green p-ripple" v-ripple&gt;Green&lt;/div&gt;
-    &lt;div class="card styled-box-orange p-ripple" v-ripple&gt;Orange&lt;/div&gt;
-    &lt;div class="card styled-box-purple p-ripple" v-ripple&gt;Purple&lt;/div&gt;
-&lt;/div&gt;
+		<h5>Dependencies</h5>
+		<p>None.</p>
+    </AppDoc>
 </template>
-</code></pre>
 
-<pre v-code.script><code>
-export default {}
+<script>
+export default {
+    data() {
+        return {
+            sources: {
+                'options-api': {
+                    tabName: 'Source',
+                    content: `
+<template>
+    <div>
+        <div class="card-container p-d-flex">
+            <div class="card primary-box p-ripple" v-ripple>Default</div>
+            <div class="card styled-box-green p-ripple" v-ripple>Green</div>
+            <div class="card styled-box-orange p-ripple" v-ripple>Orange</div>
+            <div class="card styled-box-purple p-ripple" v-ripple>Purple</div>
+        </div>
+    </div>
+</template>
 
-</code></pre>
+<script>
+export default {
+}
+<\\/script>
 
-<pre v-code.css><code>
+<style lang="scss" scoped>
 ::v-deep(.card-container) {
     .card {
         width: 75px;
@@ -118,6 +119,11 @@ export default {}
         margin-right: 1rem;
         user-select: none;
         padding: 0;
+        background: #ffffff;
+        padding: 2rem;
+        box-shadow: 0 2px 1px -1px rgba(0,0,0,.2), 0 1px 1px 0 rgba(0,0,0,.14), 0 1px 3px 0 rgba(0,0,0,.12);
+        border-radius: 4px;
+        margin-bottom: 2rem;
 
         &.primary-box {
             background-color: var(--primary-color);
@@ -148,37 +154,28 @@ export default {}
         }
     }
 }
-
-</code></pre>
-			</TabPanel>
-		</TabView>
-	</div>
-</template>
-
-<script>
-import LiveEditor from '../liveeditor/LiveEditor';
-export default {
-    data() {
-        return {
-            sources: {
-                'template': {
-                    content: `<template>
-    <div class="layout-content">
-        <div class="content-section implementation">
-            <div class="card-container p-d-flex">
-                <div class="card primary-box p-ripple" v-ripple>Default</div>
-                <div class="card styled-box-green p-ripple" v-ripple>Green</div>
-                <div class="card styled-box-orange p-ripple" v-ripple>Orange</div>
-                <div class="card styled-box-purple p-ripple" v-ripple>Purple</div>
-            </div>
+</style>`
+                },
+                'composition-api': {
+                    tabName: 'Composition API',
+                    content: `
+<template>
+    <div>
+        <div class="card-container p-d-flex">
+            <div class="card primary-box p-ripple" v-ripple>Default</div>
+            <div class="card styled-box-green p-ripple" v-ripple>Green</div>
+            <div class="card styled-box-orange p-ripple" v-ripple>Orange</div>
+            <div class="card styled-box-purple p-ripple" v-ripple>Purple</div>
         </div>
     </div>
 </template>
 
 <script>
 export default {
-}`,
-                    style: `<style lang="scss" scoped>
+}
+<\\/script>
+
+<style lang="scss" scoped>
 ::v-deep(.card-container) {
     .card {
         width: 75px;
@@ -189,6 +186,11 @@ export default {
         margin-right: 1rem;
         user-select: none;
         padding: 0;
+        background: #ffffff;
+        padding: 2rem;
+        box-shadow: 0 2px 1px -1px rgba(0,0,0,.2), 0 1px 1px 0 rgba(0,0,0,.14), 0 1px 3px 0 rgba(0,0,0,.12);
+        border-radius: 4px;
+        margin-bottom: 2rem;
 
         &.primary-box {
             background-color: var(--primary-color);
@@ -223,9 +225,6 @@ export default {
                 }
             }
         }
-    },
-    components: {
-        LiveEditor
     }
 }
 </script>

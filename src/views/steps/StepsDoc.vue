@@ -1,5 +1,5 @@
 <template>
-    <AppDoc :sources="sources" :extPages="pages">
+    <AppDoc name="StepsDemo" :sources="sources" :extPages="pages">
         <h5>Import</h5>
 <pre v-code.script><code>
 import Steps from 'primevue/steps';

@@ -1,8 +1,6 @@
 <template>
-	<div class="content-section documentation">
-		<TabView>
-			<TabPanel header="Documentation">
-				<h5>Import</h5>
+	<AppDoc name="InplaceDemo" :sources="sources" service="ProductService" data="products-small" >
+        <h5>Import</h5>
 <pre v-code.script><code>
 import Inplace from 'primevue/inplace';
 
@@ -184,56 +182,59 @@ export default {
 
 				<h5>Dependencies</h5>
 				<p>None.</p>
-			</TabPanel>
-
-			<TabPanel header="Source">
-                <div class="p-d-flex p-jc-between">
-                <a href="https://github.com/primefaces/primevue/tree/master/src/views/inplace" class="btn-viewsource" target="_blank" rel="noopener noreferrer">
-                    <span>View on GitHub</span>
-                </a>
-                <LiveEditor name="InplaceDemo" :sources="sources" service="ProductService" data="products-small" :components="['InputText', 'DataTable', 'Column']" />
-                </div>
-<pre v-code><code><template v-pre>
-&lt;h3&gt;Input&lt;/h3&gt;
-&lt;Inplace :closable="true"&gt;
-    &lt;template #display&gt;
-        &#123;&#123;text || 'Click to Edit'&#125;&#125;
-    &lt;/template&gt;
-    &lt;template #content&gt;
-        &lt;InputText v-model="text" autoFocus /&gt;
-    &lt;/template&gt;
-&lt;/Inplace&gt;
-
-&lt;h3&gt;Image&lt;/h3&gt;
-&lt;Inplace&gt;
-    &lt;template #display&gt;
-        &lt;span class="pi pi-search" style="vertical-align: middle"&gt;&lt;/span&gt;
-        &lt;span style="margin-left:.5rem; vertical-align: middle"&gt;View Picture&lt;/span&gt;
-    &lt;/template&gt;
-    &lt;template #content&gt;
-        &lt;img src="demo/images/nature/nature1.jpg" /&gt;
-    &lt;/template&gt;
-&lt;/Inplace&gt;
-
-&lt;h3&gt;Lazy Data&lt;/h3&gt;
-&lt;Inplace @open="loadData"&gt;
-    &lt;template #display&gt;
-        View Data
-    &lt;/template&gt;
-    &lt;template #content&gt;
-        &lt;DataTable :value="products"&gt;
-            &lt;Column field="code" header="Code"&gt;&lt;/Column&gt;
-            &lt;Column field="name" header="Name"&gt;&lt;/Column&gt;
-            &lt;Column field="category" header="Category"&gt;&lt;/Column&gt;
-            &lt;Column field="quantity" header="Quantity"&gt;&lt;/Column&gt;
-        &lt;/DataTable&gt;
-    &lt;/template&gt;
-&lt;/Inplace&gt;
+    </AppDoc>
 </template>
-</code></pre>
 
-<pre v-code.script><code>
-import ProductService from '../../service/ProductService';
+<script>
+export default {
+    data() {
+        return {
+            sources: {
+                'options-api': {
+                    tabName: 'Source',
+                    content: `
+<template>
+    <div class="card">
+        <h5>Input</h5>
+        <Inplace :closable="true">
+            <template #display>
+                {{text || 'Click to Edit'}}
+            </template>
+            <template #content>
+                <InputText v-model="text" autoFocus />
+            </template>
+        </Inplace>
+
+        <h5>Image</h5>
+        <Inplace>
+            <template #display>
+                <span class="pi pi-search" style="vertical-align: middle"></span>
+                <span style="margin-left:.5rem; vertical-align: middle">View Picture</span>
+            </template>
+            <template #content>
+                <img src="https://www.primefaces.org/wp-content/uploads/2020/12/primevue-min.png" width="200" />
+            </template>
+        </Inplace>
+
+        <h5>Lazy Data</h5>
+        <Inplace @open="loadData">
+            <template #display>
+                View Data
+            </template>
+            <template #content>
+                <DataTable :value="products" responsiveLayout="scroll" >
+                    <Column field="code" header="Code"></Column>
+                    <Column field="name" header="Name"></Column>
+                    <Column field="category" header="Category"></Column>
+                    <Column field="quantity" header="Quantity"></Column>
+                </DataTable>
+            </template>
+        </Inplace>
+    </div>
+</template>
+
+<script>
+import ProductService from './service/ProductService';
 
 export default {
      data() {
@@ -252,90 +253,72 @@ export default {
         }
     }
 }
+<\\/script>
+`
+                },
+                'composition-api': {
+                    tabName: 'Composition API',
+                    content: `
+<template>
+    <div class="card">
+        <h5>Input</h5>
+        <Inplace :closable="true">
+            <template #display>
+                {{text || 'Click to Edit'}}
+            </template>
+            <template #content>
+                <InputText v-model="text" autoFocus />
+            </template>
+        </Inplace>
 
-</code></pre>
-			</TabPanel>
-		</TabView>
-	</div>
-</template>
+        <h5>Image</h5>
+        <Inplace>
+            <template #display>
+                <span class="pi pi-search" style="vertical-align: middle"></span>
+                <span style="margin-left:.5rem; vertical-align: middle">View Picture</span>
+            </template>
+            <template #content>
+                <img src="https://www.primefaces.org/wp-content/uploads/2020/12/primevue-min.png" width="200" />
+            </template>
+        </Inplace>
 
-<script>
-import LiveEditor from '../liveeditor/LiveEditor';
-export default {
-    data() {
-        return {
-            sources: {
-                'template': {
-                    content: `<template>
-    <div class="layout-content">
-        <div class="content-section implementation">
-            <div class="card">
-                <h5>Input</h5>
-                <Inplace :closable="true">
-                    <template #display>
-                        {{text || 'Click to Edit'}}
-                    </template>
-                    <template #content>
-                        <InputText v-model="text" autoFocus />
-                    </template>
-                </Inplace>
-
-                <h5>Image</h5>
-                <Inplace>
-                    <template #display>
-                        <span class="pi pi-search" style="vertical-align: middle"></span>
-                        <span style="margin-left:.5rem; vertical-align: middle">View Picture</span>
-                    </template>
-                    <template #content>
-                        <img src="https://www.primefaces.org/wp-content/uploads/2020/12/primevue-min.png" width="200" />
-                    </template>
-                </Inplace>
-
-                <h5>Lazy Data</h5>
-                <Inplace @open="loadData">
-                    <template #display>
-                        View Data
-                    </template>
-                    <template #content>
-                        <DataTable :value="products">
-                            <Column field="code" header="Code"></Column>
-                            <Column field="name" header="Name"></Column>
-                            <Column field="category" header="Category"></Column>
-                            <Column field="quantity" header="Quantity"></Column>
-                        </DataTable>
-                    </template>
-                </Inplace>
-            </div>
-        </div>
+        <h5>Lazy Data</h5>
+        <Inplace @open="loadData">
+            <template #display>
+                View Data
+            </template>
+            <template #content>
+                <DataTable :value="products" responsiveLayout="scroll" >
+                    <Column field="code" header="Code"></Column>
+                    <Column field="name" header="Name"></Column>
+                    <Column field="category" header="Category"></Column>
+                    <Column field="quantity" header="Quantity"></Column>
+                </DataTable>
+            </template>
+        </Inplace>
     </div>
 </template>
 
 <script>
-import ProductService from '../service/ProductService';
+import { ref } from 'vue';
+import ProductService from './service/ProductService';
 
 export default {
-     data() {
-        return {
-            text: null,
-            products: null
+    setup() {
+        const productService = ref(new ProductService());
+        const text = ref(null);
+        const products = ref(null);
+        const loadData = () => {
+            productService.value.getProductsSmall().then(data => products.value = data);
         }
-    },
-    productService: null,
-    created() {
-        this.productService = new ProductService();
-    },
-    methods: {
-        loadData() {
-             this.productService.getProductsSmall().then(data => this.products = data);
-        }
+
+        return { productService, text, products, loadData }
     }
-}`
+}
+<\\/script>`
                 }
             }
         }
-    },
-    components: {
-        LiveEditor
     }
 }
 </script>
