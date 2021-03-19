@@ -97,7 +97,8 @@ export default {
                                 '@babel/cli': dependencies['@babel/cli'],
                                 'core-js': dependencies['core-js'],
                                 'vue-router': dependencies['vue-router'],
-                                'quill': dependencies['quill']
+                                'quill': dependencies['quill'],
+                                'chart.js': dependencies['chart.js']
                             },
                             devDependencies: {
                                 '@vue/cli-plugin-babel': dependencies['@vue/cli-plugin-babel'],
@@ -182,9 +183,6 @@ ${services[this.service]}
                 extDependencies['@fullcalendar/interaction'] = "5.4.0";
                 extDependencies['@fullcalendar/timegrid'] = "5.4.0";
             }
-            if(name === 'ChartDemo') {
-                extDependencies['chart.js'] = "2.7.3";
-            }
 
             element += `import ${name} from "./${name}.vue"`;
 
@@ -206,6 +204,7 @@ import Calendar from 'primevue/calendar';
 import Card from 'primevue/card';
 import CascadeSelect from 'primevue/cascadeselect';
 import Carousel from 'primevue/carousel';
+import Chart from 'primevue/chart';
 import Checkbox from 'primevue/checkbox';
 import Chip from 'primevue/chip';
 import Chips from 'primevue/chips';
@@ -306,6 +305,7 @@ app.component('Calendar', Calendar);
 app.component('Card', Card);
 app.component('Carousel', Carousel);
 app.component('CascadeSelect', CascadeSelect);
+app.component('Chart', Chart);
 app.component('Checkbox', Checkbox);
 app.component('Chip', Chip);
 app.component('Chips', Chips);
