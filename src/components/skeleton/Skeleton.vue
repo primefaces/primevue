@@ -34,7 +34,7 @@ export default {
         containerClass() {
             return ['p-skeleton p-component', {
                 'p-skeleton-circle': this.shape === 'circle',
-                'p-skeleton-animation-none': this.animation === 'none'
+                'p-skeleton-none': this.animation === 'none'
             }];
         },
         containerStyle() {
