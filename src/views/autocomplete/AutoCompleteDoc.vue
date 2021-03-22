@@ -1,5 +1,5 @@
 <template>
-    <AppDoc name="AutoCompleteDemo" :sources="sources" service="CountryService" data="countries">
+    <AppDoc name="AutoCompleteDemo" :sources="sources" service="CountryService" :data="['countries']">
         <h5>Import</h5>
 <pre v-code.script><code>
 import AutoComplete from 'primevue/autocomplete';

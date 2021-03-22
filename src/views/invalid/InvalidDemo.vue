@@ -49,7 +49,7 @@
             </div>
         </div>
 
-        <AppDoc name="InvalidDemo" :sources="sources" service="CountryService" data="countries" />
+        <AppDoc name="InvalidDemo" :sources="sources" service="CountryService" :data="['countries']" />
     </div>
 </template>
 
