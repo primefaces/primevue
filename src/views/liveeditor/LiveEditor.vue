@@ -31,36 +31,12 @@ export default {
             default: null
         },
         data: {
-            type: String,
+            type: Array,
             default: null
         },
         components: {
             type: Array,
             default: null
-        },
-        dependencies: {
-            type: String,
-            default: null
-        },
-        directives: {
-            type: Array,
-            default: null
-        },
-        toastService: {
-            type: Boolean,
-            default: false
-        },
-        confirmationService: {
-            type: Boolean,
-            default: false
-        },
-        terminalService: {
-            type: Boolean,
-            default: false
-        },
-        router: {
-            type: Boolean,
-            default: false
         }
     },
     methods: {
@@ -96,9 +72,7 @@ export default {
                                 'primeicons': 'latest',
                                 '@babel/cli': dependencies['@babel/cli'],
                                 'core-js': dependencies['core-js'],
-                                'vue-router': dependencies['vue-router'],
-                                'quill': dependencies['quill'],
-                                'chart.js': dependencies['chart.js']
+                                'vue-router': dependencies['vue-router']
                             },
                             devDependencies: {
                                 '@vue/cli-plugin-babel': dependencies['@vue/cli-plugin-babel'],
@@ -142,14 +116,37 @@ export default {
             let name = this.name;
             let extension = '.vue';
             let extDependencies = this.dependencies || {};
+            let extImport = '';
+            let extElement = '';
             let content = this.sources[sourceType].content.replace('<\\/script>', '<\/script>');
             let pages = this.sources.pages ? this.sources.pages : '';
             let _files = {}, element = '';
 
-            if (this.service) {
-                const dataArr = this.data ? this.data.split(',') : null;
+            if(name === 'EditorDemo') {
+                extDependencies['quill'] =  "^1.3.7";
+                extImport += `import Editor from 'primevue/editor';`;
+                extElement += `app.component('Editor', Editor);`;
+            }
+            if(name === 'FullCalendarDemo') {
+                extDependencies['@fullcalendar/core'] = "5.4.0";
+                extDependencies['@fullcalendar/daygrid'] = "5.4.0";
+                extDependencies['@fullcalendar/interaction'] = "5.4.0";
+                extDependencies['@fullcalendar/timegrid'] = "5.4.0";
+                extImport += `import FullCalendar from 'primevue/fullcalendar';`;
+                extElement += `app.component('FullCalendar', FullCalendar);`;
+            }
+            if(name === 'BarChartDemo' || name === 'ComboChartDemo' || name === 'DoughnutChartDemo' || name === 'LineChartDemo' || name === 'PieChartDemo' || name === 'PolarAreaChartDemo' || name === 'RadarChartDemo') {
+                extDependencies['chart.js'] = "2.7.3";
+                extImport += `import Chart from 'primevue/chart';`;
+                extElement += `app.component('Chart', Chart);`;
+            }
 
-                extDependencies['axios'] =  "^0.19.0";
+            if (this.service) {
+                let dataArr = [];
+                
+                this.data.forEach(el => {
+                    dataArr.push(el.split(','))
+                })
 
                 if(dataArr) {
                     dataArr.forEach(el => {
@@ -158,30 +155,16 @@ export default {
                         };
 
                         _files[`src/service/${this.service}.js`] = {
-                            content: `import axios from 'axios';
-import data from '../../public/data/${el}.json';
-
-${services[this.service]}
-`
+                            content: `${services[this.service]}`
                         };
                     });
                 }
 
                 else {
                     _files[`src/service/${this.service}.js`] = {
-                            content: `import axios from 'axios';
-
-${services[this.service]}
-`
-                        };
+                            content: `${services[this.service]}`
+                    };
                 }
-            }
-
-            if(name === 'FullCalendarDemo') {
-                extDependencies['@fullcalendar/core'] = "5.4.0";
-                extDependencies['@fullcalendar/daygrid'] = "5.4.0";
-                extDependencies['@fullcalendar/interaction'] = "5.4.0";
-                extDependencies['@fullcalendar/timegrid'] = "5.4.0";
             }
 
             element += `import ${name} from "./${name}.vue"`;
@@ -205,12 +188,12 @@ import Calendar from 'primevue/calendar';
 import Card from 'primevue/card';
 import CascadeSelect from 'primevue/cascadeselect';
 import Carousel from 'primevue/carousel';
-import Chart from 'primevue/chart';
 import Checkbox from 'primevue/checkbox';
 import Chip from 'primevue/chip';
 import Chips from 'primevue/chips';
 import ColorPicker from 'primevue/colorpicker';
 import Column from 'primevue/column';
+import ColumnGroup from 'primevue/columngroup';
 import ConfirmDialog from 'primevue/confirmdialog';
 import ConfirmPopup from 'primevue/confirmpopup';
 import ConfirmationService from 'primevue/confirmationservice';
@@ -222,7 +205,6 @@ import DeferredContent from 'primevue/deferredcontent';
 import Dialog from 'primevue/dialog';
 import Divider from 'primevue/divider';
 import Dropdown from 'primevue/dropdown';
-import Editor from 'primevue/editor';
 import Fieldset from 'primevue/fieldset';
 import FileUpload from 'primevue/fileupload';
 import Galleria from 'primevue/galleria';
@@ -252,6 +234,7 @@ import ProgressSpinner from 'primevue/progressspinner';
 import Rating from 'primevue/rating';
 import RadioButton from 'primevue/radiobutton';
 import Ripple from 'primevue/ripple';
+import Row from 'primevue/row';
 import SelectButton from 'primevue/selectbutton';
 import ScrollPanel from 'primevue/scrollpanel';
 import ScrollTop from 'primevue/scrolltop';
@@ -278,6 +261,7 @@ import Tooltip from 'primevue/tooltip';
 import Tree from 'primevue/tree';
 import TreeTable from 'primevue/treetable';
 import TriStateCheckbox from 'primevue/tristatecheckbox';
+${extImport}
 
 import "primeflex/primeflex.css";
 import "primevue/resources/themes/saga-blue/theme.css";
@@ -309,12 +293,12 @@ app.component('Calendar', Calendar);
 app.component('Card', Card);
 app.component('Carousel', Carousel);
 app.component('CascadeSelect', CascadeSelect);
-app.component('Chart', Chart);
 app.component('Checkbox', Checkbox);
 app.component('Chip', Chip);
 app.component('Chips', Chips);
 app.component('ColorPicker', ColorPicker);
 app.component('Column', Column);
+app.component('ColumnGroup', ColumnGroup);
 app.component('ConfirmDialog', ConfirmDialog);
 app.component('ConfirmPopup', ConfirmPopup);
 app.component('ContextMenu', ContextMenu);
@@ -325,7 +309,6 @@ app.component('DeferredContent', DeferredContent);
 app.component('Dialog', Dialog);
 app.component('Divider', Divider);
 app.component('Dropdown', Dropdown);
-app.component('Editor', Editor);
 app.component('Fieldset', Fieldset);
 app.component('FileUpload', FileUpload);
 app.component('InlineMessage', InlineMessage);
@@ -354,6 +337,7 @@ app.component('ProgressBar', ProgressBar);
 app.component('ProgressSpinner', ProgressSpinner);
 app.component('RadioButton', RadioButton);
 app.component('Rating', Rating);
+app.component('Row', Row);
 app.component('SelectButton', SelectButton);
 app.component('ScrollPanel', ScrollPanel);
 app.component('ScrollTop', ScrollTop);
@@ -378,6 +362,7 @@ app.component('ToggleButton', ToggleButton);
 app.component('Tree', Tree);
 app.component('TreeTable', TreeTable);
 app.component('TriStateCheckbox', TriStateCheckbox);
+${extElement}
 
 app.mount("#app");
 `
@@ -558,7 +543,6 @@ input[type="number"]::-webkit-inner-spin-button {
 }
 
 .image-text {
-    vertical-align: middle;
     margin-left: .5rem;
 }
 
@@ -598,6 +582,14 @@ span.flag {
 
 img.flag {
     width:30px
+}
+
+.true-icon {
+    color: #256029;
+}
+
+.false-icon {
+    color: #C63737;
 }
 `,
             }

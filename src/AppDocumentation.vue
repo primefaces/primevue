@@ -58,7 +58,12 @@ export default {
             }
 
             if (this.data) {
-                const dataArr = this.data.split(',');
+                let dataArr = [];
+
+                this.data.forEach(el => {
+                    dataArr.push(el.split(','))
+                })
+                
                 dataArr.forEach((el, i) => {
                     tabs.push(
                         <TabPanel key={`${el}_i`} header={`${el}.json`}>
