@@ -11,7 +11,7 @@
 		<div class="content-section implementation">
             <div class="card">
                 <h5>Fit Mode</h5>
-                <DataTable :value="products" :resizableColumns="true" columnResizeMode="fit" showGridlines>
+                <DataTable :value="products" :resizableColumns="true" columnResizeMode="fit" showGridlines responsiveLayout="scroll">
                     <Column field="code" header="Code"></Column>
                     <Column field="name" header="Name"></Column>
                     <Column field="category" header="Category"></Column>
@@ -21,7 +21,7 @@
 
             <div class="card">
                 <h5>Expand Mode</h5>
-                <DataTable :value="products" :resizableColumns="true" columnResizeMode="expand" showGridlines>
+                <DataTable :value="products" :resizableColumns="true" columnResizeMode="expand" showGridlines responsiveLayout="scroll">
                     <Column field="code" header="Code"></Column>
                     <Column field="name" header="Name"></Column>
                     <Column field="category" header="Category"></Column>
@@ -30,38 +30,52 @@
             </div>
 		</div>
 
-        <div class="content-section documentation">
-            <TabView>
-                <TabPanel header="Source">
-                    <div class="p-d-flex p-jc-end">
-                        <LiveEditor name="DataTableDemo" :sources="sources" service="ProductService" data="products-small" :components="['Column']" />
-                    </div>
-<pre v-code><code><template v-pre>
-&lt;h3&gt;Fit Mode&lt;/h3&gt;
-&lt;DataTable :value="products" :resizableColumns="true" columnResizeMode="fit" showGridlines&gt;
-    &lt;Column field="code" header="Code"&gt;&lt;/Column&gt;
-    &lt;Column field="name" header="Name"&gt;&lt;/Column&gt;
-    &lt;Column field="category" header="Category"&gt;&lt;/Column&gt;
-    &lt;Column field="quantity" header="Quantity"&gt;&lt;/Column&gt;
-&lt;/DataTable&gt;
-
-&lt;h3&gt;Expand Mode&lt;/h3&gt;
-&lt;DataTable :value="products" :resizableColumns="true" columnResizeMode="expand" showGridlines&gt;
-    &lt;Column field="code" header="Code"&gt;&lt;/Column&gt;
-    &lt;Column field="name" header="Name"&gt;&lt;/Column&gt;
-    &lt;Column field="category" header="Category"&gt;&lt;/Column&gt;
-    &lt;Column field="quantity" header="Quantity"&gt;&lt;/Column&gt;
-&lt;/DataTable&gt;
+        <AppDoc name="DataTableColResizeDemo" :sources="sources" service="ProductService" :data="['products-small']" />
+	</div>
 </template>
-</code></pre>
 
-<pre v-code.script><code>
+<script>
 import ProductService from '../../service/ProductService';
 
 export default {
     data() {
         return {
-            products: null
+            products: null,
+            sources: {
+                'options-api': {
+                    tabName: 'Source',
+                    content: `
+<template>
+    <div>
+        <div class="card">
+            <h5>Fit Mode</h5>
+            <DataTable :value="products" :resizableColumns="true" columnResizeMode="fit" showGridlines responsiveLayout="scroll">
+                <Column field="code" header="Code"></Column>
+                <Column field="name" header="Name"></Column>
+                <Column field="category" header="Category"></Column>
+                <Column field="quantity" header="Quantity"></Column>
+            </DataTable>
+        </div>
+
+        <div class="card">
+            <h5>Expand Mode</h5>
+            <DataTable :value="products" :resizableColumns="true" columnResizeMode="expand" showGridlines responsiveLayout="scroll">
+                <Column field="code" header="Code"></Column>
+                <Column field="name" header="Name"></Column>
+                <Column field="category" header="Category"></Column>
+                <Column field="quantity" header="Quantity"></Column>
+            </DataTable>
+        </div>    
+    </div>
+</template>
+
+<script>
+import ProductService from './service/ProductService';
+
+export default {
+    data() {
+        return {
+            products: null,
         }
     },
     productService: null,
@@ -72,67 +86,54 @@ export default {
         this.productService.getProductsSmall().then(data => this.products = data);
     }
 }
-
-</code></pre>
-                </TabPanel>
-            </TabView>
+<\\/script>
+`
+                },
+                'composition-api': {
+                    tabName: 'Composition API',
+                    content: `
+<template>
+    <div>
+        <div class="card">
+            <h5>Fit Mode</h5>
+            <DataTable :value="products" :resizableColumns="true" columnResizeMode="fit" showGridlines responsiveLayout="scroll">
+                <Column field="code" header="Code"></Column>
+                <Column field="name" header="Name"></Column>
+                <Column field="category" header="Category"></Column>
+                <Column field="quantity" header="Quantity"></Column>
+            </DataTable>
         </div>
-	</div>
-</template>
 
-<script>
-import ProductService from '../../service/ProductService';
-import LiveEditor from '../liveeditor/LiveEditor';
-
-export default {
-    data() {
-        return {
-            products: null,
-            sources: {
-                'template': {
-                    content: `<template>
-    <div class="layout-content">
-        <div class="content-section implementation">
-            <div class="card">
-                <h5>Fit Mode</h5>
-                <DataTable :value="products" :resizableColumns="true" columnResizeMode="fit" showGridlines>
-                    <Column field="code" header="Code"></Column>
-                    <Column field="name" header="Name"></Column>
-                    <Column field="category" header="Category"></Column>
-                    <Column field="quantity" header="Quantity"></Column>
-                </DataTable>
-            </div>
-
-            <div class="card">
-                <h5>Expand Mode</h5>
-                <DataTable :value="products" :resizableColumns="true" columnResizeMode="expand" showGridlines>
-                    <Column field="code" header="Code"></Column>
-                    <Column field="name" header="Name"></Column>
-                    <Column field="category" header="Category"></Column>
-                    <Column field="quantity" header="Quantity"></Column>
-                </DataTable>
-            </div>
-		</div>
+        <div class="card">
+            <h5>Expand Mode</h5>
+            <DataTable :value="products" :resizableColumns="true" columnResizeMode="expand" showGridlines responsiveLayout="scroll">
+                <Column field="code" header="Code"></Column>
+                <Column field="name" header="Name"></Column>
+                <Column field="category" header="Category"></Column>
+                <Column field="quantity" header="Quantity"></Column>
+            </DataTable>
+        </div>    
     </div>
 </template>
 
 <script>
-import ProductService from '../service/ProductService';
+import { ref, onMounted } from 'vue';
+import ProductService from './service/ProductService';
 
 export default {
-    data() {
-        return {
-            products: null
-        }
-    },
-    productService: null,
-    created() {
-        this.productService = new ProductService();
-    },
-    mounted() {
-        this.productService.getProductsSmall().then(data => this.products = data);
+    setup() {
+        onMounted(() => {
+            productService.value.getProductsSmall().then(data => products.value = data);
+        })
+
+        const products = ref();
+        const productService = ref(new ProductService());
+
+        return { products, productService }
     }
-}`
+}
+<\\/script>
+`
                 }
             }
         }
@@ -143,9 +144,6 @@ export default {
     },
     mounted() {
         this.productService.getProductsSmall().then(data => this.products = data);
-    },
-    components: {
-        LiveEditor
     }
 }
 </script>

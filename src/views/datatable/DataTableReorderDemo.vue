@@ -9,29 +9,43 @@
 
 		<div class="content-section implementation">
             <div class="card">
-                <DataTable :value="products" :reorderableColumns="true" @column-reorder="onColReorder" @row-reorder="onRowReorder">
+                <DataTable :value="products" :reorderableColumns="true" @column-reorder="onColReorder" @row-reorder="onRowReorder" responsiveLayout="scroll">
                     <Column :rowReorder="true" headerStyle="width: 3rem" :reorderableColumn="false" />
                     <Column v-for="col of columns" :field="col.field" :header="col.header" :key="col.field"></Column>
                 </DataTable>
             </div>
 		</div>
 
-        <div class="content-section documentation">
-            <TabView>
-                <TabPanel header="Source">
-                    <div class="p-d-flex p-jc-end">
-                        <LiveEditor name="DataTableDemo" :sources="sources" :toastService="true" service="ProductService" data="products-small" :components="['Column']" />
-                    </div>
-<pre v-code><code><template v-pre>
-&lt;DataTable :value="products" :reorderableColumns="true" @column-reorder="onColReorder" @row-reorder="onRowReorder"&gt;
-    &lt;Column :rowReorder="true" headerStyle="width: 3rem" :reorderableColumn="false" /&gt;
-    &lt;Column v-for="col of columns" :field="col.field" :header="col.header" :key="col.field"&gt;&lt;/Column&gt;
-&lt;/DataTable&gt;
-</template>
-</code></pre>
+        <AppDoc name="DataTableReorderDemo" :sources="sources" service="ProductService" :data="['products-small']" />
 
-<pre v-code.script><code>
+	</div>
+</template>
+
+<script>
 import ProductService from '../../service/ProductService';
+
+export default {
+    data() {
+        return {
+            columns: null,
+            products: null,
+            sources: {
+                'options-api': {
+                    tabName: 'Source',
+                    content: `
+<template>
+	<div>
+        <Toast />
+
+        <DataTable :value="products" :reorderableColumns="true" @columnReorder="onColReorder" @rowReorder="onRowReorder" responsiveLayout="scroll">
+            <Column :rowReorder="true" headerStyle="width: 3rem" :reorderableColumn="false" />
+            <Column v-for="col of columns" :field="col.field" :header="col.header" :key="col.field"></Column>
+        </DataTable>
+	</div>
+</template>
+
+<script>
+import ProductService from './service/ProductService';
 
 export default {
     data() {
@@ -64,73 +78,56 @@ export default {
         }
     }
 }
-
-</code></pre>
-                </TabPanel>
-            </TabView>
-        </div>
+<\\/script>                  
+`
+                },
+                'composition-api': {
+                    tabName: 'Composition API',
+                    content: `
+<template>
+	<div>
+        <Toast />
+        <DataTable :value="products" :reorderableColumns="true" @columnReorder="onColReorder" @rowReorder="onRowReorder" responsiveLayout="scroll">
+            <Column :rowReorder="true" headerStyle="width: 3rem" :reorderableColumn="false" />
+            <Column v-for="col of columns" :field="col.field" :header="col.header" :key="col.field"></Column>
+        </DataTable>
 	</div>
 </template>
 
 <script>
-import ProductService from '../../service/ProductService';
-import LiveEditor from '../liveeditor/LiveEditor';
+import { ref, onMounted } from 'vue';
+import { useToast } from 'primevue/usetoast';
+import ProductService from './service/ProductService';
 
 export default {
-    data() {
-        return {
-            columns: null,
-            products: null,
-            sources: {
-                'template': {
-                    content: `<template>
-    <div class="layout-content">
-        <Toast />
-        <div class="content-section implementation">
-            <div class="card">
-                <DataTable :value="products" :reorderableColumns="true" @columnReorder="onColReorder" @rowReorder="onRowReorder">
-                    <Column :rowReorder="true" headerStyle="width: 3rem" :reorderableColumn="false" />
-                    <Column v-for="col of columns" :field="col.field" :header="col.header" :key="col.field"></Column>
-                </DataTable>
-            </div>
-		</div>
-    </div>  
-</template>
+    setup() {
+        onMounted(() => {
+            productService.value.getProductsSmall().then(data => products.value = data);
+        }) 
 
-<script>
-import ProductService from '../service/ProductService';
-
-export default {
-    data() {
-        return {
-            columns: null,
-            products: null
-        }
-    },
-    productService: null,
-    created() {
-        this.productService = new ProductService();
-
-        this.columns = [
+        const toast = useToast();
+        const columns = ref([
             {field: 'code', header: 'Code'},
             {field: 'name', header: 'Name'},
             {field: 'category', header: 'Category'},
             {field: 'quantity', header: 'Quantity'}
-        ];
-    },
-    mounted() {
-        this.productService.getProductsSmall().then(data => this.products = data);
-    },
-    methods: {
-        onColReorder() {
-            this.$toast.add({severity:'success', summary: 'Column Reordered', life: 3000});
-        },
-        onRowReorder(event) {
-            this.products = event.value;
-            this.$toast.add({severity:'success', summary: 'Rows Reordered', life: 3000});
-        }
+        ]);
+        const products = ref();
+        const productService = ref(new ProductService());
+
+        const onColReorder = () => {
+            toast.add({severity:'success', summary: 'Column Reordered', life: 3000});
+        };
+        const onRowReorder = (event) => {
+            products.value = event.value;
+            toast.add({severity:'success', summary: 'Rows Reordered', life: 3000});
+        };
+
+        return { columns, products, onColReorder, onRowReorder }
     }
-}`
+}
+<\\/script>                  
+`
                 }
             }
         }
@@ -157,9 +154,6 @@ export default {
             this.products = event.value;
             this.$toast.add({severity:'success', summary: 'Rows Reordered', life: 3000});
         }
-    },
-    components: {
-        LiveEditor
     }
 }
 </script>

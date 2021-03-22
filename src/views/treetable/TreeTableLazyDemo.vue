@@ -19,121 +19,11 @@
             </div>
         </div>
 
-        <div class="content-section documentation">
-            <TabView>
-                <TabPanel header="Source">
-                    <div class="p-d-flex p-jc-end">
-                        <LiveEditor name="TreeTableDemo" :sources="sources" :components="['Column']" />
-                    </div>
-<pre v-code><code><template v-pre>
-&lt;TreeTable :value="nodes" :lazy="true" :paginator="true" :rows="rows" :loading="loading"
-    @node-expand="onExpand" @page="onPage" :totalRecords="totalRecords"&gt;
-    &lt;Column field="name" header="Name" :expander="true"&gt;&lt;/Column&gt;
-    &lt;Column field="size" header="Size"&gt;&lt;/Column&gt;
-    &lt;Column field="type" header="Type"&gt;&lt;/Column&gt;
-&lt;/TreeTable&gt;
-</template>
-</code></pre>
-
-<pre v-code.script><code>
-export default {
-    data() {
-        return {
-            nodes: null,
-            rows: 10,
-            loading: false,
-            totalRecords: 0
-        }
-    },
-    mounted() {
-        this.loading = true;
-
-        setTimeout(() => {
-            this.loading = false;
-            this.nodes = this.loadNodes(0, this.rows);
-            this.totalRecords = 1000;
-        }, 1000);
-    },
-    methods: {
-        onExpand(node) {
-            if (!node.children) {
-                this.loading = true;
-
-                setTimeout(() => {
-                    let lazyNode = {...node};
-
-                    lazyNode.children = [
-                        {
-                            data: {
-                                name: lazyNode.data.name + ' - 0',
-                                size: Math.floor(Math.random() * 1000) + 1 + 'kb',
-                                type: 'File'
-                            },
-                        },
-                        {
-                            data: {
-                                name: lazyNode.data.name + ' - 1',
-                                size: Math.floor(Math.random() * 1000) + 1 + 'kb',
-                                type: 'File'
-                            }
-                        }
-                    ];
-
-                    let nodes = this.nodes.map(n => {
-                        if (n.key === node.key) {
-                            n = lazyNode;
-                        }
-
-                        return n;
-                    });
-
-                    this.loading = false;
-                    this.nodes = nodes;
-                }, 250);
-            }
-        },
-        onPage(event) {
-            this.loading = true;
-
-            //imitate delay of a backend call
-            setTimeout(() => {
-                this.loading = false;
-                this.nodes = this.loadNodes(event.first, this.rows);
-            }, 1000);
-        },
-        loadNodes(first, rows) {
-            let nodes = [];
-
-            for(let i = 0; i &lt; rows; i++) {
-                let node = {
-                    key: (first + i),
-                    data: {
-                        name: 'Item ' + (first + i),
-                        size: Math.floor(Math.random() * 1000) + 1 + 'kb',
-                        type: 'Type ' + (first + i)
-                    },
-                    leaf: false
-                };
-
-                nodes.push(node);
-            }
-
-            return nodes;
-        }
-    }
-}
-
-</code></pre>
-
-                </TabPanel>
-            </TabView>
-        </div>
+        <AppDoc name="TreeTableLazyDemo" :sources="sources" service="NodeService" :data="['treetablenodes']" />
     </div>
 </template>
 
 <script>
-import LiveEditor from '../liveeditor/LiveEditor';
-
 export default {
     data() {
         return {
@@ -142,20 +32,18 @@ export default {
             loading: false,
             totalRecords: 0,
             sources: {
-                'template': {
-                    content: `<template>
-    <div class="layout-content">
-        <div class="content-section implementation">
-            <div class="card">
-                <TreeTable :value="nodes" :lazy="true" :paginator="true" :rows="rows" :loading="loading"
-                    @nodeExpand="onExpand" @page="onPage" :totalRecords="totalRecords">
-                    <Column field="name" header="Name" :expander="true"></Column>
-                    <Column field="size" header="Size"></Column>
-                    <Column field="type" header="Type"></Column>
-                </TreeTable>
-            </div>
-        </div>
-    </div>                    
+                'options-api': {
+                    tabName: 'Source',
+                    content: `
+<template>
+    <div class="card">
+        <TreeTable :value="nodes" :lazy="true" :paginator="true" :rows="rows" :loading="loading"
+            @nodeExpand="onExpand" @page="onPage" :totalRecords="totalRecords">
+            <Column field="name" header="Name" :expander="true"></Column>
+            <Column field="size" header="Size"></Column>
+            <Column field="type" header="Type"></Column>
+        </TreeTable>
+    </div>                   
 </template>
 
 <script>
@@ -245,6 +133,111 @@ export default {
         }
     }
 }
+<\\/script>
+`
+                },
+                'composition-api': {
+                    tabName: 'Composition API',
+                    content: `<template>
+    <div class="card">
+        <TreeTable :value="nodes" :lazy="true" :paginator="true" :rows="rows" :loading="loading"
+            @nodeExpand="onExpand" @page="onPage" :totalRecords="totalRecords">
+            <Column field="name" header="Name" :expander="true"></Column>
+            <Column field="size" header="Size"></Column>
+            <Column field="type" header="Type"></Column>
+        </TreeTable>
+    </div>                   
+</template>
+
+<script>
+import { ref, onMounted } from 'vue';
+
+export default {
+    setup() {
+        onMounted(() => {
+            loading.value = true;
+
+            setTimeout(() => {
+                loading.value = false;
+                nodes.value = loadNodes(0, rows.value);
+                totalRecords.value = 1000;
+            }, 1000);
+        })
+        const nodes = ref();
+        const rows = ref(10);
+        const loading = ref(false);
+        const totalRecords = ref(0);
+        const onExpand = (node) => {
+            if (!node.children) {
+                loading.value = true;
+
+                setTimeout(() => {
+                    let lazyNode = {...node.value};
+
+                    lazyNode.children = [
+                        {
+                            data: {
+                                name: lazyNode.data.name + ' - 0',
+                                size: Math.floor(Math.random() * 1000) + 1 + 'kb',
+                                type: 'File'
+                            },
+                        },
+                        {
+                            data: {
+                                name: lazyNode.data.name + ' - 1',
+                                size: Math.floor(Math.random() * 1000) + 1 + 'kb',
+                                type: 'File'
+                            }
+                        }
+                    ];
+
+                    let nodes = nodes.value.map(n => {
+                        if (n.key === node.key) {
+                            n = lazyNode;
+                        }
+
+                        return n;
+                    });
+
+                    loading.value = false;
+                    nodes.value = nodes;
+                }, 250);
+            }
+        };
+        const onPage = (event) => {
+            loading.value = true;
+
+            //imitate delay of a backend call
+            setTimeout(() => {
+                loading.value = false;
+                nodes.value = loadNodes(event.first, rows.value);
+            }, 1000);
+        };
+        const loadNodes = (first, rows) => {
+            let nodes = [];
+
+            for(let i = 0; i < rows; i++) {
+                let node = {
+                    key: (first + i),
+                    data: {
+                        name: 'Item ' + (first + i),
+                        size: Math.floor(Math.random() * 1000) + 1 + 'kb',
+                        type: 'Type ' + (first + i)
+                    },
+                    leaf: false
+                };
+
+                nodes.push(node);
+            }
+
+            return nodes;
+        }
+
+        return { nodes, rows, loading, totalRecords, onExpand, onPage, loadNodes }
+    }
+    
+}
+<\\/script>
 `
                 }
             }
@@ -325,9 +318,6 @@ export default {
 
             return nodes;
         }
-    },
-    components: {
-        LiveEditor
     }
 }
 </script>

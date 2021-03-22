@@ -9,61 +9,19 @@
 
 		<div class="content-section implementation">
             <div class="card">
-                <DataTable :value="products">
+                <DataTable :value="products" responsiveLayout="scroll">
                     <Column v-for="col of columns" :field="col.field" :header="col.header" :key="col.field"></Column>
                 </DataTable>
             </div>
 		</div>
 
-        <div class="content-section documentation">
-            <TabView>
-                <TabPanel header="Source">
-                    <div class="p-d-flex p-jc-end">
-                        <LiveEditor name="DataTableDemo" :sources="sources" service="ProductService" data="products-small" :components="['Column']" />
-                    </div>
-<pre v-code><code><template v-pre>
-&lt;DataTable :value="products"&gt;
-    &lt;Column v-for="col of columns" :field="col.field" :header="col.header" :key="col.field"&gt;&lt;/Column&gt;
-&lt;/DataTable&gt;
-</template>
-</code></pre>
-
-<pre v-code.script><code>
-import ProductService from '../../service/ProductService';
-
-export default {
-    data() {
-        return {
-            columns: null,
-            products: null
-        }
-    },
-    productService: null,
-    created() {
-        this.productService = new ProductService();
-
-        this.columns = [
-            {field: 'code', header: 'Code'},
-            {field: 'name', header: 'Name'},
-            {field: 'category', header: 'Category'},
-            {field: 'quantity', header: 'Quantity'}
-        ];
-    },
-    mounted() {
-        this.productService.getProductsSmall().then(data => this.products = data);
-    }
-}
-
-</code></pre>
-                </TabPanel>
-            </TabView>
-        </div>
+        <AppDoc name="DataTableDynamicColumnsDemo" :sources="sources" service="ProductService" :data="['products-small']" />
+                    
 	</div>
 </template>
 
 <script>
 import ProductService from '../../service/ProductService';
-import LiveEditor from '../liveeditor/LiveEditor';
 
 export default {
     data() {
@@ -71,20 +29,20 @@ export default {
             columns: null,
             products: null,
             sources: {
-                'template': {
-                    content: `<template>
-    <div class="layout-content">
-        <div class="content-section implementation">
-            <div class="card">
-                <DataTable :value="products">
-                    <Column v-for="col of columns" :field="col.field" :header="col.header" :key="col.field"></Column>
-                </DataTable>
-            </div>
-		</div>
+                'options-api': {
+                    tabName: 'Source',
+                    content: `
+<template>
+    <div>
+        <DataTable :value="products" responsiveLayout="scroll">
+            <Column v-for="col of columns" :field="col.field" :header="col.header" :key="col.field"></Column>
+        </DataTable>
     </div>
 </template>
+
 <script>
-import ProductService from '../service/ProductService';
+import ProductService from './service/ProductService';
+
 export default {
     data() {
         return {
@@ -106,6 +64,43 @@ export default {
         this.productService.getProductsSmall().then(data => this.products = data);
     }
 }
+<\\/script>
+`
+                },
+                'composition-api': {
+                    tabName: 'Composition API',
+                    content: `
+<template>
+    <div>
+        <DataTable :value="products" responsiveLayout="scroll">
+            <Column v-for="col of columns" :field="col.field" :header="col.header" :key="col.field"></Column>
+        </DataTable>
+    </div>
+</template>
+
+<script>
+import { ref, onMounted } from 'vue';
+import ProductService from './service/ProductService';
+
+export default {
+    setup() {
+        onMounted(() => {
+            productService.value.getProductsSmall().then(data => products.value = data);
+        })
+
+        const productService = ref(new ProductService());
+        const columns = ref([
+            {field: 'code', header: 'Code'},
+            {field: 'name', header: 'Name'},
+            {field: 'category', header: 'Category'},
+            {field: 'quantity', header: 'Quantity'}
+        ]);
+        const products = ref();
+
+        return { columns, products }
+    }
+}
+<\\/script>
 `
                 }
             }
@@ -124,9 +119,6 @@ export default {
     },
     mounted() {
         this.productService.getProductsSmall().then(data => this.products = data);
-    },
-    components: {
-        LiveEditor
     }
 }
 </script>

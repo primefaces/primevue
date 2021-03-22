@@ -21,68 +21,12 @@
             </div>
         </div>
 
-        <div class="content-section documentation">
-            <TabView>
-                <TabPanel header="Source">
-                    <div class="p-d-flex p-jc-end">
-                        <LiveEditor name="TreeTableDemo" :sources="sources" service="NodeService" data="treetablenodes" :components="['Column', 'MultiSelect']" />
-                    </div>
-<pre v-code><code><template v-pre>
-&lt;TreeTable :value="nodes"&gt;
-    &lt;template #header&gt;
-        &lt;div style="text-align:left"&gt;
-            &lt;MultiSelect :modelValue="selectedColumns" @update:modelValue="onToggle" :options="columns" optionLabel="header" placeholder="Select Columns" style="width: 20em"/&gt;
-        &lt;/div&gt;
-    &lt;/template&gt;
-    &lt;Column field="name" header="Name" :expander="true"&gt;&lt;/Column&gt;
-    &lt;Column v-for="col of selectedColumns" :field="col.field" :header="col.header" :key="col.field"&gt;&lt;/Column&gt;
-&lt;/TreeTable&gt;
-</template>
-</code></pre>
-
-<pre v-code.script><code>
-import NodeService from '../../service/NodeService';
-
-export default {
-    data() {
-        return {
-            selectedColumns: null,
-            columns: null,
-            nodes: null,
-        }
-    },
-    nodeService: null,
-    created() {
-        this.nodeService = new NodeService();
-
-        this.columns = [
-            {field: 'size', header: 'Size'},
-            {field: 'type', header: 'Type'}
-        ];
-
-        this.selectedColumns = this.columns;
-    },
-    mounted() {
-        this.nodeService.getTreeTableNodes().then(data => this.nodes = data);
-    },
-    methods: {
-        onToggle(value) {
-            this.selectedColumns = this.columns.filter(col => value.includes(col));
-        }
-    }
-}
-
-</code></pre>
-
-                </TabPanel>
-            </TabView>
-        </div>
+        <AppDoc name="TreetableColToggleDemo" :sources="sources" service="NodeService" :data="['treetablenodes']" />
     </div>
 </template>
 
 <script>
 import NodeService from '../../service/NodeService';
-import LiveEditor from '../liveeditor/LiveEditor';
 
 export default {
     data() {
@@ -91,27 +35,24 @@ export default {
             columns: null,
             nodes: null,
             sources: {
-                'template': {
+                'options-api': {
+                    tabName: 'Source',
                     content: `<template>
-    <div class="layout-content">
-        <div class="content-section implementation">
-            <div class="card">
-                <TreeTable :value="nodes">
-                    <template #header>
-                        <div style="text-align:left">
-                            <MultiSelect :modelValue="selectedColumns" @update:modelValue="onToggle" :options="columns" optionLabel="header" placeholder="Select Columns" style="width: 20em"/>
-                        </div>
-                    </template>
-                    <Column field="name" header="Name" :expander="true"></Column>
-                    <Column v-for="col of selectedColumns" :field="col.field" :header="col.header" :key="col.field"></Column>
-                </TreeTable>
-            </div>
-        </div>
+    <div class="card">
+        <TreeTable :value="nodes">
+            <template #header>
+                <div style="text-align:left">
+                    <MultiSelect :modelValue="selectedColumns" @update:modelValue="onToggle" :options="columns" optionLabel="header" placeholder="Select Columns" style="width: 20em"/>
+                </div>
+            </template>
+            <Column field="name" header="Name" :expander="true"></Column>
+            <Column v-for="col of selectedColumns" :field="col.field" :header="col.header" :key="col.field"></Column>
+        </TreeTable>
     </div>                    
 </template>
 
 <script>
-import NodeService from '../service/NodeService';
+import NodeService from './service/NodeService';
 
 export default {
     data() {
@@ -141,6 +82,49 @@ export default {
         }
     }
 }
+<\\/script>
+`
+                },
+                'composition-api': {
+                    tabName: 'Composition API',
+                    content: `<template>
+    <div class="card">
+        <TreeTable :value="nodes">
+            <template #header>
+                <div style="text-align:left">
+                    <MultiSelect :modelValue="selectedColumns" @update:modelValue="onToggle" :options="columns" optionLabel="header" placeholder="Select Columns" style="width: 20em"/>
+                </div>
+            </template>
+            <Column field="name" header="Name" :expander="true"></Column>
+            <Column v-for="col of selectedColumns" :field="col.field" :header="col.header" :key="col.field"></Column>
+        </TreeTable>
+    </div>                    
+</template>
+
+<script>
+import { ref, onMounted } from 'vue';
+import NodeService from './service/NodeService';
+
+export default {
+    setup() {
+        onMounted(() => {
+            nodeService.value.getTreeTableNodes().then(data => nodes.value = data);
+        })
+        const columns = ref([
+            {field: 'size', header: 'Size'},
+            {field: 'type', header: 'Type'}
+        ]);
+        const nodes = ref();
+        const nodeService = ref(new NodeService());
+        const selectedColumns = ref(columns.value);
+        const onToggle = (val) => {
+            selectedColumns.value = columns.value.filter(col => val.includes(col));
+        }
+
+        return { columns, nodes, nodeService, selectedColumns, onToggle }
+    }
+}
+<\\/script>
 `
                 }
             }
@@ -164,9 +148,6 @@ export default {
         onToggle(value) {
             this.selectedColumns = this.columns.filter(col => value.includes(col));
         }
-    },
-    components: {
-        LiveEditor
     }
 }
 </script>

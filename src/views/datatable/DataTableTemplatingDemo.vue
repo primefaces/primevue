@@ -9,7 +9,7 @@
 
 		<div class="content-section implementation">
             <div class="card">
-                <DataTable :value="products">
+                <DataTable :value="products" responsiveLayout="scroll">
                     <template #header>
                         <div class="table-header">
                             Products
@@ -44,50 +44,61 @@
             </div>
 		</div>
 
-        <div class="content-section documentation">
-            <TabView>
-                <TabPanel header="Source">
-                    <div class="p-d-flex p-jc-end">
-                        <LiveEditor name="DataTableDemo" :sources="sources" service="ProductService" data="products-small" :components="['Column', 'Rating', 'Button']" />
-                    </div>
-<pre v-code><code><template v-pre>
-&lt;DataTable :value="products"&gt;
-    &lt;template #header&gt;
-        &lt;div class="table-header"&gt;
-            Products
-            &lt;Button icon="pi pi-refresh" /&gt;
-        &lt;/div&gt;
-    &lt;/template&gt;
-    &lt;Column field="name" header="Name"&gt;&lt;/Column&gt;
-    &lt;Column header="Image"&gt;
-            &lt;template #body="slotProps"&gt;
-            &lt;img :src="'demo/images/product/' + slotProps.data.image" :alt="slotProps.data.image" class="product-image" /&gt;
-        &lt;/template&gt;
-    &lt;/Column&gt;
-    &lt;Column field="price" header="Price"&gt;
-        &lt;template #body="slotProps"&gt;
-            {{formatCurrency(slotProps.data.price)}}
-        &lt;/template&gt;
-    &lt;/Column&gt;
-    &lt;Column field="rating" header="Reviews"&gt;
-        &lt;template #body="slotProps"&gt;
-            &lt;Rating :modelValue="slotProps.data.rating" :readonly="true" :cancel="false" /&gt;
-        &lt;/template&gt;
-    &lt;/Column&gt;
-    &lt;Column header="Status"&gt;
-        &lt;template #body="slotProps"&gt;
-            &lt;span :class="'product-badge status-' + slotProps.data.inventoryStatus.toLowerCase()"&gt;{{slotProps.data.inventoryStatus}}&lt;/span&gt;
-        &lt;/template&gt;
-    &lt;/Column&gt;
-    &lt;template #footer&gt;
-        In total there are &#123;&#123;products ? products.length : 0 &#125;&#125; products.
-    &lt;/template&gt;
-&lt;/DataTable&gt;
-</template>
-</code></pre>
+        <AppDoc name="DataTableTemplatingDemo" :sources="sources" service="ProductService" :data="['products-small']" />
 
-<pre v-code.script><code>
+	</div>
+</template>
+
+<script>
 import ProductService from '../../service/ProductService';
+
+export default {
+    data() {
+        return {
+            products: null,
+            sources: {
+                'options-api': {
+                    tabName: 'Source',
+                    content: `
+<template>
+	<div>
+        <DataTable :value="products" responsiveLayout="scroll">
+            <template #header>
+                <div class="table-header">
+                    Products
+                    <Button icon="pi pi-refresh" />
+                </div>
+            </template>
+            <Column field="name" header="Name"></Column>
+            <Column header="Image">
+                 <template #body="slotProps">
+                    <img src="https://www.primefaces.org/wp-content/uploads/2020/05/placeholder.png" :alt="slotProps.data.image" class="product-image" />
+                </template>
+            </Column>
+            <Column field="price" header="Price">
+                <template #body="slotProps">
+                    {{formatCurrency(slotProps.data.price)}}
+                </template>
+            </Column>
+            <Column field="rating" header="Reviews">
+                <template #body="slotProps">
+                   <Rating :modelValue="slotProps.data.rating" :readonly="true" :cancel="false" />
+                </template>
+            </Column>
+            <Column header="Status">
+                <template #body="slotProps">
+                    <span :class="'product-badge status-' + slotProps.data.inventoryStatus.toLowerCase()">{{slotProps.data.inventoryStatus}}</span>
+                </template>
+            </Column>
+            <template #footer>
+                In total there are {{products ? products.length : 0 }} products.
+            </template>
+        </DataTable>
+	</div>
+</template>
+
+<script>
+import ProductService from './service/ProductService';
 
 export default {
     data() {
@@ -108,10 +119,9 @@ export default {
         }
     }
 }
+<\\/script>
 
-</code></pre>
-
-<pre v-code.css><code>
+<style lang="scss" scoped>
 .table-header {
     display: flex;
     align-items: center;
@@ -119,89 +129,87 @@ export default {
 }
 
 .product-image {
-    width: 100px;
+    width: 50px;
     box-shadow: 0 3px 6px rgba(0, 0, 0, 0.16), 0 3px 6px rgba(0, 0, 0, 0.23)
 }
-
-</code></pre>
-
-                </TabPanel>
-            </TabView>
-        </div>
+</style>                    
+`
+                },
+                'composition-api': {
+                    tabName: 'Composition API',
+                    content: `
+<template>
+	<div>
+        <DataTable :value="products" responsiveLayout="scroll">
+            <template #header>
+                <div class="table-header">
+                    Products
+                    <Button icon="pi pi-refresh" />
+                </div>
+            </template>
+            <Column field="name" header="Name"></Column>
+            <Column header="Image">
+                 <template #body="slotProps">
+                    <img src="https://www.primefaces.org/wp-content/uploads/2020/05/placeholder.png" :alt="slotProps.data.image" class="product-image" />
+                </template>
+            </Column>
+            <Column field="price" header="Price">
+                <template #body="slotProps">
+                    {{formatCurrency(slotProps.data.price)}}
+                </template>
+            </Column>
+            <Column field="rating" header="Reviews">
+                <template #body="slotProps">
+                   <Rating :modelValue="slotProps.data.rating" :readonly="true" :cancel="false" />
+                </template>
+            </Column>
+            <Column header="Status">
+                <template #body="slotProps">
+                    <span :class="'product-badge status-' + slotProps.data.inventoryStatus.toLowerCase()">{{slotProps.data.inventoryStatus}}</span>
+                </template>
+            </Column>
+            <template #footer>
+                In total there are {{products ? products.length : 0 }} products.
+            </template>
+        </DataTable>
 	</div>
 </template>
 
 <script>
-import ProductService from '../../service/ProductService';
-import LiveEditor from '../liveeditor/LiveEditor';
+import { ref, onMounted } from 'vue';
+import ProductService from './service/ProductService';
 
 export default {
-    data() {
-        return {
-            products: null,
-            sources: {
-                'template': {
-                    content: `<template>
-    <div class="layout-content">
-        <div class="content-section implementation">
-            <div class="card">
-                <DataTable :value="products">
-                    <template #header>
-                        <div class="table-header">
-                            Products
-                            <Button icon="pi pi-refresh" />
-                        </div>
-                    </template>
-                    <Column field="name" header="Name"></Column>
-                    <Column header="Image">
-                         <template #body="slotProps">
-                            <img src="https://www.primefaces.org/wp-content/uploads/2020/05/placeholder.png" :alt="slotProps.data.image" class="product-image" />
-                        </template>
-                    </Column>
-                    <Column field="price" header="Price">
-                        <template #body="slotProps">
-                            {{formatCurrency(slotProps.data.price)}}
-                        </template>
-                    </Column>
-                    <Column field="rating" header="Reviews">
-                        <template #body="slotProps">
-                           <Rating :modelValue="slotProps.data.rating" :readonly="true" :cancel="false" />
-                        </template>
-                    </Column>
-                    <Column header="Status">
-                        <template #body="slotProps">
-                            <span :class="'product-badge status-' + slotProps.data.inventoryStatus.toLowerCase()">{{slotProps.data.inventoryStatus}}</span>
-                        </template>
-                    </Column>
-                    <template #footer>
-                        In total there are {{products ? products.length : 0 }} products.
-                    </template>
-                </DataTable>
-            </div>
-		</div>
-    </div>
-</template>
-<script>
-import ProductService from '../service/ProductService';
-export default {
-    data() {
-        return {
-            products: null
-        }
-    },
-    productService: null,
-    created() {
-        this.productService = new ProductService();
-    },
-    mounted() {
-        this.productService.getProductsSmall().then(data => this.products = data);
-    },
-    methods: {
-        formatCurrency(value) {
+    setup() {
+        onMounted(() => {
+            productService.value.getProductsSmall().then(data => products.value = data);
+        })
+
+        const products = ref();
+        const productService = ref(new ProductService());
+
+        const formatCurrency = (value) => {
             return value.toLocaleString('en-US', {style: 'currency', currency: 'USD'});
-        }
+        };
+
+        return { products, formatCurrency }
     }
-}`
+}
+<\\/script>
+
+<style lang="scss" scoped>
+.table-header {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+}
+
+.product-image {
+    width: 50px;
+    box-shadow: 0 3px 6px rgba(0, 0, 0, 0.16), 0 3px 6px rgba(0, 0, 0, 0.23)
+}
+</style>                    
+`
                 }
             }
         }
@@ -217,9 +225,6 @@ export default {
         formatCurrency(value) {
             return value.toLocaleString('en-US', {style: 'currency', currency: 'USD'});
         }
-    },
-    components: {
-        LiveEditor
     }
 }
 </script>

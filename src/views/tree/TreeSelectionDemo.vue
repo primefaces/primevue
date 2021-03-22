@@ -27,33 +27,50 @@
             </div>
         </div>
 
-        <div class="content-section documentation">
-            <TabView>
-                <TabPanel header="Source">
-                    <div class="p-d-flex p-jc-end">
-                        <LiveEditor name="TreeDemo" :sources="sources" :toastService="true" service="NodeService" data="treenodes" />
-                    </div>
-<pre v-code><code><template v-pre>
-&lt;h3&gt;Single Selection&lt;/h3&gt;
-&lt;Tree :value="nodes" selectionMode="single" v-model:selectionKeys="selectedKey1"&gt;&lt;/Tree&gt;
-
-&lt;h3&gt;Multiple Selection with MetaKey&lt;/h3&gt;
-&lt;Tree :value="nodes" selectionMode="multiple" v-model:selectionKeys="selectedKeys1"&gt;&lt;/Tree&gt;
-
-&lt;h3&gt;Multiple Selection without MetaKey&lt;/h3&gt;
-&lt;Tree :value="nodes" selectionMode="multiple" v-model:selectionKeys="selectedKeys2" :metaKeySelection="false"&gt;&lt;/Tree&gt;
-
-&lt;h3&gt;Checkbox Selection&lt;/h3&gt;
-&lt;Tree :value="nodes" selectionMode="checkbox" v-model:selectionKeys="selectedKeys3"&gt;&lt;/Tree&gt;
-
-&lt;h3&gt;Events&lt;/h3&gt;
-&lt;Tree :value="nodes" selectionMode="single" v-model:selectionKeys="selectedKey2" :metaKeySelection="false"
-    @node-select="onNodeSelect" @node-unselect="onNodeUnselect"&gt;&lt;/Tree&gt;
+        <AppDoc name="TreeSelectionDemo" :sources="sources" service="NodeService" :data="['treenodes']" />
+    </div>
 </template>
-</code></pre>
 
-<pre v-code.script><code>
+<script>
 import NodeService from '../../service/NodeService';
+
+export default {
+    data() {
+        return {
+            selectedKey1: null,
+            selectedKey2: null,
+            selectedKeys1: null,
+            selectedKeys2: null,
+            selectedKeys3: null,
+            nodes: null,
+            sources: {
+                'options-api': {
+                    tabName: 'Source',
+                    content: `
+<template>
+    <div class="card">
+        <Toast />
+
+        <h5>Single Selection</h5>
+        <Tree :value="nodes" selectionMode="single" v-model:selectionKeys="selectedKey1"></Tree>
+
+        <h5>Multiple Selection with MetaKey</h5>
+        <Tree :value="nodes" selectionMode="multiple" v-model:selectionKeys="selectedKeys1"></Tree>
+
+        <h5>Multiple Selection without MetaKey</h5>
+        <Tree :value="nodes" selectionMode="multiple" v-model:selectionKeys="selectedKeys2" :metaKeySelection="false"></Tree>
+
+        <h5>Checkbox Selection</h5>
+        <Tree :value="nodes" selectionMode="checkbox" v-model:selectionKeys="selectedKeys3"></Tree>
+
+        <h5>Events</h5>
+        <Tree :value="nodes" selectionMode="single" v-model:selectionKeys="selectedKey2" :metaKeySelection="false"
+            @nodeSelect="onNodeSelect" @nodeUnselect="onNodeUnselect"></Tree>
+    </div>
+</template>
+
+<script>
+import NodeService from './service/NodeService';
 
 export default {
     data() {
@@ -82,84 +99,65 @@ export default {
         }
     }
 }
-
-</code></pre>
-                </TabPanel>
-            </TabView>
-        </div>
-    </div>
-</template>
-
-<script>
-import NodeService from '../../service/NodeService';
-import LiveEditor from '../liveeditor/LiveEditor';
-
-export default {
-    data() {
-        return {
-            selectedKey1: null,
-            selectedKey2: null,
-            selectedKeys1: null,
-            selectedKeys2: null,
-            selectedKeys3: null,
-            nodes: null,
-            sources: {
-                'template': {
-                    content: `<template>
-    <div class="layout-content">
+<\\/script>
+`
+                },
+                'composition-api': {
+                    tabName: 'Composition API',
+                    content: `
+<template>
+    <div class="card">
         <Toast />
-        <div class="content-section implementation">
-            <div class="card">
-                <h5>Single Selection</h5>
-                <Tree :value="nodes" selectionMode="single" v-model:selectionKeys="selectedKey1"></Tree>
 
-                <h5>Multiple Selection with MetaKey</h5>
-                <Tree :value="nodes" selectionMode="multiple" v-model:selectionKeys="selectedKeys1"></Tree>
+        <h5>Single Selection</h5>
+        <Tree :value="nodes" selectionMode="single" v-model:selectionKeys="selectedKey1"></Tree>
 
-                <h5>Multiple Selection without MetaKey</h5>
-                <Tree :value="nodes" selectionMode="multiple" v-model:selectionKeys="selectedKeys2" :metaKeySelection="false"></Tree>
+        <h5>Multiple Selection with MetaKey</h5>
+        <Tree :value="nodes" selectionMode="multiple" v-model:selectionKeys="selectedKeys1"></Tree>
 
-                <h5>Checkbox Selection</h5>
-                <Tree :value="nodes" selectionMode="checkbox" v-model:selectionKeys="selectedKeys3"></Tree>
+        <h5>Multiple Selection without MetaKey</h5>
+        <Tree :value="nodes" selectionMode="multiple" v-model:selectionKeys="selectedKeys2" :metaKeySelection="false"></Tree>
 
-                <h5>Events</h5>
-                <Tree :value="nodes" selectionMode="single" v-model:selectionKeys="selectedKey2" :metaKeySelection="false"
-                    @nodeSelect="onNodeSelect" @nodeUnselect="onNodeUnselect"></Tree>
-            </div>
-        </div>
+        <h5>Checkbox Selection</h5>
+        <Tree :value="nodes" selectionMode="checkbox" v-model:selectionKeys="selectedKeys3"></Tree>
+
+        <h5>Events</h5>
+        <Tree :value="nodes" selectionMode="single" v-model:selectionKeys="selectedKey2" :metaKeySelection="false"
+            @nodeSelect="onNodeSelect" @nodeUnselect="onNodeUnselect"></Tree>
     </div>
 </template>
 
 <script>
-import NodeService from '../service/NodeService';
+import { ref, onMounted } from 'vue';
+import { useToast } from 'primevue/usetoast';
+import NodeService from './service/NodeService';
 
 export default {
-    data() {
-        return {
-            selectedKey1: null,
-            selectedKey2: null,
-            selectedKeys1: null,
-            selectedKeys2: null,
-            selectedKeys3: null,
-            nodes: null
-        }
-    },
-    nodeService: null,
-    created() {
-        this.nodeService = new NodeService();
-    },
-    mounted() {
-        this.nodeService.getTreeNodes().then(data => this.nodes = data);
-    },
-    methods: {
-        onNodeSelect(node) {
-            this.$toast.add({severity:'success', summary: 'Node Selected', detail: node.label, life: 3000});
-        },
-        onNodeUnselect(node) {
-            this.$toast.add({severity:'success', summary: 'Node Unselected', detail: node.label, life: 3000});
-        }
+    setup() {
+        onMounted(() => {
+            nodeService.value.getTreeNodes().then(data => nodes.value = data);
+        })
+
+        const toast = useToast();
+        const selectedKey1 = ref(null);
+        const selectedKey2 = ref(null);
+        const selectedKeys1 = ref(null);
+        const selectedKeys2 = ref(null);
+        const selectedKeys3 = ref(null);
+        const nodes = ref(null);
+        const nodeService = ref(new NodeService());
+        const onNodeSelect = (node) => {
+            toast.add({severity:'success', summary: 'Node Selected', detail: node.label, life: 3000});
+        };
+        const onNodeUnselect = (node) => {
+            toast.add({severity:'success', summary: 'Node Unselected', detail: node.label, life: 3000});
+        };
+
+        return { selectedKey1, selectedKey2, selectedKeys1, selectedKeys2, selectedKeys3, nodes, nodeService, onNodeSelect, onNodeUnselect }
     }
-}`
+}
+<\\/script>`
+
                 }
             }
         }
@@ -178,9 +176,6 @@ export default {
         onNodeUnselect(node) {
             this.$toast.add({severity:'success', summary: 'Node Unselected', detail: node.label, life: 3000});
         }
-    },
-    components: {
-        LiveEditor
     }
 }
 </script>

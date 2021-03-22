@@ -28,91 +28,46 @@
             </div>
         </div>
 
-        <div class="content-section documentation">
-            <TabView>
-                <TabPanel header="Source">
-                    <div class="p-d-flex p-jc-end">
-                        <LiveEditor name="TreeTableDemo" :sources="sources" service="NodeService" data="treetablenodes" :components="['Column']" />
-                    </div>
-<pre v-code><code><template v-pre>
-&lt;h3&gt;Fit Mode&lt;/h3&gt;
-&lt;TreeTable :value="nodes" :resizableColumns="true" columnResizeMode="fit" showGridlines&gt;
-    &lt;Column field="name" header="Name" :expander="true"&gt;&lt;/Column&gt;
-    &lt;Column field="size" header="Size"&gt;&lt;/Column&gt;
-    &lt;Column field="type" header="Type"&gt;&lt;/Column&gt;
-&lt;/TreeTable&gt;
-
-&lt;h3&gt;Expand Mode&lt;/h3&gt;
-&lt;TreeTable :value="nodes" :resizableColumns="true" columnResizeMode="expand" showGridlines&gt;
-    &lt;Column field="name" header="Name" :expander="true"&gt;&lt;/Column&gt;
-    &lt;Column field="size" header="Size"&gt;&lt;/Column&gt;
-    &lt;Column field="type" header="Type"&gt;&lt;/Column&gt;
-&lt;/TreeTable&gt;
-</template>
-</code></pre>
-
-<pre v-code.script><code>
-import NodeService from '../../service/NodeService';
-
-export default {
-    data() {
-        return {
-            nodes: null
-        }
-    },
-    nodeService: null,
-    created() {
-        this.nodeService = new NodeService();
-    },
-    mounted() {
-        this.nodeService.getTreeTableNodes().then(data => this.nodes = data);
-    }
-}
-
-</code></pre>
-
-                </TabPanel>
-            </TabView>
-        </div>
+        <AppDoc name="TreeTableColResizeDemo" :sources="sources" service="NodeService" :data="['treetablenodes']" />
+                
     </div>
 </template>
 
 <script>
 import NodeService from '../../service/NodeService';
-import LiveEditor from '../liveeditor/LiveEditor';
 
 export default {
     data() {
         return {
             nodes: null,
             sources: {
-                'template': {
-                    content: `<template>
-    <div class="layout-content">
-        <div class="content-section implementation">
-            <div class="card">
-                <h5>Fit Mode</h5>
-                <TreeTable :value="nodes" :resizableColumns="true" columnResizeMode="fit" showGridlines>
-                    <Column field="name" header="Name" :expander="true"></Column>
-                    <Column field="size" header="Size"></Column>
-                    <Column field="type" header="Type"></Column>
-                </TreeTable>
-            </div>
+                'options-api': {
+                    tabName: 'Source',
+                    content: `
+<template>
+    <div>
+        <div class="card">
+            <h5>Fit Mode</h5>
+            <TreeTable :value="nodes" :resizableColumns="true" columnResizeMode="fit" showGridlines>
+                <Column field="name" header="Name" :expander="true"></Column>
+                <Column field="size" header="Size"></Column>
+                <Column field="type" header="Type"></Column>
+            </TreeTable>
+        </div>
 
-            <div class="card">
-                <h5>Expand Mode</h5>
-                <TreeTable :value="nodes" :resizableColumns="true" columnResizeMode="expand" showGridlines>
-                    <Column field="name" header="Name" :expander="true"></Column>
-                    <Column field="size" header="Size"></Column>
-                    <Column field="type" header="Type"></Column>
-                </TreeTable>
-            </div>
+        <div class="card">
+            <h5>Expand Mode</h5>
+            <TreeTable :value="nodes" :resizableColumns="true" columnResizeMode="expand" showGridlines>
+                <Column field="name" header="Name" :expander="true"></Column>
+                <Column field="size" header="Size"></Column>
+                <Column field="type" header="Type"></Column>
+            </TreeTable>
         </div>
     </div>                    
 </template>
 
 <script>
-import NodeService from '../service/NodeService';
+import NodeService from './service/NodeService';
 
 export default {
     data() {
@@ -128,6 +83,51 @@ export default {
         this.nodeService.getTreeTableNodes().then(data => this.nodes = data);
     }
 }
+<\\/script>
+`
+                },
+                'composition-api': {
+                    tabName: 'Composition API',
+                    content: `
+<template>
+    <div>
+        <div class="card">
+            <h5>Fit Mode</h5>
+            <TreeTable :value="nodes" :resizableColumns="true" columnResizeMode="fit" showGridlines>
+                <Column field="name" header="Name" :expander="true"></Column>
+                <Column field="size" header="Size"></Column>
+                <Column field="type" header="Type"></Column>
+            </TreeTable>
+        </div>
+
+        <div class="card">
+            <h5>Expand Mode</h5>
+            <TreeTable :value="nodes" :resizableColumns="true" columnResizeMode="expand" showGridlines>
+                <Column field="name" header="Name" :expander="true"></Column>
+                <Column field="size" header="Size"></Column>
+                <Column field="type" header="Type"></Column>
+            </TreeTable>
+        </div>
+    </div>                    
+</template>
+
+<script>
+import { ref, onMounted } from 'vue';
+import NodeService from './service/NodeService';
+
+export default {
+    setup() {
+        onMounted(() => {
+            nodeService.value.getTreeTableNodes().then(data => nodes.value = data);
+        })
+
+        const nodes = ref(null);
+        const nodeService = ref(new NodeService());
+
+        return { nodes, nodeService }
+    }
+}
+<\\/script>
 `
                 }
             }
@@ -139,9 +139,6 @@ export default {
     },
     mounted() {
         this.nodeService.getTreeTableNodes().then(data => this.nodes = data);
-    },
-    components: {
-        LiveEditor
     }
 }
 </script>

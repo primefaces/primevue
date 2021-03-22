@@ -9,7 +9,7 @@
 
 		<div class="content-section implementation">
             <div class="card">
-                <DataTable :value="products" stripedRows>
+                <DataTable :value="products" stripedRows responsiveLayout="scroll">
                     <Column field="code" header="Code"></Column>
                     <Column field="name" header="Name"></Column>
                     <Column field="category" header="Category"></Column>
@@ -18,24 +18,35 @@
             </div>
 		</div>
 
-        <div class="content-section documentation">
-            <TabView>
-                <TabPanel header="Source">
-                    <div class="p-d-flex p-jc-end">
-                        <LiveEditor name="DataTableDemo" :sources="sources" service="ProductService" data="products-small" :components="['Column']" />
-                    </div>
-<pre v-code><code><template v-pre>
-&lt;DataTable :value="products" stripedRows&gt;
-    &lt;Column field="code" header="Code"&gt;&lt;/Column&gt;
-    &lt;Column field="name" header="Name"&gt;&lt;/Column&gt;
-    &lt;Column field="category" header="Category"&gt;&lt;/Column&gt;
-    &lt;Column field="quantity" header="Quantity"&gt;&lt;/Column&gt;
-&lt;/DataTable&gt;
-</template>
-</code></pre>
+        <AppDoc name="DataTableStripedDemo" :sources="sources" service="ProductService" :data="['products-small']" />
 
-<pre v-code.script><code>
+	</div>
+</template>
+
+<script>
 import ProductService from '../../service/ProductService';
+
+export default {
+    data() {
+        return {
+            products: null,
+            sources: {
+                'options-api': {
+                    tabName: 'Source',
+                    content: `
+<template>
+	<div>
+        <DataTable :value="products" stripedRows responsiveLayout="scroll">
+            <Column field="code" header="Code"></Column>
+            <Column field="name" header="Name"></Column>
+            <Column field="category" header="Category"></Column>
+            <Column field="quantity" header="Quantity"></Column>
+        </DataTable>
+	</div>
+</template>
+
+<script>
+import ProductService from './service/ProductService';
 
 export default {
     data() {
@@ -51,56 +62,41 @@ export default {
         this.productService.getProductsSmall().then(data => this.products = data);
     }
 }
-
-</code></pre>
-                </TabPanel>
-            </TabView>
-        </div>
+<\\/script>                   
+`
+                },
+                'composition-api': {
+                    tabName: 'Composition API',
+                    content: `
+<template>
+	<div>
+        <DataTable :value="products" stripedRows responsiveLayout="scroll">
+            <Column field="code" header="Code"></Column>
+            <Column field="name" header="Name"></Column>
+            <Column field="category" header="Category"></Column>
+            <Column field="quantity" header="Quantity"></Column>
+        </DataTable>
 	</div>
 </template>
 
 <script>
-import ProductService from '../../service/ProductService';
-import LiveEditor from '../liveeditor/LiveEditor';
+import { ref, onMounted } from 'vue';
+import ProductService from './service/ProductService';
 
 export default {
-    data() {
-        return {
-            products: null,
-            sources: {
-                'template': {
-                    content: `<template>
-    <div class="layout-content">
-        <div class="content-section implementation">
-            <div class="card">
-                <DataTable :value="products" stripedRows>
-                    <Column field="code" header="Code"></Column>
-                    <Column field="name" header="Name"></Column>
-                    <Column field="category" header="Category"></Column>
-                    <Column field="quantity" header="Quantity"></Column>
-                </DataTable>
-            </div>
-		</div>
-    </div>
-</template>
+    setup() {
+        onMounted(() => {
+            productService.value.getProductsSmall().then(data => products.value = data);
+        })
 
-<script>
-import ProductService from '../service/ProductService';
+        const products = ref();
+        const productService = ref(new ProductService());
 
-export default {
-    data() {
-        return {
-            products: null
-        }
-    },
-    productService: null,
-    created() {
-        this.productService = new ProductService();
-    },
-    mounted() {
-        this.productService.getProductsSmall().then(data => this.products = data);
+        return { products }
     }
-}`
+}
+<\\/script>                   
+`
                 }
             }
         }
@@ -111,9 +107,6 @@ export default {
     },
     mounted() {
         this.productService.getProductsSmall().then(data => this.products = data);
-    },
-    components: {
-        LiveEditor
     }
 }
 </script>

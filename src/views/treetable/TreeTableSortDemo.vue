@@ -35,108 +35,55 @@
                 </TreeTable>
             </div>
         </div>
-
-        <div class="content-section documentation">
-            <TabView>
-                <TabPanel header="Source">
-                    <div class="p-d-flex p-jc-end">
-                        <LiveEditor name="TreeTableDemo" :sources="sources" service="NodeService" data="treetablenodes" :components="['Column']" />
-                    </div>
-<pre v-code><code><template v-pre>
-&lt;h3&gt;Single Column Sorting&lt;/h3&gt;
-&lt;TreeTable :value="nodes" sortMode="single"&gt;
-    &lt;Column field="name" header="Name" :expander="true" :sortable="true"&gt;&lt;/Column&gt;
-    &lt;Column field="size" header="Size" :sortable="true"&gt;&lt;/Column&gt;
-    &lt;Column field="type" header="Type" :sortable="true"&gt;&lt;/Column&gt;
-&lt;/TreeTable&gt;
-
-&lt;h3&gt;Multiple Column Sorting&lt;/h3&gt;
-&lt;TreeTable :value="nodes" sortMode="multiple"&gt;
-    &lt;Column field="name" header="Name" :expander="true" :sortable="true"&gt;&lt;/Column&gt;
-    &lt;Column field="size" header="Size" :sortable="true"&gt;&lt;/Column&gt;
-    &lt;Column field="type" header="Type" :sortable="true"&gt;&lt;/Column&gt;
-&lt;/TreeTable&gt;
-
-&lt;h3&gt;Removable Sort&lt;/h3&gt;
-&lt;TreeTable :value="nodes" sortMode="single" removableSort&gt;
-    &lt;Column field="name" header="Name" :expander="true" :sortable="true"&gt;&lt;/Column&gt;
-    &lt;Column field="size" header="Size" :sortable="true"&gt;&lt;/Column&gt;
-    &lt;Column field="type" header="Type" :sortable="true"&gt;&lt;/Column&gt;
-&lt;/TreeTable&gt;
-</template>
-</code></pre>
-
-<pre v-code.script><code>
-import NodeService from '../../service/NodeService';
-
-export default {
-    data() {
-        return {
-            nodes: null
-        }
-    },
-    nodeService: null,
-    created() {
-        this.nodeService = new NodeService();
-    },
-    mounted() {
-        this.nodeService.getTreeTableNodes().then(data => this.nodes = data);
-    }
-}
-
-</code></pre>
-
-                </TabPanel>
-            </TabView>
-        </div>
+        
+        <AppDoc name="TreeTableSortDemo" :sources="sources" service="NodeService" :data="['treetablenodes']" />
     </div>
 </template>
 
 <script>
 import NodeService from '../../service/NodeService';
-import LiveEditor from '../liveeditor/LiveEditor';
 
 export default {
     data() {
         return {
             nodes: null,
             sources: {
-                'template': {
-                    content: `<template>
-    <div class="layout-content">
-        <div class="content-section implementation">
-            <div class="card">
-                <h5>Single Column Sorting</h5>
-                <TreeTable :value="nodes" sortMode="single">
-                    <Column field="name" header="Name" :expander="true" :sortable="true"></Column>
-                    <Column field="size" header="Size" :sortable="true"></Column>
-                    <Column field="type" header="Type" :sortable="true"></Column>
-                </TreeTable>
-            </div>
+                'options-api': {
+                    tabName: 'Source',
+                    content: `
+<template>
+    <div>
+        <div class="card">
+            <h5>Single Column Sorting</h5>
+            <TreeTable :value="nodes" sortMode="single">
+                <Column field="name" header="Name" :expander="true" :sortable="true"></Column>
+                <Column field="size" header="Size" :sortable="true"></Column>
+                <Column field="type" header="Type" :sortable="true"></Column>
+            </TreeTable>
+        </div>
 
-            <div class="card">
-                <h5>Multiple Column Sorting</h5>
-                <TreeTable :value="nodes" sortMode="multiple">
-                    <Column field="name" header="Name" :expander="true" :sortable="true"></Column>
-                    <Column field="size" header="Size" :sortable="true"></Column>
-                    <Column field="type" header="Type" :sortable="true"></Column>
-                </TreeTable>
-            </div>
+        <div class="card">
+            <h5>Multiple Column Sorting</h5>
+            <TreeTable :value="nodes" sortMode="multiple">
+                <Column field="name" header="Name" :expander="true" :sortable="true"></Column>
+                <Column field="size" header="Size" :sortable="true"></Column>
+                <Column field="type" header="Type" :sortable="true"></Column>
+            </TreeTable>
+        </div>
 
-            <div class="card">
-                <h5>Removable Sort</h5>
-                <TreeTable :value="nodes" sortMode="single" removableSort>
-                    <Column field="name" header="Name" :expander="true" :sortable="true"></Column>
-                    <Column field="size" header="Size" :sortable="true"></Column>
-                    <Column field="type" header="Type" :sortable="true"></Column>
-                </TreeTable>
-            </div>
+        <div class="card">
+            <h5>Removable Sort</h5>
+            <TreeTable :value="nodes" sortMode="single" removableSort>
+                <Column field="name" header="Name" :expander="true" :sortable="true"></Column>
+                <Column field="size" header="Size" :sortable="true"></Column>
+                <Column field="type" header="Type" :sortable="true"></Column>
+            </TreeTable>
         </div>
     </div>                    
 </template>
 
 <script>
-import NodeService from '../service/NodeService';
+import NodeService from './service/NodeService';
 
 export default {
     data() {
@@ -152,6 +99,60 @@ export default {
         this.nodeService.getTreeTableNodes().then(data => this.nodes = data);
     }
 }
+<\\/script>
+`
+                },
+                'composition-api': {
+                    tabName: 'Composition API',
+                    content: `
+<template>
+    <div>
+        <div class="card">
+            <h5>Single Column Sorting</h5>
+            <TreeTable :value="nodes" sortMode="single">
+                <Column field="name" header="Name" :expander="true" :sortable="true"></Column>
+                <Column field="size" header="Size" :sortable="true"></Column>
+                <Column field="type" header="Type" :sortable="true"></Column>
+            </TreeTable>
+        </div>
+
+        <div class="card">
+            <h5>Multiple Column Sorting</h5>
+            <TreeTable :value="nodes" sortMode="multiple">
+                <Column field="name" header="Name" :expander="true" :sortable="true"></Column>
+                <Column field="size" header="Size" :sortable="true"></Column>
+                <Column field="type" header="Type" :sortable="true"></Column>
+            </TreeTable>
+        </div>
+
+        <div class="card">
+            <h5>Removable Sort</h5>
+            <TreeTable :value="nodes" sortMode="single" removableSort>
+                <Column field="name" header="Name" :expander="true" :sortable="true"></Column>
+                <Column field="size" header="Size" :sortable="true"></Column>
+                <Column field="type" header="Type" :sortable="true"></Column>
+            </TreeTable>
+        </div>
+    </div>                  
+</template>
+
+<script>
+import { ref, onMounted } from 'vue';
+import NodeService from './service/NodeService';
+
+export default {
+    setup() {
+        onMounted(() => {
+            nodeService.value.getTreeTableNodes().then(data => nodes.value = data);
+        })
+
+        const nodes = ref();
+        const nodeService = ref(new NodeService());
+
+        return { nodes, nodeService }
+    }
+}
+<\\/script>
 `
                 }
             }
@@ -163,9 +164,6 @@ export default {
     },
     mounted() {
         this.nodeService.getTreeTableNodes().then(data => this.nodes = data);
-    },
-    components: {
-        LiveEditor
     }
 }
 </script>
