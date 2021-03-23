@@ -1,5 +1,5 @@
 <template>
-	<AppDoc name="FilterServiceDemo" :sources="sources" service="CustomerService" :data="['customers-large']">
+	<AppDoc name="FilterServiceDemo" :sources="sources" :service="['CustomerService']" :data="['customers-large']">
 		<h5>Import</h5>
 <pre v-code.script><code>
 import &#123;FilterService&#125; from 'primevue/api';

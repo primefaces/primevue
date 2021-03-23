@@ -1,5 +1,5 @@
 <template>
-	<AppDoc name="FullCalendarDemo" :sources="sources" service="EventService" :data="['events']">
+	<AppDoc name="FullCalendarDemo" :sources="sources" :service="['EventService']" :data="['events']">
         <h5>Import</h5>
 <pre v-code.script><code>
 import FullCalendar from 'primevue/fullcalendar';

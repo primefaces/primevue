@@ -92,7 +92,7 @@
             </div>
 		</div>
 
-        <AppDoc name="DataTableEditDemo" :sources="sources" service="ProductService" :data="['products-small']" />
+        <AppDoc name="DataTableEditDemo" :sources="sources" :service="['ProductService']" :data="['products-small']" />
 	</div>
 </template>
 

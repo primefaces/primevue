@@ -11,7 +11,7 @@
             </div>
         </div>
 
-        <AppDoc name="DataTableFlexScrollDemo" :sources="sources" service="CustomerService" :data="['customers-large']" />    
+        <AppDoc name="DataTableFlexScrollDemo" :sources="sources" :service="['CustomerService']" :data="['customers-large']" />    
 	</div>
 </template>
 

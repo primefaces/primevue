@@ -105,7 +105,7 @@
             </div>
 		</div>
 
-        <AppDoc name="DataTableRowGroupDemo" :sources="sources" service="CustomerService" :data="['customers-medium']" />
+        <AppDoc name="DataTableRowGroupDemo" :sources="sources" :service="['CustomerService']" :data="['customers-medium']" />
 
 	</div>
 </template>

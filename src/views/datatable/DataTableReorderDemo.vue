@@ -16,7 +16,7 @@
             </div>
 		</div>
 
-        <AppDoc name="DataTableReorderDemo" :sources="sources" service="ProductService" :data="['products-small']" />
+        <AppDoc name="DataTableReorderDemo" :sources="sources" :service="['ProductService']" :data="['products-small']" />
 
 	</div>
 </template>

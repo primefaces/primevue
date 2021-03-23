@@ -30,7 +30,7 @@
             </div>
 		</div>
 
-        <AppDoc name="DataTableColResizeDemo" :sources="sources" service="ProductService" :data="['products-small']" />
+        <AppDoc name="DataTableColResizeDemo" :sources="sources" :service="['ProductService']" :data="['products-small']" />
 	</div>
 </template>
 

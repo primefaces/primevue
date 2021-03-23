@@ -47,14 +47,21 @@ export default {
             }
 
             if (this.service) {
+                let serviceArr = [];
+
+                this.service.forEach(el => {
+                    serviceArr.push(el.split(','))
+                })
                 /* eslint-disable */
-                tabs.push(
-                    <TabPanel key="service" header={`${this.service}.js`}>
-                        <pre v-code="script"><code>
-                            {services[this.service]}
-                        </code></pre>
-                    </TabPanel>
-                );
+                serviceArr.forEach((el, i) => {
+                    tabs.push(
+                        <TabPanel key="service" header={`${el}.js`}>
+                            <pre v-code="script"><code>
+                                {services[el]}
+                            </code></pre>
+                        </TabPanel>
+                    );
+                })
             }
 
             if (this.data) {

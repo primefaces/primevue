@@ -44,7 +44,7 @@
             </div>
 		</div>
 
-        <AppDoc name="DataTableTemplatingDemo" :sources="sources" service="ProductService" :data="['products-small']" />
+        <AppDoc name="DataTableTemplatingDemo" :sources="sources" :service="['ProductService']" :data="['products-small']" />
 
 	</div>
 </template>

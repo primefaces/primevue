@@ -21,7 +21,7 @@
             </div>
         </div>
 
-        <AppDoc name="TreetableColToggleDemo" :sources="sources" service="NodeService" :data="['treetablenodes']" />
+        <AppDoc name="TreetableColToggleDemo" :sources="sources" :service="['NodeService']" :data="['treetablenodes']" />
     </div>
 </template>
 

@@ -158,7 +158,7 @@
             </Dialog>
 		</div>
 
-       <AppDoc name="DataTableCrudDemo" :sources="sources" service="ProductService" :data="['products']" />
+       <AppDoc name="DataTableCrudDemo" :sources="sources" :service="['ProductService']" :data="['products']" />
 	</div>
 </template>
 

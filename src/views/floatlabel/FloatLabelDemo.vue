@@ -107,7 +107,7 @@
             </div>
         </div>
 
-        <AppDoc name="FloatLabelDemo" :sources="sources" service="CountryService" :data="['countries']" />
+        <AppDoc name="FloatLabelDemo" :sources="sources" :service="['CountryService']" :data="['countries']" />
     </div>
 </template>
 

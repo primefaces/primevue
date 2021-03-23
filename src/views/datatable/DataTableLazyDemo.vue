@@ -39,7 +39,7 @@
             </div>
 		</div>
  
-        <AppDoc name="DataTableLazyDemo" :sources="sources" service="CustomerService" />
+        <AppDoc name="DataTableLazyDemo" :sources="sources" :service="['CustomerService']" />
 	</div>
 </template>
 

@@ -1,5 +1,5 @@
 <template>
-    <AppDoc name="DataTableDemo" :sources="sources" service="ProductService" :data="['products-small']" />
+    <AppDoc name="DataTableDemo" :sources="sources" :service="['ProductService']" :data="['products-small']" />
 </template>
 
 <script>

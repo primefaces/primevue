@@ -69,7 +69,7 @@
             </div>
 		</div>
 
-        <AppDoc name="DataTableRowExpandDemo" :sources="sources" service="ProductService" :data="['products-orders-small']" />
+        <AppDoc name="DataTableRowExpandDemo" :sources="sources" :service="['ProductService']" :data="['products-orders-small']" />
             
 	</div>
 </template>

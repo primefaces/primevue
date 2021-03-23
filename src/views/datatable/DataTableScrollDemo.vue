@@ -125,7 +125,7 @@
             </div>
 		</div>
 
-        <AppDoc name="DataTableScrollDemo" :sources="sources" service="CustomerService" :data="['customers-medium', 'customers-large']" />
+        <AppDoc name="DataTableScrollDemo" :sources="sources" :service="['CustomerService']" :data="['customers-medium', 'customers-large']" />
 	</div>
 </template>
 

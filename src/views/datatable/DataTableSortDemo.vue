@@ -70,7 +70,7 @@
             </div>
 		</div>
 
-        <AppDoc name="DataTableSortDemo" :sources="sources" service="ProductService" :data="['products-small']" />
+        <AppDoc name="DataTableSortDemo" :sources="sources" :service="['ProductService']" :data="['products-small']" />
 
 	</div>
 </template>

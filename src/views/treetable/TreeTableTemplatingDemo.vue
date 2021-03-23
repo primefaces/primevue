@@ -34,7 +34,7 @@
             </div>
         </div>
 
-        <AppDoc name="TreeTableTemplatingDemo" :sources="sources" service="NodeService" :data="['treetablenodes']" />
+        <AppDoc name="TreeTableTemplatingDemo" :sources="sources" :service="['NodeService']" :data="['treetablenodes']" />
             
     </div>
 </template>

@@ -22,7 +22,7 @@
             </div>
 		</div>
 
-        <AppDoc name="DataTableColToggleDemo" :sources="sources" service="ProductService" :data="['products-small']" />
+        <AppDoc name="DataTableColToggleDemo" :sources="sources" :service="['ProductService']" :data="['products-small']" />
 	</div>
 </template>
 

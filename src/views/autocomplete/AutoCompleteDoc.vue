@@ -1,5 +1,5 @@
 <template>
-    <AppDoc name="AutoCompleteDemo" :sources="sources" service="CountryService" :data="['countries']">
+    <AppDoc name="AutoCompleteDemo" :sources="sources" :service="['CountryService']" :data="['countries']">
         <h5>Import</h5>
 <pre v-code.script><code>
 import AutoComplete from 'primevue/autocomplete';
@@ -544,9 +544,7 @@ export default {
         const filteredCountries = ref();
         const selectedCountries = ref([]);
         const groupedCities = ref ([{
-            label: 'Germany', code: 'DE', 
-                label: 'Germany', code: 'DE', 
-            label: 'Germany', code: 'DE', 
+            label: 'Germany', code: 'DE',
             items: [
                 {label: 'Berlin', value: 'Berlin'},
                 {label: 'Frankfurt', value: 'Frankfurt'},
@@ -555,9 +553,7 @@ export default {
             ]
         },
         {
-            label: 'USA', code: 'US', 
-                label: 'USA', code: 'US', 
-            label: 'USA', code: 'US', 
+            label: 'USA', code: 'US',
             items: [
                 {label: 'Chicago', value: 'Chicago'},
                 {label: 'Los Angeles', value: 'Los Angeles'},
@@ -566,9 +562,7 @@ export default {
             ]
         },
         {
-            label: 'Japan', code: 'JP', 
-                label: 'Japan', code: 'JP', 
-            label: 'Japan', code: 'JP', 
+            label: 'Japan', code: 'JP',
             items: [
                 {label: 'Kyoto', value: 'Kyoto'},
                 {label: 'Osaka', value: 'Osaka'},
@@ -590,16 +584,16 @@ export default {
         };
         const searchCity = (event) => {
             let query = event.query;
-            let filteredCities = [];
+            let newFilteredCities = [];
 
             for (let country of groupedCities.value) {
                 let filteredItems = FilterService.filter(country.items, ['label'], query, FilterMatchMode.CONTAINS);
                 if (filteredItems && filteredItems.length) {
-                    filteredCities.push({...country, ...{items: filteredItems}});
+                    newFilteredCities.push({...country, ...{items: filteredItems}});
                 }
             }
 
-            filteredCities.value = filteredCities;
+            filteredCities.value = newFilteredCities;
         }
         return { countries, countryService, selectedCountry1, selectedCountry2, selectedCity, filteredCities, filteredCountries, selectedCountries, groupedCities, searchCountry, searchCity }
     }

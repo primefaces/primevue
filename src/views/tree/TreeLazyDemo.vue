@@ -13,7 +13,7 @@
             </div>
         </div>
 
-        <AppDoc name="TreeLazyDemo" :sources="sources" service="NodeService" :data="['treenodes']" />
+        <AppDoc name="TreeLazyDemo" :sources="sources" :service="['NodeService']" :data="['treenodes']" />
     </div>
 </template>
 

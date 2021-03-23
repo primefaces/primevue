@@ -27,7 +27,7 @@
             </div>
         </div>
 
-        <AppDoc name="TreeSelectionDemo" :sources="sources" service="NodeService" :data="['treenodes']" />
+        <AppDoc name="TreeSelectionDemo" :sources="sources" :service="['NodeService']" :data="['treenodes']" />
     </div>
 </template>
 

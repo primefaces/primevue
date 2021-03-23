@@ -23,7 +23,7 @@
             </div>
 		</div>
         
-        <AppDoc name="DataTableExportDemo" :sources="sources" service="ProductService" :data="['products-small']" />
+        <AppDoc name="DataTableExportDemo" :sources="sources" :service="['ProductService']" :data="['products-small']" />
 	</div>
 </template>
 

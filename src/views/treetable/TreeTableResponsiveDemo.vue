@@ -26,7 +26,7 @@
             </div>
         </div>
 
-        <AppDoc name="TreeTableResponsiveDemo" :sources="sources" service="NodeService" :data="['treetablenodes']" />
+        <AppDoc name="TreeTableResponsiveDemo" :sources="sources" :service="['NodeService']" :data="['treetablenodes']" />
     </div>
 </template>
 

@@ -17,7 +17,7 @@
             </div>
         </div>
 
-        <AppDoc name="TreeTablePaginatorDemo" :sources="sources" service="NodeService" :data="['treetablenodes']" />
+        <AppDoc name="TreeTablePaginatorDemo" :sources="sources" :service="['NodeService']" :data="['treetablenodes']" />
     </div>
 </template>
 

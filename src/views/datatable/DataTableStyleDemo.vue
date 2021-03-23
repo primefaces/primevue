@@ -24,7 +24,7 @@
             </div>
 		</div>
 
-        <AppDoc name="DataTableStyleDemo" :sources="sources" service="ProductService" :data="['products-small']" />
+        <AppDoc name="DataTableStyleDemo" :sources="sources" :service="['ProductService']" :data="['products-small']" />
 	</div>
 </template>
 

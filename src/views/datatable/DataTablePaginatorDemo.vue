@@ -27,7 +27,7 @@
             </div>
 		</div>
 
-        <AppDoc name="DataTablePaginatorDemo" :sources="sources" service="CustomerService" :data="['customers-large']" />
+        <AppDoc name="DataTablePaginatorDemo" :sources="sources" :service="['CustomerService']" :data="['customers-large']" />
                   
 	</div>
 </template>

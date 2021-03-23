@@ -27,7 +27,7 @@ export default {
             default: null
         },
         service: {
-            type: String,
+            type: Array,
             default: null
         },
         data: {
@@ -142,8 +142,12 @@ export default {
             }
 
             if (this.service) {
-                let dataArr = [];
+                let dataArr = [], serviceArr = [];
                 
+                this.service.forEach(el => {
+                    serviceArr.push(el.split(','))
+                })
+
                 this.data.forEach(el => {
                     dataArr.push(el.split(','))
                 })
@@ -153,18 +157,14 @@ export default {
                         _files[`public/data/${el}.json`] = {
                             content: data[el]
                         };
-
-                        _files[`src/service/${this.service}.js`] = {
-                            content: `${services[this.service]}`
-                        };
                     });
                 }
 
-                else {
-                    _files[`src/service/${this.service}.js`] = {
-                            content: `${services[this.service]}`
+                serviceArr.forEach(serv => {
+                     _files[`src/service/${serv}.js`] = {
+                            content: `${services[serv]}`
                     };
-                }
+                })
             }
 
             element += `import ${name} from "./${name}.vue"`;

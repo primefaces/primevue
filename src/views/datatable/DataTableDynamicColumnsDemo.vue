@@ -15,7 +15,7 @@
             </div>
 		</div>
 
-        <AppDoc name="DataTableDynamicColumnsDemo" :sources="sources" service="ProductService" :data="['products-small']" />
+        <AppDoc name="DataTableDynamicColumnsDemo" :sources="sources" :service="['ProductService']" :data="['products-small']" />
                     
 	</div>
 </template>

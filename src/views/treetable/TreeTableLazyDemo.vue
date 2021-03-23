@@ -19,7 +19,7 @@
             </div>
         </div>
 
-        <AppDoc name="TreeTableLazyDemo" :sources="sources" service="NodeService" :data="['treetablenodes']" />
+        <AppDoc name="TreeTableLazyDemo" :sources="sources" :service="['NodeService']" :data="['treetablenodes']" />
     </div>
 </template>
 

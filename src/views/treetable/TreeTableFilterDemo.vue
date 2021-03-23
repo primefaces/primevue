@@ -67,7 +67,7 @@
             </div>
         </div>
 
-        <AppDoc name="TreeTableFilterDemo" :sources="sources" service="NodeService" :data="['treetablenodes']" />
+        <AppDoc name="TreeTableFilterDemo" :sources="sources" :service="['NodeService']" :data="['treetablenodes']" />
     </div>
 </template>
 
