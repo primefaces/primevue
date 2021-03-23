@@ -1,6 +1,6 @@
 <template>
     <span v-if="showEditor">
-        <SplitButton :model="items" label="Edit in CodeSandbox" class="liveEditorSplitButton" />
+        <SplitButton :model="items" label="Edit in CodeSandbox" class="liveEditorSplitButton" @click="openDefaultCSB" />
     </span>
 </template>
 
@@ -649,11 +649,18 @@ export const router = createRouter({
             }
 
             return this.createSandboxParameters(`${name}${extension}`, _files, extDependencies);
+        },
+
+        openDefaultCSB() {
+            this.postSandboxParameters(this.defaultSourceType);
         }
     },
     computed: {
         showEditor() {
             return this.$appState.codeSandbox;
+        },
+        defaultSourceType() {
+            return this.$appState.sourceType;
         }
     }
 }
