@@ -6,11 +6,11 @@ import Steps from 'primevue/steps';
 
 </code></pre>
 
-                <h5>MenuModel</h5>
-                <p>Steps uses the common MenuModel API to define the items, visit <router-link to="/menumodel">MenuModel API</router-link> for details.</p>
+        <h5>MenuModel</h5>
+        <p>Steps uses the common MenuModel API to define the items, visit <router-link to="/menumodel">MenuModel API</router-link> for details.</p>
 
-				<h5>Getting Started</h5>
-				<p>Steps is integrated with Vue Router and requires a collection of menuitems as its model.</p>
+		<h5>Getting Started</h5>
+		<p>Steps is integrated with Vue Router and requires a collection of menuitems as its model.</p>
 <pre v-code><code>
 &lt;Steps :model="items" /&gt;
 &lt;router-view /&gt;
@@ -43,82 +43,82 @@ export default {
 
 </code></pre>
 
-                <h5>Interactive</h5>
-                <p>Items are readonly by default, if you'd like to make them interactive then disable <i>readonly</i> property.</p>
+        <h5>Interactive</h5>
+        <p>Items are readonly by default, if you'd like to make them interactive then disable <i>readonly</i> property.</p>
 <pre v-code><code>
 &lt;Steps :model="items" :readonly="false" /&gt;
 &lt;router-view /&gt;
 
 </code></pre>
 
-                <h5>Properties</h5>
-                <p>Any property as style and class are passed to the main container element. Following are the additional properties to configure the component.</p>
-				<div class="doc-tablewrapper">
-					<table class="doc-table">
-						<thead>
-                            <tr>
-                                <th>Name</th>
-                                <th>Type</th>
-                                <th>Default</th>
-                                <th>Description</th>
-                            </tr>
-						</thead>
-						<tbody>
-                            <tr>
-                                <td>id</td>
-                                <td>string</td>
-                                <td>null</td>
-                                <td>Unique identifier of the element.</td>
-                            </tr>
-                            <tr>
-                                <td>model</td>
-                                <td>array</td>
-                                <td>null</td>
-                                <td>An array of menuitems.</td>
-                            </tr>
-                             <tr>
-                                <td>readonly</td>
-                                <td>boolean</td>
-                                <td>true</td>
-                                <td>Whether the items are clickable or not.</td>
-                            </tr>
-						</tbody>
-					</table>
-				</div>
+        <h5>Properties</h5>
+        <p>Any property as style and class are passed to the main container element. Following are the additional properties to configure the component.</p>
+		<div class="doc-tablewrapper">
+			<table class="doc-table">
+				<thead>
+                    <tr>
+                        <th>Name</th>
+                        <th>Type</th>
+                        <th>Default</th>
+                        <th>Description</th>
+                    </tr>
+				</thead>
+				<tbody>
+                    <tr>
+                        <td>id</td>
+                        <td>string</td>
+                        <td>null</td>
+                        <td>Unique identifier of the element.</td>
+                    </tr>
+                    <tr>
+                        <td>model</td>
+                        <td>array</td>
+                        <td>null</td>
+                        <td>An array of menuitems.</td>
+                    </tr>
+                     <tr>
+                        <td>readonly</td>
+                        <td>boolean</td>
+                        <td>true</td>
+                        <td>Whether the items are clickable or not.</td>
+                    </tr>
+				</tbody>
+			</table>
+		</div>
 
-				<h5>Styling</h5>
-				<p>Following is the list of structural style classes, for theming classes visit <router-link to="/theming">theming</router-link> page.</p>
-				<div class="doc-tablewrapper">
-					<table class="doc-table">
-						<thead>
-                            <tr>
-                                <th>Name</th>
-                                <th>Element</th>
-                            </tr>
-						</thead>
-						<tbody>
-                            <tr>
-                                <td>p-steps</td>
-                                <td>Container element.</td>
-                            </tr>
-                            <tr>
-                                <td>p-steps-item</td>
-                                <td>Menuitem element.</td>
-                            </tr>
-                            <tr>
-                                <td>p-steps-number</td>
-                                <td>Number of menuitem.</td>
-                            </tr>
-                            <tr>
-                                <td>p-steps-title</td>
-                                <td>Label of menuitem.</td>
-                            </tr>
-						</tbody>
-					</table>
-				</div>
+		<h5>Styling</h5>
+		<p>Following is the list of structural style classes, for theming classes visit <router-link to="/theming">theming</router-link> page.</p>
+		<div class="doc-tablewrapper">
+			<table class="doc-table">
+				<thead>
+                    <tr>
+                        <th>Name</th>
+                        <th>Element</th>
+                    </tr>
+				</thead>
+				<tbody>
+                    <tr>
+                        <td>p-steps</td>
+                        <td>Container element.</td>
+                    </tr>
+                    <tr>
+                        <td>p-steps-item</td>
+                        <td>Menuitem element.</td>
+                    </tr>
+                    <tr>
+                        <td>p-steps-number</td>
+                        <td>Number of menuitem.</td>
+                    </tr>
+                    <tr>
+                        <td>p-steps-title</td>
+                        <td>Label of menuitem.</td>
+                    </tr>
+				</tbody>
+			</table>
+		</div>
 
-				<h5>Dependencies</h5>
-				<p>None.</p>
+		<h5>Dependencies</h5>
+		<p>None.</p>
     </AppDoc>
 </template>
 
@@ -133,11 +133,13 @@ export default {
                     content: `
 <template>
     <div>
+        <Toast />
+        
         <div class="card">
             <Steps :model="items" :readonly="true" />
         </div>
 
-        <router-view v-slot="{Component}" :formData="formObject" @prev-page="prevPage($event)" @next-page="nextPage($event)" @complete="complete">
+        <router-view v-slot="{Component}" :formData="formObject" @prevPage="prevPage($event)" @nextPage="nextPage($event)" @complete="complete">
             <keep-alive>
                 <component :is="Component" />
             </keep-alive>
@@ -151,19 +153,19 @@ export default {
         return {
             items: [{
                 label: 'Personal',
-                to: '/steps'
+                to: '/'
             },
             {
                 label: 'Seat',
-                to: '/steps/seat'
+                to: '/seat'
             },
             {
                 label: 'Payment',
-                to: '/steps/payment'
+                to: '/payment'
             },
             {
                 label: 'Confirmation',
-                to: '/steps/confirmation'
+                to: '/confirmation'
             }],
             formObject: {}
         }
@@ -196,7 +198,84 @@ export default {
 }
 </style>
                     `
-                }
+                },
+                'composition-api': {
+                    tabName: 'Composition API',
+                    content: `<template>
+    <div>
+        <Toast />
+
+        <div class="card">
+            <Steps :model="items" :readonly="true" />
+        </div>
+
+        <router-view v-slot="{Component}" :formData="formObject" @prevPage="prevPage($event)" @nextPage="nextPage($event)" @complete="complete">
+            <keep-alive>
+                <component :is="Component" />
+            </keep-alive>
+        </router-view>
+    </div>
+</template>
+
+<script>
+import { ref } from 'vue';
+import { useRouter } from 'vue-router';
+import { useToast } from 'primevue/usetoast';
+
+export default {
+    setup() {
+        const router = useRouter();
+        const toast = useToast();
+        const items = ref([
+            {
+                label: 'Personal',
+                to: "/"
+            },
+            {
+                label: 'Seat',
+                to: "/seat",
+            },
+            {
+                label: 'Payment',
+                to: "/payment",
+            },
+            {
+                label: 'Confirmation',
+                to: "/confirmation",
+            }
+        ]);
+        const formObject = ref({});
+
+        const nextPage = (event) => {
+            for (let field in event.formData) {
+                formObject.value[field] = event.formData[field];
+            }
+
+            router.push(items.value[event.pageIndex + 1].to);
+        };
+        const prevPage = (event) => {
+            router.push(items.value[event.pageIndex - 1].to);
+        };
+        const complete = () => {
+            toast.add({severity:'success', summary:'Order submitted', detail: 'Dear, ' + formObject.value.firstname + ' ' + formObject.value.lastname + ' your order completed.'});
+        };
+
+        return { items, formObject, nextPage, prevPage, complete }
+    }
+}
+<\\/script>
+
+<style scoped lang="scss">
+::v-deep(b) {
+    display: block;
+}
+
+::v-deep(.p-card-body) {
+    padding: 2rem;
+}
+</style>
+`
+                },
             },
             pages: [
                     {
