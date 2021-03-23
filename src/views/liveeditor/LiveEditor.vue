@@ -34,7 +34,7 @@ export default {
             type: Array,
             default: null
         },
-        components: {
+        extPages: {
             type: Array,
             default: null
         }
@@ -119,7 +119,7 @@ export default {
             let extImport = '';
             let extElement = '';
             let content = this.sources[sourceType].content.replace('<\\/script>', '<\/script>');
-            let pages = this.sources.pages ? this.sources.pages : '';
+            let pages = this.extPages ? this.extPages : '';
             let _files = {}, element = '';
 
             if(name === 'EditorDemo') {
@@ -170,9 +170,15 @@ export default {
             element += `import ${name} from "./${name}.vue"`;
 
             _files['src/main.js'] = {
-                content: `import { createApp } from "vue";
+                content: `import "primeflex/primeflex.css";
+import "primevue/resources/themes/saga-blue/theme.css";
+import "primevue/resources/primevue.min.css";
+import "primeicons/primeicons.css";
+import "./index.css";
+
+import { createApp } from "vue";
 ${element}
-import router from "./router";
+import { router } from "./router";
 import PrimeVue from "primevue/config";
 import AutoComplete from 'primevue/autocomplete';
 import Accordion from 'primevue/accordion';
@@ -262,12 +268,6 @@ import Tree from 'primevue/tree';
 import TreeTable from 'primevue/treetable';
 import TriStateCheckbox from 'primevue/tristatecheckbox';
 ${extImport}
-
-import "primeflex/primeflex.css";
-import "primevue/resources/themes/saga-blue/theme.css";
-import "primevue/resources/primevue.min.css";
-import "primeicons/primeicons.css";
-import "./index.css";
 
 const app = createApp(${name});
 
@@ -594,36 +594,26 @@ img.flag {
 `,
             }
 
-            _files[`src/router.js`] = {
-                content: `import { createRouter, createWebHistory } from "vue-router";
-${element}
-
-export const router = createRouter({
-  history: createWebHistory(),
-  routes: [{ path: "/", component: ${name} }]
-});`
-                }
-
             if(pages) {
                 const routes = [];
 
                 pages.forEach((page, i) => {
-                    _files[`src/components/${page.name}.vue`] = {
-                        'content': `${page.template.replace('<\\/script>', '<\/script>')}`
+                    _files[`src/components/${page.tabName}.vue`] = {
+                        'content': `${page.content.replace('<\\/script>', '<\/script>')}`
                     }
 
                     let route = '';
 
                     if(i === 0) {
                         route += `{
-                            path: "",
-                            component: () => import("./components/${page.name}.vue")
+                            path: "/",
+                            component: () => import("./components/${page.tabName}.vue")
                         }`;
                     }
                     else {
                         route += `{
-                            path: "/${page.name.slice(0, -4).toLowerCase()}",
-                            component: () => import("./components/${page.name}.vue")
+                            path: "/${page.tabName.slice(0, -4).toLowerCase()}",
+                            component: () => import("./components/${page.tabName}.vue")
                         }`;
                     }
 
@@ -638,14 +628,24 @@ export const router = createRouter({
     routes: [
         {
             path: "/",
-            component: () => import("./components/${name}.vue"),
+            component: () => import("./${name}.vue"),
             children: [${routes}]
         }
     ]
 });
 `
                 }
+            }
+            else {
+                _files[`src/router.js`] = {
+                    content: `import { createRouter, createWebHistory } from "vue-router";
+${element}
 
+export const router = createRouter({
+  history: createWebHistory(),
+  routes: [{ path: "/", component: ${name} }]
+});`
+                }
             }
 
             return this.createSandboxParameters(`${name}${extension}`, _files, extDependencies);
