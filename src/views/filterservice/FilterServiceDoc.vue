@@ -325,8 +325,6 @@ import { ref, onMounted } from 'vue';
 import {FilterMatchMode,FilterService} from 'primevue/api';
 import CustomerService from './service/CustomerService';
 
-
-
 export default {
     setup() {
 		onMounted(() => {
@@ -335,7 +333,7 @@ export default {
         	    loading.value = false;
         	});
 
-			FilterService.register(YOUR_FILTER, (value, filter) => {
+			FilterService.register(YOUR_FILTER.value, (value, filter) => {
         	    if (filter === undefined || filter === null || filter.trim() === '') {
         	        return true;
         	    }
@@ -352,11 +350,11 @@ export default {
         const customers = ref();
 		const customerService = ref(new CustomerService());
         const filters = ref({
-            'name': {value: null, matchMode: YOUR_FILTER},
+            'name': {value: null, matchMode: YOUR_FILTER.value},
             'country.name': {value: null, matchMode: FilterMatchMode.STARTS_WITH}
         });
         const matchModeOptions = ref([
-            {label: 'Your Equals', value: YOUR_FILTER},
+            {label: 'Your Equals', value: YOUR_FILTER.value},
             {label: 'Starts With', value: FilterMatchMode.STARTS_WITH}
         ]);
         const loading = ref(true);
