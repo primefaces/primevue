@@ -248,7 +248,7 @@ export default {
         </div>
 
         <Dialog v-model:visible="productDialog" :style="{width: '450px'}" header="Product Details" :modal="true" class="p-fluid">
-            <img :src="'demo/images/product/' + product.image" :alt="product.image" class="product-image" v-if="product.image" />
+            <img src="https://www.primefaces.org/wp-content/uploads/2020/05/placeholder.png" :alt="product.image" class="product-image" v-if="product.image" />
             <div class="p-field">
                 <label for="name">Name</label>
                 <InputText id="name" v-model.trim="product.name" required="true" autofocus :class="{'p-invalid': submitted && !product.name}" />
@@ -460,12 +460,12 @@ export default {
 }
 
 .product-image {
-    width: 100px;
+    width: 50px;
     box-shadow: 0 3px 6px rgba(0, 0, 0, 0.16), 0 3px 6px rgba(0, 0, 0, 0.23);
 }
 
 .p-dialog .product-image {
-    width: 150px;
+    width: 50px;
     margin: 0 auto 2rem auto;
     display: block;
 }
@@ -544,7 +544,7 @@ export default {
         </div>
 
         <Dialog v-model:visible="productDialog" :style="{width: '450px'}" header="Product Details" :modal="true" class="p-fluid">
-            <img :src="'demo/images/product/' + product.image" :alt="product.image" class="product-image" v-if="product.image" />
+            <img src="https://www.primefaces.org/wp-content/uploads/2020/05/placeholder.png" :alt="product.image" class="product-image" v-if="product.image" />
             <div class="p-field">
                 <label for="name">Name</label>
                 <InputText id="name" v-model.trim="product.name" required="true" autofocus :class="{'p-invalid': submitted && !product.name}" />
@@ -681,8 +681,8 @@ export default {
 
 			if (product.value.name.trim()) {
                 if (product.value.id) {
-                    product.value.inventoryStatus = this.product.inventoryStatus.value ? this.product.inventoryStatus.value: this.product.inventoryStatus;
-                    products.value[this.findIndexById(this.product.id)] = this.product;
+                    product.value.inventoryStatus = product.value.inventoryStatus.value ? product.value.inventoryStatus.value : product.value.inventoryStatus;
+                    products.value[findIndexById(product.value.id)] = product.value;
                     toast.add({severity:'success', summary: 'Successful', detail: 'Product Updated', life: 3000});
                 }
                 else {
@@ -698,8 +698,8 @@ export default {
                 product.value = {};
             }
         };
-        const editProduct = (product) => {
-            product.value = {...product.value};
+        const editProduct = (prod) => {
+            product.value = {...prod};
             productDialog.value = true;
         };
         const confirmDeleteProduct = (prod) => {
@@ -759,12 +759,12 @@ export default {
 }
 
 .product-image {
-    width: 100px;
+    width: 50px;
     box-shadow: 0 3px 6px rgba(0, 0, 0, 0.16), 0 3px 6px rgba(0, 0, 0, 0.23);
 }
 
 .p-dialog .product-image {
-    width: 150px;
+    width: 50px;
     margin: 0 auto 2rem auto;
     display: block;
 }
