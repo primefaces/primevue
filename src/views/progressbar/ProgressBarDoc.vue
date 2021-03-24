@@ -120,7 +120,7 @@ export default {
                     tabName: 'Source',
 					content: `
 <template>
-    <div class="card">
+    <div>
         <h5>Dynamic</h5>
         <ProgressBar :value="value1" />
 
@@ -168,8 +168,9 @@ export default {
 				},
                 'composition-api': {
                     tabName: 'Composition API',
-					content: `<template>
-    <div class="card">
+					content: `
+<template>
+    <div>
         <h5>Dynamic</h5>
         <ProgressBar :value="value1" />
 

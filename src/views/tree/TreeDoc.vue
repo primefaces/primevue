@@ -740,7 +740,7 @@ export default {
                     tabName: 'Source',
                     content: `
 <template>
-    <div class="card">
+    <div>
         <h5>Basic</h5>
         <Tree :value="nodes"></Tree>
 
@@ -804,7 +804,7 @@ button {
                     tabName: 'Composition API',
                     content: `
 <template>
-    <div class="card">
+    <div>
         <h5>Basic</h5>
         <Tree :value="nodes"></Tree>
 

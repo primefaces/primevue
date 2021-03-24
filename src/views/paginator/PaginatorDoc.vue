@@ -277,7 +277,7 @@ export default {
                     tabName: 'Source',
                     content: `
 <template>
-    <div class="card">
+    <div>
         <h5>Basic</h5>
         <Paginator :rows="10" :totalRecords="totalRecords" :rowsPerPageOptions="[10,20,30]"></Paginator>
 
@@ -330,7 +330,7 @@ export default {
                     tabName: 'Composition API',
                     content: `
 <template>
-    <div class="card">
+    <div>
         <h5>Basic</h5>
         <Paginator :rows="10" :totalRecords="totalRecords" :rowsPerPageOptions="[10,20,30]"></Paginator>
 

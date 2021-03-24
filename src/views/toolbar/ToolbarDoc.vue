@@ -89,7 +89,7 @@ export default {
                     tabName: 'Source',
                     content: `
 <template>
-    <div class="card">
+    <div>
         <Toolbar>
             <template #left>
                 <Button label="New" icon="pi pi-plus" class="p-mr-2" />
@@ -150,7 +150,7 @@ export default {
                     tabName: 'Composition API',
                     content: `
 <template>
-    <div class="card">
+    <div>
         <Toolbar>
             <template #left>
                 <Button label="New" icon="pi pi-plus" class="p-mr-2" />

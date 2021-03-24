@@ -11,7 +11,7 @@ export default {
 					tabName: 'Source',
                     content: `
 <template>
-    <div class="card">
+    <div>
         <div class="card">
             <h5>Vertical</h5>
             <Chart type="bar" :data="basicData" :options="basicOptions" />
@@ -144,7 +144,7 @@ export default {
 					tabName: 'Composition API',
                     content: `
 <template>
-    <div class="card">
+    <div>
         <div class="card">
             <h5>Vertical</h5>
             <Chart type="bar" :data="basicData" :options="basicOptions" />

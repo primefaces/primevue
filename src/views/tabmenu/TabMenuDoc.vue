@@ -110,7 +110,7 @@ export default {
                     tabName: 'Source',
                     content: `
 <template>
-    <div class="card">
+    <div>
         <TabMenu :model="items" />
         <router-view />
     </div>
@@ -162,7 +162,7 @@ export default {
                     tabName: 'Composition API',
                     content: `
 <template>
-    <div class="card">
+    <div>
         <TabMenu :model="items" />
         <router-view />
     </div>

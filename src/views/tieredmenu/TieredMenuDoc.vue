@@ -304,7 +304,7 @@ export default {
                     tabName: 'Source',
                     content: `
 <template>
-    <div class="card">
+    <div>
         <h5>Inline</h5>
         <TieredMenu :model="items" />
 
@@ -464,7 +464,7 @@ export default {
                     tabName: 'Composition API',
                     content: `
 <template>
-    <div class="card">
+    <div>
         <h5>Inline</h5>
         <TieredMenu :model="items" />
 

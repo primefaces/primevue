@@ -341,7 +341,7 @@ export default {
 					tabName: 'Source',
 					content: `
 <template>
-    <div class="card">
+    <div>
 		<Toast />
 
         <h5>Advanced</h5>
@@ -374,7 +374,7 @@ export default {
 					tabName: 'Composition API',
 					content: `
 <template>
-    <div class="card">
+    <div>
 		<Toast />
 
         <h5>Advanced</h5>

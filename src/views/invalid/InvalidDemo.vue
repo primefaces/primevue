@@ -160,7 +160,7 @@ export default {
                     tabName :'Source',
                     content: `
 <template>
-    <div class="card">
+    <div>
         <div class="p-fluid p-grid">
             <div class="p-field p-col-12 p-md-4">
                 <InputText id="inputtext" type="text" v-model="value1" placeholder="InputText" class="p-invalid" />
@@ -333,7 +333,7 @@ export default {
                     tabName :'Composition API',
                     content: `
 <template>
-    <div class="card">
+    <div>
         <div class="p-fluid p-grid">
             <div class="p-field p-col-12 p-md-4">
                 <InputText id="inputtext" type="text" v-model="value1" placeholder="InputText" class="p-invalid" />

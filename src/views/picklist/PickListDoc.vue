@@ -268,7 +268,7 @@ export default {
                     tabName: 'Source',
                     content: `
 <template>
-    <div class="card">
+    <div>
         <PickList v-model="products" listStyle="height:342px" dataKey="id">
             <template #sourceHeader>
                 Available
@@ -370,7 +370,7 @@ export default {
                     tabName: 'Composition API',
                     content: `
 <template>
-    <div class="card">
+    <div>
         <PickList v-model="products" listStyle="height:342px" dataKey="id">
             <template #sourceHeader>
                 Available

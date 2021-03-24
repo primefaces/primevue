@@ -55,7 +55,7 @@ export default {
                     tabName: 'Source',
                     content: `
 <template>
-    <div class="card">
+    <div>
         <Tree :value="nodes">
             <template #default="slotProps">
                 <b>{{slotProps.node.label}}</b>
@@ -115,7 +115,7 @@ button {
                     tabName: 'Composition API',
                     content: `
 <template>
-    <div class="card">
+    <div>
         <Tree :value="nodes">
             <template #default="slotProps">
                 <b>{{slotProps.node.label}}</b>

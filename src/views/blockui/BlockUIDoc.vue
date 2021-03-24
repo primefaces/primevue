@@ -149,7 +149,7 @@ export default {
                     tabName: 'Source',
                     content: `
 <template>
-    <div class="card">
+    <div>
         <h5>Document</h5>
         <BlockUI :blocked="blockedDocument" :fullScreen="true"></BlockUI>
 
@@ -211,7 +211,7 @@ button {
                     tabName: 'Composition API',
                     content: `
 <template>
-    <div class="card">
+    <div>
         <h5>Document</h5>
         <BlockUI :blocked="blockedDocument" :fullScreen="true"></BlockUI>
 

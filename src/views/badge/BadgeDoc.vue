@@ -179,7 +179,7 @@ export default {
                     tabName: 'Source',
                     content: `
 <template>
-    <div class="card">
+    <div>
         <h5>Numbers</h5>
         <Badge value="2" class="p-mr-2"></Badge>
         <Badge value="8" severity="success" class="p-mr-2"></Badge>
@@ -213,7 +213,7 @@ export default {
                     tabName: 'Composition API',
                     content: `
 <template>
-    <div class="card">
+    <div>
         <h5>Numbers</h5>
         <Badge value="2" class="p-mr-2"></Badge>
         <Badge value="8" severity="success" class="p-mr-2"></Badge>

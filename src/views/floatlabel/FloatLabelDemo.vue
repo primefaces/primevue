@@ -346,6 +346,8 @@ export default {
             value9: null,
             value10: null,
             value11: null,
+            valueIconLeft: null,
+            valueIconRight: null,
             selectedCity: null,
             cascadeCountries: [
                 {
@@ -556,7 +558,7 @@ export default {
 
 <script>
 import { ref, onMounted } from 'vue';
-import CountryService from '../service/CountryService';
+import CountryService from './service/CountryService';
 
 export default {
     setup() {
@@ -667,10 +669,10 @@ export default {
         const searchCountry = (event) => {
             setTimeout(() => {
                 if (!event.query.trim().length) {
-                    this.filteredCountries = [...this.countries];
+                    filteredCountries.value = [...countries.value];
                 }
                 else {
-                    this.filteredCountries = this.countries.filter((country) => {
+                    filteredCountries.value = countries.value.filter((country) => {
                         return country.name.toLowerCase().startsWith(event.query.toLowerCase());
                     });
                 }

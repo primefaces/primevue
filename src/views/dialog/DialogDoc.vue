@@ -296,7 +296,7 @@ export default {
                     tabName: 'Source',
                     content: `
 <template>
-    <div class="card">
+    <div>
         <h5>Basic</h5>
         <Button label="Show" icon="pi pi-external-link" @click="openBasic" />
         <Dialog header="Header" v-model:visible="displayBasic" :style="{width: '50vw'}">
@@ -499,7 +499,7 @@ p {
                     tabName: 'Composition API',
                     content: `
 <template>
-    <div class="card">
+    <div>
         <h5>Basic</h5>
         <Button label="Show" icon="pi pi-external-link" @click="openBasic" />
         <Dialog header="Header" v-model:visible="displayBasic" :style="{width: '50vw'}">

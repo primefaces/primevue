@@ -211,7 +211,7 @@ export default {
                     tabName: 'Source',
 					content: `
 <template>
-    <div class="card">
+    <div>
         <FullCalendar :events="events" :options="options" />
     </div>
 </template>
@@ -262,7 +262,7 @@ export default {
                     tabName: 'Composition API',
 					content: `
 <template>
-    <div class="card">
+    <div>
         <FullCalendar :events="events" :options="options" />
     </div>
 </template>

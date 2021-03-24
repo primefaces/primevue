@@ -273,7 +273,7 @@ export default {
 export default {
     data() {
         return {
-            products: new Array(5)
+            products: new Array(4)
         }
     }
 }
@@ -432,7 +432,7 @@ import { ref } from 'vue';
 
 export default {
     setup() {
-        const products = ref(new Array(5));
+        const products = ref(new Array(4));
 
         return { products }
     }

@@ -74,7 +74,7 @@ export default {
                     tabName: 'Source',
                     content: `
 <template>
-    <div class="card">
+    <div>
         <Toast />
 
         <div style="height: 800px">
@@ -129,8 +129,9 @@ export default {
                     tabName: 'Composition API',
                     content: `
 <template>
-    <div class="card">
+    <div>
         <Toast />
+        
         <div style="height: 800px">
             Scroll down to lazy load an image and the DataTable which initiates a query that is not executed on initial page load to speed up load performance.
         </div>

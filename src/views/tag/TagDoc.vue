@@ -125,7 +125,7 @@ export default {
                     tabName: 'Source',
 					content: `
 <template>
-    <div class="card">
+    <div>
         <h5>Tags</h5>
         <Tag class="p-mr-2" value="Primary"></Tag>
         <Tag class="p-mr-2" severity="success" value="Success"></Tag>
@@ -159,7 +159,7 @@ export default {
                     tabName: 'Composition API',
 					content: `
 <template>
-    <div class="card">
+    <div>
         <h5>Tags</h5>
         <Tag class="p-mr-2" value="Primary"></Tag>
         <Tag class="p-mr-2" severity="success" value="Success"></Tag>

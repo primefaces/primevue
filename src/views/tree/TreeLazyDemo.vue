@@ -30,7 +30,7 @@ export default {
                     tabName: 'Source',
                     content: `
 <template>
-    <div class="card">
+    <div>
         <Tree :value="nodes" @nodeExpand="onNodeExpand" :loading="loading"></Tree>
     </div>                   
 </template>
@@ -107,7 +107,7 @@ export default {
                     tabName: 'Composition API',
                     content: `
 <template>
-    <div class="card">
+    <div>
         <Tree :value="nodes" @nodeExpand="onNodeExpand" :loading="loading"></Tree>
     </div>                   
 </template>

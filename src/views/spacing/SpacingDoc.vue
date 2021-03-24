@@ -141,6 +141,12 @@ export default {
 
 }
 <\\/script>
+
+<style scoped>
+.demo-container {
+    border: 1px solid var(--surface-d);
+}
+</style>
 `
 				},
                 'composition-api': {
@@ -216,6 +222,12 @@ export default {
 
 }
 <\\/script>
+
+<style scoped>
+.demo-container {
+    border: 1px solid var(--surface-d);
+}
+</style>
 `
 				}
             }

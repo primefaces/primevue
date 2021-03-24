@@ -300,7 +300,7 @@ export default {
                     tabName: 'Source',
                     content: `
 <template>
-	<div class="card">
+	<div>
         <div class="card">
             <Carousel :value="products" :numVisible="3" :numScroll="3" :responsiveOptions="responsiveOptions">
                 <template #header>
@@ -356,7 +356,7 @@ export default {
         </div>
 
         <div class="card">
-            <Carousel :value="products" :numVisible="1" :numScroll="1" orientation="vertical" verticalViewPortHeight="500px"
+            <Carousel :value="products" :numVisible="1" :numScroll="1" orientation="vertical" verticalViewPortHeight="430px"
                         style="max-width: 400px; margin-top: 2em">
                 <template #header>
                     <h5>Vertical</h5>
@@ -498,7 +498,7 @@ export default {
         </div>
 
         <div class="card">
-            <Carousel :value="products" :numVisible="1" :numScroll="1" orientation="vertical" verticalViewPortHeight="500px"
+            <Carousel :value="products" :numVisible="1" :numScroll="1" orientation="vertical" verticalViewPortHeight="430px"
                         style="max-width: 400px; margin-top: 2em">
                 <template #header>
                     <h5>Vertical</h5>

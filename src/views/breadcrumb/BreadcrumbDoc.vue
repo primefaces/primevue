@@ -108,7 +108,7 @@ export default {
                     tabName: 'Source',
                     content: `
 <template>
-    <div class="card">
+    <div>
         <Breadcrumb :home="home" :model="items" />
     </div>
 </template>
@@ -119,7 +119,7 @@ export default {
         return {
             home: {
                 icon: 'pi pi-home', 
-                to: '/fileupload',
+                to: '/',
             },
             items: [
                 {label: 'Computer'},
@@ -138,7 +138,7 @@ export default {
                     tabName: 'Composition API',
                     content: `
 <template>
-    <div class="card">
+    <div>
         <Breadcrumb :home="home" :model="items" />
     </div>
 </template>
@@ -150,7 +150,7 @@ export default {
     setup() {
         const home = ref({
             icon: 'pi pi-home', 
-            to: '/fileupload',
+            to: '/',
         });
         const items = ref([
             {label: 'Computer'},

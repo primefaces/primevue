@@ -227,7 +227,7 @@ export default {
                     tabName: 'Source',
                     content: `
 <template>
-    <div class="card">
+    <div>
         <PanelMenu :model="items" />
     </div>
 </template>
@@ -369,7 +369,7 @@ export default {
                     tabName: 'Composition API',
                     content: `
 <template>
-    <div class="card">
+    <div>
         <PanelMenu :model="items" />
     </div>
 </template>

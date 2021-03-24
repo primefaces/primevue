@@ -464,44 +464,43 @@ export default {
             sources: {
                 'options-api': {
                     tabName: 'Source',
-                    content: `<template>
+                    content: `
+<template>
     <div>
-        <div class="card">
-            <h5>Basic</h5>
-            <Dropdown v-model="selectedCity1" :options="cities" optionLabel="name" optionValue="code" placeholder="Select a City" />
+        <h5>Basic</h5>
+        <Dropdown v-model="selectedCity1" :options="cities" optionLabel="name" optionValue="code" placeholder="Select a City" />
 
-            <h5>Editable</h5>
-            <Dropdown v-model="selectedCity2" :options="cities" optionLabel="name" :editable="true"/>
+        <h5>Editable</h5>
+        <Dropdown v-model="selectedCity2" :options="cities" optionLabel="name" :editable="true"/>
 
-            <h5>Grouped</h5>
-            <Dropdown v-model="selectedGroupedCity" :options="groupedCities" optionLabel="label" optionGroupLabel="label" optionGroupChildren="items">
-                <template #optiongroup="slotProps">
-                    <div class="p-d-flex p-ai-center country-item">
-                        <img src="https://www.primefaces.org/wp-content/uploads/2020/05/placeholder.png" width="18" />
-                        <div>{{slotProps.option.label}}</div>
-                    </div>
-                </template>
-            </Dropdown>
+        <h5>Grouped</h5>
+        <Dropdown v-model="selectedGroupedCity" :options="groupedCities" optionLabel="label" optionGroupLabel="label" optionGroupChildren="items">
+            <template #optiongroup="slotProps">
+                <div class="p-d-flex p-ai-center country-item">
+                    <img src="https://www.primefaces.org/wp-content/uploads/2020/05/placeholder.png" width="18" />
+                    <div>{{slotProps.option.label}}</div>
+                </div>
+            </template>
+        </Dropdown>
 
-            <h5>Advanced with Templating, Filtering and Clear Icon</h5>
-            <Dropdown v-model="selectedCountry" :options="countries" optionLabel="name" :filter="true" placeholder="Select a Country" :showClear="true">
-                <template #value="slotProps">
-                    <div class="country-item country-item-value" v-if="slotProps.value">
-                        <img src="https://www.primefaces.org/wp-content/uploads/2020/05/placeholder.png" />
-                        <div>{{slotProps.value.name}}</div>
-                    </div>
-                    <span v-else>
-                        {{slotProps.placeholder}}
-                    </span>
-                </template>
-                <template #option="slotProps">
-                    <div class="country-item">
-                        <img src="https://www.primefaces.org/wp-content/uploads/2020/05/placeholder.png" />
-                        <div>{{slotProps.option.name}}</div>
-                    </div>
-                </template>
-            </Dropdown>
-        </div>
+        <h5>Advanced with Templating, Filtering and Clear Icon</h5>
+        <Dropdown v-model="selectedCountry" :options="countries" optionLabel="name" :filter="true" placeholder="Select a Country" :showClear="true">
+            <template #value="slotProps">
+                <div class="country-item country-item-value" v-if="slotProps.value">
+                    <img src="https://www.primefaces.org/wp-content/uploads/2020/05/placeholder.png" />
+                    <div>{{slotProps.value.name}}</div>
+                </div>
+                <span v-else>
+                    {{slotProps.placeholder}}
+                </span>
+            </template>
+            <template #option="slotProps">
+                <div class="country-item">
+                    <img src="https://www.primefaces.org/wp-content/uploads/2020/05/placeholder.png" />
+                    <div>{{slotProps.option.name}}</div>
+                </div>
+            </template>
+        </Dropdown>
     </div>
 </template>
 
@@ -579,44 +578,43 @@ export default {
                 },
                 'composition-api': {
                     tabName: 'Source',
-                    content: `<template>
+                    content: `
+<template>
     <div>
-        <div class="card">
-            <h5>Basic</h5>
-            <Dropdown v-model="selectedCity1" :options="cities" optionLabel="name" optionValue="code" placeholder="Select a City" />
+        <h5>Basic</h5>
+        <Dropdown v-model="selectedCity1" :options="cities" optionLabel="name" optionValue="code" placeholder="Select a City" />
 
-            <h5>Editable</h5>
-            <Dropdown v-model="selectedCity2" :options="cities" optionLabel="name" :editable="true"/>
+        <h5>Editable</h5>
+        <Dropdown v-model="selectedCity2" :options="cities" optionLabel="name" :editable="true"/>
 
-            <h5>Grouped</h5>
-            <Dropdown v-model="selectedGroupedCity" :options="groupedCities" optionLabel="label" optionGroupLabel="label" optionGroupChildren="items">
-                <template #optiongroup="slotProps">
-                    <div class="p-d-flex p-ai-center country-item">
-                        <img src="https://www.primefaces.org/wp-content/uploads/2020/05/placeholder.png" width="18" />
-                        <div>{{slotProps.option.label}}</div>
-                    </div>
-                </template>
-            </Dropdown>
+        <h5>Grouped</h5>
+        <Dropdown v-model="selectedGroupedCity" :options="groupedCities" optionLabel="label" optionGroupLabel="label" optionGroupChildren="items">
+            <template #optiongroup="slotProps">
+                <div class="p-d-flex p-ai-center country-item">
+                    <img src="https://www.primefaces.org/wp-content/uploads/2020/05/placeholder.png" width="18" />
+                    <div>{{slotProps.option.label}}</div>
+                </div>
+            </template>
+        </Dropdown>
 
-            <h5>Advanced with Templating, Filtering and Clear Icon</h5>
-            <Dropdown v-model="selectedCountry" :options="countries" optionLabel="name" :filter="true" placeholder="Select a Country" :showClear="true">
-                <template #value="slotProps">
-                    <div class="country-item country-item-value" v-if="slotProps.value">
-                        <img src="https://www.primefaces.org/wp-content/uploads/2020/05/placeholder.png" />
-                        <div>{{slotProps.value.name}}</div>
-                    </div>
-                    <span v-else>
-                        {{slotProps.placeholder}}
-                    </span>
-                </template>
-                <template #option="slotProps">
-                    <div class="country-item">
-                        <img src="https://www.primefaces.org/wp-content/uploads/2020/05/placeholder.png" />
-                        <div>{{slotProps.option.name}}</div>
-                    </div>
-                </template>
-            </Dropdown>
-        </div>
+        <h5>Advanced with Templating, Filtering and Clear Icon</h5>
+        <Dropdown v-model="selectedCountry" :options="countries" optionLabel="name" :filter="true" placeholder="Select a Country" :showClear="true">
+            <template #value="slotProps">
+                <div class="country-item country-item-value" v-if="slotProps.value">
+                    <img src="https://www.primefaces.org/wp-content/uploads/2020/05/placeholder.png" />
+                    <div>{{slotProps.value.name}}</div>
+                </div>
+                <span v-else>
+                    {{slotProps.placeholder}}
+                </span>
+            </template>
+            <template #option="slotProps">
+                <div class="country-item">
+                    <img src="https://www.primefaces.org/wp-content/uploads/2020/05/placeholder.png" />
+                    <div>{{slotProps.option.name}}</div>
+                </div>
+            </template>
+        </Dropdown>
     </div>
 </template>
 

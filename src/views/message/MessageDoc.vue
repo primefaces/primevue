@@ -259,7 +259,7 @@ export default {
                     tabName: 'Source',
                     content: `
 <template>
-    <div class="card">
+    <div>
         <h5>Severities</h5>
         <Message severity="success">Success Message Content</Message>
         <Message severity="info">Info Message Content</Message>
@@ -340,7 +340,7 @@ button.p-button {
                     tabName: 'Composition API',
                     content: `
 <template>
-    <div class="card">
+    <div>
         <h5>Severities</h5>
         <Message severity="success">Success Message Content</Message>
         <Message severity="info">Info Message Content</Message>

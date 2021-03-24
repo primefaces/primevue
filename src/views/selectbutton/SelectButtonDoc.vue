@@ -179,7 +179,7 @@ export default {
                     tabName: 'Source',
                     content: `
 <template>
-    <div class="card">
+    <div>
         <h5>Single Selection</h5>
         <SelectButton v-model="value1" :options="options" />
 
@@ -223,7 +223,7 @@ export default {
                     tabName: 'Composition API',
                     content: `
 <template>
-    <div class="card">
+    <div>
         <h5>Single Selection</h5>
         <SelectButton v-model="value1" :options="options" />
 

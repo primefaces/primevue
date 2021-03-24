@@ -175,7 +175,7 @@ export default {
                     tabName: 'Source',
 					content: `
 <template>
-    <div class="card">
+    <div>
         <Toast />
 
         <Button type="button" icon="pi pi-search" :label="selectedProduct ? selectedProduct.name : 'Select a Product'" @click="toggle" aria:haspopup="true" aria-controls="overlay_panel" />
@@ -245,7 +245,7 @@ button {
                     tabName: 'Composition API',
 					content: `
 <template>
-    <div class="card">
+    <div>
         <Toast />
 
         <Button type="button" icon="pi pi-search" :label="selectedProduct ? selectedProduct.name : 'Select a Product'" @click="toggle" aria:haspopup="true" aria-controls="overlay_panel" />

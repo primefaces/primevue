@@ -194,7 +194,7 @@ export default {
                     tabName: 'Source',
                     content: `
 <template>
-    <div class="card">
+    <div>
         <h5>Input</h5>
         <Inplace :closable="true">
             <template #display>
@@ -260,7 +260,7 @@ export default {
                     tabName: 'Composition API',
                     content: `
 <template>
-    <div class="card">
+    <div>
         <h5>Input</h5>
         <Inplace :closable="true">
             <template #display>

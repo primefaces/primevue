@@ -31,7 +31,7 @@ export default {
                     tabName: 'Source',
                     content: `
 <template>
-    <div class="card">
+    <div>
         <TreeTable :value="nodes" :paginator="true" :rows="10">
             <Column field="name" header="Name" :expander="true"></Column>
             <Column field="size" header="Size"></Column>
@@ -82,7 +82,7 @@ export default {
                     tabName: 'Composition API',
                     content: `
 <template>
-    <div class="card">
+    <div>
         <TreeTable :value="nodes" :paginator="true" :rows="10">
             <Column field="name" header="Name" :expander="true"></Column>
             <Column field="size" header="Size"></Column>

@@ -140,7 +140,7 @@ export default {
                     tabName: 'Source',
                     content: `
 <template>
-    <div class="card">
+    <div>
         <h5>Basic {{val1}}</h5>
         <Rating v-model="val1" />
 
@@ -171,7 +171,7 @@ export default {
                     tabName: 'Composition API',
                     content: `
 <template>
-    <div class="card">
+    <div>
         <h5>Basic {{val1}}</h5>
         <Rating v-model="val1" />
 

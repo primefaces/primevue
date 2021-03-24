@@ -36,7 +36,7 @@ export default {
                     tabName: 'Source',
                     content: `
 <template>
-    <div class="card">
+    <div>
         <TreeTable :value="nodes" :lazy="true" :paginator="true" :rows="rows" :loading="loading"
             @nodeExpand="onExpand" @page="onPage" :totalRecords="totalRecords">
             <Column field="name" header="Name" :expander="true"></Column>
@@ -138,8 +138,9 @@ export default {
                 },
                 'composition-api': {
                     tabName: 'Composition API',
-                    content: `<template>
-    <div class="card">
+                    content: `
+<template>
+    <div>
         <TreeTable :value="nodes" :lazy="true" :paginator="true" :rows="rows" :loading="loading"
             @nodeExpand="onExpand" @page="onPage" :totalRecords="totalRecords">
             <Column field="name" header="Name" :expander="true"></Column>
@@ -172,7 +173,7 @@ export default {
                 loading.value = true;
 
                 setTimeout(() => {
-                    let lazyNode = {...node.value};
+                    let lazyNode = {...node};
 
                     lazyNode.children = [
                         {
@@ -191,7 +192,7 @@ export default {
                         }
                     ];
 
-                    let nodes = nodes.value.map(n => {
+                    let newNodes = nodes.value.map(n => {
                         if (n.key === node.key) {
                             n = lazyNode;
                         }
@@ -200,7 +201,7 @@ export default {
                     });
 
                     loading.value = false;
-                    nodes.value = nodes;
+                    nodes.value = newNodes;
                 }, 250);
             }
         };

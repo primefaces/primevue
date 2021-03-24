@@ -341,24 +341,22 @@ export default {
                     content: `
 <template>
     <div>
-        <div class="card">
-            <h5>Basic</h5>
-            <CascadeSelect v-model="selectedCity1" :options="countries" optionLabel="cname" optionGroupLabel="name"
-                    :optionGroupChildren="['states', 'cities']" style="minWidth: 14rem" placeholder="Select a City" />
+        <h5>Basic</h5>
+        <CascadeSelect v-model="selectedCity1" :options="countries" optionLabel="cname" optionGroupLabel="name"
+                :optionGroupChildren="['states', 'cities']" style="minWidth: 14rem" placeholder="Select a City" />
 
-            <h5>Templating</h5>
-            <CascadeSelect v-model="selectedCity2" :options="countries" optionLabel="cname" optionGroupLabel="name" 
-                    :optionGroupChildren="['states', 'cities']" style="minWidth: 14rem" placeholder="Select a City">
-                <template #option="slotProps">
-                    <div class="country-item">
-                        <img src="https://www.primefaces.org/wp-content/uploads/2020/05/placeholder.png" v-if="slotProps.option.states" />
-                        <i class="pi pi-compass p-mr-2" v-if="slotProps.option.cities"></i>
-                        <i class="pi pi-map-marker p-mr-2" v-if="slotProps.option.cname"></i>
-                        <span>{{slotProps.option.cname || slotProps.option.name}}</span>
-                    </div>
-                </template>
-            </CascadeSelect>
-        </div>
+        <h5>Templating</h5>
+        <CascadeSelect v-model="selectedCity2" :options="countries" optionLabel="cname" optionGroupLabel="name" 
+                :optionGroupChildren="['states', 'cities']" style="minWidth: 14rem" placeholder="Select a City">
+            <template #option="slotProps">
+                <div class="country-item">
+                    <img src="https://www.primefaces.org/wp-content/uploads/2020/05/placeholder.png" v-if="slotProps.option.states" />
+                    <i class="pi pi-compass p-mr-2" v-if="slotProps.option.cities"></i>
+                    <i class="pi pi-map-marker p-mr-2" v-if="slotProps.option.cname"></i>
+                    <span>{{slotProps.option.cname || slotProps.option.name}}</span>
+                </div>
+            </template>
+        </CascadeSelect>
     </div>
 </template>
 
@@ -462,24 +460,22 @@ img {
                     content: `
 <template>
     <div>
-        <div class="card">
-            <h5>Basic</h5>
-            <CascadeSelect v-model="selectedCity1" :options="countries" optionLabel="cname" optionGroupLabel="name"
-                    :optionGroupChildren="['states', 'cities']" style="minWidth: 14rem" placeholder="Select a City" />
+        <h5>Basic</h5>
+        <CascadeSelect v-model="selectedCity1" :options="countries" optionLabel="cname" optionGroupLabel="name"
+                :optionGroupChildren="['states', 'cities']" style="minWidth: 14rem" placeholder="Select a City" />
 
-            <h5>Templating</h5>
-            <CascadeSelect v-model="selectedCity2" :options="countries" optionLabel="cname" optionGroupLabel="name" 
-                    :optionGroupChildren="['states', 'cities']" style="minWidth: 14rem" placeholder="Select a City">
-                <template #option="slotProps">
-                    <div class="country-item">
-                        <img src="https://www.primefaces.org/wp-content/uploads/2020/05/placeholder.png" v-if="slotProps.option.states" />
-                        <i class="pi pi-compass p-mr-2" v-if="slotProps.option.cities"></i>
-                        <i class="pi pi-map-marker p-mr-2" v-if="slotProps.option.cname"></i>
-                        <span>{{slotProps.option.cname || slotProps.option.name}}</span>
-                    </div>
-                </template>
-            </CascadeSelect>
-        </div>
+        <h5>Templating</h5>
+        <CascadeSelect v-model="selectedCity2" :options="countries" optionLabel="cname" optionGroupLabel="name" 
+                :optionGroupChildren="['states', 'cities']" style="minWidth: 14rem" placeholder="Select a City">
+            <template #option="slotProps">
+                <div class="country-item">
+                    <img src="https://www.primefaces.org/wp-content/uploads/2020/05/placeholder.png" v-if="slotProps.option.states" />
+                    <i class="pi pi-compass p-mr-2" v-if="slotProps.option.cities"></i>
+                    <i class="pi pi-map-marker p-mr-2" v-if="slotProps.option.cname"></i>
+                    <span>{{slotProps.option.cname || slotProps.option.name}}</span>
+                </div>
+            </template>
+        </CascadeSelect>
     </div>
 </template>
 

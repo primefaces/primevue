@@ -35,13 +35,6 @@
 import FieldsetDoc from './FieldsetDoc';
 
 export default {
-    data() {
-        return {
-            value1: '',
-            value2: '',
-            value3: 'PrimeVue'
-        }
-    },
     components: {
         'FieldsetDoc': FieldsetDoc
     }

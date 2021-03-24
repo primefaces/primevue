@@ -1,5 +1,5 @@
 <template>
-    <AppDoc name="InputMaskDoc" :sources="sources">
+    <AppDoc name="InputMaskDemo" :sources="sources">
         <h5>Import</h5>
 <pre v-code.script><code>
 import InputMask from 'primevue/inputmask';
@@ -131,7 +131,7 @@ export default {
                     tabName: 'Source',
                     content: `
 <template>
-    <div class="card">
+    <div>
         <div class="p-fluid p-formgrid p-grid">
             <div class="p-field p-col-12 p-md-4">
                 <label for="basic">Basic</label>
@@ -186,7 +186,7 @@ export default {
                     tabName: 'Composition API',
                     content: `
 <template>
-    <div class="card">
+    <div>
         <div class="p-fluid p-formgrid p-grid">
             <div class="p-field p-col-12 p-md-4">
                 <label for="basic">Basic</label>

@@ -97,7 +97,7 @@ export default {
                     tabName: 'Source',
                     content: `
 <template>
-    <div class="card">
+    <div>
         <div class="p-grid">
             <div class="p-col-12 p-md-4 p-p-5">
                 <ScrollPanel style="width: 100%; height: 200px">
@@ -203,7 +203,7 @@ export default {
                     tabName: 'Composition API',
                     content: `
 <template>
-    <div class="card">
+    <div>
         <div class="p-grid">
             <div class="p-col-12 p-md-4 p-p-5">
                 <ScrollPanel style="width: 100%; height: 200px">

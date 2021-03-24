@@ -111,7 +111,7 @@ export default {
                     tabName: 'Source',
                     content: `
 <template>
-    <div class="card">
+    <div>
         <h5>Basic</h5>
         <ProgressSpinner />
 
@@ -130,7 +130,7 @@ export default {
                     tabName: 'Composition API',
                     content: `
 <template>
-    <div class="card">
+    <div>
         <h5>Basic</h5>
         <ProgressSpinner />
 

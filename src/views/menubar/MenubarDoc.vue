@@ -270,7 +270,7 @@ export default {
                tabName: 'Source',
                content: `
 <template>
-    <div class="card">
+    <div>
         <Menubar :model="items">
             <template #start>
                 <img alt="logo" src="https://www.primefaces.org/wp-content/uploads/2020/05/placeholder.png" height="40" class="p-mr-2">
@@ -424,7 +424,7 @@ export default {
                tabName: 'Composition API',
                content: `
 <template>
-    <div class="card">
+    <div>
         <Menubar :model="items">
             <template #start>
                 <img alt="logo" src="https://www.primefaces.org/wp-content/uploads/2020/05/placeholder.png" height="40" class="p-mr-2">

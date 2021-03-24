@@ -9,7 +9,7 @@
 
 		<div class="content-section implementation">
             <div class="card">
-                <DataTable :value="products" class="p-datatable-sm">
+                <DataTable :value="products" class="p-datatable-sm" responsiveLayout="scroll">
                     <template #header>
                         Small Table
                     </template>
@@ -21,7 +21,7 @@
             </div>
 
             <div class="card">
-                <DataTable :value="products">
+                <DataTable :value="products" responsiveLayout="scroll">
                     <template #header>
                         Normal Table
                     </template>
@@ -33,7 +33,7 @@
             </div>
 
             <div class="card">
-                <DataTable :value="products" class="p-datatable-lg">
+                <DataTable :value="products" class="p-datatable-lg" responsiveLayout="scroll">
                     <template #header>
                         Large Table
                     </template>
@@ -64,7 +64,7 @@ export default {
 <template>
 	<div>
         <div class="card">
-            <DataTable :value="products" class="p-datatable-sm">
+            <DataTable :value="products" class="p-datatable-sm" responsiveLayout="scroll">
                 <template #header>
                     Small Table
                 </template>
@@ -76,7 +76,7 @@ export default {
         </div>
 
         <div class="card">
-            <DataTable :value="products">
+            <DataTable :value="products" responsiveLayout="scroll">
                 <template #header>
                     Normal Table
                 </template>
@@ -88,7 +88,7 @@ export default {
         </div>
 
         <div class="card">
-            <DataTable :value="products" class="p-datatable-lg">
+            <DataTable :value="products" class="p-datatable-lg" responsiveLayout="scroll">
                 <template #header>
                     Large Table
                 </template>
@@ -127,7 +127,7 @@ export default {
 <template>
 	<div>
         <div class="card">
-            <DataTable :value="products" class="p-datatable-sm">
+            <DataTable :value="products" class="p-datatable-sm" responsiveLayout="scroll">
                 <template #header>
                     Small Table
                 </template>
@@ -139,7 +139,7 @@ export default {
         </div>
 
         <div class="card">
-            <DataTable :value="products">
+            <DataTable :value="products" responsiveLayout="scroll">
                 <template #header>
                     Normal Table
                 </template>
@@ -151,7 +151,7 @@ export default {
         </div>
 
         <div class="card">
-            <DataTable :value="products" class="p-datatable-lg">
+            <DataTable :value="products" class="p-datatable-lg" responsiveLayout="scroll">
                 <template #header>
                     Large Table
                 </template>

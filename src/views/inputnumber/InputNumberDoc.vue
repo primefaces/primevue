@@ -363,8 +363,7 @@ export default {
                     tabName : 'Source',
                     content: `
 <template>
-    <div class="card">
-
+    <div>
         <h5>Numerals</h5>
         <div class="p-fluid p-grid p-formgrid">
             <div class="p-field p-col-12 p-md-3">
@@ -501,8 +500,7 @@ export default {
                     tabName : 'Composition API',
                     content: `
 <template>
-    <div class="card">
-
+    <div>
         <h5>Numerals</h5>
         <div class="p-fluid p-grid p-formgrid">
             <div class="p-field p-col-12 p-md-3">

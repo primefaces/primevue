@@ -375,7 +375,7 @@ export default {
                     content:`
 <template>
     <div>
-        <div class="card">
+        <div>
             <h5>Basic</h5>
             <AutoComplete v-model="selectedCountry1" :suggestions="filteredCountries" @complete="searchCountry($event)" field="name" />
 
@@ -492,7 +492,7 @@ export default {
                     content:`
 <template>
     <div>
-        <div class="card">
+        <div>
             <h5>Basic</h5>
             <AutoComplete v-model="selectedCountry1" :suggestions="filteredCountries" @complete="searchCountry($event)" field="name" />
 

@@ -51,7 +51,7 @@ export default {
                     tabName: 'Source',
                     content: `
 <template>
-    <div class="card">
+    <div>
         <TreeTable :value="nodes">
             <template #header>
                 FileSystem
@@ -101,7 +101,7 @@ export default {
                     tabName: 'Composition API',
                     content: `
 <template>
-    <div class="card">
+    <div>
         <TreeTable :value="nodes">
             <template #header>
                 FileSystem

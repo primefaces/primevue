@@ -516,7 +516,7 @@
             </div>
         </div>
 
-        <AppDoc name="ResponsiveDemo" :sources="sources" :service="['CustomerService', 'CountryService', 'ProductService']" :data="['countries', 'customers-large', 'products-small']"></AppDoc>
+        <AppDoc name="ResponsiveDemo" :sources="sources" :service="['CustomerService', 'CountryService', 'ProductService']" :data="['customers-large', 'countries', 'products-small']"></AppDoc>
     </div>
 </template>
 

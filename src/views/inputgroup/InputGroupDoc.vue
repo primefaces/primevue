@@ -11,7 +11,7 @@ export default {
                     tabName: 'Source',
                     content: `
 <template>
-    <div class="card">
+    <div>
         <h5>Addons</h5>
         <div class="p-grid p-fluid">
             <div class="p-col-12 p-md-4">
@@ -133,7 +133,7 @@ export default {
                     tabName: 'Composition API',
                     content: `
 <template>
-    <div class="card">
+    <div>
         <h5>Addons</h5>
         <div class="p-grid p-fluid">
             <div class="p-col-12 p-md-4">

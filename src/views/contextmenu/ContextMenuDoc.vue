@@ -315,7 +315,7 @@ export default {
                tabName: 'Source',
                content: `
 <template>
-   <div class="card">
+   <div>
       <img alt="logo" src="https://www.primefaces.org/wp-content/uploads/2020/05/placeholder.png" @contextmenu="onImageRightClick" aria-haspopup="true">
       <ContextMenu ref="menu" :model="items" />
     </div>
@@ -471,7 +471,7 @@ export default {
                tabName: 'Composition API',
                content: `
 <template>
-   <div class="card">
+   <div>
       <img alt="logo" src="https://www.primefaces.org/wp-content/uploads/2020/05/placeholder.png" @contextmenu="onImageRightClick" aria-haspopup="true">
       <ContextMenu ref="menu" :model="items" />
    </div>

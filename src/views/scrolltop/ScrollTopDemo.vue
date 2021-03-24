@@ -10,7 +10,7 @@
         <div class="content-section implementation">
             <div class="card">
                 <h5>Window</h5>
-                <p>Scroll down the page to display the ScrollTo component.</p>
+                <p>Scroll down the page to display the ScrollTop component.</p>
                 <ScrollTop />
 
                 <h5>Element</h5>

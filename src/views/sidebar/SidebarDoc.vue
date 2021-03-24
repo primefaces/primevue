@@ -211,7 +211,7 @@ export default {
 					tabName: 'Source',
 					content: `
 <template>
-    <div class="card">
+    <div>
         <Button icon="pi pi-arrow-right" @click="visibleLeft = true" class="p-mr-2" />
         <Button icon="pi pi-arrow-left" @click="visibleRight = true" class="p-mr-2"  />
         <Button icon="pi pi-arrow-down" @click="visibleTop = true" class="p-mr-2"  />
@@ -259,7 +259,7 @@ export default {
 					tabName: 'Composition API',
 					content: `
 <template>
-    <div class="card">
+    <div>
         <Button icon="pi pi-arrow-right" @click="visibleLeft = true" class="p-mr-2" />
         <Button icon="pi pi-arrow-left" @click="visibleRight = true" class="p-mr-2"  />
         <Button icon="pi pi-arrow-down" @click="visibleTop = true" class="p-mr-2"  />

@@ -152,7 +152,7 @@ export default {
                     tabName: 'Source',
                     content:`
 <template>
-    <div class="card">
+    <div>
         <h5>Basic</h5>
         <InputText type="text" v-model="value1" />
         <span :style="{marginLeft: '.5em'}">{{value1}}</span>
@@ -236,7 +236,7 @@ export default {
                     tabName: 'Composition API',
                     content:`
 <template>
-    <div class="card">
+    <div>
         <h5>Basic</h5>
         <InputText type="text" v-model="value1" />
         <span :style="{marginLeft: '.5em'}">{{value1}}</span>

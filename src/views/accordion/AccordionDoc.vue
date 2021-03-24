@@ -312,7 +312,7 @@ export default {
 					tabName: 'Source',
 					content: `
 <template>
-    <div class="card">
+    <div>
         <h5>Default</h5>
         <Accordion :activeIndex="0">
             <AccordionTab header="Header I">
@@ -441,7 +441,7 @@ export default {
 					tabName: 'Composition API',
 					content: `
 <template>
-    <div class="card">
+    <div>
         <h5>Default</h5>
         <Accordion :activeIndex="0">
             <AccordionTab header="Header I">

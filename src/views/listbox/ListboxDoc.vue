@@ -358,7 +358,7 @@ export default {
                     tabName: 'Source',
                     content: `
 <template>
-    <div class="card">
+    <div>
         <h5>Single</h5>
         <Listbox v-model="selectedCity" :options="cities" optionLabel="name" style="width:15rem" />
 
@@ -447,7 +447,7 @@ export default {
                     tabName: 'Composition API',
                     content: `
 <template>
-    <div class="card">
+    <div>
         <h5>Single</h5>
         <Listbox v-model="selectedCity" :options="cities" optionLabel="name" style="width:15rem" />
 

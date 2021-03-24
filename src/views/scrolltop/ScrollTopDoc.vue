@@ -109,11 +109,7 @@ export default {
                     tabName: 'Source',
 					content: `
 <template>
-    <div class="card">
-        <h5>Window</h5>
-        <p>Scroll down the page to display the ScrollTo component.</p>
-        <ScrollTop />
-
+    <div>
         <h5>Element</h5>
         <ScrollPanel style="width: 250px; height: 200px">
             <p>
@@ -161,11 +157,7 @@ export default {
                     tabName: 'Composition API',
 					content: `
 <template>
-    <div class="card">
-        <h5>Window</h5>
-        <p>Scroll down the page to display the ScrollTo component.</p>
-        <ScrollTop />
-
+    <div>
         <h5>Element</h5>
         <ScrollPanel style="width: 250px; height: 200px">
             <p>

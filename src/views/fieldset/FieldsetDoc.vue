@@ -180,7 +180,7 @@ export default {
                     tabName: 'Source',
                     content: `
 <template>
-    <div class="card">
+    <div>
         <h5>Regular</h5>
         <Fieldset legend="Header">
             <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.
@@ -201,13 +201,6 @@ export default {
 
 <script>
 export default {
-    data() {
-        return {
-            value1: '',
-            value2: '',
-            value3: 'PrimeVue'
-        }
-    }
 }
 <\\/script>
 
@@ -220,8 +213,9 @@ export default {
                 },
                 'composition-api': {
                     tabName: 'Composition API',
-                    content: `<template>
-    <div class="card">
+                    content: `
+<template>
+    <div>
         <h5>Regular</h5>
         <Fieldset legend="Header">
             <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.
@@ -241,16 +235,7 @@ export default {
 </template>
 
 <script>
-import { ref } from 'vue';
-
 export default {
-    setup() {
-        const value1 = ref('');
-        const value2 = ref('');
-        const value3 = ref('PrimeVue');
-
-        return { value1, value2, value3 }
-    }
 }
 <\\/script>
 

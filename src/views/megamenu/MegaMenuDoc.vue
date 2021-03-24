@@ -254,7 +254,7 @@ export default {
                     tabName: 'Source',
                     content: `
 <template>
-    <div class="card">
+    <div>
         <h5>Horizontal</h5>
         <MegaMenu :model="items" />
 
@@ -389,7 +389,7 @@ export default {
                     tabName: 'Composition API',
                     content: `
 <template>
-    <div class="card">
+    <div>
         <h5>Horizontal</h5>
         <MegaMenu :model="items" />
 

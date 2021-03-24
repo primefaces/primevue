@@ -42,7 +42,7 @@ export default {
                     tabName: 'Source',
                     content: `
 <template>
-    <div class="card">
+    <div>
         <TreeTable :value="nodes" class="p-treetable-responsive">
             <template #header>
                 Responsive
@@ -100,7 +100,7 @@ export default {
                     tabName: 'Composition API',
                     content: `
 <template>
-    <div class="card">
+    <div>
         <TreeTable :value="nodes" class="p-treetable-responsive">
             <template #header>
                 Responsive

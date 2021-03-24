@@ -37,8 +37,9 @@ export default {
             sources: {
                 'options-api': {
                     tabName: 'Source',
-                    content: `<template>
-    <div class="card">
+                    content: `
+<template>
+    <div>
         <TreeTable :value="nodes">
             <template #header>
                 <div style="text-align:left">
@@ -87,8 +88,9 @@ export default {
                 },
                 'composition-api': {
                     tabName: 'Composition API',
-                    content: `<template>
-    <div class="card">
+                    content: `
+<template>
+    <div>
         <TreeTable :value="nodes">
             <template #header>
                 <div style="text-align:left">

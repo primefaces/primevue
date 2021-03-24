@@ -150,7 +150,7 @@ import SkeletonDoc from './SkeletonDoc';
 export default {
     data() {
         return {
-            products: new Array(5)
+            products: new Array(4)
         }
     },
     components: {

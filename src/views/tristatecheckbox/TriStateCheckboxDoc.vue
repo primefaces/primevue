@@ -82,8 +82,9 @@ export default {
 			sources: {
 				'options-api': {
 					tabName: 'Source',
-					content: `<template>
-    <div class="card">
+					content: `
+<template>
+    <div>
         <div class="p-field-checkbox p-m-0">
             <TriStateCheckbox v-model="value" />
             <label>{{value == null ? 'null' : value}}</label>
@@ -104,8 +105,9 @@ export default {
 				},
 				'composition-api': {
 					tabName: 'Composition API',
-					content: `<template>
-    <div class="card">
+					content: `
+<template>
+    <div>
         <div class="p-field-checkbox p-m-0">
             <TriStateCheckbox v-model="value" />
             <label>{{value == null ? 'null' : value}}</label>

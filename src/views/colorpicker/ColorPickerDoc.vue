@@ -169,15 +169,14 @@ export default {
             sources: {
                 'options-api': {
                     tabName: 'Source',
-                    content: `<template>
+                    content: `
+<template>
     <div>
-        <div class="card">
-            <h5>Inline</h5>
-            <ColorPicker v-model="color1" :inline="true" />
+        <h5>Inline</h5>
+        <ColorPicker v-model="color1" :inline="true" />
 
-            <h5>Overlay</h5>
-            <ColorPicker v-model="color2" />
-        </div>
+        <h5>Overlay</h5>
+        <ColorPicker v-model="color2" />
     </div>
 </template>
 
@@ -195,15 +194,14 @@ export default {
                 },
                 'composition-api': {
                     tabName: 'Composition API',
-                    content: `<template>
+                    content: `
+<template>
     <div>
-        <div class="card">
-            <h5>Inline</h5>
-            <ColorPicker v-model="color1" :inline="true" />
+        <h5>Inline</h5>
+        <ColorPicker v-model="color1" :inline="true" />
 
-            <h5>Overlay</h5>
-            <ColorPicker v-model="color2" />
-        </div>
+        <h5>Overlay</h5>
+        <ColorPicker v-model="color2" />
     </div>
 </template>
 
