@@ -1,5 +1,6 @@
 const services = {
-    'CountryService': `import axios from 'axios'
+    'CountryService': `
+import axios from 'axios'
 
 export default class CountryService {
     
@@ -8,7 +9,8 @@ export default class CountryService {
     }
 }    
     `,
-    'CustomerService': `import axios from 'axios'
+    'CustomerService': `
+import axios from 'axios'
 
 export default class CustomerService {
     
@@ -33,7 +35,8 @@ export default class CustomerService {
     }
 }
     `,
-    'EventService': `import axios from 'axios';
+    'EventService': `
+import axios from 'axios';
 
 export default class EventService {
 
@@ -42,7 +45,8 @@ export default class EventService {
     }
 }
     `,
-    'NodeService': `import axios from 'axios';
+    'NodeService': `
+import axios from 'axios';
 
 export default class NodeService {
     
@@ -58,7 +62,8 @@ export default class NodeService {
     
 }
     `,
-    'PhotoService': `import axios from 'axios'
+    'PhotoService': `
+import axios from 'axios'
 
 export default class PhotoService {
 
@@ -68,7 +73,8 @@ export default class PhotoService {
     }
 }
 `,
-    'ProductService': `import axios from 'axios';
+    'ProductService': `
+import axios from 'axios';
 
 export default class ProductService {
 
@@ -404,7 +410,8 @@ const data = {
     ]
 }
     `,
-    'customers-large': `{
+    'customers-large': `
+{
         "data":[
            {
               "id":1000,
@@ -4912,7 +4919,8 @@ const data = {
            }
         ]
       }`,
-    'customers-small': `{
+    'customers-small': `
+{
         "data":[
            {
               "id":1000,

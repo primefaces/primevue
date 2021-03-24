@@ -135,7 +135,7 @@ export default {
                 extImport += `import FullCalendar from 'primevue/fullcalendar';`;
                 extElement += `app.component('FullCalendar', FullCalendar);`;
             }
-            if(name === 'BarChartDemo' || name === 'ComboChartDemo' || name === 'DoughnutChartDemo' || name === 'LineChartDemo' || name === 'PieChartDemo' || name === 'PolarAreaChartDemo' || name === 'RadarChartDemo') {
+            if(name.slice(-9) === 'ChartDemo') {
                 extDependencies['chart.js'] = "2.7.3";
                 extImport += `import Chart from 'primevue/chart';`;
                 extElement += `app.component('Chart', Chart);`;
@@ -148,16 +148,18 @@ export default {
                     serviceArr.push(el.split(','))
                 })
 
-                this.data.forEach(el => {
-                    dataArr.push(el.split(','))
-                })
+                if(this.data) {
+                    this.data.forEach(el => {
+                        dataArr.push(el.split(','))
+                    })
 
-                if(dataArr) {
-                    dataArr.forEach(el => {
-                        _files[`public/data/${el}.json`] = {
-                            content: data[el]
-                        };
-                    });
+                    if(dataArr) {
+                        dataArr.forEach(el => {
+                            _files[`public/data/${el}.json`] = {
+                                content: data[el]
+                            };
+                        });
+                    }
                 }
 
                 serviceArr.forEach(serv => {
@@ -595,7 +597,7 @@ img.flag {
             }
 
             if(pages) {
-                const routes = [];
+                let routes = [], routeImports = '';
 
                 pages.forEach((page, i) => {
                     _files[`src/components/${page.tabName}.vue`] = {
@@ -604,17 +606,20 @@ img.flag {
 
                     let route = '';
 
+                    routeImports += `import ${page.tabName} from './components/${page.tabName}.vue';
+`;
+
                     if(i === 0) {
                         route += `{
-                            path: "/",
-                            component: () => import("./components/${page.tabName}.vue")
-                        }`;
+    path: "/",
+    component: ${page.tabName}
+}`;
                     }
                     else {
                         route += `{
-                            path: "/${page.tabName.slice(0, -4).toLowerCase()}",
-                            component: () => import("./components/${page.tabName}.vue")
-                        }`;
+    path: "/${page.tabName.slice(0, -4).toLowerCase()}",
+    component: ${page.tabName}
+}`;
                     }
 
                     routes.push(route);
@@ -622,15 +627,11 @@ img.flag {
 
                 _files['src/router.js'] = {
                     'content': `import { createRouter, createWebHistory } from "vue-router";
-
+${routeImports}
 export const router = createRouter({
     history: createWebHistory(),
     routes: [
-        {
-            path: "/",
-            component: () => import("./${name}.vue"),
-            children: [${routes}]
-        }
+        ${routes}
     ]
 });
 `
@@ -665,12 +666,3 @@ export const router = createRouter({
     }
 }
 </script>
-
-<style lang="scss" scoped>
-.liveEditorSplitButton {
-    color: red;
-    a:hover {
-        text-decoration: none;
-    }
-}
-</style>
