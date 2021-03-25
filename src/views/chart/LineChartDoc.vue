@@ -1,5 +1,5 @@
 <template>
-	<AppDoc name="LineChartDemo" :sources="sources" />
+	<AppDoc name="ChartDemo" :sources="sources" :dependencies="{'chart.js': '2.7.3'}" />
 </template>
 
 <script>
@@ -11,7 +11,7 @@ export default {
 					tabName: 'Source',
 					content: `
 <template>
-    <div
+    <div>
         <div class="card">
             <h5>Basic</h5>
             <Chart type="line" :data="basicData" :options="basicOptions" />

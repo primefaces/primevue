@@ -1,5 +1,5 @@
 <template>
-	<AppDoc name="DoughnutChartDemo" :sources="sources" />
+	<AppDoc name="ChartDemo" :sources="sources" :dependencies="{'chart.js': '2.7.3'}" />
 </template>
 
 <script>
