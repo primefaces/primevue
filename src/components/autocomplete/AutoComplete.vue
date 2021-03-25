@@ -79,6 +79,10 @@ export default {
         appendTo: {
             type: String,
             default: null
+        },
+        forceSelection: {
+            type: Boolean,
+            default: false
         }
     },
     timeout: null,
@@ -401,6 +405,30 @@ export default {
                 }
             }
         },
+        onChange(event) {
+            if (this.forceSelection) {
+                let valid = false;
+                let inputValue = event.target.value.trim();
+
+                if (this.suggestions)  {
+                    for (let item of this.suggestions) {
+                        let itemValue = this.field ? ObjectUtils.resolveFieldData(item, this.field) : item;
+                        if (itemValue && inputValue === itemValue.trim()) {
+                            valid = true;
+                            this.selectItem(event, item);
+                            break;
+                        }
+                    }
+                }
+
+                if (!valid) {
+                    this.$refs.input.value = '';
+                    this.inputTextValue = '';
+                    this.$emit('clear');
+                    this.$emit('input', null);
+                }
+            }
+        },
         isSelected(val) {
             let selected = false;
             if (this.value && this.value.length) {
@@ -438,7 +466,8 @@ export default {
                 input: this.onInput,
                 focus: this.onFocus,
                 blur: this.onBlur,
-                keydown: this.onKeyDown
+                keydown: this.onKeyDown,
+                change: this.onChange
             };
         },
         containerClass() {
