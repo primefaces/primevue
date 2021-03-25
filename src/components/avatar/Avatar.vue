@@ -63,6 +63,9 @@ export default {
 .p-avatar.p-avatar-circle {
     border-radius: 50%;
 }
+.p-avatar-circle img {
+    border-radius: 50%;
+}
 .p-avatar .p-avatar-icon {
     font-size: 1rem;
 }
