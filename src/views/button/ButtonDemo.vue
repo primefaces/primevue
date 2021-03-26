@@ -159,7 +159,7 @@ export default {
     }
 }
 
-@media screen and (max-width: 6400px) {
+@media screen and (max-width: 640px) {
     .p-button {
         margin-bottom: .5rem;
 
