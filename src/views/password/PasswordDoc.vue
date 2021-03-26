@@ -150,6 +150,32 @@ import Password from 'primevue/password';
                 <h5>Events</h5>
                 <p>Any valid event such as focus, blur and input are passed to the underlying input element.</p>
 
+                <h5>Slots</h5>
+                <div class="doc-tablewrapper">
+                    <table class="doc-table">
+                        <thead>
+                            <tr>
+                                <th>Name</th>
+                                <th>Parameters</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <tr>
+                                <td>header</td>
+                                <td>-</td>
+                            </tr>
+                            <tr>
+                                <td>content</td>
+                                <td>-</td>
+                            </tr>
+                            <tr>
+                                <td>footer</td>
+                                <td>-</td>
+                            </tr>
+                        </tbody>
+                    </table>
+                </div>
+
 				<h5>Styling</h5>
 				<p>Following is the list of structural style classes, for theming classes visit <router-link to="/theming">theming</router-link> page.</p>
 				<div class="doc-tablewrapper">

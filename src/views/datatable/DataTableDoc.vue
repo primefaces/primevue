@@ -2355,6 +2355,41 @@ export default {
                     </table>
                 </div>
 
+                <h5>Column Slots</h5>
+                <div class="doc-tablewrapper">
+                    <table class="doc-table">
+                        <thead>
+                            <tr>
+                                <th>Name</th>
+                                <th>Parameters</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <tr>
+                                <td>header</td>
+                                <td>column: Column node</td>
+                            </tr>
+                            <tr>
+                                <td>body</td>
+                                <td>data: Row data <br />
+                                    column: Column node <br />
+                                    index: Row index <br />
+                                    frozenRow: Is row frozen</td>
+                            </tr>
+                            <tr>
+                                <td>footer</td>
+                                <td>column: Column node</td>
+                            </tr>
+                            <tr>
+                                <td>editor</td>
+                                <td>data: Row data <br />
+                                    column: Column node <br />
+                                    index: Row index</td>
+                            </tr>
+                        </tbody>
+                    </table>
+                </div>
+
                 <h5>Styling</h5>
                 <p>Any property as style and class are passed to the main container element. Following are the additional properties to configure the component.</p>
 

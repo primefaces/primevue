@@ -150,6 +150,25 @@ export default {
 					</table>
 				</div>
 
+                <h5>Slots</h5>
+                <div class="doc-tablewrapper">
+                    <table class="doc-table">
+                        <thead>
+                            <tr>
+                                <th>Name</th>
+                                <th>Parameters</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <tr>
+                                <td>option</td>
+                                <td>option: Option instance<br />
+                                    index: Index of the option</td>
+                            </tr>
+                        </tbody>
+                    </table>
+                </div>
+
 				<h5>Dependencies</h5>
 				<p>None.</p>
 			</TabPanel>
