@@ -1,11 +1,11 @@
 <template>
 	<AppDoc name="TooltipDemo" :sources="sources">
         <h5>Getting Started</h5>
-		<p>Tooltip is a directive that needs to be imported and configured with a name of your choice. Global configuration is done with the <i>Vue.directive</i> function.</p>
+		<p>Tooltip is a directive that needs to be imported and configured with a name of your choice. Global configuration is done with the <i>app.directive</i> function.</p>
 <pre v-code.script><code>
 import Tooltip from 'primevue/tooltip';
 
-Vue.directive('tooltip', Tooltip);
+app.directive('tooltip', Tooltip);
 
 </code></pre>
 
