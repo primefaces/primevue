@@ -750,6 +750,17 @@
             ]
         },
         {
+            "name": "Validation",
+            "meta": ["validation"],
+            "children": [
+                {
+                    "name": "Vuelidate",
+                    "to": "/vuelidate",
+                    "badge": "New"
+                }
+            ]
+        },
+        {
             "name": "Misc",
             "meta": ["misc"],
             "children": [

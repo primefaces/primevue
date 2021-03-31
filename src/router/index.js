@@ -815,6 +815,11 @@ const routes = [
         path: '/galleria/advanced',
         name: 'galleriaadvvanced',
         component: () => import('../views/galleria/GalleriaAdvancedDemo.vue')
+    },
+    {
+        path: '/vuelidate',
+        name: 'vuelidateform',
+        component: () => import('../views/validation/VuelidateFormDemo.vue')
     }
 ];
 

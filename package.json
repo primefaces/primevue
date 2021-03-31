@@ -35,6 +35,8 @@
     "@vue/cli-plugin-router": "~4.5.0",
     "@vue/cli-service": "~4.5.0",
     "@vue/compiler-sfc": "^3.0.0",
+    "@vuelidate/core": "^2.0.0-alpha.14",
+    "@vuelidate/validators": "^2.0.0-alpha.12",
     "axios": "^0.19.0",
     "babel-eslint": "^10.1.0",
     "chart.js": "2.7.3",
