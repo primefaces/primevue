@@ -11,7 +11,8 @@ export default {
         data: null,
         dependencies: null,
         extPages: null,
-        extFiles: null
+        extFiles: null,
+        component: null
     },
     methods: {
         renderPanels() {
@@ -26,7 +27,7 @@ export default {
                 /* eslint-disable */
                 tabs.push(
                     <TabPanel header={this.sources[sourceType].tabName}>
-                        <LiveEditor name={this.name} sources={this.sources} service={this.service} data={this.data} dependencies={this.dependencies} extPages={this.extPages} extFiles={this.extFiles}/>
+                        <LiveEditor name={this.name} sources={this.sources} service={this.service} data={this.data} dependencies={this.dependencies} extPages={this.extPages} extFiles={this.extFiles} component={this.component}/>
                         <pre v-code><code>
                             {this.sources[sourceType].content.replace('<\\/script>', '<\/script>')}
                         </code></pre>

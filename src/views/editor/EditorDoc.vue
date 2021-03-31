@@ -1,5 +1,5 @@
 <template>
-	<AppDoc name="EditorDemo" :sources="sources" :dependencies="{'quill': '^1.3.7'}">
+	<AppDoc name="EditorDemo" :sources="sources" :dependencies="{'quill': '^1.3.7'}" component="Editor">
         <h5>Import</h5>
 <pre v-code.script><code>
 import Editor from 'primevue/editor';

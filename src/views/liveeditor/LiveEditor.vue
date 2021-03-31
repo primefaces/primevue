@@ -1,5 +1,5 @@
 <template>
-    <span v-if="showEditor">
+    <span v-if="showEditor" class="p-d-flex p-jc-end">
         <SplitButton :model="items" label="Edit in CodeSandbox" class="liveEditorSplitButton" @click="openDefaultCSB" />
     </span>
 </template>
@@ -44,6 +44,10 @@ export default {
         },
         extFiles: {
             type: Object,
+            default: null
+        },
+        component: {
+            type: String,
             default: null
         }
     },
@@ -340,9 +344,9 @@ ${extIndexCSS}
             let pages = this.extPages ? this.extPages : '';
             let _files = {}, element = '';
 
-            if(this.dependencies) {
-                extImport += `import ${name.slice(0, -4)} from 'primevue/${name.slice(0, -4).toLowerCase()}';`
-                extElement += `app.component('${name.slice(0, -4)}', ${name.slice(0, -4)});`;
+            if(this.component) {
+                extImport += `import ${this.component} from 'primevue/${this.component.toLowerCase()}';`
+                extElement += `app.component('${this.component}', ${this.component});`;
             }
 
             if (this.service) {
