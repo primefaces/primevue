@@ -1003,6 +1003,10 @@
   transition-duration: 0.2s;
 }
 
+.p-float-label > label.p-error {
+  color: #ef9a9a;
+}
+
 .p-input-icon-left > i:first-of-type {
   left: 0.5rem;
   color: rgba(255, 255, 255, 0.6);
