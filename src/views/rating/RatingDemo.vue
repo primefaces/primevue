@@ -15,6 +15,9 @@
                 <h5>Without Cancel</h5>
                 <Rating v-model="val2" :cancel="false" />
 
+                <h5>Decimal</h5>
+                <Rating v-model="val3" :cancel="false" />
+
                 <h5>ReadOnly</h5>
                 <Rating :modelValue="5" :readonly="true" :stars="10" :cancel="false" />
 
@@ -35,6 +38,7 @@ export default {
         return {
             val1: null,
             val2: 3,
+            val3: 3.5
         }
     },
     components: {

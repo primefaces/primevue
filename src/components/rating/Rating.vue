@@ -2,7 +2,7 @@
     <div :class="containerClass">
         <span class="p-rating-icon p-rating-cancel pi pi-ban" :tabindex="focusIndex" v-if="cancel" @click="onCancelClick"></span>
         <span :key="i" v-for="i in stars" @click="onStarClick($event,i)" :tabindex="focusIndex" @keydown.enter.prevent="onStarClick($event,i)"
-            :class="['p-rating-icon', {'pi pi-star-o': (i > modelValue), 'pi pi-star': (i <= modelValue)}]"></span>
+            :class="['p-rating-icon', iconClass(i)]" :style="'--full: '+full+';'"></span>
     </div>
 </template>
 
@@ -48,6 +48,11 @@ export default {
                 originalEvent: event,
                 value: value
             });
+        },
+        iconClass(i) {
+            if (i <= this.modelValue) return 'pi pi-star';
+            if (this.isPartial && i === this.intPart + 1) return 'pi pi-star partial';
+            if (i > this.modelValue) return 'pi pi-star-o';
         }
     },
     computed: {
@@ -62,6 +67,18 @@ export default {
         },
         focusIndex() {
             return (this.disabled || this.readonly) ? null : '0';
+        },
+        intPart: function () {
+            return Math.floor(this.modelValue);
+        },
+        decimalPart: function () {
+            return this.modelValue - Math.floor(this.modelValue);
+        },
+        isPartial: function () {
+            return this.decimalPart !== 0;
+        },
+        full: function () {
+            return (this.decimalPart) * 100 + '%';
         }
     }
 }
@@ -74,5 +91,18 @@ export default {
 
 .p-rating.p-rating-readonly .p-rating-icon {
     cursor: default;
+}
+
+.p-rating .p-rating-icon.pi-star{
+    -webkit-text-stroke: var(--primary-color) .78px;
+}
+.p-rating .p-rating-icon.pi-star.partial {
+    color: transparent;
+    background: var(--primary-color);
+    background: -webkit-gradient(linear, left top, right top, from(var(--primary-color)), to(transparent));
+    background: -webkit-linear-gradient(left, var(--primary-color) 0 var(--full), transparent var(--full) 100%);
+    background: linear-gradient(to right, var(--primary-color) 0 var(--full), transparent var(--full) 100%);
+    -webkit-background-clip: text;
+    background-clip: text;
 }
 </style>
