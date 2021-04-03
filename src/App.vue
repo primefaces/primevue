@@ -41,7 +41,7 @@ export default {
     data() {
         return {
             sidebarActive: false,
-            newsActive: true,
+            newsActive: false,
             theme: 'saga-blue'
         }
     },
