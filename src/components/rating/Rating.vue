@@ -75,7 +75,12 @@ export default {
             return this.modelValue - Math.floor(this.modelValue);
         },
         isPartial: function () {
-            return this.decimalPart !== 0;
+            const gradientSupported = (typeof CSS === 'object') && CSS.supports('background',
+                '-webkit-gradient(linear, left top, right top, from(var(--primary-color)), to(transparent))' +
+                'or -webkit-linear-gradient(left, var(--primary-color) 0 var(--full), transparent var(--full) 100%)' +
+                'or linear-gradient(to right, var(--primary-color) 0 var(--full), transparent var(--full) 100%)'
+            )
+            return gradientSupported && this.decimalPart !== 0;
         },
         full: function () {
             return (this.decimalPart) * 100 + '%';
@@ -98,7 +103,6 @@ export default {
 }
 .p-rating .p-rating-icon.pi-star.partial {
     color: transparent;
-    background: var(--primary-color);
     background: -webkit-gradient(linear, left top, right top, from(var(--primary-color)), to(transparent));
     background: -webkit-linear-gradient(left, var(--primary-color) 0 var(--full), transparent var(--full) 100%);
     background: linear-gradient(to right, var(--primary-color) 0 var(--full), transparent var(--full) 100%);

@@ -18,6 +18,10 @@
                 <h5>Decimal</h5>
                 <Rating v-model="val3" :cancel="false" />
 
+                <Message severity="warn">
+                    Partial ratings are only supported by browsers with support for CSS Variables and Gradient Midpoints. Unsupported browsers will use a rounded down value.
+                </Message>
+
                 <h5>ReadOnly</h5>
                 <Rating :modelValue="5" :readonly="true" :stars="10" :cancel="false" />
 
@@ -32,6 +36,7 @@
 
 <script>
 import RatingDoc from './RatingDoc';
+import Message from "../../components/message/Message";
 
 export default {
     data() {
@@ -42,6 +47,7 @@ export default {
         }
     },
     components: {
+        Message,
         'RatingDoc': RatingDoc
     }
 }
