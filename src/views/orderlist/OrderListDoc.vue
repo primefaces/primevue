@@ -203,7 +203,7 @@ export default {
         return {
             sources: {
                 'options-api': {
-                    tabName: 'Source',
+                    tabName: 'Options API Source',
                     content: `
 <template>
     <div class="card">
@@ -308,7 +308,7 @@ export default {
 </style>`
                 },
                 'composition-api': {
-                    tabName: 'Composition API',
+                    tabName: 'Composition API Source',
                     content: `
 <template>
     <div class="card">

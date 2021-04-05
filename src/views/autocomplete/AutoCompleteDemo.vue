@@ -5,7 +5,7 @@
                 <h1>AutoComplete</h1>
                 <p>AutoComplete is an input component that provides real-time suggestions when being typed.</p>
             </div>
-            <AppInputStyleSwitch />
+            
         </div>
 
         <div class="content-section implementation">

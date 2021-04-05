@@ -1,11 +1,13 @@
 <template>
     <span v-if="showEditor" class="p-d-flex p-jc-end">
-        <SplitButton :model="items" label="Edit in CodeSandbox" class="liveEditorSplitButton" @click="openDefaultCSB" />
+        <SplitButton :model="items" label="Edit in CodeSandbox" class="liveEditorSplitButton" @click="openDefaultCSB" v-show="false"/>
     </span>
 </template>
 
 <script>
+import EventBus from '@/AppEventBus';
 import { services, data } from './LiveEditorData';
+
 export default {
     data() {
         return {
@@ -50,6 +52,14 @@ export default {
             type: String,
             default: null
         }
+    },
+    mounted() {
+        EventBus.on('run-demo', type => {
+            this.postSandboxParameters(type);
+        });
+    },
+    beforeUnmount() {
+        EventBus.off('view-github');
     },
     methods: {
         postSandboxParameters(sourceType) {

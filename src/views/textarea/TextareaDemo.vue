@@ -5,7 +5,7 @@
                 <h1>Textarea</h1>
                 <p>Textarea is a multi-line text input element.</p>
             </div>
-            <AppInputStyleSwitch />
+            
         </div>
 
         <div class="content-section implementation">

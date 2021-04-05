@@ -5,7 +5,7 @@
                 <h1>Float Label</h1>
                 <p>All input text components support floating labels.</p>
             </div>
-            <AppInputStyleSwitch />
+            
         </div>
 
         <div class="content-section implementation">
@@ -218,7 +218,7 @@ export default {
             ],
             sources: {
                 'options-api': {
-                    tabName: 'Source',
+                    tabName: 'Options API Source',
                     content: `
 <template>
     <div>
@@ -453,7 +453,7 @@ export default {
 `
                 },
                 'composition-api': {
-                    tabName: 'Composition API',
+                    tabName: 'Composition API Source',
                     content: `
 <template>
     <div>

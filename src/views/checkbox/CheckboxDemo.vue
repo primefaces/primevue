@@ -5,7 +5,7 @@
                 <h1>Checkbox</h1>
                 <p>Checkbox is an extension to standard checkbox element with theming.</p>
             </div>
-            <AppInputStyleSwitch />
+            
         </div>
 
         <div class="content-section implementation">

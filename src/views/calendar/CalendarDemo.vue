@@ -5,7 +5,7 @@
                 <h1>Calendar</h1>
                 <p>Calendar is an input component to select a date.</p>
             </div>
-            <AppInputStyleSwitch />
+            
         </div>
 
         <div class="content-section implementation">

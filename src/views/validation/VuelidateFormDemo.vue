@@ -5,7 +5,7 @@
                 <h1>Vuelidate</h1>
                 <p>PrimeVue components can be easily used/integrated with <a href="https://vuelidate.js.org/">Vuelidate</a>. In this example, a register panel is simulated using Vuelidate.</p>
             </div>
-            <AppInputStyleSwitch />
+            
         </div>
 
         <div class="content-section implementation form-demo">
@@ -117,7 +117,7 @@ export default {
             showMessage: false,
             sources: {
                 'options-api': {
-                    tabName: 'Source',
+                    tabName: 'Options API Source',
                     content: `
 <template>
     <div class="form-demo">
@@ -304,7 +304,7 @@ export default {
 `
                 },
                 'composition-api': {
-                    tabName: 'Composition API',
+                    tabName: 'Composition API Source',
                     content: `
 <template>
     <div class="form-demo">

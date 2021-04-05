@@ -5,7 +5,7 @@
                 <h1>InputText</h1>
                 <p>InputText renders a text field to enter data.</p>
             </div>
-            <AppInputStyleSwitch />
+            <AppDemoActions />
         </div>
 
         <div class="content-section implementation">

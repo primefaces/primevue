@@ -5,7 +5,7 @@
                 <h1>Invalid State</h1>
                 <p>All form components have an invalid state style to display the validation errors.</p>
             </div>
-            <AppInputStyleSwitch />
+            
         </div>
 
         <div class="content-section implementation">

@@ -1,4 +1,5 @@
 <script>
+import EventBus from '@/AppEventBus';
 import LiveEditor from './views/liveeditor/LiveEditor';
 import { services, data } from './views/liveeditor/LiveEditorData';
 
@@ -12,7 +13,16 @@ export default {
         dependencies: null,
         extPages: null,
         extFiles: null,
-        component: null
+        component: null,
+        github: null
+    },
+    mounted() {
+        EventBus.on('view-github', () => {
+            window.open('https://github.com/primefaces/primevue/blob/master/src/views/' + this.github, '_blank');
+        });
+    },
+    beforeUnmount() {
+        EventBus.off('view-github');
     },
     methods: {
         renderPanels() {
@@ -22,31 +32,8 @@ export default {
                 tabs.push(<TabPanel header="Documentation">{this.$slots.default()}</TabPanel>);
             }
 
-            if (this.sources) {
-                const sourceType = this.$appState.sourceType; //options-api or composition-api
-                /* eslint-disable */
-                tabs.push(
-                    <TabPanel header={this.sources[sourceType].tabName}>
-                        <LiveEditor name={this.name} sources={this.sources} service={this.service} data={this.data} dependencies={this.dependencies} extPages={this.extPages} extFiles={this.extFiles} component={this.component}/>
-                        <pre v-code><code>
-                            {this.sources[sourceType].content.replace('<\\/script>', '<\/script>')}
-                        </code></pre>
-                    </TabPanel>
-                );
-            }
-
-            if (this.extPages) {
-                /* eslint-disable */
-                this.extPages.forEach(file => {
-                    tabs.push(
-                        <TabPanel key={file.tabName} header={file.tabName}>
-                            <pre v-code><code>
-                                {file.content.replace('<\\/script>', '<\/script>')}
-                            </code></pre>
-                        </TabPanel>
-                    );
-                });
-            }
+            this.renderSource('options-api', tabs);
+            this.renderSource('composition-api', tabs);
 
             if (this.service) {
                 let serviceArr = [];
@@ -57,7 +44,7 @@ export default {
                 /* eslint-disable */
                 serviceArr.forEach((el, i) => {
                     tabs.push(
-                        <TabPanel key="service" header={`${el}.js`}>
+                        <TabPanel key={el} header={`${el}.js`}>
                             <pre v-code="script"><code>
                                 {services[el]}
                             </code></pre>
@@ -85,11 +72,23 @@ export default {
             }
 
             return tabs;
+        },
+        renderSource(sourceType, tabs) {
+            if (this.sources && this.sources[sourceType]) {
+                tabs.push(
+                    <TabPanel key={sourceType} header={this.sources[sourceType].tabName}>
+                        <pre v-code><code>
+                            {this.sources[sourceType].content.replace('<\\/script>', '<\\/script>')}
+                        </code></pre>
+                    </TabPanel>
+                );
+            }
         }
     },
     render() {
         return (
-            <div class="content-section documentation">
+            <div class="content-section documentation" id="app-doc">
+                <LiveEditor name={this.name} sources={this.sources} service={this.service} data={this.data} dependencies={this.dependencies} extPages={this.extPages} extFiles={this.extFiles} component={this.component} />
                 <TabView>
                     {
                         this.renderPanels()

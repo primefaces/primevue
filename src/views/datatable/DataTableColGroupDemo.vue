@@ -69,7 +69,7 @@ export default {
             sales: null,
             sources: {
                 'options-api': {
-                    tabName: 'Source',
+                    tabName: 'Options API Source',
                     content: `
 <template>
     <DataTable :value="sales" responsiveLayout="scroll">
@@ -169,7 +169,7 @@ export default {
 `
                 },
                 'composition-api': {
-                    tabName: 'Composition API',
+                    tabName: 'Composition API Source',
                     content: `
 <template>
     <DataTable :value="sales" responsiveLayout="scroll">

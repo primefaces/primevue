@@ -34,6 +34,12 @@
                     }
                 }
             }
+
+            .app-demoactions {
+                .p-button-icon-only {
+                    padding: .5rem 0;
+                }
+            }
         }
 
         &.implementation {

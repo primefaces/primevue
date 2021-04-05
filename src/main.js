@@ -95,6 +95,7 @@ import TriStateCheckbox from './components/tristatecheckbox/TriStateCheckbox';
 import Galleria from './components/galleria/Galleria';
 
 import AppInputStyleSwitch from './AppInputStyleSwitch';
+import AppDemoActions from './AppDemoActions';
 import AppDocumentation from './AppDocumentation';
 import CodeHighlight from './AppCodeHighlight';
 
@@ -208,6 +209,7 @@ app.component('TreeTable', TreeTable);
 app.component('TriStateCheckbox', TriStateCheckbox);
 app.component('Galleria', Galleria);
 
+app.component('AppDemoActions', AppDemoActions);
 app.component('AppInputStyleSwitch', AppInputStyleSwitch);
 app.component('AppDoc', AppDocumentation);
 app.directive('code', CodeHighlight);

@@ -1,5 +1,5 @@
 <template>
-	<AppDoc name="InputTextDemo" :sources="sources">
+	<AppDoc name="InputTextDemo" :sources="sources" github="inputtext/InputTextDemo.vue">
         <h5>Import</h5>
 <pre v-code.script><code>
 import InputText from 'primevue/inputtext';
@@ -149,7 +149,7 @@ export default {
         return {
             sources: {
                 'options-api': {
-                    tabName: 'Source',
+                    tabName: 'Options API Source',
                     content:`
 <template>
     <div>
@@ -233,7 +233,7 @@ export default {
 </style>`
                 },
                 'composition-api': {
-                    tabName: 'Composition API',
+                    tabName: 'Composition API Source',
                     content:`
 <template>
     <div>

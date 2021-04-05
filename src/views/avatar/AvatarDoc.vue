@@ -179,7 +179,7 @@ export default {
 		return {
 			sources: {
 				'options-api': {
-					tabName: 'Source',
+					tabName: 'Options API Source',
 					content: `
 <template>
     <div class="p-grid">
@@ -276,7 +276,7 @@ export default {
 `
 				},
 				'composition-api': {
-					tabName: 'Composition API',
+					tabName: 'Composition API Source',
 					content: `
 <template>
     <div class="p-grid">

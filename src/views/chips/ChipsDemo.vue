@@ -5,7 +5,7 @@
                 <h1>Chips</h1>
                 <p>Chips is used to enter multiple values on an input field.</p>
             </div>
-            <AppInputStyleSwitch />
+            
         </div>
 
         <div class="content-section implementation p-fluid">
