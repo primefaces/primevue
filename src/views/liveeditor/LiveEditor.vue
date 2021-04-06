@@ -59,7 +59,7 @@ export default {
         });
     },
     beforeUnmount() {
-        EventBus.off('view-github');
+        EventBus.off('run-demo');
     },
     methods: {
         postSandboxParameters(sourceType) {
@@ -361,7 +361,7 @@ ${extIndexCSS}
 
             if (this.service) {
                 let dataArr = [], serviceArr = [];
-                
+
                 this.service.forEach(el => {
                     serviceArr.push(el.split(','))
                 })
@@ -604,7 +604,7 @@ app.mount("#app");
 `
             }
 
-            _files[`src/${name}${extension}`] = {       
+            _files[`src/${name}${extension}`] = {
                     content: `${content}
 `
             }
