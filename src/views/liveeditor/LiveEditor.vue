@@ -59,7 +59,7 @@ export default {
         });
     },
     beforeUnmount() {
-        EventBus.off('run-demo');
+        EventBus.off('run-demo').reset();
     },
     methods: {
         postSandboxParameters(sourceType) {
