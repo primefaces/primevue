@@ -184,7 +184,7 @@ export default {
                 </Column>
                 <Column header="Country" :sortable="true" sortField="country.name" filterField="country.name" filterMatchMode="contains" style="width:25%">
                     <template #body="slotProps">
-                        <img src="https://www.primefaces.org/wp-content/uploads/2020/05/placeholder.png" width="30" />
+                        <img src="https://www.primefaces.org/wp-content/uploads/2020/05/placeholder.png" width="20" />
                         <span class="image-text">{{slotProps.data.country.name}}</span>
                     </template>
                     <template #filter>
@@ -193,14 +193,14 @@ export default {
                 </Column>
                 <Column header="Representative" :sortable="true" sortField="representative.name" filterField="representative.name" filterMatchMode="in" style="width:25%">
                     <template #body="slotProps">
-                        <img :alt="slotProps.data.representative.name" src="https://www.primefaces.org/wp-content/uploads/2020/05/placeholder.png" width="32" style="vertical-align: middle" />
+                        <img :alt="slotProps.data.representative.name" src="https://www.primefaces.org/wp-content/uploads/2020/05/placeholder.png" width="20" style="vertical-align: middle" />
                         <span class="image-text">{{slotProps.data.representative.name}}</span>
                     </template>
                         <template #filter>
                         <MultiSelect v-model="filters1['representative.name']" :options="representatives" optionLabel="name" optionValue="name" placeholder="All" class="p-column-filter">
                             <template #option="slotProps">
                                 <div class="p-multiselect-representative-option">
-                                    <img :alt="slotProps.option.name" src="https://www.primefaces.org/wp-content/uploads/2020/05/placeholder.png" width="32" style="vertical-align: middle" />
+                                    <img :alt="slotProps.option.name" src="https://www.primefaces.org/wp-content/uploads/2020/05/placeholder.png" width="20" style="vertical-align: middle" />
                                     <span class="image-text">{{slotProps.option.name}}</span>
                                 </div>
                             </template>
@@ -243,7 +243,7 @@ export default {
                 </Column>
                 <Column header="Country" :sortable="true" sortField="country.name" filterField="country.name" filterMatchMode="contains" style="width:25%">
                     <template #body="slotProps">
-                        <img src="https://www.primefaces.org/wp-content/uploads/2020/05/placeholder.png" width="30" />
+                        <img src="https://www.primefaces.org/wp-content/uploads/2020/05/placeholder.png" width="20" />
                         <span class="image-text">{{slotProps.data.country.name}}</span>
                     </template>
                     <template #filter>
@@ -252,14 +252,14 @@ export default {
                 </Column>
                 <Column header="Representative" :sortable="true" sortField="representative.name" filterField="representative.name" filterMatchMode="in" style="width:25%">
                     <template #body="slotProps">
-                        <img :alt="slotProps.data.representative.name" src="https://www.primefaces.org/wp-content/uploads/2020/05/placeholder.png" width="32" style="vertical-align: middle" />
+                        <img :alt="slotProps.data.representative.name" src="https://www.primefaces.org/wp-content/uploads/2020/05/placeholder.png" width="20" style="vertical-align: middle" />
                         <span class="image-text">{{slotProps.data.representative.name}}</span>
                     </template>
                         <template #filter>
                         <MultiSelect v-model="filters2['representative.name']" :options="representatives" optionLabel="name" optionValue="name" placeholder="All" class="p-column-filter">
                             <template #option="slotProps">
                                 <div class="p-multiselect-representative-option">
-                                    <img :alt="slotProps.option.name" src="https://www.primefaces.org/wp-content/uploads/2020/05/placeholder.png" width="32" style="vertical-align: middle" />
+                                    <img :alt="slotProps.option.name" src="https://www.primefaces.org/wp-content/uploads/2020/05/placeholder.png" width="20" style="vertical-align: middle" />
                                     <span class="image-text">{{slotProps.option.name}}</span>
                                 </div>
                             </template>
@@ -349,7 +349,7 @@ export default {
                 </Column>
                 <Column header="Country" :sortable="true" sortField="country.name" filterField="country.name" filterMatchMode="contains" style="width:25%">
                     <template #body="slotProps">
-                        <img src="https://www.primefaces.org/wp-content/uploads/2020/05/placeholder.png" width="30" />
+                        <img src="https://www.primefaces.org/wp-content/uploads/2020/05/placeholder.png" width="20" />
                         <span class="image-text">{{slotProps.data.country.name}}</span>
                     </template>
                     <template #filter>
@@ -358,14 +358,14 @@ export default {
                 </Column>
                 <Column header="Representative" :sortable="true" sortField="representative.name" filterField="representative.name" filterMatchMode="in" style="width:25%">
                     <template #body="slotProps">
-                        <img :alt="slotProps.data.representative.name" src="https://www.primefaces.org/wp-content/uploads/2020/05/placeholder.png" width="32" style="vertical-align: middle" />
+                        <img :alt="slotProps.data.representative.name" src="https://www.primefaces.org/wp-content/uploads/2020/05/placeholder.png" width="20" style="vertical-align: middle" />
                         <span class="image-text">{{slotProps.data.representative.name}}</span>
                     </template>
                         <template #filter>
                         <MultiSelect v-model="filters1['representative.name']" :options="representatives" optionLabel="name" optionValue="name" placeholder="All" class="p-column-filter">
                             <template #option="slotProps">
                                 <div class="p-multiselect-representative-option">
-                                    <img :alt="slotProps.option.name" src="https://www.primefaces.org/wp-content/uploads/2020/05/placeholder.png" width="32" style="vertical-align: middle" />
+                                    <img :alt="slotProps.option.name" src="https://www.primefaces.org/wp-content/uploads/2020/05/placeholder.png" width="20" style="vertical-align: middle" />
                                     <span class="image-text">{{slotProps.option.name}}</span>
                                 </div>
                             </template>
@@ -408,7 +408,7 @@ export default {
                 </Column>
                 <Column header="Country" :sortable="true" sortField="country.name" filterField="country.name" filterMatchMode="contains" style="width:25%">
                     <template #body="slotProps">
-                        <img src="https://www.primefaces.org/wp-content/uploads/2020/05/placeholder.png" width="30" />
+                        <img src="https://www.primefaces.org/wp-content/uploads/2020/05/placeholder.png" width="20" />
                         <span class="image-text">{{slotProps.data.country.name}}</span>
                     </template>
                     <template #filter>
@@ -417,14 +417,14 @@ export default {
                 </Column>
                 <Column header="Representative" :sortable="true" sortField="representative.name" filterField="representative.name" filterMatchMode="in" style="width:25%">
                     <template #body="slotProps">
-                        <img :alt="slotProps.data.representative.name" src="https://www.primefaces.org/wp-content/uploads/2020/05/placeholder.png" width="32" style="vertical-align: middle" />
+                        <img :alt="slotProps.data.representative.name" src="https://www.primefaces.org/wp-content/uploads/2020/05/placeholder.png" width="20" style="vertical-align: middle" />
                         <span class="image-text">{{slotProps.data.representative.name}}</span>
                     </template>
                         <template #filter>
                         <MultiSelect v-model="filters2['representative.name']" :options="representatives" optionLabel="name" optionValue="name" placeholder="All" class="p-column-filter">
                             <template #option="slotProps">
                                 <div class="p-multiselect-representative-option">
-                                    <img :alt="slotProps.option.name" src="https://www.primefaces.org/wp-content/uploads/2020/05/placeholder.png" width="32" style="vertical-align: middle" />
+                                    <img :alt="slotProps.option.name" src="https://www.primefaces.org/wp-content/uploads/2020/05/placeholder.png" width="20" style="vertical-align: middle" />
                                     <span class="image-text">{{slotProps.option.name}}</span>
                                 </div>
                             </template>
@@ -457,13 +457,18 @@ import CustomerService from './service/CustomerService';
 
 export default {
     setup() {
+        onMounted(() => {
+            customerService.value.getCustomersMedium().then(data => customers.value = data);
+        })
+
         const customers = ref();
+        const customerService = ref(new CustomerService());
         const selectedCustomer1 = ref();
         const selectedCustomer2 = ref();
-        const filters1: {},
-        const filters2: {},
-        const loading: true,
-        const representatives: [
+        const filters1 = ref({});
+        const filters2 = ref({});
+        const loading = ref(true);
+        const representatives = ref([
             {name: "Amy Elsner", image: 'amyelsner.png'},
             {name: "Anna Fali", image: 'annafali.png'},
             {name: "Asiya Javayant", image: 'asiyajavayant.png'},
@@ -474,17 +479,12 @@ export default {
             {name: "Onyama Limba", image: 'onyamalimba.png'},
             {name: "Stephen Shaw", image: 'stephenshaw.png'},
             {name: "XuXue Feng", image: 'xuxuefeng.png'}
-        ],
-        statuses: [
+        ]);
+        const statuses = ref([
             'unqualified', 'qualified', 'new', 'negotiation', 'renewal', 'proposal'
-        ]
-    },
-    customerService: null,
-    created() {
-        this.customerService = new CustomerService();
-    },
-    mounted() {
-        this.customerService.getCustomersMedium().then(data => this.customers = data);
+        ]);
+
+        return { customers, customerService, selectedCustomer1, selectedCustomer2, filters1, filters2, loading, representatives, statuses }
     }
 }
 <\\/script>                  

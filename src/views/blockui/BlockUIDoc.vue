@@ -236,7 +236,7 @@ button {
 import { ref } from 'vue';
 
 export default {
-    data() {
+    setup() {
         const blockedPanel = ref(false);
         const blockedDocument = ref(false);
         const blockDocument = () => {
