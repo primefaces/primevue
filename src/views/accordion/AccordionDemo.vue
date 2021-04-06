@@ -5,6 +5,7 @@
                 <h1>Accordion</h1>
                 <p>Accordion groups a collection of contents in tabs.</p>
             </div>
+            <AppDemoActions />
         </div>
 
         <div class="content-section implementation">

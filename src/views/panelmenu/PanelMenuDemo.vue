@@ -5,6 +5,7 @@
                 <h1>PanelMenu</h1>
                 <p>PanelMenu is a hybrid of Accordion and Tree components.</p>
             </div>
+            <AppDemoActions />
         </div>
 
         <div class="content-section implementation">

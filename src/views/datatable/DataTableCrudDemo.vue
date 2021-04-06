@@ -5,6 +5,7 @@
 				<h1>DataTable <span>Crud</span></h1>
 				<p>This sample demonstrates a CRUD implementation using various PrimeVue components.</p>
 			</div>
+            <AppDemoActions />
 		</div>
 
 		<div class="content-section implementation">
@@ -158,7 +159,7 @@
             </Dialog>
 		</div>
 
-       <AppDoc name="DataTableCrudDemo" :sources="sources" :service="['ProductService']" :data="['products']" />
+       <AppDoc name="DataTableCrudDemo" :sources="sources" :service="['ProductService']" :data="['products']" github="datatable/DataTableCrudDemo.vue" />
 	</div>
 </template>
 

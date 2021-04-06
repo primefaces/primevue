@@ -5,6 +5,7 @@
 				<h1>DataTable <span>Sort</span></h1>
 				<p>Enabling sortable property on a column is enough to make a column sortable. Multiple column sorting is enabled using sortMode property and used with metaKey.</p>
 			</div>
+            <AppDemoActions />
 		</div>
 
 		<div class="content-section implementation">
@@ -70,7 +71,7 @@
             </div>
 		</div>
 
-        <AppDoc name="DataTableSortDemo" :sources="sources" :service="['ProductService']" :data="['products-small']" />
+        <AppDoc name="DataTableSortDemo" :sources="sources" :service="['ProductService']" :data="['products-small']" github="datatable/DataTableSortDemo.vue" />
 
 	</div>
 </template>

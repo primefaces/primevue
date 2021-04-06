@@ -1,5 +1,5 @@
 <template>
-	<AppDoc name="TerminalDemo" :sources="sources">
+	<AppDoc name="TerminalDemo" :sources="sources" github="terminal/TerminalDemo.vue" >
         <h5>Import</h5>
 <pre v-code.script><code>
 import Terminal from 'primevue/terminal';

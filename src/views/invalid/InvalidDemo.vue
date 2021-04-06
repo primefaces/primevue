@@ -5,7 +5,7 @@
                 <h1>Invalid State</h1>
                 <p>All form components have an invalid state style to display the validation errors.</p>
             </div>
-            
+            <AppDemoActions />
         </div>
 
         <div class="content-section implementation">
@@ -49,7 +49,7 @@
             </div>
         </div>
 
-        <AppDoc name="InvalidDemo" :sources="sources" :service="['CountryService']" :data="['countries']" />
+        <AppDoc name="InvalidDemo" :sources="sources" :service="['CountryService']" :data="['countries']" github="invalid/InvalidDemo.vue" />
     </div>
 </template>
 
@@ -157,7 +157,7 @@ export default {
             ],
             sources: {
                 'options-api': {
-                    tabName :'Source',
+                    tabName :'Options API Source',
                     content: `
 <template>
     <div>
@@ -330,7 +330,7 @@ export default {
 `
                 },
                 'composition-api': {
-                    tabName :'Composition API',
+                    tabName :'Composition API Source',
                     content: `
 <template>
     <div>

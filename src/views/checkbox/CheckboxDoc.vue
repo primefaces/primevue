@@ -1,5 +1,5 @@
 <template>
-    <AppDoc name="CheckboxDemo" :sources="sources">
+    <AppDoc name="CheckboxDemo" :sources="sources" github="checkbox/CheckboxDemo.vue">
         <h5>Import</h5>
 <pre v-code.script><code>
 import Checkbox from 'primevue/checkbox';

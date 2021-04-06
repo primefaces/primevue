@@ -1,5 +1,5 @@
 <template>
-	<AppDoc name="TreeTableDemo" :sources="sources" :service="['NodeService']" :data="['treetablenodes']" >
+	<AppDoc name="TreeTableDemo" :sources="sources" :service="['NodeService']" :data="['treetablenodes']" github="treetable/TreeTableDemo.vue" >
         <h5>Import</h5>
 <pre v-code.script><code>
 import TreeTable from 'primevue/treetable';

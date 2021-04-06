@@ -1,5 +1,8 @@
 <template>
 	<div>
+        <div class="content-section introduction">
+            <AppDemoActions />
+		</div>
         <div class="content-section implementation">
             <div class="card" style="height: calc(100vh - 143px)">
                 <DataTable :value="customers" :scrollable="true" scrollHeight="flex">
@@ -11,7 +14,7 @@
             </div>
         </div>
 
-        <AppDoc name="DataTableFlexScrollDemo" :sources="sources" :service="['CustomerService']" :data="['customers-large']" />    
+        <AppDoc name="DataTableFlexScrollDemo" :sources="sources" :service="['CustomerService']" :data="['customers-large']" github="datatable/DataTableFlexScrollDemo.vue" />    
 	</div>
 </template>
 

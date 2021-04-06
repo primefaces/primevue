@@ -5,6 +5,7 @@
                 <h1>ScrollTop</h1>
                 <p>ScrollTop gets displayed after a certain scroll position and used to navigates to the top of the page quickly.</p>
             </div>
+            <AppDemoActions />
         </div>
 
         <div class="content-section implementation">

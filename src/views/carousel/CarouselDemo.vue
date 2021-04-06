@@ -5,6 +5,7 @@
 				<h1>Carousel</h1>
 				<p>Carousel is a content slider featuring various customization options.</p>
 			</div>
+            <AppDemoActions />
 		</div>
 
 		<div class="content-section implementation">

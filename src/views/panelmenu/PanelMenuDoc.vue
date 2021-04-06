@@ -1,5 +1,5 @@
 <template>
-	<AppDoc name="PanelMenuDemo" :sources="sources">
+	<AppDoc name="PanelMenuDemo" :sources="sources" github="panelmenu/PanelMenuDemo.vue">
         <h5>Import</h5>
 <pre v-code.script><code>
 import PanelMenu from 'primevue/panelmenu';

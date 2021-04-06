@@ -1,5 +1,5 @@
 <template>
-	<AppDoc name="FieldsetDemo" :sources="sources">
+	<AppDoc name="FieldsetDemo" :sources="sources" github="fieldset/FieldsetDemo.vue">
         <h5>Import</h5>
 <pre v-code.script><code>
 import Fieldset from 'primevue/fieldset';

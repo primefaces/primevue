@@ -5,7 +5,7 @@
                 <h1>Vuelidate</h1>
                 <p>PrimeVue components can be easily used/integrated with <a href="https://vuelidate.js.org/">Vuelidate</a>. In this example, a register panel is simulated using Vuelidate.</p>
             </div>
-            
+            <AppDemoActions />
         </div>
 
         <div class="content-section implementation form-demo">
@@ -92,7 +92,8 @@
             </div>
         </div>
 
-        <AppDoc name="VuelidateFormDemo" :sources="sources" :service="['CountryService']" :data="['countries']" :dependencies="{'@vuelidate/core': '^2.0.0-alpha.14', '@vuelidate/validators': '^2.0.0-alpha.12'}"/>
+        <AppDoc name="VuelidateFormDemo" :sources="sources" :service="['CountryService']" :data="['countries']" github="validation/VuelidateFormDemo.vue"
+            :dependencies="{'@vuelidate/core': '^2.0.0-alpha.14', '@vuelidate/validators': '^2.0.0-alpha.12'}"/>
 
     </div>
 </template>

@@ -5,6 +5,7 @@
                 <h1>FilterService</h1>
                 <p>FilterService is a helper utility to filter collections against constraints.</p>
             </div>
+            <AppDemoActions />
         </div>
 
         <div class="content-section implementation">

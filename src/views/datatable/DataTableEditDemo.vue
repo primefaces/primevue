@@ -7,6 +7,7 @@
                     so that the editing behavior is implemented by the page author whether it utilizes v-model or vuex.
                 </p>
 			</div>
+            <AppDemoActions />
 		</div>
 
 		<div class="content-section implementation p-fluid">
@@ -92,7 +93,7 @@
             </div>
 		</div>
 
-        <AppDoc name="DataTableEditDemo" :sources="sources" :service="['ProductService']" :data="['products-small']" />
+        <AppDoc name="DataTableEditDemo" :sources="sources" :service="['ProductService']" :data="['products-small']" github="datatable/DataTableEditDemo.vue" />
 	</div>
 </template>
 

@@ -5,6 +5,7 @@
                 <h1>Card</h1>
                 <p>Card is a flexible container component.</p>
             </div>
+            <AppDemoActions />
         </div>
 
         <div class="content-section implementation">

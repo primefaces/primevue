@@ -1,5 +1,5 @@
 <template>
-	<AppDoc name="RadioButtonDemo" :sources="sources">
+	<AppDoc name="RadioButtonDemo" :sources="sources" github="radiobutton/RadioButtonDemo.vue" >
         <h5>Import</h5>
 <pre v-code.script><code>
 import RadioButton from 'primevue/radiobutton';

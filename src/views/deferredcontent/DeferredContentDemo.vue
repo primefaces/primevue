@@ -5,6 +5,7 @@
                 <h1>DeferredContent</h1>
                 <p>DeferredContent postpones the loading the content that is initially not in the viewport until it becomes visible on scroll.</p>
             </div>
+            <AppDemoActions />
         </div>
 
         <div class="content-section implementation">

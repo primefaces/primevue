@@ -5,6 +5,7 @@
 				<h1>DataTable <span>ColumnGroup</span></h1>
 				<p>Columns can be grouped at header and footer using headerColumnGroup and footerColumnGroup components.</p>
 			</div>
+            <AppDemoActions />
 		</div>
 
 		<div class="content-section implementation">
@@ -58,7 +59,7 @@
             </div>
 		</div>
 
-        <AppDoc name="DataTableColGroupDemo" :sources="sources" />
+        <AppDoc name="DataTableColGroupDemo" :sources="sources" github="datatable/DataTableColGroupDemo.vue" />
 	</div>
 </template>
 

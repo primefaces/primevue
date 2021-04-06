@@ -78,7 +78,7 @@ export default {
                 tabs.push(
                     <TabPanel key={sourceType} header={this.sources[sourceType].tabName}>
                         <pre v-code><code>
-                            {this.sources[sourceType].content.replace('<\\/script>', '<\\/script>')}
+                            {this.sources[sourceType].content.replace('<\\/script>', '<\/script>')}
                         </code></pre>
                     </TabPanel>
                 );

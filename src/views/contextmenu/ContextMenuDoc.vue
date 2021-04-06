@@ -1,5 +1,5 @@
 <template>
-	<AppDoc name="ContextMenuDemo" :sources="sources">
+	<AppDoc name="ContextMenuDemo" :sources="sources" github="contextmenu/ContextMenuDemo.vue">
         <h5>Import</h5>
 <pre v-code.script><code>
 import ContextMenu from 'primevue/contextmenu';

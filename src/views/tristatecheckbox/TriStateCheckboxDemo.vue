@@ -5,7 +5,7 @@
                 <h1>TriStateCheckbox</h1>
                 <p>TriStateCheckbox is used to select either "true", "false" or "null" as the value.</p>
             </div>
-            
+            <AppDemoActions />
         </div>
 
         <div class="content-section implementation">

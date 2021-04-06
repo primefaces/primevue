@@ -1,5 +1,5 @@
 <template>
-    <AppDoc name="ToggleButtonDemo" :sources="sources">
+    <AppDoc name="ToggleButtonDemo" :sources="sources" github="togglebutton/ToggleButtonDemo.vue" >
         <h5>Import</h5>
 <pre v-code.script><code>
 import ToggleButton from 'primevue/togglebutton';

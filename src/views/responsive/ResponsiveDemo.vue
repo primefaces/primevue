@@ -5,6 +5,7 @@
                 <h1>Responsive Design</h1>
                 <p>PrimeVue components are optimized for different screen sizes.</p>
             </div>
+            <AppDemoActions />
         </div>
 
         <div class="content-section implementation">
@@ -516,7 +517,8 @@
             </div>
         </div>
 
-        <AppDoc name="ResponsiveDemo" :sources="sources" :service="['CustomerService', 'CountryService', 'ProductService']" :data="['customers-large', 'countries', 'products-small']"></AppDoc>
+        <AppDoc name="ResponsiveDemo" :sources="sources" :service="['CustomerService', 'CountryService', 'ProductService']" 
+            :data="['customers-large', 'countries', 'products-small']" github="responsive/ResponsiveDemo.vue" />
     </div>
 </template>
 

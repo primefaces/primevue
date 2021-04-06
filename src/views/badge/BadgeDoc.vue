@@ -1,5 +1,5 @@
 <template>
-	<AppDoc name="BadgeDemo" :sources="sources">
+	<AppDoc name="BadgeDemo" :sources="sources" github="badge/BadgeDemo.vue">
         <h5>Getting Started</h5>
         <p>Badge can either be used as a standalone component or as a directive.</p>
 

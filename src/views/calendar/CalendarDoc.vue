@@ -1,5 +1,5 @@
 <template>
-	<AppDoc name="CalendarDemo" :sources="sources">
+	<AppDoc name="CalendarDemo" :sources="sources" github="calendar/CalendarDemo.vue">
         <h5>Import</h5>
 <pre v-code.script><code>
 import Calendar from 'primevue/calendar';

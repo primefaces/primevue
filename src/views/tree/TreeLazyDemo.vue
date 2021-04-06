@@ -5,6 +5,7 @@
                 <h1>Tree <span>Lazy</span></h1>
                 <p>Lazy loading is handy when dealing with huge datasets. This example imitates a lazy loading case with timeouts.</p>
             </div>
+            <AppDemoActions />
         </div>
 
         <div class="content-section implementation">
@@ -13,7 +14,7 @@
             </div>
         </div>
 
-        <AppDoc name="TreeLazyDemo" :sources="sources" :service="['NodeService']" :data="['treenodes']" />
+        <AppDoc name="TreeLazyDemo" :sources="sources" :service="['NodeService']" :data="['treenodes']" github="tree/TreeLazyDemo.vue" />
     </div>
 </template>
 

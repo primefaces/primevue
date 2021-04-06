@@ -5,6 +5,7 @@
                 <h1>ProgressSpinner</h1>
                 <p>ProgressSpinner is a process status indicator.</p>
             </div>
+            <AppDemoActions />
         </div>
 
         <div class="content-section implementation">

@@ -6,6 +6,7 @@
 				<p>Columns can be resized using drag drop by setting the resizableColumns to true. There are two resize modes; "fit" and "expand". Fit is the default one and the overall table width does not change when a column is resized.
                     In "expand" mode, table width also changes along with the column width.</p>
 			</div>
+            <AppDemoActions />
 		</div>
 
         <div class="content-section implementation">
@@ -28,7 +29,7 @@
             </div>
         </div>
 
-        <AppDoc name="TreeTableColResizeDemo" :sources="sources" :service="['NodeService']" :data="['treetablenodes']" />
+        <AppDoc name="TreeTableColResizeDemo" :sources="sources" :service="['NodeService']" :data="['treetablenodes']" github="treetable/TreeTableColResizeDemo.vue" />
                 
     </div>
 </template>

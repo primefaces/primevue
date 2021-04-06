@@ -5,6 +5,7 @@
                 <h1>Breadcrumb</h1>
                 <p>Breadcrumb provides contextual information about page hierarchy.</p>
             </div>
+            <AppDemoActions />
         </div>
 
         <div class="content-section implementation">

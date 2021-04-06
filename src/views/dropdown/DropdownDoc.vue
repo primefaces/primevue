@@ -1,5 +1,5 @@
 <template>
-	<AppDoc name="DropdownDemo" :sources="sources">
+	<AppDoc name="DropdownDemo" :sources="sources" github="dropdown/DropdownDemo.vue">
         <h5>Import</h5>
 <pre v-code.script><code>
 import Dropdown from 'primevue/dropdown';
@@ -577,7 +577,7 @@ export default {
 </style>`
                 },
                 'composition-api': {
-                    tabName: 'Options API Source',
+                    tabName: 'Composition API Source',
                     content: `
 <template>
     <div>

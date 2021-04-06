@@ -5,6 +5,7 @@
 				<h1>DataTable <span>Export</span></h1>
 				<p>DataTable can export its data to CSV format.</p>
 			</div>
+            <AppDemoActions />
 		</div>
 
 		<div class="content-section implementation">
@@ -23,7 +24,7 @@
             </div>
 		</div>
         
-        <AppDoc name="DataTableExportDemo" :sources="sources" :service="['ProductService']" :data="['products-small']" />
+        <AppDoc name="DataTableExportDemo" :sources="sources" :service="['ProductService']" :data="['products-small']" github="datatable/DataTableExportDemo.vue" />
 	</div>
 </template>
 

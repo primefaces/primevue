@@ -5,6 +5,7 @@
 				<h1>DataTable <span>Size</span></h1>
 				<p>In addition to a regular table, alternatives with alternative sizes are available.</p>
 			</div>
+            <AppDemoActions />
 		</div>
 
 		<div class="content-section implementation">
@@ -45,7 +46,7 @@
             </div>
 		</div>
 
-        <AppDoc name="DataTableSizeDemo" :sources="sources" :service="['ProductService']" :data="['products-small']" />
+        <AppDoc name="DataTableSizeDemo" :sources="sources" :service="['ProductService']" :data="['products-small']" github="datatable/DataTableSizeDemo.vue" />
     
 	</div>
 </template>

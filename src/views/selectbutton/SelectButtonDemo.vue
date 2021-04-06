@@ -5,6 +5,7 @@
                 <h1>SelectButton</h1>
                 <p>SelectButton is a form component to choose a value from a list of options using button elements.</p>
             </div>
+            <AppDemoActions />
         </div>
 
         <div class="content-section implementation">

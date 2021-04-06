@@ -5,6 +5,7 @@
                 <h1>Divider</h1>
                 <p>Divider is used to separate contents.</p>
             </div>
+            <AppDemoActions />
         </div>
 
         <div class="content-section implementation">

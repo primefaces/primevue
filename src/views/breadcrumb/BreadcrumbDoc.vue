@@ -1,5 +1,5 @@
 <template>
-	<AppDoc name="BreadcrumbDemo" :sources="sources">
+	<AppDoc name="BreadcrumbDemo" :sources="sources" github="breadcrumb/BreadcrumbDemo.vue">
         <h5>Import</h5>
 <pre v-code.script><code>
 import Breadcrumb from 'primevue/breadcrumb';

@@ -5,6 +5,7 @@
                 <h1>Skeleton</h1>
                 <p>Skeleton is a placeholder to display instead of the actual content.</p>
             </div>
+            <AppDemoActions />
         </div>
 
         <div class="content-section implementation">

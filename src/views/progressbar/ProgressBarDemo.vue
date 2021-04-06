@@ -5,6 +5,7 @@
                 <h1>ProgressBar</h1>
                 <p>ProgressBar is a process status indicator.</p>
             </div>
+            <AppDemoActions />
         </div>
 
         <div class="content-section implementation">

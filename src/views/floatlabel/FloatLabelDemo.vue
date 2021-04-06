@@ -5,7 +5,7 @@
                 <h1>Float Label</h1>
                 <p>All input text components support floating labels.</p>
             </div>
-            
+            <AppDemoActions />
         </div>
 
         <div class="content-section implementation">
@@ -107,7 +107,7 @@
             </div>
         </div>
 
-        <AppDoc name="FloatLabelDemo" :sources="sources" :service="['CountryService']" :data="['countries']" />
+        <AppDoc name="FloatLabelDemo" :sources="sources" :service="['CountryService']" :data="['countries']" github="floatlabel/FloatLabelDemo.vue" />
     </div>
 </template>
 

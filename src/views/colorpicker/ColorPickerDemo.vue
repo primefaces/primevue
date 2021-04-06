@@ -5,6 +5,7 @@
                 <h1>ColorPicker</h1>
                 <p>ColorPicker is an input component to select a color.</p>
             </div>
+            <AppDemoActions />
         </div>
 
         <div class="content-section implementation">

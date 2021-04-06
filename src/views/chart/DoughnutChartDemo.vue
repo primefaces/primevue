@@ -5,6 +5,7 @@
                 <h1>DoughnutChart</h1>
                 <p>A doughnut chart is a variant of the pie chart, with a blank center allowing for additional information about the data as a whole to be included.</p>
             </div>
+            <AppDemoActions />
         </div>
 
         <div class="content-section implementation">

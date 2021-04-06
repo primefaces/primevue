@@ -5,6 +5,7 @@
 				<h1>DataTable <span>Filter</span></h1>
 				<p>Filtering feature provides advanced and flexible options to query the data.</p>
 			</div>
+            <AppDemoActions />
 		</div>
 
 		<div class="content-section implementation">
@@ -208,7 +209,7 @@
             </div>
 		</div>
 
-        <AppDoc name="DataTableFilterDemo" :sources="sources" :service="['CustomerService']" :data="['customers-large']" />
+        <AppDoc name="DataTableFilterDemo" :sources="sources" :service="['CustomerService']" :data="['customers-large']" github="datatable/DataTableFilterDemo.vue" />
 	</div>
 </template>
 

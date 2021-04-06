@@ -5,6 +5,7 @@
                 <h1>Editor</h1>
                 <p>Editor is rich text editor component based on Quill.</p>
             </div>
+            <AppDemoActions />
         </div>
 
         <div class="content-section implementation">

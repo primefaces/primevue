@@ -5,6 +5,7 @@
 				<h1>DataTable <span>Column Toggle</span></h1>
 				<p>MultiSelect component can be used to implement column toggle functionality.</p>
 			</div>
+            <AppDemoActions />
 		</div>
 
 		<div class="content-section implementation">
@@ -22,7 +23,7 @@
             </div>
 		</div>
 
-        <AppDoc name="DataTableColToggleDemo" :sources="sources" :service="['ProductService']" :data="['products-small']" />
+        <AppDoc name="DataTableColToggleDemo" :sources="sources" :service="['ProductService']" :data="['products-small']" github="datatable/DataTableColToggleDemo.vue" />
 	</div>
 </template>
 

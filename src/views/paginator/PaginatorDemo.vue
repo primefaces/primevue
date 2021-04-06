@@ -5,6 +5,7 @@
 				<h1>Paginator</h1>
 				<p>Paginator is a generic component to display content in paged format.</p>
 			</div>
+            <AppDemoActions />
 		</div>
 
 		<div class="content-section implementation">

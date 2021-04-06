@@ -5,6 +5,7 @@
 				<h1>DataTable <span>ContextMenu</span></h1>
 				<p>CDataTable has exclusive integration with ContextMenu.</p>
 			</div>
+            <AppDemoActions />
 		</div>
 
 		<div class="content-section implementation">
@@ -24,7 +25,7 @@
             <ContextMenu :model="menuModel" ref="cm" />
 		</div>
 
-        <AppDoc name="DataTableContextMenuDemo" :sources="sources" :service="['ProductService']" :data="['products-small']" />
+        <AppDoc name="DataTableContextMenuDemo" :sources="sources" :service="['ProductService']" :data="['products-small']" github="datatable/DataTableContextMenuDemo.vue" />
 	</div>
 </template>
 

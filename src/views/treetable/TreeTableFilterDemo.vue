@@ -5,6 +5,7 @@
                 <h1>TreeTable <span>Filter</span></h1>
                 <p>Filtering is enabled by defining a filter template per column to populate the filters property of the TreTable.</p>
             </div>
+            <AppDemoActions />
         </div>
 
         <div class="content-section implementation">
@@ -67,7 +68,7 @@
             </div>
         </div>
 
-        <AppDoc name="TreeTableFilterDemo" :sources="sources" :service="['NodeService']" :data="['treetablenodes']" />
+        <AppDoc name="TreeTableFilterDemo" :sources="sources" :service="['NodeService']" :data="['treetablenodes']" github="treetable/TreeTableFilterDemo.vue" />
     </div>
 </template>
 

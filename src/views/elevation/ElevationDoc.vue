@@ -1,5 +1,5 @@
 <template>
-	<AppDoc name="ElevationDemo" :sources="sources">
+	<AppDoc name="ElevationDemo" :sources="sources" github="elevation/ElevationDemo.vue">
 		<h5>Getting Started</h5>
 		<p>Elevation is added to an element using the <i>.p-shadow-{level}</i> class.</p>
 <pre v-code><code>

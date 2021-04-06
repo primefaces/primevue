@@ -1,5 +1,5 @@
 <template>
-	<AppDoc name="TooltipDemo" :sources="sources">
+	<AppDoc name="TooltipDemo" :sources="sources" github="tooltip/TooltipDemo.vue" >
         <h5>Getting Started</h5>
 		<p>Tooltip is a directive that needs to be imported and configured with a name of your choice. Global configuration is done with the <i>app.directive</i> function.</p>
 <pre v-code.script><code>

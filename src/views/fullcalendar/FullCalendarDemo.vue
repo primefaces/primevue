@@ -5,6 +5,7 @@
                 <h1>FullCalendar</h1>
                 <p>An event calendar based on the <a href="https://fullcalendar.io/">FullCalendar</a> library.</p>
             </div>
+            <AppDemoActions />
         </div>
 
         <div class="content-section implementation">

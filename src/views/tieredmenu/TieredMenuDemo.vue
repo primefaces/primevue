@@ -5,6 +5,7 @@
                 <h1>TieredMenu</h1>
                 <p>TieredMenu displays submenus in nested overlays.</p>
             </div>
+            <AppDemoActions />
         </div>
 
         <div class="content-section implementation">

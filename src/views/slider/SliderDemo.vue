@@ -5,7 +5,7 @@
                 <h1>Slider</h1>
                 <p>Slider is an input component to provide a numerical input.</p>
             </div>
-            
+            <AppDemoActions />
         </div>
 
         <div class="content-section implementation">

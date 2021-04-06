@@ -5,6 +5,7 @@
                 <h1>Ripple</h1>
                 <p>Ripple directive adds ripple effect to the host element.</p>
             </div>
+            <AppDemoActions />
         </div>
 
         <div class="content-section implementation">

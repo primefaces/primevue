@@ -5,6 +5,7 @@
                 <h1>Message</h1>
                 <p>Messages is used to display inline messages with various severities.</p>
             </div>
+            <AppDemoActions />
         </div>
 
         <div class="content-section implementation">

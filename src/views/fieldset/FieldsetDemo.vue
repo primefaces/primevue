@@ -5,6 +5,7 @@
                 <h1>Fieldset</h1>
                 <p>Fieldset is a grouping component with the optional content toggle feature.</p>
             </div>
+            <AppDemoActions />
         </div>
 
         <div class="content-section implementation">

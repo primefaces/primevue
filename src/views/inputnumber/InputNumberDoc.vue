@@ -1,5 +1,5 @@
 <template>
-	<AppDoc name="InputNumberDemo" :sources="sources">
+	<AppDoc name="InputNumberDemo" :sources="sources" github="inputnumber/InputNumberDemo.vue">
         <h5>Import</h5>
 <pre v-code.script><code>
 import InputNumber from 'primevue/inputnumber';
@@ -360,7 +360,7 @@ export default {
         return {
             sources: {
                 'options-api': {
-                    tabName : 'Source',
+                    tabName : 'Options API Source',
                     content: `
 <template>
     <div>
@@ -497,7 +497,7 @@ export default {
 `               
                 },
                 'composition-api': {
-                    tabName : 'Composition API',
+                    tabName : 'Composition API Source',
                     content: `
 <template>
     <div>

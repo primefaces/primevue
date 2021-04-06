@@ -5,6 +5,7 @@
 				<h1>DataTable <span>Selection</span></h1>
 				<p>DataTable provides single and multiple selection modes based on row click or using radio button and checkbox elements.</p>
 			</div>
+            <AppDemoActions />
 		</div>
 
 		<div class="content-section implementation">
@@ -81,7 +82,7 @@
             </div>
 		</div>
 
-        <AppDoc name="DataTableSelectionDemo" :sources="sources" :service="['ProductService']" :data="['products-small']" />
+        <AppDoc name="DataTableSelectionDemo" :sources="sources" :service="['ProductService']" :data="['products-small']" github="datatable/DataTableSelectionDemo.vue" />
                   
 	</div>
 </template>

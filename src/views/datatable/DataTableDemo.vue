@@ -5,6 +5,7 @@
 				<h1>DataTable</h1>
 				<p>DataTable displays data in tabular format.</p>
 			</div>
+            <AppDemoActions />
 		</div>
 
 		<div class="content-section implementation">

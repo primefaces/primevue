@@ -5,6 +5,7 @@
                 <h1>Display</h1>
                 <p>Efficiently configure the display of the component with <a href="https://github.com/primefaces/primeflex">PrimeFlex</a> display utilities.</p>
             </div>
+            <AppDemoActions />
         </div>
 
         <div class="content-section implementation">

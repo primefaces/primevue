@@ -5,6 +5,7 @@
 				<h1>DataTable <span>Row Expansion</span></h1>
 				<p>A row can be expanded to display additional content.</p>
 			</div>
+            <AppDemoActions />
 		</div>
 
 		<div class="content-section implementation">
@@ -69,7 +70,7 @@
             </div>
 		</div>
 
-        <AppDoc name="DataTableRowExpandDemo" :sources="sources" :service="['ProductService']" :data="['products-orders-small']" />
+        <AppDoc name="DataTableRowExpandDemo" :sources="sources" :service="['ProductService']" :data="['products-orders-small']" github="datatable/DataTableRowExpandDemo.vue" />
             
 	</div>
 </template>

@@ -1,5 +1,9 @@
 <template>
     <div>
+        <div class="content-section introduction">
+            <AppDemoActions />
+        </div>
+
         <div class="content-section implementation flexgrid-demo">
             <h1>Grid System</h1>
             <p>Grid is a lightweight flex based responsive layout utility optimized for mobile phones, tablets and desktops.</p>
@@ -400,7 +404,7 @@ export default {
 }
 </script>
 
-<style lang="scss">
+<style lang="scss" scoped>
 .flexgrid-demo {
     .box {
         background-color: var(--surface-e);

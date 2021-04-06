@@ -5,6 +5,7 @@
                 <h1>BarChart</h1>
                 <p>A bar chart or bar graph is a chart that presents grouped data with rectangular bars with lengths proportional to the values that they represent.</p>
             </div>
+            <AppDemoActions />
         </div>
 
         <div class="content-section implementation">

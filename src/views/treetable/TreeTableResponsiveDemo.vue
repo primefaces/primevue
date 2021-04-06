@@ -5,6 +5,7 @@
                 <h1>TreeTable - Responsive</h1>
                 <p>TreeTable display can be optimized according for different screen sizes, this example demonstrates a demo where columns are stacked on small screens.</p>
             </div>
+            <AppDemoActions />
         </div>
 
         <div class="content-section implementation">
@@ -26,7 +27,7 @@
             </div>
         </div>
 
-        <AppDoc name="TreeTableResponsiveDemo" :sources="sources" :service="['NodeService']" :data="['treetablenodes']" />
+        <AppDoc name="TreeTableResponsiveDemo" :sources="sources" :service="['NodeService']" :data="['treetablenodes']" github="treetable/TreeTableResponsiveDemo.vue" />
     </div>
 </template>
 

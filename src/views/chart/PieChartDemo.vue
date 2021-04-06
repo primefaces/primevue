@@ -5,6 +5,7 @@
                 <h1>Pie Chart</h1>
                 <p>A pie chart is a circular statistical graphic, which is divided into slices to illustrate numerical proportion.</p>
             </div>
+            <AppDemoActions />
         </div>
 
         <div class="content-section implementation">

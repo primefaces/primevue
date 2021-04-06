@@ -5,6 +5,7 @@
                 <h1>ToggleButton</h1>
                 <p>ToggleButton is used to select a boolean value using a button.</p>
             </div>
+            <AppDemoActions />
         </div>
 
         <div class="content-section implementation">

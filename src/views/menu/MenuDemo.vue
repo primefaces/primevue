@@ -5,6 +5,7 @@
                 <h1>Menu</h1>
                 <p>Menu is a navigation / command component that supports dynamic and static positioning.</p>
             </div>
+            <AppDemoActions />
         </div>
 
         <div class="content-section implementation">

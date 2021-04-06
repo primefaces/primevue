@@ -5,6 +5,7 @@
                 <h1>TabView</h1>
                 <p>TabView is a container component to group content with tabs.</p>
             </div>
+            <AppDemoActions />
         </div>
 
         <div class="content-section implementation">

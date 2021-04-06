@@ -1,5 +1,5 @@
 <template>
-	<AppDoc name="TextDemo" :sources="sources">
+	<AppDoc name="TextDemo" :sources="sources" github="text/TextDemo.vue">
         <h5>Getting Started</h5>
         <p>The text classes use the <i>p-text-{value}</i> syntax.</p>
 

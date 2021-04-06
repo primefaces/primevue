@@ -5,6 +5,7 @@
                 <h1>OrganizationChart</h1>
                 <p>OrganizationChart visualizes hierarchical organization data.</p>
             </div>
+            <AppDemoActions />
         </div>
 
         <div class="content-section implementation">

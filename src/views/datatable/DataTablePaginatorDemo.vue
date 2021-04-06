@@ -5,6 +5,7 @@
 				<h1>DataTable <span>Paginator</span></h1>
 				<p>Pagination is enabled by setting paginator property to true and defining the rows attribute as the number of rows per page.</p>
 			</div>
+            <AppDemoActions />
 		</div>
 
 		<div class="content-section implementation">
@@ -27,7 +28,7 @@
             </div>
 		</div>
 
-        <AppDoc name="DataTablePaginatorDemo" :sources="sources" :service="['CustomerService']" :data="['customers-large']" />
+        <AppDoc name="DataTablePaginatorDemo" :sources="sources" :service="['CustomerService']" :data="['customers-large']" github="datatable/DataTablePaginatorDemo.vue" />
                   
 	</div>
 </template>

@@ -5,6 +5,7 @@
                 <h1>Timeline</h1>
                 <p>Timeline visualizes a series of chained events.</p>
             </div>
+            <AppDemoActions />
         </div>
 
         <div class="content-section implementation">

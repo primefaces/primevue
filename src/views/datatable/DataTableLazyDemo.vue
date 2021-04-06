@@ -8,6 +8,7 @@
                     so that paginator displays the UI assuming there are actually records of totalRecords size although in reality they aren't as in lazy mode, only the records that are displayed on the current page exist.
                 </p>
 			</div>
+            <AppDemoActions />
 		</div>
 
 		<div class="content-section implementation">
@@ -39,7 +40,7 @@
             </div>
 		</div>
  
-        <AppDoc name="DataTableLazyDemo" :sources="sources" :service="['CustomerService']" />
+        <AppDoc name="DataTableLazyDemo" :sources="sources" :service="['CustomerService']" github="datatable/DataTableLazyDemo.vue" />
 	</div>
 </template>
 

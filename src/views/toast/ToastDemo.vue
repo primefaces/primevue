@@ -5,6 +5,7 @@
                 <h1>Toast</h1>
                 <p>Toast is used to display messages in an overlay.</p>
             </div>
+            <AppDemoActions />
         </div>
 
         <div class="content-section implementation">

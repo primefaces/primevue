@@ -5,6 +5,7 @@
                 <h1>Avatar</h1>
                 <p>Avatar represents people using icons, labels and images.</p>
             </div>
+            <AppDemoActions />
         </div>
 
         <div class="content-section implementation">

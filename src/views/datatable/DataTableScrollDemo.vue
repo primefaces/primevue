@@ -5,6 +5,7 @@
 				<h1>DataTable <span>Scroll</span></h1>
 				<p>Data scrolling is available horizontally, vertically or both with support for frozen rows and columns.</p>
 			</div>
+            <AppDemoActions />
 		</div>
 
 		<div class="content-section implementation">
@@ -125,7 +126,7 @@
             </div>
 		</div>
 
-        <AppDoc name="DataTableScrollDemo" :sources="sources" :service="['CustomerService']" :data="['customers-medium', 'customers-large']" />
+        <AppDoc name="DataTableScrollDemo" :sources="sources" :service="['CustomerService']" :data="['customers-medium', 'customers-large']" github="datatable/DataTableScrollDemo.vue" />
 	</div>
 </template>
 

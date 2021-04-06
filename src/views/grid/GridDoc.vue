@@ -1,5 +1,5 @@
 <template>
-	<AppDoc name="GridDemo" :sources="sources">
+	<AppDoc name="GridDemo" :sources="sources" github="grid/GridDemo.vue">
 		<h5>Getting Started</h5>
 		<p>FlexGrid is a CSS utility based on flexbox. For more information about Flex, visit <a href="https://css-tricks.com/snippets/css/a-guide-to-flexbox/">A Complete Guide to Flexbox</a>. A basic grid is defined by giving
 			a container <i>p-grid</i> class and children the <i>p-col</i> class. Children of the grid will have the same width and scale according to the width of the parent.</p>
@@ -331,6 +331,18 @@
 &lt;/div&gt;
 
 </code></pre>
+
+        <div class="p-grid p-nogutter">
+            <div class="p-col">
+                <div class="box">1</div>
+            </div>
+            <div class="p-col p-nogutter">
+                <div class="box">2</div>
+            </div>
+            <div class="p-col">
+                <div class="box">3</div>
+            </div>
+        </div>
 	</AppDoc>
 </template>
 

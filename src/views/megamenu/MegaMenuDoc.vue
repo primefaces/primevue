@@ -1,5 +1,5 @@
 <template>
-	<AppDoc name="MegaMenuDemo" :sources="sources">
+	<AppDoc name="MegaMenuDemo" :sources="sources" github="megamenu/MegaMenuDemo.vue">
         <h5>Import</h5>
 <pre v-code.script><code>
 import MegaMenu from 'primevue/megamenu';

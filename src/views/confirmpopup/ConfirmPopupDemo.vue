@@ -5,6 +5,7 @@
                 <h1>ConfirmPopup</h1>
                 <p>ConfirmPopup displays a confirmation overlay displayed relatively to its target.</p>
             </div>
+            <AppDemoActions />
         </div>
 
         <div class="content-section implementation">

@@ -5,6 +5,7 @@
                 <h1>Combo Chart</h1>
                 <p>Different chart types can be combined in the same graph.</p>
             </div>
+            <AppDemoActions />
         </div>
 
         <div class="content-section implementation">

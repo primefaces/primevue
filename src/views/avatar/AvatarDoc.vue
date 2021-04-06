@@ -1,5 +1,5 @@
 <template>
-	<AppDoc name="AvatarDemo" :sources="sources">
+	<AppDoc name="AvatarDemo" :sources="sources" github="avatar/AvatarDemo.vue">
 		<h5>Import</h5>
 <pre v-code.script><code>
 import Avatar from 'primevue/avatar';

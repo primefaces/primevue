@@ -5,6 +5,7 @@
                 <h1>TreeTable <span>Size</span></h1>
                 <p>In addition to a regular table, a smaller and a larger alternatives available.</p>
             </div>
+            <AppDemoActions />
         </div>
 
         <div class="content-section implementation">
@@ -42,7 +43,7 @@
             </div>
         </div>
 
-        <AppDoc name="TreeTableSizeDemo" :sources="sources" :service="['NodeService']" :data="['treetablenodes']" />
+        <AppDoc name="TreeTableSizeDemo" :sources="sources" :service="['NodeService']" :data="['treetablenodes']" github="treetable/TreeTableSizeDemo.vue" />
     </div>
 </template>
 

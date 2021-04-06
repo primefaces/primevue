@@ -5,6 +5,7 @@
                 <h1>TreeTable <span>Sort</span></h1>
                <p>TreeTable supports both single column and multiple column sorting..</p>
             </div>
+            <AppDemoActions />
         </div>
 
         <div class="content-section implementation">
@@ -36,7 +37,7 @@
             </div>
         </div>
         
-        <AppDoc name="TreeTableSortDemo" :sources="sources" :service="['NodeService']" :data="['treetablenodes']" />
+        <AppDoc name="TreeTableSortDemo" :sources="sources" :service="['NodeService']" :data="['treetablenodes']" github="treetable/TreeTableSortDemo.vue" />
     </div>
 </template>
 

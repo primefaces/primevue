@@ -5,6 +5,7 @@
                 <h1>Splitter</h1>
                 <p>Splitter is utilized to separate and resize panels.</p>
             </div>
+            <AppDemoActions />
         </div>
 
         <div class="content-section implementation">

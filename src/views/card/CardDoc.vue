@@ -1,5 +1,5 @@
 <template>
-	<AppDoc name="CardDemo" :sources="sources">
+	<AppDoc name="CardDemo" :sources="sources" github="card/CardDemo.vue">
         <h5>Import</h5>
 <pre v-code.script><code>
 import Card from 'primevue/card';

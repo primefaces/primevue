@@ -1,5 +1,5 @@
 <template>
-	<AppDoc name="MenuDemo" :sources="sources">
+	<AppDoc name="MenuDemo" :sources="sources" github="menu/MenuDemo.vue">
         <h5>Import</h5>
 <pre v-code.script><code>
 import Menu from 'primevue/menu';

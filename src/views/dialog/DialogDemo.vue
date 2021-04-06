@@ -5,6 +5,7 @@
                 <h1>Dialog</h1>
                 <p>Dialog is a container to display content in an overlay window.</p>
             </div>
+            <AppDemoActions />
         </div>
 
         <div class="content-section implementation">

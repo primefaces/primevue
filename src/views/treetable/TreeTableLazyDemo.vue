@@ -6,6 +6,7 @@
                 <p>Lazy mode is handy to deal with large datasets, instead of loading the entire data, small chunks of data is loaded by invoking corresponding callbacks everytime paging or sorting. In addition,
                     children of a node can be loaded on demand at onNodeExpand event as well. Sample belows imitates lazy paging by using an in memory list..</p>
             </div>
+            <AppDemoActions />
         </div>
 
         <div class="content-section implementation">
@@ -19,7 +20,7 @@
             </div>
         </div>
 
-        <AppDoc name="TreeTableLazyDemo" :sources="sources" :service="['NodeService']" :data="['treetablenodes']" />
+        <AppDoc name="TreeTableLazyDemo" :sources="sources" :service="['NodeService']" :data="['treetablenodes']" github="treetable/TreeTableLazyDemo.vue" />
     </div>
 </template>
 

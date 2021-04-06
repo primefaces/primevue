@@ -5,6 +5,7 @@
                 <h1>Knob</h1>
                 <p>Knob is a form component to define number inputs with a dial.</p>
             </div>
+            <AppDemoActions />
         </div>
 
         <div class="content-section implementation">

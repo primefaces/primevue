@@ -6,6 +6,7 @@
 				<p>DataTable responsive layout can be achieved in two ways; first approach is displaying a horizontal scrollbar for smaller screens 
                     and second one is defining a breakpoint to display the cells of a row as stacked.</p>
 			</div>
+            <AppDemoActions />
 		</div>
 
 		<div class="content-section implementation">
@@ -54,7 +55,7 @@
             </div>
 		</div>
 
-        <AppDoc name="DataTableResponsiveDemo" :sources="sources" :service="['ProductService']" :data="['products-small']" />
+        <AppDoc name="DataTableResponsiveDemo" :sources="sources" :service="['ProductService']" :data="['products-small']" github="datatable/DataTableResponsiveDemo.vue" />
 
 	</div>
 </template>

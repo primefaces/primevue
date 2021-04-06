@@ -1,5 +1,5 @@
 <template>
-	<AppDoc name="BlockUIDemo" :sources="sources">
+	<AppDoc name="BlockUIDemo" :sources="sources" github="blockui/BlockUIDemo.vue">
         <h5>Import</h5>
 <pre v-code.script><code>
 import BlockUI from 'primevue/blockui';

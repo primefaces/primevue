@@ -1,5 +1,5 @@
 <template>
-	<AppDoc name="TabMenuDemo" :sources="sources" :extPages="pages">
+	<AppDoc name="TabMenuDemo" :sources="sources" :extPages="pages" github="tabmenu/TabMenuDemo.vue" >
         <h5>Import</h5>
 <pre v-code.script><code>
 import TabMenu from 'primevue/tabmenu';

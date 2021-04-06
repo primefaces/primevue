@@ -5,6 +5,7 @@
                 <h1>Tree <span>Filter</span></h1>
                 <p>Filtering updates the node based on the constraints.</p>
             </div>
+            <AppDemoActions />
         </div>
 
         <div class="content-section implementation">
@@ -17,7 +18,7 @@
             </div>
         </div>
 
-        <AppDoc name="TreeFilterDemo" :sources="sources" :service="['NodeService']" :data="['treenodes']" />
+        <AppDoc name="TreeFilterDemo" :sources="sources" :service="['NodeService']" :data="['treenodes']" github="tree/TreeFilterDemo.vue" />
     </div>
 </template>
 

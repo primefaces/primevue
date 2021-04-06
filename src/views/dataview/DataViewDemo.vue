@@ -5,6 +5,7 @@
 				<h1>DataView</h1>
 				<p>DataView displays data in grid or list layout with pagination and sorting features.</p>
 			</div>
+			<AppDemoActions />
 		</div>
 
 		<div class="content-section implementation">

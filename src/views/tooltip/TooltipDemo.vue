@@ -5,6 +5,7 @@
                 <h1>Tooltip</h1>
                 <p>Tooltip directive provides advisory information for a component.</p>
             </div>
+            <AppDemoActions />
         </div>
 
         <div class="content-section implementation">

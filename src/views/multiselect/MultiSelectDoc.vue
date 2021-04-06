@@ -1,5 +1,5 @@
 <template>
-	<AppDoc name="MultiSelectDemo" :sources="sources">
+	<AppDoc name="MultiSelectDemo" :sources="sources" github="multiselect/MultiSelectDemo.vue">
         <h5>Import</h5>
 <pre v-code.script><code>
 import MultiSelect from 'primevue/multiselect';

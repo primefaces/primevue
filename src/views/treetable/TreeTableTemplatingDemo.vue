@@ -5,6 +5,7 @@
                 <h1>TreeTable <span>Templating</span></h1>
                 <p>Custom content at header, body and footer sections are supported via templating.</p>
             </div>
+            <AppDemoActions />
         </div>
 
         <div class="content-section implementation">
@@ -34,7 +35,7 @@
             </div>
         </div>
 
-        <AppDoc name="TreeTableTemplatingDemo" :sources="sources" :service="['NodeService']" :data="['treetablenodes']" />
+        <AppDoc name="TreeTableTemplatingDemo" :sources="sources" :service="['NodeService']" :data="['treetablenodes']" github="treetable/TreeTableTemplatingDemo.vue" />
             
     </div>
 </template>

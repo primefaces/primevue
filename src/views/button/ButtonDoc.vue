@@ -1,5 +1,5 @@
 <template>
-	<AppDoc name="ButtonDemo" :sources="sources">
+	<AppDoc name="ButtonDemo" :sources="sources" github="button/ButtonDemo.vue">
                 <h5>Import</h5>
 <pre v-code.script><code>
 import Button from 'primevue/button';

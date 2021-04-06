@@ -5,6 +5,7 @@
                 <h1>MegaMenu</h1>
                 <p>MegaMenu is navigation component that displays submenus together.</p>
             </div>
+            <AppDemoActions />
         </div>
 
         <div class="content-section implementation">

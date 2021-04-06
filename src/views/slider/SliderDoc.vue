@@ -1,5 +1,5 @@
 <template>
-	<AppDoc name="SliderDemo" :sources="sources">
+	<AppDoc name="SliderDemo" :sources="sources" github="slider/SliderDemo.vue" >
         <h5>Import</h5>
 <pre v-code.script><code>
 import Slider from 'primevue/slider';

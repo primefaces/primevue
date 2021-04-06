@@ -5,6 +5,7 @@
                 <h1>ConfirmDialog</h1>
                 <p>ConfirmDialog uses a Dialog UI that is integrated with the Confirmation API.</p>
             </div>
+            <AppDemoActions />
         </div>
 
         <div class="content-section implementation">

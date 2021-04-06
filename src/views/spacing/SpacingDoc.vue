@@ -1,5 +1,5 @@
 <template>
-	<AppDoc name="SpacingDemo" :sources="sources">
+	<AppDoc name="SpacingDemo" :sources="sources" github="spacing/SpacingDemo.vue" >
         <h5>Getting Started</h5>
         <p>The spacing classes use the <i>p-{property}{position}-{value}</i> syntax whereas for responsive
         values <i>p-{property}{position}-{breakpoint}-{value}</i> format is used.</p>

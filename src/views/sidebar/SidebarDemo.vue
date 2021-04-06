@@ -5,6 +5,7 @@
                 <h1>Sidebar</h1>
                 <p>Sidebar is a panel component displayed as an overlay at the edges of the screen.</p>
             </div>
+            <AppDemoActions />
         </div>
 
         <div class="content-section implementation">

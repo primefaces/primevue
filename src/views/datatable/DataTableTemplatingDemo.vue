@@ -5,6 +5,7 @@
 				<h1>DataTable <span>Templating</span></h1>
 				<p>Custom content at header, body and footer sections are supported via templating.</p>
 			</div>
+            <AppDemoActions />
 		</div>
 
 		<div class="content-section implementation">
@@ -44,7 +45,7 @@
             </div>
 		</div>
 
-        <AppDoc name="DataTableTemplatingDemo" :sources="sources" :service="['ProductService']" :data="['products-small']" />
+        <AppDoc name="DataTableTemplatingDemo" :sources="sources" :service="['ProductService']" :data="['products-small']" github="datatable/DataTableTemplatingDemo.vue" />
 
 	</div>
 </template>

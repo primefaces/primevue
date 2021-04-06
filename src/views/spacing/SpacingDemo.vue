@@ -5,6 +5,7 @@
                 <h1>Spacing</h1>
                 <p><a href="https://github.com/primefaces/primeflex">PrimeFlex</a> provides various spacing utilities to modify an element's layout.</p>
             </div>
+            <AppDemoActions />
         </div>
 
         <div class="content-section implementation">

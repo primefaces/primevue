@@ -5,6 +5,7 @@
                 <h1>TreeTable <span>Paginator</span></h1>
                <p>Pagination is enabled by setting paginator property to true and defining the rows attribute as the number of root level nodes per page.</p>
             </div>
+            <AppDemoActions />
         </div>
 
         <div class="content-section implementation">
@@ -17,7 +18,7 @@
             </div>
         </div>
 
-        <AppDoc name="TreeTablePaginatorDemo" :sources="sources" :service="['NodeService']" :data="['treetablenodes']" />
+        <AppDoc name="TreeTablePaginatorDemo" :sources="sources" :service="['NodeService']" :data="['treetablenodes']" github="treetable/TreeTablePaginatorDemo.vue" />
     </div>
 </template>
 

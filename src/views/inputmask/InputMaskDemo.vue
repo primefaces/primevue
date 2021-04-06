@@ -5,7 +5,7 @@
                 <h1>InputMask</h1>
                 <p>InputMask component is used to enter input in a certain format such as numeric, date, currency, email and phone.</p>
             </div>
-            
+            <AppDemoActions />
         </div>
 
         <div class="content-section implementation">

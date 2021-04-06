@@ -5,6 +5,7 @@
                 <h1>OverlayPanel</h1>
                 <p>OverlayPanel is a container component positioned as connected to its target.</p>
             </div>
+            <AppDemoActions />
         </div>
 
         <div class="content-section implementation">

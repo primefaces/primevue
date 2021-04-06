@@ -5,7 +5,7 @@
                 <h1>CascadeSelect</h1>
                 <p>CascadeSelect displays a nested structure of options.</p>
             </div>
-            
+            <AppDemoActions />
         </div>
 
         <div class="content-section implementation">

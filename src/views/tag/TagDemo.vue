@@ -5,6 +5,7 @@
                 <h1>Tag</h1>
                 <p>Tag component is used to categorize content.</p>
             </div>
+            <AppDemoActions />
         </div>
 
         <div class="content-section implementation">

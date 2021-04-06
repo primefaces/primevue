@@ -5,6 +5,7 @@
 				<h1>DataTable <span>State</span></h1>
 				<p>Stateful table allows keeping the state such as page, sort and filtering either at local storage or session storage so that when the page is visited again, table would render the data using its last settings.</p>
 			</div>
+            <AppDemoActions />
 		</div>
 
 		<div class="content-section implementation">
@@ -127,7 +128,7 @@
             </div>
 		</div>
               
-        <AppDoc name="DataTableStateDemo" :sources="sources" :service="['CustomerService']" :data="['customers-medium']" />
+        <AppDoc name="DataTableStateDemo" :sources="sources" :service="['CustomerService']" :data="['customers-medium']" github="datatable/DataTableStateDemo.vue" />
 
 	</div>
 </template>

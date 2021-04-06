@@ -5,6 +5,7 @@
                 <h1>Terminal</h1>
                 <p>Terminal is a text based user interface.</p>
             </div>
+            <AppDemoActions />
         </div>
 
         <div class="content-section implementation">

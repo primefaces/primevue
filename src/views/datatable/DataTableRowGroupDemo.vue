@@ -5,6 +5,7 @@
 				<h1>DataTable <span>Row Group</span></h1>
 				<p>Rows can either be grouped by a separate grouping row or using rowspan.</p>
 			</div>
+            <AppDemoActions />
 		</div>
 
 		<div class="content-section implementation">
@@ -105,7 +106,7 @@
             </div>
 		</div>
 
-        <AppDoc name="DataTableRowGroupDemo" :sources="sources" :service="['CustomerService']" :data="['customers-medium']" />
+        <AppDoc name="DataTableRowGroupDemo" :sources="sources" :service="['CustomerService']" :data="['customers-medium']" github="datatable/DataTableRowGroupDemo.vue" />
 
 	</div>
 </template>

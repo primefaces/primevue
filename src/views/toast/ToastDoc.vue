@@ -1,5 +1,5 @@
 <template>
-	<AppDoc name="ToastDemo" :sources="sources">
+	<AppDoc name="ToastDemo" :sources="sources" github="toast/ToastDemo.vue" >
         <h5>ToastService</h5>
         <p>Toast messages are dynamically created using a <i>ToastService</i> that needs to be installed globally before the application
             instance is created.</p>

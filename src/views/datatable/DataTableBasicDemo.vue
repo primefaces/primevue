@@ -5,6 +5,7 @@
 				<h1>DataTable <span>Basic</span></h1>
 				<p>DataTable requires a collection to display along with column components for the representation of the data.</p>
 			</div>
+            <AppDemoActions />
 		</div>
 
 		<div class="content-section implementation">

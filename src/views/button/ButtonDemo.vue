@@ -5,6 +5,7 @@
                 <h1>Button</h1>
                 <p>Button is an extension to standard button element with icons and theming.</p>
             </div>
+            <AppDemoActions />
         </div>
 
         <div class="content-section implementation">

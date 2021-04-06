@@ -5,6 +5,7 @@
                 <h1>BlockUI</h1>
                 <p>BlockUI can either block other components or the whole page.</p>
             </div>
+            <AppDemoActions />
         </div>
 
         <div class="content-section implementation">

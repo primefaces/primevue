@@ -5,6 +5,7 @@
                 <h1>Menubar</h1>
                 <p>Menubar is a horizontal menu component.</p>
             </div>
+            <AppDemoActions />
         </div>
 
         <div class="content-section implementation">

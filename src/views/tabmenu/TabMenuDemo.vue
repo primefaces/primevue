@@ -5,6 +5,7 @@
                 <h1>TabMenu</h1>
                 <p>TabMenu is a navigation component that displays items as tab headers. Example below uses nested routes with TabMenu.</p>
             </div>
+            <AppDemoActions />
         </div>
 
         <div class="content-section implementation">

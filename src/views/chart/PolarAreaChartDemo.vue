@@ -5,6 +5,7 @@
                 <h1>Polar Area Chart</h1>
                 <p>Polar area charts are similar to pie charts, but each segment has the same angle - the radius of the segment differs depending on the value.</p>
             </div>
+            <AppDemoActions />
         </div>
 
         <div class="content-section implementation">

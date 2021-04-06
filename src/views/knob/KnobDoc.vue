@@ -1,5 +1,5 @@
 <template>
-	<AppDoc name="KnobDemo" :sources="sources">
+	<AppDoc name="KnobDemo" :sources="sources" github="knob/KnobDemo.vue">
         <h5>Import</h5>
 <pre v-code.script><code>
 import Knob from 'primevue/knob';

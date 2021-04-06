@@ -1,5 +1,5 @@
 <template>
-    <AppDoc name="PaginatorDemo" :sources="sources">
+    <AppDoc name="PaginatorDemo" :sources="sources" github="paginator/PaginatorDemo.vue">
         <h5>Import</h5>
 <pre v-code.script><code>
 import Paginator from 'primevue/paginator';

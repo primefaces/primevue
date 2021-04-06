@@ -5,6 +5,7 @@
                 <h1>Badge</h1>
                 <p>Badge is a small status indicator for another element.</p>
             </div>
+            <AppDemoActions />
         </div>
 
         <div class="content-section implementation">

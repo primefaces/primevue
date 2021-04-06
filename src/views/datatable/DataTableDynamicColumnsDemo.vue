@@ -5,6 +5,7 @@
 				<h1>DataTable <span>Dynamic Columns</span></h1>
 				<p>Columns can be defined dynamically using the v-for directive.</p>
 			</div>
+            <AppDemoActions />
 		</div>
 
 		<div class="content-section implementation">
@@ -15,7 +16,7 @@
             </div>
 		</div>
 
-        <AppDoc name="DataTableDynamicColumnsDemo" :sources="sources" :service="['ProductService']" :data="['products-small']" />
+        <AppDoc name="DataTableDynamicColumnsDemo" :sources="sources" :service="['ProductService']" :data="['products-small']" github="datatable/DataTableDynamicColumnsDemo.vue" />
                     
 	</div>
 </template>

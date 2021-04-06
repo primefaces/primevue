@@ -5,6 +5,7 @@
                 <h1>OrderList</h1>
                 <p>OrderList is used to managed the order of a collection.</p>
             </div>
+            <AppDemoActions />
         </div>
 
         <div class="content-section implementation">

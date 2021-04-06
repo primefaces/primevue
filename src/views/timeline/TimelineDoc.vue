@@ -1,5 +1,5 @@
 <template>
-	<AppDoc name="TimelineDemo" :sources="sources">
+	<AppDoc name="TimelineDemo" :sources="sources" github="timeline/TimelineDemo.vue">
 		<h5>Import</h5>
 <pre v-code.script><code>
 import Timeline from 'primevue/timeline';

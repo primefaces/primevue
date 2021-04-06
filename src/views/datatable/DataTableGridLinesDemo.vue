@@ -5,6 +5,7 @@
 				<h1>DataTable <span>GridLines</span></h1>
 				<p>Enabling <b>showGridlines</b> displays borders between cells. Note: Some themes may always display gridlines by design.</p>
 			</div>
+            <AppDemoActions />
 		</div>
 
 		<div class="content-section implementation">
@@ -24,7 +25,7 @@
             </div>
 		</div>
 
-        <AppDoc name="DataTableGridLinesDemo" :sources="sources" :service="['ProductService']" :data="['products-small']" />
+        <AppDoc name="DataTableGridLinesDemo" :sources="sources" :service="['ProductService']" :data="['products-small']" github="datatable/DataTableGridLinesDemo.vue" />
 	</div>
 </template>
 

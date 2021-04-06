@@ -5,6 +5,7 @@
                 <h1>TreeTable <span>Selection</span></h1>
                 <p>TreeTable supports <b>single</b>, <b>multiple</b> and <b>checkbox</b> as selection modes.</p>
             </div>
+            <AppDemoActions />
         </div>
 
         <div class="content-section implementation">
@@ -55,7 +56,7 @@
             </div>
         </div>
 
-        <AppDoc name="TreeTableSelectionDemo" :sources="sources" :service="['NodeService']" :data="['treetablenodes']" />
+        <AppDoc name="TreeTableSelectionDemo" :sources="sources" :service="['NodeService']" :data="['treetablenodes']" github="treetable/TreeTableSelectionDemo.vue" />
     </div>
 </template>
 

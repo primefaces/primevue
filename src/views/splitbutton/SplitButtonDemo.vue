@@ -5,6 +5,7 @@
                 <h1>SplitButton</h1>
                 <p>SplitButton groups a set of commands in an overlay with a default command.</p>
             </div>
+            <AppDemoActions />
         </div>
 
         <div class="content-section implementation">

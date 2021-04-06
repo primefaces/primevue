@@ -1,5 +1,5 @@
 <template>
-    <AppDoc name="InputMaskDemo" :sources="sources">
+    <AppDoc name="InputMaskDemo" :sources="sources" github="inputmask/InputMaskDemo.vue">
         <h5>Import</h5>
 <pre v-code.script><code>
 import InputMask from 'primevue/inputmask';

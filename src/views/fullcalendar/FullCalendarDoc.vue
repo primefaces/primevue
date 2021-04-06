@@ -1,5 +1,6 @@
 <template>
-	<AppDoc name="FullCalendarDemo" :sources="sources" :service="['EventService']" :data="['events']" :dependencies="{'@fullcalendar/core': '5.4.0', '@fullcalendar/daygrid': '5.4.0', '@fullcalendar/interaction': '5.4.0', '@fullcalendar/timegrid': '5.4.0'}" component="FullCalendar">
+	<AppDoc name="FullCalendarDemo" :sources="sources" :service="['EventService']" :data="['events']" github="fullcalendar/FullCalendarDemo.vue"
+        :dependencies="{'@fullcalendar/core': '5.4.0', '@fullcalendar/daygrid': '5.4.0', '@fullcalendar/interaction': '5.4.0', '@fullcalendar/timegrid': '5.4.0'}" component="FullCalendar">
         <h5>Import</h5>
 <pre v-code.script><code>
 import FullCalendar from 'primevue/fullcalendar';

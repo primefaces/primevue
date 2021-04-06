@@ -1,5 +1,5 @@
 <template>
-	<AppDoc name="ScrollTopDemo" :sources="sources">
+	<AppDoc name="ScrollTopDemo" :sources="sources" github="scrolltop/ScrollTopDemo.vue">
         <h5>Import</h5>
 <pre v-code.script><code>
 import ScrollTop from 'primevue/scrolltop';

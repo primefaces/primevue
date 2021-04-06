@@ -5,6 +5,7 @@
                 <h1>Text</h1>
                 <p>Manage the alignment and the styling of a text with <a href="https://github.com/primefaces/primeflex">PrimeFlex</a> text utilities.</p>
             </div>
+            <AppDemoActions />
         </div>
 
         <div class="content-section implementation">

@@ -5,6 +5,7 @@
 				<h1>DataTable <span>Striped Rows</span></h1>
 				<p>Adding <i>stripedRows</i> displays rows with alternating colors.</p>
 			</div>
+            <AppDemoActions />
 		</div>
 
 		<div class="content-section implementation">
@@ -18,7 +19,7 @@
             </div>
 		</div>
 
-        <AppDoc name="DataTableStripedDemo" :sources="sources" :service="['ProductService']" :data="['products-small']" />
+        <AppDoc name="DataTableStripedDemo" :sources="sources" :service="['ProductService']" :data="['products-small']" github="datatable/DataTableStripedDemo.vue" />
 
 	</div>
 </template>

@@ -1,5 +1,5 @@
 <template>
-	<AppDoc name="PasswordDemo" :sources="sources">
+	<AppDoc name="PasswordDemo" :sources="sources" github="password/PasswordDemo.vue">
         <h5>Import</h5>
 <pre v-code.script><code>
 import Password from 'primevue/password';

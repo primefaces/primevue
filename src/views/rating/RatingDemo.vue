@@ -5,6 +5,7 @@
                 <h1>Rating</h1>
                 <p>Rating component is a star based selection input.</p>
             </div>
+            <AppDemoActions />
         </div>
 
         <div class="content-section implementation">

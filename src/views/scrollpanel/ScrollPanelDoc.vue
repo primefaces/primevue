@@ -1,5 +1,5 @@
 <template>
-	<AppDoc name="ScrollPanelDemo" :sources="sources">
+	<AppDoc name="ScrollPanelDemo" :sources="sources" github="scrollpanel/ScrollPanelDemo.vue">
         <h5>Import</h5>
 <pre v-code.script><code>
 import ScrollPanel from 'primevue/scrollpanel';

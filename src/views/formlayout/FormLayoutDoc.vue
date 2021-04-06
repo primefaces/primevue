@@ -1,5 +1,5 @@
 <template>	
-    <AppDoc name="FormLayoutDemo" :sources="sources">
+    <AppDoc name="FormLayoutDemo" :sources="sources" github="formlayout/FormLayoutDemo.vue">
         <h5>Getting Started</h5>
 		<p>Core member of the FormLayout is the <i>.p-field</i> class that wraps the input field and the associated label.</p>
 <pre v-code><code>

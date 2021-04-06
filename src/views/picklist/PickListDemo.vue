@@ -5,6 +5,7 @@
                 <h1>PickList</h1>
                 <p>PickList is used to reorder items between different lists.</p>
             </div>
+            <AppDemoActions />
         </div>
 
         <div class="content-section implementation">

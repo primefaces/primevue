@@ -1,5 +1,5 @@
 <template>
-	<AppDoc name="CascadeSelectDemo" :sources="sources">
+	<AppDoc name="CascadeSelectDemo" :sources="sources" github="cascadeselect/CascadeSelectDemo.vue">
         <h5>Import</h5>
 <pre v-code.script><code>
 import CascadeSelect from 'primevue/cascadeselect';

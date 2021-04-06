@@ -5,7 +5,7 @@
                 <h1>RadioButton</h1>
                 <p>RadioButton is an extension to standard radio button element with theming.</p>
             </div>
-            
+            <AppDemoActions />
         </div>
 
         <div class="content-section implementation">

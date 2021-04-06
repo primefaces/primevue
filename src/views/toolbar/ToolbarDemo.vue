@@ -5,6 +5,7 @@
                 <h1>Toolbar</h1>
                 <p>Toolbar is a grouping component for buttons and other content.</p>
             </div>
+            <AppDemoActions />
         </div>
 
         <div class="content-section implementation">

@@ -5,6 +5,7 @@
 				<h1>DataTable <span>Reorder</span></h1>
 				<p>Order of the columns and rows can be changed using drag and drop.</p>
 			</div>
+            <AppDemoActions />
 		</div>
 
 		<div class="content-section implementation">
@@ -16,7 +17,7 @@
             </div>
 		</div>
 
-        <AppDoc name="DataTableReorderDemo" :sources="sources" :service="['ProductService']" :data="['products-small']" />
+        <AppDoc name="DataTableReorderDemo" :sources="sources" :service="['ProductService']" :data="['products-small']" github="datatable/DataTableReorderDemo.vue" />
 
 	</div>
 </template>

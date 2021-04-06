@@ -1,5 +1,5 @@
 <template>
-	<AppDoc name="ConfirmDialogDemo" :sources="sources">
+	<AppDoc name="ConfirmDialogDemo" :sources="sources" github="confirmdialog/ConfirmDialogDemo.vue">
         <h5>ConfirmationService</h5>
         <p>ConfirmDialog is controlled via the <i>ConfirmationService</i> that needs to be installed globally before the application
             instance is created.</p>

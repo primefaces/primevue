@@ -1,5 +1,5 @@
 <template>
-	<AppDoc name="DisplayDemo" :sources="sources">
+	<AppDoc name="DisplayDemo" :sources="sources" github="display/DisplayDemo.vue">
         <h5>Getting Started</h5>
         <p>The display classes use the <i>p-d-{value}</i> format and <i>p-d-{breakpoint}-{value}</i> format for responsive design.</p>
 

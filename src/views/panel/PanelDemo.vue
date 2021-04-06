@@ -5,6 +5,7 @@
                 <h1>Panel</h1>
                 <p>Panel is a container with the optional content toggle feature.</p>
             </div>
+            <AppDemoActions />
         </div>
 
         <div class="content-section implementation">

@@ -5,6 +5,7 @@
                 <h1>Tree <span>Templating</span></h1>
                 <p>Tree is used to display hierarchical data.</p>
             </div>
+            <AppDemoActions />
         </div>
 
         <div class="content-section implementation">
@@ -20,7 +21,7 @@
             </div>
         </div>
 
-        <AppDoc name="TreeTemplatingDemo" :sources="sources" :service="['NodeService']" :data="['treenodes']" />
+        <AppDoc name="TreeTemplatingDemo" :sources="sources" :service="['NodeService']" :data="['treenodes']" github="tree/TreeTemplatingDemo.vue" />
     </div>
 </template>
 

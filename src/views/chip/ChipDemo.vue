@@ -5,6 +5,7 @@
                 <h1>Chip</h1>
                 <p>Chip represents entities using icons, labels and images.</p>
             </div>
+            <AppDemoActions />
         </div>
 
         <div class="content-section implementation">

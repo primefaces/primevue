@@ -5,7 +5,7 @@
                 <h1>Password</h1>
                 <p>Password displays strength indicator for password fields.</p>
             </div>
-            
+            <AppDemoActions />
         </div>
 
         <div class="content-section implementation">
