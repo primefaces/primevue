@@ -276,6 +276,17 @@
             ]
         },
         {
+            "name": "Validation",
+            "meta": ["validation"],
+            "children": [
+                {
+                    "name": "Vuelidate",
+                    "to": "/vuelidate",
+                    "badge": "New"
+                }
+            ]
+        },
+        {
             "name": "Data",
             "meta": ["datatable"],
             "children": [
@@ -746,17 +757,6 @@
                             "to": "/galleria/advanced"
                         }
                     ]
-                }
-            ]
-        },
-        {
-            "name": "Validation",
-            "meta": ["validation"],
-            "children": [
-                {
-                    "name": "Vuelidate",
-                    "to": "/vuelidate",
-                    "badge": "New"
                 }
             ]
         },
