@@ -3,7 +3,7 @@
 		<div class="content-section introduction">
 			<div class="feature-intro">
 				<h1>DataTable <span>ContextMenu</span></h1>
-				<p>CDataTable has exclusive integration with ContextMenu.</p>
+				<p>DataTable has exclusive integration with ContextMenu.</p>
 			</div>
             <AppDemoActions />
 		</div>
