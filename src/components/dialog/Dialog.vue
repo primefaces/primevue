@@ -16,7 +16,7 @@
                             </button>
                         </div>
                     </div>
-                    <div class="p-dialog-content" :style="contentStyle">
+                    <div class="p-dialog-content" :style="contentStyle" :class="contentClass">
                         <slot></slot>
                     </div>
                     <div class="p-dialog-footer" v-if="footer || $slots.footer">
@@ -75,7 +75,8 @@ export default {
         breakpoints: {
             type: Object,
             default: null
-        }
+        },
+        contentClass: null,
     },
     data() {
         return {
