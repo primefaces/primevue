@@ -1,4 +1,4 @@
-export const FilterMatchMode = {
+export const FilterMatchMode: {
     STARTS_WITH?: string,
     CONTAINS?: string,
     NOT_CONTAINS?: string,
@@ -17,7 +17,7 @@ export const FilterMatchMode = {
     DATE_AFTER?: string
 }
 
-export const FilterOperator = {
+export const FilterOperator: {
     AND?: string,
     OR?: string
 }
@@ -49,7 +49,7 @@ interface FilterServiceOptions {
 
 export const FilterService: FilterServiceOptions;
 
-export const PrimeIcons = {
+export const PrimeIcons: {
     ALIGN_CENTER?: string,
     ALIGN_JUSTIFY?: string,
     ALIGN_LEFT?: string,
