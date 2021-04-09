@@ -88,22 +88,31 @@ export default {
         }
     },
     watch: {
-        modelValue() {
-            this.touched = false;
+        modelValue: {
+            handler: function() {
+                if (!this.selfChange) {
+                    this.updateTreeState();
+                }
+                this.selfChange = false;
+            },
+            immediate: true
+        },
+        options() {
+            this.updateTreeState();    
         }
     },
     data() {
         return {
             focused: false,
             overlayVisible: false,
-            expandedKeys: {},
-            touched: false
+            expandedKeys: {}
         };
     },
     outsideClickListener: null,
     resizeListener: null,
     scrollHandler: null,
     overlay: null,
+    selfChange: false,
     beforeUnmount() {
         this.unbindOutsideClickListener();
         this.unbindResizeListener();
@@ -113,6 +122,9 @@ export default {
             this.scrollHandler = null;
         }
         this.overlay = null;
+    },
+    mounted() {
+        this.updateTreeState();
     },
     methods: {
         show() {
@@ -140,6 +152,7 @@ export default {
             }
         },
         onSelectionChange(keys) {
+            this.selfChange = true;
             this.$emit('update:modelValue', keys);
             this.$emit('change', keys);
         },
@@ -155,7 +168,6 @@ export default {
         },
         onNodeToggle(keys) {
             this.expandedKeys = keys;
-            this.touched = true;
         },
         onKeyDown(event) {
             switch(event.which) {
@@ -271,30 +283,61 @@ export default {
                 target: this.$el
             });
         },
-        searchBranch(node, parentNode, keys, selectedNodes) {
+        findSelectedNodes(node, keys, selectedNodes) {
             if (node) {
                 if (this.isSelected(node, keys)) {
                     selectedNodes.push(node);
-                    if (parentNode && !this.touched) {
-                        this.expandedKeys[parentNode.key] = true;
-                    }
                     delete keys[node.key];
                 }
 
                 if (Object.keys(keys).length && node.children) {
                     for (let childNode of node.children) {
-                        this.searchBranch(childNode, node, keys, selectedNodes);
+                        this.findSelectedNodes(childNode, keys, selectedNodes);
                     }
                 }
             }
             else {
                 for (let childNode of this.options) {
-                    this.searchBranch(childNode, null, keys, selectedNodes);
+                    this.findSelectedNodes(childNode, keys, selectedNodes);
                 }
             }
         },
         isSelected(node, keys) {
             return this.selectionMode === 'checkbox' ? keys[node.key] && keys[node.key].checked : keys[node.key];
+        },
+        updateTreeState() {
+            let keys = {...this.modelValue};
+            this.expandedKeys = {};
+            if (keys && this.options) {
+                this.updateTreeBranchState(null, null, keys);
+            }
+        },
+        updateTreeBranchState(node, path, keys) {
+            if (node) {
+                if (this.isSelected(node, keys)) {
+                    this.expandPath(path);
+                    delete keys[node.key];
+                }
+
+                if (Object.keys(keys).length && node.children) {
+                    for (let childNode of node.children) {
+                        path.push(node.key);
+                        this.updateTreeBranchState(childNode, path, keys);
+                    }
+                }
+            }
+            else {
+                for (let childNode of this.options) {
+                    this.updateTreeBranchState(childNode, [], keys);
+                }
+            }
+        },
+        expandPath(path) {
+            if (path.length > 0) {
+                for (let key of path) {
+                    this.expandedKeys[key] = true;
+                }
+            }
         }
     },
     computed: {
@@ -323,7 +366,7 @@ export default {
             let selectedNodes = [];
             if (this.modelValue && this.options) {
                 let keys = {...this.modelValue};
-                this.searchBranch(null, null, keys, selectedNodes);
+                this.findSelectedNodes(null, keys, selectedNodes);
             }
 
             return selectedNodes;
