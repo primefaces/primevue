@@ -2,7 +2,7 @@
     <div ref="container" :class="containerClass" @click="onClick">
         <div class="p-hidden-accessible">
             <input ref="focusInput" type="text" role="listbox" :id="inputId" readonly :disabled="disabled" @focus="onFocus" @blur="onBlur" @keydown="onKeyDown" :tabindex="tabindex"
-                aria-haspopup="listbox" :aria-expanded="overlayVisible" :aria-labelledby="ariaLabelledBy"/>
+                aria-haspopup="true" :aria-expanded="overlayVisible" :aria-labelledby="ariaLabelledBy"/>
         </div>
         <div class="p-multiselect-label-container">
             <div :class="labelClass">

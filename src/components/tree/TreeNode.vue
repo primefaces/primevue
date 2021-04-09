@@ -176,7 +176,7 @@ export default {
             let checkedChildCount = 0;
             let childPartialSelected = false;
 
-            for(let child of this.node.children) {
+            for (let child of this.node.children) {
                 if(_selectionKeys[child.key] && _selectionKeys[child.key].checked)
                     checkedChildCount++;
                 else if(_selectionKeys[child.key] && _selectionKeys[child.key].partialChecked)
@@ -191,10 +191,10 @@ export default {
                     delete _selectionKeys[this.node.key];
                 }
 
-                if(childPartialSelected || (checkedChildCount > 0 && checkedChildCount !== this.node.children.length))
+                if (childPartialSelected || (checkedChildCount > 0 && checkedChildCount !== this.node.children.length))
                     _selectionKeys[this.node.key] = {checked: false, partialChecked: true};
                 else
-                    _selectionKeys[this.node.key] = {checked: false, partialChecked: false};
+                    delete _selectionKeys[this.node.key];
             }
 
             this.$emit('checkbox-change', {

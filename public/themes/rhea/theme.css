@@ -1003,10 +1003,6 @@
   transition-duration: 0.2s;
 }
 
-.p-float-label > label.p-error {
-  color: #e7a3a3;
-}
-
 .p-input-icon-left > i:first-of-type {
   left: 0.429rem;
   color: #a6a6a6;
@@ -1460,6 +1456,76 @@
 .p-slider:not(.p-disabled) .p-slider-handle:hover {
   background: 2px solid #7f7f7f;
   border-color: #7B95A3;
+}
+
+.p-treeselect {
+  background: #ffffff;
+  border: 1px solid #dadada;
+  transition: background-color 0.2s, color 0.2s, border-color 0.2s, box-shadow 0.2s;
+  border-radius: 2px;
+}
+.p-treeselect:not(.p-disabled):hover {
+  border-color: #a6a6a6;
+}
+.p-treeselect:not(.p-disabled).p-focus {
+  outline: 0 none;
+  outline-offset: 0;
+  box-shadow: 0 0 0 0.2rem #e4e9ec;
+  border-color: #7B95A3;
+}
+.p-treeselect .p-treeselect-label {
+  padding: 0.429rem 0.429rem;
+  transition: background-color 0.2s, color 0.2s, border-color 0.2s, box-shadow 0.2s;
+}
+.p-treeselect .p-treeselect-label.p-placeholder {
+  color: #a6a6a6;
+}
+.p-treeselect.p-treeselect-chip .p-treeselect-token {
+  padding: 0.2145rem 0.429rem;
+  margin-right: 0.5rem;
+  background: #dadada;
+  color: #666666;
+  border-radius: 16px;
+}
+.p-treeselect .p-treeselect-trigger {
+  background: transparent;
+  color: #a6a6a6;
+  width: 2.357rem;
+  border-top-right-radius: 2px;
+  border-bottom-right-radius: 2px;
+}
+.p-treeselect.p-invalid.p-component {
+  border-color: #e7a3a3;
+}
+
+.p-inputwrapper-filled.p-treeselect.p-treeselect-chip .p-treeselect-label {
+  padding: 0.2145rem 0.429rem;
+}
+
+.p-treeselect-panel {
+  background: #ffffff;
+  color: #666666;
+  border: 1px solid #eaeaea;
+  border-radius: 2px;
+  box-shadow: 0 0 6px 0 rgba(0, 0, 0, 0.16);
+}
+.p-treeselect-panel .p-treeselect-items-wrapper .p-tree {
+  border: 0 none;
+}
+.p-treeselect-panel .p-treeselect-items-wrapper .p-treeselect-empty-message {
+  padding: 0.429rem 0.857rem;
+  color: #666666;
+  background: transparent;
+}
+
+.p-input-filled .p-treeselect {
+  background: #f4f4f4;
+}
+.p-input-filled .p-treeselect:not(.p-disabled):hover {
+  background-color: #f4f4f4;
+}
+.p-input-filled .p-treeselect:not(.p-disabled).p-focus {
+  background-color: #f4f4f4;
 }
 
 .p-togglebutton.p-button {

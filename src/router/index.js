@@ -707,6 +707,11 @@ const routes = [
         component: () => import('../views/tree/TreeFilterDemo.vue')
     },
     {
+        path: '/treeselect',
+        name: 'treeselect',
+        component: () => import('../views/treeselect/TreeSelectDemo.vue')
+    },
+    {
         path: '/treetable',
         name: 'treetable',
         component: () => import('../views/treetable/TreeTableDemo.vue')

@@ -19,6 +19,7 @@ module.exports = {
                 'primevue/paginator': path.resolve(__dirname, 'src/components/paginator/Paginator.vue'),
                 'primevue/progressbar': path.resolve(__dirname, 'src/components/progressbar/ProgressBar.vue'),
                 'primevue/message': path.resolve(__dirname, 'src/components/message/Message.vue'),
+                'primevue/tree': path.resolve(__dirname, 'src/components/tree/Tree.vue'),
                 'primevue/confirmationeventbus': path.resolve(__dirname, 'src/components/confirmationeventbus/ConfirmationEventBus.js'),
                 'primevue/toasteventbus': path.resolve(__dirname, 'src/components/toasteventbus/ToastEventBus.js'),
                 'primevue/overlayeventbus': path.resolve(__dirname, 'src/components/overlayeventbus/OverlayEventBus.js'),

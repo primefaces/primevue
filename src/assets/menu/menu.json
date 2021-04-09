@@ -90,8 +90,7 @@
                 },
                 {
                     "name": "Colors",
-                    "to": "/colors",
-                    "badge": "New"
+                    "to": "/colors"
                 },
                 {
                     "name": "SASS API",
@@ -153,8 +152,7 @@
             "children": [
                 {
                     "name": "AutoComplete",
-                    "to": "/autocomplete",
-                    "badge": "New"
+                    "to": "/autocomplete"
                 },
                 {
                     "name": "Calendar",
@@ -178,8 +176,7 @@
                 },
                 {
                     "name": "Dropdown",
-                    "to": "/dropdown",
-                    "badge": "New"
+                    "to": "/dropdown"
                 },
                 {
                     "name": "Editor",
@@ -219,13 +216,11 @@
                 },
                 {
                     "name": "Listbox",
-                    "to": "/listbox",
-                    "badge": "New"
+                    "to": "/listbox"
                 },
                 {
                     "name": "MultiSelect",
-                    "to": "/multiselect",
-                    "badge": "New"
+                    "to": "/multiselect"
                 },
                 {
                     "name": "Password",
@@ -256,6 +251,11 @@
                     "to": "/togglebutton"
                 },
                 {
+                    "name": "TreeSelect",
+                    "to": "/treeselect",
+                    "badge": "New"
+                },
+                {
                     "name": "TriStateCheckbox",
                     "to": "/tristatecheckbox"
                 }
@@ -281,8 +281,7 @@
             "children": [
                 {
                     "name": "Vuelidate",
-                    "to": "/vuelidate",
-                    "badge": "New"
+                    "to": "/vuelidate"
                 }
             ]
         },
@@ -293,7 +292,6 @@
                 {
                     "name": "DataTable",
                     "meta": ["datatable"],
-                    "badge": "New",
                     "children": [
                         {
                             "name": "Documentation",
@@ -337,8 +335,7 @@
                         },
                         {
                             "name": "Filter",
-                            "to": "/datatable/filter",
-                            "badge": "New"
+                            "to": "/datatable/filter"
                         },
                         {
                             "name": "Selection",
@@ -350,8 +347,7 @@
                         },
                         {
                             "name": "Scroll",
-                            "to": "/datatable/scroll",
-                            "badge": "New"
+                            "to": "/datatable/scroll"
                         },
                         {
                             "name": "FlexScroll",
@@ -387,8 +383,7 @@
                         },
                         {
                             "name": "Responsive",
-                            "to": "/datatable/responsive",
-                            "badge": "New"
+                            "to": "/datatable/responsive"
                         },
                         {
                             "name": "Export",
@@ -414,8 +409,7 @@
                 },
                 {
                     "name": "FilterService",
-                    "to": "/filterservice",
-                    "badge": "New"
+                    "to": "/filterservice"
                 },
                 {
                     "name": "FullCalendar",
