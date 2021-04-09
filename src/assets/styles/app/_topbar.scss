@@ -9,6 +9,10 @@
     padding: 0 35px;
     margin-left: 250px;
 
+    .logo {
+        display: none;
+    }
+
     .menu-button {
         display: none;
         color: var(--text-color);

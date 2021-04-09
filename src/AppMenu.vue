@@ -1,6 +1,6 @@
 <template>
     <div :class="['layout-sidebar', {'active': active}]">
-         <router-link to="/" class="logo">
+        <router-link to="/" class="logo">
             <img alt="logo" src="./assets/images/primevue-logo.png">
         </router-link>
         <div class="layout-sidebar-filter p-fluid p-input-filled">
