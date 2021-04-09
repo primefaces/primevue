@@ -53,7 +53,7 @@ export default {
 
 <style scoped>
 .p-treeselect {
-    width:19rem;
+    width:20rem;
 }
 
 @media screen and (max-width: 640px) {
