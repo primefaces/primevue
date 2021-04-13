@@ -220,6 +220,25 @@ app.use(PrimeVue, {ripple: true});
 
 </code></pre>
 
+            <h5>ZIndex Layering</h5>
+            <p>ZIndexes are managed automatically to make sure layering of overlay components work seamlessly when combining multiple components. Still there may be cases where you'd like to configure
+            the configure default values such as a custom layout where header section is fixed. In a case like this, dropdown needs to be displayed below the application header but a modal dialog should be displayed above. PrimeVue configuration
+            offers the <i>zIndex</i> property to customize the default values for components categories. Default values are described below and can be customized when setting up PrimeVue.</p>
+<pre v-code.script><code>
+import {createApp} from 'vue';
+import PrimeVue from 'primevue/config';
+const app = createApp(App);
+
+app.use(PrimeVue, {
+    zIndex: {
+        modal: 1100,        //dialog, sidebar
+        overlay: 1000,      //dropdown, overlaypanel
+        menu: 1000,         //overlay menus
+        tooltip: 1100       //tooltip
+    }
+});
+
+</code></pre>
             <h5>Locale</h5>
             <p>PrimeVue provides a Locale API to support i18n and l7n, visit the <router-link to="/locale">Locale</router-link> documentation for more information.</p>
 

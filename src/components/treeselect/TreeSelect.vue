@@ -23,7 +23,7 @@
             <span class="p-treeselect-trigger-icon pi pi-chevron-down"></span>
         </div>
         <Teleport :to="appendTo">
-            <transition name="p-connected-overlay" @enter="onOverlayEnter" @leave="onOverlayLeave">
+            <transition name="p-connected-overlay" @enter="onOverlayEnter" @leave="onOverlayLeave" @after-leave="onOverlayAfterLeave">
                 <div :ref="overlayRef" v-if="overlayVisible" @click="onOverlayClick" :class="['p-treeselect-panel p-component', panelClass]">
                     <slot name="header" :value="modelValue" :options="options"></slot>
                     <div class="p-treeselect-items-wrapper" :style="{'max-height': scrollHeight}">
@@ -43,7 +43,7 @@
 </template>
 
 <script>
-import {ConnectedOverlayScrollHandler,DomHandler} from 'primevue/utils';
+import {ConnectedOverlayScrollHandler,DomHandler,ZIndexUtils} from 'primevue/utils';
 import OverlayEventBus from 'primevue/overlayeventbus';
 import Tree from 'primevue/tree';
 import Ripple from 'primevue/ripple';
@@ -121,7 +121,11 @@ export default {
             this.scrollHandler.destroy();
             this.scrollHandler = null;
         }
-        this.overlay = null;
+        
+        if (this.overlay) {
+            ZIndexUtils.clear(this.overlay);
+            this.overlay = null;
+        }
     },
     mounted() {
         this.updateTreeState();
@@ -204,8 +208,8 @@ export default {
                 break;
             }
         },
-        onOverlayEnter() {
-            this.overlay.style.zIndex = String(DomHandler.generateZIndex());
+        onOverlayEnter(el) {
+            ZIndexUtils.set('overlay', el, this.$primevue.config.zIndex.overlay);
             this.alignOverlay();
             this.bindOutsideClickListener();
             this.bindScrollListener();
@@ -218,6 +222,9 @@ export default {
             this.unbindResizeListener();
             this.$emit('hide');
             this.overlay = null;
+        },
+        onOverlayAfterLeave(el) {
+            ZIndexUtils.clear(el);
         },
         alignOverlay() {
             this.overlay.style.minWidth = DomHandler.getOuterWidth(this.$el) + 'px';

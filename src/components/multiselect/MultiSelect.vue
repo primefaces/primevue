@@ -24,7 +24,7 @@
             <span class="p-multiselect-trigger-icon pi pi-chevron-down"></span>
         </div>
         <Teleport :to="appendTo">
-            <transition name="p-connected-overlay" @enter="onOverlayEnter" @leave="onOverlayLeave">
+            <transition name="p-connected-overlay" @enter="onOverlayEnter" @leave="onOverlayLeave" @after-leave="onOverlayAfterLeave">
                 <div :ref="overlayRef" class="p-multiselect-panel p-component" v-if="overlayVisible" @click="onOverlayClick">
                     <slot name="header" :value="modelValue" :options="visibleOptions"></slot>
                     <div class="p-multiselect-header">
@@ -93,7 +93,7 @@
 </template>
 
 <script>
-import {ConnectedOverlayScrollHandler,ObjectUtils,DomHandler} from 'primevue/utils';
+import {ConnectedOverlayScrollHandler,ObjectUtils,DomHandler,ZIndexUtils} from 'primevue/utils';
 import OverlayEventBus from 'primevue/overlayeventbus';
 import {FilterService} from 'primevue/api';
 import Ripple from 'primevue/ripple';
@@ -166,7 +166,11 @@ export default {
             this.scrollHandler.destroy();
             this.scrollHandler = null;
         }
-        this.overlay = null;
+        
+        if (this.overlay) {
+            ZIndexUtils.clear(this.overlay);
+            this.overlay = null;
+        }
     },
     methods: {
         getOptionLabel(option) {
@@ -340,8 +344,8 @@ export default {
             else
                 return null;
         },
-        onOverlayEnter() {
-            this.overlay.style.zIndex = String(DomHandler.generateZIndex());
+        onOverlayEnter(el) {
+            ZIndexUtils.set('overlay', el, this.$primevue.config.zIndex.overlay);
             this.alignOverlay();
             this.bindOutsideClickListener();
             this.bindScrollListener();
@@ -354,6 +358,9 @@ export default {
             this.unbindResizeListener();
             this.$emit('hide');
             this.overlay = null;
+        },
+        onOverlayAfterLeave(el) {
+            ZIndexUtils.clear(el);
         },
         alignOverlay() {
             this.overlay.style.minWidth = DomHandler.getOuterWidth(this.$el) + 'px';

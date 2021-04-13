@@ -1,6 +1,6 @@
 <template>
     <Teleport :to="appendTo" :disabled="!popup">
-        <transition name="p-connected-overlay" @enter="onEnter" @leave="onLeave">
+        <transition name="p-connected-overlay" @enter="onEnter" @leave="onLeave" @after-leave="onAfterLeave">
             <div :ref="containerRef" :class="containerClass" v-if="popup ? overlayVisible : true" v-bind="$attrs" @click="onOverlayClick">
                 <ul class="p-menu-list p-reset" role="menu">
                     <template v-for="(item, i) of model" :key="item.label + i.toString()">
@@ -21,7 +21,7 @@
 </template>
 
 <script>
-import {ConnectedOverlayScrollHandler,DomHandler} from 'primevue/utils';
+import {ConnectedOverlayScrollHandler,DomHandler,ZIndexUtils} from 'primevue/utils';
 import OverlayEventBus from 'primevue/overlayeventbus';
 import Menuitem from './Menuitem.vue';
 
@@ -68,6 +68,10 @@ export default {
             this.scrollHandler = null;
         }
         this.target = null;
+        
+        if (this.container && this.autoZIndex) {
+            ZIndexUtils.clear(this.container);
+        }
         this.container = null;
     },
     methods: {
@@ -101,20 +105,25 @@ export default {
             this.overlayVisible = false;
             this.target = null;
         },
-        onEnter() {
+        onEnter(el) {
             this.alignOverlay();
             this.bindOutsideClickListener();
             this.bindResizeListener();
             this.bindScrollListener();
 
             if (this.autoZIndex) {
-                this.container.style.zIndex = String(this.baseZIndex + DomHandler.generateZIndex());
+                ZIndexUtils.set('menu', el, this.baseZIndex + this.$primevue.config.zIndex.menu);
             }
         },
         onLeave() {
             this.unbindOutsideClickListener();
             this.unbindResizeListener();
             this.unbindScrollListener();
+        },
+        onAfterLeave(el) {
+            if (this.autoZIndex) {
+                ZIndexUtils.clear(el);
+            }
         },
         alignOverlay() {
             DomHandler.absolutePosition(this.container, this.target);

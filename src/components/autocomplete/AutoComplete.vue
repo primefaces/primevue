@@ -15,7 +15,7 @@
         <i class="p-autocomplete-loader pi pi-spinner pi-spin" v-if="searching"></i>
         <Button ref="dropdownButton" type="button" icon="pi pi-chevron-down" class="p-autocomplete-dropdown" :disabled="$attrs.disabled" @click="onDropdownClick" v-if="dropdown"/>
         <Teleport :to="appendTo">
-            <transition name="p-connected-overlay" @enter="onOverlayEnter" @leave="onOverlayLeave">
+            <transition name="p-connected-overlay" @enter="onOverlayEnter" @leave="onOverlayLeave" @after-leave="onOverlayAfterLeave">
                 <div :ref="overlayRef" class="p-autocomplete-panel p-component" :style="{'max-height': scrollHeight}" v-if="overlayVisible" @click="onOverlayClick">
                     <slot name="header" :value="modelValue" :suggestions="suggestions"></slot>
                     <ul :id="listId" class="p-autocomplete-items" role="listbox">
@@ -43,7 +43,7 @@
 </template>
 
 <script>
-import {ConnectedOverlayScrollHandler,UniqueComponentId,ObjectUtils,DomHandler} from 'primevue/utils';
+import {ConnectedOverlayScrollHandler,UniqueComponentId,ObjectUtils,DomHandler,ZIndexUtils} from 'primevue/utils';
 import OverlayEventBus from 'primevue/overlayeventbus';
 import Button from 'primevue/button';
 import Ripple from 'primevue/ripple';
@@ -134,7 +134,11 @@ export default {
             this.scrollHandler.destroy();
             this.scrollHandler = null;
         }
-        this.overlay = null;
+
+        if (this.overlay) {
+            ZIndexUtils.clear(this.overlay);
+            this.overlay = null;
+        }
     },
     updated() {
         if (this.overlayVisible) {
@@ -151,8 +155,8 @@ export default {
         getOptionGroupChildren(optionGroup) {
             return ObjectUtils.resolveFieldData(optionGroup, this.optionGroupChildren);
         },
-        onOverlayEnter() {
-            this.overlay.style.zIndex = String(DomHandler.generateZIndex());
+        onOverlayEnter(el) {
+            ZIndexUtils.set('overlay', el, this.$primevue.config.zIndex.overlay);
             this.alignOverlay();
             this.bindOutsideClickListener();
             this.bindScrollListener();
@@ -163,6 +167,9 @@ export default {
             this.unbindScrollListener();
             this.unbindResizeListener();
             this.overlay = null;
+        },
+        onOverlayAfterLeave(el) {
+            ZIndexUtils.clear(el);
         },
         alignOverlay() {
             let target = this.multiple ? this.$refs.multiContainer : this.$refs.input;

@@ -11,7 +11,7 @@
 <script>
 import ToastEventBus from 'primevue/toasteventbus';
 import ToastMessage from './ToastMessage.vue';
-import {DomHandler} from 'primevue/utils';
+import {ZIndexUtils} from 'primevue/utils';
 
 var messageIdx = 0;
 
@@ -55,10 +55,14 @@ export default {
             this.messages = [];
         });
 
-        this.updateZIndex();
+        if (this.autoZIndex) {
+            ZIndexUtils.set('modal', this.$refs.container, this.baseZIndex || this.$primevue.config.zIndex.modal);
+        }
     },
-    beforeUpdate() {
-        this.updateZIndex();
+    beforeUnmount() {
+        if (this.$refs.container && this.autoZIndex) {
+            ZIndexUtils.clear(this.$refs.container);
+        }
     },
     methods: {
         add(message) {
@@ -78,11 +82,6 @@ export default {
             }
 
             this.messages.splice(index, 1);
-        },
-        updateZIndex() {
-            if (this.autoZIndex) {
-                this.$refs.container.style.zIndex = String(this.baseZIndex + DomHandler.generateZIndex());
-            }
         }
     },
     components: {

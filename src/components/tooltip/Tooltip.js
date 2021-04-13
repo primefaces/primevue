@@ -1,6 +1,4 @@
-import {UniqueComponentId} from 'primevue/utils';
-import {DomHandler} from 'primevue/utils';
-import {ConnectedOverlayScrollHandler} from 'primevue/utils';
+import {UniqueComponentId,DomHandler,ConnectedOverlayScrollHandler,ZIndexUtils} from 'primevue/utils';
 
 function bindEvents(el) {
     const modifiers = el.$_ptooltipModifiers;
@@ -72,7 +70,6 @@ function show(el) {
     let tooltipElement = create(el);
     align(el);
     DomHandler.fadeIn(tooltipElement, 250);
-    tooltipElement.style.zIndex = ++DomHandler.zindex;
 
     window.addEventListener('resize', function onWindowResize() {
         hide(el);
@@ -80,11 +77,13 @@ function show(el) {
     });
 
     bindScrollListener(el);
+    ZIndexUtils.set('tooltip', tooltipElement, el.$_ptooltipZIndex);
 }
 
 function hide(el) {
     remove(el);
     unbindScrollListener(el);
+    ZIndexUtils.clear(el);
 }
 
 function getTooltipElement(el) {
@@ -245,6 +244,7 @@ const Tooltip = {
         let target = getTarget(el);
         target.$_ptooltipModifiers = options.modifiers;
         target.$_ptooltipValue = options.value;
+        target.$_ptooltipZIndex = options.instance.$primevue && options.instance.$primevue.config && options.instance.$primevue.config.zIndex.tooltip;
         bindEvents(target);
     },
     unmounted(el) {
@@ -256,6 +256,8 @@ const Tooltip = {
             target.$_ptooltipScrollHandler.destroy();
             target.$_ptooltipScrollHandler = null;
         }
+
+        ZIndexUtils.clear(el);
     },
     updated(el, options) {
         let target = getTarget(el);

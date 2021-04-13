@@ -1,6 +1,6 @@
 <template>
     <Teleport :to="appendTo">
-        <transition name="p-contextmenu" @enter="onEnter" @leave="onLeave">
+        <transition name="p-contextmenu" @enter="onEnter" @leave="onLeave" @after-leave="onAfterLeave">
             <div :ref="containerRef" class="p-contextmenu p-component" v-if="visible" v-bind="$attrs">
                 <ContextMenuSub :model="model" :root="true" @leaf-click="onLeafClick" />
             </div>
@@ -9,7 +9,7 @@
 </template>
 
 <script>
-import {DomHandler} from 'primevue/utils';
+import {DomHandler,ZIndexUtils} from 'primevue/utils';
 import ContextMenuSub from './ContextMenuSub.vue';
 
 export default {
@@ -52,6 +52,10 @@ export default {
         this.unbindResizeListener();
         this.unbindOutsideClickListener();
         this.unbindDocumentContextMenuListener();
+
+        if (this.container && this.autoZIndex) {
+            ZIndexUtils.clear(this.container);
+        }
         this.container = null;
     },
     mounted() {
@@ -92,18 +96,23 @@ export default {
         hide() {
             this.visible = false;
         },
-        onEnter() {
+        onEnter(el) {
             this.position();
             this.bindOutsideClickListener();
             this.bindResizeListener();
 
             if (this.autoZIndex) {
-                this.container.style.zIndex = String(this.baseZIndex + DomHandler.generateZIndex());
+                ZIndexUtils.set('menu', el, this.baseZIndex + this.$primevue.config.zIndex.menu);
             }
         },
         onLeave() {
             this.unbindOutsideClickListener();
             this.unbindResizeListener();
+        },
+        onAfterLeave(el) {
+            if (this.autoZIndex) {
+                ZIndexUtils.clear(el);
+            }
         },
         position() {
             let left = this.pageX + 1;

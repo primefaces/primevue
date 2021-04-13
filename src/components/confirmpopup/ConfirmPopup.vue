@@ -1,6 +1,6 @@
 <template>
     <Teleport to="body">
-        <transition name="p-confirm-popup" @enter="onEnter" @leave="onLeave">
+        <transition name="p-confirm-popup" @enter="onEnter" @leave="onLeave" @after-leave="onAfterLeave">
             <div class="p-confirm-popup p-component" v-if="visible" :ref="containerRef" v-bind="$attrs" @click="onOverlayClick">
                 <div class="p-confirm-popup-content">
                     <i :class="iconClass" /> 
@@ -17,7 +17,7 @@
 
 <script>
 import ConfirmationEventBus from 'primevue/confirmationeventbus';
-import {ConnectedOverlayScrollHandler,DomHandler} from 'primevue/utils';
+import {ConnectedOverlayScrollHandler,DomHandler,ZIndexUtils} from 'primevue/utils';
 import OverlayEventBus from 'primevue/overlayeventbus';
 import Button from 'primevue/button';
 
@@ -65,8 +65,13 @@ export default {
             this.scrollHandler = null;
         }
         this.unbindResizeListener();
+
+        if (this.container) {
+            ZIndexUtils.clear(this.container);
+            this.container = null;
+        }
+
         this.target = null;
-        this.container = null;
         this.confirmation = null;
     },
     methods: {
@@ -84,17 +89,21 @@ export default {
 
             this.visible = false;
         },
-        onEnter() {
+        onEnter(el) {
             this.alignOverlay();
             this.bindOutsideClickListener();
             this.bindScrollListener();
             this.bindResizeListener();
-            this.container.style.zIndex = String(this.baseZIndex + DomHandler.generateZIndex());
+
+            ZIndexUtils.set('overlay', el, this.$primevue.config.zIndex.overlay);
         },
         onLeave() {
             this.unbindOutsideClickListener();
             this.unbindScrollListener();
             this.unbindResizeListener();
+        },
+        onAfterLeave(el) {
+            ZIndexUtils.clear(el);
         },
         alignOverlay() {
             DomHandler.absolutePosition(this.container, this.target);

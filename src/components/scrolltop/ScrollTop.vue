@@ -1,16 +1,17 @@
 <template>
-    <transition name="p-scrolltop" appear @enter="onEnter">
-        <button :class="containerClass" v-if="visible" @click="onClick" type="button">
+    <transition name="p-scrolltop" appear @enter="onEnter" @after-leave="onAfterLeave">
+        <button :ref="containerRef" :class="containerClass" v-if="visible" @click="onClick" type="button">
             <span :class="iconClass"></span>
         </button>
     </transition>
 </template>
 
 <script>
-import {DomHandler} from 'primevue/utils';
+import {DomHandler,ZIndexUtils} from 'primevue/utils';
 
 export default {
     scrollListener: null,
+    container: null,
     data() {
         return {
             visible: false
@@ -45,6 +46,11 @@ export default {
             this.unbindDocumentScrollListener();
         else if (this.target === 'parent')
             this.unbindParentScrollListener();
+
+        if (this.container) {
+            ZIndexUtils.clear(this.container);
+            this.overlay = null;
+        }
     },
     methods: {
         onClick() {
@@ -86,8 +92,14 @@ export default {
                 this.scrollListener = null;
             }
         },
-        onEnter() {
-            this.$el.style.zIndex = String(DomHandler.generateZIndex());
+        onEnter(el) {
+            ZIndexUtils.set('overlay', el, this.$primevue.config.zIndex.overlay);
+        },
+        onAfterLeave(el) {
+            ZIndexUtils.clear(el);
+        },
+        containerRef(el) {
+            this.container = el;
         }
     },
     computed: {

@@ -3,7 +3,7 @@
         <input ref="input" type="text" :class="inputClass" readonly="readonly" :tabindex="tabindex" :disabled="disabled"
             @click="onInputClick" @keydown="onInputKeydown" v-if="!inline" :aria-labelledby="ariaLabelledBy"/>
         <Teleport to="body" :disabled="inline">
-            <transition name="p-connected-overlay" @enter="onOverlayEnter" @leave="onOverlayLeave">
+            <transition name="p-connected-overlay" @enter="onOverlayEnter" @leave="onOverlayLeave" @after-leave="onOverlayAfterLeave">
                 <div :ref="pickerRef" :class="pickerClass" v-if="inline ? true : overlayVisible" @click="onOverlayClick">
                     <div class="p-colorpicker-content">
                         <div :ref="colorSelectorRef" class="p-colorpicker-color-selector" @mousedown="onColorMousedown($event)"
@@ -24,7 +24,7 @@
 </template>
 
 <script>
-import {ConnectedOverlayScrollHandler,DomHandler} from 'primevue/utils';
+import {ConnectedOverlayScrollHandler,DomHandler,ZIndexUtils} from 'primevue/utils';
 import OverlayEventBus from 'primevue/overlayeventbus';
 
 export default {
@@ -95,6 +95,11 @@ export default {
             this.scrollHandler.destroy();
             this.scrollHandler = null;
         }
+        
+        if (this.picker && this.autoZIndex) {
+            ZIndexUtils.clear(this.picker);
+        }
+
         this.clearRefs();
     },
     mounted() {
@@ -333,7 +338,7 @@ export default {
 
             return hsb;
         },
-        onOverlayEnter() {
+        onOverlayEnter(el) {
             this.updateUI();
             this.alignOverlay();
             this.bindOutsideClickListener();
@@ -341,7 +346,7 @@ export default {
             this.bindResizeListener();
 
             if (this.autoZIndex) {
-                this.picker.style.zIndex = String(this.baseZIndex + DomHandler.generateZIndex());
+                ZIndexUtils.set('overlay', el, this.$primevue.config.zIndex.overlay);
             }
         },
         onOverlayLeave() {
@@ -349,6 +354,11 @@ export default {
             this.unbindScrollListener();
             this.unbindResizeListener();
             this.clearRefs();
+        },
+        onOverlayAfterLeave(el) {
+            if (this.autoZIndex) {
+                ZIndexUtils.clear(el);
+            }
         },
         alignOverlay() {
             DomHandler.absolutePosition(this.picker, this.$refs.input);

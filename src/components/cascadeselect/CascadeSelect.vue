@@ -13,7 +13,7 @@
             <span class="p-cascadeselect-trigger-icon pi pi-chevron-down"></span>
         </div>
         <Teleport :to="appendTo">
-            <transition name="p-connected-overlay" @enter="onOverlayEnter" @leave="onOverlayLeave">
+            <transition name="p-connected-overlay" @enter="onOverlayEnter" @leave="onOverlayLeave" @after-leave="onOverlayAfterLeave">
                 <div :ref="overlayRef" class="p-cascadeselect-panel p-component" v-if="overlayVisible" @click="onOverlayClick">
                     <div class="p-cascadeselect-items-wrapper">
                         <CascadeSelectSub :options="options" :selectionPath="selectionPath" 
@@ -28,7 +28,7 @@
 </template>
 
 <script>
-import {ConnectedOverlayScrollHandler,ObjectUtils,DomHandler} from 'primevue/utils';
+import {ConnectedOverlayScrollHandler,ObjectUtils,DomHandler,ZIndexUtils} from 'primevue/utils';
 import OverlayEventBus from 'primevue/overlayeventbus';
 import CascadeSelectSub from './CascadeSelectSub.vue';
 
@@ -72,7 +72,11 @@ export default {
             this.scrollHandler.destroy();
             this.scrollHandler = null;
         }
-        this.overlay = null;
+        
+        if (this.overlay) {
+            ZIndexUtils.clear(this.overlay);
+            this.overlay = null;
+        }
     },
     mounted() {
         this.updateSelectionPath();
@@ -163,8 +167,8 @@ export default {
                 this.$refs.focusInput.focus();
             }
         },
-        onOverlayEnter() {
-            this.overlay.style.zIndex = String(DomHandler.generateZIndex());
+        onOverlayEnter(el) {
+            ZIndexUtils.set('overlay', el, this.$primevue.config.zIndex.overlay);
             this.alignOverlay();
             this.bindOutsideClickListener();
             this.bindScrollListener();
@@ -178,6 +182,9 @@ export default {
             this.$emit('hide');
             this.overlay = null;
             this.dirty = false;
+        },
+        onOverlayAfterLeave(el) {
+            ZIndexUtils.clear(el);
         },
         alignOverlay() {
             DomHandler.absolutePosition(this.overlay, this.$el);

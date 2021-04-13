@@ -93,15 +93,6 @@ export default class DomHandler {
         };
     }
 
-    static generateZIndex() {
-        this.zindex = this.zindex||999;
-        return ++this.zindex;
-    }
-
-    static getCurrentZIndex() {
-        return this.zindex;
-    }
-
     static index(element) {
         let children = element.parentNode.childNodes;
         let num = 0;

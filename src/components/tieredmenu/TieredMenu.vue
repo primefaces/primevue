@@ -1,6 +1,6 @@
 <template>
     <Teleport :to="appendTo" :disabled="!popup">
-        <transition name="p-connected-overlay" @enter="onEnter" @leave="onLeave">
+        <transition name="p-connected-overlay" @enter="onEnter" @leave="onLeave" @after-leave="onAfterLeave">
             <div :ref="containerRef" :class="containerClass" v-if="popup ? visible : true" v-bind="$attrs" @click="onOverlayClick">
                 <TieredMenuSub :model="model" :root="true" :popup="popup" @leaf-click="onLeafClick"/>
             </div>
@@ -9,7 +9,7 @@
 </template>
 
 <script>
-import {ConnectedOverlayScrollHandler,DomHandler} from 'primevue/utils';
+import {ConnectedOverlayScrollHandler,DomHandler,ZIndexUtils} from 'primevue/utils';
 import OverlayEventBus from 'primevue/overlayeventbus';
 import TieredMenuSub from './TieredMenuSub.vue';
 
@@ -56,6 +56,9 @@ export default {
             this.scrollHandler = null;
         }
         this.target = null;
+        if (this.container && this.autoZIndex) {
+            ZIndexUtils.clear(this.container);
+        }
         this.container = null;
     },
     methods: {
@@ -80,20 +83,25 @@ export default {
         hide() {
             this.visible = false;
         },
-        onEnter() {
+        onEnter(el) {
             this.alignOverlay();
             this.bindOutsideClickListener();
             this.bindResizeListener();
             this.bindScrollListener();
 
             if (this.autoZIndex) {
-                this.container.style.zIndex = String(this.baseZIndex + DomHandler.generateZIndex());
+                ZIndexUtils.set('menu', el, this.baseZIndex + this.$primevue.config.zIndex.menu);
             }
         },
         onLeave() {
             this.unbindOutsideClickListener();
             this.unbindResizeListener();
             this.unbindScrollListener();
+        },
+        onAfterLeave(el) {
+            if (this.autoZIndex) {
+                ZIndexUtils.clear(el);
+            }
         },
         alignOverlay() {
             DomHandler.absolutePosition(this.container, this.target);

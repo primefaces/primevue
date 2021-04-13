@@ -11,7 +11,7 @@
 
 <script>
 import GalleriaContent from './GalleriaContent.vue';
-import {DomHandler} from 'primevue/utils';
+import {DomHandler,ZIndexUtils} from 'primevue/utils';
 
 export default {
     inheritAttrs: false,
@@ -131,21 +131,25 @@ export default {
             DomHandler.removeClass(document.body, 'p-overflow-hidden');
         }
 
-        this.container = null;
         this.mask = null;
+        if (this.container) {
+            ZIndexUtils.clear(this.container);
+            this.container = null;
+        }
     },
     methods: {
         onBeforeEnter(el) {
-            el.style.zIndex = String(this.baseZIndex + DomHandler.generateZIndex());
+            ZIndexUtils.set('modal', el, this.baseZIndex || this.$primevue.config.zIndex.modal);
         },
-        onEnter() {
-            this.mask.style.zIndex = String(this.baseZIndex + DomHandler.generateZIndex());
+        onEnter(el) {
+            this.mask.style.zIndex = String(parseInt(el.style.zIndex, 10) - 1);
             DomHandler.addClass(document.body, 'p-overflow-hidden');
         },
         onBeforeLeave() {
             DomHandler.addClass(this.mask, 'p-galleria-mask-leave');
         },
-        onAfterLeave() {
+        onAfterLeave(el) {
+            ZIndexUtils.clear(el);
             this.containerVisible = false;
             DomHandler.removeClass(document.body, 'p-overflow-hidden');
         },

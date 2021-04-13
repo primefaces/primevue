@@ -1,7 +1,7 @@
 <template>
     <Teleport to="body">
-        <transition name="p-sidebar" @enter="onEnter" @leave="onLeave" appear>
-            <div :class="containerClass" v-if="visible" ref="container" role="complementary" :aria-modal="modal" v-bind="$attrs">
+        <transition name="p-sidebar" @enter="onEnter" @leave="onLeave" @after-leave="onAfterLeave" appear>
+            <div :class="containerClass" v-if="visible" :ref="containerRef" role="complementary" :aria-modal="modal" v-bind="$attrs">
                 <div class="p-sidebar-content">
                     <button class="p-sidebar-close p-link" @click="hide" :aria-label="ariaCloseLabel" v-if="showCloseIcon" type="button" v-ripple>
                         <span class="p-sidebar-close-icon pi pi-times" />
@@ -14,7 +14,7 @@
 </template>
 
 <script>
-import {DomHandler} from 'primevue/utils';
+import {DomHandler,ZIndexUtils} from 'primevue/utils';
 import Ripple from 'primevue/ripple';
 
 export default {
@@ -56,18 +56,24 @@ export default {
     },
     mask: null,
     maskClickListener: null,
+    container: null,
     beforeUnmount() {
         this.destroyModal();
+
+        if (this.container && this.autoZIndex) {
+            ZIndexUtils.clear(this.container);
+        }
+        this.container = null;
     },
     methods: {
         hide() {
             this.$emit('update:visible', false);
         },
-        onEnter() {
+        onEnter(el) {
             this.$emit('show');
 
             if (this.autoZIndex) {
-                this.$refs.container.style.zIndex = String(this.baseZIndex + DomHandler.generateZIndex());
+                ZIndexUtils.set('modal', el, this.baseZIndex || this.$primevue.config.zIndex.modal);
             }
             this.focus();
             if (this.modal && !this.fullScreen) {
@@ -81,8 +87,13 @@ export default {
                 this.disableModality();
             }
         },
+        onAfterLeave(el) {
+            if (this.autoZIndex) {
+                ZIndexUtils.clear(el);
+            }
+        },
         focus() {
-            let focusable = DomHandler.findSingle(this.$refs.container, 'input,button');
+            let focusable = DomHandler.findSingle(this.container, 'input,button');
             if (focusable) {
                 focusable.focus();
             }
@@ -91,7 +102,7 @@ export default {
             if (!this.mask) {
                 this.mask = document.createElement('div');
                 this.mask.setAttribute('class', 'p-sidebar-mask');
-                this.mask.style.zIndex = String(parseInt(this.$refs.container.style.zIndex, 10) - 1);
+                this.mask.style.zIndex = String(parseInt(this.container.style.zIndex, 10) - 1);
                 if (this.dismissable) {
                     this.bindMaskClickListener();
                 }
@@ -132,6 +143,9 @@ export default {
                 DomHandler.removeClass(document.body, 'p-overflow-hidden');
                 this.mask = null;
             }
+        },
+        containerRef(el) {
+            this.container = el;
         }
     },
     computed: {

@@ -4,7 +4,7 @@
             :class="inputClass" :style="inputStyle" />
         <CalendarButton v-if="showIcon" :icon="icon" tabindex="-1" class="p-datepicker-trigger" :disabled="$attrs.disabled" @click="onButtonClick" type="button" :aria-label="inputFieldValue"/>
         <Teleport :to="appendTo" :disabled="inline">
-            <transition name="p-connected-overlay" @enter="onOverlayEnter($event)" @after-enter="onOverlayEnterComplete" @leave="onOverlayLeave">
+            <transition name="p-connected-overlay" @enter="onOverlayEnter($event)" @after-enter="onOverlayEnterComplete" @after-leave="onOverlayAfterLeave" @leave="onOverlayLeave">
                 <div :ref="overlayRef" :class="panelStyleClass" v-if="inline ? true : overlayVisible" :role="inline ? null : 'dialog'" @click="onOverlayClick">
                     <template v-if="!timeOnly">
                         <div class="p-datepicker-group-container">
@@ -133,7 +133,7 @@
 </template>
 
 <script>
-import {ConnectedOverlayScrollHandler,DomHandler} from 'primevue/utils';
+import {ConnectedOverlayScrollHandler,DomHandler,ZIndexUtils} from 'primevue/utils';
 import OverlayEventBus from 'primevue/overlayeventbus';
 import InputText from 'primevue/inputtext';
 import Button from 'primevue/button';
@@ -342,6 +342,10 @@ export default {
             this.scrollHandler.destroy();
             this.scrollHandler = null;
         }
+
+        if (this.overlay && this.autoZIndex) {
+            ZIndexUtils.clear(this.overlay);
+        }
         this.overlay = null;
     },
     data() {
@@ -523,9 +527,12 @@ export default {
 
             return validMin && validMax && validDate && validDay;
         },
-        onOverlayEnter() {
+        onOverlayEnter(el) {
             if (this.autoZIndex) {
-                this.overlay.style.zIndex = String(this.baseZIndex + DomHandler.generateZIndex());
+                if (this.touchUI)
+                    ZIndexUtils.set('modal', el, this.baseZIndex || this.$primevue.config.zIndex.modal);
+                else
+                    ZIndexUtils.set('overlay', el, this.baseZIndex || this.$primevue.config.zIndex.overlay);
             }
             this.alignOverlay();
             this.$emit('show');
@@ -534,6 +541,11 @@ export default {
             this.bindOutsideClickListener();
             this.bindScrollListener();
             this.bindResizeListener();
+        },
+        onOverlayAfterLeave(el) {
+            if (this.autoZIndex) {
+                ZIndexUtils.clear(el);
+            }
         },
         onOverlayLeave() {
             this.unbindOutsideClickListener();

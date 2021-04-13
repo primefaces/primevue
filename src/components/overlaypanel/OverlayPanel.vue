@@ -1,6 +1,6 @@
 <template>
     <Teleport :to="appendTo">
-        <transition name="p-overlaypanel" @enter="onEnter" @leave="onLeave">
+        <transition name="p-overlaypanel" @enter="onEnter" @leave="onLeave" @after-leave="onAfterLeave">
             <div class="p-overlaypanel p-component" v-if="visible" :ref="containerRef" v-bind="$attrs" @click="onOverlayClick">
                 <div class="p-overlaypanel-content" @click="onContentClick">
                     <slot></slot>
@@ -14,7 +14,7 @@
 </template>
 
 <script>
-import {UniqueComponentId,DomHandler,ConnectedOverlayScrollHandler} from 'primevue/utils';
+import {UniqueComponentId,DomHandler,ConnectedOverlayScrollHandler,ZIndexUtils} from 'primevue/utils';
 import OverlayEventBus from 'primevue/overlayeventbus';
 import Ripple from 'primevue/ripple';
 
@@ -74,6 +74,10 @@ export default {
         this.destroyStyle();
         this.unbindResizeListener();
         this.target = null;
+
+        if (this.container && this.autoZIndex) {
+            ZIndexUtils.clear(this.container);
+        }
         this.container = null;
     },
     mounted() {
@@ -98,7 +102,7 @@ export default {
         onContentClick() {
             this.selfClick = true;
         },
-        onEnter() {
+        onEnter(el) {
             this.container.setAttribute(this.attributeSelector, '');
             this.alignOverlay();
             if (this.dismissable) {
@@ -109,8 +113,9 @@ export default {
             this.bindResizeListener();
 
             if (this.autoZIndex) {
-                this.container.style.zIndex = String(this.baseZIndex + DomHandler.generateZIndex());
+                ZIndexUtils.set('overlay', el, this.baseZIndex + this.$primevue.config.zIndex.overlay);
             }
+
             OverlayEventBus.on('overlay-click', e => {
                 if (this.container.contains(e.target)) {
                     this.selfClick = true;
@@ -122,6 +127,11 @@ export default {
             this.unbindScrollListener();
             this.unbindResizeListener();
             OverlayEventBus.off('overlay-click');
+        },
+        onAfterLeave(el) {
+            if (this.autoZIndex) {
+                ZIndexUtils.clear(el);
+            }
         },
         alignOverlay() {
             DomHandler.absolutePosition(this.container, this.target);

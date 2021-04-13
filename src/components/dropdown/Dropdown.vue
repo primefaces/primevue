@@ -14,7 +14,7 @@
             <span class="p-dropdown-trigger-icon pi pi-chevron-down"></span>
         </div>
         <Teleport :to="appendTo">
-            <transition name="p-connected-overlay" @enter="onOverlayEnter" @leave="onOverlayLeave">
+            <transition name="p-connected-overlay" @enter="onOverlayEnter" @leave="onOverlayLeave" @after-leave="onOverlayAfterLeave">
                 <div :ref="overlayRef" class="p-dropdown-panel p-component" v-if="overlayVisible" @click="onOverlayClick">
                     <slot name="header" :value="modelValue" :options="visibleOptions"></slot>
                     <div class="p-dropdown-header" v-if="filter">
@@ -58,7 +58,7 @@
 </template>
 
 <script>
-import {ConnectedOverlayScrollHandler,ObjectUtils,DomHandler} from 'primevue/utils';
+import {ConnectedOverlayScrollHandler,ObjectUtils,DomHandler,ZIndexUtils} from 'primevue/utils';
 import OverlayEventBus from 'primevue/overlayeventbus';
 import {FilterService} from 'primevue/api';
 import Ripple from 'primevue/ripple';
@@ -133,8 +133,13 @@ export default {
             this.scrollHandler.destroy();
             this.scrollHandler = null;
         }
+
         this.itemsWrapper = null;
-        this.overlay = null;
+        
+        if (this.overlay) {
+            ZIndexUtils.clear(this.overlay);
+            this.overlay = null;
+        }
     },
     methods: {
         getOptionLabel(option) {
@@ -386,8 +391,8 @@ export default {
         onEditableInput(event) {
             this.$emit('update:modelValue', event.target.value);
         },
-        onOverlayEnter() {
-            this.overlay.style.zIndex = String(DomHandler.generateZIndex());
+        onOverlayEnter(el) {
+            ZIndexUtils.set('overlay', el, this.$primevue.config.zIndex.overlay);
             this.scrollValueInView();
             this.alignOverlay();
             this.bindOutsideClickListener();
@@ -407,6 +412,9 @@ export default {
             this.$emit('hide');
             this.itemsWrapper = null;
             this.overlay = null;
+        },
+        onOverlayAfterLeave(el) {
+            ZIndexUtils.clear(el);
         },
         alignOverlay() {
             this.overlay.style.minWidth = DomHandler.getOuterWidth(this.$el) + 'px';

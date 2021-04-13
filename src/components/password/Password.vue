@@ -3,7 +3,7 @@
         <PInputText ref="input" :class="inputFieldClass" :style="inputStyle" :type="inputType" :value="modelValue" @input="onInput" @focus="onFocus" @blur="onBlur" @keyup="onKeyUp" v-bind="$attrs" />
         <i v-if="toggleMask" :class="toggleIconClass" @click="onMaskToggle" />
         <Teleport :to="appendTo">
-            <transition name="p-connected-overlay" @enter="onOverlayEnter" @leave="onOverlayLeave">
+            <transition name="p-connected-overlay" @enter="onOverlayEnter" @leave="onOverlayLeave" @after-leave="onOverlayAfterLeave">
                 <div :ref="overlayRef" class="p-password-panel p-component" v-if="overlayVisible" @click="onOverlayClick">
                     <slot name="header"></slot>
                     <slot name="content">
@@ -20,7 +20,7 @@
 </template>
 
 <script>
-import {ConnectedOverlayScrollHandler,DomHandler} from 'primevue/utils';
+import {ConnectedOverlayScrollHandler,DomHandler,ZIndexUtils} from 'primevue/utils';
 import OverlayEventBus from 'primevue/overlayeventbus';
 import InputText from 'primevue/inputtext';
 
@@ -95,10 +95,15 @@ export default {
             this.scrollHandler.destroy();
             this.scrollHandler = null;
         }
+
+        if (this.overlay) {
+            ZIndexUtils.clear(this.overlay);
+            this.overlay = null;
+        }
     },
     methods: {
-        onOverlayEnter() {
-            this.overlay.style.zIndex = String(DomHandler.generateZIndex());
+        onOverlayEnter(el) {
+            ZIndexUtils.set('overlay', el, this.$primevue.config.zIndex.overlay);
             this.alignOverlay();
             this.bindScrollListener();
             this.bindResizeListener();
@@ -107,6 +112,9 @@ export default {
             this.unbindScrollListener();
             this.unbindResizeListener();
             this.overlay = null;
+        },
+        onOverlayAfterLeave(el) {
+            ZIndexUtils.clear(el);
         },
         alignOverlay() {
             this.overlay.style.minWidth = DomHandler.getOuterWidth(this.$refs.input.$el) + 'px';

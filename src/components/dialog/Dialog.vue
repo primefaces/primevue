@@ -29,7 +29,7 @@
 </template>
 
 <script>
-import {UniqueComponentId,DomHandler} from 'primevue/utils';
+import {UniqueComponentId,DomHandler,ZIndexUtils} from 'primevue/utils';
 import Ripple from 'primevue/ripple';
 
 export default {
@@ -95,8 +95,13 @@ export default {
     beforeUnmount() {
         this.unbindDocumentState();
         this.destroyStyle();
-        this.container = null;
+        
         this.mask = null;
+
+        if (this.container && this.autoZIndex) {
+            ZIndexUtils.clear(this.container);
+        }
+        this.container = null;
     },
     mounted() {
         if (this.breakpoints) {
@@ -109,7 +114,7 @@ export default {
         },
         onBeforeEnter(el) {
             if (this.autoZIndex) {
-                el.style.zIndex = String(this.baseZIndex + DomHandler.generateZIndex());
+                ZIndexUtils.set('modal', el, this.baseZIndex + this.$primevue.config.zIndex.modal);
             }
             
             el.setAttribute(this.attributeSelector, '');
@@ -127,7 +132,10 @@ export default {
         onLeave() {
             this.$emit('hide');
         },
-        onAfterLeave() {
+        onAfterLeave(el) {
+            if (this.autoZIndex) {
+                ZIndexUtils.clear(el);
+            }
             this.containerVisible = false;
             this.unbindDocumentState();
         },
