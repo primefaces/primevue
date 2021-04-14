@@ -16,7 +16,7 @@
                             </button>
                         </div>
                     </div>
-                    <div class="p-dialog-content" :style="contentStyle">
+                    <div :class="contentStyleClass" :style="contentStyle">
                         <slot></slot>
                     </div>
                     <div class="p-dialog-footer" v-if="footer || $slots.footer">
@@ -41,6 +41,7 @@ export default {
         visible: Boolean,
         modal: Boolean,
         contentStyle: null,
+        contentClass: String,
         rtl: Boolean,
         maximizable: Boolean,
         dismissableMask: Boolean,
@@ -288,6 +289,9 @@ export default {
         },
         attributeSelector() {
             return UniqueComponentId();
+        },
+        contentStyleClass() {
+            return ['p-dialog-content', this.contentClass];
         }
     },
     directives: {

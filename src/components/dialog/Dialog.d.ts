@@ -5,7 +5,8 @@ interface DialogProps {
     footer?: any;
     visible?: boolean;
     modal?: boolean;
-    contentStyle?: string;
+    contentStyle?: any;
+    contentClass?: string;
     rtl?: boolean;
     closable?: boolean;
     dismissableMask?: boolean;

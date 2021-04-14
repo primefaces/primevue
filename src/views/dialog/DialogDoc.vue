@@ -145,6 +145,12 @@ export default {
                         <td>Style of the content section.</td>
                     </tr>
                     <tr>
+                        <td>contentClass</td>
+                        <td>string</td>
+                        <td>null</td>
+                        <td>Style class of the content section.</td>
+                    </tr>
+                    <tr>
                         <td>rtl</td>
                         <td>boolean</td>
                         <td>null</td>
