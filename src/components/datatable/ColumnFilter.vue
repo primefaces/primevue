@@ -144,7 +144,7 @@ export default {
     selfClick: false,
     beforeUnmount() {
         if (this.overlay) {
-            ZIndexUtils.clear(el);
+            ZIndexUtils.clear(this.overlay);
             this.onOverlayHide();
         }
     },
