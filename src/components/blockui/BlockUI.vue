@@ -5,7 +5,7 @@
 </template>
 
 <script>
-import {DomHandler} from 'primevue/utils';
+import {DomHandler,ZIndexUtils} from 'primevue/utils';
 
 export default {
     emits: ['block', 'unblock'],
@@ -63,7 +63,7 @@ export default {
             }
 
             if (this.autoZIndex) {
-                this.mask.style.zIndex = String(this.baseZIndex + DomHandler.generateZIndex());
+                ZIndexUtils.set('modal', this.mask, this.baseZIndex + this.$primevue.config.zIndex.modal);
             }
 
             this.$emit('block');
@@ -75,6 +75,7 @@ export default {
             });
         },
         removeMask() {
+            ZIndexUtils.clear(this.mask);
              if (this.fullScreen) {
                 document.body.removeChild(this.mask);
                 DomHandler.removeClass(document.body, 'p-overflow-hidden');

@@ -8,7 +8,7 @@
             @click="toggleMenu()" @keydown="onToggleButtonKeyDown($event)"><span class="pi pi-filter-icon pi-filter"></span></button>
         <button v-if="showMenuButton && display === 'row'" :class="{'p-hidden-space': !hasRowFilter()}" type="button" class="p-column-filter-clear-button p-link" @click="clearFilter()"><span class="pi pi-filter-slash"></span></button>
         <Teleport to="body">
-            <transition name="p-connected-overlay" @enter="onOverlayEnter" @leave="onOverlayLeave">
+            <transition name="p-connected-overlay" @enter="onOverlayEnter" @leave="onOverlayLeave" @after-leave="onOverlayAfterLeave">
                 <div :ref="overlayRef" :class="overlayClass" v-if="overlayVisible" @keydown.escape="onEscape" @click="onContentClick">
                     <component :is="filterHeaderTemplate" :field="field" :filterModel="filters[field]" :filterCallback="filterCallback" />
                     <template v-if="display === 'row'">
@@ -54,7 +54,7 @@
 </template>
 
 <script>
-import {DomHandler,ConnectedOverlayScrollHandler} from 'primevue/utils';
+import {DomHandler,ConnectedOverlayScrollHandler,ZIndexUtils} from 'primevue/utils';
 import OverlayEventBus from 'primevue/overlayeventbus';
 import {FilterOperator} from 'primevue/api';
 import Dropdown from 'primevue/dropdown';
@@ -144,6 +144,7 @@ export default {
     selfClick: false,
     beforeUnmount() {
         if (this.overlay) {
+            ZIndexUtils.clear(el);
             this.onOverlayHide();
         }
     },
@@ -341,12 +342,12 @@ export default {
         onContentClick() {
             this.selfClick = true;
         },
-        onOverlayEnter() {
+        onOverlayEnter(el) {
             if (this.filterMenuStyle) {
                 DomHandler.applyStyle(this.overlay, this.filterMenuStyle);
             }
             document.body.appendChild(this.overlay);
-            this.overlay.style.zIndex = String(DomHandler.generateZIndex());
+            ZIndexUtils.set('overlay', el, this.$primevue.config.zIndex.overlay);
             DomHandler.absolutePosition(this.overlay, this.$refs.icon);
             this.bindOutsideClickListener();
             this.bindScrollListener();
@@ -360,6 +361,9 @@ export default {
         },
         onOverlayLeave() {
             this.onOverlayHide();
+        },
+        onOverlayAfterLeave(el) {
+            ZIndexUtils.clear(el);
         },
         onOverlayHide() {
             this.unbindOutsideClickListener();
