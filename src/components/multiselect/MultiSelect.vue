@@ -7,7 +7,10 @@
         <div class="p-multiselect-label-container">
             <div :class="labelClass">
                 <slot name="value" :value="modelValue" :placeholder="placeholder">
-                    <template v-if="display === 'comma'">
+                    <template v-if="displayInput !== null">
+                        {{ displayInput }}
+                    </template>
+                    <template v-else-if="display === 'comma'">
                         {{label || 'empty'}}
                     </template>
                     <template v-else-if="display === 'chip'">
@@ -144,6 +147,10 @@ export default {
         display: {
             type: String,
             default: 'comma'
+        },
+        displayInput: {
+            type: String,
+            default: null
         }
     },
     data() {
