@@ -23,6 +23,8 @@ declare class Dialog {
     $props: DialogProps;
     $emit(eventName: 'show'): this;
     $emit(eventName: 'hide'): this;
+    $emit(eventName: 'maximize'): this;
+    $emit(eventName: 'unmaximize'): this;
     $slots: {
         '': VNode[];
         header: VNode[];

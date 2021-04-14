@@ -34,7 +34,7 @@ import Ripple from 'primevue/ripple';
 
 export default {
     inheritAttrs: false,
-    emits: ['update:visible', 'show', 'hide'],
+    emits: ['update:visible','show','hide','maximize','unmaximize'],
     props: {
         header: null,
         footer: null,
@@ -150,8 +150,15 @@ export default {
                 focusTarget.focus();
             }
         },
-        maximize() {
-            this.maximized = !this.maximized;
+        maximize(event) {
+            if (this.maximized) {
+                this.maximized = false;
+                this.$emit('unmaximize', event);
+            }
+            else {
+                this.maximized = true;
+                this.$emit('maximize', event);
+            }
 
             if (!this.modal) {
                 if (this.maximized)

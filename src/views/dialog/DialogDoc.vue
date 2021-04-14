@@ -207,16 +207,26 @@ export default {
 				</tr>
 				</thead>
 				<tbody>
-				<tr>
-					<td>hide</td>
-					<td>event: Event object</td>
-					<td>Callback to invoke when dialog is hidden.</td>
-				</tr>
-				<tr>
-					<td>show</td>
-					<td>event: Event object</td>
-					<td>Callback to invoke when dialog is showed.</td>
-				</tr>
+                    <tr>
+                        <td>hide</td>
+                        <td>event: Event object</td>
+                        <td>Callback to invoke when dialog is hidden.</td>
+                    </tr>
+                    <tr>
+                        <td>show</td>
+                        <td>event: Event object</td>
+                        <td>Callback to invoke when dialog is showed.</td>
+                    </tr>
+                    <tr>
+                        <td>maximize</td>
+                        <td>event: Event object</td>
+                        <td>Fired when a dialog gets maximized.</td>
+                    </tr>
+                    <tr>
+                        <td>unmaximize</td>
+                        <td>event: Event object</td>
+                        <td>Fire when a dialog gets unmaximized.</td>
+                    </tr>
 				</tbody>
 			</table>
 		</div>
