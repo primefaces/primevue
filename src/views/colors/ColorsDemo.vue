@@ -29,7 +29,7 @@
                             <td>Font text color.</td>
                         </tr>
                         <tr>
-                            <td><i>--text-secondary-color</i></td>
+                            <td><i>--text-color-secondary</i></td>
                             <td>Muted font text color with a secondary level.</td>
                         </tr>
                         <tr>
