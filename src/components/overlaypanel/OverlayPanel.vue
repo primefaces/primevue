@@ -117,7 +117,7 @@ export default {
             }
 
             OverlayEventBus.on('overlay-click', e => {
-                if (this.container.contains(e.target)) {
+                if (this.container && this.container.contains(e.target)) {
                     this.selfClick = true;
                 }
             });
