@@ -1903,6 +1903,7 @@ export default {
 
 .p-datatable-scrollable .p-rowgroup-header {
     position: sticky;
+    z-index: 1;
 }
 
 /* Resizable */
