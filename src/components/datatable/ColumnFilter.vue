@@ -346,7 +346,6 @@ export default {
             if (this.filterMenuStyle) {
                 DomHandler.applyStyle(this.overlay, this.filterMenuStyle);
             }
-            document.body.appendChild(this.overlay);
             ZIndexUtils.set('overlay', el, this.$primevue.config.zIndex.overlay);
             DomHandler.absolutePosition(this.overlay, this.$refs.icon);
             this.bindOutsideClickListener();
