@@ -37,8 +37,10 @@ export default {
     scrollHandler: null,
     resizeListener: null,
     container: null,
+    confirmListener: null,
+    closeListener: null,
     mounted() {
-        ConfirmationEventBus.on('confirm', (options) => {
+        this.confirmListener = (options) => {
             if (!options) {
                 return;
             }
@@ -48,16 +50,17 @@ export default {
                 this.target = options.target;
                 this.visible = true;
             }
-        });
-
-        ConfirmationEventBus.on('close', () => {
+        };
+        this.closeListener = () => {
             this.visible = false;
             this.confirmation = null;
-        });
+        };
+        ConfirmationEventBus.on('confirm', this.confirmListener);
+        ConfirmationEventBus.on('close', this.closeListener);
     },
     beforeUnmount() {
-        ConfirmationEventBus.off('confirm');
-        ConfirmationEventBus.off('close');
+        ConfirmationEventBus.off('confirm', this.confirmListener);
+        ConfirmationEventBus.off('close', this.closeListener);
 
         this.unbindOutsideClickListener();
         if (this.scrollHandler) {

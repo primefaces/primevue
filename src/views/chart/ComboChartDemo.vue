@@ -23,20 +23,22 @@ import ComboChartDoc from './ComboChartDoc';
 import EventBus from '@/AppEventBus';
 
 export default {
-     mounted() {
-        EventBus.on('change-theme', event => {
+    themeChangeListener: null,
+    mounted() {
+        this.themeChangeListener = (event) => {
             if (event.dark)
                 this.applyDarkTheme();
             else
                 this.applyLightTheme();
-        });
+        };
+        EventBus.on('change-theme', this.themeChangeListener);
 
         if (this.isDarkTheme()) {
             this.applyDarkTheme();
         }
     },
     beforeUnmount() {
-        EventBus.off('change-theme');
+        EventBus.off('change-theme', this.themeChangeListener);
     },
     data() {
         return {

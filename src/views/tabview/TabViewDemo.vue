@@ -158,19 +158,21 @@ export default {
         }
     },
     timeout: null,
+    themeChangeListener: null,
     mounted() {
-        EventBus.on('change-theme', () => {
+        this.themeChangeListener = () => {
             this.timeout = setTimeout(() => {
                 this.$refs.tabview1.updateInkBar();
                 this.$refs.tabview2.updateInkBar();
                 this.$refs.tabview3.updateInkBar();
                 this.$refs.tabview4.updateInkBar();
             }, 50);
-        });
+        };
+        EventBus.on('change-theme', this.themeChangeListener);
     },
     beforeUnmount() {
         clearTimeout(this.timeout);
-        EventBus.off('change-theme');
+        EventBus.off('change-theme', this.themeChangeListener);
     },
     components: {
         'TabViewDoc': TabViewDoc

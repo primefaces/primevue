@@ -365,6 +365,7 @@ export default {
         }
     },
     outsideClickListener: null,
+    themeChangeListener: null,
     watch: {
         $route() {
             if (this.active) {
@@ -373,15 +374,20 @@ export default {
             }
         }
     },
+    beforeUnmount() {
+        EventBus.off('change-theme', this.themeChangeListener);
+    },
     mounted() {
-        EventBus.on('change-theme', event => {
+        this.themeChangeListener = (event) => {
             if (event.theme === 'nano')
                 this.scale = 12;
             else
                 this.scale = 14;
 
             this.applyScale();
-        });
+        };
+
+        EventBus.on('change-theme', this.themeChangeListener);
     },
     methods: {
         toggleConfigurator(event) {

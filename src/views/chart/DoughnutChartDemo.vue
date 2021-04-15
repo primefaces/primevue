@@ -23,16 +23,18 @@ import DoughnutChartDoc from './DoughnutChartDoc';
 import EventBus from '@/AppEventBus';
 
 export default {
+    themeChangeListener = null,
     mounted() {
-        EventBus.on('change-theme', event => {
+        this.themeChangeListener = (event) => {
             if (event.dark)
                 this.chartOptions = this.getDarkTheme();
             else
                 this.chartOptions = this.getLightTheme();
-        });
+        }
+        EventBus.on('change-theme', this.themeChangeListener );
     },
     beforeUnmount() {
-        EventBus.off('change-theme');
+        EventBus.off('change-theme', this.themeChangeListener );
     },
     data() {
         return {

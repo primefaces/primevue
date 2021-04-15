@@ -62,6 +62,7 @@ export default {
     resizeListener: null,
     container: null,
     styleElement: null,
+    overlayEventListener: null,
     beforeUnmount() {
         if (this.dismissable) {
             this.unbindOutsideClickListener();
@@ -78,6 +79,12 @@ export default {
         if (this.container && this.autoZIndex) {
             ZIndexUtils.clear(this.container);
         }
+
+        if (this.overlayEventListener) {
+            OverlayEventBus.off('overlay-click', this.overlayEventListener);
+            this.overlayEventListener = null;
+        }
+
         this.container = null;
     },
     mounted() {
@@ -116,17 +123,20 @@ export default {
                 ZIndexUtils.set('overlay', el, this.baseZIndex + this.$primevue.config.zIndex.overlay);
             }
 
-            OverlayEventBus.on('overlay-click', e => {
-                if (this.container && this.container.contains(e.target)) {
+            this.overlayEventListener = (e) => {
+                if (this.container.contains(e.target)) {
                     this.selfClick = true;
                 }
-            });
+            };
+
+            OverlayEventBus.on('overlay-click', this.overlayEventListener);
         },
         onLeave() {
             this.unbindOutsideClickListener();
             this.unbindScrollListener();
             this.unbindResizeListener();
-            OverlayEventBus.off('overlay-click');
+            OverlayEventBus.off('overlay-click', this.overlayEventListener);
+            this.overlayEventListener = null;
         },
         onAfterLeave(el) {
             if (this.autoZIndex) {

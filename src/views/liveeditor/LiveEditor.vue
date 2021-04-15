@@ -53,13 +53,15 @@ export default {
             default: null
         }
     },
+    runDemoListener: null,
     mounted() {
-        EventBus.on('run-demo', type => {
+        this.runDemoListener = (type) => {
             this.postSandboxParameters(type);
-        });
+        };
+        EventBus.on('run-demo', this.runDemoListener);
     },
     beforeUnmount() {
-        EventBus.off('run-demo').reset();
+        EventBus.off('run-demo', this.runDemoListener);
     },
     methods: {
         postSandboxParameters(sourceType) {

@@ -80,6 +80,7 @@ export default {
     },
     documentEditListener: null,
     selfClick: false,
+    overlayEventListener: null,
     data() {
         return {
             d_editing: this.editing,
@@ -99,6 +100,12 @@ export default {
     updated() {
         if (this.columnProp('frozen')) {
             this.updateStickyPosition();
+        }
+    },
+    beforeUnmount() {
+        if (this.overlayEventListener) {
+            OverlayEventBus.off('overlay-click', this.overlayEventListener);
+            this.overlayEventListener = null;
         }
     },
     methods: {
@@ -145,7 +152,8 @@ export default {
         switchCellToViewMode() {
             this.d_editing = false;
             this.unbindDocumentEditListener();
-            OverlayEventBus.off('overlay-click', this.eventBusKey);
+            OverlayEventBus.off('overlay-click', this.overlayEventListener);
+            this.overlayEventListener = null;
         },
         onClick(event) {
             if (this.editMode === 'cell' && this.isEditable()) {
@@ -156,11 +164,12 @@ export default {
                     this.bindDocumentEditListener();
                     this.$emit('cell-edit-init', {originalEvent: event, data: this.rowData, field: this.columnProp('field'), index: this.index});
 
-                    OverlayEventBus.on('overlay-click', e => {
+                    this.overlayEventListener = (e) => {
                         if (this.$el && this.$el.contains(e.target)) {
                             this.selfClick = true;
                         }
-                    }, this.eventBusKey);
+                    }
+                    OverlayEventBus.on('overlay-click', this.overlayEventListener);
                 }
             }
         },

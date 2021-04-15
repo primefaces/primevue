@@ -231,6 +231,7 @@ export default {
             dark: false
         }
     },
+    themeChangeListener: null,
     mounted() {
         let afId = this.$route.query['af_id'];
         if (afId) {
@@ -240,21 +241,21 @@ export default {
             document.cookie = 'primeaffiliateid=' + afId + ';expires=' + expire.toUTCString() + ';path=/; domain:primefaces.org';
         }
 
-        EventBus.on('change-theme', event => {
+        this.themeChangeListener = (event) => {
             if (event.dark)
                 this.dark = true;
             else
                 this.dark = false;
-        });
+        };
+        EventBus.on('change-theme', this.themeChangeListener);
     },
     beforeUnmount() {
-        EventBus.off('change-theme');
+        EventBus.off('change-theme', this.themeChangeListener);
     },
     computed: {
         introductionClass() {
             return ['introduction', {'introduction-dark': this.dark}];
         }
     }
-
 }
 </script>

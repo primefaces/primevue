@@ -39,20 +39,22 @@ import BarChartDoc from './BarChartDoc';
 import EventBus from '@/AppEventBus';
 
 export default {
+    themeChangeListener: null,
     mounted() {
-        EventBus.on('change-theme', event => {
+        this.themeChangeListener = (event) => {
             if (event.dark)
                 this.applyDarkTheme();
             else
                 this.applyLightTheme();
-        });
+        };
+        EventBus.on('change-theme', this.themeChangeListener);
 
         if (this.isDarkTheme()) {
             this.applyDarkTheme();
         }
     },
     beforeUnmount() {
-        EventBus.off('change-theme');
+        EventBus.off('change-theme', this.themeChangeListener);
     },
     data() {
         return {

@@ -16,13 +16,15 @@ export default {
         component: null,
         github: null
     },
+    viewGithubListener: null,
     mounted() {
-        EventBus.on('view-github', () => {
+        this.viewGithubListener = () => {
             window.open('https://github.com/primefaces/primevue/blob/master/src/views/' + this.github, '_blank');
-        });
+        };
+        EventBus.on('view-github', this.viewGithubListener);
     },
     beforeUnmount() {
-        EventBus.off('view-github');
+        EventBus.off('view-github', this.viewGithubListener);
     },
     methods: {
         renderPanels() {

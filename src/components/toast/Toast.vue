@@ -41,19 +41,9 @@ export default {
         }
     },
     mounted() {
-        ToastEventBus.on('add', (message) => {
-            if (this.group == message.group) {
-                this.add(message);
-            }
-        });
-        ToastEventBus.on('remove-group', (group) => {
-            if (this.group === group) {
-                this.messages = [];
-            }
-        });
-        ToastEventBus.on('remove-all-groups', () => {
-            this.messages = [];
-        });
+        ToastEventBus.on('add', this.onAdd);
+        ToastEventBus.on('remove-group', this.onRemoveGroup);
+        ToastEventBus.on('remove-all-groups', this.onRemoveAllGroups);
 
         if (this.autoZIndex) {
             ZIndexUtils.set('modal', this.$refs.container, this.baseZIndex || this.$primevue.config.zIndex.modal);
@@ -63,6 +53,10 @@ export default {
         if (this.$refs.container && this.autoZIndex) {
             ZIndexUtils.clear(this.$refs.container);
         }
+
+        ToastEventBus.off('add', this.onAdd);
+        ToastEventBus.off('remove-group', this.onRemoveGroup);
+        ToastEventBus.off('remove-all-groups', this.onRemoveAllGroups);
     },
     methods: {
         add(message) {
@@ -82,6 +76,19 @@ export default {
             }
 
             this.messages.splice(index, 1);
+        },
+        onAdd(message) {
+            if (this.group == message.group) {
+                this.add(message);
+            }
+        },
+        onRemoveGroup(group) {
+            if (this.group === group) {
+                this.messages = [];
+            }
+        },
+        onRemoveAllGroıps() {
+            this.messages = [];
         }
     },
     components: {

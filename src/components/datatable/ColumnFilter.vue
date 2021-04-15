@@ -142,7 +142,13 @@ export default {
     },
     overlay: null,
     selfClick: false,
+    overlayEventListener: null,
     beforeUnmount() {
+        if (this.overlayEventListener) {
+            OverlayEventBus.off('overlay-click', this.overlayEventListener);
+            this.overlayEventListener = null;
+        }
+
         if (this.overlay) {
             ZIndexUtils.clear(this.overlay);
             this.onOverlayHide();
@@ -352,11 +358,12 @@ export default {
             this.bindScrollListener();
             this.bindResizeListener();
 
-            OverlayEventBus.on('overlay-click', e => {
+            this.overlayEventListener = (e) => {
                 if (this.overlay.contains(e.target)) {
                     this.selfClick = true;
                 }
-            });
+            }
+            OverlayEventBus.on('overlay-click', this.overlayEventListener);
         },
         onOverlayLeave() {
             this.onOverlayHide();
@@ -369,7 +376,8 @@ export default {
             this.unbindResizeListener();
             this.unbindScrollListener();
             this.overlay = null;
-            OverlayEventBus.off('overlay-click');
+            OverlayEventBus.off('overlay-click', this.overlayEventListener);
+            this.overlayEventListener = null;
         },
         overlayRef(el) {
             this.overlay = el;

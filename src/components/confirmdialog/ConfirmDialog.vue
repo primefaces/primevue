@@ -23,6 +23,8 @@ export default {
             default: null
         }
     },
+    confirmListener: null,
+    closeListener: null,
     data() {
         return {
             visible: false,
@@ -30,7 +32,7 @@ export default {
         }
     },
     mounted() {
-        ConfirmationEventBus.on('confirm', (options) => {
+        this.confirmListener = (options) => {
             if (!options) {
                 return;
             }
@@ -39,16 +41,18 @@ export default {
                 this.confirmation = options;
                 this.visible = true;
             }
-        });
+        };
 
-        ConfirmationEventBus.on('close', () => {
+        this.closeListener = () => {
             this.visible = false;
             this.confirmation = null;
-        });
+        };
+        ConfirmationEventBus.on('confirm', this.confirmListener);
+        ConfirmationEventBus.on('close', this.closeListener);
     },
     beforeUnmount() {
-        ConfirmationEventBus.off('confirm');
-        ConfirmationEventBus.off('close');
+        ConfirmationEventBus.off('confirm', this.confirmListener);
+        ConfirmationEventBus.off('close', this.closeListener);
     },
     methods: {
         accept() {
