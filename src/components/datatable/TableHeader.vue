@@ -17,6 +17,7 @@
             <tr v-if="filterDisplay === 'row'" role="row">
                 <template v-for="(col,i) of columns" :key="columnProp(col, 'columnKey')||columnProp(col, 'field')||i">
                     <th :style="getFilterColumnHeaderStyle(col)" :class="getFilterColumnHeaderClass(col)">
+                        <DTHeaderCheckbox :checked="allRowsSelected" @change="$emit('checkbox-change', $event)" :disabled="empty" v-if="columnProp(col, 'selectionMode') ==='multiple'" />
                         <DTColumnFilter v-if="col.children && col.children.filter" :field="columnProp(col,'filterField')||columnProp(col,'field')" :type="columnProp(col,'dataType')" display="row"  
                         :showMenu="columnProp(col,'showFilterMenu')" :filterElement="col.children && col.children.filter" 
                         :filterHeaderTemplate="col.children && col.children.filterheader" :filterFooterTemplate="col.children && col.children.filterfooter" 
@@ -48,6 +49,7 @@
 
 <script>
 import HeaderCell from './HeaderCell.vue';
+import HeaderCheckbox from './HeaderCheckbox.vue';
 import ColumnFilter from './ColumnFilter.vue';
 
 export default {
@@ -125,6 +127,7 @@ export default {
     },
     components: {
         'DTHeaderCell': HeaderCell,
+        'DTHeaderCheckbox': HeaderCheckbox,
         'DTColumnFilter': ColumnFilter
     }
 }
