@@ -271,6 +271,12 @@ export default {
                         <td>comma</td>
                         <td>Defines how the selected items are displayed, valid values are "comma" and "chip".</td>
                     </tr>
+                    <tr>
+                        <td>panelClass</td>
+                        <td>string</td>
+                        <td>null</td>
+                        <td>Style class of the overlay panel.</td>
+                    </tr>
 				</tbody>
 			</table>
 		</div>

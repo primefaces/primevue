@@ -230,6 +230,12 @@ export default {
                         <td>When present, autocomplete clears the manual input if it does not match of the suggestions to force only
                         accepting values from the suggestions.</td>
                     </tr>
+                    <tr>
+                        <td>panelClass</td>
+                        <td>string</td>
+                        <td>null</td>
+                        <td>Style class of the overlay panel.</td>
+                    </tr>
 				</tbody>
 			</table>
 		</div>

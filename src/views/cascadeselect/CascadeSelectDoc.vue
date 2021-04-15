@@ -213,6 +213,12 @@ data() {
                         <td>body</td>
                         <td>A valid query selector or an HTMLElement to specify where the overlay gets attached.</td>
                     </tr>
+                    <tr>
+                        <td>panelClass</td>
+                        <td>string</td>
+                        <td>null</td>
+                        <td>Style class of the overlay panel.</td>
+                    </tr>
 				</tbody>
 			</table>
 		</div>

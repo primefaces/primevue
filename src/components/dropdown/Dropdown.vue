@@ -15,7 +15,7 @@
         </div>
         <Teleport :to="appendTo">
             <transition name="p-connected-overlay" @enter="onOverlayEnter" @leave="onOverlayLeave" @after-leave="onOverlayAfterLeave">
-                <div :ref="overlayRef" class="p-dropdown-panel p-component" v-if="overlayVisible" @click="onOverlayClick">
+                <div :ref="overlayRef" :class="panelStyleClass" v-if="overlayVisible" @click="onOverlayClick">
                     <slot name="header" :value="modelValue" :options="visibleOptions"></slot>
                     <div class="p-dropdown-header" v-if="filter">
                         <div  class="p-dropdown-filter-container">
@@ -107,7 +107,8 @@ export default {
         emptyMessage: {
             type: String,
             default: null
-        }
+        },
+        panelClass: null
     },
     data() {
         return {
@@ -620,6 +621,9 @@ export default {
                     'p-dropdown-label-empty': !this.$slots['value'] && (this.label === 'p-emptylabel' || this.label.length === 0)
                 }
             ];
+        },
+        panelStyleClass() {
+            return ['p-dropdown-panel p-component', this.panelClass];
         },
         label() {
             let selectedOption = this.getSelectedOption();

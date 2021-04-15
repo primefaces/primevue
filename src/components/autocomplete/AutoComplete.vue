@@ -16,7 +16,7 @@
         <Button ref="dropdownButton" type="button" icon="pi pi-chevron-down" class="p-autocomplete-dropdown" :disabled="$attrs.disabled" @click="onDropdownClick" v-if="dropdown"/>
         <Teleport :to="appendTo">
             <transition name="p-connected-overlay" @enter="onOverlayEnter" @leave="onOverlayLeave" @after-leave="onOverlayAfterLeave">
-                <div :ref="overlayRef" class="p-autocomplete-panel p-component" :style="{'max-height': scrollHeight}" v-if="overlayVisible" @click="onOverlayClick">
+                <div :ref="overlayRef" :class="panelStyleClass" :style="{'max-height': scrollHeight}" v-if="overlayVisible" @click="onOverlayClick">
                     <slot name="header" :value="modelValue" :suggestions="suggestions"></slot>
                     <ul :id="listId" class="p-autocomplete-items" role="listbox">
                         <template v-if="!optionGroupLabel">
@@ -98,7 +98,8 @@ export default {
         inputClass: null,
         inputStyle: null,
         class: null,
-        style: null
+        style: null,
+        panelClass: null
     },
     timeout: null,
     outsideClickListener: null,
@@ -532,6 +533,9 @@ export default {
                 'p-disabled': this.$attrs.disabled,
                 'p-focus': this.focused
             }];
+        },
+        panelStyleClass() {
+            return ['p-autocomplete-panel p-component', this.panelClass];
         },
         inputValue() {
             if (this.modelValue) {

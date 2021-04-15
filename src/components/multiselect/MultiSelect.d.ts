@@ -24,6 +24,7 @@ interface MultiSelectProps {
     emptyFilterMessage?: string;
     emptyMessage?: string;
     display?: string;
+    panelClass?: string;
 }
 
 declare class MultiSelect {

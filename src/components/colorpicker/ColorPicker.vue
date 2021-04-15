@@ -65,7 +65,8 @@ export default {
         ariaLabelledBy: {
             type: String,
             default: null
-        }
+        },
+        panelClass: null
     },
     data() {
         return {
@@ -561,7 +562,7 @@ export default {
             return ['p-colorpicker-preview p-inputtext', {'p-disabled': this.disabled}];
         },
         pickerClass() {
-            return ['p-colorpicker-panel', {'p-colorpicker-overlay-panel': !this.inline, 'p-disabled': this.disabled}];
+            return ['p-colorpicker-panel', this.panelClass, {'p-colorpicker-overlay-panel': !this.inline, 'p-disabled': this.disabled}];
         }
     }
 }

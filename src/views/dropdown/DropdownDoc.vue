@@ -269,6 +269,12 @@ export default {
                         <td>No results found</td>
                         <td>Text to display when there are no options available. Defaults to value from PrimeVue locale configuration.</td>
                     </tr>
+                    <tr>
+                        <td>panelClass</td>
+                        <td>string</td>
+                        <td>null</td>
+                        <td>Style class of the overlay panel.</td>
+                    </tr>
 				</tbody>
 			</table>
 		</div>

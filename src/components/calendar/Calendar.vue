@@ -200,10 +200,6 @@ export default {
             type: String,
             default: null
         },
-        panelStyle: {
-            type: String,
-            default: null
-        },
         minDate: {
             type: Date,
             value: null

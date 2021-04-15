@@ -11,6 +11,7 @@ interface PasswordProps {
     toggleMask?: boolean;
     inputStyle?: any;
     inputClass?: string;
+    panelClass?: string;
 }
 
 declare class Password {

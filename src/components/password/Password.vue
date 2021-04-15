@@ -4,7 +4,7 @@
         <i v-if="toggleMask" :class="toggleIconClass" @click="onMaskToggle" />
         <Teleport :to="appendTo">
             <transition name="p-connected-overlay" @enter="onOverlayEnter" @leave="onOverlayLeave" @after-leave="onOverlayAfterLeave">
-                <div :ref="overlayRef" class="p-password-panel p-component" v-if="overlayVisible" @click="onOverlayClick">
+                <div :ref="overlayRef" :class="panelStyleClass" v-if="overlayVisible" @click="onOverlayClick">
                     <slot name="header"></slot>
                     <slot name="content">
                         <div class="p-password-meter">
@@ -65,10 +65,11 @@ export default {
             type: Boolean,
             default: false
         },
-        inputClass: null,
+        inputClass: toString,
         inputStyle: null,
         style: null,
-        class: null
+        class: String,
+        panelClass: String
     },
     data() {
         return {
@@ -249,6 +250,9 @@ export default {
             return ['p-password-input', this.inputClass, {
                 'p-disabled': this.$attrs.disabled
             }];
+        },
+        panelStyleClass() {
+            return ['p-password-panel p-component', this.panelClass];
         },
         toggleIconClass() {
             return this.unmasked ? 'pi pi-eye-slash' : 'pi pi-eye';

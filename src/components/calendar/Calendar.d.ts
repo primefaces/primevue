@@ -16,7 +16,6 @@ interface CalendarProps {
     yearNavigator?: boolean;
     yearRange?: string;
     panelClass?: string;
-    panelStyle?: string;
     minDate?: Date;
     maxDate?: Date;
     disabledDates?: Date[];

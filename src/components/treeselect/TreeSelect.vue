@@ -24,7 +24,7 @@
         </div>
         <Teleport :to="appendTo">
             <transition name="p-connected-overlay" @enter="onOverlayEnter" @leave="onOverlayLeave" @after-leave="onOverlayAfterLeave">
-                <div :ref="overlayRef" v-if="overlayVisible" @click="onOverlayClick" :class="['p-treeselect-panel p-component', panelClass]">
+                <div :ref="overlayRef" v-if="overlayVisible" @click="onOverlayClick" :class="panelStyleClass">
                     <slot name="header" :value="modelValue" :options="options"></slot>
                     <div class="p-treeselect-items-wrapper" :style="{'max-height': scrollHeight}">
                         <TSTree :value="options" :selectionMode="selectionMode" @update:selectionKeys="onSelectionChange" :selectionKeys="modelValue"
@@ -368,6 +368,9 @@ export default {
                     'p-treeselect-label-empty': !this.placeholder && this.emptyValue
                 }
             ];
+        },
+        panelStyleClass() {
+            return ['p-treeselect-panel p-component', panelClass];
         },
         selectedNodes() {
             let selectedNodes = [];

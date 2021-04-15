@@ -14,7 +14,7 @@
         </div>
         <Teleport :to="appendTo">
             <transition name="p-connected-overlay" @enter="onOverlayEnter" @leave="onOverlayLeave" @after-leave="onOverlayAfterLeave">
-                <div :ref="overlayRef" class="p-cascadeselect-panel p-component" v-if="overlayVisible" @click="onOverlayClick">
+                <div :ref="overlayRef" :class="panelStyleClass" v-if="overlayVisible" @click="onOverlayClick">
                     <div class="p-cascadeselect-items-wrapper">
                         <CascadeSelectSub :options="options" :selectionPath="selectionPath" 
                             :optionLabel="optionLabel" :optionValue="optionValue" :level="0" :templates="$slots"
@@ -58,7 +58,8 @@ export default {
         appendTo: {
             type: String,
             default: 'body'
-        }
+        },
+        panelClass: null
     },
     outsideClickListener: null,
     scrollHandler: null,
@@ -299,6 +300,9 @@ export default {
                 return this.getOptionLabel(this.selectionPath[this.selectionPath.length - 1]);
             else
                 return this.placeholder||'p-emptylabel';
+        },
+        panelStyleClass() {
+            return ['p-cascadeselect-panel p-component', this.panelClass];
         }
     },
     components: {

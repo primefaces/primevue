@@ -25,6 +25,7 @@ interface DropdownProps {
     appendTo?: string;
     emptyFilterMessage?: string;
     emptyMessage?: string;
+    panelClass?: string;
 }
 
 declare class Dropdown {

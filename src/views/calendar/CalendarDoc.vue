@@ -264,12 +264,6 @@ export default {
                         <td>Style class of the datetimepicker panel.</td>
                     </tr>
                     <tr>
-                        <td>panelStyle</td>
-                        <td>object</td>
-                        <td>null</td>
-                        <td>Inline style of the datetimepicker panel.</td>
-                    </tr>
-                    <tr>
                         <td>minDate</td>
                         <td>Date</td>
                         <td>null</td>

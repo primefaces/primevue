@@ -16,6 +16,7 @@ interface AutoCompleteProps {
     inputStyle?: any;
     inputClass?: string;
     forceSelection?: boolean;
+    panelClass?: string;
 }
 
 declare class AutoComplete {

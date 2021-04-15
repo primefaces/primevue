@@ -14,6 +14,7 @@ interface CascadeSelectProps {
     inputId?: string;
     ariaLabelledBy?: string;
     appendTo?: string;
+    panelClass?: string;
 }
 
 declare class CascadeSelect {

@@ -8,6 +8,7 @@ interface ColorPickerProps {
     autoZIndex?: boolean;
     baseZIndex?: number;
     ariaLabelledBy?: string;
+    panelClass?: string;
 }
 
 declare class ColorPicker {
