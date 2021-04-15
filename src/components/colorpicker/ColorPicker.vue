@@ -124,8 +124,8 @@ export default {
             let rect = this.colorSelector.getBoundingClientRect();
             let top = rect.top + (window.pageYOffset || document.documentElement.scrollTop || document.body.scrollTop || 0);
             let left = rect.left + document.body.scrollLeft;
-            let saturation = Math.floor(100 * (Math.max(0, Math.min(150, (event.pageX - left)))) / 150);
-            let brightness = Math.floor(100 * (150 - Math.max(0, Math.min(150, (event.pageY - top)))) / 150);
+            let saturation = Math.floor(100 * (Math.max(0, Math.min(150, ((event.pageX || event.changedTouches[0].pageX)- left)))) / 150);
+            let brightness = Math.floor(100 * (150 - Math.max(0, Math.min(150, ((event.pageY || event.changedTouches[0].pageY) - top)))) / 150);
             this.hsbValue = this.validateHSB({
                 h: this.hsbValue.h,
                 s: saturation,
@@ -140,7 +140,7 @@ export default {
         pickHue(event) {
             let top = this.hueView.getBoundingClientRect().top + (window.pageYOffset || document.documentElement.scrollTop || document.body.scrollTop || 0);
             this.hsbValue = this.validateHSB({
-                h: Math.floor(360 * (150 - Math.max(0, Math.min(150, (event.pageY - top)))) / 150),
+                h: Math.floor(360 * (150 - Math.max(0, Math.min(150, ((event.pageY || event.changedTouches[0].pageY) - top)))) / 150),
                 s: 100,
                 b: 100
             });
