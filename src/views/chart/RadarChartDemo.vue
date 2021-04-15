@@ -23,7 +23,7 @@ import RadarChartDoc from './RadarChartDoc';
 import EventBus from '@/AppEventBus';
 
 export default {
-    themeChangeListener = null,
+    themeChangeListener: null,
     mounted() {
         this.themeChangeListener = (event) => {
             if (event.dark)

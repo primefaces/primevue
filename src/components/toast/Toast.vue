@@ -87,7 +87,7 @@ export default {
                 this.messages = [];
             }
         },
-        onRemoveAllGroıps() {
+        onRemoveAllGroups() {
             this.messages = [];
         }
     },
