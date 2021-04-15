@@ -119,11 +119,16 @@ import Button from 'primevue/button';
 
 </code></pre>
 
-        <h5>Slot</h5>
-        <p>Custom content can be placed inside the button via the default slot. Note that when slot is used, label, icon and badge properties are not included.</p>
+        <h5>Templating</h5>
+        <p>Custom content such as icons, images and text can be placed inside the button via the default slot. Note that when slot is used, label, icon and badge properties are not included.</p>
 <pre v-code><code>
-&lt;Button&gt;
-    Custom Content
+&lt;Button type="button" class="p-px-3"&gt;
+    &lt;img alt="logo" src="../../assets/images/logo.svg" style="width: 1.5rem"/&gt;
+&lt;/Button&gt;
+
+&lt;Button type="button" class="p-button-outlined p-button-success"&gt;
+    &lt;img alt="logo" src="../../assets/images/logo.svg" style="width: 1.5rem" /&gt;
+    &lt;span class="p-ml-2 p-text-bold"&gt;PrimeVue&lt;/span&gt;
 &lt;/Button&gt;
 
 </code></pre>
@@ -323,6 +328,15 @@ export default {
         <Button type="button" label="Emails" badge="8" />
         <Button type="button" label="Messages" icon="pi pi-users" class="p-button-warning" badge="8" badgeClass="p-badge-danger" />
 
+        <h5>Templating</h5>
+       <Button type="button" class="p-px-3">
+            <img alt="logo" src="../../assets/images/logo-white.svg" style="width: 1.5rem"/>
+        </Button>
+        <Button type="button" class="p-button-outlined p-button-success">
+            <img alt="logo" src="../../assets/images/logo.svg" style="width: 1.5rem" />
+            <span class="p-ml-2 p-text-bold">PrimeVue</span>
+        </Button>
+
         <h5>Button Set</h5>
         <span class="p-buttonset">
             <Button label="Save" icon="pi pi-check" />
@@ -486,6 +500,15 @@ export default {
         <h5>Badges</h5>
         <Button type="button" label="Emails" badge="8" />
         <Button type="button" label="Messages" icon="pi pi-users" class="p-button-warning" badge="8" badgeClass="p-badge-danger" />
+
+        <h5>Templating</h5>
+        <Button type="button" class="p-px-3">
+            <img alt="logo" src="../../assets/images/logo-white.svg" style="width: 1.5rem"/>
+        </Button>
+        <Button type="button" class="p-button-outlined p-button-success">
+            <img alt="logo" src="../../assets/images/logo.svg" style="width: 1.5rem" />
+            <span class="p-ml-2 p-text-bold">PrimeVue</span>
+        </Button>
 
         <h5>Button Set</h5>
         <span class="p-buttonset">
