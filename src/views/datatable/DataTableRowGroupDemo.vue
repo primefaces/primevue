@@ -15,27 +15,29 @@
                 <DataTable :value="customers" rowGroupMode="subheader" groupRowsBy="representative.name"
                     sortMode="single" sortField="representative.name" :sortOrder="1" scrollable scrollHeight="400px">
                     <Column field="representative.name" header="Representative"></Column>
-                    <Column field="name" header="Name"></Column>
-                    <Column field="country" header="Country">
+                    <Column field="name" header="Name" style="min-width:200px"></Column>
+                    <Column field="country" header="Country" style="min-width:200px">
                         <template #body="slotProps">
                             <img src="../../assets/images/flag_placeholder.png" :class="'flag flag-' + slotProps.data.country.code" width="30" />
                             <span class="image-text">{{slotProps.data.country.name}}</span>
                         </template>
                     </Column>
-                    <Column field="company" header="Company"></Column>
-                    <Column field="status" header="Status">
+                    <Column field="company" header="Company" style="min-width:200px"></Column>
+                    <Column field="status" header="Status" style="min-width:200px">
                         <template #body="slotProps">
                             <span :class="'customer-badge status-' + slotProps.data.status">{{slotProps.data.status}}</span>
                         </template>
                     </Column>
-                    <Column field="date" header="Date"></Column>
+                    <Column field="date" header="Date" style="min-width:200px"></Column>
                     <template #groupheader="slotProps">
                         <img :alt="slotProps.data.representative.name" :src="'demo/images/avatar/' + slotProps.data.representative.image" width="32" style="vertical-align: middle" />
                         <span class="image-text">{{slotProps.data.representative.name}}</span>
                     </template>
                     <template #groupfooter="slotProps">
-                        <td colspan="4" style="text-align: right">Total Customers</td>
-                        <td>{{calculateCustomerTotal(slotProps.data.representative.name)}}</td>
+                        <td style="min-width: 80%">
+                            <div style="text-align: right; width: 100%">Total Customers</div>
+                        </td>
+                        <td style="width: 20%">{{calculateCustomerTotal(slotProps.data.representative.name)}}</td>
                     </template>
                 </DataTable>
             </div>
@@ -132,27 +134,29 @@ export default {
             <DataTable :value="customers" rowGroupMode="subheader" groupRowsBy="representative.name"
                 sortMode="single" sortField="representative.name" :sortOrder="1" scrollable scrollHeight="400px">
                 <Column field="representative.name" header="Representative"></Column>
-                <Column field="name" header="Name"></Column>
-                <Column field="country" header="Country">
+                <Column field="name" header="Name" style="min-width:200px"></Column>
+                <Column field="country" header="Country" style="min-width:200px">
                     <template #body="slotProps">
-                        <img src="https://www.primefaces.org/wp-content/uploads/2020/05/placeholder.png" width="30" />
+                        <img src="../../assets/images/flag_placeholder.png" :class="'flag flag-' + slotProps.data.country.code" width="30" />
                         <span class="image-text">{{slotProps.data.country.name}}</span>
                     </template>
                 </Column>
-                <Column field="company" header="Company"></Column>
-                <Column field="status" header="Status">
+                <Column field="company" header="Company" style="min-width:200px"></Column>
+                <Column field="status" header="Status" style="min-width:200px">
                     <template #body="slotProps">
                         <span :class="'customer-badge status-' + slotProps.data.status">{{slotProps.data.status}}</span>
                     </template>
                 </Column>
-                <Column field="date" header="Date"></Column>
+                <Column field="date" header="Date" style="min-width:200px"></Column>
                 <template #groupheader="slotProps">
-                    <img :alt="slotProps.data.representative.name" src="https://www.primefaces.org/wp-content/uploads/2020/05/placeholder.png" width="32" style="vertical-align: middle" />
+                    <img :alt="slotProps.data.representative.name" :src="'demo/images/avatar/' + slotProps.data.representative.image" width="32" style="vertical-align: middle" />
                     <span class="image-text">{{slotProps.data.representative.name}}</span>
                 </template>
-                <template #groupfooter="slotProps">
-                    <td colspan="4" style="text-align: right">Total Customers</td>
-                    <td>{{calculateCustomerTotal(slotProps.data.representative.name)}}</td>
+               <template #groupfooter="slotProps">
+                    <td style="min-width: 80%">
+                        <div style="text-align: right; width: 100%">Total Customers</div>
+                    </td>
+                    <td style="width: 20%">{{calculateCustomerTotal(slotProps.data.representative.name)}}</td>
                 </template>
             </DataTable>
         </div>
@@ -295,27 +299,29 @@ export default {
             <DataTable :value="customers" rowGroupMode="subheader" groupRowsBy="representative.name"
                 sortMode="single" sortField="representative.name" :sortOrder="1" scrollable scrollHeight="400px">
                 <Column field="representative.name" header="Representative"></Column>
-                <Column field="name" header="Name"></Column>
-                <Column field="country" header="Country">
+                <Column field="name" header="Name" style="min-width:200px"></Column>
+                <Column field="country" header="Country" style="min-width:200px">
                     <template #body="slotProps">
-                        <img src="https://www.primefaces.org/wp-content/uploads/2020/05/placeholder.png" width="30" />
+                        <img src="../../assets/images/flag_placeholder.png" :class="'flag flag-' + slotProps.data.country.code" width="30" />
                         <span class="image-text">{{slotProps.data.country.name}}</span>
                     </template>
                 </Column>
-                <Column field="company" header="Company"></Column>
-                <Column field="status" header="Status">
+                <Column field="company" header="Company" style="min-width:200px"></Column>
+                <Column field="status" header="Status" style="min-width:200px">
                     <template #body="slotProps">
                         <span :class="'customer-badge status-' + slotProps.data.status">{{slotProps.data.status}}</span>
                     </template>
                 </Column>
-                <Column field="date" header="Date"></Column>
+                <Column field="date" header="Date" style="min-width:200px"></Column>
                 <template #groupheader="slotProps">
-                    <img :alt="slotProps.data.representative.name" src="https://www.primefaces.org/wp-content/uploads/2020/05/placeholder.png" width="32" style="vertical-align: middle" />
+                    <img :alt="slotProps.data.representative.name" :src="'demo/images/avatar/' + slotProps.data.representative.image" width="32" style="vertical-align: middle" />
                     <span class="image-text">{{slotProps.data.representative.name}}</span>
                 </template>
-                <template #groupfooter="slotProps">
-                    <td colspan="4" style="text-align: right">Total Customers</td>
-                    <td>{{calculateCustomerTotal(slotProps.data.representative.name)}}</td>
+               <template #groupfooter="slotProps">
+                    <td style="min-width: 80%">
+                        <div style="text-align: right; width: 100%">Total Customers</div>
+                    </td>
+                    <td style="width: 20%">{{calculateCustomerTotal(slotProps.data.representative.name)}}</td>
                 </template>
             </DataTable>
         </div>
