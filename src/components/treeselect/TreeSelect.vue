@@ -369,8 +369,8 @@ export default {
                 }
             ];
         },
-        panelStyleClass() {
-            return ['p-treeselect-panel p-component', panelClass];
+        panelStyleClass() {
+            return ['p-treeselect-panel p-component', this.panelClass];
         },
         selectedNodes() {
             let selectedNodes = [];
