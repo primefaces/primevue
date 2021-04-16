@@ -155,7 +155,7 @@ export default {
     methods: {
         load(index) {
             this.loading[index] = true;
-            setTimeout(() => this.loading.value[index] = false, 10000);
+            setTimeout(() => this.loading[index] = false, 1000);
         }
     },
 	components: {
