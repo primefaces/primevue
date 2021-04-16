@@ -267,7 +267,8 @@
             "children": [
                 {
                     "name": "Button",
-                    "to": "/button"
+                    "to": "/button",
+                    "badge": "New"
                 },
                 {
                     "name": "SplitButton",
