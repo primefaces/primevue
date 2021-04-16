@@ -108,6 +108,12 @@
                 <Button type="button" label="Emails" badge="8" />
                 <Button type="button" label="Messages" icon="pi pi-users" class="p-button-warning" badge="8" badgeClass="p-badge-danger" />
 
+                <h5>Loading</h5>
+                <Button type="button" label="Search" icon="pi pi-search" :loading="loading[0]" @click="load(0)" />
+                <Button type="button" label="Search" icon="pi pi-search" iconPos="right" :loading="loading[1]" @click="load(1)"  />
+                <Button type="button" icon="pi pi-search" :loading="loading[2]" @click="load(2)" />
+                <Button type="button" label="Search" :loading="loading[3]" @click="load(3)" />
+
                 <h5>Templating</h5>
                 <Button type="button" class="p-px-3">
                     <img alt="logo" src="../../assets/images/logo-white.svg" style="width: 1.5rem"/>
@@ -141,6 +147,17 @@
 import ButtonDoc from './ButtonDoc'
 
 export default {
+    data() {
+        return {
+            loading: [false, false, false]
+        }
+    },
+    methods: {
+        load(index) {
+            this.loading[index] = true;
+            setTimeout(() => this.loading.value[index] = false, 10000);
+        }
+    },
 	components: {
 		'ButtonDoc': ButtonDoc
     }

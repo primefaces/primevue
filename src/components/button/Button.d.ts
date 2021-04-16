@@ -4,6 +4,8 @@ interface ButtonProps {
     iconPos?: string;
     badge?: string;
     badgeClass?: string;
+    loading?: boolean;
+    loadingIcon?: string;
 }
 
 declare class Button {

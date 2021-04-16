@@ -1,6 +1,7 @@
 <template>
     <button :class="buttonClass" type="button" v-ripple>
         <slot>
+            <span v-if="loading && !icon" :class="iconClass"></span>
             <span v-if="icon" :class="iconClass"></span>
             <span class="p-button-label">{{label||'&nbsp;'}}</span>
             <span v-if="badge" :class="badgeStyleClass">{{badge}}</span>
@@ -29,6 +30,14 @@ export default {
         badgeClass: {
             type: String,
             default: null
+        },
+        loading: {
+            type: Boolean,
+            default: false
+        },
+        loadingIcon: {
+            type: String,
+            default: 'pi pi-spinner pi-spin'
         }
     },
     computed: {
@@ -42,7 +51,7 @@ export default {
         },
         iconClass() {
             return [
-                this.icon,
+                this.loading ? this.loadingIcon : this.icon,
                 'p-button-icon',
                 {
                     'p-button-icon-left': this.iconPos === 'left' && this.label,

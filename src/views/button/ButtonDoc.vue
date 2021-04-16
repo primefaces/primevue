@@ -119,6 +119,13 @@ import Button from 'primevue/button';
 
 </code></pre>
 
+        <h5>Loading State</h5>
+        <p>Button displays a <i>loadingIcon</i> when <i>loading</i> property is enabled.</p>
+<pre v-code><code>
+&lt;Button label="Save" icon="pi pi-check" :loading="isLoading" /&gt;
+
+</code></pre>
+
         <h5>Templating</h5>
         <p>Custom content such as icons, images and text can be placed inside the button via the default slot. Note that when slot is used, label, icon and badge properties are not included.</p>
 <pre v-code><code>
@@ -175,6 +182,18 @@ import Button from 'primevue/button';
                         <td>string</td>
                         <td>null</td>
                         <td>Style class of the badge.</td>
+                    </tr>
+                    <tr>
+                        <td>loading</td>
+                        <td>boolean</td>
+                        <td>false</td>
+                        <td>Whether the button is in loading state.</td>
+                    </tr>
+                    <tr>
+                        <td>loadingIcon</td>
+                        <td>string</td>
+                        <td>pi pi-spinner pi-spin</td>
+                        <td>Icon to display in loading state.</td>
                     </tr>
 				</tbody>
 			</table>
@@ -328,8 +347,14 @@ export default {
         <Button type="button" label="Emails" badge="8" />
         <Button type="button" label="Messages" icon="pi pi-users" class="p-button-warning" badge="8" badgeClass="p-badge-danger" />
 
+        <h5>Loading</h5>
+        <Button type="button" label="Search" icon="pi pi-search" :loading="loading[0]" @click="load(0)" />
+        <Button type="button" label="Search" icon="pi pi-search" iconPos="right" :loading="loading[1]" @click="load(1)"  />
+        <Button type="button" icon="pi pi-search" :loading="loading[2]" @click="load(2)" />
+        <Button type="button" label="Search" :loading="loading[3]" @click="load(3)" />
+
         <h5>Templating</h5>
-       <Button type="button" class="p-px-3">
+        <Button type="button" class="p-px-3">
             <img alt="logo" src="../../assets/images/logo-white.svg" style="width: 1.5rem"/>
         </Button>
         <Button type="button" class="p-button-outlined p-button-success">
@@ -355,6 +380,17 @@ export default {
 
 <script>
 export default {
+    data() {
+        return {
+            loading: [false, false, false]
+        }
+    },
+    methods: {
+        load(index) {
+            this.loading[index] = true;
+            setTimeout(() => this.loading[index] = false, 10000);
+        }
+    }
 }
 <\\/script>
 
@@ -501,6 +537,12 @@ export default {
         <Button type="button" label="Emails" badge="8" />
         <Button type="button" label="Messages" icon="pi pi-users" class="p-button-warning" badge="8" badgeClass="p-badge-danger" />
 
+        <h5>Loading</h5>
+        <Button type="button" label="Search" icon="pi pi-search" :loading="loading[0]" @click="load(0)" />
+        <Button type="button" label="Search" icon="pi pi-search" iconPos="right" :loading="loading[1]" @click="load(1)"  />
+        <Button type="button" icon="pi pi-search" :loading="loading[2]" @click="load(2)" />
+        <Button type="button" label="Search" :loading="loading[3]" @click="load(3)" />
+
         <h5>Templating</h5>
         <Button type="button" class="p-px-3">
             <img alt="logo" src="../../assets/images/logo-white.svg" style="width: 1.5rem"/>
@@ -527,9 +569,19 @@ export default {
 </template>
 
 <script>
-import { defineComponent } from "vue";
+import { ref } from 'vue';
 
-export default defineComponent({});
+export default({
+    setup() {
+        const loading = ref([false, false, false]);
+        const load = (index) => {
+            loading.value[index] = true;
+            setTimeout(() => loading.value[index] = false, 1000);
+        }
+
+        return {loading, load};
+    }
+});
 <\\/script>
 
 <style lang="scss" scoped>
