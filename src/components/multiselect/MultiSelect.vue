@@ -23,7 +23,7 @@
         <div class="p-multiselect-trigger">
             <span class="p-multiselect-trigger-icon pi pi-chevron-down"></span>
         </div>
-        <Teleport :to="appendTo">
+        <Teleport :to="appendTarget" :disabled="appendDisabled">
             <transition name="p-connected-overlay" @enter="onOverlayEnter" @leave="onOverlayLeave" @after-leave="onOverlayAfterLeave">
                 <div :ref="overlayRef" :class="panelStyleClass" v-if="overlayVisible" @click="onOverlayClick">
                     <slot name="header" :value="modelValue" :options="visibleOptions"></slot>
@@ -364,8 +364,13 @@ export default {
             ZIndexUtils.clear(el);
         },
         alignOverlay() {
-            this.overlay.style.minWidth = DomHandler.getOuterWidth(this.$el) + 'px';
-            DomHandler.absolutePosition(this.overlay, this.$el);
+            if (this.appendDisabled) {
+                DomHandler.relativePosition(this.overlay, this.$el);
+            }
+            else {
+                this.overlay.style.minWidth = DomHandler.getOuterWidth(this.$el) + 'px';
+                DomHandler.absolutePosition(this.overlay, this.$el);
+            }
         },
         bindOutsideClickListener() {
             if (!this.outsideClickListener) {
@@ -602,6 +607,12 @@ export default {
         },
         emptyMessageText() {
             return this.emptyMessage || this.$primevue.config.locale.emptyMessage;
+        },
+        appendDisabled() {
+            return this.appendTo === 'self';
+        },
+        appendTarget() {
+            return this.appendDisabled ? null : this.appendTo;
         }
     },
     directives: {

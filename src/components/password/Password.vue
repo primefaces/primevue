@@ -2,7 +2,7 @@
     <div :class="containerClass" :style="style">
         <PInputText ref="input" :class="inputFieldClass" :style="inputStyle" :type="inputType" :value="modelValue" @input="onInput" @focus="onFocus" @blur="onBlur" @keyup="onKeyUp" v-bind="$attrs" />
         <i v-if="toggleMask" :class="toggleIconClass" @click="onMaskToggle" />
-        <Teleport :to="appendTo">
+        <Teleport :to="appendTarget" :disabled="appendDisabled">
             <transition name="p-connected-overlay" @enter="onOverlayEnter" @leave="onOverlayLeave" @after-leave="onOverlayAfterLeave">
                 <div :ref="overlayRef" :class="panelStyleClass" v-if="overlayVisible" @click="onOverlayClick">
                     <slot name="header"></slot>
@@ -118,8 +118,13 @@ export default {
             ZIndexUtils.clear(el);
         },
         alignOverlay() {
-            this.overlay.style.minWidth = DomHandler.getOuterWidth(this.$refs.input.$el) + 'px';
-            DomHandler.absolutePosition(this.overlay, this.$refs.input.$el);
+            if (this.appendDisabled) {
+                DomHandler.relativePosition(this.overlay, this.$refs.input.$el);
+            }
+            else {
+                this.overlay.style.minWidth = DomHandler.getOuterWidth(this.$refs.input.$el) + 'px';
+                DomHandler.absolutePosition(this.overlay, this.$refs.input.$el);
+            }
         },
         testStrength(str) {
             let level = 0;
@@ -277,6 +282,12 @@ export default {
         },
         promptText() {
             return this.promptLabel || this.$primevue.config.locale.passwordPrompt;
+        },
+        appendDisabled() {
+            return this.appendTo === 'self';
+        },
+        appendTarget() {
+            return this.appendDisabled ? null : this.appendTo;
         }
     },
     components: {

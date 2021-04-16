@@ -22,7 +22,7 @@
         <div class="p-treeselect-trigger">
             <span class="p-treeselect-trigger-icon pi pi-chevron-down"></span>
         </div>
-        <Teleport :to="appendTo">
+        <Teleport :to="appendTarget" :disabled="appendDisabled">
             <transition name="p-connected-overlay" @enter="onOverlayEnter" @leave="onOverlayLeave" @after-leave="onOverlayAfterLeave">
                 <div :ref="overlayRef" v-if="overlayVisible" @click="onOverlayClick" :class="panelStyleClass">
                     <slot name="header" :value="modelValue" :options="options"></slot>
@@ -227,8 +227,13 @@ export default {
             ZIndexUtils.clear(el);
         },
         alignOverlay() {
-            this.overlay.style.minWidth = DomHandler.getOuterWidth(this.$el) + 'px';
-            DomHandler.absolutePosition(this.overlay, this.$el);
+            if (this.appendDisabled) {
+                DomHandler.relativePosition(this.overlay, this.$el);
+            }
+            else {
+                this.overlay.style.minWidth = DomHandler.getOuterWidth(this.$el) + 'px';
+                DomHandler.absolutePosition(this.overlay, this.$el);
+            }
         },
         bindOutsideClickListener() {
             if (!this.outsideClickListener) {
@@ -393,6 +398,12 @@ export default {
         },
         emptyOptions() {
             return !this.options || this.options.length === 0;
+        },
+        appendDisabled() {
+            return this.appendTo === 'self';
+        },
+        appendTarget() {
+            return this.appendDisabled ? null : this.appendTo;
         }
     },
     components: {

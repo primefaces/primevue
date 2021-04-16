@@ -3,7 +3,7 @@
         <CalendarInputText ref="input" v-if="!inline" type="text" v-bind="$attrs" :value="inputFieldValue" @input="onInput" @focus="onFocus" @blur="onBlur" @keydown="onKeyDown" :readonly="!manualInput" inputmode="none" 
             :class="inputClass" :style="inputStyle" />
         <CalendarButton v-if="showIcon" :icon="icon" tabindex="-1" class="p-datepicker-trigger" :disabled="$attrs.disabled" @click="onButtonClick" type="button" :aria-label="inputFieldValue"/>
-        <Teleport :to="appendTo" :disabled="inline">
+        <Teleport :to="appendTarget" :disabled="appendDisabled">
             <transition name="p-connected-overlay" @enter="onOverlayEnter($event)" @after-enter="onOverlayEnterComplete" @after-leave="onOverlayAfterLeave" @leave="onOverlayLeave">
                 <div :ref="overlayRef" :class="panelStyleClass" v-if="inline ? true : overlayVisible" :role="inline ? null : 'dialog'" @click="onOverlayClick">
                     <template v-if="!timeOnly">
@@ -699,8 +699,13 @@ export default {
                 this.enableModality();
             }
             else if (this.overlay) {
-                this.overlay.style.minWidth = DomHandler.getOuterWidth(this.$el) + 'px';
-                DomHandler.absolutePosition(this.overlay, this.$el);
+                if (this.appendDisabled) {
+                    DomHandler.relativePosition(this.overlay, this.$el);
+                }
+                else {
+                    this.overlay.style.minWidth = DomHandler.getOuterWidth(this.$el) + 'px';
+                    DomHandler.absolutePosition(this.overlay, this.$el);
+                }
             }
         },
         onButtonClick() {
@@ -2159,6 +2164,12 @@ export default {
         },
         monthNames() {
             return this.$primevue.config.locale.monthNames;
+        },
+        appendDisabled() {
+            return this.appendTo === 'self' || this.inline;
+        },
+        appendTarget() {
+            return this.appendDisabled ? null : this.appendTo;
         }
     },
     components: {

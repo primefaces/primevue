@@ -2,7 +2,7 @@
     <div ref="container" :class="containerClass">
         <input ref="input" type="text" :class="inputClass" readonly="readonly" :tabindex="tabindex" :disabled="disabled"
             @click="onInputClick" @keydown="onInputKeydown" v-if="!inline" :aria-labelledby="ariaLabelledBy"/>
-        <Teleport to="body" :disabled="inline">
+        <Teleport :to="appendTarget" :disabled="appendDisabled">
             <transition name="p-connected-overlay" @enter="onOverlayEnter" @leave="onOverlayLeave" @after-leave="onOverlayAfterLeave">
                 <div :ref="pickerRef" :class="pickerClass" v-if="inline ? true : overlayVisible" @click="onOverlayClick">
                     <div class="p-colorpicker-content">
@@ -65,6 +65,10 @@ export default {
         ariaLabelledBy: {
             type: String,
             default: null
+        },
+        appendTo: {
+            type: String,
+            default: 'body'
         },
         panelClass: null
     },
@@ -362,7 +366,10 @@ export default {
             }
         },
         alignOverlay() {
-            DomHandler.absolutePosition(this.picker, this.$refs.input);
+            if (this.appendDisabled)
+                DomHandler.relativePosition(this.picker, this.$refs.input);
+            else
+                DomHandler.absolutePosition(this.picker, this.$refs.input);
         },
         onInputClick() {
             if (this.disabled) {
@@ -552,6 +559,12 @@ export default {
                 originalEvent: event,
                 target: this.$el
             });
+        },
+        appendDisabled() {
+            return this.appendTo === 'self' || this.inline;
+        },
+        appendTarget() {
+            return this.appendDisabled ? null : this.appendTo;
         }
     },
     computed: {

@@ -12,7 +12,7 @@
         <div class="p-cascadeselect-trigger" role="button" aria-haspopup="listbox" :aria-expanded="overlayVisible">
             <span class="p-cascadeselect-trigger-icon pi pi-chevron-down"></span>
         </div>
-        <Teleport :to="appendTo">
+        <Teleport :to="appendTarget" :disabled="appendDisabled">
             <transition name="p-connected-overlay" @enter="onOverlayEnter" @leave="onOverlayLeave" @after-leave="onOverlayAfterLeave">
                 <div :ref="overlayRef" :class="panelStyleClass" v-if="overlayVisible" @click="onOverlayClick">
                     <div class="p-cascadeselect-items-wrapper">
@@ -188,8 +188,13 @@ export default {
             ZIndexUtils.clear(el);
         },
         alignOverlay() {
-            DomHandler.absolutePosition(this.overlay, this.$el);
-            this.overlay.style.minWidth = DomHandler.getOuterWidth(this.$el) + 'px';
+            if (this.appendDisabled) {
+                DomHandler.relativePosition(this.overlay, this.$el);
+            }
+            else {
+                this.overlay.style.minWidth = DomHandler.getOuterWidth(this.$el) + 'px';
+                DomHandler.absolutePosition(this.overlay, this.$el);
+            }
         },
         bindOutsideClickListener() {
             if (!this.outsideClickListener) {
@@ -303,6 +308,12 @@ export default {
         },
         panelStyleClass() {
             return ['p-cascadeselect-panel p-component', this.panelClass];
+        },
+        appendDisabled() {
+            return this.appendTo === 'self';
+        },
+        appendTarget() {
+            return this.appendDisabled ? null : this.appendTo;
         }
     },
     components: {

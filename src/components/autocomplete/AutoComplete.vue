@@ -14,7 +14,7 @@
         </ul>
         <i class="p-autocomplete-loader pi pi-spinner pi-spin" v-if="searching"></i>
         <Button ref="dropdownButton" type="button" icon="pi pi-chevron-down" class="p-autocomplete-dropdown" :disabled="$attrs.disabled" @click="onDropdownClick" v-if="dropdown"/>
-        <Teleport :to="appendTo">
+        <Teleport :to="appendTarget" :disabled="appendDisabled">
             <transition name="p-connected-overlay" @enter="onOverlayEnter" @leave="onOverlayLeave" @after-leave="onOverlayAfterLeave">
                 <div :ref="overlayRef" :class="panelStyleClass" :style="{'max-height': scrollHeight}" v-if="overlayVisible" @click="onOverlayClick">
                     <slot name="header" :value="modelValue" :suggestions="suggestions"></slot>
@@ -174,8 +174,13 @@ export default {
         },
         alignOverlay() {
             let target = this.multiple ? this.$refs.multiContainer : this.$refs.input;
-            this.overlay.style.minWidth = DomHandler.getOuterWidth(target) + 'px';
-            DomHandler.absolutePosition(this.overlay, target);
+            if (this.appendDisabled) {
+                DomHandler.relativePosition(this.overlay, target);
+            }
+            else {
+                this.overlay.style.minWidth = DomHandler.getOuterWidth(target) + 'px';
+                DomHandler.absolutePosition(this.overlay, target);
+            }                
         },
         bindOutsideClickListener() {
             if (!this.outsideClickListener) {
@@ -552,6 +557,12 @@ export default {
         },
         listId() {
             return UniqueComponentId() + '_list';
+        },
+        appendDisabled() {
+            return this.appendTo === 'self';
+        },
+        appendTarget() {
+            return this.appendDisabled ? null : this.appendTo;
         }
     },
     components: {

@@ -127,7 +127,8 @@ import Password from 'primevue/password';
                         <td>appendTo</td>
                         <td>string</td>
                         <td>body</td>
-                        <td>A valid query selector or an HTMLElement to specify where the overlay gets attached.</td>
+                        <td>A valid query selector or an HTMLElement to specify where the overlay gets attached. Special keywords are "body" for document body
+                        and "self" for the element itself.</td>
                     </tr>
                     <tr>
                         <td>inputStyle</td>
