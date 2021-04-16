@@ -559,12 +559,6 @@ export default {
                 originalEvent: event,
                 target: this.$el
             });
-        },
-        appendDisabled() {
-            return this.appendTo === 'self' || this.inline;
-        },
-        appendTarget() {
-            return this.appendDisabled ? null : this.appendTo;
         }
     },
     computed: {
@@ -576,6 +570,12 @@ export default {
         },
         pickerClass() {
             return ['p-colorpicker-panel', this.panelClass, {'p-colorpicker-overlay-panel': !this.inline, 'p-disabled': this.disabled}];
+        },
+        appendDisabled() {
+            return this.appendTo === 'self' || this.inline;
+        },
+        appendTarget() {
+            return this.appendDisabled ? null : this.appendTo;
         }
     }
 }
