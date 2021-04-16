@@ -1710,10 +1710,10 @@
 .p-button.p-button-lg .p-button-icon {
   font-size: 1.25rem;
 }
-.p-button.p-button-loading .p-button-label {
+.p-button.p-button-loading-label-only .p-button-label {
   margin-left: 0.5rem;
 }
-.p-button.p-button-loading .p-button-icon {
+.p-button.p-button-loading-label-only .p-button-loading-icon {
   margin-right: 0;
 }
 

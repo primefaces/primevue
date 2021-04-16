@@ -47,7 +47,8 @@ export default {
                 'p-button-icon-only': this.icon && !this.label,
                 'p-button-vertical': (this.iconPos === 'top' || this.iconPos === 'bottom') && this.label,
                 'p-disabled': this.$attrs.disabled || this.loading,
-                'p-button-loading': this.loading
+                'p-button-loading': this.loading,
+                'p-button-loading-label-only': this.loading && !this.icon && this.label
             }
         },
         iconClass() {
