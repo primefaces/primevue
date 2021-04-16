@@ -1,5 +1,37 @@
 # Changelog
 
+## [3.4.0](https://github.com/primefaces/primevue/tree/3.4.0) (2021-04-16)
+
+[Full Changelog](https://github.com/primefaces/primevue/compare/3.3.5...3.4.0)
+
+**Implemented New Features and Enhancements:**
+
+- Support "self" as an appendTo target [\#1185](https://github.com/primefaces/primevue/issues/1185)
+- Reimplement EventBus [\#1181](https://github.com/primefaces/primevue/issues/1181)
+- Color Picker Touch Support [\#1173](https://github.com/primefaces/primevue/issues/1173)
+- Customizable ZIndex Layering [\#1169](https://github.com/primefaces/primevue/issues/1169)
+- \[Feature-Request\] Add "loading" prop to Buttons [\#1160](https://github.com/primefaces/primevue/issues/1160)
+- New Component: TreeSelect [\#1159](https://github.com/primefaces/primevue/issues/1159)
+- Allow Adding Classes to Dialog Content [\#1146](https://github.com/primefaces/primevue/issues/1146)
+- Add maximize event to Dialog [\#1108](https://github.com/primefaces/primevue/issues/1108)
+- Add panelClass to overlay components [\#1083](https://github.com/primefaces/primevue/issues/1083)
+
+**Fixed bugs:**
+
+- AutoComplete scroll defect at demo [\#1183](https://github.com/primefaces/primevue/issues/1183)
+- primevue/config: TypeScript error due to unexported type [\#1164](https://github.com/primefaces/primevue/issues/1164)
+- documentation: Wrong CSS variable name for secondary text color [\#1162](https://github.com/primefaces/primevue/issues/1162)
+- Datatable - Subheader Grouping with button, button comes over the subheader [\#1158](https://github.com/primefaces/primevue/issues/1158)
+- primevue/api: TypeScript compilation errors due to wrong declarations [\#1154](https://github.com/primefaces/primevue/issues/1154)
+- Switching between OverlayPanels [\#1153](https://github.com/primefaces/primevue/issues/1153)
+- DataTable : Selection multiple with checkbox didn't appear with filter row [\#1150](https://github.com/primefaces/primevue/issues/1150)
+- DataTable: Filter Menu error [\#1133](https://github.com/primefaces/primevue/issues/1133)
+- Circle shape is broken for Avatar [\#1114](https://github.com/primefaces/primevue/issues/1114)
+- Animation "none" not working for Skeleton [\#1103](https://github.com/primefaces/primevue/issues/1103)
+- DataTable Filter Menu insertBefore defect [\#1076](https://github.com/primefaces/primevue/issues/1076)
+- Calendar showOtherMonths = false does not hide neighbour months` [\#1071](https://github.com/primefaces/primevue/issues/1071)
+- Dropdown optionDisabled is not working [\#1037](https://github.com/primefaces/primevue/issues/1037)
+
 ## [3.3.5](https://github.com/primefaces/primevue/tree/3.3.5) (2021-03-10)
 
 [Full Changelog](https://github.com/primefaces/primevue/compare/3.3.4...3.3.5)
