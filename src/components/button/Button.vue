@@ -1,5 +1,5 @@
 <template>
-    <button :class="buttonClass" type="button" v-ripple>
+    <button :class="buttonClass" type="button" v-ripple :disabled="disabled">
         <slot>
             <span v-if="loading && !icon" :class="iconClass"></span>
             <span v-if="icon" :class="iconClass"></span>
@@ -46,7 +46,8 @@ export default {
                 'p-button p-component': true,
                 'p-button-icon-only': this.icon && !this.label,
                 'p-button-vertical': (this.iconPos === 'top' || this.iconPos === 'bottom') && this.label,
-                'p-disabled': this.$attrs.disabled
+                'p-disabled': this.$attrs.disabled || this.loading,
+                'p-button-loading': this.loading
             }
         },
         iconClass() {
@@ -66,6 +67,9 @@ export default {
                 'p-badge p-component', this.badgeClass, {
                     'p-badge-no-gutter': this.badge && String(this.badge).length === 1
             }]
+        },
+        disabled() {
+            return this.$attrs.disabled || this.loading;
         }
     },
     directives: {
