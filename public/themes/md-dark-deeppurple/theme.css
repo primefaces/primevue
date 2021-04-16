@@ -1722,6 +1722,12 @@
 .p-button.p-button-lg .p-button-icon {
   font-size: 1.25rem;
 }
+.p-button.p-button-loading .p-button-label {
+  margin-left: 0.5rem;
+}
+.p-button.p-button-loading .p-button-icon {
+  margin-right: 0;
+}
 
 .p-fluid .p-button {
   width: 100%;

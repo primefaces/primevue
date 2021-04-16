@@ -52,7 +52,7 @@ export default {
         },
         iconClass() {
             return [
-                this.loading ? this.loadingIcon : this.icon,
+                this.loading ? 'p-button-loading-icon ' + this.loadingIcon : this.icon,
                 'p-button-icon',
                 {
                     'p-button-icon-left': this.iconPos === 'left' && this.label,
@@ -65,7 +65,7 @@ export default {
         badgeStyleClass() {
             return [
                 'p-badge p-component', this.badgeClass, {
-                    'p-badge-no-gutter': this.badge && String(this.badge).length === 1
+                'p-badge-no-gutter': this.badge && String(this.badge).length === 1
             }]
         },
         disabled() {
