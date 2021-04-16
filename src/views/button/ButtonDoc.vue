@@ -388,7 +388,7 @@ export default {
     methods: {
         load(index) {
             this.loading[index] = true;
-            setTimeout(() => this.loading[index] = false, 10000);
+            setTimeout(() => this.loading[index] = false, 1000);
         }
     }
 }
@@ -545,10 +545,10 @@ export default {
 
         <h5>Templating</h5>
         <Button type="button" class="p-px-3">
-            <img alt="logo" src="../../assets/images/logo-white.svg" style="width: 1.5rem"/>
+            <img alt="logo" src="https://www.primefaces.org/wp-content/uploads/2020/05/placeholder.png" style="width: 1.5rem"/>
         </Button>
         <Button type="button" class="p-button-outlined p-button-success">
-            <img alt="logo" src="../../assets/images/logo.svg" style="width: 1.5rem" />
+            <img alt="logo" src="https://www.primefaces.org/wp-content/uploads/2020/05/placeholder.png" style="width: 1.5rem" />
             <span class="p-ml-2 p-text-bold">PrimeVue</span>
         </Button>
 
