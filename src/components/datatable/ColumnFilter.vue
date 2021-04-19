@@ -4,16 +4,16 @@
             <component :is="filterElement" :field="field" :filterModel="filters[field]" :filterCallback="filterCallback" />
         </div>
         <button ref="icon" v-if="showMenuButton" type="button" class="p-column-filter-menu-button p-link" aria-haspopup="true" :aria-expanded="overlayVisible"
-            :class="{'p-column-filter-menu-button-open': overlayVisible, 'p-column-filter-menu-button-active': hasFilter()}" 
+            :class="{'p-column-filter-menu-button-open': overlayVisible, 'p-column-filter-menu-button-active': hasFilter()}"
             @click="toggleMenu()" @keydown="onToggleButtonKeyDown($event)"><span class="pi pi-filter-icon pi-filter"></span></button>
         <button v-if="showMenuButton && display === 'row'" :class="{'p-hidden-space': !hasRowFilter()}" type="button" class="p-column-filter-clear-button p-link" @click="clearFilter()"><span class="pi pi-filter-slash"></span></button>
         <Teleport to="body">
             <transition name="p-connected-overlay" @enter="onOverlayEnter" @leave="onOverlayLeave" @after-leave="onOverlayAfterLeave">
-                <div :ref="overlayRef" :class="overlayClass" v-if="overlayVisible" @keydown.escape="onEscape" @click="onContentClick">
+                <div :ref="overlayRef" :class="overlayClass" v-if="overlayVisible" @keydown.escape="onEscape" @mousedown="onContentClick">
                     <component :is="filterHeaderTemplate" :field="field" :filterModel="filters[field]" :filterCallback="filterCallback" />
                     <template v-if="display === 'row'">
                         <ul class="p-column-filter-row-items">
-                            <li class="p-column-filter-row-item" v-for="(matchMode,i) of matchModes" :key="matchMode.label" 
+                            <li class="p-column-filter-row-item" v-for="(matchMode,i) of matchModes" :key="matchMode.label"
                                 @click="onRowMatchModeChange(matchMode.value)" @keydown="onRowMatchModeKeyDown($event)" @keydown.enter.prevent="onRowMatchModeChange(matchMode.value)"
                                 :class="{'p-highlight': isRowMatchModeSelected(matchMode.value)}" :tabindex="i === 0 ? '0' : null">{{matchMode.label}}</li>
                             <li class="p-column-filter-separator"></li>
@@ -178,7 +178,7 @@ export default {
                 _filters[this.field].value = null;
                 _filters[this.field].matchMode = this.defaultMatchMode;
             }
-            
+
             this.$emit('filter-clear');
             this.$emit('filter-change', _filters);
             this.$emit('filter-apply');
@@ -194,7 +194,7 @@ export default {
                 let fieldFilter = this.filtersStore[this.field];
                 if (fieldFilter) {
                     if (fieldFilter.operator)
-                        return !this.isFilterBlank(fieldFilter.constraints[0].value); 
+                        return !this.isFilterBlank(fieldFilter.constraints[0].value);
                     else
                         return !this.isFilterBlank(fieldFilter.value);
                 }
@@ -223,7 +223,7 @@ export default {
                 case 'Tab':
                     this.overlayVisible = false;
                 break;
-                
+
                 case 'ArrowDown':
                     if (this.overlayVisible) {
                         let focusable = DomHandler.getFocusableElements(this.overlay);
@@ -243,7 +243,7 @@ export default {
             this.overlayVisible = false;
             if (this.$refs.icon) {
                 this.$refs.icon.focus();
-            } 
+            }
         },
         onRowMatchModeChange(matchMode) {
             let _filters = {...this.filters};
@@ -256,7 +256,7 @@ export default {
         onRowMatchModeKeyDown(event) {
             let item = event.target;
 
-            switch(event.key) {            
+            switch(event.key) {
                 case 'ArrowDown':
                     var nextItem = this.findNextItem(item);
                     if (nextItem) {
@@ -440,7 +440,7 @@ export default {
         containerClass() {
             return [
                 'p-column-filter p-fluid', {
-                    'p-column-filter-row': this.display === 'row', 
+                    'p-column-filter-row': this.display === 'row',
                     'p-column-filter-menu': this.display === 'menu'
                 }
             ]
@@ -452,7 +452,7 @@ export default {
             return this.showMenu && (this.display === 'row' ? this.type !== 'boolean': true);
         },
         matchModes() {
-            return this.matchModeOptions || 
+            return this.matchModeOptions ||
                 this.$primevue.config.filterMatchModeOptions[this.type].map(key => {
                     return {label: this.$primevue.config.locale[key], value: key}
                 });
