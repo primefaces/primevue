@@ -373,8 +373,11 @@ export default {
                 this.updateEditingRowKeys(newValue);
             }
         },
-        filters(newValue) {
-            this.d_filters = this.cloneFilters(newValue);
+        filters: {
+            handler: function (newValue) {
+                this.d_filters = this.cloneFilters(newValue);
+            },
+            deep: true
         }
     },
     beforeMount() {
@@ -580,7 +583,7 @@ export default {
                         else {
                             localMatch = this.executeLocalFilter(filterField, data[i], filterMeta);
                         }
-                        
+
                         if (!localMatch) {
                             break;
                         }
@@ -1619,7 +1622,7 @@ export default {
     }
 }
 `;
-                
+
                 this.styleElement.innerHTML = innerHTML;
 			}
 		},
@@ -1727,7 +1730,7 @@ export default {
 
                     return data;
                 }
-                
+
                 return [];
             }
         },
@@ -2034,7 +2037,7 @@ export default {
     justify-content: center;
 }
 
-.p-column-filter-add-button .p-button-label, 
+.p-column-filter-add-button .p-button-label,
 .p-column-filter-remove-button .p-button-label {
     flex-grow: 0;
 }
