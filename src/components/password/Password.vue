@@ -65,7 +65,7 @@ export default {
             type: Boolean,
             default: false
         },
-        inputClass: toString,
+        inputClass: String,
         inputStyle: null,
         style: null,
         class: String,
