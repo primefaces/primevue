@@ -168,6 +168,7 @@ export default {
 .p-sidebar {
     position: fixed;
     transition: transform .3s;
+    overflow: scroll;
 }
 
 .p-sidebar-content {
