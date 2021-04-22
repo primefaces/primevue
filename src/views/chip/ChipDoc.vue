@@ -123,7 +123,7 @@ import Chip from 'primevue/chip';
 						<td>Text of the chip.</td>
                     </tr>
 					<tr>
-						<td>pi-chip-remove-icon</td>
+						<td>p-chip-remove-icon</td>
 						<td>Remove icon.</td>
                     </tr>
 				</tbody>
