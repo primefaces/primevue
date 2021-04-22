@@ -11,6 +11,19 @@
   --primary-color:#673AB7;
   --primary-color-text:#ffffff;
   --font-family:Roboto, Helvetica Neue Light, Helvetica Neue, Helvetica, Arial, Lucida Grande, sans-serif;
+  --surface-0: #121212;
+  --surface-50: #181818;
+  --surface-100: #1e1e1e;
+  --surface-200: #242424;
+  --surface-300: #2a2a2a;
+  --surface-400: #303030;
+  --surface-500: #363636;
+  --surface-600: #3b3b3b;
+  --surface-700: #414141;
+  --surface-800: #474747;
+  --surface-900: #4d4d4d;
+  --content-padding:1rem;
+  --inline-spacing:0.5rem;
 }
 
 /* roboto-regular - latin-ext_latin */
@@ -77,6 +90,109 @@
   outline: 0 none;
   outline-offset: 0;
   box-shadow: none;
+}
+
+:root {
+  --blue-50:#f4fafe;
+  --blue-100:#cae6fc;
+  --blue-200:#a0d2fa;
+  --blue-300:#75bef8;
+  --blue-400:#4baaf5;
+  --blue-500:#2196f3;
+  --blue-600:#1c80cf;
+  --blue-700:#1769aa;
+  --blue-800:#125386;
+  --blue-900:#0d3c61;
+  --green-50:#f7faf5;
+  --green-100:#dbe8cf;
+  --green-200:#bed6a9;
+  --green-300:#a1c384;
+  --green-400:#85b15e;
+  --green-500:#689f38;
+  --green-600:#588730;
+  --green-700:#496f27;
+  --green-800:#39571f;
+  --green-900:#2a4016;
+  --yellow-50:#fffcf5;
+  --yellow-100:#fef0cd;
+  --yellow-200:#fde4a5;
+  --yellow-300:#fdd87d;
+  --yellow-400:#fccc55;
+  --yellow-500:#fbc02d;
+  --yellow-600:#d5a326;
+  --yellow-700:#b08620;
+  --yellow-800:#8a6a19;
+  --yellow-900:#644d12;
+  --cyan-50:#f2fcfd;
+  --cyan-100:#c2eff5;
+  --cyan-200:#91e2ed;
+  --cyan-300:#61d5e4;
+  --cyan-400:#30c9dc;
+  --cyan-500:#00bcd4;
+  --cyan-600:#00a0b4;
+  --cyan-700:#008494;
+  --cyan-800:#006775;
+  --cyan-900:#004b55;
+  --pink-50:#fef4f7;
+  --pink-100:#fac9da;
+  --pink-200:#f69ebc;
+  --pink-300:#f1749e;
+  --pink-400:#ed4981;
+  --pink-500:#e91e63;
+  --pink-600:#c61a54;
+  --pink-700:#a31545;
+  --pink-800:#801136;
+  --pink-900:#5d0c28;
+  --indigo-50:#f6f7fc;
+  --indigo-100:#d5d9ef;
+  --indigo-200:#b3bae2;
+  --indigo-300:#919cd5;
+  --indigo-400:#707dc8;
+  --indigo-500:#4e5fbb;
+  --indigo-600:#42519f;
+  --indigo-700:#374383;
+  --indigo-800:#2b3467;
+  --indigo-900:#1f264b;
+  --teal-50:#f2faf9;
+  --teal-100:#c2e6e2;
+  --teal-200:#91d2cc;
+  --teal-300:#61beb5;
+  --teal-400:#30aa9f;
+  --teal-500:#009688;
+  --teal-600:#008074;
+  --teal-700:#00695f;
+  --teal-800:#00534b;
+  --teal-900:#003c36;
+  --orange-50:#fffaf2;
+  --orange-100:#ffe6c2;
+  --orange-200:#ffd391;
+  --orange-300:#ffbf61;
+  --orange-400:#ffac30;
+  --orange-500:#ff9800;
+  --orange-600:#d98100;
+  --orange-700:#b36a00;
+  --orange-800:#8c5400;
+  --orange-900:#663d00;
+  --bluegray-50:#f7f9f9;
+  --bluegray-100:#d9e0e3;
+  --bluegray-200:#bbc7cd;
+  --bluegray-300:#9caeb7;
+  --bluegray-400:#7e96a1;
+  --bluegray-500:#607d8b;
+  --bluegray-600:#526a76;
+  --bluegray-700:#435861;
+  --bluegray-800:#35454c;
+  --bluegray-900:#263238;
+  --purple-50:#faf4fb;
+  --purple-100:#e7cbec;
+  --purple-200:#d4a2dd;
+  --purple-300:#c279ce;
+  --purple-400:#af50bf;
+  --purple-500:#9c27b0;
+  --purple-600:#852196;
+  --purple-700:#6d1b7b;
+  --purple-800:#561561;
+  --purple-900:#3e1046;
 }
 
 .p-autocomplete .p-autocomplete-loader {
@@ -1366,6 +1482,76 @@
   border-color: 0 none;
 }
 
+.p-treeselect {
+  background: #1e1e1e;
+  border: 1px solid rgba(255, 255, 255, 0.3);
+  transition: background-color 0.2s, border-color 0.2s, color 0.2s, box-shadow 0.2s, background-size 0.2s cubic-bezier(0.64, 0.09, 0.08, 1);
+  border-radius: 4px;
+}
+.p-treeselect:not(.p-disabled):hover {
+  border-color: rgba(255, 255, 255, 0.6);
+}
+.p-treeselect:not(.p-disabled).p-focus {
+  outline: 0 none;
+  outline-offset: 0;
+  box-shadow: none;
+  border-color: #673AB7;
+}
+.p-treeselect .p-treeselect-label {
+  padding: 0.75rem 0.75rem;
+  transition: background-color 0.2s, border-color 0.2s, color 0.2s, box-shadow 0.2s, background-size 0.2s cubic-bezier(0.64, 0.09, 0.08, 1);
+}
+.p-treeselect .p-treeselect-label.p-placeholder {
+  color: rgba(255, 255, 255, 0.6);
+}
+.p-treeselect.p-treeselect-chip .p-treeselect-token {
+  padding: 0.375rem 0.75rem;
+  margin-right: 0.5rem;
+  background: rgba(255, 255, 255, 0.12);
+  color: rgba(255, 255, 255, 0.87);
+  border-radius: 16px;
+}
+.p-treeselect .p-treeselect-trigger {
+  background: transparent;
+  color: rgba(255, 255, 255, 0.6);
+  width: 2.357rem;
+  border-top-right-radius: 4px;
+  border-bottom-right-radius: 4px;
+}
+.p-treeselect.p-invalid.p-component {
+  border-color: #f44435;
+}
+
+.p-inputwrapper-filled.p-treeselect.p-treeselect-chip .p-treeselect-label {
+  padding: 0.375rem 0.75rem;
+}
+
+.p-treeselect-panel {
+  background: #2b2b2b;
+  color: rgba(255, 255, 255, 0.87);
+  border: 0 none;
+  border-radius: 4px;
+  box-shadow: 0 5px 5px -3px rgba(0, 0, 0, 0.2), 0 8px 10px 1px rgba(0, 0, 0, 0.14), 0 3px 14px 2px rgba(0, 0, 0, 0.12);
+}
+.p-treeselect-panel .p-treeselect-items-wrapper .p-tree {
+  border: 0 none;
+}
+.p-treeselect-panel .p-treeselect-items-wrapper .p-treeselect-empty-message {
+  padding: 0.75rem 0.75rem;
+  color: rgba(255, 255, 255, 0.87);
+  background: transparent;
+}
+
+.p-input-filled .p-treeselect {
+  background: rgba(255, 255, 255, 0.06);
+}
+.p-input-filled .p-treeselect:not(.p-disabled):hover {
+  background-color: rgba(255, 255, 255, 0.08);
+}
+.p-input-filled .p-treeselect:not(.p-disabled).p-focus {
+  background-color: rgba(255, 255, 255, 0.1);
+}
+
 .p-togglebutton.p-button {
   background: #2f2f2f;
   border: 1px solid rgba(255, 255, 255, 0.12);
@@ -1535,6 +1721,12 @@
 }
 .p-button.p-button-lg .p-button-icon {
   font-size: 1.25rem;
+}
+.p-button.p-button-loading-label-only .p-button-label {
+  margin-left: 0.5rem;
+}
+.p-button.p-button-loading-label-only .p-button-loading-icon {
+  margin-right: 0;
 }
 
 .p-fluid .p-button {
@@ -2037,6 +2229,9 @@
 .p-datatable .p-datatable-tbody > tr > td .p-row-editor-save {
   margin-right: 0.5rem;
 }
+.p-datatable .p-datatable-tbody > tr > td > .p-column-title {
+  font-weight: 500;
+}
 .p-datatable .p-datatable-tbody > tr.p-highlight {
   background: rgba(103, 58, 183, 0.16);
   color: #673AB7;
@@ -2450,22 +2645,6 @@
   background: rgba(103, 58, 183, 0.16);
 }
 
-@media screen and (max-width: 769px) {
-  .p-orderlist {
-    flex-direction: column;
-  }
-  .p-orderlist .p-orderlist-controls {
-    padding: 0.75rem;
-    flex-direction: row;
-  }
-  .p-orderlist .p-orderlist-controls .p-button {
-    margin-right: 0.5rem;
-    margin-bottom: 0;
-  }
-  .p-orderlist .p-orderlist-controls .p-button:last-child {
-    margin-right: 0;
-  }
-}
 .p-organizationchart .p-organizationchart-node-content.p-organizationchart-selectable-node:not(.p-highlight):hover {
   background: rgba(255, 255, 255, 0.04);
   color: rgba(255, 255, 255, 0.87);
@@ -2625,34 +2804,6 @@
   background: rgba(103, 58, 183, 0.16);
 }
 
-@media screen and (max-width: 769px) {
-  .p-picklist {
-    flex-direction: column;
-  }
-  .p-picklist .p-picklist-buttons {
-    padding: 0.75rem;
-    flex-direction: row;
-  }
-  .p-picklist .p-picklist-buttons .p-button {
-    margin-right: 0.5rem;
-    margin-bottom: 0;
-  }
-  .p-picklist .p-picklist-buttons .p-button:last-child {
-    margin-right: 0;
-  }
-  .p-picklist .p-picklist-transfer-buttons .pi-angle-right:before {
-    content: "";
-  }
-  .p-picklist .p-picklist-transfer-buttons .pi-angle-double-right:before {
-    content: "";
-  }
-  .p-picklist .p-picklist-transfer-buttons .pi-angle-left:before {
-    content: "";
-  }
-  .p-picklist .p-picklist-transfer-buttons .pi-angle-double-left:before {
-    content: "";
-  }
-}
 .p-timeline .p-timeline-event-marker {
   border: 0 none;
   border-radius: 50%;
@@ -2691,7 +2842,7 @@
 .p-tree .p-tree-container .p-treenode .p-treenode-content {
   border-radius: 4px;
   transition: none;
-  padding: 0.571rem;
+  padding: 0.25rem;
 }
 .p-tree .p-tree-container .p-treenode .p-treenode-content .p-tree-toggler {
   margin-right: 0.5rem;
@@ -4599,9 +4750,6 @@
 .p-galleria .p-galleria-thumbnail-container .p-galleria-thumbnail-next:hover {
   background: rgba(255, 255, 255, 0.1);
   color: rgba(255, 255, 255, 0.87);
-}
-.p-galleria .p-galleria-thumbnail-container .p-galleria-thumbnail-item-content {
-  transition: none;
 }
 .p-galleria .p-galleria-thumbnail-container .p-galleria-thumbnail-item-content:focus {
   outline: 0 none;
