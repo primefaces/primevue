@@ -250,6 +250,54 @@ app.use(PrimeVue, {
 
             <h5>Typescript</h5>
             <p>Typescript is fully supported as type definition files are provided in the npm package of PrimeVue. A sample <a href="https://github.com/primefaces/primevue-typescript-quickstart">typescript-primevue</a> application with Vue CLI is available as at github.</p>
+            <h5>Browser Support</h5>
+            <div class="doc-tablewrapper">
+                <table class="doc-table browsers">
+                    <thead>
+                        <tr>
+                            <th>
+                                <div class="p-d-flex p-ai-center">
+                                    <img src="../../assets/images//browsers/edge.svg" alt="edge" style="width: 1.5rem;" class="p-mr-2">
+                                    IE / Edge
+                                </div>
+                            </th>
+                            <th>
+                                <div class="p-d-flex p-ai-center">
+                                    <img src="../../assets/images/browsers/firefox.svg" alt="firefox" style="width: 1.5rem;" class="p-mr-2">
+                                    Firefox
+                                </div>
+                            </th>
+                            <th>
+                                <div class="p-d-flex p-ai-center">
+                                    <img src="../../assets/images/browsers/chrome.svg" alt="chrome" style="width: 1.5rem;" class="p-mr-2">
+                                    Chrome
+                                </div>
+                            </th>
+                            <th>
+                                <div class="p-d-flex p-ai-center">
+                                    <img src="../../assets/images/browsers/safari.svg" alt="safari" style="width: 1.5rem;" class="p-mr-2">
+                                    Safari
+                                </div>
+                            </th>
+                            <th>
+                                <div class="p-d-flex p-ai-center">
+                                    <img src="../../assets/images/browsers/opera.svg" alt="opera" style="width: 1.5rem;" class="p-mr-2">
+                                    Opera
+                                </div>
+                            </th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <td>IE11, Edge</td>
+                            <td>Last 2 versions</td>
+                            <td>Last 2 versions</td>
+                            <td>Last 2 versions</td>
+                            <td>Last 2 versions</td>
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
         </div>
     </div>
 </template>
