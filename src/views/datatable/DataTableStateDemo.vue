@@ -17,7 +17,7 @@
                     <template #header>
                        <span class="p-input-icon-left">
                             <i class="pi pi-search" />
-                            <InputText v-model="filters1['global']" placeholder="Global Search" />
+                            <InputText v-model="filters1['global'].value" placeholder="Global Search" />
                         </span>
                     </template>
                     <Column field="name" header="Name" :sortable="true" style="width:25%">
@@ -76,7 +76,7 @@
                     <template #header>
                        <span class="p-input-icon-left">
                             <i class="pi pi-search" />
-                            <InputText v-model="filters2['global']" placeholder="Global Search" />
+                            <InputText v-model="filters2['global'].value" placeholder="Global Search" />
                         </span>
                     </template>
                     <Column field="name" header="Name" :sortable="true" style="width:25%">
@@ -134,6 +134,7 @@
 </template>
 
 <script>
+import { FilterMatchMode } from 'primevue/api';
 import CustomerService from '../../service/CustomerService';
 
 export default {
@@ -174,7 +175,7 @@ export default {
                 <template #header>
                    <span class="p-input-icon-left">
                         <i class="pi pi-search" />
-                        <InputText v-model="filters1['global']" placeholder="Global Search" />
+                        <InputText v-model="filters1['global'].value" placeholder="Global Search" />
                     </span>
                 </template>
                 <Column field="name" header="Name" :sortable="true" style="width:25%">
@@ -233,7 +234,7 @@ export default {
                 <template #header>
                    <span class="p-input-icon-left">
                         <i class="pi pi-search" />
-                        <InputText v-model="filters2['global']" placeholder="Global Search" />
+                        <InputText v-model="filters2['global'].value" placeholder="Global Search" />
                     </span>
                 </template>
                 <Column field="name" header="Name" :sortable="true" style="width:25%">
@@ -287,6 +288,7 @@ export default {
 </template>
 
 <script>
+import { FilterMatchMode } from 'primevue/api';
 import CustomerService from './service/CustomerService';
 
 export default {
@@ -318,9 +320,23 @@ export default {
     customerService: null,
     created() {
         this.customerService = new CustomerService();
+        this.initFilters1();
+        this.initFilters2();
     },
     mounted() {
         this.customerService.getCustomersMedium().then(data => this.customers = data);
+    },
+    methods: {
+        initFilters1() {
+            this.filters1 = {
+                'global': {value: null, matchMode: FilterMatchMode.CONTAINS}
+            }
+        },
+        initFilters2() {
+            this.filters2 = {
+                'global': {value: null, matchMode: FilterMatchMode.CONTAINS}
+            }
+        }
     }
 }
 <\\/script>                  
@@ -339,7 +355,7 @@ export default {
                 <template #header>
                    <span class="p-input-icon-left">
                         <i class="pi pi-search" />
-                        <InputText v-model="filters1['global']" placeholder="Global Search" />
+                        <InputText v-model="filters1['global'].value" placeholder="Global Search" />
                     </span>
                 </template>
                 <Column field="name" header="Name" :sortable="true" style="width:25%">
@@ -398,7 +414,7 @@ export default {
                 <template #header>
                    <span class="p-input-icon-left">
                         <i class="pi pi-search" />
-                        <InputText v-model="filters2['global']" placeholder="Global Search" />
+                        <InputText v-model="filters2['global'].value" placeholder="Global Search" />
                     </span>
                 </template>
                 <Column field="name" header="Name" :sortable="true" style="width:25%">
@@ -453,6 +469,7 @@ export default {
 
 <script>
 import { ref, onMounted } from 'vue';
+import { FilterMatchMode } from 'primevue/api';
 import CustomerService from './service/CustomerService';
 
 export default {
@@ -465,8 +482,8 @@ export default {
         const customerService = ref(new CustomerService());
         const selectedCustomer1 = ref();
         const selectedCustomer2 = ref();
-        const filters1 = ref({});
-        const filters2 = ref({});
+        const filters1 = ref({'global': {value: null, matchMode: FilterMatchMode.CONTAINS}});
+        const filters2 = ref({'global': {value: null, matchMode: FilterMatchMode.CONTAINS}});
         const loading = ref(true);
         const representatives = ref([
             {name: "Amy Elsner", image: 'amyelsner.png'},
@@ -496,9 +513,23 @@ export default {
     customerService: null,
     created() {
         this.customerService = new CustomerService();
+        this.initFilters1();
+        this.initFilters2();
     },
     mounted() {
         this.customerService.getCustomersMedium().then(data => this.customers = data);
+    },
+    methods: {
+        initFilters1() {
+            this.filters1 = {
+                'global': {value: null, matchMode: FilterMatchMode.CONTAINS}
+            }
+        },
+        initFilters2() {
+            this.filters2 = {
+                'global': {value: null, matchMode: FilterMatchMode.CONTAINS}
+            }
+        }
     }
 }
 </script>
