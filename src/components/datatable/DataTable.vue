@@ -2049,8 +2049,4 @@ export default {
     width: auto;
 }
 
-/* Responsive */
-.p-datatable .p-datatable-tbody .p-column-title {
-    display: none;
-}
 </style>
