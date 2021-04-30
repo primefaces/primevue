@@ -551,7 +551,7 @@
                     "to": "/scrollpanel"
                 },
                 {
-                    "name": "Tabview",
+                    "name": "TabView",
                     "to": "/tabview"
                 },
                 {
