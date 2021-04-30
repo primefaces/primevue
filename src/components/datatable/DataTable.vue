@@ -580,7 +580,7 @@ export default {
                         else {
                             localMatch = this.executeLocalFilter(filterField, data[i], filterMeta);
                         }
-                        
+
                         if (!localMatch) {
                             break;
                         }
@@ -1619,7 +1619,7 @@ export default {
     }
 }
 `;
-                
+
                 this.styleElement.innerHTML = innerHTML;
 			}
 		},
@@ -1659,7 +1659,7 @@ export default {
             }
 
             children.forEach(child => {
-                if (child.dynamicChildren)
+                if (child.dynamicChildren && child.dynamicChildren.length)
                     cols = [...cols, ...child.children];
                 else if (child.type.name === 'column')
                     cols.push(child);
@@ -1727,7 +1727,7 @@ export default {
 
                     return data;
                 }
-                
+
                 return [];
             }
         },
@@ -2034,7 +2034,7 @@ export default {
     justify-content: center;
 }
 
-.p-column-filter-add-button .p-button-label, 
+.p-column-filter-add-button .p-button-label,
 .p-column-filter-remove-button .p-button-label {
     flex-grow: 0;
 }
