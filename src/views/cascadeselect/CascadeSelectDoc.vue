@@ -167,7 +167,7 @@ data() {
                     </tr>
                     <tr>
                         <td>optionGroupChildren</td>
-                        <td>string</td>
+                        <td>array</td>
                         <td>null</td>
                         <td>Property name or getter function to retrieve the items of a group.</td>
                     </tr>
