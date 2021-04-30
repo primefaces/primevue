@@ -491,7 +491,9 @@ export default {
                     this.$refs.input.value = '';
                     this.inputTextValue = '';
                     this.$emit('clear');
-                    this.$emit('update:modelValue', null);
+                    if(!this.multiple) {
+                        this.$emit('update:modelValue', null);
+                    }
                 }
             }
         },
