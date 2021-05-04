@@ -349,12 +349,6 @@ export default {
                             <td>When enabled, column displays row editor controls.</td>
                         </tr>
                         <tr>
-                            <td>rowEditor</td>
-                            <td>boolean</td>
-                            <td>false</td>
-                            <td>When enabled, column displays row editor controls.</td>
-                        </tr>
-                        <tr>
                             <td>frozen</td>
                             <td>boolean</td>
                             <td>false</td>
@@ -371,6 +365,12 @@ export default {
                             <td>boolean</td>
                             <td>true</td>
                             <td>Whether the column is included in data export.</td>
+                        </tr>
+                        <tr>
+                            <td>filterMatchMode</td>
+                            <td>string</td>
+                            <td>null</td>
+                            <td>Defines the filtering algorithm to use when searching the options.</td>
                         </tr>
                     </tbody>
                 </table>
