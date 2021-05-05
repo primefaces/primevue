@@ -98,7 +98,7 @@ import InlineMessage from 'primevue/inlinemessage';
                     </tr>
                     <tr>
                         <td>sticky</td>
-                        <td>element</td>
+                        <td>boolean</td>
                         <td>null</td>
                         <td>When enabled, message is not removed automatically.</td>
                     </tr>

@@ -128,7 +128,7 @@ myUploader(event) {
                     <tr>
                         <td>accept</td>
                         <td>string</td>
-                        <td>false</td>
+                        <td>null</td>
                         <td>Pattern to restrict the allowed file types such as "image/*".</td>
                     </tr>
                     <tr>

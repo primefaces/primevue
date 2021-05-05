@@ -178,7 +178,7 @@ export default {
                     <tr>
                         <td>dataKey</td>
                         <td>string</td>
-                        <td>false</td>
+                        <td>null</td>
                         <td>A property to uniquely identify an option.</td>
                     </tr>
                     <tr>
