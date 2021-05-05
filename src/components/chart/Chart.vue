@@ -5,8 +5,6 @@
 </template>
 
 <script>
-import * as Chart from 'chart.js';
-
 export default {
     emits: ['select'],
     props: {
@@ -45,10 +43,14 @@ export default {
     },
     methods: {
         initChart() {
-            this.chart = new Chart(this.$refs.canvas, {
-                type: this.type,
-                data: this.data,
-                options: this.options
+            import('chart.js').then((module) => {
+                if (module && module.default) {
+                    this.chart = new module.default(this.$refs.canvas, {
+                        type: this.type,
+                        data: this.data,
+                        options: this.options
+                    });
+                }
             });
         },
         getCanvas() {
