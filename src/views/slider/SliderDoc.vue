@@ -137,7 +137,7 @@ export default {
                     </tr>
                     <tr>
                         <td>slideEnd</td>
-                        <td>event.originalEvent: Slide event <br />
+                        <td>event.originalEvent: Original event <br />
                             event.value: New value.
                         </td>
                         <td>Callback to invoke when slide ends.</td>
