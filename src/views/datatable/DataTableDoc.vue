@@ -2321,12 +2321,6 @@ export default {
                             <td>Callback to invoke when a column is resized.</td>
                         </tr>
                         <tr>
-                            <td>column-resize-end</td>
-                            <td>event.element: DOM element of the resized column.<br />
-                                event.delta: Change in column width</td>
-                            <td>Callback to invoke when a column is resized.</td>
-                        </tr>
-                        <tr>
                             <td>column-reorder</td>
                             <td>event.originalEvent: Browser event<br />
                                 event.dragIndex: Index of the dragged column<br />
@@ -2336,8 +2330,8 @@ export default {
                         <tr>
                             <td>row-reorder</td>
                             <td>event.originalEvent: Browser event<br />
-                                event.originalEvent: Browser event.<br />
                                 event.dragIndex: Index of the dragged row<br />
+                                event.dropIndex: Index of the dropped row<br />
                                 value: Reordered value</td>
                             <td>Callback to invoke when a row is reordered.</td>
                         </tr>
