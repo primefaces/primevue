@@ -298,6 +298,11 @@
                     <p>Beautifully crafted premium <a href="https://cli.vuejs.org">Vue CLI</a> application templates by the PrimeTek design team.</p>
                     <div class="p-grid premium-themes">
                         <div class="p-col-12 p-md-6">
+                            <a href="https://www.primefaces.org/layouts/freya-vue">
+                                <img alt="Ultima" src="./assets/images/layouts/freya-vue.png">
+                            </a>
+                        </div>
+                        <div class="p-col-12 p-md-6">
                             <a href="https://www.primefaces.org/layouts/ultima-vue">
                                 <img alt="Ultima" src="./assets/images/layouts/ultima-vue.jpg">
                             </a>
