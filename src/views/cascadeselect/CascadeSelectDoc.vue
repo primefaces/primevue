@@ -286,6 +286,10 @@ data() {
                         <td>value: Value of the component <br />
                             placeholder: Placeholder text to show</td>
                     </tr>
+                    <tr>
+                        <td>option</td>
+                        <td>option: Option instance</td>
+                    </tr>
 				</tbody>
 			</table>
         </div>

@@ -82,7 +82,7 @@ data() {
 </code></pre>
 
 		<h5>Header and Footer</h5>
-		<p>Custom content projection is available using the <i>header</i> and <i>footer</i> templates.</p>
+		<p>Custom content projection is available using the <i>item</i>, <i>header</i> and <i>footer</i> templates.</p>
 
 <pre v-code><code>
 &lt;Carousel :value="cars" :numVisible="3" :numScroll="1" :responsiveOptions="responsiveOptions"&gt;
