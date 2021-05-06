@@ -299,7 +299,7 @@ export default {
                     </tr>
                     <tr>
                         <td>input</td>
-                        <td>value: New value</td>
+                        <td>event</td>
                         <td>Callback to invoke on value change.</td>
                     </tr>
                     <tr>
