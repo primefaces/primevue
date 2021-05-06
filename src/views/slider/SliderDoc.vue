@@ -131,12 +131,11 @@ export default {
 				<tbody>
                     <tr>
                         <td>change</td>
-                        <td>event.originalEvent: Original event <br />
-                            event.value: Selected option value </td>
+                        <td>value: Selected option value </td>
                         <td>Callback to invoke on value change.</td>
                     </tr>
                     <tr>
-                        <td>slideEnd</td>
+                        <td>slideend</td>
                         <td>event.originalEvent: Original event <br />
                             event.value: New value.
                         </td>

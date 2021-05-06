@@ -787,7 +787,7 @@ export default {
 </template>
 </code></pre>
 
-        <p>paginatorLeft and paginatorLeft templates are available to specify custom content at the left and right side.</p>
+        <p>paginatorLeft and paginatorRight templates are available to specify custom content at the left and right side.</p>
 <pre v-code><code><template v-pre>
 &lt;TreeTable :value="nodes" :paginator="true" :rows="10"&gt;
     &lt;Column field="name" header="Name" :expander="true"&gt;&lt;/Column&gt;
@@ -1325,18 +1325,6 @@ export default {
                         <td>string</td>
                         <td>FirstPageLink PrevPageLink PageLinks <br /> NextPageLink LastPageLink RowsPerPageDropdown</td>
                         <td>Template of the paginator.</td>
-                    </tr>
-                    <tr>
-                        <td>paginatorLeft</td>
-                        <td>Element</td>
-                        <td>null</td>
-                        <td>Content for the left side of the paginator.</td>
-                    </tr>
-                    <tr>
-                        <td>paginatorRight</td>
-                        <td>Element</td>
-                        <td>null</td>
-                        <td>Content for the right side of the paginator.</td>
                     </tr>
                     <tr>
                         <td>pageLinkSize</td>
