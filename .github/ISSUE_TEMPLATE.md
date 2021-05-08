@@ -21,7 +21,6 @@ With PRO Support: 1 hour
 **CodeSandbox Case (Bug Reports)**
 Please demonstrate your case at CodeSandbox by using the issue template below. Issues without a test case have much less possibility to be reviewed in detail and assisted.
 
-Vue 3 and PrimeVue 3
 https://codesandbox.io/s/primevue-issue-template-v3-5tlbl
 
 **Current behavior**
