@@ -18,10 +18,11 @@ With PRO Support: 1 hour
 [ ] support request => Please do not submit support request here, instead see http://forum.primefaces.org/viewforum.php?f=110
 ```
 
-**Plunkr Case (Bug Reports)**
-Please demonstrate your case at codesandbox by using the issue template below. Issues without a test case have much less possibility to be reviewed in detail and assisted.
+**CodeSandbox Case (Bug Reports)**
+Please demonstrate your case at CodeSandbox by using the issue template below. Issues without a test case have much less possibility to be reviewed in detail and assisted.
 
-https://codesandbox.io/s/primevue-issue-template-forked-vgbzf
+Vue 3 and PrimeVue 3
+https://codesandbox.io/s/primevue-issue-template-v3-5tlbl
 
 **Current behavior**
 <!-- Describe how the bug manifests. -->
@@ -45,7 +46,7 @@ codesandbox or similar (you can use this template as a starting point: https://c
 * **Vue version:** 3.X
 <!-- Check whether this is still an issue in the most recent Vue version -->
 
-* **PrimeVue version:** 5.X
+* **PrimeVue version:** 3.4.X
 <!-- Check whether this is still an issue in the most recent PrimeVue version -->
 
 * **Browser:** [all | Chrome XX | Firefox XX | IE XX | Safari XX | Mobile Chrome XX | Android X.X Web Browser | iOS XX Safari | iOS XX UIWebView | iOS XX WKWebView ]
