@@ -283,7 +283,7 @@ export default {
                     </tr>
                     <tr>
                         <td>clear</td>
-                        <td>event: Browser event</td>
+                        <td>-</td>
                         <td>Callback to invoke when input is cleared by the user.</td>
                     </tr>
 				</tbody>
