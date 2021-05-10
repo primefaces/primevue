@@ -178,7 +178,8 @@ export default {
                 this.$emit('reorder', {
                     originalEvent: event,
                     value: value,
-                    direction: this.reorderDirection
+                    direction: this.reorderDirection,
+                    listIndex: listIndex
                 });
             }
         },
@@ -210,7 +211,8 @@ export default {
                 this.$emit('reorder', {
                     originalEvent: event,
                     value: value,
-                    direction: this.reorderDirection
+                    direction: this.reorderDirection,
+                    listIndex: listIndex
                 });
             }
         },
@@ -240,7 +242,8 @@ export default {
                 this.$emit('reorder', {
                     originalEvent: event,
                     value: value,
-                    direction: this.reorderDirection
+                    direction: this.reorderDirection,
+                    listIndex: listIndex
                 });
             }
         },
