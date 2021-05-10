@@ -491,7 +491,7 @@ export default {
                     this.$refs.input.value = '';
                     this.inputTextValue = '';
                     this.$emit('clear');
-                    if(!this.multiple) {
+                    if (!this.multiple) {
                         this.$emit('update:modelValue', null);
                     }
                 }
