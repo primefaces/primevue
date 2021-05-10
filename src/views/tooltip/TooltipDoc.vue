@@ -29,7 +29,7 @@ directives: {
 &lt;InputText type="text" v-tooltip.right="'Enter your username'" /&gt;
 &lt;InputText type="text" v-tooltip.top="'Enter your username'" /&gt;
 &lt;InputText type="text" v-tooltip.bottom="'Enter your username'" /&gt;
-&lt;InputText type="text" v-tooltip.top="'Enter your username'" /&gt;
+&lt;InputText type="text" v-tooltip.left="'Enter your username'" /&gt;
 </template>
 </code></pre>
 

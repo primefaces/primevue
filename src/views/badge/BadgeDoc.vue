@@ -25,7 +25,7 @@ import BadgeDirective from 'primevue/badgedirective';
 <pre v-code.script><code>
 import BadgeDirective from 'primevue/badgedirective';
 
-Vue.directive('badge', BadgeDirective);
+app.directive('badge', BadgeDirective);
 
 </code></pre>
 
