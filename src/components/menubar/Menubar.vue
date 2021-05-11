@@ -18,6 +18,7 @@ import MenubarSub from './MenubarSub.vue';
 import {ZIndexUtils} from 'primevue/utils';
 
 export default {
+    name: 'Menubar',
     props: {
 		model: {
             type: Array,
@@ -47,7 +48,7 @@ export default {
                 this.mobileActive = true;
                 ZIndexUtils.set('menu', this.$refs.rootmenu.$el, this.$primevue.config.zIndex.menu);
             }
-            
+
             this.bindOutsideClickListener();
             event.preventDefault();
         },

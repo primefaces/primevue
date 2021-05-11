@@ -4,6 +4,7 @@
 
 <script>
 export default {
+    name: 'InputText',
     emits: ['update:modelValue'],
     props: {
         modelValue: null

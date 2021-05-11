@@ -16,9 +16,9 @@
             <transition name="p-connected-overlay" @enter="onOverlayEnter" @leave="onOverlayLeave" @after-leave="onOverlayAfterLeave">
                 <div :ref="overlayRef" :class="panelStyleClass" v-if="overlayVisible" @click="onOverlayClick">
                     <div class="p-cascadeselect-items-wrapper">
-                        <CascadeSelectSub :options="options" :selectionPath="selectionPath" 
+                        <CascadeSelectSub :options="options" :selectionPath="selectionPath"
                             :optionLabel="optionLabel" :optionValue="optionValue" :level="0" :templates="$slots"
-                            :optionGroupLabel="optionGroupLabel" :optionGroupChildren="optionGroupChildren" 
+                            :optionGroupLabel="optionGroupLabel" :optionGroupChildren="optionGroupChildren"
                             @option-select="onOptionSelect" @optiongroup-select="onOptionGroupSelect" :dirty="dirty" :root="true" />
                     </div>
                 </div>
@@ -33,6 +33,7 @@ import OverlayEventBus from 'primevue/overlayeventbus';
 import CascadeSelectSub from './CascadeSelectSub.vue';
 
 export default {
+    name: 'CascadeSelect',
     emits: ['update:modelValue','change','group-change', 'before-show','before-hide','hide','show'],
     data() {
         return {
@@ -73,7 +74,7 @@ export default {
             this.scrollHandler.destroy();
             this.scrollHandler = null;
         }
-        
+
         if (this.overlay) {
             ZIndexUtils.clear(this.overlay);
             this.overlay = null;
@@ -121,7 +122,7 @@ export default {
                 }
             }
 
-            this.selectionPath = path;            
+            this.selectionPath = path;
         },
         findModelOptionInGroup(option, level) {
             if (this.isOptionGroup(option, level)) {
@@ -137,7 +138,7 @@ export default {
             else if ((ObjectUtils.equals(this.modelValue, this.getOptionValue(option), this.dataKey))) {
                 return [option];
             }
-            
+
             return null;
         },
         show() {

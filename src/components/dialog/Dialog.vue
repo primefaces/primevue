@@ -33,6 +33,7 @@ import {UniqueComponentId,DomHandler,ZIndexUtils} from 'primevue/utils';
 import Ripple from 'primevue/ripple';
 
 export default {
+    name: 'Dialog',
     inheritAttrs: false,
     emits: ['update:visible','show','hide','maximize','unmaximize'],
     props: {
@@ -96,7 +97,7 @@ export default {
     beforeUnmount() {
         this.unbindDocumentState();
         this.destroyStyle();
-        
+
         this.mask = null;
 
         if (this.container && this.autoZIndex) {
@@ -117,7 +118,7 @@ export default {
             if (this.autoZIndex) {
                 ZIndexUtils.set('modal', el, this.baseZIndex + this.$primevue.config.zIndex.modal);
             }
-            
+
             el.setAttribute(this.attributeSelector, '');
         },
         onEnter() {
@@ -254,7 +255,7 @@ export default {
                         }
                     `
                 }
-                
+
                 this.styleElement.innerHTML = innerHTML;
 			}
 		},

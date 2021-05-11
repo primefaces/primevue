@@ -72,6 +72,7 @@ import TableBody from './TableBody.vue';
 import TableFooter from './TableFooter.vue';
 
 export default {
+    name: 'DataTable',
     emits: ['update:first', 'update:rows', 'page', 'update:sortField', 'update:sortOrder', 'update:multiSortMeta', 'sort', 'filter', 'row-click',
         'update:selection', 'row-select', 'row-unselect', 'update:contextMenuSelection', 'row-contextmenu', 'row-unselect-all', 'row-select-all',
         'column-resize-end', 'column-reorder', 'row-reorder', 'update:expandedRows', 'row-collapse', 'row-expand',
@@ -1661,7 +1662,7 @@ export default {
             children.forEach(child => {
                 if (child.dynamicChildren && child.children instanceof Array)
                     cols = [...cols, ...child.children];
-                else if (child.type.name === 'column')
+                else if (child.type.name === 'Column')
                     cols.push(child);
             });
 
@@ -1683,7 +1684,7 @@ export default {
             const children = this.getChildren();
             if (children) {
                 for (let child of children) {
-                    if (child.type.name === 'columngroup' && this.columnProp(child, 'type') === 'header') {
+                    if (child.type.name === 'ColumnGroup' && this.columnProp(child, 'type') === 'header') {
                         return child;
                     }
                 }
@@ -1695,7 +1696,7 @@ export default {
             const children = this.getChildren();
             if (children) {
                 for (let child of children) {
-                    if (child.type.name === 'columngroup' && this.columnProp(child, 'type') === 'footer') {
+                    if (child.type.name === 'ColumnGroup' && this.columnProp(child, 'type') === 'footer') {
                         return child;
                     }
                 }

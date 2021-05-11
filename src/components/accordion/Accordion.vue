@@ -25,6 +25,7 @@
 import {UniqueComponentId} from 'primevue/utils';
 
 export default {
+    name: 'Accordion',
     emits: ['tab-close', 'tab-open', 'update:activeIndex'],
     props: {
         multiple: Boolean,
@@ -100,7 +101,7 @@ export default {
             return ['p-accordion-toggle-icon pi', {'pi-chevron-right': !active, 'pi-chevron-down': active}];
         },
         isAccordionTab(child) {
-            return child.type.name === 'accordiontab'
+            return child.type.name === 'AccordionTab'
         }
     },
     computed: {

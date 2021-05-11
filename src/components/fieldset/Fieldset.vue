@@ -28,6 +28,7 @@ import {UniqueComponentId} from 'primevue/utils';
 import Ripple from 'primevue/ripple';
 
 export default {
+    name: 'Fieldset',
     emits: ['update:collapsed', 'toggle'],
     props: {
         legend: String,

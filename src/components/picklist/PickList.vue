@@ -53,6 +53,7 @@ import {ObjectUtils,UniqueComponentId,DomHandler} from 'primevue/utils';
 import Ripple from 'primevue/ripple';
 
 export default {
+    name: 'PickList',
     emits: ['update:modelValue', 'reorder', 'update:selection', 'selection-change', 'move-to-target', 'move-to-source', 'move-all-to-target', 'move-all-to-source'],
     props: {
         modelValue: {
@@ -525,7 +526,7 @@ export default {
     }
 }
 `;
-                
+
                 this.styleElement.innerHTML = innerHTML;
 			}
 		},

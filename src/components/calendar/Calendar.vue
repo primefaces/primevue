@@ -1,6 +1,6 @@
 <template>
     <span ref="container" :class="containerClass" :style="style">
-        <CalendarInputText ref="input" v-if="!inline" type="text" v-bind="$attrs" :value="inputFieldValue" @input="onInput" @focus="onFocus" @blur="onBlur" @keydown="onKeyDown" :readonly="!manualInput" inputmode="none" 
+        <CalendarInputText ref="input" v-if="!inline" type="text" v-bind="$attrs" :value="inputFieldValue" @input="onInput" @focus="onFocus" @blur="onBlur" @keydown="onKeyDown" :readonly="!manualInput" inputmode="none"
             :class="inputClass" :style="inputStyle" />
         <CalendarButton v-if="showIcon" :icon="icon" tabindex="-1" class="p-datepicker-trigger" :disabled="$attrs.disabled" @click="onButtonClick" type="button" :aria-label="inputFieldValue"/>
         <Teleport :to="appendTarget" :disabled="appendDisabled">
@@ -140,6 +140,7 @@ import Button from 'primevue/button';
 import Ripple from 'primevue/ripple';
 
 export default {
+    name: 'Calendar',
     inheritAttrs: false,
     emits: ['show', 'hide', 'month-change', 'year-change', 'date-select', 'update:modelValue', 'today-click', 'clear-click'],
     props: {
@@ -548,7 +549,7 @@ export default {
             this.unbindScrollListener();
             this.unbindResizeListener();
             this.$emit('hide');
-            
+
             if (this.mask) {
                 this.disableModality();
             }
@@ -1155,7 +1156,7 @@ export default {
             let newHour = this.currentHour + this.stepHour;
             let newPM = this.pm;
 
-           
+
             if (this.hourFormat == '24')
                 newHour = (newHour >= 24) ? (newHour - 24) : newHour;
             else if (this.hourFormat == '12') {
@@ -1165,7 +1166,7 @@ export default {
                 }
                 newHour = (newHour >= 13) ? (newHour - 12) : newHour;
             }
-            
+
 
             if (this.validateTime(newHour, this.currentMinute, this.currentSecond, newPM)) {
                 this.currentHour = newHour;
@@ -1961,7 +1962,7 @@ export default {
                 if (this.overlay) {
                     DomHandler.getFocusableElements(this.overlay).forEach(el => el.tabIndex = '-1');
                 }
-                
+
                 if (this.overlayVisible) {
                     this.overlayVisible = false;
                 }

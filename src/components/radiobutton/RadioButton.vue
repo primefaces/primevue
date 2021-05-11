@@ -13,6 +13,7 @@
 import {ObjectUtils} from 'primevue/utils';
 
 export default {
+    name: 'RadioButton',
     inheritAttrs: false,
     emits: ['click', 'update:modelValue', 'change'],
     props: {

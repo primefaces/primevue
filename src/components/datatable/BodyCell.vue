@@ -38,6 +38,7 @@ import RowCheckbox from './RowCheckbox.vue';
 import Ripple from 'primevue/ripple';
 
 export default {
+    name: 'BodyCell',
     emits: ['cell-edit-init', 'cell-edit-complete', 'cell-edit-cancel', 'row-edit-init', 'row-edit-save', 'row-edit-cancel',
             'row-toggle', 'radio-change', 'checkbox-change'],
     props: {

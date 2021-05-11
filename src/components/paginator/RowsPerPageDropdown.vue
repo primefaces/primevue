@@ -7,6 +7,7 @@
 import Dropdown from 'primevue/dropdown';
 
 export default {
+    name: 'RowsPerPageDropdown',
     inheritAttrs: false,
     emits: ['rows-change'],
     props: {

@@ -17,6 +17,7 @@
 import Ripple from 'primevue/ripple';
 
 export default {
+    name: 'Menuitem',
     inheritAttrs: false,
     emits: ['click'],
     props: {

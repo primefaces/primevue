@@ -6,6 +6,7 @@
 
 <script>
 export default {
+    name: 'Chart',
     emits: ['select'],
     props: {
         type: String,

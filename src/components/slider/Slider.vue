@@ -14,6 +14,7 @@
 import {DomHandler} from 'primevue/utils';
 
 export default {
+    name: 'Slider',
     emits: ['update:modelValue', 'change', 'slideend'],
     props: {
         modelValue: [Number,Array],
@@ -90,7 +91,7 @@ export default {
 
             if (this.range) {
                 modelValue = this.modelValue ? [...this.modelValue] : [];
-                
+
                 if (this.handleIndex == 0) {
                     let maxValue = this.modelValue ? this.modelValue[1] : this.max;
 
@@ -118,7 +119,7 @@ export default {
                     newValue = this.min;
                 else if (newValue > this.max)
                     newValue = this.max;
-                    
+
                 modelValue = Math.floor(newValue);
             }
 

@@ -28,6 +28,7 @@ import PanelMenuSub from './PanelMenuSub.vue';
 import {UniqueComponentId} from 'primevue/utils';
 
 export default {
+    name: 'PanelMenu',
     props: {
 		model: {
             type: Array,

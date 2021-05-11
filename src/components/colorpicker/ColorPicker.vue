@@ -28,6 +28,7 @@ import {ConnectedOverlayScrollHandler,DomHandler,ZIndexUtils} from 'primevue/uti
 import OverlayEventBus from 'primevue/overlayeventbus';
 
 export default {
+    name: 'ColorPicker',
     emits: ['update:modelValue'],
     props: {
         modelValue: {
@@ -100,7 +101,7 @@ export default {
             this.scrollHandler.destroy();
             this.scrollHandler = null;
         }
-        
+
         if (this.picker && this.autoZIndex) {
             ZIndexUtils.clear(this.picker);
         }

@@ -7,6 +7,7 @@
 import {DomHandler} from 'primevue/utils';
 
 export default {
+    name: 'InputMask',
     emits: ['update:modelValue', 'focus', 'blur', 'keydown', 'complete', 'keypress', 'paste'],
     props: {
         modelValue: null,

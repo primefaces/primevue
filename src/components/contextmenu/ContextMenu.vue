@@ -13,6 +13,7 @@ import {DomHandler,ZIndexUtils} from 'primevue/utils';
 import ContextMenuSub from './ContextMenuSub.vue';
 
 export default {
+    name: 'ContextMenu',
     inheritAttrs: false,
     props: {
 		model: {

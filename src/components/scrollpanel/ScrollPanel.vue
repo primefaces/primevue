@@ -14,6 +14,7 @@
 import {DomHandler} from 'primevue/utils';
 
 export default {
+    name: 'ScrollPanel',
     initialized: false,
     documentResizeListener: null,
     documentMouseMoveListener: null,

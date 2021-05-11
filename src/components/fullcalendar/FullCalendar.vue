@@ -6,6 +6,7 @@
 import {Calendar} from '@fullcalendar/core';
 
 export default {
+    name: 'FullCalendar',
     props: {
         events: Array,
         options: null

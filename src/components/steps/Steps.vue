@@ -23,6 +23,7 @@
 import {UniqueComponentId} from 'primevue/utils';
 
 export default {
+    name: 'Steps',
     props: {
         id: {
             type: String,

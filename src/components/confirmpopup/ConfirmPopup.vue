@@ -3,7 +3,7 @@
         <transition name="p-confirm-popup" @enter="onEnter" @leave="onLeave" @after-leave="onAfterLeave">
             <div class="p-confirm-popup p-component" v-if="visible" :ref="containerRef" v-bind="$attrs" @click="onOverlayClick">
                 <div class="p-confirm-popup-content">
-                    <i :class="iconClass" /> 
+                    <i :class="iconClass" />
                     <span class="p-confirm-popup-message">{{confirmation.message}}</span>
                 </div>
                 <div class="p-confirm-popup-footer">
@@ -22,6 +22,7 @@ import OverlayEventBus from 'primevue/overlayeventbus';
 import Button from 'primevue/button';
 
 export default {
+    name: 'ConfirmPopup',
     inheritAttrs: false,
     props: {
         group: String

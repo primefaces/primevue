@@ -22,6 +22,7 @@ import {DomHandler} from 'primevue/utils';
 import Ripple from 'primevue/ripple';
 
 export default {
+    name: 'TabView',
     emits: ['update:activeIndex', 'tab-change', 'tab-click'],
     props: {
         activeIndex: {
@@ -79,7 +80,7 @@ export default {
             return (tab.props && tab.props.disabled);
         },
         isTabPanel(child) {
-            return child.type.name === 'tabpanel'
+            return child.type.name === 'TabPanel'
         }
     },
     computed: {

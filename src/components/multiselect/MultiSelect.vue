@@ -99,6 +99,7 @@ import {FilterService} from 'primevue/api';
 import Ripple from 'primevue/ripple';
 
 export default {
+    name: 'MultiSelect',
     emits: ['update:modelValue', 'before-show', 'before-hide', 'change', 'show', 'hide', 'filter'],
     props: {
         modelValue: null,
@@ -167,7 +168,7 @@ export default {
             this.scrollHandler.destroy();
             this.scrollHandler = null;
         }
-        
+
         if (this.overlay) {
             ZIndexUtils.clear(this.overlay);
             this.overlay = null;
@@ -467,7 +468,7 @@ export default {
                 if (this.optionGroupLabel) {
                     value = [];
                     this.visibleOptions.forEach(optionGroup => value = [...value, ...this.getOptionGroupChildren(optionGroup)]);
-                }   
+                }
                 else  {
                     value = this.visibleOptions.map(option => this.getOptionValue(option));
                 }
@@ -597,7 +598,7 @@ export default {
 
                     return optionCount > 0 && optionCount === this.modelValue.length;
                 }
-                
+
                 return false;
             }
         },

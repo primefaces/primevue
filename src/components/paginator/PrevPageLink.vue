@@ -8,6 +8,7 @@
 import Ripple from 'primevue/ripple';
 
 export default {
+    name: 'PrevPageLink',
     computed: {
         containerClass() {
             return ['p-paginator-prev p-paginator-element p-link', {

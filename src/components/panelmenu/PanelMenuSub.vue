@@ -3,7 +3,7 @@
         <template v-for="(item, i) of model" :key="item.label + i.toString()">
             <li role="none" :class="getItemClass(item)" :style="item.style" v-if="visible(item) && !item.separator">
                 <router-link v-if="item.to && !item.disabled" :to="item.to" custom v-slot="{navigate, href}">
-                    <a :href="href" :class="getLinkClass(item)" @click="onItemClick($event, item, navigate)" role="treeitem" :aria-expanded="isActive(item)"> 
+                    <a :href="href" :class="getLinkClass(item)" @click="onItemClick($event, item, navigate)" role="treeitem" :aria-expanded="isActive(item)">
                         <span :class="['p-menuitem-icon', item.icon]"></span>
                         <span class="p-menuitem-text">{{item.label}}</span>
                     </a>
@@ -16,7 +16,7 @@
                 </a>
                 <transition name="p-toggleable-content">
                     <div class="p-toggleable-content" v-show="item === activeItem">
-                        <sub-panelmenu :model="item.items" v-if="visible(item) && item.items" :key="item.label + '_sub_'" />
+                        <PanelMenuSub :model="item.items" v-if="visible(item) && item.items" :key="item.label + '_sub_'" />
                     </div>
                 </transition>
             </li>
@@ -27,7 +27,7 @@
 
 <script>
 export default {
-    name: 'sub-panelmenu',
+    name: 'PanelMenuSub',
     props: {
 		model: {
             type: null,

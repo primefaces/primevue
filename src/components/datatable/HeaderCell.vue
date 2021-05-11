@@ -10,10 +10,10 @@
             <span v-if="columnProp('sortable')" :class="sortableColumnIcon"></span>
             <span v-if="isMultiSorted()" class="p-sortable-column-badge">{{getMultiSortMetaIndex() + 1}}</span>
             <DTHeaderCheckbox :checked="allRowsSelected" @change="onHeaderCheckboxChange" :disabled="empty" v-if="columnProp('selectionMode') ==='multiple' && filterDisplay !== 'row'" />
-            <DTColumnFilter v-if="filterDisplay === 'menu' && column.children && column.children.filter" :field="columnProp('filterField')||columnProp('field')" :type="columnProp('dataType')" display="menu"  
-            :showMenu="columnProp('showFilterMenu')" :filterElement="column.children && column.children.filter" 
-            :filterHeaderTemplate="column.children && column.children.filterheader" :filterFooterTemplate="column.children && column.children.filterfooter" 
-            :filterClearTemplate="column.children && column.children.filterclear" :filterApplyTemplate="column.children && column.children.filterapply" 
+            <DTColumnFilter v-if="filterDisplay === 'menu' && column.children && column.children.filter" :field="columnProp('filterField')||columnProp('field')" :type="columnProp('dataType')" display="menu"
+            :showMenu="columnProp('showFilterMenu')" :filterElement="column.children && column.children.filter"
+            :filterHeaderTemplate="column.children && column.children.filterheader" :filterFooterTemplate="column.children && column.children.filterfooter"
+            :filterClearTemplate="column.children && column.children.filterclear" :filterApplyTemplate="column.children && column.children.filterapply"
             :filters="filters" :filtersStore="filtersStore" @filter-change="$emit('filter-change', $event)" @filter-apply="$emit('filter-apply')" :filterMenuStyle="columnProp('filterMenuStyle')" :filterMenuClass="columnProp('filterMenuClass')"
             :showOperator="columnProp('showFilterOperator')" :showClearButton="columnProp('showClearButton')" :showApplyButton="columnProp('showApplyButton')"
             :showMatchModes="columnProp('showFilterMatchModes')" :showAddButton="columnProp('showAddButton')" :matchModeOptions="columnProp('filterMatchModeOptions')" :maxConstraints="columnProp('maxConstraints')"
@@ -28,8 +28,9 @@ import HeaderCheckbox from './HeaderCheckbox.vue';
 import ColumnFilter from './ColumnFilter.vue';
 
 export default {
+    name: 'HeaderCell',
     emits: ['column-click', 'column-mousedown', 'column-dragstart', 'column-dragover', 'column-dragleave', 'column-drop',
-            'column-resizestart', 'checkbox-change', 'filter-change', 'filter-apply', 
+            'column-resizestart', 'checkbox-change', 'filter-change', 'filter-apply',
             'operator-change', 'matchmode-change', 'constraint-add', 'constraint-remove', 'filter-clear', 'apply-click'],
     props: {
         column: {

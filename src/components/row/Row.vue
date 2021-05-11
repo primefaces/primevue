@@ -1,6 +1,6 @@
 <script>
 export default {
-    name: 'row',
+    name: 'Row',
     render() {
         return null;
     }

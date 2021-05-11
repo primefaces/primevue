@@ -4,7 +4,7 @@
 
 <script>
 export default {
-    name: 'accordiontab',
+    name: 'AccordionTab',
     props: {
         header: null,
         disabled: Boolean

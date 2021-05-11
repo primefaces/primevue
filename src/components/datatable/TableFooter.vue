@@ -19,6 +19,7 @@
 import FooterCell from './FooterCell.vue';
 
 export default {
+    name: 'TableFooter',
     props: {
         columnGroup: {
             type: null,

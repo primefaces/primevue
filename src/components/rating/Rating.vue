@@ -8,6 +8,7 @@
 
 <script>
 export default {
+    name: 'Rating',
     emits: ['update:modelValue', 'change'],
     props: {
         modelValue: {

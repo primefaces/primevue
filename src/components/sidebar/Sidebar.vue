@@ -18,6 +18,7 @@ import {DomHandler,ZIndexUtils} from 'primevue/utils';
 import Ripple from 'primevue/ripple';
 
 export default {
+    name: 'Sidebar',
     emits: ['update:visible', 'show', 'hide'],
     inheritAttrs: false,
     props: {

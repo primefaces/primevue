@@ -44,6 +44,7 @@ import {ObjectUtils} from 'primevue/utils';
 import Paginator from 'primevue/paginator';
 
 export default {
+    name: 'DataView',
     emits: ['update:first', 'update:rows', 'page'],
     props: {
         value: {

@@ -14,6 +14,7 @@ import Menu from 'primevue/menu';
 import {UniqueComponentId} from 'primevue/utils';
 
 export default {
+    name: 'SplitButton',
     inheritAttrs: false,
     props: {
         label: {

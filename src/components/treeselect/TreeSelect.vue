@@ -49,6 +49,7 @@ import Tree from 'primevue/tree';
 import Ripple from 'primevue/ripple';
 
 export default {
+    name: 'TreeSelect',
     emits: ['update:modelValue', 'before-show', 'before-hide', 'change', 'show', 'hide', 'node-select', 'node-unselect', 'node-expand', 'node-collapse'],
     props: {
         modelValue: null,
@@ -98,7 +99,7 @@ export default {
             immediate: true
         },
         options() {
-            this.updateTreeState();    
+            this.updateTreeState();
         }
     },
     data() {
@@ -121,7 +122,7 @@ export default {
             this.scrollHandler.destroy();
             this.scrollHandler = null;
         }
-        
+
         if (this.overlay) {
             ZIndexUtils.clear(this.overlay);
             this.overlay = null;
@@ -388,7 +389,7 @@ export default {
         },
         label() {
             let value = this.selectedNodes;
-            return value.length ? value.map(node => node.label).join(', '): this.placeholder;            
+            return value.length ? value.map(node => node.label).join(', '): this.placeholder;
         },
         emptyMessageText() {
             return this.emptyMessage || this.$primevue.config.locale.emptyMessage;

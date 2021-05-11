@@ -23,6 +23,7 @@ import TreeNode from './TreeNode.vue';
 import {ObjectUtils} from 'primevue/utils';
 
 export default {
+    name: 'Tree',
     emits: ['node-expand', 'node-collapse', 'update:expandedKeys', 'update:selectionKeys', 'node-select', 'node-unselect'],
     props: {
         value: {
@@ -105,7 +106,7 @@ export default {
             if (this.selectionMode != null && event.node.selectable !== false) {
                 const metaSelection = event.nodeTouched ? false : this.metaKeySelection;
                 const _selectionKeys = metaSelection ? this.handleSelectionWithMetaKey(event) : this.handleSelectionWithoutMetaKey(event);
-                
+
                 this.$emit('update:selectionKeys', _selectionKeys);
             }
         },

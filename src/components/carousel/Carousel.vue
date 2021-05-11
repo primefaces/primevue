@@ -58,6 +58,7 @@ import {DomHandler} from 'primevue/utils';
 import Ripple from 'primevue/ripple';
 
 export default {
+    name: 'Carousel',
 	emits: ['update:page'],
 	props: {
 		value: null,
@@ -496,8 +497,7 @@ export default {
     },
     directives: {
         'ripple': Ripple
-    },
-	name: "Carousel"
+    }
 }
 </script>
 

@@ -14,6 +14,7 @@ import GalleriaContent from './GalleriaContent.vue';
 import {DomHandler,ZIndexUtils} from 'primevue/utils';
 
 export default {
+    name: 'Galleria',
     inheritAttrs: false,
     emits: ['update:activeIndex', 'update:visible'],
     props: {

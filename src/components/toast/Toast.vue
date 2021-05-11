@@ -16,6 +16,7 @@ import {ZIndexUtils} from 'primevue/utils';
 var messageIdx = 0;
 
 export default {
+    name: 'Toast',
     inheritAttrs: false,
     props: {
         group: {

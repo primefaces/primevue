@@ -1,6 +1,6 @@
 <script>
 export default {
-    name: 'column',
+    name: 'Column',
     props: {
         columnKey: {
             type: null,

@@ -9,7 +9,7 @@
                     </template>
                     <span class="p-cascadeselect-group-icon pi pi-angle-right" v-if="isOptionGroup(option)"></span>
                 </div>
-                <cascadeselect-sub v-if="isOptionGroup(option) && isOptionActive(option)" class="p-cascadeselect-sublist" :selectionPath="selectionPath" :options="getOptionGroupChildren(option)"
+                <CascadeSelectSub v-if="isOptionGroup(option) && isOptionActive(option)" class="p-cascadeselect-sublist" :selectionPath="selectionPath" :options="getOptionGroupChildren(option)"
                         :optionLabel="optionLabel" :optionValue="optionValue" :level="level + 1" @option-select="onOptionSelect" @optiongroup-select="onOptionGroupSelect"
                         :optionGroupLabel="optionGroupLabel" :optionGroupChildren="optionGroupChildren" :parentActive="isOptionActive(option)" :dirty="dirty" :templates="templates"/>
             </li>
@@ -23,8 +23,8 @@ import {DomHandler} from 'primevue/utils';
 import Ripple from 'primevue/ripple';
 
 export default {
+    name: 'CascadeSelectSub',
     emits: ['option-select','optiongroup-select'],
-    name: 'cascadeselect-sub',
     props: {
         selectionPath: Array,
         level: Number,

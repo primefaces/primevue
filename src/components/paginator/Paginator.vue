@@ -30,6 +30,7 @@ import PrevPageLink from './PrevPageLink.vue';
 import RowsPerPageDropdown from './RowsPerPageDropdown.vue';
 
 export default {
+    name: 'Paginator',
     emits: ['update:first', 'update:rows', 'page'],
     props: {
         totalRecords: {

@@ -1,7 +1,7 @@
 <template>
     <CDialog v-model:visible="visible" :modal="true" :header="header" :blockScroll="blockScroll" :position="position" class="p-confirm-dialog"
         :breakpoints="breakpoints">
-        <i :class="iconClass" /> 
+        <i :class="iconClass" />
         <span class="p-confirm-dialog-message">{{message}}</span>
         <template #footer>
             <CDButton :label="rejectLabel" :icon="rejectIcon" :class="rejectClass" @click="reject()"/>
@@ -16,6 +16,7 @@ import Dialog from 'primevue/dialog';
 import Button from 'primevue/button';
 
 export default {
+    name: 'ConfirmDialog',
     props: {
         group: String,
         breakpoints: {

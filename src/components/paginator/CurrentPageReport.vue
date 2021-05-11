@@ -3,6 +3,7 @@
 </template>
 <script>
 	export default {
+        name: 'CurrentPageReport',
 		inheritAttrs: false,
 		props: {
 			pageCount: {

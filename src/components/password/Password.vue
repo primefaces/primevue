@@ -25,6 +25,7 @@ import OverlayEventBus from 'primevue/overlayeventbus';
 import InputText from 'primevue/inputtext';
 
 export default {
+    name: 'Password',
     emits: ['update:modelValue'],
     inheritAttrs: false,
     props: {

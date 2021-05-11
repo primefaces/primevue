@@ -4,6 +4,7 @@
 
 <script>
 export default {
+    name: 'Badge',
     props: {
         value: null,
         severity: null,

@@ -11,6 +11,7 @@
 
 <script>
 export default {
+    name: 'TriStateCheckbox',
     inheritAttrs: false,
     emits: ['click', 'update:modelValue', 'change'],
     props: {

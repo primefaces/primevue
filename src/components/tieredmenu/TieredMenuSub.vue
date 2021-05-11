@@ -1,7 +1,7 @@
 <template>
     <ul ref="element" :class="containerClass" role="'menubar' : 'menu'" aria-orientation="horizontal">
         <template v-for="(item, i) of model" :key="item.label + i.toString()">
-            <li :class="getItemClass(item)" :style="item.style" v-if="visible(item) && !item.separator" 
+            <li :class="getItemClass(item)" :style="item.style" v-if="visible(item) && !item.separator"
                 @mouseenter="onItemMouseEnter($event, item)" role="none">
                 <router-link v-if="item.to && !item.disabled" :to="item.to" custom v-slot="{navigate, href}">
                      <a :href="href" @click="onItemClick($event, item, navigate)" :class="getLinkClass(item)" v-ripple @keydown="onItemKeyDown($event, item)" role="menuitem">
@@ -15,7 +15,7 @@
                     <span class="p-menuitem-text">{{item.label}}</span>
                     <span class="p-submenu-icon pi pi-angle-right" v-if="item.items"></span>
                 </a>
-                <sub-menu :model="item.items" v-if="visible(item) && item.items" :key="item.label + '_sub_'"
+                <TieredMenuSub :model="item.items" v-if="visible(item) && item.items" :key="item.label + '_sub_'"
                     @leaf-click="onLeafClick" @keydown-item="onChildItemKeyDown" :parentActive="item === activeItem" />
             </li>
             <li :class="['p-menu-separator', item.class]" :style="item.style" v-if="visible(item) && item.separator" :key="'separator' + i.toString()" role="separator"></li>
@@ -28,8 +28,8 @@ import {DomHandler} from 'primevue/utils';
 import Ripple from 'primevue/ripple';
 
 export default {
+    name: 'TieredMenuSub',
     emits: ['leaf-click', 'keydown-item'],
-    name: 'sub-menu',
     props: {
         model: {
             type: Array,

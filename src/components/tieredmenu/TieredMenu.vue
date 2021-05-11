@@ -14,6 +14,7 @@ import OverlayEventBus from 'primevue/overlayeventbus';
 import TieredMenuSub from './TieredMenuSub.vue';
 
 export default {
+    name: 'TieredMenu',
     inheritAttrs: false,
     props: {
         popup: {

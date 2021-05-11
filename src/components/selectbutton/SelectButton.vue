@@ -16,6 +16,7 @@ import {ObjectUtils} from 'primevue/utils';
 import Ripple from 'primevue/ripple';
 
 export default {
+    name: 'SelectButton',
     emits: ['update:modelValue', 'focus', 'blur'],
     props: {
         modelValue: null,

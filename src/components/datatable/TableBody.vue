@@ -48,9 +48,10 @@ import {ObjectUtils,DomHandler} from 'primevue/utils';
 import BodyCell from './BodyCell.vue';
 
 export default {
-    emits: ['rowgroup-toggle', 'row-click', 'row-rightclick', 'row-touchend', 'row-keydown', 'row-mousedown', 
+    name: 'TableBody',
+    emits: ['rowgroup-toggle', 'row-click', 'row-rightclick', 'row-touchend', 'row-keydown', 'row-mousedown',
         'row-dragstart', 'row-dragover', 'row-dragleave', 'row-dragend', 'row-drop', 'row-toggle',
-        'radio-change', 'checkbox-change', 'cell-edit-init', 'cell-edit-complete', 'cell-edit-cancel', 
+        'radio-change', 'checkbox-change', 'cell-edit-init', 'cell-edit-complete', 'cell-edit-cancel',
         'row-edit-init', 'row-edit-save', 'row-edit-cancel'],
     props: {
         value: {
@@ -459,7 +460,7 @@ export default {
             if (this.scrollable) {
                 return {top: this.rowGroupHeaderStyleObject.top};
             }
-            
+
             return null;
         }
     },

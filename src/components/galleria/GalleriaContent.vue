@@ -31,6 +31,7 @@ import GalleriaItemSlot from './GalleriaItemSlot.vue';
 import Ripple from 'primevue/ripple';
 
 export default {
+    name: 'GalleriaContent',
     inheritAttrs: false,
     interval: null,
     emits: ['activeitem-change', 'mask-hide'],

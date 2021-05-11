@@ -9,6 +9,7 @@
 import Ripple from 'primevue/ripple';
 
 export default {
+    name: 'ToggleButton',
     emits: ['update:modelValue', 'change'],
     props: {
         modelValue: Boolean,

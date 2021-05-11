@@ -17,9 +17,9 @@
         </td>
     </tr>
     <template v-if="expanded && node.children && node.children.length">
-        <sub-ttnode v-for="childNode of node.children" :key="childNode.key" :columns="columns" :node="childNode" :parentNode="node"  :level="level + 1"
+        <TreeTableRow v-for="childNode of node.children" :key="childNode.key" :columns="columns" :node="childNode" :parentNode="node"  :level="level + 1"
                         :expandedKeys="expandedKeys" :selectionMode="selectionMode" :selectionKeys="selectionKeys" :indentation="indentation"
-                        @node-toggle="$emit('node-toggle', $event)" @node-click="$emit('node-click', $event)" @checkbox-change="onCheckboxChange"></sub-ttnode>
+                        @node-toggle="$emit('node-toggle', $event)" @node-click="$emit('node-click', $event)" @checkbox-change="onCheckboxChange" />
     </template>
 </template>
 
@@ -29,7 +29,7 @@ import {DomHandler} from 'primevue/utils';
 import Ripple from 'primevue/ripple';
 
 export default {
-    name: 'sub-ttnode',
+    name: 'TreeTableRow',
     emits: ['node-click', 'node-toggle', 'checkbox-change','nodeClick', 'nodeToggle', 'checkboxChange'],
     props: {
         node: {

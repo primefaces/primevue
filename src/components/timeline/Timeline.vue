@@ -21,6 +21,7 @@
 import {ObjectUtils} from 'primevue/utils';
 
 export default {
+    name: 'Timeline',
     props: {
         value: null,
         align: {

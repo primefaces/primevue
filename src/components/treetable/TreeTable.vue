@@ -81,7 +81,8 @@ import TreeTableRow from './TreeTableRow.vue';
 import Paginator from 'primevue/paginator';
 
 export default {
-    emits: ['node-expand', 'node-collapse', 'update:expandedKeys', 'update:selectionKeys', 'node-select', 'node-unselect', 
+    name: 'TreeTable',
+    emits: ['node-expand', 'node-collapse', 'update:expandedKeys', 'update:selectionKeys', 'node-select', 'node-unselect',
         'update:first', 'update:rows', 'page', 'update:sortField', 'update:sortOrder', 'update:multiSortMeta', 'sort', 'filter', 'column-resize-end'],
     props: {
         value: {
@@ -808,7 +809,7 @@ export default {
             children.forEach(child => {
                 if (child.dynamicChildren)
                     cols = [...cols, ...child.children];
-                else if (child.type.name === 'column')
+                else if (child.type.name === 'Column')
                     cols.push(child);
             });
 

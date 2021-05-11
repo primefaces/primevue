@@ -29,6 +29,7 @@ import {ObjectUtils,UniqueComponentId,DomHandler} from 'primevue/utils';
 import Ripple from 'primevue/ripple';
 
 export default {
+    name: 'OrderList',
     emits: ['update:modelValue', 'reorder', 'update:selection', 'selection-change'],
     props: {
         modelValue: {
@@ -337,7 +338,7 @@ export default {
     }
 }
 `;
-                
+
                 this.styleElement.innerHTML = innerHTML;
 			}
 		},

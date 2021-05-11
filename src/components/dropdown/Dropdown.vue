@@ -64,6 +64,7 @@ import {FilterService} from 'primevue/api';
 import Ripple from 'primevue/ripple';
 
 export default {
+    name: 'Dropdown',
     emits: ['update:modelValue', 'before-show', 'before-hide', 'show', 'hide', 'change', 'filter'],
     props: {
         modelValue: null,
@@ -136,7 +137,7 @@ export default {
         }
 
         this.itemsWrapper = null;
-        
+
         if (this.overlay) {
             ZIndexUtils.clear(this.overlay);
             this.overlay = null;
@@ -180,7 +181,7 @@ export default {
                 }
                 else {
                     return this.findOptionIndexInList(this.modelValue, this.options);
-                }                
+                }
             }
 
             return -1;
@@ -339,7 +340,7 @@ export default {
 
                 if (option)
                     return option;
-                else if (groupIndex > 0) 
+                else if (groupIndex > 0)
                     return this.findPrevOption({group: (groupIndex - 1), option: this.getOptionGroupChildren(this.visibleOptions[groupIndex - 1]).length});
                 else
                     return null;
@@ -424,7 +425,7 @@ export default {
             else {
                 this.overlay.style.minWidth = DomHandler.getOuterWidth(this.$el) + 'px';
                 DomHandler.absolutePosition(this.overlay, this.$el);
-            }  
+            }
         },
         updateModel(event, value) {
             this.$emit('update:modelValue', value);
@@ -503,7 +504,7 @@ export default {
                     this.updateModel(event, this.getOptionValue(newOption));
                 }
             }
-            
+
             this.searchTimeout = setTimeout(() => {
                 this.searchValue = null;
             }, 250);

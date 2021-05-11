@@ -45,6 +45,7 @@ import {FilterService} from 'primevue/api';
 import Ripple from 'primevue/ripple';
 
 export default {
+    name: 'Listbox',
     emits: ['update:modelValue', 'change', 'filter'],
     props: {
         modelValue: null,
@@ -288,7 +289,7 @@ export default {
             }
             else {
                 return this.options;
-            }          
+            }
         },
         equalityKey() {
             return this.optionValue ? null : this.dataKey;

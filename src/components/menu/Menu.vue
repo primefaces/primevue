@@ -26,6 +26,7 @@ import OverlayEventBus from 'primevue/overlayeventbus';
 import Menuitem from './Menuitem.vue';
 
 export default {
+    name: 'Menu',
     inheritAttrs: false,
     props: {
         popup: {
@@ -68,7 +69,7 @@ export default {
             this.scrollHandler = null;
         }
         this.target = null;
-        
+
         if (this.container && this.autoZIndex) {
             ZIndexUtils.clear(this.container);
         }

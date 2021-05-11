@@ -19,6 +19,7 @@ import OverlayEventBus from 'primevue/overlayeventbus';
 import Ripple from 'primevue/ripple';
 
 export default {
+    name: 'OverlayPanel',
     inheritAttrs: false,
     props: {
 		dismissable: {
@@ -231,7 +232,7 @@ export default {
                         }
                     `
                 }
-                
+
                 this.styleElement.innerHTML = innerHTML;
 			}
 		},
