@@ -1324,7 +1324,7 @@ export default {
                         <td>paginatorTemplate</td>
                         <td>string</td>
                         <td>FirstPageLink PrevPageLink PageLinks <br /> NextPageLink LastPageLink RowsPerPageDropdown</td>
-                        <td>Template of the paginator.</td>
+                        <td>Template of the paginator. See the <router-link to="/paginator">Paginator</router-link> for all available options.</td>
                     </tr>
                     <tr>
                         <td>pageLinkSize</td>

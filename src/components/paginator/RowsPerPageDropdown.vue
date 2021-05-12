@@ -1,6 +1,6 @@
 <template>
 	<RPPDropdown :modelValue="rows" :options="rowsOptions" optionLabel="label" optionValue="value"
-        @update:modelValue="onChange($event)"></RPPDropdown>
+        @update:modelValue="onChange($event)" class="p-paginator-rpp-options"></RPPDropdown>
 </template>
 
 <script>
