@@ -153,7 +153,7 @@ export default {
         },
         requestAnimationFrame(f) {
             let frame = window.requestAnimationFrame || this.timeoutFrame;
-            frame(f);
+            return frame(f);
         },
         refresh() {
             this.moveBar();
