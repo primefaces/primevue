@@ -282,7 +282,7 @@ export default {
                         <img src="https://www.primefaces.org/wp-content/uploads/2020/05/placeholder.png" />
                     </div>
                     <div class="product-list-detail">
-                        <h5 class="p-mb-2">{{slotProps.item.name}}</h5>
+                        <h6 class="p-mb-2">{{slotProps.item.name}}</h6>
                         <i class="pi pi-tag product-category-icon"></i>
                         <span class="product-category">{{slotProps.item.category}}</span>
                     </div>
@@ -341,11 +341,13 @@ export default {
     .product-category-icon {
         vertical-align: middle;
         margin-right: .5rem;
+        font-size: .875rem;
     }
 
     .product-category {
         vertical-align: middle;
         line-height: 1;
+        font-size: .875rem;
     }
 }
 
@@ -384,7 +386,7 @@ export default {
                         <img src="https://www.primefaces.org/wp-content/uploads/2020/05/placeholder.png" />
                     </div>
                     <div class="product-list-detail">
-                        <h5 class="p-mb-2">{{slotProps.item.name}}</h5>
+                        <h6 class="p-mb-2">{{slotProps.item.name}}</h6>
                         <i class="pi pi-tag product-category-icon"></i>
                         <span class="product-category">{{slotProps.item.category}}</span>
                     </div>
@@ -442,11 +444,13 @@ export default {
     .product-category-icon {
         vertical-align: middle;
         margin-right: .5rem;
+        font-size: .875rem;
     }
 
     .product-category {
         vertical-align: middle;
         line-height: 1;
+        font-size: .875rem;
     }
 }
 
