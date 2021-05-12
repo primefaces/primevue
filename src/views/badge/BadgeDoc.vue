@@ -79,6 +79,15 @@ app.directive('badge', BadgeDirective);
 
 </code></pre>
 
+        <h5>Templating</h5>
+		<p>Content can easily be customized with the default slot instead of using the built-in display.</p>
+<pre v-code><code>
+&lt;Slot&gt;
+   Content
+&lt;/Slot&gt;
+
+</code></pre>
+
 		<h5>Properties</h5>
 		<p>Any property as style and class are passed to the main container element. Following are the additional properties to configure the component.</p>
 		<div class="doc-tablewrapper">
