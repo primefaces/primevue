@@ -2059,7 +2059,7 @@ export default {
 }
 
 /* Responsive */
-.p-datatable .p-datatable-tbody .p-column-title {
+.p-datatable .p-datatable-tbody > tr > td > .p-column-title {
     display: none;
 }
 </style>
