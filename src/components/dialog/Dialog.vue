@@ -273,7 +273,9 @@ export default {
         dialogClass() {
             return ['p-dialog p-component', {
                 'p-dialog-rtl': this.rtl,
-                'p-dialog-maximized': this.maximizable && this.maximized
+                'p-dialog-maximized': this.maximizable && this.maximized,
+                'p-input-filled': this.$primevue.config.inputStyle === 'filled',
+                'p-ripple-disabled': this.$primevue.config.ripple === false
             }];
         },
         maximizeIconClass() {

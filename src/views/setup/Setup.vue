@@ -220,6 +220,21 @@ app.use(PrimeVue, {ripple: true});
 
 </code></pre>
 
+            <h5>Outlined vs Filled Input Styles</h5>
+            <p>Input fields come in two styles, default is <i>outlined</i> with borders around the field whereas <i>filled</i> alternative adds a background color
+            to the field. Applying <i>p-input-filled</i> to an ancestor of an input enables the filled style. If you prefer to use filled inputs in the entire application, 
+            use a global container such as the document body or the application element to apply the style class. Note that in case you add it to the application element, components that are teleported to the document body such as Dialog
+            will not be able to display filled inputs as they are not a descendant of the application root element in the DOM tree, to resolve this case set inputStyle to 'filled' at PrimeVue configuration as well.</p>
+
+<pre v-code.script><code>
+import {createApp} from 'vue';
+import PrimeVue from 'primevue/config';
+const app = createApp(App);
+
+app.use(PrimeVue, {inputStyle: 'filled'});
+
+</code></pre>
+
             <h5>ZIndex Layering</h5>
             <p>ZIndexes are managed automatically to make sure layering of overlay components work seamlessly when combining multiple components. Still there may be cases where you'd like to configure
             the configure default values such as a custom layout where header section is fixed. In a case like this, dropdown needs to be displayed below the application header but a modal dialog should be displayed above. PrimeVue configuration

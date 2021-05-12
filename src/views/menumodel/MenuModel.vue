@@ -164,6 +164,24 @@ const items = [
 ];
 
 </code></pre>
+
+            <h5>Separator</h5>
+            <p>Separators are special menuitems whose sole purpose is to divide menuitems. A separator is simply configured as below.</p>
+<pre v-code.script><code>
+const items = [
+    {
+        label: 'Item 1'
+    },
+    {
+        separator: true
+    },
+    {
+        label: 'Item 2'
+    }
+];
+
+</code></pre>
+
         </div>
     </div>
 </template>

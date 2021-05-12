@@ -439,15 +439,18 @@ export default {
     },
     computed: {
         containerClass() {
-            return [
-                'p-column-filter p-fluid', {
-                    'p-column-filter-row': this.display === 'row',
-                    'p-column-filter-menu': this.display === 'menu'
-                }
-            ]
+            return ['p-column-filter p-fluid', {
+                'p-column-filter-row': this.display === 'row',
+                'p-column-filter-menu': this.display === 'menu'
+            }];
         },
         overlayClass() {
-            return [this.filterMenuClass, {'p-column-filter-overlay p-component p-fluid': true, 'p-column-filter-overlay-menu': this.display === 'menu'}];
+            return [this.filterMenuClass, {
+                'p-column-filter-overlay p-component p-fluid': true, 
+                'p-column-filter-overlay-menu': this.display === 'menu',
+                'p-input-filled': this.$primevue.config.inputStyle === 'filled',
+                'p-ripple-disabled': this.$primevue.config.ripple === false
+            }];
         },
         showMenuButton() {
             return this.showMenu && (this.display === 'row' ? this.type !== 'boolean': true);

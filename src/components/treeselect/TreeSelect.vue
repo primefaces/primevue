@@ -376,7 +376,10 @@ export default {
             ];
         },
         panelStyleClass() {
-            return ['p-treeselect-panel p-component', this.panelClass];
+            return ['p-treeselect-panel p-component', this.panelClass, {
+                'p-input-filled': this.$primevue.config.inputStyle === 'filled',
+                'p-ripple-disabled': this.$primevue.config.ripple === false
+            }];
         },
         selectedNodes() {
             let selectedNodes = [];

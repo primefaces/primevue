@@ -1,7 +1,7 @@
 <template>
     <Teleport :to="appendTo">
         <transition name="p-overlaypanel" @enter="onEnter" @leave="onLeave" @after-leave="onAfterLeave">
-            <div class="p-overlaypanel p-component" v-if="visible" :ref="containerRef" v-bind="$attrs" @click="onOverlayClick">
+            <div :class="containerClass" v-if="visible" :ref="containerRef" v-bind="$attrs" @click="onOverlayClick">
                 <div class="p-overlaypanel-content" @click="onContentClick">
                     <slot></slot>
                 </div>
@@ -250,6 +250,12 @@ export default {
         }
     },
     computed: {
+        containerClass() {
+            return ['p-overlaypanel p-component', {
+                'p-input-filled': this.$primevue.config.inputStyle === 'filled',
+                'p-ripple-disabled': this.$primevue.config.ripple === false
+            }];
+        },
         attributeSelector() {
             return UniqueComponentId();
         }

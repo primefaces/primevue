@@ -2,10 +2,12 @@
     <Teleport to="body">
         <transition name="p-sidebar" @enter="onEnter" @leave="onLeave" @after-leave="onAfterLeave" appear>
             <div :class="containerClass" v-if="visible" :ref="containerRef" role="complementary" :aria-modal="modal" v-bind="$attrs">
-                <div class="p-sidebar-content">
-                    <button class="p-sidebar-close p-link" @click="hide" :aria-label="ariaCloseLabel" v-if="showCloseIcon" type="button" v-ripple>
+                <div class="p-sidebar-header">
+                    <button class="p-sidebar-close p-sidebar-icon p-link" @click="hide" :aria-label="ariaCloseLabel" v-if="showCloseIcon" type="button" v-ripple>
                         <span class="p-sidebar-close-icon pi pi-times" />
                     </button>
+                </div>
+                <div class="p-sidebar-content">
                     <slot></slot>
                 </div>
             </div>
@@ -152,7 +154,9 @@ export default {
     computed: {
         containerClass() {
             return ['p-sidebar p-component p-sidebar-' + this.position , {
-                'p-sidebar-active': this.visible
+                'p-sidebar-active': this.visible,
+                'p-input-filled': this.$primevue.config.inputStyle === 'filled',
+                'p-ripple-disabled': this.$primevue.config.ripple === false
             }];
         },
         fullScreen() {
@@ -169,21 +173,25 @@ export default {
 .p-sidebar {
     position: fixed;
     transition: transform .3s;
-    overflow: scroll;
+    display: flex;
+    flex-direction: column;
 }
 
 .p-sidebar-content {
     position: relative;
+    overflow-y: auto;
 }
 
-.p-sidebar-close {
-    position: absolute;
-    top: 0;
-    right: 0;
+.p-sidebar-header {
+    display: flex;
+    align-items: center;
+    justify-content: flex-end;
+}
+
+.p-sidebar-icon {
     display: flex;
     align-items: center;
     justify-content: center;
-    overflow: hidden;
 }
 
 .p-sidebar-mask {

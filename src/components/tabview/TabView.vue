@@ -90,7 +90,7 @@ export default {
                     if (this.isTabPanel(child)) {
                         tabs.push(child);
                     }
-                    else if (child.children.length > 0) {
+                    else if (child.children && child.children instanceof Array) {
                         child.children.forEach(nestedChild => {
                             if (this.isTabPanel(nestedChild)) {
                                 tabs.push(nestedChild)
