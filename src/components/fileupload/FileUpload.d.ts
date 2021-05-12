@@ -9,6 +9,7 @@ interface FileUploadProps {
     maxFileSize?: number;
     invalidFileSizeMessage?: string;
     invalidFileLimitMessage?: string;
+    invalidFileTypeMessage?: string;
     fileLimit?: number;
     withCredentials?: boolean;
     previewWidth?: number;
