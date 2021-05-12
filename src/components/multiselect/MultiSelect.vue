@@ -27,8 +27,8 @@
             <transition name="p-connected-overlay" @enter="onOverlayEnter" @leave="onOverlayLeave" @after-leave="onOverlayAfterLeave">
                 <div :ref="overlayRef" :class="panelStyleClass" v-if="overlayVisible" @click="onOverlayClick">
                     <slot name="header" :value="modelValue" :options="visibleOptions"></slot>
-                    <div class="p-multiselect-header">
-                        <div class="p-checkbox p-component" @click="onToggleAll" role="checkbox" :aria-checked="allSelected">
+                    <div class="p-multiselect-header" v-if="(showToggleAll && selectionLimit == null) || filter">                      
+                        <div class="p-checkbox p-component" @click="onToggleAll" role="checkbox" :aria-checked="allSelected" v-if="showToggleAll && selectionLimit == null">
                             <div class="p-hidden-accessible">
                                 <input type="checkbox" readonly @focus="onHeaderCheckboxFocus" @blur="onHeaderCheckboxBlur">
                             </div>
@@ -146,7 +146,15 @@ export default {
             type: String,
             default: 'comma'
         },
-        panelClass: null
+        panelClass: null,
+        selectionLimit: {
+            type: Number,
+            default: null
+        },
+        showToggleAll: {
+            type: Boolean,
+            default: true
+        }
     },
     data() {
         return {
@@ -194,6 +202,10 @@ export default {
             return ObjectUtils.resolveFieldData(optionGroup, this.optionGroupChildren);
         },
         isOptionDisabled(option) {
+            if (this.maxSelectionLimitReached && !this.isSelected(option)) {
+                return true;
+            }
+
             return this.optionDisabled ? ObjectUtils.resolveFieldData(option, this.optionDisabled) : false;
         },
         isSelected(option) {
@@ -616,6 +628,9 @@ export default {
         },
         appendTarget() {
             return this.appendDisabled ? null : this.appendTo;
+        },
+        maxSelectionLimitReached() {
+            return this.selectionLimit && (this.modelValue && this.modelValue.length === this.selectionLimit);
         }
     },
     directives: {
@@ -729,6 +744,7 @@ export default {
     flex-shrink: 0;
     overflow: hidden;
     position: relative;
+    margin-left: auto;
 }
 
 .p-fluid .p-multiselect {
