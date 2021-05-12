@@ -1,6 +1,6 @@
 interface CheckboxProps {
-    value?: null;
-    modelValue?: null;
+    value?: any;
+    modelValue?: any;
     binary?: boolean;
 }
 
