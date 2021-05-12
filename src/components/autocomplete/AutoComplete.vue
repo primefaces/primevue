@@ -543,7 +543,11 @@ export default {
             }];
         },
         panelStyleClass() {
-            return ['p-autocomplete-panel p-component', this.panelClass];
+            return [
+                'p-autocomplete-panel p-component', this.panelClass, {
+                'p-input-filled': this.$primevue.config.inputStyle === 'filled',
+                'p-ripple-disabled': this.$primevue.config.ripple === false
+            }];
         },
         inputValue() {
             if (this.modelValue) {

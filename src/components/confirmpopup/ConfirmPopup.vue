@@ -1,7 +1,7 @@
 <template>
     <Teleport to="body">
         <transition name="p-confirm-popup" @enter="onEnter" @leave="onLeave" @after-leave="onAfterLeave">
-            <div class="p-confirm-popup p-component" v-if="visible" :ref="containerRef" v-bind="$attrs" @click="onOverlayClick">
+            <div :class="containerClass" v-if="visible" :ref="containerRef" v-bind="$attrs" @click="onOverlayClick">
                 <div class="p-confirm-popup-content">
                     <i :class="iconClass" />
                     <span class="p-confirm-popup-message">{{confirmation.message}}</span>
@@ -187,6 +187,12 @@ export default {
         }
     },
     computed: {
+        containerClass() {
+            return ['p-confirm-popup p-component', {
+                'p-input-filled': this.$primevue.config.inputStyle === 'filled',
+                'p-ripple-disabled': this.$primevue.config.ripple === false
+            }];
+        },
         message() {
             return this.confirmation ? this.confirmation.message : null;
         },

@@ -152,7 +152,9 @@ export default {
     computed: {
         containerClass() {
             return ['p-sidebar p-component p-sidebar-' + this.position , {
-                'p-sidebar-active': this.visible
+                'p-sidebar-active': this.visible,
+                'p-input-filled': this.$primevue.config.inputStyle === 'filled',
+                'p-ripple-disabled': this.$primevue.config.ripple === false
             }];
         },
         fullScreen() {

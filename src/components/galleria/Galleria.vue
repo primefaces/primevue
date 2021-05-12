@@ -171,7 +171,10 @@ export default {
     },
     computed: {
         maskContentClass() {
-            return ['p-galleria-mask p-component-overlay', this.maskClass];
+            return ['p-galleria-mask p-component-overlay', this.maskClass, {
+                'p-input-filled': this.$primevue.config.inputStyle === 'filled',
+                'p-ripple-disabled': this.$primevue.config.ripple === false
+            }];
         }
     },
     components: {

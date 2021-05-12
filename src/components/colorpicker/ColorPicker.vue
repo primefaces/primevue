@@ -570,7 +570,11 @@ export default {
             return ['p-colorpicker-preview p-inputtext', {'p-disabled': this.disabled}];
         },
         pickerClass() {
-            return ['p-colorpicker-panel', this.panelClass, {'p-colorpicker-overlay-panel': !this.inline, 'p-disabled': this.disabled}];
+            return ['p-colorpicker-panel', this.panelClass, {
+                'p-colorpicker-overlay-panel': !this.inline, 'p-disabled': this.disabled,
+                'p-input-filled': this.$primevue.config.inputStyle === 'filled',
+                'p-ripple-disabled': this.$primevue.config.ripple === false
+            }];
         },
         appendDisabled() {
             return this.appendTo === 'self' || this.inline;

@@ -2,6 +2,7 @@ import Vue, { Plugin } from 'vue';
 
 interface PrimeVueConfiguration {
     ripple?: boolean;
+    inputStyle?: string;
     locale?: PrimeVueLocaleOptions;
 }
 

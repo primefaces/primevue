@@ -629,7 +629,10 @@ export default {
             ];
         },
         panelStyleClass() {
-            return ['p-dropdown-panel p-component', this.panelClass];
+            return ['p-dropdown-panel p-component', this.panelClass, {
+                'p-input-filled': this.$primevue.config.inputStyle === 'filled',
+                'p-ripple-disabled': this.$primevue.config.ripple === false
+            }];
         },
         label() {
             let selectedOption = this.getSelectedOption();

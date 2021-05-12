@@ -197,7 +197,9 @@ export default {
     computed: {
         containerClass() {
             return ['p-menu p-component', {
-                'p-menu-overlay': this.popup
+                'p-menu-overlay': this.popup,
+                'p-input-filled': this.$primevue.config.inputStyle === 'filled',
+                'p-ripple-disabled': this.$primevue.config.ripple === false
             }]
         }
     },

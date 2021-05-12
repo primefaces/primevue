@@ -521,28 +521,25 @@ export default {
             }
         },
         containerClass() {
-            return [
-                'p-multiselect p-component p-inputwrapper',
-                {
-                    'p-multiselect-chip': this.display === 'chip',
-                    'p-disabled': this.disabled,
-                    'p-focus': this.focused,
-                    'p-inputwrapper-filled': this.modelValue && this.modelValue.length,
-                    'p-inputwrapper-focus': this.focused || this.overlayVisible
-                }
-            ];
+            return ['p-multiselect p-component p-inputwrapper', {
+                'p-multiselect-chip': this.display === 'chip',
+                'p-disabled': this.disabled,
+                'p-focus': this.focused,
+                'p-inputwrapper-filled': this.modelValue && this.modelValue.length,
+                'p-inputwrapper-focus': this.focused || this.overlayVisible
+            }];
         },
         labelClass() {
-            return [
-                'p-multiselect-label',
-                {
-                    'p-placeholder': this.label === this.placeholder,
-                    'p-multiselect-label-empty': !this.placeholder && (!this.modelValue || this.modelValue.length === 0)
-                }
-            ];
+            return ['p-multiselect-label', {
+                'p-placeholder': this.label === this.placeholder,
+                'p-multiselect-label-empty': !this.placeholder && (!this.modelValue || this.modelValue.length === 0)
+            }];
         },
         panelStyleClass() {
-            return ['p-multiselect-panel p-component', this.panelClass];
+            return ['p-multiselect-panel p-component', this.panelClass, {
+                'p-input-filled': this.$primevue.config.inputStyle === 'filled',
+                'p-ripple-disabled': this.$primevue.config.ripple === false
+            }];
         },
         label() {
             let label;

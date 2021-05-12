@@ -2011,17 +2011,16 @@ export default {
             ];
         },
         panelStyleClass() {
-            return [
-                'p-datepicker p-component', this.panelClass,
-                {
-                    'p-datepicker-inline': this.inline,
-                    'p-disabled': this.$attrs.disabled,
-                    'p-datepicker-timeonly': this.timeOnly,
-                    'p-datepicker-multiple-month': this.numberOfMonths > 1,
-                    'p-datepicker-monthpicker': (this.view === 'month'),
-                    'p-datepicker-touch-ui': this.touchUI
-                }
-            ];
+            return ['p-datepicker p-component', this.panelClass, {
+                'p-datepicker-inline': this.inline,
+                'p-disabled': this.$attrs.disabled,
+                'p-datepicker-timeonly': this.timeOnly,
+                'p-datepicker-multiple-month': this.numberOfMonths > 1,
+                'p-datepicker-monthpicker': (this.view === 'month'),
+                'p-datepicker-touch-ui': this.touchUI,
+                'p-input-filled': this.$primevue.config.inputStyle === 'filled',
+                'p-ripple-disabled': this.$primevue.config.ripple === false
+            }];
         },
         months() {
             let months = [];

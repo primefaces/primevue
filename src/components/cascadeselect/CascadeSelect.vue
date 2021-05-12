@@ -308,7 +308,10 @@ export default {
                 return this.placeholder||'p-emptylabel';
         },
         panelStyleClass() {
-            return ['p-cascadeselect-panel p-component', this.panelClass];
+            return ['p-cascadeselect-panel p-component', this.panelClass, {
+                'p-input-filled': this.$primevue.config.inputStyle === 'filled',
+                'p-ripple-disabled': this.$primevue.config.ripple === false
+            }];
         },
         appendDisabled() {
             return this.appendTo === 'self';
