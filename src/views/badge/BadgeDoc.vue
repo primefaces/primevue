@@ -82,9 +82,9 @@ app.directive('badge', BadgeDirective);
         <h5>Templating</h5>
 		<p>Content can easily be customized with the default slot instead of using the built-in display.</p>
 <pre v-code><code>
-&lt;Slot&gt;
+&lt;Badge&gt;
    Content
-&lt;/Slot&gt;
+&lt;/Badge&gt;
 
 </code></pre>
 
