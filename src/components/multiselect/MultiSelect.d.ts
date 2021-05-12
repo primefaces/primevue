@@ -25,6 +25,8 @@ interface MultiSelectProps {
     emptyMessage?: string;
     display?: string;
     panelClass?: string;
+    selectionLimit?: number;
+    showToggleAll?: boolean;
 }
 
 declare class MultiSelect {

@@ -278,6 +278,18 @@ export default {
                         <td>null</td>
                         <td>Style class of the overlay panel.</td>
                     </tr>
+                    <tr>
+                        <td>selectionLimit</td>
+                        <td>number</td>
+                        <td>null</td>
+                        <td>Maximum number of selectable items.</td>
+                    </tr>
+                    <tr>
+                        <td>showToggleAll</td>
+                        <td>boolean</td>
+                        <td>true</td>
+                        <td>Whether to show the header checkbox to toggle the selection of all items at once.</td>
+                    </tr>
 				</tbody>
 			</table>
 		</div>
