@@ -12,7 +12,7 @@
                 </tr>
                 <tr :class="getRowClass(rowData)" :key="getRowKey(rowData, index)"
                     v-if="expandableRowGroups ? isRowGroupExpanded(rowData): true"
-                    @click="onRowClick($event, rowData, index)" @contextmenu="onRowRightClick($event, rowData, index)" @touchend="onRowTouchEnd($event)" @keydown="onRowKeyDown($event, rowData, index)" :tabindex="selectionMode || contextMenu ? '0' : null"
+                    @click="onRowClick($event, rowData, index)" @dblclick="onRowDblClick($event, rowData, index)" @contextmenu="onRowRightClick($event, rowData, index)" @touchend="onRowTouchEnd($event)" @keydown="onRowKeyDown($event, rowData, index)" :tabindex="selectionMode || contextMenu ? '0' : null"
                     @mousedown="onRowMouseDown($event)" @dragstart="onRowDragStart($event, index)" @dragover="onRowDragOver($event,index)" @dragleave="onRowDragLeave($event)" @dragend="onRowDragEnd($event)" @drop="onRowDrop($event)" role="row">
                     <template v-for="(col,i) of columns" :key="columnProp(col,'columnKey')||columnProp(col,'field')||i">
                         <DTBodyCell v-if="shouldRenderBodyCell(value, col, index)"  :rowData="rowData" :column="col" :index="index" :selected="isSelected(rowData)"
@@ -49,7 +49,7 @@ import BodyCell from './BodyCell.vue';
 
 export default {
     name: 'TableBody',
-    emits: ['rowgroup-toggle', 'row-click', 'row-rightclick', 'row-touchend', 'row-keydown', 'row-mousedown',
+    emits: ['rowgroup-toggle', 'row-click', 'row-dblclick', 'row-rightclick', 'row-touchend', 'row-keydown', 'row-mousedown',
         'row-dragstart', 'row-dragover', 'row-dragleave', 'row-dragend', 'row-drop', 'row-toggle',
         'radio-change', 'checkbox-change', 'cell-edit-init', 'cell-edit-complete', 'cell-edit-cancel',
         'row-edit-init', 'row-edit-save', 'row-edit-cancel'],
@@ -389,6 +389,9 @@ export default {
         },
         onRowClick(event, rowData, rowIndex) {
             this.$emit('row-click', {originalEvent: event, data: rowData, index: rowIndex});
+        },
+        onRowDblClick(event, rowData, rowIndex) {
+            this.$emit('row-dblclick', {originalEvent: event, data: rowData, index: rowIndex});
         },
         onRowRightClick(event, rowData, rowIndex) {
             this.$emit('row-rightclick', {originalEvent: event, data: rowData, index: rowIndex});
