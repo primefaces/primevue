@@ -459,6 +459,10 @@
                         {
                             "name": "Filter",
                             "to": "/tree/filter"
+                        },
+                        {
+                            "name": "Scroll",
+                            "to": "/tree/scroll"
                         }
                     ]
                 },

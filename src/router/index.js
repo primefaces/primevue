@@ -707,6 +707,11 @@ const routes = [
         component: () => import('../views/tree/TreeFilterDemo.vue')
     },
     {
+        path: '/tree/scroll',
+        name: 'treescroll',
+        component: () => import('../views/tree/TreeScrollDemo.vue')
+    },
+    {
         path: '/treeselect',
         name: 'treeselect',
         component: () => import('../views/treeselect/TreeSelectDemo.vue')

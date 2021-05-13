@@ -488,6 +488,30 @@ export default {
 
 </code></pre>
 
+                <h5>Scrolling</h5>
+                <p>Scrolling is used to preserve space as content of the tree is dynamic and enabled by <i>scrollHeight</i> property.</p>
+<pre v-code><code><template v-pre>
+&lt;Tree :value="nodes1" scrollHeight="200px"&gt;&lt;/Tree&gt;
+</template>
+</code></pre>
+
+                <h5>Flex Scroll</h5>
+                <p>In cases where viewport should adjust itself according to the table parent's height instead of a fixed viewport height, set <i>scrollHeight</i> option as <b>flex</b>. In example below,
+                table is inside a Dialog where viewport size dynamically responds to the dialog size changes such as maximizing.</p>
+
+<pre v-code><code><template v-pre>
+&lt;Button type="button" icon="pi pi-external-link" label="View" @click="dialogVisible = true"&gt;&lt;/Button&gt;
+
+&lt;Dialog header="Flex Scroll" v-model:visible="dialogVisible" :style="{width: '50vw'}" maximizable
+    :contentStyle="{height: '300px'}" class="p-fluid"&gt;
+    &lt;Tree :value="nodes2" scrollHeight="flex"&gt;&lt;/Tree&gt;
+    &lt;template #footer&gt;
+        &lt;Button type="button" icon="pi pi-check" @click="dialogVisible = false" class="p-button-text"&gt;&lt;/Button&gt;
+    &lt;/template&gt;
+&lt;/Dialog&gt;
+</template>
+</code></pre>
+
         <h5>Filtering</h5>
         <p>Filtering is enabled by setting the <i>filter</i> property to true, by default label property of a node
         is used to compare against the value in the text field, in order to customize which field(s) should be used during search, define the <i>filterBy</i> property as a comma separated list.</p>

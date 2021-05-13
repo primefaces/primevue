@@ -10,11 +10,13 @@
                 @keydown="onFilterKeydown" v-model="filterValue" />
             <span class="p-tree-filter-icon pi pi-search"></span>
         </div>
-        <ul class="p-tree-container" role="tree">
-            <TreeNode v-for="node of valueToRender" :key="node.key" :node="node" :templates="$slots"
-                :expandedKeys="d_expandedKeys" @node-toggle="onNodeToggle" @node-click="onNodeClick"
-                :selectionMode="selectionMode" :selectionKeys="selectionKeys" @checkbox-change="onCheckboxChange"></TreeNode>
-        </ul>
+        <div class="p-tree-wrapper" :style="{maxHeight: scrollHeight}">
+            <ul class="p-tree-container" role="tree">
+                <TreeNode v-for="node of valueToRender" :key="node.key" :node="node" :templates="$slots"
+                    :expandedKeys="d_expandedKeys" @node-toggle="onNodeToggle" @node-click="onNodeClick"
+                    :selectionMode="selectionMode" :selectionKeys="selectionKeys" @checkbox-change="onCheckboxChange"></TreeNode>
+            </ul>
+        </div>
     </div>
 </template>
 
@@ -73,6 +75,10 @@ export default {
         filterLocale: {
             type: String,
             default: undefined
+        },
+        scrollHeight: {
+            type: String,
+            default: null
         }
     },
     data() {
@@ -243,7 +249,8 @@ export default {
         containerClass() {
             return ['p-tree p-component', {
                 'p-tree-selectable': this.selectionMode != null,
-                'p-tree-loading': this.loading
+                'p-tree-loading': this.loading,
+                'p-tree-flex-scrollable': this.scrollHeight === 'flex'
             }];
         },
         loadingIconClass() {
@@ -292,6 +299,10 @@ export default {
     margin: 0;
     padding: 0;
     list-style-type: none;
+}
+
+.p-tree-wrapper {
+    overflow: auto;
 }
 
 .p-treenode-selectable {
@@ -345,5 +356,16 @@ export default {
     display: flex;
     align-items: center;
     justify-content: center;
+}
+
+.p-tree-flex-scrollable {
+    display: flex;
+    flex: 1;
+    height: 100%;
+    flex-direction: column;
+}
+
+.p-tree-flex-scrollable .p-tree-wrapper {
+    flex: 1;
 }
 </style>
