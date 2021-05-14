@@ -136,6 +136,30 @@ const MultiSelectProps = [
         type: "string",
         default: "null",
         description: "Style class of the overlay panel."
+    },
+    {
+        name: "selectionLimit",
+        type: "number",
+        default: "null",
+        description: "Maximum number of selectable items."
+    },
+    {
+        name: "showToggleAll",
+        type: "boolean",
+        default: "false",
+        description: "Whether to show the header checkbox to toggle the selection of all items at once."
+    },
+    {
+        name: "loading",
+        type: "boolean",
+        default: "false",
+        description: "Whether the multiselect is in loading state."
+    },
+    {
+        name: "loadingIcon",
+        type: "string",
+        default: "pi pi-spinner pi-spin",
+        description: "Icon to display in loading state."
     }
 ];
 

@@ -226,6 +226,22 @@ const FileUploadEvents = [
                 description: "List of selected files."
             }
         ]
+    },
+    {
+        name: "remove",
+        description: "Callback to invoke when a singe file is removed from the list.",
+        arguments: [
+            {
+                file: "event.file",
+                type: "object",
+                description: "Removed file."
+            },
+            {
+                file: "event.files",
+                type: "object",
+                description: "Remaining files to be uploaded."
+            }
+        ]
     }
 ];
 

@@ -70,6 +70,12 @@ const TreeProps = [
         type: "string",
         default: "undefined",
         description: "Locale to use in filtering. The default locale is the host environment's current locale."
+    },
+    {
+        name: "scrollHeight",
+        type: "string",
+        default: "null",
+        description: 'Height of the scroll viewport in fixed units or the "flex" keyword for a dynamic size.'
     }
 ];
 

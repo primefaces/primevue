@@ -656,6 +656,12 @@ export default {
                         <td>undefined</td>
                         <td>Locale to use in filtering. The default locale is the host environment's current locale.</td>
                     </tr>
+                    <tr>
+                        <td>scrollHeight</td>
+                        <td>string</td>
+                        <td>null</td>
+                        <td>Height of the scroll viewport in fixed units or the "flex" keyword for a dynamic size.</td>
+                    </tr>
 				</tbody>
 			</table>
 		</div>

@@ -280,7 +280,7 @@ myUploader(event) {
 					</tr>
 					<tr>
 						<td>remove</td>
-						<td>event.file: Remove filed <br />
+						<td>event.file: Removed file. <br />
 							event.files: Remaining files to be uploaded.</td>
 						<td>Callback to invoke when a singe file is removed from the list.</td>
 					</tr>
