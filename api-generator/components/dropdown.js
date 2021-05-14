@@ -45,7 +45,7 @@ const DividerProps = [
         name: "scrollHeight",
         type: "string",
         default: "200px",
-        description: "Height of the viewport in pixels, a scrollbar is defined if height of list exceeds this value."
+        description: "Height of the viewport, a scrollbar is defined if height of list exceeds this value."
     },
     {
         name: "filter",

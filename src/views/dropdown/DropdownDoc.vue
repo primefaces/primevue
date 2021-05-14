@@ -171,7 +171,7 @@ export default {
                         <td>scrollHeight</td>
                         <td>string</td>
                         <td>200px</td>
-                        <td>Height of the viewport in pixels, a scrollbar is defined if height of list exceeds this value.</td>
+                        <td>Height of the viewport, a scrollbar is defined if height of list exceeds this value.</td>
                     </tr>
                     <tr>
                         <td>filter</td>
