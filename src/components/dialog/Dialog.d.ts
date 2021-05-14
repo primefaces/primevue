@@ -30,6 +30,7 @@ declare class Dialog {
     $emit(eventName: 'hide'): this;
     $emit(eventName: 'maximize'): this;
     $emit(eventName: 'unmaximize'): this;
+    $emit(eventName: 'dragend'): this;
     $slots: {
         '': VNode[];
         header: VNode[];

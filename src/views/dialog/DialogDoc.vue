@@ -255,7 +255,12 @@ export default {
                     <tr>
                         <td>unmaximize</td>
                         <td>event: Event object</td>
-                        <td>Fire when a dialog gets unmaximized.</td>
+                        <td>Fired when a dialog gets unmaximized.</td>
+                    </tr>
+                    <tr>
+                        <td>dragend</td>
+                        <td>event: Event object</td>
+                        <td>Fired when a dialog drag completes..</td>
                     </tr>
 				</tbody>
 			</table>

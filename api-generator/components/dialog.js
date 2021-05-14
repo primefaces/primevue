@@ -163,7 +163,18 @@ const DialogEvents = [
     },
     {
         name: "unmaximize",
-        description: "Fire when a dialog gets unmaximized.",
+        description: "Fired when a dialog gets unmaximized.",
+        arguments: [
+            {
+                name: "event",
+                type: "object",
+                description: "Event Object"
+            }
+        ]
+    },
+    {
+        name: "dragend",
+        description: "Fired when a dialog drag completes.",
         arguments: [
             {
                 name: "event",
