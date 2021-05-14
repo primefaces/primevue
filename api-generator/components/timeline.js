@@ -37,6 +37,10 @@ const TimelineSlots = [
     {
         name: "content",
         description: "Custom content"
+    },
+    {
+        name: "connector",
+        description: "Connector element"
     }
 ];
 
