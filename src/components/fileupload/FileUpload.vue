@@ -48,7 +48,7 @@ import Ripple from 'primevue/ripple';
 
 export default {
     name: 'FileUpload',
-    emits: ['select', 'uploader', 'before-upload', 'progress', 'upload', 'error', 'before-send', 'clear'],
+    emits: ['select', 'uploader', 'before-upload', 'progress', 'upload', 'error', 'before-send', 'clear', 'remove'],
     props: {
         name: {
             type: String,
@@ -357,8 +357,12 @@ export default {
         },
         remove(index) {
             this.clearInputElement();
-            this.files.splice(index, 1);
+            let removedFile = this.files.splice(index, 1)[0];
             this.files = [...this.files];
+            this.$emit('remove', {
+                file: removedFile,
+                files: this.files
+            });
         },
         clearInputElement() {
             this.$refs.fileInput.value = '';
