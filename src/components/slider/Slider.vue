@@ -85,25 +85,6 @@ export default {
             }
             this.updateModel(event, newValue);
         },
-        // https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Math/floor
-        decimalAdjust(type, value, exp) {
-            // If the exp is undefined or zero...
-            if (typeof exp === 'undefined' || +exp === 0) {
-                return Math[type](value);
-            }
-            value = +value;
-            exp = +exp;
-            // If the value is not a number or the exp is not an integer...
-            if (isNaN(value) || !(typeof exp === 'number' && exp % 1 === 0)) {
-                return NaN;
-            }
-            // Shift
-            value = value.toString().split('e');
-            value = Math[type](+(value[0] + 'e' + (value[1] ? (+value[1] - exp) : -exp)));
-            // Shift back
-            value = value.toString().split('e');
-            return +(value[0] + 'e' + (value[1] ? (+value[1] + exp) : exp));
-        },
         updateModel(event, value) {
             let newValue = value;
             let modelValue;
@@ -119,7 +100,7 @@ export default {
                     else if (newValue >= maxValue)
                         newValue = maxValue;
 
-                    modelValue[0] = this.decimalAdjust('floor', newValue, -2);
+                    modelValue[0] = Math.floor(newValue);
                     modelValue[1] = modelValue[1] || this.max;
                 }
                 else {
@@ -130,7 +111,7 @@ export default {
                         newValue = minValue;
 
                     modelValue[0] = modelValue[0] || this.min;
-                    modelValue[1] = this.decimalAdjust('floor', newValue, -2);
+                    modelValue[1] = Math.floor(newValue);
                 }
             }
             else {
@@ -139,7 +120,7 @@ export default {
                 else if (newValue > this.max)
                     newValue = this.max;
 
-                modelValue = this.decimalAdjust('floor', newValue, -2);
+                modelValue = newValue;
             }
 
             this.$emit('update:modelValue', modelValue);
