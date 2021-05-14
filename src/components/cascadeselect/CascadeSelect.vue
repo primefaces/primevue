@@ -10,7 +10,7 @@
             </slot>
         </span>
         <div class="p-cascadeselect-trigger" role="button" aria-haspopup="listbox" :aria-expanded="overlayVisible">
-            <span class="p-cascadeselect-trigger-icon pi pi-chevron-down"></span>
+            <span :class="dropdownIconClass"></span>
         </div>
         <Teleport :to="appendTarget" :disabled="appendDisabled">
             <transition name="p-connected-overlay" @enter="onOverlayEnter" @leave="onOverlayLeave" @after-leave="onOverlayAfterLeave">
@@ -60,7 +60,15 @@ export default {
             type: String,
             default: 'body'
         },
-        panelClass: null
+        panelClass: null,
+        loading: {
+            type: Boolean,
+            default: false
+        },
+        loadingIcon: {
+            type: String,
+            default: 'pi pi-spinner pi-spin'
+        }
     },
     outsideClickListener: null,
     scrollHandler: null,
@@ -156,7 +164,7 @@ export default {
             this.focused = false;
         },
         onClick(event) {
-            if (this.disabled) {
+            if (this.disabled || this.loading) {
                 return;
             }
 
@@ -318,6 +326,9 @@ export default {
         },
         appendTarget() {
             return this.appendDisabled ? null : this.appendTo;
+        },
+        dropdownIconClass() {
+            return ['p-cascadeselect-trigger-icon', this.loading ? this.loadingIcon : 'pi pi-chevron-down'];
         }
     },
     components: {

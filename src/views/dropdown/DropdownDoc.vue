@@ -276,6 +276,18 @@ export default {
                         <td>null</td>
                         <td>Style class of the overlay panel.</td>
                     </tr>
+                    <tr>
+                        <td>loading</td>
+                        <td>boolean</td>
+                        <td>false</td>
+                        <td>Whether the dropdown is in loading state.</td>
+                    </tr>
+                    <tr>
+                        <td>loadingIcon</td>
+                        <td>string</td>
+                        <td>pi pi-spinner pi-spin</td>
+                        <td>Icon to display in loading state.</td>
+                    </tr>
 				</tbody>
 			</table>
 		</div>
@@ -508,6 +520,9 @@ export default {
                 </div>
             </template>
         </Dropdown>
+
+        <h5>Loading State</h5>
+        <Dropdown placeholder="Loading..." loading></Dropdown>
     </div>
 </template>
 
@@ -622,6 +637,9 @@ export default {
                 </div>
             </template>
         </Dropdown>
+
+        <h5>Loading State</h5>
+        <Dropdown placeholder="Loading..." loading></Dropdown>
     </div>
 </template>
 

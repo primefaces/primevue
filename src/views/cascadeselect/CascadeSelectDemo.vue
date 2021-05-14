@@ -26,6 +26,9 @@
                         </div>
                     </template>
                 </CascadeSelect>
+
+                <h5>Loading State</h5>
+                <CascadeSelect placeholder="Loading..." loading style="minWidth: 14rem"></CascadeSelect>
             </div>
         </div>
 

@@ -21,7 +21,7 @@
             </div>
         </div>
         <div class="p-multiselect-trigger">
-            <span class="p-multiselect-trigger-icon pi pi-chevron-down"></span>
+            <span :class="dropdownIconClass"></span>
         </div>
         <Teleport :to="appendTarget" :disabled="appendDisabled">
             <transition name="p-connected-overlay" @enter="onOverlayEnter" @leave="onOverlayLeave" @after-leave="onOverlayAfterLeave">
@@ -154,6 +154,14 @@ export default {
         showToggleAll: {
             type: Boolean,
             default: true
+        },
+        loading: {
+            type: Boolean,
+            default: false
+        },
+        loadingIcon: {
+            type: String,
+            default: 'pi pi-spinner pi-spin'
         }
     },
     data() {
@@ -244,7 +252,11 @@ export default {
             this.headerCheckboxFocused = false;
         },
         onClick(event) {
-            if (!this.disabled && (!this.overlay || !this.overlay.contains(event.target)) && !DomHandler.hasClass(event.target, 'p-multiselect-close')) {
+            if (this.disabled || this.loading) {
+                return;
+            }
+
+            if ((!this.overlay || !this.overlay.contains(event.target)) && !DomHandler.hasClass(event.target, 'p-multiselect-close')) {
                 DomHandler.hasClass(event.target, 'p-multiselect-close');
                 if (this.overlayVisible)
                     this.hide();
@@ -631,6 +643,9 @@ export default {
         },
         maxSelectionLimitReached() {
             return this.selectionLimit && (this.modelValue && this.modelValue.length === this.selectionLimit);
+        },
+        dropdownIconClass() {
+            return ['p-multiselect-trigger-icon', this.loading ? this.loadingIcon : 'pi pi-chevron-down'];
         }
     },
     directives: {

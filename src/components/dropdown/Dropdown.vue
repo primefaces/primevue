@@ -11,7 +11,7 @@
         </span>
         <i v-if="showClear && modelValue != null" class="p-dropdown-clear-icon pi pi-times" @click="onClearClick($event)"></i>
         <div class="p-dropdown-trigger" role="button" aria-haspopup="listbox" :aria-expanded="overlayVisible">
-            <span class="p-dropdown-trigger-icon pi pi-chevron-down"></span>
+            <span :class="dropdownIconClass"></span>
         </div>
         <Teleport :to="appendTarget" :disabled="appendDisabled">
             <transition name="p-connected-overlay" @enter="onOverlayEnter" @leave="onOverlayLeave" @after-leave="onOverlayAfterLeave">
@@ -109,7 +109,15 @@ export default {
             type: String,
             default: null
         },
-        panelClass: null
+        panelClass: null,
+        loading: {
+            type: Boolean,
+            default: false
+        },
+        loadingIcon: {
+            type: String,
+            default: 'pi pi-spinner pi-spin'
+        }
     },
     data() {
         return {
@@ -365,7 +373,7 @@ export default {
             this.updateModel(event, null);
         },
         onClick(event) {
-            if (this.disabled) {
+            if (this.disabled || this.loading) {
                 return;
             }
 
@@ -665,6 +673,9 @@ export default {
         },
         appendTarget() {
             return this.appendDisabled ? null : this.appendTo;
+        },
+        dropdownIconClass() {
+            return ['p-dropdown-trigger-icon', this.loading ? this.loadingIcon : 'pi pi-chevron-down'];
         }
     },
     directives: {

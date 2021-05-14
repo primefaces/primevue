@@ -15,6 +15,8 @@ interface CascadeSelectProps {
     ariaLabelledBy?: string;
     appendTo?: string;
     panelClass?: string;
+    loading?: boolean;
+    loadingIcon?: string;
 }
 
 declare class CascadeSelect {

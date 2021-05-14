@@ -26,6 +26,8 @@ interface DropdownProps {
     emptyFilterMessage?: string;
     emptyMessage?: string;
     panelClass?: string;
+    loading?: boolean;
+    loadingIcon?: string;
 }
 
 declare class Dropdown {
