@@ -14,7 +14,7 @@
 		<div class="content-section implementation">
             <div class="card">
                 <DataTable :value="customers" :lazy="true" :paginator="true" :rows="10" v-model:filters="filters" ref="dt"
-                    :totalRecords="totalRecords" :loading="loading" @page="onPage($event)" @sort="onSort($event)" filterDisplay="row"
+                    :totalRecords="totalRecords" :loading="loading" @page="onPage($event)" @sort="onSort($event)" @filter="onFilter($event)" filterDisplay="row"
                     :globalFilterFields="['name','country.name', 'company', 'representative.name']" responsiveLayout="scroll" >
                     <Column field="name" header="Name" filterMatchMode="startsWith" ref="name" :sortable="true">  
                         <template #filter="{filterModel,filterCallback}">
@@ -48,11 +48,6 @@
 import CustomerService from '../../service/CustomerService';
 
 export default {
-    watch: {
-        filters() {
-            this.onFilter();
-        }
-    },
     data() {
         return {
             loading: false,
@@ -78,7 +73,7 @@ export default {
 <template>
 	<div>
         <DataTable :value="customers" :lazy="true" :paginator="true" :rows="10" v-model:filters="filters" ref="dt"
-            :totalRecords="totalRecords" :loading="loading" @page="onPage($event)" @sort="onSort($event)" filterDisplay="row"
+            :totalRecords="totalRecords" :loading="loading" @page="onPage($event)" @sort="onSort($event)" @filter="onFilter($event)" filterDisplay="row"
             :globalFilterFields="['name','country.name', 'company', 'representative.name']" responsiveLayout="scroll">
             <Column field="name" header="Name" filterMatchMode="startsWith" ref="name" :sortable="true">  
                 <template #filter="{filterModel,filterCallback}">
@@ -108,11 +103,6 @@ export default {
 import CustomerService from './service/CustomerService';
 
 export default {
-    watch: {
-        filters() {
-            this.onFilter();
-        }
-    },
     data() {
         return {
             loading: false,
@@ -189,7 +179,7 @@ export default {
 <template>
 	<div>
         <DataTable :value="customers" :lazy="true" :paginator="true" :rows="10" v-model:filters="filters" ref="dt"
-            :totalRecords="totalRecords" :loading="loading" @page="onPage($event)" @sort="onSort($event)" filterDisplay="row"
+            :totalRecords="totalRecords" :loading="loading" @page="onPage($event)" @sort="onSort($event)" @filter="onFilter($event)" filterDisplay="row"
             :globalFilterFields="['name','country.name', 'company', 'representative.name']" responsiveLayout="scroll">
             <Column field="name" header="Name" filterMatchMode="startsWith" ref="name" :sortable="true">  
                 <template #filter="{filterModel,filterCallback}">
@@ -220,11 +210,6 @@ import { ref, onMounted } from 'vue';
 import CustomerService from './service/CustomerService';
 
 export default {
-    watch: {
-        filters() {
-            this.onFilter();
-        }
-    },
     setup() {
         onMounted(() => {
             loading.value = true;

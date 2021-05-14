@@ -1544,16 +1544,6 @@ export default {
             this.$emit('row-edit-cancel', event);
         },
         createLazyLoadEvent(event) {
-            let filterMatchModes;
-            if (this.hasFilters) {
-                filterMatchModes = {};
-                this.columns.forEach(col => {
-                    if (col.field) {
-                        filterMatchModes[col.field] = col.filterMatchMode;
-                    }
-                });
-            }
-
             return {
                 originalEvent: event,
                 first: this.d_first,
@@ -1561,8 +1551,7 @@ export default {
                 sortField: this.d_sortField,
                 sortOrder: this.d_sortOrder,
                 multiSortMeta: this.d_multiSortMeta,
-                filters: this.filters,
-                filterMatchModes: filterMatchModes
+                filters: this.d_filters
             };
         },
         hasGlobalFilter() {
@@ -1578,6 +1567,10 @@ export default {
             this.d_first = 0;
             this.$emit('update:first', this.d_first);
             this.$emit('update:filters', this.d_filters);
+
+            if (this.lazy) {
+                this.$emit('filter', this.createLazyLoadEvent());
+            }
         },
         cloneFilters() {
             let cloned = {};
