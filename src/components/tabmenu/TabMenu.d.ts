@@ -1,5 +1,6 @@
 interface TabMenuProps {
     model?: any[];
+    exact?: boolean;
 }
 
 declare class TabMenu {
