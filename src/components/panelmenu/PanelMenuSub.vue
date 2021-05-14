@@ -40,7 +40,7 @@ export default {
         }
     },
     methods: {
-        onItemClick($event, item, navigate) {
+        onItemClick(event, item, navigate) {
             if (item.disabled) {
                 event.preventDefault();
                 return;
