@@ -195,20 +195,12 @@ export default {
             }
         },
         enableDocumentSettings() {
-            if (this.modal) {
-                DomHandler.addClass(document.body, 'p-overflow-hidden');
-                this.bindDocumentKeydownListener();
-            }
-            else if (this.maximizable && this.maximized) {
+            if (this.modal || (this.maximizable && this.maximized)) {
                 DomHandler.addClass(document.body, 'p-overflow-hidden');
             }
         },
         unbindDocumentState() {
-            if (this.modal) {
-                DomHandler.removeClass(document.body, 'p-overflow-hidden');
-                this.unbindDocumentKeydownListener();
-            }
-            else if (this.maximizable && this.maximized) {
+            if (this.modal || (this.maximizable && this.maximized)) {
                 DomHandler.removeClass(document.body, 'p-overflow-hidden');
             }
         },
@@ -240,13 +232,13 @@ export default {
                 this.close();
             }
         },
-        bindDocumentKeydownListener() {
+        bindDocumentKeyDownListener() {
             if (!this.documentKeydownListener) {
                 this.documentKeydownListener = this.onKeyDown.bind(this);
                 window.document.addEventListener('keydown', this.documentKeydownListener);
             }
         },
-        unbindDocumentKeydownListener() {
+        unbindDocumentKeyDownListener() {
             if (this.documentKeydownListener) {
                 window.document.removeEventListener('keydown', this.documentKeydownListener);
                 this.documentKeydownListener = null;
@@ -309,10 +301,15 @@ export default {
                 this.bindDocumentDragListener();
                 this.bindDocumentDragEndListener();
             }
+
+            if (this.closeOnEscape && this.closable) {
+                this.bindDocumentKeyDownListener();
+            }
         },
         unbindGlobalListeners() {
             this.unbindDocumentDragListener();
             this.unbindDocumentDragEndListener();
+            this.unbindDocumentKeyDownListener();
         },
         bindDocumentDragListener() {
             this.documentDragListener = (event) => {
