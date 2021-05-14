@@ -100,7 +100,31 @@ const DialogProps = [
         type: "object",
         default: "null",
         description: "Object literal to define widths per screen size."
-    }
+    },
+    {
+        name: "draggable",
+        type: "boolean",
+        default: "true",
+        description: "Whether the dialog can be displayed full screen."
+    },
+    {
+        name: "minX",
+        type: "number",
+        default: "0",
+        description: "Minimum value for the left coordinate of dialog in dragging."
+    },
+    {
+        name: "minY",
+        type: "number",
+        default: "0",
+        description: "Minimum value for the top coordinate of dialog in dragging."
+    },
+    {
+        name: "keepInViewport",
+        type: "boolean",
+        default: "true",
+        description: "Keeps dialog in the viewport when dragging."
+    },
 ];
 
 const DialogEvents = [

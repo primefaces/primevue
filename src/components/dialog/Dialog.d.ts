@@ -18,6 +18,10 @@ interface DialogProps {
     position?: string;
     maximizable?: boolean;
     breakpoints?: {[key: string]: string};
+    draggable: boolean;
+    keepInViewPort: boolean;
+    minX: number;
+    minY: number;
 }
 
 declare class Dialog {

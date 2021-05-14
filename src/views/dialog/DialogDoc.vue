@@ -198,6 +198,30 @@ export default {
                         <td>null</td>
                         <td>Object literal to define widths per screen size.</td>
                     </tr>
+                    <tr>
+                        <td>draggable</td>
+                        <td>boolean</td>
+                        <td>true</td>
+                        <td>Enables dragging to change the position using header.</td>
+                    </tr>
+                    <tr>
+                        <td>minX</td>
+                        <td>number</td>
+                        <td>0</td>
+                        <td>Minimum value for the left coordinate of dialog in dragging.</td>
+                    </tr>
+                    <tr>
+                        <td>minY</td>
+                        <td>number</td>
+                        <td>0</td>
+                        <td>Minimum value for the top coordinate of dialog in dragging.</td>
+                    </tr>
+                    <tr>
+                        <td>keepInViewport</td>
+                        <td>boolean</td>
+                        <td>true</td>
+                        <td>Keeps dialog in the viewport when dragging.</td>
+                    </tr>
 				</tbody>
 			</table>
 		</div>

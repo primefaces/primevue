@@ -3,7 +3,7 @@
         <div :ref="maskRef" :class="maskClass" v-if="containerVisible" @click="onMaskClick">
             <transition name="p-dialog" @before-enter="onBeforeEnter" @enter="onEnter" @before-leave="onBeforeLeave" @leave="onLeave" @after-leave="onAfterLeave" appear>
                 <div :ref="containerRef" :class="dialogClass" v-if="visible" v-bind="$attrs" role="dialog" :aria-labelledby="ariaLabelledById" :aria-modal="modal">
-                    <div class="p-dialog-header" v-if="showHeader">
+                    <div class="p-dialog-header" v-if="showHeader" @mousedown="initDrag">
                         <slot name="header">
                             <span :id="ariaLabelledById" class="p-dialog-title" v-if="header">{{header}}</span>
                         </slot>
@@ -35,7 +35,7 @@ import Ripple from 'primevue/ripple';
 export default {
     name: 'Dialog',
     inheritAttrs: false,
-    emits: ['update:visible','show','hide','maximize','unmaximize'],
+    emits: ['update:visible','show','hide','maximize','unmaximize','dragend'],
     props: {
         header: null,
         footer: null,
@@ -77,6 +77,22 @@ export default {
         breakpoints: {
             type: Object,
             default: null
+        },
+        draggable: {
+            type: Boolean,
+            default: true
+        },
+        keepInViewport: {
+            type: Boolean,
+            default: true
+        },
+        minX: {
+            type: Number,
+            default: 0
+        },
+        minY: {
+            type: Number,
+            default: 0
         }
     },
     data() {
@@ -89,6 +105,11 @@ export default {
     container: null,
     mask: null,
     styleElement: null,
+    dragging: null,
+    documentDragListener: null,
+    documentDragEndListener: null,
+    lastPageX: null,
+    lastPageY: null,
     updated() {
         if (this.visible) {
             this.containerVisible = this.visible;
@@ -96,6 +117,7 @@ export default {
     },
     beforeUnmount() {
         this.unbindDocumentState();
+        this.unbindGlobalListeners();
         this.destroyStyle();
 
         this.mask = null;
@@ -127,11 +149,13 @@ export default {
             this.$emit('show');
             this.focus();
             this.enableDocumentSettings();
+            this.bindGlobalListeners();
         },
         onBeforeLeave() {
             DomHandler.addClass(this.mask, 'p-dialog-mask-leave');
         },
         onLeave() {
+            
             this.$emit('hide');
         },
         onAfterLeave(el) {
@@ -140,6 +164,7 @@ export default {
             }
             this.containerVisible = false;
             this.unbindDocumentState();
+            this.unbindGlobalListeners();
         },
         onMaskClick(event) {
             if (this.dismissableMask && this.closable && this.modal && this.mask === event.target) {
@@ -263,6 +288,88 @@ export default {
             if (this.styleElement) {
                 document.head.removeChild(this.styleElement);
                 this.styleElement = null;
+            }
+        },
+        initDrag(event) {
+            if (DomHandler.hasClass(event.target, 'p-dialog-header-icon') || DomHandler.hasClass(event.target.parentElement, 'p-dialog-header-icon')) {
+                return;
+            }
+
+            if (this.draggable) {
+                this.dragging = true;
+                this.lastPageX = event.pageX;
+                this.lastPageY = event.pageY;
+
+                this.container.style.margin = '0';
+                DomHandler.addClass(document.body, 'p-unselectable-text');
+            }
+        },
+        bindGlobalListeners() {
+            if (this.draggable) {
+                this.bindDocumentDragListener();
+                this.bindDocumentDragEndListener();
+            }
+        },
+        unbindGlobalListeners() {
+            this.unbindDocumentDragListener();
+            this.unbindDocumentDragEndListener();
+        },
+        bindDocumentDragListener() {
+            this.documentDragListener = (event) => {
+                if (this.dragging) {
+                    let width = DomHandler.getOuterWidth(this.container);
+                    let height = DomHandler.getOuterHeight(this.container);
+                    let deltaX = event.pageX - this.lastPageX;
+                    let deltaY = event.pageY - this.lastPageY;
+                    let offset = this.container.getBoundingClientRect();
+                    let leftPos = offset.left + deltaX;
+                    let topPos = offset.top + deltaY;
+                    let viewport = DomHandler.getViewport();
+
+                    this.container.style.position = 'fixed';
+
+                    if (this.keepInViewport) {
+                        if (leftPos >= this.minX && (leftPos + width) < viewport.width) {
+                            this.lastPageX = event.pageX;
+                            this.container.style.left = leftPos + 'px';
+                        }
+
+                        if (topPos >= this.minY && (topPos + height) < viewport.height) {
+                            this.lastPageY = event.pageY;
+                            this.container.style.top = topPos + 'px';
+                        }
+                    }
+                    else {
+                        this.lastPageX = event.pageX;
+                        this.container.style.left = leftPos + 'px';
+                        this.lastPageY = event.pageY;
+                        this.container.style.top = topPos + 'px';
+                    }
+                }
+            }
+            window.document.addEventListener('mousemove', this.documentDragListener);
+        },
+        unbindDocumentDragListener() {
+            if (this.documentDragListener) {
+                window.document.removeEventListener('mousemove', this.documentDragListener);
+                this.documentDragListener = null;
+            }
+        },
+        bindDocumentDragEndListener() {
+            this.documentDragEndListener = (event) => {
+                if (this.dragging) {
+                    this.dragging = false;
+                    DomHandler.removeClass(document.body, 'p-unselectable-text');
+
+                    this.$emit('dragend', event);
+                }
+            };
+            window.document.addEventListener('mouseup', this.documentDragEndListener);
+        },
+        unbindDocumentDragEndListener() {
+            if (this.documentDragEndListener) {
+                window.document.removeEventListener('mouseup', this.documentDragEndListener);
+                this.documentDragEndListener = null;
             }
         }
     },
