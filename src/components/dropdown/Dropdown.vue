@@ -65,7 +65,7 @@ import Ripple from 'primevue/ripple';
 
 export default {
     name: 'Dropdown',
-    emits: ['update:modelValue', 'before-show', 'before-hide', 'show', 'hide', 'change', 'filter'],
+    emits: ['update:modelValue', 'before-show', 'before-hide', 'show', 'hide', 'change', 'filter', 'focus', 'blur'],
     props: {
         modelValue: null,
         options: Array,
@@ -214,11 +214,13 @@ export default {
             this.$emit('before-hide');
             this.overlayVisible = false;
         },
-        onFocus() {
+        onFocus(event) {
             this.focused = true;
+            this.$emit('focus', event);
         },
-        onBlur() {
+        onBlur(event) {
             this.focused = false;
+            this.$emit('blur', event);
         },
         onKeyDown(event) {
             switch(event.which) {

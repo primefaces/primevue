@@ -38,6 +38,8 @@ declare class Dropdown {
     $emit(eventName: 'before-leave'): this;
     $emit(eventName: 'show'): this;
     $emit(eventName: 'hide'): this;
+    $emit(eventName: 'focus', e: Event): this;
+    $emit(eventName: 'blur', e: Event): this;
     $emit(eventName: 'filter', e: { originalEvent: Event, value: string }): this;
     $slot: {
         option: VNode[];

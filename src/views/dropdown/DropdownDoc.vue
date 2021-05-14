@@ -335,6 +335,16 @@ export default {
                         <td>Callback to invoke when the overlay is hidden.</td>
                     </tr>
                     <tr>
+                        <td>focus</td>
+                        <td>event</td>
+                        <td>Callback to invoke when the component receives focus.</td>
+                    </tr>
+                    <tr>
+                        <td>blur</td>
+                        <td>event</td>
+                        <td>Callback to invoke when the component loses focus.</td>
+                    </tr>
+                    <tr>
                         <td>filter</td>
                         <td>event.originalEvent: Original event <br />
                             event.value: Filter value </td>
