@@ -372,6 +372,12 @@ export default {
                             <td>null</td>
                             <td>Defines the filtering algorithm to use when searching the options.</td>
                         </tr>
+                        <tr>
+                            <td>hidden</td>
+                            <td>boolean</td>
+                            <td>false</td>
+                            <td>Whether the column is rendered.</td>
+                        </tr>
                     </tbody>
                 </table>
             </div>

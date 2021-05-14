@@ -40,6 +40,7 @@ interface ColumnProps {
     alignFrozen?: string;
     exportable?: boolean;
     filterMatchMode?: string;
+    hidden?: boolean;
 }
 
 declare class Column {

@@ -232,7 +232,14 @@ const ColumnProps = [
         type: "boolean",
         default: "true",
         description: "Whether the column is included in data export."
+    },
+    {
+        name: "hidden",
+        type: "boolean",
+        default: "false",
+        description: "Whether the column is rendered."
     }
+
 ];
 
 const ColumnSlots = [

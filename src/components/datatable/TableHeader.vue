@@ -3,7 +3,7 @@
         <template v-if="!columnGroup">
             <tr role="row">
                 <template v-for="(col,i) of columns" :key="columnProp(col, 'columnKey')||columnProp(col, 'field')||i">
-                    <DTHeaderCell v-if="rowGroupMode !== 'subheader' || (groupRowsBy !== columnProp(col, 'field'))" :column="col"
+                    <DTHeaderCell v-if="!columnProp(col, 'hidden') && (rowGroupMode !== 'subheader' || (groupRowsBy !== columnProp(col, 'field')))" :column="col"
                     @column-click="$emit('column-click', $event)" @column-mousedown="$emit('column-mousedown', $event)"
                     @column-dragstart="$emit('column-dragstart', $event)" @column-dragover="$emit('column-dragover', $event)" @column-dragleave="$emit('column-dragleave', $event)" @column-drop="$emit('column-drop', $event)"
                     :resizableColumns="resizableColumns" @column-resizestart="$emit('column-resizestart', $event)"
@@ -16,7 +16,7 @@
             </tr>
             <tr v-if="filterDisplay === 'row'" role="row">
                 <template v-for="(col,i) of columns" :key="columnProp(col, 'columnKey')||columnProp(col, 'field')||i">
-                    <th :style="getFilterColumnHeaderStyle(col)" :class="getFilterColumnHeaderClass(col)">
+                    <th :style="getFilterColumnHeaderStyle(col)" :class="getFilterColumnHeaderClass(col)" v-if="!columnProp(col, 'hidden')">
                         <DTHeaderCheckbox :checked="allRowsSelected" @change="$emit('checkbox-change', $event)" :disabled="empty" v-if="columnProp(col, 'selectionMode') ==='multiple'" />
                         <DTColumnFilter v-if="col.children && col.children.filter" :field="columnProp(col,'filterField')||columnProp(col,'field')" :type="columnProp(col,'dataType')" display="row"
                         :showMenu="columnProp(col,'showFilterMenu')" :filterElement="col.children && col.children.filter"
@@ -34,7 +34,7 @@
         <template v-else>
             <tr v-for="(row,i) of columnGroup.children.default()" :key="i" role="row">
                 <template v-for="(col,j) of row.children.default()" :key="columnProp(col, 'columnKey')||columnProp(col, 'field')||j">
-                    <DTHeaderCell v-if="rowGroupMode !== 'subheader' || (groupRowsBy !== columnProp(col, 'field'))" :column="col"
+                    <DTHeaderCell v-if="!columnProp(col, 'hidden') && (rowGroupMode !== 'subheader' || (groupRowsBy !== columnProp(col, 'field')))" :column="col"
                     @column-click="$emit('column-click', $event)" @column-mousedown="$emit('column-mousedown', $event)"
                     :sortMode="sortMode" :sortField="sortField" :sortOrder="sortOrder" :multiSortMeta="multiSortMeta"
                     :allRowsSelected="allRowsSelected" :empty="empty" @checkbox-change="$emit('checkbox-change', $event)"

@@ -618,6 +618,12 @@ export default {
                         <td>false</td>
                         <td>Whether to exclude from global filtering or not.</td>
                     </tr>
+                    <tr>
+                        <td>hidden</td>
+                        <td>boolean</td>
+                        <td>false</td>
+                        <td>Whether the column is rendered.</td>
+                    </tr>
                 </tbody>
             </table>
         </div>

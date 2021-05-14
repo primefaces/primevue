@@ -21,27 +21,33 @@
             <table ref="table">
                 <thead class="p-treetable-thead">
                     <tr>
-                        <th v-for="(col,i) of columns" :key="columnProp(col, 'columnKey')||columnProp(col, 'field')||i" :style="columnProp(col, 'headerStyle')" :class="getColumnHeaderClass(col)" @click="onColumnHeaderClick($event, col)"
-                            :tabindex="columnProp(col, 'sortable') ? '0' : null"  :aria-sort="getAriaSort(col)" @keydown="onColumnKeyDown($event, col)">
-                            <span class="p-column-resizer" @mousedown="onColumnResizeStart" v-if="resizableColumns"></span>
-                            <component :is="col.children.header" :column="col" v-if="col.children && col.children.header" />
-                            <span class="p-column-title" v-if="columnProp(col, 'header')">{{columnProp(col, 'header')}}</span>
-                            <span v-if="columnProp(col, 'sortable')" :class="getSortableColumnIcon(col)"></span>
-                            <span v-if="isMultiSorted(col)" class="p-sortable-column-badge">{{getMultiSortMetaIndex(col) + 1}}</span>
-                        </th>
+                        <template v-for="(col,i) of columns" :key="columnProp(col, 'columnKey')||columnProp(col, 'field')||i">
+                            <th v-if="!columnProp(col, 'hidden')" :style="columnProp(col, 'headerStyle')" :class="getColumnHeaderClass(col)" @click="onColumnHeaderClick($event, col)"
+                                :tabindex="columnProp(col, 'sortable') ? '0' : null"  :aria-sort="getAriaSort(col)" @keydown="onColumnKeyDown($event, col)">
+                                <span class="p-column-resizer" @mousedown="onColumnResizeStart" v-if="resizableColumns"></span>
+                                <component :is="col.children.header" :column="col" v-if="col.children && col.children.header" />
+                                <span class="p-column-title" v-if="columnProp(col, 'header')">{{columnProp(col, 'header')}}</span>
+                                <span v-if="columnProp(col, 'sortable')" :class="getSortableColumnIcon(col)"></span>
+                                <span v-if="isMultiSorted(col)" class="p-sortable-column-badge">{{getMultiSortMetaIndex(col) + 1}}</span>
+                            </th>
+                        </template>
                     </tr>
                     <tr v-if="hasColumnFilter()">
-                        <th  v-for="(col,i) of columns" :key="columnProp(col, 'columnKey')||columnProp(col, 'field')||i" :class="getFilterColumnHeaderClass(col)" :style="columnProp(col, 'filterHeaderStyle')">
-                            <component :is="col.children.filter" :column="col" v-if="col.children && col.children.filter"/>
-                        </th>
+                        <template v-for="(col,i) of columns" :key="columnProp(col, 'columnKey')||columnProp(col, 'field')||i">
+                            <th v-if="!columnProp(col, 'hidden')" :class="getFilterColumnHeaderClass(col)" :style="columnProp(col, 'filterHeaderStyle')">
+                                <component :is="col.children.filter" :column="col" v-if="col.children && col.children.filter"/>
+                            </th>
+                        </template>
                     </tr>
                 </thead>
                 <tfoot class="p-treetable-tfoot" v-if="hasFooter">
                     <tr>
-                        <td v-for="(col,i) of columns" :key="columnProp(col, 'columnKey')||columnProp(col, 'field')||i" :style="columnProp(col, 'footerStyle')" :class="columnProp(col, 'footerClass')">
-                            <component :is="col.children.footer" :column="col" v-if="col.children && col.children.footer" />
-                            {{columnProp(col, 'footer')}}
-                        </td>
+                        <template v-for="(col,i) of columns" :key="columnProp(col, 'columnKey')||columnProp(col, 'field')||i">
+                            <td v-if="!columnProp(col, 'hidden')" :style="columnProp(col, 'footerStyle')" :class="columnProp(col, 'footerClass')">
+                                <component :is="col.children.footer" :column="col" v-if="col.children && col.children.footer" />
+                                {{columnProp(col, 'footer')}}
+                            </td>
+                        </template>
                     </tr>
                 </tfoot>
                 <tbody class="p-treetable-tbody">

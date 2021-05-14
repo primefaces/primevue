@@ -165,6 +165,10 @@ export default {
         filterMatchMode: {
             type: String,
             default: null
+        },
+        hidden: {
+            type: Boolean,
+            default: false
         }
     },
     render() {
