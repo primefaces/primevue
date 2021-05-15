@@ -214,6 +214,12 @@ const TreeTableProps = [
         type: "string",
         default: "null",
         description: 'Height of the scroll viewport in fixed units or the "flex" keyword for a dynamic size.'
+    },
+    {
+        name: "responsiveLayout",
+        type: "string",
+        default: "null",
+        description: 'Defines the responsive mode, currently only option is scroll.'
     }
 ];
 

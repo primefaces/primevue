@@ -228,6 +228,10 @@ export default {
         scrollHeight: {
             type: String,
             default: null
+        },
+        responsiveLayout: {
+            type: String,
+            default: null
         }
     },
     documentColumnResizeListener: null,
@@ -766,7 +770,8 @@ export default {
                 'p-treetable-scrollable-vertical': this.scrollable && this.scrollDirection === 'vertical',
                 'p-treetable-scrollable-horizontal': this.scrollable && this.scrollDirection === 'horizontal',
                 'p-treetable-scrollable-both': this.scrollable && this.scrollDirection === 'both',
-                'p-treetable-flex-scrollable': (this.scrollable && this.scrollHeight === 'flex')
+                'p-treetable-flex-scrollable': (this.scrollable && this.scrollHeight === 'flex'),
+                'p-treetable-responsive-scroll': this.responsiveLayout === 'scroll',
             }];
         },
         columns() {
@@ -891,10 +896,11 @@ export default {
     user-select: none;
 }
 
-.p-treetable-auto-layout > .p-treetable-wrapper {
+.p-treetable-responsive-scroll > .p-treetable-wrapper {
     overflow-x: auto;
 }
 
+.p-treetable-responsive-scroll > .p-treetable-wrapper > table,
 .p-treetable-auto-layout > .p-treetable-wrapper > table {
     table-layout: auto;
 }

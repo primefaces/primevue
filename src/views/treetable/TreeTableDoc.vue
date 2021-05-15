@@ -1271,57 +1271,14 @@ export default {
 </code></pre>
 
         <h5>Responsive</h5>
-        <p>TreeTable display can be optimized according to screen sizes, this example demonstrates a demo where columns are stacked on small screens.</p>
+        <p>TreeTable display can be optimized according to screen sizes using the built-in <i>responsiveLayout</i> property. Currently only available option is "scroll" that displays a horizontal scrollbar for small devices.</p>
 <pre v-code><code><template v-pre>
-&lt;TreeTable :value="nodes" class="p-treetable-responsive"&gt;
-    &lt;template #header&gt;
-        Responsive
-    &lt;/template&gt;
-    &lt;Column field="name" header="Name" :expander="true"&gt;
-            &lt;template #body="slotProps"&gt;
-            &#123;&#123;slotProps.node.data.name&#125;&#125;
-            &lt;span class="sm-visible"&gt;&#123;&#123;slotProps.node.data.size&#125;&#125;&lt;/span&gt;
-            &lt;span class="sm-visible"&gt;&#123;&#123;slotProps.node.data.type&#125;&#125;&lt;/span&gt;
-        &lt;/template&gt;
-    &lt;/Column&gt;
-    &lt;Column field="size" header="Size" headerClass="sm-invisible" bodyClass="sm-invisible"&gt;&lt;/Column&gt;
-    &lt;Column field="type" header="Type" headerClass="sm-invisible" bodyClass="sm-invisible"&gt;&lt;/Column&gt;
+&lt;TreeTable :value="nodes" responsiveLayout="scroll"&gt;
+    &lt;Column field="name" header="Name" :expander="true" style="min-width:200px"&gt;&lt;/Column&gt;
+    &lt;Column field="size" header="Size" style="min-width:200px"&gt;&lt;/Column&gt;
+    &lt;Column field="type" header="Type" style="min-width:200px"&gt;&lt;/Column&gt;
 &lt;/TreeTable&gt;
 </template>
-</code></pre>
-
-<pre v-code.script><code>
-import NodeService from '../../service/NodeService';
-
-export default {
-    data() {
-        return {
-            nodes: null
-        }
-    },
-    nodeService: null,
-    created() {
-        this.nodeService = new NodeService();
-    },
-    mounted() {
-        this.nodeService.getTreeTableNodes().then(data => this.nodes = data);
-    }
-}
-
-</code></pre>
-
-<pre v-code.css><code>
-.sm-visible {
-    display: none;
-}
-
-@media screen and (max-width: 40em) {
-    ::v-deep(.sm-visible) {
-        display: inline;
-        margin-right: .5rem;
-    }
-}
-
 </code></pre>
 
 		<h5>Properties</h5>
@@ -1553,6 +1510,12 @@ export default {
                         <td>string</td>
                         <td>null</td>
                         <td>Height of the scroll viewport in fixed pixels or the "flex" keyword for a dynamic size.</td>
+                    </tr>
+                    <tr>
+                        <td>responsiveLayout</td>
+                        <td>string</td>
+                        <td>stack</td>
+                        <td>Defines the responsive mode, currently only option is scroll..</td>
                     </tr>
 				</tbody>
 			</table>

@@ -39,6 +39,7 @@ interface TreeTableProps {
     scrollable?: boolean;
     scrollHeight?: string;
     scrollDirection?: string;
+    responsiveLayout?: string;
 }
 
 declare class TreeTable {
