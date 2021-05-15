@@ -384,12 +384,6 @@ export default {
         }
     },
     mounted() {
-        if (this.reorderableColumns) {
-            let columnOrder = [];
-            this.columns.forEach(col => columnOrder.push(this.columnProp(col, 'columnKey')||this.columnProp(col, 'field')));
-            this.d_columnOrder = columnOrder;
-        }
-
         if (this.scrollable && this.scrollDirection !== 'vertical') {
             this.updateScrollWidth();
         }
@@ -1196,7 +1190,8 @@ export default {
                 }
 
                 if (allowDrop) {
-                    ObjectUtils.reorderArray(this.d_columnOrder, dragIndex, dropIndex);
+                    ObjectUtils.reorderArray(this.columns, dragIndex, dropIndex);
+                    this.updateReorderableColumns();
 
                     this.$emit('column-reorder', {
                         originalEvent: event,
@@ -1581,6 +1576,11 @@ export default {
             }
 
             return cloned;
+        },
+        updateReorderableColumns() {
+            let columnOrder = [];
+            this.columns.forEach(col => columnOrder.push(this.columnProp(col, 'columnKey')||this.columnProp(col, 'field')));
+            this.d_columnOrder = columnOrder;
         },
         updateScrollWidth() {
             this.$refs.table.style.width = this.$refs.table.scrollWidth + 'px';
