@@ -165,6 +165,13 @@ export default {
                     }
                     this.styleObject.left = left + 'px';
                 }
+
+                let filterRow = this.$el.parentElement.nextElementSibling;
+                if (filterRow) {
+                    let index = DomHandler.index(this.$el);
+                    filterRow.children[index].style.left = this.styleObject.left;
+                    filterRow.children[index].style.right = this.styleObject.right;
+                }
             }
         },
         onHeaderCheckboxChange(event) {
