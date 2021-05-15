@@ -121,7 +121,7 @@ export default {
     },
     computed: {
         containerClass() {
-            return [this.columnProp('headerClass'), {
+            return [this.columnProp('headerClass'), this.columnProp('class'), {
                 'p-sortable-column': this.columnProp('sortable'),
                 'p-resizable-column': this.resizableColumns,
                 'p-highlight': this.isColumnSorted(),
