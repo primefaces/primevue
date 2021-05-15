@@ -469,6 +469,7 @@
                 {
                     "name": "TreeTable",
                     "meta": ["treetable"],
+                    "badge": "New",
                     "children": [
                         {
                             "name": "Documentation",
@@ -509,6 +510,11 @@
                         {
                             "name": "Resize",
                             "to": "/treetable/colresize"
+                        },
+                        {
+                            "name": "Scroll",
+                            "to": "/treetable/scroll",
+                            "badge": "New"
                         },
                         {
                             "name": "Responsive",

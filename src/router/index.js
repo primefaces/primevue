@@ -772,6 +772,11 @@ const routes = [
         component: () => import('../views/treetable/TreeTableColResizeDemo.vue')
     },
     {
+        path: '/treetable/scroll',
+        name: 'treetablescroll',
+        component: () => import('../views/treetable/TreeTableScrollDemo.vue')
+    },
+    {
         path: '/tristatecheckbox',
         name: 'tristatecheckbox',
         component: () => import('../views/tristatecheckbox/TriStateCheckboxDemo.vue')

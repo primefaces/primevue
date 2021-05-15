@@ -1,7 +1,7 @@
 <template>
     <tr :class="containerClass" @click="onClick" @keydown="onKeyDown" @touchend="onTouchEnd" :style="node.style" tabindex="0">
         <template v-for="(col,i) of columns" :key="columnProp(col, 'columnKey')||columnProp(col, 'field')||i">
-            <td v-if="!columnProp(col, 'hidden')" :style="columnProp(col, 'bodyStyle')" :class="columnProp(col, 'bodyClass')">
+            <td v-if="!columnProp(col, 'hidden')" :style="[columnProp(col, 'style'),columnProp(col, 'bodyStyle')]" :class="getColumnBodyClass(col)">
                 <button type="button" class="p-treetable-toggler p-link" @click="toggle" v-if="columnProp(col, 'expander')" :style="togglerStyle" tabindex="-1" v-ripple>
                     <i :class="togglerIcon"></i>
                 </button>
@@ -245,7 +245,12 @@ export default {
                 check: event.check,
                 selectionKeys: _selectionKeys
             });
-        }
+        },
+        getColumnBodyClass(column) {
+            return [this.columnProp(column, 'bodyClass'), {
+                    'p-frozen-column': this.columnProp(column, 'frozen')
+                }];
+        },
     },
     computed: {
         containerClass() {

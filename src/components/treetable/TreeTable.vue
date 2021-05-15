@@ -17,12 +17,12 @@
                 <slot name="paginatorRight"></slot>
             </template>
         </TTPaginator>
-        <div class="p-treetable-wrapper">
+        <div class="p-treetable-wrapper" :style="{maxHeight: scrollHeight}">
             <table ref="table">
                 <thead class="p-treetable-thead">
                     <tr>
                         <template v-for="(col,i) of columns" :key="columnProp(col, 'columnKey')||columnProp(col, 'field')||i">
-                            <th v-if="!columnProp(col, 'hidden')" :style="columnProp(col, 'headerStyle')" :class="getColumnHeaderClass(col)" @click="onColumnHeaderClick($event, col)"
+                            <th v-if="!columnProp(col, 'hidden')" :style="[columnProp(col, 'style'),columnProp(col, 'headerStyle')]" :class="getColumnHeaderClass(col)" @click="onColumnHeaderClick($event, col)"
                                 :tabindex="columnProp(col, 'sortable') ? '0' : null"  :aria-sort="getAriaSort(col)" @keydown="onColumnKeyDown($event, col)">
                                 <span class="p-column-resizer" @mousedown="onColumnResizeStart" v-if="resizableColumns"></span>
                                 <component :is="col.children.header" :column="col" v-if="col.children && col.children.header" />
@@ -34,22 +34,12 @@
                     </tr>
                     <tr v-if="hasColumnFilter()">
                         <template v-for="(col,i) of columns" :key="columnProp(col, 'columnKey')||columnProp(col, 'field')||i">
-                            <th v-if="!columnProp(col, 'hidden')" :class="getFilterColumnHeaderClass(col)" :style="columnProp(col, 'filterHeaderStyle')">
+                            <th v-if="!columnProp(col, 'hidden')" :class="getFilterColumnHeaderClass(col)" :style="[columnProp(col, 'style'),columnProp(col, 'filterHeaderStyle')]">
                                 <component :is="col.children.filter" :column="col" v-if="col.children && col.children.filter"/>
                             </th>
                         </template>
                     </tr>
                 </thead>
-                <tfoot class="p-treetable-tfoot" v-if="hasFooter">
-                    <tr>
-                        <template v-for="(col,i) of columns" :key="columnProp(col, 'columnKey')||columnProp(col, 'field')||i">
-                            <td v-if="!columnProp(col, 'hidden')" :style="columnProp(col, 'footerStyle')" :class="columnProp(col, 'footerClass')">
-                                <component :is="col.children.footer" :column="col" v-if="col.children && col.children.footer" />
-                                {{columnProp(col, 'footer')}}
-                            </td>
-                        </template>
-                    </tr>
-                </tfoot>
                 <tbody class="p-treetable-tbody">
                     <template v-if="!empty">
                         <TTRow v-for="node of dataToRender" :key="node.key" :columns="columns" :node="node" :level="0"
@@ -62,6 +52,16 @@
                         </td>
                     </tr>
                 </tbody>
+                <tfoot class="p-treetable-tfoot" v-if="hasFooter">
+                    <tr>
+                        <template v-for="(col,i) of columns" :key="columnProp(col, 'columnKey')||columnProp(col, 'field')||i">
+                            <td v-if="!columnProp(col, 'hidden')" :style="[columnProp(col, 'style'),columnProp(col, 'footerStyle')]" :class="getColumnFooterClass(col)">
+                                <component :is="col.children.footer" :column="col" v-if="col.children && col.children.footer" />
+                                {{columnProp(col, 'footer')}}
+                            </td>
+                        </template>
+                    </tr>
+                </tfoot>
             </table>
         </div>
         <TTPaginator v-if="paginatorBottom" :rows="d_rows" :first="d_first" :totalRecords="totalRecordsLength" :pageLinkSize="pageLinkSize" :template="paginatorTemplate" :rowsPerPageOptions="rowsPerPageOptions"
@@ -222,6 +222,18 @@ export default {
         showGridlines: {
             type: Boolean,
             default: false
+        },
+        scrollable: {
+            type: Boolean,
+            default: false
+        },
+        scrollDirection: {
+            type: String,
+            default: "vertical"
+        },
+        scrollHeight: {
+            type: String,
+            default: null
         }
     },
     documentColumnResizeListener: null,
@@ -391,14 +403,22 @@ export default {
             return false;
         },
         getColumnHeaderClass(column) {
-            return [this.columnProp(column, 'headerClass'),
-                    {'p-sortable-column': this.columnProp(column, 'sortable')},
-                    {'p-resizable-column': this.resizableColumns},
-                    {'p-highlight': this.isColumnSorted(column)}
-            ];
+            return [this.columnProp(column, 'headerClass'), {
+                    'p-sortable-column': this.columnProp(column, 'sortable'),
+                    'p-resizable-column': this.resizableColumns,
+                    'p-highlight': this.isColumnSorted(column),
+                    'p-frozen-column': this.columnProp(column, 'frozen')
+                }];
         },
         getFilterColumnHeaderClass(column) {
-            return ['p-filter-column', this.columnProp(column, 'filterHeaderClass')];
+            return ['p-filter-column', this.columnProp(column, 'filterHeaderClass'), {
+                'p-frozen-column': this.columnProp(column, 'frozen')
+            }];
+        },
+        getColumnFooterClass(column) {
+            return [this.columnProp(column, 'footerClass'), {
+                'p-frozen-column': this.columnProp(column, 'frozen')
+            }];
         },
         getSortableColumnIcon(column) {
             let sorted = false;
@@ -805,7 +825,12 @@ export default {
                 'p-treetable-auto-layout': this.autoLayout,
                 'p-treetable-resizable': this.resizableColumns,
                 'p-treetable-resizable-fit': this.resizableColumns && this.columnResizeMode === 'fit',
-                'p-treetable-gridlines': this.showGridlines
+                'p-treetable-gridlines': this.showGridlines,
+                'p-treetable-scrollable': this.scrollable,
+                'p-treetable-scrollable-vertical': this.scrollable && this.scrollDirection === 'vertical',
+                'p-treetable-scrollable-horizontal': this.scrollable && this.scrollDirection === 'horizontal',
+                'p-treetable-scrollable-both': this.scrollable && this.scrollDirection === 'both',
+                'p-treetable-flex-scrollable': (this.scrollable && this.scrollHeight === 'flex')
             }];
         },
         columns() {
@@ -1005,5 +1030,76 @@ export default {
     align-items: center;
     justify-content: center;
     z-index: 2;
+}
+
+/* Scrollable */
+.p-treetable-scrollable .p-treetable-wrapper {
+    position: relative;
+    overflow: auto;
+}
+
+.p-treetable-scrollable .p-treetable-table {
+    display: block;
+}
+
+.p-treetable-scrollable .p-treetable-thead,
+.p-treetable-scrollable .p-treetable-tbody,
+.p-treetable-scrollable .p-treetable-tfoot {
+    display: block;
+}
+
+.p-treetable-scrollable .p-treetable-thead > tr,
+.p-treetable-scrollable .p-treetable-tbody > tr,
+.p-treetable-scrollable .p-treetable-tfoot > tr {
+    display: flex;
+    flex-wrap: nowrap;
+    width: 100%;
+}
+
+.p-treetable-scrollable .p-treetable-thead > tr > th,
+.p-treetable-scrollable .p-treetable-tbody > tr > td,
+.p-treetable-scrollable .p-treetable-tfoot > tr > td {
+    display: flex;
+    flex: 1 1 0;
+    align-items: center;
+}
+
+.p-treetable-scrollable .p-treetable-thead {
+    position: sticky;
+    top: 0;
+    z-index: 1;
+}
+
+.p-treetable-scrollable .p-treetable-tfoot {
+    position: sticky;
+    bottom: 0;
+    z-index: 1;
+}
+
+.p-treetable-scrollable .p-frozen-column {
+    position: sticky;
+    background: inherit;
+}
+
+.p-treetable-scrollable-both .p-treetable-thead > tr > th,
+.p-treetable-scrollable-both .p-treetable-tbody > tr > td,
+.p-treetable-scrollable-both .p-treetable-tfoot > tr > td,
+.p-treetable-scrollable-horizontal .p-treetable-thead > tr > th
+.p-treetable-scrollable-horizontal .p-treetable-tbody > tr > td,
+.p-treetable-scrollable-horizontal .p-treetable-tfoot > tr > td {
+    flex: 0 0 auto;
+}
+
+.p-treetable-flex-scrollable {
+    display: flex;
+    flex-direction: column;
+    height: 100%;
+}
+
+.p-treetable-flex-scrollable .p-treetable-wrapper {
+    display: flex;
+    flex-direction: column;
+    flex: 1;
+    height: 100%;
 }
 </style>

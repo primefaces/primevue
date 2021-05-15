@@ -153,7 +153,7 @@ export default {
                     let right = 0;
                     let next = this.$el.nextElementSibling;
                     if (next) {
-                        right = DomHandler.getOuterWidth(next) + parseFloat(next.style.left);
+                        right = DomHandler.getOuterWidth(next) + parseFloat(next.style.right);
                     }
                     this.styleObject.right = right + 'px';
                 }
