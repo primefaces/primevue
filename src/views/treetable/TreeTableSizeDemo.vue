@@ -166,7 +166,7 @@ export default {
         })
 
         const nodes = ref();
-        const nodeService = ref(new NodeService());
+        const nodeService = new NodeService();
 
         return { nodes, nodeService }
     }

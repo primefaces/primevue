@@ -80,7 +80,7 @@
                             {{node.children ? node.children.length : 0}}
                         </template>
                     </Column>
-                    <Column header="Options" style="width:200px" alignFrozen="right" :frozen="balanceFrozen">
+                    <Column header="Options" style="width:200px" alignFrozen="right" :frozen="optionsFrozen">
                         <template #body>
                             <Button type="Button" icon="pi pi-check" label="Edit Item" class="p-mr-2" style="width:100%"></Button>
                         </template>
@@ -109,35 +109,81 @@ export default {
 <template>
     <div>
         <div class="card">
-            <TreeTable :value="nodes" class="p-treetable-sm" style="margin-bottom: 2rem">
-                <template #header>
-                    Small Table
-                </template>
-                <Column field="name" header="Name" :expander="true"></Column>
-                <Column field="size" header="Size"></Column>
-                <Column field="type" header="Type"></Column>
+            <h5>Vertical</h5>
+            <TreeTable :value="nodes" style="margin-bottom: 2rem" :scrollable="true" scrollHeight="400px">
+                <Column field="name" header="Name" :expander="true" style="min-width:200px"></Column>
+                <Column field="size" header="Size" style="min-width:200px"></Column>
+                <Column field="type" header="Type" style="min-width:200px"></Column>
             </TreeTable>
         </div>
 
         <div class="card">
-            <TreeTable :value="nodes" style="margin-bottom: 2rem">
-                <template #header>
-                    Normal Table
-                </template>
-                <Column field="name" header="Name" :expander="true"></Column>
-                <Column field="size" header="Size"></Column>
-                <Column field="type" header="Type"></Column>
+            <h5>Flexible Scroll</h5>
+            <p>Flex scroll feature makes the scrollable viewport section dynamic insteaf of a fixed value so that it can grow or shrink relative to the parent size of the table.
+                Click the button below to display a maximizable Dialog where data viewport adjusts itself according to the size changes.</p>
+
+            <Button label="Show" icon="pi pi-external-link" @click="openDialog" />
+        </div>
+
+        <Dialog header="Flex Scroll" v-model:visible="dialogVisible" :style="{width: '75vw'}" :maximizable="true" :modal="true" :contentStyle="{height: '300px'}">
+                <TreeTable :value="nodes" :scrollable="true" scrollHeight="flex">
+                <Column field="name" header="Name" :expander="true" style="min-width:200px"></Column>
+                <Column field="size" header="Size" style="min-width:200px"></Column>
+                <Column field="type" header="Type" style="min-width:200px"></Column>
+            </TreeTable>
+            <template #footer>
+                <Button label="Ok" icon="pi pi-check" @click="closeDialog" />
+            </template>
+        </Dialog>
+
+        <div class="card">
+            <h5>Horizontal and Vertical with Footer</h5>
+            <TreeTable :value="nodes" :scrollable="true" scrollHeight="400px" scrollDirection="both">
+                <Column field="name" header="Name" footer="Name" :expander="true" style="width:300px"></Column>
+                <Column header="Key" footer="Key" style="width:300px">
+                    <template #body="{node}">
+                        {{node.key}}
+                    </template>
+                </Column>
+                <Column field="size" header="Size" footer="Size" style="width:300px"></Column>
+                <Column field="type" header="Type" footer="Type" style="width:300px"></Column>
+                <Column header="Children" footer="Children" style="width:300px">
+                    <template #body="{node}">
+                        {{node.children ? node.children.length : 0}}
+                    </template>
+                </Column>
+                <Column header="Options" footer="Options" style="width:300px">
+                    <template #body>
+                        <Button type="Button" icon="pi pi-check" label="Edit" class="p-mr-2"></Button>
+                        <Button type="Button" icon="pi pi-check" label="Delete" class="p-button-warning"></Button>
+                    </template>
+                </Column>
             </TreeTable>
         </div>
 
         <div class="card">
-            <TreeTable :value="nodes" class="p-treetable-lg" >
-                <template #header>
-                    Large Table
-                </template>
-                <Column field="name" header="Name" :expander="true"></Column>
-                <Column field="size" header="Size"></Column>
-                <Column field="type" header="Type"></Column>
+            <h5>Frozen Columns</h5>
+            <ToggleButton v-model="optionsFrozen" onIcon="pi pi-lock" offIcon="pi pi-lock-open" onLabel="Unfreeze Options" offLabel="Freeze Options" style="width: 12rem" />
+
+            <TreeTable :value="nodes" :scrollable="true" scrollHeight="400px" scrollDirection="both" class="p-mt-3">
+                <Column field="name" header="Name" :expander="true" style="width:300px" frozen></Column>
+                <Column header="Key" style="width:300px">
+                    <template #body="{node}">
+                        {{node.key}}
+                    </template>
+                </Column>
+                <Column field="size" header="Size" style="width:300px"></Column>
+                <Column field="type" header="Type" style="width:300px"></Column>
+                <Column header="Children" style="width:300px">
+                    <template #body="{node}">
+                        {{node.children ? node.children.length : 0}}
+                    </template>
+                </Column>
+                <Column header="Options" style="width:200px" alignFrozen="right" :frozen="optionsFrozen">
+                    <template #body>
+                        <Button type="Button" icon="pi pi-check" label="Edit Item" class="p-mr-2" style="width:100%"></Button>
+                    </template>
+                </Column>
             </TreeTable>
         </div>
     </div>                    
@@ -149,7 +195,9 @@ import NodeService from './service/NodeService';
 export default {
     data() {
         return {
-            nodes: null
+            nodes: null,
+            dialogVisible: false,
+            optionsFrozen: false
         }
     },
     nodeService: null,
@@ -158,6 +206,14 @@ export default {
     },
     mounted() {
         this.nodeService.getTreeTableNodes().then(data => this.nodes = data);
+    },
+    methods: {
+        openDialog() {
+            this.dialogVisible = true;
+        },
+        closeDialog() {
+            this.dialogVisible = false;
+        }
     }
 }
 <\\/script>
@@ -169,35 +225,81 @@ export default {
 <template>
     <div>
         <div class="card">
-            <TreeTable :value="nodes" class="p-treetable-sm" style="margin-bottom: 2rem">
-                <template #header>
-                    Small Table
-                </template>
-                <Column field="name" header="Name" :expander="true"></Column>
-                <Column field="size" header="Size"></Column>
-                <Column field="type" header="Type"></Column>
+            <h5>Vertical</h5>
+            <TreeTable :value="nodes" style="margin-bottom: 2rem" :scrollable="true" scrollHeight="400px">
+                <Column field="name" header="Name" :expander="true" style="min-width:200px"></Column>
+                <Column field="size" header="Size" style="min-width:200px"></Column>
+                <Column field="type" header="Type" style="min-width:200px"></Column>
             </TreeTable>
         </div>
 
         <div class="card">
-            <TreeTable :value="nodes" style="margin-bottom: 2rem">
-                <template #header>
-                    Normal Table
-                </template>
-                <Column field="name" header="Name" :expander="true"></Column>
-                <Column field="size" header="Size"></Column>
-                <Column field="type" header="Type"></Column>
+            <h5>Flexible Scroll</h5>
+            <p>Flex scroll feature makes the scrollable viewport section dynamic insteaf of a fixed value so that it can grow or shrink relative to the parent size of the table.
+                Click the button below to display a maximizable Dialog where data viewport adjusts itself according to the size changes.</p>
+
+            <Button label="Show" icon="pi pi-external-link" @click="openDialog" />
+        </div>
+
+        <Dialog header="Flex Scroll" v-model:visible="dialogVisible" :style="{width: '75vw'}" :maximizable="true" :modal="true" :contentStyle="{height: '300px'}">
+                <TreeTable :value="nodes" :scrollable="true" scrollHeight="flex">
+                <Column field="name" header="Name" :expander="true" style="min-width:200px"></Column>
+                <Column field="size" header="Size" style="min-width:200px"></Column>
+                <Column field="type" header="Type" style="min-width:200px"></Column>
+            </TreeTable>
+            <template #footer>
+                <Button label="Ok" icon="pi pi-check" @click="closeDialog" />
+            </template>
+        </Dialog>
+
+        <div class="card">
+            <h5>Horizontal and Vertical with Footer</h5>
+            <TreeTable :value="nodes" :scrollable="true" scrollHeight="400px" scrollDirection="both">
+                <Column field="name" header="Name" footer="Name" :expander="true" style="width:300px"></Column>
+                <Column header="Key" footer="Key" style="width:300px">
+                    <template #body="{node}">
+                        {{node.key}}
+                    </template>
+                </Column>
+                <Column field="size" header="Size" footer="Size" style="width:300px"></Column>
+                <Column field="type" header="Type" footer="Type" style="width:300px"></Column>
+                <Column header="Children" footer="Children" style="width:300px">
+                    <template #body="{node}">
+                        {{node.children ? node.children.length : 0}}
+                    </template>
+                </Column>
+                <Column header="Options" footer="Options" style="width:300px">
+                    <template #body>
+                        <Button type="Button" icon="pi pi-check" label="Edit" class="p-mr-2"></Button>
+                        <Button type="Button" icon="pi pi-check" label="Delete" class="p-button-warning"></Button>
+                    </template>
+                </Column>
             </TreeTable>
         </div>
 
         <div class="card">
-            <TreeTable :value="nodes" class="p-treetable-lg" >
-                <template #header>
-                    Large Table
-                </template>
-                <Column field="name" header="Name" :expander="true"></Column>
-                <Column field="size" header="Size"></Column>
-                <Column field="type" header="Type"></Column>
+            <h5>Frozen Columns</h5>
+            <ToggleButton v-model="optionsFrozen" onIcon="pi pi-lock" offIcon="pi pi-lock-open" onLabel="Unfreeze Options" offLabel="Freeze Options" style="width: 12rem" />
+
+            <TreeTable :value="nodes" :scrollable="true" scrollHeight="400px" scrollDirection="both" class="p-mt-3">
+                <Column field="name" header="Name" :expander="true" style="width:300px" frozen></Column>
+                <Column header="Key" style="width:300px">
+                    <template #body="{node}">
+                        {{node.key}}
+                    </template>
+                </Column>
+                <Column field="size" header="Size" style="width:300px"></Column>
+                <Column field="type" header="Type" style="width:300px"></Column>
+                <Column header="Children" style="width:300px">
+                    <template #body="{node}">
+                        {{node.children ? node.children.length : 0}}
+                    </template>
+                </Column>
+                <Column header="Options" style="width:200px" alignFrozen="right" :frozen="optionsFrozen">
+                    <template #body>
+                        <Button type="Button" icon="pi pi-check" label="Edit Item" class="p-mr-2" style="width:100%"></Button>
+                    </template>
+                </Column>
             </TreeTable>
         </div>
     </div>                    
@@ -215,8 +317,17 @@ export default {
 
         const nodes = ref();
         const nodeService = ref(new NodeService());
+        const dialogVisible = ref(false);
+        const optionsFrozen = ref(false);
 
-        return { nodes, nodeService }
+        const openDialog = () => {
+            dialogVisible.value = true;
+        };
+        const closeDialog = () => {
+            dialogVisible.value = false;
+        };
+
+        return { nodes, openDialog, closeDialog, dialogVisible, optionsFrozen }
     }
 }
 <\\/script>
@@ -242,3 +353,9 @@ export default {
     }
 }
 </script>
+
+<style lang="scss" scoped>
+::v-deep(.p-treetable-scrollable .p-frozen-column) {
+    font-weight: bold;
+}
+</style>

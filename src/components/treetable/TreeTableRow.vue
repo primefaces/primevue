@@ -1,21 +1,10 @@
 <template>
     <tr :class="containerClass" @click="onClick" @keydown="onKeyDown" @touchend="onTouchEnd" :style="node.style" tabindex="0">
         <template v-for="(col,i) of columns" :key="columnProp(col, 'columnKey')||columnProp(col, 'field')||i">
-            <td v-if="!columnProp(col, 'hidden')" :style="[columnProp(col, 'style'),columnProp(col, 'bodyStyle')]" :class="getColumnBodyClass(col)">
-                <button type="button" class="p-treetable-toggler p-link" @click="toggle" v-if="columnProp(col, 'expander')" :style="togglerStyle" tabindex="-1" v-ripple>
-                    <i :class="togglerIcon"></i>
-                </button>
-                <div class="p-checkbox p-treetable-checkbox p-component" @click="toggleCheckbox" v-if="checkboxSelectionMode && columnProp(col, 'expander')" role="checkbox" :aria-checked="checked">
-                    <div class="p-hidden-accessible">
-                        <input type="checkbox" @focus="onCheckboxFocus" @blur="onCheckboxBlur" />
-                    </div>
-                    <div ref="checkboxEl" :class="checkboxClass">
-                        <span :class="checkboxIcon"></span>
-                    </div>
-                </div>
-                <component :is="col.children.body" :node="node" :column="col" v-if="col.children && col.children.body" />
-                <template v-else><span>{{resolveFieldData(node.data, columnProp(col, 'field'))}}</span></template>
-            </td>
+            <TTBodyCell v-if="!columnProp(col, 'hidden')" :column="col" :node="node"
+                :level="level" :leaf="leaf" :indentation="indentation" :expanded="expanded" :selectionMode="selectionMode"
+                :checked="checked" :partialChecked="partialChecked"
+                @node-toggle="$emit('node-toggle', $event)" @checkbox-toggle="toggleCheckbox"></TTBodyCell>
         </template>
     </tr>
     <template v-if="expanded && node.children && node.children.length">
@@ -26,9 +15,8 @@
 </template>
 
 <script>
-import {ObjectUtils} from 'primevue/utils';
 import {DomHandler} from 'primevue/utils';
-import Ripple from 'primevue/ripple';
+import BodyCell from './BodyCell.vue';
 
 export default {
     name: 'TreeTableRow',
@@ -67,18 +55,10 @@ export default {
             default: 1
         }
     },
-    data() {
-        return {
-            checkboxFocused: false
-        }
-    },
     nodeTouched: false,
     methods: {
         columnProp(col, prop) {
             return col.props ? ((col.type.props[prop].type === Boolean && col.props[prop] === '') ? true : col.props[prop]) : null;
-        },
-        resolveFieldData(rowData, field) {
-            return ObjectUtils.resolveFieldData(rowData, field);
         },
         toggle() {
             this.$emit('node-toggle', this.node);
@@ -207,12 +187,6 @@ export default {
                 selectionKeys: _selectionKeys
             });
         },
-        onCheckboxFocus() {
-           this.checkboxFocused = true;
-        },
-        onCheckboxBlur() {
-            this.checkboxFocused = false;
-        },
         onCheckboxChange(event) {
             let check = event.check;
             let _selectionKeys = {...event.selectionKeys};
@@ -245,12 +219,7 @@ export default {
                 check: event.check,
                 selectionKeys: _selectionKeys
             });
-        },
-        getColumnBodyClass(column) {
-            return [this.columnProp(column, 'bodyClass'), {
-                    'p-frozen-column': this.columnProp(column, 'frozen')
-                }];
-        },
+        }
     },
     computed: {
         containerClass() {
@@ -270,26 +239,8 @@ export default {
         selected() {
             return (this.selectionMode && this.selectionKeys) ? this.selectionKeys[this.node.key] === true : false;
         },
-        togglerIcon() {
-            return ['p-treetable-toggler-icon pi', {'pi-chevron-right': !this.expanded, 'pi-chevron-down': this.expanded}];
-        },
-        togglerStyle() {
-            return {
-                marginLeft: this.level * this.indentation + 'rem',
-                visibility: this.leaf ? 'hidden' : 'visible'
-            };
-        },
         childLevel() {
             return this.level + 1;
-        },
-        checkboxSelectionMode() {
-            return this.selectionMode === 'checkbox';
-        },
-        checkboxClass() {
-            return ['p-checkbox-box', {'p-highlight': this.checked, 'p-focus': this.checkboxFocused, 'p-indeterminate': this.partialChecked}];
-        },
-        checkboxIcon() {
-            return ['p-checkbox-icon', {'pi pi-check': this.checked, 'pi pi-minus': this.partialChecked}];
         },
         checked() {
             return this.selectionKeys ? this.selectionKeys[this.node.key] && this.selectionKeys[this.node.key].checked: false;
@@ -298,8 +249,8 @@ export default {
             return this.selectionKeys ? this.selectionKeys[this.node.key] && this.selectionKeys[this.node.key].partialChecked: false;
         }
     },
-    directives: {
-        'ripple': Ripple
+    components: {
+        'TTBodyCell': BodyCell
     }
 }
 </script>

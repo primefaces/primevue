@@ -1049,6 +1049,84 @@ export default {
 
 </code></pre>
 
+            <h5>Scrolling</h5>
+            <p>TreeTable supports both horizontal and vertical scrolling with support for frozen columns. Scrollable TreeTable is enabled using <i>scrollable</i> property and <i>scrollHeight</i> to define the viewport height.</p>
+<pre v-code><code><template v-pre>
+&lt;TreeTable :value="nodes" style="margin-bottom: 2rem" :scrollable="true" scrollHeight="400px"&gt;
+    &lt;Column field="name" header="Name" :expander="true" style="min-width:200px"&gt;&lt;/Column&gt;
+    &lt;Column field="size" header="Size" style="min-width:200px"&gt;&lt;/Column&gt;
+    &lt;Column field="type" header="Type" style="min-width:200px"&gt;&lt;/Column&gt;
+&lt;/TreeTable&gt;
+</template>
+</code></pre>
+
+            <h5>Column Widths of a Scrollable TreeTable</h5>
+            <p>Scrollable treetable uses flex layout so there are a couple of rules to consider when adjusting the widths of columns.</p>
+            <ul>
+                <li>Use <i>min-width</i> in vertical scrolling only so that when there is enough space columns may grow and for smaller screens a horizontal scrollbar is displayed to provide responsive design.</li>
+                <li>When horizontal scrolling is enabled, prefer <i>width</i> instead of <i>min-width</i>.</li>
+                <li>In vertical scrolling only, use <i>flex</i> to disable grow and shrink while defining a initial width. When horizontal scrolling is enabled, this is not required as columns do not grow or shrink in horizontal scrolling.</li>
+            </ul>
+
+<pre v-code><code><template v-pre>
+&lt;Column field="vin" header="Vin" style="flex: 0 0 4rem"&gt;&lt;/Column&gt;
+</template>
+</code></pre>
+
+            <h6>Flex Scroll</h6>
+            <p>In cases where viewport should adjust itself according to the table parent's height instead of a fixed viewport height, set scrollHeight option as flex. In example below, table is inside a Dialog where viewport size dynamically responds to the dialog size changes such as maximizing. 
+            FlexScroll can also be used for cases where scrollable viewport should be responsive with respect to the window size for full page scroll.</p>
+<pre v-code><code><template v-pre>
+&lt;Button label="Show" icon="pi pi-external-link" @click="openDialog" /&gt;
+&lt;Dialog header="Flex Scroll" v-model:visible="dialogVisible" :style="{width: '50vw'}" :maximizable="true" :modal="true" :contentStyle="{height: '300px'}"&gt;
+    &lt;TreeTable :value="nodes" :scrollable="true" scrollHeight="flex"&gt;
+        &lt;Column field="name" header="Name" :expander="true" style="min-width:200px"&gt;&lt;/Column&gt;
+        &lt;Column field="size" header="Size" style="min-width:200px"&gt;&lt;/Column&gt;
+        &lt;Column field="type" header="Type" style="min-width:200px"&gt;&lt;/Column&gt;
+    &lt;/TreeTable&gt;
+    &lt;template #footer&gt;
+        &lt;Button label="Yes" icon="pi pi-check" @click="closeDialog" /&gt;
+        &lt;Button label="No" icon="pi pi-times" @click="closeDialog" class="p-button-secondary"/&gt;
+    &lt;/template&gt;
+&lt;/Dialog&gt;
+</template>
+</code></pre>
+
+            <h6>Horizontal Scrolling</h6>
+            <p>For horizontal scrolling, it is required to set <i>scrollDirection</i> to "horizontal" and give fixed widths to columns.</p>
+<pre v-code><code><template v-pre>
+&lt;TreeTable :value="nodes" :scrollable="true" scrollDirection="horizontal"&gt;
+    &lt;Column field="name" header="Name" :expander="true" style="width:200px"&gt;&lt;/Column&gt;
+    &lt;Column field="size" header="Size" style="width:200px"&gt;&lt;/Column&gt;
+    &lt;Column field="type" header="Type" style="width:200px"&gt;&lt;/Column&gt;
+&lt;/TreeTable&gt;
+</template>
+</code></pre>
+
+            <h6>Horizontal and Vertical Scrolling</h6>
+            <p>Set <i>scrollDirection</i> to "both" and give fixed widths to columns to scroll both ways.</p>
+<pre v-code><code><template v-pre>
+&lt;TreeTable :value="customers" :scrollable="true" scrollHeight="400px" scrollDirection="both"&gt;
+    &lt;Column field="name" header="Name" :expander="true" style="width:200px"&gt;&lt;/Column&gt;
+    &lt;Column field="size" header="Size" style="width:200px"&gt;&lt;/Column&gt;
+    &lt;Column field="type" header="Type" style="width:200px"&gt;&lt;/Column&gt;
+&lt;/TreeTable&gt;
+</template>
+</code></pre>
+
+            <h6>Frozen Columns</h6>
+            <p>Certain columns can be frozen by using the <i>frozen</i> property of the column component. In addition <i>alignFrozen</i> is available to define whether the column should
+            be fixed on the left or right.</p>
+
+<pre v-code><code><template v-pre>
+&lt;TreeTable :value="customers" :scrollable="true" scrollHeight="400px" scrollDirection="both"&gt;
+    &lt;Column field="name" header="Name" :expander="true" style="width:200px" frozen&gt;&lt;/Column&gt;
+    &lt;Column field="size" header="Size" style="width:200px"&gt;&lt;/Column&gt;
+    &lt;Column field="type" header="Type" style="width:200px" frozen alignFrozen="right"&gt;&lt;/Column&gt;
+&lt;/TreeTable&gt;
+</template>
+</code></pre>
+
         <h5>Lazy</h5>
         <p>Lazy Loading is handy to deal with huge datasets. Idea is instead of loading the whole tree, load nodes on demand when necessary.
             The important part when lazy loading nodes is setting <i>leaf</i> to true on a node instance so that even without children,
@@ -1457,6 +1535,24 @@ export default {
                         <td>boolean</td>
                         <td>false</td>
                         <td>Whether to show grid lines between cells.</td>
+                    </tr>
+                    <tr>
+                        <td>scrollable</td>
+                        <td>boolean</td>
+                        <td>false</td>
+                        <td>When specified, enables horizontal and/or vertical scrolling.</td>
+                    </tr>
+                    <tr>
+                        <td>scrollDirection</td>
+                        <td>string</td>
+                        <td>vertical</td>
+                        <td>Orientation of the scrolling, options are "vertical", "horizontal" and "both".</td>
+                    </tr>
+                    <tr>
+                        <td>scrollHeight</td>
+                        <td>string</td>
+                        <td>null</td>
+                        <td>Height of the scroll viewport in fixed pixels or the "flex" keyword for a dynamic size.</td>
                     </tr>
 				</tbody>
 			</table>

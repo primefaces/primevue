@@ -196,6 +196,24 @@ const TreeTableProps = [
         type: "boolean",
         default: "false",
         description: "Whether to show grid lines between cells."
+    },
+    {
+        name: "scrollable",
+        type: "boolean",
+        default: "false",
+        description: "When specified, enables horizontal and/or vertical scrolling."
+    },
+    {
+        name: "scrollDirection",
+        type: "string",
+        default: "vertical",
+        description: 'Orientation of the scrolling, options are "vertical", "horizontal" and "both".'
+    },
+    {
+        name: "scrollHeight",
+        type: "string",
+        default: "null",
+        description: 'Height of the scroll viewport in fixed units or the "flex" keyword for a dynamic size.'
     }
 ];
 

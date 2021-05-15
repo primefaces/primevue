@@ -22,14 +22,9 @@
                 <thead class="p-treetable-thead">
                     <tr>
                         <template v-for="(col,i) of columns" :key="columnProp(col, 'columnKey')||columnProp(col, 'field')||i">
-                            <th v-if="!columnProp(col, 'hidden')" :style="[columnProp(col, 'style'),columnProp(col, 'headerStyle')]" :class="getColumnHeaderClass(col)" @click="onColumnHeaderClick($event, col)"
-                                :tabindex="columnProp(col, 'sortable') ? '0' : null"  :aria-sort="getAriaSort(col)" @keydown="onColumnKeyDown($event, col)">
-                                <span class="p-column-resizer" @mousedown="onColumnResizeStart" v-if="resizableColumns"></span>
-                                <component :is="col.children.header" :column="col" v-if="col.children && col.children.header" />
-                                <span class="p-column-title" v-if="columnProp(col, 'header')">{{columnProp(col, 'header')}}</span>
-                                <span v-if="columnProp(col, 'sortable')" :class="getSortableColumnIcon(col)"></span>
-                                <span v-if="isMultiSorted(col)" class="p-sortable-column-badge">{{getMultiSortMetaIndex(col) + 1}}</span>
-                            </th>
+                            <TTHeaderCell v-if="!columnProp(col, 'hidden')" :column="col" :resizableColumns="resizableColumns"
+                            :sortField="d_sortField" :sortOrder="d_sortOrder" :multiSortMeta="d_multiSortMeta" :sortMode="sortMode"
+                            @column-click="onColumnHeaderClick" @column-resizestart="onColumnResizeStart"></TTHeaderCell>
                         </template>
                     </tr>
                     <tr v-if="hasColumnFilter()">
@@ -55,10 +50,7 @@
                 <tfoot class="p-treetable-tfoot" v-if="hasFooter">
                     <tr>
                         <template v-for="(col,i) of columns" :key="columnProp(col, 'columnKey')||columnProp(col, 'field')||i">
-                            <td v-if="!columnProp(col, 'hidden')" :style="[columnProp(col, 'style'),columnProp(col, 'footerStyle')]" :class="getColumnFooterClass(col)">
-                                <component :is="col.children.footer" :column="col" v-if="col.children && col.children.footer" />
-                                {{columnProp(col, 'footer')}}
-                            </td>
+                            <TTFooterCell v-if="!columnProp(col, 'hidden')" :column="col"></TTFooterCell>
                         </template>
                     </tr>
                 </tfoot>
@@ -84,6 +76,8 @@
 import {ObjectUtils,DomHandler} from 'primevue/utils';
 import {FilterService} from 'primevue/api';
 import TreeTableRow from './TreeTableRow.vue';
+import HeaderCell from './HeaderCell.vue';
+import FooterCell from './FooterCell.vue';
 import Paginator from 'primevue/paginator';
 
 export default {
@@ -392,72 +386,15 @@ export default {
             this.d_first = 0;
             this.$emit('update:first', this.d_first);
         },
-        isMultiSorted(column) {
-            return this.columnProp(column, 'sortable') && this.getMultiSortMetaIndex(column) > -1
-        },
-        isColumnSorted(column) {
-            if (this.columnProp(column, 'sortable')) {
-                return this.sortMode === 'single' ? (this.d_sortField === (this.columnProp(column, 'field') || this.columnProp(column, 'sortField'))) : this.getMultiSortMetaIndex(column) > -1;
-            }
-
-            return false;
-        },
-        getColumnHeaderClass(column) {
-            return [this.columnProp(column, 'headerClass'), {
-                    'p-sortable-column': this.columnProp(column, 'sortable'),
-                    'p-resizable-column': this.resizableColumns,
-                    'p-highlight': this.isColumnSorted(column),
-                    'p-frozen-column': this.columnProp(column, 'frozen')
-                }];
-        },
         getFilterColumnHeaderClass(column) {
             return ['p-filter-column', this.columnProp(column, 'filterHeaderClass'), {
                 'p-frozen-column': this.columnProp(column, 'frozen')
             }];
         },
-        getColumnFooterClass(column) {
-            return [this.columnProp(column, 'footerClass'), {
-                'p-frozen-column': this.columnProp(column, 'frozen')
-            }];
-        },
-        getSortableColumnIcon(column) {
-            let sorted = false;
-            let sortOrder = null;
+        onColumnHeaderClick(e) {
+            let event = e.originalEvent;
+            let column = e.column;
 
-            if (this.sortMode === 'single') {
-                sorted =  this.d_sortField === (this.columnProp(column, 'field')|| this.columnProp(column, 'sortField'));
-                sortOrder = sorted ? this.d_sortOrder: 0;
-            }
-            else if (this.sortMode === 'multiple') {
-                let metaIndex = this.getMultiSortMetaIndex(column);
-                if (metaIndex > -1) {
-                    sorted = true;
-                    sortOrder = this.d_multiSortMeta[metaIndex].order;
-                }
-            }
-
-            return [
-                'p-sortable-column-icon pi pi-fw', {
-                    'pi-sort-alt': !sorted,
-                    'pi-sort-amount-up-alt': sorted && sortOrder > 0,
-                    'pi-sort-amount-down': sorted && sortOrder < 0
-                }
-            ];
-        },
-        getMultiSortMetaIndex(column) {
-            let index = -1;
-
-            for (let i = 0; i < this.d_multiSortMeta.length; i++) {
-                let meta = this.d_multiSortMeta[i];
-                if (meta.field === (this.columnProp(column, 'field')|| this.columnProp(column, 'sortField'))) {
-                    index = i;
-                    break;
-                }
-            }
-
-            return index;
-        },
-        onColumnHeaderClick(event, column) {
             if (this.columnProp(column, 'sortable')) {
                 const targetNode = event.target;
                 const columnField = this.columnProp(column, 'sortField') || this.columnProp(column, 'field');
@@ -786,20 +723,6 @@ export default {
                 this.onColumnHeaderClick(event, col);
             }
         },
-        getAriaSort(column) {
-            if (this.columnProp(column, 'sortable')) {
-                const sortIcon = this.getSortableColumnIcon(column);
-                if (sortIcon[1]['pi-sort-amount-down'])
-                    return 'descending';
-                else if (sortIcon[1]['pi-sort-amount-up-alt'])
-                    return 'ascending';
-                else
-                    return 'none';
-            }
-            else {
-                return null;
-            }
-        },
         hasColumnFilter() {
             if (this.columns) {
                 for (let col of this.columns) {
@@ -933,6 +856,8 @@ export default {
     components: {
         'TTRow': TreeTableRow,
         'TTPaginator': Paginator,
+        'TTHeaderCell': HeaderCell,
+        'TTFooterCell': FooterCell
     }
 }
 </script>
