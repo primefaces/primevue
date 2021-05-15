@@ -120,7 +120,9 @@ export default {
             return col.props ? ((col.type.props[prop].type === Boolean && col.props[prop] === '') ? true : col.props[prop]) : null;
         },
         getFilterColumnHeaderClass(column) {
-            return ['p-filter-column', this.columnProp(column, 'filterHeaderClass'), this.columnProp(column, 'class')];
+            return ['p-filter-column', this.columnProp(column, 'filterHeaderClass'), this.columnProp(column, 'class'), {
+                'p-frozen-column': this.columnProp(column, 'frozen')
+            }];
         },
         getFilterColumnHeaderStyle(column) {
             return [this.columnProp(column, 'filterHeaderStyle'), this.columnProp(column, 'style')];

@@ -264,6 +264,16 @@ export default {
             this.d_multiSortMeta = newValue;
         }
     },
+    mounted() {
+        if (this.scrollable && this.scrollDirection !== 'vertical') {
+            this.updateScrollWidth();
+        }
+    },
+    updated() {
+        if (this.scrollable && this.scrollDirection !== 'vertical') {
+            this.updateScrollWidth();
+        }
+    },
     methods: {
         columnProp(col, prop) {
             return col.props ? ((col.type.props[prop].type === Boolean && col.props[prop] === '') ? true : col.props[prop]) : null;
@@ -739,6 +749,9 @@ export default {
         },
         hasGlobalFilter() {
             return this.filters && Object.prototype.hasOwnProperty.call(this.filters, 'global');
+        },
+        updateScrollWidth() {
+            this.$refs.table.style.width = this.$refs.table.scrollWidth + 'px';
         }
     },
     computed: {

@@ -59,7 +59,7 @@ export default {
     },
     computed: {
         containerClass() {
-            return [this.columnProp('footerClass'), {
+            return [this.columnProp('footerClass'), this.columnProp('class'), {
                 'p-frozen-column': this.columnProp('frozen')
             }];
         },
