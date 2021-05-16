@@ -1,6 +1,6 @@
 <template>
     <span ref="container" :class="containerClass" aria-haspopup="listbox" :aria-owns="listId" :aria-expanded="overlayVisible" :style="style">
-        <input ref="input" :class="inputFieldClass" :style="inputStyle" v-bind="$attrs" :value="inputValue" @input="onInput" @focus="onFocus" @blur="onBlur" @keydown="onKeyDown" @change="onChange"
+        <input ref="input" :class="inputFieldClass" :style="inputStyle" v-bind="$attrs" :value="inputValue" @click="onInputClicked" @input="onInput" @focus="onFocus" @blur="onBlur" @keydown="onKeyDown" @change="onChange"
             type="text" autoComplete="off" v-if="!multiple" role="searchbox" aria-autocomplete="list" :aria-controls="listId">
         <ul ref="multiContainer" :class="multiContainerClass" v-if="multiple" @click="onMultiContainerClick">
             <li v-for="(item, i) of modelValue" :key="i" class="p-autocomplete-token">
@@ -93,6 +93,10 @@ export default {
             default: 'body'
         },
         forceSelection: {
+            type: Boolean,
+            default: false
+        },
+        completeOnFocus: {
             type: Boolean,
             default: false
         },
@@ -265,8 +269,11 @@ export default {
             this.focus();
             this.hideOverlay();
         },
-        onMultiContainerClick() {
+        onMultiContainerClick(event) {
             this.focus();
+            if(this.completeOnFocus) {
+                this.search(event, '', 'click');
+            }
         },
         removeItem(event, index) {
             let removedValue = this.modelValue[index];
@@ -319,6 +326,12 @@ export default {
                 originalEvent: event,
                 query: query
             });
+        },
+
+        onInputClicked(event) {
+            if(this.completeOnFocus) {
+                this.search(event, '', 'click');
+            }
         },
         onInput(event) {
             this.inputTextValue = event.target.value;

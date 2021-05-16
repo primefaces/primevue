@@ -200,6 +200,12 @@ export default {
                         <td>Minimum number of characters to initiate a search.</td>
                     </tr>
                     <tr>
+                        <td>completeOnFocus</td>
+                        <td>boolean</td>
+                        <td>false</td>
+                        <td>Whether to run a query when input receives focus.</td>
+                    </tr>
+                    <tr>
                         <td>delay</td>
                         <td>number</td>
                         <td>300</td>
