@@ -324,7 +324,7 @@ export default {
             d_columnOrder: null,
             d_editingRowKeys: null,
             d_filters: this.cloneFilters(this.filters),
-            editingCells: []
+            d_editingCells: []
         };
     },
     rowTouched: false,
@@ -1526,14 +1526,14 @@ export default {
         },
         onEditingCellChange(event) {
             let { rowIndex, cellIndex, editing } = event;
-            let _editingCells = [...this.editingCells];
+            let _editingCells = [...this.d_editingCells];
 
             if (editing)
                 _editingCells.push({ rowIndex, cellIndex });
             else
                 _editingCells = _editingCells.filter(cell => !(cell.rowIndex === rowIndex && cell.cellIndex === cellIndex));
 
-            this.editingCells = _editingCells;
+            this.d_editingCells = _editingCells;
             this.$emit('value-change', this.processedData);
         },
         onRowEditInit(event) {
@@ -1725,7 +1725,7 @@ export default {
             return this.filters && Object.keys(this.filters).length > 0 && this.filters.constructor === Object;
         },
         hasEditingCell() {
-            return this.editingCells && this.editingCells.length !== 0;
+            return this.d_editingCells && this.d_editingCells.length !== 0;
         },
         processedData() {
             let data = this.value || [];
