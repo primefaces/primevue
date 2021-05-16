@@ -392,6 +392,10 @@ export default {
         if (this.responsiveLayout === 'stack' && !this.scrollable) {
             this.createResponsiveStyle();
         }
+
+        if (this.isStateful() && this.resizableColumns) {
+            this.restoreColumnWidths();
+        }
     },
     beforeUnmount() {
         this.unbindColumnResizeEvents();
@@ -400,11 +404,6 @@ export default {
     updated() {
         if (this.isStateful()) {
             this.saveState();
-
-            if (this.resizableColumns && !this.columnWidthsRestored) {
-                this.restoreColumnWidths();
-                this.columnWidthsRestored = true;
-            }
         }
 
         if (this.scrollable && this.scrollDirection !== 'vertical') {
