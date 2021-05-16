@@ -39,7 +39,7 @@ import Ripple from 'primevue/ripple';
 
 export default {
     name: 'BodyCell',
-    emits: ['cell-edit-init', 'cell-edit-complete', 'cell-edit-cancel', 'row-edit-init', 'row-edit-save', 'row-edit-cancel',
+    emits: ['cell-edit-init', 'cell-edit-complete', 'cell-edit-cancel', 'row-edit-init', 'row-edit-save', 'row-edit-cancel', 'editing-cell-change',
             'row-toggle', 'radio-change', 'checkbox-change'],
     props: {
         rowData: {
@@ -53,6 +53,10 @@ export default {
         frozenRow: {
             type: Boolean,
             default: false
+        },
+        rowIndex: {
+            type: Number,
+            default: null
         },
         index: {
             type: Number,
@@ -153,6 +157,7 @@ export default {
         switchCellToViewMode() {
             this.d_editing = false;
             this.unbindDocumentEditListener();
+            this.$emit('editing-cell-change', {rowIndex: this.rowIndex, cellIndex: this.index, editing: false});
             OverlayEventBus.off('overlay-click', this.overlayEventListener);
             this.overlayEventListener = null;
         },
@@ -163,7 +168,8 @@ export default {
                 if (!this.d_editing) {
                     this.d_editing = true;
                     this.bindDocumentEditListener();
-                    this.$emit('cell-edit-init', {originalEvent: event, data: this.rowData, field: this.columnProp('field'), index: this.index});
+                    this.$emit('cell-edit-init', {originalEvent: event, data: this.rowData, field: this.columnProp('field'), index: this.rowIndex});
+                    this.$emit('editing-cell-change', {rowIndex: this.rowIndex, cellIndex: this.index, editing: true});
 
                     this.overlayEventListener = (e) => {
                         if (this.$el && this.$el.contains(e.target)) {
@@ -179,7 +185,7 @@ export default {
                 originalEvent: event,
                 data: this.rowData,
                 field: this.columnProp('field'),
-                index: this.index,
+                index: this.rowIndex,
                 type: type,
                 defaultPrevented: false,
                 preventDefault: function() {
@@ -202,7 +208,7 @@ export default {
 
                     case 27:
                         this.switchCellToViewMode();
-                        this.$emit('cell-edit-cancel', {originalEvent: event, data: this.rowData, field: this.columnProp('field'), index: this.index});
+                        this.$emit('cell-edit-cancel', {originalEvent: event, data: this.rowData, field: this.columnProp('field'), index: this.rowIndex});
                     break;
 
                     case 9:
@@ -291,13 +297,13 @@ export default {
             return (DomHandler.find(this.$el, '.p-invalid').length === 0);
         },
         onRowEditInit(event) {
-            this.$emit('row-edit-init', {originalEvent: event, data: this.rowData, field: this.columnProp('field'), index: this.index});
+            this.$emit('row-edit-init', {originalEvent: event, data: this.rowData, field: this.columnProp('field'), index: this.rowIndex});
         },
         onRowEditSave(event) {
-            this.$emit('row-edit-save', {originalEvent: event, data: this.rowData, field: this.columnProp('field'), index: this.index});
+            this.$emit('row-edit-save', {originalEvent: event, data: this.rowData, field: this.columnProp('field'), index: this.rowIndex});
         },
         onRowEditCancel(event) {
-            this.$emit('row-edit-cancel', {originalEvent: event, data: this.rowData, field: this.columnProp('field'), index: this.index});
+            this.$emit('row-edit-cancel', {originalEvent: event, data: this.rowData, field: this.columnProp('field'), index: this.rowIndex});
         },
         updateStickyPosition() {
             if (this.columnProp('frozen')) {
@@ -335,9 +341,6 @@ export default {
             let columnStyle = this.columnProp('style');
 
             return this.columnProp('frozen') ? [columnStyle, bodyStyle, this.styleObject]: [columnStyle, bodyStyle];
-        },
-        eventBusKey() {
-            return this.columnProp('field') + '_' + this.index;
         }
     },
     components: {

@@ -15,13 +15,13 @@
                     @click="onRowClick($event, rowData, index)" @dblclick="onRowDblClick($event, rowData, index)" @contextmenu="onRowRightClick($event, rowData, index)" @touchend="onRowTouchEnd($event)" @keydown="onRowKeyDown($event, rowData, index)" :tabindex="selectionMode || contextMenu ? '0' : null"
                     @mousedown="onRowMouseDown($event)" @dragstart="onRowDragStart($event, index)" @dragover="onRowDragOver($event,index)" @dragleave="onRowDragLeave($event)" @dragend="onRowDragEnd($event)" @drop="onRowDrop($event)" role="row">
                     <template v-for="(col,i) of columns" :key="columnProp(col,'columnKey')||columnProp(col,'field')||i">
-                        <DTBodyCell v-if="shouldRenderBodyCell(value, col, index)" :rowData="rowData" :column="col" :index="index" :selected="isSelected(rowData)"
+                        <DTBodyCell v-if="shouldRenderBodyCell(value, col, index)" :rowData="rowData" :column="col" :rowIndex="index" :index="i" :selected="isSelected(rowData)"
                             :rowTogglerIcon="columnProp(col,'expander') ? rowTogglerIcon(rowData): null" :frozenRow="frozenRow"
                             :rowspan="rowGroupMode === 'rowspan' ? calculateRowGroupSize(value, col, index) : null"
                             :editMode="editMode" :editing="editMode === 'row' && isRowEditing(rowData)" :responsiveLayout="responsiveLayout"
                             @radio-change="onRadioChange($event)" @checkbox-change="onCheckboxChange($event)" @row-toggle="onRowToggle($event)"
                             @cell-edit-init="onCellEditInit($event)" @cell-edit-complete="onCellEditComplete($event)" @cell-edit-cancel="onCellEditCancel($event)"
-                            @row-edit-init="onRowEditInit($event)" @row-edit-save="onRowEditSave($event)" @row-edit-cancel="onRowEditCancel($event)"/>
+                            @row-edit-init="onRowEditInit($event)" @row-edit-save="onRowEditSave($event)" @row-edit-cancel="onRowEditCancel($event)" @editing-cell-change="onEditingCellChange($event)"/>
                     </template>
                 </tr>
                 <tr class="p-datatable-row-expansion" v-if="templates['expansion'] && expandedRows && isRowExpanded(rowData)" :key="getRowKey(rowData, index) + '_expansion'" role="row">
@@ -52,7 +52,7 @@ export default {
     emits: ['rowgroup-toggle', 'row-click', 'row-dblclick', 'row-rightclick', 'row-touchend', 'row-keydown', 'row-mousedown',
         'row-dragstart', 'row-dragover', 'row-dragleave', 'row-dragend', 'row-drop', 'row-toggle',
         'radio-change', 'checkbox-change', 'cell-edit-init', 'cell-edit-complete', 'cell-edit-cancel',
-        'row-edit-init', 'row-edit-save', 'row-edit-cancel'],
+        'row-edit-init', 'row-edit-save', 'row-edit-cancel', 'editing-cell-change'],
     props: {
         value: {
             type: Array,
@@ -446,6 +446,9 @@ export default {
         },
         onRowEditCancel(event) {
             this.$emit('row-edit-cancel', event);
+        },
+        onEditingCellChange(event) {
+            this.$emit('editing-cell-change', event);
         },
         updateFrozenRowStickyPosition() {
             this.$el.style.top = DomHandler.getOuterHeight(this.$el.previousElementSibling) + 'px';

@@ -32,7 +32,7 @@
                     @row-mousedown="onRowMouseDown" @row-dragstart="onRowDragStart($event)" @row-dragover="onRowDragOver($event)" @row-dragleave="onRowDragLeave($event)" @row-dragend="onRowDragEnd($event)" @row-drop="onRowDrop($event)"
                     @row-toggle="toggleRow($event)" @radio-change="toggleRowWithRadio($event)" @checkbox-change="toggleRowWithCheckbox($event)"
                     @cell-edit-init="onCellEditInit($event)" @cell-edit-complete="onCellEditComplete($event)" @cell-edit-cancel="onCellEditCancel($event)"
-                    @row-edit-init="onRowEditInit($event)" @row-edit-save="onRowEditSave($event)" @row-edit-cancel="onRowEditCancel($event)"/>
+                    @row-edit-init="onRowEditInit($event)" @row-edit-save="onRowEditSave($event)" @row-edit-cancel="onRowEditCancel($event)" @editing-cell-change="onEditingCellChange($event)"/>
                 <DTTableBody :value="dataToRender" :columns="columns" :empty="empty" :dataKey="dataKey" :selection="selection" :selectionKeys="d_selectionKeys" :selectionMode="selectionMode" :contextMenu="contextMenu" :contextMenuSelection="contextMenuSelection"
                     :rowGroupMode="rowGroupMode" :groupRowsBy="groupRowsBy" :expandableRowGroups="expandableRowGroups" :rowClass="rowClass" :editMode="editMode" :compareSelectionBy="compareSelectionBy" :scrollable="scrollable"
                     :expandedRowIcon="expandedRowIcon" :collapsedRowIcon="collapsedRowIcon" :expandedRows="expandedRows" :expandedRowKeys="d_expandedRowKeys" :expandedRowGroups="expandedRowGroups"
@@ -41,7 +41,7 @@
                     @row-mousedown="onRowMouseDown" @row-dragstart="onRowDragStart($event)" @row-dragover="onRowDragOver($event)" @row-dragleave="onRowDragLeave($event)" @row-dragend="onRowDragEnd($event)" @row-drop="onRowDrop($event)"
                     @row-toggle="toggleRow($event)" @radio-change="toggleRowWithRadio($event)" @checkbox-change="toggleRowWithCheckbox($event)"
                     @cell-edit-init="onCellEditInit($event)" @cell-edit-complete="onCellEditComplete($event)" @cell-edit-cancel="onCellEditCancel($event)"
-                    @row-edit-init="onRowEditInit($event)" @row-edit-save="onRowEditSave($event)" @row-edit-cancel="onRowEditCancel($event)"/>
+                    @row-edit-init="onRowEditInit($event)" @row-edit-save="onRowEditSave($event)" @row-edit-cancel="onRowEditCancel($event)" @editing-cell-change="onEditingCellChange($event)"/>
                 <DTTableFooter :columnGroup="footerColumnGroup" :columns="columns" />
             </table>
         </div>
@@ -73,11 +73,11 @@ import TableFooter from './TableFooter.vue';
 
 export default {
     name: 'DataTable',
-    emits: ['update:first', 'update:rows', 'page', 'update:sortField', 'update:sortOrder', 'update:multiSortMeta', 'sort', 'filter', 'row-click', 'row-dblclick',
+    emits: ['value-change', 'update:first', 'update:rows', 'page', 'update:sortField', 'update:sortOrder', 'update:multiSortMeta', 'sort', 'filter', 'row-click', 'row-dblclick',
         'update:selection', 'row-select', 'row-unselect', 'update:contextMenuSelection', 'row-contextmenu', 'row-unselect-all', 'row-select-all',
         'column-resize-end', 'column-reorder', 'row-reorder', 'update:expandedRows', 'row-collapse', 'row-expand',
         'update:expandedRowGroups', 'rowgroup-collapse', 'rowgroup-expand', 'update:filters', 'state-restore', 'state-save',
-        'cell-edit-init', 'cell-edit-complete', 'cell-edit-cancel', 'update:editingRows', 'row-edit-init', 'row-edit-save', 'row-edit-cancel'],
+        'cell-edit-init', 'cell-edit-complete', 'cell-edit-cancel', 'update:editingRows', 'row-edit-init', 'row-edit-save', 'row-edit-cancel', 'editing-cell-change'],
     props: {
         value: {
             type: Array,
@@ -323,7 +323,8 @@ export default {
             d_expandedRowKeys: null,
             d_columnOrder: null,
             d_editingRowKeys: null,
-            d_filters: this.cloneFilters(this.filters)
+            d_filters: this.cloneFilters(this.filters),
+            editingCells: []
         };
     },
     rowTouched: false,
@@ -425,6 +426,7 @@ export default {
             this.$emit('update:first', this.d_first);
             this.$emit('update:rows', this.d_rows);
             this.$emit('page', pageEvent);
+            this.$emit('value-change', this.processedData);
         },
         onColumnHeaderClick(e) {
             const event = e.originalEvent;
@@ -468,6 +470,7 @@ export default {
                     }
 
                     this.$emit('sort', this.createLazyLoadEvent(event));
+                    this.$emit('value-change', this.processedData);
                 }
             }
         },
@@ -613,6 +616,7 @@ export default {
             let filterEvent = this.createLazyLoadEvent();
             filterEvent.filteredValue = filteredValue;
             this.$emit('filter', filterEvent);
+            this.$emit('value-change', this.processedData);
 
             return filteredValue;
         },
@@ -1520,6 +1524,18 @@ export default {
         onCellEditCancel(event) {
             this.$emit('cell-edit-cancel', event);
         },
+        onEditingCellChange(event) {
+            let { rowIndex, cellIndex, editing } = event;
+            let _editingCells = [...this.editingCells];
+
+            if (editing)
+                _editingCells.push({ rowIndex, cellIndex });
+            else
+                _editingCells = _editingCells.filter(cell => !(cell.rowIndex === rowIndex && cell.cellIndex === cellIndex));
+
+            this.editingCells = _editingCells;
+            this.$emit('value-change', this.processedData);
+        },
         onRowEditInit(event) {
             let _editingRows = this.editingRows ? [...this.editingRows] : [];
             _editingRows.push(event.data);
@@ -1708,14 +1724,14 @@ export default {
         hasFilters() {
             return this.filters && Object.keys(this.filters).length > 0 && this.filters.constructor === Object;
         },
+        hasEditingCell() {
+            return this.editingCells && this.editingCells.length !== 0;
+        },
         processedData() {
-            if (this.lazy) {
-                 return this.value || [];
-            }
-            else {
-                if (this.value && this.value.length) {
-                    let data = this.value;
+            let data = this.value || [];
 
+            if (!this.lazy && !this.hasEditingCell) {
+                if (data && data.length) {
                     if (this.sorted) {
                         if(this.sortMode === 'single')
                             data = this.sortSingle(data);
@@ -1726,12 +1742,10 @@ export default {
                     if (this.hasFilters) {
                         data = this.filter(data);
                     }
-
-                    return data;
                 }
-
-                return [];
             }
+
+            return data;
         },
         dataToRender() {
             const data = this.processedData;

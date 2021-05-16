@@ -498,6 +498,17 @@ const DataTableEvents = [
         ]
     },
     {
+        name: "value-change",
+        description: "Invoked after filtering, sorting, pagination and cell editing to pass the rendered value.",
+        arguments: [
+            {
+                name: "value",
+                type: "array",
+                description: "Value displayed by the table."
+            }
+        ]
+    },
+    {
         name: "row-click",
         description: "Callback to invoke when a row is clicked.",
         arguments: [
