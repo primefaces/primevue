@@ -360,6 +360,9 @@ export default {
     watch: {
         modelValue() {
             this.updateCurrentMetaData();
+        },
+        showTime() {
+            this.updateCurrentMetaData();
         }
     },
     methods: {
@@ -622,22 +625,20 @@ export default {
             return !this.$attrs.disabled && !this.$attrs.readonly;
         },
         updateCurrentTimeMeta(date) {
-            const hours = date.getHours();
+            let currentHour = date.getHours();
 
             if (this.hourFormat === '12') {
-                this.pm = hours > 11;
+                this.pm = currentHour > 11;
 
-                if (hours >= 12)
-                    this.currentHour = (hours == 12) ? 12 : hours - 12;
+                if (currentHour >= 12)
+                    currentHour = (currentHour == 12) ? 12 : currentHour - 12;
                 else
-                    this.currentHour = (hours == 0) ? 12 : hours;
-            }
-            else {
-                this.currentHour = date.getHours();
+                    currentHour = (currentHour == 0) ? 12 : currentHour;
             }
 
-            this.currentMinute = date.getMinutes();
-            this.currentSecond = date.getSeconds();
+            this.currentHour = Math.floor(currentHour / this.stepHour) * this.stepHour;
+            this.currentMinute = Math.floor(date.getMinutes() / this.stepMinute) * this.stepMinute;
+            this.currentSecond = Math.floor(date.getSeconds() / this.stepSecond) * this.stepSecond;
         },
         bindOutsideClickListener() {
             if (!this.outsideClickListener) {
