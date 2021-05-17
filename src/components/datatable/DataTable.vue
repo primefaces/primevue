@@ -1050,15 +1050,24 @@ export default {
                     let nextColumnWidth = nextColumn.offsetWidth - delta;
 
                     if (newColumnWidth > 15 && nextColumnWidth > 15) {
-                        this.resizeColumnElement.style.width = newColumnWidth + 'px';
-                        if(nextColumn) {
-                            nextColumn.style.width = nextColumnWidth + 'px';
+                        if (!this.scrollable) {
+                            this.resizeColumnElement.style.width = newColumnWidth + 'px';
+                            if(nextColumn) {
+                                nextColumn.style.width = nextColumnWidth + 'px';
+                            }
+                        }
+                        else {
+                            this.resizeTableCells(newColumnWidth, nextColumnWidth);
                         }
                     }
                 }
                 else if (this.columnResizeMode === 'expand') {
                     this.$refs.table.style.width = this.$refs.table.offsetWidth + delta + 'px';
-                    this.resizeColumnElement.style.width = newColumnWidth + 'px';
+
+                    if (!this.scrollable) 
+                        this.resizeColumnElement.style.width = newColumnWidth + 'px';
+                    else
+                        this.resizeTableCells(newColumnWidth);
                 }
 
                 this.$emit('column-resize-end', {
@@ -1075,6 +1084,23 @@ export default {
 
             if (this.isStateful()) {
                 this.saveState();
+            }
+        },
+        resizeTableCells(newColumnWidth, nextColumnWidth) {
+            let colIndex = DomHandler.index(this.resizeColumnElement);
+            let children = this.$refs.table.children;
+            for (let child of children) {
+                for (let row of child.children) {
+                    let resizeCell = row.children[colIndex];
+                    resizeCell.style.flex = '0 0 ' + newColumnWidth + 'px';
+
+                    if (this.columnResizeMode === 'fit') {
+                        let nextCell = resizeCell.nextElementSibling;
+                        if (nextCell) {
+                            nextCell.style.flex = '0 0 ' + nextColumnWidth + 'px';
+                        }
+                    }
+                }
             }
         },
         resizeColGroup(table, resizeColumnIndex, newColumnWidth, nextColumnWidth) {
