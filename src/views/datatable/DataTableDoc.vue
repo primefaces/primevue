@@ -1027,7 +1027,7 @@ matchModes: [
 
             <h6>Scrollable RowGroup</h6>
             <p>Row groups with subheaders have exclusive support for filtering, when the table scrolls the subheaders stay fixed as long as their
-            data are still displayed. No additional configuration is required to enable this feature. View the <router-link to="/datatable/rowgroup">Row Grouğ</router-link> demo for an example.</p>
+            data are still displayed. No additional configuration is required to enable this feature. View the <router-link to="/datatable/rowgroup">Row Group</router-link> demo for an example.</p>
 
             <h5>Lazy Loading</h5>
             <p>Lazy mode is handy to deal with large datasets, instead of loading the entire data, small chunks of data is loaded by invoking corresponding callbacks such as paging and sorting.
@@ -1041,7 +1041,7 @@ matchModes: [
             <h5>Row Expansion</h5>
             <p>Rows can be expanded to display additional content using the <i>expandedRows</i> property with the v-model directive accompanied by a template named "expansion". <i>row-expand</i> and <i>row-collapse</i> are optional callbacks that are invoked when a row is expanded or toggled.</p>
 
-            <p>The <i>dataKey</i> property identifies a unique value of a row in the dataset, it is not mandatory in row expansion functionality however being able to define it increases the performance of the table signifantly.</p>
+            <p>The <i>dataKey</i> property identifies a unique value of a row in the dataset, it is not mandatory in row expansion functionality however being able to define it increases the performance of the table significantly.</p>
 <pre v-code><code><template v-pre>
 &lt;DataTable :value="cars" v-model:expandedRows="expandedRows" dataKey="vin"
     @row-expand="onRowExpand" @row-collapse="onRowCollapse"&gt;
