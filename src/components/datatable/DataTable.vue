@@ -388,7 +388,7 @@ export default {
         }
     },
     mounted() {
-        if (this.scrollable && this.scrollDirection !== 'vertical') {
+        if (this.scrollable && (this.scrollDirection !== 'vertical' || this.rowGroupMode === 'subheader')) {
             this.updateScrollWidth();
         }
 
@@ -409,7 +409,7 @@ export default {
             this.saveState();
         }
 
-        if (this.scrollable && this.scrollDirection !== 'vertical') {
+        if (this.scrollable && (this.scrollDirection !== 'vertical' || this.rowGroupMode === 'subheader')) {
             this.updateScrollWidth();
         }
     },
