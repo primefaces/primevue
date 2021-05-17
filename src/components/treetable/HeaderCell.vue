@@ -1,7 +1,7 @@
 <template>
     <th :style="[containerStyle]" :class="containerClass" @click="onClick" @keydown="onKeyDown"
         :tabindex="columnProp('sortable') ? '0' : null"  :aria-sort="ariaSort">
-        <span class="p-column-resizer" @mousedown="onResizeStart" v-if="resizableColumns"></span>
+        <span class="p-column-resizer" @mousedown="onResizeStart" v-if="resizableColumns && !columnProp('frozen')"></span>
         <component :is="column.children.header" :column="column" v-if="column.children && column.children.header" />
         <span class="p-column-title" v-if="columnProp('header')">{{columnProp('header')}}</span>
         <span v-if="columnProp('sortable')" :class="sortableColumnIcon"></span>

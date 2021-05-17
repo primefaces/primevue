@@ -3,7 +3,7 @@
         @click="onClick" @keydown="onKeyDown" @mousedown="onMouseDown"
         @dragstart="onDragStart" @dragover="onDragOver" @dragleave="onDragLeave" @drop="onDrop"
         :colspan="columnProp('colspan')" :rowspan="columnProp('rowspan')" :aria-sort="ariaSort">
-        <span class="p-column-resizer" @mousedown="onResizeStart" v-if="resizableColumns"></span>
+        <span class="p-column-resizer" @mousedown="onResizeStart" v-if="resizableColumns && !columnProp('frozen')"></span>
         <div class="p-column-header-content">
             <component :is="column.children.header" :column="column" v-if="column.children && column.children.header"/>
             <span class="p-column-title" v-if="columnProp('header')">{{columnProp('header')}}</span>
