@@ -1905,6 +1905,10 @@ export default {
     background: inherit;
 }
 
+.p-datatable-scrollable th.p-frozen-column {
+    z-index: 1;
+}
+
 .p-datatable-scrollable-both .p-datatable-thead > tr > th,
 .p-datatable-scrollable-both .p-datatable-tbody > tr > td,
 .p-datatable-scrollable-both .p-datatable-tfoot > tr > td,
