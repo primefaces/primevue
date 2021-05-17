@@ -2253,6 +2253,18 @@
 .p-datatable.p-datatable-gridlines .p-datatable-tfoot > tr > td {
   border-width: 1px;
 }
+.p-datatable.p-datatable-gridlines.p-datatable-scrollable .p-datatable-thead > tr > th + th {
+  border-left-width: 0;
+}
+.p-datatable.p-datatable-gridlines.p-datatable-scrollable .p-datatable-tbody > tr > td + td {
+  border-left-width: 0;
+}
+.p-datatable.p-datatable-gridlines.p-datatable-scrollable .p-datatable-tbody > tr + tr > td, .p-datatable.p-datatable-gridlines.p-datatable-scrollable .p-datatable-tbody > tr:first-child > td {
+  border-top-width: 0;
+}
+.p-datatable.p-datatable-gridlines.p-datatable-scrollable .p-datatable-tfoot > tr > td + td {
+  border-left-width: 0;
+}
 .p-datatable.p-datatable-striped .p-datatable-tbody > tr:nth-child(even) {
   background: #f8f8f8;
 }
