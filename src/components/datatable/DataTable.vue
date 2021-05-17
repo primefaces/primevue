@@ -376,10 +376,10 @@ export default {
             }
         },
         filters: {
-            handler: function (newValue) {
+            deep: true,
+            handler: function(newValue) {
                 this.d_filters = this.cloneFilters(newValue);
-            },
-            deep: true
+            }
         }
     },
     beforeMount() {
