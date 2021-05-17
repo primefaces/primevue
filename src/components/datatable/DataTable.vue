@@ -375,8 +375,11 @@ export default {
                 this.updateEditingRowKeys(newValue);
             }
         },
-        filters(newValue) {
-            this.d_filters = this.cloneFilters(newValue);
+        filters: {
+            handler: function (newValue) {
+                this.d_filters = this.cloneFilters(newValue);
+            },
+            deep: true
         }
     },
     beforeMount() {
