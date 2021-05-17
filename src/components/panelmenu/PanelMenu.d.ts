@@ -1,5 +1,6 @@
 interface PanelMenuProps {
     model?: any[];
+    expandedKeys?: any;
 }
 
 declare class PanelMenu {

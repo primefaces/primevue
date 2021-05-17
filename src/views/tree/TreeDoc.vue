@@ -593,7 +593,7 @@ export default {
                         <td>expandedKeys</td>
                         <td>array</td>
                         <td>null</td>
-                        <td>A map of keys to represent the state of the tree expansion state in controlled mode.</td>
+                        <td>A map of keys to represent the expansion state in controlled mode.</td>
                     </tr>
                     <tr>
                         <td>selectionMode</td>

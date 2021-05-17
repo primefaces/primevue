@@ -18,8 +18,9 @@
                 </template>
                 <component v-else :is="template" :item="item"></component>
                 <transition name="p-toggleable-content">
-                    <div class="p-toggleable-content" v-show="item === activeItem">
-                        <PanelMenuSub :model="item.items" v-if="visible(item) && item.items" :key="item.label + '_sub_'" :template="template" />
+                    <div class="p-toggleable-content" v-show="isActive(item)">
+                        <PanelMenuSub :model="item.items" v-if="visible(item) && item.items" :key="item.label + '_sub_'" :template="template" 
+                            :expandedKeys="expandedKeys" @item-toggle="$emit('item-toggle', $event)" />
                     </div>
                 </transition>
             </li>
@@ -31,6 +32,7 @@
 <script>
 export default {
     name: 'PanelMenuSub',
+    emits: ['item-toggle'],
     props: {
 		model: {
             type: null,
@@ -38,6 +40,10 @@ export default {
         },
         template: {
             type: Object,
+            default: null
+        },
+        expandedKeys: {
+            type: null,
             default: null
         }
     },
@@ -65,6 +71,8 @@ export default {
             else
                 this.activeItem = item;
 
+            this.$emit('item-toggle', {item: item, expanded: this.activeItem != null});
+
             if (item.to && navigate) {
                 navigate(event);
             }
@@ -76,7 +84,7 @@ export default {
             return ['p-menuitem-link', {'p-disabled': item.disabled}];
         },
         isActive(item) {
-            return item === this.activeItem;
+            return this.expandedKeys ? this.expandedKeys[item.key] : item === this.activeItem;
         },
         getSubmenuIcon(item) {
             const active = this.isActive(item);

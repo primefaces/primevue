@@ -9,7 +9,7 @@ const TreeProps = [
         name: "expandedKeys",
         type: "array",
         default: "null",
-        description: "A map of keys to represent the state of the tree expansion state in controlled mode."
+        description: "A map of keys to represent the expansion state in controlled mode."
     },
     {
         name: "selectionMode",

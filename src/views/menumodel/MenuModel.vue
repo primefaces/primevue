@@ -110,6 +110,12 @@ const items: [
                                 <td>null</td>
                                 <td>Style class of the menuitem.</td>
                             </tr>
+                            <tr>
+                                <td>key</td>
+                                <td>object</td>
+                                <td>null</td>
+                                <td>Unique identifier of an item.</td>
+                            </tr>
                         </tbody>
                     </table>
                 </div>
