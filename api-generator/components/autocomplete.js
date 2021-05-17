@@ -60,6 +60,12 @@ const AutoCompleteProps = [
         description: "Minimum number of characters to initiate a search."
     },
     {
+        name: "completeOnFocus",
+        type: "boolean",
+        default: false,
+        description: "Whether to run a query when input receives focus."
+    },
+    {
         name: "delay",
         type: "number",
         default: "300",
