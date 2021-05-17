@@ -7,10 +7,18 @@ const PanelMenuProps = [
     }
 ];
 
+const PanelMenuSlots = [
+    {
+        name: "item",
+        description: "Template of a menuitem."
+    }
+];
+
 module.exports = {
     panelmenu: {
         name: "PanelMenu",
         description: "PanelMenu is a hybrid of Accordion and Tree components",
-        props: PanelMenuProps
+        props: PanelMenuProps,
+        slots: PanelMenuSlots
     }
 };

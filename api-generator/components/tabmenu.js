@@ -13,10 +13,18 @@ const TabMenuProps = [
     }
 ];
 
+const TabMenuSlots = [
+    {
+        name: "item",
+        description: "Template of a menuitem."
+    }
+];
+
 module.exports = {
     tabmenu: {
         name: "TabMenu",
         description: "TabMenu is a navigation component that displays items as tab headers.",
-        props: TabMenuProps
+        props: TabMenuProps,
+        slots: TabMenuSlots
     }
 };

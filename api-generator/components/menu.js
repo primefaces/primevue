@@ -31,10 +31,18 @@ const MenuProps = [
     }
 ];
 
+const MenuSlots = [
+    {
+        name: "item",
+        description: "Template of a menuitem."
+    }
+];
+
 module.exports = {
     menu: {
         name: "Menu",
         description: "Menu is a navigation / command component that supports dynamic and static positioning.",
-        props: MenuProps
+        props: MenuProps,
+        slots: MenuSlots
     }
 };

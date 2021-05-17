@@ -4,17 +4,23 @@
             <template v-for="(item,i) of model" :key="item.label + '_' + i.toString()">
                 <router-link v-if="item.to && !item.disabled" :to="item.to" custom v-slot="{navigate, href, isActive, isExactActive}">
                     <li :class="getRouteItemClass(item,isActive,isExactActive)" :style="item.style" v-if="visible(item)" role="tab">
-                        <a :href="href" class="p-menuitem-link" @click="onItemClick($event, item, navigate)" role="presentation" v-ripple>
-                            <span :class="getItemIcon(item)" v-if="item.icon"></span>
-                            <span class="p-menuitem-text">{{item.label}}</span>
-                        </a>
+                        <template v-if="!$slots.item">
+                            <a :href="href" class="p-menuitem-link" @click="onItemClick($event, item, navigate)" role="presentation" v-ripple>
+                                <span :class="getItemIcon(item)" v-if="item.icon"></span>
+                                <span class="p-menuitem-text">{{item.label}}</span>
+                            </a>
+                        </template>
+                        <component v-else :is="$slots.item" :item="item"></component>
                     </li>
                 </router-link>
                 <li v-else-if="visible(item)" :class="getItemClass(item)" role="tab">
-                    <a :href="item.url" class="p-menuitem-link" :target="item.target" @click="onItemClick($event, item)" role="presentation" :tabindex="item.disabled ? null : '0'" v-ripple>
-                        <span :class="getItemIcon(item)" v-if="item.icon"></span>
-                        <span class="p-menuitem-text">{{item.label}}</span>
-                    </a>
+                    <template v-if="!$slots.item">
+                        <a :href="item.url" class="p-menuitem-link" :target="item.target" @click="onItemClick($event, item)" role="presentation" :tabindex="item.disabled ? null : '0'" v-ripple>
+                            <span :class="getItemIcon(item)" v-if="item.icon"></span>
+                            <span class="p-menuitem-text">{{item.label}}</span>
+                        </a>
+                     </template>
+                     <component v-else :is="$slots.item" :item="item"></component>
                 </li>
             </template>
             <li ref="inkbar" class="p-tabmenu-ink-bar"></li>
@@ -38,15 +44,19 @@ export default {
             default: true
         }
     },
+    timeout: null,
     mounted() {
         this.updateInkBar();
     },
     updated() {
         this.updateInkBar();
     },
+    beforeUnmount() {
+        clearTimeout(this.timeout);
+    },
     watch: {
         $route() {
-            setTimeout(() => this.updateInkBar(), 50);
+            this.timeout = setTimeout(() => this.updateInkBar(), 50);
         }
     },
     methods: {

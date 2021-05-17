@@ -155,11 +155,14 @@ export default {
 </code></pre>
 
         <h5>Custom Content</h5>
-        <p>Two slots named "start" and "end" are provided to embed content before or after the menubar.</p>
+        <p>Two slots named "start" and "end" are provided to embed content before or after the menubar. In additon Menubar, offers item customization with the <i>item</i> template that receives the menuitem instance from the model as a parameter.</p>
 <pre v-code><code><template v-pre>
 &lt;Menubar :model="items"&gt;
     &lt;template #start&gt;
         Before
+    &lt;/template&gt;
+    &lt;template #item="{item}"&gt;
+        &lt;a :href="item.url"&gt;{{item.label}}&lt;/a&gt;
     &lt;/template&gt;
     &lt;template #end&gt;
         After
@@ -208,6 +211,10 @@ export default {
                   <tr>
                      <td>end</td>
                      <td>-</td>
+                  </tr>
+                  <tr>
+                     <td>item</td>
+                     <td>item: Menuitem instance</td>
                   </tr>
                </tbody>
          </table>

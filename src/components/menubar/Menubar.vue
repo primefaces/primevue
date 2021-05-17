@@ -6,7 +6,7 @@
         <a ref="menubutton" tabindex="0" class="p-menubar-button" @click="toggle($event)">
             <i class="pi pi-bars" />
         </a>
-        <MenubarSub ref="rootmenu" :model="model" :root="true" :mobileActive="mobileActive" @leaf-click="onLeafClick"/>
+        <MenubarSub ref="rootmenu" :model="model" :root="true" :mobileActive="mobileActive" @leaf-click="onLeafClick" :template="$slots.item"/>
         <div class="p-menubar-end" v-if="$slots.end">
             <slot name="end"></slot>
         </div>

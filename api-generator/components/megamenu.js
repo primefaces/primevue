@@ -13,10 +13,18 @@ const MegaMenuProps = [
     }
 ];
 
+const MegaMenuSlots = [
+    {
+        name: "item",
+        description: "Template of a menuitem."
+    }
+];
+
 module.exports = {
     megamenu: {
         name: "MegaMenu",
         description: "MegaMenu is navigation component that displays submenus together.",
-        props: MegaMenuProps
+        props: MegaMenuProps,
+        slots: MegaMenuSlots
     }
 };

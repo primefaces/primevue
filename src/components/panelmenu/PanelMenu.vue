@@ -3,24 +3,27 @@
         <template v-for="(item, index) of model" :key="item.label + '_' + index">
             <div v-if="visible(item)"  :class="getPanelClass(item)" :style="item.style">
                 <div :class="getHeaderClass(item)" :style="item.style">
-                    <router-link v-if="item.to && !item.disabled" :to="item.to" custom v-slot="{navigate, href}">
-                        <a :href="href" class="p-panelmenu-header-link" @click="onItemClick($event, item, navigate)" role="treeitem">
+                    <template v-if="!$slots.item">
+                        <router-link v-if="item.to && !item.disabled" :to="item.to" custom v-slot="{navigate, href}">
+                            <a :href="href" class="p-panelmenu-header-link" @click="onItemClick($event, item, navigate)" role="treeitem">
+                                <span v-if="item.icon" :class="getPanelIcon(item)"></span>
+                                <span class="p-menuitem-text">{{item.label}}</span>
+                            </a>
+                        </router-link>
+                        <a v-else :href="item.url" class="p-panelmenu-header-link" @click="onItemClick($event, item)" :tabindex="item.disabled ? null : '0'"
+                            :aria-expanded="isActive(item)" :id="ariaId +'_header'" :aria-controls="ariaId +'_content'">
+                            <span v-if="item.items" :class="getPanelToggleIcon(item)"></span>
                             <span v-if="item.icon" :class="getPanelIcon(item)"></span>
                             <span class="p-menuitem-text">{{item.label}}</span>
                         </a>
-                    </router-link>
-                    <a v-else :href="item.url" class="p-panelmenu-header-link" @click="onItemClick($event, item)" :tabindex="item.disabled ? null : '0'"
-                        :aria-expanded="isActive(item)" :id="ariaId +'_header'" :aria-controls="ariaId +'_content'">
-                        <span v-if="item.items" :class="getPanelToggleIcon(item)"></span>
-                        <span v-if="item.icon" :class="getPanelIcon(item)"></span>
-                        <span class="p-menuitem-text">{{item.label}}</span>
-                    </a>
+                    </template>
+                    <component v-else :is="$slots.item" :item="item"></component>
                 </div>
                 <transition name="p-toggleable-content">
                     <div class="p-toggleable-content" v-show="item === activeItem"
                         role="region" :id="ariaId +'_content' " :aria-labelledby="ariaId +'_header'">
                         <div class="p-panelmenu-content" v-if="item.items">
-                            <PanelMenuSub :model="item.items" class="p-panelmenu-root-submenu" />
+                            <PanelMenuSub :model="item.items" class="p-panelmenu-root-submenu" :template="$slots.item" />
                         </div>
                     </div>
                 </transition>

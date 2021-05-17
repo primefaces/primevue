@@ -31,10 +31,18 @@ const TieredMenuProps = [
     }
 ];
 
+const TieredMenuSlots = [
+    {
+        name: "item",
+        description: "Template of a menuitem."
+    }
+];
+
 module.exports = {
     tieredmenu: {
         name: "TieredMenu",
         description: "TieredMenu displays submenus in nested overlays.",
-        props: TieredMenuProps
+        props: TieredMenuProps,
+        slots: TieredMenuSlots
     }
 };

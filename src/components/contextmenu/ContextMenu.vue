@@ -2,7 +2,7 @@
     <Teleport :to="appendTo">
         <transition name="p-contextmenu" @enter="onEnter" @leave="onLeave" @after-leave="onAfterLeave">
             <div :ref="containerRef" :class="containerClass" v-if="visible" v-bind="$attrs">
-                <ContextMenuSub :model="model" :root="true" @leaf-click="onLeafClick" />
+                <ContextMenuSub :model="model" :root="true" @leaf-click="onLeafClick" :template="$slots.item"/>
             </div>
         </transition>
     </Teleport>

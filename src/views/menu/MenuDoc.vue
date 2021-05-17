@@ -86,6 +86,17 @@ toggle(event) {
 
 </code></pre>
 
+        <h5>Templating</h5>
+        <p>Menu offers content customization with the <i>item</i> template that receives the menuitem instance from the model as a parameter.</p>
+<pre v-code><code><template v-pre>
+&lt;Menu :model="items"&gt;
+    &lt;template #item="{item}"&gt;
+        &lt;a :href="item.url"&gt;{{item.label}}&lt;/a&gt;
+    &lt;/template&gt;
+&lt;/Menu&gt;
+</template>
+</code></pre>
+
         <h5>Properties</h5>
         <p>Any property as style and class are passed to the main container element. Following are the additional properties to configure the component.</p>
 		<div class="doc-tablewrapper">
@@ -163,6 +174,24 @@ toggle(event) {
 				</tbody>
 			</table>
 		</div>
+
+        <h5>Slots</h5>
+		<div class="doc-tablewrapper">
+            <table class="doc-table">
+				<thead>
+                    <tr>
+                        <th>Name</th>
+                        <th>Parameters</th>
+                    </tr>
+				</thead>
+				<tbody>
+                    <tr>
+                        <td>item</td>
+                        <td>item: Menuitem instance</td>
+                    </tr>
+				</tbody>
+			</table>
+        </div>
 
 		<h5>Styling</h5>
 		<p>Following is the list of structural style classes, for theming classes visit <router-link to="/theming">theming</router-link> page.</p>

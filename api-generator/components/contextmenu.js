@@ -31,10 +31,18 @@ const ContextMenuProps = [
     }
 ];
 
+const ContextMenuSlots = [
+    {
+        name: "item",
+        description: "Template of a menuitem."
+    }
+];
+
 module.exports = {
     contextmenu: {
         name: "ContextMenu",
         description: "ContextMenu displays an overlay menu on right click of its target.",
-        props: ContextMenuProps
+        props: ContextMenuProps,
+        slots: ContextMenuSlots
     }
 };

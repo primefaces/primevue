@@ -1,15 +1,18 @@
 <template>
     <li :class="containerClass" role="none" :style="item.style" v-if="visible()">
-        <router-link v-if="item.to && !item.disabled" :to="item.to" custom v-slot="{navigate, href}">
-            <a :href="href" @click="onClick($event, navigate)" :class="linkClass" v-ripple role="menuitem">
+        <template v-if="!template">
+            <router-link v-if="item.to && !item.disabled" :to="item.to" custom v-slot="{navigate, href}">
+                <a :href="href" @click="onClick($event, navigate)" :class="linkClass" v-ripple role="menuitem">
+                    <span :class="['p-menuitem-icon', item.icon]"></span>
+                    <span class="p-menuitem-text">{{item.label}}</span>
+                </a>
+            </router-link>
+            <a v-else :href="item.url" :class="linkClass" @click="onClick" :target="item.target" role="menuitem" :tabindex="item.disabled ? null : '0'" v-ripple>
                 <span :class="['p-menuitem-icon', item.icon]"></span>
                 <span class="p-menuitem-text">{{item.label}}</span>
             </a>
-        </router-link>
-        <a v-else :href="item.url" :class="linkClass" @click="onClick" :target="item.target" role="menuitem" :tabindex="item.disabled ? null : '0'" v-ripple>
-            <span :class="['p-menuitem-icon', item.icon]"></span>
-            <span class="p-menuitem-text">{{item.label}}</span>
-        </a>
+        </template>
+        <component v-else :is="template" :item="item"></component>
     </li>
 </template>
 
@@ -21,7 +24,8 @@ export default {
     inheritAttrs: false,
     emits: ['click'],
     props: {
-        item: null
+        item: null,
+        template: null
     },
     methods: {
         onClick(event, navigate) {

@@ -15,6 +15,10 @@ const MenubarSlots = [
     {
         name: "end",
         description: "Custom content after the content"
+    },
+    {
+        name: "item",
+        description: "Template of a menuitem."
     }
 ];
 
