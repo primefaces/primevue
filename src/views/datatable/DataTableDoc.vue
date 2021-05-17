@@ -2492,12 +2492,36 @@ export default {
                             <td>Container element.</td>
                         </tr>
                         <tr>
+                            <td>p-datatable-scrollable</td>
+                            <td>Container element when table is scrollable.</td>
+                        </tr>
+                        <tr>
                             <td>p-datatable-header</td>
                             <td>Header section.</td>
                         </tr>
                         <tr>
                             <td>p-datatable-footer</td>
                             <td>Footer section.</td>
+                        </tr>
+                        <tr>
+                            <td>p-datatable-wrapper</td>
+                            <td>Wrapper of table element.</td>
+                        </tr>
+                        <tr>
+                            <td>p-datatable-table</td>
+                            <td>Table element.</td>
+                        </tr>
+                         <tr>
+                            <td>p-datatable-thead</td>
+                            <td>Table thead element.</td>
+                        </tr>
+                         <tr>
+                            <td>p-datatable-tbody</td>
+                            <td>Table tbody element.</td>
+                        </tr>
+                         <tr>
+                            <td>p-datatable-tfoot</td>
+                            <td>Table tfoot element.</td>
                         </tr>
                         <tr>
                             <td>p-column-title</td>
@@ -2507,29 +2531,9 @@ export default {
                             <td>p-sortable-column</td>
                             <td>Sortable column header.</td>
                         </tr>
-                        <tr>
-                            <td>p-column-filter</td>
-                            <td>Filter element in header.</td>
-                        </tr>
-                        <tr>
-                            <td>p-datatable-scrollable-header</td>
-                            <td>Container of header in a scrollable table.</td>
-                        </tr>
-                        <tr>
-                            <td>p-datatable-scrollable-body</td>
-                            <td>Container of body in a scrollable table.</td>
-                        </tr>
-                        <tr>
-                            <td>p-datatable-scrollable-footer</td>
-                            <td>Container of footer in a scrollable table.</td>
-                        </tr>
-                        <tr>
-                            <td>p-datatable-responsive</td>
-                            <td>Container element of a responsive datatable.</td>
-                        </tr>
-                        <tr>
-                            <td>p-datatable-emptymessage</td>
-                            <td>Cell containing the empty message.</td>
+                         <tr>
+                            <td>p-frozen-column</td>
+                            <td>Frozen column header.</td>
                         </tr>
                         <tr>
                             <td>p-rowgroup-header</td>
@@ -2538,6 +2542,30 @@ export default {
                         <tr>
                             <td>p-rowgroup-footer</td>
                             <td>Footer of a rowgroup.</td>
+                        </tr>
+                        <tr>
+                            <td>p-datatable-row-expansion</td>
+                            <td>Expanded row content.</td>
+                        </tr>
+                        <tr>
+                            <td>p-row-toggler</td>
+                            <td>Toggle element for row expansion.</td>
+                        </tr>
+                        <tr>
+                            <td>p-datatable-emptymessage</td>
+                            <td>Cell containing the empty message.</td>
+                        </tr>
+                        <tr>
+                            <td>p-row-editor-init</td>
+                            <td>Pencil button of row editor.</td>
+                        </tr>
+                        <tr>
+                            <td>p-row-editor-init</td>
+                            <td>Save button of row editor.</td>
+                        </tr>
+                        <tr>
+                            <td>p-row-editor-init</td>
+                            <td>Cancel button of row editor.</td>
                         </tr>
                     </tbody>
                 </table>

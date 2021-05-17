@@ -1654,12 +1654,36 @@ export default {
                         <td>Container element.</td>
                     </tr>
                     <tr>
+                        <td>p-treetable-scrollable</td>
+                        <td>Container element when table is scrollable.</td>
+                    </tr>
+                    <tr>
                         <td>p-treetable-header</td>
                         <td>Header section.</td>
                     </tr>
                     <tr>
                         <td>p-treetable-footer</td>
                         <td>Footer section.</td>
+                    </tr>
+                    <tr>
+                        <td>p-treetable-wrapper</td>
+                        <td>Wrapper of table element.</td>
+                    </tr>
+                    <tr>
+                        <td>p-treetable-table</td>
+                        <td>Table element.</td>
+                    </tr>
+                        <tr>
+                        <td>p-treetable-thead</td>
+                        <td>Table thead element.</td>
+                    </tr>
+                        <tr>
+                        <td>p-treetable-tbody</td>
+                        <td>Table tbody element.</td>
+                    </tr>
+                        <tr>
+                        <td>p-treetable-tfoot</td>
+                        <td>Table tfoot element.</td>
                     </tr>
                     <tr>
                         <td>p-column-title</td>
@@ -1670,24 +1694,16 @@ export default {
                         <td>Sortable column header.</td>
                     </tr>
                     <tr>
-                        <td>p-treetable-scrollable-header</td>
-                        <td>Container of header in a scrollable table.</td>
+                        <td>p-frozen-column</td>
+                        <td>Frozen column header.</td>
                     </tr>
                     <tr>
-                        <td>p-treetable-scrollable-body</td>
-                        <td>Container of body in a scrollable table.</td>
-                    </tr>
-                    <tr>
-                        <td>p-treetable-scrollable-footer</td>
-                        <td>Container of footer in a scrollable table.</td>
+                        <td>p-treetable-toggler</td>
+                        <td>Toggle element for a row.</td>
                     </tr>
                     <tr>
                         <td>p-treetable-emptymessage</td>
                         <td>Cell containing the empty message.</td>
-                    </tr>
-                    <tr>
-                        <td>p-treetable-toggler</td>
-                        <td>Toggler icon.</td>
                     </tr>
 				</tbody>
 			</table>
