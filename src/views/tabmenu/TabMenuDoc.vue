@@ -53,6 +53,12 @@ export default {
                         <td>null</td>
                         <td>An array of menuitems.</td>
                     </tr>
+                    <tr>
+                        <td>exact</td>
+                        <td>boolean</td>
+                        <td>true</td>
+                        <td>Defines if active route highlight should match the exact route path.</td>
+                    </tr>
 				</tbody>
 			</table>
 		</div>

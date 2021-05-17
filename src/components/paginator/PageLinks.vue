@@ -8,6 +8,7 @@
 import Ripple from 'primevue/ripple';
 
 export default {
+    name: 'PageLinks',
     inheritAttrs: false,
     emits: ['click'],
     props: {

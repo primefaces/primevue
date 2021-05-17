@@ -44,7 +44,7 @@ import FileUpload from 'primevue/fileupload';
 
 </code></pre>
 
-		<h5>File Size and File Linit</h5>
+		<h5>File Size and File Limit</h5>
 		<p>Maximium file size can be restricted using <i>maxFileSize</i> property defined in bytes. Similarly <i>fileLimit</i> is available to restrict the number of files to be uploaded.</p>
 <pre v-code><code>
 &lt;FileUpload name="demo[]" url="./upload" :maxFileSize="1000000" :fileLimit="3" /&gt;
@@ -128,7 +128,7 @@ myUploader(event) {
                     <tr>
                         <td>accept</td>
                         <td>string</td>
-                        <td>false</td>
+                        <td>null</td>
                         <td>Pattern to restrict the allowed file types such as "image/*".</td>
                     </tr>
                     <tr>
@@ -223,61 +223,67 @@ myUploader(event) {
 		<div classe="doc-tablewrapper">
 			<table class="doc-table">
 				<thead>
-				<tr>
-					<th>Name</th>
-					<th>Parameters</th>
-					<th>Description</th>
-				</tr>
+					<tr>
+						<th>Name</th>
+						<th>Parameters</th>
+						<th>Description</th>
+					</tr>
 				</thead>
 				<tbody>
-				<tr>
-					<td>before-upload</td>
-					<td>event.xhr: XmlHttpRequest instance. <br/>
-						event.formData: FormData object.</td>
-					<td>Callback to invoke before file upload begins to customize the request
-						such as post parameters before the files.</td>
-				</tr>
-				<tr>
-					<td>before-send</td>
-					<td>event.xhr: XmlHttpRequest instance. <br/>
-						event.formData: FormData object.</td>
-					<td>Callback to invoke before file send begins to customize the request
-						such as adding headers.</td>
-				</tr>
-				<tr>
-					<td>upload</td>
-					<td>event.xhr: XmlHttpRequest instance.<br />
-						event.files: Uploaded files.</td>
-					<td>Callback to invoke when file upload is complete.</td>
-				</tr>
-				<tr>
-					<td>error</td>
-					<td>event.xhr: XmlHttpRequest instance.<br />
-						event.files: Files that are not uploaded.</td>
-					<td>Callback to invoke if file upload fails.</td>
-				</tr>
-				<tr>
-					<td>clear</td>
-					<td>-.</td>
-					<td>Callback to invoke when files in queue are removed without uploading.</td>
-				</tr>
-				<tr>
-					<td>select</td>
-					<td>event.originalEvent: Original browser event. <br />
-						event.files: List of selected files.</td>
-					<td>Callback to invoke when file upload is complete.</td>
-				</tr>
-				<tr>
-					<td>progress</td>
-					<td>event.originalEvent: Original browser event. <br />
-						event.progress: Calculated progress value.</td>
-					<td>Callback to invoke when files are selected.</td>
-				</tr>
-                <tr>
-					<td>uploader</td>
-					<td>event.files: List of selected files.</td>
-					<td>Callback to invoke to implement a custom upload.</td>
-				</tr>
+					<tr>
+						<td>before-upload</td>
+						<td>event.xhr: XmlHttpRequest instance. <br/>
+							event.formData: FormData object.</td>
+						<td>Callback to invoke before file upload begins to customize the request
+							such as post parameters before the files.</td>
+					</tr>
+					<tr>
+						<td>before-send</td>
+						<td>event.xhr: XmlHttpRequest instance. <br/>
+							event.formData: FormData object.</td>
+						<td>Callback to invoke before file send begins to customize the request
+							such as adding headers.</td>
+					</tr>
+					<tr>
+						<td>upload</td>
+						<td>event.xhr: XmlHttpRequest instance.<br />
+							event.files: Uploaded files.</td>
+						<td>Callback to invoke when file upload is complete.</td>
+					</tr>
+					<tr>
+						<td>error</td>
+						<td>event.xhr: XmlHttpRequest instance.<br />
+							event.files: Files that are not uploaded.</td>
+						<td>Callback to invoke if file upload fails.</td>
+					</tr>
+					<tr>
+						<td>clear</td>
+						<td>-.</td>
+						<td>Callback to invoke when files in queue are removed without uploading.</td>
+					</tr>
+					<tr>
+						<td>select</td>
+						<td>event.originalEvent: Original browser event. <br />
+							event.files: List of selected files.</td>
+						<td>Callback to invoke when file upload is complete.</td>
+					</tr>
+					<tr>
+						<td>progress</td>
+						<td>event.originalEvent: Original browser event. <br />
+							event.progress: Calculated progress value.</td>
+						<td>Callback to invoke when files are selected.</td>
+					</tr>
+					<tr>
+						<td>uploader</td>
+						<td>event.files: List of selected files.</td>
+						<td>Callback to invoke to implement a custom upload.</td>
+					</tr>
+					<tr>
+						<td>remove</td>
+						<td>event.file: Removed file. <br />
+							event.files: Remaining files to be uploaded.</td>
+						<td>Callback to invoke when a singe file is removed from the list.</td>
+					</tr>
 				</tbody>
 			</table>
 		</div>

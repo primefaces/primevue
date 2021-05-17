@@ -28,6 +28,7 @@ import {ConnectedOverlayScrollHandler,DomHandler,ZIndexUtils} from 'primevue/uti
 import OverlayEventBus from 'primevue/overlayeventbus';
 
 export default {
+    name: 'ColorPicker',
     emits: ['update:modelValue'],
     props: {
         modelValue: {
@@ -100,7 +101,7 @@ export default {
             this.scrollHandler.destroy();
             this.scrollHandler = null;
         }
-        
+
         if (this.picker && this.autoZIndex) {
             ZIndexUtils.clear(this.picker);
         }
@@ -569,7 +570,11 @@ export default {
             return ['p-colorpicker-preview p-inputtext', {'p-disabled': this.disabled}];
         },
         pickerClass() {
-            return ['p-colorpicker-panel', this.panelClass, {'p-colorpicker-overlay-panel': !this.inline, 'p-disabled': this.disabled}];
+            return ['p-colorpicker-panel', this.panelClass, {
+                'p-colorpicker-overlay-panel': !this.inline, 'p-disabled': this.disabled,
+                'p-input-filled': this.$primevue.config.inputStyle === 'filled',
+                'p-ripple-disabled': this.$primevue.config.ripple === false
+            }];
         },
         appendDisabled() {
             return this.appendTo === 'self' || this.inline;

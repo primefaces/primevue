@@ -112,6 +112,21 @@ export default {
 </template>
 </code></pre>
 
+        <h5>Custom Connectors</h5>
+        <p>Connector is an element that binds two events together, use the <i>connector</i> slot to use your own element instead of the default one. If you just require to customize simple properties like the 
+        color and width, apply the "p-timeline-event-connector" class to your element to use the built-in positioning.</p>
+<pre v-code><code><template v-pre>
+&lt;Timeline :value="events"&gt;
+	&lt;template #content="slotProps"&gt;
+		&#123;&#123;slotProps.item.status&#125;&#125;
+	&lt;/template&gt;
+    &lt;template #connector&gt;
+		&lt;div class="p-timeline-event-connector" style="width:4px; color: blue"&gt;&lt;/div&gt;
+	&lt;/template&gt;
+&lt;/Timeline&gt;
+</template>
+</code></pre>
+
 		<h5>Properties</h5>
 		<div class="doc-tablewrapper">
 			<table class="doc-table">
@@ -134,7 +149,7 @@ export default {
 						<td>align</td>
 						<td>string</td>
 						<td>left</td>
-						<td>Position of the timeline bar relative to the content. Valid values are "left", "right for vertical layout and "top", "bottom" for horizontal layout.</td>
+						<td>Position of the timeline bar relative to the content. Valid values are "left", "right" for vertical layout and "top", "bottom" for horizontal layout.</td>
 					</tr>
 					<tr>
 						<td>layout</td>
@@ -164,18 +179,23 @@ export default {
 				<tbody>
                     <tr>
                         <td>opposite</td>
-                        <td>item: Position of the component<br />
-							index: Index of the item</td>
+                        <td>item: Position of the event<br />
+							index: Index of the event</td>
                     </tr>
                     <tr>
                         <td>marker</td>
-                        <td>item: Custom marker of the component<br />
-							index: Index of the item</td>
+                        <td>item: Custom marker of the event<br />
+							index: Index of the event</td>
                     </tr>
 					<tr>
                         <td>content</td>
-                        <td>item: Content of the component<br />
-							index: Index of the item</td>
+                        <td>item: Content of the event<br />
+							index: Index of the event</td>
+                    </tr>
+                    <tr>
+                        <td>connector</td>
+                        <td>item: Content of the event<br />
+							index: Index of the event</td>
                     </tr>
 				</tbody>
 			</table>

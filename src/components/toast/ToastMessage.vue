@@ -17,6 +17,7 @@
 import Ripple from 'primevue/ripple';
 
 export default {
+    name: 'ToastMessage',
     emits: ['close'],
     props: {
         message: null

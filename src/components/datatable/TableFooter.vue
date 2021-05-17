@@ -2,13 +2,13 @@
     <tfoot class="p-datatable-tfoot" v-if="hasFooter" role="rowgroup">
         <tr v-if="!columnGroup" role="row">
             <template v-for="(col,i) of columns" :key="columnProp(col,'columnKey')||columnProp(col,'field')||i" >
-                <DTFooterCell :column="col" />
+                <DTFooterCell :column="col" v-if="!columnProp(col,'hidden')"/>
             </template>
         </tr>
         <template v-else>
             <tr v-for="(row,i) of columnGroup.children.default()" :key="i" role="row">
                 <template v-for="(col,j) of row.children.default()" :key="columnProp(col,'columnKey')||columnProp(col,'field')||j">
-                    <DTFooterCell :column="col" />
+                    <DTFooterCell :column="col" v-if="!columnProp(col,'hidden')"/>
                 </template>
             </tr>
         </template>
@@ -19,6 +19,7 @@
 import FooterCell from './FooterCell.vue';
 
 export default {
+    name: 'TableFooter',
     props: {
         columnGroup: {
             type: null,

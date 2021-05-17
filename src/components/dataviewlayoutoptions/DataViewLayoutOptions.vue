@@ -11,6 +11,7 @@
 
 <script>
 	export default {
+        name: 'DataViewLayoutOptions',
 		emits: ['update:modelValue'],
 		props: {
 			modelValue: String

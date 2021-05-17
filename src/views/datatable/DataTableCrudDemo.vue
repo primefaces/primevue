@@ -27,13 +27,13 @@
                     paginatorTemplate="FirstPageLink PrevPageLink PageLinks NextPageLink LastPageLink CurrentPageReport RowsPerPageDropdown" :rowsPerPageOptions="[5,10,25]"
                     currentPageReportTemplate="Showing {first} to {last} of {totalRecords} products" responsiveLayout="scroll">
                     <template #header>
-                        <div class="table-header">
-                            <h5 class="p-m-0">Manage Products</h5>
-                            <span class="p-input-icon-left">
+                        <div class="table-header p-d-flex p-flex-column p-flex-md-row p-jc-md-between">
+							<h5 class="p-mb-2 p-m-md-0 p-as-md-center">Manage Products</h5>
+							<span class="p-input-icon-left">
                                 <i class="pi pi-search" />
-                                <InputText v-model="filters['global']" placeholder="Search..." />
+                                <InputText v-model="filters['global'].value" placeholder="Search..." />
                             </span>
-                        </div>
+						</div>
                     </template>
 
                     <Column selectionMode="multiple" style="width: 3rem" :exportable="false"></Column>
@@ -164,6 +164,7 @@
 </template>
 
 <script>
+import {FilterMatchMode} from 'primevue/api';
 import ProductService from '../../service/ProductService';
 
 export default {
@@ -206,13 +207,13 @@ export default {
                 paginatorTemplate="FirstPageLink PrevPageLink PageLinks NextPageLink LastPageLink CurrentPageReport RowsPerPageDropdown" :rowsPerPageOptions="[5,10,25]"
                 currentPageReportTemplate="Showing {first} to {last} of {totalRecords} products" responsiveLayout="scroll">
                 <template #header>
-                    <div class="table-header">
-                        <h5 class="p-m-0">Manage Products</h5>
-                        <span class="p-input-icon-left">
+                    <div class="table-header p-d-flex p-flex-column p-flex-md-row p-jc-md-between">
+						<h5 class="p-mb-2 p-m-md-0 p-as-md-center">Manage Products</h5>
+						<span class="p-input-icon-left">
                             <i class="pi pi-search" />
-                            <InputText v-model="filters['global']" placeholder="Search..." />
+                            <InputText v-model="filters['global'].value" placeholder="Search..." />
                         </span>
-                    </div>
+					</div>
                 </template>
 
                 <Column selectionMode="multiple" style="width: 3rem" :exportable="false"></Column>
@@ -340,6 +341,7 @@ export default {
 </template>
 
 <script>
+import { FilterMatchMode } from 'primevue/api';
 import ProductService from './service/ProductService';
 
 export default {
@@ -363,6 +365,7 @@ export default {
     productService: null,
     created() {
         this.productService = new ProductService();
+        this.initFilters();
     },
     mounted() {
         this.productService.getProducts().then(data => this.products = data);
@@ -448,16 +451,25 @@ export default {
             this.deleteProductsDialog = false;
             this.selectedProducts = null;
             this.$toast.add({severity:'success', summary: 'Successful', detail: 'Products Deleted', life: 3000});
+        },
+        initFilters() {
+            this.filters = {
+                'global': {value: null, matchMode: FilterMatchMode.CONTAINS},
+            }
         }
     }
 }
 <\\/script>
 
-<style scoped>
+<style lang="scss" scoped>
 .table-header {
     display: flex;
     align-items: center;
     justify-content: space-between;
+
+    @media screen and (max-width: 960px) {
+        align-items: start;
+	}
 }
 
 .product-image {
@@ -475,6 +487,15 @@ export default {
     display: flex;
     align-items: center;
     justify-content: center;
+}
+@media screen and (max-width: 960px) {
+	::v-deep(.p-toolbar) {
+		flex-wrap: wrap;
+        
+		.p-button {
+            margin-bottom: 0.25rem;
+        }
+	}
 }
 </style>
 `
@@ -502,13 +523,13 @@ export default {
                 paginatorTemplate="FirstPageLink PrevPageLink PageLinks NextPageLink LastPageLink CurrentPageReport RowsPerPageDropdown" :rowsPerPageOptions="[5,10,25]"
                 currentPageReportTemplate="Showing {first} to {last} of {totalRecords} products" responsiveLayout="scroll">
                 <template #header>
-                    <div class="table-header">
-                        <h5 class="p-m-0">Manage Products</h5>
-                        <span class="p-input-icon-left">
+                    <div class="table-header p-d-flex p-flex-column p-flex-md-row p-jc-md-between">
+						<h5 class="p-mb-2 p-m-md-0 p-as-md-center">Manage Products</h5>
+						<span class="p-input-icon-left">
                             <i class="pi pi-search" />
-                            <InputText v-model="filters['global']" placeholder="Search..." />
+                            <InputText v-model="filters['global'].value" placeholder="Search..." />
                         </span>
-                    </div>
+					</div>
                 </template>
 
                 <Column selectionMode="multiple" style="width: 3rem" :exportable="false"></Column>
@@ -637,6 +658,7 @@ export default {
 
 <script>
 import { ref, onMounted } from 'vue';
+import { FilterMatchMode } from 'primevue/api';
 import { useToast } from 'primevue/usetoast';
 import ProductService from './service/ProductService';
 
@@ -655,7 +677,9 @@ export default {
         const product = ref({});
         const productService = ref(new ProductService());
         const selectedProducts = ref();
-        const filters = ref({});
+        const filters = ref({
+            'global': {value: null, matchMode: FilterMatchMode.CONTAINS},
+        });
         const submitted = ref(false);
         const statuses = ref([
 	     	{label: 'INSTOCK', value: 'instock'},
@@ -752,11 +776,15 @@ export default {
 }
 <\\/script>
 
-<style scoped>
+<style lang="scss" scoped>
 .table-header {
     display: flex;
     align-items: center;
     justify-content: space-between;
+
+    @media screen and (max-width: 960px) {
+        align-items: start;
+	}
 }
 
 .product-image {
@@ -775,6 +803,15 @@ export default {
     align-items: center;
     justify-content: center;
 }
+@media screen and (max-width: 960px) {
+	::v-deep(.p-toolbar) {
+		flex-wrap: wrap;
+        
+		.p-button {
+            margin-bottom: 0.25rem;
+        }
+	}
+}
 </style>
 `
                 }
@@ -784,6 +821,7 @@ export default {
     productService: null,
     created() {
         this.productService = new ProductService();
+        this.initFilters();
     },
     mounted() {
         this.productService.getProducts().then(data => this.products = data);
@@ -869,16 +907,25 @@ export default {
             this.deleteProductsDialog = false;
             this.selectedProducts = null;
             this.$toast.add({severity:'success', summary: 'Successful', detail: 'Products Deleted', life: 3000});
+        },
+        initFilters() {
+            this.filters = {
+                'global': {value: null, matchMode: FilterMatchMode.CONTAINS},
+            }
         }
     }
 }
 </script>
 
-<style scoped>
+<style lang="scss" scoped>
 .table-header {
     display: flex;
     align-items: center;
     justify-content: space-between;
+
+    @media screen and (max-width: 960px) {
+        align-items: start;
+	}
 }
 
 .product-image {
@@ -896,5 +943,15 @@ export default {
     display: flex;
     align-items: center;
     justify-content: center;
+}
+
+@media screen and (max-width: 960px) {
+	::v-deep(.p-toolbar) {
+		flex-wrap: wrap;
+
+		.p-button {
+            margin-bottom: 0.25rem;
+        }
+	}
 }
 </style>

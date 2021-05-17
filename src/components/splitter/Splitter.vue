@@ -2,8 +2,8 @@
     <div :class="containerClass">
         <template v-for="(panel,i) of panels" :key="i" class="p-splitter-panel">
              <component :is="panel"></component>
-             <div class="p-splitter-gutter" v-if="i !== (panels.length -1)" :style="gutterStyle" 
-                @mousedown="onGutterMouseDown($event, i)" 
+             <div class="p-splitter-gutter" v-if="i !== (panels.length -1)" :style="gutterStyle"
+                @mousedown="onGutterMouseDown($event, i)"
                 @touchstart="onGutterTouchStart($event, i)"
                 @touchmove="onGutterTouchMove($event, i)"
                 @touchend="onGutterTouchEnd($event, i)">
@@ -17,8 +17,8 @@
 import {DomHandler} from 'primevue/utils';
 
 export default {
+    name: 'Splitter',
     emits: ['resizeend'],
-    name: 'splitter',
     props: {
         layout: {
             type: String,
@@ -48,7 +48,7 @@ export default {
     nextPanelSize: null,
     prevPanelSize: null,
     panelSizes: null,
-    prevPanelIndex: null, 
+    prevPanelIndex: null,
     mounted() {
         if (this.panels && this.panels.length) {
             let initialized = false;
@@ -77,7 +77,7 @@ export default {
     },
     methods: {
         isSplitterPanel(child) {
-            return child.type.name === 'splitterpanel';
+            return child.type.name === 'SplitterPanel';
         },
         onResizeStart(event, index) {
             this.gutterElement = event.currentTarget;
@@ -101,7 +101,7 @@ export default {
 
             let newPrevPanelSize = this.prevPanelSize + newPos;
             let newNextPanelSize = this.nextPanelSize - newPos;
-            
+
             if (this.validateResize(newPrevPanelSize, newNextPanelSize)) {
                 this.prevPanelElement.style.flexBasis = 'calc(' + newPrevPanelSize + '% - ' + ((this.panels.length - 1) * this.gutterSize) + 'px)';
                 this.nextPanelElement.style.flexBasis = 'calc(' + newNextPanelSize + '% - ' + ((this.panels.length - 1) * this.gutterSize) + 'px)';

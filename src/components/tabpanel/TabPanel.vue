@@ -4,7 +4,7 @@
 
 <script>
 export default {
-    name: 'tabpanel',
+    name: 'TabPanel',
     props: {
         header: null,
         disabled: Boolean

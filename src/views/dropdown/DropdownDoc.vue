@@ -171,7 +171,7 @@ export default {
                         <td>scrollHeight</td>
                         <td>string</td>
                         <td>200px</td>
-                        <td>Height of the viewport in pixels, a scrollbar is defined if height of list exceeds this value.</td>
+                        <td>Height of the viewport, a scrollbar is defined if height of list exceeds this value.</td>
                     </tr>
                     <tr>
                         <td>filter</td>
@@ -276,6 +276,18 @@ export default {
                         <td>null</td>
                         <td>Style class of the overlay panel.</td>
                     </tr>
+                    <tr>
+                        <td>loading</td>
+                        <td>boolean</td>
+                        <td>false</td>
+                        <td>Whether the dropdown is in loading state.</td>
+                    </tr>
+                    <tr>
+                        <td>loadingIcon</td>
+                        <td>string</td>
+                        <td>pi pi-spinner pi-spin</td>
+                        <td>Icon to display in loading state.</td>
+                    </tr>
 				</tbody>
 			</table>
 		</div>
@@ -299,7 +311,7 @@ export default {
                     </tr>
                     <tr>
                         <td>input</td>
-                        <td>value: New value</td>
+                        <td>event</td>
                         <td>Callback to invoke on value change.</td>
                     </tr>
                     <tr>
@@ -321,6 +333,16 @@ export default {
                         <td>hide</td>
                         <td>-</td>
                         <td>Callback to invoke when the overlay is hidden.</td>
+                    </tr>
+                    <tr>
+                        <td>focus</td>
+                        <td>event</td>
+                        <td>Callback to invoke when the component receives focus.</td>
+                    </tr>
+                    <tr>
+                        <td>blur</td>
+                        <td>event</td>
+                        <td>Callback to invoke when the component loses focus.</td>
                     </tr>
                     <tr>
                         <td>filter</td>
@@ -349,7 +371,7 @@ export default {
                         <td>Shows the overlay.</td>
                     </tr>
                     <tr>
-                        <td>Hide</td>
+                        <td>hide</td>
                         <td>-</td>
                         <td>Hides the overlay.</td>
                     </tr>
@@ -508,6 +530,9 @@ export default {
                 </div>
             </template>
         </Dropdown>
+
+        <h5>Loading State</h5>
+        <Dropdown placeholder="Loading..." loading></Dropdown>
     </div>
 </template>
 
@@ -622,6 +647,9 @@ export default {
                 </div>
             </template>
         </Dropdown>
+
+        <h5>Loading State</h5>
+        <Dropdown placeholder="Loading..." loading></Dropdown>
     </div>
 </template>
 

@@ -6,6 +6,7 @@
 
 <script>
 export default {
+    name: 'DeferredContent',
     emits: ['load'],
     data() {
         return {

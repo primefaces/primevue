@@ -6,7 +6,7 @@
 
 <script>
 export default {
-    name: 'splitterpanel',
+    name: 'SplitterPanel',
     props: {
         size: {
             type: Number,
@@ -23,7 +23,7 @@ export default {
         },
         isNested() {
             return this.$slots.default().some(child => {
-                return child.type.name === 'splitter';
+                return child.type.name === 'Splitter';
             });
         }
     }

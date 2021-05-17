@@ -96,7 +96,7 @@ import Divider from 'primevue/divider';
                     </tr>
                     <tr>
                         <td>type</td>
-                        <td>String</td>
+                        <td>string</td>
                         <td>solid</td>
                         <td>Border style type, default is "solid" and other options are "dashed" and "dotted".</td>
                     </tr>

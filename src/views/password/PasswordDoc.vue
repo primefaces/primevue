@@ -84,14 +84,14 @@ import Password from 'primevue/password';
                     <tr>
                         <td>mediumRegex</td>
                         <td>string</td>
+                        <td>^(((?=.*[a-z])(?=.*[A-Z]))|((?=.*[a-z])(?=.*[0-9]))|((?=.*[A-Z])(?=.*[0-9])))(?=.{6,})</td>
                         <td>Regex for a medium level password.</td>
-                        <td>^(((?=.*[a-z])(?=.*[A-Z]))|((?=.*[a-z])(?=.*[0-9]))|((?=.*[A-Z])(?=.*[0-9])))(?=.{6,}).</td>
                     </tr>
                     <tr>
                         <td>strongRegex</td>
                         <td>string</td>
-                        <td>Regex for a strong level password.</td>
                         <td>^(?=.*[a-z])(?=.*[A-Z])(?=.*[0-9])(?=.{8,})</td>
+                        <td>Regex for a strong level password.</td>
                     </tr>
                     <tr>
                         <td>weakLabel</td>

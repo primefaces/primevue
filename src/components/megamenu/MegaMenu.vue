@@ -55,6 +55,7 @@ import {DomHandler} from 'primevue/utils';
 import Ripple from 'primevue/ripple';
 
 export default {
+    name: 'MegaMenu',
     props: {
 		model: {
             type: Array,

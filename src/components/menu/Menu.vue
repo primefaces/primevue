@@ -26,6 +26,7 @@ import OverlayEventBus from 'primevue/overlayeventbus';
 import Menuitem from './Menuitem.vue';
 
 export default {
+    name: 'Menu',
     inheritAttrs: false,
     props: {
         popup: {
@@ -68,7 +69,7 @@ export default {
             this.scrollHandler = null;
         }
         this.target = null;
-        
+
         if (this.container && this.autoZIndex) {
             ZIndexUtils.clear(this.container);
         }
@@ -196,7 +197,9 @@ export default {
     computed: {
         containerClass() {
             return ['p-menu p-component', {
-                'p-menu-overlay': this.popup
+                'p-menu-overlay': this.popup,
+                'p-input-filled': this.$primevue.config.inputStyle === 'filled',
+                'p-ripple-disabled': this.$primevue.config.ripple === false
             }]
         }
     },

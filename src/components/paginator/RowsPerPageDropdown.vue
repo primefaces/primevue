@@ -1,12 +1,13 @@
 <template>
 	<RPPDropdown :modelValue="rows" :options="rowsOptions" optionLabel="label" optionValue="value"
-        @update:modelValue="onChange($event)"></RPPDropdown>
+        @update:modelValue="onChange($event)" class="p-paginator-rpp-options"></RPPDropdown>
 </template>
 
 <script>
 import Dropdown from 'primevue/dropdown';
 
 export default {
+    name: 'RowsPerPageDropdown',
     inheritAttrs: false,
     emits: ['rows-change'],
     props: {

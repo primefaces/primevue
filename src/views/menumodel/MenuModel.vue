@@ -54,7 +54,7 @@ const items: [
                                 <td>to</td>
                                 <td>string</td>
                                 <td>null</td>
-                                <td>Path of the route.</td>
+                                <td>Route configuration such as path, name and parameters.</td>
                             </tr>
                             <tr>
                                 <td>command</td>
@@ -135,9 +135,14 @@ const items = [
 <pre v-code.script><code>
 const items = [
     {
-        label: 'Internal',
+        label: 'Route Path',
         icon: 'pi pi-plus',
         to: '/fileupload'
+    },
+    {
+        label: 'Named Route',
+        icon: 'pi pi-plus',
+        to: {name: 'fileupload'}
     },
     {
         label: 'External',
@@ -164,6 +169,24 @@ const items = [
 ];
 
 </code></pre>
+
+            <h5>Separator</h5>
+            <p>Separators are special menuitems whose sole purpose is to divide menuitems. A separator is simply configured as below.</p>
+<pre v-code.script><code>
+const items = [
+    {
+        label: 'Item 1'
+    },
+    {
+        separator: true
+    },
+    {
+        label: 'Item 2'
+    }
+];
+
+</code></pre>
+
         </div>
     </div>
 </template>

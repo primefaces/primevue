@@ -53,6 +53,7 @@ interface DataTableProps {
     rowClass?: any;
     scrollable?: boolean;
     scrollHeight?: string;
+    scrollDirection?: string;
     frozenValue?: any[];
     responsiveLayout?: string;
     breakpoing?: string;
@@ -66,7 +67,9 @@ declare class DataTable {
     $emit(eventName: 'page', event: Event): this;
     $emit(eventName: 'sort', event: Event): this;
     $emit(eventName: 'filter', event: Event): this;
+    $emit(eventName: 'value-change', value: any[]): this;
     $emit(eventName: 'row-click', event: Event): this;
+    $emit(eventName: 'row-dblclick', event: Event): this;
     $emit(eventName: 'row-contextmenu', event: Event): this;
     $emit(eventName: 'row-select', event: Event): this;
     $emit(eventName: 'row-unselect', event: Event): this;

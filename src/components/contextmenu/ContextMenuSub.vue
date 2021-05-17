@@ -16,7 +16,7 @@
                         <span class="p-menuitem-text">{{item.label}}</span>
                         <span class="p-submenu-icon pi pi-angle-right" v-if="item.items"></span>
                     </a>
-                    <sub-menu :model="item.items" v-if="visible(item) && item.items" :key="item.label + '_sub_'"
+                    <ContextMenuSub :model="item.items" v-if="visible(item) && item.items" :key="item.label + '_sub_'"
                         @leaf-click="onLeafClick" :parentActive="item === activeItem" />
                 </li>
                 <li :class="['p-menu-separator', item.class]" :style="item.style" v-if="visible(item) && item.separator" :key="'separator' + i.toString()" role="separator"></li>
@@ -30,8 +30,8 @@ import {DomHandler} from 'primevue/utils';
 import Ripple from 'primevue/ripple';
 
 export default {
+    name: 'ContextMenuSub',
     emits: ['leaf-click'],
-    name: 'sub-menu',
     props: {
         model: {
             type: Array,

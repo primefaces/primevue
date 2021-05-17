@@ -6,7 +6,7 @@
 import DataTable from 'primevue/datatable';
 import Column from 'primevue/column';
 import ColumnGroup from 'primevue/columngroup';     //optional for column grouping
-				
+
 </code></pre>
 
             <h5>Getting Started</h5>
@@ -30,7 +30,7 @@ export default class CarService {
 		return axios.get('demo/data/cars-large.json').then(res => res.data.data);
 	}
 }
-				
+
 </code></pre>
 
             <p>Example response;</p>
@@ -49,7 +49,7 @@ export default class CarService {
         {"brand": "Fiat", "year": 2013, "color": "Red", "vin": "245t2s"}
     ]
 }
-                
+
 </code></pre>
 
             <p>Following sample datatable has 4 columns and retrieves the data from a service on mount.</p>
@@ -349,12 +349,6 @@ export default {
                             <td>When enabled, column displays row editor controls.</td>
                         </tr>
                         <tr>
-                            <td>rowEditor</td>
-                            <td>boolean</td>
-                            <td>false</td>
-                            <td>When enabled, column displays row editor controls.</td>
-                        </tr>
-                        <tr>
                             <td>frozen</td>
                             <td>boolean</td>
                             <td>false</td>
@@ -371,6 +365,18 @@ export default {
                             <td>boolean</td>
                             <td>true</td>
                             <td>Whether the column is included in data export.</td>
+                        </tr>
+                        <tr>
+                            <td>filterMatchMode</td>
+                            <td>string</td>
+                            <td>null</td>
+                            <td>Defines the filtering algorithm to use when searching the options.</td>
+                        </tr>
+                        <tr>
+                            <td>hidden</td>
+                            <td>boolean</td>
+                            <td>false</td>
+                            <td>Whether the column is rendered.</td>
                         </tr>
                     </tbody>
                 </table>
@@ -667,10 +673,10 @@ data() {
 </code></pre>
 
             <h5>Filtering</h5>
-            <p>DataTable has advanced filtering capabilities that does the heavy lifting while providing flexible customization. Filtering has two layout alternatives defined with the <i>filterDisplay</i>. 
+            <p>DataTable has advanced filtering capabilities that does the heavy lifting while providing flexible customization. Filtering has two layout alternatives defined with the <i>filterDisplay</i>.
             In <b>row</b> setting, filter elements are displayed in a separate row at the header section whereas
             in <i>menu</i> mode filter elements are displayed inside an overlay. Filter metadata is specified using the <i>filters</i> as a v-model and UI elements for the filtering
-            are placed inside the filter template. The template filter gets a <i>filterModel</i> and <i>filterCallback</i>, 
+            are placed inside the filter template. The template filter gets a <i>filterModel</i> and <i>filterCallback</i>,
             use filterModel.value to populate the filter with your own form components and call the filterCallback with the event of your choice like @input, @change, @click.</p>
 
 <pre v-code.script><code>
@@ -1024,68 +1030,13 @@ matchModes: [
             data are still displayed. No additional configuration is required to enable this feature. View the <router-link to="/datatable/rowgroup">Row Grouğ</router-link> demo for an example.</p>
 
             <h5>Lazy Loading</h5>
-            <p>Lazy mode is handy to deal with large datasets, instead of loading the entire data, small chunks of data is loaded by invoking corresponding callbacks such as paging and sorting. Sample belows imitates lazy paging by using an in memory list.
-                It is also important to assign the logical number of rows to totalRecords by doing a projection query for paginator configuration so that paginator displays the UI
-                assuming there are actually records of totalRecords size although in reality they aren't as in lazy mode, only the records that are displayed on the current page exist.</p>
+            <p>Lazy mode is handy to deal with large datasets, instead of loading the entire data, small chunks of data is loaded by invoking corresponding callbacks such as paging and sorting.
+                It is also important to assign the logical number of rows to totalRecords by doing a projection query for paginator configuration so that paginator displays the UI accordingly.</p>
 
-            <p>Lazy loading is implemented by handling pagination and sorting using <i>page</i> and <i>sort</i> events by making a remote query using the information
-            passed to the events such as first offset, number of rows and sort field for ordering. Filtering is handled differently as filter elements are defined using templates. <i>filter</i> event is not triggered in
-            lazy mode instead use the event you prefer on your form elements such as input, change, blur to make a remote call by passing the filters property to update the displayed data. Note that,
-            in lazy filtering, totalRecords should also be updated to align the data with the paginator.</p>
+            <p>Lazy loading is implemented by handling <i>page</i>, <i>sort</i>, <i>filter</i> events by making a remote query using the information
+            passed to these events such as first offset, number of rows, sort field for ordering and filters. Note that, in lazy filtering totalRecords should also be updated to align the data with the paginator.</p>
 
-            <p>Here is a sample paging implementation with in memory data, a more enhanced example with a backend is being worked on and will be available at a github repository.</p>
-<pre v-code><code><template v-pre>
-&lt;DataTable :value="cars" :lazy="true" :paginator="true" :rows="10"
-    :totalRecords="totalRecords" :loading="loading" @page="onPage($event)"&gt;
-    &lt;Column field="vin" header="Vin"&gt;&lt;/Column&gt;
-    &lt;Column field="year" header="Year"&gt;&lt;/Column&gt;
-    &lt;Column field="brand" header="Brand"&gt;&lt;/Column&gt;
-    &lt;Column field="color" header="Color"&gt;&lt;/Column&gt;
-&lt;/DataTable&gt;
-</template>
-</code></pre>
-
-<pre v-code.script><code>
-import CarService from '../../service/CarService';
-
-export default {
-    data() {
-        return {
-            loading: false,
-            totalRecords: 0,
-            cars: null
-        }
-    },
-    datasource: null,
-    carService: null,
-    created() {
-        this.carService = new CarService();
-    },
-    mounted() {
-        this.loading = true;
-
-        setTimeout(() => {
-            this.carService.getCarsLarge().then(data => {
-                this.datasource = data;
-                this.totalRecords = data.length,
-                this.cars = this.datasource.slice(0, 10);
-                this.loading = false;
-            });
-        }, 1000);
-    },
-    methods: {
-        onPage(event) {
-            this.loading = true;
-
-            setTimeout(() => {
-                this.cars = this.datasource.slice(event.first, event.first + event.rows);
-                this.loading = false;
-            }, 1000);
-        }
-    }
-}
-
-</code></pre>
+            <p>Visit the <router-link to="/datatable/lazy">lazy loading</router-link> demo for an example with a remote datasource.</p>
 
             <h5>Row Expansion</h5>
             <p>Rows can be expanded to display additional content using the <i>expandedRows</i> property with the v-model directive accompanied by a template named "expansion". <i>row-expand</i> and <i>row-collapse</i> are optional callbacks that are invoked when a row is expanded or toggled.</p>
@@ -1784,16 +1735,16 @@ export default {
 </code></pre>
 
            <h5>Responsive</h5>
-           <p>DataTable responsive layout can be achieved in two ways; first approach is displaying a horizontal scrollbar for smaller screens 
+           <p>DataTable responsive layout can be achieved in two ways; first approach is displaying a horizontal scrollbar for smaller screens
                 and second one is defining a breakpoint to display the cells of a row as stacked. Scrollable tables use the scroll layout approach internally and do not require additional configuration.</p>
 
             <h6>Scroll Layout</h6>
             <p>Set <i>responsiveLayout</i> to scroll to enabled this layout. Note that, when scroll mode is enabled table-layout automatically switches to auto from fixed
-            as a result table widths are likely to differ and resizable columns are not supported. Read more about <a href="https://www.w3schools.com/cssref/pr_tab_table-layout.asp">table-layout</a> for more details.</p> 
+            as a result table widths are likely to differ and resizable columns are not supported. Read more about <a href="https://www.w3schools.com/cssref/pr_tab_table-layout.asp">table-layout</a> for more details.</p>
 
 <pre v-code><code><template v-pre>
 &lt;DataTable :value="products" responsiveLayout="scroll"&gt;
-    
+
 &lt;/DataTable&gt;
 </template>
 </code></pre>
@@ -1802,10 +1753,10 @@ export default {
             <p>In stack layout, columns are displayed as stacked after a certain breakpoint. Default is '960px'.</p>
 <pre v-code><code><template v-pre>
 &lt;DataTable :value="products" responsiveLayout="stack" breakpoint="640px"&gt;
-    
+
 &lt;/DataTable&gt;
 </template>
-</code></pre>         
+</code></pre>
 
             <h5>Row and Cell Styling</h5>
             <p>Certain rows or cells can easily be styled based on conditions. Cell styling is implemented with templating whereas row styling utilizes the <i>rowClass</i> property which takes the
@@ -1934,7 +1885,7 @@ export default {
                             <td>paginatorTemplate</td>
                             <td>string</td>
                             <td>FirstPageLink PrevPageLink PageLinks <br /> NextPageLink LastPageLink RowsPerPageDropdown</td>
-                            <td>Template of the paginator.</td>
+                            <td>Template of the paginator. See the <router-link to="/paginator">Paginator</router-link> for all available options.</td>
                         </tr>
                         <tr>
                             <td>pageLinkSize</td>
@@ -2279,10 +2230,14 @@ export default {
                                 event.sortOrder: Sort order as integer <br />
                                 event.multiSortMeta: MultiSort metadata <br />
                                 event.filters: Collection of active filters <br />
-                                event.filteredValue: Filtered collection <br />
-                                event.filterMatchModes: Match modes per field
+                                event.filteredValue: Filtered collection (non-lazy only)<br />
                             </td>
                             <td>Event to emit after filtering, not triggered in lazy mode.</td>
+                        </tr>
+                        <tr>
+                            <td>value-change</td>
+                            <td>value: Value displayed by the table</td>
+                            <td>Callback to invoke after filtering, sorting, pagination and cell editing to pass the rendered value.</td>
                         </tr>
                         <tr>
                             <td>row-click</td>
@@ -2290,6 +2245,13 @@ export default {
                                 event.data: Selected row data. <br />
                                 event.index: Row index.</td>
                             <td>Callback to invoke when a row is clicked.</td>
+                        </tr>
+                         <tr>
+                            <td>row-dblclick</td>
+                            <td>event.originalEvent: Browser event. <br />
+                                event.data: Selected row data. <br />
+                                event.index: Row index.</td>
+                            <td>Callback to invoke when a row is double clicked.</td>
                         </tr>
                         <tr>
                             <td>row-contextmenu</td>
@@ -2321,12 +2283,6 @@ export default {
                             <td>Callback to invoke when a column is resized.</td>
                         </tr>
                         <tr>
-                            <td>column-resize-end</td>
-                            <td>event.element: DOM element of the resized column.<br />
-                                event.delta: Change in column width</td>
-                            <td>Callback to invoke when a column is resized.</td>
-                        </tr>
-                        <tr>
                             <td>column-reorder</td>
                             <td>event.originalEvent: Browser event<br />
                                 event.dragIndex: Index of the dragged column<br />
@@ -2336,8 +2292,8 @@ export default {
                         <tr>
                             <td>row-reorder</td>
                             <td>event.originalEvent: Browser event<br />
-                                event.originalEvent: Browser event.<br />
                                 event.dragIndex: Index of the dragged row<br />
+                                event.dropIndex: Index of the dropped row<br />
                                 value: Reordered value</td>
                             <td>Callback to invoke when a row is reordered.</td>
                         </tr>
@@ -2753,7 +2709,7 @@ export default {
     },
     mounted() {
         this.customerService.getCustomersLarge().then(data => {
-            this.customers = data; 
+            this.customers = data;
             this.customers.forEach(customer => customer.date = new Date(customer.date));
             this.loading = false;
         });

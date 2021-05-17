@@ -3,7 +3,13 @@
         <template v-for="(item, index) of model" :key="item.label + '_' + index">
             <div v-if="visible(item)"  :class="getPanelClass(item)" :style="item.style">
                 <div :class="getHeaderClass(item)" :style="item.style">
-                    <a :href="item.url" class="p-panelmenu-header-link" @click="onItemClick($event, item)" :tabindex="item.disabled ? null : '0'"
+                    <router-link v-if="item.to && !item.disabled" :to="item.to" custom v-slot="{navigate, href}">
+                        <a :href="href" class="p-panelmenu-header-link" @click="onItemClick($event, item, navigate)" role="treeitem">
+                            <span v-if="item.icon" :class="getPanelIcon(item)"></span>
+                            <span class="p-menuitem-text">{{item.label}}</span>
+                        </a>
+                    </router-link>
+                    <a v-else :href="item.url" class="p-panelmenu-header-link" @click="onItemClick($event, item)" :tabindex="item.disabled ? null : '0'"
                         :aria-expanded="isActive(item)" :id="ariaId +'_header'" :aria-controls="ariaId +'_content'">
                         <span v-if="item.items" :class="getPanelToggleIcon(item)"></span>
                         <span v-if="item.icon" :class="getPanelIcon(item)"></span>
@@ -28,6 +34,7 @@ import PanelMenuSub from './PanelMenuSub.vue';
 import {UniqueComponentId} from 'primevue/utils';
 
 export default {
+    name: 'PanelMenu',
     props: {
 		model: {
             type: Array,
@@ -40,14 +47,10 @@ export default {
         }
     },
     methods: {
-        onItemClick(event, item) {
+        onItemClick(event, item, navigate) {
             if (item.disabled) {
                 event.preventDefault();
                 return;
-            }
-
-            if (!item.url && !item.to) {
-                event.preventDefault();
             }
 
             if (item.command) {
@@ -61,6 +64,10 @@ export default {
                 this.activeItem = null;
             else
                 this.activeItem = item;
+
+            if (item.to && navigate) {
+                navigate(event);
+            }
         },
         getPanelClass(item) {
             return ['p-panelmenu-panel', item.class];

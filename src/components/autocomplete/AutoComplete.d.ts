@@ -13,6 +13,7 @@ interface AutoCompleteProps {
     minLength?: number;
     delay?: number;
     appendTo?: string;
+    completeOnFocus?: boolean;
     inputStyle?: any;
     inputClass?: string;
     forceSelection?: boolean;

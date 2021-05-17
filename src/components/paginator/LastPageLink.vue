@@ -8,6 +8,7 @@
 import Ripple from 'primevue/ripple';
 
 export default {
+    name: 'LastPageLink',
     computed: {
         containerClass() {
             return ['p-paginator-last p-paginator-element p-link', {

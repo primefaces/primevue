@@ -408,6 +408,23 @@
 - Button not registered in FileUpload [\#478](https://github.com/primefaces/primevue/issues/478)
 - BlockUI documentation indicates "show" event whereas the actual event is "unblock" [\#485](https://github.com/primefaces/primevue/issues/485)
 
+## [2.4.1](https://github.com/primefaces/primevue/tree/2.4.1) (2021-04-22)
+
+[Full Changelog](https://github.com/primefaces/primevue/compare/2.4.0...2.4.1)
+
+**Implemented New Features and Enhancements:**
+
+- Reset page on filter [\#1121](https://github.com/primefaces/primevue/issues/1121)
+- forceSelection for AutoComplete [\#1120](https://github.com/primefaces/primevue/issues/1120)
+
+**Fixed bugs:**
+
+- Circle shape is broken for Avatar [\#1116](https://github.com/primefaces/primevue/issues/1116)
+- Animation "none" not working for Skeleton [\#1115](https://github.com/primefaces/primevue/issues/1115)
+- Calendar: prop showOtherMonths = false does not hide neighbour months` dates [\#875](https://github.com/primefaces/primevue/issues/875)
+- FileUpload throws error on build [\#1017](https://github.com/primefaces/primevue/issues/1017)
+- autocomplete input no response [\#1010](https://github.com/primefaces/primevue/issues/1010)
+
 ## [2.4.0](https://github.com/primefaces/primevue/tree/2.4.0) (2021-02-22)
 
 [Full Changelog](https://github.com/primefaces/primevue/compare/2.3.0...2.4.0)

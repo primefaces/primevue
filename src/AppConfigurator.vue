@@ -196,7 +196,7 @@
                     </div>
 
                     <h4>Premium Themes</h4>
-                    <p>Premium themes are only available exclusively for <a href="https://www.primefaces.org/designer/primevue">PrimeVue Theme Designer</a> subscribers and therefore not included in PrimeNG core.</p>
+                    <p>Premium themes are only available exclusively for <a href="https://www.primefaces.org/designer/primevue">PrimeVue Theme Designer</a> subscribers and therefore not included in PrimeVue core.</p>
                     <div class="p-grid free-themes">
                         <div class="p-col-3">
                             <button class="p-link" type="button" @click="changeTheme($event, 'soho-light')">
@@ -297,6 +297,11 @@
                     <h4>Premium Vue-CLI Templates</h4>
                     <p>Beautifully crafted premium <a href="https://cli.vuejs.org">Vue CLI</a> application templates by the PrimeTek design team.</p>
                     <div class="p-grid premium-themes">
+                        <div class="p-col-12 p-md-6">
+                            <a href="https://www.primefaces.org/layouts/freya-vue">
+                                <img alt="Ultima" src="./assets/images/layouts/freya-vue.png">
+                            </a>
+                        </div>
                         <div class="p-col-12 p-md-6">
                             <a href="https://www.primefaces.org/layouts/ultima-vue">
                                 <img alt="Ultima" src="./assets/images/layouts/ultima-vue.jpg">

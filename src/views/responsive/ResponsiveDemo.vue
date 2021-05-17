@@ -270,7 +270,7 @@
                                     DataTable
                                     <span class="p-input-icon-left">
                                         <i class="pi pi-search" />
-                                        <InputText v-model="filters['global']" placeholder="Global Search" />
+                                        <InputText v-model="filters['global'].value" placeholder="Global Search" />
                                     </span>
                                 </div>
                             </template>
@@ -523,6 +523,7 @@
 </template>
 
 <script>
+import { FilterMatchMode, FilterOperator } from 'primevue/api';
 import CustomerService from '../../service/CustomerService';
 import CountryService from '../../service/CountryService';
 import ProductService from '../../service/ProductService';
@@ -530,12 +531,11 @@ import ProductService from '../../service/ProductService';
 export default {
     data() {
         return {
-
             customers: null,
             selectedCustomers: null,
             products: null,
             selectedProduct: null,
-            filters: {},
+            filters: null,
             floatValue: null,
             autoValue: null,
             selectedAutoValue: null,
@@ -1000,7 +1000,7 @@ export default {
                                 DataTable
                                 <span class="p-input-icon-left">
                                     <i class="pi pi-search" />
-                                    <InputText v-model="filters['global']" placeholder="Global Search" />
+                                    <InputText v-model="filters['global'].value" placeholder="Global Search" />
                                 </span>
                             </div>
                         </template>
@@ -1255,6 +1255,7 @@ export default {
 </template>
 
 <script>
+import { FilterMatchMode, FilterOperator } from 'primevue/api';
 import CustomerService from './service/CustomerService';
 import CountryService from './service/CountryService';
 import ProductService from './service/ProductService';
@@ -1266,7 +1267,7 @@ export default {
             selectedCustomers: null,
             products: null,
             selectedProduct: null,
-            filters: {},
+            filters: null,
             floatValue: null,
             autoValue: null,
             selectedAutoValue: null,
@@ -1470,6 +1471,7 @@ export default {
         this.countryService = new CountryService();
         this.customerService = new CustomerService();
         this.productService = new ProductService();
+        this.initFilters();
     },
     mounted() {
         this.countryService.getCountries().then(data => this.autoValue = data);
@@ -1544,6 +1546,19 @@ export default {
         onProductSelect(event) {
             this.$refs.op.hide();
             this.$toast.add({severity:'info', summary: 'Product Selected', detail: event.data.name, life: 3000});
+        },
+        initFilters() {
+            this.filters = {
+                'global': {value: null, matchMode: FilterMatchMode.CONTAINS},
+                'name': {operator: FilterOperator.AND, constraints: [{value: null, matchMode: FilterMatchMode.STARTS_WITH}]},
+                'country.name': {operator: FilterOperator.AND, constraints: [{value: null, matchMode: FilterMatchMode.STARTS_WITH}]},
+                'representative': {value: null, matchMode: FilterMatchMode.IN},
+                'date': {operator: FilterOperator.AND, constraints: [{value: null, matchMode: FilterMatchMode.DATE_IS}]},
+                'balance': {operator: FilterOperator.AND, constraints: [{value: null, matchMode: FilterMatchMode.EQUALS}]},
+                'status': {operator: FilterOperator.OR, constraints: [{value: null, matchMode: FilterMatchMode.EQUALS}]},
+                'activity': {value: null, matchMode: FilterMatchMode.BETWEEN},
+                'verified': {value: null, matchMode: FilterMatchMode.EQUALS}
+            }
         }
     }
 }
@@ -1877,7 +1892,7 @@ export default {
                                 DataTable
                                 <span class="p-input-icon-left">
                                     <i class="pi pi-search" />
-                                    <InputText v-model="filters['global']" placeholder="Global Search" />
+                                    <InputText v-model="filters['global'].value" placeholder="Global Search" />
                                 </span>
                             </div>
                         </template>
@@ -2132,7 +2147,8 @@ export default {
 </template>
 
 <script>
-import {ref, onMounted } from 'vue';
+import { ref, onMounted } from 'vue';
+import { FilterMatchMode, FilterOperator } from 'primevue/api';
 import { useToast } from 'primevue/usetoast';
 import { useConfirm } from 'primevue/useconfirm';
 import CustomerService from './service/CustomerService';
@@ -2153,7 +2169,17 @@ export default {
         const selectedCustomers = ref(null);
         const products = ref(null);
         const selectedProduct = ref(null);
-        const filters = ref({});
+        const filters = ref({
+            'global': {value: null, matchMode: FilterMatchMode.CONTAINS},
+            'name': {operator: FilterOperator.AND, constraints: [{value: null, matchMode: FilterMatchMode.STARTS_WITH}]},
+            'country.name': {operator: FilterOperator.AND, constraints: [{value: null, matchMode: FilterMatchMode.STARTS_WITH}]},
+            'representative': {value: null, matchMode: FilterMatchMode.IN},
+            'date': {operator: FilterOperator.AND, constraints: [{value: null, matchMode: FilterMatchMode.DATE_IS}]},
+            'balance': {operator: FilterOperator.AND, constraints: [{value: null, matchMode: FilterMatchMode.EQUALS}]},
+            'status': {operator: FilterOperator.OR, constraints: [{value: null, matchMode: FilterMatchMode.EQUALS}]},
+            'activity': {value: null, matchMode: FilterMatchMode.BETWEEN},
+            'verified': {value: null, matchMode: FilterMatchMode.EQUALS}
+        });
         const floatValue = ref(null);
         const autoValue = ref(null);
         const selectedAutoValue = ref(null);
@@ -2506,6 +2532,7 @@ export default {
         this.countryService = new CountryService();
         this.customerService = new CustomerService();
         this.productService = new ProductService();
+        this.initFilters();
     },
     mounted() {
         this.countryService.getCountries().then(data => this.autoValue = data);
@@ -2580,6 +2607,19 @@ export default {
         onProductSelect(event) {
             this.$refs.op.hide();
             this.$toast.add({severity:'info', summary: 'Product Selected', detail: event.data.name, life: 3000});
+        },
+        initFilters() {
+            this.filters = {
+                'global': {value: null, matchMode: FilterMatchMode.CONTAINS},
+                'name': {operator: FilterOperator.AND, constraints: [{value: null, matchMode: FilterMatchMode.STARTS_WITH}]},
+                'country.name': {operator: FilterOperator.AND, constraints: [{value: null, matchMode: FilterMatchMode.STARTS_WITH}]},
+                'representative': {value: null, matchMode: FilterMatchMode.IN},
+                'date': {operator: FilterOperator.AND, constraints: [{value: null, matchMode: FilterMatchMode.DATE_IS}]},
+                'balance': {operator: FilterOperator.AND, constraints: [{value: null, matchMode: FilterMatchMode.EQUALS}]},
+                'status': {operator: FilterOperator.OR, constraints: [{value: null, matchMode: FilterMatchMode.EQUALS}]},
+                'activity': {value: null, matchMode: FilterMatchMode.BETWEEN},
+                'verified': {value: null, matchMode: FilterMatchMode.EQUALS}
+            }
         }
     }
 }

@@ -131,13 +131,12 @@ export default {
 				<tbody>
                     <tr>
                         <td>change</td>
-                        <td>event.originalEvent: Original event <br />
-                            event.value: Selected option value </td>
+                        <td>value: Selected option value </td>
                         <td>Callback to invoke on value change.</td>
                     </tr>
                     <tr>
-                        <td>slideEnd</td>
-                        <td>event.originalEvent: Slide event <br />
+                        <td>slideend</td>
+                        <td>event.originalEvent: Original event <br />
                             event.value: New value.
                         </td>
                         <td>Callback to invoke when slide ends.</td>
@@ -194,11 +193,14 @@ export default {
         <h5>Step: {{value3}}</h5>
         <Slider v-model="value3" :step="20" />
 
-        <h5>Range: {{value4}}</h5>
-        <Slider v-model="value4" :range="true" />
+        <h5>Decimal Step: {{value4}}</h5>
+        <Slider v-model="value4" :step="0.5" />
 
-        <h5>Vertical: {{value5}}</h5>
-        <Slider v-model="value5" orientation="vertical" />
+        <h5>Range: {{value5}}</h5>
+        <Slider v-model="value5" :range="true" />
+
+        <h5>Vertical: {{value6}}</h5>
+        <Slider v-model="value6" orientation="vertical" />
     </div>
 </template>
 
@@ -209,8 +211,9 @@ export default {
             value1: null,
             value2: 50,
             value3: 20,
-            value4: [20,80],
-            value5: 50
+            value4: 30.5,
+            value5: [20,80],
+            value6: 50
         }
     }
 }
@@ -240,11 +243,14 @@ export default {
         <h5>Step: {{value3}}</h5>
         <Slider v-model="value3" :step="20" />
 
-        <h5>Range: {{value4}}</h5>
-        <Slider v-model="value4" :range="true" />
+        <h5>Decimal Step: {{value4}}</h5>
+        <Slider v-model="value4" :step="0.5" />
 
-        <h5>Vertical: {{value5}}</h5>
-        <Slider v-model="value5" orientation="vertical" />
+        <h5>Range: {{value5}}</h5>
+        <Slider v-model="value5" :range="true" />
+
+        <h5>Vertical: {{value6}}</h5>
+        <Slider v-model="value6" orientation="vertical" />
     </div>
 </template>
 
@@ -256,10 +262,11 @@ export default {
         const value1 = ref(null);
         const value2 = ref(50);
         const value3 = ref(20);
-        const value4 = ref([20,80]);
-        const value5 = ref(50);
+        const value4 = ref(30.5);
+        const value5 = ref([20,80]);
+        const value6 = ref(50);
 
-        return { value1, value2, value3, value4, value5 }
+        return { value1, value2, value3, value4, value5, value6 }
     }
 }
 <\\/script>

@@ -14,6 +14,7 @@
 import Button from 'primevue/button';
 
 export default {
+    name: 'Inplace',
     emits: ['open', 'close', 'update:active'],
     props: {
         closable: {

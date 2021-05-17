@@ -17,6 +17,7 @@
 
 <script>
 export default {
+    name: 'Chips',
     inheritAttrs: false,
     emits: ['update:modelValue', 'add', 'remove'],
     props: {

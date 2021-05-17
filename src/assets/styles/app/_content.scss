@@ -186,9 +186,10 @@
                 border-bottom: 1px solid var(--surface-d);
                 padding: 1rem;
                 text-align: left;
+                white-space: nowrap;
             }
 
-            tbody{
+            tbody {
                 td {
                     padding: 1rem;
                     border-bottom: 1px solid var(--surface-d);
@@ -197,6 +198,16 @@
                         font-family: Courier New,monospace;
                         font-weight: 700;
                         color: var(--text-color-secondary);
+                    }
+                }
+            }
+
+            &.browsers {
+                td {
+                    &:first-child {
+                        font-family: var(--font-family);
+                        font-weight: normal;
+                        color: var(--text-color);
                     }
                 }
             }

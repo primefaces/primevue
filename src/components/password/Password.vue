@@ -25,6 +25,7 @@ import OverlayEventBus from 'primevue/overlayeventbus';
 import InputText from 'primevue/inputtext';
 
 export default {
+    name: 'Password',
     emits: ['update:modelValue'],
     inheritAttrs: false,
     props: {
@@ -257,7 +258,10 @@ export default {
             }];
         },
         panelStyleClass() {
-            return ['p-password-panel p-component', this.panelClass];
+            return ['p-password-panel p-component', this.panelClass, {
+                'p-input-filled': this.$primevue.config.inputStyle === 'filled',
+                'p-ripple-disabled': this.$primevue.config.ripple === false
+            }];
         },
         toggleIconClass() {
             return this.unmasked ? 'pi pi-eye-slash' : 'pi pi-eye';

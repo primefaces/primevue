@@ -4,7 +4,7 @@
             <img :src="image" v-if="image">
             <span :class="iconClass" v-else-if="icon"></span>
             <div class="p-chip-text" v-if="label">{{label}}</div>
-            <span v-if="removable" tabindex="0" :class="removeIconClass" 
+            <span v-if="removable" tabindex="0" :class="removeIconClass"
                 @click="close" @keydown.enter="close"></span>
         </slot>
     </div>
@@ -12,6 +12,7 @@
 
 <script>
 export default {
+    name: 'Chip',
     emits: ['remove'],
     props: {
         label: {
@@ -56,7 +57,7 @@ export default {
             return ['p-chip-icon', this.icon];
         },
         removeIconClass() {
-            return ['pi-chip-remove-icon', this.removeIcon];
+            return ['p-chip-remove-icon', this.removeIcon];
         }
     }
 }
@@ -71,12 +72,12 @@ export default {
 .p-chip-text {
     line-height: 1.5;
 }
- 
+
 .p-chip-icon.pi {
     line-height: 1.5;
 }
 
-.pi-chip-remove-icon {
+.p-chip-remove-icon {
     line-height: 1.5;
     cursor: pointer;
 }

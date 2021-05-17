@@ -10,15 +10,15 @@
             </slot>
         </span>
         <div class="p-cascadeselect-trigger" role="button" aria-haspopup="listbox" :aria-expanded="overlayVisible">
-            <span class="p-cascadeselect-trigger-icon pi pi-chevron-down"></span>
+            <span :class="dropdownIconClass"></span>
         </div>
         <Teleport :to="appendTarget" :disabled="appendDisabled">
             <transition name="p-connected-overlay" @enter="onOverlayEnter" @leave="onOverlayLeave" @after-leave="onOverlayAfterLeave">
                 <div :ref="overlayRef" :class="panelStyleClass" v-if="overlayVisible" @click="onOverlayClick">
                     <div class="p-cascadeselect-items-wrapper">
-                        <CascadeSelectSub :options="options" :selectionPath="selectionPath" 
+                        <CascadeSelectSub :options="options" :selectionPath="selectionPath"
                             :optionLabel="optionLabel" :optionValue="optionValue" :level="0" :templates="$slots"
-                            :optionGroupLabel="optionGroupLabel" :optionGroupChildren="optionGroupChildren" 
+                            :optionGroupLabel="optionGroupLabel" :optionGroupChildren="optionGroupChildren"
                             @option-select="onOptionSelect" @optiongroup-select="onOptionGroupSelect" :dirty="dirty" :root="true" />
                     </div>
                 </div>
@@ -33,6 +33,7 @@ import OverlayEventBus from 'primevue/overlayeventbus';
 import CascadeSelectSub from './CascadeSelectSub.vue';
 
 export default {
+    name: 'CascadeSelect',
     emits: ['update:modelValue','change','group-change', 'before-show','before-hide','hide','show'],
     data() {
         return {
@@ -59,7 +60,15 @@ export default {
             type: String,
             default: 'body'
         },
-        panelClass: null
+        panelClass: null,
+        loading: {
+            type: Boolean,
+            default: false
+        },
+        loadingIcon: {
+            type: String,
+            default: 'pi pi-spinner pi-spin'
+        }
     },
     outsideClickListener: null,
     scrollHandler: null,
@@ -73,7 +82,7 @@ export default {
             this.scrollHandler.destroy();
             this.scrollHandler = null;
         }
-        
+
         if (this.overlay) {
             ZIndexUtils.clear(this.overlay);
             this.overlay = null;
@@ -121,7 +130,7 @@ export default {
                 }
             }
 
-            this.selectionPath = path;            
+            this.selectionPath = path;
         },
         findModelOptionInGroup(option, level) {
             if (this.isOptionGroup(option, level)) {
@@ -137,7 +146,7 @@ export default {
             else if ((ObjectUtils.equals(this.modelValue, this.getOptionValue(option), this.dataKey))) {
                 return [option];
             }
-            
+
             return null;
         },
         show() {
@@ -155,7 +164,7 @@ export default {
             this.focused = false;
         },
         onClick(event) {
-            if (this.disabled) {
+            if (this.disabled || this.loading) {
                 return;
             }
 
@@ -307,13 +316,19 @@ export default {
                 return this.placeholder||'p-emptylabel';
         },
         panelStyleClass() {
-            return ['p-cascadeselect-panel p-component', this.panelClass];
+            return ['p-cascadeselect-panel p-component', this.panelClass, {
+                'p-input-filled': this.$primevue.config.inputStyle === 'filled',
+                'p-ripple-disabled': this.$primevue.config.ripple === false
+            }];
         },
         appendDisabled() {
             return this.appendTo === 'self';
         },
         appendTarget() {
             return this.appendDisabled ? null : this.appendTo;
+        },
+        dropdownIconClass() {
+            return ['p-cascadeselect-trigger-icon', this.loading ? this.loadingIcon : 'pi pi-chevron-down'];
         }
     },
     components: {

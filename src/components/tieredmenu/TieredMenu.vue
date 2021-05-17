@@ -14,6 +14,7 @@ import OverlayEventBus from 'primevue/overlayeventbus';
 import TieredMenuSub from './TieredMenuSub.vue';
 
 export default {
+    name: 'TieredMenu',
     inheritAttrs: false,
     props: {
         popup: {
@@ -176,7 +177,9 @@ export default {
     computed: {
         containerClass() {
             return ['p-tieredmenu p-component', {
-                'p-tieredmenu-overlay': this.popup
+                'p-tieredmenu-overlay': this.popup,
+                'p-input-filled': this.$primevue.config.inputStyle === 'filled',
+                'p-ripple-disabled': this.$primevue.config.ripple === false
             }];
         }
     },

@@ -4,6 +4,7 @@
 
 <script>
 export default {
+    name: 'Skeleton',
     props: {
         shape: {
             type: String,

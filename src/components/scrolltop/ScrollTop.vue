@@ -10,6 +10,7 @@
 import {DomHandler,ZIndexUtils} from 'primevue/utils';
 
 export default {
+    name: 'ScrollTop',
     scrollListener: null,
     container: null,
     data() {
@@ -56,7 +57,7 @@ export default {
         onClick() {
             let scrollElement = this.target === 'window' ? window : this.$el.parentElement;
              scrollElement.scroll({
-                top: 0, 
+                top: 0,
                 behavior: this.behavior
             });
         },
@@ -70,14 +71,14 @@ export default {
             this.scrollListener = () => {
                 this.checkVisibility(this.$el.parentElement.scrollTop);
             };
-            
+
             this.$el.parentElement.addEventListener('scroll', this.scrollListener);
         },
         bindDocumentScrollListener() {
             this.scrollListener = () => {
                 this.checkVisibility(DomHandler.getWindowScrollTop());
             };
-            
+
             window.addEventListener('scroll', this.scrollListener);
         },
         unbindParentScrollListener() {

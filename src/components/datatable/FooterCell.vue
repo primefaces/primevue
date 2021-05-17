@@ -10,6 +10,7 @@
 import {DomHandler} from 'primevue/utils';
 
 export default {
+    name: 'FooterCell',
     props: {
         column: {
             type: null,

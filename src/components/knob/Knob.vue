@@ -11,6 +11,7 @@
 
 <script>
 export default {
+    name: 'Knob',
     emits: ['update:modelValue', 'change'],
     data() {
         return {

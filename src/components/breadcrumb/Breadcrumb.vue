@@ -14,6 +14,7 @@
 import BreadcrumbItem from './BreadcrumbItem.vue';
 
 export default {
+    name: 'Breadcrumb',
     props: {
         model: {
             type: Array,

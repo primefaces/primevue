@@ -8,6 +8,7 @@
 
 <script>
 export default {
+    name: 'RowRadioButton',
     inheritAttrs: false,
     emits: ['change'],
     props: {

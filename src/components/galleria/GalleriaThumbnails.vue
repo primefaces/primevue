@@ -30,6 +30,7 @@ import {DomHandler} from 'primevue/utils';
 import Ripple from 'primevue/ripple';
 
 export default {
+    name: 'GalleriaThumbnails',
     emits: ['stop-slideshow', 'update:activeIndex'],
     props: {
         containerId: {

@@ -13,6 +13,7 @@ interface TreeProps {
     filterMode?: string;
     filterPlaceholder?: string;
     filterLocale?: string;
+    scrollHeight?: string;
 }
 
 declare class Tree {

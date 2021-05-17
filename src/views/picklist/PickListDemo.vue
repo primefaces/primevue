@@ -23,7 +23,7 @@
                                 <img :src="'demo/images/product/' + slotProps.item.image" :alt="slotProps.item.name" />
                             </div>
                             <div class="product-list-detail">
-                                <h5 class="p-mb-2">{{slotProps.item.name}}</h5>
+                                <h6 class="p-mb-2">{{slotProps.item.name}}</h6>
                                 <i class="pi pi-tag product-category-icon"></i>
                                 <span class="product-category">{{slotProps.item.category}}</span>
                             </div>
@@ -90,11 +90,13 @@ export default {
     .product-category-icon {
         vertical-align: middle;
         margin-right: .5rem;
+        font-size: .875rem;
     }
 
     .product-category {
         vertical-align: middle;
         line-height: 1;
+        font-size: .875rem;
     }
 }
 

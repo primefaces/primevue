@@ -10,6 +10,7 @@
 import OrganizationChartNode from './OrganizationChartNode.vue';
 
 export default {
+    name: 'OrganizationChart',
     emits: ['node-unselect', 'node-select', 'update:selectionKeys', 'node-expand', 'node-collapse', 'update:collapsedKeys'],
     props: {
         value: {

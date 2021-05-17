@@ -44,6 +44,9 @@
                         </div>
                     </template>
                 </Dropdown>
+
+                <h5>Loading State</h5>
+                <Dropdown placeholder="Loading..." loading></Dropdown>
             </div>
         </div>
 

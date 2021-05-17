@@ -8,6 +8,7 @@
 import {DomHandler,ZIndexUtils} from 'primevue/utils';
 
 export default {
+    name: 'BlockUI',
     emits: ['block', 'unblock'],
     props: {
         blocked: {

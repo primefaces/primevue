@@ -31,8 +31,8 @@
 &lt;div class="p-d-block p-d-lg-inline"&gt;Inline for larger screens and block for others.&lt;/div&gt;
 &lt;div class="p-d-md-none"&gt;Visible on a Small Screen&lt;/div&gt;
 &lt;div class="p-d-none p-d-md-inline-flex"&gt;Hidden on a Small Screen&lt;/div&gt;
-&lt;div class="p-d-none p-print-block"&gt;Only visible when printed.&lt;/div&gt;
-&lt;div class="p-d-block p-print-none"&gt;Not available for printing.&lt;/div&gt;
+&lt;div class="p-d-none p-d-print-block"&gt;Only visible when printed.&lt;/div&gt;
+&lt;div class="p-d-block p-d-print-none"&gt;Not available for printing.&lt;/div&gt;
 
 </code></pre>
 
@@ -68,10 +68,10 @@ export default {
         <Button type="button" icon="pi pi-search" class="p-button-rounded p-button-success p-d-none p-d-md-inline-flex" />
 
         <h5>Visible to Print, Invisible for Screen</h5>
-        <p class="p-d-none p-print-block">Only visible when printed.</p>
+        <p class="p-d-none p-d-print-block">Only visible when printed.</p>
 
         <h5>Visible to Screen, Invisible for Print</h5>
-        <p class="p-d-block p-print-none">Not available for printing.</p>
+        <p class="p-d-block p-d-print-none">Not available for printing.</p>
     </div>
 </template>
 
@@ -104,10 +104,10 @@ export default {
         <Button type="button" icon="pi pi-search" class="p-button-rounded p-button-success p-d-none p-d-md-inline-flex" />
 
         <h5>Visible to Print, Invisible for Screen</h5>
-        <p class="p-d-none p-print-block">Only visible when printed.</p>
+        <p class="p-d-none p-d-print-block">Only visible when printed.</p>
 
         <h5>Visible to Screen, Invisible for Print</h5>
-        <p class="p-d-block p-print-none">Not available for printing.</p>
+        <p class="p-d-block p-d-print-none">Not available for printing.</p>
     </div>
 </template>
 

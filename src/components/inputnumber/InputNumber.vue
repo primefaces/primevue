@@ -16,6 +16,7 @@ import InputText from 'primevue/inputtext';
 import Button from 'primevue/button';
 
 export default {
+    name: 'InputNumber',
     inheritAttrs: false,
     emits: ['update:modelValue', 'input'],
     props: {
@@ -301,10 +302,10 @@ export default {
                 let step = this.step * dir;
                 let currentValue = this.parseValue(this.$refs.input.$el.value) || 0;
                 let newValue = this.validateValue(currentValue + step);
-    
+
                 this.updateInput(newValue, null, 'spin');
                 this.updateModel(event, newValue);
-    
+
                 this.handleOnInput(event, currentValue, newValue);
             }
         },

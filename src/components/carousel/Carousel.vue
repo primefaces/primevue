@@ -40,7 +40,7 @@
 					<span :class="['p-carousel-prev-icon pi', {'pi-chevron-right': !isVertical(),'pi-chevron-down': isVertical()}]"></span>
 				</button>
 			</div>
-			<ul :class="indicatorsContentClasses">
+			<ul v-if="totalIndicators >= 0" :class="indicatorsContentClasses">
 				<li v-for="(indicator, i) of totalIndicators" :key="'p-carousel-indicator-' + i.toString()" :class="['p-carousel-indicator', {'p-highlight': d_page === i}]">
 					<button class="p-link" @click="onIndicatorClick($event, i)" type="button" />
 				</li>
@@ -58,6 +58,7 @@ import {DomHandler} from 'primevue/utils';
 import Ripple from 'primevue/ripple';
 
 export default {
+    name: 'Carousel',
 	emits: ['update:page'],
 	props: {
 		value: null,
@@ -496,8 +497,7 @@ export default {
     },
     directives: {
         'ripple': Ripple
-    },
-	name: "Carousel"
+    }
 }
 </script>
 

@@ -21,14 +21,14 @@
             </div>
         </div>
         <div class="p-multiselect-trigger">
-            <span class="p-multiselect-trigger-icon pi pi-chevron-down"></span>
+            <span :class="dropdownIconClass"></span>
         </div>
         <Teleport :to="appendTarget" :disabled="appendDisabled">
             <transition name="p-connected-overlay" @enter="onOverlayEnter" @leave="onOverlayLeave" @after-leave="onOverlayAfterLeave">
                 <div :ref="overlayRef" :class="panelStyleClass" v-if="overlayVisible" @click="onOverlayClick">
                     <slot name="header" :value="modelValue" :options="visibleOptions"></slot>
-                    <div class="p-multiselect-header">
-                        <div class="p-checkbox p-component" @click="onToggleAll" role="checkbox" :aria-checked="allSelected">
+                    <div class="p-multiselect-header" v-if="(showToggleAll && selectionLimit == null) || filter">                      
+                        <div class="p-checkbox p-component" @click="onToggleAll" role="checkbox" :aria-checked="allSelected" v-if="showToggleAll && selectionLimit == null">
                             <div class="p-hidden-accessible">
                                 <input type="checkbox" readonly @focus="onHeaderCheckboxFocus" @blur="onHeaderCheckboxBlur">
                             </div>
@@ -37,7 +37,7 @@
                             </div>
                         </div>
                         <div v-if="filter" class="p-multiselect-filter-container">
-                            <input type="text" v-model="filterValue" class="p-multiselect-filter p-inputtext p-component" :placeholder="filterPlaceholder" @input="onFilterChange">
+                            <input type="text" ref="filterInput" v-model="filterValue" class="p-multiselect-filter p-inputtext p-component" :placeholder="filterPlaceholder" @input="onFilterChange">
                             <span class="p-multiselect-filter-icon pi pi-search"></span>
                         </div>
                         <button class="p-multiselect-close p-link" @click="onCloseClick" type="button" v-ripple>
@@ -99,6 +99,7 @@ import {FilterService} from 'primevue/api';
 import Ripple from 'primevue/ripple';
 
 export default {
+    name: 'MultiSelect',
     emits: ['update:modelValue', 'before-show', 'before-hide', 'change', 'show', 'hide', 'filter'],
     props: {
         modelValue: null,
@@ -145,7 +146,23 @@ export default {
             type: String,
             default: 'comma'
         },
-        panelClass: null
+        panelClass: null,
+        selectionLimit: {
+            type: Number,
+            default: null
+        },
+        showToggleAll: {
+            type: Boolean,
+            default: true
+        },
+        loading: {
+            type: Boolean,
+            default: false
+        },
+        loadingIcon: {
+            type: String,
+            default: 'pi pi-spinner pi-spin'
+        }
     },
     data() {
         return {
@@ -167,7 +184,7 @@ export default {
             this.scrollHandler.destroy();
             this.scrollHandler = null;
         }
-        
+
         if (this.overlay) {
             ZIndexUtils.clear(this.overlay);
             this.overlay = null;
@@ -193,6 +210,10 @@ export default {
             return ObjectUtils.resolveFieldData(optionGroup, this.optionGroupChildren);
         },
         isOptionDisabled(option) {
+            if (this.maxSelectionLimitReached && !this.isSelected(option)) {
+                return true;
+            }
+
             return this.optionDisabled ? ObjectUtils.resolveFieldData(option, this.optionDisabled) : false;
         },
         isSelected(option) {
@@ -231,7 +252,11 @@ export default {
             this.headerCheckboxFocused = false;
         },
         onClick(event) {
-            if (!this.disabled && (!this.overlay || !this.overlay.contains(event.target)) && !DomHandler.hasClass(event.target, 'p-multiselect-close')) {
+            if (this.disabled || this.loading) {
+                return;
+            }
+
+            if ((!this.overlay || !this.overlay.contains(event.target)) && !DomHandler.hasClass(event.target, 'p-multiselect-close')) {
                 DomHandler.hasClass(event.target, 'p-multiselect-close');
                 if (this.overlayVisible)
                     this.hide();
@@ -351,6 +376,11 @@ export default {
             this.bindOutsideClickListener();
             this.bindScrollListener();
             this.bindResizeListener();
+
+            if (this.filter) {
+                this.$refs.filterInput.focus();
+            }
+
             this.$emit('show');
         },
         onOverlayLeave() {
@@ -407,7 +437,7 @@ export default {
         bindResizeListener() {
             if (!this.resizeListener) {
                 this.resizeListener = () => {
-                    if (this.overlayVisible) {
+                    if (this.overlayVisible && !DomHandler.isAndroid()) {
                         this.hide();
                     }
                 };
@@ -462,7 +492,7 @@ export default {
                 if (this.optionGroupLabel) {
                     value = [];
                     this.visibleOptions.forEach(optionGroup => value = [...value, ...this.getOptionGroupChildren(optionGroup)]);
-                }   
+                }
                 else  {
                     value = this.visibleOptions.map(option => this.getOptionValue(option));
                 }
@@ -515,28 +545,25 @@ export default {
             }
         },
         containerClass() {
-            return [
-                'p-multiselect p-component p-inputwrapper',
-                {
-                    'p-multiselect-chip': this.display === 'chip',
-                    'p-disabled': this.disabled,
-                    'p-focus': this.focused,
-                    'p-inputwrapper-filled': this.modelValue && this.modelValue.length,
-                    'p-inputwrapper-focus': this.focused || this.overlayVisible
-                }
-            ];
+            return ['p-multiselect p-component p-inputwrapper', {
+                'p-multiselect-chip': this.display === 'chip',
+                'p-disabled': this.disabled,
+                'p-focus': this.focused,
+                'p-inputwrapper-filled': this.modelValue && this.modelValue.length,
+                'p-inputwrapper-focus': this.focused || this.overlayVisible
+            }];
         },
         labelClass() {
-            return [
-                'p-multiselect-label',
-                {
-                    'p-placeholder': this.label === this.placeholder,
-                    'p-multiselect-label-empty': !this.placeholder && (!this.modelValue || this.modelValue.length === 0)
-                }
-            ];
+            return ['p-multiselect-label', {
+                'p-placeholder': this.label === this.placeholder,
+                'p-multiselect-label-empty': !this.placeholder && (!this.modelValue || this.modelValue.length === 0)
+            }];
         },
         panelStyleClass() {
-            return ['p-multiselect-panel p-component', this.panelClass];
+            return ['p-multiselect-panel p-component', this.panelClass, {
+                'p-input-filled': this.$primevue.config.inputStyle === 'filled',
+                'p-ripple-disabled': this.$primevue.config.ripple === false
+            }];
         },
         label() {
             let label;
@@ -592,7 +619,7 @@ export default {
 
                     return optionCount > 0 && optionCount === this.modelValue.length;
                 }
-                
+
                 return false;
             }
         },
@@ -613,6 +640,12 @@ export default {
         },
         appendTarget() {
             return this.appendDisabled ? null : this.appendTo;
+        },
+        maxSelectionLimitReached() {
+            return this.selectionLimit && (this.modelValue && this.modelValue.length === this.selectionLimit);
+        },
+        dropdownIconClass() {
+            return ['p-multiselect-trigger-icon', this.loading ? this.loadingIcon : 'pi pi-chevron-down'];
         }
     },
     directives: {
@@ -726,6 +759,7 @@ export default {
     flex-shrink: 0;
     overflow: hidden;
     position: relative;
+    margin-left: auto;
 }
 
 .p-fluid .p-multiselect {
