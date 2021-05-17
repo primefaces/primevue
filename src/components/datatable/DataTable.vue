@@ -1103,24 +1103,6 @@ export default {
                 }
             }
         },
-        resizeColGroup(table, resizeColumnIndex, newColumnWidth, nextColumnWidth) {
-            if(table) {
-                let colGroup = table.children[0].nodeName === 'COLGROUP' ? table.children[0] : null;
-
-                if(colGroup) {
-                    let col = colGroup.children[resizeColumnIndex];
-                    let nextCol = col.nextElementSibling;
-                    col.style.width = newColumnWidth + 'px';
-
-                    if (nextCol && nextColumnWidth) {
-                        nextCol.style.width = nextColumnWidth + 'px';
-                    }
-                }
-                else {
-                    throw new Error("Scrollable tables require a colgroup to support resizable columns");
-                }
-            }
-        },
         bindColumnResizeEvents() {
             if (!this.documentColumnResizeListener) {
                 this.documentColumnResizeListener = document.addEventListener('mousemove', () => {

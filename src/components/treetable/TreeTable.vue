@@ -668,26 +668,35 @@ export default {
             this.$refs.resizeHelper.style.display = 'block';
         },
         onColumnResizeEnd() {
-            let delta = this.$refs.resizeHelper.offsetLeft - this.lastResizeHelperX;
+ let delta = this.$refs.resizeHelper.offsetLeft - this.lastResizeHelperX;
             let columnWidth = this.resizeColumnElement.offsetWidth;
             let newColumnWidth = columnWidth + delta;
             let minWidth = this.resizeColumnElement.style.minWidth||15;
 
-            if(columnWidth + delta > parseInt(minWidth, 10)) {
-                if(this.columnResizeMode === 'fit') {
+            if (columnWidth + delta > parseInt(minWidth, 10)) {
+                if (this.columnResizeMode === 'fit') {
                     let nextColumn = this.resizeColumnElement.nextElementSibling;
                     let nextColumnWidth = nextColumn.offsetWidth - delta;
 
-                    if(newColumnWidth > 15 && nextColumnWidth > 15) {
-                        this.resizeColumnElement.style.width = newColumnWidth + 'px';
-                        if(nextColumn) {
-                            nextColumn.style.width = nextColumnWidth + 'px';
+                    if (newColumnWidth > 15 && nextColumnWidth > 15) {
+                        if (!this.scrollable) {
+                            this.resizeColumnElement.style.width = newColumnWidth + 'px';
+                            if(nextColumn) {
+                                nextColumn.style.width = nextColumnWidth + 'px';
+                            }
+                        }
+                        else {
+                            this.resizeTableCells(newColumnWidth, nextColumnWidth);
                         }
                     }
                 }
-                else if(this.columnResizeMode === 'expand') {
+                else if (this.columnResizeMode === 'expand') {
                     this.$refs.table.style.width = this.$refs.table.offsetWidth + delta + 'px';
-                    this.resizeColumnElement.style.width = newColumnWidth + 'px';
+
+                    if (!this.scrollable) 
+                        this.resizeColumnElement.style.width = newColumnWidth + 'px';
+                    else
+                        this.resizeTableCells(newColumnWidth);
                 }
 
                 this.$emit('column-resize-end', {
@@ -701,6 +710,23 @@ export default {
             DomHandler.removeClass(this.$el, 'p-unselectable-text');
 
             this.unbindColumnResizeEvents();
+        },
+        resizeTableCells(newColumnWidth, nextColumnWidth) {
+            let colIndex = DomHandler.index(this.resizeColumnElement);
+            let children = this.$refs.table.children;
+            for (let child of children) {
+                for (let row of child.children) {
+                    let resizeCell = row.children[colIndex];
+                    resizeCell.style.flex = '0 0 ' + newColumnWidth + 'px';
+
+                    if (this.columnResizeMode === 'fit') {
+                        let nextCell = resizeCell.nextElementSibling;
+                        if (nextCell) {
+                            nextCell.style.flex = '0 0 ' + nextColumnWidth + 'px';
+                        }
+                    }
+                }
+            }
         },
         bindColumnResizeEvents() {
             if (!this.documentColumnResizeListener) {
