@@ -10,9 +10,11 @@
             <li ref="inkbar" class="p-tabview-ink-bar"></li>
         </ul>
         <div class="p-tabview-panels">
-            <div v-for="(tab, i) of tabs" :key="getKey(tab,i)" class="p-tabview-panel" role="tabpanel" v-show="(d_activeIndex === i)">
-                <component :is="tab"></component>
-            </div>
+            <template v-for="(tab, i) of tabs" :key="getKey(tab,i)">
+                <div  class="p-tabview-panel" role="tabpanel" v-if="lazy ? (d_activeIndex === i) : true" v-show="lazy ? true: (d_activeIndex === i)">
+                    <component :is="tab"></component>
+                </div>
+            </template>
         </div>
     </div>
 </template>
@@ -28,6 +30,10 @@ export default {
         activeIndex: {
             type: Number,
             default: 0
+        },
+        lazy: {
+            type: Boolean,
+            default: false
         }
     },
     data() {
