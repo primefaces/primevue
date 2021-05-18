@@ -604,7 +604,9 @@ export default {
                     for (let optgroup of this.options) {
                         let filteredSubOptions = FilterService.filter(this.getOptionGroupChildren(optgroup), this.searchFields, this.filterValue, this.filterMatchMode, this.filterLocale);
                         if (filteredSubOptions && filteredSubOptions.length) {
-                            filteredGroups.push({...optgroup, ...{items: filteredSubOptions}});
+                            let filteredGroup = {...optgroup};
+                            filteredGroup[this.optionGroupChildren] = filteredSubOptions;
+                            filteredGroups.push(filteredGroup);
                         }
                     }
                     return filteredGroups
