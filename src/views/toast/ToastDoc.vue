@@ -106,8 +106,7 @@ export default defineComponent({
 				<thead>
                     <tr>
                         <th>Name</th>
-                        <th>Type</th>
-                        <th>Default</th>
+                        <th>Parameters</th>
                         <th>Description</th>
                     </tr>
 				</thead>
