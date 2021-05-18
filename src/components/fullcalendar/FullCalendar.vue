@@ -33,7 +33,6 @@ export default {
         }
     },
     updated() {
-        console.log('updated');
         if (!this.calendar && this.$el.offsetParent) {
             this.initialize();
         }
