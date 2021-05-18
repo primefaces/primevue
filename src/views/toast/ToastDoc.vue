@@ -88,7 +88,7 @@ export default defineComponent({
                         <td>life</td>
                         <td>number</td>
                         <td>null</td>
-                        <td>Delay in milliseconds to close the message automatically.</td>
+                        <td>Delay in milliseconds to close the message automatically. Messages with no life defined becomes sticky.</td>
                     </tr>
                     <tr>
                         <td>group</td>
