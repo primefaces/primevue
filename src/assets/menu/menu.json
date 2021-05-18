@@ -252,8 +252,7 @@
                 },
                 {
                     "name": "TreeSelect",
-                    "to": "/treeselect",
-                    "badge": "New"
+                    "to": "/treeselect"
                 },
                 {
                     "name": "TriStateCheckbox",
@@ -267,8 +266,7 @@
             "children": [
                 {
                     "name": "Button",
-                    "to": "/button",
-                    "badge": "New"
+                    "to": "/button"
                 },
                 {
                     "name": "SplitButton",
@@ -439,6 +437,7 @@
                 {
                     "name": "Tree",
                     "meta": ["tree"],
+                    "badge": "New",
                     "children": [
                         {
                             "name": "Documentation",
@@ -462,7 +461,8 @@
                         },
                         {
                             "name": "Scroll",
-                            "to": "/tree/scroll"
+                            "to": "/tree/scroll",
+                            "badge": "New"
                         }
                     ]
                 },
