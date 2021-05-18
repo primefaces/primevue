@@ -12,6 +12,8 @@ interface PasswordProps {
     inputStyle?: any;
     inputClass?: string;
     panelClass?: string;
+    hideIcon?: string;
+    showIcon?: string;
 }
 
 declare class Password {

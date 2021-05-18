@@ -142,6 +142,18 @@ import Password from 'primevue/password';
                         <td>null</td>
                         <td>Style class of the input field.</td>
                     </tr>
+                    <tr>
+                        <td>hideIcon</td>
+                        <td>string</td>
+                        <td>pi pi-eye-slash</td>
+                        <td>Icon to hide displaying the password as plain text.</td>
+                    </tr>
+                    <tr>
+                        <td>showIcon</td>
+                        <td>string</td>
+                        <td>pi pi-eye</td>
+                        <td>Icon to show displaying the password as plain text.</td>
+                    </tr>
 				</tbody>
 			</table>
 		</div>

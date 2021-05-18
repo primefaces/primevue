@@ -3,6 +3,7 @@ import { VNode } from 'vue';
 interface AccordionProps {
     multiple?: boolean;
     activeIndex?: Number|[Number];
+    lazy?: boolean;
 }
 
 declare class Accordion {

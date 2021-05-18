@@ -70,6 +70,18 @@ const PasswordProps = [
         type: "string",
         default: "null",
         description: "Style class of the input field."
+    },
+    {
+        name: "hideIcon",
+        type: "string",
+        default: "pi pi-eye-slash",
+        description: "Icon to hide displaying the password as plain text."
+    },
+    {
+        name: "showIcon",
+        type: "string",
+        default: "pi pi-eye",
+        description: "Icon to show displaying the password as plain text."
     }
 ];
 
