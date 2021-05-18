@@ -169,7 +169,7 @@ export default {
             }
         },
         onNodeUnselect(node) {
-            this.$emit('node-select', node);
+            this.$emit('node-unselect', node);
         },
         onNodeToggle(keys) {
             this.expandedKeys = keys;
