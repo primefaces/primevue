@@ -81,7 +81,7 @@ myUploader(event) {
         <h5>Empty Template</h5>
         <p>When there is no file selected, you may use the empty slot to display content.</p>
 <pre v-code><code>
-&lt;FileUpload name="demo[]" url="./upload" /&gt;
+&lt;FileUpload name="demo[]" url="./upload"&gt;
     &lt;template #empty&gt;
         &lt;p&gt;Drag and drop files to here to upload.&lt;/p&gt;
     &lt;/template&gt;
@@ -409,7 +409,7 @@ export default {
             toast.add({severity: 'info', summary: 'Success', detail: 'File Uploaded', life: 3000});
         }
 
-		return { onUpload }; 
+		return { onUpload };
 	}
 }
 <\\/script>
