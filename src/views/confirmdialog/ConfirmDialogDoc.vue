@@ -408,7 +408,7 @@ export default defineComponent({
 
         const confirmPosition = (position) => {
             confirm.require({
-                key: 'positionDialog',
+                group: 'positionDialog',
                 message: 'Do you want to delete this record?',
                 header: 'Delete Confirmation',
                 icon: 'pi pi-info-circle',
