@@ -14,8 +14,10 @@ export default {
     calendar: null,
     watch: {
         events(value) {
-            this.calendar.removeAllEventSources();
-            this.calendar.addEventSource(value);
+            if (value && this.calendar) {
+                this.calendar.removeAllEventSources();
+                this.calendar.addEventSource(value);
+            }
         },
         options(value) {
             if (value && this.calendar) {
@@ -31,6 +33,7 @@ export default {
         }
     },
     updated() {
+        console.log('updated');
         if (!this.calendar && this.$el.offsetParent) {
             this.initialize();
         }
