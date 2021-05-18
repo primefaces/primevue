@@ -31,7 +31,7 @@ const CascadeSelectProps = [
     },
     {
         name: "optionGroupChildren",
-        type: "string",
+        type: "array",
         default: "null",
         description: "Property name or getter function to retrieve the items of a group."
     },

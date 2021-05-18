@@ -6,7 +6,7 @@ interface CascadeSelectProps {
     optionLabel?: string;
     optionValue?: any;
     optionGroupLabel?: string;
-    optionGroupChildren?: string;
+    optionGroupChildren?: string[];
     placeholder?: string;
     disabled?: boolean;
     dataKey?: string;
