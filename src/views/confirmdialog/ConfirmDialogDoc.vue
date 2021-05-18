@@ -314,7 +314,7 @@ export default {
         },
         confirmPosition(position) {
             this.$confirm.require({
-                key: 'positionDialog',
+                group: 'positionDialog',
                 message: 'Do you want to delete this record?',
                 header: 'Delete Confirmation',
                 icon: 'pi pi-info-circle',
@@ -376,7 +376,7 @@ export default defineComponent({
     setup() {
         const confirm = useConfirm();
         const toast = useToast();
-        
+
         const confirm1 = () => {
             confirm.require({
                 message: 'Are you sure you want to proceed?',
@@ -408,7 +408,7 @@ export default defineComponent({
 
         const confirmPosition = (position) => {
             confirm.require({
-                key: 'positionDialog',
+                group: 'positionDialog',
                 message: 'Do you want to delete this record?',
                 header: 'Delete Confirmation',
                 icon: 'pi pi-info-circle',
