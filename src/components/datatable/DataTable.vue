@@ -1070,7 +1070,6 @@ export default {
 
                 if (this.columnProp(column, 'printable') !== false && this.columnProp(column, 'field')) {
                     let text = (this.columnProp(column, 'header') || this.columnProp(column, 'field'));
-                    console.log(text);
                     let textNode = document.createTextNode(text);
                     let th = document.createElement('th');
                     th.appendChild(textNode);
