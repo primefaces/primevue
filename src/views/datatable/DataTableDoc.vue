@@ -367,6 +367,12 @@ export default {
                             <td>Whether the column is included in data export.</td>
                         </tr>
                         <tr>
+                            <td>exportFunction</td>
+                            <td>function</td>
+                            <td>null</td>
+                            <td>A function to be executed before cell export.</td>
+                        </tr>
+                        <tr>
                             <td>filterMatchMode</td>
                             <td>string</td>
                             <td>null</td>

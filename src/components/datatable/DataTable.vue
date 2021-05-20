@@ -976,11 +976,11 @@ export default {
                             let cellData = ObjectUtils.resolveFieldData(record, this.columnProp(column, 'field'));
 
                             if (cellData != null) {
-                                if (this.exportFunction) {
-                                    cellData = this.exportFunction({
-                                        data: cellData,
-                                        field: this.columnProp(column, 'field')
-                                    });
+                                if (this.columnProp(column, "exportFunction")) {
+                                    let fn = this.columnProp(column, "exportFunction");
+                                    if (typeof fn === 'function') {
+                                        cellData = fn(cellData);
+                                    }
                                 }
                                 else
                                     cellData = String(cellData).replace(/"/g, '""');
