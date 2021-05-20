@@ -162,7 +162,7 @@ export default {
             type: Boolean,
             default: true
         },
-        exportable: {
+        exportFunction: {
             type: Function,
             default: null
         },
