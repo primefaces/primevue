@@ -1,25 +1,25 @@
 <template>
     <transition name="p-contextmenusub" @enter="onEnter">
         <ul ref="container" :class="containerClass" role="menu" v-if="root ? true : parentActive">
-            <template v-for="(item, i) of model" :key="item.label + i.toString()">
+            <template v-for="(item, i) of model" :key="label() + i.toString()">
                 <li role="none" :class="getItemClass(item)" :style="item.style" v-if="visible(item) && !item.separator"
                     @mouseenter="onItemMouseEnter($event, item)">
                     <template v-if="!template">
                         <router-link v-if="item.to && !item.disabled" :to="item.to" custom v-slot="{navigate, href}">
                             <a :href="href" @click="onItemClick($event, item, navigate)" :class="getLinkClass(item)" v-ripple role="menuitem">
                                 <span :class="['p-menuitem-icon', item.icon]"></span>
-                                <span class="p-menuitem-text">{{item.label}}</span>
+                                <span class="p-menuitem-text">{{label()}}</span>
                             </a>
                         </router-link>
                         <a v-else :href="item.url" :class="getLinkClass(item)" :target="item.target" @click="onItemClick($event, item)" v-ripple
                             :aria-haspopup="item.items != null" :aria-expanded="item === activeItem" role="menuitem" :tabindex="item.disabled ? null : '0'">
                             <span :class="['p-menuitem-icon', item.icon]"></span>
-                            <span class="p-menuitem-text">{{item.label}}</span>
+                            <span class="p-menuitem-text">{{label()}}</span>
                             <span class="p-submenu-icon pi pi-angle-right" v-if="item.items"></span>
                         </a>
                     </template>
                     <component v-else :is="template" :item="item"></component>
-                    <ContextMenuSub :model="item.items" v-if="visible(item) && item.items" :key="item.label + '_sub_'" :template="template"
+                    <ContextMenuSub :model="item.items" v-if="visible(item) && item.items" :key="label() + '_sub_'" :template="template"
                         @leaf-click="onLeafClick" :parentActive="item === activeItem" />
                 </li>
                 <li :class="['p-menu-separator', item.class]" :style="item.style" v-if="visible(item) && item.separator" :key="'separator' + i.toString()" role="separator"></li>
@@ -137,6 +137,9 @@ export default {
         },
         visible(item) {
             return (typeof item.visible === 'function' ? item.visible() : item.visible !== false);
+        },
+        label(){
+            return (typeof this.item.label === 'function' ? this.item.label() : this.item.label);
         }
     },
     computed: {
