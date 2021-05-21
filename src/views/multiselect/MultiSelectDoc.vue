@@ -190,6 +190,18 @@ data() {
                                 <td>comma</td>
                                 <td>Defines how the selected items are displayed, valid values are "comma" and "chip".</td>
                             </tr>
+                            <tr>
+                                <td>selectionLimit</td>
+                                <td>number</td>
+                                <td>null</td>
+                                <td>Maximum number of selectable items.</td>
+                            </tr>
+                            <tr>
+                                <td>showToggleAll</td>
+                                <td>boolean</td>
+                                <td>true</td>
+                                <td>Whether to show the header checkbox to toggle the selection of all items at once.</td>
+                            </tr>
 						</tbody>
 					</table>
 				</div>
