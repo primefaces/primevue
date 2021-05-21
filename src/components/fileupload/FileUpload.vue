@@ -84,6 +84,10 @@ export default {
             type: String,
             default: '{0}: Invalid file size, file size should be smaller than {1}.'
         },
+        invalidFileTypeMessage: {
+            type: String,
+            default: '{0}: Invalid file type, allowed file types: {1}.'
+        },
         fileLimit: {
             type: Number,
             default: null
@@ -274,6 +278,11 @@ export default {
             return !!window['MSInputMethodContext'] && !!document['documentMode'];
         },
         validate(file) {
+            if (this.accept && !this.isFileTypeValid(file)) {
+                this.messages.push(this.invalidFileTypeMessage.replace('{0}', file.name).replace('{1}', this.accept))
+                return false;
+            }
+
             if (this.maxFileSize && file.size > this.maxFileSize) {
                 this.messages.push(this.invalidFileSizeMessage.replace('{0}', file.name).replace('{1}', this.formatSize(this.maxFileSize)));
                 return false;
@@ -281,13 +290,36 @@ export default {
 
             return true;
         },
+        isFileTypeValid(file) {
+            let acceptableTypes = this.accept.split(',').map(type => type.trim());
+            for(let type of acceptableTypes) {
+                let acceptable = this.isWildcard(type) ? this.getTypeClass(file.type) === this.getTypeClass(type)
+                    : file.type == type || this.getFileExtension(file).toLowerCase() === type.toLowerCase();
+                if (acceptable) {
+                    return true;
+                }
+            }
+            return false;
+        },
+        getTypeClass(fileType) {
+            return fileType.substring(0, fileType.indexOf('/'));
+        },
+        isWildcard(fileType){
+            return fileType.indexOf('*') !== -1;
+        },
+        getFileExtension(file) {
+            return '.' + file.name.split('.').pop();
+        },
+        isImage(file) {
+            return /^image\//.test(file.type);
+        },
         onDragEnter(event) {
             if (!this.disabled) {
                 event.stopPropagation();
                 event.preventDefault();
             }
         },
-        onDragOver() {
+        onDragOver(event) {
             if (!this.disabled) {
                 DomHandler.addClass(this.$refs.content, 'p-fileupload-highlight');
                 event.stopPropagation();
@@ -299,7 +331,7 @@ export default {
                 DomHandler.removeClass(this.$refs.content, 'p-fileupload-highlight');
             }
         },
-        onDrop() {
+        onDrop(event) {
             if (!this.disabled) {
                 DomHandler.removeClass(this.$refs.content, 'p-fileupload-highlight');
                 event.stopPropagation();
@@ -326,9 +358,6 @@ export default {
             if(this.files.length <= this.fileLimit) {
                 this.messages = [];
             }
-        },
-        isImage(file) {
-            return /^image\//.test(file.type);
         },
         clearInputElement() {
             this.$refs.fileInput.value = '';

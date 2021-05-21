@@ -147,6 +147,12 @@ myUploader(event) {
                                 <td>"&#123;0&#125;: Invalid file size, file size should be smaller than &#123;1&#125;."</td>
                                 <td>Message of the invalid fize size.</td>
                             </tr>
+							<tr>
+								<td>invalidFileTypeMessage</td>
+								<td>string</td>
+								<td>"&#123;0&#125;: Invalid file type, allowed file types: "&#123;1&#125;.</td>
+								<td>Message of the invalid file type.</td>
+							</tr>
                             <tr>
                                 <td>invalidFileLimitMessage</td>
                                 <td>string</td>

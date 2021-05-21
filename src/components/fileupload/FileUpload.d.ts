@@ -10,6 +10,7 @@ declare class FileUpload extends Vue {
     auto?: boolean;
     maxFileSize?: number;
     invalidFileSizeMessage?: string;
+    invalidFileTypeMessage?: string;
     invalidFileLimitMessage?: string;
     fileLimit?: number;
     withCredentials?: boolean;
