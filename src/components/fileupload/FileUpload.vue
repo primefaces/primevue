@@ -17,7 +17,7 @@
                     <div>
                         <img v-if="isImage(file)" role="presentation" :alt="file.name" :src="file.objectURL" :width="previewWidth" />
                     </div>
-                    <div>{{file.name}}</div>
+                    <div class="p-fileupload-filename">{{file.name}}</div>
                     <div>{{formatSize(file.size)}}</div>
                     <div>
                         <FileUploadButton type="button" icon="pi pi-times" @click="remove(index)" />
@@ -463,6 +463,10 @@ export default {
 
 .p-fileupload-choose.p-fileupload-choose-selected input[type=file] {
     display: none;
+}
+
+.p-fileupload-filename {
+    word-break: break-all;
 }
 
 .p-fluid .p-fileupload .p-button {
