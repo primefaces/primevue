@@ -443,6 +443,10 @@ export default {
             }
             this.d_columnOrder = columnOrder;
         }
+
+        if (this.resizableColumns && !this.columnWidthsRestored) {
+            this.restoreColumnWidths();
+        }
     },
     beforeDestroy() {
         this.unbindColumnResizeEvents();
