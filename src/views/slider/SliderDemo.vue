@@ -11,7 +11,7 @@
         <div class="content-section implementation">
             <div class="card">
                 <h5>Basic: {{value1}}</h5>
-                <Slider v-model="value1" />
+                <Slider v-model="value1" :step="0.01" :min="1.35" />
 
                 <h5>Input: {{value2}}</h5>
                 <InputText v-model.number="value2" />
@@ -20,11 +20,14 @@
                 <h5>Step: {{value3}}</h5>
                 <Slider v-model="value3" :step="20" />
 
-                <h5>Range: {{value4}}</h5>
-                <Slider v-model="value4" :range="true" />
+                <h5>Decimal Step: {{value4}}</h5>
+                <Slider v-model="value4" :step="0.5" />
 
-                <h5>Vertical: {{value5}}</h5>
-                <Slider v-model="value5" orientation="vertical" />
+                <h5>Range: {{value5}}</h5>
+                <Slider v-model="value5" :range="true" />
+
+                <h5>Vertical: {{value6}}</h5>
+                <Slider v-model="value6" orientation="vertical" :step="0.01" />
             </div>
         </div>
 
@@ -41,8 +44,9 @@ export default {
             value1: null,
             value2: 50,
             value3: 20,
-            value4: [20,80],
-            value5: 50
+            value4: 30.5,
+            value5: [20,80],
+            value6: 50
         }
     },
     components: {

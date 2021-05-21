@@ -86,10 +86,14 @@ export default {
                     newValue = oldValue + Math.floor(newValue / this.step - oldValue / this.step) * this.step;
             }
 
+            else {
+                newValue = Math.floor(newValue);
+            }
+
             this.updateModel(event, newValue);
         },
         updateModel(event, value) {
-            let newValue = value;
+            let newValue = parseFloat(value.toFixed(10));
             let modelValue;
 
             if (this.range) {
@@ -107,7 +111,7 @@ export default {
                 }
 
                 modelValue = [...this.value];
-                modelValue[this.handleIndex] = Math.floor(newValue);
+                modelValue[this.handleIndex] = newValue;
             }
             else {
                 if (newValue < this.min)
@@ -115,7 +119,7 @@ export default {
                 else if (newValue > this.max)
                     newValue = this.max;
 
-                modelValue = Math.floor(newValue);
+                modelValue = newValue;
             }
 
             this.$emit('input', modelValue);
