@@ -425,7 +425,9 @@ export default {
                     this.$refs.input.value = '';
                     this.inputTextValue = '';
                     this.$emit('clear');
-                    this.$emit('input', null);
+                    if(!this.multiple) {
+                        this.$emit('input', null);
+                    }
                 }
             }
         },
