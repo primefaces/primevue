@@ -61,6 +61,14 @@ export default {
             type: Boolean,
             default: false
         },
+        hideIcon: {
+            type: String,
+            default: 'pi pi-eye-slash'
+        },
+        showIcon: {
+            type: String,
+            default: 'pi pi-eye'
+        },
         inputClass: null,
         inputStyle: null,
         styles: null,
@@ -256,7 +264,7 @@ export default {
             }];
         },
         toggleIconClass() {
-            return this.unmasked ? 'pi pi-eye-slash' : 'pi pi-eye';
+            return this.unmasked ? this.hideIcon : this.showIcon;
         },
         strengthClass() {
             return `p-password-strength ${this.meter ? this.meter.strength : ''}`;
