@@ -71,7 +71,7 @@
                 <h5>Local Storage</h5>
                 <DataTable :value="customers" :paginator="true" :rows="10" :filters.sync="filters2"
                     :selection.sync="selectedCustomer2" selectionMode="single" dataKey="id"
-                    stateStorage="session" stateKey="dt-state-demo-local">
+                    stateStorage="local" stateKey="dt-state-demo-local">
                     <template #header>
                        <span class="p-input-icon-left">
                             <i class="pi pi-search" />
