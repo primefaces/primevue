@@ -40,7 +40,7 @@ import FileUpload from 'primevue/fileupload';
 &lt;FileUpload mode="basic" name="demo[]" url="./upload" accept="image/*" /&gt;
 </CodeHighlight>
 
-				<h5>File Size and File Linit</h5>
+				<h5>File Size and File Limit</h5>
 				<p>Maximium file size can be restricted using <i>maxFileSize</i> property defined in bytes. Similarly <i>fileLimit</i> is available to restrict the number of files to be uploaded.</p>
 <CodeHighlight>
 &lt;FileUpload name="demo[]" url="./upload" :maxFileSize="1000000" :fileLimit="3" /&gt;
