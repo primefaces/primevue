@@ -19,5 +19,10 @@
       "component library",
       "material",
       "bootstrap"
-    ]
+    ],
+    "web-types": "./web-types.json",
+    "vetur": {
+      "tags": "./vetur-tags.json",
+      "attributes": "./vetur-attributes.json"
+    }
   }
